@@ -12,6 +12,93 @@ var quickaccesswalletCmd = &cobra.Command{
 	Short: "quickaccesswallet service operations",
 }
 
+var quickaccesswalletSelectWalletCardRequestCmd = &cobra.Command{
+	Use:   "select-wallet-card-request",
+	Short: "SelectWalletCardRequestService operations",
+}
+
+var quickaccesswalletSelectWalletCardRequestNewSelectWalletCardRequestCmd = &cobra.Command{
+	Use:   "new-select-wallet-card-request",
+	Short: "NewSelectWalletCardRequest RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSelectWalletCardRequestServiceClient(grpcConn)
+		req := &pb.NewSelectWalletCardRequestRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewSelectWalletCardRequest(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var quickaccesswalletSelectWalletCardRequestDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSelectWalletCardRequestServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var quickaccesswalletSelectWalletCardRequestGetCardIdCmd = &cobra.Command{
+	Use:   "get-card-id",
+	Short: "GetCardId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSelectWalletCardRequestServiceClient(grpcConn)
+		req := &pb.GetCardIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCardId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var quickaccesswalletSelectWalletCardRequestWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSelectWalletCardRequestServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var quickaccesswalletQuickAccessWalletServiceCmd = &cobra.Command{
 	Use:   "quick-access-wallet-service",
 	Short: "QuickAccessWalletServiceService operations",
@@ -144,6 +231,158 @@ var quickaccesswalletQuickAccessWalletServiceSendWalletServiceEventCmd = &cobra.
 	},
 }
 
+var quickaccesswalletGetWalletCardsCallbackCmd = &cobra.Command{
+	Use:   "get-wallet-cards-callback",
+	Short: "GetWalletCardsCallbackService operations",
+}
+
+var quickaccesswalletGetWalletCardsCallbackOnFailureCmd = &cobra.Command{
+	Use:   "on-failure",
+	Short: "OnFailure RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetWalletCardsCallbackServiceClient(grpcConn)
+		req := &pb.OnFailureRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnFailure(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var quickaccesswalletGetWalletCardsCallbackOnSuccessCmd = &cobra.Command{
+	Use:   "on-success",
+	Short: "OnSuccess RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetWalletCardsCallbackServiceClient(grpcConn)
+		req := &pb.OnSuccessRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnSuccess(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var quickaccesswalletGetWalletCardsErrorCmd = &cobra.Command{
+	Use:   "get-wallet-cards-error",
+	Short: "GetWalletCardsErrorService operations",
+}
+
+var quickaccesswalletGetWalletCardsErrorNewGetWalletCardsErrorCmd = &cobra.Command{
+	Use:   "new-get-wallet-cards-error",
+	Short: "NewGetWalletCardsError RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetWalletCardsErrorServiceClient(grpcConn)
+		req := &pb.NewGetWalletCardsErrorRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewGetWalletCardsError(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var quickaccesswalletGetWalletCardsErrorDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetWalletCardsErrorServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var quickaccesswalletGetWalletCardsErrorGetIconCmd = &cobra.Command{
+	Use:   "get-icon",
+	Short: "GetIcon RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetWalletCardsErrorServiceClient(grpcConn)
+		req := &pb.GetIconRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetIcon(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var quickaccesswalletGetWalletCardsErrorGetMessageCmd = &cobra.Command{
+	Use:   "get-message",
+	Short: "GetMessage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetWalletCardsErrorServiceClient(grpcConn)
+		req := &pb.GetMessageRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetMessage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var quickaccesswalletGetWalletCardsErrorWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetWalletCardsErrorServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var quickaccesswalletWalletCardCmd = &cobra.Command{
 	Use:   "wallet-card",
 	Short: "WalletCardService operations",
@@ -156,7 +395,7 @@ var quickaccesswalletWalletCardDescribeContentsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewWalletCardServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
+		req := &pb.WalletCardDescribeContentsRequest{}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
@@ -188,7 +427,7 @@ var quickaccesswalletWalletCardGetCardIdCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewWalletCardServiceClient(grpcConn)
-		req := &pb.GetCardIdRequest{}
+		req := &pb.WalletCardGetCardIdRequest{}
 		resp, err := client.GetCardId(ctx, req)
 		if err != nil {
 			return err
@@ -222,6 +461,22 @@ var quickaccesswalletWalletCardGetCardLabelCmd = &cobra.Command{
 		client := pb.NewWalletCardServiceClient(grpcConn)
 		req := &pb.GetCardLabelRequest{}
 		resp, err := client.GetCardLabel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var quickaccesswalletWalletCardGetCardLocationsCmd = &cobra.Command{
+	Use:   "get-card-locations",
+	Short: "GetCardLocations RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWalletCardServiceClient(grpcConn)
+		req := &pb.GetCardLocationsRequest{}
+		resp, err := client.GetCardLocations(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -300,7 +555,7 @@ var quickaccesswalletWalletCardWriteToParcelCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewWalletCardServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
+		req := &pb.WalletCardWriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -393,202 +648,6 @@ var quickaccesswalletWalletCardBuilderSetNonPaymentCardSecondaryImageCmd = &cobr
 	},
 }
 
-var quickaccesswalletSelectWalletCardRequestCmd = &cobra.Command{
-	Use:   "select-wallet-card-request",
-	Short: "SelectWalletCardRequestService operations",
-}
-
-var quickaccesswalletSelectWalletCardRequestNewSelectWalletCardRequestCmd = &cobra.Command{
-	Use:   "new-select-wallet-card-request",
-	Short: "NewSelectWalletCardRequest RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSelectWalletCardRequestServiceClient(grpcConn)
-		req := &pb.NewSelectWalletCardRequestRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewSelectWalletCardRequest(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var quickaccesswalletSelectWalletCardRequestDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSelectWalletCardRequestServiceClient(grpcConn)
-		req := &pb.SelectWalletCardRequestDescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var quickaccesswalletSelectWalletCardRequestGetCardIdCmd = &cobra.Command{
-	Use:   "get-card-id",
-	Short: "GetCardId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSelectWalletCardRequestServiceClient(grpcConn)
-		req := &pb.SelectWalletCardRequestGetCardIdRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetCardId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var quickaccesswalletSelectWalletCardRequestWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSelectWalletCardRequestServiceClient(grpcConn)
-		req := &pb.SelectWalletCardRequestWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var quickaccesswalletGetWalletCardsErrorCmd = &cobra.Command{
-	Use:   "get-wallet-cards-error",
-	Short: "GetWalletCardsErrorService operations",
-}
-
-var quickaccesswalletGetWalletCardsErrorNewGetWalletCardsErrorCmd = &cobra.Command{
-	Use:   "new-get-wallet-cards-error",
-	Short: "NewGetWalletCardsError RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetWalletCardsErrorServiceClient(grpcConn)
-		req := &pb.NewGetWalletCardsErrorRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewGetWalletCardsError(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var quickaccesswalletGetWalletCardsErrorDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetWalletCardsErrorServiceClient(grpcConn)
-		req := &pb.GetWalletCardsErrorDescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var quickaccesswalletGetWalletCardsErrorGetIconCmd = &cobra.Command{
-	Use:   "get-icon",
-	Short: "GetIcon RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetWalletCardsErrorServiceClient(grpcConn)
-		req := &pb.GetIconRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetIcon(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var quickaccesswalletGetWalletCardsErrorGetMessageCmd = &cobra.Command{
-	Use:   "get-message",
-	Short: "GetMessage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetWalletCardsErrorServiceClient(grpcConn)
-		req := &pb.GetMessageRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetMessage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var quickaccesswalletGetWalletCardsErrorWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetWalletCardsErrorServiceClient(grpcConn)
-		req := &pb.GetWalletCardsErrorWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var quickaccesswalletWalletServiceEventCmd = &cobra.Command{
 	Use:   "wallet-service-event",
 	Short: "WalletServiceEventService operations",
@@ -620,7 +679,7 @@ var quickaccesswalletWalletServiceEventDescribeContentsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewWalletServiceEventServiceClient(grpcConn)
-		req := &pb.WalletServiceEventDescribeContentsRequest{}
+		req := &pb.DescribeContentsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -658,140 +717,7 @@ var quickaccesswalletWalletServiceEventWriteToParcelCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewWalletServiceEventServiceClient(grpcConn)
-		req := &pb.WalletServiceEventWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var quickaccesswalletGetWalletCardsCallbackCmd = &cobra.Command{
-	Use:   "get-wallet-cards-callback",
-	Short: "GetWalletCardsCallbackService operations",
-}
-
-var quickaccesswalletGetWalletCardsCallbackOnFailureCmd = &cobra.Command{
-	Use:   "on-failure",
-	Short: "OnFailure RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetWalletCardsCallbackServiceClient(grpcConn)
-		req := &pb.OnFailureRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnFailure(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var quickaccesswalletGetWalletCardsCallbackOnSuccessCmd = &cobra.Command{
-	Use:   "on-success",
-	Short: "OnSuccess RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetWalletCardsCallbackServiceClient(grpcConn)
-		req := &pb.OnSuccessRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnSuccess(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var quickaccesswalletGetWalletCardsResponseCmd = &cobra.Command{
-	Use:   "get-wallet-cards-response",
-	Short: "GetWalletCardsResponseService operations",
-}
-
-var quickaccesswalletGetWalletCardsResponseNewGetWalletCardsResponseCmd = &cobra.Command{
-	Use:   "new-get-wallet-cards-response",
-	Short: "NewGetWalletCardsResponse RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetWalletCardsResponseServiceClient(grpcConn)
-		req := &pb.NewGetWalletCardsResponseRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewGetWalletCardsResponse(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var quickaccesswalletGetWalletCardsResponseDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetWalletCardsResponseServiceClient(grpcConn)
-		req := &pb.GetWalletCardsResponseDescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var quickaccesswalletGetWalletCardsResponseGetSelectedIndexCmd = &cobra.Command{
-	Use:   "get-selected-index",
-	Short: "GetSelectedIndex RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetWalletCardsResponseServiceClient(grpcConn)
-		req := &pb.GetSelectedIndexRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSelectedIndex(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var quickaccesswalletGetWalletCardsResponseWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetWalletCardsResponseServiceClient(grpcConn)
-		req := &pb.GetWalletCardsResponseWriteToParcelRequest{}
+		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -849,7 +775,7 @@ var quickaccesswalletGetWalletCardsRequestDescribeContentsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewGetWalletCardsRequestServiceClient(grpcConn)
-		req := &pb.GetWalletCardsRequestDescribeContentsRequest{}
+		req := &pb.DescribeContentsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -944,7 +870,116 @@ var quickaccesswalletGetWalletCardsRequestWriteToParcelCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewGetWalletCardsRequestServiceClient(grpcConn)
-		req := &pb.GetWalletCardsRequestWriteToParcelRequest{}
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var quickaccesswalletGetWalletCardsResponseCmd = &cobra.Command{
+	Use:   "get-wallet-cards-response",
+	Short: "GetWalletCardsResponseService operations",
+}
+
+var quickaccesswalletGetWalletCardsResponseNewGetWalletCardsResponseCmd = &cobra.Command{
+	Use:   "new-get-wallet-cards-response",
+	Short: "NewGetWalletCardsResponse RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetWalletCardsResponseServiceClient(grpcConn)
+		req := &pb.NewGetWalletCardsResponseRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewGetWalletCardsResponse(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var quickaccesswalletGetWalletCardsResponseDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetWalletCardsResponseServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var quickaccesswalletGetWalletCardsResponseGetSelectedIndexCmd = &cobra.Command{
+	Use:   "get-selected-index",
+	Short: "GetSelectedIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetWalletCardsResponseServiceClient(grpcConn)
+		req := &pb.GetSelectedIndexRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSelectedIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var quickaccesswalletGetWalletCardsResponseGetWalletCardsCmd = &cobra.Command{
+	Use:   "get-wallet-cards",
+	Short: "GetWalletCards RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetWalletCardsResponseServiceClient(grpcConn)
+		req := &pb.GetWalletCardsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetWalletCards(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var quickaccesswalletGetWalletCardsResponseWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetWalletCardsResponseServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -963,6 +998,17 @@ var quickaccesswalletGetWalletCardsRequestWriteToParcelCmd = &cobra.Command{
 }
 
 func init() {
+	quickaccesswalletSelectWalletCardRequestNewSelectWalletCardRequestCmd.Flags().String("arg0", "", "arg0 (string)")
+	quickaccesswalletSelectWalletCardRequestCmd.AddCommand(quickaccesswalletSelectWalletCardRequestNewSelectWalletCardRequestCmd)
+	quickaccesswalletSelectWalletCardRequestDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	quickaccesswalletSelectWalletCardRequestCmd.AddCommand(quickaccesswalletSelectWalletCardRequestDescribeContentsCmd)
+	quickaccesswalletSelectWalletCardRequestGetCardIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	quickaccesswalletSelectWalletCardRequestCmd.AddCommand(quickaccesswalletSelectWalletCardRequestGetCardIdCmd)
+	quickaccesswalletSelectWalletCardRequestWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	quickaccesswalletSelectWalletCardRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	quickaccesswalletSelectWalletCardRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	quickaccesswalletSelectWalletCardRequestCmd.AddCommand(quickaccesswalletSelectWalletCardRequestWriteToParcelCmd)
+	quickaccesswalletCmd.AddCommand(quickaccesswalletSelectWalletCardRequestCmd)
 	quickaccesswalletQuickAccessWalletServiceCmd.AddCommand(quickaccesswalletQuickAccessWalletServiceGetGestureTargetActivityPendingIntentCmd)
 	quickaccesswalletQuickAccessWalletServiceCmd.AddCommand(quickaccesswalletQuickAccessWalletServiceGetTargetActivityPendingIntentCmd)
 	quickaccesswalletQuickAccessWalletServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -976,11 +1022,31 @@ func init() {
 	quickaccesswalletQuickAccessWalletServiceSendWalletServiceEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	quickaccesswalletQuickAccessWalletServiceCmd.AddCommand(quickaccesswalletQuickAccessWalletServiceSendWalletServiceEventCmd)
 	quickaccesswalletCmd.AddCommand(quickaccesswalletQuickAccessWalletServiceCmd)
+	quickaccesswalletGetWalletCardsCallbackOnFailureCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	quickaccesswalletGetWalletCardsCallbackCmd.AddCommand(quickaccesswalletGetWalletCardsCallbackOnFailureCmd)
+	quickaccesswalletGetWalletCardsCallbackOnSuccessCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	quickaccesswalletGetWalletCardsCallbackCmd.AddCommand(quickaccesswalletGetWalletCardsCallbackOnSuccessCmd)
+	quickaccesswalletCmd.AddCommand(quickaccesswalletGetWalletCardsCallbackCmd)
+	quickaccesswalletGetWalletCardsErrorNewGetWalletCardsErrorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	quickaccesswalletGetWalletCardsErrorNewGetWalletCardsErrorCmd.Flags().String("arg1", "", "arg1 (string)")
+	quickaccesswalletGetWalletCardsErrorCmd.AddCommand(quickaccesswalletGetWalletCardsErrorNewGetWalletCardsErrorCmd)
+	quickaccesswalletGetWalletCardsErrorDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	quickaccesswalletGetWalletCardsErrorCmd.AddCommand(quickaccesswalletGetWalletCardsErrorDescribeContentsCmd)
+	quickaccesswalletGetWalletCardsErrorGetIconCmd.Flags().Int64("handle", 0, "handle (int64)")
+	quickaccesswalletGetWalletCardsErrorCmd.AddCommand(quickaccesswalletGetWalletCardsErrorGetIconCmd)
+	quickaccesswalletGetWalletCardsErrorGetMessageCmd.Flags().Int64("handle", 0, "handle (int64)")
+	quickaccesswalletGetWalletCardsErrorCmd.AddCommand(quickaccesswalletGetWalletCardsErrorGetMessageCmd)
+	quickaccesswalletGetWalletCardsErrorWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	quickaccesswalletGetWalletCardsErrorWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	quickaccesswalletGetWalletCardsErrorWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	quickaccesswalletGetWalletCardsErrorCmd.AddCommand(quickaccesswalletGetWalletCardsErrorWriteToParcelCmd)
+	quickaccesswalletCmd.AddCommand(quickaccesswalletGetWalletCardsErrorCmd)
 	quickaccesswalletWalletCardCmd.AddCommand(quickaccesswalletWalletCardDescribeContentsCmd)
 	quickaccesswalletWalletCardCmd.AddCommand(quickaccesswalletWalletCardGetCardIconCmd)
 	quickaccesswalletWalletCardCmd.AddCommand(quickaccesswalletWalletCardGetCardIdCmd)
 	quickaccesswalletWalletCardCmd.AddCommand(quickaccesswalletWalletCardGetCardImageCmd)
 	quickaccesswalletWalletCardCmd.AddCommand(quickaccesswalletWalletCardGetCardLabelCmd)
+	quickaccesswalletWalletCardCmd.AddCommand(quickaccesswalletWalletCardGetCardLocationsCmd)
 	quickaccesswalletWalletCardCmd.AddCommand(quickaccesswalletWalletCardGetCardTypeCmd)
 	quickaccesswalletWalletCardCmd.AddCommand(quickaccesswalletWalletCardGetContentDescriptionCmd)
 	quickaccesswalletWalletCardCmd.AddCommand(quickaccesswalletWalletCardGetNonPaymentCardSecondaryImageCmd)
@@ -997,31 +1063,6 @@ func init() {
 	quickaccesswalletWalletCardBuilderSetNonPaymentCardSecondaryImageCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	quickaccesswalletWalletCardBuilderCmd.AddCommand(quickaccesswalletWalletCardBuilderSetNonPaymentCardSecondaryImageCmd)
 	quickaccesswalletCmd.AddCommand(quickaccesswalletWalletCardBuilderCmd)
-	quickaccesswalletSelectWalletCardRequestNewSelectWalletCardRequestCmd.Flags().String("arg0", "", "arg0 (string)")
-	quickaccesswalletSelectWalletCardRequestCmd.AddCommand(quickaccesswalletSelectWalletCardRequestNewSelectWalletCardRequestCmd)
-	quickaccesswalletSelectWalletCardRequestDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	quickaccesswalletSelectWalletCardRequestCmd.AddCommand(quickaccesswalletSelectWalletCardRequestDescribeContentsCmd)
-	quickaccesswalletSelectWalletCardRequestGetCardIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	quickaccesswalletSelectWalletCardRequestCmd.AddCommand(quickaccesswalletSelectWalletCardRequestGetCardIdCmd)
-	quickaccesswalletSelectWalletCardRequestWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	quickaccesswalletSelectWalletCardRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	quickaccesswalletSelectWalletCardRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	quickaccesswalletSelectWalletCardRequestCmd.AddCommand(quickaccesswalletSelectWalletCardRequestWriteToParcelCmd)
-	quickaccesswalletCmd.AddCommand(quickaccesswalletSelectWalletCardRequestCmd)
-	quickaccesswalletGetWalletCardsErrorNewGetWalletCardsErrorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	quickaccesswalletGetWalletCardsErrorNewGetWalletCardsErrorCmd.Flags().String("arg1", "", "arg1 (string)")
-	quickaccesswalletGetWalletCardsErrorCmd.AddCommand(quickaccesswalletGetWalletCardsErrorNewGetWalletCardsErrorCmd)
-	quickaccesswalletGetWalletCardsErrorDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	quickaccesswalletGetWalletCardsErrorCmd.AddCommand(quickaccesswalletGetWalletCardsErrorDescribeContentsCmd)
-	quickaccesswalletGetWalletCardsErrorGetIconCmd.Flags().Int64("handle", 0, "handle (int64)")
-	quickaccesswalletGetWalletCardsErrorCmd.AddCommand(quickaccesswalletGetWalletCardsErrorGetIconCmd)
-	quickaccesswalletGetWalletCardsErrorGetMessageCmd.Flags().Int64("handle", 0, "handle (int64)")
-	quickaccesswalletGetWalletCardsErrorCmd.AddCommand(quickaccesswalletGetWalletCardsErrorGetMessageCmd)
-	quickaccesswalletGetWalletCardsErrorWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	quickaccesswalletGetWalletCardsErrorWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	quickaccesswalletGetWalletCardsErrorWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	quickaccesswalletGetWalletCardsErrorCmd.AddCommand(quickaccesswalletGetWalletCardsErrorWriteToParcelCmd)
-	quickaccesswalletCmd.AddCommand(quickaccesswalletGetWalletCardsErrorCmd)
 	quickaccesswalletWalletServiceEventNewWalletServiceEventCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	quickaccesswalletWalletServiceEventCmd.AddCommand(quickaccesswalletWalletServiceEventNewWalletServiceEventCmd)
 	quickaccesswalletWalletServiceEventDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
@@ -1033,23 +1074,6 @@ func init() {
 	quickaccesswalletWalletServiceEventWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	quickaccesswalletWalletServiceEventCmd.AddCommand(quickaccesswalletWalletServiceEventWriteToParcelCmd)
 	quickaccesswalletCmd.AddCommand(quickaccesswalletWalletServiceEventCmd)
-	quickaccesswalletGetWalletCardsCallbackOnFailureCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	quickaccesswalletGetWalletCardsCallbackCmd.AddCommand(quickaccesswalletGetWalletCardsCallbackOnFailureCmd)
-	quickaccesswalletGetWalletCardsCallbackOnSuccessCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	quickaccesswalletGetWalletCardsCallbackCmd.AddCommand(quickaccesswalletGetWalletCardsCallbackOnSuccessCmd)
-	quickaccesswalletCmd.AddCommand(quickaccesswalletGetWalletCardsCallbackCmd)
-	quickaccesswalletGetWalletCardsResponseNewGetWalletCardsResponseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	quickaccesswalletGetWalletCardsResponseNewGetWalletCardsResponseCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	quickaccesswalletGetWalletCardsResponseCmd.AddCommand(quickaccesswalletGetWalletCardsResponseNewGetWalletCardsResponseCmd)
-	quickaccesswalletGetWalletCardsResponseDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	quickaccesswalletGetWalletCardsResponseCmd.AddCommand(quickaccesswalletGetWalletCardsResponseDescribeContentsCmd)
-	quickaccesswalletGetWalletCardsResponseGetSelectedIndexCmd.Flags().Int64("handle", 0, "handle (int64)")
-	quickaccesswalletGetWalletCardsResponseCmd.AddCommand(quickaccesswalletGetWalletCardsResponseGetSelectedIndexCmd)
-	quickaccesswalletGetWalletCardsResponseWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	quickaccesswalletGetWalletCardsResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	quickaccesswalletGetWalletCardsResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	quickaccesswalletGetWalletCardsResponseCmd.AddCommand(quickaccesswalletGetWalletCardsResponseWriteToParcelCmd)
-	quickaccesswalletCmd.AddCommand(quickaccesswalletGetWalletCardsResponseCmd)
 	quickaccesswalletGetWalletCardsRequestNewGetWalletCardsRequestCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	quickaccesswalletGetWalletCardsRequestNewGetWalletCardsRequestCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	quickaccesswalletGetWalletCardsRequestNewGetWalletCardsRequestCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
@@ -1070,5 +1094,19 @@ func init() {
 	quickaccesswalletGetWalletCardsRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	quickaccesswalletGetWalletCardsRequestCmd.AddCommand(quickaccesswalletGetWalletCardsRequestWriteToParcelCmd)
 	quickaccesswalletCmd.AddCommand(quickaccesswalletGetWalletCardsRequestCmd)
+	quickaccesswalletGetWalletCardsResponseNewGetWalletCardsResponseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	quickaccesswalletGetWalletCardsResponseNewGetWalletCardsResponseCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	quickaccesswalletGetWalletCardsResponseCmd.AddCommand(quickaccesswalletGetWalletCardsResponseNewGetWalletCardsResponseCmd)
+	quickaccesswalletGetWalletCardsResponseDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	quickaccesswalletGetWalletCardsResponseCmd.AddCommand(quickaccesswalletGetWalletCardsResponseDescribeContentsCmd)
+	quickaccesswalletGetWalletCardsResponseGetSelectedIndexCmd.Flags().Int64("handle", 0, "handle (int64)")
+	quickaccesswalletGetWalletCardsResponseCmd.AddCommand(quickaccesswalletGetWalletCardsResponseGetSelectedIndexCmd)
+	quickaccesswalletGetWalletCardsResponseGetWalletCardsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	quickaccesswalletGetWalletCardsResponseCmd.AddCommand(quickaccesswalletGetWalletCardsResponseGetWalletCardsCmd)
+	quickaccesswalletGetWalletCardsResponseWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	quickaccesswalletGetWalletCardsResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	quickaccesswalletGetWalletCardsResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	quickaccesswalletGetWalletCardsResponseCmd.AddCommand(quickaccesswalletGetWalletCardsResponseWriteToParcelCmd)
+	quickaccesswalletCmd.AddCommand(quickaccesswalletGetWalletCardsResponseCmd)
 	rootCmd.AddCommand(quickaccesswalletCmd)
 }

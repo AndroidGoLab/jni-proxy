@@ -21,6 +21,17 @@ func NewKeyStoreManagerClient(cc grpc.ClientConnInterface) *KeyStoreManagerClien
 	}
 }
 
+// GetGrantedCertificateChainFromId calls the GetGrantedCertificateChainFromId RPC.
+func (c *KeyStoreManagerClient) GetGrantedCertificateChainFromId(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetGrantedCertificateChainFromId(ctx, &pb.GetGrantedCertificateChainFromIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetGrantedKeyFromId calls the GetGrantedKeyFromId RPC.
 func (c *KeyStoreManagerClient) GetGrantedKeyFromId(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.GetGrantedKeyFromId(ctx, &pb.GetGrantedKeyFromIdRequest{
@@ -73,6 +84,85 @@ func (c *KeyStoreManagerClient) RevokeKeyAccess(ctx context.Context, arg0 string
 		Arg1: arg1,
 	})
 	return err
+}
+
+// WrappedKeyEntryClient wraps the gRPC WrappedKeyEntryService client.
+type WrappedKeyEntryClient struct {
+	svc pb.WrappedKeyEntryServiceClient
+}
+
+// NewWrappedKeyEntryClient creates a new WrappedKeyEntry client.
+func NewWrappedKeyEntryClient(cc grpc.ClientConnInterface) *WrappedKeyEntryClient {
+	return &WrappedKeyEntryClient{
+		svc: pb.NewWrappedKeyEntryServiceClient(cc),
+	}
+}
+
+// GetAlgorithmParameterSpec calls the GetAlgorithmParameterSpec RPC.
+func (c *WrappedKeyEntryClient) GetAlgorithmParameterSpec(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetAlgorithmParameterSpec(ctx, &pb.GetAlgorithmParameterSpecRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTransformation calls the GetTransformation RPC.
+func (c *WrappedKeyEntryClient) GetTransformation(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetTransformation(ctx, &pb.GetTransformationRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWrappedKeyBytes calls the GetWrappedKeyBytes RPC.
+func (c *WrappedKeyEntryClient) GetWrappedKeyBytes(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetWrappedKeyBytes(ctx, &pb.GetWrappedKeyBytesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWrappingKeyAlias calls the GetWrappingKeyAlias RPC.
+func (c *WrappedKeyEntryClient) GetWrappingKeyAlias(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetWrappingKeyAlias(ctx, &pb.GetWrappingKeyAliasRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// BackendBusyExceptionClient wraps the gRPC BackendBusyExceptionService client.
+type BackendBusyExceptionClient struct {
+	svc pb.BackendBusyExceptionServiceClient
+}
+
+// NewBackendBusyExceptionClient creates a new BackendBusyException client.
+func NewBackendBusyExceptionClient(cc grpc.ClientConnInterface) *BackendBusyExceptionClient {
+	return &BackendBusyExceptionClient{
+		svc: pb.NewBackendBusyExceptionServiceClient(cc),
+	}
+}
+
+// GetBackOffHintMillis calls the GetBackOffHintMillis RPC.
+func (c *BackendBusyExceptionClient) GetBackOffHintMillis(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetBackOffHintMillis(ctx, &pb.GetBackOffHintMillisRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
 // KeyInfoClient wraps the gRPC KeyInfoService client.
@@ -285,519 +375,6 @@ func (c *KeyInfoClient) IsUserConfirmationRequired(ctx context.Context) (bool, e
 	return resp.GetResult(), nil
 }
 
-// BackendBusyExceptionClient wraps the gRPC BackendBusyExceptionService client.
-type BackendBusyExceptionClient struct {
-	svc pb.BackendBusyExceptionServiceClient
-}
-
-// NewBackendBusyExceptionClient creates a new BackendBusyException client.
-func NewBackendBusyExceptionClient(cc grpc.ClientConnInterface) *BackendBusyExceptionClient {
-	return &BackendBusyExceptionClient{
-		svc: pb.NewBackendBusyExceptionServiceClient(cc),
-	}
-}
-
-// GetBackOffHintMillis calls the GetBackOffHintMillis RPC.
-func (c *BackendBusyExceptionClient) GetBackOffHintMillis(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetBackOffHintMillis(ctx, &pb.GetBackOffHintMillisRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// KeyProtectionClient wraps the gRPC KeyProtectionService client.
-type KeyProtectionClient struct {
-	svc pb.KeyProtectionServiceClient
-}
-
-// NewKeyProtectionClient creates a new KeyProtection client.
-func NewKeyProtectionClient(cc grpc.ClientConnInterface) *KeyProtectionClient {
-	return &KeyProtectionClient{
-		svc: pb.NewKeyProtectionServiceClient(cc),
-	}
-}
-
-// GetBlockModes calls the GetBlockModes RPC.
-func (c *KeyProtectionClient) GetBlockModes(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetBlockModes(ctx, &pb.GetBlockModesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDigests calls the GetDigests RPC.
-func (c *KeyProtectionClient) GetDigests(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDigests(ctx, &pb.GetDigestsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetEncryptionPaddings calls the GetEncryptionPaddings RPC.
-func (c *KeyProtectionClient) GetEncryptionPaddings(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetEncryptionPaddings(ctx, &pb.GetEncryptionPaddingsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetKeyValidityForConsumptionEnd calls the GetKeyValidityForConsumptionEnd RPC.
-func (c *KeyProtectionClient) GetKeyValidityForConsumptionEnd(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetKeyValidityForConsumptionEnd(ctx, &pb.GetKeyValidityForConsumptionEndRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetKeyValidityForOriginationEnd calls the GetKeyValidityForOriginationEnd RPC.
-func (c *KeyProtectionClient) GetKeyValidityForOriginationEnd(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetKeyValidityForOriginationEnd(ctx, &pb.GetKeyValidityForOriginationEndRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetKeyValidityStart calls the GetKeyValidityStart RPC.
-func (c *KeyProtectionClient) GetKeyValidityStart(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetKeyValidityStart(ctx, &pb.GetKeyValidityStartRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMaxUsageCount calls the GetMaxUsageCount RPC.
-func (c *KeyProtectionClient) GetMaxUsageCount(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMaxUsageCount(ctx, &pb.GetMaxUsageCountRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPurposes calls the GetPurposes RPC.
-func (c *KeyProtectionClient) GetPurposes(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetPurposes(ctx, &pb.GetPurposesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSignaturePaddings calls the GetSignaturePaddings RPC.
-func (c *KeyProtectionClient) GetSignaturePaddings(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSignaturePaddings(ctx, &pb.GetSignaturePaddingsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUserAuthenticationType calls the GetUserAuthenticationType RPC.
-func (c *KeyProtectionClient) GetUserAuthenticationType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetUserAuthenticationType(ctx, &pb.GetUserAuthenticationTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUserAuthenticationValidityDurationSeconds calls the GetUserAuthenticationValidityDurationSeconds RPC.
-func (c *KeyProtectionClient) GetUserAuthenticationValidityDurationSeconds(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetUserAuthenticationValidityDurationSeconds(ctx, &pb.GetUserAuthenticationValidityDurationSecondsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsDigestsSpecified calls the IsDigestsSpecified RPC.
-func (c *KeyProtectionClient) IsDigestsSpecified(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsDigestsSpecified(ctx, &pb.IsDigestsSpecifiedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsInvalidatedByBiometricEnrollment calls the IsInvalidatedByBiometricEnrollment RPC.
-func (c *KeyProtectionClient) IsInvalidatedByBiometricEnrollment(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsInvalidatedByBiometricEnrollment(ctx, &pb.IsInvalidatedByBiometricEnrollmentRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsMgf1DigestsSpecified calls the IsMgf1DigestsSpecified RPC.
-func (c *KeyProtectionClient) IsMgf1DigestsSpecified(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsMgf1DigestsSpecified(ctx, &pb.IsMgf1DigestsSpecifiedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsRandomizedEncryptionRequired calls the IsRandomizedEncryptionRequired RPC.
-func (c *KeyProtectionClient) IsRandomizedEncryptionRequired(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsRandomizedEncryptionRequired(ctx, &pb.IsRandomizedEncryptionRequiredRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsUnlockedDeviceRequired calls the IsUnlockedDeviceRequired RPC.
-func (c *KeyProtectionClient) IsUnlockedDeviceRequired(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsUnlockedDeviceRequired(ctx, &pb.IsUnlockedDeviceRequiredRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsUserAuthenticationRequired calls the IsUserAuthenticationRequired RPC.
-func (c *KeyProtectionClient) IsUserAuthenticationRequired(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsUserAuthenticationRequired(ctx, &pb.IsUserAuthenticationRequiredRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsUserAuthenticationValidWhileOnBody calls the IsUserAuthenticationValidWhileOnBody RPC.
-func (c *KeyProtectionClient) IsUserAuthenticationValidWhileOnBody(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsUserAuthenticationValidWhileOnBody(ctx, &pb.IsUserAuthenticationValidWhileOnBodyRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsUserConfirmationRequired calls the IsUserConfirmationRequired RPC.
-func (c *KeyProtectionClient) IsUserConfirmationRequired(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsUserConfirmationRequired(ctx, &pb.IsUserConfirmationRequiredRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsUserPresenceRequired calls the IsUserPresenceRequired RPC.
-func (c *KeyProtectionClient) IsUserPresenceRequired(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsUserPresenceRequired(ctx, &pb.IsUserPresenceRequiredRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// KeyProtectionBuilderClient wraps the gRPC KeyProtectionBuilderService client.
-type KeyProtectionBuilderClient struct {
-	svc pb.KeyProtectionBuilderServiceClient
-}
-
-// NewKeyProtectionBuilderClient creates a new KeyProtectionBuilder client.
-func NewKeyProtectionBuilderClient(cc grpc.ClientConnInterface) *KeyProtectionBuilderClient {
-	return &KeyProtectionBuilderClient{
-		svc: pb.NewKeyProtectionBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *KeyProtectionBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetBlockModes calls the SetBlockModes RPC.
-func (c *KeyProtectionBuilderClient) SetBlockModes(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetBlockModes(ctx, &pb.SetBlockModesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetDigests calls the SetDigests RPC.
-func (c *KeyProtectionBuilderClient) SetDigests(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetDigests(ctx, &pb.SetDigestsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetEncryptionPaddings calls the SetEncryptionPaddings RPC.
-func (c *KeyProtectionBuilderClient) SetEncryptionPaddings(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetEncryptionPaddings(ctx, &pb.SetEncryptionPaddingsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetInvalidatedByBiometricEnrollment calls the SetInvalidatedByBiometricEnrollment RPC.
-func (c *KeyProtectionBuilderClient) SetInvalidatedByBiometricEnrollment(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetInvalidatedByBiometricEnrollment(ctx, &pb.SetInvalidatedByBiometricEnrollmentRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetIsStrongBoxBacked calls the SetIsStrongBoxBacked RPC.
-func (c *KeyProtectionBuilderClient) SetIsStrongBoxBacked(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetIsStrongBoxBacked(ctx, &pb.SetIsStrongBoxBackedRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetKeyValidityEnd calls the SetKeyValidityEnd RPC.
-func (c *KeyProtectionBuilderClient) SetKeyValidityEnd(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetKeyValidityEnd(ctx, &pb.SetKeyValidityEndRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetKeyValidityForConsumptionEnd calls the SetKeyValidityForConsumptionEnd RPC.
-func (c *KeyProtectionBuilderClient) SetKeyValidityForConsumptionEnd(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetKeyValidityForConsumptionEnd(ctx, &pb.SetKeyValidityForConsumptionEndRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetKeyValidityForOriginationEnd calls the SetKeyValidityForOriginationEnd RPC.
-func (c *KeyProtectionBuilderClient) SetKeyValidityForOriginationEnd(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetKeyValidityForOriginationEnd(ctx, &pb.SetKeyValidityForOriginationEndRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetKeyValidityStart calls the SetKeyValidityStart RPC.
-func (c *KeyProtectionBuilderClient) SetKeyValidityStart(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetKeyValidityStart(ctx, &pb.SetKeyValidityStartRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetMaxUsageCount calls the SetMaxUsageCount RPC.
-func (c *KeyProtectionBuilderClient) SetMaxUsageCount(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetMaxUsageCount(ctx, &pb.SetMaxUsageCountRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetMgf1Digests calls the SetMgf1Digests RPC.
-func (c *KeyProtectionBuilderClient) SetMgf1Digests(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetMgf1Digests(ctx, &pb.SetMgf1DigestsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetRandomizedEncryptionRequired calls the SetRandomizedEncryptionRequired RPC.
-func (c *KeyProtectionBuilderClient) SetRandomizedEncryptionRequired(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetRandomizedEncryptionRequired(ctx, &pb.SetRandomizedEncryptionRequiredRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetSignaturePaddings calls the SetSignaturePaddings RPC.
-func (c *KeyProtectionBuilderClient) SetSignaturePaddings(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetSignaturePaddings(ctx, &pb.SetSignaturePaddingsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetUnlockedDeviceRequired calls the SetUnlockedDeviceRequired RPC.
-func (c *KeyProtectionBuilderClient) SetUnlockedDeviceRequired(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetUnlockedDeviceRequired(ctx, &pb.SetUnlockedDeviceRequiredRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetUserAuthenticationParameters calls the SetUserAuthenticationParameters RPC.
-func (c *KeyProtectionBuilderClient) SetUserAuthenticationParameters(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.SetUserAuthenticationParameters(ctx, &pb.SetUserAuthenticationParametersRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetUserAuthenticationRequired calls the SetUserAuthenticationRequired RPC.
-func (c *KeyProtectionBuilderClient) SetUserAuthenticationRequired(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetUserAuthenticationRequired(ctx, &pb.SetUserAuthenticationRequiredRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetUserAuthenticationValidWhileOnBody calls the SetUserAuthenticationValidWhileOnBody RPC.
-func (c *KeyProtectionBuilderClient) SetUserAuthenticationValidWhileOnBody(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetUserAuthenticationValidWhileOnBody(ctx, &pb.SetUserAuthenticationValidWhileOnBodyRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetUserAuthenticationValidityDurationSeconds calls the SetUserAuthenticationValidityDurationSeconds RPC.
-func (c *KeyProtectionBuilderClient) SetUserAuthenticationValidityDurationSeconds(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetUserAuthenticationValidityDurationSeconds(ctx, &pb.SetUserAuthenticationValidityDurationSecondsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetUserConfirmationRequired calls the SetUserConfirmationRequired RPC.
-func (c *KeyProtectionBuilderClient) SetUserConfirmationRequired(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetUserConfirmationRequired(ctx, &pb.SetUserConfirmationRequiredRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetUserPresenceRequired calls the SetUserPresenceRequired RPC.
-func (c *KeyProtectionBuilderClient) SetUserPresenceRequired(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetUserPresenceRequired(ctx, &pb.SetUserPresenceRequiredRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WrappedKeyEntryClient wraps the gRPC WrappedKeyEntryService client.
-type WrappedKeyEntryClient struct {
-	svc pb.WrappedKeyEntryServiceClient
-}
-
-// NewWrappedKeyEntryClient creates a new WrappedKeyEntry client.
-func NewWrappedKeyEntryClient(cc grpc.ClientConnInterface) *WrappedKeyEntryClient {
-	return &WrappedKeyEntryClient{
-		svc: pb.NewWrappedKeyEntryServiceClient(cc),
-	}
-}
-
-// GetAlgorithmParameterSpec calls the GetAlgorithmParameterSpec RPC.
-func (c *WrappedKeyEntryClient) GetAlgorithmParameterSpec(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetAlgorithmParameterSpec(ctx, &pb.GetAlgorithmParameterSpecRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTransformation calls the GetTransformation RPC.
-func (c *WrappedKeyEntryClient) GetTransformation(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetTransformation(ctx, &pb.GetTransformationRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWrappedKeyBytes calls the GetWrappedKeyBytes RPC.
-func (c *WrappedKeyEntryClient) GetWrappedKeyBytes(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetWrappedKeyBytes(ctx, &pb.GetWrappedKeyBytesRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWrappingKeyAlias calls the GetWrappingKeyAlias RPC.
-func (c *WrappedKeyEntryClient) GetWrappingKeyAlias(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetWrappingKeyAlias(ctx, &pb.GetWrappingKeyAliasRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
 // KeyGenParameterSpecClient wraps the gRPC KeyGenParameterSpecService client.
 type KeyGenParameterSpecClient struct {
 	svc pb.KeyGenParameterSpecServiceClient
@@ -948,6 +525,15 @@ func (c *KeyGenParameterSpecClient) GetKeystoreAlias(ctx context.Context) (strin
 // GetMaxUsageCount calls the GetMaxUsageCount RPC.
 func (c *KeyGenParameterSpecClient) GetMaxUsageCount(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetMaxUsageCount(ctx, &pb.GetMaxUsageCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMgf1Digests calls the GetMgf1Digests RPC.
+func (c *KeyGenParameterSpecClient) GetMgf1Digests(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMgf1Digests(ctx, &pb.GetMgf1DigestsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -1421,6 +1007,449 @@ func (c *KeyGenParameterSpecBuilderClient) SetUserConfirmationRequired(ctx conte
 
 // SetUserPresenceRequired calls the SetUserPresenceRequired RPC.
 func (c *KeyGenParameterSpecBuilderClient) SetUserPresenceRequired(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetUserPresenceRequired(ctx, &pb.SetUserPresenceRequiredRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// KeyProtectionClient wraps the gRPC KeyProtectionService client.
+type KeyProtectionClient struct {
+	svc pb.KeyProtectionServiceClient
+}
+
+// NewKeyProtectionClient creates a new KeyProtection client.
+func NewKeyProtectionClient(cc grpc.ClientConnInterface) *KeyProtectionClient {
+	return &KeyProtectionClient{
+		svc: pb.NewKeyProtectionServiceClient(cc),
+	}
+}
+
+// GetBlockModes calls the GetBlockModes RPC.
+func (c *KeyProtectionClient) GetBlockModes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBlockModes(ctx, &pb.GetBlockModesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDigests calls the GetDigests RPC.
+func (c *KeyProtectionClient) GetDigests(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDigests(ctx, &pb.GetDigestsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEncryptionPaddings calls the GetEncryptionPaddings RPC.
+func (c *KeyProtectionClient) GetEncryptionPaddings(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEncryptionPaddings(ctx, &pb.GetEncryptionPaddingsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetKeyValidityForConsumptionEnd calls the GetKeyValidityForConsumptionEnd RPC.
+func (c *KeyProtectionClient) GetKeyValidityForConsumptionEnd(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetKeyValidityForConsumptionEnd(ctx, &pb.GetKeyValidityForConsumptionEndRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetKeyValidityForOriginationEnd calls the GetKeyValidityForOriginationEnd RPC.
+func (c *KeyProtectionClient) GetKeyValidityForOriginationEnd(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetKeyValidityForOriginationEnd(ctx, &pb.GetKeyValidityForOriginationEndRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetKeyValidityStart calls the GetKeyValidityStart RPC.
+func (c *KeyProtectionClient) GetKeyValidityStart(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetKeyValidityStart(ctx, &pb.GetKeyValidityStartRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxUsageCount calls the GetMaxUsageCount RPC.
+func (c *KeyProtectionClient) GetMaxUsageCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxUsageCount(ctx, &pb.GetMaxUsageCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMgf1Digests calls the GetMgf1Digests RPC.
+func (c *KeyProtectionClient) GetMgf1Digests(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMgf1Digests(ctx, &pb.GetMgf1DigestsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPurposes calls the GetPurposes RPC.
+func (c *KeyProtectionClient) GetPurposes(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPurposes(ctx, &pb.GetPurposesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSignaturePaddings calls the GetSignaturePaddings RPC.
+func (c *KeyProtectionClient) GetSignaturePaddings(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSignaturePaddings(ctx, &pb.GetSignaturePaddingsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUserAuthenticationType calls the GetUserAuthenticationType RPC.
+func (c *KeyProtectionClient) GetUserAuthenticationType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetUserAuthenticationType(ctx, &pb.GetUserAuthenticationTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUserAuthenticationValidityDurationSeconds calls the GetUserAuthenticationValidityDurationSeconds RPC.
+func (c *KeyProtectionClient) GetUserAuthenticationValidityDurationSeconds(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetUserAuthenticationValidityDurationSeconds(ctx, &pb.GetUserAuthenticationValidityDurationSecondsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsDigestsSpecified calls the IsDigestsSpecified RPC.
+func (c *KeyProtectionClient) IsDigestsSpecified(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsDigestsSpecified(ctx, &pb.IsDigestsSpecifiedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsInvalidatedByBiometricEnrollment calls the IsInvalidatedByBiometricEnrollment RPC.
+func (c *KeyProtectionClient) IsInvalidatedByBiometricEnrollment(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsInvalidatedByBiometricEnrollment(ctx, &pb.IsInvalidatedByBiometricEnrollmentRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsMgf1DigestsSpecified calls the IsMgf1DigestsSpecified RPC.
+func (c *KeyProtectionClient) IsMgf1DigestsSpecified(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsMgf1DigestsSpecified(ctx, &pb.IsMgf1DigestsSpecifiedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRandomizedEncryptionRequired calls the IsRandomizedEncryptionRequired RPC.
+func (c *KeyProtectionClient) IsRandomizedEncryptionRequired(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsRandomizedEncryptionRequired(ctx, &pb.IsRandomizedEncryptionRequiredRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsUnlockedDeviceRequired calls the IsUnlockedDeviceRequired RPC.
+func (c *KeyProtectionClient) IsUnlockedDeviceRequired(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsUnlockedDeviceRequired(ctx, &pb.IsUnlockedDeviceRequiredRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsUserAuthenticationRequired calls the IsUserAuthenticationRequired RPC.
+func (c *KeyProtectionClient) IsUserAuthenticationRequired(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsUserAuthenticationRequired(ctx, &pb.IsUserAuthenticationRequiredRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsUserAuthenticationValidWhileOnBody calls the IsUserAuthenticationValidWhileOnBody RPC.
+func (c *KeyProtectionClient) IsUserAuthenticationValidWhileOnBody(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsUserAuthenticationValidWhileOnBody(ctx, &pb.IsUserAuthenticationValidWhileOnBodyRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsUserConfirmationRequired calls the IsUserConfirmationRequired RPC.
+func (c *KeyProtectionClient) IsUserConfirmationRequired(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsUserConfirmationRequired(ctx, &pb.IsUserConfirmationRequiredRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsUserPresenceRequired calls the IsUserPresenceRequired RPC.
+func (c *KeyProtectionClient) IsUserPresenceRequired(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsUserPresenceRequired(ctx, &pb.IsUserPresenceRequiredRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// KeyProtectionBuilderClient wraps the gRPC KeyProtectionBuilderService client.
+type KeyProtectionBuilderClient struct {
+	svc pb.KeyProtectionBuilderServiceClient
+}
+
+// NewKeyProtectionBuilderClient creates a new KeyProtectionBuilder client.
+func NewKeyProtectionBuilderClient(cc grpc.ClientConnInterface) *KeyProtectionBuilderClient {
+	return &KeyProtectionBuilderClient{
+		svc: pb.NewKeyProtectionBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *KeyProtectionBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBlockModes calls the SetBlockModes RPC.
+func (c *KeyProtectionBuilderClient) SetBlockModes(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetBlockModes(ctx, &pb.SetBlockModesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDigests calls the SetDigests RPC.
+func (c *KeyProtectionBuilderClient) SetDigests(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetDigests(ctx, &pb.SetDigestsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEncryptionPaddings calls the SetEncryptionPaddings RPC.
+func (c *KeyProtectionBuilderClient) SetEncryptionPaddings(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetEncryptionPaddings(ctx, &pb.SetEncryptionPaddingsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetInvalidatedByBiometricEnrollment calls the SetInvalidatedByBiometricEnrollment RPC.
+func (c *KeyProtectionBuilderClient) SetInvalidatedByBiometricEnrollment(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetInvalidatedByBiometricEnrollment(ctx, &pb.SetInvalidatedByBiometricEnrollmentRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetIsStrongBoxBacked calls the SetIsStrongBoxBacked RPC.
+func (c *KeyProtectionBuilderClient) SetIsStrongBoxBacked(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetIsStrongBoxBacked(ctx, &pb.SetIsStrongBoxBackedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetKeyValidityEnd calls the SetKeyValidityEnd RPC.
+func (c *KeyProtectionBuilderClient) SetKeyValidityEnd(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetKeyValidityEnd(ctx, &pb.SetKeyValidityEndRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetKeyValidityForConsumptionEnd calls the SetKeyValidityForConsumptionEnd RPC.
+func (c *KeyProtectionBuilderClient) SetKeyValidityForConsumptionEnd(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetKeyValidityForConsumptionEnd(ctx, &pb.SetKeyValidityForConsumptionEndRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetKeyValidityForOriginationEnd calls the SetKeyValidityForOriginationEnd RPC.
+func (c *KeyProtectionBuilderClient) SetKeyValidityForOriginationEnd(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetKeyValidityForOriginationEnd(ctx, &pb.SetKeyValidityForOriginationEndRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetKeyValidityStart calls the SetKeyValidityStart RPC.
+func (c *KeyProtectionBuilderClient) SetKeyValidityStart(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetKeyValidityStart(ctx, &pb.SetKeyValidityStartRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMaxUsageCount calls the SetMaxUsageCount RPC.
+func (c *KeyProtectionBuilderClient) SetMaxUsageCount(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetMaxUsageCount(ctx, &pb.SetMaxUsageCountRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMgf1Digests calls the SetMgf1Digests RPC.
+func (c *KeyProtectionBuilderClient) SetMgf1Digests(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetMgf1Digests(ctx, &pb.SetMgf1DigestsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRandomizedEncryptionRequired calls the SetRandomizedEncryptionRequired RPC.
+func (c *KeyProtectionBuilderClient) SetRandomizedEncryptionRequired(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetRandomizedEncryptionRequired(ctx, &pb.SetRandomizedEncryptionRequiredRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSignaturePaddings calls the SetSignaturePaddings RPC.
+func (c *KeyProtectionBuilderClient) SetSignaturePaddings(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetSignaturePaddings(ctx, &pb.SetSignaturePaddingsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetUnlockedDeviceRequired calls the SetUnlockedDeviceRequired RPC.
+func (c *KeyProtectionBuilderClient) SetUnlockedDeviceRequired(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetUnlockedDeviceRequired(ctx, &pb.SetUnlockedDeviceRequiredRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetUserAuthenticationParameters calls the SetUserAuthenticationParameters RPC.
+func (c *KeyProtectionBuilderClient) SetUserAuthenticationParameters(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.SetUserAuthenticationParameters(ctx, &pb.SetUserAuthenticationParametersRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetUserAuthenticationRequired calls the SetUserAuthenticationRequired RPC.
+func (c *KeyProtectionBuilderClient) SetUserAuthenticationRequired(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetUserAuthenticationRequired(ctx, &pb.SetUserAuthenticationRequiredRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetUserAuthenticationValidWhileOnBody calls the SetUserAuthenticationValidWhileOnBody RPC.
+func (c *KeyProtectionBuilderClient) SetUserAuthenticationValidWhileOnBody(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetUserAuthenticationValidWhileOnBody(ctx, &pb.SetUserAuthenticationValidWhileOnBodyRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetUserAuthenticationValidityDurationSeconds calls the SetUserAuthenticationValidityDurationSeconds RPC.
+func (c *KeyProtectionBuilderClient) SetUserAuthenticationValidityDurationSeconds(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetUserAuthenticationValidityDurationSeconds(ctx, &pb.SetUserAuthenticationValidityDurationSecondsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetUserConfirmationRequired calls the SetUserConfirmationRequired RPC.
+func (c *KeyProtectionBuilderClient) SetUserConfirmationRequired(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetUserConfirmationRequired(ctx, &pb.SetUserConfirmationRequiredRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetUserPresenceRequired calls the SetUserPresenceRequired RPC.
+func (c *KeyProtectionBuilderClient) SetUserPresenceRequired(ctx context.Context, arg0 bool) (int64, error) {
 	resp, err := c.svc.SetUserPresenceRequired(ctx, &pb.SetUserPresenceRequiredRequest{
 		Arg0: arg0,
 	})

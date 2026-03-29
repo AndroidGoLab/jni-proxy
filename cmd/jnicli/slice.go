@@ -12,430 +12,6 @@ var sliceCmd = &cobra.Command{
 	Short: "slice service operations",
 }
 
-var sliceItemCmd = &cobra.Command{
-	Use:   "item",
-	Short: "ItemService operations",
-}
-
-var sliceItemDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewItemServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sliceItemGetActionCmd = &cobra.Command{
-	Use:   "get-action",
-	Short: "GetAction RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewItemServiceClient(grpcConn)
-		req := &pb.GetActionRequest{}
-		resp, err := client.GetAction(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sliceItemGetBundleCmd = &cobra.Command{
-	Use:   "get-bundle",
-	Short: "GetBundle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewItemServiceClient(grpcConn)
-		req := &pb.GetBundleRequest{}
-		resp, err := client.GetBundle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sliceItemGetFormatCmd = &cobra.Command{
-	Use:   "get-format",
-	Short: "GetFormat RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewItemServiceClient(grpcConn)
-		req := &pb.GetFormatRequest{}
-		resp, err := client.GetFormat(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sliceItemGetIconCmd = &cobra.Command{
-	Use:   "get-icon",
-	Short: "GetIcon RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewItemServiceClient(grpcConn)
-		req := &pb.GetIconRequest{}
-		resp, err := client.GetIcon(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sliceItemGetIntCmd = &cobra.Command{
-	Use:   "get-int",
-	Short: "GetInt RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewItemServiceClient(grpcConn)
-		req := &pb.GetIntRequest{}
-		resp, err := client.GetInt(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sliceItemGetLongCmd = &cobra.Command{
-	Use:   "get-long",
-	Short: "GetLong RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewItemServiceClient(grpcConn)
-		req := &pb.GetLongRequest{}
-		resp, err := client.GetLong(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sliceItemGetRemoteInputCmd = &cobra.Command{
-	Use:   "get-remote-input",
-	Short: "GetRemoteInput RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewItemServiceClient(grpcConn)
-		req := &pb.GetRemoteInputRequest{}
-		resp, err := client.GetRemoteInput(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sliceItemGetSliceCmd = &cobra.Command{
-	Use:   "get-slice",
-	Short: "GetSlice RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewItemServiceClient(grpcConn)
-		req := &pb.GetSliceRequest{}
-		resp, err := client.GetSlice(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sliceItemGetSubTypeCmd = &cobra.Command{
-	Use:   "get-sub-type",
-	Short: "GetSubType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewItemServiceClient(grpcConn)
-		req := &pb.GetSubTypeRequest{}
-		resp, err := client.GetSubType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sliceItemGetTextCmd = &cobra.Command{
-	Use:   "get-text",
-	Short: "GetText RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewItemServiceClient(grpcConn)
-		req := &pb.GetTextRequest{}
-		resp, err := client.GetText(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sliceItemHasHintCmd = &cobra.Command{
-	Use:   "has-hint",
-	Short: "HasHint RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewItemServiceClient(grpcConn)
-		req := &pb.HasHintRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.HasHint(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sliceItemWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewItemServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sliceManagerCmd = &cobra.Command{
-	Use:   "manager",
-	Short: "ManagerService operations",
-}
-
-var sliceManagerCheckSlicePermissionCmd = &cobra.Command{
-	Use:   "check-slice-permission",
-	Short: "CheckSlicePermission RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.CheckSlicePermissionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.CheckSlicePermission(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sliceManagerGrantSlicePermissionCmd = &cobra.Command{
-	Use:   "grant-slice-permission",
-	Short: "GrantSlicePermission RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GrantSlicePermissionRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GrantSlicePermission(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sliceManagerMapIntentToUriCmd = &cobra.Command{
-	Use:   "map-intent-to-uri",
-	Short: "MapIntentToUri RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.MapIntentToUriRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.MapIntentToUri(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sliceManagerRevokeSlicePermissionCmd = &cobra.Command{
-	Use:   "revoke-slice-permission",
-	Short: "RevokeSlicePermission RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.RevokeSlicePermissionRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.RevokeSlicePermission(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sliceManagerUnpinSliceCmd = &cobra.Command{
-	Use:   "unpin-slice",
-	Short: "UnpinSlice RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.UnpinSliceRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UnpinSlice(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sliceMetricsCmd = &cobra.Command{
-	Use:   "metrics",
-	Short: "MetricsService operations",
-}
-
-var sliceMetricsNewMetricsCmd = &cobra.Command{
-	Use:   "new-metrics",
-	Short: "NewMetrics RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMetricsServiceClient(grpcConn)
-		req := &pb.NewMetricsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewMetrics(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sliceMetricsLogHiddenCmd = &cobra.Command{
-	Use:   "log-hidden",
-	Short: "LogHidden RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMetricsServiceClient(grpcConn)
-		req := &pb.LogHiddenRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.LogHidden(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sliceMetricsLogTouchCmd = &cobra.Command{
-	Use:   "log-touch",
-	Short: "LogTouch RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMetricsServiceClient(grpcConn)
-		req := &pb.LogTouchRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.LogTouch(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sliceMetricsLogVisibleCmd = &cobra.Command{
-	Use:   "log-visible",
-	Short: "LogVisible RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMetricsServiceClient(grpcConn)
-		req := &pb.LogVisibleRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.LogVisible(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var sliceSpecCmd = &cobra.Command{
 	Use:   "spec",
 	Short: "SpecService operations",
@@ -492,7 +68,7 @@ var sliceSpecDescribeContentsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewSpecServiceClient(grpcConn)
-		req := &pb.SpecDescribeContentsRequest{}
+		req := &pb.DescribeContentsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -590,7 +166,7 @@ var sliceSpecWriteToParcelCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewSpecServiceClient(grpcConn)
-		req := &pb.SpecWriteToParcelRequest{}
+		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -601,6 +177,232 @@ var sliceSpecWriteToParcelCmd = &cobra.Command{
 			req.Arg1 = v
 		}
 		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sliceSliceCmd = &cobra.Command{
+	Use:   "slice",
+	Short: "SliceService operations",
+}
+
+var sliceSliceDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSliceServiceClient(grpcConn)
+		req := &pb.SliceDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sliceSliceGetHintsCmd = &cobra.Command{
+	Use:   "get-hints",
+	Short: "GetHints RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSliceServiceClient(grpcConn)
+		req := &pb.GetHintsRequest{}
+		resp, err := client.GetHints(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sliceSliceGetItemsCmd = &cobra.Command{
+	Use:   "get-items",
+	Short: "GetItems RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSliceServiceClient(grpcConn)
+		req := &pb.GetItemsRequest{}
+		resp, err := client.GetItems(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sliceSliceGetSpecCmd = &cobra.Command{
+	Use:   "get-spec",
+	Short: "GetSpec RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSliceServiceClient(grpcConn)
+		req := &pb.GetSpecRequest{}
+		resp, err := client.GetSpec(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sliceSliceGetUriCmd = &cobra.Command{
+	Use:   "get-uri",
+	Short: "GetUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSliceServiceClient(grpcConn)
+		req := &pb.GetUriRequest{}
+		resp, err := client.GetUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sliceSliceIsCallerNeededCmd = &cobra.Command{
+	Use:   "is-caller-needed",
+	Short: "IsCallerNeeded RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSliceServiceClient(grpcConn)
+		req := &pb.IsCallerNeededRequest{}
+		resp, err := client.IsCallerNeeded(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sliceSliceToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSliceServiceClient(grpcConn)
+		req := &pb.SliceToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sliceSliceWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSliceServiceClient(grpcConn)
+		req := &pb.SliceWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sliceBuilderCmd = &cobra.Command{
+	Use:   "builder",
+	Short: "BuilderService operations",
+}
+
+var sliceBuilderAddActionCmd = &cobra.Command{
+	Use:   "add-action",
+	Short: "AddAction RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.AddActionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.AddAction(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sliceBuilderAddSubSliceCmd = &cobra.Command{
+	Use:   "add-sub-slice",
+	Short: "AddSubSlice RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.AddSubSliceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AddSubSlice(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sliceBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sliceBuilderSetCallerNeededCmd = &cobra.Command{
+	Use:   "set-caller-needed",
+	Short: "SetCallerNeeded RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBuilderServiceClient(grpcConn)
+		req := &pb.SetCallerNeededRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCallerNeeded(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -738,6 +540,25 @@ var sliceProviderOnCreatePermissionRequestCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.OnCreatePermissionRequest(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sliceProviderOnGetSliceDescendantsCmd = &cobra.Command{
+	Use:   "on-get-slice-descendants",
+	Short: "OnGetSliceDescendants RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewProviderServiceClient(grpcConn)
+		req := &pb.OnGetSliceDescendantsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnGetSliceDescendants(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -923,19 +744,19 @@ var sliceProviderUpdateCmd = &cobra.Command{
 	},
 }
 
-var sliceSliceCmd = &cobra.Command{
-	Use:   "slice",
-	Short: "SliceService operations",
+var sliceItemCmd = &cobra.Command{
+	Use:   "item",
+	Short: "ItemService operations",
 }
 
-var sliceSliceDescribeContentsCmd = &cobra.Command{
+var sliceItemDescribeContentsCmd = &cobra.Command{
 	Use:   "describe-contents",
 	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSliceServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
+		client := pb.NewItemServiceClient(grpcConn)
+		req := &pb.ItemDescribeContentsRequest{}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
@@ -944,15 +765,15 @@ var sliceSliceDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var sliceSliceGetSpecCmd = &cobra.Command{
-	Use:   "get-spec",
-	Short: "GetSpec RPC",
+var sliceItemGetActionCmd = &cobra.Command{
+	Use:   "get-action",
+	Short: "GetAction RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSliceServiceClient(grpcConn)
-		req := &pb.GetSpecRequest{}
-		resp, err := client.GetSpec(ctx, req)
+		client := pb.NewItemServiceClient(grpcConn)
+		req := &pb.GetActionRequest{}
+		resp, err := client.GetAction(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -960,15 +781,15 @@ var sliceSliceGetSpecCmd = &cobra.Command{
 	},
 }
 
-var sliceSliceGetUriCmd = &cobra.Command{
-	Use:   "get-uri",
-	Short: "GetUri RPC",
+var sliceItemGetBundleCmd = &cobra.Command{
+	Use:   "get-bundle",
+	Short: "GetBundle RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSliceServiceClient(grpcConn)
-		req := &pb.GetUriRequest{}
-		resp, err := client.GetUri(ctx, req)
+		client := pb.NewItemServiceClient(grpcConn)
+		req := &pb.GetBundleRequest{}
+		resp, err := client.GetBundle(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -976,15 +797,15 @@ var sliceSliceGetUriCmd = &cobra.Command{
 	},
 }
 
-var sliceSliceIsCallerNeededCmd = &cobra.Command{
-	Use:   "is-caller-needed",
-	Short: "IsCallerNeeded RPC",
+var sliceItemGetFormatCmd = &cobra.Command{
+	Use:   "get-format",
+	Short: "GetFormat RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSliceServiceClient(grpcConn)
-		req := &pb.IsCallerNeededRequest{}
-		resp, err := client.IsCallerNeeded(ctx, req)
+		client := pb.NewItemServiceClient(grpcConn)
+		req := &pb.GetFormatRequest{}
+		resp, err := client.GetFormat(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -992,15 +813,15 @@ var sliceSliceIsCallerNeededCmd = &cobra.Command{
 	},
 }
 
-var sliceSliceToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
+var sliceItemGetHintsCmd = &cobra.Command{
+	Use:   "get-hints",
+	Short: "GetHints RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSliceServiceClient(grpcConn)
-		req := &pb.SliceToStringRequest{}
-		resp, err := client.ToString(ctx, req)
+		client := pb.NewItemServiceClient(grpcConn)
+		req := &pb.GetHintsRequest{}
+		resp, err := client.GetHints(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1008,14 +829,145 @@ var sliceSliceToStringCmd = &cobra.Command{
 	},
 }
 
-var sliceSliceWriteToParcelCmd = &cobra.Command{
+var sliceItemGetIconCmd = &cobra.Command{
+	Use:   "get-icon",
+	Short: "GetIcon RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewItemServiceClient(grpcConn)
+		req := &pb.GetIconRequest{}
+		resp, err := client.GetIcon(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sliceItemGetIntCmd = &cobra.Command{
+	Use:   "get-int",
+	Short: "GetInt RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewItemServiceClient(grpcConn)
+		req := &pb.GetIntRequest{}
+		resp, err := client.GetInt(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sliceItemGetLongCmd = &cobra.Command{
+	Use:   "get-long",
+	Short: "GetLong RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewItemServiceClient(grpcConn)
+		req := &pb.GetLongRequest{}
+		resp, err := client.GetLong(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sliceItemGetRemoteInputCmd = &cobra.Command{
+	Use:   "get-remote-input",
+	Short: "GetRemoteInput RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewItemServiceClient(grpcConn)
+		req := &pb.GetRemoteInputRequest{}
+		resp, err := client.GetRemoteInput(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sliceItemGetSliceCmd = &cobra.Command{
+	Use:   "get-slice",
+	Short: "GetSlice RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewItemServiceClient(grpcConn)
+		req := &pb.GetSliceRequest{}
+		resp, err := client.GetSlice(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sliceItemGetSubTypeCmd = &cobra.Command{
+	Use:   "get-sub-type",
+	Short: "GetSubType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewItemServiceClient(grpcConn)
+		req := &pb.GetSubTypeRequest{}
+		resp, err := client.GetSubType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sliceItemGetTextCmd = &cobra.Command{
+	Use:   "get-text",
+	Short: "GetText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewItemServiceClient(grpcConn)
+		req := &pb.GetTextRequest{}
+		resp, err := client.GetText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sliceItemHasHintCmd = &cobra.Command{
+	Use:   "has-hint",
+	Short: "HasHint RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewItemServiceClient(grpcConn)
+		req := &pb.HasHintRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.HasHint(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sliceItemWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSliceServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
+		client := pb.NewItemServiceClient(grpcConn)
+		req := &pb.ItemWriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -1030,29 +982,26 @@ var sliceSliceWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var sliceBuilderCmd = &cobra.Command{
-	Use:   "builder",
-	Short: "BuilderService operations",
+var sliceMetricsCmd = &cobra.Command{
+	Use:   "metrics",
+	Short: "MetricsService operations",
 }
 
-var sliceBuilderAddActionCmd = &cobra.Command{
-	Use:   "add-action",
-	Short: "AddAction RPC",
+var sliceMetricsNewMetricsCmd = &cobra.Command{
+	Use:   "new-metrics",
+	Short: "NewMetrics RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBuilderServiceClient(grpcConn)
-		req := &pb.AddActionRequest{}
+		client := pb.NewMetricsServiceClient(grpcConn)
+		req := &pb.NewMetricsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.AddAction(ctx, req)
+		resp, err := client.NewMetrics(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1060,21 +1009,92 @@ var sliceBuilderAddActionCmd = &cobra.Command{
 	},
 }
 
-var sliceBuilderAddSubSliceCmd = &cobra.Command{
-	Use:   "add-sub-slice",
-	Short: "AddSubSlice RPC",
+var sliceMetricsLogHiddenCmd = &cobra.Command{
+	Use:   "log-hidden",
+	Short: "LogHidden RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBuilderServiceClient(grpcConn)
-		req := &pb.AddSubSliceRequest{}
+		client := pb.NewMetricsServiceClient(grpcConn)
+		req := &pb.LogHiddenRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.LogHidden(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sliceMetricsLogTouchCmd = &cobra.Command{
+	Use:   "log-touch",
+	Short: "LogTouch RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMetricsServiceClient(grpcConn)
+		req := &pb.LogTouchRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.LogTouch(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sliceMetricsLogVisibleCmd = &cobra.Command{
+	Use:   "log-visible",
+	Short: "LogVisible RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMetricsServiceClient(grpcConn)
+		req := &pb.LogVisibleRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.LogVisible(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sliceManagerCmd = &cobra.Command{
+	Use:   "manager",
+	Short: "ManagerService operations",
+}
+
+var sliceManagerCheckSlicePermissionCmd = &cobra.Command{
+	Use:   "check-slice-permission",
+	Short: "CheckSlicePermission RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.CheckSlicePermissionRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.AddSubSlice(ctx, req)
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.CheckSlicePermission(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1082,15 +1102,15 @@ var sliceBuilderAddSubSliceCmd = &cobra.Command{
 	},
 }
 
-var sliceBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
+var sliceManagerGetPinnedSlicesCmd = &cobra.Command{
+	Use:   "get-pinned-slices",
+	Short: "GetPinnedSlices RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetPinnedSlicesRequest{}
+		resp, err := client.GetPinnedSlices(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1098,18 +1118,119 @@ var sliceBuilderBuildCmd = &cobra.Command{
 	},
 }
 
-var sliceBuilderSetCallerNeededCmd = &cobra.Command{
-	Use:   "set-caller-needed",
-	Short: "SetCallerNeeded RPC",
+var sliceManagerGetPinnedSpecsCmd = &cobra.Command{
+	Use:   "get-pinned-specs",
+	Short: "GetPinnedSpecs RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBuilderServiceClient(grpcConn)
-		req := &pb.SetCallerNeededRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetPinnedSpecsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetCallerNeeded(ctx, req)
+		resp, err := client.GetPinnedSpecs(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sliceManagerGetSliceDescendantsCmd = &cobra.Command{
+	Use:   "get-slice-descendants",
+	Short: "GetSliceDescendants RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetSliceDescendantsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetSliceDescendants(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sliceManagerGrantSlicePermissionCmd = &cobra.Command{
+	Use:   "grant-slice-permission",
+	Short: "GrantSlicePermission RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GrantSlicePermissionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GrantSlicePermission(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sliceManagerMapIntentToUriCmd = &cobra.Command{
+	Use:   "map-intent-to-uri",
+	Short: "MapIntentToUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.MapIntentToUriRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.MapIntentToUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sliceManagerRevokeSlicePermissionCmd = &cobra.Command{
+	Use:   "revoke-slice-permission",
+	Short: "RevokeSlicePermission RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.RevokeSlicePermissionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.RevokeSlicePermission(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sliceManagerUnpinSliceCmd = &cobra.Command{
+	Use:   "unpin-slice",
+	Short: "UnpinSlice RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.UnpinSliceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UnpinSlice(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1118,50 +1239,6 @@ var sliceBuilderSetCallerNeededCmd = &cobra.Command{
 }
 
 func init() {
-	sliceItemCmd.AddCommand(sliceItemDescribeContentsCmd)
-	sliceItemCmd.AddCommand(sliceItemGetActionCmd)
-	sliceItemCmd.AddCommand(sliceItemGetBundleCmd)
-	sliceItemCmd.AddCommand(sliceItemGetFormatCmd)
-	sliceItemCmd.AddCommand(sliceItemGetIconCmd)
-	sliceItemCmd.AddCommand(sliceItemGetIntCmd)
-	sliceItemCmd.AddCommand(sliceItemGetLongCmd)
-	sliceItemCmd.AddCommand(sliceItemGetRemoteInputCmd)
-	sliceItemCmd.AddCommand(sliceItemGetSliceCmd)
-	sliceItemCmd.AddCommand(sliceItemGetSubTypeCmd)
-	sliceItemCmd.AddCommand(sliceItemGetTextCmd)
-	sliceItemHasHintCmd.Flags().String("arg0", "", "arg0 (string)")
-	sliceItemCmd.AddCommand(sliceItemHasHintCmd)
-	sliceItemWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sliceItemWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	sliceItemCmd.AddCommand(sliceItemWriteToParcelCmd)
-	sliceCmd.AddCommand(sliceItemCmd)
-	sliceManagerCheckSlicePermissionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sliceManagerCheckSlicePermissionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	sliceManagerCheckSlicePermissionCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	sliceManagerCmd.AddCommand(sliceManagerCheckSlicePermissionCmd)
-	sliceManagerGrantSlicePermissionCmd.Flags().String("arg0", "", "arg0 (string)")
-	sliceManagerGrantSlicePermissionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	sliceManagerCmd.AddCommand(sliceManagerGrantSlicePermissionCmd)
-	sliceManagerMapIntentToUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sliceManagerCmd.AddCommand(sliceManagerMapIntentToUriCmd)
-	sliceManagerRevokeSlicePermissionCmd.Flags().String("arg0", "", "arg0 (string)")
-	sliceManagerRevokeSlicePermissionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	sliceManagerCmd.AddCommand(sliceManagerRevokeSlicePermissionCmd)
-	sliceManagerUnpinSliceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sliceManagerCmd.AddCommand(sliceManagerUnpinSliceCmd)
-	sliceCmd.AddCommand(sliceManagerCmd)
-	sliceMetricsNewMetricsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sliceMetricsNewMetricsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	sliceMetricsCmd.AddCommand(sliceMetricsNewMetricsCmd)
-	sliceMetricsLogHiddenCmd.Flags().Int64("handle", 0, "handle (int64)")
-	sliceMetricsCmd.AddCommand(sliceMetricsLogHiddenCmd)
-	sliceMetricsLogTouchCmd.Flags().Int64("handle", 0, "handle (int64)")
-	sliceMetricsLogTouchCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	sliceMetricsLogTouchCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	sliceMetricsCmd.AddCommand(sliceMetricsLogTouchCmd)
-	sliceMetricsLogVisibleCmd.Flags().Int64("handle", 0, "handle (int64)")
-	sliceMetricsCmd.AddCommand(sliceMetricsLogVisibleCmd)
-	sliceCmd.AddCommand(sliceMetricsCmd)
 	sliceSpecNewSpecCmd.Flags().String("arg0", "", "arg0 (string)")
 	sliceSpecNewSpecCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	sliceSpecCmd.AddCommand(sliceSpecNewSpecCmd)
@@ -1184,6 +1261,28 @@ func init() {
 	sliceSpecWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	sliceSpecCmd.AddCommand(sliceSpecWriteToParcelCmd)
 	sliceCmd.AddCommand(sliceSpecCmd)
+	sliceSliceCmd.AddCommand(sliceSliceDescribeContentsCmd)
+	sliceSliceCmd.AddCommand(sliceSliceGetHintsCmd)
+	sliceSliceCmd.AddCommand(sliceSliceGetItemsCmd)
+	sliceSliceCmd.AddCommand(sliceSliceGetSpecCmd)
+	sliceSliceCmd.AddCommand(sliceSliceGetUriCmd)
+	sliceSliceCmd.AddCommand(sliceSliceIsCallerNeededCmd)
+	sliceSliceCmd.AddCommand(sliceSliceToStringCmd)
+	sliceSliceWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sliceSliceWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	sliceSliceCmd.AddCommand(sliceSliceWriteToParcelCmd)
+	sliceCmd.AddCommand(sliceSliceCmd)
+	sliceBuilderAddActionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sliceBuilderAddActionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	sliceBuilderAddActionCmd.Flags().String("arg2", "", "arg2 (string)")
+	sliceBuilderCmd.AddCommand(sliceBuilderAddActionCmd)
+	sliceBuilderAddSubSliceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sliceBuilderAddSubSliceCmd.Flags().String("arg1", "", "arg1 (string)")
+	sliceBuilderCmd.AddCommand(sliceBuilderAddSubSliceCmd)
+	sliceBuilderCmd.AddCommand(sliceBuilderBuildCmd)
+	sliceBuilderSetCallerNeededCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	sliceBuilderCmd.AddCommand(sliceBuilderSetCallerNeededCmd)
+	sliceCmd.AddCommand(sliceBuilderCmd)
 	sliceProviderAttachInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	sliceProviderAttachInfoCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	sliceProviderCmd.AddCommand(sliceProviderAttachInfoCmd)
@@ -1202,6 +1301,8 @@ func init() {
 	sliceProviderCmd.AddCommand(sliceProviderInsertCmd)
 	sliceProviderOnCreatePermissionRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	sliceProviderCmd.AddCommand(sliceProviderOnCreatePermissionRequestCmd)
+	sliceProviderOnGetSliceDescendantsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sliceProviderCmd.AddCommand(sliceProviderOnGetSliceDescendantsCmd)
 	sliceProviderOnMapIntentToUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	sliceProviderCmd.AddCommand(sliceProviderOnMapIntentToUriCmd)
 	sliceProviderOnSlicePinnedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -1232,25 +1333,55 @@ func init() {
 	sliceProviderUpdateCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
 	sliceProviderCmd.AddCommand(sliceProviderUpdateCmd)
 	sliceCmd.AddCommand(sliceProviderCmd)
-	sliceSliceCmd.AddCommand(sliceSliceDescribeContentsCmd)
-	sliceSliceCmd.AddCommand(sliceSliceGetSpecCmd)
-	sliceSliceCmd.AddCommand(sliceSliceGetUriCmd)
-	sliceSliceCmd.AddCommand(sliceSliceIsCallerNeededCmd)
-	sliceSliceCmd.AddCommand(sliceSliceToStringCmd)
-	sliceSliceWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sliceSliceWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	sliceSliceCmd.AddCommand(sliceSliceWriteToParcelCmd)
-	sliceCmd.AddCommand(sliceSliceCmd)
-	sliceBuilderAddActionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sliceBuilderAddActionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	sliceBuilderAddActionCmd.Flags().String("arg2", "", "arg2 (string)")
-	sliceBuilderCmd.AddCommand(sliceBuilderAddActionCmd)
-	sliceBuilderAddSubSliceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sliceBuilderAddSubSliceCmd.Flags().String("arg1", "", "arg1 (string)")
-	sliceBuilderCmd.AddCommand(sliceBuilderAddSubSliceCmd)
-	sliceBuilderCmd.AddCommand(sliceBuilderBuildCmd)
-	sliceBuilderSetCallerNeededCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	sliceBuilderCmd.AddCommand(sliceBuilderSetCallerNeededCmd)
-	sliceCmd.AddCommand(sliceBuilderCmd)
+	sliceItemCmd.AddCommand(sliceItemDescribeContentsCmd)
+	sliceItemCmd.AddCommand(sliceItemGetActionCmd)
+	sliceItemCmd.AddCommand(sliceItemGetBundleCmd)
+	sliceItemCmd.AddCommand(sliceItemGetFormatCmd)
+	sliceItemCmd.AddCommand(sliceItemGetHintsCmd)
+	sliceItemCmd.AddCommand(sliceItemGetIconCmd)
+	sliceItemCmd.AddCommand(sliceItemGetIntCmd)
+	sliceItemCmd.AddCommand(sliceItemGetLongCmd)
+	sliceItemCmd.AddCommand(sliceItemGetRemoteInputCmd)
+	sliceItemCmd.AddCommand(sliceItemGetSliceCmd)
+	sliceItemCmd.AddCommand(sliceItemGetSubTypeCmd)
+	sliceItemCmd.AddCommand(sliceItemGetTextCmd)
+	sliceItemHasHintCmd.Flags().String("arg0", "", "arg0 (string)")
+	sliceItemCmd.AddCommand(sliceItemHasHintCmd)
+	sliceItemWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sliceItemWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	sliceItemCmd.AddCommand(sliceItemWriteToParcelCmd)
+	sliceCmd.AddCommand(sliceItemCmd)
+	sliceMetricsNewMetricsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sliceMetricsNewMetricsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	sliceMetricsCmd.AddCommand(sliceMetricsNewMetricsCmd)
+	sliceMetricsLogHiddenCmd.Flags().Int64("handle", 0, "handle (int64)")
+	sliceMetricsCmd.AddCommand(sliceMetricsLogHiddenCmd)
+	sliceMetricsLogTouchCmd.Flags().Int64("handle", 0, "handle (int64)")
+	sliceMetricsLogTouchCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	sliceMetricsLogTouchCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	sliceMetricsCmd.AddCommand(sliceMetricsLogTouchCmd)
+	sliceMetricsLogVisibleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	sliceMetricsCmd.AddCommand(sliceMetricsLogVisibleCmd)
+	sliceCmd.AddCommand(sliceMetricsCmd)
+	sliceManagerCheckSlicePermissionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sliceManagerCheckSlicePermissionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	sliceManagerCheckSlicePermissionCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	sliceManagerCmd.AddCommand(sliceManagerCheckSlicePermissionCmd)
+	sliceManagerCmd.AddCommand(sliceManagerGetPinnedSlicesCmd)
+	sliceManagerGetPinnedSpecsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sliceManagerCmd.AddCommand(sliceManagerGetPinnedSpecsCmd)
+	sliceManagerGetSliceDescendantsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sliceManagerCmd.AddCommand(sliceManagerGetSliceDescendantsCmd)
+	sliceManagerGrantSlicePermissionCmd.Flags().String("arg0", "", "arg0 (string)")
+	sliceManagerGrantSlicePermissionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	sliceManagerCmd.AddCommand(sliceManagerGrantSlicePermissionCmd)
+	sliceManagerMapIntentToUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sliceManagerCmd.AddCommand(sliceManagerMapIntentToUriCmd)
+	sliceManagerRevokeSlicePermissionCmd.Flags().String("arg0", "", "arg0 (string)")
+	sliceManagerRevokeSlicePermissionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	sliceManagerCmd.AddCommand(sliceManagerRevokeSlicePermissionCmd)
+	sliceManagerUnpinSliceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sliceManagerCmd.AddCommand(sliceManagerUnpinSliceCmd)
+	sliceCmd.AddCommand(sliceManagerCmd)
 	rootCmd.AddCommand(sliceCmd)
 }

@@ -518,6 +518,29 @@ func (c *ContractSimAccountClient) WriteToParcel(ctx context.Context, arg0 int64
 	return err
 }
 
+// ContractSimContactsClient wraps the gRPC ContractSimContactsService client.
+type ContractSimContactsClient struct {
+	svc pb.ContractSimContactsServiceClient
+}
+
+// NewContractSimContactsClient creates a new ContractSimContacts client.
+func NewContractSimContactsClient(cc grpc.ClientConnInterface) *ContractSimContactsClient {
+	return &ContractSimContactsClient{
+		svc: pb.NewContractSimContactsServiceClient(cc),
+	}
+}
+
+// GetSimAccounts calls the GetSimAccounts RPC.
+func (c *ContractSimContactsClient) GetSimAccounts(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetSimAccounts(ctx, &pb.GetSimAccountsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // ContractStatusUpdatesClient wraps the gRPC ContractStatusUpdatesService client.
 type ContractStatusUpdatesClient struct {
 	svc pb.ContractStatusUpdatesServiceClient

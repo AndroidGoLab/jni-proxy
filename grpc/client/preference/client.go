@@ -190,317 +190,6 @@ func (c *FragmentOnPreferenceStartFragmentCallbackClient) OnPreferenceStartFragm
 	return resp.GetResult(), nil
 }
 
-// MultiSelectListPreferenceClient wraps the gRPC MultiSelectListPreferenceService client.
-type MultiSelectListPreferenceClient struct {
-	svc pb.MultiSelectListPreferenceServiceClient
-}
-
-// NewMultiSelectListPreferenceClient creates a new MultiSelectListPreference client.
-func NewMultiSelectListPreferenceClient(cc grpc.ClientConnInterface) *MultiSelectListPreferenceClient {
-	return &MultiSelectListPreferenceClient{
-		svc: pb.NewMultiSelectListPreferenceServiceClient(cc),
-	}
-}
-
-// FindIndexOfValue calls the FindIndexOfValue RPC.
-func (c *MultiSelectListPreferenceClient) FindIndexOfValue(ctx context.Context, handle int64, arg0 string) (int32, error) {
-	resp, err := c.svc.FindIndexOfValue(ctx, &pb.FindIndexOfValueRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetEntries calls the GetEntries RPC.
-func (c *MultiSelectListPreferenceClient) GetEntries(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetEntries(ctx, &pb.GetEntriesRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetEntryValues calls the GetEntryValues RPC.
-func (c *MultiSelectListPreferenceClient) GetEntryValues(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetEntryValues(ctx, &pb.GetEntryValuesRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetEntries1 calls the SetEntries1 RPC.
-func (c *MultiSelectListPreferenceClient) SetEntries1(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetEntries1(ctx, &pb.SetEntries1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetEntries1_1 calls the SetEntries1_1 RPC.
-func (c *MultiSelectListPreferenceClient) SetEntries1_1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetEntries1_1(ctx, &pb.SetEntries1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetEntryValues1 calls the SetEntryValues1 RPC.
-func (c *MultiSelectListPreferenceClient) SetEntryValues1(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetEntryValues1(ctx, &pb.SetEntryValues1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetEntryValues1_1 calls the SetEntryValues1_1 RPC.
-func (c *MultiSelectListPreferenceClient) SetEntryValues1_1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetEntryValues1_1(ctx, &pb.SetEntryValues1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// ManagerClient wraps the gRPC ManagerService client.
-type ManagerClient struct {
-	svc pb.ManagerServiceClient
-}
-
-// NewManagerClient creates a new Manager client.
-func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
-	return &ManagerClient{
-		svc: pb.NewManagerServiceClient(cc),
-	}
-}
-
-// CreatePreferenceScreen calls the CreatePreferenceScreen RPC.
-func (c *ManagerClient) CreatePreferenceScreen(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.CreatePreferenceScreen(ctx, &pb.CreatePreferenceScreenRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FindPreference calls the FindPreference RPC.
-func (c *ManagerClient) FindPreference(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.FindPreference(ctx, &pb.FindPreferenceRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPreferenceDataStore calls the GetPreferenceDataStore RPC.
-func (c *ManagerClient) GetPreferenceDataStore(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetPreferenceDataStore(ctx, &pb.GetPreferenceDataStoreRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSharedPreferences calls the GetSharedPreferences RPC.
-func (c *ManagerClient) GetSharedPreferences(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSharedPreferences(ctx, &pb.GetSharedPreferencesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSharedPreferencesMode calls the GetSharedPreferencesMode RPC.
-func (c *ManagerClient) GetSharedPreferencesMode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetSharedPreferencesMode(ctx, &pb.GetSharedPreferencesModeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSharedPreferencesName calls the GetSharedPreferencesName RPC.
-func (c *ManagerClient) GetSharedPreferencesName(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetSharedPreferencesName(ctx, &pb.GetSharedPreferencesNameRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsStorageDefault calls the IsStorageDefault RPC.
-func (c *ManagerClient) IsStorageDefault(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsStorageDefault(ctx, &pb.IsStorageDefaultRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsStorageDeviceProtected calls the IsStorageDeviceProtected RPC.
-func (c *ManagerClient) IsStorageDeviceProtected(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsStorageDeviceProtected(ctx, &pb.IsStorageDeviceProtectedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPreferenceDataStore calls the SetPreferenceDataStore RPC.
-func (c *ManagerClient) SetPreferenceDataStore(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetPreferenceDataStore(ctx, &pb.SetPreferenceDataStoreRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetSharedPreferencesMode calls the SetSharedPreferencesMode RPC.
-func (c *ManagerClient) SetSharedPreferencesMode(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetSharedPreferencesMode(ctx, &pb.SetSharedPreferencesModeRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetSharedPreferencesName calls the SetSharedPreferencesName RPC.
-func (c *ManagerClient) SetSharedPreferencesName(ctx context.Context, arg0 string) error {
-	_, err := c.svc.SetSharedPreferencesName(ctx, &pb.SetSharedPreferencesNameRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetStorageDefault calls the SetStorageDefault RPC.
-func (c *ManagerClient) SetStorageDefault(ctx context.Context) error {
-	_, err := c.svc.SetStorageDefault(ctx, &pb.SetStorageDefaultRequest{})
-	return err
-}
-
-// SetStorageDeviceProtected calls the SetStorageDeviceProtected RPC.
-func (c *ManagerClient) SetStorageDeviceProtected(ctx context.Context) error {
-	_, err := c.svc.SetStorageDeviceProtected(ctx, &pb.SetStorageDeviceProtectedRequest{})
-	return err
-}
-
-// GetDefaultSharedPreferences calls the GetDefaultSharedPreferences RPC.
-func (c *ManagerClient) GetDefaultSharedPreferences(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetDefaultSharedPreferences(ctx, &pb.GetDefaultSharedPreferencesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDefaultSharedPreferencesName calls the GetDefaultSharedPreferencesName RPC.
-func (c *ManagerClient) GetDefaultSharedPreferencesName(ctx context.Context, arg0 int64) (string, error) {
-	resp, err := c.svc.GetDefaultSharedPreferencesName(ctx, &pb.GetDefaultSharedPreferencesNameRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetDefaultValues3 calls the SetDefaultValues3 RPC.
-func (c *ManagerClient) SetDefaultValues3(ctx context.Context, arg0 int64, arg1 int32, arg2 bool) error {
-	_, err := c.svc.SetDefaultValues3(ctx, &pb.SetDefaultValues3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// SetDefaultValues5_1 calls the SetDefaultValues5_1 RPC.
-func (c *ManagerClient) SetDefaultValues5_1(ctx context.Context, arg0 int64, arg1 string, arg2 int32, arg3 int32, arg4 bool) error {
-	_, err := c.svc.SetDefaultValues5_1(ctx, &pb.SetDefaultValues5_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// ManagerOnActivityDestroyListenerClient wraps the gRPC ManagerOnActivityDestroyListenerService client.
-type ManagerOnActivityDestroyListenerClient struct {
-	svc pb.ManagerOnActivityDestroyListenerServiceClient
-}
-
-// NewManagerOnActivityDestroyListenerClient creates a new ManagerOnActivityDestroyListener client.
-func NewManagerOnActivityDestroyListenerClient(cc grpc.ClientConnInterface) *ManagerOnActivityDestroyListenerClient {
-	return &ManagerOnActivityDestroyListenerClient{
-		svc: pb.NewManagerOnActivityDestroyListenerServiceClient(cc),
-	}
-}
-
-// OnActivityDestroy calls the OnActivityDestroy RPC.
-func (c *ManagerOnActivityDestroyListenerClient) OnActivityDestroy(ctx context.Context) error {
-	_, err := c.svc.OnActivityDestroy(ctx, &pb.OnActivityDestroyRequest{})
-	return err
-}
-
-// ManagerOnActivityResultListenerClient wraps the gRPC ManagerOnActivityResultListenerService client.
-type ManagerOnActivityResultListenerClient struct {
-	svc pb.ManagerOnActivityResultListenerServiceClient
-}
-
-// NewManagerOnActivityResultListenerClient creates a new ManagerOnActivityResultListener client.
-func NewManagerOnActivityResultListenerClient(cc grpc.ClientConnInterface) *ManagerOnActivityResultListenerClient {
-	return &ManagerOnActivityResultListenerClient{
-		svc: pb.NewManagerOnActivityResultListenerServiceClient(cc),
-	}
-}
-
-// OnActivityResult calls the OnActivityResult RPC.
-func (c *ManagerOnActivityResultListenerClient) OnActivityResult(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) (bool, error) {
-	resp, err := c.svc.OnActivityResult(ctx, &pb.OnActivityResultRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ManagerOnActivityStopListenerClient wraps the gRPC ManagerOnActivityStopListenerService client.
-type ManagerOnActivityStopListenerClient struct {
-	svc pb.ManagerOnActivityStopListenerServiceClient
-}
-
-// NewManagerOnActivityStopListenerClient creates a new ManagerOnActivityStopListener client.
-func NewManagerOnActivityStopListenerClient(cc grpc.ClientConnInterface) *ManagerOnActivityStopListenerClient {
-	return &ManagerOnActivityStopListenerClient{
-		svc: pb.NewManagerOnActivityStopListenerServiceClient(cc),
-	}
-}
-
-// OnActivityStop calls the OnActivityStop RPC.
-func (c *ManagerOnActivityStopListenerClient) OnActivityStop(ctx context.Context) error {
-	_, err := c.svc.OnActivityStop(ctx, &pb.OnActivityStopRequest{})
-	return err
-}
-
 // SwitchPreferenceClient wraps the gRPC SwitchPreferenceService client.
 type SwitchPreferenceClient struct {
 	svc pb.SwitchPreferenceServiceClient
@@ -571,21 +260,33 @@ func (c *SwitchPreferenceClient) SetSwitchTextOn1_1(ctx context.Context, handle 
 	return err
 }
 
-// EditTextPreferenceClient wraps the gRPC EditTextPreferenceService client.
-type EditTextPreferenceClient struct {
-	svc pb.EditTextPreferenceServiceClient
+// PreferenceClient wraps the gRPC PreferenceService client.
+type PreferenceClient struct {
+	svc pb.PreferenceServiceClient
 }
 
-// NewEditTextPreferenceClient creates a new EditTextPreference client.
-func NewEditTextPreferenceClient(cc grpc.ClientConnInterface) *EditTextPreferenceClient {
-	return &EditTextPreferenceClient{
-		svc: pb.NewEditTextPreferenceServiceClient(cc),
+// NewPreferenceClient creates a new Preference client.
+func NewPreferenceClient(cc grpc.ClientConnInterface) *PreferenceClient {
+	return &PreferenceClient{
+		svc: pb.NewPreferenceServiceClient(cc),
 	}
 }
 
-// GetEditText calls the GetEditText RPC.
-func (c *EditTextPreferenceClient) GetEditText(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetEditText(ctx, &pb.GetEditTextRequest{
+// CompareTo1 calls the CompareTo1 RPC.
+func (c *PreferenceClient) CompareTo1(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+	resp, err := c.svc.CompareTo1(ctx, &pb.CompareTo1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetContext calls the GetContext RPC.
+func (c *PreferenceClient) GetContext(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetContext(ctx, &pb.GetContextRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -594,9 +295,9 @@ func (c *EditTextPreferenceClient) GetEditText(ctx context.Context, handle int64
 	return resp.GetResult(), nil
 }
 
-// GetText calls the GetText RPC.
-func (c *EditTextPreferenceClient) GetText(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetText(ctx, &pb.GetTextRequest{
+// GetDependency calls the GetDependency RPC.
+func (c *PreferenceClient) GetDependency(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetDependency(ctx, &pb.GetDependencyRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -605,18 +306,163 @@ func (c *EditTextPreferenceClient) GetText(ctx context.Context, handle int64) (s
 	return resp.GetResult(), nil
 }
 
-// SetText calls the SetText RPC.
-func (c *EditTextPreferenceClient) SetText(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetText(ctx, &pb.SetTextRequest{
+// GetEditor calls the GetEditor RPC.
+func (c *PreferenceClient) GetEditor(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetEditor(ctx, &pb.GetEditorRequest{
 		Handle: handle,
-		Arg0:   arg0,
 	})
-	return err
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
-// ShouldDisableDependents calls the ShouldDisableDependents RPC.
-func (c *EditTextPreferenceClient) ShouldDisableDependents(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.ShouldDisableDependents(ctx, &pb.ShouldDisableDependentsRequest{
+// GetExtras calls the GetExtras RPC.
+func (c *PreferenceClient) GetExtras(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFragment calls the GetFragment RPC.
+func (c *PreferenceClient) GetFragment(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetFragment(ctx, &pb.GetFragmentRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIcon calls the GetIcon RPC.
+func (c *PreferenceClient) GetIcon(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetIcon(ctx, &pb.GetIconRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIntent calls the GetIntent RPC.
+func (c *PreferenceClient) GetIntent(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetIntent(ctx, &pb.GetIntentRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetKey calls the GetKey RPC.
+func (c *PreferenceClient) GetKey(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetKey(ctx, &pb.GetKeyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLayoutResource calls the GetLayoutResource RPC.
+func (c *PreferenceClient) GetLayoutResource(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetLayoutResource(ctx, &pb.GetLayoutResourceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOnPreferenceChangeListener calls the GetOnPreferenceChangeListener RPC.
+func (c *PreferenceClient) GetOnPreferenceChangeListener(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetOnPreferenceChangeListener(ctx, &pb.GetOnPreferenceChangeListenerRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOnPreferenceClickListener calls the GetOnPreferenceClickListener RPC.
+func (c *PreferenceClient) GetOnPreferenceClickListener(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetOnPreferenceClickListener(ctx, &pb.GetOnPreferenceClickListenerRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOrder calls the GetOrder RPC.
+func (c *PreferenceClient) GetOrder(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetOrder(ctx, &pb.GetOrderRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetParent calls the GetParent RPC.
+func (c *PreferenceClient) GetParent(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetParent(ctx, &pb.GetParentRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPreferenceDataStore calls the GetPreferenceDataStore RPC.
+func (c *PreferenceClient) GetPreferenceDataStore(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetPreferenceDataStore(ctx, &pb.GetPreferenceDataStoreRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPreferenceManager calls the GetPreferenceManager RPC.
+func (c *PreferenceClient) GetPreferenceManager(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetPreferenceManager(ctx, &pb.PreferenceGetPreferenceManagerRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSharedPreferences calls the GetSharedPreferences RPC.
+func (c *PreferenceClient) GetSharedPreferences(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSharedPreferences(ctx, &pb.GetSharedPreferencesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetShouldDisableView calls the GetShouldDisableView RPC.
+func (c *PreferenceClient) GetShouldDisableView(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.GetShouldDisableView(ctx, &pb.GetShouldDisableViewRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -625,65 +471,8 @@ func (c *EditTextPreferenceClient) ShouldDisableDependents(ctx context.Context, 
 	return resp.GetResult(), nil
 }
 
-// ListPreferenceClient wraps the gRPC ListPreferenceService client.
-type ListPreferenceClient struct {
-	svc pb.ListPreferenceServiceClient
-}
-
-// NewListPreferenceClient creates a new ListPreference client.
-func NewListPreferenceClient(cc grpc.ClientConnInterface) *ListPreferenceClient {
-	return &ListPreferenceClient{
-		svc: pb.NewListPreferenceServiceClient(cc),
-	}
-}
-
-// FindIndexOfValue calls the FindIndexOfValue RPC.
-func (c *ListPreferenceClient) FindIndexOfValue(ctx context.Context, handle int64, arg0 string) (int32, error) {
-	resp, err := c.svc.FindIndexOfValue(ctx, &pb.FindIndexOfValueRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetEntries calls the GetEntries RPC.
-func (c *ListPreferenceClient) GetEntries(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetEntries(ctx, &pb.GetEntriesRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetEntry calls the GetEntry RPC.
-func (c *ListPreferenceClient) GetEntry(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetEntry(ctx, &pb.GetEntryRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetEntryValues calls the GetEntryValues RPC.
-func (c *ListPreferenceClient) GetEntryValues(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetEntryValues(ctx, &pb.GetEntryValuesRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetSummary calls the GetSummary RPC.
-func (c *ListPreferenceClient) GetSummary(ctx context.Context, handle int64) (int64, error) {
+func (c *PreferenceClient) GetSummary(ctx context.Context, handle int64) (int64, error) {
 	resp, err := c.svc.GetSummary(ctx, &pb.GetSummaryRequest{
 		Handle: handle,
 	})
@@ -693,9 +482,428 @@ func (c *ListPreferenceClient) GetSummary(ctx context.Context, handle int64) (in
 	return resp.GetResult(), nil
 }
 
-// GetValue calls the GetValue RPC.
-func (c *ListPreferenceClient) GetValue(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetValue(ctx, &pb.GetValueRequest{
+// GetTitle calls the GetTitle RPC.
+func (c *PreferenceClient) GetTitle(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTitle(ctx, &pb.GetTitleRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTitleRes calls the GetTitleRes RPC.
+func (c *PreferenceClient) GetTitleRes(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetTitleRes(ctx, &pb.GetTitleResRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetView calls the GetView RPC.
+func (c *PreferenceClient) GetView(ctx context.Context, handle int64, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetView(ctx, &pb.GetViewRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWidgetLayoutResource calls the GetWidgetLayoutResource RPC.
+func (c *PreferenceClient) GetWidgetLayoutResource(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetWidgetLayoutResource(ctx, &pb.GetWidgetLayoutResourceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasKey calls the HasKey RPC.
+func (c *PreferenceClient) HasKey(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasKey(ctx, &pb.HasKeyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsEnabled calls the IsEnabled RPC.
+func (c *PreferenceClient) IsEnabled(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsEnabled(ctx, &pb.IsEnabledRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsIconSpaceReserved calls the IsIconSpaceReserved RPC.
+func (c *PreferenceClient) IsIconSpaceReserved(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsIconSpaceReserved(ctx, &pb.IsIconSpaceReservedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsPersistent calls the IsPersistent RPC.
+func (c *PreferenceClient) IsPersistent(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsPersistent(ctx, &pb.IsPersistentRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRecycleEnabled calls the IsRecycleEnabled RPC.
+func (c *PreferenceClient) IsRecycleEnabled(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsRecycleEnabled(ctx, &pb.IsRecycleEnabledRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSelectable calls the IsSelectable RPC.
+func (c *PreferenceClient) IsSelectable(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsSelectable(ctx, &pb.IsSelectableRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSingleLineTitle calls the IsSingleLineTitle RPC.
+func (c *PreferenceClient) IsSingleLineTitle(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsSingleLineTitle(ctx, &pb.IsSingleLineTitleRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NotifyDependencyChange calls the NotifyDependencyChange RPC.
+func (c *PreferenceClient) NotifyDependencyChange(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.NotifyDependencyChange(ctx, &pb.NotifyDependencyChangeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// OnDependencyChanged calls the OnDependencyChanged RPC.
+func (c *PreferenceClient) OnDependencyChanged(ctx context.Context, handle int64, arg0 int64, arg1 bool) error {
+	_, err := c.svc.OnDependencyChanged(ctx, &pb.OnDependencyChangedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// OnParentChanged calls the OnParentChanged RPC.
+func (c *PreferenceClient) OnParentChanged(ctx context.Context, handle int64, arg0 int64, arg1 bool) error {
+	_, err := c.svc.OnParentChanged(ctx, &pb.OnParentChangedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// PeekExtras calls the PeekExtras RPC.
+func (c *PreferenceClient) PeekExtras(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.PeekExtras(ctx, &pb.PeekExtrasRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RestoreHierarchyState calls the RestoreHierarchyState RPC.
+func (c *PreferenceClient) RestoreHierarchyState(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.RestoreHierarchyState(ctx, &pb.RestoreHierarchyStateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SaveHierarchyState calls the SaveHierarchyState RPC.
+func (c *PreferenceClient) SaveHierarchyState(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SaveHierarchyState(ctx, &pb.SaveHierarchyStateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetDefaultValue calls the SetDefaultValue RPC.
+func (c *PreferenceClient) SetDefaultValue(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetDefaultValue(ctx, &pb.SetDefaultValueRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetDependency calls the SetDependency RPC.
+func (c *PreferenceClient) SetDependency(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetDependency(ctx, &pb.SetDependencyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetEnabled calls the SetEnabled RPC.
+func (c *PreferenceClient) SetEnabled(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetEnabled(ctx, &pb.SetEnabledRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetFragment calls the SetFragment RPC.
+func (c *PreferenceClient) SetFragment(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetFragment(ctx, &pb.SetFragmentRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetIcon1 calls the SetIcon1 RPC.
+func (c *PreferenceClient) SetIcon1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetIcon1(ctx, &pb.SetIcon1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetIcon1_1 calls the SetIcon1_1 RPC.
+func (c *PreferenceClient) SetIcon1_1(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetIcon1_1(ctx, &pb.SetIcon1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetIconSpaceReserved calls the SetIconSpaceReserved RPC.
+func (c *PreferenceClient) SetIconSpaceReserved(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetIconSpaceReserved(ctx, &pb.SetIconSpaceReservedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetIntent calls the SetIntent RPC.
+func (c *PreferenceClient) SetIntent(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetIntent(ctx, &pb.SetIntentRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetKey calls the SetKey RPC.
+func (c *PreferenceClient) SetKey(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetKey(ctx, &pb.SetKeyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetLayoutResource calls the SetLayoutResource RPC.
+func (c *PreferenceClient) SetLayoutResource(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetLayoutResource(ctx, &pb.SetLayoutResourceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetOnPreferenceChangeListener calls the SetOnPreferenceChangeListener RPC.
+func (c *PreferenceClient) SetOnPreferenceChangeListener(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetOnPreferenceChangeListener(ctx, &pb.SetOnPreferenceChangeListenerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetOnPreferenceClickListener calls the SetOnPreferenceClickListener RPC.
+func (c *PreferenceClient) SetOnPreferenceClickListener(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetOnPreferenceClickListener(ctx, &pb.SetOnPreferenceClickListenerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetOrder calls the SetOrder RPC.
+func (c *PreferenceClient) SetOrder(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetOrder(ctx, &pb.SetOrderRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPersistent calls the SetPersistent RPC.
+func (c *PreferenceClient) SetPersistent(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetPersistent(ctx, &pb.SetPersistentRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPreferenceDataStore calls the SetPreferenceDataStore RPC.
+func (c *PreferenceClient) SetPreferenceDataStore(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetPreferenceDataStore(ctx, &pb.SetPreferenceDataStoreRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetRecycleEnabled calls the SetRecycleEnabled RPC.
+func (c *PreferenceClient) SetRecycleEnabled(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetRecycleEnabled(ctx, &pb.SetRecycleEnabledRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetSelectable calls the SetSelectable RPC.
+func (c *PreferenceClient) SetSelectable(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetSelectable(ctx, &pb.SetSelectableRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetShouldDisableView calls the SetShouldDisableView RPC.
+func (c *PreferenceClient) SetShouldDisableView(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetShouldDisableView(ctx, &pb.SetShouldDisableViewRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetSingleLineTitle calls the SetSingleLineTitle RPC.
+func (c *PreferenceClient) SetSingleLineTitle(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetSingleLineTitle(ctx, &pb.SetSingleLineTitleRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetSummary1 calls the SetSummary1 RPC.
+func (c *PreferenceClient) SetSummary1(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetSummary1(ctx, &pb.SetSummary1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetSummary1_1 calls the SetSummary1_1 RPC.
+func (c *PreferenceClient) SetSummary1_1(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetSummary1_1(ctx, &pb.SetSummary1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTitle1 calls the SetTitle1 RPC.
+func (c *PreferenceClient) SetTitle1(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetTitle1(ctx, &pb.SetTitle1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTitle1_1 calls the SetTitle1_1 RPC.
+func (c *PreferenceClient) SetTitle1_1(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetTitle1_1(ctx, &pb.SetTitle1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetWidgetLayoutResource calls the SetWidgetLayoutResource RPC.
+func (c *PreferenceClient) SetWidgetLayoutResource(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetWidgetLayoutResource(ctx, &pb.SetWidgetLayoutResourceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ShouldCommit calls the ShouldCommit RPC.
+func (c *PreferenceClient) ShouldCommit(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.ShouldCommit(ctx, &pb.ShouldCommitRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShouldDisableDependents calls the ShouldDisableDependents RPC.
+func (c *PreferenceClient) ShouldDisableDependents(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.ShouldDisableDependents(ctx, &pb.ShouldDisableDependentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *PreferenceClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -704,63 +912,145 @@ func (c *ListPreferenceClient) GetValue(ctx context.Context, handle int64) (stri
 	return resp.GetResult(), nil
 }
 
-// SetEntries1 calls the SetEntries1 RPC.
-func (c *ListPreferenceClient) SetEntries1(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetEntries1(ctx, &pb.SetEntries1Request{
+// CompareTo1_1 calls the CompareTo1_1 RPC.
+func (c *PreferenceClient) CompareTo1_1(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+	resp, err := c.svc.CompareTo1_1(ctx, &pb.CompareTo1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnPreferenceChangeListenerClient wraps the gRPC OnPreferenceChangeListenerService client.
+type OnPreferenceChangeListenerClient struct {
+	svc pb.OnPreferenceChangeListenerServiceClient
+}
+
+// NewOnPreferenceChangeListenerClient creates a new OnPreferenceChangeListener client.
+func NewOnPreferenceChangeListenerClient(cc grpc.ClientConnInterface) *OnPreferenceChangeListenerClient {
+	return &OnPreferenceChangeListenerClient{
+		svc: pb.NewOnPreferenceChangeListenerServiceClient(cc),
+	}
+}
+
+// OnPreferenceChange calls the OnPreferenceChange RPC.
+func (c *OnPreferenceChangeListenerClient) OnPreferenceChange(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.OnPreferenceChange(ctx, &pb.OnPreferenceChangeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnPreferenceClickListenerClient wraps the gRPC OnPreferenceClickListenerService client.
+type OnPreferenceClickListenerClient struct {
+	svc pb.OnPreferenceClickListenerServiceClient
+}
+
+// NewOnPreferenceClickListenerClient creates a new OnPreferenceClickListener client.
+func NewOnPreferenceClickListenerClient(cc grpc.ClientConnInterface) *OnPreferenceClickListenerClient {
+	return &OnPreferenceClickListenerClient{
+		svc: pb.NewOnPreferenceClickListenerServiceClient(cc),
+	}
+}
+
+// OnPreferenceClick calls the OnPreferenceClick RPC.
+func (c *OnPreferenceClickListenerClient) OnPreferenceClick(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnPreferenceClick(ctx, &pb.OnPreferenceClickRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RingtonePreferenceClient wraps the gRPC RingtonePreferenceService client.
+type RingtonePreferenceClient struct {
+	svc pb.RingtonePreferenceServiceClient
+}
+
+// NewRingtonePreferenceClient creates a new RingtonePreference client.
+func NewRingtonePreferenceClient(cc grpc.ClientConnInterface) *RingtonePreferenceClient {
+	return &RingtonePreferenceClient{
+		svc: pb.NewRingtonePreferenceServiceClient(cc),
+	}
+}
+
+// GetRingtoneType calls the GetRingtoneType RPC.
+func (c *RingtonePreferenceClient) GetRingtoneType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetRingtoneType(ctx, &pb.GetRingtoneTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetShowDefault calls the GetShowDefault RPC.
+func (c *RingtonePreferenceClient) GetShowDefault(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.GetShowDefault(ctx, &pb.GetShowDefaultRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetShowSilent calls the GetShowSilent RPC.
+func (c *RingtonePreferenceClient) GetShowSilent(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.GetShowSilent(ctx, &pb.GetShowSilentRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnActivityResult calls the OnActivityResult RPC.
+func (c *RingtonePreferenceClient) OnActivityResult(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) (bool, error) {
+	resp, err := c.svc.OnActivityResult(ctx, &pb.RingtonePreferenceOnActivityResultRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRingtoneType calls the SetRingtoneType RPC.
+func (c *RingtonePreferenceClient) SetRingtoneType(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetRingtoneType(ctx, &pb.SetRingtoneTypeRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
 	return err
 }
 
-// SetEntries1_1 calls the SetEntries1_1 RPC.
-func (c *ListPreferenceClient) SetEntries1_1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetEntries1_1(ctx, &pb.SetEntries1_1Request{
+// SetShowDefault calls the SetShowDefault RPC.
+func (c *RingtonePreferenceClient) SetShowDefault(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetShowDefault(ctx, &pb.SetShowDefaultRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
 	return err
 }
 
-// SetEntryValues1 calls the SetEntryValues1 RPC.
-func (c *ListPreferenceClient) SetEntryValues1(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetEntryValues1(ctx, &pb.SetEntryValues1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetEntryValues1_1 calls the SetEntryValues1_1 RPC.
-func (c *ListPreferenceClient) SetEntryValues1_1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetEntryValues1_1(ctx, &pb.SetEntryValues1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetSummary calls the SetSummary RPC.
-func (c *ListPreferenceClient) SetSummary(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetSummary(ctx, &pb.SetSummaryRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetValue calls the SetValue RPC.
-func (c *ListPreferenceClient) SetValue(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetValue(ctx, &pb.SetValueRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetValueIndex calls the SetValueIndex RPC.
-func (c *ListPreferenceClient) SetValueIndex(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetValueIndex(ctx, &pb.SetValueIndexRequest{
+// SetShowSilent calls the SetShowSilent RPC.
+func (c *RingtonePreferenceClient) SetShowSilent(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetShowSilent(ctx, &pb.SetShowSilentRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -1118,7 +1408,7 @@ func (c *ActivityHeaderClient) GetSummary(ctx context.Context, arg0 int64) (int6
 
 // GetTitle calls the GetTitle RPC.
 func (c *ActivityHeaderClient) GetTitle(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetTitle(ctx, &pb.GetTitleRequest{
+	resp, err := c.svc.GetTitle(ctx, &pb.ActivityHeaderGetTitleRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -1247,6 +1537,719 @@ func (c *TwoStatePreferenceClient) ShouldDisableDependents(ctx context.Context) 
 		return false, err
 	}
 	return resp.GetResult(), nil
+}
+
+// MultiSelectListPreferenceClient wraps the gRPC MultiSelectListPreferenceService client.
+type MultiSelectListPreferenceClient struct {
+	svc pb.MultiSelectListPreferenceServiceClient
+}
+
+// NewMultiSelectListPreferenceClient creates a new MultiSelectListPreference client.
+func NewMultiSelectListPreferenceClient(cc grpc.ClientConnInterface) *MultiSelectListPreferenceClient {
+	return &MultiSelectListPreferenceClient{
+		svc: pb.NewMultiSelectListPreferenceServiceClient(cc),
+	}
+}
+
+// FindIndexOfValue calls the FindIndexOfValue RPC.
+func (c *MultiSelectListPreferenceClient) FindIndexOfValue(ctx context.Context, handle int64, arg0 string) (int32, error) {
+	resp, err := c.svc.FindIndexOfValue(ctx, &pb.FindIndexOfValueRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEntries calls the GetEntries RPC.
+func (c *MultiSelectListPreferenceClient) GetEntries(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetEntries(ctx, &pb.GetEntriesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEntryValues calls the GetEntryValues RPC.
+func (c *MultiSelectListPreferenceClient) GetEntryValues(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetEntryValues(ctx, &pb.GetEntryValuesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetValues calls the GetValues RPC.
+func (c *MultiSelectListPreferenceClient) GetValues(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetValues(ctx, &pb.GetValuesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEntries1 calls the SetEntries1 RPC.
+func (c *MultiSelectListPreferenceClient) SetEntries1(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetEntries1(ctx, &pb.SetEntries1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetEntries1_1 calls the SetEntries1_1 RPC.
+func (c *MultiSelectListPreferenceClient) SetEntries1_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetEntries1_1(ctx, &pb.SetEntries1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetEntryValues1 calls the SetEntryValues1 RPC.
+func (c *MultiSelectListPreferenceClient) SetEntryValues1(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetEntryValues1(ctx, &pb.SetEntryValues1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetEntryValues1_1 calls the SetEntryValues1_1 RPC.
+func (c *MultiSelectListPreferenceClient) SetEntryValues1_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetEntryValues1_1(ctx, &pb.SetEntryValues1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// EditTextPreferenceClient wraps the gRPC EditTextPreferenceService client.
+type EditTextPreferenceClient struct {
+	svc pb.EditTextPreferenceServiceClient
+}
+
+// NewEditTextPreferenceClient creates a new EditTextPreference client.
+func NewEditTextPreferenceClient(cc grpc.ClientConnInterface) *EditTextPreferenceClient {
+	return &EditTextPreferenceClient{
+		svc: pb.NewEditTextPreferenceServiceClient(cc),
+	}
+}
+
+// GetEditText calls the GetEditText RPC.
+func (c *EditTextPreferenceClient) GetEditText(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetEditText(ctx, &pb.GetEditTextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetText calls the GetText RPC.
+func (c *EditTextPreferenceClient) GetText(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetText(ctx, &pb.GetTextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetText calls the SetText RPC.
+func (c *EditTextPreferenceClient) SetText(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetText(ctx, &pb.SetTextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ShouldDisableDependents calls the ShouldDisableDependents RPC.
+func (c *EditTextPreferenceClient) ShouldDisableDependents(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.ShouldDisableDependents(ctx, &pb.ShouldDisableDependentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ManagerClient wraps the gRPC ManagerService client.
+type ManagerClient struct {
+	svc pb.ManagerServiceClient
+}
+
+// NewManagerClient creates a new Manager client.
+func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
+	return &ManagerClient{
+		svc: pb.NewManagerServiceClient(cc),
+	}
+}
+
+// CreatePreferenceScreen calls the CreatePreferenceScreen RPC.
+func (c *ManagerClient) CreatePreferenceScreen(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.CreatePreferenceScreen(ctx, &pb.CreatePreferenceScreenRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FindPreference calls the FindPreference RPC.
+func (c *ManagerClient) FindPreference(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.FindPreference(ctx, &pb.FindPreferenceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPreferenceDataStore calls the GetPreferenceDataStore RPC.
+func (c *ManagerClient) GetPreferenceDataStore(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPreferenceDataStore(ctx, &pb.ManagerGetPreferenceDataStoreRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSharedPreferences calls the GetSharedPreferences RPC.
+func (c *ManagerClient) GetSharedPreferences(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSharedPreferences(ctx, &pb.ManagerGetSharedPreferencesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSharedPreferencesMode calls the GetSharedPreferencesMode RPC.
+func (c *ManagerClient) GetSharedPreferencesMode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSharedPreferencesMode(ctx, &pb.GetSharedPreferencesModeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSharedPreferencesName calls the GetSharedPreferencesName RPC.
+func (c *ManagerClient) GetSharedPreferencesName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetSharedPreferencesName(ctx, &pb.GetSharedPreferencesNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsStorageDefault calls the IsStorageDefault RPC.
+func (c *ManagerClient) IsStorageDefault(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsStorageDefault(ctx, &pb.IsStorageDefaultRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsStorageDeviceProtected calls the IsStorageDeviceProtected RPC.
+func (c *ManagerClient) IsStorageDeviceProtected(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsStorageDeviceProtected(ctx, &pb.IsStorageDeviceProtectedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPreferenceDataStore calls the SetPreferenceDataStore RPC.
+func (c *ManagerClient) SetPreferenceDataStore(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetPreferenceDataStore(ctx, &pb.ManagerSetPreferenceDataStoreRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetSharedPreferencesMode calls the SetSharedPreferencesMode RPC.
+func (c *ManagerClient) SetSharedPreferencesMode(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetSharedPreferencesMode(ctx, &pb.SetSharedPreferencesModeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetSharedPreferencesName calls the SetSharedPreferencesName RPC.
+func (c *ManagerClient) SetSharedPreferencesName(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetSharedPreferencesName(ctx, &pb.SetSharedPreferencesNameRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetStorageDefault calls the SetStorageDefault RPC.
+func (c *ManagerClient) SetStorageDefault(ctx context.Context) error {
+	_, err := c.svc.SetStorageDefault(ctx, &pb.SetStorageDefaultRequest{})
+	return err
+}
+
+// SetStorageDeviceProtected calls the SetStorageDeviceProtected RPC.
+func (c *ManagerClient) SetStorageDeviceProtected(ctx context.Context) error {
+	_, err := c.svc.SetStorageDeviceProtected(ctx, &pb.SetStorageDeviceProtectedRequest{})
+	return err
+}
+
+// GetDefaultSharedPreferences calls the GetDefaultSharedPreferences RPC.
+func (c *ManagerClient) GetDefaultSharedPreferences(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetDefaultSharedPreferences(ctx, &pb.GetDefaultSharedPreferencesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDefaultSharedPreferencesName calls the GetDefaultSharedPreferencesName RPC.
+func (c *ManagerClient) GetDefaultSharedPreferencesName(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.GetDefaultSharedPreferencesName(ctx, &pb.GetDefaultSharedPreferencesNameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDefaultValues3 calls the SetDefaultValues3 RPC.
+func (c *ManagerClient) SetDefaultValues3(ctx context.Context, arg0 int64, arg1 int32, arg2 bool) error {
+	_, err := c.svc.SetDefaultValues3(ctx, &pb.SetDefaultValues3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// SetDefaultValues5_1 calls the SetDefaultValues5_1 RPC.
+func (c *ManagerClient) SetDefaultValues5_1(ctx context.Context, arg0 int64, arg1 string, arg2 int32, arg3 int32, arg4 bool) error {
+	_, err := c.svc.SetDefaultValues5_1(ctx, &pb.SetDefaultValues5_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// ManagerOnActivityDestroyListenerClient wraps the gRPC ManagerOnActivityDestroyListenerService client.
+type ManagerOnActivityDestroyListenerClient struct {
+	svc pb.ManagerOnActivityDestroyListenerServiceClient
+}
+
+// NewManagerOnActivityDestroyListenerClient creates a new ManagerOnActivityDestroyListener client.
+func NewManagerOnActivityDestroyListenerClient(cc grpc.ClientConnInterface) *ManagerOnActivityDestroyListenerClient {
+	return &ManagerOnActivityDestroyListenerClient{
+		svc: pb.NewManagerOnActivityDestroyListenerServiceClient(cc),
+	}
+}
+
+// OnActivityDestroy calls the OnActivityDestroy RPC.
+func (c *ManagerOnActivityDestroyListenerClient) OnActivityDestroy(ctx context.Context) error {
+	_, err := c.svc.OnActivityDestroy(ctx, &pb.OnActivityDestroyRequest{})
+	return err
+}
+
+// ManagerOnActivityResultListenerClient wraps the gRPC ManagerOnActivityResultListenerService client.
+type ManagerOnActivityResultListenerClient struct {
+	svc pb.ManagerOnActivityResultListenerServiceClient
+}
+
+// NewManagerOnActivityResultListenerClient creates a new ManagerOnActivityResultListener client.
+func NewManagerOnActivityResultListenerClient(cc grpc.ClientConnInterface) *ManagerOnActivityResultListenerClient {
+	return &ManagerOnActivityResultListenerClient{
+		svc: pb.NewManagerOnActivityResultListenerServiceClient(cc),
+	}
+}
+
+// OnActivityResult calls the OnActivityResult RPC.
+func (c *ManagerOnActivityResultListenerClient) OnActivityResult(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) (bool, error) {
+	resp, err := c.svc.OnActivityResult(ctx, &pb.OnActivityResultRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ManagerOnActivityStopListenerClient wraps the gRPC ManagerOnActivityStopListenerService client.
+type ManagerOnActivityStopListenerClient struct {
+	svc pb.ManagerOnActivityStopListenerServiceClient
+}
+
+// NewManagerOnActivityStopListenerClient creates a new ManagerOnActivityStopListener client.
+func NewManagerOnActivityStopListenerClient(cc grpc.ClientConnInterface) *ManagerOnActivityStopListenerClient {
+	return &ManagerOnActivityStopListenerClient{
+		svc: pb.NewManagerOnActivityStopListenerServiceClient(cc),
+	}
+}
+
+// OnActivityStop calls the OnActivityStop RPC.
+func (c *ManagerOnActivityStopListenerClient) OnActivityStop(ctx context.Context) error {
+	_, err := c.svc.OnActivityStop(ctx, &pb.OnActivityStopRequest{})
+	return err
+}
+
+// ListPreferenceClient wraps the gRPC ListPreferenceService client.
+type ListPreferenceClient struct {
+	svc pb.ListPreferenceServiceClient
+}
+
+// NewListPreferenceClient creates a new ListPreference client.
+func NewListPreferenceClient(cc grpc.ClientConnInterface) *ListPreferenceClient {
+	return &ListPreferenceClient{
+		svc: pb.NewListPreferenceServiceClient(cc),
+	}
+}
+
+// FindIndexOfValue calls the FindIndexOfValue RPC.
+func (c *ListPreferenceClient) FindIndexOfValue(ctx context.Context, handle int64, arg0 string) (int32, error) {
+	resp, err := c.svc.FindIndexOfValue(ctx, &pb.FindIndexOfValueRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEntries calls the GetEntries RPC.
+func (c *ListPreferenceClient) GetEntries(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetEntries(ctx, &pb.GetEntriesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEntry calls the GetEntry RPC.
+func (c *ListPreferenceClient) GetEntry(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetEntry(ctx, &pb.GetEntryRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEntryValues calls the GetEntryValues RPC.
+func (c *ListPreferenceClient) GetEntryValues(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetEntryValues(ctx, &pb.GetEntryValuesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSummary calls the GetSummary RPC.
+func (c *ListPreferenceClient) GetSummary(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSummary(ctx, &pb.GetSummaryRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetValue calls the GetValue RPC.
+func (c *ListPreferenceClient) GetValue(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetValue(ctx, &pb.GetValueRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEntries1 calls the SetEntries1 RPC.
+func (c *ListPreferenceClient) SetEntries1(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetEntries1(ctx, &pb.SetEntries1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetEntries1_1 calls the SetEntries1_1 RPC.
+func (c *ListPreferenceClient) SetEntries1_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetEntries1_1(ctx, &pb.SetEntries1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetEntryValues1 calls the SetEntryValues1 RPC.
+func (c *ListPreferenceClient) SetEntryValues1(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetEntryValues1(ctx, &pb.SetEntryValues1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetEntryValues1_1 calls the SetEntryValues1_1 RPC.
+func (c *ListPreferenceClient) SetEntryValues1_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetEntryValues1_1(ctx, &pb.SetEntryValues1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetSummary calls the SetSummary RPC.
+func (c *ListPreferenceClient) SetSummary(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetSummary(ctx, &pb.SetSummaryRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetValue calls the SetValue RPC.
+func (c *ListPreferenceClient) SetValue(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetValue(ctx, &pb.SetValueRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetValueIndex calls the SetValueIndex RPC.
+func (c *ListPreferenceClient) SetValueIndex(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetValueIndex(ctx, &pb.SetValueIndexRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GroupClient wraps the gRPC GroupService client.
+type GroupClient struct {
+	svc pb.GroupServiceClient
+}
+
+// NewGroupClient creates a new Group client.
+func NewGroupClient(cc grpc.ClientConnInterface) *GroupClient {
+	return &GroupClient{
+		svc: pb.NewGroupServiceClient(cc),
+	}
+}
+
+// AddItemFromInflater calls the AddItemFromInflater RPC.
+func (c *GroupClient) AddItemFromInflater(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.AddItemFromInflater(ctx, &pb.AddItemFromInflaterRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// AddPreference calls the AddPreference RPC.
+func (c *GroupClient) AddPreference(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.AddPreference(ctx, &pb.AddPreferenceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FindPreference calls the FindPreference RPC.
+func (c *GroupClient) FindPreference(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.FindPreference(ctx, &pb.FindPreferenceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPreference calls the GetPreference RPC.
+func (c *GroupClient) GetPreference(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetPreference(ctx, &pb.GetPreferenceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPreferenceCount calls the GetPreferenceCount RPC.
+func (c *GroupClient) GetPreferenceCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPreferenceCount(ctx, &pb.GetPreferenceCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsOrderingAsAdded calls the IsOrderingAsAdded RPC.
+func (c *GroupClient) IsOrderingAsAdded(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsOrderingAsAdded(ctx, &pb.IsOrderingAsAddedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NotifyDependencyChange calls the NotifyDependencyChange RPC.
+func (c *GroupClient) NotifyDependencyChange(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.NotifyDependencyChange(ctx, &pb.GroupNotifyDependencyChangeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RemoveAll calls the RemoveAll RPC.
+func (c *GroupClient) RemoveAll(ctx context.Context) error {
+	_, err := c.svc.RemoveAll(ctx, &pb.RemoveAllRequest{})
+	return err
+}
+
+// RemovePreference calls the RemovePreference RPC.
+func (c *GroupClient) RemovePreference(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.RemovePreference(ctx, &pb.RemovePreferenceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetOrderingAsAdded calls the SetOrderingAsAdded RPC.
+func (c *GroupClient) SetOrderingAsAdded(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetOrderingAsAdded(ctx, &pb.SetOrderingAsAddedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CategoryClient wraps the gRPC CategoryService client.
+type CategoryClient struct {
+	svc pb.CategoryServiceClient
+}
+
+// NewCategoryClient creates a new Category client.
+func NewCategoryClient(cc grpc.ClientConnInterface) *CategoryClient {
+	return &CategoryClient{
+		svc: pb.NewCategoryServiceClient(cc),
+	}
+}
+
+// IsEnabled calls the IsEnabled RPC.
+func (c *CategoryClient) IsEnabled(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsEnabled(ctx, &pb.IsEnabledRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShouldDisableDependents calls the ShouldDisableDependents RPC.
+func (c *CategoryClient) ShouldDisableDependents(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.ShouldDisableDependents(ctx, &pb.ShouldDisableDependentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ScreenClient wraps the gRPC ScreenService client.
+type ScreenClient struct {
+	svc pb.ScreenServiceClient
+}
+
+// NewScreenClient creates a new Screen client.
+func NewScreenClient(cc grpc.ClientConnInterface) *ScreenClient {
+	return &ScreenClient{
+		svc: pb.NewScreenServiceClient(cc),
+	}
+}
+
+// Bind calls the Bind RPC.
+func (c *ScreenClient) Bind(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.Bind(ctx, &pb.BindRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetDialog calls the GetDialog RPC.
+func (c *ScreenClient) GetDialog(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDialog(ctx, &pb.GetDialogRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRootAdapter calls the GetRootAdapter RPC.
+func (c *ScreenClient) GetRootAdapter(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRootAdapter(ctx, &pb.GetRootAdapterRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnDismiss calls the OnDismiss RPC.
+func (c *ScreenClient) OnDismiss(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnDismiss(ctx, &pb.OnDismissRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnItemClick calls the OnItemClick RPC.
+func (c *ScreenClient) OnItemClick(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int64) error {
+	_, err := c.svc.OnItemClick(ctx, &pb.OnItemClickRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
 }
 
 // DialogPreferenceClient wraps the gRPC DialogPreferenceService client.
@@ -1433,996 +2436,4 @@ func (c *DialogPreferenceClient) SetPositiveButtonText1_1(ctx context.Context, a
 		Arg0: arg0,
 	})
 	return err
-}
-
-// ScreenClient wraps the gRPC ScreenService client.
-type ScreenClient struct {
-	svc pb.ScreenServiceClient
-}
-
-// NewScreenClient creates a new Screen client.
-func NewScreenClient(cc grpc.ClientConnInterface) *ScreenClient {
-	return &ScreenClient{
-		svc: pb.NewScreenServiceClient(cc),
-	}
-}
-
-// Bind calls the Bind RPC.
-func (c *ScreenClient) Bind(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.Bind(ctx, &pb.BindRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// GetDialog calls the GetDialog RPC.
-func (c *ScreenClient) GetDialog(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDialog(ctx, &pb.GetDialogRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRootAdapter calls the GetRootAdapter RPC.
-func (c *ScreenClient) GetRootAdapter(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetRootAdapter(ctx, &pb.GetRootAdapterRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnDismiss calls the OnDismiss RPC.
-func (c *ScreenClient) OnDismiss(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnDismiss(ctx, &pb.OnDismissRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnItemClick calls the OnItemClick RPC.
-func (c *ScreenClient) OnItemClick(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int64) error {
-	_, err := c.svc.OnItemClick(ctx, &pb.OnItemClickRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GroupClient wraps the gRPC GroupService client.
-type GroupClient struct {
-	svc pb.GroupServiceClient
-}
-
-// NewGroupClient creates a new Group client.
-func NewGroupClient(cc grpc.ClientConnInterface) *GroupClient {
-	return &GroupClient{
-		svc: pb.NewGroupServiceClient(cc),
-	}
-}
-
-// AddItemFromInflater calls the AddItemFromInflater RPC.
-func (c *GroupClient) AddItemFromInflater(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.AddItemFromInflater(ctx, &pb.AddItemFromInflaterRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// AddPreference calls the AddPreference RPC.
-func (c *GroupClient) AddPreference(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.AddPreference(ctx, &pb.AddPreferenceRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FindPreference calls the FindPreference RPC.
-func (c *GroupClient) FindPreference(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.FindPreference(ctx, &pb.FindPreferenceRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPreference calls the GetPreference RPC.
-func (c *GroupClient) GetPreference(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetPreference(ctx, &pb.GetPreferenceRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPreferenceCount calls the GetPreferenceCount RPC.
-func (c *GroupClient) GetPreferenceCount(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetPreferenceCount(ctx, &pb.GetPreferenceCountRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsOrderingAsAdded calls the IsOrderingAsAdded RPC.
-func (c *GroupClient) IsOrderingAsAdded(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsOrderingAsAdded(ctx, &pb.IsOrderingAsAddedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NotifyDependencyChange calls the NotifyDependencyChange RPC.
-func (c *GroupClient) NotifyDependencyChange(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.NotifyDependencyChange(ctx, &pb.NotifyDependencyChangeRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// RemoveAll calls the RemoveAll RPC.
-func (c *GroupClient) RemoveAll(ctx context.Context) error {
-	_, err := c.svc.RemoveAll(ctx, &pb.RemoveAllRequest{})
-	return err
-}
-
-// RemovePreference calls the RemovePreference RPC.
-func (c *GroupClient) RemovePreference(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.RemovePreference(ctx, &pb.RemovePreferenceRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetOrderingAsAdded calls the SetOrderingAsAdded RPC.
-func (c *GroupClient) SetOrderingAsAdded(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetOrderingAsAdded(ctx, &pb.SetOrderingAsAddedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// RingtonePreferenceClient wraps the gRPC RingtonePreferenceService client.
-type RingtonePreferenceClient struct {
-	svc pb.RingtonePreferenceServiceClient
-}
-
-// NewRingtonePreferenceClient creates a new RingtonePreference client.
-func NewRingtonePreferenceClient(cc grpc.ClientConnInterface) *RingtonePreferenceClient {
-	return &RingtonePreferenceClient{
-		svc: pb.NewRingtonePreferenceServiceClient(cc),
-	}
-}
-
-// GetRingtoneType calls the GetRingtoneType RPC.
-func (c *RingtonePreferenceClient) GetRingtoneType(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetRingtoneType(ctx, &pb.GetRingtoneTypeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetShowDefault calls the GetShowDefault RPC.
-func (c *RingtonePreferenceClient) GetShowDefault(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.GetShowDefault(ctx, &pb.GetShowDefaultRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetShowSilent calls the GetShowSilent RPC.
-func (c *RingtonePreferenceClient) GetShowSilent(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.GetShowSilent(ctx, &pb.GetShowSilentRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnActivityResult calls the OnActivityResult RPC.
-func (c *RingtonePreferenceClient) OnActivityResult(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) (bool, error) {
-	resp, err := c.svc.OnActivityResult(ctx, &pb.RingtonePreferenceOnActivityResultRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetRingtoneType calls the SetRingtoneType RPC.
-func (c *RingtonePreferenceClient) SetRingtoneType(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetRingtoneType(ctx, &pb.SetRingtoneTypeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetShowDefault calls the SetShowDefault RPC.
-func (c *RingtonePreferenceClient) SetShowDefault(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetShowDefault(ctx, &pb.SetShowDefaultRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetShowSilent calls the SetShowSilent RPC.
-func (c *RingtonePreferenceClient) SetShowSilent(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetShowSilent(ctx, &pb.SetShowSilentRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// PreferenceClient wraps the gRPC PreferenceService client.
-type PreferenceClient struct {
-	svc pb.PreferenceServiceClient
-}
-
-// NewPreferenceClient creates a new Preference client.
-func NewPreferenceClient(cc grpc.ClientConnInterface) *PreferenceClient {
-	return &PreferenceClient{
-		svc: pb.NewPreferenceServiceClient(cc),
-	}
-}
-
-// CompareTo1 calls the CompareTo1 RPC.
-func (c *PreferenceClient) CompareTo1(ctx context.Context, handle int64, arg0 int64) (int32, error) {
-	resp, err := c.svc.CompareTo1(ctx, &pb.CompareTo1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetContext calls the GetContext RPC.
-func (c *PreferenceClient) GetContext(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetContext(ctx, &pb.GetContextRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDependency calls the GetDependency RPC.
-func (c *PreferenceClient) GetDependency(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetDependency(ctx, &pb.GetDependencyRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetEditor calls the GetEditor RPC.
-func (c *PreferenceClient) GetEditor(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetEditor(ctx, &pb.GetEditorRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetExtras calls the GetExtras RPC.
-func (c *PreferenceClient) GetExtras(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFragment calls the GetFragment RPC.
-func (c *PreferenceClient) GetFragment(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetFragment(ctx, &pb.GetFragmentRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIcon calls the GetIcon RPC.
-func (c *PreferenceClient) GetIcon(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetIcon(ctx, &pb.GetIconRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIntent calls the GetIntent RPC.
-func (c *PreferenceClient) GetIntent(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetIntent(ctx, &pb.GetIntentRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetKey calls the GetKey RPC.
-func (c *PreferenceClient) GetKey(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetKey(ctx, &pb.GetKeyRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLayoutResource calls the GetLayoutResource RPC.
-func (c *PreferenceClient) GetLayoutResource(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetLayoutResource(ctx, &pb.GetLayoutResourceRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOnPreferenceChangeListener calls the GetOnPreferenceChangeListener RPC.
-func (c *PreferenceClient) GetOnPreferenceChangeListener(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetOnPreferenceChangeListener(ctx, &pb.GetOnPreferenceChangeListenerRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOnPreferenceClickListener calls the GetOnPreferenceClickListener RPC.
-func (c *PreferenceClient) GetOnPreferenceClickListener(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetOnPreferenceClickListener(ctx, &pb.GetOnPreferenceClickListenerRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOrder calls the GetOrder RPC.
-func (c *PreferenceClient) GetOrder(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetOrder(ctx, &pb.GetOrderRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetParent calls the GetParent RPC.
-func (c *PreferenceClient) GetParent(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetParent(ctx, &pb.GetParentRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPreferenceDataStore calls the GetPreferenceDataStore RPC.
-func (c *PreferenceClient) GetPreferenceDataStore(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetPreferenceDataStore(ctx, &pb.PreferenceGetPreferenceDataStoreRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPreferenceManager calls the GetPreferenceManager RPC.
-func (c *PreferenceClient) GetPreferenceManager(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetPreferenceManager(ctx, &pb.PreferenceGetPreferenceManagerRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSharedPreferences calls the GetSharedPreferences RPC.
-func (c *PreferenceClient) GetSharedPreferences(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetSharedPreferences(ctx, &pb.PreferenceGetSharedPreferencesRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetShouldDisableView calls the GetShouldDisableView RPC.
-func (c *PreferenceClient) GetShouldDisableView(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.GetShouldDisableView(ctx, &pb.GetShouldDisableViewRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSummary calls the GetSummary RPC.
-func (c *PreferenceClient) GetSummary(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetSummary(ctx, &pb.GetSummaryRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTitle calls the GetTitle RPC.
-func (c *PreferenceClient) GetTitle(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetTitle(ctx, &pb.PreferenceGetTitleRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTitleRes calls the GetTitleRes RPC.
-func (c *PreferenceClient) GetTitleRes(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetTitleRes(ctx, &pb.GetTitleResRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetView calls the GetView RPC.
-func (c *PreferenceClient) GetView(ctx context.Context, handle int64, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetView(ctx, &pb.GetViewRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWidgetLayoutResource calls the GetWidgetLayoutResource RPC.
-func (c *PreferenceClient) GetWidgetLayoutResource(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetWidgetLayoutResource(ctx, &pb.GetWidgetLayoutResourceRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasKey calls the HasKey RPC.
-func (c *PreferenceClient) HasKey(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.HasKey(ctx, &pb.HasKeyRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsEnabled calls the IsEnabled RPC.
-func (c *PreferenceClient) IsEnabled(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsEnabled(ctx, &pb.IsEnabledRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsIconSpaceReserved calls the IsIconSpaceReserved RPC.
-func (c *PreferenceClient) IsIconSpaceReserved(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsIconSpaceReserved(ctx, &pb.IsIconSpaceReservedRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsPersistent calls the IsPersistent RPC.
-func (c *PreferenceClient) IsPersistent(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsPersistent(ctx, &pb.IsPersistentRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsRecycleEnabled calls the IsRecycleEnabled RPC.
-func (c *PreferenceClient) IsRecycleEnabled(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsRecycleEnabled(ctx, &pb.IsRecycleEnabledRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsSelectable calls the IsSelectable RPC.
-func (c *PreferenceClient) IsSelectable(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsSelectable(ctx, &pb.IsSelectableRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsSingleLineTitle calls the IsSingleLineTitle RPC.
-func (c *PreferenceClient) IsSingleLineTitle(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsSingleLineTitle(ctx, &pb.IsSingleLineTitleRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NotifyDependencyChange calls the NotifyDependencyChange RPC.
-func (c *PreferenceClient) NotifyDependencyChange(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.NotifyDependencyChange(ctx, &pb.PreferenceNotifyDependencyChangeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// OnDependencyChanged calls the OnDependencyChanged RPC.
-func (c *PreferenceClient) OnDependencyChanged(ctx context.Context, handle int64, arg0 int64, arg1 bool) error {
-	_, err := c.svc.OnDependencyChanged(ctx, &pb.OnDependencyChangedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// OnParentChanged calls the OnParentChanged RPC.
-func (c *PreferenceClient) OnParentChanged(ctx context.Context, handle int64, arg0 int64, arg1 bool) error {
-	_, err := c.svc.OnParentChanged(ctx, &pb.OnParentChangedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// PeekExtras calls the PeekExtras RPC.
-func (c *PreferenceClient) PeekExtras(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.PeekExtras(ctx, &pb.PeekExtrasRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RestoreHierarchyState calls the RestoreHierarchyState RPC.
-func (c *PreferenceClient) RestoreHierarchyState(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.RestoreHierarchyState(ctx, &pb.RestoreHierarchyStateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SaveHierarchyState calls the SaveHierarchyState RPC.
-func (c *PreferenceClient) SaveHierarchyState(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SaveHierarchyState(ctx, &pb.SaveHierarchyStateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetDefaultValue calls the SetDefaultValue RPC.
-func (c *PreferenceClient) SetDefaultValue(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetDefaultValue(ctx, &pb.SetDefaultValueRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetDependency calls the SetDependency RPC.
-func (c *PreferenceClient) SetDependency(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetDependency(ctx, &pb.SetDependencyRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetEnabled calls the SetEnabled RPC.
-func (c *PreferenceClient) SetEnabled(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetEnabled(ctx, &pb.SetEnabledRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetFragment calls the SetFragment RPC.
-func (c *PreferenceClient) SetFragment(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetFragment(ctx, &pb.SetFragmentRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetIcon1 calls the SetIcon1 RPC.
-func (c *PreferenceClient) SetIcon1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetIcon1(ctx, &pb.SetIcon1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetIcon1_1 calls the SetIcon1_1 RPC.
-func (c *PreferenceClient) SetIcon1_1(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetIcon1_1(ctx, &pb.SetIcon1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetIconSpaceReserved calls the SetIconSpaceReserved RPC.
-func (c *PreferenceClient) SetIconSpaceReserved(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetIconSpaceReserved(ctx, &pb.SetIconSpaceReservedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetIntent calls the SetIntent RPC.
-func (c *PreferenceClient) SetIntent(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetIntent(ctx, &pb.SetIntentRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetKey calls the SetKey RPC.
-func (c *PreferenceClient) SetKey(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetKey(ctx, &pb.SetKeyRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetLayoutResource calls the SetLayoutResource RPC.
-func (c *PreferenceClient) SetLayoutResource(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetLayoutResource(ctx, &pb.SetLayoutResourceRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetOnPreferenceChangeListener calls the SetOnPreferenceChangeListener RPC.
-func (c *PreferenceClient) SetOnPreferenceChangeListener(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetOnPreferenceChangeListener(ctx, &pb.SetOnPreferenceChangeListenerRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetOnPreferenceClickListener calls the SetOnPreferenceClickListener RPC.
-func (c *PreferenceClient) SetOnPreferenceClickListener(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetOnPreferenceClickListener(ctx, &pb.SetOnPreferenceClickListenerRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetOrder calls the SetOrder RPC.
-func (c *PreferenceClient) SetOrder(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetOrder(ctx, &pb.SetOrderRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetPersistent calls the SetPersistent RPC.
-func (c *PreferenceClient) SetPersistent(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetPersistent(ctx, &pb.SetPersistentRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetPreferenceDataStore calls the SetPreferenceDataStore RPC.
-func (c *PreferenceClient) SetPreferenceDataStore(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetPreferenceDataStore(ctx, &pb.PreferenceSetPreferenceDataStoreRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetRecycleEnabled calls the SetRecycleEnabled RPC.
-func (c *PreferenceClient) SetRecycleEnabled(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetRecycleEnabled(ctx, &pb.SetRecycleEnabledRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetSelectable calls the SetSelectable RPC.
-func (c *PreferenceClient) SetSelectable(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetSelectable(ctx, &pb.SetSelectableRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetShouldDisableView calls the SetShouldDisableView RPC.
-func (c *PreferenceClient) SetShouldDisableView(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetShouldDisableView(ctx, &pb.SetShouldDisableViewRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetSingleLineTitle calls the SetSingleLineTitle RPC.
-func (c *PreferenceClient) SetSingleLineTitle(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetSingleLineTitle(ctx, &pb.SetSingleLineTitleRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetSummary1 calls the SetSummary1 RPC.
-func (c *PreferenceClient) SetSummary1(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetSummary1(ctx, &pb.SetSummary1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetSummary1_1 calls the SetSummary1_1 RPC.
-func (c *PreferenceClient) SetSummary1_1(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetSummary1_1(ctx, &pb.SetSummary1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTitle1 calls the SetTitle1 RPC.
-func (c *PreferenceClient) SetTitle1(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetTitle1(ctx, &pb.SetTitle1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTitle1_1 calls the SetTitle1_1 RPC.
-func (c *PreferenceClient) SetTitle1_1(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetTitle1_1(ctx, &pb.SetTitle1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetWidgetLayoutResource calls the SetWidgetLayoutResource RPC.
-func (c *PreferenceClient) SetWidgetLayoutResource(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetWidgetLayoutResource(ctx, &pb.SetWidgetLayoutResourceRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// ShouldCommit calls the ShouldCommit RPC.
-func (c *PreferenceClient) ShouldCommit(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.ShouldCommit(ctx, &pb.ShouldCommitRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ShouldDisableDependents calls the ShouldDisableDependents RPC.
-func (c *PreferenceClient) ShouldDisableDependents(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.ShouldDisableDependents(ctx, &pb.ShouldDisableDependentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *PreferenceClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// CompareTo1_1 calls the CompareTo1_1 RPC.
-func (c *PreferenceClient) CompareTo1_1(ctx context.Context, handle int64, arg0 int64) (int32, error) {
-	resp, err := c.svc.CompareTo1_1(ctx, &pb.CompareTo1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnPreferenceChangeListenerClient wraps the gRPC OnPreferenceChangeListenerService client.
-type OnPreferenceChangeListenerClient struct {
-	svc pb.OnPreferenceChangeListenerServiceClient
-}
-
-// NewOnPreferenceChangeListenerClient creates a new OnPreferenceChangeListener client.
-func NewOnPreferenceChangeListenerClient(cc grpc.ClientConnInterface) *OnPreferenceChangeListenerClient {
-	return &OnPreferenceChangeListenerClient{
-		svc: pb.NewOnPreferenceChangeListenerServiceClient(cc),
-	}
-}
-
-// OnPreferenceChange calls the OnPreferenceChange RPC.
-func (c *OnPreferenceChangeListenerClient) OnPreferenceChange(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.OnPreferenceChange(ctx, &pb.OnPreferenceChangeRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnPreferenceClickListenerClient wraps the gRPC OnPreferenceClickListenerService client.
-type OnPreferenceClickListenerClient struct {
-	svc pb.OnPreferenceClickListenerServiceClient
-}
-
-// NewOnPreferenceClickListenerClient creates a new OnPreferenceClickListener client.
-func NewOnPreferenceClickListenerClient(cc grpc.ClientConnInterface) *OnPreferenceClickListenerClient {
-	return &OnPreferenceClickListenerClient{
-		svc: pb.NewOnPreferenceClickListenerServiceClient(cc),
-	}
-}
-
-// OnPreferenceClick calls the OnPreferenceClick RPC.
-func (c *OnPreferenceClickListenerClient) OnPreferenceClick(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.OnPreferenceClick(ctx, &pb.OnPreferenceClickRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CategoryClient wraps the gRPC CategoryService client.
-type CategoryClient struct {
-	svc pb.CategoryServiceClient
-}
-
-// NewCategoryClient creates a new Category client.
-func NewCategoryClient(cc grpc.ClientConnInterface) *CategoryClient {
-	return &CategoryClient{
-		svc: pb.NewCategoryServiceClient(cc),
-	}
-}
-
-// IsEnabled calls the IsEnabled RPC.
-func (c *CategoryClient) IsEnabled(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsEnabled(ctx, &pb.IsEnabledRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ShouldDisableDependents calls the ShouldDisableDependents RPC.
-func (c *CategoryClient) ShouldDisableDependents(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.ShouldDisableDependents(ctx, &pb.ShouldDisableDependentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
 }

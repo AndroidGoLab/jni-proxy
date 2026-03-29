@@ -12,6 +12,333 @@ var assistCmd = &cobra.Command{
 	Short: "assist service operations",
 }
 
+var assistContentCmd = &cobra.Command{
+	Use:   "content",
+	Short: "ContentService operations",
+}
+
+var assistContentNewContentCmd = &cobra.Command{
+	Use:   "new-content",
+	Short: "NewContent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentServiceClient(grpcConn)
+		req := &pb.NewContentRequest{}
+		resp, err := client.NewContent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var assistContentDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var assistContentGetClipDataCmd = &cobra.Command{
+	Use:   "get-clip-data",
+	Short: "GetClipData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentServiceClient(grpcConn)
+		req := &pb.GetClipDataRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetClipData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var assistContentGetExtrasCmd = &cobra.Command{
+	Use:   "get-extras",
+	Short: "GetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentServiceClient(grpcConn)
+		req := &pb.GetExtrasRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var assistContentGetIntentCmd = &cobra.Command{
+	Use:   "get-intent",
+	Short: "GetIntent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentServiceClient(grpcConn)
+		req := &pb.GetIntentRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetIntent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var assistContentGetSessionTransferUriCmd = &cobra.Command{
+	Use:   "get-session-transfer-uri",
+	Short: "GetSessionTransferUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentServiceClient(grpcConn)
+		req := &pb.GetSessionTransferUriRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSessionTransferUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var assistContentGetStructuredDataCmd = &cobra.Command{
+	Use:   "get-structured-data",
+	Short: "GetStructuredData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentServiceClient(grpcConn)
+		req := &pb.GetStructuredDataRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetStructuredData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var assistContentGetWebUriCmd = &cobra.Command{
+	Use:   "get-web-uri",
+	Short: "GetWebUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentServiceClient(grpcConn)
+		req := &pb.GetWebUriRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetWebUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var assistContentIsAppProvidedIntentCmd = &cobra.Command{
+	Use:   "is-app-provided-intent",
+	Short: "IsAppProvidedIntent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentServiceClient(grpcConn)
+		req := &pb.IsAppProvidedIntentRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsAppProvidedIntent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var assistContentIsAppProvidedWebUriCmd = &cobra.Command{
+	Use:   "is-app-provided-web-uri",
+	Short: "IsAppProvidedWebUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentServiceClient(grpcConn)
+		req := &pb.IsAppProvidedWebUriRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsAppProvidedWebUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var assistContentSetClipDataCmd = &cobra.Command{
+	Use:   "set-clip-data",
+	Short: "SetClipData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentServiceClient(grpcConn)
+		req := &pb.SetClipDataRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetClipData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var assistContentSetIntentCmd = &cobra.Command{
+	Use:   "set-intent",
+	Short: "SetIntent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentServiceClient(grpcConn)
+		req := &pb.SetIntentRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetIntent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var assistContentSetSessionTransferUriCmd = &cobra.Command{
+	Use:   "set-session-transfer-uri",
+	Short: "SetSessionTransferUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentServiceClient(grpcConn)
+		req := &pb.SetSessionTransferUriRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSessionTransferUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var assistContentSetStructuredDataCmd = &cobra.Command{
+	Use:   "set-structured-data",
+	Short: "SetStructuredData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentServiceClient(grpcConn)
+		req := &pb.SetStructuredDataRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStructuredData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var assistContentSetWebUriCmd = &cobra.Command{
+	Use:   "set-web-uri",
+	Short: "SetWebUri RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentServiceClient(grpcConn)
+		req := &pb.SetWebUriRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetWebUri(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var assistContentWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContentServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var assistStructureCmd = &cobra.Command{
 	Use:   "structure",
 	Short: "StructureService operations",
@@ -385,7 +712,7 @@ var assistStructureViewNodeGetExtrasCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewStructureViewNodeServiceClient(grpcConn)
-		req := &pb.GetExtrasRequest{}
+		req := &pb.StructureViewNodeGetExtrasRequest{}
 		resp, err := client.GetExtras(ctx, req)
 		if err != nil {
 			return err
@@ -1263,334 +1590,46 @@ var assistStructureWindowNodeGetWidthCmd = &cobra.Command{
 	},
 }
 
-var assistContentCmd = &cobra.Command{
-	Use:   "content",
-	Short: "ContentService operations",
-}
-
-var assistContentNewContentCmd = &cobra.Command{
-	Use:   "new-content",
-	Short: "NewContent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentServiceClient(grpcConn)
-		req := &pb.NewContentRequest{}
-		resp, err := client.NewContent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var assistContentDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var assistContentGetClipDataCmd = &cobra.Command{
-	Use:   "get-clip-data",
-	Short: "GetClipData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentServiceClient(grpcConn)
-		req := &pb.GetClipDataRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetClipData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var assistContentGetExtrasCmd = &cobra.Command{
-	Use:   "get-extras",
-	Short: "GetExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentServiceClient(grpcConn)
-		req := &pb.ContentGetExtrasRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var assistContentGetIntentCmd = &cobra.Command{
-	Use:   "get-intent",
-	Short: "GetIntent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentServiceClient(grpcConn)
-		req := &pb.GetIntentRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetIntent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var assistContentGetSessionTransferUriCmd = &cobra.Command{
-	Use:   "get-session-transfer-uri",
-	Short: "GetSessionTransferUri RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentServiceClient(grpcConn)
-		req := &pb.GetSessionTransferUriRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSessionTransferUri(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var assistContentGetStructuredDataCmd = &cobra.Command{
-	Use:   "get-structured-data",
-	Short: "GetStructuredData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentServiceClient(grpcConn)
-		req := &pb.GetStructuredDataRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetStructuredData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var assistContentGetWebUriCmd = &cobra.Command{
-	Use:   "get-web-uri",
-	Short: "GetWebUri RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentServiceClient(grpcConn)
-		req := &pb.GetWebUriRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetWebUri(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var assistContentIsAppProvidedIntentCmd = &cobra.Command{
-	Use:   "is-app-provided-intent",
-	Short: "IsAppProvidedIntent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentServiceClient(grpcConn)
-		req := &pb.IsAppProvidedIntentRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsAppProvidedIntent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var assistContentIsAppProvidedWebUriCmd = &cobra.Command{
-	Use:   "is-app-provided-web-uri",
-	Short: "IsAppProvidedWebUri RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentServiceClient(grpcConn)
-		req := &pb.IsAppProvidedWebUriRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsAppProvidedWebUri(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var assistContentSetClipDataCmd = &cobra.Command{
-	Use:   "set-clip-data",
-	Short: "SetClipData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentServiceClient(grpcConn)
-		req := &pb.SetClipDataRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetClipData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var assistContentSetIntentCmd = &cobra.Command{
-	Use:   "set-intent",
-	Short: "SetIntent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentServiceClient(grpcConn)
-		req := &pb.SetIntentRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetIntent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var assistContentSetSessionTransferUriCmd = &cobra.Command{
-	Use:   "set-session-transfer-uri",
-	Short: "SetSessionTransferUri RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentServiceClient(grpcConn)
-		req := &pb.SetSessionTransferUriRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSessionTransferUri(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var assistContentSetStructuredDataCmd = &cobra.Command{
-	Use:   "set-structured-data",
-	Short: "SetStructuredData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentServiceClient(grpcConn)
-		req := &pb.SetStructuredDataRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStructuredData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var assistContentSetWebUriCmd = &cobra.Command{
-	Use:   "set-web-uri",
-	Short: "SetWebUri RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentServiceClient(grpcConn)
-		req := &pb.SetWebUriRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetWebUri(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var assistContentWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContentServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
+	assistContentCmd.AddCommand(assistContentNewContentCmd)
+	assistContentDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	assistContentCmd.AddCommand(assistContentDescribeContentsCmd)
+	assistContentGetClipDataCmd.Flags().Int64("handle", 0, "handle (int64)")
+	assistContentCmd.AddCommand(assistContentGetClipDataCmd)
+	assistContentGetExtrasCmd.Flags().Int64("handle", 0, "handle (int64)")
+	assistContentCmd.AddCommand(assistContentGetExtrasCmd)
+	assistContentGetIntentCmd.Flags().Int64("handle", 0, "handle (int64)")
+	assistContentCmd.AddCommand(assistContentGetIntentCmd)
+	assistContentGetSessionTransferUriCmd.Flags().Int64("handle", 0, "handle (int64)")
+	assistContentCmd.AddCommand(assistContentGetSessionTransferUriCmd)
+	assistContentGetStructuredDataCmd.Flags().Int64("handle", 0, "handle (int64)")
+	assistContentCmd.AddCommand(assistContentGetStructuredDataCmd)
+	assistContentGetWebUriCmd.Flags().Int64("handle", 0, "handle (int64)")
+	assistContentCmd.AddCommand(assistContentGetWebUriCmd)
+	assistContentIsAppProvidedIntentCmd.Flags().Int64("handle", 0, "handle (int64)")
+	assistContentCmd.AddCommand(assistContentIsAppProvidedIntentCmd)
+	assistContentIsAppProvidedWebUriCmd.Flags().Int64("handle", 0, "handle (int64)")
+	assistContentCmd.AddCommand(assistContentIsAppProvidedWebUriCmd)
+	assistContentSetClipDataCmd.Flags().Int64("handle", 0, "handle (int64)")
+	assistContentSetClipDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	assistContentCmd.AddCommand(assistContentSetClipDataCmd)
+	assistContentSetIntentCmd.Flags().Int64("handle", 0, "handle (int64)")
+	assistContentSetIntentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	assistContentCmd.AddCommand(assistContentSetIntentCmd)
+	assistContentSetSessionTransferUriCmd.Flags().Int64("handle", 0, "handle (int64)")
+	assistContentSetSessionTransferUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	assistContentCmd.AddCommand(assistContentSetSessionTransferUriCmd)
+	assistContentSetStructuredDataCmd.Flags().Int64("handle", 0, "handle (int64)")
+	assistContentSetStructuredDataCmd.Flags().String("arg0", "", "arg0 (string)")
+	assistContentCmd.AddCommand(assistContentSetStructuredDataCmd)
+	assistContentSetWebUriCmd.Flags().Int64("handle", 0, "handle (int64)")
+	assistContentSetWebUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	assistContentCmd.AddCommand(assistContentSetWebUriCmd)
+	assistContentWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	assistContentWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	assistContentWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	assistContentCmd.AddCommand(assistContentWriteToParcelCmd)
+	assistCmd.AddCommand(assistContentCmd)
 	assistStructureCmd.AddCommand(assistStructureNewStructureCmd)
 	assistStructureDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
 	assistStructureCmd.AddCommand(assistStructureDescribeContentsCmd)
@@ -1681,44 +1720,5 @@ func init() {
 	assistStructureWindowNodeCmd.AddCommand(assistStructureWindowNodeGetTopCmd)
 	assistStructureWindowNodeCmd.AddCommand(assistStructureWindowNodeGetWidthCmd)
 	assistCmd.AddCommand(assistStructureWindowNodeCmd)
-	assistContentCmd.AddCommand(assistContentNewContentCmd)
-	assistContentDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	assistContentCmd.AddCommand(assistContentDescribeContentsCmd)
-	assistContentGetClipDataCmd.Flags().Int64("handle", 0, "handle (int64)")
-	assistContentCmd.AddCommand(assistContentGetClipDataCmd)
-	assistContentGetExtrasCmd.Flags().Int64("handle", 0, "handle (int64)")
-	assistContentCmd.AddCommand(assistContentGetExtrasCmd)
-	assistContentGetIntentCmd.Flags().Int64("handle", 0, "handle (int64)")
-	assistContentCmd.AddCommand(assistContentGetIntentCmd)
-	assistContentGetSessionTransferUriCmd.Flags().Int64("handle", 0, "handle (int64)")
-	assistContentCmd.AddCommand(assistContentGetSessionTransferUriCmd)
-	assistContentGetStructuredDataCmd.Flags().Int64("handle", 0, "handle (int64)")
-	assistContentCmd.AddCommand(assistContentGetStructuredDataCmd)
-	assistContentGetWebUriCmd.Flags().Int64("handle", 0, "handle (int64)")
-	assistContentCmd.AddCommand(assistContentGetWebUriCmd)
-	assistContentIsAppProvidedIntentCmd.Flags().Int64("handle", 0, "handle (int64)")
-	assistContentCmd.AddCommand(assistContentIsAppProvidedIntentCmd)
-	assistContentIsAppProvidedWebUriCmd.Flags().Int64("handle", 0, "handle (int64)")
-	assistContentCmd.AddCommand(assistContentIsAppProvidedWebUriCmd)
-	assistContentSetClipDataCmd.Flags().Int64("handle", 0, "handle (int64)")
-	assistContentSetClipDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	assistContentCmd.AddCommand(assistContentSetClipDataCmd)
-	assistContentSetIntentCmd.Flags().Int64("handle", 0, "handle (int64)")
-	assistContentSetIntentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	assistContentCmd.AddCommand(assistContentSetIntentCmd)
-	assistContentSetSessionTransferUriCmd.Flags().Int64("handle", 0, "handle (int64)")
-	assistContentSetSessionTransferUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	assistContentCmd.AddCommand(assistContentSetSessionTransferUriCmd)
-	assistContentSetStructuredDataCmd.Flags().Int64("handle", 0, "handle (int64)")
-	assistContentSetStructuredDataCmd.Flags().String("arg0", "", "arg0 (string)")
-	assistContentCmd.AddCommand(assistContentSetStructuredDataCmd)
-	assistContentSetWebUriCmd.Flags().Int64("handle", 0, "handle (int64)")
-	assistContentSetWebUriCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	assistContentCmd.AddCommand(assistContentSetWebUriCmd)
-	assistContentWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	assistContentWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	assistContentWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	assistContentCmd.AddCommand(assistContentWriteToParcelCmd)
-	assistCmd.AddCommand(assistContentCmd)
 	rootCmd.AddCommand(assistCmd)
 }

@@ -12,33 +12,6 @@ message EndRequest {
 message EndResponse {
 }
 
-message EndTextElementListenerEndRequest {
-  string arg0 = 1;
-}
-
-message StartRequest {
-  int64 arg0 = 1;
-}
-
-message StartResponse {
-}
-
-message NewRootElementRequest {
-  string arg0 = 1;
-}
-
-message NewRootElementResponse {
-  int64 result = 1;
-}
-
-message GetContentHandlerRequest {
-  int64 handle = 1;
-}
-
-message GetContentHandlerResponse {
-  int64 result = 1;
-}
-
 message GetChild1Request {
   string arg0 = 1;
 }
@@ -115,21 +88,35 @@ message ToStringResponse {
   string result = 1;
 }
 
+message StartRequest {
+  int64 arg0 = 1;
+}
+
+message StartResponse {
+}
+
+message EndTextElementListenerEndRequest {
+  string arg0 = 1;
+}
+
+message NewRootElementRequest {
+  string arg0 = 1;
+}
+
+message NewRootElementResponse {
+  int64 result = 1;
+}
+
+message GetContentHandlerRequest {
+  int64 handle = 1;
+}
+
+message GetContentHandlerResponse {
+  int64 result = 1;
+}
+
 service EndElementListenerService {
   rpc End (EndRequest) returns (EndResponse);
-}
-
-service EndTextElementListenerService {
-  rpc End (EndTextElementListenerEndRequest) returns (EndResponse);
-}
-
-service StartElementListenerService {
-  rpc Start (StartRequest) returns (StartResponse);
-}
-
-service RootElementService {
-  rpc NewRootElement (NewRootElementRequest) returns (NewRootElementResponse);
-  rpc GetContentHandler (GetContentHandlerRequest) returns (GetContentHandlerResponse);
 }
 
 service ElementService {
@@ -143,4 +130,17 @@ service ElementService {
   rpc SetStartElementListener (SetStartElementListenerRequest) returns (SetStartElementListenerResponse);
   rpc SetTextElementListener (SetTextElementListenerRequest) returns (SetTextElementListenerResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service StartElementListenerService {
+  rpc Start (StartRequest) returns (StartResponse);
+}
+
+service EndTextElementListenerService {
+  rpc End (EndTextElementListenerEndRequest) returns (EndResponse);
+}
+
+service RootElementService {
+  rpc NewRootElement (NewRootElementRequest) returns (NewRootElementResponse);
+  rpc GetContentHandler (GetContentHandlerRequest) returns (GetContentHandlerResponse);
 }

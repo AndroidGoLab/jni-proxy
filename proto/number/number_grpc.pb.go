@@ -21,6 +21,299 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	LocalizedNumberFormatterService_Format1_FullMethodName       = "/number.LocalizedNumberFormatterService/Format1"
+	LocalizedNumberFormatterService_Format1_1_FullMethodName     = "/number.LocalizedNumberFormatterService/Format1_1"
+	LocalizedNumberFormatterService_Format1_2_FullMethodName     = "/number.LocalizedNumberFormatterService/Format1_2"
+	LocalizedNumberFormatterService_Format1_3_FullMethodName     = "/number.LocalizedNumberFormatterService/Format1_3"
+	LocalizedNumberFormatterService_ToFormat_FullMethodName      = "/number.LocalizedNumberFormatterService/ToFormat"
+	LocalizedNumberFormatterService_WithoutLocale_FullMethodName = "/number.LocalizedNumberFormatterService/WithoutLocale"
+)
+
+// LocalizedNumberFormatterServiceClient is the client API for LocalizedNumberFormatterService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type LocalizedNumberFormatterServiceClient interface {
+	Format1(ctx context.Context, in *Format1Request, opts ...grpc.CallOption) (*Format1Response, error)
+	Format1_1(ctx context.Context, in *Format1_1Request, opts ...grpc.CallOption) (*Format1_1Response, error)
+	Format1_2(ctx context.Context, in *Format1_2Request, opts ...grpc.CallOption) (*Format1_2Response, error)
+	Format1_3(ctx context.Context, in *Format1_3Request, opts ...grpc.CallOption) (*Format1_3Response, error)
+	ToFormat(ctx context.Context, in *ToFormatRequest, opts ...grpc.CallOption) (*ToFormatResponse, error)
+	WithoutLocale(ctx context.Context, in *WithoutLocaleRequest, opts ...grpc.CallOption) (*WithoutLocaleResponse, error)
+}
+
+type localizedNumberFormatterServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewLocalizedNumberFormatterServiceClient(cc grpc.ClientConnInterface) LocalizedNumberFormatterServiceClient {
+	return &localizedNumberFormatterServiceClient{cc}
+}
+
+func (c *localizedNumberFormatterServiceClient) Format1(ctx context.Context, in *Format1Request, opts ...grpc.CallOption) (*Format1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Format1Response)
+	err := c.cc.Invoke(ctx, LocalizedNumberFormatterService_Format1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *localizedNumberFormatterServiceClient) Format1_1(ctx context.Context, in *Format1_1Request, opts ...grpc.CallOption) (*Format1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Format1_1Response)
+	err := c.cc.Invoke(ctx, LocalizedNumberFormatterService_Format1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *localizedNumberFormatterServiceClient) Format1_2(ctx context.Context, in *Format1_2Request, opts ...grpc.CallOption) (*Format1_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Format1_2Response)
+	err := c.cc.Invoke(ctx, LocalizedNumberFormatterService_Format1_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *localizedNumberFormatterServiceClient) Format1_3(ctx context.Context, in *Format1_3Request, opts ...grpc.CallOption) (*Format1_3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Format1_3Response)
+	err := c.cc.Invoke(ctx, LocalizedNumberFormatterService_Format1_3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *localizedNumberFormatterServiceClient) ToFormat(ctx context.Context, in *ToFormatRequest, opts ...grpc.CallOption) (*ToFormatResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToFormatResponse)
+	err := c.cc.Invoke(ctx, LocalizedNumberFormatterService_ToFormat_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *localizedNumberFormatterServiceClient) WithoutLocale(ctx context.Context, in *WithoutLocaleRequest, opts ...grpc.CallOption) (*WithoutLocaleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WithoutLocaleResponse)
+	err := c.cc.Invoke(ctx, LocalizedNumberFormatterService_WithoutLocale_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// LocalizedNumberFormatterServiceServer is the server API for LocalizedNumberFormatterService service.
+// All implementations must embed UnimplementedLocalizedNumberFormatterServiceServer
+// for forward compatibility.
+type LocalizedNumberFormatterServiceServer interface {
+	Format1(context.Context, *Format1Request) (*Format1Response, error)
+	Format1_1(context.Context, *Format1_1Request) (*Format1_1Response, error)
+	Format1_2(context.Context, *Format1_2Request) (*Format1_2Response, error)
+	Format1_3(context.Context, *Format1_3Request) (*Format1_3Response, error)
+	ToFormat(context.Context, *ToFormatRequest) (*ToFormatResponse, error)
+	WithoutLocale(context.Context, *WithoutLocaleRequest) (*WithoutLocaleResponse, error)
+	mustEmbedUnimplementedLocalizedNumberFormatterServiceServer()
+}
+
+// UnimplementedLocalizedNumberFormatterServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedLocalizedNumberFormatterServiceServer struct{}
+
+func (UnimplementedLocalizedNumberFormatterServiceServer) Format1(context.Context, *Format1Request) (*Format1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Format1 not implemented")
+}
+func (UnimplementedLocalizedNumberFormatterServiceServer) Format1_1(context.Context, *Format1_1Request) (*Format1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Format1_1 not implemented")
+}
+func (UnimplementedLocalizedNumberFormatterServiceServer) Format1_2(context.Context, *Format1_2Request) (*Format1_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Format1_2 not implemented")
+}
+func (UnimplementedLocalizedNumberFormatterServiceServer) Format1_3(context.Context, *Format1_3Request) (*Format1_3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Format1_3 not implemented")
+}
+func (UnimplementedLocalizedNumberFormatterServiceServer) ToFormat(context.Context, *ToFormatRequest) (*ToFormatResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToFormat not implemented")
+}
+func (UnimplementedLocalizedNumberFormatterServiceServer) WithoutLocale(context.Context, *WithoutLocaleRequest) (*WithoutLocaleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WithoutLocale not implemented")
+}
+func (UnimplementedLocalizedNumberFormatterServiceServer) mustEmbedUnimplementedLocalizedNumberFormatterServiceServer() {
+}
+func (UnimplementedLocalizedNumberFormatterServiceServer) testEmbeddedByValue() {}
+
+// UnsafeLocalizedNumberFormatterServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to LocalizedNumberFormatterServiceServer will
+// result in compilation errors.
+type UnsafeLocalizedNumberFormatterServiceServer interface {
+	mustEmbedUnimplementedLocalizedNumberFormatterServiceServer()
+}
+
+func RegisterLocalizedNumberFormatterServiceServer(s grpc.ServiceRegistrar, srv LocalizedNumberFormatterServiceServer) {
+	// If the following call panics, it indicates UnimplementedLocalizedNumberFormatterServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&LocalizedNumberFormatterService_ServiceDesc, srv)
+}
+
+func _LocalizedNumberFormatterService_Format1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Format1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LocalizedNumberFormatterServiceServer).Format1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LocalizedNumberFormatterService_Format1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LocalizedNumberFormatterServiceServer).Format1(ctx, req.(*Format1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LocalizedNumberFormatterService_Format1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Format1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LocalizedNumberFormatterServiceServer).Format1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LocalizedNumberFormatterService_Format1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LocalizedNumberFormatterServiceServer).Format1_1(ctx, req.(*Format1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LocalizedNumberFormatterService_Format1_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Format1_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LocalizedNumberFormatterServiceServer).Format1_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LocalizedNumberFormatterService_Format1_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LocalizedNumberFormatterServiceServer).Format1_2(ctx, req.(*Format1_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LocalizedNumberFormatterService_Format1_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Format1_3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LocalizedNumberFormatterServiceServer).Format1_3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LocalizedNumberFormatterService_Format1_3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LocalizedNumberFormatterServiceServer).Format1_3(ctx, req.(*Format1_3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LocalizedNumberFormatterService_ToFormat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToFormatRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LocalizedNumberFormatterServiceServer).ToFormat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LocalizedNumberFormatterService_ToFormat_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LocalizedNumberFormatterServiceServer).ToFormat(ctx, req.(*ToFormatRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LocalizedNumberFormatterService_WithoutLocale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WithoutLocaleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LocalizedNumberFormatterServiceServer).WithoutLocale(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LocalizedNumberFormatterService_WithoutLocale_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LocalizedNumberFormatterServiceServer).WithoutLocale(ctx, req.(*WithoutLocaleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// LocalizedNumberFormatterService_ServiceDesc is the grpc.ServiceDesc for LocalizedNumberFormatterService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var LocalizedNumberFormatterService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "number.LocalizedNumberFormatterService",
+	HandlerType: (*LocalizedNumberFormatterServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Format1",
+			Handler:    _LocalizedNumberFormatterService_Format1_Handler,
+		},
+		{
+			MethodName: "Format1_1",
+			Handler:    _LocalizedNumberFormatterService_Format1_1_Handler,
+		},
+		{
+			MethodName: "Format1_2",
+			Handler:    _LocalizedNumberFormatterService_Format1_2_Handler,
+		},
+		{
+			MethodName: "Format1_3",
+			Handler:    _LocalizedNumberFormatterService_Format1_3_Handler,
+		},
+		{
+			MethodName: "ToFormat",
+			Handler:    _LocalizedNumberFormatterService_ToFormat_Handler,
+		},
+		{
+			MethodName: "WithoutLocale",
+			Handler:    _LocalizedNumberFormatterService_WithoutLocale_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/number/number.proto",
+}
+
+const (
 	ScientificNotationService_WithExponentSignDisplay_FullMethodName = "/number.ScientificNotationService/WithExponentSignDisplay"
 	ScientificNotationService_WithMinExponentDigits_FullMethodName   = "/number.ScientificNotationService/WithMinExponentDigits"
 )
@@ -162,253 +455,140 @@ var ScientificNotationService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ScaleService_ByBigDecimal_FullMethodName          = "/number.ScaleService/ByBigDecimal"
-	ScaleService_ByDouble_FullMethodName              = "/number.ScaleService/ByDouble"
-	ScaleService_ByDoubleAndPowerOfTen_FullMethodName = "/number.ScaleService/ByDoubleAndPowerOfTen"
-	ScaleService_None_FullMethodName                  = "/number.ScaleService/None"
-	ScaleService_PowerOfTen_FullMethodName            = "/number.ScaleService/PowerOfTen"
+	UnlocalizedNumberRangeFormatterService_Locale1_FullMethodName   = "/number.UnlocalizedNumberRangeFormatterService/Locale1"
+	UnlocalizedNumberRangeFormatterService_Locale1_1_FullMethodName = "/number.UnlocalizedNumberRangeFormatterService/Locale1_1"
 )
 
-// ScaleServiceClient is the client API for ScaleService service.
+// UnlocalizedNumberRangeFormatterServiceClient is the client API for UnlocalizedNumberRangeFormatterService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ScaleServiceClient interface {
-	ByBigDecimal(ctx context.Context, in *ByBigDecimalRequest, opts ...grpc.CallOption) (*ByBigDecimalResponse, error)
-	ByDouble(ctx context.Context, in *ByDoubleRequest, opts ...grpc.CallOption) (*ByDoubleResponse, error)
-	ByDoubleAndPowerOfTen(ctx context.Context, in *ByDoubleAndPowerOfTenRequest, opts ...grpc.CallOption) (*ByDoubleAndPowerOfTenResponse, error)
-	None(ctx context.Context, in *NoneRequest, opts ...grpc.CallOption) (*NoneResponse, error)
-	PowerOfTen(ctx context.Context, in *PowerOfTenRequest, opts ...grpc.CallOption) (*PowerOfTenResponse, error)
+type UnlocalizedNumberRangeFormatterServiceClient interface {
+	Locale1(ctx context.Context, in *Locale1Request, opts ...grpc.CallOption) (*Locale1Response, error)
+	Locale1_1(ctx context.Context, in *Locale1_1Request, opts ...grpc.CallOption) (*Locale1_1Response, error)
 }
 
-type scaleServiceClient struct {
+type unlocalizedNumberRangeFormatterServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewScaleServiceClient(cc grpc.ClientConnInterface) ScaleServiceClient {
-	return &scaleServiceClient{cc}
+func NewUnlocalizedNumberRangeFormatterServiceClient(cc grpc.ClientConnInterface) UnlocalizedNumberRangeFormatterServiceClient {
+	return &unlocalizedNumberRangeFormatterServiceClient{cc}
 }
 
-func (c *scaleServiceClient) ByBigDecimal(ctx context.Context, in *ByBigDecimalRequest, opts ...grpc.CallOption) (*ByBigDecimalResponse, error) {
+func (c *unlocalizedNumberRangeFormatterServiceClient) Locale1(ctx context.Context, in *Locale1Request, opts ...grpc.CallOption) (*Locale1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ByBigDecimalResponse)
-	err := c.cc.Invoke(ctx, ScaleService_ByBigDecimal_FullMethodName, in, out, cOpts...)
+	out := new(Locale1Response)
+	err := c.cc.Invoke(ctx, UnlocalizedNumberRangeFormatterService_Locale1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *scaleServiceClient) ByDouble(ctx context.Context, in *ByDoubleRequest, opts ...grpc.CallOption) (*ByDoubleResponse, error) {
+func (c *unlocalizedNumberRangeFormatterServiceClient) Locale1_1(ctx context.Context, in *Locale1_1Request, opts ...grpc.CallOption) (*Locale1_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ByDoubleResponse)
-	err := c.cc.Invoke(ctx, ScaleService_ByDouble_FullMethodName, in, out, cOpts...)
+	out := new(Locale1_1Response)
+	err := c.cc.Invoke(ctx, UnlocalizedNumberRangeFormatterService_Locale1_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *scaleServiceClient) ByDoubleAndPowerOfTen(ctx context.Context, in *ByDoubleAndPowerOfTenRequest, opts ...grpc.CallOption) (*ByDoubleAndPowerOfTenResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ByDoubleAndPowerOfTenResponse)
-	err := c.cc.Invoke(ctx, ScaleService_ByDoubleAndPowerOfTen_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *scaleServiceClient) None(ctx context.Context, in *NoneRequest, opts ...grpc.CallOption) (*NoneResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NoneResponse)
-	err := c.cc.Invoke(ctx, ScaleService_None_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *scaleServiceClient) PowerOfTen(ctx context.Context, in *PowerOfTenRequest, opts ...grpc.CallOption) (*PowerOfTenResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(PowerOfTenResponse)
-	err := c.cc.Invoke(ctx, ScaleService_PowerOfTen_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ScaleServiceServer is the server API for ScaleService service.
-// All implementations must embed UnimplementedScaleServiceServer
+// UnlocalizedNumberRangeFormatterServiceServer is the server API for UnlocalizedNumberRangeFormatterService service.
+// All implementations must embed UnimplementedUnlocalizedNumberRangeFormatterServiceServer
 // for forward compatibility.
-type ScaleServiceServer interface {
-	ByBigDecimal(context.Context, *ByBigDecimalRequest) (*ByBigDecimalResponse, error)
-	ByDouble(context.Context, *ByDoubleRequest) (*ByDoubleResponse, error)
-	ByDoubleAndPowerOfTen(context.Context, *ByDoubleAndPowerOfTenRequest) (*ByDoubleAndPowerOfTenResponse, error)
-	None(context.Context, *NoneRequest) (*NoneResponse, error)
-	PowerOfTen(context.Context, *PowerOfTenRequest) (*PowerOfTenResponse, error)
-	mustEmbedUnimplementedScaleServiceServer()
+type UnlocalizedNumberRangeFormatterServiceServer interface {
+	Locale1(context.Context, *Locale1Request) (*Locale1Response, error)
+	Locale1_1(context.Context, *Locale1_1Request) (*Locale1_1Response, error)
+	mustEmbedUnimplementedUnlocalizedNumberRangeFormatterServiceServer()
 }
 
-// UnimplementedScaleServiceServer must be embedded to have
+// UnimplementedUnlocalizedNumberRangeFormatterServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedScaleServiceServer struct{}
+type UnimplementedUnlocalizedNumberRangeFormatterServiceServer struct{}
 
-func (UnimplementedScaleServiceServer) ByBigDecimal(context.Context, *ByBigDecimalRequest) (*ByBigDecimalResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ByBigDecimal not implemented")
+func (UnimplementedUnlocalizedNumberRangeFormatterServiceServer) Locale1(context.Context, *Locale1Request) (*Locale1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Locale1 not implemented")
 }
-func (UnimplementedScaleServiceServer) ByDouble(context.Context, *ByDoubleRequest) (*ByDoubleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ByDouble not implemented")
+func (UnimplementedUnlocalizedNumberRangeFormatterServiceServer) Locale1_1(context.Context, *Locale1_1Request) (*Locale1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Locale1_1 not implemented")
 }
-func (UnimplementedScaleServiceServer) ByDoubleAndPowerOfTen(context.Context, *ByDoubleAndPowerOfTenRequest) (*ByDoubleAndPowerOfTenResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ByDoubleAndPowerOfTen not implemented")
+func (UnimplementedUnlocalizedNumberRangeFormatterServiceServer) mustEmbedUnimplementedUnlocalizedNumberRangeFormatterServiceServer() {
 }
-func (UnimplementedScaleServiceServer) None(context.Context, *NoneRequest) (*NoneResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method None not implemented")
-}
-func (UnimplementedScaleServiceServer) PowerOfTen(context.Context, *PowerOfTenRequest) (*PowerOfTenResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method PowerOfTen not implemented")
-}
-func (UnimplementedScaleServiceServer) mustEmbedUnimplementedScaleServiceServer() {}
-func (UnimplementedScaleServiceServer) testEmbeddedByValue()                      {}
+func (UnimplementedUnlocalizedNumberRangeFormatterServiceServer) testEmbeddedByValue() {}
 
-// UnsafeScaleServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ScaleServiceServer will
+// UnsafeUnlocalizedNumberRangeFormatterServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to UnlocalizedNumberRangeFormatterServiceServer will
 // result in compilation errors.
-type UnsafeScaleServiceServer interface {
-	mustEmbedUnimplementedScaleServiceServer()
+type UnsafeUnlocalizedNumberRangeFormatterServiceServer interface {
+	mustEmbedUnimplementedUnlocalizedNumberRangeFormatterServiceServer()
 }
 
-func RegisterScaleServiceServer(s grpc.ServiceRegistrar, srv ScaleServiceServer) {
-	// If the following call panics, it indicates UnimplementedScaleServiceServer was
+func RegisterUnlocalizedNumberRangeFormatterServiceServer(s grpc.ServiceRegistrar, srv UnlocalizedNumberRangeFormatterServiceServer) {
+	// If the following call panics, it indicates UnimplementedUnlocalizedNumberRangeFormatterServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&ScaleService_ServiceDesc, srv)
+	s.RegisterService(&UnlocalizedNumberRangeFormatterService_ServiceDesc, srv)
 }
 
-func _ScaleService_ByBigDecimal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ByBigDecimalRequest)
+func _UnlocalizedNumberRangeFormatterService_Locale1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Locale1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ScaleServiceServer).ByBigDecimal(ctx, in)
+		return srv.(UnlocalizedNumberRangeFormatterServiceServer).Locale1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ScaleService_ByBigDecimal_FullMethodName,
+		FullMethod: UnlocalizedNumberRangeFormatterService_Locale1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScaleServiceServer).ByBigDecimal(ctx, req.(*ByBigDecimalRequest))
+		return srv.(UnlocalizedNumberRangeFormatterServiceServer).Locale1(ctx, req.(*Locale1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ScaleService_ByDouble_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ByDoubleRequest)
+func _UnlocalizedNumberRangeFormatterService_Locale1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Locale1_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ScaleServiceServer).ByDouble(ctx, in)
+		return srv.(UnlocalizedNumberRangeFormatterServiceServer).Locale1_1(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ScaleService_ByDouble_FullMethodName,
+		FullMethod: UnlocalizedNumberRangeFormatterService_Locale1_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScaleServiceServer).ByDouble(ctx, req.(*ByDoubleRequest))
+		return srv.(UnlocalizedNumberRangeFormatterServiceServer).Locale1_1(ctx, req.(*Locale1_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ScaleService_ByDoubleAndPowerOfTen_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ByDoubleAndPowerOfTenRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScaleServiceServer).ByDoubleAndPowerOfTen(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScaleService_ByDoubleAndPowerOfTen_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScaleServiceServer).ByDoubleAndPowerOfTen(ctx, req.(*ByDoubleAndPowerOfTenRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ScaleService_None_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NoneRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScaleServiceServer).None(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScaleService_None_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScaleServiceServer).None(ctx, req.(*NoneRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ScaleService_PowerOfTen_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PowerOfTenRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScaleServiceServer).PowerOfTen(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScaleService_PowerOfTen_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScaleServiceServer).PowerOfTen(ctx, req.(*PowerOfTenRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ScaleService_ServiceDesc is the grpc.ServiceDesc for ScaleService service.
+// UnlocalizedNumberRangeFormatterService_ServiceDesc is the grpc.ServiceDesc for UnlocalizedNumberRangeFormatterService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var ScaleService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "number.ScaleService",
-	HandlerType: (*ScaleServiceServer)(nil),
+var UnlocalizedNumberRangeFormatterService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "number.UnlocalizedNumberRangeFormatterService",
+	HandlerType: (*UnlocalizedNumberRangeFormatterServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "ByBigDecimal",
-			Handler:    _ScaleService_ByBigDecimal_Handler,
+			MethodName: "Locale1",
+			Handler:    _UnlocalizedNumberRangeFormatterService_Locale1_Handler,
 		},
 		{
-			MethodName: "ByDouble",
-			Handler:    _ScaleService_ByDouble_Handler,
-		},
-		{
-			MethodName: "ByDoubleAndPowerOfTen",
-			Handler:    _ScaleService_ByDoubleAndPowerOfTen_Handler,
-		},
-		{
-			MethodName: "None",
-			Handler:    _ScaleService_None_Handler,
-		},
-		{
-			MethodName: "PowerOfTen",
-			Handler:    _ScaleService_PowerOfTen_Handler,
+			MethodName: "Locale1_1",
+			Handler:    _UnlocalizedNumberRangeFormatterService_Locale1_1_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -416,178 +596,139 @@ var ScaleService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	FractionPrecisionService_WithMaxDigits_FullMethodName         = "/number.FractionPrecisionService/WithMaxDigits"
-	FractionPrecisionService_WithMinDigits_FullMethodName         = "/number.FractionPrecisionService/WithMinDigits"
-	FractionPrecisionService_WithSignificantDigits_FullMethodName = "/number.FractionPrecisionService/WithSignificantDigits"
+	IntegerWidthService_TruncateAt_FullMethodName = "/number.IntegerWidthService/TruncateAt"
+	IntegerWidthService_ZeroFillTo_FullMethodName = "/number.IntegerWidthService/ZeroFillTo"
 )
 
-// FractionPrecisionServiceClient is the client API for FractionPrecisionService service.
+// IntegerWidthServiceClient is the client API for IntegerWidthService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type FractionPrecisionServiceClient interface {
-	WithMaxDigits(ctx context.Context, in *WithMaxDigitsRequest, opts ...grpc.CallOption) (*WithMaxDigitsResponse, error)
-	WithMinDigits(ctx context.Context, in *WithMinDigitsRequest, opts ...grpc.CallOption) (*WithMinDigitsResponse, error)
-	WithSignificantDigits(ctx context.Context, in *WithSignificantDigitsRequest, opts ...grpc.CallOption) (*WithSignificantDigitsResponse, error)
+type IntegerWidthServiceClient interface {
+	TruncateAt(ctx context.Context, in *TruncateAtRequest, opts ...grpc.CallOption) (*TruncateAtResponse, error)
+	ZeroFillTo(ctx context.Context, in *ZeroFillToRequest, opts ...grpc.CallOption) (*ZeroFillToResponse, error)
 }
 
-type fractionPrecisionServiceClient struct {
+type integerWidthServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewFractionPrecisionServiceClient(cc grpc.ClientConnInterface) FractionPrecisionServiceClient {
-	return &fractionPrecisionServiceClient{cc}
+func NewIntegerWidthServiceClient(cc grpc.ClientConnInterface) IntegerWidthServiceClient {
+	return &integerWidthServiceClient{cc}
 }
 
-func (c *fractionPrecisionServiceClient) WithMaxDigits(ctx context.Context, in *WithMaxDigitsRequest, opts ...grpc.CallOption) (*WithMaxDigitsResponse, error) {
+func (c *integerWidthServiceClient) TruncateAt(ctx context.Context, in *TruncateAtRequest, opts ...grpc.CallOption) (*TruncateAtResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WithMaxDigitsResponse)
-	err := c.cc.Invoke(ctx, FractionPrecisionService_WithMaxDigits_FullMethodName, in, out, cOpts...)
+	out := new(TruncateAtResponse)
+	err := c.cc.Invoke(ctx, IntegerWidthService_TruncateAt_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *fractionPrecisionServiceClient) WithMinDigits(ctx context.Context, in *WithMinDigitsRequest, opts ...grpc.CallOption) (*WithMinDigitsResponse, error) {
+func (c *integerWidthServiceClient) ZeroFillTo(ctx context.Context, in *ZeroFillToRequest, opts ...grpc.CallOption) (*ZeroFillToResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WithMinDigitsResponse)
-	err := c.cc.Invoke(ctx, FractionPrecisionService_WithMinDigits_FullMethodName, in, out, cOpts...)
+	out := new(ZeroFillToResponse)
+	err := c.cc.Invoke(ctx, IntegerWidthService_ZeroFillTo_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *fractionPrecisionServiceClient) WithSignificantDigits(ctx context.Context, in *WithSignificantDigitsRequest, opts ...grpc.CallOption) (*WithSignificantDigitsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WithSignificantDigitsResponse)
-	err := c.cc.Invoke(ctx, FractionPrecisionService_WithSignificantDigits_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// FractionPrecisionServiceServer is the server API for FractionPrecisionService service.
-// All implementations must embed UnimplementedFractionPrecisionServiceServer
+// IntegerWidthServiceServer is the server API for IntegerWidthService service.
+// All implementations must embed UnimplementedIntegerWidthServiceServer
 // for forward compatibility.
-type FractionPrecisionServiceServer interface {
-	WithMaxDigits(context.Context, *WithMaxDigitsRequest) (*WithMaxDigitsResponse, error)
-	WithMinDigits(context.Context, *WithMinDigitsRequest) (*WithMinDigitsResponse, error)
-	WithSignificantDigits(context.Context, *WithSignificantDigitsRequest) (*WithSignificantDigitsResponse, error)
-	mustEmbedUnimplementedFractionPrecisionServiceServer()
+type IntegerWidthServiceServer interface {
+	TruncateAt(context.Context, *TruncateAtRequest) (*TruncateAtResponse, error)
+	ZeroFillTo(context.Context, *ZeroFillToRequest) (*ZeroFillToResponse, error)
+	mustEmbedUnimplementedIntegerWidthServiceServer()
 }
 
-// UnimplementedFractionPrecisionServiceServer must be embedded to have
+// UnimplementedIntegerWidthServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedFractionPrecisionServiceServer struct{}
+type UnimplementedIntegerWidthServiceServer struct{}
 
-func (UnimplementedFractionPrecisionServiceServer) WithMaxDigits(context.Context, *WithMaxDigitsRequest) (*WithMaxDigitsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WithMaxDigits not implemented")
+func (UnimplementedIntegerWidthServiceServer) TruncateAt(context.Context, *TruncateAtRequest) (*TruncateAtResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method TruncateAt not implemented")
 }
-func (UnimplementedFractionPrecisionServiceServer) WithMinDigits(context.Context, *WithMinDigitsRequest) (*WithMinDigitsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WithMinDigits not implemented")
+func (UnimplementedIntegerWidthServiceServer) ZeroFillTo(context.Context, *ZeroFillToRequest) (*ZeroFillToResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ZeroFillTo not implemented")
 }
-func (UnimplementedFractionPrecisionServiceServer) WithSignificantDigits(context.Context, *WithSignificantDigitsRequest) (*WithSignificantDigitsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WithSignificantDigits not implemented")
-}
-func (UnimplementedFractionPrecisionServiceServer) mustEmbedUnimplementedFractionPrecisionServiceServer() {
-}
-func (UnimplementedFractionPrecisionServiceServer) testEmbeddedByValue() {}
+func (UnimplementedIntegerWidthServiceServer) mustEmbedUnimplementedIntegerWidthServiceServer() {}
+func (UnimplementedIntegerWidthServiceServer) testEmbeddedByValue()                             {}
 
-// UnsafeFractionPrecisionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to FractionPrecisionServiceServer will
+// UnsafeIntegerWidthServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to IntegerWidthServiceServer will
 // result in compilation errors.
-type UnsafeFractionPrecisionServiceServer interface {
-	mustEmbedUnimplementedFractionPrecisionServiceServer()
+type UnsafeIntegerWidthServiceServer interface {
+	mustEmbedUnimplementedIntegerWidthServiceServer()
 }
 
-func RegisterFractionPrecisionServiceServer(s grpc.ServiceRegistrar, srv FractionPrecisionServiceServer) {
-	// If the following call panics, it indicates UnimplementedFractionPrecisionServiceServer was
+func RegisterIntegerWidthServiceServer(s grpc.ServiceRegistrar, srv IntegerWidthServiceServer) {
+	// If the following call panics, it indicates UnimplementedIntegerWidthServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&FractionPrecisionService_ServiceDesc, srv)
+	s.RegisterService(&IntegerWidthService_ServiceDesc, srv)
 }
 
-func _FractionPrecisionService_WithMaxDigits_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WithMaxDigitsRequest)
+func _IntegerWidthService_TruncateAt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TruncateAtRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(FractionPrecisionServiceServer).WithMaxDigits(ctx, in)
+		return srv.(IntegerWidthServiceServer).TruncateAt(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: FractionPrecisionService_WithMaxDigits_FullMethodName,
+		FullMethod: IntegerWidthService_TruncateAt_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FractionPrecisionServiceServer).WithMaxDigits(ctx, req.(*WithMaxDigitsRequest))
+		return srv.(IntegerWidthServiceServer).TruncateAt(ctx, req.(*TruncateAtRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _FractionPrecisionService_WithMinDigits_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WithMinDigitsRequest)
+func _IntegerWidthService_ZeroFillTo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ZeroFillToRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(FractionPrecisionServiceServer).WithMinDigits(ctx, in)
+		return srv.(IntegerWidthServiceServer).ZeroFillTo(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: FractionPrecisionService_WithMinDigits_FullMethodName,
+		FullMethod: IntegerWidthService_ZeroFillTo_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FractionPrecisionServiceServer).WithMinDigits(ctx, req.(*WithMinDigitsRequest))
+		return srv.(IntegerWidthServiceServer).ZeroFillTo(ctx, req.(*ZeroFillToRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _FractionPrecisionService_WithSignificantDigits_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WithSignificantDigitsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FractionPrecisionServiceServer).WithSignificantDigits(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FractionPrecisionService_WithSignificantDigits_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FractionPrecisionServiceServer).WithSignificantDigits(ctx, req.(*WithSignificantDigitsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// FractionPrecisionService_ServiceDesc is the grpc.ServiceDesc for FractionPrecisionService service.
+// IntegerWidthService_ServiceDesc is the grpc.ServiceDesc for IntegerWidthService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var FractionPrecisionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "number.FractionPrecisionService",
-	HandlerType: (*FractionPrecisionServiceServer)(nil),
+var IntegerWidthService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "number.IntegerWidthService",
+	HandlerType: (*IntegerWidthServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "WithMaxDigits",
-			Handler:    _FractionPrecisionService_WithMaxDigits_Handler,
+			MethodName: "TruncateAt",
+			Handler:    _IntegerWidthService_TruncateAt_Handler,
 		},
 		{
-			MethodName: "WithMinDigits",
-			Handler:    _FractionPrecisionService_WithMinDigits_Handler,
-		},
-		{
-			MethodName: "WithSignificantDigits",
-			Handler:    _FractionPrecisionService_WithSignificantDigits_Handler,
+			MethodName: "ZeroFillTo",
+			Handler:    _IntegerWidthService_ZeroFillTo_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1153,6 +1294,1155 @@ var PrecisionService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	FormattedNumberService_CharAt_FullMethodName              = "/number.FormattedNumberService/CharAt"
+	FormattedNumberService_GetNounClass_FullMethodName        = "/number.FormattedNumberService/GetNounClass"
+	FormattedNumberService_GetOutputUnit_FullMethodName       = "/number.FormattedNumberService/GetOutputUnit"
+	FormattedNumberService_Length_FullMethodName              = "/number.FormattedNumberService/Length"
+	FormattedNumberService_NextPosition_FullMethodName        = "/number.FormattedNumberService/NextPosition"
+	FormattedNumberService_SubSequence_FullMethodName         = "/number.FormattedNumberService/SubSequence"
+	FormattedNumberService_ToBigDecimal_FullMethodName        = "/number.FormattedNumberService/ToBigDecimal"
+	FormattedNumberService_ToCharacterIterator_FullMethodName = "/number.FormattedNumberService/ToCharacterIterator"
+	FormattedNumberService_ToString_FullMethodName            = "/number.FormattedNumberService/ToString"
+)
+
+// FormattedNumberServiceClient is the client API for FormattedNumberService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type FormattedNumberServiceClient interface {
+	CharAt(ctx context.Context, in *CharAtRequest, opts ...grpc.CallOption) (*CharAtResponse, error)
+	GetNounClass(ctx context.Context, in *GetNounClassRequest, opts ...grpc.CallOption) (*GetNounClassResponse, error)
+	GetOutputUnit(ctx context.Context, in *GetOutputUnitRequest, opts ...grpc.CallOption) (*GetOutputUnitResponse, error)
+	Length(ctx context.Context, in *LengthRequest, opts ...grpc.CallOption) (*LengthResponse, error)
+	NextPosition(ctx context.Context, in *NextPositionRequest, opts ...grpc.CallOption) (*NextPositionResponse, error)
+	SubSequence(ctx context.Context, in *SubSequenceRequest, opts ...grpc.CallOption) (*SubSequenceResponse, error)
+	ToBigDecimal(ctx context.Context, in *ToBigDecimalRequest, opts ...grpc.CallOption) (*ToBigDecimalResponse, error)
+	ToCharacterIterator(ctx context.Context, in *ToCharacterIteratorRequest, opts ...grpc.CallOption) (*ToCharacterIteratorResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type formattedNumberServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewFormattedNumberServiceClient(cc grpc.ClientConnInterface) FormattedNumberServiceClient {
+	return &formattedNumberServiceClient{cc}
+}
+
+func (c *formattedNumberServiceClient) CharAt(ctx context.Context, in *CharAtRequest, opts ...grpc.CallOption) (*CharAtResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CharAtResponse)
+	err := c.cc.Invoke(ctx, FormattedNumberService_CharAt_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formattedNumberServiceClient) GetNounClass(ctx context.Context, in *GetNounClassRequest, opts ...grpc.CallOption) (*GetNounClassResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNounClassResponse)
+	err := c.cc.Invoke(ctx, FormattedNumberService_GetNounClass_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formattedNumberServiceClient) GetOutputUnit(ctx context.Context, in *GetOutputUnitRequest, opts ...grpc.CallOption) (*GetOutputUnitResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOutputUnitResponse)
+	err := c.cc.Invoke(ctx, FormattedNumberService_GetOutputUnit_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formattedNumberServiceClient) Length(ctx context.Context, in *LengthRequest, opts ...grpc.CallOption) (*LengthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(LengthResponse)
+	err := c.cc.Invoke(ctx, FormattedNumberService_Length_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formattedNumberServiceClient) NextPosition(ctx context.Context, in *NextPositionRequest, opts ...grpc.CallOption) (*NextPositionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NextPositionResponse)
+	err := c.cc.Invoke(ctx, FormattedNumberService_NextPosition_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formattedNumberServiceClient) SubSequence(ctx context.Context, in *SubSequenceRequest, opts ...grpc.CallOption) (*SubSequenceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SubSequenceResponse)
+	err := c.cc.Invoke(ctx, FormattedNumberService_SubSequence_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formattedNumberServiceClient) ToBigDecimal(ctx context.Context, in *ToBigDecimalRequest, opts ...grpc.CallOption) (*ToBigDecimalResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToBigDecimalResponse)
+	err := c.cc.Invoke(ctx, FormattedNumberService_ToBigDecimal_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formattedNumberServiceClient) ToCharacterIterator(ctx context.Context, in *ToCharacterIteratorRequest, opts ...grpc.CallOption) (*ToCharacterIteratorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToCharacterIteratorResponse)
+	err := c.cc.Invoke(ctx, FormattedNumberService_ToCharacterIterator_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formattedNumberServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, FormattedNumberService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// FormattedNumberServiceServer is the server API for FormattedNumberService service.
+// All implementations must embed UnimplementedFormattedNumberServiceServer
+// for forward compatibility.
+type FormattedNumberServiceServer interface {
+	CharAt(context.Context, *CharAtRequest) (*CharAtResponse, error)
+	GetNounClass(context.Context, *GetNounClassRequest) (*GetNounClassResponse, error)
+	GetOutputUnit(context.Context, *GetOutputUnitRequest) (*GetOutputUnitResponse, error)
+	Length(context.Context, *LengthRequest) (*LengthResponse, error)
+	NextPosition(context.Context, *NextPositionRequest) (*NextPositionResponse, error)
+	SubSequence(context.Context, *SubSequenceRequest) (*SubSequenceResponse, error)
+	ToBigDecimal(context.Context, *ToBigDecimalRequest) (*ToBigDecimalResponse, error)
+	ToCharacterIterator(context.Context, *ToCharacterIteratorRequest) (*ToCharacterIteratorResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedFormattedNumberServiceServer()
+}
+
+// UnimplementedFormattedNumberServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedFormattedNumberServiceServer struct{}
+
+func (UnimplementedFormattedNumberServiceServer) CharAt(context.Context, *CharAtRequest) (*CharAtResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CharAt not implemented")
+}
+func (UnimplementedFormattedNumberServiceServer) GetNounClass(context.Context, *GetNounClassRequest) (*GetNounClassResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNounClass not implemented")
+}
+func (UnimplementedFormattedNumberServiceServer) GetOutputUnit(context.Context, *GetOutputUnitRequest) (*GetOutputUnitResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOutputUnit not implemented")
+}
+func (UnimplementedFormattedNumberServiceServer) Length(context.Context, *LengthRequest) (*LengthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Length not implemented")
+}
+func (UnimplementedFormattedNumberServiceServer) NextPosition(context.Context, *NextPositionRequest) (*NextPositionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NextPosition not implemented")
+}
+func (UnimplementedFormattedNumberServiceServer) SubSequence(context.Context, *SubSequenceRequest) (*SubSequenceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SubSequence not implemented")
+}
+func (UnimplementedFormattedNumberServiceServer) ToBigDecimal(context.Context, *ToBigDecimalRequest) (*ToBigDecimalResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToBigDecimal not implemented")
+}
+func (UnimplementedFormattedNumberServiceServer) ToCharacterIterator(context.Context, *ToCharacterIteratorRequest) (*ToCharacterIteratorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToCharacterIterator not implemented")
+}
+func (UnimplementedFormattedNumberServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedFormattedNumberServiceServer) mustEmbedUnimplementedFormattedNumberServiceServer() {
+}
+func (UnimplementedFormattedNumberServiceServer) testEmbeddedByValue() {}
+
+// UnsafeFormattedNumberServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to FormattedNumberServiceServer will
+// result in compilation errors.
+type UnsafeFormattedNumberServiceServer interface {
+	mustEmbedUnimplementedFormattedNumberServiceServer()
+}
+
+func RegisterFormattedNumberServiceServer(s grpc.ServiceRegistrar, srv FormattedNumberServiceServer) {
+	// If the following call panics, it indicates UnimplementedFormattedNumberServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&FormattedNumberService_ServiceDesc, srv)
+}
+
+func _FormattedNumberService_CharAt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CharAtRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormattedNumberServiceServer).CharAt(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormattedNumberService_CharAt_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormattedNumberServiceServer).CharAt(ctx, req.(*CharAtRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormattedNumberService_GetNounClass_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNounClassRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormattedNumberServiceServer).GetNounClass(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormattedNumberService_GetNounClass_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormattedNumberServiceServer).GetNounClass(ctx, req.(*GetNounClassRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormattedNumberService_GetOutputUnit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOutputUnitRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormattedNumberServiceServer).GetOutputUnit(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormattedNumberService_GetOutputUnit_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormattedNumberServiceServer).GetOutputUnit(ctx, req.(*GetOutputUnitRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormattedNumberService_Length_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LengthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormattedNumberServiceServer).Length(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormattedNumberService_Length_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormattedNumberServiceServer).Length(ctx, req.(*LengthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormattedNumberService_NextPosition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NextPositionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormattedNumberServiceServer).NextPosition(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormattedNumberService_NextPosition_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormattedNumberServiceServer).NextPosition(ctx, req.(*NextPositionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormattedNumberService_SubSequence_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SubSequenceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormattedNumberServiceServer).SubSequence(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormattedNumberService_SubSequence_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormattedNumberServiceServer).SubSequence(ctx, req.(*SubSequenceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormattedNumberService_ToBigDecimal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToBigDecimalRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormattedNumberServiceServer).ToBigDecimal(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormattedNumberService_ToBigDecimal_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormattedNumberServiceServer).ToBigDecimal(ctx, req.(*ToBigDecimalRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormattedNumberService_ToCharacterIterator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToCharacterIteratorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormattedNumberServiceServer).ToCharacterIterator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormattedNumberService_ToCharacterIterator_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormattedNumberServiceServer).ToCharacterIterator(ctx, req.(*ToCharacterIteratorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormattedNumberService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormattedNumberServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormattedNumberService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormattedNumberServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// FormattedNumberService_ServiceDesc is the grpc.ServiceDesc for FormattedNumberService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var FormattedNumberService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "number.FormattedNumberService",
+	HandlerType: (*FormattedNumberServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CharAt",
+			Handler:    _FormattedNumberService_CharAt_Handler,
+		},
+		{
+			MethodName: "GetNounClass",
+			Handler:    _FormattedNumberService_GetNounClass_Handler,
+		},
+		{
+			MethodName: "GetOutputUnit",
+			Handler:    _FormattedNumberService_GetOutputUnit_Handler,
+		},
+		{
+			MethodName: "Length",
+			Handler:    _FormattedNumberService_Length_Handler,
+		},
+		{
+			MethodName: "NextPosition",
+			Handler:    _FormattedNumberService_NextPosition_Handler,
+		},
+		{
+			MethodName: "SubSequence",
+			Handler:    _FormattedNumberService_SubSequence_Handler,
+		},
+		{
+			MethodName: "ToBigDecimal",
+			Handler:    _FormattedNumberService_ToBigDecimal_Handler,
+		},
+		{
+			MethodName: "ToCharacterIterator",
+			Handler:    _FormattedNumberService_ToCharacterIterator_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _FormattedNumberService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/number/number.proto",
+}
+
+const (
+	RangeFormatterService_With_FullMethodName          = "/number.RangeFormatterService/With"
+	RangeFormatterService_WithLocale1_FullMethodName   = "/number.RangeFormatterService/WithLocale1"
+	RangeFormatterService_WithLocale1_1_FullMethodName = "/number.RangeFormatterService/WithLocale1_1"
+)
+
+// RangeFormatterServiceClient is the client API for RangeFormatterService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RangeFormatterServiceClient interface {
+	With(ctx context.Context, in *WithRequest, opts ...grpc.CallOption) (*WithResponse, error)
+	WithLocale1(ctx context.Context, in *WithLocale1Request, opts ...grpc.CallOption) (*WithLocale1Response, error)
+	WithLocale1_1(ctx context.Context, in *WithLocale1_1Request, opts ...grpc.CallOption) (*WithLocale1_1Response, error)
+}
+
+type rangeFormatterServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRangeFormatterServiceClient(cc grpc.ClientConnInterface) RangeFormatterServiceClient {
+	return &rangeFormatterServiceClient{cc}
+}
+
+func (c *rangeFormatterServiceClient) With(ctx context.Context, in *WithRequest, opts ...grpc.CallOption) (*WithResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WithResponse)
+	err := c.cc.Invoke(ctx, RangeFormatterService_With_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangeFormatterServiceClient) WithLocale1(ctx context.Context, in *WithLocale1Request, opts ...grpc.CallOption) (*WithLocale1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WithLocale1Response)
+	err := c.cc.Invoke(ctx, RangeFormatterService_WithLocale1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangeFormatterServiceClient) WithLocale1_1(ctx context.Context, in *WithLocale1_1Request, opts ...grpc.CallOption) (*WithLocale1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WithLocale1_1Response)
+	err := c.cc.Invoke(ctx, RangeFormatterService_WithLocale1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RangeFormatterServiceServer is the server API for RangeFormatterService service.
+// All implementations must embed UnimplementedRangeFormatterServiceServer
+// for forward compatibility.
+type RangeFormatterServiceServer interface {
+	With(context.Context, *WithRequest) (*WithResponse, error)
+	WithLocale1(context.Context, *WithLocale1Request) (*WithLocale1Response, error)
+	WithLocale1_1(context.Context, *WithLocale1_1Request) (*WithLocale1_1Response, error)
+	mustEmbedUnimplementedRangeFormatterServiceServer()
+}
+
+// UnimplementedRangeFormatterServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedRangeFormatterServiceServer struct{}
+
+func (UnimplementedRangeFormatterServiceServer) With(context.Context, *WithRequest) (*WithResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method With not implemented")
+}
+func (UnimplementedRangeFormatterServiceServer) WithLocale1(context.Context, *WithLocale1Request) (*WithLocale1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method WithLocale1 not implemented")
+}
+func (UnimplementedRangeFormatterServiceServer) WithLocale1_1(context.Context, *WithLocale1_1Request) (*WithLocale1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method WithLocale1_1 not implemented")
+}
+func (UnimplementedRangeFormatterServiceServer) mustEmbedUnimplementedRangeFormatterServiceServer() {}
+func (UnimplementedRangeFormatterServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeRangeFormatterServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RangeFormatterServiceServer will
+// result in compilation errors.
+type UnsafeRangeFormatterServiceServer interface {
+	mustEmbedUnimplementedRangeFormatterServiceServer()
+}
+
+func RegisterRangeFormatterServiceServer(s grpc.ServiceRegistrar, srv RangeFormatterServiceServer) {
+	// If the following call panics, it indicates UnimplementedRangeFormatterServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&RangeFormatterService_ServiceDesc, srv)
+}
+
+func _RangeFormatterService_With_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WithRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangeFormatterServiceServer).With(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangeFormatterService_With_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangeFormatterServiceServer).With(ctx, req.(*WithRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangeFormatterService_WithLocale1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WithLocale1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangeFormatterServiceServer).WithLocale1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangeFormatterService_WithLocale1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangeFormatterServiceServer).WithLocale1(ctx, req.(*WithLocale1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangeFormatterService_WithLocale1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WithLocale1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangeFormatterServiceServer).WithLocale1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangeFormatterService_WithLocale1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangeFormatterServiceServer).WithLocale1_1(ctx, req.(*WithLocale1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RangeFormatterService_ServiceDesc is the grpc.ServiceDesc for RangeFormatterService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RangeFormatterService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "number.RangeFormatterService",
+	HandlerType: (*RangeFormatterServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "With",
+			Handler:    _RangeFormatterService_With_Handler,
+		},
+		{
+			MethodName: "WithLocale1",
+			Handler:    _RangeFormatterService_WithLocale1_Handler,
+		},
+		{
+			MethodName: "WithLocale1_1",
+			Handler:    _RangeFormatterService_WithLocale1_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/number/number.proto",
+}
+
+const (
+	RangeFormatterRangeCollapseService_Values_FullMethodName  = "/number.RangeFormatterRangeCollapseService/Values"
+	RangeFormatterRangeCollapseService_ValueOf_FullMethodName = "/number.RangeFormatterRangeCollapseService/ValueOf"
+)
+
+// RangeFormatterRangeCollapseServiceClient is the client API for RangeFormatterRangeCollapseService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RangeFormatterRangeCollapseServiceClient interface {
+	Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error)
+	ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error)
+}
+
+type rangeFormatterRangeCollapseServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRangeFormatterRangeCollapseServiceClient(cc grpc.ClientConnInterface) RangeFormatterRangeCollapseServiceClient {
+	return &rangeFormatterRangeCollapseServiceClient{cc}
+}
+
+func (c *rangeFormatterRangeCollapseServiceClient) Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ValuesResponse)
+	err := c.cc.Invoke(ctx, RangeFormatterRangeCollapseService_Values_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangeFormatterRangeCollapseServiceClient) ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ValueOfResponse)
+	err := c.cc.Invoke(ctx, RangeFormatterRangeCollapseService_ValueOf_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RangeFormatterRangeCollapseServiceServer is the server API for RangeFormatterRangeCollapseService service.
+// All implementations must embed UnimplementedRangeFormatterRangeCollapseServiceServer
+// for forward compatibility.
+type RangeFormatterRangeCollapseServiceServer interface {
+	Values(context.Context, *ValuesRequest) (*ValuesResponse, error)
+	ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error)
+	mustEmbedUnimplementedRangeFormatterRangeCollapseServiceServer()
+}
+
+// UnimplementedRangeFormatterRangeCollapseServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedRangeFormatterRangeCollapseServiceServer struct{}
+
+func (UnimplementedRangeFormatterRangeCollapseServiceServer) Values(context.Context, *ValuesRequest) (*ValuesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Values not implemented")
+}
+func (UnimplementedRangeFormatterRangeCollapseServiceServer) ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ValueOf not implemented")
+}
+func (UnimplementedRangeFormatterRangeCollapseServiceServer) mustEmbedUnimplementedRangeFormatterRangeCollapseServiceServer() {
+}
+func (UnimplementedRangeFormatterRangeCollapseServiceServer) testEmbeddedByValue() {}
+
+// UnsafeRangeFormatterRangeCollapseServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RangeFormatterRangeCollapseServiceServer will
+// result in compilation errors.
+type UnsafeRangeFormatterRangeCollapseServiceServer interface {
+	mustEmbedUnimplementedRangeFormatterRangeCollapseServiceServer()
+}
+
+func RegisterRangeFormatterRangeCollapseServiceServer(s grpc.ServiceRegistrar, srv RangeFormatterRangeCollapseServiceServer) {
+	// If the following call panics, it indicates UnimplementedRangeFormatterRangeCollapseServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&RangeFormatterRangeCollapseService_ServiceDesc, srv)
+}
+
+func _RangeFormatterRangeCollapseService_Values_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ValuesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangeFormatterRangeCollapseServiceServer).Values(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangeFormatterRangeCollapseService_Values_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangeFormatterRangeCollapseServiceServer).Values(ctx, req.(*ValuesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangeFormatterRangeCollapseService_ValueOf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ValueOfRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangeFormatterRangeCollapseServiceServer).ValueOf(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangeFormatterRangeCollapseService_ValueOf_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangeFormatterRangeCollapseServiceServer).ValueOf(ctx, req.(*ValueOfRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RangeFormatterRangeCollapseService_ServiceDesc is the grpc.ServiceDesc for RangeFormatterRangeCollapseService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RangeFormatterRangeCollapseService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "number.RangeFormatterRangeCollapseService",
+	HandlerType: (*RangeFormatterRangeCollapseServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Values",
+			Handler:    _RangeFormatterRangeCollapseService_Values_Handler,
+		},
+		{
+			MethodName: "ValueOf",
+			Handler:    _RangeFormatterRangeCollapseService_ValueOf_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/number/number.proto",
+}
+
+const (
+	RangeFormatterRangeIdentityFallbackService_Values_FullMethodName  = "/number.RangeFormatterRangeIdentityFallbackService/Values"
+	RangeFormatterRangeIdentityFallbackService_ValueOf_FullMethodName = "/number.RangeFormatterRangeIdentityFallbackService/ValueOf"
+)
+
+// RangeFormatterRangeIdentityFallbackServiceClient is the client API for RangeFormatterRangeIdentityFallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RangeFormatterRangeIdentityFallbackServiceClient interface {
+	Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error)
+	ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error)
+}
+
+type rangeFormatterRangeIdentityFallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRangeFormatterRangeIdentityFallbackServiceClient(cc grpc.ClientConnInterface) RangeFormatterRangeIdentityFallbackServiceClient {
+	return &rangeFormatterRangeIdentityFallbackServiceClient{cc}
+}
+
+func (c *rangeFormatterRangeIdentityFallbackServiceClient) Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ValuesResponse)
+	err := c.cc.Invoke(ctx, RangeFormatterRangeIdentityFallbackService_Values_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangeFormatterRangeIdentityFallbackServiceClient) ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ValueOfResponse)
+	err := c.cc.Invoke(ctx, RangeFormatterRangeIdentityFallbackService_ValueOf_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RangeFormatterRangeIdentityFallbackServiceServer is the server API for RangeFormatterRangeIdentityFallbackService service.
+// All implementations must embed UnimplementedRangeFormatterRangeIdentityFallbackServiceServer
+// for forward compatibility.
+type RangeFormatterRangeIdentityFallbackServiceServer interface {
+	Values(context.Context, *ValuesRequest) (*ValuesResponse, error)
+	ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error)
+	mustEmbedUnimplementedRangeFormatterRangeIdentityFallbackServiceServer()
+}
+
+// UnimplementedRangeFormatterRangeIdentityFallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedRangeFormatterRangeIdentityFallbackServiceServer struct{}
+
+func (UnimplementedRangeFormatterRangeIdentityFallbackServiceServer) Values(context.Context, *ValuesRequest) (*ValuesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Values not implemented")
+}
+func (UnimplementedRangeFormatterRangeIdentityFallbackServiceServer) ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ValueOf not implemented")
+}
+func (UnimplementedRangeFormatterRangeIdentityFallbackServiceServer) mustEmbedUnimplementedRangeFormatterRangeIdentityFallbackServiceServer() {
+}
+func (UnimplementedRangeFormatterRangeIdentityFallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeRangeFormatterRangeIdentityFallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RangeFormatterRangeIdentityFallbackServiceServer will
+// result in compilation errors.
+type UnsafeRangeFormatterRangeIdentityFallbackServiceServer interface {
+	mustEmbedUnimplementedRangeFormatterRangeIdentityFallbackServiceServer()
+}
+
+func RegisterRangeFormatterRangeIdentityFallbackServiceServer(s grpc.ServiceRegistrar, srv RangeFormatterRangeIdentityFallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedRangeFormatterRangeIdentityFallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&RangeFormatterRangeIdentityFallbackService_ServiceDesc, srv)
+}
+
+func _RangeFormatterRangeIdentityFallbackService_Values_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ValuesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangeFormatterRangeIdentityFallbackServiceServer).Values(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangeFormatterRangeIdentityFallbackService_Values_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangeFormatterRangeIdentityFallbackServiceServer).Values(ctx, req.(*ValuesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangeFormatterRangeIdentityFallbackService_ValueOf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ValueOfRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangeFormatterRangeIdentityFallbackServiceServer).ValueOf(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangeFormatterRangeIdentityFallbackService_ValueOf_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangeFormatterRangeIdentityFallbackServiceServer).ValueOf(ctx, req.(*ValueOfRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RangeFormatterRangeIdentityFallbackService_ServiceDesc is the grpc.ServiceDesc for RangeFormatterRangeIdentityFallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RangeFormatterRangeIdentityFallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "number.RangeFormatterRangeIdentityFallbackService",
+	HandlerType: (*RangeFormatterRangeIdentityFallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Values",
+			Handler:    _RangeFormatterRangeIdentityFallbackService_Values_Handler,
+		},
+		{
+			MethodName: "ValueOf",
+			Handler:    _RangeFormatterRangeIdentityFallbackService_ValueOf_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/number/number.proto",
+}
+
+const (
+	RangeFormatterRangeIdentityResultService_Values_FullMethodName  = "/number.RangeFormatterRangeIdentityResultService/Values"
+	RangeFormatterRangeIdentityResultService_ValueOf_FullMethodName = "/number.RangeFormatterRangeIdentityResultService/ValueOf"
+)
+
+// RangeFormatterRangeIdentityResultServiceClient is the client API for RangeFormatterRangeIdentityResultService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RangeFormatterRangeIdentityResultServiceClient interface {
+	Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error)
+	ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error)
+}
+
+type rangeFormatterRangeIdentityResultServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRangeFormatterRangeIdentityResultServiceClient(cc grpc.ClientConnInterface) RangeFormatterRangeIdentityResultServiceClient {
+	return &rangeFormatterRangeIdentityResultServiceClient{cc}
+}
+
+func (c *rangeFormatterRangeIdentityResultServiceClient) Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ValuesResponse)
+	err := c.cc.Invoke(ctx, RangeFormatterRangeIdentityResultService_Values_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangeFormatterRangeIdentityResultServiceClient) ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ValueOfResponse)
+	err := c.cc.Invoke(ctx, RangeFormatterRangeIdentityResultService_ValueOf_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RangeFormatterRangeIdentityResultServiceServer is the server API for RangeFormatterRangeIdentityResultService service.
+// All implementations must embed UnimplementedRangeFormatterRangeIdentityResultServiceServer
+// for forward compatibility.
+type RangeFormatterRangeIdentityResultServiceServer interface {
+	Values(context.Context, *ValuesRequest) (*ValuesResponse, error)
+	ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error)
+	mustEmbedUnimplementedRangeFormatterRangeIdentityResultServiceServer()
+}
+
+// UnimplementedRangeFormatterRangeIdentityResultServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedRangeFormatterRangeIdentityResultServiceServer struct{}
+
+func (UnimplementedRangeFormatterRangeIdentityResultServiceServer) Values(context.Context, *ValuesRequest) (*ValuesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Values not implemented")
+}
+func (UnimplementedRangeFormatterRangeIdentityResultServiceServer) ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ValueOf not implemented")
+}
+func (UnimplementedRangeFormatterRangeIdentityResultServiceServer) mustEmbedUnimplementedRangeFormatterRangeIdentityResultServiceServer() {
+}
+func (UnimplementedRangeFormatterRangeIdentityResultServiceServer) testEmbeddedByValue() {}
+
+// UnsafeRangeFormatterRangeIdentityResultServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RangeFormatterRangeIdentityResultServiceServer will
+// result in compilation errors.
+type UnsafeRangeFormatterRangeIdentityResultServiceServer interface {
+	mustEmbedUnimplementedRangeFormatterRangeIdentityResultServiceServer()
+}
+
+func RegisterRangeFormatterRangeIdentityResultServiceServer(s grpc.ServiceRegistrar, srv RangeFormatterRangeIdentityResultServiceServer) {
+	// If the following call panics, it indicates UnimplementedRangeFormatterRangeIdentityResultServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&RangeFormatterRangeIdentityResultService_ServiceDesc, srv)
+}
+
+func _RangeFormatterRangeIdentityResultService_Values_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ValuesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangeFormatterRangeIdentityResultServiceServer).Values(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangeFormatterRangeIdentityResultService_Values_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangeFormatterRangeIdentityResultServiceServer).Values(ctx, req.(*ValuesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangeFormatterRangeIdentityResultService_ValueOf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ValueOfRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangeFormatterRangeIdentityResultServiceServer).ValueOf(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangeFormatterRangeIdentityResultService_ValueOf_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangeFormatterRangeIdentityResultServiceServer).ValueOf(ctx, req.(*ValueOfRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RangeFormatterRangeIdentityResultService_ServiceDesc is the grpc.ServiceDesc for RangeFormatterRangeIdentityResultService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RangeFormatterRangeIdentityResultService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "number.RangeFormatterRangeIdentityResultService",
+	HandlerType: (*RangeFormatterRangeIdentityResultServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Values",
+			Handler:    _RangeFormatterRangeIdentityResultService_Values_Handler,
+		},
+		{
+			MethodName: "ValueOf",
+			Handler:    _RangeFormatterRangeIdentityResultService_ValueOf_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/number/number.proto",
+}
+
+const (
+	RangeFormatterSettingsService_Equals_FullMethodName   = "/number.RangeFormatterSettingsService/Equals"
+	RangeFormatterSettingsService_HashCode_FullMethodName = "/number.RangeFormatterSettingsService/HashCode"
+)
+
+// RangeFormatterSettingsServiceClient is the client API for RangeFormatterSettingsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RangeFormatterSettingsServiceClient interface {
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+}
+
+type rangeFormatterSettingsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRangeFormatterSettingsServiceClient(cc grpc.ClientConnInterface) RangeFormatterSettingsServiceClient {
+	return &rangeFormatterSettingsServiceClient{cc}
+}
+
+func (c *rangeFormatterSettingsServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, RangeFormatterSettingsService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *rangeFormatterSettingsServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, RangeFormatterSettingsService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RangeFormatterSettingsServiceServer is the server API for RangeFormatterSettingsService service.
+// All implementations must embed UnimplementedRangeFormatterSettingsServiceServer
+// for forward compatibility.
+type RangeFormatterSettingsServiceServer interface {
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	mustEmbedUnimplementedRangeFormatterSettingsServiceServer()
+}
+
+// UnimplementedRangeFormatterSettingsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedRangeFormatterSettingsServiceServer struct{}
+
+func (UnimplementedRangeFormatterSettingsServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedRangeFormatterSettingsServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedRangeFormatterSettingsServiceServer) mustEmbedUnimplementedRangeFormatterSettingsServiceServer() {
+}
+func (UnimplementedRangeFormatterSettingsServiceServer) testEmbeddedByValue() {}
+
+// UnsafeRangeFormatterSettingsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RangeFormatterSettingsServiceServer will
+// result in compilation errors.
+type UnsafeRangeFormatterSettingsServiceServer interface {
+	mustEmbedUnimplementedRangeFormatterSettingsServiceServer()
+}
+
+func RegisterRangeFormatterSettingsServiceServer(s grpc.ServiceRegistrar, srv RangeFormatterSettingsServiceServer) {
+	// If the following call panics, it indicates UnimplementedRangeFormatterSettingsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&RangeFormatterSettingsService_ServiceDesc, srv)
+}
+
+func _RangeFormatterSettingsService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangeFormatterSettingsServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangeFormatterSettingsService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangeFormatterSettingsServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RangeFormatterSettingsService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RangeFormatterSettingsServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RangeFormatterSettingsService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RangeFormatterSettingsServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RangeFormatterSettingsService_ServiceDesc is the grpc.ServiceDesc for RangeFormatterSettingsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RangeFormatterSettingsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "number.RangeFormatterSettingsService",
+	HandlerType: (*RangeFormatterSettingsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Equals",
+			Handler:    _RangeFormatterSettingsService_Equals_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _RangeFormatterSettingsService_HashCode_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/number/number.proto",
+}
+
+const (
 	LocalizedNumberRangeFormatterService_FormatRange2_FullMethodName   = "/number.LocalizedNumberRangeFormatterService/FormatRange2"
 	LocalizedNumberRangeFormatterService_FormatRange2_1_FullMethodName = "/number.LocalizedNumberRangeFormatterService/FormatRange2_1"
 	LocalizedNumberRangeFormatterService_FormatRange2_2_FullMethodName = "/number.LocalizedNumberRangeFormatterService/FormatRange2_2"
@@ -1363,6 +2653,1382 @@ var LocalizedNumberRangeFormatterService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "WithoutLocale",
 			Handler:    _LocalizedNumberRangeFormatterService_WithoutLocale_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/number/number.proto",
+}
+
+const (
+	FormattedNumberRangeService_CharAt_FullMethodName              = "/number.FormattedNumberRangeService/CharAt"
+	FormattedNumberRangeService_Equals_FullMethodName              = "/number.FormattedNumberRangeService/Equals"
+	FormattedNumberRangeService_GetFirstBigDecimal_FullMethodName  = "/number.FormattedNumberRangeService/GetFirstBigDecimal"
+	FormattedNumberRangeService_GetIdentityResult_FullMethodName   = "/number.FormattedNumberRangeService/GetIdentityResult"
+	FormattedNumberRangeService_GetSecondBigDecimal_FullMethodName = "/number.FormattedNumberRangeService/GetSecondBigDecimal"
+	FormattedNumberRangeService_HashCode_FullMethodName            = "/number.FormattedNumberRangeService/HashCode"
+	FormattedNumberRangeService_Length_FullMethodName              = "/number.FormattedNumberRangeService/Length"
+	FormattedNumberRangeService_NextPosition_FullMethodName        = "/number.FormattedNumberRangeService/NextPosition"
+	FormattedNumberRangeService_SubSequence_FullMethodName         = "/number.FormattedNumberRangeService/SubSequence"
+	FormattedNumberRangeService_ToCharacterIterator_FullMethodName = "/number.FormattedNumberRangeService/ToCharacterIterator"
+	FormattedNumberRangeService_ToString_FullMethodName            = "/number.FormattedNumberRangeService/ToString"
+)
+
+// FormattedNumberRangeServiceClient is the client API for FormattedNumberRangeService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type FormattedNumberRangeServiceClient interface {
+	CharAt(ctx context.Context, in *CharAtRequest, opts ...grpc.CallOption) (*CharAtResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetFirstBigDecimal(ctx context.Context, in *GetFirstBigDecimalRequest, opts ...grpc.CallOption) (*GetFirstBigDecimalResponse, error)
+	GetIdentityResult(ctx context.Context, in *GetIdentityResultRequest, opts ...grpc.CallOption) (*GetIdentityResultResponse, error)
+	GetSecondBigDecimal(ctx context.Context, in *GetSecondBigDecimalRequest, opts ...grpc.CallOption) (*GetSecondBigDecimalResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	Length(ctx context.Context, in *LengthRequest, opts ...grpc.CallOption) (*LengthResponse, error)
+	NextPosition(ctx context.Context, in *NextPositionRequest, opts ...grpc.CallOption) (*NextPositionResponse, error)
+	SubSequence(ctx context.Context, in *SubSequenceRequest, opts ...grpc.CallOption) (*SubSequenceResponse, error)
+	ToCharacterIterator(ctx context.Context, in *ToCharacterIteratorRequest, opts ...grpc.CallOption) (*ToCharacterIteratorResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type formattedNumberRangeServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewFormattedNumberRangeServiceClient(cc grpc.ClientConnInterface) FormattedNumberRangeServiceClient {
+	return &formattedNumberRangeServiceClient{cc}
+}
+
+func (c *formattedNumberRangeServiceClient) CharAt(ctx context.Context, in *CharAtRequest, opts ...grpc.CallOption) (*CharAtResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CharAtResponse)
+	err := c.cc.Invoke(ctx, FormattedNumberRangeService_CharAt_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formattedNumberRangeServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, FormattedNumberRangeService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formattedNumberRangeServiceClient) GetFirstBigDecimal(ctx context.Context, in *GetFirstBigDecimalRequest, opts ...grpc.CallOption) (*GetFirstBigDecimalResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFirstBigDecimalResponse)
+	err := c.cc.Invoke(ctx, FormattedNumberRangeService_GetFirstBigDecimal_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formattedNumberRangeServiceClient) GetIdentityResult(ctx context.Context, in *GetIdentityResultRequest, opts ...grpc.CallOption) (*GetIdentityResultResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIdentityResultResponse)
+	err := c.cc.Invoke(ctx, FormattedNumberRangeService_GetIdentityResult_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formattedNumberRangeServiceClient) GetSecondBigDecimal(ctx context.Context, in *GetSecondBigDecimalRequest, opts ...grpc.CallOption) (*GetSecondBigDecimalResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSecondBigDecimalResponse)
+	err := c.cc.Invoke(ctx, FormattedNumberRangeService_GetSecondBigDecimal_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formattedNumberRangeServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, FormattedNumberRangeService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formattedNumberRangeServiceClient) Length(ctx context.Context, in *LengthRequest, opts ...grpc.CallOption) (*LengthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(LengthResponse)
+	err := c.cc.Invoke(ctx, FormattedNumberRangeService_Length_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formattedNumberRangeServiceClient) NextPosition(ctx context.Context, in *NextPositionRequest, opts ...grpc.CallOption) (*NextPositionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NextPositionResponse)
+	err := c.cc.Invoke(ctx, FormattedNumberRangeService_NextPosition_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formattedNumberRangeServiceClient) SubSequence(ctx context.Context, in *SubSequenceRequest, opts ...grpc.CallOption) (*SubSequenceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SubSequenceResponse)
+	err := c.cc.Invoke(ctx, FormattedNumberRangeService_SubSequence_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formattedNumberRangeServiceClient) ToCharacterIterator(ctx context.Context, in *ToCharacterIteratorRequest, opts ...grpc.CallOption) (*ToCharacterIteratorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToCharacterIteratorResponse)
+	err := c.cc.Invoke(ctx, FormattedNumberRangeService_ToCharacterIterator_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formattedNumberRangeServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, FormattedNumberRangeService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// FormattedNumberRangeServiceServer is the server API for FormattedNumberRangeService service.
+// All implementations must embed UnimplementedFormattedNumberRangeServiceServer
+// for forward compatibility.
+type FormattedNumberRangeServiceServer interface {
+	CharAt(context.Context, *CharAtRequest) (*CharAtResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetFirstBigDecimal(context.Context, *GetFirstBigDecimalRequest) (*GetFirstBigDecimalResponse, error)
+	GetIdentityResult(context.Context, *GetIdentityResultRequest) (*GetIdentityResultResponse, error)
+	GetSecondBigDecimal(context.Context, *GetSecondBigDecimalRequest) (*GetSecondBigDecimalResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	Length(context.Context, *LengthRequest) (*LengthResponse, error)
+	NextPosition(context.Context, *NextPositionRequest) (*NextPositionResponse, error)
+	SubSequence(context.Context, *SubSequenceRequest) (*SubSequenceResponse, error)
+	ToCharacterIterator(context.Context, *ToCharacterIteratorRequest) (*ToCharacterIteratorResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedFormattedNumberRangeServiceServer()
+}
+
+// UnimplementedFormattedNumberRangeServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedFormattedNumberRangeServiceServer struct{}
+
+func (UnimplementedFormattedNumberRangeServiceServer) CharAt(context.Context, *CharAtRequest) (*CharAtResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CharAt not implemented")
+}
+func (UnimplementedFormattedNumberRangeServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedFormattedNumberRangeServiceServer) GetFirstBigDecimal(context.Context, *GetFirstBigDecimalRequest) (*GetFirstBigDecimalResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFirstBigDecimal not implemented")
+}
+func (UnimplementedFormattedNumberRangeServiceServer) GetIdentityResult(context.Context, *GetIdentityResultRequest) (*GetIdentityResultResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIdentityResult not implemented")
+}
+func (UnimplementedFormattedNumberRangeServiceServer) GetSecondBigDecimal(context.Context, *GetSecondBigDecimalRequest) (*GetSecondBigDecimalResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSecondBigDecimal not implemented")
+}
+func (UnimplementedFormattedNumberRangeServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedFormattedNumberRangeServiceServer) Length(context.Context, *LengthRequest) (*LengthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Length not implemented")
+}
+func (UnimplementedFormattedNumberRangeServiceServer) NextPosition(context.Context, *NextPositionRequest) (*NextPositionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NextPosition not implemented")
+}
+func (UnimplementedFormattedNumberRangeServiceServer) SubSequence(context.Context, *SubSequenceRequest) (*SubSequenceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SubSequence not implemented")
+}
+func (UnimplementedFormattedNumberRangeServiceServer) ToCharacterIterator(context.Context, *ToCharacterIteratorRequest) (*ToCharacterIteratorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToCharacterIterator not implemented")
+}
+func (UnimplementedFormattedNumberRangeServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedFormattedNumberRangeServiceServer) mustEmbedUnimplementedFormattedNumberRangeServiceServer() {
+}
+func (UnimplementedFormattedNumberRangeServiceServer) testEmbeddedByValue() {}
+
+// UnsafeFormattedNumberRangeServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to FormattedNumberRangeServiceServer will
+// result in compilation errors.
+type UnsafeFormattedNumberRangeServiceServer interface {
+	mustEmbedUnimplementedFormattedNumberRangeServiceServer()
+}
+
+func RegisterFormattedNumberRangeServiceServer(s grpc.ServiceRegistrar, srv FormattedNumberRangeServiceServer) {
+	// If the following call panics, it indicates UnimplementedFormattedNumberRangeServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&FormattedNumberRangeService_ServiceDesc, srv)
+}
+
+func _FormattedNumberRangeService_CharAt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CharAtRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormattedNumberRangeServiceServer).CharAt(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormattedNumberRangeService_CharAt_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormattedNumberRangeServiceServer).CharAt(ctx, req.(*CharAtRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormattedNumberRangeService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormattedNumberRangeServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormattedNumberRangeService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormattedNumberRangeServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormattedNumberRangeService_GetFirstBigDecimal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFirstBigDecimalRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormattedNumberRangeServiceServer).GetFirstBigDecimal(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormattedNumberRangeService_GetFirstBigDecimal_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormattedNumberRangeServiceServer).GetFirstBigDecimal(ctx, req.(*GetFirstBigDecimalRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormattedNumberRangeService_GetIdentityResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIdentityResultRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormattedNumberRangeServiceServer).GetIdentityResult(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormattedNumberRangeService_GetIdentityResult_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormattedNumberRangeServiceServer).GetIdentityResult(ctx, req.(*GetIdentityResultRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormattedNumberRangeService_GetSecondBigDecimal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSecondBigDecimalRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormattedNumberRangeServiceServer).GetSecondBigDecimal(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormattedNumberRangeService_GetSecondBigDecimal_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormattedNumberRangeServiceServer).GetSecondBigDecimal(ctx, req.(*GetSecondBigDecimalRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormattedNumberRangeService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormattedNumberRangeServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormattedNumberRangeService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormattedNumberRangeServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormattedNumberRangeService_Length_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LengthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormattedNumberRangeServiceServer).Length(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormattedNumberRangeService_Length_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormattedNumberRangeServiceServer).Length(ctx, req.(*LengthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormattedNumberRangeService_NextPosition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NextPositionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormattedNumberRangeServiceServer).NextPosition(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormattedNumberRangeService_NextPosition_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormattedNumberRangeServiceServer).NextPosition(ctx, req.(*NextPositionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormattedNumberRangeService_SubSequence_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SubSequenceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormattedNumberRangeServiceServer).SubSequence(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormattedNumberRangeService_SubSequence_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormattedNumberRangeServiceServer).SubSequence(ctx, req.(*SubSequenceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormattedNumberRangeService_ToCharacterIterator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToCharacterIteratorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormattedNumberRangeServiceServer).ToCharacterIterator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormattedNumberRangeService_ToCharacterIterator_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormattedNumberRangeServiceServer).ToCharacterIterator(ctx, req.(*ToCharacterIteratorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormattedNumberRangeService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormattedNumberRangeServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormattedNumberRangeService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormattedNumberRangeServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// FormattedNumberRangeService_ServiceDesc is the grpc.ServiceDesc for FormattedNumberRangeService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var FormattedNumberRangeService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "number.FormattedNumberRangeService",
+	HandlerType: (*FormattedNumberRangeServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CharAt",
+			Handler:    _FormattedNumberRangeService_CharAt_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _FormattedNumberRangeService_Equals_Handler,
+		},
+		{
+			MethodName: "GetFirstBigDecimal",
+			Handler:    _FormattedNumberRangeService_GetFirstBigDecimal_Handler,
+		},
+		{
+			MethodName: "GetIdentityResult",
+			Handler:    _FormattedNumberRangeService_GetIdentityResult_Handler,
+		},
+		{
+			MethodName: "GetSecondBigDecimal",
+			Handler:    _FormattedNumberRangeService_GetSecondBigDecimal_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _FormattedNumberRangeService_HashCode_Handler,
+		},
+		{
+			MethodName: "Length",
+			Handler:    _FormattedNumberRangeService_Length_Handler,
+		},
+		{
+			MethodName: "NextPosition",
+			Handler:    _FormattedNumberRangeService_NextPosition_Handler,
+		},
+		{
+			MethodName: "SubSequence",
+			Handler:    _FormattedNumberRangeService_SubSequence_Handler,
+		},
+		{
+			MethodName: "ToCharacterIterator",
+			Handler:    _FormattedNumberRangeService_ToCharacterIterator_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _FormattedNumberRangeService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/number/number.proto",
+}
+
+const (
+	FormatterSettingsService_Equals_FullMethodName   = "/number.FormatterSettingsService/Equals"
+	FormatterSettingsService_HashCode_FullMethodName = "/number.FormatterSettingsService/HashCode"
+)
+
+// FormatterSettingsServiceClient is the client API for FormatterSettingsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type FormatterSettingsServiceClient interface {
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+}
+
+type formatterSettingsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewFormatterSettingsServiceClient(cc grpc.ClientConnInterface) FormatterSettingsServiceClient {
+	return &formatterSettingsServiceClient{cc}
+}
+
+func (c *formatterSettingsServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, FormatterSettingsService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *formatterSettingsServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, FormatterSettingsService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// FormatterSettingsServiceServer is the server API for FormatterSettingsService service.
+// All implementations must embed UnimplementedFormatterSettingsServiceServer
+// for forward compatibility.
+type FormatterSettingsServiceServer interface {
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	mustEmbedUnimplementedFormatterSettingsServiceServer()
+}
+
+// UnimplementedFormatterSettingsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedFormatterSettingsServiceServer struct{}
+
+func (UnimplementedFormatterSettingsServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedFormatterSettingsServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedFormatterSettingsServiceServer) mustEmbedUnimplementedFormatterSettingsServiceServer() {
+}
+func (UnimplementedFormatterSettingsServiceServer) testEmbeddedByValue() {}
+
+// UnsafeFormatterSettingsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to FormatterSettingsServiceServer will
+// result in compilation errors.
+type UnsafeFormatterSettingsServiceServer interface {
+	mustEmbedUnimplementedFormatterSettingsServiceServer()
+}
+
+func RegisterFormatterSettingsServiceServer(s grpc.ServiceRegistrar, srv FormatterSettingsServiceServer) {
+	// If the following call panics, it indicates UnimplementedFormatterSettingsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&FormatterSettingsService_ServiceDesc, srv)
+}
+
+func _FormatterSettingsService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormatterSettingsServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormatterSettingsService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormatterSettingsServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FormatterSettingsService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FormatterSettingsServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FormatterSettingsService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FormatterSettingsServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// FormatterSettingsService_ServiceDesc is the grpc.ServiceDesc for FormatterSettingsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var FormatterSettingsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "number.FormatterSettingsService",
+	HandlerType: (*FormatterSettingsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Equals",
+			Handler:    _FormatterSettingsService_Equals_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _FormatterSettingsService_HashCode_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/number/number.proto",
+}
+
+const (
+	CurrencyPrecisionService_WithCurrency_FullMethodName = "/number.CurrencyPrecisionService/WithCurrency"
+)
+
+// CurrencyPrecisionServiceClient is the client API for CurrencyPrecisionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CurrencyPrecisionServiceClient interface {
+	WithCurrency(ctx context.Context, in *WithCurrencyRequest, opts ...grpc.CallOption) (*WithCurrencyResponse, error)
+}
+
+type currencyPrecisionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCurrencyPrecisionServiceClient(cc grpc.ClientConnInterface) CurrencyPrecisionServiceClient {
+	return &currencyPrecisionServiceClient{cc}
+}
+
+func (c *currencyPrecisionServiceClient) WithCurrency(ctx context.Context, in *WithCurrencyRequest, opts ...grpc.CallOption) (*WithCurrencyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WithCurrencyResponse)
+	err := c.cc.Invoke(ctx, CurrencyPrecisionService_WithCurrency_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CurrencyPrecisionServiceServer is the server API for CurrencyPrecisionService service.
+// All implementations must embed UnimplementedCurrencyPrecisionServiceServer
+// for forward compatibility.
+type CurrencyPrecisionServiceServer interface {
+	WithCurrency(context.Context, *WithCurrencyRequest) (*WithCurrencyResponse, error)
+	mustEmbedUnimplementedCurrencyPrecisionServiceServer()
+}
+
+// UnimplementedCurrencyPrecisionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCurrencyPrecisionServiceServer struct{}
+
+func (UnimplementedCurrencyPrecisionServiceServer) WithCurrency(context.Context, *WithCurrencyRequest) (*WithCurrencyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WithCurrency not implemented")
+}
+func (UnimplementedCurrencyPrecisionServiceServer) mustEmbedUnimplementedCurrencyPrecisionServiceServer() {
+}
+func (UnimplementedCurrencyPrecisionServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCurrencyPrecisionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CurrencyPrecisionServiceServer will
+// result in compilation errors.
+type UnsafeCurrencyPrecisionServiceServer interface {
+	mustEmbedUnimplementedCurrencyPrecisionServiceServer()
+}
+
+func RegisterCurrencyPrecisionServiceServer(s grpc.ServiceRegistrar, srv CurrencyPrecisionServiceServer) {
+	// If the following call panics, it indicates UnimplementedCurrencyPrecisionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CurrencyPrecisionService_ServiceDesc, srv)
+}
+
+func _CurrencyPrecisionService_WithCurrency_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WithCurrencyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CurrencyPrecisionServiceServer).WithCurrency(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CurrencyPrecisionService_WithCurrency_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CurrencyPrecisionServiceServer).WithCurrency(ctx, req.(*WithCurrencyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CurrencyPrecisionService_ServiceDesc is the grpc.ServiceDesc for CurrencyPrecisionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CurrencyPrecisionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "number.CurrencyPrecisionService",
+	HandlerType: (*CurrencyPrecisionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "WithCurrency",
+			Handler:    _CurrencyPrecisionService_WithCurrency_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/number/number.proto",
+}
+
+const (
+	NotationService_CompactLong_FullMethodName  = "/number.NotationService/CompactLong"
+	NotationService_CompactShort_FullMethodName = "/number.NotationService/CompactShort"
+	NotationService_Engineering_FullMethodName  = "/number.NotationService/Engineering"
+	NotationService_Scientific_FullMethodName   = "/number.NotationService/Scientific"
+	NotationService_Simple_FullMethodName       = "/number.NotationService/Simple"
+)
+
+// NotationServiceClient is the client API for NotationService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type NotationServiceClient interface {
+	CompactLong(ctx context.Context, in *CompactLongRequest, opts ...grpc.CallOption) (*CompactLongResponse, error)
+	CompactShort(ctx context.Context, in *CompactShortRequest, opts ...grpc.CallOption) (*CompactShortResponse, error)
+	Engineering(ctx context.Context, in *EngineeringRequest, opts ...grpc.CallOption) (*EngineeringResponse, error)
+	Scientific(ctx context.Context, in *ScientificRequest, opts ...grpc.CallOption) (*ScientificResponse, error)
+	Simple(ctx context.Context, in *SimpleRequest, opts ...grpc.CallOption) (*SimpleResponse, error)
+}
+
+type notationServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewNotationServiceClient(cc grpc.ClientConnInterface) NotationServiceClient {
+	return &notationServiceClient{cc}
+}
+
+func (c *notationServiceClient) CompactLong(ctx context.Context, in *CompactLongRequest, opts ...grpc.CallOption) (*CompactLongResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CompactLongResponse)
+	err := c.cc.Invoke(ctx, NotationService_CompactLong_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *notationServiceClient) CompactShort(ctx context.Context, in *CompactShortRequest, opts ...grpc.CallOption) (*CompactShortResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CompactShortResponse)
+	err := c.cc.Invoke(ctx, NotationService_CompactShort_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *notationServiceClient) Engineering(ctx context.Context, in *EngineeringRequest, opts ...grpc.CallOption) (*EngineeringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EngineeringResponse)
+	err := c.cc.Invoke(ctx, NotationService_Engineering_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *notationServiceClient) Scientific(ctx context.Context, in *ScientificRequest, opts ...grpc.CallOption) (*ScientificResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ScientificResponse)
+	err := c.cc.Invoke(ctx, NotationService_Scientific_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *notationServiceClient) Simple(ctx context.Context, in *SimpleRequest, opts ...grpc.CallOption) (*SimpleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SimpleResponse)
+	err := c.cc.Invoke(ctx, NotationService_Simple_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// NotationServiceServer is the server API for NotationService service.
+// All implementations must embed UnimplementedNotationServiceServer
+// for forward compatibility.
+type NotationServiceServer interface {
+	CompactLong(context.Context, *CompactLongRequest) (*CompactLongResponse, error)
+	CompactShort(context.Context, *CompactShortRequest) (*CompactShortResponse, error)
+	Engineering(context.Context, *EngineeringRequest) (*EngineeringResponse, error)
+	Scientific(context.Context, *ScientificRequest) (*ScientificResponse, error)
+	Simple(context.Context, *SimpleRequest) (*SimpleResponse, error)
+	mustEmbedUnimplementedNotationServiceServer()
+}
+
+// UnimplementedNotationServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedNotationServiceServer struct{}
+
+func (UnimplementedNotationServiceServer) CompactLong(context.Context, *CompactLongRequest) (*CompactLongResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CompactLong not implemented")
+}
+func (UnimplementedNotationServiceServer) CompactShort(context.Context, *CompactShortRequest) (*CompactShortResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CompactShort not implemented")
+}
+func (UnimplementedNotationServiceServer) Engineering(context.Context, *EngineeringRequest) (*EngineeringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Engineering not implemented")
+}
+func (UnimplementedNotationServiceServer) Scientific(context.Context, *ScientificRequest) (*ScientificResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Scientific not implemented")
+}
+func (UnimplementedNotationServiceServer) Simple(context.Context, *SimpleRequest) (*SimpleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Simple not implemented")
+}
+func (UnimplementedNotationServiceServer) mustEmbedUnimplementedNotationServiceServer() {}
+func (UnimplementedNotationServiceServer) testEmbeddedByValue()                         {}
+
+// UnsafeNotationServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to NotationServiceServer will
+// result in compilation errors.
+type UnsafeNotationServiceServer interface {
+	mustEmbedUnimplementedNotationServiceServer()
+}
+
+func RegisterNotationServiceServer(s grpc.ServiceRegistrar, srv NotationServiceServer) {
+	// If the following call panics, it indicates UnimplementedNotationServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&NotationService_ServiceDesc, srv)
+}
+
+func _NotationService_CompactLong_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CompactLongRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NotationServiceServer).CompactLong(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NotationService_CompactLong_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NotationServiceServer).CompactLong(ctx, req.(*CompactLongRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NotationService_CompactShort_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CompactShortRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NotationServiceServer).CompactShort(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NotationService_CompactShort_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NotationServiceServer).CompactShort(ctx, req.(*CompactShortRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NotationService_Engineering_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EngineeringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NotationServiceServer).Engineering(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NotationService_Engineering_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NotationServiceServer).Engineering(ctx, req.(*EngineeringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NotationService_Scientific_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ScientificRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NotationServiceServer).Scientific(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NotationService_Scientific_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NotationServiceServer).Scientific(ctx, req.(*ScientificRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NotationService_Simple_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SimpleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NotationServiceServer).Simple(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NotationService_Simple_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NotationServiceServer).Simple(ctx, req.(*SimpleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// NotationService_ServiceDesc is the grpc.ServiceDesc for NotationService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var NotationService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "number.NotationService",
+	HandlerType: (*NotationServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CompactLong",
+			Handler:    _NotationService_CompactLong_Handler,
+		},
+		{
+			MethodName: "CompactShort",
+			Handler:    _NotationService_CompactShort_Handler,
+		},
+		{
+			MethodName: "Engineering",
+			Handler:    _NotationService_Engineering_Handler,
+		},
+		{
+			MethodName: "Scientific",
+			Handler:    _NotationService_Scientific_Handler,
+		},
+		{
+			MethodName: "Simple",
+			Handler:    _NotationService_Simple_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/number/number.proto",
+}
+
+const (
+	ScaleService_ByBigDecimal_FullMethodName          = "/number.ScaleService/ByBigDecimal"
+	ScaleService_ByDouble_FullMethodName              = "/number.ScaleService/ByDouble"
+	ScaleService_ByDoubleAndPowerOfTen_FullMethodName = "/number.ScaleService/ByDoubleAndPowerOfTen"
+	ScaleService_None_FullMethodName                  = "/number.ScaleService/None"
+	ScaleService_PowerOfTen_FullMethodName            = "/number.ScaleService/PowerOfTen"
+)
+
+// ScaleServiceClient is the client API for ScaleService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ScaleServiceClient interface {
+	ByBigDecimal(ctx context.Context, in *ByBigDecimalRequest, opts ...grpc.CallOption) (*ByBigDecimalResponse, error)
+	ByDouble(ctx context.Context, in *ByDoubleRequest, opts ...grpc.CallOption) (*ByDoubleResponse, error)
+	ByDoubleAndPowerOfTen(ctx context.Context, in *ByDoubleAndPowerOfTenRequest, opts ...grpc.CallOption) (*ByDoubleAndPowerOfTenResponse, error)
+	None(ctx context.Context, in *NoneRequest, opts ...grpc.CallOption) (*NoneResponse, error)
+	PowerOfTen(ctx context.Context, in *PowerOfTenRequest, opts ...grpc.CallOption) (*PowerOfTenResponse, error)
+}
+
+type scaleServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewScaleServiceClient(cc grpc.ClientConnInterface) ScaleServiceClient {
+	return &scaleServiceClient{cc}
+}
+
+func (c *scaleServiceClient) ByBigDecimal(ctx context.Context, in *ByBigDecimalRequest, opts ...grpc.CallOption) (*ByBigDecimalResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ByBigDecimalResponse)
+	err := c.cc.Invoke(ctx, ScaleService_ByBigDecimal_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *scaleServiceClient) ByDouble(ctx context.Context, in *ByDoubleRequest, opts ...grpc.CallOption) (*ByDoubleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ByDoubleResponse)
+	err := c.cc.Invoke(ctx, ScaleService_ByDouble_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *scaleServiceClient) ByDoubleAndPowerOfTen(ctx context.Context, in *ByDoubleAndPowerOfTenRequest, opts ...grpc.CallOption) (*ByDoubleAndPowerOfTenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ByDoubleAndPowerOfTenResponse)
+	err := c.cc.Invoke(ctx, ScaleService_ByDoubleAndPowerOfTen_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *scaleServiceClient) None(ctx context.Context, in *NoneRequest, opts ...grpc.CallOption) (*NoneResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NoneResponse)
+	err := c.cc.Invoke(ctx, ScaleService_None_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *scaleServiceClient) PowerOfTen(ctx context.Context, in *PowerOfTenRequest, opts ...grpc.CallOption) (*PowerOfTenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PowerOfTenResponse)
+	err := c.cc.Invoke(ctx, ScaleService_PowerOfTen_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ScaleServiceServer is the server API for ScaleService service.
+// All implementations must embed UnimplementedScaleServiceServer
+// for forward compatibility.
+type ScaleServiceServer interface {
+	ByBigDecimal(context.Context, *ByBigDecimalRequest) (*ByBigDecimalResponse, error)
+	ByDouble(context.Context, *ByDoubleRequest) (*ByDoubleResponse, error)
+	ByDoubleAndPowerOfTen(context.Context, *ByDoubleAndPowerOfTenRequest) (*ByDoubleAndPowerOfTenResponse, error)
+	None(context.Context, *NoneRequest) (*NoneResponse, error)
+	PowerOfTen(context.Context, *PowerOfTenRequest) (*PowerOfTenResponse, error)
+	mustEmbedUnimplementedScaleServiceServer()
+}
+
+// UnimplementedScaleServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedScaleServiceServer struct{}
+
+func (UnimplementedScaleServiceServer) ByBigDecimal(context.Context, *ByBigDecimalRequest) (*ByBigDecimalResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ByBigDecimal not implemented")
+}
+func (UnimplementedScaleServiceServer) ByDouble(context.Context, *ByDoubleRequest) (*ByDoubleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ByDouble not implemented")
+}
+func (UnimplementedScaleServiceServer) ByDoubleAndPowerOfTen(context.Context, *ByDoubleAndPowerOfTenRequest) (*ByDoubleAndPowerOfTenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ByDoubleAndPowerOfTen not implemented")
+}
+func (UnimplementedScaleServiceServer) None(context.Context, *NoneRequest) (*NoneResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method None not implemented")
+}
+func (UnimplementedScaleServiceServer) PowerOfTen(context.Context, *PowerOfTenRequest) (*PowerOfTenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method PowerOfTen not implemented")
+}
+func (UnimplementedScaleServiceServer) mustEmbedUnimplementedScaleServiceServer() {}
+func (UnimplementedScaleServiceServer) testEmbeddedByValue()                      {}
+
+// UnsafeScaleServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ScaleServiceServer will
+// result in compilation errors.
+type UnsafeScaleServiceServer interface {
+	mustEmbedUnimplementedScaleServiceServer()
+}
+
+func RegisterScaleServiceServer(s grpc.ServiceRegistrar, srv ScaleServiceServer) {
+	// If the following call panics, it indicates UnimplementedScaleServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ScaleService_ServiceDesc, srv)
+}
+
+func _ScaleService_ByBigDecimal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ByBigDecimalRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScaleServiceServer).ByBigDecimal(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScaleService_ByBigDecimal_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScaleServiceServer).ByBigDecimal(ctx, req.(*ByBigDecimalRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ScaleService_ByDouble_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ByDoubleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScaleServiceServer).ByDouble(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScaleService_ByDouble_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScaleServiceServer).ByDouble(ctx, req.(*ByDoubleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ScaleService_ByDoubleAndPowerOfTen_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ByDoubleAndPowerOfTenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScaleServiceServer).ByDoubleAndPowerOfTen(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScaleService_ByDoubleAndPowerOfTen_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScaleServiceServer).ByDoubleAndPowerOfTen(ctx, req.(*ByDoubleAndPowerOfTenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ScaleService_None_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NoneRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScaleServiceServer).None(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScaleService_None_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScaleServiceServer).None(ctx, req.(*NoneRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ScaleService_PowerOfTen_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PowerOfTenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScaleServiceServer).PowerOfTen(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScaleService_PowerOfTen_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScaleServiceServer).PowerOfTen(ctx, req.(*PowerOfTenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ScaleService_ServiceDesc is the grpc.ServiceDesc for ScaleService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ScaleService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "number.ScaleService",
+	HandlerType: (*ScaleServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "ByBigDecimal",
+			Handler:    _ScaleService_ByBigDecimal_Handler,
+		},
+		{
+			MethodName: "ByDouble",
+			Handler:    _ScaleService_ByDouble_Handler,
+		},
+		{
+			MethodName: "ByDoubleAndPowerOfTen",
+			Handler:    _ScaleService_ByDoubleAndPowerOfTen_Handler,
+		},
+		{
+			MethodName: "None",
+			Handler:    _ScaleService_None_Handler,
+		},
+		{
+			MethodName: "PowerOfTen",
+			Handler:    _ScaleService_PowerOfTen_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/number/number.proto",
+}
+
+const (
+	UnlocalizedNumberFormatterService_Locale1_FullMethodName   = "/number.UnlocalizedNumberFormatterService/Locale1"
+	UnlocalizedNumberFormatterService_Locale1_1_FullMethodName = "/number.UnlocalizedNumberFormatterService/Locale1_1"
+)
+
+// UnlocalizedNumberFormatterServiceClient is the client API for UnlocalizedNumberFormatterService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type UnlocalizedNumberFormatterServiceClient interface {
+	Locale1(ctx context.Context, in *Locale1Request, opts ...grpc.CallOption) (*Locale1Response, error)
+	Locale1_1(ctx context.Context, in *Locale1_1Request, opts ...grpc.CallOption) (*Locale1_1Response, error)
+}
+
+type unlocalizedNumberFormatterServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewUnlocalizedNumberFormatterServiceClient(cc grpc.ClientConnInterface) UnlocalizedNumberFormatterServiceClient {
+	return &unlocalizedNumberFormatterServiceClient{cc}
+}
+
+func (c *unlocalizedNumberFormatterServiceClient) Locale1(ctx context.Context, in *Locale1Request, opts ...grpc.CallOption) (*Locale1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Locale1Response)
+	err := c.cc.Invoke(ctx, UnlocalizedNumberFormatterService_Locale1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *unlocalizedNumberFormatterServiceClient) Locale1_1(ctx context.Context, in *Locale1_1Request, opts ...grpc.CallOption) (*Locale1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Locale1_1Response)
+	err := c.cc.Invoke(ctx, UnlocalizedNumberFormatterService_Locale1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// UnlocalizedNumberFormatterServiceServer is the server API for UnlocalizedNumberFormatterService service.
+// All implementations must embed UnimplementedUnlocalizedNumberFormatterServiceServer
+// for forward compatibility.
+type UnlocalizedNumberFormatterServiceServer interface {
+	Locale1(context.Context, *Locale1Request) (*Locale1Response, error)
+	Locale1_1(context.Context, *Locale1_1Request) (*Locale1_1Response, error)
+	mustEmbedUnimplementedUnlocalizedNumberFormatterServiceServer()
+}
+
+// UnimplementedUnlocalizedNumberFormatterServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedUnlocalizedNumberFormatterServiceServer struct{}
+
+func (UnimplementedUnlocalizedNumberFormatterServiceServer) Locale1(context.Context, *Locale1Request) (*Locale1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Locale1 not implemented")
+}
+func (UnimplementedUnlocalizedNumberFormatterServiceServer) Locale1_1(context.Context, *Locale1_1Request) (*Locale1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Locale1_1 not implemented")
+}
+func (UnimplementedUnlocalizedNumberFormatterServiceServer) mustEmbedUnimplementedUnlocalizedNumberFormatterServiceServer() {
+}
+func (UnimplementedUnlocalizedNumberFormatterServiceServer) testEmbeddedByValue() {}
+
+// UnsafeUnlocalizedNumberFormatterServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to UnlocalizedNumberFormatterServiceServer will
+// result in compilation errors.
+type UnsafeUnlocalizedNumberFormatterServiceServer interface {
+	mustEmbedUnimplementedUnlocalizedNumberFormatterServiceServer()
+}
+
+func RegisterUnlocalizedNumberFormatterServiceServer(s grpc.ServiceRegistrar, srv UnlocalizedNumberFormatterServiceServer) {
+	// If the following call panics, it indicates UnimplementedUnlocalizedNumberFormatterServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&UnlocalizedNumberFormatterService_ServiceDesc, srv)
+}
+
+func _UnlocalizedNumberFormatterService_Locale1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Locale1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UnlocalizedNumberFormatterServiceServer).Locale1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UnlocalizedNumberFormatterService_Locale1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UnlocalizedNumberFormatterServiceServer).Locale1(ctx, req.(*Locale1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UnlocalizedNumberFormatterService_Locale1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Locale1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UnlocalizedNumberFormatterServiceServer).Locale1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UnlocalizedNumberFormatterService_Locale1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UnlocalizedNumberFormatterServiceServer).Locale1_1(ctx, req.(*Locale1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// UnlocalizedNumberFormatterService_ServiceDesc is the grpc.ServiceDesc for UnlocalizedNumberFormatterService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var UnlocalizedNumberFormatterService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "number.UnlocalizedNumberFormatterService",
+	HandlerType: (*UnlocalizedNumberFormatterServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Locale1",
+			Handler:    _UnlocalizedNumberFormatterService_Locale1_Handler,
+		},
+		{
+			MethodName: "Locale1_1",
+			Handler:    _UnlocalizedNumberFormatterService_Locale1_1_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -2394,2844 +5060,178 @@ var FormatterUnitWidthService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	LocalizedNumberFormatterService_Format1_FullMethodName       = "/number.LocalizedNumberFormatterService/Format1"
-	LocalizedNumberFormatterService_Format1_1_FullMethodName     = "/number.LocalizedNumberFormatterService/Format1_1"
-	LocalizedNumberFormatterService_Format1_2_FullMethodName     = "/number.LocalizedNumberFormatterService/Format1_2"
-	LocalizedNumberFormatterService_Format1_3_FullMethodName     = "/number.LocalizedNumberFormatterService/Format1_3"
-	LocalizedNumberFormatterService_ToFormat_FullMethodName      = "/number.LocalizedNumberFormatterService/ToFormat"
-	LocalizedNumberFormatterService_WithoutLocale_FullMethodName = "/number.LocalizedNumberFormatterService/WithoutLocale"
+	FractionPrecisionService_WithMaxDigits_FullMethodName         = "/number.FractionPrecisionService/WithMaxDigits"
+	FractionPrecisionService_WithMinDigits_FullMethodName         = "/number.FractionPrecisionService/WithMinDigits"
+	FractionPrecisionService_WithSignificantDigits_FullMethodName = "/number.FractionPrecisionService/WithSignificantDigits"
 )
 
-// LocalizedNumberFormatterServiceClient is the client API for LocalizedNumberFormatterService service.
+// FractionPrecisionServiceClient is the client API for FractionPrecisionService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type LocalizedNumberFormatterServiceClient interface {
-	Format1(ctx context.Context, in *Format1Request, opts ...grpc.CallOption) (*Format1Response, error)
-	Format1_1(ctx context.Context, in *Format1_1Request, opts ...grpc.CallOption) (*Format1_1Response, error)
-	Format1_2(ctx context.Context, in *Format1_2Request, opts ...grpc.CallOption) (*Format1_2Response, error)
-	Format1_3(ctx context.Context, in *Format1_3Request, opts ...grpc.CallOption) (*Format1_3Response, error)
-	ToFormat(ctx context.Context, in *ToFormatRequest, opts ...grpc.CallOption) (*ToFormatResponse, error)
-	WithoutLocale(ctx context.Context, in *WithoutLocaleRequest, opts ...grpc.CallOption) (*WithoutLocaleResponse, error)
+type FractionPrecisionServiceClient interface {
+	WithMaxDigits(ctx context.Context, in *WithMaxDigitsRequest, opts ...grpc.CallOption) (*WithMaxDigitsResponse, error)
+	WithMinDigits(ctx context.Context, in *WithMinDigitsRequest, opts ...grpc.CallOption) (*WithMinDigitsResponse, error)
+	WithSignificantDigits(ctx context.Context, in *WithSignificantDigitsRequest, opts ...grpc.CallOption) (*WithSignificantDigitsResponse, error)
 }
 
-type localizedNumberFormatterServiceClient struct {
+type fractionPrecisionServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewLocalizedNumberFormatterServiceClient(cc grpc.ClientConnInterface) LocalizedNumberFormatterServiceClient {
-	return &localizedNumberFormatterServiceClient{cc}
+func NewFractionPrecisionServiceClient(cc grpc.ClientConnInterface) FractionPrecisionServiceClient {
+	return &fractionPrecisionServiceClient{cc}
 }
 
-func (c *localizedNumberFormatterServiceClient) Format1(ctx context.Context, in *Format1Request, opts ...grpc.CallOption) (*Format1Response, error) {
+func (c *fractionPrecisionServiceClient) WithMaxDigits(ctx context.Context, in *WithMaxDigitsRequest, opts ...grpc.CallOption) (*WithMaxDigitsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Format1Response)
-	err := c.cc.Invoke(ctx, LocalizedNumberFormatterService_Format1_FullMethodName, in, out, cOpts...)
+	out := new(WithMaxDigitsResponse)
+	err := c.cc.Invoke(ctx, FractionPrecisionService_WithMaxDigits_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *localizedNumberFormatterServiceClient) Format1_1(ctx context.Context, in *Format1_1Request, opts ...grpc.CallOption) (*Format1_1Response, error) {
+func (c *fractionPrecisionServiceClient) WithMinDigits(ctx context.Context, in *WithMinDigitsRequest, opts ...grpc.CallOption) (*WithMinDigitsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Format1_1Response)
-	err := c.cc.Invoke(ctx, LocalizedNumberFormatterService_Format1_1_FullMethodName, in, out, cOpts...)
+	out := new(WithMinDigitsResponse)
+	err := c.cc.Invoke(ctx, FractionPrecisionService_WithMinDigits_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *localizedNumberFormatterServiceClient) Format1_2(ctx context.Context, in *Format1_2Request, opts ...grpc.CallOption) (*Format1_2Response, error) {
+func (c *fractionPrecisionServiceClient) WithSignificantDigits(ctx context.Context, in *WithSignificantDigitsRequest, opts ...grpc.CallOption) (*WithSignificantDigitsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Format1_2Response)
-	err := c.cc.Invoke(ctx, LocalizedNumberFormatterService_Format1_2_FullMethodName, in, out, cOpts...)
+	out := new(WithSignificantDigitsResponse)
+	err := c.cc.Invoke(ctx, FractionPrecisionService_WithSignificantDigits_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *localizedNumberFormatterServiceClient) Format1_3(ctx context.Context, in *Format1_3Request, opts ...grpc.CallOption) (*Format1_3Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Format1_3Response)
-	err := c.cc.Invoke(ctx, LocalizedNumberFormatterService_Format1_3_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *localizedNumberFormatterServiceClient) ToFormat(ctx context.Context, in *ToFormatRequest, opts ...grpc.CallOption) (*ToFormatResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToFormatResponse)
-	err := c.cc.Invoke(ctx, LocalizedNumberFormatterService_ToFormat_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *localizedNumberFormatterServiceClient) WithoutLocale(ctx context.Context, in *WithoutLocaleRequest, opts ...grpc.CallOption) (*WithoutLocaleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WithoutLocaleResponse)
-	err := c.cc.Invoke(ctx, LocalizedNumberFormatterService_WithoutLocale_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// LocalizedNumberFormatterServiceServer is the server API for LocalizedNumberFormatterService service.
-// All implementations must embed UnimplementedLocalizedNumberFormatterServiceServer
+// FractionPrecisionServiceServer is the server API for FractionPrecisionService service.
+// All implementations must embed UnimplementedFractionPrecisionServiceServer
 // for forward compatibility.
-type LocalizedNumberFormatterServiceServer interface {
-	Format1(context.Context, *Format1Request) (*Format1Response, error)
-	Format1_1(context.Context, *Format1_1Request) (*Format1_1Response, error)
-	Format1_2(context.Context, *Format1_2Request) (*Format1_2Response, error)
-	Format1_3(context.Context, *Format1_3Request) (*Format1_3Response, error)
-	ToFormat(context.Context, *ToFormatRequest) (*ToFormatResponse, error)
-	WithoutLocale(context.Context, *WithoutLocaleRequest) (*WithoutLocaleResponse, error)
-	mustEmbedUnimplementedLocalizedNumberFormatterServiceServer()
+type FractionPrecisionServiceServer interface {
+	WithMaxDigits(context.Context, *WithMaxDigitsRequest) (*WithMaxDigitsResponse, error)
+	WithMinDigits(context.Context, *WithMinDigitsRequest) (*WithMinDigitsResponse, error)
+	WithSignificantDigits(context.Context, *WithSignificantDigitsRequest) (*WithSignificantDigitsResponse, error)
+	mustEmbedUnimplementedFractionPrecisionServiceServer()
 }
 
-// UnimplementedLocalizedNumberFormatterServiceServer must be embedded to have
+// UnimplementedFractionPrecisionServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedLocalizedNumberFormatterServiceServer struct{}
+type UnimplementedFractionPrecisionServiceServer struct{}
 
-func (UnimplementedLocalizedNumberFormatterServiceServer) Format1(context.Context, *Format1Request) (*Format1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Format1 not implemented")
+func (UnimplementedFractionPrecisionServiceServer) WithMaxDigits(context.Context, *WithMaxDigitsRequest) (*WithMaxDigitsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WithMaxDigits not implemented")
 }
-func (UnimplementedLocalizedNumberFormatterServiceServer) Format1_1(context.Context, *Format1_1Request) (*Format1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Format1_1 not implemented")
+func (UnimplementedFractionPrecisionServiceServer) WithMinDigits(context.Context, *WithMinDigitsRequest) (*WithMinDigitsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WithMinDigits not implemented")
 }
-func (UnimplementedLocalizedNumberFormatterServiceServer) Format1_2(context.Context, *Format1_2Request) (*Format1_2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Format1_2 not implemented")
+func (UnimplementedFractionPrecisionServiceServer) WithSignificantDigits(context.Context, *WithSignificantDigitsRequest) (*WithSignificantDigitsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WithSignificantDigits not implemented")
 }
-func (UnimplementedLocalizedNumberFormatterServiceServer) Format1_3(context.Context, *Format1_3Request) (*Format1_3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Format1_3 not implemented")
+func (UnimplementedFractionPrecisionServiceServer) mustEmbedUnimplementedFractionPrecisionServiceServer() {
 }
-func (UnimplementedLocalizedNumberFormatterServiceServer) ToFormat(context.Context, *ToFormatRequest) (*ToFormatResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToFormat not implemented")
-}
-func (UnimplementedLocalizedNumberFormatterServiceServer) WithoutLocale(context.Context, *WithoutLocaleRequest) (*WithoutLocaleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WithoutLocale not implemented")
-}
-func (UnimplementedLocalizedNumberFormatterServiceServer) mustEmbedUnimplementedLocalizedNumberFormatterServiceServer() {
-}
-func (UnimplementedLocalizedNumberFormatterServiceServer) testEmbeddedByValue() {}
+func (UnimplementedFractionPrecisionServiceServer) testEmbeddedByValue() {}
 
-// UnsafeLocalizedNumberFormatterServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to LocalizedNumberFormatterServiceServer will
+// UnsafeFractionPrecisionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to FractionPrecisionServiceServer will
 // result in compilation errors.
-type UnsafeLocalizedNumberFormatterServiceServer interface {
-	mustEmbedUnimplementedLocalizedNumberFormatterServiceServer()
+type UnsafeFractionPrecisionServiceServer interface {
+	mustEmbedUnimplementedFractionPrecisionServiceServer()
 }
 
-func RegisterLocalizedNumberFormatterServiceServer(s grpc.ServiceRegistrar, srv LocalizedNumberFormatterServiceServer) {
-	// If the following call panics, it indicates UnimplementedLocalizedNumberFormatterServiceServer was
+func RegisterFractionPrecisionServiceServer(s grpc.ServiceRegistrar, srv FractionPrecisionServiceServer) {
+	// If the following call panics, it indicates UnimplementedFractionPrecisionServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&LocalizedNumberFormatterService_ServiceDesc, srv)
+	s.RegisterService(&FractionPrecisionService_ServiceDesc, srv)
 }
 
-func _LocalizedNumberFormatterService_Format1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Format1Request)
+func _FractionPrecisionService_WithMaxDigits_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WithMaxDigitsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(LocalizedNumberFormatterServiceServer).Format1(ctx, in)
+		return srv.(FractionPrecisionServiceServer).WithMaxDigits(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: LocalizedNumberFormatterService_Format1_FullMethodName,
+		FullMethod: FractionPrecisionService_WithMaxDigits_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LocalizedNumberFormatterServiceServer).Format1(ctx, req.(*Format1Request))
+		return srv.(FractionPrecisionServiceServer).WithMaxDigits(ctx, req.(*WithMaxDigitsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _LocalizedNumberFormatterService_Format1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Format1_1Request)
+func _FractionPrecisionService_WithMinDigits_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WithMinDigitsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(LocalizedNumberFormatterServiceServer).Format1_1(ctx, in)
+		return srv.(FractionPrecisionServiceServer).WithMinDigits(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: LocalizedNumberFormatterService_Format1_1_FullMethodName,
+		FullMethod: FractionPrecisionService_WithMinDigits_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LocalizedNumberFormatterServiceServer).Format1_1(ctx, req.(*Format1_1Request))
+		return srv.(FractionPrecisionServiceServer).WithMinDigits(ctx, req.(*WithMinDigitsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _LocalizedNumberFormatterService_Format1_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Format1_2Request)
+func _FractionPrecisionService_WithSignificantDigits_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WithSignificantDigitsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(LocalizedNumberFormatterServiceServer).Format1_2(ctx, in)
+		return srv.(FractionPrecisionServiceServer).WithSignificantDigits(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: LocalizedNumberFormatterService_Format1_2_FullMethodName,
+		FullMethod: FractionPrecisionService_WithSignificantDigits_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LocalizedNumberFormatterServiceServer).Format1_2(ctx, req.(*Format1_2Request))
+		return srv.(FractionPrecisionServiceServer).WithSignificantDigits(ctx, req.(*WithSignificantDigitsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _LocalizedNumberFormatterService_Format1_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Format1_3Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LocalizedNumberFormatterServiceServer).Format1_3(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LocalizedNumberFormatterService_Format1_3_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LocalizedNumberFormatterServiceServer).Format1_3(ctx, req.(*Format1_3Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LocalizedNumberFormatterService_ToFormat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToFormatRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LocalizedNumberFormatterServiceServer).ToFormat(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LocalizedNumberFormatterService_ToFormat_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LocalizedNumberFormatterServiceServer).ToFormat(ctx, req.(*ToFormatRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LocalizedNumberFormatterService_WithoutLocale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WithoutLocaleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LocalizedNumberFormatterServiceServer).WithoutLocale(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LocalizedNumberFormatterService_WithoutLocale_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LocalizedNumberFormatterServiceServer).WithoutLocale(ctx, req.(*WithoutLocaleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// LocalizedNumberFormatterService_ServiceDesc is the grpc.ServiceDesc for LocalizedNumberFormatterService service.
+// FractionPrecisionService_ServiceDesc is the grpc.ServiceDesc for FractionPrecisionService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var LocalizedNumberFormatterService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "number.LocalizedNumberFormatterService",
-	HandlerType: (*LocalizedNumberFormatterServiceServer)(nil),
+var FractionPrecisionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "number.FractionPrecisionService",
+	HandlerType: (*FractionPrecisionServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "Format1",
-			Handler:    _LocalizedNumberFormatterService_Format1_Handler,
+			MethodName: "WithMaxDigits",
+			Handler:    _FractionPrecisionService_WithMaxDigits_Handler,
 		},
 		{
-			MethodName: "Format1_1",
-			Handler:    _LocalizedNumberFormatterService_Format1_1_Handler,
+			MethodName: "WithMinDigits",
+			Handler:    _FractionPrecisionService_WithMinDigits_Handler,
 		},
 		{
-			MethodName: "Format1_2",
-			Handler:    _LocalizedNumberFormatterService_Format1_2_Handler,
-		},
-		{
-			MethodName: "Format1_3",
-			Handler:    _LocalizedNumberFormatterService_Format1_3_Handler,
-		},
-		{
-			MethodName: "ToFormat",
-			Handler:    _LocalizedNumberFormatterService_ToFormat_Handler,
-		},
-		{
-			MethodName: "WithoutLocale",
-			Handler:    _LocalizedNumberFormatterService_WithoutLocale_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/number/number.proto",
-}
-
-const (
-	RangeFormatterSettingsService_Equals_FullMethodName   = "/number.RangeFormatterSettingsService/Equals"
-	RangeFormatterSettingsService_HashCode_FullMethodName = "/number.RangeFormatterSettingsService/HashCode"
-)
-
-// RangeFormatterSettingsServiceClient is the client API for RangeFormatterSettingsService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RangeFormatterSettingsServiceClient interface {
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-}
-
-type rangeFormatterSettingsServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewRangeFormatterSettingsServiceClient(cc grpc.ClientConnInterface) RangeFormatterSettingsServiceClient {
-	return &rangeFormatterSettingsServiceClient{cc}
-}
-
-func (c *rangeFormatterSettingsServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, RangeFormatterSettingsService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rangeFormatterSettingsServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, RangeFormatterSettingsService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// RangeFormatterSettingsServiceServer is the server API for RangeFormatterSettingsService service.
-// All implementations must embed UnimplementedRangeFormatterSettingsServiceServer
-// for forward compatibility.
-type RangeFormatterSettingsServiceServer interface {
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	mustEmbedUnimplementedRangeFormatterSettingsServiceServer()
-}
-
-// UnimplementedRangeFormatterSettingsServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedRangeFormatterSettingsServiceServer struct{}
-
-func (UnimplementedRangeFormatterSettingsServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedRangeFormatterSettingsServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedRangeFormatterSettingsServiceServer) mustEmbedUnimplementedRangeFormatterSettingsServiceServer() {
-}
-func (UnimplementedRangeFormatterSettingsServiceServer) testEmbeddedByValue() {}
-
-// UnsafeRangeFormatterSettingsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RangeFormatterSettingsServiceServer will
-// result in compilation errors.
-type UnsafeRangeFormatterSettingsServiceServer interface {
-	mustEmbedUnimplementedRangeFormatterSettingsServiceServer()
-}
-
-func RegisterRangeFormatterSettingsServiceServer(s grpc.ServiceRegistrar, srv RangeFormatterSettingsServiceServer) {
-	// If the following call panics, it indicates UnimplementedRangeFormatterSettingsServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&RangeFormatterSettingsService_ServiceDesc, srv)
-}
-
-func _RangeFormatterSettingsService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangeFormatterSettingsServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangeFormatterSettingsService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangeFormatterSettingsServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RangeFormatterSettingsService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangeFormatterSettingsServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangeFormatterSettingsService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangeFormatterSettingsServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// RangeFormatterSettingsService_ServiceDesc is the grpc.ServiceDesc for RangeFormatterSettingsService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var RangeFormatterSettingsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "number.RangeFormatterSettingsService",
-	HandlerType: (*RangeFormatterSettingsServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Equals",
-			Handler:    _RangeFormatterSettingsService_Equals_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _RangeFormatterSettingsService_HashCode_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/number/number.proto",
-}
-
-const (
-	IntegerWidthService_TruncateAt_FullMethodName = "/number.IntegerWidthService/TruncateAt"
-	IntegerWidthService_ZeroFillTo_FullMethodName = "/number.IntegerWidthService/ZeroFillTo"
-)
-
-// IntegerWidthServiceClient is the client API for IntegerWidthService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type IntegerWidthServiceClient interface {
-	TruncateAt(ctx context.Context, in *TruncateAtRequest, opts ...grpc.CallOption) (*TruncateAtResponse, error)
-	ZeroFillTo(ctx context.Context, in *ZeroFillToRequest, opts ...grpc.CallOption) (*ZeroFillToResponse, error)
-}
-
-type integerWidthServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewIntegerWidthServiceClient(cc grpc.ClientConnInterface) IntegerWidthServiceClient {
-	return &integerWidthServiceClient{cc}
-}
-
-func (c *integerWidthServiceClient) TruncateAt(ctx context.Context, in *TruncateAtRequest, opts ...grpc.CallOption) (*TruncateAtResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(TruncateAtResponse)
-	err := c.cc.Invoke(ctx, IntegerWidthService_TruncateAt_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *integerWidthServiceClient) ZeroFillTo(ctx context.Context, in *ZeroFillToRequest, opts ...grpc.CallOption) (*ZeroFillToResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ZeroFillToResponse)
-	err := c.cc.Invoke(ctx, IntegerWidthService_ZeroFillTo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// IntegerWidthServiceServer is the server API for IntegerWidthService service.
-// All implementations must embed UnimplementedIntegerWidthServiceServer
-// for forward compatibility.
-type IntegerWidthServiceServer interface {
-	TruncateAt(context.Context, *TruncateAtRequest) (*TruncateAtResponse, error)
-	ZeroFillTo(context.Context, *ZeroFillToRequest) (*ZeroFillToResponse, error)
-	mustEmbedUnimplementedIntegerWidthServiceServer()
-}
-
-// UnimplementedIntegerWidthServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedIntegerWidthServiceServer struct{}
-
-func (UnimplementedIntegerWidthServiceServer) TruncateAt(context.Context, *TruncateAtRequest) (*TruncateAtResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method TruncateAt not implemented")
-}
-func (UnimplementedIntegerWidthServiceServer) ZeroFillTo(context.Context, *ZeroFillToRequest) (*ZeroFillToResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ZeroFillTo not implemented")
-}
-func (UnimplementedIntegerWidthServiceServer) mustEmbedUnimplementedIntegerWidthServiceServer() {}
-func (UnimplementedIntegerWidthServiceServer) testEmbeddedByValue()                             {}
-
-// UnsafeIntegerWidthServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to IntegerWidthServiceServer will
-// result in compilation errors.
-type UnsafeIntegerWidthServiceServer interface {
-	mustEmbedUnimplementedIntegerWidthServiceServer()
-}
-
-func RegisterIntegerWidthServiceServer(s grpc.ServiceRegistrar, srv IntegerWidthServiceServer) {
-	// If the following call panics, it indicates UnimplementedIntegerWidthServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&IntegerWidthService_ServiceDesc, srv)
-}
-
-func _IntegerWidthService_TruncateAt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TruncateAtRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(IntegerWidthServiceServer).TruncateAt(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: IntegerWidthService_TruncateAt_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(IntegerWidthServiceServer).TruncateAt(ctx, req.(*TruncateAtRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _IntegerWidthService_ZeroFillTo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ZeroFillToRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(IntegerWidthServiceServer).ZeroFillTo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: IntegerWidthService_ZeroFillTo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(IntegerWidthServiceServer).ZeroFillTo(ctx, req.(*ZeroFillToRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// IntegerWidthService_ServiceDesc is the grpc.ServiceDesc for IntegerWidthService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var IntegerWidthService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "number.IntegerWidthService",
-	HandlerType: (*IntegerWidthServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "TruncateAt",
-			Handler:    _IntegerWidthService_TruncateAt_Handler,
-		},
-		{
-			MethodName: "ZeroFillTo",
-			Handler:    _IntegerWidthService_ZeroFillTo_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/number/number.proto",
-}
-
-const (
-	UnlocalizedNumberFormatterService_Locale1_FullMethodName   = "/number.UnlocalizedNumberFormatterService/Locale1"
-	UnlocalizedNumberFormatterService_Locale1_1_FullMethodName = "/number.UnlocalizedNumberFormatterService/Locale1_1"
-)
-
-// UnlocalizedNumberFormatterServiceClient is the client API for UnlocalizedNumberFormatterService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type UnlocalizedNumberFormatterServiceClient interface {
-	Locale1(ctx context.Context, in *Locale1Request, opts ...grpc.CallOption) (*Locale1Response, error)
-	Locale1_1(ctx context.Context, in *Locale1_1Request, opts ...grpc.CallOption) (*Locale1_1Response, error)
-}
-
-type unlocalizedNumberFormatterServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewUnlocalizedNumberFormatterServiceClient(cc grpc.ClientConnInterface) UnlocalizedNumberFormatterServiceClient {
-	return &unlocalizedNumberFormatterServiceClient{cc}
-}
-
-func (c *unlocalizedNumberFormatterServiceClient) Locale1(ctx context.Context, in *Locale1Request, opts ...grpc.CallOption) (*Locale1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Locale1Response)
-	err := c.cc.Invoke(ctx, UnlocalizedNumberFormatterService_Locale1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *unlocalizedNumberFormatterServiceClient) Locale1_1(ctx context.Context, in *Locale1_1Request, opts ...grpc.CallOption) (*Locale1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Locale1_1Response)
-	err := c.cc.Invoke(ctx, UnlocalizedNumberFormatterService_Locale1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// UnlocalizedNumberFormatterServiceServer is the server API for UnlocalizedNumberFormatterService service.
-// All implementations must embed UnimplementedUnlocalizedNumberFormatterServiceServer
-// for forward compatibility.
-type UnlocalizedNumberFormatterServiceServer interface {
-	Locale1(context.Context, *Locale1Request) (*Locale1Response, error)
-	Locale1_1(context.Context, *Locale1_1Request) (*Locale1_1Response, error)
-	mustEmbedUnimplementedUnlocalizedNumberFormatterServiceServer()
-}
-
-// UnimplementedUnlocalizedNumberFormatterServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedUnlocalizedNumberFormatterServiceServer struct{}
-
-func (UnimplementedUnlocalizedNumberFormatterServiceServer) Locale1(context.Context, *Locale1Request) (*Locale1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Locale1 not implemented")
-}
-func (UnimplementedUnlocalizedNumberFormatterServiceServer) Locale1_1(context.Context, *Locale1_1Request) (*Locale1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Locale1_1 not implemented")
-}
-func (UnimplementedUnlocalizedNumberFormatterServiceServer) mustEmbedUnimplementedUnlocalizedNumberFormatterServiceServer() {
-}
-func (UnimplementedUnlocalizedNumberFormatterServiceServer) testEmbeddedByValue() {}
-
-// UnsafeUnlocalizedNumberFormatterServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to UnlocalizedNumberFormatterServiceServer will
-// result in compilation errors.
-type UnsafeUnlocalizedNumberFormatterServiceServer interface {
-	mustEmbedUnimplementedUnlocalizedNumberFormatterServiceServer()
-}
-
-func RegisterUnlocalizedNumberFormatterServiceServer(s grpc.ServiceRegistrar, srv UnlocalizedNumberFormatterServiceServer) {
-	// If the following call panics, it indicates UnimplementedUnlocalizedNumberFormatterServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&UnlocalizedNumberFormatterService_ServiceDesc, srv)
-}
-
-func _UnlocalizedNumberFormatterService_Locale1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Locale1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UnlocalizedNumberFormatterServiceServer).Locale1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UnlocalizedNumberFormatterService_Locale1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UnlocalizedNumberFormatterServiceServer).Locale1(ctx, req.(*Locale1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UnlocalizedNumberFormatterService_Locale1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Locale1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UnlocalizedNumberFormatterServiceServer).Locale1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UnlocalizedNumberFormatterService_Locale1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UnlocalizedNumberFormatterServiceServer).Locale1_1(ctx, req.(*Locale1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// UnlocalizedNumberFormatterService_ServiceDesc is the grpc.ServiceDesc for UnlocalizedNumberFormatterService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var UnlocalizedNumberFormatterService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "number.UnlocalizedNumberFormatterService",
-	HandlerType: (*UnlocalizedNumberFormatterServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Locale1",
-			Handler:    _UnlocalizedNumberFormatterService_Locale1_Handler,
-		},
-		{
-			MethodName: "Locale1_1",
-			Handler:    _UnlocalizedNumberFormatterService_Locale1_1_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/number/number.proto",
-}
-
-const (
-	NotationService_CompactLong_FullMethodName  = "/number.NotationService/CompactLong"
-	NotationService_CompactShort_FullMethodName = "/number.NotationService/CompactShort"
-	NotationService_Engineering_FullMethodName  = "/number.NotationService/Engineering"
-	NotationService_Scientific_FullMethodName   = "/number.NotationService/Scientific"
-	NotationService_Simple_FullMethodName       = "/number.NotationService/Simple"
-)
-
-// NotationServiceClient is the client API for NotationService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type NotationServiceClient interface {
-	CompactLong(ctx context.Context, in *CompactLongRequest, opts ...grpc.CallOption) (*CompactLongResponse, error)
-	CompactShort(ctx context.Context, in *CompactShortRequest, opts ...grpc.CallOption) (*CompactShortResponse, error)
-	Engineering(ctx context.Context, in *EngineeringRequest, opts ...grpc.CallOption) (*EngineeringResponse, error)
-	Scientific(ctx context.Context, in *ScientificRequest, opts ...grpc.CallOption) (*ScientificResponse, error)
-	Simple(ctx context.Context, in *SimpleRequest, opts ...grpc.CallOption) (*SimpleResponse, error)
-}
-
-type notationServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewNotationServiceClient(cc grpc.ClientConnInterface) NotationServiceClient {
-	return &notationServiceClient{cc}
-}
-
-func (c *notationServiceClient) CompactLong(ctx context.Context, in *CompactLongRequest, opts ...grpc.CallOption) (*CompactLongResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CompactLongResponse)
-	err := c.cc.Invoke(ctx, NotationService_CompactLong_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *notationServiceClient) CompactShort(ctx context.Context, in *CompactShortRequest, opts ...grpc.CallOption) (*CompactShortResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CompactShortResponse)
-	err := c.cc.Invoke(ctx, NotationService_CompactShort_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *notationServiceClient) Engineering(ctx context.Context, in *EngineeringRequest, opts ...grpc.CallOption) (*EngineeringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EngineeringResponse)
-	err := c.cc.Invoke(ctx, NotationService_Engineering_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *notationServiceClient) Scientific(ctx context.Context, in *ScientificRequest, opts ...grpc.CallOption) (*ScientificResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ScientificResponse)
-	err := c.cc.Invoke(ctx, NotationService_Scientific_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *notationServiceClient) Simple(ctx context.Context, in *SimpleRequest, opts ...grpc.CallOption) (*SimpleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SimpleResponse)
-	err := c.cc.Invoke(ctx, NotationService_Simple_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// NotationServiceServer is the server API for NotationService service.
-// All implementations must embed UnimplementedNotationServiceServer
-// for forward compatibility.
-type NotationServiceServer interface {
-	CompactLong(context.Context, *CompactLongRequest) (*CompactLongResponse, error)
-	CompactShort(context.Context, *CompactShortRequest) (*CompactShortResponse, error)
-	Engineering(context.Context, *EngineeringRequest) (*EngineeringResponse, error)
-	Scientific(context.Context, *ScientificRequest) (*ScientificResponse, error)
-	Simple(context.Context, *SimpleRequest) (*SimpleResponse, error)
-	mustEmbedUnimplementedNotationServiceServer()
-}
-
-// UnimplementedNotationServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedNotationServiceServer struct{}
-
-func (UnimplementedNotationServiceServer) CompactLong(context.Context, *CompactLongRequest) (*CompactLongResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CompactLong not implemented")
-}
-func (UnimplementedNotationServiceServer) CompactShort(context.Context, *CompactShortRequest) (*CompactShortResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CompactShort not implemented")
-}
-func (UnimplementedNotationServiceServer) Engineering(context.Context, *EngineeringRequest) (*EngineeringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Engineering not implemented")
-}
-func (UnimplementedNotationServiceServer) Scientific(context.Context, *ScientificRequest) (*ScientificResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Scientific not implemented")
-}
-func (UnimplementedNotationServiceServer) Simple(context.Context, *SimpleRequest) (*SimpleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Simple not implemented")
-}
-func (UnimplementedNotationServiceServer) mustEmbedUnimplementedNotationServiceServer() {}
-func (UnimplementedNotationServiceServer) testEmbeddedByValue()                         {}
-
-// UnsafeNotationServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to NotationServiceServer will
-// result in compilation errors.
-type UnsafeNotationServiceServer interface {
-	mustEmbedUnimplementedNotationServiceServer()
-}
-
-func RegisterNotationServiceServer(s grpc.ServiceRegistrar, srv NotationServiceServer) {
-	// If the following call panics, it indicates UnimplementedNotationServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&NotationService_ServiceDesc, srv)
-}
-
-func _NotationService_CompactLong_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CompactLongRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NotationServiceServer).CompactLong(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NotationService_CompactLong_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NotationServiceServer).CompactLong(ctx, req.(*CompactLongRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NotationService_CompactShort_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CompactShortRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NotationServiceServer).CompactShort(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NotationService_CompactShort_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NotationServiceServer).CompactShort(ctx, req.(*CompactShortRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NotationService_Engineering_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EngineeringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NotationServiceServer).Engineering(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NotationService_Engineering_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NotationServiceServer).Engineering(ctx, req.(*EngineeringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NotationService_Scientific_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ScientificRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NotationServiceServer).Scientific(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NotationService_Scientific_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NotationServiceServer).Scientific(ctx, req.(*ScientificRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NotationService_Simple_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SimpleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NotationServiceServer).Simple(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NotationService_Simple_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NotationServiceServer).Simple(ctx, req.(*SimpleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// NotationService_ServiceDesc is the grpc.ServiceDesc for NotationService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var NotationService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "number.NotationService",
-	HandlerType: (*NotationServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "CompactLong",
-			Handler:    _NotationService_CompactLong_Handler,
-		},
-		{
-			MethodName: "CompactShort",
-			Handler:    _NotationService_CompactShort_Handler,
-		},
-		{
-			MethodName: "Engineering",
-			Handler:    _NotationService_Engineering_Handler,
-		},
-		{
-			MethodName: "Scientific",
-			Handler:    _NotationService_Scientific_Handler,
-		},
-		{
-			MethodName: "Simple",
-			Handler:    _NotationService_Simple_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/number/number.proto",
-}
-
-const (
-	FormattedNumberRangeService_CharAt_FullMethodName              = "/number.FormattedNumberRangeService/CharAt"
-	FormattedNumberRangeService_Equals_FullMethodName              = "/number.FormattedNumberRangeService/Equals"
-	FormattedNumberRangeService_GetFirstBigDecimal_FullMethodName  = "/number.FormattedNumberRangeService/GetFirstBigDecimal"
-	FormattedNumberRangeService_GetIdentityResult_FullMethodName   = "/number.FormattedNumberRangeService/GetIdentityResult"
-	FormattedNumberRangeService_GetSecondBigDecimal_FullMethodName = "/number.FormattedNumberRangeService/GetSecondBigDecimal"
-	FormattedNumberRangeService_HashCode_FullMethodName            = "/number.FormattedNumberRangeService/HashCode"
-	FormattedNumberRangeService_Length_FullMethodName              = "/number.FormattedNumberRangeService/Length"
-	FormattedNumberRangeService_NextPosition_FullMethodName        = "/number.FormattedNumberRangeService/NextPosition"
-	FormattedNumberRangeService_SubSequence_FullMethodName         = "/number.FormattedNumberRangeService/SubSequence"
-	FormattedNumberRangeService_ToCharacterIterator_FullMethodName = "/number.FormattedNumberRangeService/ToCharacterIterator"
-	FormattedNumberRangeService_ToString_FullMethodName            = "/number.FormattedNumberRangeService/ToString"
-)
-
-// FormattedNumberRangeServiceClient is the client API for FormattedNumberRangeService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type FormattedNumberRangeServiceClient interface {
-	CharAt(ctx context.Context, in *CharAtRequest, opts ...grpc.CallOption) (*CharAtResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetFirstBigDecimal(ctx context.Context, in *GetFirstBigDecimalRequest, opts ...grpc.CallOption) (*GetFirstBigDecimalResponse, error)
-	GetIdentityResult(ctx context.Context, in *GetIdentityResultRequest, opts ...grpc.CallOption) (*GetIdentityResultResponse, error)
-	GetSecondBigDecimal(ctx context.Context, in *GetSecondBigDecimalRequest, opts ...grpc.CallOption) (*GetSecondBigDecimalResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	Length(ctx context.Context, in *LengthRequest, opts ...grpc.CallOption) (*LengthResponse, error)
-	NextPosition(ctx context.Context, in *NextPositionRequest, opts ...grpc.CallOption) (*NextPositionResponse, error)
-	SubSequence(ctx context.Context, in *SubSequenceRequest, opts ...grpc.CallOption) (*SubSequenceResponse, error)
-	ToCharacterIterator(ctx context.Context, in *ToCharacterIteratorRequest, opts ...grpc.CallOption) (*ToCharacterIteratorResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type formattedNumberRangeServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewFormattedNumberRangeServiceClient(cc grpc.ClientConnInterface) FormattedNumberRangeServiceClient {
-	return &formattedNumberRangeServiceClient{cc}
-}
-
-func (c *formattedNumberRangeServiceClient) CharAt(ctx context.Context, in *CharAtRequest, opts ...grpc.CallOption) (*CharAtResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CharAtResponse)
-	err := c.cc.Invoke(ctx, FormattedNumberRangeService_CharAt_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formattedNumberRangeServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, FormattedNumberRangeService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formattedNumberRangeServiceClient) GetFirstBigDecimal(ctx context.Context, in *GetFirstBigDecimalRequest, opts ...grpc.CallOption) (*GetFirstBigDecimalResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFirstBigDecimalResponse)
-	err := c.cc.Invoke(ctx, FormattedNumberRangeService_GetFirstBigDecimal_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formattedNumberRangeServiceClient) GetIdentityResult(ctx context.Context, in *GetIdentityResultRequest, opts ...grpc.CallOption) (*GetIdentityResultResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIdentityResultResponse)
-	err := c.cc.Invoke(ctx, FormattedNumberRangeService_GetIdentityResult_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formattedNumberRangeServiceClient) GetSecondBigDecimal(ctx context.Context, in *GetSecondBigDecimalRequest, opts ...grpc.CallOption) (*GetSecondBigDecimalResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSecondBigDecimalResponse)
-	err := c.cc.Invoke(ctx, FormattedNumberRangeService_GetSecondBigDecimal_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formattedNumberRangeServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, FormattedNumberRangeService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formattedNumberRangeServiceClient) Length(ctx context.Context, in *LengthRequest, opts ...grpc.CallOption) (*LengthResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(LengthResponse)
-	err := c.cc.Invoke(ctx, FormattedNumberRangeService_Length_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formattedNumberRangeServiceClient) NextPosition(ctx context.Context, in *NextPositionRequest, opts ...grpc.CallOption) (*NextPositionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NextPositionResponse)
-	err := c.cc.Invoke(ctx, FormattedNumberRangeService_NextPosition_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formattedNumberRangeServiceClient) SubSequence(ctx context.Context, in *SubSequenceRequest, opts ...grpc.CallOption) (*SubSequenceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SubSequenceResponse)
-	err := c.cc.Invoke(ctx, FormattedNumberRangeService_SubSequence_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formattedNumberRangeServiceClient) ToCharacterIterator(ctx context.Context, in *ToCharacterIteratorRequest, opts ...grpc.CallOption) (*ToCharacterIteratorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToCharacterIteratorResponse)
-	err := c.cc.Invoke(ctx, FormattedNumberRangeService_ToCharacterIterator_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formattedNumberRangeServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, FormattedNumberRangeService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// FormattedNumberRangeServiceServer is the server API for FormattedNumberRangeService service.
-// All implementations must embed UnimplementedFormattedNumberRangeServiceServer
-// for forward compatibility.
-type FormattedNumberRangeServiceServer interface {
-	CharAt(context.Context, *CharAtRequest) (*CharAtResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetFirstBigDecimal(context.Context, *GetFirstBigDecimalRequest) (*GetFirstBigDecimalResponse, error)
-	GetIdentityResult(context.Context, *GetIdentityResultRequest) (*GetIdentityResultResponse, error)
-	GetSecondBigDecimal(context.Context, *GetSecondBigDecimalRequest) (*GetSecondBigDecimalResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	Length(context.Context, *LengthRequest) (*LengthResponse, error)
-	NextPosition(context.Context, *NextPositionRequest) (*NextPositionResponse, error)
-	SubSequence(context.Context, *SubSequenceRequest) (*SubSequenceResponse, error)
-	ToCharacterIterator(context.Context, *ToCharacterIteratorRequest) (*ToCharacterIteratorResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedFormattedNumberRangeServiceServer()
-}
-
-// UnimplementedFormattedNumberRangeServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedFormattedNumberRangeServiceServer struct{}
-
-func (UnimplementedFormattedNumberRangeServiceServer) CharAt(context.Context, *CharAtRequest) (*CharAtResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CharAt not implemented")
-}
-func (UnimplementedFormattedNumberRangeServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedFormattedNumberRangeServiceServer) GetFirstBigDecimal(context.Context, *GetFirstBigDecimalRequest) (*GetFirstBigDecimalResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFirstBigDecimal not implemented")
-}
-func (UnimplementedFormattedNumberRangeServiceServer) GetIdentityResult(context.Context, *GetIdentityResultRequest) (*GetIdentityResultResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetIdentityResult not implemented")
-}
-func (UnimplementedFormattedNumberRangeServiceServer) GetSecondBigDecimal(context.Context, *GetSecondBigDecimalRequest) (*GetSecondBigDecimalResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSecondBigDecimal not implemented")
-}
-func (UnimplementedFormattedNumberRangeServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedFormattedNumberRangeServiceServer) Length(context.Context, *LengthRequest) (*LengthResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Length not implemented")
-}
-func (UnimplementedFormattedNumberRangeServiceServer) NextPosition(context.Context, *NextPositionRequest) (*NextPositionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NextPosition not implemented")
-}
-func (UnimplementedFormattedNumberRangeServiceServer) SubSequence(context.Context, *SubSequenceRequest) (*SubSequenceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SubSequence not implemented")
-}
-func (UnimplementedFormattedNumberRangeServiceServer) ToCharacterIterator(context.Context, *ToCharacterIteratorRequest) (*ToCharacterIteratorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToCharacterIterator not implemented")
-}
-func (UnimplementedFormattedNumberRangeServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedFormattedNumberRangeServiceServer) mustEmbedUnimplementedFormattedNumberRangeServiceServer() {
-}
-func (UnimplementedFormattedNumberRangeServiceServer) testEmbeddedByValue() {}
-
-// UnsafeFormattedNumberRangeServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to FormattedNumberRangeServiceServer will
-// result in compilation errors.
-type UnsafeFormattedNumberRangeServiceServer interface {
-	mustEmbedUnimplementedFormattedNumberRangeServiceServer()
-}
-
-func RegisterFormattedNumberRangeServiceServer(s grpc.ServiceRegistrar, srv FormattedNumberRangeServiceServer) {
-	// If the following call panics, it indicates UnimplementedFormattedNumberRangeServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&FormattedNumberRangeService_ServiceDesc, srv)
-}
-
-func _FormattedNumberRangeService_CharAt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CharAtRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormattedNumberRangeServiceServer).CharAt(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormattedNumberRangeService_CharAt_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormattedNumberRangeServiceServer).CharAt(ctx, req.(*CharAtRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormattedNumberRangeService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormattedNumberRangeServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormattedNumberRangeService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormattedNumberRangeServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormattedNumberRangeService_GetFirstBigDecimal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFirstBigDecimalRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormattedNumberRangeServiceServer).GetFirstBigDecimal(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormattedNumberRangeService_GetFirstBigDecimal_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormattedNumberRangeServiceServer).GetFirstBigDecimal(ctx, req.(*GetFirstBigDecimalRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormattedNumberRangeService_GetIdentityResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIdentityResultRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormattedNumberRangeServiceServer).GetIdentityResult(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormattedNumberRangeService_GetIdentityResult_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormattedNumberRangeServiceServer).GetIdentityResult(ctx, req.(*GetIdentityResultRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormattedNumberRangeService_GetSecondBigDecimal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSecondBigDecimalRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormattedNumberRangeServiceServer).GetSecondBigDecimal(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormattedNumberRangeService_GetSecondBigDecimal_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormattedNumberRangeServiceServer).GetSecondBigDecimal(ctx, req.(*GetSecondBigDecimalRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormattedNumberRangeService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormattedNumberRangeServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormattedNumberRangeService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormattedNumberRangeServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormattedNumberRangeService_Length_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LengthRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormattedNumberRangeServiceServer).Length(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormattedNumberRangeService_Length_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormattedNumberRangeServiceServer).Length(ctx, req.(*LengthRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormattedNumberRangeService_NextPosition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NextPositionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormattedNumberRangeServiceServer).NextPosition(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormattedNumberRangeService_NextPosition_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormattedNumberRangeServiceServer).NextPosition(ctx, req.(*NextPositionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormattedNumberRangeService_SubSequence_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SubSequenceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormattedNumberRangeServiceServer).SubSequence(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormattedNumberRangeService_SubSequence_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormattedNumberRangeServiceServer).SubSequence(ctx, req.(*SubSequenceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormattedNumberRangeService_ToCharacterIterator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToCharacterIteratorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormattedNumberRangeServiceServer).ToCharacterIterator(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormattedNumberRangeService_ToCharacterIterator_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormattedNumberRangeServiceServer).ToCharacterIterator(ctx, req.(*ToCharacterIteratorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormattedNumberRangeService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormattedNumberRangeServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormattedNumberRangeService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormattedNumberRangeServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// FormattedNumberRangeService_ServiceDesc is the grpc.ServiceDesc for FormattedNumberRangeService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var FormattedNumberRangeService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "number.FormattedNumberRangeService",
-	HandlerType: (*FormattedNumberRangeServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "CharAt",
-			Handler:    _FormattedNumberRangeService_CharAt_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _FormattedNumberRangeService_Equals_Handler,
-		},
-		{
-			MethodName: "GetFirstBigDecimal",
-			Handler:    _FormattedNumberRangeService_GetFirstBigDecimal_Handler,
-		},
-		{
-			MethodName: "GetIdentityResult",
-			Handler:    _FormattedNumberRangeService_GetIdentityResult_Handler,
-		},
-		{
-			MethodName: "GetSecondBigDecimal",
-			Handler:    _FormattedNumberRangeService_GetSecondBigDecimal_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _FormattedNumberRangeService_HashCode_Handler,
-		},
-		{
-			MethodName: "Length",
-			Handler:    _FormattedNumberRangeService_Length_Handler,
-		},
-		{
-			MethodName: "NextPosition",
-			Handler:    _FormattedNumberRangeService_NextPosition_Handler,
-		},
-		{
-			MethodName: "SubSequence",
-			Handler:    _FormattedNumberRangeService_SubSequence_Handler,
-		},
-		{
-			MethodName: "ToCharacterIterator",
-			Handler:    _FormattedNumberRangeService_ToCharacterIterator_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _FormattedNumberRangeService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/number/number.proto",
-}
-
-const (
-	RangeFormatterService_With_FullMethodName          = "/number.RangeFormatterService/With"
-	RangeFormatterService_WithLocale1_FullMethodName   = "/number.RangeFormatterService/WithLocale1"
-	RangeFormatterService_WithLocale1_1_FullMethodName = "/number.RangeFormatterService/WithLocale1_1"
-)
-
-// RangeFormatterServiceClient is the client API for RangeFormatterService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RangeFormatterServiceClient interface {
-	With(ctx context.Context, in *WithRequest, opts ...grpc.CallOption) (*WithResponse, error)
-	WithLocale1(ctx context.Context, in *WithLocale1Request, opts ...grpc.CallOption) (*WithLocale1Response, error)
-	WithLocale1_1(ctx context.Context, in *WithLocale1_1Request, opts ...grpc.CallOption) (*WithLocale1_1Response, error)
-}
-
-type rangeFormatterServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewRangeFormatterServiceClient(cc grpc.ClientConnInterface) RangeFormatterServiceClient {
-	return &rangeFormatterServiceClient{cc}
-}
-
-func (c *rangeFormatterServiceClient) With(ctx context.Context, in *WithRequest, opts ...grpc.CallOption) (*WithResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WithResponse)
-	err := c.cc.Invoke(ctx, RangeFormatterService_With_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rangeFormatterServiceClient) WithLocale1(ctx context.Context, in *WithLocale1Request, opts ...grpc.CallOption) (*WithLocale1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WithLocale1Response)
-	err := c.cc.Invoke(ctx, RangeFormatterService_WithLocale1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rangeFormatterServiceClient) WithLocale1_1(ctx context.Context, in *WithLocale1_1Request, opts ...grpc.CallOption) (*WithLocale1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WithLocale1_1Response)
-	err := c.cc.Invoke(ctx, RangeFormatterService_WithLocale1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// RangeFormatterServiceServer is the server API for RangeFormatterService service.
-// All implementations must embed UnimplementedRangeFormatterServiceServer
-// for forward compatibility.
-type RangeFormatterServiceServer interface {
-	With(context.Context, *WithRequest) (*WithResponse, error)
-	WithLocale1(context.Context, *WithLocale1Request) (*WithLocale1Response, error)
-	WithLocale1_1(context.Context, *WithLocale1_1Request) (*WithLocale1_1Response, error)
-	mustEmbedUnimplementedRangeFormatterServiceServer()
-}
-
-// UnimplementedRangeFormatterServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedRangeFormatterServiceServer struct{}
-
-func (UnimplementedRangeFormatterServiceServer) With(context.Context, *WithRequest) (*WithResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method With not implemented")
-}
-func (UnimplementedRangeFormatterServiceServer) WithLocale1(context.Context, *WithLocale1Request) (*WithLocale1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method WithLocale1 not implemented")
-}
-func (UnimplementedRangeFormatterServiceServer) WithLocale1_1(context.Context, *WithLocale1_1Request) (*WithLocale1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method WithLocale1_1 not implemented")
-}
-func (UnimplementedRangeFormatterServiceServer) mustEmbedUnimplementedRangeFormatterServiceServer() {}
-func (UnimplementedRangeFormatterServiceServer) testEmbeddedByValue()                               {}
-
-// UnsafeRangeFormatterServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RangeFormatterServiceServer will
-// result in compilation errors.
-type UnsafeRangeFormatterServiceServer interface {
-	mustEmbedUnimplementedRangeFormatterServiceServer()
-}
-
-func RegisterRangeFormatterServiceServer(s grpc.ServiceRegistrar, srv RangeFormatterServiceServer) {
-	// If the following call panics, it indicates UnimplementedRangeFormatterServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&RangeFormatterService_ServiceDesc, srv)
-}
-
-func _RangeFormatterService_With_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WithRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangeFormatterServiceServer).With(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangeFormatterService_With_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangeFormatterServiceServer).With(ctx, req.(*WithRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RangeFormatterService_WithLocale1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WithLocale1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangeFormatterServiceServer).WithLocale1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangeFormatterService_WithLocale1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangeFormatterServiceServer).WithLocale1(ctx, req.(*WithLocale1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RangeFormatterService_WithLocale1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WithLocale1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangeFormatterServiceServer).WithLocale1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangeFormatterService_WithLocale1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangeFormatterServiceServer).WithLocale1_1(ctx, req.(*WithLocale1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// RangeFormatterService_ServiceDesc is the grpc.ServiceDesc for RangeFormatterService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var RangeFormatterService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "number.RangeFormatterService",
-	HandlerType: (*RangeFormatterServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "With",
-			Handler:    _RangeFormatterService_With_Handler,
-		},
-		{
-			MethodName: "WithLocale1",
-			Handler:    _RangeFormatterService_WithLocale1_Handler,
-		},
-		{
-			MethodName: "WithLocale1_1",
-			Handler:    _RangeFormatterService_WithLocale1_1_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/number/number.proto",
-}
-
-const (
-	RangeFormatterRangeCollapseService_Values_FullMethodName  = "/number.RangeFormatterRangeCollapseService/Values"
-	RangeFormatterRangeCollapseService_ValueOf_FullMethodName = "/number.RangeFormatterRangeCollapseService/ValueOf"
-)
-
-// RangeFormatterRangeCollapseServiceClient is the client API for RangeFormatterRangeCollapseService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RangeFormatterRangeCollapseServiceClient interface {
-	Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error)
-	ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error)
-}
-
-type rangeFormatterRangeCollapseServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewRangeFormatterRangeCollapseServiceClient(cc grpc.ClientConnInterface) RangeFormatterRangeCollapseServiceClient {
-	return &rangeFormatterRangeCollapseServiceClient{cc}
-}
-
-func (c *rangeFormatterRangeCollapseServiceClient) Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ValuesResponse)
-	err := c.cc.Invoke(ctx, RangeFormatterRangeCollapseService_Values_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rangeFormatterRangeCollapseServiceClient) ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ValueOfResponse)
-	err := c.cc.Invoke(ctx, RangeFormatterRangeCollapseService_ValueOf_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// RangeFormatterRangeCollapseServiceServer is the server API for RangeFormatterRangeCollapseService service.
-// All implementations must embed UnimplementedRangeFormatterRangeCollapseServiceServer
-// for forward compatibility.
-type RangeFormatterRangeCollapseServiceServer interface {
-	Values(context.Context, *ValuesRequest) (*ValuesResponse, error)
-	ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error)
-	mustEmbedUnimplementedRangeFormatterRangeCollapseServiceServer()
-}
-
-// UnimplementedRangeFormatterRangeCollapseServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedRangeFormatterRangeCollapseServiceServer struct{}
-
-func (UnimplementedRangeFormatterRangeCollapseServiceServer) Values(context.Context, *ValuesRequest) (*ValuesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Values not implemented")
-}
-func (UnimplementedRangeFormatterRangeCollapseServiceServer) ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ValueOf not implemented")
-}
-func (UnimplementedRangeFormatterRangeCollapseServiceServer) mustEmbedUnimplementedRangeFormatterRangeCollapseServiceServer() {
-}
-func (UnimplementedRangeFormatterRangeCollapseServiceServer) testEmbeddedByValue() {}
-
-// UnsafeRangeFormatterRangeCollapseServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RangeFormatterRangeCollapseServiceServer will
-// result in compilation errors.
-type UnsafeRangeFormatterRangeCollapseServiceServer interface {
-	mustEmbedUnimplementedRangeFormatterRangeCollapseServiceServer()
-}
-
-func RegisterRangeFormatterRangeCollapseServiceServer(s grpc.ServiceRegistrar, srv RangeFormatterRangeCollapseServiceServer) {
-	// If the following call panics, it indicates UnimplementedRangeFormatterRangeCollapseServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&RangeFormatterRangeCollapseService_ServiceDesc, srv)
-}
-
-func _RangeFormatterRangeCollapseService_Values_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ValuesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangeFormatterRangeCollapseServiceServer).Values(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangeFormatterRangeCollapseService_Values_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangeFormatterRangeCollapseServiceServer).Values(ctx, req.(*ValuesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RangeFormatterRangeCollapseService_ValueOf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ValueOfRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangeFormatterRangeCollapseServiceServer).ValueOf(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangeFormatterRangeCollapseService_ValueOf_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangeFormatterRangeCollapseServiceServer).ValueOf(ctx, req.(*ValueOfRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// RangeFormatterRangeCollapseService_ServiceDesc is the grpc.ServiceDesc for RangeFormatterRangeCollapseService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var RangeFormatterRangeCollapseService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "number.RangeFormatterRangeCollapseService",
-	HandlerType: (*RangeFormatterRangeCollapseServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Values",
-			Handler:    _RangeFormatterRangeCollapseService_Values_Handler,
-		},
-		{
-			MethodName: "ValueOf",
-			Handler:    _RangeFormatterRangeCollapseService_ValueOf_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/number/number.proto",
-}
-
-const (
-	RangeFormatterRangeIdentityFallbackService_Values_FullMethodName  = "/number.RangeFormatterRangeIdentityFallbackService/Values"
-	RangeFormatterRangeIdentityFallbackService_ValueOf_FullMethodName = "/number.RangeFormatterRangeIdentityFallbackService/ValueOf"
-)
-
-// RangeFormatterRangeIdentityFallbackServiceClient is the client API for RangeFormatterRangeIdentityFallbackService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RangeFormatterRangeIdentityFallbackServiceClient interface {
-	Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error)
-	ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error)
-}
-
-type rangeFormatterRangeIdentityFallbackServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewRangeFormatterRangeIdentityFallbackServiceClient(cc grpc.ClientConnInterface) RangeFormatterRangeIdentityFallbackServiceClient {
-	return &rangeFormatterRangeIdentityFallbackServiceClient{cc}
-}
-
-func (c *rangeFormatterRangeIdentityFallbackServiceClient) Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ValuesResponse)
-	err := c.cc.Invoke(ctx, RangeFormatterRangeIdentityFallbackService_Values_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rangeFormatterRangeIdentityFallbackServiceClient) ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ValueOfResponse)
-	err := c.cc.Invoke(ctx, RangeFormatterRangeIdentityFallbackService_ValueOf_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// RangeFormatterRangeIdentityFallbackServiceServer is the server API for RangeFormatterRangeIdentityFallbackService service.
-// All implementations must embed UnimplementedRangeFormatterRangeIdentityFallbackServiceServer
-// for forward compatibility.
-type RangeFormatterRangeIdentityFallbackServiceServer interface {
-	Values(context.Context, *ValuesRequest) (*ValuesResponse, error)
-	ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error)
-	mustEmbedUnimplementedRangeFormatterRangeIdentityFallbackServiceServer()
-}
-
-// UnimplementedRangeFormatterRangeIdentityFallbackServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedRangeFormatterRangeIdentityFallbackServiceServer struct{}
-
-func (UnimplementedRangeFormatterRangeIdentityFallbackServiceServer) Values(context.Context, *ValuesRequest) (*ValuesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Values not implemented")
-}
-func (UnimplementedRangeFormatterRangeIdentityFallbackServiceServer) ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ValueOf not implemented")
-}
-func (UnimplementedRangeFormatterRangeIdentityFallbackServiceServer) mustEmbedUnimplementedRangeFormatterRangeIdentityFallbackServiceServer() {
-}
-func (UnimplementedRangeFormatterRangeIdentityFallbackServiceServer) testEmbeddedByValue() {}
-
-// UnsafeRangeFormatterRangeIdentityFallbackServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RangeFormatterRangeIdentityFallbackServiceServer will
-// result in compilation errors.
-type UnsafeRangeFormatterRangeIdentityFallbackServiceServer interface {
-	mustEmbedUnimplementedRangeFormatterRangeIdentityFallbackServiceServer()
-}
-
-func RegisterRangeFormatterRangeIdentityFallbackServiceServer(s grpc.ServiceRegistrar, srv RangeFormatterRangeIdentityFallbackServiceServer) {
-	// If the following call panics, it indicates UnimplementedRangeFormatterRangeIdentityFallbackServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&RangeFormatterRangeIdentityFallbackService_ServiceDesc, srv)
-}
-
-func _RangeFormatterRangeIdentityFallbackService_Values_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ValuesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangeFormatterRangeIdentityFallbackServiceServer).Values(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangeFormatterRangeIdentityFallbackService_Values_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangeFormatterRangeIdentityFallbackServiceServer).Values(ctx, req.(*ValuesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RangeFormatterRangeIdentityFallbackService_ValueOf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ValueOfRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangeFormatterRangeIdentityFallbackServiceServer).ValueOf(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangeFormatterRangeIdentityFallbackService_ValueOf_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangeFormatterRangeIdentityFallbackServiceServer).ValueOf(ctx, req.(*ValueOfRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// RangeFormatterRangeIdentityFallbackService_ServiceDesc is the grpc.ServiceDesc for RangeFormatterRangeIdentityFallbackService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var RangeFormatterRangeIdentityFallbackService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "number.RangeFormatterRangeIdentityFallbackService",
-	HandlerType: (*RangeFormatterRangeIdentityFallbackServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Values",
-			Handler:    _RangeFormatterRangeIdentityFallbackService_Values_Handler,
-		},
-		{
-			MethodName: "ValueOf",
-			Handler:    _RangeFormatterRangeIdentityFallbackService_ValueOf_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/number/number.proto",
-}
-
-const (
-	RangeFormatterRangeIdentityResultService_Values_FullMethodName  = "/number.RangeFormatterRangeIdentityResultService/Values"
-	RangeFormatterRangeIdentityResultService_ValueOf_FullMethodName = "/number.RangeFormatterRangeIdentityResultService/ValueOf"
-)
-
-// RangeFormatterRangeIdentityResultServiceClient is the client API for RangeFormatterRangeIdentityResultService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RangeFormatterRangeIdentityResultServiceClient interface {
-	Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error)
-	ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error)
-}
-
-type rangeFormatterRangeIdentityResultServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewRangeFormatterRangeIdentityResultServiceClient(cc grpc.ClientConnInterface) RangeFormatterRangeIdentityResultServiceClient {
-	return &rangeFormatterRangeIdentityResultServiceClient{cc}
-}
-
-func (c *rangeFormatterRangeIdentityResultServiceClient) Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ValuesResponse)
-	err := c.cc.Invoke(ctx, RangeFormatterRangeIdentityResultService_Values_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *rangeFormatterRangeIdentityResultServiceClient) ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ValueOfResponse)
-	err := c.cc.Invoke(ctx, RangeFormatterRangeIdentityResultService_ValueOf_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// RangeFormatterRangeIdentityResultServiceServer is the server API for RangeFormatterRangeIdentityResultService service.
-// All implementations must embed UnimplementedRangeFormatterRangeIdentityResultServiceServer
-// for forward compatibility.
-type RangeFormatterRangeIdentityResultServiceServer interface {
-	Values(context.Context, *ValuesRequest) (*ValuesResponse, error)
-	ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error)
-	mustEmbedUnimplementedRangeFormatterRangeIdentityResultServiceServer()
-}
-
-// UnimplementedRangeFormatterRangeIdentityResultServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedRangeFormatterRangeIdentityResultServiceServer struct{}
-
-func (UnimplementedRangeFormatterRangeIdentityResultServiceServer) Values(context.Context, *ValuesRequest) (*ValuesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Values not implemented")
-}
-func (UnimplementedRangeFormatterRangeIdentityResultServiceServer) ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ValueOf not implemented")
-}
-func (UnimplementedRangeFormatterRangeIdentityResultServiceServer) mustEmbedUnimplementedRangeFormatterRangeIdentityResultServiceServer() {
-}
-func (UnimplementedRangeFormatterRangeIdentityResultServiceServer) testEmbeddedByValue() {}
-
-// UnsafeRangeFormatterRangeIdentityResultServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RangeFormatterRangeIdentityResultServiceServer will
-// result in compilation errors.
-type UnsafeRangeFormatterRangeIdentityResultServiceServer interface {
-	mustEmbedUnimplementedRangeFormatterRangeIdentityResultServiceServer()
-}
-
-func RegisterRangeFormatterRangeIdentityResultServiceServer(s grpc.ServiceRegistrar, srv RangeFormatterRangeIdentityResultServiceServer) {
-	// If the following call panics, it indicates UnimplementedRangeFormatterRangeIdentityResultServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&RangeFormatterRangeIdentityResultService_ServiceDesc, srv)
-}
-
-func _RangeFormatterRangeIdentityResultService_Values_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ValuesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangeFormatterRangeIdentityResultServiceServer).Values(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangeFormatterRangeIdentityResultService_Values_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangeFormatterRangeIdentityResultServiceServer).Values(ctx, req.(*ValuesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RangeFormatterRangeIdentityResultService_ValueOf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ValueOfRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RangeFormatterRangeIdentityResultServiceServer).ValueOf(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RangeFormatterRangeIdentityResultService_ValueOf_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RangeFormatterRangeIdentityResultServiceServer).ValueOf(ctx, req.(*ValueOfRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// RangeFormatterRangeIdentityResultService_ServiceDesc is the grpc.ServiceDesc for RangeFormatterRangeIdentityResultService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var RangeFormatterRangeIdentityResultService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "number.RangeFormatterRangeIdentityResultService",
-	HandlerType: (*RangeFormatterRangeIdentityResultServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Values",
-			Handler:    _RangeFormatterRangeIdentityResultService_Values_Handler,
-		},
-		{
-			MethodName: "ValueOf",
-			Handler:    _RangeFormatterRangeIdentityResultService_ValueOf_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/number/number.proto",
-}
-
-const (
-	UnlocalizedNumberRangeFormatterService_Locale1_FullMethodName   = "/number.UnlocalizedNumberRangeFormatterService/Locale1"
-	UnlocalizedNumberRangeFormatterService_Locale1_1_FullMethodName = "/number.UnlocalizedNumberRangeFormatterService/Locale1_1"
-)
-
-// UnlocalizedNumberRangeFormatterServiceClient is the client API for UnlocalizedNumberRangeFormatterService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type UnlocalizedNumberRangeFormatterServiceClient interface {
-	Locale1(ctx context.Context, in *Locale1Request, opts ...grpc.CallOption) (*Locale1Response, error)
-	Locale1_1(ctx context.Context, in *Locale1_1Request, opts ...grpc.CallOption) (*Locale1_1Response, error)
-}
-
-type unlocalizedNumberRangeFormatterServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewUnlocalizedNumberRangeFormatterServiceClient(cc grpc.ClientConnInterface) UnlocalizedNumberRangeFormatterServiceClient {
-	return &unlocalizedNumberRangeFormatterServiceClient{cc}
-}
-
-func (c *unlocalizedNumberRangeFormatterServiceClient) Locale1(ctx context.Context, in *Locale1Request, opts ...grpc.CallOption) (*Locale1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Locale1Response)
-	err := c.cc.Invoke(ctx, UnlocalizedNumberRangeFormatterService_Locale1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *unlocalizedNumberRangeFormatterServiceClient) Locale1_1(ctx context.Context, in *Locale1_1Request, opts ...grpc.CallOption) (*Locale1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Locale1_1Response)
-	err := c.cc.Invoke(ctx, UnlocalizedNumberRangeFormatterService_Locale1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// UnlocalizedNumberRangeFormatterServiceServer is the server API for UnlocalizedNumberRangeFormatterService service.
-// All implementations must embed UnimplementedUnlocalizedNumberRangeFormatterServiceServer
-// for forward compatibility.
-type UnlocalizedNumberRangeFormatterServiceServer interface {
-	Locale1(context.Context, *Locale1Request) (*Locale1Response, error)
-	Locale1_1(context.Context, *Locale1_1Request) (*Locale1_1Response, error)
-	mustEmbedUnimplementedUnlocalizedNumberRangeFormatterServiceServer()
-}
-
-// UnimplementedUnlocalizedNumberRangeFormatterServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedUnlocalizedNumberRangeFormatterServiceServer struct{}
-
-func (UnimplementedUnlocalizedNumberRangeFormatterServiceServer) Locale1(context.Context, *Locale1Request) (*Locale1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Locale1 not implemented")
-}
-func (UnimplementedUnlocalizedNumberRangeFormatterServiceServer) Locale1_1(context.Context, *Locale1_1Request) (*Locale1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Locale1_1 not implemented")
-}
-func (UnimplementedUnlocalizedNumberRangeFormatterServiceServer) mustEmbedUnimplementedUnlocalizedNumberRangeFormatterServiceServer() {
-}
-func (UnimplementedUnlocalizedNumberRangeFormatterServiceServer) testEmbeddedByValue() {}
-
-// UnsafeUnlocalizedNumberRangeFormatterServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to UnlocalizedNumberRangeFormatterServiceServer will
-// result in compilation errors.
-type UnsafeUnlocalizedNumberRangeFormatterServiceServer interface {
-	mustEmbedUnimplementedUnlocalizedNumberRangeFormatterServiceServer()
-}
-
-func RegisterUnlocalizedNumberRangeFormatterServiceServer(s grpc.ServiceRegistrar, srv UnlocalizedNumberRangeFormatterServiceServer) {
-	// If the following call panics, it indicates UnimplementedUnlocalizedNumberRangeFormatterServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&UnlocalizedNumberRangeFormatterService_ServiceDesc, srv)
-}
-
-func _UnlocalizedNumberRangeFormatterService_Locale1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Locale1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UnlocalizedNumberRangeFormatterServiceServer).Locale1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UnlocalizedNumberRangeFormatterService_Locale1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UnlocalizedNumberRangeFormatterServiceServer).Locale1(ctx, req.(*Locale1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UnlocalizedNumberRangeFormatterService_Locale1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Locale1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UnlocalizedNumberRangeFormatterServiceServer).Locale1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UnlocalizedNumberRangeFormatterService_Locale1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UnlocalizedNumberRangeFormatterServiceServer).Locale1_1(ctx, req.(*Locale1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// UnlocalizedNumberRangeFormatterService_ServiceDesc is the grpc.ServiceDesc for UnlocalizedNumberRangeFormatterService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var UnlocalizedNumberRangeFormatterService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "number.UnlocalizedNumberRangeFormatterService",
-	HandlerType: (*UnlocalizedNumberRangeFormatterServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Locale1",
-			Handler:    _UnlocalizedNumberRangeFormatterService_Locale1_Handler,
-		},
-		{
-			MethodName: "Locale1_1",
-			Handler:    _UnlocalizedNumberRangeFormatterService_Locale1_1_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/number/number.proto",
-}
-
-const (
-	FormattedNumberService_CharAt_FullMethodName              = "/number.FormattedNumberService/CharAt"
-	FormattedNumberService_GetNounClass_FullMethodName        = "/number.FormattedNumberService/GetNounClass"
-	FormattedNumberService_GetOutputUnit_FullMethodName       = "/number.FormattedNumberService/GetOutputUnit"
-	FormattedNumberService_Length_FullMethodName              = "/number.FormattedNumberService/Length"
-	FormattedNumberService_NextPosition_FullMethodName        = "/number.FormattedNumberService/NextPosition"
-	FormattedNumberService_SubSequence_FullMethodName         = "/number.FormattedNumberService/SubSequence"
-	FormattedNumberService_ToBigDecimal_FullMethodName        = "/number.FormattedNumberService/ToBigDecimal"
-	FormattedNumberService_ToCharacterIterator_FullMethodName = "/number.FormattedNumberService/ToCharacterIterator"
-	FormattedNumberService_ToString_FullMethodName            = "/number.FormattedNumberService/ToString"
-)
-
-// FormattedNumberServiceClient is the client API for FormattedNumberService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type FormattedNumberServiceClient interface {
-	CharAt(ctx context.Context, in *CharAtRequest, opts ...grpc.CallOption) (*CharAtResponse, error)
-	GetNounClass(ctx context.Context, in *GetNounClassRequest, opts ...grpc.CallOption) (*GetNounClassResponse, error)
-	GetOutputUnit(ctx context.Context, in *GetOutputUnitRequest, opts ...grpc.CallOption) (*GetOutputUnitResponse, error)
-	Length(ctx context.Context, in *LengthRequest, opts ...grpc.CallOption) (*LengthResponse, error)
-	NextPosition(ctx context.Context, in *NextPositionRequest, opts ...grpc.CallOption) (*NextPositionResponse, error)
-	SubSequence(ctx context.Context, in *SubSequenceRequest, opts ...grpc.CallOption) (*SubSequenceResponse, error)
-	ToBigDecimal(ctx context.Context, in *ToBigDecimalRequest, opts ...grpc.CallOption) (*ToBigDecimalResponse, error)
-	ToCharacterIterator(ctx context.Context, in *ToCharacterIteratorRequest, opts ...grpc.CallOption) (*ToCharacterIteratorResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type formattedNumberServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewFormattedNumberServiceClient(cc grpc.ClientConnInterface) FormattedNumberServiceClient {
-	return &formattedNumberServiceClient{cc}
-}
-
-func (c *formattedNumberServiceClient) CharAt(ctx context.Context, in *CharAtRequest, opts ...grpc.CallOption) (*CharAtResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CharAtResponse)
-	err := c.cc.Invoke(ctx, FormattedNumberService_CharAt_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formattedNumberServiceClient) GetNounClass(ctx context.Context, in *GetNounClassRequest, opts ...grpc.CallOption) (*GetNounClassResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNounClassResponse)
-	err := c.cc.Invoke(ctx, FormattedNumberService_GetNounClass_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formattedNumberServiceClient) GetOutputUnit(ctx context.Context, in *GetOutputUnitRequest, opts ...grpc.CallOption) (*GetOutputUnitResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetOutputUnitResponse)
-	err := c.cc.Invoke(ctx, FormattedNumberService_GetOutputUnit_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formattedNumberServiceClient) Length(ctx context.Context, in *LengthRequest, opts ...grpc.CallOption) (*LengthResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(LengthResponse)
-	err := c.cc.Invoke(ctx, FormattedNumberService_Length_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formattedNumberServiceClient) NextPosition(ctx context.Context, in *NextPositionRequest, opts ...grpc.CallOption) (*NextPositionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NextPositionResponse)
-	err := c.cc.Invoke(ctx, FormattedNumberService_NextPosition_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formattedNumberServiceClient) SubSequence(ctx context.Context, in *SubSequenceRequest, opts ...grpc.CallOption) (*SubSequenceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SubSequenceResponse)
-	err := c.cc.Invoke(ctx, FormattedNumberService_SubSequence_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formattedNumberServiceClient) ToBigDecimal(ctx context.Context, in *ToBigDecimalRequest, opts ...grpc.CallOption) (*ToBigDecimalResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToBigDecimalResponse)
-	err := c.cc.Invoke(ctx, FormattedNumberService_ToBigDecimal_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formattedNumberServiceClient) ToCharacterIterator(ctx context.Context, in *ToCharacterIteratorRequest, opts ...grpc.CallOption) (*ToCharacterIteratorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToCharacterIteratorResponse)
-	err := c.cc.Invoke(ctx, FormattedNumberService_ToCharacterIterator_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formattedNumberServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, FormattedNumberService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// FormattedNumberServiceServer is the server API for FormattedNumberService service.
-// All implementations must embed UnimplementedFormattedNumberServiceServer
-// for forward compatibility.
-type FormattedNumberServiceServer interface {
-	CharAt(context.Context, *CharAtRequest) (*CharAtResponse, error)
-	GetNounClass(context.Context, *GetNounClassRequest) (*GetNounClassResponse, error)
-	GetOutputUnit(context.Context, *GetOutputUnitRequest) (*GetOutputUnitResponse, error)
-	Length(context.Context, *LengthRequest) (*LengthResponse, error)
-	NextPosition(context.Context, *NextPositionRequest) (*NextPositionResponse, error)
-	SubSequence(context.Context, *SubSequenceRequest) (*SubSequenceResponse, error)
-	ToBigDecimal(context.Context, *ToBigDecimalRequest) (*ToBigDecimalResponse, error)
-	ToCharacterIterator(context.Context, *ToCharacterIteratorRequest) (*ToCharacterIteratorResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedFormattedNumberServiceServer()
-}
-
-// UnimplementedFormattedNumberServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedFormattedNumberServiceServer struct{}
-
-func (UnimplementedFormattedNumberServiceServer) CharAt(context.Context, *CharAtRequest) (*CharAtResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CharAt not implemented")
-}
-func (UnimplementedFormattedNumberServiceServer) GetNounClass(context.Context, *GetNounClassRequest) (*GetNounClassResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetNounClass not implemented")
-}
-func (UnimplementedFormattedNumberServiceServer) GetOutputUnit(context.Context, *GetOutputUnitRequest) (*GetOutputUnitResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetOutputUnit not implemented")
-}
-func (UnimplementedFormattedNumberServiceServer) Length(context.Context, *LengthRequest) (*LengthResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Length not implemented")
-}
-func (UnimplementedFormattedNumberServiceServer) NextPosition(context.Context, *NextPositionRequest) (*NextPositionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NextPosition not implemented")
-}
-func (UnimplementedFormattedNumberServiceServer) SubSequence(context.Context, *SubSequenceRequest) (*SubSequenceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SubSequence not implemented")
-}
-func (UnimplementedFormattedNumberServiceServer) ToBigDecimal(context.Context, *ToBigDecimalRequest) (*ToBigDecimalResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToBigDecimal not implemented")
-}
-func (UnimplementedFormattedNumberServiceServer) ToCharacterIterator(context.Context, *ToCharacterIteratorRequest) (*ToCharacterIteratorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToCharacterIterator not implemented")
-}
-func (UnimplementedFormattedNumberServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedFormattedNumberServiceServer) mustEmbedUnimplementedFormattedNumberServiceServer() {
-}
-func (UnimplementedFormattedNumberServiceServer) testEmbeddedByValue() {}
-
-// UnsafeFormattedNumberServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to FormattedNumberServiceServer will
-// result in compilation errors.
-type UnsafeFormattedNumberServiceServer interface {
-	mustEmbedUnimplementedFormattedNumberServiceServer()
-}
-
-func RegisterFormattedNumberServiceServer(s grpc.ServiceRegistrar, srv FormattedNumberServiceServer) {
-	// If the following call panics, it indicates UnimplementedFormattedNumberServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&FormattedNumberService_ServiceDesc, srv)
-}
-
-func _FormattedNumberService_CharAt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CharAtRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormattedNumberServiceServer).CharAt(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormattedNumberService_CharAt_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormattedNumberServiceServer).CharAt(ctx, req.(*CharAtRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormattedNumberService_GetNounClass_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNounClassRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormattedNumberServiceServer).GetNounClass(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormattedNumberService_GetNounClass_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormattedNumberServiceServer).GetNounClass(ctx, req.(*GetNounClassRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormattedNumberService_GetOutputUnit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetOutputUnitRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormattedNumberServiceServer).GetOutputUnit(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormattedNumberService_GetOutputUnit_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormattedNumberServiceServer).GetOutputUnit(ctx, req.(*GetOutputUnitRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormattedNumberService_Length_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LengthRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormattedNumberServiceServer).Length(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormattedNumberService_Length_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormattedNumberServiceServer).Length(ctx, req.(*LengthRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormattedNumberService_NextPosition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NextPositionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormattedNumberServiceServer).NextPosition(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormattedNumberService_NextPosition_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormattedNumberServiceServer).NextPosition(ctx, req.(*NextPositionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormattedNumberService_SubSequence_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SubSequenceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormattedNumberServiceServer).SubSequence(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormattedNumberService_SubSequence_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormattedNumberServiceServer).SubSequence(ctx, req.(*SubSequenceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormattedNumberService_ToBigDecimal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToBigDecimalRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormattedNumberServiceServer).ToBigDecimal(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormattedNumberService_ToBigDecimal_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormattedNumberServiceServer).ToBigDecimal(ctx, req.(*ToBigDecimalRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormattedNumberService_ToCharacterIterator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToCharacterIteratorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormattedNumberServiceServer).ToCharacterIterator(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormattedNumberService_ToCharacterIterator_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormattedNumberServiceServer).ToCharacterIterator(ctx, req.(*ToCharacterIteratorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormattedNumberService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormattedNumberServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormattedNumberService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormattedNumberServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// FormattedNumberService_ServiceDesc is the grpc.ServiceDesc for FormattedNumberService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var FormattedNumberService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "number.FormattedNumberService",
-	HandlerType: (*FormattedNumberServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "CharAt",
-			Handler:    _FormattedNumberService_CharAt_Handler,
-		},
-		{
-			MethodName: "GetNounClass",
-			Handler:    _FormattedNumberService_GetNounClass_Handler,
-		},
-		{
-			MethodName: "GetOutputUnit",
-			Handler:    _FormattedNumberService_GetOutputUnit_Handler,
-		},
-		{
-			MethodName: "Length",
-			Handler:    _FormattedNumberService_Length_Handler,
-		},
-		{
-			MethodName: "NextPosition",
-			Handler:    _FormattedNumberService_NextPosition_Handler,
-		},
-		{
-			MethodName: "SubSequence",
-			Handler:    _FormattedNumberService_SubSequence_Handler,
-		},
-		{
-			MethodName: "ToBigDecimal",
-			Handler:    _FormattedNumberService_ToBigDecimal_Handler,
-		},
-		{
-			MethodName: "ToCharacterIterator",
-			Handler:    _FormattedNumberService_ToCharacterIterator_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _FormattedNumberService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/number/number.proto",
-}
-
-const (
-	FormatterSettingsService_Equals_FullMethodName   = "/number.FormatterSettingsService/Equals"
-	FormatterSettingsService_HashCode_FullMethodName = "/number.FormatterSettingsService/HashCode"
-)
-
-// FormatterSettingsServiceClient is the client API for FormatterSettingsService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type FormatterSettingsServiceClient interface {
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-}
-
-type formatterSettingsServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewFormatterSettingsServiceClient(cc grpc.ClientConnInterface) FormatterSettingsServiceClient {
-	return &formatterSettingsServiceClient{cc}
-}
-
-func (c *formatterSettingsServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, FormatterSettingsService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *formatterSettingsServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, FormatterSettingsService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// FormatterSettingsServiceServer is the server API for FormatterSettingsService service.
-// All implementations must embed UnimplementedFormatterSettingsServiceServer
-// for forward compatibility.
-type FormatterSettingsServiceServer interface {
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	mustEmbedUnimplementedFormatterSettingsServiceServer()
-}
-
-// UnimplementedFormatterSettingsServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedFormatterSettingsServiceServer struct{}
-
-func (UnimplementedFormatterSettingsServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedFormatterSettingsServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedFormatterSettingsServiceServer) mustEmbedUnimplementedFormatterSettingsServiceServer() {
-}
-func (UnimplementedFormatterSettingsServiceServer) testEmbeddedByValue() {}
-
-// UnsafeFormatterSettingsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to FormatterSettingsServiceServer will
-// result in compilation errors.
-type UnsafeFormatterSettingsServiceServer interface {
-	mustEmbedUnimplementedFormatterSettingsServiceServer()
-}
-
-func RegisterFormatterSettingsServiceServer(s grpc.ServiceRegistrar, srv FormatterSettingsServiceServer) {
-	// If the following call panics, it indicates UnimplementedFormatterSettingsServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&FormatterSettingsService_ServiceDesc, srv)
-}
-
-func _FormatterSettingsService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormatterSettingsServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormatterSettingsService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormatterSettingsServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FormatterSettingsService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FormatterSettingsServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FormatterSettingsService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FormatterSettingsServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// FormatterSettingsService_ServiceDesc is the grpc.ServiceDesc for FormatterSettingsService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var FormatterSettingsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "number.FormatterSettingsService",
-	HandlerType: (*FormatterSettingsServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Equals",
-			Handler:    _FormatterSettingsService_Equals_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _FormatterSettingsService_HashCode_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/number/number.proto",
-}
-
-const (
-	CurrencyPrecisionService_WithCurrency_FullMethodName = "/number.CurrencyPrecisionService/WithCurrency"
-)
-
-// CurrencyPrecisionServiceClient is the client API for CurrencyPrecisionService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CurrencyPrecisionServiceClient interface {
-	WithCurrency(ctx context.Context, in *WithCurrencyRequest, opts ...grpc.CallOption) (*WithCurrencyResponse, error)
-}
-
-type currencyPrecisionServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCurrencyPrecisionServiceClient(cc grpc.ClientConnInterface) CurrencyPrecisionServiceClient {
-	return &currencyPrecisionServiceClient{cc}
-}
-
-func (c *currencyPrecisionServiceClient) WithCurrency(ctx context.Context, in *WithCurrencyRequest, opts ...grpc.CallOption) (*WithCurrencyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WithCurrencyResponse)
-	err := c.cc.Invoke(ctx, CurrencyPrecisionService_WithCurrency_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CurrencyPrecisionServiceServer is the server API for CurrencyPrecisionService service.
-// All implementations must embed UnimplementedCurrencyPrecisionServiceServer
-// for forward compatibility.
-type CurrencyPrecisionServiceServer interface {
-	WithCurrency(context.Context, *WithCurrencyRequest) (*WithCurrencyResponse, error)
-	mustEmbedUnimplementedCurrencyPrecisionServiceServer()
-}
-
-// UnimplementedCurrencyPrecisionServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCurrencyPrecisionServiceServer struct{}
-
-func (UnimplementedCurrencyPrecisionServiceServer) WithCurrency(context.Context, *WithCurrencyRequest) (*WithCurrencyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WithCurrency not implemented")
-}
-func (UnimplementedCurrencyPrecisionServiceServer) mustEmbedUnimplementedCurrencyPrecisionServiceServer() {
-}
-func (UnimplementedCurrencyPrecisionServiceServer) testEmbeddedByValue() {}
-
-// UnsafeCurrencyPrecisionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CurrencyPrecisionServiceServer will
-// result in compilation errors.
-type UnsafeCurrencyPrecisionServiceServer interface {
-	mustEmbedUnimplementedCurrencyPrecisionServiceServer()
-}
-
-func RegisterCurrencyPrecisionServiceServer(s grpc.ServiceRegistrar, srv CurrencyPrecisionServiceServer) {
-	// If the following call panics, it indicates UnimplementedCurrencyPrecisionServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CurrencyPrecisionService_ServiceDesc, srv)
-}
-
-func _CurrencyPrecisionService_WithCurrency_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WithCurrencyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CurrencyPrecisionServiceServer).WithCurrency(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CurrencyPrecisionService_WithCurrency_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CurrencyPrecisionServiceServer).WithCurrency(ctx, req.(*WithCurrencyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CurrencyPrecisionService_ServiceDesc is the grpc.ServiceDesc for CurrencyPrecisionService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CurrencyPrecisionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "number.CurrencyPrecisionService",
-	HandlerType: (*CurrencyPrecisionServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "WithCurrency",
-			Handler:    _CurrencyPrecisionService_WithCurrency_Handler,
+			MethodName: "WithSignificantDigits",
+			Handler:    _FractionPrecisionService_WithSignificantDigits_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

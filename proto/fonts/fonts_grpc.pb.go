@@ -21,6 +21,986 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	FontFamilyService_GetFont_FullMethodName = "/fonts.FontFamilyService/GetFont"
+	FontFamilyService_GetSize_FullMethodName = "/fonts.FontFamilyService/GetSize"
+)
+
+// FontFamilyServiceClient is the client API for FontFamilyService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type FontFamilyServiceClient interface {
+	GetFont(ctx context.Context, in *GetFontRequest, opts ...grpc.CallOption) (*GetFontResponse, error)
+	GetSize(ctx context.Context, in *GetSizeRequest, opts ...grpc.CallOption) (*GetSizeResponse, error)
+}
+
+type fontFamilyServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewFontFamilyServiceClient(cc grpc.ClientConnInterface) FontFamilyServiceClient {
+	return &fontFamilyServiceClient{cc}
+}
+
+func (c *fontFamilyServiceClient) GetFont(ctx context.Context, in *GetFontRequest, opts ...grpc.CallOption) (*GetFontResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFontResponse)
+	err := c.cc.Invoke(ctx, FontFamilyService_GetFont_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fontFamilyServiceClient) GetSize(ctx context.Context, in *GetSizeRequest, opts ...grpc.CallOption) (*GetSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSizeResponse)
+	err := c.cc.Invoke(ctx, FontFamilyService_GetSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// FontFamilyServiceServer is the server API for FontFamilyService service.
+// All implementations must embed UnimplementedFontFamilyServiceServer
+// for forward compatibility.
+type FontFamilyServiceServer interface {
+	GetFont(context.Context, *GetFontRequest) (*GetFontResponse, error)
+	GetSize(context.Context, *GetSizeRequest) (*GetSizeResponse, error)
+	mustEmbedUnimplementedFontFamilyServiceServer()
+}
+
+// UnimplementedFontFamilyServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedFontFamilyServiceServer struct{}
+
+func (UnimplementedFontFamilyServiceServer) GetFont(context.Context, *GetFontRequest) (*GetFontResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFont not implemented")
+}
+func (UnimplementedFontFamilyServiceServer) GetSize(context.Context, *GetSizeRequest) (*GetSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSize not implemented")
+}
+func (UnimplementedFontFamilyServiceServer) mustEmbedUnimplementedFontFamilyServiceServer() {}
+func (UnimplementedFontFamilyServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafeFontFamilyServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to FontFamilyServiceServer will
+// result in compilation errors.
+type UnsafeFontFamilyServiceServer interface {
+	mustEmbedUnimplementedFontFamilyServiceServer()
+}
+
+func RegisterFontFamilyServiceServer(s grpc.ServiceRegistrar, srv FontFamilyServiceServer) {
+	// If the following call panics, it indicates UnimplementedFontFamilyServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&FontFamilyService_ServiceDesc, srv)
+}
+
+func _FontFamilyService_GetFont_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFontRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FontFamilyServiceServer).GetFont(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FontFamilyService_GetFont_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FontFamilyServiceServer).GetFont(ctx, req.(*GetFontRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FontFamilyService_GetSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FontFamilyServiceServer).GetSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FontFamilyService_GetSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FontFamilyServiceServer).GetSize(ctx, req.(*GetSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// FontFamilyService_ServiceDesc is the grpc.ServiceDesc for FontFamilyService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var FontFamilyService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "fonts.FontFamilyService",
+	HandlerType: (*FontFamilyServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetFont",
+			Handler:    _FontFamilyService_GetFont_Handler,
+		},
+		{
+			MethodName: "GetSize",
+			Handler:    _FontFamilyService_GetSize_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/fonts/fonts.proto",
+}
+
+const (
+	FontFamilyBuilderService_AddFont_FullMethodName             = "/fonts.FontFamilyBuilderService/AddFont"
+	FontFamilyBuilderService_Build_FullMethodName               = "/fonts.FontFamilyBuilderService/Build"
+	FontFamilyBuilderService_BuildVariableFamily_FullMethodName = "/fonts.FontFamilyBuilderService/BuildVariableFamily"
+)
+
+// FontFamilyBuilderServiceClient is the client API for FontFamilyBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type FontFamilyBuilderServiceClient interface {
+	AddFont(ctx context.Context, in *AddFontRequest, opts ...grpc.CallOption) (*AddFontResponse, error)
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	BuildVariableFamily(ctx context.Context, in *BuildVariableFamilyRequest, opts ...grpc.CallOption) (*BuildVariableFamilyResponse, error)
+}
+
+type fontFamilyBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewFontFamilyBuilderServiceClient(cc grpc.ClientConnInterface) FontFamilyBuilderServiceClient {
+	return &fontFamilyBuilderServiceClient{cc}
+}
+
+func (c *fontFamilyBuilderServiceClient) AddFont(ctx context.Context, in *AddFontRequest, opts ...grpc.CallOption) (*AddFontResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddFontResponse)
+	err := c.cc.Invoke(ctx, FontFamilyBuilderService_AddFont_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fontFamilyBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, FontFamilyBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fontFamilyBuilderServiceClient) BuildVariableFamily(ctx context.Context, in *BuildVariableFamilyRequest, opts ...grpc.CallOption) (*BuildVariableFamilyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildVariableFamilyResponse)
+	err := c.cc.Invoke(ctx, FontFamilyBuilderService_BuildVariableFamily_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// FontFamilyBuilderServiceServer is the server API for FontFamilyBuilderService service.
+// All implementations must embed UnimplementedFontFamilyBuilderServiceServer
+// for forward compatibility.
+type FontFamilyBuilderServiceServer interface {
+	AddFont(context.Context, *AddFontRequest) (*AddFontResponse, error)
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	BuildVariableFamily(context.Context, *BuildVariableFamilyRequest) (*BuildVariableFamilyResponse, error)
+	mustEmbedUnimplementedFontFamilyBuilderServiceServer()
+}
+
+// UnimplementedFontFamilyBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedFontFamilyBuilderServiceServer struct{}
+
+func (UnimplementedFontFamilyBuilderServiceServer) AddFont(context.Context, *AddFontRequest) (*AddFontResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddFont not implemented")
+}
+func (UnimplementedFontFamilyBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedFontFamilyBuilderServiceServer) BuildVariableFamily(context.Context, *BuildVariableFamilyRequest) (*BuildVariableFamilyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method BuildVariableFamily not implemented")
+}
+func (UnimplementedFontFamilyBuilderServiceServer) mustEmbedUnimplementedFontFamilyBuilderServiceServer() {
+}
+func (UnimplementedFontFamilyBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeFontFamilyBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to FontFamilyBuilderServiceServer will
+// result in compilation errors.
+type UnsafeFontFamilyBuilderServiceServer interface {
+	mustEmbedUnimplementedFontFamilyBuilderServiceServer()
+}
+
+func RegisterFontFamilyBuilderServiceServer(s grpc.ServiceRegistrar, srv FontFamilyBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedFontFamilyBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&FontFamilyBuilderService_ServiceDesc, srv)
+}
+
+func _FontFamilyBuilderService_AddFont_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddFontRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FontFamilyBuilderServiceServer).AddFont(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FontFamilyBuilderService_AddFont_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FontFamilyBuilderServiceServer).AddFont(ctx, req.(*AddFontRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FontFamilyBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FontFamilyBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FontFamilyBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FontFamilyBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FontFamilyBuilderService_BuildVariableFamily_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildVariableFamilyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FontFamilyBuilderServiceServer).BuildVariableFamily(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FontFamilyBuilderService_BuildVariableFamily_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FontFamilyBuilderServiceServer).BuildVariableFamily(ctx, req.(*BuildVariableFamilyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// FontFamilyBuilderService_ServiceDesc is the grpc.ServiceDesc for FontFamilyBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var FontFamilyBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "fonts.FontFamilyBuilderService",
+	HandlerType: (*FontFamilyBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AddFont",
+			Handler:    _FontFamilyBuilderService_AddFont_Handler,
+		},
+		{
+			MethodName: "Build",
+			Handler:    _FontFamilyBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "BuildVariableFamily",
+			Handler:    _FontFamilyBuilderService_BuildVariableFamily_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/fonts/fonts.proto",
+}
+
+const (
+	FontStyleService_NewFontStyle_FullMethodName = "/fonts.FontStyleService/NewFontStyle"
+	FontStyleService_Equals_FullMethodName       = "/fonts.FontStyleService/Equals"
+	FontStyleService_GetSlant_FullMethodName     = "/fonts.FontStyleService/GetSlant"
+	FontStyleService_GetWeight_FullMethodName    = "/fonts.FontStyleService/GetWeight"
+	FontStyleService_HashCode_FullMethodName     = "/fonts.FontStyleService/HashCode"
+	FontStyleService_ToString_FullMethodName     = "/fonts.FontStyleService/ToString"
+)
+
+// FontStyleServiceClient is the client API for FontStyleService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type FontStyleServiceClient interface {
+	NewFontStyle(ctx context.Context, in *NewFontStyleRequest, opts ...grpc.CallOption) (*NewFontStyleResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetSlant(ctx context.Context, in *GetSlantRequest, opts ...grpc.CallOption) (*GetSlantResponse, error)
+	GetWeight(ctx context.Context, in *GetWeightRequest, opts ...grpc.CallOption) (*GetWeightResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type fontStyleServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewFontStyleServiceClient(cc grpc.ClientConnInterface) FontStyleServiceClient {
+	return &fontStyleServiceClient{cc}
+}
+
+func (c *fontStyleServiceClient) NewFontStyle(ctx context.Context, in *NewFontStyleRequest, opts ...grpc.CallOption) (*NewFontStyleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewFontStyleResponse)
+	err := c.cc.Invoke(ctx, FontStyleService_NewFontStyle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fontStyleServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, FontStyleService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fontStyleServiceClient) GetSlant(ctx context.Context, in *GetSlantRequest, opts ...grpc.CallOption) (*GetSlantResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSlantResponse)
+	err := c.cc.Invoke(ctx, FontStyleService_GetSlant_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fontStyleServiceClient) GetWeight(ctx context.Context, in *GetWeightRequest, opts ...grpc.CallOption) (*GetWeightResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWeightResponse)
+	err := c.cc.Invoke(ctx, FontStyleService_GetWeight_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fontStyleServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, FontStyleService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fontStyleServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, FontStyleService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// FontStyleServiceServer is the server API for FontStyleService service.
+// All implementations must embed UnimplementedFontStyleServiceServer
+// for forward compatibility.
+type FontStyleServiceServer interface {
+	NewFontStyle(context.Context, *NewFontStyleRequest) (*NewFontStyleResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetSlant(context.Context, *GetSlantRequest) (*GetSlantResponse, error)
+	GetWeight(context.Context, *GetWeightRequest) (*GetWeightResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedFontStyleServiceServer()
+}
+
+// UnimplementedFontStyleServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedFontStyleServiceServer struct{}
+
+func (UnimplementedFontStyleServiceServer) NewFontStyle(context.Context, *NewFontStyleRequest) (*NewFontStyleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewFontStyle not implemented")
+}
+func (UnimplementedFontStyleServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedFontStyleServiceServer) GetSlant(context.Context, *GetSlantRequest) (*GetSlantResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSlant not implemented")
+}
+func (UnimplementedFontStyleServiceServer) GetWeight(context.Context, *GetWeightRequest) (*GetWeightResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWeight not implemented")
+}
+func (UnimplementedFontStyleServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedFontStyleServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedFontStyleServiceServer) mustEmbedUnimplementedFontStyleServiceServer() {}
+func (UnimplementedFontStyleServiceServer) testEmbeddedByValue()                          {}
+
+// UnsafeFontStyleServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to FontStyleServiceServer will
+// result in compilation errors.
+type UnsafeFontStyleServiceServer interface {
+	mustEmbedUnimplementedFontStyleServiceServer()
+}
+
+func RegisterFontStyleServiceServer(s grpc.ServiceRegistrar, srv FontStyleServiceServer) {
+	// If the following call panics, it indicates UnimplementedFontStyleServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&FontStyleService_ServiceDesc, srv)
+}
+
+func _FontStyleService_NewFontStyle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewFontStyleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FontStyleServiceServer).NewFontStyle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FontStyleService_NewFontStyle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FontStyleServiceServer).NewFontStyle(ctx, req.(*NewFontStyleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FontStyleService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FontStyleServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FontStyleService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FontStyleServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FontStyleService_GetSlant_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSlantRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FontStyleServiceServer).GetSlant(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FontStyleService_GetSlant_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FontStyleServiceServer).GetSlant(ctx, req.(*GetSlantRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FontStyleService_GetWeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWeightRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FontStyleServiceServer).GetWeight(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FontStyleService_GetWeight_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FontStyleServiceServer).GetWeight(ctx, req.(*GetWeightRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FontStyleService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FontStyleServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FontStyleService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FontStyleServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FontStyleService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FontStyleServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FontStyleService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FontStyleServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// FontStyleService_ServiceDesc is the grpc.ServiceDesc for FontStyleService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var FontStyleService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "fonts.FontStyleService",
+	HandlerType: (*FontStyleServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewFontStyle",
+			Handler:    _FontStyleService_NewFontStyle_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _FontStyleService_Equals_Handler,
+		},
+		{
+			MethodName: "GetSlant",
+			Handler:    _FontStyleService_GetSlant_Handler,
+		},
+		{
+			MethodName: "GetWeight",
+			Handler:    _FontStyleService_GetWeight_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _FontStyleService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _FontStyleService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/fonts/fonts.proto",
+}
+
+const (
+	FontVariationAxisService_NewFontVariationAxis_FullMethodName      = "/fonts.FontVariationAxisService/NewFontVariationAxis"
+	FontVariationAxisService_Equals_FullMethodName                    = "/fonts.FontVariationAxisService/Equals"
+	FontVariationAxisService_GetStyleValue_FullMethodName             = "/fonts.FontVariationAxisService/GetStyleValue"
+	FontVariationAxisService_GetTag_FullMethodName                    = "/fonts.FontVariationAxisService/GetTag"
+	FontVariationAxisService_HashCode_FullMethodName                  = "/fonts.FontVariationAxisService/HashCode"
+	FontVariationAxisService_ToString_FullMethodName                  = "/fonts.FontVariationAxisService/ToString"
+	FontVariationAxisService_FromFontVariationSettings_FullMethodName = "/fonts.FontVariationAxisService/FromFontVariationSettings"
+	FontVariationAxisService_ToFontVariationSettings_FullMethodName   = "/fonts.FontVariationAxisService/ToFontVariationSettings"
+)
+
+// FontVariationAxisServiceClient is the client API for FontVariationAxisService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type FontVariationAxisServiceClient interface {
+	NewFontVariationAxis(ctx context.Context, in *NewFontVariationAxisRequest, opts ...grpc.CallOption) (*NewFontVariationAxisResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetStyleValue(ctx context.Context, in *GetStyleValueRequest, opts ...grpc.CallOption) (*GetStyleValueResponse, error)
+	GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	FromFontVariationSettings(ctx context.Context, in *FromFontVariationSettingsRequest, opts ...grpc.CallOption) (*FromFontVariationSettingsResponse, error)
+	ToFontVariationSettings(ctx context.Context, in *ToFontVariationSettingsRequest, opts ...grpc.CallOption) (*ToFontVariationSettingsResponse, error)
+}
+
+type fontVariationAxisServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewFontVariationAxisServiceClient(cc grpc.ClientConnInterface) FontVariationAxisServiceClient {
+	return &fontVariationAxisServiceClient{cc}
+}
+
+func (c *fontVariationAxisServiceClient) NewFontVariationAxis(ctx context.Context, in *NewFontVariationAxisRequest, opts ...grpc.CallOption) (*NewFontVariationAxisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewFontVariationAxisResponse)
+	err := c.cc.Invoke(ctx, FontVariationAxisService_NewFontVariationAxis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fontVariationAxisServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, FontVariationAxisService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fontVariationAxisServiceClient) GetStyleValue(ctx context.Context, in *GetStyleValueRequest, opts ...grpc.CallOption) (*GetStyleValueResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStyleValueResponse)
+	err := c.cc.Invoke(ctx, FontVariationAxisService_GetStyleValue_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fontVariationAxisServiceClient) GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTagResponse)
+	err := c.cc.Invoke(ctx, FontVariationAxisService_GetTag_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fontVariationAxisServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, FontVariationAxisService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fontVariationAxisServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, FontVariationAxisService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fontVariationAxisServiceClient) FromFontVariationSettings(ctx context.Context, in *FromFontVariationSettingsRequest, opts ...grpc.CallOption) (*FromFontVariationSettingsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FromFontVariationSettingsResponse)
+	err := c.cc.Invoke(ctx, FontVariationAxisService_FromFontVariationSettings_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fontVariationAxisServiceClient) ToFontVariationSettings(ctx context.Context, in *ToFontVariationSettingsRequest, opts ...grpc.CallOption) (*ToFontVariationSettingsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToFontVariationSettingsResponse)
+	err := c.cc.Invoke(ctx, FontVariationAxisService_ToFontVariationSettings_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// FontVariationAxisServiceServer is the server API for FontVariationAxisService service.
+// All implementations must embed UnimplementedFontVariationAxisServiceServer
+// for forward compatibility.
+type FontVariationAxisServiceServer interface {
+	NewFontVariationAxis(context.Context, *NewFontVariationAxisRequest) (*NewFontVariationAxisResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetStyleValue(context.Context, *GetStyleValueRequest) (*GetStyleValueResponse, error)
+	GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	FromFontVariationSettings(context.Context, *FromFontVariationSettingsRequest) (*FromFontVariationSettingsResponse, error)
+	ToFontVariationSettings(context.Context, *ToFontVariationSettingsRequest) (*ToFontVariationSettingsResponse, error)
+	mustEmbedUnimplementedFontVariationAxisServiceServer()
+}
+
+// UnimplementedFontVariationAxisServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedFontVariationAxisServiceServer struct{}
+
+func (UnimplementedFontVariationAxisServiceServer) NewFontVariationAxis(context.Context, *NewFontVariationAxisRequest) (*NewFontVariationAxisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewFontVariationAxis not implemented")
+}
+func (UnimplementedFontVariationAxisServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedFontVariationAxisServiceServer) GetStyleValue(context.Context, *GetStyleValueRequest) (*GetStyleValueResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStyleValue not implemented")
+}
+func (UnimplementedFontVariationAxisServiceServer) GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTag not implemented")
+}
+func (UnimplementedFontVariationAxisServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedFontVariationAxisServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedFontVariationAxisServiceServer) FromFontVariationSettings(context.Context, *FromFontVariationSettingsRequest) (*FromFontVariationSettingsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FromFontVariationSettings not implemented")
+}
+func (UnimplementedFontVariationAxisServiceServer) ToFontVariationSettings(context.Context, *ToFontVariationSettingsRequest) (*ToFontVariationSettingsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToFontVariationSettings not implemented")
+}
+func (UnimplementedFontVariationAxisServiceServer) mustEmbedUnimplementedFontVariationAxisServiceServer() {
+}
+func (UnimplementedFontVariationAxisServiceServer) testEmbeddedByValue() {}
+
+// UnsafeFontVariationAxisServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to FontVariationAxisServiceServer will
+// result in compilation errors.
+type UnsafeFontVariationAxisServiceServer interface {
+	mustEmbedUnimplementedFontVariationAxisServiceServer()
+}
+
+func RegisterFontVariationAxisServiceServer(s grpc.ServiceRegistrar, srv FontVariationAxisServiceServer) {
+	// If the following call panics, it indicates UnimplementedFontVariationAxisServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&FontVariationAxisService_ServiceDesc, srv)
+}
+
+func _FontVariationAxisService_NewFontVariationAxis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewFontVariationAxisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FontVariationAxisServiceServer).NewFontVariationAxis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FontVariationAxisService_NewFontVariationAxis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FontVariationAxisServiceServer).NewFontVariationAxis(ctx, req.(*NewFontVariationAxisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FontVariationAxisService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FontVariationAxisServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FontVariationAxisService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FontVariationAxisServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FontVariationAxisService_GetStyleValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStyleValueRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FontVariationAxisServiceServer).GetStyleValue(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FontVariationAxisService_GetStyleValue_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FontVariationAxisServiceServer).GetStyleValue(ctx, req.(*GetStyleValueRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FontVariationAxisService_GetTag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTagRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FontVariationAxisServiceServer).GetTag(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FontVariationAxisService_GetTag_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FontVariationAxisServiceServer).GetTag(ctx, req.(*GetTagRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FontVariationAxisService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FontVariationAxisServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FontVariationAxisService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FontVariationAxisServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FontVariationAxisService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FontVariationAxisServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FontVariationAxisService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FontVariationAxisServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FontVariationAxisService_FromFontVariationSettings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FromFontVariationSettingsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FontVariationAxisServiceServer).FromFontVariationSettings(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FontVariationAxisService_FromFontVariationSettings_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FontVariationAxisServiceServer).FromFontVariationSettings(ctx, req.(*FromFontVariationSettingsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FontVariationAxisService_ToFontVariationSettings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToFontVariationSettingsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FontVariationAxisServiceServer).ToFontVariationSettings(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FontVariationAxisService_ToFontVariationSettings_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FontVariationAxisServiceServer).ToFontVariationSettings(ctx, req.(*ToFontVariationSettingsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// FontVariationAxisService_ServiceDesc is the grpc.ServiceDesc for FontVariationAxisService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var FontVariationAxisService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "fonts.FontVariationAxisService",
+	HandlerType: (*FontVariationAxisServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewFontVariationAxis",
+			Handler:    _FontVariationAxisService_NewFontVariationAxis_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _FontVariationAxisService_Equals_Handler,
+		},
+		{
+			MethodName: "GetStyleValue",
+			Handler:    _FontVariationAxisService_GetStyleValue_Handler,
+		},
+		{
+			MethodName: "GetTag",
+			Handler:    _FontVariationAxisService_GetTag_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _FontVariationAxisService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _FontVariationAxisService_ToString_Handler,
+		},
+		{
+			MethodName: "FromFontVariationSettings",
+			Handler:    _FontVariationAxisService_FromFontVariationSettings_Handler,
+		},
+		{
+			MethodName: "ToFontVariationSettings",
+			Handler:    _FontVariationAxisService_ToFontVariationSettings_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/fonts/fonts.proto",
+}
+
+const (
 	FontService_Equals_FullMethodName              = "/fonts.FontService/Equals"
 	FontService_GetAxes_FullMethodName             = "/fonts.FontService/GetAxes"
 	FontService_GetBuffer_FullMethodName           = "/fonts.FontService/GetBuffer"
@@ -39,7 +1019,7 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type FontServiceClient interface {
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	Equals(ctx context.Context, in *FontEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
 	GetAxes(ctx context.Context, in *GetAxesRequest, opts ...grpc.CallOption) (*GetAxesResponse, error)
 	GetBuffer(ctx context.Context, in *GetBufferRequest, opts ...grpc.CallOption) (*GetBufferResponse, error)
 	GetFile(ctx context.Context, in *GetFileRequest, opts ...grpc.CallOption) (*GetFileResponse, error)
@@ -49,8 +1029,8 @@ type FontServiceClient interface {
 	GetSourceIdentifier(ctx context.Context, in *GetSourceIdentifierRequest, opts ...grpc.CallOption) (*GetSourceIdentifierResponse, error)
 	GetStyle(ctx context.Context, in *GetStyleRequest, opts ...grpc.CallOption) (*GetStyleResponse, error)
 	GetTtcIndex(ctx context.Context, in *GetTtcIndexRequest, opts ...grpc.CallOption) (*GetTtcIndexResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	HashCode(ctx context.Context, in *FontHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *FontToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
 }
 
 type fontServiceClient struct {
@@ -61,7 +1041,7 @@ func NewFontServiceClient(cc grpc.ClientConnInterface) FontServiceClient {
 	return &fontServiceClient{cc}
 }
 
-func (c *fontServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *fontServiceClient) Equals(ctx context.Context, in *FontEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
 	err := c.cc.Invoke(ctx, FontService_Equals_FullMethodName, in, out, cOpts...)
@@ -161,7 +1141,7 @@ func (c *fontServiceClient) GetTtcIndex(ctx context.Context, in *GetTtcIndexRequ
 	return out, nil
 }
 
-func (c *fontServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *fontServiceClient) HashCode(ctx context.Context, in *FontHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
 	err := c.cc.Invoke(ctx, FontService_HashCode_FullMethodName, in, out, cOpts...)
@@ -171,7 +1151,7 @@ func (c *fontServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, o
 	return out, nil
 }
 
-func (c *fontServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+func (c *fontServiceClient) ToString(ctx context.Context, in *FontToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ToStringResponse)
 	err := c.cc.Invoke(ctx, FontService_ToString_FullMethodName, in, out, cOpts...)
@@ -185,7 +1165,7 @@ func (c *fontServiceClient) ToString(ctx context.Context, in *ToStringRequest, o
 // All implementations must embed UnimplementedFontServiceServer
 // for forward compatibility.
 type FontServiceServer interface {
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	Equals(context.Context, *FontEqualsRequest) (*EqualsResponse, error)
 	GetAxes(context.Context, *GetAxesRequest) (*GetAxesResponse, error)
 	GetBuffer(context.Context, *GetBufferRequest) (*GetBufferResponse, error)
 	GetFile(context.Context, *GetFileRequest) (*GetFileResponse, error)
@@ -195,8 +1175,8 @@ type FontServiceServer interface {
 	GetSourceIdentifier(context.Context, *GetSourceIdentifierRequest) (*GetSourceIdentifierResponse, error)
 	GetStyle(context.Context, *GetStyleRequest) (*GetStyleResponse, error)
 	GetTtcIndex(context.Context, *GetTtcIndexRequest) (*GetTtcIndexResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	HashCode(context.Context, *FontHashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *FontToStringRequest) (*ToStringResponse, error)
 	mustEmbedUnimplementedFontServiceServer()
 }
 
@@ -207,7 +1187,7 @@ type FontServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedFontServiceServer struct{}
 
-func (UnimplementedFontServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedFontServiceServer) Equals(context.Context, *FontEqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
 func (UnimplementedFontServiceServer) GetAxes(context.Context, *GetAxesRequest) (*GetAxesResponse, error) {
@@ -237,10 +1217,10 @@ func (UnimplementedFontServiceServer) GetStyle(context.Context, *GetStyleRequest
 func (UnimplementedFontServiceServer) GetTtcIndex(context.Context, *GetTtcIndexRequest) (*GetTtcIndexResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetTtcIndex not implemented")
 }
-func (UnimplementedFontServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedFontServiceServer) HashCode(context.Context, *FontHashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
-func (UnimplementedFontServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+func (UnimplementedFontServiceServer) ToString(context.Context, *FontToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
 func (UnimplementedFontServiceServer) mustEmbedUnimplementedFontServiceServer() {}
@@ -265,7 +1245,7 @@ func RegisterFontServiceServer(s grpc.ServiceRegistrar, srv FontServiceServer) {
 }
 
 func _FontService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
+	in := new(FontEqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -277,7 +1257,7 @@ func _FontService_Equals_Handler(srv interface{}, ctx context.Context, dec func(
 		FullMethod: FontService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FontServiceServer).Equals(ctx, req.(*EqualsRequest))
+		return srv.(FontServiceServer).Equals(ctx, req.(*FontEqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -445,7 +1425,7 @@ func _FontService_GetTtcIndex_Handler(srv interface{}, ctx context.Context, dec 
 }
 
 func _FontService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
+	in := new(FontHashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -457,13 +1437,13 @@ func _FontService_HashCode_Handler(srv interface{}, ctx context.Context, dec fun
 		FullMethod: FontService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FontServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+		return srv.(FontServiceServer).HashCode(ctx, req.(*FontHashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _FontService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
+	in := new(FontToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -475,7 +1455,7 @@ func _FontService_ToString_Handler(srv interface{}, ctx context.Context, dec fun
 		FullMethod: FontService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FontServiceServer).ToString(ctx, req.(*ToStringRequest))
+		return srv.(FontServiceServer).ToString(ctx, req.(*FontToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -833,979 +1813,101 @@ var FontBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	FontStyleService_NewFontStyle_FullMethodName = "/fonts.FontStyleService/NewFontStyle"
-	FontStyleService_Equals_FullMethodName       = "/fonts.FontStyleService/Equals"
-	FontStyleService_GetSlant_FullMethodName     = "/fonts.FontStyleService/GetSlant"
-	FontStyleService_GetWeight_FullMethodName    = "/fonts.FontStyleService/GetWeight"
-	FontStyleService_HashCode_FullMethodName     = "/fonts.FontStyleService/HashCode"
-	FontStyleService_ToString_FullMethodName     = "/fonts.FontStyleService/ToString"
+	SystemFontsService_GetAvailableFonts_FullMethodName = "/fonts.SystemFontsService/GetAvailableFonts"
 )
 
-// FontStyleServiceClient is the client API for FontStyleService service.
+// SystemFontsServiceClient is the client API for SystemFontsService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type FontStyleServiceClient interface {
-	NewFontStyle(ctx context.Context, in *NewFontStyleRequest, opts ...grpc.CallOption) (*NewFontStyleResponse, error)
-	Equals(ctx context.Context, in *FontStyleEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetSlant(ctx context.Context, in *GetSlantRequest, opts ...grpc.CallOption) (*GetSlantResponse, error)
-	GetWeight(ctx context.Context, in *GetWeightRequest, opts ...grpc.CallOption) (*GetWeightResponse, error)
-	HashCode(ctx context.Context, in *FontStyleHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *FontStyleToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+type SystemFontsServiceClient interface {
+	GetAvailableFonts(ctx context.Context, in *GetAvailableFontsRequest, opts ...grpc.CallOption) (*GetAvailableFontsResponse, error)
 }
 
-type fontStyleServiceClient struct {
+type systemFontsServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewFontStyleServiceClient(cc grpc.ClientConnInterface) FontStyleServiceClient {
-	return &fontStyleServiceClient{cc}
+func NewSystemFontsServiceClient(cc grpc.ClientConnInterface) SystemFontsServiceClient {
+	return &systemFontsServiceClient{cc}
 }
 
-func (c *fontStyleServiceClient) NewFontStyle(ctx context.Context, in *NewFontStyleRequest, opts ...grpc.CallOption) (*NewFontStyleResponse, error) {
+func (c *systemFontsServiceClient) GetAvailableFonts(ctx context.Context, in *GetAvailableFontsRequest, opts ...grpc.CallOption) (*GetAvailableFontsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewFontStyleResponse)
-	err := c.cc.Invoke(ctx, FontStyleService_NewFontStyle_FullMethodName, in, out, cOpts...)
+	out := new(GetAvailableFontsResponse)
+	err := c.cc.Invoke(ctx, SystemFontsService_GetAvailableFonts_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *fontStyleServiceClient) Equals(ctx context.Context, in *FontStyleEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, FontStyleService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fontStyleServiceClient) GetSlant(ctx context.Context, in *GetSlantRequest, opts ...grpc.CallOption) (*GetSlantResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSlantResponse)
-	err := c.cc.Invoke(ctx, FontStyleService_GetSlant_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fontStyleServiceClient) GetWeight(ctx context.Context, in *GetWeightRequest, opts ...grpc.CallOption) (*GetWeightResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetWeightResponse)
-	err := c.cc.Invoke(ctx, FontStyleService_GetWeight_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fontStyleServiceClient) HashCode(ctx context.Context, in *FontStyleHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, FontStyleService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fontStyleServiceClient) ToString(ctx context.Context, in *FontStyleToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, FontStyleService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// FontStyleServiceServer is the server API for FontStyleService service.
-// All implementations must embed UnimplementedFontStyleServiceServer
+// SystemFontsServiceServer is the server API for SystemFontsService service.
+// All implementations must embed UnimplementedSystemFontsServiceServer
 // for forward compatibility.
-type FontStyleServiceServer interface {
-	NewFontStyle(context.Context, *NewFontStyleRequest) (*NewFontStyleResponse, error)
-	Equals(context.Context, *FontStyleEqualsRequest) (*EqualsResponse, error)
-	GetSlant(context.Context, *GetSlantRequest) (*GetSlantResponse, error)
-	GetWeight(context.Context, *GetWeightRequest) (*GetWeightResponse, error)
-	HashCode(context.Context, *FontStyleHashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *FontStyleToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedFontStyleServiceServer()
+type SystemFontsServiceServer interface {
+	GetAvailableFonts(context.Context, *GetAvailableFontsRequest) (*GetAvailableFontsResponse, error)
+	mustEmbedUnimplementedSystemFontsServiceServer()
 }
 
-// UnimplementedFontStyleServiceServer must be embedded to have
+// UnimplementedSystemFontsServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedFontStyleServiceServer struct{}
+type UnimplementedSystemFontsServiceServer struct{}
 
-func (UnimplementedFontStyleServiceServer) NewFontStyle(context.Context, *NewFontStyleRequest) (*NewFontStyleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewFontStyle not implemented")
+func (UnimplementedSystemFontsServiceServer) GetAvailableFonts(context.Context, *GetAvailableFontsRequest) (*GetAvailableFontsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAvailableFonts not implemented")
 }
-func (UnimplementedFontStyleServiceServer) Equals(context.Context, *FontStyleEqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedFontStyleServiceServer) GetSlant(context.Context, *GetSlantRequest) (*GetSlantResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSlant not implemented")
-}
-func (UnimplementedFontStyleServiceServer) GetWeight(context.Context, *GetWeightRequest) (*GetWeightResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetWeight not implemented")
-}
-func (UnimplementedFontStyleServiceServer) HashCode(context.Context, *FontStyleHashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedFontStyleServiceServer) ToString(context.Context, *FontStyleToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedFontStyleServiceServer) mustEmbedUnimplementedFontStyleServiceServer() {}
-func (UnimplementedFontStyleServiceServer) testEmbeddedByValue()                          {}
+func (UnimplementedSystemFontsServiceServer) mustEmbedUnimplementedSystemFontsServiceServer() {}
+func (UnimplementedSystemFontsServiceServer) testEmbeddedByValue()                            {}
 
-// UnsafeFontStyleServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to FontStyleServiceServer will
+// UnsafeSystemFontsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SystemFontsServiceServer will
 // result in compilation errors.
-type UnsafeFontStyleServiceServer interface {
-	mustEmbedUnimplementedFontStyleServiceServer()
+type UnsafeSystemFontsServiceServer interface {
+	mustEmbedUnimplementedSystemFontsServiceServer()
 }
 
-func RegisterFontStyleServiceServer(s grpc.ServiceRegistrar, srv FontStyleServiceServer) {
-	// If the following call panics, it indicates UnimplementedFontStyleServiceServer was
+func RegisterSystemFontsServiceServer(s grpc.ServiceRegistrar, srv SystemFontsServiceServer) {
+	// If the following call panics, it indicates UnimplementedSystemFontsServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&FontStyleService_ServiceDesc, srv)
+	s.RegisterService(&SystemFontsService_ServiceDesc, srv)
 }
 
-func _FontStyleService_NewFontStyle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewFontStyleRequest)
+func _SystemFontsService_GetAvailableFonts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAvailableFontsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(FontStyleServiceServer).NewFontStyle(ctx, in)
+		return srv.(SystemFontsServiceServer).GetAvailableFonts(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: FontStyleService_NewFontStyle_FullMethodName,
+		FullMethod: SystemFontsService_GetAvailableFonts_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FontStyleServiceServer).NewFontStyle(ctx, req.(*NewFontStyleRequest))
+		return srv.(SystemFontsServiceServer).GetAvailableFonts(ctx, req.(*GetAvailableFontsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _FontStyleService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FontStyleEqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FontStyleServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FontStyleService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FontStyleServiceServer).Equals(ctx, req.(*FontStyleEqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FontStyleService_GetSlant_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSlantRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FontStyleServiceServer).GetSlant(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FontStyleService_GetSlant_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FontStyleServiceServer).GetSlant(ctx, req.(*GetSlantRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FontStyleService_GetWeight_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWeightRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FontStyleServiceServer).GetWeight(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FontStyleService_GetWeight_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FontStyleServiceServer).GetWeight(ctx, req.(*GetWeightRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FontStyleService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FontStyleHashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FontStyleServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FontStyleService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FontStyleServiceServer).HashCode(ctx, req.(*FontStyleHashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FontStyleService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FontStyleToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FontStyleServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FontStyleService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FontStyleServiceServer).ToString(ctx, req.(*FontStyleToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// FontStyleService_ServiceDesc is the grpc.ServiceDesc for FontStyleService service.
+// SystemFontsService_ServiceDesc is the grpc.ServiceDesc for SystemFontsService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var FontStyleService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "fonts.FontStyleService",
-	HandlerType: (*FontStyleServiceServer)(nil),
+var SystemFontsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "fonts.SystemFontsService",
+	HandlerType: (*SystemFontsServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewFontStyle",
-			Handler:    _FontStyleService_NewFontStyle_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _FontStyleService_Equals_Handler,
-		},
-		{
-			MethodName: "GetSlant",
-			Handler:    _FontStyleService_GetSlant_Handler,
-		},
-		{
-			MethodName: "GetWeight",
-			Handler:    _FontStyleService_GetWeight_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _FontStyleService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _FontStyleService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/fonts/fonts.proto",
-}
-
-const (
-	FontVariationAxisService_NewFontVariationAxis_FullMethodName      = "/fonts.FontVariationAxisService/NewFontVariationAxis"
-	FontVariationAxisService_Equals_FullMethodName                    = "/fonts.FontVariationAxisService/Equals"
-	FontVariationAxisService_GetStyleValue_FullMethodName             = "/fonts.FontVariationAxisService/GetStyleValue"
-	FontVariationAxisService_GetTag_FullMethodName                    = "/fonts.FontVariationAxisService/GetTag"
-	FontVariationAxisService_HashCode_FullMethodName                  = "/fonts.FontVariationAxisService/HashCode"
-	FontVariationAxisService_ToString_FullMethodName                  = "/fonts.FontVariationAxisService/ToString"
-	FontVariationAxisService_FromFontVariationSettings_FullMethodName = "/fonts.FontVariationAxisService/FromFontVariationSettings"
-	FontVariationAxisService_ToFontVariationSettings_FullMethodName   = "/fonts.FontVariationAxisService/ToFontVariationSettings"
-)
-
-// FontVariationAxisServiceClient is the client API for FontVariationAxisService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type FontVariationAxisServiceClient interface {
-	NewFontVariationAxis(ctx context.Context, in *NewFontVariationAxisRequest, opts ...grpc.CallOption) (*NewFontVariationAxisResponse, error)
-	Equals(ctx context.Context, in *FontVariationAxisEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetStyleValue(ctx context.Context, in *GetStyleValueRequest, opts ...grpc.CallOption) (*GetStyleValueResponse, error)
-	GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error)
-	HashCode(ctx context.Context, in *FontVariationAxisHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *FontVariationAxisToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	FromFontVariationSettings(ctx context.Context, in *FromFontVariationSettingsRequest, opts ...grpc.CallOption) (*FromFontVariationSettingsResponse, error)
-	ToFontVariationSettings(ctx context.Context, in *ToFontVariationSettingsRequest, opts ...grpc.CallOption) (*ToFontVariationSettingsResponse, error)
-}
-
-type fontVariationAxisServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewFontVariationAxisServiceClient(cc grpc.ClientConnInterface) FontVariationAxisServiceClient {
-	return &fontVariationAxisServiceClient{cc}
-}
-
-func (c *fontVariationAxisServiceClient) NewFontVariationAxis(ctx context.Context, in *NewFontVariationAxisRequest, opts ...grpc.CallOption) (*NewFontVariationAxisResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewFontVariationAxisResponse)
-	err := c.cc.Invoke(ctx, FontVariationAxisService_NewFontVariationAxis_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fontVariationAxisServiceClient) Equals(ctx context.Context, in *FontVariationAxisEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, FontVariationAxisService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fontVariationAxisServiceClient) GetStyleValue(ctx context.Context, in *GetStyleValueRequest, opts ...grpc.CallOption) (*GetStyleValueResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStyleValueResponse)
-	err := c.cc.Invoke(ctx, FontVariationAxisService_GetStyleValue_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fontVariationAxisServiceClient) GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTagResponse)
-	err := c.cc.Invoke(ctx, FontVariationAxisService_GetTag_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fontVariationAxisServiceClient) HashCode(ctx context.Context, in *FontVariationAxisHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, FontVariationAxisService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fontVariationAxisServiceClient) ToString(ctx context.Context, in *FontVariationAxisToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, FontVariationAxisService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fontVariationAxisServiceClient) FromFontVariationSettings(ctx context.Context, in *FromFontVariationSettingsRequest, opts ...grpc.CallOption) (*FromFontVariationSettingsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FromFontVariationSettingsResponse)
-	err := c.cc.Invoke(ctx, FontVariationAxisService_FromFontVariationSettings_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fontVariationAxisServiceClient) ToFontVariationSettings(ctx context.Context, in *ToFontVariationSettingsRequest, opts ...grpc.CallOption) (*ToFontVariationSettingsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToFontVariationSettingsResponse)
-	err := c.cc.Invoke(ctx, FontVariationAxisService_ToFontVariationSettings_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// FontVariationAxisServiceServer is the server API for FontVariationAxisService service.
-// All implementations must embed UnimplementedFontVariationAxisServiceServer
-// for forward compatibility.
-type FontVariationAxisServiceServer interface {
-	NewFontVariationAxis(context.Context, *NewFontVariationAxisRequest) (*NewFontVariationAxisResponse, error)
-	Equals(context.Context, *FontVariationAxisEqualsRequest) (*EqualsResponse, error)
-	GetStyleValue(context.Context, *GetStyleValueRequest) (*GetStyleValueResponse, error)
-	GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error)
-	HashCode(context.Context, *FontVariationAxisHashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *FontVariationAxisToStringRequest) (*ToStringResponse, error)
-	FromFontVariationSettings(context.Context, *FromFontVariationSettingsRequest) (*FromFontVariationSettingsResponse, error)
-	ToFontVariationSettings(context.Context, *ToFontVariationSettingsRequest) (*ToFontVariationSettingsResponse, error)
-	mustEmbedUnimplementedFontVariationAxisServiceServer()
-}
-
-// UnimplementedFontVariationAxisServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedFontVariationAxisServiceServer struct{}
-
-func (UnimplementedFontVariationAxisServiceServer) NewFontVariationAxis(context.Context, *NewFontVariationAxisRequest) (*NewFontVariationAxisResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewFontVariationAxis not implemented")
-}
-func (UnimplementedFontVariationAxisServiceServer) Equals(context.Context, *FontVariationAxisEqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedFontVariationAxisServiceServer) GetStyleValue(context.Context, *GetStyleValueRequest) (*GetStyleValueResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStyleValue not implemented")
-}
-func (UnimplementedFontVariationAxisServiceServer) GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTag not implemented")
-}
-func (UnimplementedFontVariationAxisServiceServer) HashCode(context.Context, *FontVariationAxisHashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedFontVariationAxisServiceServer) ToString(context.Context, *FontVariationAxisToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedFontVariationAxisServiceServer) FromFontVariationSettings(context.Context, *FromFontVariationSettingsRequest) (*FromFontVariationSettingsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method FromFontVariationSettings not implemented")
-}
-func (UnimplementedFontVariationAxisServiceServer) ToFontVariationSettings(context.Context, *ToFontVariationSettingsRequest) (*ToFontVariationSettingsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToFontVariationSettings not implemented")
-}
-func (UnimplementedFontVariationAxisServiceServer) mustEmbedUnimplementedFontVariationAxisServiceServer() {
-}
-func (UnimplementedFontVariationAxisServiceServer) testEmbeddedByValue() {}
-
-// UnsafeFontVariationAxisServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to FontVariationAxisServiceServer will
-// result in compilation errors.
-type UnsafeFontVariationAxisServiceServer interface {
-	mustEmbedUnimplementedFontVariationAxisServiceServer()
-}
-
-func RegisterFontVariationAxisServiceServer(s grpc.ServiceRegistrar, srv FontVariationAxisServiceServer) {
-	// If the following call panics, it indicates UnimplementedFontVariationAxisServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&FontVariationAxisService_ServiceDesc, srv)
-}
-
-func _FontVariationAxisService_NewFontVariationAxis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewFontVariationAxisRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FontVariationAxisServiceServer).NewFontVariationAxis(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FontVariationAxisService_NewFontVariationAxis_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FontVariationAxisServiceServer).NewFontVariationAxis(ctx, req.(*NewFontVariationAxisRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FontVariationAxisService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FontVariationAxisEqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FontVariationAxisServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FontVariationAxisService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FontVariationAxisServiceServer).Equals(ctx, req.(*FontVariationAxisEqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FontVariationAxisService_GetStyleValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStyleValueRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FontVariationAxisServiceServer).GetStyleValue(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FontVariationAxisService_GetStyleValue_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FontVariationAxisServiceServer).GetStyleValue(ctx, req.(*GetStyleValueRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FontVariationAxisService_GetTag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTagRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FontVariationAxisServiceServer).GetTag(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FontVariationAxisService_GetTag_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FontVariationAxisServiceServer).GetTag(ctx, req.(*GetTagRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FontVariationAxisService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FontVariationAxisHashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FontVariationAxisServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FontVariationAxisService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FontVariationAxisServiceServer).HashCode(ctx, req.(*FontVariationAxisHashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FontVariationAxisService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FontVariationAxisToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FontVariationAxisServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FontVariationAxisService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FontVariationAxisServiceServer).ToString(ctx, req.(*FontVariationAxisToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FontVariationAxisService_FromFontVariationSettings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FromFontVariationSettingsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FontVariationAxisServiceServer).FromFontVariationSettings(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FontVariationAxisService_FromFontVariationSettings_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FontVariationAxisServiceServer).FromFontVariationSettings(ctx, req.(*FromFontVariationSettingsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FontVariationAxisService_ToFontVariationSettings_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToFontVariationSettingsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FontVariationAxisServiceServer).ToFontVariationSettings(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FontVariationAxisService_ToFontVariationSettings_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FontVariationAxisServiceServer).ToFontVariationSettings(ctx, req.(*ToFontVariationSettingsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// FontVariationAxisService_ServiceDesc is the grpc.ServiceDesc for FontVariationAxisService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var FontVariationAxisService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "fonts.FontVariationAxisService",
-	HandlerType: (*FontVariationAxisServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewFontVariationAxis",
-			Handler:    _FontVariationAxisService_NewFontVariationAxis_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _FontVariationAxisService_Equals_Handler,
-		},
-		{
-			MethodName: "GetStyleValue",
-			Handler:    _FontVariationAxisService_GetStyleValue_Handler,
-		},
-		{
-			MethodName: "GetTag",
-			Handler:    _FontVariationAxisService_GetTag_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _FontVariationAxisService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _FontVariationAxisService_ToString_Handler,
-		},
-		{
-			MethodName: "FromFontVariationSettings",
-			Handler:    _FontVariationAxisService_FromFontVariationSettings_Handler,
-		},
-		{
-			MethodName: "ToFontVariationSettings",
-			Handler:    _FontVariationAxisService_ToFontVariationSettings_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/fonts/fonts.proto",
-}
-
-const (
-	FontFamilyService_GetFont_FullMethodName = "/fonts.FontFamilyService/GetFont"
-	FontFamilyService_GetSize_FullMethodName = "/fonts.FontFamilyService/GetSize"
-)
-
-// FontFamilyServiceClient is the client API for FontFamilyService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type FontFamilyServiceClient interface {
-	GetFont(ctx context.Context, in *GetFontRequest, opts ...grpc.CallOption) (*GetFontResponse, error)
-	GetSize(ctx context.Context, in *GetSizeRequest, opts ...grpc.CallOption) (*GetSizeResponse, error)
-}
-
-type fontFamilyServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewFontFamilyServiceClient(cc grpc.ClientConnInterface) FontFamilyServiceClient {
-	return &fontFamilyServiceClient{cc}
-}
-
-func (c *fontFamilyServiceClient) GetFont(ctx context.Context, in *GetFontRequest, opts ...grpc.CallOption) (*GetFontResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFontResponse)
-	err := c.cc.Invoke(ctx, FontFamilyService_GetFont_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fontFamilyServiceClient) GetSize(ctx context.Context, in *GetSizeRequest, opts ...grpc.CallOption) (*GetSizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSizeResponse)
-	err := c.cc.Invoke(ctx, FontFamilyService_GetSize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// FontFamilyServiceServer is the server API for FontFamilyService service.
-// All implementations must embed UnimplementedFontFamilyServiceServer
-// for forward compatibility.
-type FontFamilyServiceServer interface {
-	GetFont(context.Context, *GetFontRequest) (*GetFontResponse, error)
-	GetSize(context.Context, *GetSizeRequest) (*GetSizeResponse, error)
-	mustEmbedUnimplementedFontFamilyServiceServer()
-}
-
-// UnimplementedFontFamilyServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedFontFamilyServiceServer struct{}
-
-func (UnimplementedFontFamilyServiceServer) GetFont(context.Context, *GetFontRequest) (*GetFontResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFont not implemented")
-}
-func (UnimplementedFontFamilyServiceServer) GetSize(context.Context, *GetSizeRequest) (*GetSizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSize not implemented")
-}
-func (UnimplementedFontFamilyServiceServer) mustEmbedUnimplementedFontFamilyServiceServer() {}
-func (UnimplementedFontFamilyServiceServer) testEmbeddedByValue()                           {}
-
-// UnsafeFontFamilyServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to FontFamilyServiceServer will
-// result in compilation errors.
-type UnsafeFontFamilyServiceServer interface {
-	mustEmbedUnimplementedFontFamilyServiceServer()
-}
-
-func RegisterFontFamilyServiceServer(s grpc.ServiceRegistrar, srv FontFamilyServiceServer) {
-	// If the following call panics, it indicates UnimplementedFontFamilyServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&FontFamilyService_ServiceDesc, srv)
-}
-
-func _FontFamilyService_GetFont_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFontRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FontFamilyServiceServer).GetFont(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FontFamilyService_GetFont_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FontFamilyServiceServer).GetFont(ctx, req.(*GetFontRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FontFamilyService_GetSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FontFamilyServiceServer).GetSize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FontFamilyService_GetSize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FontFamilyServiceServer).GetSize(ctx, req.(*GetSizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// FontFamilyService_ServiceDesc is the grpc.ServiceDesc for FontFamilyService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var FontFamilyService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "fonts.FontFamilyService",
-	HandlerType: (*FontFamilyServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetFont",
-			Handler:    _FontFamilyService_GetFont_Handler,
-		},
-		{
-			MethodName: "GetSize",
-			Handler:    _FontFamilyService_GetSize_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/fonts/fonts.proto",
-}
-
-const (
-	FontFamilyBuilderService_AddFont_FullMethodName             = "/fonts.FontFamilyBuilderService/AddFont"
-	FontFamilyBuilderService_Build_FullMethodName               = "/fonts.FontFamilyBuilderService/Build"
-	FontFamilyBuilderService_BuildVariableFamily_FullMethodName = "/fonts.FontFamilyBuilderService/BuildVariableFamily"
-)
-
-// FontFamilyBuilderServiceClient is the client API for FontFamilyBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type FontFamilyBuilderServiceClient interface {
-	AddFont(ctx context.Context, in *AddFontRequest, opts ...grpc.CallOption) (*AddFontResponse, error)
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	BuildVariableFamily(ctx context.Context, in *BuildVariableFamilyRequest, opts ...grpc.CallOption) (*BuildVariableFamilyResponse, error)
-}
-
-type fontFamilyBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewFontFamilyBuilderServiceClient(cc grpc.ClientConnInterface) FontFamilyBuilderServiceClient {
-	return &fontFamilyBuilderServiceClient{cc}
-}
-
-func (c *fontFamilyBuilderServiceClient) AddFont(ctx context.Context, in *AddFontRequest, opts ...grpc.CallOption) (*AddFontResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddFontResponse)
-	err := c.cc.Invoke(ctx, FontFamilyBuilderService_AddFont_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fontFamilyBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, FontFamilyBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fontFamilyBuilderServiceClient) BuildVariableFamily(ctx context.Context, in *BuildVariableFamilyRequest, opts ...grpc.CallOption) (*BuildVariableFamilyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildVariableFamilyResponse)
-	err := c.cc.Invoke(ctx, FontFamilyBuilderService_BuildVariableFamily_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// FontFamilyBuilderServiceServer is the server API for FontFamilyBuilderService service.
-// All implementations must embed UnimplementedFontFamilyBuilderServiceServer
-// for forward compatibility.
-type FontFamilyBuilderServiceServer interface {
-	AddFont(context.Context, *AddFontRequest) (*AddFontResponse, error)
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	BuildVariableFamily(context.Context, *BuildVariableFamilyRequest) (*BuildVariableFamilyResponse, error)
-	mustEmbedUnimplementedFontFamilyBuilderServiceServer()
-}
-
-// UnimplementedFontFamilyBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedFontFamilyBuilderServiceServer struct{}
-
-func (UnimplementedFontFamilyBuilderServiceServer) AddFont(context.Context, *AddFontRequest) (*AddFontResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddFont not implemented")
-}
-func (UnimplementedFontFamilyBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedFontFamilyBuilderServiceServer) BuildVariableFamily(context.Context, *BuildVariableFamilyRequest) (*BuildVariableFamilyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method BuildVariableFamily not implemented")
-}
-func (UnimplementedFontFamilyBuilderServiceServer) mustEmbedUnimplementedFontFamilyBuilderServiceServer() {
-}
-func (UnimplementedFontFamilyBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeFontFamilyBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to FontFamilyBuilderServiceServer will
-// result in compilation errors.
-type UnsafeFontFamilyBuilderServiceServer interface {
-	mustEmbedUnimplementedFontFamilyBuilderServiceServer()
-}
-
-func RegisterFontFamilyBuilderServiceServer(s grpc.ServiceRegistrar, srv FontFamilyBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedFontFamilyBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&FontFamilyBuilderService_ServiceDesc, srv)
-}
-
-func _FontFamilyBuilderService_AddFont_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddFontRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FontFamilyBuilderServiceServer).AddFont(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FontFamilyBuilderService_AddFont_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FontFamilyBuilderServiceServer).AddFont(ctx, req.(*AddFontRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FontFamilyBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FontFamilyBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FontFamilyBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FontFamilyBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FontFamilyBuilderService_BuildVariableFamily_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildVariableFamilyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FontFamilyBuilderServiceServer).BuildVariableFamily(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FontFamilyBuilderService_BuildVariableFamily_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FontFamilyBuilderServiceServer).BuildVariableFamily(ctx, req.(*BuildVariableFamilyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// FontFamilyBuilderService_ServiceDesc is the grpc.ServiceDesc for FontFamilyBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var FontFamilyBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "fonts.FontFamilyBuilderService",
-	HandlerType: (*FontFamilyBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "AddFont",
-			Handler:    _FontFamilyBuilderService_AddFont_Handler,
-		},
-		{
-			MethodName: "Build",
-			Handler:    _FontFamilyBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "BuildVariableFamily",
-			Handler:    _FontFamilyBuilderService_BuildVariableFamily_Handler,
+			MethodName: "GetAvailableFonts",
+			Handler:    _SystemFontsService_GetAvailableFonts_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

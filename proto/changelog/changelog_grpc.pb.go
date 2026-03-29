@@ -21,6 +21,619 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	ChangeLogTokenResponseService_DescribeContents_FullMethodName = "/changelog.ChangeLogTokenResponseService/DescribeContents"
+	ChangeLogTokenResponseService_GetToken_FullMethodName         = "/changelog.ChangeLogTokenResponseService/GetToken"
+	ChangeLogTokenResponseService_WriteToParcel_FullMethodName    = "/changelog.ChangeLogTokenResponseService/WriteToParcel"
+)
+
+// ChangeLogTokenResponseServiceClient is the client API for ChangeLogTokenResponseService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ChangeLogTokenResponseServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetToken(ctx context.Context, in *GetTokenRequest, opts ...grpc.CallOption) (*GetTokenResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type changeLogTokenResponseServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewChangeLogTokenResponseServiceClient(cc grpc.ClientConnInterface) ChangeLogTokenResponseServiceClient {
+	return &changeLogTokenResponseServiceClient{cc}
+}
+
+func (c *changeLogTokenResponseServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ChangeLogTokenResponseService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *changeLogTokenResponseServiceClient) GetToken(ctx context.Context, in *GetTokenRequest, opts ...grpc.CallOption) (*GetTokenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTokenResponse)
+	err := c.cc.Invoke(ctx, ChangeLogTokenResponseService_GetToken_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *changeLogTokenResponseServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ChangeLogTokenResponseService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ChangeLogTokenResponseServiceServer is the server API for ChangeLogTokenResponseService service.
+// All implementations must embed UnimplementedChangeLogTokenResponseServiceServer
+// for forward compatibility.
+type ChangeLogTokenResponseServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetToken(context.Context, *GetTokenRequest) (*GetTokenResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedChangeLogTokenResponseServiceServer()
+}
+
+// UnimplementedChangeLogTokenResponseServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedChangeLogTokenResponseServiceServer struct{}
+
+func (UnimplementedChangeLogTokenResponseServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedChangeLogTokenResponseServiceServer) GetToken(context.Context, *GetTokenRequest) (*GetTokenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetToken not implemented")
+}
+func (UnimplementedChangeLogTokenResponseServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedChangeLogTokenResponseServiceServer) mustEmbedUnimplementedChangeLogTokenResponseServiceServer() {
+}
+func (UnimplementedChangeLogTokenResponseServiceServer) testEmbeddedByValue() {}
+
+// UnsafeChangeLogTokenResponseServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ChangeLogTokenResponseServiceServer will
+// result in compilation errors.
+type UnsafeChangeLogTokenResponseServiceServer interface {
+	mustEmbedUnimplementedChangeLogTokenResponseServiceServer()
+}
+
+func RegisterChangeLogTokenResponseServiceServer(s grpc.ServiceRegistrar, srv ChangeLogTokenResponseServiceServer) {
+	// If the following call panics, it indicates UnimplementedChangeLogTokenResponseServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ChangeLogTokenResponseService_ServiceDesc, srv)
+}
+
+func _ChangeLogTokenResponseService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeLogTokenResponseServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeLogTokenResponseService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeLogTokenResponseServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChangeLogTokenResponseService_GetToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTokenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeLogTokenResponseServiceServer).GetToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeLogTokenResponseService_GetToken_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeLogTokenResponseServiceServer).GetToken(ctx, req.(*GetTokenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChangeLogTokenResponseService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeLogTokenResponseServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeLogTokenResponseService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeLogTokenResponseServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ChangeLogTokenResponseService_ServiceDesc is the grpc.ServiceDesc for ChangeLogTokenResponseService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ChangeLogTokenResponseService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "changelog.ChangeLogTokenResponseService",
+	HandlerType: (*ChangeLogTokenResponseServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _ChangeLogTokenResponseService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetToken",
+			Handler:    _ChangeLogTokenResponseService_GetToken_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _ChangeLogTokenResponseService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/changelog/changelog.proto",
+}
+
+const (
+	ChangeLogsResponseService_DescribeContents_FullMethodName    = "/changelog.ChangeLogsResponseService/DescribeContents"
+	ChangeLogsResponseService_GetDeletedLogs_FullMethodName      = "/changelog.ChangeLogsResponseService/GetDeletedLogs"
+	ChangeLogsResponseService_GetNextChangesToken_FullMethodName = "/changelog.ChangeLogsResponseService/GetNextChangesToken"
+	ChangeLogsResponseService_GetUpsertedRecords_FullMethodName  = "/changelog.ChangeLogsResponseService/GetUpsertedRecords"
+	ChangeLogsResponseService_HasMorePages_FullMethodName        = "/changelog.ChangeLogsResponseService/HasMorePages"
+	ChangeLogsResponseService_WriteToParcel_FullMethodName       = "/changelog.ChangeLogsResponseService/WriteToParcel"
+)
+
+// ChangeLogsResponseServiceClient is the client API for ChangeLogsResponseService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ChangeLogsResponseServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetDeletedLogs(ctx context.Context, in *GetDeletedLogsRequest, opts ...grpc.CallOption) (*GetDeletedLogsResponse, error)
+	GetNextChangesToken(ctx context.Context, in *GetNextChangesTokenRequest, opts ...grpc.CallOption) (*GetNextChangesTokenResponse, error)
+	GetUpsertedRecords(ctx context.Context, in *GetUpsertedRecordsRequest, opts ...grpc.CallOption) (*GetUpsertedRecordsResponse, error)
+	HasMorePages(ctx context.Context, in *HasMorePagesRequest, opts ...grpc.CallOption) (*HasMorePagesResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type changeLogsResponseServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewChangeLogsResponseServiceClient(cc grpc.ClientConnInterface) ChangeLogsResponseServiceClient {
+	return &changeLogsResponseServiceClient{cc}
+}
+
+func (c *changeLogsResponseServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ChangeLogsResponseService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *changeLogsResponseServiceClient) GetDeletedLogs(ctx context.Context, in *GetDeletedLogsRequest, opts ...grpc.CallOption) (*GetDeletedLogsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDeletedLogsResponse)
+	err := c.cc.Invoke(ctx, ChangeLogsResponseService_GetDeletedLogs_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *changeLogsResponseServiceClient) GetNextChangesToken(ctx context.Context, in *GetNextChangesTokenRequest, opts ...grpc.CallOption) (*GetNextChangesTokenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNextChangesTokenResponse)
+	err := c.cc.Invoke(ctx, ChangeLogsResponseService_GetNextChangesToken_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *changeLogsResponseServiceClient) GetUpsertedRecords(ctx context.Context, in *GetUpsertedRecordsRequest, opts ...grpc.CallOption) (*GetUpsertedRecordsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUpsertedRecordsResponse)
+	err := c.cc.Invoke(ctx, ChangeLogsResponseService_GetUpsertedRecords_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *changeLogsResponseServiceClient) HasMorePages(ctx context.Context, in *HasMorePagesRequest, opts ...grpc.CallOption) (*HasMorePagesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HasMorePagesResponse)
+	err := c.cc.Invoke(ctx, ChangeLogsResponseService_HasMorePages_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *changeLogsResponseServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ChangeLogsResponseService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ChangeLogsResponseServiceServer is the server API for ChangeLogsResponseService service.
+// All implementations must embed UnimplementedChangeLogsResponseServiceServer
+// for forward compatibility.
+type ChangeLogsResponseServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetDeletedLogs(context.Context, *GetDeletedLogsRequest) (*GetDeletedLogsResponse, error)
+	GetNextChangesToken(context.Context, *GetNextChangesTokenRequest) (*GetNextChangesTokenResponse, error)
+	GetUpsertedRecords(context.Context, *GetUpsertedRecordsRequest) (*GetUpsertedRecordsResponse, error)
+	HasMorePages(context.Context, *HasMorePagesRequest) (*HasMorePagesResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedChangeLogsResponseServiceServer()
+}
+
+// UnimplementedChangeLogsResponseServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedChangeLogsResponseServiceServer struct{}
+
+func (UnimplementedChangeLogsResponseServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedChangeLogsResponseServiceServer) GetDeletedLogs(context.Context, *GetDeletedLogsRequest) (*GetDeletedLogsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDeletedLogs not implemented")
+}
+func (UnimplementedChangeLogsResponseServiceServer) GetNextChangesToken(context.Context, *GetNextChangesTokenRequest) (*GetNextChangesTokenResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNextChangesToken not implemented")
+}
+func (UnimplementedChangeLogsResponseServiceServer) GetUpsertedRecords(context.Context, *GetUpsertedRecordsRequest) (*GetUpsertedRecordsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUpsertedRecords not implemented")
+}
+func (UnimplementedChangeLogsResponseServiceServer) HasMorePages(context.Context, *HasMorePagesRequest) (*HasMorePagesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasMorePages not implemented")
+}
+func (UnimplementedChangeLogsResponseServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedChangeLogsResponseServiceServer) mustEmbedUnimplementedChangeLogsResponseServiceServer() {
+}
+func (UnimplementedChangeLogsResponseServiceServer) testEmbeddedByValue() {}
+
+// UnsafeChangeLogsResponseServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ChangeLogsResponseServiceServer will
+// result in compilation errors.
+type UnsafeChangeLogsResponseServiceServer interface {
+	mustEmbedUnimplementedChangeLogsResponseServiceServer()
+}
+
+func RegisterChangeLogsResponseServiceServer(s grpc.ServiceRegistrar, srv ChangeLogsResponseServiceServer) {
+	// If the following call panics, it indicates UnimplementedChangeLogsResponseServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ChangeLogsResponseService_ServiceDesc, srv)
+}
+
+func _ChangeLogsResponseService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeLogsResponseServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeLogsResponseService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeLogsResponseServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChangeLogsResponseService_GetDeletedLogs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDeletedLogsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeLogsResponseServiceServer).GetDeletedLogs(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeLogsResponseService_GetDeletedLogs_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeLogsResponseServiceServer).GetDeletedLogs(ctx, req.(*GetDeletedLogsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChangeLogsResponseService_GetNextChangesToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNextChangesTokenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeLogsResponseServiceServer).GetNextChangesToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeLogsResponseService_GetNextChangesToken_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeLogsResponseServiceServer).GetNextChangesToken(ctx, req.(*GetNextChangesTokenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChangeLogsResponseService_GetUpsertedRecords_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUpsertedRecordsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeLogsResponseServiceServer).GetUpsertedRecords(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeLogsResponseService_GetUpsertedRecords_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeLogsResponseServiceServer).GetUpsertedRecords(ctx, req.(*GetUpsertedRecordsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChangeLogsResponseService_HasMorePages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasMorePagesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeLogsResponseServiceServer).HasMorePages(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeLogsResponseService_HasMorePages_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeLogsResponseServiceServer).HasMorePages(ctx, req.(*HasMorePagesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChangeLogsResponseService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeLogsResponseServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeLogsResponseService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeLogsResponseServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ChangeLogsResponseService_ServiceDesc is the grpc.ServiceDesc for ChangeLogsResponseService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ChangeLogsResponseService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "changelog.ChangeLogsResponseService",
+	HandlerType: (*ChangeLogsResponseServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _ChangeLogsResponseService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetDeletedLogs",
+			Handler:    _ChangeLogsResponseService_GetDeletedLogs_Handler,
+		},
+		{
+			MethodName: "GetNextChangesToken",
+			Handler:    _ChangeLogsResponseService_GetNextChangesToken_Handler,
+		},
+		{
+			MethodName: "GetUpsertedRecords",
+			Handler:    _ChangeLogsResponseService_GetUpsertedRecords_Handler,
+		},
+		{
+			MethodName: "HasMorePages",
+			Handler:    _ChangeLogsResponseService_HasMorePages_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _ChangeLogsResponseService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/changelog/changelog.proto",
+}
+
+const (
+	ChangeLogsResponseDeletedLogService_GetDeletedRecordId_FullMethodName = "/changelog.ChangeLogsResponseDeletedLogService/GetDeletedRecordId"
+	ChangeLogsResponseDeletedLogService_GetDeletedTime_FullMethodName     = "/changelog.ChangeLogsResponseDeletedLogService/GetDeletedTime"
+)
+
+// ChangeLogsResponseDeletedLogServiceClient is the client API for ChangeLogsResponseDeletedLogService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ChangeLogsResponseDeletedLogServiceClient interface {
+	GetDeletedRecordId(ctx context.Context, in *GetDeletedRecordIdRequest, opts ...grpc.CallOption) (*GetDeletedRecordIdResponse, error)
+	GetDeletedTime(ctx context.Context, in *GetDeletedTimeRequest, opts ...grpc.CallOption) (*GetDeletedTimeResponse, error)
+}
+
+type changeLogsResponseDeletedLogServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewChangeLogsResponseDeletedLogServiceClient(cc grpc.ClientConnInterface) ChangeLogsResponseDeletedLogServiceClient {
+	return &changeLogsResponseDeletedLogServiceClient{cc}
+}
+
+func (c *changeLogsResponseDeletedLogServiceClient) GetDeletedRecordId(ctx context.Context, in *GetDeletedRecordIdRequest, opts ...grpc.CallOption) (*GetDeletedRecordIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDeletedRecordIdResponse)
+	err := c.cc.Invoke(ctx, ChangeLogsResponseDeletedLogService_GetDeletedRecordId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *changeLogsResponseDeletedLogServiceClient) GetDeletedTime(ctx context.Context, in *GetDeletedTimeRequest, opts ...grpc.CallOption) (*GetDeletedTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDeletedTimeResponse)
+	err := c.cc.Invoke(ctx, ChangeLogsResponseDeletedLogService_GetDeletedTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ChangeLogsResponseDeletedLogServiceServer is the server API for ChangeLogsResponseDeletedLogService service.
+// All implementations must embed UnimplementedChangeLogsResponseDeletedLogServiceServer
+// for forward compatibility.
+type ChangeLogsResponseDeletedLogServiceServer interface {
+	GetDeletedRecordId(context.Context, *GetDeletedRecordIdRequest) (*GetDeletedRecordIdResponse, error)
+	GetDeletedTime(context.Context, *GetDeletedTimeRequest) (*GetDeletedTimeResponse, error)
+	mustEmbedUnimplementedChangeLogsResponseDeletedLogServiceServer()
+}
+
+// UnimplementedChangeLogsResponseDeletedLogServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedChangeLogsResponseDeletedLogServiceServer struct{}
+
+func (UnimplementedChangeLogsResponseDeletedLogServiceServer) GetDeletedRecordId(context.Context, *GetDeletedRecordIdRequest) (*GetDeletedRecordIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDeletedRecordId not implemented")
+}
+func (UnimplementedChangeLogsResponseDeletedLogServiceServer) GetDeletedTime(context.Context, *GetDeletedTimeRequest) (*GetDeletedTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDeletedTime not implemented")
+}
+func (UnimplementedChangeLogsResponseDeletedLogServiceServer) mustEmbedUnimplementedChangeLogsResponseDeletedLogServiceServer() {
+}
+func (UnimplementedChangeLogsResponseDeletedLogServiceServer) testEmbeddedByValue() {}
+
+// UnsafeChangeLogsResponseDeletedLogServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ChangeLogsResponseDeletedLogServiceServer will
+// result in compilation errors.
+type UnsafeChangeLogsResponseDeletedLogServiceServer interface {
+	mustEmbedUnimplementedChangeLogsResponseDeletedLogServiceServer()
+}
+
+func RegisterChangeLogsResponseDeletedLogServiceServer(s grpc.ServiceRegistrar, srv ChangeLogsResponseDeletedLogServiceServer) {
+	// If the following call panics, it indicates UnimplementedChangeLogsResponseDeletedLogServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ChangeLogsResponseDeletedLogService_ServiceDesc, srv)
+}
+
+func _ChangeLogsResponseDeletedLogService_GetDeletedRecordId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDeletedRecordIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeLogsResponseDeletedLogServiceServer).GetDeletedRecordId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeLogsResponseDeletedLogService_GetDeletedRecordId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeLogsResponseDeletedLogServiceServer).GetDeletedRecordId(ctx, req.(*GetDeletedRecordIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ChangeLogsResponseDeletedLogService_GetDeletedTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDeletedTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeLogsResponseDeletedLogServiceServer).GetDeletedTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeLogsResponseDeletedLogService_GetDeletedTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeLogsResponseDeletedLogServiceServer).GetDeletedTime(ctx, req.(*GetDeletedTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ChangeLogsResponseDeletedLogService_ServiceDesc is the grpc.ServiceDesc for ChangeLogsResponseDeletedLogService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ChangeLogsResponseDeletedLogService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "changelog.ChangeLogsResponseDeletedLogService",
+	HandlerType: (*ChangeLogsResponseDeletedLogServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetDeletedRecordId",
+			Handler:    _ChangeLogsResponseDeletedLogService_GetDeletedRecordId_Handler,
+		},
+		{
+			MethodName: "GetDeletedTime",
+			Handler:    _ChangeLogsResponseDeletedLogService_GetDeletedTime_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/changelog/changelog.proto",
+}
+
+const (
 	ChangeLogsRequestService_DescribeContents_FullMethodName = "/changelog.ChangeLogsRequestService/DescribeContents"
 	ChangeLogsRequestService_GetPageSize_FullMethodName      = "/changelog.ChangeLogsRequestService/GetPageSize"
 	ChangeLogsRequestService_GetToken_FullMethodName         = "/changelog.ChangeLogsRequestService/GetToken"
@@ -379,8 +992,9 @@ var ChangeLogsRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ChangeLogTokenRequestService_DescribeContents_FullMethodName = "/changelog.ChangeLogTokenRequestService/DescribeContents"
-	ChangeLogTokenRequestService_WriteToParcel_FullMethodName    = "/changelog.ChangeLogTokenRequestService/WriteToParcel"
+	ChangeLogTokenRequestService_DescribeContents_FullMethodName     = "/changelog.ChangeLogTokenRequestService/DescribeContents"
+	ChangeLogTokenRequestService_GetDataOriginFilters_FullMethodName = "/changelog.ChangeLogTokenRequestService/GetDataOriginFilters"
+	ChangeLogTokenRequestService_WriteToParcel_FullMethodName        = "/changelog.ChangeLogTokenRequestService/WriteToParcel"
 )
 
 // ChangeLogTokenRequestServiceClient is the client API for ChangeLogTokenRequestService service.
@@ -388,6 +1002,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ChangeLogTokenRequestServiceClient interface {
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetDataOriginFilters(ctx context.Context, in *GetDataOriginFiltersRequest, opts ...grpc.CallOption) (*GetDataOriginFiltersResponse, error)
 	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
@@ -409,6 +1024,16 @@ func (c *changeLogTokenRequestServiceClient) DescribeContents(ctx context.Contex
 	return out, nil
 }
 
+func (c *changeLogTokenRequestServiceClient) GetDataOriginFilters(ctx context.Context, in *GetDataOriginFiltersRequest, opts ...grpc.CallOption) (*GetDataOriginFiltersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDataOriginFiltersResponse)
+	err := c.cc.Invoke(ctx, ChangeLogTokenRequestService_GetDataOriginFilters_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *changeLogTokenRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
@@ -424,6 +1049,7 @@ func (c *changeLogTokenRequestServiceClient) WriteToParcel(ctx context.Context, 
 // for forward compatibility.
 type ChangeLogTokenRequestServiceServer interface {
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetDataOriginFilters(context.Context, *GetDataOriginFiltersRequest) (*GetDataOriginFiltersResponse, error)
 	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
 	mustEmbedUnimplementedChangeLogTokenRequestServiceServer()
 }
@@ -437,6 +1063,9 @@ type UnimplementedChangeLogTokenRequestServiceServer struct{}
 
 func (UnimplementedChangeLogTokenRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedChangeLogTokenRequestServiceServer) GetDataOriginFilters(context.Context, *GetDataOriginFiltersRequest) (*GetDataOriginFiltersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDataOriginFilters not implemented")
 }
 func (UnimplementedChangeLogTokenRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
@@ -481,6 +1110,24 @@ func _ChangeLogTokenRequestService_DescribeContents_Handler(srv interface{}, ctx
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ChangeLogTokenRequestService_GetDataOriginFilters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDataOriginFiltersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChangeLogTokenRequestServiceServer).GetDataOriginFilters(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ChangeLogTokenRequestService_GetDataOriginFilters_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChangeLogTokenRequestServiceServer).GetDataOriginFilters(ctx, req.(*GetDataOriginFiltersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _ChangeLogTokenRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
@@ -509,6 +1156,10 @@ var ChangeLogTokenRequestService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DescribeContents",
 			Handler:    _ChangeLogTokenRequestService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetDataOriginFilters",
+			Handler:    _ChangeLogTokenRequestService_GetDataOriginFilters_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
@@ -654,543 +1305,6 @@ var ChangeLogTokenRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Build",
 			Handler:    _ChangeLogTokenRequestBuilderService_Build_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/changelog/changelog.proto",
-}
-
-const (
-	ChangeLogsResponseService_DescribeContents_FullMethodName    = "/changelog.ChangeLogsResponseService/DescribeContents"
-	ChangeLogsResponseService_GetNextChangesToken_FullMethodName = "/changelog.ChangeLogsResponseService/GetNextChangesToken"
-	ChangeLogsResponseService_HasMorePages_FullMethodName        = "/changelog.ChangeLogsResponseService/HasMorePages"
-	ChangeLogsResponseService_WriteToParcel_FullMethodName       = "/changelog.ChangeLogsResponseService/WriteToParcel"
-)
-
-// ChangeLogsResponseServiceClient is the client API for ChangeLogsResponseService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ChangeLogsResponseServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetNextChangesToken(ctx context.Context, in *GetNextChangesTokenRequest, opts ...grpc.CallOption) (*GetNextChangesTokenResponse, error)
-	HasMorePages(ctx context.Context, in *HasMorePagesRequest, opts ...grpc.CallOption) (*HasMorePagesResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type changeLogsResponseServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewChangeLogsResponseServiceClient(cc grpc.ClientConnInterface) ChangeLogsResponseServiceClient {
-	return &changeLogsResponseServiceClient{cc}
-}
-
-func (c *changeLogsResponseServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, ChangeLogsResponseService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *changeLogsResponseServiceClient) GetNextChangesToken(ctx context.Context, in *GetNextChangesTokenRequest, opts ...grpc.CallOption) (*GetNextChangesTokenResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNextChangesTokenResponse)
-	err := c.cc.Invoke(ctx, ChangeLogsResponseService_GetNextChangesToken_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *changeLogsResponseServiceClient) HasMorePages(ctx context.Context, in *HasMorePagesRequest, opts ...grpc.CallOption) (*HasMorePagesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HasMorePagesResponse)
-	err := c.cc.Invoke(ctx, ChangeLogsResponseService_HasMorePages_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *changeLogsResponseServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, ChangeLogsResponseService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ChangeLogsResponseServiceServer is the server API for ChangeLogsResponseService service.
-// All implementations must embed UnimplementedChangeLogsResponseServiceServer
-// for forward compatibility.
-type ChangeLogsResponseServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetNextChangesToken(context.Context, *GetNextChangesTokenRequest) (*GetNextChangesTokenResponse, error)
-	HasMorePages(context.Context, *HasMorePagesRequest) (*HasMorePagesResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedChangeLogsResponseServiceServer()
-}
-
-// UnimplementedChangeLogsResponseServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedChangeLogsResponseServiceServer struct{}
-
-func (UnimplementedChangeLogsResponseServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedChangeLogsResponseServiceServer) GetNextChangesToken(context.Context, *GetNextChangesTokenRequest) (*GetNextChangesTokenResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetNextChangesToken not implemented")
-}
-func (UnimplementedChangeLogsResponseServiceServer) HasMorePages(context.Context, *HasMorePagesRequest) (*HasMorePagesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HasMorePages not implemented")
-}
-func (UnimplementedChangeLogsResponseServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedChangeLogsResponseServiceServer) mustEmbedUnimplementedChangeLogsResponseServiceServer() {
-}
-func (UnimplementedChangeLogsResponseServiceServer) testEmbeddedByValue() {}
-
-// UnsafeChangeLogsResponseServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ChangeLogsResponseServiceServer will
-// result in compilation errors.
-type UnsafeChangeLogsResponseServiceServer interface {
-	mustEmbedUnimplementedChangeLogsResponseServiceServer()
-}
-
-func RegisterChangeLogsResponseServiceServer(s grpc.ServiceRegistrar, srv ChangeLogsResponseServiceServer) {
-	// If the following call panics, it indicates UnimplementedChangeLogsResponseServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ChangeLogsResponseService_ServiceDesc, srv)
-}
-
-func _ChangeLogsResponseService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChangeLogsResponseServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChangeLogsResponseService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeLogsResponseServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ChangeLogsResponseService_GetNextChangesToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNextChangesTokenRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChangeLogsResponseServiceServer).GetNextChangesToken(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChangeLogsResponseService_GetNextChangesToken_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeLogsResponseServiceServer).GetNextChangesToken(ctx, req.(*GetNextChangesTokenRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ChangeLogsResponseService_HasMorePages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HasMorePagesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChangeLogsResponseServiceServer).HasMorePages(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChangeLogsResponseService_HasMorePages_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeLogsResponseServiceServer).HasMorePages(ctx, req.(*HasMorePagesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ChangeLogsResponseService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChangeLogsResponseServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChangeLogsResponseService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeLogsResponseServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ChangeLogsResponseService_ServiceDesc is the grpc.ServiceDesc for ChangeLogsResponseService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ChangeLogsResponseService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "changelog.ChangeLogsResponseService",
-	HandlerType: (*ChangeLogsResponseServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _ChangeLogsResponseService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetNextChangesToken",
-			Handler:    _ChangeLogsResponseService_GetNextChangesToken_Handler,
-		},
-		{
-			MethodName: "HasMorePages",
-			Handler:    _ChangeLogsResponseService_HasMorePages_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _ChangeLogsResponseService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/changelog/changelog.proto",
-}
-
-const (
-	ChangeLogsResponseDeletedLogService_GetDeletedRecordId_FullMethodName = "/changelog.ChangeLogsResponseDeletedLogService/GetDeletedRecordId"
-	ChangeLogsResponseDeletedLogService_GetDeletedTime_FullMethodName     = "/changelog.ChangeLogsResponseDeletedLogService/GetDeletedTime"
-)
-
-// ChangeLogsResponseDeletedLogServiceClient is the client API for ChangeLogsResponseDeletedLogService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ChangeLogsResponseDeletedLogServiceClient interface {
-	GetDeletedRecordId(ctx context.Context, in *GetDeletedRecordIdRequest, opts ...grpc.CallOption) (*GetDeletedRecordIdResponse, error)
-	GetDeletedTime(ctx context.Context, in *GetDeletedTimeRequest, opts ...grpc.CallOption) (*GetDeletedTimeResponse, error)
-}
-
-type changeLogsResponseDeletedLogServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewChangeLogsResponseDeletedLogServiceClient(cc grpc.ClientConnInterface) ChangeLogsResponseDeletedLogServiceClient {
-	return &changeLogsResponseDeletedLogServiceClient{cc}
-}
-
-func (c *changeLogsResponseDeletedLogServiceClient) GetDeletedRecordId(ctx context.Context, in *GetDeletedRecordIdRequest, opts ...grpc.CallOption) (*GetDeletedRecordIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDeletedRecordIdResponse)
-	err := c.cc.Invoke(ctx, ChangeLogsResponseDeletedLogService_GetDeletedRecordId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *changeLogsResponseDeletedLogServiceClient) GetDeletedTime(ctx context.Context, in *GetDeletedTimeRequest, opts ...grpc.CallOption) (*GetDeletedTimeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDeletedTimeResponse)
-	err := c.cc.Invoke(ctx, ChangeLogsResponseDeletedLogService_GetDeletedTime_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ChangeLogsResponseDeletedLogServiceServer is the server API for ChangeLogsResponseDeletedLogService service.
-// All implementations must embed UnimplementedChangeLogsResponseDeletedLogServiceServer
-// for forward compatibility.
-type ChangeLogsResponseDeletedLogServiceServer interface {
-	GetDeletedRecordId(context.Context, *GetDeletedRecordIdRequest) (*GetDeletedRecordIdResponse, error)
-	GetDeletedTime(context.Context, *GetDeletedTimeRequest) (*GetDeletedTimeResponse, error)
-	mustEmbedUnimplementedChangeLogsResponseDeletedLogServiceServer()
-}
-
-// UnimplementedChangeLogsResponseDeletedLogServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedChangeLogsResponseDeletedLogServiceServer struct{}
-
-func (UnimplementedChangeLogsResponseDeletedLogServiceServer) GetDeletedRecordId(context.Context, *GetDeletedRecordIdRequest) (*GetDeletedRecordIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDeletedRecordId not implemented")
-}
-func (UnimplementedChangeLogsResponseDeletedLogServiceServer) GetDeletedTime(context.Context, *GetDeletedTimeRequest) (*GetDeletedTimeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDeletedTime not implemented")
-}
-func (UnimplementedChangeLogsResponseDeletedLogServiceServer) mustEmbedUnimplementedChangeLogsResponseDeletedLogServiceServer() {
-}
-func (UnimplementedChangeLogsResponseDeletedLogServiceServer) testEmbeddedByValue() {}
-
-// UnsafeChangeLogsResponseDeletedLogServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ChangeLogsResponseDeletedLogServiceServer will
-// result in compilation errors.
-type UnsafeChangeLogsResponseDeletedLogServiceServer interface {
-	mustEmbedUnimplementedChangeLogsResponseDeletedLogServiceServer()
-}
-
-func RegisterChangeLogsResponseDeletedLogServiceServer(s grpc.ServiceRegistrar, srv ChangeLogsResponseDeletedLogServiceServer) {
-	// If the following call panics, it indicates UnimplementedChangeLogsResponseDeletedLogServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ChangeLogsResponseDeletedLogService_ServiceDesc, srv)
-}
-
-func _ChangeLogsResponseDeletedLogService_GetDeletedRecordId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDeletedRecordIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChangeLogsResponseDeletedLogServiceServer).GetDeletedRecordId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChangeLogsResponseDeletedLogService_GetDeletedRecordId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeLogsResponseDeletedLogServiceServer).GetDeletedRecordId(ctx, req.(*GetDeletedRecordIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ChangeLogsResponseDeletedLogService_GetDeletedTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDeletedTimeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChangeLogsResponseDeletedLogServiceServer).GetDeletedTime(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChangeLogsResponseDeletedLogService_GetDeletedTime_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeLogsResponseDeletedLogServiceServer).GetDeletedTime(ctx, req.(*GetDeletedTimeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ChangeLogsResponseDeletedLogService_ServiceDesc is the grpc.ServiceDesc for ChangeLogsResponseDeletedLogService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ChangeLogsResponseDeletedLogService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "changelog.ChangeLogsResponseDeletedLogService",
-	HandlerType: (*ChangeLogsResponseDeletedLogServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetDeletedRecordId",
-			Handler:    _ChangeLogsResponseDeletedLogService_GetDeletedRecordId_Handler,
-		},
-		{
-			MethodName: "GetDeletedTime",
-			Handler:    _ChangeLogsResponseDeletedLogService_GetDeletedTime_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/changelog/changelog.proto",
-}
-
-const (
-	ChangeLogTokenResponseService_DescribeContents_FullMethodName = "/changelog.ChangeLogTokenResponseService/DescribeContents"
-	ChangeLogTokenResponseService_GetToken_FullMethodName         = "/changelog.ChangeLogTokenResponseService/GetToken"
-	ChangeLogTokenResponseService_WriteToParcel_FullMethodName    = "/changelog.ChangeLogTokenResponseService/WriteToParcel"
-)
-
-// ChangeLogTokenResponseServiceClient is the client API for ChangeLogTokenResponseService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ChangeLogTokenResponseServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetToken(ctx context.Context, in *GetTokenRequest, opts ...grpc.CallOption) (*GetTokenResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type changeLogTokenResponseServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewChangeLogTokenResponseServiceClient(cc grpc.ClientConnInterface) ChangeLogTokenResponseServiceClient {
-	return &changeLogTokenResponseServiceClient{cc}
-}
-
-func (c *changeLogTokenResponseServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, ChangeLogTokenResponseService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *changeLogTokenResponseServiceClient) GetToken(ctx context.Context, in *GetTokenRequest, opts ...grpc.CallOption) (*GetTokenResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTokenResponse)
-	err := c.cc.Invoke(ctx, ChangeLogTokenResponseService_GetToken_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *changeLogTokenResponseServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, ChangeLogTokenResponseService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ChangeLogTokenResponseServiceServer is the server API for ChangeLogTokenResponseService service.
-// All implementations must embed UnimplementedChangeLogTokenResponseServiceServer
-// for forward compatibility.
-type ChangeLogTokenResponseServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetToken(context.Context, *GetTokenRequest) (*GetTokenResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedChangeLogTokenResponseServiceServer()
-}
-
-// UnimplementedChangeLogTokenResponseServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedChangeLogTokenResponseServiceServer struct{}
-
-func (UnimplementedChangeLogTokenResponseServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedChangeLogTokenResponseServiceServer) GetToken(context.Context, *GetTokenRequest) (*GetTokenResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetToken not implemented")
-}
-func (UnimplementedChangeLogTokenResponseServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedChangeLogTokenResponseServiceServer) mustEmbedUnimplementedChangeLogTokenResponseServiceServer() {
-}
-func (UnimplementedChangeLogTokenResponseServiceServer) testEmbeddedByValue() {}
-
-// UnsafeChangeLogTokenResponseServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ChangeLogTokenResponseServiceServer will
-// result in compilation errors.
-type UnsafeChangeLogTokenResponseServiceServer interface {
-	mustEmbedUnimplementedChangeLogTokenResponseServiceServer()
-}
-
-func RegisterChangeLogTokenResponseServiceServer(s grpc.ServiceRegistrar, srv ChangeLogTokenResponseServiceServer) {
-	// If the following call panics, it indicates UnimplementedChangeLogTokenResponseServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ChangeLogTokenResponseService_ServiceDesc, srv)
-}
-
-func _ChangeLogTokenResponseService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChangeLogTokenResponseServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChangeLogTokenResponseService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeLogTokenResponseServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ChangeLogTokenResponseService_GetToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTokenRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChangeLogTokenResponseServiceServer).GetToken(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChangeLogTokenResponseService_GetToken_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeLogTokenResponseServiceServer).GetToken(ctx, req.(*GetTokenRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ChangeLogTokenResponseService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChangeLogTokenResponseServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ChangeLogTokenResponseService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChangeLogTokenResponseServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ChangeLogTokenResponseService_ServiceDesc is the grpc.ServiceDesc for ChangeLogTokenResponseService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ChangeLogTokenResponseService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "changelog.ChangeLogTokenResponseService",
-	HandlerType: (*ChangeLogTokenResponseServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _ChangeLogTokenResponseService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetToken",
-			Handler:    _ChangeLogTokenResponseService_GetToken_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _ChangeLogTokenResponseService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

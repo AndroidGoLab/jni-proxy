@@ -9,6 +9,35 @@ import (
 	"google.golang.org/grpc"
 )
 
+// UiTranslationManagerClient wraps the gRPC UiTranslationManagerService client.
+type UiTranslationManagerClient struct {
+	svc pb.UiTranslationManagerServiceClient
+}
+
+// NewUiTranslationManagerClient creates a new UiTranslationManager client.
+func NewUiTranslationManagerClient(cc grpc.ClientConnInterface) *UiTranslationManagerClient {
+	return &UiTranslationManagerClient{
+		svc: pb.NewUiTranslationManagerServiceClient(cc),
+	}
+}
+
+// RegisterUiTranslationStateCallback calls the RegisterUiTranslationStateCallback RPC.
+func (c *UiTranslationManagerClient) RegisterUiTranslationStateCallback(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.RegisterUiTranslationStateCallback(ctx, &pb.RegisterUiTranslationStateCallbackRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// UnregisterUiTranslationStateCallback calls the UnregisterUiTranslationStateCallback RPC.
+func (c *UiTranslationManagerClient) UnregisterUiTranslationStateCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UnregisterUiTranslationStateCallback(ctx, &pb.UnregisterUiTranslationStateCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
 // ViewTranslationResponseClient wraps the gRPC ViewTranslationResponseService client.
 type ViewTranslationResponseClient struct {
 	svc pb.ViewTranslationResponseServiceClient
@@ -44,6 +73,15 @@ func (c *ViewTranslationResponseClient) Equals(ctx context.Context, arg0 int64) 
 // GetAutofillId calls the GetAutofillId RPC.
 func (c *ViewTranslationResponseClient) GetAutofillId(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetAutofillId(ctx, &pb.GetAutofillIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetKeys calls the GetKeys RPC.
+func (c *ViewTranslationResponseClient) GetKeys(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetKeys(ctx, &pb.GetKeysRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -121,33 +159,394 @@ func (c *ViewTranslationResponseBuilderClient) SetValue(ctx context.Context, arg
 	return resp.GetResult(), nil
 }
 
-// UiTranslationManagerClient wraps the gRPC UiTranslationManagerService client.
-type UiTranslationManagerClient struct {
-	svc pb.UiTranslationManagerServiceClient
+// RequestValueClient wraps the gRPC RequestValueService client.
+type RequestValueClient struct {
+	svc pb.RequestValueServiceClient
 }
 
-// NewUiTranslationManagerClient creates a new UiTranslationManager client.
-func NewUiTranslationManagerClient(cc grpc.ClientConnInterface) *UiTranslationManagerClient {
-	return &UiTranslationManagerClient{
-		svc: pb.NewUiTranslationManagerServiceClient(cc),
+// NewRequestValueClient creates a new RequestValue client.
+func NewRequestValueClient(cc grpc.ClientConnInterface) *RequestValueClient {
+	return &RequestValueClient{
+		svc: pb.NewRequestValueServiceClient(cc),
 	}
 }
 
-// RegisterUiTranslationStateCallback calls the RegisterUiTranslationStateCallback RPC.
-func (c *UiTranslationManagerClient) RegisterUiTranslationStateCallback(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.RegisterUiTranslationStateCallback(ctx, &pb.RegisterUiTranslationStateCallbackRequest{
+// DescribeContents calls the DescribeContents RPC.
+func (c *RequestValueClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *RequestValueClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetText calls the GetText RPC.
+func (c *RequestValueClient) GetText(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetText(ctx, &pb.GetTextRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *RequestValueClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *RequestValueClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *RequestValueClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
 	return err
 }
 
-// UnregisterUiTranslationStateCallback calls the UnregisterUiTranslationStateCallback RPC.
-func (c *UiTranslationManagerClient) UnregisterUiTranslationStateCallback(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.UnregisterUiTranslationStateCallback(ctx, &pb.UnregisterUiTranslationStateCallbackRequest{
+// ForText calls the ForText RPC.
+func (c *RequestValueClient) ForText(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ForText(ctx, &pb.ForTextRequest{
 		Arg0: arg0,
 	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ViewTranslationCallbackClient wraps the gRPC ViewTranslationCallbackService client.
+type ViewTranslationCallbackClient struct {
+	svc pb.ViewTranslationCallbackServiceClient
+}
+
+// NewViewTranslationCallbackClient creates a new ViewTranslationCallback client.
+func NewViewTranslationCallbackClient(cc grpc.ClientConnInterface) *ViewTranslationCallbackClient {
+	return &ViewTranslationCallbackClient{
+		svc: pb.NewViewTranslationCallbackServiceClient(cc),
+	}
+}
+
+// OnClearTranslation calls the OnClearTranslation RPC.
+func (c *ViewTranslationCallbackClient) OnClearTranslation(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnClearTranslation(ctx, &pb.OnClearTranslationRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnHideTranslation calls the OnHideTranslation RPC.
+func (c *ViewTranslationCallbackClient) OnHideTranslation(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnHideTranslation(ctx, &pb.OnHideTranslationRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnShowTranslation calls the OnShowTranslation RPC.
+func (c *ViewTranslationCallbackClient) OnShowTranslation(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnShowTranslation(ctx, &pb.OnShowTranslationRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CapabilityClient wraps the gRPC CapabilityService client.
+type CapabilityClient struct {
+	svc pb.CapabilityServiceClient
+}
+
+// NewCapabilityClient creates a new Capability client.
+func NewCapabilityClient(cc grpc.ClientConnInterface) *CapabilityClient {
+	return &CapabilityClient{
+		svc: pb.NewCapabilityServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *CapabilityClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSourceSpec calls the GetSourceSpec RPC.
+func (c *CapabilityClient) GetSourceSpec(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSourceSpec(ctx, &pb.GetSourceSpecRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetState calls the GetState RPC.
+func (c *CapabilityClient) GetState(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetState(ctx, &pb.GetStateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedTranslationFlags calls the GetSupportedTranslationFlags RPC.
+func (c *CapabilityClient) GetSupportedTranslationFlags(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSupportedTranslationFlags(ctx, &pb.GetSupportedTranslationFlagsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTargetSpec calls the GetTargetSpec RPC.
+func (c *CapabilityClient) GetTargetSpec(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTargetSpec(ctx, &pb.GetTargetSpecRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsUiTranslationEnabled calls the IsUiTranslationEnabled RPC.
+func (c *CapabilityClient) IsUiTranslationEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsUiTranslationEnabled(ctx, &pb.IsUiTranslationEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *CapabilityClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *CapabilityClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
 	return err
+}
+
+// UiTranslationStateCallbackClient wraps the gRPC UiTranslationStateCallbackService client.
+type UiTranslationStateCallbackClient struct {
+	svc pb.UiTranslationStateCallbackServiceClient
+}
+
+// NewUiTranslationStateCallbackClient creates a new UiTranslationStateCallback client.
+func NewUiTranslationStateCallbackClient(cc grpc.ClientConnInterface) *UiTranslationStateCallbackClient {
+	return &UiTranslationStateCallbackClient{
+		svc: pb.NewUiTranslationStateCallbackServiceClient(cc),
+	}
+}
+
+// OnFinished calls the OnFinished RPC.
+func (c *UiTranslationStateCallbackClient) OnFinished(ctx context.Context) error {
+	_, err := c.svc.OnFinished(ctx, &pb.OnFinishedRequest{})
+	return err
+}
+
+// OnPaused calls the OnPaused RPC.
+func (c *UiTranslationStateCallbackClient) OnPaused(ctx context.Context) error {
+	_, err := c.svc.OnPaused(ctx, &pb.OnPausedRequest{})
+	return err
+}
+
+// ContextClient wraps the gRPC ContextService client.
+type ContextClient struct {
+	svc pb.ContextServiceClient
+}
+
+// NewContextClient creates a new Context client.
+func NewContextClient(cc grpc.ClientConnInterface) *ContextClient {
+	return &ContextClient{
+		svc: pb.NewContextServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ContextClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSourceSpec calls the GetSourceSpec RPC.
+func (c *ContextClient) GetSourceSpec(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSourceSpec(ctx, &pb.GetSourceSpecRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTargetSpec calls the GetTargetSpec RPC.
+func (c *ContextClient) GetTargetSpec(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTargetSpec(ctx, &pb.GetTargetSpecRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTranslationFlags calls the GetTranslationFlags RPC.
+func (c *ContextClient) GetTranslationFlags(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetTranslationFlags(ctx, &pb.GetTranslationFlagsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ContextClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ContextClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ContextBuilderClient wraps the gRPC ContextBuilderService client.
+type ContextBuilderClient struct {
+	svc pb.ContextBuilderServiceClient
+}
+
+// NewContextBuilderClient creates a new ContextBuilder client.
+func NewContextBuilderClient(cc grpc.ClientConnInterface) *ContextBuilderClient {
+	return &ContextBuilderClient{
+		svc: pb.NewContextBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *ContextBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTranslationFlags calls the SetTranslationFlags RPC.
+func (c *ContextBuilderClient) SetTranslationFlags(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetTranslationFlags(ctx, &pb.SetTranslationFlagsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ManagerClient wraps the gRPC ManagerService client.
+type ManagerClient struct {
+	svc pb.ManagerServiceClient
+}
+
+// NewManagerClient creates a new Manager client.
+func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
+	return &ManagerClient{
+		svc: pb.NewManagerServiceClient(cc),
+	}
+}
+
+// GetOnDeviceTranslationCapabilities calls the GetOnDeviceTranslationCapabilities RPC.
+func (c *ManagerClient) GetOnDeviceTranslationCapabilities(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.GetOnDeviceTranslationCapabilities(ctx, &pb.GetOnDeviceTranslationCapabilitiesRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOnDeviceTranslationSettingsActivityIntent calls the GetOnDeviceTranslationSettingsActivityIntent RPC.
+func (c *ManagerClient) GetOnDeviceTranslationSettingsActivityIntent(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOnDeviceTranslationSettingsActivityIntent(ctx, &pb.GetOnDeviceTranslationSettingsActivityIntentRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TranslatorClient wraps the gRPC TranslatorService client.
+type TranslatorClient struct {
+	svc pb.TranslatorServiceClient
+}
+
+// NewTranslatorClient creates a new Translator client.
+func NewTranslatorClient(cc grpc.ClientConnInterface) *TranslatorClient {
+	return &TranslatorClient{
+		svc: pb.NewTranslatorServiceClient(cc),
+	}
+}
+
+// Destroy calls the Destroy RPC.
+func (c *TranslatorClient) Destroy(ctx context.Context) error {
+	_, err := c.svc.Destroy(ctx, &pb.DestroyRequest{})
+	return err
+}
+
+// IsDestroyed calls the IsDestroyed RPC.
+func (c *TranslatorClient) IsDestroyed(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsDestroyed(ctx, &pb.IsDestroyedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
 }
 
 // ViewTranslationRequestClient wraps the gRPC ViewTranslationRequestService client.
@@ -185,6 +584,15 @@ func (c *ViewTranslationRequestClient) Equals(ctx context.Context, arg0 int64) (
 // GetAutofillId calls the GetAutofillId RPC.
 func (c *ViewTranslationRequestClient) GetAutofillId(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetAutofillId(ctx, &pb.GetAutofillIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetKeys calls the GetKeys RPC.
+func (c *ViewTranslationRequestClient) GetKeys(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetKeys(ctx, &pb.GetKeysRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -255,6 +663,235 @@ func (c *ViewTranslationRequestBuilderClient) SetValue(ctx context.Context, arg0
 	resp, err := c.svc.SetValue(ctx, &pb.SetValueRequest{
 		Arg0: arg0,
 		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ResponseClient wraps the gRPC ResponseService client.
+type ResponseClient struct {
+	svc pb.ResponseServiceClient
+}
+
+// NewResponseClient creates a new Response client.
+func NewResponseClient(cc grpc.ClientConnInterface) *ResponseClient {
+	return &ResponseClient{
+		svc: pb.NewResponseServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ResponseClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTranslationResponseValues calls the GetTranslationResponseValues RPC.
+func (c *ResponseClient) GetTranslationResponseValues(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTranslationResponseValues(ctx, &pb.GetTranslationResponseValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTranslationStatus calls the GetTranslationStatus RPC.
+func (c *ResponseClient) GetTranslationStatus(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetTranslationStatus(ctx, &pb.GetTranslationStatusRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetViewTranslationResponses calls the GetViewTranslationResponses RPC.
+func (c *ResponseClient) GetViewTranslationResponses(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetViewTranslationResponses(ctx, &pb.GetViewTranslationResponsesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFinalResponse calls the IsFinalResponse RPC.
+func (c *ResponseClient) IsFinalResponse(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsFinalResponse(ctx, &pb.IsFinalResponseRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ResponseClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ResponseClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ResponseBuilderClient wraps the gRPC ResponseBuilderService client.
+type ResponseBuilderClient struct {
+	svc pb.ResponseBuilderServiceClient
+}
+
+// NewResponseBuilderClient creates a new ResponseBuilder client.
+func NewResponseBuilderClient(cc grpc.ClientConnInterface) *ResponseBuilderClient {
+	return &ResponseBuilderClient{
+		svc: pb.NewResponseBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *ResponseBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFinalResponse calls the SetFinalResponse RPC.
+func (c *ResponseBuilderClient) SetFinalResponse(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetFinalResponse(ctx, &pb.SetFinalResponseRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTranslationResponseValue calls the SetTranslationResponseValue RPC.
+func (c *ResponseBuilderClient) SetTranslationResponseValue(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
+	resp, err := c.svc.SetTranslationResponseValue(ctx, &pb.SetTranslationResponseValueRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetViewTranslationResponse calls the SetViewTranslationResponse RPC.
+func (c *ResponseBuilderClient) SetViewTranslationResponse(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
+	resp, err := c.svc.SetViewTranslationResponse(ctx, &pb.SetViewTranslationResponseRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RequestClient wraps the gRPC RequestService client.
+type RequestClient struct {
+	svc pb.RequestServiceClient
+}
+
+// NewRequestClient creates a new Request client.
+func NewRequestClient(cc grpc.ClientConnInterface) *RequestClient {
+	return &RequestClient{
+		svc: pb.NewRequestServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *RequestClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFlags calls the GetFlags RPC.
+func (c *RequestClient) GetFlags(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetFlags(ctx, &pb.GetFlagsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTranslationRequestValues calls the GetTranslationRequestValues RPC.
+func (c *RequestClient) GetTranslationRequestValues(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTranslationRequestValues(ctx, &pb.GetTranslationRequestValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetViewTranslationRequests calls the GetViewTranslationRequests RPC.
+func (c *RequestClient) GetViewTranslationRequests(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetViewTranslationRequests(ctx, &pb.GetViewTranslationRequestsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *RequestClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *RequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// RequestBuilderClient wraps the gRPC RequestBuilderService client.
+type RequestBuilderClient struct {
+	svc pb.RequestBuilderServiceClient
+}
+
+// NewRequestBuilderClient creates a new RequestBuilder client.
+func NewRequestBuilderClient(cc grpc.ClientConnInterface) *RequestBuilderClient {
+	return &RequestBuilderClient{
+		svc: pb.NewRequestBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *RequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFlags calls the SetFlags RPC.
+func (c *RequestBuilderClient) SetFlags(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetFlags(ctx, &pb.SetFlagsRequest{
+		Arg0: arg0,
 	})
 	if err != nil {
 		return 0, err
@@ -420,368 +1057,6 @@ func (c *ResponseValueBuilderClient) SetTransliteration(ctx context.Context, arg
 	return resp.GetResult(), nil
 }
 
-// ResponseClient wraps the gRPC ResponseService client.
-type ResponseClient struct {
-	svc pb.ResponseServiceClient
-}
-
-// NewResponseClient creates a new Response client.
-func NewResponseClient(cc grpc.ClientConnInterface) *ResponseClient {
-	return &ResponseClient{
-		svc: pb.NewResponseServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *ResponseClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTranslationStatus calls the GetTranslationStatus RPC.
-func (c *ResponseClient) GetTranslationStatus(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetTranslationStatus(ctx, &pb.GetTranslationStatusRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsFinalResponse calls the IsFinalResponse RPC.
-func (c *ResponseClient) IsFinalResponse(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsFinalResponse(ctx, &pb.IsFinalResponseRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *ResponseClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *ResponseClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ResponseBuilderClient wraps the gRPC ResponseBuilderService client.
-type ResponseBuilderClient struct {
-	svc pb.ResponseBuilderServiceClient
-}
-
-// NewResponseBuilderClient creates a new ResponseBuilder client.
-func NewResponseBuilderClient(cc grpc.ClientConnInterface) *ResponseBuilderClient {
-	return &ResponseBuilderClient{
-		svc: pb.NewResponseBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *ResponseBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetFinalResponse calls the SetFinalResponse RPC.
-func (c *ResponseBuilderClient) SetFinalResponse(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetFinalResponse(ctx, &pb.SetFinalResponseRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetTranslationResponseValue calls the SetTranslationResponseValue RPC.
-func (c *ResponseBuilderClient) SetTranslationResponseValue(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
-	resp, err := c.svc.SetTranslationResponseValue(ctx, &pb.SetTranslationResponseValueRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetViewTranslationResponse calls the SetViewTranslationResponse RPC.
-func (c *ResponseBuilderClient) SetViewTranslationResponse(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
-	resp, err := c.svc.SetViewTranslationResponse(ctx, &pb.SetViewTranslationResponseRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RequestValueClient wraps the gRPC RequestValueService client.
-type RequestValueClient struct {
-	svc pb.RequestValueServiceClient
-}
-
-// NewRequestValueClient creates a new RequestValue client.
-func NewRequestValueClient(cc grpc.ClientConnInterface) *RequestValueClient {
-	return &RequestValueClient{
-		svc: pb.NewRequestValueServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *RequestValueClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *RequestValueClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetText calls the GetText RPC.
-func (c *RequestValueClient) GetText(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetText(ctx, &pb.GetTextRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *RequestValueClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *RequestValueClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *RequestValueClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ForText calls the ForText RPC.
-func (c *RequestValueClient) ForText(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ForText(ctx, &pb.ForTextRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ManagerClient wraps the gRPC ManagerService client.
-type ManagerClient struct {
-	svc pb.ManagerServiceClient
-}
-
-// NewManagerClient creates a new Manager client.
-func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
-	return &ManagerClient{
-		svc: pb.NewManagerServiceClient(cc),
-	}
-}
-
-// GetOnDeviceTranslationSettingsActivityIntent calls the GetOnDeviceTranslationSettingsActivityIntent RPC.
-func (c *ManagerClient) GetOnDeviceTranslationSettingsActivityIntent(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetOnDeviceTranslationSettingsActivityIntent(ctx, &pb.GetOnDeviceTranslationSettingsActivityIntentRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RequestClient wraps the gRPC RequestService client.
-type RequestClient struct {
-	svc pb.RequestServiceClient
-}
-
-// NewRequestClient creates a new Request client.
-func NewRequestClient(cc grpc.ClientConnInterface) *RequestClient {
-	return &RequestClient{
-		svc: pb.NewRequestServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *RequestClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFlags calls the GetFlags RPC.
-func (c *RequestClient) GetFlags(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetFlags(ctx, &pb.GetFlagsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *RequestClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *RequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// RequestBuilderClient wraps the gRPC RequestBuilderService client.
-type RequestBuilderClient struct {
-	svc pb.RequestBuilderServiceClient
-}
-
-// NewRequestBuilderClient creates a new RequestBuilder client.
-func NewRequestBuilderClient(cc grpc.ClientConnInterface) *RequestBuilderClient {
-	return &RequestBuilderClient{
-		svc: pb.NewRequestBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *RequestBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetFlags calls the SetFlags RPC.
-func (c *RequestBuilderClient) SetFlags(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetFlags(ctx, &pb.SetFlagsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// UiTranslationStateCallbackClient wraps the gRPC UiTranslationStateCallbackService client.
-type UiTranslationStateCallbackClient struct {
-	svc pb.UiTranslationStateCallbackServiceClient
-}
-
-// NewUiTranslationStateCallbackClient creates a new UiTranslationStateCallback client.
-func NewUiTranslationStateCallbackClient(cc grpc.ClientConnInterface) *UiTranslationStateCallbackClient {
-	return &UiTranslationStateCallbackClient{
-		svc: pb.NewUiTranslationStateCallbackServiceClient(cc),
-	}
-}
-
-// OnFinished calls the OnFinished RPC.
-func (c *UiTranslationStateCallbackClient) OnFinished(ctx context.Context) error {
-	_, err := c.svc.OnFinished(ctx, &pb.OnFinishedRequest{})
-	return err
-}
-
-// OnPaused calls the OnPaused RPC.
-func (c *UiTranslationStateCallbackClient) OnPaused(ctx context.Context) error {
-	_, err := c.svc.OnPaused(ctx, &pb.OnPausedRequest{})
-	return err
-}
-
-// ViewTranslationCallbackClient wraps the gRPC ViewTranslationCallbackService client.
-type ViewTranslationCallbackClient struct {
-	svc pb.ViewTranslationCallbackServiceClient
-}
-
-// NewViewTranslationCallbackClient creates a new ViewTranslationCallback client.
-func NewViewTranslationCallbackClient(cc grpc.ClientConnInterface) *ViewTranslationCallbackClient {
-	return &ViewTranslationCallbackClient{
-		svc: pb.NewViewTranslationCallbackServiceClient(cc),
-	}
-}
-
-// OnClearTranslation calls the OnClearTranslation RPC.
-func (c *ViewTranslationCallbackClient) OnClearTranslation(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.OnClearTranslation(ctx, &pb.OnClearTranslationRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnHideTranslation calls the OnHideTranslation RPC.
-func (c *ViewTranslationCallbackClient) OnHideTranslation(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.OnHideTranslation(ctx, &pb.OnHideTranslationRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnShowTranslation calls the OnShowTranslation RPC.
-func (c *ViewTranslationCallbackClient) OnShowTranslation(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.OnShowTranslation(ctx, &pb.OnShowTranslationRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
 // SpecClient wraps the gRPC SpecService client.
 type SpecClient struct {
 	svc pb.SpecServiceClient
@@ -867,215 +1142,6 @@ func (c *SpecClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
-	})
-	return err
-}
-
-// ContextClient wraps the gRPC ContextService client.
-type ContextClient struct {
-	svc pb.ContextServiceClient
-}
-
-// NewContextClient creates a new Context client.
-func NewContextClient(cc grpc.ClientConnInterface) *ContextClient {
-	return &ContextClient{
-		svc: pb.NewContextServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *ContextClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSourceSpec calls the GetSourceSpec RPC.
-func (c *ContextClient) GetSourceSpec(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSourceSpec(ctx, &pb.GetSourceSpecRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTargetSpec calls the GetTargetSpec RPC.
-func (c *ContextClient) GetTargetSpec(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTargetSpec(ctx, &pb.GetTargetSpecRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTranslationFlags calls the GetTranslationFlags RPC.
-func (c *ContextClient) GetTranslationFlags(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetTranslationFlags(ctx, &pb.GetTranslationFlagsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *ContextClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *ContextClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ContextBuilderClient wraps the gRPC ContextBuilderService client.
-type ContextBuilderClient struct {
-	svc pb.ContextBuilderServiceClient
-}
-
-// NewContextBuilderClient creates a new ContextBuilder client.
-func NewContextBuilderClient(cc grpc.ClientConnInterface) *ContextBuilderClient {
-	return &ContextBuilderClient{
-		svc: pb.NewContextBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *ContextBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetTranslationFlags calls the SetTranslationFlags RPC.
-func (c *ContextBuilderClient) SetTranslationFlags(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetTranslationFlags(ctx, &pb.SetTranslationFlagsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// TranslatorClient wraps the gRPC TranslatorService client.
-type TranslatorClient struct {
-	svc pb.TranslatorServiceClient
-}
-
-// NewTranslatorClient creates a new Translator client.
-func NewTranslatorClient(cc grpc.ClientConnInterface) *TranslatorClient {
-	return &TranslatorClient{
-		svc: pb.NewTranslatorServiceClient(cc),
-	}
-}
-
-// Destroy calls the Destroy RPC.
-func (c *TranslatorClient) Destroy(ctx context.Context) error {
-	_, err := c.svc.Destroy(ctx, &pb.DestroyRequest{})
-	return err
-}
-
-// IsDestroyed calls the IsDestroyed RPC.
-func (c *TranslatorClient) IsDestroyed(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsDestroyed(ctx, &pb.IsDestroyedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CapabilityClient wraps the gRPC CapabilityService client.
-type CapabilityClient struct {
-	svc pb.CapabilityServiceClient
-}
-
-// NewCapabilityClient creates a new Capability client.
-func NewCapabilityClient(cc grpc.ClientConnInterface) *CapabilityClient {
-	return &CapabilityClient{
-		svc: pb.NewCapabilityServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *CapabilityClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSourceSpec calls the GetSourceSpec RPC.
-func (c *CapabilityClient) GetSourceSpec(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSourceSpec(ctx, &pb.GetSourceSpecRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetState calls the GetState RPC.
-func (c *CapabilityClient) GetState(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetState(ctx, &pb.GetStateRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSupportedTranslationFlags calls the GetSupportedTranslationFlags RPC.
-func (c *CapabilityClient) GetSupportedTranslationFlags(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetSupportedTranslationFlags(ctx, &pb.GetSupportedTranslationFlagsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTargetSpec calls the GetTargetSpec RPC.
-func (c *CapabilityClient) GetTargetSpec(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTargetSpec(ctx, &pb.GetTargetSpecRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsUiTranslationEnabled calls the IsUiTranslationEnabled RPC.
-func (c *CapabilityClient) IsUiTranslationEnabled(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsUiTranslationEnabled(ctx, &pb.IsUiTranslationEnabledRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *CapabilityClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *CapabilityClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
 	})
 	return err
 }

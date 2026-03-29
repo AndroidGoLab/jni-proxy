@@ -69,21 +69,21 @@ func (c *EventSourceClient) SendAccessibilityEventUnchecked(ctx context.Context,
 	return err
 }
 
-// RecordClient wraps the gRPC RecordService client.
-type RecordClient struct {
-	svc pb.RecordServiceClient
+// WindowInfoClient wraps the gRPC WindowInfoService client.
+type WindowInfoClient struct {
+	svc pb.WindowInfoServiceClient
 }
 
-// NewRecordClient creates a new Record client.
-func NewRecordClient(cc grpc.ClientConnInterface) *RecordClient {
-	return &RecordClient{
-		svc: pb.NewRecordServiceClient(cc),
+// NewWindowInfoClient creates a new WindowInfo client.
+func NewWindowInfoClient(cc grpc.ClientConnInterface) *WindowInfoClient {
+	return &WindowInfoClient{
+		svc: pb.NewWindowInfoServiceClient(cc),
 	}
 }
 
-// GetAddedCount calls the GetAddedCount RPC.
-func (c *RecordClient) GetAddedCount(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetAddedCount(ctx, &pb.GetAddedCountRequest{
+// DescribeContents calls the DescribeContents RPC.
+func (c *WindowInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -92,9 +92,21 @@ func (c *RecordClient) GetAddedCount(ctx context.Context, handle int64) (int32, 
 	return resp.GetResult(), nil
 }
 
-// GetBeforeText calls the GetBeforeText RPC.
-func (c *RecordClient) GetBeforeText(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetBeforeText(ctx, &pb.GetBeforeTextRequest{
+// Equals calls the Equals RPC.
+func (c *WindowInfoClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAnchor calls the GetAnchor RPC.
+func (c *WindowInfoClient) GetAnchor(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetAnchor(ctx, &pb.GetAnchorRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -103,10 +115,20 @@ func (c *RecordClient) GetBeforeText(ctx context.Context, handle int64) (int64, 
 	return resp.GetResult(), nil
 }
 
-// GetClassName calls the GetClassName RPC.
-func (c *RecordClient) GetClassName(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetClassName(ctx, &pb.GetClassNameRequest{
+// GetBoundsInScreen calls the GetBoundsInScreen RPC.
+func (c *WindowInfoClient) GetBoundsInScreen(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.GetBoundsInScreen(ctx, &pb.GetBoundsInScreenRequest{
 		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GetChild calls the GetChild RPC.
+func (c *WindowInfoClient) GetChild(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetChild(ctx, &pb.GetChildRequest{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	if err != nil {
 		return 0, err
@@ -114,20 +136,9 @@ func (c *RecordClient) GetClassName(ctx context.Context, handle int64) (int64, e
 	return resp.GetResult(), nil
 }
 
-// GetContentDescription calls the GetContentDescription RPC.
-func (c *RecordClient) GetContentDescription(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetContentDescription(ctx, &pb.GetContentDescriptionRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCurrentItemIndex calls the GetCurrentItemIndex RPC.
-func (c *RecordClient) GetCurrentItemIndex(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetCurrentItemIndex(ctx, &pb.GetCurrentItemIndexRequest{
+// GetChildCount calls the GetChildCount RPC.
+func (c *WindowInfoClient) GetChildCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetChildCount(ctx, &pb.GetChildCountRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -137,7 +148,7 @@ func (c *RecordClient) GetCurrentItemIndex(ctx context.Context, handle int64) (i
 }
 
 // GetDisplayId calls the GetDisplayId RPC.
-func (c *RecordClient) GetDisplayId(ctx context.Context, handle int64) (int32, error) {
+func (c *WindowInfoClient) GetDisplayId(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.GetDisplayId(ctx, &pb.GetDisplayIdRequest{
 		Handle: handle,
 	})
@@ -147,9 +158,9 @@ func (c *RecordClient) GetDisplayId(ctx context.Context, handle int64) (int32, e
 	return resp.GetResult(), nil
 }
 
-// GetFromIndex calls the GetFromIndex RPC.
-func (c *RecordClient) GetFromIndex(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetFromIndex(ctx, &pb.GetFromIndexRequest{
+// GetId calls the GetId RPC.
+func (c *WindowInfoClient) GetId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -158,9 +169,9 @@ func (c *RecordClient) GetFromIndex(ctx context.Context, handle int64) (int32, e
 	return resp.GetResult(), nil
 }
 
-// GetItemCount calls the GetItemCount RPC.
-func (c *RecordClient) GetItemCount(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetItemCount(ctx, &pb.GetItemCountRequest{
+// GetLayer calls the GetLayer RPC.
+func (c *WindowInfoClient) GetLayer(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetLayer(ctx, &pb.GetLayerRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -169,9 +180,9 @@ func (c *RecordClient) GetItemCount(ctx context.Context, handle int64) (int32, e
 	return resp.GetResult(), nil
 }
 
-// GetMaxScrollX calls the GetMaxScrollX RPC.
-func (c *RecordClient) GetMaxScrollX(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetMaxScrollX(ctx, &pb.GetMaxScrollXRequest{
+// GetLocales calls the GetLocales RPC.
+func (c *WindowInfoClient) GetLocales(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLocales(ctx, &pb.GetLocalesRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -180,9 +191,9 @@ func (c *RecordClient) GetMaxScrollX(ctx context.Context, handle int64) (int32, 
 	return resp.GetResult(), nil
 }
 
-// GetMaxScrollY calls the GetMaxScrollY RPC.
-func (c *RecordClient) GetMaxScrollY(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetMaxScrollY(ctx, &pb.GetMaxScrollYRequest{
+// GetParent calls the GetParent RPC.
+func (c *WindowInfoClient) GetParent(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetParent(ctx, &pb.GetParentRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -191,9 +202,18 @@ func (c *RecordClient) GetMaxScrollY(ctx context.Context, handle int64) (int32, 
 	return resp.GetResult(), nil
 }
 
-// GetParcelableData calls the GetParcelableData RPC.
-func (c *RecordClient) GetParcelableData(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetParcelableData(ctx, &pb.GetParcelableDataRequest{
+// GetRegionInScreen calls the GetRegionInScreen RPC.
+func (c *WindowInfoClient) GetRegionInScreen(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.GetRegionInScreen(ctx, &pb.GetRegionInScreenRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GetRoot0 calls the GetRoot0 RPC.
+func (c *WindowInfoClient) GetRoot0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetRoot0(ctx, &pb.GetRoot0Request{
 		Handle: handle,
 	})
 	if err != nil {
@@ -202,75 +222,9 @@ func (c *RecordClient) GetParcelableData(ctx context.Context, handle int64) (int
 	return resp.GetResult(), nil
 }
 
-// GetRemovedCount calls the GetRemovedCount RPC.
-func (c *RecordClient) GetRemovedCount(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetRemovedCount(ctx, &pb.GetRemovedCountRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetScrollDeltaX calls the GetScrollDeltaX RPC.
-func (c *RecordClient) GetScrollDeltaX(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetScrollDeltaX(ctx, &pb.GetScrollDeltaXRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetScrollDeltaY calls the GetScrollDeltaY RPC.
-func (c *RecordClient) GetScrollDeltaY(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetScrollDeltaY(ctx, &pb.GetScrollDeltaYRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetScrollX calls the GetScrollX RPC.
-func (c *RecordClient) GetScrollX(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetScrollX(ctx, &pb.GetScrollXRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetScrollY calls the GetScrollY RPC.
-func (c *RecordClient) GetScrollY(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetScrollY(ctx, &pb.GetScrollYRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSource0 calls the GetSource0 RPC.
-func (c *RecordClient) GetSource0(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetSource0(ctx, &pb.GetSource0Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSource1_1 calls the GetSource1_1 RPC.
-func (c *RecordClient) GetSource1_1(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetSource1_1(ctx, &pb.GetSource1_1Request{
+// GetRoot1_1 calls the GetRoot1_1 RPC.
+func (c *WindowInfoClient) GetRoot1_1(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetRoot1_1(ctx, &pb.GetRoot1_1Request{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -280,9 +234,9 @@ func (c *RecordClient) GetSource1_1(ctx context.Context, handle int64, arg0 int3
 	return resp.GetResult(), nil
 }
 
-// GetToIndex calls the GetToIndex RPC.
-func (c *RecordClient) GetToIndex(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetToIndex(ctx, &pb.GetToIndexRequest{
+// GetTitle calls the GetTitle RPC.
+func (c *WindowInfoClient) GetTitle(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTitle(ctx, &pb.GetTitleRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -291,9 +245,9 @@ func (c *RecordClient) GetToIndex(ctx context.Context, handle int64) (int32, err
 	return resp.GetResult(), nil
 }
 
-// GetWindowId calls the GetWindowId RPC.
-func (c *RecordClient) GetWindowId(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetWindowId(ctx, &pb.GetWindowIdRequest{
+// GetTransitionTimeMillis calls the GetTransitionTimeMillis RPC.
+func (c *WindowInfoClient) GetTransitionTimeMillis(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTransitionTimeMillis(ctx, &pb.GetTransitionTimeMillisRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -302,9 +256,31 @@ func (c *RecordClient) GetWindowId(ctx context.Context, handle int64) (int32, er
 	return resp.GetResult(), nil
 }
 
-// IsChecked calls the IsChecked RPC.
-func (c *RecordClient) IsChecked(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsChecked(ctx, &pb.IsCheckedRequest{
+// GetType calls the GetType RPC.
+func (c *WindowInfoClient) GetType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *WindowInfoClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAccessibilityFocused calls the IsAccessibilityFocused RPC.
+func (c *WindowInfoClient) IsAccessibilityFocused(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsAccessibilityFocused(ctx, &pb.IsAccessibilityFocusedRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -313,9 +289,9 @@ func (c *RecordClient) IsChecked(ctx context.Context, handle int64) (bool, error
 	return resp.GetResult(), nil
 }
 
-// IsEnabled calls the IsEnabled RPC.
-func (c *RecordClient) IsEnabled(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsEnabled(ctx, &pb.IsEnabledRequest{
+// IsActive calls the IsActive RPC.
+func (c *WindowInfoClient) IsActive(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsActive(ctx, &pb.IsActiveRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -324,9 +300,9 @@ func (c *RecordClient) IsEnabled(ctx context.Context, handle int64) (bool, error
 	return resp.GetResult(), nil
 }
 
-// IsFullScreen calls the IsFullScreen RPC.
-func (c *RecordClient) IsFullScreen(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsFullScreen(ctx, &pb.IsFullScreenRequest{
+// IsFocused calls the IsFocused RPC.
+func (c *WindowInfoClient) IsFocused(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsFocused(ctx, &pb.IsFocusedRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -335,20 +311,9 @@ func (c *RecordClient) IsFullScreen(ctx context.Context, handle int64) (bool, er
 	return resp.GetResult(), nil
 }
 
-// IsPassword calls the IsPassword RPC.
-func (c *RecordClient) IsPassword(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsPassword(ctx, &pb.IsPasswordRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsScrollable calls the IsScrollable RPC.
-func (c *RecordClient) IsScrollable(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsScrollable(ctx, &pb.IsScrollableRequest{
+// IsInPictureInPictureMode calls the IsInPictureInPictureMode RPC.
+func (c *WindowInfoClient) IsInPictureInPictureMode(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsInPictureInPictureMode(ctx, &pb.IsInPictureInPictureModeRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -358,223 +323,15 @@ func (c *RecordClient) IsScrollable(ctx context.Context, handle int64) (bool, er
 }
 
 // Recycle calls the Recycle RPC.
-func (c *RecordClient) Recycle(ctx context.Context, handle int64) error {
+func (c *WindowInfoClient) Recycle(ctx context.Context, handle int64) error {
 	_, err := c.svc.Recycle(ctx, &pb.RecycleRequest{
 		Handle: handle,
 	})
 	return err
 }
 
-// SetAddedCount calls the SetAddedCount RPC.
-func (c *RecordClient) SetAddedCount(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetAddedCount(ctx, &pb.SetAddedCountRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetBeforeText calls the SetBeforeText RPC.
-func (c *RecordClient) SetBeforeText(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetBeforeText(ctx, &pb.SetBeforeTextRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetChecked calls the SetChecked RPC.
-func (c *RecordClient) SetChecked(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetChecked(ctx, &pb.SetCheckedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetClassName calls the SetClassName RPC.
-func (c *RecordClient) SetClassName(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetClassName(ctx, &pb.SetClassNameRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetContentDescription calls the SetContentDescription RPC.
-func (c *RecordClient) SetContentDescription(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetContentDescription(ctx, &pb.SetContentDescriptionRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetCurrentItemIndex calls the SetCurrentItemIndex RPC.
-func (c *RecordClient) SetCurrentItemIndex(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetCurrentItemIndex(ctx, &pb.SetCurrentItemIndexRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetEnabled calls the SetEnabled RPC.
-func (c *RecordClient) SetEnabled(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetEnabled(ctx, &pb.SetEnabledRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetFromIndex calls the SetFromIndex RPC.
-func (c *RecordClient) SetFromIndex(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetFromIndex(ctx, &pb.SetFromIndexRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetFullScreen calls the SetFullScreen RPC.
-func (c *RecordClient) SetFullScreen(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetFullScreen(ctx, &pb.SetFullScreenRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetItemCount calls the SetItemCount RPC.
-func (c *RecordClient) SetItemCount(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetItemCount(ctx, &pb.SetItemCountRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetMaxScrollX calls the SetMaxScrollX RPC.
-func (c *RecordClient) SetMaxScrollX(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetMaxScrollX(ctx, &pb.SetMaxScrollXRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetMaxScrollY calls the SetMaxScrollY RPC.
-func (c *RecordClient) SetMaxScrollY(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetMaxScrollY(ctx, &pb.SetMaxScrollYRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetParcelableData calls the SetParcelableData RPC.
-func (c *RecordClient) SetParcelableData(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetParcelableData(ctx, &pb.SetParcelableDataRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetPassword calls the SetPassword RPC.
-func (c *RecordClient) SetPassword(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetPassword(ctx, &pb.SetPasswordRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetRemovedCount calls the SetRemovedCount RPC.
-func (c *RecordClient) SetRemovedCount(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetRemovedCount(ctx, &pb.SetRemovedCountRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetScrollDeltaX calls the SetScrollDeltaX RPC.
-func (c *RecordClient) SetScrollDeltaX(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetScrollDeltaX(ctx, &pb.SetScrollDeltaXRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetScrollDeltaY calls the SetScrollDeltaY RPC.
-func (c *RecordClient) SetScrollDeltaY(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetScrollDeltaY(ctx, &pb.SetScrollDeltaYRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetScrollX calls the SetScrollX RPC.
-func (c *RecordClient) SetScrollX(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetScrollX(ctx, &pb.SetScrollXRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetScrollY calls the SetScrollY RPC.
-func (c *RecordClient) SetScrollY(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetScrollY(ctx, &pb.SetScrollYRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetScrollable calls the SetScrollable RPC.
-func (c *RecordClient) SetScrollable(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetScrollable(ctx, &pb.SetScrollableRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetSource1 calls the SetSource1 RPC.
-func (c *RecordClient) SetSource1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetSource1(ctx, &pb.SetSource1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetSource2_1 calls the SetSource2_1 RPC.
-func (c *RecordClient) SetSource2_1(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.SetSource2_1(ctx, &pb.SetSource2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetToIndex calls the SetToIndex RPC.
-func (c *RecordClient) SetToIndex(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetToIndex(ctx, &pb.SetToIndexRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
 // ToString calls the ToString RPC.
-func (c *RecordClient) ToString(ctx context.Context, handle int64) (string, error) {
+func (c *WindowInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
 	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
 		Handle: handle,
 	})
@@ -584,8 +341,18 @@ func (c *RecordClient) ToString(ctx context.Context, handle int64) (string, erro
 	return resp.GetResult(), nil
 }
 
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *WindowInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
 // Obtain0 calls the Obtain0 RPC.
-func (c *RecordClient) Obtain0(ctx context.Context, handle int64) (int64, error) {
+func (c *WindowInfoClient) Obtain0(ctx context.Context, handle int64) (int64, error) {
 	resp, err := c.svc.Obtain0(ctx, &pb.Obtain0Request{
 		Handle: handle,
 	})
@@ -596,7 +363,7 @@ func (c *RecordClient) Obtain0(ctx context.Context, handle int64) (int64, error)
 }
 
 // Obtain1_1 calls the Obtain1_1 RPC.
-func (c *RecordClient) Obtain1_1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+func (c *WindowInfoClient) Obtain1_1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
 	resp, err := c.svc.Obtain1_1(ctx, &pb.Obtain1_1Request{
 		Handle: handle,
 		Arg0:   arg0,
@@ -709,6 +476,30 @@ func (c *NodeInfoClient) Equals(ctx context.Context, handle int64, arg0 int64) (
 	return resp.GetResult(), nil
 }
 
+// FindAccessibilityNodeInfosByText calls the FindAccessibilityNodeInfosByText RPC.
+func (c *NodeInfoClient) FindAccessibilityNodeInfosByText(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.FindAccessibilityNodeInfosByText(ctx, &pb.FindAccessibilityNodeInfosByTextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FindAccessibilityNodeInfosByViewId calls the FindAccessibilityNodeInfosByViewId RPC.
+func (c *NodeInfoClient) FindAccessibilityNodeInfosByViewId(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.FindAccessibilityNodeInfosByViewId(ctx, &pb.FindAccessibilityNodeInfosByViewIdRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // FindFocus calls the FindFocus RPC.
 func (c *NodeInfoClient) FindFocus(ctx context.Context, handle int64, arg0 int32) (int64, error) {
 	resp, err := c.svc.FindFocus(ctx, &pb.FindFocusRequest{
@@ -733,9 +524,31 @@ func (c *NodeInfoClient) FocusSearch(ctx context.Context, handle int64, arg0 int
 	return resp.GetResult(), nil
 }
 
+// GetActionList calls the GetActionList RPC.
+func (c *NodeInfoClient) GetActionList(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetActionList(ctx, &pb.GetActionListRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetActions calls the GetActions RPC.
 func (c *NodeInfoClient) GetActions(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.GetActions(ctx, &pb.GetActionsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAvailableExtraData calls the GetAvailableExtraData RPC.
+func (c *NodeInfoClient) GetAvailableExtraData(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetAvailableExtraData(ctx, &pb.GetAvailableExtraDataRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -964,6 +777,17 @@ func (c *NodeInfoClient) GetLabelFor(ctx context.Context, handle int64) (int64, 
 // GetLabeledBy calls the GetLabeledBy RPC.
 func (c *NodeInfoClient) GetLabeledBy(ctx context.Context, handle int64) (int64, error) {
 	resp, err := c.svc.GetLabeledBy(ctx, &pb.GetLabeledByRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLabeledByList calls the GetLabeledByList RPC.
+func (c *NodeInfoClient) GetLabeledByList(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLabeledByList(ctx, &pb.GetLabeledByListRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -2392,7 +2216,7 @@ func (c *NodeInfoAccessibilityActionClient) Equals(ctx context.Context, arg0 int
 
 // GetId calls the GetId RPC.
 func (c *NodeInfoAccessibilityActionClient) GetId(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
+	resp, err := c.svc.GetId(ctx, &pb.NodeInfoAccessibilityActionGetIdRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -2467,7 +2291,7 @@ func (c *NodeInfoCollectionInfoClient) GetImportantForAccessibilityItemCount(ctx
 
 // GetItemCount calls the GetItemCount RPC.
 func (c *NodeInfoCollectionInfoClient) GetItemCount(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetItemCount(ctx, &pb.NodeInfoCollectionInfoGetItemCountRequest{})
+	resp, err := c.svc.GetItemCount(ctx, &pb.GetItemCountRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -2723,7 +2547,7 @@ func (c *NodeInfoRangeInfoClient) GetMin(ctx context.Context) (float32, error) {
 
 // GetType calls the GetType RPC.
 func (c *NodeInfoRangeInfoClient) GetType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{})
+	resp, err := c.svc.GetType(ctx, &pb.NodeInfoRangeInfoGetTypeRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -2803,369 +2627,6 @@ func (c *NodeInfoTouchDelegateInfoClient) WriteToParcel(ctx context.Context, arg
 		Arg1: arg1,
 	})
 	return err
-}
-
-// WindowInfoClient wraps the gRPC WindowInfoService client.
-type WindowInfoClient struct {
-	svc pb.WindowInfoServiceClient
-}
-
-// NewWindowInfoClient creates a new WindowInfo client.
-func NewWindowInfoClient(cc grpc.ClientConnInterface) *WindowInfoClient {
-	return &WindowInfoClient{
-		svc: pb.NewWindowInfoServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *WindowInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *WindowInfoClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAnchor calls the GetAnchor RPC.
-func (c *WindowInfoClient) GetAnchor(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetAnchor(ctx, &pb.GetAnchorRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBoundsInScreen calls the GetBoundsInScreen RPC.
-func (c *WindowInfoClient) GetBoundsInScreen(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.GetBoundsInScreen(ctx, &pb.GetBoundsInScreenRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GetChild calls the GetChild RPC.
-func (c *WindowInfoClient) GetChild(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetChild(ctx, &pb.GetChildRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetChildCount calls the GetChildCount RPC.
-func (c *WindowInfoClient) GetChildCount(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetChildCount(ctx, &pb.GetChildCountRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDisplayId calls the GetDisplayId RPC.
-func (c *WindowInfoClient) GetDisplayId(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetDisplayId(ctx, &pb.GetDisplayIdRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetId calls the GetId RPC.
-func (c *WindowInfoClient) GetId(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetId(ctx, &pb.WindowInfoGetIdRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLayer calls the GetLayer RPC.
-func (c *WindowInfoClient) GetLayer(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetLayer(ctx, &pb.GetLayerRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLocales calls the GetLocales RPC.
-func (c *WindowInfoClient) GetLocales(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetLocales(ctx, &pb.GetLocalesRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetParent calls the GetParent RPC.
-func (c *WindowInfoClient) GetParent(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetParent(ctx, &pb.GetParentRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRegionInScreen calls the GetRegionInScreen RPC.
-func (c *WindowInfoClient) GetRegionInScreen(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.GetRegionInScreen(ctx, &pb.GetRegionInScreenRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GetRoot0 calls the GetRoot0 RPC.
-func (c *WindowInfoClient) GetRoot0(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetRoot0(ctx, &pb.GetRoot0Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRoot1_1 calls the GetRoot1_1 RPC.
-func (c *WindowInfoClient) GetRoot1_1(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetRoot1_1(ctx, &pb.GetRoot1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTitle calls the GetTitle RPC.
-func (c *WindowInfoClient) GetTitle(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetTitle(ctx, &pb.GetTitleRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTransitionTimeMillis calls the GetTransitionTimeMillis RPC.
-func (c *WindowInfoClient) GetTransitionTimeMillis(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetTransitionTimeMillis(ctx, &pb.GetTransitionTimeMillisRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetType calls the GetType RPC.
-func (c *WindowInfoClient) GetType(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetType(ctx, &pb.WindowInfoGetTypeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *WindowInfoClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsAccessibilityFocused calls the IsAccessibilityFocused RPC.
-func (c *WindowInfoClient) IsAccessibilityFocused(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsAccessibilityFocused(ctx, &pb.IsAccessibilityFocusedRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsActive calls the IsActive RPC.
-func (c *WindowInfoClient) IsActive(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsActive(ctx, &pb.IsActiveRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsFocused calls the IsFocused RPC.
-func (c *WindowInfoClient) IsFocused(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsFocused(ctx, &pb.IsFocusedRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsInPictureInPictureMode calls the IsInPictureInPictureMode RPC.
-func (c *WindowInfoClient) IsInPictureInPictureMode(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsInPictureInPictureMode(ctx, &pb.IsInPictureInPictureModeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Recycle calls the Recycle RPC.
-func (c *WindowInfoClient) Recycle(ctx context.Context, handle int64) error {
-	_, err := c.svc.Recycle(ctx, &pb.RecycleRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// ToString calls the ToString RPC.
-func (c *WindowInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *WindowInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// Obtain0 calls the Obtain0 RPC.
-func (c *WindowInfoClient) Obtain0(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Obtain0(ctx, &pb.Obtain0Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Obtain1_1 calls the Obtain1_1 RPC.
-func (c *WindowInfoClient) Obtain1_1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.Obtain1_1(ctx, &pb.Obtain1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NodeProviderClient wraps the gRPC NodeProviderService client.
-type NodeProviderClient struct {
-	svc pb.NodeProviderServiceClient
-}
-
-// NewNodeProviderClient creates a new NodeProvider client.
-func NewNodeProviderClient(cc grpc.ClientConnInterface) *NodeProviderClient {
-	return &NodeProviderClient{
-		svc: pb.NewNodeProviderServiceClient(cc),
-	}
-}
-
-// AddExtraDataToAccessibilityNodeInfo calls the AddExtraDataToAccessibilityNodeInfo RPC.
-func (c *NodeProviderClient) AddExtraDataToAccessibilityNodeInfo(ctx context.Context, arg0 int32, arg1 int64, arg2 string, arg3 int64) error {
-	_, err := c.svc.AddExtraDataToAccessibilityNodeInfo(ctx, &pb.AddExtraDataToAccessibilityNodeInfoRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// CreateAccessibilityNodeInfo calls the CreateAccessibilityNodeInfo RPC.
-func (c *NodeProviderClient) CreateAccessibilityNodeInfo(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.CreateAccessibilityNodeInfo(ctx, &pb.CreateAccessibilityNodeInfoRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FindFocus calls the FindFocus RPC.
-func (c *NodeProviderClient) FindFocus(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.FindFocus(ctx, &pb.NodeProviderFindFocusRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PerformAction calls the PerformAction RPC.
-func (c *NodeProviderClient) PerformAction(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) (bool, error) {
-	resp, err := c.svc.PerformAction(ctx, &pb.PerformActionRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
 }
 
 // CaptioningManagerClient wraps the gRPC CaptioningManagerService client.
@@ -3474,6 +2935,35 @@ func (c *ManagerClient) GetAccessibilityFocusColor(ctx context.Context) (int32, 
 // GetAccessibilityFocusStrokeWidth calls the GetAccessibilityFocusStrokeWidth RPC.
 func (c *ManagerClient) GetAccessibilityFocusStrokeWidth(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetAccessibilityFocusStrokeWidth(ctx, &pb.GetAccessibilityFocusStrokeWidthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAccessibilityServiceList calls the GetAccessibilityServiceList RPC.
+func (c *ManagerClient) GetAccessibilityServiceList(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAccessibilityServiceList(ctx, &pb.GetAccessibilityServiceListRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEnabledAccessibilityServiceList calls the GetEnabledAccessibilityServiceList RPC.
+func (c *ManagerClient) GetEnabledAccessibilityServiceList(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetEnabledAccessibilityServiceList(ctx, &pb.GetEnabledAccessibilityServiceListRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstalledAccessibilityServiceList calls the GetInstalledAccessibilityServiceList RPC.
+func (c *ManagerClient) GetInstalledAccessibilityServiceList(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInstalledAccessibilityServiceList(ctx, &pb.GetInstalledAccessibilityServiceListRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -4027,6 +3517,625 @@ func (c *EventClient) Obtain1_2(ctx context.Context, handle int64, arg0 int32) (
 	})
 	if err != nil {
 		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RecordClient wraps the gRPC RecordService client.
+type RecordClient struct {
+	svc pb.RecordServiceClient
+}
+
+// NewRecordClient creates a new Record client.
+func NewRecordClient(cc grpc.ClientConnInterface) *RecordClient {
+	return &RecordClient{
+		svc: pb.NewRecordServiceClient(cc),
+	}
+}
+
+// GetAddedCount calls the GetAddedCount RPC.
+func (c *RecordClient) GetAddedCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetAddedCount(ctx, &pb.GetAddedCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBeforeText calls the GetBeforeText RPC.
+func (c *RecordClient) GetBeforeText(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetBeforeText(ctx, &pb.GetBeforeTextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetClassName calls the GetClassName RPC.
+func (c *RecordClient) GetClassName(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetClassName(ctx, &pb.GetClassNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetContentDescription calls the GetContentDescription RPC.
+func (c *RecordClient) GetContentDescription(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetContentDescription(ctx, &pb.GetContentDescriptionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCurrentItemIndex calls the GetCurrentItemIndex RPC.
+func (c *RecordClient) GetCurrentItemIndex(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetCurrentItemIndex(ctx, &pb.GetCurrentItemIndexRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDisplayId calls the GetDisplayId RPC.
+func (c *RecordClient) GetDisplayId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetDisplayId(ctx, &pb.GetDisplayIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFromIndex calls the GetFromIndex RPC.
+func (c *RecordClient) GetFromIndex(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetFromIndex(ctx, &pb.GetFromIndexRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetItemCount calls the GetItemCount RPC.
+func (c *RecordClient) GetItemCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetItemCount(ctx, &pb.RecordGetItemCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxScrollX calls the GetMaxScrollX RPC.
+func (c *RecordClient) GetMaxScrollX(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetMaxScrollX(ctx, &pb.GetMaxScrollXRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxScrollY calls the GetMaxScrollY RPC.
+func (c *RecordClient) GetMaxScrollY(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetMaxScrollY(ctx, &pb.GetMaxScrollYRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetParcelableData calls the GetParcelableData RPC.
+func (c *RecordClient) GetParcelableData(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetParcelableData(ctx, &pb.GetParcelableDataRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRemovedCount calls the GetRemovedCount RPC.
+func (c *RecordClient) GetRemovedCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetRemovedCount(ctx, &pb.GetRemovedCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScrollDeltaX calls the GetScrollDeltaX RPC.
+func (c *RecordClient) GetScrollDeltaX(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetScrollDeltaX(ctx, &pb.GetScrollDeltaXRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScrollDeltaY calls the GetScrollDeltaY RPC.
+func (c *RecordClient) GetScrollDeltaY(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetScrollDeltaY(ctx, &pb.GetScrollDeltaYRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScrollX calls the GetScrollX RPC.
+func (c *RecordClient) GetScrollX(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetScrollX(ctx, &pb.GetScrollXRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScrollY calls the GetScrollY RPC.
+func (c *RecordClient) GetScrollY(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetScrollY(ctx, &pb.GetScrollYRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSource0 calls the GetSource0 RPC.
+func (c *RecordClient) GetSource0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSource0(ctx, &pb.GetSource0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSource1_1 calls the GetSource1_1 RPC.
+func (c *RecordClient) GetSource1_1(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetSource1_1(ctx, &pb.GetSource1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetText calls the GetText RPC.
+func (c *RecordClient) GetText(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetText(ctx, &pb.GetTextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetToIndex calls the GetToIndex RPC.
+func (c *RecordClient) GetToIndex(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetToIndex(ctx, &pb.GetToIndexRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWindowId calls the GetWindowId RPC.
+func (c *RecordClient) GetWindowId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetWindowId(ctx, &pb.GetWindowIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsChecked calls the IsChecked RPC.
+func (c *RecordClient) IsChecked(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsChecked(ctx, &pb.IsCheckedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsEnabled calls the IsEnabled RPC.
+func (c *RecordClient) IsEnabled(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsEnabled(ctx, &pb.IsEnabledRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFullScreen calls the IsFullScreen RPC.
+func (c *RecordClient) IsFullScreen(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsFullScreen(ctx, &pb.IsFullScreenRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsPassword calls the IsPassword RPC.
+func (c *RecordClient) IsPassword(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsPassword(ctx, &pb.IsPasswordRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsScrollable calls the IsScrollable RPC.
+func (c *RecordClient) IsScrollable(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsScrollable(ctx, &pb.IsScrollableRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Recycle calls the Recycle RPC.
+func (c *RecordClient) Recycle(ctx context.Context, handle int64) error {
+	_, err := c.svc.Recycle(ctx, &pb.RecycleRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// SetAddedCount calls the SetAddedCount RPC.
+func (c *RecordClient) SetAddedCount(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetAddedCount(ctx, &pb.SetAddedCountRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetBeforeText calls the SetBeforeText RPC.
+func (c *RecordClient) SetBeforeText(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetBeforeText(ctx, &pb.SetBeforeTextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetChecked calls the SetChecked RPC.
+func (c *RecordClient) SetChecked(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetChecked(ctx, &pb.SetCheckedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetClassName calls the SetClassName RPC.
+func (c *RecordClient) SetClassName(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetClassName(ctx, &pb.SetClassNameRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetContentDescription calls the SetContentDescription RPC.
+func (c *RecordClient) SetContentDescription(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetContentDescription(ctx, &pb.SetContentDescriptionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetCurrentItemIndex calls the SetCurrentItemIndex RPC.
+func (c *RecordClient) SetCurrentItemIndex(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetCurrentItemIndex(ctx, &pb.SetCurrentItemIndexRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetEnabled calls the SetEnabled RPC.
+func (c *RecordClient) SetEnabled(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetEnabled(ctx, &pb.SetEnabledRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetFromIndex calls the SetFromIndex RPC.
+func (c *RecordClient) SetFromIndex(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetFromIndex(ctx, &pb.SetFromIndexRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetFullScreen calls the SetFullScreen RPC.
+func (c *RecordClient) SetFullScreen(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetFullScreen(ctx, &pb.SetFullScreenRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetItemCount calls the SetItemCount RPC.
+func (c *RecordClient) SetItemCount(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetItemCount(ctx, &pb.SetItemCountRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetMaxScrollX calls the SetMaxScrollX RPC.
+func (c *RecordClient) SetMaxScrollX(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetMaxScrollX(ctx, &pb.SetMaxScrollXRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetMaxScrollY calls the SetMaxScrollY RPC.
+func (c *RecordClient) SetMaxScrollY(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetMaxScrollY(ctx, &pb.SetMaxScrollYRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetParcelableData calls the SetParcelableData RPC.
+func (c *RecordClient) SetParcelableData(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetParcelableData(ctx, &pb.SetParcelableDataRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPassword calls the SetPassword RPC.
+func (c *RecordClient) SetPassword(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetPassword(ctx, &pb.SetPasswordRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetRemovedCount calls the SetRemovedCount RPC.
+func (c *RecordClient) SetRemovedCount(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetRemovedCount(ctx, &pb.SetRemovedCountRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetScrollDeltaX calls the SetScrollDeltaX RPC.
+func (c *RecordClient) SetScrollDeltaX(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetScrollDeltaX(ctx, &pb.SetScrollDeltaXRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetScrollDeltaY calls the SetScrollDeltaY RPC.
+func (c *RecordClient) SetScrollDeltaY(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetScrollDeltaY(ctx, &pb.SetScrollDeltaYRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetScrollX calls the SetScrollX RPC.
+func (c *RecordClient) SetScrollX(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetScrollX(ctx, &pb.SetScrollXRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetScrollY calls the SetScrollY RPC.
+func (c *RecordClient) SetScrollY(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetScrollY(ctx, &pb.SetScrollYRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetScrollable calls the SetScrollable RPC.
+func (c *RecordClient) SetScrollable(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetScrollable(ctx, &pb.SetScrollableRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetSource1 calls the SetSource1 RPC.
+func (c *RecordClient) SetSource1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetSource1(ctx, &pb.SetSource1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetSource2_1 calls the SetSource2_1 RPC.
+func (c *RecordClient) SetSource2_1(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.SetSource2_1(ctx, &pb.SetSource2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetToIndex calls the SetToIndex RPC.
+func (c *RecordClient) SetToIndex(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetToIndex(ctx, &pb.SetToIndexRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *RecordClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Obtain0 calls the Obtain0 RPC.
+func (c *RecordClient) Obtain0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Obtain0(ctx, &pb.Obtain0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Obtain1_1 calls the Obtain1_1 RPC.
+func (c *RecordClient) Obtain1_1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.Obtain1_1(ctx, &pb.Obtain1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NodeProviderClient wraps the gRPC NodeProviderService client.
+type NodeProviderClient struct {
+	svc pb.NodeProviderServiceClient
+}
+
+// NewNodeProviderClient creates a new NodeProvider client.
+func NewNodeProviderClient(cc grpc.ClientConnInterface) *NodeProviderClient {
+	return &NodeProviderClient{
+		svc: pb.NewNodeProviderServiceClient(cc),
+	}
+}
+
+// AddExtraDataToAccessibilityNodeInfo calls the AddExtraDataToAccessibilityNodeInfo RPC.
+func (c *NodeProviderClient) AddExtraDataToAccessibilityNodeInfo(ctx context.Context, arg0 int32, arg1 int64, arg2 string, arg3 int64) error {
+	_, err := c.svc.AddExtraDataToAccessibilityNodeInfo(ctx, &pb.AddExtraDataToAccessibilityNodeInfoRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// CreateAccessibilityNodeInfo calls the CreateAccessibilityNodeInfo RPC.
+func (c *NodeProviderClient) CreateAccessibilityNodeInfo(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.CreateAccessibilityNodeInfo(ctx, &pb.CreateAccessibilityNodeInfoRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FindAccessibilityNodeInfosByText calls the FindAccessibilityNodeInfosByText RPC.
+func (c *NodeProviderClient) FindAccessibilityNodeInfosByText(ctx context.Context, arg0 string, arg1 int32) (int64, error) {
+	resp, err := c.svc.FindAccessibilityNodeInfosByText(ctx, &pb.NodeProviderFindAccessibilityNodeInfosByTextRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FindFocus calls the FindFocus RPC.
+func (c *NodeProviderClient) FindFocus(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.FindFocus(ctx, &pb.NodeProviderFindFocusRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PerformAction calls the PerformAction RPC.
+func (c *NodeProviderClient) PerformAction(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) (bool, error) {
+	resp, err := c.svc.PerformAction(ctx, &pb.PerformActionRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
 	}
 	return resp.GetResult(), nil
 }

@@ -21,362 +21,6 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	FloatActionService_NewFloatAction_FullMethodName = "/actions.FloatActionService/NewFloatAction"
-	FloatActionService_GetActionType_FullMethodName  = "/actions.FloatActionService/GetActionType"
-	FloatActionService_GetNewValue_FullMethodName    = "/actions.FloatActionService/GetNewValue"
-)
-
-// FloatActionServiceClient is the client API for FloatActionService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type FloatActionServiceClient interface {
-	NewFloatAction(ctx context.Context, in *NewFloatActionRequest, opts ...grpc.CallOption) (*NewFloatActionResponse, error)
-	GetActionType(ctx context.Context, in *GetActionTypeRequest, opts ...grpc.CallOption) (*GetActionTypeResponse, error)
-	GetNewValue(ctx context.Context, in *GetNewValueRequest, opts ...grpc.CallOption) (*GetNewValueResponse, error)
-}
-
-type floatActionServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewFloatActionServiceClient(cc grpc.ClientConnInterface) FloatActionServiceClient {
-	return &floatActionServiceClient{cc}
-}
-
-func (c *floatActionServiceClient) NewFloatAction(ctx context.Context, in *NewFloatActionRequest, opts ...grpc.CallOption) (*NewFloatActionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewFloatActionResponse)
-	err := c.cc.Invoke(ctx, FloatActionService_NewFloatAction_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *floatActionServiceClient) GetActionType(ctx context.Context, in *GetActionTypeRequest, opts ...grpc.CallOption) (*GetActionTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetActionTypeResponse)
-	err := c.cc.Invoke(ctx, FloatActionService_GetActionType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *floatActionServiceClient) GetNewValue(ctx context.Context, in *GetNewValueRequest, opts ...grpc.CallOption) (*GetNewValueResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNewValueResponse)
-	err := c.cc.Invoke(ctx, FloatActionService_GetNewValue_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// FloatActionServiceServer is the server API for FloatActionService service.
-// All implementations must embed UnimplementedFloatActionServiceServer
-// for forward compatibility.
-type FloatActionServiceServer interface {
-	NewFloatAction(context.Context, *NewFloatActionRequest) (*NewFloatActionResponse, error)
-	GetActionType(context.Context, *GetActionTypeRequest) (*GetActionTypeResponse, error)
-	GetNewValue(context.Context, *GetNewValueRequest) (*GetNewValueResponse, error)
-	mustEmbedUnimplementedFloatActionServiceServer()
-}
-
-// UnimplementedFloatActionServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedFloatActionServiceServer struct{}
-
-func (UnimplementedFloatActionServiceServer) NewFloatAction(context.Context, *NewFloatActionRequest) (*NewFloatActionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewFloatAction not implemented")
-}
-func (UnimplementedFloatActionServiceServer) GetActionType(context.Context, *GetActionTypeRequest) (*GetActionTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetActionType not implemented")
-}
-func (UnimplementedFloatActionServiceServer) GetNewValue(context.Context, *GetNewValueRequest) (*GetNewValueResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetNewValue not implemented")
-}
-func (UnimplementedFloatActionServiceServer) mustEmbedUnimplementedFloatActionServiceServer() {}
-func (UnimplementedFloatActionServiceServer) testEmbeddedByValue()                            {}
-
-// UnsafeFloatActionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to FloatActionServiceServer will
-// result in compilation errors.
-type UnsafeFloatActionServiceServer interface {
-	mustEmbedUnimplementedFloatActionServiceServer()
-}
-
-func RegisterFloatActionServiceServer(s grpc.ServiceRegistrar, srv FloatActionServiceServer) {
-	// If the following call panics, it indicates UnimplementedFloatActionServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&FloatActionService_ServiceDesc, srv)
-}
-
-func _FloatActionService_NewFloatAction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewFloatActionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FloatActionServiceServer).NewFloatAction(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FloatActionService_NewFloatAction_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FloatActionServiceServer).NewFloatAction(ctx, req.(*NewFloatActionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FloatActionService_GetActionType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetActionTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FloatActionServiceServer).GetActionType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FloatActionService_GetActionType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FloatActionServiceServer).GetActionType(ctx, req.(*GetActionTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FloatActionService_GetNewValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNewValueRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FloatActionServiceServer).GetNewValue(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FloatActionService_GetNewValue_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FloatActionServiceServer).GetNewValue(ctx, req.(*GetNewValueRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// FloatActionService_ServiceDesc is the grpc.ServiceDesc for FloatActionService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var FloatActionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "actions.FloatActionService",
-	HandlerType: (*FloatActionServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewFloatAction",
-			Handler:    _FloatActionService_NewFloatAction_Handler,
-		},
-		{
-			MethodName: "GetActionType",
-			Handler:    _FloatActionService_GetActionType_Handler,
-		},
-		{
-			MethodName: "GetNewValue",
-			Handler:    _FloatActionService_GetNewValue_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/actions/actions.proto",
-}
-
-const (
-	ModeActionService_NewModeAction_FullMethodName = "/actions.ModeActionService/NewModeAction"
-	ModeActionService_GetActionType_FullMethodName = "/actions.ModeActionService/GetActionType"
-	ModeActionService_GetNewMode_FullMethodName    = "/actions.ModeActionService/GetNewMode"
-)
-
-// ModeActionServiceClient is the client API for ModeActionService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ModeActionServiceClient interface {
-	NewModeAction(ctx context.Context, in *NewModeActionRequest, opts ...grpc.CallOption) (*NewModeActionResponse, error)
-	GetActionType(ctx context.Context, in *GetActionTypeRequest, opts ...grpc.CallOption) (*GetActionTypeResponse, error)
-	GetNewMode(ctx context.Context, in *GetNewModeRequest, opts ...grpc.CallOption) (*GetNewModeResponse, error)
-}
-
-type modeActionServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewModeActionServiceClient(cc grpc.ClientConnInterface) ModeActionServiceClient {
-	return &modeActionServiceClient{cc}
-}
-
-func (c *modeActionServiceClient) NewModeAction(ctx context.Context, in *NewModeActionRequest, opts ...grpc.CallOption) (*NewModeActionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewModeActionResponse)
-	err := c.cc.Invoke(ctx, ModeActionService_NewModeAction_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *modeActionServiceClient) GetActionType(ctx context.Context, in *GetActionTypeRequest, opts ...grpc.CallOption) (*GetActionTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetActionTypeResponse)
-	err := c.cc.Invoke(ctx, ModeActionService_GetActionType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *modeActionServiceClient) GetNewMode(ctx context.Context, in *GetNewModeRequest, opts ...grpc.CallOption) (*GetNewModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNewModeResponse)
-	err := c.cc.Invoke(ctx, ModeActionService_GetNewMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ModeActionServiceServer is the server API for ModeActionService service.
-// All implementations must embed UnimplementedModeActionServiceServer
-// for forward compatibility.
-type ModeActionServiceServer interface {
-	NewModeAction(context.Context, *NewModeActionRequest) (*NewModeActionResponse, error)
-	GetActionType(context.Context, *GetActionTypeRequest) (*GetActionTypeResponse, error)
-	GetNewMode(context.Context, *GetNewModeRequest) (*GetNewModeResponse, error)
-	mustEmbedUnimplementedModeActionServiceServer()
-}
-
-// UnimplementedModeActionServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedModeActionServiceServer struct{}
-
-func (UnimplementedModeActionServiceServer) NewModeAction(context.Context, *NewModeActionRequest) (*NewModeActionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewModeAction not implemented")
-}
-func (UnimplementedModeActionServiceServer) GetActionType(context.Context, *GetActionTypeRequest) (*GetActionTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetActionType not implemented")
-}
-func (UnimplementedModeActionServiceServer) GetNewMode(context.Context, *GetNewModeRequest) (*GetNewModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetNewMode not implemented")
-}
-func (UnimplementedModeActionServiceServer) mustEmbedUnimplementedModeActionServiceServer() {}
-func (UnimplementedModeActionServiceServer) testEmbeddedByValue()                           {}
-
-// UnsafeModeActionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ModeActionServiceServer will
-// result in compilation errors.
-type UnsafeModeActionServiceServer interface {
-	mustEmbedUnimplementedModeActionServiceServer()
-}
-
-func RegisterModeActionServiceServer(s grpc.ServiceRegistrar, srv ModeActionServiceServer) {
-	// If the following call panics, it indicates UnimplementedModeActionServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ModeActionService_ServiceDesc, srv)
-}
-
-func _ModeActionService_NewModeAction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewModeActionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ModeActionServiceServer).NewModeAction(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ModeActionService_NewModeAction_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ModeActionServiceServer).NewModeAction(ctx, req.(*NewModeActionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ModeActionService_GetActionType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetActionTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ModeActionServiceServer).GetActionType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ModeActionService_GetActionType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ModeActionServiceServer).GetActionType(ctx, req.(*GetActionTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ModeActionService_GetNewMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNewModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ModeActionServiceServer).GetNewMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ModeActionService_GetNewMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ModeActionServiceServer).GetNewMode(ctx, req.(*GetNewModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ModeActionService_ServiceDesc is the grpc.ServiceDesc for ModeActionService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ModeActionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "actions.ModeActionService",
-	HandlerType: (*ModeActionServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewModeAction",
-			Handler:    _ModeActionService_NewModeAction_Handler,
-		},
-		{
-			MethodName: "GetActionType",
-			Handler:    _ModeActionService_GetActionType_Handler,
-		},
-		{
-			MethodName: "GetNewMode",
-			Handler:    _ModeActionService_GetNewMode_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/actions/actions.proto",
-}
-
-const (
 	BooleanActionService_NewBooleanAction_FullMethodName = "/actions.BooleanActionService/NewBooleanAction"
 	BooleanActionService_GetActionType_FullMethodName    = "/actions.BooleanActionService/GetActionType"
 	BooleanActionService_GetNewState_FullMethodName      = "/actions.BooleanActionService/GetNewState"
@@ -548,146 +192,6 @@ var BooleanActionService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetNewState",
 			Handler:    _BooleanActionService_GetNewState_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/actions/actions.proto",
-}
-
-const (
-	CommandActionService_NewCommandAction_FullMethodName = "/actions.CommandActionService/NewCommandAction"
-	CommandActionService_GetActionType_FullMethodName    = "/actions.CommandActionService/GetActionType"
-)
-
-// CommandActionServiceClient is the client API for CommandActionService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CommandActionServiceClient interface {
-	NewCommandAction(ctx context.Context, in *NewCommandActionRequest, opts ...grpc.CallOption) (*NewCommandActionResponse, error)
-	GetActionType(ctx context.Context, in *GetActionTypeRequest, opts ...grpc.CallOption) (*GetActionTypeResponse, error)
-}
-
-type commandActionServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCommandActionServiceClient(cc grpc.ClientConnInterface) CommandActionServiceClient {
-	return &commandActionServiceClient{cc}
-}
-
-func (c *commandActionServiceClient) NewCommandAction(ctx context.Context, in *NewCommandActionRequest, opts ...grpc.CallOption) (*NewCommandActionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewCommandActionResponse)
-	err := c.cc.Invoke(ctx, CommandActionService_NewCommandAction_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *commandActionServiceClient) GetActionType(ctx context.Context, in *GetActionTypeRequest, opts ...grpc.CallOption) (*GetActionTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetActionTypeResponse)
-	err := c.cc.Invoke(ctx, CommandActionService_GetActionType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CommandActionServiceServer is the server API for CommandActionService service.
-// All implementations must embed UnimplementedCommandActionServiceServer
-// for forward compatibility.
-type CommandActionServiceServer interface {
-	NewCommandAction(context.Context, *NewCommandActionRequest) (*NewCommandActionResponse, error)
-	GetActionType(context.Context, *GetActionTypeRequest) (*GetActionTypeResponse, error)
-	mustEmbedUnimplementedCommandActionServiceServer()
-}
-
-// UnimplementedCommandActionServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCommandActionServiceServer struct{}
-
-func (UnimplementedCommandActionServiceServer) NewCommandAction(context.Context, *NewCommandActionRequest) (*NewCommandActionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewCommandAction not implemented")
-}
-func (UnimplementedCommandActionServiceServer) GetActionType(context.Context, *GetActionTypeRequest) (*GetActionTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetActionType not implemented")
-}
-func (UnimplementedCommandActionServiceServer) mustEmbedUnimplementedCommandActionServiceServer() {}
-func (UnimplementedCommandActionServiceServer) testEmbeddedByValue()                              {}
-
-// UnsafeCommandActionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CommandActionServiceServer will
-// result in compilation errors.
-type UnsafeCommandActionServiceServer interface {
-	mustEmbedUnimplementedCommandActionServiceServer()
-}
-
-func RegisterCommandActionServiceServer(s grpc.ServiceRegistrar, srv CommandActionServiceServer) {
-	// If the following call panics, it indicates UnimplementedCommandActionServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CommandActionService_ServiceDesc, srv)
-}
-
-func _CommandActionService_NewCommandAction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewCommandActionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CommandActionServiceServer).NewCommandAction(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CommandActionService_NewCommandAction_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CommandActionServiceServer).NewCommandAction(ctx, req.(*NewCommandActionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CommandActionService_GetActionType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetActionTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CommandActionServiceServer).GetActionType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CommandActionService_GetActionType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CommandActionServiceServer).GetActionType(ctx, req.(*GetActionTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CommandActionService_ServiceDesc is the grpc.ServiceDesc for CommandActionService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CommandActionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "actions.CommandActionService",
-	HandlerType: (*CommandActionServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewCommandAction",
-			Handler:    _CommandActionService_NewCommandAction_Handler,
-		},
-		{
-			MethodName: "GetActionType",
-			Handler:    _CommandActionService_GetActionType_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -942,6 +446,502 @@ var ControlActionService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "IsValidResponse",
 			Handler:    _ControlActionService_IsValidResponse_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/actions/actions.proto",
+}
+
+const (
+	FloatActionService_NewFloatAction_FullMethodName = "/actions.FloatActionService/NewFloatAction"
+	FloatActionService_GetActionType_FullMethodName  = "/actions.FloatActionService/GetActionType"
+	FloatActionService_GetNewValue_FullMethodName    = "/actions.FloatActionService/GetNewValue"
+)
+
+// FloatActionServiceClient is the client API for FloatActionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type FloatActionServiceClient interface {
+	NewFloatAction(ctx context.Context, in *NewFloatActionRequest, opts ...grpc.CallOption) (*NewFloatActionResponse, error)
+	GetActionType(ctx context.Context, in *GetActionTypeRequest, opts ...grpc.CallOption) (*GetActionTypeResponse, error)
+	GetNewValue(ctx context.Context, in *GetNewValueRequest, opts ...grpc.CallOption) (*GetNewValueResponse, error)
+}
+
+type floatActionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewFloatActionServiceClient(cc grpc.ClientConnInterface) FloatActionServiceClient {
+	return &floatActionServiceClient{cc}
+}
+
+func (c *floatActionServiceClient) NewFloatAction(ctx context.Context, in *NewFloatActionRequest, opts ...grpc.CallOption) (*NewFloatActionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewFloatActionResponse)
+	err := c.cc.Invoke(ctx, FloatActionService_NewFloatAction_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *floatActionServiceClient) GetActionType(ctx context.Context, in *GetActionTypeRequest, opts ...grpc.CallOption) (*GetActionTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetActionTypeResponse)
+	err := c.cc.Invoke(ctx, FloatActionService_GetActionType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *floatActionServiceClient) GetNewValue(ctx context.Context, in *GetNewValueRequest, opts ...grpc.CallOption) (*GetNewValueResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNewValueResponse)
+	err := c.cc.Invoke(ctx, FloatActionService_GetNewValue_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// FloatActionServiceServer is the server API for FloatActionService service.
+// All implementations must embed UnimplementedFloatActionServiceServer
+// for forward compatibility.
+type FloatActionServiceServer interface {
+	NewFloatAction(context.Context, *NewFloatActionRequest) (*NewFloatActionResponse, error)
+	GetActionType(context.Context, *GetActionTypeRequest) (*GetActionTypeResponse, error)
+	GetNewValue(context.Context, *GetNewValueRequest) (*GetNewValueResponse, error)
+	mustEmbedUnimplementedFloatActionServiceServer()
+}
+
+// UnimplementedFloatActionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedFloatActionServiceServer struct{}
+
+func (UnimplementedFloatActionServiceServer) NewFloatAction(context.Context, *NewFloatActionRequest) (*NewFloatActionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewFloatAction not implemented")
+}
+func (UnimplementedFloatActionServiceServer) GetActionType(context.Context, *GetActionTypeRequest) (*GetActionTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetActionType not implemented")
+}
+func (UnimplementedFloatActionServiceServer) GetNewValue(context.Context, *GetNewValueRequest) (*GetNewValueResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNewValue not implemented")
+}
+func (UnimplementedFloatActionServiceServer) mustEmbedUnimplementedFloatActionServiceServer() {}
+func (UnimplementedFloatActionServiceServer) testEmbeddedByValue()                            {}
+
+// UnsafeFloatActionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to FloatActionServiceServer will
+// result in compilation errors.
+type UnsafeFloatActionServiceServer interface {
+	mustEmbedUnimplementedFloatActionServiceServer()
+}
+
+func RegisterFloatActionServiceServer(s grpc.ServiceRegistrar, srv FloatActionServiceServer) {
+	// If the following call panics, it indicates UnimplementedFloatActionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&FloatActionService_ServiceDesc, srv)
+}
+
+func _FloatActionService_NewFloatAction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewFloatActionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FloatActionServiceServer).NewFloatAction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FloatActionService_NewFloatAction_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FloatActionServiceServer).NewFloatAction(ctx, req.(*NewFloatActionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FloatActionService_GetActionType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetActionTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FloatActionServiceServer).GetActionType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FloatActionService_GetActionType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FloatActionServiceServer).GetActionType(ctx, req.(*GetActionTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FloatActionService_GetNewValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNewValueRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FloatActionServiceServer).GetNewValue(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FloatActionService_GetNewValue_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FloatActionServiceServer).GetNewValue(ctx, req.(*GetNewValueRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// FloatActionService_ServiceDesc is the grpc.ServiceDesc for FloatActionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var FloatActionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "actions.FloatActionService",
+	HandlerType: (*FloatActionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewFloatAction",
+			Handler:    _FloatActionService_NewFloatAction_Handler,
+		},
+		{
+			MethodName: "GetActionType",
+			Handler:    _FloatActionService_GetActionType_Handler,
+		},
+		{
+			MethodName: "GetNewValue",
+			Handler:    _FloatActionService_GetNewValue_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/actions/actions.proto",
+}
+
+const (
+	CommandActionService_NewCommandAction_FullMethodName = "/actions.CommandActionService/NewCommandAction"
+	CommandActionService_GetActionType_FullMethodName    = "/actions.CommandActionService/GetActionType"
+)
+
+// CommandActionServiceClient is the client API for CommandActionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CommandActionServiceClient interface {
+	NewCommandAction(ctx context.Context, in *NewCommandActionRequest, opts ...grpc.CallOption) (*NewCommandActionResponse, error)
+	GetActionType(ctx context.Context, in *GetActionTypeRequest, opts ...grpc.CallOption) (*GetActionTypeResponse, error)
+}
+
+type commandActionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCommandActionServiceClient(cc grpc.ClientConnInterface) CommandActionServiceClient {
+	return &commandActionServiceClient{cc}
+}
+
+func (c *commandActionServiceClient) NewCommandAction(ctx context.Context, in *NewCommandActionRequest, opts ...grpc.CallOption) (*NewCommandActionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewCommandActionResponse)
+	err := c.cc.Invoke(ctx, CommandActionService_NewCommandAction_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *commandActionServiceClient) GetActionType(ctx context.Context, in *GetActionTypeRequest, opts ...grpc.CallOption) (*GetActionTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetActionTypeResponse)
+	err := c.cc.Invoke(ctx, CommandActionService_GetActionType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CommandActionServiceServer is the server API for CommandActionService service.
+// All implementations must embed UnimplementedCommandActionServiceServer
+// for forward compatibility.
+type CommandActionServiceServer interface {
+	NewCommandAction(context.Context, *NewCommandActionRequest) (*NewCommandActionResponse, error)
+	GetActionType(context.Context, *GetActionTypeRequest) (*GetActionTypeResponse, error)
+	mustEmbedUnimplementedCommandActionServiceServer()
+}
+
+// UnimplementedCommandActionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCommandActionServiceServer struct{}
+
+func (UnimplementedCommandActionServiceServer) NewCommandAction(context.Context, *NewCommandActionRequest) (*NewCommandActionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewCommandAction not implemented")
+}
+func (UnimplementedCommandActionServiceServer) GetActionType(context.Context, *GetActionTypeRequest) (*GetActionTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetActionType not implemented")
+}
+func (UnimplementedCommandActionServiceServer) mustEmbedUnimplementedCommandActionServiceServer() {}
+func (UnimplementedCommandActionServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafeCommandActionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CommandActionServiceServer will
+// result in compilation errors.
+type UnsafeCommandActionServiceServer interface {
+	mustEmbedUnimplementedCommandActionServiceServer()
+}
+
+func RegisterCommandActionServiceServer(s grpc.ServiceRegistrar, srv CommandActionServiceServer) {
+	// If the following call panics, it indicates UnimplementedCommandActionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CommandActionService_ServiceDesc, srv)
+}
+
+func _CommandActionService_NewCommandAction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewCommandActionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CommandActionServiceServer).NewCommandAction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CommandActionService_NewCommandAction_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CommandActionServiceServer).NewCommandAction(ctx, req.(*NewCommandActionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CommandActionService_GetActionType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetActionTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CommandActionServiceServer).GetActionType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CommandActionService_GetActionType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CommandActionServiceServer).GetActionType(ctx, req.(*GetActionTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CommandActionService_ServiceDesc is the grpc.ServiceDesc for CommandActionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CommandActionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "actions.CommandActionService",
+	HandlerType: (*CommandActionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewCommandAction",
+			Handler:    _CommandActionService_NewCommandAction_Handler,
+		},
+		{
+			MethodName: "GetActionType",
+			Handler:    _CommandActionService_GetActionType_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/actions/actions.proto",
+}
+
+const (
+	ModeActionService_NewModeAction_FullMethodName = "/actions.ModeActionService/NewModeAction"
+	ModeActionService_GetActionType_FullMethodName = "/actions.ModeActionService/GetActionType"
+	ModeActionService_GetNewMode_FullMethodName    = "/actions.ModeActionService/GetNewMode"
+)
+
+// ModeActionServiceClient is the client API for ModeActionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ModeActionServiceClient interface {
+	NewModeAction(ctx context.Context, in *NewModeActionRequest, opts ...grpc.CallOption) (*NewModeActionResponse, error)
+	GetActionType(ctx context.Context, in *GetActionTypeRequest, opts ...grpc.CallOption) (*GetActionTypeResponse, error)
+	GetNewMode(ctx context.Context, in *GetNewModeRequest, opts ...grpc.CallOption) (*GetNewModeResponse, error)
+}
+
+type modeActionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewModeActionServiceClient(cc grpc.ClientConnInterface) ModeActionServiceClient {
+	return &modeActionServiceClient{cc}
+}
+
+func (c *modeActionServiceClient) NewModeAction(ctx context.Context, in *NewModeActionRequest, opts ...grpc.CallOption) (*NewModeActionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewModeActionResponse)
+	err := c.cc.Invoke(ctx, ModeActionService_NewModeAction_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *modeActionServiceClient) GetActionType(ctx context.Context, in *GetActionTypeRequest, opts ...grpc.CallOption) (*GetActionTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetActionTypeResponse)
+	err := c.cc.Invoke(ctx, ModeActionService_GetActionType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *modeActionServiceClient) GetNewMode(ctx context.Context, in *GetNewModeRequest, opts ...grpc.CallOption) (*GetNewModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNewModeResponse)
+	err := c.cc.Invoke(ctx, ModeActionService_GetNewMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ModeActionServiceServer is the server API for ModeActionService service.
+// All implementations must embed UnimplementedModeActionServiceServer
+// for forward compatibility.
+type ModeActionServiceServer interface {
+	NewModeAction(context.Context, *NewModeActionRequest) (*NewModeActionResponse, error)
+	GetActionType(context.Context, *GetActionTypeRequest) (*GetActionTypeResponse, error)
+	GetNewMode(context.Context, *GetNewModeRequest) (*GetNewModeResponse, error)
+	mustEmbedUnimplementedModeActionServiceServer()
+}
+
+// UnimplementedModeActionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedModeActionServiceServer struct{}
+
+func (UnimplementedModeActionServiceServer) NewModeAction(context.Context, *NewModeActionRequest) (*NewModeActionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewModeAction not implemented")
+}
+func (UnimplementedModeActionServiceServer) GetActionType(context.Context, *GetActionTypeRequest) (*GetActionTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetActionType not implemented")
+}
+func (UnimplementedModeActionServiceServer) GetNewMode(context.Context, *GetNewModeRequest) (*GetNewModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNewMode not implemented")
+}
+func (UnimplementedModeActionServiceServer) mustEmbedUnimplementedModeActionServiceServer() {}
+func (UnimplementedModeActionServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafeModeActionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ModeActionServiceServer will
+// result in compilation errors.
+type UnsafeModeActionServiceServer interface {
+	mustEmbedUnimplementedModeActionServiceServer()
+}
+
+func RegisterModeActionServiceServer(s grpc.ServiceRegistrar, srv ModeActionServiceServer) {
+	// If the following call panics, it indicates UnimplementedModeActionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ModeActionService_ServiceDesc, srv)
+}
+
+func _ModeActionService_NewModeAction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewModeActionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ModeActionServiceServer).NewModeAction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ModeActionService_NewModeAction_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ModeActionServiceServer).NewModeAction(ctx, req.(*NewModeActionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ModeActionService_GetActionType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetActionTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ModeActionServiceServer).GetActionType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ModeActionService_GetActionType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ModeActionServiceServer).GetActionType(ctx, req.(*GetActionTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ModeActionService_GetNewMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNewModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ModeActionServiceServer).GetNewMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ModeActionService_GetNewMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ModeActionServiceServer).GetNewMode(ctx, req.(*GetNewModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ModeActionService_ServiceDesc is the grpc.ServiceDesc for ModeActionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ModeActionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "actions.ModeActionService",
+	HandlerType: (*ModeActionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewModeAction",
+			Handler:    _ModeActionService_NewModeAction_Handler,
+		},
+		{
+			MethodName: "GetActionType",
+			Handler:    _ModeActionService_GetActionType_Handler,
+		},
+		{
+			MethodName: "GetNewMode",
+			Handler:    _ModeActionService_GetNewMode_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

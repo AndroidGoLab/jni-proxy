@@ -6,18 +6,11 @@ package accounts;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/accounts";
 
-message OnAccountsUpdatedRequest {
+message NewAccountAuthenticatorResponseRequest {
   int64 arg0 = 1;
 }
 
-message OnAccountsUpdatedResponse {
-}
-
-message NewAccountRequest {
-  int64 arg0 = 1;
-}
-
-message NewAccountResponse {
+message NewAccountAuthenticatorResponseResponse {
   int64 result = 1;
 }
 
@@ -27,6 +20,52 @@ message DescribeContentsRequest {
 
 message DescribeContentsResponse {
   int32 result = 1;
+}
+
+message OnErrorRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  string arg1 = 3;
+}
+
+message OnErrorResponse {
+}
+
+message OnRequestContinuedRequest {
+  int64 handle = 1;
+}
+
+message OnRequestContinuedResponse {
+}
+
+message OnResultRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnResultResponse {
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
+message NewAuthenticatorDescriptionRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+  int32 arg5 = 6;
+}
+
+message NewAuthenticatorDescriptionResponse {
+  int64 result = 1;
 }
 
 message EqualsRequest {
@@ -54,161 +93,64 @@ message ToStringResponse {
   string result = 1;
 }
 
-message WriteToParcelRequest {
+message NewKeyRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message NewKeyResponse {
+  int64 result = 1;
+}
+
+message CancelRequest {
+  bool arg0 = 1;
+}
+
+message CancelResponse {
+  bool result = 1;
+}
+
+message IsCancelledRequest {
+}
+
+message IsCancelledResponse {
+  bool result = 1;
+}
+
+message IsDoneRequest {
+}
+
+message IsDoneResponse {
+  bool result = 1;
+}
+
+message NewAccountAuthenticatorActivityRequest {
+}
+
+message NewAccountAuthenticatorActivityResponse {
+  int64 result = 1;
+}
+
+message FinishRequest {
+  int64 handle = 1;
+}
+
+message FinishResponse {
+}
+
+message SetAccountAuthenticatorResultRequest {
   int64 handle = 1;
   int64 arg0 = 2;
-  int32 arg1 = 3;
 }
 
-message WriteToParcelResponse {
+message SetAccountAuthenticatorResultResponse {
 }
 
-message AddAccountRequest {
+message NewAccountRequest {
   int64 arg0 = 1;
-  string arg1 = 2;
-  string arg2 = 3;
-  int64 arg3 = 4;
-  int64 arg4 = 5;
 }
 
-message AddAccountResponse {
-  int64 result = 1;
-}
-
-message AddAccountFromCredentialsRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message AddAccountFromCredentialsResponse {
-  int64 result = 1;
-}
-
-message ConfirmCredentialsRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message ConfirmCredentialsResponse {
-  int64 result = 1;
-}
-
-message EditPropertiesRequest {
-  int64 arg0 = 1;
-  string arg1 = 2;
-}
-
-message EditPropertiesResponse {
-  int64 result = 1;
-}
-
-message FinishSessionRequest {
-  int64 arg0 = 1;
-  string arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message FinishSessionResponse {
-  int64 result = 1;
-}
-
-message GetAccountCredentialsForCloningRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message GetAccountCredentialsForCloningResponse {
-  int64 result = 1;
-}
-
-message GetAccountRemovalAllowedRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message GetAccountRemovalAllowedResponse {
-  int64 result = 1;
-}
-
-message GetAuthTokenRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  string arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message GetAuthTokenResponse {
-  int64 result = 1;
-}
-
-message GetAuthTokenLabelRequest {
-  string arg0 = 1;
-}
-
-message GetAuthTokenLabelResponse {
-  string result = 1;
-}
-
-message GetIBinderRequest {
-}
-
-message GetIBinderResponse {
-  int64 result = 1;
-}
-
-message HasFeaturesRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message HasFeaturesResponse {
-  int64 result = 1;
-}
-
-message IsCredentialsUpdateSuggestedRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  string arg2 = 3;
-}
-
-message IsCredentialsUpdateSuggestedResponse {
-  int64 result = 1;
-}
-
-message StartAddAccountSessionRequest {
-  int64 arg0 = 1;
-  string arg1 = 2;
-  string arg2 = 3;
-  int64 arg3 = 4;
-  int64 arg4 = 5;
-}
-
-message StartAddAccountSessionResponse {
-  int64 result = 1;
-}
-
-message StartUpdateCredentialsSessionRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  string arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message StartUpdateCredentialsSessionResponse {
-  int64 result = 1;
-}
-
-message UpdateCredentialsRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  string arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message UpdateCredentialsResponse {
+message NewAccountResponse {
   int64 result = 1;
 }
 
@@ -388,106 +330,191 @@ message GetResponse {
   int64 result = 1;
 }
 
-message NewAccountAuthenticatorActivityRequest {
-}
-
-message NewAccountAuthenticatorActivityResponse {
-  int64 result = 1;
-}
-
-message FinishRequest {
-  int64 handle = 1;
-}
-
-message FinishResponse {
-}
-
-message SetAccountAuthenticatorResultRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetAccountAuthenticatorResultResponse {
-}
-
-message CancelRequest {
-  bool arg0 = 1;
-}
-
-message CancelResponse {
-  bool result = 1;
-}
-
-message IsCancelledRequest {
-}
-
-message IsCancelledResponse {
-  bool result = 1;
-}
-
-message IsDoneRequest {
-}
-
-message IsDoneResponse {
-  bool result = 1;
-}
-
-message NewAuthenticatorDescriptionRequest {
-  string arg0 = 1;
-  string arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-  int32 arg4 = 5;
-  int32 arg5 = 6;
-}
-
-message NewAuthenticatorDescriptionResponse {
-  int64 result = 1;
-}
-
-message NewKeyRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message NewKeyResponse {
-  int64 result = 1;
-}
-
-message NewAccountAuthenticatorResponseRequest {
+message OnAccountsUpdatedRequest {
   int64 arg0 = 1;
 }
 
-message NewAccountAuthenticatorResponseResponse {
+message OnAccountsUpdatedResponse {
+}
+
+message AddAccountRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message AddAccountResponse {
   int64 result = 1;
 }
 
-message OnErrorRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  string arg1 = 3;
+message AddAccountFromCredentialsRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
 }
 
-message OnErrorResponse {
+message AddAccountFromCredentialsResponse {
+  int64 result = 1;
 }
 
-message OnRequestContinuedRequest {
-  int64 handle = 1;
+message ConfirmCredentialsRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
 }
 
-message OnRequestContinuedResponse {
+message ConfirmCredentialsResponse {
+  int64 result = 1;
 }
 
-message OnResultRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
+message EditPropertiesRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
 }
 
-message OnResultResponse {
+message EditPropertiesResponse {
+  int64 result = 1;
 }
 
-service OnAccountsUpdateListenerService {
-  rpc OnAccountsUpdated (OnAccountsUpdatedRequest) returns (OnAccountsUpdatedResponse);
+message FinishSessionRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message FinishSessionResponse {
+  int64 result = 1;
+}
+
+message GetAccountCredentialsForCloningRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetAccountCredentialsForCloningResponse {
+  int64 result = 1;
+}
+
+message GetAccountRemovalAllowedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetAccountRemovalAllowedResponse {
+  int64 result = 1;
+}
+
+message GetAuthTokenRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  string arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message GetAuthTokenResponse {
+  int64 result = 1;
+}
+
+message GetAuthTokenLabelRequest {
+  string arg0 = 1;
+}
+
+message GetAuthTokenLabelResponse {
+  string result = 1;
+}
+
+message GetIBinderRequest {
+}
+
+message GetIBinderResponse {
+  int64 result = 1;
+}
+
+message HasFeaturesRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message HasFeaturesResponse {
+  int64 result = 1;
+}
+
+message IsCredentialsUpdateSuggestedRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  string arg2 = 3;
+}
+
+message IsCredentialsUpdateSuggestedResponse {
+  int64 result = 1;
+}
+
+message StartAddAccountSessionRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  string arg2 = 3;
+  int64 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message StartAddAccountSessionResponse {
+  int64 result = 1;
+}
+
+message StartUpdateCredentialsSessionRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  string arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message StartUpdateCredentialsSessionResponse {
+  int64 result = 1;
+}
+
+message UpdateCredentialsRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  string arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message UpdateCredentialsResponse {
+  int64 result = 1;
+}
+
+service AccountAuthenticatorResponseService {
+  rpc NewAccountAuthenticatorResponse (NewAccountAuthenticatorResponseRequest) returns (NewAccountAuthenticatorResponseResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc OnError (OnErrorRequest) returns (OnErrorResponse);
+  rpc OnRequestContinued (OnRequestContinuedRequest) returns (OnRequestContinuedResponse);
+  rpc OnResult (OnResultRequest) returns (OnResultResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service AuthenticatorDescriptionService {
+  rpc NewAuthenticatorDescription (NewAuthenticatorDescriptionRequest) returns (NewAuthenticatorDescriptionResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc NewKey (NewKeyRequest) returns (NewKeyResponse);
+}
+
+service AccountManagerFutureService {
+  rpc Cancel (CancelRequest) returns (CancelResponse);
+  rpc IsCancelled (IsCancelledRequest) returns (IsCancelledResponse);
+  rpc IsDone (IsDoneRequest) returns (IsDoneResponse);
+}
+
+service AccountAuthenticatorActivityService {
+  rpc NewAccountAuthenticatorActivity (NewAccountAuthenticatorActivityRequest) returns (NewAccountAuthenticatorActivityResponse);
+  rpc Finish (FinishRequest) returns (FinishResponse);
+  rpc SetAccountAuthenticatorResult (SetAccountAuthenticatorResultRequest) returns (SetAccountAuthenticatorResultResponse);
 }
 
 service AccountService {
@@ -497,24 +524,6 @@ service AccountService {
   rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service AbstractAccountAuthenticatorService {
-  rpc AddAccount (AddAccountRequest) returns (AddAccountResponse);
-  rpc AddAccountFromCredentials (AddAccountFromCredentialsRequest) returns (AddAccountFromCredentialsResponse);
-  rpc ConfirmCredentials (ConfirmCredentialsRequest) returns (ConfirmCredentialsResponse);
-  rpc EditProperties (EditPropertiesRequest) returns (EditPropertiesResponse);
-  rpc FinishSession (FinishSessionRequest) returns (FinishSessionResponse);
-  rpc GetAccountCredentialsForCloning (GetAccountCredentialsForCloningRequest) returns (GetAccountCredentialsForCloningResponse);
-  rpc GetAccountRemovalAllowed (GetAccountRemovalAllowedRequest) returns (GetAccountRemovalAllowedResponse);
-  rpc GetAuthToken (GetAuthTokenRequest) returns (GetAuthTokenResponse);
-  rpc GetAuthTokenLabel (GetAuthTokenLabelRequest) returns (GetAuthTokenLabelResponse);
-  rpc GetIBinder (GetIBinderRequest) returns (GetIBinderResponse);
-  rpc HasFeatures (HasFeaturesRequest) returns (HasFeaturesResponse);
-  rpc IsCredentialsUpdateSuggested (IsCredentialsUpdateSuggestedRequest) returns (IsCredentialsUpdateSuggestedResponse);
-  rpc StartAddAccountSession (StartAddAccountSessionRequest) returns (StartAddAccountSessionResponse);
-  rpc StartUpdateCredentialsSession (StartUpdateCredentialsSessionRequest) returns (StartUpdateCredentialsSessionResponse);
-  rpc UpdateCredentials (UpdateCredentialsRequest) returns (UpdateCredentialsResponse);
 }
 
 service AccountManagerService {
@@ -541,33 +550,24 @@ service AccountManagerService {
   rpc Get (GetRequest) returns (GetResponse);
 }
 
-service AccountAuthenticatorActivityService {
-  rpc NewAccountAuthenticatorActivity (NewAccountAuthenticatorActivityRequest) returns (NewAccountAuthenticatorActivityResponse);
-  rpc Finish (FinishRequest) returns (FinishResponse);
-  rpc SetAccountAuthenticatorResult (SetAccountAuthenticatorResultRequest) returns (SetAccountAuthenticatorResultResponse);
+service OnAccountsUpdateListenerService {
+  rpc OnAccountsUpdated (OnAccountsUpdatedRequest) returns (OnAccountsUpdatedResponse);
 }
 
-service AccountManagerFutureService {
-  rpc Cancel (CancelRequest) returns (CancelResponse);
-  rpc IsCancelled (IsCancelledRequest) returns (IsCancelledResponse);
-  rpc IsDone (IsDoneRequest) returns (IsDoneResponse);
-}
-
-service AuthenticatorDescriptionService {
-  rpc NewAuthenticatorDescription (NewAuthenticatorDescriptionRequest) returns (NewAuthenticatorDescriptionResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-  rpc NewKey (NewKeyRequest) returns (NewKeyResponse);
-}
-
-service AccountAuthenticatorResponseService {
-  rpc NewAccountAuthenticatorResponse (NewAccountAuthenticatorResponseRequest) returns (NewAccountAuthenticatorResponseResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc OnError (OnErrorRequest) returns (OnErrorResponse);
-  rpc OnRequestContinued (OnRequestContinuedRequest) returns (OnRequestContinuedResponse);
-  rpc OnResult (OnResultRequest) returns (OnResultResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+service AbstractAccountAuthenticatorService {
+  rpc AddAccount (AddAccountRequest) returns (AddAccountResponse);
+  rpc AddAccountFromCredentials (AddAccountFromCredentialsRequest) returns (AddAccountFromCredentialsResponse);
+  rpc ConfirmCredentials (ConfirmCredentialsRequest) returns (ConfirmCredentialsResponse);
+  rpc EditProperties (EditPropertiesRequest) returns (EditPropertiesResponse);
+  rpc FinishSession (FinishSessionRequest) returns (FinishSessionResponse);
+  rpc GetAccountCredentialsForCloning (GetAccountCredentialsForCloningRequest) returns (GetAccountCredentialsForCloningResponse);
+  rpc GetAccountRemovalAllowed (GetAccountRemovalAllowedRequest) returns (GetAccountRemovalAllowedResponse);
+  rpc GetAuthToken (GetAuthTokenRequest) returns (GetAuthTokenResponse);
+  rpc GetAuthTokenLabel (GetAuthTokenLabelRequest) returns (GetAuthTokenLabelResponse);
+  rpc GetIBinder (GetIBinderRequest) returns (GetIBinderResponse);
+  rpc HasFeatures (HasFeaturesRequest) returns (HasFeaturesResponse);
+  rpc IsCredentialsUpdateSuggested (IsCredentialsUpdateSuggestedRequest) returns (IsCredentialsUpdateSuggestedResponse);
+  rpc StartAddAccountSession (StartAddAccountSessionRequest) returns (StartAddAccountSessionResponse);
+  rpc StartUpdateCredentialsSession (StartUpdateCredentialsSessionRequest) returns (StartUpdateCredentialsSessionResponse);
+  rpc UpdateCredentials (UpdateCredentialsRequest) returns (UpdateCredentialsResponse);
 }

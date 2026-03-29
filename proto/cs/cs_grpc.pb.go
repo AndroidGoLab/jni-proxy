@@ -21,185 +21,6 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	BleCsRangingCapabilitiesService_DescribeContents_FullMethodName = "/cs.BleCsRangingCapabilitiesService/DescribeContents"
-	BleCsRangingCapabilitiesService_ToString_FullMethodName         = "/cs.BleCsRangingCapabilitiesService/ToString"
-	BleCsRangingCapabilitiesService_WriteToParcel_FullMethodName    = "/cs.BleCsRangingCapabilitiesService/WriteToParcel"
-)
-
-// BleCsRangingCapabilitiesServiceClient is the client API for BleCsRangingCapabilitiesService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type BleCsRangingCapabilitiesServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type bleCsRangingCapabilitiesServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewBleCsRangingCapabilitiesServiceClient(cc grpc.ClientConnInterface) BleCsRangingCapabilitiesServiceClient {
-	return &bleCsRangingCapabilitiesServiceClient{cc}
-}
-
-func (c *bleCsRangingCapabilitiesServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, BleCsRangingCapabilitiesService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *bleCsRangingCapabilitiesServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, BleCsRangingCapabilitiesService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *bleCsRangingCapabilitiesServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, BleCsRangingCapabilitiesService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// BleCsRangingCapabilitiesServiceServer is the server API for BleCsRangingCapabilitiesService service.
-// All implementations must embed UnimplementedBleCsRangingCapabilitiesServiceServer
-// for forward compatibility.
-type BleCsRangingCapabilitiesServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedBleCsRangingCapabilitiesServiceServer()
-}
-
-// UnimplementedBleCsRangingCapabilitiesServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedBleCsRangingCapabilitiesServiceServer struct{}
-
-func (UnimplementedBleCsRangingCapabilitiesServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedBleCsRangingCapabilitiesServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedBleCsRangingCapabilitiesServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedBleCsRangingCapabilitiesServiceServer) mustEmbedUnimplementedBleCsRangingCapabilitiesServiceServer() {
-}
-func (UnimplementedBleCsRangingCapabilitiesServiceServer) testEmbeddedByValue() {}
-
-// UnsafeBleCsRangingCapabilitiesServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to BleCsRangingCapabilitiesServiceServer will
-// result in compilation errors.
-type UnsafeBleCsRangingCapabilitiesServiceServer interface {
-	mustEmbedUnimplementedBleCsRangingCapabilitiesServiceServer()
-}
-
-func RegisterBleCsRangingCapabilitiesServiceServer(s grpc.ServiceRegistrar, srv BleCsRangingCapabilitiesServiceServer) {
-	// If the following call panics, it indicates UnimplementedBleCsRangingCapabilitiesServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&BleCsRangingCapabilitiesService_ServiceDesc, srv)
-}
-
-func _BleCsRangingCapabilitiesService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BleCsRangingCapabilitiesServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BleCsRangingCapabilitiesService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BleCsRangingCapabilitiesServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BleCsRangingCapabilitiesService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BleCsRangingCapabilitiesServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BleCsRangingCapabilitiesService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BleCsRangingCapabilitiesServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BleCsRangingCapabilitiesService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BleCsRangingCapabilitiesServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BleCsRangingCapabilitiesService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BleCsRangingCapabilitiesServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// BleCsRangingCapabilitiesService_ServiceDesc is the grpc.ServiceDesc for BleCsRangingCapabilitiesService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var BleCsRangingCapabilitiesService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "cs.BleCsRangingCapabilitiesService",
-	HandlerType: (*BleCsRangingCapabilitiesServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _BleCsRangingCapabilitiesService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _BleCsRangingCapabilitiesService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _BleCsRangingCapabilitiesService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/cs/cs.proto",
-}
-
-const (
 	BleCsRangingParamsService_DescribeContents_FullMethodName        = "/cs.BleCsRangingParamsService/DescribeContents"
 	BleCsRangingParamsService_Equals_FullMethodName                  = "/cs.BleCsRangingParamsService/Equals"
 	BleCsRangingParamsService_GetLocationType_FullMethodName         = "/cs.BleCsRangingParamsService/GetLocationType"
@@ -855,6 +676,223 @@ var BleCsRangingParamsBuilderService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SetSightType",
 			Handler:    _BleCsRangingParamsBuilderService_SetSightType_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/cs/cs.proto",
+}
+
+const (
+	BleCsRangingCapabilitiesService_DescribeContents_FullMethodName           = "/cs.BleCsRangingCapabilitiesService/DescribeContents"
+	BleCsRangingCapabilitiesService_GetSupportedSecurityLevels_FullMethodName = "/cs.BleCsRangingCapabilitiesService/GetSupportedSecurityLevels"
+	BleCsRangingCapabilitiesService_ToString_FullMethodName                   = "/cs.BleCsRangingCapabilitiesService/ToString"
+	BleCsRangingCapabilitiesService_WriteToParcel_FullMethodName              = "/cs.BleCsRangingCapabilitiesService/WriteToParcel"
+)
+
+// BleCsRangingCapabilitiesServiceClient is the client API for BleCsRangingCapabilitiesService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type BleCsRangingCapabilitiesServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetSupportedSecurityLevels(ctx context.Context, in *GetSupportedSecurityLevelsRequest, opts ...grpc.CallOption) (*GetSupportedSecurityLevelsResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type bleCsRangingCapabilitiesServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewBleCsRangingCapabilitiesServiceClient(cc grpc.ClientConnInterface) BleCsRangingCapabilitiesServiceClient {
+	return &bleCsRangingCapabilitiesServiceClient{cc}
+}
+
+func (c *bleCsRangingCapabilitiesServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, BleCsRangingCapabilitiesService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bleCsRangingCapabilitiesServiceClient) GetSupportedSecurityLevels(ctx context.Context, in *GetSupportedSecurityLevelsRequest, opts ...grpc.CallOption) (*GetSupportedSecurityLevelsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedSecurityLevelsResponse)
+	err := c.cc.Invoke(ctx, BleCsRangingCapabilitiesService_GetSupportedSecurityLevels_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bleCsRangingCapabilitiesServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, BleCsRangingCapabilitiesService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bleCsRangingCapabilitiesServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, BleCsRangingCapabilitiesService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// BleCsRangingCapabilitiesServiceServer is the server API for BleCsRangingCapabilitiesService service.
+// All implementations must embed UnimplementedBleCsRangingCapabilitiesServiceServer
+// for forward compatibility.
+type BleCsRangingCapabilitiesServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetSupportedSecurityLevels(context.Context, *GetSupportedSecurityLevelsRequest) (*GetSupportedSecurityLevelsResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedBleCsRangingCapabilitiesServiceServer()
+}
+
+// UnimplementedBleCsRangingCapabilitiesServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedBleCsRangingCapabilitiesServiceServer struct{}
+
+func (UnimplementedBleCsRangingCapabilitiesServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedBleCsRangingCapabilitiesServiceServer) GetSupportedSecurityLevels(context.Context, *GetSupportedSecurityLevelsRequest) (*GetSupportedSecurityLevelsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedSecurityLevels not implemented")
+}
+func (UnimplementedBleCsRangingCapabilitiesServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedBleCsRangingCapabilitiesServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedBleCsRangingCapabilitiesServiceServer) mustEmbedUnimplementedBleCsRangingCapabilitiesServiceServer() {
+}
+func (UnimplementedBleCsRangingCapabilitiesServiceServer) testEmbeddedByValue() {}
+
+// UnsafeBleCsRangingCapabilitiesServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to BleCsRangingCapabilitiesServiceServer will
+// result in compilation errors.
+type UnsafeBleCsRangingCapabilitiesServiceServer interface {
+	mustEmbedUnimplementedBleCsRangingCapabilitiesServiceServer()
+}
+
+func RegisterBleCsRangingCapabilitiesServiceServer(s grpc.ServiceRegistrar, srv BleCsRangingCapabilitiesServiceServer) {
+	// If the following call panics, it indicates UnimplementedBleCsRangingCapabilitiesServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&BleCsRangingCapabilitiesService_ServiceDesc, srv)
+}
+
+func _BleCsRangingCapabilitiesService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BleCsRangingCapabilitiesServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BleCsRangingCapabilitiesService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BleCsRangingCapabilitiesServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BleCsRangingCapabilitiesService_GetSupportedSecurityLevels_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedSecurityLevelsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BleCsRangingCapabilitiesServiceServer).GetSupportedSecurityLevels(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BleCsRangingCapabilitiesService_GetSupportedSecurityLevels_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BleCsRangingCapabilitiesServiceServer).GetSupportedSecurityLevels(ctx, req.(*GetSupportedSecurityLevelsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BleCsRangingCapabilitiesService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BleCsRangingCapabilitiesServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BleCsRangingCapabilitiesService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BleCsRangingCapabilitiesServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BleCsRangingCapabilitiesService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BleCsRangingCapabilitiesServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BleCsRangingCapabilitiesService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BleCsRangingCapabilitiesServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// BleCsRangingCapabilitiesService_ServiceDesc is the grpc.ServiceDesc for BleCsRangingCapabilitiesService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var BleCsRangingCapabilitiesService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "cs.BleCsRangingCapabilitiesService",
+	HandlerType: (*BleCsRangingCapabilitiesServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _BleCsRangingCapabilitiesService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetSupportedSecurityLevels",
+			Handler:    _BleCsRangingCapabilitiesService_GetSupportedSecurityLevels_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _BleCsRangingCapabilitiesService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _BleCsRangingCapabilitiesService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

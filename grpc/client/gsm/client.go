@@ -431,6 +431,17 @@ func NewSmsManagerClient(cc grpc.ClientConnInterface) *SmsManagerClient {
 	}
 }
 
+// DivideMessage calls the DivideMessage RPC.
+func (c *SmsManagerClient) DivideMessage(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.DivideMessage(ctx, &pb.DivideMessageRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // SendDataMessage calls the SendDataMessage RPC.
 func (c *SmsManagerClient) SendDataMessage(ctx context.Context, arg0 string, arg1 string, arg2 int16, arg3 int64, arg4 int64, arg5 int64) error {
 	_, err := c.svc.SendDataMessage(ctx, &pb.SendDataMessageRequest{

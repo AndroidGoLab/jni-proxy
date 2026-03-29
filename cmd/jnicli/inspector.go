@@ -36,6 +36,367 @@ var inspectorInspectionCompanionMapPropertiesCmd = &cobra.Command{
 	},
 }
 
+var inspectorIntFlagMappingCmd = &cobra.Command{
+	Use:   "int-flag-mapping",
+	Short: "IntFlagMappingService operations",
+}
+
+var inspectorIntFlagMappingNewIntFlagMappingCmd = &cobra.Command{
+	Use:   "new-int-flag-mapping",
+	Short: "NewIntFlagMapping RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntFlagMappingServiceClient(grpcConn)
+		req := &pb.NewIntFlagMappingRequest{}
+		resp, err := client.NewIntFlagMapping(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inspectorIntFlagMappingAddCmd = &cobra.Command{
+	Use:   "add",
+	Short: "Add RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntFlagMappingServiceClient(grpcConn)
+		req := &pb.AddRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Add(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inspectorIntFlagMappingGetCmd = &cobra.Command{
+	Use:   "get",
+	Short: "Get RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIntFlagMappingServiceClient(grpcConn)
+		req := &pb.GetRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Get(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inspectorPropertyMapperCmd = &cobra.Command{
+	Use:   "property-mapper",
+	Short: "PropertyMapperService operations",
+}
+
+var inspectorPropertyMapperMapBooleanCmd = &cobra.Command{
+	Use:   "map-boolean",
+	Short: "MapBoolean RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropertyMapperServiceClient(grpcConn)
+		req := &pb.MapBooleanRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.MapBoolean(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inspectorPropertyMapperMapByteCmd = &cobra.Command{
+	Use:   "map-byte",
+	Short: "MapByte RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropertyMapperServiceClient(grpcConn)
+		req := &pb.MapByteRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.MapByte(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inspectorPropertyMapperMapCharCmd = &cobra.Command{
+	Use:   "map-char",
+	Short: "MapChar RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropertyMapperServiceClient(grpcConn)
+		req := &pb.MapCharRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.MapChar(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inspectorPropertyMapperMapColorCmd = &cobra.Command{
+	Use:   "map-color",
+	Short: "MapColor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropertyMapperServiceClient(grpcConn)
+		req := &pb.MapColorRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.MapColor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inspectorPropertyMapperMapDoubleCmd = &cobra.Command{
+	Use:   "map-double",
+	Short: "MapDouble RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropertyMapperServiceClient(grpcConn)
+		req := &pb.MapDoubleRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.MapDouble(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inspectorPropertyMapperMapFloatCmd = &cobra.Command{
+	Use:   "map-float",
+	Short: "MapFloat RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropertyMapperServiceClient(grpcConn)
+		req := &pb.MapFloatRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.MapFloat(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inspectorPropertyMapperMapGravityCmd = &cobra.Command{
+	Use:   "map-gravity",
+	Short: "MapGravity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropertyMapperServiceClient(grpcConn)
+		req := &pb.MapGravityRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.MapGravity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inspectorPropertyMapperMapIntCmd = &cobra.Command{
+	Use:   "map-int",
+	Short: "MapInt RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropertyMapperServiceClient(grpcConn)
+		req := &pb.MapIntRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.MapInt(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inspectorPropertyMapperMapLongCmd = &cobra.Command{
+	Use:   "map-long",
+	Short: "MapLong RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropertyMapperServiceClient(grpcConn)
+		req := &pb.MapLongRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.MapLong(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inspectorPropertyMapperMapObjectCmd = &cobra.Command{
+	Use:   "map-object",
+	Short: "MapObject RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropertyMapperServiceClient(grpcConn)
+		req := &pb.MapObjectRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.MapObject(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inspectorPropertyMapperMapResourceIdCmd = &cobra.Command{
+	Use:   "map-resource-id",
+	Short: "MapResourceId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropertyMapperServiceClient(grpcConn)
+		req := &pb.MapResourceIdRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.MapResourceId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inspectorPropertyMapperMapShortCmd = &cobra.Command{
+	Use:   "map-short",
+	Short: "MapShort RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPropertyMapperServiceClient(grpcConn)
+		req := &pb.MapShortRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.MapShort(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var inspectorWindowInspectorCmd = &cobra.Command{
+	Use:   "window-inspector",
+	Short: "WindowInspectorService operations",
+}
+
+var inspectorWindowInspectorGetGlobalWindowViewsCmd = &cobra.Command{
+	Use:   "get-global-window-views",
+	Short: "GetGlobalWindowViews RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowInspectorServiceClient(grpcConn)
+		req := &pb.GetGlobalWindowViewsRequest{}
+		resp, err := client.GetGlobalWindowViews(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var inspectorPropertyReaderCmd = &cobra.Command{
 	Use:   "property-reader",
 	Short: "PropertyReaderService operations",
@@ -393,328 +754,59 @@ var inspectorPropertyReaderReadShortCmd = &cobra.Command{
 	},
 }
 
-var inspectorPropertyMapperCmd = &cobra.Command{
-	Use:   "property-mapper",
-	Short: "PropertyMapperService operations",
-}
-
-var inspectorPropertyMapperMapBooleanCmd = &cobra.Command{
-	Use:   "map-boolean",
-	Short: "MapBoolean RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropertyMapperServiceClient(grpcConn)
-		req := &pb.MapBooleanRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.MapBoolean(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inspectorPropertyMapperMapByteCmd = &cobra.Command{
-	Use:   "map-byte",
-	Short: "MapByte RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropertyMapperServiceClient(grpcConn)
-		req := &pb.MapByteRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.MapByte(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inspectorPropertyMapperMapCharCmd = &cobra.Command{
-	Use:   "map-char",
-	Short: "MapChar RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropertyMapperServiceClient(grpcConn)
-		req := &pb.MapCharRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.MapChar(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inspectorPropertyMapperMapColorCmd = &cobra.Command{
-	Use:   "map-color",
-	Short: "MapColor RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropertyMapperServiceClient(grpcConn)
-		req := &pb.MapColorRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.MapColor(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inspectorPropertyMapperMapDoubleCmd = &cobra.Command{
-	Use:   "map-double",
-	Short: "MapDouble RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropertyMapperServiceClient(grpcConn)
-		req := &pb.MapDoubleRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.MapDouble(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inspectorPropertyMapperMapFloatCmd = &cobra.Command{
-	Use:   "map-float",
-	Short: "MapFloat RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropertyMapperServiceClient(grpcConn)
-		req := &pb.MapFloatRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.MapFloat(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inspectorPropertyMapperMapGravityCmd = &cobra.Command{
-	Use:   "map-gravity",
-	Short: "MapGravity RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropertyMapperServiceClient(grpcConn)
-		req := &pb.MapGravityRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.MapGravity(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inspectorPropertyMapperMapIntCmd = &cobra.Command{
-	Use:   "map-int",
-	Short: "MapInt RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropertyMapperServiceClient(grpcConn)
-		req := &pb.MapIntRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.MapInt(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inspectorPropertyMapperMapLongCmd = &cobra.Command{
-	Use:   "map-long",
-	Short: "MapLong RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropertyMapperServiceClient(grpcConn)
-		req := &pb.MapLongRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.MapLong(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inspectorPropertyMapperMapObjectCmd = &cobra.Command{
-	Use:   "map-object",
-	Short: "MapObject RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropertyMapperServiceClient(grpcConn)
-		req := &pb.MapObjectRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.MapObject(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inspectorPropertyMapperMapResourceIdCmd = &cobra.Command{
-	Use:   "map-resource-id",
-	Short: "MapResourceId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropertyMapperServiceClient(grpcConn)
-		req := &pb.MapResourceIdRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.MapResourceId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inspectorPropertyMapperMapShortCmd = &cobra.Command{
-	Use:   "map-short",
-	Short: "MapShort RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPropertyMapperServiceClient(grpcConn)
-		req := &pb.MapShortRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.MapShort(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inspectorIntFlagMappingCmd = &cobra.Command{
-	Use:   "int-flag-mapping",
-	Short: "IntFlagMappingService operations",
-}
-
-var inspectorIntFlagMappingNewIntFlagMappingCmd = &cobra.Command{
-	Use:   "new-int-flag-mapping",
-	Short: "NewIntFlagMapping RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIntFlagMappingServiceClient(grpcConn)
-		req := &pb.NewIntFlagMappingRequest{}
-		resp, err := client.NewIntFlagMapping(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var inspectorIntFlagMappingAddCmd = &cobra.Command{
-	Use:   "add",
-	Short: "Add RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIntFlagMappingServiceClient(grpcConn)
-		req := &pb.AddRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Add(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
 	inspectorInspectionCompanionMapPropertiesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	inspectorInspectionCompanionCmd.AddCommand(inspectorInspectionCompanionMapPropertiesCmd)
 	inspectorCmd.AddCommand(inspectorInspectionCompanionCmd)
+	inspectorIntFlagMappingCmd.AddCommand(inspectorIntFlagMappingNewIntFlagMappingCmd)
+	inspectorIntFlagMappingAddCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inspectorIntFlagMappingAddCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inspectorIntFlagMappingAddCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inspectorIntFlagMappingAddCmd.Flags().String("arg2", "", "arg2 (string)")
+	inspectorIntFlagMappingCmd.AddCommand(inspectorIntFlagMappingAddCmd)
+	inspectorIntFlagMappingGetCmd.Flags().Int64("handle", 0, "handle (int64)")
+	inspectorIntFlagMappingGetCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	inspectorIntFlagMappingCmd.AddCommand(inspectorIntFlagMappingGetCmd)
+	inspectorCmd.AddCommand(inspectorIntFlagMappingCmd)
+	inspectorPropertyMapperMapBooleanCmd.Flags().String("arg0", "", "arg0 (string)")
+	inspectorPropertyMapperMapBooleanCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inspectorPropertyMapperCmd.AddCommand(inspectorPropertyMapperMapBooleanCmd)
+	inspectorPropertyMapperMapByteCmd.Flags().String("arg0", "", "arg0 (string)")
+	inspectorPropertyMapperMapByteCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inspectorPropertyMapperCmd.AddCommand(inspectorPropertyMapperMapByteCmd)
+	inspectorPropertyMapperMapCharCmd.Flags().String("arg0", "", "arg0 (string)")
+	inspectorPropertyMapperMapCharCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inspectorPropertyMapperCmd.AddCommand(inspectorPropertyMapperMapCharCmd)
+	inspectorPropertyMapperMapColorCmd.Flags().String("arg0", "", "arg0 (string)")
+	inspectorPropertyMapperMapColorCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inspectorPropertyMapperCmd.AddCommand(inspectorPropertyMapperMapColorCmd)
+	inspectorPropertyMapperMapDoubleCmd.Flags().String("arg0", "", "arg0 (string)")
+	inspectorPropertyMapperMapDoubleCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inspectorPropertyMapperCmd.AddCommand(inspectorPropertyMapperMapDoubleCmd)
+	inspectorPropertyMapperMapFloatCmd.Flags().String("arg0", "", "arg0 (string)")
+	inspectorPropertyMapperMapFloatCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inspectorPropertyMapperCmd.AddCommand(inspectorPropertyMapperMapFloatCmd)
+	inspectorPropertyMapperMapGravityCmd.Flags().String("arg0", "", "arg0 (string)")
+	inspectorPropertyMapperMapGravityCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inspectorPropertyMapperCmd.AddCommand(inspectorPropertyMapperMapGravityCmd)
+	inspectorPropertyMapperMapIntCmd.Flags().String("arg0", "", "arg0 (string)")
+	inspectorPropertyMapperMapIntCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inspectorPropertyMapperCmd.AddCommand(inspectorPropertyMapperMapIntCmd)
+	inspectorPropertyMapperMapLongCmd.Flags().String("arg0", "", "arg0 (string)")
+	inspectorPropertyMapperMapLongCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inspectorPropertyMapperCmd.AddCommand(inspectorPropertyMapperMapLongCmd)
+	inspectorPropertyMapperMapObjectCmd.Flags().String("arg0", "", "arg0 (string)")
+	inspectorPropertyMapperMapObjectCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inspectorPropertyMapperCmd.AddCommand(inspectorPropertyMapperMapObjectCmd)
+	inspectorPropertyMapperMapResourceIdCmd.Flags().String("arg0", "", "arg0 (string)")
+	inspectorPropertyMapperMapResourceIdCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inspectorPropertyMapperCmd.AddCommand(inspectorPropertyMapperMapResourceIdCmd)
+	inspectorPropertyMapperMapShortCmd.Flags().String("arg0", "", "arg0 (string)")
+	inspectorPropertyMapperMapShortCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	inspectorPropertyMapperCmd.AddCommand(inspectorPropertyMapperMapShortCmd)
+	inspectorCmd.AddCommand(inspectorPropertyMapperCmd)
+	inspectorWindowInspectorCmd.AddCommand(inspectorWindowInspectorGetGlobalWindowViewsCmd)
+	inspectorCmd.AddCommand(inspectorWindowInspectorCmd)
 	inspectorPropertyReaderReadBooleanCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	inspectorPropertyReaderReadBooleanCmd.Flags().Bool("arg1", false, "arg1 (bool)")
 	inspectorPropertyReaderCmd.AddCommand(inspectorPropertyReaderReadBooleanCmd)
@@ -764,49 +856,5 @@ func init() {
 	inspectorPropertyReaderReadShortCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	inspectorPropertyReaderCmd.AddCommand(inspectorPropertyReaderReadShortCmd)
 	inspectorCmd.AddCommand(inspectorPropertyReaderCmd)
-	inspectorPropertyMapperMapBooleanCmd.Flags().String("arg0", "", "arg0 (string)")
-	inspectorPropertyMapperMapBooleanCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	inspectorPropertyMapperCmd.AddCommand(inspectorPropertyMapperMapBooleanCmd)
-	inspectorPropertyMapperMapByteCmd.Flags().String("arg0", "", "arg0 (string)")
-	inspectorPropertyMapperMapByteCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	inspectorPropertyMapperCmd.AddCommand(inspectorPropertyMapperMapByteCmd)
-	inspectorPropertyMapperMapCharCmd.Flags().String("arg0", "", "arg0 (string)")
-	inspectorPropertyMapperMapCharCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	inspectorPropertyMapperCmd.AddCommand(inspectorPropertyMapperMapCharCmd)
-	inspectorPropertyMapperMapColorCmd.Flags().String("arg0", "", "arg0 (string)")
-	inspectorPropertyMapperMapColorCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	inspectorPropertyMapperCmd.AddCommand(inspectorPropertyMapperMapColorCmd)
-	inspectorPropertyMapperMapDoubleCmd.Flags().String("arg0", "", "arg0 (string)")
-	inspectorPropertyMapperMapDoubleCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	inspectorPropertyMapperCmd.AddCommand(inspectorPropertyMapperMapDoubleCmd)
-	inspectorPropertyMapperMapFloatCmd.Flags().String("arg0", "", "arg0 (string)")
-	inspectorPropertyMapperMapFloatCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	inspectorPropertyMapperCmd.AddCommand(inspectorPropertyMapperMapFloatCmd)
-	inspectorPropertyMapperMapGravityCmd.Flags().String("arg0", "", "arg0 (string)")
-	inspectorPropertyMapperMapGravityCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	inspectorPropertyMapperCmd.AddCommand(inspectorPropertyMapperMapGravityCmd)
-	inspectorPropertyMapperMapIntCmd.Flags().String("arg0", "", "arg0 (string)")
-	inspectorPropertyMapperMapIntCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	inspectorPropertyMapperCmd.AddCommand(inspectorPropertyMapperMapIntCmd)
-	inspectorPropertyMapperMapLongCmd.Flags().String("arg0", "", "arg0 (string)")
-	inspectorPropertyMapperMapLongCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	inspectorPropertyMapperCmd.AddCommand(inspectorPropertyMapperMapLongCmd)
-	inspectorPropertyMapperMapObjectCmd.Flags().String("arg0", "", "arg0 (string)")
-	inspectorPropertyMapperMapObjectCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	inspectorPropertyMapperCmd.AddCommand(inspectorPropertyMapperMapObjectCmd)
-	inspectorPropertyMapperMapResourceIdCmd.Flags().String("arg0", "", "arg0 (string)")
-	inspectorPropertyMapperMapResourceIdCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	inspectorPropertyMapperCmd.AddCommand(inspectorPropertyMapperMapResourceIdCmd)
-	inspectorPropertyMapperMapShortCmd.Flags().String("arg0", "", "arg0 (string)")
-	inspectorPropertyMapperMapShortCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	inspectorPropertyMapperCmd.AddCommand(inspectorPropertyMapperMapShortCmd)
-	inspectorCmd.AddCommand(inspectorPropertyMapperCmd)
-	inspectorIntFlagMappingCmd.AddCommand(inspectorIntFlagMappingNewIntFlagMappingCmd)
-	inspectorIntFlagMappingAddCmd.Flags().Int64("handle", 0, "handle (int64)")
-	inspectorIntFlagMappingAddCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	inspectorIntFlagMappingAddCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	inspectorIntFlagMappingAddCmd.Flags().String("arg2", "", "arg2 (string)")
-	inspectorIntFlagMappingCmd.AddCommand(inspectorIntFlagMappingAddCmd)
-	inspectorCmd.AddCommand(inspectorIntFlagMappingCmd)
 	rootCmd.AddCommand(inspectorCmd)
 }

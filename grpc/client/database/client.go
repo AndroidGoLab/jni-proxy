@@ -9,31 +9,456 @@ import (
 	"google.golang.org/grpc"
 )
 
-// DataSetObservableClient wraps the gRPC DataSetObservableService client.
-type DataSetObservableClient struct {
-	svc pb.DataSetObservableServiceClient
+// MatrixCursorClient wraps the gRPC MatrixCursorService client.
+type MatrixCursorClient struct {
+	svc pb.MatrixCursorServiceClient
 }
 
-// NewDataSetObservableClient creates a new DataSetObservable client.
-func NewDataSetObservableClient(cc grpc.ClientConnInterface) *DataSetObservableClient {
-	return &DataSetObservableClient{
-		svc: pb.NewDataSetObservableServiceClient(cc),
+// NewMatrixCursorClient creates a new MatrixCursor client.
+func NewMatrixCursorClient(cc grpc.ClientConnInterface) *MatrixCursorClient {
+	return &MatrixCursorClient{
+		svc: pb.NewMatrixCursorServiceClient(cc),
 	}
 }
 
-// NotifyChanged calls the NotifyChanged RPC.
-func (c *DataSetObservableClient) NotifyChanged(ctx context.Context, handle int64) error {
-	_, err := c.svc.NotifyChanged(ctx, &pb.NotifyChangedRequest{
+// AddRow calls the AddRow RPC.
+func (c *MatrixCursorClient) AddRow(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddRow(ctx, &pb.AddRowRequest{
 		Handle: handle,
+		Arg0:   arg0,
 	})
 	return err
 }
 
-// NotifyInvalidated calls the NotifyInvalidated RPC.
-func (c *DataSetObservableClient) NotifyInvalidated(ctx context.Context, handle int64) error {
-	_, err := c.svc.NotifyInvalidated(ctx, &pb.NotifyInvalidatedRequest{
+// GetBlob calls the GetBlob RPC.
+func (c *MatrixCursorClient) GetBlob(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetBlob(ctx, &pb.GetBlobRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColumnNames calls the GetColumnNames RPC.
+func (c *MatrixCursorClient) GetColumnNames(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetColumnNames(ctx, &pb.GetColumnNamesRequest{
 		Handle: handle,
 	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCount calls the GetCount RPC.
+func (c *MatrixCursorClient) GetCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetCount(ctx, &pb.GetCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDouble calls the GetDouble RPC.
+func (c *MatrixCursorClient) GetDouble(ctx context.Context, handle int64, arg0 int32) (float64, error) {
+	resp, err := c.svc.GetDouble(ctx, &pb.GetDoubleRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFloat calls the GetFloat RPC.
+func (c *MatrixCursorClient) GetFloat(ctx context.Context, handle int64, arg0 int32) (float32, error) {
+	resp, err := c.svc.GetFloat(ctx, &pb.GetFloatRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInt calls the GetInt RPC.
+func (c *MatrixCursorClient) GetInt(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetInt(ctx, &pb.GetIntRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLong calls the GetLong RPC.
+func (c *MatrixCursorClient) GetLong(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetLong(ctx, &pb.GetLongRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetShort calls the GetShort RPC.
+func (c *MatrixCursorClient) GetShort(ctx context.Context, handle int64, arg0 int32) (int16, error) {
+	resp, err := c.svc.GetShort(ctx, &pb.GetShortRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return int16(resp.GetResult()), nil
+}
+
+// GetString calls the GetString RPC.
+func (c *MatrixCursorClient) GetString(ctx context.Context, handle int64, arg0 int32) (string, error) {
+	resp, err := c.svc.GetString(ctx, &pb.GetStringRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetType calls the GetType RPC.
+func (c *MatrixCursorClient) GetType(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsNull calls the IsNull RPC.
+func (c *MatrixCursorClient) IsNull(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.IsNull(ctx, &pb.IsNullRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NewRow calls the NewRow RPC.
+func (c *MatrixCursorClient) NewRow(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.NewRow(ctx, &pb.NewRowRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MatrixCursorRowBuilderClient wraps the gRPC MatrixCursorRowBuilderService client.
+type MatrixCursorRowBuilderClient struct {
+	svc pb.MatrixCursorRowBuilderServiceClient
+}
+
+// NewMatrixCursorRowBuilderClient creates a new MatrixCursorRowBuilder client.
+func NewMatrixCursorRowBuilderClient(cc grpc.ClientConnInterface) *MatrixCursorRowBuilderClient {
+	return &MatrixCursorRowBuilderClient{
+		svc: pb.NewMatrixCursorRowBuilderServiceClient(cc),
+	}
+}
+
+// Add1 calls the Add1 RPC.
+func (c *MatrixCursorRowBuilderClient) Add1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Add1(ctx, &pb.Add1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Add2_1 calls the Add2_1 RPC.
+func (c *MatrixCursorRowBuilderClient) Add2_1(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.Add2_1(ctx, &pb.Add2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AbstractWindowedCursorClient wraps the gRPC AbstractWindowedCursorService client.
+type AbstractWindowedCursorClient struct {
+	svc pb.AbstractWindowedCursorServiceClient
+}
+
+// NewAbstractWindowedCursorClient creates a new AbstractWindowedCursor client.
+func NewAbstractWindowedCursorClient(cc grpc.ClientConnInterface) *AbstractWindowedCursorClient {
+	return &AbstractWindowedCursorClient{
+		svc: pb.NewAbstractWindowedCursorServiceClient(cc),
+	}
+}
+
+// CopyStringToBuffer calls the CopyStringToBuffer RPC.
+func (c *AbstractWindowedCursorClient) CopyStringToBuffer(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.CopyStringToBuffer(ctx, &pb.CopyStringToBufferRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GetBlob calls the GetBlob RPC.
+func (c *AbstractWindowedCursorClient) GetBlob(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetBlob(ctx, &pb.AbstractWindowedCursorGetBlobRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDouble calls the GetDouble RPC.
+func (c *AbstractWindowedCursorClient) GetDouble(ctx context.Context, arg0 int32) (float64, error) {
+	resp, err := c.svc.GetDouble(ctx, &pb.AbstractWindowedCursorGetDoubleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFloat calls the GetFloat RPC.
+func (c *AbstractWindowedCursorClient) GetFloat(ctx context.Context, arg0 int32) (float32, error) {
+	resp, err := c.svc.GetFloat(ctx, &pb.AbstractWindowedCursorGetFloatRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInt calls the GetInt RPC.
+func (c *AbstractWindowedCursorClient) GetInt(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetInt(ctx, &pb.AbstractWindowedCursorGetIntRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLong calls the GetLong RPC.
+func (c *AbstractWindowedCursorClient) GetLong(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetLong(ctx, &pb.AbstractWindowedCursorGetLongRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetShort calls the GetShort RPC.
+func (c *AbstractWindowedCursorClient) GetShort(ctx context.Context, arg0 int32) (int16, error) {
+	resp, err := c.svc.GetShort(ctx, &pb.AbstractWindowedCursorGetShortRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return int16(resp.GetResult()), nil
+}
+
+// GetString calls the GetString RPC.
+func (c *AbstractWindowedCursorClient) GetString(ctx context.Context, arg0 int32) (string, error) {
+	resp, err := c.svc.GetString(ctx, &pb.AbstractWindowedCursorGetStringRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetType calls the GetType RPC.
+func (c *AbstractWindowedCursorClient) GetType(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetType(ctx, &pb.AbstractWindowedCursorGetTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWindow calls the GetWindow RPC.
+func (c *AbstractWindowedCursorClient) GetWindow(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetWindow(ctx, &pb.GetWindowRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasWindow calls the HasWindow RPC.
+func (c *AbstractWindowedCursorClient) HasWindow(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasWindow(ctx, &pb.HasWindowRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsBlob calls the IsBlob RPC.
+func (c *AbstractWindowedCursorClient) IsBlob(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.IsBlob(ctx, &pb.IsBlobRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFloat calls the IsFloat RPC.
+func (c *AbstractWindowedCursorClient) IsFloat(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.IsFloat(ctx, &pb.IsFloatRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsLong calls the IsLong RPC.
+func (c *AbstractWindowedCursorClient) IsLong(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.IsLong(ctx, &pb.IsLongRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsNull calls the IsNull RPC.
+func (c *AbstractWindowedCursorClient) IsNull(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.IsNull(ctx, &pb.AbstractWindowedCursorIsNullRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsString calls the IsString RPC.
+func (c *AbstractWindowedCursorClient) IsString(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.IsString(ctx, &pb.IsStringRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetWindow calls the SetWindow RPC.
+func (c *AbstractWindowedCursorClient) SetWindow(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetWindow(ctx, &pb.SetWindowRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CrossProcessCursorClient wraps the gRPC CrossProcessCursorService client.
+type CrossProcessCursorClient struct {
+	svc pb.CrossProcessCursorServiceClient
+}
+
+// NewCrossProcessCursorClient creates a new CrossProcessCursor client.
+func NewCrossProcessCursorClient(cc grpc.ClientConnInterface) *CrossProcessCursorClient {
+	return &CrossProcessCursorClient{
+		svc: pb.NewCrossProcessCursorServiceClient(cc),
+	}
+}
+
+// FillWindow calls the FillWindow RPC.
+func (c *CrossProcessCursorClient) FillWindow(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.FillWindow(ctx, &pb.FillWindowRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GetWindow calls the GetWindow RPC.
+func (c *CrossProcessCursorClient) GetWindow(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetWindow(ctx, &pb.GetWindowRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnMove calls the OnMove RPC.
+func (c *CrossProcessCursorClient) OnMove(ctx context.Context, arg0 int32, arg1 int32) (bool, error) {
+	resp, err := c.svc.OnMove(ctx, &pb.OnMoveRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DataSetObserverClient wraps the gRPC DataSetObserverService client.
+type DataSetObserverClient struct {
+	svc pb.DataSetObserverServiceClient
+}
+
+// NewDataSetObserverClient creates a new DataSetObserver client.
+func NewDataSetObserverClient(cc grpc.ClientConnInterface) *DataSetObserverClient {
+	return &DataSetObserverClient{
+		svc: pb.NewDataSetObserverServiceClient(cc),
+	}
+}
+
+// OnChanged calls the OnChanged RPC.
+func (c *DataSetObserverClient) OnChanged(ctx context.Context) error {
+	_, err := c.svc.OnChanged(ctx, &pb.OnChangedRequest{})
+	return err
+}
+
+// OnInvalidated calls the OnInvalidated RPC.
+func (c *DataSetObserverClient) OnInvalidated(ctx context.Context) error {
+	_, err := c.svc.OnInvalidated(ctx, &pb.OnInvalidatedRequest{})
 	return err
 }
 
@@ -731,42 +1156,31 @@ func (c *UtilsInsertHelperClient) Replace(ctx context.Context, arg0 int64) (int6
 	return resp.GetResult(), nil
 }
 
-// MatrixCursorClient wraps the gRPC MatrixCursorService client.
-type MatrixCursorClient struct {
-	svc pb.MatrixCursorServiceClient
+// CrossProcessCursorWrapperClient wraps the gRPC CrossProcessCursorWrapperService client.
+type CrossProcessCursorWrapperClient struct {
+	svc pb.CrossProcessCursorWrapperServiceClient
 }
 
-// NewMatrixCursorClient creates a new MatrixCursor client.
-func NewMatrixCursorClient(cc grpc.ClientConnInterface) *MatrixCursorClient {
-	return &MatrixCursorClient{
-		svc: pb.NewMatrixCursorServiceClient(cc),
+// NewCrossProcessCursorWrapperClient creates a new CrossProcessCursorWrapper client.
+func NewCrossProcessCursorWrapperClient(cc grpc.ClientConnInterface) *CrossProcessCursorWrapperClient {
+	return &CrossProcessCursorWrapperClient{
+		svc: pb.NewCrossProcessCursorWrapperServiceClient(cc),
 	}
 }
 
-// AddRow calls the AddRow RPC.
-func (c *MatrixCursorClient) AddRow(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddRow(ctx, &pb.AddRowRequest{
+// FillWindow calls the FillWindow RPC.
+func (c *CrossProcessCursorWrapperClient) FillWindow(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.FillWindow(ctx, &pb.CrossProcessCursorWrapperFillWindowRequest{
 		Handle: handle,
 		Arg0:   arg0,
+		Arg1:   arg1,
 	})
 	return err
 }
 
-// GetBlob calls the GetBlob RPC.
-func (c *MatrixCursorClient) GetBlob(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetBlob(ctx, &pb.GetBlobRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetColumnNames calls the GetColumnNames RPC.
-func (c *MatrixCursorClient) GetColumnNames(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetColumnNames(ctx, &pb.GetColumnNamesRequest{
+// GetWindow calls the GetWindow RPC.
+func (c *CrossProcessCursorWrapperClient) GetWindow(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetWindow(ctx, &pb.CrossProcessCursorWrapperGetWindowRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -775,155 +1189,15 @@ func (c *MatrixCursorClient) GetColumnNames(ctx context.Context, handle int64) (
 	return resp.GetResult(), nil
 }
 
-// GetCount calls the GetCount RPC.
-func (c *MatrixCursorClient) GetCount(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetCount(ctx, &pb.GetCountRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDouble calls the GetDouble RPC.
-func (c *MatrixCursorClient) GetDouble(ctx context.Context, handle int64, arg0 int32) (float64, error) {
-	resp, err := c.svc.GetDouble(ctx, &pb.GetDoubleRequest{
+// OnMove calls the OnMove RPC.
+func (c *CrossProcessCursorWrapperClient) OnMove(ctx context.Context, handle int64, arg0 int32, arg1 int32) (bool, error) {
+	resp, err := c.svc.OnMove(ctx, &pb.CrossProcessCursorWrapperOnMoveRequest{
 		Handle: handle,
 		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFloat calls the GetFloat RPC.
-func (c *MatrixCursorClient) GetFloat(ctx context.Context, handle int64, arg0 int32) (float32, error) {
-	resp, err := c.svc.GetFloat(ctx, &pb.GetFloatRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInt calls the GetInt RPC.
-func (c *MatrixCursorClient) GetInt(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetInt(ctx, &pb.GetIntRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLong calls the GetLong RPC.
-func (c *MatrixCursorClient) GetLong(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetLong(ctx, &pb.GetLongRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetShort calls the GetShort RPC.
-func (c *MatrixCursorClient) GetShort(ctx context.Context, handle int64, arg0 int32) (int16, error) {
-	resp, err := c.svc.GetShort(ctx, &pb.GetShortRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return int16(resp.GetResult()), nil
-}
-
-// GetString calls the GetString RPC.
-func (c *MatrixCursorClient) GetString(ctx context.Context, handle int64, arg0 int32) (string, error) {
-	resp, err := c.svc.GetString(ctx, &pb.GetStringRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetType calls the GetType RPC.
-func (c *MatrixCursorClient) GetType(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsNull calls the IsNull RPC.
-func (c *MatrixCursorClient) IsNull(ctx context.Context, handle int64, arg0 int32) (bool, error) {
-	resp, err := c.svc.IsNull(ctx, &pb.IsNullRequest{
-		Handle: handle,
-		Arg0:   arg0,
+		Arg1:   arg1,
 	})
 	if err != nil {
 		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NewRow calls the NewRow RPC.
-func (c *MatrixCursorClient) NewRow(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.NewRow(ctx, &pb.NewRowRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MatrixCursorRowBuilderClient wraps the gRPC MatrixCursorRowBuilderService client.
-type MatrixCursorRowBuilderClient struct {
-	svc pb.MatrixCursorRowBuilderServiceClient
-}
-
-// NewMatrixCursorRowBuilderClient creates a new MatrixCursorRowBuilder client.
-func NewMatrixCursorRowBuilderClient(cc grpc.ClientConnInterface) *MatrixCursorRowBuilderClient {
-	return &MatrixCursorRowBuilderClient{
-		svc: pb.NewMatrixCursorRowBuilderServiceClient(cc),
-	}
-}
-
-// Add1 calls the Add1 RPC.
-func (c *MatrixCursorRowBuilderClient) Add1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.Add1(ctx, &pb.Add1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Add2_1 calls the Add2_1 RPC.
-func (c *MatrixCursorRowBuilderClient) Add2_1(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.Add2_1(ctx, &pb.Add2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -1024,29 +1298,30 @@ func (c *DefaultDatabaseErrorHandlerClient) OnCorruption(ctx context.Context, ha
 	return err
 }
 
-// CursorWrapperClient wraps the gRPC CursorWrapperService client.
-type CursorWrapperClient struct {
-	svc pb.CursorWrapperServiceClient
+// ContentObservableClient wraps the gRPC ContentObservableService client.
+type ContentObservableClient struct {
+	svc pb.ContentObservableServiceClient
 }
 
-// NewCursorWrapperClient creates a new CursorWrapper client.
-func NewCursorWrapperClient(cc grpc.ClientConnInterface) *CursorWrapperClient {
-	return &CursorWrapperClient{
-		svc: pb.NewCursorWrapperServiceClient(cc),
+// NewContentObservableClient creates a new ContentObservable client.
+func NewContentObservableClient(cc grpc.ClientConnInterface) *ContentObservableClient {
+	return &ContentObservableClient{
+		svc: pb.NewContentObservableServiceClient(cc),
 	}
 }
 
-// Close calls the Close RPC.
-func (c *CursorWrapperClient) Close(ctx context.Context, handle int64) error {
-	_, err := c.svc.Close(ctx, &pb.CursorWrapperCloseRequest{
+// DispatchChange1 calls the DispatchChange1 RPC.
+func (c *ContentObservableClient) DispatchChange1(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.DispatchChange1(ctx, &pb.ContentObservableDispatchChange1Request{
 		Handle: handle,
+		Arg0:   arg0,
 	})
 	return err
 }
 
-// CopyStringToBuffer calls the CopyStringToBuffer RPC.
-func (c *CursorWrapperClient) CopyStringToBuffer(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.CopyStringToBuffer(ctx, &pb.CopyStringToBufferRequest{
+// DispatchChange2_1 calls the DispatchChange2_1 RPC.
+func (c *ContentObservableClient) DispatchChange2_1(ctx context.Context, handle int64, arg0 bool, arg1 int64) error {
+	_, err := c.svc.DispatchChange2_1(ctx, &pb.ContentObservableDispatchChange2_1Request{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -1054,660 +1329,31 @@ func (c *CursorWrapperClient) CopyStringToBuffer(ctx context.Context, handle int
 	return err
 }
 
-// Deactivate calls the Deactivate RPC.
-func (c *CursorWrapperClient) Deactivate(ctx context.Context, handle int64) error {
-	_, err := c.svc.Deactivate(ctx, &pb.DeactivateRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// GetBlob calls the GetBlob RPC.
-func (c *CursorWrapperClient) GetBlob(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetBlob(ctx, &pb.GetBlobRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetColumnCount calls the GetColumnCount RPC.
-func (c *CursorWrapperClient) GetColumnCount(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetColumnCount(ctx, &pb.GetColumnCountRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetColumnIndex calls the GetColumnIndex RPC.
-func (c *CursorWrapperClient) GetColumnIndex(ctx context.Context, handle int64, arg0 string) (int32, error) {
-	resp, err := c.svc.GetColumnIndex(ctx, &pb.CursorWrapperGetColumnIndexRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetColumnIndexOrThrow calls the GetColumnIndexOrThrow RPC.
-func (c *CursorWrapperClient) GetColumnIndexOrThrow(ctx context.Context, handle int64, arg0 string) (int32, error) {
-	resp, err := c.svc.GetColumnIndexOrThrow(ctx, &pb.GetColumnIndexOrThrowRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetColumnName calls the GetColumnName RPC.
-func (c *CursorWrapperClient) GetColumnName(ctx context.Context, handle int64, arg0 int32) (string, error) {
-	resp, err := c.svc.GetColumnName(ctx, &pb.GetColumnNameRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetColumnNames calls the GetColumnNames RPC.
-func (c *CursorWrapperClient) GetColumnNames(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetColumnNames(ctx, &pb.GetColumnNamesRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCount calls the GetCount RPC.
-func (c *CursorWrapperClient) GetCount(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetCount(ctx, &pb.GetCountRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDouble calls the GetDouble RPC.
-func (c *CursorWrapperClient) GetDouble(ctx context.Context, handle int64, arg0 int32) (float64, error) {
-	resp, err := c.svc.GetDouble(ctx, &pb.GetDoubleRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetExtras calls the GetExtras RPC.
-func (c *CursorWrapperClient) GetExtras(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFloat calls the GetFloat RPC.
-func (c *CursorWrapperClient) GetFloat(ctx context.Context, handle int64, arg0 int32) (float32, error) {
-	resp, err := c.svc.GetFloat(ctx, &pb.GetFloatRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInt calls the GetInt RPC.
-func (c *CursorWrapperClient) GetInt(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetInt(ctx, &pb.GetIntRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLong calls the GetLong RPC.
-func (c *CursorWrapperClient) GetLong(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetLong(ctx, &pb.GetLongRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNotificationUri calls the GetNotificationUri RPC.
-func (c *CursorWrapperClient) GetNotificationUri(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetNotificationUri(ctx, &pb.GetNotificationUriRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPosition calls the GetPosition RPC.
-func (c *CursorWrapperClient) GetPosition(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetPosition(ctx, &pb.GetPositionRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetShort calls the GetShort RPC.
-func (c *CursorWrapperClient) GetShort(ctx context.Context, handle int64, arg0 int32) (int16, error) {
-	resp, err := c.svc.GetShort(ctx, &pb.GetShortRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return int16(resp.GetResult()), nil
-}
-
-// GetString calls the GetString RPC.
-func (c *CursorWrapperClient) GetString(ctx context.Context, handle int64, arg0 int32) (string, error) {
-	resp, err := c.svc.GetString(ctx, &pb.GetStringRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetType calls the GetType RPC.
-func (c *CursorWrapperClient) GetType(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWantsAllOnMoveCalls calls the GetWantsAllOnMoveCalls RPC.
-func (c *CursorWrapperClient) GetWantsAllOnMoveCalls(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.GetWantsAllOnMoveCalls(ctx, &pb.GetWantsAllOnMoveCallsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWrappedCursor calls the GetWrappedCursor RPC.
-func (c *CursorWrapperClient) GetWrappedCursor(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetWrappedCursor(ctx, &pb.GetWrappedCursorRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsAfterLast calls the IsAfterLast RPC.
-func (c *CursorWrapperClient) IsAfterLast(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsAfterLast(ctx, &pb.IsAfterLastRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsBeforeFirst calls the IsBeforeFirst RPC.
-func (c *CursorWrapperClient) IsBeforeFirst(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsBeforeFirst(ctx, &pb.IsBeforeFirstRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsClosed calls the IsClosed RPC.
-func (c *CursorWrapperClient) IsClosed(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsClosed(ctx, &pb.IsClosedRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsFirst calls the IsFirst RPC.
-func (c *CursorWrapperClient) IsFirst(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsFirst(ctx, &pb.IsFirstRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsLast calls the IsLast RPC.
-func (c *CursorWrapperClient) IsLast(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsLast(ctx, &pb.IsLastRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsNull calls the IsNull RPC.
-func (c *CursorWrapperClient) IsNull(ctx context.Context, handle int64, arg0 int32) (bool, error) {
-	resp, err := c.svc.IsNull(ctx, &pb.IsNullRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Move calls the Move RPC.
-func (c *CursorWrapperClient) Move(ctx context.Context, handle int64, arg0 int32) (bool, error) {
-	resp, err := c.svc.Move(ctx, &pb.MoveRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MoveToFirst calls the MoveToFirst RPC.
-func (c *CursorWrapperClient) MoveToFirst(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.MoveToFirst(ctx, &pb.MoveToFirstRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MoveToLast calls the MoveToLast RPC.
-func (c *CursorWrapperClient) MoveToLast(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.MoveToLast(ctx, &pb.MoveToLastRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MoveToNext calls the MoveToNext RPC.
-func (c *CursorWrapperClient) MoveToNext(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.MoveToNext(ctx, &pb.MoveToNextRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MoveToPosition calls the MoveToPosition RPC.
-func (c *CursorWrapperClient) MoveToPosition(ctx context.Context, handle int64, arg0 int32) (bool, error) {
-	resp, err := c.svc.MoveToPosition(ctx, &pb.MoveToPositionRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MoveToPrevious calls the MoveToPrevious RPC.
-func (c *CursorWrapperClient) MoveToPrevious(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.MoveToPrevious(ctx, &pb.MoveToPreviousRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RegisterContentObserver calls the RegisterContentObserver RPC.
-func (c *CursorWrapperClient) RegisterContentObserver(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.RegisterContentObserver(ctx, &pb.RegisterContentObserverRequest{
+// NotifyChange calls the NotifyChange RPC.
+func (c *ContentObservableClient) NotifyChange(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.NotifyChange(ctx, &pb.NotifyChangeRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
 	return err
 }
 
-// RegisterDataSetObserver calls the RegisterDataSetObserver RPC.
-func (c *CursorWrapperClient) RegisterDataSetObserver(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.RegisterDataSetObserver(ctx, &pb.RegisterDataSetObserverRequest{
+// RegisterObserver1 calls the RegisterObserver1 RPC.
+func (c *ContentObservableClient) RegisterObserver1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.RegisterObserver1(ctx, &pb.RegisterObserver1Request{
 		Handle: handle,
 		Arg0:   arg0,
 	})
 	return err
 }
 
-// Requery calls the Requery RPC.
-func (c *CursorWrapperClient) Requery(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.Requery(ctx, &pb.RequeryRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Respond calls the Respond RPC.
-func (c *CursorWrapperClient) Respond(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.Respond(ctx, &pb.RespondRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetExtras calls the SetExtras RPC.
-func (c *CursorWrapperClient) SetExtras(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetExtras(ctx, &pb.SetExtrasRequest{
+// RegisterObserver1_1 calls the RegisterObserver1_1 RPC.
+func (c *ContentObservableClient) RegisterObserver1_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.RegisterObserver1_1(ctx, &pb.RegisterObserver1_1Request{
 		Handle: handle,
 		Arg0:   arg0,
 	})
 	return err
-}
-
-// SetNotificationUri calls the SetNotificationUri RPC.
-func (c *CursorWrapperClient) SetNotificationUri(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.SetNotificationUri(ctx, &pb.SetNotificationUriRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// UnregisterContentObserver calls the UnregisterContentObserver RPC.
-func (c *CursorWrapperClient) UnregisterContentObserver(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.UnregisterContentObserver(ctx, &pb.UnregisterContentObserverRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// UnregisterDataSetObserver calls the UnregisterDataSetObserver RPC.
-func (c *CursorWrapperClient) UnregisterDataSetObserver(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.UnregisterDataSetObserver(ctx, &pb.UnregisterDataSetObserverRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// ObservableClient wraps the gRPC ObservableService client.
-type ObservableClient struct {
-	svc pb.ObservableServiceClient
-}
-
-// NewObservableClient creates a new Observable client.
-func NewObservableClient(cc grpc.ClientConnInterface) *ObservableClient {
-	return &ObservableClient{
-		svc: pb.NewObservableServiceClient(cc),
-	}
-}
-
-// UnregisterAll calls the UnregisterAll RPC.
-func (c *ObservableClient) UnregisterAll(ctx context.Context) error {
-	_, err := c.svc.UnregisterAll(ctx, &pb.UnregisterAllRequest{})
-	return err
-}
-
-// CrossProcessCursorWrapperClient wraps the gRPC CrossProcessCursorWrapperService client.
-type CrossProcessCursorWrapperClient struct {
-	svc pb.CrossProcessCursorWrapperServiceClient
-}
-
-// NewCrossProcessCursorWrapperClient creates a new CrossProcessCursorWrapper client.
-func NewCrossProcessCursorWrapperClient(cc grpc.ClientConnInterface) *CrossProcessCursorWrapperClient {
-	return &CrossProcessCursorWrapperClient{
-		svc: pb.NewCrossProcessCursorWrapperServiceClient(cc),
-	}
-}
-
-// FillWindow calls the FillWindow RPC.
-func (c *CrossProcessCursorWrapperClient) FillWindow(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.FillWindow(ctx, &pb.FillWindowRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GetWindow calls the GetWindow RPC.
-func (c *CrossProcessCursorWrapperClient) GetWindow(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetWindow(ctx, &pb.GetWindowRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnMove calls the OnMove RPC.
-func (c *CrossProcessCursorWrapperClient) OnMove(ctx context.Context, handle int64, arg0 int32, arg1 int32) (bool, error) {
-	resp, err := c.svc.OnMove(ctx, &pb.OnMoveRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DataSetObserverClient wraps the gRPC DataSetObserverService client.
-type DataSetObserverClient struct {
-	svc pb.DataSetObserverServiceClient
-}
-
-// NewDataSetObserverClient creates a new DataSetObserver client.
-func NewDataSetObserverClient(cc grpc.ClientConnInterface) *DataSetObserverClient {
-	return &DataSetObserverClient{
-		svc: pb.NewDataSetObserverServiceClient(cc),
-	}
-}
-
-// OnChanged calls the OnChanged RPC.
-func (c *DataSetObserverClient) OnChanged(ctx context.Context) error {
-	_, err := c.svc.OnChanged(ctx, &pb.OnChangedRequest{})
-	return err
-}
-
-// OnInvalidated calls the OnInvalidated RPC.
-func (c *DataSetObserverClient) OnInvalidated(ctx context.Context) error {
-	_, err := c.svc.OnInvalidated(ctx, &pb.OnInvalidatedRequest{})
-	return err
-}
-
-// CursorJoinerClient wraps the gRPC CursorJoinerService client.
-type CursorJoinerClient struct {
-	svc pb.CursorJoinerServiceClient
-}
-
-// NewCursorJoinerClient creates a new CursorJoiner client.
-func NewCursorJoinerClient(cc grpc.ClientConnInterface) *CursorJoinerClient {
-	return &CursorJoinerClient{
-		svc: pb.NewCursorJoinerServiceClient(cc),
-	}
-}
-
-// HasNext calls the HasNext RPC.
-func (c *CursorJoinerClient) HasNext(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.HasNext(ctx, &pb.HasNextRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Next0 calls the Next0 RPC.
-func (c *CursorJoinerClient) Next0(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Next0(ctx, &pb.Next0Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Remove calls the Remove RPC.
-func (c *CursorJoinerClient) Remove(ctx context.Context, handle int64) error {
-	_, err := c.svc.Remove(ctx, &pb.RemoveRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// Next0_1 calls the Next0_1 RPC.
-func (c *CursorJoinerClient) Next0_1(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Next0_1(ctx, &pb.Next0_1Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CursorJoinerResultClient wraps the gRPC CursorJoinerResultService client.
-type CursorJoinerResultClient struct {
-	svc pb.CursorJoinerResultServiceClient
-}
-
-// NewCursorJoinerResultClient creates a new CursorJoinerResult client.
-func NewCursorJoinerResultClient(cc grpc.ClientConnInterface) *CursorJoinerResultClient {
-	return &CursorJoinerResultClient{
-		svc: pb.NewCursorJoinerResultServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *CursorJoinerResultClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *CursorJoinerResultClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CrossProcessCursorClient wraps the gRPC CrossProcessCursorService client.
-type CrossProcessCursorClient struct {
-	svc pb.CrossProcessCursorServiceClient
-}
-
-// NewCrossProcessCursorClient creates a new CrossProcessCursor client.
-func NewCrossProcessCursorClient(cc grpc.ClientConnInterface) *CrossProcessCursorClient {
-	return &CrossProcessCursorClient{
-		svc: pb.NewCrossProcessCursorServiceClient(cc),
-	}
-}
-
-// FillWindow calls the FillWindow RPC.
-func (c *CrossProcessCursorClient) FillWindow(ctx context.Context, arg0 int32, arg1 int64) error {
-	_, err := c.svc.FillWindow(ctx, &pb.CrossProcessCursorFillWindowRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// GetWindow calls the GetWindow RPC.
-func (c *CrossProcessCursorClient) GetWindow(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetWindow(ctx, &pb.CrossProcessCursorGetWindowRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnMove calls the OnMove RPC.
-func (c *CrossProcessCursorClient) OnMove(ctx context.Context, arg0 int32, arg1 int32) (bool, error) {
-	resp, err := c.svc.OnMove(ctx, &pb.CrossProcessCursorOnMoveRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
 }
 
 // CursorWindowClient wraps the gRPC CursorWindowService client.
@@ -1899,7 +1545,7 @@ func (c *CursorWindowClient) GetType(ctx context.Context, handle int64, arg0 int
 
 // IsBlob calls the IsBlob RPC.
 func (c *CursorWindowClient) IsBlob(ctx context.Context, handle int64, arg0 int32, arg1 int32) (bool, error) {
-	resp, err := c.svc.IsBlob(ctx, &pb.IsBlobRequest{
+	resp, err := c.svc.IsBlob(ctx, &pb.CursorWindowIsBlobRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -1912,7 +1558,7 @@ func (c *CursorWindowClient) IsBlob(ctx context.Context, handle int64, arg0 int3
 
 // IsFloat calls the IsFloat RPC.
 func (c *CursorWindowClient) IsFloat(ctx context.Context, handle int64, arg0 int32, arg1 int32) (bool, error) {
-	resp, err := c.svc.IsFloat(ctx, &pb.IsFloatRequest{
+	resp, err := c.svc.IsFloat(ctx, &pb.CursorWindowIsFloatRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -1925,7 +1571,7 @@ func (c *CursorWindowClient) IsFloat(ctx context.Context, handle int64, arg0 int
 
 // IsLong calls the IsLong RPC.
 func (c *CursorWindowClient) IsLong(ctx context.Context, handle int64, arg0 int32, arg1 int32) (bool, error) {
-	resp, err := c.svc.IsLong(ctx, &pb.IsLongRequest{
+	resp, err := c.svc.IsLong(ctx, &pb.CursorWindowIsLongRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -1951,7 +1597,7 @@ func (c *CursorWindowClient) IsNull(ctx context.Context, handle int64, arg0 int3
 
 // IsString calls the IsString RPC.
 func (c *CursorWindowClient) IsString(ctx context.Context, handle int64, arg0 int32, arg1 int32) (bool, error) {
-	resp, err := c.svc.IsString(ctx, &pb.IsStringRequest{
+	resp, err := c.svc.IsString(ctx, &pb.CursorWindowIsStringRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -2085,61 +1731,41 @@ func (c *CursorWindowClient) NewFromParcel(ctx context.Context, handle int64, ar
 	return resp.GetResult(), nil
 }
 
-// ContentObservableClient wraps the gRPC ContentObservableService client.
-type ContentObservableClient struct {
-	svc pb.ContentObservableServiceClient
+// ErrorHandlerClient wraps the gRPC ErrorHandlerService client.
+type ErrorHandlerClient struct {
+	svc pb.ErrorHandlerServiceClient
 }
 
-// NewContentObservableClient creates a new ContentObservable client.
-func NewContentObservableClient(cc grpc.ClientConnInterface) *ContentObservableClient {
-	return &ContentObservableClient{
-		svc: pb.NewContentObservableServiceClient(cc),
+// NewErrorHandlerClient creates a new ErrorHandler client.
+func NewErrorHandlerClient(cc grpc.ClientConnInterface) *ErrorHandlerClient {
+	return &ErrorHandlerClient{
+		svc: pb.NewErrorHandlerServiceClient(cc),
 	}
 }
 
-// DispatchChange1 calls the DispatchChange1 RPC.
-func (c *ContentObservableClient) DispatchChange1(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.DispatchChange1(ctx, &pb.ContentObservableDispatchChange1Request{
-		Handle: handle,
-		Arg0:   arg0,
+// OnCorruption calls the OnCorruption RPC.
+func (c *ErrorHandlerClient) OnCorruption(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnCorruption(ctx, &pb.ErrorHandlerOnCorruptionRequest{
+		Arg0: arg0,
 	})
 	return err
 }
 
-// DispatchChange2_1 calls the DispatchChange2_1 RPC.
-func (c *ContentObservableClient) DispatchChange2_1(ctx context.Context, handle int64, arg0 bool, arg1 int64) error {
-	_, err := c.svc.DispatchChange2_1(ctx, &pb.ContentObservableDispatchChange2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
+// ObservableClient wraps the gRPC ObservableService client.
+type ObservableClient struct {
+	svc pb.ObservableServiceClient
 }
 
-// NotifyChange calls the NotifyChange RPC.
-func (c *ContentObservableClient) NotifyChange(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.NotifyChange(ctx, &pb.NotifyChangeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
+// NewObservableClient creates a new Observable client.
+func NewObservableClient(cc grpc.ClientConnInterface) *ObservableClient {
+	return &ObservableClient{
+		svc: pb.NewObservableServiceClient(cc),
+	}
 }
 
-// RegisterObserver1 calls the RegisterObserver1 RPC.
-func (c *ContentObservableClient) RegisterObserver1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.RegisterObserver1(ctx, &pb.RegisterObserver1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// RegisterObserver1_1 calls the RegisterObserver1_1 RPC.
-func (c *ContentObservableClient) RegisterObserver1_1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.RegisterObserver1_1(ctx, &pb.RegisterObserver1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
+// UnregisterAll calls the UnregisterAll RPC.
+func (c *ObservableClient) UnregisterAll(ctx context.Context) error {
+	_, err := c.svc.UnregisterAll(ctx, &pb.UnregisterAllRequest{})
 	return err
 }
 
@@ -2303,7 +1929,7 @@ func (c *MergeCursorClient) IsNull(ctx context.Context, handle int64, arg0 int32
 
 // OnMove calls the OnMove RPC.
 func (c *MergeCursorClient) OnMove(ctx context.Context, handle int64, arg0 int32, arg1 int32) (bool, error) {
-	resp, err := c.svc.OnMove(ctx, &pb.OnMoveRequest{
+	resp, err := c.svc.OnMove(ctx, &pb.MergeCursorOnMoveRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -2361,216 +1987,6 @@ func (c *MergeCursorClient) UnregisterDataSetObserver(ctx context.Context, handl
 	return err
 }
 
-// AbstractWindowedCursorClient wraps the gRPC AbstractWindowedCursorService client.
-type AbstractWindowedCursorClient struct {
-	svc pb.AbstractWindowedCursorServiceClient
-}
-
-// NewAbstractWindowedCursorClient creates a new AbstractWindowedCursor client.
-func NewAbstractWindowedCursorClient(cc grpc.ClientConnInterface) *AbstractWindowedCursorClient {
-	return &AbstractWindowedCursorClient{
-		svc: pb.NewAbstractWindowedCursorServiceClient(cc),
-	}
-}
-
-// CopyStringToBuffer calls the CopyStringToBuffer RPC.
-func (c *AbstractWindowedCursorClient) CopyStringToBuffer(ctx context.Context, arg0 int32, arg1 int64) error {
-	_, err := c.svc.CopyStringToBuffer(ctx, &pb.AbstractWindowedCursorCopyStringToBufferRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// GetBlob calls the GetBlob RPC.
-func (c *AbstractWindowedCursorClient) GetBlob(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetBlob(ctx, &pb.AbstractWindowedCursorGetBlobRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDouble calls the GetDouble RPC.
-func (c *AbstractWindowedCursorClient) GetDouble(ctx context.Context, arg0 int32) (float64, error) {
-	resp, err := c.svc.GetDouble(ctx, &pb.AbstractWindowedCursorGetDoubleRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFloat calls the GetFloat RPC.
-func (c *AbstractWindowedCursorClient) GetFloat(ctx context.Context, arg0 int32) (float32, error) {
-	resp, err := c.svc.GetFloat(ctx, &pb.AbstractWindowedCursorGetFloatRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInt calls the GetInt RPC.
-func (c *AbstractWindowedCursorClient) GetInt(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetInt(ctx, &pb.AbstractWindowedCursorGetIntRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLong calls the GetLong RPC.
-func (c *AbstractWindowedCursorClient) GetLong(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetLong(ctx, &pb.AbstractWindowedCursorGetLongRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetShort calls the GetShort RPC.
-func (c *AbstractWindowedCursorClient) GetShort(ctx context.Context, arg0 int32) (int16, error) {
-	resp, err := c.svc.GetShort(ctx, &pb.AbstractWindowedCursorGetShortRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return int16(resp.GetResult()), nil
-}
-
-// GetString calls the GetString RPC.
-func (c *AbstractWindowedCursorClient) GetString(ctx context.Context, arg0 int32) (string, error) {
-	resp, err := c.svc.GetString(ctx, &pb.AbstractWindowedCursorGetStringRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetType calls the GetType RPC.
-func (c *AbstractWindowedCursorClient) GetType(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetType(ctx, &pb.AbstractWindowedCursorGetTypeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWindow calls the GetWindow RPC.
-func (c *AbstractWindowedCursorClient) GetWindow(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetWindow(ctx, &pb.AbstractWindowedCursorGetWindowRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasWindow calls the HasWindow RPC.
-func (c *AbstractWindowedCursorClient) HasWindow(ctx context.Context) (bool, error) {
-	resp, err := c.svc.HasWindow(ctx, &pb.HasWindowRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsBlob calls the IsBlob RPC.
-func (c *AbstractWindowedCursorClient) IsBlob(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.IsBlob(ctx, &pb.AbstractWindowedCursorIsBlobRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsFloat calls the IsFloat RPC.
-func (c *AbstractWindowedCursorClient) IsFloat(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.IsFloat(ctx, &pb.AbstractWindowedCursorIsFloatRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsLong calls the IsLong RPC.
-func (c *AbstractWindowedCursorClient) IsLong(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.IsLong(ctx, &pb.AbstractWindowedCursorIsLongRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsNull calls the IsNull RPC.
-func (c *AbstractWindowedCursorClient) IsNull(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.IsNull(ctx, &pb.AbstractWindowedCursorIsNullRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsString calls the IsString RPC.
-func (c *AbstractWindowedCursorClient) IsString(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.IsString(ctx, &pb.AbstractWindowedCursorIsStringRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetWindow calls the SetWindow RPC.
-func (c *AbstractWindowedCursorClient) SetWindow(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetWindow(ctx, &pb.SetWindowRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ErrorHandlerClient wraps the gRPC ErrorHandlerService client.
-type ErrorHandlerClient struct {
-	svc pb.ErrorHandlerServiceClient
-}
-
-// NewErrorHandlerClient creates a new ErrorHandler client.
-func NewErrorHandlerClient(cc grpc.ClientConnInterface) *ErrorHandlerClient {
-	return &ErrorHandlerClient{
-		svc: pb.NewErrorHandlerServiceClient(cc),
-	}
-}
-
-// OnCorruption calls the OnCorruption RPC.
-func (c *ErrorHandlerClient) OnCorruption(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnCorruption(ctx, &pb.ErrorHandlerOnCorruptionRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
 // AbstractCursorClient wraps the gRPC AbstractCursorService client.
 type AbstractCursorClient struct {
 	svc pb.AbstractCursorServiceClient
@@ -2591,7 +2007,7 @@ func (c *AbstractCursorClient) Close(ctx context.Context) error {
 
 // CopyStringToBuffer calls the CopyStringToBuffer RPC.
 func (c *AbstractCursorClient) CopyStringToBuffer(ctx context.Context, arg0 int32, arg1 int64) error {
-	_, err := c.svc.CopyStringToBuffer(ctx, &pb.AbstractCursorCopyStringToBufferRequest{
+	_, err := c.svc.CopyStringToBuffer(ctx, &pb.CopyStringToBufferRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -2606,7 +2022,7 @@ func (c *AbstractCursorClient) Deactivate(ctx context.Context) error {
 
 // FillWindow calls the FillWindow RPC.
 func (c *AbstractCursorClient) FillWindow(ctx context.Context, arg0 int32, arg1 int64) error {
-	_, err := c.svc.FillWindow(ctx, &pb.AbstractCursorFillWindowRequest{
+	_, err := c.svc.FillWindow(ctx, &pb.FillWindowRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -2626,7 +2042,7 @@ func (c *AbstractCursorClient) GetBlob(ctx context.Context, arg0 int32) (int64, 
 
 // GetColumnCount calls the GetColumnCount RPC.
 func (c *AbstractCursorClient) GetColumnCount(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetColumnCount(ctx, &pb.AbstractCursorGetColumnCountRequest{})
+	resp, err := c.svc.GetColumnCount(ctx, &pb.GetColumnCountRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -2646,7 +2062,7 @@ func (c *AbstractCursorClient) GetColumnIndex(ctx context.Context, arg0 string) 
 
 // GetColumnIndexOrThrow calls the GetColumnIndexOrThrow RPC.
 func (c *AbstractCursorClient) GetColumnIndexOrThrow(ctx context.Context, arg0 string) (int32, error) {
-	resp, err := c.svc.GetColumnIndexOrThrow(ctx, &pb.AbstractCursorGetColumnIndexOrThrowRequest{
+	resp, err := c.svc.GetColumnIndexOrThrow(ctx, &pb.GetColumnIndexOrThrowRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -2657,7 +2073,7 @@ func (c *AbstractCursorClient) GetColumnIndexOrThrow(ctx context.Context, arg0 s
 
 // GetColumnName calls the GetColumnName RPC.
 func (c *AbstractCursorClient) GetColumnName(ctx context.Context, arg0 int32) (string, error) {
-	resp, err := c.svc.GetColumnName(ctx, &pb.AbstractCursorGetColumnNameRequest{
+	resp, err := c.svc.GetColumnName(ctx, &pb.GetColumnNameRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -2697,7 +2113,7 @@ func (c *AbstractCursorClient) GetDouble(ctx context.Context, arg0 int32) (float
 
 // GetExtras calls the GetExtras RPC.
 func (c *AbstractCursorClient) GetExtras(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetExtras(ctx, &pb.AbstractCursorGetExtrasRequest{})
+	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -2739,7 +2155,16 @@ func (c *AbstractCursorClient) GetLong(ctx context.Context, arg0 int32) (int64, 
 
 // GetNotificationUri calls the GetNotificationUri RPC.
 func (c *AbstractCursorClient) GetNotificationUri(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetNotificationUri(ctx, &pb.AbstractCursorGetNotificationUriRequest{})
+	resp, err := c.svc.GetNotificationUri(ctx, &pb.GetNotificationUriRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNotificationUris calls the GetNotificationUris RPC.
+func (c *AbstractCursorClient) GetNotificationUris(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetNotificationUris(ctx, &pb.GetNotificationUrisRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -2748,7 +2173,7 @@ func (c *AbstractCursorClient) GetNotificationUri(ctx context.Context) (int64, e
 
 // GetPosition calls the GetPosition RPC.
 func (c *AbstractCursorClient) GetPosition(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetPosition(ctx, &pb.AbstractCursorGetPositionRequest{})
+	resp, err := c.svc.GetPosition(ctx, &pb.GetPositionRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -2790,7 +2215,7 @@ func (c *AbstractCursorClient) GetType(ctx context.Context, arg0 int32) (int32, 
 
 // GetWantsAllOnMoveCalls calls the GetWantsAllOnMoveCalls RPC.
 func (c *AbstractCursorClient) GetWantsAllOnMoveCalls(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetWantsAllOnMoveCalls(ctx, &pb.AbstractCursorGetWantsAllOnMoveCallsRequest{})
+	resp, err := c.svc.GetWantsAllOnMoveCalls(ctx, &pb.GetWantsAllOnMoveCallsRequest{})
 	if err != nil {
 		return false, err
 	}
@@ -2799,7 +2224,7 @@ func (c *AbstractCursorClient) GetWantsAllOnMoveCalls(ctx context.Context) (bool
 
 // GetWindow calls the GetWindow RPC.
 func (c *AbstractCursorClient) GetWindow(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetWindow(ctx, &pb.AbstractCursorGetWindowRequest{})
+	resp, err := c.svc.GetWindow(ctx, &pb.GetWindowRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -2808,7 +2233,7 @@ func (c *AbstractCursorClient) GetWindow(ctx context.Context) (int64, error) {
 
 // IsAfterLast calls the IsAfterLast RPC.
 func (c *AbstractCursorClient) IsAfterLast(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsAfterLast(ctx, &pb.AbstractCursorIsAfterLastRequest{})
+	resp, err := c.svc.IsAfterLast(ctx, &pb.IsAfterLastRequest{})
 	if err != nil {
 		return false, err
 	}
@@ -2817,7 +2242,7 @@ func (c *AbstractCursorClient) IsAfterLast(ctx context.Context) (bool, error) {
 
 // IsBeforeFirst calls the IsBeforeFirst RPC.
 func (c *AbstractCursorClient) IsBeforeFirst(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsBeforeFirst(ctx, &pb.AbstractCursorIsBeforeFirstRequest{})
+	resp, err := c.svc.IsBeforeFirst(ctx, &pb.IsBeforeFirstRequest{})
 	if err != nil {
 		return false, err
 	}
@@ -2826,7 +2251,7 @@ func (c *AbstractCursorClient) IsBeforeFirst(ctx context.Context) (bool, error) 
 
 // IsClosed calls the IsClosed RPC.
 func (c *AbstractCursorClient) IsClosed(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsClosed(ctx, &pb.AbstractCursorIsClosedRequest{})
+	resp, err := c.svc.IsClosed(ctx, &pb.IsClosedRequest{})
 	if err != nil {
 		return false, err
 	}
@@ -2835,7 +2260,7 @@ func (c *AbstractCursorClient) IsClosed(ctx context.Context) (bool, error) {
 
 // IsFirst calls the IsFirst RPC.
 func (c *AbstractCursorClient) IsFirst(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsFirst(ctx, &pb.AbstractCursorIsFirstRequest{})
+	resp, err := c.svc.IsFirst(ctx, &pb.IsFirstRequest{})
 	if err != nil {
 		return false, err
 	}
@@ -2844,7 +2269,7 @@ func (c *AbstractCursorClient) IsFirst(ctx context.Context) (bool, error) {
 
 // IsLast calls the IsLast RPC.
 func (c *AbstractCursorClient) IsLast(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsLast(ctx, &pb.AbstractCursorIsLastRequest{})
+	resp, err := c.svc.IsLast(ctx, &pb.IsLastRequest{})
 	if err != nil {
 		return false, err
 	}
@@ -2864,7 +2289,7 @@ func (c *AbstractCursorClient) IsNull(ctx context.Context, arg0 int32) (bool, er
 
 // Move calls the Move RPC.
 func (c *AbstractCursorClient) Move(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.Move(ctx, &pb.AbstractCursorMoveRequest{
+	resp, err := c.svc.Move(ctx, &pb.MoveRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -2875,7 +2300,7 @@ func (c *AbstractCursorClient) Move(ctx context.Context, arg0 int32) (bool, erro
 
 // MoveToFirst calls the MoveToFirst RPC.
 func (c *AbstractCursorClient) MoveToFirst(ctx context.Context) (bool, error) {
-	resp, err := c.svc.MoveToFirst(ctx, &pb.AbstractCursorMoveToFirstRequest{})
+	resp, err := c.svc.MoveToFirst(ctx, &pb.MoveToFirstRequest{})
 	if err != nil {
 		return false, err
 	}
@@ -2884,7 +2309,7 @@ func (c *AbstractCursorClient) MoveToFirst(ctx context.Context) (bool, error) {
 
 // MoveToLast calls the MoveToLast RPC.
 func (c *AbstractCursorClient) MoveToLast(ctx context.Context) (bool, error) {
-	resp, err := c.svc.MoveToLast(ctx, &pb.AbstractCursorMoveToLastRequest{})
+	resp, err := c.svc.MoveToLast(ctx, &pb.MoveToLastRequest{})
 	if err != nil {
 		return false, err
 	}
@@ -2893,7 +2318,7 @@ func (c *AbstractCursorClient) MoveToLast(ctx context.Context) (bool, error) {
 
 // MoveToNext calls the MoveToNext RPC.
 func (c *AbstractCursorClient) MoveToNext(ctx context.Context) (bool, error) {
-	resp, err := c.svc.MoveToNext(ctx, &pb.AbstractCursorMoveToNextRequest{})
+	resp, err := c.svc.MoveToNext(ctx, &pb.MoveToNextRequest{})
 	if err != nil {
 		return false, err
 	}
@@ -2902,7 +2327,7 @@ func (c *AbstractCursorClient) MoveToNext(ctx context.Context) (bool, error) {
 
 // MoveToPosition calls the MoveToPosition RPC.
 func (c *AbstractCursorClient) MoveToPosition(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.MoveToPosition(ctx, &pb.AbstractCursorMoveToPositionRequest{
+	resp, err := c.svc.MoveToPosition(ctx, &pb.MoveToPositionRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -2913,7 +2338,7 @@ func (c *AbstractCursorClient) MoveToPosition(ctx context.Context, arg0 int32) (
 
 // MoveToPrevious calls the MoveToPrevious RPC.
 func (c *AbstractCursorClient) MoveToPrevious(ctx context.Context) (bool, error) {
-	resp, err := c.svc.MoveToPrevious(ctx, &pb.AbstractCursorMoveToPreviousRequest{})
+	resp, err := c.svc.MoveToPrevious(ctx, &pb.MoveToPreviousRequest{})
 	if err != nil {
 		return false, err
 	}
@@ -2922,7 +2347,7 @@ func (c *AbstractCursorClient) MoveToPrevious(ctx context.Context) (bool, error)
 
 // OnMove calls the OnMove RPC.
 func (c *AbstractCursorClient) OnMove(ctx context.Context, arg0 int32, arg1 int32) (bool, error) {
-	resp, err := c.svc.OnMove(ctx, &pb.AbstractCursorOnMoveRequest{
+	resp, err := c.svc.OnMove(ctx, &pb.OnMoveRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -2959,7 +2384,7 @@ func (c *AbstractCursorClient) Requery(ctx context.Context) (bool, error) {
 
 // Respond calls the Respond RPC.
 func (c *AbstractCursorClient) Respond(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.Respond(ctx, &pb.AbstractCursorRespondRequest{
+	resp, err := c.svc.Respond(ctx, &pb.RespondRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -2970,7 +2395,7 @@ func (c *AbstractCursorClient) Respond(ctx context.Context, arg0 int64) (int64, 
 
 // SetExtras calls the SetExtras RPC.
 func (c *AbstractCursorClient) SetExtras(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetExtras(ctx, &pb.AbstractCursorSetExtrasRequest{
+	_, err := c.svc.SetExtras(ctx, &pb.SetExtrasRequest{
 		Arg0: arg0,
 	})
 	return err
@@ -2978,7 +2403,7 @@ func (c *AbstractCursorClient) SetExtras(ctx context.Context, arg0 int64) error 
 
 // SetNotificationUri calls the SetNotificationUri RPC.
 func (c *AbstractCursorClient) SetNotificationUri(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.SetNotificationUri(ctx, &pb.AbstractCursorSetNotificationUriRequest{
+	_, err := c.svc.SetNotificationUri(ctx, &pb.SetNotificationUriRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -3026,6 +2451,612 @@ func (c *AbstractCursorSelfContentObserverClient) DeliverSelfNotifications(ctx c
 func (c *AbstractCursorSelfContentObserverClient) OnChange(ctx context.Context, arg0 bool) error {
 	_, err := c.svc.OnChange(ctx, &pb.OnChangeRequest{
 		Arg0: arg0,
+	})
+	return err
+}
+
+// CursorJoinerClient wraps the gRPC CursorJoinerService client.
+type CursorJoinerClient struct {
+	svc pb.CursorJoinerServiceClient
+}
+
+// NewCursorJoinerClient creates a new CursorJoiner client.
+func NewCursorJoinerClient(cc grpc.ClientConnInterface) *CursorJoinerClient {
+	return &CursorJoinerClient{
+		svc: pb.NewCursorJoinerServiceClient(cc),
+	}
+}
+
+// HasNext calls the HasNext RPC.
+func (c *CursorJoinerClient) HasNext(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasNext(ctx, &pb.HasNextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Iterator calls the Iterator RPC.
+func (c *CursorJoinerClient) Iterator(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Iterator(ctx, &pb.IteratorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Next0 calls the Next0 RPC.
+func (c *CursorJoinerClient) Next0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Next0(ctx, &pb.Next0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Remove calls the Remove RPC.
+func (c *CursorJoinerClient) Remove(ctx context.Context, handle int64) error {
+	_, err := c.svc.Remove(ctx, &pb.RemoveRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// Next0_1 calls the Next0_1 RPC.
+func (c *CursorJoinerClient) Next0_1(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Next0_1(ctx, &pb.Next0_1Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CursorJoinerResultClient wraps the gRPC CursorJoinerResultService client.
+type CursorJoinerResultClient struct {
+	svc pb.CursorJoinerResultServiceClient
+}
+
+// NewCursorJoinerResultClient creates a new CursorJoinerResult client.
+func NewCursorJoinerResultClient(cc grpc.ClientConnInterface) *CursorJoinerResultClient {
+	return &CursorJoinerResultClient{
+		svc: pb.NewCursorJoinerResultServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *CursorJoinerResultClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *CursorJoinerResultClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CursorWrapperClient wraps the gRPC CursorWrapperService client.
+type CursorWrapperClient struct {
+	svc pb.CursorWrapperServiceClient
+}
+
+// NewCursorWrapperClient creates a new CursorWrapper client.
+func NewCursorWrapperClient(cc grpc.ClientConnInterface) *CursorWrapperClient {
+	return &CursorWrapperClient{
+		svc: pb.NewCursorWrapperServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *CursorWrapperClient) Close(ctx context.Context, handle int64) error {
+	_, err := c.svc.Close(ctx, &pb.CursorWrapperCloseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// CopyStringToBuffer calls the CopyStringToBuffer RPC.
+func (c *CursorWrapperClient) CopyStringToBuffer(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.CopyStringToBuffer(ctx, &pb.CursorWrapperCopyStringToBufferRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// Deactivate calls the Deactivate RPC.
+func (c *CursorWrapperClient) Deactivate(ctx context.Context, handle int64) error {
+	_, err := c.svc.Deactivate(ctx, &pb.DeactivateRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// GetBlob calls the GetBlob RPC.
+func (c *CursorWrapperClient) GetBlob(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetBlob(ctx, &pb.GetBlobRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColumnCount calls the GetColumnCount RPC.
+func (c *CursorWrapperClient) GetColumnCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetColumnCount(ctx, &pb.CursorWrapperGetColumnCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColumnIndex calls the GetColumnIndex RPC.
+func (c *CursorWrapperClient) GetColumnIndex(ctx context.Context, handle int64, arg0 string) (int32, error) {
+	resp, err := c.svc.GetColumnIndex(ctx, &pb.CursorWrapperGetColumnIndexRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColumnIndexOrThrow calls the GetColumnIndexOrThrow RPC.
+func (c *CursorWrapperClient) GetColumnIndexOrThrow(ctx context.Context, handle int64, arg0 string) (int32, error) {
+	resp, err := c.svc.GetColumnIndexOrThrow(ctx, &pb.CursorWrapperGetColumnIndexOrThrowRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColumnName calls the GetColumnName RPC.
+func (c *CursorWrapperClient) GetColumnName(ctx context.Context, handle int64, arg0 int32) (string, error) {
+	resp, err := c.svc.GetColumnName(ctx, &pb.CursorWrapperGetColumnNameRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColumnNames calls the GetColumnNames RPC.
+func (c *CursorWrapperClient) GetColumnNames(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetColumnNames(ctx, &pb.GetColumnNamesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCount calls the GetCount RPC.
+func (c *CursorWrapperClient) GetCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetCount(ctx, &pb.GetCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDouble calls the GetDouble RPC.
+func (c *CursorWrapperClient) GetDouble(ctx context.Context, handle int64, arg0 int32) (float64, error) {
+	resp, err := c.svc.GetDouble(ctx, &pb.GetDoubleRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExtras calls the GetExtras RPC.
+func (c *CursorWrapperClient) GetExtras(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetExtras(ctx, &pb.CursorWrapperGetExtrasRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFloat calls the GetFloat RPC.
+func (c *CursorWrapperClient) GetFloat(ctx context.Context, handle int64, arg0 int32) (float32, error) {
+	resp, err := c.svc.GetFloat(ctx, &pb.GetFloatRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInt calls the GetInt RPC.
+func (c *CursorWrapperClient) GetInt(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetInt(ctx, &pb.GetIntRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLong calls the GetLong RPC.
+func (c *CursorWrapperClient) GetLong(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetLong(ctx, &pb.GetLongRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNotificationUri calls the GetNotificationUri RPC.
+func (c *CursorWrapperClient) GetNotificationUri(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetNotificationUri(ctx, &pb.CursorWrapperGetNotificationUriRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNotificationUris calls the GetNotificationUris RPC.
+func (c *CursorWrapperClient) GetNotificationUris(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetNotificationUris(ctx, &pb.CursorWrapperGetNotificationUrisRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPosition calls the GetPosition RPC.
+func (c *CursorWrapperClient) GetPosition(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetPosition(ctx, &pb.CursorWrapperGetPositionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetShort calls the GetShort RPC.
+func (c *CursorWrapperClient) GetShort(ctx context.Context, handle int64, arg0 int32) (int16, error) {
+	resp, err := c.svc.GetShort(ctx, &pb.GetShortRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return int16(resp.GetResult()), nil
+}
+
+// GetString calls the GetString RPC.
+func (c *CursorWrapperClient) GetString(ctx context.Context, handle int64, arg0 int32) (string, error) {
+	resp, err := c.svc.GetString(ctx, &pb.GetStringRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetType calls the GetType RPC.
+func (c *CursorWrapperClient) GetType(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWantsAllOnMoveCalls calls the GetWantsAllOnMoveCalls RPC.
+func (c *CursorWrapperClient) GetWantsAllOnMoveCalls(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.GetWantsAllOnMoveCalls(ctx, &pb.CursorWrapperGetWantsAllOnMoveCallsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWrappedCursor calls the GetWrappedCursor RPC.
+func (c *CursorWrapperClient) GetWrappedCursor(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetWrappedCursor(ctx, &pb.GetWrappedCursorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAfterLast calls the IsAfterLast RPC.
+func (c *CursorWrapperClient) IsAfterLast(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsAfterLast(ctx, &pb.CursorWrapperIsAfterLastRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsBeforeFirst calls the IsBeforeFirst RPC.
+func (c *CursorWrapperClient) IsBeforeFirst(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsBeforeFirst(ctx, &pb.CursorWrapperIsBeforeFirstRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsClosed calls the IsClosed RPC.
+func (c *CursorWrapperClient) IsClosed(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsClosed(ctx, &pb.CursorWrapperIsClosedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFirst calls the IsFirst RPC.
+func (c *CursorWrapperClient) IsFirst(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsFirst(ctx, &pb.CursorWrapperIsFirstRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsLast calls the IsLast RPC.
+func (c *CursorWrapperClient) IsLast(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsLast(ctx, &pb.CursorWrapperIsLastRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsNull calls the IsNull RPC.
+func (c *CursorWrapperClient) IsNull(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.IsNull(ctx, &pb.IsNullRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Move calls the Move RPC.
+func (c *CursorWrapperClient) Move(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.Move(ctx, &pb.CursorWrapperMoveRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MoveToFirst calls the MoveToFirst RPC.
+func (c *CursorWrapperClient) MoveToFirst(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.MoveToFirst(ctx, &pb.CursorWrapperMoveToFirstRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MoveToLast calls the MoveToLast RPC.
+func (c *CursorWrapperClient) MoveToLast(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.MoveToLast(ctx, &pb.CursorWrapperMoveToLastRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MoveToNext calls the MoveToNext RPC.
+func (c *CursorWrapperClient) MoveToNext(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.MoveToNext(ctx, &pb.CursorWrapperMoveToNextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MoveToPosition calls the MoveToPosition RPC.
+func (c *CursorWrapperClient) MoveToPosition(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.MoveToPosition(ctx, &pb.CursorWrapperMoveToPositionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MoveToPrevious calls the MoveToPrevious RPC.
+func (c *CursorWrapperClient) MoveToPrevious(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.MoveToPrevious(ctx, &pb.CursorWrapperMoveToPreviousRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RegisterContentObserver calls the RegisterContentObserver RPC.
+func (c *CursorWrapperClient) RegisterContentObserver(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.RegisterContentObserver(ctx, &pb.RegisterContentObserverRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// RegisterDataSetObserver calls the RegisterDataSetObserver RPC.
+func (c *CursorWrapperClient) RegisterDataSetObserver(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.RegisterDataSetObserver(ctx, &pb.RegisterDataSetObserverRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Requery calls the Requery RPC.
+func (c *CursorWrapperClient) Requery(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.Requery(ctx, &pb.RequeryRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Respond calls the Respond RPC.
+func (c *CursorWrapperClient) Respond(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.Respond(ctx, &pb.CursorWrapperRespondRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetExtras calls the SetExtras RPC.
+func (c *CursorWrapperClient) SetExtras(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetExtras(ctx, &pb.CursorWrapperSetExtrasRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetNotificationUri calls the SetNotificationUri RPC.
+func (c *CursorWrapperClient) SetNotificationUri(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.SetNotificationUri(ctx, &pb.CursorWrapperSetNotificationUriRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// UnregisterContentObserver calls the UnregisterContentObserver RPC.
+func (c *CursorWrapperClient) UnregisterContentObserver(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.UnregisterContentObserver(ctx, &pb.UnregisterContentObserverRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// UnregisterDataSetObserver calls the UnregisterDataSetObserver RPC.
+func (c *CursorWrapperClient) UnregisterDataSetObserver(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.UnregisterDataSetObserver(ctx, &pb.UnregisterDataSetObserverRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// DataSetObservableClient wraps the gRPC DataSetObservableService client.
+type DataSetObservableClient struct {
+	svc pb.DataSetObservableServiceClient
+}
+
+// NewDataSetObservableClient creates a new DataSetObservable client.
+func NewDataSetObservableClient(cc grpc.ClientConnInterface) *DataSetObservableClient {
+	return &DataSetObservableClient{
+		svc: pb.NewDataSetObservableServiceClient(cc),
+	}
+}
+
+// NotifyChanged calls the NotifyChanged RPC.
+func (c *DataSetObservableClient) NotifyChanged(ctx context.Context, handle int64) error {
+	_, err := c.svc.NotifyChanged(ctx, &pb.NotifyChangedRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// NotifyInvalidated calls the NotifyInvalidated RPC.
+func (c *DataSetObservableClient) NotifyInvalidated(ctx context.Context, handle int64) error {
+	_, err := c.svc.NotifyInvalidated(ctx, &pb.NotifyInvalidatedRequest{
+		Handle: handle,
 	})
 	return err
 }

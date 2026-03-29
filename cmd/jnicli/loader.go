@@ -12,90 +12,6 @@ var loaderCmd = &cobra.Command{
 	Short: "loader service operations",
 }
 
-var loaderResourcesLoaderCmd = &cobra.Command{
-	Use:   "resources-loader",
-	Short: "ResourcesLoaderService operations",
-}
-
-var loaderResourcesLoaderNewResourcesLoaderCmd = &cobra.Command{
-	Use:   "new-resources-loader",
-	Short: "NewResourcesLoader RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResourcesLoaderServiceClient(grpcConn)
-		req := &pb.NewResourcesLoaderRequest{}
-		resp, err := client.NewResourcesLoader(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var loaderResourcesLoaderAddProviderCmd = &cobra.Command{
-	Use:   "add-provider",
-	Short: "AddProvider RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResourcesLoaderServiceClient(grpcConn)
-		req := &pb.AddProviderRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddProvider(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var loaderResourcesLoaderClearProvidersCmd = &cobra.Command{
-	Use:   "clear-providers",
-	Short: "ClearProviders RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResourcesLoaderServiceClient(grpcConn)
-		req := &pb.ClearProvidersRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ClearProviders(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var loaderResourcesLoaderRemoveProviderCmd = &cobra.Command{
-	Use:   "remove-provider",
-	Short: "RemoveProvider RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResourcesLoaderServiceClient(grpcConn)
-		req := &pb.RemoveProviderRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RemoveProvider(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var loaderResourcesProviderCmd = &cobra.Command{
 	Use:   "resources-provider",
 	Short: "ResourcesProviderService operations",
@@ -262,17 +178,110 @@ var loaderResourcesProviderLoadOverlayCmd = &cobra.Command{
 	},
 }
 
+var loaderResourcesLoaderCmd = &cobra.Command{
+	Use:   "resources-loader",
+	Short: "ResourcesLoaderService operations",
+}
+
+var loaderResourcesLoaderNewResourcesLoaderCmd = &cobra.Command{
+	Use:   "new-resources-loader",
+	Short: "NewResourcesLoader RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesLoaderServiceClient(grpcConn)
+		req := &pb.NewResourcesLoaderRequest{}
+		resp, err := client.NewResourcesLoader(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var loaderResourcesLoaderAddProviderCmd = &cobra.Command{
+	Use:   "add-provider",
+	Short: "AddProvider RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesLoaderServiceClient(grpcConn)
+		req := &pb.AddProviderRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddProvider(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var loaderResourcesLoaderClearProvidersCmd = &cobra.Command{
+	Use:   "clear-providers",
+	Short: "ClearProviders RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesLoaderServiceClient(grpcConn)
+		req := &pb.ClearProvidersRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ClearProviders(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var loaderResourcesLoaderGetProvidersCmd = &cobra.Command{
+	Use:   "get-providers",
+	Short: "GetProviders RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesLoaderServiceClient(grpcConn)
+		req := &pb.GetProvidersRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetProviders(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var loaderResourcesLoaderRemoveProviderCmd = &cobra.Command{
+	Use:   "remove-provider",
+	Short: "RemoveProvider RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesLoaderServiceClient(grpcConn)
+		req := &pb.RemoveProviderRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RemoveProvider(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
-	loaderResourcesLoaderCmd.AddCommand(loaderResourcesLoaderNewResourcesLoaderCmd)
-	loaderResourcesLoaderAddProviderCmd.Flags().Int64("handle", 0, "handle (int64)")
-	loaderResourcesLoaderAddProviderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	loaderResourcesLoaderCmd.AddCommand(loaderResourcesLoaderAddProviderCmd)
-	loaderResourcesLoaderClearProvidersCmd.Flags().Int64("handle", 0, "handle (int64)")
-	loaderResourcesLoaderCmd.AddCommand(loaderResourcesLoaderClearProvidersCmd)
-	loaderResourcesLoaderRemoveProviderCmd.Flags().Int64("handle", 0, "handle (int64)")
-	loaderResourcesLoaderRemoveProviderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	loaderResourcesLoaderCmd.AddCommand(loaderResourcesLoaderRemoveProviderCmd)
-	loaderCmd.AddCommand(loaderResourcesLoaderCmd)
 	loaderResourcesProviderCmd.AddCommand(loaderResourcesProviderCloseCmd)
 	loaderResourcesProviderEmptyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	loaderResourcesProviderCmd.AddCommand(loaderResourcesProviderEmptyCmd)
@@ -293,5 +302,17 @@ func init() {
 	loaderResourcesProviderLoadOverlayCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	loaderResourcesProviderCmd.AddCommand(loaderResourcesProviderLoadOverlayCmd)
 	loaderCmd.AddCommand(loaderResourcesProviderCmd)
+	loaderResourcesLoaderCmd.AddCommand(loaderResourcesLoaderNewResourcesLoaderCmd)
+	loaderResourcesLoaderAddProviderCmd.Flags().Int64("handle", 0, "handle (int64)")
+	loaderResourcesLoaderAddProviderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	loaderResourcesLoaderCmd.AddCommand(loaderResourcesLoaderAddProviderCmd)
+	loaderResourcesLoaderClearProvidersCmd.Flags().Int64("handle", 0, "handle (int64)")
+	loaderResourcesLoaderCmd.AddCommand(loaderResourcesLoaderClearProvidersCmd)
+	loaderResourcesLoaderGetProvidersCmd.Flags().Int64("handle", 0, "handle (int64)")
+	loaderResourcesLoaderCmd.AddCommand(loaderResourcesLoaderGetProvidersCmd)
+	loaderResourcesLoaderRemoveProviderCmd.Flags().Int64("handle", 0, "handle (int64)")
+	loaderResourcesLoaderRemoveProviderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	loaderResourcesLoaderCmd.AddCommand(loaderResourcesLoaderRemoveProviderCmd)
+	loaderCmd.AddCommand(loaderResourcesLoaderCmd)
 	rootCmd.AddCommand(loaderCmd)
 }

@@ -15,67 +15,6 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// MetricsServer implements pb.MetricsServiceServer.
-type MetricsServer struct {
-	pb.UnimplementedMetricsServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *MetricsServer) NewMetrics(_ context.Context, req *pb.NewMetricsRequest) (*pb.NewMetricsResponse, error) {
-	obj, err := jnipkg.NewMetrics(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewMetricsResponse{Result: handle}, nil
-}
-
-func (s *MetricsServer) LogHidden(_ context.Context, req *pb.LogHiddenRequest) (*pb.LogHiddenResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Metrics{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.LogHidden(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.LogHiddenResponse{}, nil
-}
-
-func (s *MetricsServer) LogTouch(_ context.Context, req *pb.LogTouchRequest) (*pb.LogTouchResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Metrics{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.LogTouch(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.LogTouchResponse{}, nil
-}
-
-func (s *MetricsServer) LogVisible(_ context.Context, req *pb.LogVisibleRequest) (*pb.LogVisibleResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Metrics{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.LogVisible(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.LogVisibleResponse{}, nil
-}
-
 // SpecServer implements pb.SpecServiceServer.
 type SpecServer struct {
 	pb.UnimplementedSpecServiceServer
@@ -112,7 +51,7 @@ func (s *SpecServer) CanRender(_ context.Context, req *pb.CanRenderRequest) (*pb
 	return &pb.CanRenderResponse{Result: result}, nil
 }
 
-func (s *SpecServer) DescribeContents(_ context.Context, req *pb.SpecDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+func (s *SpecServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -182,7 +121,7 @@ func (s *SpecServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.T
 	return &pb.ToStringResponse{Result: result}, nil
 }
 
-func (s *SpecServer) WriteToParcel(_ context.Context, req *pb.SpecWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+func (s *SpecServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -193,4 +132,65 @@ func (s *SpecServer) WriteToParcel(_ context.Context, req *pb.SpecWriteToParcelR
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.WriteToParcelResponse{}, nil
+}
+
+// MetricsServer implements pb.MetricsServiceServer.
+type MetricsServer struct {
+	pb.UnimplementedMetricsServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *MetricsServer) NewMetrics(_ context.Context, req *pb.NewMetricsRequest) (*pb.NewMetricsResponse, error) {
+	obj, err := jnipkg.NewMetrics(s.Ctx.VM, s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewMetricsResponse{Result: handle}, nil
+}
+
+func (s *MetricsServer) LogHidden(_ context.Context, req *pb.LogHiddenRequest) (*pb.LogHiddenResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Metrics{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.LogHidden(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.LogHiddenResponse{}, nil
+}
+
+func (s *MetricsServer) LogTouch(_ context.Context, req *pb.LogTouchRequest) (*pb.LogTouchResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Metrics{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.LogTouch(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.LogTouchResponse{}, nil
+}
+
+func (s *MetricsServer) LogVisible(_ context.Context, req *pb.LogVisibleRequest) (*pb.LogVisibleResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Metrics{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.LogVisible(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.LogVisibleResponse{}, nil
 }

@@ -83,89 +83,6 @@ func (c *ChannelClient) Transmit(ctx context.Context, arg0 int64) (int64, error)
 	return resp.GetResult(), nil
 }
 
-// SEServiceClient wraps the gRPC SEServiceService client.
-type SEServiceClient struct {
-	svc pb.SEServiceServiceClient
-}
-
-// NewSEServiceClient creates a new SEService client.
-func NewSEServiceClient(cc grpc.ClientConnInterface) *SEServiceClient {
-	return &SEServiceClient{
-		svc: pb.NewSEServiceServiceClient(cc),
-	}
-}
-
-// GetReaders calls the GetReaders RPC.
-func (c *SEServiceClient) GetReaders(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetReaders(ctx, &pb.GetReadersRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUiccReader calls the GetUiccReader RPC.
-func (c *SEServiceClient) GetUiccReader(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetUiccReader(ctx, &pb.GetUiccReaderRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetVersion calls the GetVersion RPC.
-func (c *SEServiceClient) GetVersion(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetVersion(ctx, &pb.GetVersionRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsConnected calls the IsConnected RPC.
-func (c *SEServiceClient) IsConnected(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsConnected(ctx, &pb.IsConnectedRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Shutdown calls the Shutdown RPC.
-func (c *SEServiceClient) Shutdown(ctx context.Context, handle int64) error {
-	_, err := c.svc.Shutdown(ctx, &pb.ShutdownRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// SEServiceOnConnectedListenerClient wraps the gRPC SEServiceOnConnectedListenerService client.
-type SEServiceOnConnectedListenerClient struct {
-	svc pb.SEServiceOnConnectedListenerServiceClient
-}
-
-// NewSEServiceOnConnectedListenerClient creates a new SEServiceOnConnectedListener client.
-func NewSEServiceOnConnectedListenerClient(cc grpc.ClientConnInterface) *SEServiceOnConnectedListenerClient {
-	return &SEServiceOnConnectedListenerClient{
-		svc: pb.NewSEServiceOnConnectedListenerServiceClient(cc),
-	}
-}
-
-// OnConnected calls the OnConnected RPC.
-func (c *SEServiceOnConnectedListenerClient) OnConnected(ctx context.Context) error {
-	_, err := c.svc.OnConnected(ctx, &pb.OnConnectedRequest{})
-	return err
-}
-
 // SessionClient wraps the gRPC SessionService client.
 type SessionClient struct {
 	svc pb.SessionServiceClient
@@ -261,6 +178,89 @@ func (c *SessionClient) OpenLogicalChannel2_1(ctx context.Context, arg0 int64, a
 		return 0, err
 	}
 	return resp.GetResult(), nil
+}
+
+// SEServiceClient wraps the gRPC SEServiceService client.
+type SEServiceClient struct {
+	svc pb.SEServiceServiceClient
+}
+
+// NewSEServiceClient creates a new SEService client.
+func NewSEServiceClient(cc grpc.ClientConnInterface) *SEServiceClient {
+	return &SEServiceClient{
+		svc: pb.NewSEServiceServiceClient(cc),
+	}
+}
+
+// GetReaders calls the GetReaders RPC.
+func (c *SEServiceClient) GetReaders(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetReaders(ctx, &pb.GetReadersRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUiccReader calls the GetUiccReader RPC.
+func (c *SEServiceClient) GetUiccReader(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetUiccReader(ctx, &pb.GetUiccReaderRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVersion calls the GetVersion RPC.
+func (c *SEServiceClient) GetVersion(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetVersion(ctx, &pb.GetVersionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsConnected calls the IsConnected RPC.
+func (c *SEServiceClient) IsConnected(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsConnected(ctx, &pb.IsConnectedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Shutdown calls the Shutdown RPC.
+func (c *SEServiceClient) Shutdown(ctx context.Context, handle int64) error {
+	_, err := c.svc.Shutdown(ctx, &pb.ShutdownRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// SEServiceOnConnectedListenerClient wraps the gRPC SEServiceOnConnectedListenerService client.
+type SEServiceOnConnectedListenerClient struct {
+	svc pb.SEServiceOnConnectedListenerServiceClient
+}
+
+// NewSEServiceOnConnectedListenerClient creates a new SEServiceOnConnectedListener client.
+func NewSEServiceOnConnectedListenerClient(cc grpc.ClientConnInterface) *SEServiceOnConnectedListenerClient {
+	return &SEServiceOnConnectedListenerClient{
+		svc: pb.NewSEServiceOnConnectedListenerServiceClient(cc),
+	}
+}
+
+// OnConnected calls the OnConnected RPC.
+func (c *SEServiceOnConnectedListenerClient) OnConnected(ctx context.Context) error {
+	_, err := c.svc.OnConnected(ctx, &pb.OnConnectedRequest{})
+	return err
 }
 
 // ReaderClient wraps the gRPC ReaderService client.

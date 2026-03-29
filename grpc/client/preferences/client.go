@@ -245,23 +245,78 @@ func (c *SharedPreferencesOnSharedPreferenceChangeListenerClient) OnSharedPrefer
 	return err
 }
 
-// SettingsPreferenceServiceClient wraps the gRPC SettingsPreferenceServiceService client.
-type SettingsPreferenceServiceClient struct {
-	svc pb.SettingsPreferenceServiceServiceClient
+// SetValueRequestClient wraps the gRPC SetValueRequestService client.
+type SetValueRequestClient struct {
+	svc pb.SetValueRequestServiceClient
 }
 
-// NewSettingsPreferenceServiceClient creates a new SettingsPreferenceService client.
-func NewSettingsPreferenceServiceClient(cc grpc.ClientConnInterface) *SettingsPreferenceServiceClient {
-	return &SettingsPreferenceServiceClient{
-		svc: pb.NewSettingsPreferenceServiceServiceClient(cc),
+// NewSetValueRequestClient creates a new SetValueRequest client.
+func NewSetValueRequestClient(cc grpc.ClientConnInterface) *SetValueRequestClient {
+	return &SetValueRequestClient{
+		svc: pb.NewSetValueRequestServiceClient(cc),
 	}
 }
 
-// OnBind calls the OnBind RPC.
-func (c *SettingsPreferenceServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
+// DescribeContents calls the DescribeContents RPC.
+func (c *SetValueRequestClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPreferenceKey calls the GetPreferenceKey RPC.
+func (c *SetValueRequestClient) GetPreferenceKey(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetPreferenceKey(ctx, &pb.GetPreferenceKeyRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPreferenceValue calls the GetPreferenceValue RPC.
+func (c *SetValueRequestClient) GetPreferenceValue(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPreferenceValue(ctx, &pb.GetPreferenceValueRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScreenKey calls the GetScreenKey RPC.
+func (c *SetValueRequestClient) GetScreenKey(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetScreenKey(ctx, &pb.GetScreenKeyRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SetValueRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Arg0: arg0,
+		Arg1: arg1,
 	})
+	return err
+}
+
+// SetValueRequestBuilderClient wraps the gRPC SetValueRequestBuilderService client.
+type SetValueRequestBuilderClient struct {
+	svc pb.SetValueRequestBuilderServiceClient
+}
+
+// NewSetValueRequestBuilderClient creates a new SetValueRequestBuilder client.
+func NewSetValueRequestBuilderClient(cc grpc.ClientConnInterface) *SetValueRequestBuilderClient {
+	return &SetValueRequestBuilderClient{
+		svc: pb.NewSetValueRequestBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *SetValueRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -497,197 +552,6 @@ func (c *SettingsPreferenceValueBuilderClient) SetStringValue(ctx context.Contex
 	return resp.GetResult(), nil
 }
 
-// MetadataResultClient wraps the gRPC MetadataResultService client.
-type MetadataResultClient struct {
-	svc pb.MetadataResultServiceClient
-}
-
-// NewMetadataResultClient creates a new MetadataResult client.
-func NewMetadataResultClient(cc grpc.ClientConnInterface) *MetadataResultClient {
-	return &MetadataResultClient{
-		svc: pb.NewMetadataResultServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *MetadataResultClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetResultCode calls the GetResultCode RPC.
-func (c *MetadataResultClient) GetResultCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetResultCode(ctx, &pb.GetResultCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *MetadataResultClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// MetadataResultBuilderClient wraps the gRPC MetadataResultBuilderService client.
-type MetadataResultBuilderClient struct {
-	svc pb.MetadataResultBuilderServiceClient
-}
-
-// NewMetadataResultBuilderClient creates a new MetadataResultBuilder client.
-func NewMetadataResultBuilderClient(cc grpc.ClientConnInterface) *MetadataResultBuilderClient {
-	return &MetadataResultBuilderClient{
-		svc: pb.NewMetadataResultBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *MetadataResultBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetValueResultClient wraps the gRPC SetValueResultService client.
-type SetValueResultClient struct {
-	svc pb.SetValueResultServiceClient
-}
-
-// NewSetValueResultClient creates a new SetValueResult client.
-func NewSetValueResultClient(cc grpc.ClientConnInterface) *SetValueResultClient {
-	return &SetValueResultClient{
-		svc: pb.NewSetValueResultServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *SetValueResultClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetResultCode calls the GetResultCode RPC.
-func (c *SetValueResultClient) GetResultCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetResultCode(ctx, &pb.GetResultCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *SetValueResultClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// SetValueResultBuilderClient wraps the gRPC SetValueResultBuilderService client.
-type SetValueResultBuilderClient struct {
-	svc pb.SetValueResultBuilderServiceClient
-}
-
-// NewSetValueResultBuilderClient creates a new SetValueResultBuilder client.
-func NewSetValueResultBuilderClient(cc grpc.ClientConnInterface) *SetValueResultBuilderClient {
-	return &SetValueResultBuilderClient{
-		svc: pb.NewSetValueResultBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *SetValueResultBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SettingsPreferenceServiceClientClient wraps the gRPC SettingsPreferenceServiceClientService client.
-type SettingsPreferenceServiceClientClient struct {
-	svc pb.SettingsPreferenceServiceClientServiceClient
-}
-
-// NewSettingsPreferenceServiceClientClient creates a new SettingsPreferenceServiceClient client.
-func NewSettingsPreferenceServiceClientClient(cc grpc.ClientConnInterface) *SettingsPreferenceServiceClientClient {
-	return &SettingsPreferenceServiceClientClient{
-		svc: pb.NewSettingsPreferenceServiceClientServiceClient(cc),
-	}
-}
-
-// Close calls the Close RPC.
-func (c *SettingsPreferenceServiceClientClient) Close(ctx context.Context, handle int64) error {
-	_, err := c.svc.Close(ctx, &pb.CloseRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// MetadataRequestClient wraps the gRPC MetadataRequestService client.
-type MetadataRequestClient struct {
-	svc pb.MetadataRequestServiceClient
-}
-
-// NewMetadataRequestClient creates a new MetadataRequest client.
-func NewMetadataRequestClient(cc grpc.ClientConnInterface) *MetadataRequestClient {
-	return &MetadataRequestClient{
-		svc: pb.NewMetadataRequestServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *MetadataRequestClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *MetadataRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// MetadataRequestBuilderClient wraps the gRPC MetadataRequestBuilderService client.
-type MetadataRequestBuilderClient struct {
-	svc pb.MetadataRequestBuilderServiceClient
-}
-
-// NewMetadataRequestBuilderClient creates a new MetadataRequestBuilder client.
-func NewMetadataRequestBuilderClient(cc grpc.ClientConnInterface) *MetadataRequestBuilderClient {
-	return &MetadataRequestBuilderClient{
-		svc: pb.NewMetadataRequestBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *MetadataRequestBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // SettingsPreferenceMetadataClient wraps the gRPC SettingsPreferenceMetadataService client.
 type SettingsPreferenceMetadataClient struct {
 	svc pb.SettingsPreferenceMetadataServiceClient
@@ -736,6 +600,15 @@ func (c *SettingsPreferenceMetadataClient) GetLaunchIntent(ctx context.Context) 
 	return resp.GetResult(), nil
 }
 
+// GetReadPermissions calls the GetReadPermissions RPC.
+func (c *SettingsPreferenceMetadataClient) GetReadPermissions(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetReadPermissions(ctx, &pb.GetReadPermissionsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetScreenKey calls the GetScreenKey RPC.
 func (c *SettingsPreferenceMetadataClient) GetScreenKey(ctx context.Context) (string, error) {
 	resp, err := c.svc.GetScreenKey(ctx, &pb.GetScreenKeyRequest{})
@@ -759,6 +632,15 @@ func (c *SettingsPreferenceMetadataClient) GetTitle(ctx context.Context) (string
 	resp, err := c.svc.GetTitle(ctx, &pb.GetTitleRequest{})
 	if err != nil {
 		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWritePermissions calls the GetWritePermissions RPC.
+func (c *SettingsPreferenceMetadataClient) GetWritePermissions(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetWritePermissions(ctx, &pb.GetWritePermissionsRequest{})
+	if err != nil {
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -937,20 +819,20 @@ func (c *SettingsPreferenceMetadataBuilderClient) SetWriteSensitivity(ctx contex
 	return resp.GetResult(), nil
 }
 
-// SetValueRequestClient wraps the gRPC SetValueRequestService client.
-type SetValueRequestClient struct {
-	svc pb.SetValueRequestServiceClient
+// MetadataRequestClient wraps the gRPC MetadataRequestService client.
+type MetadataRequestClient struct {
+	svc pb.MetadataRequestServiceClient
 }
 
-// NewSetValueRequestClient creates a new SetValueRequest client.
-func NewSetValueRequestClient(cc grpc.ClientConnInterface) *SetValueRequestClient {
-	return &SetValueRequestClient{
-		svc: pb.NewSetValueRequestServiceClient(cc),
+// NewMetadataRequestClient creates a new MetadataRequest client.
+func NewMetadataRequestClient(cc grpc.ClientConnInterface) *MetadataRequestClient {
+	return &MetadataRequestClient{
+		svc: pb.NewMetadataRequestServiceClient(cc),
 	}
 }
 
 // DescribeContents calls the DescribeContents RPC.
-func (c *SetValueRequestClient) DescribeContents(ctx context.Context) (int32, error) {
+func (c *MetadataRequestClient) DescribeContents(ctx context.Context) (int32, error) {
 	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
 	if err != nil {
 		return 0, err
@@ -958,35 +840,8 @@ func (c *SetValueRequestClient) DescribeContents(ctx context.Context) (int32, er
 	return resp.GetResult(), nil
 }
 
-// GetPreferenceKey calls the GetPreferenceKey RPC.
-func (c *SetValueRequestClient) GetPreferenceKey(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetPreferenceKey(ctx, &pb.GetPreferenceKeyRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPreferenceValue calls the GetPreferenceValue RPC.
-func (c *SetValueRequestClient) GetPreferenceValue(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetPreferenceValue(ctx, &pb.GetPreferenceValueRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetScreenKey calls the GetScreenKey RPC.
-func (c *SetValueRequestClient) GetScreenKey(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetScreenKey(ctx, &pb.GetScreenKeyRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
 // WriteToParcel calls the WriteToParcel RPC.
-func (c *SetValueRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+func (c *MetadataRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
 	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -994,20 +849,80 @@ func (c *SetValueRequestClient) WriteToParcel(ctx context.Context, arg0 int64, a
 	return err
 }
 
-// SetValueRequestBuilderClient wraps the gRPC SetValueRequestBuilderService client.
-type SetValueRequestBuilderClient struct {
-	svc pb.SetValueRequestBuilderServiceClient
+// MetadataRequestBuilderClient wraps the gRPC MetadataRequestBuilderService client.
+type MetadataRequestBuilderClient struct {
+	svc pb.MetadataRequestBuilderServiceClient
 }
 
-// NewSetValueRequestBuilderClient creates a new SetValueRequestBuilder client.
-func NewSetValueRequestBuilderClient(cc grpc.ClientConnInterface) *SetValueRequestBuilderClient {
-	return &SetValueRequestBuilderClient{
-		svc: pb.NewSetValueRequestBuilderServiceClient(cc),
+// NewMetadataRequestBuilderClient creates a new MetadataRequestBuilder client.
+func NewMetadataRequestBuilderClient(cc grpc.ClientConnInterface) *MetadataRequestBuilderClient {
+	return &MetadataRequestBuilderClient{
+		svc: pb.NewMetadataRequestBuilderServiceClient(cc),
 	}
 }
 
 // Build calls the Build RPC.
-func (c *SetValueRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+func (c *MetadataRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetValueResultClient wraps the gRPC SetValueResultService client.
+type SetValueResultClient struct {
+	svc pb.SetValueResultServiceClient
+}
+
+// NewSetValueResultClient creates a new SetValueResult client.
+func NewSetValueResultClient(cc grpc.ClientConnInterface) *SetValueResultClient {
+	return &SetValueResultClient{
+		svc: pb.NewSetValueResultServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SetValueResultClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResultCode calls the GetResultCode RPC.
+func (c *SetValueResultClient) GetResultCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetResultCode(ctx, &pb.GetResultCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SetValueResultClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetValueResultBuilderClient wraps the gRPC SetValueResultBuilderService client.
+type SetValueResultBuilderClient struct {
+	svc pb.SetValueResultBuilderServiceClient
+}
+
+// NewSetValueResultBuilderClient creates a new SetValueResultBuilder client.
+func NewSetValueResultBuilderClient(cc grpc.ClientConnInterface) *SetValueResultBuilderClient {
+	return &SetValueResultBuilderClient{
+		svc: pb.NewSetValueResultBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *SetValueResultBuilderClient) Build(ctx context.Context) (int64, error) {
 	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
 	if err != nil {
 		return 0, err
@@ -1107,6 +1022,118 @@ func (c *GetValueResultBuilderClient) SetMetadata(ctx context.Context, arg0 int6
 // SetValue calls the SetValue RPC.
 func (c *GetValueResultBuilderClient) SetValue(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.SetValue(ctx, &pb.SetValueRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MetadataResultClient wraps the gRPC MetadataResultService client.
+type MetadataResultClient struct {
+	svc pb.MetadataResultServiceClient
+}
+
+// NewMetadataResultClient creates a new MetadataResult client.
+func NewMetadataResultClient(cc grpc.ClientConnInterface) *MetadataResultClient {
+	return &MetadataResultClient{
+		svc: pb.NewMetadataResultServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *MetadataResultClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMetadataList calls the GetMetadataList RPC.
+func (c *MetadataResultClient) GetMetadataList(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMetadataList(ctx, &pb.GetMetadataListRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResultCode calls the GetResultCode RPC.
+func (c *MetadataResultClient) GetResultCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetResultCode(ctx, &pb.GetResultCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *MetadataResultClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// MetadataResultBuilderClient wraps the gRPC MetadataResultBuilderService client.
+type MetadataResultBuilderClient struct {
+	svc pb.MetadataResultBuilderServiceClient
+}
+
+// NewMetadataResultBuilderClient creates a new MetadataResultBuilder client.
+func NewMetadataResultBuilderClient(cc grpc.ClientConnInterface) *MetadataResultBuilderClient {
+	return &MetadataResultBuilderClient{
+		svc: pb.NewMetadataResultBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *MetadataResultBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SettingsPreferenceServiceClientClient wraps the gRPC SettingsPreferenceServiceClientService client.
+type SettingsPreferenceServiceClientClient struct {
+	svc pb.SettingsPreferenceServiceClientServiceClient
+}
+
+// NewSettingsPreferenceServiceClientClient creates a new SettingsPreferenceServiceClient client.
+func NewSettingsPreferenceServiceClientClient(cc grpc.ClientConnInterface) *SettingsPreferenceServiceClientClient {
+	return &SettingsPreferenceServiceClientClient{
+		svc: pb.NewSettingsPreferenceServiceClientServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *SettingsPreferenceServiceClientClient) Close(ctx context.Context, handle int64) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// SettingsPreferenceServiceClient wraps the gRPC SettingsPreferenceServiceService client.
+type SettingsPreferenceServiceClient struct {
+	svc pb.SettingsPreferenceServiceServiceClient
+}
+
+// NewSettingsPreferenceServiceClient creates a new SettingsPreferenceService client.
+func NewSettingsPreferenceServiceClient(cc grpc.ClientConnInterface) *SettingsPreferenceServiceClient {
+	return &SettingsPreferenceServiceClient{
+		svc: pb.NewSettingsPreferenceServiceServiceClient(cc),
+	}
+}
+
+// OnBind calls the OnBind RPC.
+func (c *SettingsPreferenceServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
 		Arg0: arg0,
 	})
 	if err != nil {

@@ -23,94 +23,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type CreateTextClassificationSessionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CreateTextClassificationSessionRequest) Reset() {
-	*x = CreateTextClassificationSessionRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[0]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CreateTextClassificationSessionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateTextClassificationSessionRequest) ProtoMessage() {}
-
-func (x *CreateTextClassificationSessionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[0]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateTextClassificationSessionRequest.ProtoReflect.Descriptor instead.
-func (*CreateTextClassificationSessionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *CreateTextClassificationSessionRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type CreateTextClassificationSessionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CreateTextClassificationSessionResponse) Reset() {
-	*x = CreateTextClassificationSessionResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CreateTextClassificationSessionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateTextClassificationSessionResponse) ProtoMessage() {}
-
-func (x *CreateTextClassificationSessionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateTextClassificationSessionResponse.ProtoReflect.Descriptor instead.
-func (*CreateTextClassificationSessionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *CreateTextClassificationSessionResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
 type DescribeContentsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -119,7 +31,7 @@ type DescribeContentsRequest struct {
 
 func (x *DescribeContentsRequest) Reset() {
 	*x = DescribeContentsRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[2]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -131,7 +43,7 @@ func (x *DescribeContentsRequest) String() string {
 func (*DescribeContentsRequest) ProtoMessage() {}
 
 func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[2]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -144,7 +56,7 @@ func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
 func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{2}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{0}
 }
 
 type DescribeContentsResponse struct {
@@ -156,7 +68,7 @@ type DescribeContentsResponse struct {
 
 func (x *DescribeContentsResponse) Reset() {
 	*x = DescribeContentsResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[3]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -168,7 +80,7 @@ func (x *DescribeContentsResponse) String() string {
 func (*DescribeContentsResponse) ProtoMessage() {}
 
 func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[3]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -181,7 +93,7 @@ func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
 func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{3}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *DescribeContentsResponse) GetResult() int32 {
@@ -191,27 +103,114 @@ func (x *DescribeContentsResponse) GetResult() int32 {
 	return 0
 }
 
-type GetConfidenceScoreRequest struct {
+type EqualsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetConfidenceScoreRequest) Reset() {
-	*x = GetConfidenceScoreRequest{}
+func (x *EqualsRequest) Reset() {
+	*x = EqualsRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsRequest) ProtoMessage() {}
+
+func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
+func (*EqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *EqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type EqualsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsResponse) Reset() {
+	*x = EqualsResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsResponse) ProtoMessage() {}
+
+func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
+func (*EqualsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *EqualsResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetValueRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetValueRequest) Reset() {
+	*x = GetValueRequest{}
 	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetConfidenceScoreRequest) String() string {
+func (x *GetValueRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetConfidenceScoreRequest) ProtoMessage() {}
+func (*GetValueRequest) ProtoMessage() {}
 
-func (x *GetConfidenceScoreRequest) ProtoReflect() protoreflect.Message {
+func (x *GetValueRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -223,39 +222,32 @@ func (x *GetConfidenceScoreRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetConfidenceScoreRequest.ProtoReflect.Descriptor instead.
-func (*GetConfidenceScoreRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetValueRequest.ProtoReflect.Descriptor instead.
+func (*GetValueRequest) Descriptor() ([]byte, []int) {
 	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *GetConfidenceScoreRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type GetConfidenceScoreResponse struct {
+type GetValueResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetConfidenceScoreResponse) Reset() {
-	*x = GetConfidenceScoreResponse{}
+func (x *GetValueResponse) Reset() {
+	*x = GetValueResponse{}
 	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetConfidenceScoreResponse) String() string {
+func (x *GetValueResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetConfidenceScoreResponse) ProtoMessage() {}
+func (*GetValueResponse) ProtoMessage() {}
 
-func (x *GetConfidenceScoreResponse) ProtoReflect() protoreflect.Message {
+func (x *GetValueResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -267,39 +259,38 @@ func (x *GetConfidenceScoreResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetConfidenceScoreResponse.ProtoReflect.Descriptor instead.
-func (*GetConfidenceScoreResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetValueResponse.ProtoReflect.Descriptor instead.
+func (*GetValueResponse) Descriptor() ([]byte, []int) {
 	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *GetConfidenceScoreResponse) GetResult() float32 {
+func (x *GetValueResponse) GetResult() string {
 	if x != nil {
 		return x.Result
 	}
-	return 0
+	return ""
 }
 
-type GetEntityRequest struct {
+type HashCodeRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetEntityRequest) Reset() {
-	*x = GetEntityRequest{}
+func (x *HashCodeRequest) Reset() {
+	*x = HashCodeRequest{}
 	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetEntityRequest) String() string {
+func (x *HashCodeRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetEntityRequest) ProtoMessage() {}
+func (*HashCodeRequest) ProtoMessage() {}
 
-func (x *GetEntityRequest) ProtoReflect() protoreflect.Message {
+func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -311,39 +302,32 @@ func (x *GetEntityRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetEntityRequest.ProtoReflect.Descriptor instead.
-func (*GetEntityRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
+func (*HashCodeRequest) Descriptor() ([]byte, []int) {
 	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *GetEntityRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetEntityResponse struct {
+type HashCodeResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetEntityResponse) Reset() {
-	*x = GetEntityResponse{}
+func (x *HashCodeResponse) Reset() {
+	*x = HashCodeResponse{}
 	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetEntityResponse) String() string {
+func (x *HashCodeResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetEntityResponse) ProtoMessage() {}
+func (*HashCodeResponse) ProtoMessage() {}
 
-func (x *GetEntityResponse) ProtoReflect() protoreflect.Message {
+func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -355,492 +339,12 @@ func (x *GetEntityResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetEntityResponse.ProtoReflect.Descriptor instead.
-func (*GetEntityResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
+func (*HashCodeResponse) Descriptor() ([]byte, []int) {
 	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{7}
 }
 
-func (x *GetEntityResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetEntityCountRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetEntityCountRequest) Reset() {
-	*x = GetEntityCountRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[8]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetEntityCountRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetEntityCountRequest) ProtoMessage() {}
-
-func (x *GetEntityCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[8]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetEntityCountRequest.ProtoReflect.Descriptor instead.
-func (*GetEntityCountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{8}
-}
-
-type GetEntityCountResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetEntityCountResponse) Reset() {
-	*x = GetEntityCountResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[9]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetEntityCountResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetEntityCountResponse) ProtoMessage() {}
-
-func (x *GetEntityCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[9]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetEntityCountResponse.ProtoReflect.Descriptor instead.
-func (*GetEntityCountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{9}
-}
-
-func (x *GetEntityCountResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetExtrasRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetExtrasRequest) Reset() {
-	*x = GetExtrasRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[10]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetExtrasRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetExtrasRequest) ProtoMessage() {}
-
-func (x *GetExtrasRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[10]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetExtrasRequest.ProtoReflect.Descriptor instead.
-func (*GetExtrasRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{10}
-}
-
-type GetExtrasResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetExtrasResponse) Reset() {
-	*x = GetExtrasResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[11]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetExtrasResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetExtrasResponse) ProtoMessage() {}
-
-func (x *GetExtrasResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[11]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetExtrasResponse.ProtoReflect.Descriptor instead.
-func (*GetExtrasResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{11}
-}
-
-func (x *GetExtrasResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetIdRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetIdRequest) Reset() {
-	*x = GetIdRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[12]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetIdRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetIdRequest) ProtoMessage() {}
-
-func (x *GetIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[12]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetIdRequest.ProtoReflect.Descriptor instead.
-func (*GetIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{12}
-}
-
-type GetIdResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetIdResponse) Reset() {
-	*x = GetIdResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[13]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetIdResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetIdResponse) ProtoMessage() {}
-
-func (x *GetIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[13]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetIdResponse.ProtoReflect.Descriptor instead.
-func (*GetIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{13}
-}
-
-func (x *GetIdResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetSelectionEndIndexRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSelectionEndIndexRequest) Reset() {
-	*x = GetSelectionEndIndexRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[14]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSelectionEndIndexRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSelectionEndIndexRequest) ProtoMessage() {}
-
-func (x *GetSelectionEndIndexRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[14]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSelectionEndIndexRequest.ProtoReflect.Descriptor instead.
-func (*GetSelectionEndIndexRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{14}
-}
-
-type GetSelectionEndIndexResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSelectionEndIndexResponse) Reset() {
-	*x = GetSelectionEndIndexResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[15]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSelectionEndIndexResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSelectionEndIndexResponse) ProtoMessage() {}
-
-func (x *GetSelectionEndIndexResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[15]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSelectionEndIndexResponse.ProtoReflect.Descriptor instead.
-func (*GetSelectionEndIndexResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{15}
-}
-
-func (x *GetSelectionEndIndexResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetSelectionStartIndexRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSelectionStartIndexRequest) Reset() {
-	*x = GetSelectionStartIndexRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[16]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSelectionStartIndexRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSelectionStartIndexRequest) ProtoMessage() {}
-
-func (x *GetSelectionStartIndexRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[16]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSelectionStartIndexRequest.ProtoReflect.Descriptor instead.
-func (*GetSelectionStartIndexRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{16}
-}
-
-type GetSelectionStartIndexResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSelectionStartIndexResponse) Reset() {
-	*x = GetSelectionStartIndexResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[17]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSelectionStartIndexResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSelectionStartIndexResponse) ProtoMessage() {}
-
-func (x *GetSelectionStartIndexResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[17]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSelectionStartIndexResponse.ProtoReflect.Descriptor instead.
-func (*GetSelectionStartIndexResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{17}
-}
-
-func (x *GetSelectionStartIndexResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetTextClassificationRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTextClassificationRequest) Reset() {
-	*x = GetTextClassificationRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[18]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTextClassificationRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTextClassificationRequest) ProtoMessage() {}
-
-func (x *GetTextClassificationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[18]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTextClassificationRequest.ProtoReflect.Descriptor instead.
-func (*GetTextClassificationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{18}
-}
-
-type GetTextClassificationResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTextClassificationResponse) Reset() {
-	*x = GetTextClassificationResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[19]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTextClassificationResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTextClassificationResponse) ProtoMessage() {}
-
-func (x *GetTextClassificationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[19]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTextClassificationResponse.ProtoReflect.Descriptor instead.
-func (*GetTextClassificationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{19}
-}
-
-func (x *GetTextClassificationResponse) GetResult() int64 {
+func (x *HashCodeResponse) GetResult() int32 {
 	if x != nil {
 		return x.Result
 	}
@@ -855,7 +359,7 @@ type ToStringRequest struct {
 
 func (x *ToStringRequest) Reset() {
 	*x = ToStringRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[20]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -867,7 +371,7 @@ func (x *ToStringRequest) String() string {
 func (*ToStringRequest) ProtoMessage() {}
 
 func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[20]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -880,7 +384,7 @@ func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
 func (*ToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{20}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{8}
 }
 
 type ToStringResponse struct {
@@ -892,7 +396,7 @@ type ToStringResponse struct {
 
 func (x *ToStringResponse) Reset() {
 	*x = ToStringResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[21]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -904,7 +408,7 @@ func (x *ToStringResponse) String() string {
 func (*ToStringResponse) ProtoMessage() {}
 
 func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[21]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -917,7 +421,7 @@ func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
 func (*ToStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{21}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *ToStringResponse) GetResult() string {
@@ -937,7 +441,7 @@ type WriteToParcelRequest struct {
 
 func (x *WriteToParcelRequest) Reset() {
 	*x = WriteToParcelRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[22]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -949,7 +453,7 @@ func (x *WriteToParcelRequest) String() string {
 func (*WriteToParcelRequest) ProtoMessage() {}
 
 func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[22]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -962,7 +466,7 @@ func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
 func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{22}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *WriteToParcelRequest) GetArg0() int64 {
@@ -987,7 +491,7 @@ type WriteToParcelResponse struct {
 
 func (x *WriteToParcelResponse) Reset() {
 	*x = WriteToParcelResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[23]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -999,7 +503,7 @@ func (x *WriteToParcelResponse) String() string {
 func (*WriteToParcelResponse) ProtoMessage() {}
 
 func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[23]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1012,7 +516,567 @@ func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
 func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{11}
+}
+
+type GetHintsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetHintsRequest) Reset() {
+	*x = GetHintsRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetHintsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetHintsRequest) ProtoMessage() {}
+
+func (x *GetHintsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetHintsRequest.ProtoReflect.Descriptor instead.
+func (*GetHintsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{12}
+}
+
+type GetHintsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetHintsResponse) Reset() {
+	*x = GetHintsResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetHintsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetHintsResponse) ProtoMessage() {}
+
+func (x *GetHintsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetHintsResponse.ProtoReflect.Descriptor instead.
+func (*GetHintsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *GetHintsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ShouldIncludeTypesFromTextClassifierRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ShouldIncludeTypesFromTextClassifierRequest) Reset() {
+	*x = ShouldIncludeTypesFromTextClassifierRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ShouldIncludeTypesFromTextClassifierRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ShouldIncludeTypesFromTextClassifierRequest) ProtoMessage() {}
+
+func (x *ShouldIncludeTypesFromTextClassifierRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ShouldIncludeTypesFromTextClassifierRequest.ProtoReflect.Descriptor instead.
+func (*ShouldIncludeTypesFromTextClassifierRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{14}
+}
+
+type ShouldIncludeTypesFromTextClassifierResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ShouldIncludeTypesFromTextClassifierResponse) Reset() {
+	*x = ShouldIncludeTypesFromTextClassifierResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ShouldIncludeTypesFromTextClassifierResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ShouldIncludeTypesFromTextClassifierResponse) ProtoMessage() {}
+
+func (x *ShouldIncludeTypesFromTextClassifierResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ShouldIncludeTypesFromTextClassifierResponse.ProtoReflect.Descriptor instead.
+func (*ShouldIncludeTypesFromTextClassifierResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *ShouldIncludeTypesFromTextClassifierResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetActionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetActionRequest) Reset() {
+	*x = GetActionRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetActionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetActionRequest) ProtoMessage() {}
+
+func (x *GetActionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetActionRequest.ProtoReflect.Descriptor instead.
+func (*GetActionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{16}
+}
+
+type GetActionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetActionResponse) Reset() {
+	*x = GetActionResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetActionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetActionResponse) ProtoMessage() {}
+
+func (x *GetActionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetActionResponse.ProtoReflect.Descriptor instead.
+func (*GetActionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *GetActionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetConfidenceScoreRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetConfidenceScoreRequest) Reset() {
+	*x = GetConfidenceScoreRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetConfidenceScoreRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetConfidenceScoreRequest) ProtoMessage() {}
+
+func (x *GetConfidenceScoreRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetConfidenceScoreRequest.ProtoReflect.Descriptor instead.
+func (*GetConfidenceScoreRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{18}
+}
+
+type GetConfidenceScoreResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float32                `protobuf:"fixed32,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetConfidenceScoreResponse) Reset() {
+	*x = GetConfidenceScoreResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetConfidenceScoreResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetConfidenceScoreResponse) ProtoMessage() {}
+
+func (x *GetConfidenceScoreResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetConfidenceScoreResponse.ProtoReflect.Descriptor instead.
+func (*GetConfidenceScoreResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *GetConfidenceScoreResponse) GetResult() float32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetExtrasRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExtrasRequest) Reset() {
+	*x = GetExtrasRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExtrasRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExtrasRequest) ProtoMessage() {}
+
+func (x *GetExtrasRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExtrasRequest.ProtoReflect.Descriptor instead.
+func (*GetExtrasRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{20}
+}
+
+type GetExtrasResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExtrasResponse) Reset() {
+	*x = GetExtrasResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExtrasResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExtrasResponse) ProtoMessage() {}
+
+func (x *GetExtrasResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExtrasResponse.ProtoReflect.Descriptor instead.
+func (*GetExtrasResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *GetExtrasResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTextReplyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTextReplyRequest) Reset() {
+	*x = GetTextReplyRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTextReplyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTextReplyRequest) ProtoMessage() {}
+
+func (x *GetTextReplyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTextReplyRequest.ProtoReflect.Descriptor instead.
+func (*GetTextReplyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{22}
+}
+
+type GetTextReplyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTextReplyResponse) Reset() {
+	*x = GetTextReplyResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTextReplyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTextReplyResponse) ProtoMessage() {}
+
+func (x *GetTextReplyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTextReplyResponse.ProtoReflect.Descriptor instead.
+func (*GetTextReplyResponse) Descriptor() ([]byte, []int) {
 	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *GetTextReplyResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTypeRequest) Reset() {
+	*x = GetTypeRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTypeRequest) ProtoMessage() {}
+
+func (x *GetTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{24}
+}
+
+type GetTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTypeResponse) Reset() {
+	*x = GetTypeResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTypeResponse) ProtoMessage() {}
+
+func (x *GetTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *GetTypeResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
 }
 
 type BuildRequest struct {
@@ -1023,7 +1087,7 @@ type BuildRequest struct {
 
 func (x *BuildRequest) Reset() {
 	*x = BuildRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[24]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1035,7 +1099,7 @@ func (x *BuildRequest) String() string {
 func (*BuildRequest) ProtoMessage() {}
 
 func (x *BuildRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[24]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1048,7 +1112,7 @@ func (x *BuildRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
 func (*BuildRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{24}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{26}
 }
 
 type BuildResponse struct {
@@ -1060,7 +1124,7 @@ type BuildResponse struct {
 
 func (x *BuildResponse) Reset() {
 	*x = BuildResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[25]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1072,7 +1136,7 @@ func (x *BuildResponse) String() string {
 func (*BuildResponse) ProtoMessage() {}
 
 func (x *BuildResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[25]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1085,10 +1149,3998 @@ func (x *BuildResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
 func (*BuildResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{25}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *BuildResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetActionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetActionRequest) Reset() {
+	*x = SetActionRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetActionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetActionRequest) ProtoMessage() {}
+
+func (x *SetActionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetActionRequest.ProtoReflect.Descriptor instead.
+func (*SetActionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *SetActionRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetActionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetActionResponse) Reset() {
+	*x = SetActionResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetActionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetActionResponse) ProtoMessage() {}
+
+func (x *SetActionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetActionResponse.ProtoReflect.Descriptor instead.
+func (*SetActionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *SetActionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetConfidenceScoreRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetConfidenceScoreRequest) Reset() {
+	*x = SetConfidenceScoreRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetConfidenceScoreRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetConfidenceScoreRequest) ProtoMessage() {}
+
+func (x *SetConfidenceScoreRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetConfidenceScoreRequest.ProtoReflect.Descriptor instead.
+func (*SetConfidenceScoreRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *SetConfidenceScoreRequest) GetArg0() float32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetConfidenceScoreResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetConfidenceScoreResponse) Reset() {
+	*x = SetConfidenceScoreResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetConfidenceScoreResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetConfidenceScoreResponse) ProtoMessage() {}
+
+func (x *SetConfidenceScoreResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetConfidenceScoreResponse.ProtoReflect.Descriptor instead.
+func (*SetConfidenceScoreResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *SetConfidenceScoreResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetExtrasRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetExtrasRequest) Reset() {
+	*x = SetExtrasRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetExtrasRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetExtrasRequest) ProtoMessage() {}
+
+func (x *SetExtrasRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetExtrasRequest.ProtoReflect.Descriptor instead.
+func (*SetExtrasRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *SetExtrasRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetExtrasResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetExtrasResponse) Reset() {
+	*x = SetExtrasResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetExtrasResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetExtrasResponse) ProtoMessage() {}
+
+func (x *SetExtrasResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetExtrasResponse.ProtoReflect.Descriptor instead.
+func (*SetExtrasResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *SetExtrasResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetTextReplyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTextReplyRequest) Reset() {
+	*x = SetTextReplyRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTextReplyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTextReplyRequest) ProtoMessage() {}
+
+func (x *SetTextReplyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTextReplyRequest.ProtoReflect.Descriptor instead.
+func (*SetTextReplyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *SetTextReplyRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetTextReplyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTextReplyResponse) Reset() {
+	*x = SetTextReplyResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTextReplyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTextReplyResponse) ProtoMessage() {}
+
+func (x *SetTextReplyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTextReplyResponse.ProtoReflect.Descriptor instead.
+func (*SetTextReplyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *SetTextReplyResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CreateTextClassificationSessionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateTextClassificationSessionRequest) Reset() {
+	*x = CreateTextClassificationSessionRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateTextClassificationSessionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateTextClassificationSessionRequest) ProtoMessage() {}
+
+func (x *CreateTextClassificationSessionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateTextClassificationSessionRequest.ProtoReflect.Descriptor instead.
+func (*CreateTextClassificationSessionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *CreateTextClassificationSessionRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type CreateTextClassificationSessionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateTextClassificationSessionResponse) Reset() {
+	*x = CreateTextClassificationSessionResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateTextClassificationSessionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateTextClassificationSessionResponse) ProtoMessage() {}
+
+func (x *CreateTextClassificationSessionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateTextClassificationSessionResponse.ProtoReflect.Descriptor instead.
+func (*CreateTextClassificationSessionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *CreateTextClassificationSessionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPackageNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPackageNameRequest) Reset() {
+	*x = GetPackageNameRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPackageNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPackageNameRequest) ProtoMessage() {}
+
+func (x *GetPackageNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPackageNameRequest.ProtoReflect.Descriptor instead.
+func (*GetPackageNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{38}
+}
+
+type GetPackageNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPackageNameResponse) Reset() {
+	*x = GetPackageNameResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPackageNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPackageNameResponse) ProtoMessage() {}
+
+func (x *GetPackageNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPackageNameResponse.ProtoReflect.Descriptor instead.
+func (*GetPackageNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *GetPackageNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetWidgetTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWidgetTypeRequest) Reset() {
+	*x = GetWidgetTypeRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWidgetTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWidgetTypeRequest) ProtoMessage() {}
+
+func (x *GetWidgetTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWidgetTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetWidgetTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{40}
+}
+
+type GetWidgetTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWidgetTypeResponse) Reset() {
+	*x = GetWidgetTypeResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWidgetTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWidgetTypeResponse) ProtoMessage() {}
+
+func (x *GetWidgetTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWidgetTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetWidgetTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *GetWidgetTypeResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetWidgetVersionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWidgetVersionRequest) Reset() {
+	*x = GetWidgetVersionRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWidgetVersionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWidgetVersionRequest) ProtoMessage() {}
+
+func (x *GetWidgetVersionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWidgetVersionRequest.ProtoReflect.Descriptor instead.
+func (*GetWidgetVersionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{42}
+}
+
+type GetWidgetVersionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWidgetVersionResponse) Reset() {
+	*x = GetWidgetVersionResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWidgetVersionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWidgetVersionResponse) ProtoMessage() {}
+
+func (x *GetWidgetVersionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWidgetVersionResponse.ProtoReflect.Descriptor instead.
+func (*GetWidgetVersionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *GetWidgetVersionResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type SetWidgetVersionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetWidgetVersionRequest) Reset() {
+	*x = SetWidgetVersionRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetWidgetVersionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetWidgetVersionRequest) ProtoMessage() {}
+
+func (x *SetWidgetVersionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetWidgetVersionRequest.ProtoReflect.Descriptor instead.
+func (*SetWidgetVersionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *SetWidgetVersionRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetWidgetVersionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetWidgetVersionResponse) Reset() {
+	*x = SetWidgetVersionResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetWidgetVersionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetWidgetVersionResponse) ProtoMessage() {}
+
+func (x *SetWidgetVersionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetWidgetVersionResponse.ProtoReflect.Descriptor instead.
+func (*SetWidgetVersionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *SetWidgetVersionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetLinksRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLinksRequest) Reset() {
+	*x = GetLinksRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLinksRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLinksRequest) ProtoMessage() {}
+
+func (x *GetLinksRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLinksRequest.ProtoReflect.Descriptor instead.
+func (*GetLinksRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{46}
+}
+
+type GetLinksResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLinksResponse) Reset() {
+	*x = GetLinksResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLinksResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLinksResponse) ProtoMessage() {}
+
+func (x *GetLinksResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLinksResponse.ProtoReflect.Descriptor instead.
+func (*GetLinksResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *GetLinksResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTextRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTextRequest) Reset() {
+	*x = GetTextRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTextRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTextRequest) ProtoMessage() {}
+
+func (x *GetTextRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTextRequest.ProtoReflect.Descriptor instead.
+func (*GetTextRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{48}
+}
+
+type GetTextResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTextResponse) Reset() {
+	*x = GetTextResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTextResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTextResponse) ProtoMessage() {}
+
+func (x *GetTextResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTextResponse.ProtoReflect.Descriptor instead.
+func (*GetTextResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *GetTextResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearTextLinksRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearTextLinksRequest) Reset() {
+	*x = ClearTextLinksRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearTextLinksRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearTextLinksRequest) ProtoMessage() {}
+
+func (x *ClearTextLinksRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearTextLinksRequest.ProtoReflect.Descriptor instead.
+func (*ClearTextLinksRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{50}
+}
+
+type ClearTextLinksResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearTextLinksResponse) Reset() {
+	*x = ClearTextLinksResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearTextLinksResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearTextLinksResponse) ProtoMessage() {}
+
+func (x *ClearTextLinksResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearTextLinksResponse.ProtoReflect.Descriptor instead.
+func (*ClearTextLinksResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *ClearTextLinksResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCallingPackageNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCallingPackageNameRequest) Reset() {
+	*x = GetCallingPackageNameRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCallingPackageNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCallingPackageNameRequest) ProtoMessage() {}
+
+func (x *GetCallingPackageNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCallingPackageNameRequest.ProtoReflect.Descriptor instead.
+func (*GetCallingPackageNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{52}
+}
+
+type GetCallingPackageNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCallingPackageNameResponse) Reset() {
+	*x = GetCallingPackageNameResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCallingPackageNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCallingPackageNameResponse) ProtoMessage() {}
+
+func (x *GetCallingPackageNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCallingPackageNameResponse.ProtoReflect.Descriptor instead.
+func (*GetCallingPackageNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *GetCallingPackageNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetDefaultLocalesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDefaultLocalesRequest) Reset() {
+	*x = GetDefaultLocalesRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDefaultLocalesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDefaultLocalesRequest) ProtoMessage() {}
+
+func (x *GetDefaultLocalesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDefaultLocalesRequest.ProtoReflect.Descriptor instead.
+func (*GetDefaultLocalesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{54}
+}
+
+type GetDefaultLocalesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDefaultLocalesResponse) Reset() {
+	*x = GetDefaultLocalesResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDefaultLocalesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDefaultLocalesResponse) ProtoMessage() {}
+
+func (x *GetDefaultLocalesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDefaultLocalesResponse.ProtoReflect.Descriptor instead.
+func (*GetDefaultLocalesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *GetDefaultLocalesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetEntityConfigRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEntityConfigRequest) Reset() {
+	*x = GetEntityConfigRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEntityConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEntityConfigRequest) ProtoMessage() {}
+
+func (x *GetEntityConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEntityConfigRequest.ProtoReflect.Descriptor instead.
+func (*GetEntityConfigRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{56}
+}
+
+type GetEntityConfigResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEntityConfigResponse) Reset() {
+	*x = GetEntityConfigResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEntityConfigResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEntityConfigResponse) ProtoMessage() {}
+
+func (x *GetEntityConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEntityConfigResponse.ProtoReflect.Descriptor instead.
+func (*GetEntityConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{57}
+}
+
+func (x *GetEntityConfigResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetReferenceTimeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetReferenceTimeRequest) Reset() {
+	*x = GetReferenceTimeRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetReferenceTimeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetReferenceTimeRequest) ProtoMessage() {}
+
+func (x *GetReferenceTimeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetReferenceTimeRequest.ProtoReflect.Descriptor instead.
+func (*GetReferenceTimeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{58}
+}
+
+type GetReferenceTimeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetReferenceTimeResponse) Reset() {
+	*x = GetReferenceTimeResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetReferenceTimeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetReferenceTimeResponse) ProtoMessage() {}
+
+func (x *GetReferenceTimeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetReferenceTimeResponse.ProtoReflect.Descriptor instead.
+func (*GetReferenceTimeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{59}
+}
+
+func (x *GetReferenceTimeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type TextLinksTextLinkGetConfidenceScoreRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TextLinksTextLinkGetConfidenceScoreRequest) Reset() {
+	*x = TextLinksTextLinkGetConfidenceScoreRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TextLinksTextLinkGetConfidenceScoreRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TextLinksTextLinkGetConfidenceScoreRequest) ProtoMessage() {}
+
+func (x *TextLinksTextLinkGetConfidenceScoreRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TextLinksTextLinkGetConfidenceScoreRequest.ProtoReflect.Descriptor instead.
+func (*TextLinksTextLinkGetConfidenceScoreRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{60}
+}
+
+func (x *TextLinksTextLinkGetConfidenceScoreRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetEndRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEndRequest) Reset() {
+	*x = GetEndRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEndRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEndRequest) ProtoMessage() {}
+
+func (x *GetEndRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEndRequest.ProtoReflect.Descriptor instead.
+func (*GetEndRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{61}
+}
+
+type GetEndResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEndResponse) Reset() {
+	*x = GetEndResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEndResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEndResponse) ProtoMessage() {}
+
+func (x *GetEndResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEndResponse.ProtoReflect.Descriptor instead.
+func (*GetEndResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{62}
+}
+
+func (x *GetEndResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetEntityRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEntityRequest) Reset() {
+	*x = GetEntityRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEntityRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEntityRequest) ProtoMessage() {}
+
+func (x *GetEntityRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEntityRequest.ProtoReflect.Descriptor instead.
+func (*GetEntityRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{63}
+}
+
+func (x *GetEntityRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetEntityResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEntityResponse) Reset() {
+	*x = GetEntityResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEntityResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEntityResponse) ProtoMessage() {}
+
+func (x *GetEntityResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEntityResponse.ProtoReflect.Descriptor instead.
+func (*GetEntityResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{64}
+}
+
+func (x *GetEntityResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetEntityCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEntityCountRequest) Reset() {
+	*x = GetEntityCountRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEntityCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEntityCountRequest) ProtoMessage() {}
+
+func (x *GetEntityCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEntityCountRequest.ProtoReflect.Descriptor instead.
+func (*GetEntityCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{65}
+}
+
+type GetEntityCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEntityCountResponse) Reset() {
+	*x = GetEntityCountResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEntityCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEntityCountResponse) ProtoMessage() {}
+
+func (x *GetEntityCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEntityCountResponse.ProtoReflect.Descriptor instead.
+func (*GetEntityCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{66}
+}
+
+func (x *GetEntityCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetStartRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStartRequest) Reset() {
+	*x = GetStartRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStartRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStartRequest) ProtoMessage() {}
+
+func (x *GetStartRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStartRequest.ProtoReflect.Descriptor instead.
+func (*GetStartRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{67}
+}
+
+type GetStartResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStartResponse) Reset() {
+	*x = GetStartResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStartResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStartResponse) ProtoMessage() {}
+
+func (x *GetStartResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStartResponse.ProtoReflect.Descriptor instead.
+func (*GetStartResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{68}
+}
+
+func (x *GetStartResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTextLinkRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTextLinkRequest) Reset() {
+	*x = GetTextLinkRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTextLinkRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTextLinkRequest) ProtoMessage() {}
+
+func (x *GetTextLinkRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTextLinkRequest.ProtoReflect.Descriptor instead.
+func (*GetTextLinkRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{69}
+}
+
+type GetTextLinkResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTextLinkResponse) Reset() {
+	*x = GetTextLinkResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[70]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTextLinkResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTextLinkResponse) ProtoMessage() {}
+
+func (x *GetTextLinkResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[70]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTextLinkResponse.ProtoReflect.Descriptor instead.
+func (*GetTextLinkResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{70}
+}
+
+func (x *GetTextLinkResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnClickRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnClickRequest) Reset() {
+	*x = OnClickRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[71]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnClickRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnClickRequest) ProtoMessage() {}
+
+func (x *OnClickRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[71]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnClickRequest.ProtoReflect.Descriptor instead.
+func (*OnClickRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{71}
+}
+
+func (x *OnClickRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnClickResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnClickResponse) Reset() {
+	*x = OnClickResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[72]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnClickResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnClickResponse) ProtoMessage() {}
+
+func (x *OnClickResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[72]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnClickResponse.ProtoReflect.Descriptor instead.
+func (*OnClickResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{72}
+}
+
+type GetActionIndicesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetActionIndicesRequest) Reset() {
+	*x = GetActionIndicesRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[73]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetActionIndicesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetActionIndicesRequest) ProtoMessage() {}
+
+func (x *GetActionIndicesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[73]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetActionIndicesRequest.ProtoReflect.Descriptor instead.
+func (*GetActionIndicesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{73}
+}
+
+type GetActionIndicesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetActionIndicesResponse) Reset() {
+	*x = GetActionIndicesResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[74]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetActionIndicesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetActionIndicesResponse) ProtoMessage() {}
+
+func (x *GetActionIndicesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[74]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetActionIndicesResponse.ProtoReflect.Descriptor instead.
+func (*GetActionIndicesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{74}
+}
+
+func (x *GetActionIndicesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetEntityTypesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEntityTypesRequest) Reset() {
+	*x = GetEntityTypesRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[75]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEntityTypesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEntityTypesRequest) ProtoMessage() {}
+
+func (x *GetEntityTypesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[75]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEntityTypesRequest.ProtoReflect.Descriptor instead.
+func (*GetEntityTypesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{75}
+}
+
+type GetEntityTypesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEntityTypesResponse) Reset() {
+	*x = GetEntityTypesResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[76]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEntityTypesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEntityTypesResponse) ProtoMessage() {}
+
+func (x *GetEntityTypesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[76]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEntityTypesResponse.ProtoReflect.Descriptor instead.
+func (*GetEntityTypesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{76}
+}
+
+func (x *GetEntityTypesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetEventCategoryRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEventCategoryRequest) Reset() {
+	*x = GetEventCategoryRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[77]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEventCategoryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEventCategoryRequest) ProtoMessage() {}
+
+func (x *GetEventCategoryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[77]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEventCategoryRequest.ProtoReflect.Descriptor instead.
+func (*GetEventCategoryRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{77}
+}
+
+type GetEventCategoryResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEventCategoryResponse) Reset() {
+	*x = GetEventCategoryResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[78]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEventCategoryResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEventCategoryResponse) ProtoMessage() {}
+
+func (x *GetEventCategoryResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[78]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEventCategoryResponse.ProtoReflect.Descriptor instead.
+func (*GetEventCategoryResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{78}
+}
+
+func (x *GetEventCategoryResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetEventContextRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEventContextRequest) Reset() {
+	*x = GetEventContextRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEventContextRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEventContextRequest) ProtoMessage() {}
+
+func (x *GetEventContextRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEventContextRequest.ProtoReflect.Descriptor instead.
+func (*GetEventContextRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{79}
+}
+
+type GetEventContextResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEventContextResponse) Reset() {
+	*x = GetEventContextResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[80]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEventContextResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEventContextResponse) ProtoMessage() {}
+
+func (x *GetEventContextResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[80]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEventContextResponse.ProtoReflect.Descriptor instead.
+func (*GetEventContextResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{80}
+}
+
+func (x *GetEventContextResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetEventIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEventIndexRequest) Reset() {
+	*x = GetEventIndexRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[81]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEventIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEventIndexRequest) ProtoMessage() {}
+
+func (x *GetEventIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[81]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEventIndexRequest.ProtoReflect.Descriptor instead.
+func (*GetEventIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{81}
+}
+
+type GetEventIndexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEventIndexResponse) Reset() {
+	*x = GetEventIndexResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[82]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEventIndexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEventIndexResponse) ProtoMessage() {}
+
+func (x *GetEventIndexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[82]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEventIndexResponse.ProtoReflect.Descriptor instead.
+func (*GetEventIndexResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{82}
+}
+
+func (x *GetEventIndexResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetEventTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEventTypeRequest) Reset() {
+	*x = GetEventTypeRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[83]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEventTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEventTypeRequest) ProtoMessage() {}
+
+func (x *GetEventTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[83]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEventTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetEventTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{83}
+}
+
+type GetEventTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEventTypeResponse) Reset() {
+	*x = GetEventTypeResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[84]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEventTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEventTypeResponse) ProtoMessage() {}
+
+func (x *GetEventTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[84]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEventTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetEventTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{84}
+}
+
+func (x *GetEventTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetLocaleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLocaleRequest) Reset() {
+	*x = GetLocaleRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[85]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLocaleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLocaleRequest) ProtoMessage() {}
+
+func (x *GetLocaleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[85]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLocaleRequest.ProtoReflect.Descriptor instead.
+func (*GetLocaleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{85}
+}
+
+type GetLocaleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLocaleResponse) Reset() {
+	*x = GetLocaleResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[86]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLocaleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLocaleResponse) ProtoMessage() {}
+
+func (x *GetLocaleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[86]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLocaleResponse.ProtoReflect.Descriptor instead.
+func (*GetLocaleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{86}
+}
+
+func (x *GetLocaleResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetModelNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetModelNameRequest) Reset() {
+	*x = GetModelNameRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[87]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetModelNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetModelNameRequest) ProtoMessage() {}
+
+func (x *GetModelNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[87]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetModelNameRequest.ProtoReflect.Descriptor instead.
+func (*GetModelNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{87}
+}
+
+type GetModelNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetModelNameResponse) Reset() {
+	*x = GetModelNameResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[88]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetModelNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetModelNameResponse) ProtoMessage() {}
+
+func (x *GetModelNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[88]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetModelNameResponse.ProtoReflect.Descriptor instead.
+func (*GetModelNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{88}
+}
+
+func (x *GetModelNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetResultIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetResultIdRequest) Reset() {
+	*x = GetResultIdRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[89]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetResultIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetResultIdRequest) ProtoMessage() {}
+
+func (x *GetResultIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[89]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetResultIdRequest.ProtoReflect.Descriptor instead.
+func (*GetResultIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{89}
+}
+
+type GetResultIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetResultIdResponse) Reset() {
+	*x = GetResultIdResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[90]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetResultIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetResultIdResponse) ProtoMessage() {}
+
+func (x *GetResultIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[90]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetResultIdResponse.ProtoReflect.Descriptor instead.
+func (*GetResultIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{90}
+}
+
+func (x *GetResultIdResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetScoresRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetScoresRequest) Reset() {
+	*x = GetScoresRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[91]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetScoresRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetScoresRequest) ProtoMessage() {}
+
+func (x *GetScoresRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[91]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetScoresRequest.ProtoReflect.Descriptor instead.
+func (*GetScoresRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{91}
+}
+
+type GetScoresResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetScoresResponse) Reset() {
+	*x = GetScoresResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[92]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetScoresResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetScoresResponse) ProtoMessage() {}
+
+func (x *GetScoresResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[92]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetScoresResponse.ProtoReflect.Descriptor instead.
+func (*GetScoresResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{92}
+}
+
+func (x *GetScoresResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRelativeSuggestedWordEndIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRelativeSuggestedWordEndIndexRequest) Reset() {
+	*x = GetRelativeSuggestedWordEndIndexRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[93]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRelativeSuggestedWordEndIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRelativeSuggestedWordEndIndexRequest) ProtoMessage() {}
+
+func (x *GetRelativeSuggestedWordEndIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[93]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRelativeSuggestedWordEndIndexRequest.ProtoReflect.Descriptor instead.
+func (*GetRelativeSuggestedWordEndIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{93}
+}
+
+type GetRelativeSuggestedWordEndIndexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRelativeSuggestedWordEndIndexResponse) Reset() {
+	*x = GetRelativeSuggestedWordEndIndexResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[94]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRelativeSuggestedWordEndIndexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRelativeSuggestedWordEndIndexResponse) ProtoMessage() {}
+
+func (x *GetRelativeSuggestedWordEndIndexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[94]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRelativeSuggestedWordEndIndexResponse.ProtoReflect.Descriptor instead.
+func (*GetRelativeSuggestedWordEndIndexResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{94}
+}
+
+func (x *GetRelativeSuggestedWordEndIndexResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRelativeSuggestedWordStartIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRelativeSuggestedWordStartIndexRequest) Reset() {
+	*x = GetRelativeSuggestedWordStartIndexRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[95]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRelativeSuggestedWordStartIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRelativeSuggestedWordStartIndexRequest) ProtoMessage() {}
+
+func (x *GetRelativeSuggestedWordStartIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[95]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRelativeSuggestedWordStartIndexRequest.ProtoReflect.Descriptor instead.
+func (*GetRelativeSuggestedWordStartIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{95}
+}
+
+type GetRelativeSuggestedWordStartIndexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRelativeSuggestedWordStartIndexResponse) Reset() {
+	*x = GetRelativeSuggestedWordStartIndexResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[96]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRelativeSuggestedWordStartIndexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRelativeSuggestedWordStartIndexResponse) ProtoMessage() {}
+
+func (x *GetRelativeSuggestedWordStartIndexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[96]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRelativeSuggestedWordStartIndexResponse.ProtoReflect.Descriptor instead.
+func (*GetRelativeSuggestedWordStartIndexResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{96}
+}
+
+func (x *GetRelativeSuggestedWordStartIndexResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRelativeWordEndIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRelativeWordEndIndexRequest) Reset() {
+	*x = GetRelativeWordEndIndexRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[97]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRelativeWordEndIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRelativeWordEndIndexRequest) ProtoMessage() {}
+
+func (x *GetRelativeWordEndIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[97]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRelativeWordEndIndexRequest.ProtoReflect.Descriptor instead.
+func (*GetRelativeWordEndIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{97}
+}
+
+type GetRelativeWordEndIndexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRelativeWordEndIndexResponse) Reset() {
+	*x = GetRelativeWordEndIndexResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[98]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRelativeWordEndIndexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRelativeWordEndIndexResponse) ProtoMessage() {}
+
+func (x *GetRelativeWordEndIndexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[98]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRelativeWordEndIndexResponse.ProtoReflect.Descriptor instead.
+func (*GetRelativeWordEndIndexResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{98}
+}
+
+func (x *GetRelativeWordEndIndexResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRelativeWordStartIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRelativeWordStartIndexRequest) Reset() {
+	*x = GetRelativeWordStartIndexRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[99]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRelativeWordStartIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRelativeWordStartIndexRequest) ProtoMessage() {}
+
+func (x *GetRelativeWordStartIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[99]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRelativeWordStartIndexRequest.ProtoReflect.Descriptor instead.
+func (*GetRelativeWordStartIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{99}
+}
+
+type GetRelativeWordStartIndexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRelativeWordStartIndexResponse) Reset() {
+	*x = GetRelativeWordStartIndexResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[100]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRelativeWordStartIndexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRelativeWordStartIndexResponse) ProtoMessage() {}
+
+func (x *GetRelativeWordStartIndexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[100]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRelativeWordStartIndexResponse.ProtoReflect.Descriptor instead.
+func (*GetRelativeWordStartIndexResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{100}
+}
+
+func (x *GetRelativeWordStartIndexResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type TextLanguageGetConfidenceScoreRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TextLanguageGetConfidenceScoreRequest) Reset() {
+	*x = TextLanguageGetConfidenceScoreRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[101]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TextLanguageGetConfidenceScoreRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TextLanguageGetConfidenceScoreRequest) ProtoMessage() {}
+
+func (x *TextLanguageGetConfidenceScoreRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[101]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TextLanguageGetConfidenceScoreRequest.ProtoReflect.Descriptor instead.
+func (*TextLanguageGetConfidenceScoreRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{101}
+}
+
+func (x *TextLanguageGetConfidenceScoreRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIdRequest) Reset() {
+	*x = GetIdRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[102]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIdRequest) ProtoMessage() {}
+
+func (x *GetIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[102]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIdRequest.ProtoReflect.Descriptor instead.
+func (*GetIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{102}
+}
+
+type GetIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIdResponse) Reset() {
+	*x = GetIdResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[103]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIdResponse) ProtoMessage() {}
+
+func (x *GetIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[103]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIdResponse.ProtoReflect.Descriptor instead.
+func (*GetIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{103}
+}
+
+func (x *GetIdResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type TextLanguageGetLocaleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TextLanguageGetLocaleRequest) Reset() {
+	*x = TextLanguageGetLocaleRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[104]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TextLanguageGetLocaleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TextLanguageGetLocaleRequest) ProtoMessage() {}
+
+func (x *TextLanguageGetLocaleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[104]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TextLanguageGetLocaleRequest.ProtoReflect.Descriptor instead.
+func (*TextLanguageGetLocaleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{104}
+}
+
+func (x *TextLanguageGetLocaleRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetLocaleHypothesisCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLocaleHypothesisCountRequest) Reset() {
+	*x = GetLocaleHypothesisCountRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[105]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLocaleHypothesisCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLocaleHypothesisCountRequest) ProtoMessage() {}
+
+func (x *GetLocaleHypothesisCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[105]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLocaleHypothesisCountRequest.ProtoReflect.Descriptor instead.
+func (*GetLocaleHypothesisCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{105}
+}
+
+type GetLocaleHypothesisCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLocaleHypothesisCountResponse) Reset() {
+	*x = GetLocaleHypothesisCountResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[106]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLocaleHypothesisCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLocaleHypothesisCountResponse) ProtoMessage() {}
+
+func (x *GetLocaleHypothesisCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[106]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLocaleHypothesisCountResponse.ProtoReflect.Descriptor instead.
+func (*GetLocaleHypothesisCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{106}
+}
+
+func (x *GetLocaleHypothesisCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type PutLocaleRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          float32                `protobuf:"fixed32,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PutLocaleRequest) Reset() {
+	*x = PutLocaleRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[107]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PutLocaleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PutLocaleRequest) ProtoMessage() {}
+
+func (x *PutLocaleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[107]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PutLocaleRequest.ProtoReflect.Descriptor instead.
+func (*PutLocaleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{107}
+}
+
+func (x *PutLocaleRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *PutLocaleRequest) GetArg1() float32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type PutLocaleResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PutLocaleResponse) Reset() {
+	*x = PutLocaleResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[108]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PutLocaleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PutLocaleResponse) ProtoMessage() {}
+
+func (x *PutLocaleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[108]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PutLocaleResponse.ProtoReflect.Descriptor instead.
+func (*PutLocaleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{108}
+}
+
+func (x *PutLocaleResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetIdRequest) Reset() {
+	*x = SetIdRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[109]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetIdRequest) ProtoMessage() {}
+
+func (x *SetIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[109]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetIdRequest.ProtoReflect.Descriptor instead.
+func (*SetIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{109}
+}
+
+func (x *SetIdRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetIdResponse) Reset() {
+	*x = SetIdResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[110]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetIdResponse) ProtoMessage() {}
+
+func (x *SetIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[110]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetIdResponse.ProtoReflect.Descriptor instead.
+func (*SetIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{110}
+}
+
+func (x *SetIdResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetActionsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetActionsRequest) Reset() {
+	*x = GetActionsRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[111]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetActionsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetActionsRequest) ProtoMessage() {}
+
+func (x *GetActionsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[111]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetActionsRequest.ProtoReflect.Descriptor instead.
+func (*GetActionsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{111}
+}
+
+type GetActionsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetActionsResponse) Reset() {
+	*x = GetActionsResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[112]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetActionsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetActionsResponse) ProtoMessage() {}
+
+func (x *GetActionsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[112]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetActionsResponse.ProtoReflect.Descriptor instead.
+func (*GetActionsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{112}
+}
+
+func (x *GetActionsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type TextClassificationGetConfidenceScoreRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TextClassificationGetConfidenceScoreRequest) Reset() {
+	*x = TextClassificationGetConfidenceScoreRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[113]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TextClassificationGetConfidenceScoreRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TextClassificationGetConfidenceScoreRequest) ProtoMessage() {}
+
+func (x *TextClassificationGetConfidenceScoreRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[113]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TextClassificationGetConfidenceScoreRequest.ProtoReflect.Descriptor instead.
+func (*TextClassificationGetConfidenceScoreRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{113}
+}
+
+func (x *TextClassificationGetConfidenceScoreRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetIconRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIconRequest) Reset() {
+	*x = GetIconRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[114]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIconRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIconRequest) ProtoMessage() {}
+
+func (x *GetIconRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[114]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIconRequest.ProtoReflect.Descriptor instead.
+func (*GetIconRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{114}
+}
+
+type GetIconResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIconResponse) Reset() {
+	*x = GetIconResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[115]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIconResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIconResponse) ProtoMessage() {}
+
+func (x *GetIconResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[115]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIconResponse.ProtoReflect.Descriptor instead.
+func (*GetIconResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{115}
+}
+
+func (x *GetIconResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetIntentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIntentRequest) Reset() {
+	*x = GetIntentRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[116]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIntentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIntentRequest) ProtoMessage() {}
+
+func (x *GetIntentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[116]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIntentRequest.ProtoReflect.Descriptor instead.
+func (*GetIntentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{116}
+}
+
+type GetIntentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIntentResponse) Reset() {
+	*x = GetIntentResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[117]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIntentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIntentResponse) ProtoMessage() {}
+
+func (x *GetIntentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[117]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIntentResponse.ProtoReflect.Descriptor instead.
+func (*GetIntentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{117}
+}
+
+func (x *GetIntentResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetLabelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLabelRequest) Reset() {
+	*x = GetLabelRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[118]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLabelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLabelRequest) ProtoMessage() {}
+
+func (x *GetLabelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[118]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLabelRequest.ProtoReflect.Descriptor instead.
+func (*GetLabelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{118}
+}
+
+type GetLabelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLabelResponse) Reset() {
+	*x = GetLabelResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[119]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLabelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLabelResponse) ProtoMessage() {}
+
+func (x *GetLabelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[119]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLabelResponse.ProtoReflect.Descriptor instead.
+func (*GetLabelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{119}
+}
+
+func (x *GetLabelResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetOnClickListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOnClickListenerRequest) Reset() {
+	*x = GetOnClickListenerRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[120]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOnClickListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOnClickListenerRequest) ProtoMessage() {}
+
+func (x *GetOnClickListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[120]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOnClickListenerRequest.ProtoReflect.Descriptor instead.
+func (*GetOnClickListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{120}
+}
+
+type GetOnClickListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOnClickListenerResponse) Reset() {
+	*x = GetOnClickListenerResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[121]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOnClickListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOnClickListenerResponse) ProtoMessage() {}
+
+func (x *GetOnClickListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[121]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOnClickListenerResponse.ProtoReflect.Descriptor instead.
+func (*GetOnClickListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{121}
+}
+
+func (x *GetOnClickListenerResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type TextClassificationGetTextResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TextClassificationGetTextResponse) Reset() {
+	*x = TextClassificationGetTextResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[122]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TextClassificationGetTextResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TextClassificationGetTextResponse) ProtoMessage() {}
+
+func (x *TextClassificationGetTextResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[122]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TextClassificationGetTextResponse.ProtoReflect.Descriptor instead.
+func (*TextClassificationGetTextResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{122}
+}
+
+func (x *TextClassificationGetTextResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type AddActionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddActionRequest) Reset() {
+	*x = AddActionRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[123]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddActionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddActionRequest) ProtoMessage() {}
+
+func (x *AddActionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[123]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddActionRequest.ProtoReflect.Descriptor instead.
+func (*AddActionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{123}
+}
+
+func (x *AddActionRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddActionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddActionResponse) Reset() {
+	*x = AddActionResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[124]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddActionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddActionResponse) ProtoMessage() {}
+
+func (x *AddActionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[124]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddActionResponse.ProtoReflect.Descriptor instead.
+func (*AddActionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{124}
+}
+
+func (x *AddActionResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -1105,7 +5157,7 @@ type SetEntityTypeRequest struct {
 
 func (x *SetEntityTypeRequest) Reset() {
 	*x = SetEntityTypeRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[26]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[125]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1117,7 +5169,7 @@ func (x *SetEntityTypeRequest) String() string {
 func (*SetEntityTypeRequest) ProtoMessage() {}
 
 func (x *SetEntityTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[26]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[125]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1130,7 +5182,7 @@ func (x *SetEntityTypeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetEntityTypeRequest.ProtoReflect.Descriptor instead.
 func (*SetEntityTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{26}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{125}
 }
 
 func (x *SetEntityTypeRequest) GetArg0() string {
@@ -1156,7 +5208,7 @@ type SetEntityTypeResponse struct {
 
 func (x *SetEntityTypeResponse) Reset() {
 	*x = SetEntityTypeResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[27]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[126]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1168,7 +5220,7 @@ func (x *SetEntityTypeResponse) String() string {
 func (*SetEntityTypeResponse) ProtoMessage() {}
 
 func (x *SetEntityTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[27]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[126]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1181,1534 +5233,10 @@ func (x *SetEntityTypeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetEntityTypeResponse.ProtoReflect.Descriptor instead.
 func (*SetEntityTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{27}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{126}
 }
 
 func (x *SetEntityTypeResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetExtrasRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetExtrasRequest) Reset() {
-	*x = SetExtrasRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[28]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetExtrasRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetExtrasRequest) ProtoMessage() {}
-
-func (x *SetExtrasRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[28]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetExtrasRequest.ProtoReflect.Descriptor instead.
-func (*SetExtrasRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{28}
-}
-
-func (x *SetExtrasRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetExtrasResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetExtrasResponse) Reset() {
-	*x = SetExtrasResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[29]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetExtrasResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetExtrasResponse) ProtoMessage() {}
-
-func (x *SetExtrasResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[29]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetExtrasResponse.ProtoReflect.Descriptor instead.
-func (*SetExtrasResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{29}
-}
-
-func (x *SetExtrasResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetIdRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetIdRequest) Reset() {
-	*x = SetIdRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[30]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetIdRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetIdRequest) ProtoMessage() {}
-
-func (x *SetIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[30]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetIdRequest.ProtoReflect.Descriptor instead.
-func (*SetIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{30}
-}
-
-func (x *SetIdRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type SetIdResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetIdResponse) Reset() {
-	*x = SetIdResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[31]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetIdResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetIdResponse) ProtoMessage() {}
-
-func (x *SetIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[31]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetIdResponse.ProtoReflect.Descriptor instead.
-func (*SetIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{31}
-}
-
-func (x *SetIdResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetTextClassificationRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetTextClassificationRequest) Reset() {
-	*x = SetTextClassificationRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[32]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetTextClassificationRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetTextClassificationRequest) ProtoMessage() {}
-
-func (x *SetTextClassificationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[32]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetTextClassificationRequest.ProtoReflect.Descriptor instead.
-func (*SetTextClassificationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{32}
-}
-
-func (x *SetTextClassificationRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetTextClassificationResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetTextClassificationResponse) Reset() {
-	*x = SetTextClassificationResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[33]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetTextClassificationResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetTextClassificationResponse) ProtoMessage() {}
-
-func (x *SetTextClassificationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[33]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetTextClassificationResponse.ProtoReflect.Descriptor instead.
-func (*SetTextClassificationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{33}
-}
-
-func (x *SetTextClassificationResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetCallingPackageNameRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCallingPackageNameRequest) Reset() {
-	*x = GetCallingPackageNameRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[34]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCallingPackageNameRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCallingPackageNameRequest) ProtoMessage() {}
-
-func (x *GetCallingPackageNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[34]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCallingPackageNameRequest.ProtoReflect.Descriptor instead.
-func (*GetCallingPackageNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{34}
-}
-
-type GetCallingPackageNameResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCallingPackageNameResponse) Reset() {
-	*x = GetCallingPackageNameResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[35]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCallingPackageNameResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCallingPackageNameResponse) ProtoMessage() {}
-
-func (x *GetCallingPackageNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[35]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCallingPackageNameResponse.ProtoReflect.Descriptor instead.
-func (*GetCallingPackageNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{35}
-}
-
-func (x *GetCallingPackageNameResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetDefaultLocalesRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDefaultLocalesRequest) Reset() {
-	*x = GetDefaultLocalesRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[36]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDefaultLocalesRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDefaultLocalesRequest) ProtoMessage() {}
-
-func (x *GetDefaultLocalesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[36]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDefaultLocalesRequest.ProtoReflect.Descriptor instead.
-func (*GetDefaultLocalesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{36}
-}
-
-type GetDefaultLocalesResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDefaultLocalesResponse) Reset() {
-	*x = GetDefaultLocalesResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[37]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDefaultLocalesResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDefaultLocalesResponse) ProtoMessage() {}
-
-func (x *GetDefaultLocalesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[37]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDefaultLocalesResponse.ProtoReflect.Descriptor instead.
-func (*GetDefaultLocalesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{37}
-}
-
-func (x *GetDefaultLocalesResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetEndIndexRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetEndIndexRequest) Reset() {
-	*x = GetEndIndexRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[38]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetEndIndexRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetEndIndexRequest) ProtoMessage() {}
-
-func (x *GetEndIndexRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[38]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetEndIndexRequest.ProtoReflect.Descriptor instead.
-func (*GetEndIndexRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{38}
-}
-
-type GetEndIndexResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetEndIndexResponse) Reset() {
-	*x = GetEndIndexResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[39]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetEndIndexResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetEndIndexResponse) ProtoMessage() {}
-
-func (x *GetEndIndexResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[39]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetEndIndexResponse.ProtoReflect.Descriptor instead.
-func (*GetEndIndexResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{39}
-}
-
-func (x *GetEndIndexResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetStartIndexRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetStartIndexRequest) Reset() {
-	*x = GetStartIndexRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[40]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetStartIndexRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetStartIndexRequest) ProtoMessage() {}
-
-func (x *GetStartIndexRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[40]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetStartIndexRequest.ProtoReflect.Descriptor instead.
-func (*GetStartIndexRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{40}
-}
-
-type GetStartIndexResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetStartIndexResponse) Reset() {
-	*x = GetStartIndexResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[41]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetStartIndexResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetStartIndexResponse) ProtoMessage() {}
-
-func (x *GetStartIndexResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[41]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetStartIndexResponse.ProtoReflect.Descriptor instead.
-func (*GetStartIndexResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{41}
-}
-
-func (x *GetStartIndexResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetTextRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTextRequest) Reset() {
-	*x = GetTextRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[42]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTextRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTextRequest) ProtoMessage() {}
-
-func (x *GetTextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[42]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTextRequest.ProtoReflect.Descriptor instead.
-func (*GetTextRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{42}
-}
-
-type GetTextResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTextResponse) Reset() {
-	*x = GetTextResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[43]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTextResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTextResponse) ProtoMessage() {}
-
-func (x *GetTextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[43]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTextResponse.ProtoReflect.Descriptor instead.
-func (*GetTextResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{43}
-}
-
-func (x *GetTextResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ShouldIncludeTextClassificationRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ShouldIncludeTextClassificationRequest) Reset() {
-	*x = ShouldIncludeTextClassificationRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[44]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ShouldIncludeTextClassificationRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ShouldIncludeTextClassificationRequest) ProtoMessage() {}
-
-func (x *ShouldIncludeTextClassificationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[44]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ShouldIncludeTextClassificationRequest.ProtoReflect.Descriptor instead.
-func (*ShouldIncludeTextClassificationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{44}
-}
-
-type ShouldIncludeTextClassificationResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ShouldIncludeTextClassificationResponse) Reset() {
-	*x = ShouldIncludeTextClassificationResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[45]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ShouldIncludeTextClassificationResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ShouldIncludeTextClassificationResponse) ProtoMessage() {}
-
-func (x *ShouldIncludeTextClassificationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[45]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ShouldIncludeTextClassificationResponse.ProtoReflect.Descriptor instead.
-func (*ShouldIncludeTextClassificationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{45}
-}
-
-func (x *ShouldIncludeTextClassificationResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type GetPackageNameRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPackageNameRequest) Reset() {
-	*x = GetPackageNameRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[46]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPackageNameRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPackageNameRequest) ProtoMessage() {}
-
-func (x *GetPackageNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[46]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPackageNameRequest.ProtoReflect.Descriptor instead.
-func (*GetPackageNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{46}
-}
-
-type GetPackageNameResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPackageNameResponse) Reset() {
-	*x = GetPackageNameResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[47]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPackageNameResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPackageNameResponse) ProtoMessage() {}
-
-func (x *GetPackageNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[47]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPackageNameResponse.ProtoReflect.Descriptor instead.
-func (*GetPackageNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{47}
-}
-
-func (x *GetPackageNameResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetWidgetTypeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetWidgetTypeRequest) Reset() {
-	*x = GetWidgetTypeRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[48]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetWidgetTypeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetWidgetTypeRequest) ProtoMessage() {}
-
-func (x *GetWidgetTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[48]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetWidgetTypeRequest.ProtoReflect.Descriptor instead.
-func (*GetWidgetTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{48}
-}
-
-type GetWidgetTypeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetWidgetTypeResponse) Reset() {
-	*x = GetWidgetTypeResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[49]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetWidgetTypeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetWidgetTypeResponse) ProtoMessage() {}
-
-func (x *GetWidgetTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[49]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetWidgetTypeResponse.ProtoReflect.Descriptor instead.
-func (*GetWidgetTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{49}
-}
-
-func (x *GetWidgetTypeResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetWidgetVersionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetWidgetVersionRequest) Reset() {
-	*x = GetWidgetVersionRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[50]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetWidgetVersionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetWidgetVersionRequest) ProtoMessage() {}
-
-func (x *GetWidgetVersionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[50]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetWidgetVersionRequest.ProtoReflect.Descriptor instead.
-func (*GetWidgetVersionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{50}
-}
-
-type GetWidgetVersionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetWidgetVersionResponse) Reset() {
-	*x = GetWidgetVersionResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[51]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetWidgetVersionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetWidgetVersionResponse) ProtoMessage() {}
-
-func (x *GetWidgetVersionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[51]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetWidgetVersionResponse.ProtoReflect.Descriptor instead.
-func (*GetWidgetVersionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{51}
-}
-
-func (x *GetWidgetVersionResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type SetWidgetVersionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetWidgetVersionRequest) Reset() {
-	*x = SetWidgetVersionRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[52]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetWidgetVersionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetWidgetVersionRequest) ProtoMessage() {}
-
-func (x *SetWidgetVersionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[52]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetWidgetVersionRequest.ProtoReflect.Descriptor instead.
-func (*SetWidgetVersionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{52}
-}
-
-func (x *SetWidgetVersionRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type SetWidgetVersionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetWidgetVersionResponse) Reset() {
-	*x = SetWidgetVersionResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[53]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetWidgetVersionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetWidgetVersionResponse) ProtoMessage() {}
-
-func (x *SetWidgetVersionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[53]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetWidgetVersionResponse.ProtoReflect.Descriptor instead.
-func (*SetWidgetVersionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{53}
-}
-
-func (x *SetWidgetVersionResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetIconRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetIconRequest) Reset() {
-	*x = GetIconRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[54]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetIconRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetIconRequest) ProtoMessage() {}
-
-func (x *GetIconRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[54]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetIconRequest.ProtoReflect.Descriptor instead.
-func (*GetIconRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{54}
-}
-
-type GetIconResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetIconResponse) Reset() {
-	*x = GetIconResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[55]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetIconResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetIconResponse) ProtoMessage() {}
-
-func (x *GetIconResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[55]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetIconResponse.ProtoReflect.Descriptor instead.
-func (*GetIconResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{55}
-}
-
-func (x *GetIconResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetIntentRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetIntentRequest) Reset() {
-	*x = GetIntentRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[56]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetIntentRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetIntentRequest) ProtoMessage() {}
-
-func (x *GetIntentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[56]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetIntentRequest.ProtoReflect.Descriptor instead.
-func (*GetIntentRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{56}
-}
-
-type GetIntentResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetIntentResponse) Reset() {
-	*x = GetIntentResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[57]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetIntentResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetIntentResponse) ProtoMessage() {}
-
-func (x *GetIntentResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[57]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetIntentResponse.ProtoReflect.Descriptor instead.
-func (*GetIntentResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{57}
-}
-
-func (x *GetIntentResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetLabelRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetLabelRequest) Reset() {
-	*x = GetLabelRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[58]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetLabelRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetLabelRequest) ProtoMessage() {}
-
-func (x *GetLabelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[58]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetLabelRequest.ProtoReflect.Descriptor instead.
-func (*GetLabelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{58}
-}
-
-type GetLabelResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetLabelResponse) Reset() {
-	*x = GetLabelResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[59]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetLabelResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetLabelResponse) ProtoMessage() {}
-
-func (x *GetLabelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[59]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetLabelResponse.ProtoReflect.Descriptor instead.
-func (*GetLabelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{59}
-}
-
-func (x *GetLabelResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetOnClickListenerRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetOnClickListenerRequest) Reset() {
-	*x = GetOnClickListenerRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[60]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetOnClickListenerRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetOnClickListenerRequest) ProtoMessage() {}
-
-func (x *GetOnClickListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[60]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetOnClickListenerRequest.ProtoReflect.Descriptor instead.
-func (*GetOnClickListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{60}
-}
-
-type GetOnClickListenerResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetOnClickListenerResponse) Reset() {
-	*x = GetOnClickListenerResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[61]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetOnClickListenerResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetOnClickListenerResponse) ProtoMessage() {}
-
-func (x *GetOnClickListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[61]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetOnClickListenerResponse.ProtoReflect.Descriptor instead.
-func (*GetOnClickListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{61}
-}
-
-func (x *GetOnClickListenerResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type TextClassificationGetTextResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *TextClassificationGetTextResponse) Reset() {
-	*x = TextClassificationGetTextResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[62]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *TextClassificationGetTextResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TextClassificationGetTextResponse) ProtoMessage() {}
-
-func (x *TextClassificationGetTextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[62]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use TextClassificationGetTextResponse.ProtoReflect.Descriptor instead.
-func (*TextClassificationGetTextResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{62}
-}
-
-func (x *TextClassificationGetTextResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type AddActionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddActionRequest) Reset() {
-	*x = AddActionRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[63]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddActionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddActionRequest) ProtoMessage() {}
-
-func (x *AddActionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[63]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddActionRequest.ProtoReflect.Descriptor instead.
-func (*AddActionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{63}
-}
-
-func (x *AddActionRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type AddActionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddActionResponse) Reset() {
-	*x = AddActionResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[64]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddActionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddActionResponse) ProtoMessage() {}
-
-func (x *AddActionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[64]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddActionResponse.ProtoReflect.Descriptor instead.
-func (*AddActionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{64}
-}
-
-func (x *AddActionResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -2724,7 +5252,7 @@ type SetIconRequest struct {
 
 func (x *SetIconRequest) Reset() {
 	*x = SetIconRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[65]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[127]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2736,7 +5264,7 @@ func (x *SetIconRequest) String() string {
 func (*SetIconRequest) ProtoMessage() {}
 
 func (x *SetIconRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[65]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[127]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2749,7 +5277,7 @@ func (x *SetIconRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetIconRequest.ProtoReflect.Descriptor instead.
 func (*SetIconRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{65}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{127}
 }
 
 func (x *SetIconRequest) GetArg0() int64 {
@@ -2768,7 +5296,7 @@ type SetIconResponse struct {
 
 func (x *SetIconResponse) Reset() {
 	*x = SetIconResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[66]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[128]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2780,7 +5308,7 @@ func (x *SetIconResponse) String() string {
 func (*SetIconResponse) ProtoMessage() {}
 
 func (x *SetIconResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[66]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[128]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2793,7 +5321,7 @@ func (x *SetIconResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetIconResponse.ProtoReflect.Descriptor instead.
 func (*SetIconResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{66}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{128}
 }
 
 func (x *SetIconResponse) GetResult() int64 {
@@ -2812,7 +5340,7 @@ type SetIntentRequest struct {
 
 func (x *SetIntentRequest) Reset() {
 	*x = SetIntentRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[67]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[129]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2824,7 +5352,7 @@ func (x *SetIntentRequest) String() string {
 func (*SetIntentRequest) ProtoMessage() {}
 
 func (x *SetIntentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[67]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[129]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2837,7 +5365,7 @@ func (x *SetIntentRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetIntentRequest.ProtoReflect.Descriptor instead.
 func (*SetIntentRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{67}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{129}
 }
 
 func (x *SetIntentRequest) GetArg0() int64 {
@@ -2856,7 +5384,7 @@ type SetIntentResponse struct {
 
 func (x *SetIntentResponse) Reset() {
 	*x = SetIntentResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[68]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[130]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2868,7 +5396,7 @@ func (x *SetIntentResponse) String() string {
 func (*SetIntentResponse) ProtoMessage() {}
 
 func (x *SetIntentResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[68]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[130]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2881,7 +5409,7 @@ func (x *SetIntentResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetIntentResponse.ProtoReflect.Descriptor instead.
 func (*SetIntentResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{68}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{130}
 }
 
 func (x *SetIntentResponse) GetResult() int64 {
@@ -2900,7 +5428,7 @@ type SetLabelRequest struct {
 
 func (x *SetLabelRequest) Reset() {
 	*x = SetLabelRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[69]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[131]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2912,7 +5440,7 @@ func (x *SetLabelRequest) String() string {
 func (*SetLabelRequest) ProtoMessage() {}
 
 func (x *SetLabelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[69]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[131]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2925,7 +5453,7 @@ func (x *SetLabelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetLabelRequest.ProtoReflect.Descriptor instead.
 func (*SetLabelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{69}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{131}
 }
 
 func (x *SetLabelRequest) GetArg0() string {
@@ -2944,7 +5472,7 @@ type SetLabelResponse struct {
 
 func (x *SetLabelResponse) Reset() {
 	*x = SetLabelResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[70]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[132]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2956,7 +5484,7 @@ func (x *SetLabelResponse) String() string {
 func (*SetLabelResponse) ProtoMessage() {}
 
 func (x *SetLabelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[70]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[132]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2969,7 +5497,7 @@ func (x *SetLabelResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetLabelResponse.ProtoReflect.Descriptor instead.
 func (*SetLabelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{70}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{132}
 }
 
 func (x *SetLabelResponse) GetResult() int64 {
@@ -2988,7 +5516,7 @@ type SetOnClickListenerRequest struct {
 
 func (x *SetOnClickListenerRequest) Reset() {
 	*x = SetOnClickListenerRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[71]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[133]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3000,7 +5528,7 @@ func (x *SetOnClickListenerRequest) String() string {
 func (*SetOnClickListenerRequest) ProtoMessage() {}
 
 func (x *SetOnClickListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[71]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[133]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3013,7 +5541,7 @@ func (x *SetOnClickListenerRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetOnClickListenerRequest.ProtoReflect.Descriptor instead.
 func (*SetOnClickListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{71}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{133}
 }
 
 func (x *SetOnClickListenerRequest) GetArg0() int64 {
@@ -3032,7 +5560,7 @@ type SetOnClickListenerResponse struct {
 
 func (x *SetOnClickListenerResponse) Reset() {
 	*x = SetOnClickListenerResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[72]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[134]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3044,7 +5572,7 @@ func (x *SetOnClickListenerResponse) String() string {
 func (*SetOnClickListenerResponse) ProtoMessage() {}
 
 func (x *SetOnClickListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[72]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[134]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3057,7 +5585,7 @@ func (x *SetOnClickListenerResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetOnClickListenerResponse.ProtoReflect.Descriptor instead.
 func (*SetOnClickListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{72}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{134}
 }
 
 func (x *SetOnClickListenerResponse) GetResult() int64 {
@@ -3076,7 +5604,7 @@ type SetTextRequest struct {
 
 func (x *SetTextRequest) Reset() {
 	*x = SetTextRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[73]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[135]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3088,7 +5616,7 @@ func (x *SetTextRequest) String() string {
 func (*SetTextRequest) ProtoMessage() {}
 
 func (x *SetTextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[73]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[135]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3101,7 +5629,7 @@ func (x *SetTextRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetTextRequest.ProtoReflect.Descriptor instead.
 func (*SetTextRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{73}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{135}
 }
 
 func (x *SetTextRequest) GetArg0() string {
@@ -3120,7 +5648,7 @@ type SetTextResponse struct {
 
 func (x *SetTextResponse) Reset() {
 	*x = SetTextResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[74]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[136]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3132,7 +5660,7 @@ func (x *SetTextResponse) String() string {
 func (*SetTextResponse) ProtoMessage() {}
 
 func (x *SetTextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[74]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[136]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3145,7 +5673,7 @@ func (x *SetTextResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetTextResponse.ProtoReflect.Descriptor instead.
 func (*SetTextResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{74}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{136}
 }
 
 func (x *SetTextResponse) GetResult() int64 {
@@ -3155,27 +5683,27 @@ func (x *SetTextResponse) GetResult() int64 {
 	return 0
 }
 
-type GetReferenceTimeRequest struct {
+type GetEndIndexRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetReferenceTimeRequest) Reset() {
-	*x = GetReferenceTimeRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[75]
+func (x *GetEndIndexRequest) Reset() {
+	*x = GetEndIndexRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[137]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetReferenceTimeRequest) String() string {
+func (x *GetEndIndexRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetReferenceTimeRequest) ProtoMessage() {}
+func (*GetEndIndexRequest) ProtoMessage() {}
 
-func (x *GetReferenceTimeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[75]
+func (x *GetEndIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[137]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3186,33 +5714,33 @@ func (x *GetReferenceTimeRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetReferenceTimeRequest.ProtoReflect.Descriptor instead.
-func (*GetReferenceTimeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{75}
+// Deprecated: Use GetEndIndexRequest.ProtoReflect.Descriptor instead.
+func (*GetEndIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{137}
 }
 
-type GetReferenceTimeResponse struct {
+type GetEndIndexResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetReferenceTimeResponse) Reset() {
-	*x = GetReferenceTimeResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[76]
+func (x *GetEndIndexResponse) Reset() {
+	*x = GetEndIndexResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[138]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetReferenceTimeResponse) String() string {
+func (x *GetEndIndexResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetReferenceTimeResponse) ProtoMessage() {}
+func (*GetEndIndexResponse) ProtoMessage() {}
 
-func (x *GetReferenceTimeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[76]
+func (x *GetEndIndexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[138]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3223,12 +5751,92 @@ func (x *GetReferenceTimeResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetReferenceTimeResponse.ProtoReflect.Descriptor instead.
-func (*GetReferenceTimeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{76}
+// Deprecated: Use GetEndIndexResponse.ProtoReflect.Descriptor instead.
+func (*GetEndIndexResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{138}
 }
 
-func (x *GetReferenceTimeResponse) GetResult() int64 {
+func (x *GetEndIndexResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetStartIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStartIndexRequest) Reset() {
+	*x = GetStartIndexRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[139]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStartIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStartIndexRequest) ProtoMessage() {}
+
+func (x *GetStartIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[139]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStartIndexRequest.ProtoReflect.Descriptor instead.
+func (*GetStartIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{139}
+}
+
+type GetStartIndexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStartIndexResponse) Reset() {
+	*x = GetStartIndexResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[140]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStartIndexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStartIndexResponse) ProtoMessage() {}
+
+func (x *GetStartIndexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[140]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStartIndexResponse.ProtoReflect.Descriptor instead.
+func (*GetStartIndexResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{140}
+}
+
+func (x *GetStartIndexResponse) GetResult() int32 {
 	if x != nil {
 		return x.Result
 	}
@@ -3243,7 +5851,7 @@ type GetTextClassifierRequest struct {
 
 func (x *GetTextClassifierRequest) Reset() {
 	*x = GetTextClassifierRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[77]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[141]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3255,7 +5863,7 @@ func (x *GetTextClassifierRequest) String() string {
 func (*GetTextClassifierRequest) ProtoMessage() {}
 
 func (x *GetTextClassifierRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[77]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[141]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3268,7 +5876,7 @@ func (x *GetTextClassifierRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTextClassifierRequest.ProtoReflect.Descriptor instead.
 func (*GetTextClassifierRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{77}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{141}
 }
 
 type GetTextClassifierResponse struct {
@@ -3280,7 +5888,7 @@ type GetTextClassifierResponse struct {
 
 func (x *GetTextClassifierResponse) Reset() {
 	*x = GetTextClassifierResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[78]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[142]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3292,7 +5900,7 @@ func (x *GetTextClassifierResponse) String() string {
 func (*GetTextClassifierResponse) ProtoMessage() {}
 
 func (x *GetTextClassifierResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[78]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[142]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3305,7 +5913,7 @@ func (x *GetTextClassifierResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTextClassifierResponse.ProtoReflect.Descriptor instead.
 func (*GetTextClassifierResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{78}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{142}
 }
 
 func (x *GetTextClassifierResponse) GetResult() int64 {
@@ -3324,7 +5932,7 @@ type SetTextClassificationSessionFactoryRequest struct {
 
 func (x *SetTextClassificationSessionFactoryRequest) Reset() {
 	*x = SetTextClassificationSessionFactoryRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[79]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[143]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3336,7 +5944,7 @@ func (x *SetTextClassificationSessionFactoryRequest) String() string {
 func (*SetTextClassificationSessionFactoryRequest) ProtoMessage() {}
 
 func (x *SetTextClassificationSessionFactoryRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[79]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[143]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3349,7 +5957,7 @@ func (x *SetTextClassificationSessionFactoryRequest) ProtoReflect() protoreflect
 
 // Deprecated: Use SetTextClassificationSessionFactoryRequest.ProtoReflect.Descriptor instead.
 func (*SetTextClassificationSessionFactoryRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{79}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{143}
 }
 
 func (x *SetTextClassificationSessionFactoryRequest) GetArg0() int64 {
@@ -3367,7 +5975,7 @@ type SetTextClassificationSessionFactoryResponse struct {
 
 func (x *SetTextClassificationSessionFactoryResponse) Reset() {
 	*x = SetTextClassificationSessionFactoryResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[80]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[144]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3379,7 +5987,7 @@ func (x *SetTextClassificationSessionFactoryResponse) String() string {
 func (*SetTextClassificationSessionFactoryResponse) ProtoMessage() {}
 
 func (x *SetTextClassificationSessionFactoryResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[80]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[144]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3392,7 +6000,7 @@ func (x *SetTextClassificationSessionFactoryResponse) ProtoReflect() protoreflec
 
 // Deprecated: Use SetTextClassificationSessionFactoryResponse.ProtoReflect.Descriptor instead.
 func (*SetTextClassificationSessionFactoryResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{80}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{144}
 }
 
 type SetTextClassifierRequest struct {
@@ -3404,7 +6012,7 @@ type SetTextClassifierRequest struct {
 
 func (x *SetTextClassifierRequest) Reset() {
 	*x = SetTextClassifierRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[81]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[145]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3416,7 +6024,7 @@ func (x *SetTextClassifierRequest) String() string {
 func (*SetTextClassifierRequest) ProtoMessage() {}
 
 func (x *SetTextClassifierRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[81]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[145]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3429,7 +6037,7 @@ func (x *SetTextClassifierRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetTextClassifierRequest.ProtoReflect.Descriptor instead.
 func (*SetTextClassifierRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{81}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{145}
 }
 
 func (x *SetTextClassifierRequest) GetArg0() int64 {
@@ -3447,7 +6055,7 @@ type SetTextClassifierResponse struct {
 
 func (x *SetTextClassifierResponse) Reset() {
 	*x = SetTextClassifierResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[82]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[146]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3459,7 +6067,7 @@ func (x *SetTextClassifierResponse) String() string {
 func (*SetTextClassifierResponse) ProtoMessage() {}
 
 func (x *SetTextClassifierResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[82]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[146]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3472,31 +6080,32 @@ func (x *SetTextClassifierResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetTextClassifierResponse.ProtoReflect.Descriptor instead.
 func (*SetTextClassifierResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{82}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{146}
 }
 
-type EqualsRequest struct {
+type NewConversationActionsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *EqualsRequest) Reset() {
-	*x = EqualsRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[83]
+func (x *NewConversationActionsRequest) Reset() {
+	*x = NewConversationActionsRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[147]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *EqualsRequest) String() string {
+func (x *NewConversationActionsRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*EqualsRequest) ProtoMessage() {}
+func (*NewConversationActionsRequest) ProtoMessage() {}
 
-func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[83]
+func (x *NewConversationActionsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[147]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3507,40 +6116,1055 @@ func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
-func (*EqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{83}
+// Deprecated: Use NewConversationActionsRequest.ProtoReflect.Descriptor instead.
+func (*NewConversationActionsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{147}
 }
 
-func (x *EqualsRequest) GetArg0() int64 {
+func (x *NewConversationActionsRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-type EqualsResponse struct {
+func (x *NewConversationActionsRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type NewConversationActionsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewConversationActionsResponse) Reset() {
+	*x = NewConversationActionsResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[148]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewConversationActionsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewConversationActionsResponse) ProtoMessage() {}
+
+func (x *NewConversationActionsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[148]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewConversationActionsResponse.ProtoReflect.Descriptor instead.
+func (*NewConversationActionsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{148}
+}
+
+func (x *NewConversationActionsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ConversationActionsDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ConversationActionsDescribeContentsRequest) Reset() {
+	*x = ConversationActionsDescribeContentsRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[149]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ConversationActionsDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ConversationActionsDescribeContentsRequest) ProtoMessage() {}
+
+func (x *ConversationActionsDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[149]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ConversationActionsDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*ConversationActionsDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{149}
+}
+
+func (x *ConversationActionsDescribeContentsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetConversationActionsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetConversationActionsRequest) Reset() {
+	*x = GetConversationActionsRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[150]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetConversationActionsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetConversationActionsRequest) ProtoMessage() {}
+
+func (x *GetConversationActionsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[150]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetConversationActionsRequest.ProtoReflect.Descriptor instead.
+func (*GetConversationActionsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{150}
+}
+
+func (x *GetConversationActionsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetConversationActionsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetConversationActionsResponse) Reset() {
+	*x = GetConversationActionsResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[151]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetConversationActionsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetConversationActionsResponse) ProtoMessage() {}
+
+func (x *GetConversationActionsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[151]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetConversationActionsResponse.ProtoReflect.Descriptor instead.
+func (*GetConversationActionsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{151}
+}
+
+func (x *GetConversationActionsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ConversationActionsGetIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ConversationActionsGetIdRequest) Reset() {
+	*x = ConversationActionsGetIdRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[152]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ConversationActionsGetIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ConversationActionsGetIdRequest) ProtoMessage() {}
+
+func (x *ConversationActionsGetIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[152]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ConversationActionsGetIdRequest.ProtoReflect.Descriptor instead.
+func (*ConversationActionsGetIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{152}
+}
+
+func (x *ConversationActionsGetIdRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ConversationActionsWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ConversationActionsWriteToParcelRequest) Reset() {
+	*x = ConversationActionsWriteToParcelRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[153]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ConversationActionsWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ConversationActionsWriteToParcelRequest) ProtoMessage() {}
+
+func (x *ConversationActionsWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[153]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ConversationActionsWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*ConversationActionsWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{153}
+}
+
+func (x *ConversationActionsWriteToParcelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ConversationActionsWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *ConversationActionsWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetAuthorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAuthorRequest) Reset() {
+	*x = GetAuthorRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[154]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAuthorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAuthorRequest) ProtoMessage() {}
+
+func (x *GetAuthorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[154]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAuthorRequest.ProtoReflect.Descriptor instead.
+func (*GetAuthorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{154}
+}
+
+type GetAuthorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAuthorResponse) Reset() {
+	*x = GetAuthorResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[155]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAuthorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAuthorResponse) ProtoMessage() {}
+
+func (x *GetAuthorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[155]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAuthorResponse.ProtoReflect.Descriptor instead.
+func (*GetAuthorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{155}
+}
+
+func (x *GetAuthorResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetConversationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetConversationRequest) Reset() {
+	*x = GetConversationRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[156]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetConversationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetConversationRequest) ProtoMessage() {}
+
+func (x *GetConversationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[156]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetConversationRequest.ProtoReflect.Descriptor instead.
+func (*GetConversationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{156}
+}
+
+type GetConversationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetConversationResponse) Reset() {
+	*x = GetConversationResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[157]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetConversationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetConversationResponse) ProtoMessage() {}
+
+func (x *GetConversationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[157]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetConversationResponse.ProtoReflect.Descriptor instead.
+func (*GetConversationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{157}
+}
+
+func (x *GetConversationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMaxSuggestionsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxSuggestionsRequest) Reset() {
+	*x = GetMaxSuggestionsRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[158]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxSuggestionsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxSuggestionsRequest) ProtoMessage() {}
+
+func (x *GetMaxSuggestionsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[158]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxSuggestionsRequest.ProtoReflect.Descriptor instead.
+func (*GetMaxSuggestionsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{158}
+}
+
+type GetMaxSuggestionsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxSuggestionsResponse) Reset() {
+	*x = GetMaxSuggestionsResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[159]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxSuggestionsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxSuggestionsResponse) ProtoMessage() {}
+
+func (x *GetMaxSuggestionsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[159]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxSuggestionsResponse.ProtoReflect.Descriptor instead.
+func (*GetMaxSuggestionsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{159}
+}
+
+func (x *GetMaxSuggestionsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTypeConfigRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTypeConfigRequest) Reset() {
+	*x = GetTypeConfigRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[160]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTypeConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTypeConfigRequest) ProtoMessage() {}
+
+func (x *GetTypeConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[160]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTypeConfigRequest.ProtoReflect.Descriptor instead.
+func (*GetTypeConfigRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{160}
+}
+
+type GetTypeConfigResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTypeConfigResponse) Reset() {
+	*x = GetTypeConfigResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[161]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTypeConfigResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTypeConfigResponse) ProtoMessage() {}
+
+func (x *GetTypeConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[161]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTypeConfigResponse.ProtoReflect.Descriptor instead.
+func (*GetTypeConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{161}
+}
+
+func (x *GetTypeConfigResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type TextSelectionGetConfidenceScoreRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TextSelectionGetConfidenceScoreRequest) Reset() {
+	*x = TextSelectionGetConfidenceScoreRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[162]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TextSelectionGetConfidenceScoreRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TextSelectionGetConfidenceScoreRequest) ProtoMessage() {}
+
+func (x *TextSelectionGetConfidenceScoreRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[162]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TextSelectionGetConfidenceScoreRequest.ProtoReflect.Descriptor instead.
+func (*TextSelectionGetConfidenceScoreRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{162}
+}
+
+func (x *TextSelectionGetConfidenceScoreRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetSelectionEndIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSelectionEndIndexRequest) Reset() {
+	*x = GetSelectionEndIndexRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[163]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSelectionEndIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSelectionEndIndexRequest) ProtoMessage() {}
+
+func (x *GetSelectionEndIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[163]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSelectionEndIndexRequest.ProtoReflect.Descriptor instead.
+func (*GetSelectionEndIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{163}
+}
+
+type GetSelectionEndIndexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSelectionEndIndexResponse) Reset() {
+	*x = GetSelectionEndIndexResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[164]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSelectionEndIndexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSelectionEndIndexResponse) ProtoMessage() {}
+
+func (x *GetSelectionEndIndexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[164]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSelectionEndIndexResponse.ProtoReflect.Descriptor instead.
+func (*GetSelectionEndIndexResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{164}
+}
+
+func (x *GetSelectionEndIndexResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSelectionStartIndexRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSelectionStartIndexRequest) Reset() {
+	*x = GetSelectionStartIndexRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[165]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSelectionStartIndexRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSelectionStartIndexRequest) ProtoMessage() {}
+
+func (x *GetSelectionStartIndexRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[165]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSelectionStartIndexRequest.ProtoReflect.Descriptor instead.
+func (*GetSelectionStartIndexRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{165}
+}
+
+type GetSelectionStartIndexResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSelectionStartIndexResponse) Reset() {
+	*x = GetSelectionStartIndexResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[166]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSelectionStartIndexResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSelectionStartIndexResponse) ProtoMessage() {}
+
+func (x *GetSelectionStartIndexResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[166]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSelectionStartIndexResponse.ProtoReflect.Descriptor instead.
+func (*GetSelectionStartIndexResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{166}
+}
+
+func (x *GetSelectionStartIndexResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTextClassificationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTextClassificationRequest) Reset() {
+	*x = GetTextClassificationRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[167]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTextClassificationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTextClassificationRequest) ProtoMessage() {}
+
+func (x *GetTextClassificationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[167]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTextClassificationRequest.ProtoReflect.Descriptor instead.
+func (*GetTextClassificationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{167}
+}
+
+type GetTextClassificationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTextClassificationResponse) Reset() {
+	*x = GetTextClassificationResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[168]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTextClassificationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTextClassificationResponse) ProtoMessage() {}
+
+func (x *GetTextClassificationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[168]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTextClassificationResponse.ProtoReflect.Descriptor instead.
+func (*GetTextClassificationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{168}
+}
+
+func (x *GetTextClassificationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetTextClassificationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTextClassificationRequest) Reset() {
+	*x = SetTextClassificationRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[169]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTextClassificationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTextClassificationRequest) ProtoMessage() {}
+
+func (x *SetTextClassificationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[169]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTextClassificationRequest.ProtoReflect.Descriptor instead.
+func (*SetTextClassificationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{169}
+}
+
+func (x *SetTextClassificationRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetTextClassificationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTextClassificationResponse) Reset() {
+	*x = SetTextClassificationResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[170]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTextClassificationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTextClassificationResponse) ProtoMessage() {}
+
+func (x *SetTextClassificationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[170]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTextClassificationResponse.ProtoReflect.Descriptor instead.
+func (*SetTextClassificationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{170}
+}
+
+func (x *SetTextClassificationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ShouldIncludeTextClassificationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ShouldIncludeTextClassificationRequest) Reset() {
+	*x = ShouldIncludeTextClassificationRequest{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[171]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ShouldIncludeTextClassificationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ShouldIncludeTextClassificationRequest) ProtoMessage() {}
+
+func (x *ShouldIncludeTextClassificationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[171]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ShouldIncludeTextClassificationRequest.ProtoReflect.Descriptor instead.
+func (*ShouldIncludeTextClassificationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{171}
+}
+
+type ShouldIncludeTextClassificationResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *EqualsResponse) Reset() {
-	*x = EqualsResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[84]
+func (x *ShouldIncludeTextClassificationResponse) Reset() {
+	*x = ShouldIncludeTextClassificationResponse{}
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[172]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *EqualsResponse) String() string {
+func (x *ShouldIncludeTextClassificationResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*EqualsResponse) ProtoMessage() {}
+func (*ShouldIncludeTextClassificationResponse) ProtoMessage() {}
 
-func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[84]
+func (x *ShouldIncludeTextClassificationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[172]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3551,1296 +7175,16 @@ func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
-func (*EqualsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{84}
+// Deprecated: Use ShouldIncludeTextClassificationResponse.ProtoReflect.Descriptor instead.
+func (*ShouldIncludeTextClassificationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{172}
 }
 
-func (x *EqualsResponse) GetResult() bool {
+func (x *ShouldIncludeTextClassificationResponse) GetResult() bool {
 	if x != nil {
 		return x.Result
 	}
 	return false
-}
-
-type GetValueRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetValueRequest) Reset() {
-	*x = GetValueRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[85]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetValueRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetValueRequest) ProtoMessage() {}
-
-func (x *GetValueRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[85]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetValueRequest.ProtoReflect.Descriptor instead.
-func (*GetValueRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{85}
-}
-
-type GetValueResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetValueResponse) Reset() {
-	*x = GetValueResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[86]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetValueResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetValueResponse) ProtoMessage() {}
-
-func (x *GetValueResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[86]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetValueResponse.ProtoReflect.Descriptor instead.
-func (*GetValueResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{86}
-}
-
-func (x *GetValueResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type HashCodeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HashCodeRequest) Reset() {
-	*x = HashCodeRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[87]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HashCodeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HashCodeRequest) ProtoMessage() {}
-
-func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[87]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
-func (*HashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{87}
-}
-
-type HashCodeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HashCodeResponse) Reset() {
-	*x = HashCodeResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[88]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HashCodeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HashCodeResponse) ProtoMessage() {}
-
-func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[88]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
-func (*HashCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{88}
-}
-
-func (x *HashCodeResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetActionIndicesRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetActionIndicesRequest) Reset() {
-	*x = GetActionIndicesRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[89]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetActionIndicesRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetActionIndicesRequest) ProtoMessage() {}
-
-func (x *GetActionIndicesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[89]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetActionIndicesRequest.ProtoReflect.Descriptor instead.
-func (*GetActionIndicesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{89}
-}
-
-type GetActionIndicesResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetActionIndicesResponse) Reset() {
-	*x = GetActionIndicesResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[90]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetActionIndicesResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetActionIndicesResponse) ProtoMessage() {}
-
-func (x *GetActionIndicesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[90]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetActionIndicesResponse.ProtoReflect.Descriptor instead.
-func (*GetActionIndicesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{90}
-}
-
-func (x *GetActionIndicesResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetEntityTypesRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetEntityTypesRequest) Reset() {
-	*x = GetEntityTypesRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[91]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetEntityTypesRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetEntityTypesRequest) ProtoMessage() {}
-
-func (x *GetEntityTypesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[91]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetEntityTypesRequest.ProtoReflect.Descriptor instead.
-func (*GetEntityTypesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{91}
-}
-
-type GetEntityTypesResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetEntityTypesResponse) Reset() {
-	*x = GetEntityTypesResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[92]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetEntityTypesResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetEntityTypesResponse) ProtoMessage() {}
-
-func (x *GetEntityTypesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[92]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetEntityTypesResponse.ProtoReflect.Descriptor instead.
-func (*GetEntityTypesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{92}
-}
-
-func (x *GetEntityTypesResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetEventCategoryRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetEventCategoryRequest) Reset() {
-	*x = GetEventCategoryRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[93]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetEventCategoryRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetEventCategoryRequest) ProtoMessage() {}
-
-func (x *GetEventCategoryRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[93]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetEventCategoryRequest.ProtoReflect.Descriptor instead.
-func (*GetEventCategoryRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{93}
-}
-
-type GetEventCategoryResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetEventCategoryResponse) Reset() {
-	*x = GetEventCategoryResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[94]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetEventCategoryResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetEventCategoryResponse) ProtoMessage() {}
-
-func (x *GetEventCategoryResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[94]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetEventCategoryResponse.ProtoReflect.Descriptor instead.
-func (*GetEventCategoryResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{94}
-}
-
-func (x *GetEventCategoryResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetEventContextRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetEventContextRequest) Reset() {
-	*x = GetEventContextRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[95]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetEventContextRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetEventContextRequest) ProtoMessage() {}
-
-func (x *GetEventContextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[95]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetEventContextRequest.ProtoReflect.Descriptor instead.
-func (*GetEventContextRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{95}
-}
-
-type GetEventContextResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetEventContextResponse) Reset() {
-	*x = GetEventContextResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[96]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetEventContextResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetEventContextResponse) ProtoMessage() {}
-
-func (x *GetEventContextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[96]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetEventContextResponse.ProtoReflect.Descriptor instead.
-func (*GetEventContextResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{96}
-}
-
-func (x *GetEventContextResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetEventIndexRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetEventIndexRequest) Reset() {
-	*x = GetEventIndexRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[97]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetEventIndexRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetEventIndexRequest) ProtoMessage() {}
-
-func (x *GetEventIndexRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[97]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetEventIndexRequest.ProtoReflect.Descriptor instead.
-func (*GetEventIndexRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{97}
-}
-
-type GetEventIndexResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetEventIndexResponse) Reset() {
-	*x = GetEventIndexResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[98]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetEventIndexResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetEventIndexResponse) ProtoMessage() {}
-
-func (x *GetEventIndexResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[98]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetEventIndexResponse.ProtoReflect.Descriptor instead.
-func (*GetEventIndexResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{98}
-}
-
-func (x *GetEventIndexResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetEventTypeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetEventTypeRequest) Reset() {
-	*x = GetEventTypeRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[99]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetEventTypeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetEventTypeRequest) ProtoMessage() {}
-
-func (x *GetEventTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[99]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetEventTypeRequest.ProtoReflect.Descriptor instead.
-func (*GetEventTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{99}
-}
-
-type GetEventTypeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetEventTypeResponse) Reset() {
-	*x = GetEventTypeResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[100]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetEventTypeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetEventTypeResponse) ProtoMessage() {}
-
-func (x *GetEventTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[100]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetEventTypeResponse.ProtoReflect.Descriptor instead.
-func (*GetEventTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{100}
-}
-
-func (x *GetEventTypeResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetLocaleRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetLocaleRequest) Reset() {
-	*x = GetLocaleRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[101]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetLocaleRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetLocaleRequest) ProtoMessage() {}
-
-func (x *GetLocaleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[101]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetLocaleRequest.ProtoReflect.Descriptor instead.
-func (*GetLocaleRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{101}
-}
-
-type GetLocaleResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetLocaleResponse) Reset() {
-	*x = GetLocaleResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[102]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetLocaleResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetLocaleResponse) ProtoMessage() {}
-
-func (x *GetLocaleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[102]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetLocaleResponse.ProtoReflect.Descriptor instead.
-func (*GetLocaleResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{102}
-}
-
-func (x *GetLocaleResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetModelNameRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetModelNameRequest) Reset() {
-	*x = GetModelNameRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[103]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetModelNameRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetModelNameRequest) ProtoMessage() {}
-
-func (x *GetModelNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[103]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetModelNameRequest.ProtoReflect.Descriptor instead.
-func (*GetModelNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{103}
-}
-
-type GetModelNameResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetModelNameResponse) Reset() {
-	*x = GetModelNameResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[104]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetModelNameResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetModelNameResponse) ProtoMessage() {}
-
-func (x *GetModelNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[104]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetModelNameResponse.ProtoReflect.Descriptor instead.
-func (*GetModelNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{104}
-}
-
-func (x *GetModelNameResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetResultIdRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetResultIdRequest) Reset() {
-	*x = GetResultIdRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[105]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetResultIdRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetResultIdRequest) ProtoMessage() {}
-
-func (x *GetResultIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[105]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetResultIdRequest.ProtoReflect.Descriptor instead.
-func (*GetResultIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{105}
-}
-
-type GetResultIdResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetResultIdResponse) Reset() {
-	*x = GetResultIdResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[106]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetResultIdResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetResultIdResponse) ProtoMessage() {}
-
-func (x *GetResultIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[106]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetResultIdResponse.ProtoReflect.Descriptor instead.
-func (*GetResultIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{106}
-}
-
-func (x *GetResultIdResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetScoresRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetScoresRequest) Reset() {
-	*x = GetScoresRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[107]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetScoresRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetScoresRequest) ProtoMessage() {}
-
-func (x *GetScoresRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[107]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetScoresRequest.ProtoReflect.Descriptor instead.
-func (*GetScoresRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{107}
-}
-
-type GetScoresResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetScoresResponse) Reset() {
-	*x = GetScoresResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[108]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetScoresResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetScoresResponse) ProtoMessage() {}
-
-func (x *GetScoresResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[108]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetScoresResponse.ProtoReflect.Descriptor instead.
-func (*GetScoresResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{108}
-}
-
-func (x *GetScoresResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetRelativeSuggestedWordEndIndexRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRelativeSuggestedWordEndIndexRequest) Reset() {
-	*x = GetRelativeSuggestedWordEndIndexRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[109]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRelativeSuggestedWordEndIndexRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRelativeSuggestedWordEndIndexRequest) ProtoMessage() {}
-
-func (x *GetRelativeSuggestedWordEndIndexRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[109]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRelativeSuggestedWordEndIndexRequest.ProtoReflect.Descriptor instead.
-func (*GetRelativeSuggestedWordEndIndexRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{109}
-}
-
-type GetRelativeSuggestedWordEndIndexResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRelativeSuggestedWordEndIndexResponse) Reset() {
-	*x = GetRelativeSuggestedWordEndIndexResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[110]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRelativeSuggestedWordEndIndexResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRelativeSuggestedWordEndIndexResponse) ProtoMessage() {}
-
-func (x *GetRelativeSuggestedWordEndIndexResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[110]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRelativeSuggestedWordEndIndexResponse.ProtoReflect.Descriptor instead.
-func (*GetRelativeSuggestedWordEndIndexResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{110}
-}
-
-func (x *GetRelativeSuggestedWordEndIndexResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetRelativeSuggestedWordStartIndexRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRelativeSuggestedWordStartIndexRequest) Reset() {
-	*x = GetRelativeSuggestedWordStartIndexRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[111]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRelativeSuggestedWordStartIndexRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRelativeSuggestedWordStartIndexRequest) ProtoMessage() {}
-
-func (x *GetRelativeSuggestedWordStartIndexRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[111]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRelativeSuggestedWordStartIndexRequest.ProtoReflect.Descriptor instead.
-func (*GetRelativeSuggestedWordStartIndexRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{111}
-}
-
-type GetRelativeSuggestedWordStartIndexResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRelativeSuggestedWordStartIndexResponse) Reset() {
-	*x = GetRelativeSuggestedWordStartIndexResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[112]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRelativeSuggestedWordStartIndexResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRelativeSuggestedWordStartIndexResponse) ProtoMessage() {}
-
-func (x *GetRelativeSuggestedWordStartIndexResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[112]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRelativeSuggestedWordStartIndexResponse.ProtoReflect.Descriptor instead.
-func (*GetRelativeSuggestedWordStartIndexResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{112}
-}
-
-func (x *GetRelativeSuggestedWordStartIndexResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetRelativeWordEndIndexRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRelativeWordEndIndexRequest) Reset() {
-	*x = GetRelativeWordEndIndexRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[113]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRelativeWordEndIndexRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRelativeWordEndIndexRequest) ProtoMessage() {}
-
-func (x *GetRelativeWordEndIndexRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[113]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRelativeWordEndIndexRequest.ProtoReflect.Descriptor instead.
-func (*GetRelativeWordEndIndexRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{113}
-}
-
-type GetRelativeWordEndIndexResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRelativeWordEndIndexResponse) Reset() {
-	*x = GetRelativeWordEndIndexResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[114]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRelativeWordEndIndexResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRelativeWordEndIndexResponse) ProtoMessage() {}
-
-func (x *GetRelativeWordEndIndexResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[114]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRelativeWordEndIndexResponse.ProtoReflect.Descriptor instead.
-func (*GetRelativeWordEndIndexResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{114}
-}
-
-func (x *GetRelativeWordEndIndexResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetRelativeWordStartIndexRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRelativeWordStartIndexRequest) Reset() {
-	*x = GetRelativeWordStartIndexRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[115]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRelativeWordStartIndexRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRelativeWordStartIndexRequest) ProtoMessage() {}
-
-func (x *GetRelativeWordStartIndexRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[115]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRelativeWordStartIndexRequest.ProtoReflect.Descriptor instead.
-func (*GetRelativeWordStartIndexRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{115}
-}
-
-type GetRelativeWordStartIndexResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRelativeWordStartIndexResponse) Reset() {
-	*x = GetRelativeWordStartIndexResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[116]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRelativeWordStartIndexResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRelativeWordStartIndexResponse) ProtoMessage() {}
-
-func (x *GetRelativeWordStartIndexResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[116]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRelativeWordStartIndexResponse.ProtoReflect.Descriptor instead.
-func (*GetRelativeWordStartIndexResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{116}
-}
-
-func (x *GetRelativeWordStartIndexResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
 }
 
 type GetDurationSincePreviousEventRequest struct {
@@ -4851,7 +7195,7 @@ type GetDurationSincePreviousEventRequest struct {
 
 func (x *GetDurationSincePreviousEventRequest) Reset() {
 	*x = GetDurationSincePreviousEventRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[117]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[173]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4863,7 +7207,7 @@ func (x *GetDurationSincePreviousEventRequest) String() string {
 func (*GetDurationSincePreviousEventRequest) ProtoMessage() {}
 
 func (x *GetDurationSincePreviousEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[117]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[173]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4876,7 +7220,7 @@ func (x *GetDurationSincePreviousEventRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use GetDurationSincePreviousEventRequest.ProtoReflect.Descriptor instead.
 func (*GetDurationSincePreviousEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{117}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{173}
 }
 
 type GetDurationSincePreviousEventResponse struct {
@@ -4888,7 +7232,7 @@ type GetDurationSincePreviousEventResponse struct {
 
 func (x *GetDurationSincePreviousEventResponse) Reset() {
 	*x = GetDurationSincePreviousEventResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[118]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[174]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4900,7 +7244,7 @@ func (x *GetDurationSincePreviousEventResponse) String() string {
 func (*GetDurationSincePreviousEventResponse) ProtoMessage() {}
 
 func (x *GetDurationSincePreviousEventResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[118]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[174]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4913,7 +7257,7 @@ func (x *GetDurationSincePreviousEventResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use GetDurationSincePreviousEventResponse.ProtoReflect.Descriptor instead.
 func (*GetDurationSincePreviousEventResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{118}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{174}
 }
 
 func (x *GetDurationSincePreviousEventResponse) GetResult() int64 {
@@ -4931,7 +7275,7 @@ type GetDurationSinceSessionStartRequest struct {
 
 func (x *GetDurationSinceSessionStartRequest) Reset() {
 	*x = GetDurationSinceSessionStartRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[119]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[175]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4943,7 +7287,7 @@ func (x *GetDurationSinceSessionStartRequest) String() string {
 func (*GetDurationSinceSessionStartRequest) ProtoMessage() {}
 
 func (x *GetDurationSinceSessionStartRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[119]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[175]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4956,7 +7300,7 @@ func (x *GetDurationSinceSessionStartRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use GetDurationSinceSessionStartRequest.ProtoReflect.Descriptor instead.
 func (*GetDurationSinceSessionStartRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{119}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{175}
 }
 
 type GetDurationSinceSessionStartResponse struct {
@@ -4968,7 +7312,7 @@ type GetDurationSinceSessionStartResponse struct {
 
 func (x *GetDurationSinceSessionStartResponse) Reset() {
 	*x = GetDurationSinceSessionStartResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[120]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[176]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4980,7 +7324,7 @@ func (x *GetDurationSinceSessionStartResponse) String() string {
 func (*GetDurationSinceSessionStartResponse) ProtoMessage() {}
 
 func (x *GetDurationSinceSessionStartResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[120]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[176]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4993,90 +7337,10 @@ func (x *GetDurationSinceSessionStartResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use GetDurationSinceSessionStartResponse.ProtoReflect.Descriptor instead.
 func (*GetDurationSinceSessionStartResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{120}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{176}
 }
 
 func (x *GetDurationSinceSessionStartResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetEndRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetEndRequest) Reset() {
-	*x = GetEndRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[121]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetEndRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetEndRequest) ProtoMessage() {}
-
-func (x *GetEndRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[121]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetEndRequest.ProtoReflect.Descriptor instead.
-func (*GetEndRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{121}
-}
-
-type GetEndResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetEndResponse) Reset() {
-	*x = GetEndResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[122]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetEndResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetEndResponse) ProtoMessage() {}
-
-func (x *GetEndResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[122]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetEndResponse.ProtoReflect.Descriptor instead.
-func (*GetEndResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{122}
-}
-
-func (x *GetEndResponse) GetResult() int32 {
 	if x != nil {
 		return x.Result
 	}
@@ -5091,7 +7355,7 @@ type GetEntityTypeRequest struct {
 
 func (x *GetEntityTypeRequest) Reset() {
 	*x = GetEntityTypeRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[123]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[177]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5103,7 +7367,7 @@ func (x *GetEntityTypeRequest) String() string {
 func (*GetEntityTypeRequest) ProtoMessage() {}
 
 func (x *GetEntityTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[123]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[177]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5116,7 +7380,7 @@ func (x *GetEntityTypeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetEntityTypeRequest.ProtoReflect.Descriptor instead.
 func (*GetEntityTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{123}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{177}
 }
 
 type GetEntityTypeResponse struct {
@@ -5128,7 +7392,7 @@ type GetEntityTypeResponse struct {
 
 func (x *GetEntityTypeResponse) Reset() {
 	*x = GetEntityTypeResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[124]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[178]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5140,7 +7404,7 @@ func (x *GetEntityTypeResponse) String() string {
 func (*GetEntityTypeResponse) ProtoMessage() {}
 
 func (x *GetEntityTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[124]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[178]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5153,7 +7417,7 @@ func (x *GetEntityTypeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetEntityTypeResponse.ProtoReflect.Descriptor instead.
 func (*GetEntityTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{124}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{178}
 }
 
 func (x *GetEntityTypeResponse) GetResult() string {
@@ -5171,7 +7435,7 @@ type GetEventTimeRequest struct {
 
 func (x *GetEventTimeRequest) Reset() {
 	*x = GetEventTimeRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[125]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[179]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5183,7 +7447,7 @@ func (x *GetEventTimeRequest) String() string {
 func (*GetEventTimeRequest) ProtoMessage() {}
 
 func (x *GetEventTimeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[125]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[179]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5196,7 +7460,7 @@ func (x *GetEventTimeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetEventTimeRequest.ProtoReflect.Descriptor instead.
 func (*GetEventTimeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{125}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{179}
 }
 
 type GetEventTimeResponse struct {
@@ -5208,7 +7472,7 @@ type GetEventTimeResponse struct {
 
 func (x *GetEventTimeResponse) Reset() {
 	*x = GetEventTimeResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[126]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[180]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5220,7 +7484,7 @@ func (x *GetEventTimeResponse) String() string {
 func (*GetEventTimeResponse) ProtoMessage() {}
 
 func (x *GetEventTimeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[126]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[180]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5233,7 +7497,7 @@ func (x *GetEventTimeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetEventTimeResponse.ProtoReflect.Descriptor instead.
 func (*GetEventTimeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{126}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{180}
 }
 
 func (x *GetEventTimeResponse) GetResult() int64 {
@@ -5251,7 +7515,7 @@ type GetInvocationMethodRequest struct {
 
 func (x *GetInvocationMethodRequest) Reset() {
 	*x = GetInvocationMethodRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[127]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[181]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5263,7 +7527,7 @@ func (x *GetInvocationMethodRequest) String() string {
 func (*GetInvocationMethodRequest) ProtoMessage() {}
 
 func (x *GetInvocationMethodRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[127]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[181]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5276,7 +7540,7 @@ func (x *GetInvocationMethodRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetInvocationMethodRequest.ProtoReflect.Descriptor instead.
 func (*GetInvocationMethodRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{127}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{181}
 }
 
 type GetInvocationMethodResponse struct {
@@ -5288,7 +7552,7 @@ type GetInvocationMethodResponse struct {
 
 func (x *GetInvocationMethodResponse) Reset() {
 	*x = GetInvocationMethodResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[128]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[182]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5300,7 +7564,7 @@ func (x *GetInvocationMethodResponse) String() string {
 func (*GetInvocationMethodResponse) ProtoMessage() {}
 
 func (x *GetInvocationMethodResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[128]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[182]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5313,7 +7577,7 @@ func (x *GetInvocationMethodResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetInvocationMethodResponse.ProtoReflect.Descriptor instead.
 func (*GetInvocationMethodResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{128}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{182}
 }
 
 func (x *GetInvocationMethodResponse) GetResult() int32 {
@@ -5331,7 +7595,7 @@ type GetSessionIdRequest struct {
 
 func (x *GetSessionIdRequest) Reset() {
 	*x = GetSessionIdRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[129]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[183]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5343,7 +7607,7 @@ func (x *GetSessionIdRequest) String() string {
 func (*GetSessionIdRequest) ProtoMessage() {}
 
 func (x *GetSessionIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[129]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[183]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5356,7 +7620,7 @@ func (x *GetSessionIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSessionIdRequest.ProtoReflect.Descriptor instead.
 func (*GetSessionIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{129}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{183}
 }
 
 type GetSessionIdResponse struct {
@@ -5368,7 +7632,7 @@ type GetSessionIdResponse struct {
 
 func (x *GetSessionIdResponse) Reset() {
 	*x = GetSessionIdResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[130]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[184]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5380,7 +7644,7 @@ func (x *GetSessionIdResponse) String() string {
 func (*GetSessionIdResponse) ProtoMessage() {}
 
 func (x *GetSessionIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[130]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[184]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5393,7 +7657,7 @@ func (x *GetSessionIdResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSessionIdResponse.ProtoReflect.Descriptor instead.
 func (*GetSessionIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{130}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{184}
 }
 
 func (x *GetSessionIdResponse) GetResult() int64 {
@@ -5411,7 +7675,7 @@ type GetSmartEndRequest struct {
 
 func (x *GetSmartEndRequest) Reset() {
 	*x = GetSmartEndRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[131]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[185]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5423,7 +7687,7 @@ func (x *GetSmartEndRequest) String() string {
 func (*GetSmartEndRequest) ProtoMessage() {}
 
 func (x *GetSmartEndRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[131]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[185]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5436,7 +7700,7 @@ func (x *GetSmartEndRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSmartEndRequest.ProtoReflect.Descriptor instead.
 func (*GetSmartEndRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{131}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{185}
 }
 
 type GetSmartEndResponse struct {
@@ -5448,7 +7712,7 @@ type GetSmartEndResponse struct {
 
 func (x *GetSmartEndResponse) Reset() {
 	*x = GetSmartEndResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[132]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[186]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5460,7 +7724,7 @@ func (x *GetSmartEndResponse) String() string {
 func (*GetSmartEndResponse) ProtoMessage() {}
 
 func (x *GetSmartEndResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[132]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[186]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5473,7 +7737,7 @@ func (x *GetSmartEndResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSmartEndResponse.ProtoReflect.Descriptor instead.
 func (*GetSmartEndResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{132}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{186}
 }
 
 func (x *GetSmartEndResponse) GetResult() int32 {
@@ -5491,7 +7755,7 @@ type GetSmartStartRequest struct {
 
 func (x *GetSmartStartRequest) Reset() {
 	*x = GetSmartStartRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[133]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[187]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5503,7 +7767,7 @@ func (x *GetSmartStartRequest) String() string {
 func (*GetSmartStartRequest) ProtoMessage() {}
 
 func (x *GetSmartStartRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[133]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[187]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5516,7 +7780,7 @@ func (x *GetSmartStartRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSmartStartRequest.ProtoReflect.Descriptor instead.
 func (*GetSmartStartRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{133}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{187}
 }
 
 type GetSmartStartResponse struct {
@@ -5528,7 +7792,7 @@ type GetSmartStartResponse struct {
 
 func (x *GetSmartStartResponse) Reset() {
 	*x = GetSmartStartResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[134]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[188]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5540,7 +7804,7 @@ func (x *GetSmartStartResponse) String() string {
 func (*GetSmartStartResponse) ProtoMessage() {}
 
 func (x *GetSmartStartResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[134]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[188]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5553,90 +7817,10 @@ func (x *GetSmartStartResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSmartStartResponse.ProtoReflect.Descriptor instead.
 func (*GetSmartStartResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{134}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{188}
 }
 
 func (x *GetSmartStartResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetStartRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetStartRequest) Reset() {
-	*x = GetStartRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[135]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetStartRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetStartRequest) ProtoMessage() {}
-
-func (x *GetStartRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[135]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetStartRequest.ProtoReflect.Descriptor instead.
-func (*GetStartRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{135}
-}
-
-type GetStartResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetStartResponse) Reset() {
-	*x = GetStartResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[136]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetStartResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetStartResponse) ProtoMessage() {}
-
-func (x *GetStartResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[136]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetStartResponse.ProtoReflect.Descriptor instead.
-func (*GetStartResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{136}
-}
-
-func (x *GetStartResponse) GetResult() int32 {
 	if x != nil {
 		return x.Result
 	}
@@ -5654,7 +7838,7 @@ type CreateSelectionActionEvent3Request struct {
 
 func (x *CreateSelectionActionEvent3Request) Reset() {
 	*x = CreateSelectionActionEvent3Request{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[137]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[189]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5666,7 +7850,7 @@ func (x *CreateSelectionActionEvent3Request) String() string {
 func (*CreateSelectionActionEvent3Request) ProtoMessage() {}
 
 func (x *CreateSelectionActionEvent3Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[137]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[189]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5679,7 +7863,7 @@ func (x *CreateSelectionActionEvent3Request) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use CreateSelectionActionEvent3Request.ProtoReflect.Descriptor instead.
 func (*CreateSelectionActionEvent3Request) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{137}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{189}
 }
 
 func (x *CreateSelectionActionEvent3Request) GetArg0() int32 {
@@ -5712,7 +7896,7 @@ type CreateSelectionActionEvent3Response struct {
 
 func (x *CreateSelectionActionEvent3Response) Reset() {
 	*x = CreateSelectionActionEvent3Response{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[138]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[190]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5724,7 +7908,7 @@ func (x *CreateSelectionActionEvent3Response) String() string {
 func (*CreateSelectionActionEvent3Response) ProtoMessage() {}
 
 func (x *CreateSelectionActionEvent3Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[138]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[190]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5737,7 +7921,7 @@ func (x *CreateSelectionActionEvent3Response) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use CreateSelectionActionEvent3Response.ProtoReflect.Descriptor instead.
 func (*CreateSelectionActionEvent3Response) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{138}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{190}
 }
 
 func (x *CreateSelectionActionEvent3Response) GetResult() int64 {
@@ -5759,7 +7943,7 @@ type CreateSelectionActionEvent4_1Request struct {
 
 func (x *CreateSelectionActionEvent4_1Request) Reset() {
 	*x = CreateSelectionActionEvent4_1Request{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[139]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[191]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5771,7 +7955,7 @@ func (x *CreateSelectionActionEvent4_1Request) String() string {
 func (*CreateSelectionActionEvent4_1Request) ProtoMessage() {}
 
 func (x *CreateSelectionActionEvent4_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[139]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[191]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5784,7 +7968,7 @@ func (x *CreateSelectionActionEvent4_1Request) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use CreateSelectionActionEvent4_1Request.ProtoReflect.Descriptor instead.
 func (*CreateSelectionActionEvent4_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{139}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{191}
 }
 
 func (x *CreateSelectionActionEvent4_1Request) GetArg0() int32 {
@@ -5824,7 +8008,7 @@ type CreateSelectionActionEvent4_1Response struct {
 
 func (x *CreateSelectionActionEvent4_1Response) Reset() {
 	*x = CreateSelectionActionEvent4_1Response{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[140]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[192]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5836,7 +8020,7 @@ func (x *CreateSelectionActionEvent4_1Response) String() string {
 func (*CreateSelectionActionEvent4_1Response) ProtoMessage() {}
 
 func (x *CreateSelectionActionEvent4_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[140]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[192]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5849,7 +8033,7 @@ func (x *CreateSelectionActionEvent4_1Response) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CreateSelectionActionEvent4_1Response.ProtoReflect.Descriptor instead.
 func (*CreateSelectionActionEvent4_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{140}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{192}
 }
 
 func (x *CreateSelectionActionEvent4_1Response) GetResult() int64 {
@@ -5869,7 +8053,7 @@ type CreateSelectionModifiedEvent2Request struct {
 
 func (x *CreateSelectionModifiedEvent2Request) Reset() {
 	*x = CreateSelectionModifiedEvent2Request{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[141]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[193]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5881,7 +8065,7 @@ func (x *CreateSelectionModifiedEvent2Request) String() string {
 func (*CreateSelectionModifiedEvent2Request) ProtoMessage() {}
 
 func (x *CreateSelectionModifiedEvent2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[141]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[193]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5894,7 +8078,7 @@ func (x *CreateSelectionModifiedEvent2Request) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use CreateSelectionModifiedEvent2Request.ProtoReflect.Descriptor instead.
 func (*CreateSelectionModifiedEvent2Request) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{141}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{193}
 }
 
 func (x *CreateSelectionModifiedEvent2Request) GetArg0() int32 {
@@ -5920,7 +8104,7 @@ type CreateSelectionModifiedEvent2Response struct {
 
 func (x *CreateSelectionModifiedEvent2Response) Reset() {
 	*x = CreateSelectionModifiedEvent2Response{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[142]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[194]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5932,7 +8116,7 @@ func (x *CreateSelectionModifiedEvent2Response) String() string {
 func (*CreateSelectionModifiedEvent2Response) ProtoMessage() {}
 
 func (x *CreateSelectionModifiedEvent2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[142]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[194]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5945,7 +8129,7 @@ func (x *CreateSelectionModifiedEvent2Response) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CreateSelectionModifiedEvent2Response.ProtoReflect.Descriptor instead.
 func (*CreateSelectionModifiedEvent2Response) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{142}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{194}
 }
 
 func (x *CreateSelectionModifiedEvent2Response) GetResult() int64 {
@@ -5966,7 +8150,7 @@ type CreateSelectionModifiedEvent3_1Request struct {
 
 func (x *CreateSelectionModifiedEvent3_1Request) Reset() {
 	*x = CreateSelectionModifiedEvent3_1Request{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[143]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[195]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5978,7 +8162,7 @@ func (x *CreateSelectionModifiedEvent3_1Request) String() string {
 func (*CreateSelectionModifiedEvent3_1Request) ProtoMessage() {}
 
 func (x *CreateSelectionModifiedEvent3_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[143]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[195]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5991,7 +8175,7 @@ func (x *CreateSelectionModifiedEvent3_1Request) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use CreateSelectionModifiedEvent3_1Request.ProtoReflect.Descriptor instead.
 func (*CreateSelectionModifiedEvent3_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{143}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{195}
 }
 
 func (x *CreateSelectionModifiedEvent3_1Request) GetArg0() int32 {
@@ -6024,7 +8208,7 @@ type CreateSelectionModifiedEvent3_1Response struct {
 
 func (x *CreateSelectionModifiedEvent3_1Response) Reset() {
 	*x = CreateSelectionModifiedEvent3_1Response{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[144]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[196]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6036,7 +8220,7 @@ func (x *CreateSelectionModifiedEvent3_1Response) String() string {
 func (*CreateSelectionModifiedEvent3_1Response) ProtoMessage() {}
 
 func (x *CreateSelectionModifiedEvent3_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[144]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[196]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6049,7 +8233,7 @@ func (x *CreateSelectionModifiedEvent3_1Response) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use CreateSelectionModifiedEvent3_1Response.ProtoReflect.Descriptor instead.
 func (*CreateSelectionModifiedEvent3_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{144}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{196}
 }
 
 func (x *CreateSelectionModifiedEvent3_1Response) GetResult() int64 {
@@ -6070,7 +8254,7 @@ type CreateSelectionModifiedEvent3_2Request struct {
 
 func (x *CreateSelectionModifiedEvent3_2Request) Reset() {
 	*x = CreateSelectionModifiedEvent3_2Request{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[145]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[197]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6082,7 +8266,7 @@ func (x *CreateSelectionModifiedEvent3_2Request) String() string {
 func (*CreateSelectionModifiedEvent3_2Request) ProtoMessage() {}
 
 func (x *CreateSelectionModifiedEvent3_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[145]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[197]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6095,7 +8279,7 @@ func (x *CreateSelectionModifiedEvent3_2Request) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use CreateSelectionModifiedEvent3_2Request.ProtoReflect.Descriptor instead.
 func (*CreateSelectionModifiedEvent3_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{145}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{197}
 }
 
 func (x *CreateSelectionModifiedEvent3_2Request) GetArg0() int32 {
@@ -6128,7 +8312,7 @@ type CreateSelectionModifiedEvent3_2Response struct {
 
 func (x *CreateSelectionModifiedEvent3_2Response) Reset() {
 	*x = CreateSelectionModifiedEvent3_2Response{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[146]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[198]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6140,7 +8324,7 @@ func (x *CreateSelectionModifiedEvent3_2Response) String() string {
 func (*CreateSelectionModifiedEvent3_2Response) ProtoMessage() {}
 
 func (x *CreateSelectionModifiedEvent3_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[146]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[198]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6153,7 +8337,7 @@ func (x *CreateSelectionModifiedEvent3_2Response) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use CreateSelectionModifiedEvent3_2Response.ProtoReflect.Descriptor instead.
 func (*CreateSelectionModifiedEvent3_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{146}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{198}
 }
 
 func (x *CreateSelectionModifiedEvent3_2Response) GetResult() int64 {
@@ -6173,7 +8357,7 @@ type CreateSelectionStartedEventRequest struct {
 
 func (x *CreateSelectionStartedEventRequest) Reset() {
 	*x = CreateSelectionStartedEventRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[147]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[199]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6185,7 +8369,7 @@ func (x *CreateSelectionStartedEventRequest) String() string {
 func (*CreateSelectionStartedEventRequest) ProtoMessage() {}
 
 func (x *CreateSelectionStartedEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[147]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[199]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6198,7 +8382,7 @@ func (x *CreateSelectionStartedEventRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use CreateSelectionStartedEventRequest.ProtoReflect.Descriptor instead.
 func (*CreateSelectionStartedEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{147}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{199}
 }
 
 func (x *CreateSelectionStartedEventRequest) GetArg0() int32 {
@@ -6224,7 +8408,7 @@ type CreateSelectionStartedEventResponse struct {
 
 func (x *CreateSelectionStartedEventResponse) Reset() {
 	*x = CreateSelectionStartedEventResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[148]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[200]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6236,7 +8420,7 @@ func (x *CreateSelectionStartedEventResponse) String() string {
 func (*CreateSelectionStartedEventResponse) ProtoMessage() {}
 
 func (x *CreateSelectionStartedEventResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[148]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[200]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6249,7 +8433,7 @@ func (x *CreateSelectionStartedEventResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use CreateSelectionStartedEventResponse.ProtoReflect.Descriptor instead.
 func (*CreateSelectionStartedEventResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{148}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{200}
 }
 
 func (x *CreateSelectionStartedEventResponse) GetResult() int64 {
@@ -6268,7 +8452,7 @@ type IsTerminalRequest struct {
 
 func (x *IsTerminalRequest) Reset() {
 	*x = IsTerminalRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[149]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[201]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6280,7 +8464,7 @@ func (x *IsTerminalRequest) String() string {
 func (*IsTerminalRequest) ProtoMessage() {}
 
 func (x *IsTerminalRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[149]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[201]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6293,7 +8477,7 @@ func (x *IsTerminalRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsTerminalRequest.ProtoReflect.Descriptor instead.
 func (*IsTerminalRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{149}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{201}
 }
 
 func (x *IsTerminalRequest) GetArg0() int32 {
@@ -6312,7 +8496,7 @@ type IsTerminalResponse struct {
 
 func (x *IsTerminalResponse) Reset() {
 	*x = IsTerminalResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[150]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[202]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6324,7 +8508,7 @@ func (x *IsTerminalResponse) String() string {
 func (*IsTerminalResponse) ProtoMessage() {}
 
 func (x *IsTerminalResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[150]
+	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[202]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6337,7 +8521,7 @@ func (x *IsTerminalResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsTerminalResponse.ProtoReflect.Descriptor instead.
 func (*IsTerminalResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{150}
+	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{202}
 }
 
 func (x *IsTerminalResponse) GetResult() bool {
@@ -6347,1777 +8531,75 @@ func (x *IsTerminalResponse) GetResult() bool {
 	return false
 }
 
-type ClearTextLinksRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ClearTextLinksRequest) Reset() {
-	*x = ClearTextLinksRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[151]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ClearTextLinksRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ClearTextLinksRequest) ProtoMessage() {}
-
-func (x *ClearTextLinksRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[151]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ClearTextLinksRequest.ProtoReflect.Descriptor instead.
-func (*ClearTextLinksRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{151}
-}
-
-type ClearTextLinksResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ClearTextLinksResponse) Reset() {
-	*x = ClearTextLinksResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[152]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ClearTextLinksResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ClearTextLinksResponse) ProtoMessage() {}
-
-func (x *ClearTextLinksResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[152]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ClearTextLinksResponse.ProtoReflect.Descriptor instead.
-func (*ClearTextLinksResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{152}
-}
-
-func (x *ClearTextLinksResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetEntityConfigRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetEntityConfigRequest) Reset() {
-	*x = GetEntityConfigRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[153]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetEntityConfigRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetEntityConfigRequest) ProtoMessage() {}
-
-func (x *GetEntityConfigRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[153]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetEntityConfigRequest.ProtoReflect.Descriptor instead.
-func (*GetEntityConfigRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{153}
-}
-
-type GetEntityConfigResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetEntityConfigResponse) Reset() {
-	*x = GetEntityConfigResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[154]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetEntityConfigResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetEntityConfigResponse) ProtoMessage() {}
-
-func (x *GetEntityConfigResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[154]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetEntityConfigResponse.ProtoReflect.Descriptor instead.
-func (*GetEntityConfigResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{154}
-}
-
-func (x *GetEntityConfigResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetTextLinkRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTextLinkRequest) Reset() {
-	*x = GetTextLinkRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[155]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTextLinkRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTextLinkRequest) ProtoMessage() {}
-
-func (x *GetTextLinkRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[155]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTextLinkRequest.ProtoReflect.Descriptor instead.
-func (*GetTextLinkRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{155}
-}
-
-type GetTextLinkResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTextLinkResponse) Reset() {
-	*x = GetTextLinkResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[156]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTextLinkResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTextLinkResponse) ProtoMessage() {}
-
-func (x *GetTextLinkResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[156]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTextLinkResponse.ProtoReflect.Descriptor instead.
-func (*GetTextLinkResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{156}
-}
-
-func (x *GetTextLinkResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type OnClickRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnClickRequest) Reset() {
-	*x = OnClickRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[157]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnClickRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnClickRequest) ProtoMessage() {}
-
-func (x *OnClickRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[157]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnClickRequest.ProtoReflect.Descriptor instead.
-func (*OnClickRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{157}
-}
-
-func (x *OnClickRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnClickResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnClickResponse) Reset() {
-	*x = OnClickResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[158]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnClickResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnClickResponse) ProtoMessage() {}
-
-func (x *OnClickResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[158]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnClickResponse.ProtoReflect.Descriptor instead.
-func (*OnClickResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{158}
-}
-
-type TextLanguageGetConfidenceScoreRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *TextLanguageGetConfidenceScoreRequest) Reset() {
-	*x = TextLanguageGetConfidenceScoreRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[159]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *TextLanguageGetConfidenceScoreRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TextLanguageGetConfidenceScoreRequest) ProtoMessage() {}
-
-func (x *TextLanguageGetConfidenceScoreRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[159]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use TextLanguageGetConfidenceScoreRequest.ProtoReflect.Descriptor instead.
-func (*TextLanguageGetConfidenceScoreRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{159}
-}
-
-func (x *TextLanguageGetConfidenceScoreRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type TextLanguageGetLocaleRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *TextLanguageGetLocaleRequest) Reset() {
-	*x = TextLanguageGetLocaleRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[160]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *TextLanguageGetLocaleRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TextLanguageGetLocaleRequest) ProtoMessage() {}
-
-func (x *TextLanguageGetLocaleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[160]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use TextLanguageGetLocaleRequest.ProtoReflect.Descriptor instead.
-func (*TextLanguageGetLocaleRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{160}
-}
-
-func (x *TextLanguageGetLocaleRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetLocaleHypothesisCountRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetLocaleHypothesisCountRequest) Reset() {
-	*x = GetLocaleHypothesisCountRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[161]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetLocaleHypothesisCountRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetLocaleHypothesisCountRequest) ProtoMessage() {}
-
-func (x *GetLocaleHypothesisCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[161]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetLocaleHypothesisCountRequest.ProtoReflect.Descriptor instead.
-func (*GetLocaleHypothesisCountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{161}
-}
-
-type GetLocaleHypothesisCountResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetLocaleHypothesisCountResponse) Reset() {
-	*x = GetLocaleHypothesisCountResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[162]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetLocaleHypothesisCountResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetLocaleHypothesisCountResponse) ProtoMessage() {}
-
-func (x *GetLocaleHypothesisCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[162]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetLocaleHypothesisCountResponse.ProtoReflect.Descriptor instead.
-func (*GetLocaleHypothesisCountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{162}
-}
-
-func (x *GetLocaleHypothesisCountResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type PutLocaleRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          float32                `protobuf:"fixed32,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PutLocaleRequest) Reset() {
-	*x = PutLocaleRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[163]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PutLocaleRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PutLocaleRequest) ProtoMessage() {}
-
-func (x *PutLocaleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[163]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PutLocaleRequest.ProtoReflect.Descriptor instead.
-func (*PutLocaleRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{163}
-}
-
-func (x *PutLocaleRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *PutLocaleRequest) GetArg1() float32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type PutLocaleResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PutLocaleResponse) Reset() {
-	*x = PutLocaleResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[164]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PutLocaleResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PutLocaleResponse) ProtoMessage() {}
-
-func (x *PutLocaleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[164]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PutLocaleResponse.ProtoReflect.Descriptor instead.
-func (*PutLocaleResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{164}
-}
-
-func (x *PutLocaleResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetActionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetActionRequest) Reset() {
-	*x = GetActionRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[165]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetActionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetActionRequest) ProtoMessage() {}
-
-func (x *GetActionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[165]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetActionRequest.ProtoReflect.Descriptor instead.
-func (*GetActionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{165}
-}
-
-type GetActionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetActionResponse) Reset() {
-	*x = GetActionResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[166]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetActionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetActionResponse) ProtoMessage() {}
-
-func (x *GetActionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[166]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetActionResponse.ProtoReflect.Descriptor instead.
-func (*GetActionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{166}
-}
-
-func (x *GetActionResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ConversationActionGetConfidenceScoreRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ConversationActionGetConfidenceScoreRequest) Reset() {
-	*x = ConversationActionGetConfidenceScoreRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[167]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ConversationActionGetConfidenceScoreRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ConversationActionGetConfidenceScoreRequest) ProtoMessage() {}
-
-func (x *ConversationActionGetConfidenceScoreRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[167]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ConversationActionGetConfidenceScoreRequest.ProtoReflect.Descriptor instead.
-func (*ConversationActionGetConfidenceScoreRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{167}
-}
-
-type GetTextReplyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTextReplyRequest) Reset() {
-	*x = GetTextReplyRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[168]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTextReplyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTextReplyRequest) ProtoMessage() {}
-
-func (x *GetTextReplyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[168]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTextReplyRequest.ProtoReflect.Descriptor instead.
-func (*GetTextReplyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{168}
-}
-
-type GetTextReplyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTextReplyResponse) Reset() {
-	*x = GetTextReplyResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[169]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTextReplyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTextReplyResponse) ProtoMessage() {}
-
-func (x *GetTextReplyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[169]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTextReplyResponse.ProtoReflect.Descriptor instead.
-func (*GetTextReplyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{169}
-}
-
-func (x *GetTextReplyResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetTypeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTypeRequest) Reset() {
-	*x = GetTypeRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[170]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTypeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTypeRequest) ProtoMessage() {}
-
-func (x *GetTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[170]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTypeRequest.ProtoReflect.Descriptor instead.
-func (*GetTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{170}
-}
-
-type GetTypeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTypeResponse) Reset() {
-	*x = GetTypeResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[171]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTypeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTypeResponse) ProtoMessage() {}
-
-func (x *GetTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[171]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTypeResponse.ProtoReflect.Descriptor instead.
-func (*GetTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{171}
-}
-
-func (x *GetTypeResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type SetActionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetActionRequest) Reset() {
-	*x = SetActionRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[172]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetActionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetActionRequest) ProtoMessage() {}
-
-func (x *SetActionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[172]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetActionRequest.ProtoReflect.Descriptor instead.
-func (*SetActionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{172}
-}
-
-func (x *SetActionRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetActionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetActionResponse) Reset() {
-	*x = SetActionResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[173]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetActionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetActionResponse) ProtoMessage() {}
-
-func (x *SetActionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[173]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetActionResponse.ProtoReflect.Descriptor instead.
-func (*SetActionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{173}
-}
-
-func (x *SetActionResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetConfidenceScoreRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetConfidenceScoreRequest) Reset() {
-	*x = SetConfidenceScoreRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[174]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetConfidenceScoreRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetConfidenceScoreRequest) ProtoMessage() {}
-
-func (x *SetConfidenceScoreRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[174]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetConfidenceScoreRequest.ProtoReflect.Descriptor instead.
-func (*SetConfidenceScoreRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{174}
-}
-
-func (x *SetConfidenceScoreRequest) GetArg0() float32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetConfidenceScoreResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetConfidenceScoreResponse) Reset() {
-	*x = SetConfidenceScoreResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[175]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetConfidenceScoreResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetConfidenceScoreResponse) ProtoMessage() {}
-
-func (x *SetConfidenceScoreResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[175]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetConfidenceScoreResponse.ProtoReflect.Descriptor instead.
-func (*SetConfidenceScoreResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{175}
-}
-
-func (x *SetConfidenceScoreResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetTextReplyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetTextReplyRequest) Reset() {
-	*x = SetTextReplyRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[176]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetTextReplyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetTextReplyRequest) ProtoMessage() {}
-
-func (x *SetTextReplyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[176]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetTextReplyRequest.ProtoReflect.Descriptor instead.
-func (*SetTextReplyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{176}
-}
-
-func (x *SetTextReplyRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type SetTextReplyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetTextReplyResponse) Reset() {
-	*x = SetTextReplyResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[177]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetTextReplyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetTextReplyResponse) ProtoMessage() {}
-
-func (x *SetTextReplyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[177]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetTextReplyResponse.ProtoReflect.Descriptor instead.
-func (*SetTextReplyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{177}
-}
-
-func (x *SetTextReplyResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ShouldIncludeTypesFromTextClassifierRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ShouldIncludeTypesFromTextClassifierRequest) Reset() {
-	*x = ShouldIncludeTypesFromTextClassifierRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[178]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ShouldIncludeTypesFromTextClassifierRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ShouldIncludeTypesFromTextClassifierRequest) ProtoMessage() {}
-
-func (x *ShouldIncludeTypesFromTextClassifierRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[178]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ShouldIncludeTypesFromTextClassifierRequest.ProtoReflect.Descriptor instead.
-func (*ShouldIncludeTypesFromTextClassifierRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{178}
-}
-
-type ShouldIncludeTypesFromTextClassifierResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ShouldIncludeTypesFromTextClassifierResponse) Reset() {
-	*x = ShouldIncludeTypesFromTextClassifierResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[179]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ShouldIncludeTypesFromTextClassifierResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ShouldIncludeTypesFromTextClassifierResponse) ProtoMessage() {}
-
-func (x *ShouldIncludeTypesFromTextClassifierResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[179]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ShouldIncludeTypesFromTextClassifierResponse.ProtoReflect.Descriptor instead.
-func (*ShouldIncludeTypesFromTextClassifierResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{179}
-}
-
-func (x *ShouldIncludeTypesFromTextClassifierResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type NewConversationActionsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewConversationActionsRequest) Reset() {
-	*x = NewConversationActionsRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[180]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewConversationActionsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewConversationActionsRequest) ProtoMessage() {}
-
-func (x *NewConversationActionsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[180]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewConversationActionsRequest.ProtoReflect.Descriptor instead.
-func (*NewConversationActionsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{180}
-}
-
-func (x *NewConversationActionsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *NewConversationActionsRequest) GetArg1() string {
-	if x != nil {
-		return x.Arg1
-	}
-	return ""
-}
-
-type NewConversationActionsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewConversationActionsResponse) Reset() {
-	*x = NewConversationActionsResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[181]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewConversationActionsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewConversationActionsResponse) ProtoMessage() {}
-
-func (x *NewConversationActionsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[181]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewConversationActionsResponse.ProtoReflect.Descriptor instead.
-func (*NewConversationActionsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{181}
-}
-
-func (x *NewConversationActionsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ConversationActionsDescribeContentsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ConversationActionsDescribeContentsRequest) Reset() {
-	*x = ConversationActionsDescribeContentsRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[182]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ConversationActionsDescribeContentsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ConversationActionsDescribeContentsRequest) ProtoMessage() {}
-
-func (x *ConversationActionsDescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[182]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ConversationActionsDescribeContentsRequest.ProtoReflect.Descriptor instead.
-func (*ConversationActionsDescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{182}
-}
-
-func (x *ConversationActionsDescribeContentsRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type ConversationActionsGetIdRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ConversationActionsGetIdRequest) Reset() {
-	*x = ConversationActionsGetIdRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[183]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ConversationActionsGetIdRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ConversationActionsGetIdRequest) ProtoMessage() {}
-
-func (x *ConversationActionsGetIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[183]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ConversationActionsGetIdRequest.ProtoReflect.Descriptor instead.
-func (*ConversationActionsGetIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{183}
-}
-
-func (x *ConversationActionsGetIdRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type ConversationActionsWriteToParcelRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ConversationActionsWriteToParcelRequest) Reset() {
-	*x = ConversationActionsWriteToParcelRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[184]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ConversationActionsWriteToParcelRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ConversationActionsWriteToParcelRequest) ProtoMessage() {}
-
-func (x *ConversationActionsWriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[184]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ConversationActionsWriteToParcelRequest.ProtoReflect.Descriptor instead.
-func (*ConversationActionsWriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{184}
-}
-
-func (x *ConversationActionsWriteToParcelRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *ConversationActionsWriteToParcelRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *ConversationActionsWriteToParcelRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type GetAuthorRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAuthorRequest) Reset() {
-	*x = GetAuthorRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[185]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAuthorRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAuthorRequest) ProtoMessage() {}
-
-func (x *GetAuthorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[185]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAuthorRequest.ProtoReflect.Descriptor instead.
-func (*GetAuthorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{185}
-}
-
-type GetAuthorResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAuthorResponse) Reset() {
-	*x = GetAuthorResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[186]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAuthorResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAuthorResponse) ProtoMessage() {}
-
-func (x *GetAuthorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[186]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAuthorResponse.ProtoReflect.Descriptor instead.
-func (*GetAuthorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{186}
-}
-
-func (x *GetAuthorResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetMaxSuggestionsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMaxSuggestionsRequest) Reset() {
-	*x = GetMaxSuggestionsRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[187]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMaxSuggestionsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMaxSuggestionsRequest) ProtoMessage() {}
-
-func (x *GetMaxSuggestionsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[187]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMaxSuggestionsRequest.ProtoReflect.Descriptor instead.
-func (*GetMaxSuggestionsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{187}
-}
-
-type GetMaxSuggestionsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMaxSuggestionsResponse) Reset() {
-	*x = GetMaxSuggestionsResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[188]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMaxSuggestionsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMaxSuggestionsResponse) ProtoMessage() {}
-
-func (x *GetMaxSuggestionsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[188]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMaxSuggestionsResponse.ProtoReflect.Descriptor instead.
-func (*GetMaxSuggestionsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{188}
-}
-
-func (x *GetMaxSuggestionsResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetTypeConfigRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTypeConfigRequest) Reset() {
-	*x = GetTypeConfigRequest{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[189]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTypeConfigRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTypeConfigRequest) ProtoMessage() {}
-
-func (x *GetTypeConfigRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[189]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTypeConfigRequest.ProtoReflect.Descriptor instead.
-func (*GetTypeConfigRequest) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{189}
-}
-
-type GetTypeConfigResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTypeConfigResponse) Reset() {
-	*x = GetTypeConfigResponse{}
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[190]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTypeConfigResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTypeConfigResponse) ProtoMessage() {}
-
-func (x *GetTypeConfigResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_textclassifier_textclassifier_proto_msgTypes[190]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTypeConfigResponse.ProtoReflect.Descriptor instead.
-func (*GetTypeConfigResponse) Descriptor() ([]byte, []int) {
-	return file_proto_textclassifier_textclassifier_proto_rawDescGZIP(), []int{190}
-}
-
-func (x *GetTypeConfigResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
 var File_proto_textclassifier_textclassifier_proto protoreflect.FileDescriptor
 
 const file_proto_textclassifier_textclassifier_proto_rawDesc = "" +
 	"\n" +
-	")proto/textclassifier/textclassifier.proto\x12\x0etextclassifier\"<\n" +
-	"&CreateTextClassificationSessionRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"A\n" +
-	"'CreateTextClassificationSessionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
+	")proto/textclassifier/textclassifier.proto\x12\x0etextclassifier\"\x19\n" +
 	"\x17DescribeContentsRequest\"2\n" +
 	"\x18DescribeContentsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"/\n" +
-	"\x19GetConfidenceScoreRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"4\n" +
-	"\x1aGetConfidenceScoreResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x02R\x06result\"&\n" +
-	"\x10GetEntityRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"+\n" +
-	"\x11GetEntityResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x17\n" +
-	"\x15GetEntityCountRequest\"0\n" +
-	"\x16GetEntityCountResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x12\n" +
-	"\x10GetExtrasRequest\"+\n" +
-	"\x11GetExtrasResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0e\n" +
-	"\fGetIdRequest\"'\n" +
-	"\rGetIdResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x1d\n" +
-	"\x1bGetSelectionEndIndexRequest\"6\n" +
-	"\x1cGetSelectionEndIndexResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1f\n" +
-	"\x1dGetSelectionStartIndexRequest\"8\n" +
-	"\x1eGetSelectionStartIndexResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1e\n" +
-	"\x1cGetTextClassificationRequest\"7\n" +
-	"\x1dGetTextClassificationResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"#\n" +
+	"\rEqualsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eEqualsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x11\n" +
+	"\x0fGetValueRequest\"*\n" +
+	"\x10GetValueResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x11\n" +
+	"\x0fHashCodeRequest\"*\n" +
+	"\x10HashCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
 	"\x0fToStringRequest\"*\n" +
 	"\x10ToStringResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\tR\x06result\">\n" +
 	"\x14WriteToParcelRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
-	"\x15WriteToParcelResponse\"\x0e\n" +
+	"\x15WriteToParcelResponse\"\x11\n" +
+	"\x0fGetHintsRequest\"*\n" +
+	"\x10GetHintsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
+	"+ShouldIncludeTypesFromTextClassifierRequest\"F\n" +
+	",ShouldIncludeTypesFromTextClassifierResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x12\n" +
+	"\x10GetActionRequest\"+\n" +
+	"\x11GetActionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
+	"\x19GetConfidenceScoreRequest\"4\n" +
+	"\x1aGetConfidenceScoreResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x02R\x06result\"\x12\n" +
+	"\x10GetExtrasRequest\"+\n" +
+	"\x11GetExtrasResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
+	"\x13GetTextReplyRequest\".\n" +
+	"\x14GetTextReplyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x10\n" +
+	"\x0eGetTypeRequest\")\n" +
+	"\x0fGetTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x0e\n" +
 	"\fBuildRequest\"'\n" +
 	"\rBuildResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
-	"\x14SetEntityTypeRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x02R\x04arg1\"/\n" +
-	"\x15SetEntityTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"&\n" +
+	"\x10SetActionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"+\n" +
+	"\x11SetActionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"\x19SetConfidenceScoreRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x02R\x04arg0\"4\n" +
+	"\x1aSetConfidenceScoreResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"&\n" +
 	"\x10SetExtrasRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"+\n" +
 	"\x11SetExtrasResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\"\n" +
-	"\fSetIdRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"'\n" +
-	"\rSetIdResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
-	"\x1cSetTextClassificationRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"7\n" +
-	"\x1dSetTextClassificationResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1e\n" +
-	"\x1cGetCallingPackageNameRequest\"7\n" +
-	"\x1dGetCallingPackageNameResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x1a\n" +
-	"\x18GetDefaultLocalesRequest\"3\n" +
-	"\x19GetDefaultLocalesResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
-	"\x12GetEndIndexRequest\"-\n" +
-	"\x13GetEndIndexResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x16\n" +
-	"\x14GetStartIndexRequest\"/\n" +
-	"\x15GetStartIndexResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x10\n" +
-	"\x0eGetTextRequest\")\n" +
-	"\x0fGetTextResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
-	"&ShouldIncludeTextClassificationRequest\"A\n" +
-	"'ShouldIncludeTextClassificationResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x17\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x13SetTextReplyRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\".\n" +
+	"\x14SetTextReplyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"<\n" +
+	"&CreateTextClassificationSessionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"A\n" +
+	"'CreateTextClassificationSessionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x17\n" +
 	"\x15GetPackageNameRequest\"0\n" +
 	"\x16GetPackageNameResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\tR\x06result\"\x16\n" +
@@ -8130,67 +8612,49 @@ const file_proto_textclassifier_textclassifier_proto_rawDesc = "" +
 	"\x17SetWidgetVersionRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"2\n" +
 	"\x18SetWidgetVersionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x10\n" +
-	"\x0eGetIconRequest\")\n" +
-	"\x0fGetIconResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x12\n" +
-	"\x10GetIntentRequest\"+\n" +
-	"\x11GetIntentResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
-	"\x0fGetLabelRequest\"*\n" +
-	"\x10GetLabelResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
-	"\x19GetOnClickListenerRequest\"4\n" +
-	"\x1aGetOnClickListenerResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\";\n" +
-	"!TextClassificationGetTextResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"&\n" +
-	"\x10AddActionRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"+\n" +
-	"\x11AddActionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
-	"\x0eSetIconRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\")\n" +
-	"\x0fSetIconResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"&\n" +
-	"\x10SetIntentRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"+\n" +
-	"\x11SetIntentResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"%\n" +
-	"\x0fSetLabelRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"*\n" +
-	"\x10SetLabelResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
-	"\x19SetOnClickListenerRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"4\n" +
-	"\x1aSetOnClickListenerResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
-	"\x0eSetTextRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\")\n" +
-	"\x0fSetTextResponse\x12\x16\n" +
+	"\x0fGetLinksRequest\"*\n" +
+	"\x10GetLinksResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x10\n" +
+	"\x0eGetTextRequest\")\n" +
+	"\x0fGetTextResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x17\n" +
+	"\x15ClearTextLinksRequest\"0\n" +
+	"\x16ClearTextLinksResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1e\n" +
+	"\x1cGetCallingPackageNameRequest\"7\n" +
+	"\x1dGetCallingPackageNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x1a\n" +
+	"\x18GetDefaultLocalesRequest\"3\n" +
+	"\x19GetDefaultLocalesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
+	"\x16GetEntityConfigRequest\"1\n" +
+	"\x17GetEntityConfigResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
 	"\x17GetReferenceTimeRequest\"2\n" +
 	"\x18GetReferenceTimeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1a\n" +
-	"\x18GetTextClassifierRequest\"3\n" +
-	"\x19GetTextClassifierResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
-	"*SetTextClassificationSessionFactoryRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"-\n" +
-	"+SetTextClassificationSessionFactoryResponse\".\n" +
-	"\x18SetTextClassifierRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1b\n" +
-	"\x19SetTextClassifierResponse\"#\n" +
-	"\rEqualsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
-	"\x0eEqualsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x11\n" +
-	"\x0fGetValueRequest\"*\n" +
-	"\x10GetValueResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x11\n" +
-	"\x0fHashCodeRequest\"*\n" +
-	"\x10HashCodeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x19\n" +
+	"*TextLinksTextLinkGetConfidenceScoreRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"\x0f\n" +
+	"\rGetEndRequest\"(\n" +
+	"\x0eGetEndResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"&\n" +
+	"\x10GetEntityRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"+\n" +
+	"\x11GetEntityResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x17\n" +
+	"\x15GetEntityCountRequest\"0\n" +
+	"\x16GetEntityCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
+	"\x0fGetStartRequest\"*\n" +
+	"\x10GetStartResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x14\n" +
+	"\x12GetTextLinkRequest\"-\n" +
+	"\x13GetTextLinkResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
+	"\x0eOnClickRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x11\n" +
+	"\x0fOnClickResponse\"\x19\n" +
 	"\x17GetActionIndicesRequest\"2\n" +
 	"\x18GetActionIndicesResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x17\n" +
@@ -8232,16 +8696,142 @@ const file_proto_textclassifier_textclassifier_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"\"\n" +
 	" GetRelativeWordStartIndexRequest\";\n" +
 	"!GetRelativeWordStartIndexResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"&\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\";\n" +
+	"%TextLanguageGetConfidenceScoreRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x0e\n" +
+	"\fGetIdRequest\"'\n" +
+	"\rGetIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"2\n" +
+	"\x1cTextLanguageGetLocaleRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"!\n" +
+	"\x1fGetLocaleHypothesisCountRequest\":\n" +
+	" GetLocaleHypothesisCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\":\n" +
+	"\x10PutLocaleRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x02R\x04arg1\"+\n" +
+	"\x11PutLocaleResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\"\n" +
+	"\fSetIdRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"'\n" +
+	"\rSetIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x13\n" +
+	"\x11GetActionsRequest\",\n" +
+	"\x12GetActionsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"A\n" +
+	"+TextClassificationGetConfidenceScoreRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"\x10\n" +
+	"\x0eGetIconRequest\")\n" +
+	"\x0fGetIconResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x12\n" +
+	"\x10GetIntentRequest\"+\n" +
+	"\x11GetIntentResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
+	"\x0fGetLabelRequest\"*\n" +
+	"\x10GetLabelResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
+	"\x19GetOnClickListenerRequest\"4\n" +
+	"\x1aGetOnClickListenerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\";\n" +
+	"!TextClassificationGetTextResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"&\n" +
+	"\x10AddActionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"+\n" +
+	"\x11AddActionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
+	"\x14SetEntityTypeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x02R\x04arg1\"/\n" +
+	"\x15SetEntityTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
+	"\x0eSetIconRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\")\n" +
+	"\x0fSetIconResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"&\n" +
+	"\x10SetIntentRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"+\n" +
+	"\x11SetIntentResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"%\n" +
+	"\x0fSetLabelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"*\n" +
+	"\x10SetLabelResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"\x19SetOnClickListenerRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"4\n" +
+	"\x1aSetOnClickListenerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
+	"\x0eSetTextRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\")\n" +
+	"\x0fSetTextResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
+	"\x12GetEndIndexRequest\"-\n" +
+	"\x13GetEndIndexResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x16\n" +
+	"\x14GetStartIndexRequest\"/\n" +
+	"\x15GetStartIndexResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1a\n" +
+	"\x18GetTextClassifierRequest\"3\n" +
+	"\x19GetTextClassifierResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
+	"*SetTextClassificationSessionFactoryRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"-\n" +
+	"+SetTextClassificationSessionFactoryResponse\".\n" +
+	"\x18SetTextClassifierRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1b\n" +
+	"\x19SetTextClassifierResponse\"G\n" +
+	"\x1dNewConversationActionsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"8\n" +
+	"\x1eNewConversationActionsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"D\n" +
+	"*ConversationActionsDescribeContentsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"7\n" +
+	"\x1dGetConversationActionsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"8\n" +
+	"\x1eGetConversationActionsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"9\n" +
+	"\x1fConversationActionsGetIdRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"i\n" +
+	"'ConversationActionsWriteToParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x12\n" +
+	"\x10GetAuthorRequest\"+\n" +
+	"\x11GetAuthorResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
+	"\x16GetConversationRequest\"1\n" +
+	"\x17GetConversationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1a\n" +
+	"\x18GetMaxSuggestionsRequest\"3\n" +
+	"\x19GetMaxSuggestionsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x16\n" +
+	"\x14GetTypeConfigRequest\"/\n" +
+	"\x15GetTypeConfigResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"<\n" +
+	"&TextSelectionGetConfidenceScoreRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"\x1d\n" +
+	"\x1bGetSelectionEndIndexRequest\"6\n" +
+	"\x1cGetSelectionEndIndexResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1f\n" +
+	"\x1dGetSelectionStartIndexRequest\"8\n" +
+	"\x1eGetSelectionStartIndexResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1e\n" +
+	"\x1cGetTextClassificationRequest\"7\n" +
+	"\x1dGetTextClassificationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x1cSetTextClassificationRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"7\n" +
+	"\x1dSetTextClassificationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
+	"&ShouldIncludeTextClassificationRequest\"A\n" +
+	"'ShouldIncludeTextClassificationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"&\n" +
 	"$GetDurationSincePreviousEventRequest\"?\n" +
 	"%GetDurationSincePreviousEventResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"%\n" +
 	"#GetDurationSinceSessionStartRequest\">\n" +
 	"$GetDurationSinceSessionStartResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0f\n" +
-	"\rGetEndRequest\"(\n" +
-	"\x0eGetEndResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
 	"\x14GetEntityTypeRequest\"/\n" +
 	"\x15GetEntityTypeResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\tR\x06result\"\x15\n" +
@@ -8259,9 +8849,6 @@ const file_proto_textclassifier_textclassifier_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"\x16\n" +
 	"\x14GetSmartStartRequest\"/\n" +
 	"\x15GetSmartStartResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
-	"\x0fGetStartRequest\"*\n" +
-	"\x10GetStartResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"`\n" +
 	"\"CreateSelectionActionEvent3Request\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
@@ -8301,108 +8888,35 @@ const file_proto_textclassifier_textclassifier_proto_rawDesc = "" +
 	"\x11IsTerminalRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\",\n" +
 	"\x12IsTerminalResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x17\n" +
-	"\x15ClearTextLinksRequest\"0\n" +
-	"\x16ClearTextLinksResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
-	"\x16GetEntityConfigRequest\"1\n" +
-	"\x17GetEntityConfigResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
-	"\x12GetTextLinkRequest\"-\n" +
-	"\x13GetTextLinkResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
-	"\x0eOnClickRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x11\n" +
-	"\x0fOnClickResponse\";\n" +
-	"%TextLanguageGetConfidenceScoreRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"2\n" +
-	"\x1cTextLanguageGetLocaleRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"!\n" +
-	"\x1fGetLocaleHypothesisCountRequest\":\n" +
-	" GetLocaleHypothesisCountResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\":\n" +
-	"\x10PutLocaleRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x02R\x04arg1\"+\n" +
-	"\x11PutLocaleResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x12\n" +
-	"\x10GetActionRequest\"+\n" +
-	"\x11GetActionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
-	"+ConversationActionGetConfidenceScoreRequest\"\x15\n" +
-	"\x13GetTextReplyRequest\".\n" +
-	"\x14GetTextReplyResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x10\n" +
-	"\x0eGetTypeRequest\")\n" +
-	"\x0fGetTypeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"&\n" +
-	"\x10SetActionRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"+\n" +
-	"\x11SetActionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
-	"\x19SetConfidenceScoreRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x02R\x04arg0\"4\n" +
-	"\x1aSetConfidenceScoreResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
-	"\x13SetTextReplyRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\".\n" +
-	"\x14SetTextReplyResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
-	"+ShouldIncludeTypesFromTextClassifierRequest\"F\n" +
-	",ShouldIncludeTypesFromTextClassifierResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"G\n" +
-	"\x1dNewConversationActionsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"8\n" +
-	"\x1eNewConversationActionsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"D\n" +
-	"*ConversationActionsDescribeContentsRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"9\n" +
-	"\x1fConversationActionsGetIdRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"i\n" +
-	"'ConversationActionsWriteToParcelRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x12\n" +
-	"\x10GetAuthorRequest\"+\n" +
-	"\x11GetAuthorResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1a\n" +
-	"\x18GetMaxSuggestionsRequest\"3\n" +
-	"\x19GetMaxSuggestionsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x16\n" +
-	"\x14GetTypeConfigRequest\"/\n" +
-	"\x15GetTypeConfigResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result2\xbe\x01\n" +
-	"'TextClassificationSessionFactoryService\x12\x92\x01\n" +
-	"\x1fCreateTextClassificationSession\x126.textclassifier.CreateTextClassificationSessionRequest\x1a7.textclassifier.CreateTextClassificationSessionResponse2\xc4\b\n" +
-	"\x14TextSelectionService\x12e\n" +
-	"\x10DescribeContents\x12'.textclassifier.DescribeContentsRequest\x1a(.textclassifier.DescribeContentsResponse\x12k\n" +
-	"\x12GetConfidenceScore\x12).textclassifier.GetConfidenceScoreRequest\x1a*.textclassifier.GetConfidenceScoreResponse\x12P\n" +
-	"\tGetEntity\x12 .textclassifier.GetEntityRequest\x1a!.textclassifier.GetEntityResponse\x12_\n" +
-	"\x0eGetEntityCount\x12%.textclassifier.GetEntityCountRequest\x1a&.textclassifier.GetEntityCountResponse\x12P\n" +
-	"\tGetExtras\x12 .textclassifier.GetExtrasRequest\x1a!.textclassifier.GetExtrasResponse\x12D\n" +
-	"\x05GetId\x12\x1c.textclassifier.GetIdRequest\x1a\x1d.textclassifier.GetIdResponse\x12q\n" +
-	"\x14GetSelectionEndIndex\x12+.textclassifier.GetSelectionEndIndexRequest\x1a,.textclassifier.GetSelectionEndIndexResponse\x12w\n" +
-	"\x16GetSelectionStartIndex\x12-.textclassifier.GetSelectionStartIndexRequest\x1a..textclassifier.GetSelectionStartIndexResponse\x12t\n" +
-	"\x15GetTextClassification\x12,.textclassifier.GetTextClassificationRequest\x1a-.textclassifier.GetTextClassificationResponse\x12M\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result2\x9f\x04\n" +
+	"\"TextClassificationSessionIdService\x12e\n" +
+	"\x10DescribeContents\x12'.textclassifier.DescribeContentsRequest\x1a(.textclassifier.DescribeContentsResponse\x12G\n" +
+	"\x06Equals\x12\x1d.textclassifier.EqualsRequest\x1a\x1e.textclassifier.EqualsResponse\x12M\n" +
+	"\bGetValue\x12\x1f.textclassifier.GetValueRequest\x1a .textclassifier.GetValueResponse\x12M\n" +
+	"\bHashCode\x12\x1f.textclassifier.HashCodeRequest\x1a .textclassifier.HashCodeResponse\x12M\n" +
 	"\bToString\x12\x1f.textclassifier.ToStringRequest\x1a .textclassifier.ToStringResponse\x12\\\n" +
-	"\rWriteToParcel\x12$.textclassifier.WriteToParcelRequest\x1a%.textclassifier.WriteToParcelResponse2\xcf\x03\n" +
-	"\x1bTextSelectionBuilderService\x12D\n" +
-	"\x05Build\x12\x1c.textclassifier.BuildRequest\x1a\x1d.textclassifier.BuildResponse\x12\\\n" +
-	"\rSetEntityType\x12$.textclassifier.SetEntityTypeRequest\x1a%.textclassifier.SetEntityTypeResponse\x12P\n" +
-	"\tSetExtras\x12 .textclassifier.SetExtrasRequest\x1a!.textclassifier.SetExtrasResponse\x12D\n" +
-	"\x05SetId\x12\x1c.textclassifier.SetIdRequest\x1a\x1d.textclassifier.SetIdResponse\x12t\n" +
-	"\x15SetTextClassification\x12,.textclassifier.SetTextClassificationRequest\x1a-.textclassifier.SetTextClassificationResponse2\xab\a\n" +
-	"\x1bTextSelectionRequestService\x12e\n" +
-	"\x10DescribeContents\x12'.textclassifier.DescribeContentsRequest\x1a(.textclassifier.DescribeContentsResponse\x12t\n" +
-	"\x15GetCallingPackageName\x12,.textclassifier.GetCallingPackageNameRequest\x1a-.textclassifier.GetCallingPackageNameResponse\x12h\n" +
-	"\x11GetDefaultLocales\x12(.textclassifier.GetDefaultLocalesRequest\x1a).textclassifier.GetDefaultLocalesResponse\x12V\n" +
-	"\vGetEndIndex\x12\".textclassifier.GetEndIndexRequest\x1a#.textclassifier.GetEndIndexResponse\x12P\n" +
-	"\tGetExtras\x12 .textclassifier.GetExtrasRequest\x1a!.textclassifier.GetExtrasResponse\x12\\\n" +
-	"\rGetStartIndex\x12$.textclassifier.GetStartIndexRequest\x1a%.textclassifier.GetStartIndexResponse\x12J\n" +
-	"\aGetText\x12\x1e.textclassifier.GetTextRequest\x1a\x1f.textclassifier.GetTextResponse\x12\x92\x01\n" +
-	"\x1fShouldIncludeTextClassification\x126.textclassifier.ShouldIncludeTextClassificationRequest\x1a7.textclassifier.ShouldIncludeTextClassificationResponse\x12\\\n" +
-	"\rWriteToParcel\x12$.textclassifier.WriteToParcelRequest\x1a%.textclassifier.WriteToParcelResponse2\xdc\x04\n" +
+	"\rWriteToParcel\x12$.textclassifier.WriteToParcelRequest\x1a%.textclassifier.WriteToParcelResponse2\xdb\x03\n" +
+	"!TextClassifierEntityConfigService\x12e\n" +
+	"\x10DescribeContents\x12'.textclassifier.DescribeContentsRequest\x1a(.textclassifier.DescribeContentsResponse\x12M\n" +
+	"\bGetHints\x12\x1f.textclassifier.GetHintsRequest\x1a .textclassifier.GetHintsResponse\x12\xa1\x01\n" +
+	"$ShouldIncludeTypesFromTextClassifier\x12;.textclassifier.ShouldIncludeTypesFromTextClassifierRequest\x1a<.textclassifier.ShouldIncludeTypesFromTextClassifierResponse\x12\\\n" +
+	"\rWriteToParcel\x12$.textclassifier.WriteToParcelRequest\x1a%.textclassifier.WriteToParcelResponse2\x98\x05\n" +
+	"\x19ConversationActionService\x12e\n" +
+	"\x10DescribeContents\x12'.textclassifier.DescribeContentsRequest\x1a(.textclassifier.DescribeContentsResponse\x12P\n" +
+	"\tGetAction\x12 .textclassifier.GetActionRequest\x1a!.textclassifier.GetActionResponse\x12k\n" +
+	"\x12GetConfidenceScore\x12).textclassifier.GetConfidenceScoreRequest\x1a*.textclassifier.GetConfidenceScoreResponse\x12P\n" +
+	"\tGetExtras\x12 .textclassifier.GetExtrasRequest\x1a!.textclassifier.GetExtrasResponse\x12Y\n" +
+	"\fGetTextReply\x12#.textclassifier.GetTextReplyRequest\x1a$.textclassifier.GetTextReplyResponse\x12J\n" +
+	"\aGetType\x12\x1e.textclassifier.GetTypeRequest\x1a\x1f.textclassifier.GetTypeResponse\x12\\\n" +
+	"\rWriteToParcel\x12$.textclassifier.WriteToParcelRequest\x1a%.textclassifier.WriteToParcelResponse2\xd4\x03\n" +
+	" ConversationActionBuilderService\x12D\n" +
+	"\x05Build\x12\x1c.textclassifier.BuildRequest\x1a\x1d.textclassifier.BuildResponse\x12P\n" +
+	"\tSetAction\x12 .textclassifier.SetActionRequest\x1a!.textclassifier.SetActionResponse\x12k\n" +
+	"\x12SetConfidenceScore\x12).textclassifier.SetConfidenceScoreRequest\x1a*.textclassifier.SetConfidenceScoreResponse\x12P\n" +
+	"\tSetExtras\x12 .textclassifier.SetExtrasRequest\x1a!.textclassifier.SetExtrasResponse\x12Y\n" +
+	"\fSetTextReply\x12#.textclassifier.SetTextReplyRequest\x1a$.textclassifier.SetTextReplyResponse2\xbe\x01\n" +
+	"'TextClassificationSessionFactoryService\x12\x92\x01\n" +
+	"\x1fCreateTextClassificationSession\x126.textclassifier.CreateTextClassificationSessionRequest\x1a7.textclassifier.CreateTextClassificationSessionResponse2\xdc\x04\n" +
 	" TextClassificationContextService\x12e\n" +
 	"\x10DescribeContents\x12'.textclassifier.DescribeContentsRequest\x1a(.textclassifier.DescribeContentsResponse\x12_\n" +
 	"\x0eGetPackageName\x12%.textclassifier.GetPackageNameRequest\x1a&.textclassifier.GetPackageNameResponse\x12\\\n" +
@@ -8412,10 +8926,88 @@ const file_proto_textclassifier_textclassifier_proto_rawDesc = "" +
 	"\rWriteToParcel\x12$.textclassifier.WriteToParcelRequest\x1a%.textclassifier.WriteToParcelResponse2\xd6\x01\n" +
 	"'TextClassificationContextBuilderService\x12D\n" +
 	"\x05Build\x12\x1c.textclassifier.BuildRequest\x1a\x1d.textclassifier.BuildResponse\x12e\n" +
-	"\x10SetWidgetVersion\x12'.textclassifier.SetWidgetVersionRequest\x1a(.textclassifier.SetWidgetVersionResponse2\x9f\t\n" +
+	"\x10SetWidgetVersion\x12'.textclassifier.SetWidgetVersionRequest\x1a(.textclassifier.SetWidgetVersionResponse2\x93\x04\n" +
+	"\x10TextLinksService\x12e\n" +
+	"\x10DescribeContents\x12'.textclassifier.DescribeContentsRequest\x1a(.textclassifier.DescribeContentsResponse\x12P\n" +
+	"\tGetExtras\x12 .textclassifier.GetExtrasRequest\x1a!.textclassifier.GetExtrasResponse\x12M\n" +
+	"\bGetLinks\x12\x1f.textclassifier.GetLinksRequest\x1a .textclassifier.GetLinksResponse\x12J\n" +
+	"\aGetText\x12\x1e.textclassifier.GetTextRequest\x1a\x1f.textclassifier.GetTextResponse\x12M\n" +
+	"\bToString\x12\x1f.textclassifier.ToStringRequest\x1a .textclassifier.ToStringResponse\x12\\\n" +
+	"\rWriteToParcel\x12$.textclassifier.WriteToParcelRequest\x1a%.textclassifier.WriteToParcelResponse2\x92\x02\n" +
+	"\x17TextLinksBuilderService\x12D\n" +
+	"\x05Build\x12\x1c.textclassifier.BuildRequest\x1a\x1d.textclassifier.BuildResponse\x12_\n" +
+	"\x0eClearTextLinks\x12%.textclassifier.ClearTextLinksRequest\x1a&.textclassifier.ClearTextLinksResponse\x12P\n" +
+	"\tSetExtras\x12 .textclassifier.SetExtrasRequest\x1a!.textclassifier.SetExtrasResponse2\xa7\x06\n" +
+	"\x17TextLinksRequestService\x12e\n" +
+	"\x10DescribeContents\x12'.textclassifier.DescribeContentsRequest\x1a(.textclassifier.DescribeContentsResponse\x12t\n" +
+	"\x15GetCallingPackageName\x12,.textclassifier.GetCallingPackageNameRequest\x1a-.textclassifier.GetCallingPackageNameResponse\x12h\n" +
+	"\x11GetDefaultLocales\x12(.textclassifier.GetDefaultLocalesRequest\x1a).textclassifier.GetDefaultLocalesResponse\x12b\n" +
+	"\x0fGetEntityConfig\x12&.textclassifier.GetEntityConfigRequest\x1a'.textclassifier.GetEntityConfigResponse\x12P\n" +
+	"\tGetExtras\x12 .textclassifier.GetExtrasRequest\x1a!.textclassifier.GetExtrasResponse\x12e\n" +
+	"\x10GetReferenceTime\x12'.textclassifier.GetReferenceTimeRequest\x1a(.textclassifier.GetReferenceTimeResponse\x12J\n" +
+	"\aGetText\x12\x1e.textclassifier.GetTextRequest\x1a\x1f.textclassifier.GetTextResponse\x12\\\n" +
+	"\rWriteToParcel\x12$.textclassifier.WriteToParcelRequest\x1a%.textclassifier.WriteToParcelResponse2\xc9\x06\n" +
+	"\x18TextLinksTextLinkService\x12e\n" +
+	"\x10DescribeContents\x12'.textclassifier.DescribeContentsRequest\x1a(.textclassifier.DescribeContentsResponse\x12|\n" +
+	"\x12GetConfidenceScore\x12:.textclassifier.TextLinksTextLinkGetConfidenceScoreRequest\x1a*.textclassifier.GetConfidenceScoreResponse\x12G\n" +
+	"\x06GetEnd\x12\x1d.textclassifier.GetEndRequest\x1a\x1e.textclassifier.GetEndResponse\x12P\n" +
+	"\tGetEntity\x12 .textclassifier.GetEntityRequest\x1a!.textclassifier.GetEntityResponse\x12_\n" +
+	"\x0eGetEntityCount\x12%.textclassifier.GetEntityCountRequest\x1a&.textclassifier.GetEntityCountResponse\x12P\n" +
+	"\tGetExtras\x12 .textclassifier.GetExtrasRequest\x1a!.textclassifier.GetExtrasResponse\x12M\n" +
+	"\bGetStart\x12\x1f.textclassifier.GetStartRequest\x1a .textclassifier.GetStartResponse\x12M\n" +
+	"\bToString\x12\x1f.textclassifier.ToStringRequest\x1a .textclassifier.ToStringResponse\x12\\\n" +
+	"\rWriteToParcel\x12$.textclassifier.WriteToParcelRequest\x1a%.textclassifier.WriteToParcelResponse2\xc2\x01\n" +
+	"\x1cTextLinksTextLinkSpanService\x12V\n" +
+	"\vGetTextLink\x12\".textclassifier.GetTextLinkRequest\x1a#.textclassifier.GetTextLinkResponse\x12J\n" +
+	"\aOnClick\x12\x1e.textclassifier.OnClickRequest\x1a\x1f.textclassifier.OnClickResponse2\xa5\n" +
+	"\n" +
+	"\x1aTextClassifierEventService\x12e\n" +
+	"\x10DescribeContents\x12'.textclassifier.DescribeContentsRequest\x1a(.textclassifier.DescribeContentsResponse\x12e\n" +
+	"\x10GetActionIndices\x12'.textclassifier.GetActionIndicesRequest\x1a(.textclassifier.GetActionIndicesResponse\x12_\n" +
+	"\x0eGetEntityTypes\x12%.textclassifier.GetEntityTypesRequest\x1a&.textclassifier.GetEntityTypesResponse\x12e\n" +
+	"\x10GetEventCategory\x12'.textclassifier.GetEventCategoryRequest\x1a(.textclassifier.GetEventCategoryResponse\x12b\n" +
+	"\x0fGetEventContext\x12&.textclassifier.GetEventContextRequest\x1a'.textclassifier.GetEventContextResponse\x12\\\n" +
+	"\rGetEventIndex\x12$.textclassifier.GetEventIndexRequest\x1a%.textclassifier.GetEventIndexResponse\x12Y\n" +
+	"\fGetEventType\x12#.textclassifier.GetEventTypeRequest\x1a$.textclassifier.GetEventTypeResponse\x12P\n" +
+	"\tGetExtras\x12 .textclassifier.GetExtrasRequest\x1a!.textclassifier.GetExtrasResponse\x12P\n" +
+	"\tGetLocale\x12 .textclassifier.GetLocaleRequest\x1a!.textclassifier.GetLocaleResponse\x12Y\n" +
+	"\fGetModelName\x12#.textclassifier.GetModelNameRequest\x1a$.textclassifier.GetModelNameResponse\x12V\n" +
+	"\vGetResultId\x12\".textclassifier.GetResultIdRequest\x1a#.textclassifier.GetResultIdResponse\x12P\n" +
+	"\tGetScores\x12 .textclassifier.GetScoresRequest\x1a!.textclassifier.GetScoresResponse\x12M\n" +
+	"\bToString\x12\x1f.textclassifier.ToStringRequest\x1a .textclassifier.ToStringResponse\x12\\\n" +
+	"\rWriteToParcel\x12$.textclassifier.WriteToParcelRequest\x1a%.textclassifier.WriteToParcelResponse2\xc1\x05\n" +
+	",TextClassifierEventTextSelectionEventService\x12\x95\x01\n" +
+	" GetRelativeSuggestedWordEndIndex\x127.textclassifier.GetRelativeSuggestedWordEndIndexRequest\x1a8.textclassifier.GetRelativeSuggestedWordEndIndexResponse\x12\x9b\x01\n" +
+	"\"GetRelativeSuggestedWordStartIndex\x129.textclassifier.GetRelativeSuggestedWordStartIndexRequest\x1a:.textclassifier.GetRelativeSuggestedWordStartIndexResponse\x12z\n" +
+	"\x17GetRelativeWordEndIndex\x12..textclassifier.GetRelativeWordEndIndexRequest\x1a/.textclassifier.GetRelativeWordEndIndexResponse\x12\x80\x01\n" +
+	"\x19GetRelativeWordStartIndex\x120.textclassifier.GetRelativeWordStartIndexRequest\x1a1.textclassifier.GetRelativeWordStartIndexResponse\x12\\\n" +
+	"\rWriteToParcel\x12$.textclassifier.WriteToParcelRequest\x1a%.textclassifier.WriteToParcelResponse2\x97\x06\n" +
+	"\x13TextLanguageService\x12e\n" +
+	"\x10DescribeContents\x12'.textclassifier.DescribeContentsRequest\x1a(.textclassifier.DescribeContentsResponse\x12w\n" +
+	"\x12GetConfidenceScore\x125.textclassifier.TextLanguageGetConfidenceScoreRequest\x1a*.textclassifier.GetConfidenceScoreResponse\x12P\n" +
+	"\tGetExtras\x12 .textclassifier.GetExtrasRequest\x1a!.textclassifier.GetExtrasResponse\x12D\n" +
+	"\x05GetId\x12\x1c.textclassifier.GetIdRequest\x1a\x1d.textclassifier.GetIdResponse\x12\\\n" +
+	"\tGetLocale\x12,.textclassifier.TextLanguageGetLocaleRequest\x1a!.textclassifier.GetLocaleResponse\x12}\n" +
+	"\x18GetLocaleHypothesisCount\x12/.textclassifier.GetLocaleHypothesisCountRequest\x1a0.textclassifier.GetLocaleHypothesisCountResponse\x12M\n" +
+	"\bToString\x12\x1f.textclassifier.ToStringRequest\x1a .textclassifier.ToStringResponse\x12\\\n" +
+	"\rWriteToParcel\x12$.textclassifier.WriteToParcelRequest\x1a%.textclassifier.WriteToParcelResponse2\xcc\x02\n" +
+	"\x1aTextLanguageBuilderService\x12D\n" +
+	"\x05Build\x12\x1c.textclassifier.BuildRequest\x1a\x1d.textclassifier.BuildResponse\x12P\n" +
+	"\tPutLocale\x12 .textclassifier.PutLocaleRequest\x1a!.textclassifier.PutLocaleResponse\x12P\n" +
+	"\tSetExtras\x12 .textclassifier.SetExtrasRequest\x1a!.textclassifier.SetExtrasResponse\x12D\n" +
+	"\x05SetId\x12\x1c.textclassifier.SetIdRequest\x1a\x1d.textclassifier.SetIdResponse2\xf5\x03\n" +
+	"\x1aTextLanguageRequestService\x12e\n" +
+	"\x10DescribeContents\x12'.textclassifier.DescribeContentsRequest\x1a(.textclassifier.DescribeContentsResponse\x12t\n" +
+	"\x15GetCallingPackageName\x12,.textclassifier.GetCallingPackageNameRequest\x1a-.textclassifier.GetCallingPackageNameResponse\x12P\n" +
+	"\tGetExtras\x12 .textclassifier.GetExtrasRequest\x1a!.textclassifier.GetExtrasResponse\x12J\n" +
+	"\aGetText\x12\x1e.textclassifier.GetTextRequest\x1a\x1f.textclassifier.GetTextResponse\x12\\\n" +
+	"\rWriteToParcel\x12$.textclassifier.WriteToParcelRequest\x1a%.textclassifier.WriteToParcelResponse2\x86\n" +
+	"\n" +
 	"\x19TextClassificationService\x12e\n" +
-	"\x10DescribeContents\x12'.textclassifier.DescribeContentsRequest\x1a(.textclassifier.DescribeContentsResponse\x12k\n" +
-	"\x12GetConfidenceScore\x12).textclassifier.GetConfidenceScoreRequest\x1a*.textclassifier.GetConfidenceScoreResponse\x12P\n" +
+	"\x10DescribeContents\x12'.textclassifier.DescribeContentsRequest\x1a(.textclassifier.DescribeContentsResponse\x12S\n" +
+	"\n" +
+	"GetActions\x12!.textclassifier.GetActionsRequest\x1a\".textclassifier.GetActionsResponse\x12}\n" +
+	"\x12GetConfidenceScore\x12;.textclassifier.TextClassificationGetConfidenceScoreRequest\x1a*.textclassifier.GetConfidenceScoreResponse\x12P\n" +
 	"\tGetEntity\x12 .textclassifier.GetEntityRequest\x1a!.textclassifier.GetEntityResponse\x12_\n" +
 	"\x0eGetEntityCount\x12%.textclassifier.GetEntityCountRequest\x1a&.textclassifier.GetEntityCountResponse\x12P\n" +
 	"\tGetExtras\x12 .textclassifier.GetExtrasRequest\x1a!.textclassifier.GetExtrasResponse\x12J\n" +
@@ -8452,35 +9044,56 @@ const file_proto_textclassifier_textclassifier_proto_rawDesc = "" +
 	"\x1fCreateTextClassificationSession\x126.textclassifier.CreateTextClassificationSessionRequest\x1a7.textclassifier.CreateTextClassificationSessionResponse\x12h\n" +
 	"\x11GetTextClassifier\x12(.textclassifier.GetTextClassifierRequest\x1a).textclassifier.GetTextClassifierResponse\x12\x9e\x01\n" +
 	"#SetTextClassificationSessionFactory\x12:.textclassifier.SetTextClassificationSessionFactoryRequest\x1a;.textclassifier.SetTextClassificationSessionFactoryResponse\x12h\n" +
-	"\x11SetTextClassifier\x12(.textclassifier.SetTextClassifierRequest\x1a).textclassifier.SetTextClassifierResponse2\x9f\x04\n" +
-	"\"TextClassificationSessionIdService\x12e\n" +
-	"\x10DescribeContents\x12'.textclassifier.DescribeContentsRequest\x1a(.textclassifier.DescribeContentsResponse\x12G\n" +
-	"\x06Equals\x12\x1d.textclassifier.EqualsRequest\x1a\x1e.textclassifier.EqualsResponse\x12M\n" +
-	"\bGetValue\x12\x1f.textclassifier.GetValueRequest\x1a .textclassifier.GetValueResponse\x12M\n" +
-	"\bHashCode\x12\x1f.textclassifier.HashCodeRequest\x1a .textclassifier.HashCodeResponse\x12M\n" +
+	"\x11SetTextClassifier\x12(.textclassifier.SetTextClassifierRequest\x1a).textclassifier.SetTextClassifierResponse2\xd2\x04\n" +
+	"\x1aConversationActionsService\x12w\n" +
+	"\x16NewConversationActions\x12-.textclassifier.NewConversationActionsRequest\x1a..textclassifier.NewConversationActionsResponse\x12x\n" +
+	"\x10DescribeContents\x12:.textclassifier.ConversationActionsDescribeContentsRequest\x1a(.textclassifier.DescribeContentsResponse\x12w\n" +
+	"\x16GetConversationActions\x12-.textclassifier.GetConversationActionsRequest\x1a..textclassifier.GetConversationActionsResponse\x12W\n" +
+	"\x05GetId\x12/.textclassifier.ConversationActionsGetIdRequest\x1a\x1d.textclassifier.GetIdResponse\x12o\n" +
+	"\rWriteToParcel\x127.textclassifier.ConversationActionsWriteToParcelRequest\x1a%.textclassifier.WriteToParcelResponse2\xbf\x04\n" +
+	"!ConversationActionsMessageService\x12e\n" +
+	"\x10DescribeContents\x12'.textclassifier.DescribeContentsRequest\x1a(.textclassifier.DescribeContentsResponse\x12P\n" +
+	"\tGetAuthor\x12 .textclassifier.GetAuthorRequest\x1a!.textclassifier.GetAuthorResponse\x12P\n" +
+	"\tGetExtras\x12 .textclassifier.GetExtrasRequest\x1a!.textclassifier.GetExtrasResponse\x12e\n" +
+	"\x10GetReferenceTime\x12'.textclassifier.GetReferenceTimeRequest\x1a(.textclassifier.GetReferenceTimeResponse\x12J\n" +
+	"\aGetText\x12\x1e.textclassifier.GetTextRequest\x1a\x1f.textclassifier.GetTextResponse\x12\\\n" +
+	"\rWriteToParcel\x12$.textclassifier.WriteToParcelRequest\x1a%.textclassifier.WriteToParcelResponse2\xab\x06\n" +
+	"!ConversationActionsRequestService\x12e\n" +
+	"\x10DescribeContents\x12'.textclassifier.DescribeContentsRequest\x1a(.textclassifier.DescribeContentsResponse\x12t\n" +
+	"\x15GetCallingPackageName\x12,.textclassifier.GetCallingPackageNameRequest\x1a-.textclassifier.GetCallingPackageNameResponse\x12b\n" +
+	"\x0fGetConversation\x12&.textclassifier.GetConversationRequest\x1a'.textclassifier.GetConversationResponse\x12P\n" +
+	"\tGetExtras\x12 .textclassifier.GetExtrasRequest\x1a!.textclassifier.GetExtrasResponse\x12M\n" +
+	"\bGetHints\x12\x1f.textclassifier.GetHintsRequest\x1a .textclassifier.GetHintsResponse\x12h\n" +
+	"\x11GetMaxSuggestions\x12(.textclassifier.GetMaxSuggestionsRequest\x1a).textclassifier.GetMaxSuggestionsResponse\x12\\\n" +
+	"\rGetTypeConfig\x12$.textclassifier.GetTypeConfigRequest\x1a%.textclassifier.GetTypeConfigResponse\x12\\\n" +
+	"\rWriteToParcel\x12$.textclassifier.WriteToParcelRequest\x1a%.textclassifier.WriteToParcelResponse2\xd1\b\n" +
+	"\x14TextSelectionService\x12e\n" +
+	"\x10DescribeContents\x12'.textclassifier.DescribeContentsRequest\x1a(.textclassifier.DescribeContentsResponse\x12x\n" +
+	"\x12GetConfidenceScore\x126.textclassifier.TextSelectionGetConfidenceScoreRequest\x1a*.textclassifier.GetConfidenceScoreResponse\x12P\n" +
+	"\tGetEntity\x12 .textclassifier.GetEntityRequest\x1a!.textclassifier.GetEntityResponse\x12_\n" +
+	"\x0eGetEntityCount\x12%.textclassifier.GetEntityCountRequest\x1a&.textclassifier.GetEntityCountResponse\x12P\n" +
+	"\tGetExtras\x12 .textclassifier.GetExtrasRequest\x1a!.textclassifier.GetExtrasResponse\x12D\n" +
+	"\x05GetId\x12\x1c.textclassifier.GetIdRequest\x1a\x1d.textclassifier.GetIdResponse\x12q\n" +
+	"\x14GetSelectionEndIndex\x12+.textclassifier.GetSelectionEndIndexRequest\x1a,.textclassifier.GetSelectionEndIndexResponse\x12w\n" +
+	"\x16GetSelectionStartIndex\x12-.textclassifier.GetSelectionStartIndexRequest\x1a..textclassifier.GetSelectionStartIndexResponse\x12t\n" +
+	"\x15GetTextClassification\x12,.textclassifier.GetTextClassificationRequest\x1a-.textclassifier.GetTextClassificationResponse\x12M\n" +
 	"\bToString\x12\x1f.textclassifier.ToStringRequest\x1a .textclassifier.ToStringResponse\x12\\\n" +
-	"\rWriteToParcel\x12$.textclassifier.WriteToParcelRequest\x1a%.textclassifier.WriteToParcelResponse2\xa5\n" +
-	"\n" +
-	"\x1aTextClassifierEventService\x12e\n" +
-	"\x10DescribeContents\x12'.textclassifier.DescribeContentsRequest\x1a(.textclassifier.DescribeContentsResponse\x12e\n" +
-	"\x10GetActionIndices\x12'.textclassifier.GetActionIndicesRequest\x1a(.textclassifier.GetActionIndicesResponse\x12_\n" +
-	"\x0eGetEntityTypes\x12%.textclassifier.GetEntityTypesRequest\x1a&.textclassifier.GetEntityTypesResponse\x12e\n" +
-	"\x10GetEventCategory\x12'.textclassifier.GetEventCategoryRequest\x1a(.textclassifier.GetEventCategoryResponse\x12b\n" +
-	"\x0fGetEventContext\x12&.textclassifier.GetEventContextRequest\x1a'.textclassifier.GetEventContextResponse\x12\\\n" +
-	"\rGetEventIndex\x12$.textclassifier.GetEventIndexRequest\x1a%.textclassifier.GetEventIndexResponse\x12Y\n" +
-	"\fGetEventType\x12#.textclassifier.GetEventTypeRequest\x1a$.textclassifier.GetEventTypeResponse\x12P\n" +
-	"\tGetExtras\x12 .textclassifier.GetExtrasRequest\x1a!.textclassifier.GetExtrasResponse\x12P\n" +
-	"\tGetLocale\x12 .textclassifier.GetLocaleRequest\x1a!.textclassifier.GetLocaleResponse\x12Y\n" +
-	"\fGetModelName\x12#.textclassifier.GetModelNameRequest\x1a$.textclassifier.GetModelNameResponse\x12V\n" +
-	"\vGetResultId\x12\".textclassifier.GetResultIdRequest\x1a#.textclassifier.GetResultIdResponse\x12P\n" +
-	"\tGetScores\x12 .textclassifier.GetScoresRequest\x1a!.textclassifier.GetScoresResponse\x12M\n" +
-	"\bToString\x12\x1f.textclassifier.ToStringRequest\x1a .textclassifier.ToStringResponse\x12\\\n" +
-	"\rWriteToParcel\x12$.textclassifier.WriteToParcelRequest\x1a%.textclassifier.WriteToParcelResponse2\xc1\x05\n" +
-	",TextClassifierEventTextSelectionEventService\x12\x95\x01\n" +
-	" GetRelativeSuggestedWordEndIndex\x127.textclassifier.GetRelativeSuggestedWordEndIndexRequest\x1a8.textclassifier.GetRelativeSuggestedWordEndIndexResponse\x12\x9b\x01\n" +
-	"\"GetRelativeSuggestedWordStartIndex\x129.textclassifier.GetRelativeSuggestedWordStartIndexRequest\x1a:.textclassifier.GetRelativeSuggestedWordStartIndexResponse\x12z\n" +
-	"\x17GetRelativeWordEndIndex\x12..textclassifier.GetRelativeWordEndIndexRequest\x1a/.textclassifier.GetRelativeWordEndIndexResponse\x12\x80\x01\n" +
-	"\x19GetRelativeWordStartIndex\x120.textclassifier.GetRelativeWordStartIndexRequest\x1a1.textclassifier.GetRelativeWordStartIndexResponse\x12\\\n" +
+	"\rWriteToParcel\x12$.textclassifier.WriteToParcelRequest\x1a%.textclassifier.WriteToParcelResponse2\xcf\x03\n" +
+	"\x1bTextSelectionBuilderService\x12D\n" +
+	"\x05Build\x12\x1c.textclassifier.BuildRequest\x1a\x1d.textclassifier.BuildResponse\x12\\\n" +
+	"\rSetEntityType\x12$.textclassifier.SetEntityTypeRequest\x1a%.textclassifier.SetEntityTypeResponse\x12P\n" +
+	"\tSetExtras\x12 .textclassifier.SetExtrasRequest\x1a!.textclassifier.SetExtrasResponse\x12D\n" +
+	"\x05SetId\x12\x1c.textclassifier.SetIdRequest\x1a\x1d.textclassifier.SetIdResponse\x12t\n" +
+	"\x15SetTextClassification\x12,.textclassifier.SetTextClassificationRequest\x1a-.textclassifier.SetTextClassificationResponse2\xab\a\n" +
+	"\x1bTextSelectionRequestService\x12e\n" +
+	"\x10DescribeContents\x12'.textclassifier.DescribeContentsRequest\x1a(.textclassifier.DescribeContentsResponse\x12t\n" +
+	"\x15GetCallingPackageName\x12,.textclassifier.GetCallingPackageNameRequest\x1a-.textclassifier.GetCallingPackageNameResponse\x12h\n" +
+	"\x11GetDefaultLocales\x12(.textclassifier.GetDefaultLocalesRequest\x1a).textclassifier.GetDefaultLocalesResponse\x12V\n" +
+	"\vGetEndIndex\x12\".textclassifier.GetEndIndexRequest\x1a#.textclassifier.GetEndIndexResponse\x12P\n" +
+	"\tGetExtras\x12 .textclassifier.GetExtrasRequest\x1a!.textclassifier.GetExtrasResponse\x12\\\n" +
+	"\rGetStartIndex\x12$.textclassifier.GetStartIndexRequest\x1a%.textclassifier.GetStartIndexResponse\x12J\n" +
+	"\aGetText\x12\x1e.textclassifier.GetTextRequest\x1a\x1f.textclassifier.GetTextResponse\x12\x92\x01\n" +
+	"\x1fShouldIncludeTextClassification\x126.textclassifier.ShouldIncludeTextClassificationRequest\x1a7.textclassifier.ShouldIncludeTextClassificationResponse\x12\\\n" +
 	"\rWriteToParcel\x12$.textclassifier.WriteToParcelRequest\x1a%.textclassifier.WriteToParcelResponse2\x96\x17\n" +
 	"\x15SelectionEventService\x12e\n" +
 	"\x10DescribeContents\x12'.textclassifier.DescribeContentsRequest\x1a(.textclassifier.DescribeContentsResponse\x12G\n" +
@@ -8511,96 +9124,7 @@ const file_proto_textclassifier_textclassifier_proto_rawDesc = "" +
 	"\x1fCreateSelectionModifiedEvent3_2\x126.textclassifier.CreateSelectionModifiedEvent3_2Request\x1a7.textclassifier.CreateSelectionModifiedEvent3_2Response\x12\x86\x01\n" +
 	"\x1bCreateSelectionStartedEvent\x122.textclassifier.CreateSelectionStartedEventRequest\x1a3.textclassifier.CreateSelectionStartedEventResponse\x12S\n" +
 	"\n" +
-	"IsTerminal\x12!.textclassifier.IsTerminalRequest\x1a\".textclassifier.IsTerminalResponse2\xc4\x03\n" +
-	"\x10TextLinksService\x12e\n" +
-	"\x10DescribeContents\x12'.textclassifier.DescribeContentsRequest\x1a(.textclassifier.DescribeContentsResponse\x12P\n" +
-	"\tGetExtras\x12 .textclassifier.GetExtrasRequest\x1a!.textclassifier.GetExtrasResponse\x12J\n" +
-	"\aGetText\x12\x1e.textclassifier.GetTextRequest\x1a\x1f.textclassifier.GetTextResponse\x12M\n" +
-	"\bToString\x12\x1f.textclassifier.ToStringRequest\x1a .textclassifier.ToStringResponse\x12\\\n" +
-	"\rWriteToParcel\x12$.textclassifier.WriteToParcelRequest\x1a%.textclassifier.WriteToParcelResponse2\x92\x02\n" +
-	"\x17TextLinksBuilderService\x12D\n" +
-	"\x05Build\x12\x1c.textclassifier.BuildRequest\x1a\x1d.textclassifier.BuildResponse\x12_\n" +
-	"\x0eClearTextLinks\x12%.textclassifier.ClearTextLinksRequest\x1a&.textclassifier.ClearTextLinksResponse\x12P\n" +
-	"\tSetExtras\x12 .textclassifier.SetExtrasRequest\x1a!.textclassifier.SetExtrasResponse2\xa7\x06\n" +
-	"\x17TextLinksRequestService\x12e\n" +
-	"\x10DescribeContents\x12'.textclassifier.DescribeContentsRequest\x1a(.textclassifier.DescribeContentsResponse\x12t\n" +
-	"\x15GetCallingPackageName\x12,.textclassifier.GetCallingPackageNameRequest\x1a-.textclassifier.GetCallingPackageNameResponse\x12h\n" +
-	"\x11GetDefaultLocales\x12(.textclassifier.GetDefaultLocalesRequest\x1a).textclassifier.GetDefaultLocalesResponse\x12b\n" +
-	"\x0fGetEntityConfig\x12&.textclassifier.GetEntityConfigRequest\x1a'.textclassifier.GetEntityConfigResponse\x12P\n" +
-	"\tGetExtras\x12 .textclassifier.GetExtrasRequest\x1a!.textclassifier.GetExtrasResponse\x12e\n" +
-	"\x10GetReferenceTime\x12'.textclassifier.GetReferenceTimeRequest\x1a(.textclassifier.GetReferenceTimeResponse\x12J\n" +
-	"\aGetText\x12\x1e.textclassifier.GetTextRequest\x1a\x1f.textclassifier.GetTextResponse\x12\\\n" +
-	"\rWriteToParcel\x12$.textclassifier.WriteToParcelRequest\x1a%.textclassifier.WriteToParcelResponse2\xb8\x06\n" +
-	"\x18TextLinksTextLinkService\x12e\n" +
-	"\x10DescribeContents\x12'.textclassifier.DescribeContentsRequest\x1a(.textclassifier.DescribeContentsResponse\x12k\n" +
-	"\x12GetConfidenceScore\x12).textclassifier.GetConfidenceScoreRequest\x1a*.textclassifier.GetConfidenceScoreResponse\x12G\n" +
-	"\x06GetEnd\x12\x1d.textclassifier.GetEndRequest\x1a\x1e.textclassifier.GetEndResponse\x12P\n" +
-	"\tGetEntity\x12 .textclassifier.GetEntityRequest\x1a!.textclassifier.GetEntityResponse\x12_\n" +
-	"\x0eGetEntityCount\x12%.textclassifier.GetEntityCountRequest\x1a&.textclassifier.GetEntityCountResponse\x12P\n" +
-	"\tGetExtras\x12 .textclassifier.GetExtrasRequest\x1a!.textclassifier.GetExtrasResponse\x12M\n" +
-	"\bGetStart\x12\x1f.textclassifier.GetStartRequest\x1a .textclassifier.GetStartResponse\x12M\n" +
-	"\bToString\x12\x1f.textclassifier.ToStringRequest\x1a .textclassifier.ToStringResponse\x12\\\n" +
-	"\rWriteToParcel\x12$.textclassifier.WriteToParcelRequest\x1a%.textclassifier.WriteToParcelResponse2\xc2\x01\n" +
-	"\x1cTextLinksTextLinkSpanService\x12V\n" +
-	"\vGetTextLink\x12\".textclassifier.GetTextLinkRequest\x1a#.textclassifier.GetTextLinkResponse\x12J\n" +
-	"\aOnClick\x12\x1e.textclassifier.OnClickRequest\x1a\x1f.textclassifier.OnClickResponse2\x97\x06\n" +
-	"\x13TextLanguageService\x12e\n" +
-	"\x10DescribeContents\x12'.textclassifier.DescribeContentsRequest\x1a(.textclassifier.DescribeContentsResponse\x12w\n" +
-	"\x12GetConfidenceScore\x125.textclassifier.TextLanguageGetConfidenceScoreRequest\x1a*.textclassifier.GetConfidenceScoreResponse\x12P\n" +
-	"\tGetExtras\x12 .textclassifier.GetExtrasRequest\x1a!.textclassifier.GetExtrasResponse\x12D\n" +
-	"\x05GetId\x12\x1c.textclassifier.GetIdRequest\x1a\x1d.textclassifier.GetIdResponse\x12\\\n" +
-	"\tGetLocale\x12,.textclassifier.TextLanguageGetLocaleRequest\x1a!.textclassifier.GetLocaleResponse\x12}\n" +
-	"\x18GetLocaleHypothesisCount\x12/.textclassifier.GetLocaleHypothesisCountRequest\x1a0.textclassifier.GetLocaleHypothesisCountResponse\x12M\n" +
-	"\bToString\x12\x1f.textclassifier.ToStringRequest\x1a .textclassifier.ToStringResponse\x12\\\n" +
-	"\rWriteToParcel\x12$.textclassifier.WriteToParcelRequest\x1a%.textclassifier.WriteToParcelResponse2\xcc\x02\n" +
-	"\x1aTextLanguageBuilderService\x12D\n" +
-	"\x05Build\x12\x1c.textclassifier.BuildRequest\x1a\x1d.textclassifier.BuildResponse\x12P\n" +
-	"\tPutLocale\x12 .textclassifier.PutLocaleRequest\x1a!.textclassifier.PutLocaleResponse\x12P\n" +
-	"\tSetExtras\x12 .textclassifier.SetExtrasRequest\x1a!.textclassifier.SetExtrasResponse\x12D\n" +
-	"\x05SetId\x12\x1c.textclassifier.SetIdRequest\x1a\x1d.textclassifier.SetIdResponse2\xf5\x03\n" +
-	"\x1aTextLanguageRequestService\x12e\n" +
-	"\x10DescribeContents\x12'.textclassifier.DescribeContentsRequest\x1a(.textclassifier.DescribeContentsResponse\x12t\n" +
-	"\x15GetCallingPackageName\x12,.textclassifier.GetCallingPackageNameRequest\x1a-.textclassifier.GetCallingPackageNameResponse\x12P\n" +
-	"\tGetExtras\x12 .textclassifier.GetExtrasRequest\x1a!.textclassifier.GetExtrasResponse\x12J\n" +
-	"\aGetText\x12\x1e.textclassifier.GetTextRequest\x1a\x1f.textclassifier.GetTextResponse\x12\\\n" +
-	"\rWriteToParcel\x12$.textclassifier.WriteToParcelRequest\x1a%.textclassifier.WriteToParcelResponse2\xaa\x05\n" +
-	"\x19ConversationActionService\x12e\n" +
-	"\x10DescribeContents\x12'.textclassifier.DescribeContentsRequest\x1a(.textclassifier.DescribeContentsResponse\x12P\n" +
-	"\tGetAction\x12 .textclassifier.GetActionRequest\x1a!.textclassifier.GetActionResponse\x12}\n" +
-	"\x12GetConfidenceScore\x12;.textclassifier.ConversationActionGetConfidenceScoreRequest\x1a*.textclassifier.GetConfidenceScoreResponse\x12P\n" +
-	"\tGetExtras\x12 .textclassifier.GetExtrasRequest\x1a!.textclassifier.GetExtrasResponse\x12Y\n" +
-	"\fGetTextReply\x12#.textclassifier.GetTextReplyRequest\x1a$.textclassifier.GetTextReplyResponse\x12J\n" +
-	"\aGetType\x12\x1e.textclassifier.GetTypeRequest\x1a\x1f.textclassifier.GetTypeResponse\x12\\\n" +
-	"\rWriteToParcel\x12$.textclassifier.WriteToParcelRequest\x1a%.textclassifier.WriteToParcelResponse2\xd4\x03\n" +
-	" ConversationActionBuilderService\x12D\n" +
-	"\x05Build\x12\x1c.textclassifier.BuildRequest\x1a\x1d.textclassifier.BuildResponse\x12P\n" +
-	"\tSetAction\x12 .textclassifier.SetActionRequest\x1a!.textclassifier.SetActionResponse\x12k\n" +
-	"\x12SetConfidenceScore\x12).textclassifier.SetConfidenceScoreRequest\x1a*.textclassifier.SetConfidenceScoreResponse\x12P\n" +
-	"\tSetExtras\x12 .textclassifier.SetExtrasRequest\x1a!.textclassifier.SetExtrasResponse\x12Y\n" +
-	"\fSetTextReply\x12#.textclassifier.SetTextReplyRequest\x1a$.textclassifier.SetTextReplyResponse2\x8c\x03\n" +
-	"!TextClassifierEntityConfigService\x12e\n" +
-	"\x10DescribeContents\x12'.textclassifier.DescribeContentsRequest\x1a(.textclassifier.DescribeContentsResponse\x12\xa1\x01\n" +
-	"$ShouldIncludeTypesFromTextClassifier\x12;.textclassifier.ShouldIncludeTypesFromTextClassifierRequest\x1a<.textclassifier.ShouldIncludeTypesFromTextClassifierResponse\x12\\\n" +
-	"\rWriteToParcel\x12$.textclassifier.WriteToParcelRequest\x1a%.textclassifier.WriteToParcelResponse2\xd9\x03\n" +
-	"\x1aConversationActionsService\x12w\n" +
-	"\x16NewConversationActions\x12-.textclassifier.NewConversationActionsRequest\x1a..textclassifier.NewConversationActionsResponse\x12x\n" +
-	"\x10DescribeContents\x12:.textclassifier.ConversationActionsDescribeContentsRequest\x1a(.textclassifier.DescribeContentsResponse\x12W\n" +
-	"\x05GetId\x12/.textclassifier.ConversationActionsGetIdRequest\x1a\x1d.textclassifier.GetIdResponse\x12o\n" +
-	"\rWriteToParcel\x127.textclassifier.ConversationActionsWriteToParcelRequest\x1a%.textclassifier.WriteToParcelResponse2\xbf\x04\n" +
-	"!ConversationActionsMessageService\x12e\n" +
-	"\x10DescribeContents\x12'.textclassifier.DescribeContentsRequest\x1a(.textclassifier.DescribeContentsResponse\x12P\n" +
-	"\tGetAuthor\x12 .textclassifier.GetAuthorRequest\x1a!.textclassifier.GetAuthorResponse\x12P\n" +
-	"\tGetExtras\x12 .textclassifier.GetExtrasRequest\x1a!.textclassifier.GetExtrasResponse\x12e\n" +
-	"\x10GetReferenceTime\x12'.textclassifier.GetReferenceTimeRequest\x1a(.textclassifier.GetReferenceTimeResponse\x12J\n" +
-	"\aGetText\x12\x1e.textclassifier.GetTextRequest\x1a\x1f.textclassifier.GetTextResponse\x12\\\n" +
-	"\rWriteToParcel\x12$.textclassifier.WriteToParcelRequest\x1a%.textclassifier.WriteToParcelResponse2\xf8\x04\n" +
-	"!ConversationActionsRequestService\x12e\n" +
-	"\x10DescribeContents\x12'.textclassifier.DescribeContentsRequest\x1a(.textclassifier.DescribeContentsResponse\x12t\n" +
-	"\x15GetCallingPackageName\x12,.textclassifier.GetCallingPackageNameRequest\x1a-.textclassifier.GetCallingPackageNameResponse\x12P\n" +
-	"\tGetExtras\x12 .textclassifier.GetExtrasRequest\x1a!.textclassifier.GetExtrasResponse\x12h\n" +
-	"\x11GetMaxSuggestions\x12(.textclassifier.GetMaxSuggestionsRequest\x1a).textclassifier.GetMaxSuggestionsResponse\x12\\\n" +
-	"\rGetTypeConfig\x12$.textclassifier.GetTypeConfigRequest\x1a%.textclassifier.GetTypeConfigResponse\x12\\\n" +
-	"\rWriteToParcel\x12$.textclassifier.WriteToParcelRequest\x1a%.textclassifier.WriteToParcelResponseB8Z6github.com/AndroidGoLab/jni-proxy/proto/textclassifierb\x06proto3"
+	"IsTerminal\x12!.textclassifier.IsTerminalRequest\x1a\".textclassifier.IsTerminalResponseB8Z6github.com/AndroidGoLab/jni-proxy/proto/textclassifierb\x06proto3"
 
 var (
 	file_proto_textclassifier_textclassifier_proto_rawDescOnce sync.Once
@@ -8614,599 +9138,623 @@ func file_proto_textclassifier_textclassifier_proto_rawDescGZIP() []byte {
 	return file_proto_textclassifier_textclassifier_proto_rawDescData
 }
 
-var file_proto_textclassifier_textclassifier_proto_msgTypes = make([]protoimpl.MessageInfo, 191)
+var file_proto_textclassifier_textclassifier_proto_msgTypes = make([]protoimpl.MessageInfo, 203)
 var file_proto_textclassifier_textclassifier_proto_goTypes = []any{
-	(*CreateTextClassificationSessionRequest)(nil),       // 0: textclassifier.CreateTextClassificationSessionRequest
-	(*CreateTextClassificationSessionResponse)(nil),      // 1: textclassifier.CreateTextClassificationSessionResponse
-	(*DescribeContentsRequest)(nil),                      // 2: textclassifier.DescribeContentsRequest
-	(*DescribeContentsResponse)(nil),                     // 3: textclassifier.DescribeContentsResponse
-	(*GetConfidenceScoreRequest)(nil),                    // 4: textclassifier.GetConfidenceScoreRequest
-	(*GetConfidenceScoreResponse)(nil),                   // 5: textclassifier.GetConfidenceScoreResponse
-	(*GetEntityRequest)(nil),                             // 6: textclassifier.GetEntityRequest
-	(*GetEntityResponse)(nil),                            // 7: textclassifier.GetEntityResponse
-	(*GetEntityCountRequest)(nil),                        // 8: textclassifier.GetEntityCountRequest
-	(*GetEntityCountResponse)(nil),                       // 9: textclassifier.GetEntityCountResponse
-	(*GetExtrasRequest)(nil),                             // 10: textclassifier.GetExtrasRequest
-	(*GetExtrasResponse)(nil),                            // 11: textclassifier.GetExtrasResponse
-	(*GetIdRequest)(nil),                                 // 12: textclassifier.GetIdRequest
-	(*GetIdResponse)(nil),                                // 13: textclassifier.GetIdResponse
-	(*GetSelectionEndIndexRequest)(nil),                  // 14: textclassifier.GetSelectionEndIndexRequest
-	(*GetSelectionEndIndexResponse)(nil),                 // 15: textclassifier.GetSelectionEndIndexResponse
-	(*GetSelectionStartIndexRequest)(nil),                // 16: textclassifier.GetSelectionStartIndexRequest
-	(*GetSelectionStartIndexResponse)(nil),               // 17: textclassifier.GetSelectionStartIndexResponse
-	(*GetTextClassificationRequest)(nil),                 // 18: textclassifier.GetTextClassificationRequest
-	(*GetTextClassificationResponse)(nil),                // 19: textclassifier.GetTextClassificationResponse
-	(*ToStringRequest)(nil),                              // 20: textclassifier.ToStringRequest
-	(*ToStringResponse)(nil),                             // 21: textclassifier.ToStringResponse
-	(*WriteToParcelRequest)(nil),                         // 22: textclassifier.WriteToParcelRequest
-	(*WriteToParcelResponse)(nil),                        // 23: textclassifier.WriteToParcelResponse
-	(*BuildRequest)(nil),                                 // 24: textclassifier.BuildRequest
-	(*BuildResponse)(nil),                                // 25: textclassifier.BuildResponse
-	(*SetEntityTypeRequest)(nil),                         // 26: textclassifier.SetEntityTypeRequest
-	(*SetEntityTypeResponse)(nil),                        // 27: textclassifier.SetEntityTypeResponse
-	(*SetExtrasRequest)(nil),                             // 28: textclassifier.SetExtrasRequest
-	(*SetExtrasResponse)(nil),                            // 29: textclassifier.SetExtrasResponse
-	(*SetIdRequest)(nil),                                 // 30: textclassifier.SetIdRequest
-	(*SetIdResponse)(nil),                                // 31: textclassifier.SetIdResponse
-	(*SetTextClassificationRequest)(nil),                 // 32: textclassifier.SetTextClassificationRequest
-	(*SetTextClassificationResponse)(nil),                // 33: textclassifier.SetTextClassificationResponse
-	(*GetCallingPackageNameRequest)(nil),                 // 34: textclassifier.GetCallingPackageNameRequest
-	(*GetCallingPackageNameResponse)(nil),                // 35: textclassifier.GetCallingPackageNameResponse
-	(*GetDefaultLocalesRequest)(nil),                     // 36: textclassifier.GetDefaultLocalesRequest
-	(*GetDefaultLocalesResponse)(nil),                    // 37: textclassifier.GetDefaultLocalesResponse
-	(*GetEndIndexRequest)(nil),                           // 38: textclassifier.GetEndIndexRequest
-	(*GetEndIndexResponse)(nil),                          // 39: textclassifier.GetEndIndexResponse
-	(*GetStartIndexRequest)(nil),                         // 40: textclassifier.GetStartIndexRequest
-	(*GetStartIndexResponse)(nil),                        // 41: textclassifier.GetStartIndexResponse
-	(*GetTextRequest)(nil),                               // 42: textclassifier.GetTextRequest
-	(*GetTextResponse)(nil),                              // 43: textclassifier.GetTextResponse
-	(*ShouldIncludeTextClassificationRequest)(nil),       // 44: textclassifier.ShouldIncludeTextClassificationRequest
-	(*ShouldIncludeTextClassificationResponse)(nil),      // 45: textclassifier.ShouldIncludeTextClassificationResponse
-	(*GetPackageNameRequest)(nil),                        // 46: textclassifier.GetPackageNameRequest
-	(*GetPackageNameResponse)(nil),                       // 47: textclassifier.GetPackageNameResponse
-	(*GetWidgetTypeRequest)(nil),                         // 48: textclassifier.GetWidgetTypeRequest
-	(*GetWidgetTypeResponse)(nil),                        // 49: textclassifier.GetWidgetTypeResponse
-	(*GetWidgetVersionRequest)(nil),                      // 50: textclassifier.GetWidgetVersionRequest
-	(*GetWidgetVersionResponse)(nil),                     // 51: textclassifier.GetWidgetVersionResponse
-	(*SetWidgetVersionRequest)(nil),                      // 52: textclassifier.SetWidgetVersionRequest
-	(*SetWidgetVersionResponse)(nil),                     // 53: textclassifier.SetWidgetVersionResponse
-	(*GetIconRequest)(nil),                               // 54: textclassifier.GetIconRequest
-	(*GetIconResponse)(nil),                              // 55: textclassifier.GetIconResponse
-	(*GetIntentRequest)(nil),                             // 56: textclassifier.GetIntentRequest
-	(*GetIntentResponse)(nil),                            // 57: textclassifier.GetIntentResponse
-	(*GetLabelRequest)(nil),                              // 58: textclassifier.GetLabelRequest
-	(*GetLabelResponse)(nil),                             // 59: textclassifier.GetLabelResponse
-	(*GetOnClickListenerRequest)(nil),                    // 60: textclassifier.GetOnClickListenerRequest
-	(*GetOnClickListenerResponse)(nil),                   // 61: textclassifier.GetOnClickListenerResponse
-	(*TextClassificationGetTextResponse)(nil),            // 62: textclassifier.TextClassificationGetTextResponse
-	(*AddActionRequest)(nil),                             // 63: textclassifier.AddActionRequest
-	(*AddActionResponse)(nil),                            // 64: textclassifier.AddActionResponse
-	(*SetIconRequest)(nil),                               // 65: textclassifier.SetIconRequest
-	(*SetIconResponse)(nil),                              // 66: textclassifier.SetIconResponse
-	(*SetIntentRequest)(nil),                             // 67: textclassifier.SetIntentRequest
-	(*SetIntentResponse)(nil),                            // 68: textclassifier.SetIntentResponse
-	(*SetLabelRequest)(nil),                              // 69: textclassifier.SetLabelRequest
-	(*SetLabelResponse)(nil),                             // 70: textclassifier.SetLabelResponse
-	(*SetOnClickListenerRequest)(nil),                    // 71: textclassifier.SetOnClickListenerRequest
-	(*SetOnClickListenerResponse)(nil),                   // 72: textclassifier.SetOnClickListenerResponse
-	(*SetTextRequest)(nil),                               // 73: textclassifier.SetTextRequest
-	(*SetTextResponse)(nil),                              // 74: textclassifier.SetTextResponse
-	(*GetReferenceTimeRequest)(nil),                      // 75: textclassifier.GetReferenceTimeRequest
-	(*GetReferenceTimeResponse)(nil),                     // 76: textclassifier.GetReferenceTimeResponse
-	(*GetTextClassifierRequest)(nil),                     // 77: textclassifier.GetTextClassifierRequest
-	(*GetTextClassifierResponse)(nil),                    // 78: textclassifier.GetTextClassifierResponse
-	(*SetTextClassificationSessionFactoryRequest)(nil),   // 79: textclassifier.SetTextClassificationSessionFactoryRequest
-	(*SetTextClassificationSessionFactoryResponse)(nil),  // 80: textclassifier.SetTextClassificationSessionFactoryResponse
-	(*SetTextClassifierRequest)(nil),                     // 81: textclassifier.SetTextClassifierRequest
-	(*SetTextClassifierResponse)(nil),                    // 82: textclassifier.SetTextClassifierResponse
-	(*EqualsRequest)(nil),                                // 83: textclassifier.EqualsRequest
-	(*EqualsResponse)(nil),                               // 84: textclassifier.EqualsResponse
-	(*GetValueRequest)(nil),                              // 85: textclassifier.GetValueRequest
-	(*GetValueResponse)(nil),                             // 86: textclassifier.GetValueResponse
-	(*HashCodeRequest)(nil),                              // 87: textclassifier.HashCodeRequest
-	(*HashCodeResponse)(nil),                             // 88: textclassifier.HashCodeResponse
-	(*GetActionIndicesRequest)(nil),                      // 89: textclassifier.GetActionIndicesRequest
-	(*GetActionIndicesResponse)(nil),                     // 90: textclassifier.GetActionIndicesResponse
-	(*GetEntityTypesRequest)(nil),                        // 91: textclassifier.GetEntityTypesRequest
-	(*GetEntityTypesResponse)(nil),                       // 92: textclassifier.GetEntityTypesResponse
-	(*GetEventCategoryRequest)(nil),                      // 93: textclassifier.GetEventCategoryRequest
-	(*GetEventCategoryResponse)(nil),                     // 94: textclassifier.GetEventCategoryResponse
-	(*GetEventContextRequest)(nil),                       // 95: textclassifier.GetEventContextRequest
-	(*GetEventContextResponse)(nil),                      // 96: textclassifier.GetEventContextResponse
-	(*GetEventIndexRequest)(nil),                         // 97: textclassifier.GetEventIndexRequest
-	(*GetEventIndexResponse)(nil),                        // 98: textclassifier.GetEventIndexResponse
-	(*GetEventTypeRequest)(nil),                          // 99: textclassifier.GetEventTypeRequest
-	(*GetEventTypeResponse)(nil),                         // 100: textclassifier.GetEventTypeResponse
-	(*GetLocaleRequest)(nil),                             // 101: textclassifier.GetLocaleRequest
-	(*GetLocaleResponse)(nil),                            // 102: textclassifier.GetLocaleResponse
-	(*GetModelNameRequest)(nil),                          // 103: textclassifier.GetModelNameRequest
-	(*GetModelNameResponse)(nil),                         // 104: textclassifier.GetModelNameResponse
-	(*GetResultIdRequest)(nil),                           // 105: textclassifier.GetResultIdRequest
-	(*GetResultIdResponse)(nil),                          // 106: textclassifier.GetResultIdResponse
-	(*GetScoresRequest)(nil),                             // 107: textclassifier.GetScoresRequest
-	(*GetScoresResponse)(nil),                            // 108: textclassifier.GetScoresResponse
-	(*GetRelativeSuggestedWordEndIndexRequest)(nil),      // 109: textclassifier.GetRelativeSuggestedWordEndIndexRequest
-	(*GetRelativeSuggestedWordEndIndexResponse)(nil),     // 110: textclassifier.GetRelativeSuggestedWordEndIndexResponse
-	(*GetRelativeSuggestedWordStartIndexRequest)(nil),    // 111: textclassifier.GetRelativeSuggestedWordStartIndexRequest
-	(*GetRelativeSuggestedWordStartIndexResponse)(nil),   // 112: textclassifier.GetRelativeSuggestedWordStartIndexResponse
-	(*GetRelativeWordEndIndexRequest)(nil),               // 113: textclassifier.GetRelativeWordEndIndexRequest
-	(*GetRelativeWordEndIndexResponse)(nil),              // 114: textclassifier.GetRelativeWordEndIndexResponse
-	(*GetRelativeWordStartIndexRequest)(nil),             // 115: textclassifier.GetRelativeWordStartIndexRequest
-	(*GetRelativeWordStartIndexResponse)(nil),            // 116: textclassifier.GetRelativeWordStartIndexResponse
-	(*GetDurationSincePreviousEventRequest)(nil),         // 117: textclassifier.GetDurationSincePreviousEventRequest
-	(*GetDurationSincePreviousEventResponse)(nil),        // 118: textclassifier.GetDurationSincePreviousEventResponse
-	(*GetDurationSinceSessionStartRequest)(nil),          // 119: textclassifier.GetDurationSinceSessionStartRequest
-	(*GetDurationSinceSessionStartResponse)(nil),         // 120: textclassifier.GetDurationSinceSessionStartResponse
-	(*GetEndRequest)(nil),                                // 121: textclassifier.GetEndRequest
-	(*GetEndResponse)(nil),                               // 122: textclassifier.GetEndResponse
-	(*GetEntityTypeRequest)(nil),                         // 123: textclassifier.GetEntityTypeRequest
-	(*GetEntityTypeResponse)(nil),                        // 124: textclassifier.GetEntityTypeResponse
-	(*GetEventTimeRequest)(nil),                          // 125: textclassifier.GetEventTimeRequest
-	(*GetEventTimeResponse)(nil),                         // 126: textclassifier.GetEventTimeResponse
-	(*GetInvocationMethodRequest)(nil),                   // 127: textclassifier.GetInvocationMethodRequest
-	(*GetInvocationMethodResponse)(nil),                  // 128: textclassifier.GetInvocationMethodResponse
-	(*GetSessionIdRequest)(nil),                          // 129: textclassifier.GetSessionIdRequest
-	(*GetSessionIdResponse)(nil),                         // 130: textclassifier.GetSessionIdResponse
-	(*GetSmartEndRequest)(nil),                           // 131: textclassifier.GetSmartEndRequest
-	(*GetSmartEndResponse)(nil),                          // 132: textclassifier.GetSmartEndResponse
-	(*GetSmartStartRequest)(nil),                         // 133: textclassifier.GetSmartStartRequest
-	(*GetSmartStartResponse)(nil),                        // 134: textclassifier.GetSmartStartResponse
-	(*GetStartRequest)(nil),                              // 135: textclassifier.GetStartRequest
-	(*GetStartResponse)(nil),                             // 136: textclassifier.GetStartResponse
-	(*CreateSelectionActionEvent3Request)(nil),           // 137: textclassifier.CreateSelectionActionEvent3Request
-	(*CreateSelectionActionEvent3Response)(nil),          // 138: textclassifier.CreateSelectionActionEvent3Response
-	(*CreateSelectionActionEvent4_1Request)(nil),         // 139: textclassifier.CreateSelectionActionEvent4_1Request
-	(*CreateSelectionActionEvent4_1Response)(nil),        // 140: textclassifier.CreateSelectionActionEvent4_1Response
-	(*CreateSelectionModifiedEvent2Request)(nil),         // 141: textclassifier.CreateSelectionModifiedEvent2Request
-	(*CreateSelectionModifiedEvent2Response)(nil),        // 142: textclassifier.CreateSelectionModifiedEvent2Response
-	(*CreateSelectionModifiedEvent3_1Request)(nil),       // 143: textclassifier.CreateSelectionModifiedEvent3_1Request
-	(*CreateSelectionModifiedEvent3_1Response)(nil),      // 144: textclassifier.CreateSelectionModifiedEvent3_1Response
-	(*CreateSelectionModifiedEvent3_2Request)(nil),       // 145: textclassifier.CreateSelectionModifiedEvent3_2Request
-	(*CreateSelectionModifiedEvent3_2Response)(nil),      // 146: textclassifier.CreateSelectionModifiedEvent3_2Response
-	(*CreateSelectionStartedEventRequest)(nil),           // 147: textclassifier.CreateSelectionStartedEventRequest
-	(*CreateSelectionStartedEventResponse)(nil),          // 148: textclassifier.CreateSelectionStartedEventResponse
-	(*IsTerminalRequest)(nil),                            // 149: textclassifier.IsTerminalRequest
-	(*IsTerminalResponse)(nil),                           // 150: textclassifier.IsTerminalResponse
-	(*ClearTextLinksRequest)(nil),                        // 151: textclassifier.ClearTextLinksRequest
-	(*ClearTextLinksResponse)(nil),                       // 152: textclassifier.ClearTextLinksResponse
-	(*GetEntityConfigRequest)(nil),                       // 153: textclassifier.GetEntityConfigRequest
-	(*GetEntityConfigResponse)(nil),                      // 154: textclassifier.GetEntityConfigResponse
-	(*GetTextLinkRequest)(nil),                           // 155: textclassifier.GetTextLinkRequest
-	(*GetTextLinkResponse)(nil),                          // 156: textclassifier.GetTextLinkResponse
-	(*OnClickRequest)(nil),                               // 157: textclassifier.OnClickRequest
-	(*OnClickResponse)(nil),                              // 158: textclassifier.OnClickResponse
-	(*TextLanguageGetConfidenceScoreRequest)(nil),        // 159: textclassifier.TextLanguageGetConfidenceScoreRequest
-	(*TextLanguageGetLocaleRequest)(nil),                 // 160: textclassifier.TextLanguageGetLocaleRequest
-	(*GetLocaleHypothesisCountRequest)(nil),              // 161: textclassifier.GetLocaleHypothesisCountRequest
-	(*GetLocaleHypothesisCountResponse)(nil),             // 162: textclassifier.GetLocaleHypothesisCountResponse
-	(*PutLocaleRequest)(nil),                             // 163: textclassifier.PutLocaleRequest
-	(*PutLocaleResponse)(nil),                            // 164: textclassifier.PutLocaleResponse
-	(*GetActionRequest)(nil),                             // 165: textclassifier.GetActionRequest
-	(*GetActionResponse)(nil),                            // 166: textclassifier.GetActionResponse
-	(*ConversationActionGetConfidenceScoreRequest)(nil),  // 167: textclassifier.ConversationActionGetConfidenceScoreRequest
-	(*GetTextReplyRequest)(nil),                          // 168: textclassifier.GetTextReplyRequest
-	(*GetTextReplyResponse)(nil),                         // 169: textclassifier.GetTextReplyResponse
-	(*GetTypeRequest)(nil),                               // 170: textclassifier.GetTypeRequest
-	(*GetTypeResponse)(nil),                              // 171: textclassifier.GetTypeResponse
-	(*SetActionRequest)(nil),                             // 172: textclassifier.SetActionRequest
-	(*SetActionResponse)(nil),                            // 173: textclassifier.SetActionResponse
-	(*SetConfidenceScoreRequest)(nil),                    // 174: textclassifier.SetConfidenceScoreRequest
-	(*SetConfidenceScoreResponse)(nil),                   // 175: textclassifier.SetConfidenceScoreResponse
-	(*SetTextReplyRequest)(nil),                          // 176: textclassifier.SetTextReplyRequest
-	(*SetTextReplyResponse)(nil),                         // 177: textclassifier.SetTextReplyResponse
-	(*ShouldIncludeTypesFromTextClassifierRequest)(nil),  // 178: textclassifier.ShouldIncludeTypesFromTextClassifierRequest
-	(*ShouldIncludeTypesFromTextClassifierResponse)(nil), // 179: textclassifier.ShouldIncludeTypesFromTextClassifierResponse
-	(*NewConversationActionsRequest)(nil),                // 180: textclassifier.NewConversationActionsRequest
-	(*NewConversationActionsResponse)(nil),               // 181: textclassifier.NewConversationActionsResponse
-	(*ConversationActionsDescribeContentsRequest)(nil),   // 182: textclassifier.ConversationActionsDescribeContentsRequest
-	(*ConversationActionsGetIdRequest)(nil),              // 183: textclassifier.ConversationActionsGetIdRequest
-	(*ConversationActionsWriteToParcelRequest)(nil),      // 184: textclassifier.ConversationActionsWriteToParcelRequest
-	(*GetAuthorRequest)(nil),                             // 185: textclassifier.GetAuthorRequest
-	(*GetAuthorResponse)(nil),                            // 186: textclassifier.GetAuthorResponse
-	(*GetMaxSuggestionsRequest)(nil),                     // 187: textclassifier.GetMaxSuggestionsRequest
-	(*GetMaxSuggestionsResponse)(nil),                    // 188: textclassifier.GetMaxSuggestionsResponse
-	(*GetTypeConfigRequest)(nil),                         // 189: textclassifier.GetTypeConfigRequest
-	(*GetTypeConfigResponse)(nil),                        // 190: textclassifier.GetTypeConfigResponse
+	(*DescribeContentsRequest)(nil),                      // 0: textclassifier.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),                     // 1: textclassifier.DescribeContentsResponse
+	(*EqualsRequest)(nil),                                // 2: textclassifier.EqualsRequest
+	(*EqualsResponse)(nil),                               // 3: textclassifier.EqualsResponse
+	(*GetValueRequest)(nil),                              // 4: textclassifier.GetValueRequest
+	(*GetValueResponse)(nil),                             // 5: textclassifier.GetValueResponse
+	(*HashCodeRequest)(nil),                              // 6: textclassifier.HashCodeRequest
+	(*HashCodeResponse)(nil),                             // 7: textclassifier.HashCodeResponse
+	(*ToStringRequest)(nil),                              // 8: textclassifier.ToStringRequest
+	(*ToStringResponse)(nil),                             // 9: textclassifier.ToStringResponse
+	(*WriteToParcelRequest)(nil),                         // 10: textclassifier.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                        // 11: textclassifier.WriteToParcelResponse
+	(*GetHintsRequest)(nil),                              // 12: textclassifier.GetHintsRequest
+	(*GetHintsResponse)(nil),                             // 13: textclassifier.GetHintsResponse
+	(*ShouldIncludeTypesFromTextClassifierRequest)(nil),  // 14: textclassifier.ShouldIncludeTypesFromTextClassifierRequest
+	(*ShouldIncludeTypesFromTextClassifierResponse)(nil), // 15: textclassifier.ShouldIncludeTypesFromTextClassifierResponse
+	(*GetActionRequest)(nil),                             // 16: textclassifier.GetActionRequest
+	(*GetActionResponse)(nil),                            // 17: textclassifier.GetActionResponse
+	(*GetConfidenceScoreRequest)(nil),                    // 18: textclassifier.GetConfidenceScoreRequest
+	(*GetConfidenceScoreResponse)(nil),                   // 19: textclassifier.GetConfidenceScoreResponse
+	(*GetExtrasRequest)(nil),                             // 20: textclassifier.GetExtrasRequest
+	(*GetExtrasResponse)(nil),                            // 21: textclassifier.GetExtrasResponse
+	(*GetTextReplyRequest)(nil),                          // 22: textclassifier.GetTextReplyRequest
+	(*GetTextReplyResponse)(nil),                         // 23: textclassifier.GetTextReplyResponse
+	(*GetTypeRequest)(nil),                               // 24: textclassifier.GetTypeRequest
+	(*GetTypeResponse)(nil),                              // 25: textclassifier.GetTypeResponse
+	(*BuildRequest)(nil),                                 // 26: textclassifier.BuildRequest
+	(*BuildResponse)(nil),                                // 27: textclassifier.BuildResponse
+	(*SetActionRequest)(nil),                             // 28: textclassifier.SetActionRequest
+	(*SetActionResponse)(nil),                            // 29: textclassifier.SetActionResponse
+	(*SetConfidenceScoreRequest)(nil),                    // 30: textclassifier.SetConfidenceScoreRequest
+	(*SetConfidenceScoreResponse)(nil),                   // 31: textclassifier.SetConfidenceScoreResponse
+	(*SetExtrasRequest)(nil),                             // 32: textclassifier.SetExtrasRequest
+	(*SetExtrasResponse)(nil),                            // 33: textclassifier.SetExtrasResponse
+	(*SetTextReplyRequest)(nil),                          // 34: textclassifier.SetTextReplyRequest
+	(*SetTextReplyResponse)(nil),                         // 35: textclassifier.SetTextReplyResponse
+	(*CreateTextClassificationSessionRequest)(nil),       // 36: textclassifier.CreateTextClassificationSessionRequest
+	(*CreateTextClassificationSessionResponse)(nil),      // 37: textclassifier.CreateTextClassificationSessionResponse
+	(*GetPackageNameRequest)(nil),                        // 38: textclassifier.GetPackageNameRequest
+	(*GetPackageNameResponse)(nil),                       // 39: textclassifier.GetPackageNameResponse
+	(*GetWidgetTypeRequest)(nil),                         // 40: textclassifier.GetWidgetTypeRequest
+	(*GetWidgetTypeResponse)(nil),                        // 41: textclassifier.GetWidgetTypeResponse
+	(*GetWidgetVersionRequest)(nil),                      // 42: textclassifier.GetWidgetVersionRequest
+	(*GetWidgetVersionResponse)(nil),                     // 43: textclassifier.GetWidgetVersionResponse
+	(*SetWidgetVersionRequest)(nil),                      // 44: textclassifier.SetWidgetVersionRequest
+	(*SetWidgetVersionResponse)(nil),                     // 45: textclassifier.SetWidgetVersionResponse
+	(*GetLinksRequest)(nil),                              // 46: textclassifier.GetLinksRequest
+	(*GetLinksResponse)(nil),                             // 47: textclassifier.GetLinksResponse
+	(*GetTextRequest)(nil),                               // 48: textclassifier.GetTextRequest
+	(*GetTextResponse)(nil),                              // 49: textclassifier.GetTextResponse
+	(*ClearTextLinksRequest)(nil),                        // 50: textclassifier.ClearTextLinksRequest
+	(*ClearTextLinksResponse)(nil),                       // 51: textclassifier.ClearTextLinksResponse
+	(*GetCallingPackageNameRequest)(nil),                 // 52: textclassifier.GetCallingPackageNameRequest
+	(*GetCallingPackageNameResponse)(nil),                // 53: textclassifier.GetCallingPackageNameResponse
+	(*GetDefaultLocalesRequest)(nil),                     // 54: textclassifier.GetDefaultLocalesRequest
+	(*GetDefaultLocalesResponse)(nil),                    // 55: textclassifier.GetDefaultLocalesResponse
+	(*GetEntityConfigRequest)(nil),                       // 56: textclassifier.GetEntityConfigRequest
+	(*GetEntityConfigResponse)(nil),                      // 57: textclassifier.GetEntityConfigResponse
+	(*GetReferenceTimeRequest)(nil),                      // 58: textclassifier.GetReferenceTimeRequest
+	(*GetReferenceTimeResponse)(nil),                     // 59: textclassifier.GetReferenceTimeResponse
+	(*TextLinksTextLinkGetConfidenceScoreRequest)(nil),   // 60: textclassifier.TextLinksTextLinkGetConfidenceScoreRequest
+	(*GetEndRequest)(nil),                                // 61: textclassifier.GetEndRequest
+	(*GetEndResponse)(nil),                               // 62: textclassifier.GetEndResponse
+	(*GetEntityRequest)(nil),                             // 63: textclassifier.GetEntityRequest
+	(*GetEntityResponse)(nil),                            // 64: textclassifier.GetEntityResponse
+	(*GetEntityCountRequest)(nil),                        // 65: textclassifier.GetEntityCountRequest
+	(*GetEntityCountResponse)(nil),                       // 66: textclassifier.GetEntityCountResponse
+	(*GetStartRequest)(nil),                              // 67: textclassifier.GetStartRequest
+	(*GetStartResponse)(nil),                             // 68: textclassifier.GetStartResponse
+	(*GetTextLinkRequest)(nil),                           // 69: textclassifier.GetTextLinkRequest
+	(*GetTextLinkResponse)(nil),                          // 70: textclassifier.GetTextLinkResponse
+	(*OnClickRequest)(nil),                               // 71: textclassifier.OnClickRequest
+	(*OnClickResponse)(nil),                              // 72: textclassifier.OnClickResponse
+	(*GetActionIndicesRequest)(nil),                      // 73: textclassifier.GetActionIndicesRequest
+	(*GetActionIndicesResponse)(nil),                     // 74: textclassifier.GetActionIndicesResponse
+	(*GetEntityTypesRequest)(nil),                        // 75: textclassifier.GetEntityTypesRequest
+	(*GetEntityTypesResponse)(nil),                       // 76: textclassifier.GetEntityTypesResponse
+	(*GetEventCategoryRequest)(nil),                      // 77: textclassifier.GetEventCategoryRequest
+	(*GetEventCategoryResponse)(nil),                     // 78: textclassifier.GetEventCategoryResponse
+	(*GetEventContextRequest)(nil),                       // 79: textclassifier.GetEventContextRequest
+	(*GetEventContextResponse)(nil),                      // 80: textclassifier.GetEventContextResponse
+	(*GetEventIndexRequest)(nil),                         // 81: textclassifier.GetEventIndexRequest
+	(*GetEventIndexResponse)(nil),                        // 82: textclassifier.GetEventIndexResponse
+	(*GetEventTypeRequest)(nil),                          // 83: textclassifier.GetEventTypeRequest
+	(*GetEventTypeResponse)(nil),                         // 84: textclassifier.GetEventTypeResponse
+	(*GetLocaleRequest)(nil),                             // 85: textclassifier.GetLocaleRequest
+	(*GetLocaleResponse)(nil),                            // 86: textclassifier.GetLocaleResponse
+	(*GetModelNameRequest)(nil),                          // 87: textclassifier.GetModelNameRequest
+	(*GetModelNameResponse)(nil),                         // 88: textclassifier.GetModelNameResponse
+	(*GetResultIdRequest)(nil),                           // 89: textclassifier.GetResultIdRequest
+	(*GetResultIdResponse)(nil),                          // 90: textclassifier.GetResultIdResponse
+	(*GetScoresRequest)(nil),                             // 91: textclassifier.GetScoresRequest
+	(*GetScoresResponse)(nil),                            // 92: textclassifier.GetScoresResponse
+	(*GetRelativeSuggestedWordEndIndexRequest)(nil),      // 93: textclassifier.GetRelativeSuggestedWordEndIndexRequest
+	(*GetRelativeSuggestedWordEndIndexResponse)(nil),     // 94: textclassifier.GetRelativeSuggestedWordEndIndexResponse
+	(*GetRelativeSuggestedWordStartIndexRequest)(nil),    // 95: textclassifier.GetRelativeSuggestedWordStartIndexRequest
+	(*GetRelativeSuggestedWordStartIndexResponse)(nil),   // 96: textclassifier.GetRelativeSuggestedWordStartIndexResponse
+	(*GetRelativeWordEndIndexRequest)(nil),               // 97: textclassifier.GetRelativeWordEndIndexRequest
+	(*GetRelativeWordEndIndexResponse)(nil),              // 98: textclassifier.GetRelativeWordEndIndexResponse
+	(*GetRelativeWordStartIndexRequest)(nil),             // 99: textclassifier.GetRelativeWordStartIndexRequest
+	(*GetRelativeWordStartIndexResponse)(nil),            // 100: textclassifier.GetRelativeWordStartIndexResponse
+	(*TextLanguageGetConfidenceScoreRequest)(nil),        // 101: textclassifier.TextLanguageGetConfidenceScoreRequest
+	(*GetIdRequest)(nil),                                 // 102: textclassifier.GetIdRequest
+	(*GetIdResponse)(nil),                                // 103: textclassifier.GetIdResponse
+	(*TextLanguageGetLocaleRequest)(nil),                 // 104: textclassifier.TextLanguageGetLocaleRequest
+	(*GetLocaleHypothesisCountRequest)(nil),              // 105: textclassifier.GetLocaleHypothesisCountRequest
+	(*GetLocaleHypothesisCountResponse)(nil),             // 106: textclassifier.GetLocaleHypothesisCountResponse
+	(*PutLocaleRequest)(nil),                             // 107: textclassifier.PutLocaleRequest
+	(*PutLocaleResponse)(nil),                            // 108: textclassifier.PutLocaleResponse
+	(*SetIdRequest)(nil),                                 // 109: textclassifier.SetIdRequest
+	(*SetIdResponse)(nil),                                // 110: textclassifier.SetIdResponse
+	(*GetActionsRequest)(nil),                            // 111: textclassifier.GetActionsRequest
+	(*GetActionsResponse)(nil),                           // 112: textclassifier.GetActionsResponse
+	(*TextClassificationGetConfidenceScoreRequest)(nil),  // 113: textclassifier.TextClassificationGetConfidenceScoreRequest
+	(*GetIconRequest)(nil),                               // 114: textclassifier.GetIconRequest
+	(*GetIconResponse)(nil),                              // 115: textclassifier.GetIconResponse
+	(*GetIntentRequest)(nil),                             // 116: textclassifier.GetIntentRequest
+	(*GetIntentResponse)(nil),                            // 117: textclassifier.GetIntentResponse
+	(*GetLabelRequest)(nil),                              // 118: textclassifier.GetLabelRequest
+	(*GetLabelResponse)(nil),                             // 119: textclassifier.GetLabelResponse
+	(*GetOnClickListenerRequest)(nil),                    // 120: textclassifier.GetOnClickListenerRequest
+	(*GetOnClickListenerResponse)(nil),                   // 121: textclassifier.GetOnClickListenerResponse
+	(*TextClassificationGetTextResponse)(nil),            // 122: textclassifier.TextClassificationGetTextResponse
+	(*AddActionRequest)(nil),                             // 123: textclassifier.AddActionRequest
+	(*AddActionResponse)(nil),                            // 124: textclassifier.AddActionResponse
+	(*SetEntityTypeRequest)(nil),                         // 125: textclassifier.SetEntityTypeRequest
+	(*SetEntityTypeResponse)(nil),                        // 126: textclassifier.SetEntityTypeResponse
+	(*SetIconRequest)(nil),                               // 127: textclassifier.SetIconRequest
+	(*SetIconResponse)(nil),                              // 128: textclassifier.SetIconResponse
+	(*SetIntentRequest)(nil),                             // 129: textclassifier.SetIntentRequest
+	(*SetIntentResponse)(nil),                            // 130: textclassifier.SetIntentResponse
+	(*SetLabelRequest)(nil),                              // 131: textclassifier.SetLabelRequest
+	(*SetLabelResponse)(nil),                             // 132: textclassifier.SetLabelResponse
+	(*SetOnClickListenerRequest)(nil),                    // 133: textclassifier.SetOnClickListenerRequest
+	(*SetOnClickListenerResponse)(nil),                   // 134: textclassifier.SetOnClickListenerResponse
+	(*SetTextRequest)(nil),                               // 135: textclassifier.SetTextRequest
+	(*SetTextResponse)(nil),                              // 136: textclassifier.SetTextResponse
+	(*GetEndIndexRequest)(nil),                           // 137: textclassifier.GetEndIndexRequest
+	(*GetEndIndexResponse)(nil),                          // 138: textclassifier.GetEndIndexResponse
+	(*GetStartIndexRequest)(nil),                         // 139: textclassifier.GetStartIndexRequest
+	(*GetStartIndexResponse)(nil),                        // 140: textclassifier.GetStartIndexResponse
+	(*GetTextClassifierRequest)(nil),                     // 141: textclassifier.GetTextClassifierRequest
+	(*GetTextClassifierResponse)(nil),                    // 142: textclassifier.GetTextClassifierResponse
+	(*SetTextClassificationSessionFactoryRequest)(nil),   // 143: textclassifier.SetTextClassificationSessionFactoryRequest
+	(*SetTextClassificationSessionFactoryResponse)(nil),  // 144: textclassifier.SetTextClassificationSessionFactoryResponse
+	(*SetTextClassifierRequest)(nil),                     // 145: textclassifier.SetTextClassifierRequest
+	(*SetTextClassifierResponse)(nil),                    // 146: textclassifier.SetTextClassifierResponse
+	(*NewConversationActionsRequest)(nil),                // 147: textclassifier.NewConversationActionsRequest
+	(*NewConversationActionsResponse)(nil),               // 148: textclassifier.NewConversationActionsResponse
+	(*ConversationActionsDescribeContentsRequest)(nil),   // 149: textclassifier.ConversationActionsDescribeContentsRequest
+	(*GetConversationActionsRequest)(nil),                // 150: textclassifier.GetConversationActionsRequest
+	(*GetConversationActionsResponse)(nil),               // 151: textclassifier.GetConversationActionsResponse
+	(*ConversationActionsGetIdRequest)(nil),              // 152: textclassifier.ConversationActionsGetIdRequest
+	(*ConversationActionsWriteToParcelRequest)(nil),      // 153: textclassifier.ConversationActionsWriteToParcelRequest
+	(*GetAuthorRequest)(nil),                             // 154: textclassifier.GetAuthorRequest
+	(*GetAuthorResponse)(nil),                            // 155: textclassifier.GetAuthorResponse
+	(*GetConversationRequest)(nil),                       // 156: textclassifier.GetConversationRequest
+	(*GetConversationResponse)(nil),                      // 157: textclassifier.GetConversationResponse
+	(*GetMaxSuggestionsRequest)(nil),                     // 158: textclassifier.GetMaxSuggestionsRequest
+	(*GetMaxSuggestionsResponse)(nil),                    // 159: textclassifier.GetMaxSuggestionsResponse
+	(*GetTypeConfigRequest)(nil),                         // 160: textclassifier.GetTypeConfigRequest
+	(*GetTypeConfigResponse)(nil),                        // 161: textclassifier.GetTypeConfigResponse
+	(*TextSelectionGetConfidenceScoreRequest)(nil),       // 162: textclassifier.TextSelectionGetConfidenceScoreRequest
+	(*GetSelectionEndIndexRequest)(nil),                  // 163: textclassifier.GetSelectionEndIndexRequest
+	(*GetSelectionEndIndexResponse)(nil),                 // 164: textclassifier.GetSelectionEndIndexResponse
+	(*GetSelectionStartIndexRequest)(nil),                // 165: textclassifier.GetSelectionStartIndexRequest
+	(*GetSelectionStartIndexResponse)(nil),               // 166: textclassifier.GetSelectionStartIndexResponse
+	(*GetTextClassificationRequest)(nil),                 // 167: textclassifier.GetTextClassificationRequest
+	(*GetTextClassificationResponse)(nil),                // 168: textclassifier.GetTextClassificationResponse
+	(*SetTextClassificationRequest)(nil),                 // 169: textclassifier.SetTextClassificationRequest
+	(*SetTextClassificationResponse)(nil),                // 170: textclassifier.SetTextClassificationResponse
+	(*ShouldIncludeTextClassificationRequest)(nil),       // 171: textclassifier.ShouldIncludeTextClassificationRequest
+	(*ShouldIncludeTextClassificationResponse)(nil),      // 172: textclassifier.ShouldIncludeTextClassificationResponse
+	(*GetDurationSincePreviousEventRequest)(nil),         // 173: textclassifier.GetDurationSincePreviousEventRequest
+	(*GetDurationSincePreviousEventResponse)(nil),        // 174: textclassifier.GetDurationSincePreviousEventResponse
+	(*GetDurationSinceSessionStartRequest)(nil),          // 175: textclassifier.GetDurationSinceSessionStartRequest
+	(*GetDurationSinceSessionStartResponse)(nil),         // 176: textclassifier.GetDurationSinceSessionStartResponse
+	(*GetEntityTypeRequest)(nil),                         // 177: textclassifier.GetEntityTypeRequest
+	(*GetEntityTypeResponse)(nil),                        // 178: textclassifier.GetEntityTypeResponse
+	(*GetEventTimeRequest)(nil),                          // 179: textclassifier.GetEventTimeRequest
+	(*GetEventTimeResponse)(nil),                         // 180: textclassifier.GetEventTimeResponse
+	(*GetInvocationMethodRequest)(nil),                   // 181: textclassifier.GetInvocationMethodRequest
+	(*GetInvocationMethodResponse)(nil),                  // 182: textclassifier.GetInvocationMethodResponse
+	(*GetSessionIdRequest)(nil),                          // 183: textclassifier.GetSessionIdRequest
+	(*GetSessionIdResponse)(nil),                         // 184: textclassifier.GetSessionIdResponse
+	(*GetSmartEndRequest)(nil),                           // 185: textclassifier.GetSmartEndRequest
+	(*GetSmartEndResponse)(nil),                          // 186: textclassifier.GetSmartEndResponse
+	(*GetSmartStartRequest)(nil),                         // 187: textclassifier.GetSmartStartRequest
+	(*GetSmartStartResponse)(nil),                        // 188: textclassifier.GetSmartStartResponse
+	(*CreateSelectionActionEvent3Request)(nil),           // 189: textclassifier.CreateSelectionActionEvent3Request
+	(*CreateSelectionActionEvent3Response)(nil),          // 190: textclassifier.CreateSelectionActionEvent3Response
+	(*CreateSelectionActionEvent4_1Request)(nil),         // 191: textclassifier.CreateSelectionActionEvent4_1Request
+	(*CreateSelectionActionEvent4_1Response)(nil),        // 192: textclassifier.CreateSelectionActionEvent4_1Response
+	(*CreateSelectionModifiedEvent2Request)(nil),         // 193: textclassifier.CreateSelectionModifiedEvent2Request
+	(*CreateSelectionModifiedEvent2Response)(nil),        // 194: textclassifier.CreateSelectionModifiedEvent2Response
+	(*CreateSelectionModifiedEvent3_1Request)(nil),       // 195: textclassifier.CreateSelectionModifiedEvent3_1Request
+	(*CreateSelectionModifiedEvent3_1Response)(nil),      // 196: textclassifier.CreateSelectionModifiedEvent3_1Response
+	(*CreateSelectionModifiedEvent3_2Request)(nil),       // 197: textclassifier.CreateSelectionModifiedEvent3_2Request
+	(*CreateSelectionModifiedEvent3_2Response)(nil),      // 198: textclassifier.CreateSelectionModifiedEvent3_2Response
+	(*CreateSelectionStartedEventRequest)(nil),           // 199: textclassifier.CreateSelectionStartedEventRequest
+	(*CreateSelectionStartedEventResponse)(nil),          // 200: textclassifier.CreateSelectionStartedEventResponse
+	(*IsTerminalRequest)(nil),                            // 201: textclassifier.IsTerminalRequest
+	(*IsTerminalResponse)(nil),                           // 202: textclassifier.IsTerminalResponse
 }
 var file_proto_textclassifier_textclassifier_proto_depIdxs = []int32{
-	0,   // 0: textclassifier.TextClassificationSessionFactoryService.CreateTextClassificationSession:input_type -> textclassifier.CreateTextClassificationSessionRequest
-	2,   // 1: textclassifier.TextSelectionService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
-	4,   // 2: textclassifier.TextSelectionService.GetConfidenceScore:input_type -> textclassifier.GetConfidenceScoreRequest
-	6,   // 3: textclassifier.TextSelectionService.GetEntity:input_type -> textclassifier.GetEntityRequest
-	8,   // 4: textclassifier.TextSelectionService.GetEntityCount:input_type -> textclassifier.GetEntityCountRequest
-	10,  // 5: textclassifier.TextSelectionService.GetExtras:input_type -> textclassifier.GetExtrasRequest
-	12,  // 6: textclassifier.TextSelectionService.GetId:input_type -> textclassifier.GetIdRequest
-	14,  // 7: textclassifier.TextSelectionService.GetSelectionEndIndex:input_type -> textclassifier.GetSelectionEndIndexRequest
-	16,  // 8: textclassifier.TextSelectionService.GetSelectionStartIndex:input_type -> textclassifier.GetSelectionStartIndexRequest
-	18,  // 9: textclassifier.TextSelectionService.GetTextClassification:input_type -> textclassifier.GetTextClassificationRequest
-	20,  // 10: textclassifier.TextSelectionService.ToString:input_type -> textclassifier.ToStringRequest
-	22,  // 11: textclassifier.TextSelectionService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
-	24,  // 12: textclassifier.TextSelectionBuilderService.Build:input_type -> textclassifier.BuildRequest
-	26,  // 13: textclassifier.TextSelectionBuilderService.SetEntityType:input_type -> textclassifier.SetEntityTypeRequest
-	28,  // 14: textclassifier.TextSelectionBuilderService.SetExtras:input_type -> textclassifier.SetExtrasRequest
-	30,  // 15: textclassifier.TextSelectionBuilderService.SetId:input_type -> textclassifier.SetIdRequest
-	32,  // 16: textclassifier.TextSelectionBuilderService.SetTextClassification:input_type -> textclassifier.SetTextClassificationRequest
-	2,   // 17: textclassifier.TextSelectionRequestService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
-	34,  // 18: textclassifier.TextSelectionRequestService.GetCallingPackageName:input_type -> textclassifier.GetCallingPackageNameRequest
-	36,  // 19: textclassifier.TextSelectionRequestService.GetDefaultLocales:input_type -> textclassifier.GetDefaultLocalesRequest
-	38,  // 20: textclassifier.TextSelectionRequestService.GetEndIndex:input_type -> textclassifier.GetEndIndexRequest
-	10,  // 21: textclassifier.TextSelectionRequestService.GetExtras:input_type -> textclassifier.GetExtrasRequest
-	40,  // 22: textclassifier.TextSelectionRequestService.GetStartIndex:input_type -> textclassifier.GetStartIndexRequest
-	42,  // 23: textclassifier.TextSelectionRequestService.GetText:input_type -> textclassifier.GetTextRequest
-	44,  // 24: textclassifier.TextSelectionRequestService.ShouldIncludeTextClassification:input_type -> textclassifier.ShouldIncludeTextClassificationRequest
-	22,  // 25: textclassifier.TextSelectionRequestService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
-	2,   // 26: textclassifier.TextClassificationContextService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
-	46,  // 27: textclassifier.TextClassificationContextService.GetPackageName:input_type -> textclassifier.GetPackageNameRequest
-	48,  // 28: textclassifier.TextClassificationContextService.GetWidgetType:input_type -> textclassifier.GetWidgetTypeRequest
-	50,  // 29: textclassifier.TextClassificationContextService.GetWidgetVersion:input_type -> textclassifier.GetWidgetVersionRequest
-	20,  // 30: textclassifier.TextClassificationContextService.ToString:input_type -> textclassifier.ToStringRequest
-	22,  // 31: textclassifier.TextClassificationContextService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
-	24,  // 32: textclassifier.TextClassificationContextBuilderService.Build:input_type -> textclassifier.BuildRequest
-	52,  // 33: textclassifier.TextClassificationContextBuilderService.SetWidgetVersion:input_type -> textclassifier.SetWidgetVersionRequest
-	2,   // 34: textclassifier.TextClassificationService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
-	4,   // 35: textclassifier.TextClassificationService.GetConfidenceScore:input_type -> textclassifier.GetConfidenceScoreRequest
-	6,   // 36: textclassifier.TextClassificationService.GetEntity:input_type -> textclassifier.GetEntityRequest
-	8,   // 37: textclassifier.TextClassificationService.GetEntityCount:input_type -> textclassifier.GetEntityCountRequest
-	10,  // 38: textclassifier.TextClassificationService.GetExtras:input_type -> textclassifier.GetExtrasRequest
-	54,  // 39: textclassifier.TextClassificationService.GetIcon:input_type -> textclassifier.GetIconRequest
-	12,  // 40: textclassifier.TextClassificationService.GetId:input_type -> textclassifier.GetIdRequest
-	56,  // 41: textclassifier.TextClassificationService.GetIntent:input_type -> textclassifier.GetIntentRequest
-	58,  // 42: textclassifier.TextClassificationService.GetLabel:input_type -> textclassifier.GetLabelRequest
-	60,  // 43: textclassifier.TextClassificationService.GetOnClickListener:input_type -> textclassifier.GetOnClickListenerRequest
-	42,  // 44: textclassifier.TextClassificationService.GetText:input_type -> textclassifier.GetTextRequest
-	20,  // 45: textclassifier.TextClassificationService.ToString:input_type -> textclassifier.ToStringRequest
-	22,  // 46: textclassifier.TextClassificationService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
-	63,  // 47: textclassifier.TextClassificationBuilderService.AddAction:input_type -> textclassifier.AddActionRequest
-	24,  // 48: textclassifier.TextClassificationBuilderService.Build:input_type -> textclassifier.BuildRequest
-	26,  // 49: textclassifier.TextClassificationBuilderService.SetEntityType:input_type -> textclassifier.SetEntityTypeRequest
-	28,  // 50: textclassifier.TextClassificationBuilderService.SetExtras:input_type -> textclassifier.SetExtrasRequest
-	65,  // 51: textclassifier.TextClassificationBuilderService.SetIcon:input_type -> textclassifier.SetIconRequest
-	30,  // 52: textclassifier.TextClassificationBuilderService.SetId:input_type -> textclassifier.SetIdRequest
-	67,  // 53: textclassifier.TextClassificationBuilderService.SetIntent:input_type -> textclassifier.SetIntentRequest
-	69,  // 54: textclassifier.TextClassificationBuilderService.SetLabel:input_type -> textclassifier.SetLabelRequest
-	71,  // 55: textclassifier.TextClassificationBuilderService.SetOnClickListener:input_type -> textclassifier.SetOnClickListenerRequest
-	73,  // 56: textclassifier.TextClassificationBuilderService.SetText:input_type -> textclassifier.SetTextRequest
-	2,   // 57: textclassifier.TextClassificationRequestService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
-	34,  // 58: textclassifier.TextClassificationRequestService.GetCallingPackageName:input_type -> textclassifier.GetCallingPackageNameRequest
-	36,  // 59: textclassifier.TextClassificationRequestService.GetDefaultLocales:input_type -> textclassifier.GetDefaultLocalesRequest
-	38,  // 60: textclassifier.TextClassificationRequestService.GetEndIndex:input_type -> textclassifier.GetEndIndexRequest
-	10,  // 61: textclassifier.TextClassificationRequestService.GetExtras:input_type -> textclassifier.GetExtrasRequest
-	75,  // 62: textclassifier.TextClassificationRequestService.GetReferenceTime:input_type -> textclassifier.GetReferenceTimeRequest
-	40,  // 63: textclassifier.TextClassificationRequestService.GetStartIndex:input_type -> textclassifier.GetStartIndexRequest
-	42,  // 64: textclassifier.TextClassificationRequestService.GetText:input_type -> textclassifier.GetTextRequest
-	22,  // 65: textclassifier.TextClassificationRequestService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
-	0,   // 66: textclassifier.TextClassificationManagerService.CreateTextClassificationSession:input_type -> textclassifier.CreateTextClassificationSessionRequest
-	77,  // 67: textclassifier.TextClassificationManagerService.GetTextClassifier:input_type -> textclassifier.GetTextClassifierRequest
-	79,  // 68: textclassifier.TextClassificationManagerService.SetTextClassificationSessionFactory:input_type -> textclassifier.SetTextClassificationSessionFactoryRequest
-	81,  // 69: textclassifier.TextClassificationManagerService.SetTextClassifier:input_type -> textclassifier.SetTextClassifierRequest
-	2,   // 70: textclassifier.TextClassificationSessionIdService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
-	83,  // 71: textclassifier.TextClassificationSessionIdService.Equals:input_type -> textclassifier.EqualsRequest
-	85,  // 72: textclassifier.TextClassificationSessionIdService.GetValue:input_type -> textclassifier.GetValueRequest
-	87,  // 73: textclassifier.TextClassificationSessionIdService.HashCode:input_type -> textclassifier.HashCodeRequest
-	20,  // 74: textclassifier.TextClassificationSessionIdService.ToString:input_type -> textclassifier.ToStringRequest
-	22,  // 75: textclassifier.TextClassificationSessionIdService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
-	2,   // 76: textclassifier.TextClassifierEventService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
-	89,  // 77: textclassifier.TextClassifierEventService.GetActionIndices:input_type -> textclassifier.GetActionIndicesRequest
-	91,  // 78: textclassifier.TextClassifierEventService.GetEntityTypes:input_type -> textclassifier.GetEntityTypesRequest
-	93,  // 79: textclassifier.TextClassifierEventService.GetEventCategory:input_type -> textclassifier.GetEventCategoryRequest
-	95,  // 80: textclassifier.TextClassifierEventService.GetEventContext:input_type -> textclassifier.GetEventContextRequest
-	97,  // 81: textclassifier.TextClassifierEventService.GetEventIndex:input_type -> textclassifier.GetEventIndexRequest
-	99,  // 82: textclassifier.TextClassifierEventService.GetEventType:input_type -> textclassifier.GetEventTypeRequest
-	10,  // 83: textclassifier.TextClassifierEventService.GetExtras:input_type -> textclassifier.GetExtrasRequest
-	101, // 84: textclassifier.TextClassifierEventService.GetLocale:input_type -> textclassifier.GetLocaleRequest
-	103, // 85: textclassifier.TextClassifierEventService.GetModelName:input_type -> textclassifier.GetModelNameRequest
-	105, // 86: textclassifier.TextClassifierEventService.GetResultId:input_type -> textclassifier.GetResultIdRequest
-	107, // 87: textclassifier.TextClassifierEventService.GetScores:input_type -> textclassifier.GetScoresRequest
-	20,  // 88: textclassifier.TextClassifierEventService.ToString:input_type -> textclassifier.ToStringRequest
-	22,  // 89: textclassifier.TextClassifierEventService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
-	109, // 90: textclassifier.TextClassifierEventTextSelectionEventService.GetRelativeSuggestedWordEndIndex:input_type -> textclassifier.GetRelativeSuggestedWordEndIndexRequest
-	111, // 91: textclassifier.TextClassifierEventTextSelectionEventService.GetRelativeSuggestedWordStartIndex:input_type -> textclassifier.GetRelativeSuggestedWordStartIndexRequest
-	113, // 92: textclassifier.TextClassifierEventTextSelectionEventService.GetRelativeWordEndIndex:input_type -> textclassifier.GetRelativeWordEndIndexRequest
-	115, // 93: textclassifier.TextClassifierEventTextSelectionEventService.GetRelativeWordStartIndex:input_type -> textclassifier.GetRelativeWordStartIndexRequest
-	22,  // 94: textclassifier.TextClassifierEventTextSelectionEventService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
-	2,   // 95: textclassifier.SelectionEventService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
-	83,  // 96: textclassifier.SelectionEventService.Equals:input_type -> textclassifier.EqualsRequest
-	117, // 97: textclassifier.SelectionEventService.GetDurationSincePreviousEvent:input_type -> textclassifier.GetDurationSincePreviousEventRequest
-	119, // 98: textclassifier.SelectionEventService.GetDurationSinceSessionStart:input_type -> textclassifier.GetDurationSinceSessionStartRequest
-	121, // 99: textclassifier.SelectionEventService.GetEnd:input_type -> textclassifier.GetEndRequest
-	123, // 100: textclassifier.SelectionEventService.GetEntityType:input_type -> textclassifier.GetEntityTypeRequest
-	97,  // 101: textclassifier.SelectionEventService.GetEventIndex:input_type -> textclassifier.GetEventIndexRequest
-	125, // 102: textclassifier.SelectionEventService.GetEventTime:input_type -> textclassifier.GetEventTimeRequest
-	99,  // 103: textclassifier.SelectionEventService.GetEventType:input_type -> textclassifier.GetEventTypeRequest
-	127, // 104: textclassifier.SelectionEventService.GetInvocationMethod:input_type -> textclassifier.GetInvocationMethodRequest
-	46,  // 105: textclassifier.SelectionEventService.GetPackageName:input_type -> textclassifier.GetPackageNameRequest
-	105, // 106: textclassifier.SelectionEventService.GetResultId:input_type -> textclassifier.GetResultIdRequest
-	129, // 107: textclassifier.SelectionEventService.GetSessionId:input_type -> textclassifier.GetSessionIdRequest
-	131, // 108: textclassifier.SelectionEventService.GetSmartEnd:input_type -> textclassifier.GetSmartEndRequest
-	133, // 109: textclassifier.SelectionEventService.GetSmartStart:input_type -> textclassifier.GetSmartStartRequest
-	135, // 110: textclassifier.SelectionEventService.GetStart:input_type -> textclassifier.GetStartRequest
-	48,  // 111: textclassifier.SelectionEventService.GetWidgetType:input_type -> textclassifier.GetWidgetTypeRequest
-	50,  // 112: textclassifier.SelectionEventService.GetWidgetVersion:input_type -> textclassifier.GetWidgetVersionRequest
-	87,  // 113: textclassifier.SelectionEventService.HashCode:input_type -> textclassifier.HashCodeRequest
-	20,  // 114: textclassifier.SelectionEventService.ToString:input_type -> textclassifier.ToStringRequest
-	22,  // 115: textclassifier.SelectionEventService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
-	137, // 116: textclassifier.SelectionEventService.CreateSelectionActionEvent3:input_type -> textclassifier.CreateSelectionActionEvent3Request
-	139, // 117: textclassifier.SelectionEventService.CreateSelectionActionEvent4_1:input_type -> textclassifier.CreateSelectionActionEvent4_1Request
-	141, // 118: textclassifier.SelectionEventService.CreateSelectionModifiedEvent2:input_type -> textclassifier.CreateSelectionModifiedEvent2Request
-	143, // 119: textclassifier.SelectionEventService.CreateSelectionModifiedEvent3_1:input_type -> textclassifier.CreateSelectionModifiedEvent3_1Request
-	145, // 120: textclassifier.SelectionEventService.CreateSelectionModifiedEvent3_2:input_type -> textclassifier.CreateSelectionModifiedEvent3_2Request
-	147, // 121: textclassifier.SelectionEventService.CreateSelectionStartedEvent:input_type -> textclassifier.CreateSelectionStartedEventRequest
-	149, // 122: textclassifier.SelectionEventService.IsTerminal:input_type -> textclassifier.IsTerminalRequest
-	2,   // 123: textclassifier.TextLinksService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
-	10,  // 124: textclassifier.TextLinksService.GetExtras:input_type -> textclassifier.GetExtrasRequest
-	42,  // 125: textclassifier.TextLinksService.GetText:input_type -> textclassifier.GetTextRequest
-	20,  // 126: textclassifier.TextLinksService.ToString:input_type -> textclassifier.ToStringRequest
-	22,  // 127: textclassifier.TextLinksService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
-	24,  // 128: textclassifier.TextLinksBuilderService.Build:input_type -> textclassifier.BuildRequest
-	151, // 129: textclassifier.TextLinksBuilderService.ClearTextLinks:input_type -> textclassifier.ClearTextLinksRequest
-	28,  // 130: textclassifier.TextLinksBuilderService.SetExtras:input_type -> textclassifier.SetExtrasRequest
-	2,   // 131: textclassifier.TextLinksRequestService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
-	34,  // 132: textclassifier.TextLinksRequestService.GetCallingPackageName:input_type -> textclassifier.GetCallingPackageNameRequest
-	36,  // 133: textclassifier.TextLinksRequestService.GetDefaultLocales:input_type -> textclassifier.GetDefaultLocalesRequest
-	153, // 134: textclassifier.TextLinksRequestService.GetEntityConfig:input_type -> textclassifier.GetEntityConfigRequest
-	10,  // 135: textclassifier.TextLinksRequestService.GetExtras:input_type -> textclassifier.GetExtrasRequest
-	75,  // 136: textclassifier.TextLinksRequestService.GetReferenceTime:input_type -> textclassifier.GetReferenceTimeRequest
-	42,  // 137: textclassifier.TextLinksRequestService.GetText:input_type -> textclassifier.GetTextRequest
-	22,  // 138: textclassifier.TextLinksRequestService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
-	2,   // 139: textclassifier.TextLinksTextLinkService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
-	4,   // 140: textclassifier.TextLinksTextLinkService.GetConfidenceScore:input_type -> textclassifier.GetConfidenceScoreRequest
-	121, // 141: textclassifier.TextLinksTextLinkService.GetEnd:input_type -> textclassifier.GetEndRequest
-	6,   // 142: textclassifier.TextLinksTextLinkService.GetEntity:input_type -> textclassifier.GetEntityRequest
-	8,   // 143: textclassifier.TextLinksTextLinkService.GetEntityCount:input_type -> textclassifier.GetEntityCountRequest
-	10,  // 144: textclassifier.TextLinksTextLinkService.GetExtras:input_type -> textclassifier.GetExtrasRequest
-	135, // 145: textclassifier.TextLinksTextLinkService.GetStart:input_type -> textclassifier.GetStartRequest
-	20,  // 146: textclassifier.TextLinksTextLinkService.ToString:input_type -> textclassifier.ToStringRequest
-	22,  // 147: textclassifier.TextLinksTextLinkService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
-	155, // 148: textclassifier.TextLinksTextLinkSpanService.GetTextLink:input_type -> textclassifier.GetTextLinkRequest
-	157, // 149: textclassifier.TextLinksTextLinkSpanService.OnClick:input_type -> textclassifier.OnClickRequest
-	2,   // 150: textclassifier.TextLanguageService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
-	159, // 151: textclassifier.TextLanguageService.GetConfidenceScore:input_type -> textclassifier.TextLanguageGetConfidenceScoreRequest
-	10,  // 152: textclassifier.TextLanguageService.GetExtras:input_type -> textclassifier.GetExtrasRequest
-	12,  // 153: textclassifier.TextLanguageService.GetId:input_type -> textclassifier.GetIdRequest
-	160, // 154: textclassifier.TextLanguageService.GetLocale:input_type -> textclassifier.TextLanguageGetLocaleRequest
-	161, // 155: textclassifier.TextLanguageService.GetLocaleHypothesisCount:input_type -> textclassifier.GetLocaleHypothesisCountRequest
-	20,  // 156: textclassifier.TextLanguageService.ToString:input_type -> textclassifier.ToStringRequest
-	22,  // 157: textclassifier.TextLanguageService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
-	24,  // 158: textclassifier.TextLanguageBuilderService.Build:input_type -> textclassifier.BuildRequest
-	163, // 159: textclassifier.TextLanguageBuilderService.PutLocale:input_type -> textclassifier.PutLocaleRequest
-	28,  // 160: textclassifier.TextLanguageBuilderService.SetExtras:input_type -> textclassifier.SetExtrasRequest
-	30,  // 161: textclassifier.TextLanguageBuilderService.SetId:input_type -> textclassifier.SetIdRequest
-	2,   // 162: textclassifier.TextLanguageRequestService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
-	34,  // 163: textclassifier.TextLanguageRequestService.GetCallingPackageName:input_type -> textclassifier.GetCallingPackageNameRequest
-	10,  // 164: textclassifier.TextLanguageRequestService.GetExtras:input_type -> textclassifier.GetExtrasRequest
-	42,  // 165: textclassifier.TextLanguageRequestService.GetText:input_type -> textclassifier.GetTextRequest
-	22,  // 166: textclassifier.TextLanguageRequestService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
-	2,   // 167: textclassifier.ConversationActionService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
-	165, // 168: textclassifier.ConversationActionService.GetAction:input_type -> textclassifier.GetActionRequest
-	167, // 169: textclassifier.ConversationActionService.GetConfidenceScore:input_type -> textclassifier.ConversationActionGetConfidenceScoreRequest
-	10,  // 170: textclassifier.ConversationActionService.GetExtras:input_type -> textclassifier.GetExtrasRequest
-	168, // 171: textclassifier.ConversationActionService.GetTextReply:input_type -> textclassifier.GetTextReplyRequest
-	170, // 172: textclassifier.ConversationActionService.GetType:input_type -> textclassifier.GetTypeRequest
-	22,  // 173: textclassifier.ConversationActionService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
-	24,  // 174: textclassifier.ConversationActionBuilderService.Build:input_type -> textclassifier.BuildRequest
-	172, // 175: textclassifier.ConversationActionBuilderService.SetAction:input_type -> textclassifier.SetActionRequest
-	174, // 176: textclassifier.ConversationActionBuilderService.SetConfidenceScore:input_type -> textclassifier.SetConfidenceScoreRequest
-	28,  // 177: textclassifier.ConversationActionBuilderService.SetExtras:input_type -> textclassifier.SetExtrasRequest
-	176, // 178: textclassifier.ConversationActionBuilderService.SetTextReply:input_type -> textclassifier.SetTextReplyRequest
-	2,   // 179: textclassifier.TextClassifierEntityConfigService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
-	178, // 180: textclassifier.TextClassifierEntityConfigService.ShouldIncludeTypesFromTextClassifier:input_type -> textclassifier.ShouldIncludeTypesFromTextClassifierRequest
-	22,  // 181: textclassifier.TextClassifierEntityConfigService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
-	180, // 182: textclassifier.ConversationActionsService.NewConversationActions:input_type -> textclassifier.NewConversationActionsRequest
-	182, // 183: textclassifier.ConversationActionsService.DescribeContents:input_type -> textclassifier.ConversationActionsDescribeContentsRequest
-	183, // 184: textclassifier.ConversationActionsService.GetId:input_type -> textclassifier.ConversationActionsGetIdRequest
-	184, // 185: textclassifier.ConversationActionsService.WriteToParcel:input_type -> textclassifier.ConversationActionsWriteToParcelRequest
-	2,   // 186: textclassifier.ConversationActionsMessageService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
-	185, // 187: textclassifier.ConversationActionsMessageService.GetAuthor:input_type -> textclassifier.GetAuthorRequest
-	10,  // 188: textclassifier.ConversationActionsMessageService.GetExtras:input_type -> textclassifier.GetExtrasRequest
-	75,  // 189: textclassifier.ConversationActionsMessageService.GetReferenceTime:input_type -> textclassifier.GetReferenceTimeRequest
-	42,  // 190: textclassifier.ConversationActionsMessageService.GetText:input_type -> textclassifier.GetTextRequest
-	22,  // 191: textclassifier.ConversationActionsMessageService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
-	2,   // 192: textclassifier.ConversationActionsRequestService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
-	34,  // 193: textclassifier.ConversationActionsRequestService.GetCallingPackageName:input_type -> textclassifier.GetCallingPackageNameRequest
-	10,  // 194: textclassifier.ConversationActionsRequestService.GetExtras:input_type -> textclassifier.GetExtrasRequest
-	187, // 195: textclassifier.ConversationActionsRequestService.GetMaxSuggestions:input_type -> textclassifier.GetMaxSuggestionsRequest
-	189, // 196: textclassifier.ConversationActionsRequestService.GetTypeConfig:input_type -> textclassifier.GetTypeConfigRequest
-	22,  // 197: textclassifier.ConversationActionsRequestService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
-	1,   // 198: textclassifier.TextClassificationSessionFactoryService.CreateTextClassificationSession:output_type -> textclassifier.CreateTextClassificationSessionResponse
-	3,   // 199: textclassifier.TextSelectionService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
-	5,   // 200: textclassifier.TextSelectionService.GetConfidenceScore:output_type -> textclassifier.GetConfidenceScoreResponse
-	7,   // 201: textclassifier.TextSelectionService.GetEntity:output_type -> textclassifier.GetEntityResponse
-	9,   // 202: textclassifier.TextSelectionService.GetEntityCount:output_type -> textclassifier.GetEntityCountResponse
-	11,  // 203: textclassifier.TextSelectionService.GetExtras:output_type -> textclassifier.GetExtrasResponse
-	13,  // 204: textclassifier.TextSelectionService.GetId:output_type -> textclassifier.GetIdResponse
-	15,  // 205: textclassifier.TextSelectionService.GetSelectionEndIndex:output_type -> textclassifier.GetSelectionEndIndexResponse
-	17,  // 206: textclassifier.TextSelectionService.GetSelectionStartIndex:output_type -> textclassifier.GetSelectionStartIndexResponse
-	19,  // 207: textclassifier.TextSelectionService.GetTextClassification:output_type -> textclassifier.GetTextClassificationResponse
-	21,  // 208: textclassifier.TextSelectionService.ToString:output_type -> textclassifier.ToStringResponse
-	23,  // 209: textclassifier.TextSelectionService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
-	25,  // 210: textclassifier.TextSelectionBuilderService.Build:output_type -> textclassifier.BuildResponse
-	27,  // 211: textclassifier.TextSelectionBuilderService.SetEntityType:output_type -> textclassifier.SetEntityTypeResponse
-	29,  // 212: textclassifier.TextSelectionBuilderService.SetExtras:output_type -> textclassifier.SetExtrasResponse
-	31,  // 213: textclassifier.TextSelectionBuilderService.SetId:output_type -> textclassifier.SetIdResponse
-	33,  // 214: textclassifier.TextSelectionBuilderService.SetTextClassification:output_type -> textclassifier.SetTextClassificationResponse
-	3,   // 215: textclassifier.TextSelectionRequestService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
-	35,  // 216: textclassifier.TextSelectionRequestService.GetCallingPackageName:output_type -> textclassifier.GetCallingPackageNameResponse
-	37,  // 217: textclassifier.TextSelectionRequestService.GetDefaultLocales:output_type -> textclassifier.GetDefaultLocalesResponse
-	39,  // 218: textclassifier.TextSelectionRequestService.GetEndIndex:output_type -> textclassifier.GetEndIndexResponse
-	11,  // 219: textclassifier.TextSelectionRequestService.GetExtras:output_type -> textclassifier.GetExtrasResponse
-	41,  // 220: textclassifier.TextSelectionRequestService.GetStartIndex:output_type -> textclassifier.GetStartIndexResponse
-	43,  // 221: textclassifier.TextSelectionRequestService.GetText:output_type -> textclassifier.GetTextResponse
-	45,  // 222: textclassifier.TextSelectionRequestService.ShouldIncludeTextClassification:output_type -> textclassifier.ShouldIncludeTextClassificationResponse
-	23,  // 223: textclassifier.TextSelectionRequestService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
-	3,   // 224: textclassifier.TextClassificationContextService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
-	47,  // 225: textclassifier.TextClassificationContextService.GetPackageName:output_type -> textclassifier.GetPackageNameResponse
-	49,  // 226: textclassifier.TextClassificationContextService.GetWidgetType:output_type -> textclassifier.GetWidgetTypeResponse
-	51,  // 227: textclassifier.TextClassificationContextService.GetWidgetVersion:output_type -> textclassifier.GetWidgetVersionResponse
-	21,  // 228: textclassifier.TextClassificationContextService.ToString:output_type -> textclassifier.ToStringResponse
-	23,  // 229: textclassifier.TextClassificationContextService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
-	25,  // 230: textclassifier.TextClassificationContextBuilderService.Build:output_type -> textclassifier.BuildResponse
-	53,  // 231: textclassifier.TextClassificationContextBuilderService.SetWidgetVersion:output_type -> textclassifier.SetWidgetVersionResponse
-	3,   // 232: textclassifier.TextClassificationService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
-	5,   // 233: textclassifier.TextClassificationService.GetConfidenceScore:output_type -> textclassifier.GetConfidenceScoreResponse
-	7,   // 234: textclassifier.TextClassificationService.GetEntity:output_type -> textclassifier.GetEntityResponse
-	9,   // 235: textclassifier.TextClassificationService.GetEntityCount:output_type -> textclassifier.GetEntityCountResponse
-	11,  // 236: textclassifier.TextClassificationService.GetExtras:output_type -> textclassifier.GetExtrasResponse
-	55,  // 237: textclassifier.TextClassificationService.GetIcon:output_type -> textclassifier.GetIconResponse
-	13,  // 238: textclassifier.TextClassificationService.GetId:output_type -> textclassifier.GetIdResponse
-	57,  // 239: textclassifier.TextClassificationService.GetIntent:output_type -> textclassifier.GetIntentResponse
-	59,  // 240: textclassifier.TextClassificationService.GetLabel:output_type -> textclassifier.GetLabelResponse
-	61,  // 241: textclassifier.TextClassificationService.GetOnClickListener:output_type -> textclassifier.GetOnClickListenerResponse
-	62,  // 242: textclassifier.TextClassificationService.GetText:output_type -> textclassifier.TextClassificationGetTextResponse
-	21,  // 243: textclassifier.TextClassificationService.ToString:output_type -> textclassifier.ToStringResponse
-	23,  // 244: textclassifier.TextClassificationService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
-	64,  // 245: textclassifier.TextClassificationBuilderService.AddAction:output_type -> textclassifier.AddActionResponse
-	25,  // 246: textclassifier.TextClassificationBuilderService.Build:output_type -> textclassifier.BuildResponse
-	27,  // 247: textclassifier.TextClassificationBuilderService.SetEntityType:output_type -> textclassifier.SetEntityTypeResponse
-	29,  // 248: textclassifier.TextClassificationBuilderService.SetExtras:output_type -> textclassifier.SetExtrasResponse
-	66,  // 249: textclassifier.TextClassificationBuilderService.SetIcon:output_type -> textclassifier.SetIconResponse
-	31,  // 250: textclassifier.TextClassificationBuilderService.SetId:output_type -> textclassifier.SetIdResponse
-	68,  // 251: textclassifier.TextClassificationBuilderService.SetIntent:output_type -> textclassifier.SetIntentResponse
-	70,  // 252: textclassifier.TextClassificationBuilderService.SetLabel:output_type -> textclassifier.SetLabelResponse
-	72,  // 253: textclassifier.TextClassificationBuilderService.SetOnClickListener:output_type -> textclassifier.SetOnClickListenerResponse
-	74,  // 254: textclassifier.TextClassificationBuilderService.SetText:output_type -> textclassifier.SetTextResponse
-	3,   // 255: textclassifier.TextClassificationRequestService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
-	35,  // 256: textclassifier.TextClassificationRequestService.GetCallingPackageName:output_type -> textclassifier.GetCallingPackageNameResponse
-	37,  // 257: textclassifier.TextClassificationRequestService.GetDefaultLocales:output_type -> textclassifier.GetDefaultLocalesResponse
-	39,  // 258: textclassifier.TextClassificationRequestService.GetEndIndex:output_type -> textclassifier.GetEndIndexResponse
-	11,  // 259: textclassifier.TextClassificationRequestService.GetExtras:output_type -> textclassifier.GetExtrasResponse
-	76,  // 260: textclassifier.TextClassificationRequestService.GetReferenceTime:output_type -> textclassifier.GetReferenceTimeResponse
-	41,  // 261: textclassifier.TextClassificationRequestService.GetStartIndex:output_type -> textclassifier.GetStartIndexResponse
-	43,  // 262: textclassifier.TextClassificationRequestService.GetText:output_type -> textclassifier.GetTextResponse
-	23,  // 263: textclassifier.TextClassificationRequestService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
-	1,   // 264: textclassifier.TextClassificationManagerService.CreateTextClassificationSession:output_type -> textclassifier.CreateTextClassificationSessionResponse
-	78,  // 265: textclassifier.TextClassificationManagerService.GetTextClassifier:output_type -> textclassifier.GetTextClassifierResponse
-	80,  // 266: textclassifier.TextClassificationManagerService.SetTextClassificationSessionFactory:output_type -> textclassifier.SetTextClassificationSessionFactoryResponse
-	82,  // 267: textclassifier.TextClassificationManagerService.SetTextClassifier:output_type -> textclassifier.SetTextClassifierResponse
-	3,   // 268: textclassifier.TextClassificationSessionIdService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
-	84,  // 269: textclassifier.TextClassificationSessionIdService.Equals:output_type -> textclassifier.EqualsResponse
-	86,  // 270: textclassifier.TextClassificationSessionIdService.GetValue:output_type -> textclassifier.GetValueResponse
-	88,  // 271: textclassifier.TextClassificationSessionIdService.HashCode:output_type -> textclassifier.HashCodeResponse
-	21,  // 272: textclassifier.TextClassificationSessionIdService.ToString:output_type -> textclassifier.ToStringResponse
-	23,  // 273: textclassifier.TextClassificationSessionIdService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
-	3,   // 274: textclassifier.TextClassifierEventService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
-	90,  // 275: textclassifier.TextClassifierEventService.GetActionIndices:output_type -> textclassifier.GetActionIndicesResponse
-	92,  // 276: textclassifier.TextClassifierEventService.GetEntityTypes:output_type -> textclassifier.GetEntityTypesResponse
-	94,  // 277: textclassifier.TextClassifierEventService.GetEventCategory:output_type -> textclassifier.GetEventCategoryResponse
-	96,  // 278: textclassifier.TextClassifierEventService.GetEventContext:output_type -> textclassifier.GetEventContextResponse
-	98,  // 279: textclassifier.TextClassifierEventService.GetEventIndex:output_type -> textclassifier.GetEventIndexResponse
-	100, // 280: textclassifier.TextClassifierEventService.GetEventType:output_type -> textclassifier.GetEventTypeResponse
-	11,  // 281: textclassifier.TextClassifierEventService.GetExtras:output_type -> textclassifier.GetExtrasResponse
-	102, // 282: textclassifier.TextClassifierEventService.GetLocale:output_type -> textclassifier.GetLocaleResponse
-	104, // 283: textclassifier.TextClassifierEventService.GetModelName:output_type -> textclassifier.GetModelNameResponse
-	106, // 284: textclassifier.TextClassifierEventService.GetResultId:output_type -> textclassifier.GetResultIdResponse
-	108, // 285: textclassifier.TextClassifierEventService.GetScores:output_type -> textclassifier.GetScoresResponse
-	21,  // 286: textclassifier.TextClassifierEventService.ToString:output_type -> textclassifier.ToStringResponse
-	23,  // 287: textclassifier.TextClassifierEventService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
-	110, // 288: textclassifier.TextClassifierEventTextSelectionEventService.GetRelativeSuggestedWordEndIndex:output_type -> textclassifier.GetRelativeSuggestedWordEndIndexResponse
-	112, // 289: textclassifier.TextClassifierEventTextSelectionEventService.GetRelativeSuggestedWordStartIndex:output_type -> textclassifier.GetRelativeSuggestedWordStartIndexResponse
-	114, // 290: textclassifier.TextClassifierEventTextSelectionEventService.GetRelativeWordEndIndex:output_type -> textclassifier.GetRelativeWordEndIndexResponse
-	116, // 291: textclassifier.TextClassifierEventTextSelectionEventService.GetRelativeWordStartIndex:output_type -> textclassifier.GetRelativeWordStartIndexResponse
-	23,  // 292: textclassifier.TextClassifierEventTextSelectionEventService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
-	3,   // 293: textclassifier.SelectionEventService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
-	84,  // 294: textclassifier.SelectionEventService.Equals:output_type -> textclassifier.EqualsResponse
-	118, // 295: textclassifier.SelectionEventService.GetDurationSincePreviousEvent:output_type -> textclassifier.GetDurationSincePreviousEventResponse
-	120, // 296: textclassifier.SelectionEventService.GetDurationSinceSessionStart:output_type -> textclassifier.GetDurationSinceSessionStartResponse
-	122, // 297: textclassifier.SelectionEventService.GetEnd:output_type -> textclassifier.GetEndResponse
-	124, // 298: textclassifier.SelectionEventService.GetEntityType:output_type -> textclassifier.GetEntityTypeResponse
-	98,  // 299: textclassifier.SelectionEventService.GetEventIndex:output_type -> textclassifier.GetEventIndexResponse
-	126, // 300: textclassifier.SelectionEventService.GetEventTime:output_type -> textclassifier.GetEventTimeResponse
-	100, // 301: textclassifier.SelectionEventService.GetEventType:output_type -> textclassifier.GetEventTypeResponse
-	128, // 302: textclassifier.SelectionEventService.GetInvocationMethod:output_type -> textclassifier.GetInvocationMethodResponse
-	47,  // 303: textclassifier.SelectionEventService.GetPackageName:output_type -> textclassifier.GetPackageNameResponse
-	106, // 304: textclassifier.SelectionEventService.GetResultId:output_type -> textclassifier.GetResultIdResponse
-	130, // 305: textclassifier.SelectionEventService.GetSessionId:output_type -> textclassifier.GetSessionIdResponse
-	132, // 306: textclassifier.SelectionEventService.GetSmartEnd:output_type -> textclassifier.GetSmartEndResponse
-	134, // 307: textclassifier.SelectionEventService.GetSmartStart:output_type -> textclassifier.GetSmartStartResponse
-	136, // 308: textclassifier.SelectionEventService.GetStart:output_type -> textclassifier.GetStartResponse
-	49,  // 309: textclassifier.SelectionEventService.GetWidgetType:output_type -> textclassifier.GetWidgetTypeResponse
-	51,  // 310: textclassifier.SelectionEventService.GetWidgetVersion:output_type -> textclassifier.GetWidgetVersionResponse
-	88,  // 311: textclassifier.SelectionEventService.HashCode:output_type -> textclassifier.HashCodeResponse
-	21,  // 312: textclassifier.SelectionEventService.ToString:output_type -> textclassifier.ToStringResponse
-	23,  // 313: textclassifier.SelectionEventService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
-	138, // 314: textclassifier.SelectionEventService.CreateSelectionActionEvent3:output_type -> textclassifier.CreateSelectionActionEvent3Response
-	140, // 315: textclassifier.SelectionEventService.CreateSelectionActionEvent4_1:output_type -> textclassifier.CreateSelectionActionEvent4_1Response
-	142, // 316: textclassifier.SelectionEventService.CreateSelectionModifiedEvent2:output_type -> textclassifier.CreateSelectionModifiedEvent2Response
-	144, // 317: textclassifier.SelectionEventService.CreateSelectionModifiedEvent3_1:output_type -> textclassifier.CreateSelectionModifiedEvent3_1Response
-	146, // 318: textclassifier.SelectionEventService.CreateSelectionModifiedEvent3_2:output_type -> textclassifier.CreateSelectionModifiedEvent3_2Response
-	148, // 319: textclassifier.SelectionEventService.CreateSelectionStartedEvent:output_type -> textclassifier.CreateSelectionStartedEventResponse
-	150, // 320: textclassifier.SelectionEventService.IsTerminal:output_type -> textclassifier.IsTerminalResponse
-	3,   // 321: textclassifier.TextLinksService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
-	11,  // 322: textclassifier.TextLinksService.GetExtras:output_type -> textclassifier.GetExtrasResponse
-	43,  // 323: textclassifier.TextLinksService.GetText:output_type -> textclassifier.GetTextResponse
-	21,  // 324: textclassifier.TextLinksService.ToString:output_type -> textclassifier.ToStringResponse
-	23,  // 325: textclassifier.TextLinksService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
-	25,  // 326: textclassifier.TextLinksBuilderService.Build:output_type -> textclassifier.BuildResponse
-	152, // 327: textclassifier.TextLinksBuilderService.ClearTextLinks:output_type -> textclassifier.ClearTextLinksResponse
-	29,  // 328: textclassifier.TextLinksBuilderService.SetExtras:output_type -> textclassifier.SetExtrasResponse
-	3,   // 329: textclassifier.TextLinksRequestService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
-	35,  // 330: textclassifier.TextLinksRequestService.GetCallingPackageName:output_type -> textclassifier.GetCallingPackageNameResponse
-	37,  // 331: textclassifier.TextLinksRequestService.GetDefaultLocales:output_type -> textclassifier.GetDefaultLocalesResponse
-	154, // 332: textclassifier.TextLinksRequestService.GetEntityConfig:output_type -> textclassifier.GetEntityConfigResponse
-	11,  // 333: textclassifier.TextLinksRequestService.GetExtras:output_type -> textclassifier.GetExtrasResponse
-	76,  // 334: textclassifier.TextLinksRequestService.GetReferenceTime:output_type -> textclassifier.GetReferenceTimeResponse
-	43,  // 335: textclassifier.TextLinksRequestService.GetText:output_type -> textclassifier.GetTextResponse
-	23,  // 336: textclassifier.TextLinksRequestService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
-	3,   // 337: textclassifier.TextLinksTextLinkService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
-	5,   // 338: textclassifier.TextLinksTextLinkService.GetConfidenceScore:output_type -> textclassifier.GetConfidenceScoreResponse
-	122, // 339: textclassifier.TextLinksTextLinkService.GetEnd:output_type -> textclassifier.GetEndResponse
-	7,   // 340: textclassifier.TextLinksTextLinkService.GetEntity:output_type -> textclassifier.GetEntityResponse
-	9,   // 341: textclassifier.TextLinksTextLinkService.GetEntityCount:output_type -> textclassifier.GetEntityCountResponse
-	11,  // 342: textclassifier.TextLinksTextLinkService.GetExtras:output_type -> textclassifier.GetExtrasResponse
-	136, // 343: textclassifier.TextLinksTextLinkService.GetStart:output_type -> textclassifier.GetStartResponse
-	21,  // 344: textclassifier.TextLinksTextLinkService.ToString:output_type -> textclassifier.ToStringResponse
-	23,  // 345: textclassifier.TextLinksTextLinkService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
-	156, // 346: textclassifier.TextLinksTextLinkSpanService.GetTextLink:output_type -> textclassifier.GetTextLinkResponse
-	158, // 347: textclassifier.TextLinksTextLinkSpanService.OnClick:output_type -> textclassifier.OnClickResponse
-	3,   // 348: textclassifier.TextLanguageService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
-	5,   // 349: textclassifier.TextLanguageService.GetConfidenceScore:output_type -> textclassifier.GetConfidenceScoreResponse
-	11,  // 350: textclassifier.TextLanguageService.GetExtras:output_type -> textclassifier.GetExtrasResponse
-	13,  // 351: textclassifier.TextLanguageService.GetId:output_type -> textclassifier.GetIdResponse
-	102, // 352: textclassifier.TextLanguageService.GetLocale:output_type -> textclassifier.GetLocaleResponse
-	162, // 353: textclassifier.TextLanguageService.GetLocaleHypothesisCount:output_type -> textclassifier.GetLocaleHypothesisCountResponse
-	21,  // 354: textclassifier.TextLanguageService.ToString:output_type -> textclassifier.ToStringResponse
-	23,  // 355: textclassifier.TextLanguageService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
-	25,  // 356: textclassifier.TextLanguageBuilderService.Build:output_type -> textclassifier.BuildResponse
-	164, // 357: textclassifier.TextLanguageBuilderService.PutLocale:output_type -> textclassifier.PutLocaleResponse
-	29,  // 358: textclassifier.TextLanguageBuilderService.SetExtras:output_type -> textclassifier.SetExtrasResponse
-	31,  // 359: textclassifier.TextLanguageBuilderService.SetId:output_type -> textclassifier.SetIdResponse
-	3,   // 360: textclassifier.TextLanguageRequestService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
-	35,  // 361: textclassifier.TextLanguageRequestService.GetCallingPackageName:output_type -> textclassifier.GetCallingPackageNameResponse
-	11,  // 362: textclassifier.TextLanguageRequestService.GetExtras:output_type -> textclassifier.GetExtrasResponse
-	43,  // 363: textclassifier.TextLanguageRequestService.GetText:output_type -> textclassifier.GetTextResponse
-	23,  // 364: textclassifier.TextLanguageRequestService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
-	3,   // 365: textclassifier.ConversationActionService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
-	166, // 366: textclassifier.ConversationActionService.GetAction:output_type -> textclassifier.GetActionResponse
-	5,   // 367: textclassifier.ConversationActionService.GetConfidenceScore:output_type -> textclassifier.GetConfidenceScoreResponse
-	11,  // 368: textclassifier.ConversationActionService.GetExtras:output_type -> textclassifier.GetExtrasResponse
-	169, // 369: textclassifier.ConversationActionService.GetTextReply:output_type -> textclassifier.GetTextReplyResponse
-	171, // 370: textclassifier.ConversationActionService.GetType:output_type -> textclassifier.GetTypeResponse
-	23,  // 371: textclassifier.ConversationActionService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
-	25,  // 372: textclassifier.ConversationActionBuilderService.Build:output_type -> textclassifier.BuildResponse
-	173, // 373: textclassifier.ConversationActionBuilderService.SetAction:output_type -> textclassifier.SetActionResponse
-	175, // 374: textclassifier.ConversationActionBuilderService.SetConfidenceScore:output_type -> textclassifier.SetConfidenceScoreResponse
-	29,  // 375: textclassifier.ConversationActionBuilderService.SetExtras:output_type -> textclassifier.SetExtrasResponse
-	177, // 376: textclassifier.ConversationActionBuilderService.SetTextReply:output_type -> textclassifier.SetTextReplyResponse
-	3,   // 377: textclassifier.TextClassifierEntityConfigService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
-	179, // 378: textclassifier.TextClassifierEntityConfigService.ShouldIncludeTypesFromTextClassifier:output_type -> textclassifier.ShouldIncludeTypesFromTextClassifierResponse
-	23,  // 379: textclassifier.TextClassifierEntityConfigService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
-	181, // 380: textclassifier.ConversationActionsService.NewConversationActions:output_type -> textclassifier.NewConversationActionsResponse
-	3,   // 381: textclassifier.ConversationActionsService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
-	13,  // 382: textclassifier.ConversationActionsService.GetId:output_type -> textclassifier.GetIdResponse
-	23,  // 383: textclassifier.ConversationActionsService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
-	3,   // 384: textclassifier.ConversationActionsMessageService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
-	186, // 385: textclassifier.ConversationActionsMessageService.GetAuthor:output_type -> textclassifier.GetAuthorResponse
-	11,  // 386: textclassifier.ConversationActionsMessageService.GetExtras:output_type -> textclassifier.GetExtrasResponse
-	76,  // 387: textclassifier.ConversationActionsMessageService.GetReferenceTime:output_type -> textclassifier.GetReferenceTimeResponse
-	43,  // 388: textclassifier.ConversationActionsMessageService.GetText:output_type -> textclassifier.GetTextResponse
-	23,  // 389: textclassifier.ConversationActionsMessageService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
-	3,   // 390: textclassifier.ConversationActionsRequestService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
-	35,  // 391: textclassifier.ConversationActionsRequestService.GetCallingPackageName:output_type -> textclassifier.GetCallingPackageNameResponse
-	11,  // 392: textclassifier.ConversationActionsRequestService.GetExtras:output_type -> textclassifier.GetExtrasResponse
-	188, // 393: textclassifier.ConversationActionsRequestService.GetMaxSuggestions:output_type -> textclassifier.GetMaxSuggestionsResponse
-	190, // 394: textclassifier.ConversationActionsRequestService.GetTypeConfig:output_type -> textclassifier.GetTypeConfigResponse
-	23,  // 395: textclassifier.ConversationActionsRequestService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
-	198, // [198:396] is the sub-list for method output_type
-	0,   // [0:198] is the sub-list for method input_type
+	0,   // 0: textclassifier.TextClassificationSessionIdService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
+	2,   // 1: textclassifier.TextClassificationSessionIdService.Equals:input_type -> textclassifier.EqualsRequest
+	4,   // 2: textclassifier.TextClassificationSessionIdService.GetValue:input_type -> textclassifier.GetValueRequest
+	6,   // 3: textclassifier.TextClassificationSessionIdService.HashCode:input_type -> textclassifier.HashCodeRequest
+	8,   // 4: textclassifier.TextClassificationSessionIdService.ToString:input_type -> textclassifier.ToStringRequest
+	10,  // 5: textclassifier.TextClassificationSessionIdService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
+	0,   // 6: textclassifier.TextClassifierEntityConfigService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
+	12,  // 7: textclassifier.TextClassifierEntityConfigService.GetHints:input_type -> textclassifier.GetHintsRequest
+	14,  // 8: textclassifier.TextClassifierEntityConfigService.ShouldIncludeTypesFromTextClassifier:input_type -> textclassifier.ShouldIncludeTypesFromTextClassifierRequest
+	10,  // 9: textclassifier.TextClassifierEntityConfigService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
+	0,   // 10: textclassifier.ConversationActionService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
+	16,  // 11: textclassifier.ConversationActionService.GetAction:input_type -> textclassifier.GetActionRequest
+	18,  // 12: textclassifier.ConversationActionService.GetConfidenceScore:input_type -> textclassifier.GetConfidenceScoreRequest
+	20,  // 13: textclassifier.ConversationActionService.GetExtras:input_type -> textclassifier.GetExtrasRequest
+	22,  // 14: textclassifier.ConversationActionService.GetTextReply:input_type -> textclassifier.GetTextReplyRequest
+	24,  // 15: textclassifier.ConversationActionService.GetType:input_type -> textclassifier.GetTypeRequest
+	10,  // 16: textclassifier.ConversationActionService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
+	26,  // 17: textclassifier.ConversationActionBuilderService.Build:input_type -> textclassifier.BuildRequest
+	28,  // 18: textclassifier.ConversationActionBuilderService.SetAction:input_type -> textclassifier.SetActionRequest
+	30,  // 19: textclassifier.ConversationActionBuilderService.SetConfidenceScore:input_type -> textclassifier.SetConfidenceScoreRequest
+	32,  // 20: textclassifier.ConversationActionBuilderService.SetExtras:input_type -> textclassifier.SetExtrasRequest
+	34,  // 21: textclassifier.ConversationActionBuilderService.SetTextReply:input_type -> textclassifier.SetTextReplyRequest
+	36,  // 22: textclassifier.TextClassificationSessionFactoryService.CreateTextClassificationSession:input_type -> textclassifier.CreateTextClassificationSessionRequest
+	0,   // 23: textclassifier.TextClassificationContextService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
+	38,  // 24: textclassifier.TextClassificationContextService.GetPackageName:input_type -> textclassifier.GetPackageNameRequest
+	40,  // 25: textclassifier.TextClassificationContextService.GetWidgetType:input_type -> textclassifier.GetWidgetTypeRequest
+	42,  // 26: textclassifier.TextClassificationContextService.GetWidgetVersion:input_type -> textclassifier.GetWidgetVersionRequest
+	8,   // 27: textclassifier.TextClassificationContextService.ToString:input_type -> textclassifier.ToStringRequest
+	10,  // 28: textclassifier.TextClassificationContextService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
+	26,  // 29: textclassifier.TextClassificationContextBuilderService.Build:input_type -> textclassifier.BuildRequest
+	44,  // 30: textclassifier.TextClassificationContextBuilderService.SetWidgetVersion:input_type -> textclassifier.SetWidgetVersionRequest
+	0,   // 31: textclassifier.TextLinksService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
+	20,  // 32: textclassifier.TextLinksService.GetExtras:input_type -> textclassifier.GetExtrasRequest
+	46,  // 33: textclassifier.TextLinksService.GetLinks:input_type -> textclassifier.GetLinksRequest
+	48,  // 34: textclassifier.TextLinksService.GetText:input_type -> textclassifier.GetTextRequest
+	8,   // 35: textclassifier.TextLinksService.ToString:input_type -> textclassifier.ToStringRequest
+	10,  // 36: textclassifier.TextLinksService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
+	26,  // 37: textclassifier.TextLinksBuilderService.Build:input_type -> textclassifier.BuildRequest
+	50,  // 38: textclassifier.TextLinksBuilderService.ClearTextLinks:input_type -> textclassifier.ClearTextLinksRequest
+	32,  // 39: textclassifier.TextLinksBuilderService.SetExtras:input_type -> textclassifier.SetExtrasRequest
+	0,   // 40: textclassifier.TextLinksRequestService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
+	52,  // 41: textclassifier.TextLinksRequestService.GetCallingPackageName:input_type -> textclassifier.GetCallingPackageNameRequest
+	54,  // 42: textclassifier.TextLinksRequestService.GetDefaultLocales:input_type -> textclassifier.GetDefaultLocalesRequest
+	56,  // 43: textclassifier.TextLinksRequestService.GetEntityConfig:input_type -> textclassifier.GetEntityConfigRequest
+	20,  // 44: textclassifier.TextLinksRequestService.GetExtras:input_type -> textclassifier.GetExtrasRequest
+	58,  // 45: textclassifier.TextLinksRequestService.GetReferenceTime:input_type -> textclassifier.GetReferenceTimeRequest
+	48,  // 46: textclassifier.TextLinksRequestService.GetText:input_type -> textclassifier.GetTextRequest
+	10,  // 47: textclassifier.TextLinksRequestService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
+	0,   // 48: textclassifier.TextLinksTextLinkService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
+	60,  // 49: textclassifier.TextLinksTextLinkService.GetConfidenceScore:input_type -> textclassifier.TextLinksTextLinkGetConfidenceScoreRequest
+	61,  // 50: textclassifier.TextLinksTextLinkService.GetEnd:input_type -> textclassifier.GetEndRequest
+	63,  // 51: textclassifier.TextLinksTextLinkService.GetEntity:input_type -> textclassifier.GetEntityRequest
+	65,  // 52: textclassifier.TextLinksTextLinkService.GetEntityCount:input_type -> textclassifier.GetEntityCountRequest
+	20,  // 53: textclassifier.TextLinksTextLinkService.GetExtras:input_type -> textclassifier.GetExtrasRequest
+	67,  // 54: textclassifier.TextLinksTextLinkService.GetStart:input_type -> textclassifier.GetStartRequest
+	8,   // 55: textclassifier.TextLinksTextLinkService.ToString:input_type -> textclassifier.ToStringRequest
+	10,  // 56: textclassifier.TextLinksTextLinkService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
+	69,  // 57: textclassifier.TextLinksTextLinkSpanService.GetTextLink:input_type -> textclassifier.GetTextLinkRequest
+	71,  // 58: textclassifier.TextLinksTextLinkSpanService.OnClick:input_type -> textclassifier.OnClickRequest
+	0,   // 59: textclassifier.TextClassifierEventService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
+	73,  // 60: textclassifier.TextClassifierEventService.GetActionIndices:input_type -> textclassifier.GetActionIndicesRequest
+	75,  // 61: textclassifier.TextClassifierEventService.GetEntityTypes:input_type -> textclassifier.GetEntityTypesRequest
+	77,  // 62: textclassifier.TextClassifierEventService.GetEventCategory:input_type -> textclassifier.GetEventCategoryRequest
+	79,  // 63: textclassifier.TextClassifierEventService.GetEventContext:input_type -> textclassifier.GetEventContextRequest
+	81,  // 64: textclassifier.TextClassifierEventService.GetEventIndex:input_type -> textclassifier.GetEventIndexRequest
+	83,  // 65: textclassifier.TextClassifierEventService.GetEventType:input_type -> textclassifier.GetEventTypeRequest
+	20,  // 66: textclassifier.TextClassifierEventService.GetExtras:input_type -> textclassifier.GetExtrasRequest
+	85,  // 67: textclassifier.TextClassifierEventService.GetLocale:input_type -> textclassifier.GetLocaleRequest
+	87,  // 68: textclassifier.TextClassifierEventService.GetModelName:input_type -> textclassifier.GetModelNameRequest
+	89,  // 69: textclassifier.TextClassifierEventService.GetResultId:input_type -> textclassifier.GetResultIdRequest
+	91,  // 70: textclassifier.TextClassifierEventService.GetScores:input_type -> textclassifier.GetScoresRequest
+	8,   // 71: textclassifier.TextClassifierEventService.ToString:input_type -> textclassifier.ToStringRequest
+	10,  // 72: textclassifier.TextClassifierEventService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
+	93,  // 73: textclassifier.TextClassifierEventTextSelectionEventService.GetRelativeSuggestedWordEndIndex:input_type -> textclassifier.GetRelativeSuggestedWordEndIndexRequest
+	95,  // 74: textclassifier.TextClassifierEventTextSelectionEventService.GetRelativeSuggestedWordStartIndex:input_type -> textclassifier.GetRelativeSuggestedWordStartIndexRequest
+	97,  // 75: textclassifier.TextClassifierEventTextSelectionEventService.GetRelativeWordEndIndex:input_type -> textclassifier.GetRelativeWordEndIndexRequest
+	99,  // 76: textclassifier.TextClassifierEventTextSelectionEventService.GetRelativeWordStartIndex:input_type -> textclassifier.GetRelativeWordStartIndexRequest
+	10,  // 77: textclassifier.TextClassifierEventTextSelectionEventService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
+	0,   // 78: textclassifier.TextLanguageService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
+	101, // 79: textclassifier.TextLanguageService.GetConfidenceScore:input_type -> textclassifier.TextLanguageGetConfidenceScoreRequest
+	20,  // 80: textclassifier.TextLanguageService.GetExtras:input_type -> textclassifier.GetExtrasRequest
+	102, // 81: textclassifier.TextLanguageService.GetId:input_type -> textclassifier.GetIdRequest
+	104, // 82: textclassifier.TextLanguageService.GetLocale:input_type -> textclassifier.TextLanguageGetLocaleRequest
+	105, // 83: textclassifier.TextLanguageService.GetLocaleHypothesisCount:input_type -> textclassifier.GetLocaleHypothesisCountRequest
+	8,   // 84: textclassifier.TextLanguageService.ToString:input_type -> textclassifier.ToStringRequest
+	10,  // 85: textclassifier.TextLanguageService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
+	26,  // 86: textclassifier.TextLanguageBuilderService.Build:input_type -> textclassifier.BuildRequest
+	107, // 87: textclassifier.TextLanguageBuilderService.PutLocale:input_type -> textclassifier.PutLocaleRequest
+	32,  // 88: textclassifier.TextLanguageBuilderService.SetExtras:input_type -> textclassifier.SetExtrasRequest
+	109, // 89: textclassifier.TextLanguageBuilderService.SetId:input_type -> textclassifier.SetIdRequest
+	0,   // 90: textclassifier.TextLanguageRequestService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
+	52,  // 91: textclassifier.TextLanguageRequestService.GetCallingPackageName:input_type -> textclassifier.GetCallingPackageNameRequest
+	20,  // 92: textclassifier.TextLanguageRequestService.GetExtras:input_type -> textclassifier.GetExtrasRequest
+	48,  // 93: textclassifier.TextLanguageRequestService.GetText:input_type -> textclassifier.GetTextRequest
+	10,  // 94: textclassifier.TextLanguageRequestService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
+	0,   // 95: textclassifier.TextClassificationService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
+	111, // 96: textclassifier.TextClassificationService.GetActions:input_type -> textclassifier.GetActionsRequest
+	113, // 97: textclassifier.TextClassificationService.GetConfidenceScore:input_type -> textclassifier.TextClassificationGetConfidenceScoreRequest
+	63,  // 98: textclassifier.TextClassificationService.GetEntity:input_type -> textclassifier.GetEntityRequest
+	65,  // 99: textclassifier.TextClassificationService.GetEntityCount:input_type -> textclassifier.GetEntityCountRequest
+	20,  // 100: textclassifier.TextClassificationService.GetExtras:input_type -> textclassifier.GetExtrasRequest
+	114, // 101: textclassifier.TextClassificationService.GetIcon:input_type -> textclassifier.GetIconRequest
+	102, // 102: textclassifier.TextClassificationService.GetId:input_type -> textclassifier.GetIdRequest
+	116, // 103: textclassifier.TextClassificationService.GetIntent:input_type -> textclassifier.GetIntentRequest
+	118, // 104: textclassifier.TextClassificationService.GetLabel:input_type -> textclassifier.GetLabelRequest
+	120, // 105: textclassifier.TextClassificationService.GetOnClickListener:input_type -> textclassifier.GetOnClickListenerRequest
+	48,  // 106: textclassifier.TextClassificationService.GetText:input_type -> textclassifier.GetTextRequest
+	8,   // 107: textclassifier.TextClassificationService.ToString:input_type -> textclassifier.ToStringRequest
+	10,  // 108: textclassifier.TextClassificationService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
+	123, // 109: textclassifier.TextClassificationBuilderService.AddAction:input_type -> textclassifier.AddActionRequest
+	26,  // 110: textclassifier.TextClassificationBuilderService.Build:input_type -> textclassifier.BuildRequest
+	125, // 111: textclassifier.TextClassificationBuilderService.SetEntityType:input_type -> textclassifier.SetEntityTypeRequest
+	32,  // 112: textclassifier.TextClassificationBuilderService.SetExtras:input_type -> textclassifier.SetExtrasRequest
+	127, // 113: textclassifier.TextClassificationBuilderService.SetIcon:input_type -> textclassifier.SetIconRequest
+	109, // 114: textclassifier.TextClassificationBuilderService.SetId:input_type -> textclassifier.SetIdRequest
+	129, // 115: textclassifier.TextClassificationBuilderService.SetIntent:input_type -> textclassifier.SetIntentRequest
+	131, // 116: textclassifier.TextClassificationBuilderService.SetLabel:input_type -> textclassifier.SetLabelRequest
+	133, // 117: textclassifier.TextClassificationBuilderService.SetOnClickListener:input_type -> textclassifier.SetOnClickListenerRequest
+	135, // 118: textclassifier.TextClassificationBuilderService.SetText:input_type -> textclassifier.SetTextRequest
+	0,   // 119: textclassifier.TextClassificationRequestService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
+	52,  // 120: textclassifier.TextClassificationRequestService.GetCallingPackageName:input_type -> textclassifier.GetCallingPackageNameRequest
+	54,  // 121: textclassifier.TextClassificationRequestService.GetDefaultLocales:input_type -> textclassifier.GetDefaultLocalesRequest
+	137, // 122: textclassifier.TextClassificationRequestService.GetEndIndex:input_type -> textclassifier.GetEndIndexRequest
+	20,  // 123: textclassifier.TextClassificationRequestService.GetExtras:input_type -> textclassifier.GetExtrasRequest
+	58,  // 124: textclassifier.TextClassificationRequestService.GetReferenceTime:input_type -> textclassifier.GetReferenceTimeRequest
+	139, // 125: textclassifier.TextClassificationRequestService.GetStartIndex:input_type -> textclassifier.GetStartIndexRequest
+	48,  // 126: textclassifier.TextClassificationRequestService.GetText:input_type -> textclassifier.GetTextRequest
+	10,  // 127: textclassifier.TextClassificationRequestService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
+	36,  // 128: textclassifier.TextClassificationManagerService.CreateTextClassificationSession:input_type -> textclassifier.CreateTextClassificationSessionRequest
+	141, // 129: textclassifier.TextClassificationManagerService.GetTextClassifier:input_type -> textclassifier.GetTextClassifierRequest
+	143, // 130: textclassifier.TextClassificationManagerService.SetTextClassificationSessionFactory:input_type -> textclassifier.SetTextClassificationSessionFactoryRequest
+	145, // 131: textclassifier.TextClassificationManagerService.SetTextClassifier:input_type -> textclassifier.SetTextClassifierRequest
+	147, // 132: textclassifier.ConversationActionsService.NewConversationActions:input_type -> textclassifier.NewConversationActionsRequest
+	149, // 133: textclassifier.ConversationActionsService.DescribeContents:input_type -> textclassifier.ConversationActionsDescribeContentsRequest
+	150, // 134: textclassifier.ConversationActionsService.GetConversationActions:input_type -> textclassifier.GetConversationActionsRequest
+	152, // 135: textclassifier.ConversationActionsService.GetId:input_type -> textclassifier.ConversationActionsGetIdRequest
+	153, // 136: textclassifier.ConversationActionsService.WriteToParcel:input_type -> textclassifier.ConversationActionsWriteToParcelRequest
+	0,   // 137: textclassifier.ConversationActionsMessageService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
+	154, // 138: textclassifier.ConversationActionsMessageService.GetAuthor:input_type -> textclassifier.GetAuthorRequest
+	20,  // 139: textclassifier.ConversationActionsMessageService.GetExtras:input_type -> textclassifier.GetExtrasRequest
+	58,  // 140: textclassifier.ConversationActionsMessageService.GetReferenceTime:input_type -> textclassifier.GetReferenceTimeRequest
+	48,  // 141: textclassifier.ConversationActionsMessageService.GetText:input_type -> textclassifier.GetTextRequest
+	10,  // 142: textclassifier.ConversationActionsMessageService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
+	0,   // 143: textclassifier.ConversationActionsRequestService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
+	52,  // 144: textclassifier.ConversationActionsRequestService.GetCallingPackageName:input_type -> textclassifier.GetCallingPackageNameRequest
+	156, // 145: textclassifier.ConversationActionsRequestService.GetConversation:input_type -> textclassifier.GetConversationRequest
+	20,  // 146: textclassifier.ConversationActionsRequestService.GetExtras:input_type -> textclassifier.GetExtrasRequest
+	12,  // 147: textclassifier.ConversationActionsRequestService.GetHints:input_type -> textclassifier.GetHintsRequest
+	158, // 148: textclassifier.ConversationActionsRequestService.GetMaxSuggestions:input_type -> textclassifier.GetMaxSuggestionsRequest
+	160, // 149: textclassifier.ConversationActionsRequestService.GetTypeConfig:input_type -> textclassifier.GetTypeConfigRequest
+	10,  // 150: textclassifier.ConversationActionsRequestService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
+	0,   // 151: textclassifier.TextSelectionService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
+	162, // 152: textclassifier.TextSelectionService.GetConfidenceScore:input_type -> textclassifier.TextSelectionGetConfidenceScoreRequest
+	63,  // 153: textclassifier.TextSelectionService.GetEntity:input_type -> textclassifier.GetEntityRequest
+	65,  // 154: textclassifier.TextSelectionService.GetEntityCount:input_type -> textclassifier.GetEntityCountRequest
+	20,  // 155: textclassifier.TextSelectionService.GetExtras:input_type -> textclassifier.GetExtrasRequest
+	102, // 156: textclassifier.TextSelectionService.GetId:input_type -> textclassifier.GetIdRequest
+	163, // 157: textclassifier.TextSelectionService.GetSelectionEndIndex:input_type -> textclassifier.GetSelectionEndIndexRequest
+	165, // 158: textclassifier.TextSelectionService.GetSelectionStartIndex:input_type -> textclassifier.GetSelectionStartIndexRequest
+	167, // 159: textclassifier.TextSelectionService.GetTextClassification:input_type -> textclassifier.GetTextClassificationRequest
+	8,   // 160: textclassifier.TextSelectionService.ToString:input_type -> textclassifier.ToStringRequest
+	10,  // 161: textclassifier.TextSelectionService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
+	26,  // 162: textclassifier.TextSelectionBuilderService.Build:input_type -> textclassifier.BuildRequest
+	125, // 163: textclassifier.TextSelectionBuilderService.SetEntityType:input_type -> textclassifier.SetEntityTypeRequest
+	32,  // 164: textclassifier.TextSelectionBuilderService.SetExtras:input_type -> textclassifier.SetExtrasRequest
+	109, // 165: textclassifier.TextSelectionBuilderService.SetId:input_type -> textclassifier.SetIdRequest
+	169, // 166: textclassifier.TextSelectionBuilderService.SetTextClassification:input_type -> textclassifier.SetTextClassificationRequest
+	0,   // 167: textclassifier.TextSelectionRequestService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
+	52,  // 168: textclassifier.TextSelectionRequestService.GetCallingPackageName:input_type -> textclassifier.GetCallingPackageNameRequest
+	54,  // 169: textclassifier.TextSelectionRequestService.GetDefaultLocales:input_type -> textclassifier.GetDefaultLocalesRequest
+	137, // 170: textclassifier.TextSelectionRequestService.GetEndIndex:input_type -> textclassifier.GetEndIndexRequest
+	20,  // 171: textclassifier.TextSelectionRequestService.GetExtras:input_type -> textclassifier.GetExtrasRequest
+	139, // 172: textclassifier.TextSelectionRequestService.GetStartIndex:input_type -> textclassifier.GetStartIndexRequest
+	48,  // 173: textclassifier.TextSelectionRequestService.GetText:input_type -> textclassifier.GetTextRequest
+	171, // 174: textclassifier.TextSelectionRequestService.ShouldIncludeTextClassification:input_type -> textclassifier.ShouldIncludeTextClassificationRequest
+	10,  // 175: textclassifier.TextSelectionRequestService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
+	0,   // 176: textclassifier.SelectionEventService.DescribeContents:input_type -> textclassifier.DescribeContentsRequest
+	2,   // 177: textclassifier.SelectionEventService.Equals:input_type -> textclassifier.EqualsRequest
+	173, // 178: textclassifier.SelectionEventService.GetDurationSincePreviousEvent:input_type -> textclassifier.GetDurationSincePreviousEventRequest
+	175, // 179: textclassifier.SelectionEventService.GetDurationSinceSessionStart:input_type -> textclassifier.GetDurationSinceSessionStartRequest
+	61,  // 180: textclassifier.SelectionEventService.GetEnd:input_type -> textclassifier.GetEndRequest
+	177, // 181: textclassifier.SelectionEventService.GetEntityType:input_type -> textclassifier.GetEntityTypeRequest
+	81,  // 182: textclassifier.SelectionEventService.GetEventIndex:input_type -> textclassifier.GetEventIndexRequest
+	179, // 183: textclassifier.SelectionEventService.GetEventTime:input_type -> textclassifier.GetEventTimeRequest
+	83,  // 184: textclassifier.SelectionEventService.GetEventType:input_type -> textclassifier.GetEventTypeRequest
+	181, // 185: textclassifier.SelectionEventService.GetInvocationMethod:input_type -> textclassifier.GetInvocationMethodRequest
+	38,  // 186: textclassifier.SelectionEventService.GetPackageName:input_type -> textclassifier.GetPackageNameRequest
+	89,  // 187: textclassifier.SelectionEventService.GetResultId:input_type -> textclassifier.GetResultIdRequest
+	183, // 188: textclassifier.SelectionEventService.GetSessionId:input_type -> textclassifier.GetSessionIdRequest
+	185, // 189: textclassifier.SelectionEventService.GetSmartEnd:input_type -> textclassifier.GetSmartEndRequest
+	187, // 190: textclassifier.SelectionEventService.GetSmartStart:input_type -> textclassifier.GetSmartStartRequest
+	67,  // 191: textclassifier.SelectionEventService.GetStart:input_type -> textclassifier.GetStartRequest
+	40,  // 192: textclassifier.SelectionEventService.GetWidgetType:input_type -> textclassifier.GetWidgetTypeRequest
+	42,  // 193: textclassifier.SelectionEventService.GetWidgetVersion:input_type -> textclassifier.GetWidgetVersionRequest
+	6,   // 194: textclassifier.SelectionEventService.HashCode:input_type -> textclassifier.HashCodeRequest
+	8,   // 195: textclassifier.SelectionEventService.ToString:input_type -> textclassifier.ToStringRequest
+	10,  // 196: textclassifier.SelectionEventService.WriteToParcel:input_type -> textclassifier.WriteToParcelRequest
+	189, // 197: textclassifier.SelectionEventService.CreateSelectionActionEvent3:input_type -> textclassifier.CreateSelectionActionEvent3Request
+	191, // 198: textclassifier.SelectionEventService.CreateSelectionActionEvent4_1:input_type -> textclassifier.CreateSelectionActionEvent4_1Request
+	193, // 199: textclassifier.SelectionEventService.CreateSelectionModifiedEvent2:input_type -> textclassifier.CreateSelectionModifiedEvent2Request
+	195, // 200: textclassifier.SelectionEventService.CreateSelectionModifiedEvent3_1:input_type -> textclassifier.CreateSelectionModifiedEvent3_1Request
+	197, // 201: textclassifier.SelectionEventService.CreateSelectionModifiedEvent3_2:input_type -> textclassifier.CreateSelectionModifiedEvent3_2Request
+	199, // 202: textclassifier.SelectionEventService.CreateSelectionStartedEvent:input_type -> textclassifier.CreateSelectionStartedEventRequest
+	201, // 203: textclassifier.SelectionEventService.IsTerminal:input_type -> textclassifier.IsTerminalRequest
+	1,   // 204: textclassifier.TextClassificationSessionIdService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
+	3,   // 205: textclassifier.TextClassificationSessionIdService.Equals:output_type -> textclassifier.EqualsResponse
+	5,   // 206: textclassifier.TextClassificationSessionIdService.GetValue:output_type -> textclassifier.GetValueResponse
+	7,   // 207: textclassifier.TextClassificationSessionIdService.HashCode:output_type -> textclassifier.HashCodeResponse
+	9,   // 208: textclassifier.TextClassificationSessionIdService.ToString:output_type -> textclassifier.ToStringResponse
+	11,  // 209: textclassifier.TextClassificationSessionIdService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
+	1,   // 210: textclassifier.TextClassifierEntityConfigService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
+	13,  // 211: textclassifier.TextClassifierEntityConfigService.GetHints:output_type -> textclassifier.GetHintsResponse
+	15,  // 212: textclassifier.TextClassifierEntityConfigService.ShouldIncludeTypesFromTextClassifier:output_type -> textclassifier.ShouldIncludeTypesFromTextClassifierResponse
+	11,  // 213: textclassifier.TextClassifierEntityConfigService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
+	1,   // 214: textclassifier.ConversationActionService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
+	17,  // 215: textclassifier.ConversationActionService.GetAction:output_type -> textclassifier.GetActionResponse
+	19,  // 216: textclassifier.ConversationActionService.GetConfidenceScore:output_type -> textclassifier.GetConfidenceScoreResponse
+	21,  // 217: textclassifier.ConversationActionService.GetExtras:output_type -> textclassifier.GetExtrasResponse
+	23,  // 218: textclassifier.ConversationActionService.GetTextReply:output_type -> textclassifier.GetTextReplyResponse
+	25,  // 219: textclassifier.ConversationActionService.GetType:output_type -> textclassifier.GetTypeResponse
+	11,  // 220: textclassifier.ConversationActionService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
+	27,  // 221: textclassifier.ConversationActionBuilderService.Build:output_type -> textclassifier.BuildResponse
+	29,  // 222: textclassifier.ConversationActionBuilderService.SetAction:output_type -> textclassifier.SetActionResponse
+	31,  // 223: textclassifier.ConversationActionBuilderService.SetConfidenceScore:output_type -> textclassifier.SetConfidenceScoreResponse
+	33,  // 224: textclassifier.ConversationActionBuilderService.SetExtras:output_type -> textclassifier.SetExtrasResponse
+	35,  // 225: textclassifier.ConversationActionBuilderService.SetTextReply:output_type -> textclassifier.SetTextReplyResponse
+	37,  // 226: textclassifier.TextClassificationSessionFactoryService.CreateTextClassificationSession:output_type -> textclassifier.CreateTextClassificationSessionResponse
+	1,   // 227: textclassifier.TextClassificationContextService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
+	39,  // 228: textclassifier.TextClassificationContextService.GetPackageName:output_type -> textclassifier.GetPackageNameResponse
+	41,  // 229: textclassifier.TextClassificationContextService.GetWidgetType:output_type -> textclassifier.GetWidgetTypeResponse
+	43,  // 230: textclassifier.TextClassificationContextService.GetWidgetVersion:output_type -> textclassifier.GetWidgetVersionResponse
+	9,   // 231: textclassifier.TextClassificationContextService.ToString:output_type -> textclassifier.ToStringResponse
+	11,  // 232: textclassifier.TextClassificationContextService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
+	27,  // 233: textclassifier.TextClassificationContextBuilderService.Build:output_type -> textclassifier.BuildResponse
+	45,  // 234: textclassifier.TextClassificationContextBuilderService.SetWidgetVersion:output_type -> textclassifier.SetWidgetVersionResponse
+	1,   // 235: textclassifier.TextLinksService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
+	21,  // 236: textclassifier.TextLinksService.GetExtras:output_type -> textclassifier.GetExtrasResponse
+	47,  // 237: textclassifier.TextLinksService.GetLinks:output_type -> textclassifier.GetLinksResponse
+	49,  // 238: textclassifier.TextLinksService.GetText:output_type -> textclassifier.GetTextResponse
+	9,   // 239: textclassifier.TextLinksService.ToString:output_type -> textclassifier.ToStringResponse
+	11,  // 240: textclassifier.TextLinksService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
+	27,  // 241: textclassifier.TextLinksBuilderService.Build:output_type -> textclassifier.BuildResponse
+	51,  // 242: textclassifier.TextLinksBuilderService.ClearTextLinks:output_type -> textclassifier.ClearTextLinksResponse
+	33,  // 243: textclassifier.TextLinksBuilderService.SetExtras:output_type -> textclassifier.SetExtrasResponse
+	1,   // 244: textclassifier.TextLinksRequestService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
+	53,  // 245: textclassifier.TextLinksRequestService.GetCallingPackageName:output_type -> textclassifier.GetCallingPackageNameResponse
+	55,  // 246: textclassifier.TextLinksRequestService.GetDefaultLocales:output_type -> textclassifier.GetDefaultLocalesResponse
+	57,  // 247: textclassifier.TextLinksRequestService.GetEntityConfig:output_type -> textclassifier.GetEntityConfigResponse
+	21,  // 248: textclassifier.TextLinksRequestService.GetExtras:output_type -> textclassifier.GetExtrasResponse
+	59,  // 249: textclassifier.TextLinksRequestService.GetReferenceTime:output_type -> textclassifier.GetReferenceTimeResponse
+	49,  // 250: textclassifier.TextLinksRequestService.GetText:output_type -> textclassifier.GetTextResponse
+	11,  // 251: textclassifier.TextLinksRequestService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
+	1,   // 252: textclassifier.TextLinksTextLinkService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
+	19,  // 253: textclassifier.TextLinksTextLinkService.GetConfidenceScore:output_type -> textclassifier.GetConfidenceScoreResponse
+	62,  // 254: textclassifier.TextLinksTextLinkService.GetEnd:output_type -> textclassifier.GetEndResponse
+	64,  // 255: textclassifier.TextLinksTextLinkService.GetEntity:output_type -> textclassifier.GetEntityResponse
+	66,  // 256: textclassifier.TextLinksTextLinkService.GetEntityCount:output_type -> textclassifier.GetEntityCountResponse
+	21,  // 257: textclassifier.TextLinksTextLinkService.GetExtras:output_type -> textclassifier.GetExtrasResponse
+	68,  // 258: textclassifier.TextLinksTextLinkService.GetStart:output_type -> textclassifier.GetStartResponse
+	9,   // 259: textclassifier.TextLinksTextLinkService.ToString:output_type -> textclassifier.ToStringResponse
+	11,  // 260: textclassifier.TextLinksTextLinkService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
+	70,  // 261: textclassifier.TextLinksTextLinkSpanService.GetTextLink:output_type -> textclassifier.GetTextLinkResponse
+	72,  // 262: textclassifier.TextLinksTextLinkSpanService.OnClick:output_type -> textclassifier.OnClickResponse
+	1,   // 263: textclassifier.TextClassifierEventService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
+	74,  // 264: textclassifier.TextClassifierEventService.GetActionIndices:output_type -> textclassifier.GetActionIndicesResponse
+	76,  // 265: textclassifier.TextClassifierEventService.GetEntityTypes:output_type -> textclassifier.GetEntityTypesResponse
+	78,  // 266: textclassifier.TextClassifierEventService.GetEventCategory:output_type -> textclassifier.GetEventCategoryResponse
+	80,  // 267: textclassifier.TextClassifierEventService.GetEventContext:output_type -> textclassifier.GetEventContextResponse
+	82,  // 268: textclassifier.TextClassifierEventService.GetEventIndex:output_type -> textclassifier.GetEventIndexResponse
+	84,  // 269: textclassifier.TextClassifierEventService.GetEventType:output_type -> textclassifier.GetEventTypeResponse
+	21,  // 270: textclassifier.TextClassifierEventService.GetExtras:output_type -> textclassifier.GetExtrasResponse
+	86,  // 271: textclassifier.TextClassifierEventService.GetLocale:output_type -> textclassifier.GetLocaleResponse
+	88,  // 272: textclassifier.TextClassifierEventService.GetModelName:output_type -> textclassifier.GetModelNameResponse
+	90,  // 273: textclassifier.TextClassifierEventService.GetResultId:output_type -> textclassifier.GetResultIdResponse
+	92,  // 274: textclassifier.TextClassifierEventService.GetScores:output_type -> textclassifier.GetScoresResponse
+	9,   // 275: textclassifier.TextClassifierEventService.ToString:output_type -> textclassifier.ToStringResponse
+	11,  // 276: textclassifier.TextClassifierEventService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
+	94,  // 277: textclassifier.TextClassifierEventTextSelectionEventService.GetRelativeSuggestedWordEndIndex:output_type -> textclassifier.GetRelativeSuggestedWordEndIndexResponse
+	96,  // 278: textclassifier.TextClassifierEventTextSelectionEventService.GetRelativeSuggestedWordStartIndex:output_type -> textclassifier.GetRelativeSuggestedWordStartIndexResponse
+	98,  // 279: textclassifier.TextClassifierEventTextSelectionEventService.GetRelativeWordEndIndex:output_type -> textclassifier.GetRelativeWordEndIndexResponse
+	100, // 280: textclassifier.TextClassifierEventTextSelectionEventService.GetRelativeWordStartIndex:output_type -> textclassifier.GetRelativeWordStartIndexResponse
+	11,  // 281: textclassifier.TextClassifierEventTextSelectionEventService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
+	1,   // 282: textclassifier.TextLanguageService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
+	19,  // 283: textclassifier.TextLanguageService.GetConfidenceScore:output_type -> textclassifier.GetConfidenceScoreResponse
+	21,  // 284: textclassifier.TextLanguageService.GetExtras:output_type -> textclassifier.GetExtrasResponse
+	103, // 285: textclassifier.TextLanguageService.GetId:output_type -> textclassifier.GetIdResponse
+	86,  // 286: textclassifier.TextLanguageService.GetLocale:output_type -> textclassifier.GetLocaleResponse
+	106, // 287: textclassifier.TextLanguageService.GetLocaleHypothesisCount:output_type -> textclassifier.GetLocaleHypothesisCountResponse
+	9,   // 288: textclassifier.TextLanguageService.ToString:output_type -> textclassifier.ToStringResponse
+	11,  // 289: textclassifier.TextLanguageService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
+	27,  // 290: textclassifier.TextLanguageBuilderService.Build:output_type -> textclassifier.BuildResponse
+	108, // 291: textclassifier.TextLanguageBuilderService.PutLocale:output_type -> textclassifier.PutLocaleResponse
+	33,  // 292: textclassifier.TextLanguageBuilderService.SetExtras:output_type -> textclassifier.SetExtrasResponse
+	110, // 293: textclassifier.TextLanguageBuilderService.SetId:output_type -> textclassifier.SetIdResponse
+	1,   // 294: textclassifier.TextLanguageRequestService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
+	53,  // 295: textclassifier.TextLanguageRequestService.GetCallingPackageName:output_type -> textclassifier.GetCallingPackageNameResponse
+	21,  // 296: textclassifier.TextLanguageRequestService.GetExtras:output_type -> textclassifier.GetExtrasResponse
+	49,  // 297: textclassifier.TextLanguageRequestService.GetText:output_type -> textclassifier.GetTextResponse
+	11,  // 298: textclassifier.TextLanguageRequestService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
+	1,   // 299: textclassifier.TextClassificationService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
+	112, // 300: textclassifier.TextClassificationService.GetActions:output_type -> textclassifier.GetActionsResponse
+	19,  // 301: textclassifier.TextClassificationService.GetConfidenceScore:output_type -> textclassifier.GetConfidenceScoreResponse
+	64,  // 302: textclassifier.TextClassificationService.GetEntity:output_type -> textclassifier.GetEntityResponse
+	66,  // 303: textclassifier.TextClassificationService.GetEntityCount:output_type -> textclassifier.GetEntityCountResponse
+	21,  // 304: textclassifier.TextClassificationService.GetExtras:output_type -> textclassifier.GetExtrasResponse
+	115, // 305: textclassifier.TextClassificationService.GetIcon:output_type -> textclassifier.GetIconResponse
+	103, // 306: textclassifier.TextClassificationService.GetId:output_type -> textclassifier.GetIdResponse
+	117, // 307: textclassifier.TextClassificationService.GetIntent:output_type -> textclassifier.GetIntentResponse
+	119, // 308: textclassifier.TextClassificationService.GetLabel:output_type -> textclassifier.GetLabelResponse
+	121, // 309: textclassifier.TextClassificationService.GetOnClickListener:output_type -> textclassifier.GetOnClickListenerResponse
+	122, // 310: textclassifier.TextClassificationService.GetText:output_type -> textclassifier.TextClassificationGetTextResponse
+	9,   // 311: textclassifier.TextClassificationService.ToString:output_type -> textclassifier.ToStringResponse
+	11,  // 312: textclassifier.TextClassificationService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
+	124, // 313: textclassifier.TextClassificationBuilderService.AddAction:output_type -> textclassifier.AddActionResponse
+	27,  // 314: textclassifier.TextClassificationBuilderService.Build:output_type -> textclassifier.BuildResponse
+	126, // 315: textclassifier.TextClassificationBuilderService.SetEntityType:output_type -> textclassifier.SetEntityTypeResponse
+	33,  // 316: textclassifier.TextClassificationBuilderService.SetExtras:output_type -> textclassifier.SetExtrasResponse
+	128, // 317: textclassifier.TextClassificationBuilderService.SetIcon:output_type -> textclassifier.SetIconResponse
+	110, // 318: textclassifier.TextClassificationBuilderService.SetId:output_type -> textclassifier.SetIdResponse
+	130, // 319: textclassifier.TextClassificationBuilderService.SetIntent:output_type -> textclassifier.SetIntentResponse
+	132, // 320: textclassifier.TextClassificationBuilderService.SetLabel:output_type -> textclassifier.SetLabelResponse
+	134, // 321: textclassifier.TextClassificationBuilderService.SetOnClickListener:output_type -> textclassifier.SetOnClickListenerResponse
+	136, // 322: textclassifier.TextClassificationBuilderService.SetText:output_type -> textclassifier.SetTextResponse
+	1,   // 323: textclassifier.TextClassificationRequestService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
+	53,  // 324: textclassifier.TextClassificationRequestService.GetCallingPackageName:output_type -> textclassifier.GetCallingPackageNameResponse
+	55,  // 325: textclassifier.TextClassificationRequestService.GetDefaultLocales:output_type -> textclassifier.GetDefaultLocalesResponse
+	138, // 326: textclassifier.TextClassificationRequestService.GetEndIndex:output_type -> textclassifier.GetEndIndexResponse
+	21,  // 327: textclassifier.TextClassificationRequestService.GetExtras:output_type -> textclassifier.GetExtrasResponse
+	59,  // 328: textclassifier.TextClassificationRequestService.GetReferenceTime:output_type -> textclassifier.GetReferenceTimeResponse
+	140, // 329: textclassifier.TextClassificationRequestService.GetStartIndex:output_type -> textclassifier.GetStartIndexResponse
+	49,  // 330: textclassifier.TextClassificationRequestService.GetText:output_type -> textclassifier.GetTextResponse
+	11,  // 331: textclassifier.TextClassificationRequestService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
+	37,  // 332: textclassifier.TextClassificationManagerService.CreateTextClassificationSession:output_type -> textclassifier.CreateTextClassificationSessionResponse
+	142, // 333: textclassifier.TextClassificationManagerService.GetTextClassifier:output_type -> textclassifier.GetTextClassifierResponse
+	144, // 334: textclassifier.TextClassificationManagerService.SetTextClassificationSessionFactory:output_type -> textclassifier.SetTextClassificationSessionFactoryResponse
+	146, // 335: textclassifier.TextClassificationManagerService.SetTextClassifier:output_type -> textclassifier.SetTextClassifierResponse
+	148, // 336: textclassifier.ConversationActionsService.NewConversationActions:output_type -> textclassifier.NewConversationActionsResponse
+	1,   // 337: textclassifier.ConversationActionsService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
+	151, // 338: textclassifier.ConversationActionsService.GetConversationActions:output_type -> textclassifier.GetConversationActionsResponse
+	103, // 339: textclassifier.ConversationActionsService.GetId:output_type -> textclassifier.GetIdResponse
+	11,  // 340: textclassifier.ConversationActionsService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
+	1,   // 341: textclassifier.ConversationActionsMessageService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
+	155, // 342: textclassifier.ConversationActionsMessageService.GetAuthor:output_type -> textclassifier.GetAuthorResponse
+	21,  // 343: textclassifier.ConversationActionsMessageService.GetExtras:output_type -> textclassifier.GetExtrasResponse
+	59,  // 344: textclassifier.ConversationActionsMessageService.GetReferenceTime:output_type -> textclassifier.GetReferenceTimeResponse
+	49,  // 345: textclassifier.ConversationActionsMessageService.GetText:output_type -> textclassifier.GetTextResponse
+	11,  // 346: textclassifier.ConversationActionsMessageService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
+	1,   // 347: textclassifier.ConversationActionsRequestService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
+	53,  // 348: textclassifier.ConversationActionsRequestService.GetCallingPackageName:output_type -> textclassifier.GetCallingPackageNameResponse
+	157, // 349: textclassifier.ConversationActionsRequestService.GetConversation:output_type -> textclassifier.GetConversationResponse
+	21,  // 350: textclassifier.ConversationActionsRequestService.GetExtras:output_type -> textclassifier.GetExtrasResponse
+	13,  // 351: textclassifier.ConversationActionsRequestService.GetHints:output_type -> textclassifier.GetHintsResponse
+	159, // 352: textclassifier.ConversationActionsRequestService.GetMaxSuggestions:output_type -> textclassifier.GetMaxSuggestionsResponse
+	161, // 353: textclassifier.ConversationActionsRequestService.GetTypeConfig:output_type -> textclassifier.GetTypeConfigResponse
+	11,  // 354: textclassifier.ConversationActionsRequestService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
+	1,   // 355: textclassifier.TextSelectionService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
+	19,  // 356: textclassifier.TextSelectionService.GetConfidenceScore:output_type -> textclassifier.GetConfidenceScoreResponse
+	64,  // 357: textclassifier.TextSelectionService.GetEntity:output_type -> textclassifier.GetEntityResponse
+	66,  // 358: textclassifier.TextSelectionService.GetEntityCount:output_type -> textclassifier.GetEntityCountResponse
+	21,  // 359: textclassifier.TextSelectionService.GetExtras:output_type -> textclassifier.GetExtrasResponse
+	103, // 360: textclassifier.TextSelectionService.GetId:output_type -> textclassifier.GetIdResponse
+	164, // 361: textclassifier.TextSelectionService.GetSelectionEndIndex:output_type -> textclassifier.GetSelectionEndIndexResponse
+	166, // 362: textclassifier.TextSelectionService.GetSelectionStartIndex:output_type -> textclassifier.GetSelectionStartIndexResponse
+	168, // 363: textclassifier.TextSelectionService.GetTextClassification:output_type -> textclassifier.GetTextClassificationResponse
+	9,   // 364: textclassifier.TextSelectionService.ToString:output_type -> textclassifier.ToStringResponse
+	11,  // 365: textclassifier.TextSelectionService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
+	27,  // 366: textclassifier.TextSelectionBuilderService.Build:output_type -> textclassifier.BuildResponse
+	126, // 367: textclassifier.TextSelectionBuilderService.SetEntityType:output_type -> textclassifier.SetEntityTypeResponse
+	33,  // 368: textclassifier.TextSelectionBuilderService.SetExtras:output_type -> textclassifier.SetExtrasResponse
+	110, // 369: textclassifier.TextSelectionBuilderService.SetId:output_type -> textclassifier.SetIdResponse
+	170, // 370: textclassifier.TextSelectionBuilderService.SetTextClassification:output_type -> textclassifier.SetTextClassificationResponse
+	1,   // 371: textclassifier.TextSelectionRequestService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
+	53,  // 372: textclassifier.TextSelectionRequestService.GetCallingPackageName:output_type -> textclassifier.GetCallingPackageNameResponse
+	55,  // 373: textclassifier.TextSelectionRequestService.GetDefaultLocales:output_type -> textclassifier.GetDefaultLocalesResponse
+	138, // 374: textclassifier.TextSelectionRequestService.GetEndIndex:output_type -> textclassifier.GetEndIndexResponse
+	21,  // 375: textclassifier.TextSelectionRequestService.GetExtras:output_type -> textclassifier.GetExtrasResponse
+	140, // 376: textclassifier.TextSelectionRequestService.GetStartIndex:output_type -> textclassifier.GetStartIndexResponse
+	49,  // 377: textclassifier.TextSelectionRequestService.GetText:output_type -> textclassifier.GetTextResponse
+	172, // 378: textclassifier.TextSelectionRequestService.ShouldIncludeTextClassification:output_type -> textclassifier.ShouldIncludeTextClassificationResponse
+	11,  // 379: textclassifier.TextSelectionRequestService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
+	1,   // 380: textclassifier.SelectionEventService.DescribeContents:output_type -> textclassifier.DescribeContentsResponse
+	3,   // 381: textclassifier.SelectionEventService.Equals:output_type -> textclassifier.EqualsResponse
+	174, // 382: textclassifier.SelectionEventService.GetDurationSincePreviousEvent:output_type -> textclassifier.GetDurationSincePreviousEventResponse
+	176, // 383: textclassifier.SelectionEventService.GetDurationSinceSessionStart:output_type -> textclassifier.GetDurationSinceSessionStartResponse
+	62,  // 384: textclassifier.SelectionEventService.GetEnd:output_type -> textclassifier.GetEndResponse
+	178, // 385: textclassifier.SelectionEventService.GetEntityType:output_type -> textclassifier.GetEntityTypeResponse
+	82,  // 386: textclassifier.SelectionEventService.GetEventIndex:output_type -> textclassifier.GetEventIndexResponse
+	180, // 387: textclassifier.SelectionEventService.GetEventTime:output_type -> textclassifier.GetEventTimeResponse
+	84,  // 388: textclassifier.SelectionEventService.GetEventType:output_type -> textclassifier.GetEventTypeResponse
+	182, // 389: textclassifier.SelectionEventService.GetInvocationMethod:output_type -> textclassifier.GetInvocationMethodResponse
+	39,  // 390: textclassifier.SelectionEventService.GetPackageName:output_type -> textclassifier.GetPackageNameResponse
+	90,  // 391: textclassifier.SelectionEventService.GetResultId:output_type -> textclassifier.GetResultIdResponse
+	184, // 392: textclassifier.SelectionEventService.GetSessionId:output_type -> textclassifier.GetSessionIdResponse
+	186, // 393: textclassifier.SelectionEventService.GetSmartEnd:output_type -> textclassifier.GetSmartEndResponse
+	188, // 394: textclassifier.SelectionEventService.GetSmartStart:output_type -> textclassifier.GetSmartStartResponse
+	68,  // 395: textclassifier.SelectionEventService.GetStart:output_type -> textclassifier.GetStartResponse
+	41,  // 396: textclassifier.SelectionEventService.GetWidgetType:output_type -> textclassifier.GetWidgetTypeResponse
+	43,  // 397: textclassifier.SelectionEventService.GetWidgetVersion:output_type -> textclassifier.GetWidgetVersionResponse
+	7,   // 398: textclassifier.SelectionEventService.HashCode:output_type -> textclassifier.HashCodeResponse
+	9,   // 399: textclassifier.SelectionEventService.ToString:output_type -> textclassifier.ToStringResponse
+	11,  // 400: textclassifier.SelectionEventService.WriteToParcel:output_type -> textclassifier.WriteToParcelResponse
+	190, // 401: textclassifier.SelectionEventService.CreateSelectionActionEvent3:output_type -> textclassifier.CreateSelectionActionEvent3Response
+	192, // 402: textclassifier.SelectionEventService.CreateSelectionActionEvent4_1:output_type -> textclassifier.CreateSelectionActionEvent4_1Response
+	194, // 403: textclassifier.SelectionEventService.CreateSelectionModifiedEvent2:output_type -> textclassifier.CreateSelectionModifiedEvent2Response
+	196, // 404: textclassifier.SelectionEventService.CreateSelectionModifiedEvent3_1:output_type -> textclassifier.CreateSelectionModifiedEvent3_1Response
+	198, // 405: textclassifier.SelectionEventService.CreateSelectionModifiedEvent3_2:output_type -> textclassifier.CreateSelectionModifiedEvent3_2Response
+	200, // 406: textclassifier.SelectionEventService.CreateSelectionStartedEvent:output_type -> textclassifier.CreateSelectionStartedEventResponse
+	202, // 407: textclassifier.SelectionEventService.IsTerminal:output_type -> textclassifier.IsTerminalResponse
+	204, // [204:408] is the sub-list for method output_type
+	0,   // [0:204] is the sub-list for method input_type
 	0,   // [0:0] is the sub-list for extension type_name
 	0,   // [0:0] is the sub-list for extension extendee
 	0,   // [0:0] is the sub-list for field type_name
@@ -9223,7 +9771,7 @@ func file_proto_textclassifier_textclassifier_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_textclassifier_textclassifier_proto_rawDesc), len(file_proto_textclassifier_textclassifier_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   191,
+			NumMessages:   203,
 			NumExtensions: 0,
 			NumServices:   28,
 		},

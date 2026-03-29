@@ -12,74 +12,6 @@ var biometricsCmd = &cobra.Command{
 	Short: "biometrics service operations",
 }
 
-var biometricsPromptContentItemPlainTextCmd = &cobra.Command{
-	Use:   "prompt-content-item-plain-text",
-	Short: "PromptContentItemPlainTextService operations",
-}
-
-var biometricsPromptContentItemPlainTextNewPromptContentItemPlainTextCmd = &cobra.Command{
-	Use:   "new-prompt-content-item-plain-text",
-	Short: "NewPromptContentItemPlainText RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPromptContentItemPlainTextServiceClient(grpcConn)
-		req := &pb.NewPromptContentItemPlainTextRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewPromptContentItemPlainText(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var biometricsPromptContentItemPlainTextDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPromptContentItemPlainTextServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var biometricsPromptContentItemPlainTextWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPromptContentItemPlainTextServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var biometricsPromptVerticalListContentViewCmd = &cobra.Command{
 	Use:   "prompt-vertical-list-content-view",
 	Short: "PromptVerticalListContentViewService operations",
@@ -92,7 +24,7 @@ var biometricsPromptVerticalListContentViewDescribeContentsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewPromptVerticalListContentViewServiceClient(grpcConn)
-		req := &pb.PromptVerticalListContentViewDescribeContentsRequest{}
+		req := &pb.DescribeContentsRequest{}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
@@ -117,6 +49,22 @@ var biometricsPromptVerticalListContentViewGetDescriptionCmd = &cobra.Command{
 	},
 }
 
+var biometricsPromptVerticalListContentViewGetListItemsCmd = &cobra.Command{
+	Use:   "get-list-items",
+	Short: "GetListItems RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPromptVerticalListContentViewServiceClient(grpcConn)
+		req := &pb.GetListItemsRequest{}
+		resp, err := client.GetListItems(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var biometricsPromptVerticalListContentViewWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
@@ -124,7 +72,7 @@ var biometricsPromptVerticalListContentViewWriteToParcelCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewPromptVerticalListContentViewServiceClient(grpcConn)
-		req := &pb.PromptVerticalListContentViewWriteToParcelRequest{}
+		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -283,7 +231,7 @@ var biometricsPromptContentItemBulletedTextDescribeContentsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewPromptContentItemBulletedTextServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
+		req := &pb.PromptContentItemBulletedTextDescribeContentsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -302,7 +250,75 @@ var biometricsPromptContentItemBulletedTextWriteToParcelCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewPromptContentItemBulletedTextServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
+		req := &pb.PromptContentItemBulletedTextWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var biometricsPromptContentItemPlainTextCmd = &cobra.Command{
+	Use:   "prompt-content-item-plain-text",
+	Short: "PromptContentItemPlainTextService operations",
+}
+
+var biometricsPromptContentItemPlainTextNewPromptContentItemPlainTextCmd = &cobra.Command{
+	Use:   "new-prompt-content-item-plain-text",
+	Short: "NewPromptContentItemPlainText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPromptContentItemPlainTextServiceClient(grpcConn)
+		req := &pb.NewPromptContentItemPlainTextRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewPromptContentItemPlainText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var biometricsPromptContentItemPlainTextDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPromptContentItemPlainTextServiceClient(grpcConn)
+		req := &pb.PromptContentItemPlainTextDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var biometricsPromptContentItemPlainTextWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPromptContentItemPlainTextServiceClient(grpcConn)
+		req := &pb.PromptContentItemPlainTextWriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -332,7 +348,7 @@ var biometricsPromptContentViewWithMoreOptionsButtonDescribeContentsCmd = &cobra
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewPromptContentViewWithMoreOptionsButtonServiceClient(grpcConn)
-		req := &pb.PromptContentViewWithMoreOptionsButtonDescribeContentsRequest{}
+		req := &pb.DescribeContentsRequest{}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
@@ -380,7 +396,7 @@ var biometricsPromptContentViewWithMoreOptionsButtonWriteToParcelCmd = &cobra.Co
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewPromptContentViewWithMoreOptionsButtonServiceClient(grpcConn)
-		req := &pb.PromptContentViewWithMoreOptionsButtonWriteToParcelRequest{}
+		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -458,17 +474,9 @@ var biometricsPromptContentViewWithMoreOptionsButtonBuilderSetMoreOptionsButtonL
 }
 
 func init() {
-	biometricsPromptContentItemPlainTextNewPromptContentItemPlainTextCmd.Flags().String("arg0", "", "arg0 (string)")
-	biometricsPromptContentItemPlainTextCmd.AddCommand(biometricsPromptContentItemPlainTextNewPromptContentItemPlainTextCmd)
-	biometricsPromptContentItemPlainTextDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	biometricsPromptContentItemPlainTextCmd.AddCommand(biometricsPromptContentItemPlainTextDescribeContentsCmd)
-	biometricsPromptContentItemPlainTextWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	biometricsPromptContentItemPlainTextWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	biometricsPromptContentItemPlainTextWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	biometricsPromptContentItemPlainTextCmd.AddCommand(biometricsPromptContentItemPlainTextWriteToParcelCmd)
-	biometricsCmd.AddCommand(biometricsPromptContentItemPlainTextCmd)
 	biometricsPromptVerticalListContentViewCmd.AddCommand(biometricsPromptVerticalListContentViewDescribeContentsCmd)
 	biometricsPromptVerticalListContentViewCmd.AddCommand(biometricsPromptVerticalListContentViewGetDescriptionCmd)
+	biometricsPromptVerticalListContentViewCmd.AddCommand(biometricsPromptVerticalListContentViewGetListItemsCmd)
 	biometricsPromptVerticalListContentViewWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	biometricsPromptVerticalListContentViewWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	biometricsPromptVerticalListContentViewCmd.AddCommand(biometricsPromptVerticalListContentViewWriteToParcelCmd)
@@ -493,6 +501,15 @@ func init() {
 	biometricsPromptContentItemBulletedTextWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	biometricsPromptContentItemBulletedTextCmd.AddCommand(biometricsPromptContentItemBulletedTextWriteToParcelCmd)
 	biometricsCmd.AddCommand(biometricsPromptContentItemBulletedTextCmd)
+	biometricsPromptContentItemPlainTextNewPromptContentItemPlainTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	biometricsPromptContentItemPlainTextCmd.AddCommand(biometricsPromptContentItemPlainTextNewPromptContentItemPlainTextCmd)
+	biometricsPromptContentItemPlainTextDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	biometricsPromptContentItemPlainTextCmd.AddCommand(biometricsPromptContentItemPlainTextDescribeContentsCmd)
+	biometricsPromptContentItemPlainTextWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	biometricsPromptContentItemPlainTextWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	biometricsPromptContentItemPlainTextWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	biometricsPromptContentItemPlainTextCmd.AddCommand(biometricsPromptContentItemPlainTextWriteToParcelCmd)
+	biometricsCmd.AddCommand(biometricsPromptContentItemPlainTextCmd)
 	biometricsPromptContentViewWithMoreOptionsButtonCmd.AddCommand(biometricsPromptContentViewWithMoreOptionsButtonDescribeContentsCmd)
 	biometricsPromptContentViewWithMoreOptionsButtonCmd.AddCommand(biometricsPromptContentViewWithMoreOptionsButtonGetDescriptionCmd)
 	biometricsPromptContentViewWithMoreOptionsButtonCmd.AddCommand(biometricsPromptContentViewWithMoreOptionsButtonGetMoreOptionsButtonListenerCmd)

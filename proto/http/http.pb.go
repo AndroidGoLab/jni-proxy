@@ -23,26 +23,26 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type CloseRequest struct {
+type GetAllowNonDefaultNetworkUsageRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *CloseRequest) Reset() {
-	*x = CloseRequest{}
+func (x *GetAllowNonDefaultNetworkUsageRequest) Reset() {
+	*x = GetAllowNonDefaultNetworkUsageRequest{}
 	mi := &file_proto_http_http_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *CloseRequest) String() string {
+func (x *GetAllowNonDefaultNetworkUsageRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*CloseRequest) ProtoMessage() {}
+func (*GetAllowNonDefaultNetworkUsageRequest) ProtoMessage() {}
 
-func (x *CloseRequest) ProtoReflect() protoreflect.Message {
+func (x *GetAllowNonDefaultNetworkUsageRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_http_http_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -54,31 +54,32 @@ func (x *CloseRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use CloseRequest.ProtoReflect.Descriptor instead.
-func (*CloseRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetAllowNonDefaultNetworkUsageRequest.ProtoReflect.Descriptor instead.
+func (*GetAllowNonDefaultNetworkUsageRequest) Descriptor() ([]byte, []int) {
 	return file_proto_http_http_proto_rawDescGZIP(), []int{0}
 }
 
-type CloseResponse struct {
+type GetAllowNonDefaultNetworkUsageResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *CloseResponse) Reset() {
-	*x = CloseResponse{}
+func (x *GetAllowNonDefaultNetworkUsageResponse) Reset() {
+	*x = GetAllowNonDefaultNetworkUsageResponse{}
 	mi := &file_proto_http_http_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *CloseResponse) String() string {
+func (x *GetAllowNonDefaultNetworkUsageResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*CloseResponse) ProtoMessage() {}
+func (*GetAllowNonDefaultNetworkUsageResponse) ProtoMessage() {}
 
-func (x *CloseResponse) ProtoReflect() protoreflect.Message {
+func (x *GetAllowNonDefaultNetworkUsageResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_http_http_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -90,31 +91,38 @@ func (x *CloseResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use CloseResponse.ProtoReflect.Descriptor instead.
-func (*CloseResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetAllowNonDefaultNetworkUsageResponse.ProtoReflect.Descriptor instead.
+func (*GetAllowNonDefaultNetworkUsageResponse) Descriptor() ([]byte, []int) {
 	return file_proto_http_http_proto_rawDescGZIP(), []int{1}
 }
 
-type GetLengthRequest struct {
+func (x *GetAllowNonDefaultNetworkUsageResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDefaultNetworkMigrationRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetLengthRequest) Reset() {
-	*x = GetLengthRequest{}
+func (x *GetDefaultNetworkMigrationRequest) Reset() {
+	*x = GetDefaultNetworkMigrationRequest{}
 	mi := &file_proto_http_http_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetLengthRequest) String() string {
+func (x *GetDefaultNetworkMigrationRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetLengthRequest) ProtoMessage() {}
+func (*GetDefaultNetworkMigrationRequest) ProtoMessage() {}
 
-func (x *GetLengthRequest) ProtoReflect() protoreflect.Message {
+func (x *GetDefaultNetworkMigrationRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_http_http_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -126,32 +134,32 @@ func (x *GetLengthRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetLengthRequest.ProtoReflect.Descriptor instead.
-func (*GetLengthRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetDefaultNetworkMigrationRequest.ProtoReflect.Descriptor instead.
+func (*GetDefaultNetworkMigrationRequest) Descriptor() ([]byte, []int) {
 	return file_proto_http_http_proto_rawDescGZIP(), []int{2}
 }
 
-type GetLengthResponse struct {
+type GetDefaultNetworkMigrationResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetLengthResponse) Reset() {
-	*x = GetLengthResponse{}
+func (x *GetDefaultNetworkMigrationResponse) Reset() {
+	*x = GetDefaultNetworkMigrationResponse{}
 	mi := &file_proto_http_http_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetLengthResponse) String() string {
+func (x *GetDefaultNetworkMigrationResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetLengthResponse) ProtoMessage() {}
+func (*GetDefaultNetworkMigrationResponse) ProtoMessage() {}
 
-func (x *GetLengthResponse) ProtoReflect() protoreflect.Message {
+func (x *GetDefaultNetworkMigrationResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_http_http_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -163,39 +171,38 @@ func (x *GetLengthResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetLengthResponse.ProtoReflect.Descriptor instead.
-func (*GetLengthResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetDefaultNetworkMigrationResponse.ProtoReflect.Descriptor instead.
+func (*GetDefaultNetworkMigrationResponse) Descriptor() ([]byte, []int) {
 	return file_proto_http_http_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *GetLengthResponse) GetResult() int64 {
+func (x *GetDefaultNetworkMigrationResponse) GetResult() int32 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type RewindRequest struct {
+type GetPathDegradationMigrationRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *RewindRequest) Reset() {
-	*x = RewindRequest{}
+func (x *GetPathDegradationMigrationRequest) Reset() {
+	*x = GetPathDegradationMigrationRequest{}
 	mi := &file_proto_http_http_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *RewindRequest) String() string {
+func (x *GetPathDegradationMigrationRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*RewindRequest) ProtoMessage() {}
+func (*GetPathDegradationMigrationRequest) ProtoMessage() {}
 
-func (x *RewindRequest) ProtoReflect() protoreflect.Message {
+func (x *GetPathDegradationMigrationRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_http_http_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -207,38 +214,32 @@ func (x *RewindRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use RewindRequest.ProtoReflect.Descriptor instead.
-func (*RewindRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetPathDegradationMigrationRequest.ProtoReflect.Descriptor instead.
+func (*GetPathDegradationMigrationRequest) Descriptor() ([]byte, []int) {
 	return file_proto_http_http_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *RewindRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type RewindResponse struct {
+type GetPathDegradationMigrationResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *RewindResponse) Reset() {
-	*x = RewindResponse{}
+func (x *GetPathDegradationMigrationResponse) Reset() {
+	*x = GetPathDegradationMigrationResponse{}
 	mi := &file_proto_http_http_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *RewindResponse) String() string {
+func (x *GetPathDegradationMigrationResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*RewindResponse) ProtoMessage() {}
+func (*GetPathDegradationMigrationResponse) ProtoMessage() {}
 
-func (x *RewindResponse) ProtoReflect() protoreflect.Message {
+func (x *GetPathDegradationMigrationResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_http_http_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -250,1997 +251,12 @@ func (x *RewindResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use RewindResponse.ProtoReflect.Descriptor instead.
-func (*RewindResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetPathDegradationMigrationResponse.ProtoReflect.Descriptor instead.
+func (*GetPathDegradationMigrationResponse) Descriptor() ([]byte, []int) {
 	return file_proto_http_http_proto_rawDescGZIP(), []int{5}
 }
 
-type GetHeadersRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetHeadersRequest) Reset() {
-	*x = GetHeadersRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetHeadersRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetHeadersRequest) ProtoMessage() {}
-
-func (x *GetHeadersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[6]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetHeadersRequest.ProtoReflect.Descriptor instead.
-func (*GetHeadersRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{6}
-}
-
-type GetHeadersResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetHeadersResponse) Reset() {
-	*x = GetHeadersResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[7]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetHeadersResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetHeadersResponse) ProtoMessage() {}
-
-func (x *GetHeadersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[7]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetHeadersResponse.ProtoReflect.Descriptor instead.
-func (*GetHeadersResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{7}
-}
-
-func (x *GetHeadersResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetHttpStatusCodeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetHttpStatusCodeRequest) Reset() {
-	*x = GetHttpStatusCodeRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[8]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetHttpStatusCodeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetHttpStatusCodeRequest) ProtoMessage() {}
-
-func (x *GetHttpStatusCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[8]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetHttpStatusCodeRequest.ProtoReflect.Descriptor instead.
-func (*GetHttpStatusCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{8}
-}
-
-type GetHttpStatusCodeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetHttpStatusCodeResponse) Reset() {
-	*x = GetHttpStatusCodeResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[9]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetHttpStatusCodeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetHttpStatusCodeResponse) ProtoMessage() {}
-
-func (x *GetHttpStatusCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[9]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetHttpStatusCodeResponse.ProtoReflect.Descriptor instead.
-func (*GetHttpStatusCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{9}
-}
-
-func (x *GetHttpStatusCodeResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetHttpStatusTextRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetHttpStatusTextRequest) Reset() {
-	*x = GetHttpStatusTextRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[10]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetHttpStatusTextRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetHttpStatusTextRequest) ProtoMessage() {}
-
-func (x *GetHttpStatusTextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[10]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetHttpStatusTextRequest.ProtoReflect.Descriptor instead.
-func (*GetHttpStatusTextRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{10}
-}
-
-type GetHttpStatusTextResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetHttpStatusTextResponse) Reset() {
-	*x = GetHttpStatusTextResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[11]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetHttpStatusTextResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetHttpStatusTextResponse) ProtoMessage() {}
-
-func (x *GetHttpStatusTextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[11]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetHttpStatusTextResponse.ProtoReflect.Descriptor instead.
-func (*GetHttpStatusTextResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{11}
-}
-
-func (x *GetHttpStatusTextResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetNegotiatedProtocolRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetNegotiatedProtocolRequest) Reset() {
-	*x = GetNegotiatedProtocolRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[12]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetNegotiatedProtocolRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetNegotiatedProtocolRequest) ProtoMessage() {}
-
-func (x *GetNegotiatedProtocolRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[12]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetNegotiatedProtocolRequest.ProtoReflect.Descriptor instead.
-func (*GetNegotiatedProtocolRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{12}
-}
-
-type GetNegotiatedProtocolResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetNegotiatedProtocolResponse) Reset() {
-	*x = GetNegotiatedProtocolResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[13]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetNegotiatedProtocolResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetNegotiatedProtocolResponse) ProtoMessage() {}
-
-func (x *GetNegotiatedProtocolResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[13]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetNegotiatedProtocolResponse.ProtoReflect.Descriptor instead.
-func (*GetNegotiatedProtocolResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{13}
-}
-
-func (x *GetNegotiatedProtocolResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetReceivedByteCountRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetReceivedByteCountRequest) Reset() {
-	*x = GetReceivedByteCountRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[14]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetReceivedByteCountRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetReceivedByteCountRequest) ProtoMessage() {}
-
-func (x *GetReceivedByteCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[14]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetReceivedByteCountRequest.ProtoReflect.Descriptor instead.
-func (*GetReceivedByteCountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{14}
-}
-
-type GetReceivedByteCountResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetReceivedByteCountResponse) Reset() {
-	*x = GetReceivedByteCountResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[15]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetReceivedByteCountResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetReceivedByteCountResponse) ProtoMessage() {}
-
-func (x *GetReceivedByteCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[15]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetReceivedByteCountResponse.ProtoReflect.Descriptor instead.
-func (*GetReceivedByteCountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{15}
-}
-
-func (x *GetReceivedByteCountResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetUrlRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetUrlRequest) Reset() {
-	*x = GetUrlRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[16]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetUrlRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetUrlRequest) ProtoMessage() {}
-
-func (x *GetUrlRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[16]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetUrlRequest.ProtoReflect.Descriptor instead.
-func (*GetUrlRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{16}
-}
-
-type GetUrlResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetUrlResponse) Reset() {
-	*x = GetUrlResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[17]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetUrlResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetUrlResponse) ProtoMessage() {}
-
-func (x *GetUrlResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[17]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetUrlResponse.ProtoReflect.Descriptor instead.
-func (*GetUrlResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{17}
-}
-
-func (x *GetUrlResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type WasCachedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *WasCachedRequest) Reset() {
-	*x = WasCachedRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[18]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WasCachedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WasCachedRequest) ProtoMessage() {}
-
-func (x *WasCachedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[18]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WasCachedRequest.ProtoReflect.Descriptor instead.
-func (*WasCachedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{18}
-}
-
-type WasCachedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *WasCachedResponse) Reset() {
-	*x = WasCachedResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[19]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WasCachedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WasCachedResponse) ProtoMessage() {}
-
-func (x *WasCachedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[19]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WasCachedResponse.ProtoReflect.Descriptor instead.
-func (*WasCachedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{19}
-}
-
-func (x *WasCachedResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type DeleteRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DeleteRequest) Reset() {
-	*x = DeleteRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[20]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DeleteRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DeleteRequest) ProtoMessage() {}
-
-func (x *DeleteRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[20]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DeleteRequest.ProtoReflect.Descriptor instead.
-func (*DeleteRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{20}
-}
-
-type DeleteResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DeleteResponse) Reset() {
-	*x = DeleteResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[21]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DeleteResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DeleteResponse) ProtoMessage() {}
-
-func (x *DeleteResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[21]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DeleteResponse.ProtoReflect.Descriptor instead.
-func (*DeleteResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{21}
-}
-
-type FlushRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FlushRequest) Reset() {
-	*x = FlushRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[22]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FlushRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FlushRequest) ProtoMessage() {}
-
-func (x *FlushRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[22]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use FlushRequest.ProtoReflect.Descriptor instead.
-func (*FlushRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{22}
-}
-
-type FlushResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FlushResponse) Reset() {
-	*x = FlushResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[23]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FlushResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FlushResponse) ProtoMessage() {}
-
-func (x *FlushResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[23]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use FlushResponse.ProtoReflect.Descriptor instead.
-func (*FlushResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{23}
-}
-
-type GetHitCountRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetHitCountRequest) Reset() {
-	*x = GetHitCountRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[24]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetHitCountRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetHitCountRequest) ProtoMessage() {}
-
-func (x *GetHitCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[24]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetHitCountRequest.ProtoReflect.Descriptor instead.
-func (*GetHitCountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{24}
-}
-
-type GetHitCountResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetHitCountResponse) Reset() {
-	*x = GetHitCountResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[25]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetHitCountResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetHitCountResponse) ProtoMessage() {}
-
-func (x *GetHitCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[25]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetHitCountResponse.ProtoReflect.Descriptor instead.
-func (*GetHitCountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{25}
-}
-
-func (x *GetHitCountResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetNetworkCountRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetNetworkCountRequest) Reset() {
-	*x = GetNetworkCountRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[26]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetNetworkCountRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetNetworkCountRequest) ProtoMessage() {}
-
-func (x *GetNetworkCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[26]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetNetworkCountRequest.ProtoReflect.Descriptor instead.
-func (*GetNetworkCountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{26}
-}
-
-type GetNetworkCountResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetNetworkCountResponse) Reset() {
-	*x = GetNetworkCountResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[27]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetNetworkCountResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetNetworkCountResponse) ProtoMessage() {}
-
-func (x *GetNetworkCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[27]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetNetworkCountResponse.ProtoReflect.Descriptor instead.
-func (*GetNetworkCountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{27}
-}
-
-func (x *GetNetworkCountResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetRequestCountRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRequestCountRequest) Reset() {
-	*x = GetRequestCountRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[28]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRequestCountRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRequestCountRequest) ProtoMessage() {}
-
-func (x *GetRequestCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[28]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRequestCountRequest.ProtoReflect.Descriptor instead.
-func (*GetRequestCountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{28}
-}
-
-type GetRequestCountResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRequestCountResponse) Reset() {
-	*x = GetRequestCountResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[29]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRequestCountResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRequestCountResponse) ProtoMessage() {}
-
-func (x *GetRequestCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[29]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRequestCountResponse.ProtoReflect.Descriptor instead.
-func (*GetRequestCountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{29}
-}
-
-func (x *GetRequestCountResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type MaxSizeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *MaxSizeRequest) Reset() {
-	*x = MaxSizeRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[30]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *MaxSizeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*MaxSizeRequest) ProtoMessage() {}
-
-func (x *MaxSizeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[30]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use MaxSizeRequest.ProtoReflect.Descriptor instead.
-func (*MaxSizeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{30}
-}
-
-type MaxSizeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *MaxSizeResponse) Reset() {
-	*x = MaxSizeResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[31]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *MaxSizeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*MaxSizeResponse) ProtoMessage() {}
-
-func (x *MaxSizeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[31]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use MaxSizeResponse.ProtoReflect.Descriptor instead.
-func (*MaxSizeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{31}
-}
-
-func (x *MaxSizeResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type PutRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PutRequest) Reset() {
-	*x = PutRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[32]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PutRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PutRequest) ProtoMessage() {}
-
-func (x *PutRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[32]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PutRequest.ProtoReflect.Descriptor instead.
-func (*PutRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{32}
-}
-
-func (x *PutRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *PutRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type PutResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PutResponse) Reset() {
-	*x = PutResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[33]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PutResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PutResponse) ProtoMessage() {}
-
-func (x *PutResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[33]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PutResponse.ProtoReflect.Descriptor instead.
-func (*PutResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{33}
-}
-
-func (x *PutResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SizeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SizeRequest) Reset() {
-	*x = SizeRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[34]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SizeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SizeRequest) ProtoMessage() {}
-
-func (x *SizeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[34]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SizeRequest.ProtoReflect.Descriptor instead.
-func (*SizeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{34}
-}
-
-type SizeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SizeResponse) Reset() {
-	*x = SizeResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[35]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SizeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SizeResponse) ProtoMessage() {}
-
-func (x *SizeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[35]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SizeResponse.ProtoReflect.Descriptor instead.
-func (*SizeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{35}
-}
-
-func (x *SizeResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetInstalledRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetInstalledRequest) Reset() {
-	*x = GetInstalledRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[36]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetInstalledRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetInstalledRequest) ProtoMessage() {}
-
-func (x *GetInstalledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[36]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetInstalledRequest.ProtoReflect.Descriptor instead.
-func (*GetInstalledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{36}
-}
-
-type GetInstalledResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetInstalledResponse) Reset() {
-	*x = GetInstalledResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[37]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetInstalledResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetInstalledResponse) ProtoMessage() {}
-
-func (x *GetInstalledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[37]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetInstalledResponse.ProtoReflect.Descriptor instead.
-func (*GetInstalledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{37}
-}
-
-func (x *GetInstalledResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type BindToNetworkRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BindToNetworkRequest) Reset() {
-	*x = BindToNetworkRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[38]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BindToNetworkRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BindToNetworkRequest) ProtoMessage() {}
-
-func (x *BindToNetworkRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[38]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BindToNetworkRequest.ProtoReflect.Descriptor instead.
-func (*BindToNetworkRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{38}
-}
-
-func (x *BindToNetworkRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type BindToNetworkResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BindToNetworkResponse) Reset() {
-	*x = BindToNetworkResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[39]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BindToNetworkResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BindToNetworkResponse) ProtoMessage() {}
-
-func (x *BindToNetworkResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[39]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BindToNetworkResponse.ProtoReflect.Descriptor instead.
-func (*BindToNetworkResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{39}
-}
-
-type CreateUrlStreamHandlerFactoryRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CreateUrlStreamHandlerFactoryRequest) Reset() {
-	*x = CreateUrlStreamHandlerFactoryRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[40]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CreateUrlStreamHandlerFactoryRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateUrlStreamHandlerFactoryRequest) ProtoMessage() {}
-
-func (x *CreateUrlStreamHandlerFactoryRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[40]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateUrlStreamHandlerFactoryRequest.ProtoReflect.Descriptor instead.
-func (*CreateUrlStreamHandlerFactoryRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{40}
-}
-
-type CreateUrlStreamHandlerFactoryResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CreateUrlStreamHandlerFactoryResponse) Reset() {
-	*x = CreateUrlStreamHandlerFactoryResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[41]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CreateUrlStreamHandlerFactoryResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateUrlStreamHandlerFactoryResponse) ProtoMessage() {}
-
-func (x *CreateUrlStreamHandlerFactoryResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[41]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateUrlStreamHandlerFactoryResponse.ProtoReflect.Descriptor instead.
-func (*CreateUrlStreamHandlerFactoryResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{41}
-}
-
-func (x *CreateUrlStreamHandlerFactoryResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type NewBidirectionalStreamBuilderRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewBidirectionalStreamBuilderRequest) Reset() {
-	*x = NewBidirectionalStreamBuilderRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[42]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewBidirectionalStreamBuilderRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewBidirectionalStreamBuilderRequest) ProtoMessage() {}
-
-func (x *NewBidirectionalStreamBuilderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[42]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewBidirectionalStreamBuilderRequest.ProtoReflect.Descriptor instead.
-func (*NewBidirectionalStreamBuilderRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{42}
-}
-
-func (x *NewBidirectionalStreamBuilderRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-func (x *NewBidirectionalStreamBuilderRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *NewBidirectionalStreamBuilderRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type NewBidirectionalStreamBuilderResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewBidirectionalStreamBuilderResponse) Reset() {
-	*x = NewBidirectionalStreamBuilderResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[43]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewBidirectionalStreamBuilderResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewBidirectionalStreamBuilderResponse) ProtoMessage() {}
-
-func (x *NewBidirectionalStreamBuilderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[43]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewBidirectionalStreamBuilderResponse.ProtoReflect.Descriptor instead.
-func (*NewBidirectionalStreamBuilderResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{43}
-}
-
-func (x *NewBidirectionalStreamBuilderResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type NewUrlRequestBuilderRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewUrlRequestBuilderRequest) Reset() {
-	*x = NewUrlRequestBuilderRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[44]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewUrlRequestBuilderRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewUrlRequestBuilderRequest) ProtoMessage() {}
-
-func (x *NewUrlRequestBuilderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[44]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewUrlRequestBuilderRequest.ProtoReflect.Descriptor instead.
-func (*NewUrlRequestBuilderRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{44}
-}
-
-func (x *NewUrlRequestBuilderRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-func (x *NewUrlRequestBuilderRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *NewUrlRequestBuilderRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type NewUrlRequestBuilderResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewUrlRequestBuilderResponse) Reset() {
-	*x = NewUrlRequestBuilderResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[45]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewUrlRequestBuilderResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewUrlRequestBuilderResponse) ProtoMessage() {}
-
-func (x *NewUrlRequestBuilderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[45]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewUrlRequestBuilderResponse.ProtoReflect.Descriptor instead.
-func (*NewUrlRequestBuilderResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{45}
-}
-
-func (x *NewUrlRequestBuilderResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type OpenConnectionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OpenConnectionRequest) Reset() {
-	*x = OpenConnectionRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[46]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OpenConnectionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OpenConnectionRequest) ProtoMessage() {}
-
-func (x *OpenConnectionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[46]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OpenConnectionRequest.ProtoReflect.Descriptor instead.
-func (*OpenConnectionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{46}
-}
-
-func (x *OpenConnectionRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OpenConnectionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OpenConnectionResponse) Reset() {
-	*x = OpenConnectionResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[47]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OpenConnectionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OpenConnectionResponse) ProtoMessage() {}
-
-func (x *OpenConnectionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[47]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OpenConnectionResponse.ProtoReflect.Descriptor instead.
-func (*OpenConnectionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{47}
-}
-
-func (x *OpenConnectionResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ShutdownRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ShutdownRequest) Reset() {
-	*x = ShutdownRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[48]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ShutdownRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ShutdownRequest) ProtoMessage() {}
-
-func (x *ShutdownRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[48]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ShutdownRequest.ProtoReflect.Descriptor instead.
-func (*ShutdownRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{48}
-}
-
-type ShutdownResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ShutdownResponse) Reset() {
-	*x = ShutdownResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[49]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ShutdownResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ShutdownResponse) ProtoMessage() {}
-
-func (x *ShutdownResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[49]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ShutdownResponse.ProtoReflect.Descriptor instead.
-func (*ShutdownResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{49}
-}
-
-type GetVersionStringRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetVersionStringRequest) Reset() {
-	*x = GetVersionStringRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[50]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetVersionStringRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetVersionStringRequest) ProtoMessage() {}
-
-func (x *GetVersionStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[50]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetVersionStringRequest.ProtoReflect.Descriptor instead.
-func (*GetVersionStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{50}
-}
-
-type GetVersionStringResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetVersionStringResponse) Reset() {
-	*x = GetVersionStringResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[51]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetVersionStringResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetVersionStringResponse) ProtoMessage() {}
-
-func (x *GetVersionStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[51]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetVersionStringResponse.ProtoReflect.Descriptor instead.
-func (*GetVersionStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{51}
-}
-
-func (x *GetVersionStringResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type AddQuicHintRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddQuicHintRequest) Reset() {
-	*x = AddQuicHintRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[52]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddQuicHintRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddQuicHintRequest) ProtoMessage() {}
-
-func (x *AddQuicHintRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[52]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddQuicHintRequest.ProtoReflect.Descriptor instead.
-func (*AddQuicHintRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{52}
-}
-
-func (x *AddQuicHintRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-func (x *AddQuicHintRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *AddQuicHintRequest) GetArg2() int32 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type AddQuicHintResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddQuicHintResponse) Reset() {
-	*x = AddQuicHintResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[53]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddQuicHintResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddQuicHintResponse) ProtoMessage() {}
-
-func (x *AddQuicHintResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[53]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddQuicHintResponse.ProtoReflect.Descriptor instead.
-func (*AddQuicHintResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{53}
-}
-
-func (x *AddQuicHintResponse) GetResult() int64 {
+func (x *GetPathDegradationMigrationResponse) GetResult() int32 {
 	if x != nil {
 		return x.Result
 	}
@@ -2255,7 +271,7 @@ type BuildRequest struct {
 
 func (x *BuildRequest) Reset() {
 	*x = BuildRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[54]
+	mi := &file_proto_http_http_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2267,7 +283,7 @@ func (x *BuildRequest) String() string {
 func (*BuildRequest) ProtoMessage() {}
 
 func (x *BuildRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[54]
+	mi := &file_proto_http_http_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2280,7 +296,7 @@ func (x *BuildRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
 func (*BuildRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{54}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{6}
 }
 
 type BuildResponse struct {
@@ -2292,7 +308,7 @@ type BuildResponse struct {
 
 func (x *BuildResponse) Reset() {
 	*x = BuildResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[55]
+	mi := &file_proto_http_http_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2304,7 +320,7 @@ func (x *BuildResponse) String() string {
 func (*BuildResponse) ProtoMessage() {}
 
 func (x *BuildResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[55]
+	mi := &file_proto_http_http_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2317,7 +333,7 @@ func (x *BuildResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
 func (*BuildResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{55}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *BuildResponse) GetResult() int64 {
@@ -2327,461 +343,28 @@ func (x *BuildResponse) GetResult() int64 {
 	return 0
 }
 
-type GetDefaultUserAgentRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDefaultUserAgentRequest) Reset() {
-	*x = GetDefaultUserAgentRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[56]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDefaultUserAgentRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDefaultUserAgentRequest) ProtoMessage() {}
-
-func (x *GetDefaultUserAgentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[56]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDefaultUserAgentRequest.ProtoReflect.Descriptor instead.
-func (*GetDefaultUserAgentRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{56}
-}
-
-type GetDefaultUserAgentResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDefaultUserAgentResponse) Reset() {
-	*x = GetDefaultUserAgentResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[57]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDefaultUserAgentResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDefaultUserAgentResponse) ProtoMessage() {}
-
-func (x *GetDefaultUserAgentResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[57]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDefaultUserAgentResponse.ProtoReflect.Descriptor instead.
-func (*GetDefaultUserAgentResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{57}
-}
-
-func (x *GetDefaultUserAgentResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type SetConnectionMigrationOptionsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetConnectionMigrationOptionsRequest) Reset() {
-	*x = SetConnectionMigrationOptionsRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[58]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetConnectionMigrationOptionsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetConnectionMigrationOptionsRequest) ProtoMessage() {}
-
-func (x *SetConnectionMigrationOptionsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[58]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetConnectionMigrationOptionsRequest.ProtoReflect.Descriptor instead.
-func (*SetConnectionMigrationOptionsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{58}
-}
-
-func (x *SetConnectionMigrationOptionsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetConnectionMigrationOptionsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetConnectionMigrationOptionsResponse) Reset() {
-	*x = SetConnectionMigrationOptionsResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[59]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetConnectionMigrationOptionsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetConnectionMigrationOptionsResponse) ProtoMessage() {}
-
-func (x *SetConnectionMigrationOptionsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[59]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetConnectionMigrationOptionsResponse.ProtoReflect.Descriptor instead.
-func (*SetConnectionMigrationOptionsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{59}
-}
-
-func (x *SetConnectionMigrationOptionsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetDnsOptionsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetDnsOptionsRequest) Reset() {
-	*x = SetDnsOptionsRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[60]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetDnsOptionsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetDnsOptionsRequest) ProtoMessage() {}
-
-func (x *SetDnsOptionsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[60]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetDnsOptionsRequest.ProtoReflect.Descriptor instead.
-func (*SetDnsOptionsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{60}
-}
-
-func (x *SetDnsOptionsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetDnsOptionsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetDnsOptionsResponse) Reset() {
-	*x = SetDnsOptionsResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[61]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetDnsOptionsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetDnsOptionsResponse) ProtoMessage() {}
-
-func (x *SetDnsOptionsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[61]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetDnsOptionsResponse.ProtoReflect.Descriptor instead.
-func (*SetDnsOptionsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{61}
-}
-
-func (x *SetDnsOptionsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetEnableBrotliRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetEnableBrotliRequest) Reset() {
-	*x = SetEnableBrotliRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[62]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetEnableBrotliRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetEnableBrotliRequest) ProtoMessage() {}
-
-func (x *SetEnableBrotliRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[62]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetEnableBrotliRequest.ProtoReflect.Descriptor instead.
-func (*SetEnableBrotliRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{62}
-}
-
-func (x *SetEnableBrotliRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type SetEnableBrotliResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetEnableBrotliResponse) Reset() {
-	*x = SetEnableBrotliResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[63]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetEnableBrotliResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetEnableBrotliResponse) ProtoMessage() {}
-
-func (x *SetEnableBrotliResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[63]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetEnableBrotliResponse.ProtoReflect.Descriptor instead.
-func (*SetEnableBrotliResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{63}
-}
-
-func (x *SetEnableBrotliResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetEnableHttp2Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetEnableHttp2Request) Reset() {
-	*x = SetEnableHttp2Request{}
-	mi := &file_proto_http_http_proto_msgTypes[64]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetEnableHttp2Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetEnableHttp2Request) ProtoMessage() {}
-
-func (x *SetEnableHttp2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[64]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetEnableHttp2Request.ProtoReflect.Descriptor instead.
-func (*SetEnableHttp2Request) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{64}
-}
-
-func (x *SetEnableHttp2Request) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type SetEnableHttp2Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetEnableHttp2Response) Reset() {
-	*x = SetEnableHttp2Response{}
-	mi := &file_proto_http_http_proto_msgTypes[65]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetEnableHttp2Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetEnableHttp2Response) ProtoMessage() {}
-
-func (x *SetEnableHttp2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[65]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetEnableHttp2Response.ProtoReflect.Descriptor instead.
-func (*SetEnableHttp2Response) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{65}
-}
-
-func (x *SetEnableHttp2Response) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetEnableHttpCacheRequest struct {
+type SetAllowNonDefaultNetworkUsageRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetEnableHttpCacheRequest) Reset() {
-	*x = SetEnableHttpCacheRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[66]
+func (x *SetAllowNonDefaultNetworkUsageRequest) Reset() {
+	*x = SetAllowNonDefaultNetworkUsageRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetEnableHttpCacheRequest) String() string {
+func (x *SetAllowNonDefaultNetworkUsageRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetEnableHttpCacheRequest) ProtoMessage() {}
+func (*SetAllowNonDefaultNetworkUsageRequest) ProtoMessage() {}
 
-func (x *SetEnableHttpCacheRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[66]
+func (x *SetAllowNonDefaultNetworkUsageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2792,47 +375,40 @@ func (x *SetEnableHttpCacheRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetEnableHttpCacheRequest.ProtoReflect.Descriptor instead.
-func (*SetEnableHttpCacheRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{66}
+// Deprecated: Use SetAllowNonDefaultNetworkUsageRequest.ProtoReflect.Descriptor instead.
+func (*SetAllowNonDefaultNetworkUsageRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{8}
 }
 
-func (x *SetEnableHttpCacheRequest) GetArg0() int32 {
+func (x *SetAllowNonDefaultNetworkUsageRequest) GetArg0() int32 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-func (x *SetEnableHttpCacheRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type SetEnableHttpCacheResponse struct {
+type SetAllowNonDefaultNetworkUsageResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetEnableHttpCacheResponse) Reset() {
-	*x = SetEnableHttpCacheResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[67]
+func (x *SetAllowNonDefaultNetworkUsageResponse) Reset() {
+	*x = SetAllowNonDefaultNetworkUsageResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetEnableHttpCacheResponse) String() string {
+func (x *SetAllowNonDefaultNetworkUsageResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetEnableHttpCacheResponse) ProtoMessage() {}
+func (*SetAllowNonDefaultNetworkUsageResponse) ProtoMessage() {}
 
-func (x *SetEnableHttpCacheResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[67]
+func (x *SetAllowNonDefaultNetworkUsageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2843,40 +419,40 @@ func (x *SetEnableHttpCacheResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetEnableHttpCacheResponse.ProtoReflect.Descriptor instead.
-func (*SetEnableHttpCacheResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{67}
+// Deprecated: Use SetAllowNonDefaultNetworkUsageResponse.ProtoReflect.Descriptor instead.
+func (*SetAllowNonDefaultNetworkUsageResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{9}
 }
 
-func (x *SetEnableHttpCacheResponse) GetResult() int64 {
+func (x *SetAllowNonDefaultNetworkUsageResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest struct {
+type SetDefaultNetworkMigrationRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest) Reset() {
-	*x = SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[68]
+func (x *SetDefaultNetworkMigrationRequest) Reset() {
+	*x = SetDefaultNetworkMigrationRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest) String() string {
+func (x *SetDefaultNetworkMigrationRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest) ProtoMessage() {}
+func (*SetDefaultNetworkMigrationRequest) ProtoMessage() {}
 
-func (x *SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[68]
+func (x *SetDefaultNetworkMigrationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2887,216 +463,40 @@ func (x *SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest) ProtoReflec
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest.ProtoReflect.Descriptor instead.
-func (*SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{68}
+// Deprecated: Use SetDefaultNetworkMigrationRequest.ProtoReflect.Descriptor instead.
+func (*SetDefaultNetworkMigrationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{10}
 }
 
-func (x *SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse) Reset() {
-	*x = SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[69]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse) ProtoMessage() {}
-
-func (x *SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[69]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse.ProtoReflect.Descriptor instead.
-func (*SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{69}
-}
-
-func (x *SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetEnableQuicRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetEnableQuicRequest) Reset() {
-	*x = SetEnableQuicRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[70]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetEnableQuicRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetEnableQuicRequest) ProtoMessage() {}
-
-func (x *SetEnableQuicRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[70]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetEnableQuicRequest.ProtoReflect.Descriptor instead.
-func (*SetEnableQuicRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{70}
-}
-
-func (x *SetEnableQuicRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type SetEnableQuicResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetEnableQuicResponse) Reset() {
-	*x = SetEnableQuicResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[71]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetEnableQuicResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetEnableQuicResponse) ProtoMessage() {}
-
-func (x *SetEnableQuicResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[71]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetEnableQuicResponse.ProtoReflect.Descriptor instead.
-func (*SetEnableQuicResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{71}
-}
-
-func (x *SetEnableQuicResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetQuicOptionsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetQuicOptionsRequest) Reset() {
-	*x = SetQuicOptionsRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[72]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetQuicOptionsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetQuicOptionsRequest) ProtoMessage() {}
-
-func (x *SetQuicOptionsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[72]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetQuicOptionsRequest.ProtoReflect.Descriptor instead.
-func (*SetQuicOptionsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{72}
-}
-
-func (x *SetQuicOptionsRequest) GetArg0() int64 {
+func (x *SetDefaultNetworkMigrationRequest) GetArg0() int32 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-type SetQuicOptionsResponse struct {
+type SetDefaultNetworkMigrationResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetQuicOptionsResponse) Reset() {
-	*x = SetQuicOptionsResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[73]
+func (x *SetDefaultNetworkMigrationResponse) Reset() {
+	*x = SetDefaultNetworkMigrationResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetQuicOptionsResponse) String() string {
+func (x *SetDefaultNetworkMigrationResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetQuicOptionsResponse) ProtoMessage() {}
+func (*SetDefaultNetworkMigrationResponse) ProtoMessage() {}
 
-func (x *SetQuicOptionsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[73]
+func (x *SetDefaultNetworkMigrationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3107,40 +507,40 @@ func (x *SetQuicOptionsResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetQuicOptionsResponse.ProtoReflect.Descriptor instead.
-func (*SetQuicOptionsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{73}
+// Deprecated: Use SetDefaultNetworkMigrationResponse.ProtoReflect.Descriptor instead.
+func (*SetDefaultNetworkMigrationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{11}
 }
 
-func (x *SetQuicOptionsResponse) GetResult() int64 {
+func (x *SetDefaultNetworkMigrationResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type SetStoragePathRequest struct {
+type SetPathDegradationMigrationRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetStoragePathRequest) Reset() {
-	*x = SetStoragePathRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[74]
+func (x *SetPathDegradationMigrationRequest) Reset() {
+	*x = SetPathDegradationMigrationRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetStoragePathRequest) String() string {
+func (x *SetPathDegradationMigrationRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetStoragePathRequest) ProtoMessage() {}
+func (*SetPathDegradationMigrationRequest) ProtoMessage() {}
 
-func (x *SetStoragePathRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[74]
+func (x *SetPathDegradationMigrationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3151,40 +551,40 @@ func (x *SetStoragePathRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetStoragePathRequest.ProtoReflect.Descriptor instead.
-func (*SetStoragePathRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{74}
+// Deprecated: Use SetPathDegradationMigrationRequest.ProtoReflect.Descriptor instead.
+func (*SetPathDegradationMigrationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{12}
 }
 
-func (x *SetStoragePathRequest) GetArg0() string {
+func (x *SetPathDegradationMigrationRequest) GetArg0() int32 {
 	if x != nil {
 		return x.Arg0
 	}
-	return ""
+	return 0
 }
 
-type SetStoragePathResponse struct {
+type SetPathDegradationMigrationResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetStoragePathResponse) Reset() {
-	*x = SetStoragePathResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[75]
+func (x *SetPathDegradationMigrationResponse) Reset() {
+	*x = SetPathDegradationMigrationResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetStoragePathResponse) String() string {
+func (x *SetPathDegradationMigrationResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetStoragePathResponse) ProtoMessage() {}
+func (*SetPathDegradationMigrationResponse) ProtoMessage() {}
 
-func (x *SetStoragePathResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[75]
+func (x *SetPathDegradationMigrationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3195,264 +595,16 @@ func (x *SetStoragePathResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetStoragePathResponse.ProtoReflect.Descriptor instead.
-func (*SetStoragePathResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{75}
+// Deprecated: Use SetPathDegradationMigrationResponse.ProtoReflect.Descriptor instead.
+func (*SetPathDegradationMigrationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{13}
 }
 
-func (x *SetStoragePathResponse) GetResult() int64 {
+func (x *SetPathDegradationMigrationResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
-}
-
-type SetUserAgentRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetUserAgentRequest) Reset() {
-	*x = SetUserAgentRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[76]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetUserAgentRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetUserAgentRequest) ProtoMessage() {}
-
-func (x *SetUserAgentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[76]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetUserAgentRequest.ProtoReflect.Descriptor instead.
-func (*SetUserAgentRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{76}
-}
-
-func (x *SetUserAgentRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type SetUserAgentResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetUserAgentResponse) Reset() {
-	*x = SetUserAgentResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[77]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetUserAgentResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetUserAgentResponse) ProtoMessage() {}
-
-func (x *SetUserAgentResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[77]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetUserAgentResponse.ProtoReflect.Descriptor instead.
-func (*SetUserAgentResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{77}
-}
-
-func (x *SetUserAgentResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetErrorCodeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetErrorCodeRequest) Reset() {
-	*x = GetErrorCodeRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[78]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetErrorCodeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetErrorCodeRequest) ProtoMessage() {}
-
-func (x *GetErrorCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[78]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetErrorCodeRequest.ProtoReflect.Descriptor instead.
-func (*GetErrorCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{78}
-}
-
-type GetErrorCodeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetErrorCodeResponse) Reset() {
-	*x = GetErrorCodeResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[79]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetErrorCodeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetErrorCodeResponse) ProtoMessage() {}
-
-func (x *GetErrorCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[79]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetErrorCodeResponse.ProtoReflect.Descriptor instead.
-func (*GetErrorCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{79}
-}
-
-func (x *GetErrorCodeResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type IsImmediatelyRetryableRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsImmediatelyRetryableRequest) Reset() {
-	*x = IsImmediatelyRetryableRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[80]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsImmediatelyRetryableRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsImmediatelyRetryableRequest) ProtoMessage() {}
-
-func (x *IsImmediatelyRetryableRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[80]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsImmediatelyRetryableRequest.ProtoReflect.Descriptor instead.
-func (*IsImmediatelyRetryableRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{80}
-}
-
-type IsImmediatelyRetryableResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsImmediatelyRetryableResponse) Reset() {
-	*x = IsImmediatelyRetryableResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[81]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsImmediatelyRetryableResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsImmediatelyRetryableResponse) ProtoMessage() {}
-
-func (x *IsImmediatelyRetryableResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[81]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsImmediatelyRetryableResponse.ProtoReflect.Descriptor instead.
-func (*IsImmediatelyRetryableResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{81}
-}
-
-func (x *IsImmediatelyRetryableResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
 }
 
 type CancelRequest struct {
@@ -3463,7 +615,7 @@ type CancelRequest struct {
 
 func (x *CancelRequest) Reset() {
 	*x = CancelRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[82]
+	mi := &file_proto_http_http_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3475,7 +627,7 @@ func (x *CancelRequest) String() string {
 func (*CancelRequest) ProtoMessage() {}
 
 func (x *CancelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[82]
+	mi := &file_proto_http_http_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3488,7 +640,7 @@ func (x *CancelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CancelRequest.ProtoReflect.Descriptor instead.
 func (*CancelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{82}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{14}
 }
 
 type CancelResponse struct {
@@ -3499,7 +651,7 @@ type CancelResponse struct {
 
 func (x *CancelResponse) Reset() {
 	*x = CancelResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[83]
+	mi := &file_proto_http_http_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3511,7 +663,7 @@ func (x *CancelResponse) String() string {
 func (*CancelResponse) ProtoMessage() {}
 
 func (x *CancelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[83]
+	mi := &file_proto_http_http_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3524,7 +676,7 @@ func (x *CancelResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CancelResponse.ProtoReflect.Descriptor instead.
 func (*CancelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{83}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{15}
 }
 
 type FollowRedirectRequest struct {
@@ -3535,7 +687,7 @@ type FollowRedirectRequest struct {
 
 func (x *FollowRedirectRequest) Reset() {
 	*x = FollowRedirectRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[84]
+	mi := &file_proto_http_http_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3547,7 +699,7 @@ func (x *FollowRedirectRequest) String() string {
 func (*FollowRedirectRequest) ProtoMessage() {}
 
 func (x *FollowRedirectRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[84]
+	mi := &file_proto_http_http_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3560,7 +712,7 @@ func (x *FollowRedirectRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FollowRedirectRequest.ProtoReflect.Descriptor instead.
 func (*FollowRedirectRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{84}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{16}
 }
 
 type FollowRedirectResponse struct {
@@ -3571,7 +723,7 @@ type FollowRedirectResponse struct {
 
 func (x *FollowRedirectResponse) Reset() {
 	*x = FollowRedirectResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[85]
+	mi := &file_proto_http_http_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3583,7 +735,7 @@ func (x *FollowRedirectResponse) String() string {
 func (*FollowRedirectResponse) ProtoMessage() {}
 
 func (x *FollowRedirectResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[85]
+	mi := &file_proto_http_http_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3596,7 +748,87 @@ func (x *FollowRedirectResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FollowRedirectResponse.ProtoReflect.Descriptor instead.
 func (*FollowRedirectResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{85}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{17}
+}
+
+type GetHeadersRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetHeadersRequest) Reset() {
+	*x = GetHeadersRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetHeadersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetHeadersRequest) ProtoMessage() {}
+
+func (x *GetHeadersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetHeadersRequest.ProtoReflect.Descriptor instead.
+func (*GetHeadersRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{18}
+}
+
+type GetHeadersResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetHeadersResponse) Reset() {
+	*x = GetHeadersResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetHeadersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetHeadersResponse) ProtoMessage() {}
+
+func (x *GetHeadersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetHeadersResponse.ProtoReflect.Descriptor instead.
+func (*GetHeadersResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *GetHeadersResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
 }
 
 type GetHttpMethodRequest struct {
@@ -3607,7 +839,7 @@ type GetHttpMethodRequest struct {
 
 func (x *GetHttpMethodRequest) Reset() {
 	*x = GetHttpMethodRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[86]
+	mi := &file_proto_http_http_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3619,7 +851,7 @@ func (x *GetHttpMethodRequest) String() string {
 func (*GetHttpMethodRequest) ProtoMessage() {}
 
 func (x *GetHttpMethodRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[86]
+	mi := &file_proto_http_http_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3632,7 +864,7 @@ func (x *GetHttpMethodRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetHttpMethodRequest.ProtoReflect.Descriptor instead.
 func (*GetHttpMethodRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{86}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{20}
 }
 
 type GetHttpMethodResponse struct {
@@ -3644,7 +876,7 @@ type GetHttpMethodResponse struct {
 
 func (x *GetHttpMethodResponse) Reset() {
 	*x = GetHttpMethodResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[87]
+	mi := &file_proto_http_http_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3656,7 +888,7 @@ func (x *GetHttpMethodResponse) String() string {
 func (*GetHttpMethodResponse) ProtoMessage() {}
 
 func (x *GetHttpMethodResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[87]
+	mi := &file_proto_http_http_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3669,7 +901,7 @@ func (x *GetHttpMethodResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetHttpMethodResponse.ProtoReflect.Descriptor instead.
 func (*GetHttpMethodResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{87}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *GetHttpMethodResponse) GetResult() string {
@@ -3687,7 +919,7 @@ type GetPriorityRequest struct {
 
 func (x *GetPriorityRequest) Reset() {
 	*x = GetPriorityRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[88]
+	mi := &file_proto_http_http_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3699,7 +931,7 @@ func (x *GetPriorityRequest) String() string {
 func (*GetPriorityRequest) ProtoMessage() {}
 
 func (x *GetPriorityRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[88]
+	mi := &file_proto_http_http_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3712,7 +944,7 @@ func (x *GetPriorityRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPriorityRequest.ProtoReflect.Descriptor instead.
 func (*GetPriorityRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{88}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{22}
 }
 
 type GetPriorityResponse struct {
@@ -3724,7 +956,7 @@ type GetPriorityResponse struct {
 
 func (x *GetPriorityResponse) Reset() {
 	*x = GetPriorityResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[89]
+	mi := &file_proto_http_http_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3736,7 +968,7 @@ func (x *GetPriorityResponse) String() string {
 func (*GetPriorityResponse) ProtoMessage() {}
 
 func (x *GetPriorityResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[89]
+	mi := &file_proto_http_http_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3749,7 +981,7 @@ func (x *GetPriorityResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPriorityResponse.ProtoReflect.Descriptor instead.
 func (*GetPriorityResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{89}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *GetPriorityResponse) GetResult() int32 {
@@ -3768,7 +1000,7 @@ type GetStatusRequest struct {
 
 func (x *GetStatusRequest) Reset() {
 	*x = GetStatusRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[90]
+	mi := &file_proto_http_http_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3780,7 +1012,7 @@ func (x *GetStatusRequest) String() string {
 func (*GetStatusRequest) ProtoMessage() {}
 
 func (x *GetStatusRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[90]
+	mi := &file_proto_http_http_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3793,7 +1025,7 @@ func (x *GetStatusRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStatusRequest.ProtoReflect.Descriptor instead.
 func (*GetStatusRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{90}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *GetStatusRequest) GetArg0() int64 {
@@ -3811,7 +1043,7 @@ type GetStatusResponse struct {
 
 func (x *GetStatusResponse) Reset() {
 	*x = GetStatusResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[91]
+	mi := &file_proto_http_http_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3823,7 +1055,7 @@ func (x *GetStatusResponse) String() string {
 func (*GetStatusResponse) ProtoMessage() {}
 
 func (x *GetStatusResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[91]
+	mi := &file_proto_http_http_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3836,7 +1068,7 @@ func (x *GetStatusResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStatusResponse.ProtoReflect.Descriptor instead.
 func (*GetStatusResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{91}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{25}
 }
 
 type GetTrafficStatsTagRequest struct {
@@ -3847,7 +1079,7 @@ type GetTrafficStatsTagRequest struct {
 
 func (x *GetTrafficStatsTagRequest) Reset() {
 	*x = GetTrafficStatsTagRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[92]
+	mi := &file_proto_http_http_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3859,7 +1091,7 @@ func (x *GetTrafficStatsTagRequest) String() string {
 func (*GetTrafficStatsTagRequest) ProtoMessage() {}
 
 func (x *GetTrafficStatsTagRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[92]
+	mi := &file_proto_http_http_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3872,7 +1104,7 @@ func (x *GetTrafficStatsTagRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTrafficStatsTagRequest.ProtoReflect.Descriptor instead.
 func (*GetTrafficStatsTagRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{92}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{26}
 }
 
 type GetTrafficStatsTagResponse struct {
@@ -3884,7 +1116,7 @@ type GetTrafficStatsTagResponse struct {
 
 func (x *GetTrafficStatsTagResponse) Reset() {
 	*x = GetTrafficStatsTagResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[93]
+	mi := &file_proto_http_http_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3896,7 +1128,7 @@ func (x *GetTrafficStatsTagResponse) String() string {
 func (*GetTrafficStatsTagResponse) ProtoMessage() {}
 
 func (x *GetTrafficStatsTagResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[93]
+	mi := &file_proto_http_http_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3909,7 +1141,7 @@ func (x *GetTrafficStatsTagResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTrafficStatsTagResponse.ProtoReflect.Descriptor instead.
 func (*GetTrafficStatsTagResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{93}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *GetTrafficStatsTagResponse) GetResult() int32 {
@@ -3927,7 +1159,7 @@ type GetTrafficStatsUidRequest struct {
 
 func (x *GetTrafficStatsUidRequest) Reset() {
 	*x = GetTrafficStatsUidRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[94]
+	mi := &file_proto_http_http_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3939,7 +1171,7 @@ func (x *GetTrafficStatsUidRequest) String() string {
 func (*GetTrafficStatsUidRequest) ProtoMessage() {}
 
 func (x *GetTrafficStatsUidRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[94]
+	mi := &file_proto_http_http_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3952,7 +1184,7 @@ func (x *GetTrafficStatsUidRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTrafficStatsUidRequest.ProtoReflect.Descriptor instead.
 func (*GetTrafficStatsUidRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{94}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{28}
 }
 
 type GetTrafficStatsUidResponse struct {
@@ -3964,7 +1196,7 @@ type GetTrafficStatsUidResponse struct {
 
 func (x *GetTrafficStatsUidResponse) Reset() {
 	*x = GetTrafficStatsUidResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[95]
+	mi := &file_proto_http_http_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3976,7 +1208,7 @@ func (x *GetTrafficStatsUidResponse) String() string {
 func (*GetTrafficStatsUidResponse) ProtoMessage() {}
 
 func (x *GetTrafficStatsUidResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[95]
+	mi := &file_proto_http_http_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3989,7 +1221,7 @@ func (x *GetTrafficStatsUidResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTrafficStatsUidResponse.ProtoReflect.Descriptor instead.
 func (*GetTrafficStatsUidResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{95}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *GetTrafficStatsUidResponse) GetResult() int32 {
@@ -4007,7 +1239,7 @@ type HasTrafficStatsTagRequest struct {
 
 func (x *HasTrafficStatsTagRequest) Reset() {
 	*x = HasTrafficStatsTagRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[96]
+	mi := &file_proto_http_http_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4019,7 +1251,7 @@ func (x *HasTrafficStatsTagRequest) String() string {
 func (*HasTrafficStatsTagRequest) ProtoMessage() {}
 
 func (x *HasTrafficStatsTagRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[96]
+	mi := &file_proto_http_http_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4032,7 +1264,7 @@ func (x *HasTrafficStatsTagRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HasTrafficStatsTagRequest.ProtoReflect.Descriptor instead.
 func (*HasTrafficStatsTagRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{96}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{30}
 }
 
 type HasTrafficStatsTagResponse struct {
@@ -4044,7 +1276,7 @@ type HasTrafficStatsTagResponse struct {
 
 func (x *HasTrafficStatsTagResponse) Reset() {
 	*x = HasTrafficStatsTagResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[97]
+	mi := &file_proto_http_http_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4056,7 +1288,7 @@ func (x *HasTrafficStatsTagResponse) String() string {
 func (*HasTrafficStatsTagResponse) ProtoMessage() {}
 
 func (x *HasTrafficStatsTagResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[97]
+	mi := &file_proto_http_http_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4069,7 +1301,7 @@ func (x *HasTrafficStatsTagResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HasTrafficStatsTagResponse.ProtoReflect.Descriptor instead.
 func (*HasTrafficStatsTagResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{97}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *HasTrafficStatsTagResponse) GetResult() bool {
@@ -4087,7 +1319,7 @@ type HasTrafficStatsUidRequest struct {
 
 func (x *HasTrafficStatsUidRequest) Reset() {
 	*x = HasTrafficStatsUidRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[98]
+	mi := &file_proto_http_http_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4099,7 +1331,7 @@ func (x *HasTrafficStatsUidRequest) String() string {
 func (*HasTrafficStatsUidRequest) ProtoMessage() {}
 
 func (x *HasTrafficStatsUidRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[98]
+	mi := &file_proto_http_http_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4112,7 +1344,7 @@ func (x *HasTrafficStatsUidRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HasTrafficStatsUidRequest.ProtoReflect.Descriptor instead.
 func (*HasTrafficStatsUidRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{98}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{32}
 }
 
 type HasTrafficStatsUidResponse struct {
@@ -4124,7 +1356,7 @@ type HasTrafficStatsUidResponse struct {
 
 func (x *HasTrafficStatsUidResponse) Reset() {
 	*x = HasTrafficStatsUidResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[99]
+	mi := &file_proto_http_http_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4136,7 +1368,7 @@ func (x *HasTrafficStatsUidResponse) String() string {
 func (*HasTrafficStatsUidResponse) ProtoMessage() {}
 
 func (x *HasTrafficStatsUidResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[99]
+	mi := &file_proto_http_http_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4149,7 +1381,7 @@ func (x *HasTrafficStatsUidResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HasTrafficStatsUidResponse.ProtoReflect.Descriptor instead.
 func (*HasTrafficStatsUidResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{99}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *HasTrafficStatsUidResponse) GetResult() bool {
@@ -4167,7 +1399,7 @@ type IsCacheDisabledRequest struct {
 
 func (x *IsCacheDisabledRequest) Reset() {
 	*x = IsCacheDisabledRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[100]
+	mi := &file_proto_http_http_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4179,7 +1411,7 @@ func (x *IsCacheDisabledRequest) String() string {
 func (*IsCacheDisabledRequest) ProtoMessage() {}
 
 func (x *IsCacheDisabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[100]
+	mi := &file_proto_http_http_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4192,7 +1424,7 @@ func (x *IsCacheDisabledRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsCacheDisabledRequest.ProtoReflect.Descriptor instead.
 func (*IsCacheDisabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{100}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{34}
 }
 
 type IsCacheDisabledResponse struct {
@@ -4204,7 +1436,7 @@ type IsCacheDisabledResponse struct {
 
 func (x *IsCacheDisabledResponse) Reset() {
 	*x = IsCacheDisabledResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[101]
+	mi := &file_proto_http_http_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4216,7 +1448,7 @@ func (x *IsCacheDisabledResponse) String() string {
 func (*IsCacheDisabledResponse) ProtoMessage() {}
 
 func (x *IsCacheDisabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[101]
+	mi := &file_proto_http_http_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4229,7 +1461,7 @@ func (x *IsCacheDisabledResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsCacheDisabledResponse.ProtoReflect.Descriptor instead.
 func (*IsCacheDisabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{101}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *IsCacheDisabledResponse) GetResult() bool {
@@ -4247,7 +1479,7 @@ type IsDirectExecutorAllowedRequest struct {
 
 func (x *IsDirectExecutorAllowedRequest) Reset() {
 	*x = IsDirectExecutorAllowedRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[102]
+	mi := &file_proto_http_http_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4259,7 +1491,7 @@ func (x *IsDirectExecutorAllowedRequest) String() string {
 func (*IsDirectExecutorAllowedRequest) ProtoMessage() {}
 
 func (x *IsDirectExecutorAllowedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[102]
+	mi := &file_proto_http_http_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4272,7 +1504,7 @@ func (x *IsDirectExecutorAllowedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsDirectExecutorAllowedRequest.ProtoReflect.Descriptor instead.
 func (*IsDirectExecutorAllowedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{102}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{36}
 }
 
 type IsDirectExecutorAllowedResponse struct {
@@ -4284,7 +1516,7 @@ type IsDirectExecutorAllowedResponse struct {
 
 func (x *IsDirectExecutorAllowedResponse) Reset() {
 	*x = IsDirectExecutorAllowedResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[103]
+	mi := &file_proto_http_http_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4296,7 +1528,7 @@ func (x *IsDirectExecutorAllowedResponse) String() string {
 func (*IsDirectExecutorAllowedResponse) ProtoMessage() {}
 
 func (x *IsDirectExecutorAllowedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[103]
+	mi := &file_proto_http_http_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4309,7 +1541,7 @@ func (x *IsDirectExecutorAllowedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsDirectExecutorAllowedResponse.ProtoReflect.Descriptor instead.
 func (*IsDirectExecutorAllowedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{103}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *IsDirectExecutorAllowedResponse) GetResult() bool {
@@ -4327,7 +1559,7 @@ type IsDoneRequest struct {
 
 func (x *IsDoneRequest) Reset() {
 	*x = IsDoneRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[104]
+	mi := &file_proto_http_http_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4339,7 +1571,7 @@ func (x *IsDoneRequest) String() string {
 func (*IsDoneRequest) ProtoMessage() {}
 
 func (x *IsDoneRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[104]
+	mi := &file_proto_http_http_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4352,7 +1584,7 @@ func (x *IsDoneRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsDoneRequest.ProtoReflect.Descriptor instead.
 func (*IsDoneRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{104}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{38}
 }
 
 type IsDoneResponse struct {
@@ -4364,7 +1596,7 @@ type IsDoneResponse struct {
 
 func (x *IsDoneResponse) Reset() {
 	*x = IsDoneResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[105]
+	mi := &file_proto_http_http_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4376,7 +1608,7 @@ func (x *IsDoneResponse) String() string {
 func (*IsDoneResponse) ProtoMessage() {}
 
 func (x *IsDoneResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[105]
+	mi := &file_proto_http_http_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4389,7 +1621,7 @@ func (x *IsDoneResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsDoneResponse.ProtoReflect.Descriptor instead.
 func (*IsDoneResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{105}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *IsDoneResponse) GetResult() bool {
@@ -4407,7 +1639,7 @@ type StartRequest struct {
 
 func (x *StartRequest) Reset() {
 	*x = StartRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[106]
+	mi := &file_proto_http_http_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4419,7 +1651,7 @@ func (x *StartRequest) String() string {
 func (*StartRequest) ProtoMessage() {}
 
 func (x *StartRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[106]
+	mi := &file_proto_http_http_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4432,7 +1664,7 @@ func (x *StartRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartRequest.ProtoReflect.Descriptor instead.
 func (*StartRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{106}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{40}
 }
 
 type StartResponse struct {
@@ -4443,7 +1675,7 @@ type StartResponse struct {
 
 func (x *StartResponse) Reset() {
 	*x = StartResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[107]
+	mi := &file_proto_http_http_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4455,7 +1687,7 @@ func (x *StartResponse) String() string {
 func (*StartResponse) ProtoMessage() {}
 
 func (x *StartResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[107]
+	mi := &file_proto_http_http_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4468,7 +1700,7 @@ func (x *StartResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartResponse.ProtoReflect.Descriptor instead.
 func (*StartResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{107}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{41}
 }
 
 type AddHeaderRequest struct {
@@ -4481,7 +1713,7 @@ type AddHeaderRequest struct {
 
 func (x *AddHeaderRequest) Reset() {
 	*x = AddHeaderRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[108]
+	mi := &file_proto_http_http_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4493,7 +1725,7 @@ func (x *AddHeaderRequest) String() string {
 func (*AddHeaderRequest) ProtoMessage() {}
 
 func (x *AddHeaderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[108]
+	mi := &file_proto_http_http_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4506,7 +1738,7 @@ func (x *AddHeaderRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddHeaderRequest.ProtoReflect.Descriptor instead.
 func (*AddHeaderRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{108}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *AddHeaderRequest) GetArg0() string {
@@ -4532,7 +1764,7 @@ type AddHeaderResponse struct {
 
 func (x *AddHeaderResponse) Reset() {
 	*x = AddHeaderResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[109]
+	mi := &file_proto_http_http_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4544,7 +1776,7 @@ func (x *AddHeaderResponse) String() string {
 func (*AddHeaderResponse) ProtoMessage() {}
 
 func (x *AddHeaderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[109]
+	mi := &file_proto_http_http_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4557,7 +1789,7 @@ func (x *AddHeaderResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddHeaderResponse.ProtoReflect.Descriptor instead.
 func (*AddHeaderResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{109}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *AddHeaderResponse) GetResult() int64 {
@@ -4567,28 +1799,28 @@ func (x *AddHeaderResponse) GetResult() int64 {
 	return 0
 }
 
-type UrlRequestBuilderBindToNetworkResponse struct {
+type BindToNetworkRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *UrlRequestBuilderBindToNetworkResponse) Reset() {
-	*x = UrlRequestBuilderBindToNetworkResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[110]
+func (x *BindToNetworkRequest) Reset() {
+	*x = BindToNetworkRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *UrlRequestBuilderBindToNetworkResponse) String() string {
+func (x *BindToNetworkRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UrlRequestBuilderBindToNetworkResponse) ProtoMessage() {}
+func (*BindToNetworkRequest) ProtoMessage() {}
 
-func (x *UrlRequestBuilderBindToNetworkResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[110]
+func (x *BindToNetworkRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4599,12 +1831,56 @@ func (x *UrlRequestBuilderBindToNetworkResponse) ProtoReflect() protoreflect.Mes
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UrlRequestBuilderBindToNetworkResponse.ProtoReflect.Descriptor instead.
-func (*UrlRequestBuilderBindToNetworkResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{110}
+// Deprecated: Use BindToNetworkRequest.ProtoReflect.Descriptor instead.
+func (*BindToNetworkRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{44}
 }
 
-func (x *UrlRequestBuilderBindToNetworkResponse) GetResult() int64 {
+func (x *BindToNetworkRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type BindToNetworkResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BindToNetworkResponse) Reset() {
+	*x = BindToNetworkResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BindToNetworkResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BindToNetworkResponse) ProtoMessage() {}
+
+func (x *BindToNetworkResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BindToNetworkResponse.ProtoReflect.Descriptor instead.
+func (*BindToNetworkResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *BindToNetworkResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -4620,7 +1896,7 @@ type SetCacheDisabledRequest struct {
 
 func (x *SetCacheDisabledRequest) Reset() {
 	*x = SetCacheDisabledRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[111]
+	mi := &file_proto_http_http_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4632,7 +1908,7 @@ func (x *SetCacheDisabledRequest) String() string {
 func (*SetCacheDisabledRequest) ProtoMessage() {}
 
 func (x *SetCacheDisabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[111]
+	mi := &file_proto_http_http_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4645,7 +1921,7 @@ func (x *SetCacheDisabledRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetCacheDisabledRequest.ProtoReflect.Descriptor instead.
 func (*SetCacheDisabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{111}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *SetCacheDisabledRequest) GetArg0() bool {
@@ -4664,7 +1940,7 @@ type SetCacheDisabledResponse struct {
 
 func (x *SetCacheDisabledResponse) Reset() {
 	*x = SetCacheDisabledResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[112]
+	mi := &file_proto_http_http_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4676,7 +1952,7 @@ func (x *SetCacheDisabledResponse) String() string {
 func (*SetCacheDisabledResponse) ProtoMessage() {}
 
 func (x *SetCacheDisabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[112]
+	mi := &file_proto_http_http_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4689,7 +1965,7 @@ func (x *SetCacheDisabledResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetCacheDisabledResponse.ProtoReflect.Descriptor instead.
 func (*SetCacheDisabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{112}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *SetCacheDisabledResponse) GetResult() int64 {
@@ -4708,7 +1984,7 @@ type SetDirectExecutorAllowedRequest struct {
 
 func (x *SetDirectExecutorAllowedRequest) Reset() {
 	*x = SetDirectExecutorAllowedRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[113]
+	mi := &file_proto_http_http_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4720,7 +1996,7 @@ func (x *SetDirectExecutorAllowedRequest) String() string {
 func (*SetDirectExecutorAllowedRequest) ProtoMessage() {}
 
 func (x *SetDirectExecutorAllowedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[113]
+	mi := &file_proto_http_http_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4733,7 +2009,7 @@ func (x *SetDirectExecutorAllowedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDirectExecutorAllowedRequest.ProtoReflect.Descriptor instead.
 func (*SetDirectExecutorAllowedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{113}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *SetDirectExecutorAllowedRequest) GetArg0() bool {
@@ -4752,7 +2028,7 @@ type SetDirectExecutorAllowedResponse struct {
 
 func (x *SetDirectExecutorAllowedResponse) Reset() {
 	*x = SetDirectExecutorAllowedResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[114]
+	mi := &file_proto_http_http_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4764,7 +2040,7 @@ func (x *SetDirectExecutorAllowedResponse) String() string {
 func (*SetDirectExecutorAllowedResponse) ProtoMessage() {}
 
 func (x *SetDirectExecutorAllowedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[114]
+	mi := &file_proto_http_http_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4777,7 +2053,7 @@ func (x *SetDirectExecutorAllowedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDirectExecutorAllowedResponse.ProtoReflect.Descriptor instead.
 func (*SetDirectExecutorAllowedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{114}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{49}
 }
 
 func (x *SetDirectExecutorAllowedResponse) GetResult() int64 {
@@ -4796,7 +2072,7 @@ type SetHttpMethodRequest struct {
 
 func (x *SetHttpMethodRequest) Reset() {
 	*x = SetHttpMethodRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[115]
+	mi := &file_proto_http_http_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4808,7 +2084,7 @@ func (x *SetHttpMethodRequest) String() string {
 func (*SetHttpMethodRequest) ProtoMessage() {}
 
 func (x *SetHttpMethodRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[115]
+	mi := &file_proto_http_http_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4821,7 +2097,7 @@ func (x *SetHttpMethodRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetHttpMethodRequest.ProtoReflect.Descriptor instead.
 func (*SetHttpMethodRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{115}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *SetHttpMethodRequest) GetArg0() string {
@@ -4840,7 +2116,7 @@ type SetHttpMethodResponse struct {
 
 func (x *SetHttpMethodResponse) Reset() {
 	*x = SetHttpMethodResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[116]
+	mi := &file_proto_http_http_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4852,7 +2128,7 @@ func (x *SetHttpMethodResponse) String() string {
 func (*SetHttpMethodResponse) ProtoMessage() {}
 
 func (x *SetHttpMethodResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[116]
+	mi := &file_proto_http_http_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4865,7 +2141,7 @@ func (x *SetHttpMethodResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetHttpMethodResponse.ProtoReflect.Descriptor instead.
 func (*SetHttpMethodResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{116}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{51}
 }
 
 func (x *SetHttpMethodResponse) GetResult() int64 {
@@ -4884,7 +2160,7 @@ type SetPriorityRequest struct {
 
 func (x *SetPriorityRequest) Reset() {
 	*x = SetPriorityRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[117]
+	mi := &file_proto_http_http_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4896,7 +2172,7 @@ func (x *SetPriorityRequest) String() string {
 func (*SetPriorityRequest) ProtoMessage() {}
 
 func (x *SetPriorityRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[117]
+	mi := &file_proto_http_http_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4909,7 +2185,7 @@ func (x *SetPriorityRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetPriorityRequest.ProtoReflect.Descriptor instead.
 func (*SetPriorityRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{117}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *SetPriorityRequest) GetArg0() int32 {
@@ -4928,7 +2204,7 @@ type SetPriorityResponse struct {
 
 func (x *SetPriorityResponse) Reset() {
 	*x = SetPriorityResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[118]
+	mi := &file_proto_http_http_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4940,7 +2216,7 @@ func (x *SetPriorityResponse) String() string {
 func (*SetPriorityResponse) ProtoMessage() {}
 
 func (x *SetPriorityResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[118]
+	mi := &file_proto_http_http_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4953,7 +2229,7 @@ func (x *SetPriorityResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetPriorityResponse.ProtoReflect.Descriptor instead.
 func (*SetPriorityResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{118}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *SetPriorityResponse) GetResult() int64 {
@@ -4972,7 +2248,7 @@ type SetTrafficStatsTagRequest struct {
 
 func (x *SetTrafficStatsTagRequest) Reset() {
 	*x = SetTrafficStatsTagRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[119]
+	mi := &file_proto_http_http_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4984,7 +2260,7 @@ func (x *SetTrafficStatsTagRequest) String() string {
 func (*SetTrafficStatsTagRequest) ProtoMessage() {}
 
 func (x *SetTrafficStatsTagRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[119]
+	mi := &file_proto_http_http_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4997,7 +2273,7 @@ func (x *SetTrafficStatsTagRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetTrafficStatsTagRequest.ProtoReflect.Descriptor instead.
 func (*SetTrafficStatsTagRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{119}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *SetTrafficStatsTagRequest) GetArg0() int32 {
@@ -5016,7 +2292,7 @@ type SetTrafficStatsTagResponse struct {
 
 func (x *SetTrafficStatsTagResponse) Reset() {
 	*x = SetTrafficStatsTagResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[120]
+	mi := &file_proto_http_http_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5028,7 +2304,7 @@ func (x *SetTrafficStatsTagResponse) String() string {
 func (*SetTrafficStatsTagResponse) ProtoMessage() {}
 
 func (x *SetTrafficStatsTagResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[120]
+	mi := &file_proto_http_http_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5041,7 +2317,7 @@ func (x *SetTrafficStatsTagResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetTrafficStatsTagResponse.ProtoReflect.Descriptor instead.
 func (*SetTrafficStatsTagResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{120}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{55}
 }
 
 func (x *SetTrafficStatsTagResponse) GetResult() int64 {
@@ -5060,7 +2336,7 @@ type SetTrafficStatsUidRequest struct {
 
 func (x *SetTrafficStatsUidRequest) Reset() {
 	*x = SetTrafficStatsUidRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[121]
+	mi := &file_proto_http_http_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5072,7 +2348,7 @@ func (x *SetTrafficStatsUidRequest) String() string {
 func (*SetTrafficStatsUidRequest) ProtoMessage() {}
 
 func (x *SetTrafficStatsUidRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[121]
+	mi := &file_proto_http_http_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5085,7 +2361,7 @@ func (x *SetTrafficStatsUidRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetTrafficStatsUidRequest.ProtoReflect.Descriptor instead.
 func (*SetTrafficStatsUidRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{121}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *SetTrafficStatsUidRequest) GetArg0() int32 {
@@ -5104,7 +2380,7 @@ type SetTrafficStatsUidResponse struct {
 
 func (x *SetTrafficStatsUidResponse) Reset() {
 	*x = SetTrafficStatsUidResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[122]
+	mi := &file_proto_http_http_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5116,7 +2392,7 @@ func (x *SetTrafficStatsUidResponse) String() string {
 func (*SetTrafficStatsUidResponse) ProtoMessage() {}
 
 func (x *SetTrafficStatsUidResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[122]
+	mi := &file_proto_http_http_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5129,7 +2405,7 @@ func (x *SetTrafficStatsUidResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetTrafficStatsUidResponse.ProtoReflect.Descriptor instead.
 func (*SetTrafficStatsUidResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{122}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{57}
 }
 
 func (x *SetTrafficStatsUidResponse) GetResult() int64 {
@@ -5149,7 +2425,7 @@ type SetUploadDataProviderRequest struct {
 
 func (x *SetUploadDataProviderRequest) Reset() {
 	*x = SetUploadDataProviderRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[123]
+	mi := &file_proto_http_http_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5161,7 +2437,7 @@ func (x *SetUploadDataProviderRequest) String() string {
 func (*SetUploadDataProviderRequest) ProtoMessage() {}
 
 func (x *SetUploadDataProviderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[123]
+	mi := &file_proto_http_http_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5174,7 +2450,7 @@ func (x *SetUploadDataProviderRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetUploadDataProviderRequest.ProtoReflect.Descriptor instead.
 func (*SetUploadDataProviderRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{123}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *SetUploadDataProviderRequest) GetArg0() int64 {
@@ -5200,7 +2476,7 @@ type SetUploadDataProviderResponse struct {
 
 func (x *SetUploadDataProviderResponse) Reset() {
 	*x = SetUploadDataProviderResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[124]
+	mi := &file_proto_http_http_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5212,7 +2488,7 @@ func (x *SetUploadDataProviderResponse) String() string {
 func (*SetUploadDataProviderResponse) ProtoMessage() {}
 
 func (x *SetUploadDataProviderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[124]
+	mi := &file_proto_http_http_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5225,7 +2501,7 @@ func (x *SetUploadDataProviderResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetUploadDataProviderResponse.ProtoReflect.Descriptor instead.
 func (*SetUploadDataProviderResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{124}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{59}
 }
 
 func (x *SetUploadDataProviderResponse) GetResult() int64 {
@@ -5245,7 +2521,7 @@ type OnCanceledRequest struct {
 
 func (x *OnCanceledRequest) Reset() {
 	*x = OnCanceledRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[125]
+	mi := &file_proto_http_http_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5257,7 +2533,7 @@ func (x *OnCanceledRequest) String() string {
 func (*OnCanceledRequest) ProtoMessage() {}
 
 func (x *OnCanceledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[125]
+	mi := &file_proto_http_http_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5270,7 +2546,7 @@ func (x *OnCanceledRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCanceledRequest.ProtoReflect.Descriptor instead.
 func (*OnCanceledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{125}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *OnCanceledRequest) GetArg0() int64 {
@@ -5295,7 +2571,7 @@ type OnCanceledResponse struct {
 
 func (x *OnCanceledResponse) Reset() {
 	*x = OnCanceledResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[126]
+	mi := &file_proto_http_http_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5307,7 +2583,7 @@ func (x *OnCanceledResponse) String() string {
 func (*OnCanceledResponse) ProtoMessage() {}
 
 func (x *OnCanceledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[126]
+	mi := &file_proto_http_http_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5320,7 +2596,7 @@ func (x *OnCanceledResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCanceledResponse.ProtoReflect.Descriptor instead.
 func (*OnCanceledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{126}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{61}
 }
 
 type OnFailedRequest struct {
@@ -5334,7 +2610,7 @@ type OnFailedRequest struct {
 
 func (x *OnFailedRequest) Reset() {
 	*x = OnFailedRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[127]
+	mi := &file_proto_http_http_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5346,7 +2622,7 @@ func (x *OnFailedRequest) String() string {
 func (*OnFailedRequest) ProtoMessage() {}
 
 func (x *OnFailedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[127]
+	mi := &file_proto_http_http_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5359,7 +2635,7 @@ func (x *OnFailedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnFailedRequest.ProtoReflect.Descriptor instead.
 func (*OnFailedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{127}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{62}
 }
 
 func (x *OnFailedRequest) GetArg0() int64 {
@@ -5391,7 +2667,7 @@ type OnFailedResponse struct {
 
 func (x *OnFailedResponse) Reset() {
 	*x = OnFailedResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[128]
+	mi := &file_proto_http_http_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5403,7 +2679,7 @@ func (x *OnFailedResponse) String() string {
 func (*OnFailedResponse) ProtoMessage() {}
 
 func (x *OnFailedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[128]
+	mi := &file_proto_http_http_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5416,7 +2692,7 @@ func (x *OnFailedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnFailedResponse.ProtoReflect.Descriptor instead.
 func (*OnFailedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{128}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{63}
 }
 
 type OnRedirectReceivedRequest struct {
@@ -5430,7 +2706,7 @@ type OnRedirectReceivedRequest struct {
 
 func (x *OnRedirectReceivedRequest) Reset() {
 	*x = OnRedirectReceivedRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[129]
+	mi := &file_proto_http_http_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5442,7 +2718,7 @@ func (x *OnRedirectReceivedRequest) String() string {
 func (*OnRedirectReceivedRequest) ProtoMessage() {}
 
 func (x *OnRedirectReceivedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[129]
+	mi := &file_proto_http_http_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5455,7 +2731,7 @@ func (x *OnRedirectReceivedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnRedirectReceivedRequest.ProtoReflect.Descriptor instead.
 func (*OnRedirectReceivedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{129}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{64}
 }
 
 func (x *OnRedirectReceivedRequest) GetArg0() int64 {
@@ -5487,7 +2763,7 @@ type OnRedirectReceivedResponse struct {
 
 func (x *OnRedirectReceivedResponse) Reset() {
 	*x = OnRedirectReceivedResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[130]
+	mi := &file_proto_http_http_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5499,7 +2775,7 @@ func (x *OnRedirectReceivedResponse) String() string {
 func (*OnRedirectReceivedResponse) ProtoMessage() {}
 
 func (x *OnRedirectReceivedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[130]
+	mi := &file_proto_http_http_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5512,7 +2788,7 @@ func (x *OnRedirectReceivedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnRedirectReceivedResponse.ProtoReflect.Descriptor instead.
 func (*OnRedirectReceivedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{130}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{65}
 }
 
 type OnResponseStartedRequest struct {
@@ -5525,7 +2801,7 @@ type OnResponseStartedRequest struct {
 
 func (x *OnResponseStartedRequest) Reset() {
 	*x = OnResponseStartedRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[131]
+	mi := &file_proto_http_http_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5537,7 +2813,7 @@ func (x *OnResponseStartedRequest) String() string {
 func (*OnResponseStartedRequest) ProtoMessage() {}
 
 func (x *OnResponseStartedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[131]
+	mi := &file_proto_http_http_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5550,7 +2826,7 @@ func (x *OnResponseStartedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnResponseStartedRequest.ProtoReflect.Descriptor instead.
 func (*OnResponseStartedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{131}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{66}
 }
 
 func (x *OnResponseStartedRequest) GetArg0() int64 {
@@ -5575,7 +2851,7 @@ type OnResponseStartedResponse struct {
 
 func (x *OnResponseStartedResponse) Reset() {
 	*x = OnResponseStartedResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[132]
+	mi := &file_proto_http_http_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5587,7 +2863,7 @@ func (x *OnResponseStartedResponse) String() string {
 func (*OnResponseStartedResponse) ProtoMessage() {}
 
 func (x *OnResponseStartedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[132]
+	mi := &file_proto_http_http_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5600,7 +2876,7 @@ func (x *OnResponseStartedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnResponseStartedResponse.ProtoReflect.Descriptor instead.
 func (*OnResponseStartedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{132}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{67}
 }
 
 type OnSucceededRequest struct {
@@ -5613,7 +2889,7 @@ type OnSucceededRequest struct {
 
 func (x *OnSucceededRequest) Reset() {
 	*x = OnSucceededRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[133]
+	mi := &file_proto_http_http_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5625,7 +2901,7 @@ func (x *OnSucceededRequest) String() string {
 func (*OnSucceededRequest) ProtoMessage() {}
 
 func (x *OnSucceededRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[133]
+	mi := &file_proto_http_http_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5638,7 +2914,7 @@ func (x *OnSucceededRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnSucceededRequest.ProtoReflect.Descriptor instead.
 func (*OnSucceededRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{133}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{68}
 }
 
 func (x *OnSucceededRequest) GetArg0() int64 {
@@ -5663,7 +2939,7 @@ type OnSucceededResponse struct {
 
 func (x *OnSucceededResponse) Reset() {
 	*x = OnSucceededResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[134]
+	mi := &file_proto_http_http_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5675,7 +2951,7 @@ func (x *OnSucceededResponse) String() string {
 func (*OnSucceededResponse) ProtoMessage() {}
 
 func (x *OnSucceededResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[134]
+	mi := &file_proto_http_http_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5688,7 +2964,7 @@ func (x *OnSucceededResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnSucceededResponse.ProtoReflect.Descriptor instead.
 func (*OnSucceededResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{134}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{69}
 }
 
 type OnStatusRequest struct {
@@ -5700,7 +2976,7 @@ type OnStatusRequest struct {
 
 func (x *OnStatusRequest) Reset() {
 	*x = OnStatusRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[135]
+	mi := &file_proto_http_http_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5712,7 +2988,7 @@ func (x *OnStatusRequest) String() string {
 func (*OnStatusRequest) ProtoMessage() {}
 
 func (x *OnStatusRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[135]
+	mi := &file_proto_http_http_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5725,7 +3001,7 @@ func (x *OnStatusRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnStatusRequest.ProtoReflect.Descriptor instead.
 func (*OnStatusRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{135}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{70}
 }
 
 func (x *OnStatusRequest) GetArg0() int32 {
@@ -5743,7 +3019,7 @@ type OnStatusResponse struct {
 
 func (x *OnStatusResponse) Reset() {
 	*x = OnStatusResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[136]
+	mi := &file_proto_http_http_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5755,7 +3031,7 @@ func (x *OnStatusResponse) String() string {
 func (*OnStatusResponse) ProtoMessage() {}
 
 func (x *OnStatusResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[136]
+	mi := &file_proto_http_http_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5768,603 +3044,7 @@ func (x *OnStatusResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnStatusResponse.ProtoReflect.Descriptor instead.
 func (*OnStatusResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{136}
-}
-
-type NewSslErrorRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewSslErrorRequest) Reset() {
-	*x = NewSslErrorRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[137]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewSslErrorRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewSslErrorRequest) ProtoMessage() {}
-
-func (x *NewSslErrorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[137]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewSslErrorRequest.ProtoReflect.Descriptor instead.
-func (*NewSslErrorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{137}
-}
-
-func (x *NewSslErrorRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *NewSslErrorRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type NewSslErrorResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewSslErrorResponse) Reset() {
-	*x = NewSslErrorResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[138]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewSslErrorResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewSslErrorResponse) ProtoMessage() {}
-
-func (x *NewSslErrorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[138]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewSslErrorResponse.ProtoReflect.Descriptor instead.
-func (*NewSslErrorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{138}
-}
-
-func (x *NewSslErrorResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type AddErrorRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddErrorRequest) Reset() {
-	*x = AddErrorRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[139]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddErrorRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddErrorRequest) ProtoMessage() {}
-
-func (x *AddErrorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[139]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddErrorRequest.ProtoReflect.Descriptor instead.
-func (*AddErrorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{139}
-}
-
-func (x *AddErrorRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *AddErrorRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type AddErrorResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddErrorResponse) Reset() {
-	*x = AddErrorResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[140]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddErrorResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddErrorResponse) ProtoMessage() {}
-
-func (x *AddErrorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[140]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddErrorResponse.ProtoReflect.Descriptor instead.
-func (*AddErrorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{140}
-}
-
-func (x *AddErrorResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type GetCertificateRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCertificateRequest) Reset() {
-	*x = GetCertificateRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[141]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCertificateRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCertificateRequest) ProtoMessage() {}
-
-func (x *GetCertificateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[141]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCertificateRequest.ProtoReflect.Descriptor instead.
-func (*GetCertificateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{141}
-}
-
-func (x *GetCertificateRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetCertificateResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCertificateResponse) Reset() {
-	*x = GetCertificateResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[142]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCertificateResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCertificateResponse) ProtoMessage() {}
-
-func (x *GetCertificateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[142]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCertificateResponse.ProtoReflect.Descriptor instead.
-func (*GetCertificateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{142}
-}
-
-func (x *GetCertificateResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetPrimaryErrorRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPrimaryErrorRequest) Reset() {
-	*x = GetPrimaryErrorRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[143]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPrimaryErrorRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPrimaryErrorRequest) ProtoMessage() {}
-
-func (x *GetPrimaryErrorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[143]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPrimaryErrorRequest.ProtoReflect.Descriptor instead.
-func (*GetPrimaryErrorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{143}
-}
-
-func (x *GetPrimaryErrorRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetPrimaryErrorResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPrimaryErrorResponse) Reset() {
-	*x = GetPrimaryErrorResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[144]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPrimaryErrorResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPrimaryErrorResponse) ProtoMessage() {}
-
-func (x *GetPrimaryErrorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[144]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPrimaryErrorResponse.ProtoReflect.Descriptor instead.
-func (*GetPrimaryErrorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{144}
-}
-
-func (x *GetPrimaryErrorResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SslErrorGetUrlRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SslErrorGetUrlRequest) Reset() {
-	*x = SslErrorGetUrlRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[145]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SslErrorGetUrlRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SslErrorGetUrlRequest) ProtoMessage() {}
-
-func (x *SslErrorGetUrlRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[145]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SslErrorGetUrlRequest.ProtoReflect.Descriptor instead.
-func (*SslErrorGetUrlRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{145}
-}
-
-func (x *SslErrorGetUrlRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type HasErrorRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasErrorRequest) Reset() {
-	*x = HasErrorRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[146]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasErrorRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasErrorRequest) ProtoMessage() {}
-
-func (x *HasErrorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[146]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasErrorRequest.ProtoReflect.Descriptor instead.
-func (*HasErrorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{146}
-}
-
-func (x *HasErrorRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *HasErrorRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type HasErrorResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasErrorResponse) Reset() {
-	*x = HasErrorResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[147]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasErrorResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasErrorResponse) ProtoMessage() {}
-
-func (x *HasErrorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[147]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasErrorResponse.ProtoReflect.Descriptor instead.
-func (*HasErrorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{147}
-}
-
-func (x *HasErrorResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type ToStringRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ToStringRequest) Reset() {
-	*x = ToStringRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[148]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ToStringRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ToStringRequest) ProtoMessage() {}
-
-func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[148]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
-func (*ToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{148}
-}
-
-func (x *ToStringRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type ToStringResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ToStringResponse) Reset() {
-	*x = ToStringResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[149]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ToStringResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ToStringResponse) ProtoMessage() {}
-
-func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[149]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
-func (*ToStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{149}
-}
-
-func (x *ToStringResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
+	return file_proto_http_http_proto_rawDescGZIP(), []int{71}
 }
 
 type NewX509TrustManagerExtensionsRequest struct {
@@ -6376,7 +3056,7 @@ type NewX509TrustManagerExtensionsRequest struct {
 
 func (x *NewX509TrustManagerExtensionsRequest) Reset() {
 	*x = NewX509TrustManagerExtensionsRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[150]
+	mi := &file_proto_http_http_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6388,7 +3068,7 @@ func (x *NewX509TrustManagerExtensionsRequest) String() string {
 func (*NewX509TrustManagerExtensionsRequest) ProtoMessage() {}
 
 func (x *NewX509TrustManagerExtensionsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[150]
+	mi := &file_proto_http_http_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6401,7 +3081,7 @@ func (x *NewX509TrustManagerExtensionsRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use NewX509TrustManagerExtensionsRequest.ProtoReflect.Descriptor instead.
 func (*NewX509TrustManagerExtensionsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{150}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{72}
 }
 
 func (x *NewX509TrustManagerExtensionsRequest) GetArg0() int64 {
@@ -6420,7 +3100,7 @@ type NewX509TrustManagerExtensionsResponse struct {
 
 func (x *NewX509TrustManagerExtensionsResponse) Reset() {
 	*x = NewX509TrustManagerExtensionsResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[151]
+	mi := &file_proto_http_http_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6432,7 +3112,7 @@ func (x *NewX509TrustManagerExtensionsResponse) String() string {
 func (*NewX509TrustManagerExtensionsResponse) ProtoMessage() {}
 
 func (x *NewX509TrustManagerExtensionsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[151]
+	mi := &file_proto_http_http_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6445,10 +3125,250 @@ func (x *NewX509TrustManagerExtensionsResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use NewX509TrustManagerExtensionsResponse.ProtoReflect.Descriptor instead.
 func (*NewX509TrustManagerExtensionsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{151}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{73}
 }
 
 func (x *NewX509TrustManagerExtensionsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CheckServerTrusted5Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          string                 `protobuf:"bytes,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          string                 `protobuf:"bytes,6,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CheckServerTrusted5Request) Reset() {
+	*x = CheckServerTrusted5Request{}
+	mi := &file_proto_http_http_proto_msgTypes[74]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CheckServerTrusted5Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CheckServerTrusted5Request) ProtoMessage() {}
+
+func (x *CheckServerTrusted5Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[74]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CheckServerTrusted5Request.ProtoReflect.Descriptor instead.
+func (*CheckServerTrusted5Request) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{74}
+}
+
+func (x *CheckServerTrusted5Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CheckServerTrusted5Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CheckServerTrusted5Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *CheckServerTrusted5Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *CheckServerTrusted5Request) GetArg3() string {
+	if x != nil {
+		return x.Arg3
+	}
+	return ""
+}
+
+func (x *CheckServerTrusted5Request) GetArg4() string {
+	if x != nil {
+		return x.Arg4
+	}
+	return ""
+}
+
+type CheckServerTrusted5Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CheckServerTrusted5Response) Reset() {
+	*x = CheckServerTrusted5Response{}
+	mi := &file_proto_http_http_proto_msgTypes[75]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CheckServerTrusted5Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CheckServerTrusted5Response) ProtoMessage() {}
+
+func (x *CheckServerTrusted5Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[75]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CheckServerTrusted5Response.ProtoReflect.Descriptor instead.
+func (*CheckServerTrusted5Response) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{75}
+}
+
+func (x *CheckServerTrusted5Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CheckServerTrusted3_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CheckServerTrusted3_1Request) Reset() {
+	*x = CheckServerTrusted3_1Request{}
+	mi := &file_proto_http_http_proto_msgTypes[76]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CheckServerTrusted3_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CheckServerTrusted3_1Request) ProtoMessage() {}
+
+func (x *CheckServerTrusted3_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[76]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CheckServerTrusted3_1Request.ProtoReflect.Descriptor instead.
+func (*CheckServerTrusted3_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{76}
+}
+
+func (x *CheckServerTrusted3_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *CheckServerTrusted3_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CheckServerTrusted3_1Request) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *CheckServerTrusted3_1Request) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+type CheckServerTrusted3_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CheckServerTrusted3_1Response) Reset() {
+	*x = CheckServerTrusted3_1Response{}
+	mi := &file_proto_http_http_proto_msgTypes[77]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CheckServerTrusted3_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CheckServerTrusted3_1Response) ProtoMessage() {}
+
+func (x *CheckServerTrusted3_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[77]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CheckServerTrusted3_1Response.ProtoReflect.Descriptor instead.
+func (*CheckServerTrusted3_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{77}
+}
+
+func (x *CheckServerTrusted3_1Response) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -6466,7 +3386,7 @@ type IsSameTrustConfigurationRequest struct {
 
 func (x *IsSameTrustConfigurationRequest) Reset() {
 	*x = IsSameTrustConfigurationRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[152]
+	mi := &file_proto_http_http_proto_msgTypes[78]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6478,7 +3398,7 @@ func (x *IsSameTrustConfigurationRequest) String() string {
 func (*IsSameTrustConfigurationRequest) ProtoMessage() {}
 
 func (x *IsSameTrustConfigurationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[152]
+	mi := &file_proto_http_http_proto_msgTypes[78]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6491,7 +3411,7 @@ func (x *IsSameTrustConfigurationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsSameTrustConfigurationRequest.ProtoReflect.Descriptor instead.
 func (*IsSameTrustConfigurationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{152}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{78}
 }
 
 func (x *IsSameTrustConfigurationRequest) GetHandle() int64 {
@@ -6524,7 +3444,7 @@ type IsSameTrustConfigurationResponse struct {
 
 func (x *IsSameTrustConfigurationResponse) Reset() {
 	*x = IsSameTrustConfigurationResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[153]
+	mi := &file_proto_http_http_proto_msgTypes[79]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6536,7 +3456,7 @@ func (x *IsSameTrustConfigurationResponse) String() string {
 func (*IsSameTrustConfigurationResponse) ProtoMessage() {}
 
 func (x *IsSameTrustConfigurationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[153]
+	mi := &file_proto_http_http_proto_msgTypes[79]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6549,7 +3469,7 @@ func (x *IsSameTrustConfigurationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsSameTrustConfigurationResponse.ProtoReflect.Descriptor instead.
 func (*IsSameTrustConfigurationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{153}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{79}
 }
 
 func (x *IsSameTrustConfigurationResponse) GetResult() bool {
@@ -6569,7 +3489,7 @@ type IsUserAddedCertificateRequest struct {
 
 func (x *IsUserAddedCertificateRequest) Reset() {
 	*x = IsUserAddedCertificateRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[154]
+	mi := &file_proto_http_http_proto_msgTypes[80]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6581,7 +3501,7 @@ func (x *IsUserAddedCertificateRequest) String() string {
 func (*IsUserAddedCertificateRequest) ProtoMessage() {}
 
 func (x *IsUserAddedCertificateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[154]
+	mi := &file_proto_http_http_proto_msgTypes[80]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6594,7 +3514,7 @@ func (x *IsUserAddedCertificateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsUserAddedCertificateRequest.ProtoReflect.Descriptor instead.
 func (*IsUserAddedCertificateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{154}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{80}
 }
 
 func (x *IsUserAddedCertificateRequest) GetHandle() int64 {
@@ -6620,7 +3540,7 @@ type IsUserAddedCertificateResponse struct {
 
 func (x *IsUserAddedCertificateResponse) Reset() {
 	*x = IsUserAddedCertificateResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[155]
+	mi := &file_proto_http_http_proto_msgTypes[81]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6632,7 +3552,7 @@ func (x *IsUserAddedCertificateResponse) String() string {
 func (*IsUserAddedCertificateResponse) ProtoMessage() {}
 
 func (x *IsUserAddedCertificateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[155]
+	mi := &file_proto_http_http_proto_msgTypes[81]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6645,7 +3565,7 @@ func (x *IsUserAddedCertificateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsUserAddedCertificateResponse.ProtoReflect.Descriptor instead.
 func (*IsUserAddedCertificateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{155}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{81}
 }
 
 func (x *IsUserAddedCertificateResponse) GetResult() bool {
@@ -6664,7 +3584,7 @@ type OnReadErrorRequest struct {
 
 func (x *OnReadErrorRequest) Reset() {
 	*x = OnReadErrorRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[156]
+	mi := &file_proto_http_http_proto_msgTypes[82]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6676,7 +3596,7 @@ func (x *OnReadErrorRequest) String() string {
 func (*OnReadErrorRequest) ProtoMessage() {}
 
 func (x *OnReadErrorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[156]
+	mi := &file_proto_http_http_proto_msgTypes[82]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6689,7 +3609,7 @@ func (x *OnReadErrorRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnReadErrorRequest.ProtoReflect.Descriptor instead.
 func (*OnReadErrorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{156}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{82}
 }
 
 func (x *OnReadErrorRequest) GetArg0() int64 {
@@ -6707,7 +3627,7 @@ type OnReadErrorResponse struct {
 
 func (x *OnReadErrorResponse) Reset() {
 	*x = OnReadErrorResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[157]
+	mi := &file_proto_http_http_proto_msgTypes[83]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6719,7 +3639,7 @@ func (x *OnReadErrorResponse) String() string {
 func (*OnReadErrorResponse) ProtoMessage() {}
 
 func (x *OnReadErrorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[157]
+	mi := &file_proto_http_http_proto_msgTypes[83]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6732,7 +3652,7 @@ func (x *OnReadErrorResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnReadErrorResponse.ProtoReflect.Descriptor instead.
 func (*OnReadErrorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{157}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{83}
 }
 
 type OnReadSucceededRequest struct {
@@ -6744,7 +3664,7 @@ type OnReadSucceededRequest struct {
 
 func (x *OnReadSucceededRequest) Reset() {
 	*x = OnReadSucceededRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[158]
+	mi := &file_proto_http_http_proto_msgTypes[84]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6756,7 +3676,7 @@ func (x *OnReadSucceededRequest) String() string {
 func (*OnReadSucceededRequest) ProtoMessage() {}
 
 func (x *OnReadSucceededRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[158]
+	mi := &file_proto_http_http_proto_msgTypes[84]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6769,7 +3689,7 @@ func (x *OnReadSucceededRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnReadSucceededRequest.ProtoReflect.Descriptor instead.
 func (*OnReadSucceededRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{158}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{84}
 }
 
 func (x *OnReadSucceededRequest) GetArg0() bool {
@@ -6787,7 +3707,7 @@ type OnReadSucceededResponse struct {
 
 func (x *OnReadSucceededResponse) Reset() {
 	*x = OnReadSucceededResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[159]
+	mi := &file_proto_http_http_proto_msgTypes[85]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6799,7 +3719,7 @@ func (x *OnReadSucceededResponse) String() string {
 func (*OnReadSucceededResponse) ProtoMessage() {}
 
 func (x *OnReadSucceededResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[159]
+	mi := &file_proto_http_http_proto_msgTypes[85]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6812,7 +3732,7 @@ func (x *OnReadSucceededResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnReadSucceededResponse.ProtoReflect.Descriptor instead.
 func (*OnReadSucceededResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{159}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{85}
 }
 
 type OnRewindErrorRequest struct {
@@ -6824,7 +3744,7 @@ type OnRewindErrorRequest struct {
 
 func (x *OnRewindErrorRequest) Reset() {
 	*x = OnRewindErrorRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[160]
+	mi := &file_proto_http_http_proto_msgTypes[86]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6836,7 +3756,7 @@ func (x *OnRewindErrorRequest) String() string {
 func (*OnRewindErrorRequest) ProtoMessage() {}
 
 func (x *OnRewindErrorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[160]
+	mi := &file_proto_http_http_proto_msgTypes[86]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6849,7 +3769,7 @@ func (x *OnRewindErrorRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnRewindErrorRequest.ProtoReflect.Descriptor instead.
 func (*OnRewindErrorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{160}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{86}
 }
 
 func (x *OnRewindErrorRequest) GetArg0() int64 {
@@ -6867,7 +3787,7 @@ type OnRewindErrorResponse struct {
 
 func (x *OnRewindErrorResponse) Reset() {
 	*x = OnRewindErrorResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[161]
+	mi := &file_proto_http_http_proto_msgTypes[87]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6879,7 +3799,7 @@ func (x *OnRewindErrorResponse) String() string {
 func (*OnRewindErrorResponse) ProtoMessage() {}
 
 func (x *OnRewindErrorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[161]
+	mi := &file_proto_http_http_proto_msgTypes[87]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6892,7 +3812,7 @@ func (x *OnRewindErrorResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnRewindErrorResponse.ProtoReflect.Descriptor instead.
 func (*OnRewindErrorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{161}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{87}
 }
 
 type OnRewindSucceededRequest struct {
@@ -6903,7 +3823,7 @@ type OnRewindSucceededRequest struct {
 
 func (x *OnRewindSucceededRequest) Reset() {
 	*x = OnRewindSucceededRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[162]
+	mi := &file_proto_http_http_proto_msgTypes[88]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6915,7 +3835,7 @@ func (x *OnRewindSucceededRequest) String() string {
 func (*OnRewindSucceededRequest) ProtoMessage() {}
 
 func (x *OnRewindSucceededRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[162]
+	mi := &file_proto_http_http_proto_msgTypes[88]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6928,7 +3848,7 @@ func (x *OnRewindSucceededRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnRewindSucceededRequest.ProtoReflect.Descriptor instead.
 func (*OnRewindSucceededRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{162}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{88}
 }
 
 type OnRewindSucceededResponse struct {
@@ -6939,7 +3859,7 @@ type OnRewindSucceededResponse struct {
 
 func (x *OnRewindSucceededResponse) Reset() {
 	*x = OnRewindSucceededResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[163]
+	mi := &file_proto_http_http_proto_msgTypes[89]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6951,7 +3871,7 @@ func (x *OnRewindSucceededResponse) String() string {
 func (*OnRewindSucceededResponse) ProtoMessage() {}
 
 func (x *OnRewindSucceededResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[163]
+	mi := &file_proto_http_http_proto_msgTypes[89]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6964,7 +3884,3259 @@ func (x *OnRewindSucceededResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnRewindSucceededResponse.ProtoReflect.Descriptor instead.
 func (*OnRewindSucceededResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{89}
+}
+
+type CloseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CloseRequest) Reset() {
+	*x = CloseRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[90]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CloseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CloseRequest) ProtoMessage() {}
+
+func (x *CloseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[90]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CloseRequest.ProtoReflect.Descriptor instead.
+func (*CloseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{90}
+}
+
+type CloseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CloseResponse) Reset() {
+	*x = CloseResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[91]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CloseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CloseResponse) ProtoMessage() {}
+
+func (x *CloseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[91]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CloseResponse.ProtoReflect.Descriptor instead.
+func (*CloseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{91}
+}
+
+type GetLengthRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLengthRequest) Reset() {
+	*x = GetLengthRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[92]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLengthRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLengthRequest) ProtoMessage() {}
+
+func (x *GetLengthRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[92]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLengthRequest.ProtoReflect.Descriptor instead.
+func (*GetLengthRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{92}
+}
+
+type GetLengthResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLengthResponse) Reset() {
+	*x = GetLengthResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[93]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLengthResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLengthResponse) ProtoMessage() {}
+
+func (x *GetLengthResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[93]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLengthResponse.ProtoReflect.Descriptor instead.
+func (*GetLengthResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{93}
+}
+
+func (x *GetLengthResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type RewindRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RewindRequest) Reset() {
+	*x = RewindRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[94]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RewindRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RewindRequest) ProtoMessage() {}
+
+func (x *RewindRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[94]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RewindRequest.ProtoReflect.Descriptor instead.
+func (*RewindRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{94}
+}
+
+func (x *RewindRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type RewindResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RewindResponse) Reset() {
+	*x = RewindResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[95]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RewindResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RewindResponse) ProtoMessage() {}
+
+func (x *RewindResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[95]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RewindResponse.ProtoReflect.Descriptor instead.
+func (*RewindResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{95}
+}
+
+type FlushRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FlushRequest) Reset() {
+	*x = FlushRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[96]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FlushRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FlushRequest) ProtoMessage() {}
+
+func (x *FlushRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[96]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FlushRequest.ProtoReflect.Descriptor instead.
+func (*FlushRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{96}
+}
+
+type FlushResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FlushResponse) Reset() {
+	*x = FlushResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[97]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FlushResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FlushResponse) ProtoMessage() {}
+
+func (x *FlushResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[97]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FlushResponse.ProtoReflect.Descriptor instead.
+func (*FlushResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{97}
+}
+
+type IsDelayRequestHeadersUntilFirstFlushEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsDelayRequestHeadersUntilFirstFlushEnabledRequest) Reset() {
+	*x = IsDelayRequestHeadersUntilFirstFlushEnabledRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[98]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsDelayRequestHeadersUntilFirstFlushEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsDelayRequestHeadersUntilFirstFlushEnabledRequest) ProtoMessage() {}
+
+func (x *IsDelayRequestHeadersUntilFirstFlushEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[98]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsDelayRequestHeadersUntilFirstFlushEnabledRequest.ProtoReflect.Descriptor instead.
+func (*IsDelayRequestHeadersUntilFirstFlushEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{98}
+}
+
+type IsDelayRequestHeadersUntilFirstFlushEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsDelayRequestHeadersUntilFirstFlushEnabledResponse) Reset() {
+	*x = IsDelayRequestHeadersUntilFirstFlushEnabledResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[99]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsDelayRequestHeadersUntilFirstFlushEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsDelayRequestHeadersUntilFirstFlushEnabledResponse) ProtoMessage() {}
+
+func (x *IsDelayRequestHeadersUntilFirstFlushEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[99]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsDelayRequestHeadersUntilFirstFlushEnabledResponse.ProtoReflect.Descriptor instead.
+func (*IsDelayRequestHeadersUntilFirstFlushEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{99}
+}
+
+func (x *IsDelayRequestHeadersUntilFirstFlushEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type SetDelayRequestHeadersUntilFirstFlushEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDelayRequestHeadersUntilFirstFlushEnabledRequest) Reset() {
+	*x = SetDelayRequestHeadersUntilFirstFlushEnabledRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[100]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDelayRequestHeadersUntilFirstFlushEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDelayRequestHeadersUntilFirstFlushEnabledRequest) ProtoMessage() {}
+
+func (x *SetDelayRequestHeadersUntilFirstFlushEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[100]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDelayRequestHeadersUntilFirstFlushEnabledRequest.ProtoReflect.Descriptor instead.
+func (*SetDelayRequestHeadersUntilFirstFlushEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{100}
+}
+
+func (x *SetDelayRequestHeadersUntilFirstFlushEnabledRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetDelayRequestHeadersUntilFirstFlushEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDelayRequestHeadersUntilFirstFlushEnabledResponse) Reset() {
+	*x = SetDelayRequestHeadersUntilFirstFlushEnabledResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[101]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDelayRequestHeadersUntilFirstFlushEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDelayRequestHeadersUntilFirstFlushEnabledResponse) ProtoMessage() {}
+
+func (x *SetDelayRequestHeadersUntilFirstFlushEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[101]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDelayRequestHeadersUntilFirstFlushEnabledResponse.ProtoReflect.Descriptor instead.
+func (*SetDelayRequestHeadersUntilFirstFlushEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{101}
+}
+
+func (x *SetDelayRequestHeadersUntilFirstFlushEnabledResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnResponseHeadersReceivedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnResponseHeadersReceivedRequest) Reset() {
+	*x = OnResponseHeadersReceivedRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[102]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnResponseHeadersReceivedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnResponseHeadersReceivedRequest) ProtoMessage() {}
+
+func (x *OnResponseHeadersReceivedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[102]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnResponseHeadersReceivedRequest.ProtoReflect.Descriptor instead.
+func (*OnResponseHeadersReceivedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{102}
+}
+
+func (x *OnResponseHeadersReceivedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnResponseHeadersReceivedRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnResponseHeadersReceivedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnResponseHeadersReceivedResponse) Reset() {
+	*x = OnResponseHeadersReceivedResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[103]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnResponseHeadersReceivedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnResponseHeadersReceivedResponse) ProtoMessage() {}
+
+func (x *OnResponseHeadersReceivedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[103]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnResponseHeadersReceivedResponse.ProtoReflect.Descriptor instead.
+func (*OnResponseHeadersReceivedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{103}
+}
+
+type OnResponseTrailersReceivedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnResponseTrailersReceivedRequest) Reset() {
+	*x = OnResponseTrailersReceivedRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[104]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnResponseTrailersReceivedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnResponseTrailersReceivedRequest) ProtoMessage() {}
+
+func (x *OnResponseTrailersReceivedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[104]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnResponseTrailersReceivedRequest.ProtoReflect.Descriptor instead.
+func (*OnResponseTrailersReceivedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{104}
+}
+
+func (x *OnResponseTrailersReceivedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnResponseTrailersReceivedRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnResponseTrailersReceivedRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnResponseTrailersReceivedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnResponseTrailersReceivedResponse) Reset() {
+	*x = OnResponseTrailersReceivedResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[105]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnResponseTrailersReceivedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnResponseTrailersReceivedResponse) ProtoMessage() {}
+
+func (x *OnResponseTrailersReceivedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[105]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnResponseTrailersReceivedResponse.ProtoReflect.Descriptor instead.
+func (*OnResponseTrailersReceivedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{105}
+}
+
+type OnStreamReadyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnStreamReadyRequest) Reset() {
+	*x = OnStreamReadyRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[106]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnStreamReadyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnStreamReadyRequest) ProtoMessage() {}
+
+func (x *OnStreamReadyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[106]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnStreamReadyRequest.ProtoReflect.Descriptor instead.
+func (*OnStreamReadyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{106}
+}
+
+func (x *OnStreamReadyRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnStreamReadyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnStreamReadyResponse) Reset() {
+	*x = OnStreamReadyResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[107]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnStreamReadyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnStreamReadyResponse) ProtoMessage() {}
+
+func (x *OnStreamReadyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[107]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnStreamReadyResponse.ProtoReflect.Descriptor instead.
+func (*OnStreamReadyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{107}
+}
+
+type EngineBindToNetworkResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EngineBindToNetworkResponse) Reset() {
+	*x = EngineBindToNetworkResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[108]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EngineBindToNetworkResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EngineBindToNetworkResponse) ProtoMessage() {}
+
+func (x *EngineBindToNetworkResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[108]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EngineBindToNetworkResponse.ProtoReflect.Descriptor instead.
+func (*EngineBindToNetworkResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{108}
+}
+
+type CreateUrlStreamHandlerFactoryRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateUrlStreamHandlerFactoryRequest) Reset() {
+	*x = CreateUrlStreamHandlerFactoryRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[109]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateUrlStreamHandlerFactoryRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateUrlStreamHandlerFactoryRequest) ProtoMessage() {}
+
+func (x *CreateUrlStreamHandlerFactoryRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[109]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateUrlStreamHandlerFactoryRequest.ProtoReflect.Descriptor instead.
+func (*CreateUrlStreamHandlerFactoryRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{109}
+}
+
+type CreateUrlStreamHandlerFactoryResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateUrlStreamHandlerFactoryResponse) Reset() {
+	*x = CreateUrlStreamHandlerFactoryResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[110]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateUrlStreamHandlerFactoryResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateUrlStreamHandlerFactoryResponse) ProtoMessage() {}
+
+func (x *CreateUrlStreamHandlerFactoryResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[110]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateUrlStreamHandlerFactoryResponse.ProtoReflect.Descriptor instead.
+func (*CreateUrlStreamHandlerFactoryResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{110}
+}
+
+func (x *CreateUrlStreamHandlerFactoryResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewBidirectionalStreamBuilderRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewBidirectionalStreamBuilderRequest) Reset() {
+	*x = NewBidirectionalStreamBuilderRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[111]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewBidirectionalStreamBuilderRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewBidirectionalStreamBuilderRequest) ProtoMessage() {}
+
+func (x *NewBidirectionalStreamBuilderRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[111]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewBidirectionalStreamBuilderRequest.ProtoReflect.Descriptor instead.
+func (*NewBidirectionalStreamBuilderRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{111}
+}
+
+func (x *NewBidirectionalStreamBuilderRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *NewBidirectionalStreamBuilderRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *NewBidirectionalStreamBuilderRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type NewBidirectionalStreamBuilderResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewBidirectionalStreamBuilderResponse) Reset() {
+	*x = NewBidirectionalStreamBuilderResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[112]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewBidirectionalStreamBuilderResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewBidirectionalStreamBuilderResponse) ProtoMessage() {}
+
+func (x *NewBidirectionalStreamBuilderResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[112]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewBidirectionalStreamBuilderResponse.ProtoReflect.Descriptor instead.
+func (*NewBidirectionalStreamBuilderResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{112}
+}
+
+func (x *NewBidirectionalStreamBuilderResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewUrlRequestBuilderRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewUrlRequestBuilderRequest) Reset() {
+	*x = NewUrlRequestBuilderRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[113]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewUrlRequestBuilderRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewUrlRequestBuilderRequest) ProtoMessage() {}
+
+func (x *NewUrlRequestBuilderRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[113]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewUrlRequestBuilderRequest.ProtoReflect.Descriptor instead.
+func (*NewUrlRequestBuilderRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{113}
+}
+
+func (x *NewUrlRequestBuilderRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *NewUrlRequestBuilderRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *NewUrlRequestBuilderRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type NewUrlRequestBuilderResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewUrlRequestBuilderResponse) Reset() {
+	*x = NewUrlRequestBuilderResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[114]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewUrlRequestBuilderResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewUrlRequestBuilderResponse) ProtoMessage() {}
+
+func (x *NewUrlRequestBuilderResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[114]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewUrlRequestBuilderResponse.ProtoReflect.Descriptor instead.
+func (*NewUrlRequestBuilderResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{114}
+}
+
+func (x *NewUrlRequestBuilderResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OpenConnectionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenConnectionRequest) Reset() {
+	*x = OpenConnectionRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[115]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenConnectionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenConnectionRequest) ProtoMessage() {}
+
+func (x *OpenConnectionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[115]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenConnectionRequest.ProtoReflect.Descriptor instead.
+func (*OpenConnectionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{115}
+}
+
+func (x *OpenConnectionRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OpenConnectionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OpenConnectionResponse) Reset() {
+	*x = OpenConnectionResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[116]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OpenConnectionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OpenConnectionResponse) ProtoMessage() {}
+
+func (x *OpenConnectionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[116]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OpenConnectionResponse.ProtoReflect.Descriptor instead.
+func (*OpenConnectionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{116}
+}
+
+func (x *OpenConnectionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ShutdownRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ShutdownRequest) Reset() {
+	*x = ShutdownRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[117]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ShutdownRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ShutdownRequest) ProtoMessage() {}
+
+func (x *ShutdownRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[117]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ShutdownRequest.ProtoReflect.Descriptor instead.
+func (*ShutdownRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{117}
+}
+
+type ShutdownResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ShutdownResponse) Reset() {
+	*x = ShutdownResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[118]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ShutdownResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ShutdownResponse) ProtoMessage() {}
+
+func (x *ShutdownResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[118]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ShutdownResponse.ProtoReflect.Descriptor instead.
+func (*ShutdownResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{118}
+}
+
+type GetVersionStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVersionStringRequest) Reset() {
+	*x = GetVersionStringRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[119]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVersionStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVersionStringRequest) ProtoMessage() {}
+
+func (x *GetVersionStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[119]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVersionStringRequest.ProtoReflect.Descriptor instead.
+func (*GetVersionStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{119}
+}
+
+type GetVersionStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVersionStringResponse) Reset() {
+	*x = GetVersionStringResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[120]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVersionStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVersionStringResponse) ProtoMessage() {}
+
+func (x *GetVersionStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[120]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVersionStringResponse.ProtoReflect.Descriptor instead.
+func (*GetVersionStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{120}
+}
+
+func (x *GetVersionStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type AddQuicHintRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddQuicHintRequest) Reset() {
+	*x = AddQuicHintRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[121]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddQuicHintRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddQuicHintRequest) ProtoMessage() {}
+
+func (x *AddQuicHintRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[121]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddQuicHintRequest.ProtoReflect.Descriptor instead.
+func (*AddQuicHintRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{121}
+}
+
+func (x *AddQuicHintRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *AddQuicHintRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *AddQuicHintRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type AddQuicHintResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddQuicHintResponse) Reset() {
+	*x = AddQuicHintResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[122]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddQuicHintResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddQuicHintResponse) ProtoMessage() {}
+
+func (x *AddQuicHintResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[122]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddQuicHintResponse.ProtoReflect.Descriptor instead.
+func (*AddQuicHintResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{122}
+}
+
+func (x *AddQuicHintResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDefaultUserAgentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDefaultUserAgentRequest) Reset() {
+	*x = GetDefaultUserAgentRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[123]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDefaultUserAgentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDefaultUserAgentRequest) ProtoMessage() {}
+
+func (x *GetDefaultUserAgentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[123]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDefaultUserAgentRequest.ProtoReflect.Descriptor instead.
+func (*GetDefaultUserAgentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{123}
+}
+
+type GetDefaultUserAgentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDefaultUserAgentResponse) Reset() {
+	*x = GetDefaultUserAgentResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[124]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDefaultUserAgentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDefaultUserAgentResponse) ProtoMessage() {}
+
+func (x *GetDefaultUserAgentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[124]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDefaultUserAgentResponse.ProtoReflect.Descriptor instead.
+func (*GetDefaultUserAgentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{124}
+}
+
+func (x *GetDefaultUserAgentResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type SetConnectionMigrationOptionsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetConnectionMigrationOptionsRequest) Reset() {
+	*x = SetConnectionMigrationOptionsRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[125]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetConnectionMigrationOptionsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetConnectionMigrationOptionsRequest) ProtoMessage() {}
+
+func (x *SetConnectionMigrationOptionsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[125]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetConnectionMigrationOptionsRequest.ProtoReflect.Descriptor instead.
+func (*SetConnectionMigrationOptionsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{125}
+}
+
+func (x *SetConnectionMigrationOptionsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetConnectionMigrationOptionsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetConnectionMigrationOptionsResponse) Reset() {
+	*x = SetConnectionMigrationOptionsResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[126]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetConnectionMigrationOptionsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetConnectionMigrationOptionsResponse) ProtoMessage() {}
+
+func (x *SetConnectionMigrationOptionsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[126]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetConnectionMigrationOptionsResponse.ProtoReflect.Descriptor instead.
+func (*SetConnectionMigrationOptionsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{126}
+}
+
+func (x *SetConnectionMigrationOptionsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetDnsOptionsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDnsOptionsRequest) Reset() {
+	*x = SetDnsOptionsRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[127]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDnsOptionsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDnsOptionsRequest) ProtoMessage() {}
+
+func (x *SetDnsOptionsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[127]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDnsOptionsRequest.ProtoReflect.Descriptor instead.
+func (*SetDnsOptionsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{127}
+}
+
+func (x *SetDnsOptionsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetDnsOptionsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDnsOptionsResponse) Reset() {
+	*x = SetDnsOptionsResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[128]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDnsOptionsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDnsOptionsResponse) ProtoMessage() {}
+
+func (x *SetDnsOptionsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[128]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDnsOptionsResponse.ProtoReflect.Descriptor instead.
+func (*SetDnsOptionsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{128}
+}
+
+func (x *SetDnsOptionsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetEnableBrotliRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEnableBrotliRequest) Reset() {
+	*x = SetEnableBrotliRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[129]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEnableBrotliRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEnableBrotliRequest) ProtoMessage() {}
+
+func (x *SetEnableBrotliRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[129]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEnableBrotliRequest.ProtoReflect.Descriptor instead.
+func (*SetEnableBrotliRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{129}
+}
+
+func (x *SetEnableBrotliRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetEnableBrotliResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEnableBrotliResponse) Reset() {
+	*x = SetEnableBrotliResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[130]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEnableBrotliResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEnableBrotliResponse) ProtoMessage() {}
+
+func (x *SetEnableBrotliResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[130]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEnableBrotliResponse.ProtoReflect.Descriptor instead.
+func (*SetEnableBrotliResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{130}
+}
+
+func (x *SetEnableBrotliResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetEnableHttp2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEnableHttp2Request) Reset() {
+	*x = SetEnableHttp2Request{}
+	mi := &file_proto_http_http_proto_msgTypes[131]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEnableHttp2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEnableHttp2Request) ProtoMessage() {}
+
+func (x *SetEnableHttp2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[131]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEnableHttp2Request.ProtoReflect.Descriptor instead.
+func (*SetEnableHttp2Request) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{131}
+}
+
+func (x *SetEnableHttp2Request) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetEnableHttp2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEnableHttp2Response) Reset() {
+	*x = SetEnableHttp2Response{}
+	mi := &file_proto_http_http_proto_msgTypes[132]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEnableHttp2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEnableHttp2Response) ProtoMessage() {}
+
+func (x *SetEnableHttp2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[132]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEnableHttp2Response.ProtoReflect.Descriptor instead.
+func (*SetEnableHttp2Response) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{132}
+}
+
+func (x *SetEnableHttp2Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetEnableHttpCacheRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEnableHttpCacheRequest) Reset() {
+	*x = SetEnableHttpCacheRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[133]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEnableHttpCacheRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEnableHttpCacheRequest) ProtoMessage() {}
+
+func (x *SetEnableHttpCacheRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[133]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEnableHttpCacheRequest.ProtoReflect.Descriptor instead.
+func (*SetEnableHttpCacheRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{133}
+}
+
+func (x *SetEnableHttpCacheRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetEnableHttpCacheRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetEnableHttpCacheResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEnableHttpCacheResponse) Reset() {
+	*x = SetEnableHttpCacheResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[134]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEnableHttpCacheResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEnableHttpCacheResponse) ProtoMessage() {}
+
+func (x *SetEnableHttpCacheResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[134]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEnableHttpCacheResponse.ProtoReflect.Descriptor instead.
+func (*SetEnableHttpCacheResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{134}
+}
+
+func (x *SetEnableHttpCacheResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest) Reset() {
+	*x = SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[135]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest) ProtoMessage() {}
+
+func (x *SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[135]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest.ProtoReflect.Descriptor instead.
+func (*SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{135}
+}
+
+func (x *SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse) Reset() {
+	*x = SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[136]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse) ProtoMessage() {}
+
+func (x *SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[136]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse.ProtoReflect.Descriptor instead.
+func (*SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{136}
+}
+
+func (x *SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetEnableQuicRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEnableQuicRequest) Reset() {
+	*x = SetEnableQuicRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[137]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEnableQuicRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEnableQuicRequest) ProtoMessage() {}
+
+func (x *SetEnableQuicRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[137]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEnableQuicRequest.ProtoReflect.Descriptor instead.
+func (*SetEnableQuicRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{137}
+}
+
+func (x *SetEnableQuicRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetEnableQuicResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEnableQuicResponse) Reset() {
+	*x = SetEnableQuicResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[138]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEnableQuicResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEnableQuicResponse) ProtoMessage() {}
+
+func (x *SetEnableQuicResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[138]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEnableQuicResponse.ProtoReflect.Descriptor instead.
+func (*SetEnableQuicResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{138}
+}
+
+func (x *SetEnableQuicResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetQuicOptionsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetQuicOptionsRequest) Reset() {
+	*x = SetQuicOptionsRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[139]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetQuicOptionsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetQuicOptionsRequest) ProtoMessage() {}
+
+func (x *SetQuicOptionsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[139]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetQuicOptionsRequest.ProtoReflect.Descriptor instead.
+func (*SetQuicOptionsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{139}
+}
+
+func (x *SetQuicOptionsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetQuicOptionsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetQuicOptionsResponse) Reset() {
+	*x = SetQuicOptionsResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[140]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetQuicOptionsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetQuicOptionsResponse) ProtoMessage() {}
+
+func (x *SetQuicOptionsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[140]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetQuicOptionsResponse.ProtoReflect.Descriptor instead.
+func (*SetQuicOptionsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{140}
+}
+
+func (x *SetQuicOptionsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetStoragePathRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetStoragePathRequest) Reset() {
+	*x = SetStoragePathRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[141]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetStoragePathRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetStoragePathRequest) ProtoMessage() {}
+
+func (x *SetStoragePathRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[141]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetStoragePathRequest.ProtoReflect.Descriptor instead.
+func (*SetStoragePathRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{141}
+}
+
+func (x *SetStoragePathRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetStoragePathResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetStoragePathResponse) Reset() {
+	*x = SetStoragePathResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[142]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetStoragePathResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetStoragePathResponse) ProtoMessage() {}
+
+func (x *SetStoragePathResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[142]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetStoragePathResponse.ProtoReflect.Descriptor instead.
+func (*SetStoragePathResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{142}
+}
+
+func (x *SetStoragePathResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetUserAgentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetUserAgentRequest) Reset() {
+	*x = SetUserAgentRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[143]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetUserAgentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetUserAgentRequest) ProtoMessage() {}
+
+func (x *SetUserAgentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[143]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetUserAgentRequest.ProtoReflect.Descriptor instead.
+func (*SetUserAgentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{143}
+}
+
+func (x *SetUserAgentRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetUserAgentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetUserAgentResponse) Reset() {
+	*x = SetUserAgentResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[144]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetUserAgentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetUserAgentResponse) ProtoMessage() {}
+
+func (x *SetUserAgentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[144]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetUserAgentResponse.ProtoReflect.Descriptor instead.
+func (*SetUserAgentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{144}
+}
+
+func (x *SetUserAgentResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetErrorCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetErrorCodeRequest) Reset() {
+	*x = GetErrorCodeRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[145]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetErrorCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetErrorCodeRequest) ProtoMessage() {}
+
+func (x *GetErrorCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[145]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetErrorCodeRequest.ProtoReflect.Descriptor instead.
+func (*GetErrorCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{145}
+}
+
+type GetErrorCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetErrorCodeResponse) Reset() {
+	*x = GetErrorCodeResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[146]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetErrorCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetErrorCodeResponse) ProtoMessage() {}
+
+func (x *GetErrorCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[146]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetErrorCodeResponse.ProtoReflect.Descriptor instead.
+func (*GetErrorCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{146}
+}
+
+func (x *GetErrorCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsImmediatelyRetryableRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsImmediatelyRetryableRequest) Reset() {
+	*x = IsImmediatelyRetryableRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[147]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsImmediatelyRetryableRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsImmediatelyRetryableRequest) ProtoMessage() {}
+
+func (x *IsImmediatelyRetryableRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[147]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsImmediatelyRetryableRequest.ProtoReflect.Descriptor instead.
+func (*IsImmediatelyRetryableRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{147}
+}
+
+type IsImmediatelyRetryableResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsImmediatelyRetryableResponse) Reset() {
+	*x = IsImmediatelyRetryableResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[148]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsImmediatelyRetryableResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsImmediatelyRetryableResponse) ProtoMessage() {}
+
+func (x *IsImmediatelyRetryableResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[148]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsImmediatelyRetryableResponse.ProtoReflect.Descriptor instead.
+func (*IsImmediatelyRetryableResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{148}
+}
+
+func (x *IsImmediatelyRetryableResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type NewSslErrorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewSslErrorRequest) Reset() {
+	*x = NewSslErrorRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[149]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewSslErrorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewSslErrorRequest) ProtoMessage() {}
+
+func (x *NewSslErrorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[149]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewSslErrorRequest.ProtoReflect.Descriptor instead.
+func (*NewSslErrorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{149}
+}
+
+func (x *NewSslErrorRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewSslErrorRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NewSslErrorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewSslErrorResponse) Reset() {
+	*x = NewSslErrorResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[150]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewSslErrorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewSslErrorResponse) ProtoMessage() {}
+
+func (x *NewSslErrorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[150]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewSslErrorResponse.ProtoReflect.Descriptor instead.
+func (*NewSslErrorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{150}
+}
+
+func (x *NewSslErrorResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddErrorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddErrorRequest) Reset() {
+	*x = AddErrorRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[151]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddErrorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddErrorRequest) ProtoMessage() {}
+
+func (x *AddErrorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[151]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddErrorRequest.ProtoReflect.Descriptor instead.
+func (*AddErrorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{151}
+}
+
+func (x *AddErrorRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *AddErrorRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddErrorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddErrorResponse) Reset() {
+	*x = AddErrorResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[152]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddErrorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddErrorResponse) ProtoMessage() {}
+
+func (x *AddErrorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[152]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddErrorResponse.ProtoReflect.Descriptor instead.
+func (*AddErrorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{152}
+}
+
+func (x *AddErrorResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetCertificateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCertificateRequest) Reset() {
+	*x = GetCertificateRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[153]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCertificateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCertificateRequest) ProtoMessage() {}
+
+func (x *GetCertificateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[153]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCertificateRequest.ProtoReflect.Descriptor instead.
+func (*GetCertificateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{153}
+}
+
+func (x *GetCertificateRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetCertificateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCertificateResponse) Reset() {
+	*x = GetCertificateResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[154]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCertificateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCertificateResponse) ProtoMessage() {}
+
+func (x *GetCertificateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[154]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCertificateResponse.ProtoReflect.Descriptor instead.
+func (*GetCertificateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{154}
+}
+
+func (x *GetCertificateResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPrimaryErrorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPrimaryErrorRequest) Reset() {
+	*x = GetPrimaryErrorRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[155]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPrimaryErrorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPrimaryErrorRequest) ProtoMessage() {}
+
+func (x *GetPrimaryErrorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[155]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPrimaryErrorRequest.ProtoReflect.Descriptor instead.
+func (*GetPrimaryErrorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{155}
+}
+
+func (x *GetPrimaryErrorRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetPrimaryErrorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPrimaryErrorResponse) Reset() {
+	*x = GetPrimaryErrorResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[156]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPrimaryErrorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPrimaryErrorResponse) ProtoMessage() {}
+
+func (x *GetPrimaryErrorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[156]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPrimaryErrorResponse.ProtoReflect.Descriptor instead.
+func (*GetPrimaryErrorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{156}
+}
+
+func (x *GetPrimaryErrorResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetUrlRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUrlRequest) Reset() {
+	*x = GetUrlRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[157]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUrlRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUrlRequest) ProtoMessage() {}
+
+func (x *GetUrlRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[157]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUrlRequest.ProtoReflect.Descriptor instead.
+func (*GetUrlRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{157}
+}
+
+func (x *GetUrlRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetUrlResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUrlResponse) Reset() {
+	*x = GetUrlResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[158]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUrlResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUrlResponse) ProtoMessage() {}
+
+func (x *GetUrlResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[158]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUrlResponse.ProtoReflect.Descriptor instead.
+func (*GetUrlResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{158}
+}
+
+func (x *GetUrlResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type HasErrorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasErrorRequest) Reset() {
+	*x = HasErrorRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[159]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasErrorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasErrorRequest) ProtoMessage() {}
+
+func (x *HasErrorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[159]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasErrorRequest.ProtoReflect.Descriptor instead.
+func (*HasErrorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{159}
+}
+
+func (x *HasErrorRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *HasErrorRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type HasErrorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasErrorResponse) Reset() {
+	*x = HasErrorResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[160]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasErrorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasErrorResponse) ProtoMessage() {}
+
+func (x *HasErrorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[160]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasErrorResponse.ProtoReflect.Descriptor instead.
+func (*HasErrorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{160}
+}
+
+func (x *HasErrorResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type ToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[161]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringRequest) ProtoMessage() {}
+
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[161]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{161}
+}
+
+func (x *ToStringRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[162]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[162]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{162}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetAllowedQuicHostsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAllowedQuicHostsRequest) Reset() {
+	*x = GetAllowedQuicHostsRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[163]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAllowedQuicHostsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAllowedQuicHostsRequest) ProtoMessage() {}
+
+func (x *GetAllowedQuicHostsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[163]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAllowedQuicHostsRequest.ProtoReflect.Descriptor instead.
+func (*GetAllowedQuicHostsRequest) Descriptor() ([]byte, []int) {
 	return file_proto_http_http_proto_rawDescGZIP(), []int{163}
+}
+
+type GetAllowedQuicHostsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAllowedQuicHostsResponse) Reset() {
+	*x = GetAllowedQuicHostsResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[164]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAllowedQuicHostsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAllowedQuicHostsResponse) ProtoMessage() {}
+
+func (x *GetAllowedQuicHostsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[164]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAllowedQuicHostsResponse.ProtoReflect.Descriptor instead.
+func (*GetAllowedQuicHostsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{164}
+}
+
+func (x *GetAllowedQuicHostsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
 }
 
 type GetHandshakeUserAgentRequest struct {
@@ -6975,7 +7147,7 @@ type GetHandshakeUserAgentRequest struct {
 
 func (x *GetHandshakeUserAgentRequest) Reset() {
 	*x = GetHandshakeUserAgentRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[164]
+	mi := &file_proto_http_http_proto_msgTypes[165]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6987,7 +7159,7 @@ func (x *GetHandshakeUserAgentRequest) String() string {
 func (*GetHandshakeUserAgentRequest) ProtoMessage() {}
 
 func (x *GetHandshakeUserAgentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[164]
+	mi := &file_proto_http_http_proto_msgTypes[165]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7000,7 +7172,7 @@ func (x *GetHandshakeUserAgentRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetHandshakeUserAgentRequest.ProtoReflect.Descriptor instead.
 func (*GetHandshakeUserAgentRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{164}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{165}
 }
 
 type GetHandshakeUserAgentResponse struct {
@@ -7012,7 +7184,7 @@ type GetHandshakeUserAgentResponse struct {
 
 func (x *GetHandshakeUserAgentResponse) Reset() {
 	*x = GetHandshakeUserAgentResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[165]
+	mi := &file_proto_http_http_proto_msgTypes[166]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7024,7 +7196,7 @@ func (x *GetHandshakeUserAgentResponse) String() string {
 func (*GetHandshakeUserAgentResponse) ProtoMessage() {}
 
 func (x *GetHandshakeUserAgentResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[165]
+	mi := &file_proto_http_http_proto_msgTypes[166]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7037,7 +7209,7 @@ func (x *GetHandshakeUserAgentResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetHandshakeUserAgentResponse.ProtoReflect.Descriptor instead.
 func (*GetHandshakeUserAgentResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{165}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{166}
 }
 
 func (x *GetHandshakeUserAgentResponse) GetResult() string {
@@ -7055,7 +7227,7 @@ type GetIdleConnectionTimeoutRequest struct {
 
 func (x *GetIdleConnectionTimeoutRequest) Reset() {
 	*x = GetIdleConnectionTimeoutRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[166]
+	mi := &file_proto_http_http_proto_msgTypes[167]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7067,7 +7239,7 @@ func (x *GetIdleConnectionTimeoutRequest) String() string {
 func (*GetIdleConnectionTimeoutRequest) ProtoMessage() {}
 
 func (x *GetIdleConnectionTimeoutRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[166]
+	mi := &file_proto_http_http_proto_msgTypes[167]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7080,7 +7252,7 @@ func (x *GetIdleConnectionTimeoutRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIdleConnectionTimeoutRequest.ProtoReflect.Descriptor instead.
 func (*GetIdleConnectionTimeoutRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{166}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{167}
 }
 
 type GetIdleConnectionTimeoutResponse struct {
@@ -7092,7 +7264,7 @@ type GetIdleConnectionTimeoutResponse struct {
 
 func (x *GetIdleConnectionTimeoutResponse) Reset() {
 	*x = GetIdleConnectionTimeoutResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[167]
+	mi := &file_proto_http_http_proto_msgTypes[168]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7104,7 +7276,7 @@ func (x *GetIdleConnectionTimeoutResponse) String() string {
 func (*GetIdleConnectionTimeoutResponse) ProtoMessage() {}
 
 func (x *GetIdleConnectionTimeoutResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[167]
+	mi := &file_proto_http_http_proto_msgTypes[168]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7117,7 +7289,7 @@ func (x *GetIdleConnectionTimeoutResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIdleConnectionTimeoutResponse.ProtoReflect.Descriptor instead.
 func (*GetIdleConnectionTimeoutResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{167}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{168}
 }
 
 func (x *GetIdleConnectionTimeoutResponse) GetResult() int64 {
@@ -7135,7 +7307,7 @@ type GetInMemoryServerConfigsCacheSizeRequest struct {
 
 func (x *GetInMemoryServerConfigsCacheSizeRequest) Reset() {
 	*x = GetInMemoryServerConfigsCacheSizeRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[168]
+	mi := &file_proto_http_http_proto_msgTypes[169]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7147,7 +7319,7 @@ func (x *GetInMemoryServerConfigsCacheSizeRequest) String() string {
 func (*GetInMemoryServerConfigsCacheSizeRequest) ProtoMessage() {}
 
 func (x *GetInMemoryServerConfigsCacheSizeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[168]
+	mi := &file_proto_http_http_proto_msgTypes[169]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7160,7 +7332,7 @@ func (x *GetInMemoryServerConfigsCacheSizeRequest) ProtoReflect() protoreflect.M
 
 // Deprecated: Use GetInMemoryServerConfigsCacheSizeRequest.ProtoReflect.Descriptor instead.
 func (*GetInMemoryServerConfigsCacheSizeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{168}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{169}
 }
 
 type GetInMemoryServerConfigsCacheSizeResponse struct {
@@ -7172,7 +7344,7 @@ type GetInMemoryServerConfigsCacheSizeResponse struct {
 
 func (x *GetInMemoryServerConfigsCacheSizeResponse) Reset() {
 	*x = GetInMemoryServerConfigsCacheSizeResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[169]
+	mi := &file_proto_http_http_proto_msgTypes[170]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7184,7 +7356,7 @@ func (x *GetInMemoryServerConfigsCacheSizeResponse) String() string {
 func (*GetInMemoryServerConfigsCacheSizeResponse) ProtoMessage() {}
 
 func (x *GetInMemoryServerConfigsCacheSizeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[169]
+	mi := &file_proto_http_http_proto_msgTypes[170]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7197,7 +7369,7 @@ func (x *GetInMemoryServerConfigsCacheSizeResponse) ProtoReflect() protoreflect.
 
 // Deprecated: Use GetInMemoryServerConfigsCacheSizeResponse.ProtoReflect.Descriptor instead.
 func (*GetInMemoryServerConfigsCacheSizeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{169}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{170}
 }
 
 func (x *GetInMemoryServerConfigsCacheSizeResponse) GetResult() int32 {
@@ -7215,7 +7387,7 @@ type HasInMemoryServerConfigsCacheSizeRequest struct {
 
 func (x *HasInMemoryServerConfigsCacheSizeRequest) Reset() {
 	*x = HasInMemoryServerConfigsCacheSizeRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[170]
+	mi := &file_proto_http_http_proto_msgTypes[171]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7227,7 +7399,7 @@ func (x *HasInMemoryServerConfigsCacheSizeRequest) String() string {
 func (*HasInMemoryServerConfigsCacheSizeRequest) ProtoMessage() {}
 
 func (x *HasInMemoryServerConfigsCacheSizeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[170]
+	mi := &file_proto_http_http_proto_msgTypes[171]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7240,7 +7412,7 @@ func (x *HasInMemoryServerConfigsCacheSizeRequest) ProtoReflect() protoreflect.M
 
 // Deprecated: Use HasInMemoryServerConfigsCacheSizeRequest.ProtoReflect.Descriptor instead.
 func (*HasInMemoryServerConfigsCacheSizeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{170}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{171}
 }
 
 type HasInMemoryServerConfigsCacheSizeResponse struct {
@@ -7252,7 +7424,7 @@ type HasInMemoryServerConfigsCacheSizeResponse struct {
 
 func (x *HasInMemoryServerConfigsCacheSizeResponse) Reset() {
 	*x = HasInMemoryServerConfigsCacheSizeResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[171]
+	mi := &file_proto_http_http_proto_msgTypes[172]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7264,7 +7436,7 @@ func (x *HasInMemoryServerConfigsCacheSizeResponse) String() string {
 func (*HasInMemoryServerConfigsCacheSizeResponse) ProtoMessage() {}
 
 func (x *HasInMemoryServerConfigsCacheSizeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[171]
+	mi := &file_proto_http_http_proto_msgTypes[172]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7277,7 +7449,7 @@ func (x *HasInMemoryServerConfigsCacheSizeResponse) ProtoReflect() protoreflect.
 
 // Deprecated: Use HasInMemoryServerConfigsCacheSizeResponse.ProtoReflect.Descriptor instead.
 func (*HasInMemoryServerConfigsCacheSizeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{171}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{172}
 }
 
 func (x *HasInMemoryServerConfigsCacheSizeResponse) GetResult() bool {
@@ -7296,7 +7468,7 @@ type AddAllowedQuicHostRequest struct {
 
 func (x *AddAllowedQuicHostRequest) Reset() {
 	*x = AddAllowedQuicHostRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[172]
+	mi := &file_proto_http_http_proto_msgTypes[173]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7308,7 +7480,7 @@ func (x *AddAllowedQuicHostRequest) String() string {
 func (*AddAllowedQuicHostRequest) ProtoMessage() {}
 
 func (x *AddAllowedQuicHostRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[172]
+	mi := &file_proto_http_http_proto_msgTypes[173]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7321,7 +7493,7 @@ func (x *AddAllowedQuicHostRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddAllowedQuicHostRequest.ProtoReflect.Descriptor instead.
 func (*AddAllowedQuicHostRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{172}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{173}
 }
 
 func (x *AddAllowedQuicHostRequest) GetArg0() string {
@@ -7340,7 +7512,7 @@ type AddAllowedQuicHostResponse struct {
 
 func (x *AddAllowedQuicHostResponse) Reset() {
 	*x = AddAllowedQuicHostResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[173]
+	mi := &file_proto_http_http_proto_msgTypes[174]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7352,7 +7524,7 @@ func (x *AddAllowedQuicHostResponse) String() string {
 func (*AddAllowedQuicHostResponse) ProtoMessage() {}
 
 func (x *AddAllowedQuicHostResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[173]
+	mi := &file_proto_http_http_proto_msgTypes[174]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7365,7 +7537,7 @@ func (x *AddAllowedQuicHostResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddAllowedQuicHostResponse.ProtoReflect.Descriptor instead.
 func (*AddAllowedQuicHostResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{173}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{174}
 }
 
 func (x *AddAllowedQuicHostResponse) GetResult() int64 {
@@ -7384,7 +7556,7 @@ type SetHandshakeUserAgentRequest struct {
 
 func (x *SetHandshakeUserAgentRequest) Reset() {
 	*x = SetHandshakeUserAgentRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[174]
+	mi := &file_proto_http_http_proto_msgTypes[175]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7396,7 +7568,7 @@ func (x *SetHandshakeUserAgentRequest) String() string {
 func (*SetHandshakeUserAgentRequest) ProtoMessage() {}
 
 func (x *SetHandshakeUserAgentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[174]
+	mi := &file_proto_http_http_proto_msgTypes[175]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7409,7 +7581,7 @@ func (x *SetHandshakeUserAgentRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetHandshakeUserAgentRequest.ProtoReflect.Descriptor instead.
 func (*SetHandshakeUserAgentRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{174}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{175}
 }
 
 func (x *SetHandshakeUserAgentRequest) GetArg0() string {
@@ -7428,7 +7600,7 @@ type SetHandshakeUserAgentResponse struct {
 
 func (x *SetHandshakeUserAgentResponse) Reset() {
 	*x = SetHandshakeUserAgentResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[175]
+	mi := &file_proto_http_http_proto_msgTypes[176]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7440,7 +7612,7 @@ func (x *SetHandshakeUserAgentResponse) String() string {
 func (*SetHandshakeUserAgentResponse) ProtoMessage() {}
 
 func (x *SetHandshakeUserAgentResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[175]
+	mi := &file_proto_http_http_proto_msgTypes[176]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7453,7 +7625,7 @@ func (x *SetHandshakeUserAgentResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetHandshakeUserAgentResponse.ProtoReflect.Descriptor instead.
 func (*SetHandshakeUserAgentResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{175}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{176}
 }
 
 func (x *SetHandshakeUserAgentResponse) GetResult() int64 {
@@ -7472,7 +7644,7 @@ type SetIdleConnectionTimeoutRequest struct {
 
 func (x *SetIdleConnectionTimeoutRequest) Reset() {
 	*x = SetIdleConnectionTimeoutRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[176]
+	mi := &file_proto_http_http_proto_msgTypes[177]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7484,7 +7656,7 @@ func (x *SetIdleConnectionTimeoutRequest) String() string {
 func (*SetIdleConnectionTimeoutRequest) ProtoMessage() {}
 
 func (x *SetIdleConnectionTimeoutRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[176]
+	mi := &file_proto_http_http_proto_msgTypes[177]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7497,7 +7669,7 @@ func (x *SetIdleConnectionTimeoutRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetIdleConnectionTimeoutRequest.ProtoReflect.Descriptor instead.
 func (*SetIdleConnectionTimeoutRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{176}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{177}
 }
 
 func (x *SetIdleConnectionTimeoutRequest) GetArg0() int64 {
@@ -7516,7 +7688,7 @@ type SetIdleConnectionTimeoutResponse struct {
 
 func (x *SetIdleConnectionTimeoutResponse) Reset() {
 	*x = SetIdleConnectionTimeoutResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[177]
+	mi := &file_proto_http_http_proto_msgTypes[178]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7528,7 +7700,7 @@ func (x *SetIdleConnectionTimeoutResponse) String() string {
 func (*SetIdleConnectionTimeoutResponse) ProtoMessage() {}
 
 func (x *SetIdleConnectionTimeoutResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[177]
+	mi := &file_proto_http_http_proto_msgTypes[178]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7541,7 +7713,7 @@ func (x *SetIdleConnectionTimeoutResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetIdleConnectionTimeoutResponse.ProtoReflect.Descriptor instead.
 func (*SetIdleConnectionTimeoutResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{177}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{178}
 }
 
 func (x *SetIdleConnectionTimeoutResponse) GetResult() int64 {
@@ -7560,7 +7732,7 @@ type SetInMemoryServerConfigsCacheSizeRequest struct {
 
 func (x *SetInMemoryServerConfigsCacheSizeRequest) Reset() {
 	*x = SetInMemoryServerConfigsCacheSizeRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[178]
+	mi := &file_proto_http_http_proto_msgTypes[179]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7572,7 +7744,7 @@ func (x *SetInMemoryServerConfigsCacheSizeRequest) String() string {
 func (*SetInMemoryServerConfigsCacheSizeRequest) ProtoMessage() {}
 
 func (x *SetInMemoryServerConfigsCacheSizeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[178]
+	mi := &file_proto_http_http_proto_msgTypes[179]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7585,7 +7757,7 @@ func (x *SetInMemoryServerConfigsCacheSizeRequest) ProtoReflect() protoreflect.M
 
 // Deprecated: Use SetInMemoryServerConfigsCacheSizeRequest.ProtoReflect.Descriptor instead.
 func (*SetInMemoryServerConfigsCacheSizeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{178}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{179}
 }
 
 func (x *SetInMemoryServerConfigsCacheSizeRequest) GetArg0() int32 {
@@ -7604,7 +7776,7 @@ type SetInMemoryServerConfigsCacheSizeResponse struct {
 
 func (x *SetInMemoryServerConfigsCacheSizeResponse) Reset() {
 	*x = SetInMemoryServerConfigsCacheSizeResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[179]
+	mi := &file_proto_http_http_proto_msgTypes[180]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7616,7 +7788,7 @@ func (x *SetInMemoryServerConfigsCacheSizeResponse) String() string {
 func (*SetInMemoryServerConfigsCacheSizeResponse) ProtoMessage() {}
 
 func (x *SetInMemoryServerConfigsCacheSizeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[179]
+	mi := &file_proto_http_http_proto_msgTypes[180]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7629,10 +7801,1986 @@ func (x *SetInMemoryServerConfigsCacheSizeResponse) ProtoReflect() protoreflect.
 
 // Deprecated: Use SetInMemoryServerConfigsCacheSizeResponse.ProtoReflect.Descriptor instead.
 func (*SetInMemoryServerConfigsCacheSizeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{179}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{180}
 }
 
 func (x *SetInMemoryServerConfigsCacheSizeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPersistHostCacheRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPersistHostCacheRequest) Reset() {
+	*x = GetPersistHostCacheRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[181]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPersistHostCacheRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPersistHostCacheRequest) ProtoMessage() {}
+
+func (x *GetPersistHostCacheRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[181]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPersistHostCacheRequest.ProtoReflect.Descriptor instead.
+func (*GetPersistHostCacheRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{181}
+}
+
+type GetPersistHostCacheResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPersistHostCacheResponse) Reset() {
+	*x = GetPersistHostCacheResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[182]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPersistHostCacheResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPersistHostCacheResponse) ProtoMessage() {}
+
+func (x *GetPersistHostCacheResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[182]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPersistHostCacheResponse.ProtoReflect.Descriptor instead.
+func (*GetPersistHostCacheResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{182}
+}
+
+func (x *GetPersistHostCacheResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPersistHostCachePeriodRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPersistHostCachePeriodRequest) Reset() {
+	*x = GetPersistHostCachePeriodRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[183]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPersistHostCachePeriodRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPersistHostCachePeriodRequest) ProtoMessage() {}
+
+func (x *GetPersistHostCachePeriodRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[183]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPersistHostCachePeriodRequest.ProtoReflect.Descriptor instead.
+func (*GetPersistHostCachePeriodRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{183}
+}
+
+type GetPersistHostCachePeriodResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPersistHostCachePeriodResponse) Reset() {
+	*x = GetPersistHostCachePeriodResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[184]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPersistHostCachePeriodResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPersistHostCachePeriodResponse) ProtoMessage() {}
+
+func (x *GetPersistHostCachePeriodResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[184]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPersistHostCachePeriodResponse.ProtoReflect.Descriptor instead.
+func (*GetPersistHostCachePeriodResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{184}
+}
+
+func (x *GetPersistHostCachePeriodResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPreestablishConnectionsToStaleDnsResultsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPreestablishConnectionsToStaleDnsResultsRequest) Reset() {
+	*x = GetPreestablishConnectionsToStaleDnsResultsRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[185]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPreestablishConnectionsToStaleDnsResultsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPreestablishConnectionsToStaleDnsResultsRequest) ProtoMessage() {}
+
+func (x *GetPreestablishConnectionsToStaleDnsResultsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[185]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPreestablishConnectionsToStaleDnsResultsRequest.ProtoReflect.Descriptor instead.
+func (*GetPreestablishConnectionsToStaleDnsResultsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{185}
+}
+
+type GetPreestablishConnectionsToStaleDnsResultsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPreestablishConnectionsToStaleDnsResultsResponse) Reset() {
+	*x = GetPreestablishConnectionsToStaleDnsResultsResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[186]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPreestablishConnectionsToStaleDnsResultsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPreestablishConnectionsToStaleDnsResultsResponse) ProtoMessage() {}
+
+func (x *GetPreestablishConnectionsToStaleDnsResultsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[186]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPreestablishConnectionsToStaleDnsResultsResponse.ProtoReflect.Descriptor instead.
+func (*GetPreestablishConnectionsToStaleDnsResultsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{186}
+}
+
+func (x *GetPreestablishConnectionsToStaleDnsResultsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetStaleDnsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStaleDnsRequest) Reset() {
+	*x = GetStaleDnsRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[187]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStaleDnsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStaleDnsRequest) ProtoMessage() {}
+
+func (x *GetStaleDnsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[187]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStaleDnsRequest.ProtoReflect.Descriptor instead.
+func (*GetStaleDnsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{187}
+}
+
+type GetStaleDnsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStaleDnsResponse) Reset() {
+	*x = GetStaleDnsResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[188]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStaleDnsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStaleDnsResponse) ProtoMessage() {}
+
+func (x *GetStaleDnsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[188]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStaleDnsResponse.ProtoReflect.Descriptor instead.
+func (*GetStaleDnsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{188}
+}
+
+func (x *GetStaleDnsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetStaleDnsOptionsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStaleDnsOptionsRequest) Reset() {
+	*x = GetStaleDnsOptionsRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[189]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStaleDnsOptionsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStaleDnsOptionsRequest) ProtoMessage() {}
+
+func (x *GetStaleDnsOptionsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[189]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStaleDnsOptionsRequest.ProtoReflect.Descriptor instead.
+func (*GetStaleDnsOptionsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{189}
+}
+
+type GetStaleDnsOptionsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStaleDnsOptionsResponse) Reset() {
+	*x = GetStaleDnsOptionsResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[190]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStaleDnsOptionsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStaleDnsOptionsResponse) ProtoMessage() {}
+
+func (x *GetStaleDnsOptionsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[190]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStaleDnsOptionsResponse.ProtoReflect.Descriptor instead.
+func (*GetStaleDnsOptionsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{190}
+}
+
+func (x *GetStaleDnsOptionsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetUseHttpStackDnsResolverRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUseHttpStackDnsResolverRequest) Reset() {
+	*x = GetUseHttpStackDnsResolverRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[191]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUseHttpStackDnsResolverRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUseHttpStackDnsResolverRequest) ProtoMessage() {}
+
+func (x *GetUseHttpStackDnsResolverRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[191]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUseHttpStackDnsResolverRequest.ProtoReflect.Descriptor instead.
+func (*GetUseHttpStackDnsResolverRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{191}
+}
+
+type GetUseHttpStackDnsResolverResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUseHttpStackDnsResolverResponse) Reset() {
+	*x = GetUseHttpStackDnsResolverResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[192]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUseHttpStackDnsResolverResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUseHttpStackDnsResolverResponse) ProtoMessage() {}
+
+func (x *GetUseHttpStackDnsResolverResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[192]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUseHttpStackDnsResolverResponse.ProtoReflect.Descriptor instead.
+func (*GetUseHttpStackDnsResolverResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{192}
+}
+
+func (x *GetUseHttpStackDnsResolverResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPersistHostCacheRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPersistHostCacheRequest) Reset() {
+	*x = SetPersistHostCacheRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[193]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPersistHostCacheRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPersistHostCacheRequest) ProtoMessage() {}
+
+func (x *SetPersistHostCacheRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[193]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPersistHostCacheRequest.ProtoReflect.Descriptor instead.
+func (*SetPersistHostCacheRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{193}
+}
+
+func (x *SetPersistHostCacheRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPersistHostCacheResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPersistHostCacheResponse) Reset() {
+	*x = SetPersistHostCacheResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[194]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPersistHostCacheResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPersistHostCacheResponse) ProtoMessage() {}
+
+func (x *SetPersistHostCacheResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[194]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPersistHostCacheResponse.ProtoReflect.Descriptor instead.
+func (*SetPersistHostCacheResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{194}
+}
+
+func (x *SetPersistHostCacheResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPersistHostCachePeriodRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPersistHostCachePeriodRequest) Reset() {
+	*x = SetPersistHostCachePeriodRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[195]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPersistHostCachePeriodRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPersistHostCachePeriodRequest) ProtoMessage() {}
+
+func (x *SetPersistHostCachePeriodRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[195]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPersistHostCachePeriodRequest.ProtoReflect.Descriptor instead.
+func (*SetPersistHostCachePeriodRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{195}
+}
+
+func (x *SetPersistHostCachePeriodRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPersistHostCachePeriodResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPersistHostCachePeriodResponse) Reset() {
+	*x = SetPersistHostCachePeriodResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[196]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPersistHostCachePeriodResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPersistHostCachePeriodResponse) ProtoMessage() {}
+
+func (x *SetPersistHostCachePeriodResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[196]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPersistHostCachePeriodResponse.ProtoReflect.Descriptor instead.
+func (*SetPersistHostCachePeriodResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{196}
+}
+
+func (x *SetPersistHostCachePeriodResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPreestablishConnectionsToStaleDnsResultsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPreestablishConnectionsToStaleDnsResultsRequest) Reset() {
+	*x = SetPreestablishConnectionsToStaleDnsResultsRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[197]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPreestablishConnectionsToStaleDnsResultsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPreestablishConnectionsToStaleDnsResultsRequest) ProtoMessage() {}
+
+func (x *SetPreestablishConnectionsToStaleDnsResultsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[197]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPreestablishConnectionsToStaleDnsResultsRequest.ProtoReflect.Descriptor instead.
+func (*SetPreestablishConnectionsToStaleDnsResultsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{197}
+}
+
+func (x *SetPreestablishConnectionsToStaleDnsResultsRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPreestablishConnectionsToStaleDnsResultsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPreestablishConnectionsToStaleDnsResultsResponse) Reset() {
+	*x = SetPreestablishConnectionsToStaleDnsResultsResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[198]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPreestablishConnectionsToStaleDnsResultsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPreestablishConnectionsToStaleDnsResultsResponse) ProtoMessage() {}
+
+func (x *SetPreestablishConnectionsToStaleDnsResultsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[198]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPreestablishConnectionsToStaleDnsResultsResponse.ProtoReflect.Descriptor instead.
+func (*SetPreestablishConnectionsToStaleDnsResultsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{198}
+}
+
+func (x *SetPreestablishConnectionsToStaleDnsResultsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetStaleDnsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetStaleDnsRequest) Reset() {
+	*x = SetStaleDnsRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[199]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetStaleDnsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetStaleDnsRequest) ProtoMessage() {}
+
+func (x *SetStaleDnsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[199]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetStaleDnsRequest.ProtoReflect.Descriptor instead.
+func (*SetStaleDnsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{199}
+}
+
+func (x *SetStaleDnsRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetStaleDnsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetStaleDnsResponse) Reset() {
+	*x = SetStaleDnsResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[200]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetStaleDnsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetStaleDnsResponse) ProtoMessage() {}
+
+func (x *SetStaleDnsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[200]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetStaleDnsResponse.ProtoReflect.Descriptor instead.
+func (*SetStaleDnsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{200}
+}
+
+func (x *SetStaleDnsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetStaleDnsOptionsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetStaleDnsOptionsRequest) Reset() {
+	*x = SetStaleDnsOptionsRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[201]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetStaleDnsOptionsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetStaleDnsOptionsRequest) ProtoMessage() {}
+
+func (x *SetStaleDnsOptionsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[201]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetStaleDnsOptionsRequest.ProtoReflect.Descriptor instead.
+func (*SetStaleDnsOptionsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{201}
+}
+
+func (x *SetStaleDnsOptionsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetStaleDnsOptionsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetStaleDnsOptionsResponse) Reset() {
+	*x = SetStaleDnsOptionsResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[202]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetStaleDnsOptionsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetStaleDnsOptionsResponse) ProtoMessage() {}
+
+func (x *SetStaleDnsOptionsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[202]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetStaleDnsOptionsResponse.ProtoReflect.Descriptor instead.
+func (*SetStaleDnsOptionsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{202}
+}
+
+func (x *SetStaleDnsOptionsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetUseHttpStackDnsResolverRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetUseHttpStackDnsResolverRequest) Reset() {
+	*x = SetUseHttpStackDnsResolverRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[203]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetUseHttpStackDnsResolverRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetUseHttpStackDnsResolverRequest) ProtoMessage() {}
+
+func (x *SetUseHttpStackDnsResolverRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[203]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetUseHttpStackDnsResolverRequest.ProtoReflect.Descriptor instead.
+func (*SetUseHttpStackDnsResolverRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{203}
+}
+
+func (x *SetUseHttpStackDnsResolverRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetUseHttpStackDnsResolverResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetUseHttpStackDnsResolverResponse) Reset() {
+	*x = SetUseHttpStackDnsResolverResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[204]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetUseHttpStackDnsResolverResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetUseHttpStackDnsResolverResponse) ProtoMessage() {}
+
+func (x *SetUseHttpStackDnsResolverResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[204]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetUseHttpStackDnsResolverResponse.ProtoReflect.Descriptor instead.
+func (*SetUseHttpStackDnsResolverResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{204}
+}
+
+func (x *SetUseHttpStackDnsResolverResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetAllowCrossNetworkUsageRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAllowCrossNetworkUsageRequest) Reset() {
+	*x = GetAllowCrossNetworkUsageRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[205]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAllowCrossNetworkUsageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAllowCrossNetworkUsageRequest) ProtoMessage() {}
+
+func (x *GetAllowCrossNetworkUsageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[205]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAllowCrossNetworkUsageRequest.ProtoReflect.Descriptor instead.
+func (*GetAllowCrossNetworkUsageRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{205}
+}
+
+type GetAllowCrossNetworkUsageResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAllowCrossNetworkUsageResponse) Reset() {
+	*x = GetAllowCrossNetworkUsageResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[206]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAllowCrossNetworkUsageResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAllowCrossNetworkUsageResponse) ProtoMessage() {}
+
+func (x *GetAllowCrossNetworkUsageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[206]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAllowCrossNetworkUsageResponse.ProtoReflect.Descriptor instead.
+func (*GetAllowCrossNetworkUsageResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{206}
+}
+
+func (x *GetAllowCrossNetworkUsageResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetFreshLookupTimeoutRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFreshLookupTimeoutRequest) Reset() {
+	*x = GetFreshLookupTimeoutRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[207]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFreshLookupTimeoutRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFreshLookupTimeoutRequest) ProtoMessage() {}
+
+func (x *GetFreshLookupTimeoutRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[207]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFreshLookupTimeoutRequest.ProtoReflect.Descriptor instead.
+func (*GetFreshLookupTimeoutRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{207}
+}
+
+type GetFreshLookupTimeoutResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFreshLookupTimeoutResponse) Reset() {
+	*x = GetFreshLookupTimeoutResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[208]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFreshLookupTimeoutResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFreshLookupTimeoutResponse) ProtoMessage() {}
+
+func (x *GetFreshLookupTimeoutResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[208]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFreshLookupTimeoutResponse.ProtoReflect.Descriptor instead.
+func (*GetFreshLookupTimeoutResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{208}
+}
+
+func (x *GetFreshLookupTimeoutResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMaxExpiredDelayRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxExpiredDelayRequest) Reset() {
+	*x = GetMaxExpiredDelayRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[209]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxExpiredDelayRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxExpiredDelayRequest) ProtoMessage() {}
+
+func (x *GetMaxExpiredDelayRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[209]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxExpiredDelayRequest.ProtoReflect.Descriptor instead.
+func (*GetMaxExpiredDelayRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{209}
+}
+
+type GetMaxExpiredDelayResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxExpiredDelayResponse) Reset() {
+	*x = GetMaxExpiredDelayResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[210]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxExpiredDelayResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxExpiredDelayResponse) ProtoMessage() {}
+
+func (x *GetMaxExpiredDelayResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[210]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxExpiredDelayResponse.ProtoReflect.Descriptor instead.
+func (*GetMaxExpiredDelayResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{210}
+}
+
+func (x *GetMaxExpiredDelayResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetUseStaleOnNameNotResolvedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUseStaleOnNameNotResolvedRequest) Reset() {
+	*x = GetUseStaleOnNameNotResolvedRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[211]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUseStaleOnNameNotResolvedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUseStaleOnNameNotResolvedRequest) ProtoMessage() {}
+
+func (x *GetUseStaleOnNameNotResolvedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[211]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUseStaleOnNameNotResolvedRequest.ProtoReflect.Descriptor instead.
+func (*GetUseStaleOnNameNotResolvedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{211}
+}
+
+type GetUseStaleOnNameNotResolvedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUseStaleOnNameNotResolvedResponse) Reset() {
+	*x = GetUseStaleOnNameNotResolvedResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[212]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUseStaleOnNameNotResolvedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUseStaleOnNameNotResolvedResponse) ProtoMessage() {}
+
+func (x *GetUseStaleOnNameNotResolvedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[212]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUseStaleOnNameNotResolvedResponse.ProtoReflect.Descriptor instead.
+func (*GetUseStaleOnNameNotResolvedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{212}
+}
+
+func (x *GetUseStaleOnNameNotResolvedResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DeleteRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteRequest) Reset() {
+	*x = DeleteRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[213]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteRequest) ProtoMessage() {}
+
+func (x *DeleteRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[213]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteRequest.ProtoReflect.Descriptor instead.
+func (*DeleteRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{213}
+}
+
+type DeleteResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteResponse) Reset() {
+	*x = DeleteResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[214]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteResponse) ProtoMessage() {}
+
+func (x *DeleteResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[214]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteResponse.ProtoReflect.Descriptor instead.
+func (*DeleteResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{214}
+}
+
+type GetHitCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetHitCountRequest) Reset() {
+	*x = GetHitCountRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[215]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetHitCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetHitCountRequest) ProtoMessage() {}
+
+func (x *GetHitCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[215]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetHitCountRequest.ProtoReflect.Descriptor instead.
+func (*GetHitCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{215}
+}
+
+type GetHitCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetHitCountResponse) Reset() {
+	*x = GetHitCountResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[216]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetHitCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetHitCountResponse) ProtoMessage() {}
+
+func (x *GetHitCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[216]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetHitCountResponse.ProtoReflect.Descriptor instead.
+func (*GetHitCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{216}
+}
+
+func (x *GetHitCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetNetworkCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNetworkCountRequest) Reset() {
+	*x = GetNetworkCountRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[217]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNetworkCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNetworkCountRequest) ProtoMessage() {}
+
+func (x *GetNetworkCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[217]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNetworkCountRequest.ProtoReflect.Descriptor instead.
+func (*GetNetworkCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{217}
+}
+
+type GetNetworkCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNetworkCountResponse) Reset() {
+	*x = GetNetworkCountResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[218]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNetworkCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNetworkCountResponse) ProtoMessage() {}
+
+func (x *GetNetworkCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[218]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNetworkCountResponse.ProtoReflect.Descriptor instead.
+func (*GetNetworkCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{218}
+}
+
+func (x *GetNetworkCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRequestCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRequestCountRequest) Reset() {
+	*x = GetRequestCountRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[219]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRequestCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRequestCountRequest) ProtoMessage() {}
+
+func (x *GetRequestCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[219]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRequestCountRequest.ProtoReflect.Descriptor instead.
+func (*GetRequestCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{219}
+}
+
+type GetRequestCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRequestCountResponse) Reset() {
+	*x = GetRequestCountResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[220]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRequestCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRequestCountResponse) ProtoMessage() {}
+
+func (x *GetRequestCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[220]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRequestCountResponse.ProtoReflect.Descriptor instead.
+func (*GetRequestCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{220}
+}
+
+func (x *GetRequestCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type MaxSizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MaxSizeRequest) Reset() {
+	*x = MaxSizeRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[221]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MaxSizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MaxSizeRequest) ProtoMessage() {}
+
+func (x *MaxSizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[221]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MaxSizeRequest.ProtoReflect.Descriptor instead.
+func (*MaxSizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{221}
+}
+
+type MaxSizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MaxSizeResponse) Reset() {
+	*x = MaxSizeResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[222]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MaxSizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MaxSizeResponse) ProtoMessage() {}
+
+func (x *MaxSizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[222]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MaxSizeResponse.ProtoReflect.Descriptor instead.
+func (*MaxSizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{222}
+}
+
+func (x *MaxSizeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type PutRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PutRequest) Reset() {
+	*x = PutRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[223]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PutRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PutRequest) ProtoMessage() {}
+
+func (x *PutRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[223]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PutRequest.ProtoReflect.Descriptor instead.
+func (*PutRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{223}
+}
+
+func (x *PutRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *PutRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type PutResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PutResponse) Reset() {
+	*x = PutResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[224]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PutResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PutResponse) ProtoMessage() {}
+
+func (x *PutResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[224]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PutResponse.ProtoReflect.Descriptor instead.
+func (*PutResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{224}
+}
+
+func (x *PutResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SizeRequest) Reset() {
+	*x = SizeRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[225]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SizeRequest) ProtoMessage() {}
+
+func (x *SizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[225]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SizeRequest.ProtoReflect.Descriptor instead.
+func (*SizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{225}
+}
+
+type SizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SizeResponse) Reset() {
+	*x = SizeResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[226]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SizeResponse) ProtoMessage() {}
+
+func (x *SizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[226]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SizeResponse.ProtoReflect.Descriptor instead.
+func (*SizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{226}
+}
+
+func (x *SizeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetInstalledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInstalledRequest) Reset() {
+	*x = GetInstalledRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[227]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInstalledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInstalledRequest) ProtoMessage() {}
+
+func (x *GetInstalledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[227]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInstalledRequest.ProtoReflect.Descriptor instead.
+func (*GetInstalledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{227}
+}
+
+type GetInstalledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInstalledResponse) Reset() {
+	*x = GetInstalledResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[228]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInstalledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInstalledResponse) ProtoMessage() {}
+
+func (x *GetInstalledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[228]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInstalledResponse.ProtoReflect.Descriptor instead.
+func (*GetInstalledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{228}
+}
+
+func (x *GetInstalledResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -7651,7 +9799,7 @@ type NewSslCertificateRequest struct {
 
 func (x *NewSslCertificateRequest) Reset() {
 	*x = NewSslCertificateRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[180]
+	mi := &file_proto_http_http_proto_msgTypes[229]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7663,7 +9811,7 @@ func (x *NewSslCertificateRequest) String() string {
 func (*NewSslCertificateRequest) ProtoMessage() {}
 
 func (x *NewSslCertificateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[180]
+	mi := &file_proto_http_http_proto_msgTypes[229]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7676,7 +9824,7 @@ func (x *NewSslCertificateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewSslCertificateRequest.ProtoReflect.Descriptor instead.
 func (*NewSslCertificateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{180}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{229}
 }
 
 func (x *NewSslCertificateRequest) GetArg0() string {
@@ -7716,7 +9864,7 @@ type NewSslCertificateResponse struct {
 
 func (x *NewSslCertificateResponse) Reset() {
 	*x = NewSslCertificateResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[181]
+	mi := &file_proto_http_http_proto_msgTypes[230]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7728,7 +9876,7 @@ func (x *NewSslCertificateResponse) String() string {
 func (*NewSslCertificateResponse) ProtoMessage() {}
 
 func (x *NewSslCertificateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[181]
+	mi := &file_proto_http_http_proto_msgTypes[230]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7741,7 +9889,7 @@ func (x *NewSslCertificateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewSslCertificateResponse.ProtoReflect.Descriptor instead.
 func (*NewSslCertificateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{181}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{230}
 }
 
 func (x *NewSslCertificateResponse) GetResult() int64 {
@@ -7760,7 +9908,7 @@ type GetIssuedByRequest struct {
 
 func (x *GetIssuedByRequest) Reset() {
 	*x = GetIssuedByRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[182]
+	mi := &file_proto_http_http_proto_msgTypes[231]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7772,7 +9920,7 @@ func (x *GetIssuedByRequest) String() string {
 func (*GetIssuedByRequest) ProtoMessage() {}
 
 func (x *GetIssuedByRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[182]
+	mi := &file_proto_http_http_proto_msgTypes[231]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7785,7 +9933,7 @@ func (x *GetIssuedByRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIssuedByRequest.ProtoReflect.Descriptor instead.
 func (*GetIssuedByRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{182}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{231}
 }
 
 func (x *GetIssuedByRequest) GetHandle() int64 {
@@ -7804,7 +9952,7 @@ type GetIssuedByResponse struct {
 
 func (x *GetIssuedByResponse) Reset() {
 	*x = GetIssuedByResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[183]
+	mi := &file_proto_http_http_proto_msgTypes[232]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7816,7 +9964,7 @@ func (x *GetIssuedByResponse) String() string {
 func (*GetIssuedByResponse) ProtoMessage() {}
 
 func (x *GetIssuedByResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[183]
+	mi := &file_proto_http_http_proto_msgTypes[232]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7829,7 +9977,7 @@ func (x *GetIssuedByResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIssuedByResponse.ProtoReflect.Descriptor instead.
 func (*GetIssuedByResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{183}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{232}
 }
 
 func (x *GetIssuedByResponse) GetResult() int64 {
@@ -7848,7 +9996,7 @@ type GetIssuedToRequest struct {
 
 func (x *GetIssuedToRequest) Reset() {
 	*x = GetIssuedToRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[184]
+	mi := &file_proto_http_http_proto_msgTypes[233]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7860,7 +10008,7 @@ func (x *GetIssuedToRequest) String() string {
 func (*GetIssuedToRequest) ProtoMessage() {}
 
 func (x *GetIssuedToRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[184]
+	mi := &file_proto_http_http_proto_msgTypes[233]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7873,7 +10021,7 @@ func (x *GetIssuedToRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIssuedToRequest.ProtoReflect.Descriptor instead.
 func (*GetIssuedToRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{184}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{233}
 }
 
 func (x *GetIssuedToRequest) GetHandle() int64 {
@@ -7892,7 +10040,7 @@ type GetIssuedToResponse struct {
 
 func (x *GetIssuedToResponse) Reset() {
 	*x = GetIssuedToResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[185]
+	mi := &file_proto_http_http_proto_msgTypes[234]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7904,7 +10052,7 @@ func (x *GetIssuedToResponse) String() string {
 func (*GetIssuedToResponse) ProtoMessage() {}
 
 func (x *GetIssuedToResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[185]
+	mi := &file_proto_http_http_proto_msgTypes[234]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7917,7 +10065,7 @@ func (x *GetIssuedToResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIssuedToResponse.ProtoReflect.Descriptor instead.
 func (*GetIssuedToResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{185}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{234}
 }
 
 func (x *GetIssuedToResponse) GetResult() int64 {
@@ -7936,7 +10084,7 @@ type GetValidNotAfterRequest struct {
 
 func (x *GetValidNotAfterRequest) Reset() {
 	*x = GetValidNotAfterRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[186]
+	mi := &file_proto_http_http_proto_msgTypes[235]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7948,7 +10096,7 @@ func (x *GetValidNotAfterRequest) String() string {
 func (*GetValidNotAfterRequest) ProtoMessage() {}
 
 func (x *GetValidNotAfterRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[186]
+	mi := &file_proto_http_http_proto_msgTypes[235]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7961,7 +10109,7 @@ func (x *GetValidNotAfterRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetValidNotAfterRequest.ProtoReflect.Descriptor instead.
 func (*GetValidNotAfterRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{186}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{235}
 }
 
 func (x *GetValidNotAfterRequest) GetHandle() int64 {
@@ -7980,7 +10128,7 @@ type GetValidNotAfterResponse struct {
 
 func (x *GetValidNotAfterResponse) Reset() {
 	*x = GetValidNotAfterResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[187]
+	mi := &file_proto_http_http_proto_msgTypes[236]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7992,7 +10140,7 @@ func (x *GetValidNotAfterResponse) String() string {
 func (*GetValidNotAfterResponse) ProtoMessage() {}
 
 func (x *GetValidNotAfterResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[187]
+	mi := &file_proto_http_http_proto_msgTypes[236]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8005,7 +10153,7 @@ func (x *GetValidNotAfterResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetValidNotAfterResponse.ProtoReflect.Descriptor instead.
 func (*GetValidNotAfterResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{187}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{236}
 }
 
 func (x *GetValidNotAfterResponse) GetResult() string {
@@ -8024,7 +10172,7 @@ type GetValidNotAfterDateRequest struct {
 
 func (x *GetValidNotAfterDateRequest) Reset() {
 	*x = GetValidNotAfterDateRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[188]
+	mi := &file_proto_http_http_proto_msgTypes[237]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8036,7 +10184,7 @@ func (x *GetValidNotAfterDateRequest) String() string {
 func (*GetValidNotAfterDateRequest) ProtoMessage() {}
 
 func (x *GetValidNotAfterDateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[188]
+	mi := &file_proto_http_http_proto_msgTypes[237]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8049,7 +10197,7 @@ func (x *GetValidNotAfterDateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetValidNotAfterDateRequest.ProtoReflect.Descriptor instead.
 func (*GetValidNotAfterDateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{188}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{237}
 }
 
 func (x *GetValidNotAfterDateRequest) GetHandle() int64 {
@@ -8068,7 +10216,7 @@ type GetValidNotAfterDateResponse struct {
 
 func (x *GetValidNotAfterDateResponse) Reset() {
 	*x = GetValidNotAfterDateResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[189]
+	mi := &file_proto_http_http_proto_msgTypes[238]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8080,7 +10228,7 @@ func (x *GetValidNotAfterDateResponse) String() string {
 func (*GetValidNotAfterDateResponse) ProtoMessage() {}
 
 func (x *GetValidNotAfterDateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[189]
+	mi := &file_proto_http_http_proto_msgTypes[238]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8093,7 +10241,7 @@ func (x *GetValidNotAfterDateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetValidNotAfterDateResponse.ProtoReflect.Descriptor instead.
 func (*GetValidNotAfterDateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{189}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{238}
 }
 
 func (x *GetValidNotAfterDateResponse) GetResult() int64 {
@@ -8112,7 +10260,7 @@ type GetValidNotBeforeRequest struct {
 
 func (x *GetValidNotBeforeRequest) Reset() {
 	*x = GetValidNotBeforeRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[190]
+	mi := &file_proto_http_http_proto_msgTypes[239]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8124,7 +10272,7 @@ func (x *GetValidNotBeforeRequest) String() string {
 func (*GetValidNotBeforeRequest) ProtoMessage() {}
 
 func (x *GetValidNotBeforeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[190]
+	mi := &file_proto_http_http_proto_msgTypes[239]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8137,7 +10285,7 @@ func (x *GetValidNotBeforeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetValidNotBeforeRequest.ProtoReflect.Descriptor instead.
 func (*GetValidNotBeforeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{190}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{239}
 }
 
 func (x *GetValidNotBeforeRequest) GetHandle() int64 {
@@ -8156,7 +10304,7 @@ type GetValidNotBeforeResponse struct {
 
 func (x *GetValidNotBeforeResponse) Reset() {
 	*x = GetValidNotBeforeResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[191]
+	mi := &file_proto_http_http_proto_msgTypes[240]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8168,7 +10316,7 @@ func (x *GetValidNotBeforeResponse) String() string {
 func (*GetValidNotBeforeResponse) ProtoMessage() {}
 
 func (x *GetValidNotBeforeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[191]
+	mi := &file_proto_http_http_proto_msgTypes[240]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8181,7 +10329,7 @@ func (x *GetValidNotBeforeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetValidNotBeforeResponse.ProtoReflect.Descriptor instead.
 func (*GetValidNotBeforeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{191}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{240}
 }
 
 func (x *GetValidNotBeforeResponse) GetResult() string {
@@ -8200,7 +10348,7 @@ type GetValidNotBeforeDateRequest struct {
 
 func (x *GetValidNotBeforeDateRequest) Reset() {
 	*x = GetValidNotBeforeDateRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[192]
+	mi := &file_proto_http_http_proto_msgTypes[241]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8212,7 +10360,7 @@ func (x *GetValidNotBeforeDateRequest) String() string {
 func (*GetValidNotBeforeDateRequest) ProtoMessage() {}
 
 func (x *GetValidNotBeforeDateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[192]
+	mi := &file_proto_http_http_proto_msgTypes[241]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8225,7 +10373,7 @@ func (x *GetValidNotBeforeDateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetValidNotBeforeDateRequest.ProtoReflect.Descriptor instead.
 func (*GetValidNotBeforeDateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{192}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{241}
 }
 
 func (x *GetValidNotBeforeDateRequest) GetHandle() int64 {
@@ -8244,7 +10392,7 @@ type GetValidNotBeforeDateResponse struct {
 
 func (x *GetValidNotBeforeDateResponse) Reset() {
 	*x = GetValidNotBeforeDateResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[193]
+	mi := &file_proto_http_http_proto_msgTypes[242]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8256,7 +10404,7 @@ func (x *GetValidNotBeforeDateResponse) String() string {
 func (*GetValidNotBeforeDateResponse) ProtoMessage() {}
 
 func (x *GetValidNotBeforeDateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[193]
+	mi := &file_proto_http_http_proto_msgTypes[242]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8269,7 +10417,7 @@ func (x *GetValidNotBeforeDateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetValidNotBeforeDateResponse.ProtoReflect.Descriptor instead.
 func (*GetValidNotBeforeDateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{193}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{242}
 }
 
 func (x *GetValidNotBeforeDateResponse) GetResult() int64 {
@@ -8288,7 +10436,7 @@ type GetX509CertificateRequest struct {
 
 func (x *GetX509CertificateRequest) Reset() {
 	*x = GetX509CertificateRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[194]
+	mi := &file_proto_http_http_proto_msgTypes[243]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8300,7 +10448,7 @@ func (x *GetX509CertificateRequest) String() string {
 func (*GetX509CertificateRequest) ProtoMessage() {}
 
 func (x *GetX509CertificateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[194]
+	mi := &file_proto_http_http_proto_msgTypes[243]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8313,7 +10461,7 @@ func (x *GetX509CertificateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetX509CertificateRequest.ProtoReflect.Descriptor instead.
 func (*GetX509CertificateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{194}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{243}
 }
 
 func (x *GetX509CertificateRequest) GetHandle() int64 {
@@ -8332,7 +10480,7 @@ type GetX509CertificateResponse struct {
 
 func (x *GetX509CertificateResponse) Reset() {
 	*x = GetX509CertificateResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[195]
+	mi := &file_proto_http_http_proto_msgTypes[244]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8344,7 +10492,7 @@ func (x *GetX509CertificateResponse) String() string {
 func (*GetX509CertificateResponse) ProtoMessage() {}
 
 func (x *GetX509CertificateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[195]
+	mi := &file_proto_http_http_proto_msgTypes[244]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8357,7 +10505,7 @@ func (x *GetX509CertificateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetX509CertificateResponse.ProtoReflect.Descriptor instead.
 func (*GetX509CertificateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{195}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{244}
 }
 
 func (x *GetX509CertificateResponse) GetResult() int64 {
@@ -8377,7 +10525,7 @@ type RestoreStateRequest struct {
 
 func (x *RestoreStateRequest) Reset() {
 	*x = RestoreStateRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[196]
+	mi := &file_proto_http_http_proto_msgTypes[245]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8389,7 +10537,7 @@ func (x *RestoreStateRequest) String() string {
 func (*RestoreStateRequest) ProtoMessage() {}
 
 func (x *RestoreStateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[196]
+	mi := &file_proto_http_http_proto_msgTypes[245]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8402,7 +10550,7 @@ func (x *RestoreStateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RestoreStateRequest.ProtoReflect.Descriptor instead.
 func (*RestoreStateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{196}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{245}
 }
 
 func (x *RestoreStateRequest) GetHandle() int64 {
@@ -8428,7 +10576,7 @@ type RestoreStateResponse struct {
 
 func (x *RestoreStateResponse) Reset() {
 	*x = RestoreStateResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[197]
+	mi := &file_proto_http_http_proto_msgTypes[246]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8440,7 +10588,7 @@ func (x *RestoreStateResponse) String() string {
 func (*RestoreStateResponse) ProtoMessage() {}
 
 func (x *RestoreStateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[197]
+	mi := &file_proto_http_http_proto_msgTypes[246]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8453,7 +10601,7 @@ func (x *RestoreStateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RestoreStateResponse.ProtoReflect.Descriptor instead.
 func (*RestoreStateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{197}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{246}
 }
 
 func (x *RestoreStateResponse) GetResult() int64 {
@@ -8473,7 +10621,7 @@ type SaveStateRequest struct {
 
 func (x *SaveStateRequest) Reset() {
 	*x = SaveStateRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[198]
+	mi := &file_proto_http_http_proto_msgTypes[247]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8485,7 +10633,7 @@ func (x *SaveStateRequest) String() string {
 func (*SaveStateRequest) ProtoMessage() {}
 
 func (x *SaveStateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[198]
+	mi := &file_proto_http_http_proto_msgTypes[247]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8498,7 +10646,7 @@ func (x *SaveStateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SaveStateRequest.ProtoReflect.Descriptor instead.
 func (*SaveStateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{198}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{247}
 }
 
 func (x *SaveStateRequest) GetHandle() int64 {
@@ -8524,7 +10672,7 @@ type SaveStateResponse struct {
 
 func (x *SaveStateResponse) Reset() {
 	*x = SaveStateResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[199]
+	mi := &file_proto_http_http_proto_msgTypes[248]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8536,7 +10684,7 @@ func (x *SaveStateResponse) String() string {
 func (*SaveStateResponse) ProtoMessage() {}
 
 func (x *SaveStateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[199]
+	mi := &file_proto_http_http_proto_msgTypes[248]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8549,7 +10697,7 @@ func (x *SaveStateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SaveStateResponse.ProtoReflect.Descriptor instead.
 func (*SaveStateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{199}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{248}
 }
 
 func (x *SaveStateResponse) GetResult() int64 {
@@ -8567,7 +10715,7 @@ type GetCNameRequest struct {
 
 func (x *GetCNameRequest) Reset() {
 	*x = GetCNameRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[200]
+	mi := &file_proto_http_http_proto_msgTypes[249]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8579,7 +10727,7 @@ func (x *GetCNameRequest) String() string {
 func (*GetCNameRequest) ProtoMessage() {}
 
 func (x *GetCNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[200]
+	mi := &file_proto_http_http_proto_msgTypes[249]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8592,7 +10740,7 @@ func (x *GetCNameRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCNameRequest.ProtoReflect.Descriptor instead.
 func (*GetCNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{200}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{249}
 }
 
 type GetCNameResponse struct {
@@ -8604,7 +10752,7 @@ type GetCNameResponse struct {
 
 func (x *GetCNameResponse) Reset() {
 	*x = GetCNameResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[201]
+	mi := &file_proto_http_http_proto_msgTypes[250]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8616,7 +10764,7 @@ func (x *GetCNameResponse) String() string {
 func (*GetCNameResponse) ProtoMessage() {}
 
 func (x *GetCNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[201]
+	mi := &file_proto_http_http_proto_msgTypes[250]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8629,7 +10777,7 @@ func (x *GetCNameResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCNameResponse.ProtoReflect.Descriptor instead.
 func (*GetCNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{201}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{250}
 }
 
 func (x *GetCNameResponse) GetResult() string {
@@ -8647,7 +10795,7 @@ type GetDNameRequest struct {
 
 func (x *GetDNameRequest) Reset() {
 	*x = GetDNameRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[202]
+	mi := &file_proto_http_http_proto_msgTypes[251]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8659,7 +10807,7 @@ func (x *GetDNameRequest) String() string {
 func (*GetDNameRequest) ProtoMessage() {}
 
 func (x *GetDNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[202]
+	mi := &file_proto_http_http_proto_msgTypes[251]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8672,7 +10820,7 @@ func (x *GetDNameRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDNameRequest.ProtoReflect.Descriptor instead.
 func (*GetDNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{202}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{251}
 }
 
 type GetDNameResponse struct {
@@ -8684,7 +10832,7 @@ type GetDNameResponse struct {
 
 func (x *GetDNameResponse) Reset() {
 	*x = GetDNameResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[203]
+	mi := &file_proto_http_http_proto_msgTypes[252]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8696,7 +10844,7 @@ func (x *GetDNameResponse) String() string {
 func (*GetDNameResponse) ProtoMessage() {}
 
 func (x *GetDNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[203]
+	mi := &file_proto_http_http_proto_msgTypes[252]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8709,7 +10857,7 @@ func (x *GetDNameResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDNameResponse.ProtoReflect.Descriptor instead.
 func (*GetDNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{203}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{252}
 }
 
 func (x *GetDNameResponse) GetResult() string {
@@ -8727,7 +10875,7 @@ type GetONameRequest struct {
 
 func (x *GetONameRequest) Reset() {
 	*x = GetONameRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[204]
+	mi := &file_proto_http_http_proto_msgTypes[253]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8739,7 +10887,7 @@ func (x *GetONameRequest) String() string {
 func (*GetONameRequest) ProtoMessage() {}
 
 func (x *GetONameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[204]
+	mi := &file_proto_http_http_proto_msgTypes[253]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8752,7 +10900,7 @@ func (x *GetONameRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetONameRequest.ProtoReflect.Descriptor instead.
 func (*GetONameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{204}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{253}
 }
 
 type GetONameResponse struct {
@@ -8764,7 +10912,7 @@ type GetONameResponse struct {
 
 func (x *GetONameResponse) Reset() {
 	*x = GetONameResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[205]
+	mi := &file_proto_http_http_proto_msgTypes[254]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8776,7 +10924,7 @@ func (x *GetONameResponse) String() string {
 func (*GetONameResponse) ProtoMessage() {}
 
 func (x *GetONameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[205]
+	mi := &file_proto_http_http_proto_msgTypes[254]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8789,7 +10937,7 @@ func (x *GetONameResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetONameResponse.ProtoReflect.Descriptor instead.
 func (*GetONameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{205}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{254}
 }
 
 func (x *GetONameResponse) GetResult() string {
@@ -8807,7 +10955,7 @@ type GetUNameRequest struct {
 
 func (x *GetUNameRequest) Reset() {
 	*x = GetUNameRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[206]
+	mi := &file_proto_http_http_proto_msgTypes[255]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8819,7 +10967,7 @@ func (x *GetUNameRequest) String() string {
 func (*GetUNameRequest) ProtoMessage() {}
 
 func (x *GetUNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[206]
+	mi := &file_proto_http_http_proto_msgTypes[255]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8832,7 +10980,7 @@ func (x *GetUNameRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUNameRequest.ProtoReflect.Descriptor instead.
 func (*GetUNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{206}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{255}
 }
 
 type GetUNameResponse struct {
@@ -8844,7 +10992,7 @@ type GetUNameResponse struct {
 
 func (x *GetUNameResponse) Reset() {
 	*x = GetUNameResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[207]
+	mi := &file_proto_http_http_proto_msgTypes[256]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8856,7 +11004,7 @@ func (x *GetUNameResponse) String() string {
 func (*GetUNameResponse) ProtoMessage() {}
 
 func (x *GetUNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[207]
+	mi := &file_proto_http_http_proto_msgTypes[256]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8869,7 +11017,7 @@ func (x *GetUNameResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUNameResponse.ProtoReflect.Descriptor instead.
 func (*GetUNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{207}
+	return file_proto_http_http_proto_rawDescGZIP(), []int{256}
 }
 
 func (x *GetUNameResponse) GetResult() string {
@@ -8879,27 +11027,27 @@ func (x *GetUNameResponse) GetResult() string {
 	return ""
 }
 
-type GetPersistHostCacheRequest struct {
+type GetHttpStatusCodeRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetPersistHostCacheRequest) Reset() {
-	*x = GetPersistHostCacheRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[208]
+func (x *GetHttpStatusCodeRequest) Reset() {
+	*x = GetHttpStatusCodeRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[257]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetPersistHostCacheRequest) String() string {
+func (x *GetHttpStatusCodeRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetPersistHostCacheRequest) ProtoMessage() {}
+func (*GetHttpStatusCodeRequest) ProtoMessage() {}
 
-func (x *GetPersistHostCacheRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[208]
+func (x *GetHttpStatusCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[257]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8910,193 +11058,33 @@ func (x *GetPersistHostCacheRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetPersistHostCacheRequest.ProtoReflect.Descriptor instead.
-func (*GetPersistHostCacheRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{208}
+// Deprecated: Use GetHttpStatusCodeRequest.ProtoReflect.Descriptor instead.
+func (*GetHttpStatusCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{257}
 }
 
-type GetPersistHostCacheResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPersistHostCacheResponse) Reset() {
-	*x = GetPersistHostCacheResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[209]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPersistHostCacheResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPersistHostCacheResponse) ProtoMessage() {}
-
-func (x *GetPersistHostCacheResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[209]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPersistHostCacheResponse.ProtoReflect.Descriptor instead.
-func (*GetPersistHostCacheResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{209}
-}
-
-func (x *GetPersistHostCacheResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetPersistHostCachePeriodRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPersistHostCachePeriodRequest) Reset() {
-	*x = GetPersistHostCachePeriodRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[210]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPersistHostCachePeriodRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPersistHostCachePeriodRequest) ProtoMessage() {}
-
-func (x *GetPersistHostCachePeriodRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[210]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPersistHostCachePeriodRequest.ProtoReflect.Descriptor instead.
-func (*GetPersistHostCachePeriodRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{210}
-}
-
-type GetPersistHostCachePeriodResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPersistHostCachePeriodResponse) Reset() {
-	*x = GetPersistHostCachePeriodResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[211]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPersistHostCachePeriodResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPersistHostCachePeriodResponse) ProtoMessage() {}
-
-func (x *GetPersistHostCachePeriodResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[211]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPersistHostCachePeriodResponse.ProtoReflect.Descriptor instead.
-func (*GetPersistHostCachePeriodResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{211}
-}
-
-func (x *GetPersistHostCachePeriodResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetPreestablishConnectionsToStaleDnsResultsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPreestablishConnectionsToStaleDnsResultsRequest) Reset() {
-	*x = GetPreestablishConnectionsToStaleDnsResultsRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[212]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPreestablishConnectionsToStaleDnsResultsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPreestablishConnectionsToStaleDnsResultsRequest) ProtoMessage() {}
-
-func (x *GetPreestablishConnectionsToStaleDnsResultsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[212]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPreestablishConnectionsToStaleDnsResultsRequest.ProtoReflect.Descriptor instead.
-func (*GetPreestablishConnectionsToStaleDnsResultsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{212}
-}
-
-type GetPreestablishConnectionsToStaleDnsResultsResponse struct {
+type GetHttpStatusCodeResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetPreestablishConnectionsToStaleDnsResultsResponse) Reset() {
-	*x = GetPreestablishConnectionsToStaleDnsResultsResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[213]
+func (x *GetHttpStatusCodeResponse) Reset() {
+	*x = GetHttpStatusCodeResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[258]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetPreestablishConnectionsToStaleDnsResultsResponse) String() string {
+func (x *GetHttpStatusCodeResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetPreestablishConnectionsToStaleDnsResultsResponse) ProtoMessage() {}
+func (*GetHttpStatusCodeResponse) ProtoMessage() {}
 
-func (x *GetPreestablishConnectionsToStaleDnsResultsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[213]
+func (x *GetHttpStatusCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[258]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9107,39 +11095,39 @@ func (x *GetPreestablishConnectionsToStaleDnsResultsResponse) ProtoReflect() pro
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetPreestablishConnectionsToStaleDnsResultsResponse.ProtoReflect.Descriptor instead.
-func (*GetPreestablishConnectionsToStaleDnsResultsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{213}
+// Deprecated: Use GetHttpStatusCodeResponse.ProtoReflect.Descriptor instead.
+func (*GetHttpStatusCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{258}
 }
 
-func (x *GetPreestablishConnectionsToStaleDnsResultsResponse) GetResult() int32 {
+func (x *GetHttpStatusCodeResponse) GetResult() int32 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type GetStaleDnsRequest struct {
+type GetHttpStatusTextRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetStaleDnsRequest) Reset() {
-	*x = GetStaleDnsRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[214]
+func (x *GetHttpStatusTextRequest) Reset() {
+	*x = GetHttpStatusTextRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[259]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetStaleDnsRequest) String() string {
+func (x *GetHttpStatusTextRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetStaleDnsRequest) ProtoMessage() {}
+func (*GetHttpStatusTextRequest) ProtoMessage() {}
 
-func (x *GetStaleDnsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[214]
+func (x *GetHttpStatusTextRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[259]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9150,33 +11138,33 @@ func (x *GetStaleDnsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetStaleDnsRequest.ProtoReflect.Descriptor instead.
-func (*GetStaleDnsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{214}
+// Deprecated: Use GetHttpStatusTextRequest.ProtoReflect.Descriptor instead.
+func (*GetHttpStatusTextRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{259}
 }
 
-type GetStaleDnsResponse struct {
+type GetHttpStatusTextResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetStaleDnsResponse) Reset() {
-	*x = GetStaleDnsResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[215]
+func (x *GetHttpStatusTextResponse) Reset() {
+	*x = GetHttpStatusTextResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[260]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetStaleDnsResponse) String() string {
+func (x *GetHttpStatusTextResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetStaleDnsResponse) ProtoMessage() {}
+func (*GetHttpStatusTextResponse) ProtoMessage() {}
 
-func (x *GetStaleDnsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[215]
+func (x *GetHttpStatusTextResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[260]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9187,39 +11175,39 @@ func (x *GetStaleDnsResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetStaleDnsResponse.ProtoReflect.Descriptor instead.
-func (*GetStaleDnsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{215}
+// Deprecated: Use GetHttpStatusTextResponse.ProtoReflect.Descriptor instead.
+func (*GetHttpStatusTextResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{260}
 }
 
-func (x *GetStaleDnsResponse) GetResult() int32 {
+func (x *GetHttpStatusTextResponse) GetResult() string {
 	if x != nil {
 		return x.Result
 	}
-	return 0
+	return ""
 }
 
-type GetStaleDnsOptionsRequest struct {
+type GetNegotiatedProtocolRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetStaleDnsOptionsRequest) Reset() {
-	*x = GetStaleDnsOptionsRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[216]
+func (x *GetNegotiatedProtocolRequest) Reset() {
+	*x = GetNegotiatedProtocolRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[261]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetStaleDnsOptionsRequest) String() string {
+func (x *GetNegotiatedProtocolRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetStaleDnsOptionsRequest) ProtoMessage() {}
+func (*GetNegotiatedProtocolRequest) ProtoMessage() {}
 
-func (x *GetStaleDnsOptionsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[216]
+func (x *GetNegotiatedProtocolRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[261]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9230,33 +11218,113 @@ func (x *GetStaleDnsOptionsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetStaleDnsOptionsRequest.ProtoReflect.Descriptor instead.
-func (*GetStaleDnsOptionsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{216}
+// Deprecated: Use GetNegotiatedProtocolRequest.ProtoReflect.Descriptor instead.
+func (*GetNegotiatedProtocolRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{261}
 }
 
-type GetStaleDnsOptionsResponse struct {
+type GetNegotiatedProtocolResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNegotiatedProtocolResponse) Reset() {
+	*x = GetNegotiatedProtocolResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[262]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNegotiatedProtocolResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNegotiatedProtocolResponse) ProtoMessage() {}
+
+func (x *GetNegotiatedProtocolResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[262]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNegotiatedProtocolResponse.ProtoReflect.Descriptor instead.
+func (*GetNegotiatedProtocolResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{262}
+}
+
+func (x *GetNegotiatedProtocolResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetReceivedByteCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetReceivedByteCountRequest) Reset() {
+	*x = GetReceivedByteCountRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[263]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetReceivedByteCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetReceivedByteCountRequest) ProtoMessage() {}
+
+func (x *GetReceivedByteCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[263]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetReceivedByteCountRequest.ProtoReflect.Descriptor instead.
+func (*GetReceivedByteCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{263}
+}
+
+type GetReceivedByteCountResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetStaleDnsOptionsResponse) Reset() {
-	*x = GetStaleDnsOptionsResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[217]
+func (x *GetReceivedByteCountResponse) Reset() {
+	*x = GetReceivedByteCountResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[264]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetStaleDnsOptionsResponse) String() string {
+func (x *GetReceivedByteCountResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetStaleDnsOptionsResponse) ProtoMessage() {}
+func (*GetReceivedByteCountResponse) ProtoMessage() {}
 
-func (x *GetStaleDnsOptionsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[217]
+func (x *GetReceivedByteCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[264]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9267,39 +11335,39 @@ func (x *GetStaleDnsOptionsResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetStaleDnsOptionsResponse.ProtoReflect.Descriptor instead.
-func (*GetStaleDnsOptionsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{217}
+// Deprecated: Use GetReceivedByteCountResponse.ProtoReflect.Descriptor instead.
+func (*GetReceivedByteCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{264}
 }
 
-func (x *GetStaleDnsOptionsResponse) GetResult() int64 {
+func (x *GetReceivedByteCountResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type GetUseHttpStackDnsResolverRequest struct {
+type UrlResponseInfoGetUrlRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetUseHttpStackDnsResolverRequest) Reset() {
-	*x = GetUseHttpStackDnsResolverRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[218]
+func (x *UrlResponseInfoGetUrlRequest) Reset() {
+	*x = UrlResponseInfoGetUrlRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[265]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetUseHttpStackDnsResolverRequest) String() string {
+func (x *UrlResponseInfoGetUrlRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetUseHttpStackDnsResolverRequest) ProtoMessage() {}
+func (*UrlResponseInfoGetUrlRequest) ProtoMessage() {}
 
-func (x *GetUseHttpStackDnsResolverRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[218]
+func (x *UrlResponseInfoGetUrlRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[265]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9310,33 +11378,32 @@ func (x *GetUseHttpStackDnsResolverRequest) ProtoReflect() protoreflect.Message 
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetUseHttpStackDnsResolverRequest.ProtoReflect.Descriptor instead.
-func (*GetUseHttpStackDnsResolverRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{218}
+// Deprecated: Use UrlResponseInfoGetUrlRequest.ProtoReflect.Descriptor instead.
+func (*UrlResponseInfoGetUrlRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{265}
 }
 
-type GetUseHttpStackDnsResolverResponse struct {
+type GetUrlChainRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetUseHttpStackDnsResolverResponse) Reset() {
-	*x = GetUseHttpStackDnsResolverResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[219]
+func (x *GetUrlChainRequest) Reset() {
+	*x = GetUrlChainRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[266]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetUseHttpStackDnsResolverResponse) String() string {
+func (x *GetUrlChainRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetUseHttpStackDnsResolverResponse) ProtoMessage() {}
+func (*GetUrlChainRequest) ProtoMessage() {}
 
-func (x *GetUseHttpStackDnsResolverResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[219]
+func (x *GetUrlChainRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[266]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9347,84 +11414,33 @@ func (x *GetUseHttpStackDnsResolverResponse) ProtoReflect() protoreflect.Message
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetUseHttpStackDnsResolverResponse.ProtoReflect.Descriptor instead.
-func (*GetUseHttpStackDnsResolverResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{219}
+// Deprecated: Use GetUrlChainRequest.ProtoReflect.Descriptor instead.
+func (*GetUrlChainRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{266}
 }
 
-func (x *GetUseHttpStackDnsResolverResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetPersistHostCacheRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPersistHostCacheRequest) Reset() {
-	*x = SetPersistHostCacheRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[220]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPersistHostCacheRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPersistHostCacheRequest) ProtoMessage() {}
-
-func (x *SetPersistHostCacheRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[220]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPersistHostCacheRequest.ProtoReflect.Descriptor instead.
-func (*SetPersistHostCacheRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{220}
-}
-
-func (x *SetPersistHostCacheRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetPersistHostCacheResponse struct {
+type GetUrlChainResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetPersistHostCacheResponse) Reset() {
-	*x = SetPersistHostCacheResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[221]
+func (x *GetUrlChainResponse) Reset() {
+	*x = GetUrlChainResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[267]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetPersistHostCacheResponse) String() string {
+func (x *GetUrlChainResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetPersistHostCacheResponse) ProtoMessage() {}
+func (*GetUrlChainResponse) ProtoMessage() {}
 
-func (x *SetPersistHostCacheResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[221]
+func (x *GetUrlChainResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[267]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9435,40 +11451,39 @@ func (x *SetPersistHostCacheResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetPersistHostCacheResponse.ProtoReflect.Descriptor instead.
-func (*SetPersistHostCacheResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{221}
+// Deprecated: Use GetUrlChainResponse.ProtoReflect.Descriptor instead.
+func (*GetUrlChainResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{267}
 }
 
-func (x *SetPersistHostCacheResponse) GetResult() int64 {
+func (x *GetUrlChainResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type SetPersistHostCachePeriodRequest struct {
+type WasCachedRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetPersistHostCachePeriodRequest) Reset() {
-	*x = SetPersistHostCachePeriodRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[222]
+func (x *WasCachedRequest) Reset() {
+	*x = WasCachedRequest{}
+	mi := &file_proto_http_http_proto_msgTypes[268]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetPersistHostCachePeriodRequest) String() string {
+func (x *WasCachedRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetPersistHostCachePeriodRequest) ProtoMessage() {}
+func (*WasCachedRequest) ProtoMessage() {}
 
-func (x *SetPersistHostCachePeriodRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[222]
+func (x *WasCachedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[268]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9479,1296 +11494,33 @@ func (x *SetPersistHostCachePeriodRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetPersistHostCachePeriodRequest.ProtoReflect.Descriptor instead.
-func (*SetPersistHostCachePeriodRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{222}
+// Deprecated: Use WasCachedRequest.ProtoReflect.Descriptor instead.
+func (*WasCachedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{268}
 }
 
-func (x *SetPersistHostCachePeriodRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetPersistHostCachePeriodResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPersistHostCachePeriodResponse) Reset() {
-	*x = SetPersistHostCachePeriodResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[223]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPersistHostCachePeriodResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPersistHostCachePeriodResponse) ProtoMessage() {}
-
-func (x *SetPersistHostCachePeriodResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[223]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPersistHostCachePeriodResponse.ProtoReflect.Descriptor instead.
-func (*SetPersistHostCachePeriodResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{223}
-}
-
-func (x *SetPersistHostCachePeriodResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetPreestablishConnectionsToStaleDnsResultsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPreestablishConnectionsToStaleDnsResultsRequest) Reset() {
-	*x = SetPreestablishConnectionsToStaleDnsResultsRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[224]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPreestablishConnectionsToStaleDnsResultsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPreestablishConnectionsToStaleDnsResultsRequest) ProtoMessage() {}
-
-func (x *SetPreestablishConnectionsToStaleDnsResultsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[224]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPreestablishConnectionsToStaleDnsResultsRequest.ProtoReflect.Descriptor instead.
-func (*SetPreestablishConnectionsToStaleDnsResultsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{224}
-}
-
-func (x *SetPreestablishConnectionsToStaleDnsResultsRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetPreestablishConnectionsToStaleDnsResultsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPreestablishConnectionsToStaleDnsResultsResponse) Reset() {
-	*x = SetPreestablishConnectionsToStaleDnsResultsResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[225]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPreestablishConnectionsToStaleDnsResultsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPreestablishConnectionsToStaleDnsResultsResponse) ProtoMessage() {}
-
-func (x *SetPreestablishConnectionsToStaleDnsResultsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[225]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPreestablishConnectionsToStaleDnsResultsResponse.ProtoReflect.Descriptor instead.
-func (*SetPreestablishConnectionsToStaleDnsResultsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{225}
-}
-
-func (x *SetPreestablishConnectionsToStaleDnsResultsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetStaleDnsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetStaleDnsRequest) Reset() {
-	*x = SetStaleDnsRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[226]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetStaleDnsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetStaleDnsRequest) ProtoMessage() {}
-
-func (x *SetStaleDnsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[226]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetStaleDnsRequest.ProtoReflect.Descriptor instead.
-func (*SetStaleDnsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{226}
-}
-
-func (x *SetStaleDnsRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetStaleDnsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetStaleDnsResponse) Reset() {
-	*x = SetStaleDnsResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[227]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetStaleDnsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetStaleDnsResponse) ProtoMessage() {}
-
-func (x *SetStaleDnsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[227]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetStaleDnsResponse.ProtoReflect.Descriptor instead.
-func (*SetStaleDnsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{227}
-}
-
-func (x *SetStaleDnsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetStaleDnsOptionsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetStaleDnsOptionsRequest) Reset() {
-	*x = SetStaleDnsOptionsRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[228]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetStaleDnsOptionsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetStaleDnsOptionsRequest) ProtoMessage() {}
-
-func (x *SetStaleDnsOptionsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[228]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetStaleDnsOptionsRequest.ProtoReflect.Descriptor instead.
-func (*SetStaleDnsOptionsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{228}
-}
-
-func (x *SetStaleDnsOptionsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetStaleDnsOptionsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetStaleDnsOptionsResponse) Reset() {
-	*x = SetStaleDnsOptionsResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[229]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetStaleDnsOptionsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetStaleDnsOptionsResponse) ProtoMessage() {}
-
-func (x *SetStaleDnsOptionsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[229]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetStaleDnsOptionsResponse.ProtoReflect.Descriptor instead.
-func (*SetStaleDnsOptionsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{229}
-}
-
-func (x *SetStaleDnsOptionsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetUseHttpStackDnsResolverRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetUseHttpStackDnsResolverRequest) Reset() {
-	*x = SetUseHttpStackDnsResolverRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[230]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetUseHttpStackDnsResolverRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetUseHttpStackDnsResolverRequest) ProtoMessage() {}
-
-func (x *SetUseHttpStackDnsResolverRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[230]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetUseHttpStackDnsResolverRequest.ProtoReflect.Descriptor instead.
-func (*SetUseHttpStackDnsResolverRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{230}
-}
-
-func (x *SetUseHttpStackDnsResolverRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetUseHttpStackDnsResolverResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetUseHttpStackDnsResolverResponse) Reset() {
-	*x = SetUseHttpStackDnsResolverResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[231]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetUseHttpStackDnsResolverResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetUseHttpStackDnsResolverResponse) ProtoMessage() {}
-
-func (x *SetUseHttpStackDnsResolverResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[231]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetUseHttpStackDnsResolverResponse.ProtoReflect.Descriptor instead.
-func (*SetUseHttpStackDnsResolverResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{231}
-}
-
-func (x *SetUseHttpStackDnsResolverResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetAllowCrossNetworkUsageRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAllowCrossNetworkUsageRequest) Reset() {
-	*x = GetAllowCrossNetworkUsageRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[232]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAllowCrossNetworkUsageRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAllowCrossNetworkUsageRequest) ProtoMessage() {}
-
-func (x *GetAllowCrossNetworkUsageRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[232]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAllowCrossNetworkUsageRequest.ProtoReflect.Descriptor instead.
-func (*GetAllowCrossNetworkUsageRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{232}
-}
-
-type GetAllowCrossNetworkUsageResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAllowCrossNetworkUsageResponse) Reset() {
-	*x = GetAllowCrossNetworkUsageResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[233]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAllowCrossNetworkUsageResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAllowCrossNetworkUsageResponse) ProtoMessage() {}
-
-func (x *GetAllowCrossNetworkUsageResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[233]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAllowCrossNetworkUsageResponse.ProtoReflect.Descriptor instead.
-func (*GetAllowCrossNetworkUsageResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{233}
-}
-
-func (x *GetAllowCrossNetworkUsageResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetFreshLookupTimeoutRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetFreshLookupTimeoutRequest) Reset() {
-	*x = GetFreshLookupTimeoutRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[234]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetFreshLookupTimeoutRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetFreshLookupTimeoutRequest) ProtoMessage() {}
-
-func (x *GetFreshLookupTimeoutRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[234]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetFreshLookupTimeoutRequest.ProtoReflect.Descriptor instead.
-func (*GetFreshLookupTimeoutRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{234}
-}
-
-type GetFreshLookupTimeoutResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetFreshLookupTimeoutResponse) Reset() {
-	*x = GetFreshLookupTimeoutResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[235]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetFreshLookupTimeoutResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetFreshLookupTimeoutResponse) ProtoMessage() {}
-
-func (x *GetFreshLookupTimeoutResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[235]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetFreshLookupTimeoutResponse.ProtoReflect.Descriptor instead.
-func (*GetFreshLookupTimeoutResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{235}
-}
-
-func (x *GetFreshLookupTimeoutResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetMaxExpiredDelayRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMaxExpiredDelayRequest) Reset() {
-	*x = GetMaxExpiredDelayRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[236]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMaxExpiredDelayRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMaxExpiredDelayRequest) ProtoMessage() {}
-
-func (x *GetMaxExpiredDelayRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[236]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMaxExpiredDelayRequest.ProtoReflect.Descriptor instead.
-func (*GetMaxExpiredDelayRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{236}
-}
-
-type GetMaxExpiredDelayResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMaxExpiredDelayResponse) Reset() {
-	*x = GetMaxExpiredDelayResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[237]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMaxExpiredDelayResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMaxExpiredDelayResponse) ProtoMessage() {}
-
-func (x *GetMaxExpiredDelayResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[237]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMaxExpiredDelayResponse.ProtoReflect.Descriptor instead.
-func (*GetMaxExpiredDelayResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{237}
-}
-
-func (x *GetMaxExpiredDelayResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetUseStaleOnNameNotResolvedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetUseStaleOnNameNotResolvedRequest) Reset() {
-	*x = GetUseStaleOnNameNotResolvedRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[238]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetUseStaleOnNameNotResolvedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetUseStaleOnNameNotResolvedRequest) ProtoMessage() {}
-
-func (x *GetUseStaleOnNameNotResolvedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[238]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetUseStaleOnNameNotResolvedRequest.ProtoReflect.Descriptor instead.
-func (*GetUseStaleOnNameNotResolvedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{238}
-}
-
-type GetUseStaleOnNameNotResolvedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetUseStaleOnNameNotResolvedResponse) Reset() {
-	*x = GetUseStaleOnNameNotResolvedResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[239]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetUseStaleOnNameNotResolvedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetUseStaleOnNameNotResolvedResponse) ProtoMessage() {}
-
-func (x *GetUseStaleOnNameNotResolvedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[239]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetUseStaleOnNameNotResolvedResponse.ProtoReflect.Descriptor instead.
-func (*GetUseStaleOnNameNotResolvedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{239}
-}
-
-func (x *GetUseStaleOnNameNotResolvedResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetAllowNonDefaultNetworkUsageRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAllowNonDefaultNetworkUsageRequest) Reset() {
-	*x = GetAllowNonDefaultNetworkUsageRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[240]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAllowNonDefaultNetworkUsageRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAllowNonDefaultNetworkUsageRequest) ProtoMessage() {}
-
-func (x *GetAllowNonDefaultNetworkUsageRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[240]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAllowNonDefaultNetworkUsageRequest.ProtoReflect.Descriptor instead.
-func (*GetAllowNonDefaultNetworkUsageRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{240}
-}
-
-type GetAllowNonDefaultNetworkUsageResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAllowNonDefaultNetworkUsageResponse) Reset() {
-	*x = GetAllowNonDefaultNetworkUsageResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[241]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAllowNonDefaultNetworkUsageResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAllowNonDefaultNetworkUsageResponse) ProtoMessage() {}
-
-func (x *GetAllowNonDefaultNetworkUsageResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[241]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAllowNonDefaultNetworkUsageResponse.ProtoReflect.Descriptor instead.
-func (*GetAllowNonDefaultNetworkUsageResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{241}
-}
-
-func (x *GetAllowNonDefaultNetworkUsageResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetDefaultNetworkMigrationRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDefaultNetworkMigrationRequest) Reset() {
-	*x = GetDefaultNetworkMigrationRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[242]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDefaultNetworkMigrationRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDefaultNetworkMigrationRequest) ProtoMessage() {}
-
-func (x *GetDefaultNetworkMigrationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[242]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDefaultNetworkMigrationRequest.ProtoReflect.Descriptor instead.
-func (*GetDefaultNetworkMigrationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{242}
-}
-
-type GetDefaultNetworkMigrationResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDefaultNetworkMigrationResponse) Reset() {
-	*x = GetDefaultNetworkMigrationResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[243]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDefaultNetworkMigrationResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDefaultNetworkMigrationResponse) ProtoMessage() {}
-
-func (x *GetDefaultNetworkMigrationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[243]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDefaultNetworkMigrationResponse.ProtoReflect.Descriptor instead.
-func (*GetDefaultNetworkMigrationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{243}
-}
-
-func (x *GetDefaultNetworkMigrationResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetPathDegradationMigrationRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPathDegradationMigrationRequest) Reset() {
-	*x = GetPathDegradationMigrationRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[244]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPathDegradationMigrationRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPathDegradationMigrationRequest) ProtoMessage() {}
-
-func (x *GetPathDegradationMigrationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[244]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPathDegradationMigrationRequest.ProtoReflect.Descriptor instead.
-func (*GetPathDegradationMigrationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{244}
-}
-
-type GetPathDegradationMigrationResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPathDegradationMigrationResponse) Reset() {
-	*x = GetPathDegradationMigrationResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[245]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPathDegradationMigrationResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPathDegradationMigrationResponse) ProtoMessage() {}
-
-func (x *GetPathDegradationMigrationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[245]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPathDegradationMigrationResponse.ProtoReflect.Descriptor instead.
-func (*GetPathDegradationMigrationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{245}
-}
-
-func (x *GetPathDegradationMigrationResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetAllowNonDefaultNetworkUsageRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetAllowNonDefaultNetworkUsageRequest) Reset() {
-	*x = SetAllowNonDefaultNetworkUsageRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[246]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetAllowNonDefaultNetworkUsageRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetAllowNonDefaultNetworkUsageRequest) ProtoMessage() {}
-
-func (x *SetAllowNonDefaultNetworkUsageRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[246]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetAllowNonDefaultNetworkUsageRequest.ProtoReflect.Descriptor instead.
-func (*SetAllowNonDefaultNetworkUsageRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{246}
-}
-
-func (x *SetAllowNonDefaultNetworkUsageRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetAllowNonDefaultNetworkUsageResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetAllowNonDefaultNetworkUsageResponse) Reset() {
-	*x = SetAllowNonDefaultNetworkUsageResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[247]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetAllowNonDefaultNetworkUsageResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetAllowNonDefaultNetworkUsageResponse) ProtoMessage() {}
-
-func (x *SetAllowNonDefaultNetworkUsageResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[247]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetAllowNonDefaultNetworkUsageResponse.ProtoReflect.Descriptor instead.
-func (*SetAllowNonDefaultNetworkUsageResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{247}
-}
-
-func (x *SetAllowNonDefaultNetworkUsageResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetDefaultNetworkMigrationRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetDefaultNetworkMigrationRequest) Reset() {
-	*x = SetDefaultNetworkMigrationRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[248]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetDefaultNetworkMigrationRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetDefaultNetworkMigrationRequest) ProtoMessage() {}
-
-func (x *SetDefaultNetworkMigrationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[248]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetDefaultNetworkMigrationRequest.ProtoReflect.Descriptor instead.
-func (*SetDefaultNetworkMigrationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{248}
-}
-
-func (x *SetDefaultNetworkMigrationRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetDefaultNetworkMigrationResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetDefaultNetworkMigrationResponse) Reset() {
-	*x = SetDefaultNetworkMigrationResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[249]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetDefaultNetworkMigrationResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetDefaultNetworkMigrationResponse) ProtoMessage() {}
-
-func (x *SetDefaultNetworkMigrationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[249]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetDefaultNetworkMigrationResponse.ProtoReflect.Descriptor instead.
-func (*SetDefaultNetworkMigrationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{249}
-}
-
-func (x *SetDefaultNetworkMigrationResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetPathDegradationMigrationRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPathDegradationMigrationRequest) Reset() {
-	*x = SetPathDegradationMigrationRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[250]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPathDegradationMigrationRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPathDegradationMigrationRequest) ProtoMessage() {}
-
-func (x *SetPathDegradationMigrationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[250]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPathDegradationMigrationRequest.ProtoReflect.Descriptor instead.
-func (*SetPathDegradationMigrationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{250}
-}
-
-func (x *SetPathDegradationMigrationRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetPathDegradationMigrationResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPathDegradationMigrationResponse) Reset() {
-	*x = SetPathDegradationMigrationResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[251]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPathDegradationMigrationResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPathDegradationMigrationResponse) ProtoMessage() {}
-
-func (x *SetPathDegradationMigrationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[251]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPathDegradationMigrationResponse.ProtoReflect.Descriptor instead.
-func (*SetPathDegradationMigrationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{251}
-}
-
-func (x *SetPathDegradationMigrationResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type IsDelayRequestHeadersUntilFirstFlushEnabledRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsDelayRequestHeadersUntilFirstFlushEnabledRequest) Reset() {
-	*x = IsDelayRequestHeadersUntilFirstFlushEnabledRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[252]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsDelayRequestHeadersUntilFirstFlushEnabledRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsDelayRequestHeadersUntilFirstFlushEnabledRequest) ProtoMessage() {}
-
-func (x *IsDelayRequestHeadersUntilFirstFlushEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[252]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsDelayRequestHeadersUntilFirstFlushEnabledRequest.ProtoReflect.Descriptor instead.
-func (*IsDelayRequestHeadersUntilFirstFlushEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{252}
-}
-
-type IsDelayRequestHeadersUntilFirstFlushEnabledResponse struct {
+type WasCachedResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *IsDelayRequestHeadersUntilFirstFlushEnabledResponse) Reset() {
-	*x = IsDelayRequestHeadersUntilFirstFlushEnabledResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[253]
+func (x *WasCachedResponse) Reset() {
+	*x = WasCachedResponse{}
+	mi := &file_proto_http_http_proto_msgTypes[269]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *IsDelayRequestHeadersUntilFirstFlushEnabledResponse) String() string {
+func (x *WasCachedResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*IsDelayRequestHeadersUntilFirstFlushEnabledResponse) ProtoMessage() {}
+func (*WasCachedResponse) ProtoMessage() {}
 
-func (x *IsDelayRequestHeadersUntilFirstFlushEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[253]
+func (x *WasCachedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_http_http_proto_msgTypes[269]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10779,522 +11531,54 @@ func (x *IsDelayRequestHeadersUntilFirstFlushEnabledResponse) ProtoReflect() pro
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use IsDelayRequestHeadersUntilFirstFlushEnabledResponse.ProtoReflect.Descriptor instead.
-func (*IsDelayRequestHeadersUntilFirstFlushEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{253}
+// Deprecated: Use WasCachedResponse.ProtoReflect.Descriptor instead.
+func (*WasCachedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_http_http_proto_rawDescGZIP(), []int{269}
 }
 
-func (x *IsDelayRequestHeadersUntilFirstFlushEnabledResponse) GetResult() bool {
+func (x *WasCachedResponse) GetResult() bool {
 	if x != nil {
 		return x.Result
 	}
 	return false
-}
-
-type SetDelayRequestHeadersUntilFirstFlushEnabledRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetDelayRequestHeadersUntilFirstFlushEnabledRequest) Reset() {
-	*x = SetDelayRequestHeadersUntilFirstFlushEnabledRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[254]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetDelayRequestHeadersUntilFirstFlushEnabledRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetDelayRequestHeadersUntilFirstFlushEnabledRequest) ProtoMessage() {}
-
-func (x *SetDelayRequestHeadersUntilFirstFlushEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[254]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetDelayRequestHeadersUntilFirstFlushEnabledRequest.ProtoReflect.Descriptor instead.
-func (*SetDelayRequestHeadersUntilFirstFlushEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{254}
-}
-
-func (x *SetDelayRequestHeadersUntilFirstFlushEnabledRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type SetDelayRequestHeadersUntilFirstFlushEnabledResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetDelayRequestHeadersUntilFirstFlushEnabledResponse) Reset() {
-	*x = SetDelayRequestHeadersUntilFirstFlushEnabledResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[255]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetDelayRequestHeadersUntilFirstFlushEnabledResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetDelayRequestHeadersUntilFirstFlushEnabledResponse) ProtoMessage() {}
-
-func (x *SetDelayRequestHeadersUntilFirstFlushEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[255]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetDelayRequestHeadersUntilFirstFlushEnabledResponse.ProtoReflect.Descriptor instead.
-func (*SetDelayRequestHeadersUntilFirstFlushEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{255}
-}
-
-func (x *SetDelayRequestHeadersUntilFirstFlushEnabledResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type OnResponseHeadersReceivedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnResponseHeadersReceivedRequest) Reset() {
-	*x = OnResponseHeadersReceivedRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[256]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnResponseHeadersReceivedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnResponseHeadersReceivedRequest) ProtoMessage() {}
-
-func (x *OnResponseHeadersReceivedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[256]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnResponseHeadersReceivedRequest.ProtoReflect.Descriptor instead.
-func (*OnResponseHeadersReceivedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{256}
-}
-
-func (x *OnResponseHeadersReceivedRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *OnResponseHeadersReceivedRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type OnResponseHeadersReceivedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnResponseHeadersReceivedResponse) Reset() {
-	*x = OnResponseHeadersReceivedResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[257]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnResponseHeadersReceivedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnResponseHeadersReceivedResponse) ProtoMessage() {}
-
-func (x *OnResponseHeadersReceivedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[257]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnResponseHeadersReceivedResponse.ProtoReflect.Descriptor instead.
-func (*OnResponseHeadersReceivedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{257}
-}
-
-type OnResponseTrailersReceivedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnResponseTrailersReceivedRequest) Reset() {
-	*x = OnResponseTrailersReceivedRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[258]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnResponseTrailersReceivedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnResponseTrailersReceivedRequest) ProtoMessage() {}
-
-func (x *OnResponseTrailersReceivedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[258]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnResponseTrailersReceivedRequest.ProtoReflect.Descriptor instead.
-func (*OnResponseTrailersReceivedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{258}
-}
-
-func (x *OnResponseTrailersReceivedRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *OnResponseTrailersReceivedRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *OnResponseTrailersReceivedRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type OnResponseTrailersReceivedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnResponseTrailersReceivedResponse) Reset() {
-	*x = OnResponseTrailersReceivedResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[259]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnResponseTrailersReceivedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnResponseTrailersReceivedResponse) ProtoMessage() {}
-
-func (x *OnResponseTrailersReceivedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[259]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnResponseTrailersReceivedResponse.ProtoReflect.Descriptor instead.
-func (*OnResponseTrailersReceivedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{259}
-}
-
-type OnStreamReadyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnStreamReadyRequest) Reset() {
-	*x = OnStreamReadyRequest{}
-	mi := &file_proto_http_http_proto_msgTypes[260]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnStreamReadyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnStreamReadyRequest) ProtoMessage() {}
-
-func (x *OnStreamReadyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[260]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnStreamReadyRequest.ProtoReflect.Descriptor instead.
-func (*OnStreamReadyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{260}
-}
-
-func (x *OnStreamReadyRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnStreamReadyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnStreamReadyResponse) Reset() {
-	*x = OnStreamReadyResponse{}
-	mi := &file_proto_http_http_proto_msgTypes[261]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnStreamReadyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnStreamReadyResponse) ProtoMessage() {}
-
-func (x *OnStreamReadyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_http_http_proto_msgTypes[261]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnStreamReadyResponse.ProtoReflect.Descriptor instead.
-func (*OnStreamReadyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_http_http_proto_rawDescGZIP(), []int{261}
 }
 
 var File_proto_http_http_proto protoreflect.FileDescriptor
 
 const file_proto_http_http_proto_rawDesc = "" +
 	"\n" +
-	"\x15proto/http/http.proto\x12\x04http\"\x0e\n" +
-	"\fCloseRequest\"\x0f\n" +
-	"\rCloseResponse\"\x12\n" +
-	"\x10GetLengthRequest\"+\n" +
-	"\x11GetLengthResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
-	"\rRewindRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x10\n" +
-	"\x0eRewindResponse\"\x13\n" +
-	"\x11GetHeadersRequest\",\n" +
-	"\x12GetHeadersResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1a\n" +
-	"\x18GetHttpStatusCodeRequest\"3\n" +
-	"\x19GetHttpStatusCodeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1a\n" +
-	"\x18GetHttpStatusTextRequest\"3\n" +
-	"\x19GetHttpStatusTextResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x1e\n" +
-	"\x1cGetNegotiatedProtocolRequest\"7\n" +
-	"\x1dGetNegotiatedProtocolResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x1d\n" +
-	"\x1bGetReceivedByteCountRequest\"6\n" +
-	"\x1cGetReceivedByteCountResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0f\n" +
-	"\rGetUrlRequest\"(\n" +
-	"\x0eGetUrlResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x12\n" +
-	"\x10WasCachedRequest\"+\n" +
-	"\x11WasCachedResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x0f\n" +
-	"\rDeleteRequest\"\x10\n" +
-	"\x0eDeleteResponse\"\x0e\n" +
-	"\fFlushRequest\"\x0f\n" +
-	"\rFlushResponse\"\x14\n" +
-	"\x12GetHitCountRequest\"-\n" +
-	"\x13GetHitCountResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x18\n" +
-	"\x16GetNetworkCountRequest\"1\n" +
-	"\x17GetNetworkCountResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x18\n" +
-	"\x16GetRequestCountRequest\"1\n" +
-	"\x17GetRequestCountResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x10\n" +
-	"\x0eMaxSizeRequest\")\n" +
-	"\x0fMaxSizeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"4\n" +
-	"\n" +
-	"PutRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"%\n" +
-	"\vPutResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\r\n" +
-	"\vSizeRequest\"&\n" +
-	"\fSizeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
-	"\x13GetInstalledRequest\".\n" +
-	"\x14GetInstalledResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
-	"\x14BindToNetworkRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x17\n" +
-	"\x15BindToNetworkResponse\"&\n" +
-	"$CreateUrlStreamHandlerFactoryRequest\"?\n" +
-	"%CreateUrlStreamHandlerFactoryResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"b\n" +
-	"$NewBidirectionalStreamBuilderRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"?\n" +
-	"%NewBidirectionalStreamBuilderResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"Y\n" +
-	"\x1bNewUrlRequestBuilderRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"6\n" +
-	"\x1cNewUrlRequestBuilderResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
-	"\x15OpenConnectionRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"0\n" +
-	"\x16OpenConnectionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
-	"\x0fShutdownRequest\"\x12\n" +
-	"\x10ShutdownResponse\"\x19\n" +
-	"\x17GetVersionStringRequest\"2\n" +
-	"\x18GetVersionStringResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"P\n" +
-	"\x12AddQuicHintRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"-\n" +
-	"\x13AddQuicHintResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0e\n" +
+	"\x15proto/http/http.proto\x12\x04http\"'\n" +
+	"%GetAllowNonDefaultNetworkUsageRequest\"@\n" +
+	"&GetAllowNonDefaultNetworkUsageResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"#\n" +
+	"!GetDefaultNetworkMigrationRequest\"<\n" +
+	"\"GetDefaultNetworkMigrationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"$\n" +
+	"\"GetPathDegradationMigrationRequest\"=\n" +
+	"#GetPathDegradationMigrationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x0e\n" +
 	"\fBuildRequest\"'\n" +
 	"\rBuildResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1c\n" +
-	"\x1aGetDefaultUserAgentRequest\"5\n" +
-	"\x1bGetDefaultUserAgentResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\":\n" +
-	"$SetConnectionMigrationOptionsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"?\n" +
-	"%SetConnectionMigrationOptionsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
-	"\x14SetDnsOptionsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"/\n" +
-	"\x15SetDnsOptionsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
-	"\x16SetEnableBrotliRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"1\n" +
-	"\x17SetEnableBrotliResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
-	"\x15SetEnableHttp2Request\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"0\n" +
-	"\x16SetEnableHttp2Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"C\n" +
-	"\x19SetEnableHttpCacheRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"4\n" +
-	"\x1aSetEnableHttpCacheResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"P\n" +
-	":SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"U\n" +
-	";SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
-	"\x14SetEnableQuicRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"/\n" +
-	"\x15SetEnableQuicResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
-	"\x15SetQuicOptionsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"0\n" +
-	"\x16SetQuicOptionsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
-	"\x15SetStoragePathRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"0\n" +
-	"\x16SetStoragePathResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
-	"\x13SetUserAgentRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\".\n" +
-	"\x14SetUserAgentResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
-	"\x13GetErrorCodeRequest\".\n" +
-	"\x14GetErrorCodeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1f\n" +
-	"\x1dIsImmediatelyRetryableRequest\"8\n" +
-	"\x1eIsImmediatelyRetryableResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x0f\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\";\n" +
+	"%SetAllowNonDefaultNetworkUsageRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"@\n" +
+	"&SetAllowNonDefaultNetworkUsageResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
+	"!SetDefaultNetworkMigrationRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"<\n" +
+	"\"SetDefaultNetworkMigrationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"8\n" +
+	"\"SetPathDegradationMigrationRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"=\n" +
+	"#SetPathDegradationMigrationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0f\n" +
 	"\rCancelRequest\"\x10\n" +
 	"\x0eCancelResponse\"\x17\n" +
 	"\x15FollowRedirectRequest\"\x18\n" +
-	"\x16FollowRedirectResponse\"\x16\n" +
+	"\x16FollowRedirectResponse\"\x13\n" +
+	"\x11GetHeadersRequest\",\n" +
+	"\x12GetHeadersResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
 	"\x14GetHttpMethodRequest\"/\n" +
 	"\x15GetHttpMethodResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\tR\x06result\"\x14\n" +
@@ -11331,8 +11615,10 @@ const file_proto_http_http_proto_rawDesc = "" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"+\n" +
 	"\x11AddHeaderResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
-	"&UrlRequestBuilderBindToNetworkResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"\x14BindToNetworkRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"/\n" +
+	"\x15BindToNetworkResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
 	"\x17SetCacheDisabledRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"2\n" +
@@ -11387,39 +11673,26 @@ const file_proto_http_http_proto_rawDesc = "" +
 	"\x13OnSucceededResponse\"%\n" +
 	"\x0fOnStatusRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x12\n" +
-	"\x10OnStatusResponse\"<\n" +
-	"\x12NewSslErrorRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"-\n" +
-	"\x13NewSslErrorResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"=\n" +
-	"\x0fAddErrorRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"*\n" +
-	"\x10AddErrorResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"/\n" +
-	"\x15GetCertificateRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
-	"\x16GetCertificateResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
-	"\x16GetPrimaryErrorRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
-	"\x17GetPrimaryErrorResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"/\n" +
-	"\x15SslErrorGetUrlRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"=\n" +
-	"\x0fHasErrorRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"*\n" +
-	"\x10HasErrorResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\")\n" +
-	"\x0fToStringRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
-	"\x10ToStringResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\":\n" +
+	"\x10OnStatusResponse\":\n" +
 	"$NewX509TrustManagerExtensionsRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"?\n" +
 	"%NewX509TrustManagerExtensionsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x98\x01\n" +
+	"\x1aCheckServerTrusted5Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\tR\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x06 \x01(\tR\x04arg4\"5\n" +
+	"\x1bCheckServerTrusted5Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"r\n" +
+	"\x1cCheckServerTrusted3_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\tR\x04arg2\"7\n" +
+	"\x1dCheckServerTrusted3_1Response\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"a\n" +
 	"\x1fIsSameTrustConfigurationRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
@@ -11442,7 +11715,151 @@ const file_proto_http_http_proto_rawDesc = "" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x17\n" +
 	"\x15OnRewindErrorResponse\"\x1a\n" +
 	"\x18OnRewindSucceededRequest\"\x1b\n" +
-	"\x19OnRewindSucceededResponse\"\x1e\n" +
+	"\x19OnRewindSucceededResponse\"\x0e\n" +
+	"\fCloseRequest\"\x0f\n" +
+	"\rCloseResponse\"\x12\n" +
+	"\x10GetLengthRequest\"+\n" +
+	"\x11GetLengthResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
+	"\rRewindRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x10\n" +
+	"\x0eRewindResponse\"\x0e\n" +
+	"\fFlushRequest\"\x0f\n" +
+	"\rFlushResponse\"4\n" +
+	"2IsDelayRequestHeadersUntilFirstFlushEnabledRequest\"M\n" +
+	"3IsDelayRequestHeadersUntilFirstFlushEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"I\n" +
+	"3SetDelayRequestHeadersUntilFirstFlushEnabledRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"N\n" +
+	"4SetDelayRequestHeadersUntilFirstFlushEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"J\n" +
+	" OnResponseHeadersReceivedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"#\n" +
+	"!OnResponseHeadersReceivedResponse\"_\n" +
+	"!OnResponseTrailersReceivedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"$\n" +
+	"\"OnResponseTrailersReceivedResponse\"*\n" +
+	"\x14OnStreamReadyRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x17\n" +
+	"\x15OnStreamReadyResponse\"\x1d\n" +
+	"\x1bEngineBindToNetworkResponse\"&\n" +
+	"$CreateUrlStreamHandlerFactoryRequest\"?\n" +
+	"%CreateUrlStreamHandlerFactoryResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"b\n" +
+	"$NewBidirectionalStreamBuilderRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"?\n" +
+	"%NewBidirectionalStreamBuilderResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"Y\n" +
+	"\x1bNewUrlRequestBuilderRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"6\n" +
+	"\x1cNewUrlRequestBuilderResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x15OpenConnectionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"0\n" +
+	"\x16OpenConnectionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
+	"\x0fShutdownRequest\"\x12\n" +
+	"\x10ShutdownResponse\"\x19\n" +
+	"\x17GetVersionStringRequest\"2\n" +
+	"\x18GetVersionStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"P\n" +
+	"\x12AddQuicHintRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"-\n" +
+	"\x13AddQuicHintResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1c\n" +
+	"\x1aGetDefaultUserAgentRequest\"5\n" +
+	"\x1bGetDefaultUserAgentResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\":\n" +
+	"$SetConnectionMigrationOptionsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"?\n" +
+	"%SetConnectionMigrationOptionsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"\x14SetDnsOptionsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"/\n" +
+	"\x15SetDnsOptionsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"\x16SetEnableBrotliRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"1\n" +
+	"\x17SetEnableBrotliResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x15SetEnableHttp2Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"0\n" +
+	"\x16SetEnableHttp2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"C\n" +
+	"\x19SetEnableHttpCacheRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"4\n" +
+	"\x1aSetEnableHttpCacheResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"P\n" +
+	":SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"U\n" +
+	";SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"\x14SetEnableQuicRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"/\n" +
+	"\x15SetEnableQuicResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x15SetQuicOptionsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"0\n" +
+	"\x16SetQuicOptionsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x15SetStoragePathRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"0\n" +
+	"\x16SetStoragePathResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x13SetUserAgentRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\".\n" +
+	"\x14SetUserAgentResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
+	"\x13GetErrorCodeRequest\".\n" +
+	"\x14GetErrorCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1f\n" +
+	"\x1dIsImmediatelyRetryableRequest\"8\n" +
+	"\x1eIsImmediatelyRetryableResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"<\n" +
+	"\x12NewSslErrorRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"-\n" +
+	"\x13NewSslErrorResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"=\n" +
+	"\x0fAddErrorRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"*\n" +
+	"\x10AddErrorResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"/\n" +
+	"\x15GetCertificateRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
+	"\x16GetCertificateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	"\x16GetPrimaryErrorRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
+	"\x17GetPrimaryErrorResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"'\n" +
+	"\rGetUrlRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"(\n" +
+	"\x0eGetUrlResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"=\n" +
+	"\x0fHasErrorRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"*\n" +
+	"\x10HasErrorResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\")\n" +
+	"\x0fToStringRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x1c\n" +
+	"\x1aGetAllowedQuicHostsRequest\"5\n" +
+	"\x1bGetAllowedQuicHostsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1e\n" +
 	"\x1cGetHandshakeUserAgentRequest\"7\n" +
 	"\x1dGetHandshakeUserAgentResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\tR\x06result\"!\n" +
@@ -11470,6 +11887,86 @@ const file_proto_http_http_proto_rawDesc = "" +
 	"(SetInMemoryServerConfigsCacheSizeRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"C\n" +
 	")SetInMemoryServerConfigsCacheSizeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1c\n" +
+	"\x1aGetPersistHostCacheRequest\"5\n" +
+	"\x1bGetPersistHostCacheResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\"\n" +
+	" GetPersistHostCachePeriodRequest\";\n" +
+	"!GetPersistHostCachePeriodResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"4\n" +
+	"2GetPreestablishConnectionsToStaleDnsResultsRequest\"M\n" +
+	"3GetPreestablishConnectionsToStaleDnsResultsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x14\n" +
+	"\x12GetStaleDnsRequest\"-\n" +
+	"\x13GetStaleDnsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1b\n" +
+	"\x19GetStaleDnsOptionsRequest\"4\n" +
+	"\x1aGetStaleDnsOptionsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
+	"!GetUseHttpStackDnsResolverRequest\"<\n" +
+	"\"GetUseHttpStackDnsResolverResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"0\n" +
+	"\x1aSetPersistHostCacheRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"5\n" +
+	"\x1bSetPersistHostCacheResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"6\n" +
+	" SetPersistHostCachePeriodRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\";\n" +
+	"!SetPersistHostCachePeriodResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"H\n" +
+	"2SetPreestablishConnectionsToStaleDnsResultsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"M\n" +
+	"3SetPreestablishConnectionsToStaleDnsResultsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
+	"\x12SetStaleDnsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"-\n" +
+	"\x13SetStaleDnsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"\x19SetStaleDnsOptionsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"4\n" +
+	"\x1aSetStaleDnsOptionsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
+	"!SetUseHttpStackDnsResolverRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"<\n" +
+	"\"SetUseHttpStackDnsResolverResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\"\n" +
+	" GetAllowCrossNetworkUsageRequest\";\n" +
+	"!GetAllowCrossNetworkUsageResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1e\n" +
+	"\x1cGetFreshLookupTimeoutRequest\"7\n" +
+	"\x1dGetFreshLookupTimeoutResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
+	"\x19GetMaxExpiredDelayRequest\"4\n" +
+	"\x1aGetMaxExpiredDelayResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"%\n" +
+	"#GetUseStaleOnNameNotResolvedRequest\">\n" +
+	"$GetUseStaleOnNameNotResolvedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x0f\n" +
+	"\rDeleteRequest\"\x10\n" +
+	"\x0eDeleteResponse\"\x14\n" +
+	"\x12GetHitCountRequest\"-\n" +
+	"\x13GetHitCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x18\n" +
+	"\x16GetNetworkCountRequest\"1\n" +
+	"\x17GetNetworkCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x18\n" +
+	"\x16GetRequestCountRequest\"1\n" +
+	"\x17GetRequestCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x10\n" +
+	"\x0eMaxSizeRequest\")\n" +
+	"\x0fMaxSizeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"4\n" +
+	"\n" +
+	"PutRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"%\n" +
+	"\vPutResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\r\n" +
+	"\vSizeRequest\"&\n" +
+	"\fSizeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
+	"\x13GetInstalledRequest\".\n" +
+	"\x14GetInstalledResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"j\n" +
 	"\x18NewSslCertificateRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
@@ -11527,150 +12024,35 @@ const file_proto_http_http_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\tR\x06result\"\x11\n" +
 	"\x0fGetUNameRequest\"*\n" +
 	"\x10GetUNameResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x1c\n" +
-	"\x1aGetPersistHostCacheRequest\"5\n" +
-	"\x1bGetPersistHostCacheResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\"\n" +
-	" GetPersistHostCachePeriodRequest\";\n" +
-	"!GetPersistHostCachePeriodResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"4\n" +
-	"2GetPreestablishConnectionsToStaleDnsResultsRequest\"M\n" +
-	"3GetPreestablishConnectionsToStaleDnsResultsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x14\n" +
-	"\x12GetStaleDnsRequest\"-\n" +
-	"\x13GetStaleDnsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1b\n" +
-	"\x19GetStaleDnsOptionsRequest\"4\n" +
-	"\x1aGetStaleDnsOptionsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
-	"!GetUseHttpStackDnsResolverRequest\"<\n" +
-	"\"GetUseHttpStackDnsResolverResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"0\n" +
-	"\x1aSetPersistHostCacheRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"5\n" +
-	"\x1bSetPersistHostCacheResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"6\n" +
-	" SetPersistHostCachePeriodRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\";\n" +
-	"!SetPersistHostCachePeriodResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"H\n" +
-	"2SetPreestablishConnectionsToStaleDnsResultsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"M\n" +
-	"3SetPreestablishConnectionsToStaleDnsResultsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
-	"\x12SetStaleDnsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"-\n" +
-	"\x13SetStaleDnsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
-	"\x19SetStaleDnsOptionsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"4\n" +
-	"\x1aSetStaleDnsOptionsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
-	"!SetUseHttpStackDnsResolverRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"<\n" +
-	"\"SetUseHttpStackDnsResolverResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\"\n" +
-	" GetAllowCrossNetworkUsageRequest\";\n" +
-	"!GetAllowCrossNetworkUsageResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1e\n" +
-	"\x1cGetFreshLookupTimeoutRequest\"7\n" +
-	"\x1dGetFreshLookupTimeoutResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
-	"\x19GetMaxExpiredDelayRequest\"4\n" +
-	"\x1aGetMaxExpiredDelayResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"%\n" +
-	"#GetUseStaleOnNameNotResolvedRequest\">\n" +
-	"$GetUseStaleOnNameNotResolvedResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"'\n" +
-	"%GetAllowNonDefaultNetworkUsageRequest\"@\n" +
-	"&GetAllowNonDefaultNetworkUsageResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"#\n" +
-	"!GetDefaultNetworkMigrationRequest\"<\n" +
-	"\"GetDefaultNetworkMigrationResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"$\n" +
-	"\"GetPathDegradationMigrationRequest\"=\n" +
-	"#GetPathDegradationMigrationResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\";\n" +
-	"%SetAllowNonDefaultNetworkUsageRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"@\n" +
-	"&SetAllowNonDefaultNetworkUsageResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
-	"!SetDefaultNetworkMigrationRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"<\n" +
-	"\"SetDefaultNetworkMigrationResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"8\n" +
-	"\"SetPathDegradationMigrationRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"=\n" +
-	"#SetPathDegradationMigrationResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"4\n" +
-	"2IsDelayRequestHeadersUntilFirstFlushEnabledRequest\"M\n" +
-	"3IsDelayRequestHeadersUntilFirstFlushEnabledResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"I\n" +
-	"3SetDelayRequestHeadersUntilFirstFlushEnabledRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"N\n" +
-	"4SetDelayRequestHeadersUntilFirstFlushEnabledResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"J\n" +
-	" OnResponseHeadersReceivedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"#\n" +
-	"!OnResponseHeadersReceivedResponse\"_\n" +
-	"!OnResponseTrailersReceivedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"$\n" +
-	"\"OnResponseTrailersReceivedResponse\"*\n" +
-	"\x14OnStreamReadyRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x17\n" +
-	"\x15OnStreamReadyResponse2\xc0\x01\n" +
-	"\x19UploadDataProviderService\x120\n" +
-	"\x05Close\x12\x12.http.CloseRequest\x1a\x13.http.CloseResponse\x12<\n" +
-	"\tGetLength\x12\x16.http.GetLengthRequest\x1a\x17.http.GetLengthResponse\x123\n" +
-	"\x06Rewind\x12\x13.http.RewindRequest\x1a\x14.http.RewindResponse2\xb9\x04\n" +
-	"\x16UrlResponseInfoService\x12?\n" +
-	"\n" +
-	"GetHeaders\x12\x17.http.GetHeadersRequest\x1a\x18.http.GetHeadersResponse\x12T\n" +
-	"\x11GetHttpStatusCode\x12\x1e.http.GetHttpStatusCodeRequest\x1a\x1f.http.GetHttpStatusCodeResponse\x12T\n" +
-	"\x11GetHttpStatusText\x12\x1e.http.GetHttpStatusTextRequest\x1a\x1f.http.GetHttpStatusTextResponse\x12`\n" +
-	"\x15GetNegotiatedProtocol\x12\".http.GetNegotiatedProtocolRequest\x1a#.http.GetNegotiatedProtocolResponse\x12]\n" +
-	"\x14GetReceivedByteCount\x12!.http.GetReceivedByteCountRequest\x1a\".http.GetReceivedByteCountResponse\x123\n" +
-	"\x06GetUrl\x12\x13.http.GetUrlRequest\x1a\x14.http.GetUrlResponse\x12<\n" +
-	"\tWasCached\x12\x16.http.WasCachedRequest\x1a\x17.http.WasCachedResponse2\xed\x04\n" +
-	"\x14ResponseCacheService\x120\n" +
-	"\x05Close\x12\x12.http.CloseRequest\x1a\x13.http.CloseResponse\x123\n" +
-	"\x06Delete\x12\x13.http.DeleteRequest\x1a\x14.http.DeleteResponse\x120\n" +
-	"\x05Flush\x12\x12.http.FlushRequest\x1a\x13.http.FlushResponse\x12B\n" +
-	"\vGetHitCount\x12\x18.http.GetHitCountRequest\x1a\x19.http.GetHitCountResponse\x12N\n" +
-	"\x0fGetNetworkCount\x12\x1c.http.GetNetworkCountRequest\x1a\x1d.http.GetNetworkCountResponse\x12N\n" +
-	"\x0fGetRequestCount\x12\x1c.http.GetRequestCountRequest\x1a\x1d.http.GetRequestCountResponse\x126\n" +
-	"\aMaxSize\x12\x14.http.MaxSizeRequest\x1a\x15.http.MaxSizeResponse\x12*\n" +
-	"\x03Put\x12\x10.http.PutRequest\x1a\x11.http.PutResponse\x12-\n" +
-	"\x04Size\x12\x11.http.SizeRequest\x1a\x12.http.SizeResponse\x12E\n" +
-	"\fGetInstalled\x12\x19.http.GetInstalledRequest\x1a\x1a.http.GetInstalledResponse2\x87\x05\n" +
-	"\rEngineService\x12H\n" +
-	"\rBindToNetwork\x12\x1a.http.BindToNetworkRequest\x1a\x1b.http.BindToNetworkResponse\x12x\n" +
-	"\x1dCreateUrlStreamHandlerFactory\x12*.http.CreateUrlStreamHandlerFactoryRequest\x1a+.http.CreateUrlStreamHandlerFactoryResponse\x12x\n" +
-	"\x1dNewBidirectionalStreamBuilder\x12*.http.NewBidirectionalStreamBuilderRequest\x1a+.http.NewBidirectionalStreamBuilderResponse\x12]\n" +
-	"\x14NewUrlRequestBuilder\x12!.http.NewUrlRequestBuilderRequest\x1a\".http.NewUrlRequestBuilderResponse\x12K\n" +
-	"\x0eOpenConnection\x12\x1b.http.OpenConnectionRequest\x1a\x1c.http.OpenConnectionResponse\x129\n" +
-	"\bShutdown\x12\x15.http.ShutdownRequest\x1a\x16.http.ShutdownResponse\x12Q\n" +
-	"\x10GetVersionString\x12\x1d.http.GetVersionStringRequest\x1a\x1e.http.GetVersionStringResponse2\x8a\t\n" +
-	"\x14EngineBuilderService\x12B\n" +
-	"\vAddQuicHint\x12\x18.http.AddQuicHintRequest\x1a\x19.http.AddQuicHintResponse\x120\n" +
-	"\x05Build\x12\x12.http.BuildRequest\x1a\x13.http.BuildResponse\x12Z\n" +
-	"\x13GetDefaultUserAgent\x12 .http.GetDefaultUserAgentRequest\x1a!.http.GetDefaultUserAgentResponse\x12x\n" +
-	"\x1dSetConnectionMigrationOptions\x12*.http.SetConnectionMigrationOptionsRequest\x1a+.http.SetConnectionMigrationOptionsResponse\x12H\n" +
-	"\rSetDnsOptions\x12\x1a.http.SetDnsOptionsRequest\x1a\x1b.http.SetDnsOptionsResponse\x12N\n" +
-	"\x0fSetEnableBrotli\x12\x1c.http.SetEnableBrotliRequest\x1a\x1d.http.SetEnableBrotliResponse\x12K\n" +
-	"\x0eSetEnableHttp2\x12\x1b.http.SetEnableHttp2Request\x1a\x1c.http.SetEnableHttp2Response\x12W\n" +
-	"\x12SetEnableHttpCache\x12\x1f.http.SetEnableHttpCacheRequest\x1a .http.SetEnableHttpCacheResponse\x12\xba\x01\n" +
-	"3SetEnablePublicKeyPinningBypassForLocalTrustAnchors\x12@.http.SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest\x1aA.http.SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse\x12H\n" +
-	"\rSetEnableQuic\x12\x1a.http.SetEnableQuicRequest\x1a\x1b.http.SetEnableQuicResponse\x12K\n" +
-	"\x0eSetQuicOptions\x12\x1b.http.SetQuicOptionsRequest\x1a\x1c.http.SetQuicOptionsResponse\x12K\n" +
-	"\x0eSetStoragePath\x12\x1b.http.SetStoragePathRequest\x1a\x1c.http.SetStoragePathResponse\x12E\n" +
-	"\fSetUserAgent\x12\x19.http.SetUserAgentRequest\x1a\x1a.http.SetUserAgentResponse2\xc5\x01\n" +
-	"\x17NetworkExceptionService\x12E\n" +
-	"\fGetErrorCode\x12\x19.http.GetErrorCodeRequest\x1a\x1a.http.GetErrorCodeResponse\x12c\n" +
-	"\x16IsImmediatelyRetryable\x12#.http.IsImmediatelyRetryableRequest\x1a$.http.IsImmediatelyRetryableResponse2\xa5\b\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x1a\n" +
+	"\x18GetHttpStatusCodeRequest\"3\n" +
+	"\x19GetHttpStatusCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1a\n" +
+	"\x18GetHttpStatusTextRequest\"3\n" +
+	"\x19GetHttpStatusTextResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x1e\n" +
+	"\x1cGetNegotiatedProtocolRequest\"7\n" +
+	"\x1dGetNegotiatedProtocolResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x1d\n" +
+	"\x1bGetReceivedByteCountRequest\"6\n" +
+	"\x1cGetReceivedByteCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1e\n" +
+	"\x1cUrlResponseInfoGetUrlRequest\"\x14\n" +
+	"\x12GetUrlChainRequest\"-\n" +
+	"\x13GetUrlChainResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x12\n" +
+	"\x10WasCachedRequest\"+\n" +
+	"\x11WasCachedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result2\x85\x03\n" +
+	"!ConnectionMigrationOptionsService\x12{\n" +
+	"\x1eGetAllowNonDefaultNetworkUsage\x12+.http.GetAllowNonDefaultNetworkUsageRequest\x1a,.http.GetAllowNonDefaultNetworkUsageResponse\x12o\n" +
+	"\x1aGetDefaultNetworkMigration\x12'.http.GetDefaultNetworkMigrationRequest\x1a(.http.GetDefaultNetworkMigrationResponse\x12r\n" +
+	"\x1bGetPathDegradationMigration\x12(.http.GetPathDegradationMigrationRequest\x1a).http.GetPathDegradationMigrationResponse2\xbe\x03\n" +
+	"(ConnectionMigrationOptionsBuilderService\x120\n" +
+	"\x05Build\x12\x12.http.BuildRequest\x1a\x13.http.BuildResponse\x12{\n" +
+	"\x1eSetAllowNonDefaultNetworkUsage\x12+.http.SetAllowNonDefaultNetworkUsageRequest\x1a,.http.SetAllowNonDefaultNetworkUsageResponse\x12o\n" +
+	"\x1aSetDefaultNetworkMigration\x12'.http.SetDefaultNetworkMigrationRequest\x1a(.http.SetDefaultNetworkMigrationResponse\x12r\n" +
+	"\x1bSetPathDegradationMigration\x12(.http.SetPathDegradationMigrationRequest\x1a).http.SetPathDegradationMigrationResponse2\xa5\b\n" +
 	"\x11UrlRequestService\x123\n" +
 	"\x06Cancel\x12\x13.http.CancelRequest\x1a\x14.http.CancelResponse\x12K\n" +
 	"\x0eFollowRedirect\x12\x1b.http.FollowRedirectRequest\x1a\x1c.http.FollowRedirectResponse\x12?\n" +
@@ -11686,10 +12068,10 @@ const file_proto_http_http_proto_rawDesc = "" +
 	"\x0fIsCacheDisabled\x12\x1c.http.IsCacheDisabledRequest\x1a\x1d.http.IsCacheDisabledResponse\x12f\n" +
 	"\x17IsDirectExecutorAllowed\x12$.http.IsDirectExecutorAllowedRequest\x1a%.http.IsDirectExecutorAllowedResponse\x123\n" +
 	"\x06IsDone\x12\x13.http.IsDoneRequest\x1a\x14.http.IsDoneResponse\x120\n" +
-	"\x05Start\x12\x12.http.StartRequest\x1a\x13.http.StartResponse2\xc5\x06\n" +
+	"\x05Start\x12\x12.http.StartRequest\x1a\x13.http.StartResponse2\xb4\x06\n" +
 	"\x18UrlRequestBuilderService\x12<\n" +
-	"\tAddHeader\x12\x16.http.AddHeaderRequest\x1a\x17.http.AddHeaderResponse\x12Y\n" +
-	"\rBindToNetwork\x12\x1a.http.BindToNetworkRequest\x1a,.http.UrlRequestBuilderBindToNetworkResponse\x120\n" +
+	"\tAddHeader\x12\x16.http.AddHeaderRequest\x1a\x17.http.AddHeaderResponse\x12H\n" +
+	"\rBindToNetwork\x12\x1a.http.BindToNetworkRequest\x1a\x1b.http.BindToNetworkResponse\x120\n" +
 	"\x05Build\x12\x12.http.BuildRequest\x1a\x13.http.BuildResponse\x12Q\n" +
 	"\x10SetCacheDisabled\x12\x1d.http.SetCacheDisabledRequest\x1a\x1e.http.SetCacheDisabledResponse\x12i\n" +
 	"\x18SetDirectExecutorAllowed\x12%.http.SetDirectExecutorAllowedRequest\x1a&.http.SetDirectExecutorAllowedResponse\x12H\n" +
@@ -11706,81 +12088,22 @@ const file_proto_http_http_proto_rawDesc = "" +
 	"\x11OnResponseStarted\x12\x1e.http.OnResponseStartedRequest\x1a\x1f.http.OnResponseStartedResponse\x12B\n" +
 	"\vOnSucceeded\x12\x18.http.OnSucceededRequest\x1a\x19.http.OnSucceededResponse2\\\n" +
 	"\x1fUrlRequestStatusListenerService\x129\n" +
-	"\bOnStatus\x12\x15.http.OnStatusRequest\x1a\x16.http.OnStatusResponse2\xe0\x03\n" +
-	"\x0fSslErrorService\x12B\n" +
-	"\vNewSslError\x12\x18.http.NewSslErrorRequest\x1a\x19.http.NewSslErrorResponse\x129\n" +
-	"\bAddError\x12\x15.http.AddErrorRequest\x1a\x16.http.AddErrorResponse\x12K\n" +
-	"\x0eGetCertificate\x12\x1b.http.GetCertificateRequest\x1a\x1c.http.GetCertificateResponse\x12N\n" +
-	"\x0fGetPrimaryError\x12\x1c.http.GetPrimaryErrorRequest\x1a\x1d.http.GetPrimaryErrorResponse\x12;\n" +
-	"\x06GetUrl\x12\x1b.http.SslErrorGetUrlRequest\x1a\x14.http.GetUrlResponse\x129\n" +
-	"\bHasError\x12\x15.http.HasErrorRequest\x1a\x16.http.HasErrorResponse\x129\n" +
-	"\bToString\x12\x15.http.ToStringRequest\x1a\x16.http.ToStringResponse2\xed\x02\n" +
+	"\bOnStatus\x12\x15.http.OnStatusRequest\x1a\x16.http.OnStatusResponse2\xab\x04\n" +
 	"!X509TrustManagerExtensionsService\x12x\n" +
-	"\x1dNewX509TrustManagerExtensions\x12*.http.NewX509TrustManagerExtensionsRequest\x1a+.http.NewX509TrustManagerExtensionsResponse\x12i\n" +
+	"\x1dNewX509TrustManagerExtensions\x12*.http.NewX509TrustManagerExtensionsRequest\x1a+.http.NewX509TrustManagerExtensionsResponse\x12Z\n" +
+	"\x13CheckServerTrusted5\x12 .http.CheckServerTrusted5Request\x1a!.http.CheckServerTrusted5Response\x12`\n" +
+	"\x15CheckServerTrusted3_1\x12\".http.CheckServerTrusted3_1Request\x1a#.http.CheckServerTrusted3_1Response\x12i\n" +
 	"\x18IsSameTrustConfiguration\x12%.http.IsSameTrustConfigurationRequest\x1a&.http.IsSameTrustConfigurationResponse\x12c\n" +
 	"\x16IsUserAddedCertificate\x12#.http.IsUserAddedCertificateRequest\x1a$.http.IsUserAddedCertificateResponse2\xcb\x02\n" +
 	"\x15UploadDataSinkService\x12B\n" +
 	"\vOnReadError\x12\x18.http.OnReadErrorRequest\x1a\x19.http.OnReadErrorResponse\x12N\n" +
 	"\x0fOnReadSucceeded\x12\x1c.http.OnReadSucceededRequest\x1a\x1d.http.OnReadSucceededResponse\x12H\n" +
 	"\rOnRewindError\x12\x1a.http.OnRewindErrorRequest\x1a\x1b.http.OnRewindErrorResponse\x12T\n" +
-	"\x11OnRewindSucceeded\x12\x1e.http.OnRewindSucceededRequest\x1a\x1f.http.OnRewindSucceededResponse2\xef\x03\n" +
-	"\x12QuicOptionsService\x12`\n" +
-	"\x15GetHandshakeUserAgent\x12\".http.GetHandshakeUserAgentRequest\x1a#.http.GetHandshakeUserAgentResponse\x12i\n" +
-	"\x18GetIdleConnectionTimeout\x12%.http.GetIdleConnectionTimeoutRequest\x1a&.http.GetIdleConnectionTimeoutResponse\x12\x84\x01\n" +
-	"!GetInMemoryServerConfigsCacheSize\x12..http.GetInMemoryServerConfigsCacheSizeRequest\x1a/.http.GetInMemoryServerConfigsCacheSizeResponse\x12\x84\x01\n" +
-	"!HasInMemoryServerConfigsCacheSize\x12..http.HasInMemoryServerConfigsCacheSizeRequest\x1a/.http.HasInMemoryServerConfigsCacheSizeResponse2\xfa\x03\n" +
-	"\x19QuicOptionsBuilderService\x12W\n" +
-	"\x12AddAllowedQuicHost\x12\x1f.http.AddAllowedQuicHostRequest\x1a .http.AddAllowedQuicHostResponse\x120\n" +
-	"\x05Build\x12\x12.http.BuildRequest\x1a\x13.http.BuildResponse\x12`\n" +
-	"\x15SetHandshakeUserAgent\x12\".http.SetHandshakeUserAgentRequest\x1a#.http.SetHandshakeUserAgentResponse\x12i\n" +
-	"\x18SetIdleConnectionTimeout\x12%.http.SetIdleConnectionTimeoutRequest\x1a&.http.SetIdleConnectionTimeoutResponse\x12\x84\x01\n" +
-	"!SetInMemoryServerConfigsCacheSize\x12..http.SetInMemoryServerConfigsCacheSizeRequest\x1a/.http.SetInMemoryServerConfigsCacheSizeResponse2\xf8\x06\n" +
-	"\x15SslCertificateService\x12T\n" +
-	"\x11NewSslCertificate\x12\x1e.http.NewSslCertificateRequest\x1a\x1f.http.NewSslCertificateResponse\x12B\n" +
-	"\vGetIssuedBy\x12\x18.http.GetIssuedByRequest\x1a\x19.http.GetIssuedByResponse\x12B\n" +
-	"\vGetIssuedTo\x12\x18.http.GetIssuedToRequest\x1a\x19.http.GetIssuedToResponse\x12Q\n" +
-	"\x10GetValidNotAfter\x12\x1d.http.GetValidNotAfterRequest\x1a\x1e.http.GetValidNotAfterResponse\x12]\n" +
-	"\x14GetValidNotAfterDate\x12!.http.GetValidNotAfterDateRequest\x1a\".http.GetValidNotAfterDateResponse\x12T\n" +
-	"\x11GetValidNotBefore\x12\x1e.http.GetValidNotBeforeRequest\x1a\x1f.http.GetValidNotBeforeResponse\x12`\n" +
-	"\x15GetValidNotBeforeDate\x12\".http.GetValidNotBeforeDateRequest\x1a#.http.GetValidNotBeforeDateResponse\x12W\n" +
-	"\x12GetX509Certificate\x12\x1f.http.GetX509CertificateRequest\x1a .http.GetX509CertificateResponse\x129\n" +
-	"\bToString\x12\x15.http.ToStringRequest\x1a\x16.http.ToStringResponse\x12E\n" +
-	"\fRestoreState\x12\x19.http.RestoreStateRequest\x1a\x1a.http.RestoreStateResponse\x12<\n" +
-	"\tSaveState\x12\x16.http.SaveStateRequest\x1a\x17.http.SaveStateResponse2\x88\x02\n" +
-	"\x1aSslCertificateDNameService\x129\n" +
-	"\bGetCName\x12\x15.http.GetCNameRequest\x1a\x16.http.GetCNameResponse\x129\n" +
-	"\bGetDName\x12\x15.http.GetDNameRequest\x1a\x16.http.GetDNameResponse\x129\n" +
-	"\bGetOName\x12\x15.http.GetONameRequest\x1a\x16.http.GetONameResponse\x129\n" +
-	"\bGetUName\x12\x15.http.GetUNameRequest\x1a\x16.http.GetUNameResponse2\x90\x05\n" +
-	"\x11DnsOptionsService\x12Z\n" +
-	"\x13GetPersistHostCache\x12 .http.GetPersistHostCacheRequest\x1a!.http.GetPersistHostCacheResponse\x12l\n" +
-	"\x19GetPersistHostCachePeriod\x12&.http.GetPersistHostCachePeriodRequest\x1a'.http.GetPersistHostCachePeriodResponse\x12\xa2\x01\n" +
-	"+GetPreestablishConnectionsToStaleDnsResults\x128.http.GetPreestablishConnectionsToStaleDnsResultsRequest\x1a9.http.GetPreestablishConnectionsToStaleDnsResultsResponse\x12B\n" +
-	"\vGetStaleDns\x12\x18.http.GetStaleDnsRequest\x1a\x19.http.GetStaleDnsResponse\x12W\n" +
-	"\x12GetStaleDnsOptions\x12\x1f.http.GetStaleDnsOptionsRequest\x1a .http.GetStaleDnsOptionsResponse\x12o\n" +
-	"\x1aGetUseHttpStackDnsResolver\x12'.http.GetUseHttpStackDnsResolverRequest\x1a(.http.GetUseHttpStackDnsResolverResponse2\xc9\x05\n" +
-	"\x18DnsOptionsBuilderService\x120\n" +
-	"\x05Build\x12\x12.http.BuildRequest\x1a\x13.http.BuildResponse\x12Z\n" +
-	"\x13SetPersistHostCache\x12 .http.SetPersistHostCacheRequest\x1a!.http.SetPersistHostCacheResponse\x12l\n" +
-	"\x19SetPersistHostCachePeriod\x12&.http.SetPersistHostCachePeriodRequest\x1a'.http.SetPersistHostCachePeriodResponse\x12\xa2\x01\n" +
-	"+SetPreestablishConnectionsToStaleDnsResults\x128.http.SetPreestablishConnectionsToStaleDnsResultsRequest\x1a9.http.SetPreestablishConnectionsToStaleDnsResultsResponse\x12B\n" +
-	"\vSetStaleDns\x12\x18.http.SetStaleDnsRequest\x1a\x19.http.SetStaleDnsResponse\x12W\n" +
-	"\x12SetStaleDnsOptions\x12\x1f.http.SetStaleDnsOptionsRequest\x1a .http.SetStaleDnsOptionsResponse\x12o\n" +
-	"\x1aSetUseHttpStackDnsResolver\x12'.http.SetUseHttpStackDnsResolverRequest\x1a(.http.SetUseHttpStackDnsResolverResponse2\xc2\x03\n" +
-	" DnsOptionsStaleDnsOptionsService\x12l\n" +
-	"\x19GetAllowCrossNetworkUsage\x12&.http.GetAllowCrossNetworkUsageRequest\x1a'.http.GetAllowCrossNetworkUsageResponse\x12`\n" +
-	"\x15GetFreshLookupTimeout\x12\".http.GetFreshLookupTimeoutRequest\x1a#.http.GetFreshLookupTimeoutResponse\x12W\n" +
-	"\x12GetMaxExpiredDelay\x12\x1f.http.GetMaxExpiredDelayRequest\x1a .http.GetMaxExpiredDelayResponse\x12u\n" +
-	"\x1cGetUseStaleOnNameNotResolved\x12).http.GetUseStaleOnNameNotResolvedRequest\x1a*.http.GetUseStaleOnNameNotResolvedResponse2\x85\x03\n" +
-	"!ConnectionMigrationOptionsService\x12{\n" +
-	"\x1eGetAllowNonDefaultNetworkUsage\x12+.http.GetAllowNonDefaultNetworkUsageRequest\x1a,.http.GetAllowNonDefaultNetworkUsageResponse\x12o\n" +
-	"\x1aGetDefaultNetworkMigration\x12'.http.GetDefaultNetworkMigrationRequest\x1a(.http.GetDefaultNetworkMigrationResponse\x12r\n" +
-	"\x1bGetPathDegradationMigration\x12(.http.GetPathDegradationMigrationRequest\x1a).http.GetPathDegradationMigrationResponse2\xbe\x03\n" +
-	"(ConnectionMigrationOptionsBuilderService\x120\n" +
-	"\x05Build\x12\x12.http.BuildRequest\x1a\x13.http.BuildResponse\x12{\n" +
-	"\x1eSetAllowNonDefaultNetworkUsage\x12+.http.SetAllowNonDefaultNetworkUsageRequest\x1a,.http.SetAllowNonDefaultNetworkUsageResponse\x12o\n" +
-	"\x1aSetDefaultNetworkMigration\x12'.http.SetDefaultNetworkMigrationRequest\x1a(.http.SetDefaultNetworkMigrationResponse\x12r\n" +
-	"\x1bSetPathDegradationMigration\x12(.http.SetPathDegradationMigrationRequest\x1a).http.SetPathDegradationMigrationResponse2\xc2\a\n" +
+	"\x11OnRewindSucceeded\x12\x1e.http.OnRewindSucceededRequest\x1a\x1f.http.OnRewindSucceededResponse2\xc0\x01\n" +
+	"\x19UploadDataProviderService\x120\n" +
+	"\x05Close\x12\x12.http.CloseRequest\x1a\x13.http.CloseResponse\x12<\n" +
+	"\tGetLength\x12\x16.http.GetLengthRequest\x1a\x17.http.GetLengthResponse\x123\n" +
+	"\x06Rewind\x12\x13.http.RewindRequest\x1a\x14.http.RewindResponse2\xc2\a\n" +
 	"\x1aBidirectionalStreamService\x123\n" +
 	"\x06Cancel\x12\x13.http.CancelRequest\x1a\x14.http.CancelResponse\x120\n" +
 	"\x05Flush\x12\x12.http.FlushRequest\x1a\x13.http.FlushResponse\x12?\n" +
@@ -11810,7 +12133,110 @@ const file_proto_http_http_proto_rawDesc = "" +
 	"\x19OnResponseHeadersReceived\x12&.http.OnResponseHeadersReceivedRequest\x1a'.http.OnResponseHeadersReceivedResponse\x12o\n" +
 	"\x1aOnResponseTrailersReceived\x12'.http.OnResponseTrailersReceivedRequest\x1a(.http.OnResponseTrailersReceivedResponse\x12H\n" +
 	"\rOnStreamReady\x12\x1a.http.OnStreamReadyRequest\x1a\x1b.http.OnStreamReadyResponse\x12B\n" +
-	"\vOnSucceeded\x12\x18.http.OnSucceededRequest\x1a\x19.http.OnSucceededResponseB.Z,github.com/AndroidGoLab/jni-proxy/proto/httpb\x06proto3"
+	"\vOnSucceeded\x12\x18.http.OnSucceededRequest\x1a\x19.http.OnSucceededResponse2\x8d\x05\n" +
+	"\rEngineService\x12N\n" +
+	"\rBindToNetwork\x12\x1a.http.BindToNetworkRequest\x1a!.http.EngineBindToNetworkResponse\x12x\n" +
+	"\x1dCreateUrlStreamHandlerFactory\x12*.http.CreateUrlStreamHandlerFactoryRequest\x1a+.http.CreateUrlStreamHandlerFactoryResponse\x12x\n" +
+	"\x1dNewBidirectionalStreamBuilder\x12*.http.NewBidirectionalStreamBuilderRequest\x1a+.http.NewBidirectionalStreamBuilderResponse\x12]\n" +
+	"\x14NewUrlRequestBuilder\x12!.http.NewUrlRequestBuilderRequest\x1a\".http.NewUrlRequestBuilderResponse\x12K\n" +
+	"\x0eOpenConnection\x12\x1b.http.OpenConnectionRequest\x1a\x1c.http.OpenConnectionResponse\x129\n" +
+	"\bShutdown\x12\x15.http.ShutdownRequest\x1a\x16.http.ShutdownResponse\x12Q\n" +
+	"\x10GetVersionString\x12\x1d.http.GetVersionStringRequest\x1a\x1e.http.GetVersionStringResponse2\x8a\t\n" +
+	"\x14EngineBuilderService\x12B\n" +
+	"\vAddQuicHint\x12\x18.http.AddQuicHintRequest\x1a\x19.http.AddQuicHintResponse\x120\n" +
+	"\x05Build\x12\x12.http.BuildRequest\x1a\x13.http.BuildResponse\x12Z\n" +
+	"\x13GetDefaultUserAgent\x12 .http.GetDefaultUserAgentRequest\x1a!.http.GetDefaultUserAgentResponse\x12x\n" +
+	"\x1dSetConnectionMigrationOptions\x12*.http.SetConnectionMigrationOptionsRequest\x1a+.http.SetConnectionMigrationOptionsResponse\x12H\n" +
+	"\rSetDnsOptions\x12\x1a.http.SetDnsOptionsRequest\x1a\x1b.http.SetDnsOptionsResponse\x12N\n" +
+	"\x0fSetEnableBrotli\x12\x1c.http.SetEnableBrotliRequest\x1a\x1d.http.SetEnableBrotliResponse\x12K\n" +
+	"\x0eSetEnableHttp2\x12\x1b.http.SetEnableHttp2Request\x1a\x1c.http.SetEnableHttp2Response\x12W\n" +
+	"\x12SetEnableHttpCache\x12\x1f.http.SetEnableHttpCacheRequest\x1a .http.SetEnableHttpCacheResponse\x12\xba\x01\n" +
+	"3SetEnablePublicKeyPinningBypassForLocalTrustAnchors\x12@.http.SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest\x1aA.http.SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse\x12H\n" +
+	"\rSetEnableQuic\x12\x1a.http.SetEnableQuicRequest\x1a\x1b.http.SetEnableQuicResponse\x12K\n" +
+	"\x0eSetQuicOptions\x12\x1b.http.SetQuicOptionsRequest\x1a\x1c.http.SetQuicOptionsResponse\x12K\n" +
+	"\x0eSetStoragePath\x12\x1b.http.SetStoragePathRequest\x1a\x1c.http.SetStoragePathResponse\x12E\n" +
+	"\fSetUserAgent\x12\x19.http.SetUserAgentRequest\x1a\x1a.http.SetUserAgentResponse2\xc5\x01\n" +
+	"\x17NetworkExceptionService\x12E\n" +
+	"\fGetErrorCode\x12\x19.http.GetErrorCodeRequest\x1a\x1a.http.GetErrorCodeResponse\x12c\n" +
+	"\x16IsImmediatelyRetryable\x12#.http.IsImmediatelyRetryableRequest\x1a$.http.IsImmediatelyRetryableResponse2\xd8\x03\n" +
+	"\x0fSslErrorService\x12B\n" +
+	"\vNewSslError\x12\x18.http.NewSslErrorRequest\x1a\x19.http.NewSslErrorResponse\x129\n" +
+	"\bAddError\x12\x15.http.AddErrorRequest\x1a\x16.http.AddErrorResponse\x12K\n" +
+	"\x0eGetCertificate\x12\x1b.http.GetCertificateRequest\x1a\x1c.http.GetCertificateResponse\x12N\n" +
+	"\x0fGetPrimaryError\x12\x1c.http.GetPrimaryErrorRequest\x1a\x1d.http.GetPrimaryErrorResponse\x123\n" +
+	"\x06GetUrl\x12\x13.http.GetUrlRequest\x1a\x14.http.GetUrlResponse\x129\n" +
+	"\bHasError\x12\x15.http.HasErrorRequest\x1a\x16.http.HasErrorResponse\x129\n" +
+	"\bToString\x12\x15.http.ToStringRequest\x1a\x16.http.ToStringResponse2\xcb\x04\n" +
+	"\x12QuicOptionsService\x12Z\n" +
+	"\x13GetAllowedQuicHosts\x12 .http.GetAllowedQuicHostsRequest\x1a!.http.GetAllowedQuicHostsResponse\x12`\n" +
+	"\x15GetHandshakeUserAgent\x12\".http.GetHandshakeUserAgentRequest\x1a#.http.GetHandshakeUserAgentResponse\x12i\n" +
+	"\x18GetIdleConnectionTimeout\x12%.http.GetIdleConnectionTimeoutRequest\x1a&.http.GetIdleConnectionTimeoutResponse\x12\x84\x01\n" +
+	"!GetInMemoryServerConfigsCacheSize\x12..http.GetInMemoryServerConfigsCacheSizeRequest\x1a/.http.GetInMemoryServerConfigsCacheSizeResponse\x12\x84\x01\n" +
+	"!HasInMemoryServerConfigsCacheSize\x12..http.HasInMemoryServerConfigsCacheSizeRequest\x1a/.http.HasInMemoryServerConfigsCacheSizeResponse2\xfa\x03\n" +
+	"\x19QuicOptionsBuilderService\x12W\n" +
+	"\x12AddAllowedQuicHost\x12\x1f.http.AddAllowedQuicHostRequest\x1a .http.AddAllowedQuicHostResponse\x120\n" +
+	"\x05Build\x12\x12.http.BuildRequest\x1a\x13.http.BuildResponse\x12`\n" +
+	"\x15SetHandshakeUserAgent\x12\".http.SetHandshakeUserAgentRequest\x1a#.http.SetHandshakeUserAgentResponse\x12i\n" +
+	"\x18SetIdleConnectionTimeout\x12%.http.SetIdleConnectionTimeoutRequest\x1a&.http.SetIdleConnectionTimeoutResponse\x12\x84\x01\n" +
+	"!SetInMemoryServerConfigsCacheSize\x12..http.SetInMemoryServerConfigsCacheSizeRequest\x1a/.http.SetInMemoryServerConfigsCacheSizeResponse2\x90\x05\n" +
+	"\x11DnsOptionsService\x12Z\n" +
+	"\x13GetPersistHostCache\x12 .http.GetPersistHostCacheRequest\x1a!.http.GetPersistHostCacheResponse\x12l\n" +
+	"\x19GetPersistHostCachePeriod\x12&.http.GetPersistHostCachePeriodRequest\x1a'.http.GetPersistHostCachePeriodResponse\x12\xa2\x01\n" +
+	"+GetPreestablishConnectionsToStaleDnsResults\x128.http.GetPreestablishConnectionsToStaleDnsResultsRequest\x1a9.http.GetPreestablishConnectionsToStaleDnsResultsResponse\x12B\n" +
+	"\vGetStaleDns\x12\x18.http.GetStaleDnsRequest\x1a\x19.http.GetStaleDnsResponse\x12W\n" +
+	"\x12GetStaleDnsOptions\x12\x1f.http.GetStaleDnsOptionsRequest\x1a .http.GetStaleDnsOptionsResponse\x12o\n" +
+	"\x1aGetUseHttpStackDnsResolver\x12'.http.GetUseHttpStackDnsResolverRequest\x1a(.http.GetUseHttpStackDnsResolverResponse2\xc9\x05\n" +
+	"\x18DnsOptionsBuilderService\x120\n" +
+	"\x05Build\x12\x12.http.BuildRequest\x1a\x13.http.BuildResponse\x12Z\n" +
+	"\x13SetPersistHostCache\x12 .http.SetPersistHostCacheRequest\x1a!.http.SetPersistHostCacheResponse\x12l\n" +
+	"\x19SetPersistHostCachePeriod\x12&.http.SetPersistHostCachePeriodRequest\x1a'.http.SetPersistHostCachePeriodResponse\x12\xa2\x01\n" +
+	"+SetPreestablishConnectionsToStaleDnsResults\x128.http.SetPreestablishConnectionsToStaleDnsResultsRequest\x1a9.http.SetPreestablishConnectionsToStaleDnsResultsResponse\x12B\n" +
+	"\vSetStaleDns\x12\x18.http.SetStaleDnsRequest\x1a\x19.http.SetStaleDnsResponse\x12W\n" +
+	"\x12SetStaleDnsOptions\x12\x1f.http.SetStaleDnsOptionsRequest\x1a .http.SetStaleDnsOptionsResponse\x12o\n" +
+	"\x1aSetUseHttpStackDnsResolver\x12'.http.SetUseHttpStackDnsResolverRequest\x1a(.http.SetUseHttpStackDnsResolverResponse2\xc2\x03\n" +
+	" DnsOptionsStaleDnsOptionsService\x12l\n" +
+	"\x19GetAllowCrossNetworkUsage\x12&.http.GetAllowCrossNetworkUsageRequest\x1a'.http.GetAllowCrossNetworkUsageResponse\x12`\n" +
+	"\x15GetFreshLookupTimeout\x12\".http.GetFreshLookupTimeoutRequest\x1a#.http.GetFreshLookupTimeoutResponse\x12W\n" +
+	"\x12GetMaxExpiredDelay\x12\x1f.http.GetMaxExpiredDelayRequest\x1a .http.GetMaxExpiredDelayResponse\x12u\n" +
+	"\x1cGetUseStaleOnNameNotResolved\x12).http.GetUseStaleOnNameNotResolvedRequest\x1a*.http.GetUseStaleOnNameNotResolvedResponse2\xed\x04\n" +
+	"\x14ResponseCacheService\x120\n" +
+	"\x05Close\x12\x12.http.CloseRequest\x1a\x13.http.CloseResponse\x123\n" +
+	"\x06Delete\x12\x13.http.DeleteRequest\x1a\x14.http.DeleteResponse\x120\n" +
+	"\x05Flush\x12\x12.http.FlushRequest\x1a\x13.http.FlushResponse\x12B\n" +
+	"\vGetHitCount\x12\x18.http.GetHitCountRequest\x1a\x19.http.GetHitCountResponse\x12N\n" +
+	"\x0fGetNetworkCount\x12\x1c.http.GetNetworkCountRequest\x1a\x1d.http.GetNetworkCountResponse\x12N\n" +
+	"\x0fGetRequestCount\x12\x1c.http.GetRequestCountRequest\x1a\x1d.http.GetRequestCountResponse\x126\n" +
+	"\aMaxSize\x12\x14.http.MaxSizeRequest\x1a\x15.http.MaxSizeResponse\x12*\n" +
+	"\x03Put\x12\x10.http.PutRequest\x1a\x11.http.PutResponse\x12-\n" +
+	"\x04Size\x12\x11.http.SizeRequest\x1a\x12.http.SizeResponse\x12E\n" +
+	"\fGetInstalled\x12\x19.http.GetInstalledRequest\x1a\x1a.http.GetInstalledResponse2\xf8\x06\n" +
+	"\x15SslCertificateService\x12T\n" +
+	"\x11NewSslCertificate\x12\x1e.http.NewSslCertificateRequest\x1a\x1f.http.NewSslCertificateResponse\x12B\n" +
+	"\vGetIssuedBy\x12\x18.http.GetIssuedByRequest\x1a\x19.http.GetIssuedByResponse\x12B\n" +
+	"\vGetIssuedTo\x12\x18.http.GetIssuedToRequest\x1a\x19.http.GetIssuedToResponse\x12Q\n" +
+	"\x10GetValidNotAfter\x12\x1d.http.GetValidNotAfterRequest\x1a\x1e.http.GetValidNotAfterResponse\x12]\n" +
+	"\x14GetValidNotAfterDate\x12!.http.GetValidNotAfterDateRequest\x1a\".http.GetValidNotAfterDateResponse\x12T\n" +
+	"\x11GetValidNotBefore\x12\x1e.http.GetValidNotBeforeRequest\x1a\x1f.http.GetValidNotBeforeResponse\x12`\n" +
+	"\x15GetValidNotBeforeDate\x12\".http.GetValidNotBeforeDateRequest\x1a#.http.GetValidNotBeforeDateResponse\x12W\n" +
+	"\x12GetX509Certificate\x12\x1f.http.GetX509CertificateRequest\x1a .http.GetX509CertificateResponse\x129\n" +
+	"\bToString\x12\x15.http.ToStringRequest\x1a\x16.http.ToStringResponse\x12E\n" +
+	"\fRestoreState\x12\x19.http.RestoreStateRequest\x1a\x1a.http.RestoreStateResponse\x12<\n" +
+	"\tSaveState\x12\x16.http.SaveStateRequest\x1a\x17.http.SaveStateResponse2\x88\x02\n" +
+	"\x1aSslCertificateDNameService\x129\n" +
+	"\bGetCName\x12\x15.http.GetCNameRequest\x1a\x16.http.GetCNameResponse\x129\n" +
+	"\bGetDName\x12\x15.http.GetDNameRequest\x1a\x16.http.GetDNameResponse\x129\n" +
+	"\bGetOName\x12\x15.http.GetONameRequest\x1a\x16.http.GetONameResponse\x129\n" +
+	"\bGetUName\x12\x15.http.GetUNameRequest\x1a\x16.http.GetUNameResponse2\x8c\x05\n" +
+	"\x16UrlResponseInfoService\x12?\n" +
+	"\n" +
+	"GetHeaders\x12\x17.http.GetHeadersRequest\x1a\x18.http.GetHeadersResponse\x12T\n" +
+	"\x11GetHttpStatusCode\x12\x1e.http.GetHttpStatusCodeRequest\x1a\x1f.http.GetHttpStatusCodeResponse\x12T\n" +
+	"\x11GetHttpStatusText\x12\x1e.http.GetHttpStatusTextRequest\x1a\x1f.http.GetHttpStatusTextResponse\x12`\n" +
+	"\x15GetNegotiatedProtocol\x12\".http.GetNegotiatedProtocolRequest\x1a#.http.GetNegotiatedProtocolResponse\x12]\n" +
+	"\x14GetReceivedByteCount\x12!.http.GetReceivedByteCountRequest\x1a\".http.GetReceivedByteCountResponse\x12B\n" +
+	"\x06GetUrl\x12\".http.UrlResponseInfoGetUrlRequest\x1a\x14.http.GetUrlResponse\x12B\n" +
+	"\vGetUrlChain\x12\x18.http.GetUrlChainRequest\x1a\x19.http.GetUrlChainResponse\x12<\n" +
+	"\tWasCached\x12\x16.http.WasCachedRequest\x1a\x17.http.WasCachedResponseB.Z,github.com/AndroidGoLab/jni-proxy/proto/httpb\x06proto3"
 
 var (
 	file_proto_http_http_proto_rawDescOnce sync.Once
@@ -11824,592 +12250,608 @@ func file_proto_http_http_proto_rawDescGZIP() []byte {
 	return file_proto_http_http_proto_rawDescData
 }
 
-var file_proto_http_http_proto_msgTypes = make([]protoimpl.MessageInfo, 262)
+var file_proto_http_http_proto_msgTypes = make([]protoimpl.MessageInfo, 270)
 var file_proto_http_http_proto_goTypes = []any{
-	(*CloseRequest)(nil),                                                // 0: http.CloseRequest
-	(*CloseResponse)(nil),                                               // 1: http.CloseResponse
-	(*GetLengthRequest)(nil),                                            // 2: http.GetLengthRequest
-	(*GetLengthResponse)(nil),                                           // 3: http.GetLengthResponse
-	(*RewindRequest)(nil),                                               // 4: http.RewindRequest
-	(*RewindResponse)(nil),                                              // 5: http.RewindResponse
-	(*GetHeadersRequest)(nil),                                           // 6: http.GetHeadersRequest
-	(*GetHeadersResponse)(nil),                                          // 7: http.GetHeadersResponse
-	(*GetHttpStatusCodeRequest)(nil),                                    // 8: http.GetHttpStatusCodeRequest
-	(*GetHttpStatusCodeResponse)(nil),                                   // 9: http.GetHttpStatusCodeResponse
-	(*GetHttpStatusTextRequest)(nil),                                    // 10: http.GetHttpStatusTextRequest
-	(*GetHttpStatusTextResponse)(nil),                                   // 11: http.GetHttpStatusTextResponse
-	(*GetNegotiatedProtocolRequest)(nil),                                // 12: http.GetNegotiatedProtocolRequest
-	(*GetNegotiatedProtocolResponse)(nil),                               // 13: http.GetNegotiatedProtocolResponse
-	(*GetReceivedByteCountRequest)(nil),                                 // 14: http.GetReceivedByteCountRequest
-	(*GetReceivedByteCountResponse)(nil),                                // 15: http.GetReceivedByteCountResponse
-	(*GetUrlRequest)(nil),                                               // 16: http.GetUrlRequest
-	(*GetUrlResponse)(nil),                                              // 17: http.GetUrlResponse
-	(*WasCachedRequest)(nil),                                            // 18: http.WasCachedRequest
-	(*WasCachedResponse)(nil),                                           // 19: http.WasCachedResponse
-	(*DeleteRequest)(nil),                                               // 20: http.DeleteRequest
-	(*DeleteResponse)(nil),                                              // 21: http.DeleteResponse
-	(*FlushRequest)(nil),                                                // 22: http.FlushRequest
-	(*FlushResponse)(nil),                                               // 23: http.FlushResponse
-	(*GetHitCountRequest)(nil),                                          // 24: http.GetHitCountRequest
-	(*GetHitCountResponse)(nil),                                         // 25: http.GetHitCountResponse
-	(*GetNetworkCountRequest)(nil),                                      // 26: http.GetNetworkCountRequest
-	(*GetNetworkCountResponse)(nil),                                     // 27: http.GetNetworkCountResponse
-	(*GetRequestCountRequest)(nil),                                      // 28: http.GetRequestCountRequest
-	(*GetRequestCountResponse)(nil),                                     // 29: http.GetRequestCountResponse
-	(*MaxSizeRequest)(nil),                                              // 30: http.MaxSizeRequest
-	(*MaxSizeResponse)(nil),                                             // 31: http.MaxSizeResponse
-	(*PutRequest)(nil),                                                  // 32: http.PutRequest
-	(*PutResponse)(nil),                                                 // 33: http.PutResponse
-	(*SizeRequest)(nil),                                                 // 34: http.SizeRequest
-	(*SizeResponse)(nil),                                                // 35: http.SizeResponse
-	(*GetInstalledRequest)(nil),                                         // 36: http.GetInstalledRequest
-	(*GetInstalledResponse)(nil),                                        // 37: http.GetInstalledResponse
-	(*BindToNetworkRequest)(nil),                                        // 38: http.BindToNetworkRequest
-	(*BindToNetworkResponse)(nil),                                       // 39: http.BindToNetworkResponse
-	(*CreateUrlStreamHandlerFactoryRequest)(nil),                        // 40: http.CreateUrlStreamHandlerFactoryRequest
-	(*CreateUrlStreamHandlerFactoryResponse)(nil),                       // 41: http.CreateUrlStreamHandlerFactoryResponse
-	(*NewBidirectionalStreamBuilderRequest)(nil),                        // 42: http.NewBidirectionalStreamBuilderRequest
-	(*NewBidirectionalStreamBuilderResponse)(nil),                       // 43: http.NewBidirectionalStreamBuilderResponse
-	(*NewUrlRequestBuilderRequest)(nil),                                 // 44: http.NewUrlRequestBuilderRequest
-	(*NewUrlRequestBuilderResponse)(nil),                                // 45: http.NewUrlRequestBuilderResponse
-	(*OpenConnectionRequest)(nil),                                       // 46: http.OpenConnectionRequest
-	(*OpenConnectionResponse)(nil),                                      // 47: http.OpenConnectionResponse
-	(*ShutdownRequest)(nil),                                             // 48: http.ShutdownRequest
-	(*ShutdownResponse)(nil),                                            // 49: http.ShutdownResponse
-	(*GetVersionStringRequest)(nil),                                     // 50: http.GetVersionStringRequest
-	(*GetVersionStringResponse)(nil),                                    // 51: http.GetVersionStringResponse
-	(*AddQuicHintRequest)(nil),                                          // 52: http.AddQuicHintRequest
-	(*AddQuicHintResponse)(nil),                                         // 53: http.AddQuicHintResponse
-	(*BuildRequest)(nil),                                                // 54: http.BuildRequest
-	(*BuildResponse)(nil),                                               // 55: http.BuildResponse
-	(*GetDefaultUserAgentRequest)(nil),                                  // 56: http.GetDefaultUserAgentRequest
-	(*GetDefaultUserAgentResponse)(nil),                                 // 57: http.GetDefaultUserAgentResponse
-	(*SetConnectionMigrationOptionsRequest)(nil),                        // 58: http.SetConnectionMigrationOptionsRequest
-	(*SetConnectionMigrationOptionsResponse)(nil),                       // 59: http.SetConnectionMigrationOptionsResponse
-	(*SetDnsOptionsRequest)(nil),                                        // 60: http.SetDnsOptionsRequest
-	(*SetDnsOptionsResponse)(nil),                                       // 61: http.SetDnsOptionsResponse
-	(*SetEnableBrotliRequest)(nil),                                      // 62: http.SetEnableBrotliRequest
-	(*SetEnableBrotliResponse)(nil),                                     // 63: http.SetEnableBrotliResponse
-	(*SetEnableHttp2Request)(nil),                                       // 64: http.SetEnableHttp2Request
-	(*SetEnableHttp2Response)(nil),                                      // 65: http.SetEnableHttp2Response
-	(*SetEnableHttpCacheRequest)(nil),                                   // 66: http.SetEnableHttpCacheRequest
-	(*SetEnableHttpCacheResponse)(nil),                                  // 67: http.SetEnableHttpCacheResponse
-	(*SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest)(nil),  // 68: http.SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest
-	(*SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse)(nil), // 69: http.SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse
-	(*SetEnableQuicRequest)(nil),                                        // 70: http.SetEnableQuicRequest
-	(*SetEnableQuicResponse)(nil),                                       // 71: http.SetEnableQuicResponse
-	(*SetQuicOptionsRequest)(nil),                                       // 72: http.SetQuicOptionsRequest
-	(*SetQuicOptionsResponse)(nil),                                      // 73: http.SetQuicOptionsResponse
-	(*SetStoragePathRequest)(nil),                                       // 74: http.SetStoragePathRequest
-	(*SetStoragePathResponse)(nil),                                      // 75: http.SetStoragePathResponse
-	(*SetUserAgentRequest)(nil),                                         // 76: http.SetUserAgentRequest
-	(*SetUserAgentResponse)(nil),                                        // 77: http.SetUserAgentResponse
-	(*GetErrorCodeRequest)(nil),                                         // 78: http.GetErrorCodeRequest
-	(*GetErrorCodeResponse)(nil),                                        // 79: http.GetErrorCodeResponse
-	(*IsImmediatelyRetryableRequest)(nil),                               // 80: http.IsImmediatelyRetryableRequest
-	(*IsImmediatelyRetryableResponse)(nil),                              // 81: http.IsImmediatelyRetryableResponse
-	(*CancelRequest)(nil),                                               // 82: http.CancelRequest
-	(*CancelResponse)(nil),                                              // 83: http.CancelResponse
-	(*FollowRedirectRequest)(nil),                                       // 84: http.FollowRedirectRequest
-	(*FollowRedirectResponse)(nil),                                      // 85: http.FollowRedirectResponse
-	(*GetHttpMethodRequest)(nil),                                        // 86: http.GetHttpMethodRequest
-	(*GetHttpMethodResponse)(nil),                                       // 87: http.GetHttpMethodResponse
-	(*GetPriorityRequest)(nil),                                          // 88: http.GetPriorityRequest
-	(*GetPriorityResponse)(nil),                                         // 89: http.GetPriorityResponse
-	(*GetStatusRequest)(nil),                                            // 90: http.GetStatusRequest
-	(*GetStatusResponse)(nil),                                           // 91: http.GetStatusResponse
-	(*GetTrafficStatsTagRequest)(nil),                                   // 92: http.GetTrafficStatsTagRequest
-	(*GetTrafficStatsTagResponse)(nil),                                  // 93: http.GetTrafficStatsTagResponse
-	(*GetTrafficStatsUidRequest)(nil),                                   // 94: http.GetTrafficStatsUidRequest
-	(*GetTrafficStatsUidResponse)(nil),                                  // 95: http.GetTrafficStatsUidResponse
-	(*HasTrafficStatsTagRequest)(nil),                                   // 96: http.HasTrafficStatsTagRequest
-	(*HasTrafficStatsTagResponse)(nil),                                  // 97: http.HasTrafficStatsTagResponse
-	(*HasTrafficStatsUidRequest)(nil),                                   // 98: http.HasTrafficStatsUidRequest
-	(*HasTrafficStatsUidResponse)(nil),                                  // 99: http.HasTrafficStatsUidResponse
-	(*IsCacheDisabledRequest)(nil),                                      // 100: http.IsCacheDisabledRequest
-	(*IsCacheDisabledResponse)(nil),                                     // 101: http.IsCacheDisabledResponse
-	(*IsDirectExecutorAllowedRequest)(nil),                              // 102: http.IsDirectExecutorAllowedRequest
-	(*IsDirectExecutorAllowedResponse)(nil),                             // 103: http.IsDirectExecutorAllowedResponse
-	(*IsDoneRequest)(nil),                                               // 104: http.IsDoneRequest
-	(*IsDoneResponse)(nil),                                              // 105: http.IsDoneResponse
-	(*StartRequest)(nil),                                                // 106: http.StartRequest
-	(*StartResponse)(nil),                                               // 107: http.StartResponse
-	(*AddHeaderRequest)(nil),                                            // 108: http.AddHeaderRequest
-	(*AddHeaderResponse)(nil),                                           // 109: http.AddHeaderResponse
-	(*UrlRequestBuilderBindToNetworkResponse)(nil),                      // 110: http.UrlRequestBuilderBindToNetworkResponse
-	(*SetCacheDisabledRequest)(nil),                                     // 111: http.SetCacheDisabledRequest
-	(*SetCacheDisabledResponse)(nil),                                    // 112: http.SetCacheDisabledResponse
-	(*SetDirectExecutorAllowedRequest)(nil),                             // 113: http.SetDirectExecutorAllowedRequest
-	(*SetDirectExecutorAllowedResponse)(nil),                            // 114: http.SetDirectExecutorAllowedResponse
-	(*SetHttpMethodRequest)(nil),                                        // 115: http.SetHttpMethodRequest
-	(*SetHttpMethodResponse)(nil),                                       // 116: http.SetHttpMethodResponse
-	(*SetPriorityRequest)(nil),                                          // 117: http.SetPriorityRequest
-	(*SetPriorityResponse)(nil),                                         // 118: http.SetPriorityResponse
-	(*SetTrafficStatsTagRequest)(nil),                                   // 119: http.SetTrafficStatsTagRequest
-	(*SetTrafficStatsTagResponse)(nil),                                  // 120: http.SetTrafficStatsTagResponse
-	(*SetTrafficStatsUidRequest)(nil),                                   // 121: http.SetTrafficStatsUidRequest
-	(*SetTrafficStatsUidResponse)(nil),                                  // 122: http.SetTrafficStatsUidResponse
-	(*SetUploadDataProviderRequest)(nil),                                // 123: http.SetUploadDataProviderRequest
-	(*SetUploadDataProviderResponse)(nil),                               // 124: http.SetUploadDataProviderResponse
-	(*OnCanceledRequest)(nil),                                           // 125: http.OnCanceledRequest
-	(*OnCanceledResponse)(nil),                                          // 126: http.OnCanceledResponse
-	(*OnFailedRequest)(nil),                                             // 127: http.OnFailedRequest
-	(*OnFailedResponse)(nil),                                            // 128: http.OnFailedResponse
-	(*OnRedirectReceivedRequest)(nil),                                   // 129: http.OnRedirectReceivedRequest
-	(*OnRedirectReceivedResponse)(nil),                                  // 130: http.OnRedirectReceivedResponse
-	(*OnResponseStartedRequest)(nil),                                    // 131: http.OnResponseStartedRequest
-	(*OnResponseStartedResponse)(nil),                                   // 132: http.OnResponseStartedResponse
-	(*OnSucceededRequest)(nil),                                          // 133: http.OnSucceededRequest
-	(*OnSucceededResponse)(nil),                                         // 134: http.OnSucceededResponse
-	(*OnStatusRequest)(nil),                                             // 135: http.OnStatusRequest
-	(*OnStatusResponse)(nil),                                            // 136: http.OnStatusResponse
-	(*NewSslErrorRequest)(nil),                                          // 137: http.NewSslErrorRequest
-	(*NewSslErrorResponse)(nil),                                         // 138: http.NewSslErrorResponse
-	(*AddErrorRequest)(nil),                                             // 139: http.AddErrorRequest
-	(*AddErrorResponse)(nil),                                            // 140: http.AddErrorResponse
-	(*GetCertificateRequest)(nil),                                       // 141: http.GetCertificateRequest
-	(*GetCertificateResponse)(nil),                                      // 142: http.GetCertificateResponse
-	(*GetPrimaryErrorRequest)(nil),                                      // 143: http.GetPrimaryErrorRequest
-	(*GetPrimaryErrorResponse)(nil),                                     // 144: http.GetPrimaryErrorResponse
-	(*SslErrorGetUrlRequest)(nil),                                       // 145: http.SslErrorGetUrlRequest
-	(*HasErrorRequest)(nil),                                             // 146: http.HasErrorRequest
-	(*HasErrorResponse)(nil),                                            // 147: http.HasErrorResponse
-	(*ToStringRequest)(nil),                                             // 148: http.ToStringRequest
-	(*ToStringResponse)(nil),                                            // 149: http.ToStringResponse
-	(*NewX509TrustManagerExtensionsRequest)(nil),                        // 150: http.NewX509TrustManagerExtensionsRequest
-	(*NewX509TrustManagerExtensionsResponse)(nil),                       // 151: http.NewX509TrustManagerExtensionsResponse
-	(*IsSameTrustConfigurationRequest)(nil),                             // 152: http.IsSameTrustConfigurationRequest
-	(*IsSameTrustConfigurationResponse)(nil),                            // 153: http.IsSameTrustConfigurationResponse
-	(*IsUserAddedCertificateRequest)(nil),                               // 154: http.IsUserAddedCertificateRequest
-	(*IsUserAddedCertificateResponse)(nil),                              // 155: http.IsUserAddedCertificateResponse
-	(*OnReadErrorRequest)(nil),                                          // 156: http.OnReadErrorRequest
-	(*OnReadErrorResponse)(nil),                                         // 157: http.OnReadErrorResponse
-	(*OnReadSucceededRequest)(nil),                                      // 158: http.OnReadSucceededRequest
-	(*OnReadSucceededResponse)(nil),                                     // 159: http.OnReadSucceededResponse
-	(*OnRewindErrorRequest)(nil),                                        // 160: http.OnRewindErrorRequest
-	(*OnRewindErrorResponse)(nil),                                       // 161: http.OnRewindErrorResponse
-	(*OnRewindSucceededRequest)(nil),                                    // 162: http.OnRewindSucceededRequest
-	(*OnRewindSucceededResponse)(nil),                                   // 163: http.OnRewindSucceededResponse
-	(*GetHandshakeUserAgentRequest)(nil),                                // 164: http.GetHandshakeUserAgentRequest
-	(*GetHandshakeUserAgentResponse)(nil),                               // 165: http.GetHandshakeUserAgentResponse
-	(*GetIdleConnectionTimeoutRequest)(nil),                             // 166: http.GetIdleConnectionTimeoutRequest
-	(*GetIdleConnectionTimeoutResponse)(nil),                            // 167: http.GetIdleConnectionTimeoutResponse
-	(*GetInMemoryServerConfigsCacheSizeRequest)(nil),                    // 168: http.GetInMemoryServerConfigsCacheSizeRequest
-	(*GetInMemoryServerConfigsCacheSizeResponse)(nil),                   // 169: http.GetInMemoryServerConfigsCacheSizeResponse
-	(*HasInMemoryServerConfigsCacheSizeRequest)(nil),                    // 170: http.HasInMemoryServerConfigsCacheSizeRequest
-	(*HasInMemoryServerConfigsCacheSizeResponse)(nil),                   // 171: http.HasInMemoryServerConfigsCacheSizeResponse
-	(*AddAllowedQuicHostRequest)(nil),                                   // 172: http.AddAllowedQuicHostRequest
-	(*AddAllowedQuicHostResponse)(nil),                                  // 173: http.AddAllowedQuicHostResponse
-	(*SetHandshakeUserAgentRequest)(nil),                                // 174: http.SetHandshakeUserAgentRequest
-	(*SetHandshakeUserAgentResponse)(nil),                               // 175: http.SetHandshakeUserAgentResponse
-	(*SetIdleConnectionTimeoutRequest)(nil),                             // 176: http.SetIdleConnectionTimeoutRequest
-	(*SetIdleConnectionTimeoutResponse)(nil),                            // 177: http.SetIdleConnectionTimeoutResponse
-	(*SetInMemoryServerConfigsCacheSizeRequest)(nil),                    // 178: http.SetInMemoryServerConfigsCacheSizeRequest
-	(*SetInMemoryServerConfigsCacheSizeResponse)(nil),                   // 179: http.SetInMemoryServerConfigsCacheSizeResponse
-	(*NewSslCertificateRequest)(nil),                                    // 180: http.NewSslCertificateRequest
-	(*NewSslCertificateResponse)(nil),                                   // 181: http.NewSslCertificateResponse
-	(*GetIssuedByRequest)(nil),                                          // 182: http.GetIssuedByRequest
-	(*GetIssuedByResponse)(nil),                                         // 183: http.GetIssuedByResponse
-	(*GetIssuedToRequest)(nil),                                          // 184: http.GetIssuedToRequest
-	(*GetIssuedToResponse)(nil),                                         // 185: http.GetIssuedToResponse
-	(*GetValidNotAfterRequest)(nil),                                     // 186: http.GetValidNotAfterRequest
-	(*GetValidNotAfterResponse)(nil),                                    // 187: http.GetValidNotAfterResponse
-	(*GetValidNotAfterDateRequest)(nil),                                 // 188: http.GetValidNotAfterDateRequest
-	(*GetValidNotAfterDateResponse)(nil),                                // 189: http.GetValidNotAfterDateResponse
-	(*GetValidNotBeforeRequest)(nil),                                    // 190: http.GetValidNotBeforeRequest
-	(*GetValidNotBeforeResponse)(nil),                                   // 191: http.GetValidNotBeforeResponse
-	(*GetValidNotBeforeDateRequest)(nil),                                // 192: http.GetValidNotBeforeDateRequest
-	(*GetValidNotBeforeDateResponse)(nil),                               // 193: http.GetValidNotBeforeDateResponse
-	(*GetX509CertificateRequest)(nil),                                   // 194: http.GetX509CertificateRequest
-	(*GetX509CertificateResponse)(nil),                                  // 195: http.GetX509CertificateResponse
-	(*RestoreStateRequest)(nil),                                         // 196: http.RestoreStateRequest
-	(*RestoreStateResponse)(nil),                                        // 197: http.RestoreStateResponse
-	(*SaveStateRequest)(nil),                                            // 198: http.SaveStateRequest
-	(*SaveStateResponse)(nil),                                           // 199: http.SaveStateResponse
-	(*GetCNameRequest)(nil),                                             // 200: http.GetCNameRequest
-	(*GetCNameResponse)(nil),                                            // 201: http.GetCNameResponse
-	(*GetDNameRequest)(nil),                                             // 202: http.GetDNameRequest
-	(*GetDNameResponse)(nil),                                            // 203: http.GetDNameResponse
-	(*GetONameRequest)(nil),                                             // 204: http.GetONameRequest
-	(*GetONameResponse)(nil),                                            // 205: http.GetONameResponse
-	(*GetUNameRequest)(nil),                                             // 206: http.GetUNameRequest
-	(*GetUNameResponse)(nil),                                            // 207: http.GetUNameResponse
-	(*GetPersistHostCacheRequest)(nil),                                  // 208: http.GetPersistHostCacheRequest
-	(*GetPersistHostCacheResponse)(nil),                                 // 209: http.GetPersistHostCacheResponse
-	(*GetPersistHostCachePeriodRequest)(nil),                            // 210: http.GetPersistHostCachePeriodRequest
-	(*GetPersistHostCachePeriodResponse)(nil),                           // 211: http.GetPersistHostCachePeriodResponse
-	(*GetPreestablishConnectionsToStaleDnsResultsRequest)(nil),          // 212: http.GetPreestablishConnectionsToStaleDnsResultsRequest
-	(*GetPreestablishConnectionsToStaleDnsResultsResponse)(nil),         // 213: http.GetPreestablishConnectionsToStaleDnsResultsResponse
-	(*GetStaleDnsRequest)(nil),                                          // 214: http.GetStaleDnsRequest
-	(*GetStaleDnsResponse)(nil),                                         // 215: http.GetStaleDnsResponse
-	(*GetStaleDnsOptionsRequest)(nil),                                   // 216: http.GetStaleDnsOptionsRequest
-	(*GetStaleDnsOptionsResponse)(nil),                                  // 217: http.GetStaleDnsOptionsResponse
-	(*GetUseHttpStackDnsResolverRequest)(nil),                           // 218: http.GetUseHttpStackDnsResolverRequest
-	(*GetUseHttpStackDnsResolverResponse)(nil),                          // 219: http.GetUseHttpStackDnsResolverResponse
-	(*SetPersistHostCacheRequest)(nil),                                  // 220: http.SetPersistHostCacheRequest
-	(*SetPersistHostCacheResponse)(nil),                                 // 221: http.SetPersistHostCacheResponse
-	(*SetPersistHostCachePeriodRequest)(nil),                            // 222: http.SetPersistHostCachePeriodRequest
-	(*SetPersistHostCachePeriodResponse)(nil),                           // 223: http.SetPersistHostCachePeriodResponse
-	(*SetPreestablishConnectionsToStaleDnsResultsRequest)(nil),          // 224: http.SetPreestablishConnectionsToStaleDnsResultsRequest
-	(*SetPreestablishConnectionsToStaleDnsResultsResponse)(nil),         // 225: http.SetPreestablishConnectionsToStaleDnsResultsResponse
-	(*SetStaleDnsRequest)(nil),                                          // 226: http.SetStaleDnsRequest
-	(*SetStaleDnsResponse)(nil),                                         // 227: http.SetStaleDnsResponse
-	(*SetStaleDnsOptionsRequest)(nil),                                   // 228: http.SetStaleDnsOptionsRequest
-	(*SetStaleDnsOptionsResponse)(nil),                                  // 229: http.SetStaleDnsOptionsResponse
-	(*SetUseHttpStackDnsResolverRequest)(nil),                           // 230: http.SetUseHttpStackDnsResolverRequest
-	(*SetUseHttpStackDnsResolverResponse)(nil),                          // 231: http.SetUseHttpStackDnsResolverResponse
-	(*GetAllowCrossNetworkUsageRequest)(nil),                            // 232: http.GetAllowCrossNetworkUsageRequest
-	(*GetAllowCrossNetworkUsageResponse)(nil),                           // 233: http.GetAllowCrossNetworkUsageResponse
-	(*GetFreshLookupTimeoutRequest)(nil),                                // 234: http.GetFreshLookupTimeoutRequest
-	(*GetFreshLookupTimeoutResponse)(nil),                               // 235: http.GetFreshLookupTimeoutResponse
-	(*GetMaxExpiredDelayRequest)(nil),                                   // 236: http.GetMaxExpiredDelayRequest
-	(*GetMaxExpiredDelayResponse)(nil),                                  // 237: http.GetMaxExpiredDelayResponse
-	(*GetUseStaleOnNameNotResolvedRequest)(nil),                         // 238: http.GetUseStaleOnNameNotResolvedRequest
-	(*GetUseStaleOnNameNotResolvedResponse)(nil),                        // 239: http.GetUseStaleOnNameNotResolvedResponse
-	(*GetAllowNonDefaultNetworkUsageRequest)(nil),                       // 240: http.GetAllowNonDefaultNetworkUsageRequest
-	(*GetAllowNonDefaultNetworkUsageResponse)(nil),                      // 241: http.GetAllowNonDefaultNetworkUsageResponse
-	(*GetDefaultNetworkMigrationRequest)(nil),                           // 242: http.GetDefaultNetworkMigrationRequest
-	(*GetDefaultNetworkMigrationResponse)(nil),                          // 243: http.GetDefaultNetworkMigrationResponse
-	(*GetPathDegradationMigrationRequest)(nil),                          // 244: http.GetPathDegradationMigrationRequest
-	(*GetPathDegradationMigrationResponse)(nil),                         // 245: http.GetPathDegradationMigrationResponse
-	(*SetAllowNonDefaultNetworkUsageRequest)(nil),                       // 246: http.SetAllowNonDefaultNetworkUsageRequest
-	(*SetAllowNonDefaultNetworkUsageResponse)(nil),                      // 247: http.SetAllowNonDefaultNetworkUsageResponse
-	(*SetDefaultNetworkMigrationRequest)(nil),                           // 248: http.SetDefaultNetworkMigrationRequest
-	(*SetDefaultNetworkMigrationResponse)(nil),                          // 249: http.SetDefaultNetworkMigrationResponse
-	(*SetPathDegradationMigrationRequest)(nil),                          // 250: http.SetPathDegradationMigrationRequest
-	(*SetPathDegradationMigrationResponse)(nil),                         // 251: http.SetPathDegradationMigrationResponse
-	(*IsDelayRequestHeadersUntilFirstFlushEnabledRequest)(nil),          // 252: http.IsDelayRequestHeadersUntilFirstFlushEnabledRequest
-	(*IsDelayRequestHeadersUntilFirstFlushEnabledResponse)(nil),         // 253: http.IsDelayRequestHeadersUntilFirstFlushEnabledResponse
-	(*SetDelayRequestHeadersUntilFirstFlushEnabledRequest)(nil),         // 254: http.SetDelayRequestHeadersUntilFirstFlushEnabledRequest
-	(*SetDelayRequestHeadersUntilFirstFlushEnabledResponse)(nil),        // 255: http.SetDelayRequestHeadersUntilFirstFlushEnabledResponse
-	(*OnResponseHeadersReceivedRequest)(nil),                            // 256: http.OnResponseHeadersReceivedRequest
-	(*OnResponseHeadersReceivedResponse)(nil),                           // 257: http.OnResponseHeadersReceivedResponse
-	(*OnResponseTrailersReceivedRequest)(nil),                           // 258: http.OnResponseTrailersReceivedRequest
-	(*OnResponseTrailersReceivedResponse)(nil),                          // 259: http.OnResponseTrailersReceivedResponse
-	(*OnStreamReadyRequest)(nil),                                        // 260: http.OnStreamReadyRequest
-	(*OnStreamReadyResponse)(nil),                                       // 261: http.OnStreamReadyResponse
+	(*GetAllowNonDefaultNetworkUsageRequest)(nil),                       // 0: http.GetAllowNonDefaultNetworkUsageRequest
+	(*GetAllowNonDefaultNetworkUsageResponse)(nil),                      // 1: http.GetAllowNonDefaultNetworkUsageResponse
+	(*GetDefaultNetworkMigrationRequest)(nil),                           // 2: http.GetDefaultNetworkMigrationRequest
+	(*GetDefaultNetworkMigrationResponse)(nil),                          // 3: http.GetDefaultNetworkMigrationResponse
+	(*GetPathDegradationMigrationRequest)(nil),                          // 4: http.GetPathDegradationMigrationRequest
+	(*GetPathDegradationMigrationResponse)(nil),                         // 5: http.GetPathDegradationMigrationResponse
+	(*BuildRequest)(nil),                                                // 6: http.BuildRequest
+	(*BuildResponse)(nil),                                               // 7: http.BuildResponse
+	(*SetAllowNonDefaultNetworkUsageRequest)(nil),                       // 8: http.SetAllowNonDefaultNetworkUsageRequest
+	(*SetAllowNonDefaultNetworkUsageResponse)(nil),                      // 9: http.SetAllowNonDefaultNetworkUsageResponse
+	(*SetDefaultNetworkMigrationRequest)(nil),                           // 10: http.SetDefaultNetworkMigrationRequest
+	(*SetDefaultNetworkMigrationResponse)(nil),                          // 11: http.SetDefaultNetworkMigrationResponse
+	(*SetPathDegradationMigrationRequest)(nil),                          // 12: http.SetPathDegradationMigrationRequest
+	(*SetPathDegradationMigrationResponse)(nil),                         // 13: http.SetPathDegradationMigrationResponse
+	(*CancelRequest)(nil),                                               // 14: http.CancelRequest
+	(*CancelResponse)(nil),                                              // 15: http.CancelResponse
+	(*FollowRedirectRequest)(nil),                                       // 16: http.FollowRedirectRequest
+	(*FollowRedirectResponse)(nil),                                      // 17: http.FollowRedirectResponse
+	(*GetHeadersRequest)(nil),                                           // 18: http.GetHeadersRequest
+	(*GetHeadersResponse)(nil),                                          // 19: http.GetHeadersResponse
+	(*GetHttpMethodRequest)(nil),                                        // 20: http.GetHttpMethodRequest
+	(*GetHttpMethodResponse)(nil),                                       // 21: http.GetHttpMethodResponse
+	(*GetPriorityRequest)(nil),                                          // 22: http.GetPriorityRequest
+	(*GetPriorityResponse)(nil),                                         // 23: http.GetPriorityResponse
+	(*GetStatusRequest)(nil),                                            // 24: http.GetStatusRequest
+	(*GetStatusResponse)(nil),                                           // 25: http.GetStatusResponse
+	(*GetTrafficStatsTagRequest)(nil),                                   // 26: http.GetTrafficStatsTagRequest
+	(*GetTrafficStatsTagResponse)(nil),                                  // 27: http.GetTrafficStatsTagResponse
+	(*GetTrafficStatsUidRequest)(nil),                                   // 28: http.GetTrafficStatsUidRequest
+	(*GetTrafficStatsUidResponse)(nil),                                  // 29: http.GetTrafficStatsUidResponse
+	(*HasTrafficStatsTagRequest)(nil),                                   // 30: http.HasTrafficStatsTagRequest
+	(*HasTrafficStatsTagResponse)(nil),                                  // 31: http.HasTrafficStatsTagResponse
+	(*HasTrafficStatsUidRequest)(nil),                                   // 32: http.HasTrafficStatsUidRequest
+	(*HasTrafficStatsUidResponse)(nil),                                  // 33: http.HasTrafficStatsUidResponse
+	(*IsCacheDisabledRequest)(nil),                                      // 34: http.IsCacheDisabledRequest
+	(*IsCacheDisabledResponse)(nil),                                     // 35: http.IsCacheDisabledResponse
+	(*IsDirectExecutorAllowedRequest)(nil),                              // 36: http.IsDirectExecutorAllowedRequest
+	(*IsDirectExecutorAllowedResponse)(nil),                             // 37: http.IsDirectExecutorAllowedResponse
+	(*IsDoneRequest)(nil),                                               // 38: http.IsDoneRequest
+	(*IsDoneResponse)(nil),                                              // 39: http.IsDoneResponse
+	(*StartRequest)(nil),                                                // 40: http.StartRequest
+	(*StartResponse)(nil),                                               // 41: http.StartResponse
+	(*AddHeaderRequest)(nil),                                            // 42: http.AddHeaderRequest
+	(*AddHeaderResponse)(nil),                                           // 43: http.AddHeaderResponse
+	(*BindToNetworkRequest)(nil),                                        // 44: http.BindToNetworkRequest
+	(*BindToNetworkResponse)(nil),                                       // 45: http.BindToNetworkResponse
+	(*SetCacheDisabledRequest)(nil),                                     // 46: http.SetCacheDisabledRequest
+	(*SetCacheDisabledResponse)(nil),                                    // 47: http.SetCacheDisabledResponse
+	(*SetDirectExecutorAllowedRequest)(nil),                             // 48: http.SetDirectExecutorAllowedRequest
+	(*SetDirectExecutorAllowedResponse)(nil),                            // 49: http.SetDirectExecutorAllowedResponse
+	(*SetHttpMethodRequest)(nil),                                        // 50: http.SetHttpMethodRequest
+	(*SetHttpMethodResponse)(nil),                                       // 51: http.SetHttpMethodResponse
+	(*SetPriorityRequest)(nil),                                          // 52: http.SetPriorityRequest
+	(*SetPriorityResponse)(nil),                                         // 53: http.SetPriorityResponse
+	(*SetTrafficStatsTagRequest)(nil),                                   // 54: http.SetTrafficStatsTagRequest
+	(*SetTrafficStatsTagResponse)(nil),                                  // 55: http.SetTrafficStatsTagResponse
+	(*SetTrafficStatsUidRequest)(nil),                                   // 56: http.SetTrafficStatsUidRequest
+	(*SetTrafficStatsUidResponse)(nil),                                  // 57: http.SetTrafficStatsUidResponse
+	(*SetUploadDataProviderRequest)(nil),                                // 58: http.SetUploadDataProviderRequest
+	(*SetUploadDataProviderResponse)(nil),                               // 59: http.SetUploadDataProviderResponse
+	(*OnCanceledRequest)(nil),                                           // 60: http.OnCanceledRequest
+	(*OnCanceledResponse)(nil),                                          // 61: http.OnCanceledResponse
+	(*OnFailedRequest)(nil),                                             // 62: http.OnFailedRequest
+	(*OnFailedResponse)(nil),                                            // 63: http.OnFailedResponse
+	(*OnRedirectReceivedRequest)(nil),                                   // 64: http.OnRedirectReceivedRequest
+	(*OnRedirectReceivedResponse)(nil),                                  // 65: http.OnRedirectReceivedResponse
+	(*OnResponseStartedRequest)(nil),                                    // 66: http.OnResponseStartedRequest
+	(*OnResponseStartedResponse)(nil),                                   // 67: http.OnResponseStartedResponse
+	(*OnSucceededRequest)(nil),                                          // 68: http.OnSucceededRequest
+	(*OnSucceededResponse)(nil),                                         // 69: http.OnSucceededResponse
+	(*OnStatusRequest)(nil),                                             // 70: http.OnStatusRequest
+	(*OnStatusResponse)(nil),                                            // 71: http.OnStatusResponse
+	(*NewX509TrustManagerExtensionsRequest)(nil),                        // 72: http.NewX509TrustManagerExtensionsRequest
+	(*NewX509TrustManagerExtensionsResponse)(nil),                       // 73: http.NewX509TrustManagerExtensionsResponse
+	(*CheckServerTrusted5Request)(nil),                                  // 74: http.CheckServerTrusted5Request
+	(*CheckServerTrusted5Response)(nil),                                 // 75: http.CheckServerTrusted5Response
+	(*CheckServerTrusted3_1Request)(nil),                                // 76: http.CheckServerTrusted3_1Request
+	(*CheckServerTrusted3_1Response)(nil),                               // 77: http.CheckServerTrusted3_1Response
+	(*IsSameTrustConfigurationRequest)(nil),                             // 78: http.IsSameTrustConfigurationRequest
+	(*IsSameTrustConfigurationResponse)(nil),                            // 79: http.IsSameTrustConfigurationResponse
+	(*IsUserAddedCertificateRequest)(nil),                               // 80: http.IsUserAddedCertificateRequest
+	(*IsUserAddedCertificateResponse)(nil),                              // 81: http.IsUserAddedCertificateResponse
+	(*OnReadErrorRequest)(nil),                                          // 82: http.OnReadErrorRequest
+	(*OnReadErrorResponse)(nil),                                         // 83: http.OnReadErrorResponse
+	(*OnReadSucceededRequest)(nil),                                      // 84: http.OnReadSucceededRequest
+	(*OnReadSucceededResponse)(nil),                                     // 85: http.OnReadSucceededResponse
+	(*OnRewindErrorRequest)(nil),                                        // 86: http.OnRewindErrorRequest
+	(*OnRewindErrorResponse)(nil),                                       // 87: http.OnRewindErrorResponse
+	(*OnRewindSucceededRequest)(nil),                                    // 88: http.OnRewindSucceededRequest
+	(*OnRewindSucceededResponse)(nil),                                   // 89: http.OnRewindSucceededResponse
+	(*CloseRequest)(nil),                                                // 90: http.CloseRequest
+	(*CloseResponse)(nil),                                               // 91: http.CloseResponse
+	(*GetLengthRequest)(nil),                                            // 92: http.GetLengthRequest
+	(*GetLengthResponse)(nil),                                           // 93: http.GetLengthResponse
+	(*RewindRequest)(nil),                                               // 94: http.RewindRequest
+	(*RewindResponse)(nil),                                              // 95: http.RewindResponse
+	(*FlushRequest)(nil),                                                // 96: http.FlushRequest
+	(*FlushResponse)(nil),                                               // 97: http.FlushResponse
+	(*IsDelayRequestHeadersUntilFirstFlushEnabledRequest)(nil),          // 98: http.IsDelayRequestHeadersUntilFirstFlushEnabledRequest
+	(*IsDelayRequestHeadersUntilFirstFlushEnabledResponse)(nil),         // 99: http.IsDelayRequestHeadersUntilFirstFlushEnabledResponse
+	(*SetDelayRequestHeadersUntilFirstFlushEnabledRequest)(nil),         // 100: http.SetDelayRequestHeadersUntilFirstFlushEnabledRequest
+	(*SetDelayRequestHeadersUntilFirstFlushEnabledResponse)(nil),        // 101: http.SetDelayRequestHeadersUntilFirstFlushEnabledResponse
+	(*OnResponseHeadersReceivedRequest)(nil),                            // 102: http.OnResponseHeadersReceivedRequest
+	(*OnResponseHeadersReceivedResponse)(nil),                           // 103: http.OnResponseHeadersReceivedResponse
+	(*OnResponseTrailersReceivedRequest)(nil),                           // 104: http.OnResponseTrailersReceivedRequest
+	(*OnResponseTrailersReceivedResponse)(nil),                          // 105: http.OnResponseTrailersReceivedResponse
+	(*OnStreamReadyRequest)(nil),                                        // 106: http.OnStreamReadyRequest
+	(*OnStreamReadyResponse)(nil),                                       // 107: http.OnStreamReadyResponse
+	(*EngineBindToNetworkResponse)(nil),                                 // 108: http.EngineBindToNetworkResponse
+	(*CreateUrlStreamHandlerFactoryRequest)(nil),                        // 109: http.CreateUrlStreamHandlerFactoryRequest
+	(*CreateUrlStreamHandlerFactoryResponse)(nil),                       // 110: http.CreateUrlStreamHandlerFactoryResponse
+	(*NewBidirectionalStreamBuilderRequest)(nil),                        // 111: http.NewBidirectionalStreamBuilderRequest
+	(*NewBidirectionalStreamBuilderResponse)(nil),                       // 112: http.NewBidirectionalStreamBuilderResponse
+	(*NewUrlRequestBuilderRequest)(nil),                                 // 113: http.NewUrlRequestBuilderRequest
+	(*NewUrlRequestBuilderResponse)(nil),                                // 114: http.NewUrlRequestBuilderResponse
+	(*OpenConnectionRequest)(nil),                                       // 115: http.OpenConnectionRequest
+	(*OpenConnectionResponse)(nil),                                      // 116: http.OpenConnectionResponse
+	(*ShutdownRequest)(nil),                                             // 117: http.ShutdownRequest
+	(*ShutdownResponse)(nil),                                            // 118: http.ShutdownResponse
+	(*GetVersionStringRequest)(nil),                                     // 119: http.GetVersionStringRequest
+	(*GetVersionStringResponse)(nil),                                    // 120: http.GetVersionStringResponse
+	(*AddQuicHintRequest)(nil),                                          // 121: http.AddQuicHintRequest
+	(*AddQuicHintResponse)(nil),                                         // 122: http.AddQuicHintResponse
+	(*GetDefaultUserAgentRequest)(nil),                                  // 123: http.GetDefaultUserAgentRequest
+	(*GetDefaultUserAgentResponse)(nil),                                 // 124: http.GetDefaultUserAgentResponse
+	(*SetConnectionMigrationOptionsRequest)(nil),                        // 125: http.SetConnectionMigrationOptionsRequest
+	(*SetConnectionMigrationOptionsResponse)(nil),                       // 126: http.SetConnectionMigrationOptionsResponse
+	(*SetDnsOptionsRequest)(nil),                                        // 127: http.SetDnsOptionsRequest
+	(*SetDnsOptionsResponse)(nil),                                       // 128: http.SetDnsOptionsResponse
+	(*SetEnableBrotliRequest)(nil),                                      // 129: http.SetEnableBrotliRequest
+	(*SetEnableBrotliResponse)(nil),                                     // 130: http.SetEnableBrotliResponse
+	(*SetEnableHttp2Request)(nil),                                       // 131: http.SetEnableHttp2Request
+	(*SetEnableHttp2Response)(nil),                                      // 132: http.SetEnableHttp2Response
+	(*SetEnableHttpCacheRequest)(nil),                                   // 133: http.SetEnableHttpCacheRequest
+	(*SetEnableHttpCacheResponse)(nil),                                  // 134: http.SetEnableHttpCacheResponse
+	(*SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest)(nil),  // 135: http.SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest
+	(*SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse)(nil), // 136: http.SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse
+	(*SetEnableQuicRequest)(nil),                                        // 137: http.SetEnableQuicRequest
+	(*SetEnableQuicResponse)(nil),                                       // 138: http.SetEnableQuicResponse
+	(*SetQuicOptionsRequest)(nil),                                       // 139: http.SetQuicOptionsRequest
+	(*SetQuicOptionsResponse)(nil),                                      // 140: http.SetQuicOptionsResponse
+	(*SetStoragePathRequest)(nil),                                       // 141: http.SetStoragePathRequest
+	(*SetStoragePathResponse)(nil),                                      // 142: http.SetStoragePathResponse
+	(*SetUserAgentRequest)(nil),                                         // 143: http.SetUserAgentRequest
+	(*SetUserAgentResponse)(nil),                                        // 144: http.SetUserAgentResponse
+	(*GetErrorCodeRequest)(nil),                                         // 145: http.GetErrorCodeRequest
+	(*GetErrorCodeResponse)(nil),                                        // 146: http.GetErrorCodeResponse
+	(*IsImmediatelyRetryableRequest)(nil),                               // 147: http.IsImmediatelyRetryableRequest
+	(*IsImmediatelyRetryableResponse)(nil),                              // 148: http.IsImmediatelyRetryableResponse
+	(*NewSslErrorRequest)(nil),                                          // 149: http.NewSslErrorRequest
+	(*NewSslErrorResponse)(nil),                                         // 150: http.NewSslErrorResponse
+	(*AddErrorRequest)(nil),                                             // 151: http.AddErrorRequest
+	(*AddErrorResponse)(nil),                                            // 152: http.AddErrorResponse
+	(*GetCertificateRequest)(nil),                                       // 153: http.GetCertificateRequest
+	(*GetCertificateResponse)(nil),                                      // 154: http.GetCertificateResponse
+	(*GetPrimaryErrorRequest)(nil),                                      // 155: http.GetPrimaryErrorRequest
+	(*GetPrimaryErrorResponse)(nil),                                     // 156: http.GetPrimaryErrorResponse
+	(*GetUrlRequest)(nil),                                               // 157: http.GetUrlRequest
+	(*GetUrlResponse)(nil),                                              // 158: http.GetUrlResponse
+	(*HasErrorRequest)(nil),                                             // 159: http.HasErrorRequest
+	(*HasErrorResponse)(nil),                                            // 160: http.HasErrorResponse
+	(*ToStringRequest)(nil),                                             // 161: http.ToStringRequest
+	(*ToStringResponse)(nil),                                            // 162: http.ToStringResponse
+	(*GetAllowedQuicHostsRequest)(nil),                                  // 163: http.GetAllowedQuicHostsRequest
+	(*GetAllowedQuicHostsResponse)(nil),                                 // 164: http.GetAllowedQuicHostsResponse
+	(*GetHandshakeUserAgentRequest)(nil),                                // 165: http.GetHandshakeUserAgentRequest
+	(*GetHandshakeUserAgentResponse)(nil),                               // 166: http.GetHandshakeUserAgentResponse
+	(*GetIdleConnectionTimeoutRequest)(nil),                             // 167: http.GetIdleConnectionTimeoutRequest
+	(*GetIdleConnectionTimeoutResponse)(nil),                            // 168: http.GetIdleConnectionTimeoutResponse
+	(*GetInMemoryServerConfigsCacheSizeRequest)(nil),                    // 169: http.GetInMemoryServerConfigsCacheSizeRequest
+	(*GetInMemoryServerConfigsCacheSizeResponse)(nil),                   // 170: http.GetInMemoryServerConfigsCacheSizeResponse
+	(*HasInMemoryServerConfigsCacheSizeRequest)(nil),                    // 171: http.HasInMemoryServerConfigsCacheSizeRequest
+	(*HasInMemoryServerConfigsCacheSizeResponse)(nil),                   // 172: http.HasInMemoryServerConfigsCacheSizeResponse
+	(*AddAllowedQuicHostRequest)(nil),                                   // 173: http.AddAllowedQuicHostRequest
+	(*AddAllowedQuicHostResponse)(nil),                                  // 174: http.AddAllowedQuicHostResponse
+	(*SetHandshakeUserAgentRequest)(nil),                                // 175: http.SetHandshakeUserAgentRequest
+	(*SetHandshakeUserAgentResponse)(nil),                               // 176: http.SetHandshakeUserAgentResponse
+	(*SetIdleConnectionTimeoutRequest)(nil),                             // 177: http.SetIdleConnectionTimeoutRequest
+	(*SetIdleConnectionTimeoutResponse)(nil),                            // 178: http.SetIdleConnectionTimeoutResponse
+	(*SetInMemoryServerConfigsCacheSizeRequest)(nil),                    // 179: http.SetInMemoryServerConfigsCacheSizeRequest
+	(*SetInMemoryServerConfigsCacheSizeResponse)(nil),                   // 180: http.SetInMemoryServerConfigsCacheSizeResponse
+	(*GetPersistHostCacheRequest)(nil),                                  // 181: http.GetPersistHostCacheRequest
+	(*GetPersistHostCacheResponse)(nil),                                 // 182: http.GetPersistHostCacheResponse
+	(*GetPersistHostCachePeriodRequest)(nil),                            // 183: http.GetPersistHostCachePeriodRequest
+	(*GetPersistHostCachePeriodResponse)(nil),                           // 184: http.GetPersistHostCachePeriodResponse
+	(*GetPreestablishConnectionsToStaleDnsResultsRequest)(nil),          // 185: http.GetPreestablishConnectionsToStaleDnsResultsRequest
+	(*GetPreestablishConnectionsToStaleDnsResultsResponse)(nil),         // 186: http.GetPreestablishConnectionsToStaleDnsResultsResponse
+	(*GetStaleDnsRequest)(nil),                                          // 187: http.GetStaleDnsRequest
+	(*GetStaleDnsResponse)(nil),                                         // 188: http.GetStaleDnsResponse
+	(*GetStaleDnsOptionsRequest)(nil),                                   // 189: http.GetStaleDnsOptionsRequest
+	(*GetStaleDnsOptionsResponse)(nil),                                  // 190: http.GetStaleDnsOptionsResponse
+	(*GetUseHttpStackDnsResolverRequest)(nil),                           // 191: http.GetUseHttpStackDnsResolverRequest
+	(*GetUseHttpStackDnsResolverResponse)(nil),                          // 192: http.GetUseHttpStackDnsResolverResponse
+	(*SetPersistHostCacheRequest)(nil),                                  // 193: http.SetPersistHostCacheRequest
+	(*SetPersistHostCacheResponse)(nil),                                 // 194: http.SetPersistHostCacheResponse
+	(*SetPersistHostCachePeriodRequest)(nil),                            // 195: http.SetPersistHostCachePeriodRequest
+	(*SetPersistHostCachePeriodResponse)(nil),                           // 196: http.SetPersistHostCachePeriodResponse
+	(*SetPreestablishConnectionsToStaleDnsResultsRequest)(nil),          // 197: http.SetPreestablishConnectionsToStaleDnsResultsRequest
+	(*SetPreestablishConnectionsToStaleDnsResultsResponse)(nil),         // 198: http.SetPreestablishConnectionsToStaleDnsResultsResponse
+	(*SetStaleDnsRequest)(nil),                                          // 199: http.SetStaleDnsRequest
+	(*SetStaleDnsResponse)(nil),                                         // 200: http.SetStaleDnsResponse
+	(*SetStaleDnsOptionsRequest)(nil),                                   // 201: http.SetStaleDnsOptionsRequest
+	(*SetStaleDnsOptionsResponse)(nil),                                  // 202: http.SetStaleDnsOptionsResponse
+	(*SetUseHttpStackDnsResolverRequest)(nil),                           // 203: http.SetUseHttpStackDnsResolverRequest
+	(*SetUseHttpStackDnsResolverResponse)(nil),                          // 204: http.SetUseHttpStackDnsResolverResponse
+	(*GetAllowCrossNetworkUsageRequest)(nil),                            // 205: http.GetAllowCrossNetworkUsageRequest
+	(*GetAllowCrossNetworkUsageResponse)(nil),                           // 206: http.GetAllowCrossNetworkUsageResponse
+	(*GetFreshLookupTimeoutRequest)(nil),                                // 207: http.GetFreshLookupTimeoutRequest
+	(*GetFreshLookupTimeoutResponse)(nil),                               // 208: http.GetFreshLookupTimeoutResponse
+	(*GetMaxExpiredDelayRequest)(nil),                                   // 209: http.GetMaxExpiredDelayRequest
+	(*GetMaxExpiredDelayResponse)(nil),                                  // 210: http.GetMaxExpiredDelayResponse
+	(*GetUseStaleOnNameNotResolvedRequest)(nil),                         // 211: http.GetUseStaleOnNameNotResolvedRequest
+	(*GetUseStaleOnNameNotResolvedResponse)(nil),                        // 212: http.GetUseStaleOnNameNotResolvedResponse
+	(*DeleteRequest)(nil),                                               // 213: http.DeleteRequest
+	(*DeleteResponse)(nil),                                              // 214: http.DeleteResponse
+	(*GetHitCountRequest)(nil),                                          // 215: http.GetHitCountRequest
+	(*GetHitCountResponse)(nil),                                         // 216: http.GetHitCountResponse
+	(*GetNetworkCountRequest)(nil),                                      // 217: http.GetNetworkCountRequest
+	(*GetNetworkCountResponse)(nil),                                     // 218: http.GetNetworkCountResponse
+	(*GetRequestCountRequest)(nil),                                      // 219: http.GetRequestCountRequest
+	(*GetRequestCountResponse)(nil),                                     // 220: http.GetRequestCountResponse
+	(*MaxSizeRequest)(nil),                                              // 221: http.MaxSizeRequest
+	(*MaxSizeResponse)(nil),                                             // 222: http.MaxSizeResponse
+	(*PutRequest)(nil),                                                  // 223: http.PutRequest
+	(*PutResponse)(nil),                                                 // 224: http.PutResponse
+	(*SizeRequest)(nil),                                                 // 225: http.SizeRequest
+	(*SizeResponse)(nil),                                                // 226: http.SizeResponse
+	(*GetInstalledRequest)(nil),                                         // 227: http.GetInstalledRequest
+	(*GetInstalledResponse)(nil),                                        // 228: http.GetInstalledResponse
+	(*NewSslCertificateRequest)(nil),                                    // 229: http.NewSslCertificateRequest
+	(*NewSslCertificateResponse)(nil),                                   // 230: http.NewSslCertificateResponse
+	(*GetIssuedByRequest)(nil),                                          // 231: http.GetIssuedByRequest
+	(*GetIssuedByResponse)(nil),                                         // 232: http.GetIssuedByResponse
+	(*GetIssuedToRequest)(nil),                                          // 233: http.GetIssuedToRequest
+	(*GetIssuedToResponse)(nil),                                         // 234: http.GetIssuedToResponse
+	(*GetValidNotAfterRequest)(nil),                                     // 235: http.GetValidNotAfterRequest
+	(*GetValidNotAfterResponse)(nil),                                    // 236: http.GetValidNotAfterResponse
+	(*GetValidNotAfterDateRequest)(nil),                                 // 237: http.GetValidNotAfterDateRequest
+	(*GetValidNotAfterDateResponse)(nil),                                // 238: http.GetValidNotAfterDateResponse
+	(*GetValidNotBeforeRequest)(nil),                                    // 239: http.GetValidNotBeforeRequest
+	(*GetValidNotBeforeResponse)(nil),                                   // 240: http.GetValidNotBeforeResponse
+	(*GetValidNotBeforeDateRequest)(nil),                                // 241: http.GetValidNotBeforeDateRequest
+	(*GetValidNotBeforeDateResponse)(nil),                               // 242: http.GetValidNotBeforeDateResponse
+	(*GetX509CertificateRequest)(nil),                                   // 243: http.GetX509CertificateRequest
+	(*GetX509CertificateResponse)(nil),                                  // 244: http.GetX509CertificateResponse
+	(*RestoreStateRequest)(nil),                                         // 245: http.RestoreStateRequest
+	(*RestoreStateResponse)(nil),                                        // 246: http.RestoreStateResponse
+	(*SaveStateRequest)(nil),                                            // 247: http.SaveStateRequest
+	(*SaveStateResponse)(nil),                                           // 248: http.SaveStateResponse
+	(*GetCNameRequest)(nil),                                             // 249: http.GetCNameRequest
+	(*GetCNameResponse)(nil),                                            // 250: http.GetCNameResponse
+	(*GetDNameRequest)(nil),                                             // 251: http.GetDNameRequest
+	(*GetDNameResponse)(nil),                                            // 252: http.GetDNameResponse
+	(*GetONameRequest)(nil),                                             // 253: http.GetONameRequest
+	(*GetONameResponse)(nil),                                            // 254: http.GetONameResponse
+	(*GetUNameRequest)(nil),                                             // 255: http.GetUNameRequest
+	(*GetUNameResponse)(nil),                                            // 256: http.GetUNameResponse
+	(*GetHttpStatusCodeRequest)(nil),                                    // 257: http.GetHttpStatusCodeRequest
+	(*GetHttpStatusCodeResponse)(nil),                                   // 258: http.GetHttpStatusCodeResponse
+	(*GetHttpStatusTextRequest)(nil),                                    // 259: http.GetHttpStatusTextRequest
+	(*GetHttpStatusTextResponse)(nil),                                   // 260: http.GetHttpStatusTextResponse
+	(*GetNegotiatedProtocolRequest)(nil),                                // 261: http.GetNegotiatedProtocolRequest
+	(*GetNegotiatedProtocolResponse)(nil),                               // 262: http.GetNegotiatedProtocolResponse
+	(*GetReceivedByteCountRequest)(nil),                                 // 263: http.GetReceivedByteCountRequest
+	(*GetReceivedByteCountResponse)(nil),                                // 264: http.GetReceivedByteCountResponse
+	(*UrlResponseInfoGetUrlRequest)(nil),                                // 265: http.UrlResponseInfoGetUrlRequest
+	(*GetUrlChainRequest)(nil),                                          // 266: http.GetUrlChainRequest
+	(*GetUrlChainResponse)(nil),                                         // 267: http.GetUrlChainResponse
+	(*WasCachedRequest)(nil),                                            // 268: http.WasCachedRequest
+	(*WasCachedResponse)(nil),                                           // 269: http.WasCachedResponse
 }
 var file_proto_http_http_proto_depIdxs = []int32{
-	0,   // 0: http.UploadDataProviderService.Close:input_type -> http.CloseRequest
-	2,   // 1: http.UploadDataProviderService.GetLength:input_type -> http.GetLengthRequest
-	4,   // 2: http.UploadDataProviderService.Rewind:input_type -> http.RewindRequest
-	6,   // 3: http.UrlResponseInfoService.GetHeaders:input_type -> http.GetHeadersRequest
-	8,   // 4: http.UrlResponseInfoService.GetHttpStatusCode:input_type -> http.GetHttpStatusCodeRequest
-	10,  // 5: http.UrlResponseInfoService.GetHttpStatusText:input_type -> http.GetHttpStatusTextRequest
-	12,  // 6: http.UrlResponseInfoService.GetNegotiatedProtocol:input_type -> http.GetNegotiatedProtocolRequest
-	14,  // 7: http.UrlResponseInfoService.GetReceivedByteCount:input_type -> http.GetReceivedByteCountRequest
-	16,  // 8: http.UrlResponseInfoService.GetUrl:input_type -> http.GetUrlRequest
-	18,  // 9: http.UrlResponseInfoService.WasCached:input_type -> http.WasCachedRequest
-	0,   // 10: http.ResponseCacheService.Close:input_type -> http.CloseRequest
-	20,  // 11: http.ResponseCacheService.Delete:input_type -> http.DeleteRequest
-	22,  // 12: http.ResponseCacheService.Flush:input_type -> http.FlushRequest
-	24,  // 13: http.ResponseCacheService.GetHitCount:input_type -> http.GetHitCountRequest
-	26,  // 14: http.ResponseCacheService.GetNetworkCount:input_type -> http.GetNetworkCountRequest
-	28,  // 15: http.ResponseCacheService.GetRequestCount:input_type -> http.GetRequestCountRequest
-	30,  // 16: http.ResponseCacheService.MaxSize:input_type -> http.MaxSizeRequest
-	32,  // 17: http.ResponseCacheService.Put:input_type -> http.PutRequest
-	34,  // 18: http.ResponseCacheService.Size:input_type -> http.SizeRequest
-	36,  // 19: http.ResponseCacheService.GetInstalled:input_type -> http.GetInstalledRequest
-	38,  // 20: http.EngineService.BindToNetwork:input_type -> http.BindToNetworkRequest
-	40,  // 21: http.EngineService.CreateUrlStreamHandlerFactory:input_type -> http.CreateUrlStreamHandlerFactoryRequest
-	42,  // 22: http.EngineService.NewBidirectionalStreamBuilder:input_type -> http.NewBidirectionalStreamBuilderRequest
-	44,  // 23: http.EngineService.NewUrlRequestBuilder:input_type -> http.NewUrlRequestBuilderRequest
-	46,  // 24: http.EngineService.OpenConnection:input_type -> http.OpenConnectionRequest
-	48,  // 25: http.EngineService.Shutdown:input_type -> http.ShutdownRequest
-	50,  // 26: http.EngineService.GetVersionString:input_type -> http.GetVersionStringRequest
-	52,  // 27: http.EngineBuilderService.AddQuicHint:input_type -> http.AddQuicHintRequest
-	54,  // 28: http.EngineBuilderService.Build:input_type -> http.BuildRequest
-	56,  // 29: http.EngineBuilderService.GetDefaultUserAgent:input_type -> http.GetDefaultUserAgentRequest
-	58,  // 30: http.EngineBuilderService.SetConnectionMigrationOptions:input_type -> http.SetConnectionMigrationOptionsRequest
-	60,  // 31: http.EngineBuilderService.SetDnsOptions:input_type -> http.SetDnsOptionsRequest
-	62,  // 32: http.EngineBuilderService.SetEnableBrotli:input_type -> http.SetEnableBrotliRequest
-	64,  // 33: http.EngineBuilderService.SetEnableHttp2:input_type -> http.SetEnableHttp2Request
-	66,  // 34: http.EngineBuilderService.SetEnableHttpCache:input_type -> http.SetEnableHttpCacheRequest
-	68,  // 35: http.EngineBuilderService.SetEnablePublicKeyPinningBypassForLocalTrustAnchors:input_type -> http.SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest
-	70,  // 36: http.EngineBuilderService.SetEnableQuic:input_type -> http.SetEnableQuicRequest
-	72,  // 37: http.EngineBuilderService.SetQuicOptions:input_type -> http.SetQuicOptionsRequest
-	74,  // 38: http.EngineBuilderService.SetStoragePath:input_type -> http.SetStoragePathRequest
-	76,  // 39: http.EngineBuilderService.SetUserAgent:input_type -> http.SetUserAgentRequest
-	78,  // 40: http.NetworkExceptionService.GetErrorCode:input_type -> http.GetErrorCodeRequest
-	80,  // 41: http.NetworkExceptionService.IsImmediatelyRetryable:input_type -> http.IsImmediatelyRetryableRequest
-	82,  // 42: http.UrlRequestService.Cancel:input_type -> http.CancelRequest
-	84,  // 43: http.UrlRequestService.FollowRedirect:input_type -> http.FollowRedirectRequest
-	6,   // 44: http.UrlRequestService.GetHeaders:input_type -> http.GetHeadersRequest
-	86,  // 45: http.UrlRequestService.GetHttpMethod:input_type -> http.GetHttpMethodRequest
-	88,  // 46: http.UrlRequestService.GetPriority:input_type -> http.GetPriorityRequest
-	90,  // 47: http.UrlRequestService.GetStatus:input_type -> http.GetStatusRequest
-	92,  // 48: http.UrlRequestService.GetTrafficStatsTag:input_type -> http.GetTrafficStatsTagRequest
-	94,  // 49: http.UrlRequestService.GetTrafficStatsUid:input_type -> http.GetTrafficStatsUidRequest
-	96,  // 50: http.UrlRequestService.HasTrafficStatsTag:input_type -> http.HasTrafficStatsTagRequest
-	98,  // 51: http.UrlRequestService.HasTrafficStatsUid:input_type -> http.HasTrafficStatsUidRequest
-	100, // 52: http.UrlRequestService.IsCacheDisabled:input_type -> http.IsCacheDisabledRequest
-	102, // 53: http.UrlRequestService.IsDirectExecutorAllowed:input_type -> http.IsDirectExecutorAllowedRequest
-	104, // 54: http.UrlRequestService.IsDone:input_type -> http.IsDoneRequest
-	106, // 55: http.UrlRequestService.Start:input_type -> http.StartRequest
-	108, // 56: http.UrlRequestBuilderService.AddHeader:input_type -> http.AddHeaderRequest
-	38,  // 57: http.UrlRequestBuilderService.BindToNetwork:input_type -> http.BindToNetworkRequest
-	54,  // 58: http.UrlRequestBuilderService.Build:input_type -> http.BuildRequest
-	111, // 59: http.UrlRequestBuilderService.SetCacheDisabled:input_type -> http.SetCacheDisabledRequest
-	113, // 60: http.UrlRequestBuilderService.SetDirectExecutorAllowed:input_type -> http.SetDirectExecutorAllowedRequest
-	115, // 61: http.UrlRequestBuilderService.SetHttpMethod:input_type -> http.SetHttpMethodRequest
-	117, // 62: http.UrlRequestBuilderService.SetPriority:input_type -> http.SetPriorityRequest
-	119, // 63: http.UrlRequestBuilderService.SetTrafficStatsTag:input_type -> http.SetTrafficStatsTagRequest
-	121, // 64: http.UrlRequestBuilderService.SetTrafficStatsUid:input_type -> http.SetTrafficStatsUidRequest
-	123, // 65: http.UrlRequestBuilderService.SetUploadDataProvider:input_type -> http.SetUploadDataProviderRequest
-	125, // 66: http.UrlRequestCallbackService.OnCanceled:input_type -> http.OnCanceledRequest
-	127, // 67: http.UrlRequestCallbackService.OnFailed:input_type -> http.OnFailedRequest
-	129, // 68: http.UrlRequestCallbackService.OnRedirectReceived:input_type -> http.OnRedirectReceivedRequest
-	131, // 69: http.UrlRequestCallbackService.OnResponseStarted:input_type -> http.OnResponseStartedRequest
-	133, // 70: http.UrlRequestCallbackService.OnSucceeded:input_type -> http.OnSucceededRequest
-	135, // 71: http.UrlRequestStatusListenerService.OnStatus:input_type -> http.OnStatusRequest
-	137, // 72: http.SslErrorService.NewSslError:input_type -> http.NewSslErrorRequest
-	139, // 73: http.SslErrorService.AddError:input_type -> http.AddErrorRequest
-	141, // 74: http.SslErrorService.GetCertificate:input_type -> http.GetCertificateRequest
-	143, // 75: http.SslErrorService.GetPrimaryError:input_type -> http.GetPrimaryErrorRequest
-	145, // 76: http.SslErrorService.GetUrl:input_type -> http.SslErrorGetUrlRequest
-	146, // 77: http.SslErrorService.HasError:input_type -> http.HasErrorRequest
-	148, // 78: http.SslErrorService.ToString:input_type -> http.ToStringRequest
-	150, // 79: http.X509TrustManagerExtensionsService.NewX509TrustManagerExtensions:input_type -> http.NewX509TrustManagerExtensionsRequest
-	152, // 80: http.X509TrustManagerExtensionsService.IsSameTrustConfiguration:input_type -> http.IsSameTrustConfigurationRequest
-	154, // 81: http.X509TrustManagerExtensionsService.IsUserAddedCertificate:input_type -> http.IsUserAddedCertificateRequest
-	156, // 82: http.UploadDataSinkService.OnReadError:input_type -> http.OnReadErrorRequest
-	158, // 83: http.UploadDataSinkService.OnReadSucceeded:input_type -> http.OnReadSucceededRequest
-	160, // 84: http.UploadDataSinkService.OnRewindError:input_type -> http.OnRewindErrorRequest
-	162, // 85: http.UploadDataSinkService.OnRewindSucceeded:input_type -> http.OnRewindSucceededRequest
-	164, // 86: http.QuicOptionsService.GetHandshakeUserAgent:input_type -> http.GetHandshakeUserAgentRequest
-	166, // 87: http.QuicOptionsService.GetIdleConnectionTimeout:input_type -> http.GetIdleConnectionTimeoutRequest
-	168, // 88: http.QuicOptionsService.GetInMemoryServerConfigsCacheSize:input_type -> http.GetInMemoryServerConfigsCacheSizeRequest
-	170, // 89: http.QuicOptionsService.HasInMemoryServerConfigsCacheSize:input_type -> http.HasInMemoryServerConfigsCacheSizeRequest
-	172, // 90: http.QuicOptionsBuilderService.AddAllowedQuicHost:input_type -> http.AddAllowedQuicHostRequest
-	54,  // 91: http.QuicOptionsBuilderService.Build:input_type -> http.BuildRequest
-	174, // 92: http.QuicOptionsBuilderService.SetHandshakeUserAgent:input_type -> http.SetHandshakeUserAgentRequest
-	176, // 93: http.QuicOptionsBuilderService.SetIdleConnectionTimeout:input_type -> http.SetIdleConnectionTimeoutRequest
-	178, // 94: http.QuicOptionsBuilderService.SetInMemoryServerConfigsCacheSize:input_type -> http.SetInMemoryServerConfigsCacheSizeRequest
-	180, // 95: http.SslCertificateService.NewSslCertificate:input_type -> http.NewSslCertificateRequest
-	182, // 96: http.SslCertificateService.GetIssuedBy:input_type -> http.GetIssuedByRequest
-	184, // 97: http.SslCertificateService.GetIssuedTo:input_type -> http.GetIssuedToRequest
-	186, // 98: http.SslCertificateService.GetValidNotAfter:input_type -> http.GetValidNotAfterRequest
-	188, // 99: http.SslCertificateService.GetValidNotAfterDate:input_type -> http.GetValidNotAfterDateRequest
-	190, // 100: http.SslCertificateService.GetValidNotBefore:input_type -> http.GetValidNotBeforeRequest
-	192, // 101: http.SslCertificateService.GetValidNotBeforeDate:input_type -> http.GetValidNotBeforeDateRequest
-	194, // 102: http.SslCertificateService.GetX509Certificate:input_type -> http.GetX509CertificateRequest
-	148, // 103: http.SslCertificateService.ToString:input_type -> http.ToStringRequest
-	196, // 104: http.SslCertificateService.RestoreState:input_type -> http.RestoreStateRequest
-	198, // 105: http.SslCertificateService.SaveState:input_type -> http.SaveStateRequest
-	200, // 106: http.SslCertificateDNameService.GetCName:input_type -> http.GetCNameRequest
-	202, // 107: http.SslCertificateDNameService.GetDName:input_type -> http.GetDNameRequest
-	204, // 108: http.SslCertificateDNameService.GetOName:input_type -> http.GetONameRequest
-	206, // 109: http.SslCertificateDNameService.GetUName:input_type -> http.GetUNameRequest
-	208, // 110: http.DnsOptionsService.GetPersistHostCache:input_type -> http.GetPersistHostCacheRequest
-	210, // 111: http.DnsOptionsService.GetPersistHostCachePeriod:input_type -> http.GetPersistHostCachePeriodRequest
-	212, // 112: http.DnsOptionsService.GetPreestablishConnectionsToStaleDnsResults:input_type -> http.GetPreestablishConnectionsToStaleDnsResultsRequest
-	214, // 113: http.DnsOptionsService.GetStaleDns:input_type -> http.GetStaleDnsRequest
-	216, // 114: http.DnsOptionsService.GetStaleDnsOptions:input_type -> http.GetStaleDnsOptionsRequest
-	218, // 115: http.DnsOptionsService.GetUseHttpStackDnsResolver:input_type -> http.GetUseHttpStackDnsResolverRequest
-	54,  // 116: http.DnsOptionsBuilderService.Build:input_type -> http.BuildRequest
-	220, // 117: http.DnsOptionsBuilderService.SetPersistHostCache:input_type -> http.SetPersistHostCacheRequest
-	222, // 118: http.DnsOptionsBuilderService.SetPersistHostCachePeriod:input_type -> http.SetPersistHostCachePeriodRequest
-	224, // 119: http.DnsOptionsBuilderService.SetPreestablishConnectionsToStaleDnsResults:input_type -> http.SetPreestablishConnectionsToStaleDnsResultsRequest
-	226, // 120: http.DnsOptionsBuilderService.SetStaleDns:input_type -> http.SetStaleDnsRequest
-	228, // 121: http.DnsOptionsBuilderService.SetStaleDnsOptions:input_type -> http.SetStaleDnsOptionsRequest
-	230, // 122: http.DnsOptionsBuilderService.SetUseHttpStackDnsResolver:input_type -> http.SetUseHttpStackDnsResolverRequest
-	232, // 123: http.DnsOptionsStaleDnsOptionsService.GetAllowCrossNetworkUsage:input_type -> http.GetAllowCrossNetworkUsageRequest
-	234, // 124: http.DnsOptionsStaleDnsOptionsService.GetFreshLookupTimeout:input_type -> http.GetFreshLookupTimeoutRequest
-	236, // 125: http.DnsOptionsStaleDnsOptionsService.GetMaxExpiredDelay:input_type -> http.GetMaxExpiredDelayRequest
-	238, // 126: http.DnsOptionsStaleDnsOptionsService.GetUseStaleOnNameNotResolved:input_type -> http.GetUseStaleOnNameNotResolvedRequest
-	240, // 127: http.ConnectionMigrationOptionsService.GetAllowNonDefaultNetworkUsage:input_type -> http.GetAllowNonDefaultNetworkUsageRequest
-	242, // 128: http.ConnectionMigrationOptionsService.GetDefaultNetworkMigration:input_type -> http.GetDefaultNetworkMigrationRequest
-	244, // 129: http.ConnectionMigrationOptionsService.GetPathDegradationMigration:input_type -> http.GetPathDegradationMigrationRequest
-	54,  // 130: http.ConnectionMigrationOptionsBuilderService.Build:input_type -> http.BuildRequest
-	246, // 131: http.ConnectionMigrationOptionsBuilderService.SetAllowNonDefaultNetworkUsage:input_type -> http.SetAllowNonDefaultNetworkUsageRequest
-	248, // 132: http.ConnectionMigrationOptionsBuilderService.SetDefaultNetworkMigration:input_type -> http.SetDefaultNetworkMigrationRequest
-	250, // 133: http.ConnectionMigrationOptionsBuilderService.SetPathDegradationMigration:input_type -> http.SetPathDegradationMigrationRequest
-	82,  // 134: http.BidirectionalStreamService.Cancel:input_type -> http.CancelRequest
-	22,  // 135: http.BidirectionalStreamService.Flush:input_type -> http.FlushRequest
-	6,   // 136: http.BidirectionalStreamService.GetHeaders:input_type -> http.GetHeadersRequest
-	86,  // 137: http.BidirectionalStreamService.GetHttpMethod:input_type -> http.GetHttpMethodRequest
-	88,  // 138: http.BidirectionalStreamService.GetPriority:input_type -> http.GetPriorityRequest
-	92,  // 139: http.BidirectionalStreamService.GetTrafficStatsTag:input_type -> http.GetTrafficStatsTagRequest
-	94,  // 140: http.BidirectionalStreamService.GetTrafficStatsUid:input_type -> http.GetTrafficStatsUidRequest
-	96,  // 141: http.BidirectionalStreamService.HasTrafficStatsTag:input_type -> http.HasTrafficStatsTagRequest
-	98,  // 142: http.BidirectionalStreamService.HasTrafficStatsUid:input_type -> http.HasTrafficStatsUidRequest
-	252, // 143: http.BidirectionalStreamService.IsDelayRequestHeadersUntilFirstFlushEnabled:input_type -> http.IsDelayRequestHeadersUntilFirstFlushEnabledRequest
-	104, // 144: http.BidirectionalStreamService.IsDone:input_type -> http.IsDoneRequest
-	106, // 145: http.BidirectionalStreamService.Start:input_type -> http.StartRequest
-	108, // 146: http.BidirectionalStreamBuilderService.AddHeader:input_type -> http.AddHeaderRequest
-	54,  // 147: http.BidirectionalStreamBuilderService.Build:input_type -> http.BuildRequest
-	254, // 148: http.BidirectionalStreamBuilderService.SetDelayRequestHeadersUntilFirstFlushEnabled:input_type -> http.SetDelayRequestHeadersUntilFirstFlushEnabledRequest
-	115, // 149: http.BidirectionalStreamBuilderService.SetHttpMethod:input_type -> http.SetHttpMethodRequest
-	117, // 150: http.BidirectionalStreamBuilderService.SetPriority:input_type -> http.SetPriorityRequest
-	119, // 151: http.BidirectionalStreamBuilderService.SetTrafficStatsTag:input_type -> http.SetTrafficStatsTagRequest
-	121, // 152: http.BidirectionalStreamBuilderService.SetTrafficStatsUid:input_type -> http.SetTrafficStatsUidRequest
-	125, // 153: http.BidirectionalStreamCallbackService.OnCanceled:input_type -> http.OnCanceledRequest
-	127, // 154: http.BidirectionalStreamCallbackService.OnFailed:input_type -> http.OnFailedRequest
-	256, // 155: http.BidirectionalStreamCallbackService.OnResponseHeadersReceived:input_type -> http.OnResponseHeadersReceivedRequest
-	258, // 156: http.BidirectionalStreamCallbackService.OnResponseTrailersReceived:input_type -> http.OnResponseTrailersReceivedRequest
-	260, // 157: http.BidirectionalStreamCallbackService.OnStreamReady:input_type -> http.OnStreamReadyRequest
-	133, // 158: http.BidirectionalStreamCallbackService.OnSucceeded:input_type -> http.OnSucceededRequest
-	1,   // 159: http.UploadDataProviderService.Close:output_type -> http.CloseResponse
-	3,   // 160: http.UploadDataProviderService.GetLength:output_type -> http.GetLengthResponse
-	5,   // 161: http.UploadDataProviderService.Rewind:output_type -> http.RewindResponse
-	7,   // 162: http.UrlResponseInfoService.GetHeaders:output_type -> http.GetHeadersResponse
-	9,   // 163: http.UrlResponseInfoService.GetHttpStatusCode:output_type -> http.GetHttpStatusCodeResponse
-	11,  // 164: http.UrlResponseInfoService.GetHttpStatusText:output_type -> http.GetHttpStatusTextResponse
-	13,  // 165: http.UrlResponseInfoService.GetNegotiatedProtocol:output_type -> http.GetNegotiatedProtocolResponse
-	15,  // 166: http.UrlResponseInfoService.GetReceivedByteCount:output_type -> http.GetReceivedByteCountResponse
-	17,  // 167: http.UrlResponseInfoService.GetUrl:output_type -> http.GetUrlResponse
-	19,  // 168: http.UrlResponseInfoService.WasCached:output_type -> http.WasCachedResponse
-	1,   // 169: http.ResponseCacheService.Close:output_type -> http.CloseResponse
-	21,  // 170: http.ResponseCacheService.Delete:output_type -> http.DeleteResponse
-	23,  // 171: http.ResponseCacheService.Flush:output_type -> http.FlushResponse
-	25,  // 172: http.ResponseCacheService.GetHitCount:output_type -> http.GetHitCountResponse
-	27,  // 173: http.ResponseCacheService.GetNetworkCount:output_type -> http.GetNetworkCountResponse
-	29,  // 174: http.ResponseCacheService.GetRequestCount:output_type -> http.GetRequestCountResponse
-	31,  // 175: http.ResponseCacheService.MaxSize:output_type -> http.MaxSizeResponse
-	33,  // 176: http.ResponseCacheService.Put:output_type -> http.PutResponse
-	35,  // 177: http.ResponseCacheService.Size:output_type -> http.SizeResponse
-	37,  // 178: http.ResponseCacheService.GetInstalled:output_type -> http.GetInstalledResponse
-	39,  // 179: http.EngineService.BindToNetwork:output_type -> http.BindToNetworkResponse
-	41,  // 180: http.EngineService.CreateUrlStreamHandlerFactory:output_type -> http.CreateUrlStreamHandlerFactoryResponse
-	43,  // 181: http.EngineService.NewBidirectionalStreamBuilder:output_type -> http.NewBidirectionalStreamBuilderResponse
-	45,  // 182: http.EngineService.NewUrlRequestBuilder:output_type -> http.NewUrlRequestBuilderResponse
-	47,  // 183: http.EngineService.OpenConnection:output_type -> http.OpenConnectionResponse
-	49,  // 184: http.EngineService.Shutdown:output_type -> http.ShutdownResponse
-	51,  // 185: http.EngineService.GetVersionString:output_type -> http.GetVersionStringResponse
-	53,  // 186: http.EngineBuilderService.AddQuicHint:output_type -> http.AddQuicHintResponse
-	55,  // 187: http.EngineBuilderService.Build:output_type -> http.BuildResponse
-	57,  // 188: http.EngineBuilderService.GetDefaultUserAgent:output_type -> http.GetDefaultUserAgentResponse
-	59,  // 189: http.EngineBuilderService.SetConnectionMigrationOptions:output_type -> http.SetConnectionMigrationOptionsResponse
-	61,  // 190: http.EngineBuilderService.SetDnsOptions:output_type -> http.SetDnsOptionsResponse
-	63,  // 191: http.EngineBuilderService.SetEnableBrotli:output_type -> http.SetEnableBrotliResponse
-	65,  // 192: http.EngineBuilderService.SetEnableHttp2:output_type -> http.SetEnableHttp2Response
-	67,  // 193: http.EngineBuilderService.SetEnableHttpCache:output_type -> http.SetEnableHttpCacheResponse
-	69,  // 194: http.EngineBuilderService.SetEnablePublicKeyPinningBypassForLocalTrustAnchors:output_type -> http.SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse
-	71,  // 195: http.EngineBuilderService.SetEnableQuic:output_type -> http.SetEnableQuicResponse
-	73,  // 196: http.EngineBuilderService.SetQuicOptions:output_type -> http.SetQuicOptionsResponse
-	75,  // 197: http.EngineBuilderService.SetStoragePath:output_type -> http.SetStoragePathResponse
-	77,  // 198: http.EngineBuilderService.SetUserAgent:output_type -> http.SetUserAgentResponse
-	79,  // 199: http.NetworkExceptionService.GetErrorCode:output_type -> http.GetErrorCodeResponse
-	81,  // 200: http.NetworkExceptionService.IsImmediatelyRetryable:output_type -> http.IsImmediatelyRetryableResponse
-	83,  // 201: http.UrlRequestService.Cancel:output_type -> http.CancelResponse
-	85,  // 202: http.UrlRequestService.FollowRedirect:output_type -> http.FollowRedirectResponse
-	7,   // 203: http.UrlRequestService.GetHeaders:output_type -> http.GetHeadersResponse
-	87,  // 204: http.UrlRequestService.GetHttpMethod:output_type -> http.GetHttpMethodResponse
-	89,  // 205: http.UrlRequestService.GetPriority:output_type -> http.GetPriorityResponse
-	91,  // 206: http.UrlRequestService.GetStatus:output_type -> http.GetStatusResponse
-	93,  // 207: http.UrlRequestService.GetTrafficStatsTag:output_type -> http.GetTrafficStatsTagResponse
-	95,  // 208: http.UrlRequestService.GetTrafficStatsUid:output_type -> http.GetTrafficStatsUidResponse
-	97,  // 209: http.UrlRequestService.HasTrafficStatsTag:output_type -> http.HasTrafficStatsTagResponse
-	99,  // 210: http.UrlRequestService.HasTrafficStatsUid:output_type -> http.HasTrafficStatsUidResponse
-	101, // 211: http.UrlRequestService.IsCacheDisabled:output_type -> http.IsCacheDisabledResponse
-	103, // 212: http.UrlRequestService.IsDirectExecutorAllowed:output_type -> http.IsDirectExecutorAllowedResponse
-	105, // 213: http.UrlRequestService.IsDone:output_type -> http.IsDoneResponse
-	107, // 214: http.UrlRequestService.Start:output_type -> http.StartResponse
-	109, // 215: http.UrlRequestBuilderService.AddHeader:output_type -> http.AddHeaderResponse
-	110, // 216: http.UrlRequestBuilderService.BindToNetwork:output_type -> http.UrlRequestBuilderBindToNetworkResponse
-	55,  // 217: http.UrlRequestBuilderService.Build:output_type -> http.BuildResponse
-	112, // 218: http.UrlRequestBuilderService.SetCacheDisabled:output_type -> http.SetCacheDisabledResponse
-	114, // 219: http.UrlRequestBuilderService.SetDirectExecutorAllowed:output_type -> http.SetDirectExecutorAllowedResponse
-	116, // 220: http.UrlRequestBuilderService.SetHttpMethod:output_type -> http.SetHttpMethodResponse
-	118, // 221: http.UrlRequestBuilderService.SetPriority:output_type -> http.SetPriorityResponse
-	120, // 222: http.UrlRequestBuilderService.SetTrafficStatsTag:output_type -> http.SetTrafficStatsTagResponse
-	122, // 223: http.UrlRequestBuilderService.SetTrafficStatsUid:output_type -> http.SetTrafficStatsUidResponse
-	124, // 224: http.UrlRequestBuilderService.SetUploadDataProvider:output_type -> http.SetUploadDataProviderResponse
-	126, // 225: http.UrlRequestCallbackService.OnCanceled:output_type -> http.OnCanceledResponse
-	128, // 226: http.UrlRequestCallbackService.OnFailed:output_type -> http.OnFailedResponse
-	130, // 227: http.UrlRequestCallbackService.OnRedirectReceived:output_type -> http.OnRedirectReceivedResponse
-	132, // 228: http.UrlRequestCallbackService.OnResponseStarted:output_type -> http.OnResponseStartedResponse
-	134, // 229: http.UrlRequestCallbackService.OnSucceeded:output_type -> http.OnSucceededResponse
-	136, // 230: http.UrlRequestStatusListenerService.OnStatus:output_type -> http.OnStatusResponse
-	138, // 231: http.SslErrorService.NewSslError:output_type -> http.NewSslErrorResponse
-	140, // 232: http.SslErrorService.AddError:output_type -> http.AddErrorResponse
-	142, // 233: http.SslErrorService.GetCertificate:output_type -> http.GetCertificateResponse
-	144, // 234: http.SslErrorService.GetPrimaryError:output_type -> http.GetPrimaryErrorResponse
-	17,  // 235: http.SslErrorService.GetUrl:output_type -> http.GetUrlResponse
-	147, // 236: http.SslErrorService.HasError:output_type -> http.HasErrorResponse
-	149, // 237: http.SslErrorService.ToString:output_type -> http.ToStringResponse
-	151, // 238: http.X509TrustManagerExtensionsService.NewX509TrustManagerExtensions:output_type -> http.NewX509TrustManagerExtensionsResponse
-	153, // 239: http.X509TrustManagerExtensionsService.IsSameTrustConfiguration:output_type -> http.IsSameTrustConfigurationResponse
-	155, // 240: http.X509TrustManagerExtensionsService.IsUserAddedCertificate:output_type -> http.IsUserAddedCertificateResponse
-	157, // 241: http.UploadDataSinkService.OnReadError:output_type -> http.OnReadErrorResponse
-	159, // 242: http.UploadDataSinkService.OnReadSucceeded:output_type -> http.OnReadSucceededResponse
-	161, // 243: http.UploadDataSinkService.OnRewindError:output_type -> http.OnRewindErrorResponse
-	163, // 244: http.UploadDataSinkService.OnRewindSucceeded:output_type -> http.OnRewindSucceededResponse
-	165, // 245: http.QuicOptionsService.GetHandshakeUserAgent:output_type -> http.GetHandshakeUserAgentResponse
-	167, // 246: http.QuicOptionsService.GetIdleConnectionTimeout:output_type -> http.GetIdleConnectionTimeoutResponse
-	169, // 247: http.QuicOptionsService.GetInMemoryServerConfigsCacheSize:output_type -> http.GetInMemoryServerConfigsCacheSizeResponse
-	171, // 248: http.QuicOptionsService.HasInMemoryServerConfigsCacheSize:output_type -> http.HasInMemoryServerConfigsCacheSizeResponse
-	173, // 249: http.QuicOptionsBuilderService.AddAllowedQuicHost:output_type -> http.AddAllowedQuicHostResponse
-	55,  // 250: http.QuicOptionsBuilderService.Build:output_type -> http.BuildResponse
-	175, // 251: http.QuicOptionsBuilderService.SetHandshakeUserAgent:output_type -> http.SetHandshakeUserAgentResponse
-	177, // 252: http.QuicOptionsBuilderService.SetIdleConnectionTimeout:output_type -> http.SetIdleConnectionTimeoutResponse
-	179, // 253: http.QuicOptionsBuilderService.SetInMemoryServerConfigsCacheSize:output_type -> http.SetInMemoryServerConfigsCacheSizeResponse
-	181, // 254: http.SslCertificateService.NewSslCertificate:output_type -> http.NewSslCertificateResponse
-	183, // 255: http.SslCertificateService.GetIssuedBy:output_type -> http.GetIssuedByResponse
-	185, // 256: http.SslCertificateService.GetIssuedTo:output_type -> http.GetIssuedToResponse
-	187, // 257: http.SslCertificateService.GetValidNotAfter:output_type -> http.GetValidNotAfterResponse
-	189, // 258: http.SslCertificateService.GetValidNotAfterDate:output_type -> http.GetValidNotAfterDateResponse
-	191, // 259: http.SslCertificateService.GetValidNotBefore:output_type -> http.GetValidNotBeforeResponse
-	193, // 260: http.SslCertificateService.GetValidNotBeforeDate:output_type -> http.GetValidNotBeforeDateResponse
-	195, // 261: http.SslCertificateService.GetX509Certificate:output_type -> http.GetX509CertificateResponse
-	149, // 262: http.SslCertificateService.ToString:output_type -> http.ToStringResponse
-	197, // 263: http.SslCertificateService.RestoreState:output_type -> http.RestoreStateResponse
-	199, // 264: http.SslCertificateService.SaveState:output_type -> http.SaveStateResponse
-	201, // 265: http.SslCertificateDNameService.GetCName:output_type -> http.GetCNameResponse
-	203, // 266: http.SslCertificateDNameService.GetDName:output_type -> http.GetDNameResponse
-	205, // 267: http.SslCertificateDNameService.GetOName:output_type -> http.GetONameResponse
-	207, // 268: http.SslCertificateDNameService.GetUName:output_type -> http.GetUNameResponse
-	209, // 269: http.DnsOptionsService.GetPersistHostCache:output_type -> http.GetPersistHostCacheResponse
-	211, // 270: http.DnsOptionsService.GetPersistHostCachePeriod:output_type -> http.GetPersistHostCachePeriodResponse
-	213, // 271: http.DnsOptionsService.GetPreestablishConnectionsToStaleDnsResults:output_type -> http.GetPreestablishConnectionsToStaleDnsResultsResponse
-	215, // 272: http.DnsOptionsService.GetStaleDns:output_type -> http.GetStaleDnsResponse
-	217, // 273: http.DnsOptionsService.GetStaleDnsOptions:output_type -> http.GetStaleDnsOptionsResponse
-	219, // 274: http.DnsOptionsService.GetUseHttpStackDnsResolver:output_type -> http.GetUseHttpStackDnsResolverResponse
-	55,  // 275: http.DnsOptionsBuilderService.Build:output_type -> http.BuildResponse
-	221, // 276: http.DnsOptionsBuilderService.SetPersistHostCache:output_type -> http.SetPersistHostCacheResponse
-	223, // 277: http.DnsOptionsBuilderService.SetPersistHostCachePeriod:output_type -> http.SetPersistHostCachePeriodResponse
-	225, // 278: http.DnsOptionsBuilderService.SetPreestablishConnectionsToStaleDnsResults:output_type -> http.SetPreestablishConnectionsToStaleDnsResultsResponse
-	227, // 279: http.DnsOptionsBuilderService.SetStaleDns:output_type -> http.SetStaleDnsResponse
-	229, // 280: http.DnsOptionsBuilderService.SetStaleDnsOptions:output_type -> http.SetStaleDnsOptionsResponse
-	231, // 281: http.DnsOptionsBuilderService.SetUseHttpStackDnsResolver:output_type -> http.SetUseHttpStackDnsResolverResponse
-	233, // 282: http.DnsOptionsStaleDnsOptionsService.GetAllowCrossNetworkUsage:output_type -> http.GetAllowCrossNetworkUsageResponse
-	235, // 283: http.DnsOptionsStaleDnsOptionsService.GetFreshLookupTimeout:output_type -> http.GetFreshLookupTimeoutResponse
-	237, // 284: http.DnsOptionsStaleDnsOptionsService.GetMaxExpiredDelay:output_type -> http.GetMaxExpiredDelayResponse
-	239, // 285: http.DnsOptionsStaleDnsOptionsService.GetUseStaleOnNameNotResolved:output_type -> http.GetUseStaleOnNameNotResolvedResponse
-	241, // 286: http.ConnectionMigrationOptionsService.GetAllowNonDefaultNetworkUsage:output_type -> http.GetAllowNonDefaultNetworkUsageResponse
-	243, // 287: http.ConnectionMigrationOptionsService.GetDefaultNetworkMigration:output_type -> http.GetDefaultNetworkMigrationResponse
-	245, // 288: http.ConnectionMigrationOptionsService.GetPathDegradationMigration:output_type -> http.GetPathDegradationMigrationResponse
-	55,  // 289: http.ConnectionMigrationOptionsBuilderService.Build:output_type -> http.BuildResponse
-	247, // 290: http.ConnectionMigrationOptionsBuilderService.SetAllowNonDefaultNetworkUsage:output_type -> http.SetAllowNonDefaultNetworkUsageResponse
-	249, // 291: http.ConnectionMigrationOptionsBuilderService.SetDefaultNetworkMigration:output_type -> http.SetDefaultNetworkMigrationResponse
-	251, // 292: http.ConnectionMigrationOptionsBuilderService.SetPathDegradationMigration:output_type -> http.SetPathDegradationMigrationResponse
-	83,  // 293: http.BidirectionalStreamService.Cancel:output_type -> http.CancelResponse
-	23,  // 294: http.BidirectionalStreamService.Flush:output_type -> http.FlushResponse
-	7,   // 295: http.BidirectionalStreamService.GetHeaders:output_type -> http.GetHeadersResponse
-	87,  // 296: http.BidirectionalStreamService.GetHttpMethod:output_type -> http.GetHttpMethodResponse
-	89,  // 297: http.BidirectionalStreamService.GetPriority:output_type -> http.GetPriorityResponse
-	93,  // 298: http.BidirectionalStreamService.GetTrafficStatsTag:output_type -> http.GetTrafficStatsTagResponse
-	95,  // 299: http.BidirectionalStreamService.GetTrafficStatsUid:output_type -> http.GetTrafficStatsUidResponse
-	97,  // 300: http.BidirectionalStreamService.HasTrafficStatsTag:output_type -> http.HasTrafficStatsTagResponse
-	99,  // 301: http.BidirectionalStreamService.HasTrafficStatsUid:output_type -> http.HasTrafficStatsUidResponse
-	253, // 302: http.BidirectionalStreamService.IsDelayRequestHeadersUntilFirstFlushEnabled:output_type -> http.IsDelayRequestHeadersUntilFirstFlushEnabledResponse
-	105, // 303: http.BidirectionalStreamService.IsDone:output_type -> http.IsDoneResponse
-	107, // 304: http.BidirectionalStreamService.Start:output_type -> http.StartResponse
-	109, // 305: http.BidirectionalStreamBuilderService.AddHeader:output_type -> http.AddHeaderResponse
-	55,  // 306: http.BidirectionalStreamBuilderService.Build:output_type -> http.BuildResponse
-	255, // 307: http.BidirectionalStreamBuilderService.SetDelayRequestHeadersUntilFirstFlushEnabled:output_type -> http.SetDelayRequestHeadersUntilFirstFlushEnabledResponse
-	116, // 308: http.BidirectionalStreamBuilderService.SetHttpMethod:output_type -> http.SetHttpMethodResponse
-	118, // 309: http.BidirectionalStreamBuilderService.SetPriority:output_type -> http.SetPriorityResponse
-	120, // 310: http.BidirectionalStreamBuilderService.SetTrafficStatsTag:output_type -> http.SetTrafficStatsTagResponse
-	122, // 311: http.BidirectionalStreamBuilderService.SetTrafficStatsUid:output_type -> http.SetTrafficStatsUidResponse
-	126, // 312: http.BidirectionalStreamCallbackService.OnCanceled:output_type -> http.OnCanceledResponse
-	128, // 313: http.BidirectionalStreamCallbackService.OnFailed:output_type -> http.OnFailedResponse
-	257, // 314: http.BidirectionalStreamCallbackService.OnResponseHeadersReceived:output_type -> http.OnResponseHeadersReceivedResponse
-	259, // 315: http.BidirectionalStreamCallbackService.OnResponseTrailersReceived:output_type -> http.OnResponseTrailersReceivedResponse
-	261, // 316: http.BidirectionalStreamCallbackService.OnStreamReady:output_type -> http.OnStreamReadyResponse
-	134, // 317: http.BidirectionalStreamCallbackService.OnSucceeded:output_type -> http.OnSucceededResponse
-	159, // [159:318] is the sub-list for method output_type
-	0,   // [0:159] is the sub-list for method input_type
+	0,   // 0: http.ConnectionMigrationOptionsService.GetAllowNonDefaultNetworkUsage:input_type -> http.GetAllowNonDefaultNetworkUsageRequest
+	2,   // 1: http.ConnectionMigrationOptionsService.GetDefaultNetworkMigration:input_type -> http.GetDefaultNetworkMigrationRequest
+	4,   // 2: http.ConnectionMigrationOptionsService.GetPathDegradationMigration:input_type -> http.GetPathDegradationMigrationRequest
+	6,   // 3: http.ConnectionMigrationOptionsBuilderService.Build:input_type -> http.BuildRequest
+	8,   // 4: http.ConnectionMigrationOptionsBuilderService.SetAllowNonDefaultNetworkUsage:input_type -> http.SetAllowNonDefaultNetworkUsageRequest
+	10,  // 5: http.ConnectionMigrationOptionsBuilderService.SetDefaultNetworkMigration:input_type -> http.SetDefaultNetworkMigrationRequest
+	12,  // 6: http.ConnectionMigrationOptionsBuilderService.SetPathDegradationMigration:input_type -> http.SetPathDegradationMigrationRequest
+	14,  // 7: http.UrlRequestService.Cancel:input_type -> http.CancelRequest
+	16,  // 8: http.UrlRequestService.FollowRedirect:input_type -> http.FollowRedirectRequest
+	18,  // 9: http.UrlRequestService.GetHeaders:input_type -> http.GetHeadersRequest
+	20,  // 10: http.UrlRequestService.GetHttpMethod:input_type -> http.GetHttpMethodRequest
+	22,  // 11: http.UrlRequestService.GetPriority:input_type -> http.GetPriorityRequest
+	24,  // 12: http.UrlRequestService.GetStatus:input_type -> http.GetStatusRequest
+	26,  // 13: http.UrlRequestService.GetTrafficStatsTag:input_type -> http.GetTrafficStatsTagRequest
+	28,  // 14: http.UrlRequestService.GetTrafficStatsUid:input_type -> http.GetTrafficStatsUidRequest
+	30,  // 15: http.UrlRequestService.HasTrafficStatsTag:input_type -> http.HasTrafficStatsTagRequest
+	32,  // 16: http.UrlRequestService.HasTrafficStatsUid:input_type -> http.HasTrafficStatsUidRequest
+	34,  // 17: http.UrlRequestService.IsCacheDisabled:input_type -> http.IsCacheDisabledRequest
+	36,  // 18: http.UrlRequestService.IsDirectExecutorAllowed:input_type -> http.IsDirectExecutorAllowedRequest
+	38,  // 19: http.UrlRequestService.IsDone:input_type -> http.IsDoneRequest
+	40,  // 20: http.UrlRequestService.Start:input_type -> http.StartRequest
+	42,  // 21: http.UrlRequestBuilderService.AddHeader:input_type -> http.AddHeaderRequest
+	44,  // 22: http.UrlRequestBuilderService.BindToNetwork:input_type -> http.BindToNetworkRequest
+	6,   // 23: http.UrlRequestBuilderService.Build:input_type -> http.BuildRequest
+	46,  // 24: http.UrlRequestBuilderService.SetCacheDisabled:input_type -> http.SetCacheDisabledRequest
+	48,  // 25: http.UrlRequestBuilderService.SetDirectExecutorAllowed:input_type -> http.SetDirectExecutorAllowedRequest
+	50,  // 26: http.UrlRequestBuilderService.SetHttpMethod:input_type -> http.SetHttpMethodRequest
+	52,  // 27: http.UrlRequestBuilderService.SetPriority:input_type -> http.SetPriorityRequest
+	54,  // 28: http.UrlRequestBuilderService.SetTrafficStatsTag:input_type -> http.SetTrafficStatsTagRequest
+	56,  // 29: http.UrlRequestBuilderService.SetTrafficStatsUid:input_type -> http.SetTrafficStatsUidRequest
+	58,  // 30: http.UrlRequestBuilderService.SetUploadDataProvider:input_type -> http.SetUploadDataProviderRequest
+	60,  // 31: http.UrlRequestCallbackService.OnCanceled:input_type -> http.OnCanceledRequest
+	62,  // 32: http.UrlRequestCallbackService.OnFailed:input_type -> http.OnFailedRequest
+	64,  // 33: http.UrlRequestCallbackService.OnRedirectReceived:input_type -> http.OnRedirectReceivedRequest
+	66,  // 34: http.UrlRequestCallbackService.OnResponseStarted:input_type -> http.OnResponseStartedRequest
+	68,  // 35: http.UrlRequestCallbackService.OnSucceeded:input_type -> http.OnSucceededRequest
+	70,  // 36: http.UrlRequestStatusListenerService.OnStatus:input_type -> http.OnStatusRequest
+	72,  // 37: http.X509TrustManagerExtensionsService.NewX509TrustManagerExtensions:input_type -> http.NewX509TrustManagerExtensionsRequest
+	74,  // 38: http.X509TrustManagerExtensionsService.CheckServerTrusted5:input_type -> http.CheckServerTrusted5Request
+	76,  // 39: http.X509TrustManagerExtensionsService.CheckServerTrusted3_1:input_type -> http.CheckServerTrusted3_1Request
+	78,  // 40: http.X509TrustManagerExtensionsService.IsSameTrustConfiguration:input_type -> http.IsSameTrustConfigurationRequest
+	80,  // 41: http.X509TrustManagerExtensionsService.IsUserAddedCertificate:input_type -> http.IsUserAddedCertificateRequest
+	82,  // 42: http.UploadDataSinkService.OnReadError:input_type -> http.OnReadErrorRequest
+	84,  // 43: http.UploadDataSinkService.OnReadSucceeded:input_type -> http.OnReadSucceededRequest
+	86,  // 44: http.UploadDataSinkService.OnRewindError:input_type -> http.OnRewindErrorRequest
+	88,  // 45: http.UploadDataSinkService.OnRewindSucceeded:input_type -> http.OnRewindSucceededRequest
+	90,  // 46: http.UploadDataProviderService.Close:input_type -> http.CloseRequest
+	92,  // 47: http.UploadDataProviderService.GetLength:input_type -> http.GetLengthRequest
+	94,  // 48: http.UploadDataProviderService.Rewind:input_type -> http.RewindRequest
+	14,  // 49: http.BidirectionalStreamService.Cancel:input_type -> http.CancelRequest
+	96,  // 50: http.BidirectionalStreamService.Flush:input_type -> http.FlushRequest
+	18,  // 51: http.BidirectionalStreamService.GetHeaders:input_type -> http.GetHeadersRequest
+	20,  // 52: http.BidirectionalStreamService.GetHttpMethod:input_type -> http.GetHttpMethodRequest
+	22,  // 53: http.BidirectionalStreamService.GetPriority:input_type -> http.GetPriorityRequest
+	26,  // 54: http.BidirectionalStreamService.GetTrafficStatsTag:input_type -> http.GetTrafficStatsTagRequest
+	28,  // 55: http.BidirectionalStreamService.GetTrafficStatsUid:input_type -> http.GetTrafficStatsUidRequest
+	30,  // 56: http.BidirectionalStreamService.HasTrafficStatsTag:input_type -> http.HasTrafficStatsTagRequest
+	32,  // 57: http.BidirectionalStreamService.HasTrafficStatsUid:input_type -> http.HasTrafficStatsUidRequest
+	98,  // 58: http.BidirectionalStreamService.IsDelayRequestHeadersUntilFirstFlushEnabled:input_type -> http.IsDelayRequestHeadersUntilFirstFlushEnabledRequest
+	38,  // 59: http.BidirectionalStreamService.IsDone:input_type -> http.IsDoneRequest
+	40,  // 60: http.BidirectionalStreamService.Start:input_type -> http.StartRequest
+	42,  // 61: http.BidirectionalStreamBuilderService.AddHeader:input_type -> http.AddHeaderRequest
+	6,   // 62: http.BidirectionalStreamBuilderService.Build:input_type -> http.BuildRequest
+	100, // 63: http.BidirectionalStreamBuilderService.SetDelayRequestHeadersUntilFirstFlushEnabled:input_type -> http.SetDelayRequestHeadersUntilFirstFlushEnabledRequest
+	50,  // 64: http.BidirectionalStreamBuilderService.SetHttpMethod:input_type -> http.SetHttpMethodRequest
+	52,  // 65: http.BidirectionalStreamBuilderService.SetPriority:input_type -> http.SetPriorityRequest
+	54,  // 66: http.BidirectionalStreamBuilderService.SetTrafficStatsTag:input_type -> http.SetTrafficStatsTagRequest
+	56,  // 67: http.BidirectionalStreamBuilderService.SetTrafficStatsUid:input_type -> http.SetTrafficStatsUidRequest
+	60,  // 68: http.BidirectionalStreamCallbackService.OnCanceled:input_type -> http.OnCanceledRequest
+	62,  // 69: http.BidirectionalStreamCallbackService.OnFailed:input_type -> http.OnFailedRequest
+	102, // 70: http.BidirectionalStreamCallbackService.OnResponseHeadersReceived:input_type -> http.OnResponseHeadersReceivedRequest
+	104, // 71: http.BidirectionalStreamCallbackService.OnResponseTrailersReceived:input_type -> http.OnResponseTrailersReceivedRequest
+	106, // 72: http.BidirectionalStreamCallbackService.OnStreamReady:input_type -> http.OnStreamReadyRequest
+	68,  // 73: http.BidirectionalStreamCallbackService.OnSucceeded:input_type -> http.OnSucceededRequest
+	44,  // 74: http.EngineService.BindToNetwork:input_type -> http.BindToNetworkRequest
+	109, // 75: http.EngineService.CreateUrlStreamHandlerFactory:input_type -> http.CreateUrlStreamHandlerFactoryRequest
+	111, // 76: http.EngineService.NewBidirectionalStreamBuilder:input_type -> http.NewBidirectionalStreamBuilderRequest
+	113, // 77: http.EngineService.NewUrlRequestBuilder:input_type -> http.NewUrlRequestBuilderRequest
+	115, // 78: http.EngineService.OpenConnection:input_type -> http.OpenConnectionRequest
+	117, // 79: http.EngineService.Shutdown:input_type -> http.ShutdownRequest
+	119, // 80: http.EngineService.GetVersionString:input_type -> http.GetVersionStringRequest
+	121, // 81: http.EngineBuilderService.AddQuicHint:input_type -> http.AddQuicHintRequest
+	6,   // 82: http.EngineBuilderService.Build:input_type -> http.BuildRequest
+	123, // 83: http.EngineBuilderService.GetDefaultUserAgent:input_type -> http.GetDefaultUserAgentRequest
+	125, // 84: http.EngineBuilderService.SetConnectionMigrationOptions:input_type -> http.SetConnectionMigrationOptionsRequest
+	127, // 85: http.EngineBuilderService.SetDnsOptions:input_type -> http.SetDnsOptionsRequest
+	129, // 86: http.EngineBuilderService.SetEnableBrotli:input_type -> http.SetEnableBrotliRequest
+	131, // 87: http.EngineBuilderService.SetEnableHttp2:input_type -> http.SetEnableHttp2Request
+	133, // 88: http.EngineBuilderService.SetEnableHttpCache:input_type -> http.SetEnableHttpCacheRequest
+	135, // 89: http.EngineBuilderService.SetEnablePublicKeyPinningBypassForLocalTrustAnchors:input_type -> http.SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest
+	137, // 90: http.EngineBuilderService.SetEnableQuic:input_type -> http.SetEnableQuicRequest
+	139, // 91: http.EngineBuilderService.SetQuicOptions:input_type -> http.SetQuicOptionsRequest
+	141, // 92: http.EngineBuilderService.SetStoragePath:input_type -> http.SetStoragePathRequest
+	143, // 93: http.EngineBuilderService.SetUserAgent:input_type -> http.SetUserAgentRequest
+	145, // 94: http.NetworkExceptionService.GetErrorCode:input_type -> http.GetErrorCodeRequest
+	147, // 95: http.NetworkExceptionService.IsImmediatelyRetryable:input_type -> http.IsImmediatelyRetryableRequest
+	149, // 96: http.SslErrorService.NewSslError:input_type -> http.NewSslErrorRequest
+	151, // 97: http.SslErrorService.AddError:input_type -> http.AddErrorRequest
+	153, // 98: http.SslErrorService.GetCertificate:input_type -> http.GetCertificateRequest
+	155, // 99: http.SslErrorService.GetPrimaryError:input_type -> http.GetPrimaryErrorRequest
+	157, // 100: http.SslErrorService.GetUrl:input_type -> http.GetUrlRequest
+	159, // 101: http.SslErrorService.HasError:input_type -> http.HasErrorRequest
+	161, // 102: http.SslErrorService.ToString:input_type -> http.ToStringRequest
+	163, // 103: http.QuicOptionsService.GetAllowedQuicHosts:input_type -> http.GetAllowedQuicHostsRequest
+	165, // 104: http.QuicOptionsService.GetHandshakeUserAgent:input_type -> http.GetHandshakeUserAgentRequest
+	167, // 105: http.QuicOptionsService.GetIdleConnectionTimeout:input_type -> http.GetIdleConnectionTimeoutRequest
+	169, // 106: http.QuicOptionsService.GetInMemoryServerConfigsCacheSize:input_type -> http.GetInMemoryServerConfigsCacheSizeRequest
+	171, // 107: http.QuicOptionsService.HasInMemoryServerConfigsCacheSize:input_type -> http.HasInMemoryServerConfigsCacheSizeRequest
+	173, // 108: http.QuicOptionsBuilderService.AddAllowedQuicHost:input_type -> http.AddAllowedQuicHostRequest
+	6,   // 109: http.QuicOptionsBuilderService.Build:input_type -> http.BuildRequest
+	175, // 110: http.QuicOptionsBuilderService.SetHandshakeUserAgent:input_type -> http.SetHandshakeUserAgentRequest
+	177, // 111: http.QuicOptionsBuilderService.SetIdleConnectionTimeout:input_type -> http.SetIdleConnectionTimeoutRequest
+	179, // 112: http.QuicOptionsBuilderService.SetInMemoryServerConfigsCacheSize:input_type -> http.SetInMemoryServerConfigsCacheSizeRequest
+	181, // 113: http.DnsOptionsService.GetPersistHostCache:input_type -> http.GetPersistHostCacheRequest
+	183, // 114: http.DnsOptionsService.GetPersistHostCachePeriod:input_type -> http.GetPersistHostCachePeriodRequest
+	185, // 115: http.DnsOptionsService.GetPreestablishConnectionsToStaleDnsResults:input_type -> http.GetPreestablishConnectionsToStaleDnsResultsRequest
+	187, // 116: http.DnsOptionsService.GetStaleDns:input_type -> http.GetStaleDnsRequest
+	189, // 117: http.DnsOptionsService.GetStaleDnsOptions:input_type -> http.GetStaleDnsOptionsRequest
+	191, // 118: http.DnsOptionsService.GetUseHttpStackDnsResolver:input_type -> http.GetUseHttpStackDnsResolverRequest
+	6,   // 119: http.DnsOptionsBuilderService.Build:input_type -> http.BuildRequest
+	193, // 120: http.DnsOptionsBuilderService.SetPersistHostCache:input_type -> http.SetPersistHostCacheRequest
+	195, // 121: http.DnsOptionsBuilderService.SetPersistHostCachePeriod:input_type -> http.SetPersistHostCachePeriodRequest
+	197, // 122: http.DnsOptionsBuilderService.SetPreestablishConnectionsToStaleDnsResults:input_type -> http.SetPreestablishConnectionsToStaleDnsResultsRequest
+	199, // 123: http.DnsOptionsBuilderService.SetStaleDns:input_type -> http.SetStaleDnsRequest
+	201, // 124: http.DnsOptionsBuilderService.SetStaleDnsOptions:input_type -> http.SetStaleDnsOptionsRequest
+	203, // 125: http.DnsOptionsBuilderService.SetUseHttpStackDnsResolver:input_type -> http.SetUseHttpStackDnsResolverRequest
+	205, // 126: http.DnsOptionsStaleDnsOptionsService.GetAllowCrossNetworkUsage:input_type -> http.GetAllowCrossNetworkUsageRequest
+	207, // 127: http.DnsOptionsStaleDnsOptionsService.GetFreshLookupTimeout:input_type -> http.GetFreshLookupTimeoutRequest
+	209, // 128: http.DnsOptionsStaleDnsOptionsService.GetMaxExpiredDelay:input_type -> http.GetMaxExpiredDelayRequest
+	211, // 129: http.DnsOptionsStaleDnsOptionsService.GetUseStaleOnNameNotResolved:input_type -> http.GetUseStaleOnNameNotResolvedRequest
+	90,  // 130: http.ResponseCacheService.Close:input_type -> http.CloseRequest
+	213, // 131: http.ResponseCacheService.Delete:input_type -> http.DeleteRequest
+	96,  // 132: http.ResponseCacheService.Flush:input_type -> http.FlushRequest
+	215, // 133: http.ResponseCacheService.GetHitCount:input_type -> http.GetHitCountRequest
+	217, // 134: http.ResponseCacheService.GetNetworkCount:input_type -> http.GetNetworkCountRequest
+	219, // 135: http.ResponseCacheService.GetRequestCount:input_type -> http.GetRequestCountRequest
+	221, // 136: http.ResponseCacheService.MaxSize:input_type -> http.MaxSizeRequest
+	223, // 137: http.ResponseCacheService.Put:input_type -> http.PutRequest
+	225, // 138: http.ResponseCacheService.Size:input_type -> http.SizeRequest
+	227, // 139: http.ResponseCacheService.GetInstalled:input_type -> http.GetInstalledRequest
+	229, // 140: http.SslCertificateService.NewSslCertificate:input_type -> http.NewSslCertificateRequest
+	231, // 141: http.SslCertificateService.GetIssuedBy:input_type -> http.GetIssuedByRequest
+	233, // 142: http.SslCertificateService.GetIssuedTo:input_type -> http.GetIssuedToRequest
+	235, // 143: http.SslCertificateService.GetValidNotAfter:input_type -> http.GetValidNotAfterRequest
+	237, // 144: http.SslCertificateService.GetValidNotAfterDate:input_type -> http.GetValidNotAfterDateRequest
+	239, // 145: http.SslCertificateService.GetValidNotBefore:input_type -> http.GetValidNotBeforeRequest
+	241, // 146: http.SslCertificateService.GetValidNotBeforeDate:input_type -> http.GetValidNotBeforeDateRequest
+	243, // 147: http.SslCertificateService.GetX509Certificate:input_type -> http.GetX509CertificateRequest
+	161, // 148: http.SslCertificateService.ToString:input_type -> http.ToStringRequest
+	245, // 149: http.SslCertificateService.RestoreState:input_type -> http.RestoreStateRequest
+	247, // 150: http.SslCertificateService.SaveState:input_type -> http.SaveStateRequest
+	249, // 151: http.SslCertificateDNameService.GetCName:input_type -> http.GetCNameRequest
+	251, // 152: http.SslCertificateDNameService.GetDName:input_type -> http.GetDNameRequest
+	253, // 153: http.SslCertificateDNameService.GetOName:input_type -> http.GetONameRequest
+	255, // 154: http.SslCertificateDNameService.GetUName:input_type -> http.GetUNameRequest
+	18,  // 155: http.UrlResponseInfoService.GetHeaders:input_type -> http.GetHeadersRequest
+	257, // 156: http.UrlResponseInfoService.GetHttpStatusCode:input_type -> http.GetHttpStatusCodeRequest
+	259, // 157: http.UrlResponseInfoService.GetHttpStatusText:input_type -> http.GetHttpStatusTextRequest
+	261, // 158: http.UrlResponseInfoService.GetNegotiatedProtocol:input_type -> http.GetNegotiatedProtocolRequest
+	263, // 159: http.UrlResponseInfoService.GetReceivedByteCount:input_type -> http.GetReceivedByteCountRequest
+	265, // 160: http.UrlResponseInfoService.GetUrl:input_type -> http.UrlResponseInfoGetUrlRequest
+	266, // 161: http.UrlResponseInfoService.GetUrlChain:input_type -> http.GetUrlChainRequest
+	268, // 162: http.UrlResponseInfoService.WasCached:input_type -> http.WasCachedRequest
+	1,   // 163: http.ConnectionMigrationOptionsService.GetAllowNonDefaultNetworkUsage:output_type -> http.GetAllowNonDefaultNetworkUsageResponse
+	3,   // 164: http.ConnectionMigrationOptionsService.GetDefaultNetworkMigration:output_type -> http.GetDefaultNetworkMigrationResponse
+	5,   // 165: http.ConnectionMigrationOptionsService.GetPathDegradationMigration:output_type -> http.GetPathDegradationMigrationResponse
+	7,   // 166: http.ConnectionMigrationOptionsBuilderService.Build:output_type -> http.BuildResponse
+	9,   // 167: http.ConnectionMigrationOptionsBuilderService.SetAllowNonDefaultNetworkUsage:output_type -> http.SetAllowNonDefaultNetworkUsageResponse
+	11,  // 168: http.ConnectionMigrationOptionsBuilderService.SetDefaultNetworkMigration:output_type -> http.SetDefaultNetworkMigrationResponse
+	13,  // 169: http.ConnectionMigrationOptionsBuilderService.SetPathDegradationMigration:output_type -> http.SetPathDegradationMigrationResponse
+	15,  // 170: http.UrlRequestService.Cancel:output_type -> http.CancelResponse
+	17,  // 171: http.UrlRequestService.FollowRedirect:output_type -> http.FollowRedirectResponse
+	19,  // 172: http.UrlRequestService.GetHeaders:output_type -> http.GetHeadersResponse
+	21,  // 173: http.UrlRequestService.GetHttpMethod:output_type -> http.GetHttpMethodResponse
+	23,  // 174: http.UrlRequestService.GetPriority:output_type -> http.GetPriorityResponse
+	25,  // 175: http.UrlRequestService.GetStatus:output_type -> http.GetStatusResponse
+	27,  // 176: http.UrlRequestService.GetTrafficStatsTag:output_type -> http.GetTrafficStatsTagResponse
+	29,  // 177: http.UrlRequestService.GetTrafficStatsUid:output_type -> http.GetTrafficStatsUidResponse
+	31,  // 178: http.UrlRequestService.HasTrafficStatsTag:output_type -> http.HasTrafficStatsTagResponse
+	33,  // 179: http.UrlRequestService.HasTrafficStatsUid:output_type -> http.HasTrafficStatsUidResponse
+	35,  // 180: http.UrlRequestService.IsCacheDisabled:output_type -> http.IsCacheDisabledResponse
+	37,  // 181: http.UrlRequestService.IsDirectExecutorAllowed:output_type -> http.IsDirectExecutorAllowedResponse
+	39,  // 182: http.UrlRequestService.IsDone:output_type -> http.IsDoneResponse
+	41,  // 183: http.UrlRequestService.Start:output_type -> http.StartResponse
+	43,  // 184: http.UrlRequestBuilderService.AddHeader:output_type -> http.AddHeaderResponse
+	45,  // 185: http.UrlRequestBuilderService.BindToNetwork:output_type -> http.BindToNetworkResponse
+	7,   // 186: http.UrlRequestBuilderService.Build:output_type -> http.BuildResponse
+	47,  // 187: http.UrlRequestBuilderService.SetCacheDisabled:output_type -> http.SetCacheDisabledResponse
+	49,  // 188: http.UrlRequestBuilderService.SetDirectExecutorAllowed:output_type -> http.SetDirectExecutorAllowedResponse
+	51,  // 189: http.UrlRequestBuilderService.SetHttpMethod:output_type -> http.SetHttpMethodResponse
+	53,  // 190: http.UrlRequestBuilderService.SetPriority:output_type -> http.SetPriorityResponse
+	55,  // 191: http.UrlRequestBuilderService.SetTrafficStatsTag:output_type -> http.SetTrafficStatsTagResponse
+	57,  // 192: http.UrlRequestBuilderService.SetTrafficStatsUid:output_type -> http.SetTrafficStatsUidResponse
+	59,  // 193: http.UrlRequestBuilderService.SetUploadDataProvider:output_type -> http.SetUploadDataProviderResponse
+	61,  // 194: http.UrlRequestCallbackService.OnCanceled:output_type -> http.OnCanceledResponse
+	63,  // 195: http.UrlRequestCallbackService.OnFailed:output_type -> http.OnFailedResponse
+	65,  // 196: http.UrlRequestCallbackService.OnRedirectReceived:output_type -> http.OnRedirectReceivedResponse
+	67,  // 197: http.UrlRequestCallbackService.OnResponseStarted:output_type -> http.OnResponseStartedResponse
+	69,  // 198: http.UrlRequestCallbackService.OnSucceeded:output_type -> http.OnSucceededResponse
+	71,  // 199: http.UrlRequestStatusListenerService.OnStatus:output_type -> http.OnStatusResponse
+	73,  // 200: http.X509TrustManagerExtensionsService.NewX509TrustManagerExtensions:output_type -> http.NewX509TrustManagerExtensionsResponse
+	75,  // 201: http.X509TrustManagerExtensionsService.CheckServerTrusted5:output_type -> http.CheckServerTrusted5Response
+	77,  // 202: http.X509TrustManagerExtensionsService.CheckServerTrusted3_1:output_type -> http.CheckServerTrusted3_1Response
+	79,  // 203: http.X509TrustManagerExtensionsService.IsSameTrustConfiguration:output_type -> http.IsSameTrustConfigurationResponse
+	81,  // 204: http.X509TrustManagerExtensionsService.IsUserAddedCertificate:output_type -> http.IsUserAddedCertificateResponse
+	83,  // 205: http.UploadDataSinkService.OnReadError:output_type -> http.OnReadErrorResponse
+	85,  // 206: http.UploadDataSinkService.OnReadSucceeded:output_type -> http.OnReadSucceededResponse
+	87,  // 207: http.UploadDataSinkService.OnRewindError:output_type -> http.OnRewindErrorResponse
+	89,  // 208: http.UploadDataSinkService.OnRewindSucceeded:output_type -> http.OnRewindSucceededResponse
+	91,  // 209: http.UploadDataProviderService.Close:output_type -> http.CloseResponse
+	93,  // 210: http.UploadDataProviderService.GetLength:output_type -> http.GetLengthResponse
+	95,  // 211: http.UploadDataProviderService.Rewind:output_type -> http.RewindResponse
+	15,  // 212: http.BidirectionalStreamService.Cancel:output_type -> http.CancelResponse
+	97,  // 213: http.BidirectionalStreamService.Flush:output_type -> http.FlushResponse
+	19,  // 214: http.BidirectionalStreamService.GetHeaders:output_type -> http.GetHeadersResponse
+	21,  // 215: http.BidirectionalStreamService.GetHttpMethod:output_type -> http.GetHttpMethodResponse
+	23,  // 216: http.BidirectionalStreamService.GetPriority:output_type -> http.GetPriorityResponse
+	27,  // 217: http.BidirectionalStreamService.GetTrafficStatsTag:output_type -> http.GetTrafficStatsTagResponse
+	29,  // 218: http.BidirectionalStreamService.GetTrafficStatsUid:output_type -> http.GetTrafficStatsUidResponse
+	31,  // 219: http.BidirectionalStreamService.HasTrafficStatsTag:output_type -> http.HasTrafficStatsTagResponse
+	33,  // 220: http.BidirectionalStreamService.HasTrafficStatsUid:output_type -> http.HasTrafficStatsUidResponse
+	99,  // 221: http.BidirectionalStreamService.IsDelayRequestHeadersUntilFirstFlushEnabled:output_type -> http.IsDelayRequestHeadersUntilFirstFlushEnabledResponse
+	39,  // 222: http.BidirectionalStreamService.IsDone:output_type -> http.IsDoneResponse
+	41,  // 223: http.BidirectionalStreamService.Start:output_type -> http.StartResponse
+	43,  // 224: http.BidirectionalStreamBuilderService.AddHeader:output_type -> http.AddHeaderResponse
+	7,   // 225: http.BidirectionalStreamBuilderService.Build:output_type -> http.BuildResponse
+	101, // 226: http.BidirectionalStreamBuilderService.SetDelayRequestHeadersUntilFirstFlushEnabled:output_type -> http.SetDelayRequestHeadersUntilFirstFlushEnabledResponse
+	51,  // 227: http.BidirectionalStreamBuilderService.SetHttpMethod:output_type -> http.SetHttpMethodResponse
+	53,  // 228: http.BidirectionalStreamBuilderService.SetPriority:output_type -> http.SetPriorityResponse
+	55,  // 229: http.BidirectionalStreamBuilderService.SetTrafficStatsTag:output_type -> http.SetTrafficStatsTagResponse
+	57,  // 230: http.BidirectionalStreamBuilderService.SetTrafficStatsUid:output_type -> http.SetTrafficStatsUidResponse
+	61,  // 231: http.BidirectionalStreamCallbackService.OnCanceled:output_type -> http.OnCanceledResponse
+	63,  // 232: http.BidirectionalStreamCallbackService.OnFailed:output_type -> http.OnFailedResponse
+	103, // 233: http.BidirectionalStreamCallbackService.OnResponseHeadersReceived:output_type -> http.OnResponseHeadersReceivedResponse
+	105, // 234: http.BidirectionalStreamCallbackService.OnResponseTrailersReceived:output_type -> http.OnResponseTrailersReceivedResponse
+	107, // 235: http.BidirectionalStreamCallbackService.OnStreamReady:output_type -> http.OnStreamReadyResponse
+	69,  // 236: http.BidirectionalStreamCallbackService.OnSucceeded:output_type -> http.OnSucceededResponse
+	108, // 237: http.EngineService.BindToNetwork:output_type -> http.EngineBindToNetworkResponse
+	110, // 238: http.EngineService.CreateUrlStreamHandlerFactory:output_type -> http.CreateUrlStreamHandlerFactoryResponse
+	112, // 239: http.EngineService.NewBidirectionalStreamBuilder:output_type -> http.NewBidirectionalStreamBuilderResponse
+	114, // 240: http.EngineService.NewUrlRequestBuilder:output_type -> http.NewUrlRequestBuilderResponse
+	116, // 241: http.EngineService.OpenConnection:output_type -> http.OpenConnectionResponse
+	118, // 242: http.EngineService.Shutdown:output_type -> http.ShutdownResponse
+	120, // 243: http.EngineService.GetVersionString:output_type -> http.GetVersionStringResponse
+	122, // 244: http.EngineBuilderService.AddQuicHint:output_type -> http.AddQuicHintResponse
+	7,   // 245: http.EngineBuilderService.Build:output_type -> http.BuildResponse
+	124, // 246: http.EngineBuilderService.GetDefaultUserAgent:output_type -> http.GetDefaultUserAgentResponse
+	126, // 247: http.EngineBuilderService.SetConnectionMigrationOptions:output_type -> http.SetConnectionMigrationOptionsResponse
+	128, // 248: http.EngineBuilderService.SetDnsOptions:output_type -> http.SetDnsOptionsResponse
+	130, // 249: http.EngineBuilderService.SetEnableBrotli:output_type -> http.SetEnableBrotliResponse
+	132, // 250: http.EngineBuilderService.SetEnableHttp2:output_type -> http.SetEnableHttp2Response
+	134, // 251: http.EngineBuilderService.SetEnableHttpCache:output_type -> http.SetEnableHttpCacheResponse
+	136, // 252: http.EngineBuilderService.SetEnablePublicKeyPinningBypassForLocalTrustAnchors:output_type -> http.SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse
+	138, // 253: http.EngineBuilderService.SetEnableQuic:output_type -> http.SetEnableQuicResponse
+	140, // 254: http.EngineBuilderService.SetQuicOptions:output_type -> http.SetQuicOptionsResponse
+	142, // 255: http.EngineBuilderService.SetStoragePath:output_type -> http.SetStoragePathResponse
+	144, // 256: http.EngineBuilderService.SetUserAgent:output_type -> http.SetUserAgentResponse
+	146, // 257: http.NetworkExceptionService.GetErrorCode:output_type -> http.GetErrorCodeResponse
+	148, // 258: http.NetworkExceptionService.IsImmediatelyRetryable:output_type -> http.IsImmediatelyRetryableResponse
+	150, // 259: http.SslErrorService.NewSslError:output_type -> http.NewSslErrorResponse
+	152, // 260: http.SslErrorService.AddError:output_type -> http.AddErrorResponse
+	154, // 261: http.SslErrorService.GetCertificate:output_type -> http.GetCertificateResponse
+	156, // 262: http.SslErrorService.GetPrimaryError:output_type -> http.GetPrimaryErrorResponse
+	158, // 263: http.SslErrorService.GetUrl:output_type -> http.GetUrlResponse
+	160, // 264: http.SslErrorService.HasError:output_type -> http.HasErrorResponse
+	162, // 265: http.SslErrorService.ToString:output_type -> http.ToStringResponse
+	164, // 266: http.QuicOptionsService.GetAllowedQuicHosts:output_type -> http.GetAllowedQuicHostsResponse
+	166, // 267: http.QuicOptionsService.GetHandshakeUserAgent:output_type -> http.GetHandshakeUserAgentResponse
+	168, // 268: http.QuicOptionsService.GetIdleConnectionTimeout:output_type -> http.GetIdleConnectionTimeoutResponse
+	170, // 269: http.QuicOptionsService.GetInMemoryServerConfigsCacheSize:output_type -> http.GetInMemoryServerConfigsCacheSizeResponse
+	172, // 270: http.QuicOptionsService.HasInMemoryServerConfigsCacheSize:output_type -> http.HasInMemoryServerConfigsCacheSizeResponse
+	174, // 271: http.QuicOptionsBuilderService.AddAllowedQuicHost:output_type -> http.AddAllowedQuicHostResponse
+	7,   // 272: http.QuicOptionsBuilderService.Build:output_type -> http.BuildResponse
+	176, // 273: http.QuicOptionsBuilderService.SetHandshakeUserAgent:output_type -> http.SetHandshakeUserAgentResponse
+	178, // 274: http.QuicOptionsBuilderService.SetIdleConnectionTimeout:output_type -> http.SetIdleConnectionTimeoutResponse
+	180, // 275: http.QuicOptionsBuilderService.SetInMemoryServerConfigsCacheSize:output_type -> http.SetInMemoryServerConfigsCacheSizeResponse
+	182, // 276: http.DnsOptionsService.GetPersistHostCache:output_type -> http.GetPersistHostCacheResponse
+	184, // 277: http.DnsOptionsService.GetPersistHostCachePeriod:output_type -> http.GetPersistHostCachePeriodResponse
+	186, // 278: http.DnsOptionsService.GetPreestablishConnectionsToStaleDnsResults:output_type -> http.GetPreestablishConnectionsToStaleDnsResultsResponse
+	188, // 279: http.DnsOptionsService.GetStaleDns:output_type -> http.GetStaleDnsResponse
+	190, // 280: http.DnsOptionsService.GetStaleDnsOptions:output_type -> http.GetStaleDnsOptionsResponse
+	192, // 281: http.DnsOptionsService.GetUseHttpStackDnsResolver:output_type -> http.GetUseHttpStackDnsResolverResponse
+	7,   // 282: http.DnsOptionsBuilderService.Build:output_type -> http.BuildResponse
+	194, // 283: http.DnsOptionsBuilderService.SetPersistHostCache:output_type -> http.SetPersistHostCacheResponse
+	196, // 284: http.DnsOptionsBuilderService.SetPersistHostCachePeriod:output_type -> http.SetPersistHostCachePeriodResponse
+	198, // 285: http.DnsOptionsBuilderService.SetPreestablishConnectionsToStaleDnsResults:output_type -> http.SetPreestablishConnectionsToStaleDnsResultsResponse
+	200, // 286: http.DnsOptionsBuilderService.SetStaleDns:output_type -> http.SetStaleDnsResponse
+	202, // 287: http.DnsOptionsBuilderService.SetStaleDnsOptions:output_type -> http.SetStaleDnsOptionsResponse
+	204, // 288: http.DnsOptionsBuilderService.SetUseHttpStackDnsResolver:output_type -> http.SetUseHttpStackDnsResolverResponse
+	206, // 289: http.DnsOptionsStaleDnsOptionsService.GetAllowCrossNetworkUsage:output_type -> http.GetAllowCrossNetworkUsageResponse
+	208, // 290: http.DnsOptionsStaleDnsOptionsService.GetFreshLookupTimeout:output_type -> http.GetFreshLookupTimeoutResponse
+	210, // 291: http.DnsOptionsStaleDnsOptionsService.GetMaxExpiredDelay:output_type -> http.GetMaxExpiredDelayResponse
+	212, // 292: http.DnsOptionsStaleDnsOptionsService.GetUseStaleOnNameNotResolved:output_type -> http.GetUseStaleOnNameNotResolvedResponse
+	91,  // 293: http.ResponseCacheService.Close:output_type -> http.CloseResponse
+	214, // 294: http.ResponseCacheService.Delete:output_type -> http.DeleteResponse
+	97,  // 295: http.ResponseCacheService.Flush:output_type -> http.FlushResponse
+	216, // 296: http.ResponseCacheService.GetHitCount:output_type -> http.GetHitCountResponse
+	218, // 297: http.ResponseCacheService.GetNetworkCount:output_type -> http.GetNetworkCountResponse
+	220, // 298: http.ResponseCacheService.GetRequestCount:output_type -> http.GetRequestCountResponse
+	222, // 299: http.ResponseCacheService.MaxSize:output_type -> http.MaxSizeResponse
+	224, // 300: http.ResponseCacheService.Put:output_type -> http.PutResponse
+	226, // 301: http.ResponseCacheService.Size:output_type -> http.SizeResponse
+	228, // 302: http.ResponseCacheService.GetInstalled:output_type -> http.GetInstalledResponse
+	230, // 303: http.SslCertificateService.NewSslCertificate:output_type -> http.NewSslCertificateResponse
+	232, // 304: http.SslCertificateService.GetIssuedBy:output_type -> http.GetIssuedByResponse
+	234, // 305: http.SslCertificateService.GetIssuedTo:output_type -> http.GetIssuedToResponse
+	236, // 306: http.SslCertificateService.GetValidNotAfter:output_type -> http.GetValidNotAfterResponse
+	238, // 307: http.SslCertificateService.GetValidNotAfterDate:output_type -> http.GetValidNotAfterDateResponse
+	240, // 308: http.SslCertificateService.GetValidNotBefore:output_type -> http.GetValidNotBeforeResponse
+	242, // 309: http.SslCertificateService.GetValidNotBeforeDate:output_type -> http.GetValidNotBeforeDateResponse
+	244, // 310: http.SslCertificateService.GetX509Certificate:output_type -> http.GetX509CertificateResponse
+	162, // 311: http.SslCertificateService.ToString:output_type -> http.ToStringResponse
+	246, // 312: http.SslCertificateService.RestoreState:output_type -> http.RestoreStateResponse
+	248, // 313: http.SslCertificateService.SaveState:output_type -> http.SaveStateResponse
+	250, // 314: http.SslCertificateDNameService.GetCName:output_type -> http.GetCNameResponse
+	252, // 315: http.SslCertificateDNameService.GetDName:output_type -> http.GetDNameResponse
+	254, // 316: http.SslCertificateDNameService.GetOName:output_type -> http.GetONameResponse
+	256, // 317: http.SslCertificateDNameService.GetUName:output_type -> http.GetUNameResponse
+	19,  // 318: http.UrlResponseInfoService.GetHeaders:output_type -> http.GetHeadersResponse
+	258, // 319: http.UrlResponseInfoService.GetHttpStatusCode:output_type -> http.GetHttpStatusCodeResponse
+	260, // 320: http.UrlResponseInfoService.GetHttpStatusText:output_type -> http.GetHttpStatusTextResponse
+	262, // 321: http.UrlResponseInfoService.GetNegotiatedProtocol:output_type -> http.GetNegotiatedProtocolResponse
+	264, // 322: http.UrlResponseInfoService.GetReceivedByteCount:output_type -> http.GetReceivedByteCountResponse
+	158, // 323: http.UrlResponseInfoService.GetUrl:output_type -> http.GetUrlResponse
+	267, // 324: http.UrlResponseInfoService.GetUrlChain:output_type -> http.GetUrlChainResponse
+	269, // 325: http.UrlResponseInfoService.WasCached:output_type -> http.WasCachedResponse
+	163, // [163:326] is the sub-list for method output_type
+	0,   // [0:163] is the sub-list for method input_type
 	0,   // [0:0] is the sub-list for extension type_name
 	0,   // [0:0] is the sub-list for extension extendee
 	0,   // [0:0] is the sub-list for field type_name
@@ -12426,7 +12868,7 @@ func file_proto_http_http_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_http_http_proto_rawDesc), len(file_proto_http_http_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   262,
+			NumMessages:   270,
 			NumExtensions: 0,
 			NumServices:   25,
 		},

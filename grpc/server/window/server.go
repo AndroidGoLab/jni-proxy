@@ -15,215 +15,6 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// TrustedPresentationThresholdsServer implements pb.TrustedPresentationThresholdsServiceServer.
-type TrustedPresentationThresholdsServer struct {
-	pb.UnimplementedTrustedPresentationThresholdsServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *TrustedPresentationThresholdsServer) NewTrustedPresentationThresholds(_ context.Context, req *pb.NewTrustedPresentationThresholdsRequest) (*pb.NewTrustedPresentationThresholdsResponse, error) {
-	obj, err := jnipkg.NewTrustedPresentationThresholds(s.Ctx.VM, req.GetArg0(), req.GetArg1(), req.GetArg2())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewTrustedPresentationThresholdsResponse{Result: handle}, nil
-}
-
-func (s *TrustedPresentationThresholdsServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TrustedPresentationThresholds{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *TrustedPresentationThresholdsServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TrustedPresentationThresholds{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EqualsResponse{Result: result}, nil
-}
-
-func (s *TrustedPresentationThresholdsServer) GetMinAlpha(_ context.Context, req *pb.GetMinAlphaRequest) (*pb.GetMinAlphaResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TrustedPresentationThresholds{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetMinAlpha()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetMinAlphaResponse{Result: result}, nil
-}
-
-func (s *TrustedPresentationThresholdsServer) GetMinFractionRendered(_ context.Context, req *pb.GetMinFractionRenderedRequest) (*pb.GetMinFractionRenderedResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TrustedPresentationThresholds{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetMinFractionRendered()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetMinFractionRenderedResponse{Result: result}, nil
-}
-
-func (s *TrustedPresentationThresholdsServer) GetStabilityRequirementMillis(_ context.Context, req *pb.GetStabilityRequirementMillisRequest) (*pb.GetStabilityRequirementMillisResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TrustedPresentationThresholds{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetStabilityRequirementMillis()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetStabilityRequirementMillisResponse{Result: result}, nil
-}
-
-func (s *TrustedPresentationThresholdsServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TrustedPresentationThresholds{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.HashCode()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.HashCodeResponse{Result: result}, nil
-}
-
-func (s *TrustedPresentationThresholdsServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TrustedPresentationThresholds{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-func (s *TrustedPresentationThresholdsServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TrustedPresentationThresholds{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
-// SurfaceSyncGroupServer implements pb.SurfaceSyncGroupServiceServer.
-type SurfaceSyncGroupServer struct {
-	pb.UnimplementedSurfaceSyncGroupServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *SurfaceSyncGroupServer) NewSurfaceSyncGroup(_ context.Context, req *pb.NewSurfaceSyncGroupRequest) (*pb.NewSurfaceSyncGroupResponse, error) {
-	obj, err := jnipkg.NewSurfaceSyncGroup(s.Ctx.VM, req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewSurfaceSyncGroupResponse{Result: handle}, nil
-}
-
-func (s *SurfaceSyncGroupServer) Add2(_ context.Context, req *pb.Add2Request) (*pb.Add2Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SurfaceSyncGroup{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Add2(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.Add2Response{Result: result}, nil
-}
-
-func (s *SurfaceSyncGroupServer) Add2_1(_ context.Context, req *pb.Add2_1Request) (*pb.Add2_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SurfaceSyncGroup{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Add2_1(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.Add2_1Response{Result: result}, nil
-}
-
-func (s *SurfaceSyncGroupServer) AddTransaction(_ context.Context, req *pb.AddTransactionRequest) (*pb.AddTransactionResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SurfaceSyncGroup{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.AddTransaction(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.AddTransactionResponse{}, nil
-}
-
-func (s *SurfaceSyncGroupServer) MarkSyncReady(_ context.Context, req *pb.MarkSyncReadyRequest) (*pb.MarkSyncReadyResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SurfaceSyncGroup{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.MarkSyncReady(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.MarkSyncReadyResponse{}, nil
-}
-
 // BackEventServer implements pb.BackEventServiceServer.
 type BackEventServer struct {
 	pb.UnimplementedBackEventServiceServer
@@ -342,4 +133,213 @@ func (s *BackEventServer) ToString(_ context.Context, req *pb.ToStringRequest) (
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.ToStringResponse{Result: result}, nil
+}
+
+// TrustedPresentationThresholdsServer implements pb.TrustedPresentationThresholdsServiceServer.
+type TrustedPresentationThresholdsServer struct {
+	pb.UnimplementedTrustedPresentationThresholdsServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *TrustedPresentationThresholdsServer) NewTrustedPresentationThresholds(_ context.Context, req *pb.NewTrustedPresentationThresholdsRequest) (*pb.NewTrustedPresentationThresholdsResponse, error) {
+	obj, err := jnipkg.NewTrustedPresentationThresholds(s.Ctx.VM, req.GetArg0(), req.GetArg1(), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewTrustedPresentationThresholdsResponse{Result: handle}, nil
+}
+
+func (s *TrustedPresentationThresholdsServer) DescribeContents(_ context.Context, req *pb.TrustedPresentationThresholdsDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrustedPresentationThresholds{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *TrustedPresentationThresholdsServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrustedPresentationThresholds{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *TrustedPresentationThresholdsServer) GetMinAlpha(_ context.Context, req *pb.GetMinAlphaRequest) (*pb.GetMinAlphaResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrustedPresentationThresholds{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetMinAlpha()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetMinAlphaResponse{Result: result}, nil
+}
+
+func (s *TrustedPresentationThresholdsServer) GetMinFractionRendered(_ context.Context, req *pb.GetMinFractionRenderedRequest) (*pb.GetMinFractionRenderedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrustedPresentationThresholds{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetMinFractionRendered()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetMinFractionRenderedResponse{Result: result}, nil
+}
+
+func (s *TrustedPresentationThresholdsServer) GetStabilityRequirementMillis(_ context.Context, req *pb.GetStabilityRequirementMillisRequest) (*pb.GetStabilityRequirementMillisResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrustedPresentationThresholds{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetStabilityRequirementMillis()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetStabilityRequirementMillisResponse{Result: result}, nil
+}
+
+func (s *TrustedPresentationThresholdsServer) HashCode(_ context.Context, req *pb.TrustedPresentationThresholdsHashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrustedPresentationThresholds{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *TrustedPresentationThresholdsServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrustedPresentationThresholds{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *TrustedPresentationThresholdsServer) WriteToParcel(_ context.Context, req *pb.TrustedPresentationThresholdsWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrustedPresentationThresholds{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// SurfaceSyncGroupServer implements pb.SurfaceSyncGroupServiceServer.
+type SurfaceSyncGroupServer struct {
+	pb.UnimplementedSurfaceSyncGroupServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *SurfaceSyncGroupServer) NewSurfaceSyncGroup(_ context.Context, req *pb.NewSurfaceSyncGroupRequest) (*pb.NewSurfaceSyncGroupResponse, error) {
+	obj, err := jnipkg.NewSurfaceSyncGroup(s.Ctx.VM, req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewSurfaceSyncGroupResponse{Result: handle}, nil
+}
+
+func (s *SurfaceSyncGroupServer) Add2(_ context.Context, req *pb.Add2Request) (*pb.Add2Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SurfaceSyncGroup{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Add2(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.Add2Response{Result: result}, nil
+}
+
+func (s *SurfaceSyncGroupServer) Add2_1(_ context.Context, req *pb.Add2_1Request) (*pb.Add2_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SurfaceSyncGroup{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Add2_1(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.Add2_1Response{Result: result}, nil
+}
+
+func (s *SurfaceSyncGroupServer) AddTransaction(_ context.Context, req *pb.AddTransactionRequest) (*pb.AddTransactionResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SurfaceSyncGroup{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.AddTransaction(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.AddTransactionResponse{}, nil
+}
+
+func (s *SurfaceSyncGroupServer) MarkSyncReady(_ context.Context, req *pb.MarkSyncReadyRequest) (*pb.MarkSyncReadyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SurfaceSyncGroup{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.MarkSyncReady(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.MarkSyncReadyResponse{}, nil
 }

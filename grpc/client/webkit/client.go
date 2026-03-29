@@ -9,65 +9,43 @@ import (
 	"google.golang.org/grpc"
 )
 
-// WebIconDatabaseClient wraps the gRPC WebIconDatabaseService client.
-type WebIconDatabaseClient struct {
-	svc pb.WebIconDatabaseServiceClient
+// WebStorageClient wraps the gRPC WebStorageService client.
+type WebStorageClient struct {
+	svc pb.WebStorageServiceClient
 }
 
-// NewWebIconDatabaseClient creates a new WebIconDatabase client.
-func NewWebIconDatabaseClient(cc grpc.ClientConnInterface) *WebIconDatabaseClient {
-	return &WebIconDatabaseClient{
-		svc: pb.NewWebIconDatabaseServiceClient(cc),
+// NewWebStorageClient creates a new WebStorage client.
+func NewWebStorageClient(cc grpc.ClientConnInterface) *WebStorageClient {
+	return &WebStorageClient{
+		svc: pb.NewWebStorageServiceClient(cc),
 	}
 }
 
-// Close calls the Close RPC.
-func (c *WebIconDatabaseClient) Close(ctx context.Context) error {
-	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+// DeleteAllData calls the DeleteAllData RPC.
+func (c *WebStorageClient) DeleteAllData(ctx context.Context) error {
+	_, err := c.svc.DeleteAllData(ctx, &pb.DeleteAllDataRequest{})
 	return err
 }
 
-// Open calls the Open RPC.
-func (c *WebIconDatabaseClient) Open(ctx context.Context, arg0 string) error {
-	_, err := c.svc.Open(ctx, &pb.OpenRequest{
+// DeleteOrigin calls the DeleteOrigin RPC.
+func (c *WebStorageClient) DeleteOrigin(ctx context.Context, arg0 string) error {
+	_, err := c.svc.DeleteOrigin(ctx, &pb.DeleteOriginRequest{
 		Arg0: arg0,
 	})
 	return err
 }
 
-// ReleaseIconForPageUrl calls the ReleaseIconForPageUrl RPC.
-func (c *WebIconDatabaseClient) ReleaseIconForPageUrl(ctx context.Context, arg0 string) error {
-	_, err := c.svc.ReleaseIconForPageUrl(ctx, &pb.ReleaseIconForPageUrlRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// RemoveAllIcons calls the RemoveAllIcons RPC.
-func (c *WebIconDatabaseClient) RemoveAllIcons(ctx context.Context) error {
-	_, err := c.svc.RemoveAllIcons(ctx, &pb.RemoveAllIconsRequest{})
-	return err
-}
-
-// RequestIconForPageUrl calls the RequestIconForPageUrl RPC.
-func (c *WebIconDatabaseClient) RequestIconForPageUrl(ctx context.Context, arg0 string, arg1 int64) error {
-	_, err := c.svc.RequestIconForPageUrl(ctx, &pb.RequestIconForPageUrlRequest{
+// SetQuotaForOrigin calls the SetQuotaForOrigin RPC.
+func (c *WebStorageClient) SetQuotaForOrigin(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.SetQuotaForOrigin(ctx, &pb.SetQuotaForOriginRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
 	return err
 }
 
-// RetainIconForPageUrl calls the RetainIconForPageUrl RPC.
-func (c *WebIconDatabaseClient) RetainIconForPageUrl(ctx context.Context, arg0 string) error {
-	_, err := c.svc.RetainIconForPageUrl(ctx, &pb.RetainIconForPageUrlRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
 // GetInstance calls the GetInstance RPC.
-func (c *WebIconDatabaseClient) GetInstance(ctx context.Context) (int64, error) {
+func (c *WebStorageClient) GetInstance(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetInstance(ctx, &pb.GetInstanceRequest{})
 	if err != nil {
 		return 0, err
@@ -75,54 +53,955 @@ func (c *WebIconDatabaseClient) GetInstance(ctx context.Context) (int64, error) 
 	return resp.GetResult(), nil
 }
 
-// WebIconDatabaseIconListenerClient wraps the gRPC WebIconDatabaseIconListenerService client.
-type WebIconDatabaseIconListenerClient struct {
-	svc pb.WebIconDatabaseIconListenerServiceClient
+// WebStorageOriginClient wraps the gRPC WebStorageOriginService client.
+type WebStorageOriginClient struct {
+	svc pb.WebStorageOriginServiceClient
 }
 
-// NewWebIconDatabaseIconListenerClient creates a new WebIconDatabaseIconListener client.
-func NewWebIconDatabaseIconListenerClient(cc grpc.ClientConnInterface) *WebIconDatabaseIconListenerClient {
-	return &WebIconDatabaseIconListenerClient{
-		svc: pb.NewWebIconDatabaseIconListenerServiceClient(cc),
+// NewWebStorageOriginClient creates a new WebStorageOrigin client.
+func NewWebStorageOriginClient(cc grpc.ClientConnInterface) *WebStorageOriginClient {
+	return &WebStorageOriginClient{
+		svc: pb.NewWebStorageOriginServiceClient(cc),
 	}
 }
 
-// OnReceivedIcon calls the OnReceivedIcon RPC.
-func (c *WebIconDatabaseIconListenerClient) OnReceivedIcon(ctx context.Context, arg0 string, arg1 int64) error {
-	_, err := c.svc.OnReceivedIcon(ctx, &pb.OnReceivedIconRequest{
+// GetOrigin calls the GetOrigin RPC.
+func (c *WebStorageOriginClient) GetOrigin(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetOrigin(ctx, &pb.GetOriginRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetQuota calls the GetQuota RPC.
+func (c *WebStorageOriginClient) GetQuota(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetQuota(ctx, &pb.GetQuotaRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUsage calls the GetUsage RPC.
+func (c *WebStorageOriginClient) GetUsage(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUsage(ctx, &pb.GetUsageRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WebStorageQuotaUpdaterClient wraps the gRPC WebStorageQuotaUpdaterService client.
+type WebStorageQuotaUpdaterClient struct {
+	svc pb.WebStorageQuotaUpdaterServiceClient
+}
+
+// NewWebStorageQuotaUpdaterClient creates a new WebStorageQuotaUpdater client.
+func NewWebStorageQuotaUpdaterClient(cc grpc.ClientConnInterface) *WebStorageQuotaUpdaterClient {
+	return &WebStorageQuotaUpdaterClient{
+		svc: pb.NewWebStorageQuotaUpdaterServiceClient(cc),
+	}
+}
+
+// UpdateQuota calls the UpdateQuota RPC.
+func (c *WebStorageQuotaUpdaterClient) UpdateQuota(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UpdateQuota(ctx, &pb.UpdateQuotaRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SslErrorHandlerClient wraps the gRPC SslErrorHandlerService client.
+type SslErrorHandlerClient struct {
+	svc pb.SslErrorHandlerServiceClient
+}
+
+// NewSslErrorHandlerClient creates a new SslErrorHandler client.
+func NewSslErrorHandlerClient(cc grpc.ClientConnInterface) *SslErrorHandlerClient {
+	return &SslErrorHandlerClient{
+		svc: pb.NewSslErrorHandlerServiceClient(cc),
+	}
+}
+
+// Cancel calls the Cancel RPC.
+func (c *SslErrorHandlerClient) Cancel(ctx context.Context) error {
+	_, err := c.svc.Cancel(ctx, &pb.CancelRequest{})
+	return err
+}
+
+// Proceed calls the Proceed RPC.
+func (c *SslErrorHandlerClient) Proceed(ctx context.Context) error {
+	_, err := c.svc.Proceed(ctx, &pb.ProceedRequest{})
+	return err
+}
+
+// HttpAuthHandlerClient wraps the gRPC HttpAuthHandlerService client.
+type HttpAuthHandlerClient struct {
+	svc pb.HttpAuthHandlerServiceClient
+}
+
+// NewHttpAuthHandlerClient creates a new HttpAuthHandler client.
+func NewHttpAuthHandlerClient(cc grpc.ClientConnInterface) *HttpAuthHandlerClient {
+	return &HttpAuthHandlerClient{
+		svc: pb.NewHttpAuthHandlerServiceClient(cc),
+	}
+}
+
+// Cancel calls the Cancel RPC.
+func (c *HttpAuthHandlerClient) Cancel(ctx context.Context) error {
+	_, err := c.svc.Cancel(ctx, &pb.CancelRequest{})
+	return err
+}
+
+// Proceed calls the Proceed RPC.
+func (c *HttpAuthHandlerClient) Proceed(ctx context.Context, arg0 string, arg1 string) error {
+	_, err := c.svc.Proceed(ctx, &pb.HttpAuthHandlerProceedRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
 	return err
 }
 
-// ConsoleMessageClient wraps the gRPC ConsoleMessageService client.
-type ConsoleMessageClient struct {
-	svc pb.ConsoleMessageServiceClient
+// UseHttpAuthUsernamePassword calls the UseHttpAuthUsernamePassword RPC.
+func (c *HttpAuthHandlerClient) UseHttpAuthUsernamePassword(ctx context.Context) (bool, error) {
+	resp, err := c.svc.UseHttpAuthUsernamePassword(ctx, &pb.UseHttpAuthUsernamePasswordRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
 }
 
-// NewConsoleMessageClient creates a new ConsoleMessage client.
-func NewConsoleMessageClient(cc grpc.ClientConnInterface) *ConsoleMessageClient {
-	return &ConsoleMessageClient{
-		svc: pb.NewConsoleMessageServiceClient(cc),
+// WebSettingsClient wraps the gRPC WebSettingsService client.
+type WebSettingsClient struct {
+	svc pb.WebSettingsServiceClient
+}
+
+// NewWebSettingsClient creates a new WebSettings client.
+func NewWebSettingsClient(cc grpc.ClientConnInterface) *WebSettingsClient {
+	return &WebSettingsClient{
+		svc: pb.NewWebSettingsServiceClient(cc),
 	}
 }
 
-// LineNumber calls the LineNumber RPC.
-func (c *ConsoleMessageClient) LineNumber(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.LineNumber(ctx, &pb.LineNumberRequest{
-		Handle: handle,
-	})
+// EnableSmoothTransition calls the EnableSmoothTransition RPC.
+func (c *WebSettingsClient) EnableSmoothTransition(ctx context.Context) (bool, error) {
+	resp, err := c.svc.EnableSmoothTransition(ctx, &pb.EnableSmoothTransitionRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAllowContentAccess calls the GetAllowContentAccess RPC.
+func (c *WebSettingsClient) GetAllowContentAccess(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetAllowContentAccess(ctx, &pb.GetAllowContentAccessRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAllowFileAccess calls the GetAllowFileAccess RPC.
+func (c *WebSettingsClient) GetAllowFileAccess(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetAllowFileAccess(ctx, &pb.GetAllowFileAccessRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAllowFileAccessFromFileURLs calls the GetAllowFileAccessFromFileURLs RPC.
+func (c *WebSettingsClient) GetAllowFileAccessFromFileURLs(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetAllowFileAccessFromFileURLs(ctx, &pb.GetAllowFileAccessFromFileURLsRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAllowUniversalAccessFromFileURLs calls the GetAllowUniversalAccessFromFileURLs RPC.
+func (c *WebSettingsClient) GetAllowUniversalAccessFromFileURLs(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetAllowUniversalAccessFromFileURLs(ctx, &pb.GetAllowUniversalAccessFromFileURLsRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBlockNetworkImage calls the GetBlockNetworkImage RPC.
+func (c *WebSettingsClient) GetBlockNetworkImage(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetBlockNetworkImage(ctx, &pb.GetBlockNetworkImageRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBlockNetworkLoads calls the GetBlockNetworkLoads RPC.
+func (c *WebSettingsClient) GetBlockNetworkLoads(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetBlockNetworkLoads(ctx, &pb.GetBlockNetworkLoadsRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBuiltInZoomControls calls the GetBuiltInZoomControls RPC.
+func (c *WebSettingsClient) GetBuiltInZoomControls(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetBuiltInZoomControls(ctx, &pb.GetBuiltInZoomControlsRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCacheMode calls the GetCacheMode RPC.
+func (c *WebSettingsClient) GetCacheMode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetCacheMode(ctx, &pb.GetCacheModeRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// Message calls the Message RPC.
-func (c *ConsoleMessageClient) Message(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.Message(ctx, &pb.MessageRequest{
-		Handle: handle,
+// GetCursiveFontFamily calls the GetCursiveFontFamily RPC.
+func (c *WebSettingsClient) GetCursiveFontFamily(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetCursiveFontFamily(ctx, &pb.GetCursiveFontFamilyRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDatabaseEnabled calls the GetDatabaseEnabled RPC.
+func (c *WebSettingsClient) GetDatabaseEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetDatabaseEnabled(ctx, &pb.GetDatabaseEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDatabasePath calls the GetDatabasePath RPC.
+func (c *WebSettingsClient) GetDatabasePath(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetDatabasePath(ctx, &pb.GetDatabasePathRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDefaultFixedFontSize calls the GetDefaultFixedFontSize RPC.
+func (c *WebSettingsClient) GetDefaultFixedFontSize(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDefaultFixedFontSize(ctx, &pb.GetDefaultFixedFontSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDefaultFontSize calls the GetDefaultFontSize RPC.
+func (c *WebSettingsClient) GetDefaultFontSize(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDefaultFontSize(ctx, &pb.GetDefaultFontSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDefaultTextEncodingName calls the GetDefaultTextEncodingName RPC.
+func (c *WebSettingsClient) GetDefaultTextEncodingName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetDefaultTextEncodingName(ctx, &pb.GetDefaultTextEncodingNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDefaultZoom calls the GetDefaultZoom RPC.
+func (c *WebSettingsClient) GetDefaultZoom(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDefaultZoom(ctx, &pb.GetDefaultZoomRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDisabledActionModeMenuItems calls the GetDisabledActionModeMenuItems RPC.
+func (c *WebSettingsClient) GetDisabledActionModeMenuItems(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDisabledActionModeMenuItems(ctx, &pb.GetDisabledActionModeMenuItemsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDisplayZoomControls calls the GetDisplayZoomControls RPC.
+func (c *WebSettingsClient) GetDisplayZoomControls(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetDisplayZoomControls(ctx, &pb.GetDisplayZoomControlsRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDomStorageEnabled calls the GetDomStorageEnabled RPC.
+func (c *WebSettingsClient) GetDomStorageEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetDomStorageEnabled(ctx, &pb.GetDomStorageEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFantasyFontFamily calls the GetFantasyFontFamily RPC.
+func (c *WebSettingsClient) GetFantasyFontFamily(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetFantasyFontFamily(ctx, &pb.GetFantasyFontFamilyRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFixedFontFamily calls the GetFixedFontFamily RPC.
+func (c *WebSettingsClient) GetFixedFontFamily(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetFixedFontFamily(ctx, &pb.GetFixedFontFamilyRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetForceDark calls the GetForceDark RPC.
+func (c *WebSettingsClient) GetForceDark(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetForceDark(ctx, &pb.GetForceDarkRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetJavaScriptCanOpenWindowsAutomatically calls the GetJavaScriptCanOpenWindowsAutomatically RPC.
+func (c *WebSettingsClient) GetJavaScriptCanOpenWindowsAutomatically(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetJavaScriptCanOpenWindowsAutomatically(ctx, &pb.GetJavaScriptCanOpenWindowsAutomaticallyRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetJavaScriptEnabled calls the GetJavaScriptEnabled RPC.
+func (c *WebSettingsClient) GetJavaScriptEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetJavaScriptEnabled(ctx, &pb.GetJavaScriptEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLayoutAlgorithm calls the GetLayoutAlgorithm RPC.
+func (c *WebSettingsClient) GetLayoutAlgorithm(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLayoutAlgorithm(ctx, &pb.GetLayoutAlgorithmRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLightTouchEnabled calls the GetLightTouchEnabled RPC.
+func (c *WebSettingsClient) GetLightTouchEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetLightTouchEnabled(ctx, &pb.GetLightTouchEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLoadWithOverviewMode calls the GetLoadWithOverviewMode RPC.
+func (c *WebSettingsClient) GetLoadWithOverviewMode(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetLoadWithOverviewMode(ctx, &pb.GetLoadWithOverviewModeRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLoadsImagesAutomatically calls the GetLoadsImagesAutomatically RPC.
+func (c *WebSettingsClient) GetLoadsImagesAutomatically(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetLoadsImagesAutomatically(ctx, &pb.GetLoadsImagesAutomaticallyRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMediaPlaybackRequiresUserGesture calls the GetMediaPlaybackRequiresUserGesture RPC.
+func (c *WebSettingsClient) GetMediaPlaybackRequiresUserGesture(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetMediaPlaybackRequiresUserGesture(ctx, &pb.GetMediaPlaybackRequiresUserGestureRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinimumFontSize calls the GetMinimumFontSize RPC.
+func (c *WebSettingsClient) GetMinimumFontSize(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMinimumFontSize(ctx, &pb.GetMinimumFontSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinimumLogicalFontSize calls the GetMinimumLogicalFontSize RPC.
+func (c *WebSettingsClient) GetMinimumLogicalFontSize(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMinimumLogicalFontSize(ctx, &pb.GetMinimumLogicalFontSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMixedContentMode calls the GetMixedContentMode RPC.
+func (c *WebSettingsClient) GetMixedContentMode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMixedContentMode(ctx, &pb.GetMixedContentModeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOffscreenPreRaster calls the GetOffscreenPreRaster RPC.
+func (c *WebSettingsClient) GetOffscreenPreRaster(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetOffscreenPreRaster(ctx, &pb.GetOffscreenPreRasterRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPluginState calls the GetPluginState RPC.
+func (c *WebSettingsClient) GetPluginState(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPluginState(ctx, &pb.GetPluginStateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSafeBrowsingEnabled calls the GetSafeBrowsingEnabled RPC.
+func (c *WebSettingsClient) GetSafeBrowsingEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetSafeBrowsingEnabled(ctx, &pb.GetSafeBrowsingEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSansSerifFontFamily calls the GetSansSerifFontFamily RPC.
+func (c *WebSettingsClient) GetSansSerifFontFamily(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetSansSerifFontFamily(ctx, &pb.GetSansSerifFontFamilyRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSaveFormData calls the GetSaveFormData RPC.
+func (c *WebSettingsClient) GetSaveFormData(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetSaveFormData(ctx, &pb.GetSaveFormDataRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSavePassword calls the GetSavePassword RPC.
+func (c *WebSettingsClient) GetSavePassword(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetSavePassword(ctx, &pb.GetSavePasswordRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSerifFontFamily calls the GetSerifFontFamily RPC.
+func (c *WebSettingsClient) GetSerifFontFamily(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetSerifFontFamily(ctx, &pb.GetSerifFontFamilyRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStandardFontFamily calls the GetStandardFontFamily RPC.
+func (c *WebSettingsClient) GetStandardFontFamily(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetStandardFontFamily(ctx, &pb.GetStandardFontFamilyRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTextZoom calls the GetTextZoom RPC.
+func (c *WebSettingsClient) GetTextZoom(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetTextZoom(ctx, &pb.GetTextZoomRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUseWideViewPort calls the GetUseWideViewPort RPC.
+func (c *WebSettingsClient) GetUseWideViewPort(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetUseWideViewPort(ctx, &pb.GetUseWideViewPortRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUserAgentString calls the GetUserAgentString RPC.
+func (c *WebSettingsClient) GetUserAgentString(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetUserAgentString(ctx, &pb.GetUserAgentStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAlgorithmicDarkeningAllowed calls the IsAlgorithmicDarkeningAllowed RPC.
+func (c *WebSettingsClient) IsAlgorithmicDarkeningAllowed(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsAlgorithmicDarkeningAllowed(ctx, &pb.IsAlgorithmicDarkeningAllowedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAlgorithmicDarkeningAllowed calls the SetAlgorithmicDarkeningAllowed RPC.
+func (c *WebSettingsClient) SetAlgorithmicDarkeningAllowed(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetAlgorithmicDarkeningAllowed(ctx, &pb.SetAlgorithmicDarkeningAllowedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetAllowContentAccess calls the SetAllowContentAccess RPC.
+func (c *WebSettingsClient) SetAllowContentAccess(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetAllowContentAccess(ctx, &pb.SetAllowContentAccessRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetAllowFileAccess calls the SetAllowFileAccess RPC.
+func (c *WebSettingsClient) SetAllowFileAccess(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetAllowFileAccess(ctx, &pb.SetAllowFileAccessRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetAllowFileAccessFromFileURLs calls the SetAllowFileAccessFromFileURLs RPC.
+func (c *WebSettingsClient) SetAllowFileAccessFromFileURLs(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetAllowFileAccessFromFileURLs(ctx, &pb.SetAllowFileAccessFromFileURLsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetAllowUniversalAccessFromFileURLs calls the SetAllowUniversalAccessFromFileURLs RPC.
+func (c *WebSettingsClient) SetAllowUniversalAccessFromFileURLs(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetAllowUniversalAccessFromFileURLs(ctx, &pb.SetAllowUniversalAccessFromFileURLsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetBlockNetworkImage calls the SetBlockNetworkImage RPC.
+func (c *WebSettingsClient) SetBlockNetworkImage(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetBlockNetworkImage(ctx, &pb.SetBlockNetworkImageRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetBlockNetworkLoads calls the SetBlockNetworkLoads RPC.
+func (c *WebSettingsClient) SetBlockNetworkLoads(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetBlockNetworkLoads(ctx, &pb.SetBlockNetworkLoadsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetBuiltInZoomControls calls the SetBuiltInZoomControls RPC.
+func (c *WebSettingsClient) SetBuiltInZoomControls(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetBuiltInZoomControls(ctx, &pb.SetBuiltInZoomControlsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetCacheMode calls the SetCacheMode RPC.
+func (c *WebSettingsClient) SetCacheMode(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetCacheMode(ctx, &pb.SetCacheModeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetCursiveFontFamily calls the SetCursiveFontFamily RPC.
+func (c *WebSettingsClient) SetCursiveFontFamily(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetCursiveFontFamily(ctx, &pb.SetCursiveFontFamilyRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetDatabaseEnabled calls the SetDatabaseEnabled RPC.
+func (c *WebSettingsClient) SetDatabaseEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetDatabaseEnabled(ctx, &pb.SetDatabaseEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetDatabasePath calls the SetDatabasePath RPC.
+func (c *WebSettingsClient) SetDatabasePath(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetDatabasePath(ctx, &pb.SetDatabasePathRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetDefaultFixedFontSize calls the SetDefaultFixedFontSize RPC.
+func (c *WebSettingsClient) SetDefaultFixedFontSize(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetDefaultFixedFontSize(ctx, &pb.SetDefaultFixedFontSizeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetDefaultFontSize calls the SetDefaultFontSize RPC.
+func (c *WebSettingsClient) SetDefaultFontSize(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetDefaultFontSize(ctx, &pb.SetDefaultFontSizeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetDefaultTextEncodingName calls the SetDefaultTextEncodingName RPC.
+func (c *WebSettingsClient) SetDefaultTextEncodingName(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetDefaultTextEncodingName(ctx, &pb.SetDefaultTextEncodingNameRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetDefaultZoom calls the SetDefaultZoom RPC.
+func (c *WebSettingsClient) SetDefaultZoom(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetDefaultZoom(ctx, &pb.SetDefaultZoomRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetDisabledActionModeMenuItems calls the SetDisabledActionModeMenuItems RPC.
+func (c *WebSettingsClient) SetDisabledActionModeMenuItems(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetDisabledActionModeMenuItems(ctx, &pb.SetDisabledActionModeMenuItemsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetDisplayZoomControls calls the SetDisplayZoomControls RPC.
+func (c *WebSettingsClient) SetDisplayZoomControls(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetDisplayZoomControls(ctx, &pb.SetDisplayZoomControlsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetDomStorageEnabled calls the SetDomStorageEnabled RPC.
+func (c *WebSettingsClient) SetDomStorageEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetDomStorageEnabled(ctx, &pb.SetDomStorageEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetEnableSmoothTransition calls the SetEnableSmoothTransition RPC.
+func (c *WebSettingsClient) SetEnableSmoothTransition(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetEnableSmoothTransition(ctx, &pb.SetEnableSmoothTransitionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetFantasyFontFamily calls the SetFantasyFontFamily RPC.
+func (c *WebSettingsClient) SetFantasyFontFamily(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetFantasyFontFamily(ctx, &pb.SetFantasyFontFamilyRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetFixedFontFamily calls the SetFixedFontFamily RPC.
+func (c *WebSettingsClient) SetFixedFontFamily(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetFixedFontFamily(ctx, &pb.SetFixedFontFamilyRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetForceDark calls the SetForceDark RPC.
+func (c *WebSettingsClient) SetForceDark(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetForceDark(ctx, &pb.SetForceDarkRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetGeolocationDatabasePath calls the SetGeolocationDatabasePath RPC.
+func (c *WebSettingsClient) SetGeolocationDatabasePath(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetGeolocationDatabasePath(ctx, &pb.SetGeolocationDatabasePathRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetGeolocationEnabled calls the SetGeolocationEnabled RPC.
+func (c *WebSettingsClient) SetGeolocationEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetGeolocationEnabled(ctx, &pb.SetGeolocationEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetJavaScriptCanOpenWindowsAutomatically calls the SetJavaScriptCanOpenWindowsAutomatically RPC.
+func (c *WebSettingsClient) SetJavaScriptCanOpenWindowsAutomatically(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetJavaScriptCanOpenWindowsAutomatically(ctx, &pb.SetJavaScriptCanOpenWindowsAutomaticallyRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetJavaScriptEnabled calls the SetJavaScriptEnabled RPC.
+func (c *WebSettingsClient) SetJavaScriptEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetJavaScriptEnabled(ctx, &pb.SetJavaScriptEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetLayoutAlgorithm calls the SetLayoutAlgorithm RPC.
+func (c *WebSettingsClient) SetLayoutAlgorithm(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetLayoutAlgorithm(ctx, &pb.SetLayoutAlgorithmRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetLightTouchEnabled calls the SetLightTouchEnabled RPC.
+func (c *WebSettingsClient) SetLightTouchEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetLightTouchEnabled(ctx, &pb.SetLightTouchEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetLoadWithOverviewMode calls the SetLoadWithOverviewMode RPC.
+func (c *WebSettingsClient) SetLoadWithOverviewMode(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetLoadWithOverviewMode(ctx, &pb.SetLoadWithOverviewModeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetLoadsImagesAutomatically calls the SetLoadsImagesAutomatically RPC.
+func (c *WebSettingsClient) SetLoadsImagesAutomatically(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetLoadsImagesAutomatically(ctx, &pb.SetLoadsImagesAutomaticallyRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetMediaPlaybackRequiresUserGesture calls the SetMediaPlaybackRequiresUserGesture RPC.
+func (c *WebSettingsClient) SetMediaPlaybackRequiresUserGesture(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetMediaPlaybackRequiresUserGesture(ctx, &pb.SetMediaPlaybackRequiresUserGestureRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetMinimumFontSize calls the SetMinimumFontSize RPC.
+func (c *WebSettingsClient) SetMinimumFontSize(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetMinimumFontSize(ctx, &pb.SetMinimumFontSizeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetMinimumLogicalFontSize calls the SetMinimumLogicalFontSize RPC.
+func (c *WebSettingsClient) SetMinimumLogicalFontSize(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetMinimumLogicalFontSize(ctx, &pb.SetMinimumLogicalFontSizeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetMixedContentMode calls the SetMixedContentMode RPC.
+func (c *WebSettingsClient) SetMixedContentMode(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetMixedContentMode(ctx, &pb.SetMixedContentModeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetNeedInitialFocus calls the SetNeedInitialFocus RPC.
+func (c *WebSettingsClient) SetNeedInitialFocus(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetNeedInitialFocus(ctx, &pb.SetNeedInitialFocusRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetOffscreenPreRaster calls the SetOffscreenPreRaster RPC.
+func (c *WebSettingsClient) SetOffscreenPreRaster(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetOffscreenPreRaster(ctx, &pb.SetOffscreenPreRasterRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetPluginState calls the SetPluginState RPC.
+func (c *WebSettingsClient) SetPluginState(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetPluginState(ctx, &pb.SetPluginStateRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetRenderPriority calls the SetRenderPriority RPC.
+func (c *WebSettingsClient) SetRenderPriority(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetRenderPriority(ctx, &pb.SetRenderPriorityRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetSafeBrowsingEnabled calls the SetSafeBrowsingEnabled RPC.
+func (c *WebSettingsClient) SetSafeBrowsingEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetSafeBrowsingEnabled(ctx, &pb.SetSafeBrowsingEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetSansSerifFontFamily calls the SetSansSerifFontFamily RPC.
+func (c *WebSettingsClient) SetSansSerifFontFamily(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetSansSerifFontFamily(ctx, &pb.SetSansSerifFontFamilyRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetSaveFormData calls the SetSaveFormData RPC.
+func (c *WebSettingsClient) SetSaveFormData(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetSaveFormData(ctx, &pb.SetSaveFormDataRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetSavePassword calls the SetSavePassword RPC.
+func (c *WebSettingsClient) SetSavePassword(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetSavePassword(ctx, &pb.SetSavePasswordRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetSerifFontFamily calls the SetSerifFontFamily RPC.
+func (c *WebSettingsClient) SetSerifFontFamily(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetSerifFontFamily(ctx, &pb.SetSerifFontFamilyRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetStandardFontFamily calls the SetStandardFontFamily RPC.
+func (c *WebSettingsClient) SetStandardFontFamily(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetStandardFontFamily(ctx, &pb.SetStandardFontFamilyRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetSupportMultipleWindows calls the SetSupportMultipleWindows RPC.
+func (c *WebSettingsClient) SetSupportMultipleWindows(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetSupportMultipleWindows(ctx, &pb.SetSupportMultipleWindowsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetSupportZoom calls the SetSupportZoom RPC.
+func (c *WebSettingsClient) SetSupportZoom(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetSupportZoom(ctx, &pb.SetSupportZoomRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetTextZoom calls the SetTextZoom RPC.
+func (c *WebSettingsClient) SetTextZoom(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetTextZoom(ctx, &pb.SetTextZoomRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetUseWideViewPort calls the SetUseWideViewPort RPC.
+func (c *WebSettingsClient) SetUseWideViewPort(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetUseWideViewPort(ctx, &pb.SetUseWideViewPortRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetUserAgentString calls the SetUserAgentString RPC.
+func (c *WebSettingsClient) SetUserAgentString(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetUserAgentString(ctx, &pb.SetUserAgentStringRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SupportMultipleWindows calls the SupportMultipleWindows RPC.
+func (c *WebSettingsClient) SupportMultipleWindows(ctx context.Context) (bool, error) {
+	resp, err := c.svc.SupportMultipleWindows(ctx, &pb.SupportMultipleWindowsRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SupportZoom calls the SupportZoom RPC.
+func (c *WebSettingsClient) SupportZoom(ctx context.Context) (bool, error) {
+	resp, err := c.svc.SupportZoom(ctx, &pb.SupportZoomRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDefaultUserAgent calls the GetDefaultUserAgent RPC.
+func (c *WebSettingsClient) GetDefaultUserAgent(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.GetDefaultUserAgent(ctx, &pb.GetDefaultUserAgentRequest{
+		Arg0: arg0,
 	})
 	if err != nil {
 		return "", err
@@ -130,42 +1009,20 @@ func (c *ConsoleMessageClient) Message(ctx context.Context, handle int64) (strin
 	return resp.GetResult(), nil
 }
 
-// MessageLevel calls the MessageLevel RPC.
-func (c *ConsoleMessageClient) MessageLevel(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.MessageLevel(ctx, &pb.MessageLevelRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
+// WebSettingsLayoutAlgorithmClient wraps the gRPC WebSettingsLayoutAlgorithmService client.
+type WebSettingsLayoutAlgorithmClient struct {
+	svc pb.WebSettingsLayoutAlgorithmServiceClient
 }
 
-// SourceId calls the SourceId RPC.
-func (c *ConsoleMessageClient) SourceId(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.SourceId(ctx, &pb.SourceIdRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// ConsoleMessageMessageLevelClient wraps the gRPC ConsoleMessageMessageLevelService client.
-type ConsoleMessageMessageLevelClient struct {
-	svc pb.ConsoleMessageMessageLevelServiceClient
-}
-
-// NewConsoleMessageMessageLevelClient creates a new ConsoleMessageMessageLevel client.
-func NewConsoleMessageMessageLevelClient(cc grpc.ClientConnInterface) *ConsoleMessageMessageLevelClient {
-	return &ConsoleMessageMessageLevelClient{
-		svc: pb.NewConsoleMessageMessageLevelServiceClient(cc),
+// NewWebSettingsLayoutAlgorithmClient creates a new WebSettingsLayoutAlgorithm client.
+func NewWebSettingsLayoutAlgorithmClient(cc grpc.ClientConnInterface) *WebSettingsLayoutAlgorithmClient {
+	return &WebSettingsLayoutAlgorithmClient{
+		svc: pb.NewWebSettingsLayoutAlgorithmServiceClient(cc),
 	}
 }
 
 // Values calls the Values RPC.
-func (c *ConsoleMessageMessageLevelClient) Values(ctx context.Context) (int64, error) {
+func (c *WebSettingsLayoutAlgorithmClient) Values(ctx context.Context) (int64, error) {
 	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
 	if err != nil {
 		return 0, err
@@ -174,7 +1031,7 @@ func (c *ConsoleMessageMessageLevelClient) Values(ctx context.Context) (int64, e
 }
 
 // ValueOf calls the ValueOf RPC.
-func (c *ConsoleMessageMessageLevelClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+func (c *WebSettingsLayoutAlgorithmClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
 	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
 		Arg0: arg0,
 	})
@@ -184,588 +1041,132 @@ func (c *ConsoleMessageMessageLevelClient) ValueOf(ctx context.Context, arg0 str
 	return resp.GetResult(), nil
 }
 
-// RenderProcessGoneDetailClient wraps the gRPC RenderProcessGoneDetailService client.
-type RenderProcessGoneDetailClient struct {
-	svc pb.RenderProcessGoneDetailServiceClient
+// WebSettingsPluginStateClient wraps the gRPC WebSettingsPluginStateService client.
+type WebSettingsPluginStateClient struct {
+	svc pb.WebSettingsPluginStateServiceClient
 }
 
-// NewRenderProcessGoneDetailClient creates a new RenderProcessGoneDetail client.
-func NewRenderProcessGoneDetailClient(cc grpc.ClientConnInterface) *RenderProcessGoneDetailClient {
-	return &RenderProcessGoneDetailClient{
-		svc: pb.NewRenderProcessGoneDetailServiceClient(cc),
+// NewWebSettingsPluginStateClient creates a new WebSettingsPluginState client.
+func NewWebSettingsPluginStateClient(cc grpc.ClientConnInterface) *WebSettingsPluginStateClient {
+	return &WebSettingsPluginStateClient{
+		svc: pb.NewWebSettingsPluginStateServiceClient(cc),
 	}
 }
 
-// DidCrash calls the DidCrash RPC.
-func (c *RenderProcessGoneDetailClient) DidCrash(ctx context.Context) (bool, error) {
-	resp, err := c.svc.DidCrash(ctx, &pb.DidCrashRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RendererPriorityAtExit calls the RendererPriorityAtExit RPC.
-func (c *RenderProcessGoneDetailClient) RendererPriorityAtExit(ctx context.Context) (int32, error) {
-	resp, err := c.svc.RendererPriorityAtExit(ctx, &pb.RendererPriorityAtExitRequest{})
+// Values calls the Values RPC.
+func (c *WebSettingsPluginStateClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// DateSorterClient wraps the gRPC DateSorterService client.
-type DateSorterClient struct {
-	svc pb.DateSorterServiceClient
-}
-
-// NewDateSorterClient creates a new DateSorter client.
-func NewDateSorterClient(cc grpc.ClientConnInterface) *DateSorterClient {
-	return &DateSorterClient{
-		svc: pb.NewDateSorterServiceClient(cc),
-	}
-}
-
-// GetBoundary calls the GetBoundary RPC.
-func (c *DateSorterClient) GetBoundary(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetBoundary(ctx, &pb.GetBoundaryRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIndex calls the GetIndex RPC.
-func (c *DateSorterClient) GetIndex(ctx context.Context, handle int64, arg0 int64) (int32, error) {
-	resp, err := c.svc.GetIndex(ctx, &pb.GetIndexRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLabel calls the GetLabel RPC.
-func (c *DateSorterClient) GetLabel(ctx context.Context, handle int64, arg0 int32) (string, error) {
-	resp, err := c.svc.GetLabel(ctx, &pb.GetLabelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClientCertRequestClient wraps the gRPC ClientCertRequestService client.
-type ClientCertRequestClient struct {
-	svc pb.ClientCertRequestServiceClient
-}
-
-// NewClientCertRequestClient creates a new ClientCertRequest client.
-func NewClientCertRequestClient(cc grpc.ClientConnInterface) *ClientCertRequestClient {
-	return &ClientCertRequestClient{
-		svc: pb.NewClientCertRequestServiceClient(cc),
-	}
-}
-
-// Cancel calls the Cancel RPC.
-func (c *ClientCertRequestClient) Cancel(ctx context.Context) error {
-	_, err := c.svc.Cancel(ctx, &pb.CancelRequest{})
-	return err
-}
-
-// GetHost calls the GetHost RPC.
-func (c *ClientCertRequestClient) GetHost(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetHost(ctx, &pb.GetHostRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetKeyTypes calls the GetKeyTypes RPC.
-func (c *ClientCertRequestClient) GetKeyTypes(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetKeyTypes(ctx, &pb.GetKeyTypesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPort calls the GetPort RPC.
-func (c *ClientCertRequestClient) GetPort(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetPort(ctx, &pb.GetPortRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPrincipals calls the GetPrincipals RPC.
-func (c *ClientCertRequestClient) GetPrincipals(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetPrincipals(ctx, &pb.GetPrincipalsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Ignore calls the Ignore RPC.
-func (c *ClientCertRequestClient) Ignore(ctx context.Context) error {
-	_, err := c.svc.Ignore(ctx, &pb.IgnoreRequest{})
-	return err
-}
-
-// Proceed calls the Proceed RPC.
-func (c *ClientCertRequestClient) Proceed(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.Proceed(ctx, &pb.ProceedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// WebResourceRequestClient wraps the gRPC WebResourceRequestService client.
-type WebResourceRequestClient struct {
-	svc pb.WebResourceRequestServiceClient
-}
-
-// NewWebResourceRequestClient creates a new WebResourceRequest client.
-func NewWebResourceRequestClient(cc grpc.ClientConnInterface) *WebResourceRequestClient {
-	return &WebResourceRequestClient{
-		svc: pb.NewWebResourceRequestServiceClient(cc),
-	}
-}
-
-// GetMethod calls the GetMethod RPC.
-func (c *WebResourceRequestClient) GetMethod(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetMethod(ctx, &pb.GetMethodRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUrl calls the GetUrl RPC.
-func (c *WebResourceRequestClient) GetUrl(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetUrl(ctx, &pb.GetUrlRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasGesture calls the HasGesture RPC.
-func (c *WebResourceRequestClient) HasGesture(ctx context.Context) (bool, error) {
-	resp, err := c.svc.HasGesture(ctx, &pb.HasGestureRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsForMainFrame calls the IsForMainFrame RPC.
-func (c *WebResourceRequestClient) IsForMainFrame(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsForMainFrame(ctx, &pb.IsForMainFrameRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsRedirect calls the IsRedirect RPC.
-func (c *WebResourceRequestClient) IsRedirect(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsRedirect(ctx, &pb.IsRedirectRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ServiceWorkerControllerClient wraps the gRPC ServiceWorkerControllerService client.
-type ServiceWorkerControllerClient struct {
-	svc pb.ServiceWorkerControllerServiceClient
-}
-
-// NewServiceWorkerControllerClient creates a new ServiceWorkerController client.
-func NewServiceWorkerControllerClient(cc grpc.ClientConnInterface) *ServiceWorkerControllerClient {
-	return &ServiceWorkerControllerClient{
-		svc: pb.NewServiceWorkerControllerServiceClient(cc),
-	}
-}
-
-// GetServiceWorkerWebSettings calls the GetServiceWorkerWebSettings RPC.
-func (c *ServiceWorkerControllerClient) GetServiceWorkerWebSettings(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetServiceWorkerWebSettings(ctx, &pb.GetServiceWorkerWebSettingsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetServiceWorkerClient calls the SetServiceWorkerClient RPC.
-func (c *ServiceWorkerControllerClient) SetServiceWorkerClient(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetServiceWorkerClient(ctx, &pb.SetServiceWorkerClientRequest{
+// ValueOf calls the ValueOf RPC.
+func (c *WebSettingsPluginStateClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
 		Arg0: arg0,
 	})
-	return err
-}
-
-// GetInstance calls the GetInstance RPC.
-func (c *ServiceWorkerControllerClient) GetInstance(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetInstance(ctx, &pb.GetInstanceRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// URLUtilClient wraps the gRPC URLUtilService client.
-type URLUtilClient struct {
-	svc pb.URLUtilServiceClient
+// WebSettingsRenderPriorityClient wraps the gRPC WebSettingsRenderPriorityService client.
+type WebSettingsRenderPriorityClient struct {
+	svc pb.WebSettingsRenderPriorityServiceClient
 }
 
-// NewURLUtilClient creates a new URLUtil client.
-func NewURLUtilClient(cc grpc.ClientConnInterface) *URLUtilClient {
-	return &URLUtilClient{
-		svc: pb.NewURLUtilServiceClient(cc),
+// NewWebSettingsRenderPriorityClient creates a new WebSettingsRenderPriority client.
+func NewWebSettingsRenderPriorityClient(cc grpc.ClientConnInterface) *WebSettingsRenderPriorityClient {
+	return &WebSettingsRenderPriorityClient{
+		svc: pb.NewWebSettingsRenderPriorityServiceClient(cc),
 	}
 }
 
-// ComposeSearchUrl calls the ComposeSearchUrl RPC.
-func (c *URLUtilClient) ComposeSearchUrl(ctx context.Context, handle int64, arg0 string, arg1 string, arg2 string) (string, error) {
-	resp, err := c.svc.ComposeSearchUrl(ctx, &pb.ComposeSearchUrlRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Decode calls the Decode RPC.
-func (c *URLUtilClient) Decode(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.Decode(ctx, &pb.DecodeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
+// Values calls the Values RPC.
+func (c *WebSettingsRenderPriorityClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GuessFileName calls the GuessFileName RPC.
-func (c *URLUtilClient) GuessFileName(ctx context.Context, handle int64, arg0 string, arg1 string, arg2 string) (string, error) {
-	resp, err := c.svc.GuessFileName(ctx, &pb.GuessFileNameRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GuessUrl calls the GuessUrl RPC.
-func (c *URLUtilClient) GuessUrl(ctx context.Context, handle int64, arg0 string) (string, error) {
-	resp, err := c.svc.GuessUrl(ctx, &pb.GuessUrlRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsAboutUrl calls the IsAboutUrl RPC.
-func (c *URLUtilClient) IsAboutUrl(ctx context.Context, handle int64, arg0 string) (bool, error) {
-	resp, err := c.svc.IsAboutUrl(ctx, &pb.IsAboutUrlRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsAssetUrl calls the IsAssetUrl RPC.
-func (c *URLUtilClient) IsAssetUrl(ctx context.Context, handle int64, arg0 string) (bool, error) {
-	resp, err := c.svc.IsAssetUrl(ctx, &pb.IsAssetUrlRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsContentUrl calls the IsContentUrl RPC.
-func (c *URLUtilClient) IsContentUrl(ctx context.Context, handle int64, arg0 string) (bool, error) {
-	resp, err := c.svc.IsContentUrl(ctx, &pb.IsContentUrlRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsCookielessProxyUrl calls the IsCookielessProxyUrl RPC.
-func (c *URLUtilClient) IsCookielessProxyUrl(ctx context.Context, handle int64, arg0 string) (bool, error) {
-	resp, err := c.svc.IsCookielessProxyUrl(ctx, &pb.IsCookielessProxyUrlRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsDataUrl calls the IsDataUrl RPC.
-func (c *URLUtilClient) IsDataUrl(ctx context.Context, handle int64, arg0 string) (bool, error) {
-	resp, err := c.svc.IsDataUrl(ctx, &pb.IsDataUrlRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsFileUrl calls the IsFileUrl RPC.
-func (c *URLUtilClient) IsFileUrl(ctx context.Context, handle int64, arg0 string) (bool, error) {
-	resp, err := c.svc.IsFileUrl(ctx, &pb.IsFileUrlRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsHttpUrl calls the IsHttpUrl RPC.
-func (c *URLUtilClient) IsHttpUrl(ctx context.Context, handle int64, arg0 string) (bool, error) {
-	resp, err := c.svc.IsHttpUrl(ctx, &pb.IsHttpUrlRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsHttpsUrl calls the IsHttpsUrl RPC.
-func (c *URLUtilClient) IsHttpsUrl(ctx context.Context, handle int64, arg0 string) (bool, error) {
-	resp, err := c.svc.IsHttpsUrl(ctx, &pb.IsHttpsUrlRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsJavaScriptUrl calls the IsJavaScriptUrl RPC.
-func (c *URLUtilClient) IsJavaScriptUrl(ctx context.Context, handle int64, arg0 string) (bool, error) {
-	resp, err := c.svc.IsJavaScriptUrl(ctx, &pb.IsJavaScriptUrlRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsNetworkUrl calls the IsNetworkUrl RPC.
-func (c *URLUtilClient) IsNetworkUrl(ctx context.Context, handle int64, arg0 string) (bool, error) {
-	resp, err := c.svc.IsNetworkUrl(ctx, &pb.IsNetworkUrlRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsValidUrl calls the IsValidUrl RPC.
-func (c *URLUtilClient) IsValidUrl(ctx context.Context, handle int64, arg0 string) (bool, error) {
-	resp, err := c.svc.IsValidUrl(ctx, &pb.IsValidUrlRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// StripAnchor calls the StripAnchor RPC.
-func (c *URLUtilClient) StripAnchor(ctx context.Context, handle int64, arg0 string) (string, error) {
-	resp, err := c.svc.StripAnchor(ctx, &pb.StripAnchorRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WebResourceResponseClient wraps the gRPC WebResourceResponseService client.
-type WebResourceResponseClient struct {
-	svc pb.WebResourceResponseServiceClient
-}
-
-// NewWebResourceResponseClient creates a new WebResourceResponse client.
-func NewWebResourceResponseClient(cc grpc.ClientConnInterface) *WebResourceResponseClient {
-	return &WebResourceResponseClient{
-		svc: pb.NewWebResourceResponseServiceClient(cc),
-	}
-}
-
-// GetData calls the GetData RPC.
-func (c *WebResourceResponseClient) GetData(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetData(ctx, &pb.GetDataRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetEncoding calls the GetEncoding RPC.
-func (c *WebResourceResponseClient) GetEncoding(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetEncoding(ctx, &pb.GetEncodingRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMimeType calls the GetMimeType RPC.
-func (c *WebResourceResponseClient) GetMimeType(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetMimeType(ctx, &pb.GetMimeTypeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetReasonPhrase calls the GetReasonPhrase RPC.
-func (c *WebResourceResponseClient) GetReasonPhrase(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetReasonPhrase(ctx, &pb.GetReasonPhraseRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStatusCode calls the GetStatusCode RPC.
-func (c *WebResourceResponseClient) GetStatusCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetStatusCode(ctx, &pb.GetStatusCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetData calls the SetData RPC.
-func (c *WebResourceResponseClient) SetData(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetData(ctx, &pb.SetDataRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetEncoding calls the SetEncoding RPC.
-func (c *WebResourceResponseClient) SetEncoding(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetEncoding(ctx, &pb.SetEncodingRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetMimeType calls the SetMimeType RPC.
-func (c *WebResourceResponseClient) SetMimeType(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetMimeType(ctx, &pb.SetMimeTypeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetStatusCodeAndReasonPhrase calls the SetStatusCodeAndReasonPhrase RPC.
-func (c *WebResourceResponseClient) SetStatusCodeAndReasonPhrase(ctx context.Context, handle int64, arg0 int32, arg1 string) error {
-	_, err := c.svc.SetStatusCodeAndReasonPhrase(ctx, &pb.SetStatusCodeAndReasonPhraseRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// WebViewRenderProcessClientClient wraps the gRPC WebViewRenderProcessClientService client.
-type WebViewRenderProcessClientClient struct {
-	svc pb.WebViewRenderProcessClientServiceClient
-}
-
-// NewWebViewRenderProcessClientClient creates a new WebViewRenderProcessClient client.
-func NewWebViewRenderProcessClientClient(cc grpc.ClientConnInterface) *WebViewRenderProcessClientClient {
-	return &WebViewRenderProcessClientClient{
-		svc: pb.NewWebViewRenderProcessClientServiceClient(cc),
-	}
-}
-
-// OnRenderProcessResponsive calls the OnRenderProcessResponsive RPC.
-func (c *WebViewRenderProcessClientClient) OnRenderProcessResponsive(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.OnRenderProcessResponsive(ctx, &pb.OnRenderProcessResponsiveRequest{
+// ValueOf calls the ValueOf RPC.
+func (c *WebSettingsRenderPriorityClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
 		Arg0: arg0,
-		Arg1: arg1,
 	})
-	return err
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
-// OnRenderProcessUnresponsive calls the OnRenderProcessUnresponsive RPC.
-func (c *WebViewRenderProcessClientClient) OnRenderProcessUnresponsive(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.OnRenderProcessUnresponsive(ctx, &pb.OnRenderProcessUnresponsiveRequest{
+// WebSettingsTextSizeClient wraps the gRPC WebSettingsTextSizeService client.
+type WebSettingsTextSizeClient struct {
+	svc pb.WebSettingsTextSizeServiceClient
+}
+
+// NewWebSettingsTextSizeClient creates a new WebSettingsTextSize client.
+func NewWebSettingsTextSizeClient(cc grpc.ClientConnInterface) *WebSettingsTextSizeClient {
+	return &WebSettingsTextSizeClient{
+		svc: pb.NewWebSettingsTextSizeServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *WebSettingsTextSizeClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *WebSettingsTextSizeClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
 		Arg0: arg0,
-		Arg1: arg1,
 	})
-	return err
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WebSettingsZoomDensityClient wraps the gRPC WebSettingsZoomDensityService client.
+type WebSettingsZoomDensityClient struct {
+	svc pb.WebSettingsZoomDensityServiceClient
+}
+
+// NewWebSettingsZoomDensityClient creates a new WebSettingsZoomDensity client.
+func NewWebSettingsZoomDensityClient(cc grpc.ClientConnInterface) *WebSettingsZoomDensityClient {
+	return &WebSettingsZoomDensityClient{
+		svc: pb.NewWebSettingsZoomDensityServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *WebSettingsZoomDensityClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *WebSettingsZoomDensityClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
 // WebViewClient wraps the gRPC WebViewService client.
@@ -1227,7 +1628,7 @@ func (c *WebViewClient) GetTitle(ctx context.Context, handle int64) (string, err
 
 // GetUrl calls the GetUrl RPC.
 func (c *WebViewClient) GetUrl(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetUrl(ctx, &pb.WebViewGetUrlRequest{
+	resp, err := c.svc.GetUrl(ctx, &pb.GetUrlRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -2276,1572 +2677,40 @@ func (c *WebViewVisualStateCallbackClient) OnComplete(ctx context.Context, arg0 
 	return err
 }
 
-// TracingConfigClient wraps the gRPC TracingConfigService client.
-type TracingConfigClient struct {
-	svc pb.TracingConfigServiceClient
+// ServiceWorkerControllerClient wraps the gRPC ServiceWorkerControllerService client.
+type ServiceWorkerControllerClient struct {
+	svc pb.ServiceWorkerControllerServiceClient
 }
 
-// NewTracingConfigClient creates a new TracingConfig client.
-func NewTracingConfigClient(cc grpc.ClientConnInterface) *TracingConfigClient {
-	return &TracingConfigClient{
-		svc: pb.NewTracingConfigServiceClient(cc),
+// NewServiceWorkerControllerClient creates a new ServiceWorkerController client.
+func NewServiceWorkerControllerClient(cc grpc.ClientConnInterface) *ServiceWorkerControllerClient {
+	return &ServiceWorkerControllerClient{
+		svc: pb.NewServiceWorkerControllerServiceClient(cc),
 	}
 }
 
-// GetPredefinedCategories calls the GetPredefinedCategories RPC.
-func (c *TracingConfigClient) GetPredefinedCategories(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetPredefinedCategories(ctx, &pb.GetPredefinedCategoriesRequest{})
+// GetServiceWorkerWebSettings calls the GetServiceWorkerWebSettings RPC.
+func (c *ServiceWorkerControllerClient) GetServiceWorkerWebSettings(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetServiceWorkerWebSettings(ctx, &pb.GetServiceWorkerWebSettingsRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetTracingMode calls the GetTracingMode RPC.
-func (c *TracingConfigClient) GetTracingMode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetTracingMode(ctx, &pb.GetTracingModeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// TracingConfigBuilderClient wraps the gRPC TracingConfigBuilderService client.
-type TracingConfigBuilderClient struct {
-	svc pb.TracingConfigBuilderServiceClient
-}
-
-// NewTracingConfigBuilderClient creates a new TracingConfigBuilder client.
-func NewTracingConfigBuilderClient(cc grpc.ClientConnInterface) *TracingConfigBuilderClient {
-	return &TracingConfigBuilderClient{
-		svc: pb.NewTracingConfigBuilderServiceClient(cc),
-	}
-}
-
-// AddCategories1 calls the AddCategories1 RPC.
-func (c *TracingConfigBuilderClient) AddCategories1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddCategories1(ctx, &pb.AddCategories1Request{
+// SetServiceWorkerClient calls the SetServiceWorkerClient RPC.
+func (c *ServiceWorkerControllerClient) SetServiceWorkerClient(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetServiceWorkerClient(ctx, &pb.SetServiceWorkerClientRequest{
 		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddCategories1_1 calls the AddCategories1_1 RPC.
-func (c *TracingConfigBuilderClient) AddCategories1_1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddCategories1_1(ctx, &pb.AddCategories1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Build calls the Build RPC.
-func (c *TracingConfigBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetTracingMode calls the SetTracingMode RPC.
-func (c *TracingConfigBuilderClient) SetTracingMode(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetTracingMode(ctx, &pb.SetTracingModeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WebMessagePortClient wraps the gRPC WebMessagePortService client.
-type WebMessagePortClient struct {
-	svc pb.WebMessagePortServiceClient
-}
-
-// NewWebMessagePortClient creates a new WebMessagePort client.
-func NewWebMessagePortClient(cc grpc.ClientConnInterface) *WebMessagePortClient {
-	return &WebMessagePortClient{
-		svc: pb.NewWebMessagePortServiceClient(cc),
-	}
-}
-
-// Close calls the Close RPC.
-func (c *WebMessagePortClient) Close(ctx context.Context) error {
-	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
-	return err
-}
-
-// PostMessage calls the PostMessage RPC.
-func (c *WebMessagePortClient) PostMessage(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.PostMessage(ctx, &pb.PostMessageRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetWebMessageCallback calls the SetWebMessageCallback RPC.
-func (c *WebMessagePortClient) SetWebMessageCallback(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetWebMessageCallback(ctx, &pb.SetWebMessageCallbackRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// WebMessagePortWebMessageCallbackClient wraps the gRPC WebMessagePortWebMessageCallbackService client.
-type WebMessagePortWebMessageCallbackClient struct {
-	svc pb.WebMessagePortWebMessageCallbackServiceClient
-}
-
-// NewWebMessagePortWebMessageCallbackClient creates a new WebMessagePortWebMessageCallback client.
-func NewWebMessagePortWebMessageCallbackClient(cc grpc.ClientConnInterface) *WebMessagePortWebMessageCallbackClient {
-	return &WebMessagePortWebMessageCallbackClient{
-		svc: pb.NewWebMessagePortWebMessageCallbackServiceClient(cc),
-	}
-}
-
-// OnMessage calls the OnMessage RPC.
-func (c *WebMessagePortWebMessageCallbackClient) OnMessage(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.OnMessage(ctx, &pb.OnMessageRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// JsPromptResultClient wraps the gRPC JsPromptResultService client.
-type JsPromptResultClient struct {
-	svc pb.JsPromptResultServiceClient
-}
-
-// NewJsPromptResultClient creates a new JsPromptResult client.
-func NewJsPromptResultClient(cc grpc.ClientConnInterface) *JsPromptResultClient {
-	return &JsPromptResultClient{
-		svc: pb.NewJsPromptResultServiceClient(cc),
-	}
-}
-
-// Confirm calls the Confirm RPC.
-func (c *JsPromptResultClient) Confirm(ctx context.Context, arg0 string) error {
-	_, err := c.svc.Confirm(ctx, &pb.ConfirmRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// WebStorageClient wraps the gRPC WebStorageService client.
-type WebStorageClient struct {
-	svc pb.WebStorageServiceClient
-}
-
-// NewWebStorageClient creates a new WebStorage client.
-func NewWebStorageClient(cc grpc.ClientConnInterface) *WebStorageClient {
-	return &WebStorageClient{
-		svc: pb.NewWebStorageServiceClient(cc),
-	}
-}
-
-// DeleteAllData calls the DeleteAllData RPC.
-func (c *WebStorageClient) DeleteAllData(ctx context.Context) error {
-	_, err := c.svc.DeleteAllData(ctx, &pb.DeleteAllDataRequest{})
-	return err
-}
-
-// DeleteOrigin calls the DeleteOrigin RPC.
-func (c *WebStorageClient) DeleteOrigin(ctx context.Context, arg0 string) error {
-	_, err := c.svc.DeleteOrigin(ctx, &pb.DeleteOriginRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetQuotaForOrigin calls the SetQuotaForOrigin RPC.
-func (c *WebStorageClient) SetQuotaForOrigin(ctx context.Context, arg0 string, arg1 int64) error {
-	_, err := c.svc.SetQuotaForOrigin(ctx, &pb.SetQuotaForOriginRequest{
-		Arg0: arg0,
-		Arg1: arg1,
 	})
 	return err
 }
 
 // GetInstance calls the GetInstance RPC.
-func (c *WebStorageClient) GetInstance(ctx context.Context) (int64, error) {
+func (c *ServiceWorkerControllerClient) GetInstance(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetInstance(ctx, &pb.GetInstanceRequest{})
 	if err != nil {
 		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WebStorageOriginClient wraps the gRPC WebStorageOriginService client.
-type WebStorageOriginClient struct {
-	svc pb.WebStorageOriginServiceClient
-}
-
-// NewWebStorageOriginClient creates a new WebStorageOrigin client.
-func NewWebStorageOriginClient(cc grpc.ClientConnInterface) *WebStorageOriginClient {
-	return &WebStorageOriginClient{
-		svc: pb.NewWebStorageOriginServiceClient(cc),
-	}
-}
-
-// GetOrigin calls the GetOrigin RPC.
-func (c *WebStorageOriginClient) GetOrigin(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetOrigin(ctx, &pb.GetOriginRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetQuota calls the GetQuota RPC.
-func (c *WebStorageOriginClient) GetQuota(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetQuota(ctx, &pb.GetQuotaRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUsage calls the GetUsage RPC.
-func (c *WebStorageOriginClient) GetUsage(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetUsage(ctx, &pb.GetUsageRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WebStorageQuotaUpdaterClient wraps the gRPC WebStorageQuotaUpdaterService client.
-type WebStorageQuotaUpdaterClient struct {
-	svc pb.WebStorageQuotaUpdaterServiceClient
-}
-
-// NewWebStorageQuotaUpdaterClient creates a new WebStorageQuotaUpdater client.
-func NewWebStorageQuotaUpdaterClient(cc grpc.ClientConnInterface) *WebStorageQuotaUpdaterClient {
-	return &WebStorageQuotaUpdaterClient{
-		svc: pb.NewWebStorageQuotaUpdaterServiceClient(cc),
-	}
-}
-
-// UpdateQuota calls the UpdateQuota RPC.
-func (c *WebStorageQuotaUpdaterClient) UpdateQuota(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.UpdateQuota(ctx, &pb.UpdateQuotaRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SslErrorHandlerClient wraps the gRPC SslErrorHandlerService client.
-type SslErrorHandlerClient struct {
-	svc pb.SslErrorHandlerServiceClient
-}
-
-// NewSslErrorHandlerClient creates a new SslErrorHandler client.
-func NewSslErrorHandlerClient(cc grpc.ClientConnInterface) *SslErrorHandlerClient {
-	return &SslErrorHandlerClient{
-		svc: pb.NewSslErrorHandlerServiceClient(cc),
-	}
-}
-
-// Cancel calls the Cancel RPC.
-func (c *SslErrorHandlerClient) Cancel(ctx context.Context) error {
-	_, err := c.svc.Cancel(ctx, &pb.CancelRequest{})
-	return err
-}
-
-// Proceed calls the Proceed RPC.
-func (c *SslErrorHandlerClient) Proceed(ctx context.Context) error {
-	_, err := c.svc.Proceed(ctx, &pb.SslErrorHandlerProceedRequest{})
-	return err
-}
-
-// WebViewFragmentClient wraps the gRPC WebViewFragmentService client.
-type WebViewFragmentClient struct {
-	svc pb.WebViewFragmentServiceClient
-}
-
-// NewWebViewFragmentClient creates a new WebViewFragment client.
-func NewWebViewFragmentClient(cc grpc.ClientConnInterface) *WebViewFragmentClient {
-	return &WebViewFragmentClient{
-		svc: pb.NewWebViewFragmentServiceClient(cc),
-	}
-}
-
-// GetWebView calls the GetWebView RPC.
-func (c *WebViewFragmentClient) GetWebView(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetWebView(ctx, &pb.GetWebViewRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnCreateView calls the OnCreateView RPC.
-func (c *WebViewFragmentClient) OnCreateView(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.OnCreateView(ctx, &pb.OnCreateViewRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnDestroy calls the OnDestroy RPC.
-func (c *WebViewFragmentClient) OnDestroy(ctx context.Context, handle int64) error {
-	_, err := c.svc.OnDestroy(ctx, &pb.OnDestroyRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// OnDestroyView calls the OnDestroyView RPC.
-func (c *WebViewFragmentClient) OnDestroyView(ctx context.Context, handle int64) error {
-	_, err := c.svc.OnDestroyView(ctx, &pb.OnDestroyViewRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// OnPause calls the OnPause RPC.
-func (c *WebViewFragmentClient) OnPause(ctx context.Context, handle int64) error {
-	_, err := c.svc.OnPause(ctx, &pb.OnPauseRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// OnResume calls the OnResume RPC.
-func (c *WebViewFragmentClient) OnResume(ctx context.Context, handle int64) error {
-	_, err := c.svc.OnResume(ctx, &pb.OnResumeRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// HttpAuthHandlerClient wraps the gRPC HttpAuthHandlerService client.
-type HttpAuthHandlerClient struct {
-	svc pb.HttpAuthHandlerServiceClient
-}
-
-// NewHttpAuthHandlerClient creates a new HttpAuthHandler client.
-func NewHttpAuthHandlerClient(cc grpc.ClientConnInterface) *HttpAuthHandlerClient {
-	return &HttpAuthHandlerClient{
-		svc: pb.NewHttpAuthHandlerServiceClient(cc),
-	}
-}
-
-// Cancel calls the Cancel RPC.
-func (c *HttpAuthHandlerClient) Cancel(ctx context.Context) error {
-	_, err := c.svc.Cancel(ctx, &pb.CancelRequest{})
-	return err
-}
-
-// Proceed calls the Proceed RPC.
-func (c *HttpAuthHandlerClient) Proceed(ctx context.Context, arg0 string, arg1 string) error {
-	_, err := c.svc.Proceed(ctx, &pb.HttpAuthHandlerProceedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// UseHttpAuthUsernamePassword calls the UseHttpAuthUsernamePassword RPC.
-func (c *HttpAuthHandlerClient) UseHttpAuthUsernamePassword(ctx context.Context) (bool, error) {
-	resp, err := c.svc.UseHttpAuthUsernamePassword(ctx, &pb.UseHttpAuthUsernamePasswordRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WebResourceErrorClient wraps the gRPC WebResourceErrorService client.
-type WebResourceErrorClient struct {
-	svc pb.WebResourceErrorServiceClient
-}
-
-// NewWebResourceErrorClient creates a new WebResourceError client.
-func NewWebResourceErrorClient(cc grpc.ClientConnInterface) *WebResourceErrorClient {
-	return &WebResourceErrorClient{
-		svc: pb.NewWebResourceErrorServiceClient(cc),
-	}
-}
-
-// GetDescription calls the GetDescription RPC.
-func (c *WebResourceErrorClient) GetDescription(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDescription(ctx, &pb.GetDescriptionRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetErrorCode calls the GetErrorCode RPC.
-func (c *WebResourceErrorClient) GetErrorCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetErrorCode(ctx, &pb.GetErrorCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PluginStubClient wraps the gRPC PluginStubService client.
-type PluginStubClient struct {
-	svc pb.PluginStubServiceClient
-}
-
-// NewPluginStubClient creates a new PluginStub client.
-func NewPluginStubClient(cc grpc.ClientConnInterface) *PluginStubClient {
-	return &PluginStubClient{
-		svc: pb.NewPluginStubServiceClient(cc),
-	}
-}
-
-// GetEmbeddedView calls the GetEmbeddedView RPC.
-func (c *PluginStubClient) GetEmbeddedView(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetEmbeddedView(ctx, &pb.GetEmbeddedViewRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFullScreenView calls the GetFullScreenView RPC.
-func (c *PluginStubClient) GetFullScreenView(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetFullScreenView(ctx, &pb.GetFullScreenViewRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MimeTypeMapClient wraps the gRPC MimeTypeMapService client.
-type MimeTypeMapClient struct {
-	svc pb.MimeTypeMapServiceClient
-}
-
-// NewMimeTypeMapClient creates a new MimeTypeMap client.
-func NewMimeTypeMapClient(cc grpc.ClientConnInterface) *MimeTypeMapClient {
-	return &MimeTypeMapClient{
-		svc: pb.NewMimeTypeMapServiceClient(cc),
-	}
-}
-
-// GetExtensionFromMimeType calls the GetExtensionFromMimeType RPC.
-func (c *MimeTypeMapClient) GetExtensionFromMimeType(ctx context.Context, arg0 string) (string, error) {
-	resp, err := c.svc.GetExtensionFromMimeType(ctx, &pb.GetExtensionFromMimeTypeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMimeTypeFromExtension calls the GetMimeTypeFromExtension RPC.
-func (c *MimeTypeMapClient) GetMimeTypeFromExtension(ctx context.Context, arg0 string) (string, error) {
-	resp, err := c.svc.GetMimeTypeFromExtension(ctx, &pb.GetMimeTypeFromExtensionRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasExtension calls the HasExtension RPC.
-func (c *MimeTypeMapClient) HasExtension(ctx context.Context, arg0 string) (bool, error) {
-	resp, err := c.svc.HasExtension(ctx, &pb.HasExtensionRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasMimeType calls the HasMimeType RPC.
-func (c *MimeTypeMapClient) HasMimeType(ctx context.Context, arg0 string) (bool, error) {
-	resp, err := c.svc.HasMimeType(ctx, &pb.HasMimeTypeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFileExtensionFromUrl calls the GetFileExtensionFromUrl RPC.
-func (c *MimeTypeMapClient) GetFileExtensionFromUrl(ctx context.Context, arg0 string) (string, error) {
-	resp, err := c.svc.GetFileExtensionFromUrl(ctx, &pb.GetFileExtensionFromUrlRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSingleton calls the GetSingleton RPC.
-func (c *MimeTypeMapClient) GetSingleton(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSingleton(ctx, &pb.GetSingletonRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WebViewDatabaseClient wraps the gRPC WebViewDatabaseService client.
-type WebViewDatabaseClient struct {
-	svc pb.WebViewDatabaseServiceClient
-}
-
-// NewWebViewDatabaseClient creates a new WebViewDatabase client.
-func NewWebViewDatabaseClient(cc grpc.ClientConnInterface) *WebViewDatabaseClient {
-	return &WebViewDatabaseClient{
-		svc: pb.NewWebViewDatabaseServiceClient(cc),
-	}
-}
-
-// ClearFormData calls the ClearFormData RPC.
-func (c *WebViewDatabaseClient) ClearFormData(ctx context.Context) error {
-	_, err := c.svc.ClearFormData(ctx, &pb.WebViewDatabaseClearFormDataRequest{})
-	return err
-}
-
-// ClearHttpAuthUsernamePassword calls the ClearHttpAuthUsernamePassword RPC.
-func (c *WebViewDatabaseClient) ClearHttpAuthUsernamePassword(ctx context.Context) error {
-	_, err := c.svc.ClearHttpAuthUsernamePassword(ctx, &pb.ClearHttpAuthUsernamePasswordRequest{})
-	return err
-}
-
-// ClearUsernamePassword calls the ClearUsernamePassword RPC.
-func (c *WebViewDatabaseClient) ClearUsernamePassword(ctx context.Context) error {
-	_, err := c.svc.ClearUsernamePassword(ctx, &pb.ClearUsernamePasswordRequest{})
-	return err
-}
-
-// GetHttpAuthUsernamePassword calls the GetHttpAuthUsernamePassword RPC.
-func (c *WebViewDatabaseClient) GetHttpAuthUsernamePassword(ctx context.Context, arg0 string, arg1 string) (int64, error) {
-	resp, err := c.svc.GetHttpAuthUsernamePassword(ctx, &pb.WebViewDatabaseGetHttpAuthUsernamePasswordRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasFormData calls the HasFormData RPC.
-func (c *WebViewDatabaseClient) HasFormData(ctx context.Context) (bool, error) {
-	resp, err := c.svc.HasFormData(ctx, &pb.HasFormDataRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasHttpAuthUsernamePassword calls the HasHttpAuthUsernamePassword RPC.
-func (c *WebViewDatabaseClient) HasHttpAuthUsernamePassword(ctx context.Context) (bool, error) {
-	resp, err := c.svc.HasHttpAuthUsernamePassword(ctx, &pb.HasHttpAuthUsernamePasswordRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasUsernamePassword calls the HasUsernamePassword RPC.
-func (c *WebViewDatabaseClient) HasUsernamePassword(ctx context.Context) (bool, error) {
-	resp, err := c.svc.HasUsernamePassword(ctx, &pb.HasUsernamePasswordRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetHttpAuthUsernamePassword calls the SetHttpAuthUsernamePassword RPC.
-func (c *WebViewDatabaseClient) SetHttpAuthUsernamePassword(ctx context.Context, arg0 string, arg1 string, arg2 string, arg3 string) error {
-	_, err := c.svc.SetHttpAuthUsernamePassword(ctx, &pb.WebViewDatabaseSetHttpAuthUsernamePasswordRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GetInstance calls the GetInstance RPC.
-func (c *WebViewDatabaseClient) GetInstance(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetInstance(ctx, &pb.WebViewDatabaseGetInstanceRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CookieManagerClient wraps the gRPC CookieManagerService client.
-type CookieManagerClient struct {
-	svc pb.CookieManagerServiceClient
-}
-
-// NewCookieManagerClient creates a new CookieManager client.
-func NewCookieManagerClient(cc grpc.ClientConnInterface) *CookieManagerClient {
-	return &CookieManagerClient{
-		svc: pb.NewCookieManagerServiceClient(cc),
-	}
-}
-
-// AcceptCookie calls the AcceptCookie RPC.
-func (c *CookieManagerClient) AcceptCookie(ctx context.Context) (bool, error) {
-	resp, err := c.svc.AcceptCookie(ctx, &pb.AcceptCookieRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AcceptThirdPartyCookies calls the AcceptThirdPartyCookies RPC.
-func (c *CookieManagerClient) AcceptThirdPartyCookies(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.AcceptThirdPartyCookies(ctx, &pb.AcceptThirdPartyCookiesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Flush calls the Flush RPC.
-func (c *CookieManagerClient) Flush(ctx context.Context) error {
-	_, err := c.svc.Flush(ctx, &pb.FlushRequest{})
-	return err
-}
-
-// GetCookie calls the GetCookie RPC.
-func (c *CookieManagerClient) GetCookie(ctx context.Context, arg0 string) (string, error) {
-	resp, err := c.svc.GetCookie(ctx, &pb.GetCookieRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasCookies calls the HasCookies RPC.
-func (c *CookieManagerClient) HasCookies(ctx context.Context) (bool, error) {
-	resp, err := c.svc.HasCookies(ctx, &pb.HasCookiesRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RemoveAllCookie calls the RemoveAllCookie RPC.
-func (c *CookieManagerClient) RemoveAllCookie(ctx context.Context) error {
-	_, err := c.svc.RemoveAllCookie(ctx, &pb.RemoveAllCookieRequest{})
-	return err
-}
-
-// RemoveExpiredCookie calls the RemoveExpiredCookie RPC.
-func (c *CookieManagerClient) RemoveExpiredCookie(ctx context.Context) error {
-	_, err := c.svc.RemoveExpiredCookie(ctx, &pb.RemoveExpiredCookieRequest{})
-	return err
-}
-
-// RemoveSessionCookie calls the RemoveSessionCookie RPC.
-func (c *CookieManagerClient) RemoveSessionCookie(ctx context.Context) error {
-	_, err := c.svc.RemoveSessionCookie(ctx, &pb.RemoveSessionCookieRequest{})
-	return err
-}
-
-// SetAcceptCookie calls the SetAcceptCookie RPC.
-func (c *CookieManagerClient) SetAcceptCookie(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetAcceptCookie(ctx, &pb.SetAcceptCookieRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetAcceptThirdPartyCookies calls the SetAcceptThirdPartyCookies RPC.
-func (c *CookieManagerClient) SetAcceptThirdPartyCookies(ctx context.Context, arg0 int64, arg1 bool) error {
-	_, err := c.svc.SetAcceptThirdPartyCookies(ctx, &pb.SetAcceptThirdPartyCookiesRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// SetCookie calls the SetCookie RPC.
-func (c *CookieManagerClient) SetCookie(ctx context.Context, arg0 string, arg1 string) error {
-	_, err := c.svc.SetCookie(ctx, &pb.SetCookieRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// AllowFileSchemeCookies calls the AllowFileSchemeCookies RPC.
-func (c *CookieManagerClient) AllowFileSchemeCookies(ctx context.Context) (bool, error) {
-	resp, err := c.svc.AllowFileSchemeCookies(ctx, &pb.AllowFileSchemeCookiesRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance calls the GetInstance RPC.
-func (c *CookieManagerClient) GetInstance(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetInstance(ctx, &pb.GetInstanceRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetAcceptFileSchemeCookies calls the SetAcceptFileSchemeCookies RPC.
-func (c *CookieManagerClient) SetAcceptFileSchemeCookies(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetAcceptFileSchemeCookies(ctx, &pb.SetAcceptFileSchemeCookiesRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// DownloadListenerClient wraps the gRPC DownloadListenerService client.
-type DownloadListenerClient struct {
-	svc pb.DownloadListenerServiceClient
-}
-
-// NewDownloadListenerClient creates a new DownloadListener client.
-func NewDownloadListenerClient(cc grpc.ClientConnInterface) *DownloadListenerClient {
-	return &DownloadListenerClient{
-		svc: pb.NewDownloadListenerServiceClient(cc),
-	}
-}
-
-// OnDownloadStart calls the OnDownloadStart RPC.
-func (c *DownloadListenerClient) OnDownloadStart(ctx context.Context, arg0 string, arg1 string, arg2 string, arg3 string, arg4 int64) error {
-	_, err := c.svc.OnDownloadStart(ctx, &pb.OnDownloadStartRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// ServiceWorkerWebSettingsClient wraps the gRPC ServiceWorkerWebSettingsService client.
-type ServiceWorkerWebSettingsClient struct {
-	svc pb.ServiceWorkerWebSettingsServiceClient
-}
-
-// NewServiceWorkerWebSettingsClient creates a new ServiceWorkerWebSettings client.
-func NewServiceWorkerWebSettingsClient(cc grpc.ClientConnInterface) *ServiceWorkerWebSettingsClient {
-	return &ServiceWorkerWebSettingsClient{
-		svc: pb.NewServiceWorkerWebSettingsServiceClient(cc),
-	}
-}
-
-// GetAllowContentAccess calls the GetAllowContentAccess RPC.
-func (c *ServiceWorkerWebSettingsClient) GetAllowContentAccess(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetAllowContentAccess(ctx, &pb.GetAllowContentAccessRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAllowFileAccess calls the GetAllowFileAccess RPC.
-func (c *ServiceWorkerWebSettingsClient) GetAllowFileAccess(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetAllowFileAccess(ctx, &pb.GetAllowFileAccessRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBlockNetworkLoads calls the GetBlockNetworkLoads RPC.
-func (c *ServiceWorkerWebSettingsClient) GetBlockNetworkLoads(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetBlockNetworkLoads(ctx, &pb.GetBlockNetworkLoadsRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCacheMode calls the GetCacheMode RPC.
-func (c *ServiceWorkerWebSettingsClient) GetCacheMode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetCacheMode(ctx, &pb.GetCacheModeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetAllowContentAccess calls the SetAllowContentAccess RPC.
-func (c *ServiceWorkerWebSettingsClient) SetAllowContentAccess(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetAllowContentAccess(ctx, &pb.SetAllowContentAccessRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetAllowFileAccess calls the SetAllowFileAccess RPC.
-func (c *ServiceWorkerWebSettingsClient) SetAllowFileAccess(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetAllowFileAccess(ctx, &pb.SetAllowFileAccessRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetBlockNetworkLoads calls the SetBlockNetworkLoads RPC.
-func (c *ServiceWorkerWebSettingsClient) SetBlockNetworkLoads(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetBlockNetworkLoads(ctx, &pb.SetBlockNetworkLoadsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetCacheMode calls the SetCacheMode RPC.
-func (c *ServiceWorkerWebSettingsClient) SetCacheMode(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetCacheMode(ctx, &pb.SetCacheModeRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// PermissionRequestClient wraps the gRPC PermissionRequestService client.
-type PermissionRequestClient struct {
-	svc pb.PermissionRequestServiceClient
-}
-
-// NewPermissionRequestClient creates a new PermissionRequest client.
-func NewPermissionRequestClient(cc grpc.ClientConnInterface) *PermissionRequestClient {
-	return &PermissionRequestClient{
-		svc: pb.NewPermissionRequestServiceClient(cc),
-	}
-}
-
-// Deny calls the Deny RPC.
-func (c *PermissionRequestClient) Deny(ctx context.Context) error {
-	_, err := c.svc.Deny(ctx, &pb.DenyRequest{})
-	return err
-}
-
-// GetOrigin calls the GetOrigin RPC.
-func (c *PermissionRequestClient) GetOrigin(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetOrigin(ctx, &pb.GetOriginRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetResources calls the GetResources RPC.
-func (c *PermissionRequestClient) GetResources(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetResources(ctx, &pb.GetResourcesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Grant calls the Grant RPC.
-func (c *PermissionRequestClient) Grant(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.Grant(ctx, &pb.GrantRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// WebBackForwardListClient wraps the gRPC WebBackForwardListService client.
-type WebBackForwardListClient struct {
-	svc pb.WebBackForwardListServiceClient
-}
-
-// NewWebBackForwardListClient creates a new WebBackForwardList client.
-func NewWebBackForwardListClient(cc grpc.ClientConnInterface) *WebBackForwardListClient {
-	return &WebBackForwardListClient{
-		svc: pb.NewWebBackForwardListServiceClient(cc),
-	}
-}
-
-// GetCurrentIndex calls the GetCurrentIndex RPC.
-func (c *WebBackForwardListClient) GetCurrentIndex(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetCurrentIndex(ctx, &pb.GetCurrentIndexRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCurrentItem calls the GetCurrentItem RPC.
-func (c *WebBackForwardListClient) GetCurrentItem(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetCurrentItem(ctx, &pb.GetCurrentItemRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetItemAtIndex calls the GetItemAtIndex RPC.
-func (c *WebBackForwardListClient) GetItemAtIndex(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetItemAtIndex(ctx, &pb.GetItemAtIndexRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSize calls the GetSize RPC.
-func (c *WebBackForwardListClient) GetSize(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetSize(ctx, &pb.GetSizeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WebMessageClient wraps the gRPC WebMessageService client.
-type WebMessageClient struct {
-	svc pb.WebMessageServiceClient
-}
-
-// NewWebMessageClient creates a new WebMessage client.
-func NewWebMessageClient(cc grpc.ClientConnInterface) *WebMessageClient {
-	return &WebMessageClient{
-		svc: pb.NewWebMessageServiceClient(cc),
-	}
-}
-
-// GetData calls the GetData RPC.
-func (c *WebMessageClient) GetData(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetData(ctx, &pb.GetDataRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPorts calls the GetPorts RPC.
-func (c *WebMessageClient) GetPorts(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetPorts(ctx, &pb.GetPortsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CookieSyncManagerClient wraps the gRPC CookieSyncManagerService client.
-type CookieSyncManagerClient struct {
-	svc pb.CookieSyncManagerServiceClient
-}
-
-// NewCookieSyncManagerClient creates a new CookieSyncManager client.
-func NewCookieSyncManagerClient(cc grpc.ClientConnInterface) *CookieSyncManagerClient {
-	return &CookieSyncManagerClient{
-		svc: pb.NewCookieSyncManagerServiceClient(cc),
-	}
-}
-
-// ResetSync calls the ResetSync RPC.
-func (c *CookieSyncManagerClient) ResetSync(ctx context.Context) error {
-	_, err := c.svc.ResetSync(ctx, &pb.ResetSyncRequest{})
-	return err
-}
-
-// Run calls the Run RPC.
-func (c *CookieSyncManagerClient) Run(ctx context.Context) error {
-	_, err := c.svc.Run(ctx, &pb.RunRequest{})
-	return err
-}
-
-// StartSync calls the StartSync RPC.
-func (c *CookieSyncManagerClient) StartSync(ctx context.Context) error {
-	_, err := c.svc.StartSync(ctx, &pb.StartSyncRequest{})
-	return err
-}
-
-// StopSync calls the StopSync RPC.
-func (c *CookieSyncManagerClient) StopSync(ctx context.Context) error {
-	_, err := c.svc.StopSync(ctx, &pb.StopSyncRequest{})
-	return err
-}
-
-// Sync calls the Sync RPC.
-func (c *CookieSyncManagerClient) Sync(ctx context.Context) error {
-	_, err := c.svc.Sync(ctx, &pb.SyncRequest{})
-	return err
-}
-
-// CreateInstance calls the CreateInstance RPC.
-func (c *CookieSyncManagerClient) CreateInstance(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.CreateInstance(ctx, &pb.CreateInstanceRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance calls the GetInstance RPC.
-func (c *CookieSyncManagerClient) GetInstance(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetInstance(ctx, &pb.GetInstanceRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// JsResultClient wraps the gRPC JsResultService client.
-type JsResultClient struct {
-	svc pb.JsResultServiceClient
-}
-
-// NewJsResultClient creates a new JsResult client.
-func NewJsResultClient(cc grpc.ClientConnInterface) *JsResultClient {
-	return &JsResultClient{
-		svc: pb.NewJsResultServiceClient(cc),
-	}
-}
-
-// Cancel calls the Cancel RPC.
-func (c *JsResultClient) Cancel(ctx context.Context) error {
-	_, err := c.svc.Cancel(ctx, &pb.CancelRequest{})
-	return err
-}
-
-// Confirm calls the Confirm RPC.
-func (c *JsResultClient) Confirm(ctx context.Context) error {
-	_, err := c.svc.Confirm(ctx, &pb.JsResultConfirmRequest{})
-	return err
-}
-
-// ServiceWorkerClientClient wraps the gRPC ServiceWorkerClientService client.
-type ServiceWorkerClientClient struct {
-	svc pb.ServiceWorkerClientServiceClient
-}
-
-// NewServiceWorkerClientClient creates a new ServiceWorkerClient client.
-func NewServiceWorkerClientClient(cc grpc.ClientConnInterface) *ServiceWorkerClientClient {
-	return &ServiceWorkerClientClient{
-		svc: pb.NewServiceWorkerClientServiceClient(cc),
-	}
-}
-
-// ShouldInterceptRequest calls the ShouldInterceptRequest RPC.
-func (c *ServiceWorkerClientClient) ShouldInterceptRequest(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.ShouldInterceptRequest(ctx, &pb.ShouldInterceptRequestRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// TracingControllerClient wraps the gRPC TracingControllerService client.
-type TracingControllerClient struct {
-	svc pb.TracingControllerServiceClient
-}
-
-// NewTracingControllerClient creates a new TracingController client.
-func NewTracingControllerClient(cc grpc.ClientConnInterface) *TracingControllerClient {
-	return &TracingControllerClient{
-		svc: pb.NewTracingControllerServiceClient(cc),
-	}
-}
-
-// IsTracing calls the IsTracing RPC.
-func (c *TracingControllerClient) IsTracing(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsTracing(ctx, &pb.IsTracingRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Start calls the Start RPC.
-func (c *TracingControllerClient) Start(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.Start(ctx, &pb.StartRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// Stop calls the Stop RPC.
-func (c *TracingControllerClient) Stop(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.Stop(ctx, &pb.StopRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance calls the GetInstance RPC.
-func (c *TracingControllerClient) GetInstance(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetInstance(ctx, &pb.GetInstanceRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WebChromeClientClient wraps the gRPC WebChromeClientService client.
-type WebChromeClientClient struct {
-	svc pb.WebChromeClientServiceClient
-}
-
-// NewWebChromeClientClient creates a new WebChromeClient client.
-func NewWebChromeClientClient(cc grpc.ClientConnInterface) *WebChromeClientClient {
-	return &WebChromeClientClient{
-		svc: pb.NewWebChromeClientServiceClient(cc),
-	}
-}
-
-// GetDefaultVideoPoster calls the GetDefaultVideoPoster RPC.
-func (c *WebChromeClientClient) GetDefaultVideoPoster(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetDefaultVideoPoster(ctx, &pb.GetDefaultVideoPosterRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetVideoLoadingProgressView calls the GetVideoLoadingProgressView RPC.
-func (c *WebChromeClientClient) GetVideoLoadingProgressView(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetVideoLoadingProgressView(ctx, &pb.GetVideoLoadingProgressViewRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnCloseWindow calls the OnCloseWindow RPC.
-func (c *WebChromeClientClient) OnCloseWindow(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.OnCloseWindow(ctx, &pb.OnCloseWindowRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// OnConsoleMessage1 calls the OnConsoleMessage1 RPC.
-func (c *WebChromeClientClient) OnConsoleMessage1(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.OnConsoleMessage1(ctx, &pb.OnConsoleMessage1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnConsoleMessage3_1 calls the OnConsoleMessage3_1 RPC.
-func (c *WebChromeClientClient) OnConsoleMessage3_1(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 string) error {
-	_, err := c.svc.OnConsoleMessage3_1(ctx, &pb.OnConsoleMessage3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// OnCreateWindow calls the OnCreateWindow RPC.
-func (c *WebChromeClientClient) OnCreateWindow(ctx context.Context, handle int64, arg0 int64, arg1 bool, arg2 bool, arg3 int64) (bool, error) {
-	resp, err := c.svc.OnCreateWindow(ctx, &pb.OnCreateWindowRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnExceededDatabaseQuota calls the OnExceededDatabaseQuota RPC.
-func (c *WebChromeClientClient) OnExceededDatabaseQuota(ctx context.Context, handle int64, arg0 string, arg1 string, arg2 int64, arg3 int64, arg4 int64, arg5 int64) error {
-	_, err := c.svc.OnExceededDatabaseQuota(ctx, &pb.OnExceededDatabaseQuotaRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	return err
-}
-
-// OnGeolocationPermissionsHidePrompt calls the OnGeolocationPermissionsHidePrompt RPC.
-func (c *WebChromeClientClient) OnGeolocationPermissionsHidePrompt(ctx context.Context, handle int64) error {
-	_, err := c.svc.OnGeolocationPermissionsHidePrompt(ctx, &pb.OnGeolocationPermissionsHidePromptRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// OnGeolocationPermissionsShowPrompt calls the OnGeolocationPermissionsShowPrompt RPC.
-func (c *WebChromeClientClient) OnGeolocationPermissionsShowPrompt(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
-	_, err := c.svc.OnGeolocationPermissionsShowPrompt(ctx, &pb.OnGeolocationPermissionsShowPromptRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// OnHideCustomView calls the OnHideCustomView RPC.
-func (c *WebChromeClientClient) OnHideCustomView(ctx context.Context, handle int64) error {
-	_, err := c.svc.OnHideCustomView(ctx, &pb.OnHideCustomViewRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// OnJsAlert calls the OnJsAlert RPC.
-func (c *WebChromeClientClient) OnJsAlert(ctx context.Context, handle int64, arg0 int64, arg1 string, arg2 string, arg3 int64) (bool, error) {
-	resp, err := c.svc.OnJsAlert(ctx, &pb.OnJsAlertRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnJsBeforeUnload calls the OnJsBeforeUnload RPC.
-func (c *WebChromeClientClient) OnJsBeforeUnload(ctx context.Context, handle int64, arg0 int64, arg1 string, arg2 string, arg3 int64) (bool, error) {
-	resp, err := c.svc.OnJsBeforeUnload(ctx, &pb.OnJsBeforeUnloadRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnJsConfirm calls the OnJsConfirm RPC.
-func (c *WebChromeClientClient) OnJsConfirm(ctx context.Context, handle int64, arg0 int64, arg1 string, arg2 string, arg3 int64) (bool, error) {
-	resp, err := c.svc.OnJsConfirm(ctx, &pb.OnJsConfirmRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnJsPrompt calls the OnJsPrompt RPC.
-func (c *WebChromeClientClient) OnJsPrompt(ctx context.Context, handle int64, arg0 int64, arg1 string, arg2 string, arg3 string, arg4 int64) (bool, error) {
-	resp, err := c.svc.OnJsPrompt(ctx, &pb.OnJsPromptRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnJsTimeout calls the OnJsTimeout RPC.
-func (c *WebChromeClientClient) OnJsTimeout(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.OnJsTimeout(ctx, &pb.OnJsTimeoutRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnPermissionRequest calls the OnPermissionRequest RPC.
-func (c *WebChromeClientClient) OnPermissionRequest(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.OnPermissionRequest(ctx, &pb.OnPermissionRequestRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// OnPermissionRequestCanceled calls the OnPermissionRequestCanceled RPC.
-func (c *WebChromeClientClient) OnPermissionRequestCanceled(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.OnPermissionRequestCanceled(ctx, &pb.OnPermissionRequestCanceledRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// OnProgressChanged calls the OnProgressChanged RPC.
-func (c *WebChromeClientClient) OnProgressChanged(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.OnProgressChanged(ctx, &pb.OnProgressChangedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// OnReceivedIcon calls the OnReceivedIcon RPC.
-func (c *WebChromeClientClient) OnReceivedIcon(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.OnReceivedIcon(ctx, &pb.WebChromeClientOnReceivedIconRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// OnReceivedTitle calls the OnReceivedTitle RPC.
-func (c *WebChromeClientClient) OnReceivedTitle(ctx context.Context, handle int64, arg0 int64, arg1 string) error {
-	_, err := c.svc.OnReceivedTitle(ctx, &pb.OnReceivedTitleRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// OnReceivedTouchIconUrl calls the OnReceivedTouchIconUrl RPC.
-func (c *WebChromeClientClient) OnReceivedTouchIconUrl(ctx context.Context, handle int64, arg0 int64, arg1 string, arg2 bool) error {
-	_, err := c.svc.OnReceivedTouchIconUrl(ctx, &pb.OnReceivedTouchIconUrlRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// OnRequestFocus calls the OnRequestFocus RPC.
-func (c *WebChromeClientClient) OnRequestFocus(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.OnRequestFocus(ctx, &pb.OnRequestFocusRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// OnShowCustomView2 calls the OnShowCustomView2 RPC.
-func (c *WebChromeClientClient) OnShowCustomView2(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.OnShowCustomView2(ctx, &pb.OnShowCustomView2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// OnShowCustomView3_1 calls the OnShowCustomView3_1 RPC.
-func (c *WebChromeClientClient) OnShowCustomView3_1(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64) error {
-	_, err := c.svc.OnShowCustomView3_1(ctx, &pb.OnShowCustomView3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// WebChromeClientCustomViewCallbackClient wraps the gRPC WebChromeClientCustomViewCallbackService client.
-type WebChromeClientCustomViewCallbackClient struct {
-	svc pb.WebChromeClientCustomViewCallbackServiceClient
-}
-
-// NewWebChromeClientCustomViewCallbackClient creates a new WebChromeClientCustomViewCallback client.
-func NewWebChromeClientCustomViewCallbackClient(cc grpc.ClientConnInterface) *WebChromeClientCustomViewCallbackClient {
-	return &WebChromeClientCustomViewCallbackClient{
-		svc: pb.NewWebChromeClientCustomViewCallbackServiceClient(cc),
-	}
-}
-
-// OnCustomViewHidden calls the OnCustomViewHidden RPC.
-func (c *WebChromeClientCustomViewCallbackClient) OnCustomViewHidden(ctx context.Context) error {
-	_, err := c.svc.OnCustomViewHidden(ctx, &pb.OnCustomViewHiddenRequest{})
-	return err
-}
-
-// WebChromeClientFileChooserParamsClient wraps the gRPC WebChromeClientFileChooserParamsService client.
-type WebChromeClientFileChooserParamsClient struct {
-	svc pb.WebChromeClientFileChooserParamsServiceClient
-}
-
-// NewWebChromeClientFileChooserParamsClient creates a new WebChromeClientFileChooserParams client.
-func NewWebChromeClientFileChooserParamsClient(cc grpc.ClientConnInterface) *WebChromeClientFileChooserParamsClient {
-	return &WebChromeClientFileChooserParamsClient{
-		svc: pb.NewWebChromeClientFileChooserParamsServiceClient(cc),
-	}
-}
-
-// CreateIntent calls the CreateIntent RPC.
-func (c *WebChromeClientFileChooserParamsClient) CreateIntent(ctx context.Context) (int64, error) {
-	resp, err := c.svc.CreateIntent(ctx, &pb.CreateIntentRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAcceptTypes calls the GetAcceptTypes RPC.
-func (c *WebChromeClientFileChooserParamsClient) GetAcceptTypes(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetAcceptTypes(ctx, &pb.GetAcceptTypesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFilenameHint calls the GetFilenameHint RPC.
-func (c *WebChromeClientFileChooserParamsClient) GetFilenameHint(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetFilenameHint(ctx, &pb.GetFilenameHintRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMode calls the GetMode RPC.
-func (c *WebChromeClientFileChooserParamsClient) GetMode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMode(ctx, &pb.GetModeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTitle calls the GetTitle RPC.
-func (c *WebChromeClientFileChooserParamsClient) GetTitle(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTitle(ctx, &pb.WebChromeClientFileChooserParamsGetTitleRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsCaptureEnabled calls the IsCaptureEnabled RPC.
-func (c *WebChromeClientFileChooserParamsClient) IsCaptureEnabled(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsCaptureEnabled(ctx, &pb.IsCaptureEnabledRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ParseResult calls the ParseResult RPC.
-func (c *WebChromeClientFileChooserParamsClient) ParseResult(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
-	resp, err := c.svc.ParseResult(ctx, &pb.ParseResultRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WebHistoryItemClient wraps the gRPC WebHistoryItemService client.
-type WebHistoryItemClient struct {
-	svc pb.WebHistoryItemServiceClient
-}
-
-// NewWebHistoryItemClient creates a new WebHistoryItem client.
-func NewWebHistoryItemClient(cc grpc.ClientConnInterface) *WebHistoryItemClient {
-	return &WebHistoryItemClient{
-		svc: pb.NewWebHistoryItemServiceClient(cc),
-	}
-}
-
-// GetFavicon calls the GetFavicon RPC.
-func (c *WebHistoryItemClient) GetFavicon(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetFavicon(ctx, &pb.WebHistoryItemGetFaviconRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOriginalUrl calls the GetOriginalUrl RPC.
-func (c *WebHistoryItemClient) GetOriginalUrl(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetOriginalUrl(ctx, &pb.WebHistoryItemGetOriginalUrlRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTitle calls the GetTitle RPC.
-func (c *WebHistoryItemClient) GetTitle(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetTitle(ctx, &pb.WebHistoryItemGetTitleRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUrl calls the GetUrl RPC.
-func (c *WebHistoryItemClient) GetUrl(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetUrl(ctx, &pb.GetUrlRequest{})
-	if err != nil {
-		return "", err
 	}
 	return resp.GetResult(), nil
 }
@@ -4099,6 +2968,68 @@ func (c *WebViewClientClient) ShouldOverrideUrlLoading2_1(ctx context.Context, h
 	return resp.GetResult(), nil
 }
 
+// CookieSyncManagerClient wraps the gRPC CookieSyncManagerService client.
+type CookieSyncManagerClient struct {
+	svc pb.CookieSyncManagerServiceClient
+}
+
+// NewCookieSyncManagerClient creates a new CookieSyncManager client.
+func NewCookieSyncManagerClient(cc grpc.ClientConnInterface) *CookieSyncManagerClient {
+	return &CookieSyncManagerClient{
+		svc: pb.NewCookieSyncManagerServiceClient(cc),
+	}
+}
+
+// ResetSync calls the ResetSync RPC.
+func (c *CookieSyncManagerClient) ResetSync(ctx context.Context) error {
+	_, err := c.svc.ResetSync(ctx, &pb.ResetSyncRequest{})
+	return err
+}
+
+// Run calls the Run RPC.
+func (c *CookieSyncManagerClient) Run(ctx context.Context) error {
+	_, err := c.svc.Run(ctx, &pb.RunRequest{})
+	return err
+}
+
+// StartSync calls the StartSync RPC.
+func (c *CookieSyncManagerClient) StartSync(ctx context.Context) error {
+	_, err := c.svc.StartSync(ctx, &pb.StartSyncRequest{})
+	return err
+}
+
+// StopSync calls the StopSync RPC.
+func (c *CookieSyncManagerClient) StopSync(ctx context.Context) error {
+	_, err := c.svc.StopSync(ctx, &pb.StopSyncRequest{})
+	return err
+}
+
+// Sync calls the Sync RPC.
+func (c *CookieSyncManagerClient) Sync(ctx context.Context) error {
+	_, err := c.svc.Sync(ctx, &pb.SyncRequest{})
+	return err
+}
+
+// CreateInstance calls the CreateInstance RPC.
+func (c *CookieSyncManagerClient) CreateInstance(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.CreateInstance(ctx, &pb.CreateInstanceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance calls the GetInstance RPC.
+func (c *CookieSyncManagerClient) GetInstance(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInstance(ctx, &pb.GetInstanceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GeolocationPermissionsClient wraps the gRPC GeolocationPermissionsService client.
 type GeolocationPermissionsClient struct {
 	svc pb.GeolocationPermissionsServiceClient
@@ -4164,6 +3095,1524 @@ func (c *GeolocationPermissionsCallbackClient) Invoke(ctx context.Context, arg0 
 	return err
 }
 
+// WebViewRenderProcessClientClient wraps the gRPC WebViewRenderProcessClientService client.
+type WebViewRenderProcessClientClient struct {
+	svc pb.WebViewRenderProcessClientServiceClient
+}
+
+// NewWebViewRenderProcessClientClient creates a new WebViewRenderProcessClient client.
+func NewWebViewRenderProcessClientClient(cc grpc.ClientConnInterface) *WebViewRenderProcessClientClient {
+	return &WebViewRenderProcessClientClient{
+		svc: pb.NewWebViewRenderProcessClientServiceClient(cc),
+	}
+}
+
+// OnRenderProcessResponsive calls the OnRenderProcessResponsive RPC.
+func (c *WebViewRenderProcessClientClient) OnRenderProcessResponsive(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnRenderProcessResponsive(ctx, &pb.OnRenderProcessResponsiveRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnRenderProcessUnresponsive calls the OnRenderProcessUnresponsive RPC.
+func (c *WebViewRenderProcessClientClient) OnRenderProcessUnresponsive(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnRenderProcessUnresponsive(ctx, &pb.OnRenderProcessUnresponsiveRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// CookieManagerClient wraps the gRPC CookieManagerService client.
+type CookieManagerClient struct {
+	svc pb.CookieManagerServiceClient
+}
+
+// NewCookieManagerClient creates a new CookieManager client.
+func NewCookieManagerClient(cc grpc.ClientConnInterface) *CookieManagerClient {
+	return &CookieManagerClient{
+		svc: pb.NewCookieManagerServiceClient(cc),
+	}
+}
+
+// AcceptCookie calls the AcceptCookie RPC.
+func (c *CookieManagerClient) AcceptCookie(ctx context.Context) (bool, error) {
+	resp, err := c.svc.AcceptCookie(ctx, &pb.AcceptCookieRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AcceptThirdPartyCookies calls the AcceptThirdPartyCookies RPC.
+func (c *CookieManagerClient) AcceptThirdPartyCookies(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.AcceptThirdPartyCookies(ctx, &pb.AcceptThirdPartyCookiesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Flush calls the Flush RPC.
+func (c *CookieManagerClient) Flush(ctx context.Context) error {
+	_, err := c.svc.Flush(ctx, &pb.FlushRequest{})
+	return err
+}
+
+// GetCookie calls the GetCookie RPC.
+func (c *CookieManagerClient) GetCookie(ctx context.Context, arg0 string) (string, error) {
+	resp, err := c.svc.GetCookie(ctx, &pb.GetCookieRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasCookies calls the HasCookies RPC.
+func (c *CookieManagerClient) HasCookies(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasCookies(ctx, &pb.HasCookiesRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveAllCookie calls the RemoveAllCookie RPC.
+func (c *CookieManagerClient) RemoveAllCookie(ctx context.Context) error {
+	_, err := c.svc.RemoveAllCookie(ctx, &pb.RemoveAllCookieRequest{})
+	return err
+}
+
+// RemoveExpiredCookie calls the RemoveExpiredCookie RPC.
+func (c *CookieManagerClient) RemoveExpiredCookie(ctx context.Context) error {
+	_, err := c.svc.RemoveExpiredCookie(ctx, &pb.RemoveExpiredCookieRequest{})
+	return err
+}
+
+// RemoveSessionCookie calls the RemoveSessionCookie RPC.
+func (c *CookieManagerClient) RemoveSessionCookie(ctx context.Context) error {
+	_, err := c.svc.RemoveSessionCookie(ctx, &pb.RemoveSessionCookieRequest{})
+	return err
+}
+
+// SetAcceptCookie calls the SetAcceptCookie RPC.
+func (c *CookieManagerClient) SetAcceptCookie(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetAcceptCookie(ctx, &pb.SetAcceptCookieRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetAcceptThirdPartyCookies calls the SetAcceptThirdPartyCookies RPC.
+func (c *CookieManagerClient) SetAcceptThirdPartyCookies(ctx context.Context, arg0 int64, arg1 bool) error {
+	_, err := c.svc.SetAcceptThirdPartyCookies(ctx, &pb.SetAcceptThirdPartyCookiesRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetCookie calls the SetCookie RPC.
+func (c *CookieManagerClient) SetCookie(ctx context.Context, arg0 string, arg1 string) error {
+	_, err := c.svc.SetCookie(ctx, &pb.SetCookieRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AllowFileSchemeCookies calls the AllowFileSchemeCookies RPC.
+func (c *CookieManagerClient) AllowFileSchemeCookies(ctx context.Context) (bool, error) {
+	resp, err := c.svc.AllowFileSchemeCookies(ctx, &pb.AllowFileSchemeCookiesRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance calls the GetInstance RPC.
+func (c *CookieManagerClient) GetInstance(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInstance(ctx, &pb.GetInstanceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAcceptFileSchemeCookies calls the SetAcceptFileSchemeCookies RPC.
+func (c *CookieManagerClient) SetAcceptFileSchemeCookies(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetAcceptFileSchemeCookies(ctx, &pb.SetAcceptFileSchemeCookiesRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// URLUtilClient wraps the gRPC URLUtilService client.
+type URLUtilClient struct {
+	svc pb.URLUtilServiceClient
+}
+
+// NewURLUtilClient creates a new URLUtil client.
+func NewURLUtilClient(cc grpc.ClientConnInterface) *URLUtilClient {
+	return &URLUtilClient{
+		svc: pb.NewURLUtilServiceClient(cc),
+	}
+}
+
+// ComposeSearchUrl calls the ComposeSearchUrl RPC.
+func (c *URLUtilClient) ComposeSearchUrl(ctx context.Context, handle int64, arg0 string, arg1 string, arg2 string) (string, error) {
+	resp, err := c.svc.ComposeSearchUrl(ctx, &pb.ComposeSearchUrlRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Decode calls the Decode RPC.
+func (c *URLUtilClient) Decode(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.Decode(ctx, &pb.DecodeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GuessFileName calls the GuessFileName RPC.
+func (c *URLUtilClient) GuessFileName(ctx context.Context, handle int64, arg0 string, arg1 string, arg2 string) (string, error) {
+	resp, err := c.svc.GuessFileName(ctx, &pb.GuessFileNameRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GuessUrl calls the GuessUrl RPC.
+func (c *URLUtilClient) GuessUrl(ctx context.Context, handle int64, arg0 string) (string, error) {
+	resp, err := c.svc.GuessUrl(ctx, &pb.GuessUrlRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAboutUrl calls the IsAboutUrl RPC.
+func (c *URLUtilClient) IsAboutUrl(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.IsAboutUrl(ctx, &pb.IsAboutUrlRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAssetUrl calls the IsAssetUrl RPC.
+func (c *URLUtilClient) IsAssetUrl(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.IsAssetUrl(ctx, &pb.IsAssetUrlRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsContentUrl calls the IsContentUrl RPC.
+func (c *URLUtilClient) IsContentUrl(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.IsContentUrl(ctx, &pb.IsContentUrlRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsCookielessProxyUrl calls the IsCookielessProxyUrl RPC.
+func (c *URLUtilClient) IsCookielessProxyUrl(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.IsCookielessProxyUrl(ctx, &pb.IsCookielessProxyUrlRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsDataUrl calls the IsDataUrl RPC.
+func (c *URLUtilClient) IsDataUrl(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.IsDataUrl(ctx, &pb.IsDataUrlRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFileUrl calls the IsFileUrl RPC.
+func (c *URLUtilClient) IsFileUrl(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.IsFileUrl(ctx, &pb.IsFileUrlRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsHttpUrl calls the IsHttpUrl RPC.
+func (c *URLUtilClient) IsHttpUrl(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.IsHttpUrl(ctx, &pb.IsHttpUrlRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsHttpsUrl calls the IsHttpsUrl RPC.
+func (c *URLUtilClient) IsHttpsUrl(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.IsHttpsUrl(ctx, &pb.IsHttpsUrlRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsJavaScriptUrl calls the IsJavaScriptUrl RPC.
+func (c *URLUtilClient) IsJavaScriptUrl(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.IsJavaScriptUrl(ctx, &pb.IsJavaScriptUrlRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsNetworkUrl calls the IsNetworkUrl RPC.
+func (c *URLUtilClient) IsNetworkUrl(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.IsNetworkUrl(ctx, &pb.IsNetworkUrlRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsValidUrl calls the IsValidUrl RPC.
+func (c *URLUtilClient) IsValidUrl(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.IsValidUrl(ctx, &pb.IsValidUrlRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// StripAnchor calls the StripAnchor RPC.
+func (c *URLUtilClient) StripAnchor(ctx context.Context, handle int64, arg0 string) (string, error) {
+	resp, err := c.svc.StripAnchor(ctx, &pb.StripAnchorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClientCertRequestClient wraps the gRPC ClientCertRequestService client.
+type ClientCertRequestClient struct {
+	svc pb.ClientCertRequestServiceClient
+}
+
+// NewClientCertRequestClient creates a new ClientCertRequest client.
+func NewClientCertRequestClient(cc grpc.ClientConnInterface) *ClientCertRequestClient {
+	return &ClientCertRequestClient{
+		svc: pb.NewClientCertRequestServiceClient(cc),
+	}
+}
+
+// Cancel calls the Cancel RPC.
+func (c *ClientCertRequestClient) Cancel(ctx context.Context) error {
+	_, err := c.svc.Cancel(ctx, &pb.CancelRequest{})
+	return err
+}
+
+// GetHost calls the GetHost RPC.
+func (c *ClientCertRequestClient) GetHost(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetHost(ctx, &pb.GetHostRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetKeyTypes calls the GetKeyTypes RPC.
+func (c *ClientCertRequestClient) GetKeyTypes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetKeyTypes(ctx, &pb.GetKeyTypesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPort calls the GetPort RPC.
+func (c *ClientCertRequestClient) GetPort(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPort(ctx, &pb.GetPortRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPrincipals calls the GetPrincipals RPC.
+func (c *ClientCertRequestClient) GetPrincipals(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPrincipals(ctx, &pb.GetPrincipalsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Ignore calls the Ignore RPC.
+func (c *ClientCertRequestClient) Ignore(ctx context.Context) error {
+	_, err := c.svc.Ignore(ctx, &pb.IgnoreRequest{})
+	return err
+}
+
+// Proceed calls the Proceed RPC.
+func (c *ClientCertRequestClient) Proceed(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.Proceed(ctx, &pb.ClientCertRequestProceedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// TracingConfigClient wraps the gRPC TracingConfigService client.
+type TracingConfigClient struct {
+	svc pb.TracingConfigServiceClient
+}
+
+// NewTracingConfigClient creates a new TracingConfig client.
+func NewTracingConfigClient(cc grpc.ClientConnInterface) *TracingConfigClient {
+	return &TracingConfigClient{
+		svc: pb.NewTracingConfigServiceClient(cc),
+	}
+}
+
+// GetCustomIncludedCategories calls the GetCustomIncludedCategories RPC.
+func (c *TracingConfigClient) GetCustomIncludedCategories(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCustomIncludedCategories(ctx, &pb.GetCustomIncludedCategoriesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPredefinedCategories calls the GetPredefinedCategories RPC.
+func (c *TracingConfigClient) GetPredefinedCategories(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPredefinedCategories(ctx, &pb.GetPredefinedCategoriesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTracingMode calls the GetTracingMode RPC.
+func (c *TracingConfigClient) GetTracingMode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetTracingMode(ctx, &pb.GetTracingModeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TracingConfigBuilderClient wraps the gRPC TracingConfigBuilderService client.
+type TracingConfigBuilderClient struct {
+	svc pb.TracingConfigBuilderServiceClient
+}
+
+// NewTracingConfigBuilderClient creates a new TracingConfigBuilder client.
+func NewTracingConfigBuilderClient(cc grpc.ClientConnInterface) *TracingConfigBuilderClient {
+	return &TracingConfigBuilderClient{
+		svc: pb.NewTracingConfigBuilderServiceClient(cc),
+	}
+}
+
+// AddCategories1 calls the AddCategories1 RPC.
+func (c *TracingConfigBuilderClient) AddCategories1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddCategories1(ctx, &pb.AddCategories1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddCategories1_1 calls the AddCategories1_1 RPC.
+func (c *TracingConfigBuilderClient) AddCategories1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddCategories1_1(ctx, &pb.AddCategories1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *TracingConfigBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTracingMode calls the SetTracingMode RPC.
+func (c *TracingConfigBuilderClient) SetTracingMode(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetTracingMode(ctx, &pb.SetTracingModeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WebChromeClientClient wraps the gRPC WebChromeClientService client.
+type WebChromeClientClient struct {
+	svc pb.WebChromeClientServiceClient
+}
+
+// NewWebChromeClientClient creates a new WebChromeClient client.
+func NewWebChromeClientClient(cc grpc.ClientConnInterface) *WebChromeClientClient {
+	return &WebChromeClientClient{
+		svc: pb.NewWebChromeClientServiceClient(cc),
+	}
+}
+
+// GetDefaultVideoPoster calls the GetDefaultVideoPoster RPC.
+func (c *WebChromeClientClient) GetDefaultVideoPoster(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetDefaultVideoPoster(ctx, &pb.GetDefaultVideoPosterRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVideoLoadingProgressView calls the GetVideoLoadingProgressView RPC.
+func (c *WebChromeClientClient) GetVideoLoadingProgressView(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetVideoLoadingProgressView(ctx, &pb.GetVideoLoadingProgressViewRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnCloseWindow calls the OnCloseWindow RPC.
+func (c *WebChromeClientClient) OnCloseWindow(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.OnCloseWindow(ctx, &pb.OnCloseWindowRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// OnConsoleMessage1 calls the OnConsoleMessage1 RPC.
+func (c *WebChromeClientClient) OnConsoleMessage1(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.OnConsoleMessage1(ctx, &pb.OnConsoleMessage1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnConsoleMessage3_1 calls the OnConsoleMessage3_1 RPC.
+func (c *WebChromeClientClient) OnConsoleMessage3_1(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 string) error {
+	_, err := c.svc.OnConsoleMessage3_1(ctx, &pb.OnConsoleMessage3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// OnCreateWindow calls the OnCreateWindow RPC.
+func (c *WebChromeClientClient) OnCreateWindow(ctx context.Context, handle int64, arg0 int64, arg1 bool, arg2 bool, arg3 int64) (bool, error) {
+	resp, err := c.svc.OnCreateWindow(ctx, &pb.OnCreateWindowRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnExceededDatabaseQuota calls the OnExceededDatabaseQuota RPC.
+func (c *WebChromeClientClient) OnExceededDatabaseQuota(ctx context.Context, handle int64, arg0 string, arg1 string, arg2 int64, arg3 int64, arg4 int64, arg5 int64) error {
+	_, err := c.svc.OnExceededDatabaseQuota(ctx, &pb.OnExceededDatabaseQuotaRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	return err
+}
+
+// OnGeolocationPermissionsHidePrompt calls the OnGeolocationPermissionsHidePrompt RPC.
+func (c *WebChromeClientClient) OnGeolocationPermissionsHidePrompt(ctx context.Context, handle int64) error {
+	_, err := c.svc.OnGeolocationPermissionsHidePrompt(ctx, &pb.OnGeolocationPermissionsHidePromptRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// OnGeolocationPermissionsShowPrompt calls the OnGeolocationPermissionsShowPrompt RPC.
+func (c *WebChromeClientClient) OnGeolocationPermissionsShowPrompt(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
+	_, err := c.svc.OnGeolocationPermissionsShowPrompt(ctx, &pb.OnGeolocationPermissionsShowPromptRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// OnHideCustomView calls the OnHideCustomView RPC.
+func (c *WebChromeClientClient) OnHideCustomView(ctx context.Context, handle int64) error {
+	_, err := c.svc.OnHideCustomView(ctx, &pb.OnHideCustomViewRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// OnJsAlert calls the OnJsAlert RPC.
+func (c *WebChromeClientClient) OnJsAlert(ctx context.Context, handle int64, arg0 int64, arg1 string, arg2 string, arg3 int64) (bool, error) {
+	resp, err := c.svc.OnJsAlert(ctx, &pb.OnJsAlertRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnJsBeforeUnload calls the OnJsBeforeUnload RPC.
+func (c *WebChromeClientClient) OnJsBeforeUnload(ctx context.Context, handle int64, arg0 int64, arg1 string, arg2 string, arg3 int64) (bool, error) {
+	resp, err := c.svc.OnJsBeforeUnload(ctx, &pb.OnJsBeforeUnloadRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnJsConfirm calls the OnJsConfirm RPC.
+func (c *WebChromeClientClient) OnJsConfirm(ctx context.Context, handle int64, arg0 int64, arg1 string, arg2 string, arg3 int64) (bool, error) {
+	resp, err := c.svc.OnJsConfirm(ctx, &pb.OnJsConfirmRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnJsPrompt calls the OnJsPrompt RPC.
+func (c *WebChromeClientClient) OnJsPrompt(ctx context.Context, handle int64, arg0 int64, arg1 string, arg2 string, arg3 string, arg4 int64) (bool, error) {
+	resp, err := c.svc.OnJsPrompt(ctx, &pb.OnJsPromptRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnJsTimeout calls the OnJsTimeout RPC.
+func (c *WebChromeClientClient) OnJsTimeout(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.OnJsTimeout(ctx, &pb.OnJsTimeoutRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnPermissionRequest calls the OnPermissionRequest RPC.
+func (c *WebChromeClientClient) OnPermissionRequest(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.OnPermissionRequest(ctx, &pb.OnPermissionRequestRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// OnPermissionRequestCanceled calls the OnPermissionRequestCanceled RPC.
+func (c *WebChromeClientClient) OnPermissionRequestCanceled(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.OnPermissionRequestCanceled(ctx, &pb.OnPermissionRequestCanceledRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// OnProgressChanged calls the OnProgressChanged RPC.
+func (c *WebChromeClientClient) OnProgressChanged(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnProgressChanged(ctx, &pb.OnProgressChangedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// OnReceivedIcon calls the OnReceivedIcon RPC.
+func (c *WebChromeClientClient) OnReceivedIcon(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnReceivedIcon(ctx, &pb.OnReceivedIconRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// OnReceivedTitle calls the OnReceivedTitle RPC.
+func (c *WebChromeClientClient) OnReceivedTitle(ctx context.Context, handle int64, arg0 int64, arg1 string) error {
+	_, err := c.svc.OnReceivedTitle(ctx, &pb.OnReceivedTitleRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// OnReceivedTouchIconUrl calls the OnReceivedTouchIconUrl RPC.
+func (c *WebChromeClientClient) OnReceivedTouchIconUrl(ctx context.Context, handle int64, arg0 int64, arg1 string, arg2 bool) error {
+	_, err := c.svc.OnReceivedTouchIconUrl(ctx, &pb.OnReceivedTouchIconUrlRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// OnRequestFocus calls the OnRequestFocus RPC.
+func (c *WebChromeClientClient) OnRequestFocus(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.OnRequestFocus(ctx, &pb.OnRequestFocusRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// OnShowCustomView2 calls the OnShowCustomView2 RPC.
+func (c *WebChromeClientClient) OnShowCustomView2(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnShowCustomView2(ctx, &pb.OnShowCustomView2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// OnShowCustomView3_1 calls the OnShowCustomView3_1 RPC.
+func (c *WebChromeClientClient) OnShowCustomView3_1(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64) error {
+	_, err := c.svc.OnShowCustomView3_1(ctx, &pb.OnShowCustomView3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// WebChromeClientCustomViewCallbackClient wraps the gRPC WebChromeClientCustomViewCallbackService client.
+type WebChromeClientCustomViewCallbackClient struct {
+	svc pb.WebChromeClientCustomViewCallbackServiceClient
+}
+
+// NewWebChromeClientCustomViewCallbackClient creates a new WebChromeClientCustomViewCallback client.
+func NewWebChromeClientCustomViewCallbackClient(cc grpc.ClientConnInterface) *WebChromeClientCustomViewCallbackClient {
+	return &WebChromeClientCustomViewCallbackClient{
+		svc: pb.NewWebChromeClientCustomViewCallbackServiceClient(cc),
+	}
+}
+
+// OnCustomViewHidden calls the OnCustomViewHidden RPC.
+func (c *WebChromeClientCustomViewCallbackClient) OnCustomViewHidden(ctx context.Context) error {
+	_, err := c.svc.OnCustomViewHidden(ctx, &pb.OnCustomViewHiddenRequest{})
+	return err
+}
+
+// WebChromeClientFileChooserParamsClient wraps the gRPC WebChromeClientFileChooserParamsService client.
+type WebChromeClientFileChooserParamsClient struct {
+	svc pb.WebChromeClientFileChooserParamsServiceClient
+}
+
+// NewWebChromeClientFileChooserParamsClient creates a new WebChromeClientFileChooserParams client.
+func NewWebChromeClientFileChooserParamsClient(cc grpc.ClientConnInterface) *WebChromeClientFileChooserParamsClient {
+	return &WebChromeClientFileChooserParamsClient{
+		svc: pb.NewWebChromeClientFileChooserParamsServiceClient(cc),
+	}
+}
+
+// CreateIntent calls the CreateIntent RPC.
+func (c *WebChromeClientFileChooserParamsClient) CreateIntent(ctx context.Context) (int64, error) {
+	resp, err := c.svc.CreateIntent(ctx, &pb.CreateIntentRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAcceptTypes calls the GetAcceptTypes RPC.
+func (c *WebChromeClientFileChooserParamsClient) GetAcceptTypes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAcceptTypes(ctx, &pb.GetAcceptTypesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFilenameHint calls the GetFilenameHint RPC.
+func (c *WebChromeClientFileChooserParamsClient) GetFilenameHint(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetFilenameHint(ctx, &pb.GetFilenameHintRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMode calls the GetMode RPC.
+func (c *WebChromeClientFileChooserParamsClient) GetMode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMode(ctx, &pb.GetModeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTitle calls the GetTitle RPC.
+func (c *WebChromeClientFileChooserParamsClient) GetTitle(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTitle(ctx, &pb.WebChromeClientFileChooserParamsGetTitleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsCaptureEnabled calls the IsCaptureEnabled RPC.
+func (c *WebChromeClientFileChooserParamsClient) IsCaptureEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsCaptureEnabled(ctx, &pb.IsCaptureEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ParseResult calls the ParseResult RPC.
+func (c *WebChromeClientFileChooserParamsClient) ParseResult(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
+	resp, err := c.svc.ParseResult(ctx, &pb.ParseResultRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ServiceWorkerWebSettingsClient wraps the gRPC ServiceWorkerWebSettingsService client.
+type ServiceWorkerWebSettingsClient struct {
+	svc pb.ServiceWorkerWebSettingsServiceClient
+}
+
+// NewServiceWorkerWebSettingsClient creates a new ServiceWorkerWebSettings client.
+func NewServiceWorkerWebSettingsClient(cc grpc.ClientConnInterface) *ServiceWorkerWebSettingsClient {
+	return &ServiceWorkerWebSettingsClient{
+		svc: pb.NewServiceWorkerWebSettingsServiceClient(cc),
+	}
+}
+
+// GetAllowContentAccess calls the GetAllowContentAccess RPC.
+func (c *ServiceWorkerWebSettingsClient) GetAllowContentAccess(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetAllowContentAccess(ctx, &pb.GetAllowContentAccessRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAllowFileAccess calls the GetAllowFileAccess RPC.
+func (c *ServiceWorkerWebSettingsClient) GetAllowFileAccess(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetAllowFileAccess(ctx, &pb.GetAllowFileAccessRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBlockNetworkLoads calls the GetBlockNetworkLoads RPC.
+func (c *ServiceWorkerWebSettingsClient) GetBlockNetworkLoads(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetBlockNetworkLoads(ctx, &pb.GetBlockNetworkLoadsRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCacheMode calls the GetCacheMode RPC.
+func (c *ServiceWorkerWebSettingsClient) GetCacheMode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetCacheMode(ctx, &pb.GetCacheModeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAllowContentAccess calls the SetAllowContentAccess RPC.
+func (c *ServiceWorkerWebSettingsClient) SetAllowContentAccess(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetAllowContentAccess(ctx, &pb.SetAllowContentAccessRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetAllowFileAccess calls the SetAllowFileAccess RPC.
+func (c *ServiceWorkerWebSettingsClient) SetAllowFileAccess(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetAllowFileAccess(ctx, &pb.SetAllowFileAccessRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetBlockNetworkLoads calls the SetBlockNetworkLoads RPC.
+func (c *ServiceWorkerWebSettingsClient) SetBlockNetworkLoads(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetBlockNetworkLoads(ctx, &pb.SetBlockNetworkLoadsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetCacheMode calls the SetCacheMode RPC.
+func (c *ServiceWorkerWebSettingsClient) SetCacheMode(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetCacheMode(ctx, &pb.SetCacheModeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RenderProcessGoneDetailClient wraps the gRPC RenderProcessGoneDetailService client.
+type RenderProcessGoneDetailClient struct {
+	svc pb.RenderProcessGoneDetailServiceClient
+}
+
+// NewRenderProcessGoneDetailClient creates a new RenderProcessGoneDetail client.
+func NewRenderProcessGoneDetailClient(cc grpc.ClientConnInterface) *RenderProcessGoneDetailClient {
+	return &RenderProcessGoneDetailClient{
+		svc: pb.NewRenderProcessGoneDetailServiceClient(cc),
+	}
+}
+
+// DidCrash calls the DidCrash RPC.
+func (c *RenderProcessGoneDetailClient) DidCrash(ctx context.Context) (bool, error) {
+	resp, err := c.svc.DidCrash(ctx, &pb.DidCrashRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RendererPriorityAtExit calls the RendererPriorityAtExit RPC.
+func (c *RenderProcessGoneDetailClient) RendererPriorityAtExit(ctx context.Context) (int32, error) {
+	resp, err := c.svc.RendererPriorityAtExit(ctx, &pb.RendererPriorityAtExitRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DateSorterClient wraps the gRPC DateSorterService client.
+type DateSorterClient struct {
+	svc pb.DateSorterServiceClient
+}
+
+// NewDateSorterClient creates a new DateSorter client.
+func NewDateSorterClient(cc grpc.ClientConnInterface) *DateSorterClient {
+	return &DateSorterClient{
+		svc: pb.NewDateSorterServiceClient(cc),
+	}
+}
+
+// GetBoundary calls the GetBoundary RPC.
+func (c *DateSorterClient) GetBoundary(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetBoundary(ctx, &pb.GetBoundaryRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIndex calls the GetIndex RPC.
+func (c *DateSorterClient) GetIndex(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+	resp, err := c.svc.GetIndex(ctx, &pb.GetIndexRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLabel calls the GetLabel RPC.
+func (c *DateSorterClient) GetLabel(ctx context.Context, handle int64, arg0 int32) (string, error) {
+	resp, err := c.svc.GetLabel(ctx, &pb.GetLabelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// PluginStubClient wraps the gRPC PluginStubService client.
+type PluginStubClient struct {
+	svc pb.PluginStubServiceClient
+}
+
+// NewPluginStubClient creates a new PluginStub client.
+func NewPluginStubClient(cc grpc.ClientConnInterface) *PluginStubClient {
+	return &PluginStubClient{
+		svc: pb.NewPluginStubServiceClient(cc),
+	}
+}
+
+// GetEmbeddedView calls the GetEmbeddedView RPC.
+func (c *PluginStubClient) GetEmbeddedView(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetEmbeddedView(ctx, &pb.GetEmbeddedViewRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFullScreenView calls the GetFullScreenView RPC.
+func (c *PluginStubClient) GetFullScreenView(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetFullScreenView(ctx, &pb.GetFullScreenViewRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WebViewRenderProcessClient wraps the gRPC WebViewRenderProcessService client.
+type WebViewRenderProcessClient struct {
+	svc pb.WebViewRenderProcessServiceClient
+}
+
+// NewWebViewRenderProcessClient creates a new WebViewRenderProcess client.
+func NewWebViewRenderProcessClient(cc grpc.ClientConnInterface) *WebViewRenderProcessClient {
+	return &WebViewRenderProcessClient{
+		svc: pb.NewWebViewRenderProcessServiceClient(cc),
+	}
+}
+
+// Terminate calls the Terminate RPC.
+func (c *WebViewRenderProcessClient) Terminate(ctx context.Context) (bool, error) {
+	resp, err := c.svc.Terminate(ctx, &pb.TerminateRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WebResourceResponseClient wraps the gRPC WebResourceResponseService client.
+type WebResourceResponseClient struct {
+	svc pb.WebResourceResponseServiceClient
+}
+
+// NewWebResourceResponseClient creates a new WebResourceResponse client.
+func NewWebResourceResponseClient(cc grpc.ClientConnInterface) *WebResourceResponseClient {
+	return &WebResourceResponseClient{
+		svc: pb.NewWebResourceResponseServiceClient(cc),
+	}
+}
+
+// GetData calls the GetData RPC.
+func (c *WebResourceResponseClient) GetData(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetData(ctx, &pb.GetDataRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEncoding calls the GetEncoding RPC.
+func (c *WebResourceResponseClient) GetEncoding(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetEncoding(ctx, &pb.GetEncodingRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMimeType calls the GetMimeType RPC.
+func (c *WebResourceResponseClient) GetMimeType(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetMimeType(ctx, &pb.GetMimeTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetReasonPhrase calls the GetReasonPhrase RPC.
+func (c *WebResourceResponseClient) GetReasonPhrase(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetReasonPhrase(ctx, &pb.GetReasonPhraseRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStatusCode calls the GetStatusCode RPC.
+func (c *WebResourceResponseClient) GetStatusCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetStatusCode(ctx, &pb.GetStatusCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetData calls the SetData RPC.
+func (c *WebResourceResponseClient) SetData(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetData(ctx, &pb.SetDataRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetEncoding calls the SetEncoding RPC.
+func (c *WebResourceResponseClient) SetEncoding(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetEncoding(ctx, &pb.SetEncodingRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetMimeType calls the SetMimeType RPC.
+func (c *WebResourceResponseClient) SetMimeType(ctx context.Context, handle int64, arg0 string) error {
+	_, err := c.svc.SetMimeType(ctx, &pb.SetMimeTypeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetStatusCodeAndReasonPhrase calls the SetStatusCodeAndReasonPhrase RPC.
+func (c *WebResourceResponseClient) SetStatusCodeAndReasonPhrase(ctx context.Context, handle int64, arg0 int32, arg1 string) error {
+	_, err := c.svc.SetStatusCodeAndReasonPhrase(ctx, &pb.SetStatusCodeAndReasonPhraseRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// ConsoleMessageClient wraps the gRPC ConsoleMessageService client.
+type ConsoleMessageClient struct {
+	svc pb.ConsoleMessageServiceClient
+}
+
+// NewConsoleMessageClient creates a new ConsoleMessage client.
+func NewConsoleMessageClient(cc grpc.ClientConnInterface) *ConsoleMessageClient {
+	return &ConsoleMessageClient{
+		svc: pb.NewConsoleMessageServiceClient(cc),
+	}
+}
+
+// LineNumber calls the LineNumber RPC.
+func (c *ConsoleMessageClient) LineNumber(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.LineNumber(ctx, &pb.LineNumberRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Message calls the Message RPC.
+func (c *ConsoleMessageClient) Message(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.Message(ctx, &pb.MessageRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// MessageLevel calls the MessageLevel RPC.
+func (c *ConsoleMessageClient) MessageLevel(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.MessageLevel(ctx, &pb.MessageLevelRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SourceId calls the SourceId RPC.
+func (c *ConsoleMessageClient) SourceId(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.SourceId(ctx, &pb.SourceIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ConsoleMessageMessageLevelClient wraps the gRPC ConsoleMessageMessageLevelService client.
+type ConsoleMessageMessageLevelClient struct {
+	svc pb.ConsoleMessageMessageLevelServiceClient
+}
+
+// NewConsoleMessageMessageLevelClient creates a new ConsoleMessageMessageLevel client.
+func NewConsoleMessageMessageLevelClient(cc grpc.ClientConnInterface) *ConsoleMessageMessageLevelClient {
+	return &ConsoleMessageMessageLevelClient{
+		svc: pb.NewConsoleMessageMessageLevelServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *ConsoleMessageMessageLevelClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *ConsoleMessageMessageLevelClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// JsPromptResultClient wraps the gRPC JsPromptResultService client.
+type JsPromptResultClient struct {
+	svc pb.JsPromptResultServiceClient
+}
+
+// NewJsPromptResultClient creates a new JsPromptResult client.
+func NewJsPromptResultClient(cc grpc.ClientConnInterface) *JsPromptResultClient {
+	return &JsPromptResultClient{
+		svc: pb.NewJsPromptResultServiceClient(cc),
+	}
+}
+
+// Confirm calls the Confirm RPC.
+func (c *JsPromptResultClient) Confirm(ctx context.Context, arg0 string) error {
+	_, err := c.svc.Confirm(ctx, &pb.ConfirmRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// JsResultClient wraps the gRPC JsResultService client.
+type JsResultClient struct {
+	svc pb.JsResultServiceClient
+}
+
+// NewJsResultClient creates a new JsResult client.
+func NewJsResultClient(cc grpc.ClientConnInterface) *JsResultClient {
+	return &JsResultClient{
+		svc: pb.NewJsResultServiceClient(cc),
+	}
+}
+
+// Cancel calls the Cancel RPC.
+func (c *JsResultClient) Cancel(ctx context.Context) error {
+	_, err := c.svc.Cancel(ctx, &pb.CancelRequest{})
+	return err
+}
+
+// Confirm calls the Confirm RPC.
+func (c *JsResultClient) Confirm(ctx context.Context) error {
+	_, err := c.svc.Confirm(ctx, &pb.JsResultConfirmRequest{})
+	return err
+}
+
+// WebMessagePortClient wraps the gRPC WebMessagePortService client.
+type WebMessagePortClient struct {
+	svc pb.WebMessagePortServiceClient
+}
+
+// NewWebMessagePortClient creates a new WebMessagePort client.
+func NewWebMessagePortClient(cc grpc.ClientConnInterface) *WebMessagePortClient {
+	return &WebMessagePortClient{
+		svc: pb.NewWebMessagePortServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *WebMessagePortClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+	return err
+}
+
+// PostMessage calls the PostMessage RPC.
+func (c *WebMessagePortClient) PostMessage(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.PostMessage(ctx, &pb.PostMessageRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetWebMessageCallback calls the SetWebMessageCallback RPC.
+func (c *WebMessagePortClient) SetWebMessageCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetWebMessageCallback(ctx, &pb.SetWebMessageCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// WebMessagePortWebMessageCallbackClient wraps the gRPC WebMessagePortWebMessageCallbackService client.
+type WebMessagePortWebMessageCallbackClient struct {
+	svc pb.WebMessagePortWebMessageCallbackServiceClient
+}
+
+// NewWebMessagePortWebMessageCallbackClient creates a new WebMessagePortWebMessageCallback client.
+func NewWebMessagePortWebMessageCallbackClient(cc grpc.ClientConnInterface) *WebMessagePortWebMessageCallbackClient {
+	return &WebMessagePortWebMessageCallbackClient{
+		svc: pb.NewWebMessagePortWebMessageCallbackServiceClient(cc),
+	}
+}
+
+// OnMessage calls the OnMessage RPC.
+func (c *WebMessagePortWebMessageCallbackClient) OnMessage(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnMessage(ctx, &pb.OnMessageRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// MimeTypeMapClient wraps the gRPC MimeTypeMapService client.
+type MimeTypeMapClient struct {
+	svc pb.MimeTypeMapServiceClient
+}
+
+// NewMimeTypeMapClient creates a new MimeTypeMap client.
+func NewMimeTypeMapClient(cc grpc.ClientConnInterface) *MimeTypeMapClient {
+	return &MimeTypeMapClient{
+		svc: pb.NewMimeTypeMapServiceClient(cc),
+	}
+}
+
+// GetExtensionFromMimeType calls the GetExtensionFromMimeType RPC.
+func (c *MimeTypeMapClient) GetExtensionFromMimeType(ctx context.Context, arg0 string) (string, error) {
+	resp, err := c.svc.GetExtensionFromMimeType(ctx, &pb.GetExtensionFromMimeTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMimeTypeFromExtension calls the GetMimeTypeFromExtension RPC.
+func (c *MimeTypeMapClient) GetMimeTypeFromExtension(ctx context.Context, arg0 string) (string, error) {
+	resp, err := c.svc.GetMimeTypeFromExtension(ctx, &pb.GetMimeTypeFromExtensionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasExtension calls the HasExtension RPC.
+func (c *MimeTypeMapClient) HasExtension(ctx context.Context, arg0 string) (bool, error) {
+	resp, err := c.svc.HasExtension(ctx, &pb.HasExtensionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasMimeType calls the HasMimeType RPC.
+func (c *MimeTypeMapClient) HasMimeType(ctx context.Context, arg0 string) (bool, error) {
+	resp, err := c.svc.HasMimeType(ctx, &pb.HasMimeTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFileExtensionFromUrl calls the GetFileExtensionFromUrl RPC.
+func (c *MimeTypeMapClient) GetFileExtensionFromUrl(ctx context.Context, arg0 string) (string, error) {
+	resp, err := c.svc.GetFileExtensionFromUrl(ctx, &pb.GetFileExtensionFromUrlRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSingleton calls the GetSingleton RPC.
+func (c *MimeTypeMapClient) GetSingleton(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSingleton(ctx, &pb.GetSingletonRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WebResourceErrorClient wraps the gRPC WebResourceErrorService client.
+type WebResourceErrorClient struct {
+	svc pb.WebResourceErrorServiceClient
+}
+
+// NewWebResourceErrorClient creates a new WebResourceError client.
+func NewWebResourceErrorClient(cc grpc.ClientConnInterface) *WebResourceErrorClient {
+	return &WebResourceErrorClient{
+		svc: pb.NewWebResourceErrorServiceClient(cc),
+	}
+}
+
+// GetDescription calls the GetDescription RPC.
+func (c *WebResourceErrorClient) GetDescription(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDescription(ctx, &pb.GetDescriptionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetErrorCode calls the GetErrorCode RPC.
+func (c *WebResourceErrorClient) GetErrorCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetErrorCode(ctx, &pb.GetErrorCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // SafeBrowsingResponseClient wraps the gRPC SafeBrowsingResponseService client.
 type SafeBrowsingResponseClient struct {
 	svc pb.SafeBrowsingResponseServiceClient
@@ -4200,857 +4649,70 @@ func (c *SafeBrowsingResponseClient) ShowInterstitial(ctx context.Context, arg0 
 	return err
 }
 
-// WebViewRenderProcessClient wraps the gRPC WebViewRenderProcessService client.
-type WebViewRenderProcessClient struct {
-	svc pb.WebViewRenderProcessServiceClient
+// WebHistoryItemClient wraps the gRPC WebHistoryItemService client.
+type WebHistoryItemClient struct {
+	svc pb.WebHistoryItemServiceClient
 }
 
-// NewWebViewRenderProcessClient creates a new WebViewRenderProcess client.
-func NewWebViewRenderProcessClient(cc grpc.ClientConnInterface) *WebViewRenderProcessClient {
-	return &WebViewRenderProcessClient{
-		svc: pb.NewWebViewRenderProcessServiceClient(cc),
+// NewWebHistoryItemClient creates a new WebHistoryItem client.
+func NewWebHistoryItemClient(cc grpc.ClientConnInterface) *WebHistoryItemClient {
+	return &WebHistoryItemClient{
+		svc: pb.NewWebHistoryItemServiceClient(cc),
 	}
 }
 
-// Terminate calls the Terminate RPC.
-func (c *WebViewRenderProcessClient) Terminate(ctx context.Context) (bool, error) {
-	resp, err := c.svc.Terminate(ctx, &pb.TerminateRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WebSettingsClient wraps the gRPC WebSettingsService client.
-type WebSettingsClient struct {
-	svc pb.WebSettingsServiceClient
-}
-
-// NewWebSettingsClient creates a new WebSettings client.
-func NewWebSettingsClient(cc grpc.ClientConnInterface) *WebSettingsClient {
-	return &WebSettingsClient{
-		svc: pb.NewWebSettingsServiceClient(cc),
-	}
-}
-
-// EnableSmoothTransition calls the EnableSmoothTransition RPC.
-func (c *WebSettingsClient) EnableSmoothTransition(ctx context.Context) (bool, error) {
-	resp, err := c.svc.EnableSmoothTransition(ctx, &pb.EnableSmoothTransitionRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAllowContentAccess calls the GetAllowContentAccess RPC.
-func (c *WebSettingsClient) GetAllowContentAccess(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetAllowContentAccess(ctx, &pb.GetAllowContentAccessRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAllowFileAccess calls the GetAllowFileAccess RPC.
-func (c *WebSettingsClient) GetAllowFileAccess(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetAllowFileAccess(ctx, &pb.GetAllowFileAccessRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAllowFileAccessFromFileURLs calls the GetAllowFileAccessFromFileURLs RPC.
-func (c *WebSettingsClient) GetAllowFileAccessFromFileURLs(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetAllowFileAccessFromFileURLs(ctx, &pb.GetAllowFileAccessFromFileURLsRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAllowUniversalAccessFromFileURLs calls the GetAllowUniversalAccessFromFileURLs RPC.
-func (c *WebSettingsClient) GetAllowUniversalAccessFromFileURLs(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetAllowUniversalAccessFromFileURLs(ctx, &pb.GetAllowUniversalAccessFromFileURLsRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBlockNetworkImage calls the GetBlockNetworkImage RPC.
-func (c *WebSettingsClient) GetBlockNetworkImage(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetBlockNetworkImage(ctx, &pb.GetBlockNetworkImageRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBlockNetworkLoads calls the GetBlockNetworkLoads RPC.
-func (c *WebSettingsClient) GetBlockNetworkLoads(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetBlockNetworkLoads(ctx, &pb.GetBlockNetworkLoadsRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBuiltInZoomControls calls the GetBuiltInZoomControls RPC.
-func (c *WebSettingsClient) GetBuiltInZoomControls(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetBuiltInZoomControls(ctx, &pb.GetBuiltInZoomControlsRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCacheMode calls the GetCacheMode RPC.
-func (c *WebSettingsClient) GetCacheMode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetCacheMode(ctx, &pb.GetCacheModeRequest{})
+// GetFavicon calls the GetFavicon RPC.
+func (c *WebHistoryItemClient) GetFavicon(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFavicon(ctx, &pb.WebHistoryItemGetFaviconRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetCursiveFontFamily calls the GetCursiveFontFamily RPC.
-func (c *WebSettingsClient) GetCursiveFontFamily(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetCursiveFontFamily(ctx, &pb.GetCursiveFontFamilyRequest{})
+// GetOriginalUrl calls the GetOriginalUrl RPC.
+func (c *WebHistoryItemClient) GetOriginalUrl(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetOriginalUrl(ctx, &pb.WebHistoryItemGetOriginalUrlRequest{})
 	if err != nil {
 		return "", err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetDatabaseEnabled calls the GetDatabaseEnabled RPC.
-func (c *WebSettingsClient) GetDatabaseEnabled(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetDatabaseEnabled(ctx, &pb.GetDatabaseEnabledRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDatabasePath calls the GetDatabasePath RPC.
-func (c *WebSettingsClient) GetDatabasePath(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetDatabasePath(ctx, &pb.GetDatabasePathRequest{})
+// GetTitle calls the GetTitle RPC.
+func (c *WebHistoryItemClient) GetTitle(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetTitle(ctx, &pb.WebHistoryItemGetTitleRequest{})
 	if err != nil {
 		return "", err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetDefaultFixedFontSize calls the GetDefaultFixedFontSize RPC.
-func (c *WebSettingsClient) GetDefaultFixedFontSize(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetDefaultFixedFontSize(ctx, &pb.GetDefaultFixedFontSizeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDefaultFontSize calls the GetDefaultFontSize RPC.
-func (c *WebSettingsClient) GetDefaultFontSize(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetDefaultFontSize(ctx, &pb.GetDefaultFontSizeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDefaultTextEncodingName calls the GetDefaultTextEncodingName RPC.
-func (c *WebSettingsClient) GetDefaultTextEncodingName(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetDefaultTextEncodingName(ctx, &pb.GetDefaultTextEncodingNameRequest{})
+// GetUrl calls the GetUrl RPC.
+func (c *WebHistoryItemClient) GetUrl(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetUrl(ctx, &pb.WebHistoryItemGetUrlRequest{})
 	if err != nil {
 		return "", err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetDefaultZoom calls the GetDefaultZoom RPC.
-func (c *WebSettingsClient) GetDefaultZoom(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDefaultZoom(ctx, &pb.GetDefaultZoomRequest{})
-	if err != nil {
-		return 0, err
+// WebMessageClient wraps the gRPC WebMessageService client.
+type WebMessageClient struct {
+	svc pb.WebMessageServiceClient
+}
+
+// NewWebMessageClient creates a new WebMessage client.
+func NewWebMessageClient(cc grpc.ClientConnInterface) *WebMessageClient {
+	return &WebMessageClient{
+		svc: pb.NewWebMessageServiceClient(cc),
 	}
-	return resp.GetResult(), nil
 }
 
-// GetDisabledActionModeMenuItems calls the GetDisabledActionModeMenuItems RPC.
-func (c *WebSettingsClient) GetDisabledActionModeMenuItems(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetDisabledActionModeMenuItems(ctx, &pb.GetDisabledActionModeMenuItemsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDisplayZoomControls calls the GetDisplayZoomControls RPC.
-func (c *WebSettingsClient) GetDisplayZoomControls(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetDisplayZoomControls(ctx, &pb.GetDisplayZoomControlsRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDomStorageEnabled calls the GetDomStorageEnabled RPC.
-func (c *WebSettingsClient) GetDomStorageEnabled(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetDomStorageEnabled(ctx, &pb.GetDomStorageEnabledRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFantasyFontFamily calls the GetFantasyFontFamily RPC.
-func (c *WebSettingsClient) GetFantasyFontFamily(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetFantasyFontFamily(ctx, &pb.GetFantasyFontFamilyRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFixedFontFamily calls the GetFixedFontFamily RPC.
-func (c *WebSettingsClient) GetFixedFontFamily(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetFixedFontFamily(ctx, &pb.GetFixedFontFamilyRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetForceDark calls the GetForceDark RPC.
-func (c *WebSettingsClient) GetForceDark(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetForceDark(ctx, &pb.GetForceDarkRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetJavaScriptCanOpenWindowsAutomatically calls the GetJavaScriptCanOpenWindowsAutomatically RPC.
-func (c *WebSettingsClient) GetJavaScriptCanOpenWindowsAutomatically(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetJavaScriptCanOpenWindowsAutomatically(ctx, &pb.GetJavaScriptCanOpenWindowsAutomaticallyRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetJavaScriptEnabled calls the GetJavaScriptEnabled RPC.
-func (c *WebSettingsClient) GetJavaScriptEnabled(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetJavaScriptEnabled(ctx, &pb.GetJavaScriptEnabledRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLayoutAlgorithm calls the GetLayoutAlgorithm RPC.
-func (c *WebSettingsClient) GetLayoutAlgorithm(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetLayoutAlgorithm(ctx, &pb.GetLayoutAlgorithmRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLightTouchEnabled calls the GetLightTouchEnabled RPC.
-func (c *WebSettingsClient) GetLightTouchEnabled(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetLightTouchEnabled(ctx, &pb.GetLightTouchEnabledRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLoadWithOverviewMode calls the GetLoadWithOverviewMode RPC.
-func (c *WebSettingsClient) GetLoadWithOverviewMode(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetLoadWithOverviewMode(ctx, &pb.GetLoadWithOverviewModeRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLoadsImagesAutomatically calls the GetLoadsImagesAutomatically RPC.
-func (c *WebSettingsClient) GetLoadsImagesAutomatically(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetLoadsImagesAutomatically(ctx, &pb.GetLoadsImagesAutomaticallyRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMediaPlaybackRequiresUserGesture calls the GetMediaPlaybackRequiresUserGesture RPC.
-func (c *WebSettingsClient) GetMediaPlaybackRequiresUserGesture(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetMediaPlaybackRequiresUserGesture(ctx, &pb.GetMediaPlaybackRequiresUserGestureRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMinimumFontSize calls the GetMinimumFontSize RPC.
-func (c *WebSettingsClient) GetMinimumFontSize(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMinimumFontSize(ctx, &pb.GetMinimumFontSizeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMinimumLogicalFontSize calls the GetMinimumLogicalFontSize RPC.
-func (c *WebSettingsClient) GetMinimumLogicalFontSize(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMinimumLogicalFontSize(ctx, &pb.GetMinimumLogicalFontSizeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMixedContentMode calls the GetMixedContentMode RPC.
-func (c *WebSettingsClient) GetMixedContentMode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMixedContentMode(ctx, &pb.GetMixedContentModeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOffscreenPreRaster calls the GetOffscreenPreRaster RPC.
-func (c *WebSettingsClient) GetOffscreenPreRaster(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetOffscreenPreRaster(ctx, &pb.GetOffscreenPreRasterRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPluginState calls the GetPluginState RPC.
-func (c *WebSettingsClient) GetPluginState(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetPluginState(ctx, &pb.GetPluginStateRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSafeBrowsingEnabled calls the GetSafeBrowsingEnabled RPC.
-func (c *WebSettingsClient) GetSafeBrowsingEnabled(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetSafeBrowsingEnabled(ctx, &pb.GetSafeBrowsingEnabledRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSansSerifFontFamily calls the GetSansSerifFontFamily RPC.
-func (c *WebSettingsClient) GetSansSerifFontFamily(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetSansSerifFontFamily(ctx, &pb.GetSansSerifFontFamilyRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSaveFormData calls the GetSaveFormData RPC.
-func (c *WebSettingsClient) GetSaveFormData(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetSaveFormData(ctx, &pb.GetSaveFormDataRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSavePassword calls the GetSavePassword RPC.
-func (c *WebSettingsClient) GetSavePassword(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetSavePassword(ctx, &pb.GetSavePasswordRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSerifFontFamily calls the GetSerifFontFamily RPC.
-func (c *WebSettingsClient) GetSerifFontFamily(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetSerifFontFamily(ctx, &pb.GetSerifFontFamilyRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStandardFontFamily calls the GetStandardFontFamily RPC.
-func (c *WebSettingsClient) GetStandardFontFamily(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetStandardFontFamily(ctx, &pb.GetStandardFontFamilyRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTextZoom calls the GetTextZoom RPC.
-func (c *WebSettingsClient) GetTextZoom(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetTextZoom(ctx, &pb.GetTextZoomRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUseWideViewPort calls the GetUseWideViewPort RPC.
-func (c *WebSettingsClient) GetUseWideViewPort(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetUseWideViewPort(ctx, &pb.GetUseWideViewPortRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUserAgentString calls the GetUserAgentString RPC.
-func (c *WebSettingsClient) GetUserAgentString(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetUserAgentString(ctx, &pb.GetUserAgentStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsAlgorithmicDarkeningAllowed calls the IsAlgorithmicDarkeningAllowed RPC.
-func (c *WebSettingsClient) IsAlgorithmicDarkeningAllowed(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsAlgorithmicDarkeningAllowed(ctx, &pb.IsAlgorithmicDarkeningAllowedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetAlgorithmicDarkeningAllowed calls the SetAlgorithmicDarkeningAllowed RPC.
-func (c *WebSettingsClient) SetAlgorithmicDarkeningAllowed(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetAlgorithmicDarkeningAllowed(ctx, &pb.SetAlgorithmicDarkeningAllowedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetAllowContentAccess calls the SetAllowContentAccess RPC.
-func (c *WebSettingsClient) SetAllowContentAccess(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetAllowContentAccess(ctx, &pb.SetAllowContentAccessRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetAllowFileAccess calls the SetAllowFileAccess RPC.
-func (c *WebSettingsClient) SetAllowFileAccess(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetAllowFileAccess(ctx, &pb.SetAllowFileAccessRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetAllowFileAccessFromFileURLs calls the SetAllowFileAccessFromFileURLs RPC.
-func (c *WebSettingsClient) SetAllowFileAccessFromFileURLs(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetAllowFileAccessFromFileURLs(ctx, &pb.SetAllowFileAccessFromFileURLsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetAllowUniversalAccessFromFileURLs calls the SetAllowUniversalAccessFromFileURLs RPC.
-func (c *WebSettingsClient) SetAllowUniversalAccessFromFileURLs(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetAllowUniversalAccessFromFileURLs(ctx, &pb.SetAllowUniversalAccessFromFileURLsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetBlockNetworkImage calls the SetBlockNetworkImage RPC.
-func (c *WebSettingsClient) SetBlockNetworkImage(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetBlockNetworkImage(ctx, &pb.SetBlockNetworkImageRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetBlockNetworkLoads calls the SetBlockNetworkLoads RPC.
-func (c *WebSettingsClient) SetBlockNetworkLoads(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetBlockNetworkLoads(ctx, &pb.SetBlockNetworkLoadsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetBuiltInZoomControls calls the SetBuiltInZoomControls RPC.
-func (c *WebSettingsClient) SetBuiltInZoomControls(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetBuiltInZoomControls(ctx, &pb.SetBuiltInZoomControlsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetCacheMode calls the SetCacheMode RPC.
-func (c *WebSettingsClient) SetCacheMode(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetCacheMode(ctx, &pb.SetCacheModeRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetCursiveFontFamily calls the SetCursiveFontFamily RPC.
-func (c *WebSettingsClient) SetCursiveFontFamily(ctx context.Context, arg0 string) error {
-	_, err := c.svc.SetCursiveFontFamily(ctx, &pb.SetCursiveFontFamilyRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetDatabaseEnabled calls the SetDatabaseEnabled RPC.
-func (c *WebSettingsClient) SetDatabaseEnabled(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetDatabaseEnabled(ctx, &pb.SetDatabaseEnabledRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetDatabasePath calls the SetDatabasePath RPC.
-func (c *WebSettingsClient) SetDatabasePath(ctx context.Context, arg0 string) error {
-	_, err := c.svc.SetDatabasePath(ctx, &pb.SetDatabasePathRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetDefaultFixedFontSize calls the SetDefaultFixedFontSize RPC.
-func (c *WebSettingsClient) SetDefaultFixedFontSize(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetDefaultFixedFontSize(ctx, &pb.SetDefaultFixedFontSizeRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetDefaultFontSize calls the SetDefaultFontSize RPC.
-func (c *WebSettingsClient) SetDefaultFontSize(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetDefaultFontSize(ctx, &pb.SetDefaultFontSizeRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetDefaultTextEncodingName calls the SetDefaultTextEncodingName RPC.
-func (c *WebSettingsClient) SetDefaultTextEncodingName(ctx context.Context, arg0 string) error {
-	_, err := c.svc.SetDefaultTextEncodingName(ctx, &pb.SetDefaultTextEncodingNameRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetDefaultZoom calls the SetDefaultZoom RPC.
-func (c *WebSettingsClient) SetDefaultZoom(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetDefaultZoom(ctx, &pb.SetDefaultZoomRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetDisabledActionModeMenuItems calls the SetDisabledActionModeMenuItems RPC.
-func (c *WebSettingsClient) SetDisabledActionModeMenuItems(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetDisabledActionModeMenuItems(ctx, &pb.SetDisabledActionModeMenuItemsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetDisplayZoomControls calls the SetDisplayZoomControls RPC.
-func (c *WebSettingsClient) SetDisplayZoomControls(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetDisplayZoomControls(ctx, &pb.SetDisplayZoomControlsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetDomStorageEnabled calls the SetDomStorageEnabled RPC.
-func (c *WebSettingsClient) SetDomStorageEnabled(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetDomStorageEnabled(ctx, &pb.SetDomStorageEnabledRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetEnableSmoothTransition calls the SetEnableSmoothTransition RPC.
-func (c *WebSettingsClient) SetEnableSmoothTransition(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetEnableSmoothTransition(ctx, &pb.SetEnableSmoothTransitionRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetFantasyFontFamily calls the SetFantasyFontFamily RPC.
-func (c *WebSettingsClient) SetFantasyFontFamily(ctx context.Context, arg0 string) error {
-	_, err := c.svc.SetFantasyFontFamily(ctx, &pb.SetFantasyFontFamilyRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetFixedFontFamily calls the SetFixedFontFamily RPC.
-func (c *WebSettingsClient) SetFixedFontFamily(ctx context.Context, arg0 string) error {
-	_, err := c.svc.SetFixedFontFamily(ctx, &pb.SetFixedFontFamilyRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetForceDark calls the SetForceDark RPC.
-func (c *WebSettingsClient) SetForceDark(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetForceDark(ctx, &pb.SetForceDarkRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetGeolocationDatabasePath calls the SetGeolocationDatabasePath RPC.
-func (c *WebSettingsClient) SetGeolocationDatabasePath(ctx context.Context, arg0 string) error {
-	_, err := c.svc.SetGeolocationDatabasePath(ctx, &pb.SetGeolocationDatabasePathRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetGeolocationEnabled calls the SetGeolocationEnabled RPC.
-func (c *WebSettingsClient) SetGeolocationEnabled(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetGeolocationEnabled(ctx, &pb.SetGeolocationEnabledRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetJavaScriptCanOpenWindowsAutomatically calls the SetJavaScriptCanOpenWindowsAutomatically RPC.
-func (c *WebSettingsClient) SetJavaScriptCanOpenWindowsAutomatically(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetJavaScriptCanOpenWindowsAutomatically(ctx, &pb.SetJavaScriptCanOpenWindowsAutomaticallyRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetJavaScriptEnabled calls the SetJavaScriptEnabled RPC.
-func (c *WebSettingsClient) SetJavaScriptEnabled(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetJavaScriptEnabled(ctx, &pb.SetJavaScriptEnabledRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetLayoutAlgorithm calls the SetLayoutAlgorithm RPC.
-func (c *WebSettingsClient) SetLayoutAlgorithm(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetLayoutAlgorithm(ctx, &pb.SetLayoutAlgorithmRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetLightTouchEnabled calls the SetLightTouchEnabled RPC.
-func (c *WebSettingsClient) SetLightTouchEnabled(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetLightTouchEnabled(ctx, &pb.SetLightTouchEnabledRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetLoadWithOverviewMode calls the SetLoadWithOverviewMode RPC.
-func (c *WebSettingsClient) SetLoadWithOverviewMode(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetLoadWithOverviewMode(ctx, &pb.SetLoadWithOverviewModeRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetLoadsImagesAutomatically calls the SetLoadsImagesAutomatically RPC.
-func (c *WebSettingsClient) SetLoadsImagesAutomatically(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetLoadsImagesAutomatically(ctx, &pb.SetLoadsImagesAutomaticallyRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetMediaPlaybackRequiresUserGesture calls the SetMediaPlaybackRequiresUserGesture RPC.
-func (c *WebSettingsClient) SetMediaPlaybackRequiresUserGesture(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetMediaPlaybackRequiresUserGesture(ctx, &pb.SetMediaPlaybackRequiresUserGestureRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetMinimumFontSize calls the SetMinimumFontSize RPC.
-func (c *WebSettingsClient) SetMinimumFontSize(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetMinimumFontSize(ctx, &pb.SetMinimumFontSizeRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetMinimumLogicalFontSize calls the SetMinimumLogicalFontSize RPC.
-func (c *WebSettingsClient) SetMinimumLogicalFontSize(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetMinimumLogicalFontSize(ctx, &pb.SetMinimumLogicalFontSizeRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetMixedContentMode calls the SetMixedContentMode RPC.
-func (c *WebSettingsClient) SetMixedContentMode(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetMixedContentMode(ctx, &pb.SetMixedContentModeRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetNeedInitialFocus calls the SetNeedInitialFocus RPC.
-func (c *WebSettingsClient) SetNeedInitialFocus(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetNeedInitialFocus(ctx, &pb.SetNeedInitialFocusRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetOffscreenPreRaster calls the SetOffscreenPreRaster RPC.
-func (c *WebSettingsClient) SetOffscreenPreRaster(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetOffscreenPreRaster(ctx, &pb.SetOffscreenPreRasterRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetPluginState calls the SetPluginState RPC.
-func (c *WebSettingsClient) SetPluginState(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetPluginState(ctx, &pb.SetPluginStateRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetRenderPriority calls the SetRenderPriority RPC.
-func (c *WebSettingsClient) SetRenderPriority(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetRenderPriority(ctx, &pb.SetRenderPriorityRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetSafeBrowsingEnabled calls the SetSafeBrowsingEnabled RPC.
-func (c *WebSettingsClient) SetSafeBrowsingEnabled(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetSafeBrowsingEnabled(ctx, &pb.SetSafeBrowsingEnabledRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetSansSerifFontFamily calls the SetSansSerifFontFamily RPC.
-func (c *WebSettingsClient) SetSansSerifFontFamily(ctx context.Context, arg0 string) error {
-	_, err := c.svc.SetSansSerifFontFamily(ctx, &pb.SetSansSerifFontFamilyRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetSaveFormData calls the SetSaveFormData RPC.
-func (c *WebSettingsClient) SetSaveFormData(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetSaveFormData(ctx, &pb.SetSaveFormDataRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetSavePassword calls the SetSavePassword RPC.
-func (c *WebSettingsClient) SetSavePassword(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetSavePassword(ctx, &pb.SetSavePasswordRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetSerifFontFamily calls the SetSerifFontFamily RPC.
-func (c *WebSettingsClient) SetSerifFontFamily(ctx context.Context, arg0 string) error {
-	_, err := c.svc.SetSerifFontFamily(ctx, &pb.SetSerifFontFamilyRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetStandardFontFamily calls the SetStandardFontFamily RPC.
-func (c *WebSettingsClient) SetStandardFontFamily(ctx context.Context, arg0 string) error {
-	_, err := c.svc.SetStandardFontFamily(ctx, &pb.SetStandardFontFamilyRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetSupportMultipleWindows calls the SetSupportMultipleWindows RPC.
-func (c *WebSettingsClient) SetSupportMultipleWindows(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetSupportMultipleWindows(ctx, &pb.SetSupportMultipleWindowsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetSupportZoom calls the SetSupportZoom RPC.
-func (c *WebSettingsClient) SetSupportZoom(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetSupportZoom(ctx, &pb.SetSupportZoomRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetTextZoom calls the SetTextZoom RPC.
-func (c *WebSettingsClient) SetTextZoom(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetTextZoom(ctx, &pb.SetTextZoomRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetUseWideViewPort calls the SetUseWideViewPort RPC.
-func (c *WebSettingsClient) SetUseWideViewPort(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetUseWideViewPort(ctx, &pb.SetUseWideViewPortRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetUserAgentString calls the SetUserAgentString RPC.
-func (c *WebSettingsClient) SetUserAgentString(ctx context.Context, arg0 string) error {
-	_, err := c.svc.SetUserAgentString(ctx, &pb.SetUserAgentStringRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SupportMultipleWindows calls the SupportMultipleWindows RPC.
-func (c *WebSettingsClient) SupportMultipleWindows(ctx context.Context) (bool, error) {
-	resp, err := c.svc.SupportMultipleWindows(ctx, &pb.SupportMultipleWindowsRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SupportZoom calls the SupportZoom RPC.
-func (c *WebSettingsClient) SupportZoom(ctx context.Context) (bool, error) {
-	resp, err := c.svc.SupportZoom(ctx, &pb.SupportZoomRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDefaultUserAgent calls the GetDefaultUserAgent RPC.
-func (c *WebSettingsClient) GetDefaultUserAgent(ctx context.Context, arg0 int64) (string, error) {
-	resp, err := c.svc.GetDefaultUserAgent(ctx, &pb.GetDefaultUserAgentRequest{
-		Arg0: arg0,
+// GetData calls the GetData RPC.
+func (c *WebMessageClient) GetData(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetData(ctx, &pb.GetDataRequest{
+		Handle: handle,
 	})
 	if err != nil {
 		return "", err
@@ -5058,30 +4720,274 @@ func (c *WebSettingsClient) GetDefaultUserAgent(ctx context.Context, arg0 int64)
 	return resp.GetResult(), nil
 }
 
-// WebSettingsLayoutAlgorithmClient wraps the gRPC WebSettingsLayoutAlgorithmService client.
-type WebSettingsLayoutAlgorithmClient struct {
-	svc pb.WebSettingsLayoutAlgorithmServiceClient
-}
-
-// NewWebSettingsLayoutAlgorithmClient creates a new WebSettingsLayoutAlgorithm client.
-func NewWebSettingsLayoutAlgorithmClient(cc grpc.ClientConnInterface) *WebSettingsLayoutAlgorithmClient {
-	return &WebSettingsLayoutAlgorithmClient{
-		svc: pb.NewWebSettingsLayoutAlgorithmServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *WebSettingsLayoutAlgorithmClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+// GetPorts calls the GetPorts RPC.
+func (c *WebMessageClient) GetPorts(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetPorts(ctx, &pb.GetPortsRequest{
+		Handle: handle,
+	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// ValueOf calls the ValueOf RPC.
-func (c *WebSettingsLayoutAlgorithmClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+// WebViewFragmentClient wraps the gRPC WebViewFragmentService client.
+type WebViewFragmentClient struct {
+	svc pb.WebViewFragmentServiceClient
+}
+
+// NewWebViewFragmentClient creates a new WebViewFragment client.
+func NewWebViewFragmentClient(cc grpc.ClientConnInterface) *WebViewFragmentClient {
+	return &WebViewFragmentClient{
+		svc: pb.NewWebViewFragmentServiceClient(cc),
+	}
+}
+
+// GetWebView calls the GetWebView RPC.
+func (c *WebViewFragmentClient) GetWebView(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetWebView(ctx, &pb.GetWebViewRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnCreateView calls the OnCreateView RPC.
+func (c *WebViewFragmentClient) OnCreateView(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.OnCreateView(ctx, &pb.OnCreateViewRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnDestroy calls the OnDestroy RPC.
+func (c *WebViewFragmentClient) OnDestroy(ctx context.Context, handle int64) error {
+	_, err := c.svc.OnDestroy(ctx, &pb.OnDestroyRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// OnDestroyView calls the OnDestroyView RPC.
+func (c *WebViewFragmentClient) OnDestroyView(ctx context.Context, handle int64) error {
+	_, err := c.svc.OnDestroyView(ctx, &pb.OnDestroyViewRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// OnPause calls the OnPause RPC.
+func (c *WebViewFragmentClient) OnPause(ctx context.Context, handle int64) error {
+	_, err := c.svc.OnPause(ctx, &pb.OnPauseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// OnResume calls the OnResume RPC.
+func (c *WebViewFragmentClient) OnResume(ctx context.Context, handle int64) error {
+	_, err := c.svc.OnResume(ctx, &pb.OnResumeRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// PermissionRequestClient wraps the gRPC PermissionRequestService client.
+type PermissionRequestClient struct {
+	svc pb.PermissionRequestServiceClient
+}
+
+// NewPermissionRequestClient creates a new PermissionRequest client.
+func NewPermissionRequestClient(cc grpc.ClientConnInterface) *PermissionRequestClient {
+	return &PermissionRequestClient{
+		svc: pb.NewPermissionRequestServiceClient(cc),
+	}
+}
+
+// Deny calls the Deny RPC.
+func (c *PermissionRequestClient) Deny(ctx context.Context) error {
+	_, err := c.svc.Deny(ctx, &pb.DenyRequest{})
+	return err
+}
+
+// GetOrigin calls the GetOrigin RPC.
+func (c *PermissionRequestClient) GetOrigin(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOrigin(ctx, &pb.GetOriginRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResources calls the GetResources RPC.
+func (c *PermissionRequestClient) GetResources(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetResources(ctx, &pb.GetResourcesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Grant calls the Grant RPC.
+func (c *PermissionRequestClient) Grant(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.Grant(ctx, &pb.GrantRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// WebIconDatabaseClient wraps the gRPC WebIconDatabaseService client.
+type WebIconDatabaseClient struct {
+	svc pb.WebIconDatabaseServiceClient
+}
+
+// NewWebIconDatabaseClient creates a new WebIconDatabase client.
+func NewWebIconDatabaseClient(cc grpc.ClientConnInterface) *WebIconDatabaseClient {
+	return &WebIconDatabaseClient{
+		svc: pb.NewWebIconDatabaseServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *WebIconDatabaseClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+	return err
+}
+
+// Open calls the Open RPC.
+func (c *WebIconDatabaseClient) Open(ctx context.Context, arg0 string) error {
+	_, err := c.svc.Open(ctx, &pb.OpenRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ReleaseIconForPageUrl calls the ReleaseIconForPageUrl RPC.
+func (c *WebIconDatabaseClient) ReleaseIconForPageUrl(ctx context.Context, arg0 string) error {
+	_, err := c.svc.ReleaseIconForPageUrl(ctx, &pb.ReleaseIconForPageUrlRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RemoveAllIcons calls the RemoveAllIcons RPC.
+func (c *WebIconDatabaseClient) RemoveAllIcons(ctx context.Context) error {
+	_, err := c.svc.RemoveAllIcons(ctx, &pb.RemoveAllIconsRequest{})
+	return err
+}
+
+// RequestIconForPageUrl calls the RequestIconForPageUrl RPC.
+func (c *WebIconDatabaseClient) RequestIconForPageUrl(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.RequestIconForPageUrl(ctx, &pb.RequestIconForPageUrlRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// RetainIconForPageUrl calls the RetainIconForPageUrl RPC.
+func (c *WebIconDatabaseClient) RetainIconForPageUrl(ctx context.Context, arg0 string) error {
+	_, err := c.svc.RetainIconForPageUrl(ctx, &pb.RetainIconForPageUrlRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetInstance calls the GetInstance RPC.
+func (c *WebIconDatabaseClient) GetInstance(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInstance(ctx, &pb.GetInstanceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WebIconDatabaseIconListenerClient wraps the gRPC WebIconDatabaseIconListenerService client.
+type WebIconDatabaseIconListenerClient struct {
+	svc pb.WebIconDatabaseIconListenerServiceClient
+}
+
+// NewWebIconDatabaseIconListenerClient creates a new WebIconDatabaseIconListener client.
+func NewWebIconDatabaseIconListenerClient(cc grpc.ClientConnInterface) *WebIconDatabaseIconListenerClient {
+	return &WebIconDatabaseIconListenerClient{
+		svc: pb.NewWebIconDatabaseIconListenerServiceClient(cc),
+	}
+}
+
+// OnReceivedIcon calls the OnReceivedIcon RPC.
+func (c *WebIconDatabaseIconListenerClient) OnReceivedIcon(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.OnReceivedIcon(ctx, &pb.WebIconDatabaseIconListenerOnReceivedIconRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// DownloadListenerClient wraps the gRPC DownloadListenerService client.
+type DownloadListenerClient struct {
+	svc pb.DownloadListenerServiceClient
+}
+
+// NewDownloadListenerClient creates a new DownloadListener client.
+func NewDownloadListenerClient(cc grpc.ClientConnInterface) *DownloadListenerClient {
+	return &DownloadListenerClient{
+		svc: pb.NewDownloadListenerServiceClient(cc),
+	}
+}
+
+// OnDownloadStart calls the OnDownloadStart RPC.
+func (c *DownloadListenerClient) OnDownloadStart(ctx context.Context, arg0 string, arg1 string, arg2 string, arg3 string, arg4 int64) error {
+	_, err := c.svc.OnDownloadStart(ctx, &pb.OnDownloadStartRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// WebBackForwardListClient wraps the gRPC WebBackForwardListService client.
+type WebBackForwardListClient struct {
+	svc pb.WebBackForwardListServiceClient
+}
+
+// NewWebBackForwardListClient creates a new WebBackForwardList client.
+func NewWebBackForwardListClient(cc grpc.ClientConnInterface) *WebBackForwardListClient {
+	return &WebBackForwardListClient{
+		svc: pb.NewWebBackForwardListServiceClient(cc),
+	}
+}
+
+// GetCurrentIndex calls the GetCurrentIndex RPC.
+func (c *WebBackForwardListClient) GetCurrentIndex(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetCurrentIndex(ctx, &pb.GetCurrentIndexRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCurrentItem calls the GetCurrentItem RPC.
+func (c *WebBackForwardListClient) GetCurrentItem(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCurrentItem(ctx, &pb.GetCurrentItemRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetItemAtIndex calls the GetItemAtIndex RPC.
+func (c *WebBackForwardListClient) GetItemAtIndex(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetItemAtIndex(ctx, &pb.GetItemAtIndexRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -5090,30 +4996,179 @@ func (c *WebSettingsLayoutAlgorithmClient) ValueOf(ctx context.Context, arg0 str
 	return resp.GetResult(), nil
 }
 
-// WebSettingsPluginStateClient wraps the gRPC WebSettingsPluginStateService client.
-type WebSettingsPluginStateClient struct {
-	svc pb.WebSettingsPluginStateServiceClient
-}
-
-// NewWebSettingsPluginStateClient creates a new WebSettingsPluginState client.
-func NewWebSettingsPluginStateClient(cc grpc.ClientConnInterface) *WebSettingsPluginStateClient {
-	return &WebSettingsPluginStateClient{
-		svc: pb.NewWebSettingsPluginStateServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *WebSettingsPluginStateClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+// GetSize calls the GetSize RPC.
+func (c *WebBackForwardListClient) GetSize(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSize(ctx, &pb.GetSizeRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// ValueOf calls the ValueOf RPC.
-func (c *WebSettingsPluginStateClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+// WebResourceRequestClient wraps the gRPC WebResourceRequestService client.
+type WebResourceRequestClient struct {
+	svc pb.WebResourceRequestServiceClient
+}
+
+// NewWebResourceRequestClient creates a new WebResourceRequest client.
+func NewWebResourceRequestClient(cc grpc.ClientConnInterface) *WebResourceRequestClient {
+	return &WebResourceRequestClient{
+		svc: pb.NewWebResourceRequestServiceClient(cc),
+	}
+}
+
+// GetMethod calls the GetMethod RPC.
+func (c *WebResourceRequestClient) GetMethod(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetMethod(ctx, &pb.GetMethodRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUrl calls the GetUrl RPC.
+func (c *WebResourceRequestClient) GetUrl(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUrl(ctx, &pb.WebResourceRequestGetUrlRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasGesture calls the HasGesture RPC.
+func (c *WebResourceRequestClient) HasGesture(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasGesture(ctx, &pb.HasGestureRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsForMainFrame calls the IsForMainFrame RPC.
+func (c *WebResourceRequestClient) IsForMainFrame(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsForMainFrame(ctx, &pb.IsForMainFrameRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRedirect calls the IsRedirect RPC.
+func (c *WebResourceRequestClient) IsRedirect(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsRedirect(ctx, &pb.IsRedirectRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ServiceWorkerClientClient wraps the gRPC ServiceWorkerClientService client.
+type ServiceWorkerClientClient struct {
+	svc pb.ServiceWorkerClientServiceClient
+}
+
+// NewServiceWorkerClientClient creates a new ServiceWorkerClient client.
+func NewServiceWorkerClientClient(cc grpc.ClientConnInterface) *ServiceWorkerClientClient {
+	return &ServiceWorkerClientClient{
+		svc: pb.NewServiceWorkerClientServiceClient(cc),
+	}
+}
+
+// ShouldInterceptRequest calls the ShouldInterceptRequest RPC.
+func (c *ServiceWorkerClientClient) ShouldInterceptRequest(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.ShouldInterceptRequest(ctx, &pb.ShouldInterceptRequestRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WebViewDatabaseClient wraps the gRPC WebViewDatabaseService client.
+type WebViewDatabaseClient struct {
+	svc pb.WebViewDatabaseServiceClient
+}
+
+// NewWebViewDatabaseClient creates a new WebViewDatabase client.
+func NewWebViewDatabaseClient(cc grpc.ClientConnInterface) *WebViewDatabaseClient {
+	return &WebViewDatabaseClient{
+		svc: pb.NewWebViewDatabaseServiceClient(cc),
+	}
+}
+
+// ClearFormData calls the ClearFormData RPC.
+func (c *WebViewDatabaseClient) ClearFormData(ctx context.Context) error {
+	_, err := c.svc.ClearFormData(ctx, &pb.WebViewDatabaseClearFormDataRequest{})
+	return err
+}
+
+// ClearHttpAuthUsernamePassword calls the ClearHttpAuthUsernamePassword RPC.
+func (c *WebViewDatabaseClient) ClearHttpAuthUsernamePassword(ctx context.Context) error {
+	_, err := c.svc.ClearHttpAuthUsernamePassword(ctx, &pb.ClearHttpAuthUsernamePasswordRequest{})
+	return err
+}
+
+// ClearUsernamePassword calls the ClearUsernamePassword RPC.
+func (c *WebViewDatabaseClient) ClearUsernamePassword(ctx context.Context) error {
+	_, err := c.svc.ClearUsernamePassword(ctx, &pb.ClearUsernamePasswordRequest{})
+	return err
+}
+
+// GetHttpAuthUsernamePassword calls the GetHttpAuthUsernamePassword RPC.
+func (c *WebViewDatabaseClient) GetHttpAuthUsernamePassword(ctx context.Context, arg0 string, arg1 string) (int64, error) {
+	resp, err := c.svc.GetHttpAuthUsernamePassword(ctx, &pb.WebViewDatabaseGetHttpAuthUsernamePasswordRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasFormData calls the HasFormData RPC.
+func (c *WebViewDatabaseClient) HasFormData(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasFormData(ctx, &pb.HasFormDataRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasHttpAuthUsernamePassword calls the HasHttpAuthUsernamePassword RPC.
+func (c *WebViewDatabaseClient) HasHttpAuthUsernamePassword(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasHttpAuthUsernamePassword(ctx, &pb.HasHttpAuthUsernamePasswordRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasUsernamePassword calls the HasUsernamePassword RPC.
+func (c *WebViewDatabaseClient) HasUsernamePassword(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasUsernamePassword(ctx, &pb.HasUsernamePasswordRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHttpAuthUsernamePassword calls the SetHttpAuthUsernamePassword RPC.
+func (c *WebViewDatabaseClient) SetHttpAuthUsernamePassword(ctx context.Context, arg0 string, arg1 string, arg2 string, arg3 string) error {
+	_, err := c.svc.SetHttpAuthUsernamePassword(ctx, &pb.WebViewDatabaseSetHttpAuthUsernamePasswordRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GetInstance calls the GetInstance RPC.
+func (c *WebViewDatabaseClient) GetInstance(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetInstance(ctx, &pb.WebViewDatabaseGetInstanceRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -5122,96 +5177,50 @@ func (c *WebSettingsPluginStateClient) ValueOf(ctx context.Context, arg0 string)
 	return resp.GetResult(), nil
 }
 
-// WebSettingsRenderPriorityClient wraps the gRPC WebSettingsRenderPriorityService client.
-type WebSettingsRenderPriorityClient struct {
-	svc pb.WebSettingsRenderPriorityServiceClient
+// TracingControllerClient wraps the gRPC TracingControllerService client.
+type TracingControllerClient struct {
+	svc pb.TracingControllerServiceClient
 }
 
-// NewWebSettingsRenderPriorityClient creates a new WebSettingsRenderPriority client.
-func NewWebSettingsRenderPriorityClient(cc grpc.ClientConnInterface) *WebSettingsRenderPriorityClient {
-	return &WebSettingsRenderPriorityClient{
-		svc: pb.NewWebSettingsRenderPriorityServiceClient(cc),
+// NewTracingControllerClient creates a new TracingController client.
+func NewTracingControllerClient(cc grpc.ClientConnInterface) *TracingControllerClient {
+	return &TracingControllerClient{
+		svc: pb.NewTracingControllerServiceClient(cc),
 	}
 }
 
-// Values calls the Values RPC.
-func (c *WebSettingsRenderPriorityClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+// IsTracing calls the IsTracing RPC.
+func (c *TracingControllerClient) IsTracing(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsTracing(ctx, &pb.IsTracingRequest{})
 	if err != nil {
-		return 0, err
+		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
-// ValueOf calls the ValueOf RPC.
-func (c *WebSettingsRenderPriorityClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+// Start calls the Start RPC.
+func (c *TracingControllerClient) Start(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.Start(ctx, &pb.StartRequest{
 		Arg0: arg0,
 	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
+	return err
 }
 
-// WebSettingsTextSizeClient wraps the gRPC WebSettingsTextSizeService client.
-type WebSettingsTextSizeClient struct {
-	svc pb.WebSettingsTextSizeServiceClient
-}
-
-// NewWebSettingsTextSizeClient creates a new WebSettingsTextSize client.
-func NewWebSettingsTextSizeClient(cc grpc.ClientConnInterface) *WebSettingsTextSizeClient {
-	return &WebSettingsTextSizeClient{
-		svc: pb.NewWebSettingsTextSizeServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *WebSettingsTextSizeClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *WebSettingsTextSizeClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+// Stop calls the Stop RPC.
+func (c *TracingControllerClient) Stop(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.Stop(ctx, &pb.StopRequest{
 		Arg0: arg0,
+		Arg1: arg1,
 	})
 	if err != nil {
-		return 0, err
+		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
-// WebSettingsZoomDensityClient wraps the gRPC WebSettingsZoomDensityService client.
-type WebSettingsZoomDensityClient struct {
-	svc pb.WebSettingsZoomDensityServiceClient
-}
-
-// NewWebSettingsZoomDensityClient creates a new WebSettingsZoomDensity client.
-func NewWebSettingsZoomDensityClient(cc grpc.ClientConnInterface) *WebSettingsZoomDensityClient {
-	return &WebSettingsZoomDensityClient{
-		svc: pb.NewWebSettingsZoomDensityServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *WebSettingsZoomDensityClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *WebSettingsZoomDensityClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
+// GetInstance calls the GetInstance RPC.
+func (c *TracingControllerClient) GetInstance(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInstance(ctx, &pb.GetInstanceRequest{})
 	if err != nil {
 		return 0, err
 	}

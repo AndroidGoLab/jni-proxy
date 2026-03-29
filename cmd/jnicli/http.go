@@ -12,20 +12,20 @@ var httpCmd = &cobra.Command{
 	Short: "http service operations",
 }
 
-var httpUploadDataProviderCmd = &cobra.Command{
-	Use:   "upload-data-provider",
-	Short: "UploadDataProviderService operations",
+var httpConnectionMigrationOptionsCmd = &cobra.Command{
+	Use:   "connection-migration-options",
+	Short: "ConnectionMigrationOptionsService operations",
 }
 
-var httpUploadDataProviderCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
+var httpConnectionMigrationOptionsGetAllowNonDefaultNetworkUsageCmd = &cobra.Command{
+	Use:   "get-allow-non-default-network-usage",
+	Short: "GetAllowNonDefaultNetworkUsage RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewUploadDataProviderServiceClient(grpcConn)
-		req := &pb.CloseRequest{}
-		resp, err := client.Close(ctx, req)
+		client := pb.NewConnectionMigrationOptionsServiceClient(grpcConn)
+		req := &pb.GetAllowNonDefaultNetworkUsageRequest{}
+		resp, err := client.GetAllowNonDefaultNetworkUsage(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -33,15 +33,15 @@ var httpUploadDataProviderCloseCmd = &cobra.Command{
 	},
 }
 
-var httpUploadDataProviderGetLengthCmd = &cobra.Command{
-	Use:   "get-length",
-	Short: "GetLength RPC",
+var httpConnectionMigrationOptionsGetDefaultNetworkMigrationCmd = &cobra.Command{
+	Use:   "get-default-network-migration",
+	Short: "GetDefaultNetworkMigration RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewUploadDataProviderServiceClient(grpcConn)
-		req := &pb.GetLengthRequest{}
-		resp, err := client.GetLength(ctx, req)
+		client := pb.NewConnectionMigrationOptionsServiceClient(grpcConn)
+		req := &pb.GetDefaultNetworkMigrationRequest{}
+		resp, err := client.GetDefaultNetworkMigration(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -49,18 +49,15 @@ var httpUploadDataProviderGetLengthCmd = &cobra.Command{
 	},
 }
 
-var httpUploadDataProviderRewindCmd = &cobra.Command{
-	Use:   "rewind",
-	Short: "Rewind RPC",
+var httpConnectionMigrationOptionsGetPathDegradationMigrationCmd = &cobra.Command{
+	Use:   "get-path-degradation-migration",
+	Short: "GetPathDegradationMigration RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewUploadDataProviderServiceClient(grpcConn)
-		req := &pb.RewindRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Rewind(ctx, req)
+		client := pb.NewConnectionMigrationOptionsServiceClient(grpcConn)
+		req := &pb.GetPathDegradationMigrationRequest{}
+		resp, err := client.GetPathDegradationMigration(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -68,472 +65,18 @@ var httpUploadDataProviderRewindCmd = &cobra.Command{
 	},
 }
 
-var httpUrlResponseInfoCmd = &cobra.Command{
-	Use:   "url-response-info",
-	Short: "UrlResponseInfoService operations",
+var httpConnectionMigrationOptionsBuilderCmd = &cobra.Command{
+	Use:   "connection-migration-options-builder",
+	Short: "ConnectionMigrationOptionsBuilderService operations",
 }
 
-var httpUrlResponseInfoGetHeadersCmd = &cobra.Command{
-	Use:   "get-headers",
-	Short: "GetHeaders RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUrlResponseInfoServiceClient(grpcConn)
-		req := &pb.GetHeadersRequest{}
-		resp, err := client.GetHeaders(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpUrlResponseInfoGetHttpStatusCodeCmd = &cobra.Command{
-	Use:   "get-http-status-code",
-	Short: "GetHttpStatusCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUrlResponseInfoServiceClient(grpcConn)
-		req := &pb.GetHttpStatusCodeRequest{}
-		resp, err := client.GetHttpStatusCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpUrlResponseInfoGetHttpStatusTextCmd = &cobra.Command{
-	Use:   "get-http-status-text",
-	Short: "GetHttpStatusText RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUrlResponseInfoServiceClient(grpcConn)
-		req := &pb.GetHttpStatusTextRequest{}
-		resp, err := client.GetHttpStatusText(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpUrlResponseInfoGetNegotiatedProtocolCmd = &cobra.Command{
-	Use:   "get-negotiated-protocol",
-	Short: "GetNegotiatedProtocol RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUrlResponseInfoServiceClient(grpcConn)
-		req := &pb.GetNegotiatedProtocolRequest{}
-		resp, err := client.GetNegotiatedProtocol(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpUrlResponseInfoGetReceivedByteCountCmd = &cobra.Command{
-	Use:   "get-received-byte-count",
-	Short: "GetReceivedByteCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUrlResponseInfoServiceClient(grpcConn)
-		req := &pb.GetReceivedByteCountRequest{}
-		resp, err := client.GetReceivedByteCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpUrlResponseInfoGetUrlCmd = &cobra.Command{
-	Use:   "get-url",
-	Short: "GetUrl RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUrlResponseInfoServiceClient(grpcConn)
-		req := &pb.GetUrlRequest{}
-		resp, err := client.GetUrl(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpUrlResponseInfoWasCachedCmd = &cobra.Command{
-	Use:   "was-cached",
-	Short: "WasCached RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUrlResponseInfoServiceClient(grpcConn)
-		req := &pb.WasCachedRequest{}
-		resp, err := client.WasCached(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpResponseCacheCmd = &cobra.Command{
-	Use:   "response-cache",
-	Short: "ResponseCacheService operations",
-}
-
-var httpResponseCacheCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResponseCacheServiceClient(grpcConn)
-		req := &pb.CloseRequest{}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpResponseCacheDeleteCmd = &cobra.Command{
-	Use:   "delete",
-	Short: "Delete RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResponseCacheServiceClient(grpcConn)
-		req := &pb.DeleteRequest{}
-		resp, err := client.Delete(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpResponseCacheFlushCmd = &cobra.Command{
-	Use:   "flush",
-	Short: "Flush RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResponseCacheServiceClient(grpcConn)
-		req := &pb.FlushRequest{}
-		resp, err := client.Flush(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpResponseCacheGetHitCountCmd = &cobra.Command{
-	Use:   "get-hit-count",
-	Short: "GetHitCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResponseCacheServiceClient(grpcConn)
-		req := &pb.GetHitCountRequest{}
-		resp, err := client.GetHitCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpResponseCacheGetNetworkCountCmd = &cobra.Command{
-	Use:   "get-network-count",
-	Short: "GetNetworkCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResponseCacheServiceClient(grpcConn)
-		req := &pb.GetNetworkCountRequest{}
-		resp, err := client.GetNetworkCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpResponseCacheGetRequestCountCmd = &cobra.Command{
-	Use:   "get-request-count",
-	Short: "GetRequestCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResponseCacheServiceClient(grpcConn)
-		req := &pb.GetRequestCountRequest{}
-		resp, err := client.GetRequestCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpResponseCacheMaxSizeCmd = &cobra.Command{
-	Use:   "max-size",
-	Short: "MaxSize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResponseCacheServiceClient(grpcConn)
-		req := &pb.MaxSizeRequest{}
-		resp, err := client.MaxSize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpResponseCachePutCmd = &cobra.Command{
-	Use:   "put",
-	Short: "Put RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResponseCacheServiceClient(grpcConn)
-		req := &pb.PutRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Put(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpResponseCacheSizeCmd = &cobra.Command{
-	Use:   "size",
-	Short: "Size RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResponseCacheServiceClient(grpcConn)
-		req := &pb.SizeRequest{}
-		resp, err := client.Size(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpResponseCacheGetInstalledCmd = &cobra.Command{
-	Use:   "get-installed",
-	Short: "GetInstalled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResponseCacheServiceClient(grpcConn)
-		req := &pb.GetInstalledRequest{}
-		resp, err := client.GetInstalled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpEngineCmd = &cobra.Command{
-	Use:   "engine",
-	Short: "EngineService operations",
-}
-
-var httpEngineBindToNetworkCmd = &cobra.Command{
-	Use:   "bind-to-network",
-	Short: "BindToNetwork RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEngineServiceClient(grpcConn)
-		req := &pb.BindToNetworkRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.BindToNetwork(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpEngineCreateUrlStreamHandlerFactoryCmd = &cobra.Command{
-	Use:   "create-url-stream-handler-factory",
-	Short: "CreateUrlStreamHandlerFactory RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEngineServiceClient(grpcConn)
-		req := &pb.CreateUrlStreamHandlerFactoryRequest{}
-		resp, err := client.CreateUrlStreamHandlerFactory(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpEngineNewBidirectionalStreamBuilderCmd = &cobra.Command{
-	Use:   "new-bidirectional-stream-builder",
-	Short: "NewBidirectionalStreamBuilder RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEngineServiceClient(grpcConn)
-		req := &pb.NewBidirectionalStreamBuilderRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.NewBidirectionalStreamBuilder(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpEngineNewUrlRequestBuilderCmd = &cobra.Command{
-	Use:   "new-url-request-builder",
-	Short: "NewUrlRequestBuilder RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEngineServiceClient(grpcConn)
-		req := &pb.NewUrlRequestBuilderRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.NewUrlRequestBuilder(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpEngineOpenConnectionCmd = &cobra.Command{
-	Use:   "open-connection",
-	Short: "OpenConnection RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEngineServiceClient(grpcConn)
-		req := &pb.OpenConnectionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OpenConnection(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpEngineShutdownCmd = &cobra.Command{
-	Use:   "shutdown",
-	Short: "Shutdown RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEngineServiceClient(grpcConn)
-		req := &pb.ShutdownRequest{}
-		resp, err := client.Shutdown(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpEngineGetVersionStringCmd = &cobra.Command{
-	Use:   "get-version-string",
-	Short: "GetVersionString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEngineServiceClient(grpcConn)
-		req := &pb.GetVersionStringRequest{}
-		resp, err := client.GetVersionString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpEngineBuilderCmd = &cobra.Command{
-	Use:   "engine-builder",
-	Short: "EngineBuilderService operations",
-}
-
-var httpEngineBuilderAddQuicHintCmd = &cobra.Command{
-	Use:   "add-quic-hint",
-	Short: "AddQuicHint RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEngineBuilderServiceClient(grpcConn)
-		req := &pb.AddQuicHintRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.AddQuicHint(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpEngineBuilderBuildCmd = &cobra.Command{
+var httpConnectionMigrationOptionsBuilderBuildCmd = &cobra.Command{
 	Use:   "build",
 	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewEngineBuilderServiceClient(grpcConn)
+		client := pb.NewConnectionMigrationOptionsBuilderServiceClient(grpcConn)
 		req := &pb.BuildRequest{}
 		resp, err := client.Build(ctx, req)
 		if err != nil {
@@ -543,113 +86,18 @@ var httpEngineBuilderBuildCmd = &cobra.Command{
 	},
 }
 
-var httpEngineBuilderGetDefaultUserAgentCmd = &cobra.Command{
-	Use:   "get-default-user-agent",
-	Short: "GetDefaultUserAgent RPC",
+var httpConnectionMigrationOptionsBuilderSetAllowNonDefaultNetworkUsageCmd = &cobra.Command{
+	Use:   "set-allow-non-default-network-usage",
+	Short: "SetAllowNonDefaultNetworkUsage RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewEngineBuilderServiceClient(grpcConn)
-		req := &pb.GetDefaultUserAgentRequest{}
-		resp, err := client.GetDefaultUserAgent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpEngineBuilderSetConnectionMigrationOptionsCmd = &cobra.Command{
-	Use:   "set-connection-migration-options",
-	Short: "SetConnectionMigrationOptions RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEngineBuilderServiceClient(grpcConn)
-		req := &pb.SetConnectionMigrationOptionsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetConnectionMigrationOptions(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpEngineBuilderSetDnsOptionsCmd = &cobra.Command{
-	Use:   "set-dns-options",
-	Short: "SetDnsOptions RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEngineBuilderServiceClient(grpcConn)
-		req := &pb.SetDnsOptionsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDnsOptions(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpEngineBuilderSetEnableBrotliCmd = &cobra.Command{
-	Use:   "set-enable-brotli",
-	Short: "SetEnableBrotli RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEngineBuilderServiceClient(grpcConn)
-		req := &pb.SetEnableBrotliRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEnableBrotli(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpEngineBuilderSetEnableHttp2Cmd = &cobra.Command{
-	Use:   "set-enable-http2",
-	Short: "SetEnableHttp2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEngineBuilderServiceClient(grpcConn)
-		req := &pb.SetEnableHttp2Request{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEnableHttp2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpEngineBuilderSetEnableHttpCacheCmd = &cobra.Command{
-	Use:   "set-enable-http-cache",
-	Short: "SetEnableHttpCache RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEngineBuilderServiceClient(grpcConn)
-		req := &pb.SetEnableHttpCacheRequest{}
+		client := pb.NewConnectionMigrationOptionsBuilderServiceClient(grpcConn)
+		req := &pb.SetAllowNonDefaultNetworkUsageRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetEnableHttpCache(ctx, req)
+		resp, err := client.SetAllowNonDefaultNetworkUsage(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -657,18 +105,18 @@ var httpEngineBuilderSetEnableHttpCacheCmd = &cobra.Command{
 	},
 }
 
-var httpEngineBuilderSetEnablePublicKeyPinningBypassForLocalTrustAnchorsCmd = &cobra.Command{
-	Use:   "set-enable-public-key-pinning-bypass-for-local-trust-anchors",
-	Short: "SetEnablePublicKeyPinningBypassForLocalTrustAnchors RPC",
+var httpConnectionMigrationOptionsBuilderSetDefaultNetworkMigrationCmd = &cobra.Command{
+	Use:   "set-default-network-migration",
+	Short: "SetDefaultNetworkMigration RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewEngineBuilderServiceClient(grpcConn)
-		req := &pb.SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+		client := pb.NewConnectionMigrationOptionsBuilderServiceClient(grpcConn)
+		req := &pb.SetDefaultNetworkMigrationRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetEnablePublicKeyPinningBypassForLocalTrustAnchors(ctx, req)
+		resp, err := client.SetDefaultNetworkMigration(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -676,112 +124,18 @@ var httpEngineBuilderSetEnablePublicKeyPinningBypassForLocalTrustAnchorsCmd = &c
 	},
 }
 
-var httpEngineBuilderSetEnableQuicCmd = &cobra.Command{
-	Use:   "set-enable-quic",
-	Short: "SetEnableQuic RPC",
+var httpConnectionMigrationOptionsBuilderSetPathDegradationMigrationCmd = &cobra.Command{
+	Use:   "set-path-degradation-migration",
+	Short: "SetPathDegradationMigration RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewEngineBuilderServiceClient(grpcConn)
-		req := &pb.SetEnableQuicRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+		client := pb.NewConnectionMigrationOptionsBuilderServiceClient(grpcConn)
+		req := &pb.SetPathDegradationMigrationRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetEnableQuic(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpEngineBuilderSetQuicOptionsCmd = &cobra.Command{
-	Use:   "set-quic-options",
-	Short: "SetQuicOptions RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEngineBuilderServiceClient(grpcConn)
-		req := &pb.SetQuicOptionsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetQuicOptions(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpEngineBuilderSetStoragePathCmd = &cobra.Command{
-	Use:   "set-storage-path",
-	Short: "SetStoragePath RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEngineBuilderServiceClient(grpcConn)
-		req := &pb.SetStoragePathRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStoragePath(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpEngineBuilderSetUserAgentCmd = &cobra.Command{
-	Use:   "set-user-agent",
-	Short: "SetUserAgent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEngineBuilderServiceClient(grpcConn)
-		req := &pb.SetUserAgentRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetUserAgent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpNetworkExceptionCmd = &cobra.Command{
-	Use:   "network-exception",
-	Short: "NetworkExceptionService operations",
-}
-
-var httpNetworkExceptionGetErrorCodeCmd = &cobra.Command{
-	Use:   "get-error-code",
-	Short: "GetErrorCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkExceptionServiceClient(grpcConn)
-		req := &pb.GetErrorCodeRequest{}
-		resp, err := client.GetErrorCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpNetworkExceptionIsImmediatelyRetryableCmd = &cobra.Command{
-	Use:   "is-immediately-retryable",
-	Short: "IsImmediatelyRetryable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNetworkExceptionServiceClient(grpcConn)
-		req := &pb.IsImmediatelyRetryableRequest{}
-		resp, err := client.IsImmediatelyRetryable(ctx, req)
+		resp, err := client.SetPathDegradationMigration(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1364,153 +718,6 @@ var httpUrlRequestStatusListenerOnStatusCmd = &cobra.Command{
 	},
 }
 
-var httpSslErrorCmd = &cobra.Command{
-	Use:   "ssl-error",
-	Short: "SslErrorService operations",
-}
-
-var httpSslErrorNewSslErrorCmd = &cobra.Command{
-	Use:   "new-ssl-error",
-	Short: "NewSslError RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSslErrorServiceClient(grpcConn)
-		req := &pb.NewSslErrorRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewSslError(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpSslErrorAddErrorCmd = &cobra.Command{
-	Use:   "add-error",
-	Short: "AddError RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSslErrorServiceClient(grpcConn)
-		req := &pb.AddErrorRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddError(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpSslErrorGetCertificateCmd = &cobra.Command{
-	Use:   "get-certificate",
-	Short: "GetCertificate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSslErrorServiceClient(grpcConn)
-		req := &pb.GetCertificateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetCertificate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpSslErrorGetPrimaryErrorCmd = &cobra.Command{
-	Use:   "get-primary-error",
-	Short: "GetPrimaryError RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSslErrorServiceClient(grpcConn)
-		req := &pb.GetPrimaryErrorRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetPrimaryError(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpSslErrorGetUrlCmd = &cobra.Command{
-	Use:   "get-url",
-	Short: "GetUrl RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSslErrorServiceClient(grpcConn)
-		req := &pb.SslErrorGetUrlRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetUrl(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpSslErrorHasErrorCmd = &cobra.Command{
-	Use:   "has-error",
-	Short: "HasError RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSslErrorServiceClient(grpcConn)
-		req := &pb.HasErrorRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.HasError(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpSslErrorToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSslErrorServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var httpX509TrustManagerExtensionsCmd = &cobra.Command{
 	Use:   "x509trust-manager-extensions",
 	Short: "X509TrustManagerExtensionsService operations",
@@ -1528,6 +735,68 @@ var httpX509TrustManagerExtensionsNewX509TrustManagerExtensionsCmd = &cobra.Comm
 			req.Arg0 = v
 		}
 		resp, err := client.NewX509TrustManagerExtensions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpX509TrustManagerExtensionsCheckServerTrusted5Cmd = &cobra.Command{
+	Use:   "check-server-trusted5",
+	Short: "CheckServerTrusted5 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewX509TrustManagerExtensionsServiceClient(grpcConn)
+		req := &pb.CheckServerTrusted5Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetString("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetString("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.CheckServerTrusted5(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpX509TrustManagerExtensionsCheckServerTrusted3_1Cmd = &cobra.Command{
+	Use:   "check-server-trusted3_1",
+	Short: "CheckServerTrusted3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewX509TrustManagerExtensionsServiceClient(grpcConn)
+		req := &pb.CheckServerTrusted3_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.CheckServerTrusted3_1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1660,20 +929,20 @@ var httpUploadDataSinkOnRewindSucceededCmd = &cobra.Command{
 	},
 }
 
-var httpQuicOptionsCmd = &cobra.Command{
-	Use:   "quic-options",
-	Short: "QuicOptionsService operations",
+var httpUploadDataProviderCmd = &cobra.Command{
+	Use:   "upload-data-provider",
+	Short: "UploadDataProviderService operations",
 }
 
-var httpQuicOptionsGetHandshakeUserAgentCmd = &cobra.Command{
-	Use:   "get-handshake-user-agent",
-	Short: "GetHandshakeUserAgent RPC",
+var httpUploadDataProviderCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewQuicOptionsServiceClient(grpcConn)
-		req := &pb.GetHandshakeUserAgentRequest{}
-		resp, err := client.GetHandshakeUserAgent(ctx, req)
+		client := pb.NewUploadDataProviderServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1681,15 +950,15 @@ var httpQuicOptionsGetHandshakeUserAgentCmd = &cobra.Command{
 	},
 }
 
-var httpQuicOptionsGetIdleConnectionTimeoutCmd = &cobra.Command{
-	Use:   "get-idle-connection-timeout",
-	Short: "GetIdleConnectionTimeout RPC",
+var httpUploadDataProviderGetLengthCmd = &cobra.Command{
+	Use:   "get-length",
+	Short: "GetLength RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewQuicOptionsServiceClient(grpcConn)
-		req := &pb.GetIdleConnectionTimeoutRequest{}
-		resp, err := client.GetIdleConnectionTimeout(ctx, req)
+		client := pb.NewUploadDataProviderServiceClient(grpcConn)
+		req := &pb.GetLengthRequest{}
+		resp, err := client.GetLength(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1697,862 +966,18 @@ var httpQuicOptionsGetIdleConnectionTimeoutCmd = &cobra.Command{
 	},
 }
 
-var httpQuicOptionsGetInMemoryServerConfigsCacheSizeCmd = &cobra.Command{
-	Use:   "get-in-memory-server-configs-cache-size",
-	Short: "GetInMemoryServerConfigsCacheSize RPC",
+var httpUploadDataProviderRewindCmd = &cobra.Command{
+	Use:   "rewind",
+	Short: "Rewind RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewQuicOptionsServiceClient(grpcConn)
-		req := &pb.GetInMemoryServerConfigsCacheSizeRequest{}
-		resp, err := client.GetInMemoryServerConfigsCacheSize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpQuicOptionsHasInMemoryServerConfigsCacheSizeCmd = &cobra.Command{
-	Use:   "has-in-memory-server-configs-cache-size",
-	Short: "HasInMemoryServerConfigsCacheSize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewQuicOptionsServiceClient(grpcConn)
-		req := &pb.HasInMemoryServerConfigsCacheSizeRequest{}
-		resp, err := client.HasInMemoryServerConfigsCacheSize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpQuicOptionsBuilderCmd = &cobra.Command{
-	Use:   "quic-options-builder",
-	Short: "QuicOptionsBuilderService operations",
-}
-
-var httpQuicOptionsBuilderAddAllowedQuicHostCmd = &cobra.Command{
-	Use:   "add-allowed-quic-host",
-	Short: "AddAllowedQuicHost RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewQuicOptionsBuilderServiceClient(grpcConn)
-		req := &pb.AddAllowedQuicHostRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddAllowedQuicHost(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpQuicOptionsBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewQuicOptionsBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpQuicOptionsBuilderSetHandshakeUserAgentCmd = &cobra.Command{
-	Use:   "set-handshake-user-agent",
-	Short: "SetHandshakeUserAgent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewQuicOptionsBuilderServiceClient(grpcConn)
-		req := &pb.SetHandshakeUserAgentRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetHandshakeUserAgent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpQuicOptionsBuilderSetIdleConnectionTimeoutCmd = &cobra.Command{
-	Use:   "set-idle-connection-timeout",
-	Short: "SetIdleConnectionTimeout RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewQuicOptionsBuilderServiceClient(grpcConn)
-		req := &pb.SetIdleConnectionTimeoutRequest{}
+		client := pb.NewUploadDataProviderServiceClient(grpcConn)
+		req := &pb.RewindRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetIdleConnectionTimeout(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpQuicOptionsBuilderSetInMemoryServerConfigsCacheSizeCmd = &cobra.Command{
-	Use:   "set-in-memory-server-configs-cache-size",
-	Short: "SetInMemoryServerConfigsCacheSize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewQuicOptionsBuilderServiceClient(grpcConn)
-		req := &pb.SetInMemoryServerConfigsCacheSizeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetInMemoryServerConfigsCacheSize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpSslCertificateCmd = &cobra.Command{
-	Use:   "ssl-certificate",
-	Short: "SslCertificateService operations",
-}
-
-var httpSslCertificateNewSslCertificateCmd = &cobra.Command{
-	Use:   "new-ssl-certificate",
-	Short: "NewSslCertificate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSslCertificateServiceClient(grpcConn)
-		req := &pb.NewSslCertificateRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetString("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.NewSslCertificate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpSslCertificateGetIssuedByCmd = &cobra.Command{
-	Use:   "get-issued-by",
-	Short: "GetIssuedBy RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSslCertificateServiceClient(grpcConn)
-		req := &pb.GetIssuedByRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetIssuedBy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpSslCertificateGetIssuedToCmd = &cobra.Command{
-	Use:   "get-issued-to",
-	Short: "GetIssuedTo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSslCertificateServiceClient(grpcConn)
-		req := &pb.GetIssuedToRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetIssuedTo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpSslCertificateGetValidNotAfterCmd = &cobra.Command{
-	Use:   "get-valid-not-after",
-	Short: "GetValidNotAfter RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSslCertificateServiceClient(grpcConn)
-		req := &pb.GetValidNotAfterRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetValidNotAfter(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpSslCertificateGetValidNotAfterDateCmd = &cobra.Command{
-	Use:   "get-valid-not-after-date",
-	Short: "GetValidNotAfterDate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSslCertificateServiceClient(grpcConn)
-		req := &pb.GetValidNotAfterDateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetValidNotAfterDate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpSslCertificateGetValidNotBeforeCmd = &cobra.Command{
-	Use:   "get-valid-not-before",
-	Short: "GetValidNotBefore RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSslCertificateServiceClient(grpcConn)
-		req := &pb.GetValidNotBeforeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetValidNotBefore(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpSslCertificateGetValidNotBeforeDateCmd = &cobra.Command{
-	Use:   "get-valid-not-before-date",
-	Short: "GetValidNotBeforeDate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSslCertificateServiceClient(grpcConn)
-		req := &pb.GetValidNotBeforeDateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetValidNotBeforeDate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpSslCertificateGetX509CertificateCmd = &cobra.Command{
-	Use:   "get-x509certificate",
-	Short: "GetX509Certificate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSslCertificateServiceClient(grpcConn)
-		req := &pb.GetX509CertificateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetX509Certificate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpSslCertificateToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSslCertificateServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpSslCertificateRestoreStateCmd = &cobra.Command{
-	Use:   "restore-state",
-	Short: "RestoreState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSslCertificateServiceClient(grpcConn)
-		req := &pb.RestoreStateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RestoreState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpSslCertificateSaveStateCmd = &cobra.Command{
-	Use:   "save-state",
-	Short: "SaveState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSslCertificateServiceClient(grpcConn)
-		req := &pb.SaveStateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SaveState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpSslCertificateDNameCmd = &cobra.Command{
-	Use:   "ssl-certificate-d-name",
-	Short: "SslCertificateDNameService operations",
-}
-
-var httpSslCertificateDNameGetCNameCmd = &cobra.Command{
-	Use:   "get-c-name",
-	Short: "GetCName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSslCertificateDNameServiceClient(grpcConn)
-		req := &pb.GetCNameRequest{}
-		resp, err := client.GetCName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpSslCertificateDNameGetDNameCmd = &cobra.Command{
-	Use:   "get-d-name",
-	Short: "GetDName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSslCertificateDNameServiceClient(grpcConn)
-		req := &pb.GetDNameRequest{}
-		resp, err := client.GetDName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpSslCertificateDNameGetONameCmd = &cobra.Command{
-	Use:   "get-o-name",
-	Short: "GetOName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSslCertificateDNameServiceClient(grpcConn)
-		req := &pb.GetONameRequest{}
-		resp, err := client.GetOName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpSslCertificateDNameGetUNameCmd = &cobra.Command{
-	Use:   "get-u-name",
-	Short: "GetUName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSslCertificateDNameServiceClient(grpcConn)
-		req := &pb.GetUNameRequest{}
-		resp, err := client.GetUName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpDnsOptionsCmd = &cobra.Command{
-	Use:   "dns-options",
-	Short: "DnsOptionsService operations",
-}
-
-var httpDnsOptionsGetPersistHostCacheCmd = &cobra.Command{
-	Use:   "get-persist-host-cache",
-	Short: "GetPersistHostCache RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDnsOptionsServiceClient(grpcConn)
-		req := &pb.GetPersistHostCacheRequest{}
-		resp, err := client.GetPersistHostCache(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpDnsOptionsGetPersistHostCachePeriodCmd = &cobra.Command{
-	Use:   "get-persist-host-cache-period",
-	Short: "GetPersistHostCachePeriod RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDnsOptionsServiceClient(grpcConn)
-		req := &pb.GetPersistHostCachePeriodRequest{}
-		resp, err := client.GetPersistHostCachePeriod(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpDnsOptionsGetPreestablishConnectionsToStaleDnsResultsCmd = &cobra.Command{
-	Use:   "get-preestablish-connections-to-stale-dns-results",
-	Short: "GetPreestablishConnectionsToStaleDnsResults RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDnsOptionsServiceClient(grpcConn)
-		req := &pb.GetPreestablishConnectionsToStaleDnsResultsRequest{}
-		resp, err := client.GetPreestablishConnectionsToStaleDnsResults(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpDnsOptionsGetStaleDnsCmd = &cobra.Command{
-	Use:   "get-stale-dns",
-	Short: "GetStaleDns RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDnsOptionsServiceClient(grpcConn)
-		req := &pb.GetStaleDnsRequest{}
-		resp, err := client.GetStaleDns(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpDnsOptionsGetStaleDnsOptionsCmd = &cobra.Command{
-	Use:   "get-stale-dns-options",
-	Short: "GetStaleDnsOptions RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDnsOptionsServiceClient(grpcConn)
-		req := &pb.GetStaleDnsOptionsRequest{}
-		resp, err := client.GetStaleDnsOptions(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpDnsOptionsGetUseHttpStackDnsResolverCmd = &cobra.Command{
-	Use:   "get-use-http-stack-dns-resolver",
-	Short: "GetUseHttpStackDnsResolver RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDnsOptionsServiceClient(grpcConn)
-		req := &pb.GetUseHttpStackDnsResolverRequest{}
-		resp, err := client.GetUseHttpStackDnsResolver(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpDnsOptionsBuilderCmd = &cobra.Command{
-	Use:   "dns-options-builder",
-	Short: "DnsOptionsBuilderService operations",
-}
-
-var httpDnsOptionsBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDnsOptionsBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpDnsOptionsBuilderSetPersistHostCacheCmd = &cobra.Command{
-	Use:   "set-persist-host-cache",
-	Short: "SetPersistHostCache RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDnsOptionsBuilderServiceClient(grpcConn)
-		req := &pb.SetPersistHostCacheRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPersistHostCache(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpDnsOptionsBuilderSetPersistHostCachePeriodCmd = &cobra.Command{
-	Use:   "set-persist-host-cache-period",
-	Short: "SetPersistHostCachePeriod RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDnsOptionsBuilderServiceClient(grpcConn)
-		req := &pb.SetPersistHostCachePeriodRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPersistHostCachePeriod(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpDnsOptionsBuilderSetPreestablishConnectionsToStaleDnsResultsCmd = &cobra.Command{
-	Use:   "set-preestablish-connections-to-stale-dns-results",
-	Short: "SetPreestablishConnectionsToStaleDnsResults RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDnsOptionsBuilderServiceClient(grpcConn)
-		req := &pb.SetPreestablishConnectionsToStaleDnsResultsRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPreestablishConnectionsToStaleDnsResults(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpDnsOptionsBuilderSetStaleDnsCmd = &cobra.Command{
-	Use:   "set-stale-dns",
-	Short: "SetStaleDns RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDnsOptionsBuilderServiceClient(grpcConn)
-		req := &pb.SetStaleDnsRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStaleDns(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpDnsOptionsBuilderSetStaleDnsOptionsCmd = &cobra.Command{
-	Use:   "set-stale-dns-options",
-	Short: "SetStaleDnsOptions RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDnsOptionsBuilderServiceClient(grpcConn)
-		req := &pb.SetStaleDnsOptionsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetStaleDnsOptions(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpDnsOptionsBuilderSetUseHttpStackDnsResolverCmd = &cobra.Command{
-	Use:   "set-use-http-stack-dns-resolver",
-	Short: "SetUseHttpStackDnsResolver RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDnsOptionsBuilderServiceClient(grpcConn)
-		req := &pb.SetUseHttpStackDnsResolverRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetUseHttpStackDnsResolver(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpDnsOptionsStaleDnsOptionsCmd = &cobra.Command{
-	Use:   "dns-options-stale-dns-options",
-	Short: "DnsOptionsStaleDnsOptionsService operations",
-}
-
-var httpDnsOptionsStaleDnsOptionsGetAllowCrossNetworkUsageCmd = &cobra.Command{
-	Use:   "get-allow-cross-network-usage",
-	Short: "GetAllowCrossNetworkUsage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDnsOptionsStaleDnsOptionsServiceClient(grpcConn)
-		req := &pb.GetAllowCrossNetworkUsageRequest{}
-		resp, err := client.GetAllowCrossNetworkUsage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpDnsOptionsStaleDnsOptionsGetFreshLookupTimeoutCmd = &cobra.Command{
-	Use:   "get-fresh-lookup-timeout",
-	Short: "GetFreshLookupTimeout RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDnsOptionsStaleDnsOptionsServiceClient(grpcConn)
-		req := &pb.GetFreshLookupTimeoutRequest{}
-		resp, err := client.GetFreshLookupTimeout(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpDnsOptionsStaleDnsOptionsGetMaxExpiredDelayCmd = &cobra.Command{
-	Use:   "get-max-expired-delay",
-	Short: "GetMaxExpiredDelay RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDnsOptionsStaleDnsOptionsServiceClient(grpcConn)
-		req := &pb.GetMaxExpiredDelayRequest{}
-		resp, err := client.GetMaxExpiredDelay(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpDnsOptionsStaleDnsOptionsGetUseStaleOnNameNotResolvedCmd = &cobra.Command{
-	Use:   "get-use-stale-on-name-not-resolved",
-	Short: "GetUseStaleOnNameNotResolved RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDnsOptionsStaleDnsOptionsServiceClient(grpcConn)
-		req := &pb.GetUseStaleOnNameNotResolvedRequest{}
-		resp, err := client.GetUseStaleOnNameNotResolved(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpConnectionMigrationOptionsCmd = &cobra.Command{
-	Use:   "connection-migration-options",
-	Short: "ConnectionMigrationOptionsService operations",
-}
-
-var httpConnectionMigrationOptionsGetAllowNonDefaultNetworkUsageCmd = &cobra.Command{
-	Use:   "get-allow-non-default-network-usage",
-	Short: "GetAllowNonDefaultNetworkUsage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionMigrationOptionsServiceClient(grpcConn)
-		req := &pb.GetAllowNonDefaultNetworkUsageRequest{}
-		resp, err := client.GetAllowNonDefaultNetworkUsage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpConnectionMigrationOptionsGetDefaultNetworkMigrationCmd = &cobra.Command{
-	Use:   "get-default-network-migration",
-	Short: "GetDefaultNetworkMigration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionMigrationOptionsServiceClient(grpcConn)
-		req := &pb.GetDefaultNetworkMigrationRequest{}
-		resp, err := client.GetDefaultNetworkMigration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpConnectionMigrationOptionsGetPathDegradationMigrationCmd = &cobra.Command{
-	Use:   "get-path-degradation-migration",
-	Short: "GetPathDegradationMigration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionMigrationOptionsServiceClient(grpcConn)
-		req := &pb.GetPathDegradationMigrationRequest{}
-		resp, err := client.GetPathDegradationMigration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpConnectionMigrationOptionsBuilderCmd = &cobra.Command{
-	Use:   "connection-migration-options-builder",
-	Short: "ConnectionMigrationOptionsBuilderService operations",
-}
-
-var httpConnectionMigrationOptionsBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionMigrationOptionsBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpConnectionMigrationOptionsBuilderSetAllowNonDefaultNetworkUsageCmd = &cobra.Command{
-	Use:   "set-allow-non-default-network-usage",
-	Short: "SetAllowNonDefaultNetworkUsage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionMigrationOptionsBuilderServiceClient(grpcConn)
-		req := &pb.SetAllowNonDefaultNetworkUsageRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAllowNonDefaultNetworkUsage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpConnectionMigrationOptionsBuilderSetDefaultNetworkMigrationCmd = &cobra.Command{
-	Use:   "set-default-network-migration",
-	Short: "SetDefaultNetworkMigration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionMigrationOptionsBuilderServiceClient(grpcConn)
-		req := &pb.SetDefaultNetworkMigrationRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDefaultNetworkMigration(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var httpConnectionMigrationOptionsBuilderSetPathDegradationMigrationCmd = &cobra.Command{
-	Use:   "set-path-degradation-migration",
-	Short: "SetPathDegradationMigration RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewConnectionMigrationOptionsBuilderServiceClient(grpcConn)
-		req := &pb.SetPathDegradationMigrationRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPathDegradationMigration(ctx, req)
+		resp, err := client.Rewind(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3035,80 +1460,1688 @@ var httpBidirectionalStreamCallbackOnSucceededCmd = &cobra.Command{
 	},
 }
 
+var httpEngineCmd = &cobra.Command{
+	Use:   "engine",
+	Short: "EngineService operations",
+}
+
+var httpEngineBindToNetworkCmd = &cobra.Command{
+	Use:   "bind-to-network",
+	Short: "BindToNetwork RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEngineServiceClient(grpcConn)
+		req := &pb.BindToNetworkRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.BindToNetwork(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpEngineCreateUrlStreamHandlerFactoryCmd = &cobra.Command{
+	Use:   "create-url-stream-handler-factory",
+	Short: "CreateUrlStreamHandlerFactory RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEngineServiceClient(grpcConn)
+		req := &pb.CreateUrlStreamHandlerFactoryRequest{}
+		resp, err := client.CreateUrlStreamHandlerFactory(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpEngineNewBidirectionalStreamBuilderCmd = &cobra.Command{
+	Use:   "new-bidirectional-stream-builder",
+	Short: "NewBidirectionalStreamBuilder RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEngineServiceClient(grpcConn)
+		req := &pb.NewBidirectionalStreamBuilderRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewBidirectionalStreamBuilder(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpEngineNewUrlRequestBuilderCmd = &cobra.Command{
+	Use:   "new-url-request-builder",
+	Short: "NewUrlRequestBuilder RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEngineServiceClient(grpcConn)
+		req := &pb.NewUrlRequestBuilderRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewUrlRequestBuilder(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpEngineOpenConnectionCmd = &cobra.Command{
+	Use:   "open-connection",
+	Short: "OpenConnection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEngineServiceClient(grpcConn)
+		req := &pb.OpenConnectionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OpenConnection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpEngineShutdownCmd = &cobra.Command{
+	Use:   "shutdown",
+	Short: "Shutdown RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEngineServiceClient(grpcConn)
+		req := &pb.ShutdownRequest{}
+		resp, err := client.Shutdown(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpEngineGetVersionStringCmd = &cobra.Command{
+	Use:   "get-version-string",
+	Short: "GetVersionString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEngineServiceClient(grpcConn)
+		req := &pb.GetVersionStringRequest{}
+		resp, err := client.GetVersionString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpEngineBuilderCmd = &cobra.Command{
+	Use:   "engine-builder",
+	Short: "EngineBuilderService operations",
+}
+
+var httpEngineBuilderAddQuicHintCmd = &cobra.Command{
+	Use:   "add-quic-hint",
+	Short: "AddQuicHint RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEngineBuilderServiceClient(grpcConn)
+		req := &pb.AddQuicHintRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.AddQuicHint(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpEngineBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEngineBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpEngineBuilderGetDefaultUserAgentCmd = &cobra.Command{
+	Use:   "get-default-user-agent",
+	Short: "GetDefaultUserAgent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEngineBuilderServiceClient(grpcConn)
+		req := &pb.GetDefaultUserAgentRequest{}
+		resp, err := client.GetDefaultUserAgent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpEngineBuilderSetConnectionMigrationOptionsCmd = &cobra.Command{
+	Use:   "set-connection-migration-options",
+	Short: "SetConnectionMigrationOptions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEngineBuilderServiceClient(grpcConn)
+		req := &pb.SetConnectionMigrationOptionsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetConnectionMigrationOptions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpEngineBuilderSetDnsOptionsCmd = &cobra.Command{
+	Use:   "set-dns-options",
+	Short: "SetDnsOptions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEngineBuilderServiceClient(grpcConn)
+		req := &pb.SetDnsOptionsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDnsOptions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpEngineBuilderSetEnableBrotliCmd = &cobra.Command{
+	Use:   "set-enable-brotli",
+	Short: "SetEnableBrotli RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEngineBuilderServiceClient(grpcConn)
+		req := &pb.SetEnableBrotliRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEnableBrotli(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpEngineBuilderSetEnableHttp2Cmd = &cobra.Command{
+	Use:   "set-enable-http2",
+	Short: "SetEnableHttp2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEngineBuilderServiceClient(grpcConn)
+		req := &pb.SetEnableHttp2Request{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEnableHttp2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpEngineBuilderSetEnableHttpCacheCmd = &cobra.Command{
+	Use:   "set-enable-http-cache",
+	Short: "SetEnableHttpCache RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEngineBuilderServiceClient(grpcConn)
+		req := &pb.SetEnableHttpCacheRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetEnableHttpCache(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpEngineBuilderSetEnablePublicKeyPinningBypassForLocalTrustAnchorsCmd = &cobra.Command{
+	Use:   "set-enable-public-key-pinning-bypass-for-local-trust-anchors",
+	Short: "SetEnablePublicKeyPinningBypassForLocalTrustAnchors RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEngineBuilderServiceClient(grpcConn)
+		req := &pb.SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEnablePublicKeyPinningBypassForLocalTrustAnchors(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpEngineBuilderSetEnableQuicCmd = &cobra.Command{
+	Use:   "set-enable-quic",
+	Short: "SetEnableQuic RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEngineBuilderServiceClient(grpcConn)
+		req := &pb.SetEnableQuicRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEnableQuic(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpEngineBuilderSetQuicOptionsCmd = &cobra.Command{
+	Use:   "set-quic-options",
+	Short: "SetQuicOptions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEngineBuilderServiceClient(grpcConn)
+		req := &pb.SetQuicOptionsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetQuicOptions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpEngineBuilderSetStoragePathCmd = &cobra.Command{
+	Use:   "set-storage-path",
+	Short: "SetStoragePath RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEngineBuilderServiceClient(grpcConn)
+		req := &pb.SetStoragePathRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStoragePath(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpEngineBuilderSetUserAgentCmd = &cobra.Command{
+	Use:   "set-user-agent",
+	Short: "SetUserAgent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEngineBuilderServiceClient(grpcConn)
+		req := &pb.SetUserAgentRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetUserAgent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpNetworkExceptionCmd = &cobra.Command{
+	Use:   "network-exception",
+	Short: "NetworkExceptionService operations",
+}
+
+var httpNetworkExceptionGetErrorCodeCmd = &cobra.Command{
+	Use:   "get-error-code",
+	Short: "GetErrorCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkExceptionServiceClient(grpcConn)
+		req := &pb.GetErrorCodeRequest{}
+		resp, err := client.GetErrorCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpNetworkExceptionIsImmediatelyRetryableCmd = &cobra.Command{
+	Use:   "is-immediately-retryable",
+	Short: "IsImmediatelyRetryable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNetworkExceptionServiceClient(grpcConn)
+		req := &pb.IsImmediatelyRetryableRequest{}
+		resp, err := client.IsImmediatelyRetryable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpSslErrorCmd = &cobra.Command{
+	Use:   "ssl-error",
+	Short: "SslErrorService operations",
+}
+
+var httpSslErrorNewSslErrorCmd = &cobra.Command{
+	Use:   "new-ssl-error",
+	Short: "NewSslError RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSslErrorServiceClient(grpcConn)
+		req := &pb.NewSslErrorRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewSslError(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpSslErrorAddErrorCmd = &cobra.Command{
+	Use:   "add-error",
+	Short: "AddError RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSslErrorServiceClient(grpcConn)
+		req := &pb.AddErrorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddError(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpSslErrorGetCertificateCmd = &cobra.Command{
+	Use:   "get-certificate",
+	Short: "GetCertificate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSslErrorServiceClient(grpcConn)
+		req := &pb.GetCertificateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCertificate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpSslErrorGetPrimaryErrorCmd = &cobra.Command{
+	Use:   "get-primary-error",
+	Short: "GetPrimaryError RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSslErrorServiceClient(grpcConn)
+		req := &pb.GetPrimaryErrorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPrimaryError(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpSslErrorGetUrlCmd = &cobra.Command{
+	Use:   "get-url",
+	Short: "GetUrl RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSslErrorServiceClient(grpcConn)
+		req := &pb.GetUrlRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetUrl(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpSslErrorHasErrorCmd = &cobra.Command{
+	Use:   "has-error",
+	Short: "HasError RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSslErrorServiceClient(grpcConn)
+		req := &pb.HasErrorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.HasError(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpSslErrorToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSslErrorServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpQuicOptionsCmd = &cobra.Command{
+	Use:   "quic-options",
+	Short: "QuicOptionsService operations",
+}
+
+var httpQuicOptionsGetAllowedQuicHostsCmd = &cobra.Command{
+	Use:   "get-allowed-quic-hosts",
+	Short: "GetAllowedQuicHosts RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewQuicOptionsServiceClient(grpcConn)
+		req := &pb.GetAllowedQuicHostsRequest{}
+		resp, err := client.GetAllowedQuicHosts(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpQuicOptionsGetHandshakeUserAgentCmd = &cobra.Command{
+	Use:   "get-handshake-user-agent",
+	Short: "GetHandshakeUserAgent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewQuicOptionsServiceClient(grpcConn)
+		req := &pb.GetHandshakeUserAgentRequest{}
+		resp, err := client.GetHandshakeUserAgent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpQuicOptionsGetIdleConnectionTimeoutCmd = &cobra.Command{
+	Use:   "get-idle-connection-timeout",
+	Short: "GetIdleConnectionTimeout RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewQuicOptionsServiceClient(grpcConn)
+		req := &pb.GetIdleConnectionTimeoutRequest{}
+		resp, err := client.GetIdleConnectionTimeout(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpQuicOptionsGetInMemoryServerConfigsCacheSizeCmd = &cobra.Command{
+	Use:   "get-in-memory-server-configs-cache-size",
+	Short: "GetInMemoryServerConfigsCacheSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewQuicOptionsServiceClient(grpcConn)
+		req := &pb.GetInMemoryServerConfigsCacheSizeRequest{}
+		resp, err := client.GetInMemoryServerConfigsCacheSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpQuicOptionsHasInMemoryServerConfigsCacheSizeCmd = &cobra.Command{
+	Use:   "has-in-memory-server-configs-cache-size",
+	Short: "HasInMemoryServerConfigsCacheSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewQuicOptionsServiceClient(grpcConn)
+		req := &pb.HasInMemoryServerConfigsCacheSizeRequest{}
+		resp, err := client.HasInMemoryServerConfigsCacheSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpQuicOptionsBuilderCmd = &cobra.Command{
+	Use:   "quic-options-builder",
+	Short: "QuicOptionsBuilderService operations",
+}
+
+var httpQuicOptionsBuilderAddAllowedQuicHostCmd = &cobra.Command{
+	Use:   "add-allowed-quic-host",
+	Short: "AddAllowedQuicHost RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewQuicOptionsBuilderServiceClient(grpcConn)
+		req := &pb.AddAllowedQuicHostRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddAllowedQuicHost(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpQuicOptionsBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewQuicOptionsBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpQuicOptionsBuilderSetHandshakeUserAgentCmd = &cobra.Command{
+	Use:   "set-handshake-user-agent",
+	Short: "SetHandshakeUserAgent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewQuicOptionsBuilderServiceClient(grpcConn)
+		req := &pb.SetHandshakeUserAgentRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetHandshakeUserAgent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpQuicOptionsBuilderSetIdleConnectionTimeoutCmd = &cobra.Command{
+	Use:   "set-idle-connection-timeout",
+	Short: "SetIdleConnectionTimeout RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewQuicOptionsBuilderServiceClient(grpcConn)
+		req := &pb.SetIdleConnectionTimeoutRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetIdleConnectionTimeout(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpQuicOptionsBuilderSetInMemoryServerConfigsCacheSizeCmd = &cobra.Command{
+	Use:   "set-in-memory-server-configs-cache-size",
+	Short: "SetInMemoryServerConfigsCacheSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewQuicOptionsBuilderServiceClient(grpcConn)
+		req := &pb.SetInMemoryServerConfigsCacheSizeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetInMemoryServerConfigsCacheSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpDnsOptionsCmd = &cobra.Command{
+	Use:   "dns-options",
+	Short: "DnsOptionsService operations",
+}
+
+var httpDnsOptionsGetPersistHostCacheCmd = &cobra.Command{
+	Use:   "get-persist-host-cache",
+	Short: "GetPersistHostCache RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDnsOptionsServiceClient(grpcConn)
+		req := &pb.GetPersistHostCacheRequest{}
+		resp, err := client.GetPersistHostCache(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpDnsOptionsGetPersistHostCachePeriodCmd = &cobra.Command{
+	Use:   "get-persist-host-cache-period",
+	Short: "GetPersistHostCachePeriod RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDnsOptionsServiceClient(grpcConn)
+		req := &pb.GetPersistHostCachePeriodRequest{}
+		resp, err := client.GetPersistHostCachePeriod(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpDnsOptionsGetPreestablishConnectionsToStaleDnsResultsCmd = &cobra.Command{
+	Use:   "get-preestablish-connections-to-stale-dns-results",
+	Short: "GetPreestablishConnectionsToStaleDnsResults RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDnsOptionsServiceClient(grpcConn)
+		req := &pb.GetPreestablishConnectionsToStaleDnsResultsRequest{}
+		resp, err := client.GetPreestablishConnectionsToStaleDnsResults(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpDnsOptionsGetStaleDnsCmd = &cobra.Command{
+	Use:   "get-stale-dns",
+	Short: "GetStaleDns RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDnsOptionsServiceClient(grpcConn)
+		req := &pb.GetStaleDnsRequest{}
+		resp, err := client.GetStaleDns(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpDnsOptionsGetStaleDnsOptionsCmd = &cobra.Command{
+	Use:   "get-stale-dns-options",
+	Short: "GetStaleDnsOptions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDnsOptionsServiceClient(grpcConn)
+		req := &pb.GetStaleDnsOptionsRequest{}
+		resp, err := client.GetStaleDnsOptions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpDnsOptionsGetUseHttpStackDnsResolverCmd = &cobra.Command{
+	Use:   "get-use-http-stack-dns-resolver",
+	Short: "GetUseHttpStackDnsResolver RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDnsOptionsServiceClient(grpcConn)
+		req := &pb.GetUseHttpStackDnsResolverRequest{}
+		resp, err := client.GetUseHttpStackDnsResolver(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpDnsOptionsBuilderCmd = &cobra.Command{
+	Use:   "dns-options-builder",
+	Short: "DnsOptionsBuilderService operations",
+}
+
+var httpDnsOptionsBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDnsOptionsBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpDnsOptionsBuilderSetPersistHostCacheCmd = &cobra.Command{
+	Use:   "set-persist-host-cache",
+	Short: "SetPersistHostCache RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDnsOptionsBuilderServiceClient(grpcConn)
+		req := &pb.SetPersistHostCacheRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPersistHostCache(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpDnsOptionsBuilderSetPersistHostCachePeriodCmd = &cobra.Command{
+	Use:   "set-persist-host-cache-period",
+	Short: "SetPersistHostCachePeriod RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDnsOptionsBuilderServiceClient(grpcConn)
+		req := &pb.SetPersistHostCachePeriodRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPersistHostCachePeriod(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpDnsOptionsBuilderSetPreestablishConnectionsToStaleDnsResultsCmd = &cobra.Command{
+	Use:   "set-preestablish-connections-to-stale-dns-results",
+	Short: "SetPreestablishConnectionsToStaleDnsResults RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDnsOptionsBuilderServiceClient(grpcConn)
+		req := &pb.SetPreestablishConnectionsToStaleDnsResultsRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPreestablishConnectionsToStaleDnsResults(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpDnsOptionsBuilderSetStaleDnsCmd = &cobra.Command{
+	Use:   "set-stale-dns",
+	Short: "SetStaleDns RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDnsOptionsBuilderServiceClient(grpcConn)
+		req := &pb.SetStaleDnsRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStaleDns(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpDnsOptionsBuilderSetStaleDnsOptionsCmd = &cobra.Command{
+	Use:   "set-stale-dns-options",
+	Short: "SetStaleDnsOptions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDnsOptionsBuilderServiceClient(grpcConn)
+		req := &pb.SetStaleDnsOptionsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetStaleDnsOptions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpDnsOptionsBuilderSetUseHttpStackDnsResolverCmd = &cobra.Command{
+	Use:   "set-use-http-stack-dns-resolver",
+	Short: "SetUseHttpStackDnsResolver RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDnsOptionsBuilderServiceClient(grpcConn)
+		req := &pb.SetUseHttpStackDnsResolverRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetUseHttpStackDnsResolver(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpDnsOptionsStaleDnsOptionsCmd = &cobra.Command{
+	Use:   "dns-options-stale-dns-options",
+	Short: "DnsOptionsStaleDnsOptionsService operations",
+}
+
+var httpDnsOptionsStaleDnsOptionsGetAllowCrossNetworkUsageCmd = &cobra.Command{
+	Use:   "get-allow-cross-network-usage",
+	Short: "GetAllowCrossNetworkUsage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDnsOptionsStaleDnsOptionsServiceClient(grpcConn)
+		req := &pb.GetAllowCrossNetworkUsageRequest{}
+		resp, err := client.GetAllowCrossNetworkUsage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpDnsOptionsStaleDnsOptionsGetFreshLookupTimeoutCmd = &cobra.Command{
+	Use:   "get-fresh-lookup-timeout",
+	Short: "GetFreshLookupTimeout RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDnsOptionsStaleDnsOptionsServiceClient(grpcConn)
+		req := &pb.GetFreshLookupTimeoutRequest{}
+		resp, err := client.GetFreshLookupTimeout(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpDnsOptionsStaleDnsOptionsGetMaxExpiredDelayCmd = &cobra.Command{
+	Use:   "get-max-expired-delay",
+	Short: "GetMaxExpiredDelay RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDnsOptionsStaleDnsOptionsServiceClient(grpcConn)
+		req := &pb.GetMaxExpiredDelayRequest{}
+		resp, err := client.GetMaxExpiredDelay(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpDnsOptionsStaleDnsOptionsGetUseStaleOnNameNotResolvedCmd = &cobra.Command{
+	Use:   "get-use-stale-on-name-not-resolved",
+	Short: "GetUseStaleOnNameNotResolved RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDnsOptionsStaleDnsOptionsServiceClient(grpcConn)
+		req := &pb.GetUseStaleOnNameNotResolvedRequest{}
+		resp, err := client.GetUseStaleOnNameNotResolved(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpResponseCacheCmd = &cobra.Command{
+	Use:   "response-cache",
+	Short: "ResponseCacheService operations",
+}
+
+var httpResponseCacheCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponseCacheServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpResponseCacheDeleteCmd = &cobra.Command{
+	Use:   "delete",
+	Short: "Delete RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponseCacheServiceClient(grpcConn)
+		req := &pb.DeleteRequest{}
+		resp, err := client.Delete(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpResponseCacheFlushCmd = &cobra.Command{
+	Use:   "flush",
+	Short: "Flush RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponseCacheServiceClient(grpcConn)
+		req := &pb.FlushRequest{}
+		resp, err := client.Flush(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpResponseCacheGetHitCountCmd = &cobra.Command{
+	Use:   "get-hit-count",
+	Short: "GetHitCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponseCacheServiceClient(grpcConn)
+		req := &pb.GetHitCountRequest{}
+		resp, err := client.GetHitCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpResponseCacheGetNetworkCountCmd = &cobra.Command{
+	Use:   "get-network-count",
+	Short: "GetNetworkCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponseCacheServiceClient(grpcConn)
+		req := &pb.GetNetworkCountRequest{}
+		resp, err := client.GetNetworkCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpResponseCacheGetRequestCountCmd = &cobra.Command{
+	Use:   "get-request-count",
+	Short: "GetRequestCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponseCacheServiceClient(grpcConn)
+		req := &pb.GetRequestCountRequest{}
+		resp, err := client.GetRequestCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpResponseCacheMaxSizeCmd = &cobra.Command{
+	Use:   "max-size",
+	Short: "MaxSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponseCacheServiceClient(grpcConn)
+		req := &pb.MaxSizeRequest{}
+		resp, err := client.MaxSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpResponseCachePutCmd = &cobra.Command{
+	Use:   "put",
+	Short: "Put RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponseCacheServiceClient(grpcConn)
+		req := &pb.PutRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Put(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpResponseCacheSizeCmd = &cobra.Command{
+	Use:   "size",
+	Short: "Size RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponseCacheServiceClient(grpcConn)
+		req := &pb.SizeRequest{}
+		resp, err := client.Size(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpResponseCacheGetInstalledCmd = &cobra.Command{
+	Use:   "get-installed",
+	Short: "GetInstalled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponseCacheServiceClient(grpcConn)
+		req := &pb.GetInstalledRequest{}
+		resp, err := client.GetInstalled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpSslCertificateCmd = &cobra.Command{
+	Use:   "ssl-certificate",
+	Short: "SslCertificateService operations",
+}
+
+var httpSslCertificateNewSslCertificateCmd = &cobra.Command{
+	Use:   "new-ssl-certificate",
+	Short: "NewSslCertificate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSslCertificateServiceClient(grpcConn)
+		req := &pb.NewSslCertificateRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetString("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.NewSslCertificate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpSslCertificateGetIssuedByCmd = &cobra.Command{
+	Use:   "get-issued-by",
+	Short: "GetIssuedBy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSslCertificateServiceClient(grpcConn)
+		req := &pb.GetIssuedByRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetIssuedBy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpSslCertificateGetIssuedToCmd = &cobra.Command{
+	Use:   "get-issued-to",
+	Short: "GetIssuedTo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSslCertificateServiceClient(grpcConn)
+		req := &pb.GetIssuedToRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetIssuedTo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpSslCertificateGetValidNotAfterCmd = &cobra.Command{
+	Use:   "get-valid-not-after",
+	Short: "GetValidNotAfter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSslCertificateServiceClient(grpcConn)
+		req := &pb.GetValidNotAfterRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetValidNotAfter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpSslCertificateGetValidNotAfterDateCmd = &cobra.Command{
+	Use:   "get-valid-not-after-date",
+	Short: "GetValidNotAfterDate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSslCertificateServiceClient(grpcConn)
+		req := &pb.GetValidNotAfterDateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetValidNotAfterDate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpSslCertificateGetValidNotBeforeCmd = &cobra.Command{
+	Use:   "get-valid-not-before",
+	Short: "GetValidNotBefore RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSslCertificateServiceClient(grpcConn)
+		req := &pb.GetValidNotBeforeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetValidNotBefore(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpSslCertificateGetValidNotBeforeDateCmd = &cobra.Command{
+	Use:   "get-valid-not-before-date",
+	Short: "GetValidNotBeforeDate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSslCertificateServiceClient(grpcConn)
+		req := &pb.GetValidNotBeforeDateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetValidNotBeforeDate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpSslCertificateGetX509CertificateCmd = &cobra.Command{
+	Use:   "get-x509certificate",
+	Short: "GetX509Certificate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSslCertificateServiceClient(grpcConn)
+		req := &pb.GetX509CertificateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetX509Certificate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpSslCertificateToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSslCertificateServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpSslCertificateRestoreStateCmd = &cobra.Command{
+	Use:   "restore-state",
+	Short: "RestoreState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSslCertificateServiceClient(grpcConn)
+		req := &pb.RestoreStateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RestoreState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpSslCertificateSaveStateCmd = &cobra.Command{
+	Use:   "save-state",
+	Short: "SaveState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSslCertificateServiceClient(grpcConn)
+		req := &pb.SaveStateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SaveState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpSslCertificateDNameCmd = &cobra.Command{
+	Use:   "ssl-certificate-d-name",
+	Short: "SslCertificateDNameService operations",
+}
+
+var httpSslCertificateDNameGetCNameCmd = &cobra.Command{
+	Use:   "get-c-name",
+	Short: "GetCName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSslCertificateDNameServiceClient(grpcConn)
+		req := &pb.GetCNameRequest{}
+		resp, err := client.GetCName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpSslCertificateDNameGetDNameCmd = &cobra.Command{
+	Use:   "get-d-name",
+	Short: "GetDName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSslCertificateDNameServiceClient(grpcConn)
+		req := &pb.GetDNameRequest{}
+		resp, err := client.GetDName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpSslCertificateDNameGetONameCmd = &cobra.Command{
+	Use:   "get-o-name",
+	Short: "GetOName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSslCertificateDNameServiceClient(grpcConn)
+		req := &pb.GetONameRequest{}
+		resp, err := client.GetOName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpSslCertificateDNameGetUNameCmd = &cobra.Command{
+	Use:   "get-u-name",
+	Short: "GetUName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSslCertificateDNameServiceClient(grpcConn)
+		req := &pb.GetUNameRequest{}
+		resp, err := client.GetUName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpUrlResponseInfoCmd = &cobra.Command{
+	Use:   "url-response-info",
+	Short: "UrlResponseInfoService operations",
+}
+
+var httpUrlResponseInfoGetHeadersCmd = &cobra.Command{
+	Use:   "get-headers",
+	Short: "GetHeaders RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUrlResponseInfoServiceClient(grpcConn)
+		req := &pb.GetHeadersRequest{}
+		resp, err := client.GetHeaders(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpUrlResponseInfoGetHttpStatusCodeCmd = &cobra.Command{
+	Use:   "get-http-status-code",
+	Short: "GetHttpStatusCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUrlResponseInfoServiceClient(grpcConn)
+		req := &pb.GetHttpStatusCodeRequest{}
+		resp, err := client.GetHttpStatusCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpUrlResponseInfoGetHttpStatusTextCmd = &cobra.Command{
+	Use:   "get-http-status-text",
+	Short: "GetHttpStatusText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUrlResponseInfoServiceClient(grpcConn)
+		req := &pb.GetHttpStatusTextRequest{}
+		resp, err := client.GetHttpStatusText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpUrlResponseInfoGetNegotiatedProtocolCmd = &cobra.Command{
+	Use:   "get-negotiated-protocol",
+	Short: "GetNegotiatedProtocol RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUrlResponseInfoServiceClient(grpcConn)
+		req := &pb.GetNegotiatedProtocolRequest{}
+		resp, err := client.GetNegotiatedProtocol(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpUrlResponseInfoGetReceivedByteCountCmd = &cobra.Command{
+	Use:   "get-received-byte-count",
+	Short: "GetReceivedByteCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUrlResponseInfoServiceClient(grpcConn)
+		req := &pb.GetReceivedByteCountRequest{}
+		resp, err := client.GetReceivedByteCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpUrlResponseInfoGetUrlCmd = &cobra.Command{
+	Use:   "get-url",
+	Short: "GetUrl RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUrlResponseInfoServiceClient(grpcConn)
+		req := &pb.UrlResponseInfoGetUrlRequest{}
+		resp, err := client.GetUrl(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpUrlResponseInfoGetUrlChainCmd = &cobra.Command{
+	Use:   "get-url-chain",
+	Short: "GetUrlChain RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUrlResponseInfoServiceClient(grpcConn)
+		req := &pb.GetUrlChainRequest{}
+		resp, err := client.GetUrlChain(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var httpUrlResponseInfoWasCachedCmd = &cobra.Command{
+	Use:   "was-cached",
+	Short: "WasCached RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUrlResponseInfoServiceClient(grpcConn)
+		req := &pb.WasCachedRequest{}
+		resp, err := client.WasCached(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
-	httpUploadDataProviderCmd.AddCommand(httpUploadDataProviderCloseCmd)
-	httpUploadDataProviderCmd.AddCommand(httpUploadDataProviderGetLengthCmd)
-	httpUploadDataProviderRewindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	httpUploadDataProviderCmd.AddCommand(httpUploadDataProviderRewindCmd)
-	httpCmd.AddCommand(httpUploadDataProviderCmd)
-	httpUrlResponseInfoCmd.AddCommand(httpUrlResponseInfoGetHeadersCmd)
-	httpUrlResponseInfoCmd.AddCommand(httpUrlResponseInfoGetHttpStatusCodeCmd)
-	httpUrlResponseInfoCmd.AddCommand(httpUrlResponseInfoGetHttpStatusTextCmd)
-	httpUrlResponseInfoCmd.AddCommand(httpUrlResponseInfoGetNegotiatedProtocolCmd)
-	httpUrlResponseInfoCmd.AddCommand(httpUrlResponseInfoGetReceivedByteCountCmd)
-	httpUrlResponseInfoCmd.AddCommand(httpUrlResponseInfoGetUrlCmd)
-	httpUrlResponseInfoCmd.AddCommand(httpUrlResponseInfoWasCachedCmd)
-	httpCmd.AddCommand(httpUrlResponseInfoCmd)
-	httpResponseCacheCmd.AddCommand(httpResponseCacheCloseCmd)
-	httpResponseCacheCmd.AddCommand(httpResponseCacheDeleteCmd)
-	httpResponseCacheCmd.AddCommand(httpResponseCacheFlushCmd)
-	httpResponseCacheCmd.AddCommand(httpResponseCacheGetHitCountCmd)
-	httpResponseCacheCmd.AddCommand(httpResponseCacheGetNetworkCountCmd)
-	httpResponseCacheCmd.AddCommand(httpResponseCacheGetRequestCountCmd)
-	httpResponseCacheCmd.AddCommand(httpResponseCacheMaxSizeCmd)
-	httpResponseCachePutCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	httpResponseCachePutCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	httpResponseCacheCmd.AddCommand(httpResponseCachePutCmd)
-	httpResponseCacheCmd.AddCommand(httpResponseCacheSizeCmd)
-	httpResponseCacheCmd.AddCommand(httpResponseCacheGetInstalledCmd)
-	httpCmd.AddCommand(httpResponseCacheCmd)
-	httpEngineBindToNetworkCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	httpEngineCmd.AddCommand(httpEngineBindToNetworkCmd)
-	httpEngineCmd.AddCommand(httpEngineCreateUrlStreamHandlerFactoryCmd)
-	httpEngineNewBidirectionalStreamBuilderCmd.Flags().String("arg0", "", "arg0 (string)")
-	httpEngineNewBidirectionalStreamBuilderCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	httpEngineNewBidirectionalStreamBuilderCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	httpEngineCmd.AddCommand(httpEngineNewBidirectionalStreamBuilderCmd)
-	httpEngineNewUrlRequestBuilderCmd.Flags().String("arg0", "", "arg0 (string)")
-	httpEngineNewUrlRequestBuilderCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	httpEngineNewUrlRequestBuilderCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	httpEngineCmd.AddCommand(httpEngineNewUrlRequestBuilderCmd)
-	httpEngineOpenConnectionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	httpEngineCmd.AddCommand(httpEngineOpenConnectionCmd)
-	httpEngineCmd.AddCommand(httpEngineShutdownCmd)
-	httpEngineCmd.AddCommand(httpEngineGetVersionStringCmd)
-	httpCmd.AddCommand(httpEngineCmd)
-	httpEngineBuilderAddQuicHintCmd.Flags().String("arg0", "", "arg0 (string)")
-	httpEngineBuilderAddQuicHintCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	httpEngineBuilderAddQuicHintCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	httpEngineBuilderCmd.AddCommand(httpEngineBuilderAddQuicHintCmd)
-	httpEngineBuilderCmd.AddCommand(httpEngineBuilderBuildCmd)
-	httpEngineBuilderCmd.AddCommand(httpEngineBuilderGetDefaultUserAgentCmd)
-	httpEngineBuilderSetConnectionMigrationOptionsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	httpEngineBuilderCmd.AddCommand(httpEngineBuilderSetConnectionMigrationOptionsCmd)
-	httpEngineBuilderSetDnsOptionsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	httpEngineBuilderCmd.AddCommand(httpEngineBuilderSetDnsOptionsCmd)
-	httpEngineBuilderSetEnableBrotliCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	httpEngineBuilderCmd.AddCommand(httpEngineBuilderSetEnableBrotliCmd)
-	httpEngineBuilderSetEnableHttp2Cmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	httpEngineBuilderCmd.AddCommand(httpEngineBuilderSetEnableHttp2Cmd)
-	httpEngineBuilderSetEnableHttpCacheCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	httpEngineBuilderSetEnableHttpCacheCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	httpEngineBuilderCmd.AddCommand(httpEngineBuilderSetEnableHttpCacheCmd)
-	httpEngineBuilderSetEnablePublicKeyPinningBypassForLocalTrustAnchorsCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	httpEngineBuilderCmd.AddCommand(httpEngineBuilderSetEnablePublicKeyPinningBypassForLocalTrustAnchorsCmd)
-	httpEngineBuilderSetEnableQuicCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	httpEngineBuilderCmd.AddCommand(httpEngineBuilderSetEnableQuicCmd)
-	httpEngineBuilderSetQuicOptionsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	httpEngineBuilderCmd.AddCommand(httpEngineBuilderSetQuicOptionsCmd)
-	httpEngineBuilderSetStoragePathCmd.Flags().String("arg0", "", "arg0 (string)")
-	httpEngineBuilderCmd.AddCommand(httpEngineBuilderSetStoragePathCmd)
-	httpEngineBuilderSetUserAgentCmd.Flags().String("arg0", "", "arg0 (string)")
-	httpEngineBuilderCmd.AddCommand(httpEngineBuilderSetUserAgentCmd)
-	httpCmd.AddCommand(httpEngineBuilderCmd)
-	httpNetworkExceptionCmd.AddCommand(httpNetworkExceptionGetErrorCodeCmd)
-	httpNetworkExceptionCmd.AddCommand(httpNetworkExceptionIsImmediatelyRetryableCmd)
-	httpCmd.AddCommand(httpNetworkExceptionCmd)
+	httpConnectionMigrationOptionsCmd.AddCommand(httpConnectionMigrationOptionsGetAllowNonDefaultNetworkUsageCmd)
+	httpConnectionMigrationOptionsCmd.AddCommand(httpConnectionMigrationOptionsGetDefaultNetworkMigrationCmd)
+	httpConnectionMigrationOptionsCmd.AddCommand(httpConnectionMigrationOptionsGetPathDegradationMigrationCmd)
+	httpCmd.AddCommand(httpConnectionMigrationOptionsCmd)
+	httpConnectionMigrationOptionsBuilderCmd.AddCommand(httpConnectionMigrationOptionsBuilderBuildCmd)
+	httpConnectionMigrationOptionsBuilderSetAllowNonDefaultNetworkUsageCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	httpConnectionMigrationOptionsBuilderCmd.AddCommand(httpConnectionMigrationOptionsBuilderSetAllowNonDefaultNetworkUsageCmd)
+	httpConnectionMigrationOptionsBuilderSetDefaultNetworkMigrationCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	httpConnectionMigrationOptionsBuilderCmd.AddCommand(httpConnectionMigrationOptionsBuilderSetDefaultNetworkMigrationCmd)
+	httpConnectionMigrationOptionsBuilderSetPathDegradationMigrationCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	httpConnectionMigrationOptionsBuilderCmd.AddCommand(httpConnectionMigrationOptionsBuilderSetPathDegradationMigrationCmd)
+	httpCmd.AddCommand(httpConnectionMigrationOptionsBuilderCmd)
 	httpUrlRequestCmd.AddCommand(httpUrlRequestCancelCmd)
 	httpUrlRequestCmd.AddCommand(httpUrlRequestFollowRedirectCmd)
 	httpUrlRequestCmd.AddCommand(httpUrlRequestGetHeadersCmd)
@@ -3168,26 +3201,20 @@ func init() {
 	httpUrlRequestStatusListenerOnStatusCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	httpUrlRequestStatusListenerCmd.AddCommand(httpUrlRequestStatusListenerOnStatusCmd)
 	httpCmd.AddCommand(httpUrlRequestStatusListenerCmd)
-	httpSslErrorNewSslErrorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	httpSslErrorNewSslErrorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	httpSslErrorCmd.AddCommand(httpSslErrorNewSslErrorCmd)
-	httpSslErrorAddErrorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	httpSslErrorAddErrorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	httpSslErrorCmd.AddCommand(httpSslErrorAddErrorCmd)
-	httpSslErrorGetCertificateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	httpSslErrorCmd.AddCommand(httpSslErrorGetCertificateCmd)
-	httpSslErrorGetPrimaryErrorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	httpSslErrorCmd.AddCommand(httpSslErrorGetPrimaryErrorCmd)
-	httpSslErrorGetUrlCmd.Flags().Int64("handle", 0, "handle (int64)")
-	httpSslErrorCmd.AddCommand(httpSslErrorGetUrlCmd)
-	httpSslErrorHasErrorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	httpSslErrorHasErrorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	httpSslErrorCmd.AddCommand(httpSslErrorHasErrorCmd)
-	httpSslErrorToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	httpSslErrorCmd.AddCommand(httpSslErrorToStringCmd)
-	httpCmd.AddCommand(httpSslErrorCmd)
 	httpX509TrustManagerExtensionsNewX509TrustManagerExtensionsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	httpX509TrustManagerExtensionsCmd.AddCommand(httpX509TrustManagerExtensionsNewX509TrustManagerExtensionsCmd)
+	httpX509TrustManagerExtensionsCheckServerTrusted5Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	httpX509TrustManagerExtensionsCheckServerTrusted5Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	httpX509TrustManagerExtensionsCheckServerTrusted5Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	httpX509TrustManagerExtensionsCheckServerTrusted5Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	httpX509TrustManagerExtensionsCheckServerTrusted5Cmd.Flags().String("arg3", "", "arg3 (string)")
+	httpX509TrustManagerExtensionsCheckServerTrusted5Cmd.Flags().String("arg4", "", "arg4 (string)")
+	httpX509TrustManagerExtensionsCmd.AddCommand(httpX509TrustManagerExtensionsCheckServerTrusted5Cmd)
+	httpX509TrustManagerExtensionsCheckServerTrusted3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	httpX509TrustManagerExtensionsCheckServerTrusted3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	httpX509TrustManagerExtensionsCheckServerTrusted3_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	httpX509TrustManagerExtensionsCheckServerTrusted3_1Cmd.Flags().String("arg2", "", "arg2 (string)")
+	httpX509TrustManagerExtensionsCmd.AddCommand(httpX509TrustManagerExtensionsCheckServerTrusted3_1Cmd)
 	httpX509TrustManagerExtensionsIsSameTrustConfigurationCmd.Flags().Int64("handle", 0, "handle (int64)")
 	httpX509TrustManagerExtensionsIsSameTrustConfigurationCmd.Flags().String("arg0", "", "arg0 (string)")
 	httpX509TrustManagerExtensionsIsSameTrustConfigurationCmd.Flags().String("arg1", "", "arg1 (string)")
@@ -3204,92 +3231,11 @@ func init() {
 	httpUploadDataSinkCmd.AddCommand(httpUploadDataSinkOnRewindErrorCmd)
 	httpUploadDataSinkCmd.AddCommand(httpUploadDataSinkOnRewindSucceededCmd)
 	httpCmd.AddCommand(httpUploadDataSinkCmd)
-	httpQuicOptionsCmd.AddCommand(httpQuicOptionsGetHandshakeUserAgentCmd)
-	httpQuicOptionsCmd.AddCommand(httpQuicOptionsGetIdleConnectionTimeoutCmd)
-	httpQuicOptionsCmd.AddCommand(httpQuicOptionsGetInMemoryServerConfigsCacheSizeCmd)
-	httpQuicOptionsCmd.AddCommand(httpQuicOptionsHasInMemoryServerConfigsCacheSizeCmd)
-	httpCmd.AddCommand(httpQuicOptionsCmd)
-	httpQuicOptionsBuilderAddAllowedQuicHostCmd.Flags().String("arg0", "", "arg0 (string)")
-	httpQuicOptionsBuilderCmd.AddCommand(httpQuicOptionsBuilderAddAllowedQuicHostCmd)
-	httpQuicOptionsBuilderCmd.AddCommand(httpQuicOptionsBuilderBuildCmd)
-	httpQuicOptionsBuilderSetHandshakeUserAgentCmd.Flags().String("arg0", "", "arg0 (string)")
-	httpQuicOptionsBuilderCmd.AddCommand(httpQuicOptionsBuilderSetHandshakeUserAgentCmd)
-	httpQuicOptionsBuilderSetIdleConnectionTimeoutCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	httpQuicOptionsBuilderCmd.AddCommand(httpQuicOptionsBuilderSetIdleConnectionTimeoutCmd)
-	httpQuicOptionsBuilderSetInMemoryServerConfigsCacheSizeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	httpQuicOptionsBuilderCmd.AddCommand(httpQuicOptionsBuilderSetInMemoryServerConfigsCacheSizeCmd)
-	httpCmd.AddCommand(httpQuicOptionsBuilderCmd)
-	httpSslCertificateNewSslCertificateCmd.Flags().String("arg0", "", "arg0 (string)")
-	httpSslCertificateNewSslCertificateCmd.Flags().String("arg1", "", "arg1 (string)")
-	httpSslCertificateNewSslCertificateCmd.Flags().String("arg2", "", "arg2 (string)")
-	httpSslCertificateNewSslCertificateCmd.Flags().String("arg3", "", "arg3 (string)")
-	httpSslCertificateCmd.AddCommand(httpSslCertificateNewSslCertificateCmd)
-	httpSslCertificateGetIssuedByCmd.Flags().Int64("handle", 0, "handle (int64)")
-	httpSslCertificateCmd.AddCommand(httpSslCertificateGetIssuedByCmd)
-	httpSslCertificateGetIssuedToCmd.Flags().Int64("handle", 0, "handle (int64)")
-	httpSslCertificateCmd.AddCommand(httpSslCertificateGetIssuedToCmd)
-	httpSslCertificateGetValidNotAfterCmd.Flags().Int64("handle", 0, "handle (int64)")
-	httpSslCertificateCmd.AddCommand(httpSslCertificateGetValidNotAfterCmd)
-	httpSslCertificateGetValidNotAfterDateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	httpSslCertificateCmd.AddCommand(httpSslCertificateGetValidNotAfterDateCmd)
-	httpSslCertificateGetValidNotBeforeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	httpSslCertificateCmd.AddCommand(httpSslCertificateGetValidNotBeforeCmd)
-	httpSslCertificateGetValidNotBeforeDateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	httpSslCertificateCmd.AddCommand(httpSslCertificateGetValidNotBeforeDateCmd)
-	httpSslCertificateGetX509CertificateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	httpSslCertificateCmd.AddCommand(httpSslCertificateGetX509CertificateCmd)
-	httpSslCertificateToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	httpSslCertificateCmd.AddCommand(httpSslCertificateToStringCmd)
-	httpSslCertificateRestoreStateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	httpSslCertificateRestoreStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	httpSslCertificateCmd.AddCommand(httpSslCertificateRestoreStateCmd)
-	httpSslCertificateSaveStateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	httpSslCertificateSaveStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	httpSslCertificateCmd.AddCommand(httpSslCertificateSaveStateCmd)
-	httpCmd.AddCommand(httpSslCertificateCmd)
-	httpSslCertificateDNameCmd.AddCommand(httpSslCertificateDNameGetCNameCmd)
-	httpSslCertificateDNameCmd.AddCommand(httpSslCertificateDNameGetDNameCmd)
-	httpSslCertificateDNameCmd.AddCommand(httpSslCertificateDNameGetONameCmd)
-	httpSslCertificateDNameCmd.AddCommand(httpSslCertificateDNameGetUNameCmd)
-	httpCmd.AddCommand(httpSslCertificateDNameCmd)
-	httpDnsOptionsCmd.AddCommand(httpDnsOptionsGetPersistHostCacheCmd)
-	httpDnsOptionsCmd.AddCommand(httpDnsOptionsGetPersistHostCachePeriodCmd)
-	httpDnsOptionsCmd.AddCommand(httpDnsOptionsGetPreestablishConnectionsToStaleDnsResultsCmd)
-	httpDnsOptionsCmd.AddCommand(httpDnsOptionsGetStaleDnsCmd)
-	httpDnsOptionsCmd.AddCommand(httpDnsOptionsGetStaleDnsOptionsCmd)
-	httpDnsOptionsCmd.AddCommand(httpDnsOptionsGetUseHttpStackDnsResolverCmd)
-	httpCmd.AddCommand(httpDnsOptionsCmd)
-	httpDnsOptionsBuilderCmd.AddCommand(httpDnsOptionsBuilderBuildCmd)
-	httpDnsOptionsBuilderSetPersistHostCacheCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	httpDnsOptionsBuilderCmd.AddCommand(httpDnsOptionsBuilderSetPersistHostCacheCmd)
-	httpDnsOptionsBuilderSetPersistHostCachePeriodCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	httpDnsOptionsBuilderCmd.AddCommand(httpDnsOptionsBuilderSetPersistHostCachePeriodCmd)
-	httpDnsOptionsBuilderSetPreestablishConnectionsToStaleDnsResultsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	httpDnsOptionsBuilderCmd.AddCommand(httpDnsOptionsBuilderSetPreestablishConnectionsToStaleDnsResultsCmd)
-	httpDnsOptionsBuilderSetStaleDnsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	httpDnsOptionsBuilderCmd.AddCommand(httpDnsOptionsBuilderSetStaleDnsCmd)
-	httpDnsOptionsBuilderSetStaleDnsOptionsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	httpDnsOptionsBuilderCmd.AddCommand(httpDnsOptionsBuilderSetStaleDnsOptionsCmd)
-	httpDnsOptionsBuilderSetUseHttpStackDnsResolverCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	httpDnsOptionsBuilderCmd.AddCommand(httpDnsOptionsBuilderSetUseHttpStackDnsResolverCmd)
-	httpCmd.AddCommand(httpDnsOptionsBuilderCmd)
-	httpDnsOptionsStaleDnsOptionsCmd.AddCommand(httpDnsOptionsStaleDnsOptionsGetAllowCrossNetworkUsageCmd)
-	httpDnsOptionsStaleDnsOptionsCmd.AddCommand(httpDnsOptionsStaleDnsOptionsGetFreshLookupTimeoutCmd)
-	httpDnsOptionsStaleDnsOptionsCmd.AddCommand(httpDnsOptionsStaleDnsOptionsGetMaxExpiredDelayCmd)
-	httpDnsOptionsStaleDnsOptionsCmd.AddCommand(httpDnsOptionsStaleDnsOptionsGetUseStaleOnNameNotResolvedCmd)
-	httpCmd.AddCommand(httpDnsOptionsStaleDnsOptionsCmd)
-	httpConnectionMigrationOptionsCmd.AddCommand(httpConnectionMigrationOptionsGetAllowNonDefaultNetworkUsageCmd)
-	httpConnectionMigrationOptionsCmd.AddCommand(httpConnectionMigrationOptionsGetDefaultNetworkMigrationCmd)
-	httpConnectionMigrationOptionsCmd.AddCommand(httpConnectionMigrationOptionsGetPathDegradationMigrationCmd)
-	httpCmd.AddCommand(httpConnectionMigrationOptionsCmd)
-	httpConnectionMigrationOptionsBuilderCmd.AddCommand(httpConnectionMigrationOptionsBuilderBuildCmd)
-	httpConnectionMigrationOptionsBuilderSetAllowNonDefaultNetworkUsageCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	httpConnectionMigrationOptionsBuilderCmd.AddCommand(httpConnectionMigrationOptionsBuilderSetAllowNonDefaultNetworkUsageCmd)
-	httpConnectionMigrationOptionsBuilderSetDefaultNetworkMigrationCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	httpConnectionMigrationOptionsBuilderCmd.AddCommand(httpConnectionMigrationOptionsBuilderSetDefaultNetworkMigrationCmd)
-	httpConnectionMigrationOptionsBuilderSetPathDegradationMigrationCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	httpConnectionMigrationOptionsBuilderCmd.AddCommand(httpConnectionMigrationOptionsBuilderSetPathDegradationMigrationCmd)
-	httpCmd.AddCommand(httpConnectionMigrationOptionsBuilderCmd)
+	httpUploadDataProviderCmd.AddCommand(httpUploadDataProviderCloseCmd)
+	httpUploadDataProviderCmd.AddCommand(httpUploadDataProviderGetLengthCmd)
+	httpUploadDataProviderRewindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	httpUploadDataProviderCmd.AddCommand(httpUploadDataProviderRewindCmd)
+	httpCmd.AddCommand(httpUploadDataProviderCmd)
 	httpBidirectionalStreamCmd.AddCommand(httpBidirectionalStreamCancelCmd)
 	httpBidirectionalStreamCmd.AddCommand(httpBidirectionalStreamFlushCmd)
 	httpBidirectionalStreamCmd.AddCommand(httpBidirectionalStreamGetHeadersCmd)
@@ -3338,5 +3284,167 @@ func init() {
 	httpBidirectionalStreamCallbackOnSucceededCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	httpBidirectionalStreamCallbackCmd.AddCommand(httpBidirectionalStreamCallbackOnSucceededCmd)
 	httpCmd.AddCommand(httpBidirectionalStreamCallbackCmd)
+	httpEngineBindToNetworkCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	httpEngineCmd.AddCommand(httpEngineBindToNetworkCmd)
+	httpEngineCmd.AddCommand(httpEngineCreateUrlStreamHandlerFactoryCmd)
+	httpEngineNewBidirectionalStreamBuilderCmd.Flags().String("arg0", "", "arg0 (string)")
+	httpEngineNewBidirectionalStreamBuilderCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	httpEngineNewBidirectionalStreamBuilderCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	httpEngineCmd.AddCommand(httpEngineNewBidirectionalStreamBuilderCmd)
+	httpEngineNewUrlRequestBuilderCmd.Flags().String("arg0", "", "arg0 (string)")
+	httpEngineNewUrlRequestBuilderCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	httpEngineNewUrlRequestBuilderCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	httpEngineCmd.AddCommand(httpEngineNewUrlRequestBuilderCmd)
+	httpEngineOpenConnectionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	httpEngineCmd.AddCommand(httpEngineOpenConnectionCmd)
+	httpEngineCmd.AddCommand(httpEngineShutdownCmd)
+	httpEngineCmd.AddCommand(httpEngineGetVersionStringCmd)
+	httpCmd.AddCommand(httpEngineCmd)
+	httpEngineBuilderAddQuicHintCmd.Flags().String("arg0", "", "arg0 (string)")
+	httpEngineBuilderAddQuicHintCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	httpEngineBuilderAddQuicHintCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	httpEngineBuilderCmd.AddCommand(httpEngineBuilderAddQuicHintCmd)
+	httpEngineBuilderCmd.AddCommand(httpEngineBuilderBuildCmd)
+	httpEngineBuilderCmd.AddCommand(httpEngineBuilderGetDefaultUserAgentCmd)
+	httpEngineBuilderSetConnectionMigrationOptionsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	httpEngineBuilderCmd.AddCommand(httpEngineBuilderSetConnectionMigrationOptionsCmd)
+	httpEngineBuilderSetDnsOptionsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	httpEngineBuilderCmd.AddCommand(httpEngineBuilderSetDnsOptionsCmd)
+	httpEngineBuilderSetEnableBrotliCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	httpEngineBuilderCmd.AddCommand(httpEngineBuilderSetEnableBrotliCmd)
+	httpEngineBuilderSetEnableHttp2Cmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	httpEngineBuilderCmd.AddCommand(httpEngineBuilderSetEnableHttp2Cmd)
+	httpEngineBuilderSetEnableHttpCacheCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	httpEngineBuilderSetEnableHttpCacheCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	httpEngineBuilderCmd.AddCommand(httpEngineBuilderSetEnableHttpCacheCmd)
+	httpEngineBuilderSetEnablePublicKeyPinningBypassForLocalTrustAnchorsCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	httpEngineBuilderCmd.AddCommand(httpEngineBuilderSetEnablePublicKeyPinningBypassForLocalTrustAnchorsCmd)
+	httpEngineBuilderSetEnableQuicCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	httpEngineBuilderCmd.AddCommand(httpEngineBuilderSetEnableQuicCmd)
+	httpEngineBuilderSetQuicOptionsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	httpEngineBuilderCmd.AddCommand(httpEngineBuilderSetQuicOptionsCmd)
+	httpEngineBuilderSetStoragePathCmd.Flags().String("arg0", "", "arg0 (string)")
+	httpEngineBuilderCmd.AddCommand(httpEngineBuilderSetStoragePathCmd)
+	httpEngineBuilderSetUserAgentCmd.Flags().String("arg0", "", "arg0 (string)")
+	httpEngineBuilderCmd.AddCommand(httpEngineBuilderSetUserAgentCmd)
+	httpCmd.AddCommand(httpEngineBuilderCmd)
+	httpNetworkExceptionCmd.AddCommand(httpNetworkExceptionGetErrorCodeCmd)
+	httpNetworkExceptionCmd.AddCommand(httpNetworkExceptionIsImmediatelyRetryableCmd)
+	httpCmd.AddCommand(httpNetworkExceptionCmd)
+	httpSslErrorNewSslErrorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	httpSslErrorNewSslErrorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	httpSslErrorCmd.AddCommand(httpSslErrorNewSslErrorCmd)
+	httpSslErrorAddErrorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	httpSslErrorAddErrorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	httpSslErrorCmd.AddCommand(httpSslErrorAddErrorCmd)
+	httpSslErrorGetCertificateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	httpSslErrorCmd.AddCommand(httpSslErrorGetCertificateCmd)
+	httpSslErrorGetPrimaryErrorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	httpSslErrorCmd.AddCommand(httpSslErrorGetPrimaryErrorCmd)
+	httpSslErrorGetUrlCmd.Flags().Int64("handle", 0, "handle (int64)")
+	httpSslErrorCmd.AddCommand(httpSslErrorGetUrlCmd)
+	httpSslErrorHasErrorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	httpSslErrorHasErrorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	httpSslErrorCmd.AddCommand(httpSslErrorHasErrorCmd)
+	httpSslErrorToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	httpSslErrorCmd.AddCommand(httpSslErrorToStringCmd)
+	httpCmd.AddCommand(httpSslErrorCmd)
+	httpQuicOptionsCmd.AddCommand(httpQuicOptionsGetAllowedQuicHostsCmd)
+	httpQuicOptionsCmd.AddCommand(httpQuicOptionsGetHandshakeUserAgentCmd)
+	httpQuicOptionsCmd.AddCommand(httpQuicOptionsGetIdleConnectionTimeoutCmd)
+	httpQuicOptionsCmd.AddCommand(httpQuicOptionsGetInMemoryServerConfigsCacheSizeCmd)
+	httpQuicOptionsCmd.AddCommand(httpQuicOptionsHasInMemoryServerConfigsCacheSizeCmd)
+	httpCmd.AddCommand(httpQuicOptionsCmd)
+	httpQuicOptionsBuilderAddAllowedQuicHostCmd.Flags().String("arg0", "", "arg0 (string)")
+	httpQuicOptionsBuilderCmd.AddCommand(httpQuicOptionsBuilderAddAllowedQuicHostCmd)
+	httpQuicOptionsBuilderCmd.AddCommand(httpQuicOptionsBuilderBuildCmd)
+	httpQuicOptionsBuilderSetHandshakeUserAgentCmd.Flags().String("arg0", "", "arg0 (string)")
+	httpQuicOptionsBuilderCmd.AddCommand(httpQuicOptionsBuilderSetHandshakeUserAgentCmd)
+	httpQuicOptionsBuilderSetIdleConnectionTimeoutCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	httpQuicOptionsBuilderCmd.AddCommand(httpQuicOptionsBuilderSetIdleConnectionTimeoutCmd)
+	httpQuicOptionsBuilderSetInMemoryServerConfigsCacheSizeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	httpQuicOptionsBuilderCmd.AddCommand(httpQuicOptionsBuilderSetInMemoryServerConfigsCacheSizeCmd)
+	httpCmd.AddCommand(httpQuicOptionsBuilderCmd)
+	httpDnsOptionsCmd.AddCommand(httpDnsOptionsGetPersistHostCacheCmd)
+	httpDnsOptionsCmd.AddCommand(httpDnsOptionsGetPersistHostCachePeriodCmd)
+	httpDnsOptionsCmd.AddCommand(httpDnsOptionsGetPreestablishConnectionsToStaleDnsResultsCmd)
+	httpDnsOptionsCmd.AddCommand(httpDnsOptionsGetStaleDnsCmd)
+	httpDnsOptionsCmd.AddCommand(httpDnsOptionsGetStaleDnsOptionsCmd)
+	httpDnsOptionsCmd.AddCommand(httpDnsOptionsGetUseHttpStackDnsResolverCmd)
+	httpCmd.AddCommand(httpDnsOptionsCmd)
+	httpDnsOptionsBuilderCmd.AddCommand(httpDnsOptionsBuilderBuildCmd)
+	httpDnsOptionsBuilderSetPersistHostCacheCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	httpDnsOptionsBuilderCmd.AddCommand(httpDnsOptionsBuilderSetPersistHostCacheCmd)
+	httpDnsOptionsBuilderSetPersistHostCachePeriodCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	httpDnsOptionsBuilderCmd.AddCommand(httpDnsOptionsBuilderSetPersistHostCachePeriodCmd)
+	httpDnsOptionsBuilderSetPreestablishConnectionsToStaleDnsResultsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	httpDnsOptionsBuilderCmd.AddCommand(httpDnsOptionsBuilderSetPreestablishConnectionsToStaleDnsResultsCmd)
+	httpDnsOptionsBuilderSetStaleDnsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	httpDnsOptionsBuilderCmd.AddCommand(httpDnsOptionsBuilderSetStaleDnsCmd)
+	httpDnsOptionsBuilderSetStaleDnsOptionsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	httpDnsOptionsBuilderCmd.AddCommand(httpDnsOptionsBuilderSetStaleDnsOptionsCmd)
+	httpDnsOptionsBuilderSetUseHttpStackDnsResolverCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	httpDnsOptionsBuilderCmd.AddCommand(httpDnsOptionsBuilderSetUseHttpStackDnsResolverCmd)
+	httpCmd.AddCommand(httpDnsOptionsBuilderCmd)
+	httpDnsOptionsStaleDnsOptionsCmd.AddCommand(httpDnsOptionsStaleDnsOptionsGetAllowCrossNetworkUsageCmd)
+	httpDnsOptionsStaleDnsOptionsCmd.AddCommand(httpDnsOptionsStaleDnsOptionsGetFreshLookupTimeoutCmd)
+	httpDnsOptionsStaleDnsOptionsCmd.AddCommand(httpDnsOptionsStaleDnsOptionsGetMaxExpiredDelayCmd)
+	httpDnsOptionsStaleDnsOptionsCmd.AddCommand(httpDnsOptionsStaleDnsOptionsGetUseStaleOnNameNotResolvedCmd)
+	httpCmd.AddCommand(httpDnsOptionsStaleDnsOptionsCmd)
+	httpResponseCacheCmd.AddCommand(httpResponseCacheCloseCmd)
+	httpResponseCacheCmd.AddCommand(httpResponseCacheDeleteCmd)
+	httpResponseCacheCmd.AddCommand(httpResponseCacheFlushCmd)
+	httpResponseCacheCmd.AddCommand(httpResponseCacheGetHitCountCmd)
+	httpResponseCacheCmd.AddCommand(httpResponseCacheGetNetworkCountCmd)
+	httpResponseCacheCmd.AddCommand(httpResponseCacheGetRequestCountCmd)
+	httpResponseCacheCmd.AddCommand(httpResponseCacheMaxSizeCmd)
+	httpResponseCachePutCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	httpResponseCachePutCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	httpResponseCacheCmd.AddCommand(httpResponseCachePutCmd)
+	httpResponseCacheCmd.AddCommand(httpResponseCacheSizeCmd)
+	httpResponseCacheCmd.AddCommand(httpResponseCacheGetInstalledCmd)
+	httpCmd.AddCommand(httpResponseCacheCmd)
+	httpSslCertificateNewSslCertificateCmd.Flags().String("arg0", "", "arg0 (string)")
+	httpSslCertificateNewSslCertificateCmd.Flags().String("arg1", "", "arg1 (string)")
+	httpSslCertificateNewSslCertificateCmd.Flags().String("arg2", "", "arg2 (string)")
+	httpSslCertificateNewSslCertificateCmd.Flags().String("arg3", "", "arg3 (string)")
+	httpSslCertificateCmd.AddCommand(httpSslCertificateNewSslCertificateCmd)
+	httpSslCertificateGetIssuedByCmd.Flags().Int64("handle", 0, "handle (int64)")
+	httpSslCertificateCmd.AddCommand(httpSslCertificateGetIssuedByCmd)
+	httpSslCertificateGetIssuedToCmd.Flags().Int64("handle", 0, "handle (int64)")
+	httpSslCertificateCmd.AddCommand(httpSslCertificateGetIssuedToCmd)
+	httpSslCertificateGetValidNotAfterCmd.Flags().Int64("handle", 0, "handle (int64)")
+	httpSslCertificateCmd.AddCommand(httpSslCertificateGetValidNotAfterCmd)
+	httpSslCertificateGetValidNotAfterDateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	httpSslCertificateCmd.AddCommand(httpSslCertificateGetValidNotAfterDateCmd)
+	httpSslCertificateGetValidNotBeforeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	httpSslCertificateCmd.AddCommand(httpSslCertificateGetValidNotBeforeCmd)
+	httpSslCertificateGetValidNotBeforeDateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	httpSslCertificateCmd.AddCommand(httpSslCertificateGetValidNotBeforeDateCmd)
+	httpSslCertificateGetX509CertificateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	httpSslCertificateCmd.AddCommand(httpSslCertificateGetX509CertificateCmd)
+	httpSslCertificateToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	httpSslCertificateCmd.AddCommand(httpSslCertificateToStringCmd)
+	httpSslCertificateRestoreStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	httpSslCertificateRestoreStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	httpSslCertificateCmd.AddCommand(httpSslCertificateRestoreStateCmd)
+	httpSslCertificateSaveStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	httpSslCertificateSaveStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	httpSslCertificateCmd.AddCommand(httpSslCertificateSaveStateCmd)
+	httpCmd.AddCommand(httpSslCertificateCmd)
+	httpSslCertificateDNameCmd.AddCommand(httpSslCertificateDNameGetCNameCmd)
+	httpSslCertificateDNameCmd.AddCommand(httpSslCertificateDNameGetDNameCmd)
+	httpSslCertificateDNameCmd.AddCommand(httpSslCertificateDNameGetONameCmd)
+	httpSslCertificateDNameCmd.AddCommand(httpSslCertificateDNameGetUNameCmd)
+	httpCmd.AddCommand(httpSslCertificateDNameCmd)
+	httpUrlResponseInfoCmd.AddCommand(httpUrlResponseInfoGetHeadersCmd)
+	httpUrlResponseInfoCmd.AddCommand(httpUrlResponseInfoGetHttpStatusCodeCmd)
+	httpUrlResponseInfoCmd.AddCommand(httpUrlResponseInfoGetHttpStatusTextCmd)
+	httpUrlResponseInfoCmd.AddCommand(httpUrlResponseInfoGetNegotiatedProtocolCmd)
+	httpUrlResponseInfoCmd.AddCommand(httpUrlResponseInfoGetReceivedByteCountCmd)
+	httpUrlResponseInfoCmd.AddCommand(httpUrlResponseInfoGetUrlCmd)
+	httpUrlResponseInfoCmd.AddCommand(httpUrlResponseInfoGetUrlChainCmd)
+	httpUrlResponseInfoCmd.AddCommand(httpUrlResponseInfoWasCachedCmd)
+	httpCmd.AddCommand(httpUrlResponseInfoCmd)
 	rootCmd.AddCommand(httpCmd)
 }

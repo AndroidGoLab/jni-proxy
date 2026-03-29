@@ -15,210 +15,6 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// RemoveAdSelectionFromOutcomesOverrideRequestServer implements pb.RemoveAdSelectionFromOutcomesOverrideRequestServiceServer.
-type RemoveAdSelectionFromOutcomesOverrideRequestServer struct {
-	pb.UnimplementedRemoveAdSelectionFromOutcomesOverrideRequestServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *RemoveAdSelectionFromOutcomesOverrideRequestServer) NewRemoveAdSelectionFromOutcomesOverrideRequest(_ context.Context, req *pb.NewRemoveAdSelectionFromOutcomesOverrideRequestRequest) (*pb.NewRemoveAdSelectionFromOutcomesOverrideRequestResponse, error) {
-	obj, err := jnipkg.NewRemoveAdSelectionFromOutcomesOverrideRequest(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewRemoveAdSelectionFromOutcomesOverrideRequestResponse{Result: handle}, nil
-}
-
-func (s *RemoveAdSelectionFromOutcomesOverrideRequestServer) GetAdSelectionFromOutcomesConfig(_ context.Context, req *pb.GetAdSelectionFromOutcomesConfigRequest) (*pb.GetAdSelectionFromOutcomesConfigResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.RemoveAdSelectionFromOutcomesOverrideRequest{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetAdSelectionFromOutcomesConfig()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetAdSelectionFromOutcomesConfigResponse{Result: handle}, nil
-}
-
-// AddAdSelectionFromOutcomesOverrideRequestServer implements pb.AddAdSelectionFromOutcomesOverrideRequestServiceServer.
-type AddAdSelectionFromOutcomesOverrideRequestServer struct {
-	pb.UnimplementedAddAdSelectionFromOutcomesOverrideRequestServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *AddAdSelectionFromOutcomesOverrideRequestServer) NewAddAdSelectionFromOutcomesOverrideRequest(_ context.Context, req *pb.NewAddAdSelectionFromOutcomesOverrideRequestRequest) (*pb.NewAddAdSelectionFromOutcomesOverrideRequestResponse, error) {
-	obj, err := jnipkg.NewAddAdSelectionFromOutcomesOverrideRequest(s.Ctx.VM, s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewAddAdSelectionFromOutcomesOverrideRequestResponse{Result: handle}, nil
-}
-
-func (s *AddAdSelectionFromOutcomesOverrideRequestServer) GetAdSelectionFromOutcomesConfig(_ context.Context, req *pb.GetAdSelectionFromOutcomesConfigRequest) (*pb.GetAdSelectionFromOutcomesConfigResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.AddAdSelectionFromOutcomesOverrideRequest{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetAdSelectionFromOutcomesConfig()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetAdSelectionFromOutcomesConfigResponse{Result: handle}, nil
-}
-
-func (s *AddAdSelectionFromOutcomesOverrideRequestServer) GetOutcomeSelectionLogicJs(_ context.Context, req *pb.GetOutcomeSelectionLogicJsRequest) (*pb.GetOutcomeSelectionLogicJsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.AddAdSelectionFromOutcomesOverrideRequest{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetOutcomeSelectionLogicJs()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetOutcomeSelectionLogicJsResponse{Result: result}, nil
-}
-
-func (s *AddAdSelectionFromOutcomesOverrideRequestServer) GetOutcomeSelectionTrustedSignals(_ context.Context, req *pb.GetOutcomeSelectionTrustedSignalsRequest) (*pb.GetOutcomeSelectionTrustedSignalsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.AddAdSelectionFromOutcomesOverrideRequest{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetOutcomeSelectionTrustedSignals()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetOutcomeSelectionTrustedSignalsResponse{Result: handle}, nil
-}
-
-// PerBuyerDecisionLogicServer implements pb.PerBuyerDecisionLogicServiceServer.
-type PerBuyerDecisionLogicServer struct {
-	pb.UnimplementedPerBuyerDecisionLogicServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *PerBuyerDecisionLogicServer) NewPerBuyerDecisionLogic(_ context.Context, req *pb.NewPerBuyerDecisionLogicRequest) (*pb.NewPerBuyerDecisionLogicResponse, error) {
-	obj, err := jnipkg.NewPerBuyerDecisionLogic(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewPerBuyerDecisionLogicResponse{Result: handle}, nil
-}
-
-func (s *PerBuyerDecisionLogicServer) DescribeContents(_ context.Context, req *pb.PerBuyerDecisionLogicDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PerBuyerDecisionLogic{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *PerBuyerDecisionLogicServer) Equals(_ context.Context, req *pb.PerBuyerDecisionLogicEqualsRequest) (*pb.EqualsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PerBuyerDecisionLogic{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EqualsResponse{Result: result}, nil
-}
-
-func (s *PerBuyerDecisionLogicServer) HashCode(_ context.Context, req *pb.PerBuyerDecisionLogicHashCodeRequest) (*pb.HashCodeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PerBuyerDecisionLogic{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.HashCode()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.HashCodeResponse{Result: result}, nil
-}
-
-func (s *PerBuyerDecisionLogicServer) WriteToParcel(_ context.Context, req *pb.PerBuyerDecisionLogicWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PerBuyerDecisionLogic{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
 // AddAdSelectionOverrideRequestServer implements pb.AddAdSelectionOverrideRequestServiceServer.
 type AddAdSelectionOverrideRequestServer struct {
 	pb.UnimplementedAddAdSelectionOverrideRequestServiceServer
@@ -322,6 +118,419 @@ func (s *AddAdSelectionOverrideRequestServer) GetTrustedScoringSignals(_ context
 		}
 	}
 	return &pb.GetTrustedScoringSignalsResponse{Result: handle}, nil
+}
+
+// DecisionLogicServer implements pb.DecisionLogicServiceServer.
+type DecisionLogicServer struct {
+	pb.UnimplementedDecisionLogicServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *DecisionLogicServer) NewDecisionLogic(_ context.Context, req *pb.NewDecisionLogicRequest) (*pb.NewDecisionLogicResponse, error) {
+	obj, err := jnipkg.NewDecisionLogic(s.Ctx.VM, req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewDecisionLogicResponse{Result: handle}, nil
+}
+
+func (s *DecisionLogicServer) DescribeContents(_ context.Context, req *pb.DecisionLogicDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DecisionLogic{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *DecisionLogicServer) Equals(_ context.Context, req *pb.DecisionLogicEqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DecisionLogic{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *DecisionLogicServer) GetLogic(_ context.Context, req *pb.GetLogicRequest) (*pb.GetLogicResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DecisionLogic{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetLogic()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetLogicResponse{Result: result}, nil
+}
+
+func (s *DecisionLogicServer) HashCode(_ context.Context, req *pb.DecisionLogicHashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DecisionLogic{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *DecisionLogicServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DecisionLogic{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
+}
+
+func (s *DecisionLogicServer) WriteToParcel(_ context.Context, req *pb.DecisionLogicWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DecisionLogic{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// PerBuyerDecisionLogicServer implements pb.PerBuyerDecisionLogicServiceServer.
+type PerBuyerDecisionLogicServer struct {
+	pb.UnimplementedPerBuyerDecisionLogicServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *PerBuyerDecisionLogicServer) NewPerBuyerDecisionLogic(_ context.Context, req *pb.NewPerBuyerDecisionLogicRequest) (*pb.NewPerBuyerDecisionLogicResponse, error) {
+	obj, err := jnipkg.NewPerBuyerDecisionLogic(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewPerBuyerDecisionLogicResponse{Result: handle}, nil
+}
+
+func (s *PerBuyerDecisionLogicServer) DescribeContents(_ context.Context, req *pb.PerBuyerDecisionLogicDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PerBuyerDecisionLogic{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *PerBuyerDecisionLogicServer) Equals(_ context.Context, req *pb.PerBuyerDecisionLogicEqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PerBuyerDecisionLogic{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *PerBuyerDecisionLogicServer) HashCode(_ context.Context, req *pb.PerBuyerDecisionLogicHashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PerBuyerDecisionLogic{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *PerBuyerDecisionLogicServer) WriteToParcel(_ context.Context, req *pb.PerBuyerDecisionLogicWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PerBuyerDecisionLogic{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// RemoveAdSelectionOverrideRequestServer implements pb.RemoveAdSelectionOverrideRequestServiceServer.
+type RemoveAdSelectionOverrideRequestServer struct {
+	pb.UnimplementedRemoveAdSelectionOverrideRequestServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *RemoveAdSelectionOverrideRequestServer) NewRemoveAdSelectionOverrideRequest(_ context.Context, req *pb.NewRemoveAdSelectionOverrideRequestRequest) (*pb.NewRemoveAdSelectionOverrideRequestResponse, error) {
+	obj, err := jnipkg.NewRemoveAdSelectionOverrideRequest(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewRemoveAdSelectionOverrideRequestResponse{Result: handle}, nil
+}
+
+func (s *RemoveAdSelectionOverrideRequestServer) GetAdSelectionConfig(_ context.Context, req *pb.GetAdSelectionConfigRequest) (*pb.GetAdSelectionConfigResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RemoveAdSelectionOverrideRequest{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAdSelectionConfig()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetAdSelectionConfigResponse{Result: handle}, nil
+}
+
+// ReportImpressionRequestServer implements pb.ReportImpressionRequestServiceServer.
+type ReportImpressionRequestServer struct {
+	pb.UnimplementedReportImpressionRequestServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ReportImpressionRequestServer) NewReportImpressionRequest(_ context.Context, req *pb.NewReportImpressionRequestRequest) (*pb.NewReportImpressionRequestResponse, error) {
+	obj, err := jnipkg.NewReportImpressionRequest(s.Ctx.VM, req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewReportImpressionRequestResponse{Result: handle}, nil
+}
+
+func (s *ReportImpressionRequestServer) GetAdSelectionConfig(_ context.Context, req *pb.GetAdSelectionConfigRequest) (*pb.GetAdSelectionConfigResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ReportImpressionRequest{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAdSelectionConfig()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetAdSelectionConfigResponse{Result: handle}, nil
+}
+
+func (s *ReportImpressionRequestServer) GetAdSelectionId(_ context.Context, req *pb.ReportImpressionRequestGetAdSelectionIdRequest) (*pb.GetAdSelectionIdResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ReportImpressionRequest{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAdSelectionId()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetAdSelectionIdResponse{Result: result}, nil
+}
+
+// AddAdSelectionFromOutcomesOverrideRequestServer implements pb.AddAdSelectionFromOutcomesOverrideRequestServiceServer.
+type AddAdSelectionFromOutcomesOverrideRequestServer struct {
+	pb.UnimplementedAddAdSelectionFromOutcomesOverrideRequestServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *AddAdSelectionFromOutcomesOverrideRequestServer) NewAddAdSelectionFromOutcomesOverrideRequest(_ context.Context, req *pb.NewAddAdSelectionFromOutcomesOverrideRequestRequest) (*pb.NewAddAdSelectionFromOutcomesOverrideRequestResponse, error) {
+	obj, err := jnipkg.NewAddAdSelectionFromOutcomesOverrideRequest(s.Ctx.VM, s.Handles.Get(req.GetArg0()), req.GetArg1(), s.Handles.Get(req.GetArg2()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewAddAdSelectionFromOutcomesOverrideRequestResponse{Result: handle}, nil
+}
+
+func (s *AddAdSelectionFromOutcomesOverrideRequestServer) GetAdSelectionFromOutcomesConfig(_ context.Context, req *pb.GetAdSelectionFromOutcomesConfigRequest) (*pb.GetAdSelectionFromOutcomesConfigResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AddAdSelectionFromOutcomesOverrideRequest{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAdSelectionFromOutcomesConfig()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetAdSelectionFromOutcomesConfigResponse{Result: handle}, nil
+}
+
+func (s *AddAdSelectionFromOutcomesOverrideRequestServer) GetOutcomeSelectionLogicJs(_ context.Context, req *pb.GetOutcomeSelectionLogicJsRequest) (*pb.GetOutcomeSelectionLogicJsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AddAdSelectionFromOutcomesOverrideRequest{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetOutcomeSelectionLogicJs()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetOutcomeSelectionLogicJsResponse{Result: result}, nil
+}
+
+func (s *AddAdSelectionFromOutcomesOverrideRequestServer) GetOutcomeSelectionTrustedSignals(_ context.Context, req *pb.GetOutcomeSelectionTrustedSignalsRequest) (*pb.GetOutcomeSelectionTrustedSignalsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AddAdSelectionFromOutcomesOverrideRequest{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetOutcomeSelectionTrustedSignals()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetOutcomeSelectionTrustedSignalsResponse{Result: handle}, nil
+}
+
+// RemoveAdSelectionFromOutcomesOverrideRequestServer implements pb.RemoveAdSelectionFromOutcomesOverrideRequestServiceServer.
+type RemoveAdSelectionFromOutcomesOverrideRequestServer struct {
+	pb.UnimplementedRemoveAdSelectionFromOutcomesOverrideRequestServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *RemoveAdSelectionFromOutcomesOverrideRequestServer) NewRemoveAdSelectionFromOutcomesOverrideRequest(_ context.Context, req *pb.NewRemoveAdSelectionFromOutcomesOverrideRequestRequest) (*pb.NewRemoveAdSelectionFromOutcomesOverrideRequestResponse, error) {
+	obj, err := jnipkg.NewRemoveAdSelectionFromOutcomesOverrideRequest(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewRemoveAdSelectionFromOutcomesOverrideRequestResponse{Result: handle}, nil
+}
+
+func (s *RemoveAdSelectionFromOutcomesOverrideRequestServer) GetAdSelectionFromOutcomesConfig(_ context.Context, req *pb.GetAdSelectionFromOutcomesConfigRequest) (*pb.GetAdSelectionFromOutcomesConfigResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.RemoveAdSelectionFromOutcomesOverrideRequest{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAdSelectionFromOutcomesConfig()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetAdSelectionFromOutcomesConfigResponse{Result: handle}, nil
 }
 
 // AdWithBidServer implements pb.AdWithBidServiceServer.
@@ -436,213 +645,4 @@ func (s *AdWithBidServer) WriteToParcel(_ context.Context, req *pb.AdWithBidWrit
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.WriteToParcelResponse{}, nil
-}
-
-// RemoveAdSelectionOverrideRequestServer implements pb.RemoveAdSelectionOverrideRequestServiceServer.
-type RemoveAdSelectionOverrideRequestServer struct {
-	pb.UnimplementedRemoveAdSelectionOverrideRequestServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *RemoveAdSelectionOverrideRequestServer) NewRemoveAdSelectionOverrideRequest(_ context.Context, req *pb.NewRemoveAdSelectionOverrideRequestRequest) (*pb.NewRemoveAdSelectionOverrideRequestResponse, error) {
-	obj, err := jnipkg.NewRemoveAdSelectionOverrideRequest(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewRemoveAdSelectionOverrideRequestResponse{Result: handle}, nil
-}
-
-func (s *RemoveAdSelectionOverrideRequestServer) GetAdSelectionConfig(_ context.Context, req *pb.GetAdSelectionConfigRequest) (*pb.GetAdSelectionConfigResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.RemoveAdSelectionOverrideRequest{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetAdSelectionConfig()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetAdSelectionConfigResponse{Result: handle}, nil
-}
-
-// DecisionLogicServer implements pb.DecisionLogicServiceServer.
-type DecisionLogicServer struct {
-	pb.UnimplementedDecisionLogicServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *DecisionLogicServer) NewDecisionLogic(_ context.Context, req *pb.NewDecisionLogicRequest) (*pb.NewDecisionLogicResponse, error) {
-	obj, err := jnipkg.NewDecisionLogic(s.Ctx.VM, req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewDecisionLogicResponse{Result: handle}, nil
-}
-
-func (s *DecisionLogicServer) DescribeContents(_ context.Context, req *pb.DecisionLogicDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DecisionLogic{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *DecisionLogicServer) Equals(_ context.Context, req *pb.DecisionLogicEqualsRequest) (*pb.EqualsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DecisionLogic{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EqualsResponse{Result: result}, nil
-}
-
-func (s *DecisionLogicServer) GetLogic(_ context.Context, req *pb.GetLogicRequest) (*pb.GetLogicResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DecisionLogic{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetLogic()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetLogicResponse{Result: result}, nil
-}
-
-func (s *DecisionLogicServer) HashCode(_ context.Context, req *pb.DecisionLogicHashCodeRequest) (*pb.HashCodeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DecisionLogic{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.HashCode()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.HashCodeResponse{Result: result}, nil
-}
-
-func (s *DecisionLogicServer) ToString(_ context.Context, req *pb.DecisionLogicToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DecisionLogic{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
-func (s *DecisionLogicServer) WriteToParcel(_ context.Context, req *pb.DecisionLogicWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DecisionLogic{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
-// ReportImpressionRequestServer implements pb.ReportImpressionRequestServiceServer.
-type ReportImpressionRequestServer struct {
-	pb.UnimplementedReportImpressionRequestServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *ReportImpressionRequestServer) NewReportImpressionRequest(_ context.Context, req *pb.NewReportImpressionRequestRequest) (*pb.NewReportImpressionRequestResponse, error) {
-	obj, err := jnipkg.NewReportImpressionRequest(s.Ctx.VM, req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewReportImpressionRequestResponse{Result: handle}, nil
-}
-
-func (s *ReportImpressionRequestServer) GetAdSelectionConfig(_ context.Context, req *pb.GetAdSelectionConfigRequest) (*pb.GetAdSelectionConfigResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ReportImpressionRequest{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetAdSelectionConfig()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetAdSelectionConfigResponse{Result: handle}, nil
-}
-
-func (s *ReportImpressionRequestServer) GetAdSelectionId(_ context.Context, req *pb.ReportImpressionRequestGetAdSelectionIdRequest) (*pb.GetAdSelectionIdResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ReportImpressionRequest{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetAdSelectionId()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetAdSelectionIdResponse{Result: result}, nil
 }

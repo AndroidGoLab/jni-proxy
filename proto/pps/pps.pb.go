@@ -639,6 +639,94 @@ func (x *GetMatchAnyOisResponse) GetResult() int64 {
 	return 0
 }
 
+type GetOtherHomePartnersListRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOtherHomePartnersListRequest) Reset() {
+	*x = GetOtherHomePartnersListRequest{}
+	mi := &file_proto_pps_pps_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOtherHomePartnersListRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOtherHomePartnersListRequest) ProtoMessage() {}
+
+func (x *GetOtherHomePartnersListRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOtherHomePartnersListRequest.ProtoReflect.Descriptor instead.
+func (*GetOtherHomePartnersListRequest) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *GetOtherHomePartnersListRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetOtherHomePartnersListResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOtherHomePartnersListResponse) Reset() {
+	*x = GetOtherHomePartnersListResponse{}
+	mi := &file_proto_pps_pps_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOtherHomePartnersListResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOtherHomePartnersListResponse) ProtoMessage() {}
+
+func (x *GetOtherHomePartnersListResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_pps_pps_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOtherHomePartnersListResponse.ProtoReflect.Descriptor instead.
+func (*GetOtherHomePartnersListResponse) Descriptor() ([]byte, []int) {
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GetOtherHomePartnersListResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 type GetRoamingConsortiumOisRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
@@ -648,7 +736,7 @@ type GetRoamingConsortiumOisRequest struct {
 
 func (x *GetRoamingConsortiumOisRequest) Reset() {
 	*x = GetRoamingConsortiumOisRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[14]
+	mi := &file_proto_pps_pps_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -660,7 +748,7 @@ func (x *GetRoamingConsortiumOisRequest) String() string {
 func (*GetRoamingConsortiumOisRequest) ProtoMessage() {}
 
 func (x *GetRoamingConsortiumOisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[14]
+	mi := &file_proto_pps_pps_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -673,7 +761,7 @@ func (x *GetRoamingConsortiumOisRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRoamingConsortiumOisRequest.ProtoReflect.Descriptor instead.
 func (*GetRoamingConsortiumOisRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{14}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *GetRoamingConsortiumOisRequest) GetHandle() int64 {
@@ -692,7 +780,7 @@ type GetRoamingConsortiumOisResponse struct {
 
 func (x *GetRoamingConsortiumOisResponse) Reset() {
 	*x = GetRoamingConsortiumOisResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[15]
+	mi := &file_proto_pps_pps_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -704,7 +792,7 @@ func (x *GetRoamingConsortiumOisResponse) String() string {
 func (*GetRoamingConsortiumOisResponse) ProtoMessage() {}
 
 func (x *GetRoamingConsortiumOisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[15]
+	mi := &file_proto_pps_pps_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -717,7 +805,7 @@ func (x *GetRoamingConsortiumOisResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRoamingConsortiumOisResponse.ProtoReflect.Descriptor instead.
 func (*GetRoamingConsortiumOisResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{15}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *GetRoamingConsortiumOisResponse) GetResult() int64 {
@@ -736,7 +824,7 @@ type HashCodeRequest struct {
 
 func (x *HashCodeRequest) Reset() {
 	*x = HashCodeRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[16]
+	mi := &file_proto_pps_pps_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -748,7 +836,7 @@ func (x *HashCodeRequest) String() string {
 func (*HashCodeRequest) ProtoMessage() {}
 
 func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[16]
+	mi := &file_proto_pps_pps_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -761,7 +849,7 @@ func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
 func (*HashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{16}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *HashCodeRequest) GetHandle() int64 {
@@ -780,7 +868,7 @@ type HashCodeResponse struct {
 
 func (x *HashCodeResponse) Reset() {
 	*x = HashCodeResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[17]
+	mi := &file_proto_pps_pps_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -792,7 +880,7 @@ func (x *HashCodeResponse) String() string {
 func (*HashCodeResponse) ProtoMessage() {}
 
 func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[17]
+	mi := &file_proto_pps_pps_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -805,7 +893,7 @@ func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
 func (*HashCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{17}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *HashCodeResponse) GetResult() int32 {
@@ -825,7 +913,7 @@ type SetFqdnRequest struct {
 
 func (x *SetFqdnRequest) Reset() {
 	*x = SetFqdnRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[18]
+	mi := &file_proto_pps_pps_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -837,7 +925,7 @@ func (x *SetFqdnRequest) String() string {
 func (*SetFqdnRequest) ProtoMessage() {}
 
 func (x *SetFqdnRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[18]
+	mi := &file_proto_pps_pps_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -850,7 +938,7 @@ func (x *SetFqdnRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetFqdnRequest.ProtoReflect.Descriptor instead.
 func (*SetFqdnRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{18}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *SetFqdnRequest) GetHandle() int64 {
@@ -875,7 +963,7 @@ type SetFqdnResponse struct {
 
 func (x *SetFqdnResponse) Reset() {
 	*x = SetFqdnResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[19]
+	mi := &file_proto_pps_pps_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -887,7 +975,7 @@ func (x *SetFqdnResponse) String() string {
 func (*SetFqdnResponse) ProtoMessage() {}
 
 func (x *SetFqdnResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[19]
+	mi := &file_proto_pps_pps_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -900,7 +988,7 @@ func (x *SetFqdnResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetFqdnResponse.ProtoReflect.Descriptor instead.
 func (*SetFqdnResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{19}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{21}
 }
 
 type SetFriendlyNameRequest struct {
@@ -913,7 +1001,7 @@ type SetFriendlyNameRequest struct {
 
 func (x *SetFriendlyNameRequest) Reset() {
 	*x = SetFriendlyNameRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[20]
+	mi := &file_proto_pps_pps_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -925,7 +1013,7 @@ func (x *SetFriendlyNameRequest) String() string {
 func (*SetFriendlyNameRequest) ProtoMessage() {}
 
 func (x *SetFriendlyNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[20]
+	mi := &file_proto_pps_pps_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -938,7 +1026,7 @@ func (x *SetFriendlyNameRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetFriendlyNameRequest.ProtoReflect.Descriptor instead.
 func (*SetFriendlyNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{20}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *SetFriendlyNameRequest) GetHandle() int64 {
@@ -963,7 +1051,7 @@ type SetFriendlyNameResponse struct {
 
 func (x *SetFriendlyNameResponse) Reset() {
 	*x = SetFriendlyNameResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[21]
+	mi := &file_proto_pps_pps_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -975,7 +1063,7 @@ func (x *SetFriendlyNameResponse) String() string {
 func (*SetFriendlyNameResponse) ProtoMessage() {}
 
 func (x *SetFriendlyNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[21]
+	mi := &file_proto_pps_pps_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -988,7 +1076,7 @@ func (x *SetFriendlyNameResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetFriendlyNameResponse.ProtoReflect.Descriptor instead.
 func (*SetFriendlyNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{21}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{23}
 }
 
 type SetMatchAllOisRequest struct {
@@ -1001,7 +1089,7 @@ type SetMatchAllOisRequest struct {
 
 func (x *SetMatchAllOisRequest) Reset() {
 	*x = SetMatchAllOisRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[22]
+	mi := &file_proto_pps_pps_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1013,7 +1101,7 @@ func (x *SetMatchAllOisRequest) String() string {
 func (*SetMatchAllOisRequest) ProtoMessage() {}
 
 func (x *SetMatchAllOisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[22]
+	mi := &file_proto_pps_pps_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1026,7 +1114,7 @@ func (x *SetMatchAllOisRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetMatchAllOisRequest.ProtoReflect.Descriptor instead.
 func (*SetMatchAllOisRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{22}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *SetMatchAllOisRequest) GetHandle() int64 {
@@ -1051,7 +1139,7 @@ type SetMatchAllOisResponse struct {
 
 func (x *SetMatchAllOisResponse) Reset() {
 	*x = SetMatchAllOisResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[23]
+	mi := &file_proto_pps_pps_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1063,7 +1151,7 @@ func (x *SetMatchAllOisResponse) String() string {
 func (*SetMatchAllOisResponse) ProtoMessage() {}
 
 func (x *SetMatchAllOisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[23]
+	mi := &file_proto_pps_pps_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1076,7 +1164,7 @@ func (x *SetMatchAllOisResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetMatchAllOisResponse.ProtoReflect.Descriptor instead.
 func (*SetMatchAllOisResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{23}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{25}
 }
 
 type SetMatchAnyOisRequest struct {
@@ -1089,7 +1177,7 @@ type SetMatchAnyOisRequest struct {
 
 func (x *SetMatchAnyOisRequest) Reset() {
 	*x = SetMatchAnyOisRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[24]
+	mi := &file_proto_pps_pps_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1101,7 +1189,7 @@ func (x *SetMatchAnyOisRequest) String() string {
 func (*SetMatchAnyOisRequest) ProtoMessage() {}
 
 func (x *SetMatchAnyOisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[24]
+	mi := &file_proto_pps_pps_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1114,7 +1202,7 @@ func (x *SetMatchAnyOisRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetMatchAnyOisRequest.ProtoReflect.Descriptor instead.
 func (*SetMatchAnyOisRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{24}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *SetMatchAnyOisRequest) GetHandle() int64 {
@@ -1139,7 +1227,7 @@ type SetMatchAnyOisResponse struct {
 
 func (x *SetMatchAnyOisResponse) Reset() {
 	*x = SetMatchAnyOisResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[25]
+	mi := &file_proto_pps_pps_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1151,7 +1239,7 @@ func (x *SetMatchAnyOisResponse) String() string {
 func (*SetMatchAnyOisResponse) ProtoMessage() {}
 
 func (x *SetMatchAnyOisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[25]
+	mi := &file_proto_pps_pps_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1164,7 +1252,7 @@ func (x *SetMatchAnyOisResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetMatchAnyOisResponse.ProtoReflect.Descriptor instead.
 func (*SetMatchAnyOisResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{25}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{27}
 }
 
 type SetRoamingConsortiumOisRequest struct {
@@ -1177,7 +1265,7 @@ type SetRoamingConsortiumOisRequest struct {
 
 func (x *SetRoamingConsortiumOisRequest) Reset() {
 	*x = SetRoamingConsortiumOisRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[26]
+	mi := &file_proto_pps_pps_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1189,7 +1277,7 @@ func (x *SetRoamingConsortiumOisRequest) String() string {
 func (*SetRoamingConsortiumOisRequest) ProtoMessage() {}
 
 func (x *SetRoamingConsortiumOisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[26]
+	mi := &file_proto_pps_pps_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1202,7 +1290,7 @@ func (x *SetRoamingConsortiumOisRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetRoamingConsortiumOisRequest.ProtoReflect.Descriptor instead.
 func (*SetRoamingConsortiumOisRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{26}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *SetRoamingConsortiumOisRequest) GetHandle() int64 {
@@ -1227,7 +1315,7 @@ type SetRoamingConsortiumOisResponse struct {
 
 func (x *SetRoamingConsortiumOisResponse) Reset() {
 	*x = SetRoamingConsortiumOisResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[27]
+	mi := &file_proto_pps_pps_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1239,7 +1327,7 @@ func (x *SetRoamingConsortiumOisResponse) String() string {
 func (*SetRoamingConsortiumOisResponse) ProtoMessage() {}
 
 func (x *SetRoamingConsortiumOisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[27]
+	mi := &file_proto_pps_pps_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1252,7 +1340,7 @@ func (x *SetRoamingConsortiumOisResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetRoamingConsortiumOisResponse.ProtoReflect.Descriptor instead.
 func (*SetRoamingConsortiumOisResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{27}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{29}
 }
 
 type ToStringRequest struct {
@@ -1264,7 +1352,7 @@ type ToStringRequest struct {
 
 func (x *ToStringRequest) Reset() {
 	*x = ToStringRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[28]
+	mi := &file_proto_pps_pps_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1276,7 +1364,7 @@ func (x *ToStringRequest) String() string {
 func (*ToStringRequest) ProtoMessage() {}
 
 func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[28]
+	mi := &file_proto_pps_pps_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1289,7 +1377,7 @@ func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
 func (*ToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{28}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *ToStringRequest) GetHandle() int64 {
@@ -1308,7 +1396,7 @@ type ToStringResponse struct {
 
 func (x *ToStringResponse) Reset() {
 	*x = ToStringResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[29]
+	mi := &file_proto_pps_pps_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1320,7 +1408,7 @@ func (x *ToStringResponse) String() string {
 func (*ToStringResponse) ProtoMessage() {}
 
 func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[29]
+	mi := &file_proto_pps_pps_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1333,7 +1421,7 @@ func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
 func (*ToStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{29}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *ToStringResponse) GetResult() string {
@@ -1354,7 +1442,7 @@ type WriteToParcelRequest struct {
 
 func (x *WriteToParcelRequest) Reset() {
 	*x = WriteToParcelRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[30]
+	mi := &file_proto_pps_pps_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1366,7 +1454,7 @@ func (x *WriteToParcelRequest) String() string {
 func (*WriteToParcelRequest) ProtoMessage() {}
 
 func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[30]
+	mi := &file_proto_pps_pps_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1379,7 +1467,7 @@ func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
 func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{30}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *WriteToParcelRequest) GetHandle() int64 {
@@ -1411,7 +1499,7 @@ type WriteToParcelResponse struct {
 
 func (x *WriteToParcelResponse) Reset() {
 	*x = WriteToParcelResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[31]
+	mi := &file_proto_pps_pps_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1423,7 +1511,7 @@ func (x *WriteToParcelResponse) String() string {
 func (*WriteToParcelResponse) ProtoMessage() {}
 
 func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[31]
+	mi := &file_proto_pps_pps_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1436,7 +1524,7 @@ func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
 func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{31}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{33}
 }
 
 type NewCredentialRequest struct {
@@ -1447,7 +1535,7 @@ type NewCredentialRequest struct {
 
 func (x *NewCredentialRequest) Reset() {
 	*x = NewCredentialRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[32]
+	mi := &file_proto_pps_pps_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1459,7 +1547,7 @@ func (x *NewCredentialRequest) String() string {
 func (*NewCredentialRequest) ProtoMessage() {}
 
 func (x *NewCredentialRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[32]
+	mi := &file_proto_pps_pps_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1472,7 +1560,7 @@ func (x *NewCredentialRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewCredentialRequest.ProtoReflect.Descriptor instead.
 func (*NewCredentialRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{32}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{34}
 }
 
 type NewCredentialResponse struct {
@@ -1484,7 +1572,7 @@ type NewCredentialResponse struct {
 
 func (x *NewCredentialResponse) Reset() {
 	*x = NewCredentialResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[33]
+	mi := &file_proto_pps_pps_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1496,7 +1584,7 @@ func (x *NewCredentialResponse) String() string {
 func (*NewCredentialResponse) ProtoMessage() {}
 
 func (x *NewCredentialResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[33]
+	mi := &file_proto_pps_pps_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1509,7 +1597,7 @@ func (x *NewCredentialResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewCredentialResponse.ProtoReflect.Descriptor instead.
 func (*NewCredentialResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{33}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *NewCredentialResponse) GetResult() int64 {
@@ -1528,7 +1616,7 @@ type GetCaCertificateRequest struct {
 
 func (x *GetCaCertificateRequest) Reset() {
 	*x = GetCaCertificateRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[34]
+	mi := &file_proto_pps_pps_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1540,7 +1628,7 @@ func (x *GetCaCertificateRequest) String() string {
 func (*GetCaCertificateRequest) ProtoMessage() {}
 
 func (x *GetCaCertificateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[34]
+	mi := &file_proto_pps_pps_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1553,7 +1641,7 @@ func (x *GetCaCertificateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCaCertificateRequest.ProtoReflect.Descriptor instead.
 func (*GetCaCertificateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{34}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *GetCaCertificateRequest) GetHandle() int64 {
@@ -1572,7 +1660,7 @@ type GetCaCertificateResponse struct {
 
 func (x *GetCaCertificateResponse) Reset() {
 	*x = GetCaCertificateResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[35]
+	mi := &file_proto_pps_pps_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1584,7 +1672,7 @@ func (x *GetCaCertificateResponse) String() string {
 func (*GetCaCertificateResponse) ProtoMessage() {}
 
 func (x *GetCaCertificateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[35]
+	mi := &file_proto_pps_pps_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1597,7 +1685,7 @@ func (x *GetCaCertificateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCaCertificateResponse.ProtoReflect.Descriptor instead.
 func (*GetCaCertificateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{35}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *GetCaCertificateResponse) GetResult() int64 {
@@ -1616,7 +1704,7 @@ type GetCertCredentialRequest struct {
 
 func (x *GetCertCredentialRequest) Reset() {
 	*x = GetCertCredentialRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[36]
+	mi := &file_proto_pps_pps_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1628,7 +1716,7 @@ func (x *GetCertCredentialRequest) String() string {
 func (*GetCertCredentialRequest) ProtoMessage() {}
 
 func (x *GetCertCredentialRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[36]
+	mi := &file_proto_pps_pps_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1641,7 +1729,7 @@ func (x *GetCertCredentialRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCertCredentialRequest.ProtoReflect.Descriptor instead.
 func (*GetCertCredentialRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{36}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *GetCertCredentialRequest) GetHandle() int64 {
@@ -1660,7 +1748,7 @@ type GetCertCredentialResponse struct {
 
 func (x *GetCertCredentialResponse) Reset() {
 	*x = GetCertCredentialResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[37]
+	mi := &file_proto_pps_pps_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1672,7 +1760,7 @@ func (x *GetCertCredentialResponse) String() string {
 func (*GetCertCredentialResponse) ProtoMessage() {}
 
 func (x *GetCertCredentialResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[37]
+	mi := &file_proto_pps_pps_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1685,7 +1773,7 @@ func (x *GetCertCredentialResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCertCredentialResponse.ProtoReflect.Descriptor instead.
 func (*GetCertCredentialResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{37}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *GetCertCredentialResponse) GetResult() int64 {
@@ -1704,7 +1792,7 @@ type GetClientCertificateChainRequest struct {
 
 func (x *GetClientCertificateChainRequest) Reset() {
 	*x = GetClientCertificateChainRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[38]
+	mi := &file_proto_pps_pps_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1716,7 +1804,7 @@ func (x *GetClientCertificateChainRequest) String() string {
 func (*GetClientCertificateChainRequest) ProtoMessage() {}
 
 func (x *GetClientCertificateChainRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[38]
+	mi := &file_proto_pps_pps_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1729,7 +1817,7 @@ func (x *GetClientCertificateChainRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetClientCertificateChainRequest.ProtoReflect.Descriptor instead.
 func (*GetClientCertificateChainRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{38}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *GetClientCertificateChainRequest) GetHandle() int64 {
@@ -1748,7 +1836,7 @@ type GetClientCertificateChainResponse struct {
 
 func (x *GetClientCertificateChainResponse) Reset() {
 	*x = GetClientCertificateChainResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[39]
+	mi := &file_proto_pps_pps_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1760,7 +1848,7 @@ func (x *GetClientCertificateChainResponse) String() string {
 func (*GetClientCertificateChainResponse) ProtoMessage() {}
 
 func (x *GetClientCertificateChainResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[39]
+	mi := &file_proto_pps_pps_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1773,7 +1861,7 @@ func (x *GetClientCertificateChainResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use GetClientCertificateChainResponse.ProtoReflect.Descriptor instead.
 func (*GetClientCertificateChainResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{39}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *GetClientCertificateChainResponse) GetResult() int64 {
@@ -1792,7 +1880,7 @@ type GetClientPrivateKeyRequest struct {
 
 func (x *GetClientPrivateKeyRequest) Reset() {
 	*x = GetClientPrivateKeyRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[40]
+	mi := &file_proto_pps_pps_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1804,7 +1892,7 @@ func (x *GetClientPrivateKeyRequest) String() string {
 func (*GetClientPrivateKeyRequest) ProtoMessage() {}
 
 func (x *GetClientPrivateKeyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[40]
+	mi := &file_proto_pps_pps_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1817,7 +1905,7 @@ func (x *GetClientPrivateKeyRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetClientPrivateKeyRequest.ProtoReflect.Descriptor instead.
 func (*GetClientPrivateKeyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{40}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *GetClientPrivateKeyRequest) GetHandle() int64 {
@@ -1836,7 +1924,7 @@ type GetClientPrivateKeyResponse struct {
 
 func (x *GetClientPrivateKeyResponse) Reset() {
 	*x = GetClientPrivateKeyResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[41]
+	mi := &file_proto_pps_pps_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1848,7 +1936,7 @@ func (x *GetClientPrivateKeyResponse) String() string {
 func (*GetClientPrivateKeyResponse) ProtoMessage() {}
 
 func (x *GetClientPrivateKeyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[41]
+	mi := &file_proto_pps_pps_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1861,7 +1949,7 @@ func (x *GetClientPrivateKeyResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetClientPrivateKeyResponse.ProtoReflect.Descriptor instead.
 func (*GetClientPrivateKeyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{41}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *GetClientPrivateKeyResponse) GetResult() int64 {
@@ -1880,7 +1968,7 @@ type GetMinimumTlsVersionRequest struct {
 
 func (x *GetMinimumTlsVersionRequest) Reset() {
 	*x = GetMinimumTlsVersionRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[42]
+	mi := &file_proto_pps_pps_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1892,7 +1980,7 @@ func (x *GetMinimumTlsVersionRequest) String() string {
 func (*GetMinimumTlsVersionRequest) ProtoMessage() {}
 
 func (x *GetMinimumTlsVersionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[42]
+	mi := &file_proto_pps_pps_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1905,7 +1993,7 @@ func (x *GetMinimumTlsVersionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMinimumTlsVersionRequest.ProtoReflect.Descriptor instead.
 func (*GetMinimumTlsVersionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{42}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *GetMinimumTlsVersionRequest) GetHandle() int64 {
@@ -1924,7 +2012,7 @@ type GetMinimumTlsVersionResponse struct {
 
 func (x *GetMinimumTlsVersionResponse) Reset() {
 	*x = GetMinimumTlsVersionResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[43]
+	mi := &file_proto_pps_pps_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1936,7 +2024,7 @@ func (x *GetMinimumTlsVersionResponse) String() string {
 func (*GetMinimumTlsVersionResponse) ProtoMessage() {}
 
 func (x *GetMinimumTlsVersionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[43]
+	mi := &file_proto_pps_pps_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1949,7 +2037,7 @@ func (x *GetMinimumTlsVersionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMinimumTlsVersionResponse.ProtoReflect.Descriptor instead.
 func (*GetMinimumTlsVersionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{43}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *GetMinimumTlsVersionResponse) GetResult() int32 {
@@ -1968,7 +2056,7 @@ type GetRealmRequest struct {
 
 func (x *GetRealmRequest) Reset() {
 	*x = GetRealmRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[44]
+	mi := &file_proto_pps_pps_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1980,7 +2068,7 @@ func (x *GetRealmRequest) String() string {
 func (*GetRealmRequest) ProtoMessage() {}
 
 func (x *GetRealmRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[44]
+	mi := &file_proto_pps_pps_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1993,7 +2081,7 @@ func (x *GetRealmRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRealmRequest.ProtoReflect.Descriptor instead.
 func (*GetRealmRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{44}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *GetRealmRequest) GetHandle() int64 {
@@ -2012,7 +2100,7 @@ type GetRealmResponse struct {
 
 func (x *GetRealmResponse) Reset() {
 	*x = GetRealmResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[45]
+	mi := &file_proto_pps_pps_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2024,7 +2112,7 @@ func (x *GetRealmResponse) String() string {
 func (*GetRealmResponse) ProtoMessage() {}
 
 func (x *GetRealmResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[45]
+	mi := &file_proto_pps_pps_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2037,7 +2125,7 @@ func (x *GetRealmResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRealmResponse.ProtoReflect.Descriptor instead.
 func (*GetRealmResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{45}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *GetRealmResponse) GetResult() string {
@@ -2056,7 +2144,7 @@ type GetSimCredentialRequest struct {
 
 func (x *GetSimCredentialRequest) Reset() {
 	*x = GetSimCredentialRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[46]
+	mi := &file_proto_pps_pps_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2068,7 +2156,7 @@ func (x *GetSimCredentialRequest) String() string {
 func (*GetSimCredentialRequest) ProtoMessage() {}
 
 func (x *GetSimCredentialRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[46]
+	mi := &file_proto_pps_pps_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2081,7 +2169,7 @@ func (x *GetSimCredentialRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSimCredentialRequest.ProtoReflect.Descriptor instead.
 func (*GetSimCredentialRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{46}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *GetSimCredentialRequest) GetHandle() int64 {
@@ -2100,7 +2188,7 @@ type GetSimCredentialResponse struct {
 
 func (x *GetSimCredentialResponse) Reset() {
 	*x = GetSimCredentialResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[47]
+	mi := &file_proto_pps_pps_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2112,7 +2200,7 @@ func (x *GetSimCredentialResponse) String() string {
 func (*GetSimCredentialResponse) ProtoMessage() {}
 
 func (x *GetSimCredentialResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[47]
+	mi := &file_proto_pps_pps_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2125,7 +2213,7 @@ func (x *GetSimCredentialResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSimCredentialResponse.ProtoReflect.Descriptor instead.
 func (*GetSimCredentialResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{47}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{49}
 }
 
 func (x *GetSimCredentialResponse) GetResult() int64 {
@@ -2144,7 +2232,7 @@ type GetUserCredentialRequest struct {
 
 func (x *GetUserCredentialRequest) Reset() {
 	*x = GetUserCredentialRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[48]
+	mi := &file_proto_pps_pps_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2156,7 +2244,7 @@ func (x *GetUserCredentialRequest) String() string {
 func (*GetUserCredentialRequest) ProtoMessage() {}
 
 func (x *GetUserCredentialRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[48]
+	mi := &file_proto_pps_pps_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2169,7 +2257,7 @@ func (x *GetUserCredentialRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserCredentialRequest.ProtoReflect.Descriptor instead.
 func (*GetUserCredentialRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{48}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *GetUserCredentialRequest) GetHandle() int64 {
@@ -2188,7 +2276,7 @@ type GetUserCredentialResponse struct {
 
 func (x *GetUserCredentialResponse) Reset() {
 	*x = GetUserCredentialResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[49]
+	mi := &file_proto_pps_pps_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2200,7 +2288,7 @@ func (x *GetUserCredentialResponse) String() string {
 func (*GetUserCredentialResponse) ProtoMessage() {}
 
 func (x *GetUserCredentialResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[49]
+	mi := &file_proto_pps_pps_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2213,7 +2301,7 @@ func (x *GetUserCredentialResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserCredentialResponse.ProtoReflect.Descriptor instead.
 func (*GetUserCredentialResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{49}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{51}
 }
 
 func (x *GetUserCredentialResponse) GetResult() int64 {
@@ -2233,7 +2321,7 @@ type SetCaCertificateRequest struct {
 
 func (x *SetCaCertificateRequest) Reset() {
 	*x = SetCaCertificateRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[50]
+	mi := &file_proto_pps_pps_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2245,7 +2333,7 @@ func (x *SetCaCertificateRequest) String() string {
 func (*SetCaCertificateRequest) ProtoMessage() {}
 
 func (x *SetCaCertificateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[50]
+	mi := &file_proto_pps_pps_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2258,7 +2346,7 @@ func (x *SetCaCertificateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetCaCertificateRequest.ProtoReflect.Descriptor instead.
 func (*SetCaCertificateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{50}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *SetCaCertificateRequest) GetHandle() int64 {
@@ -2283,7 +2371,7 @@ type SetCaCertificateResponse struct {
 
 func (x *SetCaCertificateResponse) Reset() {
 	*x = SetCaCertificateResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[51]
+	mi := &file_proto_pps_pps_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2295,7 +2383,7 @@ func (x *SetCaCertificateResponse) String() string {
 func (*SetCaCertificateResponse) ProtoMessage() {}
 
 func (x *SetCaCertificateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[51]
+	mi := &file_proto_pps_pps_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2308,7 +2396,7 @@ func (x *SetCaCertificateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetCaCertificateResponse.ProtoReflect.Descriptor instead.
 func (*SetCaCertificateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{51}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{53}
 }
 
 type SetCertCredentialRequest struct {
@@ -2321,7 +2409,7 @@ type SetCertCredentialRequest struct {
 
 func (x *SetCertCredentialRequest) Reset() {
 	*x = SetCertCredentialRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[52]
+	mi := &file_proto_pps_pps_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2333,7 +2421,7 @@ func (x *SetCertCredentialRequest) String() string {
 func (*SetCertCredentialRequest) ProtoMessage() {}
 
 func (x *SetCertCredentialRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[52]
+	mi := &file_proto_pps_pps_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2346,7 +2434,7 @@ func (x *SetCertCredentialRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetCertCredentialRequest.ProtoReflect.Descriptor instead.
 func (*SetCertCredentialRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{52}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *SetCertCredentialRequest) GetHandle() int64 {
@@ -2371,7 +2459,7 @@ type SetCertCredentialResponse struct {
 
 func (x *SetCertCredentialResponse) Reset() {
 	*x = SetCertCredentialResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[53]
+	mi := &file_proto_pps_pps_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2383,7 +2471,7 @@ func (x *SetCertCredentialResponse) String() string {
 func (*SetCertCredentialResponse) ProtoMessage() {}
 
 func (x *SetCertCredentialResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[53]
+	mi := &file_proto_pps_pps_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2396,7 +2484,7 @@ func (x *SetCertCredentialResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetCertCredentialResponse.ProtoReflect.Descriptor instead.
 func (*SetCertCredentialResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{53}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{55}
 }
 
 type SetClientCertificateChainRequest struct {
@@ -2409,7 +2497,7 @@ type SetClientCertificateChainRequest struct {
 
 func (x *SetClientCertificateChainRequest) Reset() {
 	*x = SetClientCertificateChainRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[54]
+	mi := &file_proto_pps_pps_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2421,7 +2509,7 @@ func (x *SetClientCertificateChainRequest) String() string {
 func (*SetClientCertificateChainRequest) ProtoMessage() {}
 
 func (x *SetClientCertificateChainRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[54]
+	mi := &file_proto_pps_pps_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2434,7 +2522,7 @@ func (x *SetClientCertificateChainRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetClientCertificateChainRequest.ProtoReflect.Descriptor instead.
 func (*SetClientCertificateChainRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{54}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *SetClientCertificateChainRequest) GetHandle() int64 {
@@ -2459,7 +2547,7 @@ type SetClientCertificateChainResponse struct {
 
 func (x *SetClientCertificateChainResponse) Reset() {
 	*x = SetClientCertificateChainResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[55]
+	mi := &file_proto_pps_pps_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2471,7 +2559,7 @@ func (x *SetClientCertificateChainResponse) String() string {
 func (*SetClientCertificateChainResponse) ProtoMessage() {}
 
 func (x *SetClientCertificateChainResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[55]
+	mi := &file_proto_pps_pps_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2484,7 +2572,7 @@ func (x *SetClientCertificateChainResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use SetClientCertificateChainResponse.ProtoReflect.Descriptor instead.
 func (*SetClientCertificateChainResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{55}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{57}
 }
 
 type SetClientPrivateKeyRequest struct {
@@ -2497,7 +2585,7 @@ type SetClientPrivateKeyRequest struct {
 
 func (x *SetClientPrivateKeyRequest) Reset() {
 	*x = SetClientPrivateKeyRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[56]
+	mi := &file_proto_pps_pps_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2509,7 +2597,7 @@ func (x *SetClientPrivateKeyRequest) String() string {
 func (*SetClientPrivateKeyRequest) ProtoMessage() {}
 
 func (x *SetClientPrivateKeyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[56]
+	mi := &file_proto_pps_pps_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2522,7 +2610,7 @@ func (x *SetClientPrivateKeyRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetClientPrivateKeyRequest.ProtoReflect.Descriptor instead.
 func (*SetClientPrivateKeyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{56}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *SetClientPrivateKeyRequest) GetHandle() int64 {
@@ -2547,7 +2635,7 @@ type SetClientPrivateKeyResponse struct {
 
 func (x *SetClientPrivateKeyResponse) Reset() {
 	*x = SetClientPrivateKeyResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[57]
+	mi := &file_proto_pps_pps_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2559,7 +2647,7 @@ func (x *SetClientPrivateKeyResponse) String() string {
 func (*SetClientPrivateKeyResponse) ProtoMessage() {}
 
 func (x *SetClientPrivateKeyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[57]
+	mi := &file_proto_pps_pps_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2572,7 +2660,7 @@ func (x *SetClientPrivateKeyResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetClientPrivateKeyResponse.ProtoReflect.Descriptor instead.
 func (*SetClientPrivateKeyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{57}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{59}
 }
 
 type SetMinimumTlsVersionRequest struct {
@@ -2585,7 +2673,7 @@ type SetMinimumTlsVersionRequest struct {
 
 func (x *SetMinimumTlsVersionRequest) Reset() {
 	*x = SetMinimumTlsVersionRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[58]
+	mi := &file_proto_pps_pps_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2597,7 +2685,7 @@ func (x *SetMinimumTlsVersionRequest) String() string {
 func (*SetMinimumTlsVersionRequest) ProtoMessage() {}
 
 func (x *SetMinimumTlsVersionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[58]
+	mi := &file_proto_pps_pps_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2610,7 +2698,7 @@ func (x *SetMinimumTlsVersionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetMinimumTlsVersionRequest.ProtoReflect.Descriptor instead.
 func (*SetMinimumTlsVersionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{58}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *SetMinimumTlsVersionRequest) GetHandle() int64 {
@@ -2635,7 +2723,7 @@ type SetMinimumTlsVersionResponse struct {
 
 func (x *SetMinimumTlsVersionResponse) Reset() {
 	*x = SetMinimumTlsVersionResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[59]
+	mi := &file_proto_pps_pps_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2647,7 +2735,7 @@ func (x *SetMinimumTlsVersionResponse) String() string {
 func (*SetMinimumTlsVersionResponse) ProtoMessage() {}
 
 func (x *SetMinimumTlsVersionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[59]
+	mi := &file_proto_pps_pps_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2660,7 +2748,7 @@ func (x *SetMinimumTlsVersionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetMinimumTlsVersionResponse.ProtoReflect.Descriptor instead.
 func (*SetMinimumTlsVersionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{59}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{61}
 }
 
 type SetRealmRequest struct {
@@ -2673,7 +2761,7 @@ type SetRealmRequest struct {
 
 func (x *SetRealmRequest) Reset() {
 	*x = SetRealmRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[60]
+	mi := &file_proto_pps_pps_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2685,7 +2773,7 @@ func (x *SetRealmRequest) String() string {
 func (*SetRealmRequest) ProtoMessage() {}
 
 func (x *SetRealmRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[60]
+	mi := &file_proto_pps_pps_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2698,7 +2786,7 @@ func (x *SetRealmRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetRealmRequest.ProtoReflect.Descriptor instead.
 func (*SetRealmRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{60}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{62}
 }
 
 func (x *SetRealmRequest) GetHandle() int64 {
@@ -2723,7 +2811,7 @@ type SetRealmResponse struct {
 
 func (x *SetRealmResponse) Reset() {
 	*x = SetRealmResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[61]
+	mi := &file_proto_pps_pps_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2735,7 +2823,7 @@ func (x *SetRealmResponse) String() string {
 func (*SetRealmResponse) ProtoMessage() {}
 
 func (x *SetRealmResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[61]
+	mi := &file_proto_pps_pps_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2748,7 +2836,7 @@ func (x *SetRealmResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetRealmResponse.ProtoReflect.Descriptor instead.
 func (*SetRealmResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{61}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{63}
 }
 
 type SetSimCredentialRequest struct {
@@ -2761,7 +2849,7 @@ type SetSimCredentialRequest struct {
 
 func (x *SetSimCredentialRequest) Reset() {
 	*x = SetSimCredentialRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[62]
+	mi := &file_proto_pps_pps_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2773,7 +2861,7 @@ func (x *SetSimCredentialRequest) String() string {
 func (*SetSimCredentialRequest) ProtoMessage() {}
 
 func (x *SetSimCredentialRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[62]
+	mi := &file_proto_pps_pps_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2786,7 +2874,7 @@ func (x *SetSimCredentialRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetSimCredentialRequest.ProtoReflect.Descriptor instead.
 func (*SetSimCredentialRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{62}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{64}
 }
 
 func (x *SetSimCredentialRequest) GetHandle() int64 {
@@ -2811,7 +2899,7 @@ type SetSimCredentialResponse struct {
 
 func (x *SetSimCredentialResponse) Reset() {
 	*x = SetSimCredentialResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[63]
+	mi := &file_proto_pps_pps_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2823,7 +2911,7 @@ func (x *SetSimCredentialResponse) String() string {
 func (*SetSimCredentialResponse) ProtoMessage() {}
 
 func (x *SetSimCredentialResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[63]
+	mi := &file_proto_pps_pps_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2836,7 +2924,7 @@ func (x *SetSimCredentialResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetSimCredentialResponse.ProtoReflect.Descriptor instead.
 func (*SetSimCredentialResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{63}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{65}
 }
 
 type SetUserCredentialRequest struct {
@@ -2849,7 +2937,7 @@ type SetUserCredentialRequest struct {
 
 func (x *SetUserCredentialRequest) Reset() {
 	*x = SetUserCredentialRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[64]
+	mi := &file_proto_pps_pps_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2861,7 +2949,7 @@ func (x *SetUserCredentialRequest) String() string {
 func (*SetUserCredentialRequest) ProtoMessage() {}
 
 func (x *SetUserCredentialRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[64]
+	mi := &file_proto_pps_pps_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2874,7 +2962,7 @@ func (x *SetUserCredentialRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetUserCredentialRequest.ProtoReflect.Descriptor instead.
 func (*SetUserCredentialRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{64}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{66}
 }
 
 func (x *SetUserCredentialRequest) GetHandle() int64 {
@@ -2899,7 +2987,7 @@ type SetUserCredentialResponse struct {
 
 func (x *SetUserCredentialResponse) Reset() {
 	*x = SetUserCredentialResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[65]
+	mi := &file_proto_pps_pps_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2911,7 +2999,7 @@ func (x *SetUserCredentialResponse) String() string {
 func (*SetUserCredentialResponse) ProtoMessage() {}
 
 func (x *SetUserCredentialResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[65]
+	mi := &file_proto_pps_pps_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2924,7 +3012,7 @@ func (x *SetUserCredentialResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetUserCredentialResponse.ProtoReflect.Descriptor instead.
 func (*SetUserCredentialResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{65}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{67}
 }
 
 type CredentialCertificateCredentialDescribeContentsRequest struct {
@@ -2935,7 +3023,7 @@ type CredentialCertificateCredentialDescribeContentsRequest struct {
 
 func (x *CredentialCertificateCredentialDescribeContentsRequest) Reset() {
 	*x = CredentialCertificateCredentialDescribeContentsRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[66]
+	mi := &file_proto_pps_pps_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2947,7 +3035,7 @@ func (x *CredentialCertificateCredentialDescribeContentsRequest) String() string
 func (*CredentialCertificateCredentialDescribeContentsRequest) ProtoMessage() {}
 
 func (x *CredentialCertificateCredentialDescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[66]
+	mi := &file_proto_pps_pps_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2960,7 +3048,7 @@ func (x *CredentialCertificateCredentialDescribeContentsRequest) ProtoReflect() 
 
 // Deprecated: Use CredentialCertificateCredentialDescribeContentsRequest.ProtoReflect.Descriptor instead.
 func (*CredentialCertificateCredentialDescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{66}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{68}
 }
 
 type CredentialCertificateCredentialEqualsRequest struct {
@@ -2972,7 +3060,7 @@ type CredentialCertificateCredentialEqualsRequest struct {
 
 func (x *CredentialCertificateCredentialEqualsRequest) Reset() {
 	*x = CredentialCertificateCredentialEqualsRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[67]
+	mi := &file_proto_pps_pps_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2984,7 +3072,7 @@ func (x *CredentialCertificateCredentialEqualsRequest) String() string {
 func (*CredentialCertificateCredentialEqualsRequest) ProtoMessage() {}
 
 func (x *CredentialCertificateCredentialEqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[67]
+	mi := &file_proto_pps_pps_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2997,7 +3085,7 @@ func (x *CredentialCertificateCredentialEqualsRequest) ProtoReflect() protorefle
 
 // Deprecated: Use CredentialCertificateCredentialEqualsRequest.ProtoReflect.Descriptor instead.
 func (*CredentialCertificateCredentialEqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{67}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{69}
 }
 
 func (x *CredentialCertificateCredentialEqualsRequest) GetArg0() int64 {
@@ -3015,7 +3103,7 @@ type GetCertSha256FingerprintRequest struct {
 
 func (x *GetCertSha256FingerprintRequest) Reset() {
 	*x = GetCertSha256FingerprintRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[68]
+	mi := &file_proto_pps_pps_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3027,7 +3115,7 @@ func (x *GetCertSha256FingerprintRequest) String() string {
 func (*GetCertSha256FingerprintRequest) ProtoMessage() {}
 
 func (x *GetCertSha256FingerprintRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[68]
+	mi := &file_proto_pps_pps_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3040,7 +3128,7 @@ func (x *GetCertSha256FingerprintRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCertSha256FingerprintRequest.ProtoReflect.Descriptor instead.
 func (*GetCertSha256FingerprintRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{68}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{70}
 }
 
 type GetCertSha256FingerprintResponse struct {
@@ -3052,7 +3140,7 @@ type GetCertSha256FingerprintResponse struct {
 
 func (x *GetCertSha256FingerprintResponse) Reset() {
 	*x = GetCertSha256FingerprintResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[69]
+	mi := &file_proto_pps_pps_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3064,7 +3152,7 @@ func (x *GetCertSha256FingerprintResponse) String() string {
 func (*GetCertSha256FingerprintResponse) ProtoMessage() {}
 
 func (x *GetCertSha256FingerprintResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[69]
+	mi := &file_proto_pps_pps_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3077,7 +3165,7 @@ func (x *GetCertSha256FingerprintResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCertSha256FingerprintResponse.ProtoReflect.Descriptor instead.
 func (*GetCertSha256FingerprintResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{69}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{71}
 }
 
 func (x *GetCertSha256FingerprintResponse) GetResult() int64 {
@@ -3095,7 +3183,7 @@ type GetCertTypeRequest struct {
 
 func (x *GetCertTypeRequest) Reset() {
 	*x = GetCertTypeRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[70]
+	mi := &file_proto_pps_pps_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3107,7 +3195,7 @@ func (x *GetCertTypeRequest) String() string {
 func (*GetCertTypeRequest) ProtoMessage() {}
 
 func (x *GetCertTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[70]
+	mi := &file_proto_pps_pps_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3120,7 +3208,7 @@ func (x *GetCertTypeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCertTypeRequest.ProtoReflect.Descriptor instead.
 func (*GetCertTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{70}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{72}
 }
 
 type GetCertTypeResponse struct {
@@ -3132,7 +3220,7 @@ type GetCertTypeResponse struct {
 
 func (x *GetCertTypeResponse) Reset() {
 	*x = GetCertTypeResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[71]
+	mi := &file_proto_pps_pps_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3144,7 +3232,7 @@ func (x *GetCertTypeResponse) String() string {
 func (*GetCertTypeResponse) ProtoMessage() {}
 
 func (x *GetCertTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[71]
+	mi := &file_proto_pps_pps_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3157,7 +3245,7 @@ func (x *GetCertTypeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCertTypeResponse.ProtoReflect.Descriptor instead.
 func (*GetCertTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{71}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{73}
 }
 
 func (x *GetCertTypeResponse) GetResult() string {
@@ -3175,7 +3263,7 @@ type CredentialCertificateCredentialHashCodeRequest struct {
 
 func (x *CredentialCertificateCredentialHashCodeRequest) Reset() {
 	*x = CredentialCertificateCredentialHashCodeRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[72]
+	mi := &file_proto_pps_pps_proto_msgTypes[74]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3187,7 +3275,7 @@ func (x *CredentialCertificateCredentialHashCodeRequest) String() string {
 func (*CredentialCertificateCredentialHashCodeRequest) ProtoMessage() {}
 
 func (x *CredentialCertificateCredentialHashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[72]
+	mi := &file_proto_pps_pps_proto_msgTypes[74]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3200,7 +3288,7 @@ func (x *CredentialCertificateCredentialHashCodeRequest) ProtoReflect() protoref
 
 // Deprecated: Use CredentialCertificateCredentialHashCodeRequest.ProtoReflect.Descriptor instead.
 func (*CredentialCertificateCredentialHashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{72}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{74}
 }
 
 type SetCertSha256FingerprintRequest struct {
@@ -3212,7 +3300,7 @@ type SetCertSha256FingerprintRequest struct {
 
 func (x *SetCertSha256FingerprintRequest) Reset() {
 	*x = SetCertSha256FingerprintRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[73]
+	mi := &file_proto_pps_pps_proto_msgTypes[75]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3224,7 +3312,7 @@ func (x *SetCertSha256FingerprintRequest) String() string {
 func (*SetCertSha256FingerprintRequest) ProtoMessage() {}
 
 func (x *SetCertSha256FingerprintRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[73]
+	mi := &file_proto_pps_pps_proto_msgTypes[75]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3237,7 +3325,7 @@ func (x *SetCertSha256FingerprintRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetCertSha256FingerprintRequest.ProtoReflect.Descriptor instead.
 func (*SetCertSha256FingerprintRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{73}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{75}
 }
 
 func (x *SetCertSha256FingerprintRequest) GetArg0() int64 {
@@ -3255,7 +3343,7 @@ type SetCertSha256FingerprintResponse struct {
 
 func (x *SetCertSha256FingerprintResponse) Reset() {
 	*x = SetCertSha256FingerprintResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[74]
+	mi := &file_proto_pps_pps_proto_msgTypes[76]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3267,7 +3355,7 @@ func (x *SetCertSha256FingerprintResponse) String() string {
 func (*SetCertSha256FingerprintResponse) ProtoMessage() {}
 
 func (x *SetCertSha256FingerprintResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[74]
+	mi := &file_proto_pps_pps_proto_msgTypes[76]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3280,7 +3368,7 @@ func (x *SetCertSha256FingerprintResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetCertSha256FingerprintResponse.ProtoReflect.Descriptor instead.
 func (*SetCertSha256FingerprintResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{74}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{76}
 }
 
 type SetCertTypeRequest struct {
@@ -3292,7 +3380,7 @@ type SetCertTypeRequest struct {
 
 func (x *SetCertTypeRequest) Reset() {
 	*x = SetCertTypeRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[75]
+	mi := &file_proto_pps_pps_proto_msgTypes[77]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3304,7 +3392,7 @@ func (x *SetCertTypeRequest) String() string {
 func (*SetCertTypeRequest) ProtoMessage() {}
 
 func (x *SetCertTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[75]
+	mi := &file_proto_pps_pps_proto_msgTypes[77]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3317,7 +3405,7 @@ func (x *SetCertTypeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetCertTypeRequest.ProtoReflect.Descriptor instead.
 func (*SetCertTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{75}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{77}
 }
 
 func (x *SetCertTypeRequest) GetArg0() string {
@@ -3335,7 +3423,7 @@ type SetCertTypeResponse struct {
 
 func (x *SetCertTypeResponse) Reset() {
 	*x = SetCertTypeResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[76]
+	mi := &file_proto_pps_pps_proto_msgTypes[78]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3347,7 +3435,7 @@ func (x *SetCertTypeResponse) String() string {
 func (*SetCertTypeResponse) ProtoMessage() {}
 
 func (x *SetCertTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[76]
+	mi := &file_proto_pps_pps_proto_msgTypes[78]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3360,7 +3448,7 @@ func (x *SetCertTypeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetCertTypeResponse.ProtoReflect.Descriptor instead.
 func (*SetCertTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{76}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{78}
 }
 
 type CredentialCertificateCredentialToStringRequest struct {
@@ -3371,7 +3459,7 @@ type CredentialCertificateCredentialToStringRequest struct {
 
 func (x *CredentialCertificateCredentialToStringRequest) Reset() {
 	*x = CredentialCertificateCredentialToStringRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[77]
+	mi := &file_proto_pps_pps_proto_msgTypes[79]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3383,7 +3471,7 @@ func (x *CredentialCertificateCredentialToStringRequest) String() string {
 func (*CredentialCertificateCredentialToStringRequest) ProtoMessage() {}
 
 func (x *CredentialCertificateCredentialToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[77]
+	mi := &file_proto_pps_pps_proto_msgTypes[79]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3396,7 +3484,7 @@ func (x *CredentialCertificateCredentialToStringRequest) ProtoReflect() protoref
 
 // Deprecated: Use CredentialCertificateCredentialToStringRequest.ProtoReflect.Descriptor instead.
 func (*CredentialCertificateCredentialToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{77}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{79}
 }
 
 type CredentialCertificateCredentialWriteToParcelRequest struct {
@@ -3409,7 +3497,7 @@ type CredentialCertificateCredentialWriteToParcelRequest struct {
 
 func (x *CredentialCertificateCredentialWriteToParcelRequest) Reset() {
 	*x = CredentialCertificateCredentialWriteToParcelRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[78]
+	mi := &file_proto_pps_pps_proto_msgTypes[80]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3421,7 +3509,7 @@ func (x *CredentialCertificateCredentialWriteToParcelRequest) String() string {
 func (*CredentialCertificateCredentialWriteToParcelRequest) ProtoMessage() {}
 
 func (x *CredentialCertificateCredentialWriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[78]
+	mi := &file_proto_pps_pps_proto_msgTypes[80]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3434,7 +3522,7 @@ func (x *CredentialCertificateCredentialWriteToParcelRequest) ProtoReflect() pro
 
 // Deprecated: Use CredentialCertificateCredentialWriteToParcelRequest.ProtoReflect.Descriptor instead.
 func (*CredentialCertificateCredentialWriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{78}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{80}
 }
 
 func (x *CredentialCertificateCredentialWriteToParcelRequest) GetArg0() int64 {
@@ -3459,7 +3547,7 @@ type CredentialSimCredentialDescribeContentsRequest struct {
 
 func (x *CredentialSimCredentialDescribeContentsRequest) Reset() {
 	*x = CredentialSimCredentialDescribeContentsRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[79]
+	mi := &file_proto_pps_pps_proto_msgTypes[81]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3471,7 +3559,7 @@ func (x *CredentialSimCredentialDescribeContentsRequest) String() string {
 func (*CredentialSimCredentialDescribeContentsRequest) ProtoMessage() {}
 
 func (x *CredentialSimCredentialDescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[79]
+	mi := &file_proto_pps_pps_proto_msgTypes[81]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3484,7 +3572,7 @@ func (x *CredentialSimCredentialDescribeContentsRequest) ProtoReflect() protoref
 
 // Deprecated: Use CredentialSimCredentialDescribeContentsRequest.ProtoReflect.Descriptor instead.
 func (*CredentialSimCredentialDescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{79}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{81}
 }
 
 type CredentialSimCredentialEqualsRequest struct {
@@ -3496,7 +3584,7 @@ type CredentialSimCredentialEqualsRequest struct {
 
 func (x *CredentialSimCredentialEqualsRequest) Reset() {
 	*x = CredentialSimCredentialEqualsRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[80]
+	mi := &file_proto_pps_pps_proto_msgTypes[82]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3508,7 +3596,7 @@ func (x *CredentialSimCredentialEqualsRequest) String() string {
 func (*CredentialSimCredentialEqualsRequest) ProtoMessage() {}
 
 func (x *CredentialSimCredentialEqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[80]
+	mi := &file_proto_pps_pps_proto_msgTypes[82]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3521,7 +3609,7 @@ func (x *CredentialSimCredentialEqualsRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use CredentialSimCredentialEqualsRequest.ProtoReflect.Descriptor instead.
 func (*CredentialSimCredentialEqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{80}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{82}
 }
 
 func (x *CredentialSimCredentialEqualsRequest) GetArg0() int64 {
@@ -3539,7 +3627,7 @@ type GetEapTypeRequest struct {
 
 func (x *GetEapTypeRequest) Reset() {
 	*x = GetEapTypeRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[81]
+	mi := &file_proto_pps_pps_proto_msgTypes[83]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3551,7 +3639,7 @@ func (x *GetEapTypeRequest) String() string {
 func (*GetEapTypeRequest) ProtoMessage() {}
 
 func (x *GetEapTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[81]
+	mi := &file_proto_pps_pps_proto_msgTypes[83]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3564,7 +3652,7 @@ func (x *GetEapTypeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetEapTypeRequest.ProtoReflect.Descriptor instead.
 func (*GetEapTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{81}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{83}
 }
 
 type GetEapTypeResponse struct {
@@ -3576,7 +3664,7 @@ type GetEapTypeResponse struct {
 
 func (x *GetEapTypeResponse) Reset() {
 	*x = GetEapTypeResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[82]
+	mi := &file_proto_pps_pps_proto_msgTypes[84]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3588,7 +3676,7 @@ func (x *GetEapTypeResponse) String() string {
 func (*GetEapTypeResponse) ProtoMessage() {}
 
 func (x *GetEapTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[82]
+	mi := &file_proto_pps_pps_proto_msgTypes[84]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3601,7 +3689,7 @@ func (x *GetEapTypeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetEapTypeResponse.ProtoReflect.Descriptor instead.
 func (*GetEapTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{82}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{84}
 }
 
 func (x *GetEapTypeResponse) GetResult() int32 {
@@ -3619,7 +3707,7 @@ type GetImsiRequest struct {
 
 func (x *GetImsiRequest) Reset() {
 	*x = GetImsiRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[83]
+	mi := &file_proto_pps_pps_proto_msgTypes[85]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3631,7 +3719,7 @@ func (x *GetImsiRequest) String() string {
 func (*GetImsiRequest) ProtoMessage() {}
 
 func (x *GetImsiRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[83]
+	mi := &file_proto_pps_pps_proto_msgTypes[85]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3644,7 +3732,7 @@ func (x *GetImsiRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetImsiRequest.ProtoReflect.Descriptor instead.
 func (*GetImsiRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{83}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{85}
 }
 
 type GetImsiResponse struct {
@@ -3656,7 +3744,7 @@ type GetImsiResponse struct {
 
 func (x *GetImsiResponse) Reset() {
 	*x = GetImsiResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[84]
+	mi := &file_proto_pps_pps_proto_msgTypes[86]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3668,7 +3756,7 @@ func (x *GetImsiResponse) String() string {
 func (*GetImsiResponse) ProtoMessage() {}
 
 func (x *GetImsiResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[84]
+	mi := &file_proto_pps_pps_proto_msgTypes[86]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3681,7 +3769,7 @@ func (x *GetImsiResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetImsiResponse.ProtoReflect.Descriptor instead.
 func (*GetImsiResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{84}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{86}
 }
 
 func (x *GetImsiResponse) GetResult() string {
@@ -3699,7 +3787,7 @@ type CredentialSimCredentialHashCodeRequest struct {
 
 func (x *CredentialSimCredentialHashCodeRequest) Reset() {
 	*x = CredentialSimCredentialHashCodeRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[85]
+	mi := &file_proto_pps_pps_proto_msgTypes[87]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3711,7 +3799,7 @@ func (x *CredentialSimCredentialHashCodeRequest) String() string {
 func (*CredentialSimCredentialHashCodeRequest) ProtoMessage() {}
 
 func (x *CredentialSimCredentialHashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[85]
+	mi := &file_proto_pps_pps_proto_msgTypes[87]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3724,7 +3812,7 @@ func (x *CredentialSimCredentialHashCodeRequest) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use CredentialSimCredentialHashCodeRequest.ProtoReflect.Descriptor instead.
 func (*CredentialSimCredentialHashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{85}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{87}
 }
 
 type SetEapTypeRequest struct {
@@ -3736,7 +3824,7 @@ type SetEapTypeRequest struct {
 
 func (x *SetEapTypeRequest) Reset() {
 	*x = SetEapTypeRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[86]
+	mi := &file_proto_pps_pps_proto_msgTypes[88]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3748,7 +3836,7 @@ func (x *SetEapTypeRequest) String() string {
 func (*SetEapTypeRequest) ProtoMessage() {}
 
 func (x *SetEapTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[86]
+	mi := &file_proto_pps_pps_proto_msgTypes[88]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3761,7 +3849,7 @@ func (x *SetEapTypeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetEapTypeRequest.ProtoReflect.Descriptor instead.
 func (*SetEapTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{86}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{88}
 }
 
 func (x *SetEapTypeRequest) GetArg0() int32 {
@@ -3779,7 +3867,7 @@ type SetEapTypeResponse struct {
 
 func (x *SetEapTypeResponse) Reset() {
 	*x = SetEapTypeResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[87]
+	mi := &file_proto_pps_pps_proto_msgTypes[89]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3791,7 +3879,7 @@ func (x *SetEapTypeResponse) String() string {
 func (*SetEapTypeResponse) ProtoMessage() {}
 
 func (x *SetEapTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[87]
+	mi := &file_proto_pps_pps_proto_msgTypes[89]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3804,7 +3892,7 @@ func (x *SetEapTypeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetEapTypeResponse.ProtoReflect.Descriptor instead.
 func (*SetEapTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{87}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{89}
 }
 
 type SetImsiRequest struct {
@@ -3816,7 +3904,7 @@ type SetImsiRequest struct {
 
 func (x *SetImsiRequest) Reset() {
 	*x = SetImsiRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[88]
+	mi := &file_proto_pps_pps_proto_msgTypes[90]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3828,7 +3916,7 @@ func (x *SetImsiRequest) String() string {
 func (*SetImsiRequest) ProtoMessage() {}
 
 func (x *SetImsiRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[88]
+	mi := &file_proto_pps_pps_proto_msgTypes[90]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3841,7 +3929,7 @@ func (x *SetImsiRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetImsiRequest.ProtoReflect.Descriptor instead.
 func (*SetImsiRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{88}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{90}
 }
 
 func (x *SetImsiRequest) GetArg0() string {
@@ -3859,7 +3947,7 @@ type SetImsiResponse struct {
 
 func (x *SetImsiResponse) Reset() {
 	*x = SetImsiResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[89]
+	mi := &file_proto_pps_pps_proto_msgTypes[91]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3871,7 +3959,7 @@ func (x *SetImsiResponse) String() string {
 func (*SetImsiResponse) ProtoMessage() {}
 
 func (x *SetImsiResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[89]
+	mi := &file_proto_pps_pps_proto_msgTypes[91]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3884,7 +3972,7 @@ func (x *SetImsiResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetImsiResponse.ProtoReflect.Descriptor instead.
 func (*SetImsiResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{89}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{91}
 }
 
 type CredentialSimCredentialToStringRequest struct {
@@ -3895,7 +3983,7 @@ type CredentialSimCredentialToStringRequest struct {
 
 func (x *CredentialSimCredentialToStringRequest) Reset() {
 	*x = CredentialSimCredentialToStringRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[90]
+	mi := &file_proto_pps_pps_proto_msgTypes[92]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3907,7 +3995,7 @@ func (x *CredentialSimCredentialToStringRequest) String() string {
 func (*CredentialSimCredentialToStringRequest) ProtoMessage() {}
 
 func (x *CredentialSimCredentialToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[90]
+	mi := &file_proto_pps_pps_proto_msgTypes[92]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3920,7 +4008,7 @@ func (x *CredentialSimCredentialToStringRequest) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use CredentialSimCredentialToStringRequest.ProtoReflect.Descriptor instead.
 func (*CredentialSimCredentialToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{90}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{92}
 }
 
 type CredentialSimCredentialWriteToParcelRequest struct {
@@ -3933,7 +4021,7 @@ type CredentialSimCredentialWriteToParcelRequest struct {
 
 func (x *CredentialSimCredentialWriteToParcelRequest) Reset() {
 	*x = CredentialSimCredentialWriteToParcelRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[91]
+	mi := &file_proto_pps_pps_proto_msgTypes[93]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3945,7 +4033,7 @@ func (x *CredentialSimCredentialWriteToParcelRequest) String() string {
 func (*CredentialSimCredentialWriteToParcelRequest) ProtoMessage() {}
 
 func (x *CredentialSimCredentialWriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[91]
+	mi := &file_proto_pps_pps_proto_msgTypes[93]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3958,7 +4046,7 @@ func (x *CredentialSimCredentialWriteToParcelRequest) ProtoReflect() protoreflec
 
 // Deprecated: Use CredentialSimCredentialWriteToParcelRequest.ProtoReflect.Descriptor instead.
 func (*CredentialSimCredentialWriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{91}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{93}
 }
 
 func (x *CredentialSimCredentialWriteToParcelRequest) GetArg0() int64 {
@@ -3983,7 +4071,7 @@ type CredentialUserCredentialDescribeContentsRequest struct {
 
 func (x *CredentialUserCredentialDescribeContentsRequest) Reset() {
 	*x = CredentialUserCredentialDescribeContentsRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[92]
+	mi := &file_proto_pps_pps_proto_msgTypes[94]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3995,7 +4083,7 @@ func (x *CredentialUserCredentialDescribeContentsRequest) String() string {
 func (*CredentialUserCredentialDescribeContentsRequest) ProtoMessage() {}
 
 func (x *CredentialUserCredentialDescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[92]
+	mi := &file_proto_pps_pps_proto_msgTypes[94]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4008,7 +4096,7 @@ func (x *CredentialUserCredentialDescribeContentsRequest) ProtoReflect() protore
 
 // Deprecated: Use CredentialUserCredentialDescribeContentsRequest.ProtoReflect.Descriptor instead.
 func (*CredentialUserCredentialDescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{92}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{94}
 }
 
 type CredentialUserCredentialEqualsRequest struct {
@@ -4020,7 +4108,7 @@ type CredentialUserCredentialEqualsRequest struct {
 
 func (x *CredentialUserCredentialEqualsRequest) Reset() {
 	*x = CredentialUserCredentialEqualsRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[93]
+	mi := &file_proto_pps_pps_proto_msgTypes[95]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4032,7 +4120,7 @@ func (x *CredentialUserCredentialEqualsRequest) String() string {
 func (*CredentialUserCredentialEqualsRequest) ProtoMessage() {}
 
 func (x *CredentialUserCredentialEqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[93]
+	mi := &file_proto_pps_pps_proto_msgTypes[95]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4045,7 +4133,7 @@ func (x *CredentialUserCredentialEqualsRequest) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CredentialUserCredentialEqualsRequest.ProtoReflect.Descriptor instead.
 func (*CredentialUserCredentialEqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{93}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{95}
 }
 
 func (x *CredentialUserCredentialEqualsRequest) GetArg0() int64 {
@@ -4063,7 +4151,7 @@ type GetNonEapInnerMethodRequest struct {
 
 func (x *GetNonEapInnerMethodRequest) Reset() {
 	*x = GetNonEapInnerMethodRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[94]
+	mi := &file_proto_pps_pps_proto_msgTypes[96]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4075,7 +4163,7 @@ func (x *GetNonEapInnerMethodRequest) String() string {
 func (*GetNonEapInnerMethodRequest) ProtoMessage() {}
 
 func (x *GetNonEapInnerMethodRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[94]
+	mi := &file_proto_pps_pps_proto_msgTypes[96]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4088,7 +4176,7 @@ func (x *GetNonEapInnerMethodRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNonEapInnerMethodRequest.ProtoReflect.Descriptor instead.
 func (*GetNonEapInnerMethodRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{94}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{96}
 }
 
 type GetNonEapInnerMethodResponse struct {
@@ -4100,7 +4188,7 @@ type GetNonEapInnerMethodResponse struct {
 
 func (x *GetNonEapInnerMethodResponse) Reset() {
 	*x = GetNonEapInnerMethodResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[95]
+	mi := &file_proto_pps_pps_proto_msgTypes[97]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4112,7 +4200,7 @@ func (x *GetNonEapInnerMethodResponse) String() string {
 func (*GetNonEapInnerMethodResponse) ProtoMessage() {}
 
 func (x *GetNonEapInnerMethodResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[95]
+	mi := &file_proto_pps_pps_proto_msgTypes[97]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4125,7 +4213,7 @@ func (x *GetNonEapInnerMethodResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNonEapInnerMethodResponse.ProtoReflect.Descriptor instead.
 func (*GetNonEapInnerMethodResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{95}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{97}
 }
 
 func (x *GetNonEapInnerMethodResponse) GetResult() string {
@@ -4143,7 +4231,7 @@ type GetPasswordRequest struct {
 
 func (x *GetPasswordRequest) Reset() {
 	*x = GetPasswordRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[96]
+	mi := &file_proto_pps_pps_proto_msgTypes[98]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4155,7 +4243,7 @@ func (x *GetPasswordRequest) String() string {
 func (*GetPasswordRequest) ProtoMessage() {}
 
 func (x *GetPasswordRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[96]
+	mi := &file_proto_pps_pps_proto_msgTypes[98]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4168,7 +4256,7 @@ func (x *GetPasswordRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPasswordRequest.ProtoReflect.Descriptor instead.
 func (*GetPasswordRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{96}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{98}
 }
 
 type GetPasswordResponse struct {
@@ -4180,7 +4268,7 @@ type GetPasswordResponse struct {
 
 func (x *GetPasswordResponse) Reset() {
 	*x = GetPasswordResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[97]
+	mi := &file_proto_pps_pps_proto_msgTypes[99]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4192,7 +4280,7 @@ func (x *GetPasswordResponse) String() string {
 func (*GetPasswordResponse) ProtoMessage() {}
 
 func (x *GetPasswordResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[97]
+	mi := &file_proto_pps_pps_proto_msgTypes[99]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4205,7 +4293,7 @@ func (x *GetPasswordResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPasswordResponse.ProtoReflect.Descriptor instead.
 func (*GetPasswordResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{97}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{99}
 }
 
 func (x *GetPasswordResponse) GetResult() string {
@@ -4223,7 +4311,7 @@ type GetUsernameRequest struct {
 
 func (x *GetUsernameRequest) Reset() {
 	*x = GetUsernameRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[98]
+	mi := &file_proto_pps_pps_proto_msgTypes[100]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4235,7 +4323,7 @@ func (x *GetUsernameRequest) String() string {
 func (*GetUsernameRequest) ProtoMessage() {}
 
 func (x *GetUsernameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[98]
+	mi := &file_proto_pps_pps_proto_msgTypes[100]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4248,7 +4336,7 @@ func (x *GetUsernameRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUsernameRequest.ProtoReflect.Descriptor instead.
 func (*GetUsernameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{98}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{100}
 }
 
 type GetUsernameResponse struct {
@@ -4260,7 +4348,7 @@ type GetUsernameResponse struct {
 
 func (x *GetUsernameResponse) Reset() {
 	*x = GetUsernameResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[99]
+	mi := &file_proto_pps_pps_proto_msgTypes[101]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4272,7 +4360,7 @@ func (x *GetUsernameResponse) String() string {
 func (*GetUsernameResponse) ProtoMessage() {}
 
 func (x *GetUsernameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[99]
+	mi := &file_proto_pps_pps_proto_msgTypes[101]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4285,7 +4373,7 @@ func (x *GetUsernameResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUsernameResponse.ProtoReflect.Descriptor instead.
 func (*GetUsernameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{99}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{101}
 }
 
 func (x *GetUsernameResponse) GetResult() string {
@@ -4303,7 +4391,7 @@ type CredentialUserCredentialHashCodeRequest struct {
 
 func (x *CredentialUserCredentialHashCodeRequest) Reset() {
 	*x = CredentialUserCredentialHashCodeRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[100]
+	mi := &file_proto_pps_pps_proto_msgTypes[102]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4315,7 +4403,7 @@ func (x *CredentialUserCredentialHashCodeRequest) String() string {
 func (*CredentialUserCredentialHashCodeRequest) ProtoMessage() {}
 
 func (x *CredentialUserCredentialHashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[100]
+	mi := &file_proto_pps_pps_proto_msgTypes[102]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4328,7 +4416,7 @@ func (x *CredentialUserCredentialHashCodeRequest) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use CredentialUserCredentialHashCodeRequest.ProtoReflect.Descriptor instead.
 func (*CredentialUserCredentialHashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{100}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{102}
 }
 
 type SetNonEapInnerMethodRequest struct {
@@ -4340,7 +4428,7 @@ type SetNonEapInnerMethodRequest struct {
 
 func (x *SetNonEapInnerMethodRequest) Reset() {
 	*x = SetNonEapInnerMethodRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[101]
+	mi := &file_proto_pps_pps_proto_msgTypes[103]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4352,7 +4440,7 @@ func (x *SetNonEapInnerMethodRequest) String() string {
 func (*SetNonEapInnerMethodRequest) ProtoMessage() {}
 
 func (x *SetNonEapInnerMethodRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[101]
+	mi := &file_proto_pps_pps_proto_msgTypes[103]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4365,7 +4453,7 @@ func (x *SetNonEapInnerMethodRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetNonEapInnerMethodRequest.ProtoReflect.Descriptor instead.
 func (*SetNonEapInnerMethodRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{101}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{103}
 }
 
 func (x *SetNonEapInnerMethodRequest) GetArg0() string {
@@ -4383,7 +4471,7 @@ type SetNonEapInnerMethodResponse struct {
 
 func (x *SetNonEapInnerMethodResponse) Reset() {
 	*x = SetNonEapInnerMethodResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[102]
+	mi := &file_proto_pps_pps_proto_msgTypes[104]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4395,7 +4483,7 @@ func (x *SetNonEapInnerMethodResponse) String() string {
 func (*SetNonEapInnerMethodResponse) ProtoMessage() {}
 
 func (x *SetNonEapInnerMethodResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[102]
+	mi := &file_proto_pps_pps_proto_msgTypes[104]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4408,7 +4496,7 @@ func (x *SetNonEapInnerMethodResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetNonEapInnerMethodResponse.ProtoReflect.Descriptor instead.
 func (*SetNonEapInnerMethodResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{102}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{104}
 }
 
 type SetPasswordRequest struct {
@@ -4420,7 +4508,7 @@ type SetPasswordRequest struct {
 
 func (x *SetPasswordRequest) Reset() {
 	*x = SetPasswordRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[103]
+	mi := &file_proto_pps_pps_proto_msgTypes[105]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4432,7 +4520,7 @@ func (x *SetPasswordRequest) String() string {
 func (*SetPasswordRequest) ProtoMessage() {}
 
 func (x *SetPasswordRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[103]
+	mi := &file_proto_pps_pps_proto_msgTypes[105]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4445,7 +4533,7 @@ func (x *SetPasswordRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetPasswordRequest.ProtoReflect.Descriptor instead.
 func (*SetPasswordRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{103}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{105}
 }
 
 func (x *SetPasswordRequest) GetArg0() string {
@@ -4463,7 +4551,7 @@ type SetPasswordResponse struct {
 
 func (x *SetPasswordResponse) Reset() {
 	*x = SetPasswordResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[104]
+	mi := &file_proto_pps_pps_proto_msgTypes[106]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4475,7 +4563,7 @@ func (x *SetPasswordResponse) String() string {
 func (*SetPasswordResponse) ProtoMessage() {}
 
 func (x *SetPasswordResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[104]
+	mi := &file_proto_pps_pps_proto_msgTypes[106]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4488,7 +4576,7 @@ func (x *SetPasswordResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetPasswordResponse.ProtoReflect.Descriptor instead.
 func (*SetPasswordResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{104}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{106}
 }
 
 type SetUsernameRequest struct {
@@ -4500,7 +4588,7 @@ type SetUsernameRequest struct {
 
 func (x *SetUsernameRequest) Reset() {
 	*x = SetUsernameRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[105]
+	mi := &file_proto_pps_pps_proto_msgTypes[107]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4512,7 +4600,7 @@ func (x *SetUsernameRequest) String() string {
 func (*SetUsernameRequest) ProtoMessage() {}
 
 func (x *SetUsernameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[105]
+	mi := &file_proto_pps_pps_proto_msgTypes[107]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4525,7 +4613,7 @@ func (x *SetUsernameRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetUsernameRequest.ProtoReflect.Descriptor instead.
 func (*SetUsernameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{105}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{107}
 }
 
 func (x *SetUsernameRequest) GetArg0() string {
@@ -4543,7 +4631,7 @@ type SetUsernameResponse struct {
 
 func (x *SetUsernameResponse) Reset() {
 	*x = SetUsernameResponse{}
-	mi := &file_proto_pps_pps_proto_msgTypes[106]
+	mi := &file_proto_pps_pps_proto_msgTypes[108]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4555,7 +4643,7 @@ func (x *SetUsernameResponse) String() string {
 func (*SetUsernameResponse) ProtoMessage() {}
 
 func (x *SetUsernameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[106]
+	mi := &file_proto_pps_pps_proto_msgTypes[108]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4568,7 +4656,7 @@ func (x *SetUsernameResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetUsernameResponse.ProtoReflect.Descriptor instead.
 func (*SetUsernameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{106}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{108}
 }
 
 type CredentialUserCredentialToStringRequest struct {
@@ -4579,7 +4667,7 @@ type CredentialUserCredentialToStringRequest struct {
 
 func (x *CredentialUserCredentialToStringRequest) Reset() {
 	*x = CredentialUserCredentialToStringRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[107]
+	mi := &file_proto_pps_pps_proto_msgTypes[109]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4591,7 +4679,7 @@ func (x *CredentialUserCredentialToStringRequest) String() string {
 func (*CredentialUserCredentialToStringRequest) ProtoMessage() {}
 
 func (x *CredentialUserCredentialToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[107]
+	mi := &file_proto_pps_pps_proto_msgTypes[109]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4604,7 +4692,7 @@ func (x *CredentialUserCredentialToStringRequest) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use CredentialUserCredentialToStringRequest.ProtoReflect.Descriptor instead.
 func (*CredentialUserCredentialToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{107}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{109}
 }
 
 type CredentialUserCredentialWriteToParcelRequest struct {
@@ -4617,7 +4705,7 @@ type CredentialUserCredentialWriteToParcelRequest struct {
 
 func (x *CredentialUserCredentialWriteToParcelRequest) Reset() {
 	*x = CredentialUserCredentialWriteToParcelRequest{}
-	mi := &file_proto_pps_pps_proto_msgTypes[108]
+	mi := &file_proto_pps_pps_proto_msgTypes[110]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4629,7 +4717,7 @@ func (x *CredentialUserCredentialWriteToParcelRequest) String() string {
 func (*CredentialUserCredentialWriteToParcelRequest) ProtoMessage() {}
 
 func (x *CredentialUserCredentialWriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_pps_pps_proto_msgTypes[108]
+	mi := &file_proto_pps_pps_proto_msgTypes[110]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4642,7 +4730,7 @@ func (x *CredentialUserCredentialWriteToParcelRequest) ProtoReflect() protorefle
 
 // Deprecated: Use CredentialUserCredentialWriteToParcelRequest.ProtoReflect.Descriptor instead.
 func (*CredentialUserCredentialWriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_pps_pps_proto_rawDescGZIP(), []int{108}
+	return file_proto_pps_pps_proto_rawDescGZIP(), []int{110}
 }
 
 func (x *CredentialUserCredentialWriteToParcelRequest) GetArg0() int64 {
@@ -4691,6 +4779,10 @@ const file_proto_pps_pps_proto_rawDesc = "" +
 	"\x15GetMatchAnyOisRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
 	"\x16GetMatchAnyOisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"9\n" +
+	"\x1fGetOtherHomePartnersListRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\":\n" +
+	" GetOtherHomePartnersListResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"8\n" +
 	"\x1eGetRoamingConsortiumOisRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"9\n" +
@@ -4861,7 +4953,7 @@ const file_proto_pps_pps_proto_rawDesc = "" +
 	"'CredentialUserCredentialToStringRequest\"V\n" +
 	",CredentialUserCredentialWriteToParcelRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg12\x89\t\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg12\xf2\t\n" +
 	"\rHomeSpService\x12:\n" +
 	"\tNewHomeSp\x12\x15.pps.NewHomeSpRequest\x1a\x16.pps.NewHomeSpResponse\x12O\n" +
 	"\x10DescribeContents\x12\x1c.pps.DescribeContentsRequest\x1a\x1d.pps.DescribeContentsResponse\x121\n" +
@@ -4869,7 +4961,8 @@ const file_proto_pps_pps_proto_rawDesc = "" +
 	"\aGetFqdn\x12\x13.pps.GetFqdnRequest\x1a\x14.pps.GetFqdnResponse\x12L\n" +
 	"\x0fGetFriendlyName\x12\x1b.pps.GetFriendlyNameRequest\x1a\x1c.pps.GetFriendlyNameResponse\x12I\n" +
 	"\x0eGetMatchAllOis\x12\x1a.pps.GetMatchAllOisRequest\x1a\x1b.pps.GetMatchAllOisResponse\x12I\n" +
-	"\x0eGetMatchAnyOis\x12\x1a.pps.GetMatchAnyOisRequest\x1a\x1b.pps.GetMatchAnyOisResponse\x12d\n" +
+	"\x0eGetMatchAnyOis\x12\x1a.pps.GetMatchAnyOisRequest\x1a\x1b.pps.GetMatchAnyOisResponse\x12g\n" +
+	"\x18GetOtherHomePartnersList\x12$.pps.GetOtherHomePartnersListRequest\x1a%.pps.GetOtherHomePartnersListResponse\x12d\n" +
 	"\x17GetRoamingConsortiumOis\x12#.pps.GetRoamingConsortiumOisRequest\x1a$.pps.GetRoamingConsortiumOisResponse\x127\n" +
 	"\bHashCode\x12\x14.pps.HashCodeRequest\x1a\x15.pps.HashCodeResponse\x124\n" +
 	"\aSetFqdn\x12\x13.pps.SetFqdnRequest\x1a\x14.pps.SetFqdnResponse\x12L\n" +
@@ -4953,7 +5046,7 @@ func file_proto_pps_pps_proto_rawDescGZIP() []byte {
 	return file_proto_pps_pps_proto_rawDescData
 }
 
-var file_proto_pps_pps_proto_msgTypes = make([]protoimpl.MessageInfo, 109)
+var file_proto_pps_pps_proto_msgTypes = make([]protoimpl.MessageInfo, 111)
 var file_proto_pps_pps_proto_goTypes = []any{
 	(*NewHomeSpRequest)(nil),                                       // 0: pps.NewHomeSpRequest
 	(*NewHomeSpResponse)(nil),                                      // 1: pps.NewHomeSpResponse
@@ -4969,101 +5062,103 @@ var file_proto_pps_pps_proto_goTypes = []any{
 	(*GetMatchAllOisResponse)(nil),                                 // 11: pps.GetMatchAllOisResponse
 	(*GetMatchAnyOisRequest)(nil),                                  // 12: pps.GetMatchAnyOisRequest
 	(*GetMatchAnyOisResponse)(nil),                                 // 13: pps.GetMatchAnyOisResponse
-	(*GetRoamingConsortiumOisRequest)(nil),                         // 14: pps.GetRoamingConsortiumOisRequest
-	(*GetRoamingConsortiumOisResponse)(nil),                        // 15: pps.GetRoamingConsortiumOisResponse
-	(*HashCodeRequest)(nil),                                        // 16: pps.HashCodeRequest
-	(*HashCodeResponse)(nil),                                       // 17: pps.HashCodeResponse
-	(*SetFqdnRequest)(nil),                                         // 18: pps.SetFqdnRequest
-	(*SetFqdnResponse)(nil),                                        // 19: pps.SetFqdnResponse
-	(*SetFriendlyNameRequest)(nil),                                 // 20: pps.SetFriendlyNameRequest
-	(*SetFriendlyNameResponse)(nil),                                // 21: pps.SetFriendlyNameResponse
-	(*SetMatchAllOisRequest)(nil),                                  // 22: pps.SetMatchAllOisRequest
-	(*SetMatchAllOisResponse)(nil),                                 // 23: pps.SetMatchAllOisResponse
-	(*SetMatchAnyOisRequest)(nil),                                  // 24: pps.SetMatchAnyOisRequest
-	(*SetMatchAnyOisResponse)(nil),                                 // 25: pps.SetMatchAnyOisResponse
-	(*SetRoamingConsortiumOisRequest)(nil),                         // 26: pps.SetRoamingConsortiumOisRequest
-	(*SetRoamingConsortiumOisResponse)(nil),                        // 27: pps.SetRoamingConsortiumOisResponse
-	(*ToStringRequest)(nil),                                        // 28: pps.ToStringRequest
-	(*ToStringResponse)(nil),                                       // 29: pps.ToStringResponse
-	(*WriteToParcelRequest)(nil),                                   // 30: pps.WriteToParcelRequest
-	(*WriteToParcelResponse)(nil),                                  // 31: pps.WriteToParcelResponse
-	(*NewCredentialRequest)(nil),                                   // 32: pps.NewCredentialRequest
-	(*NewCredentialResponse)(nil),                                  // 33: pps.NewCredentialResponse
-	(*GetCaCertificateRequest)(nil),                                // 34: pps.GetCaCertificateRequest
-	(*GetCaCertificateResponse)(nil),                               // 35: pps.GetCaCertificateResponse
-	(*GetCertCredentialRequest)(nil),                               // 36: pps.GetCertCredentialRequest
-	(*GetCertCredentialResponse)(nil),                              // 37: pps.GetCertCredentialResponse
-	(*GetClientCertificateChainRequest)(nil),                       // 38: pps.GetClientCertificateChainRequest
-	(*GetClientCertificateChainResponse)(nil),                      // 39: pps.GetClientCertificateChainResponse
-	(*GetClientPrivateKeyRequest)(nil),                             // 40: pps.GetClientPrivateKeyRequest
-	(*GetClientPrivateKeyResponse)(nil),                            // 41: pps.GetClientPrivateKeyResponse
-	(*GetMinimumTlsVersionRequest)(nil),                            // 42: pps.GetMinimumTlsVersionRequest
-	(*GetMinimumTlsVersionResponse)(nil),                           // 43: pps.GetMinimumTlsVersionResponse
-	(*GetRealmRequest)(nil),                                        // 44: pps.GetRealmRequest
-	(*GetRealmResponse)(nil),                                       // 45: pps.GetRealmResponse
-	(*GetSimCredentialRequest)(nil),                                // 46: pps.GetSimCredentialRequest
-	(*GetSimCredentialResponse)(nil),                               // 47: pps.GetSimCredentialResponse
-	(*GetUserCredentialRequest)(nil),                               // 48: pps.GetUserCredentialRequest
-	(*GetUserCredentialResponse)(nil),                              // 49: pps.GetUserCredentialResponse
-	(*SetCaCertificateRequest)(nil),                                // 50: pps.SetCaCertificateRequest
-	(*SetCaCertificateResponse)(nil),                               // 51: pps.SetCaCertificateResponse
-	(*SetCertCredentialRequest)(nil),                               // 52: pps.SetCertCredentialRequest
-	(*SetCertCredentialResponse)(nil),                              // 53: pps.SetCertCredentialResponse
-	(*SetClientCertificateChainRequest)(nil),                       // 54: pps.SetClientCertificateChainRequest
-	(*SetClientCertificateChainResponse)(nil),                      // 55: pps.SetClientCertificateChainResponse
-	(*SetClientPrivateKeyRequest)(nil),                             // 56: pps.SetClientPrivateKeyRequest
-	(*SetClientPrivateKeyResponse)(nil),                            // 57: pps.SetClientPrivateKeyResponse
-	(*SetMinimumTlsVersionRequest)(nil),                            // 58: pps.SetMinimumTlsVersionRequest
-	(*SetMinimumTlsVersionResponse)(nil),                           // 59: pps.SetMinimumTlsVersionResponse
-	(*SetRealmRequest)(nil),                                        // 60: pps.SetRealmRequest
-	(*SetRealmResponse)(nil),                                       // 61: pps.SetRealmResponse
-	(*SetSimCredentialRequest)(nil),                                // 62: pps.SetSimCredentialRequest
-	(*SetSimCredentialResponse)(nil),                               // 63: pps.SetSimCredentialResponse
-	(*SetUserCredentialRequest)(nil),                               // 64: pps.SetUserCredentialRequest
-	(*SetUserCredentialResponse)(nil),                              // 65: pps.SetUserCredentialResponse
-	(*CredentialCertificateCredentialDescribeContentsRequest)(nil), // 66: pps.CredentialCertificateCredentialDescribeContentsRequest
-	(*CredentialCertificateCredentialEqualsRequest)(nil),           // 67: pps.CredentialCertificateCredentialEqualsRequest
-	(*GetCertSha256FingerprintRequest)(nil),                        // 68: pps.GetCertSha256FingerprintRequest
-	(*GetCertSha256FingerprintResponse)(nil),                       // 69: pps.GetCertSha256FingerprintResponse
-	(*GetCertTypeRequest)(nil),                                     // 70: pps.GetCertTypeRequest
-	(*GetCertTypeResponse)(nil),                                    // 71: pps.GetCertTypeResponse
-	(*CredentialCertificateCredentialHashCodeRequest)(nil),         // 72: pps.CredentialCertificateCredentialHashCodeRequest
-	(*SetCertSha256FingerprintRequest)(nil),                        // 73: pps.SetCertSha256FingerprintRequest
-	(*SetCertSha256FingerprintResponse)(nil),                       // 74: pps.SetCertSha256FingerprintResponse
-	(*SetCertTypeRequest)(nil),                                     // 75: pps.SetCertTypeRequest
-	(*SetCertTypeResponse)(nil),                                    // 76: pps.SetCertTypeResponse
-	(*CredentialCertificateCredentialToStringRequest)(nil),         // 77: pps.CredentialCertificateCredentialToStringRequest
-	(*CredentialCertificateCredentialWriteToParcelRequest)(nil),    // 78: pps.CredentialCertificateCredentialWriteToParcelRequest
-	(*CredentialSimCredentialDescribeContentsRequest)(nil),         // 79: pps.CredentialSimCredentialDescribeContentsRequest
-	(*CredentialSimCredentialEqualsRequest)(nil),                   // 80: pps.CredentialSimCredentialEqualsRequest
-	(*GetEapTypeRequest)(nil),                                      // 81: pps.GetEapTypeRequest
-	(*GetEapTypeResponse)(nil),                                     // 82: pps.GetEapTypeResponse
-	(*GetImsiRequest)(nil),                                         // 83: pps.GetImsiRequest
-	(*GetImsiResponse)(nil),                                        // 84: pps.GetImsiResponse
-	(*CredentialSimCredentialHashCodeRequest)(nil),                 // 85: pps.CredentialSimCredentialHashCodeRequest
-	(*SetEapTypeRequest)(nil),                                      // 86: pps.SetEapTypeRequest
-	(*SetEapTypeResponse)(nil),                                     // 87: pps.SetEapTypeResponse
-	(*SetImsiRequest)(nil),                                         // 88: pps.SetImsiRequest
-	(*SetImsiResponse)(nil),                                        // 89: pps.SetImsiResponse
-	(*CredentialSimCredentialToStringRequest)(nil),                 // 90: pps.CredentialSimCredentialToStringRequest
-	(*CredentialSimCredentialWriteToParcelRequest)(nil),            // 91: pps.CredentialSimCredentialWriteToParcelRequest
-	(*CredentialUserCredentialDescribeContentsRequest)(nil),        // 92: pps.CredentialUserCredentialDescribeContentsRequest
-	(*CredentialUserCredentialEqualsRequest)(nil),                  // 93: pps.CredentialUserCredentialEqualsRequest
-	(*GetNonEapInnerMethodRequest)(nil),                            // 94: pps.GetNonEapInnerMethodRequest
-	(*GetNonEapInnerMethodResponse)(nil),                           // 95: pps.GetNonEapInnerMethodResponse
-	(*GetPasswordRequest)(nil),                                     // 96: pps.GetPasswordRequest
-	(*GetPasswordResponse)(nil),                                    // 97: pps.GetPasswordResponse
-	(*GetUsernameRequest)(nil),                                     // 98: pps.GetUsernameRequest
-	(*GetUsernameResponse)(nil),                                    // 99: pps.GetUsernameResponse
-	(*CredentialUserCredentialHashCodeRequest)(nil),                // 100: pps.CredentialUserCredentialHashCodeRequest
-	(*SetNonEapInnerMethodRequest)(nil),                            // 101: pps.SetNonEapInnerMethodRequest
-	(*SetNonEapInnerMethodResponse)(nil),                           // 102: pps.SetNonEapInnerMethodResponse
-	(*SetPasswordRequest)(nil),                                     // 103: pps.SetPasswordRequest
-	(*SetPasswordResponse)(nil),                                    // 104: pps.SetPasswordResponse
-	(*SetUsernameRequest)(nil),                                     // 105: pps.SetUsernameRequest
-	(*SetUsernameResponse)(nil),                                    // 106: pps.SetUsernameResponse
-	(*CredentialUserCredentialToStringRequest)(nil),                // 107: pps.CredentialUserCredentialToStringRequest
-	(*CredentialUserCredentialWriteToParcelRequest)(nil),           // 108: pps.CredentialUserCredentialWriteToParcelRequest
+	(*GetOtherHomePartnersListRequest)(nil),                        // 14: pps.GetOtherHomePartnersListRequest
+	(*GetOtherHomePartnersListResponse)(nil),                       // 15: pps.GetOtherHomePartnersListResponse
+	(*GetRoamingConsortiumOisRequest)(nil),                         // 16: pps.GetRoamingConsortiumOisRequest
+	(*GetRoamingConsortiumOisResponse)(nil),                        // 17: pps.GetRoamingConsortiumOisResponse
+	(*HashCodeRequest)(nil),                                        // 18: pps.HashCodeRequest
+	(*HashCodeResponse)(nil),                                       // 19: pps.HashCodeResponse
+	(*SetFqdnRequest)(nil),                                         // 20: pps.SetFqdnRequest
+	(*SetFqdnResponse)(nil),                                        // 21: pps.SetFqdnResponse
+	(*SetFriendlyNameRequest)(nil),                                 // 22: pps.SetFriendlyNameRequest
+	(*SetFriendlyNameResponse)(nil),                                // 23: pps.SetFriendlyNameResponse
+	(*SetMatchAllOisRequest)(nil),                                  // 24: pps.SetMatchAllOisRequest
+	(*SetMatchAllOisResponse)(nil),                                 // 25: pps.SetMatchAllOisResponse
+	(*SetMatchAnyOisRequest)(nil),                                  // 26: pps.SetMatchAnyOisRequest
+	(*SetMatchAnyOisResponse)(nil),                                 // 27: pps.SetMatchAnyOisResponse
+	(*SetRoamingConsortiumOisRequest)(nil),                         // 28: pps.SetRoamingConsortiumOisRequest
+	(*SetRoamingConsortiumOisResponse)(nil),                        // 29: pps.SetRoamingConsortiumOisResponse
+	(*ToStringRequest)(nil),                                        // 30: pps.ToStringRequest
+	(*ToStringResponse)(nil),                                       // 31: pps.ToStringResponse
+	(*WriteToParcelRequest)(nil),                                   // 32: pps.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                                  // 33: pps.WriteToParcelResponse
+	(*NewCredentialRequest)(nil),                                   // 34: pps.NewCredentialRequest
+	(*NewCredentialResponse)(nil),                                  // 35: pps.NewCredentialResponse
+	(*GetCaCertificateRequest)(nil),                                // 36: pps.GetCaCertificateRequest
+	(*GetCaCertificateResponse)(nil),                               // 37: pps.GetCaCertificateResponse
+	(*GetCertCredentialRequest)(nil),                               // 38: pps.GetCertCredentialRequest
+	(*GetCertCredentialResponse)(nil),                              // 39: pps.GetCertCredentialResponse
+	(*GetClientCertificateChainRequest)(nil),                       // 40: pps.GetClientCertificateChainRequest
+	(*GetClientCertificateChainResponse)(nil),                      // 41: pps.GetClientCertificateChainResponse
+	(*GetClientPrivateKeyRequest)(nil),                             // 42: pps.GetClientPrivateKeyRequest
+	(*GetClientPrivateKeyResponse)(nil),                            // 43: pps.GetClientPrivateKeyResponse
+	(*GetMinimumTlsVersionRequest)(nil),                            // 44: pps.GetMinimumTlsVersionRequest
+	(*GetMinimumTlsVersionResponse)(nil),                           // 45: pps.GetMinimumTlsVersionResponse
+	(*GetRealmRequest)(nil),                                        // 46: pps.GetRealmRequest
+	(*GetRealmResponse)(nil),                                       // 47: pps.GetRealmResponse
+	(*GetSimCredentialRequest)(nil),                                // 48: pps.GetSimCredentialRequest
+	(*GetSimCredentialResponse)(nil),                               // 49: pps.GetSimCredentialResponse
+	(*GetUserCredentialRequest)(nil),                               // 50: pps.GetUserCredentialRequest
+	(*GetUserCredentialResponse)(nil),                              // 51: pps.GetUserCredentialResponse
+	(*SetCaCertificateRequest)(nil),                                // 52: pps.SetCaCertificateRequest
+	(*SetCaCertificateResponse)(nil),                               // 53: pps.SetCaCertificateResponse
+	(*SetCertCredentialRequest)(nil),                               // 54: pps.SetCertCredentialRequest
+	(*SetCertCredentialResponse)(nil),                              // 55: pps.SetCertCredentialResponse
+	(*SetClientCertificateChainRequest)(nil),                       // 56: pps.SetClientCertificateChainRequest
+	(*SetClientCertificateChainResponse)(nil),                      // 57: pps.SetClientCertificateChainResponse
+	(*SetClientPrivateKeyRequest)(nil),                             // 58: pps.SetClientPrivateKeyRequest
+	(*SetClientPrivateKeyResponse)(nil),                            // 59: pps.SetClientPrivateKeyResponse
+	(*SetMinimumTlsVersionRequest)(nil),                            // 60: pps.SetMinimumTlsVersionRequest
+	(*SetMinimumTlsVersionResponse)(nil),                           // 61: pps.SetMinimumTlsVersionResponse
+	(*SetRealmRequest)(nil),                                        // 62: pps.SetRealmRequest
+	(*SetRealmResponse)(nil),                                       // 63: pps.SetRealmResponse
+	(*SetSimCredentialRequest)(nil),                                // 64: pps.SetSimCredentialRequest
+	(*SetSimCredentialResponse)(nil),                               // 65: pps.SetSimCredentialResponse
+	(*SetUserCredentialRequest)(nil),                               // 66: pps.SetUserCredentialRequest
+	(*SetUserCredentialResponse)(nil),                              // 67: pps.SetUserCredentialResponse
+	(*CredentialCertificateCredentialDescribeContentsRequest)(nil), // 68: pps.CredentialCertificateCredentialDescribeContentsRequest
+	(*CredentialCertificateCredentialEqualsRequest)(nil),           // 69: pps.CredentialCertificateCredentialEqualsRequest
+	(*GetCertSha256FingerprintRequest)(nil),                        // 70: pps.GetCertSha256FingerprintRequest
+	(*GetCertSha256FingerprintResponse)(nil),                       // 71: pps.GetCertSha256FingerprintResponse
+	(*GetCertTypeRequest)(nil),                                     // 72: pps.GetCertTypeRequest
+	(*GetCertTypeResponse)(nil),                                    // 73: pps.GetCertTypeResponse
+	(*CredentialCertificateCredentialHashCodeRequest)(nil),         // 74: pps.CredentialCertificateCredentialHashCodeRequest
+	(*SetCertSha256FingerprintRequest)(nil),                        // 75: pps.SetCertSha256FingerprintRequest
+	(*SetCertSha256FingerprintResponse)(nil),                       // 76: pps.SetCertSha256FingerprintResponse
+	(*SetCertTypeRequest)(nil),                                     // 77: pps.SetCertTypeRequest
+	(*SetCertTypeResponse)(nil),                                    // 78: pps.SetCertTypeResponse
+	(*CredentialCertificateCredentialToStringRequest)(nil),         // 79: pps.CredentialCertificateCredentialToStringRequest
+	(*CredentialCertificateCredentialWriteToParcelRequest)(nil),    // 80: pps.CredentialCertificateCredentialWriteToParcelRequest
+	(*CredentialSimCredentialDescribeContentsRequest)(nil),         // 81: pps.CredentialSimCredentialDescribeContentsRequest
+	(*CredentialSimCredentialEqualsRequest)(nil),                   // 82: pps.CredentialSimCredentialEqualsRequest
+	(*GetEapTypeRequest)(nil),                                      // 83: pps.GetEapTypeRequest
+	(*GetEapTypeResponse)(nil),                                     // 84: pps.GetEapTypeResponse
+	(*GetImsiRequest)(nil),                                         // 85: pps.GetImsiRequest
+	(*GetImsiResponse)(nil),                                        // 86: pps.GetImsiResponse
+	(*CredentialSimCredentialHashCodeRequest)(nil),                 // 87: pps.CredentialSimCredentialHashCodeRequest
+	(*SetEapTypeRequest)(nil),                                      // 88: pps.SetEapTypeRequest
+	(*SetEapTypeResponse)(nil),                                     // 89: pps.SetEapTypeResponse
+	(*SetImsiRequest)(nil),                                         // 90: pps.SetImsiRequest
+	(*SetImsiResponse)(nil),                                        // 91: pps.SetImsiResponse
+	(*CredentialSimCredentialToStringRequest)(nil),                 // 92: pps.CredentialSimCredentialToStringRequest
+	(*CredentialSimCredentialWriteToParcelRequest)(nil),            // 93: pps.CredentialSimCredentialWriteToParcelRequest
+	(*CredentialUserCredentialDescribeContentsRequest)(nil),        // 94: pps.CredentialUserCredentialDescribeContentsRequest
+	(*CredentialUserCredentialEqualsRequest)(nil),                  // 95: pps.CredentialUserCredentialEqualsRequest
+	(*GetNonEapInnerMethodRequest)(nil),                            // 96: pps.GetNonEapInnerMethodRequest
+	(*GetNonEapInnerMethodResponse)(nil),                           // 97: pps.GetNonEapInnerMethodResponse
+	(*GetPasswordRequest)(nil),                                     // 98: pps.GetPasswordRequest
+	(*GetPasswordResponse)(nil),                                    // 99: pps.GetPasswordResponse
+	(*GetUsernameRequest)(nil),                                     // 100: pps.GetUsernameRequest
+	(*GetUsernameResponse)(nil),                                    // 101: pps.GetUsernameResponse
+	(*CredentialUserCredentialHashCodeRequest)(nil),                // 102: pps.CredentialUserCredentialHashCodeRequest
+	(*SetNonEapInnerMethodRequest)(nil),                            // 103: pps.SetNonEapInnerMethodRequest
+	(*SetNonEapInnerMethodResponse)(nil),                           // 104: pps.SetNonEapInnerMethodResponse
+	(*SetPasswordRequest)(nil),                                     // 105: pps.SetPasswordRequest
+	(*SetPasswordResponse)(nil),                                    // 106: pps.SetPasswordResponse
+	(*SetUsernameRequest)(nil),                                     // 107: pps.SetUsernameRequest
+	(*SetUsernameResponse)(nil),                                    // 108: pps.SetUsernameResponse
+	(*CredentialUserCredentialToStringRequest)(nil),                // 109: pps.CredentialUserCredentialToStringRequest
+	(*CredentialUserCredentialWriteToParcelRequest)(nil),           // 110: pps.CredentialUserCredentialWriteToParcelRequest
 }
 var file_proto_pps_pps_proto_depIdxs = []int32{
 	0,   // 0: pps.HomeSpService.NewHomeSp:input_type -> pps.NewHomeSpRequest
@@ -5073,139 +5168,141 @@ var file_proto_pps_pps_proto_depIdxs = []int32{
 	8,   // 4: pps.HomeSpService.GetFriendlyName:input_type -> pps.GetFriendlyNameRequest
 	10,  // 5: pps.HomeSpService.GetMatchAllOis:input_type -> pps.GetMatchAllOisRequest
 	12,  // 6: pps.HomeSpService.GetMatchAnyOis:input_type -> pps.GetMatchAnyOisRequest
-	14,  // 7: pps.HomeSpService.GetRoamingConsortiumOis:input_type -> pps.GetRoamingConsortiumOisRequest
-	16,  // 8: pps.HomeSpService.HashCode:input_type -> pps.HashCodeRequest
-	18,  // 9: pps.HomeSpService.SetFqdn:input_type -> pps.SetFqdnRequest
-	20,  // 10: pps.HomeSpService.SetFriendlyName:input_type -> pps.SetFriendlyNameRequest
-	22,  // 11: pps.HomeSpService.SetMatchAllOis:input_type -> pps.SetMatchAllOisRequest
-	24,  // 12: pps.HomeSpService.SetMatchAnyOis:input_type -> pps.SetMatchAnyOisRequest
-	26,  // 13: pps.HomeSpService.SetRoamingConsortiumOis:input_type -> pps.SetRoamingConsortiumOisRequest
-	28,  // 14: pps.HomeSpService.ToString:input_type -> pps.ToStringRequest
-	30,  // 15: pps.HomeSpService.WriteToParcel:input_type -> pps.WriteToParcelRequest
-	32,  // 16: pps.CredentialService.NewCredential:input_type -> pps.NewCredentialRequest
-	2,   // 17: pps.CredentialService.DescribeContents:input_type -> pps.DescribeContentsRequest
-	4,   // 18: pps.CredentialService.Equals:input_type -> pps.EqualsRequest
-	34,  // 19: pps.CredentialService.GetCaCertificate:input_type -> pps.GetCaCertificateRequest
-	36,  // 20: pps.CredentialService.GetCertCredential:input_type -> pps.GetCertCredentialRequest
-	38,  // 21: pps.CredentialService.GetClientCertificateChain:input_type -> pps.GetClientCertificateChainRequest
-	40,  // 22: pps.CredentialService.GetClientPrivateKey:input_type -> pps.GetClientPrivateKeyRequest
-	42,  // 23: pps.CredentialService.GetMinimumTlsVersion:input_type -> pps.GetMinimumTlsVersionRequest
-	44,  // 24: pps.CredentialService.GetRealm:input_type -> pps.GetRealmRequest
-	46,  // 25: pps.CredentialService.GetSimCredential:input_type -> pps.GetSimCredentialRequest
-	48,  // 26: pps.CredentialService.GetUserCredential:input_type -> pps.GetUserCredentialRequest
-	16,  // 27: pps.CredentialService.HashCode:input_type -> pps.HashCodeRequest
-	50,  // 28: pps.CredentialService.SetCaCertificate:input_type -> pps.SetCaCertificateRequest
-	52,  // 29: pps.CredentialService.SetCertCredential:input_type -> pps.SetCertCredentialRequest
-	54,  // 30: pps.CredentialService.SetClientCertificateChain:input_type -> pps.SetClientCertificateChainRequest
-	56,  // 31: pps.CredentialService.SetClientPrivateKey:input_type -> pps.SetClientPrivateKeyRequest
-	58,  // 32: pps.CredentialService.SetMinimumTlsVersion:input_type -> pps.SetMinimumTlsVersionRequest
-	60,  // 33: pps.CredentialService.SetRealm:input_type -> pps.SetRealmRequest
-	62,  // 34: pps.CredentialService.SetSimCredential:input_type -> pps.SetSimCredentialRequest
-	64,  // 35: pps.CredentialService.SetUserCredential:input_type -> pps.SetUserCredentialRequest
-	28,  // 36: pps.CredentialService.ToString:input_type -> pps.ToStringRequest
-	30,  // 37: pps.CredentialService.WriteToParcel:input_type -> pps.WriteToParcelRequest
-	66,  // 38: pps.CredentialCertificateCredentialService.DescribeContents:input_type -> pps.CredentialCertificateCredentialDescribeContentsRequest
-	67,  // 39: pps.CredentialCertificateCredentialService.Equals:input_type -> pps.CredentialCertificateCredentialEqualsRequest
-	68,  // 40: pps.CredentialCertificateCredentialService.GetCertSha256Fingerprint:input_type -> pps.GetCertSha256FingerprintRequest
-	70,  // 41: pps.CredentialCertificateCredentialService.GetCertType:input_type -> pps.GetCertTypeRequest
-	72,  // 42: pps.CredentialCertificateCredentialService.HashCode:input_type -> pps.CredentialCertificateCredentialHashCodeRequest
-	73,  // 43: pps.CredentialCertificateCredentialService.SetCertSha256Fingerprint:input_type -> pps.SetCertSha256FingerprintRequest
-	75,  // 44: pps.CredentialCertificateCredentialService.SetCertType:input_type -> pps.SetCertTypeRequest
-	77,  // 45: pps.CredentialCertificateCredentialService.ToString:input_type -> pps.CredentialCertificateCredentialToStringRequest
-	78,  // 46: pps.CredentialCertificateCredentialService.WriteToParcel:input_type -> pps.CredentialCertificateCredentialWriteToParcelRequest
-	79,  // 47: pps.CredentialSimCredentialService.DescribeContents:input_type -> pps.CredentialSimCredentialDescribeContentsRequest
-	80,  // 48: pps.CredentialSimCredentialService.Equals:input_type -> pps.CredentialSimCredentialEqualsRequest
-	81,  // 49: pps.CredentialSimCredentialService.GetEapType:input_type -> pps.GetEapTypeRequest
-	83,  // 50: pps.CredentialSimCredentialService.GetImsi:input_type -> pps.GetImsiRequest
-	85,  // 51: pps.CredentialSimCredentialService.HashCode:input_type -> pps.CredentialSimCredentialHashCodeRequest
-	86,  // 52: pps.CredentialSimCredentialService.SetEapType:input_type -> pps.SetEapTypeRequest
-	88,  // 53: pps.CredentialSimCredentialService.SetImsi:input_type -> pps.SetImsiRequest
-	90,  // 54: pps.CredentialSimCredentialService.ToString:input_type -> pps.CredentialSimCredentialToStringRequest
-	91,  // 55: pps.CredentialSimCredentialService.WriteToParcel:input_type -> pps.CredentialSimCredentialWriteToParcelRequest
-	92,  // 56: pps.CredentialUserCredentialService.DescribeContents:input_type -> pps.CredentialUserCredentialDescribeContentsRequest
-	93,  // 57: pps.CredentialUserCredentialService.Equals:input_type -> pps.CredentialUserCredentialEqualsRequest
-	81,  // 58: pps.CredentialUserCredentialService.GetEapType:input_type -> pps.GetEapTypeRequest
-	94,  // 59: pps.CredentialUserCredentialService.GetNonEapInnerMethod:input_type -> pps.GetNonEapInnerMethodRequest
-	96,  // 60: pps.CredentialUserCredentialService.GetPassword:input_type -> pps.GetPasswordRequest
-	98,  // 61: pps.CredentialUserCredentialService.GetUsername:input_type -> pps.GetUsernameRequest
-	100, // 62: pps.CredentialUserCredentialService.HashCode:input_type -> pps.CredentialUserCredentialHashCodeRequest
-	86,  // 63: pps.CredentialUserCredentialService.SetEapType:input_type -> pps.SetEapTypeRequest
-	101, // 64: pps.CredentialUserCredentialService.SetNonEapInnerMethod:input_type -> pps.SetNonEapInnerMethodRequest
-	103, // 65: pps.CredentialUserCredentialService.SetPassword:input_type -> pps.SetPasswordRequest
-	105, // 66: pps.CredentialUserCredentialService.SetUsername:input_type -> pps.SetUsernameRequest
-	107, // 67: pps.CredentialUserCredentialService.ToString:input_type -> pps.CredentialUserCredentialToStringRequest
-	108, // 68: pps.CredentialUserCredentialService.WriteToParcel:input_type -> pps.CredentialUserCredentialWriteToParcelRequest
-	1,   // 69: pps.HomeSpService.NewHomeSp:output_type -> pps.NewHomeSpResponse
-	3,   // 70: pps.HomeSpService.DescribeContents:output_type -> pps.DescribeContentsResponse
-	5,   // 71: pps.HomeSpService.Equals:output_type -> pps.EqualsResponse
-	7,   // 72: pps.HomeSpService.GetFqdn:output_type -> pps.GetFqdnResponse
-	9,   // 73: pps.HomeSpService.GetFriendlyName:output_type -> pps.GetFriendlyNameResponse
-	11,  // 74: pps.HomeSpService.GetMatchAllOis:output_type -> pps.GetMatchAllOisResponse
-	13,  // 75: pps.HomeSpService.GetMatchAnyOis:output_type -> pps.GetMatchAnyOisResponse
-	15,  // 76: pps.HomeSpService.GetRoamingConsortiumOis:output_type -> pps.GetRoamingConsortiumOisResponse
-	17,  // 77: pps.HomeSpService.HashCode:output_type -> pps.HashCodeResponse
-	19,  // 78: pps.HomeSpService.SetFqdn:output_type -> pps.SetFqdnResponse
-	21,  // 79: pps.HomeSpService.SetFriendlyName:output_type -> pps.SetFriendlyNameResponse
-	23,  // 80: pps.HomeSpService.SetMatchAllOis:output_type -> pps.SetMatchAllOisResponse
-	25,  // 81: pps.HomeSpService.SetMatchAnyOis:output_type -> pps.SetMatchAnyOisResponse
-	27,  // 82: pps.HomeSpService.SetRoamingConsortiumOis:output_type -> pps.SetRoamingConsortiumOisResponse
-	29,  // 83: pps.HomeSpService.ToString:output_type -> pps.ToStringResponse
-	31,  // 84: pps.HomeSpService.WriteToParcel:output_type -> pps.WriteToParcelResponse
-	33,  // 85: pps.CredentialService.NewCredential:output_type -> pps.NewCredentialResponse
-	3,   // 86: pps.CredentialService.DescribeContents:output_type -> pps.DescribeContentsResponse
-	5,   // 87: pps.CredentialService.Equals:output_type -> pps.EqualsResponse
-	35,  // 88: pps.CredentialService.GetCaCertificate:output_type -> pps.GetCaCertificateResponse
-	37,  // 89: pps.CredentialService.GetCertCredential:output_type -> pps.GetCertCredentialResponse
-	39,  // 90: pps.CredentialService.GetClientCertificateChain:output_type -> pps.GetClientCertificateChainResponse
-	41,  // 91: pps.CredentialService.GetClientPrivateKey:output_type -> pps.GetClientPrivateKeyResponse
-	43,  // 92: pps.CredentialService.GetMinimumTlsVersion:output_type -> pps.GetMinimumTlsVersionResponse
-	45,  // 93: pps.CredentialService.GetRealm:output_type -> pps.GetRealmResponse
-	47,  // 94: pps.CredentialService.GetSimCredential:output_type -> pps.GetSimCredentialResponse
-	49,  // 95: pps.CredentialService.GetUserCredential:output_type -> pps.GetUserCredentialResponse
-	17,  // 96: pps.CredentialService.HashCode:output_type -> pps.HashCodeResponse
-	51,  // 97: pps.CredentialService.SetCaCertificate:output_type -> pps.SetCaCertificateResponse
-	53,  // 98: pps.CredentialService.SetCertCredential:output_type -> pps.SetCertCredentialResponse
-	55,  // 99: pps.CredentialService.SetClientCertificateChain:output_type -> pps.SetClientCertificateChainResponse
-	57,  // 100: pps.CredentialService.SetClientPrivateKey:output_type -> pps.SetClientPrivateKeyResponse
-	59,  // 101: pps.CredentialService.SetMinimumTlsVersion:output_type -> pps.SetMinimumTlsVersionResponse
-	61,  // 102: pps.CredentialService.SetRealm:output_type -> pps.SetRealmResponse
-	63,  // 103: pps.CredentialService.SetSimCredential:output_type -> pps.SetSimCredentialResponse
-	65,  // 104: pps.CredentialService.SetUserCredential:output_type -> pps.SetUserCredentialResponse
-	29,  // 105: pps.CredentialService.ToString:output_type -> pps.ToStringResponse
-	31,  // 106: pps.CredentialService.WriteToParcel:output_type -> pps.WriteToParcelResponse
-	3,   // 107: pps.CredentialCertificateCredentialService.DescribeContents:output_type -> pps.DescribeContentsResponse
-	5,   // 108: pps.CredentialCertificateCredentialService.Equals:output_type -> pps.EqualsResponse
-	69,  // 109: pps.CredentialCertificateCredentialService.GetCertSha256Fingerprint:output_type -> pps.GetCertSha256FingerprintResponse
-	71,  // 110: pps.CredentialCertificateCredentialService.GetCertType:output_type -> pps.GetCertTypeResponse
-	17,  // 111: pps.CredentialCertificateCredentialService.HashCode:output_type -> pps.HashCodeResponse
-	74,  // 112: pps.CredentialCertificateCredentialService.SetCertSha256Fingerprint:output_type -> pps.SetCertSha256FingerprintResponse
-	76,  // 113: pps.CredentialCertificateCredentialService.SetCertType:output_type -> pps.SetCertTypeResponse
-	29,  // 114: pps.CredentialCertificateCredentialService.ToString:output_type -> pps.ToStringResponse
-	31,  // 115: pps.CredentialCertificateCredentialService.WriteToParcel:output_type -> pps.WriteToParcelResponse
-	3,   // 116: pps.CredentialSimCredentialService.DescribeContents:output_type -> pps.DescribeContentsResponse
-	5,   // 117: pps.CredentialSimCredentialService.Equals:output_type -> pps.EqualsResponse
-	82,  // 118: pps.CredentialSimCredentialService.GetEapType:output_type -> pps.GetEapTypeResponse
-	84,  // 119: pps.CredentialSimCredentialService.GetImsi:output_type -> pps.GetImsiResponse
-	17,  // 120: pps.CredentialSimCredentialService.HashCode:output_type -> pps.HashCodeResponse
-	87,  // 121: pps.CredentialSimCredentialService.SetEapType:output_type -> pps.SetEapTypeResponse
-	89,  // 122: pps.CredentialSimCredentialService.SetImsi:output_type -> pps.SetImsiResponse
-	29,  // 123: pps.CredentialSimCredentialService.ToString:output_type -> pps.ToStringResponse
-	31,  // 124: pps.CredentialSimCredentialService.WriteToParcel:output_type -> pps.WriteToParcelResponse
-	3,   // 125: pps.CredentialUserCredentialService.DescribeContents:output_type -> pps.DescribeContentsResponse
-	5,   // 126: pps.CredentialUserCredentialService.Equals:output_type -> pps.EqualsResponse
-	82,  // 127: pps.CredentialUserCredentialService.GetEapType:output_type -> pps.GetEapTypeResponse
-	95,  // 128: pps.CredentialUserCredentialService.GetNonEapInnerMethod:output_type -> pps.GetNonEapInnerMethodResponse
-	97,  // 129: pps.CredentialUserCredentialService.GetPassword:output_type -> pps.GetPasswordResponse
-	99,  // 130: pps.CredentialUserCredentialService.GetUsername:output_type -> pps.GetUsernameResponse
-	17,  // 131: pps.CredentialUserCredentialService.HashCode:output_type -> pps.HashCodeResponse
-	87,  // 132: pps.CredentialUserCredentialService.SetEapType:output_type -> pps.SetEapTypeResponse
-	102, // 133: pps.CredentialUserCredentialService.SetNonEapInnerMethod:output_type -> pps.SetNonEapInnerMethodResponse
-	104, // 134: pps.CredentialUserCredentialService.SetPassword:output_type -> pps.SetPasswordResponse
-	106, // 135: pps.CredentialUserCredentialService.SetUsername:output_type -> pps.SetUsernameResponse
-	29,  // 136: pps.CredentialUserCredentialService.ToString:output_type -> pps.ToStringResponse
-	31,  // 137: pps.CredentialUserCredentialService.WriteToParcel:output_type -> pps.WriteToParcelResponse
-	69,  // [69:138] is the sub-list for method output_type
-	0,   // [0:69] is the sub-list for method input_type
+	14,  // 7: pps.HomeSpService.GetOtherHomePartnersList:input_type -> pps.GetOtherHomePartnersListRequest
+	16,  // 8: pps.HomeSpService.GetRoamingConsortiumOis:input_type -> pps.GetRoamingConsortiumOisRequest
+	18,  // 9: pps.HomeSpService.HashCode:input_type -> pps.HashCodeRequest
+	20,  // 10: pps.HomeSpService.SetFqdn:input_type -> pps.SetFqdnRequest
+	22,  // 11: pps.HomeSpService.SetFriendlyName:input_type -> pps.SetFriendlyNameRequest
+	24,  // 12: pps.HomeSpService.SetMatchAllOis:input_type -> pps.SetMatchAllOisRequest
+	26,  // 13: pps.HomeSpService.SetMatchAnyOis:input_type -> pps.SetMatchAnyOisRequest
+	28,  // 14: pps.HomeSpService.SetRoamingConsortiumOis:input_type -> pps.SetRoamingConsortiumOisRequest
+	30,  // 15: pps.HomeSpService.ToString:input_type -> pps.ToStringRequest
+	32,  // 16: pps.HomeSpService.WriteToParcel:input_type -> pps.WriteToParcelRequest
+	34,  // 17: pps.CredentialService.NewCredential:input_type -> pps.NewCredentialRequest
+	2,   // 18: pps.CredentialService.DescribeContents:input_type -> pps.DescribeContentsRequest
+	4,   // 19: pps.CredentialService.Equals:input_type -> pps.EqualsRequest
+	36,  // 20: pps.CredentialService.GetCaCertificate:input_type -> pps.GetCaCertificateRequest
+	38,  // 21: pps.CredentialService.GetCertCredential:input_type -> pps.GetCertCredentialRequest
+	40,  // 22: pps.CredentialService.GetClientCertificateChain:input_type -> pps.GetClientCertificateChainRequest
+	42,  // 23: pps.CredentialService.GetClientPrivateKey:input_type -> pps.GetClientPrivateKeyRequest
+	44,  // 24: pps.CredentialService.GetMinimumTlsVersion:input_type -> pps.GetMinimumTlsVersionRequest
+	46,  // 25: pps.CredentialService.GetRealm:input_type -> pps.GetRealmRequest
+	48,  // 26: pps.CredentialService.GetSimCredential:input_type -> pps.GetSimCredentialRequest
+	50,  // 27: pps.CredentialService.GetUserCredential:input_type -> pps.GetUserCredentialRequest
+	18,  // 28: pps.CredentialService.HashCode:input_type -> pps.HashCodeRequest
+	52,  // 29: pps.CredentialService.SetCaCertificate:input_type -> pps.SetCaCertificateRequest
+	54,  // 30: pps.CredentialService.SetCertCredential:input_type -> pps.SetCertCredentialRequest
+	56,  // 31: pps.CredentialService.SetClientCertificateChain:input_type -> pps.SetClientCertificateChainRequest
+	58,  // 32: pps.CredentialService.SetClientPrivateKey:input_type -> pps.SetClientPrivateKeyRequest
+	60,  // 33: pps.CredentialService.SetMinimumTlsVersion:input_type -> pps.SetMinimumTlsVersionRequest
+	62,  // 34: pps.CredentialService.SetRealm:input_type -> pps.SetRealmRequest
+	64,  // 35: pps.CredentialService.SetSimCredential:input_type -> pps.SetSimCredentialRequest
+	66,  // 36: pps.CredentialService.SetUserCredential:input_type -> pps.SetUserCredentialRequest
+	30,  // 37: pps.CredentialService.ToString:input_type -> pps.ToStringRequest
+	32,  // 38: pps.CredentialService.WriteToParcel:input_type -> pps.WriteToParcelRequest
+	68,  // 39: pps.CredentialCertificateCredentialService.DescribeContents:input_type -> pps.CredentialCertificateCredentialDescribeContentsRequest
+	69,  // 40: pps.CredentialCertificateCredentialService.Equals:input_type -> pps.CredentialCertificateCredentialEqualsRequest
+	70,  // 41: pps.CredentialCertificateCredentialService.GetCertSha256Fingerprint:input_type -> pps.GetCertSha256FingerprintRequest
+	72,  // 42: pps.CredentialCertificateCredentialService.GetCertType:input_type -> pps.GetCertTypeRequest
+	74,  // 43: pps.CredentialCertificateCredentialService.HashCode:input_type -> pps.CredentialCertificateCredentialHashCodeRequest
+	75,  // 44: pps.CredentialCertificateCredentialService.SetCertSha256Fingerprint:input_type -> pps.SetCertSha256FingerprintRequest
+	77,  // 45: pps.CredentialCertificateCredentialService.SetCertType:input_type -> pps.SetCertTypeRequest
+	79,  // 46: pps.CredentialCertificateCredentialService.ToString:input_type -> pps.CredentialCertificateCredentialToStringRequest
+	80,  // 47: pps.CredentialCertificateCredentialService.WriteToParcel:input_type -> pps.CredentialCertificateCredentialWriteToParcelRequest
+	81,  // 48: pps.CredentialSimCredentialService.DescribeContents:input_type -> pps.CredentialSimCredentialDescribeContentsRequest
+	82,  // 49: pps.CredentialSimCredentialService.Equals:input_type -> pps.CredentialSimCredentialEqualsRequest
+	83,  // 50: pps.CredentialSimCredentialService.GetEapType:input_type -> pps.GetEapTypeRequest
+	85,  // 51: pps.CredentialSimCredentialService.GetImsi:input_type -> pps.GetImsiRequest
+	87,  // 52: pps.CredentialSimCredentialService.HashCode:input_type -> pps.CredentialSimCredentialHashCodeRequest
+	88,  // 53: pps.CredentialSimCredentialService.SetEapType:input_type -> pps.SetEapTypeRequest
+	90,  // 54: pps.CredentialSimCredentialService.SetImsi:input_type -> pps.SetImsiRequest
+	92,  // 55: pps.CredentialSimCredentialService.ToString:input_type -> pps.CredentialSimCredentialToStringRequest
+	93,  // 56: pps.CredentialSimCredentialService.WriteToParcel:input_type -> pps.CredentialSimCredentialWriteToParcelRequest
+	94,  // 57: pps.CredentialUserCredentialService.DescribeContents:input_type -> pps.CredentialUserCredentialDescribeContentsRequest
+	95,  // 58: pps.CredentialUserCredentialService.Equals:input_type -> pps.CredentialUserCredentialEqualsRequest
+	83,  // 59: pps.CredentialUserCredentialService.GetEapType:input_type -> pps.GetEapTypeRequest
+	96,  // 60: pps.CredentialUserCredentialService.GetNonEapInnerMethod:input_type -> pps.GetNonEapInnerMethodRequest
+	98,  // 61: pps.CredentialUserCredentialService.GetPassword:input_type -> pps.GetPasswordRequest
+	100, // 62: pps.CredentialUserCredentialService.GetUsername:input_type -> pps.GetUsernameRequest
+	102, // 63: pps.CredentialUserCredentialService.HashCode:input_type -> pps.CredentialUserCredentialHashCodeRequest
+	88,  // 64: pps.CredentialUserCredentialService.SetEapType:input_type -> pps.SetEapTypeRequest
+	103, // 65: pps.CredentialUserCredentialService.SetNonEapInnerMethod:input_type -> pps.SetNonEapInnerMethodRequest
+	105, // 66: pps.CredentialUserCredentialService.SetPassword:input_type -> pps.SetPasswordRequest
+	107, // 67: pps.CredentialUserCredentialService.SetUsername:input_type -> pps.SetUsernameRequest
+	109, // 68: pps.CredentialUserCredentialService.ToString:input_type -> pps.CredentialUserCredentialToStringRequest
+	110, // 69: pps.CredentialUserCredentialService.WriteToParcel:input_type -> pps.CredentialUserCredentialWriteToParcelRequest
+	1,   // 70: pps.HomeSpService.NewHomeSp:output_type -> pps.NewHomeSpResponse
+	3,   // 71: pps.HomeSpService.DescribeContents:output_type -> pps.DescribeContentsResponse
+	5,   // 72: pps.HomeSpService.Equals:output_type -> pps.EqualsResponse
+	7,   // 73: pps.HomeSpService.GetFqdn:output_type -> pps.GetFqdnResponse
+	9,   // 74: pps.HomeSpService.GetFriendlyName:output_type -> pps.GetFriendlyNameResponse
+	11,  // 75: pps.HomeSpService.GetMatchAllOis:output_type -> pps.GetMatchAllOisResponse
+	13,  // 76: pps.HomeSpService.GetMatchAnyOis:output_type -> pps.GetMatchAnyOisResponse
+	15,  // 77: pps.HomeSpService.GetOtherHomePartnersList:output_type -> pps.GetOtherHomePartnersListResponse
+	17,  // 78: pps.HomeSpService.GetRoamingConsortiumOis:output_type -> pps.GetRoamingConsortiumOisResponse
+	19,  // 79: pps.HomeSpService.HashCode:output_type -> pps.HashCodeResponse
+	21,  // 80: pps.HomeSpService.SetFqdn:output_type -> pps.SetFqdnResponse
+	23,  // 81: pps.HomeSpService.SetFriendlyName:output_type -> pps.SetFriendlyNameResponse
+	25,  // 82: pps.HomeSpService.SetMatchAllOis:output_type -> pps.SetMatchAllOisResponse
+	27,  // 83: pps.HomeSpService.SetMatchAnyOis:output_type -> pps.SetMatchAnyOisResponse
+	29,  // 84: pps.HomeSpService.SetRoamingConsortiumOis:output_type -> pps.SetRoamingConsortiumOisResponse
+	31,  // 85: pps.HomeSpService.ToString:output_type -> pps.ToStringResponse
+	33,  // 86: pps.HomeSpService.WriteToParcel:output_type -> pps.WriteToParcelResponse
+	35,  // 87: pps.CredentialService.NewCredential:output_type -> pps.NewCredentialResponse
+	3,   // 88: pps.CredentialService.DescribeContents:output_type -> pps.DescribeContentsResponse
+	5,   // 89: pps.CredentialService.Equals:output_type -> pps.EqualsResponse
+	37,  // 90: pps.CredentialService.GetCaCertificate:output_type -> pps.GetCaCertificateResponse
+	39,  // 91: pps.CredentialService.GetCertCredential:output_type -> pps.GetCertCredentialResponse
+	41,  // 92: pps.CredentialService.GetClientCertificateChain:output_type -> pps.GetClientCertificateChainResponse
+	43,  // 93: pps.CredentialService.GetClientPrivateKey:output_type -> pps.GetClientPrivateKeyResponse
+	45,  // 94: pps.CredentialService.GetMinimumTlsVersion:output_type -> pps.GetMinimumTlsVersionResponse
+	47,  // 95: pps.CredentialService.GetRealm:output_type -> pps.GetRealmResponse
+	49,  // 96: pps.CredentialService.GetSimCredential:output_type -> pps.GetSimCredentialResponse
+	51,  // 97: pps.CredentialService.GetUserCredential:output_type -> pps.GetUserCredentialResponse
+	19,  // 98: pps.CredentialService.HashCode:output_type -> pps.HashCodeResponse
+	53,  // 99: pps.CredentialService.SetCaCertificate:output_type -> pps.SetCaCertificateResponse
+	55,  // 100: pps.CredentialService.SetCertCredential:output_type -> pps.SetCertCredentialResponse
+	57,  // 101: pps.CredentialService.SetClientCertificateChain:output_type -> pps.SetClientCertificateChainResponse
+	59,  // 102: pps.CredentialService.SetClientPrivateKey:output_type -> pps.SetClientPrivateKeyResponse
+	61,  // 103: pps.CredentialService.SetMinimumTlsVersion:output_type -> pps.SetMinimumTlsVersionResponse
+	63,  // 104: pps.CredentialService.SetRealm:output_type -> pps.SetRealmResponse
+	65,  // 105: pps.CredentialService.SetSimCredential:output_type -> pps.SetSimCredentialResponse
+	67,  // 106: pps.CredentialService.SetUserCredential:output_type -> pps.SetUserCredentialResponse
+	31,  // 107: pps.CredentialService.ToString:output_type -> pps.ToStringResponse
+	33,  // 108: pps.CredentialService.WriteToParcel:output_type -> pps.WriteToParcelResponse
+	3,   // 109: pps.CredentialCertificateCredentialService.DescribeContents:output_type -> pps.DescribeContentsResponse
+	5,   // 110: pps.CredentialCertificateCredentialService.Equals:output_type -> pps.EqualsResponse
+	71,  // 111: pps.CredentialCertificateCredentialService.GetCertSha256Fingerprint:output_type -> pps.GetCertSha256FingerprintResponse
+	73,  // 112: pps.CredentialCertificateCredentialService.GetCertType:output_type -> pps.GetCertTypeResponse
+	19,  // 113: pps.CredentialCertificateCredentialService.HashCode:output_type -> pps.HashCodeResponse
+	76,  // 114: pps.CredentialCertificateCredentialService.SetCertSha256Fingerprint:output_type -> pps.SetCertSha256FingerprintResponse
+	78,  // 115: pps.CredentialCertificateCredentialService.SetCertType:output_type -> pps.SetCertTypeResponse
+	31,  // 116: pps.CredentialCertificateCredentialService.ToString:output_type -> pps.ToStringResponse
+	33,  // 117: pps.CredentialCertificateCredentialService.WriteToParcel:output_type -> pps.WriteToParcelResponse
+	3,   // 118: pps.CredentialSimCredentialService.DescribeContents:output_type -> pps.DescribeContentsResponse
+	5,   // 119: pps.CredentialSimCredentialService.Equals:output_type -> pps.EqualsResponse
+	84,  // 120: pps.CredentialSimCredentialService.GetEapType:output_type -> pps.GetEapTypeResponse
+	86,  // 121: pps.CredentialSimCredentialService.GetImsi:output_type -> pps.GetImsiResponse
+	19,  // 122: pps.CredentialSimCredentialService.HashCode:output_type -> pps.HashCodeResponse
+	89,  // 123: pps.CredentialSimCredentialService.SetEapType:output_type -> pps.SetEapTypeResponse
+	91,  // 124: pps.CredentialSimCredentialService.SetImsi:output_type -> pps.SetImsiResponse
+	31,  // 125: pps.CredentialSimCredentialService.ToString:output_type -> pps.ToStringResponse
+	33,  // 126: pps.CredentialSimCredentialService.WriteToParcel:output_type -> pps.WriteToParcelResponse
+	3,   // 127: pps.CredentialUserCredentialService.DescribeContents:output_type -> pps.DescribeContentsResponse
+	5,   // 128: pps.CredentialUserCredentialService.Equals:output_type -> pps.EqualsResponse
+	84,  // 129: pps.CredentialUserCredentialService.GetEapType:output_type -> pps.GetEapTypeResponse
+	97,  // 130: pps.CredentialUserCredentialService.GetNonEapInnerMethod:output_type -> pps.GetNonEapInnerMethodResponse
+	99,  // 131: pps.CredentialUserCredentialService.GetPassword:output_type -> pps.GetPasswordResponse
+	101, // 132: pps.CredentialUserCredentialService.GetUsername:output_type -> pps.GetUsernameResponse
+	19,  // 133: pps.CredentialUserCredentialService.HashCode:output_type -> pps.HashCodeResponse
+	89,  // 134: pps.CredentialUserCredentialService.SetEapType:output_type -> pps.SetEapTypeResponse
+	104, // 135: pps.CredentialUserCredentialService.SetNonEapInnerMethod:output_type -> pps.SetNonEapInnerMethodResponse
+	106, // 136: pps.CredentialUserCredentialService.SetPassword:output_type -> pps.SetPasswordResponse
+	108, // 137: pps.CredentialUserCredentialService.SetUsername:output_type -> pps.SetUsernameResponse
+	31,  // 138: pps.CredentialUserCredentialService.ToString:output_type -> pps.ToStringResponse
+	33,  // 139: pps.CredentialUserCredentialService.WriteToParcel:output_type -> pps.WriteToParcelResponse
+	70,  // [70:140] is the sub-list for method output_type
+	0,   // [0:70] is the sub-list for method input_type
 	0,   // [0:0] is the sub-list for extension type_name
 	0,   // [0:0] is the sub-list for extension extendee
 	0,   // [0:0] is the sub-list for field type_name
@@ -5222,7 +5319,7 @@ func file_proto_pps_pps_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_pps_pps_proto_rawDesc), len(file_proto_pps_pps_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   109,
+			NumMessages:   111,
 			NumExtensions: 0,
 			NumServices:   5,
 		},

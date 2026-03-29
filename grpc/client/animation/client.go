@@ -9,104 +9,21 @@ import (
 	"google.golang.org/grpc"
 )
 
-// TimeAnimatorClient wraps the gRPC TimeAnimatorService client.
-type TimeAnimatorClient struct {
-	svc pb.TimeAnimatorServiceClient
+// ArgbEvaluatorClient wraps the gRPC ArgbEvaluatorService client.
+type ArgbEvaluatorClient struct {
+	svc pb.ArgbEvaluatorServiceClient
 }
 
-// NewTimeAnimatorClient creates a new TimeAnimator client.
-func NewTimeAnimatorClient(cc grpc.ClientConnInterface) *TimeAnimatorClient {
-	return &TimeAnimatorClient{
-		svc: pb.NewTimeAnimatorServiceClient(cc),
+// NewArgbEvaluatorClient creates a new ArgbEvaluator client.
+func NewArgbEvaluatorClient(cc grpc.ClientConnInterface) *ArgbEvaluatorClient {
+	return &ArgbEvaluatorClient{
+		svc: pb.NewArgbEvaluatorServiceClient(cc),
 	}
 }
 
-// SetCurrentPlayTime calls the SetCurrentPlayTime RPC.
-func (c *TimeAnimatorClient) SetCurrentPlayTime(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetCurrentPlayTime(ctx, &pb.SetCurrentPlayTimeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTimeListener calls the SetTimeListener RPC.
-func (c *TimeAnimatorClient) SetTimeListener(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetTimeListener(ctx, &pb.SetTimeListenerRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// Start calls the Start RPC.
-func (c *TimeAnimatorClient) Start(ctx context.Context, handle int64) error {
-	_, err := c.svc.Start(ctx, &pb.StartRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// TimeAnimatorTimeListenerClient wraps the gRPC TimeAnimatorTimeListenerService client.
-type TimeAnimatorTimeListenerClient struct {
-	svc pb.TimeAnimatorTimeListenerServiceClient
-}
-
-// NewTimeAnimatorTimeListenerClient creates a new TimeAnimatorTimeListener client.
-func NewTimeAnimatorTimeListenerClient(cc grpc.ClientConnInterface) *TimeAnimatorTimeListenerClient {
-	return &TimeAnimatorTimeListenerClient{
-		svc: pb.NewTimeAnimatorTimeListenerServiceClient(cc),
-	}
-}
-
-// OnTimeUpdate calls the OnTimeUpdate RPC.
-func (c *TimeAnimatorTimeListenerClient) OnTimeUpdate(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.OnTimeUpdate(ctx, &pb.OnTimeUpdateRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// TimeInterpolatorClient wraps the gRPC TimeInterpolatorService client.
-type TimeInterpolatorClient struct {
-	svc pb.TimeInterpolatorServiceClient
-}
-
-// NewTimeInterpolatorClient creates a new TimeInterpolator client.
-func NewTimeInterpolatorClient(cc grpc.ClientConnInterface) *TimeInterpolatorClient {
-	return &TimeInterpolatorClient{
-		svc: pb.NewTimeInterpolatorServiceClient(cc),
-	}
-}
-
-// GetInterpolation calls the GetInterpolation RPC.
-func (c *TimeInterpolatorClient) GetInterpolation(ctx context.Context, arg0 float32) (float32, error) {
-	resp, err := c.svc.GetInterpolation(ctx, &pb.GetInterpolationRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RectEvaluatorClient wraps the gRPC RectEvaluatorService client.
-type RectEvaluatorClient struct {
-	svc pb.RectEvaluatorServiceClient
-}
-
-// NewRectEvaluatorClient creates a new RectEvaluator client.
-func NewRectEvaluatorClient(cc grpc.ClientConnInterface) *RectEvaluatorClient {
-	return &RectEvaluatorClient{
-		svc: pb.NewRectEvaluatorServiceClient(cc),
-	}
-}
-
-// Evaluate3 calls the Evaluate3 RPC.
-func (c *RectEvaluatorClient) Evaluate3(ctx context.Context, handle int64, arg0 float32, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Evaluate3(ctx, &pb.Evaluate3Request{
+// Evaluate calls the Evaluate RPC.
+func (c *ArgbEvaluatorClient) Evaluate(ctx context.Context, handle int64, arg0 float32, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Evaluate(ctx, &pb.EvaluateRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -118,242 +35,20 @@ func (c *RectEvaluatorClient) Evaluate3(ctx context.Context, handle int64, arg0 
 	return resp.GetResult(), nil
 }
 
-// Evaluate3_1 calls the Evaluate3_1 RPC.
-func (c *RectEvaluatorClient) Evaluate3_1(ctx context.Context, handle int64, arg0 float32, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Evaluate3_1(ctx, &pb.Evaluate3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
+// AnimatorListenerAdapterClient wraps the gRPC AnimatorListenerAdapterService client.
+type AnimatorListenerAdapterClient struct {
+	svc pb.AnimatorListenerAdapterServiceClient
 }
 
-// AnimatorClient wraps the gRPC AnimatorService client.
-type AnimatorClient struct {
-	svc pb.AnimatorServiceClient
-}
-
-// NewAnimatorClient creates a new Animator client.
-func NewAnimatorClient(cc grpc.ClientConnInterface) *AnimatorClient {
-	return &AnimatorClient{
-		svc: pb.NewAnimatorServiceClient(cc),
-	}
-}
-
-// AddListener calls the AddListener RPC.
-func (c *AnimatorClient) AddListener(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.AddListener(ctx, &pb.AddListenerRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// AddPauseListener calls the AddPauseListener RPC.
-func (c *AnimatorClient) AddPauseListener(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.AddPauseListener(ctx, &pb.AddPauseListenerRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// Cancel calls the Cancel RPC.
-func (c *AnimatorClient) Cancel(ctx context.Context) error {
-	_, err := c.svc.Cancel(ctx, &pb.CancelRequest{})
-	return err
-}
-
-// Clone0 calls the Clone0 RPC.
-func (c *AnimatorClient) Clone0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Clone0(ctx, &pb.Clone0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// End calls the End RPC.
-func (c *AnimatorClient) End(ctx context.Context) error {
-	_, err := c.svc.End(ctx, &pb.EndRequest{})
-	return err
-}
-
-// GetDuration calls the GetDuration RPC.
-func (c *AnimatorClient) GetDuration(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDuration(ctx, &pb.GetDurationRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInterpolator calls the GetInterpolator RPC.
-func (c *AnimatorClient) GetInterpolator(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetInterpolator(ctx, &pb.GetInterpolatorRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStartDelay calls the GetStartDelay RPC.
-func (c *AnimatorClient) GetStartDelay(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetStartDelay(ctx, &pb.GetStartDelayRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTotalDuration calls the GetTotalDuration RPC.
-func (c *AnimatorClient) GetTotalDuration(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTotalDuration(ctx, &pb.GetTotalDurationRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsPaused calls the IsPaused RPC.
-func (c *AnimatorClient) IsPaused(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsPaused(ctx, &pb.IsPausedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsRunning calls the IsRunning RPC.
-func (c *AnimatorClient) IsRunning(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsRunning(ctx, &pb.IsRunningRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsStarted calls the IsStarted RPC.
-func (c *AnimatorClient) IsStarted(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsStarted(ctx, &pb.IsStartedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Pause calls the Pause RPC.
-func (c *AnimatorClient) Pause(ctx context.Context) error {
-	_, err := c.svc.Pause(ctx, &pb.PauseRequest{})
-	return err
-}
-
-// RemoveAllListeners calls the RemoveAllListeners RPC.
-func (c *AnimatorClient) RemoveAllListeners(ctx context.Context) error {
-	_, err := c.svc.RemoveAllListeners(ctx, &pb.RemoveAllListenersRequest{})
-	return err
-}
-
-// RemoveListener calls the RemoveListener RPC.
-func (c *AnimatorClient) RemoveListener(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.RemoveListener(ctx, &pb.RemoveListenerRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// RemovePauseListener calls the RemovePauseListener RPC.
-func (c *AnimatorClient) RemovePauseListener(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.RemovePauseListener(ctx, &pb.RemovePauseListenerRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// Resume calls the Resume RPC.
-func (c *AnimatorClient) Resume(ctx context.Context) error {
-	_, err := c.svc.Resume(ctx, &pb.ResumeRequest{})
-	return err
-}
-
-// SetDuration calls the SetDuration RPC.
-func (c *AnimatorClient) SetDuration(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetDuration(ctx, &pb.SetDurationRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetInterpolator calls the SetInterpolator RPC.
-func (c *AnimatorClient) SetInterpolator(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetInterpolator(ctx, &pb.SetInterpolatorRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetStartDelay calls the SetStartDelay RPC.
-func (c *AnimatorClient) SetStartDelay(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetStartDelay(ctx, &pb.SetStartDelayRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetTarget calls the SetTarget RPC.
-func (c *AnimatorClient) SetTarget(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetTarget(ctx, &pb.SetTargetRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetupEndValues calls the SetupEndValues RPC.
-func (c *AnimatorClient) SetupEndValues(ctx context.Context) error {
-	_, err := c.svc.SetupEndValues(ctx, &pb.SetupEndValuesRequest{})
-	return err
-}
-
-// SetupStartValues calls the SetupStartValues RPC.
-func (c *AnimatorClient) SetupStartValues(ctx context.Context) error {
-	_, err := c.svc.SetupStartValues(ctx, &pb.SetupStartValuesRequest{})
-	return err
-}
-
-// Start calls the Start RPC.
-func (c *AnimatorClient) Start(ctx context.Context) error {
-	_, err := c.svc.Start(ctx, &pb.AnimatorStartRequest{})
-	return err
-}
-
-// Clone0_1 calls the Clone0_1 RPC.
-func (c *AnimatorClient) Clone0_1(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Clone0_1(ctx, &pb.Clone0_1Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AnimatorAnimatorListenerClient wraps the gRPC AnimatorAnimatorListenerService client.
-type AnimatorAnimatorListenerClient struct {
-	svc pb.AnimatorAnimatorListenerServiceClient
-}
-
-// NewAnimatorAnimatorListenerClient creates a new AnimatorAnimatorListener client.
-func NewAnimatorAnimatorListenerClient(cc grpc.ClientConnInterface) *AnimatorAnimatorListenerClient {
-	return &AnimatorAnimatorListenerClient{
-		svc: pb.NewAnimatorAnimatorListenerServiceClient(cc),
+// NewAnimatorListenerAdapterClient creates a new AnimatorListenerAdapter client.
+func NewAnimatorListenerAdapterClient(cc grpc.ClientConnInterface) *AnimatorListenerAdapterClient {
+	return &AnimatorListenerAdapterClient{
+		svc: pb.NewAnimatorListenerAdapterServiceClient(cc),
 	}
 }
 
 // OnAnimationCancel calls the OnAnimationCancel RPC.
-func (c *AnimatorAnimatorListenerClient) OnAnimationCancel(ctx context.Context, arg0 int64) error {
+func (c *AnimatorListenerAdapterClient) OnAnimationCancel(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.OnAnimationCancel(ctx, &pb.OnAnimationCancelRequest{
 		Arg0: arg0,
 	})
@@ -361,305 +56,43 @@ func (c *AnimatorAnimatorListenerClient) OnAnimationCancel(ctx context.Context, 
 }
 
 // OnAnimationEnd calls the OnAnimationEnd RPC.
-func (c *AnimatorAnimatorListenerClient) OnAnimationEnd(ctx context.Context, arg0 int64) error {
+func (c *AnimatorListenerAdapterClient) OnAnimationEnd(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.OnAnimationEnd(ctx, &pb.OnAnimationEndRequest{
 		Arg0: arg0,
 	})
 	return err
 }
 
-// OnAnimationRepeat calls the OnAnimationRepeat RPC.
-func (c *AnimatorAnimatorListenerClient) OnAnimationRepeat(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnAnimationRepeat(ctx, &pb.OnAnimationRepeatRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnAnimationStart calls the OnAnimationStart RPC.
-func (c *AnimatorAnimatorListenerClient) OnAnimationStart(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnAnimationStart(ctx, &pb.OnAnimationStartRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// AnimatorAnimatorPauseListenerClient wraps the gRPC AnimatorAnimatorPauseListenerService client.
-type AnimatorAnimatorPauseListenerClient struct {
-	svc pb.AnimatorAnimatorPauseListenerServiceClient
-}
-
-// NewAnimatorAnimatorPauseListenerClient creates a new AnimatorAnimatorPauseListener client.
-func NewAnimatorAnimatorPauseListenerClient(cc grpc.ClientConnInterface) *AnimatorAnimatorPauseListenerClient {
-	return &AnimatorAnimatorPauseListenerClient{
-		svc: pb.NewAnimatorAnimatorPauseListenerServiceClient(cc),
-	}
-}
-
 // OnAnimationPause calls the OnAnimationPause RPC.
-func (c *AnimatorAnimatorPauseListenerClient) OnAnimationPause(ctx context.Context, arg0 int64) error {
+func (c *AnimatorListenerAdapterClient) OnAnimationPause(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.OnAnimationPause(ctx, &pb.OnAnimationPauseRequest{
 		Arg0: arg0,
 	})
 	return err
 }
 
+// OnAnimationRepeat calls the OnAnimationRepeat RPC.
+func (c *AnimatorListenerAdapterClient) OnAnimationRepeat(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnAnimationRepeat(ctx, &pb.OnAnimationRepeatRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
 // OnAnimationResume calls the OnAnimationResume RPC.
-func (c *AnimatorAnimatorPauseListenerClient) OnAnimationResume(ctx context.Context, arg0 int64) error {
+func (c *AnimatorListenerAdapterClient) OnAnimationResume(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.OnAnimationResume(ctx, &pb.OnAnimationResumeRequest{
 		Arg0: arg0,
 	})
 	return err
 }
 
-// FloatArrayEvaluatorClient wraps the gRPC FloatArrayEvaluatorService client.
-type FloatArrayEvaluatorClient struct {
-	svc pb.FloatArrayEvaluatorServiceClient
-}
-
-// NewFloatArrayEvaluatorClient creates a new FloatArrayEvaluator client.
-func NewFloatArrayEvaluatorClient(cc grpc.ClientConnInterface) *FloatArrayEvaluatorClient {
-	return &FloatArrayEvaluatorClient{
-		svc: pb.NewFloatArrayEvaluatorServiceClient(cc),
-	}
-}
-
-// Evaluate3 calls the Evaluate3 RPC.
-func (c *FloatArrayEvaluatorClient) Evaluate3(ctx context.Context, handle int64, arg0 float32, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Evaluate3(ctx, &pb.Evaluate3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Evaluate3_1 calls the Evaluate3_1 RPC.
-func (c *FloatArrayEvaluatorClient) Evaluate3_1(ctx context.Context, handle int64, arg0 float32, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Evaluate3_1(ctx, &pb.Evaluate3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// StateListAnimatorClient wraps the gRPC StateListAnimatorService client.
-type StateListAnimatorClient struct {
-	svc pb.StateListAnimatorServiceClient
-}
-
-// NewStateListAnimatorClient creates a new StateListAnimator client.
-func NewStateListAnimatorClient(cc grpc.ClientConnInterface) *StateListAnimatorClient {
-	return &StateListAnimatorClient{
-		svc: pb.NewStateListAnimatorServiceClient(cc),
-	}
-}
-
-// AddState calls the AddState RPC.
-func (c *StateListAnimatorClient) AddState(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.AddState(ctx, &pb.AddStateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
+// OnAnimationStart calls the OnAnimationStart RPC.
+func (c *AnimatorListenerAdapterClient) OnAnimationStart(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnAnimationStart(ctx, &pb.OnAnimationStartRequest{
+		Arg0: arg0,
 	})
 	return err
-}
-
-// Clone0 calls the Clone0 RPC.
-func (c *StateListAnimatorClient) Clone0(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone0(ctx, &pb.StateListAnimatorClone0Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// JumpToCurrentState calls the JumpToCurrentState RPC.
-func (c *StateListAnimatorClient) JumpToCurrentState(ctx context.Context, handle int64) error {
-	_, err := c.svc.JumpToCurrentState(ctx, &pb.JumpToCurrentStateRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// Clone0_1 calls the Clone0_1 RPC.
-func (c *StateListAnimatorClient) Clone0_1(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone0_1(ctx, &pb.StateListAnimatorClone0_1Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IntEvaluatorClient wraps the gRPC IntEvaluatorService client.
-type IntEvaluatorClient struct {
-	svc pb.IntEvaluatorServiceClient
-}
-
-// NewIntEvaluatorClient creates a new IntEvaluator client.
-func NewIntEvaluatorClient(cc grpc.ClientConnInterface) *IntEvaluatorClient {
-	return &IntEvaluatorClient{
-		svc: pb.NewIntEvaluatorServiceClient(cc),
-	}
-}
-
-// Evaluate3 calls the Evaluate3 RPC.
-func (c *IntEvaluatorClient) Evaluate3(ctx context.Context, handle int64, arg0 float32, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Evaluate3(ctx, &pb.Evaluate3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Evaluate3_1 calls the Evaluate3_1 RPC.
-func (c *IntEvaluatorClient) Evaluate3_1(ctx context.Context, handle int64, arg0 float32, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Evaluate3_1(ctx, &pb.Evaluate3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AnimatorInflaterClient wraps the gRPC AnimatorInflaterService client.
-type AnimatorInflaterClient struct {
-	svc pb.AnimatorInflaterServiceClient
-}
-
-// NewAnimatorInflaterClient creates a new AnimatorInflater client.
-func NewAnimatorInflaterClient(cc grpc.ClientConnInterface) *AnimatorInflaterClient {
-	return &AnimatorInflaterClient{
-		svc: pb.NewAnimatorInflaterServiceClient(cc),
-	}
-}
-
-// LoadAnimator calls the LoadAnimator RPC.
-func (c *AnimatorInflaterClient) LoadAnimator(ctx context.Context, handle int64, arg0 int64, arg1 int32) (int64, error) {
-	resp, err := c.svc.LoadAnimator(ctx, &pb.LoadAnimatorRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LoadStateListAnimator calls the LoadStateListAnimator RPC.
-func (c *AnimatorInflaterClient) LoadStateListAnimator(ctx context.Context, handle int64, arg0 int64, arg1 int32) (int64, error) {
-	resp, err := c.svc.LoadStateListAnimator(ctx, &pb.LoadStateListAnimatorRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PointFEvaluatorClient wraps the gRPC PointFEvaluatorService client.
-type PointFEvaluatorClient struct {
-	svc pb.PointFEvaluatorServiceClient
-}
-
-// NewPointFEvaluatorClient creates a new PointFEvaluator client.
-func NewPointFEvaluatorClient(cc grpc.ClientConnInterface) *PointFEvaluatorClient {
-	return &PointFEvaluatorClient{
-		svc: pb.NewPointFEvaluatorServiceClient(cc),
-	}
-}
-
-// Evaluate3 calls the Evaluate3 RPC.
-func (c *PointFEvaluatorClient) Evaluate3(ctx context.Context, handle int64, arg0 float32, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Evaluate3(ctx, &pb.Evaluate3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Evaluate3_1 calls the Evaluate3_1 RPC.
-func (c *PointFEvaluatorClient) Evaluate3_1(ctx context.Context, handle int64, arg0 float32, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Evaluate3_1(ctx, &pb.Evaluate3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FloatEvaluatorClient wraps the gRPC FloatEvaluatorService client.
-type FloatEvaluatorClient struct {
-	svc pb.FloatEvaluatorServiceClient
-}
-
-// NewFloatEvaluatorClient creates a new FloatEvaluator client.
-func NewFloatEvaluatorClient(cc grpc.ClientConnInterface) *FloatEvaluatorClient {
-	return &FloatEvaluatorClient{
-		svc: pb.NewFloatEvaluatorServiceClient(cc),
-	}
-}
-
-// Evaluate3 calls the Evaluate3 RPC.
-func (c *FloatEvaluatorClient) Evaluate3(ctx context.Context, handle int64, arg0 float32, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Evaluate3(ctx, &pb.Evaluate3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Evaluate3_1 calls the Evaluate3_1 RPC.
-func (c *FloatEvaluatorClient) Evaluate3_1(ctx context.Context, handle int64, arg0 float32, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Evaluate3_1(ctx, &pb.Evaluate3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
 }
 
 // ValueAnimatorClient wraps the gRPC ValueAnimatorService client.
@@ -685,7 +118,7 @@ func (c *ValueAnimatorClient) AddUpdateListener(ctx context.Context, handle int6
 
 // Cancel calls the Cancel RPC.
 func (c *ValueAnimatorClient) Cancel(ctx context.Context, handle int64) error {
-	_, err := c.svc.Cancel(ctx, &pb.ValueAnimatorCancelRequest{
+	_, err := c.svc.Cancel(ctx, &pb.CancelRequest{
 		Handle: handle,
 	})
 	return err
@@ -693,7 +126,7 @@ func (c *ValueAnimatorClient) Cancel(ctx context.Context, handle int64) error {
 
 // Clone0 calls the Clone0 RPC.
 func (c *ValueAnimatorClient) Clone0(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone0(ctx, &pb.ValueAnimatorClone0Request{
+	resp, err := c.svc.Clone0(ctx, &pb.Clone0Request{
 		Handle: handle,
 	})
 	if err != nil {
@@ -704,7 +137,7 @@ func (c *ValueAnimatorClient) Clone0(ctx context.Context, handle int64) (int64, 
 
 // End calls the End RPC.
 func (c *ValueAnimatorClient) End(ctx context.Context, handle int64) error {
-	_, err := c.svc.End(ctx, &pb.ValueAnimatorEndRequest{
+	_, err := c.svc.End(ctx, &pb.EndRequest{
 		Handle: handle,
 	})
 	return err
@@ -757,7 +190,7 @@ func (c *ValueAnimatorClient) GetCurrentPlayTime(ctx context.Context, handle int
 
 // GetDuration calls the GetDuration RPC.
 func (c *ValueAnimatorClient) GetDuration(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetDuration(ctx, &pb.ValueAnimatorGetDurationRequest{
+	resp, err := c.svc.GetDuration(ctx, &pb.GetDurationRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -768,7 +201,7 @@ func (c *ValueAnimatorClient) GetDuration(ctx context.Context, handle int64) (in
 
 // GetInterpolator calls the GetInterpolator RPC.
 func (c *ValueAnimatorClient) GetInterpolator(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetInterpolator(ctx, &pb.ValueAnimatorGetInterpolatorRequest{
+	resp, err := c.svc.GetInterpolator(ctx, &pb.GetInterpolatorRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -801,7 +234,7 @@ func (c *ValueAnimatorClient) GetRepeatMode(ctx context.Context, handle int64) (
 
 // GetStartDelay calls the GetStartDelay RPC.
 func (c *ValueAnimatorClient) GetStartDelay(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetStartDelay(ctx, &pb.ValueAnimatorGetStartDelayRequest{
+	resp, err := c.svc.GetStartDelay(ctx, &pb.GetStartDelayRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -812,7 +245,7 @@ func (c *ValueAnimatorClient) GetStartDelay(ctx context.Context, handle int64) (
 
 // GetTotalDuration calls the GetTotalDuration RPC.
 func (c *ValueAnimatorClient) GetTotalDuration(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetTotalDuration(ctx, &pb.ValueAnimatorGetTotalDurationRequest{
+	resp, err := c.svc.GetTotalDuration(ctx, &pb.GetTotalDurationRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -834,7 +267,7 @@ func (c *ValueAnimatorClient) GetValues(ctx context.Context, handle int64) (int6
 
 // IsRunning calls the IsRunning RPC.
 func (c *ValueAnimatorClient) IsRunning(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsRunning(ctx, &pb.ValueAnimatorIsRunningRequest{
+	resp, err := c.svc.IsRunning(ctx, &pb.IsRunningRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -845,7 +278,7 @@ func (c *ValueAnimatorClient) IsRunning(ctx context.Context, handle int64) (bool
 
 // IsStarted calls the IsStarted RPC.
 func (c *ValueAnimatorClient) IsStarted(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsStarted(ctx, &pb.ValueAnimatorIsStartedRequest{
+	resp, err := c.svc.IsStarted(ctx, &pb.IsStartedRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -856,7 +289,7 @@ func (c *ValueAnimatorClient) IsStarted(ctx context.Context, handle int64) (bool
 
 // Pause calls the Pause RPC.
 func (c *ValueAnimatorClient) Pause(ctx context.Context, handle int64) error {
-	_, err := c.svc.Pause(ctx, &pb.ValueAnimatorPauseRequest{
+	_, err := c.svc.Pause(ctx, &pb.PauseRequest{
 		Handle: handle,
 	})
 	return err
@@ -881,7 +314,7 @@ func (c *ValueAnimatorClient) RemoveUpdateListener(ctx context.Context, handle i
 
 // Resume calls the Resume RPC.
 func (c *ValueAnimatorClient) Resume(ctx context.Context, handle int64) error {
-	_, err := c.svc.Resume(ctx, &pb.ValueAnimatorResumeRequest{
+	_, err := c.svc.Resume(ctx, &pb.ResumeRequest{
 		Handle: handle,
 	})
 	return err
@@ -954,7 +387,7 @@ func (c *ValueAnimatorClient) SetIntValues(ctx context.Context, handle int64, ar
 
 // SetInterpolator calls the SetInterpolator RPC.
 func (c *ValueAnimatorClient) SetInterpolator(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetInterpolator(ctx, &pb.ValueAnimatorSetInterpolatorRequest{
+	_, err := c.svc.SetInterpolator(ctx, &pb.SetInterpolatorRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -990,7 +423,7 @@ func (c *ValueAnimatorClient) SetRepeatMode(ctx context.Context, handle int64, a
 
 // SetStartDelay calls the SetStartDelay RPC.
 func (c *ValueAnimatorClient) SetStartDelay(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetStartDelay(ctx, &pb.ValueAnimatorSetStartDelayRequest{
+	_, err := c.svc.SetStartDelay(ctx, &pb.SetStartDelayRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -1039,7 +472,7 @@ func (c *ValueAnimatorClient) SetDuration1_1(ctx context.Context, handle int64, 
 
 // Clone0_1 calls the Clone0_1 RPC.
 func (c *ValueAnimatorClient) Clone0_1(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone0_1(ctx, &pb.ValueAnimatorClone0_1Request{
+	resp, err := c.svc.Clone0_1(ctx, &pb.Clone0_1Request{
 		Handle: handle,
 	})
 	if err != nil {
@@ -1226,659 +659,6 @@ func (c *ValueAnimatorDurationScaleChangeListenerClient) OnChanged(ctx context.C
 	return err
 }
 
-// IntArrayEvaluatorClient wraps the gRPC IntArrayEvaluatorService client.
-type IntArrayEvaluatorClient struct {
-	svc pb.IntArrayEvaluatorServiceClient
-}
-
-// NewIntArrayEvaluatorClient creates a new IntArrayEvaluator client.
-func NewIntArrayEvaluatorClient(cc grpc.ClientConnInterface) *IntArrayEvaluatorClient {
-	return &IntArrayEvaluatorClient{
-		svc: pb.NewIntArrayEvaluatorServiceClient(cc),
-	}
-}
-
-// Evaluate3 calls the Evaluate3 RPC.
-func (c *IntArrayEvaluatorClient) Evaluate3(ctx context.Context, handle int64, arg0 float32, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Evaluate3(ctx, &pb.Evaluate3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Evaluate3_1 calls the Evaluate3_1 RPC.
-func (c *IntArrayEvaluatorClient) Evaluate3_1(ctx context.Context, handle int64, arg0 float32, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Evaluate3_1(ctx, &pb.Evaluate3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ArgbEvaluatorClient wraps the gRPC ArgbEvaluatorService client.
-type ArgbEvaluatorClient struct {
-	svc pb.ArgbEvaluatorServiceClient
-}
-
-// NewArgbEvaluatorClient creates a new ArgbEvaluator client.
-func NewArgbEvaluatorClient(cc grpc.ClientConnInterface) *ArgbEvaluatorClient {
-	return &ArgbEvaluatorClient{
-		svc: pb.NewArgbEvaluatorServiceClient(cc),
-	}
-}
-
-// Evaluate calls the Evaluate RPC.
-func (c *ArgbEvaluatorClient) Evaluate(ctx context.Context, handle int64, arg0 float32, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.Evaluate(ctx, &pb.EvaluateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AnimatorListenerAdapterClient wraps the gRPC AnimatorListenerAdapterService client.
-type AnimatorListenerAdapterClient struct {
-	svc pb.AnimatorListenerAdapterServiceClient
-}
-
-// NewAnimatorListenerAdapterClient creates a new AnimatorListenerAdapter client.
-func NewAnimatorListenerAdapterClient(cc grpc.ClientConnInterface) *AnimatorListenerAdapterClient {
-	return &AnimatorListenerAdapterClient{
-		svc: pb.NewAnimatorListenerAdapterServiceClient(cc),
-	}
-}
-
-// OnAnimationCancel calls the OnAnimationCancel RPC.
-func (c *AnimatorListenerAdapterClient) OnAnimationCancel(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnAnimationCancel(ctx, &pb.OnAnimationCancelRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnAnimationEnd calls the OnAnimationEnd RPC.
-func (c *AnimatorListenerAdapterClient) OnAnimationEnd(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnAnimationEnd(ctx, &pb.OnAnimationEndRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnAnimationPause calls the OnAnimationPause RPC.
-func (c *AnimatorListenerAdapterClient) OnAnimationPause(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnAnimationPause(ctx, &pb.OnAnimationPauseRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnAnimationRepeat calls the OnAnimationRepeat RPC.
-func (c *AnimatorListenerAdapterClient) OnAnimationRepeat(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnAnimationRepeat(ctx, &pb.OnAnimationRepeatRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnAnimationResume calls the OnAnimationResume RPC.
-func (c *AnimatorListenerAdapterClient) OnAnimationResume(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnAnimationResume(ctx, &pb.OnAnimationResumeRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnAnimationStart calls the OnAnimationStart RPC.
-func (c *AnimatorListenerAdapterClient) OnAnimationStart(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnAnimationStart(ctx, &pb.OnAnimationStartRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// PropertyValuesHolderClient wraps the gRPC PropertyValuesHolderService client.
-type PropertyValuesHolderClient struct {
-	svc pb.PropertyValuesHolderServiceClient
-}
-
-// NewPropertyValuesHolderClient creates a new PropertyValuesHolder client.
-func NewPropertyValuesHolderClient(cc grpc.ClientConnInterface) *PropertyValuesHolderClient {
-	return &PropertyValuesHolderClient{
-		svc: pb.NewPropertyValuesHolderServiceClient(cc),
-	}
-}
-
-// Clone0 calls the Clone0 RPC.
-func (c *PropertyValuesHolderClient) Clone0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Clone0(ctx, &pb.Clone0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPropertyName calls the GetPropertyName RPC.
-func (c *PropertyValuesHolderClient) GetPropertyName(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetPropertyName(ctx, &pb.GetPropertyNameRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetConverter calls the SetConverter RPC.
-func (c *PropertyValuesHolderClient) SetConverter(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetConverter(ctx, &pb.SetConverterRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetEvaluator calls the SetEvaluator RPC.
-func (c *PropertyValuesHolderClient) SetEvaluator(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetEvaluator(ctx, &pb.PropertyValuesHolderSetEvaluatorRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetFloatValues calls the SetFloatValues RPC.
-func (c *PropertyValuesHolderClient) SetFloatValues(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetFloatValues(ctx, &pb.PropertyValuesHolderSetFloatValuesRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetIntValues calls the SetIntValues RPC.
-func (c *PropertyValuesHolderClient) SetIntValues(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetIntValues(ctx, &pb.PropertyValuesHolderSetIntValuesRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetKeyframes calls the SetKeyframes RPC.
-func (c *PropertyValuesHolderClient) SetKeyframes(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetKeyframes(ctx, &pb.SetKeyframesRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetObjectValues calls the SetObjectValues RPC.
-func (c *PropertyValuesHolderClient) SetObjectValues(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetObjectValues(ctx, &pb.PropertyValuesHolderSetObjectValuesRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetProperty calls the SetProperty RPC.
-func (c *PropertyValuesHolderClient) SetProperty(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetProperty(ctx, &pb.SetPropertyRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetPropertyName calls the SetPropertyName RPC.
-func (c *PropertyValuesHolderClient) SetPropertyName(ctx context.Context, arg0 string) error {
-	_, err := c.svc.SetPropertyName(ctx, &pb.SetPropertyNameRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ToString calls the ToString RPC.
-func (c *PropertyValuesHolderClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.PropertyValuesHolderToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Clone0_1 calls the Clone0_1 RPC.
-func (c *PropertyValuesHolderClient) Clone0_1(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Clone0_1(ctx, &pb.Clone0_1Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OfFloat calls the OfFloat RPC.
-func (c *PropertyValuesHolderClient) OfFloat(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.OfFloat(ctx, &pb.PropertyValuesHolderOfFloatRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OfInt calls the OfInt RPC.
-func (c *PropertyValuesHolderClient) OfInt(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.OfInt(ctx, &pb.PropertyValuesHolderOfIntRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OfKeyframe2 calls the OfKeyframe2 RPC.
-func (c *PropertyValuesHolderClient) OfKeyframe2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.OfKeyframe2(ctx, &pb.OfKeyframe2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OfKeyframe2_1 calls the OfKeyframe2_1 RPC.
-func (c *PropertyValuesHolderClient) OfKeyframe2_1(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.OfKeyframe2_1(ctx, &pb.OfKeyframe2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OfMultiFloat2 calls the OfMultiFloat2 RPC.
-func (c *PropertyValuesHolderClient) OfMultiFloat2(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.OfMultiFloat2(ctx, &pb.OfMultiFloat2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OfMultiFloat2_1 calls the OfMultiFloat2_1 RPC.
-func (c *PropertyValuesHolderClient) OfMultiFloat2_1(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.OfMultiFloat2_1(ctx, &pb.OfMultiFloat2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OfMultiInt2 calls the OfMultiInt2 RPC.
-func (c *PropertyValuesHolderClient) OfMultiInt2(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.OfMultiInt2(ctx, &pb.OfMultiInt2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OfMultiInt2_1 calls the OfMultiInt2_1 RPC.
-func (c *PropertyValuesHolderClient) OfMultiInt2_1(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.OfMultiInt2_1(ctx, &pb.OfMultiInt2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OfObject calls the OfObject RPC.
-func (c *PropertyValuesHolderClient) OfObject(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.OfObject(ctx, &pb.PropertyValuesHolderOfObjectRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LayoutTransitionClient wraps the gRPC LayoutTransitionService client.
-type LayoutTransitionClient struct {
-	svc pb.LayoutTransitionServiceClient
-}
-
-// NewLayoutTransitionClient creates a new LayoutTransition client.
-func NewLayoutTransitionClient(cc grpc.ClientConnInterface) *LayoutTransitionClient {
-	return &LayoutTransitionClient{
-		svc: pb.NewLayoutTransitionServiceClient(cc),
-	}
-}
-
-// AddChild calls the AddChild RPC.
-func (c *LayoutTransitionClient) AddChild(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.AddChild(ctx, &pb.AddChildRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// AddTransitionListener calls the AddTransitionListener RPC.
-func (c *LayoutTransitionClient) AddTransitionListener(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddTransitionListener(ctx, &pb.AddTransitionListenerRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// DisableTransitionType calls the DisableTransitionType RPC.
-func (c *LayoutTransitionClient) DisableTransitionType(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.DisableTransitionType(ctx, &pb.DisableTransitionTypeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// EnableTransitionType calls the EnableTransitionType RPC.
-func (c *LayoutTransitionClient) EnableTransitionType(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.EnableTransitionType(ctx, &pb.EnableTransitionTypeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GetAnimator calls the GetAnimator RPC.
-func (c *LayoutTransitionClient) GetAnimator(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetAnimator(ctx, &pb.GetAnimatorRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDuration calls the GetDuration RPC.
-func (c *LayoutTransitionClient) GetDuration(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetDuration(ctx, &pb.LayoutTransitionGetDurationRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInterpolator calls the GetInterpolator RPC.
-func (c *LayoutTransitionClient) GetInterpolator(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetInterpolator(ctx, &pb.LayoutTransitionGetInterpolatorRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStagger calls the GetStagger RPC.
-func (c *LayoutTransitionClient) GetStagger(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetStagger(ctx, &pb.GetStaggerRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStartDelay calls the GetStartDelay RPC.
-func (c *LayoutTransitionClient) GetStartDelay(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetStartDelay(ctx, &pb.LayoutTransitionGetStartDelayRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HideChild2 calls the HideChild2 RPC.
-func (c *LayoutTransitionClient) HideChild2(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.HideChild2(ctx, &pb.HideChild2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// HideChild3_1 calls the HideChild3_1 RPC.
-func (c *LayoutTransitionClient) HideChild3_1(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32) error {
-	_, err := c.svc.HideChild3_1(ctx, &pb.HideChild3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// IsChangingLayout calls the IsChangingLayout RPC.
-func (c *LayoutTransitionClient) IsChangingLayout(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsChangingLayout(ctx, &pb.IsChangingLayoutRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsRunning calls the IsRunning RPC.
-func (c *LayoutTransitionClient) IsRunning(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsRunning(ctx, &pb.LayoutTransitionIsRunningRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsTransitionTypeEnabled calls the IsTransitionTypeEnabled RPC.
-func (c *LayoutTransitionClient) IsTransitionTypeEnabled(ctx context.Context, handle int64, arg0 int32) (bool, error) {
-	resp, err := c.svc.IsTransitionTypeEnabled(ctx, &pb.IsTransitionTypeEnabledRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RemoveChild calls the RemoveChild RPC.
-func (c *LayoutTransitionClient) RemoveChild(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.RemoveChild(ctx, &pb.RemoveChildRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// RemoveTransitionListener calls the RemoveTransitionListener RPC.
-func (c *LayoutTransitionClient) RemoveTransitionListener(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.RemoveTransitionListener(ctx, &pb.RemoveTransitionListenerRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetAnimateParentHierarchy calls the SetAnimateParentHierarchy RPC.
-func (c *LayoutTransitionClient) SetAnimateParentHierarchy(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetAnimateParentHierarchy(ctx, &pb.SetAnimateParentHierarchyRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetAnimator calls the SetAnimator RPC.
-func (c *LayoutTransitionClient) SetAnimator(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.SetAnimator(ctx, &pb.SetAnimatorRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetDuration2 calls the SetDuration2 RPC.
-func (c *LayoutTransitionClient) SetDuration2(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.SetDuration2(ctx, &pb.SetDuration2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetDuration1_1 calls the SetDuration1_1 RPC.
-func (c *LayoutTransitionClient) SetDuration1_1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetDuration1_1(ctx, &pb.SetDuration1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetInterpolator calls the SetInterpolator RPC.
-func (c *LayoutTransitionClient) SetInterpolator(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.SetInterpolator(ctx, &pb.LayoutTransitionSetInterpolatorRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetStagger calls the SetStagger RPC.
-func (c *LayoutTransitionClient) SetStagger(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.SetStagger(ctx, &pb.SetStaggerRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetStartDelay calls the SetStartDelay RPC.
-func (c *LayoutTransitionClient) SetStartDelay(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.SetStartDelay(ctx, &pb.LayoutTransitionSetStartDelayRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// ShowChild2 calls the ShowChild2 RPC.
-func (c *LayoutTransitionClient) ShowChild2(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.ShowChild2(ctx, &pb.ShowChild2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// ShowChild3_1 calls the ShowChild3_1 RPC.
-func (c *LayoutTransitionClient) ShowChild3_1(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32) error {
-	_, err := c.svc.ShowChild3_1(ctx, &pb.ShowChild3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// LayoutTransitionTransitionListenerClient wraps the gRPC LayoutTransitionTransitionListenerService client.
-type LayoutTransitionTransitionListenerClient struct {
-	svc pb.LayoutTransitionTransitionListenerServiceClient
-}
-
-// NewLayoutTransitionTransitionListenerClient creates a new LayoutTransitionTransitionListener client.
-func NewLayoutTransitionTransitionListenerClient(cc grpc.ClientConnInterface) *LayoutTransitionTransitionListenerClient {
-	return &LayoutTransitionTransitionListenerClient{
-		svc: pb.NewLayoutTransitionTransitionListenerServiceClient(cc),
-	}
-}
-
-// EndTransition calls the EndTransition RPC.
-func (c *LayoutTransitionTransitionListenerClient) EndTransition(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int32) error {
-	_, err := c.svc.EndTransition(ctx, &pb.EndTransitionRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// StartTransition calls the StartTransition RPC.
-func (c *LayoutTransitionTransitionListenerClient) StartTransition(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int32) error {
-	_, err := c.svc.StartTransition(ctx, &pb.StartTransitionRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
 // ObjectAnimatorClient wraps the gRPC ObjectAnimatorService client.
 type ObjectAnimatorClient struct {
 	svc pb.ObjectAnimatorServiceClient
@@ -1893,7 +673,7 @@ func NewObjectAnimatorClient(cc grpc.ClientConnInterface) *ObjectAnimatorClient 
 
 // Clone0 calls the Clone0 RPC.
 func (c *ObjectAnimatorClient) Clone0(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone0(ctx, &pb.ObjectAnimatorClone0Request{
+	resp, err := c.svc.Clone0(ctx, &pb.Clone0Request{
 		Handle: handle,
 	})
 	if err != nil {
@@ -1904,7 +684,7 @@ func (c *ObjectAnimatorClient) Clone0(ctx context.Context, handle int64) (int64,
 
 // GetPropertyName calls the GetPropertyName RPC.
 func (c *ObjectAnimatorClient) GetPropertyName(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetPropertyName(ctx, &pb.ObjectAnimatorGetPropertyNameRequest{
+	resp, err := c.svc.GetPropertyName(ctx, &pb.GetPropertyNameRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -1974,7 +754,7 @@ func (c *ObjectAnimatorClient) SetObjectValues(ctx context.Context, handle int64
 
 // SetProperty calls the SetProperty RPC.
 func (c *ObjectAnimatorClient) SetProperty(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetProperty(ctx, &pb.ObjectAnimatorSetPropertyRequest{
+	_, err := c.svc.SetProperty(ctx, &pb.SetPropertyRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -1983,7 +763,7 @@ func (c *ObjectAnimatorClient) SetProperty(ctx context.Context, handle int64, ar
 
 // SetPropertyName calls the SetPropertyName RPC.
 func (c *ObjectAnimatorClient) SetPropertyName(ctx context.Context, handle int64, arg0 string) error {
-	_, err := c.svc.SetPropertyName(ctx, &pb.ObjectAnimatorSetPropertyNameRequest{
+	_, err := c.svc.SetPropertyName(ctx, &pb.SetPropertyNameRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -1992,7 +772,7 @@ func (c *ObjectAnimatorClient) SetPropertyName(ctx context.Context, handle int64
 
 // SetTarget calls the SetTarget RPC.
 func (c *ObjectAnimatorClient) SetTarget(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetTarget(ctx, &pb.ObjectAnimatorSetTargetRequest{
+	_, err := c.svc.SetTarget(ctx, &pb.SetTargetRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -2001,7 +781,7 @@ func (c *ObjectAnimatorClient) SetTarget(ctx context.Context, handle int64, arg0
 
 // SetupEndValues calls the SetupEndValues RPC.
 func (c *ObjectAnimatorClient) SetupEndValues(ctx context.Context, handle int64) error {
-	_, err := c.svc.SetupEndValues(ctx, &pb.ObjectAnimatorSetupEndValuesRequest{
+	_, err := c.svc.SetupEndValues(ctx, &pb.SetupEndValuesRequest{
 		Handle: handle,
 	})
 	return err
@@ -2009,7 +789,7 @@ func (c *ObjectAnimatorClient) SetupEndValues(ctx context.Context, handle int64)
 
 // SetupStartValues calls the SetupStartValues RPC.
 func (c *ObjectAnimatorClient) SetupStartValues(ctx context.Context, handle int64) error {
-	_, err := c.svc.SetupStartValues(ctx, &pb.ObjectAnimatorSetupStartValuesRequest{
+	_, err := c.svc.SetupStartValues(ctx, &pb.SetupStartValuesRequest{
 		Handle: handle,
 	})
 	return err
@@ -2048,7 +828,7 @@ func (c *ObjectAnimatorClient) SetDuration1_1(ctx context.Context, handle int64,
 
 // Clone0_1 calls the Clone0_1 RPC.
 func (c *ObjectAnimatorClient) Clone0_1(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone0_1(ctx, &pb.ObjectAnimatorClone0_1Request{
+	resp, err := c.svc.Clone0_1(ctx, &pb.Clone0_1Request{
 		Handle: handle,
 	})
 	if err != nil {
@@ -2247,341 +1027,21 @@ func (c *ObjectAnimatorClient) OfPropertyValuesHolder(ctx context.Context, handl
 	return resp.GetResult(), nil
 }
 
-// AnimatorSetClient wraps the gRPC AnimatorSetService client.
-type AnimatorSetClient struct {
-	svc pb.AnimatorSetServiceClient
+// TimeInterpolatorClient wraps the gRPC TimeInterpolatorService client.
+type TimeInterpolatorClient struct {
+	svc pb.TimeInterpolatorServiceClient
 }
 
-// NewAnimatorSetClient creates a new AnimatorSet client.
-func NewAnimatorSetClient(cc grpc.ClientConnInterface) *AnimatorSetClient {
-	return &AnimatorSetClient{
-		svc: pb.NewAnimatorSetServiceClient(cc),
+// NewTimeInterpolatorClient creates a new TimeInterpolator client.
+func NewTimeInterpolatorClient(cc grpc.ClientConnInterface) *TimeInterpolatorClient {
+	return &TimeInterpolatorClient{
+		svc: pb.NewTimeInterpolatorServiceClient(cc),
 	}
 }
 
-// Cancel calls the Cancel RPC.
-func (c *AnimatorSetClient) Cancel(ctx context.Context, handle int64) error {
-	_, err := c.svc.Cancel(ctx, &pb.AnimatorSetCancelRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// Clone0 calls the Clone0 RPC.
-func (c *AnimatorSetClient) Clone0(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone0(ctx, &pb.AnimatorSetClone0Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// End calls the End RPC.
-func (c *AnimatorSetClient) End(ctx context.Context, handle int64) error {
-	_, err := c.svc.End(ctx, &pb.AnimatorSetEndRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// GetCurrentPlayTime calls the GetCurrentPlayTime RPC.
-func (c *AnimatorSetClient) GetCurrentPlayTime(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetCurrentPlayTime(ctx, &pb.GetCurrentPlayTimeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDuration calls the GetDuration RPC.
-func (c *AnimatorSetClient) GetDuration(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetDuration(ctx, &pb.AnimatorSetGetDurationRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInterpolator calls the GetInterpolator RPC.
-func (c *AnimatorSetClient) GetInterpolator(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetInterpolator(ctx, &pb.AnimatorSetGetInterpolatorRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStartDelay calls the GetStartDelay RPC.
-func (c *AnimatorSetClient) GetStartDelay(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetStartDelay(ctx, &pb.AnimatorSetGetStartDelayRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTotalDuration calls the GetTotalDuration RPC.
-func (c *AnimatorSetClient) GetTotalDuration(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetTotalDuration(ctx, &pb.AnimatorSetGetTotalDurationRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsRunning calls the IsRunning RPC.
-func (c *AnimatorSetClient) IsRunning(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsRunning(ctx, &pb.AnimatorSetIsRunningRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsStarted calls the IsStarted RPC.
-func (c *AnimatorSetClient) IsStarted(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsStarted(ctx, &pb.AnimatorSetIsStartedRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Pause calls the Pause RPC.
-func (c *AnimatorSetClient) Pause(ctx context.Context, handle int64) error {
-	_, err := c.svc.Pause(ctx, &pb.AnimatorSetPauseRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// Play calls the Play RPC.
-func (c *AnimatorSetClient) Play(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.Play(ctx, &pb.PlayRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PlaySequentially calls the PlaySequentially RPC.
-func (c *AnimatorSetClient) PlaySequentially(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.PlaySequentially(ctx, &pb.PlaySequentiallyRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// PlayTogether calls the PlayTogether RPC.
-func (c *AnimatorSetClient) PlayTogether(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.PlayTogether(ctx, &pb.PlayTogetherRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// Resume calls the Resume RPC.
-func (c *AnimatorSetClient) Resume(ctx context.Context, handle int64) error {
-	_, err := c.svc.Resume(ctx, &pb.AnimatorSetResumeRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// Reverse calls the Reverse RPC.
-func (c *AnimatorSetClient) Reverse(ctx context.Context, handle int64) error {
-	_, err := c.svc.Reverse(ctx, &pb.ReverseRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// SetCurrentPlayTime calls the SetCurrentPlayTime RPC.
-func (c *AnimatorSetClient) SetCurrentPlayTime(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetCurrentPlayTime(ctx, &pb.SetCurrentPlayTimeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetDuration1 calls the SetDuration1 RPC.
-func (c *AnimatorSetClient) SetDuration1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetDuration1(ctx, &pb.SetDuration1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetInterpolator calls the SetInterpolator RPC.
-func (c *AnimatorSetClient) SetInterpolator(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetInterpolator(ctx, &pb.AnimatorSetSetInterpolatorRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetStartDelay calls the SetStartDelay RPC.
-func (c *AnimatorSetClient) SetStartDelay(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetStartDelay(ctx, &pb.AnimatorSetSetStartDelayRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTarget calls the SetTarget RPC.
-func (c *AnimatorSetClient) SetTarget(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetTarget(ctx, &pb.AnimatorSetSetTargetRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetupEndValues calls the SetupEndValues RPC.
-func (c *AnimatorSetClient) SetupEndValues(ctx context.Context, handle int64) error {
-	_, err := c.svc.SetupEndValues(ctx, &pb.AnimatorSetSetupEndValuesRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// SetupStartValues calls the SetupStartValues RPC.
-func (c *AnimatorSetClient) SetupStartValues(ctx context.Context, handle int64) error {
-	_, err := c.svc.SetupStartValues(ctx, &pb.AnimatorSetSetupStartValuesRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// Start calls the Start RPC.
-func (c *AnimatorSetClient) Start(ctx context.Context, handle int64) error {
-	_, err := c.svc.Start(ctx, &pb.StartRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// ToString calls the ToString RPC.
-func (c *AnimatorSetClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetDuration1_1 calls the SetDuration1_1 RPC.
-func (c *AnimatorSetClient) SetDuration1_1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetDuration1_1(ctx, &pb.SetDuration1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Clone0_1 calls the Clone0_1 RPC.
-func (c *AnimatorSetClient) Clone0_1(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone0_1(ctx, &pb.AnimatorSetClone0_1Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Clone0_2 calls the Clone0_2 RPC.
-func (c *AnimatorSetClient) Clone0_2(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone0_2(ctx, &pb.Clone0_2Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AnimatorSetBuilderClient wraps the gRPC AnimatorSetBuilderService client.
-type AnimatorSetBuilderClient struct {
-	svc pb.AnimatorSetBuilderServiceClient
-}
-
-// NewAnimatorSetBuilderClient creates a new AnimatorSetBuilder client.
-func NewAnimatorSetBuilderClient(cc grpc.ClientConnInterface) *AnimatorSetBuilderClient {
-	return &AnimatorSetBuilderClient{
-		svc: pb.NewAnimatorSetBuilderServiceClient(cc),
-	}
-}
-
-// After1 calls the After1 RPC.
-func (c *AnimatorSetBuilderClient) After1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.After1(ctx, &pb.After1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// After1_1 calls the After1_1 RPC.
-func (c *AnimatorSetBuilderClient) After1_1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.After1_1(ctx, &pb.After1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Before calls the Before RPC.
-func (c *AnimatorSetBuilderClient) Before(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.Before(ctx, &pb.BeforeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// With calls the With RPC.
-func (c *AnimatorSetBuilderClient) With(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.With(ctx, &pb.WithRequest{
+// GetInterpolation calls the GetInterpolation RPC.
+func (c *TimeInterpolatorClient) GetInterpolation(ctx context.Context, arg0 float32) (float32, error) {
+	resp, err := c.svc.GetInterpolation(ctx, &pb.GetInterpolationRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -2604,7 +1064,7 @@ func NewKeyframeClient(cc grpc.ClientConnInterface) *KeyframeClient {
 
 // Clone0 calls the Clone0 RPC.
 func (c *KeyframeClient) Clone0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Clone0(ctx, &pb.Clone0Request{})
+	resp, err := c.svc.Clone0(ctx, &pb.KeyframeClone0Request{})
 	if err != nil {
 		return 0, err
 	}
@@ -2622,7 +1082,7 @@ func (c *KeyframeClient) GetFraction(ctx context.Context) (float32, error) {
 
 // GetInterpolator calls the GetInterpolator RPC.
 func (c *KeyframeClient) GetInterpolator(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetInterpolator(ctx, &pb.GetInterpolatorRequest{})
+	resp, err := c.svc.GetInterpolator(ctx, &pb.KeyframeGetInterpolatorRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -2666,7 +1126,7 @@ func (c *KeyframeClient) SetFraction(ctx context.Context, arg0 float32) error {
 
 // SetInterpolator calls the SetInterpolator RPC.
 func (c *KeyframeClient) SetInterpolator(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetInterpolator(ctx, &pb.SetInterpolatorRequest{
+	_, err := c.svc.SetInterpolator(ctx, &pb.KeyframeSetInterpolatorRequest{
 		Arg0: arg0,
 	})
 	return err
@@ -2682,7 +1142,7 @@ func (c *KeyframeClient) SetValue(ctx context.Context, arg0 int64) error {
 
 // Clone0_1 calls the Clone0_1 RPC.
 func (c *KeyframeClient) Clone0_1(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Clone0_1(ctx, &pb.Clone0_1Request{})
+	resp, err := c.svc.Clone0_1(ctx, &pb.KeyframeClone0_1Request{})
 	if err != nil {
 		return 0, err
 	}
@@ -2758,148 +1218,1575 @@ func (c *KeyframeClient) OfObject2_1(ctx context.Context, arg0 float32, arg1 int
 	return resp.GetResult(), nil
 }
 
-// AccelerateDecelerateInterpolatorClient wraps the gRPC AccelerateDecelerateInterpolatorService client.
-type AccelerateDecelerateInterpolatorClient struct {
-	svc pb.AccelerateDecelerateInterpolatorServiceClient
+// IntEvaluatorClient wraps the gRPC IntEvaluatorService client.
+type IntEvaluatorClient struct {
+	svc pb.IntEvaluatorServiceClient
 }
 
-// NewAccelerateDecelerateInterpolatorClient creates a new AccelerateDecelerateInterpolator client.
-func NewAccelerateDecelerateInterpolatorClient(cc grpc.ClientConnInterface) *AccelerateDecelerateInterpolatorClient {
-	return &AccelerateDecelerateInterpolatorClient{
-		svc: pb.NewAccelerateDecelerateInterpolatorServiceClient(cc),
+// NewIntEvaluatorClient creates a new IntEvaluator client.
+func NewIntEvaluatorClient(cc grpc.ClientConnInterface) *IntEvaluatorClient {
+	return &IntEvaluatorClient{
+		svc: pb.NewIntEvaluatorServiceClient(cc),
 	}
 }
 
-// GetInterpolation calls the GetInterpolation RPC.
-func (c *AccelerateDecelerateInterpolatorClient) GetInterpolation(ctx context.Context, handle int64, arg0 float32) (float32, error) {
-	resp, err := c.svc.GetInterpolation(ctx, &pb.AccelerateDecelerateInterpolatorGetInterpolationRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DecelerateInterpolatorClient wraps the gRPC DecelerateInterpolatorService client.
-type DecelerateInterpolatorClient struct {
-	svc pb.DecelerateInterpolatorServiceClient
-}
-
-// NewDecelerateInterpolatorClient creates a new DecelerateInterpolator client.
-func NewDecelerateInterpolatorClient(cc grpc.ClientConnInterface) *DecelerateInterpolatorClient {
-	return &DecelerateInterpolatorClient{
-		svc: pb.NewDecelerateInterpolatorServiceClient(cc),
-	}
-}
-
-// GetInterpolation calls the GetInterpolation RPC.
-func (c *DecelerateInterpolatorClient) GetInterpolation(ctx context.Context, handle int64, arg0 float32) (float32, error) {
-	resp, err := c.svc.GetInterpolation(ctx, &pb.AccelerateDecelerateInterpolatorGetInterpolationRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AccelerateInterpolatorClient wraps the gRPC AccelerateInterpolatorService client.
-type AccelerateInterpolatorClient struct {
-	svc pb.AccelerateInterpolatorServiceClient
-}
-
-// NewAccelerateInterpolatorClient creates a new AccelerateInterpolator client.
-func NewAccelerateInterpolatorClient(cc grpc.ClientConnInterface) *AccelerateInterpolatorClient {
-	return &AccelerateInterpolatorClient{
-		svc: pb.NewAccelerateInterpolatorServiceClient(cc),
-	}
-}
-
-// GetInterpolation calls the GetInterpolation RPC.
-func (c *AccelerateInterpolatorClient) GetInterpolation(ctx context.Context, handle int64, arg0 float32) (float32, error) {
-	resp, err := c.svc.GetInterpolation(ctx, &pb.AccelerateDecelerateInterpolatorGetInterpolationRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PathInterpolatorClient wraps the gRPC PathInterpolatorService client.
-type PathInterpolatorClient struct {
-	svc pb.PathInterpolatorServiceClient
-}
-
-// NewPathInterpolatorClient creates a new PathInterpolator client.
-func NewPathInterpolatorClient(cc grpc.ClientConnInterface) *PathInterpolatorClient {
-	return &PathInterpolatorClient{
-		svc: pb.NewPathInterpolatorServiceClient(cc),
-	}
-}
-
-// GetInterpolation calls the GetInterpolation RPC.
-func (c *PathInterpolatorClient) GetInterpolation(ctx context.Context, handle int64, arg0 float32) (float32, error) {
-	resp, err := c.svc.GetInterpolation(ctx, &pb.AccelerateDecelerateInterpolatorGetInterpolationRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LinearInterpolatorClient wraps the gRPC LinearInterpolatorService client.
-type LinearInterpolatorClient struct {
-	svc pb.LinearInterpolatorServiceClient
-}
-
-// NewLinearInterpolatorClient creates a new LinearInterpolator client.
-func NewLinearInterpolatorClient(cc grpc.ClientConnInterface) *LinearInterpolatorClient {
-	return &LinearInterpolatorClient{
-		svc: pb.NewLinearInterpolatorServiceClient(cc),
-	}
-}
-
-// GetInterpolation calls the GetInterpolation RPC.
-func (c *LinearInterpolatorClient) GetInterpolation(ctx context.Context, handle int64, arg0 float32) (float32, error) {
-	resp, err := c.svc.GetInterpolation(ctx, &pb.AccelerateDecelerateInterpolatorGetInterpolationRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ScaleAnimationClient wraps the gRPC ScaleAnimationService client.
-type ScaleAnimationClient struct {
-	svc pb.ScaleAnimationServiceClient
-}
-
-// NewScaleAnimationClient creates a new ScaleAnimation client.
-func NewScaleAnimationClient(cc grpc.ClientConnInterface) *ScaleAnimationClient {
-	return &ScaleAnimationClient{
-		svc: pb.NewScaleAnimationServiceClient(cc),
-	}
-}
-
-// Initialize calls the Initialize RPC.
-func (c *ScaleAnimationClient) Initialize(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.Initialize(ctx, &pb.InitializeRequest{
+// Evaluate3 calls the Evaluate3 RPC.
+func (c *IntEvaluatorClient) Evaluate3(ctx context.Context, handle int64, arg0 float32, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Evaluate3(ctx, &pb.Evaluate3Request{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
 		Arg2:   arg2,
-		Arg3:   arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Evaluate3_1 calls the Evaluate3_1 RPC.
+func (c *IntEvaluatorClient) Evaluate3_1(ctx context.Context, handle int64, arg0 float32, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Evaluate3_1(ctx, &pb.Evaluate3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AnimatorInflaterClient wraps the gRPC AnimatorInflaterService client.
+type AnimatorInflaterClient struct {
+	svc pb.AnimatorInflaterServiceClient
+}
+
+// NewAnimatorInflaterClient creates a new AnimatorInflater client.
+func NewAnimatorInflaterClient(cc grpc.ClientConnInterface) *AnimatorInflaterClient {
+	return &AnimatorInflaterClient{
+		svc: pb.NewAnimatorInflaterServiceClient(cc),
+	}
+}
+
+// LoadAnimator calls the LoadAnimator RPC.
+func (c *AnimatorInflaterClient) LoadAnimator(ctx context.Context, handle int64, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.LoadAnimator(ctx, &pb.LoadAnimatorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadStateListAnimator calls the LoadStateListAnimator RPC.
+func (c *AnimatorInflaterClient) LoadStateListAnimator(ctx context.Context, handle int64, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.LoadStateListAnimator(ctx, &pb.LoadStateListAnimatorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PropertyValuesHolderClient wraps the gRPC PropertyValuesHolderService client.
+type PropertyValuesHolderClient struct {
+	svc pb.PropertyValuesHolderServiceClient
+}
+
+// NewPropertyValuesHolderClient creates a new PropertyValuesHolder client.
+func NewPropertyValuesHolderClient(cc grpc.ClientConnInterface) *PropertyValuesHolderClient {
+	return &PropertyValuesHolderClient{
+		svc: pb.NewPropertyValuesHolderServiceClient(cc),
+	}
+}
+
+// Clone0 calls the Clone0 RPC.
+func (c *PropertyValuesHolderClient) Clone0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Clone0(ctx, &pb.PropertyValuesHolderClone0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPropertyName calls the GetPropertyName RPC.
+func (c *PropertyValuesHolderClient) GetPropertyName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetPropertyName(ctx, &pb.PropertyValuesHolderGetPropertyNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetConverter calls the SetConverter RPC.
+func (c *PropertyValuesHolderClient) SetConverter(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetConverter(ctx, &pb.SetConverterRequest{
+		Arg0: arg0,
 	})
 	return err
+}
+
+// SetEvaluator calls the SetEvaluator RPC.
+func (c *PropertyValuesHolderClient) SetEvaluator(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetEvaluator(ctx, &pb.PropertyValuesHolderSetEvaluatorRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetFloatValues calls the SetFloatValues RPC.
+func (c *PropertyValuesHolderClient) SetFloatValues(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetFloatValues(ctx, &pb.PropertyValuesHolderSetFloatValuesRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetIntValues calls the SetIntValues RPC.
+func (c *PropertyValuesHolderClient) SetIntValues(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetIntValues(ctx, &pb.PropertyValuesHolderSetIntValuesRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetKeyframes calls the SetKeyframes RPC.
+func (c *PropertyValuesHolderClient) SetKeyframes(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetKeyframes(ctx, &pb.SetKeyframesRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetObjectValues calls the SetObjectValues RPC.
+func (c *PropertyValuesHolderClient) SetObjectValues(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetObjectValues(ctx, &pb.PropertyValuesHolderSetObjectValuesRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetProperty calls the SetProperty RPC.
+func (c *PropertyValuesHolderClient) SetProperty(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetProperty(ctx, &pb.PropertyValuesHolderSetPropertyRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetPropertyName calls the SetPropertyName RPC.
+func (c *PropertyValuesHolderClient) SetPropertyName(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetPropertyName(ctx, &pb.PropertyValuesHolderSetPropertyNameRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *PropertyValuesHolderClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.PropertyValuesHolderToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Clone0_1 calls the Clone0_1 RPC.
+func (c *PropertyValuesHolderClient) Clone0_1(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Clone0_1(ctx, &pb.PropertyValuesHolderClone0_1Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OfFloat calls the OfFloat RPC.
+func (c *PropertyValuesHolderClient) OfFloat(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.OfFloat(ctx, &pb.PropertyValuesHolderOfFloatRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OfInt calls the OfInt RPC.
+func (c *PropertyValuesHolderClient) OfInt(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.OfInt(ctx, &pb.PropertyValuesHolderOfIntRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OfKeyframe2 calls the OfKeyframe2 RPC.
+func (c *PropertyValuesHolderClient) OfKeyframe2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.OfKeyframe2(ctx, &pb.OfKeyframe2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OfKeyframe2_1 calls the OfKeyframe2_1 RPC.
+func (c *PropertyValuesHolderClient) OfKeyframe2_1(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.OfKeyframe2_1(ctx, &pb.OfKeyframe2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OfMultiFloat2 calls the OfMultiFloat2 RPC.
+func (c *PropertyValuesHolderClient) OfMultiFloat2(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.OfMultiFloat2(ctx, &pb.OfMultiFloat2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OfMultiFloat2_1 calls the OfMultiFloat2_1 RPC.
+func (c *PropertyValuesHolderClient) OfMultiFloat2_1(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.OfMultiFloat2_1(ctx, &pb.OfMultiFloat2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OfMultiInt2 calls the OfMultiInt2 RPC.
+func (c *PropertyValuesHolderClient) OfMultiInt2(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.OfMultiInt2(ctx, &pb.OfMultiInt2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OfMultiInt2_1 calls the OfMultiInt2_1 RPC.
+func (c *PropertyValuesHolderClient) OfMultiInt2_1(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.OfMultiInt2_1(ctx, &pb.OfMultiInt2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OfObject calls the OfObject RPC.
+func (c *PropertyValuesHolderClient) OfObject(ctx context.Context, arg0 string, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.OfObject(ctx, &pb.PropertyValuesHolderOfObjectRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TimeAnimatorClient wraps the gRPC TimeAnimatorService client.
+type TimeAnimatorClient struct {
+	svc pb.TimeAnimatorServiceClient
+}
+
+// NewTimeAnimatorClient creates a new TimeAnimator client.
+func NewTimeAnimatorClient(cc grpc.ClientConnInterface) *TimeAnimatorClient {
+	return &TimeAnimatorClient{
+		svc: pb.NewTimeAnimatorServiceClient(cc),
+	}
+}
+
+// SetCurrentPlayTime calls the SetCurrentPlayTime RPC.
+func (c *TimeAnimatorClient) SetCurrentPlayTime(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetCurrentPlayTime(ctx, &pb.SetCurrentPlayTimeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTimeListener calls the SetTimeListener RPC.
+func (c *TimeAnimatorClient) SetTimeListener(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetTimeListener(ctx, &pb.SetTimeListenerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Start calls the Start RPC.
+func (c *TimeAnimatorClient) Start(ctx context.Context, handle int64) error {
+	_, err := c.svc.Start(ctx, &pb.StartRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// TimeAnimatorTimeListenerClient wraps the gRPC TimeAnimatorTimeListenerService client.
+type TimeAnimatorTimeListenerClient struct {
+	svc pb.TimeAnimatorTimeListenerServiceClient
+}
+
+// NewTimeAnimatorTimeListenerClient creates a new TimeAnimatorTimeListener client.
+func NewTimeAnimatorTimeListenerClient(cc grpc.ClientConnInterface) *TimeAnimatorTimeListenerClient {
+	return &TimeAnimatorTimeListenerClient{
+		svc: pb.NewTimeAnimatorTimeListenerServiceClient(cc),
+	}
+}
+
+// OnTimeUpdate calls the OnTimeUpdate RPC.
+func (c *TimeAnimatorTimeListenerClient) OnTimeUpdate(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.OnTimeUpdate(ctx, &pb.OnTimeUpdateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// FloatArrayEvaluatorClient wraps the gRPC FloatArrayEvaluatorService client.
+type FloatArrayEvaluatorClient struct {
+	svc pb.FloatArrayEvaluatorServiceClient
+}
+
+// NewFloatArrayEvaluatorClient creates a new FloatArrayEvaluator client.
+func NewFloatArrayEvaluatorClient(cc grpc.ClientConnInterface) *FloatArrayEvaluatorClient {
+	return &FloatArrayEvaluatorClient{
+		svc: pb.NewFloatArrayEvaluatorServiceClient(cc),
+	}
+}
+
+// Evaluate3 calls the Evaluate3 RPC.
+func (c *FloatArrayEvaluatorClient) Evaluate3(ctx context.Context, handle int64, arg0 float32, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Evaluate3(ctx, &pb.Evaluate3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Evaluate3_1 calls the Evaluate3_1 RPC.
+func (c *FloatArrayEvaluatorClient) Evaluate3_1(ctx context.Context, handle int64, arg0 float32, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Evaluate3_1(ctx, &pb.Evaluate3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LayoutTransitionClient wraps the gRPC LayoutTransitionService client.
+type LayoutTransitionClient struct {
+	svc pb.LayoutTransitionServiceClient
+}
+
+// NewLayoutTransitionClient creates a new LayoutTransition client.
+func NewLayoutTransitionClient(cc grpc.ClientConnInterface) *LayoutTransitionClient {
+	return &LayoutTransitionClient{
+		svc: pb.NewLayoutTransitionServiceClient(cc),
+	}
+}
+
+// AddChild calls the AddChild RPC.
+func (c *LayoutTransitionClient) AddChild(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.AddChild(ctx, &pb.AddChildRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// AddTransitionListener calls the AddTransitionListener RPC.
+func (c *LayoutTransitionClient) AddTransitionListener(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddTransitionListener(ctx, &pb.AddTransitionListenerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// DisableTransitionType calls the DisableTransitionType RPC.
+func (c *LayoutTransitionClient) DisableTransitionType(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.DisableTransitionType(ctx, &pb.DisableTransitionTypeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// EnableTransitionType calls the EnableTransitionType RPC.
+func (c *LayoutTransitionClient) EnableTransitionType(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.EnableTransitionType(ctx, &pb.EnableTransitionTypeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GetAnimator calls the GetAnimator RPC.
+func (c *LayoutTransitionClient) GetAnimator(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetAnimator(ctx, &pb.GetAnimatorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDuration calls the GetDuration RPC.
+func (c *LayoutTransitionClient) GetDuration(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetDuration(ctx, &pb.LayoutTransitionGetDurationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInterpolator calls the GetInterpolator RPC.
+func (c *LayoutTransitionClient) GetInterpolator(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetInterpolator(ctx, &pb.LayoutTransitionGetInterpolatorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStagger calls the GetStagger RPC.
+func (c *LayoutTransitionClient) GetStagger(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetStagger(ctx, &pb.GetStaggerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStartDelay calls the GetStartDelay RPC.
+func (c *LayoutTransitionClient) GetStartDelay(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetStartDelay(ctx, &pb.LayoutTransitionGetStartDelayRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTransitionListeners calls the GetTransitionListeners RPC.
+func (c *LayoutTransitionClient) GetTransitionListeners(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTransitionListeners(ctx, &pb.GetTransitionListenersRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HideChild2 calls the HideChild2 RPC.
+func (c *LayoutTransitionClient) HideChild2(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.HideChild2(ctx, &pb.HideChild2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// HideChild3_1 calls the HideChild3_1 RPC.
+func (c *LayoutTransitionClient) HideChild3_1(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32) error {
+	_, err := c.svc.HideChild3_1(ctx, &pb.HideChild3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// IsChangingLayout calls the IsChangingLayout RPC.
+func (c *LayoutTransitionClient) IsChangingLayout(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsChangingLayout(ctx, &pb.IsChangingLayoutRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRunning calls the IsRunning RPC.
+func (c *LayoutTransitionClient) IsRunning(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsRunning(ctx, &pb.IsRunningRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsTransitionTypeEnabled calls the IsTransitionTypeEnabled RPC.
+func (c *LayoutTransitionClient) IsTransitionTypeEnabled(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.IsTransitionTypeEnabled(ctx, &pb.IsTransitionTypeEnabledRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveChild calls the RemoveChild RPC.
+func (c *LayoutTransitionClient) RemoveChild(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.RemoveChild(ctx, &pb.RemoveChildRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// RemoveTransitionListener calls the RemoveTransitionListener RPC.
+func (c *LayoutTransitionClient) RemoveTransitionListener(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.RemoveTransitionListener(ctx, &pb.RemoveTransitionListenerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetAnimateParentHierarchy calls the SetAnimateParentHierarchy RPC.
+func (c *LayoutTransitionClient) SetAnimateParentHierarchy(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetAnimateParentHierarchy(ctx, &pb.SetAnimateParentHierarchyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetAnimator calls the SetAnimator RPC.
+func (c *LayoutTransitionClient) SetAnimator(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.SetAnimator(ctx, &pb.SetAnimatorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetDuration2 calls the SetDuration2 RPC.
+func (c *LayoutTransitionClient) SetDuration2(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.SetDuration2(ctx, &pb.SetDuration2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetDuration1_1 calls the SetDuration1_1 RPC.
+func (c *LayoutTransitionClient) SetDuration1_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetDuration1_1(ctx, &pb.SetDuration1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetInterpolator calls the SetInterpolator RPC.
+func (c *LayoutTransitionClient) SetInterpolator(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.SetInterpolator(ctx, &pb.LayoutTransitionSetInterpolatorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetStagger calls the SetStagger RPC.
+func (c *LayoutTransitionClient) SetStagger(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.SetStagger(ctx, &pb.SetStaggerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetStartDelay calls the SetStartDelay RPC.
+func (c *LayoutTransitionClient) SetStartDelay(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.SetStartDelay(ctx, &pb.LayoutTransitionSetStartDelayRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// ShowChild2 calls the ShowChild2 RPC.
+func (c *LayoutTransitionClient) ShowChild2(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.ShowChild2(ctx, &pb.ShowChild2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// ShowChild3_1 calls the ShowChild3_1 RPC.
+func (c *LayoutTransitionClient) ShowChild3_1(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32) error {
+	_, err := c.svc.ShowChild3_1(ctx, &pb.ShowChild3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// LayoutTransitionTransitionListenerClient wraps the gRPC LayoutTransitionTransitionListenerService client.
+type LayoutTransitionTransitionListenerClient struct {
+	svc pb.LayoutTransitionTransitionListenerServiceClient
+}
+
+// NewLayoutTransitionTransitionListenerClient creates a new LayoutTransitionTransitionListener client.
+func NewLayoutTransitionTransitionListenerClient(cc grpc.ClientConnInterface) *LayoutTransitionTransitionListenerClient {
+	return &LayoutTransitionTransitionListenerClient{
+		svc: pb.NewLayoutTransitionTransitionListenerServiceClient(cc),
+	}
+}
+
+// EndTransition calls the EndTransition RPC.
+func (c *LayoutTransitionTransitionListenerClient) EndTransition(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int32) error {
+	_, err := c.svc.EndTransition(ctx, &pb.EndTransitionRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// StartTransition calls the StartTransition RPC.
+func (c *LayoutTransitionTransitionListenerClient) StartTransition(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int32) error {
+	_, err := c.svc.StartTransition(ctx, &pb.StartTransitionRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// PointFEvaluatorClient wraps the gRPC PointFEvaluatorService client.
+type PointFEvaluatorClient struct {
+	svc pb.PointFEvaluatorServiceClient
+}
+
+// NewPointFEvaluatorClient creates a new PointFEvaluator client.
+func NewPointFEvaluatorClient(cc grpc.ClientConnInterface) *PointFEvaluatorClient {
+	return &PointFEvaluatorClient{
+		svc: pb.NewPointFEvaluatorServiceClient(cc),
+	}
+}
+
+// Evaluate3 calls the Evaluate3 RPC.
+func (c *PointFEvaluatorClient) Evaluate3(ctx context.Context, handle int64, arg0 float32, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Evaluate3(ctx, &pb.Evaluate3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Evaluate3_1 calls the Evaluate3_1 RPC.
+func (c *PointFEvaluatorClient) Evaluate3_1(ctx context.Context, handle int64, arg0 float32, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Evaluate3_1(ctx, &pb.Evaluate3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FloatEvaluatorClient wraps the gRPC FloatEvaluatorService client.
+type FloatEvaluatorClient struct {
+	svc pb.FloatEvaluatorServiceClient
+}
+
+// NewFloatEvaluatorClient creates a new FloatEvaluator client.
+func NewFloatEvaluatorClient(cc grpc.ClientConnInterface) *FloatEvaluatorClient {
+	return &FloatEvaluatorClient{
+		svc: pb.NewFloatEvaluatorServiceClient(cc),
+	}
+}
+
+// Evaluate3 calls the Evaluate3 RPC.
+func (c *FloatEvaluatorClient) Evaluate3(ctx context.Context, handle int64, arg0 float32, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Evaluate3(ctx, &pb.Evaluate3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Evaluate3_1 calls the Evaluate3_1 RPC.
+func (c *FloatEvaluatorClient) Evaluate3_1(ctx context.Context, handle int64, arg0 float32, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Evaluate3_1(ctx, &pb.Evaluate3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AnimatorSetClient wraps the gRPC AnimatorSetService client.
+type AnimatorSetClient struct {
+	svc pb.AnimatorSetServiceClient
+}
+
+// NewAnimatorSetClient creates a new AnimatorSet client.
+func NewAnimatorSetClient(cc grpc.ClientConnInterface) *AnimatorSetClient {
+	return &AnimatorSetClient{
+		svc: pb.NewAnimatorSetServiceClient(cc),
+	}
+}
+
+// Cancel calls the Cancel RPC.
+func (c *AnimatorSetClient) Cancel(ctx context.Context, handle int64) error {
+	_, err := c.svc.Cancel(ctx, &pb.CancelRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// Clone0 calls the Clone0 RPC.
+func (c *AnimatorSetClient) Clone0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clone0(ctx, &pb.Clone0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// End calls the End RPC.
+func (c *AnimatorSetClient) End(ctx context.Context, handle int64) error {
+	_, err := c.svc.End(ctx, &pb.EndRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// GetChildAnimations calls the GetChildAnimations RPC.
+func (c *AnimatorSetClient) GetChildAnimations(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetChildAnimations(ctx, &pb.GetChildAnimationsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCurrentPlayTime calls the GetCurrentPlayTime RPC.
+func (c *AnimatorSetClient) GetCurrentPlayTime(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetCurrentPlayTime(ctx, &pb.GetCurrentPlayTimeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDuration calls the GetDuration RPC.
+func (c *AnimatorSetClient) GetDuration(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetDuration(ctx, &pb.GetDurationRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInterpolator calls the GetInterpolator RPC.
+func (c *AnimatorSetClient) GetInterpolator(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetInterpolator(ctx, &pb.GetInterpolatorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStartDelay calls the GetStartDelay RPC.
+func (c *AnimatorSetClient) GetStartDelay(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetStartDelay(ctx, &pb.GetStartDelayRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTotalDuration calls the GetTotalDuration RPC.
+func (c *AnimatorSetClient) GetTotalDuration(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTotalDuration(ctx, &pb.GetTotalDurationRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRunning calls the IsRunning RPC.
+func (c *AnimatorSetClient) IsRunning(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsRunning(ctx, &pb.IsRunningRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsStarted calls the IsStarted RPC.
+func (c *AnimatorSetClient) IsStarted(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsStarted(ctx, &pb.IsStartedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Pause calls the Pause RPC.
+func (c *AnimatorSetClient) Pause(ctx context.Context, handle int64) error {
+	_, err := c.svc.Pause(ctx, &pb.PauseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// Play calls the Play RPC.
+func (c *AnimatorSetClient) Play(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.Play(ctx, &pb.PlayRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PlaySequentially calls the PlaySequentially RPC.
+func (c *AnimatorSetClient) PlaySequentially(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.PlaySequentially(ctx, &pb.PlaySequentiallyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// PlayTogether calls the PlayTogether RPC.
+func (c *AnimatorSetClient) PlayTogether(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.PlayTogether(ctx, &pb.PlayTogetherRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Resume calls the Resume RPC.
+func (c *AnimatorSetClient) Resume(ctx context.Context, handle int64) error {
+	_, err := c.svc.Resume(ctx, &pb.ResumeRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// Reverse calls the Reverse RPC.
+func (c *AnimatorSetClient) Reverse(ctx context.Context, handle int64) error {
+	_, err := c.svc.Reverse(ctx, &pb.ReverseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// SetCurrentPlayTime calls the SetCurrentPlayTime RPC.
+func (c *AnimatorSetClient) SetCurrentPlayTime(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetCurrentPlayTime(ctx, &pb.SetCurrentPlayTimeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetDuration1 calls the SetDuration1 RPC.
+func (c *AnimatorSetClient) SetDuration1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetDuration1(ctx, &pb.SetDuration1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetInterpolator calls the SetInterpolator RPC.
+func (c *AnimatorSetClient) SetInterpolator(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetInterpolator(ctx, &pb.SetInterpolatorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetStartDelay calls the SetStartDelay RPC.
+func (c *AnimatorSetClient) SetStartDelay(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetStartDelay(ctx, &pb.SetStartDelayRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTarget calls the SetTarget RPC.
+func (c *AnimatorSetClient) SetTarget(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetTarget(ctx, &pb.SetTargetRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetupEndValues calls the SetupEndValues RPC.
+func (c *AnimatorSetClient) SetupEndValues(ctx context.Context, handle int64) error {
+	_, err := c.svc.SetupEndValues(ctx, &pb.SetupEndValuesRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// SetupStartValues calls the SetupStartValues RPC.
+func (c *AnimatorSetClient) SetupStartValues(ctx context.Context, handle int64) error {
+	_, err := c.svc.SetupStartValues(ctx, &pb.SetupStartValuesRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// Start calls the Start RPC.
+func (c *AnimatorSetClient) Start(ctx context.Context, handle int64) error {
+	_, err := c.svc.Start(ctx, &pb.StartRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *AnimatorSetClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDuration1_1 calls the SetDuration1_1 RPC.
+func (c *AnimatorSetClient) SetDuration1_1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetDuration1_1(ctx, &pb.SetDuration1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Clone0_1 calls the Clone0_1 RPC.
+func (c *AnimatorSetClient) Clone0_1(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clone0_1(ctx, &pb.Clone0_1Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Clone0_2 calls the Clone0_2 RPC.
+func (c *AnimatorSetClient) Clone0_2(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clone0_2(ctx, &pb.Clone0_2Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AnimatorSetBuilderClient wraps the gRPC AnimatorSetBuilderService client.
+type AnimatorSetBuilderClient struct {
+	svc pb.AnimatorSetBuilderServiceClient
+}
+
+// NewAnimatorSetBuilderClient creates a new AnimatorSetBuilder client.
+func NewAnimatorSetBuilderClient(cc grpc.ClientConnInterface) *AnimatorSetBuilderClient {
+	return &AnimatorSetBuilderClient{
+		svc: pb.NewAnimatorSetBuilderServiceClient(cc),
+	}
+}
+
+// After1 calls the After1 RPC.
+func (c *AnimatorSetBuilderClient) After1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.After1(ctx, &pb.After1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// After1_1 calls the After1_1 RPC.
+func (c *AnimatorSetBuilderClient) After1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.After1_1(ctx, &pb.After1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Before calls the Before RPC.
+func (c *AnimatorSetBuilderClient) Before(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Before(ctx, &pb.BeforeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// With calls the With RPC.
+func (c *AnimatorSetBuilderClient) With(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.With(ctx, &pb.WithRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IntArrayEvaluatorClient wraps the gRPC IntArrayEvaluatorService client.
+type IntArrayEvaluatorClient struct {
+	svc pb.IntArrayEvaluatorServiceClient
+}
+
+// NewIntArrayEvaluatorClient creates a new IntArrayEvaluator client.
+func NewIntArrayEvaluatorClient(cc grpc.ClientConnInterface) *IntArrayEvaluatorClient {
+	return &IntArrayEvaluatorClient{
+		svc: pb.NewIntArrayEvaluatorServiceClient(cc),
+	}
+}
+
+// Evaluate3 calls the Evaluate3 RPC.
+func (c *IntArrayEvaluatorClient) Evaluate3(ctx context.Context, handle int64, arg0 float32, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Evaluate3(ctx, &pb.Evaluate3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Evaluate3_1 calls the Evaluate3_1 RPC.
+func (c *IntArrayEvaluatorClient) Evaluate3_1(ctx context.Context, handle int64, arg0 float32, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Evaluate3_1(ctx, &pb.Evaluate3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RectEvaluatorClient wraps the gRPC RectEvaluatorService client.
+type RectEvaluatorClient struct {
+	svc pb.RectEvaluatorServiceClient
+}
+
+// NewRectEvaluatorClient creates a new RectEvaluator client.
+func NewRectEvaluatorClient(cc grpc.ClientConnInterface) *RectEvaluatorClient {
+	return &RectEvaluatorClient{
+		svc: pb.NewRectEvaluatorServiceClient(cc),
+	}
+}
+
+// Evaluate3 calls the Evaluate3 RPC.
+func (c *RectEvaluatorClient) Evaluate3(ctx context.Context, handle int64, arg0 float32, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Evaluate3(ctx, &pb.Evaluate3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Evaluate3_1 calls the Evaluate3_1 RPC.
+func (c *RectEvaluatorClient) Evaluate3_1(ctx context.Context, handle int64, arg0 float32, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.Evaluate3_1(ctx, &pb.Evaluate3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AnimatorClient wraps the gRPC AnimatorService client.
+type AnimatorClient struct {
+	svc pb.AnimatorServiceClient
+}
+
+// NewAnimatorClient creates a new Animator client.
+func NewAnimatorClient(cc grpc.ClientConnInterface) *AnimatorClient {
+	return &AnimatorClient{
+		svc: pb.NewAnimatorServiceClient(cc),
+	}
+}
+
+// AddListener calls the AddListener RPC.
+func (c *AnimatorClient) AddListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.AddListener(ctx, &pb.AddListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// AddPauseListener calls the AddPauseListener RPC.
+func (c *AnimatorClient) AddPauseListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.AddPauseListener(ctx, &pb.AddPauseListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Cancel calls the Cancel RPC.
+func (c *AnimatorClient) Cancel(ctx context.Context) error {
+	_, err := c.svc.Cancel(ctx, &pb.AnimatorCancelRequest{})
+	return err
+}
+
+// Clone0 calls the Clone0 RPC.
+func (c *AnimatorClient) Clone0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Clone0(ctx, &pb.AnimatorClone0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// End calls the End RPC.
+func (c *AnimatorClient) End(ctx context.Context) error {
+	_, err := c.svc.End(ctx, &pb.AnimatorEndRequest{})
+	return err
+}
+
+// GetDuration calls the GetDuration RPC.
+func (c *AnimatorClient) GetDuration(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDuration(ctx, &pb.AnimatorGetDurationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInterpolator calls the GetInterpolator RPC.
+func (c *AnimatorClient) GetInterpolator(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInterpolator(ctx, &pb.AnimatorGetInterpolatorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetListeners calls the GetListeners RPC.
+func (c *AnimatorClient) GetListeners(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetListeners(ctx, &pb.GetListenersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStartDelay calls the GetStartDelay RPC.
+func (c *AnimatorClient) GetStartDelay(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetStartDelay(ctx, &pb.AnimatorGetStartDelayRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTotalDuration calls the GetTotalDuration RPC.
+func (c *AnimatorClient) GetTotalDuration(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTotalDuration(ctx, &pb.AnimatorGetTotalDurationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsPaused calls the IsPaused RPC.
+func (c *AnimatorClient) IsPaused(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsPaused(ctx, &pb.IsPausedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRunning calls the IsRunning RPC.
+func (c *AnimatorClient) IsRunning(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsRunning(ctx, &pb.AnimatorIsRunningRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsStarted calls the IsStarted RPC.
+func (c *AnimatorClient) IsStarted(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsStarted(ctx, &pb.AnimatorIsStartedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Pause calls the Pause RPC.
+func (c *AnimatorClient) Pause(ctx context.Context) error {
+	_, err := c.svc.Pause(ctx, &pb.AnimatorPauseRequest{})
+	return err
+}
+
+// RemoveAllListeners calls the RemoveAllListeners RPC.
+func (c *AnimatorClient) RemoveAllListeners(ctx context.Context) error {
+	_, err := c.svc.RemoveAllListeners(ctx, &pb.RemoveAllListenersRequest{})
+	return err
+}
+
+// RemoveListener calls the RemoveListener RPC.
+func (c *AnimatorClient) RemoveListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RemoveListener(ctx, &pb.RemoveListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RemovePauseListener calls the RemovePauseListener RPC.
+func (c *AnimatorClient) RemovePauseListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RemovePauseListener(ctx, &pb.RemovePauseListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Resume calls the Resume RPC.
+func (c *AnimatorClient) Resume(ctx context.Context) error {
+	_, err := c.svc.Resume(ctx, &pb.AnimatorResumeRequest{})
+	return err
+}
+
+// SetDuration calls the SetDuration RPC.
+func (c *AnimatorClient) SetDuration(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetDuration(ctx, &pb.SetDurationRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetInterpolator calls the SetInterpolator RPC.
+func (c *AnimatorClient) SetInterpolator(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetInterpolator(ctx, &pb.AnimatorSetInterpolatorRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetStartDelay calls the SetStartDelay RPC.
+func (c *AnimatorClient) SetStartDelay(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetStartDelay(ctx, &pb.AnimatorSetStartDelayRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetTarget calls the SetTarget RPC.
+func (c *AnimatorClient) SetTarget(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetTarget(ctx, &pb.AnimatorSetTargetRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetupEndValues calls the SetupEndValues RPC.
+func (c *AnimatorClient) SetupEndValues(ctx context.Context) error {
+	_, err := c.svc.SetupEndValues(ctx, &pb.AnimatorSetupEndValuesRequest{})
+	return err
+}
+
+// SetupStartValues calls the SetupStartValues RPC.
+func (c *AnimatorClient) SetupStartValues(ctx context.Context) error {
+	_, err := c.svc.SetupStartValues(ctx, &pb.AnimatorSetupStartValuesRequest{})
+	return err
+}
+
+// Start calls the Start RPC.
+func (c *AnimatorClient) Start(ctx context.Context) error {
+	_, err := c.svc.Start(ctx, &pb.AnimatorStartRequest{})
+	return err
+}
+
+// Clone0_1 calls the Clone0_1 RPC.
+func (c *AnimatorClient) Clone0_1(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Clone0_1(ctx, &pb.AnimatorClone0_1Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AnimatorAnimatorListenerClient wraps the gRPC AnimatorAnimatorListenerService client.
+type AnimatorAnimatorListenerClient struct {
+	svc pb.AnimatorAnimatorListenerServiceClient
+}
+
+// NewAnimatorAnimatorListenerClient creates a new AnimatorAnimatorListener client.
+func NewAnimatorAnimatorListenerClient(cc grpc.ClientConnInterface) *AnimatorAnimatorListenerClient {
+	return &AnimatorAnimatorListenerClient{
+		svc: pb.NewAnimatorAnimatorListenerServiceClient(cc),
+	}
+}
+
+// OnAnimationCancel calls the OnAnimationCancel RPC.
+func (c *AnimatorAnimatorListenerClient) OnAnimationCancel(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnAnimationCancel(ctx, &pb.OnAnimationCancelRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnAnimationEnd calls the OnAnimationEnd RPC.
+func (c *AnimatorAnimatorListenerClient) OnAnimationEnd(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnAnimationEnd(ctx, &pb.OnAnimationEndRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnAnimationRepeat calls the OnAnimationRepeat RPC.
+func (c *AnimatorAnimatorListenerClient) OnAnimationRepeat(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnAnimationRepeat(ctx, &pb.OnAnimationRepeatRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnAnimationStart calls the OnAnimationStart RPC.
+func (c *AnimatorAnimatorListenerClient) OnAnimationStart(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnAnimationStart(ctx, &pb.OnAnimationStartRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// AnimatorAnimatorPauseListenerClient wraps the gRPC AnimatorAnimatorPauseListenerService client.
+type AnimatorAnimatorPauseListenerClient struct {
+	svc pb.AnimatorAnimatorPauseListenerServiceClient
+}
+
+// NewAnimatorAnimatorPauseListenerClient creates a new AnimatorAnimatorPauseListener client.
+func NewAnimatorAnimatorPauseListenerClient(cc grpc.ClientConnInterface) *AnimatorAnimatorPauseListenerClient {
+	return &AnimatorAnimatorPauseListenerClient{
+		svc: pb.NewAnimatorAnimatorPauseListenerServiceClient(cc),
+	}
+}
+
+// OnAnimationPause calls the OnAnimationPause RPC.
+func (c *AnimatorAnimatorPauseListenerClient) OnAnimationPause(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnAnimationPause(ctx, &pb.OnAnimationPauseRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnAnimationResume calls the OnAnimationResume RPC.
+func (c *AnimatorAnimatorPauseListenerClient) OnAnimationResume(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnAnimationResume(ctx, &pb.OnAnimationResumeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// StateListAnimatorClient wraps the gRPC StateListAnimatorService client.
+type StateListAnimatorClient struct {
+	svc pb.StateListAnimatorServiceClient
+}
+
+// NewStateListAnimatorClient creates a new StateListAnimator client.
+func NewStateListAnimatorClient(cc grpc.ClientConnInterface) *StateListAnimatorClient {
+	return &StateListAnimatorClient{
+		svc: pb.NewStateListAnimatorServiceClient(cc),
+	}
+}
+
+// AddState calls the AddState RPC.
+func (c *StateListAnimatorClient) AddState(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.AddState(ctx, &pb.AddStateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// Clone0 calls the Clone0 RPC.
+func (c *StateListAnimatorClient) Clone0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clone0(ctx, &pb.Clone0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// JumpToCurrentState calls the JumpToCurrentState RPC.
+func (c *StateListAnimatorClient) JumpToCurrentState(ctx context.Context, handle int64) error {
+	_, err := c.svc.JumpToCurrentState(ctx, &pb.JumpToCurrentStateRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// Clone0_1 calls the Clone0_1 RPC.
+func (c *StateListAnimatorClient) Clone0_1(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clone0_1(ctx, &pb.Clone0_1Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
 // GridLayoutAnimationControllerClient wraps the gRPC GridLayoutAnimationControllerService client.
@@ -3005,641 +2892,6 @@ func (c *GridLayoutAnimationControllerClient) WillOverlap(ctx context.Context, h
 	return resp.GetResult(), nil
 }
 
-// AnimationClient wraps the gRPC AnimationService client.
-type AnimationClient struct {
-	svc pb.AnimationServiceClient
-}
-
-// NewAnimationClient creates a new Animation client.
-func NewAnimationClient(cc grpc.ClientConnInterface) *AnimationClient {
-	return &AnimationClient{
-		svc: pb.NewAnimationServiceClient(cc),
-	}
-}
-
-// Cancel calls the Cancel RPC.
-func (c *AnimationClient) Cancel(ctx context.Context) error {
-	_, err := c.svc.Cancel(ctx, &pb.CancelRequest{})
-	return err
-}
-
-// ComputeDurationHint calls the ComputeDurationHint RPC.
-func (c *AnimationClient) ComputeDurationHint(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ComputeDurationHint(ctx, &pb.ComputeDurationHintRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBackdropColor calls the GetBackdropColor RPC.
-func (c *AnimationClient) GetBackdropColor(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetBackdropColor(ctx, &pb.GetBackdropColorRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBackgroundColor calls the GetBackgroundColor RPC.
-func (c *AnimationClient) GetBackgroundColor(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetBackgroundColor(ctx, &pb.GetBackgroundColorRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDetachWallpaper calls the GetDetachWallpaper RPC.
-func (c *AnimationClient) GetDetachWallpaper(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetDetachWallpaper(ctx, &pb.GetDetachWallpaperRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDuration calls the GetDuration RPC.
-func (c *AnimationClient) GetDuration(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDuration(ctx, &pb.GetDurationRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFillAfter calls the GetFillAfter RPC.
-func (c *AnimationClient) GetFillAfter(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetFillAfter(ctx, &pb.GetFillAfterRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFillBefore calls the GetFillBefore RPC.
-func (c *AnimationClient) GetFillBefore(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetFillBefore(ctx, &pb.GetFillBeforeRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInterpolator calls the GetInterpolator RPC.
-func (c *AnimationClient) GetInterpolator(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetInterpolator(ctx, &pb.GetInterpolatorRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRepeatCount calls the GetRepeatCount RPC.
-func (c *AnimationClient) GetRepeatCount(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetRepeatCount(ctx, &pb.AnimationGetRepeatCountRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRepeatMode calls the GetRepeatMode RPC.
-func (c *AnimationClient) GetRepeatMode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetRepeatMode(ctx, &pb.AnimationGetRepeatModeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetShowBackdrop calls the GetShowBackdrop RPC.
-func (c *AnimationClient) GetShowBackdrop(ctx context.Context) (bool, error) {
-	resp, err := c.svc.GetShowBackdrop(ctx, &pb.GetShowBackdropRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStartOffset calls the GetStartOffset RPC.
-func (c *AnimationClient) GetStartOffset(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetStartOffset(ctx, &pb.GetStartOffsetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStartTime calls the GetStartTime RPC.
-func (c *AnimationClient) GetStartTime(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetStartTime(ctx, &pb.GetStartTimeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTransformation2 calls the GetTransformation2 RPC.
-func (c *AnimationClient) GetTransformation2(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.GetTransformation2(ctx, &pb.GetTransformation2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTransformation3_1 calls the GetTransformation3_1 RPC.
-func (c *AnimationClient) GetTransformation3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 float32) (bool, error) {
-	resp, err := c.svc.GetTransformation3_1(ctx, &pb.GetTransformation3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetZAdjustment calls the GetZAdjustment RPC.
-func (c *AnimationClient) GetZAdjustment(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetZAdjustment(ctx, &pb.GetZAdjustmentRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasEnded calls the HasEnded RPC.
-func (c *AnimationClient) HasEnded(ctx context.Context) (bool, error) {
-	resp, err := c.svc.HasEnded(ctx, &pb.HasEndedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasStarted calls the HasStarted RPC.
-func (c *AnimationClient) HasStarted(ctx context.Context) (bool, error) {
-	resp, err := c.svc.HasStarted(ctx, &pb.HasStartedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Initialize calls the Initialize RPC.
-func (c *AnimationClient) Initialize(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.Initialize(ctx, &pb.AnimationInitializeRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// IsFillEnabled calls the IsFillEnabled RPC.
-func (c *AnimationClient) IsFillEnabled(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsFillEnabled(ctx, &pb.IsFillEnabledRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsInitialized calls the IsInitialized RPC.
-func (c *AnimationClient) IsInitialized(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsInitialized(ctx, &pb.IsInitializedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Reset calls the Reset RPC.
-func (c *AnimationClient) Reset(ctx context.Context) error {
-	_, err := c.svc.Reset(ctx, &pb.ResetRequest{})
-	return err
-}
-
-// RestrictDuration calls the RestrictDuration RPC.
-func (c *AnimationClient) RestrictDuration(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.RestrictDuration(ctx, &pb.RestrictDurationRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ScaleCurrentDuration calls the ScaleCurrentDuration RPC.
-func (c *AnimationClient) ScaleCurrentDuration(ctx context.Context, arg0 float32) error {
-	_, err := c.svc.ScaleCurrentDuration(ctx, &pb.ScaleCurrentDurationRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetAnimationListener calls the SetAnimationListener RPC.
-func (c *AnimationClient) SetAnimationListener(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetAnimationListener(ctx, &pb.SetAnimationListenerRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetBackdropColor calls the SetBackdropColor RPC.
-func (c *AnimationClient) SetBackdropColor(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetBackdropColor(ctx, &pb.SetBackdropColorRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetBackgroundColor calls the SetBackgroundColor RPC.
-func (c *AnimationClient) SetBackgroundColor(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetBackgroundColor(ctx, &pb.SetBackgroundColorRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetDetachWallpaper calls the SetDetachWallpaper RPC.
-func (c *AnimationClient) SetDetachWallpaper(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetDetachWallpaper(ctx, &pb.SetDetachWallpaperRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetDuration calls the SetDuration RPC.
-func (c *AnimationClient) SetDuration(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetDuration(ctx, &pb.SetDurationRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetFillAfter calls the SetFillAfter RPC.
-func (c *AnimationClient) SetFillAfter(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetFillAfter(ctx, &pb.SetFillAfterRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetFillBefore calls the SetFillBefore RPC.
-func (c *AnimationClient) SetFillBefore(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetFillBefore(ctx, &pb.SetFillBeforeRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetFillEnabled calls the SetFillEnabled RPC.
-func (c *AnimationClient) SetFillEnabled(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetFillEnabled(ctx, &pb.SetFillEnabledRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetInterpolator2 calls the SetInterpolator2 RPC.
-func (c *AnimationClient) SetInterpolator2(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.SetInterpolator2(ctx, &pb.SetInterpolator2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// SetInterpolator1_1 calls the SetInterpolator1_1 RPC.
-func (c *AnimationClient) SetInterpolator1_1(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetInterpolator1_1(ctx, &pb.SetInterpolator1_1Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetRepeatCount calls the SetRepeatCount RPC.
-func (c *AnimationClient) SetRepeatCount(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetRepeatCount(ctx, &pb.AnimationSetRepeatCountRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetRepeatMode calls the SetRepeatMode RPC.
-func (c *AnimationClient) SetRepeatMode(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetRepeatMode(ctx, &pb.AnimationSetRepeatModeRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetShowBackdrop calls the SetShowBackdrop RPC.
-func (c *AnimationClient) SetShowBackdrop(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetShowBackdrop(ctx, &pb.SetShowBackdropRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetStartOffset calls the SetStartOffset RPC.
-func (c *AnimationClient) SetStartOffset(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetStartOffset(ctx, &pb.SetStartOffsetRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetStartTime calls the SetStartTime RPC.
-func (c *AnimationClient) SetStartTime(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetStartTime(ctx, &pb.SetStartTimeRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetZAdjustment calls the SetZAdjustment RPC.
-func (c *AnimationClient) SetZAdjustment(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetZAdjustment(ctx, &pb.SetZAdjustmentRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// Start calls the Start RPC.
-func (c *AnimationClient) Start(ctx context.Context) error {
-	_, err := c.svc.Start(ctx, &pb.AnimationStartRequest{})
-	return err
-}
-
-// StartNow calls the StartNow RPC.
-func (c *AnimationClient) StartNow(ctx context.Context) error {
-	_, err := c.svc.StartNow(ctx, &pb.StartNowRequest{})
-	return err
-}
-
-// WillChangeBounds calls the WillChangeBounds RPC.
-func (c *AnimationClient) WillChangeBounds(ctx context.Context) (bool, error) {
-	resp, err := c.svc.WillChangeBounds(ctx, &pb.WillChangeBoundsRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WillChangeTransformationMatrix calls the WillChangeTransformationMatrix RPC.
-func (c *AnimationClient) WillChangeTransformationMatrix(ctx context.Context) (bool, error) {
-	resp, err := c.svc.WillChangeTransformationMatrix(ctx, &pb.WillChangeTransformationMatrixRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AnimationListenerClient wraps the gRPC AnimationListenerService client.
-type AnimationListenerClient struct {
-	svc pb.AnimationListenerServiceClient
-}
-
-// NewAnimationListenerClient creates a new AnimationListener client.
-func NewAnimationListenerClient(cc grpc.ClientConnInterface) *AnimationListenerClient {
-	return &AnimationListenerClient{
-		svc: pb.NewAnimationListenerServiceClient(cc),
-	}
-}
-
-// OnAnimationEnd calls the OnAnimationEnd RPC.
-func (c *AnimationListenerClient) OnAnimationEnd(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnAnimationEnd(ctx, &pb.OnAnimationEndRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnAnimationRepeat calls the OnAnimationRepeat RPC.
-func (c *AnimationListenerClient) OnAnimationRepeat(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnAnimationRepeat(ctx, &pb.OnAnimationRepeatRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnAnimationStart calls the OnAnimationStart RPC.
-func (c *AnimationListenerClient) OnAnimationStart(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnAnimationStart(ctx, &pb.OnAnimationStartRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// LayoutAnimationControllerClient wraps the gRPC LayoutAnimationControllerService client.
-type LayoutAnimationControllerClient struct {
-	svc pb.LayoutAnimationControllerServiceClient
-}
-
-// NewLayoutAnimationControllerClient creates a new LayoutAnimationController client.
-func NewLayoutAnimationControllerClient(cc grpc.ClientConnInterface) *LayoutAnimationControllerClient {
-	return &LayoutAnimationControllerClient{
-		svc: pb.NewLayoutAnimationControllerServiceClient(cc),
-	}
-}
-
-// GetAnimation calls the GetAnimation RPC.
-func (c *LayoutAnimationControllerClient) GetAnimation(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetAnimation(ctx, &pb.GetAnimationRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAnimationForView calls the GetAnimationForView RPC.
-func (c *LayoutAnimationControllerClient) GetAnimationForView(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetAnimationForView(ctx, &pb.GetAnimationForViewRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDelay calls the GetDelay RPC.
-func (c *LayoutAnimationControllerClient) GetDelay(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetDelay(ctx, &pb.GetDelayRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInterpolator calls the GetInterpolator RPC.
-func (c *LayoutAnimationControllerClient) GetInterpolator(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetInterpolator(ctx, &pb.LayoutAnimationControllerGetInterpolatorRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOrder calls the GetOrder RPC.
-func (c *LayoutAnimationControllerClient) GetOrder(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetOrder(ctx, &pb.GetOrderRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsDone calls the IsDone RPC.
-func (c *LayoutAnimationControllerClient) IsDone(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsDone(ctx, &pb.IsDoneRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetAnimation2 calls the SetAnimation2 RPC.
-func (c *LayoutAnimationControllerClient) SetAnimation2(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.SetAnimation2(ctx, &pb.SetAnimation2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetAnimation1_1 calls the SetAnimation1_1 RPC.
-func (c *LayoutAnimationControllerClient) SetAnimation1_1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetAnimation1_1(ctx, &pb.SetAnimation1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetDelay calls the SetDelay RPC.
-func (c *LayoutAnimationControllerClient) SetDelay(ctx context.Context, handle int64, arg0 float32) error {
-	_, err := c.svc.SetDelay(ctx, &pb.SetDelayRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetInterpolator2 calls the SetInterpolator2 RPC.
-func (c *LayoutAnimationControllerClient) SetInterpolator2(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.SetInterpolator2(ctx, &pb.LayoutAnimationControllerSetInterpolator2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetInterpolator1_1 calls the SetInterpolator1_1 RPC.
-func (c *LayoutAnimationControllerClient) SetInterpolator1_1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetInterpolator1_1(ctx, &pb.LayoutAnimationControllerSetInterpolator1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetOrder calls the SetOrder RPC.
-func (c *LayoutAnimationControllerClient) SetOrder(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetOrder(ctx, &pb.SetOrderRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// Start calls the Start RPC.
-func (c *LayoutAnimationControllerClient) Start(ctx context.Context, handle int64) error {
-	_, err := c.svc.Start(ctx, &pb.LayoutAnimationControllerStartRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// WillOverlap calls the WillOverlap RPC.
-func (c *LayoutAnimationControllerClient) WillOverlap(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.WillOverlap(ctx, &pb.WillOverlapRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AnticipateOvershootInterpolatorClient wraps the gRPC AnticipateOvershootInterpolatorService client.
-type AnticipateOvershootInterpolatorClient struct {
-	svc pb.AnticipateOvershootInterpolatorServiceClient
-}
-
-// NewAnticipateOvershootInterpolatorClient creates a new AnticipateOvershootInterpolator client.
-func NewAnticipateOvershootInterpolatorClient(cc grpc.ClientConnInterface) *AnticipateOvershootInterpolatorClient {
-	return &AnticipateOvershootInterpolatorClient{
-		svc: pb.NewAnticipateOvershootInterpolatorServiceClient(cc),
-	}
-}
-
-// GetInterpolation calls the GetInterpolation RPC.
-func (c *AnticipateOvershootInterpolatorClient) GetInterpolation(ctx context.Context, handle int64, arg0 float32) (float32, error) {
-	resp, err := c.svc.GetInterpolation(ctx, &pb.AccelerateDecelerateInterpolatorGetInterpolationRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CycleInterpolatorClient wraps the gRPC CycleInterpolatorService client.
-type CycleInterpolatorClient struct {
-	svc pb.CycleInterpolatorServiceClient
-}
-
-// NewCycleInterpolatorClient creates a new CycleInterpolator client.
-func NewCycleInterpolatorClient(cc grpc.ClientConnInterface) *CycleInterpolatorClient {
-	return &CycleInterpolatorClient{
-		svc: pb.NewCycleInterpolatorServiceClient(cc),
-	}
-}
-
-// GetInterpolation calls the GetInterpolation RPC.
-func (c *CycleInterpolatorClient) GetInterpolation(ctx context.Context, handle int64, arg0 float32) (float32, error) {
-	resp, err := c.svc.GetInterpolation(ctx, &pb.AccelerateDecelerateInterpolatorGetInterpolationRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // RotateAnimationClient wraps the gRPC RotateAnimationService client.
 type RotateAnimationClient struct {
 	svc pb.RotateAnimationServiceClient
@@ -3664,21 +2916,203 @@ func (c *RotateAnimationClient) Initialize(ctx context.Context, handle int64, ar
 	return err
 }
 
-// AlphaAnimationClient wraps the gRPC AlphaAnimationService client.
-type AlphaAnimationClient struct {
-	svc pb.AlphaAnimationServiceClient
+// CycleInterpolatorClient wraps the gRPC CycleInterpolatorService client.
+type CycleInterpolatorClient struct {
+	svc pb.CycleInterpolatorServiceClient
 }
 
-// NewAlphaAnimationClient creates a new AlphaAnimation client.
-func NewAlphaAnimationClient(cc grpc.ClientConnInterface) *AlphaAnimationClient {
-	return &AlphaAnimationClient{
-		svc: pb.NewAlphaAnimationServiceClient(cc),
+// NewCycleInterpolatorClient creates a new CycleInterpolator client.
+func NewCycleInterpolatorClient(cc grpc.ClientConnInterface) *CycleInterpolatorClient {
+	return &CycleInterpolatorClient{
+		svc: pb.NewCycleInterpolatorServiceClient(cc),
 	}
 }
 
+// GetInterpolation calls the GetInterpolation RPC.
+func (c *CycleInterpolatorClient) GetInterpolation(ctx context.Context, handle int64, arg0 float32) (float32, error) {
+	resp, err := c.svc.GetInterpolation(ctx, &pb.CycleInterpolatorGetInterpolationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetClient wraps the gRPC SetService client.
+type SetClient struct {
+	svc pb.SetServiceClient
+}
+
+// NewSetClient creates a new Set client.
+func NewSetClient(cc grpc.ClientConnInterface) *SetClient {
+	return &SetClient{
+		svc: pb.NewSetServiceClient(cc),
+	}
+}
+
+// AddAnimation calls the AddAnimation RPC.
+func (c *SetClient) AddAnimation(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddAnimation(ctx, &pb.AddAnimationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ComputeDurationHint calls the ComputeDurationHint RPC.
+func (c *SetClient) ComputeDurationHint(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.ComputeDurationHint(ctx, &pb.ComputeDurationHintRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAnimations calls the GetAnimations RPC.
+func (c *SetClient) GetAnimations(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetAnimations(ctx, &pb.GetAnimationsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDuration calls the GetDuration RPC.
+func (c *SetClient) GetDuration(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetDuration(ctx, &pb.GetDurationRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStartTime calls the GetStartTime RPC.
+func (c *SetClient) GetStartTime(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetStartTime(ctx, &pb.GetStartTimeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTransformation calls the GetTransformation RPC.
+func (c *SetClient) GetTransformation(ctx context.Context, handle int64, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.GetTransformation(ctx, &pb.GetTransformationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Initialize calls the Initialize RPC.
+func (c *SetClient) Initialize(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.Initialize(ctx, &pb.InitializeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// Reset calls the Reset RPC.
+func (c *SetClient) Reset(ctx context.Context, handle int64) error {
+	_, err := c.svc.Reset(ctx, &pb.ResetRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// RestrictDuration calls the RestrictDuration RPC.
+func (c *SetClient) RestrictDuration(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.RestrictDuration(ctx, &pb.RestrictDurationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ScaleCurrentDuration calls the ScaleCurrentDuration RPC.
+func (c *SetClient) ScaleCurrentDuration(ctx context.Context, handle int64, arg0 float32) error {
+	_, err := c.svc.ScaleCurrentDuration(ctx, &pb.ScaleCurrentDurationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetDuration calls the SetDuration RPC.
+func (c *SetClient) SetDuration(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetDuration(ctx, &pb.SetSetDurationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetFillAfter calls the SetFillAfter RPC.
+func (c *SetClient) SetFillAfter(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetFillAfter(ctx, &pb.SetFillAfterRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetFillBefore calls the SetFillBefore RPC.
+func (c *SetClient) SetFillBefore(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetFillBefore(ctx, &pb.SetFillBeforeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetRepeatMode calls the SetRepeatMode RPC.
+func (c *SetClient) SetRepeatMode(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetRepeatMode(ctx, &pb.SetRepeatModeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetStartOffset calls the SetStartOffset RPC.
+func (c *SetClient) SetStartOffset(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetStartOffset(ctx, &pb.SetStartOffsetRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetStartTime calls the SetStartTime RPC.
+func (c *SetClient) SetStartTime(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetStartTime(ctx, &pb.SetStartTimeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
 // WillChangeBounds calls the WillChangeBounds RPC.
-func (c *AlphaAnimationClient) WillChangeBounds(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.WillChangeBounds(ctx, &pb.AlphaAnimationWillChangeBoundsRequest{
+func (c *SetClient) WillChangeBounds(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.WillChangeBounds(ctx, &pb.WillChangeBoundsRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -3688,8 +3122,8 @@ func (c *AlphaAnimationClient) WillChangeBounds(ctx context.Context, handle int6
 }
 
 // WillChangeTransformationMatrix calls the WillChangeTransformationMatrix RPC.
-func (c *AlphaAnimationClient) WillChangeTransformationMatrix(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.WillChangeTransformationMatrix(ctx, &pb.AlphaAnimationWillChangeTransformationMatrixRequest{
+func (c *SetClient) WillChangeTransformationMatrix(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.WillChangeTransformationMatrix(ctx, &pb.WillChangeTransformationMatrixRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -3698,99 +3132,23 @@ func (c *AlphaAnimationClient) WillChangeTransformationMatrix(ctx context.Contex
 	return resp.GetResult(), nil
 }
 
-// UtilsClient wraps the gRPC UtilsService client.
-type UtilsClient struct {
-	svc pb.UtilsServiceClient
+// DecelerateInterpolatorClient wraps the gRPC DecelerateInterpolatorService client.
+type DecelerateInterpolatorClient struct {
+	svc pb.DecelerateInterpolatorServiceClient
 }
 
-// NewUtilsClient creates a new Utils client.
-func NewUtilsClient(cc grpc.ClientConnInterface) *UtilsClient {
-	return &UtilsClient{
-		svc: pb.NewUtilsServiceClient(cc),
+// NewDecelerateInterpolatorClient creates a new DecelerateInterpolator client.
+func NewDecelerateInterpolatorClient(cc grpc.ClientConnInterface) *DecelerateInterpolatorClient {
+	return &DecelerateInterpolatorClient{
+		svc: pb.NewDecelerateInterpolatorServiceClient(cc),
 	}
 }
 
-// CurrentAnimationTimeMillis calls the CurrentAnimationTimeMillis RPC.
-func (c *UtilsClient) CurrentAnimationTimeMillis(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.CurrentAnimationTimeMillis(ctx, &pb.CurrentAnimationTimeMillisRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LoadAnimation calls the LoadAnimation RPC.
-func (c *UtilsClient) LoadAnimation(ctx context.Context, handle int64, arg0 int64, arg1 int32) (int64, error) {
-	resp, err := c.svc.LoadAnimation(ctx, &pb.LoadAnimationRequest{
+// GetInterpolation calls the GetInterpolation RPC.
+func (c *DecelerateInterpolatorClient) GetInterpolation(ctx context.Context, handle int64, arg0 float32) (float32, error) {
+	resp, err := c.svc.GetInterpolation(ctx, &pb.CycleInterpolatorGetInterpolationRequest{
 		Handle: handle,
 		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LoadInterpolator calls the LoadInterpolator RPC.
-func (c *UtilsClient) LoadInterpolator(ctx context.Context, handle int64, arg0 int64, arg1 int32) (int64, error) {
-	resp, err := c.svc.LoadInterpolator(ctx, &pb.LoadInterpolatorRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LoadLayoutAnimation calls the LoadLayoutAnimation RPC.
-func (c *UtilsClient) LoadLayoutAnimation(ctx context.Context, handle int64, arg0 int64, arg1 int32) (int64, error) {
-	resp, err := c.svc.LoadLayoutAnimation(ctx, &pb.LoadLayoutAnimationRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MakeInAnimation calls the MakeInAnimation RPC.
-func (c *UtilsClient) MakeInAnimation(ctx context.Context, handle int64, arg0 int64, arg1 bool) (int64, error) {
-	resp, err := c.svc.MakeInAnimation(ctx, &pb.MakeInAnimationRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MakeInChildBottomAnimation calls the MakeInChildBottomAnimation RPC.
-func (c *UtilsClient) MakeInChildBottomAnimation(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.MakeInChildBottomAnimation(ctx, &pb.MakeInChildBottomAnimationRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MakeOutAnimation calls the MakeOutAnimation RPC.
-func (c *UtilsClient) MakeOutAnimation(ctx context.Context, handle int64, arg0 int64, arg1 bool) (int64, error) {
-	resp, err := c.svc.MakeOutAnimation(ctx, &pb.MakeOutAnimationRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
 	})
 	if err != nil {
 		return 0, err
@@ -3909,30 +3267,6 @@ func (c *TransformationClient) ToString(ctx context.Context, handle int64) (stri
 	return resp.GetResult(), nil
 }
 
-// BounceInterpolatorClient wraps the gRPC BounceInterpolatorService client.
-type BounceInterpolatorClient struct {
-	svc pb.BounceInterpolatorServiceClient
-}
-
-// NewBounceInterpolatorClient creates a new BounceInterpolator client.
-func NewBounceInterpolatorClient(cc grpc.ClientConnInterface) *BounceInterpolatorClient {
-	return &BounceInterpolatorClient{
-		svc: pb.NewBounceInterpolatorServiceClient(cc),
-	}
-}
-
-// GetInterpolation calls the GetInterpolation RPC.
-func (c *BounceInterpolatorClient) GetInterpolation(ctx context.Context, handle int64, arg0 float32) (float32, error) {
-	resp, err := c.svc.GetInterpolation(ctx, &pb.AccelerateDecelerateInterpolatorGetInterpolationRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // OvershootInterpolatorClient wraps the gRPC OvershootInterpolatorService client.
 type OvershootInterpolatorClient struct {
 	svc pb.OvershootInterpolatorServiceClient
@@ -3947,7 +3281,7 @@ func NewOvershootInterpolatorClient(cc grpc.ClientConnInterface) *OvershootInter
 
 // GetInterpolation calls the GetInterpolation RPC.
 func (c *OvershootInterpolatorClient) GetInterpolation(ctx context.Context, handle int64, arg0 float32) (float32, error) {
-	resp, err := c.svc.GetInterpolation(ctx, &pb.AccelerateDecelerateInterpolatorGetInterpolationRequest{
+	resp, err := c.svc.GetInterpolation(ctx, &pb.CycleInterpolatorGetInterpolationRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -3955,6 +3289,919 @@ func (c *OvershootInterpolatorClient) GetInterpolation(ctx context.Context, hand
 		return 0, err
 	}
 	return resp.GetResult(), nil
+}
+
+// UtilsClient wraps the gRPC UtilsService client.
+type UtilsClient struct {
+	svc pb.UtilsServiceClient
+}
+
+// NewUtilsClient creates a new Utils client.
+func NewUtilsClient(cc grpc.ClientConnInterface) *UtilsClient {
+	return &UtilsClient{
+		svc: pb.NewUtilsServiceClient(cc),
+	}
+}
+
+// CurrentAnimationTimeMillis calls the CurrentAnimationTimeMillis RPC.
+func (c *UtilsClient) CurrentAnimationTimeMillis(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.CurrentAnimationTimeMillis(ctx, &pb.CurrentAnimationTimeMillisRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadAnimation calls the LoadAnimation RPC.
+func (c *UtilsClient) LoadAnimation(ctx context.Context, handle int64, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.LoadAnimation(ctx, &pb.LoadAnimationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadInterpolator calls the LoadInterpolator RPC.
+func (c *UtilsClient) LoadInterpolator(ctx context.Context, handle int64, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.LoadInterpolator(ctx, &pb.LoadInterpolatorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadLayoutAnimation calls the LoadLayoutAnimation RPC.
+func (c *UtilsClient) LoadLayoutAnimation(ctx context.Context, handle int64, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.LoadLayoutAnimation(ctx, &pb.LoadLayoutAnimationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MakeInAnimation calls the MakeInAnimation RPC.
+func (c *UtilsClient) MakeInAnimation(ctx context.Context, handle int64, arg0 int64, arg1 bool) (int64, error) {
+	resp, err := c.svc.MakeInAnimation(ctx, &pb.MakeInAnimationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MakeInChildBottomAnimation calls the MakeInChildBottomAnimation RPC.
+func (c *UtilsClient) MakeInChildBottomAnimation(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.MakeInChildBottomAnimation(ctx, &pb.MakeInChildBottomAnimationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MakeOutAnimation calls the MakeOutAnimation RPC.
+func (c *UtilsClient) MakeOutAnimation(ctx context.Context, handle int64, arg0 int64, arg1 bool) (int64, error) {
+	resp, err := c.svc.MakeOutAnimation(ctx, &pb.MakeOutAnimationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PathInterpolatorClient wraps the gRPC PathInterpolatorService client.
+type PathInterpolatorClient struct {
+	svc pb.PathInterpolatorServiceClient
+}
+
+// NewPathInterpolatorClient creates a new PathInterpolator client.
+func NewPathInterpolatorClient(cc grpc.ClientConnInterface) *PathInterpolatorClient {
+	return &PathInterpolatorClient{
+		svc: pb.NewPathInterpolatorServiceClient(cc),
+	}
+}
+
+// GetInterpolation calls the GetInterpolation RPC.
+func (c *PathInterpolatorClient) GetInterpolation(ctx context.Context, handle int64, arg0 float32) (float32, error) {
+	resp, err := c.svc.GetInterpolation(ctx, &pb.CycleInterpolatorGetInterpolationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AlphaAnimationClient wraps the gRPC AlphaAnimationService client.
+type AlphaAnimationClient struct {
+	svc pb.AlphaAnimationServiceClient
+}
+
+// NewAlphaAnimationClient creates a new AlphaAnimation client.
+func NewAlphaAnimationClient(cc grpc.ClientConnInterface) *AlphaAnimationClient {
+	return &AlphaAnimationClient{
+		svc: pb.NewAlphaAnimationServiceClient(cc),
+	}
+}
+
+// WillChangeBounds calls the WillChangeBounds RPC.
+func (c *AlphaAnimationClient) WillChangeBounds(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.WillChangeBounds(ctx, &pb.WillChangeBoundsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WillChangeTransformationMatrix calls the WillChangeTransformationMatrix RPC.
+func (c *AlphaAnimationClient) WillChangeTransformationMatrix(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.WillChangeTransformationMatrix(ctx, &pb.WillChangeTransformationMatrixRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BounceInterpolatorClient wraps the gRPC BounceInterpolatorService client.
+type BounceInterpolatorClient struct {
+	svc pb.BounceInterpolatorServiceClient
+}
+
+// NewBounceInterpolatorClient creates a new BounceInterpolator client.
+func NewBounceInterpolatorClient(cc grpc.ClientConnInterface) *BounceInterpolatorClient {
+	return &BounceInterpolatorClient{
+		svc: pb.NewBounceInterpolatorServiceClient(cc),
+	}
+}
+
+// GetInterpolation calls the GetInterpolation RPC.
+func (c *BounceInterpolatorClient) GetInterpolation(ctx context.Context, handle int64, arg0 float32) (float32, error) {
+	resp, err := c.svc.GetInterpolation(ctx, &pb.CycleInterpolatorGetInterpolationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LinearInterpolatorClient wraps the gRPC LinearInterpolatorService client.
+type LinearInterpolatorClient struct {
+	svc pb.LinearInterpolatorServiceClient
+}
+
+// NewLinearInterpolatorClient creates a new LinearInterpolator client.
+func NewLinearInterpolatorClient(cc grpc.ClientConnInterface) *LinearInterpolatorClient {
+	return &LinearInterpolatorClient{
+		svc: pb.NewLinearInterpolatorServiceClient(cc),
+	}
+}
+
+// GetInterpolation calls the GetInterpolation RPC.
+func (c *LinearInterpolatorClient) GetInterpolation(ctx context.Context, handle int64, arg0 float32) (float32, error) {
+	resp, err := c.svc.GetInterpolation(ctx, &pb.CycleInterpolatorGetInterpolationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AnticipateOvershootInterpolatorClient wraps the gRPC AnticipateOvershootInterpolatorService client.
+type AnticipateOvershootInterpolatorClient struct {
+	svc pb.AnticipateOvershootInterpolatorServiceClient
+}
+
+// NewAnticipateOvershootInterpolatorClient creates a new AnticipateOvershootInterpolator client.
+func NewAnticipateOvershootInterpolatorClient(cc grpc.ClientConnInterface) *AnticipateOvershootInterpolatorClient {
+	return &AnticipateOvershootInterpolatorClient{
+		svc: pb.NewAnticipateOvershootInterpolatorServiceClient(cc),
+	}
+}
+
+// GetInterpolation calls the GetInterpolation RPC.
+func (c *AnticipateOvershootInterpolatorClient) GetInterpolation(ctx context.Context, handle int64, arg0 float32) (float32, error) {
+	resp, err := c.svc.GetInterpolation(ctx, &pb.CycleInterpolatorGetInterpolationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AnticipateInterpolatorClient wraps the gRPC AnticipateInterpolatorService client.
+type AnticipateInterpolatorClient struct {
+	svc pb.AnticipateInterpolatorServiceClient
+}
+
+// NewAnticipateInterpolatorClient creates a new AnticipateInterpolator client.
+func NewAnticipateInterpolatorClient(cc grpc.ClientConnInterface) *AnticipateInterpolatorClient {
+	return &AnticipateInterpolatorClient{
+		svc: pb.NewAnticipateInterpolatorServiceClient(cc),
+	}
+}
+
+// GetInterpolation calls the GetInterpolation RPC.
+func (c *AnticipateInterpolatorClient) GetInterpolation(ctx context.Context, handle int64, arg0 float32) (float32, error) {
+	resp, err := c.svc.GetInterpolation(ctx, &pb.CycleInterpolatorGetInterpolationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ScaleAnimationClient wraps the gRPC ScaleAnimationService client.
+type ScaleAnimationClient struct {
+	svc pb.ScaleAnimationServiceClient
+}
+
+// NewScaleAnimationClient creates a new ScaleAnimation client.
+func NewScaleAnimationClient(cc grpc.ClientConnInterface) *ScaleAnimationClient {
+	return &ScaleAnimationClient{
+		svc: pb.NewScaleAnimationServiceClient(cc),
+	}
+}
+
+// Initialize calls the Initialize RPC.
+func (c *ScaleAnimationClient) Initialize(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.Initialize(ctx, &pb.InitializeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// LayoutAnimationControllerClient wraps the gRPC LayoutAnimationControllerService client.
+type LayoutAnimationControllerClient struct {
+	svc pb.LayoutAnimationControllerServiceClient
+}
+
+// NewLayoutAnimationControllerClient creates a new LayoutAnimationController client.
+func NewLayoutAnimationControllerClient(cc grpc.ClientConnInterface) *LayoutAnimationControllerClient {
+	return &LayoutAnimationControllerClient{
+		svc: pb.NewLayoutAnimationControllerServiceClient(cc),
+	}
+}
+
+// GetAnimation calls the GetAnimation RPC.
+func (c *LayoutAnimationControllerClient) GetAnimation(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetAnimation(ctx, &pb.GetAnimationRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAnimationForView calls the GetAnimationForView RPC.
+func (c *LayoutAnimationControllerClient) GetAnimationForView(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetAnimationForView(ctx, &pb.GetAnimationForViewRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDelay calls the GetDelay RPC.
+func (c *LayoutAnimationControllerClient) GetDelay(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetDelay(ctx, &pb.GetDelayRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInterpolator calls the GetInterpolator RPC.
+func (c *LayoutAnimationControllerClient) GetInterpolator(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetInterpolator(ctx, &pb.GetInterpolatorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOrder calls the GetOrder RPC.
+func (c *LayoutAnimationControllerClient) GetOrder(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetOrder(ctx, &pb.GetOrderRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsDone calls the IsDone RPC.
+func (c *LayoutAnimationControllerClient) IsDone(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsDone(ctx, &pb.IsDoneRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAnimation2 calls the SetAnimation2 RPC.
+func (c *LayoutAnimationControllerClient) SetAnimation2(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.SetAnimation2(ctx, &pb.SetAnimation2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetAnimation1_1 calls the SetAnimation1_1 RPC.
+func (c *LayoutAnimationControllerClient) SetAnimation1_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetAnimation1_1(ctx, &pb.SetAnimation1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetDelay calls the SetDelay RPC.
+func (c *LayoutAnimationControllerClient) SetDelay(ctx context.Context, handle int64, arg0 float32) error {
+	_, err := c.svc.SetDelay(ctx, &pb.SetDelayRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetInterpolator2 calls the SetInterpolator2 RPC.
+func (c *LayoutAnimationControllerClient) SetInterpolator2(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.SetInterpolator2(ctx, &pb.SetInterpolator2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetInterpolator1_1 calls the SetInterpolator1_1 RPC.
+func (c *LayoutAnimationControllerClient) SetInterpolator1_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetInterpolator1_1(ctx, &pb.SetInterpolator1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetOrder calls the SetOrder RPC.
+func (c *LayoutAnimationControllerClient) SetOrder(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetOrder(ctx, &pb.SetOrderRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Start calls the Start RPC.
+func (c *LayoutAnimationControllerClient) Start(ctx context.Context, handle int64) error {
+	_, err := c.svc.Start(ctx, &pb.StartRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// WillOverlap calls the WillOverlap RPC.
+func (c *LayoutAnimationControllerClient) WillOverlap(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.WillOverlap(ctx, &pb.WillOverlapRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AccelerateDecelerateInterpolatorClient wraps the gRPC AccelerateDecelerateInterpolatorService client.
+type AccelerateDecelerateInterpolatorClient struct {
+	svc pb.AccelerateDecelerateInterpolatorServiceClient
+}
+
+// NewAccelerateDecelerateInterpolatorClient creates a new AccelerateDecelerateInterpolator client.
+func NewAccelerateDecelerateInterpolatorClient(cc grpc.ClientConnInterface) *AccelerateDecelerateInterpolatorClient {
+	return &AccelerateDecelerateInterpolatorClient{
+		svc: pb.NewAccelerateDecelerateInterpolatorServiceClient(cc),
+	}
+}
+
+// GetInterpolation calls the GetInterpolation RPC.
+func (c *AccelerateDecelerateInterpolatorClient) GetInterpolation(ctx context.Context, handle int64, arg0 float32) (float32, error) {
+	resp, err := c.svc.GetInterpolation(ctx, &pb.CycleInterpolatorGetInterpolationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AccelerateInterpolatorClient wraps the gRPC AccelerateInterpolatorService client.
+type AccelerateInterpolatorClient struct {
+	svc pb.AccelerateInterpolatorServiceClient
+}
+
+// NewAccelerateInterpolatorClient creates a new AccelerateInterpolator client.
+func NewAccelerateInterpolatorClient(cc grpc.ClientConnInterface) *AccelerateInterpolatorClient {
+	return &AccelerateInterpolatorClient{
+		svc: pb.NewAccelerateInterpolatorServiceClient(cc),
+	}
+}
+
+// GetInterpolation calls the GetInterpolation RPC.
+func (c *AccelerateInterpolatorClient) GetInterpolation(ctx context.Context, handle int64, arg0 float32) (float32, error) {
+	resp, err := c.svc.GetInterpolation(ctx, &pb.CycleInterpolatorGetInterpolationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AnimationClient wraps the gRPC AnimationService client.
+type AnimationClient struct {
+	svc pb.AnimationServiceClient
+}
+
+// NewAnimationClient creates a new Animation client.
+func NewAnimationClient(cc grpc.ClientConnInterface) *AnimationClient {
+	return &AnimationClient{
+		svc: pb.NewAnimationServiceClient(cc),
+	}
+}
+
+// Cancel calls the Cancel RPC.
+func (c *AnimationClient) Cancel(ctx context.Context) error {
+	_, err := c.svc.Cancel(ctx, &pb.AnimationCancelRequest{})
+	return err
+}
+
+// ComputeDurationHint calls the ComputeDurationHint RPC.
+func (c *AnimationClient) ComputeDurationHint(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ComputeDurationHint(ctx, &pb.AnimationComputeDurationHintRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBackdropColor calls the GetBackdropColor RPC.
+func (c *AnimationClient) GetBackdropColor(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetBackdropColor(ctx, &pb.GetBackdropColorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBackgroundColor calls the GetBackgroundColor RPC.
+func (c *AnimationClient) GetBackgroundColor(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetBackgroundColor(ctx, &pb.GetBackgroundColorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDetachWallpaper calls the GetDetachWallpaper RPC.
+func (c *AnimationClient) GetDetachWallpaper(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetDetachWallpaper(ctx, &pb.GetDetachWallpaperRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDuration calls the GetDuration RPC.
+func (c *AnimationClient) GetDuration(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDuration(ctx, &pb.AnimationGetDurationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFillAfter calls the GetFillAfter RPC.
+func (c *AnimationClient) GetFillAfter(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetFillAfter(ctx, &pb.GetFillAfterRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFillBefore calls the GetFillBefore RPC.
+func (c *AnimationClient) GetFillBefore(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetFillBefore(ctx, &pb.GetFillBeforeRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInterpolator calls the GetInterpolator RPC.
+func (c *AnimationClient) GetInterpolator(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInterpolator(ctx, &pb.AnimationGetInterpolatorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRepeatCount calls the GetRepeatCount RPC.
+func (c *AnimationClient) GetRepeatCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRepeatCount(ctx, &pb.AnimationGetRepeatCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRepeatMode calls the GetRepeatMode RPC.
+func (c *AnimationClient) GetRepeatMode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRepeatMode(ctx, &pb.AnimationGetRepeatModeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetShowBackdrop calls the GetShowBackdrop RPC.
+func (c *AnimationClient) GetShowBackdrop(ctx context.Context) (bool, error) {
+	resp, err := c.svc.GetShowBackdrop(ctx, &pb.GetShowBackdropRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStartOffset calls the GetStartOffset RPC.
+func (c *AnimationClient) GetStartOffset(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetStartOffset(ctx, &pb.GetStartOffsetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStartTime calls the GetStartTime RPC.
+func (c *AnimationClient) GetStartTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetStartTime(ctx, &pb.AnimationGetStartTimeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTransformation2 calls the GetTransformation2 RPC.
+func (c *AnimationClient) GetTransformation2(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.GetTransformation2(ctx, &pb.GetTransformation2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTransformation3_1 calls the GetTransformation3_1 RPC.
+func (c *AnimationClient) GetTransformation3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 float32) (bool, error) {
+	resp, err := c.svc.GetTransformation3_1(ctx, &pb.GetTransformation3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetZAdjustment calls the GetZAdjustment RPC.
+func (c *AnimationClient) GetZAdjustment(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetZAdjustment(ctx, &pb.GetZAdjustmentRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasEnded calls the HasEnded RPC.
+func (c *AnimationClient) HasEnded(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasEnded(ctx, &pb.HasEndedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasStarted calls the HasStarted RPC.
+func (c *AnimationClient) HasStarted(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasStarted(ctx, &pb.HasStartedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Initialize calls the Initialize RPC.
+func (c *AnimationClient) Initialize(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.Initialize(ctx, &pb.AnimationInitializeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// IsFillEnabled calls the IsFillEnabled RPC.
+func (c *AnimationClient) IsFillEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsFillEnabled(ctx, &pb.IsFillEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsInitialized calls the IsInitialized RPC.
+func (c *AnimationClient) IsInitialized(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsInitialized(ctx, &pb.IsInitializedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Reset calls the Reset RPC.
+func (c *AnimationClient) Reset(ctx context.Context) error {
+	_, err := c.svc.Reset(ctx, &pb.AnimationResetRequest{})
+	return err
+}
+
+// RestrictDuration calls the RestrictDuration RPC.
+func (c *AnimationClient) RestrictDuration(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RestrictDuration(ctx, &pb.AnimationRestrictDurationRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ScaleCurrentDuration calls the ScaleCurrentDuration RPC.
+func (c *AnimationClient) ScaleCurrentDuration(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.ScaleCurrentDuration(ctx, &pb.AnimationScaleCurrentDurationRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetAnimationListener calls the SetAnimationListener RPC.
+func (c *AnimationClient) SetAnimationListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetAnimationListener(ctx, &pb.SetAnimationListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetBackdropColor calls the SetBackdropColor RPC.
+func (c *AnimationClient) SetBackdropColor(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetBackdropColor(ctx, &pb.SetBackdropColorRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetBackgroundColor calls the SetBackgroundColor RPC.
+func (c *AnimationClient) SetBackgroundColor(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetBackgroundColor(ctx, &pb.SetBackgroundColorRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetDetachWallpaper calls the SetDetachWallpaper RPC.
+func (c *AnimationClient) SetDetachWallpaper(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetDetachWallpaper(ctx, &pb.SetDetachWallpaperRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetDuration calls the SetDuration RPC.
+func (c *AnimationClient) SetDuration(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetDuration(ctx, &pb.AnimationSetDurationRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetFillAfter calls the SetFillAfter RPC.
+func (c *AnimationClient) SetFillAfter(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetFillAfter(ctx, &pb.AnimationSetFillAfterRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetFillBefore calls the SetFillBefore RPC.
+func (c *AnimationClient) SetFillBefore(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetFillBefore(ctx, &pb.AnimationSetFillBeforeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetFillEnabled calls the SetFillEnabled RPC.
+func (c *AnimationClient) SetFillEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetFillEnabled(ctx, &pb.SetFillEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetInterpolator2 calls the SetInterpolator2 RPC.
+func (c *AnimationClient) SetInterpolator2(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.SetInterpolator2(ctx, &pb.AnimationSetInterpolator2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetInterpolator1_1 calls the SetInterpolator1_1 RPC.
+func (c *AnimationClient) SetInterpolator1_1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetInterpolator1_1(ctx, &pb.AnimationSetInterpolator1_1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetRepeatCount calls the SetRepeatCount RPC.
+func (c *AnimationClient) SetRepeatCount(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetRepeatCount(ctx, &pb.AnimationSetRepeatCountRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetRepeatMode calls the SetRepeatMode RPC.
+func (c *AnimationClient) SetRepeatMode(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetRepeatMode(ctx, &pb.AnimationSetRepeatModeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetShowBackdrop calls the SetShowBackdrop RPC.
+func (c *AnimationClient) SetShowBackdrop(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetShowBackdrop(ctx, &pb.SetShowBackdropRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetStartOffset calls the SetStartOffset RPC.
+func (c *AnimationClient) SetStartOffset(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetStartOffset(ctx, &pb.AnimationSetStartOffsetRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetStartTime calls the SetStartTime RPC.
+func (c *AnimationClient) SetStartTime(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetStartTime(ctx, &pb.AnimationSetStartTimeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetZAdjustment calls the SetZAdjustment RPC.
+func (c *AnimationClient) SetZAdjustment(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetZAdjustment(ctx, &pb.SetZAdjustmentRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Start calls the Start RPC.
+func (c *AnimationClient) Start(ctx context.Context) error {
+	_, err := c.svc.Start(ctx, &pb.AnimationStartRequest{})
+	return err
+}
+
+// StartNow calls the StartNow RPC.
+func (c *AnimationClient) StartNow(ctx context.Context) error {
+	_, err := c.svc.StartNow(ctx, &pb.StartNowRequest{})
+	return err
+}
+
+// WillChangeBounds calls the WillChangeBounds RPC.
+func (c *AnimationClient) WillChangeBounds(ctx context.Context) (bool, error) {
+	resp, err := c.svc.WillChangeBounds(ctx, &pb.AnimationWillChangeBoundsRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WillChangeTransformationMatrix calls the WillChangeTransformationMatrix RPC.
+func (c *AnimationClient) WillChangeTransformationMatrix(ctx context.Context) (bool, error) {
+	resp, err := c.svc.WillChangeTransformationMatrix(ctx, &pb.AnimationWillChangeTransformationMatrixRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AnimationListenerClient wraps the gRPC AnimationListenerService client.
+type AnimationListenerClient struct {
+	svc pb.AnimationListenerServiceClient
+}
+
+// NewAnimationListenerClient creates a new AnimationListener client.
+func NewAnimationListenerClient(cc grpc.ClientConnInterface) *AnimationListenerClient {
+	return &AnimationListenerClient{
+		svc: pb.NewAnimationListenerServiceClient(cc),
+	}
+}
+
+// OnAnimationEnd calls the OnAnimationEnd RPC.
+func (c *AnimationListenerClient) OnAnimationEnd(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnAnimationEnd(ctx, &pb.OnAnimationEndRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnAnimationRepeat calls the OnAnimationRepeat RPC.
+func (c *AnimationListenerClient) OnAnimationRepeat(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnAnimationRepeat(ctx, &pb.OnAnimationRepeatRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnAnimationStart calls the OnAnimationStart RPC.
+func (c *AnimationListenerClient) OnAnimationStart(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnAnimationStart(ctx, &pb.OnAnimationStartRequest{
+		Arg0: arg0,
+	})
+	return err
 }
 
 // TranslateAnimationClient wraps the gRPC TranslateAnimationService client.
@@ -3979,209 +4226,4 @@ func (c *TranslateAnimationClient) Initialize(ctx context.Context, handle int64,
 		Arg3:   arg3,
 	})
 	return err
-}
-
-// SetClient wraps the gRPC SetService client.
-type SetClient struct {
-	svc pb.SetServiceClient
-}
-
-// NewSetClient creates a new Set client.
-func NewSetClient(cc grpc.ClientConnInterface) *SetClient {
-	return &SetClient{
-		svc: pb.NewSetServiceClient(cc),
-	}
-}
-
-// AddAnimation calls the AddAnimation RPC.
-func (c *SetClient) AddAnimation(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddAnimation(ctx, &pb.AddAnimationRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// ComputeDurationHint calls the ComputeDurationHint RPC.
-func (c *SetClient) ComputeDurationHint(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.ComputeDurationHint(ctx, &pb.SetComputeDurationHintRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDuration calls the GetDuration RPC.
-func (c *SetClient) GetDuration(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetDuration(ctx, &pb.SetGetDurationRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStartTime calls the GetStartTime RPC.
-func (c *SetClient) GetStartTime(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetStartTime(ctx, &pb.SetGetStartTimeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTransformation calls the GetTransformation RPC.
-func (c *SetClient) GetTransformation(ctx context.Context, handle int64, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.GetTransformation(ctx, &pb.GetTransformationRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Initialize calls the Initialize RPC.
-func (c *SetClient) Initialize(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.Initialize(ctx, &pb.InitializeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// Reset calls the Reset RPC.
-func (c *SetClient) Reset(ctx context.Context, handle int64) error {
-	_, err := c.svc.Reset(ctx, &pb.SetResetRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// RestrictDuration calls the RestrictDuration RPC.
-func (c *SetClient) RestrictDuration(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.RestrictDuration(ctx, &pb.SetRestrictDurationRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// ScaleCurrentDuration calls the ScaleCurrentDuration RPC.
-func (c *SetClient) ScaleCurrentDuration(ctx context.Context, handle int64, arg0 float32) error {
-	_, err := c.svc.ScaleCurrentDuration(ctx, &pb.SetScaleCurrentDurationRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetDuration calls the SetDuration RPC.
-func (c *SetClient) SetDuration(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetDuration(ctx, &pb.SetSetDurationRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetFillAfter calls the SetFillAfter RPC.
-func (c *SetClient) SetFillAfter(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetFillAfter(ctx, &pb.SetSetFillAfterRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetFillBefore calls the SetFillBefore RPC.
-func (c *SetClient) SetFillBefore(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetFillBefore(ctx, &pb.SetSetFillBeforeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetRepeatMode calls the SetRepeatMode RPC.
-func (c *SetClient) SetRepeatMode(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetRepeatMode(ctx, &pb.SetSetRepeatModeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetStartOffset calls the SetStartOffset RPC.
-func (c *SetClient) SetStartOffset(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetStartOffset(ctx, &pb.SetSetStartOffsetRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetStartTime calls the SetStartTime RPC.
-func (c *SetClient) SetStartTime(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetStartTime(ctx, &pb.SetSetStartTimeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// WillChangeBounds calls the WillChangeBounds RPC.
-func (c *SetClient) WillChangeBounds(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.WillChangeBounds(ctx, &pb.SetWillChangeBoundsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WillChangeTransformationMatrix calls the WillChangeTransformationMatrix RPC.
-func (c *SetClient) WillChangeTransformationMatrix(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.WillChangeTransformationMatrix(ctx, &pb.SetWillChangeTransformationMatrixRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AnticipateInterpolatorClient wraps the gRPC AnticipateInterpolatorService client.
-type AnticipateInterpolatorClient struct {
-	svc pb.AnticipateInterpolatorServiceClient
-}
-
-// NewAnticipateInterpolatorClient creates a new AnticipateInterpolator client.
-func NewAnticipateInterpolatorClient(cc grpc.ClientConnInterface) *AnticipateInterpolatorClient {
-	return &AnticipateInterpolatorClient{
-		svc: pb.NewAnticipateInterpolatorServiceClient(cc),
-	}
-}
-
-// GetInterpolation calls the GetInterpolation RPC.
-func (c *AnticipateInterpolatorClient) GetInterpolation(ctx context.Context, handle int64, arg0 float32) (float32, error) {
-	resp, err := c.svc.GetInterpolation(ctx, &pb.AccelerateDecelerateInterpolatorGetInterpolationRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
 }

@@ -62,6 +62,14 @@ message GetMatchAnyOisResponse {
   int64 result = 1;
 }
 
+message GetOtherHomePartnersListRequest {
+  int64 handle = 1;
+}
+
+message GetOtherHomePartnersListResponse {
+  int64 result = 1;
+}
+
 message GetRoamingConsortiumOisRequest {
   int64 handle = 1;
 }
@@ -430,6 +438,7 @@ service HomeSpService {
   rpc GetFriendlyName (GetFriendlyNameRequest) returns (GetFriendlyNameResponse);
   rpc GetMatchAllOis (GetMatchAllOisRequest) returns (GetMatchAllOisResponse);
   rpc GetMatchAnyOis (GetMatchAnyOisRequest) returns (GetMatchAnyOisResponse);
+  rpc GetOtherHomePartnersList (GetOtherHomePartnersListRequest) returns (GetOtherHomePartnersListResponse);
   rpc GetRoamingConsortiumOis (GetRoamingConsortiumOisRequest) returns (GetRoamingConsortiumOisResponse);
   rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
   rpc SetFqdn (SetFqdnRequest) returns (SetFqdnResponse);

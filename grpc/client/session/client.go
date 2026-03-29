@@ -9,6 +9,205 @@ import (
 	"google.golang.org/grpc"
 )
 
+// MediaSessionManagerClient wraps the gRPC MediaSessionManagerService client.
+type MediaSessionManagerClient struct {
+	svc pb.MediaSessionManagerServiceClient
+}
+
+// NewMediaSessionManagerClient creates a new MediaSessionManager client.
+func NewMediaSessionManagerClient(cc grpc.ClientConnInterface) *MediaSessionManagerClient {
+	return &MediaSessionManagerClient{
+		svc: pb.NewMediaSessionManagerServiceClient(cc),
+	}
+}
+
+// AddOnActiveSessionsChangedListener calls the AddOnActiveSessionsChangedListener RPC.
+func (c *MediaSessionManagerClient) AddOnActiveSessionsChangedListener(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.AddOnActiveSessionsChangedListener(ctx, &pb.AddOnActiveSessionsChangedListenerRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AddOnMediaKeyEventSessionChangedListener calls the AddOnMediaKeyEventSessionChangedListener RPC.
+func (c *MediaSessionManagerClient) AddOnMediaKeyEventSessionChangedListener(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.AddOnMediaKeyEventSessionChangedListener(ctx, &pb.AddOnMediaKeyEventSessionChangedListenerRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AddOnSession2TokensChangedListener calls the AddOnSession2TokensChangedListener RPC.
+func (c *MediaSessionManagerClient) AddOnSession2TokensChangedListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.AddOnSession2TokensChangedListener(ctx, &pb.AddOnSession2TokensChangedListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetActiveSessions calls the GetActiveSessions RPC.
+func (c *MediaSessionManagerClient) GetActiveSessions(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetActiveSessions(ctx, &pb.GetActiveSessionsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMediaKeyEventSession calls the GetMediaKeyEventSession RPC.
+func (c *MediaSessionManagerClient) GetMediaKeyEventSession(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMediaKeyEventSession(ctx, &pb.GetMediaKeyEventSessionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMediaKeyEventSessionPackageName calls the GetMediaKeyEventSessionPackageName RPC.
+func (c *MediaSessionManagerClient) GetMediaKeyEventSessionPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetMediaKeyEventSessionPackageName(ctx, &pb.GetMediaKeyEventSessionPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSession2Tokens calls the GetSession2Tokens RPC.
+func (c *MediaSessionManagerClient) GetSession2Tokens(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSession2Tokens(ctx, &pb.GetSession2TokensRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsTrustedForMediaControl calls the IsTrustedForMediaControl RPC.
+func (c *MediaSessionManagerClient) IsTrustedForMediaControl(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.IsTrustedForMediaControl(ctx, &pb.IsTrustedForMediaControlRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NotifySession2Created calls the NotifySession2Created RPC.
+func (c *MediaSessionManagerClient) NotifySession2Created(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.NotifySession2Created(ctx, &pb.NotifySession2CreatedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RemoveOnActiveSessionsChangedListener calls the RemoveOnActiveSessionsChangedListener RPC.
+func (c *MediaSessionManagerClient) RemoveOnActiveSessionsChangedListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RemoveOnActiveSessionsChangedListener(ctx, &pb.RemoveOnActiveSessionsChangedListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RemoveOnMediaKeyEventSessionChangedListener calls the RemoveOnMediaKeyEventSessionChangedListener RPC.
+func (c *MediaSessionManagerClient) RemoveOnMediaKeyEventSessionChangedListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RemoveOnMediaKeyEventSessionChangedListener(ctx, &pb.RemoveOnMediaKeyEventSessionChangedListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RemoveOnSession2TokensChangedListener calls the RemoveOnSession2TokensChangedListener RPC.
+func (c *MediaSessionManagerClient) RemoveOnSession2TokensChangedListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RemoveOnSession2TokensChangedListener(ctx, &pb.RemoveOnSession2TokensChangedListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// MediaSessionManagerOnMediaKeyEventSessionChangedListenerClient wraps the gRPC MediaSessionManagerOnMediaKeyEventSessionChangedListenerService client.
+type MediaSessionManagerOnMediaKeyEventSessionChangedListenerClient struct {
+	svc pb.MediaSessionManagerOnMediaKeyEventSessionChangedListenerServiceClient
+}
+
+// NewMediaSessionManagerOnMediaKeyEventSessionChangedListenerClient creates a new MediaSessionManagerOnMediaKeyEventSessionChangedListener client.
+func NewMediaSessionManagerOnMediaKeyEventSessionChangedListenerClient(cc grpc.ClientConnInterface) *MediaSessionManagerOnMediaKeyEventSessionChangedListenerClient {
+	return &MediaSessionManagerOnMediaKeyEventSessionChangedListenerClient{
+		svc: pb.NewMediaSessionManagerOnMediaKeyEventSessionChangedListenerServiceClient(cc),
+	}
+}
+
+// OnMediaKeyEventSessionChanged calls the OnMediaKeyEventSessionChanged RPC.
+func (c *MediaSessionManagerOnMediaKeyEventSessionChangedListenerClient) OnMediaKeyEventSessionChanged(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.OnMediaKeyEventSessionChanged(ctx, &pb.OnMediaKeyEventSessionChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// MediaSessionManagerRemoteUserInfoClient wraps the gRPC MediaSessionManagerRemoteUserInfoService client.
+type MediaSessionManagerRemoteUserInfoClient struct {
+	svc pb.MediaSessionManagerRemoteUserInfoServiceClient
+}
+
+// NewMediaSessionManagerRemoteUserInfoClient creates a new MediaSessionManagerRemoteUserInfo client.
+func NewMediaSessionManagerRemoteUserInfoClient(cc grpc.ClientConnInterface) *MediaSessionManagerRemoteUserInfoClient {
+	return &MediaSessionManagerRemoteUserInfoClient{
+		svc: pb.NewMediaSessionManagerRemoteUserInfoServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *MediaSessionManagerRemoteUserInfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageName calls the GetPackageName RPC.
+func (c *MediaSessionManagerRemoteUserInfoClient) GetPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetPackageName(ctx, &pb.GetPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPid calls the GetPid RPC.
+func (c *MediaSessionManagerRemoteUserInfoClient) GetPid(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPid(ctx, &pb.GetPidRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUid calls the GetUid RPC.
+func (c *MediaSessionManagerRemoteUserInfoClient) GetUid(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetUid(ctx, &pb.GetUidRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *MediaSessionManagerRemoteUserInfoClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // MediaSessionClient wraps the gRPC MediaSessionService client.
 type MediaSessionClient struct {
 	svc pb.MediaSessionServiceClient
@@ -542,6 +741,15 @@ func (c *PlaybackStateClient) GetBufferedPosition(ctx context.Context) (int64, e
 	return resp.GetResult(), nil
 }
 
+// GetCustomActions calls the GetCustomActions RPC.
+func (c *PlaybackStateClient) GetCustomActions(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCustomActions(ctx, &pb.GetCustomActionsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetErrorMessage calls the GetErrorMessage RPC.
 func (c *PlaybackStateClient) GetErrorMessage(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetErrorMessage(ctx, &pb.GetErrorMessageRequest{})
@@ -894,7 +1102,7 @@ func (c *MediaControllerClient) GetMetadata(ctx context.Context, handle int64) (
 
 // GetPackageName calls the GetPackageName RPC.
 func (c *MediaControllerClient) GetPackageName(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetPackageName(ctx, &pb.GetPackageNameRequest{
+	resp, err := c.svc.GetPackageName(ctx, &pb.MediaControllerGetPackageNameRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -917,6 +1125,17 @@ func (c *MediaControllerClient) GetPlaybackInfo(ctx context.Context, handle int6
 // GetPlaybackState calls the GetPlaybackState RPC.
 func (c *MediaControllerClient) GetPlaybackState(ctx context.Context, handle int64) (int64, error) {
 	resp, err := c.svc.GetPlaybackState(ctx, &pb.GetPlaybackStateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetQueue calls the GetQueue RPC.
+func (c *MediaControllerClient) GetQueue(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetQueue(ctx, &pb.GetQueueRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -1363,183 +1582,4 @@ func (c *MediaControllerTransportControlsClient) SkipToQueueItem(ctx context.Con
 func (c *MediaControllerTransportControlsClient) Stop(ctx context.Context) error {
 	_, err := c.svc.Stop(ctx, &pb.StopRequest{})
 	return err
-}
-
-// MediaSessionManagerClient wraps the gRPC MediaSessionManagerService client.
-type MediaSessionManagerClient struct {
-	svc pb.MediaSessionManagerServiceClient
-}
-
-// NewMediaSessionManagerClient creates a new MediaSessionManager client.
-func NewMediaSessionManagerClient(cc grpc.ClientConnInterface) *MediaSessionManagerClient {
-	return &MediaSessionManagerClient{
-		svc: pb.NewMediaSessionManagerServiceClient(cc),
-	}
-}
-
-// AddOnActiveSessionsChangedListener calls the AddOnActiveSessionsChangedListener RPC.
-func (c *MediaSessionManagerClient) AddOnActiveSessionsChangedListener(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.AddOnActiveSessionsChangedListener(ctx, &pb.AddOnActiveSessionsChangedListenerRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// AddOnMediaKeyEventSessionChangedListener calls the AddOnMediaKeyEventSessionChangedListener RPC.
-func (c *MediaSessionManagerClient) AddOnMediaKeyEventSessionChangedListener(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.AddOnMediaKeyEventSessionChangedListener(ctx, &pb.AddOnMediaKeyEventSessionChangedListenerRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// AddOnSession2TokensChangedListener calls the AddOnSession2TokensChangedListener RPC.
-func (c *MediaSessionManagerClient) AddOnSession2TokensChangedListener(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.AddOnSession2TokensChangedListener(ctx, &pb.AddOnSession2TokensChangedListenerRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// GetMediaKeyEventSession calls the GetMediaKeyEventSession RPC.
-func (c *MediaSessionManagerClient) GetMediaKeyEventSession(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetMediaKeyEventSession(ctx, &pb.GetMediaKeyEventSessionRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMediaKeyEventSessionPackageName calls the GetMediaKeyEventSessionPackageName RPC.
-func (c *MediaSessionManagerClient) GetMediaKeyEventSessionPackageName(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetMediaKeyEventSessionPackageName(ctx, &pb.GetMediaKeyEventSessionPackageNameRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsTrustedForMediaControl calls the IsTrustedForMediaControl RPC.
-func (c *MediaSessionManagerClient) IsTrustedForMediaControl(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.IsTrustedForMediaControl(ctx, &pb.IsTrustedForMediaControlRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NotifySession2Created calls the NotifySession2Created RPC.
-func (c *MediaSessionManagerClient) NotifySession2Created(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.NotifySession2Created(ctx, &pb.NotifySession2CreatedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// RemoveOnActiveSessionsChangedListener calls the RemoveOnActiveSessionsChangedListener RPC.
-func (c *MediaSessionManagerClient) RemoveOnActiveSessionsChangedListener(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.RemoveOnActiveSessionsChangedListener(ctx, &pb.RemoveOnActiveSessionsChangedListenerRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// RemoveOnMediaKeyEventSessionChangedListener calls the RemoveOnMediaKeyEventSessionChangedListener RPC.
-func (c *MediaSessionManagerClient) RemoveOnMediaKeyEventSessionChangedListener(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.RemoveOnMediaKeyEventSessionChangedListener(ctx, &pb.RemoveOnMediaKeyEventSessionChangedListenerRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// RemoveOnSession2TokensChangedListener calls the RemoveOnSession2TokensChangedListener RPC.
-func (c *MediaSessionManagerClient) RemoveOnSession2TokensChangedListener(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.RemoveOnSession2TokensChangedListener(ctx, &pb.RemoveOnSession2TokensChangedListenerRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// MediaSessionManagerOnMediaKeyEventSessionChangedListenerClient wraps the gRPC MediaSessionManagerOnMediaKeyEventSessionChangedListenerService client.
-type MediaSessionManagerOnMediaKeyEventSessionChangedListenerClient struct {
-	svc pb.MediaSessionManagerOnMediaKeyEventSessionChangedListenerServiceClient
-}
-
-// NewMediaSessionManagerOnMediaKeyEventSessionChangedListenerClient creates a new MediaSessionManagerOnMediaKeyEventSessionChangedListener client.
-func NewMediaSessionManagerOnMediaKeyEventSessionChangedListenerClient(cc grpc.ClientConnInterface) *MediaSessionManagerOnMediaKeyEventSessionChangedListenerClient {
-	return &MediaSessionManagerOnMediaKeyEventSessionChangedListenerClient{
-		svc: pb.NewMediaSessionManagerOnMediaKeyEventSessionChangedListenerServiceClient(cc),
-	}
-}
-
-// OnMediaKeyEventSessionChanged calls the OnMediaKeyEventSessionChanged RPC.
-func (c *MediaSessionManagerOnMediaKeyEventSessionChangedListenerClient) OnMediaKeyEventSessionChanged(ctx context.Context, arg0 string, arg1 int64) error {
-	_, err := c.svc.OnMediaKeyEventSessionChanged(ctx, &pb.OnMediaKeyEventSessionChangedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// MediaSessionManagerRemoteUserInfoClient wraps the gRPC MediaSessionManagerRemoteUserInfoService client.
-type MediaSessionManagerRemoteUserInfoClient struct {
-	svc pb.MediaSessionManagerRemoteUserInfoServiceClient
-}
-
-// NewMediaSessionManagerRemoteUserInfoClient creates a new MediaSessionManagerRemoteUserInfo client.
-func NewMediaSessionManagerRemoteUserInfoClient(cc grpc.ClientConnInterface) *MediaSessionManagerRemoteUserInfoClient {
-	return &MediaSessionManagerRemoteUserInfoClient{
-		svc: pb.NewMediaSessionManagerRemoteUserInfoServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *MediaSessionManagerRemoteUserInfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPackageName calls the GetPackageName RPC.
-func (c *MediaSessionManagerRemoteUserInfoClient) GetPackageName(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetPackageName(ctx, &pb.MediaSessionManagerRemoteUserInfoGetPackageNameRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPid calls the GetPid RPC.
-func (c *MediaSessionManagerRemoteUserInfoClient) GetPid(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetPid(ctx, &pb.GetPidRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUid calls the GetUid RPC.
-func (c *MediaSessionManagerRemoteUserInfoClient) GetUid(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetUid(ctx, &pb.GetUidRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *MediaSessionManagerRemoteUserInfoClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
 }

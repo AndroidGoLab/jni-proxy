@@ -423,6 +423,25 @@ var playerMediaPlayerGetRoutedDeviceCmd = &cobra.Command{
 	},
 }
 
+var playerMediaPlayerGetRoutedDevicesCmd = &cobra.Command{
+	Use:   "get-routed-devices",
+	Short: "GetRoutedDevices RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaPlayerServiceClient(grpcConn)
+		req := &pb.GetRoutedDevicesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetRoutedDevices(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var playerMediaPlayerGetSelectedTrackCmd = &cobra.Command{
 	Use:   "get-selected-track",
 	Short: "GetSelectedTrack RPC",
@@ -2400,6 +2419,8 @@ func init() {
 	playerMediaPlayerCmd.AddCommand(playerMediaPlayerGetPreferredDeviceCmd)
 	playerMediaPlayerGetRoutedDeviceCmd.Flags().Int64("handle", 0, "handle (int64)")
 	playerMediaPlayerCmd.AddCommand(playerMediaPlayerGetRoutedDeviceCmd)
+	playerMediaPlayerGetRoutedDevicesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	playerMediaPlayerCmd.AddCommand(playerMediaPlayerGetRoutedDevicesCmd)
 	playerMediaPlayerGetSelectedTrackCmd.Flags().Int64("handle", 0, "handle (int64)")
 	playerMediaPlayerGetSelectedTrackCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	playerMediaPlayerCmd.AddCommand(playerMediaPlayerGetSelectedTrackCmd)

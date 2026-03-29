@@ -9,20 +9,43 @@ import (
 	"google.golang.org/grpc"
 )
 
-// ExecuteAppFunctionResponseClient wraps the gRPC ExecuteAppFunctionResponseService client.
-type ExecuteAppFunctionResponseClient struct {
-	svc pb.ExecuteAppFunctionResponseServiceClient
+// AppFunctionServiceClient wraps the gRPC AppFunctionServiceService client.
+type AppFunctionServiceClient struct {
+	svc pb.AppFunctionServiceServiceClient
 }
 
-// NewExecuteAppFunctionResponseClient creates a new ExecuteAppFunctionResponse client.
-func NewExecuteAppFunctionResponseClient(cc grpc.ClientConnInterface) *ExecuteAppFunctionResponseClient {
-	return &ExecuteAppFunctionResponseClient{
-		svc: pb.NewExecuteAppFunctionResponseServiceClient(cc),
+// NewAppFunctionServiceClient creates a new AppFunctionService client.
+func NewAppFunctionServiceClient(cc grpc.ClientConnInterface) *AppFunctionServiceClient {
+	return &AppFunctionServiceClient{
+		svc: pb.NewAppFunctionServiceServiceClient(cc),
+	}
+}
+
+// OnBind calls the OnBind RPC.
+func (c *AppFunctionServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AppFunctionExceptionClient wraps the gRPC AppFunctionExceptionService client.
+type AppFunctionExceptionClient struct {
+	svc pb.AppFunctionExceptionServiceClient
+}
+
+// NewAppFunctionExceptionClient creates a new AppFunctionException client.
+func NewAppFunctionExceptionClient(cc grpc.ClientConnInterface) *AppFunctionExceptionClient {
+	return &AppFunctionExceptionClient{
+		svc: pb.NewAppFunctionExceptionServiceClient(cc),
 	}
 }
 
 // DescribeContents calls the DescribeContents RPC.
-func (c *ExecuteAppFunctionResponseClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+func (c *AppFunctionExceptionClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
 		Handle: handle,
 	})
@@ -32,8 +55,41 @@ func (c *ExecuteAppFunctionResponseClient) DescribeContents(ctx context.Context,
 	return resp.GetResult(), nil
 }
 
+// GetErrorCategory calls the GetErrorCategory RPC.
+func (c *AppFunctionExceptionClient) GetErrorCategory(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetErrorCategory(ctx, &pb.GetErrorCategoryRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetErrorCode calls the GetErrorCode RPC.
+func (c *AppFunctionExceptionClient) GetErrorCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetErrorCode(ctx, &pb.GetErrorCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetErrorMessage calls the GetErrorMessage RPC.
+func (c *AppFunctionExceptionClient) GetErrorMessage(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetErrorMessage(ctx, &pb.GetErrorMessageRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetExtras calls the GetExtras RPC.
-func (c *ExecuteAppFunctionResponseClient) GetExtras(ctx context.Context, handle int64) (int64, error) {
+func (c *AppFunctionExceptionClient) GetExtras(ctx context.Context, handle int64) (int64, error) {
 	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{
 		Handle: handle,
 	})
@@ -43,19 +99,8 @@ func (c *ExecuteAppFunctionResponseClient) GetExtras(ctx context.Context, handle
 	return resp.GetResult(), nil
 }
 
-// GetResultDocument calls the GetResultDocument RPC.
-func (c *ExecuteAppFunctionResponseClient) GetResultDocument(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetResultDocument(ctx, &pb.GetResultDocumentRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // WriteToParcel calls the WriteToParcel RPC.
-func (c *ExecuteAppFunctionResponseClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+func (c *AppFunctionExceptionClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
 	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -173,43 +218,20 @@ func (c *ExecuteAppFunctionRequestBuilderClient) SetParameters(ctx context.Conte
 	return resp.GetResult(), nil
 }
 
-// AppFunctionServiceClient wraps the gRPC AppFunctionServiceService client.
-type AppFunctionServiceClient struct {
-	svc pb.AppFunctionServiceServiceClient
+// ExecuteAppFunctionResponseClient wraps the gRPC ExecuteAppFunctionResponseService client.
+type ExecuteAppFunctionResponseClient struct {
+	svc pb.ExecuteAppFunctionResponseServiceClient
 }
 
-// NewAppFunctionServiceClient creates a new AppFunctionService client.
-func NewAppFunctionServiceClient(cc grpc.ClientConnInterface) *AppFunctionServiceClient {
-	return &AppFunctionServiceClient{
-		svc: pb.NewAppFunctionServiceServiceClient(cc),
-	}
-}
-
-// OnBind calls the OnBind RPC.
-func (c *AppFunctionServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AppFunctionExceptionClient wraps the gRPC AppFunctionExceptionService client.
-type AppFunctionExceptionClient struct {
-	svc pb.AppFunctionExceptionServiceClient
-}
-
-// NewAppFunctionExceptionClient creates a new AppFunctionException client.
-func NewAppFunctionExceptionClient(cc grpc.ClientConnInterface) *AppFunctionExceptionClient {
-	return &AppFunctionExceptionClient{
-		svc: pb.NewAppFunctionExceptionServiceClient(cc),
+// NewExecuteAppFunctionResponseClient creates a new ExecuteAppFunctionResponse client.
+func NewExecuteAppFunctionResponseClient(cc grpc.ClientConnInterface) *ExecuteAppFunctionResponseClient {
+	return &ExecuteAppFunctionResponseClient{
+		svc: pb.NewExecuteAppFunctionResponseServiceClient(cc),
 	}
 }
 
 // DescribeContents calls the DescribeContents RPC.
-func (c *AppFunctionExceptionClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+func (c *ExecuteAppFunctionResponseClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
 		Handle: handle,
 	})
@@ -219,41 +241,8 @@ func (c *AppFunctionExceptionClient) DescribeContents(ctx context.Context, handl
 	return resp.GetResult(), nil
 }
 
-// GetErrorCategory calls the GetErrorCategory RPC.
-func (c *AppFunctionExceptionClient) GetErrorCategory(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetErrorCategory(ctx, &pb.GetErrorCategoryRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetErrorCode calls the GetErrorCode RPC.
-func (c *AppFunctionExceptionClient) GetErrorCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetErrorCode(ctx, &pb.GetErrorCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetErrorMessage calls the GetErrorMessage RPC.
-func (c *AppFunctionExceptionClient) GetErrorMessage(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetErrorMessage(ctx, &pb.GetErrorMessageRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetExtras calls the GetExtras RPC.
-func (c *AppFunctionExceptionClient) GetExtras(ctx context.Context, handle int64) (int64, error) {
+func (c *ExecuteAppFunctionResponseClient) GetExtras(ctx context.Context, handle int64) (int64, error) {
 	resp, err := c.svc.GetExtras(ctx, &pb.GetExtrasRequest{
 		Handle: handle,
 	})
@@ -263,8 +252,19 @@ func (c *AppFunctionExceptionClient) GetExtras(ctx context.Context, handle int64
 	return resp.GetResult(), nil
 }
 
+// GetResultDocument calls the GetResultDocument RPC.
+func (c *ExecuteAppFunctionResponseClient) GetResultDocument(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetResultDocument(ctx, &pb.GetResultDocumentRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // WriteToParcel calls the WriteToParcel RPC.
-func (c *AppFunctionExceptionClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+func (c *ExecuteAppFunctionResponseClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
 	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Handle: handle,
 		Arg0:   arg0,

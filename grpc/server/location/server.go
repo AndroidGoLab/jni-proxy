@@ -673,7 +673,7 @@ func (s *CriteriaServer) DescribeContents(_ context.Context, req *pb.CriteriaDes
 	return &pb.DescribeContentsResponse{Result: result}, nil
 }
 
-func (s *CriteriaServer) GetAccuracy(_ context.Context, req *pb.GetAccuracyRequest) (*pb.GetAccuracyResponse, error) {
+func (s *CriteriaServer) GetAccuracy(_ context.Context, req *pb.CriteriaGetAccuracyRequest) (*pb.GetAccuracyResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -715,7 +715,7 @@ func (s *CriteriaServer) GetHorizontalAccuracy(_ context.Context, req *pb.GetHor
 	return &pb.GetHorizontalAccuracyResponse{Result: result}, nil
 }
 
-func (s *CriteriaServer) GetPowerRequirement(_ context.Context, req *pb.GetPowerRequirementRequest) (*pb.GetPowerRequirementResponse, error) {
+func (s *CriteriaServer) GetPowerRequirement(_ context.Context, req *pb.CriteriaGetPowerRequirementRequest) (*pb.GetPowerRequirementResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -992,43 +992,112 @@ func (s *GeocoderServer) NewGeocoder(_ context.Context, req *pb.NewGeocoderReque
 	return &pb.NewGeocoderResponse{Result: handle}, nil
 }
 
-func (s *GeocoderServer) GetFromLocation(_ context.Context, req *pb.GetFromLocationRequest) (*pb.GetFromLocationResponse, error) {
+func (s *GeocoderServer) GetFromLocation3(_ context.Context, req *pb.GetFromLocation3Request) (*pb.GetFromLocation3Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
 	mgr := &jnipkg.Geocoder{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GetFromLocation(req.GetArg0(), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3())); err != nil {
+	result, err := mgr.GetFromLocation3(req.GetArg0(), req.GetArg1(), req.GetArg2())
+	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GetFromLocationResponse{}, nil
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetFromLocation3Response{Result: handle}, nil
 }
 
-func (s *GeocoderServer) GetFromLocationName3(_ context.Context, req *pb.GetFromLocationName3Request) (*pb.GetFromLocationName3Response, error) {
+func (s *GeocoderServer) GetFromLocation4_1(_ context.Context, req *pb.GetFromLocation4_1Request) (*pb.GetFromLocation4_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
 	mgr := &jnipkg.Geocoder{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GetFromLocationName3(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+	if err := mgr.GetFromLocation4_1(req.GetArg0(), req.GetArg1(), req.GetArg2(), s.Handles.Get(req.GetArg3())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GetFromLocationName3Response{}, nil
+	return &pb.GetFromLocation4_1Response{}, nil
 }
 
-func (s *GeocoderServer) GetFromLocationName7_1(_ context.Context, req *pb.GetFromLocationName7_1Request) (*pb.GetFromLocationName7_1Response, error) {
+func (s *GeocoderServer) GetFromLocationName2(_ context.Context, req *pb.GetFromLocationName2Request) (*pb.GetFromLocationName2Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
 	mgr := &jnipkg.Geocoder{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.GetFromLocationName7_1(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), s.Handles.Get(req.GetArg6())); err != nil {
+	result, err := mgr.GetFromLocationName2(req.GetArg0(), req.GetArg1())
+	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GetFromLocationName7_1Response{}, nil
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetFromLocationName2Response{Result: handle}, nil
+}
+
+func (s *GeocoderServer) GetFromLocationName3_1(_ context.Context, req *pb.GetFromLocationName3_1Request) (*pb.GetFromLocationName3_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Geocoder{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GetFromLocationName3_1(req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetFromLocationName3_1Response{}, nil
+}
+
+func (s *GeocoderServer) GetFromLocationName6_2(_ context.Context, req *pb.GetFromLocationName6_2Request) (*pb.GetFromLocationName6_2Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Geocoder{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetFromLocationName6_2(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetFromLocationName6_2Response{Result: handle}, nil
+}
+
+func (s *GeocoderServer) GetFromLocationName7_3(_ context.Context, req *pb.GetFromLocationName7_3Request) (*pb.GetFromLocationName7_3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Geocoder{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GetFromLocationName7_3(req.GetArg0(), req.GetArg1(), req.GetArg2(), req.GetArg3(), req.GetArg4(), req.GetArg5(), s.Handles.Get(req.GetArg6())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetFromLocationName7_3Response{}, nil
 }
 
 func (s *GeocoderServer) IsPresent(_ context.Context, req *pb.IsPresentRequest) (*pb.IsPresentResponse, error) {
@@ -1186,6 +1255,29 @@ func (s *ManagerServer) ClearTestProviderStatus(_ context.Context, req *pb.Clear
 	return &pb.ClearTestProviderStatusResponse{}, nil
 }
 
+func (s *ManagerServer) GetAllProviders(_ context.Context, req *pb.GetAllProvidersRequest) (*pb.GetAllProvidersResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetAllProviders()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetAllProvidersResponse{Result: handle}, nil
+}
+
 func (s *ManagerServer) GetBestProvider(_ context.Context, req *pb.GetBestProviderRequest) (*pb.GetBestProviderResponse, error) {
 	mgr, err := jnipkg.NewManager(s.Ctx)
 	if err != nil {
@@ -1198,6 +1290,29 @@ func (s *ManagerServer) GetBestProvider(_ context.Context, req *pb.GetBestProvid
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.GetBestProviderResponse{Result: result}, nil
+}
+
+func (s *ManagerServer) GetGnssAntennaInfos(_ context.Context, req *pb.GetGnssAntennaInfosRequest) (*pb.GetGnssAntennaInfosResponse, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetGnssAntennaInfos()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetGnssAntennaInfosResponse{Result: handle}, nil
 }
 
 func (s *ManagerServer) GetGnssCapabilities(_ context.Context, req *pb.GetGnssCapabilitiesRequest) (*pb.GetGnssCapabilitiesResponse, error) {
@@ -1341,6 +1456,52 @@ func (s *ManagerServer) GetProviderProperties(_ context.Context, req *pb.GetProv
 		}
 	}
 	return &pb.GetProviderPropertiesResponse{Result: handle}, nil
+}
+
+func (s *ManagerServer) GetProviders2(_ context.Context, req *pb.GetProviders2Request) (*pb.GetProviders2Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetProviders2(s.Handles.Get(req.GetArg0()), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetProviders2Response{Result: handle}, nil
+}
+
+func (s *ManagerServer) GetProviders1_1(_ context.Context, req *pb.GetProviders1_1Request) (*pb.GetProviders1_1Response, error) {
+	mgr, err := jnipkg.NewManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetProviders1_1(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetProviders1_1Response{Result: handle}, nil
 }
 
 func (s *ManagerServer) HasProvider(_ context.Context, req *pb.HasProviderRequest) (*pb.HasProviderResponse, error) {
@@ -1979,7 +2140,7 @@ func (s *LocationServer) Equals(_ context.Context, req *pb.LocationEqualsRequest
 	return &pb.EqualsResponse{Result: result}, nil
 }
 
-func (s *LocationServer) GetAccuracy(_ context.Context, req *pb.GetAccuracyRequest) (*pb.LocationGetAccuracyResponse, error) {
+func (s *LocationServer) GetAccuracy(_ context.Context, req *pb.LocationGetAccuracyRequest) (*pb.LocationGetAccuracyResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2077,7 +2238,7 @@ func (s *LocationServer) GetElapsedRealtimeMillis(_ context.Context, req *pb.Get
 	return &pb.GetElapsedRealtimeMillisResponse{Result: result}, nil
 }
 
-func (s *LocationServer) GetElapsedRealtimeNanos(_ context.Context, req *pb.LocationGetElapsedRealtimeNanosRequest) (*pb.GetElapsedRealtimeNanosResponse, error) {
+func (s *LocationServer) GetElapsedRealtimeNanos(_ context.Context, req *pb.GetElapsedRealtimeNanosRequest) (*pb.GetElapsedRealtimeNanosResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2091,7 +2252,7 @@ func (s *LocationServer) GetElapsedRealtimeNanos(_ context.Context, req *pb.Loca
 	return &pb.GetElapsedRealtimeNanosResponse{Result: result}, nil
 }
 
-func (s *LocationServer) GetElapsedRealtimeUncertaintyNanos(_ context.Context, req *pb.LocationGetElapsedRealtimeUncertaintyNanosRequest) (*pb.GetElapsedRealtimeUncertaintyNanosResponse, error) {
+func (s *LocationServer) GetElapsedRealtimeUncertaintyNanos(_ context.Context, req *pb.GetElapsedRealtimeUncertaintyNanosRequest) (*pb.GetElapsedRealtimeUncertaintyNanosResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -2310,7 +2471,7 @@ func (s *LocationServer) HasBearingAccuracy(_ context.Context, req *pb.HasBearin
 	return &pb.HasBearingAccuracyResponse{Result: result}, nil
 }
 
-func (s *LocationServer) HasElapsedRealtimeUncertaintyNanos(_ context.Context, req *pb.LocationHasElapsedRealtimeUncertaintyNanosRequest) (*pb.HasElapsedRealtimeUncertaintyNanosResponse, error) {
+func (s *LocationServer) HasElapsedRealtimeUncertaintyNanos(_ context.Context, req *pb.HasElapsedRealtimeUncertaintyNanosRequest) (*pb.HasElapsedRealtimeUncertaintyNanosResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")

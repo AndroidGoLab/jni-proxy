@@ -15,6 +15,102 @@ import (
 	"google.golang.org/grpc/status"
 )
 
+// ThumbnailTemplateServer implements pb.ThumbnailTemplateServiceServer.
+type ThumbnailTemplateServer struct {
+	pb.UnimplementedThumbnailTemplateServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *ThumbnailTemplateServer) NewThumbnailTemplate(_ context.Context, req *pb.NewThumbnailTemplateRequest) (*pb.NewThumbnailTemplateResponse, error) {
+	obj, err := jnipkg.NewThumbnailTemplate(s.Ctx.VM, req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewThumbnailTemplateResponse{Result: handle}, nil
+}
+
+func (s *ThumbnailTemplateServer) GetContentDescription(_ context.Context, req *pb.GetContentDescriptionRequest) (*pb.GetContentDescriptionResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ThumbnailTemplate{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetContentDescription()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetContentDescriptionResponse{Result: handle}, nil
+}
+
+func (s *ThumbnailTemplateServer) GetTemplateType(_ context.Context, req *pb.GetTemplateTypeRequest) (*pb.GetTemplateTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ThumbnailTemplate{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTemplateType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTemplateTypeResponse{Result: result}, nil
+}
+
+func (s *ThumbnailTemplateServer) GetThumbnail(_ context.Context, req *pb.GetThumbnailRequest) (*pb.GetThumbnailResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ThumbnailTemplate{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetThumbnail()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetThumbnailResponse{Result: handle}, nil
+}
+
+func (s *ThumbnailTemplateServer) IsActive(_ context.Context, req *pb.IsActiveRequest) (*pb.IsActiveResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ThumbnailTemplate{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsActive()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsActiveResponse{Result: result}, nil
+}
+
 // StatelessTemplateServer implements pb.StatelessTemplateServiceServer.
 type StatelessTemplateServer struct {
 	pb.UnimplementedStatelessTemplateServiceServer
@@ -51,15 +147,15 @@ func (s *StatelessTemplateServer) GetTemplateType(_ context.Context, req *pb.Get
 	return &pb.GetTemplateTypeResponse{Result: result}, nil
 }
 
-// TemperatureControlTemplateServer implements pb.TemperatureControlTemplateServiceServer.
-type TemperatureControlTemplateServer struct {
-	pb.UnimplementedTemperatureControlTemplateServiceServer
+// ToggleRangeTemplateServer implements pb.ToggleRangeTemplateServiceServer.
+type ToggleRangeTemplateServer struct {
+	pb.UnimplementedToggleRangeTemplateServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *TemperatureControlTemplateServer) NewTemperatureControlTemplate(_ context.Context, req *pb.NewTemperatureControlTemplateRequest) (*pb.NewTemperatureControlTemplateResponse, error) {
-	obj, err := jnipkg.NewTemperatureControlTemplate(s.Ctx.VM, req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2(), req.GetArg3(), req.GetArg4())
+func (s *ToggleRangeTemplateServer) NewToggleRangeTemplate(_ context.Context, req *pb.NewToggleRangeTemplateRequest) (*pb.NewToggleRangeTemplateResponse, error) {
+	obj, err := jnipkg.NewToggleRangeTemplate(s.Ctx.VM, req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -70,130 +166,15 @@ func (s *TemperatureControlTemplateServer) NewTemperatureControlTemplate(_ conte
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewTemperatureControlTemplateResponse{Result: handle}, nil
+	return &pb.NewToggleRangeTemplateResponse{Result: handle}, nil
 }
 
-func (s *TemperatureControlTemplateServer) GetCurrentActiveMode(_ context.Context, req *pb.GetCurrentActiveModeRequest) (*pb.GetCurrentActiveModeResponse, error) {
+func (s *ToggleRangeTemplateServer) GetActionDescription(_ context.Context, req *pb.GetActionDescriptionRequest) (*pb.GetActionDescriptionResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.TemperatureControlTemplate{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetCurrentActiveMode()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetCurrentActiveModeResponse{Result: result}, nil
-}
-
-func (s *TemperatureControlTemplateServer) GetCurrentMode(_ context.Context, req *pb.GetCurrentModeRequest) (*pb.GetCurrentModeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TemperatureControlTemplate{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetCurrentMode()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetCurrentModeResponse{Result: result}, nil
-}
-
-func (s *TemperatureControlTemplateServer) GetModes(_ context.Context, req *pb.GetModesRequest) (*pb.GetModesResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TemperatureControlTemplate{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetModes()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetModesResponse{Result: result}, nil
-}
-
-func (s *TemperatureControlTemplateServer) GetTemplate(_ context.Context, req *pb.GetTemplateRequest) (*pb.GetTemplateResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TemperatureControlTemplate{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetTemplate()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetTemplateResponse{Result: handle}, nil
-}
-
-func (s *TemperatureControlTemplateServer) GetTemplateType(_ context.Context, req *pb.GetTemplateTypeRequest) (*pb.GetTemplateTypeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TemperatureControlTemplate{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetTemplateType()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetTemplateTypeResponse{Result: result}, nil
-}
-
-// ControlButtonServer implements pb.ControlButtonServiceServer.
-type ControlButtonServer struct {
-	pb.UnimplementedControlButtonServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *ControlButtonServer) NewControlButton(_ context.Context, req *pb.NewControlButtonRequest) (*pb.NewControlButtonResponse, error) {
-	obj, err := jnipkg.NewControlButton(s.Ctx.VM, req.GetArg0(), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewControlButtonResponse{Result: handle}, nil
-}
-
-func (s *ControlButtonServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ControlButton{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *ControlButtonServer) GetActionDescription(_ context.Context, req *pb.GetActionDescriptionRequest) (*pb.GetActionDescriptionResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ControlButton{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.ToggleRangeTemplate{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.GetActionDescription()
 	if err != nil {
@@ -211,31 +192,55 @@ func (s *ControlButtonServer) GetActionDescription(_ context.Context, req *pb.Ge
 	return &pb.GetActionDescriptionResponse{Result: handle}, nil
 }
 
-func (s *ControlButtonServer) IsChecked(_ context.Context, req *pb.IsCheckedRequest) (*pb.IsCheckedResponse, error) {
+func (s *ToggleRangeTemplateServer) GetRange(_ context.Context, req *pb.GetRangeRequest) (*pb.GetRangeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.ControlButton{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.ToggleRangeTemplate{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetRange()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetRangeResponse{Result: handle}, nil
+}
+
+func (s *ToggleRangeTemplateServer) GetTemplateType(_ context.Context, req *pb.GetTemplateTypeRequest) (*pb.GetTemplateTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ToggleRangeTemplate{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTemplateType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTemplateTypeResponse{Result: result}, nil
+}
+
+func (s *ToggleRangeTemplateServer) IsChecked(_ context.Context, req *pb.IsCheckedRequest) (*pb.IsCheckedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ToggleRangeTemplate{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.IsChecked()
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.IsCheckedResponse{Result: result}, nil
-}
-
-func (s *ControlButtonServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ControlButton{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
 }
 
 // RangeTemplateServer implements pb.RangeTemplateServiceServer.
@@ -353,6 +358,107 @@ func (s *RangeTemplateServer) GetTemplateType(_ context.Context, req *pb.GetTemp
 	return &pb.GetTemplateTypeResponse{Result: result}, nil
 }
 
+// TemperatureControlTemplateServer implements pb.TemperatureControlTemplateServiceServer.
+type TemperatureControlTemplateServer struct {
+	pb.UnimplementedTemperatureControlTemplateServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *TemperatureControlTemplateServer) NewTemperatureControlTemplate(_ context.Context, req *pb.NewTemperatureControlTemplateRequest) (*pb.NewTemperatureControlTemplateResponse, error) {
+	obj, err := jnipkg.NewTemperatureControlTemplate(s.Ctx.VM, req.GetArg0(), s.Handles.Get(req.GetArg1()), req.GetArg2(), req.GetArg3(), req.GetArg4())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewTemperatureControlTemplateResponse{Result: handle}, nil
+}
+
+func (s *TemperatureControlTemplateServer) GetCurrentActiveMode(_ context.Context, req *pb.GetCurrentActiveModeRequest) (*pb.GetCurrentActiveModeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TemperatureControlTemplate{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetCurrentActiveMode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetCurrentActiveModeResponse{Result: result}, nil
+}
+
+func (s *TemperatureControlTemplateServer) GetCurrentMode(_ context.Context, req *pb.GetCurrentModeRequest) (*pb.GetCurrentModeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TemperatureControlTemplate{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetCurrentMode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetCurrentModeResponse{Result: result}, nil
+}
+
+func (s *TemperatureControlTemplateServer) GetModes(_ context.Context, req *pb.GetModesRequest) (*pb.GetModesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TemperatureControlTemplate{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetModes()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetModesResponse{Result: result}, nil
+}
+
+func (s *TemperatureControlTemplateServer) GetTemplate(_ context.Context, req *pb.GetTemplateRequest) (*pb.GetTemplateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TemperatureControlTemplate{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTemplate()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetTemplateResponse{Result: handle}, nil
+}
+
+func (s *TemperatureControlTemplateServer) GetTemplateType(_ context.Context, req *pb.GetTemplateTypeRequest) (*pb.GetTemplateTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TemperatureControlTemplate{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTemplateType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTemplateTypeResponse{Result: result}, nil
+}
+
 // ToggleTemplateServer implements pb.ToggleTemplateServiceServer.
 type ToggleTemplateServer struct {
 	pb.UnimplementedToggleTemplateServiceServer
@@ -426,15 +532,15 @@ func (s *ToggleTemplateServer) IsChecked(_ context.Context, req *pb.IsCheckedReq
 	return &pb.IsCheckedResponse{Result: result}, nil
 }
 
-// ThumbnailTemplateServer implements pb.ThumbnailTemplateServiceServer.
-type ThumbnailTemplateServer struct {
-	pb.UnimplementedThumbnailTemplateServiceServer
+// ControlButtonServer implements pb.ControlButtonServiceServer.
+type ControlButtonServer struct {
+	pb.UnimplementedControlButtonServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *ThumbnailTemplateServer) NewThumbnailTemplate(_ context.Context, req *pb.NewThumbnailTemplateRequest) (*pb.NewThumbnailTemplateResponse, error) {
-	obj, err := jnipkg.NewThumbnailTemplate(s.Ctx.VM, req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), req.GetArg3())
+func (s *ControlButtonServer) NewControlButton(_ context.Context, req *pb.NewControlButtonRequest) (*pb.NewControlButtonResponse, error) {
+	obj, err := jnipkg.NewControlButton(s.Ctx.VM, req.GetArg0(), req.GetArg1())
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -445,111 +551,29 @@ func (s *ThumbnailTemplateServer) NewThumbnailTemplate(_ context.Context, req *p
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewThumbnailTemplateResponse{Result: handle}, nil
+	return &pb.NewControlButtonResponse{Result: handle}, nil
 }
 
-func (s *ThumbnailTemplateServer) GetContentDescription(_ context.Context, req *pb.GetContentDescriptionRequest) (*pb.GetContentDescriptionResponse, error) {
+func (s *ControlButtonServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.ThumbnailTemplate{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.ControlButton{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.GetContentDescription()
+	result, err := mgr.DescribeContents()
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetContentDescriptionResponse{Result: handle}, nil
+	return &pb.DescribeContentsResponse{Result: result}, nil
 }
 
-func (s *ThumbnailTemplateServer) GetTemplateType(_ context.Context, req *pb.GetTemplateTypeRequest) (*pb.GetTemplateTypeResponse, error) {
+func (s *ControlButtonServer) GetActionDescription(_ context.Context, req *pb.GetActionDescriptionRequest) (*pb.GetActionDescriptionResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.ThumbnailTemplate{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetTemplateType()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetTemplateTypeResponse{Result: result}, nil
-}
-
-func (s *ThumbnailTemplateServer) GetThumbnail(_ context.Context, req *pb.GetThumbnailRequest) (*pb.GetThumbnailResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ThumbnailTemplate{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetThumbnail()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetThumbnailResponse{Result: handle}, nil
-}
-
-func (s *ThumbnailTemplateServer) IsActive(_ context.Context, req *pb.IsActiveRequest) (*pb.IsActiveResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ThumbnailTemplate{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsActive()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsActiveResponse{Result: result}, nil
-}
-
-// ToggleRangeTemplateServer implements pb.ToggleRangeTemplateServiceServer.
-type ToggleRangeTemplateServer struct {
-	pb.UnimplementedToggleRangeTemplateServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *ToggleRangeTemplateServer) NewToggleRangeTemplate(_ context.Context, req *pb.NewToggleRangeTemplateRequest) (*pb.NewToggleRangeTemplateResponse, error) {
-	obj, err := jnipkg.NewToggleRangeTemplate(s.Ctx.VM, req.GetArg0(), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewToggleRangeTemplateResponse{Result: handle}, nil
-}
-
-func (s *ToggleRangeTemplateServer) GetActionDescription(_ context.Context, req *pb.GetActionDescriptionRequest) (*pb.GetActionDescriptionResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ToggleRangeTemplate{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.ControlButton{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.GetActionDescription()
 	if err != nil {
@@ -567,53 +591,29 @@ func (s *ToggleRangeTemplateServer) GetActionDescription(_ context.Context, req 
 	return &pb.GetActionDescriptionResponse{Result: handle}, nil
 }
 
-func (s *ToggleRangeTemplateServer) GetRange(_ context.Context, req *pb.GetRangeRequest) (*pb.GetRangeResponse, error) {
+func (s *ControlButtonServer) IsChecked(_ context.Context, req *pb.IsCheckedRequest) (*pb.IsCheckedResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.ToggleRangeTemplate{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetRange()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetRangeResponse{Result: handle}, nil
-}
-
-func (s *ToggleRangeTemplateServer) GetTemplateType(_ context.Context, req *pb.GetTemplateTypeRequest) (*pb.GetTemplateTypeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ToggleRangeTemplate{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetTemplateType()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetTemplateTypeResponse{Result: result}, nil
-}
-
-func (s *ToggleRangeTemplateServer) IsChecked(_ context.Context, req *pb.IsCheckedRequest) (*pb.IsCheckedResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.ToggleRangeTemplate{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.ControlButton{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.IsChecked()
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.IsCheckedResponse{Result: result}, nil
+}
+
+func (s *ControlButtonServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ControlButton{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
 }

@@ -250,21 +250,21 @@ func (c *AppWidgetHostViewClient) GetDefaultPaddingForWidget(ctx context.Context
 	return resp.GetResult(), nil
 }
 
-// AppWidgetProviderInfoClient wraps the gRPC AppWidgetProviderInfoService client.
-type AppWidgetProviderInfoClient struct {
-	svc pb.AppWidgetProviderInfoServiceClient
+// AppWidgetHostClient wraps the gRPC AppWidgetHostService client.
+type AppWidgetHostClient struct {
+	svc pb.AppWidgetHostServiceClient
 }
 
-// NewAppWidgetProviderInfoClient creates a new AppWidgetProviderInfo client.
-func NewAppWidgetProviderInfoClient(cc grpc.ClientConnInterface) *AppWidgetProviderInfoClient {
-	return &AppWidgetProviderInfoClient{
-		svc: pb.NewAppWidgetProviderInfoServiceClient(cc),
+// NewAppWidgetHostClient creates a new AppWidgetHost client.
+func NewAppWidgetHostClient(cc grpc.ClientConnInterface) *AppWidgetHostClient {
+	return &AppWidgetHostClient{
+		svc: pb.NewAppWidgetHostServiceClient(cc),
 	}
 }
 
-// Clone0 calls the Clone0 RPC.
-func (c *AppWidgetProviderInfoClient) Clone0(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone0(ctx, &pb.Clone0Request{
+// AllocateAppWidgetId calls the AllocateAppWidgetId RPC.
+func (c *AppWidgetHostClient) AllocateAppWidgetId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.AllocateAppWidgetId(ctx, &pb.AllocateAppWidgetIdRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -273,57 +273,13 @@ func (c *AppWidgetProviderInfoClient) Clone0(ctx context.Context, handle int64) 
 	return resp.GetResult(), nil
 }
 
-// DescribeContents calls the DescribeContents RPC.
-func (c *AppWidgetProviderInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetActivityInfo calls the GetActivityInfo RPC.
-func (c *AppWidgetProviderInfoClient) GetActivityInfo(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetActivityInfo(ctx, &pb.GetActivityInfoRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetProfile calls the GetProfile RPC.
-func (c *AppWidgetProviderInfoClient) GetProfile(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetProfile(ctx, &pb.GetProfileRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LoadDescription calls the LoadDescription RPC.
-func (c *AppWidgetProviderInfoClient) LoadDescription(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.LoadDescription(ctx, &pb.LoadDescriptionRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LoadIcon calls the LoadIcon RPC.
-func (c *AppWidgetProviderInfoClient) LoadIcon(ctx context.Context, handle int64, arg0 int64, arg1 int32) (int64, error) {
-	resp, err := c.svc.LoadIcon(ctx, &pb.LoadIconRequest{
+// CreateView calls the CreateView RPC.
+func (c *AppWidgetHostClient) CreateView(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64) (int64, error) {
+	resp, err := c.svc.CreateView(ctx, &pb.CreateViewRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
+		Arg2:   arg2,
 	})
 	if err != nil {
 		return 0, err
@@ -331,61 +287,78 @@ func (c *AppWidgetProviderInfoClient) LoadIcon(ctx context.Context, handle int64
 	return resp.GetResult(), nil
 }
 
-// LoadLabel calls the LoadLabel RPC.
-func (c *AppWidgetProviderInfoClient) LoadLabel(ctx context.Context, handle int64, arg0 int64) (string, error) {
-	resp, err := c.svc.LoadLabel(ctx, &pb.LoadLabelRequest{
+// DeleteAppWidgetId calls the DeleteAppWidgetId RPC.
+func (c *AppWidgetHostClient) DeleteAppWidgetId(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.DeleteAppWidgetId(ctx, &pb.DeleteAppWidgetIdRequest{
 		Handle: handle,
 		Arg0:   arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// LoadPreviewImage calls the LoadPreviewImage RPC.
-func (c *AppWidgetProviderInfoClient) LoadPreviewImage(ctx context.Context, handle int64, arg0 int64, arg1 int32) (int64, error) {
-	resp, err := c.svc.LoadPreviewImage(ctx, &pb.LoadPreviewImageRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *AppWidgetProviderInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *AppWidgetProviderInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
 	})
 	return err
 }
 
-// Clone0_1 calls the Clone0_1 RPC.
-func (c *AppWidgetProviderInfoClient) Clone0_1(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone0_1(ctx, &pb.Clone0_1Request{
+// DeleteHost calls the DeleteHost RPC.
+func (c *AppWidgetHostClient) DeleteHost(ctx context.Context, handle int64) error {
+	_, err := c.svc.DeleteHost(ctx, &pb.DeleteHostRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// GetAppWidgetIds calls the GetAppWidgetIds RPC.
+func (c *AppWidgetHostClient) GetAppWidgetIds(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetAppWidgetIds(ctx, &pb.GetAppWidgetIdsRequest{
 		Handle: handle,
 	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
+}
+
+// OnAppWidgetRemoved calls the OnAppWidgetRemoved RPC.
+func (c *AppWidgetHostClient) OnAppWidgetRemoved(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.OnAppWidgetRemoved(ctx, &pb.OnAppWidgetRemovedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// StartAppWidgetConfigureActivityForResult calls the StartAppWidgetConfigureActivityForResult RPC.
+func (c *AppWidgetHostClient) StartAppWidgetConfigureActivityForResult(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int64) error {
+	_, err := c.svc.StartAppWidgetConfigureActivityForResult(ctx, &pb.StartAppWidgetConfigureActivityForResultRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	return err
+}
+
+// StartListening calls the StartListening RPC.
+func (c *AppWidgetHostClient) StartListening(ctx context.Context, handle int64) error {
+	_, err := c.svc.StartListening(ctx, &pb.StartListeningRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// StopListening calls the StopListening RPC.
+func (c *AppWidgetHostClient) StopListening(ctx context.Context, handle int64) error {
+	_, err := c.svc.StopListening(ctx, &pb.StopListeningRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// DeleteAllHosts calls the DeleteAllHosts RPC.
+func (c *AppWidgetHostClient) DeleteAllHosts(ctx context.Context, handle int64) error {
+	_, err := c.svc.DeleteAllHosts(ctx, &pb.DeleteAllHostsRequest{
+		Handle: handle,
+	})
+	return err
 }
 
 // AppWidgetManagerClient wraps the gRPC AppWidgetManagerService client.
@@ -441,7 +414,7 @@ func (c *AppWidgetManagerClient) BindAppWidgetIdIfAllowed4_2(ctx context.Context
 
 // GetAppWidgetIds calls the GetAppWidgetIds RPC.
 func (c *AppWidgetManagerClient) GetAppWidgetIds(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetAppWidgetIds(ctx, &pb.GetAppWidgetIdsRequest{
+	resp, err := c.svc.GetAppWidgetIds(ctx, &pb.AppWidgetManagerGetAppWidgetIdsRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -464,6 +437,38 @@ func (c *AppWidgetManagerClient) GetAppWidgetInfo(ctx context.Context, arg0 int3
 // GetAppWidgetOptions calls the GetAppWidgetOptions RPC.
 func (c *AppWidgetManagerClient) GetAppWidgetOptions(ctx context.Context, arg0 int32) (int64, error) {
 	resp, err := c.svc.GetAppWidgetOptions(ctx, &pb.GetAppWidgetOptionsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstalledProviders calls the GetInstalledProviders RPC.
+func (c *AppWidgetManagerClient) GetInstalledProviders(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInstalledProviders(ctx, &pb.GetInstalledProvidersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstalledProvidersForPackage calls the GetInstalledProvidersForPackage RPC.
+func (c *AppWidgetManagerClient) GetInstalledProvidersForPackage(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetInstalledProvidersForPackage(ctx, &pb.GetInstalledProvidersForPackageRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstalledProvidersForProfile calls the GetInstalledProvidersForProfile RPC.
+func (c *AppWidgetManagerClient) GetInstalledProvidersForProfile(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetInstalledProvidersForProfile(ctx, &pb.GetInstalledProvidersForProfileRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -621,21 +626,21 @@ func (c *AppWidgetManagerClient) GetInstance(ctx context.Context, arg0 int64) (i
 	return resp.GetResult(), nil
 }
 
-// AppWidgetHostClient wraps the gRPC AppWidgetHostService client.
-type AppWidgetHostClient struct {
-	svc pb.AppWidgetHostServiceClient
+// AppWidgetProviderInfoClient wraps the gRPC AppWidgetProviderInfoService client.
+type AppWidgetProviderInfoClient struct {
+	svc pb.AppWidgetProviderInfoServiceClient
 }
 
-// NewAppWidgetHostClient creates a new AppWidgetHost client.
-func NewAppWidgetHostClient(cc grpc.ClientConnInterface) *AppWidgetHostClient {
-	return &AppWidgetHostClient{
-		svc: pb.NewAppWidgetHostServiceClient(cc),
+// NewAppWidgetProviderInfoClient creates a new AppWidgetProviderInfo client.
+func NewAppWidgetProviderInfoClient(cc grpc.ClientConnInterface) *AppWidgetProviderInfoClient {
+	return &AppWidgetProviderInfoClient{
+		svc: pb.NewAppWidgetProviderInfoServiceClient(cc),
 	}
 }
 
-// AllocateAppWidgetId calls the AllocateAppWidgetId RPC.
-func (c *AppWidgetHostClient) AllocateAppWidgetId(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.AllocateAppWidgetId(ctx, &pb.AllocateAppWidgetIdRequest{
+// Clone0 calls the Clone0 RPC.
+func (c *AppWidgetProviderInfoClient) Clone0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clone0(ctx, &pb.Clone0Request{
 		Handle: handle,
 	})
 	if err != nil {
@@ -644,13 +649,57 @@ func (c *AppWidgetHostClient) AllocateAppWidgetId(ctx context.Context, handle in
 	return resp.GetResult(), nil
 }
 
-// CreateView calls the CreateView RPC.
-func (c *AppWidgetHostClient) CreateView(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64) (int64, error) {
-	resp, err := c.svc.CreateView(ctx, &pb.CreateViewRequest{
+// DescribeContents calls the DescribeContents RPC.
+func (c *AppWidgetProviderInfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetActivityInfo calls the GetActivityInfo RPC.
+func (c *AppWidgetProviderInfoClient) GetActivityInfo(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetActivityInfo(ctx, &pb.GetActivityInfoRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProfile calls the GetProfile RPC.
+func (c *AppWidgetProviderInfoClient) GetProfile(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetProfile(ctx, &pb.GetProfileRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadDescription calls the LoadDescription RPC.
+func (c *AppWidgetProviderInfoClient) LoadDescription(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.LoadDescription(ctx, &pb.LoadDescriptionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadIcon calls the LoadIcon RPC.
+func (c *AppWidgetProviderInfoClient) LoadIcon(ctx context.Context, handle int64, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.LoadIcon(ctx, &pb.LoadIconRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
-		Arg2:   arg2,
 	})
 	if err != nil {
 		return 0, err
@@ -658,76 +707,59 @@ func (c *AppWidgetHostClient) CreateView(ctx context.Context, handle int64, arg0
 	return resp.GetResult(), nil
 }
 
-// DeleteAppWidgetId calls the DeleteAppWidgetId RPC.
-func (c *AppWidgetHostClient) DeleteAppWidgetId(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.DeleteAppWidgetId(ctx, &pb.DeleteAppWidgetIdRequest{
+// LoadLabel calls the LoadLabel RPC.
+func (c *AppWidgetProviderInfoClient) LoadLabel(ctx context.Context, handle int64, arg0 int64) (string, error) {
+	resp, err := c.svc.LoadLabel(ctx, &pb.LoadLabelRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
-	return err
-}
-
-// DeleteHost calls the DeleteHost RPC.
-func (c *AppWidgetHostClient) DeleteHost(ctx context.Context, handle int64) error {
-	_, err := c.svc.DeleteHost(ctx, &pb.DeleteHostRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// GetAppWidgetIds calls the GetAppWidgetIds RPC.
-func (c *AppWidgetHostClient) GetAppWidgetIds(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetAppWidgetIds(ctx, &pb.AppWidgetHostGetAppWidgetIdsRequest{
-		Handle: handle,
-	})
 	if err != nil {
-		return 0, err
+		return "", err
 	}
 	return resp.GetResult(), nil
 }
 
-// OnAppWidgetRemoved calls the OnAppWidgetRemoved RPC.
-func (c *AppWidgetHostClient) OnAppWidgetRemoved(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.OnAppWidgetRemoved(ctx, &pb.OnAppWidgetRemovedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// StartAppWidgetConfigureActivityForResult calls the StartAppWidgetConfigureActivityForResult RPC.
-func (c *AppWidgetHostClient) StartAppWidgetConfigureActivityForResult(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int64) error {
-	_, err := c.svc.StartAppWidgetConfigureActivityForResult(ctx, &pb.StartAppWidgetConfigureActivityForResultRequest{
+// LoadPreviewImage calls the LoadPreviewImage RPC.
+func (c *AppWidgetProviderInfoClient) LoadPreviewImage(ctx context.Context, handle int64, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.LoadPreviewImage(ctx, &pb.LoadPreviewImageRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AppWidgetProviderInfoClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AppWidgetProviderInfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
 	})
 	return err
 }
 
-// StartListening calls the StartListening RPC.
-func (c *AppWidgetHostClient) StartListening(ctx context.Context, handle int64) error {
-	_, err := c.svc.StartListening(ctx, &pb.StartListeningRequest{
+// Clone0_1 calls the Clone0_1 RPC.
+func (c *AppWidgetProviderInfoClient) Clone0_1(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clone0_1(ctx, &pb.Clone0_1Request{
 		Handle: handle,
 	})
-	return err
-}
-
-// StopListening calls the StopListening RPC.
-func (c *AppWidgetHostClient) StopListening(ctx context.Context, handle int64) error {
-	_, err := c.svc.StopListening(ctx, &pb.StopListeningRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// DeleteAllHosts calls the DeleteAllHosts RPC.
-func (c *AppWidgetHostClient) DeleteAllHosts(ctx context.Context, handle int64) error {
-	_, err := c.svc.DeleteAllHosts(ctx, &pb.DeleteAllHostsRequest{
-		Handle: handle,
-	})
-	return err
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }

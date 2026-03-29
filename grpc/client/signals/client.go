@@ -9,29 +9,6 @@ import (
 	"google.golang.org/grpc"
 )
 
-// ProtectedSignalsManagerClient wraps the gRPC ProtectedSignalsManagerService client.
-type ProtectedSignalsManagerClient struct {
-	svc pb.ProtectedSignalsManagerServiceClient
-}
-
-// NewProtectedSignalsManagerClient creates a new ProtectedSignalsManager client.
-func NewProtectedSignalsManagerClient(cc grpc.ClientConnInterface) *ProtectedSignalsManagerClient {
-	return &ProtectedSignalsManagerClient{
-		svc: pb.NewProtectedSignalsManagerServiceClient(cc),
-	}
-}
-
-// Get calls the Get RPC.
-func (c *ProtectedSignalsManagerClient) Get(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.Get(ctx, &pb.GetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // UpdateSignalsRequestClient wraps the gRPC UpdateSignalsRequestService client.
 type UpdateSignalsRequestClient struct {
 	svc pb.UpdateSignalsRequestServiceClient
@@ -106,6 +83,29 @@ func (c *UpdateSignalsRequestBuilderClient) Build(ctx context.Context) (int64, e
 // SetUpdateUri calls the SetUpdateUri RPC.
 func (c *UpdateSignalsRequestBuilderClient) SetUpdateUri(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.SetUpdateUri(ctx, &pb.SetUpdateUriRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ProtectedSignalsManagerClient wraps the gRPC ProtectedSignalsManagerService client.
+type ProtectedSignalsManagerClient struct {
+	svc pb.ProtectedSignalsManagerServiceClient
+}
+
+// NewProtectedSignalsManagerClient creates a new ProtectedSignalsManager client.
+func NewProtectedSignalsManagerClient(cc grpc.ClientConnInterface) *ProtectedSignalsManagerClient {
+	return &ProtectedSignalsManagerClient{
+		svc: pb.NewProtectedSignalsManagerServiceClient(cc),
+	}
+}
+
+// Get calls the Get RPC.
+func (c *ProtectedSignalsManagerClient) Get(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Get(ctx, &pb.GetRequest{
 		Arg0: arg0,
 	})
 	if err != nil {

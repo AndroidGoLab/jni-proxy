@@ -9,23 +9,21 @@ import (
 	"google.golang.org/grpc"
 )
 
-// OvalShapeClient wraps the gRPC OvalShapeService client.
-type OvalShapeClient struct {
-	svc pb.OvalShapeServiceClient
+// ShapeClient wraps the gRPC ShapeService client.
+type ShapeClient struct {
+	svc pb.ShapeServiceClient
 }
 
-// NewOvalShapeClient creates a new OvalShape client.
-func NewOvalShapeClient(cc grpc.ClientConnInterface) *OvalShapeClient {
-	return &OvalShapeClient{
-		svc: pb.NewOvalShapeServiceClient(cc),
+// NewShapeClient creates a new Shape client.
+func NewShapeClient(cc grpc.ClientConnInterface) *ShapeClient {
+	return &ShapeClient{
+		svc: pb.NewShapeServiceClient(cc),
 	}
 }
 
 // Clone0 calls the Clone0 RPC.
-func (c *OvalShapeClient) Clone0(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone0(ctx, &pb.Clone0Request{
-		Handle: handle,
-	})
+func (c *ShapeClient) Clone0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Clone0(ctx, &pb.Clone0Request{})
 	if err != nil {
 		return 0, err
 	}
@@ -33,51 +31,81 @@ func (c *OvalShapeClient) Clone0(ctx context.Context, handle int64) (int64, erro
 }
 
 // Draw calls the Draw RPC.
-func (c *OvalShapeClient) Draw(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+func (c *ShapeClient) Draw(ctx context.Context, arg0 int64, arg1 int64) error {
 	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
+		Arg0: arg0,
+		Arg1: arg1,
 	})
 	return err
 }
 
+// Equals calls the Equals RPC.
+func (c *ShapeClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHeight calls the GetHeight RPC.
+func (c *ShapeClient) GetHeight(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetHeight(ctx, &pb.GetHeightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetOutline calls the GetOutline RPC.
-func (c *OvalShapeClient) GetOutline(ctx context.Context, handle int64, arg0 int64) error {
+func (c *ShapeClient) GetOutline(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.GetOutline(ctx, &pb.GetOutlineRequest{
-		Handle: handle,
-		Arg0:   arg0,
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetWidth calls the GetWidth RPC.
+func (c *ShapeClient) GetWidth(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetWidth(ctx, &pb.GetWidthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasAlpha calls the HasAlpha RPC.
+func (c *ShapeClient) HasAlpha(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasAlpha(ctx, &pb.HasAlphaRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ShapeClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Resize calls the Resize RPC.
+func (c *ShapeClient) Resize(ctx context.Context, arg0 float32, arg1 float32) error {
+	_, err := c.svc.Resize(ctx, &pb.ResizeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
 	})
 	return err
 }
 
 // Clone0_1 calls the Clone0_1 RPC.
-func (c *OvalShapeClient) Clone0_1(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone0_1(ctx, &pb.Clone0_1Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Clone0_2 calls the Clone0_2 RPC.
-func (c *OvalShapeClient) Clone0_2(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone0_2(ctx, &pb.Clone0_2Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Clone0_3 calls the Clone0_3 RPC.
-func (c *OvalShapeClient) Clone0_3(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone0_3(ctx, &pb.Clone0_3Request{
-		Handle: handle,
-	})
+func (c *ShapeClient) Clone0_1(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Clone0_1(ctx, &pb.Clone0_1Request{})
 	if err != nil {
 		return 0, err
 	}
@@ -98,7 +126,7 @@ func NewRoundRectShapeClient(cc grpc.ClientConnInterface) *RoundRectShapeClient 
 
 // Clone0 calls the Clone0 RPC.
 func (c *RoundRectShapeClient) Clone0(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone0(ctx, &pb.Clone0Request{
+	resp, err := c.svc.Clone0(ctx, &pb.RoundRectShapeClone0Request{
 		Handle: handle,
 	})
 	if err != nil {
@@ -109,7 +137,7 @@ func (c *RoundRectShapeClient) Clone0(ctx context.Context, handle int64) (int64,
 
 // Draw calls the Draw RPC.
 func (c *RoundRectShapeClient) Draw(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
+	_, err := c.svc.Draw(ctx, &pb.RoundRectShapeDrawRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -119,7 +147,7 @@ func (c *RoundRectShapeClient) Draw(ctx context.Context, handle int64, arg0 int6
 
 // Equals calls the Equals RPC.
 func (c *RoundRectShapeClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+	resp, err := c.svc.Equals(ctx, &pb.RoundRectShapeEqualsRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -131,7 +159,7 @@ func (c *RoundRectShapeClient) Equals(ctx context.Context, handle int64, arg0 in
 
 // GetOutline calls the GetOutline RPC.
 func (c *RoundRectShapeClient) GetOutline(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.GetOutline(ctx, &pb.GetOutlineRequest{
+	_, err := c.svc.GetOutline(ctx, &pb.RoundRectShapeGetOutlineRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -140,7 +168,7 @@ func (c *RoundRectShapeClient) GetOutline(ctx context.Context, handle int64, arg
 
 // HashCode calls the HashCode RPC.
 func (c *RoundRectShapeClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
+	resp, err := c.svc.HashCode(ctx, &pb.RoundRectShapeHashCodeRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -151,7 +179,7 @@ func (c *RoundRectShapeClient) HashCode(ctx context.Context, handle int64) (int3
 
 // Clone0_1 calls the Clone0_1 RPC.
 func (c *RoundRectShapeClient) Clone0_1(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone0_1(ctx, &pb.Clone0_1Request{
+	resp, err := c.svc.Clone0_1(ctx, &pb.RoundRectShapeClone0_1Request{
 		Handle: handle,
 	})
 	if err != nil {
@@ -182,187 +210,6 @@ func (c *RoundRectShapeClient) Clone0_3(ctx context.Context, handle int64) (int6
 	return resp.GetResult(), nil
 }
 
-// PathShapeClient wraps the gRPC PathShapeService client.
-type PathShapeClient struct {
-	svc pb.PathShapeServiceClient
-}
-
-// NewPathShapeClient creates a new PathShape client.
-func NewPathShapeClient(cc grpc.ClientConnInterface) *PathShapeClient {
-	return &PathShapeClient{
-		svc: pb.NewPathShapeServiceClient(cc),
-	}
-}
-
-// Clone0 calls the Clone0 RPC.
-func (c *PathShapeClient) Clone0(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone0(ctx, &pb.Clone0Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Draw calls the Draw RPC.
-func (c *PathShapeClient) Draw(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// Equals calls the Equals RPC.
-func (c *PathShapeClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *PathShapeClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Clone0_1 calls the Clone0_1 RPC.
-func (c *PathShapeClient) Clone0_1(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone0_1(ctx, &pb.Clone0_1Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Clone0_2 calls the Clone0_2 RPC.
-func (c *PathShapeClient) Clone0_2(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone0_2(ctx, &pb.Clone0_2Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ShapeClient wraps the gRPC ShapeService client.
-type ShapeClient struct {
-	svc pb.ShapeServiceClient
-}
-
-// NewShapeClient creates a new Shape client.
-func NewShapeClient(cc grpc.ClientConnInterface) *ShapeClient {
-	return &ShapeClient{
-		svc: pb.NewShapeServiceClient(cc),
-	}
-}
-
-// Clone0 calls the Clone0 RPC.
-func (c *ShapeClient) Clone0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Clone0(ctx, &pb.ShapeClone0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Draw calls the Draw RPC.
-func (c *ShapeClient) Draw(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.Draw(ctx, &pb.ShapeDrawRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// Equals calls the Equals RPC.
-func (c *ShapeClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.ShapeEqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetHeight calls the GetHeight RPC.
-func (c *ShapeClient) GetHeight(ctx context.Context) (float32, error) {
-	resp, err := c.svc.GetHeight(ctx, &pb.GetHeightRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOutline calls the GetOutline RPC.
-func (c *ShapeClient) GetOutline(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.GetOutline(ctx, &pb.ShapeGetOutlineRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// GetWidth calls the GetWidth RPC.
-func (c *ShapeClient) GetWidth(ctx context.Context) (float32, error) {
-	resp, err := c.svc.GetWidth(ctx, &pb.GetWidthRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasAlpha calls the HasAlpha RPC.
-func (c *ShapeClient) HasAlpha(ctx context.Context) (bool, error) {
-	resp, err := c.svc.HasAlpha(ctx, &pb.HasAlphaRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *ShapeClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.ShapeHashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Resize calls the Resize RPC.
-func (c *ShapeClient) Resize(ctx context.Context, arg0 float32, arg1 float32) error {
-	_, err := c.svc.Resize(ctx, &pb.ResizeRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// Clone0_1 calls the Clone0_1 RPC.
-func (c *ShapeClient) Clone0_1(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Clone0_1(ctx, &pb.ShapeClone0_1Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // RectShapeClient wraps the gRPC RectShapeService client.
 type RectShapeClient struct {
 	svc pb.RectShapeServiceClient
@@ -377,7 +224,7 @@ func NewRectShapeClient(cc grpc.ClientConnInterface) *RectShapeClient {
 
 // Clone0 calls the Clone0 RPC.
 func (c *RectShapeClient) Clone0(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone0(ctx, &pb.Clone0Request{
+	resp, err := c.svc.Clone0(ctx, &pb.RectShapeClone0Request{
 		Handle: handle,
 	})
 	if err != nil {
@@ -388,7 +235,7 @@ func (c *RectShapeClient) Clone0(ctx context.Context, handle int64) (int64, erro
 
 // Draw calls the Draw RPC.
 func (c *RectShapeClient) Draw(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
+	_, err := c.svc.Draw(ctx, &pb.RectShapeDrawRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -398,7 +245,7 @@ func (c *RectShapeClient) Draw(ctx context.Context, handle int64, arg0 int64, ar
 
 // Equals calls the Equals RPC.
 func (c *RectShapeClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+	resp, err := c.svc.Equals(ctx, &pb.RectShapeEqualsRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -410,7 +257,7 @@ func (c *RectShapeClient) Equals(ctx context.Context, handle int64, arg0 int64) 
 
 // GetOutline calls the GetOutline RPC.
 func (c *RectShapeClient) GetOutline(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.GetOutline(ctx, &pb.GetOutlineRequest{
+	_, err := c.svc.GetOutline(ctx, &pb.RectShapeGetOutlineRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -419,7 +266,7 @@ func (c *RectShapeClient) GetOutline(ctx context.Context, handle int64, arg0 int
 
 // HashCode calls the HashCode RPC.
 func (c *RectShapeClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
+	resp, err := c.svc.HashCode(ctx, &pb.RectShapeHashCodeRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -430,7 +277,7 @@ func (c *RectShapeClient) HashCode(ctx context.Context, handle int64) (int32, er
 
 // Clone0_1 calls the Clone0_1 RPC.
 func (c *RectShapeClient) Clone0_1(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone0_1(ctx, &pb.Clone0_1Request{
+	resp, err := c.svc.Clone0_1(ctx, &pb.RectShapeClone0_1Request{
 		Handle: handle,
 	})
 	if err != nil {
@@ -464,7 +311,7 @@ func NewArcShapeClient(cc grpc.ClientConnInterface) *ArcShapeClient {
 
 // Clone0 calls the Clone0 RPC.
 func (c *ArcShapeClient) Clone0(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone0(ctx, &pb.Clone0Request{
+	resp, err := c.svc.Clone0(ctx, &pb.ArcShapeClone0Request{
 		Handle: handle,
 	})
 	if err != nil {
@@ -475,7 +322,7 @@ func (c *ArcShapeClient) Clone0(ctx context.Context, handle int64) (int64, error
 
 // Draw calls the Draw RPC.
 func (c *ArcShapeClient) Draw(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
+	_, err := c.svc.Draw(ctx, &pb.ArcShapeDrawRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -485,7 +332,7 @@ func (c *ArcShapeClient) Draw(ctx context.Context, handle int64, arg0 int64, arg
 
 // Equals calls the Equals RPC.
 func (c *ArcShapeClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+	resp, err := c.svc.Equals(ctx, &pb.ArcShapeEqualsRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -497,7 +344,7 @@ func (c *ArcShapeClient) Equals(ctx context.Context, handle int64, arg0 int64) (
 
 // GetOutline calls the GetOutline RPC.
 func (c *ArcShapeClient) GetOutline(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.GetOutline(ctx, &pb.GetOutlineRequest{
+	_, err := c.svc.GetOutline(ctx, &pb.ArcShapeGetOutlineRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -528,7 +375,7 @@ func (c *ArcShapeClient) GetSweepAngle(ctx context.Context, handle int64) (float
 
 // HashCode calls the HashCode RPC.
 func (c *ArcShapeClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
+	resp, err := c.svc.HashCode(ctx, &pb.ArcShapeHashCodeRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -539,7 +386,7 @@ func (c *ArcShapeClient) HashCode(ctx context.Context, handle int64) (int32, err
 
 // Clone0_1 calls the Clone0_1 RPC.
 func (c *ArcShapeClient) Clone0_1(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone0_1(ctx, &pb.Clone0_1Request{
+	resp, err := c.svc.Clone0_1(ctx, &pb.ArcShapeClone0_1Request{
 		Handle: handle,
 	})
 	if err != nil {
@@ -562,6 +409,159 @@ func (c *ArcShapeClient) Clone0_2(ctx context.Context, handle int64) (int64, err
 // Clone0_3 calls the Clone0_3 RPC.
 func (c *ArcShapeClient) Clone0_3(ctx context.Context, handle int64) (int64, error) {
 	resp, err := c.svc.Clone0_3(ctx, &pb.Clone0_3Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OvalShapeClient wraps the gRPC OvalShapeService client.
+type OvalShapeClient struct {
+	svc pb.OvalShapeServiceClient
+}
+
+// NewOvalShapeClient creates a new OvalShape client.
+func NewOvalShapeClient(cc grpc.ClientConnInterface) *OvalShapeClient {
+	return &OvalShapeClient{
+		svc: pb.NewOvalShapeServiceClient(cc),
+	}
+}
+
+// Clone0 calls the Clone0 RPC.
+func (c *OvalShapeClient) Clone0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clone0(ctx, &pb.OvalShapeClone0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Draw calls the Draw RPC.
+func (c *OvalShapeClient) Draw(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.Draw(ctx, &pb.OvalShapeDrawRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GetOutline calls the GetOutline RPC.
+func (c *OvalShapeClient) GetOutline(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.GetOutline(ctx, &pb.OvalShapeGetOutlineRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Clone0_1 calls the Clone0_1 RPC.
+func (c *OvalShapeClient) Clone0_1(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clone0_1(ctx, &pb.OvalShapeClone0_1Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Clone0_2 calls the Clone0_2 RPC.
+func (c *OvalShapeClient) Clone0_2(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clone0_2(ctx, &pb.Clone0_2Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Clone0_3 calls the Clone0_3 RPC.
+func (c *OvalShapeClient) Clone0_3(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clone0_3(ctx, &pb.Clone0_3Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PathShapeClient wraps the gRPC PathShapeService client.
+type PathShapeClient struct {
+	svc pb.PathShapeServiceClient
+}
+
+// NewPathShapeClient creates a new PathShape client.
+func NewPathShapeClient(cc grpc.ClientConnInterface) *PathShapeClient {
+	return &PathShapeClient{
+		svc: pb.NewPathShapeServiceClient(cc),
+	}
+}
+
+// Clone0 calls the Clone0 RPC.
+func (c *PathShapeClient) Clone0(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clone0(ctx, &pb.PathShapeClone0Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Draw calls the Draw RPC.
+func (c *PathShapeClient) Draw(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.Draw(ctx, &pb.PathShapeDrawRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// Equals calls the Equals RPC.
+func (c *PathShapeClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.PathShapeEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *PathShapeClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.PathShapeHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Clone0_1 calls the Clone0_1 RPC.
+func (c *PathShapeClient) Clone0_1(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clone0_1(ctx, &pb.PathShapeClone0_1Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Clone0_2 calls the Clone0_2 RPC.
+func (c *PathShapeClient) Clone0_2(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Clone0_2(ctx, &pb.Clone0_2Request{
 		Handle: handle,
 	})
 	if err != nil {

@@ -12,6 +12,30 @@ var appsetidCmd = &cobra.Command{
 	Short: "appsetid service operations",
 }
 
+var appsetidAppSetIdManagerCmd = &cobra.Command{
+	Use:   "app-set-id-manager",
+	Short: "AppSetIdManagerService operations",
+}
+
+var appsetidAppSetIdManagerGetCmd = &cobra.Command{
+	Use:   "get",
+	Short: "Get RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppSetIdManagerServiceClient(grpcConn)
+		req := &pb.GetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Get(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var appsetidAppSetIdCmd = &cobra.Command{
 	Use:   "app-set-id",
 	Short: "AppSetIdService operations",
@@ -118,31 +142,10 @@ var appsetidAppSetIdHashCodeCmd = &cobra.Command{
 	},
 }
 
-var appsetidAppSetIdManagerCmd = &cobra.Command{
-	Use:   "app-set-id-manager",
-	Short: "AppSetIdManagerService operations",
-}
-
-var appsetidAppSetIdManagerGetCmd = &cobra.Command{
-	Use:   "get",
-	Short: "Get RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppSetIdManagerServiceClient(grpcConn)
-		req := &pb.GetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Get(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
+	appsetidAppSetIdManagerGetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appsetidAppSetIdManagerCmd.AddCommand(appsetidAppSetIdManagerGetCmd)
+	appsetidCmd.AddCommand(appsetidAppSetIdManagerCmd)
 	appsetidAppSetIdNewAppSetIdCmd.Flags().String("arg0", "", "arg0 (string)")
 	appsetidAppSetIdNewAppSetIdCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	appsetidAppSetIdCmd.AddCommand(appsetidAppSetIdNewAppSetIdCmd)
@@ -156,8 +159,5 @@ func init() {
 	appsetidAppSetIdHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
 	appsetidAppSetIdCmd.AddCommand(appsetidAppSetIdHashCodeCmd)
 	appsetidCmd.AddCommand(appsetidAppSetIdCmd)
-	appsetidAppSetIdManagerGetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appsetidAppSetIdManagerCmd.AddCommand(appsetidAppSetIdManagerGetCmd)
-	appsetidCmd.AddCommand(appsetidAppSetIdManagerCmd)
 	rootCmd.AddCommand(appsetidCmd)
 }

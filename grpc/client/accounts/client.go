@@ -9,22 +9,211 @@ import (
 	"google.golang.org/grpc"
 )
 
-// OnAccountsUpdateListenerClient wraps the gRPC OnAccountsUpdateListenerService client.
-type OnAccountsUpdateListenerClient struct {
-	svc pb.OnAccountsUpdateListenerServiceClient
+// AccountAuthenticatorResponseClient wraps the gRPC AccountAuthenticatorResponseService client.
+type AccountAuthenticatorResponseClient struct {
+	svc pb.AccountAuthenticatorResponseServiceClient
 }
 
-// NewOnAccountsUpdateListenerClient creates a new OnAccountsUpdateListener client.
-func NewOnAccountsUpdateListenerClient(cc grpc.ClientConnInterface) *OnAccountsUpdateListenerClient {
-	return &OnAccountsUpdateListenerClient{
-		svc: pb.NewOnAccountsUpdateListenerServiceClient(cc),
+// NewAccountAuthenticatorResponseClient creates a new AccountAuthenticatorResponse client.
+func NewAccountAuthenticatorResponseClient(cc grpc.ClientConnInterface) *AccountAuthenticatorResponseClient {
+	return &AccountAuthenticatorResponseClient{
+		svc: pb.NewAccountAuthenticatorResponseServiceClient(cc),
 	}
 }
 
-// OnAccountsUpdated calls the OnAccountsUpdated RPC.
-func (c *OnAccountsUpdateListenerClient) OnAccountsUpdated(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnAccountsUpdated(ctx, &pb.OnAccountsUpdatedRequest{
+// DescribeContents calls the DescribeContents RPC.
+func (c *AccountAuthenticatorResponseClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnError calls the OnError RPC.
+func (c *AccountAuthenticatorResponseClient) OnError(ctx context.Context, handle int64, arg0 int32, arg1 string) error {
+	_, err := c.svc.OnError(ctx, &pb.OnErrorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// OnRequestContinued calls the OnRequestContinued RPC.
+func (c *AccountAuthenticatorResponseClient) OnRequestContinued(ctx context.Context, handle int64) error {
+	_, err := c.svc.OnRequestContinued(ctx, &pb.OnRequestContinuedRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// OnResult calls the OnResult RPC.
+func (c *AccountAuthenticatorResponseClient) OnResult(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.OnResult(ctx, &pb.OnResultRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AccountAuthenticatorResponseClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// AuthenticatorDescriptionClient wraps the gRPC AuthenticatorDescriptionService client.
+type AuthenticatorDescriptionClient struct {
+	svc pb.AuthenticatorDescriptionServiceClient
+}
+
+// NewAuthenticatorDescriptionClient creates a new AuthenticatorDescription client.
+func NewAuthenticatorDescriptionClient(cc grpc.ClientConnInterface) *AuthenticatorDescriptionClient {
+	return &AuthenticatorDescriptionClient{
+		svc: pb.NewAuthenticatorDescriptionServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *AuthenticatorDescriptionClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *AuthenticatorDescriptionClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *AuthenticatorDescriptionClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AuthenticatorDescriptionClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AuthenticatorDescriptionClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// NewKey calls the NewKey RPC.
+func (c *AuthenticatorDescriptionClient) NewKey(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.NewKey(ctx, &pb.NewKeyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AccountManagerFutureClient wraps the gRPC AccountManagerFutureService client.
+type AccountManagerFutureClient struct {
+	svc pb.AccountManagerFutureServiceClient
+}
+
+// NewAccountManagerFutureClient creates a new AccountManagerFuture client.
+func NewAccountManagerFutureClient(cc grpc.ClientConnInterface) *AccountManagerFutureClient {
+	return &AccountManagerFutureClient{
+		svc: pb.NewAccountManagerFutureServiceClient(cc),
+	}
+}
+
+// Cancel calls the Cancel RPC.
+func (c *AccountManagerFutureClient) Cancel(ctx context.Context, arg0 bool) (bool, error) {
+	resp, err := c.svc.Cancel(ctx, &pb.CancelRequest{
 		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsCancelled calls the IsCancelled RPC.
+func (c *AccountManagerFutureClient) IsCancelled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsCancelled(ctx, &pb.IsCancelledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsDone calls the IsDone RPC.
+func (c *AccountManagerFutureClient) IsDone(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsDone(ctx, &pb.IsDoneRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AccountAuthenticatorActivityClient wraps the gRPC AccountAuthenticatorActivityService client.
+type AccountAuthenticatorActivityClient struct {
+	svc pb.AccountAuthenticatorActivityServiceClient
+}
+
+// NewAccountAuthenticatorActivityClient creates a new AccountAuthenticatorActivity client.
+func NewAccountAuthenticatorActivityClient(cc grpc.ClientConnInterface) *AccountAuthenticatorActivityClient {
+	return &AccountAuthenticatorActivityClient{
+		svc: pb.NewAccountAuthenticatorActivityServiceClient(cc),
+	}
+}
+
+// Finish calls the Finish RPC.
+func (c *AccountAuthenticatorActivityClient) Finish(ctx context.Context, handle int64) error {
+	_, err := c.svc.Finish(ctx, &pb.FinishRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// SetAccountAuthenticatorResult calls the SetAccountAuthenticatorResult RPC.
+func (c *AccountAuthenticatorActivityClient) SetAccountAuthenticatorResult(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetAccountAuthenticatorResult(ctx, &pb.SetAccountAuthenticatorResultRequest{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	return err
 }
@@ -94,211 +283,6 @@ func (c *AccountClient) WriteToParcel(ctx context.Context, handle int64, arg0 in
 		Arg1:   arg1,
 	})
 	return err
-}
-
-// AbstractAccountAuthenticatorClient wraps the gRPC AbstractAccountAuthenticatorService client.
-type AbstractAccountAuthenticatorClient struct {
-	svc pb.AbstractAccountAuthenticatorServiceClient
-}
-
-// NewAbstractAccountAuthenticatorClient creates a new AbstractAccountAuthenticator client.
-func NewAbstractAccountAuthenticatorClient(cc grpc.ClientConnInterface) *AbstractAccountAuthenticatorClient {
-	return &AbstractAccountAuthenticatorClient{
-		svc: pb.NewAbstractAccountAuthenticatorServiceClient(cc),
-	}
-}
-
-// AddAccount calls the AddAccount RPC.
-func (c *AbstractAccountAuthenticatorClient) AddAccount(ctx context.Context, arg0 int64, arg1 string, arg2 string, arg3 int64, arg4 int64) (int64, error) {
-	resp, err := c.svc.AddAccount(ctx, &pb.AddAccountRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddAccountFromCredentials calls the AddAccountFromCredentials RPC.
-func (c *AbstractAccountAuthenticatorClient) AddAccountFromCredentials(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.AddAccountFromCredentials(ctx, &pb.AddAccountFromCredentialsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ConfirmCredentials calls the ConfirmCredentials RPC.
-func (c *AbstractAccountAuthenticatorClient) ConfirmCredentials(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.ConfirmCredentials(ctx, &pb.ConfirmCredentialsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EditProperties calls the EditProperties RPC.
-func (c *AbstractAccountAuthenticatorClient) EditProperties(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
-	resp, err := c.svc.EditProperties(ctx, &pb.EditPropertiesRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FinishSession calls the FinishSession RPC.
-func (c *AbstractAccountAuthenticatorClient) FinishSession(ctx context.Context, arg0 int64, arg1 string, arg2 int64) (int64, error) {
-	resp, err := c.svc.FinishSession(ctx, &pb.FinishSessionRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAccountCredentialsForCloning calls the GetAccountCredentialsForCloning RPC.
-func (c *AbstractAccountAuthenticatorClient) GetAccountCredentialsForCloning(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetAccountCredentialsForCloning(ctx, &pb.GetAccountCredentialsForCloningRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAccountRemovalAllowed calls the GetAccountRemovalAllowed RPC.
-func (c *AbstractAccountAuthenticatorClient) GetAccountRemovalAllowed(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.GetAccountRemovalAllowed(ctx, &pb.GetAccountRemovalAllowedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAuthToken calls the GetAuthToken RPC.
-func (c *AbstractAccountAuthenticatorClient) GetAuthToken(ctx context.Context, arg0 int64, arg1 int64, arg2 string, arg3 int64) (int64, error) {
-	resp, err := c.svc.GetAuthToken(ctx, &pb.GetAuthTokenRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAuthTokenLabel calls the GetAuthTokenLabel RPC.
-func (c *AbstractAccountAuthenticatorClient) GetAuthTokenLabel(ctx context.Context, arg0 string) (string, error) {
-	resp, err := c.svc.GetAuthTokenLabel(ctx, &pb.GetAuthTokenLabelRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIBinder calls the GetIBinder RPC.
-func (c *AbstractAccountAuthenticatorClient) GetIBinder(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetIBinder(ctx, &pb.GetIBinderRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasFeatures calls the HasFeatures RPC.
-func (c *AbstractAccountAuthenticatorClient) HasFeatures(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.HasFeatures(ctx, &pb.HasFeaturesRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsCredentialsUpdateSuggested calls the IsCredentialsUpdateSuggested RPC.
-func (c *AbstractAccountAuthenticatorClient) IsCredentialsUpdateSuggested(ctx context.Context, arg0 int64, arg1 int64, arg2 string) (int64, error) {
-	resp, err := c.svc.IsCredentialsUpdateSuggested(ctx, &pb.IsCredentialsUpdateSuggestedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// StartAddAccountSession calls the StartAddAccountSession RPC.
-func (c *AbstractAccountAuthenticatorClient) StartAddAccountSession(ctx context.Context, arg0 int64, arg1 string, arg2 string, arg3 int64, arg4 int64) (int64, error) {
-	resp, err := c.svc.StartAddAccountSession(ctx, &pb.StartAddAccountSessionRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// StartUpdateCredentialsSession calls the StartUpdateCredentialsSession RPC.
-func (c *AbstractAccountAuthenticatorClient) StartUpdateCredentialsSession(ctx context.Context, arg0 int64, arg1 int64, arg2 string, arg3 int64) (int64, error) {
-	resp, err := c.svc.StartUpdateCredentialsSession(ctx, &pb.StartUpdateCredentialsSessionRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// UpdateCredentials calls the UpdateCredentials RPC.
-func (c *AbstractAccountAuthenticatorClient) UpdateCredentials(ctx context.Context, arg0 int64, arg1 int64, arg2 string, arg3 int64) (int64, error) {
-	resp, err := c.svc.UpdateCredentials(ctx, &pb.UpdateCredentialsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
 }
 
 // AccountManagerClient wraps the gRPC AccountManagerService client.
@@ -538,92 +522,46 @@ func (c *AccountManagerClient) Get(ctx context.Context, arg0 int64) (int64, erro
 	return resp.GetResult(), nil
 }
 
-// AccountAuthenticatorActivityClient wraps the gRPC AccountAuthenticatorActivityService client.
-type AccountAuthenticatorActivityClient struct {
-	svc pb.AccountAuthenticatorActivityServiceClient
+// OnAccountsUpdateListenerClient wraps the gRPC OnAccountsUpdateListenerService client.
+type OnAccountsUpdateListenerClient struct {
+	svc pb.OnAccountsUpdateListenerServiceClient
 }
 
-// NewAccountAuthenticatorActivityClient creates a new AccountAuthenticatorActivity client.
-func NewAccountAuthenticatorActivityClient(cc grpc.ClientConnInterface) *AccountAuthenticatorActivityClient {
-	return &AccountAuthenticatorActivityClient{
-		svc: pb.NewAccountAuthenticatorActivityServiceClient(cc),
+// NewOnAccountsUpdateListenerClient creates a new OnAccountsUpdateListener client.
+func NewOnAccountsUpdateListenerClient(cc grpc.ClientConnInterface) *OnAccountsUpdateListenerClient {
+	return &OnAccountsUpdateListenerClient{
+		svc: pb.NewOnAccountsUpdateListenerServiceClient(cc),
 	}
 }
 
-// Finish calls the Finish RPC.
-func (c *AccountAuthenticatorActivityClient) Finish(ctx context.Context, handle int64) error {
-	_, err := c.svc.Finish(ctx, &pb.FinishRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// SetAccountAuthenticatorResult calls the SetAccountAuthenticatorResult RPC.
-func (c *AccountAuthenticatorActivityClient) SetAccountAuthenticatorResult(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetAccountAuthenticatorResult(ctx, &pb.SetAccountAuthenticatorResultRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AccountManagerFutureClient wraps the gRPC AccountManagerFutureService client.
-type AccountManagerFutureClient struct {
-	svc pb.AccountManagerFutureServiceClient
-}
-
-// NewAccountManagerFutureClient creates a new AccountManagerFuture client.
-func NewAccountManagerFutureClient(cc grpc.ClientConnInterface) *AccountManagerFutureClient {
-	return &AccountManagerFutureClient{
-		svc: pb.NewAccountManagerFutureServiceClient(cc),
-	}
-}
-
-// Cancel calls the Cancel RPC.
-func (c *AccountManagerFutureClient) Cancel(ctx context.Context, arg0 bool) (bool, error) {
-	resp, err := c.svc.Cancel(ctx, &pb.CancelRequest{
+// OnAccountsUpdated calls the OnAccountsUpdated RPC.
+func (c *OnAccountsUpdateListenerClient) OnAccountsUpdated(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnAccountsUpdated(ctx, &pb.OnAccountsUpdatedRequest{
 		Arg0: arg0,
 	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
+	return err
 }
 
-// IsCancelled calls the IsCancelled RPC.
-func (c *AccountManagerFutureClient) IsCancelled(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsCancelled(ctx, &pb.IsCancelledRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
+// AbstractAccountAuthenticatorClient wraps the gRPC AbstractAccountAuthenticatorService client.
+type AbstractAccountAuthenticatorClient struct {
+	svc pb.AbstractAccountAuthenticatorServiceClient
 }
 
-// IsDone calls the IsDone RPC.
-func (c *AccountManagerFutureClient) IsDone(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsDone(ctx, &pb.IsDoneRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AuthenticatorDescriptionClient wraps the gRPC AuthenticatorDescriptionService client.
-type AuthenticatorDescriptionClient struct {
-	svc pb.AuthenticatorDescriptionServiceClient
-}
-
-// NewAuthenticatorDescriptionClient creates a new AuthenticatorDescription client.
-func NewAuthenticatorDescriptionClient(cc grpc.ClientConnInterface) *AuthenticatorDescriptionClient {
-	return &AuthenticatorDescriptionClient{
-		svc: pb.NewAuthenticatorDescriptionServiceClient(cc),
+// NewAbstractAccountAuthenticatorClient creates a new AbstractAccountAuthenticator client.
+func NewAbstractAccountAuthenticatorClient(cc grpc.ClientConnInterface) *AbstractAccountAuthenticatorClient {
+	return &AbstractAccountAuthenticatorClient{
+		svc: pb.NewAbstractAccountAuthenticatorServiceClient(cc),
 	}
 }
 
-// DescribeContents calls the DescribeContents RPC.
-func (c *AuthenticatorDescriptionClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
-		Handle: handle,
+// AddAccount calls the AddAccount RPC.
+func (c *AbstractAccountAuthenticatorClient) AddAccount(ctx context.Context, arg0 int64, arg1 string, arg2 string, arg3 int64, arg4 int64) (int64, error) {
+	resp, err := c.svc.AddAccount(ctx, &pb.AddAccountRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
 	})
 	if err != nil {
 		return 0, err
@@ -631,22 +569,12 @@ func (c *AuthenticatorDescriptionClient) DescribeContents(ctx context.Context, h
 	return resp.GetResult(), nil
 }
 
-// Equals calls the Equals RPC.
-func (c *AuthenticatorDescriptionClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *AuthenticatorDescriptionClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
-		Handle: handle,
+// AddAccountFromCredentials calls the AddAccountFromCredentials RPC.
+func (c *AbstractAccountAuthenticatorClient) AddAccountFromCredentials(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.AddAccountFromCredentials(ctx, &pb.AddAccountFromCredentialsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
 	})
 	if err != nil {
 		return 0, err
@@ -654,10 +582,86 @@ func (c *AuthenticatorDescriptionClient) HashCode(ctx context.Context, handle in
 	return resp.GetResult(), nil
 }
 
-// ToString calls the ToString RPC.
-func (c *AuthenticatorDescriptionClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
+// ConfirmCredentials calls the ConfirmCredentials RPC.
+func (c *AbstractAccountAuthenticatorClient) ConfirmCredentials(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.ConfirmCredentials(ctx, &pb.ConfirmCredentialsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EditProperties calls the EditProperties RPC.
+func (c *AbstractAccountAuthenticatorClient) EditProperties(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
+	resp, err := c.svc.EditProperties(ctx, &pb.EditPropertiesRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FinishSession calls the FinishSession RPC.
+func (c *AbstractAccountAuthenticatorClient) FinishSession(ctx context.Context, arg0 int64, arg1 string, arg2 int64) (int64, error) {
+	resp, err := c.svc.FinishSession(ctx, &pb.FinishSessionRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAccountCredentialsForCloning calls the GetAccountCredentialsForCloning RPC.
+func (c *AbstractAccountAuthenticatorClient) GetAccountCredentialsForCloning(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetAccountCredentialsForCloning(ctx, &pb.GetAccountCredentialsForCloningRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAccountRemovalAllowed calls the GetAccountRemovalAllowed RPC.
+func (c *AbstractAccountAuthenticatorClient) GetAccountRemovalAllowed(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.GetAccountRemovalAllowed(ctx, &pb.GetAccountRemovalAllowedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAuthToken calls the GetAuthToken RPC.
+func (c *AbstractAccountAuthenticatorClient) GetAuthToken(ctx context.Context, arg0 int64, arg1 int64, arg2 string, arg3 int64) (int64, error) {
+	resp, err := c.svc.GetAuthToken(ctx, &pb.GetAuthTokenRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAuthTokenLabel calls the GetAuthTokenLabel RPC.
+func (c *AbstractAccountAuthenticatorClient) GetAuthTokenLabel(ctx context.Context, arg0 string) (string, error) {
+	resp, err := c.svc.GetAuthTokenLabel(ctx, &pb.GetAuthTokenLabelRequest{
+		Arg0: arg0,
 	})
 	if err != nil {
 		return "", err
@@ -665,21 +669,21 @@ func (c *AuthenticatorDescriptionClient) ToString(ctx context.Context, handle in
 	return resp.GetResult(), nil
 }
 
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *AuthenticatorDescriptionClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
+// GetIBinder calls the GetIBinder RPC.
+func (c *AbstractAccountAuthenticatorClient) GetIBinder(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIBinder(ctx, &pb.GetIBinderRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
-// NewKey calls the NewKey RPC.
-func (c *AuthenticatorDescriptionClient) NewKey(ctx context.Context, handle int64, arg0 string) (int64, error) {
-	resp, err := c.svc.NewKey(ctx, &pb.NewKeyRequest{
-		Handle: handle,
-		Arg0:   arg0,
+// HasFeatures calls the HasFeatures RPC.
+func (c *AbstractAccountAuthenticatorClient) HasFeatures(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.HasFeatures(ctx, &pb.HasFeaturesRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
 	})
 	if err != nil {
 		return 0, err
@@ -687,22 +691,12 @@ func (c *AuthenticatorDescriptionClient) NewKey(ctx context.Context, handle int6
 	return resp.GetResult(), nil
 }
 
-// AccountAuthenticatorResponseClient wraps the gRPC AccountAuthenticatorResponseService client.
-type AccountAuthenticatorResponseClient struct {
-	svc pb.AccountAuthenticatorResponseServiceClient
-}
-
-// NewAccountAuthenticatorResponseClient creates a new AccountAuthenticatorResponse client.
-func NewAccountAuthenticatorResponseClient(cc grpc.ClientConnInterface) *AccountAuthenticatorResponseClient {
-	return &AccountAuthenticatorResponseClient{
-		svc: pb.NewAccountAuthenticatorResponseServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *AccountAuthenticatorResponseClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
-		Handle: handle,
+// IsCredentialsUpdateSuggested calls the IsCredentialsUpdateSuggested RPC.
+func (c *AbstractAccountAuthenticatorClient) IsCredentialsUpdateSuggested(ctx context.Context, arg0 int64, arg1 int64, arg2 string) (int64, error) {
+	resp, err := c.svc.IsCredentialsUpdateSuggested(ctx, &pb.IsCredentialsUpdateSuggestedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
 	})
 	if err != nil {
 		return 0, err
@@ -710,39 +704,45 @@ func (c *AccountAuthenticatorResponseClient) DescribeContents(ctx context.Contex
 	return resp.GetResult(), nil
 }
 
-// OnError calls the OnError RPC.
-func (c *AccountAuthenticatorResponseClient) OnError(ctx context.Context, handle int64, arg0 int32, arg1 string) error {
-	_, err := c.svc.OnError(ctx, &pb.OnErrorRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
+// StartAddAccountSession calls the StartAddAccountSession RPC.
+func (c *AbstractAccountAuthenticatorClient) StartAddAccountSession(ctx context.Context, arg0 int64, arg1 string, arg2 string, arg3 int64, arg4 int64) (int64, error) {
+	resp, err := c.svc.StartAddAccountSession(ctx, &pb.StartAddAccountSessionRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
 	})
-	return err
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
-// OnRequestContinued calls the OnRequestContinued RPC.
-func (c *AccountAuthenticatorResponseClient) OnRequestContinued(ctx context.Context, handle int64) error {
-	_, err := c.svc.OnRequestContinued(ctx, &pb.OnRequestContinuedRequest{
-		Handle: handle,
+// StartUpdateCredentialsSession calls the StartUpdateCredentialsSession RPC.
+func (c *AbstractAccountAuthenticatorClient) StartUpdateCredentialsSession(ctx context.Context, arg0 int64, arg1 int64, arg2 string, arg3 int64) (int64, error) {
+	resp, err := c.svc.StartUpdateCredentialsSession(ctx, &pb.StartUpdateCredentialsSessionRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
 	})
-	return err
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
-// OnResult calls the OnResult RPC.
-func (c *AccountAuthenticatorResponseClient) OnResult(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.OnResult(ctx, &pb.OnResultRequest{
-		Handle: handle,
-		Arg0:   arg0,
+// UpdateCredentials calls the UpdateCredentials RPC.
+func (c *AbstractAccountAuthenticatorClient) UpdateCredentials(ctx context.Context, arg0 int64, arg1 int64, arg2 string, arg3 int64) (int64, error) {
+	resp, err := c.svc.UpdateCredentials(ctx, &pb.UpdateCredentialsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
 	})
-	return err
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *AccountAuthenticatorResponseClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }

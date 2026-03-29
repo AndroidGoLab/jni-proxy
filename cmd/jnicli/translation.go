@@ -12,6 +12,52 @@ var translationCmd = &cobra.Command{
 	Short: "translation service operations",
 }
 
+var translationUiTranslationManagerCmd = &cobra.Command{
+	Use:   "ui-translation-manager",
+	Short: "UiTranslationManagerService operations",
+}
+
+var translationUiTranslationManagerRegisterUiTranslationStateCallbackCmd = &cobra.Command{
+	Use:   "register-ui-translation-state-callback",
+	Short: "RegisterUiTranslationStateCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUiTranslationManagerServiceClient(grpcConn)
+		req := &pb.RegisterUiTranslationStateCallbackRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.RegisterUiTranslationStateCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationUiTranslationManagerUnregisterUiTranslationStateCallbackCmd = &cobra.Command{
+	Use:   "unregister-ui-translation-state-callback",
+	Short: "UnregisterUiTranslationStateCallback RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUiTranslationManagerServiceClient(grpcConn)
+		req := &pb.UnregisterUiTranslationStateCallbackRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UnregisterUiTranslationStateCallback(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var translationViewTranslationResponseCmd = &cobra.Command{
 	Use:   "view-translation-response",
 	Short: "ViewTranslationResponseService operations",
@@ -61,6 +107,22 @@ var translationViewTranslationResponseGetAutofillIdCmd = &cobra.Command{
 		client := pb.NewViewTranslationResponseServiceClient(grpcConn)
 		req := &pb.GetAutofillIdRequest{}
 		resp, err := client.GetAutofillId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationViewTranslationResponseGetKeysCmd = &cobra.Command{
+	Use:   "get-keys",
+	Short: "GetKeys RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewViewTranslationResponseServiceClient(grpcConn)
+		req := &pb.GetKeysRequest{}
+		resp, err := client.GetKeys(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -184,26 +246,20 @@ var translationViewTranslationResponseBuilderSetValueCmd = &cobra.Command{
 	},
 }
 
-var translationUiTranslationManagerCmd = &cobra.Command{
-	Use:   "ui-translation-manager",
-	Short: "UiTranslationManagerService operations",
+var translationRequestValueCmd = &cobra.Command{
+	Use:   "request-value",
+	Short: "RequestValueService operations",
 }
 
-var translationUiTranslationManagerRegisterUiTranslationStateCallbackCmd = &cobra.Command{
-	Use:   "register-ui-translation-state-callback",
-	Short: "RegisterUiTranslationStateCallback RPC",
+var translationRequestValueDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewUiTranslationManagerServiceClient(grpcConn)
-		req := &pb.RegisterUiTranslationStateCallbackRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.RegisterUiTranslationStateCallback(ctx, req)
+		client := pb.NewRequestValueServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -211,18 +267,572 @@ var translationUiTranslationManagerRegisterUiTranslationStateCallbackCmd = &cobr
 	},
 }
 
-var translationUiTranslationManagerUnregisterUiTranslationStateCallbackCmd = &cobra.Command{
-	Use:   "unregister-ui-translation-state-callback",
-	Short: "UnregisterUiTranslationStateCallback RPC",
+var translationRequestValueEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewUiTranslationManagerServiceClient(grpcConn)
-		req := &pb.UnregisterUiTranslationStateCallbackRequest{}
+		client := pb.NewRequestValueServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.UnregisterUiTranslationStateCallback(ctx, req)
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationRequestValueGetTextCmd = &cobra.Command{
+	Use:   "get-text",
+	Short: "GetText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRequestValueServiceClient(grpcConn)
+		req := &pb.GetTextRequest{}
+		resp, err := client.GetText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationRequestValueHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRequestValueServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationRequestValueToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRequestValueServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationRequestValueWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRequestValueServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationRequestValueForTextCmd = &cobra.Command{
+	Use:   "for-text",
+	Short: "ForText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRequestValueServiceClient(grpcConn)
+		req := &pb.ForTextRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ForText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationViewTranslationCallbackCmd = &cobra.Command{
+	Use:   "view-translation-callback",
+	Short: "ViewTranslationCallbackService operations",
+}
+
+var translationViewTranslationCallbackOnClearTranslationCmd = &cobra.Command{
+	Use:   "on-clear-translation",
+	Short: "OnClearTranslation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewViewTranslationCallbackServiceClient(grpcConn)
+		req := &pb.OnClearTranslationRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnClearTranslation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationViewTranslationCallbackOnHideTranslationCmd = &cobra.Command{
+	Use:   "on-hide-translation",
+	Short: "OnHideTranslation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewViewTranslationCallbackServiceClient(grpcConn)
+		req := &pb.OnHideTranslationRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnHideTranslation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationViewTranslationCallbackOnShowTranslationCmd = &cobra.Command{
+	Use:   "on-show-translation",
+	Short: "OnShowTranslation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewViewTranslationCallbackServiceClient(grpcConn)
+		req := &pb.OnShowTranslationRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnShowTranslation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationCapabilityCmd = &cobra.Command{
+	Use:   "capability",
+	Short: "CapabilityService operations",
+}
+
+var translationCapabilityDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCapabilityServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationCapabilityGetSourceSpecCmd = &cobra.Command{
+	Use:   "get-source-spec",
+	Short: "GetSourceSpec RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCapabilityServiceClient(grpcConn)
+		req := &pb.GetSourceSpecRequest{}
+		resp, err := client.GetSourceSpec(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationCapabilityGetStateCmd = &cobra.Command{
+	Use:   "get-state",
+	Short: "GetState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCapabilityServiceClient(grpcConn)
+		req := &pb.GetStateRequest{}
+		resp, err := client.GetState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationCapabilityGetSupportedTranslationFlagsCmd = &cobra.Command{
+	Use:   "get-supported-translation-flags",
+	Short: "GetSupportedTranslationFlags RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCapabilityServiceClient(grpcConn)
+		req := &pb.GetSupportedTranslationFlagsRequest{}
+		resp, err := client.GetSupportedTranslationFlags(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationCapabilityGetTargetSpecCmd = &cobra.Command{
+	Use:   "get-target-spec",
+	Short: "GetTargetSpec RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCapabilityServiceClient(grpcConn)
+		req := &pb.GetTargetSpecRequest{}
+		resp, err := client.GetTargetSpec(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationCapabilityIsUiTranslationEnabledCmd = &cobra.Command{
+	Use:   "is-ui-translation-enabled",
+	Short: "IsUiTranslationEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCapabilityServiceClient(grpcConn)
+		req := &pb.IsUiTranslationEnabledRequest{}
+		resp, err := client.IsUiTranslationEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationCapabilityToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCapabilityServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationCapabilityWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCapabilityServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationUiTranslationStateCallbackCmd = &cobra.Command{
+	Use:   "ui-translation-state-callback",
+	Short: "UiTranslationStateCallbackService operations",
+}
+
+var translationUiTranslationStateCallbackOnFinishedCmd = &cobra.Command{
+	Use:   "on-finished",
+	Short: "OnFinished RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUiTranslationStateCallbackServiceClient(grpcConn)
+		req := &pb.OnFinishedRequest{}
+		resp, err := client.OnFinished(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationUiTranslationStateCallbackOnPausedCmd = &cobra.Command{
+	Use:   "on-paused",
+	Short: "OnPaused RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUiTranslationStateCallbackServiceClient(grpcConn)
+		req := &pb.OnPausedRequest{}
+		resp, err := client.OnPaused(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationContextCmd = &cobra.Command{
+	Use:   "context",
+	Short: "ContextService operations",
+}
+
+var translationContextDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationContextGetSourceSpecCmd = &cobra.Command{
+	Use:   "get-source-spec",
+	Short: "GetSourceSpec RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextServiceClient(grpcConn)
+		req := &pb.GetSourceSpecRequest{}
+		resp, err := client.GetSourceSpec(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationContextGetTargetSpecCmd = &cobra.Command{
+	Use:   "get-target-spec",
+	Short: "GetTargetSpec RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextServiceClient(grpcConn)
+		req := &pb.GetTargetSpecRequest{}
+		resp, err := client.GetTargetSpec(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationContextGetTranslationFlagsCmd = &cobra.Command{
+	Use:   "get-translation-flags",
+	Short: "GetTranslationFlags RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextServiceClient(grpcConn)
+		req := &pb.GetTranslationFlagsRequest{}
+		resp, err := client.GetTranslationFlags(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationContextToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationContextWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationContextBuilderCmd = &cobra.Command{
+	Use:   "context-builder",
+	Short: "ContextBuilderService operations",
+}
+
+var translationContextBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationContextBuilderSetTranslationFlagsCmd = &cobra.Command{
+	Use:   "set-translation-flags",
+	Short: "SetTranslationFlags RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContextBuilderServiceClient(grpcConn)
+		req := &pb.SetTranslationFlagsRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTranslationFlags(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationManagerCmd = &cobra.Command{
+	Use:   "manager",
+	Short: "ManagerService operations",
+}
+
+var translationManagerGetOnDeviceTranslationCapabilitiesCmd = &cobra.Command{
+	Use:   "get-on-device-translation-capabilities",
+	Short: "GetOnDeviceTranslationCapabilities RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetOnDeviceTranslationCapabilitiesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetOnDeviceTranslationCapabilities(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationManagerGetOnDeviceTranslationSettingsActivityIntentCmd = &cobra.Command{
+	Use:   "get-on-device-translation-settings-activity-intent",
+	Short: "GetOnDeviceTranslationSettingsActivityIntent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetOnDeviceTranslationSettingsActivityIntentRequest{}
+		resp, err := client.GetOnDeviceTranslationSettingsActivityIntent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationTranslatorCmd = &cobra.Command{
+	Use:   "translator",
+	Short: "TranslatorService operations",
+}
+
+var translationTranslatorDestroyCmd = &cobra.Command{
+	Use:   "destroy",
+	Short: "Destroy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTranslatorServiceClient(grpcConn)
+		req := &pb.DestroyRequest{}
+		resp, err := client.Destroy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationTranslatorIsDestroyedCmd = &cobra.Command{
+	Use:   "is-destroyed",
+	Short: "IsDestroyed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTranslatorServiceClient(grpcConn)
+		req := &pb.IsDestroyedRequest{}
+		resp, err := client.IsDestroyed(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -279,6 +889,22 @@ var translationViewTranslationRequestGetAutofillIdCmd = &cobra.Command{
 		client := pb.NewViewTranslationRequestServiceClient(grpcConn)
 		req := &pb.GetAutofillIdRequest{}
 		resp, err := client.GetAutofillId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationViewTranslationRequestGetKeysCmd = &cobra.Command{
+	Use:   "get-keys",
+	Short: "GetKeys RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewViewTranslationRequestServiceClient(grpcConn)
+		req := &pb.GetKeysRequest{}
+		resp, err := client.GetKeys(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -395,6 +1021,360 @@ var translationViewTranslationRequestBuilderSetValueCmd = &cobra.Command{
 			req.Arg1 = v
 		}
 		resp, err := client.SetValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationResponseCmd = &cobra.Command{
+	Use:   "response",
+	Short: "ResponseService operations",
+}
+
+var translationResponseDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponseServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationResponseGetTranslationResponseValuesCmd = &cobra.Command{
+	Use:   "get-translation-response-values",
+	Short: "GetTranslationResponseValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponseServiceClient(grpcConn)
+		req := &pb.GetTranslationResponseValuesRequest{}
+		resp, err := client.GetTranslationResponseValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationResponseGetTranslationStatusCmd = &cobra.Command{
+	Use:   "get-translation-status",
+	Short: "GetTranslationStatus RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponseServiceClient(grpcConn)
+		req := &pb.GetTranslationStatusRequest{}
+		resp, err := client.GetTranslationStatus(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationResponseGetViewTranslationResponsesCmd = &cobra.Command{
+	Use:   "get-view-translation-responses",
+	Short: "GetViewTranslationResponses RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponseServiceClient(grpcConn)
+		req := &pb.GetViewTranslationResponsesRequest{}
+		resp, err := client.GetViewTranslationResponses(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationResponseIsFinalResponseCmd = &cobra.Command{
+	Use:   "is-final-response",
+	Short: "IsFinalResponse RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponseServiceClient(grpcConn)
+		req := &pb.IsFinalResponseRequest{}
+		resp, err := client.IsFinalResponse(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationResponseToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponseServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationResponseWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponseServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationResponseBuilderCmd = &cobra.Command{
+	Use:   "response-builder",
+	Short: "ResponseBuilderService operations",
+}
+
+var translationResponseBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponseBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationResponseBuilderSetFinalResponseCmd = &cobra.Command{
+	Use:   "set-final-response",
+	Short: "SetFinalResponse RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponseBuilderServiceClient(grpcConn)
+		req := &pb.SetFinalResponseRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFinalResponse(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationResponseBuilderSetTranslationResponseValueCmd = &cobra.Command{
+	Use:   "set-translation-response-value",
+	Short: "SetTranslationResponseValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponseBuilderServiceClient(grpcConn)
+		req := &pb.SetTranslationResponseValueRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetTranslationResponseValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationResponseBuilderSetViewTranslationResponseCmd = &cobra.Command{
+	Use:   "set-view-translation-response",
+	Short: "SetViewTranslationResponse RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponseBuilderServiceClient(grpcConn)
+		req := &pb.SetViewTranslationResponseRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetViewTranslationResponse(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationRequestCmd = &cobra.Command{
+	Use:   "request",
+	Short: "RequestService operations",
+}
+
+var translationRequestDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRequestServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationRequestGetFlagsCmd = &cobra.Command{
+	Use:   "get-flags",
+	Short: "GetFlags RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRequestServiceClient(grpcConn)
+		req := &pb.GetFlagsRequest{}
+		resp, err := client.GetFlags(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationRequestGetTranslationRequestValuesCmd = &cobra.Command{
+	Use:   "get-translation-request-values",
+	Short: "GetTranslationRequestValues RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRequestServiceClient(grpcConn)
+		req := &pb.GetTranslationRequestValuesRequest{}
+		resp, err := client.GetTranslationRequestValues(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationRequestGetViewTranslationRequestsCmd = &cobra.Command{
+	Use:   "get-view-translation-requests",
+	Short: "GetViewTranslationRequests RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRequestServiceClient(grpcConn)
+		req := &pb.GetViewTranslationRequestsRequest{}
+		resp, err := client.GetViewTranslationRequests(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationRequestToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRequestServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationRequestWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRequestServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationRequestBuilderCmd = &cobra.Command{
+	Use:   "request-builder",
+	Short: "RequestBuilderService operations",
+}
+
+var translationRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var translationRequestBuilderSetFlagsCmd = &cobra.Command{
+	Use:   "set-flags",
+	Short: "SetFlags RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetFlagsRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFlags(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -654,545 +1634,6 @@ var translationResponseValueBuilderSetTransliterationCmd = &cobra.Command{
 	},
 }
 
-var translationResponseCmd = &cobra.Command{
-	Use:   "response",
-	Short: "ResponseService operations",
-}
-
-var translationResponseDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResponseServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationResponseGetTranslationStatusCmd = &cobra.Command{
-	Use:   "get-translation-status",
-	Short: "GetTranslationStatus RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResponseServiceClient(grpcConn)
-		req := &pb.GetTranslationStatusRequest{}
-		resp, err := client.GetTranslationStatus(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationResponseIsFinalResponseCmd = &cobra.Command{
-	Use:   "is-final-response",
-	Short: "IsFinalResponse RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResponseServiceClient(grpcConn)
-		req := &pb.IsFinalResponseRequest{}
-		resp, err := client.IsFinalResponse(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationResponseToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResponseServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationResponseWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResponseServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationResponseBuilderCmd = &cobra.Command{
-	Use:   "response-builder",
-	Short: "ResponseBuilderService operations",
-}
-
-var translationResponseBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResponseBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationResponseBuilderSetFinalResponseCmd = &cobra.Command{
-	Use:   "set-final-response",
-	Short: "SetFinalResponse RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResponseBuilderServiceClient(grpcConn)
-		req := &pb.SetFinalResponseRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetFinalResponse(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationResponseBuilderSetTranslationResponseValueCmd = &cobra.Command{
-	Use:   "set-translation-response-value",
-	Short: "SetTranslationResponseValue RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResponseBuilderServiceClient(grpcConn)
-		req := &pb.SetTranslationResponseValueRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetTranslationResponseValue(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationResponseBuilderSetViewTranslationResponseCmd = &cobra.Command{
-	Use:   "set-view-translation-response",
-	Short: "SetViewTranslationResponse RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResponseBuilderServiceClient(grpcConn)
-		req := &pb.SetViewTranslationResponseRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetViewTranslationResponse(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationRequestValueCmd = &cobra.Command{
-	Use:   "request-value",
-	Short: "RequestValueService operations",
-}
-
-var translationRequestValueDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRequestValueServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationRequestValueEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRequestValueServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationRequestValueGetTextCmd = &cobra.Command{
-	Use:   "get-text",
-	Short: "GetText RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRequestValueServiceClient(grpcConn)
-		req := &pb.GetTextRequest{}
-		resp, err := client.GetText(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationRequestValueHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRequestValueServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationRequestValueToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRequestValueServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationRequestValueWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRequestValueServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationRequestValueForTextCmd = &cobra.Command{
-	Use:   "for-text",
-	Short: "ForText RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRequestValueServiceClient(grpcConn)
-		req := &pb.ForTextRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ForText(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationManagerCmd = &cobra.Command{
-	Use:   "manager",
-	Short: "ManagerService operations",
-}
-
-var translationManagerGetOnDeviceTranslationSettingsActivityIntentCmd = &cobra.Command{
-	Use:   "get-on-device-translation-settings-activity-intent",
-	Short: "GetOnDeviceTranslationSettingsActivityIntent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetOnDeviceTranslationSettingsActivityIntentRequest{}
-		resp, err := client.GetOnDeviceTranslationSettingsActivityIntent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationRequestCmd = &cobra.Command{
-	Use:   "request",
-	Short: "RequestService operations",
-}
-
-var translationRequestDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRequestServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationRequestGetFlagsCmd = &cobra.Command{
-	Use:   "get-flags",
-	Short: "GetFlags RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRequestServiceClient(grpcConn)
-		req := &pb.GetFlagsRequest{}
-		resp, err := client.GetFlags(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationRequestToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRequestServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationRequestWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRequestServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationRequestBuilderCmd = &cobra.Command{
-	Use:   "request-builder",
-	Short: "RequestBuilderService operations",
-}
-
-var translationRequestBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRequestBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationRequestBuilderSetFlagsCmd = &cobra.Command{
-	Use:   "set-flags",
-	Short: "SetFlags RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetFlagsRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetFlags(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationUiTranslationStateCallbackCmd = &cobra.Command{
-	Use:   "ui-translation-state-callback",
-	Short: "UiTranslationStateCallbackService operations",
-}
-
-var translationUiTranslationStateCallbackOnFinishedCmd = &cobra.Command{
-	Use:   "on-finished",
-	Short: "OnFinished RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUiTranslationStateCallbackServiceClient(grpcConn)
-		req := &pb.OnFinishedRequest{}
-		resp, err := client.OnFinished(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationUiTranslationStateCallbackOnPausedCmd = &cobra.Command{
-	Use:   "on-paused",
-	Short: "OnPaused RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUiTranslationStateCallbackServiceClient(grpcConn)
-		req := &pb.OnPausedRequest{}
-		resp, err := client.OnPaused(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationViewTranslationCallbackCmd = &cobra.Command{
-	Use:   "view-translation-callback",
-	Short: "ViewTranslationCallbackService operations",
-}
-
-var translationViewTranslationCallbackOnClearTranslationCmd = &cobra.Command{
-	Use:   "on-clear-translation",
-	Short: "OnClearTranslation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewViewTranslationCallbackServiceClient(grpcConn)
-		req := &pb.OnClearTranslationRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnClearTranslation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationViewTranslationCallbackOnHideTranslationCmd = &cobra.Command{
-	Use:   "on-hide-translation",
-	Short: "OnHideTranslation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewViewTranslationCallbackServiceClient(grpcConn)
-		req := &pb.OnHideTranslationRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnHideTranslation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationViewTranslationCallbackOnShowTranslationCmd = &cobra.Command{
-	Use:   "on-show-translation",
-	Short: "OnShowTranslation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewViewTranslationCallbackServiceClient(grpcConn)
-		req := &pb.OnShowTranslationRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnShowTranslation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var translationSpecCmd = &cobra.Command{
 	Use:   "spec",
 	Short: "SpecService operations",
@@ -1362,334 +1803,18 @@ var translationSpecWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var translationContextCmd = &cobra.Command{
-	Use:   "context",
-	Short: "ContextService operations",
-}
-
-var translationContextDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContextServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationContextGetSourceSpecCmd = &cobra.Command{
-	Use:   "get-source-spec",
-	Short: "GetSourceSpec RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContextServiceClient(grpcConn)
-		req := &pb.GetSourceSpecRequest{}
-		resp, err := client.GetSourceSpec(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationContextGetTargetSpecCmd = &cobra.Command{
-	Use:   "get-target-spec",
-	Short: "GetTargetSpec RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContextServiceClient(grpcConn)
-		req := &pb.GetTargetSpecRequest{}
-		resp, err := client.GetTargetSpec(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationContextGetTranslationFlagsCmd = &cobra.Command{
-	Use:   "get-translation-flags",
-	Short: "GetTranslationFlags RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContextServiceClient(grpcConn)
-		req := &pb.GetTranslationFlagsRequest{}
-		resp, err := client.GetTranslationFlags(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationContextToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContextServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationContextWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContextServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationContextBuilderCmd = &cobra.Command{
-	Use:   "context-builder",
-	Short: "ContextBuilderService operations",
-}
-
-var translationContextBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContextBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationContextBuilderSetTranslationFlagsCmd = &cobra.Command{
-	Use:   "set-translation-flags",
-	Short: "SetTranslationFlags RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewContextBuilderServiceClient(grpcConn)
-		req := &pb.SetTranslationFlagsRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTranslationFlags(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationTranslatorCmd = &cobra.Command{
-	Use:   "translator",
-	Short: "TranslatorService operations",
-}
-
-var translationTranslatorDestroyCmd = &cobra.Command{
-	Use:   "destroy",
-	Short: "Destroy RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTranslatorServiceClient(grpcConn)
-		req := &pb.DestroyRequest{}
-		resp, err := client.Destroy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationTranslatorIsDestroyedCmd = &cobra.Command{
-	Use:   "is-destroyed",
-	Short: "IsDestroyed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTranslatorServiceClient(grpcConn)
-		req := &pb.IsDestroyedRequest{}
-		resp, err := client.IsDestroyed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationCapabilityCmd = &cobra.Command{
-	Use:   "capability",
-	Short: "CapabilityService operations",
-}
-
-var translationCapabilityDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCapabilityServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationCapabilityGetSourceSpecCmd = &cobra.Command{
-	Use:   "get-source-spec",
-	Short: "GetSourceSpec RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCapabilityServiceClient(grpcConn)
-		req := &pb.GetSourceSpecRequest{}
-		resp, err := client.GetSourceSpec(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationCapabilityGetStateCmd = &cobra.Command{
-	Use:   "get-state",
-	Short: "GetState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCapabilityServiceClient(grpcConn)
-		req := &pb.GetStateRequest{}
-		resp, err := client.GetState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationCapabilityGetSupportedTranslationFlagsCmd = &cobra.Command{
-	Use:   "get-supported-translation-flags",
-	Short: "GetSupportedTranslationFlags RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCapabilityServiceClient(grpcConn)
-		req := &pb.GetSupportedTranslationFlagsRequest{}
-		resp, err := client.GetSupportedTranslationFlags(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationCapabilityGetTargetSpecCmd = &cobra.Command{
-	Use:   "get-target-spec",
-	Short: "GetTargetSpec RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCapabilityServiceClient(grpcConn)
-		req := &pb.GetTargetSpecRequest{}
-		resp, err := client.GetTargetSpec(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationCapabilityIsUiTranslationEnabledCmd = &cobra.Command{
-	Use:   "is-ui-translation-enabled",
-	Short: "IsUiTranslationEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCapabilityServiceClient(grpcConn)
-		req := &pb.IsUiTranslationEnabledRequest{}
-		resp, err := client.IsUiTranslationEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationCapabilityToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCapabilityServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var translationCapabilityWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCapabilityServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
+	translationUiTranslationManagerRegisterUiTranslationStateCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	translationUiTranslationManagerRegisterUiTranslationStateCallbackCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	translationUiTranslationManagerCmd.AddCommand(translationUiTranslationManagerRegisterUiTranslationStateCallbackCmd)
+	translationUiTranslationManagerUnregisterUiTranslationStateCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	translationUiTranslationManagerCmd.AddCommand(translationUiTranslationManagerUnregisterUiTranslationStateCallbackCmd)
+	translationCmd.AddCommand(translationUiTranslationManagerCmd)
 	translationViewTranslationResponseCmd.AddCommand(translationViewTranslationResponseDescribeContentsCmd)
 	translationViewTranslationResponseEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	translationViewTranslationResponseCmd.AddCommand(translationViewTranslationResponseEqualsCmd)
 	translationViewTranslationResponseCmd.AddCommand(translationViewTranslationResponseGetAutofillIdCmd)
+	translationViewTranslationResponseCmd.AddCommand(translationViewTranslationResponseGetKeysCmd)
 	translationViewTranslationResponseGetValueCmd.Flags().String("arg0", "", "arg0 (string)")
 	translationViewTranslationResponseCmd.AddCommand(translationViewTranslationResponseGetValueCmd)
 	translationViewTranslationResponseCmd.AddCommand(translationViewTranslationResponseHashCodeCmd)
@@ -1703,16 +1828,65 @@ func init() {
 	translationViewTranslationResponseBuilderSetValueCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	translationViewTranslationResponseBuilderCmd.AddCommand(translationViewTranslationResponseBuilderSetValueCmd)
 	translationCmd.AddCommand(translationViewTranslationResponseBuilderCmd)
-	translationUiTranslationManagerRegisterUiTranslationStateCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	translationUiTranslationManagerRegisterUiTranslationStateCallbackCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	translationUiTranslationManagerCmd.AddCommand(translationUiTranslationManagerRegisterUiTranslationStateCallbackCmd)
-	translationUiTranslationManagerUnregisterUiTranslationStateCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	translationUiTranslationManagerCmd.AddCommand(translationUiTranslationManagerUnregisterUiTranslationStateCallbackCmd)
-	translationCmd.AddCommand(translationUiTranslationManagerCmd)
+	translationRequestValueCmd.AddCommand(translationRequestValueDescribeContentsCmd)
+	translationRequestValueEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	translationRequestValueCmd.AddCommand(translationRequestValueEqualsCmd)
+	translationRequestValueCmd.AddCommand(translationRequestValueGetTextCmd)
+	translationRequestValueCmd.AddCommand(translationRequestValueHashCodeCmd)
+	translationRequestValueCmd.AddCommand(translationRequestValueToStringCmd)
+	translationRequestValueWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	translationRequestValueWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	translationRequestValueCmd.AddCommand(translationRequestValueWriteToParcelCmd)
+	translationRequestValueForTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	translationRequestValueCmd.AddCommand(translationRequestValueForTextCmd)
+	translationCmd.AddCommand(translationRequestValueCmd)
+	translationViewTranslationCallbackOnClearTranslationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	translationViewTranslationCallbackCmd.AddCommand(translationViewTranslationCallbackOnClearTranslationCmd)
+	translationViewTranslationCallbackOnHideTranslationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	translationViewTranslationCallbackCmd.AddCommand(translationViewTranslationCallbackOnHideTranslationCmd)
+	translationViewTranslationCallbackOnShowTranslationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	translationViewTranslationCallbackCmd.AddCommand(translationViewTranslationCallbackOnShowTranslationCmd)
+	translationCmd.AddCommand(translationViewTranslationCallbackCmd)
+	translationCapabilityCmd.AddCommand(translationCapabilityDescribeContentsCmd)
+	translationCapabilityCmd.AddCommand(translationCapabilityGetSourceSpecCmd)
+	translationCapabilityCmd.AddCommand(translationCapabilityGetStateCmd)
+	translationCapabilityCmd.AddCommand(translationCapabilityGetSupportedTranslationFlagsCmd)
+	translationCapabilityCmd.AddCommand(translationCapabilityGetTargetSpecCmd)
+	translationCapabilityCmd.AddCommand(translationCapabilityIsUiTranslationEnabledCmd)
+	translationCapabilityCmd.AddCommand(translationCapabilityToStringCmd)
+	translationCapabilityWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	translationCapabilityWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	translationCapabilityCmd.AddCommand(translationCapabilityWriteToParcelCmd)
+	translationCmd.AddCommand(translationCapabilityCmd)
+	translationUiTranslationStateCallbackCmd.AddCommand(translationUiTranslationStateCallbackOnFinishedCmd)
+	translationUiTranslationStateCallbackCmd.AddCommand(translationUiTranslationStateCallbackOnPausedCmd)
+	translationCmd.AddCommand(translationUiTranslationStateCallbackCmd)
+	translationContextCmd.AddCommand(translationContextDescribeContentsCmd)
+	translationContextCmd.AddCommand(translationContextGetSourceSpecCmd)
+	translationContextCmd.AddCommand(translationContextGetTargetSpecCmd)
+	translationContextCmd.AddCommand(translationContextGetTranslationFlagsCmd)
+	translationContextCmd.AddCommand(translationContextToStringCmd)
+	translationContextWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	translationContextWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	translationContextCmd.AddCommand(translationContextWriteToParcelCmd)
+	translationCmd.AddCommand(translationContextCmd)
+	translationContextBuilderCmd.AddCommand(translationContextBuilderBuildCmd)
+	translationContextBuilderSetTranslationFlagsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	translationContextBuilderCmd.AddCommand(translationContextBuilderSetTranslationFlagsCmd)
+	translationCmd.AddCommand(translationContextBuilderCmd)
+	translationManagerGetOnDeviceTranslationCapabilitiesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	translationManagerGetOnDeviceTranslationCapabilitiesCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	translationManagerCmd.AddCommand(translationManagerGetOnDeviceTranslationCapabilitiesCmd)
+	translationManagerCmd.AddCommand(translationManagerGetOnDeviceTranslationSettingsActivityIntentCmd)
+	translationCmd.AddCommand(translationManagerCmd)
+	translationTranslatorCmd.AddCommand(translationTranslatorDestroyCmd)
+	translationTranslatorCmd.AddCommand(translationTranslatorIsDestroyedCmd)
+	translationCmd.AddCommand(translationTranslatorCmd)
 	translationViewTranslationRequestCmd.AddCommand(translationViewTranslationRequestDescribeContentsCmd)
 	translationViewTranslationRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	translationViewTranslationRequestCmd.AddCommand(translationViewTranslationRequestEqualsCmd)
 	translationViewTranslationRequestCmd.AddCommand(translationViewTranslationRequestGetAutofillIdCmd)
+	translationViewTranslationRequestCmd.AddCommand(translationViewTranslationRequestGetKeysCmd)
 	translationViewTranslationRequestGetValueCmd.Flags().String("arg0", "", "arg0 (string)")
 	translationViewTranslationRequestCmd.AddCommand(translationViewTranslationRequestGetValueCmd)
 	translationViewTranslationRequestCmd.AddCommand(translationViewTranslationRequestHashCodeCmd)
@@ -1726,6 +1900,39 @@ func init() {
 	translationViewTranslationRequestBuilderSetValueCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	translationViewTranslationRequestBuilderCmd.AddCommand(translationViewTranslationRequestBuilderSetValueCmd)
 	translationCmd.AddCommand(translationViewTranslationRequestBuilderCmd)
+	translationResponseCmd.AddCommand(translationResponseDescribeContentsCmd)
+	translationResponseCmd.AddCommand(translationResponseGetTranslationResponseValuesCmd)
+	translationResponseCmd.AddCommand(translationResponseGetTranslationStatusCmd)
+	translationResponseCmd.AddCommand(translationResponseGetViewTranslationResponsesCmd)
+	translationResponseCmd.AddCommand(translationResponseIsFinalResponseCmd)
+	translationResponseCmd.AddCommand(translationResponseToStringCmd)
+	translationResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	translationResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	translationResponseCmd.AddCommand(translationResponseWriteToParcelCmd)
+	translationCmd.AddCommand(translationResponseCmd)
+	translationResponseBuilderCmd.AddCommand(translationResponseBuilderBuildCmd)
+	translationResponseBuilderSetFinalResponseCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	translationResponseBuilderCmd.AddCommand(translationResponseBuilderSetFinalResponseCmd)
+	translationResponseBuilderSetTranslationResponseValueCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	translationResponseBuilderSetTranslationResponseValueCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	translationResponseBuilderCmd.AddCommand(translationResponseBuilderSetTranslationResponseValueCmd)
+	translationResponseBuilderSetViewTranslationResponseCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	translationResponseBuilderSetViewTranslationResponseCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	translationResponseBuilderCmd.AddCommand(translationResponseBuilderSetViewTranslationResponseCmd)
+	translationCmd.AddCommand(translationResponseBuilderCmd)
+	translationRequestCmd.AddCommand(translationRequestDescribeContentsCmd)
+	translationRequestCmd.AddCommand(translationRequestGetFlagsCmd)
+	translationRequestCmd.AddCommand(translationRequestGetTranslationRequestValuesCmd)
+	translationRequestCmd.AddCommand(translationRequestGetViewTranslationRequestsCmd)
+	translationRequestCmd.AddCommand(translationRequestToStringCmd)
+	translationRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	translationRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	translationRequestCmd.AddCommand(translationRequestWriteToParcelCmd)
+	translationCmd.AddCommand(translationRequestCmd)
+	translationRequestBuilderCmd.AddCommand(translationRequestBuilderBuildCmd)
+	translationRequestBuilderSetFlagsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	translationRequestBuilderCmd.AddCommand(translationRequestBuilderSetFlagsCmd)
+	translationCmd.AddCommand(translationRequestBuilderCmd)
 	translationResponseValueCmd.AddCommand(translationResponseValueDescribeContentsCmd)
 	translationResponseValueEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	translationResponseValueCmd.AddCommand(translationResponseValueEqualsCmd)
@@ -1748,59 +1955,6 @@ func init() {
 	translationResponseValueBuilderSetTransliterationCmd.Flags().String("arg0", "", "arg0 (string)")
 	translationResponseValueBuilderCmd.AddCommand(translationResponseValueBuilderSetTransliterationCmd)
 	translationCmd.AddCommand(translationResponseValueBuilderCmd)
-	translationResponseCmd.AddCommand(translationResponseDescribeContentsCmd)
-	translationResponseCmd.AddCommand(translationResponseGetTranslationStatusCmd)
-	translationResponseCmd.AddCommand(translationResponseIsFinalResponseCmd)
-	translationResponseCmd.AddCommand(translationResponseToStringCmd)
-	translationResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	translationResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	translationResponseCmd.AddCommand(translationResponseWriteToParcelCmd)
-	translationCmd.AddCommand(translationResponseCmd)
-	translationResponseBuilderCmd.AddCommand(translationResponseBuilderBuildCmd)
-	translationResponseBuilderSetFinalResponseCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	translationResponseBuilderCmd.AddCommand(translationResponseBuilderSetFinalResponseCmd)
-	translationResponseBuilderSetTranslationResponseValueCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	translationResponseBuilderSetTranslationResponseValueCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	translationResponseBuilderCmd.AddCommand(translationResponseBuilderSetTranslationResponseValueCmd)
-	translationResponseBuilderSetViewTranslationResponseCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	translationResponseBuilderSetViewTranslationResponseCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	translationResponseBuilderCmd.AddCommand(translationResponseBuilderSetViewTranslationResponseCmd)
-	translationCmd.AddCommand(translationResponseBuilderCmd)
-	translationRequestValueCmd.AddCommand(translationRequestValueDescribeContentsCmd)
-	translationRequestValueEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	translationRequestValueCmd.AddCommand(translationRequestValueEqualsCmd)
-	translationRequestValueCmd.AddCommand(translationRequestValueGetTextCmd)
-	translationRequestValueCmd.AddCommand(translationRequestValueHashCodeCmd)
-	translationRequestValueCmd.AddCommand(translationRequestValueToStringCmd)
-	translationRequestValueWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	translationRequestValueWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	translationRequestValueCmd.AddCommand(translationRequestValueWriteToParcelCmd)
-	translationRequestValueForTextCmd.Flags().String("arg0", "", "arg0 (string)")
-	translationRequestValueCmd.AddCommand(translationRequestValueForTextCmd)
-	translationCmd.AddCommand(translationRequestValueCmd)
-	translationManagerCmd.AddCommand(translationManagerGetOnDeviceTranslationSettingsActivityIntentCmd)
-	translationCmd.AddCommand(translationManagerCmd)
-	translationRequestCmd.AddCommand(translationRequestDescribeContentsCmd)
-	translationRequestCmd.AddCommand(translationRequestGetFlagsCmd)
-	translationRequestCmd.AddCommand(translationRequestToStringCmd)
-	translationRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	translationRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	translationRequestCmd.AddCommand(translationRequestWriteToParcelCmd)
-	translationCmd.AddCommand(translationRequestCmd)
-	translationRequestBuilderCmd.AddCommand(translationRequestBuilderBuildCmd)
-	translationRequestBuilderSetFlagsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	translationRequestBuilderCmd.AddCommand(translationRequestBuilderSetFlagsCmd)
-	translationCmd.AddCommand(translationRequestBuilderCmd)
-	translationUiTranslationStateCallbackCmd.AddCommand(translationUiTranslationStateCallbackOnFinishedCmd)
-	translationUiTranslationStateCallbackCmd.AddCommand(translationUiTranslationStateCallbackOnPausedCmd)
-	translationCmd.AddCommand(translationUiTranslationStateCallbackCmd)
-	translationViewTranslationCallbackOnClearTranslationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	translationViewTranslationCallbackCmd.AddCommand(translationViewTranslationCallbackOnClearTranslationCmd)
-	translationViewTranslationCallbackOnHideTranslationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	translationViewTranslationCallbackCmd.AddCommand(translationViewTranslationCallbackOnHideTranslationCmd)
-	translationViewTranslationCallbackOnShowTranslationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	translationViewTranslationCallbackCmd.AddCommand(translationViewTranslationCallbackOnShowTranslationCmd)
-	translationCmd.AddCommand(translationViewTranslationCallbackCmd)
 	translationSpecNewSpecCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	translationSpecNewSpecCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	translationSpecCmd.AddCommand(translationSpecNewSpecCmd)
@@ -1822,32 +1976,5 @@ func init() {
 	translationSpecWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	translationSpecCmd.AddCommand(translationSpecWriteToParcelCmd)
 	translationCmd.AddCommand(translationSpecCmd)
-	translationContextCmd.AddCommand(translationContextDescribeContentsCmd)
-	translationContextCmd.AddCommand(translationContextGetSourceSpecCmd)
-	translationContextCmd.AddCommand(translationContextGetTargetSpecCmd)
-	translationContextCmd.AddCommand(translationContextGetTranslationFlagsCmd)
-	translationContextCmd.AddCommand(translationContextToStringCmd)
-	translationContextWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	translationContextWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	translationContextCmd.AddCommand(translationContextWriteToParcelCmd)
-	translationCmd.AddCommand(translationContextCmd)
-	translationContextBuilderCmd.AddCommand(translationContextBuilderBuildCmd)
-	translationContextBuilderSetTranslationFlagsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	translationContextBuilderCmd.AddCommand(translationContextBuilderSetTranslationFlagsCmd)
-	translationCmd.AddCommand(translationContextBuilderCmd)
-	translationTranslatorCmd.AddCommand(translationTranslatorDestroyCmd)
-	translationTranslatorCmd.AddCommand(translationTranslatorIsDestroyedCmd)
-	translationCmd.AddCommand(translationTranslatorCmd)
-	translationCapabilityCmd.AddCommand(translationCapabilityDescribeContentsCmd)
-	translationCapabilityCmd.AddCommand(translationCapabilityGetSourceSpecCmd)
-	translationCapabilityCmd.AddCommand(translationCapabilityGetStateCmd)
-	translationCapabilityCmd.AddCommand(translationCapabilityGetSupportedTranslationFlagsCmd)
-	translationCapabilityCmd.AddCommand(translationCapabilityGetTargetSpecCmd)
-	translationCapabilityCmd.AddCommand(translationCapabilityIsUiTranslationEnabledCmd)
-	translationCapabilityCmd.AddCommand(translationCapabilityToStringCmd)
-	translationCapabilityWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	translationCapabilityWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	translationCapabilityCmd.AddCommand(translationCapabilityWriteToParcelCmd)
-	translationCmd.AddCommand(translationCapabilityCmd)
 	rootCmd.AddCommand(translationCmd)
 }

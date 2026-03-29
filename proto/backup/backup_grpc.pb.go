@@ -21,215 +21,318 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	DataOutputService_GetQuota_FullMethodName          = "/backup.DataOutputService/GetQuota"
-	DataOutputService_GetTransportFlags_FullMethodName = "/backup.DataOutputService/GetTransportFlags"
-	DataOutputService_WriteEntityData_FullMethodName   = "/backup.DataOutputService/WriteEntityData"
-	DataOutputService_WriteEntityHeader_FullMethodName = "/backup.DataOutputService/WriteEntityHeader"
+	HelperService_PerformBackup_FullMethodName            = "/backup.HelperService/PerformBackup"
+	HelperService_RestoreEntity_FullMethodName            = "/backup.HelperService/RestoreEntity"
+	HelperService_WriteNewStateDescription_FullMethodName = "/backup.HelperService/WriteNewStateDescription"
 )
 
-// DataOutputServiceClient is the client API for DataOutputService service.
+// HelperServiceClient is the client API for HelperService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DataOutputServiceClient interface {
-	GetQuota(ctx context.Context, in *GetQuotaRequest, opts ...grpc.CallOption) (*GetQuotaResponse, error)
-	GetTransportFlags(ctx context.Context, in *GetTransportFlagsRequest, opts ...grpc.CallOption) (*GetTransportFlagsResponse, error)
-	WriteEntityData(ctx context.Context, in *WriteEntityDataRequest, opts ...grpc.CallOption) (*WriteEntityDataResponse, error)
-	WriteEntityHeader(ctx context.Context, in *WriteEntityHeaderRequest, opts ...grpc.CallOption) (*WriteEntityHeaderResponse, error)
+type HelperServiceClient interface {
+	PerformBackup(ctx context.Context, in *PerformBackupRequest, opts ...grpc.CallOption) (*PerformBackupResponse, error)
+	RestoreEntity(ctx context.Context, in *RestoreEntityRequest, opts ...grpc.CallOption) (*RestoreEntityResponse, error)
+	WriteNewStateDescription(ctx context.Context, in *WriteNewStateDescriptionRequest, opts ...grpc.CallOption) (*WriteNewStateDescriptionResponse, error)
 }
 
-type dataOutputServiceClient struct {
+type helperServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewDataOutputServiceClient(cc grpc.ClientConnInterface) DataOutputServiceClient {
-	return &dataOutputServiceClient{cc}
+func NewHelperServiceClient(cc grpc.ClientConnInterface) HelperServiceClient {
+	return &helperServiceClient{cc}
 }
 
-func (c *dataOutputServiceClient) GetQuota(ctx context.Context, in *GetQuotaRequest, opts ...grpc.CallOption) (*GetQuotaResponse, error) {
+func (c *helperServiceClient) PerformBackup(ctx context.Context, in *PerformBackupRequest, opts ...grpc.CallOption) (*PerformBackupResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetQuotaResponse)
-	err := c.cc.Invoke(ctx, DataOutputService_GetQuota_FullMethodName, in, out, cOpts...)
+	out := new(PerformBackupResponse)
+	err := c.cc.Invoke(ctx, HelperService_PerformBackup_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *dataOutputServiceClient) GetTransportFlags(ctx context.Context, in *GetTransportFlagsRequest, opts ...grpc.CallOption) (*GetTransportFlagsResponse, error) {
+func (c *helperServiceClient) RestoreEntity(ctx context.Context, in *RestoreEntityRequest, opts ...grpc.CallOption) (*RestoreEntityResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTransportFlagsResponse)
-	err := c.cc.Invoke(ctx, DataOutputService_GetTransportFlags_FullMethodName, in, out, cOpts...)
+	out := new(RestoreEntityResponse)
+	err := c.cc.Invoke(ctx, HelperService_RestoreEntity_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *dataOutputServiceClient) WriteEntityData(ctx context.Context, in *WriteEntityDataRequest, opts ...grpc.CallOption) (*WriteEntityDataResponse, error) {
+func (c *helperServiceClient) WriteNewStateDescription(ctx context.Context, in *WriteNewStateDescriptionRequest, opts ...grpc.CallOption) (*WriteNewStateDescriptionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteEntityDataResponse)
-	err := c.cc.Invoke(ctx, DataOutputService_WriteEntityData_FullMethodName, in, out, cOpts...)
+	out := new(WriteNewStateDescriptionResponse)
+	err := c.cc.Invoke(ctx, HelperService_WriteNewStateDescription_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *dataOutputServiceClient) WriteEntityHeader(ctx context.Context, in *WriteEntityHeaderRequest, opts ...grpc.CallOption) (*WriteEntityHeaderResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteEntityHeaderResponse)
-	err := c.cc.Invoke(ctx, DataOutputService_WriteEntityHeader_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DataOutputServiceServer is the server API for DataOutputService service.
-// All implementations must embed UnimplementedDataOutputServiceServer
+// HelperServiceServer is the server API for HelperService service.
+// All implementations must embed UnimplementedHelperServiceServer
 // for forward compatibility.
-type DataOutputServiceServer interface {
-	GetQuota(context.Context, *GetQuotaRequest) (*GetQuotaResponse, error)
-	GetTransportFlags(context.Context, *GetTransportFlagsRequest) (*GetTransportFlagsResponse, error)
-	WriteEntityData(context.Context, *WriteEntityDataRequest) (*WriteEntityDataResponse, error)
-	WriteEntityHeader(context.Context, *WriteEntityHeaderRequest) (*WriteEntityHeaderResponse, error)
-	mustEmbedUnimplementedDataOutputServiceServer()
+type HelperServiceServer interface {
+	PerformBackup(context.Context, *PerformBackupRequest) (*PerformBackupResponse, error)
+	RestoreEntity(context.Context, *RestoreEntityRequest) (*RestoreEntityResponse, error)
+	WriteNewStateDescription(context.Context, *WriteNewStateDescriptionRequest) (*WriteNewStateDescriptionResponse, error)
+	mustEmbedUnimplementedHelperServiceServer()
 }
 
-// UnimplementedDataOutputServiceServer must be embedded to have
+// UnimplementedHelperServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedDataOutputServiceServer struct{}
+type UnimplementedHelperServiceServer struct{}
 
-func (UnimplementedDataOutputServiceServer) GetQuota(context.Context, *GetQuotaRequest) (*GetQuotaResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetQuota not implemented")
+func (UnimplementedHelperServiceServer) PerformBackup(context.Context, *PerformBackupRequest) (*PerformBackupResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method PerformBackup not implemented")
 }
-func (UnimplementedDataOutputServiceServer) GetTransportFlags(context.Context, *GetTransportFlagsRequest) (*GetTransportFlagsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTransportFlags not implemented")
+func (UnimplementedHelperServiceServer) RestoreEntity(context.Context, *RestoreEntityRequest) (*RestoreEntityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RestoreEntity not implemented")
 }
-func (UnimplementedDataOutputServiceServer) WriteEntityData(context.Context, *WriteEntityDataRequest) (*WriteEntityDataResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteEntityData not implemented")
+func (UnimplementedHelperServiceServer) WriteNewStateDescription(context.Context, *WriteNewStateDescriptionRequest) (*WriteNewStateDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteNewStateDescription not implemented")
 }
-func (UnimplementedDataOutputServiceServer) WriteEntityHeader(context.Context, *WriteEntityHeaderRequest) (*WriteEntityHeaderResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteEntityHeader not implemented")
-}
-func (UnimplementedDataOutputServiceServer) mustEmbedUnimplementedDataOutputServiceServer() {}
-func (UnimplementedDataOutputServiceServer) testEmbeddedByValue()                           {}
+func (UnimplementedHelperServiceServer) mustEmbedUnimplementedHelperServiceServer() {}
+func (UnimplementedHelperServiceServer) testEmbeddedByValue()                       {}
 
-// UnsafeDataOutputServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DataOutputServiceServer will
+// UnsafeHelperServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to HelperServiceServer will
 // result in compilation errors.
-type UnsafeDataOutputServiceServer interface {
-	mustEmbedUnimplementedDataOutputServiceServer()
+type UnsafeHelperServiceServer interface {
+	mustEmbedUnimplementedHelperServiceServer()
 }
 
-func RegisterDataOutputServiceServer(s grpc.ServiceRegistrar, srv DataOutputServiceServer) {
-	// If the following call panics, it indicates UnimplementedDataOutputServiceServer was
+func RegisterHelperServiceServer(s grpc.ServiceRegistrar, srv HelperServiceServer) {
+	// If the following call panics, it indicates UnimplementedHelperServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&DataOutputService_ServiceDesc, srv)
+	s.RegisterService(&HelperService_ServiceDesc, srv)
 }
 
-func _DataOutputService_GetQuota_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HelperService_PerformBackup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PerformBackupRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServiceServer).PerformBackup(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HelperService_PerformBackup_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServiceServer).PerformBackup(ctx, req.(*PerformBackupRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HelperService_RestoreEntity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RestoreEntityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServiceServer).RestoreEntity(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HelperService_RestoreEntity_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServiceServer).RestoreEntity(ctx, req.(*RestoreEntityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HelperService_WriteNewStateDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteNewStateDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HelperServiceServer).WriteNewStateDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HelperService_WriteNewStateDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HelperServiceServer).WriteNewStateDescription(ctx, req.(*WriteNewStateDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// HelperService_ServiceDesc is the grpc.ServiceDesc for HelperService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var HelperService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "backup.HelperService",
+	HandlerType: (*HelperServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "PerformBackup",
+			Handler:    _HelperService_PerformBackup_Handler,
+		},
+		{
+			MethodName: "RestoreEntity",
+			Handler:    _HelperService_RestoreEntity_Handler,
+		},
+		{
+			MethodName: "WriteNewStateDescription",
+			Handler:    _HelperService_WriteNewStateDescription_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/backup/backup.proto",
+}
+
+const (
+	FullBackupDataOutputService_GetQuota_FullMethodName          = "/backup.FullBackupDataOutputService/GetQuota"
+	FullBackupDataOutputService_GetTransportFlags_FullMethodName = "/backup.FullBackupDataOutputService/GetTransportFlags"
+)
+
+// FullBackupDataOutputServiceClient is the client API for FullBackupDataOutputService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type FullBackupDataOutputServiceClient interface {
+	GetQuota(ctx context.Context, in *GetQuotaRequest, opts ...grpc.CallOption) (*GetQuotaResponse, error)
+	GetTransportFlags(ctx context.Context, in *GetTransportFlagsRequest, opts ...grpc.CallOption) (*GetTransportFlagsResponse, error)
+}
+
+type fullBackupDataOutputServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewFullBackupDataOutputServiceClient(cc grpc.ClientConnInterface) FullBackupDataOutputServiceClient {
+	return &fullBackupDataOutputServiceClient{cc}
+}
+
+func (c *fullBackupDataOutputServiceClient) GetQuota(ctx context.Context, in *GetQuotaRequest, opts ...grpc.CallOption) (*GetQuotaResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetQuotaResponse)
+	err := c.cc.Invoke(ctx, FullBackupDataOutputService_GetQuota_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fullBackupDataOutputServiceClient) GetTransportFlags(ctx context.Context, in *GetTransportFlagsRequest, opts ...grpc.CallOption) (*GetTransportFlagsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTransportFlagsResponse)
+	err := c.cc.Invoke(ctx, FullBackupDataOutputService_GetTransportFlags_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// FullBackupDataOutputServiceServer is the server API for FullBackupDataOutputService service.
+// All implementations must embed UnimplementedFullBackupDataOutputServiceServer
+// for forward compatibility.
+type FullBackupDataOutputServiceServer interface {
+	GetQuota(context.Context, *GetQuotaRequest) (*GetQuotaResponse, error)
+	GetTransportFlags(context.Context, *GetTransportFlagsRequest) (*GetTransportFlagsResponse, error)
+	mustEmbedUnimplementedFullBackupDataOutputServiceServer()
+}
+
+// UnimplementedFullBackupDataOutputServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedFullBackupDataOutputServiceServer struct{}
+
+func (UnimplementedFullBackupDataOutputServiceServer) GetQuota(context.Context, *GetQuotaRequest) (*GetQuotaResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetQuota not implemented")
+}
+func (UnimplementedFullBackupDataOutputServiceServer) GetTransportFlags(context.Context, *GetTransportFlagsRequest) (*GetTransportFlagsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTransportFlags not implemented")
+}
+func (UnimplementedFullBackupDataOutputServiceServer) mustEmbedUnimplementedFullBackupDataOutputServiceServer() {
+}
+func (UnimplementedFullBackupDataOutputServiceServer) testEmbeddedByValue() {}
+
+// UnsafeFullBackupDataOutputServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to FullBackupDataOutputServiceServer will
+// result in compilation errors.
+type UnsafeFullBackupDataOutputServiceServer interface {
+	mustEmbedUnimplementedFullBackupDataOutputServiceServer()
+}
+
+func RegisterFullBackupDataOutputServiceServer(s grpc.ServiceRegistrar, srv FullBackupDataOutputServiceServer) {
+	// If the following call panics, it indicates UnimplementedFullBackupDataOutputServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&FullBackupDataOutputService_ServiceDesc, srv)
+}
+
+func _FullBackupDataOutputService_GetQuota_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetQuotaRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DataOutputServiceServer).GetQuota(ctx, in)
+		return srv.(FullBackupDataOutputServiceServer).GetQuota(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DataOutputService_GetQuota_FullMethodName,
+		FullMethod: FullBackupDataOutputService_GetQuota_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DataOutputServiceServer).GetQuota(ctx, req.(*GetQuotaRequest))
+		return srv.(FullBackupDataOutputServiceServer).GetQuota(ctx, req.(*GetQuotaRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DataOutputService_GetTransportFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _FullBackupDataOutputService_GetTransportFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetTransportFlagsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DataOutputServiceServer).GetTransportFlags(ctx, in)
+		return srv.(FullBackupDataOutputServiceServer).GetTransportFlags(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DataOutputService_GetTransportFlags_FullMethodName,
+		FullMethod: FullBackupDataOutputService_GetTransportFlags_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DataOutputServiceServer).GetTransportFlags(ctx, req.(*GetTransportFlagsRequest))
+		return srv.(FullBackupDataOutputServiceServer).GetTransportFlags(ctx, req.(*GetTransportFlagsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DataOutputService_WriteEntityData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteEntityDataRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DataOutputServiceServer).WriteEntityData(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DataOutputService_WriteEntityData_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DataOutputServiceServer).WriteEntityData(ctx, req.(*WriteEntityDataRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DataOutputService_WriteEntityHeader_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteEntityHeaderRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DataOutputServiceServer).WriteEntityHeader(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DataOutputService_WriteEntityHeader_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DataOutputServiceServer).WriteEntityHeader(ctx, req.(*WriteEntityHeaderRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DataOutputService_ServiceDesc is the grpc.ServiceDesc for DataOutputService service.
+// FullBackupDataOutputService_ServiceDesc is the grpc.ServiceDesc for FullBackupDataOutputService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var DataOutputService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "backup.DataOutputService",
-	HandlerType: (*DataOutputServiceServer)(nil),
+var FullBackupDataOutputService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "backup.FullBackupDataOutputService",
+	HandlerType: (*FullBackupDataOutputServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "GetQuota",
-			Handler:    _DataOutputService_GetQuota_Handler,
+			Handler:    _FullBackupDataOutputService_GetQuota_Handler,
 		},
 		{
 			MethodName: "GetTransportFlags",
-			Handler:    _DataOutputService_GetTransportFlags_Handler,
-		},
-		{
-			MethodName: "WriteEntityData",
-			Handler:    _DataOutputService_WriteEntityData_Handler,
-		},
-		{
-			MethodName: "WriteEntityHeader",
-			Handler:    _DataOutputService_WriteEntityHeader_Handler,
+			Handler:    _FullBackupDataOutputService_GetTransportFlags_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -484,6 +587,1532 @@ var DataInputService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SkipEntityData",
 			Handler:    _DataInputService_SkipEntityData_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/backup/backup.proto",
+}
+
+const (
+	RestoreObserverService_OnUpdate_FullMethodName        = "/backup.RestoreObserverService/OnUpdate"
+	RestoreObserverService_RestoreFinished_FullMethodName = "/backup.RestoreObserverService/RestoreFinished"
+	RestoreObserverService_RestoreStarting_FullMethodName = "/backup.RestoreObserverService/RestoreStarting"
+)
+
+// RestoreObserverServiceClient is the client API for RestoreObserverService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RestoreObserverServiceClient interface {
+	OnUpdate(ctx context.Context, in *OnUpdateRequest, opts ...grpc.CallOption) (*OnUpdateResponse, error)
+	RestoreFinished(ctx context.Context, in *RestoreFinishedRequest, opts ...grpc.CallOption) (*RestoreFinishedResponse, error)
+	RestoreStarting(ctx context.Context, in *RestoreStartingRequest, opts ...grpc.CallOption) (*RestoreStartingResponse, error)
+}
+
+type restoreObserverServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRestoreObserverServiceClient(cc grpc.ClientConnInterface) RestoreObserverServiceClient {
+	return &restoreObserverServiceClient{cc}
+}
+
+func (c *restoreObserverServiceClient) OnUpdate(ctx context.Context, in *OnUpdateRequest, opts ...grpc.CallOption) (*OnUpdateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnUpdateResponse)
+	err := c.cc.Invoke(ctx, RestoreObserverService_OnUpdate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *restoreObserverServiceClient) RestoreFinished(ctx context.Context, in *RestoreFinishedRequest, opts ...grpc.CallOption) (*RestoreFinishedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RestoreFinishedResponse)
+	err := c.cc.Invoke(ctx, RestoreObserverService_RestoreFinished_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *restoreObserverServiceClient) RestoreStarting(ctx context.Context, in *RestoreStartingRequest, opts ...grpc.CallOption) (*RestoreStartingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RestoreStartingResponse)
+	err := c.cc.Invoke(ctx, RestoreObserverService_RestoreStarting_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RestoreObserverServiceServer is the server API for RestoreObserverService service.
+// All implementations must embed UnimplementedRestoreObserverServiceServer
+// for forward compatibility.
+type RestoreObserverServiceServer interface {
+	OnUpdate(context.Context, *OnUpdateRequest) (*OnUpdateResponse, error)
+	RestoreFinished(context.Context, *RestoreFinishedRequest) (*RestoreFinishedResponse, error)
+	RestoreStarting(context.Context, *RestoreStartingRequest) (*RestoreStartingResponse, error)
+	mustEmbedUnimplementedRestoreObserverServiceServer()
+}
+
+// UnimplementedRestoreObserverServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedRestoreObserverServiceServer struct{}
+
+func (UnimplementedRestoreObserverServiceServer) OnUpdate(context.Context, *OnUpdateRequest) (*OnUpdateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnUpdate not implemented")
+}
+func (UnimplementedRestoreObserverServiceServer) RestoreFinished(context.Context, *RestoreFinishedRequest) (*RestoreFinishedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RestoreFinished not implemented")
+}
+func (UnimplementedRestoreObserverServiceServer) RestoreStarting(context.Context, *RestoreStartingRequest) (*RestoreStartingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RestoreStarting not implemented")
+}
+func (UnimplementedRestoreObserverServiceServer) mustEmbedUnimplementedRestoreObserverServiceServer() {
+}
+func (UnimplementedRestoreObserverServiceServer) testEmbeddedByValue() {}
+
+// UnsafeRestoreObserverServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RestoreObserverServiceServer will
+// result in compilation errors.
+type UnsafeRestoreObserverServiceServer interface {
+	mustEmbedUnimplementedRestoreObserverServiceServer()
+}
+
+func RegisterRestoreObserverServiceServer(s grpc.ServiceRegistrar, srv RestoreObserverServiceServer) {
+	// If the following call panics, it indicates UnimplementedRestoreObserverServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&RestoreObserverService_ServiceDesc, srv)
+}
+
+func _RestoreObserverService_OnUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RestoreObserverServiceServer).OnUpdate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RestoreObserverService_OnUpdate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RestoreObserverServiceServer).OnUpdate(ctx, req.(*OnUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RestoreObserverService_RestoreFinished_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RestoreFinishedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RestoreObserverServiceServer).RestoreFinished(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RestoreObserverService_RestoreFinished_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RestoreObserverServiceServer).RestoreFinished(ctx, req.(*RestoreFinishedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RestoreObserverService_RestoreStarting_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RestoreStartingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RestoreObserverServiceServer).RestoreStarting(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RestoreObserverService_RestoreStarting_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RestoreObserverServiceServer).RestoreStarting(ctx, req.(*RestoreStartingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RestoreObserverService_ServiceDesc is the grpc.ServiceDesc for RestoreObserverService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RestoreObserverService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "backup.RestoreObserverService",
+	HandlerType: (*RestoreObserverServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnUpdate",
+			Handler:    _RestoreObserverService_OnUpdate_Handler,
+		},
+		{
+			MethodName: "RestoreFinished",
+			Handler:    _RestoreObserverService_RestoreFinished_Handler,
+		},
+		{
+			MethodName: "RestoreStarting",
+			Handler:    _RestoreObserverService_RestoreStarting_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/backup/backup.proto",
+}
+
+const (
+	AgentHelperService_NewAgentHelper_FullMethodName = "/backup.AgentHelperService/NewAgentHelper"
+	AgentHelperService_AddHelper_FullMethodName      = "/backup.AgentHelperService/AddHelper"
+	AgentHelperService_OnBackup_FullMethodName       = "/backup.AgentHelperService/OnBackup"
+	AgentHelperService_OnRestore_FullMethodName      = "/backup.AgentHelperService/OnRestore"
+)
+
+// AgentHelperServiceClient is the client API for AgentHelperService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AgentHelperServiceClient interface {
+	NewAgentHelper(ctx context.Context, in *NewAgentHelperRequest, opts ...grpc.CallOption) (*NewAgentHelperResponse, error)
+	AddHelper(ctx context.Context, in *AddHelperRequest, opts ...grpc.CallOption) (*AddHelperResponse, error)
+	OnBackup(ctx context.Context, in *OnBackupRequest, opts ...grpc.CallOption) (*OnBackupResponse, error)
+	OnRestore(ctx context.Context, in *OnRestoreRequest, opts ...grpc.CallOption) (*OnRestoreResponse, error)
+}
+
+type agentHelperServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAgentHelperServiceClient(cc grpc.ClientConnInterface) AgentHelperServiceClient {
+	return &agentHelperServiceClient{cc}
+}
+
+func (c *agentHelperServiceClient) NewAgentHelper(ctx context.Context, in *NewAgentHelperRequest, opts ...grpc.CallOption) (*NewAgentHelperResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewAgentHelperResponse)
+	err := c.cc.Invoke(ctx, AgentHelperService_NewAgentHelper_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *agentHelperServiceClient) AddHelper(ctx context.Context, in *AddHelperRequest, opts ...grpc.CallOption) (*AddHelperResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddHelperResponse)
+	err := c.cc.Invoke(ctx, AgentHelperService_AddHelper_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *agentHelperServiceClient) OnBackup(ctx context.Context, in *OnBackupRequest, opts ...grpc.CallOption) (*OnBackupResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnBackupResponse)
+	err := c.cc.Invoke(ctx, AgentHelperService_OnBackup_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *agentHelperServiceClient) OnRestore(ctx context.Context, in *OnRestoreRequest, opts ...grpc.CallOption) (*OnRestoreResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRestoreResponse)
+	err := c.cc.Invoke(ctx, AgentHelperService_OnRestore_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AgentHelperServiceServer is the server API for AgentHelperService service.
+// All implementations must embed UnimplementedAgentHelperServiceServer
+// for forward compatibility.
+type AgentHelperServiceServer interface {
+	NewAgentHelper(context.Context, *NewAgentHelperRequest) (*NewAgentHelperResponse, error)
+	AddHelper(context.Context, *AddHelperRequest) (*AddHelperResponse, error)
+	OnBackup(context.Context, *OnBackupRequest) (*OnBackupResponse, error)
+	OnRestore(context.Context, *OnRestoreRequest) (*OnRestoreResponse, error)
+	mustEmbedUnimplementedAgentHelperServiceServer()
+}
+
+// UnimplementedAgentHelperServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAgentHelperServiceServer struct{}
+
+func (UnimplementedAgentHelperServiceServer) NewAgentHelper(context.Context, *NewAgentHelperRequest) (*NewAgentHelperResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewAgentHelper not implemented")
+}
+func (UnimplementedAgentHelperServiceServer) AddHelper(context.Context, *AddHelperRequest) (*AddHelperResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddHelper not implemented")
+}
+func (UnimplementedAgentHelperServiceServer) OnBackup(context.Context, *OnBackupRequest) (*OnBackupResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnBackup not implemented")
+}
+func (UnimplementedAgentHelperServiceServer) OnRestore(context.Context, *OnRestoreRequest) (*OnRestoreResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRestore not implemented")
+}
+func (UnimplementedAgentHelperServiceServer) mustEmbedUnimplementedAgentHelperServiceServer() {}
+func (UnimplementedAgentHelperServiceServer) testEmbeddedByValue()                            {}
+
+// UnsafeAgentHelperServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AgentHelperServiceServer will
+// result in compilation errors.
+type UnsafeAgentHelperServiceServer interface {
+	mustEmbedUnimplementedAgentHelperServiceServer()
+}
+
+func RegisterAgentHelperServiceServer(s grpc.ServiceRegistrar, srv AgentHelperServiceServer) {
+	// If the following call panics, it indicates UnimplementedAgentHelperServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AgentHelperService_ServiceDesc, srv)
+}
+
+func _AgentHelperService_NewAgentHelper_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewAgentHelperRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AgentHelperServiceServer).NewAgentHelper(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AgentHelperService_NewAgentHelper_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AgentHelperServiceServer).NewAgentHelper(ctx, req.(*NewAgentHelperRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AgentHelperService_AddHelper_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddHelperRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AgentHelperServiceServer).AddHelper(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AgentHelperService_AddHelper_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AgentHelperServiceServer).AddHelper(ctx, req.(*AddHelperRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AgentHelperService_OnBackup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnBackupRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AgentHelperServiceServer).OnBackup(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AgentHelperService_OnBackup_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AgentHelperServiceServer).OnBackup(ctx, req.(*OnBackupRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AgentHelperService_OnRestore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRestoreRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AgentHelperServiceServer).OnRestore(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AgentHelperService_OnRestore_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AgentHelperServiceServer).OnRestore(ctx, req.(*OnRestoreRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AgentHelperService_ServiceDesc is the grpc.ServiceDesc for AgentHelperService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AgentHelperService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "backup.AgentHelperService",
+	HandlerType: (*AgentHelperServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewAgentHelper",
+			Handler:    _AgentHelperService_NewAgentHelper_Handler,
+		},
+		{
+			MethodName: "AddHelper",
+			Handler:    _AgentHelperService_AddHelper_Handler,
+		},
+		{
+			MethodName: "OnBackup",
+			Handler:    _AgentHelperService_OnBackup_Handler,
+		},
+		{
+			MethodName: "OnRestore",
+			Handler:    _AgentHelperService_OnRestore_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/backup/backup.proto",
+}
+
+const (
+	ManagerService_NewManager_FullMethodName                      = "/backup.ManagerService/NewManager"
+	ManagerService_DataChanged0_FullMethodName                    = "/backup.ManagerService/DataChanged0"
+	ManagerService_GetUserForAncestralSerialNumber_FullMethodName = "/backup.ManagerService/GetUserForAncestralSerialNumber"
+	ManagerService_RequestRestore_FullMethodName                  = "/backup.ManagerService/RequestRestore"
+	ManagerService_DataChanged1_1_FullMethodName                  = "/backup.ManagerService/DataChanged1_1"
+)
+
+// ManagerServiceClient is the client API for ManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerServiceClient interface {
+	NewManager(ctx context.Context, in *NewManagerRequest, opts ...grpc.CallOption) (*NewManagerResponse, error)
+	DataChanged0(ctx context.Context, in *DataChanged0Request, opts ...grpc.CallOption) (*DataChanged0Response, error)
+	GetUserForAncestralSerialNumber(ctx context.Context, in *GetUserForAncestralSerialNumberRequest, opts ...grpc.CallOption) (*GetUserForAncestralSerialNumberResponse, error)
+	RequestRestore(ctx context.Context, in *RequestRestoreRequest, opts ...grpc.CallOption) (*RequestRestoreResponse, error)
+	DataChanged1_1(ctx context.Context, in *DataChanged1_1Request, opts ...grpc.CallOption) (*DataChanged1_1Response, error)
+}
+
+type managerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
+	return &managerServiceClient{cc}
+}
+
+func (c *managerServiceClient) NewManager(ctx context.Context, in *NewManagerRequest, opts ...grpc.CallOption) (*NewManagerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewManagerResponse)
+	err := c.cc.Invoke(ctx, ManagerService_NewManager_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) DataChanged0(ctx context.Context, in *DataChanged0Request, opts ...grpc.CallOption) (*DataChanged0Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DataChanged0Response)
+	err := c.cc.Invoke(ctx, ManagerService_DataChanged0_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetUserForAncestralSerialNumber(ctx context.Context, in *GetUserForAncestralSerialNumberRequest, opts ...grpc.CallOption) (*GetUserForAncestralSerialNumberResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUserForAncestralSerialNumberResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetUserForAncestralSerialNumber_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) RequestRestore(ctx context.Context, in *RequestRestoreRequest, opts ...grpc.CallOption) (*RequestRestoreResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RequestRestoreResponse)
+	err := c.cc.Invoke(ctx, ManagerService_RequestRestore_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) DataChanged1_1(ctx context.Context, in *DataChanged1_1Request, opts ...grpc.CallOption) (*DataChanged1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DataChanged1_1Response)
+	err := c.cc.Invoke(ctx, ManagerService_DataChanged1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerServiceServer is the server API for ManagerService service.
+// All implementations must embed UnimplementedManagerServiceServer
+// for forward compatibility.
+type ManagerServiceServer interface {
+	NewManager(context.Context, *NewManagerRequest) (*NewManagerResponse, error)
+	DataChanged0(context.Context, *DataChanged0Request) (*DataChanged0Response, error)
+	GetUserForAncestralSerialNumber(context.Context, *GetUserForAncestralSerialNumberRequest) (*GetUserForAncestralSerialNumberResponse, error)
+	RequestRestore(context.Context, *RequestRestoreRequest) (*RequestRestoreResponse, error)
+	DataChanged1_1(context.Context, *DataChanged1_1Request) (*DataChanged1_1Response, error)
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+// UnimplementedManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerServiceServer struct{}
+
+func (UnimplementedManagerServiceServer) NewManager(context.Context, *NewManagerRequest) (*NewManagerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewManager not implemented")
+}
+func (UnimplementedManagerServiceServer) DataChanged0(context.Context, *DataChanged0Request) (*DataChanged0Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method DataChanged0 not implemented")
+}
+func (UnimplementedManagerServiceServer) GetUserForAncestralSerialNumber(context.Context, *GetUserForAncestralSerialNumberRequest) (*GetUserForAncestralSerialNumberResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUserForAncestralSerialNumber not implemented")
+}
+func (UnimplementedManagerServiceServer) RequestRestore(context.Context, *RequestRestoreRequest) (*RequestRestoreResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RequestRestore not implemented")
+}
+func (UnimplementedManagerServiceServer) DataChanged1_1(context.Context, *DataChanged1_1Request) (*DataChanged1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method DataChanged1_1 not implemented")
+}
+func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
+func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerServiceServer will
+// result in compilation errors.
+type UnsafeManagerServiceServer interface {
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerService_ServiceDesc, srv)
+}
+
+func _ManagerService_NewManager_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewManagerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).NewManager(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_NewManager_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).NewManager(ctx, req.(*NewManagerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_DataChanged0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DataChanged0Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).DataChanged0(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_DataChanged0_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).DataChanged0(ctx, req.(*DataChanged0Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetUserForAncestralSerialNumber_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserForAncestralSerialNumberRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetUserForAncestralSerialNumber(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetUserForAncestralSerialNumber_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetUserForAncestralSerialNumber(ctx, req.(*GetUserForAncestralSerialNumberRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_RequestRestore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RequestRestoreRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).RequestRestore(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_RequestRestore_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).RequestRestore(ctx, req.(*RequestRestoreRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_DataChanged1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DataChanged1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).DataChanged1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_DataChanged1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).DataChanged1_1(ctx, req.(*DataChanged1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "backup.ManagerService",
+	HandlerType: (*ManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewManager",
+			Handler:    _ManagerService_NewManager_Handler,
+		},
+		{
+			MethodName: "DataChanged0",
+			Handler:    _ManagerService_DataChanged0_Handler,
+		},
+		{
+			MethodName: "GetUserForAncestralSerialNumber",
+			Handler:    _ManagerService_GetUserForAncestralSerialNumber_Handler,
+		},
+		{
+			MethodName: "RequestRestore",
+			Handler:    _ManagerService_RequestRestore_Handler,
+		},
+		{
+			MethodName: "DataChanged1_1",
+			Handler:    _ManagerService_DataChanged1_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/backup/backup.proto",
+}
+
+const (
+	SharedPreferencesBackupHelperService_NewSharedPreferencesBackupHelper_FullMethodName = "/backup.SharedPreferencesBackupHelperService/NewSharedPreferencesBackupHelper"
+	SharedPreferencesBackupHelperService_PerformBackup_FullMethodName                    = "/backup.SharedPreferencesBackupHelperService/PerformBackup"
+	SharedPreferencesBackupHelperService_RestoreEntity_FullMethodName                    = "/backup.SharedPreferencesBackupHelperService/RestoreEntity"
+	SharedPreferencesBackupHelperService_WriteNewStateDescription_FullMethodName         = "/backup.SharedPreferencesBackupHelperService/WriteNewStateDescription"
+)
+
+// SharedPreferencesBackupHelperServiceClient is the client API for SharedPreferencesBackupHelperService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SharedPreferencesBackupHelperServiceClient interface {
+	NewSharedPreferencesBackupHelper(ctx context.Context, in *NewSharedPreferencesBackupHelperRequest, opts ...grpc.CallOption) (*NewSharedPreferencesBackupHelperResponse, error)
+	PerformBackup(ctx context.Context, in *SharedPreferencesBackupHelperPerformBackupRequest, opts ...grpc.CallOption) (*PerformBackupResponse, error)
+	RestoreEntity(ctx context.Context, in *SharedPreferencesBackupHelperRestoreEntityRequest, opts ...grpc.CallOption) (*RestoreEntityResponse, error)
+	WriteNewStateDescription(ctx context.Context, in *SharedPreferencesBackupHelperWriteNewStateDescriptionRequest, opts ...grpc.CallOption) (*WriteNewStateDescriptionResponse, error)
+}
+
+type sharedPreferencesBackupHelperServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSharedPreferencesBackupHelperServiceClient(cc grpc.ClientConnInterface) SharedPreferencesBackupHelperServiceClient {
+	return &sharedPreferencesBackupHelperServiceClient{cc}
+}
+
+func (c *sharedPreferencesBackupHelperServiceClient) NewSharedPreferencesBackupHelper(ctx context.Context, in *NewSharedPreferencesBackupHelperRequest, opts ...grpc.CallOption) (*NewSharedPreferencesBackupHelperResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewSharedPreferencesBackupHelperResponse)
+	err := c.cc.Invoke(ctx, SharedPreferencesBackupHelperService_NewSharedPreferencesBackupHelper_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sharedPreferencesBackupHelperServiceClient) PerformBackup(ctx context.Context, in *SharedPreferencesBackupHelperPerformBackupRequest, opts ...grpc.CallOption) (*PerformBackupResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PerformBackupResponse)
+	err := c.cc.Invoke(ctx, SharedPreferencesBackupHelperService_PerformBackup_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sharedPreferencesBackupHelperServiceClient) RestoreEntity(ctx context.Context, in *SharedPreferencesBackupHelperRestoreEntityRequest, opts ...grpc.CallOption) (*RestoreEntityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RestoreEntityResponse)
+	err := c.cc.Invoke(ctx, SharedPreferencesBackupHelperService_RestoreEntity_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sharedPreferencesBackupHelperServiceClient) WriteNewStateDescription(ctx context.Context, in *SharedPreferencesBackupHelperWriteNewStateDescriptionRequest, opts ...grpc.CallOption) (*WriteNewStateDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteNewStateDescriptionResponse)
+	err := c.cc.Invoke(ctx, SharedPreferencesBackupHelperService_WriteNewStateDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SharedPreferencesBackupHelperServiceServer is the server API for SharedPreferencesBackupHelperService service.
+// All implementations must embed UnimplementedSharedPreferencesBackupHelperServiceServer
+// for forward compatibility.
+type SharedPreferencesBackupHelperServiceServer interface {
+	NewSharedPreferencesBackupHelper(context.Context, *NewSharedPreferencesBackupHelperRequest) (*NewSharedPreferencesBackupHelperResponse, error)
+	PerformBackup(context.Context, *SharedPreferencesBackupHelperPerformBackupRequest) (*PerformBackupResponse, error)
+	RestoreEntity(context.Context, *SharedPreferencesBackupHelperRestoreEntityRequest) (*RestoreEntityResponse, error)
+	WriteNewStateDescription(context.Context, *SharedPreferencesBackupHelperWriteNewStateDescriptionRequest) (*WriteNewStateDescriptionResponse, error)
+	mustEmbedUnimplementedSharedPreferencesBackupHelperServiceServer()
+}
+
+// UnimplementedSharedPreferencesBackupHelperServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSharedPreferencesBackupHelperServiceServer struct{}
+
+func (UnimplementedSharedPreferencesBackupHelperServiceServer) NewSharedPreferencesBackupHelper(context.Context, *NewSharedPreferencesBackupHelperRequest) (*NewSharedPreferencesBackupHelperResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewSharedPreferencesBackupHelper not implemented")
+}
+func (UnimplementedSharedPreferencesBackupHelperServiceServer) PerformBackup(context.Context, *SharedPreferencesBackupHelperPerformBackupRequest) (*PerformBackupResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method PerformBackup not implemented")
+}
+func (UnimplementedSharedPreferencesBackupHelperServiceServer) RestoreEntity(context.Context, *SharedPreferencesBackupHelperRestoreEntityRequest) (*RestoreEntityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RestoreEntity not implemented")
+}
+func (UnimplementedSharedPreferencesBackupHelperServiceServer) WriteNewStateDescription(context.Context, *SharedPreferencesBackupHelperWriteNewStateDescriptionRequest) (*WriteNewStateDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteNewStateDescription not implemented")
+}
+func (UnimplementedSharedPreferencesBackupHelperServiceServer) mustEmbedUnimplementedSharedPreferencesBackupHelperServiceServer() {
+}
+func (UnimplementedSharedPreferencesBackupHelperServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSharedPreferencesBackupHelperServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SharedPreferencesBackupHelperServiceServer will
+// result in compilation errors.
+type UnsafeSharedPreferencesBackupHelperServiceServer interface {
+	mustEmbedUnimplementedSharedPreferencesBackupHelperServiceServer()
+}
+
+func RegisterSharedPreferencesBackupHelperServiceServer(s grpc.ServiceRegistrar, srv SharedPreferencesBackupHelperServiceServer) {
+	// If the following call panics, it indicates UnimplementedSharedPreferencesBackupHelperServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SharedPreferencesBackupHelperService_ServiceDesc, srv)
+}
+
+func _SharedPreferencesBackupHelperService_NewSharedPreferencesBackupHelper_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewSharedPreferencesBackupHelperRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SharedPreferencesBackupHelperServiceServer).NewSharedPreferencesBackupHelper(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SharedPreferencesBackupHelperService_NewSharedPreferencesBackupHelper_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SharedPreferencesBackupHelperServiceServer).NewSharedPreferencesBackupHelper(ctx, req.(*NewSharedPreferencesBackupHelperRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SharedPreferencesBackupHelperService_PerformBackup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SharedPreferencesBackupHelperPerformBackupRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SharedPreferencesBackupHelperServiceServer).PerformBackup(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SharedPreferencesBackupHelperService_PerformBackup_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SharedPreferencesBackupHelperServiceServer).PerformBackup(ctx, req.(*SharedPreferencesBackupHelperPerformBackupRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SharedPreferencesBackupHelperService_RestoreEntity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SharedPreferencesBackupHelperRestoreEntityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SharedPreferencesBackupHelperServiceServer).RestoreEntity(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SharedPreferencesBackupHelperService_RestoreEntity_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SharedPreferencesBackupHelperServiceServer).RestoreEntity(ctx, req.(*SharedPreferencesBackupHelperRestoreEntityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SharedPreferencesBackupHelperService_WriteNewStateDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SharedPreferencesBackupHelperWriteNewStateDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SharedPreferencesBackupHelperServiceServer).WriteNewStateDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SharedPreferencesBackupHelperService_WriteNewStateDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SharedPreferencesBackupHelperServiceServer).WriteNewStateDescription(ctx, req.(*SharedPreferencesBackupHelperWriteNewStateDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SharedPreferencesBackupHelperService_ServiceDesc is the grpc.ServiceDesc for SharedPreferencesBackupHelperService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SharedPreferencesBackupHelperService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "backup.SharedPreferencesBackupHelperService",
+	HandlerType: (*SharedPreferencesBackupHelperServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewSharedPreferencesBackupHelper",
+			Handler:    _SharedPreferencesBackupHelperService_NewSharedPreferencesBackupHelper_Handler,
+		},
+		{
+			MethodName: "PerformBackup",
+			Handler:    _SharedPreferencesBackupHelperService_PerformBackup_Handler,
+		},
+		{
+			MethodName: "RestoreEntity",
+			Handler:    _SharedPreferencesBackupHelperService_RestoreEntity_Handler,
+		},
+		{
+			MethodName: "WriteNewStateDescription",
+			Handler:    _SharedPreferencesBackupHelperService_WriteNewStateDescription_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/backup/backup.proto",
+}
+
+const (
+	DataOutputService_GetQuota_FullMethodName          = "/backup.DataOutputService/GetQuota"
+	DataOutputService_GetTransportFlags_FullMethodName = "/backup.DataOutputService/GetTransportFlags"
+	DataOutputService_WriteEntityData_FullMethodName   = "/backup.DataOutputService/WriteEntityData"
+	DataOutputService_WriteEntityHeader_FullMethodName = "/backup.DataOutputService/WriteEntityHeader"
+)
+
+// DataOutputServiceClient is the client API for DataOutputService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DataOutputServiceClient interface {
+	GetQuota(ctx context.Context, in *GetQuotaRequest, opts ...grpc.CallOption) (*GetQuotaResponse, error)
+	GetTransportFlags(ctx context.Context, in *GetTransportFlagsRequest, opts ...grpc.CallOption) (*GetTransportFlagsResponse, error)
+	WriteEntityData(ctx context.Context, in *WriteEntityDataRequest, opts ...grpc.CallOption) (*WriteEntityDataResponse, error)
+	WriteEntityHeader(ctx context.Context, in *WriteEntityHeaderRequest, opts ...grpc.CallOption) (*WriteEntityHeaderResponse, error)
+}
+
+type dataOutputServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDataOutputServiceClient(cc grpc.ClientConnInterface) DataOutputServiceClient {
+	return &dataOutputServiceClient{cc}
+}
+
+func (c *dataOutputServiceClient) GetQuota(ctx context.Context, in *GetQuotaRequest, opts ...grpc.CallOption) (*GetQuotaResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetQuotaResponse)
+	err := c.cc.Invoke(ctx, DataOutputService_GetQuota_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dataOutputServiceClient) GetTransportFlags(ctx context.Context, in *GetTransportFlagsRequest, opts ...grpc.CallOption) (*GetTransportFlagsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTransportFlagsResponse)
+	err := c.cc.Invoke(ctx, DataOutputService_GetTransportFlags_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dataOutputServiceClient) WriteEntityData(ctx context.Context, in *WriteEntityDataRequest, opts ...grpc.CallOption) (*WriteEntityDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteEntityDataResponse)
+	err := c.cc.Invoke(ctx, DataOutputService_WriteEntityData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dataOutputServiceClient) WriteEntityHeader(ctx context.Context, in *WriteEntityHeaderRequest, opts ...grpc.CallOption) (*WriteEntityHeaderResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteEntityHeaderResponse)
+	err := c.cc.Invoke(ctx, DataOutputService_WriteEntityHeader_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DataOutputServiceServer is the server API for DataOutputService service.
+// All implementations must embed UnimplementedDataOutputServiceServer
+// for forward compatibility.
+type DataOutputServiceServer interface {
+	GetQuota(context.Context, *GetQuotaRequest) (*GetQuotaResponse, error)
+	GetTransportFlags(context.Context, *GetTransportFlagsRequest) (*GetTransportFlagsResponse, error)
+	WriteEntityData(context.Context, *WriteEntityDataRequest) (*WriteEntityDataResponse, error)
+	WriteEntityHeader(context.Context, *WriteEntityHeaderRequest) (*WriteEntityHeaderResponse, error)
+	mustEmbedUnimplementedDataOutputServiceServer()
+}
+
+// UnimplementedDataOutputServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDataOutputServiceServer struct{}
+
+func (UnimplementedDataOutputServiceServer) GetQuota(context.Context, *GetQuotaRequest) (*GetQuotaResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetQuota not implemented")
+}
+func (UnimplementedDataOutputServiceServer) GetTransportFlags(context.Context, *GetTransportFlagsRequest) (*GetTransportFlagsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTransportFlags not implemented")
+}
+func (UnimplementedDataOutputServiceServer) WriteEntityData(context.Context, *WriteEntityDataRequest) (*WriteEntityDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteEntityData not implemented")
+}
+func (UnimplementedDataOutputServiceServer) WriteEntityHeader(context.Context, *WriteEntityHeaderRequest) (*WriteEntityHeaderResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteEntityHeader not implemented")
+}
+func (UnimplementedDataOutputServiceServer) mustEmbedUnimplementedDataOutputServiceServer() {}
+func (UnimplementedDataOutputServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafeDataOutputServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DataOutputServiceServer will
+// result in compilation errors.
+type UnsafeDataOutputServiceServer interface {
+	mustEmbedUnimplementedDataOutputServiceServer()
+}
+
+func RegisterDataOutputServiceServer(s grpc.ServiceRegistrar, srv DataOutputServiceServer) {
+	// If the following call panics, it indicates UnimplementedDataOutputServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DataOutputService_ServiceDesc, srv)
+}
+
+func _DataOutputService_GetQuota_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetQuotaRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DataOutputServiceServer).GetQuota(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DataOutputService_GetQuota_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DataOutputServiceServer).GetQuota(ctx, req.(*GetQuotaRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DataOutputService_GetTransportFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTransportFlagsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DataOutputServiceServer).GetTransportFlags(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DataOutputService_GetTransportFlags_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DataOutputServiceServer).GetTransportFlags(ctx, req.(*GetTransportFlagsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DataOutputService_WriteEntityData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteEntityDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DataOutputServiceServer).WriteEntityData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DataOutputService_WriteEntityData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DataOutputServiceServer).WriteEntityData(ctx, req.(*WriteEntityDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DataOutputService_WriteEntityHeader_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteEntityHeaderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DataOutputServiceServer).WriteEntityHeader(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DataOutputService_WriteEntityHeader_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DataOutputServiceServer).WriteEntityHeader(ctx, req.(*WriteEntityHeaderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DataOutputService_ServiceDesc is the grpc.ServiceDesc for DataOutputService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DataOutputService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "backup.DataOutputService",
+	HandlerType: (*DataOutputServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetQuota",
+			Handler:    _DataOutputService_GetQuota_Handler,
+		},
+		{
+			MethodName: "GetTransportFlags",
+			Handler:    _DataOutputService_GetTransportFlags_Handler,
+		},
+		{
+			MethodName: "WriteEntityData",
+			Handler:    _DataOutputService_WriteEntityData_Handler,
+		},
+		{
+			MethodName: "WriteEntityHeader",
+			Handler:    _DataOutputService_WriteEntityHeader_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/backup/backup.proto",
+}
+
+const (
+	AgentService_FullBackupFile_FullMethodName    = "/backup.AgentService/FullBackupFile"
+	AgentService_OnBackup_FullMethodName          = "/backup.AgentService/OnBackup"
+	AgentService_OnCreate_FullMethodName          = "/backup.AgentService/OnCreate"
+	AgentService_OnDestroy_FullMethodName         = "/backup.AgentService/OnDestroy"
+	AgentService_OnFullBackup_FullMethodName      = "/backup.AgentService/OnFullBackup"
+	AgentService_OnQuotaExceeded_FullMethodName   = "/backup.AgentService/OnQuotaExceeded"
+	AgentService_OnRestore3_FullMethodName        = "/backup.AgentService/OnRestore3"
+	AgentService_OnRestore3_1_FullMethodName      = "/backup.AgentService/OnRestore3_1"
+	AgentService_OnRestoreFile_FullMethodName     = "/backup.AgentService/OnRestoreFile"
+	AgentService_OnRestoreFinished_FullMethodName = "/backup.AgentService/OnRestoreFinished"
+)
+
+// AgentServiceClient is the client API for AgentService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AgentServiceClient interface {
+	FullBackupFile(ctx context.Context, in *FullBackupFileRequest, opts ...grpc.CallOption) (*FullBackupFileResponse, error)
+	OnBackup(ctx context.Context, in *AgentOnBackupRequest, opts ...grpc.CallOption) (*OnBackupResponse, error)
+	OnCreate(ctx context.Context, in *OnCreateRequest, opts ...grpc.CallOption) (*OnCreateResponse, error)
+	OnDestroy(ctx context.Context, in *OnDestroyRequest, opts ...grpc.CallOption) (*OnDestroyResponse, error)
+	OnFullBackup(ctx context.Context, in *OnFullBackupRequest, opts ...grpc.CallOption) (*OnFullBackupResponse, error)
+	OnQuotaExceeded(ctx context.Context, in *OnQuotaExceededRequest, opts ...grpc.CallOption) (*OnQuotaExceededResponse, error)
+	OnRestore3(ctx context.Context, in *OnRestore3Request, opts ...grpc.CallOption) (*OnRestore3Response, error)
+	OnRestore3_1(ctx context.Context, in *OnRestore3_1Request, opts ...grpc.CallOption) (*OnRestore3_1Response, error)
+	OnRestoreFile(ctx context.Context, in *OnRestoreFileRequest, opts ...grpc.CallOption) (*OnRestoreFileResponse, error)
+	OnRestoreFinished(ctx context.Context, in *OnRestoreFinishedRequest, opts ...grpc.CallOption) (*OnRestoreFinishedResponse, error)
+}
+
+type agentServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAgentServiceClient(cc grpc.ClientConnInterface) AgentServiceClient {
+	return &agentServiceClient{cc}
+}
+
+func (c *agentServiceClient) FullBackupFile(ctx context.Context, in *FullBackupFileRequest, opts ...grpc.CallOption) (*FullBackupFileResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FullBackupFileResponse)
+	err := c.cc.Invoke(ctx, AgentService_FullBackupFile_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *agentServiceClient) OnBackup(ctx context.Context, in *AgentOnBackupRequest, opts ...grpc.CallOption) (*OnBackupResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnBackupResponse)
+	err := c.cc.Invoke(ctx, AgentService_OnBackup_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *agentServiceClient) OnCreate(ctx context.Context, in *OnCreateRequest, opts ...grpc.CallOption) (*OnCreateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCreateResponse)
+	err := c.cc.Invoke(ctx, AgentService_OnCreate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *agentServiceClient) OnDestroy(ctx context.Context, in *OnDestroyRequest, opts ...grpc.CallOption) (*OnDestroyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDestroyResponse)
+	err := c.cc.Invoke(ctx, AgentService_OnDestroy_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *agentServiceClient) OnFullBackup(ctx context.Context, in *OnFullBackupRequest, opts ...grpc.CallOption) (*OnFullBackupResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnFullBackupResponse)
+	err := c.cc.Invoke(ctx, AgentService_OnFullBackup_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *agentServiceClient) OnQuotaExceeded(ctx context.Context, in *OnQuotaExceededRequest, opts ...grpc.CallOption) (*OnQuotaExceededResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnQuotaExceededResponse)
+	err := c.cc.Invoke(ctx, AgentService_OnQuotaExceeded_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *agentServiceClient) OnRestore3(ctx context.Context, in *OnRestore3Request, opts ...grpc.CallOption) (*OnRestore3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRestore3Response)
+	err := c.cc.Invoke(ctx, AgentService_OnRestore3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *agentServiceClient) OnRestore3_1(ctx context.Context, in *OnRestore3_1Request, opts ...grpc.CallOption) (*OnRestore3_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRestore3_1Response)
+	err := c.cc.Invoke(ctx, AgentService_OnRestore3_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *agentServiceClient) OnRestoreFile(ctx context.Context, in *OnRestoreFileRequest, opts ...grpc.CallOption) (*OnRestoreFileResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRestoreFileResponse)
+	err := c.cc.Invoke(ctx, AgentService_OnRestoreFile_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *agentServiceClient) OnRestoreFinished(ctx context.Context, in *OnRestoreFinishedRequest, opts ...grpc.CallOption) (*OnRestoreFinishedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRestoreFinishedResponse)
+	err := c.cc.Invoke(ctx, AgentService_OnRestoreFinished_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AgentServiceServer is the server API for AgentService service.
+// All implementations must embed UnimplementedAgentServiceServer
+// for forward compatibility.
+type AgentServiceServer interface {
+	FullBackupFile(context.Context, *FullBackupFileRequest) (*FullBackupFileResponse, error)
+	OnBackup(context.Context, *AgentOnBackupRequest) (*OnBackupResponse, error)
+	OnCreate(context.Context, *OnCreateRequest) (*OnCreateResponse, error)
+	OnDestroy(context.Context, *OnDestroyRequest) (*OnDestroyResponse, error)
+	OnFullBackup(context.Context, *OnFullBackupRequest) (*OnFullBackupResponse, error)
+	OnQuotaExceeded(context.Context, *OnQuotaExceededRequest) (*OnQuotaExceededResponse, error)
+	OnRestore3(context.Context, *OnRestore3Request) (*OnRestore3Response, error)
+	OnRestore3_1(context.Context, *OnRestore3_1Request) (*OnRestore3_1Response, error)
+	OnRestoreFile(context.Context, *OnRestoreFileRequest) (*OnRestoreFileResponse, error)
+	OnRestoreFinished(context.Context, *OnRestoreFinishedRequest) (*OnRestoreFinishedResponse, error)
+	mustEmbedUnimplementedAgentServiceServer()
+}
+
+// UnimplementedAgentServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAgentServiceServer struct{}
+
+func (UnimplementedAgentServiceServer) FullBackupFile(context.Context, *FullBackupFileRequest) (*FullBackupFileResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FullBackupFile not implemented")
+}
+func (UnimplementedAgentServiceServer) OnBackup(context.Context, *AgentOnBackupRequest) (*OnBackupResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnBackup not implemented")
+}
+func (UnimplementedAgentServiceServer) OnCreate(context.Context, *OnCreateRequest) (*OnCreateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCreate not implemented")
+}
+func (UnimplementedAgentServiceServer) OnDestroy(context.Context, *OnDestroyRequest) (*OnDestroyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDestroy not implemented")
+}
+func (UnimplementedAgentServiceServer) OnFullBackup(context.Context, *OnFullBackupRequest) (*OnFullBackupResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnFullBackup not implemented")
+}
+func (UnimplementedAgentServiceServer) OnQuotaExceeded(context.Context, *OnQuotaExceededRequest) (*OnQuotaExceededResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnQuotaExceeded not implemented")
+}
+func (UnimplementedAgentServiceServer) OnRestore3(context.Context, *OnRestore3Request) (*OnRestore3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRestore3 not implemented")
+}
+func (UnimplementedAgentServiceServer) OnRestore3_1(context.Context, *OnRestore3_1Request) (*OnRestore3_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRestore3_1 not implemented")
+}
+func (UnimplementedAgentServiceServer) OnRestoreFile(context.Context, *OnRestoreFileRequest) (*OnRestoreFileResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRestoreFile not implemented")
+}
+func (UnimplementedAgentServiceServer) OnRestoreFinished(context.Context, *OnRestoreFinishedRequest) (*OnRestoreFinishedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRestoreFinished not implemented")
+}
+func (UnimplementedAgentServiceServer) mustEmbedUnimplementedAgentServiceServer() {}
+func (UnimplementedAgentServiceServer) testEmbeddedByValue()                      {}
+
+// UnsafeAgentServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AgentServiceServer will
+// result in compilation errors.
+type UnsafeAgentServiceServer interface {
+	mustEmbedUnimplementedAgentServiceServer()
+}
+
+func RegisterAgentServiceServer(s grpc.ServiceRegistrar, srv AgentServiceServer) {
+	// If the following call panics, it indicates UnimplementedAgentServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AgentService_ServiceDesc, srv)
+}
+
+func _AgentService_FullBackupFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FullBackupFileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AgentServiceServer).FullBackupFile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AgentService_FullBackupFile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AgentServiceServer).FullBackupFile(ctx, req.(*FullBackupFileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AgentService_OnBackup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AgentOnBackupRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AgentServiceServer).OnBackup(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AgentService_OnBackup_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AgentServiceServer).OnBackup(ctx, req.(*AgentOnBackupRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AgentService_OnCreate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCreateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AgentServiceServer).OnCreate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AgentService_OnCreate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AgentServiceServer).OnCreate(ctx, req.(*OnCreateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AgentService_OnDestroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AgentServiceServer).OnDestroy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AgentService_OnDestroy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AgentServiceServer).OnDestroy(ctx, req.(*OnDestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AgentService_OnFullBackup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnFullBackupRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AgentServiceServer).OnFullBackup(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AgentService_OnFullBackup_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AgentServiceServer).OnFullBackup(ctx, req.(*OnFullBackupRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AgentService_OnQuotaExceeded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnQuotaExceededRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AgentServiceServer).OnQuotaExceeded(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AgentService_OnQuotaExceeded_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AgentServiceServer).OnQuotaExceeded(ctx, req.(*OnQuotaExceededRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AgentService_OnRestore3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRestore3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AgentServiceServer).OnRestore3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AgentService_OnRestore3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AgentServiceServer).OnRestore3(ctx, req.(*OnRestore3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AgentService_OnRestore3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRestore3_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AgentServiceServer).OnRestore3_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AgentService_OnRestore3_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AgentServiceServer).OnRestore3_1(ctx, req.(*OnRestore3_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AgentService_OnRestoreFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRestoreFileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AgentServiceServer).OnRestoreFile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AgentService_OnRestoreFile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AgentServiceServer).OnRestoreFile(ctx, req.(*OnRestoreFileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AgentService_OnRestoreFinished_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRestoreFinishedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AgentServiceServer).OnRestoreFinished(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AgentService_OnRestoreFinished_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AgentServiceServer).OnRestoreFinished(ctx, req.(*OnRestoreFinishedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AgentService_ServiceDesc is the grpc.ServiceDesc for AgentService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AgentService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "backup.AgentService",
+	HandlerType: (*AgentServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "FullBackupFile",
+			Handler:    _AgentService_FullBackupFile_Handler,
+		},
+		{
+			MethodName: "OnBackup",
+			Handler:    _AgentService_OnBackup_Handler,
+		},
+		{
+			MethodName: "OnCreate",
+			Handler:    _AgentService_OnCreate_Handler,
+		},
+		{
+			MethodName: "OnDestroy",
+			Handler:    _AgentService_OnDestroy_Handler,
+		},
+		{
+			MethodName: "OnFullBackup",
+			Handler:    _AgentService_OnFullBackup_Handler,
+		},
+		{
+			MethodName: "OnQuotaExceeded",
+			Handler:    _AgentService_OnQuotaExceeded_Handler,
+		},
+		{
+			MethodName: "OnRestore3",
+			Handler:    _AgentService_OnRestore3_Handler,
+		},
+		{
+			MethodName: "OnRestore3_1",
+			Handler:    _AgentService_OnRestore3_1_Handler,
+		},
+		{
+			MethodName: "OnRestoreFile",
+			Handler:    _AgentService_OnRestoreFile_Handler,
+		},
+		{
+			MethodName: "OnRestoreFinished",
+			Handler:    _AgentService_OnRestoreFinished_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -746,260 +2375,6 @@ var DataInputStreamService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ManagerService_NewManager_FullMethodName                      = "/backup.ManagerService/NewManager"
-	ManagerService_DataChanged0_FullMethodName                    = "/backup.ManagerService/DataChanged0"
-	ManagerService_GetUserForAncestralSerialNumber_FullMethodName = "/backup.ManagerService/GetUserForAncestralSerialNumber"
-	ManagerService_RequestRestore_FullMethodName                  = "/backup.ManagerService/RequestRestore"
-	ManagerService_DataChanged1_1_FullMethodName                  = "/backup.ManagerService/DataChanged1_1"
-)
-
-// ManagerServiceClient is the client API for ManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ManagerServiceClient interface {
-	NewManager(ctx context.Context, in *NewManagerRequest, opts ...grpc.CallOption) (*NewManagerResponse, error)
-	DataChanged0(ctx context.Context, in *DataChanged0Request, opts ...grpc.CallOption) (*DataChanged0Response, error)
-	GetUserForAncestralSerialNumber(ctx context.Context, in *GetUserForAncestralSerialNumberRequest, opts ...grpc.CallOption) (*GetUserForAncestralSerialNumberResponse, error)
-	RequestRestore(ctx context.Context, in *RequestRestoreRequest, opts ...grpc.CallOption) (*RequestRestoreResponse, error)
-	DataChanged1_1(ctx context.Context, in *DataChanged1_1Request, opts ...grpc.CallOption) (*DataChanged1_1Response, error)
-}
-
-type managerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
-	return &managerServiceClient{cc}
-}
-
-func (c *managerServiceClient) NewManager(ctx context.Context, in *NewManagerRequest, opts ...grpc.CallOption) (*NewManagerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewManagerResponse)
-	err := c.cc.Invoke(ctx, ManagerService_NewManager_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) DataChanged0(ctx context.Context, in *DataChanged0Request, opts ...grpc.CallOption) (*DataChanged0Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DataChanged0Response)
-	err := c.cc.Invoke(ctx, ManagerService_DataChanged0_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetUserForAncestralSerialNumber(ctx context.Context, in *GetUserForAncestralSerialNumberRequest, opts ...grpc.CallOption) (*GetUserForAncestralSerialNumberResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUserForAncestralSerialNumberResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetUserForAncestralSerialNumber_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) RequestRestore(ctx context.Context, in *RequestRestoreRequest, opts ...grpc.CallOption) (*RequestRestoreResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RequestRestoreResponse)
-	err := c.cc.Invoke(ctx, ManagerService_RequestRestore_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) DataChanged1_1(ctx context.Context, in *DataChanged1_1Request, opts ...grpc.CallOption) (*DataChanged1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DataChanged1_1Response)
-	err := c.cc.Invoke(ctx, ManagerService_DataChanged1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ManagerServiceServer is the server API for ManagerService service.
-// All implementations must embed UnimplementedManagerServiceServer
-// for forward compatibility.
-type ManagerServiceServer interface {
-	NewManager(context.Context, *NewManagerRequest) (*NewManagerResponse, error)
-	DataChanged0(context.Context, *DataChanged0Request) (*DataChanged0Response, error)
-	GetUserForAncestralSerialNumber(context.Context, *GetUserForAncestralSerialNumberRequest) (*GetUserForAncestralSerialNumberResponse, error)
-	RequestRestore(context.Context, *RequestRestoreRequest) (*RequestRestoreResponse, error)
-	DataChanged1_1(context.Context, *DataChanged1_1Request) (*DataChanged1_1Response, error)
-	mustEmbedUnimplementedManagerServiceServer()
-}
-
-// UnimplementedManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedManagerServiceServer struct{}
-
-func (UnimplementedManagerServiceServer) NewManager(context.Context, *NewManagerRequest) (*NewManagerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewManager not implemented")
-}
-func (UnimplementedManagerServiceServer) DataChanged0(context.Context, *DataChanged0Request) (*DataChanged0Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method DataChanged0 not implemented")
-}
-func (UnimplementedManagerServiceServer) GetUserForAncestralSerialNumber(context.Context, *GetUserForAncestralSerialNumberRequest) (*GetUserForAncestralSerialNumberResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetUserForAncestralSerialNumber not implemented")
-}
-func (UnimplementedManagerServiceServer) RequestRestore(context.Context, *RequestRestoreRequest) (*RequestRestoreResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RequestRestore not implemented")
-}
-func (UnimplementedManagerServiceServer) DataChanged1_1(context.Context, *DataChanged1_1Request) (*DataChanged1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method DataChanged1_1 not implemented")
-}
-func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
-func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
-
-// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ManagerServiceServer will
-// result in compilation errors.
-type UnsafeManagerServiceServer interface {
-	mustEmbedUnimplementedManagerServiceServer()
-}
-
-func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ManagerService_ServiceDesc, srv)
-}
-
-func _ManagerService_NewManager_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewManagerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).NewManager(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_NewManager_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).NewManager(ctx, req.(*NewManagerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_DataChanged0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DataChanged0Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).DataChanged0(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_DataChanged0_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).DataChanged0(ctx, req.(*DataChanged0Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetUserForAncestralSerialNumber_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUserForAncestralSerialNumberRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetUserForAncestralSerialNumber(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetUserForAncestralSerialNumber_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetUserForAncestralSerialNumber(ctx, req.(*GetUserForAncestralSerialNumberRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_RequestRestore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RequestRestoreRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).RequestRestore(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_RequestRestore_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).RequestRestore(ctx, req.(*RequestRestoreRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_DataChanged1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DataChanged1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).DataChanged1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_DataChanged1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).DataChanged1_1(ctx, req.(*DataChanged1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "backup.ManagerService",
-	HandlerType: (*ManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewManager",
-			Handler:    _ManagerService_NewManager_Handler,
-		},
-		{
-			MethodName: "DataChanged0",
-			Handler:    _ManagerService_DataChanged0_Handler,
-		},
-		{
-			MethodName: "GetUserForAncestralSerialNumber",
-			Handler:    _ManagerService_GetUserForAncestralSerialNumber_Handler,
-		},
-		{
-			MethodName: "RequestRestore",
-			Handler:    _ManagerService_RequestRestore_Handler,
-		},
-		{
-			MethodName: "DataChanged1_1",
-			Handler:    _ManagerService_DataChanged1_1_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/backup/backup.proto",
-}
-
-const (
 	FileBackupHelperService_NewFileBackupHelper_FullMethodName      = "/backup.FileBackupHelperService/NewFileBackupHelper"
 	FileBackupHelperService_PerformBackup_FullMethodName            = "/backup.FileBackupHelperService/PerformBackup"
 	FileBackupHelperService_RestoreEntity_FullMethodName            = "/backup.FileBackupHelperService/RestoreEntity"
@@ -1011,9 +2386,9 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type FileBackupHelperServiceClient interface {
 	NewFileBackupHelper(ctx context.Context, in *NewFileBackupHelperRequest, opts ...grpc.CallOption) (*NewFileBackupHelperResponse, error)
-	PerformBackup(ctx context.Context, in *PerformBackupRequest, opts ...grpc.CallOption) (*PerformBackupResponse, error)
-	RestoreEntity(ctx context.Context, in *RestoreEntityRequest, opts ...grpc.CallOption) (*RestoreEntityResponse, error)
-	WriteNewStateDescription(ctx context.Context, in *WriteNewStateDescriptionRequest, opts ...grpc.CallOption) (*WriteNewStateDescriptionResponse, error)
+	PerformBackup(ctx context.Context, in *FileBackupHelperPerformBackupRequest, opts ...grpc.CallOption) (*PerformBackupResponse, error)
+	RestoreEntity(ctx context.Context, in *FileBackupHelperRestoreEntityRequest, opts ...grpc.CallOption) (*RestoreEntityResponse, error)
+	WriteNewStateDescription(ctx context.Context, in *FileBackupHelperWriteNewStateDescriptionRequest, opts ...grpc.CallOption) (*WriteNewStateDescriptionResponse, error)
 }
 
 type fileBackupHelperServiceClient struct {
@@ -1034,7 +2409,7 @@ func (c *fileBackupHelperServiceClient) NewFileBackupHelper(ctx context.Context,
 	return out, nil
 }
 
-func (c *fileBackupHelperServiceClient) PerformBackup(ctx context.Context, in *PerformBackupRequest, opts ...grpc.CallOption) (*PerformBackupResponse, error) {
+func (c *fileBackupHelperServiceClient) PerformBackup(ctx context.Context, in *FileBackupHelperPerformBackupRequest, opts ...grpc.CallOption) (*PerformBackupResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(PerformBackupResponse)
 	err := c.cc.Invoke(ctx, FileBackupHelperService_PerformBackup_FullMethodName, in, out, cOpts...)
@@ -1044,7 +2419,7 @@ func (c *fileBackupHelperServiceClient) PerformBackup(ctx context.Context, in *P
 	return out, nil
 }
 
-func (c *fileBackupHelperServiceClient) RestoreEntity(ctx context.Context, in *RestoreEntityRequest, opts ...grpc.CallOption) (*RestoreEntityResponse, error) {
+func (c *fileBackupHelperServiceClient) RestoreEntity(ctx context.Context, in *FileBackupHelperRestoreEntityRequest, opts ...grpc.CallOption) (*RestoreEntityResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(RestoreEntityResponse)
 	err := c.cc.Invoke(ctx, FileBackupHelperService_RestoreEntity_FullMethodName, in, out, cOpts...)
@@ -1054,7 +2429,7 @@ func (c *fileBackupHelperServiceClient) RestoreEntity(ctx context.Context, in *R
 	return out, nil
 }
 
-func (c *fileBackupHelperServiceClient) WriteNewStateDescription(ctx context.Context, in *WriteNewStateDescriptionRequest, opts ...grpc.CallOption) (*WriteNewStateDescriptionResponse, error) {
+func (c *fileBackupHelperServiceClient) WriteNewStateDescription(ctx context.Context, in *FileBackupHelperWriteNewStateDescriptionRequest, opts ...grpc.CallOption) (*WriteNewStateDescriptionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteNewStateDescriptionResponse)
 	err := c.cc.Invoke(ctx, FileBackupHelperService_WriteNewStateDescription_FullMethodName, in, out, cOpts...)
@@ -1069,9 +2444,9 @@ func (c *fileBackupHelperServiceClient) WriteNewStateDescription(ctx context.Con
 // for forward compatibility.
 type FileBackupHelperServiceServer interface {
 	NewFileBackupHelper(context.Context, *NewFileBackupHelperRequest) (*NewFileBackupHelperResponse, error)
-	PerformBackup(context.Context, *PerformBackupRequest) (*PerformBackupResponse, error)
-	RestoreEntity(context.Context, *RestoreEntityRequest) (*RestoreEntityResponse, error)
-	WriteNewStateDescription(context.Context, *WriteNewStateDescriptionRequest) (*WriteNewStateDescriptionResponse, error)
+	PerformBackup(context.Context, *FileBackupHelperPerformBackupRequest) (*PerformBackupResponse, error)
+	RestoreEntity(context.Context, *FileBackupHelperRestoreEntityRequest) (*RestoreEntityResponse, error)
+	WriteNewStateDescription(context.Context, *FileBackupHelperWriteNewStateDescriptionRequest) (*WriteNewStateDescriptionResponse, error)
 	mustEmbedUnimplementedFileBackupHelperServiceServer()
 }
 
@@ -1085,13 +2460,13 @@ type UnimplementedFileBackupHelperServiceServer struct{}
 func (UnimplementedFileBackupHelperServiceServer) NewFileBackupHelper(context.Context, *NewFileBackupHelperRequest) (*NewFileBackupHelperResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method NewFileBackupHelper not implemented")
 }
-func (UnimplementedFileBackupHelperServiceServer) PerformBackup(context.Context, *PerformBackupRequest) (*PerformBackupResponse, error) {
+func (UnimplementedFileBackupHelperServiceServer) PerformBackup(context.Context, *FileBackupHelperPerformBackupRequest) (*PerformBackupResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method PerformBackup not implemented")
 }
-func (UnimplementedFileBackupHelperServiceServer) RestoreEntity(context.Context, *RestoreEntityRequest) (*RestoreEntityResponse, error) {
+func (UnimplementedFileBackupHelperServiceServer) RestoreEntity(context.Context, *FileBackupHelperRestoreEntityRequest) (*RestoreEntityResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method RestoreEntity not implemented")
 }
-func (UnimplementedFileBackupHelperServiceServer) WriteNewStateDescription(context.Context, *WriteNewStateDescriptionRequest) (*WriteNewStateDescriptionResponse, error) {
+func (UnimplementedFileBackupHelperServiceServer) WriteNewStateDescription(context.Context, *FileBackupHelperWriteNewStateDescriptionRequest) (*WriteNewStateDescriptionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteNewStateDescription not implemented")
 }
 func (UnimplementedFileBackupHelperServiceServer) mustEmbedUnimplementedFileBackupHelperServiceServer() {
@@ -1135,7 +2510,7 @@ func _FileBackupHelperService_NewFileBackupHelper_Handler(srv interface{}, ctx c
 }
 
 func _FileBackupHelperService_PerformBackup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PerformBackupRequest)
+	in := new(FileBackupHelperPerformBackupRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1147,13 +2522,13 @@ func _FileBackupHelperService_PerformBackup_Handler(srv interface{}, ctx context
 		FullMethod: FileBackupHelperService_PerformBackup_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FileBackupHelperServiceServer).PerformBackup(ctx, req.(*PerformBackupRequest))
+		return srv.(FileBackupHelperServiceServer).PerformBackup(ctx, req.(*FileBackupHelperPerformBackupRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _FileBackupHelperService_RestoreEntity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RestoreEntityRequest)
+	in := new(FileBackupHelperRestoreEntityRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1165,13 +2540,13 @@ func _FileBackupHelperService_RestoreEntity_Handler(srv interface{}, ctx context
 		FullMethod: FileBackupHelperService_RestoreEntity_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FileBackupHelperServiceServer).RestoreEntity(ctx, req.(*RestoreEntityRequest))
+		return srv.(FileBackupHelperServiceServer).RestoreEntity(ctx, req.(*FileBackupHelperRestoreEntityRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _FileBackupHelperService_WriteNewStateDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteNewStateDescriptionRequest)
+	in := new(FileBackupHelperWriteNewStateDescriptionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1183,7 +2558,7 @@ func _FileBackupHelperService_WriteNewStateDescription_Handler(srv interface{}, 
 		FullMethod: FileBackupHelperService_WriteNewStateDescription_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FileBackupHelperServiceServer).WriteNewStateDescription(ctx, req.(*WriteNewStateDescriptionRequest))
+		return srv.(FileBackupHelperServiceServer).WriteNewStateDescription(ctx, req.(*FileBackupHelperWriteNewStateDescriptionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1210,1381 +2585,6 @@ var FileBackupHelperService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "WriteNewStateDescription",
 			Handler:    _FileBackupHelperService_WriteNewStateDescription_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/backup/backup.proto",
-}
-
-const (
-	AgentService_FullBackupFile_FullMethodName    = "/backup.AgentService/FullBackupFile"
-	AgentService_OnBackup_FullMethodName          = "/backup.AgentService/OnBackup"
-	AgentService_OnCreate_FullMethodName          = "/backup.AgentService/OnCreate"
-	AgentService_OnDestroy_FullMethodName         = "/backup.AgentService/OnDestroy"
-	AgentService_OnFullBackup_FullMethodName      = "/backup.AgentService/OnFullBackup"
-	AgentService_OnQuotaExceeded_FullMethodName   = "/backup.AgentService/OnQuotaExceeded"
-	AgentService_OnRestore3_FullMethodName        = "/backup.AgentService/OnRestore3"
-	AgentService_OnRestore3_1_FullMethodName      = "/backup.AgentService/OnRestore3_1"
-	AgentService_OnRestoreFile_FullMethodName     = "/backup.AgentService/OnRestoreFile"
-	AgentService_OnRestoreFinished_FullMethodName = "/backup.AgentService/OnRestoreFinished"
-)
-
-// AgentServiceClient is the client API for AgentService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AgentServiceClient interface {
-	FullBackupFile(ctx context.Context, in *FullBackupFileRequest, opts ...grpc.CallOption) (*FullBackupFileResponse, error)
-	OnBackup(ctx context.Context, in *OnBackupRequest, opts ...grpc.CallOption) (*OnBackupResponse, error)
-	OnCreate(ctx context.Context, in *OnCreateRequest, opts ...grpc.CallOption) (*OnCreateResponse, error)
-	OnDestroy(ctx context.Context, in *OnDestroyRequest, opts ...grpc.CallOption) (*OnDestroyResponse, error)
-	OnFullBackup(ctx context.Context, in *OnFullBackupRequest, opts ...grpc.CallOption) (*OnFullBackupResponse, error)
-	OnQuotaExceeded(ctx context.Context, in *OnQuotaExceededRequest, opts ...grpc.CallOption) (*OnQuotaExceededResponse, error)
-	OnRestore3(ctx context.Context, in *OnRestore3Request, opts ...grpc.CallOption) (*OnRestore3Response, error)
-	OnRestore3_1(ctx context.Context, in *OnRestore3_1Request, opts ...grpc.CallOption) (*OnRestore3_1Response, error)
-	OnRestoreFile(ctx context.Context, in *OnRestoreFileRequest, opts ...grpc.CallOption) (*OnRestoreFileResponse, error)
-	OnRestoreFinished(ctx context.Context, in *OnRestoreFinishedRequest, opts ...grpc.CallOption) (*OnRestoreFinishedResponse, error)
-}
-
-type agentServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAgentServiceClient(cc grpc.ClientConnInterface) AgentServiceClient {
-	return &agentServiceClient{cc}
-}
-
-func (c *agentServiceClient) FullBackupFile(ctx context.Context, in *FullBackupFileRequest, opts ...grpc.CallOption) (*FullBackupFileResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FullBackupFileResponse)
-	err := c.cc.Invoke(ctx, AgentService_FullBackupFile_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *agentServiceClient) OnBackup(ctx context.Context, in *OnBackupRequest, opts ...grpc.CallOption) (*OnBackupResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnBackupResponse)
-	err := c.cc.Invoke(ctx, AgentService_OnBackup_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *agentServiceClient) OnCreate(ctx context.Context, in *OnCreateRequest, opts ...grpc.CallOption) (*OnCreateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnCreateResponse)
-	err := c.cc.Invoke(ctx, AgentService_OnCreate_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *agentServiceClient) OnDestroy(ctx context.Context, in *OnDestroyRequest, opts ...grpc.CallOption) (*OnDestroyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnDestroyResponse)
-	err := c.cc.Invoke(ctx, AgentService_OnDestroy_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *agentServiceClient) OnFullBackup(ctx context.Context, in *OnFullBackupRequest, opts ...grpc.CallOption) (*OnFullBackupResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnFullBackupResponse)
-	err := c.cc.Invoke(ctx, AgentService_OnFullBackup_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *agentServiceClient) OnQuotaExceeded(ctx context.Context, in *OnQuotaExceededRequest, opts ...grpc.CallOption) (*OnQuotaExceededResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnQuotaExceededResponse)
-	err := c.cc.Invoke(ctx, AgentService_OnQuotaExceeded_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *agentServiceClient) OnRestore3(ctx context.Context, in *OnRestore3Request, opts ...grpc.CallOption) (*OnRestore3Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRestore3Response)
-	err := c.cc.Invoke(ctx, AgentService_OnRestore3_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *agentServiceClient) OnRestore3_1(ctx context.Context, in *OnRestore3_1Request, opts ...grpc.CallOption) (*OnRestore3_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRestore3_1Response)
-	err := c.cc.Invoke(ctx, AgentService_OnRestore3_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *agentServiceClient) OnRestoreFile(ctx context.Context, in *OnRestoreFileRequest, opts ...grpc.CallOption) (*OnRestoreFileResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRestoreFileResponse)
-	err := c.cc.Invoke(ctx, AgentService_OnRestoreFile_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *agentServiceClient) OnRestoreFinished(ctx context.Context, in *OnRestoreFinishedRequest, opts ...grpc.CallOption) (*OnRestoreFinishedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRestoreFinishedResponse)
-	err := c.cc.Invoke(ctx, AgentService_OnRestoreFinished_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AgentServiceServer is the server API for AgentService service.
-// All implementations must embed UnimplementedAgentServiceServer
-// for forward compatibility.
-type AgentServiceServer interface {
-	FullBackupFile(context.Context, *FullBackupFileRequest) (*FullBackupFileResponse, error)
-	OnBackup(context.Context, *OnBackupRequest) (*OnBackupResponse, error)
-	OnCreate(context.Context, *OnCreateRequest) (*OnCreateResponse, error)
-	OnDestroy(context.Context, *OnDestroyRequest) (*OnDestroyResponse, error)
-	OnFullBackup(context.Context, *OnFullBackupRequest) (*OnFullBackupResponse, error)
-	OnQuotaExceeded(context.Context, *OnQuotaExceededRequest) (*OnQuotaExceededResponse, error)
-	OnRestore3(context.Context, *OnRestore3Request) (*OnRestore3Response, error)
-	OnRestore3_1(context.Context, *OnRestore3_1Request) (*OnRestore3_1Response, error)
-	OnRestoreFile(context.Context, *OnRestoreFileRequest) (*OnRestoreFileResponse, error)
-	OnRestoreFinished(context.Context, *OnRestoreFinishedRequest) (*OnRestoreFinishedResponse, error)
-	mustEmbedUnimplementedAgentServiceServer()
-}
-
-// UnimplementedAgentServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAgentServiceServer struct{}
-
-func (UnimplementedAgentServiceServer) FullBackupFile(context.Context, *FullBackupFileRequest) (*FullBackupFileResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method FullBackupFile not implemented")
-}
-func (UnimplementedAgentServiceServer) OnBackup(context.Context, *OnBackupRequest) (*OnBackupResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnBackup not implemented")
-}
-func (UnimplementedAgentServiceServer) OnCreate(context.Context, *OnCreateRequest) (*OnCreateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnCreate not implemented")
-}
-func (UnimplementedAgentServiceServer) OnDestroy(context.Context, *OnDestroyRequest) (*OnDestroyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnDestroy not implemented")
-}
-func (UnimplementedAgentServiceServer) OnFullBackup(context.Context, *OnFullBackupRequest) (*OnFullBackupResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnFullBackup not implemented")
-}
-func (UnimplementedAgentServiceServer) OnQuotaExceeded(context.Context, *OnQuotaExceededRequest) (*OnQuotaExceededResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnQuotaExceeded not implemented")
-}
-func (UnimplementedAgentServiceServer) OnRestore3(context.Context, *OnRestore3Request) (*OnRestore3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRestore3 not implemented")
-}
-func (UnimplementedAgentServiceServer) OnRestore3_1(context.Context, *OnRestore3_1Request) (*OnRestore3_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRestore3_1 not implemented")
-}
-func (UnimplementedAgentServiceServer) OnRestoreFile(context.Context, *OnRestoreFileRequest) (*OnRestoreFileResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRestoreFile not implemented")
-}
-func (UnimplementedAgentServiceServer) OnRestoreFinished(context.Context, *OnRestoreFinishedRequest) (*OnRestoreFinishedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRestoreFinished not implemented")
-}
-func (UnimplementedAgentServiceServer) mustEmbedUnimplementedAgentServiceServer() {}
-func (UnimplementedAgentServiceServer) testEmbeddedByValue()                      {}
-
-// UnsafeAgentServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AgentServiceServer will
-// result in compilation errors.
-type UnsafeAgentServiceServer interface {
-	mustEmbedUnimplementedAgentServiceServer()
-}
-
-func RegisterAgentServiceServer(s grpc.ServiceRegistrar, srv AgentServiceServer) {
-	// If the following call panics, it indicates UnimplementedAgentServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AgentService_ServiceDesc, srv)
-}
-
-func _AgentService_FullBackupFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FullBackupFileRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AgentServiceServer).FullBackupFile(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AgentService_FullBackupFile_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AgentServiceServer).FullBackupFile(ctx, req.(*FullBackupFileRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AgentService_OnBackup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnBackupRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AgentServiceServer).OnBackup(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AgentService_OnBackup_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AgentServiceServer).OnBackup(ctx, req.(*OnBackupRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AgentService_OnCreate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnCreateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AgentServiceServer).OnCreate(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AgentService_OnCreate_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AgentServiceServer).OnCreate(ctx, req.(*OnCreateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AgentService_OnDestroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnDestroyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AgentServiceServer).OnDestroy(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AgentService_OnDestroy_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AgentServiceServer).OnDestroy(ctx, req.(*OnDestroyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AgentService_OnFullBackup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnFullBackupRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AgentServiceServer).OnFullBackup(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AgentService_OnFullBackup_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AgentServiceServer).OnFullBackup(ctx, req.(*OnFullBackupRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AgentService_OnQuotaExceeded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnQuotaExceededRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AgentServiceServer).OnQuotaExceeded(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AgentService_OnQuotaExceeded_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AgentServiceServer).OnQuotaExceeded(ctx, req.(*OnQuotaExceededRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AgentService_OnRestore3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRestore3Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AgentServiceServer).OnRestore3(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AgentService_OnRestore3_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AgentServiceServer).OnRestore3(ctx, req.(*OnRestore3Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AgentService_OnRestore3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRestore3_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AgentServiceServer).OnRestore3_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AgentService_OnRestore3_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AgentServiceServer).OnRestore3_1(ctx, req.(*OnRestore3_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AgentService_OnRestoreFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRestoreFileRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AgentServiceServer).OnRestoreFile(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AgentService_OnRestoreFile_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AgentServiceServer).OnRestoreFile(ctx, req.(*OnRestoreFileRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AgentService_OnRestoreFinished_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRestoreFinishedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AgentServiceServer).OnRestoreFinished(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AgentService_OnRestoreFinished_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AgentServiceServer).OnRestoreFinished(ctx, req.(*OnRestoreFinishedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AgentService_ServiceDesc is the grpc.ServiceDesc for AgentService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AgentService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "backup.AgentService",
-	HandlerType: (*AgentServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "FullBackupFile",
-			Handler:    _AgentService_FullBackupFile_Handler,
-		},
-		{
-			MethodName: "OnBackup",
-			Handler:    _AgentService_OnBackup_Handler,
-		},
-		{
-			MethodName: "OnCreate",
-			Handler:    _AgentService_OnCreate_Handler,
-		},
-		{
-			MethodName: "OnDestroy",
-			Handler:    _AgentService_OnDestroy_Handler,
-		},
-		{
-			MethodName: "OnFullBackup",
-			Handler:    _AgentService_OnFullBackup_Handler,
-		},
-		{
-			MethodName: "OnQuotaExceeded",
-			Handler:    _AgentService_OnQuotaExceeded_Handler,
-		},
-		{
-			MethodName: "OnRestore3",
-			Handler:    _AgentService_OnRestore3_Handler,
-		},
-		{
-			MethodName: "OnRestore3_1",
-			Handler:    _AgentService_OnRestore3_1_Handler,
-		},
-		{
-			MethodName: "OnRestoreFile",
-			Handler:    _AgentService_OnRestoreFile_Handler,
-		},
-		{
-			MethodName: "OnRestoreFinished",
-			Handler:    _AgentService_OnRestoreFinished_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/backup/backup.proto",
-}
-
-const (
-	FullBackupDataOutputService_GetQuota_FullMethodName          = "/backup.FullBackupDataOutputService/GetQuota"
-	FullBackupDataOutputService_GetTransportFlags_FullMethodName = "/backup.FullBackupDataOutputService/GetTransportFlags"
-)
-
-// FullBackupDataOutputServiceClient is the client API for FullBackupDataOutputService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type FullBackupDataOutputServiceClient interface {
-	GetQuota(ctx context.Context, in *GetQuotaRequest, opts ...grpc.CallOption) (*GetQuotaResponse, error)
-	GetTransportFlags(ctx context.Context, in *GetTransportFlagsRequest, opts ...grpc.CallOption) (*GetTransportFlagsResponse, error)
-}
-
-type fullBackupDataOutputServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewFullBackupDataOutputServiceClient(cc grpc.ClientConnInterface) FullBackupDataOutputServiceClient {
-	return &fullBackupDataOutputServiceClient{cc}
-}
-
-func (c *fullBackupDataOutputServiceClient) GetQuota(ctx context.Context, in *GetQuotaRequest, opts ...grpc.CallOption) (*GetQuotaResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetQuotaResponse)
-	err := c.cc.Invoke(ctx, FullBackupDataOutputService_GetQuota_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *fullBackupDataOutputServiceClient) GetTransportFlags(ctx context.Context, in *GetTransportFlagsRequest, opts ...grpc.CallOption) (*GetTransportFlagsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTransportFlagsResponse)
-	err := c.cc.Invoke(ctx, FullBackupDataOutputService_GetTransportFlags_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// FullBackupDataOutputServiceServer is the server API for FullBackupDataOutputService service.
-// All implementations must embed UnimplementedFullBackupDataOutputServiceServer
-// for forward compatibility.
-type FullBackupDataOutputServiceServer interface {
-	GetQuota(context.Context, *GetQuotaRequest) (*GetQuotaResponse, error)
-	GetTransportFlags(context.Context, *GetTransportFlagsRequest) (*GetTransportFlagsResponse, error)
-	mustEmbedUnimplementedFullBackupDataOutputServiceServer()
-}
-
-// UnimplementedFullBackupDataOutputServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedFullBackupDataOutputServiceServer struct{}
-
-func (UnimplementedFullBackupDataOutputServiceServer) GetQuota(context.Context, *GetQuotaRequest) (*GetQuotaResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetQuota not implemented")
-}
-func (UnimplementedFullBackupDataOutputServiceServer) GetTransportFlags(context.Context, *GetTransportFlagsRequest) (*GetTransportFlagsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTransportFlags not implemented")
-}
-func (UnimplementedFullBackupDataOutputServiceServer) mustEmbedUnimplementedFullBackupDataOutputServiceServer() {
-}
-func (UnimplementedFullBackupDataOutputServiceServer) testEmbeddedByValue() {}
-
-// UnsafeFullBackupDataOutputServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to FullBackupDataOutputServiceServer will
-// result in compilation errors.
-type UnsafeFullBackupDataOutputServiceServer interface {
-	mustEmbedUnimplementedFullBackupDataOutputServiceServer()
-}
-
-func RegisterFullBackupDataOutputServiceServer(s grpc.ServiceRegistrar, srv FullBackupDataOutputServiceServer) {
-	// If the following call panics, it indicates UnimplementedFullBackupDataOutputServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&FullBackupDataOutputService_ServiceDesc, srv)
-}
-
-func _FullBackupDataOutputService_GetQuota_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetQuotaRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FullBackupDataOutputServiceServer).GetQuota(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FullBackupDataOutputService_GetQuota_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FullBackupDataOutputServiceServer).GetQuota(ctx, req.(*GetQuotaRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FullBackupDataOutputService_GetTransportFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTransportFlagsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FullBackupDataOutputServiceServer).GetTransportFlags(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FullBackupDataOutputService_GetTransportFlags_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FullBackupDataOutputServiceServer).GetTransportFlags(ctx, req.(*GetTransportFlagsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// FullBackupDataOutputService_ServiceDesc is the grpc.ServiceDesc for FullBackupDataOutputService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var FullBackupDataOutputService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "backup.FullBackupDataOutputService",
-	HandlerType: (*FullBackupDataOutputServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetQuota",
-			Handler:    _FullBackupDataOutputService_GetQuota_Handler,
-		},
-		{
-			MethodName: "GetTransportFlags",
-			Handler:    _FullBackupDataOutputService_GetTransportFlags_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/backup/backup.proto",
-}
-
-const (
-	HelperService_PerformBackup_FullMethodName            = "/backup.HelperService/PerformBackup"
-	HelperService_RestoreEntity_FullMethodName            = "/backup.HelperService/RestoreEntity"
-	HelperService_WriteNewStateDescription_FullMethodName = "/backup.HelperService/WriteNewStateDescription"
-)
-
-// HelperServiceClient is the client API for HelperService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type HelperServiceClient interface {
-	PerformBackup(ctx context.Context, in *HelperPerformBackupRequest, opts ...grpc.CallOption) (*PerformBackupResponse, error)
-	RestoreEntity(ctx context.Context, in *HelperRestoreEntityRequest, opts ...grpc.CallOption) (*RestoreEntityResponse, error)
-	WriteNewStateDescription(ctx context.Context, in *HelperWriteNewStateDescriptionRequest, opts ...grpc.CallOption) (*WriteNewStateDescriptionResponse, error)
-}
-
-type helperServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewHelperServiceClient(cc grpc.ClientConnInterface) HelperServiceClient {
-	return &helperServiceClient{cc}
-}
-
-func (c *helperServiceClient) PerformBackup(ctx context.Context, in *HelperPerformBackupRequest, opts ...grpc.CallOption) (*PerformBackupResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(PerformBackupResponse)
-	err := c.cc.Invoke(ctx, HelperService_PerformBackup_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *helperServiceClient) RestoreEntity(ctx context.Context, in *HelperRestoreEntityRequest, opts ...grpc.CallOption) (*RestoreEntityResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RestoreEntityResponse)
-	err := c.cc.Invoke(ctx, HelperService_RestoreEntity_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *helperServiceClient) WriteNewStateDescription(ctx context.Context, in *HelperWriteNewStateDescriptionRequest, opts ...grpc.CallOption) (*WriteNewStateDescriptionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteNewStateDescriptionResponse)
-	err := c.cc.Invoke(ctx, HelperService_WriteNewStateDescription_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// HelperServiceServer is the server API for HelperService service.
-// All implementations must embed UnimplementedHelperServiceServer
-// for forward compatibility.
-type HelperServiceServer interface {
-	PerformBackup(context.Context, *HelperPerformBackupRequest) (*PerformBackupResponse, error)
-	RestoreEntity(context.Context, *HelperRestoreEntityRequest) (*RestoreEntityResponse, error)
-	WriteNewStateDescription(context.Context, *HelperWriteNewStateDescriptionRequest) (*WriteNewStateDescriptionResponse, error)
-	mustEmbedUnimplementedHelperServiceServer()
-}
-
-// UnimplementedHelperServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedHelperServiceServer struct{}
-
-func (UnimplementedHelperServiceServer) PerformBackup(context.Context, *HelperPerformBackupRequest) (*PerformBackupResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method PerformBackup not implemented")
-}
-func (UnimplementedHelperServiceServer) RestoreEntity(context.Context, *HelperRestoreEntityRequest) (*RestoreEntityResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RestoreEntity not implemented")
-}
-func (UnimplementedHelperServiceServer) WriteNewStateDescription(context.Context, *HelperWriteNewStateDescriptionRequest) (*WriteNewStateDescriptionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteNewStateDescription not implemented")
-}
-func (UnimplementedHelperServiceServer) mustEmbedUnimplementedHelperServiceServer() {}
-func (UnimplementedHelperServiceServer) testEmbeddedByValue()                       {}
-
-// UnsafeHelperServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to HelperServiceServer will
-// result in compilation errors.
-type UnsafeHelperServiceServer interface {
-	mustEmbedUnimplementedHelperServiceServer()
-}
-
-func RegisterHelperServiceServer(s grpc.ServiceRegistrar, srv HelperServiceServer) {
-	// If the following call panics, it indicates UnimplementedHelperServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&HelperService_ServiceDesc, srv)
-}
-
-func _HelperService_PerformBackup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HelperPerformBackupRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HelperServiceServer).PerformBackup(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: HelperService_PerformBackup_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HelperServiceServer).PerformBackup(ctx, req.(*HelperPerformBackupRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _HelperService_RestoreEntity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HelperRestoreEntityRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HelperServiceServer).RestoreEntity(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: HelperService_RestoreEntity_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HelperServiceServer).RestoreEntity(ctx, req.(*HelperRestoreEntityRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _HelperService_WriteNewStateDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HelperWriteNewStateDescriptionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HelperServiceServer).WriteNewStateDescription(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: HelperService_WriteNewStateDescription_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HelperServiceServer).WriteNewStateDescription(ctx, req.(*HelperWriteNewStateDescriptionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// HelperService_ServiceDesc is the grpc.ServiceDesc for HelperService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var HelperService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "backup.HelperService",
-	HandlerType: (*HelperServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "PerformBackup",
-			Handler:    _HelperService_PerformBackup_Handler,
-		},
-		{
-			MethodName: "RestoreEntity",
-			Handler:    _HelperService_RestoreEntity_Handler,
-		},
-		{
-			MethodName: "WriteNewStateDescription",
-			Handler:    _HelperService_WriteNewStateDescription_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/backup/backup.proto",
-}
-
-const (
-	SharedPreferencesBackupHelperService_NewSharedPreferencesBackupHelper_FullMethodName = "/backup.SharedPreferencesBackupHelperService/NewSharedPreferencesBackupHelper"
-	SharedPreferencesBackupHelperService_PerformBackup_FullMethodName                    = "/backup.SharedPreferencesBackupHelperService/PerformBackup"
-	SharedPreferencesBackupHelperService_RestoreEntity_FullMethodName                    = "/backup.SharedPreferencesBackupHelperService/RestoreEntity"
-	SharedPreferencesBackupHelperService_WriteNewStateDescription_FullMethodName         = "/backup.SharedPreferencesBackupHelperService/WriteNewStateDescription"
-)
-
-// SharedPreferencesBackupHelperServiceClient is the client API for SharedPreferencesBackupHelperService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SharedPreferencesBackupHelperServiceClient interface {
-	NewSharedPreferencesBackupHelper(ctx context.Context, in *NewSharedPreferencesBackupHelperRequest, opts ...grpc.CallOption) (*NewSharedPreferencesBackupHelperResponse, error)
-	PerformBackup(ctx context.Context, in *PerformBackupRequest, opts ...grpc.CallOption) (*PerformBackupResponse, error)
-	RestoreEntity(ctx context.Context, in *RestoreEntityRequest, opts ...grpc.CallOption) (*RestoreEntityResponse, error)
-	WriteNewStateDescription(ctx context.Context, in *WriteNewStateDescriptionRequest, opts ...grpc.CallOption) (*WriteNewStateDescriptionResponse, error)
-}
-
-type sharedPreferencesBackupHelperServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSharedPreferencesBackupHelperServiceClient(cc grpc.ClientConnInterface) SharedPreferencesBackupHelperServiceClient {
-	return &sharedPreferencesBackupHelperServiceClient{cc}
-}
-
-func (c *sharedPreferencesBackupHelperServiceClient) NewSharedPreferencesBackupHelper(ctx context.Context, in *NewSharedPreferencesBackupHelperRequest, opts ...grpc.CallOption) (*NewSharedPreferencesBackupHelperResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewSharedPreferencesBackupHelperResponse)
-	err := c.cc.Invoke(ctx, SharedPreferencesBackupHelperService_NewSharedPreferencesBackupHelper_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sharedPreferencesBackupHelperServiceClient) PerformBackup(ctx context.Context, in *PerformBackupRequest, opts ...grpc.CallOption) (*PerformBackupResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(PerformBackupResponse)
-	err := c.cc.Invoke(ctx, SharedPreferencesBackupHelperService_PerformBackup_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sharedPreferencesBackupHelperServiceClient) RestoreEntity(ctx context.Context, in *RestoreEntityRequest, opts ...grpc.CallOption) (*RestoreEntityResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RestoreEntityResponse)
-	err := c.cc.Invoke(ctx, SharedPreferencesBackupHelperService_RestoreEntity_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sharedPreferencesBackupHelperServiceClient) WriteNewStateDescription(ctx context.Context, in *WriteNewStateDescriptionRequest, opts ...grpc.CallOption) (*WriteNewStateDescriptionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteNewStateDescriptionResponse)
-	err := c.cc.Invoke(ctx, SharedPreferencesBackupHelperService_WriteNewStateDescription_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SharedPreferencesBackupHelperServiceServer is the server API for SharedPreferencesBackupHelperService service.
-// All implementations must embed UnimplementedSharedPreferencesBackupHelperServiceServer
-// for forward compatibility.
-type SharedPreferencesBackupHelperServiceServer interface {
-	NewSharedPreferencesBackupHelper(context.Context, *NewSharedPreferencesBackupHelperRequest) (*NewSharedPreferencesBackupHelperResponse, error)
-	PerformBackup(context.Context, *PerformBackupRequest) (*PerformBackupResponse, error)
-	RestoreEntity(context.Context, *RestoreEntityRequest) (*RestoreEntityResponse, error)
-	WriteNewStateDescription(context.Context, *WriteNewStateDescriptionRequest) (*WriteNewStateDescriptionResponse, error)
-	mustEmbedUnimplementedSharedPreferencesBackupHelperServiceServer()
-}
-
-// UnimplementedSharedPreferencesBackupHelperServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSharedPreferencesBackupHelperServiceServer struct{}
-
-func (UnimplementedSharedPreferencesBackupHelperServiceServer) NewSharedPreferencesBackupHelper(context.Context, *NewSharedPreferencesBackupHelperRequest) (*NewSharedPreferencesBackupHelperResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewSharedPreferencesBackupHelper not implemented")
-}
-func (UnimplementedSharedPreferencesBackupHelperServiceServer) PerformBackup(context.Context, *PerformBackupRequest) (*PerformBackupResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method PerformBackup not implemented")
-}
-func (UnimplementedSharedPreferencesBackupHelperServiceServer) RestoreEntity(context.Context, *RestoreEntityRequest) (*RestoreEntityResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RestoreEntity not implemented")
-}
-func (UnimplementedSharedPreferencesBackupHelperServiceServer) WriteNewStateDescription(context.Context, *WriteNewStateDescriptionRequest) (*WriteNewStateDescriptionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteNewStateDescription not implemented")
-}
-func (UnimplementedSharedPreferencesBackupHelperServiceServer) mustEmbedUnimplementedSharedPreferencesBackupHelperServiceServer() {
-}
-func (UnimplementedSharedPreferencesBackupHelperServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSharedPreferencesBackupHelperServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SharedPreferencesBackupHelperServiceServer will
-// result in compilation errors.
-type UnsafeSharedPreferencesBackupHelperServiceServer interface {
-	mustEmbedUnimplementedSharedPreferencesBackupHelperServiceServer()
-}
-
-func RegisterSharedPreferencesBackupHelperServiceServer(s grpc.ServiceRegistrar, srv SharedPreferencesBackupHelperServiceServer) {
-	// If the following call panics, it indicates UnimplementedSharedPreferencesBackupHelperServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SharedPreferencesBackupHelperService_ServiceDesc, srv)
-}
-
-func _SharedPreferencesBackupHelperService_NewSharedPreferencesBackupHelper_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewSharedPreferencesBackupHelperRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SharedPreferencesBackupHelperServiceServer).NewSharedPreferencesBackupHelper(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SharedPreferencesBackupHelperService_NewSharedPreferencesBackupHelper_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SharedPreferencesBackupHelperServiceServer).NewSharedPreferencesBackupHelper(ctx, req.(*NewSharedPreferencesBackupHelperRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SharedPreferencesBackupHelperService_PerformBackup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PerformBackupRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SharedPreferencesBackupHelperServiceServer).PerformBackup(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SharedPreferencesBackupHelperService_PerformBackup_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SharedPreferencesBackupHelperServiceServer).PerformBackup(ctx, req.(*PerformBackupRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SharedPreferencesBackupHelperService_RestoreEntity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RestoreEntityRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SharedPreferencesBackupHelperServiceServer).RestoreEntity(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SharedPreferencesBackupHelperService_RestoreEntity_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SharedPreferencesBackupHelperServiceServer).RestoreEntity(ctx, req.(*RestoreEntityRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SharedPreferencesBackupHelperService_WriteNewStateDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteNewStateDescriptionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SharedPreferencesBackupHelperServiceServer).WriteNewStateDescription(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SharedPreferencesBackupHelperService_WriteNewStateDescription_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SharedPreferencesBackupHelperServiceServer).WriteNewStateDescription(ctx, req.(*WriteNewStateDescriptionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SharedPreferencesBackupHelperService_ServiceDesc is the grpc.ServiceDesc for SharedPreferencesBackupHelperService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SharedPreferencesBackupHelperService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "backup.SharedPreferencesBackupHelperService",
-	HandlerType: (*SharedPreferencesBackupHelperServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewSharedPreferencesBackupHelper",
-			Handler:    _SharedPreferencesBackupHelperService_NewSharedPreferencesBackupHelper_Handler,
-		},
-		{
-			MethodName: "PerformBackup",
-			Handler:    _SharedPreferencesBackupHelperService_PerformBackup_Handler,
-		},
-		{
-			MethodName: "RestoreEntity",
-			Handler:    _SharedPreferencesBackupHelperService_RestoreEntity_Handler,
-		},
-		{
-			MethodName: "WriteNewStateDescription",
-			Handler:    _SharedPreferencesBackupHelperService_WriteNewStateDescription_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/backup/backup.proto",
-}
-
-const (
-	RestoreObserverService_OnUpdate_FullMethodName        = "/backup.RestoreObserverService/OnUpdate"
-	RestoreObserverService_RestoreFinished_FullMethodName = "/backup.RestoreObserverService/RestoreFinished"
-	RestoreObserverService_RestoreStarting_FullMethodName = "/backup.RestoreObserverService/RestoreStarting"
-)
-
-// RestoreObserverServiceClient is the client API for RestoreObserverService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RestoreObserverServiceClient interface {
-	OnUpdate(ctx context.Context, in *OnUpdateRequest, opts ...grpc.CallOption) (*OnUpdateResponse, error)
-	RestoreFinished(ctx context.Context, in *RestoreFinishedRequest, opts ...grpc.CallOption) (*RestoreFinishedResponse, error)
-	RestoreStarting(ctx context.Context, in *RestoreStartingRequest, opts ...grpc.CallOption) (*RestoreStartingResponse, error)
-}
-
-type restoreObserverServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewRestoreObserverServiceClient(cc grpc.ClientConnInterface) RestoreObserverServiceClient {
-	return &restoreObserverServiceClient{cc}
-}
-
-func (c *restoreObserverServiceClient) OnUpdate(ctx context.Context, in *OnUpdateRequest, opts ...grpc.CallOption) (*OnUpdateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnUpdateResponse)
-	err := c.cc.Invoke(ctx, RestoreObserverService_OnUpdate_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *restoreObserverServiceClient) RestoreFinished(ctx context.Context, in *RestoreFinishedRequest, opts ...grpc.CallOption) (*RestoreFinishedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RestoreFinishedResponse)
-	err := c.cc.Invoke(ctx, RestoreObserverService_RestoreFinished_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *restoreObserverServiceClient) RestoreStarting(ctx context.Context, in *RestoreStartingRequest, opts ...grpc.CallOption) (*RestoreStartingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RestoreStartingResponse)
-	err := c.cc.Invoke(ctx, RestoreObserverService_RestoreStarting_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// RestoreObserverServiceServer is the server API for RestoreObserverService service.
-// All implementations must embed UnimplementedRestoreObserverServiceServer
-// for forward compatibility.
-type RestoreObserverServiceServer interface {
-	OnUpdate(context.Context, *OnUpdateRequest) (*OnUpdateResponse, error)
-	RestoreFinished(context.Context, *RestoreFinishedRequest) (*RestoreFinishedResponse, error)
-	RestoreStarting(context.Context, *RestoreStartingRequest) (*RestoreStartingResponse, error)
-	mustEmbedUnimplementedRestoreObserverServiceServer()
-}
-
-// UnimplementedRestoreObserverServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedRestoreObserverServiceServer struct{}
-
-func (UnimplementedRestoreObserverServiceServer) OnUpdate(context.Context, *OnUpdateRequest) (*OnUpdateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnUpdate not implemented")
-}
-func (UnimplementedRestoreObserverServiceServer) RestoreFinished(context.Context, *RestoreFinishedRequest) (*RestoreFinishedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RestoreFinished not implemented")
-}
-func (UnimplementedRestoreObserverServiceServer) RestoreStarting(context.Context, *RestoreStartingRequest) (*RestoreStartingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RestoreStarting not implemented")
-}
-func (UnimplementedRestoreObserverServiceServer) mustEmbedUnimplementedRestoreObserverServiceServer() {
-}
-func (UnimplementedRestoreObserverServiceServer) testEmbeddedByValue() {}
-
-// UnsafeRestoreObserverServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RestoreObserverServiceServer will
-// result in compilation errors.
-type UnsafeRestoreObserverServiceServer interface {
-	mustEmbedUnimplementedRestoreObserverServiceServer()
-}
-
-func RegisterRestoreObserverServiceServer(s grpc.ServiceRegistrar, srv RestoreObserverServiceServer) {
-	// If the following call panics, it indicates UnimplementedRestoreObserverServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&RestoreObserverService_ServiceDesc, srv)
-}
-
-func _RestoreObserverService_OnUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnUpdateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RestoreObserverServiceServer).OnUpdate(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RestoreObserverService_OnUpdate_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RestoreObserverServiceServer).OnUpdate(ctx, req.(*OnUpdateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RestoreObserverService_RestoreFinished_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RestoreFinishedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RestoreObserverServiceServer).RestoreFinished(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RestoreObserverService_RestoreFinished_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RestoreObserverServiceServer).RestoreFinished(ctx, req.(*RestoreFinishedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RestoreObserverService_RestoreStarting_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RestoreStartingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RestoreObserverServiceServer).RestoreStarting(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RestoreObserverService_RestoreStarting_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RestoreObserverServiceServer).RestoreStarting(ctx, req.(*RestoreStartingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// RestoreObserverService_ServiceDesc is the grpc.ServiceDesc for RestoreObserverService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var RestoreObserverService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "backup.RestoreObserverService",
-	HandlerType: (*RestoreObserverServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnUpdate",
-			Handler:    _RestoreObserverService_OnUpdate_Handler,
-		},
-		{
-			MethodName: "RestoreFinished",
-			Handler:    _RestoreObserverService_RestoreFinished_Handler,
-		},
-		{
-			MethodName: "RestoreStarting",
-			Handler:    _RestoreObserverService_RestoreStarting_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/backup/backup.proto",
-}
-
-const (
-	AgentHelperService_NewAgentHelper_FullMethodName = "/backup.AgentHelperService/NewAgentHelper"
-	AgentHelperService_AddHelper_FullMethodName      = "/backup.AgentHelperService/AddHelper"
-	AgentHelperService_OnBackup_FullMethodName       = "/backup.AgentHelperService/OnBackup"
-	AgentHelperService_OnRestore_FullMethodName      = "/backup.AgentHelperService/OnRestore"
-)
-
-// AgentHelperServiceClient is the client API for AgentHelperService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AgentHelperServiceClient interface {
-	NewAgentHelper(ctx context.Context, in *NewAgentHelperRequest, opts ...grpc.CallOption) (*NewAgentHelperResponse, error)
-	AddHelper(ctx context.Context, in *AddHelperRequest, opts ...grpc.CallOption) (*AddHelperResponse, error)
-	OnBackup(ctx context.Context, in *AgentHelperOnBackupRequest, opts ...grpc.CallOption) (*OnBackupResponse, error)
-	OnRestore(ctx context.Context, in *OnRestoreRequest, opts ...grpc.CallOption) (*OnRestoreResponse, error)
-}
-
-type agentHelperServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAgentHelperServiceClient(cc grpc.ClientConnInterface) AgentHelperServiceClient {
-	return &agentHelperServiceClient{cc}
-}
-
-func (c *agentHelperServiceClient) NewAgentHelper(ctx context.Context, in *NewAgentHelperRequest, opts ...grpc.CallOption) (*NewAgentHelperResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewAgentHelperResponse)
-	err := c.cc.Invoke(ctx, AgentHelperService_NewAgentHelper_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *agentHelperServiceClient) AddHelper(ctx context.Context, in *AddHelperRequest, opts ...grpc.CallOption) (*AddHelperResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddHelperResponse)
-	err := c.cc.Invoke(ctx, AgentHelperService_AddHelper_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *agentHelperServiceClient) OnBackup(ctx context.Context, in *AgentHelperOnBackupRequest, opts ...grpc.CallOption) (*OnBackupResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnBackupResponse)
-	err := c.cc.Invoke(ctx, AgentHelperService_OnBackup_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *agentHelperServiceClient) OnRestore(ctx context.Context, in *OnRestoreRequest, opts ...grpc.CallOption) (*OnRestoreResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRestoreResponse)
-	err := c.cc.Invoke(ctx, AgentHelperService_OnRestore_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AgentHelperServiceServer is the server API for AgentHelperService service.
-// All implementations must embed UnimplementedAgentHelperServiceServer
-// for forward compatibility.
-type AgentHelperServiceServer interface {
-	NewAgentHelper(context.Context, *NewAgentHelperRequest) (*NewAgentHelperResponse, error)
-	AddHelper(context.Context, *AddHelperRequest) (*AddHelperResponse, error)
-	OnBackup(context.Context, *AgentHelperOnBackupRequest) (*OnBackupResponse, error)
-	OnRestore(context.Context, *OnRestoreRequest) (*OnRestoreResponse, error)
-	mustEmbedUnimplementedAgentHelperServiceServer()
-}
-
-// UnimplementedAgentHelperServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAgentHelperServiceServer struct{}
-
-func (UnimplementedAgentHelperServiceServer) NewAgentHelper(context.Context, *NewAgentHelperRequest) (*NewAgentHelperResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewAgentHelper not implemented")
-}
-func (UnimplementedAgentHelperServiceServer) AddHelper(context.Context, *AddHelperRequest) (*AddHelperResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddHelper not implemented")
-}
-func (UnimplementedAgentHelperServiceServer) OnBackup(context.Context, *AgentHelperOnBackupRequest) (*OnBackupResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnBackup not implemented")
-}
-func (UnimplementedAgentHelperServiceServer) OnRestore(context.Context, *OnRestoreRequest) (*OnRestoreResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRestore not implemented")
-}
-func (UnimplementedAgentHelperServiceServer) mustEmbedUnimplementedAgentHelperServiceServer() {}
-func (UnimplementedAgentHelperServiceServer) testEmbeddedByValue()                            {}
-
-// UnsafeAgentHelperServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AgentHelperServiceServer will
-// result in compilation errors.
-type UnsafeAgentHelperServiceServer interface {
-	mustEmbedUnimplementedAgentHelperServiceServer()
-}
-
-func RegisterAgentHelperServiceServer(s grpc.ServiceRegistrar, srv AgentHelperServiceServer) {
-	// If the following call panics, it indicates UnimplementedAgentHelperServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AgentHelperService_ServiceDesc, srv)
-}
-
-func _AgentHelperService_NewAgentHelper_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewAgentHelperRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AgentHelperServiceServer).NewAgentHelper(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AgentHelperService_NewAgentHelper_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AgentHelperServiceServer).NewAgentHelper(ctx, req.(*NewAgentHelperRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AgentHelperService_AddHelper_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddHelperRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AgentHelperServiceServer).AddHelper(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AgentHelperService_AddHelper_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AgentHelperServiceServer).AddHelper(ctx, req.(*AddHelperRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AgentHelperService_OnBackup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AgentHelperOnBackupRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AgentHelperServiceServer).OnBackup(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AgentHelperService_OnBackup_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AgentHelperServiceServer).OnBackup(ctx, req.(*AgentHelperOnBackupRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AgentHelperService_OnRestore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRestoreRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AgentHelperServiceServer).OnRestore(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AgentHelperService_OnRestore_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AgentHelperServiceServer).OnRestore(ctx, req.(*OnRestoreRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AgentHelperService_ServiceDesc is the grpc.ServiceDesc for AgentHelperService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AgentHelperService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "backup.AgentHelperService",
-	HandlerType: (*AgentHelperServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewAgentHelper",
-			Handler:    _AgentHelperService_NewAgentHelper_Handler,
-		},
-		{
-			MethodName: "AddHelper",
-			Handler:    _AgentHelperService_AddHelper_Handler,
-		},
-		{
-			MethodName: "OnBackup",
-			Handler:    _AgentHelperService_OnBackup_Handler,
-		},
-		{
-			MethodName: "OnRestore",
-			Handler:    _AgentHelperService_OnRestore_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

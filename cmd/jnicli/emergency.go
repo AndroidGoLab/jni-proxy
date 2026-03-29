@@ -103,6 +103,54 @@ var emergencyNumberGetEmergencyCallRoutingCmd = &cobra.Command{
 	},
 }
 
+var emergencyNumberGetEmergencyNumberSourcesCmd = &cobra.Command{
+	Use:   "get-emergency-number-sources",
+	Short: "GetEmergencyNumberSources RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNumberServiceClient(grpcConn)
+		req := &pb.GetEmergencyNumberSourcesRequest{}
+		resp, err := client.GetEmergencyNumberSources(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var emergencyNumberGetEmergencyServiceCategoriesCmd = &cobra.Command{
+	Use:   "get-emergency-service-categories",
+	Short: "GetEmergencyServiceCategories RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNumberServiceClient(grpcConn)
+		req := &pb.GetEmergencyServiceCategoriesRequest{}
+		resp, err := client.GetEmergencyServiceCategories(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var emergencyNumberGetEmergencyUrnsCmd = &cobra.Command{
+	Use:   "get-emergency-urns",
+	Short: "GetEmergencyUrns RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNumberServiceClient(grpcConn)
+		req := &pb.GetEmergencyUrnsRequest{}
+		resp, err := client.GetEmergencyUrns(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var emergencyNumberGetMncCmd = &cobra.Command{
 	Use:   "get-mnc",
 	Short: "GetMnc RPC",
@@ -254,6 +302,9 @@ func init() {
 	emergencyNumberCmd.AddCommand(emergencyNumberEqualsCmd)
 	emergencyNumberCmd.AddCommand(emergencyNumberGetCountryIsoCmd)
 	emergencyNumberCmd.AddCommand(emergencyNumberGetEmergencyCallRoutingCmd)
+	emergencyNumberCmd.AddCommand(emergencyNumberGetEmergencyNumberSourcesCmd)
+	emergencyNumberCmd.AddCommand(emergencyNumberGetEmergencyServiceCategoriesCmd)
+	emergencyNumberCmd.AddCommand(emergencyNumberGetEmergencyUrnsCmd)
 	emergencyNumberCmd.AddCommand(emergencyNumberGetMncCmd)
 	emergencyNumberCmd.AddCommand(emergencyNumberGetNumberCmd)
 	emergencyNumberCmd.AddCommand(emergencyNumberHashCodeCmd)

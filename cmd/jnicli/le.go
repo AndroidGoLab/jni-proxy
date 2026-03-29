@@ -12,1995 +12,6 @@ var leCmd = &cobra.Command{
 	Short: "le service operations",
 }
 
-var leAdvertiseSettingsCmd = &cobra.Command{
-	Use:   "advertise-settings",
-	Short: "AdvertiseSettingsService operations",
-}
-
-var leAdvertiseSettingsDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertiseSettingsServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertiseSettingsGetModeCmd = &cobra.Command{
-	Use:   "get-mode",
-	Short: "GetMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertiseSettingsServiceClient(grpcConn)
-		req := &pb.GetModeRequest{}
-		resp, err := client.GetMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertiseSettingsGetTimeoutCmd = &cobra.Command{
-	Use:   "get-timeout",
-	Short: "GetTimeout RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertiseSettingsServiceClient(grpcConn)
-		req := &pb.GetTimeoutRequest{}
-		resp, err := client.GetTimeout(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertiseSettingsGetTxPowerLevelCmd = &cobra.Command{
-	Use:   "get-tx-power-level",
-	Short: "GetTxPowerLevel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertiseSettingsServiceClient(grpcConn)
-		req := &pb.GetTxPowerLevelRequest{}
-		resp, err := client.GetTxPowerLevel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertiseSettingsIsConnectableCmd = &cobra.Command{
-	Use:   "is-connectable",
-	Short: "IsConnectable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertiseSettingsServiceClient(grpcConn)
-		req := &pb.IsConnectableRequest{}
-		resp, err := client.IsConnectable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertiseSettingsIsDiscoverableCmd = &cobra.Command{
-	Use:   "is-discoverable",
-	Short: "IsDiscoverable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertiseSettingsServiceClient(grpcConn)
-		req := &pb.IsDiscoverableRequest{}
-		resp, err := client.IsDiscoverable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertiseSettingsToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertiseSettingsServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertiseSettingsWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertiseSettingsServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertiseSettingsBuilderCmd = &cobra.Command{
-	Use:   "advertise-settings-builder",
-	Short: "AdvertiseSettingsBuilderService operations",
-}
-
-var leAdvertiseSettingsBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertiseSettingsBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertiseSettingsBuilderSetAdvertiseModeCmd = &cobra.Command{
-	Use:   "set-advertise-mode",
-	Short: "SetAdvertiseMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertiseSettingsBuilderServiceClient(grpcConn)
-		req := &pb.SetAdvertiseModeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAdvertiseMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertiseSettingsBuilderSetConnectableCmd = &cobra.Command{
-	Use:   "set-connectable",
-	Short: "SetConnectable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertiseSettingsBuilderServiceClient(grpcConn)
-		req := &pb.SetConnectableRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetConnectable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertiseSettingsBuilderSetDiscoverableCmd = &cobra.Command{
-	Use:   "set-discoverable",
-	Short: "SetDiscoverable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertiseSettingsBuilderServiceClient(grpcConn)
-		req := &pb.SetDiscoverableRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDiscoverable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertiseSettingsBuilderSetTimeoutCmd = &cobra.Command{
-	Use:   "set-timeout",
-	Short: "SetTimeout RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertiseSettingsBuilderServiceClient(grpcConn)
-		req := &pb.SetTimeoutRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTimeout(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertiseSettingsBuilderSetTxPowerLevelCmd = &cobra.Command{
-	Use:   "set-tx-power-level",
-	Short: "SetTxPowerLevel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertiseSettingsBuilderServiceClient(grpcConn)
-		req := &pb.SetTxPowerLevelRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTxPowerLevel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanCallbackCmd = &cobra.Command{
-	Use:   "scan-callback",
-	Short: "ScanCallbackService operations",
-}
-
-var leScanCallbackOnScanFailedCmd = &cobra.Command{
-	Use:   "on-scan-failed",
-	Short: "OnScanFailed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanCallbackServiceClient(grpcConn)
-		req := &pb.OnScanFailedRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnScanFailed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanCallbackOnScanResultCmd = &cobra.Command{
-	Use:   "on-scan-result",
-	Short: "OnScanResult RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanCallbackServiceClient(grpcConn)
-		req := &pb.OnScanResultRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnScanResult(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertiseDataCmd = &cobra.Command{
-	Use:   "advertise-data",
-	Short: "AdvertiseDataService operations",
-}
-
-var leAdvertiseDataDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertiseDataServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertiseDataEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertiseDataServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertiseDataGetIncludeDeviceNameCmd = &cobra.Command{
-	Use:   "get-include-device-name",
-	Short: "GetIncludeDeviceName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertiseDataServiceClient(grpcConn)
-		req := &pb.GetIncludeDeviceNameRequest{}
-		resp, err := client.GetIncludeDeviceName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertiseDataGetIncludeTxPowerLevelCmd = &cobra.Command{
-	Use:   "get-include-tx-power-level",
-	Short: "GetIncludeTxPowerLevel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertiseDataServiceClient(grpcConn)
-		req := &pb.GetIncludeTxPowerLevelRequest{}
-		resp, err := client.GetIncludeTxPowerLevel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertiseDataHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertiseDataServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertiseDataToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertiseDataServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertiseDataWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertiseDataServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertiseDataBuilderCmd = &cobra.Command{
-	Use:   "advertise-data-builder",
-	Short: "AdvertiseDataBuilderService operations",
-}
-
-var leAdvertiseDataBuilderAddManufacturerDataCmd = &cobra.Command{
-	Use:   "add-manufacturer-data",
-	Short: "AddManufacturerData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertiseDataBuilderServiceClient(grpcConn)
-		req := &pb.AddManufacturerDataRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.AddManufacturerData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertiseDataBuilderAddServiceDataCmd = &cobra.Command{
-	Use:   "add-service-data",
-	Short: "AddServiceData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertiseDataBuilderServiceClient(grpcConn)
-		req := &pb.AddServiceDataRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.AddServiceData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertiseDataBuilderAddServiceSolicitationUuidCmd = &cobra.Command{
-	Use:   "add-service-solicitation-uuid",
-	Short: "AddServiceSolicitationUuid RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertiseDataBuilderServiceClient(grpcConn)
-		req := &pb.AddServiceSolicitationUuidRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddServiceSolicitationUuid(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertiseDataBuilderAddServiceUuidCmd = &cobra.Command{
-	Use:   "add-service-uuid",
-	Short: "AddServiceUuid RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertiseDataBuilderServiceClient(grpcConn)
-		req := &pb.AddServiceUuidRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddServiceUuid(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertiseDataBuilderAddTransportDiscoveryDataCmd = &cobra.Command{
-	Use:   "add-transport-discovery-data",
-	Short: "AddTransportDiscoveryData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertiseDataBuilderServiceClient(grpcConn)
-		req := &pb.AddTransportDiscoveryDataRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddTransportDiscoveryData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertiseDataBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertiseDataBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertiseDataBuilderSetIncludeDeviceNameCmd = &cobra.Command{
-	Use:   "set-include-device-name",
-	Short: "SetIncludeDeviceName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertiseDataBuilderServiceClient(grpcConn)
-		req := &pb.SetIncludeDeviceNameRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetIncludeDeviceName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertiseDataBuilderSetIncludeTxPowerLevelCmd = &cobra.Command{
-	Use:   "set-include-tx-power-level",
-	Short: "SetIncludeTxPowerLevel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertiseDataBuilderServiceClient(grpcConn)
-		req := &pb.SetIncludeTxPowerLevelRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetIncludeTxPowerLevel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanResultCmd = &cobra.Command{
-	Use:   "scan-result",
-	Short: "ScanResultService operations",
-}
-
-var leScanResultNewScanResultCmd = &cobra.Command{
-	Use:   "new-scan-result",
-	Short: "NewScanResult RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanResultServiceClient(grpcConn)
-		req := &pb.NewScanResultRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.NewScanResult(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanResultDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanResultServiceClient(grpcConn)
-		req := &pb.ScanResultDescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanResultEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanResultServiceClient(grpcConn)
-		req := &pb.ScanResultEqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanResultGetAdvertisingSidCmd = &cobra.Command{
-	Use:   "get-advertising-sid",
-	Short: "GetAdvertisingSid RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanResultServiceClient(grpcConn)
-		req := &pb.GetAdvertisingSidRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetAdvertisingSid(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanResultGetDataStatusCmd = &cobra.Command{
-	Use:   "get-data-status",
-	Short: "GetDataStatus RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanResultServiceClient(grpcConn)
-		req := &pb.GetDataStatusRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetDataStatus(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanResultGetDeviceCmd = &cobra.Command{
-	Use:   "get-device",
-	Short: "GetDevice RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanResultServiceClient(grpcConn)
-		req := &pb.GetDeviceRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetDevice(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanResultGetPeriodicAdvertisingIntervalCmd = &cobra.Command{
-	Use:   "get-periodic-advertising-interval",
-	Short: "GetPeriodicAdvertisingInterval RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanResultServiceClient(grpcConn)
-		req := &pb.GetPeriodicAdvertisingIntervalRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetPeriodicAdvertisingInterval(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanResultGetPrimaryPhyCmd = &cobra.Command{
-	Use:   "get-primary-phy",
-	Short: "GetPrimaryPhy RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanResultServiceClient(grpcConn)
-		req := &pb.GetPrimaryPhyRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetPrimaryPhy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanResultGetRssiCmd = &cobra.Command{
-	Use:   "get-rssi",
-	Short: "GetRssi RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanResultServiceClient(grpcConn)
-		req := &pb.GetRssiRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetRssi(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanResultGetScanRecordCmd = &cobra.Command{
-	Use:   "get-scan-record",
-	Short: "GetScanRecord RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanResultServiceClient(grpcConn)
-		req := &pb.GetScanRecordRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetScanRecord(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanResultGetSecondaryPhyCmd = &cobra.Command{
-	Use:   "get-secondary-phy",
-	Short: "GetSecondaryPhy RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanResultServiceClient(grpcConn)
-		req := &pb.GetSecondaryPhyRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSecondaryPhy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanResultGetTimestampNanosCmd = &cobra.Command{
-	Use:   "get-timestamp-nanos",
-	Short: "GetTimestampNanos RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanResultServiceClient(grpcConn)
-		req := &pb.GetTimestampNanosRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetTimestampNanos(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanResultGetTxPowerCmd = &cobra.Command{
-	Use:   "get-tx-power",
-	Short: "GetTxPower RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanResultServiceClient(grpcConn)
-		req := &pb.GetTxPowerRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetTxPower(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanResultHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanResultServiceClient(grpcConn)
-		req := &pb.ScanResultHashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanResultIsConnectableCmd = &cobra.Command{
-	Use:   "is-connectable",
-	Short: "IsConnectable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanResultServiceClient(grpcConn)
-		req := &pb.ScanResultIsConnectableRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsConnectable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanResultIsLegacyCmd = &cobra.Command{
-	Use:   "is-legacy",
-	Short: "IsLegacy RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanResultServiceClient(grpcConn)
-		req := &pb.IsLegacyRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsLegacy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanResultToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanResultServiceClient(grpcConn)
-		req := &pb.ScanResultToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanResultWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanResultServiceClient(grpcConn)
-		req := &pb.ScanResultWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanSettingsCmd = &cobra.Command{
-	Use:   "scan-settings",
-	Short: "ScanSettingsService operations",
-}
-
-var leScanSettingsDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanSettingsServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanSettingsGetCallbackTypeCmd = &cobra.Command{
-	Use:   "get-callback-type",
-	Short: "GetCallbackType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanSettingsServiceClient(grpcConn)
-		req := &pb.GetCallbackTypeRequest{}
-		resp, err := client.GetCallbackType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanSettingsGetLegacyCmd = &cobra.Command{
-	Use:   "get-legacy",
-	Short: "GetLegacy RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanSettingsServiceClient(grpcConn)
-		req := &pb.GetLegacyRequest{}
-		resp, err := client.GetLegacy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanSettingsGetPhyCmd = &cobra.Command{
-	Use:   "get-phy",
-	Short: "GetPhy RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanSettingsServiceClient(grpcConn)
-		req := &pb.GetPhyRequest{}
-		resp, err := client.GetPhy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanSettingsGetReportDelayMillisCmd = &cobra.Command{
-	Use:   "get-report-delay-millis",
-	Short: "GetReportDelayMillis RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanSettingsServiceClient(grpcConn)
-		req := &pb.GetReportDelayMillisRequest{}
-		resp, err := client.GetReportDelayMillis(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanSettingsGetScanModeCmd = &cobra.Command{
-	Use:   "get-scan-mode",
-	Short: "GetScanMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanSettingsServiceClient(grpcConn)
-		req := &pb.GetScanModeRequest{}
-		resp, err := client.GetScanMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanSettingsGetScanResultTypeCmd = &cobra.Command{
-	Use:   "get-scan-result-type",
-	Short: "GetScanResultType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanSettingsServiceClient(grpcConn)
-		req := &pb.GetScanResultTypeRequest{}
-		resp, err := client.GetScanResultType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanSettingsWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanSettingsServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanSettingsBuilderCmd = &cobra.Command{
-	Use:   "scan-settings-builder",
-	Short: "ScanSettingsBuilderService operations",
-}
-
-var leScanSettingsBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanSettingsBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanSettingsBuilderSetCallbackTypeCmd = &cobra.Command{
-	Use:   "set-callback-type",
-	Short: "SetCallbackType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanSettingsBuilderServiceClient(grpcConn)
-		req := &pb.SetCallbackTypeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetCallbackType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanSettingsBuilderSetLegacyCmd = &cobra.Command{
-	Use:   "set-legacy",
-	Short: "SetLegacy RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanSettingsBuilderServiceClient(grpcConn)
-		req := &pb.SetLegacyRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetLegacy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanSettingsBuilderSetMatchModeCmd = &cobra.Command{
-	Use:   "set-match-mode",
-	Short: "SetMatchMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanSettingsBuilderServiceClient(grpcConn)
-		req := &pb.SetMatchModeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetMatchMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanSettingsBuilderSetNumOfMatchesCmd = &cobra.Command{
-	Use:   "set-num-of-matches",
-	Short: "SetNumOfMatches RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanSettingsBuilderServiceClient(grpcConn)
-		req := &pb.SetNumOfMatchesRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetNumOfMatches(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanSettingsBuilderSetPhyCmd = &cobra.Command{
-	Use:   "set-phy",
-	Short: "SetPhy RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanSettingsBuilderServiceClient(grpcConn)
-		req := &pb.SetPhyRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPhy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanSettingsBuilderSetReportDelayCmd = &cobra.Command{
-	Use:   "set-report-delay",
-	Short: "SetReportDelay RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanSettingsBuilderServiceClient(grpcConn)
-		req := &pb.SetReportDelayRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetReportDelay(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanSettingsBuilderSetScanModeCmd = &cobra.Command{
-	Use:   "set-scan-mode",
-	Short: "SetScanMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanSettingsBuilderServiceClient(grpcConn)
-		req := &pb.SetScanModeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetScanMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertisingSetParametersCmd = &cobra.Command{
-	Use:   "advertising-set-parameters",
-	Short: "AdvertisingSetParametersService operations",
-}
-
-var leAdvertisingSetParametersDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertisingSetParametersServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertisingSetParametersGetIntervalCmd = &cobra.Command{
-	Use:   "get-interval",
-	Short: "GetInterval RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertisingSetParametersServiceClient(grpcConn)
-		req := &pb.GetIntervalRequest{}
-		resp, err := client.GetInterval(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertisingSetParametersGetPrimaryPhyCmd = &cobra.Command{
-	Use:   "get-primary-phy",
-	Short: "GetPrimaryPhy RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertisingSetParametersServiceClient(grpcConn)
-		req := &pb.AdvertisingSetParametersGetPrimaryPhyRequest{}
-		resp, err := client.GetPrimaryPhy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertisingSetParametersGetSecondaryPhyCmd = &cobra.Command{
-	Use:   "get-secondary-phy",
-	Short: "GetSecondaryPhy RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertisingSetParametersServiceClient(grpcConn)
-		req := &pb.AdvertisingSetParametersGetSecondaryPhyRequest{}
-		resp, err := client.GetSecondaryPhy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertisingSetParametersGetTxPowerLevelCmd = &cobra.Command{
-	Use:   "get-tx-power-level",
-	Short: "GetTxPowerLevel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertisingSetParametersServiceClient(grpcConn)
-		req := &pb.GetTxPowerLevelRequest{}
-		resp, err := client.GetTxPowerLevel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertisingSetParametersIncludeTxPowerCmd = &cobra.Command{
-	Use:   "include-tx-power",
-	Short: "IncludeTxPower RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertisingSetParametersServiceClient(grpcConn)
-		req := &pb.IncludeTxPowerRequest{}
-		resp, err := client.IncludeTxPower(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertisingSetParametersIsAnonymousCmd = &cobra.Command{
-	Use:   "is-anonymous",
-	Short: "IsAnonymous RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertisingSetParametersServiceClient(grpcConn)
-		req := &pb.IsAnonymousRequest{}
-		resp, err := client.IsAnonymous(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertisingSetParametersIsConnectableCmd = &cobra.Command{
-	Use:   "is-connectable",
-	Short: "IsConnectable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertisingSetParametersServiceClient(grpcConn)
-		req := &pb.IsConnectableRequest{}
-		resp, err := client.IsConnectable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertisingSetParametersIsDiscoverableCmd = &cobra.Command{
-	Use:   "is-discoverable",
-	Short: "IsDiscoverable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertisingSetParametersServiceClient(grpcConn)
-		req := &pb.IsDiscoverableRequest{}
-		resp, err := client.IsDiscoverable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertisingSetParametersIsLegacyCmd = &cobra.Command{
-	Use:   "is-legacy",
-	Short: "IsLegacy RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertisingSetParametersServiceClient(grpcConn)
-		req := &pb.AdvertisingSetParametersIsLegacyRequest{}
-		resp, err := client.IsLegacy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertisingSetParametersIsScannableCmd = &cobra.Command{
-	Use:   "is-scannable",
-	Short: "IsScannable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertisingSetParametersServiceClient(grpcConn)
-		req := &pb.IsScannableRequest{}
-		resp, err := client.IsScannable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertisingSetParametersToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertisingSetParametersServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertisingSetParametersWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertisingSetParametersServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertisingSetParametersBuilderCmd = &cobra.Command{
-	Use:   "advertising-set-parameters-builder",
-	Short: "AdvertisingSetParametersBuilderService operations",
-}
-
-var leAdvertisingSetParametersBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertisingSetParametersBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertisingSetParametersBuilderSetAnonymousCmd = &cobra.Command{
-	Use:   "set-anonymous",
-	Short: "SetAnonymous RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertisingSetParametersBuilderServiceClient(grpcConn)
-		req := &pb.SetAnonymousRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAnonymous(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertisingSetParametersBuilderSetConnectableCmd = &cobra.Command{
-	Use:   "set-connectable",
-	Short: "SetConnectable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertisingSetParametersBuilderServiceClient(grpcConn)
-		req := &pb.SetConnectableRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetConnectable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertisingSetParametersBuilderSetDiscoverableCmd = &cobra.Command{
-	Use:   "set-discoverable",
-	Short: "SetDiscoverable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertisingSetParametersBuilderServiceClient(grpcConn)
-		req := &pb.SetDiscoverableRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDiscoverable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertisingSetParametersBuilderSetIncludeTxPowerCmd = &cobra.Command{
-	Use:   "set-include-tx-power",
-	Short: "SetIncludeTxPower RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertisingSetParametersBuilderServiceClient(grpcConn)
-		req := &pb.SetIncludeTxPowerRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetIncludeTxPower(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertisingSetParametersBuilderSetIntervalCmd = &cobra.Command{
-	Use:   "set-interval",
-	Short: "SetInterval RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertisingSetParametersBuilderServiceClient(grpcConn)
-		req := &pb.SetIntervalRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetInterval(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertisingSetParametersBuilderSetLegacyModeCmd = &cobra.Command{
-	Use:   "set-legacy-mode",
-	Short: "SetLegacyMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertisingSetParametersBuilderServiceClient(grpcConn)
-		req := &pb.SetLegacyModeRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetLegacyMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertisingSetParametersBuilderSetPrimaryPhyCmd = &cobra.Command{
-	Use:   "set-primary-phy",
-	Short: "SetPrimaryPhy RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertisingSetParametersBuilderServiceClient(grpcConn)
-		req := &pb.SetPrimaryPhyRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPrimaryPhy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertisingSetParametersBuilderSetScannableCmd = &cobra.Command{
-	Use:   "set-scannable",
-	Short: "SetScannable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertisingSetParametersBuilderServiceClient(grpcConn)
-		req := &pb.SetScannableRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetScannable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertisingSetParametersBuilderSetSecondaryPhyCmd = &cobra.Command{
-	Use:   "set-secondary-phy",
-	Short: "SetSecondaryPhy RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertisingSetParametersBuilderServiceClient(grpcConn)
-		req := &pb.SetSecondaryPhyRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSecondaryPhy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertisingSetParametersBuilderSetTxPowerLevelCmd = &cobra.Command{
-	Use:   "set-tx-power-level",
-	Short: "SetTxPowerLevel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertisingSetParametersBuilderServiceClient(grpcConn)
-		req := &pb.SetTxPowerLevelRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTxPowerLevel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leBluetoothLeAdvertiserCmd = &cobra.Command{
-	Use:   "bluetooth-le-advertiser",
-	Short: "BluetoothLeAdvertiserService operations",
-}
-
-var leBluetoothLeAdvertiserStartAdvertising3Cmd = &cobra.Command{
-	Use:   "start-advertising3",
-	Short: "StartAdvertising3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBluetoothLeAdvertiserServiceClient(grpcConn)
-		req := &pb.StartAdvertising3Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.StartAdvertising3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leBluetoothLeAdvertiserStartAdvertising4_1Cmd = &cobra.Command{
-	Use:   "start-advertising4_1",
-	Short: "StartAdvertising4_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBluetoothLeAdvertiserServiceClient(grpcConn)
-		req := &pb.StartAdvertising4_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.StartAdvertising4_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leBluetoothLeAdvertiserStartAdvertisingSet6Cmd = &cobra.Command{
-	Use:   "start-advertising-set6",
-	Short: "StartAdvertisingSet6 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBluetoothLeAdvertiserServiceClient(grpcConn)
-		req := &pb.StartAdvertisingSet6Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		resp, err := client.StartAdvertisingSet6(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leBluetoothLeAdvertiserStartAdvertisingSet8_1Cmd = &cobra.Command{
-	Use:   "start-advertising-set8_1",
-	Short: "StartAdvertisingSet8_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBluetoothLeAdvertiserServiceClient(grpcConn)
-		req := &pb.StartAdvertisingSet8_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg6"); err == nil {
-			req.Arg6 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg7"); err == nil {
-			req.Arg7 = v
-		}
-		resp, err := client.StartAdvertisingSet8_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leBluetoothLeAdvertiserStopAdvertisingCmd = &cobra.Command{
-	Use:   "stop-advertising",
-	Short: "StopAdvertising RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBluetoothLeAdvertiserServiceClient(grpcConn)
-		req := &pb.StopAdvertisingRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.StopAdvertising(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leBluetoothLeAdvertiserStopAdvertisingSetCmd = &cobra.Command{
-	Use:   "stop-advertising-set",
-	Short: "StopAdvertisingSet RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBluetoothLeAdvertiserServiceClient(grpcConn)
-		req := &pb.StopAdvertisingSetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.StopAdvertisingSet(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertisingSetCmd = &cobra.Command{
-	Use:   "advertising-set",
-	Short: "AdvertisingSetService operations",
-}
-
-var leAdvertisingSetEnableAdvertisingCmd = &cobra.Command{
-	Use:   "enable-advertising",
-	Short: "EnableAdvertising RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertisingSetServiceClient(grpcConn)
-		req := &pb.EnableAdvertisingRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.EnableAdvertising(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertisingSetSetAdvertisingDataCmd = &cobra.Command{
-	Use:   "set-advertising-data",
-	Short: "SetAdvertisingData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertisingSetServiceClient(grpcConn)
-		req := &pb.SetAdvertisingDataRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAdvertisingData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertisingSetSetAdvertisingParametersCmd = &cobra.Command{
-	Use:   "set-advertising-parameters",
-	Short: "SetAdvertisingParameters RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertisingSetServiceClient(grpcConn)
-		req := &pb.SetAdvertisingParametersRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAdvertisingParameters(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertisingSetSetPeriodicAdvertisingDataCmd = &cobra.Command{
-	Use:   "set-periodic-advertising-data",
-	Short: "SetPeriodicAdvertisingData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertisingSetServiceClient(grpcConn)
-		req := &pb.SetPeriodicAdvertisingDataRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPeriodicAdvertisingData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertisingSetSetPeriodicAdvertisingEnabledCmd = &cobra.Command{
-	Use:   "set-periodic-advertising-enabled",
-	Short: "SetPeriodicAdvertisingEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertisingSetServiceClient(grpcConn)
-		req := &pb.SetPeriodicAdvertisingEnabledRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPeriodicAdvertisingEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertisingSetSetPeriodicAdvertisingParametersCmd = &cobra.Command{
-	Use:   "set-periodic-advertising-parameters",
-	Short: "SetPeriodicAdvertisingParameters RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertisingSetServiceClient(grpcConn)
-		req := &pb.SetPeriodicAdvertisingParametersRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPeriodicAdvertisingParameters(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leAdvertisingSetSetScanResponseDataCmd = &cobra.Command{
-	Use:   "set-scan-response-data",
-	Short: "SetScanResponseData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAdvertisingSetServiceClient(grpcConn)
-		req := &pb.SetScanResponseDataRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetScanResponseData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var leScanFilterCmd = &cobra.Command{
 	Use:   "scan-filter",
 	Short: "ScanFilterService operations",
@@ -2633,6 +644,87 @@ var leScanFilterBuilderSetServiceUuid2_1Cmd = &cobra.Command{
 	},
 }
 
+var leBluetoothLeScannerCmd = &cobra.Command{
+	Use:   "bluetooth-le-scanner",
+	Short: "BluetoothLeScannerService operations",
+}
+
+var leBluetoothLeScannerFlushPendingScanResultsCmd = &cobra.Command{
+	Use:   "flush-pending-scan-results",
+	Short: "FlushPendingScanResults RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBluetoothLeScannerServiceClient(grpcConn)
+		req := &pb.FlushPendingScanResultsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.FlushPendingScanResults(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leBluetoothLeScannerStartScanCmd = &cobra.Command{
+	Use:   "start-scan",
+	Short: "StartScan RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBluetoothLeScannerServiceClient(grpcConn)
+		req := &pb.StartScanRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.StartScan(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leBluetoothLeScannerStopScan1Cmd = &cobra.Command{
+	Use:   "stop-scan1",
+	Short: "StopScan1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBluetoothLeScannerServiceClient(grpcConn)
+		req := &pb.StopScan1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.StopScan1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leBluetoothLeScannerStopScan1_1Cmd = &cobra.Command{
+	Use:   "stop-scan1_1",
+	Short: "StopScan1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBluetoothLeScannerServiceClient(grpcConn)
+		req := &pb.StopScan1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.StopScan1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var leAdvertiseCallbackCmd = &cobra.Command{
 	Use:   "advertise-callback",
 	Short: "AdvertiseCallbackService operations",
@@ -2669,6 +761,381 @@ var leAdvertiseCallbackOnStartSuccessCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.OnStartSuccess(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leTransportDiscoveryDataCmd = &cobra.Command{
+	Use:   "transport-discovery-data",
+	Short: "TransportDiscoveryDataService operations",
+}
+
+var leTransportDiscoveryDataNewTransportDiscoveryDataCmd = &cobra.Command{
+	Use:   "new-transport-discovery-data",
+	Short: "NewTransportDiscoveryData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransportDiscoveryDataServiceClient(grpcConn)
+		req := &pb.NewTransportDiscoveryDataRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewTransportDiscoveryData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leTransportDiscoveryDataDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransportDiscoveryDataServiceClient(grpcConn)
+		req := &pb.TransportDiscoveryDataDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leTransportDiscoveryDataEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransportDiscoveryDataServiceClient(grpcConn)
+		req := &pb.TransportDiscoveryDataEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leTransportDiscoveryDataGetTransportBlocksCmd = &cobra.Command{
+	Use:   "get-transport-blocks",
+	Short: "GetTransportBlocks RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransportDiscoveryDataServiceClient(grpcConn)
+		req := &pb.GetTransportBlocksRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTransportBlocks(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leTransportDiscoveryDataGetTransportDataTypeCmd = &cobra.Command{
+	Use:   "get-transport-data-type",
+	Short: "GetTransportDataType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransportDiscoveryDataServiceClient(grpcConn)
+		req := &pb.GetTransportDataTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTransportDataType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leTransportDiscoveryDataHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransportDiscoveryDataServiceClient(grpcConn)
+		req := &pb.TransportDiscoveryDataHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leTransportDiscoveryDataToByteArrayCmd = &cobra.Command{
+	Use:   "to-byte-array",
+	Short: "ToByteArray RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransportDiscoveryDataServiceClient(grpcConn)
+		req := &pb.ToByteArrayRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToByteArray(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leTransportDiscoveryDataToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransportDiscoveryDataServiceClient(grpcConn)
+		req := &pb.TransportDiscoveryDataToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leTransportDiscoveryDataTotalBytesCmd = &cobra.Command{
+	Use:   "total-bytes",
+	Short: "TotalBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransportDiscoveryDataServiceClient(grpcConn)
+		req := &pb.TotalBytesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.TotalBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leTransportDiscoveryDataWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTransportDiscoveryDataServiceClient(grpcConn)
+		req := &pb.TransportDiscoveryDataWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanRecordCmd = &cobra.Command{
+	Use:   "scan-record",
+	Short: "ScanRecordService operations",
+}
+
+var leScanRecordGetAdvertiseFlagsCmd = &cobra.Command{
+	Use:   "get-advertise-flags",
+	Short: "GetAdvertiseFlags RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanRecordServiceClient(grpcConn)
+		req := &pb.GetAdvertiseFlagsRequest{}
+		resp, err := client.GetAdvertiseFlags(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanRecordGetBytesCmd = &cobra.Command{
+	Use:   "get-bytes",
+	Short: "GetBytes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanRecordServiceClient(grpcConn)
+		req := &pb.GetBytesRequest{}
+		resp, err := client.GetBytes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanRecordGetDeviceNameCmd = &cobra.Command{
+	Use:   "get-device-name",
+	Short: "GetDeviceName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanRecordServiceClient(grpcConn)
+		req := &pb.GetDeviceNameRequest{}
+		resp, err := client.GetDeviceName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanRecordGetManufacturerSpecificData0Cmd = &cobra.Command{
+	Use:   "get-manufacturer-specific-data0",
+	Short: "GetManufacturerSpecificData0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanRecordServiceClient(grpcConn)
+		req := &pb.GetManufacturerSpecificData0Request{}
+		resp, err := client.GetManufacturerSpecificData0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanRecordGetManufacturerSpecificData1_1Cmd = &cobra.Command{
+	Use:   "get-manufacturer-specific-data1_1",
+	Short: "GetManufacturerSpecificData1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanRecordServiceClient(grpcConn)
+		req := &pb.GetManufacturerSpecificData1_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetManufacturerSpecificData1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanRecordGetServiceDataCmd = &cobra.Command{
+	Use:   "get-service-data",
+	Short: "GetServiceData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanRecordServiceClient(grpcConn)
+		req := &pb.ScanRecordGetServiceDataRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetServiceData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanRecordGetServiceSolicitationUuidsCmd = &cobra.Command{
+	Use:   "get-service-solicitation-uuids",
+	Short: "GetServiceSolicitationUuids RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanRecordServiceClient(grpcConn)
+		req := &pb.GetServiceSolicitationUuidsRequest{}
+		resp, err := client.GetServiceSolicitationUuids(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanRecordGetServiceUuidsCmd = &cobra.Command{
+	Use:   "get-service-uuids",
+	Short: "GetServiceUuids RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanRecordServiceClient(grpcConn)
+		req := &pb.GetServiceUuidsRequest{}
+		resp, err := client.GetServiceUuids(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanRecordGetTxPowerLevelCmd = &cobra.Command{
+	Use:   "get-tx-power-level",
+	Short: "GetTxPowerLevel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanRecordServiceClient(grpcConn)
+		req := &pb.GetTxPowerLevelRequest{}
+		resp, err := client.GetTxPowerLevel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanRecordToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanRecordServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2888,6 +1355,937 @@ var leAdvertisingSetCallbackOnScanResponseDataSetCmd = &cobra.Command{
 	},
 }
 
+var leScanResultCmd = &cobra.Command{
+	Use:   "scan-result",
+	Short: "ScanResultService operations",
+}
+
+var leScanResultNewScanResultCmd = &cobra.Command{
+	Use:   "new-scan-result",
+	Short: "NewScanResult RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanResultServiceClient(grpcConn)
+		req := &pb.NewScanResultRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.NewScanResult(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanResultDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanResultServiceClient(grpcConn)
+		req := &pb.ScanResultDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanResultEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanResultServiceClient(grpcConn)
+		req := &pb.ScanResultEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanResultGetAdvertisingSidCmd = &cobra.Command{
+	Use:   "get-advertising-sid",
+	Short: "GetAdvertisingSid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanResultServiceClient(grpcConn)
+		req := &pb.GetAdvertisingSidRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetAdvertisingSid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanResultGetDataStatusCmd = &cobra.Command{
+	Use:   "get-data-status",
+	Short: "GetDataStatus RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanResultServiceClient(grpcConn)
+		req := &pb.GetDataStatusRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDataStatus(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanResultGetDeviceCmd = &cobra.Command{
+	Use:   "get-device",
+	Short: "GetDevice RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanResultServiceClient(grpcConn)
+		req := &pb.GetDeviceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDevice(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanResultGetPeriodicAdvertisingIntervalCmd = &cobra.Command{
+	Use:   "get-periodic-advertising-interval",
+	Short: "GetPeriodicAdvertisingInterval RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanResultServiceClient(grpcConn)
+		req := &pb.GetPeriodicAdvertisingIntervalRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPeriodicAdvertisingInterval(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanResultGetPrimaryPhyCmd = &cobra.Command{
+	Use:   "get-primary-phy",
+	Short: "GetPrimaryPhy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanResultServiceClient(grpcConn)
+		req := &pb.GetPrimaryPhyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPrimaryPhy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanResultGetRssiCmd = &cobra.Command{
+	Use:   "get-rssi",
+	Short: "GetRssi RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanResultServiceClient(grpcConn)
+		req := &pb.GetRssiRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetRssi(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanResultGetScanRecordCmd = &cobra.Command{
+	Use:   "get-scan-record",
+	Short: "GetScanRecord RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanResultServiceClient(grpcConn)
+		req := &pb.GetScanRecordRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetScanRecord(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanResultGetSecondaryPhyCmd = &cobra.Command{
+	Use:   "get-secondary-phy",
+	Short: "GetSecondaryPhy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanResultServiceClient(grpcConn)
+		req := &pb.GetSecondaryPhyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSecondaryPhy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanResultGetTimestampNanosCmd = &cobra.Command{
+	Use:   "get-timestamp-nanos",
+	Short: "GetTimestampNanos RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanResultServiceClient(grpcConn)
+		req := &pb.GetTimestampNanosRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTimestampNanos(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanResultGetTxPowerCmd = &cobra.Command{
+	Use:   "get-tx-power",
+	Short: "GetTxPower RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanResultServiceClient(grpcConn)
+		req := &pb.GetTxPowerRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTxPower(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanResultHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanResultServiceClient(grpcConn)
+		req := &pb.ScanResultHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanResultIsConnectableCmd = &cobra.Command{
+	Use:   "is-connectable",
+	Short: "IsConnectable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanResultServiceClient(grpcConn)
+		req := &pb.IsConnectableRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsConnectable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanResultIsLegacyCmd = &cobra.Command{
+	Use:   "is-legacy",
+	Short: "IsLegacy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanResultServiceClient(grpcConn)
+		req := &pb.IsLegacyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsLegacy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanResultToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanResultServiceClient(grpcConn)
+		req := &pb.ScanResultToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanResultWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanResultServiceClient(grpcConn)
+		req := &pb.ScanResultWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leBluetoothLeAdvertiserCmd = &cobra.Command{
+	Use:   "bluetooth-le-advertiser",
+	Short: "BluetoothLeAdvertiserService operations",
+}
+
+var leBluetoothLeAdvertiserStartAdvertising3Cmd = &cobra.Command{
+	Use:   "start-advertising3",
+	Short: "StartAdvertising3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBluetoothLeAdvertiserServiceClient(grpcConn)
+		req := &pb.StartAdvertising3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.StartAdvertising3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leBluetoothLeAdvertiserStartAdvertising4_1Cmd = &cobra.Command{
+	Use:   "start-advertising4_1",
+	Short: "StartAdvertising4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBluetoothLeAdvertiserServiceClient(grpcConn)
+		req := &pb.StartAdvertising4_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.StartAdvertising4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leBluetoothLeAdvertiserStartAdvertisingSet6Cmd = &cobra.Command{
+	Use:   "start-advertising-set6",
+	Short: "StartAdvertisingSet6 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBluetoothLeAdvertiserServiceClient(grpcConn)
+		req := &pb.StartAdvertisingSet6Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.StartAdvertisingSet6(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leBluetoothLeAdvertiserStartAdvertisingSet8_1Cmd = &cobra.Command{
+	Use:   "start-advertising-set8_1",
+	Short: "StartAdvertisingSet8_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBluetoothLeAdvertiserServiceClient(grpcConn)
+		req := &pb.StartAdvertisingSet8_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg7"); err == nil {
+			req.Arg7 = v
+		}
+		resp, err := client.StartAdvertisingSet8_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leBluetoothLeAdvertiserStopAdvertisingCmd = &cobra.Command{
+	Use:   "stop-advertising",
+	Short: "StopAdvertising RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBluetoothLeAdvertiserServiceClient(grpcConn)
+		req := &pb.StopAdvertisingRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.StopAdvertising(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leBluetoothLeAdvertiserStopAdvertisingSetCmd = &cobra.Command{
+	Use:   "stop-advertising-set",
+	Short: "StopAdvertisingSet RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBluetoothLeAdvertiserServiceClient(grpcConn)
+		req := &pb.StopAdvertisingSetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.StopAdvertisingSet(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertiseDataCmd = &cobra.Command{
+	Use:   "advertise-data",
+	Short: "AdvertiseDataService operations",
+}
+
+var leAdvertiseDataDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertiseDataServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertiseDataEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertiseDataServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertiseDataGetIncludeDeviceNameCmd = &cobra.Command{
+	Use:   "get-include-device-name",
+	Short: "GetIncludeDeviceName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertiseDataServiceClient(grpcConn)
+		req := &pb.GetIncludeDeviceNameRequest{}
+		resp, err := client.GetIncludeDeviceName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertiseDataGetIncludeTxPowerLevelCmd = &cobra.Command{
+	Use:   "get-include-tx-power-level",
+	Short: "GetIncludeTxPowerLevel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertiseDataServiceClient(grpcConn)
+		req := &pb.GetIncludeTxPowerLevelRequest{}
+		resp, err := client.GetIncludeTxPowerLevel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertiseDataGetManufacturerSpecificDataCmd = &cobra.Command{
+	Use:   "get-manufacturer-specific-data",
+	Short: "GetManufacturerSpecificData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertiseDataServiceClient(grpcConn)
+		req := &pb.GetManufacturerSpecificDataRequest{}
+		resp, err := client.GetManufacturerSpecificData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertiseDataGetServiceSolicitationUuidsCmd = &cobra.Command{
+	Use:   "get-service-solicitation-uuids",
+	Short: "GetServiceSolicitationUuids RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertiseDataServiceClient(grpcConn)
+		req := &pb.GetServiceSolicitationUuidsRequest{}
+		resp, err := client.GetServiceSolicitationUuids(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertiseDataGetServiceUuidsCmd = &cobra.Command{
+	Use:   "get-service-uuids",
+	Short: "GetServiceUuids RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertiseDataServiceClient(grpcConn)
+		req := &pb.GetServiceUuidsRequest{}
+		resp, err := client.GetServiceUuids(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertiseDataGetTransportDiscoveryDataCmd = &cobra.Command{
+	Use:   "get-transport-discovery-data",
+	Short: "GetTransportDiscoveryData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertiseDataServiceClient(grpcConn)
+		req := &pb.GetTransportDiscoveryDataRequest{}
+		resp, err := client.GetTransportDiscoveryData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertiseDataHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertiseDataServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertiseDataToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertiseDataServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertiseDataWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertiseDataServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertiseDataBuilderCmd = &cobra.Command{
+	Use:   "advertise-data-builder",
+	Short: "AdvertiseDataBuilderService operations",
+}
+
+var leAdvertiseDataBuilderAddManufacturerDataCmd = &cobra.Command{
+	Use:   "add-manufacturer-data",
+	Short: "AddManufacturerData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertiseDataBuilderServiceClient(grpcConn)
+		req := &pb.AddManufacturerDataRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AddManufacturerData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertiseDataBuilderAddServiceDataCmd = &cobra.Command{
+	Use:   "add-service-data",
+	Short: "AddServiceData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertiseDataBuilderServiceClient(grpcConn)
+		req := &pb.AddServiceDataRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AddServiceData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertiseDataBuilderAddServiceSolicitationUuidCmd = &cobra.Command{
+	Use:   "add-service-solicitation-uuid",
+	Short: "AddServiceSolicitationUuid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertiseDataBuilderServiceClient(grpcConn)
+		req := &pb.AddServiceSolicitationUuidRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddServiceSolicitationUuid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertiseDataBuilderAddServiceUuidCmd = &cobra.Command{
+	Use:   "add-service-uuid",
+	Short: "AddServiceUuid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertiseDataBuilderServiceClient(grpcConn)
+		req := &pb.AddServiceUuidRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddServiceUuid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertiseDataBuilderAddTransportDiscoveryDataCmd = &cobra.Command{
+	Use:   "add-transport-discovery-data",
+	Short: "AddTransportDiscoveryData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertiseDataBuilderServiceClient(grpcConn)
+		req := &pb.AddTransportDiscoveryDataRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddTransportDiscoveryData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertiseDataBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertiseDataBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertiseDataBuilderSetIncludeDeviceNameCmd = &cobra.Command{
+	Use:   "set-include-device-name",
+	Short: "SetIncludeDeviceName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertiseDataBuilderServiceClient(grpcConn)
+		req := &pb.SetIncludeDeviceNameRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetIncludeDeviceName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertiseDataBuilderSetIncludeTxPowerLevelCmd = &cobra.Command{
+	Use:   "set-include-tx-power-level",
+	Short: "SetIncludeTxPowerLevel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertiseDataBuilderServiceClient(grpcConn)
+		req := &pb.SetIncludeTxPowerLevelRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetIncludeTxPowerLevel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanCallbackCmd = &cobra.Command{
+	Use:   "scan-callback",
+	Short: "ScanCallbackService operations",
+}
+
+var leScanCallbackOnScanFailedCmd = &cobra.Command{
+	Use:   "on-scan-failed",
+	Short: "OnScanFailed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanCallbackServiceClient(grpcConn)
+		req := &pb.OnScanFailedRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnScanFailed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanCallbackOnScanResultCmd = &cobra.Command{
+	Use:   "on-scan-result",
+	Short: "OnScanResult RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanCallbackServiceClient(grpcConn)
+		req := &pb.OnScanResultRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnScanResult(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var lePeriodicAdvertisingParametersCmd = &cobra.Command{
 	Use:   "periodic-advertising-parameters",
 	Short: "PeriodicAdvertisingParametersService operations",
@@ -3015,314 +2413,6 @@ var lePeriodicAdvertisingParametersBuilderSetIntervalCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.SetInterval(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leTransportDiscoveryDataCmd = &cobra.Command{
-	Use:   "transport-discovery-data",
-	Short: "TransportDiscoveryDataService operations",
-}
-
-var leTransportDiscoveryDataNewTransportDiscoveryDataCmd = &cobra.Command{
-	Use:   "new-transport-discovery-data",
-	Short: "NewTransportDiscoveryData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransportDiscoveryDataServiceClient(grpcConn)
-		req := &pb.NewTransportDiscoveryDataRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewTransportDiscoveryData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leTransportDiscoveryDataDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransportDiscoveryDataServiceClient(grpcConn)
-		req := &pb.TransportDiscoveryDataDescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leTransportDiscoveryDataEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransportDiscoveryDataServiceClient(grpcConn)
-		req := &pb.TransportDiscoveryDataEqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leTransportDiscoveryDataGetTransportDataTypeCmd = &cobra.Command{
-	Use:   "get-transport-data-type",
-	Short: "GetTransportDataType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransportDiscoveryDataServiceClient(grpcConn)
-		req := &pb.GetTransportDataTypeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetTransportDataType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leTransportDiscoveryDataHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransportDiscoveryDataServiceClient(grpcConn)
-		req := &pb.TransportDiscoveryDataHashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leTransportDiscoveryDataToByteArrayCmd = &cobra.Command{
-	Use:   "to-byte-array",
-	Short: "ToByteArray RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransportDiscoveryDataServiceClient(grpcConn)
-		req := &pb.ToByteArrayRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToByteArray(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leTransportDiscoveryDataToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransportDiscoveryDataServiceClient(grpcConn)
-		req := &pb.TransportDiscoveryDataToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leTransportDiscoveryDataTotalBytesCmd = &cobra.Command{
-	Use:   "total-bytes",
-	Short: "TotalBytes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransportDiscoveryDataServiceClient(grpcConn)
-		req := &pb.TotalBytesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.TotalBytes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leTransportDiscoveryDataWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransportDiscoveryDataServiceClient(grpcConn)
-		req := &pb.TransportDiscoveryDataWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanRecordCmd = &cobra.Command{
-	Use:   "scan-record",
-	Short: "ScanRecordService operations",
-}
-
-var leScanRecordGetAdvertiseFlagsCmd = &cobra.Command{
-	Use:   "get-advertise-flags",
-	Short: "GetAdvertiseFlags RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanRecordServiceClient(grpcConn)
-		req := &pb.GetAdvertiseFlagsRequest{}
-		resp, err := client.GetAdvertiseFlags(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanRecordGetBytesCmd = &cobra.Command{
-	Use:   "get-bytes",
-	Short: "GetBytes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanRecordServiceClient(grpcConn)
-		req := &pb.GetBytesRequest{}
-		resp, err := client.GetBytes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanRecordGetDeviceNameCmd = &cobra.Command{
-	Use:   "get-device-name",
-	Short: "GetDeviceName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanRecordServiceClient(grpcConn)
-		req := &pb.GetDeviceNameRequest{}
-		resp, err := client.GetDeviceName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanRecordGetManufacturerSpecificDataCmd = &cobra.Command{
-	Use:   "get-manufacturer-specific-data",
-	Short: "GetManufacturerSpecificData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanRecordServiceClient(grpcConn)
-		req := &pb.GetManufacturerSpecificDataRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetManufacturerSpecificData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanRecordGetServiceDataCmd = &cobra.Command{
-	Use:   "get-service-data",
-	Short: "GetServiceData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanRecordServiceClient(grpcConn)
-		req := &pb.ScanRecordGetServiceDataRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetServiceData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanRecordGetTxPowerLevelCmd = &cobra.Command{
-	Use:   "get-tx-power-level",
-	Short: "GetTxPowerLevel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanRecordServiceClient(grpcConn)
-		req := &pb.GetTxPowerLevelRequest{}
-		resp, err := client.GetTxPowerLevel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var leScanRecordToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScanRecordServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3562,23 +2652,29 @@ var leTransportBlockWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var leBluetoothLeScannerCmd = &cobra.Command{
-	Use:   "bluetooth-le-scanner",
-	Short: "BluetoothLeScannerService operations",
+var leAdvertisingSetCmd = &cobra.Command{
+	Use:   "advertising-set",
+	Short: "AdvertisingSetService operations",
 }
 
-var leBluetoothLeScannerFlushPendingScanResultsCmd = &cobra.Command{
-	Use:   "flush-pending-scan-results",
-	Short: "FlushPendingScanResults RPC",
+var leAdvertisingSetEnableAdvertisingCmd = &cobra.Command{
+	Use:   "enable-advertising",
+	Short: "EnableAdvertising RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBluetoothLeScannerServiceClient(grpcConn)
-		req := &pb.FlushPendingScanResultsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+		client := pb.NewAdvertisingSetServiceClient(grpcConn)
+		req := &pb.EnableAdvertisingRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.FlushPendingScanResults(ctx, req)
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.EnableAdvertising(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3586,18 +2682,18 @@ var leBluetoothLeScannerFlushPendingScanResultsCmd = &cobra.Command{
 	},
 }
 
-var leBluetoothLeScannerStartScanCmd = &cobra.Command{
-	Use:   "start-scan",
-	Short: "StartScan RPC",
+var leAdvertisingSetSetAdvertisingDataCmd = &cobra.Command{
+	Use:   "set-advertising-data",
+	Short: "SetAdvertisingData RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBluetoothLeScannerServiceClient(grpcConn)
-		req := &pb.StartScanRequest{}
+		client := pb.NewAdvertisingSetServiceClient(grpcConn)
+		req := &pb.SetAdvertisingDataRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.StartScan(ctx, req)
+		resp, err := client.SetAdvertisingData(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3605,18 +2701,18 @@ var leBluetoothLeScannerStartScanCmd = &cobra.Command{
 	},
 }
 
-var leBluetoothLeScannerStopScan1Cmd = &cobra.Command{
-	Use:   "stop-scan1",
-	Short: "StopScan1 RPC",
+var leAdvertisingSetSetAdvertisingParametersCmd = &cobra.Command{
+	Use:   "set-advertising-parameters",
+	Short: "SetAdvertisingParameters RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBluetoothLeScannerServiceClient(grpcConn)
-		req := &pb.StopScan1Request{}
+		client := pb.NewAdvertisingSetServiceClient(grpcConn)
+		req := &pb.SetAdvertisingParametersRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.StopScan1(ctx, req)
+		resp, err := client.SetAdvertisingParameters(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3624,18 +2720,1053 @@ var leBluetoothLeScannerStopScan1Cmd = &cobra.Command{
 	},
 }
 
-var leBluetoothLeScannerStopScan1_1Cmd = &cobra.Command{
-	Use:   "stop-scan1_1",
-	Short: "StopScan1_1 RPC",
+var leAdvertisingSetSetPeriodicAdvertisingDataCmd = &cobra.Command{
+	Use:   "set-periodic-advertising-data",
+	Short: "SetPeriodicAdvertisingData RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBluetoothLeScannerServiceClient(grpcConn)
-		req := &pb.StopScan1_1Request{}
+		client := pb.NewAdvertisingSetServiceClient(grpcConn)
+		req := &pb.SetPeriodicAdvertisingDataRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.StopScan1_1(ctx, req)
+		resp, err := client.SetPeriodicAdvertisingData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertisingSetSetPeriodicAdvertisingEnabledCmd = &cobra.Command{
+	Use:   "set-periodic-advertising-enabled",
+	Short: "SetPeriodicAdvertisingEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertisingSetServiceClient(grpcConn)
+		req := &pb.SetPeriodicAdvertisingEnabledRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPeriodicAdvertisingEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertisingSetSetPeriodicAdvertisingParametersCmd = &cobra.Command{
+	Use:   "set-periodic-advertising-parameters",
+	Short: "SetPeriodicAdvertisingParameters RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertisingSetServiceClient(grpcConn)
+		req := &pb.SetPeriodicAdvertisingParametersRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPeriodicAdvertisingParameters(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertisingSetSetScanResponseDataCmd = &cobra.Command{
+	Use:   "set-scan-response-data",
+	Short: "SetScanResponseData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertisingSetServiceClient(grpcConn)
+		req := &pb.SetScanResponseDataRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetScanResponseData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertiseSettingsCmd = &cobra.Command{
+	Use:   "advertise-settings",
+	Short: "AdvertiseSettingsService operations",
+}
+
+var leAdvertiseSettingsDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertiseSettingsServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertiseSettingsGetModeCmd = &cobra.Command{
+	Use:   "get-mode",
+	Short: "GetMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertiseSettingsServiceClient(grpcConn)
+		req := &pb.GetModeRequest{}
+		resp, err := client.GetMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertiseSettingsGetTimeoutCmd = &cobra.Command{
+	Use:   "get-timeout",
+	Short: "GetTimeout RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertiseSettingsServiceClient(grpcConn)
+		req := &pb.GetTimeoutRequest{}
+		resp, err := client.GetTimeout(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertiseSettingsGetTxPowerLevelCmd = &cobra.Command{
+	Use:   "get-tx-power-level",
+	Short: "GetTxPowerLevel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertiseSettingsServiceClient(grpcConn)
+		req := &pb.GetTxPowerLevelRequest{}
+		resp, err := client.GetTxPowerLevel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertiseSettingsIsConnectableCmd = &cobra.Command{
+	Use:   "is-connectable",
+	Short: "IsConnectable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertiseSettingsServiceClient(grpcConn)
+		req := &pb.AdvertiseSettingsIsConnectableRequest{}
+		resp, err := client.IsConnectable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertiseSettingsIsDiscoverableCmd = &cobra.Command{
+	Use:   "is-discoverable",
+	Short: "IsDiscoverable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertiseSettingsServiceClient(grpcConn)
+		req := &pb.IsDiscoverableRequest{}
+		resp, err := client.IsDiscoverable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertiseSettingsToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertiseSettingsServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertiseSettingsWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertiseSettingsServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertiseSettingsBuilderCmd = &cobra.Command{
+	Use:   "advertise-settings-builder",
+	Short: "AdvertiseSettingsBuilderService operations",
+}
+
+var leAdvertiseSettingsBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertiseSettingsBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertiseSettingsBuilderSetAdvertiseModeCmd = &cobra.Command{
+	Use:   "set-advertise-mode",
+	Short: "SetAdvertiseMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertiseSettingsBuilderServiceClient(grpcConn)
+		req := &pb.SetAdvertiseModeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAdvertiseMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertiseSettingsBuilderSetConnectableCmd = &cobra.Command{
+	Use:   "set-connectable",
+	Short: "SetConnectable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertiseSettingsBuilderServiceClient(grpcConn)
+		req := &pb.SetConnectableRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetConnectable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertiseSettingsBuilderSetDiscoverableCmd = &cobra.Command{
+	Use:   "set-discoverable",
+	Short: "SetDiscoverable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertiseSettingsBuilderServiceClient(grpcConn)
+		req := &pb.SetDiscoverableRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDiscoverable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertiseSettingsBuilderSetTimeoutCmd = &cobra.Command{
+	Use:   "set-timeout",
+	Short: "SetTimeout RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertiseSettingsBuilderServiceClient(grpcConn)
+		req := &pb.SetTimeoutRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTimeout(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertiseSettingsBuilderSetTxPowerLevelCmd = &cobra.Command{
+	Use:   "set-tx-power-level",
+	Short: "SetTxPowerLevel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertiseSettingsBuilderServiceClient(grpcConn)
+		req := &pb.SetTxPowerLevelRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTxPowerLevel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanSettingsCmd = &cobra.Command{
+	Use:   "scan-settings",
+	Short: "ScanSettingsService operations",
+}
+
+var leScanSettingsDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanSettingsServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanSettingsGetCallbackTypeCmd = &cobra.Command{
+	Use:   "get-callback-type",
+	Short: "GetCallbackType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanSettingsServiceClient(grpcConn)
+		req := &pb.GetCallbackTypeRequest{}
+		resp, err := client.GetCallbackType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanSettingsGetLegacyCmd = &cobra.Command{
+	Use:   "get-legacy",
+	Short: "GetLegacy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanSettingsServiceClient(grpcConn)
+		req := &pb.GetLegacyRequest{}
+		resp, err := client.GetLegacy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanSettingsGetPhyCmd = &cobra.Command{
+	Use:   "get-phy",
+	Short: "GetPhy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanSettingsServiceClient(grpcConn)
+		req := &pb.GetPhyRequest{}
+		resp, err := client.GetPhy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanSettingsGetReportDelayMillisCmd = &cobra.Command{
+	Use:   "get-report-delay-millis",
+	Short: "GetReportDelayMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanSettingsServiceClient(grpcConn)
+		req := &pb.GetReportDelayMillisRequest{}
+		resp, err := client.GetReportDelayMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanSettingsGetScanModeCmd = &cobra.Command{
+	Use:   "get-scan-mode",
+	Short: "GetScanMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanSettingsServiceClient(grpcConn)
+		req := &pb.GetScanModeRequest{}
+		resp, err := client.GetScanMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanSettingsGetScanResultTypeCmd = &cobra.Command{
+	Use:   "get-scan-result-type",
+	Short: "GetScanResultType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanSettingsServiceClient(grpcConn)
+		req := &pb.GetScanResultTypeRequest{}
+		resp, err := client.GetScanResultType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanSettingsWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanSettingsServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanSettingsBuilderCmd = &cobra.Command{
+	Use:   "scan-settings-builder",
+	Short: "ScanSettingsBuilderService operations",
+}
+
+var leScanSettingsBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanSettingsBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanSettingsBuilderSetCallbackTypeCmd = &cobra.Command{
+	Use:   "set-callback-type",
+	Short: "SetCallbackType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanSettingsBuilderServiceClient(grpcConn)
+		req := &pb.SetCallbackTypeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCallbackType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanSettingsBuilderSetLegacyCmd = &cobra.Command{
+	Use:   "set-legacy",
+	Short: "SetLegacy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanSettingsBuilderServiceClient(grpcConn)
+		req := &pb.SetLegacyRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLegacy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanSettingsBuilderSetMatchModeCmd = &cobra.Command{
+	Use:   "set-match-mode",
+	Short: "SetMatchMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanSettingsBuilderServiceClient(grpcConn)
+		req := &pb.SetMatchModeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMatchMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanSettingsBuilderSetNumOfMatchesCmd = &cobra.Command{
+	Use:   "set-num-of-matches",
+	Short: "SetNumOfMatches RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanSettingsBuilderServiceClient(grpcConn)
+		req := &pb.SetNumOfMatchesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetNumOfMatches(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanSettingsBuilderSetPhyCmd = &cobra.Command{
+	Use:   "set-phy",
+	Short: "SetPhy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanSettingsBuilderServiceClient(grpcConn)
+		req := &pb.SetPhyRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPhy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanSettingsBuilderSetReportDelayCmd = &cobra.Command{
+	Use:   "set-report-delay",
+	Short: "SetReportDelay RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanSettingsBuilderServiceClient(grpcConn)
+		req := &pb.SetReportDelayRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetReportDelay(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leScanSettingsBuilderSetScanModeCmd = &cobra.Command{
+	Use:   "set-scan-mode",
+	Short: "SetScanMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScanSettingsBuilderServiceClient(grpcConn)
+		req := &pb.SetScanModeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetScanMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertisingSetParametersCmd = &cobra.Command{
+	Use:   "advertising-set-parameters",
+	Short: "AdvertisingSetParametersService operations",
+}
+
+var leAdvertisingSetParametersDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertisingSetParametersServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertisingSetParametersGetIntervalCmd = &cobra.Command{
+	Use:   "get-interval",
+	Short: "GetInterval RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertisingSetParametersServiceClient(grpcConn)
+		req := &pb.GetIntervalRequest{}
+		resp, err := client.GetInterval(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertisingSetParametersGetPrimaryPhyCmd = &cobra.Command{
+	Use:   "get-primary-phy",
+	Short: "GetPrimaryPhy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertisingSetParametersServiceClient(grpcConn)
+		req := &pb.AdvertisingSetParametersGetPrimaryPhyRequest{}
+		resp, err := client.GetPrimaryPhy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertisingSetParametersGetSecondaryPhyCmd = &cobra.Command{
+	Use:   "get-secondary-phy",
+	Short: "GetSecondaryPhy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertisingSetParametersServiceClient(grpcConn)
+		req := &pb.AdvertisingSetParametersGetSecondaryPhyRequest{}
+		resp, err := client.GetSecondaryPhy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertisingSetParametersGetTxPowerLevelCmd = &cobra.Command{
+	Use:   "get-tx-power-level",
+	Short: "GetTxPowerLevel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertisingSetParametersServiceClient(grpcConn)
+		req := &pb.GetTxPowerLevelRequest{}
+		resp, err := client.GetTxPowerLevel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertisingSetParametersIncludeTxPowerCmd = &cobra.Command{
+	Use:   "include-tx-power",
+	Short: "IncludeTxPower RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertisingSetParametersServiceClient(grpcConn)
+		req := &pb.IncludeTxPowerRequest{}
+		resp, err := client.IncludeTxPower(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertisingSetParametersIsAnonymousCmd = &cobra.Command{
+	Use:   "is-anonymous",
+	Short: "IsAnonymous RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertisingSetParametersServiceClient(grpcConn)
+		req := &pb.IsAnonymousRequest{}
+		resp, err := client.IsAnonymous(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertisingSetParametersIsConnectableCmd = &cobra.Command{
+	Use:   "is-connectable",
+	Short: "IsConnectable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertisingSetParametersServiceClient(grpcConn)
+		req := &pb.AdvertisingSetParametersIsConnectableRequest{}
+		resp, err := client.IsConnectable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertisingSetParametersIsDiscoverableCmd = &cobra.Command{
+	Use:   "is-discoverable",
+	Short: "IsDiscoverable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertisingSetParametersServiceClient(grpcConn)
+		req := &pb.IsDiscoverableRequest{}
+		resp, err := client.IsDiscoverable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertisingSetParametersIsLegacyCmd = &cobra.Command{
+	Use:   "is-legacy",
+	Short: "IsLegacy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertisingSetParametersServiceClient(grpcConn)
+		req := &pb.AdvertisingSetParametersIsLegacyRequest{}
+		resp, err := client.IsLegacy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertisingSetParametersIsScannableCmd = &cobra.Command{
+	Use:   "is-scannable",
+	Short: "IsScannable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertisingSetParametersServiceClient(grpcConn)
+		req := &pb.IsScannableRequest{}
+		resp, err := client.IsScannable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertisingSetParametersToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertisingSetParametersServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertisingSetParametersWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertisingSetParametersServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertisingSetParametersBuilderCmd = &cobra.Command{
+	Use:   "advertising-set-parameters-builder",
+	Short: "AdvertisingSetParametersBuilderService operations",
+}
+
+var leAdvertisingSetParametersBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertisingSetParametersBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertisingSetParametersBuilderSetAnonymousCmd = &cobra.Command{
+	Use:   "set-anonymous",
+	Short: "SetAnonymous RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertisingSetParametersBuilderServiceClient(grpcConn)
+		req := &pb.SetAnonymousRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAnonymous(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertisingSetParametersBuilderSetConnectableCmd = &cobra.Command{
+	Use:   "set-connectable",
+	Short: "SetConnectable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertisingSetParametersBuilderServiceClient(grpcConn)
+		req := &pb.SetConnectableRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetConnectable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertisingSetParametersBuilderSetDiscoverableCmd = &cobra.Command{
+	Use:   "set-discoverable",
+	Short: "SetDiscoverable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertisingSetParametersBuilderServiceClient(grpcConn)
+		req := &pb.SetDiscoverableRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDiscoverable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertisingSetParametersBuilderSetIncludeTxPowerCmd = &cobra.Command{
+	Use:   "set-include-tx-power",
+	Short: "SetIncludeTxPower RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertisingSetParametersBuilderServiceClient(grpcConn)
+		req := &pb.SetIncludeTxPowerRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetIncludeTxPower(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertisingSetParametersBuilderSetIntervalCmd = &cobra.Command{
+	Use:   "set-interval",
+	Short: "SetInterval RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertisingSetParametersBuilderServiceClient(grpcConn)
+		req := &pb.SetIntervalRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetInterval(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertisingSetParametersBuilderSetLegacyModeCmd = &cobra.Command{
+	Use:   "set-legacy-mode",
+	Short: "SetLegacyMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertisingSetParametersBuilderServiceClient(grpcConn)
+		req := &pb.SetLegacyModeRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLegacyMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertisingSetParametersBuilderSetPrimaryPhyCmd = &cobra.Command{
+	Use:   "set-primary-phy",
+	Short: "SetPrimaryPhy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertisingSetParametersBuilderServiceClient(grpcConn)
+		req := &pb.SetPrimaryPhyRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPrimaryPhy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertisingSetParametersBuilderSetScannableCmd = &cobra.Command{
+	Use:   "set-scannable",
+	Short: "SetScannable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertisingSetParametersBuilderServiceClient(grpcConn)
+		req := &pb.SetScannableRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetScannable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertisingSetParametersBuilderSetSecondaryPhyCmd = &cobra.Command{
+	Use:   "set-secondary-phy",
+	Short: "SetSecondaryPhy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertisingSetParametersBuilderServiceClient(grpcConn)
+		req := &pb.SetSecondaryPhyRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSecondaryPhy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var leAdvertisingSetParametersBuilderSetTxPowerLevelCmd = &cobra.Command{
+	Use:   "set-tx-power-level",
+	Short: "SetTxPowerLevel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAdvertisingSetParametersBuilderServiceClient(grpcConn)
+		req := &pb.SetTxPowerLevelRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTxPowerLevel(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3644,64 +3775,150 @@ var leBluetoothLeScannerStopScan1_1Cmd = &cobra.Command{
 }
 
 func init() {
-	leAdvertiseSettingsCmd.AddCommand(leAdvertiseSettingsDescribeContentsCmd)
-	leAdvertiseSettingsCmd.AddCommand(leAdvertiseSettingsGetModeCmd)
-	leAdvertiseSettingsCmd.AddCommand(leAdvertiseSettingsGetTimeoutCmd)
-	leAdvertiseSettingsCmd.AddCommand(leAdvertiseSettingsGetTxPowerLevelCmd)
-	leAdvertiseSettingsCmd.AddCommand(leAdvertiseSettingsIsConnectableCmd)
-	leAdvertiseSettingsCmd.AddCommand(leAdvertiseSettingsIsDiscoverableCmd)
-	leAdvertiseSettingsCmd.AddCommand(leAdvertiseSettingsToStringCmd)
-	leAdvertiseSettingsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leAdvertiseSettingsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	leAdvertiseSettingsCmd.AddCommand(leAdvertiseSettingsWriteToParcelCmd)
-	leCmd.AddCommand(leAdvertiseSettingsCmd)
-	leAdvertiseSettingsBuilderCmd.AddCommand(leAdvertiseSettingsBuilderBuildCmd)
-	leAdvertiseSettingsBuilderSetAdvertiseModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	leAdvertiseSettingsBuilderCmd.AddCommand(leAdvertiseSettingsBuilderSetAdvertiseModeCmd)
-	leAdvertiseSettingsBuilderSetConnectableCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	leAdvertiseSettingsBuilderCmd.AddCommand(leAdvertiseSettingsBuilderSetConnectableCmd)
-	leAdvertiseSettingsBuilderSetDiscoverableCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	leAdvertiseSettingsBuilderCmd.AddCommand(leAdvertiseSettingsBuilderSetDiscoverableCmd)
-	leAdvertiseSettingsBuilderSetTimeoutCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	leAdvertiseSettingsBuilderCmd.AddCommand(leAdvertiseSettingsBuilderSetTimeoutCmd)
-	leAdvertiseSettingsBuilderSetTxPowerLevelCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	leAdvertiseSettingsBuilderCmd.AddCommand(leAdvertiseSettingsBuilderSetTxPowerLevelCmd)
-	leCmd.AddCommand(leAdvertiseSettingsBuilderCmd)
-	leScanCallbackOnScanFailedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	leScanCallbackCmd.AddCommand(leScanCallbackOnScanFailedCmd)
-	leScanCallbackOnScanResultCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	leScanCallbackOnScanResultCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	leScanCallbackCmd.AddCommand(leScanCallbackOnScanResultCmd)
-	leCmd.AddCommand(leScanCallbackCmd)
-	leAdvertiseDataCmd.AddCommand(leAdvertiseDataDescribeContentsCmd)
-	leAdvertiseDataEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leAdvertiseDataCmd.AddCommand(leAdvertiseDataEqualsCmd)
-	leAdvertiseDataCmd.AddCommand(leAdvertiseDataGetIncludeDeviceNameCmd)
-	leAdvertiseDataCmd.AddCommand(leAdvertiseDataGetIncludeTxPowerLevelCmd)
-	leAdvertiseDataCmd.AddCommand(leAdvertiseDataHashCodeCmd)
-	leAdvertiseDataCmd.AddCommand(leAdvertiseDataToStringCmd)
-	leAdvertiseDataWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leAdvertiseDataWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	leAdvertiseDataCmd.AddCommand(leAdvertiseDataWriteToParcelCmd)
-	leCmd.AddCommand(leAdvertiseDataCmd)
-	leAdvertiseDataBuilderAddManufacturerDataCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	leAdvertiseDataBuilderAddManufacturerDataCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	leAdvertiseDataBuilderCmd.AddCommand(leAdvertiseDataBuilderAddManufacturerDataCmd)
-	leAdvertiseDataBuilderAddServiceDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leAdvertiseDataBuilderAddServiceDataCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	leAdvertiseDataBuilderCmd.AddCommand(leAdvertiseDataBuilderAddServiceDataCmd)
-	leAdvertiseDataBuilderAddServiceSolicitationUuidCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leAdvertiseDataBuilderCmd.AddCommand(leAdvertiseDataBuilderAddServiceSolicitationUuidCmd)
-	leAdvertiseDataBuilderAddServiceUuidCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leAdvertiseDataBuilderCmd.AddCommand(leAdvertiseDataBuilderAddServiceUuidCmd)
-	leAdvertiseDataBuilderAddTransportDiscoveryDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leAdvertiseDataBuilderCmd.AddCommand(leAdvertiseDataBuilderAddTransportDiscoveryDataCmd)
-	leAdvertiseDataBuilderCmd.AddCommand(leAdvertiseDataBuilderBuildCmd)
-	leAdvertiseDataBuilderSetIncludeDeviceNameCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	leAdvertiseDataBuilderCmd.AddCommand(leAdvertiseDataBuilderSetIncludeDeviceNameCmd)
-	leAdvertiseDataBuilderSetIncludeTxPowerLevelCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	leAdvertiseDataBuilderCmd.AddCommand(leAdvertiseDataBuilderSetIncludeTxPowerLevelCmd)
-	leCmd.AddCommand(leAdvertiseDataBuilderCmd)
+	leScanFilterCmd.AddCommand(leScanFilterDescribeContentsCmd)
+	leScanFilterEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leScanFilterCmd.AddCommand(leScanFilterEqualsCmd)
+	leScanFilterCmd.AddCommand(leScanFilterGetAdvertisingDataCmd)
+	leScanFilterCmd.AddCommand(leScanFilterGetAdvertisingDataMaskCmd)
+	leScanFilterCmd.AddCommand(leScanFilterGetAdvertisingDataTypeCmd)
+	leScanFilterCmd.AddCommand(leScanFilterGetDeviceAddressCmd)
+	leScanFilterCmd.AddCommand(leScanFilterGetDeviceNameCmd)
+	leScanFilterCmd.AddCommand(leScanFilterGetManufacturerDataCmd)
+	leScanFilterCmd.AddCommand(leScanFilterGetManufacturerDataMaskCmd)
+	leScanFilterCmd.AddCommand(leScanFilterGetManufacturerIdCmd)
+	leScanFilterCmd.AddCommand(leScanFilterGetServiceDataCmd)
+	leScanFilterCmd.AddCommand(leScanFilterGetServiceDataMaskCmd)
+	leScanFilterCmd.AddCommand(leScanFilterGetServiceDataUuidCmd)
+	leScanFilterCmd.AddCommand(leScanFilterGetServiceSolicitationUuidCmd)
+	leScanFilterCmd.AddCommand(leScanFilterGetServiceSolicitationUuidMaskCmd)
+	leScanFilterCmd.AddCommand(leScanFilterGetServiceUuidCmd)
+	leScanFilterCmd.AddCommand(leScanFilterGetServiceUuidMaskCmd)
+	leScanFilterCmd.AddCommand(leScanFilterHashCodeCmd)
+	leScanFilterMatchesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leScanFilterCmd.AddCommand(leScanFilterMatchesCmd)
+	leScanFilterCmd.AddCommand(leScanFilterToStringCmd)
+	leScanFilterWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leScanFilterWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	leScanFilterCmd.AddCommand(leScanFilterWriteToParcelCmd)
+	leCmd.AddCommand(leScanFilterCmd)
+	leScanFilterBuilderCmd.AddCommand(leScanFilterBuilderBuildCmd)
+	leScanFilterBuilderSetAdvertisingDataTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	leScanFilterBuilderCmd.AddCommand(leScanFilterBuilderSetAdvertisingDataTypeCmd)
+	leScanFilterBuilderSetAdvertisingDataTypeWithDataCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	leScanFilterBuilderSetAdvertisingDataTypeWithDataCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	leScanFilterBuilderSetAdvertisingDataTypeWithDataCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	leScanFilterBuilderCmd.AddCommand(leScanFilterBuilderSetAdvertisingDataTypeWithDataCmd)
+	leScanFilterBuilderSetDeviceAddressCmd.Flags().String("arg0", "", "arg0 (string)")
+	leScanFilterBuilderCmd.AddCommand(leScanFilterBuilderSetDeviceAddressCmd)
+	leScanFilterBuilderSetDeviceNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	leScanFilterBuilderCmd.AddCommand(leScanFilterBuilderSetDeviceNameCmd)
+	leScanFilterBuilderSetManufacturerData2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	leScanFilterBuilderSetManufacturerData2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	leScanFilterBuilderCmd.AddCommand(leScanFilterBuilderSetManufacturerData2Cmd)
+	leScanFilterBuilderSetManufacturerData3_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	leScanFilterBuilderSetManufacturerData3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	leScanFilterBuilderSetManufacturerData3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	leScanFilterBuilderCmd.AddCommand(leScanFilterBuilderSetManufacturerData3_1Cmd)
+	leScanFilterBuilderSetServiceData2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leScanFilterBuilderSetServiceData2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	leScanFilterBuilderCmd.AddCommand(leScanFilterBuilderSetServiceData2Cmd)
+	leScanFilterBuilderSetServiceData3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leScanFilterBuilderSetServiceData3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	leScanFilterBuilderSetServiceData3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	leScanFilterBuilderCmd.AddCommand(leScanFilterBuilderSetServiceData3_1Cmd)
+	leScanFilterBuilderSetServiceSolicitationUuid1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leScanFilterBuilderCmd.AddCommand(leScanFilterBuilderSetServiceSolicitationUuid1Cmd)
+	leScanFilterBuilderSetServiceSolicitationUuid2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leScanFilterBuilderSetServiceSolicitationUuid2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	leScanFilterBuilderCmd.AddCommand(leScanFilterBuilderSetServiceSolicitationUuid2_1Cmd)
+	leScanFilterBuilderSetServiceUuid1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leScanFilterBuilderCmd.AddCommand(leScanFilterBuilderSetServiceUuid1Cmd)
+	leScanFilterBuilderSetServiceUuid2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leScanFilterBuilderSetServiceUuid2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	leScanFilterBuilderCmd.AddCommand(leScanFilterBuilderSetServiceUuid2_1Cmd)
+	leCmd.AddCommand(leScanFilterBuilderCmd)
+	leBluetoothLeScannerFlushPendingScanResultsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leBluetoothLeScannerCmd.AddCommand(leBluetoothLeScannerFlushPendingScanResultsCmd)
+	leBluetoothLeScannerStartScanCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leBluetoothLeScannerCmd.AddCommand(leBluetoothLeScannerStartScanCmd)
+	leBluetoothLeScannerStopScan1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leBluetoothLeScannerCmd.AddCommand(leBluetoothLeScannerStopScan1Cmd)
+	leBluetoothLeScannerStopScan1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leBluetoothLeScannerCmd.AddCommand(leBluetoothLeScannerStopScan1_1Cmd)
+	leCmd.AddCommand(leBluetoothLeScannerCmd)
+	leAdvertiseCallbackOnStartFailureCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	leAdvertiseCallbackCmd.AddCommand(leAdvertiseCallbackOnStartFailureCmd)
+	leAdvertiseCallbackOnStartSuccessCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leAdvertiseCallbackCmd.AddCommand(leAdvertiseCallbackOnStartSuccessCmd)
+	leCmd.AddCommand(leAdvertiseCallbackCmd)
+	leTransportDiscoveryDataNewTransportDiscoveryDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leTransportDiscoveryDataCmd.AddCommand(leTransportDiscoveryDataNewTransportDiscoveryDataCmd)
+	leTransportDiscoveryDataDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	leTransportDiscoveryDataCmd.AddCommand(leTransportDiscoveryDataDescribeContentsCmd)
+	leTransportDiscoveryDataEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	leTransportDiscoveryDataEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leTransportDiscoveryDataCmd.AddCommand(leTransportDiscoveryDataEqualsCmd)
+	leTransportDiscoveryDataGetTransportBlocksCmd.Flags().Int64("handle", 0, "handle (int64)")
+	leTransportDiscoveryDataCmd.AddCommand(leTransportDiscoveryDataGetTransportBlocksCmd)
+	leTransportDiscoveryDataGetTransportDataTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	leTransportDiscoveryDataCmd.AddCommand(leTransportDiscoveryDataGetTransportDataTypeCmd)
+	leTransportDiscoveryDataHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	leTransportDiscoveryDataCmd.AddCommand(leTransportDiscoveryDataHashCodeCmd)
+	leTransportDiscoveryDataToByteArrayCmd.Flags().Int64("handle", 0, "handle (int64)")
+	leTransportDiscoveryDataCmd.AddCommand(leTransportDiscoveryDataToByteArrayCmd)
+	leTransportDiscoveryDataToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	leTransportDiscoveryDataCmd.AddCommand(leTransportDiscoveryDataToStringCmd)
+	leTransportDiscoveryDataTotalBytesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	leTransportDiscoveryDataCmd.AddCommand(leTransportDiscoveryDataTotalBytesCmd)
+	leTransportDiscoveryDataWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	leTransportDiscoveryDataWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leTransportDiscoveryDataWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	leTransportDiscoveryDataCmd.AddCommand(leTransportDiscoveryDataWriteToParcelCmd)
+	leCmd.AddCommand(leTransportDiscoveryDataCmd)
+	leScanRecordCmd.AddCommand(leScanRecordGetAdvertiseFlagsCmd)
+	leScanRecordCmd.AddCommand(leScanRecordGetBytesCmd)
+	leScanRecordCmd.AddCommand(leScanRecordGetDeviceNameCmd)
+	leScanRecordCmd.AddCommand(leScanRecordGetManufacturerSpecificData0Cmd)
+	leScanRecordGetManufacturerSpecificData1_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	leScanRecordCmd.AddCommand(leScanRecordGetManufacturerSpecificData1_1Cmd)
+	leScanRecordGetServiceDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leScanRecordCmd.AddCommand(leScanRecordGetServiceDataCmd)
+	leScanRecordCmd.AddCommand(leScanRecordGetServiceSolicitationUuidsCmd)
+	leScanRecordCmd.AddCommand(leScanRecordGetServiceUuidsCmd)
+	leScanRecordCmd.AddCommand(leScanRecordGetTxPowerLevelCmd)
+	leScanRecordCmd.AddCommand(leScanRecordToStringCmd)
+	leCmd.AddCommand(leScanRecordCmd)
+	leAdvertisingSetCallbackOnAdvertisingDataSetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leAdvertisingSetCallbackOnAdvertisingDataSetCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	leAdvertisingSetCallbackCmd.AddCommand(leAdvertisingSetCallbackOnAdvertisingDataSetCmd)
+	leAdvertisingSetCallbackOnAdvertisingEnabledCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leAdvertisingSetCallbackOnAdvertisingEnabledCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	leAdvertisingSetCallbackOnAdvertisingEnabledCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	leAdvertisingSetCallbackCmd.AddCommand(leAdvertisingSetCallbackOnAdvertisingEnabledCmd)
+	leAdvertisingSetCallbackOnAdvertisingParametersUpdatedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leAdvertisingSetCallbackOnAdvertisingParametersUpdatedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	leAdvertisingSetCallbackOnAdvertisingParametersUpdatedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	leAdvertisingSetCallbackCmd.AddCommand(leAdvertisingSetCallbackOnAdvertisingParametersUpdatedCmd)
+	leAdvertisingSetCallbackOnAdvertisingSetStartedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leAdvertisingSetCallbackOnAdvertisingSetStartedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	leAdvertisingSetCallbackOnAdvertisingSetStartedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	leAdvertisingSetCallbackCmd.AddCommand(leAdvertisingSetCallbackOnAdvertisingSetStartedCmd)
+	leAdvertisingSetCallbackOnAdvertisingSetStoppedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leAdvertisingSetCallbackCmd.AddCommand(leAdvertisingSetCallbackOnAdvertisingSetStoppedCmd)
+	leAdvertisingSetCallbackOnPeriodicAdvertisingDataSetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leAdvertisingSetCallbackOnPeriodicAdvertisingDataSetCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	leAdvertisingSetCallbackCmd.AddCommand(leAdvertisingSetCallbackOnPeriodicAdvertisingDataSetCmd)
+	leAdvertisingSetCallbackOnPeriodicAdvertisingEnabledCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leAdvertisingSetCallbackOnPeriodicAdvertisingEnabledCmd.Flags().Bool("arg1", false, "arg1 (bool)")
+	leAdvertisingSetCallbackOnPeriodicAdvertisingEnabledCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	leAdvertisingSetCallbackCmd.AddCommand(leAdvertisingSetCallbackOnPeriodicAdvertisingEnabledCmd)
+	leAdvertisingSetCallbackOnPeriodicAdvertisingParametersUpdatedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leAdvertisingSetCallbackOnPeriodicAdvertisingParametersUpdatedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	leAdvertisingSetCallbackCmd.AddCommand(leAdvertisingSetCallbackOnPeriodicAdvertisingParametersUpdatedCmd)
+	leAdvertisingSetCallbackOnScanResponseDataSetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leAdvertisingSetCallbackOnScanResponseDataSetCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	leAdvertisingSetCallbackCmd.AddCommand(leAdvertisingSetCallbackOnScanResponseDataSetCmd)
+	leCmd.AddCommand(leAdvertisingSetCallbackCmd)
 	leScanResultNewScanResultCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	leScanResultNewScanResultCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	leScanResultNewScanResultCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
@@ -3745,6 +3962,157 @@ func init() {
 	leScanResultWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	leScanResultCmd.AddCommand(leScanResultWriteToParcelCmd)
 	leCmd.AddCommand(leScanResultCmd)
+	leBluetoothLeAdvertiserStartAdvertising3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leBluetoothLeAdvertiserStartAdvertising3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	leBluetoothLeAdvertiserStartAdvertising3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	leBluetoothLeAdvertiserCmd.AddCommand(leBluetoothLeAdvertiserStartAdvertising3Cmd)
+	leBluetoothLeAdvertiserStartAdvertising4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leBluetoothLeAdvertiserStartAdvertising4_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	leBluetoothLeAdvertiserStartAdvertising4_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	leBluetoothLeAdvertiserStartAdvertising4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	leBluetoothLeAdvertiserCmd.AddCommand(leBluetoothLeAdvertiserStartAdvertising4_1Cmd)
+	leBluetoothLeAdvertiserStartAdvertisingSet6Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leBluetoothLeAdvertiserStartAdvertisingSet6Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	leBluetoothLeAdvertiserStartAdvertisingSet6Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	leBluetoothLeAdvertiserStartAdvertisingSet6Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	leBluetoothLeAdvertiserStartAdvertisingSet6Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	leBluetoothLeAdvertiserStartAdvertisingSet6Cmd.Flags().Int64("arg5", 0, "arg5 (int64)")
+	leBluetoothLeAdvertiserCmd.AddCommand(leBluetoothLeAdvertiserStartAdvertisingSet6Cmd)
+	leBluetoothLeAdvertiserStartAdvertisingSet8_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leBluetoothLeAdvertiserStartAdvertisingSet8_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	leBluetoothLeAdvertiserStartAdvertisingSet8_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	leBluetoothLeAdvertiserStartAdvertisingSet8_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	leBluetoothLeAdvertiserStartAdvertisingSet8_1Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	leBluetoothLeAdvertiserStartAdvertisingSet8_1Cmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	leBluetoothLeAdvertiserStartAdvertisingSet8_1Cmd.Flags().Int32("arg6", 0, "arg6 (int32)")
+	leBluetoothLeAdvertiserStartAdvertisingSet8_1Cmd.Flags().Int64("arg7", 0, "arg7 (int64)")
+	leBluetoothLeAdvertiserCmd.AddCommand(leBluetoothLeAdvertiserStartAdvertisingSet8_1Cmd)
+	leBluetoothLeAdvertiserStopAdvertisingCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leBluetoothLeAdvertiserCmd.AddCommand(leBluetoothLeAdvertiserStopAdvertisingCmd)
+	leBluetoothLeAdvertiserStopAdvertisingSetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leBluetoothLeAdvertiserCmd.AddCommand(leBluetoothLeAdvertiserStopAdvertisingSetCmd)
+	leCmd.AddCommand(leBluetoothLeAdvertiserCmd)
+	leAdvertiseDataCmd.AddCommand(leAdvertiseDataDescribeContentsCmd)
+	leAdvertiseDataEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leAdvertiseDataCmd.AddCommand(leAdvertiseDataEqualsCmd)
+	leAdvertiseDataCmd.AddCommand(leAdvertiseDataGetIncludeDeviceNameCmd)
+	leAdvertiseDataCmd.AddCommand(leAdvertiseDataGetIncludeTxPowerLevelCmd)
+	leAdvertiseDataCmd.AddCommand(leAdvertiseDataGetManufacturerSpecificDataCmd)
+	leAdvertiseDataCmd.AddCommand(leAdvertiseDataGetServiceSolicitationUuidsCmd)
+	leAdvertiseDataCmd.AddCommand(leAdvertiseDataGetServiceUuidsCmd)
+	leAdvertiseDataCmd.AddCommand(leAdvertiseDataGetTransportDiscoveryDataCmd)
+	leAdvertiseDataCmd.AddCommand(leAdvertiseDataHashCodeCmd)
+	leAdvertiseDataCmd.AddCommand(leAdvertiseDataToStringCmd)
+	leAdvertiseDataWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leAdvertiseDataWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	leAdvertiseDataCmd.AddCommand(leAdvertiseDataWriteToParcelCmd)
+	leCmd.AddCommand(leAdvertiseDataCmd)
+	leAdvertiseDataBuilderAddManufacturerDataCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	leAdvertiseDataBuilderAddManufacturerDataCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	leAdvertiseDataBuilderCmd.AddCommand(leAdvertiseDataBuilderAddManufacturerDataCmd)
+	leAdvertiseDataBuilderAddServiceDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leAdvertiseDataBuilderAddServiceDataCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	leAdvertiseDataBuilderCmd.AddCommand(leAdvertiseDataBuilderAddServiceDataCmd)
+	leAdvertiseDataBuilderAddServiceSolicitationUuidCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leAdvertiseDataBuilderCmd.AddCommand(leAdvertiseDataBuilderAddServiceSolicitationUuidCmd)
+	leAdvertiseDataBuilderAddServiceUuidCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leAdvertiseDataBuilderCmd.AddCommand(leAdvertiseDataBuilderAddServiceUuidCmd)
+	leAdvertiseDataBuilderAddTransportDiscoveryDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leAdvertiseDataBuilderCmd.AddCommand(leAdvertiseDataBuilderAddTransportDiscoveryDataCmd)
+	leAdvertiseDataBuilderCmd.AddCommand(leAdvertiseDataBuilderBuildCmd)
+	leAdvertiseDataBuilderSetIncludeDeviceNameCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	leAdvertiseDataBuilderCmd.AddCommand(leAdvertiseDataBuilderSetIncludeDeviceNameCmd)
+	leAdvertiseDataBuilderSetIncludeTxPowerLevelCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	leAdvertiseDataBuilderCmd.AddCommand(leAdvertiseDataBuilderSetIncludeTxPowerLevelCmd)
+	leCmd.AddCommand(leAdvertiseDataBuilderCmd)
+	leScanCallbackOnScanFailedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	leScanCallbackCmd.AddCommand(leScanCallbackOnScanFailedCmd)
+	leScanCallbackOnScanResultCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	leScanCallbackOnScanResultCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	leScanCallbackCmd.AddCommand(leScanCallbackOnScanResultCmd)
+	leCmd.AddCommand(leScanCallbackCmd)
+	lePeriodicAdvertisingParametersCmd.AddCommand(lePeriodicAdvertisingParametersDescribeContentsCmd)
+	lePeriodicAdvertisingParametersCmd.AddCommand(lePeriodicAdvertisingParametersGetIncludeTxPowerCmd)
+	lePeriodicAdvertisingParametersCmd.AddCommand(lePeriodicAdvertisingParametersGetIntervalCmd)
+	lePeriodicAdvertisingParametersWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	lePeriodicAdvertisingParametersWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	lePeriodicAdvertisingParametersCmd.AddCommand(lePeriodicAdvertisingParametersWriteToParcelCmd)
+	leCmd.AddCommand(lePeriodicAdvertisingParametersCmd)
+	lePeriodicAdvertisingParametersBuilderCmd.AddCommand(lePeriodicAdvertisingParametersBuilderBuildCmd)
+	lePeriodicAdvertisingParametersBuilderSetIncludeTxPowerCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	lePeriodicAdvertisingParametersBuilderCmd.AddCommand(lePeriodicAdvertisingParametersBuilderSetIncludeTxPowerCmd)
+	lePeriodicAdvertisingParametersBuilderSetIntervalCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	lePeriodicAdvertisingParametersBuilderCmd.AddCommand(lePeriodicAdvertisingParametersBuilderSetIntervalCmd)
+	leCmd.AddCommand(lePeriodicAdvertisingParametersBuilderCmd)
+	leTransportBlockNewTransportBlockCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	leTransportBlockNewTransportBlockCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	leTransportBlockNewTransportBlockCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	leTransportBlockNewTransportBlockCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	leTransportBlockCmd.AddCommand(leTransportBlockNewTransportBlockCmd)
+	leTransportBlockDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	leTransportBlockCmd.AddCommand(leTransportBlockDescribeContentsCmd)
+	leTransportBlockEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	leTransportBlockEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leTransportBlockCmd.AddCommand(leTransportBlockEqualsCmd)
+	leTransportBlockGetOrgIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	leTransportBlockCmd.AddCommand(leTransportBlockGetOrgIdCmd)
+	leTransportBlockGetTdsFlagsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	leTransportBlockCmd.AddCommand(leTransportBlockGetTdsFlagsCmd)
+	leTransportBlockGetTransportDataCmd.Flags().Int64("handle", 0, "handle (int64)")
+	leTransportBlockCmd.AddCommand(leTransportBlockGetTransportDataCmd)
+	leTransportBlockGetTransportDataLengthCmd.Flags().Int64("handle", 0, "handle (int64)")
+	leTransportBlockCmd.AddCommand(leTransportBlockGetTransportDataLengthCmd)
+	leTransportBlockHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	leTransportBlockCmd.AddCommand(leTransportBlockHashCodeCmd)
+	leTransportBlockToByteArrayCmd.Flags().Int64("handle", 0, "handle (int64)")
+	leTransportBlockCmd.AddCommand(leTransportBlockToByteArrayCmd)
+	leTransportBlockTotalBytesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	leTransportBlockCmd.AddCommand(leTransportBlockTotalBytesCmd)
+	leTransportBlockWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	leTransportBlockWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leTransportBlockWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	leTransportBlockCmd.AddCommand(leTransportBlockWriteToParcelCmd)
+	leCmd.AddCommand(leTransportBlockCmd)
+	leAdvertisingSetEnableAdvertisingCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	leAdvertisingSetEnableAdvertisingCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	leAdvertisingSetEnableAdvertisingCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	leAdvertisingSetCmd.AddCommand(leAdvertisingSetEnableAdvertisingCmd)
+	leAdvertisingSetSetAdvertisingDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leAdvertisingSetCmd.AddCommand(leAdvertisingSetSetAdvertisingDataCmd)
+	leAdvertisingSetSetAdvertisingParametersCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leAdvertisingSetCmd.AddCommand(leAdvertisingSetSetAdvertisingParametersCmd)
+	leAdvertisingSetSetPeriodicAdvertisingDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leAdvertisingSetCmd.AddCommand(leAdvertisingSetSetPeriodicAdvertisingDataCmd)
+	leAdvertisingSetSetPeriodicAdvertisingEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	leAdvertisingSetCmd.AddCommand(leAdvertisingSetSetPeriodicAdvertisingEnabledCmd)
+	leAdvertisingSetSetPeriodicAdvertisingParametersCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leAdvertisingSetCmd.AddCommand(leAdvertisingSetSetPeriodicAdvertisingParametersCmd)
+	leAdvertisingSetSetScanResponseDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leAdvertisingSetCmd.AddCommand(leAdvertisingSetSetScanResponseDataCmd)
+	leCmd.AddCommand(leAdvertisingSetCmd)
+	leAdvertiseSettingsCmd.AddCommand(leAdvertiseSettingsDescribeContentsCmd)
+	leAdvertiseSettingsCmd.AddCommand(leAdvertiseSettingsGetModeCmd)
+	leAdvertiseSettingsCmd.AddCommand(leAdvertiseSettingsGetTimeoutCmd)
+	leAdvertiseSettingsCmd.AddCommand(leAdvertiseSettingsGetTxPowerLevelCmd)
+	leAdvertiseSettingsCmd.AddCommand(leAdvertiseSettingsIsConnectableCmd)
+	leAdvertiseSettingsCmd.AddCommand(leAdvertiseSettingsIsDiscoverableCmd)
+	leAdvertiseSettingsCmd.AddCommand(leAdvertiseSettingsToStringCmd)
+	leAdvertiseSettingsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	leAdvertiseSettingsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	leAdvertiseSettingsCmd.AddCommand(leAdvertiseSettingsWriteToParcelCmd)
+	leCmd.AddCommand(leAdvertiseSettingsCmd)
+	leAdvertiseSettingsBuilderCmd.AddCommand(leAdvertiseSettingsBuilderBuildCmd)
+	leAdvertiseSettingsBuilderSetAdvertiseModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	leAdvertiseSettingsBuilderCmd.AddCommand(leAdvertiseSettingsBuilderSetAdvertiseModeCmd)
+	leAdvertiseSettingsBuilderSetConnectableCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	leAdvertiseSettingsBuilderCmd.AddCommand(leAdvertiseSettingsBuilderSetConnectableCmd)
+	leAdvertiseSettingsBuilderSetDiscoverableCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	leAdvertiseSettingsBuilderCmd.AddCommand(leAdvertiseSettingsBuilderSetDiscoverableCmd)
+	leAdvertiseSettingsBuilderSetTimeoutCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	leAdvertiseSettingsBuilderCmd.AddCommand(leAdvertiseSettingsBuilderSetTimeoutCmd)
+	leAdvertiseSettingsBuilderSetTxPowerLevelCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	leAdvertiseSettingsBuilderCmd.AddCommand(leAdvertiseSettingsBuilderSetTxPowerLevelCmd)
+	leCmd.AddCommand(leAdvertiseSettingsBuilderCmd)
 	leScanSettingsCmd.AddCommand(leScanSettingsDescribeContentsCmd)
 	leScanSettingsCmd.AddCommand(leScanSettingsGetCallbackTypeCmd)
 	leScanSettingsCmd.AddCommand(leScanSettingsGetLegacyCmd)
@@ -3810,233 +4178,5 @@ func init() {
 	leAdvertisingSetParametersBuilderSetTxPowerLevelCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	leAdvertisingSetParametersBuilderCmd.AddCommand(leAdvertisingSetParametersBuilderSetTxPowerLevelCmd)
 	leCmd.AddCommand(leAdvertisingSetParametersBuilderCmd)
-	leBluetoothLeAdvertiserStartAdvertising3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leBluetoothLeAdvertiserStartAdvertising3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	leBluetoothLeAdvertiserStartAdvertising3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	leBluetoothLeAdvertiserCmd.AddCommand(leBluetoothLeAdvertiserStartAdvertising3Cmd)
-	leBluetoothLeAdvertiserStartAdvertising4_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leBluetoothLeAdvertiserStartAdvertising4_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	leBluetoothLeAdvertiserStartAdvertising4_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	leBluetoothLeAdvertiserStartAdvertising4_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	leBluetoothLeAdvertiserCmd.AddCommand(leBluetoothLeAdvertiserStartAdvertising4_1Cmd)
-	leBluetoothLeAdvertiserStartAdvertisingSet6Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leBluetoothLeAdvertiserStartAdvertisingSet6Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	leBluetoothLeAdvertiserStartAdvertisingSet6Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	leBluetoothLeAdvertiserStartAdvertisingSet6Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	leBluetoothLeAdvertiserStartAdvertisingSet6Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
-	leBluetoothLeAdvertiserStartAdvertisingSet6Cmd.Flags().Int64("arg5", 0, "arg5 (int64)")
-	leBluetoothLeAdvertiserCmd.AddCommand(leBluetoothLeAdvertiserStartAdvertisingSet6Cmd)
-	leBluetoothLeAdvertiserStartAdvertisingSet8_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leBluetoothLeAdvertiserStartAdvertisingSet8_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	leBluetoothLeAdvertiserStartAdvertisingSet8_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	leBluetoothLeAdvertiserStartAdvertisingSet8_1Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	leBluetoothLeAdvertiserStartAdvertisingSet8_1Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
-	leBluetoothLeAdvertiserStartAdvertisingSet8_1Cmd.Flags().Int32("arg5", 0, "arg5 (int32)")
-	leBluetoothLeAdvertiserStartAdvertisingSet8_1Cmd.Flags().Int32("arg6", 0, "arg6 (int32)")
-	leBluetoothLeAdvertiserStartAdvertisingSet8_1Cmd.Flags().Int64("arg7", 0, "arg7 (int64)")
-	leBluetoothLeAdvertiserCmd.AddCommand(leBluetoothLeAdvertiserStartAdvertisingSet8_1Cmd)
-	leBluetoothLeAdvertiserStopAdvertisingCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leBluetoothLeAdvertiserCmd.AddCommand(leBluetoothLeAdvertiserStopAdvertisingCmd)
-	leBluetoothLeAdvertiserStopAdvertisingSetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leBluetoothLeAdvertiserCmd.AddCommand(leBluetoothLeAdvertiserStopAdvertisingSetCmd)
-	leCmd.AddCommand(leBluetoothLeAdvertiserCmd)
-	leAdvertisingSetEnableAdvertisingCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	leAdvertisingSetEnableAdvertisingCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	leAdvertisingSetEnableAdvertisingCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	leAdvertisingSetCmd.AddCommand(leAdvertisingSetEnableAdvertisingCmd)
-	leAdvertisingSetSetAdvertisingDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leAdvertisingSetCmd.AddCommand(leAdvertisingSetSetAdvertisingDataCmd)
-	leAdvertisingSetSetAdvertisingParametersCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leAdvertisingSetCmd.AddCommand(leAdvertisingSetSetAdvertisingParametersCmd)
-	leAdvertisingSetSetPeriodicAdvertisingDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leAdvertisingSetCmd.AddCommand(leAdvertisingSetSetPeriodicAdvertisingDataCmd)
-	leAdvertisingSetSetPeriodicAdvertisingEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	leAdvertisingSetCmd.AddCommand(leAdvertisingSetSetPeriodicAdvertisingEnabledCmd)
-	leAdvertisingSetSetPeriodicAdvertisingParametersCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leAdvertisingSetCmd.AddCommand(leAdvertisingSetSetPeriodicAdvertisingParametersCmd)
-	leAdvertisingSetSetScanResponseDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leAdvertisingSetCmd.AddCommand(leAdvertisingSetSetScanResponseDataCmd)
-	leCmd.AddCommand(leAdvertisingSetCmd)
-	leScanFilterCmd.AddCommand(leScanFilterDescribeContentsCmd)
-	leScanFilterEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leScanFilterCmd.AddCommand(leScanFilterEqualsCmd)
-	leScanFilterCmd.AddCommand(leScanFilterGetAdvertisingDataCmd)
-	leScanFilterCmd.AddCommand(leScanFilterGetAdvertisingDataMaskCmd)
-	leScanFilterCmd.AddCommand(leScanFilterGetAdvertisingDataTypeCmd)
-	leScanFilterCmd.AddCommand(leScanFilterGetDeviceAddressCmd)
-	leScanFilterCmd.AddCommand(leScanFilterGetDeviceNameCmd)
-	leScanFilterCmd.AddCommand(leScanFilterGetManufacturerDataCmd)
-	leScanFilterCmd.AddCommand(leScanFilterGetManufacturerDataMaskCmd)
-	leScanFilterCmd.AddCommand(leScanFilterGetManufacturerIdCmd)
-	leScanFilterCmd.AddCommand(leScanFilterGetServiceDataCmd)
-	leScanFilterCmd.AddCommand(leScanFilterGetServiceDataMaskCmd)
-	leScanFilterCmd.AddCommand(leScanFilterGetServiceDataUuidCmd)
-	leScanFilterCmd.AddCommand(leScanFilterGetServiceSolicitationUuidCmd)
-	leScanFilterCmd.AddCommand(leScanFilterGetServiceSolicitationUuidMaskCmd)
-	leScanFilterCmd.AddCommand(leScanFilterGetServiceUuidCmd)
-	leScanFilterCmd.AddCommand(leScanFilterGetServiceUuidMaskCmd)
-	leScanFilterCmd.AddCommand(leScanFilterHashCodeCmd)
-	leScanFilterMatchesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leScanFilterCmd.AddCommand(leScanFilterMatchesCmd)
-	leScanFilterCmd.AddCommand(leScanFilterToStringCmd)
-	leScanFilterWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leScanFilterWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	leScanFilterCmd.AddCommand(leScanFilterWriteToParcelCmd)
-	leCmd.AddCommand(leScanFilterCmd)
-	leScanFilterBuilderCmd.AddCommand(leScanFilterBuilderBuildCmd)
-	leScanFilterBuilderSetAdvertisingDataTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	leScanFilterBuilderCmd.AddCommand(leScanFilterBuilderSetAdvertisingDataTypeCmd)
-	leScanFilterBuilderSetAdvertisingDataTypeWithDataCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	leScanFilterBuilderSetAdvertisingDataTypeWithDataCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	leScanFilterBuilderSetAdvertisingDataTypeWithDataCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	leScanFilterBuilderCmd.AddCommand(leScanFilterBuilderSetAdvertisingDataTypeWithDataCmd)
-	leScanFilterBuilderSetDeviceAddressCmd.Flags().String("arg0", "", "arg0 (string)")
-	leScanFilterBuilderCmd.AddCommand(leScanFilterBuilderSetDeviceAddressCmd)
-	leScanFilterBuilderSetDeviceNameCmd.Flags().String("arg0", "", "arg0 (string)")
-	leScanFilterBuilderCmd.AddCommand(leScanFilterBuilderSetDeviceNameCmd)
-	leScanFilterBuilderSetManufacturerData2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	leScanFilterBuilderSetManufacturerData2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	leScanFilterBuilderCmd.AddCommand(leScanFilterBuilderSetManufacturerData2Cmd)
-	leScanFilterBuilderSetManufacturerData3_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	leScanFilterBuilderSetManufacturerData3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	leScanFilterBuilderSetManufacturerData3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	leScanFilterBuilderCmd.AddCommand(leScanFilterBuilderSetManufacturerData3_1Cmd)
-	leScanFilterBuilderSetServiceData2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leScanFilterBuilderSetServiceData2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	leScanFilterBuilderCmd.AddCommand(leScanFilterBuilderSetServiceData2Cmd)
-	leScanFilterBuilderSetServiceData3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leScanFilterBuilderSetServiceData3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	leScanFilterBuilderSetServiceData3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	leScanFilterBuilderCmd.AddCommand(leScanFilterBuilderSetServiceData3_1Cmd)
-	leScanFilterBuilderSetServiceSolicitationUuid1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leScanFilterBuilderCmd.AddCommand(leScanFilterBuilderSetServiceSolicitationUuid1Cmd)
-	leScanFilterBuilderSetServiceSolicitationUuid2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leScanFilterBuilderSetServiceSolicitationUuid2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	leScanFilterBuilderCmd.AddCommand(leScanFilterBuilderSetServiceSolicitationUuid2_1Cmd)
-	leScanFilterBuilderSetServiceUuid1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leScanFilterBuilderCmd.AddCommand(leScanFilterBuilderSetServiceUuid1Cmd)
-	leScanFilterBuilderSetServiceUuid2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leScanFilterBuilderSetServiceUuid2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	leScanFilterBuilderCmd.AddCommand(leScanFilterBuilderSetServiceUuid2_1Cmd)
-	leCmd.AddCommand(leScanFilterBuilderCmd)
-	leAdvertiseCallbackOnStartFailureCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	leAdvertiseCallbackCmd.AddCommand(leAdvertiseCallbackOnStartFailureCmd)
-	leAdvertiseCallbackOnStartSuccessCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leAdvertiseCallbackCmd.AddCommand(leAdvertiseCallbackOnStartSuccessCmd)
-	leCmd.AddCommand(leAdvertiseCallbackCmd)
-	leAdvertisingSetCallbackOnAdvertisingDataSetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leAdvertisingSetCallbackOnAdvertisingDataSetCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	leAdvertisingSetCallbackCmd.AddCommand(leAdvertisingSetCallbackOnAdvertisingDataSetCmd)
-	leAdvertisingSetCallbackOnAdvertisingEnabledCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leAdvertisingSetCallbackOnAdvertisingEnabledCmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	leAdvertisingSetCallbackOnAdvertisingEnabledCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	leAdvertisingSetCallbackCmd.AddCommand(leAdvertisingSetCallbackOnAdvertisingEnabledCmd)
-	leAdvertisingSetCallbackOnAdvertisingParametersUpdatedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leAdvertisingSetCallbackOnAdvertisingParametersUpdatedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	leAdvertisingSetCallbackOnAdvertisingParametersUpdatedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	leAdvertisingSetCallbackCmd.AddCommand(leAdvertisingSetCallbackOnAdvertisingParametersUpdatedCmd)
-	leAdvertisingSetCallbackOnAdvertisingSetStartedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leAdvertisingSetCallbackOnAdvertisingSetStartedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	leAdvertisingSetCallbackOnAdvertisingSetStartedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	leAdvertisingSetCallbackCmd.AddCommand(leAdvertisingSetCallbackOnAdvertisingSetStartedCmd)
-	leAdvertisingSetCallbackOnAdvertisingSetStoppedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leAdvertisingSetCallbackCmd.AddCommand(leAdvertisingSetCallbackOnAdvertisingSetStoppedCmd)
-	leAdvertisingSetCallbackOnPeriodicAdvertisingDataSetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leAdvertisingSetCallbackOnPeriodicAdvertisingDataSetCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	leAdvertisingSetCallbackCmd.AddCommand(leAdvertisingSetCallbackOnPeriodicAdvertisingDataSetCmd)
-	leAdvertisingSetCallbackOnPeriodicAdvertisingEnabledCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leAdvertisingSetCallbackOnPeriodicAdvertisingEnabledCmd.Flags().Bool("arg1", false, "arg1 (bool)")
-	leAdvertisingSetCallbackOnPeriodicAdvertisingEnabledCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	leAdvertisingSetCallbackCmd.AddCommand(leAdvertisingSetCallbackOnPeriodicAdvertisingEnabledCmd)
-	leAdvertisingSetCallbackOnPeriodicAdvertisingParametersUpdatedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leAdvertisingSetCallbackOnPeriodicAdvertisingParametersUpdatedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	leAdvertisingSetCallbackCmd.AddCommand(leAdvertisingSetCallbackOnPeriodicAdvertisingParametersUpdatedCmd)
-	leAdvertisingSetCallbackOnScanResponseDataSetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leAdvertisingSetCallbackOnScanResponseDataSetCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	leAdvertisingSetCallbackCmd.AddCommand(leAdvertisingSetCallbackOnScanResponseDataSetCmd)
-	leCmd.AddCommand(leAdvertisingSetCallbackCmd)
-	lePeriodicAdvertisingParametersCmd.AddCommand(lePeriodicAdvertisingParametersDescribeContentsCmd)
-	lePeriodicAdvertisingParametersCmd.AddCommand(lePeriodicAdvertisingParametersGetIncludeTxPowerCmd)
-	lePeriodicAdvertisingParametersCmd.AddCommand(lePeriodicAdvertisingParametersGetIntervalCmd)
-	lePeriodicAdvertisingParametersWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	lePeriodicAdvertisingParametersWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	lePeriodicAdvertisingParametersCmd.AddCommand(lePeriodicAdvertisingParametersWriteToParcelCmd)
-	leCmd.AddCommand(lePeriodicAdvertisingParametersCmd)
-	lePeriodicAdvertisingParametersBuilderCmd.AddCommand(lePeriodicAdvertisingParametersBuilderBuildCmd)
-	lePeriodicAdvertisingParametersBuilderSetIncludeTxPowerCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	lePeriodicAdvertisingParametersBuilderCmd.AddCommand(lePeriodicAdvertisingParametersBuilderSetIncludeTxPowerCmd)
-	lePeriodicAdvertisingParametersBuilderSetIntervalCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	lePeriodicAdvertisingParametersBuilderCmd.AddCommand(lePeriodicAdvertisingParametersBuilderSetIntervalCmd)
-	leCmd.AddCommand(lePeriodicAdvertisingParametersBuilderCmd)
-	leTransportDiscoveryDataNewTransportDiscoveryDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leTransportDiscoveryDataCmd.AddCommand(leTransportDiscoveryDataNewTransportDiscoveryDataCmd)
-	leTransportDiscoveryDataDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	leTransportDiscoveryDataCmd.AddCommand(leTransportDiscoveryDataDescribeContentsCmd)
-	leTransportDiscoveryDataEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	leTransportDiscoveryDataEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leTransportDiscoveryDataCmd.AddCommand(leTransportDiscoveryDataEqualsCmd)
-	leTransportDiscoveryDataGetTransportDataTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	leTransportDiscoveryDataCmd.AddCommand(leTransportDiscoveryDataGetTransportDataTypeCmd)
-	leTransportDiscoveryDataHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	leTransportDiscoveryDataCmd.AddCommand(leTransportDiscoveryDataHashCodeCmd)
-	leTransportDiscoveryDataToByteArrayCmd.Flags().Int64("handle", 0, "handle (int64)")
-	leTransportDiscoveryDataCmd.AddCommand(leTransportDiscoveryDataToByteArrayCmd)
-	leTransportDiscoveryDataToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	leTransportDiscoveryDataCmd.AddCommand(leTransportDiscoveryDataToStringCmd)
-	leTransportDiscoveryDataTotalBytesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	leTransportDiscoveryDataCmd.AddCommand(leTransportDiscoveryDataTotalBytesCmd)
-	leTransportDiscoveryDataWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	leTransportDiscoveryDataWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leTransportDiscoveryDataWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	leTransportDiscoveryDataCmd.AddCommand(leTransportDiscoveryDataWriteToParcelCmd)
-	leCmd.AddCommand(leTransportDiscoveryDataCmd)
-	leScanRecordCmd.AddCommand(leScanRecordGetAdvertiseFlagsCmd)
-	leScanRecordCmd.AddCommand(leScanRecordGetBytesCmd)
-	leScanRecordCmd.AddCommand(leScanRecordGetDeviceNameCmd)
-	leScanRecordGetManufacturerSpecificDataCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	leScanRecordCmd.AddCommand(leScanRecordGetManufacturerSpecificDataCmd)
-	leScanRecordGetServiceDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leScanRecordCmd.AddCommand(leScanRecordGetServiceDataCmd)
-	leScanRecordCmd.AddCommand(leScanRecordGetTxPowerLevelCmd)
-	leScanRecordCmd.AddCommand(leScanRecordToStringCmd)
-	leCmd.AddCommand(leScanRecordCmd)
-	leTransportBlockNewTransportBlockCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	leTransportBlockNewTransportBlockCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	leTransportBlockNewTransportBlockCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	leTransportBlockNewTransportBlockCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	leTransportBlockCmd.AddCommand(leTransportBlockNewTransportBlockCmd)
-	leTransportBlockDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	leTransportBlockCmd.AddCommand(leTransportBlockDescribeContentsCmd)
-	leTransportBlockEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	leTransportBlockEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leTransportBlockCmd.AddCommand(leTransportBlockEqualsCmd)
-	leTransportBlockGetOrgIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	leTransportBlockCmd.AddCommand(leTransportBlockGetOrgIdCmd)
-	leTransportBlockGetTdsFlagsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	leTransportBlockCmd.AddCommand(leTransportBlockGetTdsFlagsCmd)
-	leTransportBlockGetTransportDataCmd.Flags().Int64("handle", 0, "handle (int64)")
-	leTransportBlockCmd.AddCommand(leTransportBlockGetTransportDataCmd)
-	leTransportBlockGetTransportDataLengthCmd.Flags().Int64("handle", 0, "handle (int64)")
-	leTransportBlockCmd.AddCommand(leTransportBlockGetTransportDataLengthCmd)
-	leTransportBlockHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	leTransportBlockCmd.AddCommand(leTransportBlockHashCodeCmd)
-	leTransportBlockToByteArrayCmd.Flags().Int64("handle", 0, "handle (int64)")
-	leTransportBlockCmd.AddCommand(leTransportBlockToByteArrayCmd)
-	leTransportBlockTotalBytesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	leTransportBlockCmd.AddCommand(leTransportBlockTotalBytesCmd)
-	leTransportBlockWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	leTransportBlockWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leTransportBlockWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	leTransportBlockCmd.AddCommand(leTransportBlockWriteToParcelCmd)
-	leCmd.AddCommand(leTransportBlockCmd)
-	leBluetoothLeScannerFlushPendingScanResultsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leBluetoothLeScannerCmd.AddCommand(leBluetoothLeScannerFlushPendingScanResultsCmd)
-	leBluetoothLeScannerStartScanCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leBluetoothLeScannerCmd.AddCommand(leBluetoothLeScannerStartScanCmd)
-	leBluetoothLeScannerStopScan1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leBluetoothLeScannerCmd.AddCommand(leBluetoothLeScannerStopScan1Cmd)
-	leBluetoothLeScannerStopScan1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	leBluetoothLeScannerCmd.AddCommand(leBluetoothLeScannerStopScan1_1Cmd)
-	leCmd.AddCommand(leBluetoothLeScannerCmd)
 	rootCmd.AddCommand(leCmd)
 }

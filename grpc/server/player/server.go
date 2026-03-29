@@ -335,6 +335,29 @@ func (s *MediaPlayerServer) GetRoutedDevice(_ context.Context, req *pb.GetRouted
 	return &pb.GetRoutedDeviceResponse{Result: handle}, nil
 }
 
+func (s *MediaPlayerServer) GetRoutedDevices(_ context.Context, req *pb.GetRoutedDevicesRequest) (*pb.GetRoutedDevicesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaPlayer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetRoutedDevices()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetRoutedDevicesResponse{Result: handle}, nil
+}
+
 func (s *MediaPlayerServer) GetSelectedTrack(_ context.Context, req *pb.GetSelectedTrackRequest) (*pb.GetSelectedTrackResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {

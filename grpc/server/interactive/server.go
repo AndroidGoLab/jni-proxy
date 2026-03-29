@@ -51,6 +51,29 @@ func (s *TvInteractiveAppServiceInfoServer) DescribeContents(_ context.Context, 
 	return &pb.DescribeContentsResponse{Result: result}, nil
 }
 
+func (s *TvInteractiveAppServiceInfoServer) GetCustomSupportedTypes(_ context.Context, req *pb.GetCustomSupportedTypesRequest) (*pb.GetCustomSupportedTypesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TvInteractiveAppServiceInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetCustomSupportedTypes()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetCustomSupportedTypesResponse{Result: handle}, nil
+}
+
 func (s *TvInteractiveAppServiceInfoServer) GetId(_ context.Context, req *pb.GetIdRequest) (*pb.GetIdResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
@@ -728,6 +751,52 @@ type TvInteractiveAppManagerServer struct {
 	pb.UnimplementedTvInteractiveAppManagerServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
+}
+
+func (s *TvInteractiveAppManagerServer) GetAppLinkInfoList(_ context.Context, req *pb.GetAppLinkInfoListRequest) (*pb.GetAppLinkInfoListResponse, error) {
+	mgr, err := jnipkg.NewTvInteractiveAppManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetAppLinkInfoList()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetAppLinkInfoListResponse{Result: handle}, nil
+}
+
+func (s *TvInteractiveAppManagerServer) GetTvInteractiveAppServiceList(_ context.Context, req *pb.GetTvInteractiveAppServiceListRequest) (*pb.GetTvInteractiveAppServiceListResponse, error) {
+	mgr, err := jnipkg.NewTvInteractiveAppManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetTvInteractiveAppServiceList()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetTvInteractiveAppServiceListResponse{Result: handle}, nil
 }
 
 func (s *TvInteractiveAppManagerServer) RegisterAppLinkInfo(_ context.Context, req *pb.RegisterAppLinkInfoRequest) (*pb.RegisterAppLinkInfoResponse, error) {

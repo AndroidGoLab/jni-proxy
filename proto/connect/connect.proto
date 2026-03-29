@@ -6,11 +6,18 @@ package connect;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/connect";
 
-message DescribeContentsRequest {
+message GetNextPageTokenRequest {
 }
 
-message DescribeContentsResponse {
-  int32 result = 1;
+message GetNextPageTokenResponse {
+  int64 result = 1;
+}
+
+message GetRecordsRequest {
+}
+
+message GetRecordsResponse {
+  int64 result = 1;
 }
 
 message EqualsRequest {
@@ -19,65 +26,6 @@ message EqualsRequest {
 
 message EqualsResponse {
   bool result = 1;
-}
-
-message HashCodeRequest {
-}
-
-message HashCodeResponse {
-  int32 result = 1;
-}
-
-message ToStringRequest {
-}
-
-message ToStringResponse {
-  string result = 1;
-}
-
-message WriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message WriteToParcelResponse {
-}
-
-message AddDataSourceIdRequest {
-  string arg0 = 1;
-}
-
-message AddDataSourceIdResponse {
-  int64 result = 1;
-}
-
-message AddMedicalResourceTypeRequest {
-  int32 arg0 = 1;
-}
-
-message AddMedicalResourceTypeResponse {
-  int64 result = 1;
-}
-
-message BuildRequest {
-}
-
-message BuildResponse {
-  int64 result = 1;
-}
-
-message ClearDataSourceIdsRequest {
-}
-
-message ClearDataSourceIdsResponse {
-  int64 result = 1;
-}
-
-message ClearMedicalResourceTypesRequest {
-}
-
-message ClearMedicalResourceTypesResponse {
-  int64 result = 1;
 }
 
 message GetEndTimeRequest {
@@ -94,11 +42,25 @@ message GetStartTimeResponse {
   int64 result = 1;
 }
 
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
 message IsBoundedRequest {
 }
 
 message IsBoundedResponse {
   bool result = 1;
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
 }
 
 message SetEndTimeRequest {
@@ -117,206 +79,6 @@ message SetStartTimeResponse {
   int64 result = 1;
 }
 
-message GetTimeRangeFilterRequest {
-}
-
-message GetTimeRangeFilterResponse {
-  int64 result = 1;
-}
-
-message GetPageSizeRequest {
-}
-
-message GetPageSizeResponse {
-  int32 result = 1;
-}
-
-message GetPageTokenRequest {
-}
-
-message GetPageTokenResponse {
-  int64 result = 1;
-}
-
-message IsAscendingRequest {
-}
-
-message IsAscendingResponse {
-  bool result = 1;
-}
-
-message GetNextPageTokenRequest {
-}
-
-message GetNextPageTokenResponse {
-  int64 result = 1;
-}
-
-message GetMedicalResourceTypeRequest {
-}
-
-message GetMedicalResourceTypeResponse {
-  int32 result = 1;
-}
-
-message SetMedicalResourceTypeRequest {
-  int32 arg0 = 1;
-}
-
-message SetMedicalResourceTypeResponse {
-  int64 result = 1;
-}
-
-message SetPageSizeRequest {
-  int32 arg0 = 1;
-}
-
-message SetPageSizeResponse {
-  int64 result = 1;
-}
-
-message GetDisplayNameRequest {
-}
-
-message GetDisplayNameResponse {
-  string result = 1;
-}
-
-message GetFhirBaseUriRequest {
-}
-
-message GetFhirBaseUriResponse {
-  int64 result = 1;
-}
-
-message GetFhirVersionRequest {
-}
-
-message GetFhirVersionResponse {
-  int64 result = 1;
-}
-
-message SetDisplayNameRequest {
-  string arg0 = 1;
-}
-
-message SetDisplayNameResponse {
-  int64 result = 1;
-}
-
-message SetFhirBaseUriRequest {
-  int64 arg0 = 1;
-}
-
-message SetFhirBaseUriResponse {
-  int64 result = 1;
-}
-
-message SetFhirVersionRequest {
-  int64 arg0 = 1;
-}
-
-message SetFhirVersionResponse {
-  int64 result = 1;
-}
-
-message GetErrorCodeRequest {
-}
-
-message GetErrorCodeResponse {
-  int32 result = 1;
-}
-
-message ReadMedicalResourcesPageRequestGetPageTokenResponse {
-  string result = 1;
-}
-
-message SetPageTokenRequest {
-  string arg0 = 1;
-}
-
-message SetPageTokenResponse {
-  int64 result = 1;
-}
-
-message GetClientRecordIdRequest {
-}
-
-message GetClientRecordIdResponse {
-  string result = 1;
-}
-
-message GetIdRequest {
-}
-
-message GetIdResponse {
-  string result = 1;
-}
-
-message AddPackageNameRequest {
-  string arg0 = 1;
-}
-
-message AddPackageNameResponse {
-  int64 result = 1;
-}
-
-message ClearPackageNamesRequest {
-}
-
-message ClearPackageNamesResponse {
-  int64 result = 1;
-}
-
-message NewReadMedicalResourcesResponseRequest {
-  int64 arg0 = 1;
-  string arg1 = 2;
-  int32 arg2 = 3;
-}
-
-message NewReadMedicalResourcesResponseResponse {
-  int64 result = 1;
-}
-
-message ReadMedicalResourcesResponseDescribeContentsRequest {
-  int64 handle = 1;
-}
-
-message ReadMedicalResourcesResponseEqualsRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message ReadMedicalResourcesResponseGetNextPageTokenRequest {
-  int64 handle = 1;
-}
-
-message ReadMedicalResourcesResponseGetNextPageTokenResponse {
-  string result = 1;
-}
-
-message GetRemainingCountRequest {
-  int64 handle = 1;
-}
-
-message GetRemainingCountResponse {
-  int32 result = 1;
-}
-
-message ReadMedicalResourcesResponseHashCodeRequest {
-  int64 handle = 1;
-}
-
-message ReadMedicalResourcesResponseToStringRequest {
-  int64 handle = 1;
-}
-
-message ReadMedicalResourcesResponseWriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
 message NewMedicalResourceIdRequest {
   string arg0 = 1;
   int32 arg1 = 2;
@@ -327,8 +89,12 @@ message NewMedicalResourceIdResponse {
   int64 result = 1;
 }
 
-message MedicalResourceIdDescribeContentsRequest {
+message DescribeContentsRequest {
   int64 handle = 1;
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
 }
 
 message MedicalResourceIdEqualsRequest {
@@ -364,14 +130,21 @@ message MedicalResourceIdHashCodeRequest {
   int64 handle = 1;
 }
 
-message MedicalResourceIdToStringRequest {
+message ToStringRequest {
   int64 handle = 1;
 }
 
-message MedicalResourceIdWriteToParcelRequest {
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
   int64 handle = 1;
   int64 arg0 = 2;
   int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
 }
 
 message FromFhirReferenceRequest {
@@ -384,6 +157,253 @@ message FromFhirReferenceResponse {
   int64 result = 1;
 }
 
+message GetPageTokenRequest {
+}
+
+message GetPageTokenResponse {
+  string result = 1;
+}
+
+message ReadMedicalResourcesPageRequestToStringRequest {
+}
+
+message SetPageSizeRequest {
+  int32 arg0 = 1;
+}
+
+message SetPageSizeResponse {
+  int64 result = 1;
+}
+
+message SetPageTokenRequest {
+  string arg0 = 1;
+}
+
+message SetPageTokenResponse {
+  int64 result = 1;
+}
+
+message GetRecordTypeRequest {
+}
+
+message GetRecordTypeResponse {
+  int64 result = 1;
+}
+
+message GetDataOriginsRequest {
+}
+
+message GetDataOriginsResponse {
+  int64 result = 1;
+}
+
+message GetPageSizeRequest {
+}
+
+message GetPageSizeResponse {
+  int32 result = 1;
+}
+
+message ReadRecordsRequestUsingFiltersGetPageTokenResponse {
+  int64 result = 1;
+}
+
+message GetTimeRangeFilterRequest {
+}
+
+message GetTimeRangeFilterResponse {
+  int64 result = 1;
+}
+
+message IsAscendingRequest {
+}
+
+message IsAscendingResponse {
+  bool result = 1;
+}
+
+message AddDataOriginsRequest {
+  int64 arg0 = 1;
+}
+
+message AddDataOriginsResponse {
+  int64 result = 1;
+}
+
+message SetAscendingRequest {
+  bool arg0 = 1;
+}
+
+message SetAscendingResponse {
+  int64 result = 1;
+}
+
+message ReadRecordsRequestUsingFiltersBuilderSetPageTokenRequest {
+  int64 arg0 = 1;
+}
+
+message SetTimeRangeFilterRequest {
+  int64 arg0 = 1;
+}
+
+message SetTimeRangeFilterResponse {
+  int64 result = 1;
+}
+
+message GetErrorCodeRequest {
+}
+
+message GetErrorCodeResponse {
+  int32 result = 1;
+}
+
+message DeleteMedicalResourcesRequestDescribeContentsRequest {
+}
+
+message GetDataSourceIdsRequest {
+}
+
+message GetDataSourceIdsResponse {
+  int64 result = 1;
+}
+
+message GetMedicalResourceTypesRequest {
+}
+
+message GetMedicalResourceTypesResponse {
+  int64 result = 1;
+}
+
+message DeleteMedicalResourcesRequestToStringRequest {
+}
+
+message DeleteMedicalResourcesRequestWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message AddDataSourceIdRequest {
+  string arg0 = 1;
+}
+
+message AddDataSourceIdResponse {
+  int64 result = 1;
+}
+
+message AddMedicalResourceTypeRequest {
+  int32 arg0 = 1;
+}
+
+message AddMedicalResourceTypeResponse {
+  int64 result = 1;
+}
+
+message ClearDataSourceIdsRequest {
+}
+
+message ClearDataSourceIdsResponse {
+  int64 result = 1;
+}
+
+message ClearMedicalResourceTypesRequest {
+}
+
+message ClearMedicalResourceTypesResponse {
+  int64 result = 1;
+}
+
+message CreateMedicalDataSourceRequestDescribeContentsRequest {
+}
+
+message GetDisplayNameRequest {
+}
+
+message GetDisplayNameResponse {
+  string result = 1;
+}
+
+message GetFhirBaseUriRequest {
+}
+
+message GetFhirBaseUriResponse {
+  int64 result = 1;
+}
+
+message GetFhirVersionRequest {
+}
+
+message GetFhirVersionResponse {
+  int64 result = 1;
+}
+
+message CreateMedicalDataSourceRequestToStringRequest {
+}
+
+message CreateMedicalDataSourceRequestWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message SetDisplayNameRequest {
+  string arg0 = 1;
+}
+
+message SetDisplayNameResponse {
+  int64 result = 1;
+}
+
+message SetFhirBaseUriRequest {
+  int64 arg0 = 1;
+}
+
+message SetFhirBaseUriResponse {
+  int64 result = 1;
+}
+
+message SetFhirVersionRequest {
+  int64 arg0 = 1;
+}
+
+message SetFhirVersionResponse {
+  int64 result = 1;
+}
+
+message GetMedicalDataSourcesRequestDescribeContentsRequest {
+}
+
+message GetPackageNamesRequest {
+}
+
+message GetPackageNamesResponse {
+  int64 result = 1;
+}
+
+message GetMedicalDataSourcesRequestToStringRequest {
+}
+
+message GetMedicalDataSourcesRequestWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message AddPackageNameRequest {
+  string arg0 = 1;
+}
+
+message AddPackageNameResponse {
+  int64 result = 1;
+}
+
+message ClearPackageNamesRequest {
+}
+
+message ClearPackageNamesResponse {
+  int64 result = 1;
+}
+
+message UpsertMedicalResourceRequestDescribeContentsRequest {
+}
+
 message GetDataRequest {
 }
 
@@ -392,6 +412,14 @@ message GetDataResponse {
 }
 
 message UpsertMedicalResourceRequestGetDataSourceIdRequest {
+}
+
+message UpsertMedicalResourceRequestToStringRequest {
+}
+
+message UpsertMedicalResourceRequestWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
 }
 
 message SetDataRequest {
@@ -410,127 +438,129 @@ message SetDataSourceIdResponse {
   int64 result = 1;
 }
 
-service DeleteMedicalResourcesRequestService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+message GetAggregationTypesRequest {
 }
 
-service DeleteMedicalResourcesRequestBuilderService {
-  rpc AddDataSourceId (AddDataSourceIdRequest) returns (AddDataSourceIdResponse);
-  rpc AddMedicalResourceType (AddMedicalResourceTypeRequest) returns (AddMedicalResourceTypeResponse);
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc ClearDataSourceIds (ClearDataSourceIdsRequest) returns (ClearDataSourceIdsResponse);
-  rpc ClearMedicalResourceTypes (ClearMedicalResourceTypesRequest) returns (ClearMedicalResourceTypesResponse);
+message GetAggregationTypesResponse {
+  int64 result = 1;
 }
 
-service TimeInstantRangeFilterService {
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetEndTime (GetEndTimeRequest) returns (GetEndTimeResponse);
-  rpc GetStartTime (GetStartTimeRequest) returns (GetStartTimeResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc IsBounded (IsBoundedRequest) returns (IsBoundedResponse);
+message GetDataOriginsFiltersRequest {
 }
 
-service TimeInstantRangeFilterBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetEndTime (SetEndTimeRequest) returns (SetEndTimeResponse);
-  rpc SetStartTime (SetStartTimeRequest) returns (SetStartTimeResponse);
+message GetDataOriginsFiltersResponse {
+  int64 result = 1;
 }
 
-service AggregateRecordsRequestService {
-  rpc GetTimeRangeFilter (GetTimeRangeFilterRequest) returns (GetTimeRangeFilterResponse);
+message AddDataOriginsFilterRequest {
+  int64 arg0 = 1;
 }
 
-service ReadRecordsRequestUsingFiltersService {
-  rpc GetPageSize (GetPageSizeRequest) returns (GetPageSizeResponse);
-  rpc GetPageToken (GetPageTokenRequest) returns (GetPageTokenResponse);
-  rpc GetTimeRangeFilter (GetTimeRangeFilterRequest) returns (GetTimeRangeFilterResponse);
-  rpc IsAscending (IsAscendingRequest) returns (IsAscendingResponse);
+message AddDataOriginsFilterResponse {
+  int64 result = 1;
+}
+
+message GetMedicalResourceTypeRequest {
+}
+
+message GetMedicalResourceTypeResponse {
+  int32 result = 1;
+}
+
+message ReadMedicalResourcesInitialRequestToStringRequest {
+}
+
+message SetMedicalResourceTypeRequest {
+  int32 arg0 = 1;
+}
+
+message SetMedicalResourceTypeResponse {
+  int64 result = 1;
+}
+
+message NewReadMedicalResourcesResponseRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message NewReadMedicalResourcesResponseResponse {
+  int64 result = 1;
+}
+
+message ReadMedicalResourcesResponseEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetMedicalResourcesRequest {
+  int64 handle = 1;
+}
+
+message GetMedicalResourcesResponse {
+  int64 result = 1;
+}
+
+message ReadMedicalResourcesResponseGetNextPageTokenRequest {
+  int64 handle = 1;
+}
+
+message ReadMedicalResourcesResponseGetNextPageTokenResponse {
+  string result = 1;
+}
+
+message GetRemainingCountRequest {
+  int64 handle = 1;
+}
+
+message GetRemainingCountResponse {
+  int32 result = 1;
+}
+
+message ReadMedicalResourcesResponseHashCodeRequest {
+  int64 handle = 1;
+}
+
+message GetRecordIdFiltersRequest {
+}
+
+message GetRecordIdFiltersResponse {
+  int64 result = 1;
+}
+
+message AddClientRecordIdRequest {
+  string arg0 = 1;
+}
+
+message AddClientRecordIdResponse {
+  int64 result = 1;
+}
+
+message AddIdRequest {
+  string arg0 = 1;
+}
+
+message AddIdResponse {
+  int64 result = 1;
+}
+
+message GetClientRecordIdRequest {
+}
+
+message GetClientRecordIdResponse {
+  string result = 1;
+}
+
+message GetIdRequest {
+}
+
+message GetIdResponse {
+  string result = 1;
 }
 
 service ReadRecordsResponseService {
   rpc GetNextPageToken (GetNextPageTokenRequest) returns (GetNextPageTokenResponse);
-}
-
-service ReadMedicalResourcesInitialRequestService {
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetMedicalResourceType (GetMedicalResourceTypeRequest) returns (GetMedicalResourceTypeResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-}
-
-service ReadMedicalResourcesInitialRequestBuilderService {
-  rpc AddDataSourceId (AddDataSourceIdRequest) returns (AddDataSourceIdResponse);
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc ClearDataSourceIds (ClearDataSourceIdsRequest) returns (ClearDataSourceIdsResponse);
-  rpc SetMedicalResourceType (SetMedicalResourceTypeRequest) returns (SetMedicalResourceTypeResponse);
-  rpc SetPageSize (SetPageSizeRequest) returns (SetPageSizeResponse);
-}
-
-service AggregateRecordsGroupedByPeriodResponseService {
-  rpc GetEndTime (GetEndTimeRequest) returns (GetEndTimeResponse);
-  rpc GetStartTime (GetStartTimeRequest) returns (GetStartTimeResponse);
-}
-
-service CreateMedicalDataSourceRequestService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetDisplayName (GetDisplayNameRequest) returns (GetDisplayNameResponse);
-  rpc GetFhirBaseUri (GetFhirBaseUriRequest) returns (GetFhirBaseUriResponse);
-  rpc GetFhirVersion (GetFhirVersionRequest) returns (GetFhirVersionResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service CreateMedicalDataSourceRequestBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetDisplayName (SetDisplayNameRequest) returns (SetDisplayNameResponse);
-  rpc SetFhirBaseUri (SetFhirBaseUriRequest) returns (SetFhirBaseUriResponse);
-  rpc SetFhirVersion (SetFhirVersionRequest) returns (SetFhirVersionResponse);
-}
-
-service ReadMedicalResourcesRequestService {
-  rpc GetPageSize (GetPageSizeRequest) returns (GetPageSizeResponse);
-}
-
-service HealthConnectExceptionService {
-  rpc GetErrorCode (GetErrorCodeRequest) returns (GetErrorCodeResponse);
-}
-
-service ReadMedicalResourcesPageRequestService {
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetPageToken (GetPageTokenRequest) returns (ReadMedicalResourcesPageRequestGetPageTokenResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-}
-
-service ReadMedicalResourcesPageRequestBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetPageSize (SetPageSizeRequest) returns (SetPageSizeResponse);
-  rpc SetPageToken (SetPageTokenRequest) returns (SetPageTokenResponse);
-}
-
-service RecordIdFilterService {
-  rpc GetClientRecordId (GetClientRecordIdRequest) returns (GetClientRecordIdResponse);
-  rpc GetId (GetIdRequest) returns (GetIdResponse);
-}
-
-service GetMedicalDataSourcesRequestService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service GetMedicalDataSourcesRequestBuilderService {
-  rpc AddPackageName (AddPackageNameRequest) returns (AddPackageNameResponse);
-  rpc Build (BuildRequest) returns (BuildResponse);
-  rpc ClearPackageNames (ClearPackageNamesRequest) returns (ClearPackageNamesResponse);
+  rpc GetRecords (GetRecordsRequest) returns (GetRecordsResponse);
 }
 
 service LocalTimeRangeFilterService {
@@ -547,15 +577,51 @@ service LocalTimeRangeFilterBuilderService {
   rpc SetStartTime (SetStartTimeRequest) returns (SetStartTimeResponse);
 }
 
-service ReadMedicalResourcesResponseService {
-  rpc NewReadMedicalResourcesResponse (NewReadMedicalResourcesResponseRequest) returns (NewReadMedicalResourcesResponseResponse);
-  rpc DescribeContents (ReadMedicalResourcesResponseDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (ReadMedicalResourcesResponseEqualsRequest) returns (EqualsResponse);
-  rpc GetNextPageToken (ReadMedicalResourcesResponseGetNextPageTokenRequest) returns (ReadMedicalResourcesResponseGetNextPageTokenResponse);
-  rpc GetRemainingCount (GetRemainingCountRequest) returns (GetRemainingCountResponse);
-  rpc HashCode (ReadMedicalResourcesResponseHashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ReadMedicalResourcesResponseToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (ReadMedicalResourcesResponseWriteToParcelRequest) returns (WriteToParcelResponse);
+service MedicalResourceIdService {
+  rpc NewMedicalResourceId (NewMedicalResourceIdRequest) returns (NewMedicalResourceIdResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (MedicalResourceIdEqualsRequest) returns (EqualsResponse);
+  rpc GetDataSourceId (GetDataSourceIdRequest) returns (GetDataSourceIdResponse);
+  rpc GetFhirResourceId (GetFhirResourceIdRequest) returns (GetFhirResourceIdResponse);
+  rpc GetFhirResourceType (GetFhirResourceTypeRequest) returns (GetFhirResourceTypeResponse);
+  rpc HashCode (MedicalResourceIdHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc FromFhirReference (FromFhirReferenceRequest) returns (FromFhirReferenceResponse);
+}
+
+service ReadMedicalResourcesPageRequestService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetPageToken (GetPageTokenRequest) returns (GetPageTokenResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ReadMedicalResourcesPageRequestToStringRequest) returns (ToStringResponse);
+}
+
+service ReadMedicalResourcesPageRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetPageSize (SetPageSizeRequest) returns (SetPageSizeResponse);
+  rpc SetPageToken (SetPageTokenRequest) returns (SetPageTokenResponse);
+}
+
+service ReadRecordsRequestService {
+  rpc GetRecordType (GetRecordTypeRequest) returns (GetRecordTypeResponse);
+}
+
+service ReadRecordsRequestUsingFiltersService {
+  rpc GetDataOrigins (GetDataOriginsRequest) returns (GetDataOriginsResponse);
+  rpc GetPageSize (GetPageSizeRequest) returns (GetPageSizeResponse);
+  rpc GetPageToken (GetPageTokenRequest) returns (ReadRecordsRequestUsingFiltersGetPageTokenResponse);
+  rpc GetTimeRangeFilter (GetTimeRangeFilterRequest) returns (GetTimeRangeFilterResponse);
+  rpc IsAscending (IsAscendingRequest) returns (IsAscendingResponse);
+}
+
+service ReadRecordsRequestUsingFiltersBuilderService {
+  rpc AddDataOrigins (AddDataOriginsRequest) returns (AddDataOriginsResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetAscending (SetAscendingRequest) returns (SetAscendingResponse);
+  rpc SetPageSize (SetPageSizeRequest) returns (SetPageSizeResponse);
+  rpc SetPageToken (ReadRecordsRequestUsingFiltersBuilderSetPageTokenRequest) returns (SetPageTokenResponse);
+  rpc SetTimeRangeFilter (SetTimeRangeFilterRequest) returns (SetTimeRangeFilterResponse);
 }
 
 service AggregateRecordsGroupedByDurationResponseService {
@@ -563,28 +629,79 @@ service AggregateRecordsGroupedByDurationResponseService {
   rpc GetStartTime (GetStartTimeRequest) returns (GetStartTimeResponse);
 }
 
-service MedicalResourceIdService {
-  rpc NewMedicalResourceId (NewMedicalResourceIdRequest) returns (NewMedicalResourceIdResponse);
-  rpc DescribeContents (MedicalResourceIdDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (MedicalResourceIdEqualsRequest) returns (EqualsResponse);
-  rpc GetDataSourceId (GetDataSourceIdRequest) returns (GetDataSourceIdResponse);
-  rpc GetFhirResourceId (GetFhirResourceIdRequest) returns (GetFhirResourceIdResponse);
-  rpc GetFhirResourceType (GetFhirResourceTypeRequest) returns (GetFhirResourceTypeResponse);
-  rpc HashCode (MedicalResourceIdHashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (MedicalResourceIdToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (MedicalResourceIdWriteToParcelRequest) returns (WriteToParcelResponse);
-  rpc FromFhirReference (FromFhirReferenceRequest) returns (FromFhirReferenceResponse);
+service HealthConnectExceptionService {
+  rpc GetErrorCode (GetErrorCodeRequest) returns (GetErrorCodeResponse);
+}
+
+service DeleteMedicalResourcesRequestService {
+  rpc DescribeContents (DeleteMedicalResourcesRequestDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetDataSourceIds (GetDataSourceIdsRequest) returns (GetDataSourceIdsResponse);
+  rpc GetMedicalResourceTypes (GetMedicalResourceTypesRequest) returns (GetMedicalResourceTypesResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (DeleteMedicalResourcesRequestToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (DeleteMedicalResourcesRequestWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service DeleteMedicalResourcesRequestBuilderService {
+  rpc AddDataSourceId (AddDataSourceIdRequest) returns (AddDataSourceIdResponse);
+  rpc AddMedicalResourceType (AddMedicalResourceTypeRequest) returns (AddMedicalResourceTypeResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearDataSourceIds (ClearDataSourceIdsRequest) returns (ClearDataSourceIdsResponse);
+  rpc ClearMedicalResourceTypes (ClearMedicalResourceTypesRequest) returns (ClearMedicalResourceTypesResponse);
+}
+
+service CreateMedicalDataSourceRequestService {
+  rpc DescribeContents (CreateMedicalDataSourceRequestDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetDisplayName (GetDisplayNameRequest) returns (GetDisplayNameResponse);
+  rpc GetFhirBaseUri (GetFhirBaseUriRequest) returns (GetFhirBaseUriResponse);
+  rpc GetFhirVersion (GetFhirVersionRequest) returns (GetFhirVersionResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (CreateMedicalDataSourceRequestToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (CreateMedicalDataSourceRequestWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service CreateMedicalDataSourceRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetDisplayName (SetDisplayNameRequest) returns (SetDisplayNameResponse);
+  rpc SetFhirBaseUri (SetFhirBaseUriRequest) returns (SetFhirBaseUriResponse);
+  rpc SetFhirVersion (SetFhirVersionRequest) returns (SetFhirVersionResponse);
+}
+
+service AggregateRecordsGroupedByPeriodResponseService {
+  rpc GetEndTime (GetEndTimeRequest) returns (GetEndTimeResponse);
+  rpc GetStartTime (GetStartTimeRequest) returns (GetStartTimeResponse);
+}
+
+service InsertRecordsResponseService {
+  rpc GetRecords (GetRecordsRequest) returns (GetRecordsResponse);
+}
+
+service GetMedicalDataSourcesRequestService {
+  rpc DescribeContents (GetMedicalDataSourcesRequestDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetPackageNames (GetPackageNamesRequest) returns (GetPackageNamesResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (GetMedicalDataSourcesRequestToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (GetMedicalDataSourcesRequestWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service GetMedicalDataSourcesRequestBuilderService {
+  rpc AddPackageName (AddPackageNameRequest) returns (AddPackageNameResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearPackageNames (ClearPackageNamesRequest) returns (ClearPackageNamesResponse);
 }
 
 service UpsertMedicalResourceRequestService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc DescribeContents (UpsertMedicalResourceRequestDescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
   rpc GetData (GetDataRequest) returns (GetDataResponse);
   rpc GetDataSourceId (UpsertMedicalResourceRequestGetDataSourceIdRequest) returns (GetDataSourceIdResponse);
   rpc GetFhirVersion (GetFhirVersionRequest) returns (GetFhirVersionResponse);
   rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc ToString (UpsertMedicalResourceRequestToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (UpsertMedicalResourceRequestWriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
 service UpsertMedicalResourceRequestBuilderService {
@@ -592,4 +709,76 @@ service UpsertMedicalResourceRequestBuilderService {
   rpc SetData (SetDataRequest) returns (SetDataResponse);
   rpc SetDataSourceId (SetDataSourceIdRequest) returns (SetDataSourceIdResponse);
   rpc SetFhirVersion (SetFhirVersionRequest) returns (SetFhirVersionResponse);
+}
+
+service AggregateRecordsRequestService {
+  rpc GetAggregationTypes (GetAggregationTypesRequest) returns (GetAggregationTypesResponse);
+  rpc GetDataOriginsFilters (GetDataOriginsFiltersRequest) returns (GetDataOriginsFiltersResponse);
+  rpc GetTimeRangeFilter (GetTimeRangeFilterRequest) returns (GetTimeRangeFilterResponse);
+}
+
+service AggregateRecordsRequestBuilderService {
+  rpc AddDataOriginsFilter (AddDataOriginsFilterRequest) returns (AddDataOriginsFilterResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service TimeInstantRangeFilterService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetEndTime (GetEndTimeRequest) returns (GetEndTimeResponse);
+  rpc GetStartTime (GetStartTimeRequest) returns (GetStartTimeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsBounded (IsBoundedRequest) returns (IsBoundedResponse);
+}
+
+service TimeInstantRangeFilterBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetEndTime (SetEndTimeRequest) returns (SetEndTimeResponse);
+  rpc SetStartTime (SetStartTimeRequest) returns (SetStartTimeResponse);
+}
+
+service ReadMedicalResourcesRequestService {
+  rpc GetPageSize (GetPageSizeRequest) returns (GetPageSizeResponse);
+}
+
+service ReadMedicalResourcesInitialRequestService {
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetDataSourceIds (GetDataSourceIdsRequest) returns (GetDataSourceIdsResponse);
+  rpc GetMedicalResourceType (GetMedicalResourceTypeRequest) returns (GetMedicalResourceTypeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ReadMedicalResourcesInitialRequestToStringRequest) returns (ToStringResponse);
+}
+
+service ReadMedicalResourcesInitialRequestBuilderService {
+  rpc AddDataSourceId (AddDataSourceIdRequest) returns (AddDataSourceIdResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc ClearDataSourceIds (ClearDataSourceIdsRequest) returns (ClearDataSourceIdsResponse);
+  rpc SetMedicalResourceType (SetMedicalResourceTypeRequest) returns (SetMedicalResourceTypeResponse);
+  rpc SetPageSize (SetPageSizeRequest) returns (SetPageSizeResponse);
+}
+
+service ReadMedicalResourcesResponseService {
+  rpc NewReadMedicalResourcesResponse (NewReadMedicalResourcesResponseRequest) returns (NewReadMedicalResourcesResponseResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (ReadMedicalResourcesResponseEqualsRequest) returns (EqualsResponse);
+  rpc GetMedicalResources (GetMedicalResourcesRequest) returns (GetMedicalResourcesResponse);
+  rpc GetNextPageToken (ReadMedicalResourcesResponseGetNextPageTokenRequest) returns (ReadMedicalResourcesResponseGetNextPageTokenResponse);
+  rpc GetRemainingCount (GetRemainingCountRequest) returns (GetRemainingCountResponse);
+  rpc HashCode (ReadMedicalResourcesResponseHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ReadRecordsRequestUsingIdsService {
+  rpc GetRecordIdFilters (GetRecordIdFiltersRequest) returns (GetRecordIdFiltersResponse);
+}
+
+service ReadRecordsRequestUsingIdsBuilderService {
+  rpc AddClientRecordId (AddClientRecordIdRequest) returns (AddClientRecordIdResponse);
+  rpc AddId (AddIdRequest) returns (AddIdResponse);
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service RecordIdFilterService {
+  rpc GetClientRecordId (GetClientRecordIdRequest) returns (GetClientRecordIdResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
 }

@@ -9,6 +9,100 @@ import (
 	"google.golang.org/grpc"
 )
 
+// AudioCodecClient wraps the gRPC AudioCodecService client.
+type AudioCodecClient struct {
+	svc pb.AudioCodecServiceClient
+}
+
+// NewAudioCodecClient creates a new AudioCodec client.
+func NewAudioCodecClient(cc grpc.ClientConnInterface) *AudioCodecClient {
+	return &AudioCodecClient{
+		svc: pb.NewAudioCodecServiceClient(cc),
+	}
+}
+
+// GetCodec calls the GetCodec RPC.
+func (c *AudioCodecClient) GetCodec(ctx context.Context, arg0 int32, arg1 string, arg2 string) (int64, error) {
+	resp, err := c.svc.GetCodec(ctx, &pb.GetCodecRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCodecs calls the GetCodecs RPC.
+func (c *AudioCodecClient) GetCodecs(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCodecs(ctx, &pb.GetCodecsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AudioGroupClient wraps the gRPC AudioGroupService client.
+type AudioGroupClient struct {
+	svc pb.AudioGroupServiceClient
+}
+
+// NewAudioGroupClient creates a new AudioGroup client.
+func NewAudioGroupClient(cc grpc.ClientConnInterface) *AudioGroupClient {
+	return &AudioGroupClient{
+		svc: pb.NewAudioGroupServiceClient(cc),
+	}
+}
+
+// Clear calls the Clear RPC.
+func (c *AudioGroupClient) Clear(ctx context.Context, handle int64) error {
+	_, err := c.svc.Clear(ctx, &pb.ClearRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// GetMode calls the GetMode RPC.
+func (c *AudioGroupClient) GetMode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetMode(ctx, &pb.GetModeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStreams calls the GetStreams RPC.
+func (c *AudioGroupClient) GetStreams(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetStreams(ctx, &pb.GetStreamsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SendDtmf calls the SendDtmf RPC.
+func (c *AudioGroupClient) SendDtmf(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SendDtmf(ctx, &pb.SendDtmfRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetMode calls the SetMode RPC.
+func (c *AudioGroupClient) SetMode(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetMode(ctx, &pb.SetModeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
 // AudioStreamClient wraps the gRPC AudioStreamService client.
 type AudioStreamClient struct {
 	svc pb.AudioStreamServiceClient
@@ -23,7 +117,7 @@ func NewAudioStreamClient(cc grpc.ClientConnInterface) *AudioStreamClient {
 
 // GetCodec calls the GetCodec RPC.
 func (c *AudioStreamClient) GetCodec(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetCodec(ctx, &pb.GetCodecRequest{
+	resp, err := c.svc.GetCodec(ctx, &pb.AudioStreamGetCodecRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -133,7 +227,7 @@ func (c *StreamClient) GetLocalPort(ctx context.Context) (int32, error) {
 
 // GetMode calls the GetMode RPC.
 func (c *StreamClient) GetMode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMode(ctx, &pb.GetModeRequest{})
+	resp, err := c.svc.GetMode(ctx, &pb.StreamGetModeRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -175,102 +269,8 @@ func (c *StreamClient) Release(ctx context.Context) error {
 
 // SetMode calls the SetMode RPC.
 func (c *StreamClient) SetMode(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetMode(ctx, &pb.SetModeRequest{
+	_, err := c.svc.SetMode(ctx, &pb.StreamSetModeRequest{
 		Arg0: arg0,
 	})
 	return err
-}
-
-// AudioGroupClient wraps the gRPC AudioGroupService client.
-type AudioGroupClient struct {
-	svc pb.AudioGroupServiceClient
-}
-
-// NewAudioGroupClient creates a new AudioGroup client.
-func NewAudioGroupClient(cc grpc.ClientConnInterface) *AudioGroupClient {
-	return &AudioGroupClient{
-		svc: pb.NewAudioGroupServiceClient(cc),
-	}
-}
-
-// Clear calls the Clear RPC.
-func (c *AudioGroupClient) Clear(ctx context.Context, handle int64) error {
-	_, err := c.svc.Clear(ctx, &pb.ClearRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// GetMode calls the GetMode RPC.
-func (c *AudioGroupClient) GetMode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetMode(ctx, &pb.AudioGroupGetModeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStreams calls the GetStreams RPC.
-func (c *AudioGroupClient) GetStreams(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetStreams(ctx, &pb.GetStreamsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SendDtmf calls the SendDtmf RPC.
-func (c *AudioGroupClient) SendDtmf(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SendDtmf(ctx, &pb.SendDtmfRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetMode calls the SetMode RPC.
-func (c *AudioGroupClient) SetMode(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetMode(ctx, &pb.AudioGroupSetModeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AudioCodecClient wraps the gRPC AudioCodecService client.
-type AudioCodecClient struct {
-	svc pb.AudioCodecServiceClient
-}
-
-// NewAudioCodecClient creates a new AudioCodec client.
-func NewAudioCodecClient(cc grpc.ClientConnInterface) *AudioCodecClient {
-	return &AudioCodecClient{
-		svc: pb.NewAudioCodecServiceClient(cc),
-	}
-}
-
-// GetCodec calls the GetCodec RPC.
-func (c *AudioCodecClient) GetCodec(ctx context.Context, arg0 int32, arg1 string, arg2 string) (int64, error) {
-	resp, err := c.svc.GetCodec(ctx, &pb.AudioCodecGetCodecRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCodecs calls the GetCodecs RPC.
-func (c *AudioCodecClient) GetCodecs(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetCodecs(ctx, &pb.GetCodecsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
 }

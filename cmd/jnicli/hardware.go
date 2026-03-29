@@ -12,6 +12,830 @@ var hardwareCmd = &cobra.Command{
 	Short: "hardware service operations",
 }
 
+var hardwareSensorEventListener2Cmd = &cobra.Command{
+	Use:   "sensor-event-listener2",
+	Short: "SensorEventListener2Service operations",
+}
+
+var hardwareSensorEventListener2OnFlushCompletedCmd = &cobra.Command{
+	Use:   "on-flush-completed",
+	Short: "OnFlushCompleted RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSensorEventListener2ServiceClient(grpcConn)
+		req := &pb.OnFlushCompletedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnFlushCompleted(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareDisplayLutsCmd = &cobra.Command{
+	Use:   "display-luts",
+	Short: "DisplayLutsService operations",
+}
+
+var hardwareDisplayLutsNewDisplayLutsCmd = &cobra.Command{
+	Use:   "new-display-luts",
+	Short: "NewDisplayLuts RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDisplayLutsServiceClient(grpcConn)
+		req := &pb.NewDisplayLutsRequest{}
+		resp, err := client.NewDisplayLuts(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareDisplayLutsSet1Cmd = &cobra.Command{
+	Use:   "set1",
+	Short: "Set1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDisplayLutsServiceClient(grpcConn)
+		req := &pb.Set1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Set1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareDisplayLutsSet2_1Cmd = &cobra.Command{
+	Use:   "set2_1",
+	Short: "Set2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDisplayLutsServiceClient(grpcConn)
+		req := &pb.Set2_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Set2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareDisplayLutsToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDisplayLutsServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareDisplayLutsEntryCmd = &cobra.Command{
+	Use:   "display-luts-entry",
+	Short: "DisplayLutsEntryService operations",
+}
+
+var hardwareDisplayLutsEntryGetBufferCmd = &cobra.Command{
+	Use:   "get-buffer",
+	Short: "GetBuffer RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDisplayLutsEntryServiceClient(grpcConn)
+		req := &pb.GetBufferRequest{}
+		resp, err := client.GetBuffer(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareDisplayLutsEntryGetDimensionCmd = &cobra.Command{
+	Use:   "get-dimension",
+	Short: "GetDimension RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDisplayLutsEntryServiceClient(grpcConn)
+		req := &pb.GetDimensionRequest{}
+		resp, err := client.GetDimension(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareDisplayLutsEntryGetSamplingKeyCmd = &cobra.Command{
+	Use:   "get-sampling-key",
+	Short: "GetSamplingKey RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDisplayLutsEntryServiceClient(grpcConn)
+		req := &pb.GetSamplingKeyRequest{}
+		resp, err := client.GetSamplingKey(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareDisplayLutsEntryToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDisplayLutsEntryServiceClient(grpcConn)
+		req := &pb.DisplayLutsEntryToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareSensorEventCallbackCmd = &cobra.Command{
+	Use:   "sensor-event-callback",
+	Short: "SensorEventCallbackService operations",
+}
+
+var hardwareSensorEventCallbackOnAccuracyChangedCmd = &cobra.Command{
+	Use:   "on-accuracy-changed",
+	Short: "OnAccuracyChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSensorEventCallbackServiceClient(grpcConn)
+		req := &pb.OnAccuracyChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnAccuracyChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareSensorEventCallbackOnFlushCompletedCmd = &cobra.Command{
+	Use:   "on-flush-completed",
+	Short: "OnFlushCompleted RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSensorEventCallbackServiceClient(grpcConn)
+		req := &pb.OnFlushCompletedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnFlushCompleted(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareSensorEventCallbackOnSensorAdditionalInfoCmd = &cobra.Command{
+	Use:   "on-sensor-additional-info",
+	Short: "OnSensorAdditionalInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSensorEventCallbackServiceClient(grpcConn)
+		req := &pb.OnSensorAdditionalInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnSensorAdditionalInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareSensorEventCallbackOnSensorChangedCmd = &cobra.Command{
+	Use:   "on-sensor-changed",
+	Short: "OnSensorChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSensorEventCallbackServiceClient(grpcConn)
+		req := &pb.OnSensorChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnSensorChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareDataSpaceCmd = &cobra.Command{
+	Use:   "data-space",
+	Short: "DataSpaceService operations",
+}
+
+var hardwareDataSpaceGetRangeCmd = &cobra.Command{
+	Use:   "get-range",
+	Short: "GetRange RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataSpaceServiceClient(grpcConn)
+		req := &pb.GetRangeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetRange(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareDataSpaceGetStandardCmd = &cobra.Command{
+	Use:   "get-standard",
+	Short: "GetStandard RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataSpaceServiceClient(grpcConn)
+		req := &pb.GetStandardRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetStandard(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareDataSpaceGetTransferCmd = &cobra.Command{
+	Use:   "get-transfer",
+	Short: "GetTransfer RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataSpaceServiceClient(grpcConn)
+		req := &pb.GetTransferRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetTransfer(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareDataSpacePackCmd = &cobra.Command{
+	Use:   "pack",
+	Short: "Pack RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataSpaceServiceClient(grpcConn)
+		req := &pb.PackRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Pack(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareSensorEventListenerCmd = &cobra.Command{
+	Use:   "sensor-event-listener",
+	Short: "SensorEventListenerService operations",
+}
+
+var hardwareSensorEventListenerOnAccuracyChangedCmd = &cobra.Command{
+	Use:   "on-accuracy-changed",
+	Short: "OnAccuracyChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSensorEventListenerServiceClient(grpcConn)
+		req := &pb.OnAccuracyChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnAccuracyChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareSensorEventListenerOnSensorChangedCmd = &cobra.Command{
+	Use:   "on-sensor-changed",
+	Short: "OnSensorChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSensorEventListenerServiceClient(grpcConn)
+		req := &pb.OnSensorChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnSensorChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareSensorPrivacyManagerCmd = &cobra.Command{
+	Use:   "sensor-privacy-manager",
+	Short: "SensorPrivacyManagerService operations",
+}
+
+var hardwareSensorPrivacyManagerSupportsSensorToggle1Cmd = &cobra.Command{
+	Use:   "supports-sensor-toggle1",
+	Short: "SupportsSensorToggle1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSensorPrivacyManagerServiceClient(grpcConn)
+		req := &pb.SupportsSensorToggle1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SupportsSensorToggle1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareSensorPrivacyManagerSupportsSensorToggle2_1Cmd = &cobra.Command{
+	Use:   "supports-sensor-toggle2_1",
+	Short: "SupportsSensorToggle2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSensorPrivacyManagerServiceClient(grpcConn)
+		req := &pb.SupportsSensorToggle2_1Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SupportsSensorToggle2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareSensorListenerCmd = &cobra.Command{
+	Use:   "sensor-listener",
+	Short: "SensorListenerService operations",
+}
+
+var hardwareSensorListenerOnAccuracyChangedCmd = &cobra.Command{
+	Use:   "on-accuracy-changed",
+	Short: "OnAccuracyChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSensorListenerServiceClient(grpcConn)
+		req := &pb.SensorListenerOnAccuracyChangedRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnAccuracyChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareSensorListenerOnSensorChangedCmd = &cobra.Command{
+	Use:   "on-sensor-changed",
+	Short: "OnSensorChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSensorListenerServiceClient(grpcConn)
+		req := &pb.SensorListenerOnSensorChangedRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnSensorChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareSyncFenceCmd = &cobra.Command{
+	Use:   "sync-fence",
+	Short: "SyncFenceService operations",
+}
+
+var hardwareSyncFenceNewSyncFenceCmd = &cobra.Command{
+	Use:   "new-sync-fence",
+	Short: "NewSyncFence RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncFenceServiceClient(grpcConn)
+		req := &pb.NewSyncFenceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewSyncFence(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareSyncFenceAwaitCmd = &cobra.Command{
+	Use:   "await",
+	Short: "Await RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncFenceServiceClient(grpcConn)
+		req := &pb.AwaitRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Await(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareSyncFenceAwaitForeverCmd = &cobra.Command{
+	Use:   "await-forever",
+	Short: "AwaitForever RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncFenceServiceClient(grpcConn)
+		req := &pb.AwaitForeverRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.AwaitForever(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareSyncFenceCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncFenceServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareSyncFenceDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncFenceServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareSyncFenceGetSignalTimeCmd = &cobra.Command{
+	Use:   "get-signal-time",
+	Short: "GetSignalTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncFenceServiceClient(grpcConn)
+		req := &pb.GetSignalTimeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSignalTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareSyncFenceIsValidCmd = &cobra.Command{
+	Use:   "is-valid",
+	Short: "IsValid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncFenceServiceClient(grpcConn)
+		req := &pb.IsValidRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsValid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareSyncFenceWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSyncFenceServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareGeomagneticFieldCmd = &cobra.Command{
+	Use:   "geomagnetic-field",
+	Short: "GeomagneticFieldService operations",
+}
+
+var hardwareGeomagneticFieldNewGeomagneticFieldCmd = &cobra.Command{
+	Use:   "new-geomagnetic-field",
+	Short: "NewGeomagneticField RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGeomagneticFieldServiceClient(grpcConn)
+		req := &pb.NewGeomagneticFieldRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.NewGeomagneticField(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareGeomagneticFieldGetDeclinationCmd = &cobra.Command{
+	Use:   "get-declination",
+	Short: "GetDeclination RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGeomagneticFieldServiceClient(grpcConn)
+		req := &pb.GetDeclinationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDeclination(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareGeomagneticFieldGetFieldStrengthCmd = &cobra.Command{
+	Use:   "get-field-strength",
+	Short: "GetFieldStrength RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGeomagneticFieldServiceClient(grpcConn)
+		req := &pb.GetFieldStrengthRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetFieldStrength(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareGeomagneticFieldGetHorizontalStrengthCmd = &cobra.Command{
+	Use:   "get-horizontal-strength",
+	Short: "GetHorizontalStrength RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGeomagneticFieldServiceClient(grpcConn)
+		req := &pb.GetHorizontalStrengthRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetHorizontalStrength(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareGeomagneticFieldGetInclinationCmd = &cobra.Command{
+	Use:   "get-inclination",
+	Short: "GetInclination RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGeomagneticFieldServiceClient(grpcConn)
+		req := &pb.GetInclinationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetInclination(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareGeomagneticFieldGetXCmd = &cobra.Command{
+	Use:   "get-x",
+	Short: "GetX RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGeomagneticFieldServiceClient(grpcConn)
+		req := &pb.GetXRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetX(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareGeomagneticFieldGetYCmd = &cobra.Command{
+	Use:   "get-y",
+	Short: "GetY RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGeomagneticFieldServiceClient(grpcConn)
+		req := &pb.GetYRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetY(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareGeomagneticFieldGetZCmd = &cobra.Command{
+	Use:   "get-z",
+	Short: "GetZ RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGeomagneticFieldServiceClient(grpcConn)
+		req := &pb.GetZRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetZ(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var hardwareSensorManagerCmd = &cobra.Command{
 	Use:   "sensor-manager",
 	Short: "SensorManagerService operations",
@@ -130,6 +954,44 @@ var hardwareSensorManagerGetDefaultSensor2_1Cmd = &cobra.Command{
 			req.Arg1 = v
 		}
 		resp, err := client.GetDefaultSensor2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareSensorManagerGetDynamicSensorListCmd = &cobra.Command{
+	Use:   "get-dynamic-sensor-list",
+	Short: "GetDynamicSensorList RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSensorManagerServiceClient(grpcConn)
+		req := &pb.GetDynamicSensorListRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetDynamicSensorList(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareSensorManagerGetSensorListCmd = &cobra.Command{
+	Use:   "get-sensor-list",
+	Short: "GetSensorList RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSensorManagerServiceClient(grpcConn)
+		req := &pb.GetSensorListRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetSensorList(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -465,7 +1327,7 @@ var hardwareSensorManagerGetInclinationCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewSensorManagerServiceClient(grpcConn)
-		req := &pb.GetInclinationRequest{}
+		req := &pb.SensorManagerGetInclinationRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -642,370 +1504,76 @@ var hardwareSensorManagerDynamicSensorCallbackOnDynamicSensorDisconnectedCmd = &
 	},
 }
 
-var hardwareSyncFenceCmd = &cobra.Command{
-	Use:   "sync-fence",
-	Short: "SyncFenceService operations",
+var hardwareBatteryStateCmd = &cobra.Command{
+	Use:   "battery-state",
+	Short: "BatteryStateService operations",
 }
 
-var hardwareSyncFenceNewSyncFenceCmd = &cobra.Command{
-	Use:   "new-sync-fence",
-	Short: "NewSyncFence RPC",
+var hardwareBatteryStateGetCapacityCmd = &cobra.Command{
+	Use:   "get-capacity",
+	Short: "GetCapacity RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSyncFenceServiceClient(grpcConn)
-		req := &pb.NewSyncFenceRequest{}
+		client := pb.NewBatteryStateServiceClient(grpcConn)
+		req := &pb.GetCapacityRequest{}
+		resp, err := client.GetCapacity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareBatteryStateGetStatusCmd = &cobra.Command{
+	Use:   "get-status",
+	Short: "GetStatus RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBatteryStateServiceClient(grpcConn)
+		req := &pb.GetStatusRequest{}
+		resp, err := client.GetStatus(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareBatteryStateIsPresentCmd = &cobra.Command{
+	Use:   "is-present",
+	Short: "IsPresent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBatteryStateServiceClient(grpcConn)
+		req := &pb.IsPresentRequest{}
+		resp, err := client.IsPresent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareTriggerEventListenerCmd = &cobra.Command{
+	Use:   "trigger-event-listener",
+	Short: "TriggerEventListenerService operations",
+}
+
+var hardwareTriggerEventListenerOnTriggerCmd = &cobra.Command{
+	Use:   "on-trigger",
+	Short: "OnTrigger RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTriggerEventListenerServiceClient(grpcConn)
+		req := &pb.OnTriggerRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.NewSyncFence(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareSyncFenceAwaitCmd = &cobra.Command{
-	Use:   "await",
-	Short: "Await RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSyncFenceServiceClient(grpcConn)
-		req := &pb.AwaitRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Await(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareSyncFenceAwaitForeverCmd = &cobra.Command{
-	Use:   "await-forever",
-	Short: "AwaitForever RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSyncFenceServiceClient(grpcConn)
-		req := &pb.AwaitForeverRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.AwaitForever(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareSyncFenceCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSyncFenceServiceClient(grpcConn)
-		req := &pb.CloseRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareSyncFenceDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSyncFenceServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareSyncFenceGetSignalTimeCmd = &cobra.Command{
-	Use:   "get-signal-time",
-	Short: "GetSignalTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSyncFenceServiceClient(grpcConn)
-		req := &pb.GetSignalTimeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSignalTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareSyncFenceIsValidCmd = &cobra.Command{
-	Use:   "is-valid",
-	Short: "IsValid RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSyncFenceServiceClient(grpcConn)
-		req := &pb.IsValidRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsValid(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareSyncFenceWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSyncFenceServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareSensorListenerCmd = &cobra.Command{
-	Use:   "sensor-listener",
-	Short: "SensorListenerService operations",
-}
-
-var hardwareSensorListenerOnAccuracyChangedCmd = &cobra.Command{
-	Use:   "on-accuracy-changed",
-	Short: "OnAccuracyChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSensorListenerServiceClient(grpcConn)
-		req := &pb.OnAccuracyChangedRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnAccuracyChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareSensorListenerOnSensorChangedCmd = &cobra.Command{
-	Use:   "on-sensor-changed",
-	Short: "OnSensorChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSensorListenerServiceClient(grpcConn)
-		req := &pb.OnSensorChangedRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnSensorChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareDisplayLutsCmd = &cobra.Command{
-	Use:   "display-luts",
-	Short: "DisplayLutsService operations",
-}
-
-var hardwareDisplayLutsNewDisplayLutsCmd = &cobra.Command{
-	Use:   "new-display-luts",
-	Short: "NewDisplayLuts RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDisplayLutsServiceClient(grpcConn)
-		req := &pb.NewDisplayLutsRequest{}
-		resp, err := client.NewDisplayLuts(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareDisplayLutsSet1Cmd = &cobra.Command{
-	Use:   "set1",
-	Short: "Set1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDisplayLutsServiceClient(grpcConn)
-		req := &pb.Set1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Set1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareDisplayLutsSet2_1Cmd = &cobra.Command{
-	Use:   "set2_1",
-	Short: "Set2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDisplayLutsServiceClient(grpcConn)
-		req := &pb.Set2_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Set2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareDisplayLutsToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDisplayLutsServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareDisplayLutsEntryCmd = &cobra.Command{
-	Use:   "display-luts-entry",
-	Short: "DisplayLutsEntryService operations",
-}
-
-var hardwareDisplayLutsEntryGetBufferCmd = &cobra.Command{
-	Use:   "get-buffer",
-	Short: "GetBuffer RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDisplayLutsEntryServiceClient(grpcConn)
-		req := &pb.GetBufferRequest{}
-		resp, err := client.GetBuffer(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareDisplayLutsEntryGetDimensionCmd = &cobra.Command{
-	Use:   "get-dimension",
-	Short: "GetDimension RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDisplayLutsEntryServiceClient(grpcConn)
-		req := &pb.GetDimensionRequest{}
-		resp, err := client.GetDimension(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareDisplayLutsEntryGetSamplingKeyCmd = &cobra.Command{
-	Use:   "get-sampling-key",
-	Short: "GetSamplingKey RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDisplayLutsEntryServiceClient(grpcConn)
-		req := &pb.GetSamplingKeyRequest{}
-		resp, err := client.GetSamplingKey(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareDisplayLutsEntryToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDisplayLutsEntryServiceClient(grpcConn)
-		req := &pb.DisplayLutsEntryToStringRequest{}
-		resp, err := client.ToString(ctx, req)
+		resp, err := client.OnTrigger(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1341,56 +1909,96 @@ var hardwareSensorToStringCmd = &cobra.Command{
 	},
 }
 
-var hardwareTriggerEventListenerCmd = &cobra.Command{
-	Use:   "trigger-event-listener",
-	Short: "TriggerEventListenerService operations",
+var hardwareOverlayPropertiesCmd = &cobra.Command{
+	Use:   "overlay-properties",
+	Short: "OverlayPropertiesService operations",
 }
 
-var hardwareTriggerEventListenerOnTriggerCmd = &cobra.Command{
-	Use:   "on-trigger",
-	Short: "OnTrigger RPC",
+var hardwareOverlayPropertiesDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTriggerEventListenerServiceClient(grpcConn)
-		req := &pb.OnTriggerRequest{}
+		client := pb.NewOverlayPropertiesServiceClient(grpcConn)
+		req := &pb.OverlayPropertiesDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareOverlayPropertiesGetLutPropertiesCmd = &cobra.Command{
+	Use:   "get-lut-properties",
+	Short: "GetLutProperties RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOverlayPropertiesServiceClient(grpcConn)
+		req := &pb.GetLutPropertiesRequest{}
+		resp, err := client.GetLutProperties(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareOverlayPropertiesIsCombinationSupportedCmd = &cobra.Command{
+	Use:   "is-combination-supported",
+	Short: "IsCombinationSupported RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOverlayPropertiesServiceClient(grpcConn)
+		req := &pb.IsCombinationSupportedRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.IsCombinationSupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareOverlayPropertiesIsMixedColorSpacesSupportedCmd = &cobra.Command{
+	Use:   "is-mixed-color-spaces-supported",
+	Short: "IsMixedColorSpacesSupported RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOverlayPropertiesServiceClient(grpcConn)
+		req := &pb.IsMixedColorSpacesSupportedRequest{}
+		resp, err := client.IsMixedColorSpacesSupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareOverlayPropertiesWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOverlayPropertiesServiceClient(grpcConn)
+		req := &pb.OverlayPropertiesWriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.OnTrigger(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareGeomagneticFieldCmd = &cobra.Command{
-	Use:   "geomagnetic-field",
-	Short: "GeomagneticFieldService operations",
-}
-
-var hardwareGeomagneticFieldNewGeomagneticFieldCmd = &cobra.Command{
-	Use:   "new-geomagnetic-field",
-	Short: "NewGeomagneticField RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGeomagneticFieldServiceClient(grpcConn)
-		req := &pb.NewGeomagneticFieldRequest{}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.NewGeomagneticField(ctx, req)
+		resp, err := client.WriteToParcel(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1398,18 +2006,20 @@ var hardwareGeomagneticFieldNewGeomagneticFieldCmd = &cobra.Command{
 	},
 }
 
-var hardwareGeomagneticFieldGetDeclinationCmd = &cobra.Command{
-	Use:   "get-declination",
-	Short: "GetDeclination RPC",
+var hardwareSensorDirectChannelCmd = &cobra.Command{
+	Use:   "sensor-direct-channel",
+	Short: "SensorDirectChannelService operations",
+}
+
+var hardwareSensorDirectChannelCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewGeomagneticFieldServiceClient(grpcConn)
-		req := &pb.GetDeclinationRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetDeclination(ctx, req)
+		client := pb.NewSensorDirectChannelServiceClient(grpcConn)
+		req := &pb.SensorDirectChannelCloseRequest{}
+		resp, err := client.Close(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1417,18 +2027,21 @@ var hardwareGeomagneticFieldGetDeclinationCmd = &cobra.Command{
 	},
 }
 
-var hardwareGeomagneticFieldGetFieldStrengthCmd = &cobra.Command{
-	Use:   "get-field-strength",
-	Short: "GetFieldStrength RPC",
+var hardwareSensorDirectChannelConfigureCmd = &cobra.Command{
+	Use:   "configure",
+	Short: "Configure RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewGeomagneticFieldServiceClient(grpcConn)
-		req := &pb.GetFieldStrengthRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
+		client := pb.NewSensorDirectChannelServiceClient(grpcConn)
+		req := &pb.ConfigureRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
 		}
-		resp, err := client.GetFieldStrength(ctx, req)
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Configure(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1436,94 +2049,15 @@ var hardwareGeomagneticFieldGetFieldStrengthCmd = &cobra.Command{
 	},
 }
 
-var hardwareGeomagneticFieldGetHorizontalStrengthCmd = &cobra.Command{
-	Use:   "get-horizontal-strength",
-	Short: "GetHorizontalStrength RPC",
+var hardwareSensorDirectChannelIsOpenCmd = &cobra.Command{
+	Use:   "is-open",
+	Short: "IsOpen RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewGeomagneticFieldServiceClient(grpcConn)
-		req := &pb.GetHorizontalStrengthRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetHorizontalStrength(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareGeomagneticFieldGetInclinationCmd = &cobra.Command{
-	Use:   "get-inclination",
-	Short: "GetInclination RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGeomagneticFieldServiceClient(grpcConn)
-		req := &pb.GeomagneticFieldGetInclinationRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetInclination(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareGeomagneticFieldGetXCmd = &cobra.Command{
-	Use:   "get-x",
-	Short: "GetX RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGeomagneticFieldServiceClient(grpcConn)
-		req := &pb.GetXRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetX(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareGeomagneticFieldGetYCmd = &cobra.Command{
-	Use:   "get-y",
-	Short: "GetY RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGeomagneticFieldServiceClient(grpcConn)
-		req := &pb.GetYRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetY(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareGeomagneticFieldGetZCmd = &cobra.Command{
-	Use:   "get-z",
-	Short: "GetZ RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGeomagneticFieldServiceClient(grpcConn)
-		req := &pb.GetZRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetZ(ctx, req)
+		client := pb.NewSensorDirectChannelServiceClient(grpcConn)
+		req := &pb.IsOpenRequest{}
+		resp, err := client.IsOpen(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1757,251 +2291,6 @@ var hardwareBufferIsSupportedCmd = &cobra.Command{
 			req.Arg4 = v
 		}
 		resp, err := client.IsSupported(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareSensorEventListenerCmd = &cobra.Command{
-	Use:   "sensor-event-listener",
-	Short: "SensorEventListenerService operations",
-}
-
-var hardwareSensorEventListenerOnAccuracyChangedCmd = &cobra.Command{
-	Use:   "on-accuracy-changed",
-	Short: "OnAccuracyChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSensorEventListenerServiceClient(grpcConn)
-		req := &pb.SensorEventListenerOnAccuracyChangedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnAccuracyChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareSensorEventListenerOnSensorChangedCmd = &cobra.Command{
-	Use:   "on-sensor-changed",
-	Short: "OnSensorChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSensorEventListenerServiceClient(grpcConn)
-		req := &pb.SensorEventListenerOnSensorChangedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnSensorChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareSensorDirectChannelCmd = &cobra.Command{
-	Use:   "sensor-direct-channel",
-	Short: "SensorDirectChannelService operations",
-}
-
-var hardwareSensorDirectChannelCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSensorDirectChannelServiceClient(grpcConn)
-		req := &pb.SensorDirectChannelCloseRequest{}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareSensorDirectChannelConfigureCmd = &cobra.Command{
-	Use:   "configure",
-	Short: "Configure RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSensorDirectChannelServiceClient(grpcConn)
-		req := &pb.ConfigureRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Configure(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareSensorDirectChannelIsOpenCmd = &cobra.Command{
-	Use:   "is-open",
-	Short: "IsOpen RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSensorDirectChannelServiceClient(grpcConn)
-		req := &pb.IsOpenRequest{}
-		resp, err := client.IsOpen(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareLutPropertiesCmd = &cobra.Command{
-	Use:   "lut-properties",
-	Short: "LutPropertiesService operations",
-}
-
-var hardwareLutPropertiesGetDimensionCmd = &cobra.Command{
-	Use:   "get-dimension",
-	Short: "GetDimension RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLutPropertiesServiceClient(grpcConn)
-		req := &pb.GetDimensionRequest{}
-		resp, err := client.GetDimension(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareLutPropertiesGetSamplingKeysCmd = &cobra.Command{
-	Use:   "get-sampling-keys",
-	Short: "GetSamplingKeys RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLutPropertiesServiceClient(grpcConn)
-		req := &pb.GetSamplingKeysRequest{}
-		resp, err := client.GetSamplingKeys(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareLutPropertiesGetSizeCmd = &cobra.Command{
-	Use:   "get-size",
-	Short: "GetSize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLutPropertiesServiceClient(grpcConn)
-		req := &pb.GetSizeRequest{}
-		resp, err := client.GetSize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareDataSpaceCmd = &cobra.Command{
-	Use:   "data-space",
-	Short: "DataSpaceService operations",
-}
-
-var hardwareDataSpaceGetRangeCmd = &cobra.Command{
-	Use:   "get-range",
-	Short: "GetRange RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDataSpaceServiceClient(grpcConn)
-		req := &pb.GetRangeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetRange(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareDataSpaceGetStandardCmd = &cobra.Command{
-	Use:   "get-standard",
-	Short: "GetStandard RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDataSpaceServiceClient(grpcConn)
-		req := &pb.GetStandardRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetStandard(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareDataSpaceGetTransferCmd = &cobra.Command{
-	Use:   "get-transfer",
-	Short: "GetTransfer RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDataSpaceServiceClient(grpcConn)
-		req := &pb.GetTransferRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetTransfer(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareDataSpacePackCmd = &cobra.Command{
-	Use:   "pack",
-	Short: "Pack RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDataSpaceServiceClient(grpcConn)
-		req := &pb.PackRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Pack(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2931,6 +3220,22 @@ var hardwareCameraParametersGetFocalLengthCmd = &cobra.Command{
 	},
 }
 
+var hardwareCameraParametersGetFocusAreasCmd = &cobra.Command{
+	Use:   "get-focus-areas",
+	Short: "GetFocusAreas RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraParametersServiceClient(grpcConn)
+		req := &pb.GetFocusAreasRequest{}
+		resp, err := client.GetFocusAreas(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var hardwareCameraParametersGetFocusDistancesCmd = &cobra.Command{
 	Use:   "get-focus-distances",
 	Short: "GetFocusDistances RPC",
@@ -3129,6 +3434,22 @@ var hardwareCameraParametersGetMaxZoomCmd = &cobra.Command{
 	},
 }
 
+var hardwareCameraParametersGetMeteringAreasCmd = &cobra.Command{
+	Use:   "get-metering-areas",
+	Short: "GetMeteringAreas RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraParametersServiceClient(grpcConn)
+		req := &pb.GetMeteringAreasRequest{}
+		resp, err := client.GetMeteringAreas(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var hardwareCameraParametersGetMinExposureCompensationCmd = &cobra.Command{
 	Use:   "get-min-exposure-compensation",
 	Short: "GetMinExposureCompensation RPC",
@@ -3276,6 +3597,230 @@ var hardwareCameraParametersGetSceneModeCmd = &cobra.Command{
 	},
 }
 
+var hardwareCameraParametersGetSupportedAntibandingCmd = &cobra.Command{
+	Use:   "get-supported-antibanding",
+	Short: "GetSupportedAntibanding RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraParametersServiceClient(grpcConn)
+		req := &pb.GetSupportedAntibandingRequest{}
+		resp, err := client.GetSupportedAntibanding(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareCameraParametersGetSupportedColorEffectsCmd = &cobra.Command{
+	Use:   "get-supported-color-effects",
+	Short: "GetSupportedColorEffects RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraParametersServiceClient(grpcConn)
+		req := &pb.GetSupportedColorEffectsRequest{}
+		resp, err := client.GetSupportedColorEffects(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareCameraParametersGetSupportedFlashModesCmd = &cobra.Command{
+	Use:   "get-supported-flash-modes",
+	Short: "GetSupportedFlashModes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraParametersServiceClient(grpcConn)
+		req := &pb.GetSupportedFlashModesRequest{}
+		resp, err := client.GetSupportedFlashModes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareCameraParametersGetSupportedFocusModesCmd = &cobra.Command{
+	Use:   "get-supported-focus-modes",
+	Short: "GetSupportedFocusModes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraParametersServiceClient(grpcConn)
+		req := &pb.GetSupportedFocusModesRequest{}
+		resp, err := client.GetSupportedFocusModes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareCameraParametersGetSupportedJpegThumbnailSizesCmd = &cobra.Command{
+	Use:   "get-supported-jpeg-thumbnail-sizes",
+	Short: "GetSupportedJpegThumbnailSizes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraParametersServiceClient(grpcConn)
+		req := &pb.GetSupportedJpegThumbnailSizesRequest{}
+		resp, err := client.GetSupportedJpegThumbnailSizes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareCameraParametersGetSupportedPictureFormatsCmd = &cobra.Command{
+	Use:   "get-supported-picture-formats",
+	Short: "GetSupportedPictureFormats RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraParametersServiceClient(grpcConn)
+		req := &pb.GetSupportedPictureFormatsRequest{}
+		resp, err := client.GetSupportedPictureFormats(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareCameraParametersGetSupportedPictureSizesCmd = &cobra.Command{
+	Use:   "get-supported-picture-sizes",
+	Short: "GetSupportedPictureSizes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraParametersServiceClient(grpcConn)
+		req := &pb.GetSupportedPictureSizesRequest{}
+		resp, err := client.GetSupportedPictureSizes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareCameraParametersGetSupportedPreviewFormatsCmd = &cobra.Command{
+	Use:   "get-supported-preview-formats",
+	Short: "GetSupportedPreviewFormats RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraParametersServiceClient(grpcConn)
+		req := &pb.GetSupportedPreviewFormatsRequest{}
+		resp, err := client.GetSupportedPreviewFormats(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareCameraParametersGetSupportedPreviewFpsRangeCmd = &cobra.Command{
+	Use:   "get-supported-preview-fps-range",
+	Short: "GetSupportedPreviewFpsRange RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraParametersServiceClient(grpcConn)
+		req := &pb.GetSupportedPreviewFpsRangeRequest{}
+		resp, err := client.GetSupportedPreviewFpsRange(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareCameraParametersGetSupportedPreviewFrameRatesCmd = &cobra.Command{
+	Use:   "get-supported-preview-frame-rates",
+	Short: "GetSupportedPreviewFrameRates RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraParametersServiceClient(grpcConn)
+		req := &pb.GetSupportedPreviewFrameRatesRequest{}
+		resp, err := client.GetSupportedPreviewFrameRates(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareCameraParametersGetSupportedPreviewSizesCmd = &cobra.Command{
+	Use:   "get-supported-preview-sizes",
+	Short: "GetSupportedPreviewSizes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraParametersServiceClient(grpcConn)
+		req := &pb.GetSupportedPreviewSizesRequest{}
+		resp, err := client.GetSupportedPreviewSizes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareCameraParametersGetSupportedSceneModesCmd = &cobra.Command{
+	Use:   "get-supported-scene-modes",
+	Short: "GetSupportedSceneModes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraParametersServiceClient(grpcConn)
+		req := &pb.GetSupportedSceneModesRequest{}
+		resp, err := client.GetSupportedSceneModes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareCameraParametersGetSupportedVideoSizesCmd = &cobra.Command{
+	Use:   "get-supported-video-sizes",
+	Short: "GetSupportedVideoSizes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraParametersServiceClient(grpcConn)
+		req := &pb.GetSupportedVideoSizesRequest{}
+		resp, err := client.GetSupportedVideoSizes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareCameraParametersGetSupportedWhiteBalanceCmd = &cobra.Command{
+	Use:   "get-supported-white-balance",
+	Short: "GetSupportedWhiteBalance RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraParametersServiceClient(grpcConn)
+		req := &pb.GetSupportedWhiteBalanceRequest{}
+		resp, err := client.GetSupportedWhiteBalance(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var hardwareCameraParametersGetVerticalViewAngleCmd = &cobra.Command{
 	Use:   "get-vertical-view-angle",
 	Short: "GetVerticalViewAngle RPC",
@@ -3333,6 +3878,22 @@ var hardwareCameraParametersGetZoomCmd = &cobra.Command{
 		client := pb.NewCameraParametersServiceClient(grpcConn)
 		req := &pb.GetZoomRequest{}
 		resp, err := client.GetZoom(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var hardwareCameraParametersGetZoomRatiosCmd = &cobra.Command{
+	Use:   "get-zoom-ratios",
+	Short: "GetZoomRatios RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraParametersServiceClient(grpcConn)
+		req := &pb.GetZoomRatiosRequest{}
+		resp, err := client.GetZoomRatios(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -4174,20 +4735,20 @@ var hardwareCameraSizeHashCodeCmd = &cobra.Command{
 	},
 }
 
-var hardwareBatteryStateCmd = &cobra.Command{
-	Use:   "battery-state",
-	Short: "BatteryStateService operations",
+var hardwareLutPropertiesCmd = &cobra.Command{
+	Use:   "lut-properties",
+	Short: "LutPropertiesService operations",
 }
 
-var hardwareBatteryStateGetCapacityCmd = &cobra.Command{
-	Use:   "get-capacity",
-	Short: "GetCapacity RPC",
+var hardwareLutPropertiesGetDimensionCmd = &cobra.Command{
+	Use:   "get-dimension",
+	Short: "GetDimension RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBatteryStateServiceClient(grpcConn)
-		req := &pb.GetCapacityRequest{}
-		resp, err := client.GetCapacity(ctx, req)
+		client := pb.NewLutPropertiesServiceClient(grpcConn)
+		req := &pb.GetDimensionRequest{}
+		resp, err := client.GetDimension(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -4195,15 +4756,15 @@ var hardwareBatteryStateGetCapacityCmd = &cobra.Command{
 	},
 }
 
-var hardwareBatteryStateGetStatusCmd = &cobra.Command{
-	Use:   "get-status",
-	Short: "GetStatus RPC",
+var hardwareLutPropertiesGetSamplingKeysCmd = &cobra.Command{
+	Use:   "get-sampling-keys",
+	Short: "GetSamplingKeys RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBatteryStateServiceClient(grpcConn)
-		req := &pb.GetStatusRequest{}
-		resp, err := client.GetStatus(ctx, req)
+		client := pb.NewLutPropertiesServiceClient(grpcConn)
+		req := &pb.GetSamplingKeysRequest{}
+		resp, err := client.GetSamplingKeys(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -4211,266 +4772,15 @@ var hardwareBatteryStateGetStatusCmd = &cobra.Command{
 	},
 }
 
-var hardwareBatteryStateIsPresentCmd = &cobra.Command{
-	Use:   "is-present",
-	Short: "IsPresent RPC",
+var hardwareLutPropertiesGetSizeCmd = &cobra.Command{
+	Use:   "get-size",
+	Short: "GetSize RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewBatteryStateServiceClient(grpcConn)
-		req := &pb.IsPresentRequest{}
-		resp, err := client.IsPresent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareOverlayPropertiesCmd = &cobra.Command{
-	Use:   "overlay-properties",
-	Short: "OverlayPropertiesService operations",
-}
-
-var hardwareOverlayPropertiesDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOverlayPropertiesServiceClient(grpcConn)
-		req := &pb.OverlayPropertiesDescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareOverlayPropertiesGetLutPropertiesCmd = &cobra.Command{
-	Use:   "get-lut-properties",
-	Short: "GetLutProperties RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOverlayPropertiesServiceClient(grpcConn)
-		req := &pb.GetLutPropertiesRequest{}
-		resp, err := client.GetLutProperties(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareOverlayPropertiesIsCombinationSupportedCmd = &cobra.Command{
-	Use:   "is-combination-supported",
-	Short: "IsCombinationSupported RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOverlayPropertiesServiceClient(grpcConn)
-		req := &pb.IsCombinationSupportedRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.IsCombinationSupported(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareOverlayPropertiesIsMixedColorSpacesSupportedCmd = &cobra.Command{
-	Use:   "is-mixed-color-spaces-supported",
-	Short: "IsMixedColorSpacesSupported RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOverlayPropertiesServiceClient(grpcConn)
-		req := &pb.IsMixedColorSpacesSupportedRequest{}
-		resp, err := client.IsMixedColorSpacesSupported(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareOverlayPropertiesWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOverlayPropertiesServiceClient(grpcConn)
-		req := &pb.OverlayPropertiesWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareSensorEventCallbackCmd = &cobra.Command{
-	Use:   "sensor-event-callback",
-	Short: "SensorEventCallbackService operations",
-}
-
-var hardwareSensorEventCallbackOnAccuracyChangedCmd = &cobra.Command{
-	Use:   "on-accuracy-changed",
-	Short: "OnAccuracyChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSensorEventCallbackServiceClient(grpcConn)
-		req := &pb.SensorEventCallbackOnAccuracyChangedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnAccuracyChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareSensorEventCallbackOnFlushCompletedCmd = &cobra.Command{
-	Use:   "on-flush-completed",
-	Short: "OnFlushCompleted RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSensorEventCallbackServiceClient(grpcConn)
-		req := &pb.OnFlushCompletedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnFlushCompleted(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareSensorEventCallbackOnSensorAdditionalInfoCmd = &cobra.Command{
-	Use:   "on-sensor-additional-info",
-	Short: "OnSensorAdditionalInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSensorEventCallbackServiceClient(grpcConn)
-		req := &pb.OnSensorAdditionalInfoRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnSensorAdditionalInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareSensorEventCallbackOnSensorChangedCmd = &cobra.Command{
-	Use:   "on-sensor-changed",
-	Short: "OnSensorChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSensorEventCallbackServiceClient(grpcConn)
-		req := &pb.SensorEventCallbackOnSensorChangedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnSensorChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareSensorPrivacyManagerCmd = &cobra.Command{
-	Use:   "sensor-privacy-manager",
-	Short: "SensorPrivacyManagerService operations",
-}
-
-var hardwareSensorPrivacyManagerSupportsSensorToggle1Cmd = &cobra.Command{
-	Use:   "supports-sensor-toggle1",
-	Short: "SupportsSensorToggle1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSensorPrivacyManagerServiceClient(grpcConn)
-		req := &pb.SupportsSensorToggle1Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SupportsSensorToggle1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareSensorPrivacyManagerSupportsSensorToggle2_1Cmd = &cobra.Command{
-	Use:   "supports-sensor-toggle2_1",
-	Short: "SupportsSensorToggle2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSensorPrivacyManagerServiceClient(grpcConn)
-		req := &pb.SupportsSensorToggle2_1Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SupportsSensorToggle2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var hardwareSensorEventListener2Cmd = &cobra.Command{
-	Use:   "sensor-event-listener2",
-	Short: "SensorEventListener2Service operations",
-}
-
-var hardwareSensorEventListener2OnFlushCompletedCmd = &cobra.Command{
-	Use:   "on-flush-completed",
-	Short: "OnFlushCompleted RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSensorEventListener2ServiceClient(grpcConn)
-		req := &pb.OnFlushCompletedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnFlushCompleted(ctx, req)
+		client := pb.NewLutPropertiesServiceClient(grpcConn)
+		req := &pb.GetSizeRequest{}
+		resp, err := client.GetSize(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -4479,6 +4789,105 @@ var hardwareSensorEventListener2OnFlushCompletedCmd = &cobra.Command{
 }
 
 func init() {
+	hardwareSensorEventListener2OnFlushCompletedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	hardwareSensorEventListener2Cmd.AddCommand(hardwareSensorEventListener2OnFlushCompletedCmd)
+	hardwareCmd.AddCommand(hardwareSensorEventListener2Cmd)
+	hardwareDisplayLutsCmd.AddCommand(hardwareDisplayLutsNewDisplayLutsCmd)
+	hardwareDisplayLutsSet1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	hardwareDisplayLutsSet1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	hardwareDisplayLutsCmd.AddCommand(hardwareDisplayLutsSet1Cmd)
+	hardwareDisplayLutsSet2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	hardwareDisplayLutsSet2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	hardwareDisplayLutsSet2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	hardwareDisplayLutsCmd.AddCommand(hardwareDisplayLutsSet2_1Cmd)
+	hardwareDisplayLutsToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	hardwareDisplayLutsCmd.AddCommand(hardwareDisplayLutsToStringCmd)
+	hardwareCmd.AddCommand(hardwareDisplayLutsCmd)
+	hardwareDisplayLutsEntryCmd.AddCommand(hardwareDisplayLutsEntryGetBufferCmd)
+	hardwareDisplayLutsEntryCmd.AddCommand(hardwareDisplayLutsEntryGetDimensionCmd)
+	hardwareDisplayLutsEntryCmd.AddCommand(hardwareDisplayLutsEntryGetSamplingKeyCmd)
+	hardwareDisplayLutsEntryCmd.AddCommand(hardwareDisplayLutsEntryToStringCmd)
+	hardwareCmd.AddCommand(hardwareDisplayLutsEntryCmd)
+	hardwareSensorEventCallbackOnAccuracyChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	hardwareSensorEventCallbackOnAccuracyChangedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	hardwareSensorEventCallbackCmd.AddCommand(hardwareSensorEventCallbackOnAccuracyChangedCmd)
+	hardwareSensorEventCallbackOnFlushCompletedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	hardwareSensorEventCallbackCmd.AddCommand(hardwareSensorEventCallbackOnFlushCompletedCmd)
+	hardwareSensorEventCallbackOnSensorAdditionalInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	hardwareSensorEventCallbackCmd.AddCommand(hardwareSensorEventCallbackOnSensorAdditionalInfoCmd)
+	hardwareSensorEventCallbackOnSensorChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	hardwareSensorEventCallbackCmd.AddCommand(hardwareSensorEventCallbackOnSensorChangedCmd)
+	hardwareCmd.AddCommand(hardwareSensorEventCallbackCmd)
+	hardwareDataSpaceGetRangeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	hardwareDataSpaceCmd.AddCommand(hardwareDataSpaceGetRangeCmd)
+	hardwareDataSpaceGetStandardCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	hardwareDataSpaceCmd.AddCommand(hardwareDataSpaceGetStandardCmd)
+	hardwareDataSpaceGetTransferCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	hardwareDataSpaceCmd.AddCommand(hardwareDataSpaceGetTransferCmd)
+	hardwareDataSpacePackCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	hardwareDataSpacePackCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	hardwareDataSpacePackCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	hardwareDataSpaceCmd.AddCommand(hardwareDataSpacePackCmd)
+	hardwareCmd.AddCommand(hardwareDataSpaceCmd)
+	hardwareSensorEventListenerOnAccuracyChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	hardwareSensorEventListenerOnAccuracyChangedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	hardwareSensorEventListenerCmd.AddCommand(hardwareSensorEventListenerOnAccuracyChangedCmd)
+	hardwareSensorEventListenerOnSensorChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	hardwareSensorEventListenerCmd.AddCommand(hardwareSensorEventListenerOnSensorChangedCmd)
+	hardwareCmd.AddCommand(hardwareSensorEventListenerCmd)
+	hardwareSensorPrivacyManagerSupportsSensorToggle1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	hardwareSensorPrivacyManagerCmd.AddCommand(hardwareSensorPrivacyManagerSupportsSensorToggle1Cmd)
+	hardwareSensorPrivacyManagerSupportsSensorToggle2_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	hardwareSensorPrivacyManagerSupportsSensorToggle2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	hardwareSensorPrivacyManagerCmd.AddCommand(hardwareSensorPrivacyManagerSupportsSensorToggle2_1Cmd)
+	hardwareCmd.AddCommand(hardwareSensorPrivacyManagerCmd)
+	hardwareSensorListenerOnAccuracyChangedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	hardwareSensorListenerOnAccuracyChangedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	hardwareSensorListenerCmd.AddCommand(hardwareSensorListenerOnAccuracyChangedCmd)
+	hardwareSensorListenerOnSensorChangedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	hardwareSensorListenerOnSensorChangedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	hardwareSensorListenerCmd.AddCommand(hardwareSensorListenerOnSensorChangedCmd)
+	hardwareCmd.AddCommand(hardwareSensorListenerCmd)
+	hardwareSyncFenceNewSyncFenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	hardwareSyncFenceCmd.AddCommand(hardwareSyncFenceNewSyncFenceCmd)
+	hardwareSyncFenceAwaitCmd.Flags().Int64("handle", 0, "handle (int64)")
+	hardwareSyncFenceAwaitCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	hardwareSyncFenceCmd.AddCommand(hardwareSyncFenceAwaitCmd)
+	hardwareSyncFenceAwaitForeverCmd.Flags().Int64("handle", 0, "handle (int64)")
+	hardwareSyncFenceCmd.AddCommand(hardwareSyncFenceAwaitForeverCmd)
+	hardwareSyncFenceCloseCmd.Flags().Int64("handle", 0, "handle (int64)")
+	hardwareSyncFenceCmd.AddCommand(hardwareSyncFenceCloseCmd)
+	hardwareSyncFenceDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	hardwareSyncFenceCmd.AddCommand(hardwareSyncFenceDescribeContentsCmd)
+	hardwareSyncFenceGetSignalTimeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	hardwareSyncFenceCmd.AddCommand(hardwareSyncFenceGetSignalTimeCmd)
+	hardwareSyncFenceIsValidCmd.Flags().Int64("handle", 0, "handle (int64)")
+	hardwareSyncFenceCmd.AddCommand(hardwareSyncFenceIsValidCmd)
+	hardwareSyncFenceWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	hardwareSyncFenceWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	hardwareSyncFenceWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	hardwareSyncFenceCmd.AddCommand(hardwareSyncFenceWriteToParcelCmd)
+	hardwareCmd.AddCommand(hardwareSyncFenceCmd)
+	hardwareGeomagneticFieldNewGeomagneticFieldCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	hardwareGeomagneticFieldNewGeomagneticFieldCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	hardwareGeomagneticFieldNewGeomagneticFieldCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	hardwareGeomagneticFieldNewGeomagneticFieldCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	hardwareGeomagneticFieldCmd.AddCommand(hardwareGeomagneticFieldNewGeomagneticFieldCmd)
+	hardwareGeomagneticFieldGetDeclinationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	hardwareGeomagneticFieldCmd.AddCommand(hardwareGeomagneticFieldGetDeclinationCmd)
+	hardwareGeomagneticFieldGetFieldStrengthCmd.Flags().Int64("handle", 0, "handle (int64)")
+	hardwareGeomagneticFieldCmd.AddCommand(hardwareGeomagneticFieldGetFieldStrengthCmd)
+	hardwareGeomagneticFieldGetHorizontalStrengthCmd.Flags().Int64("handle", 0, "handle (int64)")
+	hardwareGeomagneticFieldCmd.AddCommand(hardwareGeomagneticFieldGetHorizontalStrengthCmd)
+	hardwareGeomagneticFieldGetInclinationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	hardwareGeomagneticFieldCmd.AddCommand(hardwareGeomagneticFieldGetInclinationCmd)
+	hardwareGeomagneticFieldGetXCmd.Flags().Int64("handle", 0, "handle (int64)")
+	hardwareGeomagneticFieldCmd.AddCommand(hardwareGeomagneticFieldGetXCmd)
+	hardwareGeomagneticFieldGetYCmd.Flags().Int64("handle", 0, "handle (int64)")
+	hardwareGeomagneticFieldCmd.AddCommand(hardwareGeomagneticFieldGetYCmd)
+	hardwareGeomagneticFieldGetZCmd.Flags().Int64("handle", 0, "handle (int64)")
+	hardwareGeomagneticFieldCmd.AddCommand(hardwareGeomagneticFieldGetZCmd)
+	hardwareCmd.AddCommand(hardwareGeomagneticFieldCmd)
 	hardwareSensorManagerCancelTriggerSensorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	hardwareSensorManagerCancelTriggerSensorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	hardwareSensorManagerCmd.AddCommand(hardwareSensorManagerCancelTriggerSensorCmd)
@@ -4493,6 +4902,10 @@ func init() {
 	hardwareSensorManagerGetDefaultSensor2_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	hardwareSensorManagerGetDefaultSensor2_1Cmd.Flags().Bool("arg1", false, "arg1 (bool)")
 	hardwareSensorManagerCmd.AddCommand(hardwareSensorManagerGetDefaultSensor2_1Cmd)
+	hardwareSensorManagerGetDynamicSensorListCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	hardwareSensorManagerCmd.AddCommand(hardwareSensorManagerGetDynamicSensorListCmd)
+	hardwareSensorManagerGetSensorListCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	hardwareSensorManagerCmd.AddCommand(hardwareSensorManagerGetSensorListCmd)
 	hardwareSensorManagerCmd.AddCommand(hardwareSensorManagerGetSensorsCmd)
 	hardwareSensorManagerCmd.AddCommand(hardwareSensorManagerIsDynamicSensorDiscoverySupportedCmd)
 	hardwareSensorManagerRegisterDynamicSensorCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -4562,49 +4975,13 @@ func init() {
 	hardwareSensorManagerDynamicSensorCallbackOnDynamicSensorDisconnectedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	hardwareSensorManagerDynamicSensorCallbackCmd.AddCommand(hardwareSensorManagerDynamicSensorCallbackOnDynamicSensorDisconnectedCmd)
 	hardwareCmd.AddCommand(hardwareSensorManagerDynamicSensorCallbackCmd)
-	hardwareSyncFenceNewSyncFenceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	hardwareSyncFenceCmd.AddCommand(hardwareSyncFenceNewSyncFenceCmd)
-	hardwareSyncFenceAwaitCmd.Flags().Int64("handle", 0, "handle (int64)")
-	hardwareSyncFenceAwaitCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	hardwareSyncFenceCmd.AddCommand(hardwareSyncFenceAwaitCmd)
-	hardwareSyncFenceAwaitForeverCmd.Flags().Int64("handle", 0, "handle (int64)")
-	hardwareSyncFenceCmd.AddCommand(hardwareSyncFenceAwaitForeverCmd)
-	hardwareSyncFenceCloseCmd.Flags().Int64("handle", 0, "handle (int64)")
-	hardwareSyncFenceCmd.AddCommand(hardwareSyncFenceCloseCmd)
-	hardwareSyncFenceDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	hardwareSyncFenceCmd.AddCommand(hardwareSyncFenceDescribeContentsCmd)
-	hardwareSyncFenceGetSignalTimeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	hardwareSyncFenceCmd.AddCommand(hardwareSyncFenceGetSignalTimeCmd)
-	hardwareSyncFenceIsValidCmd.Flags().Int64("handle", 0, "handle (int64)")
-	hardwareSyncFenceCmd.AddCommand(hardwareSyncFenceIsValidCmd)
-	hardwareSyncFenceWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	hardwareSyncFenceWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	hardwareSyncFenceWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	hardwareSyncFenceCmd.AddCommand(hardwareSyncFenceWriteToParcelCmd)
-	hardwareCmd.AddCommand(hardwareSyncFenceCmd)
-	hardwareSensorListenerOnAccuracyChangedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	hardwareSensorListenerOnAccuracyChangedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	hardwareSensorListenerCmd.AddCommand(hardwareSensorListenerOnAccuracyChangedCmd)
-	hardwareSensorListenerOnSensorChangedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	hardwareSensorListenerOnSensorChangedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	hardwareSensorListenerCmd.AddCommand(hardwareSensorListenerOnSensorChangedCmd)
-	hardwareCmd.AddCommand(hardwareSensorListenerCmd)
-	hardwareDisplayLutsCmd.AddCommand(hardwareDisplayLutsNewDisplayLutsCmd)
-	hardwareDisplayLutsSet1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	hardwareDisplayLutsSet1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	hardwareDisplayLutsCmd.AddCommand(hardwareDisplayLutsSet1Cmd)
-	hardwareDisplayLutsSet2_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	hardwareDisplayLutsSet2_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	hardwareDisplayLutsSet2_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	hardwareDisplayLutsCmd.AddCommand(hardwareDisplayLutsSet2_1Cmd)
-	hardwareDisplayLutsToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	hardwareDisplayLutsCmd.AddCommand(hardwareDisplayLutsToStringCmd)
-	hardwareCmd.AddCommand(hardwareDisplayLutsCmd)
-	hardwareDisplayLutsEntryCmd.AddCommand(hardwareDisplayLutsEntryGetBufferCmd)
-	hardwareDisplayLutsEntryCmd.AddCommand(hardwareDisplayLutsEntryGetDimensionCmd)
-	hardwareDisplayLutsEntryCmd.AddCommand(hardwareDisplayLutsEntryGetSamplingKeyCmd)
-	hardwareDisplayLutsEntryCmd.AddCommand(hardwareDisplayLutsEntryToStringCmd)
-	hardwareCmd.AddCommand(hardwareDisplayLutsEntryCmd)
+	hardwareBatteryStateCmd.AddCommand(hardwareBatteryStateGetCapacityCmd)
+	hardwareBatteryStateCmd.AddCommand(hardwareBatteryStateGetStatusCmd)
+	hardwareBatteryStateCmd.AddCommand(hardwareBatteryStateIsPresentCmd)
+	hardwareCmd.AddCommand(hardwareBatteryStateCmd)
+	hardwareTriggerEventListenerOnTriggerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	hardwareTriggerEventListenerCmd.AddCommand(hardwareTriggerEventListenerOnTriggerCmd)
+	hardwareCmd.AddCommand(hardwareTriggerEventListenerCmd)
 	hardwareSensorCmd.AddCommand(hardwareSensorGetFifoMaxEventCountCmd)
 	hardwareSensorCmd.AddCommand(hardwareSensorGetFifoReservedEventCountCmd)
 	hardwareSensorCmd.AddCommand(hardwareSensorGetHighestDirectReportRateLevelCmd)
@@ -4627,29 +5004,22 @@ func init() {
 	hardwareSensorCmd.AddCommand(hardwareSensorIsWakeUpSensorCmd)
 	hardwareSensorCmd.AddCommand(hardwareSensorToStringCmd)
 	hardwareCmd.AddCommand(hardwareSensorCmd)
-	hardwareTriggerEventListenerOnTriggerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	hardwareTriggerEventListenerCmd.AddCommand(hardwareTriggerEventListenerOnTriggerCmd)
-	hardwareCmd.AddCommand(hardwareTriggerEventListenerCmd)
-	hardwareGeomagneticFieldNewGeomagneticFieldCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	hardwareGeomagneticFieldNewGeomagneticFieldCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	hardwareGeomagneticFieldNewGeomagneticFieldCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
-	hardwareGeomagneticFieldNewGeomagneticFieldCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	hardwareGeomagneticFieldCmd.AddCommand(hardwareGeomagneticFieldNewGeomagneticFieldCmd)
-	hardwareGeomagneticFieldGetDeclinationCmd.Flags().Int64("handle", 0, "handle (int64)")
-	hardwareGeomagneticFieldCmd.AddCommand(hardwareGeomagneticFieldGetDeclinationCmd)
-	hardwareGeomagneticFieldGetFieldStrengthCmd.Flags().Int64("handle", 0, "handle (int64)")
-	hardwareGeomagneticFieldCmd.AddCommand(hardwareGeomagneticFieldGetFieldStrengthCmd)
-	hardwareGeomagneticFieldGetHorizontalStrengthCmd.Flags().Int64("handle", 0, "handle (int64)")
-	hardwareGeomagneticFieldCmd.AddCommand(hardwareGeomagneticFieldGetHorizontalStrengthCmd)
-	hardwareGeomagneticFieldGetInclinationCmd.Flags().Int64("handle", 0, "handle (int64)")
-	hardwareGeomagneticFieldCmd.AddCommand(hardwareGeomagneticFieldGetInclinationCmd)
-	hardwareGeomagneticFieldGetXCmd.Flags().Int64("handle", 0, "handle (int64)")
-	hardwareGeomagneticFieldCmd.AddCommand(hardwareGeomagneticFieldGetXCmd)
-	hardwareGeomagneticFieldGetYCmd.Flags().Int64("handle", 0, "handle (int64)")
-	hardwareGeomagneticFieldCmd.AddCommand(hardwareGeomagneticFieldGetYCmd)
-	hardwareGeomagneticFieldGetZCmd.Flags().Int64("handle", 0, "handle (int64)")
-	hardwareGeomagneticFieldCmd.AddCommand(hardwareGeomagneticFieldGetZCmd)
-	hardwareCmd.AddCommand(hardwareGeomagneticFieldCmd)
+	hardwareOverlayPropertiesCmd.AddCommand(hardwareOverlayPropertiesDescribeContentsCmd)
+	hardwareOverlayPropertiesCmd.AddCommand(hardwareOverlayPropertiesGetLutPropertiesCmd)
+	hardwareOverlayPropertiesIsCombinationSupportedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	hardwareOverlayPropertiesIsCombinationSupportedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	hardwareOverlayPropertiesCmd.AddCommand(hardwareOverlayPropertiesIsCombinationSupportedCmd)
+	hardwareOverlayPropertiesCmd.AddCommand(hardwareOverlayPropertiesIsMixedColorSpacesSupportedCmd)
+	hardwareOverlayPropertiesWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	hardwareOverlayPropertiesWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	hardwareOverlayPropertiesCmd.AddCommand(hardwareOverlayPropertiesWriteToParcelCmd)
+	hardwareCmd.AddCommand(hardwareOverlayPropertiesCmd)
+	hardwareSensorDirectChannelCmd.AddCommand(hardwareSensorDirectChannelCloseCmd)
+	hardwareSensorDirectChannelConfigureCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	hardwareSensorDirectChannelConfigureCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	hardwareSensorDirectChannelCmd.AddCommand(hardwareSensorDirectChannelConfigureCmd)
+	hardwareSensorDirectChannelCmd.AddCommand(hardwareSensorDirectChannelIsOpenCmd)
+	hardwareCmd.AddCommand(hardwareSensorDirectChannelCmd)
 	hardwareBufferCmd.AddCommand(hardwareBufferCloseCmd)
 	hardwareBufferCmd.AddCommand(hardwareBufferDescribeContentsCmd)
 	hardwareBufferCmd.AddCommand(hardwareBufferGetFormatCmd)
@@ -4675,33 +5045,6 @@ func init() {
 	hardwareBufferIsSupportedCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
 	hardwareBufferCmd.AddCommand(hardwareBufferIsSupportedCmd)
 	hardwareCmd.AddCommand(hardwareBufferCmd)
-	hardwareSensorEventListenerOnAccuracyChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	hardwareSensorEventListenerOnAccuracyChangedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	hardwareSensorEventListenerCmd.AddCommand(hardwareSensorEventListenerOnAccuracyChangedCmd)
-	hardwareSensorEventListenerOnSensorChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	hardwareSensorEventListenerCmd.AddCommand(hardwareSensorEventListenerOnSensorChangedCmd)
-	hardwareCmd.AddCommand(hardwareSensorEventListenerCmd)
-	hardwareSensorDirectChannelCmd.AddCommand(hardwareSensorDirectChannelCloseCmd)
-	hardwareSensorDirectChannelConfigureCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	hardwareSensorDirectChannelConfigureCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	hardwareSensorDirectChannelCmd.AddCommand(hardwareSensorDirectChannelConfigureCmd)
-	hardwareSensorDirectChannelCmd.AddCommand(hardwareSensorDirectChannelIsOpenCmd)
-	hardwareCmd.AddCommand(hardwareSensorDirectChannelCmd)
-	hardwareLutPropertiesCmd.AddCommand(hardwareLutPropertiesGetDimensionCmd)
-	hardwareLutPropertiesCmd.AddCommand(hardwareLutPropertiesGetSamplingKeysCmd)
-	hardwareLutPropertiesCmd.AddCommand(hardwareLutPropertiesGetSizeCmd)
-	hardwareCmd.AddCommand(hardwareLutPropertiesCmd)
-	hardwareDataSpaceGetRangeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	hardwareDataSpaceCmd.AddCommand(hardwareDataSpaceGetRangeCmd)
-	hardwareDataSpaceGetStandardCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	hardwareDataSpaceCmd.AddCommand(hardwareDataSpaceGetStandardCmd)
-	hardwareDataSpaceGetTransferCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	hardwareDataSpaceCmd.AddCommand(hardwareDataSpaceGetTransferCmd)
-	hardwareDataSpacePackCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	hardwareDataSpacePackCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	hardwareDataSpacePackCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	hardwareDataSpaceCmd.AddCommand(hardwareDataSpacePackCmd)
-	hardwareCmd.AddCommand(hardwareDataSpaceCmd)
 	hardwareCameraAddCallbackBufferCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	hardwareCameraCmd.AddCommand(hardwareCameraAddCallbackBufferCmd)
 	hardwareCameraAutoFocusCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -4795,6 +5138,7 @@ func init() {
 	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetExposureCompensationStepCmd)
 	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetFlashModeCmd)
 	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetFocalLengthCmd)
+	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetFocusAreasCmd)
 	hardwareCameraParametersGetFocusDistancesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetFocusDistancesCmd)
 	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetFocusModeCmd)
@@ -4809,6 +5153,7 @@ func init() {
 	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetMaxNumFocusAreasCmd)
 	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetMaxNumMeteringAreasCmd)
 	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetMaxZoomCmd)
+	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetMeteringAreasCmd)
 	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetMinExposureCompensationCmd)
 	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetPictureFormatCmd)
 	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetPictureSizeCmd)
@@ -4819,10 +5164,25 @@ func init() {
 	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetPreviewFrameRateCmd)
 	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetPreviewSizeCmd)
 	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetSceneModeCmd)
+	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetSupportedAntibandingCmd)
+	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetSupportedColorEffectsCmd)
+	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetSupportedFlashModesCmd)
+	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetSupportedFocusModesCmd)
+	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetSupportedJpegThumbnailSizesCmd)
+	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetSupportedPictureFormatsCmd)
+	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetSupportedPictureSizesCmd)
+	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetSupportedPreviewFormatsCmd)
+	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetSupportedPreviewFpsRangeCmd)
+	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetSupportedPreviewFrameRatesCmd)
+	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetSupportedPreviewSizesCmd)
+	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetSupportedSceneModesCmd)
+	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetSupportedVideoSizesCmd)
+	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetSupportedWhiteBalanceCmd)
 	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetVerticalViewAngleCmd)
 	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetVideoStabilizationCmd)
 	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetWhiteBalanceCmd)
 	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetZoomCmd)
+	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersGetZoomRatiosCmd)
 	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersIsAutoExposureLockSupportedCmd)
 	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersIsAutoWhiteBalanceLockSupportedCmd)
 	hardwareCameraParametersCmd.AddCommand(hardwareCameraParametersIsSmoothZoomSupportedCmd)
@@ -4913,38 +5273,9 @@ func init() {
 	hardwareCameraSizeCmd.AddCommand(hardwareCameraSizeEqualsCmd)
 	hardwareCameraSizeCmd.AddCommand(hardwareCameraSizeHashCodeCmd)
 	hardwareCmd.AddCommand(hardwareCameraSizeCmd)
-	hardwareBatteryStateCmd.AddCommand(hardwareBatteryStateGetCapacityCmd)
-	hardwareBatteryStateCmd.AddCommand(hardwareBatteryStateGetStatusCmd)
-	hardwareBatteryStateCmd.AddCommand(hardwareBatteryStateIsPresentCmd)
-	hardwareCmd.AddCommand(hardwareBatteryStateCmd)
-	hardwareOverlayPropertiesCmd.AddCommand(hardwareOverlayPropertiesDescribeContentsCmd)
-	hardwareOverlayPropertiesCmd.AddCommand(hardwareOverlayPropertiesGetLutPropertiesCmd)
-	hardwareOverlayPropertiesIsCombinationSupportedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	hardwareOverlayPropertiesIsCombinationSupportedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	hardwareOverlayPropertiesCmd.AddCommand(hardwareOverlayPropertiesIsCombinationSupportedCmd)
-	hardwareOverlayPropertiesCmd.AddCommand(hardwareOverlayPropertiesIsMixedColorSpacesSupportedCmd)
-	hardwareOverlayPropertiesWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	hardwareOverlayPropertiesWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	hardwareOverlayPropertiesCmd.AddCommand(hardwareOverlayPropertiesWriteToParcelCmd)
-	hardwareCmd.AddCommand(hardwareOverlayPropertiesCmd)
-	hardwareSensorEventCallbackOnAccuracyChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	hardwareSensorEventCallbackOnAccuracyChangedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	hardwareSensorEventCallbackCmd.AddCommand(hardwareSensorEventCallbackOnAccuracyChangedCmd)
-	hardwareSensorEventCallbackOnFlushCompletedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	hardwareSensorEventCallbackCmd.AddCommand(hardwareSensorEventCallbackOnFlushCompletedCmd)
-	hardwareSensorEventCallbackOnSensorAdditionalInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	hardwareSensorEventCallbackCmd.AddCommand(hardwareSensorEventCallbackOnSensorAdditionalInfoCmd)
-	hardwareSensorEventCallbackOnSensorChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	hardwareSensorEventCallbackCmd.AddCommand(hardwareSensorEventCallbackOnSensorChangedCmd)
-	hardwareCmd.AddCommand(hardwareSensorEventCallbackCmd)
-	hardwareSensorPrivacyManagerSupportsSensorToggle1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	hardwareSensorPrivacyManagerCmd.AddCommand(hardwareSensorPrivacyManagerSupportsSensorToggle1Cmd)
-	hardwareSensorPrivacyManagerSupportsSensorToggle2_1Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	hardwareSensorPrivacyManagerSupportsSensorToggle2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	hardwareSensorPrivacyManagerCmd.AddCommand(hardwareSensorPrivacyManagerSupportsSensorToggle2_1Cmd)
-	hardwareCmd.AddCommand(hardwareSensorPrivacyManagerCmd)
-	hardwareSensorEventListener2OnFlushCompletedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	hardwareSensorEventListener2Cmd.AddCommand(hardwareSensorEventListener2OnFlushCompletedCmd)
-	hardwareCmd.AddCommand(hardwareSensorEventListener2Cmd)
+	hardwareLutPropertiesCmd.AddCommand(hardwareLutPropertiesGetDimensionCmd)
+	hardwareLutPropertiesCmd.AddCommand(hardwareLutPropertiesGetSamplingKeysCmd)
+	hardwareLutPropertiesCmd.AddCommand(hardwareLutPropertiesGetSizeCmd)
+	hardwareCmd.AddCommand(hardwareLutPropertiesCmd)
 	rootCmd.AddCommand(hardwareCmd)
 }

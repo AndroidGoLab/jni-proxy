@@ -12,6 +12,209 @@ var changelogCmd = &cobra.Command{
 	Short: "changelog service operations",
 }
 
+var changelogChangeLogTokenResponseCmd = &cobra.Command{
+	Use:   "change-log-token-response",
+	Short: "ChangeLogTokenResponseService operations",
+}
+
+var changelogChangeLogTokenResponseDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeLogTokenResponseServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var changelogChangeLogTokenResponseGetTokenCmd = &cobra.Command{
+	Use:   "get-token",
+	Short: "GetToken RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeLogTokenResponseServiceClient(grpcConn)
+		req := &pb.GetTokenRequest{}
+		resp, err := client.GetToken(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var changelogChangeLogTokenResponseWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeLogTokenResponseServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var changelogChangeLogsResponseCmd = &cobra.Command{
+	Use:   "change-logs-response",
+	Short: "ChangeLogsResponseService operations",
+}
+
+var changelogChangeLogsResponseDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeLogsResponseServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var changelogChangeLogsResponseGetDeletedLogsCmd = &cobra.Command{
+	Use:   "get-deleted-logs",
+	Short: "GetDeletedLogs RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeLogsResponseServiceClient(grpcConn)
+		req := &pb.GetDeletedLogsRequest{}
+		resp, err := client.GetDeletedLogs(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var changelogChangeLogsResponseGetNextChangesTokenCmd = &cobra.Command{
+	Use:   "get-next-changes-token",
+	Short: "GetNextChangesToken RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeLogsResponseServiceClient(grpcConn)
+		req := &pb.GetNextChangesTokenRequest{}
+		resp, err := client.GetNextChangesToken(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var changelogChangeLogsResponseGetUpsertedRecordsCmd = &cobra.Command{
+	Use:   "get-upserted-records",
+	Short: "GetUpsertedRecords RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeLogsResponseServiceClient(grpcConn)
+		req := &pb.GetUpsertedRecordsRequest{}
+		resp, err := client.GetUpsertedRecords(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var changelogChangeLogsResponseHasMorePagesCmd = &cobra.Command{
+	Use:   "has-more-pages",
+	Short: "HasMorePages RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeLogsResponseServiceClient(grpcConn)
+		req := &pb.HasMorePagesRequest{}
+		resp, err := client.HasMorePages(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var changelogChangeLogsResponseWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeLogsResponseServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var changelogChangeLogsResponseDeletedLogCmd = &cobra.Command{
+	Use:   "change-logs-response-deleted-log",
+	Short: "ChangeLogsResponseDeletedLogService operations",
+}
+
+var changelogChangeLogsResponseDeletedLogGetDeletedRecordIdCmd = &cobra.Command{
+	Use:   "get-deleted-record-id",
+	Short: "GetDeletedRecordId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeLogsResponseDeletedLogServiceClient(grpcConn)
+		req := &pb.GetDeletedRecordIdRequest{}
+		resp, err := client.GetDeletedRecordId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var changelogChangeLogsResponseDeletedLogGetDeletedTimeCmd = &cobra.Command{
+	Use:   "get-deleted-time",
+	Short: "GetDeletedTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeLogsResponseDeletedLogServiceClient(grpcConn)
+		req := &pb.GetDeletedTimeRequest{}
+		resp, err := client.GetDeletedTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var changelogChangeLogsRequestCmd = &cobra.Command{
 	Use:   "change-logs-request",
 	Short: "ChangeLogsRequestService operations",
@@ -148,6 +351,22 @@ var changelogChangeLogTokenRequestDescribeContentsCmd = &cobra.Command{
 	},
 }
 
+var changelogChangeLogTokenRequestGetDataOriginFiltersCmd = &cobra.Command{
+	Use:   "get-data-origin-filters",
+	Short: "GetDataOriginFilters RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChangeLogTokenRequestServiceClient(grpcConn)
+		req := &pb.GetDataOriginFiltersRequest{}
+		resp, err := client.GetDataOriginFilters(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var changelogChangeLogTokenRequestWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
@@ -210,178 +429,25 @@ var changelogChangeLogTokenRequestBuilderBuildCmd = &cobra.Command{
 	},
 }
 
-var changelogChangeLogsResponseCmd = &cobra.Command{
-	Use:   "change-logs-response",
-	Short: "ChangeLogsResponseService operations",
-}
-
-var changelogChangeLogsResponseDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChangeLogsResponseServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var changelogChangeLogsResponseGetNextChangesTokenCmd = &cobra.Command{
-	Use:   "get-next-changes-token",
-	Short: "GetNextChangesToken RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChangeLogsResponseServiceClient(grpcConn)
-		req := &pb.GetNextChangesTokenRequest{}
-		resp, err := client.GetNextChangesToken(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var changelogChangeLogsResponseHasMorePagesCmd = &cobra.Command{
-	Use:   "has-more-pages",
-	Short: "HasMorePages RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChangeLogsResponseServiceClient(grpcConn)
-		req := &pb.HasMorePagesRequest{}
-		resp, err := client.HasMorePages(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var changelogChangeLogsResponseWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChangeLogsResponseServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var changelogChangeLogsResponseDeletedLogCmd = &cobra.Command{
-	Use:   "change-logs-response-deleted-log",
-	Short: "ChangeLogsResponseDeletedLogService operations",
-}
-
-var changelogChangeLogsResponseDeletedLogGetDeletedRecordIdCmd = &cobra.Command{
-	Use:   "get-deleted-record-id",
-	Short: "GetDeletedRecordId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChangeLogsResponseDeletedLogServiceClient(grpcConn)
-		req := &pb.GetDeletedRecordIdRequest{}
-		resp, err := client.GetDeletedRecordId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var changelogChangeLogsResponseDeletedLogGetDeletedTimeCmd = &cobra.Command{
-	Use:   "get-deleted-time",
-	Short: "GetDeletedTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChangeLogsResponseDeletedLogServiceClient(grpcConn)
-		req := &pb.GetDeletedTimeRequest{}
-		resp, err := client.GetDeletedTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var changelogChangeLogTokenResponseCmd = &cobra.Command{
-	Use:   "change-log-token-response",
-	Short: "ChangeLogTokenResponseService operations",
-}
-
-var changelogChangeLogTokenResponseDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChangeLogTokenResponseServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var changelogChangeLogTokenResponseGetTokenCmd = &cobra.Command{
-	Use:   "get-token",
-	Short: "GetToken RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChangeLogTokenResponseServiceClient(grpcConn)
-		req := &pb.GetTokenRequest{}
-		resp, err := client.GetToken(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var changelogChangeLogTokenResponseWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChangeLogTokenResponseServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
+	changelogChangeLogTokenResponseCmd.AddCommand(changelogChangeLogTokenResponseDescribeContentsCmd)
+	changelogChangeLogTokenResponseCmd.AddCommand(changelogChangeLogTokenResponseGetTokenCmd)
+	changelogChangeLogTokenResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	changelogChangeLogTokenResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	changelogChangeLogTokenResponseCmd.AddCommand(changelogChangeLogTokenResponseWriteToParcelCmd)
+	changelogCmd.AddCommand(changelogChangeLogTokenResponseCmd)
+	changelogChangeLogsResponseCmd.AddCommand(changelogChangeLogsResponseDescribeContentsCmd)
+	changelogChangeLogsResponseCmd.AddCommand(changelogChangeLogsResponseGetDeletedLogsCmd)
+	changelogChangeLogsResponseCmd.AddCommand(changelogChangeLogsResponseGetNextChangesTokenCmd)
+	changelogChangeLogsResponseCmd.AddCommand(changelogChangeLogsResponseGetUpsertedRecordsCmd)
+	changelogChangeLogsResponseCmd.AddCommand(changelogChangeLogsResponseHasMorePagesCmd)
+	changelogChangeLogsResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	changelogChangeLogsResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	changelogChangeLogsResponseCmd.AddCommand(changelogChangeLogsResponseWriteToParcelCmd)
+	changelogCmd.AddCommand(changelogChangeLogsResponseCmd)
+	changelogChangeLogsResponseDeletedLogCmd.AddCommand(changelogChangeLogsResponseDeletedLogGetDeletedRecordIdCmd)
+	changelogChangeLogsResponseDeletedLogCmd.AddCommand(changelogChangeLogsResponseDeletedLogGetDeletedTimeCmd)
+	changelogCmd.AddCommand(changelogChangeLogsResponseDeletedLogCmd)
 	changelogChangeLogsRequestCmd.AddCommand(changelogChangeLogsRequestDescribeContentsCmd)
 	changelogChangeLogsRequestCmd.AddCommand(changelogChangeLogsRequestGetPageSizeCmd)
 	changelogChangeLogsRequestCmd.AddCommand(changelogChangeLogsRequestGetTokenCmd)
@@ -394,6 +460,7 @@ func init() {
 	changelogChangeLogsRequestBuilderCmd.AddCommand(changelogChangeLogsRequestBuilderSetPageSizeCmd)
 	changelogCmd.AddCommand(changelogChangeLogsRequestBuilderCmd)
 	changelogChangeLogTokenRequestCmd.AddCommand(changelogChangeLogTokenRequestDescribeContentsCmd)
+	changelogChangeLogTokenRequestCmd.AddCommand(changelogChangeLogTokenRequestGetDataOriginFiltersCmd)
 	changelogChangeLogTokenRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	changelogChangeLogTokenRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	changelogChangeLogTokenRequestCmd.AddCommand(changelogChangeLogTokenRequestWriteToParcelCmd)
@@ -402,21 +469,5 @@ func init() {
 	changelogChangeLogTokenRequestBuilderCmd.AddCommand(changelogChangeLogTokenRequestBuilderAddDataOriginFilterCmd)
 	changelogChangeLogTokenRequestBuilderCmd.AddCommand(changelogChangeLogTokenRequestBuilderBuildCmd)
 	changelogCmd.AddCommand(changelogChangeLogTokenRequestBuilderCmd)
-	changelogChangeLogsResponseCmd.AddCommand(changelogChangeLogsResponseDescribeContentsCmd)
-	changelogChangeLogsResponseCmd.AddCommand(changelogChangeLogsResponseGetNextChangesTokenCmd)
-	changelogChangeLogsResponseCmd.AddCommand(changelogChangeLogsResponseHasMorePagesCmd)
-	changelogChangeLogsResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	changelogChangeLogsResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	changelogChangeLogsResponseCmd.AddCommand(changelogChangeLogsResponseWriteToParcelCmd)
-	changelogCmd.AddCommand(changelogChangeLogsResponseCmd)
-	changelogChangeLogsResponseDeletedLogCmd.AddCommand(changelogChangeLogsResponseDeletedLogGetDeletedRecordIdCmd)
-	changelogChangeLogsResponseDeletedLogCmd.AddCommand(changelogChangeLogsResponseDeletedLogGetDeletedTimeCmd)
-	changelogCmd.AddCommand(changelogChangeLogsResponseDeletedLogCmd)
-	changelogChangeLogTokenResponseCmd.AddCommand(changelogChangeLogTokenResponseDescribeContentsCmd)
-	changelogChangeLogTokenResponseCmd.AddCommand(changelogChangeLogTokenResponseGetTokenCmd)
-	changelogChangeLogTokenResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	changelogChangeLogTokenResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	changelogChangeLogTokenResponseCmd.AddCommand(changelogChangeLogTokenResponseWriteToParcelCmd)
-	changelogCmd.AddCommand(changelogChangeLogTokenResponseCmd)
 	rootCmd.AddCommand(changelogCmd)
 }

@@ -1015,102 +1015,357 @@ var SharedPreferencesOnSharedPreferenceChangeListenerService_ServiceDesc = grpc.
 }
 
 const (
-	SettingsPreferenceServiceService_OnBind_FullMethodName = "/preferences.SettingsPreferenceServiceService/OnBind"
+	SetValueRequestService_DescribeContents_FullMethodName   = "/preferences.SetValueRequestService/DescribeContents"
+	SetValueRequestService_GetPreferenceKey_FullMethodName   = "/preferences.SetValueRequestService/GetPreferenceKey"
+	SetValueRequestService_GetPreferenceValue_FullMethodName = "/preferences.SetValueRequestService/GetPreferenceValue"
+	SetValueRequestService_GetScreenKey_FullMethodName       = "/preferences.SetValueRequestService/GetScreenKey"
+	SetValueRequestService_WriteToParcel_FullMethodName      = "/preferences.SetValueRequestService/WriteToParcel"
 )
 
-// SettingsPreferenceServiceServiceClient is the client API for SettingsPreferenceServiceService service.
+// SetValueRequestServiceClient is the client API for SetValueRequestService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SettingsPreferenceServiceServiceClient interface {
-	OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error)
+type SetValueRequestServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetPreferenceKey(ctx context.Context, in *GetPreferenceKeyRequest, opts ...grpc.CallOption) (*GetPreferenceKeyResponse, error)
+	GetPreferenceValue(ctx context.Context, in *GetPreferenceValueRequest, opts ...grpc.CallOption) (*GetPreferenceValueResponse, error)
+	GetScreenKey(ctx context.Context, in *GetScreenKeyRequest, opts ...grpc.CallOption) (*GetScreenKeyResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type settingsPreferenceServiceServiceClient struct {
+type setValueRequestServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewSettingsPreferenceServiceServiceClient(cc grpc.ClientConnInterface) SettingsPreferenceServiceServiceClient {
-	return &settingsPreferenceServiceServiceClient{cc}
+func NewSetValueRequestServiceClient(cc grpc.ClientConnInterface) SetValueRequestServiceClient {
+	return &setValueRequestServiceClient{cc}
 }
 
-func (c *settingsPreferenceServiceServiceClient) OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error) {
+func (c *setValueRequestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnBindResponse)
-	err := c.cc.Invoke(ctx, SettingsPreferenceServiceService_OnBind_FullMethodName, in, out, cOpts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, SetValueRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// SettingsPreferenceServiceServiceServer is the server API for SettingsPreferenceServiceService service.
-// All implementations must embed UnimplementedSettingsPreferenceServiceServiceServer
-// for forward compatibility.
-type SettingsPreferenceServiceServiceServer interface {
-	OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error)
-	mustEmbedUnimplementedSettingsPreferenceServiceServiceServer()
+func (c *setValueRequestServiceClient) GetPreferenceKey(ctx context.Context, in *GetPreferenceKeyRequest, opts ...grpc.CallOption) (*GetPreferenceKeyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPreferenceKeyResponse)
+	err := c.cc.Invoke(ctx, SetValueRequestService_GetPreferenceKey_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
-// UnimplementedSettingsPreferenceServiceServiceServer must be embedded to have
+func (c *setValueRequestServiceClient) GetPreferenceValue(ctx context.Context, in *GetPreferenceValueRequest, opts ...grpc.CallOption) (*GetPreferenceValueResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPreferenceValueResponse)
+	err := c.cc.Invoke(ctx, SetValueRequestService_GetPreferenceValue_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setValueRequestServiceClient) GetScreenKey(ctx context.Context, in *GetScreenKeyRequest, opts ...grpc.CallOption) (*GetScreenKeyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetScreenKeyResponse)
+	err := c.cc.Invoke(ctx, SetValueRequestService_GetScreenKey_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setValueRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, SetValueRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SetValueRequestServiceServer is the server API for SetValueRequestService service.
+// All implementations must embed UnimplementedSetValueRequestServiceServer
+// for forward compatibility.
+type SetValueRequestServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetPreferenceKey(context.Context, *GetPreferenceKeyRequest) (*GetPreferenceKeyResponse, error)
+	GetPreferenceValue(context.Context, *GetPreferenceValueRequest) (*GetPreferenceValueResponse, error)
+	GetScreenKey(context.Context, *GetScreenKeyRequest) (*GetScreenKeyResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedSetValueRequestServiceServer()
+}
+
+// UnimplementedSetValueRequestServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedSettingsPreferenceServiceServiceServer struct{}
+type UnimplementedSetValueRequestServiceServer struct{}
 
-func (UnimplementedSettingsPreferenceServiceServiceServer) OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnBind not implemented")
+func (UnimplementedSetValueRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedSettingsPreferenceServiceServiceServer) mustEmbedUnimplementedSettingsPreferenceServiceServiceServer() {
+func (UnimplementedSetValueRequestServiceServer) GetPreferenceKey(context.Context, *GetPreferenceKeyRequest) (*GetPreferenceKeyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPreferenceKey not implemented")
 }
-func (UnimplementedSettingsPreferenceServiceServiceServer) testEmbeddedByValue() {}
+func (UnimplementedSetValueRequestServiceServer) GetPreferenceValue(context.Context, *GetPreferenceValueRequest) (*GetPreferenceValueResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPreferenceValue not implemented")
+}
+func (UnimplementedSetValueRequestServiceServer) GetScreenKey(context.Context, *GetScreenKeyRequest) (*GetScreenKeyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetScreenKey not implemented")
+}
+func (UnimplementedSetValueRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedSetValueRequestServiceServer) mustEmbedUnimplementedSetValueRequestServiceServer() {
+}
+func (UnimplementedSetValueRequestServiceServer) testEmbeddedByValue() {}
 
-// UnsafeSettingsPreferenceServiceServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SettingsPreferenceServiceServiceServer will
+// UnsafeSetValueRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SetValueRequestServiceServer will
 // result in compilation errors.
-type UnsafeSettingsPreferenceServiceServiceServer interface {
-	mustEmbedUnimplementedSettingsPreferenceServiceServiceServer()
+type UnsafeSetValueRequestServiceServer interface {
+	mustEmbedUnimplementedSetValueRequestServiceServer()
 }
 
-func RegisterSettingsPreferenceServiceServiceServer(s grpc.ServiceRegistrar, srv SettingsPreferenceServiceServiceServer) {
-	// If the following call panics, it indicates UnimplementedSettingsPreferenceServiceServiceServer was
+func RegisterSetValueRequestServiceServer(s grpc.ServiceRegistrar, srv SetValueRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedSetValueRequestServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&SettingsPreferenceServiceService_ServiceDesc, srv)
+	s.RegisterService(&SetValueRequestService_ServiceDesc, srv)
 }
 
-func _SettingsPreferenceServiceService_OnBind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnBindRequest)
+func _SetValueRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SettingsPreferenceServiceServiceServer).OnBind(ctx, in)
+		return srv.(SetValueRequestServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SettingsPreferenceServiceService_OnBind_FullMethodName,
+		FullMethod: SetValueRequestService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SettingsPreferenceServiceServiceServer).OnBind(ctx, req.(*OnBindRequest))
+		return srv.(SetValueRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// SettingsPreferenceServiceService_ServiceDesc is the grpc.ServiceDesc for SettingsPreferenceServiceService service.
+func _SetValueRequestService_GetPreferenceKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPreferenceKeyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetValueRequestServiceServer).GetPreferenceKey(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetValueRequestService_GetPreferenceKey_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetValueRequestServiceServer).GetPreferenceKey(ctx, req.(*GetPreferenceKeyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetValueRequestService_GetPreferenceValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPreferenceValueRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetValueRequestServiceServer).GetPreferenceValue(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetValueRequestService_GetPreferenceValue_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetValueRequestServiceServer).GetPreferenceValue(ctx, req.(*GetPreferenceValueRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetValueRequestService_GetScreenKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetScreenKeyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetValueRequestServiceServer).GetScreenKey(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetValueRequestService_GetScreenKey_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetValueRequestServiceServer).GetScreenKey(ctx, req.(*GetScreenKeyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetValueRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetValueRequestServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetValueRequestService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetValueRequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SetValueRequestService_ServiceDesc is the grpc.ServiceDesc for SetValueRequestService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var SettingsPreferenceServiceService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "preferences.SettingsPreferenceServiceService",
-	HandlerType: (*SettingsPreferenceServiceServiceServer)(nil),
+var SetValueRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "preferences.SetValueRequestService",
+	HandlerType: (*SetValueRequestServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "OnBind",
-			Handler:    _SettingsPreferenceServiceService_OnBind_Handler,
+			MethodName: "DescribeContents",
+			Handler:    _SetValueRequestService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetPreferenceKey",
+			Handler:    _SetValueRequestService_GetPreferenceKey_Handler,
+		},
+		{
+			MethodName: "GetPreferenceValue",
+			Handler:    _SetValueRequestService_GetPreferenceValue_Handler,
+		},
+		{
+			MethodName: "GetScreenKey",
+			Handler:    _SetValueRequestService_GetScreenKey_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _SetValueRequestService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/preferences/preferences.proto",
+}
+
+const (
+	SetValueRequestBuilderService_Build_FullMethodName = "/preferences.SetValueRequestBuilderService/Build"
+)
+
+// SetValueRequestBuilderServiceClient is the client API for SetValueRequestBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SetValueRequestBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+}
+
+type setValueRequestBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSetValueRequestBuilderServiceClient(cc grpc.ClientConnInterface) SetValueRequestBuilderServiceClient {
+	return &setValueRequestBuilderServiceClient{cc}
+}
+
+func (c *setValueRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, SetValueRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SetValueRequestBuilderServiceServer is the server API for SetValueRequestBuilderService service.
+// All implementations must embed UnimplementedSetValueRequestBuilderServiceServer
+// for forward compatibility.
+type SetValueRequestBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	mustEmbedUnimplementedSetValueRequestBuilderServiceServer()
+}
+
+// UnimplementedSetValueRequestBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSetValueRequestBuilderServiceServer struct{}
+
+func (UnimplementedSetValueRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedSetValueRequestBuilderServiceServer) mustEmbedUnimplementedSetValueRequestBuilderServiceServer() {
+}
+func (UnimplementedSetValueRequestBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSetValueRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SetValueRequestBuilderServiceServer will
+// result in compilation errors.
+type UnsafeSetValueRequestBuilderServiceServer interface {
+	mustEmbedUnimplementedSetValueRequestBuilderServiceServer()
+}
+
+func RegisterSetValueRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv SetValueRequestBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedSetValueRequestBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SetValueRequestBuilderService_ServiceDesc, srv)
+}
+
+func _SetValueRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetValueRequestBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetValueRequestBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetValueRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SetValueRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for SetValueRequestBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SetValueRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "preferences.SetValueRequestBuilderService",
+	HandlerType: (*SetValueRequestBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _SetValueRequestBuilderService_Build_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -2100,960 +2355,15 @@ var SettingsPreferenceValueBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	MetadataResultService_DescribeContents_FullMethodName = "/preferences.MetadataResultService/DescribeContents"
-	MetadataResultService_GetResultCode_FullMethodName    = "/preferences.MetadataResultService/GetResultCode"
-	MetadataResultService_WriteToParcel_FullMethodName    = "/preferences.MetadataResultService/WriteToParcel"
-)
-
-// MetadataResultServiceClient is the client API for MetadataResultService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type MetadataResultServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetResultCode(ctx context.Context, in *GetResultCodeRequest, opts ...grpc.CallOption) (*GetResultCodeResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type metadataResultServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewMetadataResultServiceClient(cc grpc.ClientConnInterface) MetadataResultServiceClient {
-	return &metadataResultServiceClient{cc}
-}
-
-func (c *metadataResultServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, MetadataResultService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *metadataResultServiceClient) GetResultCode(ctx context.Context, in *GetResultCodeRequest, opts ...grpc.CallOption) (*GetResultCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetResultCodeResponse)
-	err := c.cc.Invoke(ctx, MetadataResultService_GetResultCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *metadataResultServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, MetadataResultService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// MetadataResultServiceServer is the server API for MetadataResultService service.
-// All implementations must embed UnimplementedMetadataResultServiceServer
-// for forward compatibility.
-type MetadataResultServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetResultCode(context.Context, *GetResultCodeRequest) (*GetResultCodeResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedMetadataResultServiceServer()
-}
-
-// UnimplementedMetadataResultServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedMetadataResultServiceServer struct{}
-
-func (UnimplementedMetadataResultServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedMetadataResultServiceServer) GetResultCode(context.Context, *GetResultCodeRequest) (*GetResultCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetResultCode not implemented")
-}
-func (UnimplementedMetadataResultServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedMetadataResultServiceServer) mustEmbedUnimplementedMetadataResultServiceServer() {}
-func (UnimplementedMetadataResultServiceServer) testEmbeddedByValue()                               {}
-
-// UnsafeMetadataResultServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to MetadataResultServiceServer will
-// result in compilation errors.
-type UnsafeMetadataResultServiceServer interface {
-	mustEmbedUnimplementedMetadataResultServiceServer()
-}
-
-func RegisterMetadataResultServiceServer(s grpc.ServiceRegistrar, srv MetadataResultServiceServer) {
-	// If the following call panics, it indicates UnimplementedMetadataResultServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&MetadataResultService_ServiceDesc, srv)
-}
-
-func _MetadataResultService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MetadataResultServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MetadataResultService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MetadataResultServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MetadataResultService_GetResultCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetResultCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MetadataResultServiceServer).GetResultCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MetadataResultService_GetResultCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MetadataResultServiceServer).GetResultCode(ctx, req.(*GetResultCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MetadataResultService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MetadataResultServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MetadataResultService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MetadataResultServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// MetadataResultService_ServiceDesc is the grpc.ServiceDesc for MetadataResultService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var MetadataResultService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "preferences.MetadataResultService",
-	HandlerType: (*MetadataResultServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _MetadataResultService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetResultCode",
-			Handler:    _MetadataResultService_GetResultCode_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _MetadataResultService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/preferences/preferences.proto",
-}
-
-const (
-	MetadataResultBuilderService_Build_FullMethodName = "/preferences.MetadataResultBuilderService/Build"
-)
-
-// MetadataResultBuilderServiceClient is the client API for MetadataResultBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type MetadataResultBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-}
-
-type metadataResultBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewMetadataResultBuilderServiceClient(cc grpc.ClientConnInterface) MetadataResultBuilderServiceClient {
-	return &metadataResultBuilderServiceClient{cc}
-}
-
-func (c *metadataResultBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, MetadataResultBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// MetadataResultBuilderServiceServer is the server API for MetadataResultBuilderService service.
-// All implementations must embed UnimplementedMetadataResultBuilderServiceServer
-// for forward compatibility.
-type MetadataResultBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	mustEmbedUnimplementedMetadataResultBuilderServiceServer()
-}
-
-// UnimplementedMetadataResultBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedMetadataResultBuilderServiceServer struct{}
-
-func (UnimplementedMetadataResultBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedMetadataResultBuilderServiceServer) mustEmbedUnimplementedMetadataResultBuilderServiceServer() {
-}
-func (UnimplementedMetadataResultBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeMetadataResultBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to MetadataResultBuilderServiceServer will
-// result in compilation errors.
-type UnsafeMetadataResultBuilderServiceServer interface {
-	mustEmbedUnimplementedMetadataResultBuilderServiceServer()
-}
-
-func RegisterMetadataResultBuilderServiceServer(s grpc.ServiceRegistrar, srv MetadataResultBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedMetadataResultBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&MetadataResultBuilderService_ServiceDesc, srv)
-}
-
-func _MetadataResultBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MetadataResultBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MetadataResultBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MetadataResultBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// MetadataResultBuilderService_ServiceDesc is the grpc.ServiceDesc for MetadataResultBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var MetadataResultBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "preferences.MetadataResultBuilderService",
-	HandlerType: (*MetadataResultBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _MetadataResultBuilderService_Build_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/preferences/preferences.proto",
-}
-
-const (
-	SetValueResultService_DescribeContents_FullMethodName = "/preferences.SetValueResultService/DescribeContents"
-	SetValueResultService_GetResultCode_FullMethodName    = "/preferences.SetValueResultService/GetResultCode"
-	SetValueResultService_WriteToParcel_FullMethodName    = "/preferences.SetValueResultService/WriteToParcel"
-)
-
-// SetValueResultServiceClient is the client API for SetValueResultService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SetValueResultServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetResultCode(ctx context.Context, in *GetResultCodeRequest, opts ...grpc.CallOption) (*GetResultCodeResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type setValueResultServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSetValueResultServiceClient(cc grpc.ClientConnInterface) SetValueResultServiceClient {
-	return &setValueResultServiceClient{cc}
-}
-
-func (c *setValueResultServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, SetValueResultService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setValueResultServiceClient) GetResultCode(ctx context.Context, in *GetResultCodeRequest, opts ...grpc.CallOption) (*GetResultCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetResultCodeResponse)
-	err := c.cc.Invoke(ctx, SetValueResultService_GetResultCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setValueResultServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, SetValueResultService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SetValueResultServiceServer is the server API for SetValueResultService service.
-// All implementations must embed UnimplementedSetValueResultServiceServer
-// for forward compatibility.
-type SetValueResultServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetResultCode(context.Context, *GetResultCodeRequest) (*GetResultCodeResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedSetValueResultServiceServer()
-}
-
-// UnimplementedSetValueResultServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSetValueResultServiceServer struct{}
-
-func (UnimplementedSetValueResultServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedSetValueResultServiceServer) GetResultCode(context.Context, *GetResultCodeRequest) (*GetResultCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetResultCode not implemented")
-}
-func (UnimplementedSetValueResultServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedSetValueResultServiceServer) mustEmbedUnimplementedSetValueResultServiceServer() {}
-func (UnimplementedSetValueResultServiceServer) testEmbeddedByValue()                               {}
-
-// UnsafeSetValueResultServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SetValueResultServiceServer will
-// result in compilation errors.
-type UnsafeSetValueResultServiceServer interface {
-	mustEmbedUnimplementedSetValueResultServiceServer()
-}
-
-func RegisterSetValueResultServiceServer(s grpc.ServiceRegistrar, srv SetValueResultServiceServer) {
-	// If the following call panics, it indicates UnimplementedSetValueResultServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SetValueResultService_ServiceDesc, srv)
-}
-
-func _SetValueResultService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetValueResultServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetValueResultService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetValueResultServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetValueResultService_GetResultCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetResultCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetValueResultServiceServer).GetResultCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetValueResultService_GetResultCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetValueResultServiceServer).GetResultCode(ctx, req.(*GetResultCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetValueResultService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetValueResultServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetValueResultService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetValueResultServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SetValueResultService_ServiceDesc is the grpc.ServiceDesc for SetValueResultService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SetValueResultService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "preferences.SetValueResultService",
-	HandlerType: (*SetValueResultServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _SetValueResultService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetResultCode",
-			Handler:    _SetValueResultService_GetResultCode_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _SetValueResultService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/preferences/preferences.proto",
-}
-
-const (
-	SetValueResultBuilderService_Build_FullMethodName = "/preferences.SetValueResultBuilderService/Build"
-)
-
-// SetValueResultBuilderServiceClient is the client API for SetValueResultBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SetValueResultBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-}
-
-type setValueResultBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSetValueResultBuilderServiceClient(cc grpc.ClientConnInterface) SetValueResultBuilderServiceClient {
-	return &setValueResultBuilderServiceClient{cc}
-}
-
-func (c *setValueResultBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, SetValueResultBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SetValueResultBuilderServiceServer is the server API for SetValueResultBuilderService service.
-// All implementations must embed UnimplementedSetValueResultBuilderServiceServer
-// for forward compatibility.
-type SetValueResultBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	mustEmbedUnimplementedSetValueResultBuilderServiceServer()
-}
-
-// UnimplementedSetValueResultBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSetValueResultBuilderServiceServer struct{}
-
-func (UnimplementedSetValueResultBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedSetValueResultBuilderServiceServer) mustEmbedUnimplementedSetValueResultBuilderServiceServer() {
-}
-func (UnimplementedSetValueResultBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSetValueResultBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SetValueResultBuilderServiceServer will
-// result in compilation errors.
-type UnsafeSetValueResultBuilderServiceServer interface {
-	mustEmbedUnimplementedSetValueResultBuilderServiceServer()
-}
-
-func RegisterSetValueResultBuilderServiceServer(s grpc.ServiceRegistrar, srv SetValueResultBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedSetValueResultBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SetValueResultBuilderService_ServiceDesc, srv)
-}
-
-func _SetValueResultBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetValueResultBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetValueResultBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetValueResultBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SetValueResultBuilderService_ServiceDesc is the grpc.ServiceDesc for SetValueResultBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SetValueResultBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "preferences.SetValueResultBuilderService",
-	HandlerType: (*SetValueResultBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _SetValueResultBuilderService_Build_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/preferences/preferences.proto",
-}
-
-const (
-	SettingsPreferenceServiceClientService_NewSettingsPreferenceServiceClient_FullMethodName = "/preferences.SettingsPreferenceServiceClientService/NewSettingsPreferenceServiceClient"
-	SettingsPreferenceServiceClientService_Close_FullMethodName                              = "/preferences.SettingsPreferenceServiceClientService/Close"
-)
-
-// SettingsPreferenceServiceClientServiceClient is the client API for SettingsPreferenceServiceClientService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SettingsPreferenceServiceClientServiceClient interface {
-	NewSettingsPreferenceServiceClient(ctx context.Context, in *NewSettingsPreferenceServiceClientRequest, opts ...grpc.CallOption) (*NewSettingsPreferenceServiceClientResponse, error)
-	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
-}
-
-type settingsPreferenceServiceClientServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSettingsPreferenceServiceClientServiceClient(cc grpc.ClientConnInterface) SettingsPreferenceServiceClientServiceClient {
-	return &settingsPreferenceServiceClientServiceClient{cc}
-}
-
-func (c *settingsPreferenceServiceClientServiceClient) NewSettingsPreferenceServiceClient(ctx context.Context, in *NewSettingsPreferenceServiceClientRequest, opts ...grpc.CallOption) (*NewSettingsPreferenceServiceClientResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewSettingsPreferenceServiceClientResponse)
-	err := c.cc.Invoke(ctx, SettingsPreferenceServiceClientService_NewSettingsPreferenceServiceClient_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *settingsPreferenceServiceClientServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, SettingsPreferenceServiceClientService_Close_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SettingsPreferenceServiceClientServiceServer is the server API for SettingsPreferenceServiceClientService service.
-// All implementations must embed UnimplementedSettingsPreferenceServiceClientServiceServer
-// for forward compatibility.
-type SettingsPreferenceServiceClientServiceServer interface {
-	NewSettingsPreferenceServiceClient(context.Context, *NewSettingsPreferenceServiceClientRequest) (*NewSettingsPreferenceServiceClientResponse, error)
-	Close(context.Context, *CloseRequest) (*CloseResponse, error)
-	mustEmbedUnimplementedSettingsPreferenceServiceClientServiceServer()
-}
-
-// UnimplementedSettingsPreferenceServiceClientServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSettingsPreferenceServiceClientServiceServer struct{}
-
-func (UnimplementedSettingsPreferenceServiceClientServiceServer) NewSettingsPreferenceServiceClient(context.Context, *NewSettingsPreferenceServiceClientRequest) (*NewSettingsPreferenceServiceClientResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewSettingsPreferenceServiceClient not implemented")
-}
-func (UnimplementedSettingsPreferenceServiceClientServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
-}
-func (UnimplementedSettingsPreferenceServiceClientServiceServer) mustEmbedUnimplementedSettingsPreferenceServiceClientServiceServer() {
-}
-func (UnimplementedSettingsPreferenceServiceClientServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSettingsPreferenceServiceClientServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SettingsPreferenceServiceClientServiceServer will
-// result in compilation errors.
-type UnsafeSettingsPreferenceServiceClientServiceServer interface {
-	mustEmbedUnimplementedSettingsPreferenceServiceClientServiceServer()
-}
-
-func RegisterSettingsPreferenceServiceClientServiceServer(s grpc.ServiceRegistrar, srv SettingsPreferenceServiceClientServiceServer) {
-	// If the following call panics, it indicates UnimplementedSettingsPreferenceServiceClientServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SettingsPreferenceServiceClientService_ServiceDesc, srv)
-}
-
-func _SettingsPreferenceServiceClientService_NewSettingsPreferenceServiceClient_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewSettingsPreferenceServiceClientRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SettingsPreferenceServiceClientServiceServer).NewSettingsPreferenceServiceClient(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SettingsPreferenceServiceClientService_NewSettingsPreferenceServiceClient_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SettingsPreferenceServiceClientServiceServer).NewSettingsPreferenceServiceClient(ctx, req.(*NewSettingsPreferenceServiceClientRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SettingsPreferenceServiceClientService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SettingsPreferenceServiceClientServiceServer).Close(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SettingsPreferenceServiceClientService_Close_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SettingsPreferenceServiceClientServiceServer).Close(ctx, req.(*CloseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SettingsPreferenceServiceClientService_ServiceDesc is the grpc.ServiceDesc for SettingsPreferenceServiceClientService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SettingsPreferenceServiceClientService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "preferences.SettingsPreferenceServiceClientService",
-	HandlerType: (*SettingsPreferenceServiceClientServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewSettingsPreferenceServiceClient",
-			Handler:    _SettingsPreferenceServiceClientService_NewSettingsPreferenceServiceClient_Handler,
-		},
-		{
-			MethodName: "Close",
-			Handler:    _SettingsPreferenceServiceClientService_Close_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/preferences/preferences.proto",
-}
-
-const (
-	MetadataRequestService_DescribeContents_FullMethodName = "/preferences.MetadataRequestService/DescribeContents"
-	MetadataRequestService_WriteToParcel_FullMethodName    = "/preferences.MetadataRequestService/WriteToParcel"
-)
-
-// MetadataRequestServiceClient is the client API for MetadataRequestService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type MetadataRequestServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type metadataRequestServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewMetadataRequestServiceClient(cc grpc.ClientConnInterface) MetadataRequestServiceClient {
-	return &metadataRequestServiceClient{cc}
-}
-
-func (c *metadataRequestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, MetadataRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *metadataRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, MetadataRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// MetadataRequestServiceServer is the server API for MetadataRequestService service.
-// All implementations must embed UnimplementedMetadataRequestServiceServer
-// for forward compatibility.
-type MetadataRequestServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedMetadataRequestServiceServer()
-}
-
-// UnimplementedMetadataRequestServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedMetadataRequestServiceServer struct{}
-
-func (UnimplementedMetadataRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedMetadataRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedMetadataRequestServiceServer) mustEmbedUnimplementedMetadataRequestServiceServer() {
-}
-func (UnimplementedMetadataRequestServiceServer) testEmbeddedByValue() {}
-
-// UnsafeMetadataRequestServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to MetadataRequestServiceServer will
-// result in compilation errors.
-type UnsafeMetadataRequestServiceServer interface {
-	mustEmbedUnimplementedMetadataRequestServiceServer()
-}
-
-func RegisterMetadataRequestServiceServer(s grpc.ServiceRegistrar, srv MetadataRequestServiceServer) {
-	// If the following call panics, it indicates UnimplementedMetadataRequestServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&MetadataRequestService_ServiceDesc, srv)
-}
-
-func _MetadataRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MetadataRequestServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MetadataRequestService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MetadataRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MetadataRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MetadataRequestServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MetadataRequestService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MetadataRequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// MetadataRequestService_ServiceDesc is the grpc.ServiceDesc for MetadataRequestService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var MetadataRequestService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "preferences.MetadataRequestService",
-	HandlerType: (*MetadataRequestServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _MetadataRequestService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _MetadataRequestService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/preferences/preferences.proto",
-}
-
-const (
-	MetadataRequestBuilderService_Build_FullMethodName = "/preferences.MetadataRequestBuilderService/Build"
-)
-
-// MetadataRequestBuilderServiceClient is the client API for MetadataRequestBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type MetadataRequestBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-}
-
-type metadataRequestBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewMetadataRequestBuilderServiceClient(cc grpc.ClientConnInterface) MetadataRequestBuilderServiceClient {
-	return &metadataRequestBuilderServiceClient{cc}
-}
-
-func (c *metadataRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, MetadataRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// MetadataRequestBuilderServiceServer is the server API for MetadataRequestBuilderService service.
-// All implementations must embed UnimplementedMetadataRequestBuilderServiceServer
-// for forward compatibility.
-type MetadataRequestBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	mustEmbedUnimplementedMetadataRequestBuilderServiceServer()
-}
-
-// UnimplementedMetadataRequestBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedMetadataRequestBuilderServiceServer struct{}
-
-func (UnimplementedMetadataRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedMetadataRequestBuilderServiceServer) mustEmbedUnimplementedMetadataRequestBuilderServiceServer() {
-}
-func (UnimplementedMetadataRequestBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeMetadataRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to MetadataRequestBuilderServiceServer will
-// result in compilation errors.
-type UnsafeMetadataRequestBuilderServiceServer interface {
-	mustEmbedUnimplementedMetadataRequestBuilderServiceServer()
-}
-
-func RegisterMetadataRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv MetadataRequestBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedMetadataRequestBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&MetadataRequestBuilderService_ServiceDesc, srv)
-}
-
-func _MetadataRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MetadataRequestBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MetadataRequestBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MetadataRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// MetadataRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for MetadataRequestBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var MetadataRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "preferences.MetadataRequestBuilderService",
-	HandlerType: (*MetadataRequestBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _MetadataRequestBuilderService_Build_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/preferences/preferences.proto",
-}
-
-const (
 	SettingsPreferenceMetadataService_DescribeContents_FullMethodName    = "/preferences.SettingsPreferenceMetadataService/DescribeContents"
 	SettingsPreferenceMetadataService_GetExtras_FullMethodName           = "/preferences.SettingsPreferenceMetadataService/GetExtras"
 	SettingsPreferenceMetadataService_GetKey_FullMethodName              = "/preferences.SettingsPreferenceMetadataService/GetKey"
 	SettingsPreferenceMetadataService_GetLaunchIntent_FullMethodName     = "/preferences.SettingsPreferenceMetadataService/GetLaunchIntent"
+	SettingsPreferenceMetadataService_GetReadPermissions_FullMethodName  = "/preferences.SettingsPreferenceMetadataService/GetReadPermissions"
 	SettingsPreferenceMetadataService_GetScreenKey_FullMethodName        = "/preferences.SettingsPreferenceMetadataService/GetScreenKey"
 	SettingsPreferenceMetadataService_GetSummary_FullMethodName          = "/preferences.SettingsPreferenceMetadataService/GetSummary"
 	SettingsPreferenceMetadataService_GetTitle_FullMethodName            = "/preferences.SettingsPreferenceMetadataService/GetTitle"
+	SettingsPreferenceMetadataService_GetWritePermissions_FullMethodName = "/preferences.SettingsPreferenceMetadataService/GetWritePermissions"
 	SettingsPreferenceMetadataService_GetWriteSensitivity_FullMethodName = "/preferences.SettingsPreferenceMetadataService/GetWriteSensitivity"
 	SettingsPreferenceMetadataService_IsAvailable_FullMethodName         = "/preferences.SettingsPreferenceMetadataService/IsAvailable"
 	SettingsPreferenceMetadataService_IsEnabled_FullMethodName           = "/preferences.SettingsPreferenceMetadataService/IsEnabled"
@@ -3070,9 +2380,11 @@ type SettingsPreferenceMetadataServiceClient interface {
 	GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
 	GetKey(ctx context.Context, in *GetKeyRequest, opts ...grpc.CallOption) (*GetKeyResponse, error)
 	GetLaunchIntent(ctx context.Context, in *GetLaunchIntentRequest, opts ...grpc.CallOption) (*GetLaunchIntentResponse, error)
+	GetReadPermissions(ctx context.Context, in *GetReadPermissionsRequest, opts ...grpc.CallOption) (*GetReadPermissionsResponse, error)
 	GetScreenKey(ctx context.Context, in *GetScreenKeyRequest, opts ...grpc.CallOption) (*GetScreenKeyResponse, error)
 	GetSummary(ctx context.Context, in *GetSummaryRequest, opts ...grpc.CallOption) (*GetSummaryResponse, error)
 	GetTitle(ctx context.Context, in *GetTitleRequest, opts ...grpc.CallOption) (*GetTitleResponse, error)
+	GetWritePermissions(ctx context.Context, in *GetWritePermissionsRequest, opts ...grpc.CallOption) (*GetWritePermissionsResponse, error)
 	GetWriteSensitivity(ctx context.Context, in *GetWriteSensitivityRequest, opts ...grpc.CallOption) (*GetWriteSensitivityResponse, error)
 	IsAvailable(ctx context.Context, in *IsAvailableRequest, opts ...grpc.CallOption) (*IsAvailableResponse, error)
 	IsEnabled(ctx context.Context, in *IsEnabledRequest, opts ...grpc.CallOption) (*IsEnabledResponse, error)
@@ -3129,6 +2441,16 @@ func (c *settingsPreferenceMetadataServiceClient) GetLaunchIntent(ctx context.Co
 	return out, nil
 }
 
+func (c *settingsPreferenceMetadataServiceClient) GetReadPermissions(ctx context.Context, in *GetReadPermissionsRequest, opts ...grpc.CallOption) (*GetReadPermissionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetReadPermissionsResponse)
+	err := c.cc.Invoke(ctx, SettingsPreferenceMetadataService_GetReadPermissions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *settingsPreferenceMetadataServiceClient) GetScreenKey(ctx context.Context, in *GetScreenKeyRequest, opts ...grpc.CallOption) (*GetScreenKeyResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetScreenKeyResponse)
@@ -3153,6 +2475,16 @@ func (c *settingsPreferenceMetadataServiceClient) GetTitle(ctx context.Context, 
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetTitleResponse)
 	err := c.cc.Invoke(ctx, SettingsPreferenceMetadataService_GetTitle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *settingsPreferenceMetadataServiceClient) GetWritePermissions(ctx context.Context, in *GetWritePermissionsRequest, opts ...grpc.CallOption) (*GetWritePermissionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWritePermissionsResponse)
+	err := c.cc.Invoke(ctx, SettingsPreferenceMetadataService_GetWritePermissions_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -3227,9 +2559,11 @@ type SettingsPreferenceMetadataServiceServer interface {
 	GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error)
 	GetKey(context.Context, *GetKeyRequest) (*GetKeyResponse, error)
 	GetLaunchIntent(context.Context, *GetLaunchIntentRequest) (*GetLaunchIntentResponse, error)
+	GetReadPermissions(context.Context, *GetReadPermissionsRequest) (*GetReadPermissionsResponse, error)
 	GetScreenKey(context.Context, *GetScreenKeyRequest) (*GetScreenKeyResponse, error)
 	GetSummary(context.Context, *GetSummaryRequest) (*GetSummaryResponse, error)
 	GetTitle(context.Context, *GetTitleRequest) (*GetTitleResponse, error)
+	GetWritePermissions(context.Context, *GetWritePermissionsRequest) (*GetWritePermissionsResponse, error)
 	GetWriteSensitivity(context.Context, *GetWriteSensitivityRequest) (*GetWriteSensitivityResponse, error)
 	IsAvailable(context.Context, *IsAvailableRequest) (*IsAvailableResponse, error)
 	IsEnabled(context.Context, *IsEnabledRequest) (*IsEnabledResponse, error)
@@ -3258,6 +2592,9 @@ func (UnimplementedSettingsPreferenceMetadataServiceServer) GetKey(context.Conte
 func (UnimplementedSettingsPreferenceMetadataServiceServer) GetLaunchIntent(context.Context, *GetLaunchIntentRequest) (*GetLaunchIntentResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetLaunchIntent not implemented")
 }
+func (UnimplementedSettingsPreferenceMetadataServiceServer) GetReadPermissions(context.Context, *GetReadPermissionsRequest) (*GetReadPermissionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetReadPermissions not implemented")
+}
 func (UnimplementedSettingsPreferenceMetadataServiceServer) GetScreenKey(context.Context, *GetScreenKeyRequest) (*GetScreenKeyResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetScreenKey not implemented")
 }
@@ -3266,6 +2603,9 @@ func (UnimplementedSettingsPreferenceMetadataServiceServer) GetSummary(context.C
 }
 func (UnimplementedSettingsPreferenceMetadataServiceServer) GetTitle(context.Context, *GetTitleRequest) (*GetTitleResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetTitle not implemented")
+}
+func (UnimplementedSettingsPreferenceMetadataServiceServer) GetWritePermissions(context.Context, *GetWritePermissionsRequest) (*GetWritePermissionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWritePermissions not implemented")
 }
 func (UnimplementedSettingsPreferenceMetadataServiceServer) GetWriteSensitivity(context.Context, *GetWriteSensitivityRequest) (*GetWriteSensitivityResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetWriteSensitivity not implemented")
@@ -3379,6 +2719,24 @@ func _SettingsPreferenceMetadataService_GetLaunchIntent_Handler(srv interface{},
 	return interceptor(ctx, in, info, handler)
 }
 
+func _SettingsPreferenceMetadataService_GetReadPermissions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetReadPermissionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SettingsPreferenceMetadataServiceServer).GetReadPermissions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SettingsPreferenceMetadataService_GetReadPermissions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SettingsPreferenceMetadataServiceServer).GetReadPermissions(ctx, req.(*GetReadPermissionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _SettingsPreferenceMetadataService_GetScreenKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetScreenKeyRequest)
 	if err := dec(in); err != nil {
@@ -3429,6 +2787,24 @@ func _SettingsPreferenceMetadataService_GetTitle_Handler(srv interface{}, ctx co
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SettingsPreferenceMetadataServiceServer).GetTitle(ctx, req.(*GetTitleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SettingsPreferenceMetadataService_GetWritePermissions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWritePermissionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SettingsPreferenceMetadataServiceServer).GetWritePermissions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SettingsPreferenceMetadataService_GetWritePermissions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SettingsPreferenceMetadataServiceServer).GetWritePermissions(ctx, req.(*GetWritePermissionsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3565,6 +2941,10 @@ var SettingsPreferenceMetadataService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _SettingsPreferenceMetadataService_GetLaunchIntent_Handler,
 		},
 		{
+			MethodName: "GetReadPermissions",
+			Handler:    _SettingsPreferenceMetadataService_GetReadPermissions_Handler,
+		},
+		{
 			MethodName: "GetScreenKey",
 			Handler:    _SettingsPreferenceMetadataService_GetScreenKey_Handler,
 		},
@@ -3575,6 +2955,10 @@ var SettingsPreferenceMetadataService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetTitle",
 			Handler:    _SettingsPreferenceMetadataService_GetTitle_Handler,
+		},
+		{
+			MethodName: "GetWritePermissions",
+			Handler:    _SettingsPreferenceMetadataService_GetWritePermissions_Handler,
 		},
 		{
 			MethodName: "GetWriteSensitivity",
@@ -4051,254 +3435,140 @@ var SettingsPreferenceMetadataBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	SetValueRequestService_DescribeContents_FullMethodName   = "/preferences.SetValueRequestService/DescribeContents"
-	SetValueRequestService_GetPreferenceKey_FullMethodName   = "/preferences.SetValueRequestService/GetPreferenceKey"
-	SetValueRequestService_GetPreferenceValue_FullMethodName = "/preferences.SetValueRequestService/GetPreferenceValue"
-	SetValueRequestService_GetScreenKey_FullMethodName       = "/preferences.SetValueRequestService/GetScreenKey"
-	SetValueRequestService_WriteToParcel_FullMethodName      = "/preferences.SetValueRequestService/WriteToParcel"
+	MetadataRequestService_DescribeContents_FullMethodName = "/preferences.MetadataRequestService/DescribeContents"
+	MetadataRequestService_WriteToParcel_FullMethodName    = "/preferences.MetadataRequestService/WriteToParcel"
 )
 
-// SetValueRequestServiceClient is the client API for SetValueRequestService service.
+// MetadataRequestServiceClient is the client API for MetadataRequestService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SetValueRequestServiceClient interface {
+type MetadataRequestServiceClient interface {
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetPreferenceKey(ctx context.Context, in *GetPreferenceKeyRequest, opts ...grpc.CallOption) (*GetPreferenceKeyResponse, error)
-	GetPreferenceValue(ctx context.Context, in *GetPreferenceValueRequest, opts ...grpc.CallOption) (*GetPreferenceValueResponse, error)
-	GetScreenKey(ctx context.Context, in *GetScreenKeyRequest, opts ...grpc.CallOption) (*GetScreenKeyResponse, error)
 	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type setValueRequestServiceClient struct {
+type metadataRequestServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewSetValueRequestServiceClient(cc grpc.ClientConnInterface) SetValueRequestServiceClient {
-	return &setValueRequestServiceClient{cc}
+func NewMetadataRequestServiceClient(cc grpc.ClientConnInterface) MetadataRequestServiceClient {
+	return &metadataRequestServiceClient{cc}
 }
 
-func (c *setValueRequestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *metadataRequestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, SetValueRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, MetadataRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *setValueRequestServiceClient) GetPreferenceKey(ctx context.Context, in *GetPreferenceKeyRequest, opts ...grpc.CallOption) (*GetPreferenceKeyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPreferenceKeyResponse)
-	err := c.cc.Invoke(ctx, SetValueRequestService_GetPreferenceKey_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setValueRequestServiceClient) GetPreferenceValue(ctx context.Context, in *GetPreferenceValueRequest, opts ...grpc.CallOption) (*GetPreferenceValueResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPreferenceValueResponse)
-	err := c.cc.Invoke(ctx, SetValueRequestService_GetPreferenceValue_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setValueRequestServiceClient) GetScreenKey(ctx context.Context, in *GetScreenKeyRequest, opts ...grpc.CallOption) (*GetScreenKeyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetScreenKeyResponse)
-	err := c.cc.Invoke(ctx, SetValueRequestService_GetScreenKey_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *setValueRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *metadataRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, SetValueRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, MetadataRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// SetValueRequestServiceServer is the server API for SetValueRequestService service.
-// All implementations must embed UnimplementedSetValueRequestServiceServer
+// MetadataRequestServiceServer is the server API for MetadataRequestService service.
+// All implementations must embed UnimplementedMetadataRequestServiceServer
 // for forward compatibility.
-type SetValueRequestServiceServer interface {
+type MetadataRequestServiceServer interface {
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetPreferenceKey(context.Context, *GetPreferenceKeyRequest) (*GetPreferenceKeyResponse, error)
-	GetPreferenceValue(context.Context, *GetPreferenceValueRequest) (*GetPreferenceValueResponse, error)
-	GetScreenKey(context.Context, *GetScreenKeyRequest) (*GetScreenKeyResponse, error)
 	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedSetValueRequestServiceServer()
+	mustEmbedUnimplementedMetadataRequestServiceServer()
 }
 
-// UnimplementedSetValueRequestServiceServer must be embedded to have
+// UnimplementedMetadataRequestServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedSetValueRequestServiceServer struct{}
+type UnimplementedMetadataRequestServiceServer struct{}
 
-func (UnimplementedSetValueRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedMetadataRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedSetValueRequestServiceServer) GetPreferenceKey(context.Context, *GetPreferenceKeyRequest) (*GetPreferenceKeyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPreferenceKey not implemented")
-}
-func (UnimplementedSetValueRequestServiceServer) GetPreferenceValue(context.Context, *GetPreferenceValueRequest) (*GetPreferenceValueResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPreferenceValue not implemented")
-}
-func (UnimplementedSetValueRequestServiceServer) GetScreenKey(context.Context, *GetScreenKeyRequest) (*GetScreenKeyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetScreenKey not implemented")
-}
-func (UnimplementedSetValueRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedMetadataRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedSetValueRequestServiceServer) mustEmbedUnimplementedSetValueRequestServiceServer() {
+func (UnimplementedMetadataRequestServiceServer) mustEmbedUnimplementedMetadataRequestServiceServer() {
 }
-func (UnimplementedSetValueRequestServiceServer) testEmbeddedByValue() {}
+func (UnimplementedMetadataRequestServiceServer) testEmbeddedByValue() {}
 
-// UnsafeSetValueRequestServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SetValueRequestServiceServer will
+// UnsafeMetadataRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to MetadataRequestServiceServer will
 // result in compilation errors.
-type UnsafeSetValueRequestServiceServer interface {
-	mustEmbedUnimplementedSetValueRequestServiceServer()
+type UnsafeMetadataRequestServiceServer interface {
+	mustEmbedUnimplementedMetadataRequestServiceServer()
 }
 
-func RegisterSetValueRequestServiceServer(s grpc.ServiceRegistrar, srv SetValueRequestServiceServer) {
-	// If the following call panics, it indicates UnimplementedSetValueRequestServiceServer was
+func RegisterMetadataRequestServiceServer(s grpc.ServiceRegistrar, srv MetadataRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedMetadataRequestServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&SetValueRequestService_ServiceDesc, srv)
+	s.RegisterService(&MetadataRequestService_ServiceDesc, srv)
 }
 
-func _SetValueRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _MetadataRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SetValueRequestServiceServer).DescribeContents(ctx, in)
+		return srv.(MetadataRequestServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SetValueRequestService_DescribeContents_FullMethodName,
+		FullMethod: MetadataRequestService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetValueRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(MetadataRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _SetValueRequestService_GetPreferenceKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPreferenceKeyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetValueRequestServiceServer).GetPreferenceKey(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetValueRequestService_GetPreferenceKey_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetValueRequestServiceServer).GetPreferenceKey(ctx, req.(*GetPreferenceKeyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetValueRequestService_GetPreferenceValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPreferenceValueRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetValueRequestServiceServer).GetPreferenceValue(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetValueRequestService_GetPreferenceValue_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetValueRequestServiceServer).GetPreferenceValue(ctx, req.(*GetPreferenceValueRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetValueRequestService_GetScreenKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetScreenKeyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetValueRequestServiceServer).GetScreenKey(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetValueRequestService_GetScreenKey_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetValueRequestServiceServer).GetScreenKey(ctx, req.(*GetScreenKeyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SetValueRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _MetadataRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SetValueRequestServiceServer).WriteToParcel(ctx, in)
+		return srv.(MetadataRequestServiceServer).WriteToParcel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SetValueRequestService_WriteToParcel_FullMethodName,
+		FullMethod: MetadataRequestService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetValueRequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(MetadataRequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// SetValueRequestService_ServiceDesc is the grpc.ServiceDesc for SetValueRequestService service.
+// MetadataRequestService_ServiceDesc is the grpc.ServiceDesc for MetadataRequestService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var SetValueRequestService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "preferences.SetValueRequestService",
-	HandlerType: (*SetValueRequestServiceServer)(nil),
+var MetadataRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "preferences.MetadataRequestService",
+	HandlerType: (*MetadataRequestServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "DescribeContents",
-			Handler:    _SetValueRequestService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetPreferenceKey",
-			Handler:    _SetValueRequestService_GetPreferenceKey_Handler,
-		},
-		{
-			MethodName: "GetPreferenceValue",
-			Handler:    _SetValueRequestService_GetPreferenceValue_Handler,
-		},
-		{
-			MethodName: "GetScreenKey",
-			Handler:    _SetValueRequestService_GetScreenKey_Handler,
+			Handler:    _MetadataRequestService_DescribeContents_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _SetValueRequestService_WriteToParcel_Handler,
+			Handler:    _MetadataRequestService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -4306,102 +3576,383 @@ var SetValueRequestService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	SetValueRequestBuilderService_Build_FullMethodName = "/preferences.SetValueRequestBuilderService/Build"
+	MetadataRequestBuilderService_Build_FullMethodName = "/preferences.MetadataRequestBuilderService/Build"
 )
 
-// SetValueRequestBuilderServiceClient is the client API for SetValueRequestBuilderService service.
+// MetadataRequestBuilderServiceClient is the client API for MetadataRequestBuilderService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SetValueRequestBuilderServiceClient interface {
+type MetadataRequestBuilderServiceClient interface {
 	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
 }
 
-type setValueRequestBuilderServiceClient struct {
+type metadataRequestBuilderServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewSetValueRequestBuilderServiceClient(cc grpc.ClientConnInterface) SetValueRequestBuilderServiceClient {
-	return &setValueRequestBuilderServiceClient{cc}
+func NewMetadataRequestBuilderServiceClient(cc grpc.ClientConnInterface) MetadataRequestBuilderServiceClient {
+	return &metadataRequestBuilderServiceClient{cc}
 }
 
-func (c *setValueRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+func (c *metadataRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, SetValueRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, MetadataRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// SetValueRequestBuilderServiceServer is the server API for SetValueRequestBuilderService service.
-// All implementations must embed UnimplementedSetValueRequestBuilderServiceServer
+// MetadataRequestBuilderServiceServer is the server API for MetadataRequestBuilderService service.
+// All implementations must embed UnimplementedMetadataRequestBuilderServiceServer
 // for forward compatibility.
-type SetValueRequestBuilderServiceServer interface {
+type MetadataRequestBuilderServiceServer interface {
 	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	mustEmbedUnimplementedSetValueRequestBuilderServiceServer()
+	mustEmbedUnimplementedMetadataRequestBuilderServiceServer()
 }
 
-// UnimplementedSetValueRequestBuilderServiceServer must be embedded to have
+// UnimplementedMetadataRequestBuilderServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedSetValueRequestBuilderServiceServer struct{}
+type UnimplementedMetadataRequestBuilderServiceServer struct{}
 
-func (UnimplementedSetValueRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+func (UnimplementedMetadataRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
 }
-func (UnimplementedSetValueRequestBuilderServiceServer) mustEmbedUnimplementedSetValueRequestBuilderServiceServer() {
+func (UnimplementedMetadataRequestBuilderServiceServer) mustEmbedUnimplementedMetadataRequestBuilderServiceServer() {
 }
-func (UnimplementedSetValueRequestBuilderServiceServer) testEmbeddedByValue() {}
+func (UnimplementedMetadataRequestBuilderServiceServer) testEmbeddedByValue() {}
 
-// UnsafeSetValueRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SetValueRequestBuilderServiceServer will
+// UnsafeMetadataRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to MetadataRequestBuilderServiceServer will
 // result in compilation errors.
-type UnsafeSetValueRequestBuilderServiceServer interface {
-	mustEmbedUnimplementedSetValueRequestBuilderServiceServer()
+type UnsafeMetadataRequestBuilderServiceServer interface {
+	mustEmbedUnimplementedMetadataRequestBuilderServiceServer()
 }
 
-func RegisterSetValueRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv SetValueRequestBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedSetValueRequestBuilderServiceServer was
+func RegisterMetadataRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv MetadataRequestBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedMetadataRequestBuilderServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&SetValueRequestBuilderService_ServiceDesc, srv)
+	s.RegisterService(&MetadataRequestBuilderService_ServiceDesc, srv)
 }
 
-func _SetValueRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _MetadataRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(BuildRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SetValueRequestBuilderServiceServer).Build(ctx, in)
+		return srv.(MetadataRequestBuilderServiceServer).Build(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: SetValueRequestBuilderService_Build_FullMethodName,
+		FullMethod: MetadataRequestBuilderService_Build_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetValueRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+		return srv.(MetadataRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// SetValueRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for SetValueRequestBuilderService service.
+// MetadataRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for MetadataRequestBuilderService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var SetValueRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "preferences.SetValueRequestBuilderService",
-	HandlerType: (*SetValueRequestBuilderServiceServer)(nil),
+var MetadataRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "preferences.MetadataRequestBuilderService",
+	HandlerType: (*MetadataRequestBuilderServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Build",
-			Handler:    _SetValueRequestBuilderService_Build_Handler,
+			Handler:    _MetadataRequestBuilderService_Build_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/preferences/preferences.proto",
+}
+
+const (
+	SetValueResultService_DescribeContents_FullMethodName = "/preferences.SetValueResultService/DescribeContents"
+	SetValueResultService_GetResultCode_FullMethodName    = "/preferences.SetValueResultService/GetResultCode"
+	SetValueResultService_WriteToParcel_FullMethodName    = "/preferences.SetValueResultService/WriteToParcel"
+)
+
+// SetValueResultServiceClient is the client API for SetValueResultService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SetValueResultServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetResultCode(ctx context.Context, in *GetResultCodeRequest, opts ...grpc.CallOption) (*GetResultCodeResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type setValueResultServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSetValueResultServiceClient(cc grpc.ClientConnInterface) SetValueResultServiceClient {
+	return &setValueResultServiceClient{cc}
+}
+
+func (c *setValueResultServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, SetValueResultService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setValueResultServiceClient) GetResultCode(ctx context.Context, in *GetResultCodeRequest, opts ...grpc.CallOption) (*GetResultCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetResultCodeResponse)
+	err := c.cc.Invoke(ctx, SetValueResultService_GetResultCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *setValueResultServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, SetValueResultService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SetValueResultServiceServer is the server API for SetValueResultService service.
+// All implementations must embed UnimplementedSetValueResultServiceServer
+// for forward compatibility.
+type SetValueResultServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetResultCode(context.Context, *GetResultCodeRequest) (*GetResultCodeResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedSetValueResultServiceServer()
+}
+
+// UnimplementedSetValueResultServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSetValueResultServiceServer struct{}
+
+func (UnimplementedSetValueResultServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedSetValueResultServiceServer) GetResultCode(context.Context, *GetResultCodeRequest) (*GetResultCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetResultCode not implemented")
+}
+func (UnimplementedSetValueResultServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedSetValueResultServiceServer) mustEmbedUnimplementedSetValueResultServiceServer() {}
+func (UnimplementedSetValueResultServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeSetValueResultServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SetValueResultServiceServer will
+// result in compilation errors.
+type UnsafeSetValueResultServiceServer interface {
+	mustEmbedUnimplementedSetValueResultServiceServer()
+}
+
+func RegisterSetValueResultServiceServer(s grpc.ServiceRegistrar, srv SetValueResultServiceServer) {
+	// If the following call panics, it indicates UnimplementedSetValueResultServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SetValueResultService_ServiceDesc, srv)
+}
+
+func _SetValueResultService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetValueResultServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetValueResultService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetValueResultServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetValueResultService_GetResultCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetResultCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetValueResultServiceServer).GetResultCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetValueResultService_GetResultCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetValueResultServiceServer).GetResultCode(ctx, req.(*GetResultCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SetValueResultService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetValueResultServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetValueResultService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetValueResultServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SetValueResultService_ServiceDesc is the grpc.ServiceDesc for SetValueResultService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SetValueResultService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "preferences.SetValueResultService",
+	HandlerType: (*SetValueResultServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _SetValueResultService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetResultCode",
+			Handler:    _SetValueResultService_GetResultCode_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _SetValueResultService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/preferences/preferences.proto",
+}
+
+const (
+	SetValueResultBuilderService_Build_FullMethodName = "/preferences.SetValueResultBuilderService/Build"
+)
+
+// SetValueResultBuilderServiceClient is the client API for SetValueResultBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SetValueResultBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+}
+
+type setValueResultBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSetValueResultBuilderServiceClient(cc grpc.ClientConnInterface) SetValueResultBuilderServiceClient {
+	return &setValueResultBuilderServiceClient{cc}
+}
+
+func (c *setValueResultBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, SetValueResultBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SetValueResultBuilderServiceServer is the server API for SetValueResultBuilderService service.
+// All implementations must embed UnimplementedSetValueResultBuilderServiceServer
+// for forward compatibility.
+type SetValueResultBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	mustEmbedUnimplementedSetValueResultBuilderServiceServer()
+}
+
+// UnimplementedSetValueResultBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSetValueResultBuilderServiceServer struct{}
+
+func (UnimplementedSetValueResultBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedSetValueResultBuilderServiceServer) mustEmbedUnimplementedSetValueResultBuilderServiceServer() {
+}
+func (UnimplementedSetValueResultBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSetValueResultBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SetValueResultBuilderServiceServer will
+// result in compilation errors.
+type UnsafeSetValueResultBuilderServiceServer interface {
+	mustEmbedUnimplementedSetValueResultBuilderServiceServer()
+}
+
+func RegisterSetValueResultBuilderServiceServer(s grpc.ServiceRegistrar, srv SetValueResultBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedSetValueResultBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SetValueResultBuilderService_ServiceDesc, srv)
+}
+
+func _SetValueResultBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetValueResultBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetValueResultBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetValueResultBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SetValueResultBuilderService_ServiceDesc is the grpc.ServiceDesc for SetValueResultBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SetValueResultBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "preferences.SetValueResultBuilderService",
+	HandlerType: (*SetValueResultBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _SetValueResultBuilderService_Build_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -4835,6 +4386,569 @@ var GetValueResultBuilderService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SetValue",
 			Handler:    _GetValueResultBuilderService_SetValue_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/preferences/preferences.proto",
+}
+
+const (
+	MetadataResultService_DescribeContents_FullMethodName = "/preferences.MetadataResultService/DescribeContents"
+	MetadataResultService_GetMetadataList_FullMethodName  = "/preferences.MetadataResultService/GetMetadataList"
+	MetadataResultService_GetResultCode_FullMethodName    = "/preferences.MetadataResultService/GetResultCode"
+	MetadataResultService_WriteToParcel_FullMethodName    = "/preferences.MetadataResultService/WriteToParcel"
+)
+
+// MetadataResultServiceClient is the client API for MetadataResultService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type MetadataResultServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetMetadataList(ctx context.Context, in *GetMetadataListRequest, opts ...grpc.CallOption) (*GetMetadataListResponse, error)
+	GetResultCode(ctx context.Context, in *GetResultCodeRequest, opts ...grpc.CallOption) (*GetResultCodeResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type metadataResultServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewMetadataResultServiceClient(cc grpc.ClientConnInterface) MetadataResultServiceClient {
+	return &metadataResultServiceClient{cc}
+}
+
+func (c *metadataResultServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, MetadataResultService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *metadataResultServiceClient) GetMetadataList(ctx context.Context, in *GetMetadataListRequest, opts ...grpc.CallOption) (*GetMetadataListResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMetadataListResponse)
+	err := c.cc.Invoke(ctx, MetadataResultService_GetMetadataList_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *metadataResultServiceClient) GetResultCode(ctx context.Context, in *GetResultCodeRequest, opts ...grpc.CallOption) (*GetResultCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetResultCodeResponse)
+	err := c.cc.Invoke(ctx, MetadataResultService_GetResultCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *metadataResultServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, MetadataResultService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// MetadataResultServiceServer is the server API for MetadataResultService service.
+// All implementations must embed UnimplementedMetadataResultServiceServer
+// for forward compatibility.
+type MetadataResultServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetMetadataList(context.Context, *GetMetadataListRequest) (*GetMetadataListResponse, error)
+	GetResultCode(context.Context, *GetResultCodeRequest) (*GetResultCodeResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedMetadataResultServiceServer()
+}
+
+// UnimplementedMetadataResultServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedMetadataResultServiceServer struct{}
+
+func (UnimplementedMetadataResultServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedMetadataResultServiceServer) GetMetadataList(context.Context, *GetMetadataListRequest) (*GetMetadataListResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMetadataList not implemented")
+}
+func (UnimplementedMetadataResultServiceServer) GetResultCode(context.Context, *GetResultCodeRequest) (*GetResultCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetResultCode not implemented")
+}
+func (UnimplementedMetadataResultServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedMetadataResultServiceServer) mustEmbedUnimplementedMetadataResultServiceServer() {}
+func (UnimplementedMetadataResultServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeMetadataResultServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to MetadataResultServiceServer will
+// result in compilation errors.
+type UnsafeMetadataResultServiceServer interface {
+	mustEmbedUnimplementedMetadataResultServiceServer()
+}
+
+func RegisterMetadataResultServiceServer(s grpc.ServiceRegistrar, srv MetadataResultServiceServer) {
+	// If the following call panics, it indicates UnimplementedMetadataResultServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&MetadataResultService_ServiceDesc, srv)
+}
+
+func _MetadataResultService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MetadataResultServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MetadataResultService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MetadataResultServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MetadataResultService_GetMetadataList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMetadataListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MetadataResultServiceServer).GetMetadataList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MetadataResultService_GetMetadataList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MetadataResultServiceServer).GetMetadataList(ctx, req.(*GetMetadataListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MetadataResultService_GetResultCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetResultCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MetadataResultServiceServer).GetResultCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MetadataResultService_GetResultCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MetadataResultServiceServer).GetResultCode(ctx, req.(*GetResultCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MetadataResultService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MetadataResultServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MetadataResultService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MetadataResultServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// MetadataResultService_ServiceDesc is the grpc.ServiceDesc for MetadataResultService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var MetadataResultService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "preferences.MetadataResultService",
+	HandlerType: (*MetadataResultServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _MetadataResultService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetMetadataList",
+			Handler:    _MetadataResultService_GetMetadataList_Handler,
+		},
+		{
+			MethodName: "GetResultCode",
+			Handler:    _MetadataResultService_GetResultCode_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _MetadataResultService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/preferences/preferences.proto",
+}
+
+const (
+	MetadataResultBuilderService_Build_FullMethodName = "/preferences.MetadataResultBuilderService/Build"
+)
+
+// MetadataResultBuilderServiceClient is the client API for MetadataResultBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type MetadataResultBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+}
+
+type metadataResultBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewMetadataResultBuilderServiceClient(cc grpc.ClientConnInterface) MetadataResultBuilderServiceClient {
+	return &metadataResultBuilderServiceClient{cc}
+}
+
+func (c *metadataResultBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, MetadataResultBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// MetadataResultBuilderServiceServer is the server API for MetadataResultBuilderService service.
+// All implementations must embed UnimplementedMetadataResultBuilderServiceServer
+// for forward compatibility.
+type MetadataResultBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	mustEmbedUnimplementedMetadataResultBuilderServiceServer()
+}
+
+// UnimplementedMetadataResultBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedMetadataResultBuilderServiceServer struct{}
+
+func (UnimplementedMetadataResultBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedMetadataResultBuilderServiceServer) mustEmbedUnimplementedMetadataResultBuilderServiceServer() {
+}
+func (UnimplementedMetadataResultBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeMetadataResultBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to MetadataResultBuilderServiceServer will
+// result in compilation errors.
+type UnsafeMetadataResultBuilderServiceServer interface {
+	mustEmbedUnimplementedMetadataResultBuilderServiceServer()
+}
+
+func RegisterMetadataResultBuilderServiceServer(s grpc.ServiceRegistrar, srv MetadataResultBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedMetadataResultBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&MetadataResultBuilderService_ServiceDesc, srv)
+}
+
+func _MetadataResultBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MetadataResultBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MetadataResultBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MetadataResultBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// MetadataResultBuilderService_ServiceDesc is the grpc.ServiceDesc for MetadataResultBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var MetadataResultBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "preferences.MetadataResultBuilderService",
+	HandlerType: (*MetadataResultBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _MetadataResultBuilderService_Build_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/preferences/preferences.proto",
+}
+
+const (
+	SettingsPreferenceServiceClientService_NewSettingsPreferenceServiceClient_FullMethodName = "/preferences.SettingsPreferenceServiceClientService/NewSettingsPreferenceServiceClient"
+	SettingsPreferenceServiceClientService_Close_FullMethodName                              = "/preferences.SettingsPreferenceServiceClientService/Close"
+)
+
+// SettingsPreferenceServiceClientServiceClient is the client API for SettingsPreferenceServiceClientService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SettingsPreferenceServiceClientServiceClient interface {
+	NewSettingsPreferenceServiceClient(ctx context.Context, in *NewSettingsPreferenceServiceClientRequest, opts ...grpc.CallOption) (*NewSettingsPreferenceServiceClientResponse, error)
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+}
+
+type settingsPreferenceServiceClientServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSettingsPreferenceServiceClientServiceClient(cc grpc.ClientConnInterface) SettingsPreferenceServiceClientServiceClient {
+	return &settingsPreferenceServiceClientServiceClient{cc}
+}
+
+func (c *settingsPreferenceServiceClientServiceClient) NewSettingsPreferenceServiceClient(ctx context.Context, in *NewSettingsPreferenceServiceClientRequest, opts ...grpc.CallOption) (*NewSettingsPreferenceServiceClientResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewSettingsPreferenceServiceClientResponse)
+	err := c.cc.Invoke(ctx, SettingsPreferenceServiceClientService_NewSettingsPreferenceServiceClient_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *settingsPreferenceServiceClientServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, SettingsPreferenceServiceClientService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SettingsPreferenceServiceClientServiceServer is the server API for SettingsPreferenceServiceClientService service.
+// All implementations must embed UnimplementedSettingsPreferenceServiceClientServiceServer
+// for forward compatibility.
+type SettingsPreferenceServiceClientServiceServer interface {
+	NewSettingsPreferenceServiceClient(context.Context, *NewSettingsPreferenceServiceClientRequest) (*NewSettingsPreferenceServiceClientResponse, error)
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	mustEmbedUnimplementedSettingsPreferenceServiceClientServiceServer()
+}
+
+// UnimplementedSettingsPreferenceServiceClientServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSettingsPreferenceServiceClientServiceServer struct{}
+
+func (UnimplementedSettingsPreferenceServiceClientServiceServer) NewSettingsPreferenceServiceClient(context.Context, *NewSettingsPreferenceServiceClientRequest) (*NewSettingsPreferenceServiceClientResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewSettingsPreferenceServiceClient not implemented")
+}
+func (UnimplementedSettingsPreferenceServiceClientServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedSettingsPreferenceServiceClientServiceServer) mustEmbedUnimplementedSettingsPreferenceServiceClientServiceServer() {
+}
+func (UnimplementedSettingsPreferenceServiceClientServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSettingsPreferenceServiceClientServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SettingsPreferenceServiceClientServiceServer will
+// result in compilation errors.
+type UnsafeSettingsPreferenceServiceClientServiceServer interface {
+	mustEmbedUnimplementedSettingsPreferenceServiceClientServiceServer()
+}
+
+func RegisterSettingsPreferenceServiceClientServiceServer(s grpc.ServiceRegistrar, srv SettingsPreferenceServiceClientServiceServer) {
+	// If the following call panics, it indicates UnimplementedSettingsPreferenceServiceClientServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SettingsPreferenceServiceClientService_ServiceDesc, srv)
+}
+
+func _SettingsPreferenceServiceClientService_NewSettingsPreferenceServiceClient_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewSettingsPreferenceServiceClientRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SettingsPreferenceServiceClientServiceServer).NewSettingsPreferenceServiceClient(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SettingsPreferenceServiceClientService_NewSettingsPreferenceServiceClient_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SettingsPreferenceServiceClientServiceServer).NewSettingsPreferenceServiceClient(ctx, req.(*NewSettingsPreferenceServiceClientRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SettingsPreferenceServiceClientService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SettingsPreferenceServiceClientServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SettingsPreferenceServiceClientService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SettingsPreferenceServiceClientServiceServer).Close(ctx, req.(*CloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SettingsPreferenceServiceClientService_ServiceDesc is the grpc.ServiceDesc for SettingsPreferenceServiceClientService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SettingsPreferenceServiceClientService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "preferences.SettingsPreferenceServiceClientService",
+	HandlerType: (*SettingsPreferenceServiceClientServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewSettingsPreferenceServiceClient",
+			Handler:    _SettingsPreferenceServiceClientService_NewSettingsPreferenceServiceClient_Handler,
+		},
+		{
+			MethodName: "Close",
+			Handler:    _SettingsPreferenceServiceClientService_Close_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/preferences/preferences.proto",
+}
+
+const (
+	SettingsPreferenceServiceService_OnBind_FullMethodName = "/preferences.SettingsPreferenceServiceService/OnBind"
+)
+
+// SettingsPreferenceServiceServiceClient is the client API for SettingsPreferenceServiceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SettingsPreferenceServiceServiceClient interface {
+	OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error)
+}
+
+type settingsPreferenceServiceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSettingsPreferenceServiceServiceClient(cc grpc.ClientConnInterface) SettingsPreferenceServiceServiceClient {
+	return &settingsPreferenceServiceServiceClient{cc}
+}
+
+func (c *settingsPreferenceServiceServiceClient) OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnBindResponse)
+	err := c.cc.Invoke(ctx, SettingsPreferenceServiceService_OnBind_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SettingsPreferenceServiceServiceServer is the server API for SettingsPreferenceServiceService service.
+// All implementations must embed UnimplementedSettingsPreferenceServiceServiceServer
+// for forward compatibility.
+type SettingsPreferenceServiceServiceServer interface {
+	OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error)
+	mustEmbedUnimplementedSettingsPreferenceServiceServiceServer()
+}
+
+// UnimplementedSettingsPreferenceServiceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSettingsPreferenceServiceServiceServer struct{}
+
+func (UnimplementedSettingsPreferenceServiceServiceServer) OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnBind not implemented")
+}
+func (UnimplementedSettingsPreferenceServiceServiceServer) mustEmbedUnimplementedSettingsPreferenceServiceServiceServer() {
+}
+func (UnimplementedSettingsPreferenceServiceServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSettingsPreferenceServiceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SettingsPreferenceServiceServiceServer will
+// result in compilation errors.
+type UnsafeSettingsPreferenceServiceServiceServer interface {
+	mustEmbedUnimplementedSettingsPreferenceServiceServiceServer()
+}
+
+func RegisterSettingsPreferenceServiceServiceServer(s grpc.ServiceRegistrar, srv SettingsPreferenceServiceServiceServer) {
+	// If the following call panics, it indicates UnimplementedSettingsPreferenceServiceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SettingsPreferenceServiceService_ServiceDesc, srv)
+}
+
+func _SettingsPreferenceServiceService_OnBind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnBindRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SettingsPreferenceServiceServiceServer).OnBind(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SettingsPreferenceServiceService_OnBind_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SettingsPreferenceServiceServiceServer).OnBind(ctx, req.(*OnBindRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SettingsPreferenceServiceService_ServiceDesc is the grpc.ServiceDesc for SettingsPreferenceServiceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SettingsPreferenceServiceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "preferences.SettingsPreferenceServiceService",
+	HandlerType: (*SettingsPreferenceServiceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnBind",
+			Handler:    _SettingsPreferenceServiceService_OnBind_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -9,174 +9,192 @@ import (
 	"google.golang.org/grpc"
 )
 
-// RecognizerClient wraps the gRPC RecognizerService client.
-type RecognizerClient struct {
-	svc pb.RecognizerServiceClient
+// RecognitionSupportCallbackClient wraps the gRPC RecognitionSupportCallbackService client.
+type RecognitionSupportCallbackClient struct {
+	svc pb.RecognitionSupportCallbackServiceClient
 }
 
-// NewRecognizerClient creates a new Recognizer client.
-func NewRecognizerClient(cc grpc.ClientConnInterface) *RecognizerClient {
-	return &RecognizerClient{
-		svc: pb.NewRecognizerServiceClient(cc),
-	}
-}
-
-// Cancel calls the Cancel RPC.
-func (c *RecognizerClient) Cancel(ctx context.Context) error {
-	_, err := c.svc.Cancel(ctx, &pb.CancelRequest{})
-	return err
-}
-
-// CheckRecognitionSupport calls the CheckRecognitionSupport RPC.
-func (c *RecognizerClient) CheckRecognitionSupport(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.CheckRecognitionSupport(ctx, &pb.CheckRecognitionSupportRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// Destroy calls the Destroy RPC.
-func (c *RecognizerClient) Destroy(ctx context.Context) error {
-	_, err := c.svc.Destroy(ctx, &pb.DestroyRequest{})
-	return err
-}
-
-// SetRecognitionListener calls the SetRecognitionListener RPC.
-func (c *RecognizerClient) SetRecognitionListener(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetRecognitionListener(ctx, &pb.SetRecognitionListenerRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// StartListening calls the StartListening RPC.
-func (c *RecognizerClient) StartListening(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.StartListening(ctx, &pb.StartListeningRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// StopListening calls the StopListening RPC.
-func (c *RecognizerClient) StopListening(ctx context.Context) error {
-	_, err := c.svc.StopListening(ctx, &pb.StopListeningRequest{})
-	return err
-}
-
-// TriggerModelDownload1 calls the TriggerModelDownload1 RPC.
-func (c *RecognizerClient) TriggerModelDownload1(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.TriggerModelDownload1(ctx, &pb.TriggerModelDownload1Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// TriggerModelDownload3_1 calls the TriggerModelDownload3_1 RPC.
-func (c *RecognizerClient) TriggerModelDownload3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.TriggerModelDownload3_1(ctx, &pb.TriggerModelDownload3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// CreateOnDeviceSpeechRecognizer calls the CreateOnDeviceSpeechRecognizer RPC.
-func (c *RecognizerClient) CreateOnDeviceSpeechRecognizer(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.CreateOnDeviceSpeechRecognizer(ctx, &pb.CreateOnDeviceSpeechRecognizerRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateSpeechRecognizer1 calls the CreateSpeechRecognizer1 RPC.
-func (c *RecognizerClient) CreateSpeechRecognizer1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.CreateSpeechRecognizer1(ctx, &pb.CreateSpeechRecognizer1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateSpeechRecognizer2_1 calls the CreateSpeechRecognizer2_1 RPC.
-func (c *RecognizerClient) CreateSpeechRecognizer2_1(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.CreateSpeechRecognizer2_1(ctx, &pb.CreateSpeechRecognizer2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsOnDeviceRecognitionAvailable calls the IsOnDeviceRecognitionAvailable RPC.
-func (c *RecognizerClient) IsOnDeviceRecognitionAvailable(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.IsOnDeviceRecognitionAvailable(ctx, &pb.IsOnDeviceRecognitionAvailableRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsRecognitionAvailable calls the IsRecognitionAvailable RPC.
-func (c *RecognizerClient) IsRecognitionAvailable(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.IsRecognitionAvailable(ctx, &pb.IsRecognitionAvailableRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ModelDownloadListenerClient wraps the gRPC ModelDownloadListenerService client.
-type ModelDownloadListenerClient struct {
-	svc pb.ModelDownloadListenerServiceClient
-}
-
-// NewModelDownloadListenerClient creates a new ModelDownloadListener client.
-func NewModelDownloadListenerClient(cc grpc.ClientConnInterface) *ModelDownloadListenerClient {
-	return &ModelDownloadListenerClient{
-		svc: pb.NewModelDownloadListenerServiceClient(cc),
+// NewRecognitionSupportCallbackClient creates a new RecognitionSupportCallback client.
+func NewRecognitionSupportCallbackClient(cc grpc.ClientConnInterface) *RecognitionSupportCallbackClient {
+	return &RecognitionSupportCallbackClient{
+		svc: pb.NewRecognitionSupportCallbackServiceClient(cc),
 	}
 }
 
 // OnError calls the OnError RPC.
-func (c *ModelDownloadListenerClient) OnError(ctx context.Context, arg0 int32) error {
+func (c *RecognitionSupportCallbackClient) OnError(ctx context.Context, arg0 int32) error {
 	_, err := c.svc.OnError(ctx, &pb.OnErrorRequest{
 		Arg0: arg0,
 	})
 	return err
 }
 
-// OnProgress calls the OnProgress RPC.
-func (c *ModelDownloadListenerClient) OnProgress(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.OnProgress(ctx, &pb.OnProgressRequest{
+// OnSupportResult calls the OnSupportResult RPC.
+func (c *RecognitionSupportCallbackClient) OnSupportResult(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnSupportResult(ctx, &pb.OnSupportResultRequest{
 		Arg0: arg0,
 	})
 	return err
 }
 
-// OnScheduled calls the OnScheduled RPC.
-func (c *ModelDownloadListenerClient) OnScheduled(ctx context.Context) error {
-	_, err := c.svc.OnScheduled(ctx, &pb.OnScheduledRequest{})
+// RecognitionSupportClient wraps the gRPC RecognitionSupportService client.
+type RecognitionSupportClient struct {
+	svc pb.RecognitionSupportServiceClient
+}
+
+// NewRecognitionSupportClient creates a new RecognitionSupport client.
+func NewRecognitionSupportClient(cc grpc.ClientConnInterface) *RecognitionSupportClient {
+	return &RecognitionSupportClient{
+		svc: pb.NewRecognitionSupportServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *RecognitionSupportClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *RecognitionSupportClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstalledOnDeviceLanguages calls the GetInstalledOnDeviceLanguages RPC.
+func (c *RecognitionSupportClient) GetInstalledOnDeviceLanguages(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInstalledOnDeviceLanguages(ctx, &pb.GetInstalledOnDeviceLanguagesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOnlineLanguages calls the GetOnlineLanguages RPC.
+func (c *RecognitionSupportClient) GetOnlineLanguages(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOnlineLanguages(ctx, &pb.GetOnlineLanguagesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPendingOnDeviceLanguages calls the GetPendingOnDeviceLanguages RPC.
+func (c *RecognitionSupportClient) GetPendingOnDeviceLanguages(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPendingOnDeviceLanguages(ctx, &pb.GetPendingOnDeviceLanguagesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedOnDeviceLanguages calls the GetSupportedOnDeviceLanguages RPC.
+func (c *RecognitionSupportClient) GetSupportedOnDeviceLanguages(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedOnDeviceLanguages(ctx, &pb.GetSupportedOnDeviceLanguagesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *RecognitionSupportClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *RecognitionSupportClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *RecognitionSupportClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
 	return err
 }
 
-// OnSuccess calls the OnSuccess RPC.
-func (c *ModelDownloadListenerClient) OnSuccess(ctx context.Context) error {
-	_, err := c.svc.OnSuccess(ctx, &pb.OnSuccessRequest{})
-	return err
+// RecognitionSupportBuilderClient wraps the gRPC RecognitionSupportBuilderService client.
+type RecognitionSupportBuilderClient struct {
+	svc pb.RecognitionSupportBuilderServiceClient
+}
+
+// NewRecognitionSupportBuilderClient creates a new RecognitionSupportBuilder client.
+func NewRecognitionSupportBuilderClient(cc grpc.ClientConnInterface) *RecognitionSupportBuilderClient {
+	return &RecognitionSupportBuilderClient{
+		svc: pb.NewRecognitionSupportBuilderServiceClient(cc),
+	}
+}
+
+// AddInstalledOnDeviceLanguage calls the AddInstalledOnDeviceLanguage RPC.
+func (c *RecognitionSupportBuilderClient) AddInstalledOnDeviceLanguage(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.AddInstalledOnDeviceLanguage(ctx, &pb.AddInstalledOnDeviceLanguageRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddOnlineLanguage calls the AddOnlineLanguage RPC.
+func (c *RecognitionSupportBuilderClient) AddOnlineLanguage(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.AddOnlineLanguage(ctx, &pb.AddOnlineLanguageRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddPendingOnDeviceLanguage calls the AddPendingOnDeviceLanguage RPC.
+func (c *RecognitionSupportBuilderClient) AddPendingOnDeviceLanguage(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.AddPendingOnDeviceLanguage(ctx, &pb.AddPendingOnDeviceLanguageRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddSupportedOnDeviceLanguage calls the AddSupportedOnDeviceLanguage RPC.
+func (c *RecognitionSupportBuilderClient) AddSupportedOnDeviceLanguage(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.AddSupportedOnDeviceLanguage(ctx, &pb.AddSupportedOnDeviceLanguageRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *RecognitionSupportBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
 // RecognitionPartClient wraps the gRPC RecognitionPartService client.
@@ -339,27 +357,85 @@ func (c *RecognitionPartBuilderClient) SetTimestampMillis(ctx context.Context, a
 	return resp.GetResult(), nil
 }
 
-// RecognizerIntentClient wraps the gRPC RecognizerIntentService client.
-type RecognizerIntentClient struct {
-	svc pb.RecognizerIntentServiceClient
+// RecognitionListenerClient wraps the gRPC RecognitionListenerService client.
+type RecognitionListenerClient struct {
+	svc pb.RecognitionListenerServiceClient
 }
 
-// NewRecognizerIntentClient creates a new RecognizerIntent client.
-func NewRecognizerIntentClient(cc grpc.ClientConnInterface) *RecognizerIntentClient {
-	return &RecognizerIntentClient{
-		svc: pb.NewRecognizerIntentServiceClient(cc),
+// NewRecognitionListenerClient creates a new RecognitionListener client.
+func NewRecognitionListenerClient(cc grpc.ClientConnInterface) *RecognitionListenerClient {
+	return &RecognitionListenerClient{
+		svc: pb.NewRecognitionListenerServiceClient(cc),
 	}
 }
 
-// GetVoiceDetailsIntent calls the GetVoiceDetailsIntent RPC.
-func (c *RecognizerIntentClient) GetVoiceDetailsIntent(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetVoiceDetailsIntent(ctx, &pb.GetVoiceDetailsIntentRequest{
+// OnBeginningOfSpeech calls the OnBeginningOfSpeech RPC.
+func (c *RecognitionListenerClient) OnBeginningOfSpeech(ctx context.Context) error {
+	_, err := c.svc.OnBeginningOfSpeech(ctx, &pb.OnBeginningOfSpeechRequest{})
+	return err
+}
+
+// OnBufferReceived calls the OnBufferReceived RPC.
+func (c *RecognitionListenerClient) OnBufferReceived(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnBufferReceived(ctx, &pb.OnBufferReceivedRequest{
 		Arg0: arg0,
 	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
+	return err
+}
+
+// OnEndOfSpeech calls the OnEndOfSpeech RPC.
+func (c *RecognitionListenerClient) OnEndOfSpeech(ctx context.Context) error {
+	_, err := c.svc.OnEndOfSpeech(ctx, &pb.OnEndOfSpeechRequest{})
+	return err
+}
+
+// OnError calls the OnError RPC.
+func (c *RecognitionListenerClient) OnError(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnError(ctx, &pb.OnErrorRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnEvent calls the OnEvent RPC.
+func (c *RecognitionListenerClient) OnEvent(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.OnEvent(ctx, &pb.OnEventRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnPartialResults calls the OnPartialResults RPC.
+func (c *RecognitionListenerClient) OnPartialResults(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnPartialResults(ctx, &pb.OnPartialResultsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnReadyForSpeech calls the OnReadyForSpeech RPC.
+func (c *RecognitionListenerClient) OnReadyForSpeech(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnReadyForSpeech(ctx, &pb.OnReadyForSpeechRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnResults calls the OnResults RPC.
+func (c *RecognitionListenerClient) OnResults(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnResults(ctx, &pb.OnResultsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnRmsChanged calls the OnRmsChanged RPC.
+func (c *RecognitionListenerClient) OnRmsChanged(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.OnRmsChanged(ctx, &pb.OnRmsChangedRequest{
+		Arg0: arg0,
+	})
+	return err
 }
 
 // AlternativeSpansClient wraps the gRPC AlternativeSpansService client.
@@ -397,6 +473,17 @@ func (c *AlternativeSpansClient) Equals(ctx context.Context, handle int64, arg0 
 	return resp.GetResult(), nil
 }
 
+// GetSpans calls the GetSpans RPC.
+func (c *AlternativeSpansClient) GetSpans(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSpans(ctx, &pb.GetSpansRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // HashCode calls the HashCode RPC.
 func (c *AlternativeSpansClient) HashCode(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.AlternativeSpansHashCodeRequest{
@@ -425,6 +512,371 @@ func (c *AlternativeSpansClient) WriteToParcel(ctx context.Context, handle int64
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
+	})
+	return err
+}
+
+// RecognizerClient wraps the gRPC RecognizerService client.
+type RecognizerClient struct {
+	svc pb.RecognizerServiceClient
+}
+
+// NewRecognizerClient creates a new Recognizer client.
+func NewRecognizerClient(cc grpc.ClientConnInterface) *RecognizerClient {
+	return &RecognizerClient{
+		svc: pb.NewRecognizerServiceClient(cc),
+	}
+}
+
+// Cancel calls the Cancel RPC.
+func (c *RecognizerClient) Cancel(ctx context.Context) error {
+	_, err := c.svc.Cancel(ctx, &pb.CancelRequest{})
+	return err
+}
+
+// CheckRecognitionSupport calls the CheckRecognitionSupport RPC.
+func (c *RecognizerClient) CheckRecognitionSupport(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.CheckRecognitionSupport(ctx, &pb.CheckRecognitionSupportRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// Destroy calls the Destroy RPC.
+func (c *RecognizerClient) Destroy(ctx context.Context) error {
+	_, err := c.svc.Destroy(ctx, &pb.DestroyRequest{})
+	return err
+}
+
+// SetRecognitionListener calls the SetRecognitionListener RPC.
+func (c *RecognizerClient) SetRecognitionListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetRecognitionListener(ctx, &pb.SetRecognitionListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// StartListening calls the StartListening RPC.
+func (c *RecognizerClient) StartListening(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.StartListening(ctx, &pb.StartListeningRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// StopListening calls the StopListening RPC.
+func (c *RecognizerClient) StopListening(ctx context.Context) error {
+	_, err := c.svc.StopListening(ctx, &pb.StopListeningRequest{})
+	return err
+}
+
+// TriggerModelDownload1 calls the TriggerModelDownload1 RPC.
+func (c *RecognizerClient) TriggerModelDownload1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.TriggerModelDownload1(ctx, &pb.TriggerModelDownload1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// TriggerModelDownload3_1 calls the TriggerModelDownload3_1 RPC.
+func (c *RecognizerClient) TriggerModelDownload3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.TriggerModelDownload3_1(ctx, &pb.TriggerModelDownload3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// CreateOnDeviceSpeechRecognizer calls the CreateOnDeviceSpeechRecognizer RPC.
+func (c *RecognizerClient) CreateOnDeviceSpeechRecognizer(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.CreateOnDeviceSpeechRecognizer(ctx, &pb.CreateOnDeviceSpeechRecognizerRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateSpeechRecognizer1 calls the CreateSpeechRecognizer1 RPC.
+func (c *RecognizerClient) CreateSpeechRecognizer1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.CreateSpeechRecognizer1(ctx, &pb.CreateSpeechRecognizer1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateSpeechRecognizer2_1 calls the CreateSpeechRecognizer2_1 RPC.
+func (c *RecognizerClient) CreateSpeechRecognizer2_1(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.CreateSpeechRecognizer2_1(ctx, &pb.CreateSpeechRecognizer2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsOnDeviceRecognitionAvailable calls the IsOnDeviceRecognitionAvailable RPC.
+func (c *RecognizerClient) IsOnDeviceRecognitionAvailable(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.IsOnDeviceRecognitionAvailable(ctx, &pb.IsOnDeviceRecognitionAvailableRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsRecognitionAvailable calls the IsRecognitionAvailable RPC.
+func (c *RecognizerClient) IsRecognitionAvailable(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.IsRecognitionAvailable(ctx, &pb.IsRecognitionAvailableRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RecognitionServiceClient wraps the gRPC RecognitionServiceService client.
+type RecognitionServiceClient struct {
+	svc pb.RecognitionServiceServiceClient
+}
+
+// NewRecognitionServiceClient creates a new RecognitionService client.
+func NewRecognitionServiceClient(cc grpc.ClientConnInterface) *RecognitionServiceClient {
+	return &RecognitionServiceClient{
+		svc: pb.NewRecognitionServiceServiceClient(cc),
+	}
+}
+
+// CreateContext calls the CreateContext RPC.
+func (c *RecognitionServiceClient) CreateContext(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.CreateContext(ctx, &pb.CreateContextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxConcurrentSessionsCount calls the GetMaxConcurrentSessionsCount RPC.
+func (c *RecognitionServiceClient) GetMaxConcurrentSessionsCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxConcurrentSessionsCount(ctx, &pb.GetMaxConcurrentSessionsCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnBind calls the OnBind RPC.
+func (c *RecognitionServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnCheckRecognitionSupport3 calls the OnCheckRecognitionSupport3 RPC.
+func (c *RecognitionServiceClient) OnCheckRecognitionSupport3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.OnCheckRecognitionSupport3(ctx, &pb.OnCheckRecognitionSupport3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnCheckRecognitionSupport2_1 calls the OnCheckRecognitionSupport2_1 RPC.
+func (c *RecognitionServiceClient) OnCheckRecognitionSupport2_1(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnCheckRecognitionSupport2_1(ctx, &pb.OnCheckRecognitionSupport2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnDestroy calls the OnDestroy RPC.
+func (c *RecognitionServiceClient) OnDestroy(ctx context.Context) error {
+	_, err := c.svc.OnDestroy(ctx, &pb.OnDestroyRequest{})
+	return err
+}
+
+// OnTriggerModelDownload1 calls the OnTriggerModelDownload1 RPC.
+func (c *RecognitionServiceClient) OnTriggerModelDownload1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnTriggerModelDownload1(ctx, &pb.OnTriggerModelDownload1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnTriggerModelDownload2_1 calls the OnTriggerModelDownload2_1 RPC.
+func (c *RecognitionServiceClient) OnTriggerModelDownload2_1(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnTriggerModelDownload2_1(ctx, &pb.OnTriggerModelDownload2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnTriggerModelDownload3_2 calls the OnTriggerModelDownload3_2 RPC.
+func (c *RecognitionServiceClient) OnTriggerModelDownload3_2(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.OnTriggerModelDownload3_2(ctx, &pb.OnTriggerModelDownload3_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// RecognitionServiceCallbackClient wraps the gRPC RecognitionServiceCallbackService client.
+type RecognitionServiceCallbackClient struct {
+	svc pb.RecognitionServiceCallbackServiceClient
+}
+
+// NewRecognitionServiceCallbackClient creates a new RecognitionServiceCallback client.
+func NewRecognitionServiceCallbackClient(cc grpc.ClientConnInterface) *RecognitionServiceCallbackClient {
+	return &RecognitionServiceCallbackClient{
+		svc: pb.NewRecognitionServiceCallbackServiceClient(cc),
+	}
+}
+
+// BeginningOfSpeech calls the BeginningOfSpeech RPC.
+func (c *RecognitionServiceCallbackClient) BeginningOfSpeech(ctx context.Context) error {
+	_, err := c.svc.BeginningOfSpeech(ctx, &pb.BeginningOfSpeechRequest{})
+	return err
+}
+
+// BufferReceived calls the BufferReceived RPC.
+func (c *RecognitionServiceCallbackClient) BufferReceived(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.BufferReceived(ctx, &pb.BufferReceivedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// EndOfSegmentedSession calls the EndOfSegmentedSession RPC.
+func (c *RecognitionServiceCallbackClient) EndOfSegmentedSession(ctx context.Context) error {
+	_, err := c.svc.EndOfSegmentedSession(ctx, &pb.EndOfSegmentedSessionRequest{})
+	return err
+}
+
+// EndOfSpeech calls the EndOfSpeech RPC.
+func (c *RecognitionServiceCallbackClient) EndOfSpeech(ctx context.Context) error {
+	_, err := c.svc.EndOfSpeech(ctx, &pb.EndOfSpeechRequest{})
+	return err
+}
+
+// Error calls the Error RPC.
+func (c *RecognitionServiceCallbackClient) Error(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.Error(ctx, &pb.ErrorRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetCallingAttributionSource calls the GetCallingAttributionSource RPC.
+func (c *RecognitionServiceCallbackClient) GetCallingAttributionSource(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCallingAttributionSource(ctx, &pb.GetCallingAttributionSourceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCallingUid calls the GetCallingUid RPC.
+func (c *RecognitionServiceCallbackClient) GetCallingUid(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetCallingUid(ctx, &pb.GetCallingUidRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LanguageDetection calls the LanguageDetection RPC.
+func (c *RecognitionServiceCallbackClient) LanguageDetection(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.LanguageDetection(ctx, &pb.LanguageDetectionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// PartialResults calls the PartialResults RPC.
+func (c *RecognitionServiceCallbackClient) PartialResults(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.PartialResults(ctx, &pb.PartialResultsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ReadyForSpeech calls the ReadyForSpeech RPC.
+func (c *RecognitionServiceCallbackClient) ReadyForSpeech(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.ReadyForSpeech(ctx, &pb.ReadyForSpeechRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Results calls the Results RPC.
+func (c *RecognitionServiceCallbackClient) Results(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.Results(ctx, &pb.ResultsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RmsChanged calls the RmsChanged RPC.
+func (c *RecognitionServiceCallbackClient) RmsChanged(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.RmsChanged(ctx, &pb.RmsChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SegmentResults calls the SegmentResults RPC.
+func (c *RecognitionServiceCallbackClient) SegmentResults(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SegmentResults(ctx, &pb.SegmentResultsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RecognitionServiceSupportCallbackClient wraps the gRPC RecognitionServiceSupportCallbackService client.
+type RecognitionServiceSupportCallbackClient struct {
+	svc pb.RecognitionServiceSupportCallbackServiceClient
+}
+
+// NewRecognitionServiceSupportCallbackClient creates a new RecognitionServiceSupportCallback client.
+func NewRecognitionServiceSupportCallbackClient(cc grpc.ClientConnInterface) *RecognitionServiceSupportCallbackClient {
+	return &RecognitionServiceSupportCallbackClient{
+		svc: pb.NewRecognitionServiceSupportCallbackServiceClient(cc),
+	}
+}
+
+// OnError calls the OnError RPC.
+func (c *RecognitionServiceSupportCallbackClient) OnError(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnError(ctx, &pb.OnErrorRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnSupportResult calls the OnSupportResult RPC.
+func (c *RecognitionServiceSupportCallbackClient) OnSupportResult(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnSupportResult(ctx, &pb.OnSupportResultRequest{
+		Arg0: arg0,
 	})
 	return err
 }
@@ -460,6 +912,17 @@ func (c *AlternativeSpanClient) Equals(ctx context.Context, handle int64, arg0 i
 	})
 	if err != nil {
 		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAlternatives calls the GetAlternatives RPC.
+func (c *AlternativeSpanClient) GetAlternatives(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetAlternatives(ctx, &pb.GetAlternativesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -516,6 +979,29 @@ func (c *AlternativeSpanClient) WriteToParcel(ctx context.Context, handle int64,
 		Arg1:   arg1,
 	})
 	return err
+}
+
+// RecognizerIntentClient wraps the gRPC RecognizerIntentService client.
+type RecognizerIntentClient struct {
+	svc pb.RecognizerIntentServiceClient
+}
+
+// NewRecognizerIntentClient creates a new RecognizerIntent client.
+func NewRecognizerIntentClient(cc grpc.ClientConnInterface) *RecognizerIntentClient {
+	return &RecognizerIntentClient{
+		svc: pb.NewRecognizerIntentServiceClient(cc),
+	}
+}
+
+// GetVoiceDetailsIntent calls the GetVoiceDetailsIntent RPC.
+func (c *RecognizerIntentClient) GetVoiceDetailsIntent(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetVoiceDetailsIntent(ctx, &pb.GetVoiceDetailsIntentRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
 // TextToSpeechClient wraps the gRPC TextToSpeechService client.
@@ -661,6 +1147,17 @@ func (c *TextToSpeechClient) AreDefaultsEnforced(ctx context.Context, handle int
 	return resp.GetResult(), nil
 }
 
+// GetAvailableLanguages calls the GetAvailableLanguages RPC.
+func (c *TextToSpeechClient) GetAvailableLanguages(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetAvailableLanguages(ctx, &pb.GetAvailableLanguagesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetDefaultEngine calls the GetDefaultEngine RPC.
 func (c *TextToSpeechClient) GetDefaultEngine(ctx context.Context, handle int64) (string, error) {
 	resp, err := c.svc.GetDefaultEngine(ctx, &pb.GetDefaultEngineRequest{
@@ -694,6 +1191,29 @@ func (c *TextToSpeechClient) GetDefaultVoice(ctx context.Context, handle int64) 
 	return resp.GetResult(), nil
 }
 
+// GetEngines calls the GetEngines RPC.
+func (c *TextToSpeechClient) GetEngines(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetEngines(ctx, &pb.GetEnginesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFeatures calls the GetFeatures RPC.
+func (c *TextToSpeechClient) GetFeatures(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetFeatures(ctx, &pb.GetFeaturesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetLanguage calls the GetLanguage RPC.
 func (c *TextToSpeechClient) GetLanguage(ctx context.Context, handle int64) (int64, error) {
 	resp, err := c.svc.GetLanguage(ctx, &pb.GetLanguageRequest{
@@ -708,6 +1228,17 @@ func (c *TextToSpeechClient) GetLanguage(ctx context.Context, handle int64) (int
 // GetVoice calls the GetVoice RPC.
 func (c *TextToSpeechClient) GetVoice(ctx context.Context, handle int64) (int64, error) {
 	resp, err := c.svc.GetVoice(ctx, &pb.GetVoiceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVoices calls the GetVoices RPC.
+func (c *TextToSpeechClient) GetVoices(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetVoices(ctx, &pb.GetVoicesRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -1000,470 +1531,42 @@ func (c *TextToSpeechOnUtteranceCompletedListenerClient) OnUtteranceCompleted(ct
 	return err
 }
 
-// RecognitionSupportClient wraps the gRPC RecognitionSupportService client.
-type RecognitionSupportClient struct {
-	svc pb.RecognitionSupportServiceClient
+// ModelDownloadListenerClient wraps the gRPC ModelDownloadListenerService client.
+type ModelDownloadListenerClient struct {
+	svc pb.ModelDownloadListenerServiceClient
 }
 
-// NewRecognitionSupportClient creates a new RecognitionSupport client.
-func NewRecognitionSupportClient(cc grpc.ClientConnInterface) *RecognitionSupportClient {
-	return &RecognitionSupportClient{
-		svc: pb.NewRecognitionSupportServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *RecognitionSupportClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *RecognitionSupportClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *RecognitionSupportClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *RecognitionSupportClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *RecognitionSupportClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// RecognitionSupportBuilderClient wraps the gRPC RecognitionSupportBuilderService client.
-type RecognitionSupportBuilderClient struct {
-	svc pb.RecognitionSupportBuilderServiceClient
-}
-
-// NewRecognitionSupportBuilderClient creates a new RecognitionSupportBuilder client.
-func NewRecognitionSupportBuilderClient(cc grpc.ClientConnInterface) *RecognitionSupportBuilderClient {
-	return &RecognitionSupportBuilderClient{
-		svc: pb.NewRecognitionSupportBuilderServiceClient(cc),
-	}
-}
-
-// AddInstalledOnDeviceLanguage calls the AddInstalledOnDeviceLanguage RPC.
-func (c *RecognitionSupportBuilderClient) AddInstalledOnDeviceLanguage(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.AddInstalledOnDeviceLanguage(ctx, &pb.AddInstalledOnDeviceLanguageRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddOnlineLanguage calls the AddOnlineLanguage RPC.
-func (c *RecognitionSupportBuilderClient) AddOnlineLanguage(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.AddOnlineLanguage(ctx, &pb.AddOnlineLanguageRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddPendingOnDeviceLanguage calls the AddPendingOnDeviceLanguage RPC.
-func (c *RecognitionSupportBuilderClient) AddPendingOnDeviceLanguage(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.AddPendingOnDeviceLanguage(ctx, &pb.AddPendingOnDeviceLanguageRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddSupportedOnDeviceLanguage calls the AddSupportedOnDeviceLanguage RPC.
-func (c *RecognitionSupportBuilderClient) AddSupportedOnDeviceLanguage(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.AddSupportedOnDeviceLanguage(ctx, &pb.AddSupportedOnDeviceLanguageRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Build calls the Build RPC.
-func (c *RecognitionSupportBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RecognitionServiceClient wraps the gRPC RecognitionServiceService client.
-type RecognitionServiceClient struct {
-	svc pb.RecognitionServiceServiceClient
-}
-
-// NewRecognitionServiceClient creates a new RecognitionService client.
-func NewRecognitionServiceClient(cc grpc.ClientConnInterface) *RecognitionServiceClient {
-	return &RecognitionServiceClient{
-		svc: pb.NewRecognitionServiceServiceClient(cc),
-	}
-}
-
-// CreateContext calls the CreateContext RPC.
-func (c *RecognitionServiceClient) CreateContext(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.CreateContext(ctx, &pb.CreateContextRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMaxConcurrentSessionsCount calls the GetMaxConcurrentSessionsCount RPC.
-func (c *RecognitionServiceClient) GetMaxConcurrentSessionsCount(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMaxConcurrentSessionsCount(ctx, &pb.GetMaxConcurrentSessionsCountRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnBind calls the OnBind RPC.
-func (c *RecognitionServiceClient) OnBind(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.OnBind(ctx, &pb.OnBindRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnCheckRecognitionSupport3 calls the OnCheckRecognitionSupport3 RPC.
-func (c *RecognitionServiceClient) OnCheckRecognitionSupport3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.OnCheckRecognitionSupport3(ctx, &pb.OnCheckRecognitionSupport3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// OnCheckRecognitionSupport2_1 calls the OnCheckRecognitionSupport2_1 RPC.
-func (c *RecognitionServiceClient) OnCheckRecognitionSupport2_1(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.OnCheckRecognitionSupport2_1(ctx, &pb.OnCheckRecognitionSupport2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// OnDestroy calls the OnDestroy RPC.
-func (c *RecognitionServiceClient) OnDestroy(ctx context.Context) error {
-	_, err := c.svc.OnDestroy(ctx, &pb.OnDestroyRequest{})
-	return err
-}
-
-// OnTriggerModelDownload1 calls the OnTriggerModelDownload1 RPC.
-func (c *RecognitionServiceClient) OnTriggerModelDownload1(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnTriggerModelDownload1(ctx, &pb.OnTriggerModelDownload1Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnTriggerModelDownload2_1 calls the OnTriggerModelDownload2_1 RPC.
-func (c *RecognitionServiceClient) OnTriggerModelDownload2_1(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.OnTriggerModelDownload2_1(ctx, &pb.OnTriggerModelDownload2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// OnTriggerModelDownload3_2 calls the OnTriggerModelDownload3_2 RPC.
-func (c *RecognitionServiceClient) OnTriggerModelDownload3_2(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.OnTriggerModelDownload3_2(ctx, &pb.OnTriggerModelDownload3_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// RecognitionServiceCallbackClient wraps the gRPC RecognitionServiceCallbackService client.
-type RecognitionServiceCallbackClient struct {
-	svc pb.RecognitionServiceCallbackServiceClient
-}
-
-// NewRecognitionServiceCallbackClient creates a new RecognitionServiceCallback client.
-func NewRecognitionServiceCallbackClient(cc grpc.ClientConnInterface) *RecognitionServiceCallbackClient {
-	return &RecognitionServiceCallbackClient{
-		svc: pb.NewRecognitionServiceCallbackServiceClient(cc),
-	}
-}
-
-// BeginningOfSpeech calls the BeginningOfSpeech RPC.
-func (c *RecognitionServiceCallbackClient) BeginningOfSpeech(ctx context.Context) error {
-	_, err := c.svc.BeginningOfSpeech(ctx, &pb.BeginningOfSpeechRequest{})
-	return err
-}
-
-// BufferReceived calls the BufferReceived RPC.
-func (c *RecognitionServiceCallbackClient) BufferReceived(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.BufferReceived(ctx, &pb.BufferReceivedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// EndOfSegmentedSession calls the EndOfSegmentedSession RPC.
-func (c *RecognitionServiceCallbackClient) EndOfSegmentedSession(ctx context.Context) error {
-	_, err := c.svc.EndOfSegmentedSession(ctx, &pb.EndOfSegmentedSessionRequest{})
-	return err
-}
-
-// EndOfSpeech calls the EndOfSpeech RPC.
-func (c *RecognitionServiceCallbackClient) EndOfSpeech(ctx context.Context) error {
-	_, err := c.svc.EndOfSpeech(ctx, &pb.EndOfSpeechRequest{})
-	return err
-}
-
-// Error calls the Error RPC.
-func (c *RecognitionServiceCallbackClient) Error(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.Error(ctx, &pb.ErrorRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// GetCallingAttributionSource calls the GetCallingAttributionSource RPC.
-func (c *RecognitionServiceCallbackClient) GetCallingAttributionSource(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetCallingAttributionSource(ctx, &pb.GetCallingAttributionSourceRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCallingUid calls the GetCallingUid RPC.
-func (c *RecognitionServiceCallbackClient) GetCallingUid(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetCallingUid(ctx, &pb.GetCallingUidRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LanguageDetection calls the LanguageDetection RPC.
-func (c *RecognitionServiceCallbackClient) LanguageDetection(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.LanguageDetection(ctx, &pb.LanguageDetectionRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// PartialResults calls the PartialResults RPC.
-func (c *RecognitionServiceCallbackClient) PartialResults(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.PartialResults(ctx, &pb.PartialResultsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ReadyForSpeech calls the ReadyForSpeech RPC.
-func (c *RecognitionServiceCallbackClient) ReadyForSpeech(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.ReadyForSpeech(ctx, &pb.ReadyForSpeechRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// Results calls the Results RPC.
-func (c *RecognitionServiceCallbackClient) Results(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.Results(ctx, &pb.ResultsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// RmsChanged calls the RmsChanged RPC.
-func (c *RecognitionServiceCallbackClient) RmsChanged(ctx context.Context, arg0 float32) error {
-	_, err := c.svc.RmsChanged(ctx, &pb.RmsChangedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SegmentResults calls the SegmentResults RPC.
-func (c *RecognitionServiceCallbackClient) SegmentResults(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SegmentResults(ctx, &pb.SegmentResultsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// RecognitionServiceSupportCallbackClient wraps the gRPC RecognitionServiceSupportCallbackService client.
-type RecognitionServiceSupportCallbackClient struct {
-	svc pb.RecognitionServiceSupportCallbackServiceClient
-}
-
-// NewRecognitionServiceSupportCallbackClient creates a new RecognitionServiceSupportCallback client.
-func NewRecognitionServiceSupportCallbackClient(cc grpc.ClientConnInterface) *RecognitionServiceSupportCallbackClient {
-	return &RecognitionServiceSupportCallbackClient{
-		svc: pb.NewRecognitionServiceSupportCallbackServiceClient(cc),
+// NewModelDownloadListenerClient creates a new ModelDownloadListener client.
+func NewModelDownloadListenerClient(cc grpc.ClientConnInterface) *ModelDownloadListenerClient {
+	return &ModelDownloadListenerClient{
+		svc: pb.NewModelDownloadListenerServiceClient(cc),
 	}
 }
 
 // OnError calls the OnError RPC.
-func (c *RecognitionServiceSupportCallbackClient) OnError(ctx context.Context, arg0 int32) error {
+func (c *ModelDownloadListenerClient) OnError(ctx context.Context, arg0 int32) error {
 	_, err := c.svc.OnError(ctx, &pb.OnErrorRequest{
 		Arg0: arg0,
 	})
 	return err
 }
 
-// OnSupportResult calls the OnSupportResult RPC.
-func (c *RecognitionServiceSupportCallbackClient) OnSupportResult(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnSupportResult(ctx, &pb.OnSupportResultRequest{
+// OnProgress calls the OnProgress RPC.
+func (c *ModelDownloadListenerClient) OnProgress(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnProgress(ctx, &pb.OnProgressRequest{
 		Arg0: arg0,
 	})
 	return err
 }
 
-// RecognitionListenerClient wraps the gRPC RecognitionListenerService client.
-type RecognitionListenerClient struct {
-	svc pb.RecognitionListenerServiceClient
-}
-
-// NewRecognitionListenerClient creates a new RecognitionListener client.
-func NewRecognitionListenerClient(cc grpc.ClientConnInterface) *RecognitionListenerClient {
-	return &RecognitionListenerClient{
-		svc: pb.NewRecognitionListenerServiceClient(cc),
-	}
-}
-
-// OnBeginningOfSpeech calls the OnBeginningOfSpeech RPC.
-func (c *RecognitionListenerClient) OnBeginningOfSpeech(ctx context.Context) error {
-	_, err := c.svc.OnBeginningOfSpeech(ctx, &pb.OnBeginningOfSpeechRequest{})
+// OnScheduled calls the OnScheduled RPC.
+func (c *ModelDownloadListenerClient) OnScheduled(ctx context.Context) error {
+	_, err := c.svc.OnScheduled(ctx, &pb.OnScheduledRequest{})
 	return err
 }
 
-// OnBufferReceived calls the OnBufferReceived RPC.
-func (c *RecognitionListenerClient) OnBufferReceived(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnBufferReceived(ctx, &pb.OnBufferReceivedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnEndOfSpeech calls the OnEndOfSpeech RPC.
-func (c *RecognitionListenerClient) OnEndOfSpeech(ctx context.Context) error {
-	_, err := c.svc.OnEndOfSpeech(ctx, &pb.OnEndOfSpeechRequest{})
-	return err
-}
-
-// OnError calls the OnError RPC.
-func (c *RecognitionListenerClient) OnError(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.OnError(ctx, &pb.OnErrorRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnEvent calls the OnEvent RPC.
-func (c *RecognitionListenerClient) OnEvent(ctx context.Context, arg0 int32, arg1 int64) error {
-	_, err := c.svc.OnEvent(ctx, &pb.OnEventRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// OnPartialResults calls the OnPartialResults RPC.
-func (c *RecognitionListenerClient) OnPartialResults(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnPartialResults(ctx, &pb.OnPartialResultsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnReadyForSpeech calls the OnReadyForSpeech RPC.
-func (c *RecognitionListenerClient) OnReadyForSpeech(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnReadyForSpeech(ctx, &pb.OnReadyForSpeechRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnResults calls the OnResults RPC.
-func (c *RecognitionListenerClient) OnResults(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnResults(ctx, &pb.OnResultsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnRmsChanged calls the OnRmsChanged RPC.
-func (c *RecognitionListenerClient) OnRmsChanged(ctx context.Context, arg0 float32) error {
-	_, err := c.svc.OnRmsChanged(ctx, &pb.OnRmsChangedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// RecognitionSupportCallbackClient wraps the gRPC RecognitionSupportCallbackService client.
-type RecognitionSupportCallbackClient struct {
-	svc pb.RecognitionSupportCallbackServiceClient
-}
-
-// NewRecognitionSupportCallbackClient creates a new RecognitionSupportCallback client.
-func NewRecognitionSupportCallbackClient(cc grpc.ClientConnInterface) *RecognitionSupportCallbackClient {
-	return &RecognitionSupportCallbackClient{
-		svc: pb.NewRecognitionSupportCallbackServiceClient(cc),
-	}
-}
-
-// OnError calls the OnError RPC.
-func (c *RecognitionSupportCallbackClient) OnError(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.OnError(ctx, &pb.OnErrorRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnSupportResult calls the OnSupportResult RPC.
-func (c *RecognitionSupportCallbackClient) OnSupportResult(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnSupportResult(ctx, &pb.OnSupportResultRequest{
-		Arg0: arg0,
-	})
+// OnSuccess calls the OnSuccess RPC.
+func (c *ModelDownloadListenerClient) OnSuccess(ctx context.Context) error {
+	_, err := c.svc.OnSuccess(ctx, &pb.OnSuccessRequest{})
 	return err
 }

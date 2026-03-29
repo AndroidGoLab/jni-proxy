@@ -6,10 +6,753 @@ package notification;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/notification";
 
-message NewNotificationRequest {
+message AddAutomaticZenRuleRequest {
+  int64 arg0 = 1;
 }
 
-message NewNotificationResponse {
+message AddAutomaticZenRuleResponse {
+  string result = 1;
+}
+
+message AreAutomaticZenRulesUserManagedRequest {
+}
+
+message AreAutomaticZenRulesUserManagedResponse {
+  bool result = 1;
+}
+
+message AreBubblesAllowedRequest {
+}
+
+message AreBubblesAllowedResponse {
+  bool result = 1;
+}
+
+message AreBubblesEnabledRequest {
+}
+
+message AreBubblesEnabledResponse {
+  bool result = 1;
+}
+
+message AreNotificationsEnabledRequest {
+}
+
+message AreNotificationsEnabledResponse {
+  bool result = 1;
+}
+
+message AreNotificationsPausedRequest {
+}
+
+message AreNotificationsPausedResponse {
+  bool result = 1;
+}
+
+message CanNotifyAsPackageRequest {
+  string arg0 = 1;
+}
+
+message CanNotifyAsPackageResponse {
+  bool result = 1;
+}
+
+message CanPostPromotedNotificationsRequest {
+}
+
+message CanPostPromotedNotificationsResponse {
+  bool result = 1;
+}
+
+message CanUseFullScreenIntentRequest {
+}
+
+message CanUseFullScreenIntentResponse {
+  bool result = 1;
+}
+
+message Cancel1Request {
+  int32 arg0 = 1;
+}
+
+message Cancel1Response {
+}
+
+message Cancel2_1Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message Cancel2_1Response {
+}
+
+message CancelAllRequest {
+}
+
+message CancelAllResponse {
+}
+
+message CancelAsPackageRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message CancelAsPackageResponse {
+}
+
+message CreateNotificationChannelRequest {
+  int64 arg0 = 1;
+}
+
+message CreateNotificationChannelResponse {
+}
+
+message CreateNotificationChannelGroupRequest {
+  int64 arg0 = 1;
+}
+
+message CreateNotificationChannelGroupResponse {
+}
+
+message DeleteNotificationChannelRequest {
+  string arg0 = 1;
+}
+
+message DeleteNotificationChannelResponse {
+}
+
+message DeleteNotificationChannelGroupRequest {
+  string arg0 = 1;
+}
+
+message DeleteNotificationChannelGroupResponse {
+}
+
+message GetActiveNotificationsRequest {
+}
+
+message GetActiveNotificationsResponse {
+  int64 result = 1;
+}
+
+message GetAutomaticZenRuleRequest {
+  string arg0 = 1;
+}
+
+message GetAutomaticZenRuleResponse {
+  int64 result = 1;
+}
+
+message GetAutomaticZenRuleStateRequest {
+  string arg0 = 1;
+}
+
+message GetAutomaticZenRuleStateResponse {
+  int32 result = 1;
+}
+
+message GetBubblePreferenceRequest {
+}
+
+message GetBubblePreferenceResponse {
+  int32 result = 1;
+}
+
+message GetConsolidatedNotificationPolicyRequest {
+}
+
+message GetConsolidatedNotificationPolicyResponse {
+  int64 result = 1;
+}
+
+message GetCurrentInterruptionFilterRequest {
+}
+
+message GetCurrentInterruptionFilterResponse {
+  int32 result = 1;
+}
+
+message GetImportanceRequest {
+}
+
+message GetImportanceResponse {
+  int32 result = 1;
+}
+
+message GetNotificationChannel1Request {
+  string arg0 = 1;
+}
+
+message GetNotificationChannel1Response {
+  int64 result = 1;
+}
+
+message GetNotificationChannel2_1Request {
+  string arg0 = 1;
+  string arg1 = 2;
+}
+
+message GetNotificationChannel2_1Response {
+  int64 result = 1;
+}
+
+message GetNotificationChannelGroupRequest {
+  string arg0 = 1;
+}
+
+message GetNotificationChannelGroupResponse {
+  int64 result = 1;
+}
+
+message GetNotificationChannelGroupsRequest {
+}
+
+message GetNotificationChannelGroupsResponse {
+  int64 result = 1;
+}
+
+message GetNotificationChannelsRequest {
+}
+
+message GetNotificationChannelsResponse {
+  int64 result = 1;
+}
+
+message GetNotificationDelegateRequest {
+}
+
+message GetNotificationDelegateResponse {
+  string result = 1;
+}
+
+message GetNotificationPolicyRequest {
+}
+
+message GetNotificationPolicyResponse {
+  int64 result = 1;
+}
+
+message IsNotificationListenerAccessGrantedRequest {
+  int64 arg0 = 1;
+}
+
+message IsNotificationListenerAccessGrantedResponse {
+  bool result = 1;
+}
+
+message IsNotificationPolicyAccessGrantedRequest {
+}
+
+message IsNotificationPolicyAccessGrantedResponse {
+  bool result = 1;
+}
+
+message MatchesCallFilterRequest {
+  int64 arg0 = 1;
+}
+
+message MatchesCallFilterResponse {
+  bool result = 1;
+}
+
+message Notify2Request {
+  int32 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message Notify2Response {
+}
+
+message Notify3_1Request {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message Notify3_1Response {
+}
+
+message NotifyAsPackageRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message NotifyAsPackageResponse {
+}
+
+message RemoveAutomaticZenRuleRequest {
+  string arg0 = 1;
+}
+
+message RemoveAutomaticZenRuleResponse {
+  bool result = 1;
+}
+
+message SetAutomaticZenRuleStateRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SetAutomaticZenRuleStateResponse {
+}
+
+message SetInterruptionFilterRequest {
+  int32 arg0 = 1;
+}
+
+message SetInterruptionFilterResponse {
+}
+
+message SetNotificationDelegateRequest {
+  string arg0 = 1;
+}
+
+message SetNotificationDelegateResponse {
+}
+
+message SetNotificationPolicyRequest {
+  int64 arg0 = 1;
+}
+
+message SetNotificationPolicyResponse {
+}
+
+message ShouldHideSilentStatusBarIconsRequest {
+}
+
+message ShouldHideSilentStatusBarIconsResponse {
+  bool result = 1;
+}
+
+message UpdateAutomaticZenRuleRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message UpdateAutomaticZenRuleResponse {
+  bool result = 1;
+}
+
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 arg0 = 1;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message HashCodeRequest {
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message PriorityCategoriesToStringRequest {
+  int32 arg0 = 1;
+}
+
+message PriorityCategoriesToStringResponse {
+  string result = 1;
+}
+
+message PrioritySendersToStringRequest {
+  int32 arg0 = 1;
+}
+
+message PrioritySendersToStringResponse {
+  string result = 1;
+}
+
+message SuppressedEffectsToStringRequest {
+  int32 arg0 = 1;
+}
+
+message SuppressedEffectsToStringResponse {
+  string result = 1;
+}
+
+message NewChannelRequest {
+  string arg0 = 1;
+  string arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message NewChannelResponse {
+  int64 result = 1;
+}
+
+message CanBubbleRequest {
+  int64 handle = 1;
+}
+
+message CanBubbleResponse {
+  bool result = 1;
+}
+
+message CanBypassDndRequest {
+  int64 handle = 1;
+}
+
+message CanBypassDndResponse {
+  bool result = 1;
+}
+
+message CanShowBadgeRequest {
+  int64 handle = 1;
+}
+
+message CanShowBadgeResponse {
+  bool result = 1;
+}
+
+message ChannelDescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message EnableLightsRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message EnableLightsResponse {
+}
+
+message EnableVibrationRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message EnableVibrationResponse {
+}
+
+message ChannelEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetAudioAttributesRequest {
+  int64 handle = 1;
+}
+
+message GetAudioAttributesResponse {
+  int64 result = 1;
+}
+
+message GetConversationIdRequest {
+  int64 handle = 1;
+}
+
+message GetConversationIdResponse {
+  string result = 1;
+}
+
+message GetDescriptionRequest {
+  int64 handle = 1;
+}
+
+message GetDescriptionResponse {
+  string result = 1;
+}
+
+message GetGroupRequest {
+  int64 handle = 1;
+}
+
+message GetGroupResponse {
+  string result = 1;
+}
+
+message GetIdRequest {
+  int64 handle = 1;
+}
+
+message GetIdResponse {
+  string result = 1;
+}
+
+message ChannelGetImportanceRequest {
+  int64 handle = 1;
+}
+
+message GetLightColorRequest {
+  int64 handle = 1;
+}
+
+message GetLightColorResponse {
+  int32 result = 1;
+}
+
+message GetLockscreenVisibilityRequest {
+  int64 handle = 1;
+}
+
+message GetLockscreenVisibilityResponse {
+  int32 result = 1;
+}
+
+message GetNameRequest {
+  int64 handle = 1;
+}
+
+message GetNameResponse {
+  int64 result = 1;
+}
+
+message GetParentChannelIdRequest {
+  int64 handle = 1;
+}
+
+message GetParentChannelIdResponse {
+  string result = 1;
+}
+
+message GetSoundRequest {
+  int64 handle = 1;
+}
+
+message GetSoundResponse {
+  int64 result = 1;
+}
+
+message GetVibrationEffectRequest {
+  int64 handle = 1;
+}
+
+message GetVibrationEffectResponse {
+  int64 result = 1;
+}
+
+message GetVibrationPatternRequest {
+  int64 handle = 1;
+}
+
+message GetVibrationPatternResponse {
+  int64 result = 1;
+}
+
+message HasUserSetImportanceRequest {
+  int64 handle = 1;
+}
+
+message HasUserSetImportanceResponse {
+  bool result = 1;
+}
+
+message HasUserSetSoundRequest {
+  int64 handle = 1;
+}
+
+message HasUserSetSoundResponse {
+  bool result = 1;
+}
+
+message ChannelHashCodeRequest {
+  int64 handle = 1;
+}
+
+message IsBlockableRequest {
+  int64 handle = 1;
+}
+
+message IsBlockableResponse {
+  bool result = 1;
+}
+
+message IsConversationRequest {
+  int64 handle = 1;
+}
+
+message IsConversationResponse {
+  bool result = 1;
+}
+
+message IsDemotedRequest {
+  int64 handle = 1;
+}
+
+message IsDemotedResponse {
+  bool result = 1;
+}
+
+message IsImportantConversationRequest {
+  int64 handle = 1;
+}
+
+message IsImportantConversationResponse {
+  bool result = 1;
+}
+
+message SetAllowBubblesRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetAllowBubblesResponse {
+}
+
+message SetBlockableRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetBlockableResponse {
+}
+
+message SetBypassDndRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetBypassDndResponse {
+}
+
+message SetConversationIdRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+}
+
+message SetConversationIdResponse {
+}
+
+message SetDescriptionRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetDescriptionResponse {
+}
+
+message SetGroupRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetGroupResponse {
+}
+
+message SetImportanceRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetImportanceResponse {
+}
+
+message SetLightColorRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetLightColorResponse {
+}
+
+message SetLockscreenVisibilityRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetLockscreenVisibilityResponse {
+}
+
+message SetNameRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetNameResponse {
+}
+
+message SetShowBadgeRequest {
+  int64 handle = 1;
+  bool arg0 = 2;
+}
+
+message SetShowBadgeResponse {
+}
+
+message SetSoundRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int64 arg1 = 3;
+}
+
+message SetSoundResponse {
+}
+
+message SetVibrationEffectRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetVibrationEffectResponse {
+}
+
+message SetVibrationPatternRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetVibrationPatternResponse {
+}
+
+message ShouldShowLightsRequest {
+  int64 handle = 1;
+}
+
+message ShouldShowLightsResponse {
+  bool result = 1;
+}
+
+message ShouldVibrateRequest {
+  int64 handle = 1;
+}
+
+message ShouldVibrateResponse {
+  bool result = 1;
+}
+
+message ChannelToStringRequest {
+  int64 handle = 1;
+}
+
+message ChannelWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message NewStatusBarNotificationRequest {
+  int64 arg0 = 1;
+}
+
+message NewStatusBarNotificationResponse {
   int64 result = 1;
 }
 
@@ -21,12 +764,169 @@ message Clone0Response {
   int64 result = 1;
 }
 
-message DescribeContentsRequest {
+message StatusBarNotificationDescribeContentsRequest {
   int64 handle = 1;
 }
 
-message DescribeContentsResponse {
+message GetGroupKeyRequest {
+  int64 handle = 1;
+}
+
+message GetGroupKeyResponse {
+  string result = 1;
+}
+
+message StatusBarNotificationGetIdResponse {
   int32 result = 1;
+}
+
+message GetKeyRequest {
+  int64 handle = 1;
+}
+
+message GetKeyResponse {
+  string result = 1;
+}
+
+message GetNotificationRequest {
+  int64 handle = 1;
+}
+
+message GetNotificationResponse {
+  int64 result = 1;
+}
+
+message GetOpPkgRequest {
+  int64 handle = 1;
+}
+
+message GetOpPkgResponse {
+  string result = 1;
+}
+
+message GetOverrideGroupKeyRequest {
+  int64 handle = 1;
+}
+
+message GetOverrideGroupKeyResponse {
+  string result = 1;
+}
+
+message GetPackageNameRequest {
+  int64 handle = 1;
+}
+
+message GetPackageNameResponse {
+  string result = 1;
+}
+
+message GetPostTimeRequest {
+  int64 handle = 1;
+}
+
+message GetPostTimeResponse {
+  int64 result = 1;
+}
+
+message GetTagRequest {
+  int64 handle = 1;
+}
+
+message GetTagResponse {
+  string result = 1;
+}
+
+message GetUidRequest {
+  int64 handle = 1;
+}
+
+message GetUidResponse {
+  int32 result = 1;
+}
+
+message GetUserRequest {
+  int64 handle = 1;
+}
+
+message GetUserResponse {
+  int64 result = 1;
+}
+
+message GetUserIdRequest {
+  int64 handle = 1;
+}
+
+message GetUserIdResponse {
+  int32 result = 1;
+}
+
+message IsAppGroupRequest {
+  int64 handle = 1;
+}
+
+message IsAppGroupResponse {
+  bool result = 1;
+}
+
+message IsClearableRequest {
+  int64 handle = 1;
+}
+
+message IsClearableResponse {
+  bool result = 1;
+}
+
+message IsGroupRequest {
+  int64 handle = 1;
+}
+
+message IsGroupResponse {
+  bool result = 1;
+}
+
+message IsOngoingRequest {
+  int64 handle = 1;
+}
+
+message IsOngoingResponse {
+  bool result = 1;
+}
+
+message SetOverrideGroupKeyRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetOverrideGroupKeyResponse {
+}
+
+message StatusBarNotificationToStringRequest {
+  int64 handle = 1;
+}
+
+message StatusBarNotificationWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message Clone0_1Request {
+  int64 handle = 1;
+}
+
+message Clone0_1Response {
+  int64 result = 1;
+}
+
+message NewNotificationRequest {
+}
+
+message NewNotificationResponse {
+  int64 result = 1;
+}
+
+message NotificationDescribeContentsRequest {
+  int64 handle = 1;
 }
 
 message GetAllowSystemGeneratedContextualActionsRequest {
@@ -61,12 +961,12 @@ message GetChannelIdResponse {
   string result = 1;
 }
 
-message GetGroupRequest {
+message GetContextualActionsRequest {
   int64 handle = 1;
 }
 
-message GetGroupResponse {
-  string result = 1;
+message GetContextualActionsResponse {
+  int64 result = 1;
 }
 
 message GetGroupAlertBehaviorRequest {
@@ -157,35 +1057,17 @@ message HasPromotableCharacteristicsResponse {
   bool result = 1;
 }
 
-message ToStringRequest {
+message NotificationToStringRequest {
   int64 handle = 1;
 }
 
-message ToStringResponse {
-  string result = 1;
-}
-
-message WriteToParcelRequest {
+message NotificationWriteToParcelRequest {
   int64 handle = 1;
   int64 arg0 = 2;
   int32 arg1 = 3;
 }
 
-message WriteToParcelResponse {
-}
-
-message Clone0_1Request {
-  int64 handle = 1;
-}
-
-message Clone0_1Response {
-  int64 result = 1;
-}
-
 message ActionClone0Request {
-}
-
-message ActionDescribeContentsRequest {
 }
 
 message GetAllowGeneratedRepliesRequest {
@@ -242,11 +1124,6 @@ message IsContextualRequest {
 
 message IsContextualResponse {
   bool result = 1;
-}
-
-message ActionWriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
 }
 
 message ActionClone0_1Request {
@@ -324,9 +1201,6 @@ message BigTextResponse {
   int64 result = 1;
 }
 
-message BubbleMetadataDescribeContentsRequest {
-}
-
 message GetAutoExpandBubbleRequest {
 }
 
@@ -384,11 +1258,6 @@ message IsNotificationSuppressedRequest {
 
 message IsNotificationSuppressedResponse {
   bool result = 1;
-}
-
-message BubbleMetadataWriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
 }
 
 message AddAction1Request {
@@ -469,11 +1338,7 @@ message ExtendResponse {
   int64 result = 1;
 }
 
-message GetNotificationRequest {
-}
-
-message GetNotificationResponse {
-  int64 result = 1;
+message BuilderGetNotificationRequest {
 }
 
 message GetStyleRequest {
@@ -677,11 +1542,11 @@ message SetFullScreenIntentResponse {
   int64 result = 1;
 }
 
-message SetGroupRequest {
+message BuilderSetGroupRequest {
   string arg0 = 1;
 }
 
-message SetGroupResponse {
+message BuilderSetGroupResponse {
   int64 result = 1;
 }
 
@@ -1153,11 +2018,21 @@ message GetConversationTitleResponse {
   int64 result = 1;
 }
 
-message GetUserRequest {
+message GetHistoricMessagesRequest {
 }
 
-message GetUserResponse {
+message GetHistoricMessagesResponse {
   int64 result = 1;
+}
+
+message GetMessagesRequest {
+}
+
+message GetMessagesResponse {
+  int64 result = 1;
+}
+
+message MessagingStyleGetUserRequest {
 }
 
 message GetUserDisplayNameRequest {
@@ -1225,6 +2100,20 @@ message GetProgressMaxRequest {
 
 message GetProgressMaxResponse {
   int32 result = 1;
+}
+
+message GetProgressPointsRequest {
+}
+
+message GetProgressPointsResponse {
+  int64 result = 1;
+}
+
+message GetProgressSegmentsRequest {
+}
+
+message GetProgressSegmentsResponse {
+  int64 result = 1;
 }
 
 message GetProgressStartIconRequest {
@@ -1371,6 +2260,13 @@ message ClearPagesResponse {
 message WearableExtenderClone0Request {
 }
 
+message GetActionsRequest {
+}
+
+message GetActionsResponse {
+  int64 result = 1;
+}
+
 message GetBridgeTagRequest {
 }
 
@@ -1481,6 +2377,13 @@ message GetHintShowBackgroundOnlyRequest {
 
 message GetHintShowBackgroundOnlyResponse {
   bool result = 1;
+}
+
+message GetPagesRequest {
+}
+
+message GetPagesResponse {
+  int64 result = 1;
 }
 
 message GetStartScrollBottomRequest {
@@ -1629,833 +2532,6 @@ message SetStartScrollBottomResponse {
 message WearableExtenderClone0_1Request {
 }
 
-message NewStatusBarNotificationRequest {
-  int64 arg0 = 1;
-}
-
-message NewStatusBarNotificationResponse {
-  int64 result = 1;
-}
-
-message GetGroupKeyRequest {
-  int64 handle = 1;
-}
-
-message GetGroupKeyResponse {
-  string result = 1;
-}
-
-message GetIdRequest {
-  int64 handle = 1;
-}
-
-message GetIdResponse {
-  int32 result = 1;
-}
-
-message GetKeyRequest {
-  int64 handle = 1;
-}
-
-message GetKeyResponse {
-  string result = 1;
-}
-
-message StatusBarNotificationGetNotificationRequest {
-  int64 handle = 1;
-}
-
-message GetOpPkgRequest {
-  int64 handle = 1;
-}
-
-message GetOpPkgResponse {
-  string result = 1;
-}
-
-message GetOverrideGroupKeyRequest {
-  int64 handle = 1;
-}
-
-message GetOverrideGroupKeyResponse {
-  string result = 1;
-}
-
-message GetPackageNameRequest {
-  int64 handle = 1;
-}
-
-message GetPackageNameResponse {
-  string result = 1;
-}
-
-message GetPostTimeRequest {
-  int64 handle = 1;
-}
-
-message GetPostTimeResponse {
-  int64 result = 1;
-}
-
-message GetTagRequest {
-  int64 handle = 1;
-}
-
-message GetTagResponse {
-  string result = 1;
-}
-
-message GetUidRequest {
-  int64 handle = 1;
-}
-
-message GetUidResponse {
-  int32 result = 1;
-}
-
-message StatusBarNotificationGetUserRequest {
-  int64 handle = 1;
-}
-
-message GetUserIdRequest {
-  int64 handle = 1;
-}
-
-message GetUserIdResponse {
-  int32 result = 1;
-}
-
-message IsAppGroupRequest {
-  int64 handle = 1;
-}
-
-message IsAppGroupResponse {
-  bool result = 1;
-}
-
-message IsClearableRequest {
-  int64 handle = 1;
-}
-
-message IsClearableResponse {
-  bool result = 1;
-}
-
-message IsGroupRequest {
-  int64 handle = 1;
-}
-
-message IsGroupResponse {
-  bool result = 1;
-}
-
-message IsOngoingRequest {
-  int64 handle = 1;
-}
-
-message IsOngoingResponse {
-  bool result = 1;
-}
-
-message SetOverrideGroupKeyRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message SetOverrideGroupKeyResponse {
-}
-
-message AddAutomaticZenRuleRequest {
-  int64 arg0 = 1;
-}
-
-message AddAutomaticZenRuleResponse {
-  string result = 1;
-}
-
-message AreAutomaticZenRulesUserManagedRequest {
-}
-
-message AreAutomaticZenRulesUserManagedResponse {
-  bool result = 1;
-}
-
-message AreBubblesAllowedRequest {
-}
-
-message AreBubblesAllowedResponse {
-  bool result = 1;
-}
-
-message AreBubblesEnabledRequest {
-}
-
-message AreBubblesEnabledResponse {
-  bool result = 1;
-}
-
-message AreNotificationsEnabledRequest {
-}
-
-message AreNotificationsEnabledResponse {
-  bool result = 1;
-}
-
-message AreNotificationsPausedRequest {
-}
-
-message AreNotificationsPausedResponse {
-  bool result = 1;
-}
-
-message CanNotifyAsPackageRequest {
-  string arg0 = 1;
-}
-
-message CanNotifyAsPackageResponse {
-  bool result = 1;
-}
-
-message CanPostPromotedNotificationsRequest {
-}
-
-message CanPostPromotedNotificationsResponse {
-  bool result = 1;
-}
-
-message CanUseFullScreenIntentRequest {
-}
-
-message CanUseFullScreenIntentResponse {
-  bool result = 1;
-}
-
-message Cancel1Request {
-  int32 arg0 = 1;
-}
-
-message Cancel1Response {
-}
-
-message Cancel2_1Request {
-  string arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message Cancel2_1Response {
-}
-
-message CancelAllRequest {
-}
-
-message CancelAllResponse {
-}
-
-message CancelAsPackageRequest {
-  string arg0 = 1;
-  string arg1 = 2;
-  int32 arg2 = 3;
-}
-
-message CancelAsPackageResponse {
-}
-
-message CreateNotificationChannelRequest {
-  int64 arg0 = 1;
-}
-
-message CreateNotificationChannelResponse {
-}
-
-message CreateNotificationChannelGroupRequest {
-  int64 arg0 = 1;
-}
-
-message CreateNotificationChannelGroupResponse {
-}
-
-message DeleteNotificationChannelRequest {
-  string arg0 = 1;
-}
-
-message DeleteNotificationChannelResponse {
-}
-
-message DeleteNotificationChannelGroupRequest {
-  string arg0 = 1;
-}
-
-message DeleteNotificationChannelGroupResponse {
-}
-
-message GetActiveNotificationsRequest {
-}
-
-message GetActiveNotificationsResponse {
-  int64 result = 1;
-}
-
-message GetAutomaticZenRuleRequest {
-  string arg0 = 1;
-}
-
-message GetAutomaticZenRuleResponse {
-  int64 result = 1;
-}
-
-message GetAutomaticZenRuleStateRequest {
-  string arg0 = 1;
-}
-
-message GetAutomaticZenRuleStateResponse {
-  int32 result = 1;
-}
-
-message GetBubblePreferenceRequest {
-}
-
-message GetBubblePreferenceResponse {
-  int32 result = 1;
-}
-
-message GetConsolidatedNotificationPolicyRequest {
-}
-
-message GetConsolidatedNotificationPolicyResponse {
-  int64 result = 1;
-}
-
-message GetCurrentInterruptionFilterRequest {
-}
-
-message GetCurrentInterruptionFilterResponse {
-  int32 result = 1;
-}
-
-message GetImportanceRequest {
-}
-
-message GetImportanceResponse {
-  int32 result = 1;
-}
-
-message GetNotificationChannel1Request {
-  string arg0 = 1;
-}
-
-message GetNotificationChannel1Response {
-  int64 result = 1;
-}
-
-message GetNotificationChannel2_1Request {
-  string arg0 = 1;
-  string arg1 = 2;
-}
-
-message GetNotificationChannel2_1Response {
-  int64 result = 1;
-}
-
-message GetNotificationChannelGroupRequest {
-  string arg0 = 1;
-}
-
-message GetNotificationChannelGroupResponse {
-  int64 result = 1;
-}
-
-message GetNotificationDelegateRequest {
-}
-
-message GetNotificationDelegateResponse {
-  string result = 1;
-}
-
-message GetNotificationPolicyRequest {
-}
-
-message GetNotificationPolicyResponse {
-  int64 result = 1;
-}
-
-message IsNotificationListenerAccessGrantedRequest {
-  int64 arg0 = 1;
-}
-
-message IsNotificationListenerAccessGrantedResponse {
-  bool result = 1;
-}
-
-message IsNotificationPolicyAccessGrantedRequest {
-}
-
-message IsNotificationPolicyAccessGrantedResponse {
-  bool result = 1;
-}
-
-message MatchesCallFilterRequest {
-  int64 arg0 = 1;
-}
-
-message MatchesCallFilterResponse {
-  bool result = 1;
-}
-
-message Notify2Request {
-  int32 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message Notify2Response {
-}
-
-message Notify3_1Request {
-  string arg0 = 1;
-  int32 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message Notify3_1Response {
-}
-
-message NotifyAsPackageRequest {
-  string arg0 = 1;
-  string arg1 = 2;
-  int32 arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message NotifyAsPackageResponse {
-}
-
-message RemoveAutomaticZenRuleRequest {
-  string arg0 = 1;
-}
-
-message RemoveAutomaticZenRuleResponse {
-  bool result = 1;
-}
-
-message SetAutomaticZenRuleStateRequest {
-  string arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message SetAutomaticZenRuleStateResponse {
-}
-
-message SetInterruptionFilterRequest {
-  int32 arg0 = 1;
-}
-
-message SetInterruptionFilterResponse {
-}
-
-message SetNotificationDelegateRequest {
-  string arg0 = 1;
-}
-
-message SetNotificationDelegateResponse {
-}
-
-message SetNotificationPolicyRequest {
-  int64 arg0 = 1;
-}
-
-message SetNotificationPolicyResponse {
-}
-
-message ShouldHideSilentStatusBarIconsRequest {
-}
-
-message ShouldHideSilentStatusBarIconsResponse {
-  bool result = 1;
-}
-
-message UpdateAutomaticZenRuleRequest {
-  string arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message UpdateAutomaticZenRuleResponse {
-  bool result = 1;
-}
-
-message ManagerPolicyDescribeContentsRequest {
-}
-
-message EqualsRequest {
-  int64 arg0 = 1;
-}
-
-message EqualsResponse {
-  bool result = 1;
-}
-
-message HashCodeRequest {
-}
-
-message HashCodeResponse {
-  int32 result = 1;
-}
-
-message ManagerPolicyToStringRequest {
-}
-
-message ManagerPolicyWriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message PriorityCategoriesToStringRequest {
-  int32 arg0 = 1;
-}
-
-message PriorityCategoriesToStringResponse {
-  string result = 1;
-}
-
-message PrioritySendersToStringRequest {
-  int32 arg0 = 1;
-}
-
-message PrioritySendersToStringResponse {
-  string result = 1;
-}
-
-message SuppressedEffectsToStringRequest {
-  int32 arg0 = 1;
-}
-
-message SuppressedEffectsToStringResponse {
-  string result = 1;
-}
-
-message NewChannelRequest {
-  string arg0 = 1;
-  string arg1 = 2;
-  int32 arg2 = 3;
-}
-
-message NewChannelResponse {
-  int64 result = 1;
-}
-
-message CanBubbleRequest {
-  int64 handle = 1;
-}
-
-message CanBubbleResponse {
-  bool result = 1;
-}
-
-message CanBypassDndRequest {
-  int64 handle = 1;
-}
-
-message CanBypassDndResponse {
-  bool result = 1;
-}
-
-message CanShowBadgeRequest {
-  int64 handle = 1;
-}
-
-message CanShowBadgeResponse {
-  bool result = 1;
-}
-
-message EnableLightsRequest {
-  int64 handle = 1;
-  bool arg0 = 2;
-}
-
-message EnableLightsResponse {
-}
-
-message EnableVibrationRequest {
-  int64 handle = 1;
-  bool arg0 = 2;
-}
-
-message EnableVibrationResponse {
-}
-
-message ChannelEqualsRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message GetAudioAttributesRequest {
-  int64 handle = 1;
-}
-
-message GetAudioAttributesResponse {
-  int64 result = 1;
-}
-
-message GetConversationIdRequest {
-  int64 handle = 1;
-}
-
-message GetConversationIdResponse {
-  string result = 1;
-}
-
-message GetDescriptionRequest {
-  int64 handle = 1;
-}
-
-message GetDescriptionResponse {
-  string result = 1;
-}
-
-message ChannelGetIdResponse {
-  string result = 1;
-}
-
-message ChannelGetImportanceRequest {
-  int64 handle = 1;
-}
-
-message GetLightColorRequest {
-  int64 handle = 1;
-}
-
-message GetLightColorResponse {
-  int32 result = 1;
-}
-
-message GetLockscreenVisibilityRequest {
-  int64 handle = 1;
-}
-
-message GetLockscreenVisibilityResponse {
-  int32 result = 1;
-}
-
-message GetNameRequest {
-  int64 handle = 1;
-}
-
-message GetNameResponse {
-  int64 result = 1;
-}
-
-message GetParentChannelIdRequest {
-  int64 handle = 1;
-}
-
-message GetParentChannelIdResponse {
-  string result = 1;
-}
-
-message GetSoundRequest {
-  int64 handle = 1;
-}
-
-message GetSoundResponse {
-  int64 result = 1;
-}
-
-message GetVibrationEffectRequest {
-  int64 handle = 1;
-}
-
-message GetVibrationEffectResponse {
-  int64 result = 1;
-}
-
-message GetVibrationPatternRequest {
-  int64 handle = 1;
-}
-
-message GetVibrationPatternResponse {
-  int64 result = 1;
-}
-
-message HasUserSetImportanceRequest {
-  int64 handle = 1;
-}
-
-message HasUserSetImportanceResponse {
-  bool result = 1;
-}
-
-message HasUserSetSoundRequest {
-  int64 handle = 1;
-}
-
-message HasUserSetSoundResponse {
-  bool result = 1;
-}
-
-message ChannelHashCodeRequest {
-  int64 handle = 1;
-}
-
-message IsBlockableRequest {
-  int64 handle = 1;
-}
-
-message IsBlockableResponse {
-  bool result = 1;
-}
-
-message IsConversationRequest {
-  int64 handle = 1;
-}
-
-message IsConversationResponse {
-  bool result = 1;
-}
-
-message IsDemotedRequest {
-  int64 handle = 1;
-}
-
-message IsDemotedResponse {
-  bool result = 1;
-}
-
-message IsImportantConversationRequest {
-  int64 handle = 1;
-}
-
-message IsImportantConversationResponse {
-  bool result = 1;
-}
-
-message SetAllowBubblesRequest {
-  int64 handle = 1;
-  bool arg0 = 2;
-}
-
-message SetAllowBubblesResponse {
-}
-
-message SetBlockableRequest {
-  int64 handle = 1;
-  bool arg0 = 2;
-}
-
-message SetBlockableResponse {
-}
-
-message SetBypassDndRequest {
-  int64 handle = 1;
-  bool arg0 = 2;
-}
-
-message SetBypassDndResponse {
-}
-
-message SetConversationIdRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-  string arg1 = 3;
-}
-
-message SetConversationIdResponse {
-}
-
-message SetDescriptionRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message SetDescriptionResponse {
-}
-
-message ChannelSetGroupRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message ChannelSetGroupResponse {
-}
-
-message SetImportanceRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message SetImportanceResponse {
-}
-
-message SetLightColorRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message SetLightColorResponse {
-}
-
-message SetLockscreenVisibilityRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message SetLockscreenVisibilityResponse {
-}
-
-message SetNameRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message SetNameResponse {
-}
-
-message SetShowBadgeRequest {
-  int64 handle = 1;
-  bool arg0 = 2;
-}
-
-message SetShowBadgeResponse {
-}
-
-message SetSoundRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int64 arg1 = 3;
-}
-
-message SetSoundResponse {
-}
-
-message SetVibrationEffectRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetVibrationEffectResponse {
-}
-
-message SetVibrationPatternRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetVibrationPatternResponse {
-}
-
-message ShouldShowLightsRequest {
-  int64 handle = 1;
-}
-
-message ShouldShowLightsResponse {
-  bool result = 1;
-}
-
-message ShouldVibrateRequest {
-  int64 handle = 1;
-}
-
-message ShouldVibrateResponse {
-  bool result = 1;
-}
-
 message CreateNotificationChannelGroupsRequest {
   int64 arg0 = 1;
 }
@@ -2470,24 +2546,7 @@ message CreateNotificationChannelsRequest {
 message CreateNotificationChannelsResponse {
 }
 
-message GetNotificationChannelGroupsRequest {
-}
-
-message GetNotificationChannelGroupsResponse {
-  int64 result = 1;
-}
-
-message GetNotificationChannelsRequest {
-}
-
-message GetNotificationChannelsResponse {
-  int64 result = 1;
-}
-
 message StatusBarNotificationClone0Request {
-}
-
-message StatusBarNotificationDescribeContentsRequest {
 }
 
 message StatusBarNotificationGetGroupKeyRequest {
@@ -2496,7 +2555,14 @@ message StatusBarNotificationGetGroupKeyRequest {
 message StatusBarNotificationGetIdRequest {
 }
 
+message GetIdResponse2 {
+  int32 result = 1;
+}
+
 message StatusBarNotificationGetKeyRequest {
+}
+
+message StatusBarNotificationGetNotificationRequest {
 }
 
 message StatusBarNotificationGetOpPkgRequest {
@@ -2517,6 +2583,9 @@ message StatusBarNotificationGetTagRequest {
 message StatusBarNotificationGetUidRequest {
 }
 
+message StatusBarNotificationGetUserRequest {
+}
+
 message StatusBarNotificationGetUserIdRequest {
 }
 
@@ -2534,14 +2603,6 @@ message StatusBarNotificationIsOngoingRequest {
 
 message StatusBarNotificationSetOverrideGroupKeyRequest {
   string arg0 = 1;
-}
-
-message StatusBarNotificationToStringRequest {
-}
-
-message StatusBarNotificationWriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
 }
 
 message StatusBarNotificationClone0_1Request {
@@ -2574,6 +2635,10 @@ message ChannelGetDescriptionRequest {
 }
 
 message ChannelGetGroupRequest {
+}
+
+message ChannelGetIdResponse {
+  string result = 1;
 }
 
 message ChannelGetLightColorRequest {
@@ -2636,7 +2701,8 @@ message ChannelSetDescriptionRequest {
   string arg0 = 1;
 }
 
-message SetGroupResponse2 {
+message ChannelSetGroupRequest {
+  string arg0 = 1;
 }
 
 message ChannelSetImportanceRequest {
@@ -2690,11 +2756,7 @@ message NotificationGetBubbleMetadataRequest {
 message NotificationGetChannelIdRequest {
 }
 
-message GetContextualActionsRequest {
-}
-
-message GetContextualActionsResponse {
-  int64 result = 1;
+message NotificationGetContextualActionsRequest {
 }
 
 message NotificationGetGroupAlertBehaviorRequest {
@@ -2730,8 +2792,496 @@ message NotificationHasImageRequest {
 message NotificationHasPromotableCharacteristicsRequest {
 }
 
-message BuilderSetGroupResponse {
+message ShouldDimWallpaperRequest {
+}
+
+message ShouldDimWallpaperResponse {
+  bool result = 1;
+}
+
+message ShouldDisplayGrayscaleRequest {
+}
+
+message ShouldDisplayGrayscaleResponse {
+  bool result = 1;
+}
+
+message ShouldSuppressAmbientDisplayRequest {
+}
+
+message ShouldSuppressAmbientDisplayResponse {
+  bool result = 1;
+}
+
+message ShouldUseNightModeRequest {
+}
+
+message ShouldUseNightModeResponse {
+  bool result = 1;
+}
+
+message SetShouldDimWallpaperRequest {
+  bool arg0 = 1;
+}
+
+message SetShouldDimWallpaperResponse {
   int64 result = 1;
+}
+
+message SetShouldDisplayGrayscaleRequest {
+  bool arg0 = 1;
+}
+
+message SetShouldDisplayGrayscaleResponse {
+  int64 result = 1;
+}
+
+message SetShouldSuppressAmbientDisplayRequest {
+  bool arg0 = 1;
+}
+
+message SetShouldSuppressAmbientDisplayResponse {
+  int64 result = 1;
+}
+
+message SetShouldUseNightModeRequest {
+  bool arg0 = 1;
+}
+
+message SetShouldUseNightModeResponse {
+  int64 result = 1;
+}
+
+message CancelAllNotificationsRequest {
+}
+
+message CancelAllNotificationsResponse {
+}
+
+message CancelNotification1Request {
+  string arg0 = 1;
+}
+
+message CancelNotification1Response {
+}
+
+message CancelNotification3_1Request {
+  string arg0 = 1;
+  string arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message CancelNotification3_1Response {
+}
+
+message CancelNotificationsRequest {
+  int64 arg0 = 1;
+}
+
+message CancelNotificationsResponse {
+}
+
+message ClearRequestedListenerHintsRequest {
+}
+
+message ClearRequestedListenerHintsResponse {
+}
+
+message CreateConversationNotificationChannelForPackageRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  string arg2 = 3;
+  string arg3 = 4;
+}
+
+message CreateConversationNotificationChannelForPackageResponse {
+  int64 result = 1;
+}
+
+message GetActiveNotifications0Request {
+}
+
+message GetActiveNotifications0Response {
+  int64 result = 1;
+}
+
+message GetActiveNotifications1_1Request {
+  int64 arg0 = 1;
+}
+
+message GetActiveNotifications1_1Response {
+  int64 result = 1;
+}
+
+message GetCurrentListenerHintsRequest {
+}
+
+message GetCurrentListenerHintsResponse {
+  int32 result = 1;
+}
+
+message GetCurrentRankingRequest {
+}
+
+message GetCurrentRankingResponse {
+  int64 result = 1;
+}
+
+message ListenerServiceGetNotificationChannelGroupsRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message ListenerServiceGetNotificationChannelsRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetSnoozedNotificationsRequest {
+}
+
+message GetSnoozedNotificationsResponse {
+  int64 result = 1;
+}
+
+message OnBindRequest {
+  int64 arg0 = 1;
+}
+
+message OnBindResponse {
+  int64 result = 1;
+}
+
+message OnDestroyRequest {
+}
+
+message OnDestroyResponse {
+}
+
+message OnInterruptionFilterChangedRequest {
+  int32 arg0 = 1;
+}
+
+message OnInterruptionFilterChangedResponse {
+}
+
+message OnListenerConnectedRequest {
+}
+
+message OnListenerConnectedResponse {
+}
+
+message OnListenerDisconnectedRequest {
+}
+
+message OnListenerDisconnectedResponse {
+}
+
+message OnListenerHintsChangedRequest {
+  int32 arg0 = 1;
+}
+
+message OnListenerHintsChangedResponse {
+}
+
+message OnNotificationChannelGroupModifiedRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message OnNotificationChannelGroupModifiedResponse {
+}
+
+message OnNotificationChannelModifiedRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  int32 arg3 = 4;
+}
+
+message OnNotificationChannelModifiedResponse {
+}
+
+message OnNotificationPosted1Request {
+  int64 arg0 = 1;
+}
+
+message OnNotificationPosted1Response {
+}
+
+message OnNotificationPosted2_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnNotificationPosted2_1Response {
+}
+
+message OnNotificationRankingUpdateRequest {
+  int64 arg0 = 1;
+}
+
+message OnNotificationRankingUpdateResponse {
+}
+
+message OnNotificationRemoved1Request {
+  int64 arg0 = 1;
+}
+
+message OnNotificationRemoved1Response {
+}
+
+message OnNotificationRemoved2_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message OnNotificationRemoved2_1Response {
+}
+
+message OnNotificationRemoved3_2Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+}
+
+message OnNotificationRemoved3_2Response {
+}
+
+message OnSilentStatusBarIconsVisibilityChangedRequest {
+  bool arg0 = 1;
+}
+
+message OnSilentStatusBarIconsVisibilityChangedResponse {
+}
+
+message RequestInterruptionFilterRequest {
+  int32 arg0 = 1;
+}
+
+message RequestInterruptionFilterResponse {
+}
+
+message RequestListenerHintsRequest {
+  int32 arg0 = 1;
+}
+
+message RequestListenerHintsResponse {
+}
+
+message RequestUnbind0Request {
+}
+
+message RequestUnbind0Response {
+}
+
+message SetNotificationsShownRequest {
+  int64 arg0 = 1;
+}
+
+message SetNotificationsShownResponse {
+}
+
+message SnoozeNotificationRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message SnoozeNotificationResponse {
+}
+
+message UpdateNotificationChannelRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message UpdateNotificationChannelResponse {
+}
+
+message RequestRebindRequest {
+  int64 arg0 = 1;
+}
+
+message RequestRebindResponse {
+}
+
+message RequestUnbind1_1Request {
+  int64 arg0 = 1;
+}
+
+message RequestUnbind1_1Response {
+}
+
+message ListenerServiceRankingCanBubbleRequest {
+}
+
+message ListenerServiceRankingCanShowBadgeRequest {
+}
+
+message GetChannelRequest {
+}
+
+message GetChannelResponse {
+  int64 result = 1;
+}
+
+message GetConversationShortcutInfoRequest {
+}
+
+message GetConversationShortcutInfoResponse {
+  int64 result = 1;
+}
+
+message GetImportanceExplanationRequest {
+}
+
+message GetImportanceExplanationResponse {
+  int64 result = 1;
+}
+
+message ListenerServiceRankingGetKeyRequest {
+}
+
+message GetLastAudiblyAlertedMillisRequest {
+}
+
+message GetLastAudiblyAlertedMillisResponse {
+  int64 result = 1;
+}
+
+message GetLockscreenVisibilityOverrideRequest {
+}
+
+message GetLockscreenVisibilityOverrideResponse {
+  int32 result = 1;
+}
+
+message ListenerServiceRankingGetOverrideGroupKeyRequest {
+}
+
+message GetRankRequest {
+}
+
+message GetRankResponse {
+  int32 result = 1;
+}
+
+message GetSmartActionsRequest {
+}
+
+message GetSmartActionsResponse {
+  int64 result = 1;
+}
+
+message GetSmartRepliesRequest {
+}
+
+message GetSmartRepliesResponse {
+  int64 result = 1;
+}
+
+message GetSuppressedVisualEffectsRequest {
+}
+
+message GetSuppressedVisualEffectsResponse {
+  int32 result = 1;
+}
+
+message GetUserSentimentRequest {
+}
+
+message GetUserSentimentResponse {
+  int32 result = 1;
+}
+
+message IsAmbientRequest {
+}
+
+message IsAmbientResponse {
+  bool result = 1;
+}
+
+message ListenerServiceRankingIsConversationRequest {
+}
+
+message IsSuspendedRequest {
+}
+
+message IsSuspendedResponse {
+  bool result = 1;
+}
+
+message MatchesInterruptionFilterRequest {
+}
+
+message MatchesInterruptionFilterResponse {
+  bool result = 1;
+}
+
+message GetOrderedKeysRequest {
+}
+
+message GetOrderedKeysResponse {
+  int64 result = 1;
+}
+
+message GetRankingRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message GetRankingResponse {
+  bool result = 1;
+}
+
+message NotifyConditionRequest {
+  int64 arg0 = 1;
+}
+
+message NotifyConditionResponse {
+}
+
+message NotifyConditionsRequest {
+  int64 arg0 = 1;
+}
+
+message NotifyConditionsResponse {
+}
+
+message OnConnectedRequest {
+}
+
+message OnConnectedResponse {
+}
+
+message OnRequestConditionsRequest {
+  int32 arg0 = 1;
+}
+
+message OnRequestConditionsResponse {
+}
+
+message OnSubscribeRequest {
+  int64 arg0 = 1;
+}
+
+message OnSubscribeResponse {
+}
+
+message OnUnsubscribeRequest {
+  int64 arg0 = 1;
+}
+
+message OnUnsubscribeResponse {
+}
+
+message RequestUnbindRequest {
+}
+
+message RequestUnbindResponse {
 }
 
 message NewConditionRequest {
@@ -2752,6 +3302,10 @@ message CopyResponse {
   int64 result = 1;
 }
 
+message ConditionDescribeContentsRequest {
+  int64 handle = 1;
+}
+
 message ConditionEqualsRequest {
   int64 handle = 1;
   int64 arg0 = 2;
@@ -2759,6 +3313,16 @@ message ConditionEqualsRequest {
 
 message ConditionHashCodeRequest {
   int64 handle = 1;
+}
+
+message ConditionToStringRequest {
+  int64 handle = 1;
+}
+
+message ConditionWriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
 }
 
 message IsValidIdRequest {
@@ -2796,13 +3360,6 @@ message StateToStringRequest {
 
 message StateToStringResponse {
   string result = 1;
-}
-
-message ZenPolicyDescribeContentsRequest {
-}
-
-message ZenPolicyEqualsRequest {
-  int64 arg0 = 1;
 }
 
 message GetPriorityCallSendersRequest {
@@ -2943,17 +3500,6 @@ message GetVisualEffectStatusBarRequest {
 
 message GetVisualEffectStatusBarResponse {
   int32 result = 1;
-}
-
-message ZenPolicyHashCodeRequest {
-}
-
-message ZenPolicyToStringRequest {
-}
-
-message ZenPolicyWriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
 }
 
 message AllowAlarmsRequest {
@@ -3120,516 +3666,150 @@ message ShowStatusBarIconsResponse {
   int64 result = 1;
 }
 
-message NotifyConditionRequest {
-  int64 arg0 = 1;
-}
-
-message NotifyConditionResponse {
-}
-
-message NotifyConditionsRequest {
-  int64 arg0 = 1;
-}
-
-message NotifyConditionsResponse {
-}
-
-message OnBindRequest {
-  int64 arg0 = 1;
-}
-
-message OnBindResponse {
-  int64 result = 1;
-}
-
-message OnConnectedRequest {
-}
-
-message OnConnectedResponse {
-}
-
-message OnRequestConditionsRequest {
-  int32 arg0 = 1;
-}
-
-message OnRequestConditionsResponse {
-}
-
-message OnSubscribeRequest {
-  int64 arg0 = 1;
-}
-
-message OnSubscribeResponse {
-}
-
-message OnUnsubscribeRequest {
-  int64 arg0 = 1;
-}
-
-message OnUnsubscribeResponse {
-}
-
-message RequestUnbindRequest {
-}
-
-message RequestUnbindResponse {
-}
-
-message RequestRebindRequest {
-  int64 arg0 = 1;
-}
-
-message RequestRebindResponse {
-}
-
-message CancelAllNotificationsRequest {
-}
-
-message CancelAllNotificationsResponse {
-}
-
-message CancelNotification1Request {
-  string arg0 = 1;
-}
-
-message CancelNotification1Response {
-}
-
-message CancelNotification3_1Request {
-  string arg0 = 1;
-  string arg1 = 2;
-  int32 arg2 = 3;
-}
-
-message CancelNotification3_1Response {
-}
-
-message CancelNotificationsRequest {
-  int64 arg0 = 1;
-}
-
-message CancelNotificationsResponse {
-}
-
-message ClearRequestedListenerHintsRequest {
-}
-
-message ClearRequestedListenerHintsResponse {
-}
-
-message CreateConversationNotificationChannelForPackageRequest {
-  string arg0 = 1;
-  int64 arg1 = 2;
-  string arg2 = 3;
-  string arg3 = 4;
-}
-
-message CreateConversationNotificationChannelForPackageResponse {
-  int64 result = 1;
-}
-
-message GetActiveNotifications0Request {
-}
-
-message GetActiveNotifications0Response {
-  int64 result = 1;
-}
-
-message GetActiveNotifications1_1Request {
-  int64 arg0 = 1;
-}
-
-message GetActiveNotifications1_1Response {
-  int64 result = 1;
-}
-
-message GetCurrentListenerHintsRequest {
-}
-
-message GetCurrentListenerHintsResponse {
-  int32 result = 1;
-}
-
-message GetCurrentRankingRequest {
-}
-
-message GetCurrentRankingResponse {
-  int64 result = 1;
-}
-
-message GetSnoozedNotificationsRequest {
-}
-
-message GetSnoozedNotificationsResponse {
-  int64 result = 1;
-}
-
-message OnDestroyRequest {
-}
-
-message OnDestroyResponse {
-}
-
-message OnInterruptionFilterChangedRequest {
-  int32 arg0 = 1;
-}
-
-message OnInterruptionFilterChangedResponse {
-}
-
-message OnListenerConnectedRequest {
-}
-
-message OnListenerConnectedResponse {
-}
-
-message OnListenerDisconnectedRequest {
-}
-
-message OnListenerDisconnectedResponse {
-}
-
-message OnListenerHintsChangedRequest {
-  int32 arg0 = 1;
-}
-
-message OnListenerHintsChangedResponse {
-}
-
-message OnNotificationChannelGroupModifiedRequest {
-  string arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-  int32 arg3 = 4;
-}
-
-message OnNotificationChannelGroupModifiedResponse {
-}
-
-message OnNotificationChannelModifiedRequest {
-  string arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-  int32 arg3 = 4;
-}
-
-message OnNotificationChannelModifiedResponse {
-}
-
-message OnNotificationPosted1Request {
-  int64 arg0 = 1;
-}
-
-message OnNotificationPosted1Response {
-}
-
-message OnNotificationPosted2_1Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message OnNotificationPosted2_1Response {
-}
-
-message OnNotificationRankingUpdateRequest {
-  int64 arg0 = 1;
-}
-
-message OnNotificationRankingUpdateResponse {
-}
-
-message OnNotificationRemoved1Request {
-  int64 arg0 = 1;
-}
-
-message OnNotificationRemoved1Response {
-}
-
-message OnNotificationRemoved2_1Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message OnNotificationRemoved2_1Response {
-}
-
-message OnNotificationRemoved3_2Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int32 arg2 = 3;
-}
-
-message OnNotificationRemoved3_2Response {
-}
-
-message OnSilentStatusBarIconsVisibilityChangedRequest {
-  bool arg0 = 1;
-}
-
-message OnSilentStatusBarIconsVisibilityChangedResponse {
-}
-
-message RequestInterruptionFilterRequest {
-  int32 arg0 = 1;
-}
-
-message RequestInterruptionFilterResponse {
-}
-
-message RequestListenerHintsRequest {
-  int32 arg0 = 1;
-}
-
-message RequestListenerHintsResponse {
-}
-
-message RequestUnbind0Request {
-}
-
-message RequestUnbind0Response {
-}
-
-message SetNotificationsShownRequest {
-  int64 arg0 = 1;
-}
-
-message SetNotificationsShownResponse {
-}
-
-message SnoozeNotificationRequest {
-  string arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message SnoozeNotificationResponse {
-}
-
-message UpdateNotificationChannelRequest {
-  string arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message UpdateNotificationChannelResponse {
-}
-
-message RequestUnbind1_1Request {
-  int64 arg0 = 1;
-}
-
-message RequestUnbind1_1Response {
-}
-
-message ListenerServiceRankingCanBubbleRequest {
-}
-
-message ListenerServiceRankingCanShowBadgeRequest {
-}
-
-message ListenerServiceRankingEqualsRequest {
-  int64 arg0 = 1;
-}
-
-message GetChannelRequest {
-}
-
-message GetChannelResponse {
-  int64 result = 1;
-}
-
-message GetConversationShortcutInfoRequest {
-}
-
-message GetConversationShortcutInfoResponse {
-  int64 result = 1;
-}
-
-message GetImportanceExplanationRequest {
-}
-
-message GetImportanceExplanationResponse {
-  int64 result = 1;
-}
-
-message ListenerServiceRankingGetKeyRequest {
-}
-
-message GetLastAudiblyAlertedMillisRequest {
-}
-
-message GetLastAudiblyAlertedMillisResponse {
-  int64 result = 1;
-}
-
-message GetLockscreenVisibilityOverrideRequest {
-}
-
-message GetLockscreenVisibilityOverrideResponse {
-  int32 result = 1;
-}
-
-message ListenerServiceRankingGetOverrideGroupKeyRequest {
-}
-
-message GetRankRequest {
-}
-
-message GetRankResponse {
-  int32 result = 1;
-}
-
-message GetSuppressedVisualEffectsRequest {
-}
-
-message GetSuppressedVisualEffectsResponse {
-  int32 result = 1;
-}
-
-message GetUserSentimentRequest {
-}
-
-message GetUserSentimentResponse {
-  int32 result = 1;
-}
-
-message IsAmbientRequest {
-}
-
-message IsAmbientResponse {
-  bool result = 1;
-}
-
-message ListenerServiceRankingIsConversationRequest {
-}
-
-message IsSuspendedRequest {
-}
-
-message IsSuspendedResponse {
-  bool result = 1;
-}
-
-message MatchesInterruptionFilterRequest {
-}
-
-message MatchesInterruptionFilterResponse {
-  bool result = 1;
-}
-
-message ListenerServiceRankingMapDescribeContentsRequest {
-}
-
-message ListenerServiceRankingMapEqualsRequest {
-  int64 arg0 = 1;
-}
-
-message GetOrderedKeysRequest {
-}
-
-message GetOrderedKeysResponse {
-  int64 result = 1;
-}
-
-message GetRankingRequest {
-  string arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message GetRankingResponse {
-  bool result = 1;
-}
-
-message ListenerServiceRankingMapWriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message ZenDeviceEffectsDescribeContentsRequest {
-}
-
-message ZenDeviceEffectsEqualsRequest {
-  int64 arg0 = 1;
-}
-
-message ZenDeviceEffectsHashCodeRequest {
-}
-
-message ShouldDimWallpaperRequest {
-}
-
-message ShouldDimWallpaperResponse {
-  bool result = 1;
-}
-
-message ShouldDisplayGrayscaleRequest {
-}
-
-message ShouldDisplayGrayscaleResponse {
-  bool result = 1;
-}
-
-message ShouldSuppressAmbientDisplayRequest {
-}
-
-message ShouldSuppressAmbientDisplayResponse {
-  bool result = 1;
-}
-
-message ShouldUseNightModeRequest {
-}
-
-message ShouldUseNightModeResponse {
-  bool result = 1;
-}
-
-message ZenDeviceEffectsToStringRequest {
-}
-
-message ZenDeviceEffectsWriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message SetShouldDimWallpaperRequest {
-  bool arg0 = 1;
-}
-
-message SetShouldDimWallpaperResponse {
-  int64 result = 1;
-}
-
-message SetShouldDisplayGrayscaleRequest {
-  bool arg0 = 1;
-}
-
-message SetShouldDisplayGrayscaleResponse {
-  int64 result = 1;
-}
-
-message SetShouldSuppressAmbientDisplayRequest {
-  bool arg0 = 1;
-}
-
-message SetShouldSuppressAmbientDisplayResponse {
-  int64 result = 1;
-}
-
-message SetShouldUseNightModeRequest {
-  bool arg0 = 1;
-}
-
-message SetShouldUseNightModeResponse {
-  int64 result = 1;
+service ManagerService {
+  rpc AddAutomaticZenRule (AddAutomaticZenRuleRequest) returns (AddAutomaticZenRuleResponse);
+  rpc AreAutomaticZenRulesUserManaged (AreAutomaticZenRulesUserManagedRequest) returns (AreAutomaticZenRulesUserManagedResponse);
+  rpc AreBubblesAllowed (AreBubblesAllowedRequest) returns (AreBubblesAllowedResponse);
+  rpc AreBubblesEnabled (AreBubblesEnabledRequest) returns (AreBubblesEnabledResponse);
+  rpc AreNotificationsEnabled (AreNotificationsEnabledRequest) returns (AreNotificationsEnabledResponse);
+  rpc AreNotificationsPaused (AreNotificationsPausedRequest) returns (AreNotificationsPausedResponse);
+  rpc CanNotifyAsPackage (CanNotifyAsPackageRequest) returns (CanNotifyAsPackageResponse);
+  rpc CanPostPromotedNotifications (CanPostPromotedNotificationsRequest) returns (CanPostPromotedNotificationsResponse);
+  rpc CanUseFullScreenIntent (CanUseFullScreenIntentRequest) returns (CanUseFullScreenIntentResponse);
+  rpc Cancel1 (Cancel1Request) returns (Cancel1Response);
+  rpc Cancel2_1 (Cancel2_1Request) returns (Cancel2_1Response);
+  rpc CancelAll (CancelAllRequest) returns (CancelAllResponse);
+  rpc CancelAsPackage (CancelAsPackageRequest) returns (CancelAsPackageResponse);
+  rpc CreateNotificationChannel (CreateNotificationChannelRequest) returns (CreateNotificationChannelResponse);
+  rpc CreateNotificationChannelGroup (CreateNotificationChannelGroupRequest) returns (CreateNotificationChannelGroupResponse);
+  rpc DeleteNotificationChannel (DeleteNotificationChannelRequest) returns (DeleteNotificationChannelResponse);
+  rpc DeleteNotificationChannelGroup (DeleteNotificationChannelGroupRequest) returns (DeleteNotificationChannelGroupResponse);
+  rpc GetActiveNotifications (GetActiveNotificationsRequest) returns (GetActiveNotificationsResponse);
+  rpc GetAutomaticZenRule (GetAutomaticZenRuleRequest) returns (GetAutomaticZenRuleResponse);
+  rpc GetAutomaticZenRuleState (GetAutomaticZenRuleStateRequest) returns (GetAutomaticZenRuleStateResponse);
+  rpc GetBubblePreference (GetBubblePreferenceRequest) returns (GetBubblePreferenceResponse);
+  rpc GetConsolidatedNotificationPolicy (GetConsolidatedNotificationPolicyRequest) returns (GetConsolidatedNotificationPolicyResponse);
+  rpc GetCurrentInterruptionFilter (GetCurrentInterruptionFilterRequest) returns (GetCurrentInterruptionFilterResponse);
+  rpc GetImportance (GetImportanceRequest) returns (GetImportanceResponse);
+  rpc GetNotificationChannel1 (GetNotificationChannel1Request) returns (GetNotificationChannel1Response);
+  rpc GetNotificationChannel2_1 (GetNotificationChannel2_1Request) returns (GetNotificationChannel2_1Response);
+  rpc GetNotificationChannelGroup (GetNotificationChannelGroupRequest) returns (GetNotificationChannelGroupResponse);
+  rpc GetNotificationChannelGroups (GetNotificationChannelGroupsRequest) returns (GetNotificationChannelGroupsResponse);
+  rpc GetNotificationChannels (GetNotificationChannelsRequest) returns (GetNotificationChannelsResponse);
+  rpc GetNotificationDelegate (GetNotificationDelegateRequest) returns (GetNotificationDelegateResponse);
+  rpc GetNotificationPolicy (GetNotificationPolicyRequest) returns (GetNotificationPolicyResponse);
+  rpc IsNotificationListenerAccessGranted (IsNotificationListenerAccessGrantedRequest) returns (IsNotificationListenerAccessGrantedResponse);
+  rpc IsNotificationPolicyAccessGranted (IsNotificationPolicyAccessGrantedRequest) returns (IsNotificationPolicyAccessGrantedResponse);
+  rpc MatchesCallFilter (MatchesCallFilterRequest) returns (MatchesCallFilterResponse);
+  rpc Notify2 (Notify2Request) returns (Notify2Response);
+  rpc Notify3_1 (Notify3_1Request) returns (Notify3_1Response);
+  rpc NotifyAsPackage (NotifyAsPackageRequest) returns (NotifyAsPackageResponse);
+  rpc RemoveAutomaticZenRule (RemoveAutomaticZenRuleRequest) returns (RemoveAutomaticZenRuleResponse);
+  rpc SetAutomaticZenRuleState (SetAutomaticZenRuleStateRequest) returns (SetAutomaticZenRuleStateResponse);
+  rpc SetInterruptionFilter (SetInterruptionFilterRequest) returns (SetInterruptionFilterResponse);
+  rpc SetNotificationDelegate (SetNotificationDelegateRequest) returns (SetNotificationDelegateResponse);
+  rpc SetNotificationPolicy (SetNotificationPolicyRequest) returns (SetNotificationPolicyResponse);
+  rpc ShouldHideSilentStatusBarIcons (ShouldHideSilentStatusBarIconsRequest) returns (ShouldHideSilentStatusBarIconsResponse);
+  rpc UpdateAutomaticZenRule (UpdateAutomaticZenRuleRequest) returns (UpdateAutomaticZenRuleResponse);
+  rpc CreateNotificationChannelGroups (CreateNotificationChannelGroupsRequest) returns (CreateNotificationChannelGroupsResponse);
+  rpc CreateNotificationChannels (CreateNotificationChannelsRequest) returns (CreateNotificationChannelsResponse);
+}
+
+service ManagerPolicyService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc PriorityCategoriesToString (PriorityCategoriesToStringRequest) returns (PriorityCategoriesToStringResponse);
+  rpc PrioritySendersToString (PrioritySendersToStringRequest) returns (PrioritySendersToStringResponse);
+  rpc SuppressedEffectsToString (SuppressedEffectsToStringRequest) returns (SuppressedEffectsToStringResponse);
+}
+
+service ChannelService {
+  rpc NewChannel (NewChannelRequest) returns (NewChannelResponse);
+  rpc CanBubble (CanBubbleRequest) returns (CanBubbleResponse);
+  rpc CanBypassDnd (CanBypassDndRequest) returns (CanBypassDndResponse);
+  rpc CanShowBadge (CanShowBadgeRequest) returns (CanShowBadgeResponse);
+  rpc DescribeContents (ChannelDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc EnableLights (EnableLightsRequest) returns (EnableLightsResponse);
+  rpc EnableVibration (EnableVibrationRequest) returns (EnableVibrationResponse);
+  rpc Equals (ChannelEqualsRequest) returns (EqualsResponse);
+  rpc GetAudioAttributes (GetAudioAttributesRequest) returns (GetAudioAttributesResponse);
+  rpc GetConversationId (GetConversationIdRequest) returns (GetConversationIdResponse);
+  rpc GetDescription (GetDescriptionRequest) returns (GetDescriptionResponse);
+  rpc GetGroup (GetGroupRequest) returns (GetGroupResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetImportance (ChannelGetImportanceRequest) returns (GetImportanceResponse);
+  rpc GetLightColor (GetLightColorRequest) returns (GetLightColorResponse);
+  rpc GetLockscreenVisibility (GetLockscreenVisibilityRequest) returns (GetLockscreenVisibilityResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc GetParentChannelId (GetParentChannelIdRequest) returns (GetParentChannelIdResponse);
+  rpc GetSound (GetSoundRequest) returns (GetSoundResponse);
+  rpc GetVibrationEffect (GetVibrationEffectRequest) returns (GetVibrationEffectResponse);
+  rpc GetVibrationPattern (GetVibrationPatternRequest) returns (GetVibrationPatternResponse);
+  rpc HasUserSetImportance (HasUserSetImportanceRequest) returns (HasUserSetImportanceResponse);
+  rpc HasUserSetSound (HasUserSetSoundRequest) returns (HasUserSetSoundResponse);
+  rpc HashCode (ChannelHashCodeRequest) returns (HashCodeResponse);
+  rpc IsBlockable (IsBlockableRequest) returns (IsBlockableResponse);
+  rpc IsConversation (IsConversationRequest) returns (IsConversationResponse);
+  rpc IsDemoted (IsDemotedRequest) returns (IsDemotedResponse);
+  rpc IsImportantConversation (IsImportantConversationRequest) returns (IsImportantConversationResponse);
+  rpc SetAllowBubbles (SetAllowBubblesRequest) returns (SetAllowBubblesResponse);
+  rpc SetBlockable (SetBlockableRequest) returns (SetBlockableResponse);
+  rpc SetBypassDnd (SetBypassDndRequest) returns (SetBypassDndResponse);
+  rpc SetConversationId (SetConversationIdRequest) returns (SetConversationIdResponse);
+  rpc SetDescription (SetDescriptionRequest) returns (SetDescriptionResponse);
+  rpc SetGroup (SetGroupRequest) returns (SetGroupResponse);
+  rpc SetImportance (SetImportanceRequest) returns (SetImportanceResponse);
+  rpc SetLightColor (SetLightColorRequest) returns (SetLightColorResponse);
+  rpc SetLockscreenVisibility (SetLockscreenVisibilityRequest) returns (SetLockscreenVisibilityResponse);
+  rpc SetName (SetNameRequest) returns (SetNameResponse);
+  rpc SetShowBadge (SetShowBadgeRequest) returns (SetShowBadgeResponse);
+  rpc SetSound (SetSoundRequest) returns (SetSoundResponse);
+  rpc SetVibrationEffect (SetVibrationEffectRequest) returns (SetVibrationEffectResponse);
+  rpc SetVibrationPattern (SetVibrationPatternRequest) returns (SetVibrationPatternResponse);
+  rpc ShouldShowLights (ShouldShowLightsRequest) returns (ShouldShowLightsResponse);
+  rpc ShouldVibrate (ShouldVibrateRequest) returns (ShouldVibrateResponse);
+  rpc ToString (ChannelToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (ChannelWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service StatusBarNotificationService {
+  rpc NewStatusBarNotification (NewStatusBarNotificationRequest) returns (NewStatusBarNotificationResponse);
+  rpc Clone0 (Clone0Request) returns (Clone0Response);
+  rpc DescribeContents (StatusBarNotificationDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetGroupKey (GetGroupKeyRequest) returns (GetGroupKeyResponse);
+  rpc GetId (GetIdRequest) returns (StatusBarNotificationGetIdResponse);
+  rpc GetKey (GetKeyRequest) returns (GetKeyResponse);
+  rpc GetNotification (GetNotificationRequest) returns (GetNotificationResponse);
+  rpc GetOpPkg (GetOpPkgRequest) returns (GetOpPkgResponse);
+  rpc GetOverrideGroupKey (GetOverrideGroupKeyRequest) returns (GetOverrideGroupKeyResponse);
+  rpc GetPackageName (GetPackageNameRequest) returns (GetPackageNameResponse);
+  rpc GetPostTime (GetPostTimeRequest) returns (GetPostTimeResponse);
+  rpc GetTag (GetTagRequest) returns (GetTagResponse);
+  rpc GetUid (GetUidRequest) returns (GetUidResponse);
+  rpc GetUser (GetUserRequest) returns (GetUserResponse);
+  rpc GetUserId (GetUserIdRequest) returns (GetUserIdResponse);
+  rpc IsAppGroup (IsAppGroupRequest) returns (IsAppGroupResponse);
+  rpc IsClearable (IsClearableRequest) returns (IsClearableResponse);
+  rpc IsGroup (IsGroupRequest) returns (IsGroupResponse);
+  rpc IsOngoing (IsOngoingRequest) returns (IsOngoingResponse);
+  rpc SetOverrideGroupKey (SetOverrideGroupKeyRequest) returns (SetOverrideGroupKeyResponse);
+  rpc ToString (StatusBarNotificationToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (StatusBarNotificationWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc Clone0_1 (Clone0_1Request) returns (Clone0_1Response);
 }
 
 service NotificationService {
   rpc NewNotification (NewNotificationRequest) returns (NewNotificationResponse);
   rpc Clone0 (Clone0Request) returns (Clone0Response);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc DescribeContents (NotificationDescribeContentsRequest) returns (DescribeContentsResponse);
   rpc GetAllowSystemGeneratedContextualActions (GetAllowSystemGeneratedContextualActionsRequest) returns (GetAllowSystemGeneratedContextualActionsResponse);
   rpc GetBadgeIconType (GetBadgeIconTypeRequest) returns (GetBadgeIconTypeResponse);
   rpc GetBubbleMetadata (GetBubbleMetadataRequest) returns (GetBubbleMetadataResponse);
   rpc GetChannelId (GetChannelIdRequest) returns (GetChannelIdResponse);
+  rpc GetContextualActions (GetContextualActionsRequest) returns (GetContextualActionsResponse);
   rpc GetGroup (GetGroupRequest) returns (GetGroupResponse);
   rpc GetGroupAlertBehavior (GetGroupAlertBehaviorRequest) returns (GetGroupAlertBehaviorResponse);
   rpc GetLargeIcon (GetLargeIconRequest) returns (GetLargeIconResponse);
@@ -3642,15 +3822,14 @@ service NotificationService {
   rpc GetTimeoutAfter (GetTimeoutAfterRequest) returns (GetTimeoutAfterResponse);
   rpc HasImage (HasImageRequest) returns (HasImageResponse);
   rpc HasPromotableCharacteristics (HasPromotableCharacteristicsRequest) returns (HasPromotableCharacteristicsResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc ToString (NotificationToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (NotificationWriteToParcelRequest) returns (WriteToParcelResponse);
   rpc Clone0_1 (Clone0_1Request) returns (Clone0_1Response);
-  rpc GetContextualActions (GetContextualActionsRequest) returns (GetContextualActionsResponse);
 }
 
 service ActionService {
   rpc Clone0 (ActionClone0Request) returns (Clone0Response);
-  rpc DescribeContents (ActionDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc GetAllowGeneratedReplies (GetAllowGeneratedRepliesRequest) returns (GetAllowGeneratedRepliesResponse);
   rpc GetDataOnlyRemoteInputs (GetDataOnlyRemoteInputsRequest) returns (GetDataOnlyRemoteInputsResponse);
   rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
@@ -3659,7 +3838,7 @@ service ActionService {
   rpc GetSemanticAction (GetSemanticActionRequest) returns (GetSemanticActionResponse);
   rpc IsAuthenticationRequired (IsAuthenticationRequiredRequest) returns (IsAuthenticationRequiredResponse);
   rpc IsContextual (IsContextualRequest) returns (IsContextualResponse);
-  rpc WriteToParcel (ActionWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
   rpc Clone0_1 (ActionClone0_1Request) returns (Clone0_1Response);
 }
 
@@ -3681,7 +3860,7 @@ service BigTextStyleService {
 }
 
 service BubbleMetadataService {
-  rpc DescribeContents (BubbleMetadataDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc GetAutoExpandBubble (GetAutoExpandBubbleRequest) returns (GetAutoExpandBubbleResponse);
   rpc GetDeleteIntent (GetDeleteIntentRequest) returns (GetDeleteIntentResponse);
   rpc GetDesiredHeight (GetDesiredHeightRequest) returns (GetDesiredHeightResponse);
@@ -3692,7 +3871,7 @@ service BubbleMetadataService {
   rpc IsBubbleSuppressable (IsBubbleSuppressableRequest) returns (IsBubbleSuppressableResponse);
   rpc IsBubbleSuppressed (IsBubbleSuppressedRequest) returns (IsBubbleSuppressedResponse);
   rpc IsNotificationSuppressed (IsNotificationSuppressedRequest) returns (IsNotificationSuppressedResponse);
-  rpc WriteToParcel (BubbleMetadataWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
 service BuilderService {
@@ -3707,7 +3886,7 @@ service BuilderService {
   rpc CreateHeadsUpContentView (CreateHeadsUpContentViewRequest) returns (CreateHeadsUpContentViewResponse);
   rpc Extend (ExtendRequest) returns (ExtendResponse);
   rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
-  rpc GetNotification (GetNotificationRequest) returns (GetNotificationResponse);
+  rpc GetNotification (BuilderGetNotificationRequest) returns (GetNotificationResponse);
   rpc GetStyle (GetStyleRequest) returns (GetStyleResponse);
   rpc SetActions (SetActionsRequest) returns (SetActionsResponse);
   rpc SetAllowSystemGeneratedContextualActions (SetAllowSystemGeneratedContextualActionsRequest) returns (SetAllowSystemGeneratedContextualActionsResponse);
@@ -3733,7 +3912,7 @@ service BuilderService {
   rpc SetFlag (SetFlagRequest) returns (SetFlagResponse);
   rpc SetForegroundServiceBehavior (SetForegroundServiceBehaviorRequest) returns (SetForegroundServiceBehaviorResponse);
   rpc SetFullScreenIntent (SetFullScreenIntentRequest) returns (SetFullScreenIntentResponse);
-  rpc SetGroup (SetGroupRequest) returns (SetGroupResponse);
+  rpc SetGroup (BuilderSetGroupRequest) returns (BuilderSetGroupResponse);
   rpc SetGroupAlertBehavior (SetGroupAlertBehaviorRequest) returns (SetGroupAlertBehaviorResponse);
   rpc SetGroupSummary (SetGroupSummaryRequest) returns (SetGroupSummaryResponse);
   rpc SetLargeIcon1 (SetLargeIcon1Request) returns (SetLargeIcon1Response);
@@ -3814,7 +3993,9 @@ service MessagingStyleService {
   rpc AddMessage3_1 (AddMessage3_1Request) returns (AddMessage3_1Response);
   rpc AddMessage3_2 (AddMessage3_2Request) returns (AddMessage3_2Response);
   rpc GetConversationTitle (GetConversationTitleRequest) returns (GetConversationTitleResponse);
-  rpc GetUser (GetUserRequest) returns (GetUserResponse);
+  rpc GetHistoricMessages (GetHistoricMessagesRequest) returns (GetHistoricMessagesResponse);
+  rpc GetMessages (GetMessagesRequest) returns (GetMessagesResponse);
+  rpc GetUser (MessagingStyleGetUserRequest) returns (GetUserResponse);
   rpc GetUserDisplayName (GetUserDisplayNameRequest) returns (GetUserDisplayNameResponse);
   rpc IsGroupConversation (IsGroupConversationRequest) returns (IsGroupConversationResponse);
   rpc SetConversationTitle (SetConversationTitleRequest) returns (SetConversationTitleResponse);
@@ -3827,6 +4008,8 @@ service ProgressStyleService {
   rpc GetProgress (GetProgressRequest) returns (GetProgressResponse);
   rpc GetProgressEndIcon (GetProgressEndIconRequest) returns (GetProgressEndIconResponse);
   rpc GetProgressMax (GetProgressMaxRequest) returns (GetProgressMaxResponse);
+  rpc GetProgressPoints (GetProgressPointsRequest) returns (GetProgressPointsResponse);
+  rpc GetProgressSegments (GetProgressSegmentsRequest) returns (GetProgressSegmentsResponse);
   rpc GetProgressStartIcon (GetProgressStartIconRequest) returns (GetProgressStartIconResponse);
   rpc GetProgressTrackerIcon (GetProgressTrackerIconRequest) returns (GetProgressTrackerIconResponse);
   rpc IsProgressIndeterminate (IsProgressIndeterminateRequest) returns (IsProgressIndeterminateResponse);
@@ -3864,6 +4047,7 @@ service WearableExtenderService {
   rpc ClearPages (ClearPagesRequest) returns (ClearPagesResponse);
   rpc Clone0 (WearableExtenderClone0Request) returns (Clone0Response);
   rpc Extend (ExtendRequest) returns (ExtendResponse);
+  rpc GetActions (GetActionsRequest) returns (GetActionsResponse);
   rpc GetBridgeTag (GetBridgeTagRequest) returns (GetBridgeTagResponse);
   rpc GetContentAction (GetContentActionRequest) returns (GetContentActionResponse);
   rpc GetContentIcon (GetContentIconRequest) returns (GetContentIconResponse);
@@ -3880,6 +4064,7 @@ service WearableExtenderService {
   rpc GetHintHideIcon (GetHintHideIconRequest) returns (GetHintHideIconResponse);
   rpc GetHintScreenTimeout (GetHintScreenTimeoutRequest) returns (GetHintScreenTimeoutResponse);
   rpc GetHintShowBackgroundOnly (GetHintShowBackgroundOnlyRequest) returns (GetHintShowBackgroundOnlyResponse);
+  rpc GetPages (GetPagesRequest) returns (GetPagesResponse);
   rpc GetStartScrollBottom (GetStartScrollBottomRequest) returns (GetStartScrollBottomResponse);
   rpc SetBridgeTag (SetBridgeTagRequest) returns (SetBridgeTagResponse);
   rpc SetContentAction (SetContentActionRequest) returns (SetContentActionResponse);
@@ -3901,218 +4086,24 @@ service WearableExtenderService {
   rpc Clone0_1 (WearableExtenderClone0_1Request) returns (Clone0_1Response);
 }
 
-service StatusBarNotificationService {
-  rpc NewStatusBarNotification (NewStatusBarNotificationRequest) returns (NewStatusBarNotificationResponse);
-  rpc Clone0 (Clone0Request) returns (Clone0Response);
+service ZenDeviceEffectsService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetGroupKey (GetGroupKeyRequest) returns (GetGroupKeyResponse);
-  rpc GetId (GetIdRequest) returns (GetIdResponse);
-  rpc GetKey (GetKeyRequest) returns (GetKeyResponse);
-  rpc GetNotification (StatusBarNotificationGetNotificationRequest) returns (GetNotificationResponse);
-  rpc GetOpPkg (GetOpPkgRequest) returns (GetOpPkgResponse);
-  rpc GetOverrideGroupKey (GetOverrideGroupKeyRequest) returns (GetOverrideGroupKeyResponse);
-  rpc GetPackageName (GetPackageNameRequest) returns (GetPackageNameResponse);
-  rpc GetPostTime (GetPostTimeRequest) returns (GetPostTimeResponse);
-  rpc GetTag (GetTagRequest) returns (GetTagResponse);
-  rpc GetUid (GetUidRequest) returns (GetUidResponse);
-  rpc GetUser (StatusBarNotificationGetUserRequest) returns (GetUserResponse);
-  rpc GetUserId (GetUserIdRequest) returns (GetUserIdResponse);
-  rpc IsAppGroup (IsAppGroupRequest) returns (IsAppGroupResponse);
-  rpc IsClearable (IsClearableRequest) returns (IsClearableResponse);
-  rpc IsGroup (IsGroupRequest) returns (IsGroupResponse);
-  rpc IsOngoing (IsOngoingRequest) returns (IsOngoingResponse);
-  rpc SetOverrideGroupKey (SetOverrideGroupKeyRequest) returns (SetOverrideGroupKeyResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-  rpc Clone0_1 (Clone0_1Request) returns (Clone0_1Response);
-}
-
-service ManagerService {
-  rpc AddAutomaticZenRule (AddAutomaticZenRuleRequest) returns (AddAutomaticZenRuleResponse);
-  rpc AreAutomaticZenRulesUserManaged (AreAutomaticZenRulesUserManagedRequest) returns (AreAutomaticZenRulesUserManagedResponse);
-  rpc AreBubblesAllowed (AreBubblesAllowedRequest) returns (AreBubblesAllowedResponse);
-  rpc AreBubblesEnabled (AreBubblesEnabledRequest) returns (AreBubblesEnabledResponse);
-  rpc AreNotificationsEnabled (AreNotificationsEnabledRequest) returns (AreNotificationsEnabledResponse);
-  rpc AreNotificationsPaused (AreNotificationsPausedRequest) returns (AreNotificationsPausedResponse);
-  rpc CanNotifyAsPackage (CanNotifyAsPackageRequest) returns (CanNotifyAsPackageResponse);
-  rpc CanPostPromotedNotifications (CanPostPromotedNotificationsRequest) returns (CanPostPromotedNotificationsResponse);
-  rpc CanUseFullScreenIntent (CanUseFullScreenIntentRequest) returns (CanUseFullScreenIntentResponse);
-  rpc Cancel1 (Cancel1Request) returns (Cancel1Response);
-  rpc Cancel2_1 (Cancel2_1Request) returns (Cancel2_1Response);
-  rpc CancelAll (CancelAllRequest) returns (CancelAllResponse);
-  rpc CancelAsPackage (CancelAsPackageRequest) returns (CancelAsPackageResponse);
-  rpc CreateNotificationChannel (CreateNotificationChannelRequest) returns (CreateNotificationChannelResponse);
-  rpc CreateNotificationChannelGroup (CreateNotificationChannelGroupRequest) returns (CreateNotificationChannelGroupResponse);
-  rpc DeleteNotificationChannel (DeleteNotificationChannelRequest) returns (DeleteNotificationChannelResponse);
-  rpc DeleteNotificationChannelGroup (DeleteNotificationChannelGroupRequest) returns (DeleteNotificationChannelGroupResponse);
-  rpc GetActiveNotifications (GetActiveNotificationsRequest) returns (GetActiveNotificationsResponse);
-  rpc GetAutomaticZenRule (GetAutomaticZenRuleRequest) returns (GetAutomaticZenRuleResponse);
-  rpc GetAutomaticZenRuleState (GetAutomaticZenRuleStateRequest) returns (GetAutomaticZenRuleStateResponse);
-  rpc GetBubblePreference (GetBubblePreferenceRequest) returns (GetBubblePreferenceResponse);
-  rpc GetConsolidatedNotificationPolicy (GetConsolidatedNotificationPolicyRequest) returns (GetConsolidatedNotificationPolicyResponse);
-  rpc GetCurrentInterruptionFilter (GetCurrentInterruptionFilterRequest) returns (GetCurrentInterruptionFilterResponse);
-  rpc GetImportance (GetImportanceRequest) returns (GetImportanceResponse);
-  rpc GetNotificationChannel1 (GetNotificationChannel1Request) returns (GetNotificationChannel1Response);
-  rpc GetNotificationChannel2_1 (GetNotificationChannel2_1Request) returns (GetNotificationChannel2_1Response);
-  rpc GetNotificationChannelGroup (GetNotificationChannelGroupRequest) returns (GetNotificationChannelGroupResponse);
-  rpc GetNotificationDelegate (GetNotificationDelegateRequest) returns (GetNotificationDelegateResponse);
-  rpc GetNotificationPolicy (GetNotificationPolicyRequest) returns (GetNotificationPolicyResponse);
-  rpc IsNotificationListenerAccessGranted (IsNotificationListenerAccessGrantedRequest) returns (IsNotificationListenerAccessGrantedResponse);
-  rpc IsNotificationPolicyAccessGranted (IsNotificationPolicyAccessGrantedRequest) returns (IsNotificationPolicyAccessGrantedResponse);
-  rpc MatchesCallFilter (MatchesCallFilterRequest) returns (MatchesCallFilterResponse);
-  rpc Notify2 (Notify2Request) returns (Notify2Response);
-  rpc Notify3_1 (Notify3_1Request) returns (Notify3_1Response);
-  rpc NotifyAsPackage (NotifyAsPackageRequest) returns (NotifyAsPackageResponse);
-  rpc RemoveAutomaticZenRule (RemoveAutomaticZenRuleRequest) returns (RemoveAutomaticZenRuleResponse);
-  rpc SetAutomaticZenRuleState (SetAutomaticZenRuleStateRequest) returns (SetAutomaticZenRuleStateResponse);
-  rpc SetInterruptionFilter (SetInterruptionFilterRequest) returns (SetInterruptionFilterResponse);
-  rpc SetNotificationDelegate (SetNotificationDelegateRequest) returns (SetNotificationDelegateResponse);
-  rpc SetNotificationPolicy (SetNotificationPolicyRequest) returns (SetNotificationPolicyResponse);
-  rpc ShouldHideSilentStatusBarIcons (ShouldHideSilentStatusBarIconsRequest) returns (ShouldHideSilentStatusBarIconsResponse);
-  rpc UpdateAutomaticZenRule (UpdateAutomaticZenRuleRequest) returns (UpdateAutomaticZenRuleResponse);
-  rpc CreateNotificationChannelGroups (CreateNotificationChannelGroupsRequest) returns (CreateNotificationChannelGroupsResponse);
-  rpc CreateNotificationChannels (CreateNotificationChannelsRequest) returns (CreateNotificationChannelsResponse);
-  rpc GetNotificationChannelGroups (GetNotificationChannelGroupsRequest) returns (GetNotificationChannelGroupsResponse);
-  rpc GetNotificationChannels (GetNotificationChannelsRequest) returns (GetNotificationChannelsResponse);
-}
-
-service ManagerPolicyService {
-  rpc DescribeContents (ManagerPolicyDescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
   rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ManagerPolicyToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (ManagerPolicyWriteToParcelRequest) returns (WriteToParcelResponse);
-  rpc PriorityCategoriesToString (PriorityCategoriesToStringRequest) returns (PriorityCategoriesToStringResponse);
-  rpc PrioritySendersToString (PrioritySendersToStringRequest) returns (PrioritySendersToStringResponse);
-  rpc SuppressedEffectsToString (SuppressedEffectsToStringRequest) returns (SuppressedEffectsToStringResponse);
-}
-
-service ChannelService {
-  rpc NewChannel (NewChannelRequest) returns (NewChannelResponse);
-  rpc CanBubble (CanBubbleRequest) returns (CanBubbleResponse);
-  rpc CanBypassDnd (CanBypassDndRequest) returns (CanBypassDndResponse);
-  rpc CanShowBadge (CanShowBadgeRequest) returns (CanShowBadgeResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc EnableLights (EnableLightsRequest) returns (EnableLightsResponse);
-  rpc EnableVibration (EnableVibrationRequest) returns (EnableVibrationResponse);
-  rpc Equals (ChannelEqualsRequest) returns (EqualsResponse);
-  rpc GetAudioAttributes (GetAudioAttributesRequest) returns (GetAudioAttributesResponse);
-  rpc GetConversationId (GetConversationIdRequest) returns (GetConversationIdResponse);
-  rpc GetDescription (GetDescriptionRequest) returns (GetDescriptionResponse);
-  rpc GetGroup (GetGroupRequest) returns (GetGroupResponse);
-  rpc GetId (GetIdRequest) returns (ChannelGetIdResponse);
-  rpc GetImportance (ChannelGetImportanceRequest) returns (GetImportanceResponse);
-  rpc GetLightColor (GetLightColorRequest) returns (GetLightColorResponse);
-  rpc GetLockscreenVisibility (GetLockscreenVisibilityRequest) returns (GetLockscreenVisibilityResponse);
-  rpc GetName (GetNameRequest) returns (GetNameResponse);
-  rpc GetParentChannelId (GetParentChannelIdRequest) returns (GetParentChannelIdResponse);
-  rpc GetSound (GetSoundRequest) returns (GetSoundResponse);
-  rpc GetVibrationEffect (GetVibrationEffectRequest) returns (GetVibrationEffectResponse);
-  rpc GetVibrationPattern (GetVibrationPatternRequest) returns (GetVibrationPatternResponse);
-  rpc HasUserSetImportance (HasUserSetImportanceRequest) returns (HasUserSetImportanceResponse);
-  rpc HasUserSetSound (HasUserSetSoundRequest) returns (HasUserSetSoundResponse);
-  rpc HashCode (ChannelHashCodeRequest) returns (HashCodeResponse);
-  rpc IsBlockable (IsBlockableRequest) returns (IsBlockableResponse);
-  rpc IsConversation (IsConversationRequest) returns (IsConversationResponse);
-  rpc IsDemoted (IsDemotedRequest) returns (IsDemotedResponse);
-  rpc IsImportantConversation (IsImportantConversationRequest) returns (IsImportantConversationResponse);
-  rpc SetAllowBubbles (SetAllowBubblesRequest) returns (SetAllowBubblesResponse);
-  rpc SetBlockable (SetBlockableRequest) returns (SetBlockableResponse);
-  rpc SetBypassDnd (SetBypassDndRequest) returns (SetBypassDndResponse);
-  rpc SetConversationId (SetConversationIdRequest) returns (SetConversationIdResponse);
-  rpc SetDescription (SetDescriptionRequest) returns (SetDescriptionResponse);
-  rpc SetGroup (ChannelSetGroupRequest) returns (ChannelSetGroupResponse);
-  rpc SetImportance (SetImportanceRequest) returns (SetImportanceResponse);
-  rpc SetLightColor (SetLightColorRequest) returns (SetLightColorResponse);
-  rpc SetLockscreenVisibility (SetLockscreenVisibilityRequest) returns (SetLockscreenVisibilityResponse);
-  rpc SetName (SetNameRequest) returns (SetNameResponse);
-  rpc SetShowBadge (SetShowBadgeRequest) returns (SetShowBadgeResponse);
-  rpc SetSound (SetSoundRequest) returns (SetSoundResponse);
-  rpc SetVibrationEffect (SetVibrationEffectRequest) returns (SetVibrationEffectResponse);
-  rpc SetVibrationPattern (SetVibrationPatternRequest) returns (SetVibrationPatternResponse);
-  rpc ShouldShowLights (ShouldShowLightsRequest) returns (ShouldShowLightsResponse);
-  rpc ShouldVibrate (ShouldVibrateRequest) returns (ShouldVibrateResponse);
+  rpc ShouldDimWallpaper (ShouldDimWallpaperRequest) returns (ShouldDimWallpaperResponse);
+  rpc ShouldDisplayGrayscale (ShouldDisplayGrayscaleRequest) returns (ShouldDisplayGrayscaleResponse);
+  rpc ShouldSuppressAmbientDisplay (ShouldSuppressAmbientDisplayRequest) returns (ShouldSuppressAmbientDisplayResponse);
+  rpc ShouldUseNightMode (ShouldUseNightModeRequest) returns (ShouldUseNightModeResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service ConditionService {
-  rpc NewCondition (NewConditionRequest) returns (NewConditionResponse);
-  rpc Copy (CopyRequest) returns (CopyResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (ConditionEqualsRequest) returns (EqualsResponse);
-  rpc HashCode (ConditionHashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-  rpc IsValidId (IsValidIdRequest) returns (IsValidIdResponse);
-  rpc NewId (NewIdRequest) returns (NewIdResponse);
-  rpc RelevanceToString (RelevanceToStringRequest) returns (RelevanceToStringResponse);
-  rpc StateToString (StateToStringRequest) returns (StateToStringResponse);
-}
-
-service ZenPolicyService {
-  rpc DescribeContents (ZenPolicyDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (ZenPolicyEqualsRequest) returns (EqualsResponse);
-  rpc GetPriorityCallSenders (GetPriorityCallSendersRequest) returns (GetPriorityCallSendersResponse);
-  rpc GetPriorityCategoryAlarms (GetPriorityCategoryAlarmsRequest) returns (GetPriorityCategoryAlarmsResponse);
-  rpc GetPriorityCategoryCalls (GetPriorityCategoryCallsRequest) returns (GetPriorityCategoryCallsResponse);
-  rpc GetPriorityCategoryConversations (GetPriorityCategoryConversationsRequest) returns (GetPriorityCategoryConversationsResponse);
-  rpc GetPriorityCategoryEvents (GetPriorityCategoryEventsRequest) returns (GetPriorityCategoryEventsResponse);
-  rpc GetPriorityCategoryMedia (GetPriorityCategoryMediaRequest) returns (GetPriorityCategoryMediaResponse);
-  rpc GetPriorityCategoryMessages (GetPriorityCategoryMessagesRequest) returns (GetPriorityCategoryMessagesResponse);
-  rpc GetPriorityCategoryReminders (GetPriorityCategoryRemindersRequest) returns (GetPriorityCategoryRemindersResponse);
-  rpc GetPriorityCategoryRepeatCallers (GetPriorityCategoryRepeatCallersRequest) returns (GetPriorityCategoryRepeatCallersResponse);
-  rpc GetPriorityCategorySystem (GetPriorityCategorySystemRequest) returns (GetPriorityCategorySystemResponse);
-  rpc GetPriorityChannelsAllowed (GetPriorityChannelsAllowedRequest) returns (GetPriorityChannelsAllowedResponse);
-  rpc GetPriorityConversationSenders (GetPriorityConversationSendersRequest) returns (GetPriorityConversationSendersResponse);
-  rpc GetPriorityMessageSenders (GetPriorityMessageSendersRequest) returns (GetPriorityMessageSendersResponse);
-  rpc GetVisualEffectAmbient (GetVisualEffectAmbientRequest) returns (GetVisualEffectAmbientResponse);
-  rpc GetVisualEffectBadge (GetVisualEffectBadgeRequest) returns (GetVisualEffectBadgeResponse);
-  rpc GetVisualEffectFullScreenIntent (GetVisualEffectFullScreenIntentRequest) returns (GetVisualEffectFullScreenIntentResponse);
-  rpc GetVisualEffectLights (GetVisualEffectLightsRequest) returns (GetVisualEffectLightsResponse);
-  rpc GetVisualEffectNotificationList (GetVisualEffectNotificationListRequest) returns (GetVisualEffectNotificationListResponse);
-  rpc GetVisualEffectPeek (GetVisualEffectPeekRequest) returns (GetVisualEffectPeekResponse);
-  rpc GetVisualEffectStatusBar (GetVisualEffectStatusBarRequest) returns (GetVisualEffectStatusBarResponse);
-  rpc HashCode (ZenPolicyHashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ZenPolicyToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (ZenPolicyWriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service ZenPolicyBuilderService {
-  rpc AllowAlarms (AllowAlarmsRequest) returns (AllowAlarmsResponse);
-  rpc AllowAllSounds (AllowAllSoundsRequest) returns (AllowAllSoundsResponse);
-  rpc AllowCalls (AllowCallsRequest) returns (AllowCallsResponse);
-  rpc AllowConversations (AllowConversationsRequest) returns (AllowConversationsResponse);
-  rpc AllowEvents (AllowEventsRequest) returns (AllowEventsResponse);
-  rpc AllowMedia (AllowMediaRequest) returns (AllowMediaResponse);
-  rpc AllowMessages (AllowMessagesRequest) returns (AllowMessagesResponse);
-  rpc AllowPriorityChannels (AllowPriorityChannelsRequest) returns (AllowPriorityChannelsResponse);
-  rpc AllowReminders (AllowRemindersRequest) returns (AllowRemindersResponse);
-  rpc AllowRepeatCallers (AllowRepeatCallersRequest) returns (AllowRepeatCallersResponse);
-  rpc AllowSystem (AllowSystemRequest) returns (AllowSystemResponse);
+service ZenDeviceEffectsBuilderService {
   rpc Build (BuildRequest) returns (BuildResponse);
-  rpc DisallowAllSounds (DisallowAllSoundsRequest) returns (DisallowAllSoundsResponse);
-  rpc HideAllVisualEffects (HideAllVisualEffectsRequest) returns (HideAllVisualEffectsResponse);
-  rpc ShowAllVisualEffects (ShowAllVisualEffectsRequest) returns (ShowAllVisualEffectsResponse);
-  rpc ShowBadges (ShowBadgesRequest) returns (ShowBadgesResponse);
-  rpc ShowFullScreenIntent (ShowFullScreenIntentRequest) returns (ShowFullScreenIntentResponse);
-  rpc ShowInAmbientDisplay (ShowInAmbientDisplayRequest) returns (ShowInAmbientDisplayResponse);
-  rpc ShowInNotificationList (ShowInNotificationListRequest) returns (ShowInNotificationListResponse);
-  rpc ShowLights (ShowLightsRequest) returns (ShowLightsResponse);
-  rpc ShowPeeking (ShowPeekingRequest) returns (ShowPeekingResponse);
-  rpc ShowStatusBarIcons (ShowStatusBarIconsRequest) returns (ShowStatusBarIconsResponse);
-}
-
-service ConditionProviderServiceService {
-  rpc NotifyCondition (NotifyConditionRequest) returns (NotifyConditionResponse);
-  rpc NotifyConditions (NotifyConditionsRequest) returns (NotifyConditionsResponse);
-  rpc OnBind (OnBindRequest) returns (OnBindResponse);
-  rpc OnConnected (OnConnectedRequest) returns (OnConnectedResponse);
-  rpc OnRequestConditions (OnRequestConditionsRequest) returns (OnRequestConditionsResponse);
-  rpc OnSubscribe (OnSubscribeRequest) returns (OnSubscribeResponse);
-  rpc OnUnsubscribe (OnUnsubscribeRequest) returns (OnUnsubscribeResponse);
-  rpc RequestUnbind (RequestUnbindRequest) returns (RequestUnbindResponse);
-  rpc RequestRebind (RequestRebindRequest) returns (RequestRebindResponse);
+  rpc SetShouldDimWallpaper (SetShouldDimWallpaperRequest) returns (SetShouldDimWallpaperResponse);
+  rpc SetShouldDisplayGrayscale (SetShouldDisplayGrayscaleRequest) returns (SetShouldDisplayGrayscaleResponse);
+  rpc SetShouldSuppressAmbientDisplay (SetShouldSuppressAmbientDisplayRequest) returns (SetShouldSuppressAmbientDisplayResponse);
+  rpc SetShouldUseNightMode (SetShouldUseNightModeRequest) returns (SetShouldUseNightModeResponse);
 }
 
 service ListenerServiceService {
@@ -4127,6 +4118,8 @@ service ListenerServiceService {
   rpc GetCurrentInterruptionFilter (GetCurrentInterruptionFilterRequest) returns (GetCurrentInterruptionFilterResponse);
   rpc GetCurrentListenerHints (GetCurrentListenerHintsRequest) returns (GetCurrentListenerHintsResponse);
   rpc GetCurrentRanking (GetCurrentRankingRequest) returns (GetCurrentRankingResponse);
+  rpc GetNotificationChannelGroups (ListenerServiceGetNotificationChannelGroupsRequest) returns (GetNotificationChannelGroupsResponse);
+  rpc GetNotificationChannels (ListenerServiceGetNotificationChannelsRequest) returns (GetNotificationChannelsResponse);
   rpc GetSnoozedNotifications (GetSnoozedNotificationsRequest) returns (GetSnoozedNotificationsResponse);
   rpc OnBind (OnBindRequest) returns (OnBindResponse);
   rpc OnDestroy (OnDestroyRequest) returns (OnDestroyResponse);
@@ -4156,7 +4149,7 @@ service ListenerServiceService {
 service ListenerServiceRankingService {
   rpc CanBubble (ListenerServiceRankingCanBubbleRequest) returns (CanBubbleResponse);
   rpc CanShowBadge (ListenerServiceRankingCanShowBadgeRequest) returns (CanShowBadgeResponse);
-  rpc Equals (ListenerServiceRankingEqualsRequest) returns (EqualsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
   rpc GetChannel (GetChannelRequest) returns (GetChannelResponse);
   rpc GetConversationShortcutInfo (GetConversationShortcutInfoRequest) returns (GetConversationShortcutInfoResponse);
   rpc GetImportance (GetImportanceRequest) returns (GetImportanceResponse);
@@ -4166,6 +4159,8 @@ service ListenerServiceRankingService {
   rpc GetLockscreenVisibilityOverride (GetLockscreenVisibilityOverrideRequest) returns (GetLockscreenVisibilityOverrideResponse);
   rpc GetOverrideGroupKey (ListenerServiceRankingGetOverrideGroupKeyRequest) returns (GetOverrideGroupKeyResponse);
   rpc GetRank (GetRankRequest) returns (GetRankResponse);
+  rpc GetSmartActions (GetSmartActionsRequest) returns (GetSmartActionsResponse);
+  rpc GetSmartReplies (GetSmartRepliesRequest) returns (GetSmartRepliesResponse);
   rpc GetSuppressedVisualEffects (GetSuppressedVisualEffectsRequest) returns (GetSuppressedVisualEffectsResponse);
   rpc GetUserSentiment (GetUserSentimentRequest) returns (GetUserSentimentResponse);
   rpc IsAmbient (IsAmbientRequest) returns (IsAmbientResponse);
@@ -4175,29 +4170,88 @@ service ListenerServiceRankingService {
 }
 
 service ListenerServiceRankingMapService {
-  rpc DescribeContents (ListenerServiceRankingMapDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (ListenerServiceRankingMapEqualsRequest) returns (EqualsResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
   rpc GetOrderedKeys (GetOrderedKeysRequest) returns (GetOrderedKeysResponse);
   rpc GetRanking (GetRankingRequest) returns (GetRankingResponse);
-  rpc WriteToParcel (ListenerServiceRankingMapWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service ZenDeviceEffectsService {
-  rpc DescribeContents (ZenDeviceEffectsDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (ZenDeviceEffectsEqualsRequest) returns (EqualsResponse);
-  rpc HashCode (ZenDeviceEffectsHashCodeRequest) returns (HashCodeResponse);
-  rpc ShouldDimWallpaper (ShouldDimWallpaperRequest) returns (ShouldDimWallpaperResponse);
-  rpc ShouldDisplayGrayscale (ShouldDisplayGrayscaleRequest) returns (ShouldDisplayGrayscaleResponse);
-  rpc ShouldSuppressAmbientDisplay (ShouldSuppressAmbientDisplayRequest) returns (ShouldSuppressAmbientDisplayResponse);
-  rpc ShouldUseNightMode (ShouldUseNightModeRequest) returns (ShouldUseNightModeResponse);
-  rpc ToString (ZenDeviceEffectsToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (ZenDeviceEffectsWriteToParcelRequest) returns (WriteToParcelResponse);
+service ConditionProviderServiceService {
+  rpc NotifyCondition (NotifyConditionRequest) returns (NotifyConditionResponse);
+  rpc NotifyConditions (NotifyConditionsRequest) returns (NotifyConditionsResponse);
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+  rpc OnConnected (OnConnectedRequest) returns (OnConnectedResponse);
+  rpc OnRequestConditions (OnRequestConditionsRequest) returns (OnRequestConditionsResponse);
+  rpc OnSubscribe (OnSubscribeRequest) returns (OnSubscribeResponse);
+  rpc OnUnsubscribe (OnUnsubscribeRequest) returns (OnUnsubscribeResponse);
+  rpc RequestUnbind (RequestUnbindRequest) returns (RequestUnbindResponse);
+  rpc RequestRebind (RequestRebindRequest) returns (RequestRebindResponse);
 }
 
-service ZenDeviceEffectsBuilderService {
+service ConditionService {
+  rpc NewCondition (NewConditionRequest) returns (NewConditionResponse);
+  rpc Copy (CopyRequest) returns (CopyResponse);
+  rpc DescribeContents (ConditionDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (ConditionEqualsRequest) returns (EqualsResponse);
+  rpc HashCode (ConditionHashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ConditionToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (ConditionWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc IsValidId (IsValidIdRequest) returns (IsValidIdResponse);
+  rpc NewId (NewIdRequest) returns (NewIdResponse);
+  rpc RelevanceToString (RelevanceToStringRequest) returns (RelevanceToStringResponse);
+  rpc StateToString (StateToStringRequest) returns (StateToStringResponse);
+}
+
+service ZenPolicyService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetPriorityCallSenders (GetPriorityCallSendersRequest) returns (GetPriorityCallSendersResponse);
+  rpc GetPriorityCategoryAlarms (GetPriorityCategoryAlarmsRequest) returns (GetPriorityCategoryAlarmsResponse);
+  rpc GetPriorityCategoryCalls (GetPriorityCategoryCallsRequest) returns (GetPriorityCategoryCallsResponse);
+  rpc GetPriorityCategoryConversations (GetPriorityCategoryConversationsRequest) returns (GetPriorityCategoryConversationsResponse);
+  rpc GetPriorityCategoryEvents (GetPriorityCategoryEventsRequest) returns (GetPriorityCategoryEventsResponse);
+  rpc GetPriorityCategoryMedia (GetPriorityCategoryMediaRequest) returns (GetPriorityCategoryMediaResponse);
+  rpc GetPriorityCategoryMessages (GetPriorityCategoryMessagesRequest) returns (GetPriorityCategoryMessagesResponse);
+  rpc GetPriorityCategoryReminders (GetPriorityCategoryRemindersRequest) returns (GetPriorityCategoryRemindersResponse);
+  rpc GetPriorityCategoryRepeatCallers (GetPriorityCategoryRepeatCallersRequest) returns (GetPriorityCategoryRepeatCallersResponse);
+  rpc GetPriorityCategorySystem (GetPriorityCategorySystemRequest) returns (GetPriorityCategorySystemResponse);
+  rpc GetPriorityChannelsAllowed (GetPriorityChannelsAllowedRequest) returns (GetPriorityChannelsAllowedResponse);
+  rpc GetPriorityConversationSenders (GetPriorityConversationSendersRequest) returns (GetPriorityConversationSendersResponse);
+  rpc GetPriorityMessageSenders (GetPriorityMessageSendersRequest) returns (GetPriorityMessageSendersResponse);
+  rpc GetVisualEffectAmbient (GetVisualEffectAmbientRequest) returns (GetVisualEffectAmbientResponse);
+  rpc GetVisualEffectBadge (GetVisualEffectBadgeRequest) returns (GetVisualEffectBadgeResponse);
+  rpc GetVisualEffectFullScreenIntent (GetVisualEffectFullScreenIntentRequest) returns (GetVisualEffectFullScreenIntentResponse);
+  rpc GetVisualEffectLights (GetVisualEffectLightsRequest) returns (GetVisualEffectLightsResponse);
+  rpc GetVisualEffectNotificationList (GetVisualEffectNotificationListRequest) returns (GetVisualEffectNotificationListResponse);
+  rpc GetVisualEffectPeek (GetVisualEffectPeekRequest) returns (GetVisualEffectPeekResponse);
+  rpc GetVisualEffectStatusBar (GetVisualEffectStatusBarRequest) returns (GetVisualEffectStatusBarResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ZenPolicyBuilderService {
+  rpc AllowAlarms (AllowAlarmsRequest) returns (AllowAlarmsResponse);
+  rpc AllowAllSounds (AllowAllSoundsRequest) returns (AllowAllSoundsResponse);
+  rpc AllowCalls (AllowCallsRequest) returns (AllowCallsResponse);
+  rpc AllowConversations (AllowConversationsRequest) returns (AllowConversationsResponse);
+  rpc AllowEvents (AllowEventsRequest) returns (AllowEventsResponse);
+  rpc AllowMedia (AllowMediaRequest) returns (AllowMediaResponse);
+  rpc AllowMessages (AllowMessagesRequest) returns (AllowMessagesResponse);
+  rpc AllowPriorityChannels (AllowPriorityChannelsRequest) returns (AllowPriorityChannelsResponse);
+  rpc AllowReminders (AllowRemindersRequest) returns (AllowRemindersResponse);
+  rpc AllowRepeatCallers (AllowRepeatCallersRequest) returns (AllowRepeatCallersResponse);
+  rpc AllowSystem (AllowSystemRequest) returns (AllowSystemResponse);
   rpc Build (BuildRequest) returns (BuildResponse);
-  rpc SetShouldDimWallpaper (SetShouldDimWallpaperRequest) returns (SetShouldDimWallpaperResponse);
-  rpc SetShouldDisplayGrayscale (SetShouldDisplayGrayscaleRequest) returns (SetShouldDisplayGrayscaleResponse);
-  rpc SetShouldSuppressAmbientDisplay (SetShouldSuppressAmbientDisplayRequest) returns (SetShouldSuppressAmbientDisplayResponse);
-  rpc SetShouldUseNightMode (SetShouldUseNightModeRequest) returns (SetShouldUseNightModeResponse);
+  rpc DisallowAllSounds (DisallowAllSoundsRequest) returns (DisallowAllSoundsResponse);
+  rpc HideAllVisualEffects (HideAllVisualEffectsRequest) returns (HideAllVisualEffectsResponse);
+  rpc ShowAllVisualEffects (ShowAllVisualEffectsRequest) returns (ShowAllVisualEffectsResponse);
+  rpc ShowBadges (ShowBadgesRequest) returns (ShowBadgesResponse);
+  rpc ShowFullScreenIntent (ShowFullScreenIntentRequest) returns (ShowFullScreenIntentResponse);
+  rpc ShowInAmbientDisplay (ShowInAmbientDisplayRequest) returns (ShowInAmbientDisplayResponse);
+  rpc ShowInNotificationList (ShowInNotificationListRequest) returns (ShowInNotificationListResponse);
+  rpc ShowLights (ShowLightsRequest) returns (ShowLightsResponse);
+  rpc ShowPeeking (ShowPeekingRequest) returns (ShowPeekingResponse);
+  rpc ShowStatusBarIcons (ShowStatusBarIconsRequest) returns (ShowStatusBarIconsResponse);
 }

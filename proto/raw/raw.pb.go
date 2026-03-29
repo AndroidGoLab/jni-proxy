@@ -103,26 +103,26 @@ func (x *DescribeContentsResponse) GetResult() int32 {
 	return 0
 }
 
-type GetBleRssiRangingParamsRequest struct {
+type GetRawRangingDeviceRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetBleRssiRangingParamsRequest) Reset() {
-	*x = GetBleRssiRangingParamsRequest{}
+func (x *GetRawRangingDeviceRequest) Reset() {
+	*x = GetRawRangingDeviceRequest{}
 	mi := &file_proto_raw_raw_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetBleRssiRangingParamsRequest) String() string {
+func (x *GetRawRangingDeviceRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetBleRssiRangingParamsRequest) ProtoMessage() {}
+func (*GetRawRangingDeviceRequest) ProtoMessage() {}
 
-func (x *GetBleRssiRangingParamsRequest) ProtoReflect() protoreflect.Message {
+func (x *GetRawRangingDeviceRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_raw_raw_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -134,32 +134,32 @@ func (x *GetBleRssiRangingParamsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetBleRssiRangingParamsRequest.ProtoReflect.Descriptor instead.
-func (*GetBleRssiRangingParamsRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetRawRangingDeviceRequest.ProtoReflect.Descriptor instead.
+func (*GetRawRangingDeviceRequest) Descriptor() ([]byte, []int) {
 	return file_proto_raw_raw_proto_rawDescGZIP(), []int{2}
 }
 
-type GetBleRssiRangingParamsResponse struct {
+type GetRawRangingDeviceResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetBleRssiRangingParamsResponse) Reset() {
-	*x = GetBleRssiRangingParamsResponse{}
+func (x *GetRawRangingDeviceResponse) Reset() {
+	*x = GetRawRangingDeviceResponse{}
 	mi := &file_proto_raw_raw_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetBleRssiRangingParamsResponse) String() string {
+func (x *GetRawRangingDeviceResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetBleRssiRangingParamsResponse) ProtoMessage() {}
+func (*GetRawRangingDeviceResponse) ProtoMessage() {}
 
-func (x *GetBleRssiRangingParamsResponse) ProtoReflect() protoreflect.Message {
+func (x *GetRawRangingDeviceResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_raw_raw_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -171,332 +171,12 @@ func (x *GetBleRssiRangingParamsResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetBleRssiRangingParamsResponse.ProtoReflect.Descriptor instead.
-func (*GetBleRssiRangingParamsResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetRawRangingDeviceResponse.ProtoReflect.Descriptor instead.
+func (*GetRawRangingDeviceResponse) Descriptor() ([]byte, []int) {
 	return file_proto_raw_raw_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *GetBleRssiRangingParamsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetCsRangingParamsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCsRangingParamsRequest) Reset() {
-	*x = GetCsRangingParamsRequest{}
-	mi := &file_proto_raw_raw_proto_msgTypes[4]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCsRangingParamsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCsRangingParamsRequest) ProtoMessage() {}
-
-func (x *GetCsRangingParamsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_raw_raw_proto_msgTypes[4]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCsRangingParamsRequest.ProtoReflect.Descriptor instead.
-func (*GetCsRangingParamsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_raw_raw_proto_rawDescGZIP(), []int{4}
-}
-
-type GetCsRangingParamsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCsRangingParamsResponse) Reset() {
-	*x = GetCsRangingParamsResponse{}
-	mi := &file_proto_raw_raw_proto_msgTypes[5]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCsRangingParamsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCsRangingParamsResponse) ProtoMessage() {}
-
-func (x *GetCsRangingParamsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_raw_raw_proto_msgTypes[5]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCsRangingParamsResponse.ProtoReflect.Descriptor instead.
-func (*GetCsRangingParamsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_raw_raw_proto_rawDescGZIP(), []int{5}
-}
-
-func (x *GetCsRangingParamsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetRangingDeviceRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRangingDeviceRequest) Reset() {
-	*x = GetRangingDeviceRequest{}
-	mi := &file_proto_raw_raw_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRangingDeviceRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRangingDeviceRequest) ProtoMessage() {}
-
-func (x *GetRangingDeviceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_raw_raw_proto_msgTypes[6]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRangingDeviceRequest.ProtoReflect.Descriptor instead.
-func (*GetRangingDeviceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_raw_raw_proto_rawDescGZIP(), []int{6}
-}
-
-type GetRangingDeviceResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRangingDeviceResponse) Reset() {
-	*x = GetRangingDeviceResponse{}
-	mi := &file_proto_raw_raw_proto_msgTypes[7]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRangingDeviceResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRangingDeviceResponse) ProtoMessage() {}
-
-func (x *GetRangingDeviceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_raw_raw_proto_msgTypes[7]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRangingDeviceResponse.ProtoReflect.Descriptor instead.
-func (*GetRangingDeviceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_raw_raw_proto_rawDescGZIP(), []int{7}
-}
-
-func (x *GetRangingDeviceResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetRttRangingParamsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRttRangingParamsRequest) Reset() {
-	*x = GetRttRangingParamsRequest{}
-	mi := &file_proto_raw_raw_proto_msgTypes[8]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRttRangingParamsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRttRangingParamsRequest) ProtoMessage() {}
-
-func (x *GetRttRangingParamsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_raw_raw_proto_msgTypes[8]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRttRangingParamsRequest.ProtoReflect.Descriptor instead.
-func (*GetRttRangingParamsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_raw_raw_proto_rawDescGZIP(), []int{8}
-}
-
-type GetRttRangingParamsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRttRangingParamsResponse) Reset() {
-	*x = GetRttRangingParamsResponse{}
-	mi := &file_proto_raw_raw_proto_msgTypes[9]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRttRangingParamsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRttRangingParamsResponse) ProtoMessage() {}
-
-func (x *GetRttRangingParamsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_raw_raw_proto_msgTypes[9]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRttRangingParamsResponse.ProtoReflect.Descriptor instead.
-func (*GetRttRangingParamsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_raw_raw_proto_rawDescGZIP(), []int{9}
-}
-
-func (x *GetRttRangingParamsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetUwbRangingParamsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetUwbRangingParamsRequest) Reset() {
-	*x = GetUwbRangingParamsRequest{}
-	mi := &file_proto_raw_raw_proto_msgTypes[10]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetUwbRangingParamsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetUwbRangingParamsRequest) ProtoMessage() {}
-
-func (x *GetUwbRangingParamsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_raw_raw_proto_msgTypes[10]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetUwbRangingParamsRequest.ProtoReflect.Descriptor instead.
-func (*GetUwbRangingParamsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_raw_raw_proto_rawDescGZIP(), []int{10}
-}
-
-type GetUwbRangingParamsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetUwbRangingParamsResponse) Reset() {
-	*x = GetUwbRangingParamsResponse{}
-	mi := &file_proto_raw_raw_proto_msgTypes[11]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetUwbRangingParamsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetUwbRangingParamsResponse) ProtoMessage() {}
-
-func (x *GetUwbRangingParamsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_raw_raw_proto_msgTypes[11]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetUwbRangingParamsResponse.ProtoReflect.Descriptor instead.
-func (*GetUwbRangingParamsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_raw_raw_proto_rawDescGZIP(), []int{11}
-}
-
-func (x *GetUwbRangingParamsResponse) GetResult() int64 {
+func (x *GetRawRangingDeviceResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -511,7 +191,7 @@ type ToStringRequest struct {
 
 func (x *ToStringRequest) Reset() {
 	*x = ToStringRequest{}
-	mi := &file_proto_raw_raw_proto_msgTypes[12]
+	mi := &file_proto_raw_raw_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -523,7 +203,7 @@ func (x *ToStringRequest) String() string {
 func (*ToStringRequest) ProtoMessage() {}
 
 func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_raw_raw_proto_msgTypes[12]
+	mi := &file_proto_raw_raw_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -536,7 +216,7 @@ func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
 func (*ToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_raw_raw_proto_rawDescGZIP(), []int{12}
+	return file_proto_raw_raw_proto_rawDescGZIP(), []int{4}
 }
 
 type ToStringResponse struct {
@@ -548,7 +228,7 @@ type ToStringResponse struct {
 
 func (x *ToStringResponse) Reset() {
 	*x = ToStringResponse{}
-	mi := &file_proto_raw_raw_proto_msgTypes[13]
+	mi := &file_proto_raw_raw_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -560,7 +240,7 @@ func (x *ToStringResponse) String() string {
 func (*ToStringResponse) ProtoMessage() {}
 
 func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_raw_raw_proto_msgTypes[13]
+	mi := &file_proto_raw_raw_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -573,7 +253,7 @@ func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
 func (*ToStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_raw_raw_proto_rawDescGZIP(), []int{13}
+	return file_proto_raw_raw_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *ToStringResponse) GetResult() string {
@@ -593,7 +273,7 @@ type WriteToParcelRequest struct {
 
 func (x *WriteToParcelRequest) Reset() {
 	*x = WriteToParcelRequest{}
-	mi := &file_proto_raw_raw_proto_msgTypes[14]
+	mi := &file_proto_raw_raw_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -605,7 +285,7 @@ func (x *WriteToParcelRequest) String() string {
 func (*WriteToParcelRequest) ProtoMessage() {}
 
 func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_raw_raw_proto_msgTypes[14]
+	mi := &file_proto_raw_raw_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -618,7 +298,7 @@ func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
 func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_raw_raw_proto_rawDescGZIP(), []int{14}
+	return file_proto_raw_raw_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *WriteToParcelRequest) GetArg0() int64 {
@@ -643,7 +323,7 @@ type WriteToParcelResponse struct {
 
 func (x *WriteToParcelResponse) Reset() {
 	*x = WriteToParcelResponse{}
-	mi := &file_proto_raw_raw_proto_msgTypes[15]
+	mi := &file_proto_raw_raw_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -655,7 +335,7 @@ func (x *WriteToParcelResponse) String() string {
 func (*WriteToParcelResponse) ProtoMessage() {}
 
 func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_raw_raw_proto_msgTypes[15]
+	mi := &file_proto_raw_raw_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -668,7 +348,7 @@ func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
 func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_raw_raw_proto_rawDescGZIP(), []int{15}
+	return file_proto_raw_raw_proto_rawDescGZIP(), []int{7}
 }
 
 type BuildRequest struct {
@@ -679,7 +359,7 @@ type BuildRequest struct {
 
 func (x *BuildRequest) Reset() {
 	*x = BuildRequest{}
-	mi := &file_proto_raw_raw_proto_msgTypes[16]
+	mi := &file_proto_raw_raw_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -691,7 +371,7 @@ func (x *BuildRequest) String() string {
 func (*BuildRequest) ProtoMessage() {}
 
 func (x *BuildRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_raw_raw_proto_msgTypes[16]
+	mi := &file_proto_raw_raw_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -704,7 +384,7 @@ func (x *BuildRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
 func (*BuildRequest) Descriptor() ([]byte, []int) {
-	return file_proto_raw_raw_proto_rawDescGZIP(), []int{16}
+	return file_proto_raw_raw_proto_rawDescGZIP(), []int{8}
 }
 
 type BuildResponse struct {
@@ -716,7 +396,7 @@ type BuildResponse struct {
 
 func (x *BuildResponse) Reset() {
 	*x = BuildResponse{}
-	mi := &file_proto_raw_raw_proto_msgTypes[17]
+	mi := &file_proto_raw_raw_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -728,7 +408,7 @@ func (x *BuildResponse) String() string {
 func (*BuildResponse) ProtoMessage() {}
 
 func (x *BuildResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_raw_raw_proto_msgTypes[17]
+	mi := &file_proto_raw_raw_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -741,530 +421,10 @@ func (x *BuildResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
 func (*BuildResponse) Descriptor() ([]byte, []int) {
-	return file_proto_raw_raw_proto_rawDescGZIP(), []int{17}
+	return file_proto_raw_raw_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *BuildResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetBleRssiRangingParamsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetBleRssiRangingParamsRequest) Reset() {
-	*x = SetBleRssiRangingParamsRequest{}
-	mi := &file_proto_raw_raw_proto_msgTypes[18]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetBleRssiRangingParamsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetBleRssiRangingParamsRequest) ProtoMessage() {}
-
-func (x *SetBleRssiRangingParamsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_raw_raw_proto_msgTypes[18]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetBleRssiRangingParamsRequest.ProtoReflect.Descriptor instead.
-func (*SetBleRssiRangingParamsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_raw_raw_proto_rawDescGZIP(), []int{18}
-}
-
-func (x *SetBleRssiRangingParamsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetBleRssiRangingParamsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetBleRssiRangingParamsResponse) Reset() {
-	*x = SetBleRssiRangingParamsResponse{}
-	mi := &file_proto_raw_raw_proto_msgTypes[19]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetBleRssiRangingParamsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetBleRssiRangingParamsResponse) ProtoMessage() {}
-
-func (x *SetBleRssiRangingParamsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_raw_raw_proto_msgTypes[19]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetBleRssiRangingParamsResponse.ProtoReflect.Descriptor instead.
-func (*SetBleRssiRangingParamsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_raw_raw_proto_rawDescGZIP(), []int{19}
-}
-
-func (x *SetBleRssiRangingParamsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetCsRangingParamsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetCsRangingParamsRequest) Reset() {
-	*x = SetCsRangingParamsRequest{}
-	mi := &file_proto_raw_raw_proto_msgTypes[20]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetCsRangingParamsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetCsRangingParamsRequest) ProtoMessage() {}
-
-func (x *SetCsRangingParamsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_raw_raw_proto_msgTypes[20]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetCsRangingParamsRequest.ProtoReflect.Descriptor instead.
-func (*SetCsRangingParamsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_raw_raw_proto_rawDescGZIP(), []int{20}
-}
-
-func (x *SetCsRangingParamsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetCsRangingParamsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetCsRangingParamsResponse) Reset() {
-	*x = SetCsRangingParamsResponse{}
-	mi := &file_proto_raw_raw_proto_msgTypes[21]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetCsRangingParamsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetCsRangingParamsResponse) ProtoMessage() {}
-
-func (x *SetCsRangingParamsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_raw_raw_proto_msgTypes[21]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetCsRangingParamsResponse.ProtoReflect.Descriptor instead.
-func (*SetCsRangingParamsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_raw_raw_proto_rawDescGZIP(), []int{21}
-}
-
-func (x *SetCsRangingParamsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetRangingDeviceRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetRangingDeviceRequest) Reset() {
-	*x = SetRangingDeviceRequest{}
-	mi := &file_proto_raw_raw_proto_msgTypes[22]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetRangingDeviceRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetRangingDeviceRequest) ProtoMessage() {}
-
-func (x *SetRangingDeviceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_raw_raw_proto_msgTypes[22]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetRangingDeviceRequest.ProtoReflect.Descriptor instead.
-func (*SetRangingDeviceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_raw_raw_proto_rawDescGZIP(), []int{22}
-}
-
-func (x *SetRangingDeviceRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetRangingDeviceResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetRangingDeviceResponse) Reset() {
-	*x = SetRangingDeviceResponse{}
-	mi := &file_proto_raw_raw_proto_msgTypes[23]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetRangingDeviceResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetRangingDeviceResponse) ProtoMessage() {}
-
-func (x *SetRangingDeviceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_raw_raw_proto_msgTypes[23]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetRangingDeviceResponse.ProtoReflect.Descriptor instead.
-func (*SetRangingDeviceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_raw_raw_proto_rawDescGZIP(), []int{23}
-}
-
-func (x *SetRangingDeviceResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetRttRangingParamsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetRttRangingParamsRequest) Reset() {
-	*x = SetRttRangingParamsRequest{}
-	mi := &file_proto_raw_raw_proto_msgTypes[24]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetRttRangingParamsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetRttRangingParamsRequest) ProtoMessage() {}
-
-func (x *SetRttRangingParamsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_raw_raw_proto_msgTypes[24]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetRttRangingParamsRequest.ProtoReflect.Descriptor instead.
-func (*SetRttRangingParamsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_raw_raw_proto_rawDescGZIP(), []int{24}
-}
-
-func (x *SetRttRangingParamsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetRttRangingParamsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetRttRangingParamsResponse) Reset() {
-	*x = SetRttRangingParamsResponse{}
-	mi := &file_proto_raw_raw_proto_msgTypes[25]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetRttRangingParamsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetRttRangingParamsResponse) ProtoMessage() {}
-
-func (x *SetRttRangingParamsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_raw_raw_proto_msgTypes[25]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetRttRangingParamsResponse.ProtoReflect.Descriptor instead.
-func (*SetRttRangingParamsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_raw_raw_proto_rawDescGZIP(), []int{25}
-}
-
-func (x *SetRttRangingParamsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetUwbRangingParamsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetUwbRangingParamsRequest) Reset() {
-	*x = SetUwbRangingParamsRequest{}
-	mi := &file_proto_raw_raw_proto_msgTypes[26]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetUwbRangingParamsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetUwbRangingParamsRequest) ProtoMessage() {}
-
-func (x *SetUwbRangingParamsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_raw_raw_proto_msgTypes[26]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetUwbRangingParamsRequest.ProtoReflect.Descriptor instead.
-func (*SetUwbRangingParamsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_raw_raw_proto_rawDescGZIP(), []int{26}
-}
-
-func (x *SetUwbRangingParamsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetUwbRangingParamsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetUwbRangingParamsResponse) Reset() {
-	*x = SetUwbRangingParamsResponse{}
-	mi := &file_proto_raw_raw_proto_msgTypes[27]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetUwbRangingParamsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetUwbRangingParamsResponse) ProtoMessage() {}
-
-func (x *SetUwbRangingParamsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_raw_raw_proto_msgTypes[27]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetUwbRangingParamsResponse.ProtoReflect.Descriptor instead.
-func (*SetUwbRangingParamsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_raw_raw_proto_rawDescGZIP(), []int{27}
-}
-
-func (x *SetUwbRangingParamsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetRawRangingDeviceRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRawRangingDeviceRequest) Reset() {
-	*x = GetRawRangingDeviceRequest{}
-	mi := &file_proto_raw_raw_proto_msgTypes[28]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRawRangingDeviceRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRawRangingDeviceRequest) ProtoMessage() {}
-
-func (x *GetRawRangingDeviceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_raw_raw_proto_msgTypes[28]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRawRangingDeviceRequest.ProtoReflect.Descriptor instead.
-func (*GetRawRangingDeviceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_raw_raw_proto_rawDescGZIP(), []int{28}
-}
-
-type GetRawRangingDeviceResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRawRangingDeviceResponse) Reset() {
-	*x = GetRawRangingDeviceResponse{}
-	mi := &file_proto_raw_raw_proto_msgTypes[29]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRawRangingDeviceResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRawRangingDeviceResponse) ProtoMessage() {}
-
-func (x *GetRawRangingDeviceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_raw_raw_proto_msgTypes[29]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRawRangingDeviceResponse.ProtoReflect.Descriptor instead.
-func (*GetRawRangingDeviceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_raw_raw_proto_rawDescGZIP(), []int{29}
-}
-
-func (x *GetRawRangingDeviceResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -1280,7 +440,7 @@ type SetRawRangingDeviceRequest struct {
 
 func (x *SetRawRangingDeviceRequest) Reset() {
 	*x = SetRawRangingDeviceRequest{}
-	mi := &file_proto_raw_raw_proto_msgTypes[30]
+	mi := &file_proto_raw_raw_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1292,7 +452,7 @@ func (x *SetRawRangingDeviceRequest) String() string {
 func (*SetRawRangingDeviceRequest) ProtoMessage() {}
 
 func (x *SetRawRangingDeviceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_raw_raw_proto_msgTypes[30]
+	mi := &file_proto_raw_raw_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1305,7 +465,7 @@ func (x *SetRawRangingDeviceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetRawRangingDeviceRequest.ProtoReflect.Descriptor instead.
 func (*SetRawRangingDeviceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_raw_raw_proto_rawDescGZIP(), []int{30}
+	return file_proto_raw_raw_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *SetRawRangingDeviceRequest) GetArg0() int64 {
@@ -1324,7 +484,7 @@ type SetRawRangingDeviceResponse struct {
 
 func (x *SetRawRangingDeviceResponse) Reset() {
 	*x = SetRawRangingDeviceResponse{}
-	mi := &file_proto_raw_raw_proto_msgTypes[31]
+	mi := &file_proto_raw_raw_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1336,7 +496,7 @@ func (x *SetRawRangingDeviceResponse) String() string {
 func (*SetRawRangingDeviceResponse) ProtoMessage() {}
 
 func (x *SetRawRangingDeviceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_raw_raw_proto_msgTypes[31]
+	mi := &file_proto_raw_raw_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1349,10 +509,90 @@ func (x *SetRawRangingDeviceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetRawRangingDeviceResponse.ProtoReflect.Descriptor instead.
 func (*SetRawRangingDeviceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_raw_raw_proto_rawDescGZIP(), []int{31}
+	return file_proto_raw_raw_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *SetRawRangingDeviceResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRawRangingDevicesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRawRangingDevicesRequest) Reset() {
+	*x = GetRawRangingDevicesRequest{}
+	mi := &file_proto_raw_raw_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRawRangingDevicesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRawRangingDevicesRequest) ProtoMessage() {}
+
+func (x *GetRawRangingDevicesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_raw_raw_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRawRangingDevicesRequest.ProtoReflect.Descriptor instead.
+func (*GetRawRangingDevicesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_raw_raw_proto_rawDescGZIP(), []int{12}
+}
+
+type GetRawRangingDevicesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRawRangingDevicesResponse) Reset() {
+	*x = GetRawRangingDevicesResponse{}
+	mi := &file_proto_raw_raw_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRawRangingDevicesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRawRangingDevicesResponse) ProtoMessage() {}
+
+func (x *GetRawRangingDevicesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_raw_raw_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRawRangingDevicesResponse.ProtoReflect.Descriptor instead.
+func (*GetRawRangingDevicesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_raw_raw_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *GetRawRangingDevicesResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -1368,7 +608,7 @@ type AddRawRangingDeviceRequest struct {
 
 func (x *AddRawRangingDeviceRequest) Reset() {
 	*x = AddRawRangingDeviceRequest{}
-	mi := &file_proto_raw_raw_proto_msgTypes[32]
+	mi := &file_proto_raw_raw_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1380,7 +620,7 @@ func (x *AddRawRangingDeviceRequest) String() string {
 func (*AddRawRangingDeviceRequest) ProtoMessage() {}
 
 func (x *AddRawRangingDeviceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_raw_raw_proto_msgTypes[32]
+	mi := &file_proto_raw_raw_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1393,7 +633,7 @@ func (x *AddRawRangingDeviceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddRawRangingDeviceRequest.ProtoReflect.Descriptor instead.
 func (*AddRawRangingDeviceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_raw_raw_proto_rawDescGZIP(), []int{32}
+	return file_proto_raw_raw_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *AddRawRangingDeviceRequest) GetArg0() int64 {
@@ -1412,7 +652,7 @@ type AddRawRangingDeviceResponse struct {
 
 func (x *AddRawRangingDeviceResponse) Reset() {
 	*x = AddRawRangingDeviceResponse{}
-	mi := &file_proto_raw_raw_proto_msgTypes[33]
+	mi := &file_proto_raw_raw_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1424,7 +664,7 @@ func (x *AddRawRangingDeviceResponse) String() string {
 func (*AddRawRangingDeviceResponse) ProtoMessage() {}
 
 func (x *AddRawRangingDeviceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_raw_raw_proto_msgTypes[33]
+	mi := &file_proto_raw_raw_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1437,10 +677,850 @@ func (x *AddRawRangingDeviceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddRawRangingDeviceResponse.ProtoReflect.Descriptor instead.
 func (*AddRawRangingDeviceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_raw_raw_proto_rawDescGZIP(), []int{33}
+	return file_proto_raw_raw_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *AddRawRangingDeviceResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetBleRssiRangingParamsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBleRssiRangingParamsRequest) Reset() {
+	*x = GetBleRssiRangingParamsRequest{}
+	mi := &file_proto_raw_raw_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBleRssiRangingParamsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBleRssiRangingParamsRequest) ProtoMessage() {}
+
+func (x *GetBleRssiRangingParamsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_raw_raw_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBleRssiRangingParamsRequest.ProtoReflect.Descriptor instead.
+func (*GetBleRssiRangingParamsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_raw_raw_proto_rawDescGZIP(), []int{16}
+}
+
+type GetBleRssiRangingParamsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBleRssiRangingParamsResponse) Reset() {
+	*x = GetBleRssiRangingParamsResponse{}
+	mi := &file_proto_raw_raw_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBleRssiRangingParamsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBleRssiRangingParamsResponse) ProtoMessage() {}
+
+func (x *GetBleRssiRangingParamsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_raw_raw_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBleRssiRangingParamsResponse.ProtoReflect.Descriptor instead.
+func (*GetBleRssiRangingParamsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_raw_raw_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *GetBleRssiRangingParamsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCsRangingParamsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCsRangingParamsRequest) Reset() {
+	*x = GetCsRangingParamsRequest{}
+	mi := &file_proto_raw_raw_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCsRangingParamsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCsRangingParamsRequest) ProtoMessage() {}
+
+func (x *GetCsRangingParamsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_raw_raw_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCsRangingParamsRequest.ProtoReflect.Descriptor instead.
+func (*GetCsRangingParamsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_raw_raw_proto_rawDescGZIP(), []int{18}
+}
+
+type GetCsRangingParamsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCsRangingParamsResponse) Reset() {
+	*x = GetCsRangingParamsResponse{}
+	mi := &file_proto_raw_raw_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCsRangingParamsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCsRangingParamsResponse) ProtoMessage() {}
+
+func (x *GetCsRangingParamsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_raw_raw_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCsRangingParamsResponse.ProtoReflect.Descriptor instead.
+func (*GetCsRangingParamsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_raw_raw_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *GetCsRangingParamsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRangingDeviceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRangingDeviceRequest) Reset() {
+	*x = GetRangingDeviceRequest{}
+	mi := &file_proto_raw_raw_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRangingDeviceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRangingDeviceRequest) ProtoMessage() {}
+
+func (x *GetRangingDeviceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_raw_raw_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRangingDeviceRequest.ProtoReflect.Descriptor instead.
+func (*GetRangingDeviceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_raw_raw_proto_rawDescGZIP(), []int{20}
+}
+
+type GetRangingDeviceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRangingDeviceResponse) Reset() {
+	*x = GetRangingDeviceResponse{}
+	mi := &file_proto_raw_raw_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRangingDeviceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRangingDeviceResponse) ProtoMessage() {}
+
+func (x *GetRangingDeviceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_raw_raw_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRangingDeviceResponse.ProtoReflect.Descriptor instead.
+func (*GetRangingDeviceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_raw_raw_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *GetRangingDeviceResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRttRangingParamsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRttRangingParamsRequest) Reset() {
+	*x = GetRttRangingParamsRequest{}
+	mi := &file_proto_raw_raw_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRttRangingParamsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRttRangingParamsRequest) ProtoMessage() {}
+
+func (x *GetRttRangingParamsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_raw_raw_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRttRangingParamsRequest.ProtoReflect.Descriptor instead.
+func (*GetRttRangingParamsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_raw_raw_proto_rawDescGZIP(), []int{22}
+}
+
+type GetRttRangingParamsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRttRangingParamsResponse) Reset() {
+	*x = GetRttRangingParamsResponse{}
+	mi := &file_proto_raw_raw_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRttRangingParamsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRttRangingParamsResponse) ProtoMessage() {}
+
+func (x *GetRttRangingParamsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_raw_raw_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRttRangingParamsResponse.ProtoReflect.Descriptor instead.
+func (*GetRttRangingParamsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_raw_raw_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *GetRttRangingParamsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetUwbRangingParamsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUwbRangingParamsRequest) Reset() {
+	*x = GetUwbRangingParamsRequest{}
+	mi := &file_proto_raw_raw_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUwbRangingParamsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUwbRangingParamsRequest) ProtoMessage() {}
+
+func (x *GetUwbRangingParamsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_raw_raw_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUwbRangingParamsRequest.ProtoReflect.Descriptor instead.
+func (*GetUwbRangingParamsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_raw_raw_proto_rawDescGZIP(), []int{24}
+}
+
+type GetUwbRangingParamsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUwbRangingParamsResponse) Reset() {
+	*x = GetUwbRangingParamsResponse{}
+	mi := &file_proto_raw_raw_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUwbRangingParamsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUwbRangingParamsResponse) ProtoMessage() {}
+
+func (x *GetUwbRangingParamsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_raw_raw_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUwbRangingParamsResponse.ProtoReflect.Descriptor instead.
+func (*GetUwbRangingParamsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_raw_raw_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *GetUwbRangingParamsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetBleRssiRangingParamsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetBleRssiRangingParamsRequest) Reset() {
+	*x = SetBleRssiRangingParamsRequest{}
+	mi := &file_proto_raw_raw_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetBleRssiRangingParamsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetBleRssiRangingParamsRequest) ProtoMessage() {}
+
+func (x *SetBleRssiRangingParamsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_raw_raw_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetBleRssiRangingParamsRequest.ProtoReflect.Descriptor instead.
+func (*SetBleRssiRangingParamsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_raw_raw_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *SetBleRssiRangingParamsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetBleRssiRangingParamsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetBleRssiRangingParamsResponse) Reset() {
+	*x = SetBleRssiRangingParamsResponse{}
+	mi := &file_proto_raw_raw_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetBleRssiRangingParamsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetBleRssiRangingParamsResponse) ProtoMessage() {}
+
+func (x *SetBleRssiRangingParamsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_raw_raw_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetBleRssiRangingParamsResponse.ProtoReflect.Descriptor instead.
+func (*SetBleRssiRangingParamsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_raw_raw_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *SetBleRssiRangingParamsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetCsRangingParamsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCsRangingParamsRequest) Reset() {
+	*x = SetCsRangingParamsRequest{}
+	mi := &file_proto_raw_raw_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCsRangingParamsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCsRangingParamsRequest) ProtoMessage() {}
+
+func (x *SetCsRangingParamsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_raw_raw_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCsRangingParamsRequest.ProtoReflect.Descriptor instead.
+func (*SetCsRangingParamsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_raw_raw_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *SetCsRangingParamsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetCsRangingParamsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCsRangingParamsResponse) Reset() {
+	*x = SetCsRangingParamsResponse{}
+	mi := &file_proto_raw_raw_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCsRangingParamsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCsRangingParamsResponse) ProtoMessage() {}
+
+func (x *SetCsRangingParamsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_raw_raw_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCsRangingParamsResponse.ProtoReflect.Descriptor instead.
+func (*SetCsRangingParamsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_raw_raw_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *SetCsRangingParamsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetRangingDeviceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRangingDeviceRequest) Reset() {
+	*x = SetRangingDeviceRequest{}
+	mi := &file_proto_raw_raw_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRangingDeviceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRangingDeviceRequest) ProtoMessage() {}
+
+func (x *SetRangingDeviceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_raw_raw_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRangingDeviceRequest.ProtoReflect.Descriptor instead.
+func (*SetRangingDeviceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_raw_raw_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *SetRangingDeviceRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetRangingDeviceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRangingDeviceResponse) Reset() {
+	*x = SetRangingDeviceResponse{}
+	mi := &file_proto_raw_raw_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRangingDeviceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRangingDeviceResponse) ProtoMessage() {}
+
+func (x *SetRangingDeviceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_raw_raw_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRangingDeviceResponse.ProtoReflect.Descriptor instead.
+func (*SetRangingDeviceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_raw_raw_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *SetRangingDeviceResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetRttRangingParamsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRttRangingParamsRequest) Reset() {
+	*x = SetRttRangingParamsRequest{}
+	mi := &file_proto_raw_raw_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRttRangingParamsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRttRangingParamsRequest) ProtoMessage() {}
+
+func (x *SetRttRangingParamsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_raw_raw_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRttRangingParamsRequest.ProtoReflect.Descriptor instead.
+func (*SetRttRangingParamsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_raw_raw_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *SetRttRangingParamsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetRttRangingParamsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRttRangingParamsResponse) Reset() {
+	*x = SetRttRangingParamsResponse{}
+	mi := &file_proto_raw_raw_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRttRangingParamsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRttRangingParamsResponse) ProtoMessage() {}
+
+func (x *SetRttRangingParamsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_raw_raw_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRttRangingParamsResponse.ProtoReflect.Descriptor instead.
+func (*SetRttRangingParamsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_raw_raw_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *SetRttRangingParamsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetUwbRangingParamsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetUwbRangingParamsRequest) Reset() {
+	*x = SetUwbRangingParamsRequest{}
+	mi := &file_proto_raw_raw_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetUwbRangingParamsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetUwbRangingParamsRequest) ProtoMessage() {}
+
+func (x *SetUwbRangingParamsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_raw_raw_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetUwbRangingParamsRequest.ProtoReflect.Descriptor instead.
+func (*SetUwbRangingParamsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_raw_raw_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *SetUwbRangingParamsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetUwbRangingParamsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetUwbRangingParamsResponse) Reset() {
+	*x = SetUwbRangingParamsResponse{}
+	mi := &file_proto_raw_raw_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetUwbRangingParamsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetUwbRangingParamsResponse) ProtoMessage() {}
+
+func (x *SetUwbRangingParamsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_raw_raw_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetUwbRangingParamsResponse.ProtoReflect.Descriptor instead.
+func (*SetUwbRangingParamsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_raw_raw_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *SetUwbRangingParamsResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -1454,7 +1534,31 @@ const file_proto_raw_raw_proto_rawDesc = "" +
 	"\x13proto/raw/raw.proto\x12\x03raw\"\x19\n" +
 	"\x17DescribeContentsRequest\"2\n" +
 	"\x18DescribeContentsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\" \n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1c\n" +
+	"\x1aGetRawRangingDeviceRequest\"5\n" +
+	"\x1bGetRawRangingDeviceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
+	"\x0fToStringRequest\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\">\n" +
+	"\x14WriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse\"\x0e\n" +
+	"\fBuildRequest\"'\n" +
+	"\rBuildResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	"\x1aSetRawRangingDeviceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"5\n" +
+	"\x1bSetRawRangingDeviceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1d\n" +
+	"\x1bGetRawRangingDevicesRequest\"6\n" +
+	"\x1cGetRawRangingDevicesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	"\x1aAddRawRangingDeviceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"5\n" +
+	"\x1bAddRawRangingDeviceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\" \n" +
 	"\x1eGetBleRssiRangingParamsRequest\"9\n" +
 	"\x1fGetBleRssiRangingParamsResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
@@ -1469,16 +1573,6 @@ const file_proto_raw_raw_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1c\n" +
 	"\x1aGetUwbRangingParamsRequest\"5\n" +
 	"\x1bGetUwbRangingParamsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
-	"\x0fToStringRequest\"*\n" +
-	"\x10ToStringResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\">\n" +
-	"\x14WriteToParcelRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
-	"\x15WriteToParcelResponse\"\x0e\n" +
-	"\fBuildRequest\"'\n" +
-	"\rBuildResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"4\n" +
 	"\x1eSetBleRssiRangingParamsRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"9\n" +
@@ -1499,18 +1593,23 @@ const file_proto_raw_raw_proto_rawDesc = "" +
 	"\x1aSetUwbRangingParamsRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"5\n" +
 	"\x1bSetUwbRangingParamsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1c\n" +
-	"\x1aGetRawRangingDeviceRequest\"5\n" +
-	"\x1bGetRawRangingDeviceResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
-	"\x1aSetRawRangingDeviceRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"5\n" +
-	"\x1bSetRawRangingDeviceResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
-	"\x1aAddRawRangingDeviceRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"5\n" +
-	"\x1bAddRawRangingDeviceResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result2\xaa\x05\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\xcb\x02\n" +
+	"\x1dResponderRangingConfigService\x12O\n" +
+	"\x10DescribeContents\x12\x1c.raw.DescribeContentsRequest\x1a\x1d.raw.DescribeContentsResponse\x12X\n" +
+	"\x13GetRawRangingDevice\x12\x1f.raw.GetRawRangingDeviceRequest\x1a .raw.GetRawRangingDeviceResponse\x127\n" +
+	"\bToString\x12\x14.raw.ToStringRequest\x1a\x15.raw.ToStringResponse\x12F\n" +
+	"\rWriteToParcel\x12\x19.raw.WriteToParcelRequest\x1a\x1a.raw.WriteToParcelResponse2\xb0\x01\n" +
+	"$ResponderRangingConfigBuilderService\x12.\n" +
+	"\x05Build\x12\x11.raw.BuildRequest\x1a\x12.raw.BuildResponse\x12X\n" +
+	"\x13SetRawRangingDevice\x12\x1f.raw.SetRawRangingDeviceRequest\x1a .raw.SetRawRangingDeviceResponse2\xce\x02\n" +
+	"\x1dInitiatorRangingConfigService\x12O\n" +
+	"\x10DescribeContents\x12\x1c.raw.DescribeContentsRequest\x1a\x1d.raw.DescribeContentsResponse\x12[\n" +
+	"\x14GetRawRangingDevices\x12 .raw.GetRawRangingDevicesRequest\x1a!.raw.GetRawRangingDevicesResponse\x127\n" +
+	"\bToString\x12\x14.raw.ToStringRequest\x1a\x15.raw.ToStringResponse\x12F\n" +
+	"\rWriteToParcel\x12\x19.raw.WriteToParcelRequest\x1a\x1a.raw.WriteToParcelResponse2\xb0\x01\n" +
+	"$InitiatorRangingConfigBuilderService\x12X\n" +
+	"\x13AddRawRangingDevice\x12\x1f.raw.AddRawRangingDeviceRequest\x1a .raw.AddRawRangingDeviceResponse\x12.\n" +
+	"\x05Build\x12\x11.raw.BuildRequest\x1a\x12.raw.BuildResponse2\xaa\x05\n" +
 	"\x14RangingDeviceService\x12O\n" +
 	"\x10DescribeContents\x12\x1c.raw.DescribeContentsRequest\x1a\x1d.raw.DescribeContentsResponse\x12d\n" +
 	"\x17GetBleRssiRangingParams\x12#.raw.GetBleRssiRangingParamsRequest\x1a$.raw.GetBleRssiRangingParamsResponse\x12U\n" +
@@ -1526,22 +1625,7 @@ const file_proto_raw_raw_proto_rawDesc = "" +
 	"\x12SetCsRangingParams\x12\x1e.raw.SetCsRangingParamsRequest\x1a\x1f.raw.SetCsRangingParamsResponse\x12O\n" +
 	"\x10SetRangingDevice\x12\x1c.raw.SetRangingDeviceRequest\x1a\x1d.raw.SetRangingDeviceResponse\x12X\n" +
 	"\x13SetRttRangingParams\x12\x1f.raw.SetRttRangingParamsRequest\x1a .raw.SetRttRangingParamsResponse\x12X\n" +
-	"\x13SetUwbRangingParams\x12\x1f.raw.SetUwbRangingParamsRequest\x1a .raw.SetUwbRangingParamsResponse2\xcb\x02\n" +
-	"\x1dResponderRangingConfigService\x12O\n" +
-	"\x10DescribeContents\x12\x1c.raw.DescribeContentsRequest\x1a\x1d.raw.DescribeContentsResponse\x12X\n" +
-	"\x13GetRawRangingDevice\x12\x1f.raw.GetRawRangingDeviceRequest\x1a .raw.GetRawRangingDeviceResponse\x127\n" +
-	"\bToString\x12\x14.raw.ToStringRequest\x1a\x15.raw.ToStringResponse\x12F\n" +
-	"\rWriteToParcel\x12\x19.raw.WriteToParcelRequest\x1a\x1a.raw.WriteToParcelResponse2\xb0\x01\n" +
-	"$ResponderRangingConfigBuilderService\x12.\n" +
-	"\x05Build\x12\x11.raw.BuildRequest\x1a\x12.raw.BuildResponse\x12X\n" +
-	"\x13SetRawRangingDevice\x12\x1f.raw.SetRawRangingDeviceRequest\x1a .raw.SetRawRangingDeviceResponse2\xf1\x01\n" +
-	"\x1dInitiatorRangingConfigService\x12O\n" +
-	"\x10DescribeContents\x12\x1c.raw.DescribeContentsRequest\x1a\x1d.raw.DescribeContentsResponse\x127\n" +
-	"\bToString\x12\x14.raw.ToStringRequest\x1a\x15.raw.ToStringResponse\x12F\n" +
-	"\rWriteToParcel\x12\x19.raw.WriteToParcelRequest\x1a\x1a.raw.WriteToParcelResponse2\xb0\x01\n" +
-	"$InitiatorRangingConfigBuilderService\x12X\n" +
-	"\x13AddRawRangingDevice\x12\x1f.raw.AddRawRangingDeviceRequest\x1a .raw.AddRawRangingDeviceResponse\x12.\n" +
-	"\x05Build\x12\x11.raw.BuildRequest\x1a\x12.raw.BuildResponseB-Z+github.com/AndroidGoLab/jni-proxy/proto/rawb\x06proto3"
+	"\x13SetUwbRangingParams\x12\x1f.raw.SetUwbRangingParamsRequest\x1a .raw.SetUwbRangingParamsResponseB-Z+github.com/AndroidGoLab/jni-proxy/proto/rawb\x06proto3"
 
 var (
 	file_proto_raw_raw_proto_rawDescOnce sync.Once
@@ -1555,96 +1639,100 @@ func file_proto_raw_raw_proto_rawDescGZIP() []byte {
 	return file_proto_raw_raw_proto_rawDescData
 }
 
-var file_proto_raw_raw_proto_msgTypes = make([]protoimpl.MessageInfo, 34)
+var file_proto_raw_raw_proto_msgTypes = make([]protoimpl.MessageInfo, 36)
 var file_proto_raw_raw_proto_goTypes = []any{
 	(*DescribeContentsRequest)(nil),         // 0: raw.DescribeContentsRequest
 	(*DescribeContentsResponse)(nil),        // 1: raw.DescribeContentsResponse
-	(*GetBleRssiRangingParamsRequest)(nil),  // 2: raw.GetBleRssiRangingParamsRequest
-	(*GetBleRssiRangingParamsResponse)(nil), // 3: raw.GetBleRssiRangingParamsResponse
-	(*GetCsRangingParamsRequest)(nil),       // 4: raw.GetCsRangingParamsRequest
-	(*GetCsRangingParamsResponse)(nil),      // 5: raw.GetCsRangingParamsResponse
-	(*GetRangingDeviceRequest)(nil),         // 6: raw.GetRangingDeviceRequest
-	(*GetRangingDeviceResponse)(nil),        // 7: raw.GetRangingDeviceResponse
-	(*GetRttRangingParamsRequest)(nil),      // 8: raw.GetRttRangingParamsRequest
-	(*GetRttRangingParamsResponse)(nil),     // 9: raw.GetRttRangingParamsResponse
-	(*GetUwbRangingParamsRequest)(nil),      // 10: raw.GetUwbRangingParamsRequest
-	(*GetUwbRangingParamsResponse)(nil),     // 11: raw.GetUwbRangingParamsResponse
-	(*ToStringRequest)(nil),                 // 12: raw.ToStringRequest
-	(*ToStringResponse)(nil),                // 13: raw.ToStringResponse
-	(*WriteToParcelRequest)(nil),            // 14: raw.WriteToParcelRequest
-	(*WriteToParcelResponse)(nil),           // 15: raw.WriteToParcelResponse
-	(*BuildRequest)(nil),                    // 16: raw.BuildRequest
-	(*BuildResponse)(nil),                   // 17: raw.BuildResponse
-	(*SetBleRssiRangingParamsRequest)(nil),  // 18: raw.SetBleRssiRangingParamsRequest
-	(*SetBleRssiRangingParamsResponse)(nil), // 19: raw.SetBleRssiRangingParamsResponse
-	(*SetCsRangingParamsRequest)(nil),       // 20: raw.SetCsRangingParamsRequest
-	(*SetCsRangingParamsResponse)(nil),      // 21: raw.SetCsRangingParamsResponse
-	(*SetRangingDeviceRequest)(nil),         // 22: raw.SetRangingDeviceRequest
-	(*SetRangingDeviceResponse)(nil),        // 23: raw.SetRangingDeviceResponse
-	(*SetRttRangingParamsRequest)(nil),      // 24: raw.SetRttRangingParamsRequest
-	(*SetRttRangingParamsResponse)(nil),     // 25: raw.SetRttRangingParamsResponse
-	(*SetUwbRangingParamsRequest)(nil),      // 26: raw.SetUwbRangingParamsRequest
-	(*SetUwbRangingParamsResponse)(nil),     // 27: raw.SetUwbRangingParamsResponse
-	(*GetRawRangingDeviceRequest)(nil),      // 28: raw.GetRawRangingDeviceRequest
-	(*GetRawRangingDeviceResponse)(nil),     // 29: raw.GetRawRangingDeviceResponse
-	(*SetRawRangingDeviceRequest)(nil),      // 30: raw.SetRawRangingDeviceRequest
-	(*SetRawRangingDeviceResponse)(nil),     // 31: raw.SetRawRangingDeviceResponse
-	(*AddRawRangingDeviceRequest)(nil),      // 32: raw.AddRawRangingDeviceRequest
-	(*AddRawRangingDeviceResponse)(nil),     // 33: raw.AddRawRangingDeviceResponse
+	(*GetRawRangingDeviceRequest)(nil),      // 2: raw.GetRawRangingDeviceRequest
+	(*GetRawRangingDeviceResponse)(nil),     // 3: raw.GetRawRangingDeviceResponse
+	(*ToStringRequest)(nil),                 // 4: raw.ToStringRequest
+	(*ToStringResponse)(nil),                // 5: raw.ToStringResponse
+	(*WriteToParcelRequest)(nil),            // 6: raw.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),           // 7: raw.WriteToParcelResponse
+	(*BuildRequest)(nil),                    // 8: raw.BuildRequest
+	(*BuildResponse)(nil),                   // 9: raw.BuildResponse
+	(*SetRawRangingDeviceRequest)(nil),      // 10: raw.SetRawRangingDeviceRequest
+	(*SetRawRangingDeviceResponse)(nil),     // 11: raw.SetRawRangingDeviceResponse
+	(*GetRawRangingDevicesRequest)(nil),     // 12: raw.GetRawRangingDevicesRequest
+	(*GetRawRangingDevicesResponse)(nil),    // 13: raw.GetRawRangingDevicesResponse
+	(*AddRawRangingDeviceRequest)(nil),      // 14: raw.AddRawRangingDeviceRequest
+	(*AddRawRangingDeviceResponse)(nil),     // 15: raw.AddRawRangingDeviceResponse
+	(*GetBleRssiRangingParamsRequest)(nil),  // 16: raw.GetBleRssiRangingParamsRequest
+	(*GetBleRssiRangingParamsResponse)(nil), // 17: raw.GetBleRssiRangingParamsResponse
+	(*GetCsRangingParamsRequest)(nil),       // 18: raw.GetCsRangingParamsRequest
+	(*GetCsRangingParamsResponse)(nil),      // 19: raw.GetCsRangingParamsResponse
+	(*GetRangingDeviceRequest)(nil),         // 20: raw.GetRangingDeviceRequest
+	(*GetRangingDeviceResponse)(nil),        // 21: raw.GetRangingDeviceResponse
+	(*GetRttRangingParamsRequest)(nil),      // 22: raw.GetRttRangingParamsRequest
+	(*GetRttRangingParamsResponse)(nil),     // 23: raw.GetRttRangingParamsResponse
+	(*GetUwbRangingParamsRequest)(nil),      // 24: raw.GetUwbRangingParamsRequest
+	(*GetUwbRangingParamsResponse)(nil),     // 25: raw.GetUwbRangingParamsResponse
+	(*SetBleRssiRangingParamsRequest)(nil),  // 26: raw.SetBleRssiRangingParamsRequest
+	(*SetBleRssiRangingParamsResponse)(nil), // 27: raw.SetBleRssiRangingParamsResponse
+	(*SetCsRangingParamsRequest)(nil),       // 28: raw.SetCsRangingParamsRequest
+	(*SetCsRangingParamsResponse)(nil),      // 29: raw.SetCsRangingParamsResponse
+	(*SetRangingDeviceRequest)(nil),         // 30: raw.SetRangingDeviceRequest
+	(*SetRangingDeviceResponse)(nil),        // 31: raw.SetRangingDeviceResponse
+	(*SetRttRangingParamsRequest)(nil),      // 32: raw.SetRttRangingParamsRequest
+	(*SetRttRangingParamsResponse)(nil),     // 33: raw.SetRttRangingParamsResponse
+	(*SetUwbRangingParamsRequest)(nil),      // 34: raw.SetUwbRangingParamsRequest
+	(*SetUwbRangingParamsResponse)(nil),     // 35: raw.SetUwbRangingParamsResponse
 }
 var file_proto_raw_raw_proto_depIdxs = []int32{
-	0,  // 0: raw.RangingDeviceService.DescribeContents:input_type -> raw.DescribeContentsRequest
-	2,  // 1: raw.RangingDeviceService.GetBleRssiRangingParams:input_type -> raw.GetBleRssiRangingParamsRequest
-	4,  // 2: raw.RangingDeviceService.GetCsRangingParams:input_type -> raw.GetCsRangingParamsRequest
-	6,  // 3: raw.RangingDeviceService.GetRangingDevice:input_type -> raw.GetRangingDeviceRequest
-	8,  // 4: raw.RangingDeviceService.GetRttRangingParams:input_type -> raw.GetRttRangingParamsRequest
-	10, // 5: raw.RangingDeviceService.GetUwbRangingParams:input_type -> raw.GetUwbRangingParamsRequest
-	12, // 6: raw.RangingDeviceService.ToString:input_type -> raw.ToStringRequest
-	14, // 7: raw.RangingDeviceService.WriteToParcel:input_type -> raw.WriteToParcelRequest
-	16, // 8: raw.RangingDeviceBuilderService.Build:input_type -> raw.BuildRequest
-	18, // 9: raw.RangingDeviceBuilderService.SetBleRssiRangingParams:input_type -> raw.SetBleRssiRangingParamsRequest
-	20, // 10: raw.RangingDeviceBuilderService.SetCsRangingParams:input_type -> raw.SetCsRangingParamsRequest
-	22, // 11: raw.RangingDeviceBuilderService.SetRangingDevice:input_type -> raw.SetRangingDeviceRequest
-	24, // 12: raw.RangingDeviceBuilderService.SetRttRangingParams:input_type -> raw.SetRttRangingParamsRequest
-	26, // 13: raw.RangingDeviceBuilderService.SetUwbRangingParams:input_type -> raw.SetUwbRangingParamsRequest
-	0,  // 14: raw.ResponderRangingConfigService.DescribeContents:input_type -> raw.DescribeContentsRequest
-	28, // 15: raw.ResponderRangingConfigService.GetRawRangingDevice:input_type -> raw.GetRawRangingDeviceRequest
-	12, // 16: raw.ResponderRangingConfigService.ToString:input_type -> raw.ToStringRequest
-	14, // 17: raw.ResponderRangingConfigService.WriteToParcel:input_type -> raw.WriteToParcelRequest
-	16, // 18: raw.ResponderRangingConfigBuilderService.Build:input_type -> raw.BuildRequest
-	30, // 19: raw.ResponderRangingConfigBuilderService.SetRawRangingDevice:input_type -> raw.SetRawRangingDeviceRequest
-	0,  // 20: raw.InitiatorRangingConfigService.DescribeContents:input_type -> raw.DescribeContentsRequest
-	12, // 21: raw.InitiatorRangingConfigService.ToString:input_type -> raw.ToStringRequest
-	14, // 22: raw.InitiatorRangingConfigService.WriteToParcel:input_type -> raw.WriteToParcelRequest
-	32, // 23: raw.InitiatorRangingConfigBuilderService.AddRawRangingDevice:input_type -> raw.AddRawRangingDeviceRequest
-	16, // 24: raw.InitiatorRangingConfigBuilderService.Build:input_type -> raw.BuildRequest
-	1,  // 25: raw.RangingDeviceService.DescribeContents:output_type -> raw.DescribeContentsResponse
-	3,  // 26: raw.RangingDeviceService.GetBleRssiRangingParams:output_type -> raw.GetBleRssiRangingParamsResponse
-	5,  // 27: raw.RangingDeviceService.GetCsRangingParams:output_type -> raw.GetCsRangingParamsResponse
-	7,  // 28: raw.RangingDeviceService.GetRangingDevice:output_type -> raw.GetRangingDeviceResponse
-	9,  // 29: raw.RangingDeviceService.GetRttRangingParams:output_type -> raw.GetRttRangingParamsResponse
-	11, // 30: raw.RangingDeviceService.GetUwbRangingParams:output_type -> raw.GetUwbRangingParamsResponse
-	13, // 31: raw.RangingDeviceService.ToString:output_type -> raw.ToStringResponse
-	15, // 32: raw.RangingDeviceService.WriteToParcel:output_type -> raw.WriteToParcelResponse
-	17, // 33: raw.RangingDeviceBuilderService.Build:output_type -> raw.BuildResponse
-	19, // 34: raw.RangingDeviceBuilderService.SetBleRssiRangingParams:output_type -> raw.SetBleRssiRangingParamsResponse
-	21, // 35: raw.RangingDeviceBuilderService.SetCsRangingParams:output_type -> raw.SetCsRangingParamsResponse
-	23, // 36: raw.RangingDeviceBuilderService.SetRangingDevice:output_type -> raw.SetRangingDeviceResponse
-	25, // 37: raw.RangingDeviceBuilderService.SetRttRangingParams:output_type -> raw.SetRttRangingParamsResponse
-	27, // 38: raw.RangingDeviceBuilderService.SetUwbRangingParams:output_type -> raw.SetUwbRangingParamsResponse
-	1,  // 39: raw.ResponderRangingConfigService.DescribeContents:output_type -> raw.DescribeContentsResponse
-	29, // 40: raw.ResponderRangingConfigService.GetRawRangingDevice:output_type -> raw.GetRawRangingDeviceResponse
-	13, // 41: raw.ResponderRangingConfigService.ToString:output_type -> raw.ToStringResponse
-	15, // 42: raw.ResponderRangingConfigService.WriteToParcel:output_type -> raw.WriteToParcelResponse
-	17, // 43: raw.ResponderRangingConfigBuilderService.Build:output_type -> raw.BuildResponse
-	31, // 44: raw.ResponderRangingConfigBuilderService.SetRawRangingDevice:output_type -> raw.SetRawRangingDeviceResponse
-	1,  // 45: raw.InitiatorRangingConfigService.DescribeContents:output_type -> raw.DescribeContentsResponse
-	13, // 46: raw.InitiatorRangingConfigService.ToString:output_type -> raw.ToStringResponse
-	15, // 47: raw.InitiatorRangingConfigService.WriteToParcel:output_type -> raw.WriteToParcelResponse
-	33, // 48: raw.InitiatorRangingConfigBuilderService.AddRawRangingDevice:output_type -> raw.AddRawRangingDeviceResponse
-	17, // 49: raw.InitiatorRangingConfigBuilderService.Build:output_type -> raw.BuildResponse
-	25, // [25:50] is the sub-list for method output_type
-	0,  // [0:25] is the sub-list for method input_type
+	0,  // 0: raw.ResponderRangingConfigService.DescribeContents:input_type -> raw.DescribeContentsRequest
+	2,  // 1: raw.ResponderRangingConfigService.GetRawRangingDevice:input_type -> raw.GetRawRangingDeviceRequest
+	4,  // 2: raw.ResponderRangingConfigService.ToString:input_type -> raw.ToStringRequest
+	6,  // 3: raw.ResponderRangingConfigService.WriteToParcel:input_type -> raw.WriteToParcelRequest
+	8,  // 4: raw.ResponderRangingConfigBuilderService.Build:input_type -> raw.BuildRequest
+	10, // 5: raw.ResponderRangingConfigBuilderService.SetRawRangingDevice:input_type -> raw.SetRawRangingDeviceRequest
+	0,  // 6: raw.InitiatorRangingConfigService.DescribeContents:input_type -> raw.DescribeContentsRequest
+	12, // 7: raw.InitiatorRangingConfigService.GetRawRangingDevices:input_type -> raw.GetRawRangingDevicesRequest
+	4,  // 8: raw.InitiatorRangingConfigService.ToString:input_type -> raw.ToStringRequest
+	6,  // 9: raw.InitiatorRangingConfigService.WriteToParcel:input_type -> raw.WriteToParcelRequest
+	14, // 10: raw.InitiatorRangingConfigBuilderService.AddRawRangingDevice:input_type -> raw.AddRawRangingDeviceRequest
+	8,  // 11: raw.InitiatorRangingConfigBuilderService.Build:input_type -> raw.BuildRequest
+	0,  // 12: raw.RangingDeviceService.DescribeContents:input_type -> raw.DescribeContentsRequest
+	16, // 13: raw.RangingDeviceService.GetBleRssiRangingParams:input_type -> raw.GetBleRssiRangingParamsRequest
+	18, // 14: raw.RangingDeviceService.GetCsRangingParams:input_type -> raw.GetCsRangingParamsRequest
+	20, // 15: raw.RangingDeviceService.GetRangingDevice:input_type -> raw.GetRangingDeviceRequest
+	22, // 16: raw.RangingDeviceService.GetRttRangingParams:input_type -> raw.GetRttRangingParamsRequest
+	24, // 17: raw.RangingDeviceService.GetUwbRangingParams:input_type -> raw.GetUwbRangingParamsRequest
+	4,  // 18: raw.RangingDeviceService.ToString:input_type -> raw.ToStringRequest
+	6,  // 19: raw.RangingDeviceService.WriteToParcel:input_type -> raw.WriteToParcelRequest
+	8,  // 20: raw.RangingDeviceBuilderService.Build:input_type -> raw.BuildRequest
+	26, // 21: raw.RangingDeviceBuilderService.SetBleRssiRangingParams:input_type -> raw.SetBleRssiRangingParamsRequest
+	28, // 22: raw.RangingDeviceBuilderService.SetCsRangingParams:input_type -> raw.SetCsRangingParamsRequest
+	30, // 23: raw.RangingDeviceBuilderService.SetRangingDevice:input_type -> raw.SetRangingDeviceRequest
+	32, // 24: raw.RangingDeviceBuilderService.SetRttRangingParams:input_type -> raw.SetRttRangingParamsRequest
+	34, // 25: raw.RangingDeviceBuilderService.SetUwbRangingParams:input_type -> raw.SetUwbRangingParamsRequest
+	1,  // 26: raw.ResponderRangingConfigService.DescribeContents:output_type -> raw.DescribeContentsResponse
+	3,  // 27: raw.ResponderRangingConfigService.GetRawRangingDevice:output_type -> raw.GetRawRangingDeviceResponse
+	5,  // 28: raw.ResponderRangingConfigService.ToString:output_type -> raw.ToStringResponse
+	7,  // 29: raw.ResponderRangingConfigService.WriteToParcel:output_type -> raw.WriteToParcelResponse
+	9,  // 30: raw.ResponderRangingConfigBuilderService.Build:output_type -> raw.BuildResponse
+	11, // 31: raw.ResponderRangingConfigBuilderService.SetRawRangingDevice:output_type -> raw.SetRawRangingDeviceResponse
+	1,  // 32: raw.InitiatorRangingConfigService.DescribeContents:output_type -> raw.DescribeContentsResponse
+	13, // 33: raw.InitiatorRangingConfigService.GetRawRangingDevices:output_type -> raw.GetRawRangingDevicesResponse
+	5,  // 34: raw.InitiatorRangingConfigService.ToString:output_type -> raw.ToStringResponse
+	7,  // 35: raw.InitiatorRangingConfigService.WriteToParcel:output_type -> raw.WriteToParcelResponse
+	15, // 36: raw.InitiatorRangingConfigBuilderService.AddRawRangingDevice:output_type -> raw.AddRawRangingDeviceResponse
+	9,  // 37: raw.InitiatorRangingConfigBuilderService.Build:output_type -> raw.BuildResponse
+	1,  // 38: raw.RangingDeviceService.DescribeContents:output_type -> raw.DescribeContentsResponse
+	17, // 39: raw.RangingDeviceService.GetBleRssiRangingParams:output_type -> raw.GetBleRssiRangingParamsResponse
+	19, // 40: raw.RangingDeviceService.GetCsRangingParams:output_type -> raw.GetCsRangingParamsResponse
+	21, // 41: raw.RangingDeviceService.GetRangingDevice:output_type -> raw.GetRangingDeviceResponse
+	23, // 42: raw.RangingDeviceService.GetRttRangingParams:output_type -> raw.GetRttRangingParamsResponse
+	25, // 43: raw.RangingDeviceService.GetUwbRangingParams:output_type -> raw.GetUwbRangingParamsResponse
+	5,  // 44: raw.RangingDeviceService.ToString:output_type -> raw.ToStringResponse
+	7,  // 45: raw.RangingDeviceService.WriteToParcel:output_type -> raw.WriteToParcelResponse
+	9,  // 46: raw.RangingDeviceBuilderService.Build:output_type -> raw.BuildResponse
+	27, // 47: raw.RangingDeviceBuilderService.SetBleRssiRangingParams:output_type -> raw.SetBleRssiRangingParamsResponse
+	29, // 48: raw.RangingDeviceBuilderService.SetCsRangingParams:output_type -> raw.SetCsRangingParamsResponse
+	31, // 49: raw.RangingDeviceBuilderService.SetRangingDevice:output_type -> raw.SetRangingDeviceResponse
+	33, // 50: raw.RangingDeviceBuilderService.SetRttRangingParams:output_type -> raw.SetRttRangingParamsResponse
+	35, // 51: raw.RangingDeviceBuilderService.SetUwbRangingParams:output_type -> raw.SetUwbRangingParamsResponse
+	26, // [26:52] is the sub-list for method output_type
+	0,  // [0:26] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -1661,7 +1749,7 @@ func file_proto_raw_raw_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_raw_raw_proto_rawDesc), len(file_proto_raw_raw_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   34,
+			NumMessages:   36,
 			NumExtensions: 0,
 			NumServices:   6,
 		},

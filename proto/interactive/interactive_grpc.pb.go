@@ -23,6 +23,7 @@ const _ = grpc.SupportPackageIsVersion9
 const (
 	TvInteractiveAppServiceInfoService_NewTvInteractiveAppServiceInfo_FullMethodName = "/interactive.TvInteractiveAppServiceInfoService/NewTvInteractiveAppServiceInfo"
 	TvInteractiveAppServiceInfoService_DescribeContents_FullMethodName               = "/interactive.TvInteractiveAppServiceInfoService/DescribeContents"
+	TvInteractiveAppServiceInfoService_GetCustomSupportedTypes_FullMethodName        = "/interactive.TvInteractiveAppServiceInfoService/GetCustomSupportedTypes"
 	TvInteractiveAppServiceInfoService_GetId_FullMethodName                          = "/interactive.TvInteractiveAppServiceInfoService/GetId"
 	TvInteractiveAppServiceInfoService_GetServiceInfo_FullMethodName                 = "/interactive.TvInteractiveAppServiceInfoService/GetServiceInfo"
 	TvInteractiveAppServiceInfoService_GetSupportedTypes_FullMethodName              = "/interactive.TvInteractiveAppServiceInfoService/GetSupportedTypes"
@@ -35,6 +36,7 @@ const (
 type TvInteractiveAppServiceInfoServiceClient interface {
 	NewTvInteractiveAppServiceInfo(ctx context.Context, in *NewTvInteractiveAppServiceInfoRequest, opts ...grpc.CallOption) (*NewTvInteractiveAppServiceInfoResponse, error)
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetCustomSupportedTypes(ctx context.Context, in *GetCustomSupportedTypesRequest, opts ...grpc.CallOption) (*GetCustomSupportedTypesResponse, error)
 	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
 	GetServiceInfo(ctx context.Context, in *GetServiceInfoRequest, opts ...grpc.CallOption) (*GetServiceInfoResponse, error)
 	GetSupportedTypes(ctx context.Context, in *GetSupportedTypesRequest, opts ...grpc.CallOption) (*GetSupportedTypesResponse, error)
@@ -63,6 +65,16 @@ func (c *tvInteractiveAppServiceInfoServiceClient) DescribeContents(ctx context.
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
 	err := c.cc.Invoke(ctx, TvInteractiveAppServiceInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppServiceInfoServiceClient) GetCustomSupportedTypes(ctx context.Context, in *GetCustomSupportedTypesRequest, opts ...grpc.CallOption) (*GetCustomSupportedTypesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCustomSupportedTypesResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppServiceInfoService_GetCustomSupportedTypes_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -115,6 +127,7 @@ func (c *tvInteractiveAppServiceInfoServiceClient) WriteToParcel(ctx context.Con
 type TvInteractiveAppServiceInfoServiceServer interface {
 	NewTvInteractiveAppServiceInfo(context.Context, *NewTvInteractiveAppServiceInfoRequest) (*NewTvInteractiveAppServiceInfoResponse, error)
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetCustomSupportedTypes(context.Context, *GetCustomSupportedTypesRequest) (*GetCustomSupportedTypesResponse, error)
 	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
 	GetServiceInfo(context.Context, *GetServiceInfoRequest) (*GetServiceInfoResponse, error)
 	GetSupportedTypes(context.Context, *GetSupportedTypesRequest) (*GetSupportedTypesResponse, error)
@@ -134,6 +147,9 @@ func (UnimplementedTvInteractiveAppServiceInfoServiceServer) NewTvInteractiveApp
 }
 func (UnimplementedTvInteractiveAppServiceInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedTvInteractiveAppServiceInfoServiceServer) GetCustomSupportedTypes(context.Context, *GetCustomSupportedTypesRequest) (*GetCustomSupportedTypesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCustomSupportedTypes not implemented")
 }
 func (UnimplementedTvInteractiveAppServiceInfoServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
@@ -201,6 +217,24 @@ func _TvInteractiveAppServiceInfoService_DescribeContents_Handler(srv interface{
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TvInteractiveAppServiceInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppServiceInfoService_GetCustomSupportedTypes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCustomSupportedTypesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppServiceInfoServiceServer).GetCustomSupportedTypes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppServiceInfoService_GetCustomSupportedTypes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppServiceInfoServiceServer).GetCustomSupportedTypes(ctx, req.(*GetCustomSupportedTypesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -293,6 +327,10 @@ var TvInteractiveAppServiceInfoService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _TvInteractiveAppServiceInfoService_DescribeContents_Handler,
 		},
 		{
+			MethodName: "GetCustomSupportedTypes",
+			Handler:    _TvInteractiveAppServiceInfoService_GetCustomSupportedTypes_Handler,
+		},
+		{
 			MethodName: "GetId",
 			Handler:    _TvInteractiveAppServiceInfoService_GetId_Handler,
 		},
@@ -307,6 +345,3449 @@ var TvInteractiveAppServiceInfoService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "WriteToParcel",
 			Handler:    _TvInteractiveAppServiceInfoService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/interactive/interactive.proto",
+}
+
+const (
+	TvInteractiveAppViewService_NewTvInteractiveAppView_FullMethodName               = "/interactive.TvInteractiveAppViewService/NewTvInteractiveAppView"
+	TvInteractiveAppViewService_ClearCallback_FullMethodName                         = "/interactive.TvInteractiveAppViewService/ClearCallback"
+	TvInteractiveAppViewService_ClearOnUnhandledInputEventListener_FullMethodName    = "/interactive.TvInteractiveAppViewService/ClearOnUnhandledInputEventListener"
+	TvInteractiveAppViewService_CreateBiInteractiveApp_FullMethodName                = "/interactive.TvInteractiveAppViewService/CreateBiInteractiveApp"
+	TvInteractiveAppViewService_DestroyBiInteractiveApp_FullMethodName               = "/interactive.TvInteractiveAppViewService/DestroyBiInteractiveApp"
+	TvInteractiveAppViewService_DispatchKeyEvent_FullMethodName                      = "/interactive.TvInteractiveAppViewService/DispatchKeyEvent"
+	TvInteractiveAppViewService_DispatchUnhandledInputEvent_FullMethodName           = "/interactive.TvInteractiveAppViewService/DispatchUnhandledInputEvent"
+	TvInteractiveAppViewService_GetOnUnhandledInputEventListener_FullMethodName      = "/interactive.TvInteractiveAppViewService/GetOnUnhandledInputEventListener"
+	TvInteractiveAppViewService_NotifyError_FullMethodName                           = "/interactive.TvInteractiveAppViewService/NotifyError"
+	TvInteractiveAppViewService_NotifyRecordingScheduled_FullMethodName              = "/interactive.TvInteractiveAppViewService/NotifyRecordingScheduled"
+	TvInteractiveAppViewService_NotifyRecordingStarted_FullMethodName                = "/interactive.TvInteractiveAppViewService/NotifyRecordingStarted"
+	TvInteractiveAppViewService_NotifyRecordingStopped_FullMethodName                = "/interactive.TvInteractiveAppViewService/NotifyRecordingStopped"
+	TvInteractiveAppViewService_NotifyTimeShiftCurrentPositionChanged_FullMethodName = "/interactive.TvInteractiveAppViewService/NotifyTimeShiftCurrentPositionChanged"
+	TvInteractiveAppViewService_NotifyTimeShiftPlaybackParams_FullMethodName         = "/interactive.TvInteractiveAppViewService/NotifyTimeShiftPlaybackParams"
+	TvInteractiveAppViewService_NotifyTimeShiftStartPositionChanged_FullMethodName   = "/interactive.TvInteractiveAppViewService/NotifyTimeShiftStartPositionChanged"
+	TvInteractiveAppViewService_NotifyTimeShiftStatusChanged_FullMethodName          = "/interactive.TvInteractiveAppViewService/NotifyTimeShiftStatusChanged"
+	TvInteractiveAppViewService_NotifyTvMessage_FullMethodName                       = "/interactive.TvInteractiveAppViewService/NotifyTvMessage"
+	TvInteractiveAppViewService_NotifyVideoFreezeUpdated_FullMethodName              = "/interactive.TvInteractiveAppViewService/NotifyVideoFreezeUpdated"
+	TvInteractiveAppViewService_OnAttachedToWindow_FullMethodName                    = "/interactive.TvInteractiveAppViewService/OnAttachedToWindow"
+	TvInteractiveAppViewService_OnDetachedFromWindow_FullMethodName                  = "/interactive.TvInteractiveAppViewService/OnDetachedFromWindow"
+	TvInteractiveAppViewService_OnLayout_FullMethodName                              = "/interactive.TvInteractiveAppViewService/OnLayout"
+	TvInteractiveAppViewService_OnMeasure_FullMethodName                             = "/interactive.TvInteractiveAppViewService/OnMeasure"
+	TvInteractiveAppViewService_OnUnhandledInputEvent_FullMethodName                 = "/interactive.TvInteractiveAppViewService/OnUnhandledInputEvent"
+	TvInteractiveAppViewService_OnVisibilityChanged_FullMethodName                   = "/interactive.TvInteractiveAppViewService/OnVisibilityChanged"
+	TvInteractiveAppViewService_PrepareInteractiveApp_FullMethodName                 = "/interactive.TvInteractiveAppViewService/PrepareInteractiveApp"
+	TvInteractiveAppViewService_Reset_FullMethodName                                 = "/interactive.TvInteractiveAppViewService/Reset"
+	TvInteractiveAppViewService_ResetInteractiveApp_FullMethodName                   = "/interactive.TvInteractiveAppViewService/ResetInteractiveApp"
+	TvInteractiveAppViewService_SendAvailableSpeeds_FullMethodName                   = "/interactive.TvInteractiveAppViewService/SendAvailableSpeeds"
+	TvInteractiveAppViewService_SendCertificate_FullMethodName                       = "/interactive.TvInteractiveAppViewService/SendCertificate"
+	TvInteractiveAppViewService_SendCurrentChannelLcn_FullMethodName                 = "/interactive.TvInteractiveAppViewService/SendCurrentChannelLcn"
+	TvInteractiveAppViewService_SendCurrentChannelUri_FullMethodName                 = "/interactive.TvInteractiveAppViewService/SendCurrentChannelUri"
+	TvInteractiveAppViewService_SendCurrentTvInputId_FullMethodName                  = "/interactive.TvInteractiveAppViewService/SendCurrentTvInputId"
+	TvInteractiveAppViewService_SendCurrentVideoBounds_FullMethodName                = "/interactive.TvInteractiveAppViewService/SendCurrentVideoBounds"
+	TvInteractiveAppViewService_SendSigningResult_FullMethodName                     = "/interactive.TvInteractiveAppViewService/SendSigningResult"
+	TvInteractiveAppViewService_SendStreamVolume_FullMethodName                      = "/interactive.TvInteractiveAppViewService/SendStreamVolume"
+	TvInteractiveAppViewService_SendTimeShiftMode_FullMethodName                     = "/interactive.TvInteractiveAppViewService/SendTimeShiftMode"
+	TvInteractiveAppViewService_SendTvRecordingInfo_FullMethodName                   = "/interactive.TvInteractiveAppViewService/SendTvRecordingInfo"
+	TvInteractiveAppViewService_SetCallback_FullMethodName                           = "/interactive.TvInteractiveAppViewService/SetCallback"
+	TvInteractiveAppViewService_SetOnUnhandledInputEventListener_FullMethodName      = "/interactive.TvInteractiveAppViewService/SetOnUnhandledInputEventListener"
+	TvInteractiveAppViewService_SetTeletextAppEnabled_FullMethodName                 = "/interactive.TvInteractiveAppViewService/SetTeletextAppEnabled"
+	TvInteractiveAppViewService_SetTvView_FullMethodName                             = "/interactive.TvInteractiveAppViewService/SetTvView"
+	TvInteractiveAppViewService_SetZOrderMediaOverlay_FullMethodName                 = "/interactive.TvInteractiveAppViewService/SetZOrderMediaOverlay"
+	TvInteractiveAppViewService_SetZOrderOnTop_FullMethodName                        = "/interactive.TvInteractiveAppViewService/SetZOrderOnTop"
+	TvInteractiveAppViewService_StartInteractiveApp_FullMethodName                   = "/interactive.TvInteractiveAppViewService/StartInteractiveApp"
+	TvInteractiveAppViewService_StopInteractiveApp_FullMethodName                    = "/interactive.TvInteractiveAppViewService/StopInteractiveApp"
+)
+
+// TvInteractiveAppViewServiceClient is the client API for TvInteractiveAppViewService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TvInteractiveAppViewServiceClient interface {
+	NewTvInteractiveAppView(ctx context.Context, in *NewTvInteractiveAppViewRequest, opts ...grpc.CallOption) (*NewTvInteractiveAppViewResponse, error)
+	ClearCallback(ctx context.Context, in *ClearCallbackRequest, opts ...grpc.CallOption) (*ClearCallbackResponse, error)
+	ClearOnUnhandledInputEventListener(ctx context.Context, in *ClearOnUnhandledInputEventListenerRequest, opts ...grpc.CallOption) (*ClearOnUnhandledInputEventListenerResponse, error)
+	CreateBiInteractiveApp(ctx context.Context, in *CreateBiInteractiveAppRequest, opts ...grpc.CallOption) (*CreateBiInteractiveAppResponse, error)
+	DestroyBiInteractiveApp(ctx context.Context, in *DestroyBiInteractiveAppRequest, opts ...grpc.CallOption) (*DestroyBiInteractiveAppResponse, error)
+	DispatchKeyEvent(ctx context.Context, in *DispatchKeyEventRequest, opts ...grpc.CallOption) (*DispatchKeyEventResponse, error)
+	DispatchUnhandledInputEvent(ctx context.Context, in *DispatchUnhandledInputEventRequest, opts ...grpc.CallOption) (*DispatchUnhandledInputEventResponse, error)
+	GetOnUnhandledInputEventListener(ctx context.Context, in *GetOnUnhandledInputEventListenerRequest, opts ...grpc.CallOption) (*GetOnUnhandledInputEventListenerResponse, error)
+	NotifyError(ctx context.Context, in *NotifyErrorRequest, opts ...grpc.CallOption) (*NotifyErrorResponse, error)
+	NotifyRecordingScheduled(ctx context.Context, in *NotifyRecordingScheduledRequest, opts ...grpc.CallOption) (*NotifyRecordingScheduledResponse, error)
+	NotifyRecordingStarted(ctx context.Context, in *NotifyRecordingStartedRequest, opts ...grpc.CallOption) (*NotifyRecordingStartedResponse, error)
+	NotifyRecordingStopped(ctx context.Context, in *NotifyRecordingStoppedRequest, opts ...grpc.CallOption) (*NotifyRecordingStoppedResponse, error)
+	NotifyTimeShiftCurrentPositionChanged(ctx context.Context, in *NotifyTimeShiftCurrentPositionChangedRequest, opts ...grpc.CallOption) (*NotifyTimeShiftCurrentPositionChangedResponse, error)
+	NotifyTimeShiftPlaybackParams(ctx context.Context, in *NotifyTimeShiftPlaybackParamsRequest, opts ...grpc.CallOption) (*NotifyTimeShiftPlaybackParamsResponse, error)
+	NotifyTimeShiftStartPositionChanged(ctx context.Context, in *NotifyTimeShiftStartPositionChangedRequest, opts ...grpc.CallOption) (*NotifyTimeShiftStartPositionChangedResponse, error)
+	NotifyTimeShiftStatusChanged(ctx context.Context, in *NotifyTimeShiftStatusChangedRequest, opts ...grpc.CallOption) (*NotifyTimeShiftStatusChangedResponse, error)
+	NotifyTvMessage(ctx context.Context, in *NotifyTvMessageRequest, opts ...grpc.CallOption) (*NotifyTvMessageResponse, error)
+	NotifyVideoFreezeUpdated(ctx context.Context, in *NotifyVideoFreezeUpdatedRequest, opts ...grpc.CallOption) (*NotifyVideoFreezeUpdatedResponse, error)
+	OnAttachedToWindow(ctx context.Context, in *OnAttachedToWindowRequest, opts ...grpc.CallOption) (*OnAttachedToWindowResponse, error)
+	OnDetachedFromWindow(ctx context.Context, in *OnDetachedFromWindowRequest, opts ...grpc.CallOption) (*OnDetachedFromWindowResponse, error)
+	OnLayout(ctx context.Context, in *OnLayoutRequest, opts ...grpc.CallOption) (*OnLayoutResponse, error)
+	OnMeasure(ctx context.Context, in *OnMeasureRequest, opts ...grpc.CallOption) (*OnMeasureResponse, error)
+	OnUnhandledInputEvent(ctx context.Context, in *OnUnhandledInputEventRequest, opts ...grpc.CallOption) (*OnUnhandledInputEventResponse, error)
+	OnVisibilityChanged(ctx context.Context, in *OnVisibilityChangedRequest, opts ...grpc.CallOption) (*OnVisibilityChangedResponse, error)
+	PrepareInteractiveApp(ctx context.Context, in *PrepareInteractiveAppRequest, opts ...grpc.CallOption) (*PrepareInteractiveAppResponse, error)
+	Reset(ctx context.Context, in *ResetRequest, opts ...grpc.CallOption) (*ResetResponse, error)
+	ResetInteractiveApp(ctx context.Context, in *ResetInteractiveAppRequest, opts ...grpc.CallOption) (*ResetInteractiveAppResponse, error)
+	SendAvailableSpeeds(ctx context.Context, in *SendAvailableSpeedsRequest, opts ...grpc.CallOption) (*SendAvailableSpeedsResponse, error)
+	SendCertificate(ctx context.Context, in *SendCertificateRequest, opts ...grpc.CallOption) (*SendCertificateResponse, error)
+	SendCurrentChannelLcn(ctx context.Context, in *SendCurrentChannelLcnRequest, opts ...grpc.CallOption) (*SendCurrentChannelLcnResponse, error)
+	SendCurrentChannelUri(ctx context.Context, in *SendCurrentChannelUriRequest, opts ...grpc.CallOption) (*SendCurrentChannelUriResponse, error)
+	SendCurrentTvInputId(ctx context.Context, in *SendCurrentTvInputIdRequest, opts ...grpc.CallOption) (*SendCurrentTvInputIdResponse, error)
+	SendCurrentVideoBounds(ctx context.Context, in *SendCurrentVideoBoundsRequest, opts ...grpc.CallOption) (*SendCurrentVideoBoundsResponse, error)
+	SendSigningResult(ctx context.Context, in *SendSigningResultRequest, opts ...grpc.CallOption) (*SendSigningResultResponse, error)
+	SendStreamVolume(ctx context.Context, in *SendStreamVolumeRequest, opts ...grpc.CallOption) (*SendStreamVolumeResponse, error)
+	SendTimeShiftMode(ctx context.Context, in *SendTimeShiftModeRequest, opts ...grpc.CallOption) (*SendTimeShiftModeResponse, error)
+	SendTvRecordingInfo(ctx context.Context, in *SendTvRecordingInfoRequest, opts ...grpc.CallOption) (*SendTvRecordingInfoResponse, error)
+	SetCallback(ctx context.Context, in *SetCallbackRequest, opts ...grpc.CallOption) (*SetCallbackResponse, error)
+	SetOnUnhandledInputEventListener(ctx context.Context, in *SetOnUnhandledInputEventListenerRequest, opts ...grpc.CallOption) (*SetOnUnhandledInputEventListenerResponse, error)
+	SetTeletextAppEnabled(ctx context.Context, in *SetTeletextAppEnabledRequest, opts ...grpc.CallOption) (*SetTeletextAppEnabledResponse, error)
+	SetTvView(ctx context.Context, in *SetTvViewRequest, opts ...grpc.CallOption) (*SetTvViewResponse, error)
+	SetZOrderMediaOverlay(ctx context.Context, in *SetZOrderMediaOverlayRequest, opts ...grpc.CallOption) (*SetZOrderMediaOverlayResponse, error)
+	SetZOrderOnTop(ctx context.Context, in *SetZOrderOnTopRequest, opts ...grpc.CallOption) (*SetZOrderOnTopResponse, error)
+	StartInteractiveApp(ctx context.Context, in *StartInteractiveAppRequest, opts ...grpc.CallOption) (*StartInteractiveAppResponse, error)
+	StopInteractiveApp(ctx context.Context, in *StopInteractiveAppRequest, opts ...grpc.CallOption) (*StopInteractiveAppResponse, error)
+}
+
+type tvInteractiveAppViewServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTvInteractiveAppViewServiceClient(cc grpc.ClientConnInterface) TvInteractiveAppViewServiceClient {
+	return &tvInteractiveAppViewServiceClient{cc}
+}
+
+func (c *tvInteractiveAppViewServiceClient) NewTvInteractiveAppView(ctx context.Context, in *NewTvInteractiveAppViewRequest, opts ...grpc.CallOption) (*NewTvInteractiveAppViewResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewTvInteractiveAppViewResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_NewTvInteractiveAppView_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) ClearCallback(ctx context.Context, in *ClearCallbackRequest, opts ...grpc.CallOption) (*ClearCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ClearCallbackResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_ClearCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) ClearOnUnhandledInputEventListener(ctx context.Context, in *ClearOnUnhandledInputEventListenerRequest, opts ...grpc.CallOption) (*ClearOnUnhandledInputEventListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ClearOnUnhandledInputEventListenerResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_ClearOnUnhandledInputEventListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) CreateBiInteractiveApp(ctx context.Context, in *CreateBiInteractiveAppRequest, opts ...grpc.CallOption) (*CreateBiInteractiveAppResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateBiInteractiveAppResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_CreateBiInteractiveApp_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) DestroyBiInteractiveApp(ctx context.Context, in *DestroyBiInteractiveAppRequest, opts ...grpc.CallOption) (*DestroyBiInteractiveAppResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DestroyBiInteractiveAppResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_DestroyBiInteractiveApp_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) DispatchKeyEvent(ctx context.Context, in *DispatchKeyEventRequest, opts ...grpc.CallOption) (*DispatchKeyEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DispatchKeyEventResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_DispatchKeyEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) DispatchUnhandledInputEvent(ctx context.Context, in *DispatchUnhandledInputEventRequest, opts ...grpc.CallOption) (*DispatchUnhandledInputEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DispatchUnhandledInputEventResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_DispatchUnhandledInputEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) GetOnUnhandledInputEventListener(ctx context.Context, in *GetOnUnhandledInputEventListenerRequest, opts ...grpc.CallOption) (*GetOnUnhandledInputEventListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOnUnhandledInputEventListenerResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_GetOnUnhandledInputEventListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) NotifyError(ctx context.Context, in *NotifyErrorRequest, opts ...grpc.CallOption) (*NotifyErrorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyErrorResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_NotifyError_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) NotifyRecordingScheduled(ctx context.Context, in *NotifyRecordingScheduledRequest, opts ...grpc.CallOption) (*NotifyRecordingScheduledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyRecordingScheduledResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_NotifyRecordingScheduled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) NotifyRecordingStarted(ctx context.Context, in *NotifyRecordingStartedRequest, opts ...grpc.CallOption) (*NotifyRecordingStartedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyRecordingStartedResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_NotifyRecordingStarted_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) NotifyRecordingStopped(ctx context.Context, in *NotifyRecordingStoppedRequest, opts ...grpc.CallOption) (*NotifyRecordingStoppedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyRecordingStoppedResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_NotifyRecordingStopped_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) NotifyTimeShiftCurrentPositionChanged(ctx context.Context, in *NotifyTimeShiftCurrentPositionChangedRequest, opts ...grpc.CallOption) (*NotifyTimeShiftCurrentPositionChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyTimeShiftCurrentPositionChangedResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_NotifyTimeShiftCurrentPositionChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) NotifyTimeShiftPlaybackParams(ctx context.Context, in *NotifyTimeShiftPlaybackParamsRequest, opts ...grpc.CallOption) (*NotifyTimeShiftPlaybackParamsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyTimeShiftPlaybackParamsResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_NotifyTimeShiftPlaybackParams_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) NotifyTimeShiftStartPositionChanged(ctx context.Context, in *NotifyTimeShiftStartPositionChangedRequest, opts ...grpc.CallOption) (*NotifyTimeShiftStartPositionChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyTimeShiftStartPositionChangedResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_NotifyTimeShiftStartPositionChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) NotifyTimeShiftStatusChanged(ctx context.Context, in *NotifyTimeShiftStatusChangedRequest, opts ...grpc.CallOption) (*NotifyTimeShiftStatusChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyTimeShiftStatusChangedResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_NotifyTimeShiftStatusChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) NotifyTvMessage(ctx context.Context, in *NotifyTvMessageRequest, opts ...grpc.CallOption) (*NotifyTvMessageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyTvMessageResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_NotifyTvMessage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) NotifyVideoFreezeUpdated(ctx context.Context, in *NotifyVideoFreezeUpdatedRequest, opts ...grpc.CallOption) (*NotifyVideoFreezeUpdatedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NotifyVideoFreezeUpdatedResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_NotifyVideoFreezeUpdated_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) OnAttachedToWindow(ctx context.Context, in *OnAttachedToWindowRequest, opts ...grpc.CallOption) (*OnAttachedToWindowResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnAttachedToWindowResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_OnAttachedToWindow_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) OnDetachedFromWindow(ctx context.Context, in *OnDetachedFromWindowRequest, opts ...grpc.CallOption) (*OnDetachedFromWindowResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnDetachedFromWindowResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_OnDetachedFromWindow_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) OnLayout(ctx context.Context, in *OnLayoutRequest, opts ...grpc.CallOption) (*OnLayoutResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnLayoutResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_OnLayout_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) OnMeasure(ctx context.Context, in *OnMeasureRequest, opts ...grpc.CallOption) (*OnMeasureResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnMeasureResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_OnMeasure_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) OnUnhandledInputEvent(ctx context.Context, in *OnUnhandledInputEventRequest, opts ...grpc.CallOption) (*OnUnhandledInputEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnUnhandledInputEventResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_OnUnhandledInputEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) OnVisibilityChanged(ctx context.Context, in *OnVisibilityChangedRequest, opts ...grpc.CallOption) (*OnVisibilityChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnVisibilityChangedResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_OnVisibilityChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) PrepareInteractiveApp(ctx context.Context, in *PrepareInteractiveAppRequest, opts ...grpc.CallOption) (*PrepareInteractiveAppResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PrepareInteractiveAppResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_PrepareInteractiveApp_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) Reset(ctx context.Context, in *ResetRequest, opts ...grpc.CallOption) (*ResetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ResetResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_Reset_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) ResetInteractiveApp(ctx context.Context, in *ResetInteractiveAppRequest, opts ...grpc.CallOption) (*ResetInteractiveAppResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ResetInteractiveAppResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_ResetInteractiveApp_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) SendAvailableSpeeds(ctx context.Context, in *SendAvailableSpeedsRequest, opts ...grpc.CallOption) (*SendAvailableSpeedsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendAvailableSpeedsResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_SendAvailableSpeeds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) SendCertificate(ctx context.Context, in *SendCertificateRequest, opts ...grpc.CallOption) (*SendCertificateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendCertificateResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_SendCertificate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) SendCurrentChannelLcn(ctx context.Context, in *SendCurrentChannelLcnRequest, opts ...grpc.CallOption) (*SendCurrentChannelLcnResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendCurrentChannelLcnResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_SendCurrentChannelLcn_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) SendCurrentChannelUri(ctx context.Context, in *SendCurrentChannelUriRequest, opts ...grpc.CallOption) (*SendCurrentChannelUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendCurrentChannelUriResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_SendCurrentChannelUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) SendCurrentTvInputId(ctx context.Context, in *SendCurrentTvInputIdRequest, opts ...grpc.CallOption) (*SendCurrentTvInputIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendCurrentTvInputIdResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_SendCurrentTvInputId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) SendCurrentVideoBounds(ctx context.Context, in *SendCurrentVideoBoundsRequest, opts ...grpc.CallOption) (*SendCurrentVideoBoundsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendCurrentVideoBoundsResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_SendCurrentVideoBounds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) SendSigningResult(ctx context.Context, in *SendSigningResultRequest, opts ...grpc.CallOption) (*SendSigningResultResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendSigningResultResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_SendSigningResult_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) SendStreamVolume(ctx context.Context, in *SendStreamVolumeRequest, opts ...grpc.CallOption) (*SendStreamVolumeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendStreamVolumeResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_SendStreamVolume_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) SendTimeShiftMode(ctx context.Context, in *SendTimeShiftModeRequest, opts ...grpc.CallOption) (*SendTimeShiftModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendTimeShiftModeResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_SendTimeShiftMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) SendTvRecordingInfo(ctx context.Context, in *SendTvRecordingInfoRequest, opts ...grpc.CallOption) (*SendTvRecordingInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendTvRecordingInfoResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_SendTvRecordingInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) SetCallback(ctx context.Context, in *SetCallbackRequest, opts ...grpc.CallOption) (*SetCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetCallbackResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_SetCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) SetOnUnhandledInputEventListener(ctx context.Context, in *SetOnUnhandledInputEventListenerRequest, opts ...grpc.CallOption) (*SetOnUnhandledInputEventListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetOnUnhandledInputEventListenerResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_SetOnUnhandledInputEventListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) SetTeletextAppEnabled(ctx context.Context, in *SetTeletextAppEnabledRequest, opts ...grpc.CallOption) (*SetTeletextAppEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTeletextAppEnabledResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_SetTeletextAppEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) SetTvView(ctx context.Context, in *SetTvViewRequest, opts ...grpc.CallOption) (*SetTvViewResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTvViewResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_SetTvView_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) SetZOrderMediaOverlay(ctx context.Context, in *SetZOrderMediaOverlayRequest, opts ...grpc.CallOption) (*SetZOrderMediaOverlayResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetZOrderMediaOverlayResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_SetZOrderMediaOverlay_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) SetZOrderOnTop(ctx context.Context, in *SetZOrderOnTopRequest, opts ...grpc.CallOption) (*SetZOrderOnTopResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetZOrderOnTopResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_SetZOrderOnTop_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) StartInteractiveApp(ctx context.Context, in *StartInteractiveAppRequest, opts ...grpc.CallOption) (*StartInteractiveAppResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StartInteractiveAppResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_StartInteractiveApp_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewServiceClient) StopInteractiveApp(ctx context.Context, in *StopInteractiveAppRequest, opts ...grpc.CallOption) (*StopInteractiveAppResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StopInteractiveAppResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_StopInteractiveApp_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TvInteractiveAppViewServiceServer is the server API for TvInteractiveAppViewService service.
+// All implementations must embed UnimplementedTvInteractiveAppViewServiceServer
+// for forward compatibility.
+type TvInteractiveAppViewServiceServer interface {
+	NewTvInteractiveAppView(context.Context, *NewTvInteractiveAppViewRequest) (*NewTvInteractiveAppViewResponse, error)
+	ClearCallback(context.Context, *ClearCallbackRequest) (*ClearCallbackResponse, error)
+	ClearOnUnhandledInputEventListener(context.Context, *ClearOnUnhandledInputEventListenerRequest) (*ClearOnUnhandledInputEventListenerResponse, error)
+	CreateBiInteractiveApp(context.Context, *CreateBiInteractiveAppRequest) (*CreateBiInteractiveAppResponse, error)
+	DestroyBiInteractiveApp(context.Context, *DestroyBiInteractiveAppRequest) (*DestroyBiInteractiveAppResponse, error)
+	DispatchKeyEvent(context.Context, *DispatchKeyEventRequest) (*DispatchKeyEventResponse, error)
+	DispatchUnhandledInputEvent(context.Context, *DispatchUnhandledInputEventRequest) (*DispatchUnhandledInputEventResponse, error)
+	GetOnUnhandledInputEventListener(context.Context, *GetOnUnhandledInputEventListenerRequest) (*GetOnUnhandledInputEventListenerResponse, error)
+	NotifyError(context.Context, *NotifyErrorRequest) (*NotifyErrorResponse, error)
+	NotifyRecordingScheduled(context.Context, *NotifyRecordingScheduledRequest) (*NotifyRecordingScheduledResponse, error)
+	NotifyRecordingStarted(context.Context, *NotifyRecordingStartedRequest) (*NotifyRecordingStartedResponse, error)
+	NotifyRecordingStopped(context.Context, *NotifyRecordingStoppedRequest) (*NotifyRecordingStoppedResponse, error)
+	NotifyTimeShiftCurrentPositionChanged(context.Context, *NotifyTimeShiftCurrentPositionChangedRequest) (*NotifyTimeShiftCurrentPositionChangedResponse, error)
+	NotifyTimeShiftPlaybackParams(context.Context, *NotifyTimeShiftPlaybackParamsRequest) (*NotifyTimeShiftPlaybackParamsResponse, error)
+	NotifyTimeShiftStartPositionChanged(context.Context, *NotifyTimeShiftStartPositionChangedRequest) (*NotifyTimeShiftStartPositionChangedResponse, error)
+	NotifyTimeShiftStatusChanged(context.Context, *NotifyTimeShiftStatusChangedRequest) (*NotifyTimeShiftStatusChangedResponse, error)
+	NotifyTvMessage(context.Context, *NotifyTvMessageRequest) (*NotifyTvMessageResponse, error)
+	NotifyVideoFreezeUpdated(context.Context, *NotifyVideoFreezeUpdatedRequest) (*NotifyVideoFreezeUpdatedResponse, error)
+	OnAttachedToWindow(context.Context, *OnAttachedToWindowRequest) (*OnAttachedToWindowResponse, error)
+	OnDetachedFromWindow(context.Context, *OnDetachedFromWindowRequest) (*OnDetachedFromWindowResponse, error)
+	OnLayout(context.Context, *OnLayoutRequest) (*OnLayoutResponse, error)
+	OnMeasure(context.Context, *OnMeasureRequest) (*OnMeasureResponse, error)
+	OnUnhandledInputEvent(context.Context, *OnUnhandledInputEventRequest) (*OnUnhandledInputEventResponse, error)
+	OnVisibilityChanged(context.Context, *OnVisibilityChangedRequest) (*OnVisibilityChangedResponse, error)
+	PrepareInteractiveApp(context.Context, *PrepareInteractiveAppRequest) (*PrepareInteractiveAppResponse, error)
+	Reset(context.Context, *ResetRequest) (*ResetResponse, error)
+	ResetInteractiveApp(context.Context, *ResetInteractiveAppRequest) (*ResetInteractiveAppResponse, error)
+	SendAvailableSpeeds(context.Context, *SendAvailableSpeedsRequest) (*SendAvailableSpeedsResponse, error)
+	SendCertificate(context.Context, *SendCertificateRequest) (*SendCertificateResponse, error)
+	SendCurrentChannelLcn(context.Context, *SendCurrentChannelLcnRequest) (*SendCurrentChannelLcnResponse, error)
+	SendCurrentChannelUri(context.Context, *SendCurrentChannelUriRequest) (*SendCurrentChannelUriResponse, error)
+	SendCurrentTvInputId(context.Context, *SendCurrentTvInputIdRequest) (*SendCurrentTvInputIdResponse, error)
+	SendCurrentVideoBounds(context.Context, *SendCurrentVideoBoundsRequest) (*SendCurrentVideoBoundsResponse, error)
+	SendSigningResult(context.Context, *SendSigningResultRequest) (*SendSigningResultResponse, error)
+	SendStreamVolume(context.Context, *SendStreamVolumeRequest) (*SendStreamVolumeResponse, error)
+	SendTimeShiftMode(context.Context, *SendTimeShiftModeRequest) (*SendTimeShiftModeResponse, error)
+	SendTvRecordingInfo(context.Context, *SendTvRecordingInfoRequest) (*SendTvRecordingInfoResponse, error)
+	SetCallback(context.Context, *SetCallbackRequest) (*SetCallbackResponse, error)
+	SetOnUnhandledInputEventListener(context.Context, *SetOnUnhandledInputEventListenerRequest) (*SetOnUnhandledInputEventListenerResponse, error)
+	SetTeletextAppEnabled(context.Context, *SetTeletextAppEnabledRequest) (*SetTeletextAppEnabledResponse, error)
+	SetTvView(context.Context, *SetTvViewRequest) (*SetTvViewResponse, error)
+	SetZOrderMediaOverlay(context.Context, *SetZOrderMediaOverlayRequest) (*SetZOrderMediaOverlayResponse, error)
+	SetZOrderOnTop(context.Context, *SetZOrderOnTopRequest) (*SetZOrderOnTopResponse, error)
+	StartInteractiveApp(context.Context, *StartInteractiveAppRequest) (*StartInteractiveAppResponse, error)
+	StopInteractiveApp(context.Context, *StopInteractiveAppRequest) (*StopInteractiveAppResponse, error)
+	mustEmbedUnimplementedTvInteractiveAppViewServiceServer()
+}
+
+// UnimplementedTvInteractiveAppViewServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTvInteractiveAppViewServiceServer struct{}
+
+func (UnimplementedTvInteractiveAppViewServiceServer) NewTvInteractiveAppView(context.Context, *NewTvInteractiveAppViewRequest) (*NewTvInteractiveAppViewResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewTvInteractiveAppView not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) ClearCallback(context.Context, *ClearCallbackRequest) (*ClearCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ClearCallback not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) ClearOnUnhandledInputEventListener(context.Context, *ClearOnUnhandledInputEventListenerRequest) (*ClearOnUnhandledInputEventListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ClearOnUnhandledInputEventListener not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) CreateBiInteractiveApp(context.Context, *CreateBiInteractiveAppRequest) (*CreateBiInteractiveAppResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateBiInteractiveApp not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) DestroyBiInteractiveApp(context.Context, *DestroyBiInteractiveAppRequest) (*DestroyBiInteractiveAppResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DestroyBiInteractiveApp not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) DispatchKeyEvent(context.Context, *DispatchKeyEventRequest) (*DispatchKeyEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DispatchKeyEvent not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) DispatchUnhandledInputEvent(context.Context, *DispatchUnhandledInputEventRequest) (*DispatchUnhandledInputEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DispatchUnhandledInputEvent not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) GetOnUnhandledInputEventListener(context.Context, *GetOnUnhandledInputEventListenerRequest) (*GetOnUnhandledInputEventListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOnUnhandledInputEventListener not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) NotifyError(context.Context, *NotifyErrorRequest) (*NotifyErrorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyError not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) NotifyRecordingScheduled(context.Context, *NotifyRecordingScheduledRequest) (*NotifyRecordingScheduledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyRecordingScheduled not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) NotifyRecordingStarted(context.Context, *NotifyRecordingStartedRequest) (*NotifyRecordingStartedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyRecordingStarted not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) NotifyRecordingStopped(context.Context, *NotifyRecordingStoppedRequest) (*NotifyRecordingStoppedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyRecordingStopped not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) NotifyTimeShiftCurrentPositionChanged(context.Context, *NotifyTimeShiftCurrentPositionChangedRequest) (*NotifyTimeShiftCurrentPositionChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyTimeShiftCurrentPositionChanged not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) NotifyTimeShiftPlaybackParams(context.Context, *NotifyTimeShiftPlaybackParamsRequest) (*NotifyTimeShiftPlaybackParamsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyTimeShiftPlaybackParams not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) NotifyTimeShiftStartPositionChanged(context.Context, *NotifyTimeShiftStartPositionChangedRequest) (*NotifyTimeShiftStartPositionChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyTimeShiftStartPositionChanged not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) NotifyTimeShiftStatusChanged(context.Context, *NotifyTimeShiftStatusChangedRequest) (*NotifyTimeShiftStatusChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyTimeShiftStatusChanged not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) NotifyTvMessage(context.Context, *NotifyTvMessageRequest) (*NotifyTvMessageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyTvMessage not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) NotifyVideoFreezeUpdated(context.Context, *NotifyVideoFreezeUpdatedRequest) (*NotifyVideoFreezeUpdatedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NotifyVideoFreezeUpdated not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) OnAttachedToWindow(context.Context, *OnAttachedToWindowRequest) (*OnAttachedToWindowResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnAttachedToWindow not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) OnDetachedFromWindow(context.Context, *OnDetachedFromWindowRequest) (*OnDetachedFromWindowResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnDetachedFromWindow not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) OnLayout(context.Context, *OnLayoutRequest) (*OnLayoutResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnLayout not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) OnMeasure(context.Context, *OnMeasureRequest) (*OnMeasureResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnMeasure not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) OnUnhandledInputEvent(context.Context, *OnUnhandledInputEventRequest) (*OnUnhandledInputEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnUnhandledInputEvent not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) OnVisibilityChanged(context.Context, *OnVisibilityChangedRequest) (*OnVisibilityChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnVisibilityChanged not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) PrepareInteractiveApp(context.Context, *PrepareInteractiveAppRequest) (*PrepareInteractiveAppResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method PrepareInteractiveApp not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) Reset(context.Context, *ResetRequest) (*ResetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Reset not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) ResetInteractiveApp(context.Context, *ResetInteractiveAppRequest) (*ResetInteractiveAppResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ResetInteractiveApp not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) SendAvailableSpeeds(context.Context, *SendAvailableSpeedsRequest) (*SendAvailableSpeedsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SendAvailableSpeeds not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) SendCertificate(context.Context, *SendCertificateRequest) (*SendCertificateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SendCertificate not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) SendCurrentChannelLcn(context.Context, *SendCurrentChannelLcnRequest) (*SendCurrentChannelLcnResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SendCurrentChannelLcn not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) SendCurrentChannelUri(context.Context, *SendCurrentChannelUriRequest) (*SendCurrentChannelUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SendCurrentChannelUri not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) SendCurrentTvInputId(context.Context, *SendCurrentTvInputIdRequest) (*SendCurrentTvInputIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SendCurrentTvInputId not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) SendCurrentVideoBounds(context.Context, *SendCurrentVideoBoundsRequest) (*SendCurrentVideoBoundsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SendCurrentVideoBounds not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) SendSigningResult(context.Context, *SendSigningResultRequest) (*SendSigningResultResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SendSigningResult not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) SendStreamVolume(context.Context, *SendStreamVolumeRequest) (*SendStreamVolumeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SendStreamVolume not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) SendTimeShiftMode(context.Context, *SendTimeShiftModeRequest) (*SendTimeShiftModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SendTimeShiftMode not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) SendTvRecordingInfo(context.Context, *SendTvRecordingInfoRequest) (*SendTvRecordingInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SendTvRecordingInfo not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) SetCallback(context.Context, *SetCallbackRequest) (*SetCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetCallback not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) SetOnUnhandledInputEventListener(context.Context, *SetOnUnhandledInputEventListenerRequest) (*SetOnUnhandledInputEventListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetOnUnhandledInputEventListener not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) SetTeletextAppEnabled(context.Context, *SetTeletextAppEnabledRequest) (*SetTeletextAppEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTeletextAppEnabled not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) SetTvView(context.Context, *SetTvViewRequest) (*SetTvViewResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTvView not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) SetZOrderMediaOverlay(context.Context, *SetZOrderMediaOverlayRequest) (*SetZOrderMediaOverlayResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetZOrderMediaOverlay not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) SetZOrderOnTop(context.Context, *SetZOrderOnTopRequest) (*SetZOrderOnTopResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetZOrderOnTop not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) StartInteractiveApp(context.Context, *StartInteractiveAppRequest) (*StartInteractiveAppResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StartInteractiveApp not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) StopInteractiveApp(context.Context, *StopInteractiveAppRequest) (*StopInteractiveAppResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StopInteractiveApp not implemented")
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) mustEmbedUnimplementedTvInteractiveAppViewServiceServer() {
+}
+func (UnimplementedTvInteractiveAppViewServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTvInteractiveAppViewServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TvInteractiveAppViewServiceServer will
+// result in compilation errors.
+type UnsafeTvInteractiveAppViewServiceServer interface {
+	mustEmbedUnimplementedTvInteractiveAppViewServiceServer()
+}
+
+func RegisterTvInteractiveAppViewServiceServer(s grpc.ServiceRegistrar, srv TvInteractiveAppViewServiceServer) {
+	// If the following call panics, it indicates UnimplementedTvInteractiveAppViewServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TvInteractiveAppViewService_ServiceDesc, srv)
+}
+
+func _TvInteractiveAppViewService_NewTvInteractiveAppView_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewTvInteractiveAppViewRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).NewTvInteractiveAppView(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_NewTvInteractiveAppView_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).NewTvInteractiveAppView(ctx, req.(*NewTvInteractiveAppViewRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_ClearCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClearCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).ClearCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_ClearCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).ClearCallback(ctx, req.(*ClearCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_ClearOnUnhandledInputEventListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClearOnUnhandledInputEventListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).ClearOnUnhandledInputEventListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_ClearOnUnhandledInputEventListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).ClearOnUnhandledInputEventListener(ctx, req.(*ClearOnUnhandledInputEventListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_CreateBiInteractiveApp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateBiInteractiveAppRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).CreateBiInteractiveApp(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_CreateBiInteractiveApp_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).CreateBiInteractiveApp(ctx, req.(*CreateBiInteractiveAppRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_DestroyBiInteractiveApp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DestroyBiInteractiveAppRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).DestroyBiInteractiveApp(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_DestroyBiInteractiveApp_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).DestroyBiInteractiveApp(ctx, req.(*DestroyBiInteractiveAppRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_DispatchKeyEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DispatchKeyEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).DispatchKeyEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_DispatchKeyEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).DispatchKeyEvent(ctx, req.(*DispatchKeyEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_DispatchUnhandledInputEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DispatchUnhandledInputEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).DispatchUnhandledInputEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_DispatchUnhandledInputEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).DispatchUnhandledInputEvent(ctx, req.(*DispatchUnhandledInputEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_GetOnUnhandledInputEventListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOnUnhandledInputEventListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).GetOnUnhandledInputEventListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_GetOnUnhandledInputEventListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).GetOnUnhandledInputEventListener(ctx, req.(*GetOnUnhandledInputEventListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_NotifyError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyErrorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).NotifyError(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_NotifyError_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).NotifyError(ctx, req.(*NotifyErrorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_NotifyRecordingScheduled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyRecordingScheduledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).NotifyRecordingScheduled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_NotifyRecordingScheduled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).NotifyRecordingScheduled(ctx, req.(*NotifyRecordingScheduledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_NotifyRecordingStarted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyRecordingStartedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).NotifyRecordingStarted(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_NotifyRecordingStarted_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).NotifyRecordingStarted(ctx, req.(*NotifyRecordingStartedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_NotifyRecordingStopped_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyRecordingStoppedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).NotifyRecordingStopped(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_NotifyRecordingStopped_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).NotifyRecordingStopped(ctx, req.(*NotifyRecordingStoppedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_NotifyTimeShiftCurrentPositionChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyTimeShiftCurrentPositionChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).NotifyTimeShiftCurrentPositionChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_NotifyTimeShiftCurrentPositionChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).NotifyTimeShiftCurrentPositionChanged(ctx, req.(*NotifyTimeShiftCurrentPositionChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_NotifyTimeShiftPlaybackParams_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyTimeShiftPlaybackParamsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).NotifyTimeShiftPlaybackParams(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_NotifyTimeShiftPlaybackParams_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).NotifyTimeShiftPlaybackParams(ctx, req.(*NotifyTimeShiftPlaybackParamsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_NotifyTimeShiftStartPositionChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyTimeShiftStartPositionChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).NotifyTimeShiftStartPositionChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_NotifyTimeShiftStartPositionChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).NotifyTimeShiftStartPositionChanged(ctx, req.(*NotifyTimeShiftStartPositionChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_NotifyTimeShiftStatusChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyTimeShiftStatusChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).NotifyTimeShiftStatusChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_NotifyTimeShiftStatusChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).NotifyTimeShiftStatusChanged(ctx, req.(*NotifyTimeShiftStatusChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_NotifyTvMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyTvMessageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).NotifyTvMessage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_NotifyTvMessage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).NotifyTvMessage(ctx, req.(*NotifyTvMessageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_NotifyVideoFreezeUpdated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NotifyVideoFreezeUpdatedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).NotifyVideoFreezeUpdated(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_NotifyVideoFreezeUpdated_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).NotifyVideoFreezeUpdated(ctx, req.(*NotifyVideoFreezeUpdatedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_OnAttachedToWindow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnAttachedToWindowRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).OnAttachedToWindow(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_OnAttachedToWindow_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).OnAttachedToWindow(ctx, req.(*OnAttachedToWindowRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_OnDetachedFromWindow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnDetachedFromWindowRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).OnDetachedFromWindow(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_OnDetachedFromWindow_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).OnDetachedFromWindow(ctx, req.(*OnDetachedFromWindowRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_OnLayout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnLayoutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).OnLayout(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_OnLayout_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).OnLayout(ctx, req.(*OnLayoutRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_OnMeasure_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnMeasureRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).OnMeasure(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_OnMeasure_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).OnMeasure(ctx, req.(*OnMeasureRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_OnUnhandledInputEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnUnhandledInputEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).OnUnhandledInputEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_OnUnhandledInputEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).OnUnhandledInputEvent(ctx, req.(*OnUnhandledInputEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_OnVisibilityChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnVisibilityChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).OnVisibilityChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_OnVisibilityChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).OnVisibilityChanged(ctx, req.(*OnVisibilityChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_PrepareInteractiveApp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PrepareInteractiveAppRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).PrepareInteractiveApp(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_PrepareInteractiveApp_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).PrepareInteractiveApp(ctx, req.(*PrepareInteractiveAppRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_Reset_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ResetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).Reset(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_Reset_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).Reset(ctx, req.(*ResetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_ResetInteractiveApp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ResetInteractiveAppRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).ResetInteractiveApp(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_ResetInteractiveApp_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).ResetInteractiveApp(ctx, req.(*ResetInteractiveAppRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_SendAvailableSpeeds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendAvailableSpeedsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).SendAvailableSpeeds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_SendAvailableSpeeds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).SendAvailableSpeeds(ctx, req.(*SendAvailableSpeedsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_SendCertificate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendCertificateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).SendCertificate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_SendCertificate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).SendCertificate(ctx, req.(*SendCertificateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_SendCurrentChannelLcn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendCurrentChannelLcnRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).SendCurrentChannelLcn(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_SendCurrentChannelLcn_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).SendCurrentChannelLcn(ctx, req.(*SendCurrentChannelLcnRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_SendCurrentChannelUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendCurrentChannelUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).SendCurrentChannelUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_SendCurrentChannelUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).SendCurrentChannelUri(ctx, req.(*SendCurrentChannelUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_SendCurrentTvInputId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendCurrentTvInputIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).SendCurrentTvInputId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_SendCurrentTvInputId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).SendCurrentTvInputId(ctx, req.(*SendCurrentTvInputIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_SendCurrentVideoBounds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendCurrentVideoBoundsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).SendCurrentVideoBounds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_SendCurrentVideoBounds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).SendCurrentVideoBounds(ctx, req.(*SendCurrentVideoBoundsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_SendSigningResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendSigningResultRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).SendSigningResult(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_SendSigningResult_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).SendSigningResult(ctx, req.(*SendSigningResultRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_SendStreamVolume_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendStreamVolumeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).SendStreamVolume(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_SendStreamVolume_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).SendStreamVolume(ctx, req.(*SendStreamVolumeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_SendTimeShiftMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendTimeShiftModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).SendTimeShiftMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_SendTimeShiftMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).SendTimeShiftMode(ctx, req.(*SendTimeShiftModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_SendTvRecordingInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendTvRecordingInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).SendTvRecordingInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_SendTvRecordingInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).SendTvRecordingInfo(ctx, req.(*SendTvRecordingInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_SetCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).SetCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_SetCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).SetCallback(ctx, req.(*SetCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_SetOnUnhandledInputEventListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetOnUnhandledInputEventListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).SetOnUnhandledInputEventListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_SetOnUnhandledInputEventListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).SetOnUnhandledInputEventListener(ctx, req.(*SetOnUnhandledInputEventListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_SetTeletextAppEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTeletextAppEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).SetTeletextAppEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_SetTeletextAppEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).SetTeletextAppEnabled(ctx, req.(*SetTeletextAppEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_SetTvView_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTvViewRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).SetTvView(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_SetTvView_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).SetTvView(ctx, req.(*SetTvViewRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_SetZOrderMediaOverlay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetZOrderMediaOverlayRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).SetZOrderMediaOverlay(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_SetZOrderMediaOverlay_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).SetZOrderMediaOverlay(ctx, req.(*SetZOrderMediaOverlayRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_SetZOrderOnTop_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetZOrderOnTopRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).SetZOrderOnTop(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_SetZOrderOnTop_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).SetZOrderOnTop(ctx, req.(*SetZOrderOnTopRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_StartInteractiveApp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartInteractiveAppRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).StartInteractiveApp(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_StartInteractiveApp_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).StartInteractiveApp(ctx, req.(*StartInteractiveAppRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewService_StopInteractiveApp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StopInteractiveAppRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewServiceServer).StopInteractiveApp(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewService_StopInteractiveApp_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewServiceServer).StopInteractiveApp(ctx, req.(*StopInteractiveAppRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TvInteractiveAppViewService_ServiceDesc is the grpc.ServiceDesc for TvInteractiveAppViewService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TvInteractiveAppViewService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "interactive.TvInteractiveAppViewService",
+	HandlerType: (*TvInteractiveAppViewServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewTvInteractiveAppView",
+			Handler:    _TvInteractiveAppViewService_NewTvInteractiveAppView_Handler,
+		},
+		{
+			MethodName: "ClearCallback",
+			Handler:    _TvInteractiveAppViewService_ClearCallback_Handler,
+		},
+		{
+			MethodName: "ClearOnUnhandledInputEventListener",
+			Handler:    _TvInteractiveAppViewService_ClearOnUnhandledInputEventListener_Handler,
+		},
+		{
+			MethodName: "CreateBiInteractiveApp",
+			Handler:    _TvInteractiveAppViewService_CreateBiInteractiveApp_Handler,
+		},
+		{
+			MethodName: "DestroyBiInteractiveApp",
+			Handler:    _TvInteractiveAppViewService_DestroyBiInteractiveApp_Handler,
+		},
+		{
+			MethodName: "DispatchKeyEvent",
+			Handler:    _TvInteractiveAppViewService_DispatchKeyEvent_Handler,
+		},
+		{
+			MethodName: "DispatchUnhandledInputEvent",
+			Handler:    _TvInteractiveAppViewService_DispatchUnhandledInputEvent_Handler,
+		},
+		{
+			MethodName: "GetOnUnhandledInputEventListener",
+			Handler:    _TvInteractiveAppViewService_GetOnUnhandledInputEventListener_Handler,
+		},
+		{
+			MethodName: "NotifyError",
+			Handler:    _TvInteractiveAppViewService_NotifyError_Handler,
+		},
+		{
+			MethodName: "NotifyRecordingScheduled",
+			Handler:    _TvInteractiveAppViewService_NotifyRecordingScheduled_Handler,
+		},
+		{
+			MethodName: "NotifyRecordingStarted",
+			Handler:    _TvInteractiveAppViewService_NotifyRecordingStarted_Handler,
+		},
+		{
+			MethodName: "NotifyRecordingStopped",
+			Handler:    _TvInteractiveAppViewService_NotifyRecordingStopped_Handler,
+		},
+		{
+			MethodName: "NotifyTimeShiftCurrentPositionChanged",
+			Handler:    _TvInteractiveAppViewService_NotifyTimeShiftCurrentPositionChanged_Handler,
+		},
+		{
+			MethodName: "NotifyTimeShiftPlaybackParams",
+			Handler:    _TvInteractiveAppViewService_NotifyTimeShiftPlaybackParams_Handler,
+		},
+		{
+			MethodName: "NotifyTimeShiftStartPositionChanged",
+			Handler:    _TvInteractiveAppViewService_NotifyTimeShiftStartPositionChanged_Handler,
+		},
+		{
+			MethodName: "NotifyTimeShiftStatusChanged",
+			Handler:    _TvInteractiveAppViewService_NotifyTimeShiftStatusChanged_Handler,
+		},
+		{
+			MethodName: "NotifyTvMessage",
+			Handler:    _TvInteractiveAppViewService_NotifyTvMessage_Handler,
+		},
+		{
+			MethodName: "NotifyVideoFreezeUpdated",
+			Handler:    _TvInteractiveAppViewService_NotifyVideoFreezeUpdated_Handler,
+		},
+		{
+			MethodName: "OnAttachedToWindow",
+			Handler:    _TvInteractiveAppViewService_OnAttachedToWindow_Handler,
+		},
+		{
+			MethodName: "OnDetachedFromWindow",
+			Handler:    _TvInteractiveAppViewService_OnDetachedFromWindow_Handler,
+		},
+		{
+			MethodName: "OnLayout",
+			Handler:    _TvInteractiveAppViewService_OnLayout_Handler,
+		},
+		{
+			MethodName: "OnMeasure",
+			Handler:    _TvInteractiveAppViewService_OnMeasure_Handler,
+		},
+		{
+			MethodName: "OnUnhandledInputEvent",
+			Handler:    _TvInteractiveAppViewService_OnUnhandledInputEvent_Handler,
+		},
+		{
+			MethodName: "OnVisibilityChanged",
+			Handler:    _TvInteractiveAppViewService_OnVisibilityChanged_Handler,
+		},
+		{
+			MethodName: "PrepareInteractiveApp",
+			Handler:    _TvInteractiveAppViewService_PrepareInteractiveApp_Handler,
+		},
+		{
+			MethodName: "Reset",
+			Handler:    _TvInteractiveAppViewService_Reset_Handler,
+		},
+		{
+			MethodName: "ResetInteractiveApp",
+			Handler:    _TvInteractiveAppViewService_ResetInteractiveApp_Handler,
+		},
+		{
+			MethodName: "SendAvailableSpeeds",
+			Handler:    _TvInteractiveAppViewService_SendAvailableSpeeds_Handler,
+		},
+		{
+			MethodName: "SendCertificate",
+			Handler:    _TvInteractiveAppViewService_SendCertificate_Handler,
+		},
+		{
+			MethodName: "SendCurrentChannelLcn",
+			Handler:    _TvInteractiveAppViewService_SendCurrentChannelLcn_Handler,
+		},
+		{
+			MethodName: "SendCurrentChannelUri",
+			Handler:    _TvInteractiveAppViewService_SendCurrentChannelUri_Handler,
+		},
+		{
+			MethodName: "SendCurrentTvInputId",
+			Handler:    _TvInteractiveAppViewService_SendCurrentTvInputId_Handler,
+		},
+		{
+			MethodName: "SendCurrentVideoBounds",
+			Handler:    _TvInteractiveAppViewService_SendCurrentVideoBounds_Handler,
+		},
+		{
+			MethodName: "SendSigningResult",
+			Handler:    _TvInteractiveAppViewService_SendSigningResult_Handler,
+		},
+		{
+			MethodName: "SendStreamVolume",
+			Handler:    _TvInteractiveAppViewService_SendStreamVolume_Handler,
+		},
+		{
+			MethodName: "SendTimeShiftMode",
+			Handler:    _TvInteractiveAppViewService_SendTimeShiftMode_Handler,
+		},
+		{
+			MethodName: "SendTvRecordingInfo",
+			Handler:    _TvInteractiveAppViewService_SendTvRecordingInfo_Handler,
+		},
+		{
+			MethodName: "SetCallback",
+			Handler:    _TvInteractiveAppViewService_SetCallback_Handler,
+		},
+		{
+			MethodName: "SetOnUnhandledInputEventListener",
+			Handler:    _TvInteractiveAppViewService_SetOnUnhandledInputEventListener_Handler,
+		},
+		{
+			MethodName: "SetTeletextAppEnabled",
+			Handler:    _TvInteractiveAppViewService_SetTeletextAppEnabled_Handler,
+		},
+		{
+			MethodName: "SetTvView",
+			Handler:    _TvInteractiveAppViewService_SetTvView_Handler,
+		},
+		{
+			MethodName: "SetZOrderMediaOverlay",
+			Handler:    _TvInteractiveAppViewService_SetZOrderMediaOverlay_Handler,
+		},
+		{
+			MethodName: "SetZOrderOnTop",
+			Handler:    _TvInteractiveAppViewService_SetZOrderOnTop_Handler,
+		},
+		{
+			MethodName: "StartInteractiveApp",
+			Handler:    _TvInteractiveAppViewService_StartInteractiveApp_Handler,
+		},
+		{
+			MethodName: "StopInteractiveApp",
+			Handler:    _TvInteractiveAppViewService_StopInteractiveApp_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/interactive/interactive.proto",
+}
+
+const (
+	TvInteractiveAppViewOnUnhandledInputEventListenerService_OnUnhandledInputEvent_FullMethodName = "/interactive.TvInteractiveAppViewOnUnhandledInputEventListenerService/OnUnhandledInputEvent"
+)
+
+// TvInteractiveAppViewOnUnhandledInputEventListenerServiceClient is the client API for TvInteractiveAppViewOnUnhandledInputEventListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TvInteractiveAppViewOnUnhandledInputEventListenerServiceClient interface {
+	OnUnhandledInputEvent(ctx context.Context, in *TvInteractiveAppViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest, opts ...grpc.CallOption) (*OnUnhandledInputEventResponse, error)
+}
+
+type tvInteractiveAppViewOnUnhandledInputEventListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTvInteractiveAppViewOnUnhandledInputEventListenerServiceClient(cc grpc.ClientConnInterface) TvInteractiveAppViewOnUnhandledInputEventListenerServiceClient {
+	return &tvInteractiveAppViewOnUnhandledInputEventListenerServiceClient{cc}
+}
+
+func (c *tvInteractiveAppViewOnUnhandledInputEventListenerServiceClient) OnUnhandledInputEvent(ctx context.Context, in *TvInteractiveAppViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest, opts ...grpc.CallOption) (*OnUnhandledInputEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnUnhandledInputEventResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewOnUnhandledInputEventListenerService_OnUnhandledInputEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TvInteractiveAppViewOnUnhandledInputEventListenerServiceServer is the server API for TvInteractiveAppViewOnUnhandledInputEventListenerService service.
+// All implementations must embed UnimplementedTvInteractiveAppViewOnUnhandledInputEventListenerServiceServer
+// for forward compatibility.
+type TvInteractiveAppViewOnUnhandledInputEventListenerServiceServer interface {
+	OnUnhandledInputEvent(context.Context, *TvInteractiveAppViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest) (*OnUnhandledInputEventResponse, error)
+	mustEmbedUnimplementedTvInteractiveAppViewOnUnhandledInputEventListenerServiceServer()
+}
+
+// UnimplementedTvInteractiveAppViewOnUnhandledInputEventListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTvInteractiveAppViewOnUnhandledInputEventListenerServiceServer struct{}
+
+func (UnimplementedTvInteractiveAppViewOnUnhandledInputEventListenerServiceServer) OnUnhandledInputEvent(context.Context, *TvInteractiveAppViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest) (*OnUnhandledInputEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnUnhandledInputEvent not implemented")
+}
+func (UnimplementedTvInteractiveAppViewOnUnhandledInputEventListenerServiceServer) mustEmbedUnimplementedTvInteractiveAppViewOnUnhandledInputEventListenerServiceServer() {
+}
+func (UnimplementedTvInteractiveAppViewOnUnhandledInputEventListenerServiceServer) testEmbeddedByValue() {
+}
+
+// UnsafeTvInteractiveAppViewOnUnhandledInputEventListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TvInteractiveAppViewOnUnhandledInputEventListenerServiceServer will
+// result in compilation errors.
+type UnsafeTvInteractiveAppViewOnUnhandledInputEventListenerServiceServer interface {
+	mustEmbedUnimplementedTvInteractiveAppViewOnUnhandledInputEventListenerServiceServer()
+}
+
+func RegisterTvInteractiveAppViewOnUnhandledInputEventListenerServiceServer(s grpc.ServiceRegistrar, srv TvInteractiveAppViewOnUnhandledInputEventListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedTvInteractiveAppViewOnUnhandledInputEventListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TvInteractiveAppViewOnUnhandledInputEventListenerService_ServiceDesc, srv)
+}
+
+func _TvInteractiveAppViewOnUnhandledInputEventListenerService_OnUnhandledInputEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TvInteractiveAppViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewOnUnhandledInputEventListenerServiceServer).OnUnhandledInputEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewOnUnhandledInputEventListenerService_OnUnhandledInputEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewOnUnhandledInputEventListenerServiceServer).OnUnhandledInputEvent(ctx, req.(*TvInteractiveAppViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TvInteractiveAppViewOnUnhandledInputEventListenerService_ServiceDesc is the grpc.ServiceDesc for TvInteractiveAppViewOnUnhandledInputEventListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TvInteractiveAppViewOnUnhandledInputEventListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "interactive.TvInteractiveAppViewOnUnhandledInputEventListenerService",
+	HandlerType: (*TvInteractiveAppViewOnUnhandledInputEventListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnUnhandledInputEvent",
+			Handler:    _TvInteractiveAppViewOnUnhandledInputEventListenerService_OnUnhandledInputEvent_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/interactive/interactive.proto",
+}
+
+const (
+	TvInteractiveAppViewTvInteractiveAppCallbackService_OnBiInteractiveAppCreated_FullMethodName     = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnBiInteractiveAppCreated"
+	TvInteractiveAppViewTvInteractiveAppCallbackService_OnPlaybackCommandRequest_FullMethodName      = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnPlaybackCommandRequest"
+	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestAvailableSpeeds_FullMethodName      = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestAvailableSpeeds"
+	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCertificate_FullMethodName          = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestCertificate"
+	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentChannelLcn_FullMethodName    = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestCurrentChannelLcn"
+	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentChannelUri_FullMethodName    = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestCurrentChannelUri"
+	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentTvInputId_FullMethodName     = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestCurrentTvInputId"
+	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentVideoBounds_FullMethodName   = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestCurrentVideoBounds"
+	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestScheduleRecording6_FullMethodName   = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestScheduleRecording6"
+	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestScheduleRecording8_1_FullMethodName = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestScheduleRecording8_1"
+	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestSelectedTrackInfo_FullMethodName    = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestSelectedTrackInfo"
+	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestSigning5_FullMethodName             = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestSigning5"
+	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestSigning6_1_FullMethodName           = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestSigning6_1"
+	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestStartRecording_FullMethodName       = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestStartRecording"
+	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestStopRecording_FullMethodName        = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestStopRecording"
+	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestStreamVolume_FullMethodName         = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestStreamVolume"
+	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTimeShiftMode_FullMethodName        = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestTimeShiftMode"
+	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTrackInfoList_FullMethodName        = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestTrackInfoList"
+	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTvRecordingInfo_FullMethodName      = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestTvRecordingInfo"
+	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTvRecordingInfoList_FullMethodName  = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestTvRecordingInfoList"
+	TvInteractiveAppViewTvInteractiveAppCallbackService_OnSetTvRecordingInfo_FullMethodName          = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnSetTvRecordingInfo"
+	TvInteractiveAppViewTvInteractiveAppCallbackService_OnSetVideoBounds_FullMethodName              = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnSetVideoBounds"
+	TvInteractiveAppViewTvInteractiveAppCallbackService_OnStateChanged_FullMethodName                = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnStateChanged"
+	TvInteractiveAppViewTvInteractiveAppCallbackService_OnTeletextAppStateChanged_FullMethodName     = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnTeletextAppStateChanged"
+	TvInteractiveAppViewTvInteractiveAppCallbackService_OnTimeShiftCommandRequest_FullMethodName     = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnTimeShiftCommandRequest"
+)
+
+// TvInteractiveAppViewTvInteractiveAppCallbackServiceClient is the client API for TvInteractiveAppViewTvInteractiveAppCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TvInteractiveAppViewTvInteractiveAppCallbackServiceClient interface {
+	OnBiInteractiveAppCreated(ctx context.Context, in *OnBiInteractiveAppCreatedRequest, opts ...grpc.CallOption) (*OnBiInteractiveAppCreatedResponse, error)
+	OnPlaybackCommandRequest(ctx context.Context, in *OnPlaybackCommandRequestRequest, opts ...grpc.CallOption) (*OnPlaybackCommandRequestResponse, error)
+	OnRequestAvailableSpeeds(ctx context.Context, in *OnRequestAvailableSpeedsRequest, opts ...grpc.CallOption) (*OnRequestAvailableSpeedsResponse, error)
+	OnRequestCertificate(ctx context.Context, in *OnRequestCertificateRequest, opts ...grpc.CallOption) (*OnRequestCertificateResponse, error)
+	OnRequestCurrentChannelLcn(ctx context.Context, in *OnRequestCurrentChannelLcnRequest, opts ...grpc.CallOption) (*OnRequestCurrentChannelLcnResponse, error)
+	OnRequestCurrentChannelUri(ctx context.Context, in *OnRequestCurrentChannelUriRequest, opts ...grpc.CallOption) (*OnRequestCurrentChannelUriResponse, error)
+	OnRequestCurrentTvInputId(ctx context.Context, in *OnRequestCurrentTvInputIdRequest, opts ...grpc.CallOption) (*OnRequestCurrentTvInputIdResponse, error)
+	OnRequestCurrentVideoBounds(ctx context.Context, in *OnRequestCurrentVideoBoundsRequest, opts ...grpc.CallOption) (*OnRequestCurrentVideoBoundsResponse, error)
+	OnRequestScheduleRecording6(ctx context.Context, in *OnRequestScheduleRecording6Request, opts ...grpc.CallOption) (*OnRequestScheduleRecording6Response, error)
+	OnRequestScheduleRecording8_1(ctx context.Context, in *OnRequestScheduleRecording8_1Request, opts ...grpc.CallOption) (*OnRequestScheduleRecording8_1Response, error)
+	OnRequestSelectedTrackInfo(ctx context.Context, in *OnRequestSelectedTrackInfoRequest, opts ...grpc.CallOption) (*OnRequestSelectedTrackInfoResponse, error)
+	OnRequestSigning5(ctx context.Context, in *OnRequestSigning5Request, opts ...grpc.CallOption) (*OnRequestSigning5Response, error)
+	OnRequestSigning6_1(ctx context.Context, in *OnRequestSigning6_1Request, opts ...grpc.CallOption) (*OnRequestSigning6_1Response, error)
+	OnRequestStartRecording(ctx context.Context, in *OnRequestStartRecordingRequest, opts ...grpc.CallOption) (*OnRequestStartRecordingResponse, error)
+	OnRequestStopRecording(ctx context.Context, in *OnRequestStopRecordingRequest, opts ...grpc.CallOption) (*OnRequestStopRecordingResponse, error)
+	OnRequestStreamVolume(ctx context.Context, in *OnRequestStreamVolumeRequest, opts ...grpc.CallOption) (*OnRequestStreamVolumeResponse, error)
+	OnRequestTimeShiftMode(ctx context.Context, in *OnRequestTimeShiftModeRequest, opts ...grpc.CallOption) (*OnRequestTimeShiftModeResponse, error)
+	OnRequestTrackInfoList(ctx context.Context, in *OnRequestTrackInfoListRequest, opts ...grpc.CallOption) (*OnRequestTrackInfoListResponse, error)
+	OnRequestTvRecordingInfo(ctx context.Context, in *OnRequestTvRecordingInfoRequest, opts ...grpc.CallOption) (*OnRequestTvRecordingInfoResponse, error)
+	OnRequestTvRecordingInfoList(ctx context.Context, in *OnRequestTvRecordingInfoListRequest, opts ...grpc.CallOption) (*OnRequestTvRecordingInfoListResponse, error)
+	OnSetTvRecordingInfo(ctx context.Context, in *OnSetTvRecordingInfoRequest, opts ...grpc.CallOption) (*OnSetTvRecordingInfoResponse, error)
+	OnSetVideoBounds(ctx context.Context, in *OnSetVideoBoundsRequest, opts ...grpc.CallOption) (*OnSetVideoBoundsResponse, error)
+	OnStateChanged(ctx context.Context, in *OnStateChangedRequest, opts ...grpc.CallOption) (*OnStateChangedResponse, error)
+	OnTeletextAppStateChanged(ctx context.Context, in *OnTeletextAppStateChangedRequest, opts ...grpc.CallOption) (*OnTeletextAppStateChangedResponse, error)
+	OnTimeShiftCommandRequest(ctx context.Context, in *OnTimeShiftCommandRequestRequest, opts ...grpc.CallOption) (*OnTimeShiftCommandRequestResponse, error)
+}
+
+type tvInteractiveAppViewTvInteractiveAppCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTvInteractiveAppViewTvInteractiveAppCallbackServiceClient(cc grpc.ClientConnInterface) TvInteractiveAppViewTvInteractiveAppCallbackServiceClient {
+	return &tvInteractiveAppViewTvInteractiveAppCallbackServiceClient{cc}
+}
+
+func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnBiInteractiveAppCreated(ctx context.Context, in *OnBiInteractiveAppCreatedRequest, opts ...grpc.CallOption) (*OnBiInteractiveAppCreatedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnBiInteractiveAppCreatedResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnBiInteractiveAppCreated_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnPlaybackCommandRequest(ctx context.Context, in *OnPlaybackCommandRequestRequest, opts ...grpc.CallOption) (*OnPlaybackCommandRequestResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnPlaybackCommandRequestResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnPlaybackCommandRequest_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestAvailableSpeeds(ctx context.Context, in *OnRequestAvailableSpeedsRequest, opts ...grpc.CallOption) (*OnRequestAvailableSpeedsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRequestAvailableSpeedsResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestAvailableSpeeds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestCertificate(ctx context.Context, in *OnRequestCertificateRequest, opts ...grpc.CallOption) (*OnRequestCertificateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRequestCertificateResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCertificate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestCurrentChannelLcn(ctx context.Context, in *OnRequestCurrentChannelLcnRequest, opts ...grpc.CallOption) (*OnRequestCurrentChannelLcnResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRequestCurrentChannelLcnResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentChannelLcn_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestCurrentChannelUri(ctx context.Context, in *OnRequestCurrentChannelUriRequest, opts ...grpc.CallOption) (*OnRequestCurrentChannelUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRequestCurrentChannelUriResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentChannelUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestCurrentTvInputId(ctx context.Context, in *OnRequestCurrentTvInputIdRequest, opts ...grpc.CallOption) (*OnRequestCurrentTvInputIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRequestCurrentTvInputIdResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentTvInputId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestCurrentVideoBounds(ctx context.Context, in *OnRequestCurrentVideoBoundsRequest, opts ...grpc.CallOption) (*OnRequestCurrentVideoBoundsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRequestCurrentVideoBoundsResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentVideoBounds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestScheduleRecording6(ctx context.Context, in *OnRequestScheduleRecording6Request, opts ...grpc.CallOption) (*OnRequestScheduleRecording6Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRequestScheduleRecording6Response)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestScheduleRecording6_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestScheduleRecording8_1(ctx context.Context, in *OnRequestScheduleRecording8_1Request, opts ...grpc.CallOption) (*OnRequestScheduleRecording8_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRequestScheduleRecording8_1Response)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestScheduleRecording8_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestSelectedTrackInfo(ctx context.Context, in *OnRequestSelectedTrackInfoRequest, opts ...grpc.CallOption) (*OnRequestSelectedTrackInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRequestSelectedTrackInfoResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestSelectedTrackInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestSigning5(ctx context.Context, in *OnRequestSigning5Request, opts ...grpc.CallOption) (*OnRequestSigning5Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRequestSigning5Response)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestSigning5_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestSigning6_1(ctx context.Context, in *OnRequestSigning6_1Request, opts ...grpc.CallOption) (*OnRequestSigning6_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRequestSigning6_1Response)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestSigning6_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestStartRecording(ctx context.Context, in *OnRequestStartRecordingRequest, opts ...grpc.CallOption) (*OnRequestStartRecordingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRequestStartRecordingResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestStartRecording_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestStopRecording(ctx context.Context, in *OnRequestStopRecordingRequest, opts ...grpc.CallOption) (*OnRequestStopRecordingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRequestStopRecordingResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestStopRecording_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestStreamVolume(ctx context.Context, in *OnRequestStreamVolumeRequest, opts ...grpc.CallOption) (*OnRequestStreamVolumeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRequestStreamVolumeResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestStreamVolume_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestTimeShiftMode(ctx context.Context, in *OnRequestTimeShiftModeRequest, opts ...grpc.CallOption) (*OnRequestTimeShiftModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRequestTimeShiftModeResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTimeShiftMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestTrackInfoList(ctx context.Context, in *OnRequestTrackInfoListRequest, opts ...grpc.CallOption) (*OnRequestTrackInfoListResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRequestTrackInfoListResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTrackInfoList_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestTvRecordingInfo(ctx context.Context, in *OnRequestTvRecordingInfoRequest, opts ...grpc.CallOption) (*OnRequestTvRecordingInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRequestTvRecordingInfoResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTvRecordingInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestTvRecordingInfoList(ctx context.Context, in *OnRequestTvRecordingInfoListRequest, opts ...grpc.CallOption) (*OnRequestTvRecordingInfoListResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnRequestTvRecordingInfoListResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTvRecordingInfoList_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnSetTvRecordingInfo(ctx context.Context, in *OnSetTvRecordingInfoRequest, opts ...grpc.CallOption) (*OnSetTvRecordingInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSetTvRecordingInfoResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnSetTvRecordingInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnSetVideoBounds(ctx context.Context, in *OnSetVideoBoundsRequest, opts ...grpc.CallOption) (*OnSetVideoBoundsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSetVideoBoundsResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnSetVideoBounds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnStateChanged(ctx context.Context, in *OnStateChangedRequest, opts ...grpc.CallOption) (*OnStateChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnStateChangedResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnStateChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnTeletextAppStateChanged(ctx context.Context, in *OnTeletextAppStateChangedRequest, opts ...grpc.CallOption) (*OnTeletextAppStateChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTeletextAppStateChangedResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnTeletextAppStateChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnTimeShiftCommandRequest(ctx context.Context, in *OnTimeShiftCommandRequestRequest, opts ...grpc.CallOption) (*OnTimeShiftCommandRequestResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTimeShiftCommandRequestResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnTimeShiftCommandRequest_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TvInteractiveAppViewTvInteractiveAppCallbackServiceServer is the server API for TvInteractiveAppViewTvInteractiveAppCallbackService service.
+// All implementations must embed UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer
+// for forward compatibility.
+type TvInteractiveAppViewTvInteractiveAppCallbackServiceServer interface {
+	OnBiInteractiveAppCreated(context.Context, *OnBiInteractiveAppCreatedRequest) (*OnBiInteractiveAppCreatedResponse, error)
+	OnPlaybackCommandRequest(context.Context, *OnPlaybackCommandRequestRequest) (*OnPlaybackCommandRequestResponse, error)
+	OnRequestAvailableSpeeds(context.Context, *OnRequestAvailableSpeedsRequest) (*OnRequestAvailableSpeedsResponse, error)
+	OnRequestCertificate(context.Context, *OnRequestCertificateRequest) (*OnRequestCertificateResponse, error)
+	OnRequestCurrentChannelLcn(context.Context, *OnRequestCurrentChannelLcnRequest) (*OnRequestCurrentChannelLcnResponse, error)
+	OnRequestCurrentChannelUri(context.Context, *OnRequestCurrentChannelUriRequest) (*OnRequestCurrentChannelUriResponse, error)
+	OnRequestCurrentTvInputId(context.Context, *OnRequestCurrentTvInputIdRequest) (*OnRequestCurrentTvInputIdResponse, error)
+	OnRequestCurrentVideoBounds(context.Context, *OnRequestCurrentVideoBoundsRequest) (*OnRequestCurrentVideoBoundsResponse, error)
+	OnRequestScheduleRecording6(context.Context, *OnRequestScheduleRecording6Request) (*OnRequestScheduleRecording6Response, error)
+	OnRequestScheduleRecording8_1(context.Context, *OnRequestScheduleRecording8_1Request) (*OnRequestScheduleRecording8_1Response, error)
+	OnRequestSelectedTrackInfo(context.Context, *OnRequestSelectedTrackInfoRequest) (*OnRequestSelectedTrackInfoResponse, error)
+	OnRequestSigning5(context.Context, *OnRequestSigning5Request) (*OnRequestSigning5Response, error)
+	OnRequestSigning6_1(context.Context, *OnRequestSigning6_1Request) (*OnRequestSigning6_1Response, error)
+	OnRequestStartRecording(context.Context, *OnRequestStartRecordingRequest) (*OnRequestStartRecordingResponse, error)
+	OnRequestStopRecording(context.Context, *OnRequestStopRecordingRequest) (*OnRequestStopRecordingResponse, error)
+	OnRequestStreamVolume(context.Context, *OnRequestStreamVolumeRequest) (*OnRequestStreamVolumeResponse, error)
+	OnRequestTimeShiftMode(context.Context, *OnRequestTimeShiftModeRequest) (*OnRequestTimeShiftModeResponse, error)
+	OnRequestTrackInfoList(context.Context, *OnRequestTrackInfoListRequest) (*OnRequestTrackInfoListResponse, error)
+	OnRequestTvRecordingInfo(context.Context, *OnRequestTvRecordingInfoRequest) (*OnRequestTvRecordingInfoResponse, error)
+	OnRequestTvRecordingInfoList(context.Context, *OnRequestTvRecordingInfoListRequest) (*OnRequestTvRecordingInfoListResponse, error)
+	OnSetTvRecordingInfo(context.Context, *OnSetTvRecordingInfoRequest) (*OnSetTvRecordingInfoResponse, error)
+	OnSetVideoBounds(context.Context, *OnSetVideoBoundsRequest) (*OnSetVideoBoundsResponse, error)
+	OnStateChanged(context.Context, *OnStateChangedRequest) (*OnStateChangedResponse, error)
+	OnTeletextAppStateChanged(context.Context, *OnTeletextAppStateChangedRequest) (*OnTeletextAppStateChangedResponse, error)
+	OnTimeShiftCommandRequest(context.Context, *OnTimeShiftCommandRequestRequest) (*OnTimeShiftCommandRequestResponse, error)
+	mustEmbedUnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer()
+}
+
+// UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer struct{}
+
+func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnBiInteractiveAppCreated(context.Context, *OnBiInteractiveAppCreatedRequest) (*OnBiInteractiveAppCreatedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnBiInteractiveAppCreated not implemented")
+}
+func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnPlaybackCommandRequest(context.Context, *OnPlaybackCommandRequestRequest) (*OnPlaybackCommandRequestResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnPlaybackCommandRequest not implemented")
+}
+func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestAvailableSpeeds(context.Context, *OnRequestAvailableSpeedsRequest) (*OnRequestAvailableSpeedsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRequestAvailableSpeeds not implemented")
+}
+func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestCertificate(context.Context, *OnRequestCertificateRequest) (*OnRequestCertificateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRequestCertificate not implemented")
+}
+func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestCurrentChannelLcn(context.Context, *OnRequestCurrentChannelLcnRequest) (*OnRequestCurrentChannelLcnResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRequestCurrentChannelLcn not implemented")
+}
+func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestCurrentChannelUri(context.Context, *OnRequestCurrentChannelUriRequest) (*OnRequestCurrentChannelUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRequestCurrentChannelUri not implemented")
+}
+func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestCurrentTvInputId(context.Context, *OnRequestCurrentTvInputIdRequest) (*OnRequestCurrentTvInputIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRequestCurrentTvInputId not implemented")
+}
+func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestCurrentVideoBounds(context.Context, *OnRequestCurrentVideoBoundsRequest) (*OnRequestCurrentVideoBoundsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRequestCurrentVideoBounds not implemented")
+}
+func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestScheduleRecording6(context.Context, *OnRequestScheduleRecording6Request) (*OnRequestScheduleRecording6Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRequestScheduleRecording6 not implemented")
+}
+func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestScheduleRecording8_1(context.Context, *OnRequestScheduleRecording8_1Request) (*OnRequestScheduleRecording8_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRequestScheduleRecording8_1 not implemented")
+}
+func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestSelectedTrackInfo(context.Context, *OnRequestSelectedTrackInfoRequest) (*OnRequestSelectedTrackInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRequestSelectedTrackInfo not implemented")
+}
+func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestSigning5(context.Context, *OnRequestSigning5Request) (*OnRequestSigning5Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRequestSigning5 not implemented")
+}
+func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestSigning6_1(context.Context, *OnRequestSigning6_1Request) (*OnRequestSigning6_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRequestSigning6_1 not implemented")
+}
+func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestStartRecording(context.Context, *OnRequestStartRecordingRequest) (*OnRequestStartRecordingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRequestStartRecording not implemented")
+}
+func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestStopRecording(context.Context, *OnRequestStopRecordingRequest) (*OnRequestStopRecordingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRequestStopRecording not implemented")
+}
+func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestStreamVolume(context.Context, *OnRequestStreamVolumeRequest) (*OnRequestStreamVolumeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRequestStreamVolume not implemented")
+}
+func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestTimeShiftMode(context.Context, *OnRequestTimeShiftModeRequest) (*OnRequestTimeShiftModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRequestTimeShiftMode not implemented")
+}
+func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestTrackInfoList(context.Context, *OnRequestTrackInfoListRequest) (*OnRequestTrackInfoListResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRequestTrackInfoList not implemented")
+}
+func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestTvRecordingInfo(context.Context, *OnRequestTvRecordingInfoRequest) (*OnRequestTvRecordingInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRequestTvRecordingInfo not implemented")
+}
+func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestTvRecordingInfoList(context.Context, *OnRequestTvRecordingInfoListRequest) (*OnRequestTvRecordingInfoListResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnRequestTvRecordingInfoList not implemented")
+}
+func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnSetTvRecordingInfo(context.Context, *OnSetTvRecordingInfoRequest) (*OnSetTvRecordingInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSetTvRecordingInfo not implemented")
+}
+func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnSetVideoBounds(context.Context, *OnSetVideoBoundsRequest) (*OnSetVideoBoundsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSetVideoBounds not implemented")
+}
+func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnStateChanged(context.Context, *OnStateChangedRequest) (*OnStateChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnStateChanged not implemented")
+}
+func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnTeletextAppStateChanged(context.Context, *OnTeletextAppStateChangedRequest) (*OnTeletextAppStateChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTeletextAppStateChanged not implemented")
+}
+func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnTimeShiftCommandRequest(context.Context, *OnTimeShiftCommandRequestRequest) (*OnTimeShiftCommandRequestResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTimeShiftCommandRequest not implemented")
+}
+func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) mustEmbedUnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer() {
+}
+func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTvInteractiveAppViewTvInteractiveAppCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TvInteractiveAppViewTvInteractiveAppCallbackServiceServer will
+// result in compilation errors.
+type UnsafeTvInteractiveAppViewTvInteractiveAppCallbackServiceServer interface {
+	mustEmbedUnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer()
+}
+
+func RegisterTvInteractiveAppViewTvInteractiveAppCallbackServiceServer(s grpc.ServiceRegistrar, srv TvInteractiveAppViewTvInteractiveAppCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TvInteractiveAppViewTvInteractiveAppCallbackService_ServiceDesc, srv)
+}
+
+func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnBiInteractiveAppCreated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnBiInteractiveAppCreatedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnBiInteractiveAppCreated(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnBiInteractiveAppCreated_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnBiInteractiveAppCreated(ctx, req.(*OnBiInteractiveAppCreatedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnPlaybackCommandRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnPlaybackCommandRequestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnPlaybackCommandRequest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnPlaybackCommandRequest_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnPlaybackCommandRequest(ctx, req.(*OnPlaybackCommandRequestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestAvailableSpeeds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRequestAvailableSpeedsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestAvailableSpeeds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestAvailableSpeeds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestAvailableSpeeds(ctx, req.(*OnRequestAvailableSpeedsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCertificate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRequestCertificateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestCertificate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCertificate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestCertificate(ctx, req.(*OnRequestCertificateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentChannelLcn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRequestCurrentChannelLcnRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestCurrentChannelLcn(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentChannelLcn_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestCurrentChannelLcn(ctx, req.(*OnRequestCurrentChannelLcnRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentChannelUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRequestCurrentChannelUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestCurrentChannelUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentChannelUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestCurrentChannelUri(ctx, req.(*OnRequestCurrentChannelUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentTvInputId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRequestCurrentTvInputIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestCurrentTvInputId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentTvInputId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestCurrentTvInputId(ctx, req.(*OnRequestCurrentTvInputIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentVideoBounds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRequestCurrentVideoBoundsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestCurrentVideoBounds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentVideoBounds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestCurrentVideoBounds(ctx, req.(*OnRequestCurrentVideoBoundsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestScheduleRecording6_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRequestScheduleRecording6Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestScheduleRecording6(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestScheduleRecording6_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestScheduleRecording6(ctx, req.(*OnRequestScheduleRecording6Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestScheduleRecording8_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRequestScheduleRecording8_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestScheduleRecording8_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestScheduleRecording8_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestScheduleRecording8_1(ctx, req.(*OnRequestScheduleRecording8_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestSelectedTrackInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRequestSelectedTrackInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestSelectedTrackInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestSelectedTrackInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestSelectedTrackInfo(ctx, req.(*OnRequestSelectedTrackInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestSigning5_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRequestSigning5Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestSigning5(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestSigning5_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestSigning5(ctx, req.(*OnRequestSigning5Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestSigning6_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRequestSigning6_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestSigning6_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestSigning6_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestSigning6_1(ctx, req.(*OnRequestSigning6_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestStartRecording_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRequestStartRecordingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestStartRecording(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestStartRecording_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestStartRecording(ctx, req.(*OnRequestStartRecordingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestStopRecording_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRequestStopRecordingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestStopRecording(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestStopRecording_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestStopRecording(ctx, req.(*OnRequestStopRecordingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestStreamVolume_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRequestStreamVolumeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestStreamVolume(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestStreamVolume_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestStreamVolume(ctx, req.(*OnRequestStreamVolumeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTimeShiftMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRequestTimeShiftModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestTimeShiftMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTimeShiftMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestTimeShiftMode(ctx, req.(*OnRequestTimeShiftModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTrackInfoList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRequestTrackInfoListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestTrackInfoList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTrackInfoList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestTrackInfoList(ctx, req.(*OnRequestTrackInfoListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTvRecordingInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRequestTvRecordingInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestTvRecordingInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTvRecordingInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestTvRecordingInfo(ctx, req.(*OnRequestTvRecordingInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTvRecordingInfoList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnRequestTvRecordingInfoListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestTvRecordingInfoList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTvRecordingInfoList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestTvRecordingInfoList(ctx, req.(*OnRequestTvRecordingInfoListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnSetTvRecordingInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSetTvRecordingInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnSetTvRecordingInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnSetTvRecordingInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnSetTvRecordingInfo(ctx, req.(*OnSetTvRecordingInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnSetVideoBounds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSetVideoBoundsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnSetVideoBounds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnSetVideoBounds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnSetVideoBounds(ctx, req.(*OnSetVideoBoundsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnStateChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnStateChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnStateChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnStateChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnStateChanged(ctx, req.(*OnStateChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnTeletextAppStateChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTeletextAppStateChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnTeletextAppStateChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnTeletextAppStateChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnTeletextAppStateChanged(ctx, req.(*OnTeletextAppStateChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnTimeShiftCommandRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTimeShiftCommandRequestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnTimeShiftCommandRequest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnTimeShiftCommandRequest_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnTimeShiftCommandRequest(ctx, req.(*OnTimeShiftCommandRequestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TvInteractiveAppViewTvInteractiveAppCallbackService_ServiceDesc is the grpc.ServiceDesc for TvInteractiveAppViewTvInteractiveAppCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TvInteractiveAppViewTvInteractiveAppCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "interactive.TvInteractiveAppViewTvInteractiveAppCallbackService",
+	HandlerType: (*TvInteractiveAppViewTvInteractiveAppCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnBiInteractiveAppCreated",
+			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnBiInteractiveAppCreated_Handler,
+		},
+		{
+			MethodName: "OnPlaybackCommandRequest",
+			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnPlaybackCommandRequest_Handler,
+		},
+		{
+			MethodName: "OnRequestAvailableSpeeds",
+			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestAvailableSpeeds_Handler,
+		},
+		{
+			MethodName: "OnRequestCertificate",
+			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCertificate_Handler,
+		},
+		{
+			MethodName: "OnRequestCurrentChannelLcn",
+			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentChannelLcn_Handler,
+		},
+		{
+			MethodName: "OnRequestCurrentChannelUri",
+			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentChannelUri_Handler,
+		},
+		{
+			MethodName: "OnRequestCurrentTvInputId",
+			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentTvInputId_Handler,
+		},
+		{
+			MethodName: "OnRequestCurrentVideoBounds",
+			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentVideoBounds_Handler,
+		},
+		{
+			MethodName: "OnRequestScheduleRecording6",
+			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestScheduleRecording6_Handler,
+		},
+		{
+			MethodName: "OnRequestScheduleRecording8_1",
+			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestScheduleRecording8_1_Handler,
+		},
+		{
+			MethodName: "OnRequestSelectedTrackInfo",
+			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestSelectedTrackInfo_Handler,
+		},
+		{
+			MethodName: "OnRequestSigning5",
+			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestSigning5_Handler,
+		},
+		{
+			MethodName: "OnRequestSigning6_1",
+			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestSigning6_1_Handler,
+		},
+		{
+			MethodName: "OnRequestStartRecording",
+			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestStartRecording_Handler,
+		},
+		{
+			MethodName: "OnRequestStopRecording",
+			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestStopRecording_Handler,
+		},
+		{
+			MethodName: "OnRequestStreamVolume",
+			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestStreamVolume_Handler,
+		},
+		{
+			MethodName: "OnRequestTimeShiftMode",
+			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTimeShiftMode_Handler,
+		},
+		{
+			MethodName: "OnRequestTrackInfoList",
+			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTrackInfoList_Handler,
+		},
+		{
+			MethodName: "OnRequestTvRecordingInfo",
+			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTvRecordingInfo_Handler,
+		},
+		{
+			MethodName: "OnRequestTvRecordingInfoList",
+			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTvRecordingInfoList_Handler,
+		},
+		{
+			MethodName: "OnSetTvRecordingInfo",
+			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnSetTvRecordingInfo_Handler,
+		},
+		{
+			MethodName: "OnSetVideoBounds",
+			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnSetVideoBounds_Handler,
+		},
+		{
+			MethodName: "OnStateChanged",
+			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnStateChanged_Handler,
+		},
+		{
+			MethodName: "OnTeletextAppStateChanged",
+			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnTeletextAppStateChanged_Handler,
+		},
+		{
+			MethodName: "OnTimeShiftCommandRequest",
+			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnTimeShiftCommandRequest_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/interactive/interactive.proto",
+}
+
+const (
+	TvInteractiveAppManagerService_GetAppLinkInfoList_FullMethodName             = "/interactive.TvInteractiveAppManagerService/GetAppLinkInfoList"
+	TvInteractiveAppManagerService_GetTvInteractiveAppServiceList_FullMethodName = "/interactive.TvInteractiveAppManagerService/GetTvInteractiveAppServiceList"
+	TvInteractiveAppManagerService_RegisterAppLinkInfo_FullMethodName            = "/interactive.TvInteractiveAppManagerService/RegisterAppLinkInfo"
+	TvInteractiveAppManagerService_RegisterCallback_FullMethodName               = "/interactive.TvInteractiveAppManagerService/RegisterCallback"
+	TvInteractiveAppManagerService_SendAppLinkCommand_FullMethodName             = "/interactive.TvInteractiveAppManagerService/SendAppLinkCommand"
+	TvInteractiveAppManagerService_UnregisterAppLinkInfo_FullMethodName          = "/interactive.TvInteractiveAppManagerService/UnregisterAppLinkInfo"
+	TvInteractiveAppManagerService_UnregisterCallback_FullMethodName             = "/interactive.TvInteractiveAppManagerService/UnregisterCallback"
+)
+
+// TvInteractiveAppManagerServiceClient is the client API for TvInteractiveAppManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TvInteractiveAppManagerServiceClient interface {
+	GetAppLinkInfoList(ctx context.Context, in *GetAppLinkInfoListRequest, opts ...grpc.CallOption) (*GetAppLinkInfoListResponse, error)
+	GetTvInteractiveAppServiceList(ctx context.Context, in *GetTvInteractiveAppServiceListRequest, opts ...grpc.CallOption) (*GetTvInteractiveAppServiceListResponse, error)
+	RegisterAppLinkInfo(ctx context.Context, in *RegisterAppLinkInfoRequest, opts ...grpc.CallOption) (*RegisterAppLinkInfoResponse, error)
+	RegisterCallback(ctx context.Context, in *RegisterCallbackRequest, opts ...grpc.CallOption) (*RegisterCallbackResponse, error)
+	SendAppLinkCommand(ctx context.Context, in *SendAppLinkCommandRequest, opts ...grpc.CallOption) (*SendAppLinkCommandResponse, error)
+	UnregisterAppLinkInfo(ctx context.Context, in *UnregisterAppLinkInfoRequest, opts ...grpc.CallOption) (*UnregisterAppLinkInfoResponse, error)
+	UnregisterCallback(ctx context.Context, in *UnregisterCallbackRequest, opts ...grpc.CallOption) (*UnregisterCallbackResponse, error)
+}
+
+type tvInteractiveAppManagerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTvInteractiveAppManagerServiceClient(cc grpc.ClientConnInterface) TvInteractiveAppManagerServiceClient {
+	return &tvInteractiveAppManagerServiceClient{cc}
+}
+
+func (c *tvInteractiveAppManagerServiceClient) GetAppLinkInfoList(ctx context.Context, in *GetAppLinkInfoListRequest, opts ...grpc.CallOption) (*GetAppLinkInfoListResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAppLinkInfoListResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppManagerService_GetAppLinkInfoList_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppManagerServiceClient) GetTvInteractiveAppServiceList(ctx context.Context, in *GetTvInteractiveAppServiceListRequest, opts ...grpc.CallOption) (*GetTvInteractiveAppServiceListResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTvInteractiveAppServiceListResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppManagerService_GetTvInteractiveAppServiceList_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppManagerServiceClient) RegisterAppLinkInfo(ctx context.Context, in *RegisterAppLinkInfoRequest, opts ...grpc.CallOption) (*RegisterAppLinkInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RegisterAppLinkInfoResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppManagerService_RegisterAppLinkInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppManagerServiceClient) RegisterCallback(ctx context.Context, in *RegisterCallbackRequest, opts ...grpc.CallOption) (*RegisterCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RegisterCallbackResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppManagerService_RegisterCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppManagerServiceClient) SendAppLinkCommand(ctx context.Context, in *SendAppLinkCommandRequest, opts ...grpc.CallOption) (*SendAppLinkCommandResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendAppLinkCommandResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppManagerService_SendAppLinkCommand_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppManagerServiceClient) UnregisterAppLinkInfo(ctx context.Context, in *UnregisterAppLinkInfoRequest, opts ...grpc.CallOption) (*UnregisterAppLinkInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnregisterAppLinkInfoResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppManagerService_UnregisterAppLinkInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppManagerServiceClient) UnregisterCallback(ctx context.Context, in *UnregisterCallbackRequest, opts ...grpc.CallOption) (*UnregisterCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnregisterCallbackResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppManagerService_UnregisterCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TvInteractiveAppManagerServiceServer is the server API for TvInteractiveAppManagerService service.
+// All implementations must embed UnimplementedTvInteractiveAppManagerServiceServer
+// for forward compatibility.
+type TvInteractiveAppManagerServiceServer interface {
+	GetAppLinkInfoList(context.Context, *GetAppLinkInfoListRequest) (*GetAppLinkInfoListResponse, error)
+	GetTvInteractiveAppServiceList(context.Context, *GetTvInteractiveAppServiceListRequest) (*GetTvInteractiveAppServiceListResponse, error)
+	RegisterAppLinkInfo(context.Context, *RegisterAppLinkInfoRequest) (*RegisterAppLinkInfoResponse, error)
+	RegisterCallback(context.Context, *RegisterCallbackRequest) (*RegisterCallbackResponse, error)
+	SendAppLinkCommand(context.Context, *SendAppLinkCommandRequest) (*SendAppLinkCommandResponse, error)
+	UnregisterAppLinkInfo(context.Context, *UnregisterAppLinkInfoRequest) (*UnregisterAppLinkInfoResponse, error)
+	UnregisterCallback(context.Context, *UnregisterCallbackRequest) (*UnregisterCallbackResponse, error)
+	mustEmbedUnimplementedTvInteractiveAppManagerServiceServer()
+}
+
+// UnimplementedTvInteractiveAppManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTvInteractiveAppManagerServiceServer struct{}
+
+func (UnimplementedTvInteractiveAppManagerServiceServer) GetAppLinkInfoList(context.Context, *GetAppLinkInfoListRequest) (*GetAppLinkInfoListResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAppLinkInfoList not implemented")
+}
+func (UnimplementedTvInteractiveAppManagerServiceServer) GetTvInteractiveAppServiceList(context.Context, *GetTvInteractiveAppServiceListRequest) (*GetTvInteractiveAppServiceListResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTvInteractiveAppServiceList not implemented")
+}
+func (UnimplementedTvInteractiveAppManagerServiceServer) RegisterAppLinkInfo(context.Context, *RegisterAppLinkInfoRequest) (*RegisterAppLinkInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterAppLinkInfo not implemented")
+}
+func (UnimplementedTvInteractiveAppManagerServiceServer) RegisterCallback(context.Context, *RegisterCallbackRequest) (*RegisterCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterCallback not implemented")
+}
+func (UnimplementedTvInteractiveAppManagerServiceServer) SendAppLinkCommand(context.Context, *SendAppLinkCommandRequest) (*SendAppLinkCommandResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SendAppLinkCommand not implemented")
+}
+func (UnimplementedTvInteractiveAppManagerServiceServer) UnregisterAppLinkInfo(context.Context, *UnregisterAppLinkInfoRequest) (*UnregisterAppLinkInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterAppLinkInfo not implemented")
+}
+func (UnimplementedTvInteractiveAppManagerServiceServer) UnregisterCallback(context.Context, *UnregisterCallbackRequest) (*UnregisterCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterCallback not implemented")
+}
+func (UnimplementedTvInteractiveAppManagerServiceServer) mustEmbedUnimplementedTvInteractiveAppManagerServiceServer() {
+}
+func (UnimplementedTvInteractiveAppManagerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTvInteractiveAppManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TvInteractiveAppManagerServiceServer will
+// result in compilation errors.
+type UnsafeTvInteractiveAppManagerServiceServer interface {
+	mustEmbedUnimplementedTvInteractiveAppManagerServiceServer()
+}
+
+func RegisterTvInteractiveAppManagerServiceServer(s grpc.ServiceRegistrar, srv TvInteractiveAppManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedTvInteractiveAppManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TvInteractiveAppManagerService_ServiceDesc, srv)
+}
+
+func _TvInteractiveAppManagerService_GetAppLinkInfoList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAppLinkInfoListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppManagerServiceServer).GetAppLinkInfoList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppManagerService_GetAppLinkInfoList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppManagerServiceServer).GetAppLinkInfoList(ctx, req.(*GetAppLinkInfoListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppManagerService_GetTvInteractiveAppServiceList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTvInteractiveAppServiceListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppManagerServiceServer).GetTvInteractiveAppServiceList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppManagerService_GetTvInteractiveAppServiceList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppManagerServiceServer).GetTvInteractiveAppServiceList(ctx, req.(*GetTvInteractiveAppServiceListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppManagerService_RegisterAppLinkInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterAppLinkInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppManagerServiceServer).RegisterAppLinkInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppManagerService_RegisterAppLinkInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppManagerServiceServer).RegisterAppLinkInfo(ctx, req.(*RegisterAppLinkInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppManagerService_RegisterCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppManagerServiceServer).RegisterCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppManagerService_RegisterCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppManagerServiceServer).RegisterCallback(ctx, req.(*RegisterCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppManagerService_SendAppLinkCommand_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendAppLinkCommandRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppManagerServiceServer).SendAppLinkCommand(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppManagerService_SendAppLinkCommand_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppManagerServiceServer).SendAppLinkCommand(ctx, req.(*SendAppLinkCommandRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppManagerService_UnregisterAppLinkInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterAppLinkInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppManagerServiceServer).UnregisterAppLinkInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppManagerService_UnregisterAppLinkInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppManagerServiceServer).UnregisterAppLinkInfo(ctx, req.(*UnregisterAppLinkInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppManagerService_UnregisterCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppManagerServiceServer).UnregisterCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppManagerService_UnregisterCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppManagerServiceServer).UnregisterCallback(ctx, req.(*UnregisterCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TvInteractiveAppManagerService_ServiceDesc is the grpc.ServiceDesc for TvInteractiveAppManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TvInteractiveAppManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "interactive.TvInteractiveAppManagerService",
+	HandlerType: (*TvInteractiveAppManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetAppLinkInfoList",
+			Handler:    _TvInteractiveAppManagerService_GetAppLinkInfoList_Handler,
+		},
+		{
+			MethodName: "GetTvInteractiveAppServiceList",
+			Handler:    _TvInteractiveAppManagerService_GetTvInteractiveAppServiceList_Handler,
+		},
+		{
+			MethodName: "RegisterAppLinkInfo",
+			Handler:    _TvInteractiveAppManagerService_RegisterAppLinkInfo_Handler,
+		},
+		{
+			MethodName: "RegisterCallback",
+			Handler:    _TvInteractiveAppManagerService_RegisterCallback_Handler,
+		},
+		{
+			MethodName: "SendAppLinkCommand",
+			Handler:    _TvInteractiveAppManagerService_SendAppLinkCommand_Handler,
+		},
+		{
+			MethodName: "UnregisterAppLinkInfo",
+			Handler:    _TvInteractiveAppManagerService_UnregisterAppLinkInfo_Handler,
+		},
+		{
+			MethodName: "UnregisterCallback",
+			Handler:    _TvInteractiveAppManagerService_UnregisterCallback_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/interactive/interactive.proto",
+}
+
+const (
+	TvInteractiveAppManagerTvInteractiveAppCallbackService_OnInteractiveAppServiceAdded_FullMethodName          = "/interactive.TvInteractiveAppManagerTvInteractiveAppCallbackService/OnInteractiveAppServiceAdded"
+	TvInteractiveAppManagerTvInteractiveAppCallbackService_OnInteractiveAppServiceRemoved_FullMethodName        = "/interactive.TvInteractiveAppManagerTvInteractiveAppCallbackService/OnInteractiveAppServiceRemoved"
+	TvInteractiveAppManagerTvInteractiveAppCallbackService_OnInteractiveAppServiceUpdated_FullMethodName        = "/interactive.TvInteractiveAppManagerTvInteractiveAppCallbackService/OnInteractiveAppServiceUpdated"
+	TvInteractiveAppManagerTvInteractiveAppCallbackService_OnTvInteractiveAppServiceStateChanged_FullMethodName = "/interactive.TvInteractiveAppManagerTvInteractiveAppCallbackService/OnTvInteractiveAppServiceStateChanged"
+)
+
+// TvInteractiveAppManagerTvInteractiveAppCallbackServiceClient is the client API for TvInteractiveAppManagerTvInteractiveAppCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TvInteractiveAppManagerTvInteractiveAppCallbackServiceClient interface {
+	OnInteractiveAppServiceAdded(ctx context.Context, in *OnInteractiveAppServiceAddedRequest, opts ...grpc.CallOption) (*OnInteractiveAppServiceAddedResponse, error)
+	OnInteractiveAppServiceRemoved(ctx context.Context, in *OnInteractiveAppServiceRemovedRequest, opts ...grpc.CallOption) (*OnInteractiveAppServiceRemovedResponse, error)
+	OnInteractiveAppServiceUpdated(ctx context.Context, in *OnInteractiveAppServiceUpdatedRequest, opts ...grpc.CallOption) (*OnInteractiveAppServiceUpdatedResponse, error)
+	OnTvInteractiveAppServiceStateChanged(ctx context.Context, in *OnTvInteractiveAppServiceStateChangedRequest, opts ...grpc.CallOption) (*OnTvInteractiveAppServiceStateChangedResponse, error)
+}
+
+type tvInteractiveAppManagerTvInteractiveAppCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTvInteractiveAppManagerTvInteractiveAppCallbackServiceClient(cc grpc.ClientConnInterface) TvInteractiveAppManagerTvInteractiveAppCallbackServiceClient {
+	return &tvInteractiveAppManagerTvInteractiveAppCallbackServiceClient{cc}
+}
+
+func (c *tvInteractiveAppManagerTvInteractiveAppCallbackServiceClient) OnInteractiveAppServiceAdded(ctx context.Context, in *OnInteractiveAppServiceAddedRequest, opts ...grpc.CallOption) (*OnInteractiveAppServiceAddedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnInteractiveAppServiceAddedResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppManagerTvInteractiveAppCallbackService_OnInteractiveAppServiceAdded_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppManagerTvInteractiveAppCallbackServiceClient) OnInteractiveAppServiceRemoved(ctx context.Context, in *OnInteractiveAppServiceRemovedRequest, opts ...grpc.CallOption) (*OnInteractiveAppServiceRemovedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnInteractiveAppServiceRemovedResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppManagerTvInteractiveAppCallbackService_OnInteractiveAppServiceRemoved_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppManagerTvInteractiveAppCallbackServiceClient) OnInteractiveAppServiceUpdated(ctx context.Context, in *OnInteractiveAppServiceUpdatedRequest, opts ...grpc.CallOption) (*OnInteractiveAppServiceUpdatedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnInteractiveAppServiceUpdatedResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppManagerTvInteractiveAppCallbackService_OnInteractiveAppServiceUpdated_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tvInteractiveAppManagerTvInteractiveAppCallbackServiceClient) OnTvInteractiveAppServiceStateChanged(ctx context.Context, in *OnTvInteractiveAppServiceStateChangedRequest, opts ...grpc.CallOption) (*OnTvInteractiveAppServiceStateChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTvInteractiveAppServiceStateChangedResponse)
+	err := c.cc.Invoke(ctx, TvInteractiveAppManagerTvInteractiveAppCallbackService_OnTvInteractiveAppServiceStateChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TvInteractiveAppManagerTvInteractiveAppCallbackServiceServer is the server API for TvInteractiveAppManagerTvInteractiveAppCallbackService service.
+// All implementations must embed UnimplementedTvInteractiveAppManagerTvInteractiveAppCallbackServiceServer
+// for forward compatibility.
+type TvInteractiveAppManagerTvInteractiveAppCallbackServiceServer interface {
+	OnInteractiveAppServiceAdded(context.Context, *OnInteractiveAppServiceAddedRequest) (*OnInteractiveAppServiceAddedResponse, error)
+	OnInteractiveAppServiceRemoved(context.Context, *OnInteractiveAppServiceRemovedRequest) (*OnInteractiveAppServiceRemovedResponse, error)
+	OnInteractiveAppServiceUpdated(context.Context, *OnInteractiveAppServiceUpdatedRequest) (*OnInteractiveAppServiceUpdatedResponse, error)
+	OnTvInteractiveAppServiceStateChanged(context.Context, *OnTvInteractiveAppServiceStateChangedRequest) (*OnTvInteractiveAppServiceStateChangedResponse, error)
+	mustEmbedUnimplementedTvInteractiveAppManagerTvInteractiveAppCallbackServiceServer()
+}
+
+// UnimplementedTvInteractiveAppManagerTvInteractiveAppCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTvInteractiveAppManagerTvInteractiveAppCallbackServiceServer struct{}
+
+func (UnimplementedTvInteractiveAppManagerTvInteractiveAppCallbackServiceServer) OnInteractiveAppServiceAdded(context.Context, *OnInteractiveAppServiceAddedRequest) (*OnInteractiveAppServiceAddedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnInteractiveAppServiceAdded not implemented")
+}
+func (UnimplementedTvInteractiveAppManagerTvInteractiveAppCallbackServiceServer) OnInteractiveAppServiceRemoved(context.Context, *OnInteractiveAppServiceRemovedRequest) (*OnInteractiveAppServiceRemovedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnInteractiveAppServiceRemoved not implemented")
+}
+func (UnimplementedTvInteractiveAppManagerTvInteractiveAppCallbackServiceServer) OnInteractiveAppServiceUpdated(context.Context, *OnInteractiveAppServiceUpdatedRequest) (*OnInteractiveAppServiceUpdatedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnInteractiveAppServiceUpdated not implemented")
+}
+func (UnimplementedTvInteractiveAppManagerTvInteractiveAppCallbackServiceServer) OnTvInteractiveAppServiceStateChanged(context.Context, *OnTvInteractiveAppServiceStateChangedRequest) (*OnTvInteractiveAppServiceStateChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTvInteractiveAppServiceStateChanged not implemented")
+}
+func (UnimplementedTvInteractiveAppManagerTvInteractiveAppCallbackServiceServer) mustEmbedUnimplementedTvInteractiveAppManagerTvInteractiveAppCallbackServiceServer() {
+}
+func (UnimplementedTvInteractiveAppManagerTvInteractiveAppCallbackServiceServer) testEmbeddedByValue() {
+}
+
+// UnsafeTvInteractiveAppManagerTvInteractiveAppCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TvInteractiveAppManagerTvInteractiveAppCallbackServiceServer will
+// result in compilation errors.
+type UnsafeTvInteractiveAppManagerTvInteractiveAppCallbackServiceServer interface {
+	mustEmbedUnimplementedTvInteractiveAppManagerTvInteractiveAppCallbackServiceServer()
+}
+
+func RegisterTvInteractiveAppManagerTvInteractiveAppCallbackServiceServer(s grpc.ServiceRegistrar, srv TvInteractiveAppManagerTvInteractiveAppCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedTvInteractiveAppManagerTvInteractiveAppCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TvInteractiveAppManagerTvInteractiveAppCallbackService_ServiceDesc, srv)
+}
+
+func _TvInteractiveAppManagerTvInteractiveAppCallbackService_OnInteractiveAppServiceAdded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnInteractiveAppServiceAddedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppManagerTvInteractiveAppCallbackServiceServer).OnInteractiveAppServiceAdded(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppManagerTvInteractiveAppCallbackService_OnInteractiveAppServiceAdded_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppManagerTvInteractiveAppCallbackServiceServer).OnInteractiveAppServiceAdded(ctx, req.(*OnInteractiveAppServiceAddedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppManagerTvInteractiveAppCallbackService_OnInteractiveAppServiceRemoved_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnInteractiveAppServiceRemovedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppManagerTvInteractiveAppCallbackServiceServer).OnInteractiveAppServiceRemoved(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppManagerTvInteractiveAppCallbackService_OnInteractiveAppServiceRemoved_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppManagerTvInteractiveAppCallbackServiceServer).OnInteractiveAppServiceRemoved(ctx, req.(*OnInteractiveAppServiceRemovedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppManagerTvInteractiveAppCallbackService_OnInteractiveAppServiceUpdated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnInteractiveAppServiceUpdatedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppManagerTvInteractiveAppCallbackServiceServer).OnInteractiveAppServiceUpdated(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppManagerTvInteractiveAppCallbackService_OnInteractiveAppServiceUpdated_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppManagerTvInteractiveAppCallbackServiceServer).OnInteractiveAppServiceUpdated(ctx, req.(*OnInteractiveAppServiceUpdatedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TvInteractiveAppManagerTvInteractiveAppCallbackService_OnTvInteractiveAppServiceStateChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTvInteractiveAppServiceStateChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TvInteractiveAppManagerTvInteractiveAppCallbackServiceServer).OnTvInteractiveAppServiceStateChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TvInteractiveAppManagerTvInteractiveAppCallbackService_OnTvInteractiveAppServiceStateChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TvInteractiveAppManagerTvInteractiveAppCallbackServiceServer).OnTvInteractiveAppServiceStateChanged(ctx, req.(*OnTvInteractiveAppServiceStateChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TvInteractiveAppManagerTvInteractiveAppCallbackService_ServiceDesc is the grpc.ServiceDesc for TvInteractiveAppManagerTvInteractiveAppCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TvInteractiveAppManagerTvInteractiveAppCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "interactive.TvInteractiveAppManagerTvInteractiveAppCallbackService",
+	HandlerType: (*TvInteractiveAppManagerTvInteractiveAppCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnInteractiveAppServiceAdded",
+			Handler:    _TvInteractiveAppManagerTvInteractiveAppCallbackService_OnInteractiveAppServiceAdded_Handler,
+		},
+		{
+			MethodName: "OnInteractiveAppServiceRemoved",
+			Handler:    _TvInteractiveAppManagerTvInteractiveAppCallbackService_OnInteractiveAppServiceRemoved_Handler,
+		},
+		{
+			MethodName: "OnInteractiveAppServiceUpdated",
+			Handler:    _TvInteractiveAppManagerTvInteractiveAppCallbackService_OnInteractiveAppServiceUpdated_Handler,
+		},
+		{
+			MethodName: "OnTvInteractiveAppServiceStateChanged",
+			Handler:    _TvInteractiveAppManagerTvInteractiveAppCallbackService_OnTvInteractiveAppServiceStateChanged_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -3857,3373 +7338,6 @@ var TvInteractiveAppServiceSessionService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SetVideoBounds",
 			Handler:    _TvInteractiveAppServiceSessionService_SetVideoBounds_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/interactive/interactive.proto",
-}
-
-const (
-	TvInteractiveAppViewService_NewTvInteractiveAppView_FullMethodName               = "/interactive.TvInteractiveAppViewService/NewTvInteractiveAppView"
-	TvInteractiveAppViewService_ClearCallback_FullMethodName                         = "/interactive.TvInteractiveAppViewService/ClearCallback"
-	TvInteractiveAppViewService_ClearOnUnhandledInputEventListener_FullMethodName    = "/interactive.TvInteractiveAppViewService/ClearOnUnhandledInputEventListener"
-	TvInteractiveAppViewService_CreateBiInteractiveApp_FullMethodName                = "/interactive.TvInteractiveAppViewService/CreateBiInteractiveApp"
-	TvInteractiveAppViewService_DestroyBiInteractiveApp_FullMethodName               = "/interactive.TvInteractiveAppViewService/DestroyBiInteractiveApp"
-	TvInteractiveAppViewService_DispatchKeyEvent_FullMethodName                      = "/interactive.TvInteractiveAppViewService/DispatchKeyEvent"
-	TvInteractiveAppViewService_DispatchUnhandledInputEvent_FullMethodName           = "/interactive.TvInteractiveAppViewService/DispatchUnhandledInputEvent"
-	TvInteractiveAppViewService_GetOnUnhandledInputEventListener_FullMethodName      = "/interactive.TvInteractiveAppViewService/GetOnUnhandledInputEventListener"
-	TvInteractiveAppViewService_NotifyError_FullMethodName                           = "/interactive.TvInteractiveAppViewService/NotifyError"
-	TvInteractiveAppViewService_NotifyRecordingScheduled_FullMethodName              = "/interactive.TvInteractiveAppViewService/NotifyRecordingScheduled"
-	TvInteractiveAppViewService_NotifyRecordingStarted_FullMethodName                = "/interactive.TvInteractiveAppViewService/NotifyRecordingStarted"
-	TvInteractiveAppViewService_NotifyRecordingStopped_FullMethodName                = "/interactive.TvInteractiveAppViewService/NotifyRecordingStopped"
-	TvInteractiveAppViewService_NotifyTimeShiftCurrentPositionChanged_FullMethodName = "/interactive.TvInteractiveAppViewService/NotifyTimeShiftCurrentPositionChanged"
-	TvInteractiveAppViewService_NotifyTimeShiftPlaybackParams_FullMethodName         = "/interactive.TvInteractiveAppViewService/NotifyTimeShiftPlaybackParams"
-	TvInteractiveAppViewService_NotifyTimeShiftStartPositionChanged_FullMethodName   = "/interactive.TvInteractiveAppViewService/NotifyTimeShiftStartPositionChanged"
-	TvInteractiveAppViewService_NotifyTimeShiftStatusChanged_FullMethodName          = "/interactive.TvInteractiveAppViewService/NotifyTimeShiftStatusChanged"
-	TvInteractiveAppViewService_NotifyTvMessage_FullMethodName                       = "/interactive.TvInteractiveAppViewService/NotifyTvMessage"
-	TvInteractiveAppViewService_NotifyVideoFreezeUpdated_FullMethodName              = "/interactive.TvInteractiveAppViewService/NotifyVideoFreezeUpdated"
-	TvInteractiveAppViewService_OnAttachedToWindow_FullMethodName                    = "/interactive.TvInteractiveAppViewService/OnAttachedToWindow"
-	TvInteractiveAppViewService_OnDetachedFromWindow_FullMethodName                  = "/interactive.TvInteractiveAppViewService/OnDetachedFromWindow"
-	TvInteractiveAppViewService_OnLayout_FullMethodName                              = "/interactive.TvInteractiveAppViewService/OnLayout"
-	TvInteractiveAppViewService_OnMeasure_FullMethodName                             = "/interactive.TvInteractiveAppViewService/OnMeasure"
-	TvInteractiveAppViewService_OnUnhandledInputEvent_FullMethodName                 = "/interactive.TvInteractiveAppViewService/OnUnhandledInputEvent"
-	TvInteractiveAppViewService_OnVisibilityChanged_FullMethodName                   = "/interactive.TvInteractiveAppViewService/OnVisibilityChanged"
-	TvInteractiveAppViewService_PrepareInteractiveApp_FullMethodName                 = "/interactive.TvInteractiveAppViewService/PrepareInteractiveApp"
-	TvInteractiveAppViewService_Reset_FullMethodName                                 = "/interactive.TvInteractiveAppViewService/Reset"
-	TvInteractiveAppViewService_ResetInteractiveApp_FullMethodName                   = "/interactive.TvInteractiveAppViewService/ResetInteractiveApp"
-	TvInteractiveAppViewService_SendAvailableSpeeds_FullMethodName                   = "/interactive.TvInteractiveAppViewService/SendAvailableSpeeds"
-	TvInteractiveAppViewService_SendCertificate_FullMethodName                       = "/interactive.TvInteractiveAppViewService/SendCertificate"
-	TvInteractiveAppViewService_SendCurrentChannelLcn_FullMethodName                 = "/interactive.TvInteractiveAppViewService/SendCurrentChannelLcn"
-	TvInteractiveAppViewService_SendCurrentChannelUri_FullMethodName                 = "/interactive.TvInteractiveAppViewService/SendCurrentChannelUri"
-	TvInteractiveAppViewService_SendCurrentTvInputId_FullMethodName                  = "/interactive.TvInteractiveAppViewService/SendCurrentTvInputId"
-	TvInteractiveAppViewService_SendCurrentVideoBounds_FullMethodName                = "/interactive.TvInteractiveAppViewService/SendCurrentVideoBounds"
-	TvInteractiveAppViewService_SendSigningResult_FullMethodName                     = "/interactive.TvInteractiveAppViewService/SendSigningResult"
-	TvInteractiveAppViewService_SendStreamVolume_FullMethodName                      = "/interactive.TvInteractiveAppViewService/SendStreamVolume"
-	TvInteractiveAppViewService_SendTimeShiftMode_FullMethodName                     = "/interactive.TvInteractiveAppViewService/SendTimeShiftMode"
-	TvInteractiveAppViewService_SendTvRecordingInfo_FullMethodName                   = "/interactive.TvInteractiveAppViewService/SendTvRecordingInfo"
-	TvInteractiveAppViewService_SetCallback_FullMethodName                           = "/interactive.TvInteractiveAppViewService/SetCallback"
-	TvInteractiveAppViewService_SetOnUnhandledInputEventListener_FullMethodName      = "/interactive.TvInteractiveAppViewService/SetOnUnhandledInputEventListener"
-	TvInteractiveAppViewService_SetTeletextAppEnabled_FullMethodName                 = "/interactive.TvInteractiveAppViewService/SetTeletextAppEnabled"
-	TvInteractiveAppViewService_SetTvView_FullMethodName                             = "/interactive.TvInteractiveAppViewService/SetTvView"
-	TvInteractiveAppViewService_SetZOrderMediaOverlay_FullMethodName                 = "/interactive.TvInteractiveAppViewService/SetZOrderMediaOverlay"
-	TvInteractiveAppViewService_SetZOrderOnTop_FullMethodName                        = "/interactive.TvInteractiveAppViewService/SetZOrderOnTop"
-	TvInteractiveAppViewService_StartInteractiveApp_FullMethodName                   = "/interactive.TvInteractiveAppViewService/StartInteractiveApp"
-	TvInteractiveAppViewService_StopInteractiveApp_FullMethodName                    = "/interactive.TvInteractiveAppViewService/StopInteractiveApp"
-)
-
-// TvInteractiveAppViewServiceClient is the client API for TvInteractiveAppViewService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TvInteractiveAppViewServiceClient interface {
-	NewTvInteractiveAppView(ctx context.Context, in *NewTvInteractiveAppViewRequest, opts ...grpc.CallOption) (*NewTvInteractiveAppViewResponse, error)
-	ClearCallback(ctx context.Context, in *ClearCallbackRequest, opts ...grpc.CallOption) (*ClearCallbackResponse, error)
-	ClearOnUnhandledInputEventListener(ctx context.Context, in *ClearOnUnhandledInputEventListenerRequest, opts ...grpc.CallOption) (*ClearOnUnhandledInputEventListenerResponse, error)
-	CreateBiInteractiveApp(ctx context.Context, in *CreateBiInteractiveAppRequest, opts ...grpc.CallOption) (*CreateBiInteractiveAppResponse, error)
-	DestroyBiInteractiveApp(ctx context.Context, in *DestroyBiInteractiveAppRequest, opts ...grpc.CallOption) (*DestroyBiInteractiveAppResponse, error)
-	DispatchKeyEvent(ctx context.Context, in *DispatchKeyEventRequest, opts ...grpc.CallOption) (*DispatchKeyEventResponse, error)
-	DispatchUnhandledInputEvent(ctx context.Context, in *DispatchUnhandledInputEventRequest, opts ...grpc.CallOption) (*DispatchUnhandledInputEventResponse, error)
-	GetOnUnhandledInputEventListener(ctx context.Context, in *GetOnUnhandledInputEventListenerRequest, opts ...grpc.CallOption) (*GetOnUnhandledInputEventListenerResponse, error)
-	NotifyError(ctx context.Context, in *NotifyErrorRequest, opts ...grpc.CallOption) (*NotifyErrorResponse, error)
-	NotifyRecordingScheduled(ctx context.Context, in *NotifyRecordingScheduledRequest, opts ...grpc.CallOption) (*NotifyRecordingScheduledResponse, error)
-	NotifyRecordingStarted(ctx context.Context, in *NotifyRecordingStartedRequest, opts ...grpc.CallOption) (*NotifyRecordingStartedResponse, error)
-	NotifyRecordingStopped(ctx context.Context, in *NotifyRecordingStoppedRequest, opts ...grpc.CallOption) (*NotifyRecordingStoppedResponse, error)
-	NotifyTimeShiftCurrentPositionChanged(ctx context.Context, in *NotifyTimeShiftCurrentPositionChangedRequest, opts ...grpc.CallOption) (*NotifyTimeShiftCurrentPositionChangedResponse, error)
-	NotifyTimeShiftPlaybackParams(ctx context.Context, in *NotifyTimeShiftPlaybackParamsRequest, opts ...grpc.CallOption) (*NotifyTimeShiftPlaybackParamsResponse, error)
-	NotifyTimeShiftStartPositionChanged(ctx context.Context, in *NotifyTimeShiftStartPositionChangedRequest, opts ...grpc.CallOption) (*NotifyTimeShiftStartPositionChangedResponse, error)
-	NotifyTimeShiftStatusChanged(ctx context.Context, in *NotifyTimeShiftStatusChangedRequest, opts ...grpc.CallOption) (*NotifyTimeShiftStatusChangedResponse, error)
-	NotifyTvMessage(ctx context.Context, in *NotifyTvMessageRequest, opts ...grpc.CallOption) (*NotifyTvMessageResponse, error)
-	NotifyVideoFreezeUpdated(ctx context.Context, in *NotifyVideoFreezeUpdatedRequest, opts ...grpc.CallOption) (*NotifyVideoFreezeUpdatedResponse, error)
-	OnAttachedToWindow(ctx context.Context, in *OnAttachedToWindowRequest, opts ...grpc.CallOption) (*OnAttachedToWindowResponse, error)
-	OnDetachedFromWindow(ctx context.Context, in *OnDetachedFromWindowRequest, opts ...grpc.CallOption) (*OnDetachedFromWindowResponse, error)
-	OnLayout(ctx context.Context, in *OnLayoutRequest, opts ...grpc.CallOption) (*OnLayoutResponse, error)
-	OnMeasure(ctx context.Context, in *OnMeasureRequest, opts ...grpc.CallOption) (*OnMeasureResponse, error)
-	OnUnhandledInputEvent(ctx context.Context, in *OnUnhandledInputEventRequest, opts ...grpc.CallOption) (*OnUnhandledInputEventResponse, error)
-	OnVisibilityChanged(ctx context.Context, in *OnVisibilityChangedRequest, opts ...grpc.CallOption) (*OnVisibilityChangedResponse, error)
-	PrepareInteractiveApp(ctx context.Context, in *PrepareInteractiveAppRequest, opts ...grpc.CallOption) (*PrepareInteractiveAppResponse, error)
-	Reset(ctx context.Context, in *ResetRequest, opts ...grpc.CallOption) (*ResetResponse, error)
-	ResetInteractiveApp(ctx context.Context, in *ResetInteractiveAppRequest, opts ...grpc.CallOption) (*ResetInteractiveAppResponse, error)
-	SendAvailableSpeeds(ctx context.Context, in *SendAvailableSpeedsRequest, opts ...grpc.CallOption) (*SendAvailableSpeedsResponse, error)
-	SendCertificate(ctx context.Context, in *SendCertificateRequest, opts ...grpc.CallOption) (*SendCertificateResponse, error)
-	SendCurrentChannelLcn(ctx context.Context, in *SendCurrentChannelLcnRequest, opts ...grpc.CallOption) (*SendCurrentChannelLcnResponse, error)
-	SendCurrentChannelUri(ctx context.Context, in *SendCurrentChannelUriRequest, opts ...grpc.CallOption) (*SendCurrentChannelUriResponse, error)
-	SendCurrentTvInputId(ctx context.Context, in *SendCurrentTvInputIdRequest, opts ...grpc.CallOption) (*SendCurrentTvInputIdResponse, error)
-	SendCurrentVideoBounds(ctx context.Context, in *SendCurrentVideoBoundsRequest, opts ...grpc.CallOption) (*SendCurrentVideoBoundsResponse, error)
-	SendSigningResult(ctx context.Context, in *SendSigningResultRequest, opts ...grpc.CallOption) (*SendSigningResultResponse, error)
-	SendStreamVolume(ctx context.Context, in *SendStreamVolumeRequest, opts ...grpc.CallOption) (*SendStreamVolumeResponse, error)
-	SendTimeShiftMode(ctx context.Context, in *SendTimeShiftModeRequest, opts ...grpc.CallOption) (*SendTimeShiftModeResponse, error)
-	SendTvRecordingInfo(ctx context.Context, in *SendTvRecordingInfoRequest, opts ...grpc.CallOption) (*SendTvRecordingInfoResponse, error)
-	SetCallback(ctx context.Context, in *SetCallbackRequest, opts ...grpc.CallOption) (*SetCallbackResponse, error)
-	SetOnUnhandledInputEventListener(ctx context.Context, in *SetOnUnhandledInputEventListenerRequest, opts ...grpc.CallOption) (*SetOnUnhandledInputEventListenerResponse, error)
-	SetTeletextAppEnabled(ctx context.Context, in *SetTeletextAppEnabledRequest, opts ...grpc.CallOption) (*SetTeletextAppEnabledResponse, error)
-	SetTvView(ctx context.Context, in *SetTvViewRequest, opts ...grpc.CallOption) (*SetTvViewResponse, error)
-	SetZOrderMediaOverlay(ctx context.Context, in *SetZOrderMediaOverlayRequest, opts ...grpc.CallOption) (*SetZOrderMediaOverlayResponse, error)
-	SetZOrderOnTop(ctx context.Context, in *SetZOrderOnTopRequest, opts ...grpc.CallOption) (*SetZOrderOnTopResponse, error)
-	StartInteractiveApp(ctx context.Context, in *StartInteractiveAppRequest, opts ...grpc.CallOption) (*StartInteractiveAppResponse, error)
-	StopInteractiveApp(ctx context.Context, in *StopInteractiveAppRequest, opts ...grpc.CallOption) (*StopInteractiveAppResponse, error)
-}
-
-type tvInteractiveAppViewServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewTvInteractiveAppViewServiceClient(cc grpc.ClientConnInterface) TvInteractiveAppViewServiceClient {
-	return &tvInteractiveAppViewServiceClient{cc}
-}
-
-func (c *tvInteractiveAppViewServiceClient) NewTvInteractiveAppView(ctx context.Context, in *NewTvInteractiveAppViewRequest, opts ...grpc.CallOption) (*NewTvInteractiveAppViewResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewTvInteractiveAppViewResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_NewTvInteractiveAppView_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) ClearCallback(ctx context.Context, in *ClearCallbackRequest, opts ...grpc.CallOption) (*ClearCallbackResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ClearCallbackResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_ClearCallback_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) ClearOnUnhandledInputEventListener(ctx context.Context, in *ClearOnUnhandledInputEventListenerRequest, opts ...grpc.CallOption) (*ClearOnUnhandledInputEventListenerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ClearOnUnhandledInputEventListenerResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_ClearOnUnhandledInputEventListener_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) CreateBiInteractiveApp(ctx context.Context, in *CreateBiInteractiveAppRequest, opts ...grpc.CallOption) (*CreateBiInteractiveAppResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateBiInteractiveAppResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_CreateBiInteractiveApp_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) DestroyBiInteractiveApp(ctx context.Context, in *DestroyBiInteractiveAppRequest, opts ...grpc.CallOption) (*DestroyBiInteractiveAppResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DestroyBiInteractiveAppResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_DestroyBiInteractiveApp_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) DispatchKeyEvent(ctx context.Context, in *DispatchKeyEventRequest, opts ...grpc.CallOption) (*DispatchKeyEventResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DispatchKeyEventResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_DispatchKeyEvent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) DispatchUnhandledInputEvent(ctx context.Context, in *DispatchUnhandledInputEventRequest, opts ...grpc.CallOption) (*DispatchUnhandledInputEventResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DispatchUnhandledInputEventResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_DispatchUnhandledInputEvent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) GetOnUnhandledInputEventListener(ctx context.Context, in *GetOnUnhandledInputEventListenerRequest, opts ...grpc.CallOption) (*GetOnUnhandledInputEventListenerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetOnUnhandledInputEventListenerResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_GetOnUnhandledInputEventListener_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) NotifyError(ctx context.Context, in *NotifyErrorRequest, opts ...grpc.CallOption) (*NotifyErrorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NotifyErrorResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_NotifyError_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) NotifyRecordingScheduled(ctx context.Context, in *NotifyRecordingScheduledRequest, opts ...grpc.CallOption) (*NotifyRecordingScheduledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NotifyRecordingScheduledResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_NotifyRecordingScheduled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) NotifyRecordingStarted(ctx context.Context, in *NotifyRecordingStartedRequest, opts ...grpc.CallOption) (*NotifyRecordingStartedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NotifyRecordingStartedResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_NotifyRecordingStarted_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) NotifyRecordingStopped(ctx context.Context, in *NotifyRecordingStoppedRequest, opts ...grpc.CallOption) (*NotifyRecordingStoppedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NotifyRecordingStoppedResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_NotifyRecordingStopped_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) NotifyTimeShiftCurrentPositionChanged(ctx context.Context, in *NotifyTimeShiftCurrentPositionChangedRequest, opts ...grpc.CallOption) (*NotifyTimeShiftCurrentPositionChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NotifyTimeShiftCurrentPositionChangedResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_NotifyTimeShiftCurrentPositionChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) NotifyTimeShiftPlaybackParams(ctx context.Context, in *NotifyTimeShiftPlaybackParamsRequest, opts ...grpc.CallOption) (*NotifyTimeShiftPlaybackParamsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NotifyTimeShiftPlaybackParamsResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_NotifyTimeShiftPlaybackParams_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) NotifyTimeShiftStartPositionChanged(ctx context.Context, in *NotifyTimeShiftStartPositionChangedRequest, opts ...grpc.CallOption) (*NotifyTimeShiftStartPositionChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NotifyTimeShiftStartPositionChangedResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_NotifyTimeShiftStartPositionChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) NotifyTimeShiftStatusChanged(ctx context.Context, in *NotifyTimeShiftStatusChangedRequest, opts ...grpc.CallOption) (*NotifyTimeShiftStatusChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NotifyTimeShiftStatusChangedResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_NotifyTimeShiftStatusChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) NotifyTvMessage(ctx context.Context, in *NotifyTvMessageRequest, opts ...grpc.CallOption) (*NotifyTvMessageResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NotifyTvMessageResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_NotifyTvMessage_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) NotifyVideoFreezeUpdated(ctx context.Context, in *NotifyVideoFreezeUpdatedRequest, opts ...grpc.CallOption) (*NotifyVideoFreezeUpdatedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NotifyVideoFreezeUpdatedResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_NotifyVideoFreezeUpdated_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) OnAttachedToWindow(ctx context.Context, in *OnAttachedToWindowRequest, opts ...grpc.CallOption) (*OnAttachedToWindowResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnAttachedToWindowResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_OnAttachedToWindow_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) OnDetachedFromWindow(ctx context.Context, in *OnDetachedFromWindowRequest, opts ...grpc.CallOption) (*OnDetachedFromWindowResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnDetachedFromWindowResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_OnDetachedFromWindow_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) OnLayout(ctx context.Context, in *OnLayoutRequest, opts ...grpc.CallOption) (*OnLayoutResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnLayoutResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_OnLayout_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) OnMeasure(ctx context.Context, in *OnMeasureRequest, opts ...grpc.CallOption) (*OnMeasureResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnMeasureResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_OnMeasure_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) OnUnhandledInputEvent(ctx context.Context, in *OnUnhandledInputEventRequest, opts ...grpc.CallOption) (*OnUnhandledInputEventResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnUnhandledInputEventResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_OnUnhandledInputEvent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) OnVisibilityChanged(ctx context.Context, in *OnVisibilityChangedRequest, opts ...grpc.CallOption) (*OnVisibilityChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnVisibilityChangedResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_OnVisibilityChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) PrepareInteractiveApp(ctx context.Context, in *PrepareInteractiveAppRequest, opts ...grpc.CallOption) (*PrepareInteractiveAppResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(PrepareInteractiveAppResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_PrepareInteractiveApp_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) Reset(ctx context.Context, in *ResetRequest, opts ...grpc.CallOption) (*ResetResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ResetResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_Reset_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) ResetInteractiveApp(ctx context.Context, in *ResetInteractiveAppRequest, opts ...grpc.CallOption) (*ResetInteractiveAppResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ResetInteractiveAppResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_ResetInteractiveApp_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) SendAvailableSpeeds(ctx context.Context, in *SendAvailableSpeedsRequest, opts ...grpc.CallOption) (*SendAvailableSpeedsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SendAvailableSpeedsResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_SendAvailableSpeeds_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) SendCertificate(ctx context.Context, in *SendCertificateRequest, opts ...grpc.CallOption) (*SendCertificateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SendCertificateResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_SendCertificate_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) SendCurrentChannelLcn(ctx context.Context, in *SendCurrentChannelLcnRequest, opts ...grpc.CallOption) (*SendCurrentChannelLcnResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SendCurrentChannelLcnResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_SendCurrentChannelLcn_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) SendCurrentChannelUri(ctx context.Context, in *SendCurrentChannelUriRequest, opts ...grpc.CallOption) (*SendCurrentChannelUriResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SendCurrentChannelUriResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_SendCurrentChannelUri_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) SendCurrentTvInputId(ctx context.Context, in *SendCurrentTvInputIdRequest, opts ...grpc.CallOption) (*SendCurrentTvInputIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SendCurrentTvInputIdResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_SendCurrentTvInputId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) SendCurrentVideoBounds(ctx context.Context, in *SendCurrentVideoBoundsRequest, opts ...grpc.CallOption) (*SendCurrentVideoBoundsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SendCurrentVideoBoundsResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_SendCurrentVideoBounds_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) SendSigningResult(ctx context.Context, in *SendSigningResultRequest, opts ...grpc.CallOption) (*SendSigningResultResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SendSigningResultResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_SendSigningResult_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) SendStreamVolume(ctx context.Context, in *SendStreamVolumeRequest, opts ...grpc.CallOption) (*SendStreamVolumeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SendStreamVolumeResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_SendStreamVolume_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) SendTimeShiftMode(ctx context.Context, in *SendTimeShiftModeRequest, opts ...grpc.CallOption) (*SendTimeShiftModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SendTimeShiftModeResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_SendTimeShiftMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) SendTvRecordingInfo(ctx context.Context, in *SendTvRecordingInfoRequest, opts ...grpc.CallOption) (*SendTvRecordingInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SendTvRecordingInfoResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_SendTvRecordingInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) SetCallback(ctx context.Context, in *SetCallbackRequest, opts ...grpc.CallOption) (*SetCallbackResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetCallbackResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_SetCallback_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) SetOnUnhandledInputEventListener(ctx context.Context, in *SetOnUnhandledInputEventListenerRequest, opts ...grpc.CallOption) (*SetOnUnhandledInputEventListenerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetOnUnhandledInputEventListenerResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_SetOnUnhandledInputEventListener_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) SetTeletextAppEnabled(ctx context.Context, in *SetTeletextAppEnabledRequest, opts ...grpc.CallOption) (*SetTeletextAppEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetTeletextAppEnabledResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_SetTeletextAppEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) SetTvView(ctx context.Context, in *SetTvViewRequest, opts ...grpc.CallOption) (*SetTvViewResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetTvViewResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_SetTvView_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) SetZOrderMediaOverlay(ctx context.Context, in *SetZOrderMediaOverlayRequest, opts ...grpc.CallOption) (*SetZOrderMediaOverlayResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetZOrderMediaOverlayResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_SetZOrderMediaOverlay_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) SetZOrderOnTop(ctx context.Context, in *SetZOrderOnTopRequest, opts ...grpc.CallOption) (*SetZOrderOnTopResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetZOrderOnTopResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_SetZOrderOnTop_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) StartInteractiveApp(ctx context.Context, in *StartInteractiveAppRequest, opts ...grpc.CallOption) (*StartInteractiveAppResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StartInteractiveAppResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_StartInteractiveApp_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewServiceClient) StopInteractiveApp(ctx context.Context, in *StopInteractiveAppRequest, opts ...grpc.CallOption) (*StopInteractiveAppResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StopInteractiveAppResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewService_StopInteractiveApp_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// TvInteractiveAppViewServiceServer is the server API for TvInteractiveAppViewService service.
-// All implementations must embed UnimplementedTvInteractiveAppViewServiceServer
-// for forward compatibility.
-type TvInteractiveAppViewServiceServer interface {
-	NewTvInteractiveAppView(context.Context, *NewTvInteractiveAppViewRequest) (*NewTvInteractiveAppViewResponse, error)
-	ClearCallback(context.Context, *ClearCallbackRequest) (*ClearCallbackResponse, error)
-	ClearOnUnhandledInputEventListener(context.Context, *ClearOnUnhandledInputEventListenerRequest) (*ClearOnUnhandledInputEventListenerResponse, error)
-	CreateBiInteractiveApp(context.Context, *CreateBiInteractiveAppRequest) (*CreateBiInteractiveAppResponse, error)
-	DestroyBiInteractiveApp(context.Context, *DestroyBiInteractiveAppRequest) (*DestroyBiInteractiveAppResponse, error)
-	DispatchKeyEvent(context.Context, *DispatchKeyEventRequest) (*DispatchKeyEventResponse, error)
-	DispatchUnhandledInputEvent(context.Context, *DispatchUnhandledInputEventRequest) (*DispatchUnhandledInputEventResponse, error)
-	GetOnUnhandledInputEventListener(context.Context, *GetOnUnhandledInputEventListenerRequest) (*GetOnUnhandledInputEventListenerResponse, error)
-	NotifyError(context.Context, *NotifyErrorRequest) (*NotifyErrorResponse, error)
-	NotifyRecordingScheduled(context.Context, *NotifyRecordingScheduledRequest) (*NotifyRecordingScheduledResponse, error)
-	NotifyRecordingStarted(context.Context, *NotifyRecordingStartedRequest) (*NotifyRecordingStartedResponse, error)
-	NotifyRecordingStopped(context.Context, *NotifyRecordingStoppedRequest) (*NotifyRecordingStoppedResponse, error)
-	NotifyTimeShiftCurrentPositionChanged(context.Context, *NotifyTimeShiftCurrentPositionChangedRequest) (*NotifyTimeShiftCurrentPositionChangedResponse, error)
-	NotifyTimeShiftPlaybackParams(context.Context, *NotifyTimeShiftPlaybackParamsRequest) (*NotifyTimeShiftPlaybackParamsResponse, error)
-	NotifyTimeShiftStartPositionChanged(context.Context, *NotifyTimeShiftStartPositionChangedRequest) (*NotifyTimeShiftStartPositionChangedResponse, error)
-	NotifyTimeShiftStatusChanged(context.Context, *NotifyTimeShiftStatusChangedRequest) (*NotifyTimeShiftStatusChangedResponse, error)
-	NotifyTvMessage(context.Context, *NotifyTvMessageRequest) (*NotifyTvMessageResponse, error)
-	NotifyVideoFreezeUpdated(context.Context, *NotifyVideoFreezeUpdatedRequest) (*NotifyVideoFreezeUpdatedResponse, error)
-	OnAttachedToWindow(context.Context, *OnAttachedToWindowRequest) (*OnAttachedToWindowResponse, error)
-	OnDetachedFromWindow(context.Context, *OnDetachedFromWindowRequest) (*OnDetachedFromWindowResponse, error)
-	OnLayout(context.Context, *OnLayoutRequest) (*OnLayoutResponse, error)
-	OnMeasure(context.Context, *OnMeasureRequest) (*OnMeasureResponse, error)
-	OnUnhandledInputEvent(context.Context, *OnUnhandledInputEventRequest) (*OnUnhandledInputEventResponse, error)
-	OnVisibilityChanged(context.Context, *OnVisibilityChangedRequest) (*OnVisibilityChangedResponse, error)
-	PrepareInteractiveApp(context.Context, *PrepareInteractiveAppRequest) (*PrepareInteractiveAppResponse, error)
-	Reset(context.Context, *ResetRequest) (*ResetResponse, error)
-	ResetInteractiveApp(context.Context, *ResetInteractiveAppRequest) (*ResetInteractiveAppResponse, error)
-	SendAvailableSpeeds(context.Context, *SendAvailableSpeedsRequest) (*SendAvailableSpeedsResponse, error)
-	SendCertificate(context.Context, *SendCertificateRequest) (*SendCertificateResponse, error)
-	SendCurrentChannelLcn(context.Context, *SendCurrentChannelLcnRequest) (*SendCurrentChannelLcnResponse, error)
-	SendCurrentChannelUri(context.Context, *SendCurrentChannelUriRequest) (*SendCurrentChannelUriResponse, error)
-	SendCurrentTvInputId(context.Context, *SendCurrentTvInputIdRequest) (*SendCurrentTvInputIdResponse, error)
-	SendCurrentVideoBounds(context.Context, *SendCurrentVideoBoundsRequest) (*SendCurrentVideoBoundsResponse, error)
-	SendSigningResult(context.Context, *SendSigningResultRequest) (*SendSigningResultResponse, error)
-	SendStreamVolume(context.Context, *SendStreamVolumeRequest) (*SendStreamVolumeResponse, error)
-	SendTimeShiftMode(context.Context, *SendTimeShiftModeRequest) (*SendTimeShiftModeResponse, error)
-	SendTvRecordingInfo(context.Context, *SendTvRecordingInfoRequest) (*SendTvRecordingInfoResponse, error)
-	SetCallback(context.Context, *SetCallbackRequest) (*SetCallbackResponse, error)
-	SetOnUnhandledInputEventListener(context.Context, *SetOnUnhandledInputEventListenerRequest) (*SetOnUnhandledInputEventListenerResponse, error)
-	SetTeletextAppEnabled(context.Context, *SetTeletextAppEnabledRequest) (*SetTeletextAppEnabledResponse, error)
-	SetTvView(context.Context, *SetTvViewRequest) (*SetTvViewResponse, error)
-	SetZOrderMediaOverlay(context.Context, *SetZOrderMediaOverlayRequest) (*SetZOrderMediaOverlayResponse, error)
-	SetZOrderOnTop(context.Context, *SetZOrderOnTopRequest) (*SetZOrderOnTopResponse, error)
-	StartInteractiveApp(context.Context, *StartInteractiveAppRequest) (*StartInteractiveAppResponse, error)
-	StopInteractiveApp(context.Context, *StopInteractiveAppRequest) (*StopInteractiveAppResponse, error)
-	mustEmbedUnimplementedTvInteractiveAppViewServiceServer()
-}
-
-// UnimplementedTvInteractiveAppViewServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedTvInteractiveAppViewServiceServer struct{}
-
-func (UnimplementedTvInteractiveAppViewServiceServer) NewTvInteractiveAppView(context.Context, *NewTvInteractiveAppViewRequest) (*NewTvInteractiveAppViewResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewTvInteractiveAppView not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) ClearCallback(context.Context, *ClearCallbackRequest) (*ClearCallbackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ClearCallback not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) ClearOnUnhandledInputEventListener(context.Context, *ClearOnUnhandledInputEventListenerRequest) (*ClearOnUnhandledInputEventListenerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ClearOnUnhandledInputEventListener not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) CreateBiInteractiveApp(context.Context, *CreateBiInteractiveAppRequest) (*CreateBiInteractiveAppResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreateBiInteractiveApp not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) DestroyBiInteractiveApp(context.Context, *DestroyBiInteractiveAppRequest) (*DestroyBiInteractiveAppResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DestroyBiInteractiveApp not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) DispatchKeyEvent(context.Context, *DispatchKeyEventRequest) (*DispatchKeyEventResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DispatchKeyEvent not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) DispatchUnhandledInputEvent(context.Context, *DispatchUnhandledInputEventRequest) (*DispatchUnhandledInputEventResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DispatchUnhandledInputEvent not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) GetOnUnhandledInputEventListener(context.Context, *GetOnUnhandledInputEventListenerRequest) (*GetOnUnhandledInputEventListenerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetOnUnhandledInputEventListener not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) NotifyError(context.Context, *NotifyErrorRequest) (*NotifyErrorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NotifyError not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) NotifyRecordingScheduled(context.Context, *NotifyRecordingScheduledRequest) (*NotifyRecordingScheduledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NotifyRecordingScheduled not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) NotifyRecordingStarted(context.Context, *NotifyRecordingStartedRequest) (*NotifyRecordingStartedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NotifyRecordingStarted not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) NotifyRecordingStopped(context.Context, *NotifyRecordingStoppedRequest) (*NotifyRecordingStoppedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NotifyRecordingStopped not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) NotifyTimeShiftCurrentPositionChanged(context.Context, *NotifyTimeShiftCurrentPositionChangedRequest) (*NotifyTimeShiftCurrentPositionChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NotifyTimeShiftCurrentPositionChanged not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) NotifyTimeShiftPlaybackParams(context.Context, *NotifyTimeShiftPlaybackParamsRequest) (*NotifyTimeShiftPlaybackParamsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NotifyTimeShiftPlaybackParams not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) NotifyTimeShiftStartPositionChanged(context.Context, *NotifyTimeShiftStartPositionChangedRequest) (*NotifyTimeShiftStartPositionChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NotifyTimeShiftStartPositionChanged not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) NotifyTimeShiftStatusChanged(context.Context, *NotifyTimeShiftStatusChangedRequest) (*NotifyTimeShiftStatusChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NotifyTimeShiftStatusChanged not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) NotifyTvMessage(context.Context, *NotifyTvMessageRequest) (*NotifyTvMessageResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NotifyTvMessage not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) NotifyVideoFreezeUpdated(context.Context, *NotifyVideoFreezeUpdatedRequest) (*NotifyVideoFreezeUpdatedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NotifyVideoFreezeUpdated not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) OnAttachedToWindow(context.Context, *OnAttachedToWindowRequest) (*OnAttachedToWindowResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnAttachedToWindow not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) OnDetachedFromWindow(context.Context, *OnDetachedFromWindowRequest) (*OnDetachedFromWindowResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnDetachedFromWindow not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) OnLayout(context.Context, *OnLayoutRequest) (*OnLayoutResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnLayout not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) OnMeasure(context.Context, *OnMeasureRequest) (*OnMeasureResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnMeasure not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) OnUnhandledInputEvent(context.Context, *OnUnhandledInputEventRequest) (*OnUnhandledInputEventResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnUnhandledInputEvent not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) OnVisibilityChanged(context.Context, *OnVisibilityChangedRequest) (*OnVisibilityChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnVisibilityChanged not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) PrepareInteractiveApp(context.Context, *PrepareInteractiveAppRequest) (*PrepareInteractiveAppResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method PrepareInteractiveApp not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) Reset(context.Context, *ResetRequest) (*ResetResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Reset not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) ResetInteractiveApp(context.Context, *ResetInteractiveAppRequest) (*ResetInteractiveAppResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ResetInteractiveApp not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) SendAvailableSpeeds(context.Context, *SendAvailableSpeedsRequest) (*SendAvailableSpeedsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SendAvailableSpeeds not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) SendCertificate(context.Context, *SendCertificateRequest) (*SendCertificateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SendCertificate not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) SendCurrentChannelLcn(context.Context, *SendCurrentChannelLcnRequest) (*SendCurrentChannelLcnResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SendCurrentChannelLcn not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) SendCurrentChannelUri(context.Context, *SendCurrentChannelUriRequest) (*SendCurrentChannelUriResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SendCurrentChannelUri not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) SendCurrentTvInputId(context.Context, *SendCurrentTvInputIdRequest) (*SendCurrentTvInputIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SendCurrentTvInputId not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) SendCurrentVideoBounds(context.Context, *SendCurrentVideoBoundsRequest) (*SendCurrentVideoBoundsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SendCurrentVideoBounds not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) SendSigningResult(context.Context, *SendSigningResultRequest) (*SendSigningResultResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SendSigningResult not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) SendStreamVolume(context.Context, *SendStreamVolumeRequest) (*SendStreamVolumeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SendStreamVolume not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) SendTimeShiftMode(context.Context, *SendTimeShiftModeRequest) (*SendTimeShiftModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SendTimeShiftMode not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) SendTvRecordingInfo(context.Context, *SendTvRecordingInfoRequest) (*SendTvRecordingInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SendTvRecordingInfo not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) SetCallback(context.Context, *SetCallbackRequest) (*SetCallbackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetCallback not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) SetOnUnhandledInputEventListener(context.Context, *SetOnUnhandledInputEventListenerRequest) (*SetOnUnhandledInputEventListenerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetOnUnhandledInputEventListener not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) SetTeletextAppEnabled(context.Context, *SetTeletextAppEnabledRequest) (*SetTeletextAppEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetTeletextAppEnabled not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) SetTvView(context.Context, *SetTvViewRequest) (*SetTvViewResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetTvView not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) SetZOrderMediaOverlay(context.Context, *SetZOrderMediaOverlayRequest) (*SetZOrderMediaOverlayResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetZOrderMediaOverlay not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) SetZOrderOnTop(context.Context, *SetZOrderOnTopRequest) (*SetZOrderOnTopResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetZOrderOnTop not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) StartInteractiveApp(context.Context, *StartInteractiveAppRequest) (*StartInteractiveAppResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method StartInteractiveApp not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) StopInteractiveApp(context.Context, *StopInteractiveAppRequest) (*StopInteractiveAppResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method StopInteractiveApp not implemented")
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) mustEmbedUnimplementedTvInteractiveAppViewServiceServer() {
-}
-func (UnimplementedTvInteractiveAppViewServiceServer) testEmbeddedByValue() {}
-
-// UnsafeTvInteractiveAppViewServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TvInteractiveAppViewServiceServer will
-// result in compilation errors.
-type UnsafeTvInteractiveAppViewServiceServer interface {
-	mustEmbedUnimplementedTvInteractiveAppViewServiceServer()
-}
-
-func RegisterTvInteractiveAppViewServiceServer(s grpc.ServiceRegistrar, srv TvInteractiveAppViewServiceServer) {
-	// If the following call panics, it indicates UnimplementedTvInteractiveAppViewServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&TvInteractiveAppViewService_ServiceDesc, srv)
-}
-
-func _TvInteractiveAppViewService_NewTvInteractiveAppView_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewTvInteractiveAppViewRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).NewTvInteractiveAppView(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_NewTvInteractiveAppView_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).NewTvInteractiveAppView(ctx, req.(*NewTvInteractiveAppViewRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_ClearCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClearCallbackRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).ClearCallback(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_ClearCallback_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).ClearCallback(ctx, req.(*ClearCallbackRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_ClearOnUnhandledInputEventListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClearOnUnhandledInputEventListenerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).ClearOnUnhandledInputEventListener(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_ClearOnUnhandledInputEventListener_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).ClearOnUnhandledInputEventListener(ctx, req.(*ClearOnUnhandledInputEventListenerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_CreateBiInteractiveApp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateBiInteractiveAppRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).CreateBiInteractiveApp(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_CreateBiInteractiveApp_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).CreateBiInteractiveApp(ctx, req.(*CreateBiInteractiveAppRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_DestroyBiInteractiveApp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DestroyBiInteractiveAppRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).DestroyBiInteractiveApp(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_DestroyBiInteractiveApp_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).DestroyBiInteractiveApp(ctx, req.(*DestroyBiInteractiveAppRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_DispatchKeyEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DispatchKeyEventRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).DispatchKeyEvent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_DispatchKeyEvent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).DispatchKeyEvent(ctx, req.(*DispatchKeyEventRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_DispatchUnhandledInputEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DispatchUnhandledInputEventRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).DispatchUnhandledInputEvent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_DispatchUnhandledInputEvent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).DispatchUnhandledInputEvent(ctx, req.(*DispatchUnhandledInputEventRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_GetOnUnhandledInputEventListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetOnUnhandledInputEventListenerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).GetOnUnhandledInputEventListener(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_GetOnUnhandledInputEventListener_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).GetOnUnhandledInputEventListener(ctx, req.(*GetOnUnhandledInputEventListenerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_NotifyError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NotifyErrorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).NotifyError(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_NotifyError_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).NotifyError(ctx, req.(*NotifyErrorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_NotifyRecordingScheduled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NotifyRecordingScheduledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).NotifyRecordingScheduled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_NotifyRecordingScheduled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).NotifyRecordingScheduled(ctx, req.(*NotifyRecordingScheduledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_NotifyRecordingStarted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NotifyRecordingStartedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).NotifyRecordingStarted(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_NotifyRecordingStarted_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).NotifyRecordingStarted(ctx, req.(*NotifyRecordingStartedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_NotifyRecordingStopped_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NotifyRecordingStoppedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).NotifyRecordingStopped(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_NotifyRecordingStopped_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).NotifyRecordingStopped(ctx, req.(*NotifyRecordingStoppedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_NotifyTimeShiftCurrentPositionChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NotifyTimeShiftCurrentPositionChangedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).NotifyTimeShiftCurrentPositionChanged(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_NotifyTimeShiftCurrentPositionChanged_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).NotifyTimeShiftCurrentPositionChanged(ctx, req.(*NotifyTimeShiftCurrentPositionChangedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_NotifyTimeShiftPlaybackParams_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NotifyTimeShiftPlaybackParamsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).NotifyTimeShiftPlaybackParams(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_NotifyTimeShiftPlaybackParams_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).NotifyTimeShiftPlaybackParams(ctx, req.(*NotifyTimeShiftPlaybackParamsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_NotifyTimeShiftStartPositionChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NotifyTimeShiftStartPositionChangedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).NotifyTimeShiftStartPositionChanged(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_NotifyTimeShiftStartPositionChanged_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).NotifyTimeShiftStartPositionChanged(ctx, req.(*NotifyTimeShiftStartPositionChangedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_NotifyTimeShiftStatusChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NotifyTimeShiftStatusChangedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).NotifyTimeShiftStatusChanged(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_NotifyTimeShiftStatusChanged_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).NotifyTimeShiftStatusChanged(ctx, req.(*NotifyTimeShiftStatusChangedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_NotifyTvMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NotifyTvMessageRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).NotifyTvMessage(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_NotifyTvMessage_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).NotifyTvMessage(ctx, req.(*NotifyTvMessageRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_NotifyVideoFreezeUpdated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NotifyVideoFreezeUpdatedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).NotifyVideoFreezeUpdated(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_NotifyVideoFreezeUpdated_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).NotifyVideoFreezeUpdated(ctx, req.(*NotifyVideoFreezeUpdatedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_OnAttachedToWindow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnAttachedToWindowRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).OnAttachedToWindow(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_OnAttachedToWindow_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).OnAttachedToWindow(ctx, req.(*OnAttachedToWindowRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_OnDetachedFromWindow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnDetachedFromWindowRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).OnDetachedFromWindow(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_OnDetachedFromWindow_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).OnDetachedFromWindow(ctx, req.(*OnDetachedFromWindowRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_OnLayout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnLayoutRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).OnLayout(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_OnLayout_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).OnLayout(ctx, req.(*OnLayoutRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_OnMeasure_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnMeasureRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).OnMeasure(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_OnMeasure_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).OnMeasure(ctx, req.(*OnMeasureRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_OnUnhandledInputEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnUnhandledInputEventRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).OnUnhandledInputEvent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_OnUnhandledInputEvent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).OnUnhandledInputEvent(ctx, req.(*OnUnhandledInputEventRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_OnVisibilityChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnVisibilityChangedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).OnVisibilityChanged(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_OnVisibilityChanged_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).OnVisibilityChanged(ctx, req.(*OnVisibilityChangedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_PrepareInteractiveApp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PrepareInteractiveAppRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).PrepareInteractiveApp(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_PrepareInteractiveApp_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).PrepareInteractiveApp(ctx, req.(*PrepareInteractiveAppRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_Reset_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ResetRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).Reset(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_Reset_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).Reset(ctx, req.(*ResetRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_ResetInteractiveApp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ResetInteractiveAppRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).ResetInteractiveApp(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_ResetInteractiveApp_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).ResetInteractiveApp(ctx, req.(*ResetInteractiveAppRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_SendAvailableSpeeds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SendAvailableSpeedsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).SendAvailableSpeeds(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_SendAvailableSpeeds_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).SendAvailableSpeeds(ctx, req.(*SendAvailableSpeedsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_SendCertificate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SendCertificateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).SendCertificate(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_SendCertificate_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).SendCertificate(ctx, req.(*SendCertificateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_SendCurrentChannelLcn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SendCurrentChannelLcnRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).SendCurrentChannelLcn(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_SendCurrentChannelLcn_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).SendCurrentChannelLcn(ctx, req.(*SendCurrentChannelLcnRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_SendCurrentChannelUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SendCurrentChannelUriRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).SendCurrentChannelUri(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_SendCurrentChannelUri_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).SendCurrentChannelUri(ctx, req.(*SendCurrentChannelUriRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_SendCurrentTvInputId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SendCurrentTvInputIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).SendCurrentTvInputId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_SendCurrentTvInputId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).SendCurrentTvInputId(ctx, req.(*SendCurrentTvInputIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_SendCurrentVideoBounds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SendCurrentVideoBoundsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).SendCurrentVideoBounds(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_SendCurrentVideoBounds_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).SendCurrentVideoBounds(ctx, req.(*SendCurrentVideoBoundsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_SendSigningResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SendSigningResultRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).SendSigningResult(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_SendSigningResult_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).SendSigningResult(ctx, req.(*SendSigningResultRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_SendStreamVolume_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SendStreamVolumeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).SendStreamVolume(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_SendStreamVolume_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).SendStreamVolume(ctx, req.(*SendStreamVolumeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_SendTimeShiftMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SendTimeShiftModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).SendTimeShiftMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_SendTimeShiftMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).SendTimeShiftMode(ctx, req.(*SendTimeShiftModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_SendTvRecordingInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SendTvRecordingInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).SendTvRecordingInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_SendTvRecordingInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).SendTvRecordingInfo(ctx, req.(*SendTvRecordingInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_SetCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetCallbackRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).SetCallback(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_SetCallback_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).SetCallback(ctx, req.(*SetCallbackRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_SetOnUnhandledInputEventListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetOnUnhandledInputEventListenerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).SetOnUnhandledInputEventListener(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_SetOnUnhandledInputEventListener_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).SetOnUnhandledInputEventListener(ctx, req.(*SetOnUnhandledInputEventListenerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_SetTeletextAppEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetTeletextAppEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).SetTeletextAppEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_SetTeletextAppEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).SetTeletextAppEnabled(ctx, req.(*SetTeletextAppEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_SetTvView_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetTvViewRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).SetTvView(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_SetTvView_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).SetTvView(ctx, req.(*SetTvViewRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_SetZOrderMediaOverlay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetZOrderMediaOverlayRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).SetZOrderMediaOverlay(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_SetZOrderMediaOverlay_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).SetZOrderMediaOverlay(ctx, req.(*SetZOrderMediaOverlayRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_SetZOrderOnTop_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetZOrderOnTopRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).SetZOrderOnTop(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_SetZOrderOnTop_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).SetZOrderOnTop(ctx, req.(*SetZOrderOnTopRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_StartInteractiveApp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StartInteractiveAppRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).StartInteractiveApp(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_StartInteractiveApp_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).StartInteractiveApp(ctx, req.(*StartInteractiveAppRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewService_StopInteractiveApp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StopInteractiveAppRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewServiceServer).StopInteractiveApp(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewService_StopInteractiveApp_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewServiceServer).StopInteractiveApp(ctx, req.(*StopInteractiveAppRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// TvInteractiveAppViewService_ServiceDesc is the grpc.ServiceDesc for TvInteractiveAppViewService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var TvInteractiveAppViewService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "interactive.TvInteractiveAppViewService",
-	HandlerType: (*TvInteractiveAppViewServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewTvInteractiveAppView",
-			Handler:    _TvInteractiveAppViewService_NewTvInteractiveAppView_Handler,
-		},
-		{
-			MethodName: "ClearCallback",
-			Handler:    _TvInteractiveAppViewService_ClearCallback_Handler,
-		},
-		{
-			MethodName: "ClearOnUnhandledInputEventListener",
-			Handler:    _TvInteractiveAppViewService_ClearOnUnhandledInputEventListener_Handler,
-		},
-		{
-			MethodName: "CreateBiInteractiveApp",
-			Handler:    _TvInteractiveAppViewService_CreateBiInteractiveApp_Handler,
-		},
-		{
-			MethodName: "DestroyBiInteractiveApp",
-			Handler:    _TvInteractiveAppViewService_DestroyBiInteractiveApp_Handler,
-		},
-		{
-			MethodName: "DispatchKeyEvent",
-			Handler:    _TvInteractiveAppViewService_DispatchKeyEvent_Handler,
-		},
-		{
-			MethodName: "DispatchUnhandledInputEvent",
-			Handler:    _TvInteractiveAppViewService_DispatchUnhandledInputEvent_Handler,
-		},
-		{
-			MethodName: "GetOnUnhandledInputEventListener",
-			Handler:    _TvInteractiveAppViewService_GetOnUnhandledInputEventListener_Handler,
-		},
-		{
-			MethodName: "NotifyError",
-			Handler:    _TvInteractiveAppViewService_NotifyError_Handler,
-		},
-		{
-			MethodName: "NotifyRecordingScheduled",
-			Handler:    _TvInteractiveAppViewService_NotifyRecordingScheduled_Handler,
-		},
-		{
-			MethodName: "NotifyRecordingStarted",
-			Handler:    _TvInteractiveAppViewService_NotifyRecordingStarted_Handler,
-		},
-		{
-			MethodName: "NotifyRecordingStopped",
-			Handler:    _TvInteractiveAppViewService_NotifyRecordingStopped_Handler,
-		},
-		{
-			MethodName: "NotifyTimeShiftCurrentPositionChanged",
-			Handler:    _TvInteractiveAppViewService_NotifyTimeShiftCurrentPositionChanged_Handler,
-		},
-		{
-			MethodName: "NotifyTimeShiftPlaybackParams",
-			Handler:    _TvInteractiveAppViewService_NotifyTimeShiftPlaybackParams_Handler,
-		},
-		{
-			MethodName: "NotifyTimeShiftStartPositionChanged",
-			Handler:    _TvInteractiveAppViewService_NotifyTimeShiftStartPositionChanged_Handler,
-		},
-		{
-			MethodName: "NotifyTimeShiftStatusChanged",
-			Handler:    _TvInteractiveAppViewService_NotifyTimeShiftStatusChanged_Handler,
-		},
-		{
-			MethodName: "NotifyTvMessage",
-			Handler:    _TvInteractiveAppViewService_NotifyTvMessage_Handler,
-		},
-		{
-			MethodName: "NotifyVideoFreezeUpdated",
-			Handler:    _TvInteractiveAppViewService_NotifyVideoFreezeUpdated_Handler,
-		},
-		{
-			MethodName: "OnAttachedToWindow",
-			Handler:    _TvInteractiveAppViewService_OnAttachedToWindow_Handler,
-		},
-		{
-			MethodName: "OnDetachedFromWindow",
-			Handler:    _TvInteractiveAppViewService_OnDetachedFromWindow_Handler,
-		},
-		{
-			MethodName: "OnLayout",
-			Handler:    _TvInteractiveAppViewService_OnLayout_Handler,
-		},
-		{
-			MethodName: "OnMeasure",
-			Handler:    _TvInteractiveAppViewService_OnMeasure_Handler,
-		},
-		{
-			MethodName: "OnUnhandledInputEvent",
-			Handler:    _TvInteractiveAppViewService_OnUnhandledInputEvent_Handler,
-		},
-		{
-			MethodName: "OnVisibilityChanged",
-			Handler:    _TvInteractiveAppViewService_OnVisibilityChanged_Handler,
-		},
-		{
-			MethodName: "PrepareInteractiveApp",
-			Handler:    _TvInteractiveAppViewService_PrepareInteractiveApp_Handler,
-		},
-		{
-			MethodName: "Reset",
-			Handler:    _TvInteractiveAppViewService_Reset_Handler,
-		},
-		{
-			MethodName: "ResetInteractiveApp",
-			Handler:    _TvInteractiveAppViewService_ResetInteractiveApp_Handler,
-		},
-		{
-			MethodName: "SendAvailableSpeeds",
-			Handler:    _TvInteractiveAppViewService_SendAvailableSpeeds_Handler,
-		},
-		{
-			MethodName: "SendCertificate",
-			Handler:    _TvInteractiveAppViewService_SendCertificate_Handler,
-		},
-		{
-			MethodName: "SendCurrentChannelLcn",
-			Handler:    _TvInteractiveAppViewService_SendCurrentChannelLcn_Handler,
-		},
-		{
-			MethodName: "SendCurrentChannelUri",
-			Handler:    _TvInteractiveAppViewService_SendCurrentChannelUri_Handler,
-		},
-		{
-			MethodName: "SendCurrentTvInputId",
-			Handler:    _TvInteractiveAppViewService_SendCurrentTvInputId_Handler,
-		},
-		{
-			MethodName: "SendCurrentVideoBounds",
-			Handler:    _TvInteractiveAppViewService_SendCurrentVideoBounds_Handler,
-		},
-		{
-			MethodName: "SendSigningResult",
-			Handler:    _TvInteractiveAppViewService_SendSigningResult_Handler,
-		},
-		{
-			MethodName: "SendStreamVolume",
-			Handler:    _TvInteractiveAppViewService_SendStreamVolume_Handler,
-		},
-		{
-			MethodName: "SendTimeShiftMode",
-			Handler:    _TvInteractiveAppViewService_SendTimeShiftMode_Handler,
-		},
-		{
-			MethodName: "SendTvRecordingInfo",
-			Handler:    _TvInteractiveAppViewService_SendTvRecordingInfo_Handler,
-		},
-		{
-			MethodName: "SetCallback",
-			Handler:    _TvInteractiveAppViewService_SetCallback_Handler,
-		},
-		{
-			MethodName: "SetOnUnhandledInputEventListener",
-			Handler:    _TvInteractiveAppViewService_SetOnUnhandledInputEventListener_Handler,
-		},
-		{
-			MethodName: "SetTeletextAppEnabled",
-			Handler:    _TvInteractiveAppViewService_SetTeletextAppEnabled_Handler,
-		},
-		{
-			MethodName: "SetTvView",
-			Handler:    _TvInteractiveAppViewService_SetTvView_Handler,
-		},
-		{
-			MethodName: "SetZOrderMediaOverlay",
-			Handler:    _TvInteractiveAppViewService_SetZOrderMediaOverlay_Handler,
-		},
-		{
-			MethodName: "SetZOrderOnTop",
-			Handler:    _TvInteractiveAppViewService_SetZOrderOnTop_Handler,
-		},
-		{
-			MethodName: "StartInteractiveApp",
-			Handler:    _TvInteractiveAppViewService_StartInteractiveApp_Handler,
-		},
-		{
-			MethodName: "StopInteractiveApp",
-			Handler:    _TvInteractiveAppViewService_StopInteractiveApp_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/interactive/interactive.proto",
-}
-
-const (
-	TvInteractiveAppViewOnUnhandledInputEventListenerService_OnUnhandledInputEvent_FullMethodName = "/interactive.TvInteractiveAppViewOnUnhandledInputEventListenerService/OnUnhandledInputEvent"
-)
-
-// TvInteractiveAppViewOnUnhandledInputEventListenerServiceClient is the client API for TvInteractiveAppViewOnUnhandledInputEventListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TvInteractiveAppViewOnUnhandledInputEventListenerServiceClient interface {
-	OnUnhandledInputEvent(ctx context.Context, in *TvInteractiveAppViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest, opts ...grpc.CallOption) (*OnUnhandledInputEventResponse, error)
-}
-
-type tvInteractiveAppViewOnUnhandledInputEventListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewTvInteractiveAppViewOnUnhandledInputEventListenerServiceClient(cc grpc.ClientConnInterface) TvInteractiveAppViewOnUnhandledInputEventListenerServiceClient {
-	return &tvInteractiveAppViewOnUnhandledInputEventListenerServiceClient{cc}
-}
-
-func (c *tvInteractiveAppViewOnUnhandledInputEventListenerServiceClient) OnUnhandledInputEvent(ctx context.Context, in *TvInteractiveAppViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest, opts ...grpc.CallOption) (*OnUnhandledInputEventResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnUnhandledInputEventResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewOnUnhandledInputEventListenerService_OnUnhandledInputEvent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// TvInteractiveAppViewOnUnhandledInputEventListenerServiceServer is the server API for TvInteractiveAppViewOnUnhandledInputEventListenerService service.
-// All implementations must embed UnimplementedTvInteractiveAppViewOnUnhandledInputEventListenerServiceServer
-// for forward compatibility.
-type TvInteractiveAppViewOnUnhandledInputEventListenerServiceServer interface {
-	OnUnhandledInputEvent(context.Context, *TvInteractiveAppViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest) (*OnUnhandledInputEventResponse, error)
-	mustEmbedUnimplementedTvInteractiveAppViewOnUnhandledInputEventListenerServiceServer()
-}
-
-// UnimplementedTvInteractiveAppViewOnUnhandledInputEventListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedTvInteractiveAppViewOnUnhandledInputEventListenerServiceServer struct{}
-
-func (UnimplementedTvInteractiveAppViewOnUnhandledInputEventListenerServiceServer) OnUnhandledInputEvent(context.Context, *TvInteractiveAppViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest) (*OnUnhandledInputEventResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnUnhandledInputEvent not implemented")
-}
-func (UnimplementedTvInteractiveAppViewOnUnhandledInputEventListenerServiceServer) mustEmbedUnimplementedTvInteractiveAppViewOnUnhandledInputEventListenerServiceServer() {
-}
-func (UnimplementedTvInteractiveAppViewOnUnhandledInputEventListenerServiceServer) testEmbeddedByValue() {
-}
-
-// UnsafeTvInteractiveAppViewOnUnhandledInputEventListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TvInteractiveAppViewOnUnhandledInputEventListenerServiceServer will
-// result in compilation errors.
-type UnsafeTvInteractiveAppViewOnUnhandledInputEventListenerServiceServer interface {
-	mustEmbedUnimplementedTvInteractiveAppViewOnUnhandledInputEventListenerServiceServer()
-}
-
-func RegisterTvInteractiveAppViewOnUnhandledInputEventListenerServiceServer(s grpc.ServiceRegistrar, srv TvInteractiveAppViewOnUnhandledInputEventListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedTvInteractiveAppViewOnUnhandledInputEventListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&TvInteractiveAppViewOnUnhandledInputEventListenerService_ServiceDesc, srv)
-}
-
-func _TvInteractiveAppViewOnUnhandledInputEventListenerService_OnUnhandledInputEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TvInteractiveAppViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewOnUnhandledInputEventListenerServiceServer).OnUnhandledInputEvent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewOnUnhandledInputEventListenerService_OnUnhandledInputEvent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewOnUnhandledInputEventListenerServiceServer).OnUnhandledInputEvent(ctx, req.(*TvInteractiveAppViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// TvInteractiveAppViewOnUnhandledInputEventListenerService_ServiceDesc is the grpc.ServiceDesc for TvInteractiveAppViewOnUnhandledInputEventListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var TvInteractiveAppViewOnUnhandledInputEventListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "interactive.TvInteractiveAppViewOnUnhandledInputEventListenerService",
-	HandlerType: (*TvInteractiveAppViewOnUnhandledInputEventListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnUnhandledInputEvent",
-			Handler:    _TvInteractiveAppViewOnUnhandledInputEventListenerService_OnUnhandledInputEvent_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/interactive/interactive.proto",
-}
-
-const (
-	TvInteractiveAppViewTvInteractiveAppCallbackService_OnBiInteractiveAppCreated_FullMethodName     = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnBiInteractiveAppCreated"
-	TvInteractiveAppViewTvInteractiveAppCallbackService_OnPlaybackCommandRequest_FullMethodName      = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnPlaybackCommandRequest"
-	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestAvailableSpeeds_FullMethodName      = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestAvailableSpeeds"
-	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCertificate_FullMethodName          = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestCertificate"
-	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentChannelLcn_FullMethodName    = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestCurrentChannelLcn"
-	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentChannelUri_FullMethodName    = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestCurrentChannelUri"
-	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentTvInputId_FullMethodName     = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestCurrentTvInputId"
-	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentVideoBounds_FullMethodName   = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestCurrentVideoBounds"
-	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestScheduleRecording6_FullMethodName   = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestScheduleRecording6"
-	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestScheduleRecording8_1_FullMethodName = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestScheduleRecording8_1"
-	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestSelectedTrackInfo_FullMethodName    = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestSelectedTrackInfo"
-	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestSigning5_FullMethodName             = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestSigning5"
-	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestSigning6_1_FullMethodName           = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestSigning6_1"
-	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestStartRecording_FullMethodName       = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestStartRecording"
-	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestStopRecording_FullMethodName        = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestStopRecording"
-	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestStreamVolume_FullMethodName         = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestStreamVolume"
-	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTimeShiftMode_FullMethodName        = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestTimeShiftMode"
-	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTrackInfoList_FullMethodName        = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestTrackInfoList"
-	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTvRecordingInfo_FullMethodName      = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestTvRecordingInfo"
-	TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTvRecordingInfoList_FullMethodName  = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnRequestTvRecordingInfoList"
-	TvInteractiveAppViewTvInteractiveAppCallbackService_OnSetTvRecordingInfo_FullMethodName          = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnSetTvRecordingInfo"
-	TvInteractiveAppViewTvInteractiveAppCallbackService_OnSetVideoBounds_FullMethodName              = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnSetVideoBounds"
-	TvInteractiveAppViewTvInteractiveAppCallbackService_OnStateChanged_FullMethodName                = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnStateChanged"
-	TvInteractiveAppViewTvInteractiveAppCallbackService_OnTeletextAppStateChanged_FullMethodName     = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnTeletextAppStateChanged"
-	TvInteractiveAppViewTvInteractiveAppCallbackService_OnTimeShiftCommandRequest_FullMethodName     = "/interactive.TvInteractiveAppViewTvInteractiveAppCallbackService/OnTimeShiftCommandRequest"
-)
-
-// TvInteractiveAppViewTvInteractiveAppCallbackServiceClient is the client API for TvInteractiveAppViewTvInteractiveAppCallbackService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TvInteractiveAppViewTvInteractiveAppCallbackServiceClient interface {
-	OnBiInteractiveAppCreated(ctx context.Context, in *OnBiInteractiveAppCreatedRequest, opts ...grpc.CallOption) (*OnBiInteractiveAppCreatedResponse, error)
-	OnPlaybackCommandRequest(ctx context.Context, in *OnPlaybackCommandRequestRequest, opts ...grpc.CallOption) (*OnPlaybackCommandRequestResponse, error)
-	OnRequestAvailableSpeeds(ctx context.Context, in *OnRequestAvailableSpeedsRequest, opts ...grpc.CallOption) (*OnRequestAvailableSpeedsResponse, error)
-	OnRequestCertificate(ctx context.Context, in *OnRequestCertificateRequest, opts ...grpc.CallOption) (*OnRequestCertificateResponse, error)
-	OnRequestCurrentChannelLcn(ctx context.Context, in *OnRequestCurrentChannelLcnRequest, opts ...grpc.CallOption) (*OnRequestCurrentChannelLcnResponse, error)
-	OnRequestCurrentChannelUri(ctx context.Context, in *OnRequestCurrentChannelUriRequest, opts ...grpc.CallOption) (*OnRequestCurrentChannelUriResponse, error)
-	OnRequestCurrentTvInputId(ctx context.Context, in *OnRequestCurrentTvInputIdRequest, opts ...grpc.CallOption) (*OnRequestCurrentTvInputIdResponse, error)
-	OnRequestCurrentVideoBounds(ctx context.Context, in *OnRequestCurrentVideoBoundsRequest, opts ...grpc.CallOption) (*OnRequestCurrentVideoBoundsResponse, error)
-	OnRequestScheduleRecording6(ctx context.Context, in *OnRequestScheduleRecording6Request, opts ...grpc.CallOption) (*OnRequestScheduleRecording6Response, error)
-	OnRequestScheduleRecording8_1(ctx context.Context, in *OnRequestScheduleRecording8_1Request, opts ...grpc.CallOption) (*OnRequestScheduleRecording8_1Response, error)
-	OnRequestSelectedTrackInfo(ctx context.Context, in *OnRequestSelectedTrackInfoRequest, opts ...grpc.CallOption) (*OnRequestSelectedTrackInfoResponse, error)
-	OnRequestSigning5(ctx context.Context, in *OnRequestSigning5Request, opts ...grpc.CallOption) (*OnRequestSigning5Response, error)
-	OnRequestSigning6_1(ctx context.Context, in *OnRequestSigning6_1Request, opts ...grpc.CallOption) (*OnRequestSigning6_1Response, error)
-	OnRequestStartRecording(ctx context.Context, in *OnRequestStartRecordingRequest, opts ...grpc.CallOption) (*OnRequestStartRecordingResponse, error)
-	OnRequestStopRecording(ctx context.Context, in *OnRequestStopRecordingRequest, opts ...grpc.CallOption) (*OnRequestStopRecordingResponse, error)
-	OnRequestStreamVolume(ctx context.Context, in *OnRequestStreamVolumeRequest, opts ...grpc.CallOption) (*OnRequestStreamVolumeResponse, error)
-	OnRequestTimeShiftMode(ctx context.Context, in *OnRequestTimeShiftModeRequest, opts ...grpc.CallOption) (*OnRequestTimeShiftModeResponse, error)
-	OnRequestTrackInfoList(ctx context.Context, in *OnRequestTrackInfoListRequest, opts ...grpc.CallOption) (*OnRequestTrackInfoListResponse, error)
-	OnRequestTvRecordingInfo(ctx context.Context, in *OnRequestTvRecordingInfoRequest, opts ...grpc.CallOption) (*OnRequestTvRecordingInfoResponse, error)
-	OnRequestTvRecordingInfoList(ctx context.Context, in *OnRequestTvRecordingInfoListRequest, opts ...grpc.CallOption) (*OnRequestTvRecordingInfoListResponse, error)
-	OnSetTvRecordingInfo(ctx context.Context, in *OnSetTvRecordingInfoRequest, opts ...grpc.CallOption) (*OnSetTvRecordingInfoResponse, error)
-	OnSetVideoBounds(ctx context.Context, in *OnSetVideoBoundsRequest, opts ...grpc.CallOption) (*OnSetVideoBoundsResponse, error)
-	OnStateChanged(ctx context.Context, in *OnStateChangedRequest, opts ...grpc.CallOption) (*OnStateChangedResponse, error)
-	OnTeletextAppStateChanged(ctx context.Context, in *OnTeletextAppStateChangedRequest, opts ...grpc.CallOption) (*OnTeletextAppStateChangedResponse, error)
-	OnTimeShiftCommandRequest(ctx context.Context, in *OnTimeShiftCommandRequestRequest, opts ...grpc.CallOption) (*OnTimeShiftCommandRequestResponse, error)
-}
-
-type tvInteractiveAppViewTvInteractiveAppCallbackServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewTvInteractiveAppViewTvInteractiveAppCallbackServiceClient(cc grpc.ClientConnInterface) TvInteractiveAppViewTvInteractiveAppCallbackServiceClient {
-	return &tvInteractiveAppViewTvInteractiveAppCallbackServiceClient{cc}
-}
-
-func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnBiInteractiveAppCreated(ctx context.Context, in *OnBiInteractiveAppCreatedRequest, opts ...grpc.CallOption) (*OnBiInteractiveAppCreatedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnBiInteractiveAppCreatedResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnBiInteractiveAppCreated_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnPlaybackCommandRequest(ctx context.Context, in *OnPlaybackCommandRequestRequest, opts ...grpc.CallOption) (*OnPlaybackCommandRequestResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnPlaybackCommandRequestResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnPlaybackCommandRequest_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestAvailableSpeeds(ctx context.Context, in *OnRequestAvailableSpeedsRequest, opts ...grpc.CallOption) (*OnRequestAvailableSpeedsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRequestAvailableSpeedsResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestAvailableSpeeds_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestCertificate(ctx context.Context, in *OnRequestCertificateRequest, opts ...grpc.CallOption) (*OnRequestCertificateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRequestCertificateResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCertificate_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestCurrentChannelLcn(ctx context.Context, in *OnRequestCurrentChannelLcnRequest, opts ...grpc.CallOption) (*OnRequestCurrentChannelLcnResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRequestCurrentChannelLcnResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentChannelLcn_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestCurrentChannelUri(ctx context.Context, in *OnRequestCurrentChannelUriRequest, opts ...grpc.CallOption) (*OnRequestCurrentChannelUriResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRequestCurrentChannelUriResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentChannelUri_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestCurrentTvInputId(ctx context.Context, in *OnRequestCurrentTvInputIdRequest, opts ...grpc.CallOption) (*OnRequestCurrentTvInputIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRequestCurrentTvInputIdResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentTvInputId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestCurrentVideoBounds(ctx context.Context, in *OnRequestCurrentVideoBoundsRequest, opts ...grpc.CallOption) (*OnRequestCurrentVideoBoundsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRequestCurrentVideoBoundsResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentVideoBounds_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestScheduleRecording6(ctx context.Context, in *OnRequestScheduleRecording6Request, opts ...grpc.CallOption) (*OnRequestScheduleRecording6Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRequestScheduleRecording6Response)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestScheduleRecording6_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestScheduleRecording8_1(ctx context.Context, in *OnRequestScheduleRecording8_1Request, opts ...grpc.CallOption) (*OnRequestScheduleRecording8_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRequestScheduleRecording8_1Response)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestScheduleRecording8_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestSelectedTrackInfo(ctx context.Context, in *OnRequestSelectedTrackInfoRequest, opts ...grpc.CallOption) (*OnRequestSelectedTrackInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRequestSelectedTrackInfoResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestSelectedTrackInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestSigning5(ctx context.Context, in *OnRequestSigning5Request, opts ...grpc.CallOption) (*OnRequestSigning5Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRequestSigning5Response)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestSigning5_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestSigning6_1(ctx context.Context, in *OnRequestSigning6_1Request, opts ...grpc.CallOption) (*OnRequestSigning6_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRequestSigning6_1Response)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestSigning6_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestStartRecording(ctx context.Context, in *OnRequestStartRecordingRequest, opts ...grpc.CallOption) (*OnRequestStartRecordingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRequestStartRecordingResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestStartRecording_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestStopRecording(ctx context.Context, in *OnRequestStopRecordingRequest, opts ...grpc.CallOption) (*OnRequestStopRecordingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRequestStopRecordingResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestStopRecording_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestStreamVolume(ctx context.Context, in *OnRequestStreamVolumeRequest, opts ...grpc.CallOption) (*OnRequestStreamVolumeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRequestStreamVolumeResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestStreamVolume_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestTimeShiftMode(ctx context.Context, in *OnRequestTimeShiftModeRequest, opts ...grpc.CallOption) (*OnRequestTimeShiftModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRequestTimeShiftModeResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTimeShiftMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestTrackInfoList(ctx context.Context, in *OnRequestTrackInfoListRequest, opts ...grpc.CallOption) (*OnRequestTrackInfoListResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRequestTrackInfoListResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTrackInfoList_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestTvRecordingInfo(ctx context.Context, in *OnRequestTvRecordingInfoRequest, opts ...grpc.CallOption) (*OnRequestTvRecordingInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRequestTvRecordingInfoResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTvRecordingInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnRequestTvRecordingInfoList(ctx context.Context, in *OnRequestTvRecordingInfoListRequest, opts ...grpc.CallOption) (*OnRequestTvRecordingInfoListResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnRequestTvRecordingInfoListResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTvRecordingInfoList_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnSetTvRecordingInfo(ctx context.Context, in *OnSetTvRecordingInfoRequest, opts ...grpc.CallOption) (*OnSetTvRecordingInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnSetTvRecordingInfoResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnSetTvRecordingInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnSetVideoBounds(ctx context.Context, in *OnSetVideoBoundsRequest, opts ...grpc.CallOption) (*OnSetVideoBoundsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnSetVideoBoundsResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnSetVideoBounds_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnStateChanged(ctx context.Context, in *OnStateChangedRequest, opts ...grpc.CallOption) (*OnStateChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnStateChangedResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnStateChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnTeletextAppStateChanged(ctx context.Context, in *OnTeletextAppStateChangedRequest, opts ...grpc.CallOption) (*OnTeletextAppStateChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnTeletextAppStateChangedResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnTeletextAppStateChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppViewTvInteractiveAppCallbackServiceClient) OnTimeShiftCommandRequest(ctx context.Context, in *OnTimeShiftCommandRequestRequest, opts ...grpc.CallOption) (*OnTimeShiftCommandRequestResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnTimeShiftCommandRequestResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppViewTvInteractiveAppCallbackService_OnTimeShiftCommandRequest_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// TvInteractiveAppViewTvInteractiveAppCallbackServiceServer is the server API for TvInteractiveAppViewTvInteractiveAppCallbackService service.
-// All implementations must embed UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer
-// for forward compatibility.
-type TvInteractiveAppViewTvInteractiveAppCallbackServiceServer interface {
-	OnBiInteractiveAppCreated(context.Context, *OnBiInteractiveAppCreatedRequest) (*OnBiInteractiveAppCreatedResponse, error)
-	OnPlaybackCommandRequest(context.Context, *OnPlaybackCommandRequestRequest) (*OnPlaybackCommandRequestResponse, error)
-	OnRequestAvailableSpeeds(context.Context, *OnRequestAvailableSpeedsRequest) (*OnRequestAvailableSpeedsResponse, error)
-	OnRequestCertificate(context.Context, *OnRequestCertificateRequest) (*OnRequestCertificateResponse, error)
-	OnRequestCurrentChannelLcn(context.Context, *OnRequestCurrentChannelLcnRequest) (*OnRequestCurrentChannelLcnResponse, error)
-	OnRequestCurrentChannelUri(context.Context, *OnRequestCurrentChannelUriRequest) (*OnRequestCurrentChannelUriResponse, error)
-	OnRequestCurrentTvInputId(context.Context, *OnRequestCurrentTvInputIdRequest) (*OnRequestCurrentTvInputIdResponse, error)
-	OnRequestCurrentVideoBounds(context.Context, *OnRequestCurrentVideoBoundsRequest) (*OnRequestCurrentVideoBoundsResponse, error)
-	OnRequestScheduleRecording6(context.Context, *OnRequestScheduleRecording6Request) (*OnRequestScheduleRecording6Response, error)
-	OnRequestScheduleRecording8_1(context.Context, *OnRequestScheduleRecording8_1Request) (*OnRequestScheduleRecording8_1Response, error)
-	OnRequestSelectedTrackInfo(context.Context, *OnRequestSelectedTrackInfoRequest) (*OnRequestSelectedTrackInfoResponse, error)
-	OnRequestSigning5(context.Context, *OnRequestSigning5Request) (*OnRequestSigning5Response, error)
-	OnRequestSigning6_1(context.Context, *OnRequestSigning6_1Request) (*OnRequestSigning6_1Response, error)
-	OnRequestStartRecording(context.Context, *OnRequestStartRecordingRequest) (*OnRequestStartRecordingResponse, error)
-	OnRequestStopRecording(context.Context, *OnRequestStopRecordingRequest) (*OnRequestStopRecordingResponse, error)
-	OnRequestStreamVolume(context.Context, *OnRequestStreamVolumeRequest) (*OnRequestStreamVolumeResponse, error)
-	OnRequestTimeShiftMode(context.Context, *OnRequestTimeShiftModeRequest) (*OnRequestTimeShiftModeResponse, error)
-	OnRequestTrackInfoList(context.Context, *OnRequestTrackInfoListRequest) (*OnRequestTrackInfoListResponse, error)
-	OnRequestTvRecordingInfo(context.Context, *OnRequestTvRecordingInfoRequest) (*OnRequestTvRecordingInfoResponse, error)
-	OnRequestTvRecordingInfoList(context.Context, *OnRequestTvRecordingInfoListRequest) (*OnRequestTvRecordingInfoListResponse, error)
-	OnSetTvRecordingInfo(context.Context, *OnSetTvRecordingInfoRequest) (*OnSetTvRecordingInfoResponse, error)
-	OnSetVideoBounds(context.Context, *OnSetVideoBoundsRequest) (*OnSetVideoBoundsResponse, error)
-	OnStateChanged(context.Context, *OnStateChangedRequest) (*OnStateChangedResponse, error)
-	OnTeletextAppStateChanged(context.Context, *OnTeletextAppStateChangedRequest) (*OnTeletextAppStateChangedResponse, error)
-	OnTimeShiftCommandRequest(context.Context, *OnTimeShiftCommandRequestRequest) (*OnTimeShiftCommandRequestResponse, error)
-	mustEmbedUnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer()
-}
-
-// UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer struct{}
-
-func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnBiInteractiveAppCreated(context.Context, *OnBiInteractiveAppCreatedRequest) (*OnBiInteractiveAppCreatedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnBiInteractiveAppCreated not implemented")
-}
-func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnPlaybackCommandRequest(context.Context, *OnPlaybackCommandRequestRequest) (*OnPlaybackCommandRequestResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnPlaybackCommandRequest not implemented")
-}
-func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestAvailableSpeeds(context.Context, *OnRequestAvailableSpeedsRequest) (*OnRequestAvailableSpeedsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRequestAvailableSpeeds not implemented")
-}
-func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestCertificate(context.Context, *OnRequestCertificateRequest) (*OnRequestCertificateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRequestCertificate not implemented")
-}
-func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestCurrentChannelLcn(context.Context, *OnRequestCurrentChannelLcnRequest) (*OnRequestCurrentChannelLcnResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRequestCurrentChannelLcn not implemented")
-}
-func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestCurrentChannelUri(context.Context, *OnRequestCurrentChannelUriRequest) (*OnRequestCurrentChannelUriResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRequestCurrentChannelUri not implemented")
-}
-func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestCurrentTvInputId(context.Context, *OnRequestCurrentTvInputIdRequest) (*OnRequestCurrentTvInputIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRequestCurrentTvInputId not implemented")
-}
-func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestCurrentVideoBounds(context.Context, *OnRequestCurrentVideoBoundsRequest) (*OnRequestCurrentVideoBoundsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRequestCurrentVideoBounds not implemented")
-}
-func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestScheduleRecording6(context.Context, *OnRequestScheduleRecording6Request) (*OnRequestScheduleRecording6Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRequestScheduleRecording6 not implemented")
-}
-func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestScheduleRecording8_1(context.Context, *OnRequestScheduleRecording8_1Request) (*OnRequestScheduleRecording8_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRequestScheduleRecording8_1 not implemented")
-}
-func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestSelectedTrackInfo(context.Context, *OnRequestSelectedTrackInfoRequest) (*OnRequestSelectedTrackInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRequestSelectedTrackInfo not implemented")
-}
-func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestSigning5(context.Context, *OnRequestSigning5Request) (*OnRequestSigning5Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRequestSigning5 not implemented")
-}
-func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestSigning6_1(context.Context, *OnRequestSigning6_1Request) (*OnRequestSigning6_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRequestSigning6_1 not implemented")
-}
-func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestStartRecording(context.Context, *OnRequestStartRecordingRequest) (*OnRequestStartRecordingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRequestStartRecording not implemented")
-}
-func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestStopRecording(context.Context, *OnRequestStopRecordingRequest) (*OnRequestStopRecordingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRequestStopRecording not implemented")
-}
-func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestStreamVolume(context.Context, *OnRequestStreamVolumeRequest) (*OnRequestStreamVolumeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRequestStreamVolume not implemented")
-}
-func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestTimeShiftMode(context.Context, *OnRequestTimeShiftModeRequest) (*OnRequestTimeShiftModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRequestTimeShiftMode not implemented")
-}
-func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestTrackInfoList(context.Context, *OnRequestTrackInfoListRequest) (*OnRequestTrackInfoListResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRequestTrackInfoList not implemented")
-}
-func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestTvRecordingInfo(context.Context, *OnRequestTvRecordingInfoRequest) (*OnRequestTvRecordingInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRequestTvRecordingInfo not implemented")
-}
-func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnRequestTvRecordingInfoList(context.Context, *OnRequestTvRecordingInfoListRequest) (*OnRequestTvRecordingInfoListResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnRequestTvRecordingInfoList not implemented")
-}
-func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnSetTvRecordingInfo(context.Context, *OnSetTvRecordingInfoRequest) (*OnSetTvRecordingInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnSetTvRecordingInfo not implemented")
-}
-func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnSetVideoBounds(context.Context, *OnSetVideoBoundsRequest) (*OnSetVideoBoundsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnSetVideoBounds not implemented")
-}
-func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnStateChanged(context.Context, *OnStateChangedRequest) (*OnStateChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnStateChanged not implemented")
-}
-func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnTeletextAppStateChanged(context.Context, *OnTeletextAppStateChangedRequest) (*OnTeletextAppStateChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnTeletextAppStateChanged not implemented")
-}
-func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) OnTimeShiftCommandRequest(context.Context, *OnTimeShiftCommandRequestRequest) (*OnTimeShiftCommandRequestResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnTimeShiftCommandRequest not implemented")
-}
-func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) mustEmbedUnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer() {
-}
-func (UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer) testEmbeddedByValue() {}
-
-// UnsafeTvInteractiveAppViewTvInteractiveAppCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TvInteractiveAppViewTvInteractiveAppCallbackServiceServer will
-// result in compilation errors.
-type UnsafeTvInteractiveAppViewTvInteractiveAppCallbackServiceServer interface {
-	mustEmbedUnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer()
-}
-
-func RegisterTvInteractiveAppViewTvInteractiveAppCallbackServiceServer(s grpc.ServiceRegistrar, srv TvInteractiveAppViewTvInteractiveAppCallbackServiceServer) {
-	// If the following call panics, it indicates UnimplementedTvInteractiveAppViewTvInteractiveAppCallbackServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&TvInteractiveAppViewTvInteractiveAppCallbackService_ServiceDesc, srv)
-}
-
-func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnBiInteractiveAppCreated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnBiInteractiveAppCreatedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnBiInteractiveAppCreated(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnBiInteractiveAppCreated_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnBiInteractiveAppCreated(ctx, req.(*OnBiInteractiveAppCreatedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnPlaybackCommandRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnPlaybackCommandRequestRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnPlaybackCommandRequest(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnPlaybackCommandRequest_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnPlaybackCommandRequest(ctx, req.(*OnPlaybackCommandRequestRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestAvailableSpeeds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRequestAvailableSpeedsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestAvailableSpeeds(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestAvailableSpeeds_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestAvailableSpeeds(ctx, req.(*OnRequestAvailableSpeedsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCertificate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRequestCertificateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestCertificate(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCertificate_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestCertificate(ctx, req.(*OnRequestCertificateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentChannelLcn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRequestCurrentChannelLcnRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestCurrentChannelLcn(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentChannelLcn_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestCurrentChannelLcn(ctx, req.(*OnRequestCurrentChannelLcnRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentChannelUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRequestCurrentChannelUriRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestCurrentChannelUri(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentChannelUri_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestCurrentChannelUri(ctx, req.(*OnRequestCurrentChannelUriRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentTvInputId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRequestCurrentTvInputIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestCurrentTvInputId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentTvInputId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestCurrentTvInputId(ctx, req.(*OnRequestCurrentTvInputIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentVideoBounds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRequestCurrentVideoBoundsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestCurrentVideoBounds(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentVideoBounds_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestCurrentVideoBounds(ctx, req.(*OnRequestCurrentVideoBoundsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestScheduleRecording6_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRequestScheduleRecording6Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestScheduleRecording6(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestScheduleRecording6_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestScheduleRecording6(ctx, req.(*OnRequestScheduleRecording6Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestScheduleRecording8_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRequestScheduleRecording8_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestScheduleRecording8_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestScheduleRecording8_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestScheduleRecording8_1(ctx, req.(*OnRequestScheduleRecording8_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestSelectedTrackInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRequestSelectedTrackInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestSelectedTrackInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestSelectedTrackInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestSelectedTrackInfo(ctx, req.(*OnRequestSelectedTrackInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestSigning5_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRequestSigning5Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestSigning5(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestSigning5_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestSigning5(ctx, req.(*OnRequestSigning5Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestSigning6_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRequestSigning6_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestSigning6_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestSigning6_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestSigning6_1(ctx, req.(*OnRequestSigning6_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestStartRecording_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRequestStartRecordingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestStartRecording(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestStartRecording_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestStartRecording(ctx, req.(*OnRequestStartRecordingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestStopRecording_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRequestStopRecordingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestStopRecording(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestStopRecording_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestStopRecording(ctx, req.(*OnRequestStopRecordingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestStreamVolume_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRequestStreamVolumeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestStreamVolume(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestStreamVolume_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestStreamVolume(ctx, req.(*OnRequestStreamVolumeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTimeShiftMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRequestTimeShiftModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestTimeShiftMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTimeShiftMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestTimeShiftMode(ctx, req.(*OnRequestTimeShiftModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTrackInfoList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRequestTrackInfoListRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestTrackInfoList(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTrackInfoList_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestTrackInfoList(ctx, req.(*OnRequestTrackInfoListRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTvRecordingInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRequestTvRecordingInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestTvRecordingInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTvRecordingInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestTvRecordingInfo(ctx, req.(*OnRequestTvRecordingInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTvRecordingInfoList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnRequestTvRecordingInfoListRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestTvRecordingInfoList(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTvRecordingInfoList_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnRequestTvRecordingInfoList(ctx, req.(*OnRequestTvRecordingInfoListRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnSetTvRecordingInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnSetTvRecordingInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnSetTvRecordingInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnSetTvRecordingInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnSetTvRecordingInfo(ctx, req.(*OnSetTvRecordingInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnSetVideoBounds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnSetVideoBoundsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnSetVideoBounds(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnSetVideoBounds_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnSetVideoBounds(ctx, req.(*OnSetVideoBoundsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnStateChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnStateChangedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnStateChanged(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnStateChanged_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnStateChanged(ctx, req.(*OnStateChangedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnTeletextAppStateChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnTeletextAppStateChangedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnTeletextAppStateChanged(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnTeletextAppStateChanged_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnTeletextAppStateChanged(ctx, req.(*OnTeletextAppStateChangedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppViewTvInteractiveAppCallbackService_OnTimeShiftCommandRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnTimeShiftCommandRequestRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnTimeShiftCommandRequest(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppViewTvInteractiveAppCallbackService_OnTimeShiftCommandRequest_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppViewTvInteractiveAppCallbackServiceServer).OnTimeShiftCommandRequest(ctx, req.(*OnTimeShiftCommandRequestRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// TvInteractiveAppViewTvInteractiveAppCallbackService_ServiceDesc is the grpc.ServiceDesc for TvInteractiveAppViewTvInteractiveAppCallbackService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var TvInteractiveAppViewTvInteractiveAppCallbackService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "interactive.TvInteractiveAppViewTvInteractiveAppCallbackService",
-	HandlerType: (*TvInteractiveAppViewTvInteractiveAppCallbackServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnBiInteractiveAppCreated",
-			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnBiInteractiveAppCreated_Handler,
-		},
-		{
-			MethodName: "OnPlaybackCommandRequest",
-			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnPlaybackCommandRequest_Handler,
-		},
-		{
-			MethodName: "OnRequestAvailableSpeeds",
-			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestAvailableSpeeds_Handler,
-		},
-		{
-			MethodName: "OnRequestCertificate",
-			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCertificate_Handler,
-		},
-		{
-			MethodName: "OnRequestCurrentChannelLcn",
-			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentChannelLcn_Handler,
-		},
-		{
-			MethodName: "OnRequestCurrentChannelUri",
-			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentChannelUri_Handler,
-		},
-		{
-			MethodName: "OnRequestCurrentTvInputId",
-			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentTvInputId_Handler,
-		},
-		{
-			MethodName: "OnRequestCurrentVideoBounds",
-			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestCurrentVideoBounds_Handler,
-		},
-		{
-			MethodName: "OnRequestScheduleRecording6",
-			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestScheduleRecording6_Handler,
-		},
-		{
-			MethodName: "OnRequestScheduleRecording8_1",
-			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestScheduleRecording8_1_Handler,
-		},
-		{
-			MethodName: "OnRequestSelectedTrackInfo",
-			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestSelectedTrackInfo_Handler,
-		},
-		{
-			MethodName: "OnRequestSigning5",
-			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestSigning5_Handler,
-		},
-		{
-			MethodName: "OnRequestSigning6_1",
-			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestSigning6_1_Handler,
-		},
-		{
-			MethodName: "OnRequestStartRecording",
-			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestStartRecording_Handler,
-		},
-		{
-			MethodName: "OnRequestStopRecording",
-			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestStopRecording_Handler,
-		},
-		{
-			MethodName: "OnRequestStreamVolume",
-			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestStreamVolume_Handler,
-		},
-		{
-			MethodName: "OnRequestTimeShiftMode",
-			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTimeShiftMode_Handler,
-		},
-		{
-			MethodName: "OnRequestTrackInfoList",
-			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTrackInfoList_Handler,
-		},
-		{
-			MethodName: "OnRequestTvRecordingInfo",
-			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTvRecordingInfo_Handler,
-		},
-		{
-			MethodName: "OnRequestTvRecordingInfoList",
-			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnRequestTvRecordingInfoList_Handler,
-		},
-		{
-			MethodName: "OnSetTvRecordingInfo",
-			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnSetTvRecordingInfo_Handler,
-		},
-		{
-			MethodName: "OnSetVideoBounds",
-			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnSetVideoBounds_Handler,
-		},
-		{
-			MethodName: "OnStateChanged",
-			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnStateChanged_Handler,
-		},
-		{
-			MethodName: "OnTeletextAppStateChanged",
-			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnTeletextAppStateChanged_Handler,
-		},
-		{
-			MethodName: "OnTimeShiftCommandRequest",
-			Handler:    _TvInteractiveAppViewTvInteractiveAppCallbackService_OnTimeShiftCommandRequest_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/interactive/interactive.proto",
-}
-
-const (
-	TvInteractiveAppManagerService_RegisterAppLinkInfo_FullMethodName   = "/interactive.TvInteractiveAppManagerService/RegisterAppLinkInfo"
-	TvInteractiveAppManagerService_RegisterCallback_FullMethodName      = "/interactive.TvInteractiveAppManagerService/RegisterCallback"
-	TvInteractiveAppManagerService_SendAppLinkCommand_FullMethodName    = "/interactive.TvInteractiveAppManagerService/SendAppLinkCommand"
-	TvInteractiveAppManagerService_UnregisterAppLinkInfo_FullMethodName = "/interactive.TvInteractiveAppManagerService/UnregisterAppLinkInfo"
-	TvInteractiveAppManagerService_UnregisterCallback_FullMethodName    = "/interactive.TvInteractiveAppManagerService/UnregisterCallback"
-)
-
-// TvInteractiveAppManagerServiceClient is the client API for TvInteractiveAppManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TvInteractiveAppManagerServiceClient interface {
-	RegisterAppLinkInfo(ctx context.Context, in *RegisterAppLinkInfoRequest, opts ...grpc.CallOption) (*RegisterAppLinkInfoResponse, error)
-	RegisterCallback(ctx context.Context, in *RegisterCallbackRequest, opts ...grpc.CallOption) (*RegisterCallbackResponse, error)
-	SendAppLinkCommand(ctx context.Context, in *SendAppLinkCommandRequest, opts ...grpc.CallOption) (*SendAppLinkCommandResponse, error)
-	UnregisterAppLinkInfo(ctx context.Context, in *UnregisterAppLinkInfoRequest, opts ...grpc.CallOption) (*UnregisterAppLinkInfoResponse, error)
-	UnregisterCallback(ctx context.Context, in *UnregisterCallbackRequest, opts ...grpc.CallOption) (*UnregisterCallbackResponse, error)
-}
-
-type tvInteractiveAppManagerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewTvInteractiveAppManagerServiceClient(cc grpc.ClientConnInterface) TvInteractiveAppManagerServiceClient {
-	return &tvInteractiveAppManagerServiceClient{cc}
-}
-
-func (c *tvInteractiveAppManagerServiceClient) RegisterAppLinkInfo(ctx context.Context, in *RegisterAppLinkInfoRequest, opts ...grpc.CallOption) (*RegisterAppLinkInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RegisterAppLinkInfoResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppManagerService_RegisterAppLinkInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppManagerServiceClient) RegisterCallback(ctx context.Context, in *RegisterCallbackRequest, opts ...grpc.CallOption) (*RegisterCallbackResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RegisterCallbackResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppManagerService_RegisterCallback_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppManagerServiceClient) SendAppLinkCommand(ctx context.Context, in *SendAppLinkCommandRequest, opts ...grpc.CallOption) (*SendAppLinkCommandResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SendAppLinkCommandResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppManagerService_SendAppLinkCommand_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppManagerServiceClient) UnregisterAppLinkInfo(ctx context.Context, in *UnregisterAppLinkInfoRequest, opts ...grpc.CallOption) (*UnregisterAppLinkInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UnregisterAppLinkInfoResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppManagerService_UnregisterAppLinkInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppManagerServiceClient) UnregisterCallback(ctx context.Context, in *UnregisterCallbackRequest, opts ...grpc.CallOption) (*UnregisterCallbackResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UnregisterCallbackResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppManagerService_UnregisterCallback_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// TvInteractiveAppManagerServiceServer is the server API for TvInteractiveAppManagerService service.
-// All implementations must embed UnimplementedTvInteractiveAppManagerServiceServer
-// for forward compatibility.
-type TvInteractiveAppManagerServiceServer interface {
-	RegisterAppLinkInfo(context.Context, *RegisterAppLinkInfoRequest) (*RegisterAppLinkInfoResponse, error)
-	RegisterCallback(context.Context, *RegisterCallbackRequest) (*RegisterCallbackResponse, error)
-	SendAppLinkCommand(context.Context, *SendAppLinkCommandRequest) (*SendAppLinkCommandResponse, error)
-	UnregisterAppLinkInfo(context.Context, *UnregisterAppLinkInfoRequest) (*UnregisterAppLinkInfoResponse, error)
-	UnregisterCallback(context.Context, *UnregisterCallbackRequest) (*UnregisterCallbackResponse, error)
-	mustEmbedUnimplementedTvInteractiveAppManagerServiceServer()
-}
-
-// UnimplementedTvInteractiveAppManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedTvInteractiveAppManagerServiceServer struct{}
-
-func (UnimplementedTvInteractiveAppManagerServiceServer) RegisterAppLinkInfo(context.Context, *RegisterAppLinkInfoRequest) (*RegisterAppLinkInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RegisterAppLinkInfo not implemented")
-}
-func (UnimplementedTvInteractiveAppManagerServiceServer) RegisterCallback(context.Context, *RegisterCallbackRequest) (*RegisterCallbackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RegisterCallback not implemented")
-}
-func (UnimplementedTvInteractiveAppManagerServiceServer) SendAppLinkCommand(context.Context, *SendAppLinkCommandRequest) (*SendAppLinkCommandResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SendAppLinkCommand not implemented")
-}
-func (UnimplementedTvInteractiveAppManagerServiceServer) UnregisterAppLinkInfo(context.Context, *UnregisterAppLinkInfoRequest) (*UnregisterAppLinkInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UnregisterAppLinkInfo not implemented")
-}
-func (UnimplementedTvInteractiveAppManagerServiceServer) UnregisterCallback(context.Context, *UnregisterCallbackRequest) (*UnregisterCallbackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UnregisterCallback not implemented")
-}
-func (UnimplementedTvInteractiveAppManagerServiceServer) mustEmbedUnimplementedTvInteractiveAppManagerServiceServer() {
-}
-func (UnimplementedTvInteractiveAppManagerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeTvInteractiveAppManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TvInteractiveAppManagerServiceServer will
-// result in compilation errors.
-type UnsafeTvInteractiveAppManagerServiceServer interface {
-	mustEmbedUnimplementedTvInteractiveAppManagerServiceServer()
-}
-
-func RegisterTvInteractiveAppManagerServiceServer(s grpc.ServiceRegistrar, srv TvInteractiveAppManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedTvInteractiveAppManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&TvInteractiveAppManagerService_ServiceDesc, srv)
-}
-
-func _TvInteractiveAppManagerService_RegisterAppLinkInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RegisterAppLinkInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppManagerServiceServer).RegisterAppLinkInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppManagerService_RegisterAppLinkInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppManagerServiceServer).RegisterAppLinkInfo(ctx, req.(*RegisterAppLinkInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppManagerService_RegisterCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RegisterCallbackRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppManagerServiceServer).RegisterCallback(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppManagerService_RegisterCallback_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppManagerServiceServer).RegisterCallback(ctx, req.(*RegisterCallbackRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppManagerService_SendAppLinkCommand_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SendAppLinkCommandRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppManagerServiceServer).SendAppLinkCommand(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppManagerService_SendAppLinkCommand_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppManagerServiceServer).SendAppLinkCommand(ctx, req.(*SendAppLinkCommandRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppManagerService_UnregisterAppLinkInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnregisterAppLinkInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppManagerServiceServer).UnregisterAppLinkInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppManagerService_UnregisterAppLinkInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppManagerServiceServer).UnregisterAppLinkInfo(ctx, req.(*UnregisterAppLinkInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppManagerService_UnregisterCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnregisterCallbackRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppManagerServiceServer).UnregisterCallback(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppManagerService_UnregisterCallback_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppManagerServiceServer).UnregisterCallback(ctx, req.(*UnregisterCallbackRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// TvInteractiveAppManagerService_ServiceDesc is the grpc.ServiceDesc for TvInteractiveAppManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var TvInteractiveAppManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "interactive.TvInteractiveAppManagerService",
-	HandlerType: (*TvInteractiveAppManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "RegisterAppLinkInfo",
-			Handler:    _TvInteractiveAppManagerService_RegisterAppLinkInfo_Handler,
-		},
-		{
-			MethodName: "RegisterCallback",
-			Handler:    _TvInteractiveAppManagerService_RegisterCallback_Handler,
-		},
-		{
-			MethodName: "SendAppLinkCommand",
-			Handler:    _TvInteractiveAppManagerService_SendAppLinkCommand_Handler,
-		},
-		{
-			MethodName: "UnregisterAppLinkInfo",
-			Handler:    _TvInteractiveAppManagerService_UnregisterAppLinkInfo_Handler,
-		},
-		{
-			MethodName: "UnregisterCallback",
-			Handler:    _TvInteractiveAppManagerService_UnregisterCallback_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/interactive/interactive.proto",
-}
-
-const (
-	TvInteractiveAppManagerTvInteractiveAppCallbackService_OnInteractiveAppServiceAdded_FullMethodName          = "/interactive.TvInteractiveAppManagerTvInteractiveAppCallbackService/OnInteractiveAppServiceAdded"
-	TvInteractiveAppManagerTvInteractiveAppCallbackService_OnInteractiveAppServiceRemoved_FullMethodName        = "/interactive.TvInteractiveAppManagerTvInteractiveAppCallbackService/OnInteractiveAppServiceRemoved"
-	TvInteractiveAppManagerTvInteractiveAppCallbackService_OnInteractiveAppServiceUpdated_FullMethodName        = "/interactive.TvInteractiveAppManagerTvInteractiveAppCallbackService/OnInteractiveAppServiceUpdated"
-	TvInteractiveAppManagerTvInteractiveAppCallbackService_OnTvInteractiveAppServiceStateChanged_FullMethodName = "/interactive.TvInteractiveAppManagerTvInteractiveAppCallbackService/OnTvInteractiveAppServiceStateChanged"
-)
-
-// TvInteractiveAppManagerTvInteractiveAppCallbackServiceClient is the client API for TvInteractiveAppManagerTvInteractiveAppCallbackService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TvInteractiveAppManagerTvInteractiveAppCallbackServiceClient interface {
-	OnInteractiveAppServiceAdded(ctx context.Context, in *OnInteractiveAppServiceAddedRequest, opts ...grpc.CallOption) (*OnInteractiveAppServiceAddedResponse, error)
-	OnInteractiveAppServiceRemoved(ctx context.Context, in *OnInteractiveAppServiceRemovedRequest, opts ...grpc.CallOption) (*OnInteractiveAppServiceRemovedResponse, error)
-	OnInteractiveAppServiceUpdated(ctx context.Context, in *OnInteractiveAppServiceUpdatedRequest, opts ...grpc.CallOption) (*OnInteractiveAppServiceUpdatedResponse, error)
-	OnTvInteractiveAppServiceStateChanged(ctx context.Context, in *OnTvInteractiveAppServiceStateChangedRequest, opts ...grpc.CallOption) (*OnTvInteractiveAppServiceStateChangedResponse, error)
-}
-
-type tvInteractiveAppManagerTvInteractiveAppCallbackServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewTvInteractiveAppManagerTvInteractiveAppCallbackServiceClient(cc grpc.ClientConnInterface) TvInteractiveAppManagerTvInteractiveAppCallbackServiceClient {
-	return &tvInteractiveAppManagerTvInteractiveAppCallbackServiceClient{cc}
-}
-
-func (c *tvInteractiveAppManagerTvInteractiveAppCallbackServiceClient) OnInteractiveAppServiceAdded(ctx context.Context, in *OnInteractiveAppServiceAddedRequest, opts ...grpc.CallOption) (*OnInteractiveAppServiceAddedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnInteractiveAppServiceAddedResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppManagerTvInteractiveAppCallbackService_OnInteractiveAppServiceAdded_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppManagerTvInteractiveAppCallbackServiceClient) OnInteractiveAppServiceRemoved(ctx context.Context, in *OnInteractiveAppServiceRemovedRequest, opts ...grpc.CallOption) (*OnInteractiveAppServiceRemovedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnInteractiveAppServiceRemovedResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppManagerTvInteractiveAppCallbackService_OnInteractiveAppServiceRemoved_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppManagerTvInteractiveAppCallbackServiceClient) OnInteractiveAppServiceUpdated(ctx context.Context, in *OnInteractiveAppServiceUpdatedRequest, opts ...grpc.CallOption) (*OnInteractiveAppServiceUpdatedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnInteractiveAppServiceUpdatedResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppManagerTvInteractiveAppCallbackService_OnInteractiveAppServiceUpdated_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tvInteractiveAppManagerTvInteractiveAppCallbackServiceClient) OnTvInteractiveAppServiceStateChanged(ctx context.Context, in *OnTvInteractiveAppServiceStateChangedRequest, opts ...grpc.CallOption) (*OnTvInteractiveAppServiceStateChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnTvInteractiveAppServiceStateChangedResponse)
-	err := c.cc.Invoke(ctx, TvInteractiveAppManagerTvInteractiveAppCallbackService_OnTvInteractiveAppServiceStateChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// TvInteractiveAppManagerTvInteractiveAppCallbackServiceServer is the server API for TvInteractiveAppManagerTvInteractiveAppCallbackService service.
-// All implementations must embed UnimplementedTvInteractiveAppManagerTvInteractiveAppCallbackServiceServer
-// for forward compatibility.
-type TvInteractiveAppManagerTvInteractiveAppCallbackServiceServer interface {
-	OnInteractiveAppServiceAdded(context.Context, *OnInteractiveAppServiceAddedRequest) (*OnInteractiveAppServiceAddedResponse, error)
-	OnInteractiveAppServiceRemoved(context.Context, *OnInteractiveAppServiceRemovedRequest) (*OnInteractiveAppServiceRemovedResponse, error)
-	OnInteractiveAppServiceUpdated(context.Context, *OnInteractiveAppServiceUpdatedRequest) (*OnInteractiveAppServiceUpdatedResponse, error)
-	OnTvInteractiveAppServiceStateChanged(context.Context, *OnTvInteractiveAppServiceStateChangedRequest) (*OnTvInteractiveAppServiceStateChangedResponse, error)
-	mustEmbedUnimplementedTvInteractiveAppManagerTvInteractiveAppCallbackServiceServer()
-}
-
-// UnimplementedTvInteractiveAppManagerTvInteractiveAppCallbackServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedTvInteractiveAppManagerTvInteractiveAppCallbackServiceServer struct{}
-
-func (UnimplementedTvInteractiveAppManagerTvInteractiveAppCallbackServiceServer) OnInteractiveAppServiceAdded(context.Context, *OnInteractiveAppServiceAddedRequest) (*OnInteractiveAppServiceAddedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnInteractiveAppServiceAdded not implemented")
-}
-func (UnimplementedTvInteractiveAppManagerTvInteractiveAppCallbackServiceServer) OnInteractiveAppServiceRemoved(context.Context, *OnInteractiveAppServiceRemovedRequest) (*OnInteractiveAppServiceRemovedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnInteractiveAppServiceRemoved not implemented")
-}
-func (UnimplementedTvInteractiveAppManagerTvInteractiveAppCallbackServiceServer) OnInteractiveAppServiceUpdated(context.Context, *OnInteractiveAppServiceUpdatedRequest) (*OnInteractiveAppServiceUpdatedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnInteractiveAppServiceUpdated not implemented")
-}
-func (UnimplementedTvInteractiveAppManagerTvInteractiveAppCallbackServiceServer) OnTvInteractiveAppServiceStateChanged(context.Context, *OnTvInteractiveAppServiceStateChangedRequest) (*OnTvInteractiveAppServiceStateChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnTvInteractiveAppServiceStateChanged not implemented")
-}
-func (UnimplementedTvInteractiveAppManagerTvInteractiveAppCallbackServiceServer) mustEmbedUnimplementedTvInteractiveAppManagerTvInteractiveAppCallbackServiceServer() {
-}
-func (UnimplementedTvInteractiveAppManagerTvInteractiveAppCallbackServiceServer) testEmbeddedByValue() {
-}
-
-// UnsafeTvInteractiveAppManagerTvInteractiveAppCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TvInteractiveAppManagerTvInteractiveAppCallbackServiceServer will
-// result in compilation errors.
-type UnsafeTvInteractiveAppManagerTvInteractiveAppCallbackServiceServer interface {
-	mustEmbedUnimplementedTvInteractiveAppManagerTvInteractiveAppCallbackServiceServer()
-}
-
-func RegisterTvInteractiveAppManagerTvInteractiveAppCallbackServiceServer(s grpc.ServiceRegistrar, srv TvInteractiveAppManagerTvInteractiveAppCallbackServiceServer) {
-	// If the following call panics, it indicates UnimplementedTvInteractiveAppManagerTvInteractiveAppCallbackServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&TvInteractiveAppManagerTvInteractiveAppCallbackService_ServiceDesc, srv)
-}
-
-func _TvInteractiveAppManagerTvInteractiveAppCallbackService_OnInteractiveAppServiceAdded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnInteractiveAppServiceAddedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppManagerTvInteractiveAppCallbackServiceServer).OnInteractiveAppServiceAdded(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppManagerTvInteractiveAppCallbackService_OnInteractiveAppServiceAdded_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppManagerTvInteractiveAppCallbackServiceServer).OnInteractiveAppServiceAdded(ctx, req.(*OnInteractiveAppServiceAddedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppManagerTvInteractiveAppCallbackService_OnInteractiveAppServiceRemoved_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnInteractiveAppServiceRemovedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppManagerTvInteractiveAppCallbackServiceServer).OnInteractiveAppServiceRemoved(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppManagerTvInteractiveAppCallbackService_OnInteractiveAppServiceRemoved_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppManagerTvInteractiveAppCallbackServiceServer).OnInteractiveAppServiceRemoved(ctx, req.(*OnInteractiveAppServiceRemovedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppManagerTvInteractiveAppCallbackService_OnInteractiveAppServiceUpdated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnInteractiveAppServiceUpdatedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppManagerTvInteractiveAppCallbackServiceServer).OnInteractiveAppServiceUpdated(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppManagerTvInteractiveAppCallbackService_OnInteractiveAppServiceUpdated_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppManagerTvInteractiveAppCallbackServiceServer).OnInteractiveAppServiceUpdated(ctx, req.(*OnInteractiveAppServiceUpdatedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TvInteractiveAppManagerTvInteractiveAppCallbackService_OnTvInteractiveAppServiceStateChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnTvInteractiveAppServiceStateChangedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TvInteractiveAppManagerTvInteractiveAppCallbackServiceServer).OnTvInteractiveAppServiceStateChanged(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TvInteractiveAppManagerTvInteractiveAppCallbackService_OnTvInteractiveAppServiceStateChanged_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TvInteractiveAppManagerTvInteractiveAppCallbackServiceServer).OnTvInteractiveAppServiceStateChanged(ctx, req.(*OnTvInteractiveAppServiceStateChangedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// TvInteractiveAppManagerTvInteractiveAppCallbackService_ServiceDesc is the grpc.ServiceDesc for TvInteractiveAppManagerTvInteractiveAppCallbackService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var TvInteractiveAppManagerTvInteractiveAppCallbackService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "interactive.TvInteractiveAppManagerTvInteractiveAppCallbackService",
-	HandlerType: (*TvInteractiveAppManagerTvInteractiveAppCallbackServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnInteractiveAppServiceAdded",
-			Handler:    _TvInteractiveAppManagerTvInteractiveAppCallbackService_OnInteractiveAppServiceAdded_Handler,
-		},
-		{
-			MethodName: "OnInteractiveAppServiceRemoved",
-			Handler:    _TvInteractiveAppManagerTvInteractiveAppCallbackService_OnInteractiveAppServiceRemoved_Handler,
-		},
-		{
-			MethodName: "OnInteractiveAppServiceUpdated",
-			Handler:    _TvInteractiveAppManagerTvInteractiveAppCallbackService_OnInteractiveAppServiceUpdated_Handler,
-		},
-		{
-			MethodName: "OnTvInteractiveAppServiceStateChanged",
-			Handler:    _TvInteractiveAppManagerTvInteractiveAppCallbackService_OnTvInteractiveAppServiceStateChanged_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

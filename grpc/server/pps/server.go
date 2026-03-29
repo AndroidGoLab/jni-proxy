@@ -139,6 +139,29 @@ func (s *HomeSpServer) GetMatchAnyOis(_ context.Context, req *pb.GetMatchAnyOisR
 	return &pb.GetMatchAnyOisResponse{Result: handle}, nil
 }
 
+func (s *HomeSpServer) GetOtherHomePartnersList(_ context.Context, req *pb.GetOtherHomePartnersListRequest) (*pb.GetOtherHomePartnersListResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.HomeSp{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetOtherHomePartnersList()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetOtherHomePartnersListResponse{Result: handle}, nil
+}
+
 func (s *HomeSpServer) GetRoamingConsortiumOis(_ context.Context, req *pb.GetRoamingConsortiumOisRequest) (*pb.GetRoamingConsortiumOisResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {

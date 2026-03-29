@@ -9,43 +9,20 @@ import (
 	"google.golang.org/grpc"
 )
 
-// ManagerClient wraps the gRPC ManagerService client.
-type ManagerClient struct {
-	svc pb.ManagerServiceClient
+// WebSourceParamsClient wraps the gRPC WebSourceParamsService client.
+type WebSourceParamsClient struct {
+	svc pb.WebSourceParamsServiceClient
 }
 
-// NewManagerClient creates a new Manager client.
-func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
-	return &ManagerClient{
-		svc: pb.NewManagerServiceClient(cc),
-	}
-}
-
-// Get calls the Get RPC.
-func (c *ManagerClient) Get(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.Get(ctx, &pb.GetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SourceRegistrationRequestClient wraps the gRPC SourceRegistrationRequestService client.
-type SourceRegistrationRequestClient struct {
-	svc pb.SourceRegistrationRequestServiceClient
-}
-
-// NewSourceRegistrationRequestClient creates a new SourceRegistrationRequest client.
-func NewSourceRegistrationRequestClient(cc grpc.ClientConnInterface) *SourceRegistrationRequestClient {
-	return &SourceRegistrationRequestClient{
-		svc: pb.NewSourceRegistrationRequestServiceClient(cc),
+// NewWebSourceParamsClient creates a new WebSourceParams client.
+func NewWebSourceParamsClient(cc grpc.ClientConnInterface) *WebSourceParamsClient {
+	return &WebSourceParamsClient{
+		svc: pb.NewWebSourceParamsServiceClient(cc),
 	}
 }
 
 // DescribeContents calls the DescribeContents RPC.
-func (c *SourceRegistrationRequestClient) DescribeContents(ctx context.Context) (int32, error) {
+func (c *WebSourceParamsClient) DescribeContents(ctx context.Context) (int32, error) {
 	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
 	if err != nil {
 		return 0, err
@@ -54,7 +31,7 @@ func (c *SourceRegistrationRequestClient) DescribeContents(ctx context.Context) 
 }
 
 // Equals calls the Equals RPC.
-func (c *SourceRegistrationRequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+func (c *WebSourceParamsClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
@@ -64,9 +41,9 @@ func (c *SourceRegistrationRequestClient) Equals(ctx context.Context, arg0 int64
 	return resp.GetResult(), nil
 }
 
-// GetInputEvent calls the GetInputEvent RPC.
-func (c *SourceRegistrationRequestClient) GetInputEvent(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetInputEvent(ctx, &pb.GetInputEventRequest{})
+// GetRegistrationUri calls the GetRegistrationUri RPC.
+func (c *WebSourceParamsClient) GetRegistrationUri(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRegistrationUri(ctx, &pb.GetRegistrationUriRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -74,7 +51,7 @@ func (c *SourceRegistrationRequestClient) GetInputEvent(ctx context.Context) (in
 }
 
 // HashCode calls the HashCode RPC.
-func (c *SourceRegistrationRequestClient) HashCode(ctx context.Context) (int32, error) {
+func (c *WebSourceParamsClient) HashCode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
@@ -82,8 +59,17 @@ func (c *SourceRegistrationRequestClient) HashCode(ctx context.Context) (int32, 
 	return resp.GetResult(), nil
 }
 
+// IsDebugKeyAllowed calls the IsDebugKeyAllowed RPC.
+func (c *WebSourceParamsClient) IsDebugKeyAllowed(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsDebugKeyAllowed(ctx, &pb.IsDebugKeyAllowedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
 // WriteToParcel calls the WriteToParcel RPC.
-func (c *SourceRegistrationRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+func (c *WebSourceParamsClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
 	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -91,20 +77,20 @@ func (c *SourceRegistrationRequestClient) WriteToParcel(ctx context.Context, arg
 	return err
 }
 
-// SourceRegistrationRequestBuilderClient wraps the gRPC SourceRegistrationRequestBuilderService client.
-type SourceRegistrationRequestBuilderClient struct {
-	svc pb.SourceRegistrationRequestBuilderServiceClient
+// WebSourceParamsBuilderClient wraps the gRPC WebSourceParamsBuilderService client.
+type WebSourceParamsBuilderClient struct {
+	svc pb.WebSourceParamsBuilderServiceClient
 }
 
-// NewSourceRegistrationRequestBuilderClient creates a new SourceRegistrationRequestBuilder client.
-func NewSourceRegistrationRequestBuilderClient(cc grpc.ClientConnInterface) *SourceRegistrationRequestBuilderClient {
-	return &SourceRegistrationRequestBuilderClient{
-		svc: pb.NewSourceRegistrationRequestBuilderServiceClient(cc),
+// NewWebSourceParamsBuilderClient creates a new WebSourceParamsBuilder client.
+func NewWebSourceParamsBuilderClient(cc grpc.ClientConnInterface) *WebSourceParamsBuilderClient {
+	return &WebSourceParamsBuilderClient{
+		svc: pb.NewWebSourceParamsBuilderServiceClient(cc),
 	}
 }
 
 // Build calls the Build RPC.
-func (c *SourceRegistrationRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+func (c *WebSourceParamsBuilderClient) Build(ctx context.Context) (int64, error) {
 	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
 	if err != nil {
 		return 0, err
@@ -112,9 +98,9 @@ func (c *SourceRegistrationRequestBuilderClient) Build(ctx context.Context) (int
 	return resp.GetResult(), nil
 }
 
-// SetInputEvent calls the SetInputEvent RPC.
-func (c *SourceRegistrationRequestBuilderClient) SetInputEvent(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetInputEvent(ctx, &pb.SetInputEventRequest{
+// SetDebugKeyAllowed calls the SetDebugKeyAllowed RPC.
+func (c *WebSourceParamsBuilderClient) SetDebugKeyAllowed(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetDebugKeyAllowed(ctx, &pb.SetDebugKeyAllowedRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -144,6 +130,15 @@ func (c *DeletionRequestClient) GetDeletionMode(ctx context.Context) (int32, err
 	return resp.GetResult(), nil
 }
 
+// GetDomainUris calls the GetDomainUris RPC.
+func (c *DeletionRequestClient) GetDomainUris(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDomainUris(ctx, &pb.GetDomainUrisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetEnd calls the GetEnd RPC.
 func (c *DeletionRequestClient) GetEnd(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetEnd(ctx, &pb.GetEndRequest{})
@@ -156,6 +151,15 @@ func (c *DeletionRequestClient) GetEnd(ctx context.Context) (int64, error) {
 // GetMatchBehavior calls the GetMatchBehavior RPC.
 func (c *DeletionRequestClient) GetMatchBehavior(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetMatchBehavior(ctx, &pb.GetMatchBehaviorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOriginUris calls the GetOriginUris RPC.
+func (c *DeletionRequestClient) GetOriginUris(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOriginUris(ctx, &pb.GetOriginUrisRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -336,106 +340,6 @@ func (c *WebTriggerParamsBuilderClient) SetDebugKeyAllowed(ctx context.Context, 
 	return resp.GetResult(), nil
 }
 
-// WebSourceParamsClient wraps the gRPC WebSourceParamsService client.
-type WebSourceParamsClient struct {
-	svc pb.WebSourceParamsServiceClient
-}
-
-// NewWebSourceParamsClient creates a new WebSourceParams client.
-func NewWebSourceParamsClient(cc grpc.ClientConnInterface) *WebSourceParamsClient {
-	return &WebSourceParamsClient{
-		svc: pb.NewWebSourceParamsServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *WebSourceParamsClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *WebSourceParamsClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRegistrationUri calls the GetRegistrationUri RPC.
-func (c *WebSourceParamsClient) GetRegistrationUri(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetRegistrationUri(ctx, &pb.GetRegistrationUriRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *WebSourceParamsClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsDebugKeyAllowed calls the IsDebugKeyAllowed RPC.
-func (c *WebSourceParamsClient) IsDebugKeyAllowed(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsDebugKeyAllowed(ctx, &pb.IsDebugKeyAllowedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *WebSourceParamsClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// WebSourceParamsBuilderClient wraps the gRPC WebSourceParamsBuilderService client.
-type WebSourceParamsBuilderClient struct {
-	svc pb.WebSourceParamsBuilderServiceClient
-}
-
-// NewWebSourceParamsBuilderClient creates a new WebSourceParamsBuilder client.
-func NewWebSourceParamsBuilderClient(cc grpc.ClientConnInterface) *WebSourceParamsBuilderClient {
-	return &WebSourceParamsBuilderClient{
-		svc: pb.NewWebSourceParamsBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *WebSourceParamsBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetDebugKeyAllowed calls the SetDebugKeyAllowed RPC.
-func (c *WebSourceParamsBuilderClient) SetDebugKeyAllowed(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetDebugKeyAllowed(ctx, &pb.SetDebugKeyAllowedRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // WebTriggerRegistrationRequestClient wraps the gRPC WebTriggerRegistrationRequestService client.
 type WebTriggerRegistrationRequestClient struct {
 	svc pb.WebTriggerRegistrationRequestServiceClient
@@ -477,6 +381,15 @@ func (c *WebTriggerRegistrationRequestClient) GetDestination(ctx context.Context
 	return resp.GetResult(), nil
 }
 
+// GetTriggerParams calls the GetTriggerParams RPC.
+func (c *WebTriggerRegistrationRequestClient) GetTriggerParams(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTriggerParams(ctx, &pb.GetTriggerParamsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // HashCode calls the HashCode RPC.
 func (c *WebTriggerRegistrationRequestClient) HashCode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
@@ -510,6 +423,29 @@ func NewWebTriggerRegistrationRequestBuilderClient(cc grpc.ClientConnInterface) 
 // Build calls the Build RPC.
 func (c *WebTriggerRegistrationRequestBuilderClient) Build(ctx context.Context) (int64, error) {
 	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ManagerClient wraps the gRPC ManagerService client.
+type ManagerClient struct {
+	svc pb.ManagerServiceClient
+}
+
+// NewManagerClient creates a new Manager client.
+func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
+	return &ManagerClient{
+		svc: pb.NewManagerServiceClient(cc),
+	}
+}
+
+// Get calls the Get RPC.
+func (c *ManagerClient) Get(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Get(ctx, &pb.GetRequest{
+		Arg0: arg0,
+	})
 	if err != nil {
 		return 0, err
 	}
@@ -560,6 +496,15 @@ func (c *WebSourceRegistrationRequestClient) GetAppDestination(ctx context.Conte
 // GetInputEvent calls the GetInputEvent RPC.
 func (c *WebSourceRegistrationRequestClient) GetInputEvent(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetInputEvent(ctx, &pb.GetInputEventRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSourceParams calls the GetSourceParams RPC.
+func (c *WebSourceRegistrationRequestClient) GetSourceParams(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSourceParams(ctx, &pb.GetSourceParamsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -668,6 +613,106 @@ func (c *WebSourceRegistrationRequestBuilderClient) SetVerifiedDestination(ctx c
 // SetWebDestination calls the SetWebDestination RPC.
 func (c *WebSourceRegistrationRequestBuilderClient) SetWebDestination(ctx context.Context, arg0 int64) (int64, error) {
 	resp, err := c.svc.SetWebDestination(ctx, &pb.SetWebDestinationRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SourceRegistrationRequestClient wraps the gRPC SourceRegistrationRequestService client.
+type SourceRegistrationRequestClient struct {
+	svc pb.SourceRegistrationRequestServiceClient
+}
+
+// NewSourceRegistrationRequestClient creates a new SourceRegistrationRequest client.
+func NewSourceRegistrationRequestClient(cc grpc.ClientConnInterface) *SourceRegistrationRequestClient {
+	return &SourceRegistrationRequestClient{
+		svc: pb.NewSourceRegistrationRequestServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SourceRegistrationRequestClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *SourceRegistrationRequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInputEvent calls the GetInputEvent RPC.
+func (c *SourceRegistrationRequestClient) GetInputEvent(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInputEvent(ctx, &pb.GetInputEventRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRegistrationUris calls the GetRegistrationUris RPC.
+func (c *SourceRegistrationRequestClient) GetRegistrationUris(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRegistrationUris(ctx, &pb.GetRegistrationUrisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *SourceRegistrationRequestClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SourceRegistrationRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SourceRegistrationRequestBuilderClient wraps the gRPC SourceRegistrationRequestBuilderService client.
+type SourceRegistrationRequestBuilderClient struct {
+	svc pb.SourceRegistrationRequestBuilderServiceClient
+}
+
+// NewSourceRegistrationRequestBuilderClient creates a new SourceRegistrationRequestBuilder client.
+func NewSourceRegistrationRequestBuilderClient(cc grpc.ClientConnInterface) *SourceRegistrationRequestBuilderClient {
+	return &SourceRegistrationRequestBuilderClient{
+		svc: pb.NewSourceRegistrationRequestBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *SourceRegistrationRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetInputEvent calls the SetInputEvent RPC.
+func (c *SourceRegistrationRequestBuilderClient) SetInputEvent(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetInputEvent(ctx, &pb.SetInputEventRequest{
 		Arg0: arg0,
 	})
 	if err != nil {

@@ -9,66 +9,32 @@ import (
 	"google.golang.org/grpc"
 )
 
-// SpecClient wraps the gRPC SpecService client.
-type SpecClient struct {
-	svc pb.SpecServiceClient
+// CallbackClient wraps the gRPC CallbackService client.
+type CallbackClient struct {
+	svc pb.CallbackServiceClient
 }
 
-// NewSpecClient creates a new Spec client.
-func NewSpecClient(cc grpc.ClientConnInterface) *SpecClient {
-	return &SpecClient{
-		svc: pb.NewSpecServiceClient(cc),
+// NewCallbackClient creates a new Callback client.
+func NewCallbackClient(cc grpc.ClientConnInterface) *CallbackClient {
+	return &CallbackClient{
+		svc: pb.NewCallbackServiceClient(cc),
 	}
 }
 
-// DescribeContents calls the DescribeContents RPC.
-func (c *SpecClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *SpecClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+// OnDocumentChanged calls the OnDocumentChanged RPC.
+func (c *CallbackClient) OnDocumentChanged(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnDocumentChanged(ctx, &pb.OnDocumentChangedRequest{
 		Arg0: arg0,
-		Arg1: arg1,
 	})
 	return err
 }
 
-// SpecBuilderClient wraps the gRPC SpecBuilderService client.
-type SpecBuilderClient struct {
-	svc pb.SpecBuilderServiceClient
-}
-
-// NewSpecBuilderClient creates a new SpecBuilder client.
-func NewSpecBuilderClient(cc grpc.ClientConnInterface) *SpecBuilderClient {
-	return &SpecBuilderClient{
-		svc: pb.NewSpecBuilderServiceClient(cc),
-	}
-}
-
-// AddFilterSchemas calls the AddFilterSchemas RPC.
-func (c *SpecBuilderClient) AddFilterSchemas(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddFilterSchemas(ctx, &pb.AddFilterSchemasRequest{
+// OnSchemaChanged calls the OnSchemaChanged RPC.
+func (c *CallbackClient) OnSchemaChanged(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnSchemaChanged(ctx, &pb.OnSchemaChangedRequest{
 		Arg0: arg0,
 	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Build calls the Build RPC.
-func (c *SpecBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
+	return err
 }
 
 // DocumentChangeInfoClient wraps the gRPC DocumentChangeInfoService client.
@@ -91,6 +57,17 @@ func (c *DocumentChangeInfoClient) Equals(ctx context.Context, handle int64, arg
 	})
 	if err != nil {
 		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChangedDocumentIds calls the GetChangedDocumentIds RPC.
+func (c *DocumentChangeInfoClient) GetChangedDocumentIds(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetChangedDocumentIds(ctx, &pb.GetChangedDocumentIdsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -185,6 +162,17 @@ func (c *SchemaChangeInfoClient) Equals(ctx context.Context, handle int64, arg0 
 	return resp.GetResult(), nil
 }
 
+// GetChangedSchemaNames calls the GetChangedSchemaNames RPC.
+func (c *SchemaChangeInfoClient) GetChangedSchemaNames(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetChangedSchemaNames(ctx, &pb.GetChangedSchemaNamesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetDatabaseName calls the GetDatabaseName RPC.
 func (c *SchemaChangeInfoClient) GetDatabaseName(ctx context.Context, handle int64) (string, error) {
 	resp, err := c.svc.GetDatabaseName(ctx, &pb.GetDatabaseNameRequest{
@@ -229,30 +217,73 @@ func (c *SchemaChangeInfoClient) ToString(ctx context.Context, handle int64) (st
 	return resp.GetResult(), nil
 }
 
-// CallbackClient wraps the gRPC CallbackService client.
-type CallbackClient struct {
-	svc pb.CallbackServiceClient
+// SpecClient wraps the gRPC SpecService client.
+type SpecClient struct {
+	svc pb.SpecServiceClient
 }
 
-// NewCallbackClient creates a new Callback client.
-func NewCallbackClient(cc grpc.ClientConnInterface) *CallbackClient {
-	return &CallbackClient{
-		svc: pb.NewCallbackServiceClient(cc),
+// NewSpecClient creates a new Spec client.
+func NewSpecClient(cc grpc.ClientConnInterface) *SpecClient {
+	return &SpecClient{
+		svc: pb.NewSpecServiceClient(cc),
 	}
 }
 
-// OnDocumentChanged calls the OnDocumentChanged RPC.
-func (c *CallbackClient) OnDocumentChanged(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnDocumentChanged(ctx, &pb.OnDocumentChangedRequest{
+// DescribeContents calls the DescribeContents RPC.
+func (c *SpecClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFilterSchemas calls the GetFilterSchemas RPC.
+func (c *SpecClient) GetFilterSchemas(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFilterSchemas(ctx, &pb.GetFilterSchemasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SpecClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Arg0: arg0,
+		Arg1: arg1,
 	})
 	return err
 }
 
-// OnSchemaChanged calls the OnSchemaChanged RPC.
-func (c *CallbackClient) OnSchemaChanged(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnSchemaChanged(ctx, &pb.OnSchemaChangedRequest{
+// SpecBuilderClient wraps the gRPC SpecBuilderService client.
+type SpecBuilderClient struct {
+	svc pb.SpecBuilderServiceClient
+}
+
+// NewSpecBuilderClient creates a new SpecBuilder client.
+func NewSpecBuilderClient(cc grpc.ClientConnInterface) *SpecBuilderClient {
+	return &SpecBuilderClient{
+		svc: pb.NewSpecBuilderServiceClient(cc),
+	}
+}
+
+// AddFilterSchemas calls the AddFilterSchemas RPC.
+func (c *SpecBuilderClient) AddFilterSchemas(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddFilterSchemas(ctx, &pb.AddFilterSchemasRequest{
 		Arg0: arg0,
 	})
-	return err
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *SpecBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }

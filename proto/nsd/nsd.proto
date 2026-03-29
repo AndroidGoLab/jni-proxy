@@ -6,50 +6,144 @@ package nsd;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/nsd";
 
+message NewServiceInfoRequest {
+}
+
+message NewServiceInfoResponse {
+  int64 result = 1;
+}
+
 message DescribeContentsRequest {
+  int64 handle = 1;
 }
 
 message DescribeContentsResponse {
   int32 result = 1;
 }
 
-message EqualsRequest {
-  int64 arg0 = 1;
+message GetHostRequest {
+  int64 handle = 1;
 }
 
-message EqualsResponse {
-  bool result = 1;
+message GetHostResponse {
+  int64 result = 1;
+}
+
+message GetHostAddressesRequest {
+  int64 handle = 1;
+}
+
+message GetHostAddressesResponse {
+  int64 result = 1;
+}
+
+message GetHostnameRequest {
+  int64 handle = 1;
+}
+
+message GetHostnameResponse {
+  string result = 1;
 }
 
 message GetNetworkRequest {
+  int64 handle = 1;
 }
 
 message GetNetworkResponse {
   int64 result = 1;
 }
 
+message GetPortRequest {
+  int64 handle = 1;
+}
+
+message GetPortResponse {
+  int32 result = 1;
+}
+
+message GetServiceNameRequest {
+  int64 handle = 1;
+}
+
+message GetServiceNameResponse {
+  string result = 1;
+}
+
 message GetServiceTypeRequest {
+  int64 handle = 1;
 }
 
 message GetServiceTypeResponse {
   string result = 1;
 }
 
-message GetSubtypeRequest {
+message GetSubtypesRequest {
+  int64 handle = 1;
 }
 
-message GetSubtypeResponse {
-  string result = 1;
+message GetSubtypesResponse {
+  int64 result = 1;
 }
 
-message HashCodeRequest {
+message RemoveAttributeRequest {
+  int64 handle = 1;
+  string arg0 = 2;
 }
 
-message HashCodeResponse {
-  int32 result = 1;
+message RemoveAttributeResponse {
+}
+
+message SetAttributeRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  string arg1 = 3;
+}
+
+message SetAttributeResponse {
+}
+
+message SetHostRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetHostResponse {
+}
+
+message SetNetworkRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetNetworkResponse {
+}
+
+message SetPortRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetPortResponse {
+}
+
+message SetServiceNameRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetServiceNameResponse {
+}
+
+message SetServiceTypeRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+}
+
+message SetServiceTypeResponse {
 }
 
 message ToStringRequest {
+  int64 handle = 1;
 }
 
 message ToStringResponse {
@@ -57,34 +151,12 @@ message ToStringResponse {
 }
 
 message WriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
 }
 
 message WriteToParcelResponse {
-}
-
-message BuildRequest {
-}
-
-message BuildResponse {
-  int64 result = 1;
-}
-
-message SetNetworkRequest {
-  int64 arg0 = 1;
-}
-
-message SetNetworkResponse {
-  int64 result = 1;
-}
-
-message SetSubtypeRequest {
-  string arg0 = 1;
-}
-
-message SetSubtypeResponse {
-  int64 result = 1;
 }
 
 message DiscoverServices3Request {
@@ -312,122 +384,69 @@ message OnServiceUpdatedRequest {
 message OnServiceUpdatedResponse {
 }
 
-message NewServiceInfoRequest {
+message DiscoveryRequestDescribeContentsRequest {
 }
 
-message NewServiceInfoResponse {
-  int64 result = 1;
+message EqualsRequest {
+  int64 arg0 = 1;
 }
 
-message ServiceInfoDescribeContentsRequest {
-  int64 handle = 1;
+message EqualsResponse {
+  bool result = 1;
 }
 
-message GetHostRequest {
-  int64 handle = 1;
+message DiscoveryRequestGetNetworkRequest {
 }
 
-message GetHostResponse {
-  int64 result = 1;
+message DiscoveryRequestGetServiceTypeRequest {
 }
 
-message GetHostnameRequest {
-  int64 handle = 1;
+message GetSubtypeRequest {
 }
 
-message GetHostnameResponse {
+message GetSubtypeResponse {
   string result = 1;
 }
 
-message ServiceInfoGetNetworkRequest {
-  int64 handle = 1;
+message HashCodeRequest {
 }
 
-message GetPortRequest {
-  int64 handle = 1;
-}
-
-message GetPortResponse {
+message HashCodeResponse {
   int32 result = 1;
 }
 
-message GetServiceNameRequest {
-  int64 handle = 1;
+message DiscoveryRequestToStringRequest {
 }
 
-message GetServiceNameResponse {
-  string result = 1;
+message DiscoveryRequestWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
 }
 
-message ServiceInfoGetServiceTypeRequest {
-  int64 handle = 1;
+message BuildRequest {
 }
 
-message RemoveAttributeRequest {
-  int64 handle = 1;
-  string arg0 = 2;
+message BuildResponse {
+  int64 result = 1;
 }
 
-message RemoveAttributeResponse {
+message DiscoveryRequestBuilderSetNetworkRequest {
+  int64 arg0 = 1;
 }
 
-message SetAttributeRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-  string arg1 = 3;
+message DiscoveryRequestBuilderSetNetworkResponse {
+  int64 result = 1;
 }
 
-message SetAttributeResponse {
+message SetSubtypeRequest {
+  string arg0 = 1;
 }
 
-message SetHostRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
+message SetSubtypeResponse {
+  int64 result = 1;
 }
 
-message SetHostResponse {
-}
-
-message ServiceInfoSetNetworkRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message ServiceInfoSetNetworkResponse {
-}
-
-message SetPortRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message SetPortResponse {
-}
-
-message SetServiceNameRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message SetServiceNameResponse {
-}
-
-message SetServiceTypeRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-}
-
-message SetServiceTypeResponse {
-}
-
-message ServiceInfoToStringRequest {
-  int64 handle = 1;
-}
-
-message ServiceInfoWriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
+message AdvertisingRequestDescribeContentsRequest {
 }
 
 message GetFlagsRequest {
@@ -451,6 +470,14 @@ message GetServiceInfoResponse {
   int64 result = 1;
 }
 
+message AdvertisingRequestToStringRequest {
+}
+
+message AdvertisingRequestWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
 message SetFlagsRequest {
   int64 arg0 = 1;
 }
@@ -465,63 +492,6 @@ message SetProtocolTypeRequest {
 
 message SetProtocolTypeResponse {
   int64 result = 1;
-}
-
-message NewWifiP2pServiceInfoRequest {
-  int64 arg0 = 1;
-}
-
-message NewWifiP2pServiceInfoResponse {
-  int64 result = 1;
-}
-
-message WifiP2pServiceInfoDescribeContentsRequest {
-  int64 handle = 1;
-}
-
-message WifiP2pServiceInfoEqualsRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message GetWifiP2pUsdBasedServiceConfigRequest {
-  int64 handle = 1;
-}
-
-message GetWifiP2pUsdBasedServiceConfigResponse {
-  int64 result = 1;
-}
-
-message WifiP2pServiceInfoHashCodeRequest {
-  int64 handle = 1;
-}
-
-message WifiP2pServiceInfoWriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message WifiP2pUsdBasedServiceResponseDescribeContentsRequest {
-}
-
-message GetServiceProtocolTypeRequest {
-}
-
-message GetServiceProtocolTypeResponse {
-  int32 result = 1;
-}
-
-message GetServiceSpecificInfoRequest {
-}
-
-message GetServiceSpecificInfoResponse {
-  int64 result = 1;
-}
-
-message WifiP2pUsdBasedServiceResponseWriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
 }
 
 message NewInstance0Request {
@@ -547,6 +517,23 @@ message NewWifiP2pServiceRequestResponse {
   int64 result = 1;
 }
 
+message WifiP2pServiceRequestEqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message GetWifiP2pUsdBasedServiceConfigRequest {
+  int64 handle = 1;
+}
+
+message GetWifiP2pUsdBasedServiceConfigResponse {
+  int64 result = 1;
+}
+
+message WifiP2pServiceRequestHashCodeRequest {
+  int64 handle = 1;
+}
+
 message NewInstance1Request {
   int64 handle = 1;
   int32 arg0 = 2;
@@ -566,12 +553,36 @@ message NewInstance2_1Response {
   int64 result = 1;
 }
 
-message NewInstance2_2Request {
-  string arg0 = 1;
-  string arg1 = 2;
+message WifiP2pUsdBasedServiceResponseDescribeContentsRequest {
 }
 
-message NewInstance2_2Response {
+message GetServiceProtocolTypeRequest {
+}
+
+message GetServiceProtocolTypeResponse {
+  int32 result = 1;
+}
+
+message GetServiceSpecificInfoRequest {
+}
+
+message GetServiceSpecificInfoResponse {
+  int64 result = 1;
+}
+
+message WifiP2pUsdBasedServiceResponseToStringRequest {
+}
+
+message WifiP2pUsdBasedServiceResponseWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewWifiP2pServiceInfoRequest {
+  int64 arg0 = 1;
+}
+
+message NewWifiP2pServiceInfoResponse {
   int64 result = 1;
 }
 
@@ -618,17 +629,28 @@ message SetServiceSpecificInfoResponse {
   int64 result = 1;
 }
 
-message ServiceInfoGetHostRequest {
+message NewInstance2_2Request {
+  string arg0 = 1;
+  string arg1 = 2;
 }
 
-message GetHostAddressesRequest {
-}
-
-message GetHostAddressesResponse {
+message NewInstance2_2Response {
   int64 result = 1;
 }
 
+message ServiceInfoDescribeContentsRequest {
+}
+
+message ServiceInfoGetHostRequest {
+}
+
+message ServiceInfoGetHostAddressesRequest {
+}
+
 message ServiceInfoGetHostnameRequest {
+}
+
+message ServiceInfoGetNetworkRequest {
 }
 
 message ServiceInfoGetPortRequest {
@@ -637,11 +659,10 @@ message ServiceInfoGetPortRequest {
 message ServiceInfoGetServiceNameRequest {
 }
 
-message GetSubtypesRequest {
+message ServiceInfoGetServiceTypeRequest {
 }
 
-message GetSubtypesResponse {
-  int64 result = 1;
+message ServiceInfoGetSubtypesRequest {
 }
 
 message ServiceInfoRemoveAttributeRequest {
@@ -664,7 +685,8 @@ message SetHostAddressesRequest {
 message SetHostAddressesResponse {
 }
 
-message SetNetworkResponse2 {
+message ServiceInfoSetNetworkRequest {
+  int64 arg0 = 1;
 }
 
 message ServiceInfoSetPortRequest {
@@ -686,21 +708,36 @@ message SetSubtypesRequest {
 message SetSubtypesResponse {
 }
 
-service DiscoveryRequestService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetNetwork (GetNetworkRequest) returns (GetNetworkResponse);
-  rpc GetServiceType (GetServiceTypeRequest) returns (GetServiceTypeResponse);
-  rpc GetSubtype (GetSubtypeRequest) returns (GetSubtypeResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+message ServiceInfoToStringRequest {
 }
 
-service DiscoveryRequestBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
+message ServiceInfoWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+service ServiceInfoService {
+  rpc NewServiceInfo (NewServiceInfoRequest) returns (NewServiceInfoResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetHost (GetHostRequest) returns (GetHostResponse);
+  rpc GetHostAddresses (GetHostAddressesRequest) returns (GetHostAddressesResponse);
+  rpc GetHostname (GetHostnameRequest) returns (GetHostnameResponse);
+  rpc GetNetwork (GetNetworkRequest) returns (GetNetworkResponse);
+  rpc GetPort (GetPortRequest) returns (GetPortResponse);
+  rpc GetServiceName (GetServiceNameRequest) returns (GetServiceNameResponse);
+  rpc GetServiceType (GetServiceTypeRequest) returns (GetServiceTypeResponse);
+  rpc GetSubtypes (GetSubtypesRequest) returns (GetSubtypesResponse);
+  rpc RemoveAttribute (RemoveAttributeRequest) returns (RemoveAttributeResponse);
+  rpc SetAttribute (SetAttributeRequest) returns (SetAttributeResponse);
+  rpc SetHost (SetHostRequest) returns (SetHostResponse);
   rpc SetNetwork (SetNetworkRequest) returns (SetNetworkResponse);
-  rpc SetSubtype (SetSubtypeRequest) returns (SetSubtypeResponse);
+  rpc SetPort (SetPortRequest) returns (SetPortResponse);
+  rpc SetServiceName (SetServiceNameRequest) returns (SetServiceNameResponse);
+  rpc SetServiceType (SetServiceTypeRequest) returns (SetServiceTypeResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc SetHostAddresses (SetHostAddressesRequest) returns (SetHostAddressesResponse);
+  rpc SetSubtypes (SetSubtypesRequest) returns (SetSubtypesResponse);
 }
 
 service ManagerService {
@@ -747,62 +784,38 @@ service ManagerServiceInfoCallbackService {
   rpc OnServiceUpdated (OnServiceUpdatedRequest) returns (OnServiceUpdatedResponse);
 }
 
-service ServiceInfoService {
-  rpc NewServiceInfo (NewServiceInfoRequest) returns (NewServiceInfoResponse);
-  rpc DescribeContents (ServiceInfoDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetHost (GetHostRequest) returns (GetHostResponse);
-  rpc GetHostname (GetHostnameRequest) returns (GetHostnameResponse);
-  rpc GetNetwork (ServiceInfoGetNetworkRequest) returns (GetNetworkResponse);
-  rpc GetPort (GetPortRequest) returns (GetPortResponse);
-  rpc GetServiceName (GetServiceNameRequest) returns (GetServiceNameResponse);
-  rpc GetServiceType (ServiceInfoGetServiceTypeRequest) returns (GetServiceTypeResponse);
-  rpc RemoveAttribute (RemoveAttributeRequest) returns (RemoveAttributeResponse);
-  rpc SetAttribute (SetAttributeRequest) returns (SetAttributeResponse);
-  rpc SetHost (SetHostRequest) returns (SetHostResponse);
-  rpc SetNetwork (ServiceInfoSetNetworkRequest) returns (ServiceInfoSetNetworkResponse);
-  rpc SetPort (SetPortRequest) returns (SetPortResponse);
-  rpc SetServiceName (SetServiceNameRequest) returns (SetServiceNameResponse);
-  rpc SetServiceType (SetServiceTypeRequest) returns (SetServiceTypeResponse);
-  rpc ToString (ServiceInfoToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (ServiceInfoWriteToParcelRequest) returns (WriteToParcelResponse);
-  rpc GetHostAddresses (GetHostAddressesRequest) returns (GetHostAddressesResponse);
-  rpc GetSubtypes (GetSubtypesRequest) returns (GetSubtypesResponse);
-  rpc SetHostAddresses (SetHostAddressesRequest) returns (SetHostAddressesResponse);
-  rpc SetSubtypes (SetSubtypesRequest) returns (SetSubtypesResponse);
+service DiscoveryRequestService {
+  rpc DescribeContents (DiscoveryRequestDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetNetwork (DiscoveryRequestGetNetworkRequest) returns (GetNetworkResponse);
+  rpc GetServiceType (DiscoveryRequestGetServiceTypeRequest) returns (GetServiceTypeResponse);
+  rpc GetSubtype (GetSubtypeRequest) returns (GetSubtypeResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc ToString (DiscoveryRequestToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (DiscoveryRequestWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service DiscoveryRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+  rpc SetNetwork (DiscoveryRequestBuilderSetNetworkRequest) returns (DiscoveryRequestBuilderSetNetworkResponse);
+  rpc SetSubtype (SetSubtypeRequest) returns (SetSubtypeResponse);
 }
 
 service AdvertisingRequestService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc DescribeContents (AdvertisingRequestDescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (EqualsRequest) returns (EqualsResponse);
   rpc GetFlags (GetFlagsRequest) returns (GetFlagsResponse);
   rpc GetProtocolType (GetProtocolTypeRequest) returns (GetProtocolTypeResponse);
   rpc GetServiceInfo (GetServiceInfoRequest) returns (GetServiceInfoResponse);
   rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc ToString (AdvertisingRequestToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (AdvertisingRequestWriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
 service AdvertisingRequestBuilderService {
   rpc Build (BuildRequest) returns (BuildResponse);
   rpc SetFlags (SetFlagsRequest) returns (SetFlagsResponse);
   rpc SetProtocolType (SetProtocolTypeRequest) returns (SetProtocolTypeResponse);
-}
-
-service WifiP2pServiceInfoService {
-  rpc NewWifiP2pServiceInfo (NewWifiP2pServiceInfoRequest) returns (NewWifiP2pServiceInfoResponse);
-  rpc DescribeContents (WifiP2pServiceInfoDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (WifiP2pServiceInfoEqualsRequest) returns (EqualsResponse);
-  rpc GetWifiP2pUsdBasedServiceConfig (GetWifiP2pUsdBasedServiceConfigRequest) returns (GetWifiP2pUsdBasedServiceConfigResponse);
-  rpc HashCode (WifiP2pServiceInfoHashCodeRequest) returns (HashCodeResponse);
-  rpc WriteToParcel (WifiP2pServiceInfoWriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service WifiP2pUsdBasedServiceResponseService {
-  rpc DescribeContents (WifiP2pUsdBasedServiceResponseDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetServiceProtocolType (GetServiceProtocolTypeRequest) returns (GetServiceProtocolTypeResponse);
-  rpc GetServiceSpecificInfo (GetServiceSpecificInfoRequest) returns (GetServiceSpecificInfoResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WifiP2pUsdBasedServiceResponseWriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
 service WifiP2pUpnpServiceRequestService {
@@ -812,29 +825,40 @@ service WifiP2pUpnpServiceRequestService {
 
 service WifiP2pServiceRequestService {
   rpc NewWifiP2pServiceRequest (NewWifiP2pServiceRequestRequest) returns (NewWifiP2pServiceRequestResponse);
-  rpc DescribeContents (WifiP2pServiceInfoDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (WifiP2pServiceInfoEqualsRequest) returns (EqualsResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (WifiP2pServiceRequestEqualsRequest) returns (EqualsResponse);
   rpc GetWifiP2pUsdBasedServiceConfig (GetWifiP2pUsdBasedServiceConfigRequest) returns (GetWifiP2pUsdBasedServiceConfigResponse);
-  rpc HashCode (WifiP2pServiceInfoHashCodeRequest) returns (HashCodeResponse);
-  rpc WriteToParcel (WifiP2pServiceInfoWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc HashCode (WifiP2pServiceRequestHashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
   rpc NewInstance1 (NewInstance1Request) returns (NewInstance1Response);
   rpc NewInstance2_1 (NewInstance2_1Request) returns (NewInstance2_1Response);
 }
 
-service WifiP2pDnsSdServiceRequestService {
-  rpc NewInstance0 (NewInstance0Request) returns (NewInstance0Response);
-  rpc NewInstance1_1 (NewInstance1_1Request) returns (NewInstance1_1Response);
-  rpc NewInstance2_2 (NewInstance2_2Request) returns (NewInstance2_2Response);
+service WifiP2pUsdBasedServiceResponseService {
+  rpc DescribeContents (WifiP2pUsdBasedServiceResponseDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetServiceProtocolType (GetServiceProtocolTypeRequest) returns (GetServiceProtocolTypeResponse);
+  rpc GetServiceSpecificInfo (GetServiceSpecificInfoRequest) returns (GetServiceSpecificInfoResponse);
+  rpc ToString (WifiP2pUsdBasedServiceResponseToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WifiP2pUsdBasedServiceResponseWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service WifiP2pServiceInfoService {
+  rpc NewWifiP2pServiceInfo (NewWifiP2pServiceInfoRequest) returns (NewWifiP2pServiceInfoResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (WifiP2pServiceRequestEqualsRequest) returns (EqualsResponse);
+  rpc GetWifiP2pUsdBasedServiceConfig (GetWifiP2pUsdBasedServiceConfigRequest) returns (GetWifiP2pUsdBasedServiceConfigResponse);
+  rpc HashCode (WifiP2pServiceRequestHashCodeRequest) returns (HashCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
 service WifiP2pUsdBasedServiceConfigService {
   rpc NewWifiP2pUsdBasedServiceConfig (NewWifiP2pUsdBasedServiceConfigRequest) returns (NewWifiP2pUsdBasedServiceConfigResponse);
-  rpc DescribeContents (WifiP2pServiceInfoDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc GetServiceName (GetServiceNameRequest) returns (GetServiceNameResponse);
   rpc GetServiceProtocolType (WifiP2pUsdBasedServiceConfigGetServiceProtocolTypeRequest) returns (GetServiceProtocolTypeResponse);
   rpc GetServiceSpecificInfo (WifiP2pUsdBasedServiceConfigGetServiceSpecificInfoRequest) returns (GetServiceSpecificInfoResponse);
   rpc ToString (WifiP2pUsdBasedServiceConfigToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WifiP2pServiceInfoWriteToParcelRequest) returns (WriteToParcelResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
   rpc GetMaxAllowedServiceSpecificInfoLength (GetMaxAllowedServiceSpecificInfoLengthRequest) returns (GetMaxAllowedServiceSpecificInfoLengthResponse);
 }
 
@@ -842,4 +866,10 @@ service WifiP2pUsdBasedServiceConfigBuilderService {
   rpc Build (BuildRequest) returns (BuildResponse);
   rpc SetServiceProtocolType (SetServiceProtocolTypeRequest) returns (SetServiceProtocolTypeResponse);
   rpc SetServiceSpecificInfo (SetServiceSpecificInfoRequest) returns (SetServiceSpecificInfoResponse);
+}
+
+service WifiP2pDnsSdServiceRequestService {
+  rpc NewInstance0 (NewInstance0Request) returns (NewInstance0Response);
+  rpc NewInstance1_1 (NewInstance1_1Request) returns (NewInstance1_1Response);
+  rpc NewInstance2_2 (NewInstance2_2Request) returns (NewInstance2_2Response);
 }

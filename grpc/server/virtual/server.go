@@ -45,6 +45,29 @@ func (s *DeviceManagerServer) GetVirtualDevice(_ context.Context, req *pb.GetVir
 	return &pb.GetVirtualDeviceResponse{Result: handle}, nil
 }
 
+func (s *DeviceManagerServer) GetVirtualDevices(_ context.Context, req *pb.GetVirtualDevicesRequest) (*pb.GetVirtualDevicesResponse, error) {
+	mgr, err := jnipkg.NewDeviceManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetVirtualDevices()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetVirtualDevicesResponse{Result: handle}, nil
+}
+
 func (s *DeviceManagerServer) RegisterVirtualDeviceListener(_ context.Context, req *pb.RegisterVirtualDeviceListenerRequest) (*pb.RegisterVirtualDeviceListenerResponse, error) {
 	mgr, err := jnipkg.NewDeviceManager(s.Ctx)
 	if err != nil {

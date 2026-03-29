@@ -23,6 +23,86 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type OnEnabledStateChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnEnabledStateChangedRequest) Reset() {
+	*x = OnEnabledStateChangedRequest{}
+	mi := &file_proto_satellite_satellite_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnEnabledStateChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnEnabledStateChangedRequest) ProtoMessage() {}
+
+func (x *OnEnabledStateChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_satellite_satellite_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnEnabledStateChangedRequest.ProtoReflect.Descriptor instead.
+func (*OnEnabledStateChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_satellite_satellite_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *OnEnabledStateChangedRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type OnEnabledStateChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnEnabledStateChangedResponse) Reset() {
+	*x = OnEnabledStateChangedResponse{}
+	mi := &file_proto_satellite_satellite_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnEnabledStateChangedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnEnabledStateChangedResponse) ProtoMessage() {}
+
+func (x *OnEnabledStateChangedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_satellite_satellite_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnEnabledStateChangedResponse.ProtoReflect.Descriptor instead.
+func (*OnEnabledStateChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_satellite_satellite_proto_rawDescGZIP(), []int{1}
+}
+
 type RegisterStateChangeListenerRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -33,7 +113,7 @@ type RegisterStateChangeListenerRequest struct {
 
 func (x *RegisterStateChangeListenerRequest) Reset() {
 	*x = RegisterStateChangeListenerRequest{}
-	mi := &file_proto_satellite_satellite_proto_msgTypes[0]
+	mi := &file_proto_satellite_satellite_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -45,7 +125,7 @@ func (x *RegisterStateChangeListenerRequest) String() string {
 func (*RegisterStateChangeListenerRequest) ProtoMessage() {}
 
 func (x *RegisterStateChangeListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_satellite_satellite_proto_msgTypes[0]
+	mi := &file_proto_satellite_satellite_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -58,7 +138,7 @@ func (x *RegisterStateChangeListenerRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use RegisterStateChangeListenerRequest.ProtoReflect.Descriptor instead.
 func (*RegisterStateChangeListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_satellite_satellite_proto_rawDescGZIP(), []int{0}
+	return file_proto_satellite_satellite_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *RegisterStateChangeListenerRequest) GetArg0() int64 {
@@ -83,7 +163,7 @@ type RegisterStateChangeListenerResponse struct {
 
 func (x *RegisterStateChangeListenerResponse) Reset() {
 	*x = RegisterStateChangeListenerResponse{}
-	mi := &file_proto_satellite_satellite_proto_msgTypes[1]
+	mi := &file_proto_satellite_satellite_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -95,7 +175,7 @@ func (x *RegisterStateChangeListenerResponse) String() string {
 func (*RegisterStateChangeListenerResponse) ProtoMessage() {}
 
 func (x *RegisterStateChangeListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_satellite_satellite_proto_msgTypes[1]
+	mi := &file_proto_satellite_satellite_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -108,7 +188,7 @@ func (x *RegisterStateChangeListenerResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use RegisterStateChangeListenerResponse.ProtoReflect.Descriptor instead.
 func (*RegisterStateChangeListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_satellite_satellite_proto_rawDescGZIP(), []int{1}
+	return file_proto_satellite_satellite_proto_rawDescGZIP(), []int{3}
 }
 
 type UnregisterStateChangeListenerRequest struct {
@@ -120,7 +200,7 @@ type UnregisterStateChangeListenerRequest struct {
 
 func (x *UnregisterStateChangeListenerRequest) Reset() {
 	*x = UnregisterStateChangeListenerRequest{}
-	mi := &file_proto_satellite_satellite_proto_msgTypes[2]
+	mi := &file_proto_satellite_satellite_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -132,7 +212,7 @@ func (x *UnregisterStateChangeListenerRequest) String() string {
 func (*UnregisterStateChangeListenerRequest) ProtoMessage() {}
 
 func (x *UnregisterStateChangeListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_satellite_satellite_proto_msgTypes[2]
+	mi := &file_proto_satellite_satellite_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -145,7 +225,7 @@ func (x *UnregisterStateChangeListenerRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use UnregisterStateChangeListenerRequest.ProtoReflect.Descriptor instead.
 func (*UnregisterStateChangeListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_satellite_satellite_proto_rawDescGZIP(), []int{2}
+	return file_proto_satellite_satellite_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *UnregisterStateChangeListenerRequest) GetArg0() int64 {
@@ -163,7 +243,7 @@ type UnregisterStateChangeListenerResponse struct {
 
 func (x *UnregisterStateChangeListenerResponse) Reset() {
 	*x = UnregisterStateChangeListenerResponse{}
-	mi := &file_proto_satellite_satellite_proto_msgTypes[3]
+	mi := &file_proto_satellite_satellite_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -175,7 +255,7 @@ func (x *UnregisterStateChangeListenerResponse) String() string {
 func (*UnregisterStateChangeListenerResponse) ProtoMessage() {}
 
 func (x *UnregisterStateChangeListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_satellite_satellite_proto_msgTypes[3]
+	mi := &file_proto_satellite_satellite_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -188,86 +268,6 @@ func (x *UnregisterStateChangeListenerResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use UnregisterStateChangeListenerResponse.ProtoReflect.Descriptor instead.
 func (*UnregisterStateChangeListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_satellite_satellite_proto_rawDescGZIP(), []int{3}
-}
-
-type OnEnabledStateChangedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnEnabledStateChangedRequest) Reset() {
-	*x = OnEnabledStateChangedRequest{}
-	mi := &file_proto_satellite_satellite_proto_msgTypes[4]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnEnabledStateChangedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnEnabledStateChangedRequest) ProtoMessage() {}
-
-func (x *OnEnabledStateChangedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_satellite_satellite_proto_msgTypes[4]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnEnabledStateChangedRequest.ProtoReflect.Descriptor instead.
-func (*OnEnabledStateChangedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_satellite_satellite_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *OnEnabledStateChangedRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type OnEnabledStateChangedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnEnabledStateChangedResponse) Reset() {
-	*x = OnEnabledStateChangedResponse{}
-	mi := &file_proto_satellite_satellite_proto_msgTypes[5]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnEnabledStateChangedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnEnabledStateChangedResponse) ProtoMessage() {}
-
-func (x *OnEnabledStateChangedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_satellite_satellite_proto_msgTypes[5]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnEnabledStateChangedResponse.ProtoReflect.Descriptor instead.
-func (*OnEnabledStateChangedResponse) Descriptor() ([]byte, []int) {
 	return file_proto_satellite_satellite_proto_rawDescGZIP(), []int{5}
 }
 
@@ -275,22 +275,22 @@ var File_proto_satellite_satellite_proto protoreflect.FileDescriptor
 
 const file_proto_satellite_satellite_proto_rawDesc = "" +
 	"\n" +
-	"\x1fproto/satellite/satellite.proto\x12\tsatellite\"L\n" +
+	"\x1fproto/satellite/satellite.proto\x12\tsatellite\"2\n" +
+	"\x1cOnEnabledStateChangedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"\x1f\n" +
+	"\x1dOnEnabledStateChangedResponse\"L\n" +
 	"\"RegisterStateChangeListenerRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"%\n" +
 	"#RegisterStateChangeListenerResponse\":\n" +
 	"$UnregisterStateChangeListenerRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"'\n" +
-	"%UnregisterStateChangeListenerResponse\"2\n" +
-	"\x1cOnEnabledStateChangedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"\x1f\n" +
-	"\x1dOnEnabledStateChangedResponse2\x93\x02\n" +
+	"%UnregisterStateChangeListenerResponse2\x88\x01\n" +
+	"\x1aStateChangeListenerService\x12j\n" +
+	"\x15OnEnabledStateChanged\x12'.satellite.OnEnabledStateChangedRequest\x1a(.satellite.OnEnabledStateChangedResponse2\x93\x02\n" +
 	"\x0eManagerService\x12|\n" +
 	"\x1bRegisterStateChangeListener\x12-.satellite.RegisterStateChangeListenerRequest\x1a..satellite.RegisterStateChangeListenerResponse\x12\x82\x01\n" +
-	"\x1dUnregisterStateChangeListener\x12/.satellite.UnregisterStateChangeListenerRequest\x1a0.satellite.UnregisterStateChangeListenerResponse2\x88\x01\n" +
-	"\x1aStateChangeListenerService\x12j\n" +
-	"\x15OnEnabledStateChanged\x12'.satellite.OnEnabledStateChangedRequest\x1a(.satellite.OnEnabledStateChangedResponseB3Z1github.com/AndroidGoLab/jni-proxy/proto/satelliteb\x06proto3"
+	"\x1dUnregisterStateChangeListener\x12/.satellite.UnregisterStateChangeListenerRequest\x1a0.satellite.UnregisterStateChangeListenerResponseB3Z1github.com/AndroidGoLab/jni-proxy/proto/satelliteb\x06proto3"
 
 var (
 	file_proto_satellite_satellite_proto_rawDescOnce sync.Once
@@ -306,20 +306,20 @@ func file_proto_satellite_satellite_proto_rawDescGZIP() []byte {
 
 var file_proto_satellite_satellite_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_proto_satellite_satellite_proto_goTypes = []any{
-	(*RegisterStateChangeListenerRequest)(nil),    // 0: satellite.RegisterStateChangeListenerRequest
-	(*RegisterStateChangeListenerResponse)(nil),   // 1: satellite.RegisterStateChangeListenerResponse
-	(*UnregisterStateChangeListenerRequest)(nil),  // 2: satellite.UnregisterStateChangeListenerRequest
-	(*UnregisterStateChangeListenerResponse)(nil), // 3: satellite.UnregisterStateChangeListenerResponse
-	(*OnEnabledStateChangedRequest)(nil),          // 4: satellite.OnEnabledStateChangedRequest
-	(*OnEnabledStateChangedResponse)(nil),         // 5: satellite.OnEnabledStateChangedResponse
+	(*OnEnabledStateChangedRequest)(nil),          // 0: satellite.OnEnabledStateChangedRequest
+	(*OnEnabledStateChangedResponse)(nil),         // 1: satellite.OnEnabledStateChangedResponse
+	(*RegisterStateChangeListenerRequest)(nil),    // 2: satellite.RegisterStateChangeListenerRequest
+	(*RegisterStateChangeListenerResponse)(nil),   // 3: satellite.RegisterStateChangeListenerResponse
+	(*UnregisterStateChangeListenerRequest)(nil),  // 4: satellite.UnregisterStateChangeListenerRequest
+	(*UnregisterStateChangeListenerResponse)(nil), // 5: satellite.UnregisterStateChangeListenerResponse
 }
 var file_proto_satellite_satellite_proto_depIdxs = []int32{
-	0, // 0: satellite.ManagerService.RegisterStateChangeListener:input_type -> satellite.RegisterStateChangeListenerRequest
-	2, // 1: satellite.ManagerService.UnregisterStateChangeListener:input_type -> satellite.UnregisterStateChangeListenerRequest
-	4, // 2: satellite.StateChangeListenerService.OnEnabledStateChanged:input_type -> satellite.OnEnabledStateChangedRequest
-	1, // 3: satellite.ManagerService.RegisterStateChangeListener:output_type -> satellite.RegisterStateChangeListenerResponse
-	3, // 4: satellite.ManagerService.UnregisterStateChangeListener:output_type -> satellite.UnregisterStateChangeListenerResponse
-	5, // 5: satellite.StateChangeListenerService.OnEnabledStateChanged:output_type -> satellite.OnEnabledStateChangedResponse
+	0, // 0: satellite.StateChangeListenerService.OnEnabledStateChanged:input_type -> satellite.OnEnabledStateChangedRequest
+	2, // 1: satellite.ManagerService.RegisterStateChangeListener:input_type -> satellite.RegisterStateChangeListenerRequest
+	4, // 2: satellite.ManagerService.UnregisterStateChangeListener:input_type -> satellite.UnregisterStateChangeListenerRequest
+	1, // 3: satellite.StateChangeListenerService.OnEnabledStateChanged:output_type -> satellite.OnEnabledStateChangedResponse
+	3, // 4: satellite.ManagerService.RegisterStateChangeListener:output_type -> satellite.RegisterStateChangeListenerResponse
+	5, // 5: satellite.ManagerService.UnregisterStateChangeListener:output_type -> satellite.UnregisterStateChangeListenerResponse
 	3, // [3:6] is the sub-list for method output_type
 	0, // [0:3] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name

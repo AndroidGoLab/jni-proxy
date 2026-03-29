@@ -23,15 +23,96 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type NewServiceInfoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewServiceInfoRequest) Reset() {
+	*x = NewServiceInfoRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewServiceInfoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewServiceInfoRequest) ProtoMessage() {}
+
+func (x *NewServiceInfoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewServiceInfoRequest.ProtoReflect.Descriptor instead.
+func (*NewServiceInfoRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{0}
+}
+
+type NewServiceInfoResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewServiceInfoResponse) Reset() {
+	*x = NewServiceInfoResponse{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewServiceInfoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewServiceInfoResponse) ProtoMessage() {}
+
+func (x *NewServiceInfoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewServiceInfoResponse.ProtoReflect.Descriptor instead.
+func (*NewServiceInfoResponse) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *NewServiceInfoResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 type DescribeContentsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *DescribeContentsRequest) Reset() {
 	*x = DescribeContentsRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[0]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -43,7 +124,7 @@ func (x *DescribeContentsRequest) String() string {
 func (*DescribeContentsRequest) ProtoMessage() {}
 
 func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[0]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -56,7 +137,14 @@ func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
 func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{0}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *DescribeContentsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
 }
 
 type DescribeContentsResponse struct {
@@ -68,7 +156,7 @@ type DescribeContentsResponse struct {
 
 func (x *DescribeContentsResponse) Reset() {
 	*x = DescribeContentsResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[1]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -80,7 +168,7 @@ func (x *DescribeContentsResponse) String() string {
 func (*DescribeContentsResponse) ProtoMessage() {}
 
 func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[1]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -93,7 +181,7 @@ func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
 func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{1}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *DescribeContentsResponse) GetResult() int32 {
@@ -103,28 +191,28 @@ func (x *DescribeContentsResponse) GetResult() int32 {
 	return 0
 }
 
-type EqualsRequest struct {
+type GetHostRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *EqualsRequest) Reset() {
-	*x = EqualsRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[2]
+func (x *GetHostRequest) Reset() {
+	*x = GetHostRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *EqualsRequest) String() string {
+func (x *GetHostRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*EqualsRequest) ProtoMessage() {}
+func (*GetHostRequest) ProtoMessage() {}
 
-func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[2]
+func (x *GetHostRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -135,40 +223,40 @@ func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
-func (*EqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{2}
+// Deprecated: Use GetHostRequest.ProtoReflect.Descriptor instead.
+func (*GetHostRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *EqualsRequest) GetArg0() int64 {
+func (x *GetHostRequest) GetHandle() int64 {
 	if x != nil {
-		return x.Arg0
+		return x.Handle
 	}
 	return 0
 }
 
-type EqualsResponse struct {
+type GetHostResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *EqualsResponse) Reset() {
-	*x = EqualsResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[3]
+func (x *GetHostResponse) Reset() {
+	*x = GetHostResponse{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *EqualsResponse) String() string {
+func (x *GetHostResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*EqualsResponse) ProtoMessage() {}
+func (*GetHostResponse) ProtoMessage() {}
 
-func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[3]
+func (x *GetHostResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -179,27 +267,204 @@ func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
-func (*EqualsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{3}
+// Deprecated: Use GetHostResponse.ProtoReflect.Descriptor instead.
+func (*GetHostResponse) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *EqualsResponse) GetResult() bool {
+func (x *GetHostResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
-	return false
+	return 0
+}
+
+type GetHostAddressesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetHostAddressesRequest) Reset() {
+	*x = GetHostAddressesRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetHostAddressesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetHostAddressesRequest) ProtoMessage() {}
+
+func (x *GetHostAddressesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetHostAddressesRequest.ProtoReflect.Descriptor instead.
+func (*GetHostAddressesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *GetHostAddressesRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetHostAddressesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetHostAddressesResponse) Reset() {
+	*x = GetHostAddressesResponse{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetHostAddressesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetHostAddressesResponse) ProtoMessage() {}
+
+func (x *GetHostAddressesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetHostAddressesResponse.ProtoReflect.Descriptor instead.
+func (*GetHostAddressesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetHostAddressesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetHostnameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetHostnameRequest) Reset() {
+	*x = GetHostnameRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetHostnameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetHostnameRequest) ProtoMessage() {}
+
+func (x *GetHostnameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetHostnameRequest.ProtoReflect.Descriptor instead.
+func (*GetHostnameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *GetHostnameRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetHostnameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetHostnameResponse) Reset() {
+	*x = GetHostnameResponse{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetHostnameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetHostnameResponse) ProtoMessage() {}
+
+func (x *GetHostnameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetHostnameResponse.ProtoReflect.Descriptor instead.
+func (*GetHostnameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetHostnameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
 }
 
 type GetNetworkRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetNetworkRequest) Reset() {
 	*x = GetNetworkRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[4]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -211,7 +476,7 @@ func (x *GetNetworkRequest) String() string {
 func (*GetNetworkRequest) ProtoMessage() {}
 
 func (x *GetNetworkRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[4]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -224,7 +489,14 @@ func (x *GetNetworkRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNetworkRequest.ProtoReflect.Descriptor instead.
 func (*GetNetworkRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{4}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *GetNetworkRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
 }
 
 type GetNetworkResponse struct {
@@ -236,7 +508,7 @@ type GetNetworkResponse struct {
 
 func (x *GetNetworkResponse) Reset() {
 	*x = GetNetworkResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[5]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -248,7 +520,7 @@ func (x *GetNetworkResponse) String() string {
 func (*GetNetworkResponse) ProtoMessage() {}
 
 func (x *GetNetworkResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[5]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -261,7 +533,7 @@ func (x *GetNetworkResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNetworkResponse.ProtoReflect.Descriptor instead.
 func (*GetNetworkResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{5}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *GetNetworkResponse) GetResult() int64 {
@@ -271,15 +543,192 @@ func (x *GetNetworkResponse) GetResult() int64 {
 	return 0
 }
 
+type GetPortRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPortRequest) Reset() {
+	*x = GetPortRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPortRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPortRequest) ProtoMessage() {}
+
+func (x *GetPortRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPortRequest.ProtoReflect.Descriptor instead.
+func (*GetPortRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *GetPortRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetPortResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPortResponse) Reset() {
+	*x = GetPortResponse{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPortResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPortResponse) ProtoMessage() {}
+
+func (x *GetPortResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPortResponse.ProtoReflect.Descriptor instead.
+func (*GetPortResponse) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *GetPortResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetServiceNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetServiceNameRequest) Reset() {
+	*x = GetServiceNameRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetServiceNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetServiceNameRequest) ProtoMessage() {}
+
+func (x *GetServiceNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetServiceNameRequest.ProtoReflect.Descriptor instead.
+func (*GetServiceNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *GetServiceNameRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetServiceNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetServiceNameResponse) Reset() {
+	*x = GetServiceNameResponse{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetServiceNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetServiceNameResponse) ProtoMessage() {}
+
+func (x *GetServiceNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetServiceNameResponse.ProtoReflect.Descriptor instead.
+func (*GetServiceNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GetServiceNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
 type GetServiceTypeRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetServiceTypeRequest) Reset() {
 	*x = GetServiceTypeRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[6]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -291,7 +740,7 @@ func (x *GetServiceTypeRequest) String() string {
 func (*GetServiceTypeRequest) ProtoMessage() {}
 
 func (x *GetServiceTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[6]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -304,7 +753,14 @@ func (x *GetServiceTypeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetServiceTypeRequest.ProtoReflect.Descriptor instead.
 func (*GetServiceTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{6}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *GetServiceTypeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
 }
 
 type GetServiceTypeResponse struct {
@@ -316,7 +772,7 @@ type GetServiceTypeResponse struct {
 
 func (x *GetServiceTypeResponse) Reset() {
 	*x = GetServiceTypeResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[7]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -328,7 +784,7 @@ func (x *GetServiceTypeResponse) String() string {
 func (*GetServiceTypeResponse) ProtoMessage() {}
 
 func (x *GetServiceTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[7]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -341,7 +797,7 @@ func (x *GetServiceTypeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetServiceTypeResponse.ProtoReflect.Descriptor instead.
 func (*GetServiceTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{7}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *GetServiceTypeResponse) GetResult() string {
@@ -351,27 +807,28 @@ func (x *GetServiceTypeResponse) GetResult() string {
 	return ""
 }
 
-type GetSubtypeRequest struct {
+type GetSubtypesRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetSubtypeRequest) Reset() {
-	*x = GetSubtypeRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[8]
+func (x *GetSubtypesRequest) Reset() {
+	*x = GetSubtypesRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetSubtypeRequest) String() string {
+func (x *GetSubtypesRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetSubtypeRequest) ProtoMessage() {}
+func (*GetSubtypesRequest) ProtoMessage() {}
 
-func (x *GetSubtypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[8]
+func (x *GetSubtypesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -382,33 +839,40 @@ func (x *GetSubtypeRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetSubtypeRequest.ProtoReflect.Descriptor instead.
-func (*GetSubtypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{8}
+// Deprecated: Use GetSubtypesRequest.ProtoReflect.Descriptor instead.
+func (*GetSubtypesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{18}
 }
 
-type GetSubtypeResponse struct {
+func (x *GetSubtypesRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetSubtypesResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetSubtypeResponse) Reset() {
-	*x = GetSubtypeResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[9]
+func (x *GetSubtypesResponse) Reset() {
+	*x = GetSubtypesResponse{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetSubtypeResponse) String() string {
+func (x *GetSubtypesResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetSubtypeResponse) ProtoMessage() {}
+func (*GetSubtypesResponse) ProtoMessage() {}
 
-func (x *GetSubtypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[9]
+func (x *GetSubtypesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -419,107 +883,652 @@ func (x *GetSubtypeResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetSubtypeResponse.ProtoReflect.Descriptor instead.
-func (*GetSubtypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{9}
+// Deprecated: Use GetSubtypesResponse.ProtoReflect.Descriptor instead.
+func (*GetSubtypesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{19}
 }
 
-func (x *GetSubtypeResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type HashCodeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HashCodeRequest) Reset() {
-	*x = HashCodeRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[10]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HashCodeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HashCodeRequest) ProtoMessage() {}
-
-func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[10]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
-func (*HashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{10}
-}
-
-type HashCodeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HashCodeResponse) Reset() {
-	*x = HashCodeResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[11]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HashCodeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HashCodeResponse) ProtoMessage() {}
-
-func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[11]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
-func (*HashCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{11}
-}
-
-func (x *HashCodeResponse) GetResult() int32 {
+func (x *GetSubtypesResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
+type RemoveAttributeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveAttributeRequest) Reset() {
+	*x = RemoveAttributeRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveAttributeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveAttributeRequest) ProtoMessage() {}
+
+func (x *RemoveAttributeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveAttributeRequest.ProtoReflect.Descriptor instead.
+func (*RemoveAttributeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *RemoveAttributeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *RemoveAttributeRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type RemoveAttributeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveAttributeResponse) Reset() {
+	*x = RemoveAttributeResponse{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveAttributeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveAttributeResponse) ProtoMessage() {}
+
+func (x *RemoveAttributeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveAttributeResponse.ProtoReflect.Descriptor instead.
+func (*RemoveAttributeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{21}
+}
+
+type SetAttributeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAttributeRequest) Reset() {
+	*x = SetAttributeRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAttributeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAttributeRequest) ProtoMessage() {}
+
+func (x *SetAttributeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAttributeRequest.ProtoReflect.Descriptor instead.
+func (*SetAttributeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *SetAttributeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetAttributeRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *SetAttributeRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type SetAttributeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAttributeResponse) Reset() {
+	*x = SetAttributeResponse{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAttributeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAttributeResponse) ProtoMessage() {}
+
+func (x *SetAttributeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAttributeResponse.ProtoReflect.Descriptor instead.
+func (*SetAttributeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{23}
+}
+
+type SetHostRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetHostRequest) Reset() {
+	*x = SetHostRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetHostRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetHostRequest) ProtoMessage() {}
+
+func (x *SetHostRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetHostRequest.ProtoReflect.Descriptor instead.
+func (*SetHostRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *SetHostRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetHostRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetHostResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetHostResponse) Reset() {
+	*x = SetHostResponse{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetHostResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetHostResponse) ProtoMessage() {}
+
+func (x *SetHostResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetHostResponse.ProtoReflect.Descriptor instead.
+func (*SetHostResponse) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{25}
+}
+
+type SetNetworkRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNetworkRequest) Reset() {
+	*x = SetNetworkRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNetworkRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNetworkRequest) ProtoMessage() {}
+
+func (x *SetNetworkRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNetworkRequest.ProtoReflect.Descriptor instead.
+func (*SetNetworkRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *SetNetworkRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetNetworkRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetNetworkResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNetworkResponse) Reset() {
+	*x = SetNetworkResponse{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNetworkResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNetworkResponse) ProtoMessage() {}
+
+func (x *SetNetworkResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNetworkResponse.ProtoReflect.Descriptor instead.
+func (*SetNetworkResponse) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{27}
+}
+
+type SetPortRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPortRequest) Reset() {
+	*x = SetPortRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPortRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPortRequest) ProtoMessage() {}
+
+func (x *SetPortRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPortRequest.ProtoReflect.Descriptor instead.
+func (*SetPortRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *SetPortRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetPortRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPortResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPortResponse) Reset() {
+	*x = SetPortResponse{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPortResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPortResponse) ProtoMessage() {}
+
+func (x *SetPortResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPortResponse.ProtoReflect.Descriptor instead.
+func (*SetPortResponse) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{29}
+}
+
+type SetServiceNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetServiceNameRequest) Reset() {
+	*x = SetServiceNameRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetServiceNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetServiceNameRequest) ProtoMessage() {}
+
+func (x *SetServiceNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetServiceNameRequest.ProtoReflect.Descriptor instead.
+func (*SetServiceNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *SetServiceNameRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetServiceNameRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetServiceNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetServiceNameResponse) Reset() {
+	*x = SetServiceNameResponse{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetServiceNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetServiceNameResponse) ProtoMessage() {}
+
+func (x *SetServiceNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetServiceNameResponse.ProtoReflect.Descriptor instead.
+func (*SetServiceNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{31}
+}
+
+type SetServiceTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetServiceTypeRequest) Reset() {
+	*x = SetServiceTypeRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetServiceTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetServiceTypeRequest) ProtoMessage() {}
+
+func (x *SetServiceTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetServiceTypeRequest.ProtoReflect.Descriptor instead.
+func (*SetServiceTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *SetServiceTypeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetServiceTypeRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetServiceTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetServiceTypeResponse) Reset() {
+	*x = SetServiceTypeResponse{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetServiceTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetServiceTypeResponse) ProtoMessage() {}
+
+func (x *SetServiceTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetServiceTypeResponse.ProtoReflect.Descriptor instead.
+func (*SetServiceTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{33}
+}
+
 type ToStringRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *ToStringRequest) Reset() {
 	*x = ToStringRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[12]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -531,7 +1540,7 @@ func (x *ToStringRequest) String() string {
 func (*ToStringRequest) ProtoMessage() {}
 
 func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[12]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -544,7 +1553,14 @@ func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
 func (*ToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{12}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *ToStringRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
 }
 
 type ToStringResponse struct {
@@ -556,7 +1572,7 @@ type ToStringResponse struct {
 
 func (x *ToStringResponse) Reset() {
 	*x = ToStringResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[13]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -568,7 +1584,7 @@ func (x *ToStringResponse) String() string {
 func (*ToStringResponse) ProtoMessage() {}
 
 func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[13]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -581,7 +1597,7 @@ func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
 func (*ToStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{13}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *ToStringResponse) GetResult() string {
@@ -593,15 +1609,16 @@ func (x *ToStringResponse) GetResult() string {
 
 type WriteToParcelRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *WriteToParcelRequest) Reset() {
 	*x = WriteToParcelRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[14]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -613,7 +1630,7 @@ func (x *WriteToParcelRequest) String() string {
 func (*WriteToParcelRequest) ProtoMessage() {}
 
 func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[14]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -626,7 +1643,14 @@ func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
 func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{14}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *WriteToParcelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
 }
 
 func (x *WriteToParcelRequest) GetArg0() int64 {
@@ -651,7 +1675,7 @@ type WriteToParcelResponse struct {
 
 func (x *WriteToParcelResponse) Reset() {
 	*x = WriteToParcelResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[15]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -663,7 +1687,7 @@ func (x *WriteToParcelResponse) String() string {
 func (*WriteToParcelResponse) ProtoMessage() {}
 
 func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[15]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -676,263 +1700,7 @@ func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
 func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{15}
-}
-
-type BuildRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BuildRequest) Reset() {
-	*x = BuildRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[16]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BuildRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BuildRequest) ProtoMessage() {}
-
-func (x *BuildRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[16]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
-func (*BuildRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{16}
-}
-
-type BuildResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BuildResponse) Reset() {
-	*x = BuildResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[17]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BuildResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BuildResponse) ProtoMessage() {}
-
-func (x *BuildResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[17]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
-func (*BuildResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{17}
-}
-
-func (x *BuildResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetNetworkRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetNetworkRequest) Reset() {
-	*x = SetNetworkRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[18]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetNetworkRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetNetworkRequest) ProtoMessage() {}
-
-func (x *SetNetworkRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[18]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetNetworkRequest.ProtoReflect.Descriptor instead.
-func (*SetNetworkRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{18}
-}
-
-func (x *SetNetworkRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetNetworkResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetNetworkResponse) Reset() {
-	*x = SetNetworkResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[19]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetNetworkResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetNetworkResponse) ProtoMessage() {}
-
-func (x *SetNetworkResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[19]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetNetworkResponse.ProtoReflect.Descriptor instead.
-func (*SetNetworkResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{19}
-}
-
-func (x *SetNetworkResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetSubtypeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetSubtypeRequest) Reset() {
-	*x = SetSubtypeRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[20]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetSubtypeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetSubtypeRequest) ProtoMessage() {}
-
-func (x *SetSubtypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[20]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetSubtypeRequest.ProtoReflect.Descriptor instead.
-func (*SetSubtypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{20}
-}
-
-func (x *SetSubtypeRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type SetSubtypeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetSubtypeResponse) Reset() {
-	*x = SetSubtypeResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[21]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetSubtypeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetSubtypeResponse) ProtoMessage() {}
-
-func (x *SetSubtypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[21]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetSubtypeResponse.ProtoReflect.Descriptor instead.
-func (*SetSubtypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{21}
-}
-
-func (x *SetSubtypeResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{37}
 }
 
 type DiscoverServices3Request struct {
@@ -946,7 +1714,7 @@ type DiscoverServices3Request struct {
 
 func (x *DiscoverServices3Request) Reset() {
 	*x = DiscoverServices3Request{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[22]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -958,7 +1726,7 @@ func (x *DiscoverServices3Request) String() string {
 func (*DiscoverServices3Request) ProtoMessage() {}
 
 func (x *DiscoverServices3Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[22]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -971,7 +1739,7 @@ func (x *DiscoverServices3Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DiscoverServices3Request.ProtoReflect.Descriptor instead.
 func (*DiscoverServices3Request) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{22}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *DiscoverServices3Request) GetArg0() int64 {
@@ -1003,7 +1771,7 @@ type DiscoverServices3Response struct {
 
 func (x *DiscoverServices3Response) Reset() {
 	*x = DiscoverServices3Response{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[23]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1015,7 +1783,7 @@ func (x *DiscoverServices3Response) String() string {
 func (*DiscoverServices3Response) ProtoMessage() {}
 
 func (x *DiscoverServices3Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[23]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1028,7 +1796,7 @@ func (x *DiscoverServices3Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DiscoverServices3Response.ProtoReflect.Descriptor instead.
 func (*DiscoverServices3Response) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{23}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{39}
 }
 
 type DiscoverServices5_1Request struct {
@@ -1044,7 +1812,7 @@ type DiscoverServices5_1Request struct {
 
 func (x *DiscoverServices5_1Request) Reset() {
 	*x = DiscoverServices5_1Request{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[24]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1056,7 +1824,7 @@ func (x *DiscoverServices5_1Request) String() string {
 func (*DiscoverServices5_1Request) ProtoMessage() {}
 
 func (x *DiscoverServices5_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[24]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1069,7 +1837,7 @@ func (x *DiscoverServices5_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DiscoverServices5_1Request.ProtoReflect.Descriptor instead.
 func (*DiscoverServices5_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{24}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *DiscoverServices5_1Request) GetArg0() string {
@@ -1115,7 +1883,7 @@ type DiscoverServices5_1Response struct {
 
 func (x *DiscoverServices5_1Response) Reset() {
 	*x = DiscoverServices5_1Response{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[25]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1127,7 +1895,7 @@ func (x *DiscoverServices5_1Response) String() string {
 func (*DiscoverServices5_1Response) ProtoMessage() {}
 
 func (x *DiscoverServices5_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[25]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1140,7 +1908,7 @@ func (x *DiscoverServices5_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DiscoverServices5_1Response.ProtoReflect.Descriptor instead.
 func (*DiscoverServices5_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{25}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{41}
 }
 
 type DiscoverServices5_2Request struct {
@@ -1156,7 +1924,7 @@ type DiscoverServices5_2Request struct {
 
 func (x *DiscoverServices5_2Request) Reset() {
 	*x = DiscoverServices5_2Request{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[26]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1168,7 +1936,7 @@ func (x *DiscoverServices5_2Request) String() string {
 func (*DiscoverServices5_2Request) ProtoMessage() {}
 
 func (x *DiscoverServices5_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[26]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1181,7 +1949,7 @@ func (x *DiscoverServices5_2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DiscoverServices5_2Request.ProtoReflect.Descriptor instead.
 func (*DiscoverServices5_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{26}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *DiscoverServices5_2Request) GetArg0() string {
@@ -1227,7 +1995,7 @@ type DiscoverServices5_2Response struct {
 
 func (x *DiscoverServices5_2Response) Reset() {
 	*x = DiscoverServices5_2Response{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[27]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1239,7 +2007,7 @@ func (x *DiscoverServices5_2Response) String() string {
 func (*DiscoverServices5_2Response) ProtoMessage() {}
 
 func (x *DiscoverServices5_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[27]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1252,7 +2020,7 @@ func (x *DiscoverServices5_2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DiscoverServices5_2Response.ProtoReflect.Descriptor instead.
 func (*DiscoverServices5_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{27}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{43}
 }
 
 type DiscoverServices3_3Request struct {
@@ -1266,7 +2034,7 @@ type DiscoverServices3_3Request struct {
 
 func (x *DiscoverServices3_3Request) Reset() {
 	*x = DiscoverServices3_3Request{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[28]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1278,7 +2046,7 @@ func (x *DiscoverServices3_3Request) String() string {
 func (*DiscoverServices3_3Request) ProtoMessage() {}
 
 func (x *DiscoverServices3_3Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[28]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1291,7 +2059,7 @@ func (x *DiscoverServices3_3Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DiscoverServices3_3Request.ProtoReflect.Descriptor instead.
 func (*DiscoverServices3_3Request) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{28}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *DiscoverServices3_3Request) GetArg0() string {
@@ -1323,7 +2091,7 @@ type DiscoverServices3_3Response struct {
 
 func (x *DiscoverServices3_3Response) Reset() {
 	*x = DiscoverServices3_3Response{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[29]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1335,7 +2103,7 @@ func (x *DiscoverServices3_3Response) String() string {
 func (*DiscoverServices3_3Response) ProtoMessage() {}
 
 func (x *DiscoverServices3_3Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[29]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1348,7 +2116,7 @@ func (x *DiscoverServices3_3Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DiscoverServices3_3Response.ProtoReflect.Descriptor instead.
 func (*DiscoverServices3_3Response) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{29}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{45}
 }
 
 type RegisterService3Request struct {
@@ -1362,7 +2130,7 @@ type RegisterService3Request struct {
 
 func (x *RegisterService3Request) Reset() {
 	*x = RegisterService3Request{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[30]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1374,7 +2142,7 @@ func (x *RegisterService3Request) String() string {
 func (*RegisterService3Request) ProtoMessage() {}
 
 func (x *RegisterService3Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[30]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1387,7 +2155,7 @@ func (x *RegisterService3Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegisterService3Request.ProtoReflect.Descriptor instead.
 func (*RegisterService3Request) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{30}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *RegisterService3Request) GetArg0() int64 {
@@ -1419,7 +2187,7 @@ type RegisterService3Response struct {
 
 func (x *RegisterService3Response) Reset() {
 	*x = RegisterService3Response{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[31]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1431,7 +2199,7 @@ func (x *RegisterService3Response) String() string {
 func (*RegisterService3Response) ProtoMessage() {}
 
 func (x *RegisterService3Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[31]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1444,7 +2212,7 @@ func (x *RegisterService3Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegisterService3Response.ProtoReflect.Descriptor instead.
 func (*RegisterService3Response) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{31}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{47}
 }
 
 type RegisterService4_1Request struct {
@@ -1459,7 +2227,7 @@ type RegisterService4_1Request struct {
 
 func (x *RegisterService4_1Request) Reset() {
 	*x = RegisterService4_1Request{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[32]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1471,7 +2239,7 @@ func (x *RegisterService4_1Request) String() string {
 func (*RegisterService4_1Request) ProtoMessage() {}
 
 func (x *RegisterService4_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[32]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1484,7 +2252,7 @@ func (x *RegisterService4_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegisterService4_1Request.ProtoReflect.Descriptor instead.
 func (*RegisterService4_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{32}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *RegisterService4_1Request) GetArg0() int64 {
@@ -1523,7 +2291,7 @@ type RegisterService4_1Response struct {
 
 func (x *RegisterService4_1Response) Reset() {
 	*x = RegisterService4_1Response{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[33]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1535,7 +2303,7 @@ func (x *RegisterService4_1Response) String() string {
 func (*RegisterService4_1Response) ProtoMessage() {}
 
 func (x *RegisterService4_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[33]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1548,7 +2316,7 @@ func (x *RegisterService4_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RegisterService4_1Response.ProtoReflect.Descriptor instead.
 func (*RegisterService4_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{33}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{49}
 }
 
 type RegisterServiceInfoCallbackRequest struct {
@@ -1562,7 +2330,7 @@ type RegisterServiceInfoCallbackRequest struct {
 
 func (x *RegisterServiceInfoCallbackRequest) Reset() {
 	*x = RegisterServiceInfoCallbackRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[34]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1574,7 +2342,7 @@ func (x *RegisterServiceInfoCallbackRequest) String() string {
 func (*RegisterServiceInfoCallbackRequest) ProtoMessage() {}
 
 func (x *RegisterServiceInfoCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[34]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1587,7 +2355,7 @@ func (x *RegisterServiceInfoCallbackRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use RegisterServiceInfoCallbackRequest.ProtoReflect.Descriptor instead.
 func (*RegisterServiceInfoCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{34}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *RegisterServiceInfoCallbackRequest) GetArg0() int64 {
@@ -1619,7 +2387,7 @@ type RegisterServiceInfoCallbackResponse struct {
 
 func (x *RegisterServiceInfoCallbackResponse) Reset() {
 	*x = RegisterServiceInfoCallbackResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[35]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1631,7 +2399,7 @@ func (x *RegisterServiceInfoCallbackResponse) String() string {
 func (*RegisterServiceInfoCallbackResponse) ProtoMessage() {}
 
 func (x *RegisterServiceInfoCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[35]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1644,7 +2412,7 @@ func (x *RegisterServiceInfoCallbackResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use RegisterServiceInfoCallbackResponse.ProtoReflect.Descriptor instead.
 func (*RegisterServiceInfoCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{35}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{51}
 }
 
 type ResolveService2Request struct {
@@ -1657,7 +2425,7 @@ type ResolveService2Request struct {
 
 func (x *ResolveService2Request) Reset() {
 	*x = ResolveService2Request{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[36]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1669,7 +2437,7 @@ func (x *ResolveService2Request) String() string {
 func (*ResolveService2Request) ProtoMessage() {}
 
 func (x *ResolveService2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[36]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1682,7 +2450,7 @@ func (x *ResolveService2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResolveService2Request.ProtoReflect.Descriptor instead.
 func (*ResolveService2Request) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{36}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *ResolveService2Request) GetArg0() int64 {
@@ -1707,7 +2475,7 @@ type ResolveService2Response struct {
 
 func (x *ResolveService2Response) Reset() {
 	*x = ResolveService2Response{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[37]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1719,7 +2487,7 @@ func (x *ResolveService2Response) String() string {
 func (*ResolveService2Response) ProtoMessage() {}
 
 func (x *ResolveService2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[37]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1732,7 +2500,7 @@ func (x *ResolveService2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResolveService2Response.ProtoReflect.Descriptor instead.
 func (*ResolveService2Response) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{37}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{53}
 }
 
 type ResolveService3_1Request struct {
@@ -1746,7 +2514,7 @@ type ResolveService3_1Request struct {
 
 func (x *ResolveService3_1Request) Reset() {
 	*x = ResolveService3_1Request{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[38]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1758,7 +2526,7 @@ func (x *ResolveService3_1Request) String() string {
 func (*ResolveService3_1Request) ProtoMessage() {}
 
 func (x *ResolveService3_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[38]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1771,7 +2539,7 @@ func (x *ResolveService3_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResolveService3_1Request.ProtoReflect.Descriptor instead.
 func (*ResolveService3_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{38}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *ResolveService3_1Request) GetArg0() int64 {
@@ -1803,7 +2571,7 @@ type ResolveService3_1Response struct {
 
 func (x *ResolveService3_1Response) Reset() {
 	*x = ResolveService3_1Response{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[39]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1815,7 +2583,7 @@ func (x *ResolveService3_1Response) String() string {
 func (*ResolveService3_1Response) ProtoMessage() {}
 
 func (x *ResolveService3_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[39]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1828,7 +2596,7 @@ func (x *ResolveService3_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResolveService3_1Response.ProtoReflect.Descriptor instead.
 func (*ResolveService3_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{39}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{55}
 }
 
 type StopServiceDiscoveryRequest struct {
@@ -1840,7 +2608,7 @@ type StopServiceDiscoveryRequest struct {
 
 func (x *StopServiceDiscoveryRequest) Reset() {
 	*x = StopServiceDiscoveryRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[40]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1852,7 +2620,7 @@ func (x *StopServiceDiscoveryRequest) String() string {
 func (*StopServiceDiscoveryRequest) ProtoMessage() {}
 
 func (x *StopServiceDiscoveryRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[40]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1865,7 +2633,7 @@ func (x *StopServiceDiscoveryRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StopServiceDiscoveryRequest.ProtoReflect.Descriptor instead.
 func (*StopServiceDiscoveryRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{40}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *StopServiceDiscoveryRequest) GetArg0() int64 {
@@ -1883,7 +2651,7 @@ type StopServiceDiscoveryResponse struct {
 
 func (x *StopServiceDiscoveryResponse) Reset() {
 	*x = StopServiceDiscoveryResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[41]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1895,7 +2663,7 @@ func (x *StopServiceDiscoveryResponse) String() string {
 func (*StopServiceDiscoveryResponse) ProtoMessage() {}
 
 func (x *StopServiceDiscoveryResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[41]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1908,7 +2676,7 @@ func (x *StopServiceDiscoveryResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StopServiceDiscoveryResponse.ProtoReflect.Descriptor instead.
 func (*StopServiceDiscoveryResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{41}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{57}
 }
 
 type StopServiceResolutionRequest struct {
@@ -1920,7 +2688,7 @@ type StopServiceResolutionRequest struct {
 
 func (x *StopServiceResolutionRequest) Reset() {
 	*x = StopServiceResolutionRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[42]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1932,7 +2700,7 @@ func (x *StopServiceResolutionRequest) String() string {
 func (*StopServiceResolutionRequest) ProtoMessage() {}
 
 func (x *StopServiceResolutionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[42]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1945,7 +2713,7 @@ func (x *StopServiceResolutionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StopServiceResolutionRequest.ProtoReflect.Descriptor instead.
 func (*StopServiceResolutionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{42}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *StopServiceResolutionRequest) GetArg0() int64 {
@@ -1963,7 +2731,7 @@ type StopServiceResolutionResponse struct {
 
 func (x *StopServiceResolutionResponse) Reset() {
 	*x = StopServiceResolutionResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[43]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1975,7 +2743,7 @@ func (x *StopServiceResolutionResponse) String() string {
 func (*StopServiceResolutionResponse) ProtoMessage() {}
 
 func (x *StopServiceResolutionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[43]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1988,7 +2756,7 @@ func (x *StopServiceResolutionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StopServiceResolutionResponse.ProtoReflect.Descriptor instead.
 func (*StopServiceResolutionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{43}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{59}
 }
 
 type UnregisterServiceRequest struct {
@@ -2000,7 +2768,7 @@ type UnregisterServiceRequest struct {
 
 func (x *UnregisterServiceRequest) Reset() {
 	*x = UnregisterServiceRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[44]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2012,7 +2780,7 @@ func (x *UnregisterServiceRequest) String() string {
 func (*UnregisterServiceRequest) ProtoMessage() {}
 
 func (x *UnregisterServiceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[44]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2025,7 +2793,7 @@ func (x *UnregisterServiceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UnregisterServiceRequest.ProtoReflect.Descriptor instead.
 func (*UnregisterServiceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{44}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *UnregisterServiceRequest) GetArg0() int64 {
@@ -2043,7 +2811,7 @@ type UnregisterServiceResponse struct {
 
 func (x *UnregisterServiceResponse) Reset() {
 	*x = UnregisterServiceResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[45]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2055,7 +2823,7 @@ func (x *UnregisterServiceResponse) String() string {
 func (*UnregisterServiceResponse) ProtoMessage() {}
 
 func (x *UnregisterServiceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[45]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2068,7 +2836,7 @@ func (x *UnregisterServiceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UnregisterServiceResponse.ProtoReflect.Descriptor instead.
 func (*UnregisterServiceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{45}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{61}
 }
 
 type UnregisterServiceInfoCallbackRequest struct {
@@ -2080,7 +2848,7 @@ type UnregisterServiceInfoCallbackRequest struct {
 
 func (x *UnregisterServiceInfoCallbackRequest) Reset() {
 	*x = UnregisterServiceInfoCallbackRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[46]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2092,7 +2860,7 @@ func (x *UnregisterServiceInfoCallbackRequest) String() string {
 func (*UnregisterServiceInfoCallbackRequest) ProtoMessage() {}
 
 func (x *UnregisterServiceInfoCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[46]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2105,7 +2873,7 @@ func (x *UnregisterServiceInfoCallbackRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use UnregisterServiceInfoCallbackRequest.ProtoReflect.Descriptor instead.
 func (*UnregisterServiceInfoCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{46}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{62}
 }
 
 func (x *UnregisterServiceInfoCallbackRequest) GetArg0() int64 {
@@ -2123,7 +2891,7 @@ type UnregisterServiceInfoCallbackResponse struct {
 
 func (x *UnregisterServiceInfoCallbackResponse) Reset() {
 	*x = UnregisterServiceInfoCallbackResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[47]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2135,7 +2903,7 @@ func (x *UnregisterServiceInfoCallbackResponse) String() string {
 func (*UnregisterServiceInfoCallbackResponse) ProtoMessage() {}
 
 func (x *UnregisterServiceInfoCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[47]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2148,7 +2916,7 @@ func (x *UnregisterServiceInfoCallbackResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use UnregisterServiceInfoCallbackResponse.ProtoReflect.Descriptor instead.
 func (*UnregisterServiceInfoCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{47}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{63}
 }
 
 type OnDiscoveryStartedRequest struct {
@@ -2160,7 +2928,7 @@ type OnDiscoveryStartedRequest struct {
 
 func (x *OnDiscoveryStartedRequest) Reset() {
 	*x = OnDiscoveryStartedRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[48]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2172,7 +2940,7 @@ func (x *OnDiscoveryStartedRequest) String() string {
 func (*OnDiscoveryStartedRequest) ProtoMessage() {}
 
 func (x *OnDiscoveryStartedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[48]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2185,7 +2953,7 @@ func (x *OnDiscoveryStartedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnDiscoveryStartedRequest.ProtoReflect.Descriptor instead.
 func (*OnDiscoveryStartedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{48}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{64}
 }
 
 func (x *OnDiscoveryStartedRequest) GetArg0() string {
@@ -2203,7 +2971,7 @@ type OnDiscoveryStartedResponse struct {
 
 func (x *OnDiscoveryStartedResponse) Reset() {
 	*x = OnDiscoveryStartedResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[49]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2215,7 +2983,7 @@ func (x *OnDiscoveryStartedResponse) String() string {
 func (*OnDiscoveryStartedResponse) ProtoMessage() {}
 
 func (x *OnDiscoveryStartedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[49]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2228,7 +2996,7 @@ func (x *OnDiscoveryStartedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnDiscoveryStartedResponse.ProtoReflect.Descriptor instead.
 func (*OnDiscoveryStartedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{49}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{65}
 }
 
 type OnDiscoveryStoppedRequest struct {
@@ -2240,7 +3008,7 @@ type OnDiscoveryStoppedRequest struct {
 
 func (x *OnDiscoveryStoppedRequest) Reset() {
 	*x = OnDiscoveryStoppedRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[50]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2252,7 +3020,7 @@ func (x *OnDiscoveryStoppedRequest) String() string {
 func (*OnDiscoveryStoppedRequest) ProtoMessage() {}
 
 func (x *OnDiscoveryStoppedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[50]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2265,7 +3033,7 @@ func (x *OnDiscoveryStoppedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnDiscoveryStoppedRequest.ProtoReflect.Descriptor instead.
 func (*OnDiscoveryStoppedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{50}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{66}
 }
 
 func (x *OnDiscoveryStoppedRequest) GetArg0() string {
@@ -2283,7 +3051,7 @@ type OnDiscoveryStoppedResponse struct {
 
 func (x *OnDiscoveryStoppedResponse) Reset() {
 	*x = OnDiscoveryStoppedResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[51]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2295,7 +3063,7 @@ func (x *OnDiscoveryStoppedResponse) String() string {
 func (*OnDiscoveryStoppedResponse) ProtoMessage() {}
 
 func (x *OnDiscoveryStoppedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[51]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2308,7 +3076,7 @@ func (x *OnDiscoveryStoppedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnDiscoveryStoppedResponse.ProtoReflect.Descriptor instead.
 func (*OnDiscoveryStoppedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{51}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{67}
 }
 
 type OnServiceFoundRequest struct {
@@ -2320,7 +3088,7 @@ type OnServiceFoundRequest struct {
 
 func (x *OnServiceFoundRequest) Reset() {
 	*x = OnServiceFoundRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[52]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2332,7 +3100,7 @@ func (x *OnServiceFoundRequest) String() string {
 func (*OnServiceFoundRequest) ProtoMessage() {}
 
 func (x *OnServiceFoundRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[52]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2345,7 +3113,7 @@ func (x *OnServiceFoundRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnServiceFoundRequest.ProtoReflect.Descriptor instead.
 func (*OnServiceFoundRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{52}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{68}
 }
 
 func (x *OnServiceFoundRequest) GetArg0() int64 {
@@ -2363,7 +3131,7 @@ type OnServiceFoundResponse struct {
 
 func (x *OnServiceFoundResponse) Reset() {
 	*x = OnServiceFoundResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[53]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2375,7 +3143,7 @@ func (x *OnServiceFoundResponse) String() string {
 func (*OnServiceFoundResponse) ProtoMessage() {}
 
 func (x *OnServiceFoundResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[53]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2388,7 +3156,7 @@ func (x *OnServiceFoundResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnServiceFoundResponse.ProtoReflect.Descriptor instead.
 func (*OnServiceFoundResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{53}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{69}
 }
 
 type OnServiceLostRequest struct {
@@ -2400,7 +3168,7 @@ type OnServiceLostRequest struct {
 
 func (x *OnServiceLostRequest) Reset() {
 	*x = OnServiceLostRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[54]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2412,7 +3180,7 @@ func (x *OnServiceLostRequest) String() string {
 func (*OnServiceLostRequest) ProtoMessage() {}
 
 func (x *OnServiceLostRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[54]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2425,7 +3193,7 @@ func (x *OnServiceLostRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnServiceLostRequest.ProtoReflect.Descriptor instead.
 func (*OnServiceLostRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{54}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{70}
 }
 
 func (x *OnServiceLostRequest) GetArg0() int64 {
@@ -2443,7 +3211,7 @@ type OnServiceLostResponse struct {
 
 func (x *OnServiceLostResponse) Reset() {
 	*x = OnServiceLostResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[55]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2455,7 +3223,7 @@ func (x *OnServiceLostResponse) String() string {
 func (*OnServiceLostResponse) ProtoMessage() {}
 
 func (x *OnServiceLostResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[55]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2468,7 +3236,7 @@ func (x *OnServiceLostResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnServiceLostResponse.ProtoReflect.Descriptor instead.
 func (*OnServiceLostResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{55}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{71}
 }
 
 type OnStartDiscoveryFailedRequest struct {
@@ -2481,7 +3249,7 @@ type OnStartDiscoveryFailedRequest struct {
 
 func (x *OnStartDiscoveryFailedRequest) Reset() {
 	*x = OnStartDiscoveryFailedRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[56]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2493,7 +3261,7 @@ func (x *OnStartDiscoveryFailedRequest) String() string {
 func (*OnStartDiscoveryFailedRequest) ProtoMessage() {}
 
 func (x *OnStartDiscoveryFailedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[56]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2506,7 +3274,7 @@ func (x *OnStartDiscoveryFailedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnStartDiscoveryFailedRequest.ProtoReflect.Descriptor instead.
 func (*OnStartDiscoveryFailedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{56}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{72}
 }
 
 func (x *OnStartDiscoveryFailedRequest) GetArg0() string {
@@ -2531,7 +3299,7 @@ type OnStartDiscoveryFailedResponse struct {
 
 func (x *OnStartDiscoveryFailedResponse) Reset() {
 	*x = OnStartDiscoveryFailedResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[57]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2543,7 +3311,7 @@ func (x *OnStartDiscoveryFailedResponse) String() string {
 func (*OnStartDiscoveryFailedResponse) ProtoMessage() {}
 
 func (x *OnStartDiscoveryFailedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[57]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2556,7 +3324,7 @@ func (x *OnStartDiscoveryFailedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnStartDiscoveryFailedResponse.ProtoReflect.Descriptor instead.
 func (*OnStartDiscoveryFailedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{57}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{73}
 }
 
 type OnStopDiscoveryFailedRequest struct {
@@ -2569,7 +3337,7 @@ type OnStopDiscoveryFailedRequest struct {
 
 func (x *OnStopDiscoveryFailedRequest) Reset() {
 	*x = OnStopDiscoveryFailedRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[58]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[74]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2581,7 +3349,7 @@ func (x *OnStopDiscoveryFailedRequest) String() string {
 func (*OnStopDiscoveryFailedRequest) ProtoMessage() {}
 
 func (x *OnStopDiscoveryFailedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[58]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[74]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2594,7 +3362,7 @@ func (x *OnStopDiscoveryFailedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnStopDiscoveryFailedRequest.ProtoReflect.Descriptor instead.
 func (*OnStopDiscoveryFailedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{58}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{74}
 }
 
 func (x *OnStopDiscoveryFailedRequest) GetArg0() string {
@@ -2619,7 +3387,7 @@ type OnStopDiscoveryFailedResponse struct {
 
 func (x *OnStopDiscoveryFailedResponse) Reset() {
 	*x = OnStopDiscoveryFailedResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[59]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[75]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2631,7 +3399,7 @@ func (x *OnStopDiscoveryFailedResponse) String() string {
 func (*OnStopDiscoveryFailedResponse) ProtoMessage() {}
 
 func (x *OnStopDiscoveryFailedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[59]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[75]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2644,7 +3412,7 @@ func (x *OnStopDiscoveryFailedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnStopDiscoveryFailedResponse.ProtoReflect.Descriptor instead.
 func (*OnStopDiscoveryFailedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{59}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{75}
 }
 
 type OnRegistrationFailedRequest struct {
@@ -2657,7 +3425,7 @@ type OnRegistrationFailedRequest struct {
 
 func (x *OnRegistrationFailedRequest) Reset() {
 	*x = OnRegistrationFailedRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[60]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[76]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2669,7 +3437,7 @@ func (x *OnRegistrationFailedRequest) String() string {
 func (*OnRegistrationFailedRequest) ProtoMessage() {}
 
 func (x *OnRegistrationFailedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[60]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[76]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2682,7 +3450,7 @@ func (x *OnRegistrationFailedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnRegistrationFailedRequest.ProtoReflect.Descriptor instead.
 func (*OnRegistrationFailedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{60}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{76}
 }
 
 func (x *OnRegistrationFailedRequest) GetArg0() int64 {
@@ -2707,7 +3475,7 @@ type OnRegistrationFailedResponse struct {
 
 func (x *OnRegistrationFailedResponse) Reset() {
 	*x = OnRegistrationFailedResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[61]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[77]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2719,7 +3487,7 @@ func (x *OnRegistrationFailedResponse) String() string {
 func (*OnRegistrationFailedResponse) ProtoMessage() {}
 
 func (x *OnRegistrationFailedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[61]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[77]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2732,7 +3500,7 @@ func (x *OnRegistrationFailedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnRegistrationFailedResponse.ProtoReflect.Descriptor instead.
 func (*OnRegistrationFailedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{61}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{77}
 }
 
 type OnServiceRegisteredRequest struct {
@@ -2744,7 +3512,7 @@ type OnServiceRegisteredRequest struct {
 
 func (x *OnServiceRegisteredRequest) Reset() {
 	*x = OnServiceRegisteredRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[62]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[78]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2756,7 +3524,7 @@ func (x *OnServiceRegisteredRequest) String() string {
 func (*OnServiceRegisteredRequest) ProtoMessage() {}
 
 func (x *OnServiceRegisteredRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[62]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[78]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2769,7 +3537,7 @@ func (x *OnServiceRegisteredRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnServiceRegisteredRequest.ProtoReflect.Descriptor instead.
 func (*OnServiceRegisteredRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{62}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{78}
 }
 
 func (x *OnServiceRegisteredRequest) GetArg0() int64 {
@@ -2787,7 +3555,7 @@ type OnServiceRegisteredResponse struct {
 
 func (x *OnServiceRegisteredResponse) Reset() {
 	*x = OnServiceRegisteredResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[63]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[79]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2799,7 +3567,7 @@ func (x *OnServiceRegisteredResponse) String() string {
 func (*OnServiceRegisteredResponse) ProtoMessage() {}
 
 func (x *OnServiceRegisteredResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[63]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[79]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2812,7 +3580,7 @@ func (x *OnServiceRegisteredResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnServiceRegisteredResponse.ProtoReflect.Descriptor instead.
 func (*OnServiceRegisteredResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{63}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{79}
 }
 
 type OnServiceUnregisteredRequest struct {
@@ -2824,7 +3592,7 @@ type OnServiceUnregisteredRequest struct {
 
 func (x *OnServiceUnregisteredRequest) Reset() {
 	*x = OnServiceUnregisteredRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[64]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[80]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2836,7 +3604,7 @@ func (x *OnServiceUnregisteredRequest) String() string {
 func (*OnServiceUnregisteredRequest) ProtoMessage() {}
 
 func (x *OnServiceUnregisteredRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[64]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[80]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2849,7 +3617,7 @@ func (x *OnServiceUnregisteredRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnServiceUnregisteredRequest.ProtoReflect.Descriptor instead.
 func (*OnServiceUnregisteredRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{64}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{80}
 }
 
 func (x *OnServiceUnregisteredRequest) GetArg0() int64 {
@@ -2867,7 +3635,7 @@ type OnServiceUnregisteredResponse struct {
 
 func (x *OnServiceUnregisteredResponse) Reset() {
 	*x = OnServiceUnregisteredResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[65]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[81]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2879,7 +3647,7 @@ func (x *OnServiceUnregisteredResponse) String() string {
 func (*OnServiceUnregisteredResponse) ProtoMessage() {}
 
 func (x *OnServiceUnregisteredResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[65]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[81]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2892,7 +3660,7 @@ func (x *OnServiceUnregisteredResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnServiceUnregisteredResponse.ProtoReflect.Descriptor instead.
 func (*OnServiceUnregisteredResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{65}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{81}
 }
 
 type OnUnregistrationFailedRequest struct {
@@ -2905,7 +3673,7 @@ type OnUnregistrationFailedRequest struct {
 
 func (x *OnUnregistrationFailedRequest) Reset() {
 	*x = OnUnregistrationFailedRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[66]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[82]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2917,7 +3685,7 @@ func (x *OnUnregistrationFailedRequest) String() string {
 func (*OnUnregistrationFailedRequest) ProtoMessage() {}
 
 func (x *OnUnregistrationFailedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[66]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[82]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2930,7 +3698,7 @@ func (x *OnUnregistrationFailedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnUnregistrationFailedRequest.ProtoReflect.Descriptor instead.
 func (*OnUnregistrationFailedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{66}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{82}
 }
 
 func (x *OnUnregistrationFailedRequest) GetArg0() int64 {
@@ -2955,7 +3723,7 @@ type OnUnregistrationFailedResponse struct {
 
 func (x *OnUnregistrationFailedResponse) Reset() {
 	*x = OnUnregistrationFailedResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[67]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[83]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2967,7 +3735,7 @@ func (x *OnUnregistrationFailedResponse) String() string {
 func (*OnUnregistrationFailedResponse) ProtoMessage() {}
 
 func (x *OnUnregistrationFailedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[67]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[83]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2980,7 +3748,7 @@ func (x *OnUnregistrationFailedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnUnregistrationFailedResponse.ProtoReflect.Descriptor instead.
 func (*OnUnregistrationFailedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{67}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{83}
 }
 
 type OnResolveFailedRequest struct {
@@ -2993,7 +3761,7 @@ type OnResolveFailedRequest struct {
 
 func (x *OnResolveFailedRequest) Reset() {
 	*x = OnResolveFailedRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[68]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[84]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3005,7 +3773,7 @@ func (x *OnResolveFailedRequest) String() string {
 func (*OnResolveFailedRequest) ProtoMessage() {}
 
 func (x *OnResolveFailedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[68]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[84]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3018,7 +3786,7 @@ func (x *OnResolveFailedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnResolveFailedRequest.ProtoReflect.Descriptor instead.
 func (*OnResolveFailedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{68}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{84}
 }
 
 func (x *OnResolveFailedRequest) GetArg0() int64 {
@@ -3043,7 +3811,7 @@ type OnResolveFailedResponse struct {
 
 func (x *OnResolveFailedResponse) Reset() {
 	*x = OnResolveFailedResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[69]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[85]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3055,7 +3823,7 @@ func (x *OnResolveFailedResponse) String() string {
 func (*OnResolveFailedResponse) ProtoMessage() {}
 
 func (x *OnResolveFailedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[69]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[85]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3068,7 +3836,7 @@ func (x *OnResolveFailedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnResolveFailedResponse.ProtoReflect.Descriptor instead.
 func (*OnResolveFailedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{69}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{85}
 }
 
 type OnServiceResolvedRequest struct {
@@ -3080,7 +3848,7 @@ type OnServiceResolvedRequest struct {
 
 func (x *OnServiceResolvedRequest) Reset() {
 	*x = OnServiceResolvedRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[70]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[86]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3092,7 +3860,7 @@ func (x *OnServiceResolvedRequest) String() string {
 func (*OnServiceResolvedRequest) ProtoMessage() {}
 
 func (x *OnServiceResolvedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[70]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[86]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3105,7 +3873,7 @@ func (x *OnServiceResolvedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnServiceResolvedRequest.ProtoReflect.Descriptor instead.
 func (*OnServiceResolvedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{70}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{86}
 }
 
 func (x *OnServiceResolvedRequest) GetArg0() int64 {
@@ -3123,7 +3891,7 @@ type OnServiceResolvedResponse struct {
 
 func (x *OnServiceResolvedResponse) Reset() {
 	*x = OnServiceResolvedResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[71]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[87]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3135,7 +3903,7 @@ func (x *OnServiceResolvedResponse) String() string {
 func (*OnServiceResolvedResponse) ProtoMessage() {}
 
 func (x *OnServiceResolvedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[71]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[87]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3148,7 +3916,7 @@ func (x *OnServiceResolvedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnServiceResolvedResponse.ProtoReflect.Descriptor instead.
 func (*OnServiceResolvedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{71}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{87}
 }
 
 type OnServiceInfoCallbackRegistrationFailedRequest struct {
@@ -3160,7 +3928,7 @@ type OnServiceInfoCallbackRegistrationFailedRequest struct {
 
 func (x *OnServiceInfoCallbackRegistrationFailedRequest) Reset() {
 	*x = OnServiceInfoCallbackRegistrationFailedRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[72]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[88]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3172,7 +3940,7 @@ func (x *OnServiceInfoCallbackRegistrationFailedRequest) String() string {
 func (*OnServiceInfoCallbackRegistrationFailedRequest) ProtoMessage() {}
 
 func (x *OnServiceInfoCallbackRegistrationFailedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[72]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[88]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3185,7 +3953,7 @@ func (x *OnServiceInfoCallbackRegistrationFailedRequest) ProtoReflect() protoref
 
 // Deprecated: Use OnServiceInfoCallbackRegistrationFailedRequest.ProtoReflect.Descriptor instead.
 func (*OnServiceInfoCallbackRegistrationFailedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{72}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{88}
 }
 
 func (x *OnServiceInfoCallbackRegistrationFailedRequest) GetArg0() int32 {
@@ -3203,7 +3971,7 @@ type OnServiceInfoCallbackRegistrationFailedResponse struct {
 
 func (x *OnServiceInfoCallbackRegistrationFailedResponse) Reset() {
 	*x = OnServiceInfoCallbackRegistrationFailedResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[73]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[89]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3215,7 +3983,7 @@ func (x *OnServiceInfoCallbackRegistrationFailedResponse) String() string {
 func (*OnServiceInfoCallbackRegistrationFailedResponse) ProtoMessage() {}
 
 func (x *OnServiceInfoCallbackRegistrationFailedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[73]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[89]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3228,7 +3996,7 @@ func (x *OnServiceInfoCallbackRegistrationFailedResponse) ProtoReflect() protore
 
 // Deprecated: Use OnServiceInfoCallbackRegistrationFailedResponse.ProtoReflect.Descriptor instead.
 func (*OnServiceInfoCallbackRegistrationFailedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{73}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{89}
 }
 
 type OnServiceInfoCallbackUnregisteredRequest struct {
@@ -3239,7 +4007,7 @@ type OnServiceInfoCallbackUnregisteredRequest struct {
 
 func (x *OnServiceInfoCallbackUnregisteredRequest) Reset() {
 	*x = OnServiceInfoCallbackUnregisteredRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[74]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[90]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3251,7 +4019,7 @@ func (x *OnServiceInfoCallbackUnregisteredRequest) String() string {
 func (*OnServiceInfoCallbackUnregisteredRequest) ProtoMessage() {}
 
 func (x *OnServiceInfoCallbackUnregisteredRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[74]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[90]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3264,7 +4032,7 @@ func (x *OnServiceInfoCallbackUnregisteredRequest) ProtoReflect() protoreflect.M
 
 // Deprecated: Use OnServiceInfoCallbackUnregisteredRequest.ProtoReflect.Descriptor instead.
 func (*OnServiceInfoCallbackUnregisteredRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{74}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{90}
 }
 
 type OnServiceInfoCallbackUnregisteredResponse struct {
@@ -3275,7 +4043,7 @@ type OnServiceInfoCallbackUnregisteredResponse struct {
 
 func (x *OnServiceInfoCallbackUnregisteredResponse) Reset() {
 	*x = OnServiceInfoCallbackUnregisteredResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[75]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[91]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3287,7 +4055,7 @@ func (x *OnServiceInfoCallbackUnregisteredResponse) String() string {
 func (*OnServiceInfoCallbackUnregisteredResponse) ProtoMessage() {}
 
 func (x *OnServiceInfoCallbackUnregisteredResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[75]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[91]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3300,7 +4068,7 @@ func (x *OnServiceInfoCallbackUnregisteredResponse) ProtoReflect() protoreflect.
 
 // Deprecated: Use OnServiceInfoCallbackUnregisteredResponse.ProtoReflect.Descriptor instead.
 func (*OnServiceInfoCallbackUnregisteredResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{75}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{91}
 }
 
 type ManagerServiceInfoCallbackOnServiceLostRequest struct {
@@ -3311,7 +4079,7 @@ type ManagerServiceInfoCallbackOnServiceLostRequest struct {
 
 func (x *ManagerServiceInfoCallbackOnServiceLostRequest) Reset() {
 	*x = ManagerServiceInfoCallbackOnServiceLostRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[76]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[92]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3323,7 +4091,7 @@ func (x *ManagerServiceInfoCallbackOnServiceLostRequest) String() string {
 func (*ManagerServiceInfoCallbackOnServiceLostRequest) ProtoMessage() {}
 
 func (x *ManagerServiceInfoCallbackOnServiceLostRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[76]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[92]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3336,7 +4104,7 @@ func (x *ManagerServiceInfoCallbackOnServiceLostRequest) ProtoReflect() protoref
 
 // Deprecated: Use ManagerServiceInfoCallbackOnServiceLostRequest.ProtoReflect.Descriptor instead.
 func (*ManagerServiceInfoCallbackOnServiceLostRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{76}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{92}
 }
 
 type OnServiceUpdatedRequest struct {
@@ -3348,7 +4116,7 @@ type OnServiceUpdatedRequest struct {
 
 func (x *OnServiceUpdatedRequest) Reset() {
 	*x = OnServiceUpdatedRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[77]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[93]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3360,7 +4128,7 @@ func (x *OnServiceUpdatedRequest) String() string {
 func (*OnServiceUpdatedRequest) ProtoMessage() {}
 
 func (x *OnServiceUpdatedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[77]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[93]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3373,7 +4141,7 @@ func (x *OnServiceUpdatedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnServiceUpdatedRequest.ProtoReflect.Descriptor instead.
 func (*OnServiceUpdatedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{77}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{93}
 }
 
 func (x *OnServiceUpdatedRequest) GetArg0() int64 {
@@ -3391,7 +4159,7 @@ type OnServiceUpdatedResponse struct {
 
 func (x *OnServiceUpdatedResponse) Reset() {
 	*x = OnServiceUpdatedResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[78]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[94]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3403,7 +4171,7 @@ func (x *OnServiceUpdatedResponse) String() string {
 func (*OnServiceUpdatedResponse) ProtoMessage() {}
 
 func (x *OnServiceUpdatedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[78]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[94]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3416,30 +4184,30 @@ func (x *OnServiceUpdatedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnServiceUpdatedResponse.ProtoReflect.Descriptor instead.
 func (*OnServiceUpdatedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{78}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{94}
 }
 
-type NewServiceInfoRequest struct {
+type DiscoveryRequestDescribeContentsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *NewServiceInfoRequest) Reset() {
-	*x = NewServiceInfoRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[79]
+func (x *DiscoveryRequestDescribeContentsRequest) Reset() {
+	*x = DiscoveryRequestDescribeContentsRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[95]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *NewServiceInfoRequest) String() string {
+func (x *DiscoveryRequestDescribeContentsRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*NewServiceInfoRequest) ProtoMessage() {}
+func (*DiscoveryRequestDescribeContentsRequest) ProtoMessage() {}
 
-func (x *NewServiceInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[79]
+func (x *DiscoveryRequestDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[95]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3450,33 +4218,33 @@ func (x *NewServiceInfoRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use NewServiceInfoRequest.ProtoReflect.Descriptor instead.
-func (*NewServiceInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{79}
+// Deprecated: Use DiscoveryRequestDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*DiscoveryRequestDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{95}
 }
 
-type NewServiceInfoResponse struct {
+type EqualsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *NewServiceInfoResponse) Reset() {
-	*x = NewServiceInfoResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[80]
+func (x *EqualsRequest) Reset() {
+	*x = EqualsRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[96]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *NewServiceInfoResponse) String() string {
+func (x *EqualsRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*NewServiceInfoResponse) ProtoMessage() {}
+func (*EqualsRequest) ProtoMessage() {}
 
-func (x *NewServiceInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[80]
+func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[96]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3487,40 +4255,83 @@ func (x *NewServiceInfoResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use NewServiceInfoResponse.ProtoReflect.Descriptor instead.
-func (*NewServiceInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{80}
+// Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
+func (*EqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{96}
 }
 
-func (x *NewServiceInfoResponse) GetResult() int64 {
+func (x *EqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type EqualsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EqualsResponse) Reset() {
+	*x = EqualsResponse{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[97]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EqualsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EqualsResponse) ProtoMessage() {}
+
+func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[97]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
+func (*EqualsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{97}
+}
+
+func (x *EqualsResponse) GetResult() bool {
 	if x != nil {
 		return x.Result
 	}
-	return 0
+	return false
 }
 
-type ServiceInfoDescribeContentsRequest struct {
+type DiscoveryRequestGetNetworkRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ServiceInfoDescribeContentsRequest) Reset() {
-	*x = ServiceInfoDescribeContentsRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[81]
+func (x *DiscoveryRequestGetNetworkRequest) Reset() {
+	*x = DiscoveryRequestGetNetworkRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[98]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ServiceInfoDescribeContentsRequest) String() string {
+func (x *DiscoveryRequestGetNetworkRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ServiceInfoDescribeContentsRequest) ProtoMessage() {}
+func (*DiscoveryRequestGetNetworkRequest) ProtoMessage() {}
 
-func (x *ServiceInfoDescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[81]
+func (x *DiscoveryRequestGetNetworkRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[98]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3531,40 +4342,32 @@ func (x *ServiceInfoDescribeContentsRequest) ProtoReflect() protoreflect.Message
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ServiceInfoDescribeContentsRequest.ProtoReflect.Descriptor instead.
-func (*ServiceInfoDescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{81}
+// Deprecated: Use DiscoveryRequestGetNetworkRequest.ProtoReflect.Descriptor instead.
+func (*DiscoveryRequestGetNetworkRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{98}
 }
 
-func (x *ServiceInfoDescribeContentsRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetHostRequest struct {
+type DiscoveryRequestGetServiceTypeRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetHostRequest) Reset() {
-	*x = GetHostRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[82]
+func (x *DiscoveryRequestGetServiceTypeRequest) Reset() {
+	*x = DiscoveryRequestGetServiceTypeRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[99]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetHostRequest) String() string {
+func (x *DiscoveryRequestGetServiceTypeRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetHostRequest) ProtoMessage() {}
+func (*DiscoveryRequestGetServiceTypeRequest) ProtoMessage() {}
 
-func (x *GetHostRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[82]
+func (x *DiscoveryRequestGetServiceTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[99]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3575,40 +4378,32 @@ func (x *GetHostRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetHostRequest.ProtoReflect.Descriptor instead.
-func (*GetHostRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{82}
+// Deprecated: Use DiscoveryRequestGetServiceTypeRequest.ProtoReflect.Descriptor instead.
+func (*DiscoveryRequestGetServiceTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{99}
 }
 
-func (x *GetHostRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetHostResponse struct {
+type GetSubtypeRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetHostResponse) Reset() {
-	*x = GetHostResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[83]
+func (x *GetSubtypeRequest) Reset() {
+	*x = GetSubtypeRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[100]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetHostResponse) String() string {
+func (x *GetSubtypeRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetHostResponse) ProtoMessage() {}
+func (*GetSubtypeRequest) ProtoMessage() {}
 
-func (x *GetHostResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[83]
+func (x *GetSubtypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[100]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3619,84 +4414,33 @@ func (x *GetHostResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetHostResponse.ProtoReflect.Descriptor instead.
-func (*GetHostResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{83}
+// Deprecated: Use GetSubtypeRequest.ProtoReflect.Descriptor instead.
+func (*GetSubtypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{100}
 }
 
-func (x *GetHostResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetHostnameRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetHostnameRequest) Reset() {
-	*x = GetHostnameRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[84]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetHostnameRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetHostnameRequest) ProtoMessage() {}
-
-func (x *GetHostnameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[84]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetHostnameRequest.ProtoReflect.Descriptor instead.
-func (*GetHostnameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{84}
-}
-
-func (x *GetHostnameRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetHostnameResponse struct {
+type GetSubtypeResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetHostnameResponse) Reset() {
-	*x = GetHostnameResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[85]
+func (x *GetSubtypeResponse) Reset() {
+	*x = GetSubtypeResponse{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[101]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetHostnameResponse) String() string {
+func (x *GetSubtypeResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetHostnameResponse) ProtoMessage() {}
+func (*GetSubtypeResponse) ProtoMessage() {}
 
-func (x *GetHostnameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[85]
+func (x *GetSubtypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[101]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3707,40 +4451,39 @@ func (x *GetHostnameResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetHostnameResponse.ProtoReflect.Descriptor instead.
-func (*GetHostnameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{85}
+// Deprecated: Use GetSubtypeResponse.ProtoReflect.Descriptor instead.
+func (*GetSubtypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{101}
 }
 
-func (x *GetHostnameResponse) GetResult() string {
+func (x *GetSubtypeResponse) GetResult() string {
 	if x != nil {
 		return x.Result
 	}
 	return ""
 }
 
-type ServiceInfoGetNetworkRequest struct {
+type HashCodeRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ServiceInfoGetNetworkRequest) Reset() {
-	*x = ServiceInfoGetNetworkRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[86]
+func (x *HashCodeRequest) Reset() {
+	*x = HashCodeRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[102]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ServiceInfoGetNetworkRequest) String() string {
+func (x *HashCodeRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ServiceInfoGetNetworkRequest) ProtoMessage() {}
+func (*HashCodeRequest) ProtoMessage() {}
 
-func (x *ServiceInfoGetNetworkRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[86]
+func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[102]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3751,758 +4494,32 @@ func (x *ServiceInfoGetNetworkRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ServiceInfoGetNetworkRequest.ProtoReflect.Descriptor instead.
-func (*ServiceInfoGetNetworkRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{86}
+// Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
+func (*HashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{102}
 }
 
-func (x *ServiceInfoGetNetworkRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetPortRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPortRequest) Reset() {
-	*x = GetPortRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[87]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPortRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPortRequest) ProtoMessage() {}
-
-func (x *GetPortRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[87]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPortRequest.ProtoReflect.Descriptor instead.
-func (*GetPortRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{87}
-}
-
-func (x *GetPortRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetPortResponse struct {
+type HashCodeResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetPortResponse) Reset() {
-	*x = GetPortResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[88]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPortResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPortResponse) ProtoMessage() {}
-
-func (x *GetPortResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[88]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPortResponse.ProtoReflect.Descriptor instead.
-func (*GetPortResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{88}
-}
-
-func (x *GetPortResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetServiceNameRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetServiceNameRequest) Reset() {
-	*x = GetServiceNameRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[89]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetServiceNameRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetServiceNameRequest) ProtoMessage() {}
-
-func (x *GetServiceNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[89]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetServiceNameRequest.ProtoReflect.Descriptor instead.
-func (*GetServiceNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{89}
-}
-
-func (x *GetServiceNameRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetServiceNameResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetServiceNameResponse) Reset() {
-	*x = GetServiceNameResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[90]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetServiceNameResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetServiceNameResponse) ProtoMessage() {}
-
-func (x *GetServiceNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[90]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetServiceNameResponse.ProtoReflect.Descriptor instead.
-func (*GetServiceNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{90}
-}
-
-func (x *GetServiceNameResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type ServiceInfoGetServiceTypeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ServiceInfoGetServiceTypeRequest) Reset() {
-	*x = ServiceInfoGetServiceTypeRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[91]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ServiceInfoGetServiceTypeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ServiceInfoGetServiceTypeRequest) ProtoMessage() {}
-
-func (x *ServiceInfoGetServiceTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[91]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ServiceInfoGetServiceTypeRequest.ProtoReflect.Descriptor instead.
-func (*ServiceInfoGetServiceTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{91}
-}
-
-func (x *ServiceInfoGetServiceTypeRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type RemoveAttributeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveAttributeRequest) Reset() {
-	*x = RemoveAttributeRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[92]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveAttributeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveAttributeRequest) ProtoMessage() {}
-
-func (x *RemoveAttributeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[92]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveAttributeRequest.ProtoReflect.Descriptor instead.
-func (*RemoveAttributeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{92}
-}
-
-func (x *RemoveAttributeRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *RemoveAttributeRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type RemoveAttributeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveAttributeResponse) Reset() {
-	*x = RemoveAttributeResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[93]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveAttributeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveAttributeResponse) ProtoMessage() {}
-
-func (x *RemoveAttributeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[93]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveAttributeResponse.ProtoReflect.Descriptor instead.
-func (*RemoveAttributeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{93}
-}
-
-type SetAttributeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetAttributeRequest) Reset() {
-	*x = SetAttributeRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[94]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetAttributeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetAttributeRequest) ProtoMessage() {}
-
-func (x *SetAttributeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[94]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetAttributeRequest.ProtoReflect.Descriptor instead.
-func (*SetAttributeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{94}
-}
-
-func (x *SetAttributeRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *SetAttributeRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-func (x *SetAttributeRequest) GetArg1() string {
-	if x != nil {
-		return x.Arg1
-	}
-	return ""
-}
-
-type SetAttributeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetAttributeResponse) Reset() {
-	*x = SetAttributeResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[95]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetAttributeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetAttributeResponse) ProtoMessage() {}
-
-func (x *SetAttributeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[95]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetAttributeResponse.ProtoReflect.Descriptor instead.
-func (*SetAttributeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{95}
-}
-
-type SetHostRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetHostRequest) Reset() {
-	*x = SetHostRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[96]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetHostRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetHostRequest) ProtoMessage() {}
-
-func (x *SetHostRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[96]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetHostRequest.ProtoReflect.Descriptor instead.
-func (*SetHostRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{96}
-}
-
-func (x *SetHostRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *SetHostRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetHostResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetHostResponse) Reset() {
-	*x = SetHostResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[97]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetHostResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetHostResponse) ProtoMessage() {}
-
-func (x *SetHostResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[97]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetHostResponse.ProtoReflect.Descriptor instead.
-func (*SetHostResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{97}
-}
-
-type ServiceInfoSetNetworkRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ServiceInfoSetNetworkRequest) Reset() {
-	*x = ServiceInfoSetNetworkRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[98]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ServiceInfoSetNetworkRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ServiceInfoSetNetworkRequest) ProtoMessage() {}
-
-func (x *ServiceInfoSetNetworkRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[98]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ServiceInfoSetNetworkRequest.ProtoReflect.Descriptor instead.
-func (*ServiceInfoSetNetworkRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{98}
-}
-
-func (x *ServiceInfoSetNetworkRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *ServiceInfoSetNetworkRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type ServiceInfoSetNetworkResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ServiceInfoSetNetworkResponse) Reset() {
-	*x = ServiceInfoSetNetworkResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[99]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ServiceInfoSetNetworkResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ServiceInfoSetNetworkResponse) ProtoMessage() {}
-
-func (x *ServiceInfoSetNetworkResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[99]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ServiceInfoSetNetworkResponse.ProtoReflect.Descriptor instead.
-func (*ServiceInfoSetNetworkResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{99}
-}
-
-type SetPortRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPortRequest) Reset() {
-	*x = SetPortRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[100]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPortRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPortRequest) ProtoMessage() {}
-
-func (x *SetPortRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[100]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPortRequest.ProtoReflect.Descriptor instead.
-func (*SetPortRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{100}
-}
-
-func (x *SetPortRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *SetPortRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetPortResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPortResponse) Reset() {
-	*x = SetPortResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[101]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPortResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPortResponse) ProtoMessage() {}
-
-func (x *SetPortResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[101]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPortResponse.ProtoReflect.Descriptor instead.
-func (*SetPortResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{101}
-}
-
-type SetServiceNameRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetServiceNameRequest) Reset() {
-	*x = SetServiceNameRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[102]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetServiceNameRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetServiceNameRequest) ProtoMessage() {}
-
-func (x *SetServiceNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[102]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetServiceNameRequest.ProtoReflect.Descriptor instead.
-func (*SetServiceNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{102}
-}
-
-func (x *SetServiceNameRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *SetServiceNameRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type SetServiceNameResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetServiceNameResponse) Reset() {
-	*x = SetServiceNameResponse{}
+func (x *HashCodeResponse) Reset() {
+	*x = HashCodeResponse{}
 	mi := &file_proto_nsd_nsd_proto_msgTypes[103]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetServiceNameResponse) String() string {
+func (x *HashCodeResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetServiceNameResponse) ProtoMessage() {}
+func (*HashCodeResponse) ProtoMessage() {}
 
-func (x *SetServiceNameResponse) ProtoReflect() protoreflect.Message {
+func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_nsd_nsd_proto_msgTypes[103]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -4514,33 +4531,38 @@ func (x *SetServiceNameResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetServiceNameResponse.ProtoReflect.Descriptor instead.
-func (*SetServiceNameResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
+func (*HashCodeResponse) Descriptor() ([]byte, []int) {
 	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{103}
 }
 
-type SetServiceTypeRequest struct {
+func (x *HashCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DiscoveryRequestToStringRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetServiceTypeRequest) Reset() {
-	*x = SetServiceTypeRequest{}
+func (x *DiscoveryRequestToStringRequest) Reset() {
+	*x = DiscoveryRequestToStringRequest{}
 	mi := &file_proto_nsd_nsd_proto_msgTypes[104]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetServiceTypeRequest) String() string {
+func (x *DiscoveryRequestToStringRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetServiceTypeRequest) ProtoMessage() {}
+func (*DiscoveryRequestToStringRequest) ProtoMessage() {}
 
-func (x *SetServiceTypeRequest) ProtoReflect() protoreflect.Message {
+func (x *DiscoveryRequestToStringRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_nsd_nsd_proto_msgTypes[104]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -4552,46 +4574,297 @@ func (x *SetServiceTypeRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetServiceTypeRequest.ProtoReflect.Descriptor instead.
-func (*SetServiceTypeRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use DiscoveryRequestToStringRequest.ProtoReflect.Descriptor instead.
+func (*DiscoveryRequestToStringRequest) Descriptor() ([]byte, []int) {
 	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{104}
 }
 
-func (x *SetServiceTypeRequest) GetHandle() int64 {
+type DiscoveryRequestWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DiscoveryRequestWriteToParcelRequest) Reset() {
+	*x = DiscoveryRequestWriteToParcelRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[105]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DiscoveryRequestWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DiscoveryRequestWriteToParcelRequest) ProtoMessage() {}
+
+func (x *DiscoveryRequestWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[105]
 	if x != nil {
-		return x.Handle
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DiscoveryRequestWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*DiscoveryRequestWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{105}
+}
+
+func (x *DiscoveryRequestWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
 	}
 	return 0
 }
 
-func (x *SetServiceTypeRequest) GetArg0() string {
+func (x *DiscoveryRequestWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type BuildRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildRequest) Reset() {
+	*x = BuildRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[106]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildRequest) ProtoMessage() {}
+
+func (x *BuildRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[106]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
+func (*BuildRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{106}
+}
+
+type BuildResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildResponse) Reset() {
+	*x = BuildResponse{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[107]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildResponse) ProtoMessage() {}
+
+func (x *BuildResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[107]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
+func (*BuildResponse) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{107}
+}
+
+func (x *BuildResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DiscoveryRequestBuilderSetNetworkRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DiscoveryRequestBuilderSetNetworkRequest) Reset() {
+	*x = DiscoveryRequestBuilderSetNetworkRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[108]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DiscoveryRequestBuilderSetNetworkRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DiscoveryRequestBuilderSetNetworkRequest) ProtoMessage() {}
+
+func (x *DiscoveryRequestBuilderSetNetworkRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[108]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DiscoveryRequestBuilderSetNetworkRequest.ProtoReflect.Descriptor instead.
+func (*DiscoveryRequestBuilderSetNetworkRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{108}
+}
+
+func (x *DiscoveryRequestBuilderSetNetworkRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type DiscoveryRequestBuilderSetNetworkResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DiscoveryRequestBuilderSetNetworkResponse) Reset() {
+	*x = DiscoveryRequestBuilderSetNetworkResponse{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[109]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DiscoveryRequestBuilderSetNetworkResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DiscoveryRequestBuilderSetNetworkResponse) ProtoMessage() {}
+
+func (x *DiscoveryRequestBuilderSetNetworkResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[109]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DiscoveryRequestBuilderSetNetworkResponse.ProtoReflect.Descriptor instead.
+func (*DiscoveryRequestBuilderSetNetworkResponse) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{109}
+}
+
+func (x *DiscoveryRequestBuilderSetNetworkResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetSubtypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSubtypeRequest) Reset() {
+	*x = SetSubtypeRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[110]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSubtypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSubtypeRequest) ProtoMessage() {}
+
+func (x *SetSubtypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[110]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSubtypeRequest.ProtoReflect.Descriptor instead.
+func (*SetSubtypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{110}
+}
+
+func (x *SetSubtypeRequest) GetArg0() string {
 	if x != nil {
 		return x.Arg0
 	}
 	return ""
 }
 
-type SetServiceTypeResponse struct {
+type SetSubtypeResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetServiceTypeResponse) Reset() {
-	*x = SetServiceTypeResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[105]
+func (x *SetSubtypeResponse) Reset() {
+	*x = SetSubtypeResponse{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[111]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetServiceTypeResponse) String() string {
+func (x *SetSubtypeResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetServiceTypeResponse) ProtoMessage() {}
+func (*SetSubtypeResponse) ProtoMessage() {}
 
-func (x *SetServiceTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[105]
+func (x *SetSubtypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[111]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4602,33 +4875,39 @@ func (x *SetServiceTypeResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetServiceTypeResponse.ProtoReflect.Descriptor instead.
-func (*SetServiceTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{105}
+// Deprecated: Use SetSubtypeResponse.ProtoReflect.Descriptor instead.
+func (*SetSubtypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{111}
 }
 
-type ServiceInfoToStringRequest struct {
+func (x *SetSubtypeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AdvertisingRequestDescribeContentsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ServiceInfoToStringRequest) Reset() {
-	*x = ServiceInfoToStringRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[106]
+func (x *AdvertisingRequestDescribeContentsRequest) Reset() {
+	*x = AdvertisingRequestDescribeContentsRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[112]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ServiceInfoToStringRequest) String() string {
+func (x *AdvertisingRequestDescribeContentsRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ServiceInfoToStringRequest) ProtoMessage() {}
+func (*AdvertisingRequestDescribeContentsRequest) ProtoMessage() {}
 
-func (x *ServiceInfoToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[106]
+func (x *AdvertisingRequestDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[112]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4639,76 +4918,9 @@ func (x *ServiceInfoToStringRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ServiceInfoToStringRequest.ProtoReflect.Descriptor instead.
-func (*ServiceInfoToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{106}
-}
-
-func (x *ServiceInfoToStringRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type ServiceInfoWriteToParcelRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ServiceInfoWriteToParcelRequest) Reset() {
-	*x = ServiceInfoWriteToParcelRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[107]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ServiceInfoWriteToParcelRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ServiceInfoWriteToParcelRequest) ProtoMessage() {}
-
-func (x *ServiceInfoWriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[107]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ServiceInfoWriteToParcelRequest.ProtoReflect.Descriptor instead.
-func (*ServiceInfoWriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{107}
-}
-
-func (x *ServiceInfoWriteToParcelRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *ServiceInfoWriteToParcelRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *ServiceInfoWriteToParcelRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
+// Deprecated: Use AdvertisingRequestDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*AdvertisingRequestDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{112}
 }
 
 type GetFlagsRequest struct {
@@ -4719,7 +4931,7 @@ type GetFlagsRequest struct {
 
 func (x *GetFlagsRequest) Reset() {
 	*x = GetFlagsRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[108]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[113]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4731,7 +4943,7 @@ func (x *GetFlagsRequest) String() string {
 func (*GetFlagsRequest) ProtoMessage() {}
 
 func (x *GetFlagsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[108]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[113]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4744,7 +4956,7 @@ func (x *GetFlagsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetFlagsRequest.ProtoReflect.Descriptor instead.
 func (*GetFlagsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{108}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{113}
 }
 
 type GetFlagsResponse struct {
@@ -4756,7 +4968,7 @@ type GetFlagsResponse struct {
 
 func (x *GetFlagsResponse) Reset() {
 	*x = GetFlagsResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[109]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[114]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4768,7 +4980,7 @@ func (x *GetFlagsResponse) String() string {
 func (*GetFlagsResponse) ProtoMessage() {}
 
 func (x *GetFlagsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[109]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[114]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4781,7 +4993,7 @@ func (x *GetFlagsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetFlagsResponse.ProtoReflect.Descriptor instead.
 func (*GetFlagsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{109}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{114}
 }
 
 func (x *GetFlagsResponse) GetResult() int64 {
@@ -4799,7 +5011,7 @@ type GetProtocolTypeRequest struct {
 
 func (x *GetProtocolTypeRequest) Reset() {
 	*x = GetProtocolTypeRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[110]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[115]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4811,7 +5023,7 @@ func (x *GetProtocolTypeRequest) String() string {
 func (*GetProtocolTypeRequest) ProtoMessage() {}
 
 func (x *GetProtocolTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[110]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[115]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4824,7 +5036,7 @@ func (x *GetProtocolTypeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetProtocolTypeRequest.ProtoReflect.Descriptor instead.
 func (*GetProtocolTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{110}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{115}
 }
 
 type GetProtocolTypeResponse struct {
@@ -4836,7 +5048,7 @@ type GetProtocolTypeResponse struct {
 
 func (x *GetProtocolTypeResponse) Reset() {
 	*x = GetProtocolTypeResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[111]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[116]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4848,7 +5060,7 @@ func (x *GetProtocolTypeResponse) String() string {
 func (*GetProtocolTypeResponse) ProtoMessage() {}
 
 func (x *GetProtocolTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[111]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[116]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4861,7 +5073,7 @@ func (x *GetProtocolTypeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetProtocolTypeResponse.ProtoReflect.Descriptor instead.
 func (*GetProtocolTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{111}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{116}
 }
 
 func (x *GetProtocolTypeResponse) GetResult() int32 {
@@ -4879,7 +5091,7 @@ type GetServiceInfoRequest struct {
 
 func (x *GetServiceInfoRequest) Reset() {
 	*x = GetServiceInfoRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[112]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[117]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4891,7 +5103,7 @@ func (x *GetServiceInfoRequest) String() string {
 func (*GetServiceInfoRequest) ProtoMessage() {}
 
 func (x *GetServiceInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[112]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[117]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4904,7 +5116,7 @@ func (x *GetServiceInfoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetServiceInfoRequest.ProtoReflect.Descriptor instead.
 func (*GetServiceInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{112}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{117}
 }
 
 type GetServiceInfoResponse struct {
@@ -4916,7 +5128,7 @@ type GetServiceInfoResponse struct {
 
 func (x *GetServiceInfoResponse) Reset() {
 	*x = GetServiceInfoResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[113]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[118]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4928,7 +5140,7 @@ func (x *GetServiceInfoResponse) String() string {
 func (*GetServiceInfoResponse) ProtoMessage() {}
 
 func (x *GetServiceInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[113]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[118]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4941,12 +5153,100 @@ func (x *GetServiceInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetServiceInfoResponse.ProtoReflect.Descriptor instead.
 func (*GetServiceInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{113}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{118}
 }
 
 func (x *GetServiceInfoResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
+	}
+	return 0
+}
+
+type AdvertisingRequestToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AdvertisingRequestToStringRequest) Reset() {
+	*x = AdvertisingRequestToStringRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[119]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AdvertisingRequestToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AdvertisingRequestToStringRequest) ProtoMessage() {}
+
+func (x *AdvertisingRequestToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[119]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AdvertisingRequestToStringRequest.ProtoReflect.Descriptor instead.
+func (*AdvertisingRequestToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{119}
+}
+
+type AdvertisingRequestWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AdvertisingRequestWriteToParcelRequest) Reset() {
+	*x = AdvertisingRequestWriteToParcelRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[120]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AdvertisingRequestWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AdvertisingRequestWriteToParcelRequest) ProtoMessage() {}
+
+func (x *AdvertisingRequestWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[120]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AdvertisingRequestWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*AdvertisingRequestWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{120}
+}
+
+func (x *AdvertisingRequestWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *AdvertisingRequestWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
 	}
 	return 0
 }
@@ -4960,7 +5260,7 @@ type SetFlagsRequest struct {
 
 func (x *SetFlagsRequest) Reset() {
 	*x = SetFlagsRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[114]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[121]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4972,7 +5272,7 @@ func (x *SetFlagsRequest) String() string {
 func (*SetFlagsRequest) ProtoMessage() {}
 
 func (x *SetFlagsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[114]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[121]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4985,7 +5285,7 @@ func (x *SetFlagsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetFlagsRequest.ProtoReflect.Descriptor instead.
 func (*SetFlagsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{114}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{121}
 }
 
 func (x *SetFlagsRequest) GetArg0() int64 {
@@ -5004,7 +5304,7 @@ type SetFlagsResponse struct {
 
 func (x *SetFlagsResponse) Reset() {
 	*x = SetFlagsResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[115]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[122]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5016,7 +5316,7 @@ func (x *SetFlagsResponse) String() string {
 func (*SetFlagsResponse) ProtoMessage() {}
 
 func (x *SetFlagsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[115]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[122]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5029,7 +5329,7 @@ func (x *SetFlagsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetFlagsResponse.ProtoReflect.Descriptor instead.
 func (*SetFlagsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{115}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{122}
 }
 
 func (x *SetFlagsResponse) GetResult() int64 {
@@ -5048,7 +5348,7 @@ type SetProtocolTypeRequest struct {
 
 func (x *SetProtocolTypeRequest) Reset() {
 	*x = SetProtocolTypeRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[116]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[123]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5060,7 +5360,7 @@ func (x *SetProtocolTypeRequest) String() string {
 func (*SetProtocolTypeRequest) ProtoMessage() {}
 
 func (x *SetProtocolTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[116]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[123]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5073,7 +5373,7 @@ func (x *SetProtocolTypeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetProtocolTypeRequest.ProtoReflect.Descriptor instead.
 func (*SetProtocolTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{116}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{123}
 }
 
 func (x *SetProtocolTypeRequest) GetArg0() int32 {
@@ -5092,7 +5392,7 @@ type SetProtocolTypeResponse struct {
 
 func (x *SetProtocolTypeResponse) Reset() {
 	*x = SetProtocolTypeResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[117]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[124]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5104,7 +5404,7 @@ func (x *SetProtocolTypeResponse) String() string {
 func (*SetProtocolTypeResponse) ProtoMessage() {}
 
 func (x *SetProtocolTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[117]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[124]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5117,636 +5417,12 @@ func (x *SetProtocolTypeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetProtocolTypeResponse.ProtoReflect.Descriptor instead.
 func (*SetProtocolTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{117}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{124}
 }
 
 func (x *SetProtocolTypeResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
-	}
-	return 0
-}
-
-type NewWifiP2PServiceInfoRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewWifiP2PServiceInfoRequest) Reset() {
-	*x = NewWifiP2PServiceInfoRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[118]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewWifiP2PServiceInfoRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewWifiP2PServiceInfoRequest) ProtoMessage() {}
-
-func (x *NewWifiP2PServiceInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[118]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewWifiP2PServiceInfoRequest.ProtoReflect.Descriptor instead.
-func (*NewWifiP2PServiceInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{118}
-}
-
-func (x *NewWifiP2PServiceInfoRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type NewWifiP2PServiceInfoResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewWifiP2PServiceInfoResponse) Reset() {
-	*x = NewWifiP2PServiceInfoResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[119]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewWifiP2PServiceInfoResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewWifiP2PServiceInfoResponse) ProtoMessage() {}
-
-func (x *NewWifiP2PServiceInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[119]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewWifiP2PServiceInfoResponse.ProtoReflect.Descriptor instead.
-func (*NewWifiP2PServiceInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{119}
-}
-
-func (x *NewWifiP2PServiceInfoResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type WifiP2PServiceInfoDescribeContentsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *WifiP2PServiceInfoDescribeContentsRequest) Reset() {
-	*x = WifiP2PServiceInfoDescribeContentsRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[120]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WifiP2PServiceInfoDescribeContentsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WifiP2PServiceInfoDescribeContentsRequest) ProtoMessage() {}
-
-func (x *WifiP2PServiceInfoDescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[120]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WifiP2PServiceInfoDescribeContentsRequest.ProtoReflect.Descriptor instead.
-func (*WifiP2PServiceInfoDescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{120}
-}
-
-func (x *WifiP2PServiceInfoDescribeContentsRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type WifiP2PServiceInfoEqualsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *WifiP2PServiceInfoEqualsRequest) Reset() {
-	*x = WifiP2PServiceInfoEqualsRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[121]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WifiP2PServiceInfoEqualsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WifiP2PServiceInfoEqualsRequest) ProtoMessage() {}
-
-func (x *WifiP2PServiceInfoEqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[121]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WifiP2PServiceInfoEqualsRequest.ProtoReflect.Descriptor instead.
-func (*WifiP2PServiceInfoEqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{121}
-}
-
-func (x *WifiP2PServiceInfoEqualsRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *WifiP2PServiceInfoEqualsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetWifiP2PUsdBasedServiceConfigRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetWifiP2PUsdBasedServiceConfigRequest) Reset() {
-	*x = GetWifiP2PUsdBasedServiceConfigRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[122]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetWifiP2PUsdBasedServiceConfigRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetWifiP2PUsdBasedServiceConfigRequest) ProtoMessage() {}
-
-func (x *GetWifiP2PUsdBasedServiceConfigRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[122]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetWifiP2PUsdBasedServiceConfigRequest.ProtoReflect.Descriptor instead.
-func (*GetWifiP2PUsdBasedServiceConfigRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{122}
-}
-
-func (x *GetWifiP2PUsdBasedServiceConfigRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetWifiP2PUsdBasedServiceConfigResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetWifiP2PUsdBasedServiceConfigResponse) Reset() {
-	*x = GetWifiP2PUsdBasedServiceConfigResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[123]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetWifiP2PUsdBasedServiceConfigResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetWifiP2PUsdBasedServiceConfigResponse) ProtoMessage() {}
-
-func (x *GetWifiP2PUsdBasedServiceConfigResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[123]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetWifiP2PUsdBasedServiceConfigResponse.ProtoReflect.Descriptor instead.
-func (*GetWifiP2PUsdBasedServiceConfigResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{123}
-}
-
-func (x *GetWifiP2PUsdBasedServiceConfigResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type WifiP2PServiceInfoHashCodeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *WifiP2PServiceInfoHashCodeRequest) Reset() {
-	*x = WifiP2PServiceInfoHashCodeRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[124]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WifiP2PServiceInfoHashCodeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WifiP2PServiceInfoHashCodeRequest) ProtoMessage() {}
-
-func (x *WifiP2PServiceInfoHashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[124]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WifiP2PServiceInfoHashCodeRequest.ProtoReflect.Descriptor instead.
-func (*WifiP2PServiceInfoHashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{124}
-}
-
-func (x *WifiP2PServiceInfoHashCodeRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type WifiP2PServiceInfoWriteToParcelRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *WifiP2PServiceInfoWriteToParcelRequest) Reset() {
-	*x = WifiP2PServiceInfoWriteToParcelRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[125]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WifiP2PServiceInfoWriteToParcelRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WifiP2PServiceInfoWriteToParcelRequest) ProtoMessage() {}
-
-func (x *WifiP2PServiceInfoWriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[125]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WifiP2PServiceInfoWriteToParcelRequest.ProtoReflect.Descriptor instead.
-func (*WifiP2PServiceInfoWriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{125}
-}
-
-func (x *WifiP2PServiceInfoWriteToParcelRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *WifiP2PServiceInfoWriteToParcelRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *WifiP2PServiceInfoWriteToParcelRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type WifiP2PUsdBasedServiceResponseDescribeContentsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *WifiP2PUsdBasedServiceResponseDescribeContentsRequest) Reset() {
-	*x = WifiP2PUsdBasedServiceResponseDescribeContentsRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[126]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WifiP2PUsdBasedServiceResponseDescribeContentsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WifiP2PUsdBasedServiceResponseDescribeContentsRequest) ProtoMessage() {}
-
-func (x *WifiP2PUsdBasedServiceResponseDescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[126]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WifiP2PUsdBasedServiceResponseDescribeContentsRequest.ProtoReflect.Descriptor instead.
-func (*WifiP2PUsdBasedServiceResponseDescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{126}
-}
-
-type GetServiceProtocolTypeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetServiceProtocolTypeRequest) Reset() {
-	*x = GetServiceProtocolTypeRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[127]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetServiceProtocolTypeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetServiceProtocolTypeRequest) ProtoMessage() {}
-
-func (x *GetServiceProtocolTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[127]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetServiceProtocolTypeRequest.ProtoReflect.Descriptor instead.
-func (*GetServiceProtocolTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{127}
-}
-
-type GetServiceProtocolTypeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetServiceProtocolTypeResponse) Reset() {
-	*x = GetServiceProtocolTypeResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[128]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetServiceProtocolTypeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetServiceProtocolTypeResponse) ProtoMessage() {}
-
-func (x *GetServiceProtocolTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[128]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetServiceProtocolTypeResponse.ProtoReflect.Descriptor instead.
-func (*GetServiceProtocolTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{128}
-}
-
-func (x *GetServiceProtocolTypeResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetServiceSpecificInfoRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetServiceSpecificInfoRequest) Reset() {
-	*x = GetServiceSpecificInfoRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[129]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetServiceSpecificInfoRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetServiceSpecificInfoRequest) ProtoMessage() {}
-
-func (x *GetServiceSpecificInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[129]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetServiceSpecificInfoRequest.ProtoReflect.Descriptor instead.
-func (*GetServiceSpecificInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{129}
-}
-
-type GetServiceSpecificInfoResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetServiceSpecificInfoResponse) Reset() {
-	*x = GetServiceSpecificInfoResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[130]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetServiceSpecificInfoResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetServiceSpecificInfoResponse) ProtoMessage() {}
-
-func (x *GetServiceSpecificInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[130]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetServiceSpecificInfoResponse.ProtoReflect.Descriptor instead.
-func (*GetServiceSpecificInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{130}
-}
-
-func (x *GetServiceSpecificInfoResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type WifiP2PUsdBasedServiceResponseWriteToParcelRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *WifiP2PUsdBasedServiceResponseWriteToParcelRequest) Reset() {
-	*x = WifiP2PUsdBasedServiceResponseWriteToParcelRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[131]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WifiP2PUsdBasedServiceResponseWriteToParcelRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WifiP2PUsdBasedServiceResponseWriteToParcelRequest) ProtoMessage() {}
-
-func (x *WifiP2PUsdBasedServiceResponseWriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[131]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WifiP2PUsdBasedServiceResponseWriteToParcelRequest.ProtoReflect.Descriptor instead.
-func (*WifiP2PUsdBasedServiceResponseWriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{131}
-}
-
-func (x *WifiP2PUsdBasedServiceResponseWriteToParcelRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *WifiP2PUsdBasedServiceResponseWriteToParcelRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
 	}
 	return 0
 }
@@ -5759,7 +5435,7 @@ type NewInstance0Request struct {
 
 func (x *NewInstance0Request) Reset() {
 	*x = NewInstance0Request{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[132]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[125]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5771,7 +5447,7 @@ func (x *NewInstance0Request) String() string {
 func (*NewInstance0Request) ProtoMessage() {}
 
 func (x *NewInstance0Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[132]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[125]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5784,7 +5460,7 @@ func (x *NewInstance0Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewInstance0Request.ProtoReflect.Descriptor instead.
 func (*NewInstance0Request) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{132}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{125}
 }
 
 type NewInstance0Response struct {
@@ -5796,7 +5472,7 @@ type NewInstance0Response struct {
 
 func (x *NewInstance0Response) Reset() {
 	*x = NewInstance0Response{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[133]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[126]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5808,7 +5484,7 @@ func (x *NewInstance0Response) String() string {
 func (*NewInstance0Response) ProtoMessage() {}
 
 func (x *NewInstance0Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[133]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[126]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5821,7 +5497,7 @@ func (x *NewInstance0Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewInstance0Response.ProtoReflect.Descriptor instead.
 func (*NewInstance0Response) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{133}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{126}
 }
 
 func (x *NewInstance0Response) GetResult() int64 {
@@ -5840,7 +5516,7 @@ type NewInstance1_1Request struct {
 
 func (x *NewInstance1_1Request) Reset() {
 	*x = NewInstance1_1Request{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[134]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[127]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5852,7 +5528,7 @@ func (x *NewInstance1_1Request) String() string {
 func (*NewInstance1_1Request) ProtoMessage() {}
 
 func (x *NewInstance1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[134]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[127]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5865,7 +5541,7 @@ func (x *NewInstance1_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewInstance1_1Request.ProtoReflect.Descriptor instead.
 func (*NewInstance1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{134}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{127}
 }
 
 func (x *NewInstance1_1Request) GetArg0() string {
@@ -5884,7 +5560,7 @@ type NewInstance1_1Response struct {
 
 func (x *NewInstance1_1Response) Reset() {
 	*x = NewInstance1_1Response{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[135]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[128]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5896,7 +5572,7 @@ func (x *NewInstance1_1Response) String() string {
 func (*NewInstance1_1Response) ProtoMessage() {}
 
 func (x *NewInstance1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[135]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[128]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5909,7 +5585,7 @@ func (x *NewInstance1_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewInstance1_1Response.ProtoReflect.Descriptor instead.
 func (*NewInstance1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{135}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{128}
 }
 
 func (x *NewInstance1_1Response) GetResult() int64 {
@@ -5928,7 +5604,7 @@ type NewWifiP2PServiceRequestRequest struct {
 
 func (x *NewWifiP2PServiceRequestRequest) Reset() {
 	*x = NewWifiP2PServiceRequestRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[136]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[129]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5940,7 +5616,7 @@ func (x *NewWifiP2PServiceRequestRequest) String() string {
 func (*NewWifiP2PServiceRequestRequest) ProtoMessage() {}
 
 func (x *NewWifiP2PServiceRequestRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[136]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[129]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5953,7 +5629,7 @@ func (x *NewWifiP2PServiceRequestRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewWifiP2PServiceRequestRequest.ProtoReflect.Descriptor instead.
 func (*NewWifiP2PServiceRequestRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{136}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{129}
 }
 
 func (x *NewWifiP2PServiceRequestRequest) GetArg0() int64 {
@@ -5972,7 +5648,7 @@ type NewWifiP2PServiceRequestResponse struct {
 
 func (x *NewWifiP2PServiceRequestResponse) Reset() {
 	*x = NewWifiP2PServiceRequestResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[137]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[130]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5984,7 +5660,7 @@ func (x *NewWifiP2PServiceRequestResponse) String() string {
 func (*NewWifiP2PServiceRequestResponse) ProtoMessage() {}
 
 func (x *NewWifiP2PServiceRequestResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[137]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[130]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5997,12 +5673,196 @@ func (x *NewWifiP2PServiceRequestResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewWifiP2PServiceRequestResponse.ProtoReflect.Descriptor instead.
 func (*NewWifiP2PServiceRequestResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{137}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{130}
 }
 
 func (x *NewWifiP2PServiceRequestResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
+	}
+	return 0
+}
+
+type WifiP2PServiceRequestEqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WifiP2PServiceRequestEqualsRequest) Reset() {
+	*x = WifiP2PServiceRequestEqualsRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[131]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WifiP2PServiceRequestEqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WifiP2PServiceRequestEqualsRequest) ProtoMessage() {}
+
+func (x *WifiP2PServiceRequestEqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[131]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WifiP2PServiceRequestEqualsRequest.ProtoReflect.Descriptor instead.
+func (*WifiP2PServiceRequestEqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{131}
+}
+
+func (x *WifiP2PServiceRequestEqualsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *WifiP2PServiceRequestEqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetWifiP2PUsdBasedServiceConfigRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWifiP2PUsdBasedServiceConfigRequest) Reset() {
+	*x = GetWifiP2PUsdBasedServiceConfigRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[132]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWifiP2PUsdBasedServiceConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWifiP2PUsdBasedServiceConfigRequest) ProtoMessage() {}
+
+func (x *GetWifiP2PUsdBasedServiceConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[132]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWifiP2PUsdBasedServiceConfigRequest.ProtoReflect.Descriptor instead.
+func (*GetWifiP2PUsdBasedServiceConfigRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{132}
+}
+
+func (x *GetWifiP2PUsdBasedServiceConfigRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetWifiP2PUsdBasedServiceConfigResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetWifiP2PUsdBasedServiceConfigResponse) Reset() {
+	*x = GetWifiP2PUsdBasedServiceConfigResponse{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[133]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetWifiP2PUsdBasedServiceConfigResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetWifiP2PUsdBasedServiceConfigResponse) ProtoMessage() {}
+
+func (x *GetWifiP2PUsdBasedServiceConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[133]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetWifiP2PUsdBasedServiceConfigResponse.ProtoReflect.Descriptor instead.
+func (*GetWifiP2PUsdBasedServiceConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{133}
+}
+
+func (x *GetWifiP2PUsdBasedServiceConfigResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type WifiP2PServiceRequestHashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WifiP2PServiceRequestHashCodeRequest) Reset() {
+	*x = WifiP2PServiceRequestHashCodeRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[134]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WifiP2PServiceRequestHashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WifiP2PServiceRequestHashCodeRequest) ProtoMessage() {}
+
+func (x *WifiP2PServiceRequestHashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[134]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WifiP2PServiceRequestHashCodeRequest.ProtoReflect.Descriptor instead.
+func (*WifiP2PServiceRequestHashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{134}
+}
+
+func (x *WifiP2PServiceRequestHashCodeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
 	}
 	return 0
 }
@@ -6017,7 +5877,7 @@ type NewInstance1Request struct {
 
 func (x *NewInstance1Request) Reset() {
 	*x = NewInstance1Request{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[138]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[135]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6029,7 +5889,7 @@ func (x *NewInstance1Request) String() string {
 func (*NewInstance1Request) ProtoMessage() {}
 
 func (x *NewInstance1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[138]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[135]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6042,7 +5902,7 @@ func (x *NewInstance1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewInstance1Request.ProtoReflect.Descriptor instead.
 func (*NewInstance1Request) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{138}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{135}
 }
 
 func (x *NewInstance1Request) GetHandle() int64 {
@@ -6068,7 +5928,7 @@ type NewInstance1Response struct {
 
 func (x *NewInstance1Response) Reset() {
 	*x = NewInstance1Response{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[139]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[136]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6080,7 +5940,7 @@ func (x *NewInstance1Response) String() string {
 func (*NewInstance1Response) ProtoMessage() {}
 
 func (x *NewInstance1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[139]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[136]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6093,7 +5953,7 @@ func (x *NewInstance1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewInstance1Response.ProtoReflect.Descriptor instead.
 func (*NewInstance1Response) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{139}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{136}
 }
 
 func (x *NewInstance1Response) GetResult() int64 {
@@ -6114,7 +5974,7 @@ type NewInstance2_1Request struct {
 
 func (x *NewInstance2_1Request) Reset() {
 	*x = NewInstance2_1Request{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[140]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[137]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6126,7 +5986,7 @@ func (x *NewInstance2_1Request) String() string {
 func (*NewInstance2_1Request) ProtoMessage() {}
 
 func (x *NewInstance2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[140]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[137]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6139,7 +5999,7 @@ func (x *NewInstance2_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewInstance2_1Request.ProtoReflect.Descriptor instead.
 func (*NewInstance2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{140}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{137}
 }
 
 func (x *NewInstance2_1Request) GetHandle() int64 {
@@ -6172,7 +6032,7 @@ type NewInstance2_1Response struct {
 
 func (x *NewInstance2_1Response) Reset() {
 	*x = NewInstance2_1Response{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[141]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[138]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6184,7 +6044,7 @@ func (x *NewInstance2_1Response) String() string {
 func (*NewInstance2_1Response) ProtoMessage() {}
 
 func (x *NewInstance2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[141]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[138]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6197,10 +6057,858 @@ func (x *NewInstance2_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewInstance2_1Response.ProtoReflect.Descriptor instead.
 func (*NewInstance2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{141}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{138}
 }
 
 func (x *NewInstance2_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type WifiP2PUsdBasedServiceResponseDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WifiP2PUsdBasedServiceResponseDescribeContentsRequest) Reset() {
+	*x = WifiP2PUsdBasedServiceResponseDescribeContentsRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[139]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WifiP2PUsdBasedServiceResponseDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WifiP2PUsdBasedServiceResponseDescribeContentsRequest) ProtoMessage() {}
+
+func (x *WifiP2PUsdBasedServiceResponseDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[139]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WifiP2PUsdBasedServiceResponseDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*WifiP2PUsdBasedServiceResponseDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{139}
+}
+
+type GetServiceProtocolTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetServiceProtocolTypeRequest) Reset() {
+	*x = GetServiceProtocolTypeRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[140]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetServiceProtocolTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetServiceProtocolTypeRequest) ProtoMessage() {}
+
+func (x *GetServiceProtocolTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[140]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetServiceProtocolTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetServiceProtocolTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{140}
+}
+
+type GetServiceProtocolTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetServiceProtocolTypeResponse) Reset() {
+	*x = GetServiceProtocolTypeResponse{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[141]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetServiceProtocolTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetServiceProtocolTypeResponse) ProtoMessage() {}
+
+func (x *GetServiceProtocolTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[141]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetServiceProtocolTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetServiceProtocolTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{141}
+}
+
+func (x *GetServiceProtocolTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetServiceSpecificInfoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetServiceSpecificInfoRequest) Reset() {
+	*x = GetServiceSpecificInfoRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[142]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetServiceSpecificInfoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetServiceSpecificInfoRequest) ProtoMessage() {}
+
+func (x *GetServiceSpecificInfoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[142]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetServiceSpecificInfoRequest.ProtoReflect.Descriptor instead.
+func (*GetServiceSpecificInfoRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{142}
+}
+
+type GetServiceSpecificInfoResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetServiceSpecificInfoResponse) Reset() {
+	*x = GetServiceSpecificInfoResponse{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[143]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetServiceSpecificInfoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetServiceSpecificInfoResponse) ProtoMessage() {}
+
+func (x *GetServiceSpecificInfoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[143]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetServiceSpecificInfoResponse.ProtoReflect.Descriptor instead.
+func (*GetServiceSpecificInfoResponse) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{143}
+}
+
+func (x *GetServiceSpecificInfoResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type WifiP2PUsdBasedServiceResponseToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WifiP2PUsdBasedServiceResponseToStringRequest) Reset() {
+	*x = WifiP2PUsdBasedServiceResponseToStringRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[144]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WifiP2PUsdBasedServiceResponseToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WifiP2PUsdBasedServiceResponseToStringRequest) ProtoMessage() {}
+
+func (x *WifiP2PUsdBasedServiceResponseToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[144]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WifiP2PUsdBasedServiceResponseToStringRequest.ProtoReflect.Descriptor instead.
+func (*WifiP2PUsdBasedServiceResponseToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{144}
+}
+
+type WifiP2PUsdBasedServiceResponseWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WifiP2PUsdBasedServiceResponseWriteToParcelRequest) Reset() {
+	*x = WifiP2PUsdBasedServiceResponseWriteToParcelRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[145]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WifiP2PUsdBasedServiceResponseWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WifiP2PUsdBasedServiceResponseWriteToParcelRequest) ProtoMessage() {}
+
+func (x *WifiP2PUsdBasedServiceResponseWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[145]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WifiP2PUsdBasedServiceResponseWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WifiP2PUsdBasedServiceResponseWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{145}
+}
+
+func (x *WifiP2PUsdBasedServiceResponseWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WifiP2PUsdBasedServiceResponseWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NewWifiP2PServiceInfoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewWifiP2PServiceInfoRequest) Reset() {
+	*x = NewWifiP2PServiceInfoRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[146]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewWifiP2PServiceInfoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewWifiP2PServiceInfoRequest) ProtoMessage() {}
+
+func (x *NewWifiP2PServiceInfoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[146]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewWifiP2PServiceInfoRequest.ProtoReflect.Descriptor instead.
+func (*NewWifiP2PServiceInfoRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{146}
+}
+
+func (x *NewWifiP2PServiceInfoRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewWifiP2PServiceInfoResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewWifiP2PServiceInfoResponse) Reset() {
+	*x = NewWifiP2PServiceInfoResponse{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[147]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewWifiP2PServiceInfoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewWifiP2PServiceInfoResponse) ProtoMessage() {}
+
+func (x *NewWifiP2PServiceInfoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[147]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewWifiP2PServiceInfoResponse.ProtoReflect.Descriptor instead.
+func (*NewWifiP2PServiceInfoResponse) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{147}
+}
+
+func (x *NewWifiP2PServiceInfoResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewWifiP2PUsdBasedServiceConfigRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewWifiP2PUsdBasedServiceConfigRequest) Reset() {
+	*x = NewWifiP2PUsdBasedServiceConfigRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[148]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewWifiP2PUsdBasedServiceConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewWifiP2PUsdBasedServiceConfigRequest) ProtoMessage() {}
+
+func (x *NewWifiP2PUsdBasedServiceConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[148]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewWifiP2PUsdBasedServiceConfigRequest.ProtoReflect.Descriptor instead.
+func (*NewWifiP2PUsdBasedServiceConfigRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{148}
+}
+
+type NewWifiP2PUsdBasedServiceConfigResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewWifiP2PUsdBasedServiceConfigResponse) Reset() {
+	*x = NewWifiP2PUsdBasedServiceConfigResponse{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[149]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewWifiP2PUsdBasedServiceConfigResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewWifiP2PUsdBasedServiceConfigResponse) ProtoMessage() {}
+
+func (x *NewWifiP2PUsdBasedServiceConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[149]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewWifiP2PUsdBasedServiceConfigResponse.ProtoReflect.Descriptor instead.
+func (*NewWifiP2PUsdBasedServiceConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{149}
+}
+
+func (x *NewWifiP2PUsdBasedServiceConfigResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type WifiP2PUsdBasedServiceConfigGetServiceProtocolTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WifiP2PUsdBasedServiceConfigGetServiceProtocolTypeRequest) Reset() {
+	*x = WifiP2PUsdBasedServiceConfigGetServiceProtocolTypeRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[150]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WifiP2PUsdBasedServiceConfigGetServiceProtocolTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WifiP2PUsdBasedServiceConfigGetServiceProtocolTypeRequest) ProtoMessage() {}
+
+func (x *WifiP2PUsdBasedServiceConfigGetServiceProtocolTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[150]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WifiP2PUsdBasedServiceConfigGetServiceProtocolTypeRequest.ProtoReflect.Descriptor instead.
+func (*WifiP2PUsdBasedServiceConfigGetServiceProtocolTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{150}
+}
+
+func (x *WifiP2PUsdBasedServiceConfigGetServiceProtocolTypeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type WifiP2PUsdBasedServiceConfigGetServiceSpecificInfoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WifiP2PUsdBasedServiceConfigGetServiceSpecificInfoRequest) Reset() {
+	*x = WifiP2PUsdBasedServiceConfigGetServiceSpecificInfoRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[151]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WifiP2PUsdBasedServiceConfigGetServiceSpecificInfoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WifiP2PUsdBasedServiceConfigGetServiceSpecificInfoRequest) ProtoMessage() {}
+
+func (x *WifiP2PUsdBasedServiceConfigGetServiceSpecificInfoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[151]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WifiP2PUsdBasedServiceConfigGetServiceSpecificInfoRequest.ProtoReflect.Descriptor instead.
+func (*WifiP2PUsdBasedServiceConfigGetServiceSpecificInfoRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{151}
+}
+
+func (x *WifiP2PUsdBasedServiceConfigGetServiceSpecificInfoRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type WifiP2PUsdBasedServiceConfigToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WifiP2PUsdBasedServiceConfigToStringRequest) Reset() {
+	*x = WifiP2PUsdBasedServiceConfigToStringRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[152]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WifiP2PUsdBasedServiceConfigToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WifiP2PUsdBasedServiceConfigToStringRequest) ProtoMessage() {}
+
+func (x *WifiP2PUsdBasedServiceConfigToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[152]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WifiP2PUsdBasedServiceConfigToStringRequest.ProtoReflect.Descriptor instead.
+func (*WifiP2PUsdBasedServiceConfigToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{152}
+}
+
+func (x *WifiP2PUsdBasedServiceConfigToStringRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetMaxAllowedServiceSpecificInfoLengthRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxAllowedServiceSpecificInfoLengthRequest) Reset() {
+	*x = GetMaxAllowedServiceSpecificInfoLengthRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[153]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxAllowedServiceSpecificInfoLengthRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxAllowedServiceSpecificInfoLengthRequest) ProtoMessage() {}
+
+func (x *GetMaxAllowedServiceSpecificInfoLengthRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[153]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxAllowedServiceSpecificInfoLengthRequest.ProtoReflect.Descriptor instead.
+func (*GetMaxAllowedServiceSpecificInfoLengthRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{153}
+}
+
+func (x *GetMaxAllowedServiceSpecificInfoLengthRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetMaxAllowedServiceSpecificInfoLengthResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxAllowedServiceSpecificInfoLengthResponse) Reset() {
+	*x = GetMaxAllowedServiceSpecificInfoLengthResponse{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[154]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxAllowedServiceSpecificInfoLengthResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxAllowedServiceSpecificInfoLengthResponse) ProtoMessage() {}
+
+func (x *GetMaxAllowedServiceSpecificInfoLengthResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[154]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxAllowedServiceSpecificInfoLengthResponse.ProtoReflect.Descriptor instead.
+func (*GetMaxAllowedServiceSpecificInfoLengthResponse) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{154}
+}
+
+func (x *GetMaxAllowedServiceSpecificInfoLengthResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetServiceProtocolTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetServiceProtocolTypeRequest) Reset() {
+	*x = SetServiceProtocolTypeRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[155]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetServiceProtocolTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetServiceProtocolTypeRequest) ProtoMessage() {}
+
+func (x *SetServiceProtocolTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[155]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetServiceProtocolTypeRequest.ProtoReflect.Descriptor instead.
+func (*SetServiceProtocolTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{155}
+}
+
+func (x *SetServiceProtocolTypeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetServiceProtocolTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetServiceProtocolTypeResponse) Reset() {
+	*x = SetServiceProtocolTypeResponse{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[156]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetServiceProtocolTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetServiceProtocolTypeResponse) ProtoMessage() {}
+
+func (x *SetServiceProtocolTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[156]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetServiceProtocolTypeResponse.ProtoReflect.Descriptor instead.
+func (*SetServiceProtocolTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{156}
+}
+
+func (x *SetServiceProtocolTypeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetServiceSpecificInfoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetServiceSpecificInfoRequest) Reset() {
+	*x = SetServiceSpecificInfoRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[157]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetServiceSpecificInfoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetServiceSpecificInfoRequest) ProtoMessage() {}
+
+func (x *SetServiceSpecificInfoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[157]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetServiceSpecificInfoRequest.ProtoReflect.Descriptor instead.
+func (*SetServiceSpecificInfoRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{157}
+}
+
+func (x *SetServiceSpecificInfoRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetServiceSpecificInfoResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetServiceSpecificInfoResponse) Reset() {
+	*x = SetServiceSpecificInfoResponse{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[158]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetServiceSpecificInfoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetServiceSpecificInfoResponse) ProtoMessage() {}
+
+func (x *SetServiceSpecificInfoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[158]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetServiceSpecificInfoResponse.ProtoReflect.Descriptor instead.
+func (*SetServiceSpecificInfoResponse) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{158}
+}
+
+func (x *SetServiceSpecificInfoResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -6217,7 +6925,7 @@ type NewInstance2_2Request struct {
 
 func (x *NewInstance2_2Request) Reset() {
 	*x = NewInstance2_2Request{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[142]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[159]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6229,7 +6937,7 @@ func (x *NewInstance2_2Request) String() string {
 func (*NewInstance2_2Request) ProtoMessage() {}
 
 func (x *NewInstance2_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[142]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[159]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6242,7 +6950,7 @@ func (x *NewInstance2_2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewInstance2_2Request.ProtoReflect.Descriptor instead.
 func (*NewInstance2_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{142}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{159}
 }
 
 func (x *NewInstance2_2Request) GetArg0() string {
@@ -6268,7 +6976,7 @@ type NewInstance2_2Response struct {
 
 func (x *NewInstance2_2Response) Reset() {
 	*x = NewInstance2_2Response{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[143]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[160]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6280,7 +6988,7 @@ func (x *NewInstance2_2Response) String() string {
 func (*NewInstance2_2Response) ProtoMessage() {}
 
 func (x *NewInstance2_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[143]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[160]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6293,7 +7001,7 @@ func (x *NewInstance2_2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewInstance2_2Response.ProtoReflect.Descriptor instead.
 func (*NewInstance2_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{143}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{160}
 }
 
 func (x *NewInstance2_2Response) GetResult() int64 {
@@ -6303,27 +7011,27 @@ func (x *NewInstance2_2Response) GetResult() int64 {
 	return 0
 }
 
-type NewWifiP2PUsdBasedServiceConfigRequest struct {
+type ServiceInfoDescribeContentsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *NewWifiP2PUsdBasedServiceConfigRequest) Reset() {
-	*x = NewWifiP2PUsdBasedServiceConfigRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[144]
+func (x *ServiceInfoDescribeContentsRequest) Reset() {
+	*x = ServiceInfoDescribeContentsRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[161]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *NewWifiP2PUsdBasedServiceConfigRequest) String() string {
+func (x *ServiceInfoDescribeContentsRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*NewWifiP2PUsdBasedServiceConfigRequest) ProtoMessage() {}
+func (*ServiceInfoDescribeContentsRequest) ProtoMessage() {}
 
-func (x *NewWifiP2PUsdBasedServiceConfigRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[144]
+func (x *ServiceInfoDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[161]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6334,449 +7042,9 @@ func (x *NewWifiP2PUsdBasedServiceConfigRequest) ProtoReflect() protoreflect.Mes
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use NewWifiP2PUsdBasedServiceConfigRequest.ProtoReflect.Descriptor instead.
-func (*NewWifiP2PUsdBasedServiceConfigRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{144}
-}
-
-type NewWifiP2PUsdBasedServiceConfigResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewWifiP2PUsdBasedServiceConfigResponse) Reset() {
-	*x = NewWifiP2PUsdBasedServiceConfigResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[145]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewWifiP2PUsdBasedServiceConfigResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewWifiP2PUsdBasedServiceConfigResponse) ProtoMessage() {}
-
-func (x *NewWifiP2PUsdBasedServiceConfigResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[145]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewWifiP2PUsdBasedServiceConfigResponse.ProtoReflect.Descriptor instead.
-func (*NewWifiP2PUsdBasedServiceConfigResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{145}
-}
-
-func (x *NewWifiP2PUsdBasedServiceConfigResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type WifiP2PUsdBasedServiceConfigGetServiceProtocolTypeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *WifiP2PUsdBasedServiceConfigGetServiceProtocolTypeRequest) Reset() {
-	*x = WifiP2PUsdBasedServiceConfigGetServiceProtocolTypeRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[146]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WifiP2PUsdBasedServiceConfigGetServiceProtocolTypeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WifiP2PUsdBasedServiceConfigGetServiceProtocolTypeRequest) ProtoMessage() {}
-
-func (x *WifiP2PUsdBasedServiceConfigGetServiceProtocolTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[146]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WifiP2PUsdBasedServiceConfigGetServiceProtocolTypeRequest.ProtoReflect.Descriptor instead.
-func (*WifiP2PUsdBasedServiceConfigGetServiceProtocolTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{146}
-}
-
-func (x *WifiP2PUsdBasedServiceConfigGetServiceProtocolTypeRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type WifiP2PUsdBasedServiceConfigGetServiceSpecificInfoRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *WifiP2PUsdBasedServiceConfigGetServiceSpecificInfoRequest) Reset() {
-	*x = WifiP2PUsdBasedServiceConfigGetServiceSpecificInfoRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[147]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WifiP2PUsdBasedServiceConfigGetServiceSpecificInfoRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WifiP2PUsdBasedServiceConfigGetServiceSpecificInfoRequest) ProtoMessage() {}
-
-func (x *WifiP2PUsdBasedServiceConfigGetServiceSpecificInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[147]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WifiP2PUsdBasedServiceConfigGetServiceSpecificInfoRequest.ProtoReflect.Descriptor instead.
-func (*WifiP2PUsdBasedServiceConfigGetServiceSpecificInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{147}
-}
-
-func (x *WifiP2PUsdBasedServiceConfigGetServiceSpecificInfoRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type WifiP2PUsdBasedServiceConfigToStringRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *WifiP2PUsdBasedServiceConfigToStringRequest) Reset() {
-	*x = WifiP2PUsdBasedServiceConfigToStringRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[148]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WifiP2PUsdBasedServiceConfigToStringRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WifiP2PUsdBasedServiceConfigToStringRequest) ProtoMessage() {}
-
-func (x *WifiP2PUsdBasedServiceConfigToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[148]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WifiP2PUsdBasedServiceConfigToStringRequest.ProtoReflect.Descriptor instead.
-func (*WifiP2PUsdBasedServiceConfigToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{148}
-}
-
-func (x *WifiP2PUsdBasedServiceConfigToStringRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetMaxAllowedServiceSpecificInfoLengthRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMaxAllowedServiceSpecificInfoLengthRequest) Reset() {
-	*x = GetMaxAllowedServiceSpecificInfoLengthRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[149]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMaxAllowedServiceSpecificInfoLengthRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMaxAllowedServiceSpecificInfoLengthRequest) ProtoMessage() {}
-
-func (x *GetMaxAllowedServiceSpecificInfoLengthRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[149]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMaxAllowedServiceSpecificInfoLengthRequest.ProtoReflect.Descriptor instead.
-func (*GetMaxAllowedServiceSpecificInfoLengthRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{149}
-}
-
-func (x *GetMaxAllowedServiceSpecificInfoLengthRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetMaxAllowedServiceSpecificInfoLengthResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMaxAllowedServiceSpecificInfoLengthResponse) Reset() {
-	*x = GetMaxAllowedServiceSpecificInfoLengthResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[150]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMaxAllowedServiceSpecificInfoLengthResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMaxAllowedServiceSpecificInfoLengthResponse) ProtoMessage() {}
-
-func (x *GetMaxAllowedServiceSpecificInfoLengthResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[150]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMaxAllowedServiceSpecificInfoLengthResponse.ProtoReflect.Descriptor instead.
-func (*GetMaxAllowedServiceSpecificInfoLengthResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{150}
-}
-
-func (x *GetMaxAllowedServiceSpecificInfoLengthResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetServiceProtocolTypeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetServiceProtocolTypeRequest) Reset() {
-	*x = SetServiceProtocolTypeRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[151]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetServiceProtocolTypeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetServiceProtocolTypeRequest) ProtoMessage() {}
-
-func (x *SetServiceProtocolTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[151]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetServiceProtocolTypeRequest.ProtoReflect.Descriptor instead.
-func (*SetServiceProtocolTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{151}
-}
-
-func (x *SetServiceProtocolTypeRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetServiceProtocolTypeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetServiceProtocolTypeResponse) Reset() {
-	*x = SetServiceProtocolTypeResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[152]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetServiceProtocolTypeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetServiceProtocolTypeResponse) ProtoMessage() {}
-
-func (x *SetServiceProtocolTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[152]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetServiceProtocolTypeResponse.ProtoReflect.Descriptor instead.
-func (*SetServiceProtocolTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{152}
-}
-
-func (x *SetServiceProtocolTypeResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetServiceSpecificInfoRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetServiceSpecificInfoRequest) Reset() {
-	*x = SetServiceSpecificInfoRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[153]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetServiceSpecificInfoRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetServiceSpecificInfoRequest) ProtoMessage() {}
-
-func (x *SetServiceSpecificInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[153]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetServiceSpecificInfoRequest.ProtoReflect.Descriptor instead.
-func (*SetServiceSpecificInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{153}
-}
-
-func (x *SetServiceSpecificInfoRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetServiceSpecificInfoResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetServiceSpecificInfoResponse) Reset() {
-	*x = SetServiceSpecificInfoResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[154]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetServiceSpecificInfoResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetServiceSpecificInfoResponse) ProtoMessage() {}
-
-func (x *SetServiceSpecificInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[154]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetServiceSpecificInfoResponse.ProtoReflect.Descriptor instead.
-func (*SetServiceSpecificInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{154}
-}
-
-func (x *SetServiceSpecificInfoResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
+// Deprecated: Use ServiceInfoDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*ServiceInfoDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{161}
 }
 
 type ServiceInfoGetHostRequest struct {
@@ -6787,7 +7055,7 @@ type ServiceInfoGetHostRequest struct {
 
 func (x *ServiceInfoGetHostRequest) Reset() {
 	*x = ServiceInfoGetHostRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[155]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[162]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6799,7 +7067,7 @@ func (x *ServiceInfoGetHostRequest) String() string {
 func (*ServiceInfoGetHostRequest) ProtoMessage() {}
 
 func (x *ServiceInfoGetHostRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[155]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[162]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6812,30 +7080,30 @@ func (x *ServiceInfoGetHostRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ServiceInfoGetHostRequest.ProtoReflect.Descriptor instead.
 func (*ServiceInfoGetHostRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{155}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{162}
 }
 
-type GetHostAddressesRequest struct {
+type ServiceInfoGetHostAddressesRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetHostAddressesRequest) Reset() {
-	*x = GetHostAddressesRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[156]
+func (x *ServiceInfoGetHostAddressesRequest) Reset() {
+	*x = ServiceInfoGetHostAddressesRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[163]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetHostAddressesRequest) String() string {
+func (x *ServiceInfoGetHostAddressesRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetHostAddressesRequest) ProtoMessage() {}
+func (*ServiceInfoGetHostAddressesRequest) ProtoMessage() {}
 
-func (x *GetHostAddressesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[156]
+func (x *ServiceInfoGetHostAddressesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[163]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6846,53 +7114,9 @@ func (x *GetHostAddressesRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetHostAddressesRequest.ProtoReflect.Descriptor instead.
-func (*GetHostAddressesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{156}
-}
-
-type GetHostAddressesResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetHostAddressesResponse) Reset() {
-	*x = GetHostAddressesResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[157]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetHostAddressesResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetHostAddressesResponse) ProtoMessage() {}
-
-func (x *GetHostAddressesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[157]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetHostAddressesResponse.ProtoReflect.Descriptor instead.
-func (*GetHostAddressesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{157}
-}
-
-func (x *GetHostAddressesResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
+// Deprecated: Use ServiceInfoGetHostAddressesRequest.ProtoReflect.Descriptor instead.
+func (*ServiceInfoGetHostAddressesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{163}
 }
 
 type ServiceInfoGetHostnameRequest struct {
@@ -6903,7 +7127,7 @@ type ServiceInfoGetHostnameRequest struct {
 
 func (x *ServiceInfoGetHostnameRequest) Reset() {
 	*x = ServiceInfoGetHostnameRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[158]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[164]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6915,7 +7139,7 @@ func (x *ServiceInfoGetHostnameRequest) String() string {
 func (*ServiceInfoGetHostnameRequest) ProtoMessage() {}
 
 func (x *ServiceInfoGetHostnameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[158]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[164]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6928,7 +7152,43 @@ func (x *ServiceInfoGetHostnameRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ServiceInfoGetHostnameRequest.ProtoReflect.Descriptor instead.
 func (*ServiceInfoGetHostnameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{158}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{164}
+}
+
+type ServiceInfoGetNetworkRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ServiceInfoGetNetworkRequest) Reset() {
+	*x = ServiceInfoGetNetworkRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[165]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ServiceInfoGetNetworkRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ServiceInfoGetNetworkRequest) ProtoMessage() {}
+
+func (x *ServiceInfoGetNetworkRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[165]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ServiceInfoGetNetworkRequest.ProtoReflect.Descriptor instead.
+func (*ServiceInfoGetNetworkRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{165}
 }
 
 type ServiceInfoGetPortRequest struct {
@@ -6939,7 +7199,7 @@ type ServiceInfoGetPortRequest struct {
 
 func (x *ServiceInfoGetPortRequest) Reset() {
 	*x = ServiceInfoGetPortRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[159]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[166]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6951,7 +7211,7 @@ func (x *ServiceInfoGetPortRequest) String() string {
 func (*ServiceInfoGetPortRequest) ProtoMessage() {}
 
 func (x *ServiceInfoGetPortRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[159]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[166]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6964,7 +7224,7 @@ func (x *ServiceInfoGetPortRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ServiceInfoGetPortRequest.ProtoReflect.Descriptor instead.
 func (*ServiceInfoGetPortRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{159}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{166}
 }
 
 type ServiceInfoGetServiceNameRequest struct {
@@ -6975,7 +7235,7 @@ type ServiceInfoGetServiceNameRequest struct {
 
 func (x *ServiceInfoGetServiceNameRequest) Reset() {
 	*x = ServiceInfoGetServiceNameRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[160]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[167]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6987,7 +7247,7 @@ func (x *ServiceInfoGetServiceNameRequest) String() string {
 func (*ServiceInfoGetServiceNameRequest) ProtoMessage() {}
 
 func (x *ServiceInfoGetServiceNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[160]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[167]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7000,30 +7260,30 @@ func (x *ServiceInfoGetServiceNameRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ServiceInfoGetServiceNameRequest.ProtoReflect.Descriptor instead.
 func (*ServiceInfoGetServiceNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{160}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{167}
 }
 
-type GetSubtypesRequest struct {
+type ServiceInfoGetServiceTypeRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetSubtypesRequest) Reset() {
-	*x = GetSubtypesRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[161]
+func (x *ServiceInfoGetServiceTypeRequest) Reset() {
+	*x = ServiceInfoGetServiceTypeRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[168]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetSubtypesRequest) String() string {
+func (x *ServiceInfoGetServiceTypeRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetSubtypesRequest) ProtoMessage() {}
+func (*ServiceInfoGetServiceTypeRequest) ProtoMessage() {}
 
-func (x *GetSubtypesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[161]
+func (x *ServiceInfoGetServiceTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[168]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7034,33 +7294,32 @@ func (x *GetSubtypesRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetSubtypesRequest.ProtoReflect.Descriptor instead.
-func (*GetSubtypesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{161}
+// Deprecated: Use ServiceInfoGetServiceTypeRequest.ProtoReflect.Descriptor instead.
+func (*ServiceInfoGetServiceTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{168}
 }
 
-type GetSubtypesResponse struct {
+type ServiceInfoGetSubtypesRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetSubtypesResponse) Reset() {
-	*x = GetSubtypesResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[162]
+func (x *ServiceInfoGetSubtypesRequest) Reset() {
+	*x = ServiceInfoGetSubtypesRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[169]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetSubtypesResponse) String() string {
+func (x *ServiceInfoGetSubtypesRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetSubtypesResponse) ProtoMessage() {}
+func (*ServiceInfoGetSubtypesRequest) ProtoMessage() {}
 
-func (x *GetSubtypesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[162]
+func (x *ServiceInfoGetSubtypesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[169]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7071,16 +7330,9 @@ func (x *GetSubtypesResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetSubtypesResponse.ProtoReflect.Descriptor instead.
-func (*GetSubtypesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{162}
-}
-
-func (x *GetSubtypesResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
+// Deprecated: Use ServiceInfoGetSubtypesRequest.ProtoReflect.Descriptor instead.
+func (*ServiceInfoGetSubtypesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{169}
 }
 
 type ServiceInfoRemoveAttributeRequest struct {
@@ -7092,7 +7344,7 @@ type ServiceInfoRemoveAttributeRequest struct {
 
 func (x *ServiceInfoRemoveAttributeRequest) Reset() {
 	*x = ServiceInfoRemoveAttributeRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[163]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[170]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7104,7 +7356,7 @@ func (x *ServiceInfoRemoveAttributeRequest) String() string {
 func (*ServiceInfoRemoveAttributeRequest) ProtoMessage() {}
 
 func (x *ServiceInfoRemoveAttributeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[163]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[170]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7117,7 +7369,7 @@ func (x *ServiceInfoRemoveAttributeRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use ServiceInfoRemoveAttributeRequest.ProtoReflect.Descriptor instead.
 func (*ServiceInfoRemoveAttributeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{163}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{170}
 }
 
 func (x *ServiceInfoRemoveAttributeRequest) GetArg0() string {
@@ -7137,7 +7389,7 @@ type ServiceInfoSetAttributeRequest struct {
 
 func (x *ServiceInfoSetAttributeRequest) Reset() {
 	*x = ServiceInfoSetAttributeRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[164]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[171]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7149,7 +7401,7 @@ func (x *ServiceInfoSetAttributeRequest) String() string {
 func (*ServiceInfoSetAttributeRequest) ProtoMessage() {}
 
 func (x *ServiceInfoSetAttributeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[164]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[171]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7162,7 +7414,7 @@ func (x *ServiceInfoSetAttributeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ServiceInfoSetAttributeRequest.ProtoReflect.Descriptor instead.
 func (*ServiceInfoSetAttributeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{164}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{171}
 }
 
 func (x *ServiceInfoSetAttributeRequest) GetArg0() string {
@@ -7188,7 +7440,7 @@ type ServiceInfoSetHostRequest struct {
 
 func (x *ServiceInfoSetHostRequest) Reset() {
 	*x = ServiceInfoSetHostRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[165]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[172]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7200,7 +7452,7 @@ func (x *ServiceInfoSetHostRequest) String() string {
 func (*ServiceInfoSetHostRequest) ProtoMessage() {}
 
 func (x *ServiceInfoSetHostRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[165]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[172]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7213,7 +7465,7 @@ func (x *ServiceInfoSetHostRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ServiceInfoSetHostRequest.ProtoReflect.Descriptor instead.
 func (*ServiceInfoSetHostRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{165}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{172}
 }
 
 func (x *ServiceInfoSetHostRequest) GetArg0() int64 {
@@ -7232,7 +7484,7 @@ type SetHostAddressesRequest struct {
 
 func (x *SetHostAddressesRequest) Reset() {
 	*x = SetHostAddressesRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[166]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[173]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7244,7 +7496,7 @@ func (x *SetHostAddressesRequest) String() string {
 func (*SetHostAddressesRequest) ProtoMessage() {}
 
 func (x *SetHostAddressesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[166]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[173]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7257,7 +7509,7 @@ func (x *SetHostAddressesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetHostAddressesRequest.ProtoReflect.Descriptor instead.
 func (*SetHostAddressesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{166}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{173}
 }
 
 func (x *SetHostAddressesRequest) GetArg0() int64 {
@@ -7275,7 +7527,7 @@ type SetHostAddressesResponse struct {
 
 func (x *SetHostAddressesResponse) Reset() {
 	*x = SetHostAddressesResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[167]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[174]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7287,7 +7539,7 @@ func (x *SetHostAddressesResponse) String() string {
 func (*SetHostAddressesResponse) ProtoMessage() {}
 
 func (x *SetHostAddressesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[167]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[174]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7300,30 +7552,31 @@ func (x *SetHostAddressesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetHostAddressesResponse.ProtoReflect.Descriptor instead.
 func (*SetHostAddressesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{167}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{174}
 }
 
-type SetNetworkResponse2 struct {
+type ServiceInfoSetNetworkRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetNetworkResponse2) Reset() {
-	*x = SetNetworkResponse2{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[168]
+func (x *ServiceInfoSetNetworkRequest) Reset() {
+	*x = ServiceInfoSetNetworkRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[175]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetNetworkResponse2) String() string {
+func (x *ServiceInfoSetNetworkRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetNetworkResponse2) ProtoMessage() {}
+func (*ServiceInfoSetNetworkRequest) ProtoMessage() {}
 
-func (x *SetNetworkResponse2) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[168]
+func (x *ServiceInfoSetNetworkRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[175]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7334,9 +7587,16 @@ func (x *SetNetworkResponse2) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetNetworkResponse2.ProtoReflect.Descriptor instead.
-func (*SetNetworkResponse2) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{168}
+// Deprecated: Use ServiceInfoSetNetworkRequest.ProtoReflect.Descriptor instead.
+func (*ServiceInfoSetNetworkRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{175}
+}
+
+func (x *ServiceInfoSetNetworkRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
 }
 
 type ServiceInfoSetPortRequest struct {
@@ -7348,7 +7608,7 @@ type ServiceInfoSetPortRequest struct {
 
 func (x *ServiceInfoSetPortRequest) Reset() {
 	*x = ServiceInfoSetPortRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[169]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[176]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7360,7 +7620,7 @@ func (x *ServiceInfoSetPortRequest) String() string {
 func (*ServiceInfoSetPortRequest) ProtoMessage() {}
 
 func (x *ServiceInfoSetPortRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[169]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[176]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7373,7 +7633,7 @@ func (x *ServiceInfoSetPortRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ServiceInfoSetPortRequest.ProtoReflect.Descriptor instead.
 func (*ServiceInfoSetPortRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{169}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{176}
 }
 
 func (x *ServiceInfoSetPortRequest) GetArg0() int32 {
@@ -7392,7 +7652,7 @@ type ServiceInfoSetServiceNameRequest struct {
 
 func (x *ServiceInfoSetServiceNameRequest) Reset() {
 	*x = ServiceInfoSetServiceNameRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[170]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[177]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7404,7 +7664,7 @@ func (x *ServiceInfoSetServiceNameRequest) String() string {
 func (*ServiceInfoSetServiceNameRequest) ProtoMessage() {}
 
 func (x *ServiceInfoSetServiceNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[170]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[177]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7417,7 +7677,7 @@ func (x *ServiceInfoSetServiceNameRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ServiceInfoSetServiceNameRequest.ProtoReflect.Descriptor instead.
 func (*ServiceInfoSetServiceNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{170}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{177}
 }
 
 func (x *ServiceInfoSetServiceNameRequest) GetArg0() string {
@@ -7436,7 +7696,7 @@ type ServiceInfoSetServiceTypeRequest struct {
 
 func (x *ServiceInfoSetServiceTypeRequest) Reset() {
 	*x = ServiceInfoSetServiceTypeRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[171]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[178]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7448,7 +7708,7 @@ func (x *ServiceInfoSetServiceTypeRequest) String() string {
 func (*ServiceInfoSetServiceTypeRequest) ProtoMessage() {}
 
 func (x *ServiceInfoSetServiceTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[171]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[178]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7461,7 +7721,7 @@ func (x *ServiceInfoSetServiceTypeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ServiceInfoSetServiceTypeRequest.ProtoReflect.Descriptor instead.
 func (*ServiceInfoSetServiceTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{171}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{178}
 }
 
 func (x *ServiceInfoSetServiceTypeRequest) GetArg0() string {
@@ -7480,7 +7740,7 @@ type SetSubtypesRequest struct {
 
 func (x *SetSubtypesRequest) Reset() {
 	*x = SetSubtypesRequest{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[172]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[179]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7492,7 +7752,7 @@ func (x *SetSubtypesRequest) String() string {
 func (*SetSubtypesRequest) ProtoMessage() {}
 
 func (x *SetSubtypesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[172]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[179]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7505,7 +7765,7 @@ func (x *SetSubtypesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetSubtypesRequest.ProtoReflect.Descriptor instead.
 func (*SetSubtypesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{172}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{179}
 }
 
 func (x *SetSubtypesRequest) GetArg0() int64 {
@@ -7523,7 +7783,7 @@ type SetSubtypesResponse struct {
 
 func (x *SetSubtypesResponse) Reset() {
 	*x = SetSubtypesResponse{}
-	mi := &file_proto_nsd_nsd_proto_msgTypes[173]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[180]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7535,7 +7795,7 @@ func (x *SetSubtypesResponse) String() string {
 func (*SetSubtypesResponse) ProtoMessage() {}
 
 func (x *SetSubtypesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_nsd_nsd_proto_msgTypes[173]
+	mi := &file_proto_nsd_nsd_proto_msgTypes[180]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7548,51 +7808,179 @@ func (x *SetSubtypesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetSubtypesResponse.ProtoReflect.Descriptor instead.
 func (*SetSubtypesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{173}
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{180}
+}
+
+type ServiceInfoToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ServiceInfoToStringRequest) Reset() {
+	*x = ServiceInfoToStringRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[181]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ServiceInfoToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ServiceInfoToStringRequest) ProtoMessage() {}
+
+func (x *ServiceInfoToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[181]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ServiceInfoToStringRequest.ProtoReflect.Descriptor instead.
+func (*ServiceInfoToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{181}
+}
+
+type ServiceInfoWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ServiceInfoWriteToParcelRequest) Reset() {
+	*x = ServiceInfoWriteToParcelRequest{}
+	mi := &file_proto_nsd_nsd_proto_msgTypes[182]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ServiceInfoWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ServiceInfoWriteToParcelRequest) ProtoMessage() {}
+
+func (x *ServiceInfoWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_nsd_nsd_proto_msgTypes[182]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ServiceInfoWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*ServiceInfoWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_nsd_nsd_proto_rawDescGZIP(), []int{182}
+}
+
+func (x *ServiceInfoWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *ServiceInfoWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
 }
 
 var File_proto_nsd_nsd_proto protoreflect.FileDescriptor
 
 const file_proto_nsd_nsd_proto_rawDesc = "" +
 	"\n" +
-	"\x13proto/nsd/nsd.proto\x12\x03nsd\"\x19\n" +
-	"\x17DescribeContentsRequest\"2\n" +
+	"\x13proto/nsd/nsd.proto\x12\x03nsd\"\x17\n" +
+	"\x15NewServiceInfoRequest\"0\n" +
+	"\x16NewServiceInfoResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x17DescribeContentsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
 	"\x18DescribeContentsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"#\n" +
-	"\rEqualsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
-	"\x0eEqualsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x13\n" +
-	"\x11GetNetworkRequest\",\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"(\n" +
+	"\x0eGetHostRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\")\n" +
+	"\x0fGetHostResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x17GetHostAddressesRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
+	"\x18GetHostAddressesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"\x12GetHostnameRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
+	"\x13GetHostnameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"+\n" +
+	"\x11GetNetworkRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
 	"\x12GetNetworkResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x17\n" +
-	"\x15GetServiceTypeRequest\"0\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
+	"\x0eGetPortRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\")\n" +
+	"\x0fGetPortResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"/\n" +
+	"\x15GetServiceNameRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
+	"\x16GetServiceNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"/\n" +
+	"\x15GetServiceTypeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
 	"\x16GetServiceTypeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x13\n" +
-	"\x11GetSubtypeRequest\",\n" +
-	"\x12GetSubtypeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x11\n" +
-	"\x0fHashCodeRequest\"*\n" +
-	"\x10HashCodeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
-	"\x0fToStringRequest\"*\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\",\n" +
+	"\x12GetSubtypesRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
+	"\x13GetSubtypesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"D\n" +
+	"\x16RemoveAttributeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"\x19\n" +
+	"\x17RemoveAttributeResponse\"U\n" +
+	"\x13SetAttributeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\"\x16\n" +
+	"\x14SetAttributeResponse\"<\n" +
+	"\x0eSetHostRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x11\n" +
+	"\x0fSetHostResponse\"?\n" +
+	"\x11SetNetworkRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x14\n" +
+	"\x12SetNetworkResponse\"<\n" +
+	"\x0eSetPortRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x11\n" +
+	"\x0fSetPortResponse\"C\n" +
+	"\x15SetServiceNameRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"\x18\n" +
+	"\x16SetServiceNameResponse\"C\n" +
+	"\x15SetServiceTypeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"\x18\n" +
+	"\x16SetServiceTypeResponse\")\n" +
+	"\x0fToStringRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
 	"\x10ToStringResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\">\n" +
-	"\x14WriteToParcelRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
-	"\x15WriteToParcelResponse\"\x0e\n" +
-	"\fBuildRequest\"'\n" +
-	"\rBuildResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"'\n" +
-	"\x11SetNetworkRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\",\n" +
-	"\x12SetNetworkResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"'\n" +
-	"\x11SetSubtypeRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\",\n" +
-	"\x12SetSubtypeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"V\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"V\n" +
+	"\x14WriteToParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse\"V\n" +
 	"\x18DiscoverServices3Request\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
@@ -7703,67 +8091,36 @@ const file_proto_nsd_nsd_proto_rawDesc = "" +
 	".ManagerServiceInfoCallbackOnServiceLostRequest\"-\n" +
 	"\x17OnServiceUpdatedRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1a\n" +
-	"\x18OnServiceUpdatedResponse\"\x17\n" +
-	"\x15NewServiceInfoRequest\"0\n" +
-	"\x16NewServiceInfoResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"<\n" +
-	"\"ServiceInfoDescribeContentsRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"(\n" +
-	"\x0eGetHostRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\")\n" +
-	"\x0fGetHostResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
-	"\x12GetHostnameRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
-	"\x13GetHostnameResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"6\n" +
-	"\x1cServiceInfoGetNetworkRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"(\n" +
-	"\x0eGetPortRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\")\n" +
-	"\x0fGetPortResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"/\n" +
-	"\x15GetServiceNameRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
-	"\x16GetServiceNameResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\":\n" +
-	" ServiceInfoGetServiceTypeRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"D\n" +
-	"\x16RemoveAttributeRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"\x19\n" +
-	"\x17RemoveAttributeResponse\"U\n" +
-	"\x13SetAttributeRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\tR\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\tR\x04arg1\"\x16\n" +
-	"\x14SetAttributeResponse\"<\n" +
-	"\x0eSetHostRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x11\n" +
-	"\x0fSetHostResponse\"J\n" +
-	"\x1cServiceInfoSetNetworkRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1f\n" +
-	"\x1dServiceInfoSetNetworkResponse\"<\n" +
-	"\x0eSetPortRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x11\n" +
-	"\x0fSetPortResponse\"C\n" +
-	"\x15SetServiceNameRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"\x18\n" +
-	"\x16SetServiceNameResponse\"C\n" +
-	"\x15SetServiceTypeRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"\x18\n" +
-	"\x16SetServiceTypeResponse\"4\n" +
-	"\x1aServiceInfoToStringRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"a\n" +
-	"\x1fServiceInfoWriteToParcelRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x11\n" +
+	"\x18OnServiceUpdatedResponse\")\n" +
+	"'DiscoveryRequestDescribeContentsRequest\"#\n" +
+	"\rEqualsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eEqualsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"#\n" +
+	"!DiscoveryRequestGetNetworkRequest\"'\n" +
+	"%DiscoveryRequestGetServiceTypeRequest\"\x13\n" +
+	"\x11GetSubtypeRequest\",\n" +
+	"\x12GetSubtypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x11\n" +
+	"\x0fHashCodeRequest\"*\n" +
+	"\x10HashCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"!\n" +
+	"\x1fDiscoveryRequestToStringRequest\"N\n" +
+	"$DiscoveryRequestWriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x0e\n" +
+	"\fBuildRequest\"'\n" +
+	"\rBuildResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
+	"(DiscoveryRequestBuilderSetNetworkRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"C\n" +
+	")DiscoveryRequestBuilderSetNetworkResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"'\n" +
+	"\x11SetSubtypeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\",\n" +
+	"\x12SetSubtypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	")AdvertisingRequestDescribeContentsRequest\"\x11\n" +
 	"\x0fGetFlagsRequest\"*\n" +
 	"\x10GetFlagsResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
@@ -7772,7 +8129,11 @@ const file_proto_nsd_nsd_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"\x17\n" +
 	"\x15GetServiceInfoRequest\"0\n" +
 	"\x16GetServiceInfoResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"%\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
+	"!AdvertisingRequestToStringRequest\"P\n" +
+	"&AdvertisingRequestWriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"%\n" +
 	"\x0fSetFlagsRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"*\n" +
 	"\x10SetFlagsResponse\x12\x16\n" +
@@ -7780,36 +8141,7 @@ const file_proto_nsd_nsd_proto_rawDesc = "" +
 	"\x16SetProtocolTypeRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"1\n" +
 	"\x17SetProtocolTypeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
-	"\x1cNewWifiP2pServiceInfoRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"7\n" +
-	"\x1dNewWifiP2pServiceInfoResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"C\n" +
-	")WifiP2pServiceInfoDescribeContentsRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"M\n" +
-	"\x1fWifiP2pServiceInfoEqualsRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"@\n" +
-	"&GetWifiP2pUsdBasedServiceConfigRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"A\n" +
-	"'GetWifiP2pUsdBasedServiceConfigResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\";\n" +
-	"!WifiP2pServiceInfoHashCodeRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"h\n" +
-	"&WifiP2pServiceInfoWriteToParcelRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"7\n" +
-	"5WifiP2pUsdBasedServiceResponseDescribeContentsRequest\"\x1f\n" +
-	"\x1dGetServiceProtocolTypeRequest\"8\n" +
-	"\x1eGetServiceProtocolTypeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1f\n" +
-	"\x1dGetServiceSpecificInfoRequest\"8\n" +
-	"\x1eGetServiceSpecificInfoResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\\\n" +
-	"2WifiP2pUsdBasedServiceResponseWriteToParcelRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x15\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
 	"\x13NewInstance0Request\".\n" +
 	"\x14NewInstance0Response\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
@@ -7820,7 +8152,16 @@ const file_proto_nsd_nsd_proto_rawDesc = "" +
 	"\x1fNewWifiP2pServiceRequestRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\":\n" +
 	" NewWifiP2pServiceRequestResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"A\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"P\n" +
+	"\"WifiP2pServiceRequestEqualsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"@\n" +
+	"&GetWifiP2pUsdBasedServiceConfigRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"A\n" +
+	"'GetWifiP2pUsdBasedServiceConfigResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
+	"$WifiP2pServiceRequestHashCodeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"A\n" +
 	"\x13NewInstance1Request\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
 	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\".\n" +
@@ -7831,11 +8172,21 @@ const file_proto_nsd_nsd_proto_rawDesc = "" +
 	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x03 \x01(\tR\x04arg1\"0\n" +
 	"\x16NewInstance2_1Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"?\n" +
-	"\x15NewInstance2_2Request\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"0\n" +
-	"\x16NewInstance2_2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
+	"5WifiP2pUsdBasedServiceResponseDescribeContentsRequest\"\x1f\n" +
+	"\x1dGetServiceProtocolTypeRequest\"8\n" +
+	"\x1eGetServiceProtocolTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1f\n" +
+	"\x1dGetServiceSpecificInfoRequest\"8\n" +
+	"\x1eGetServiceSpecificInfoResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"-WifiP2pUsdBasedServiceResponseToStringRequest\"\\\n" +
+	"2WifiP2pUsdBasedServiceResponseWriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"2\n" +
+	"\x1cNewWifiP2pServiceInfoRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"7\n" +
+	"\x1dNewWifiP2pServiceInfoResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
 	"&NewWifiP2pUsdBasedServiceConfigRequest\"A\n" +
 	"'NewWifiP2pUsdBasedServiceConfigResponse\x12\x16\n" +
@@ -7857,17 +8208,21 @@ const file_proto_nsd_nsd_proto_rawDesc = "" +
 	"\x1dSetServiceSpecificInfoRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"8\n" +
 	"\x1eSetServiceSpecificInfoResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
-	"\x19ServiceInfoGetHostRequest\"\x19\n" +
-	"\x17GetHostAddressesRequest\"2\n" +
-	"\x18GetHostAddressesResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1f\n" +
-	"\x1dServiceInfoGetHostnameRequest\"\x1b\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"?\n" +
+	"\x15NewInstance2_2Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"0\n" +
+	"\x16NewInstance2_2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
+	"\"ServiceInfoDescribeContentsRequest\"\x1b\n" +
+	"\x19ServiceInfoGetHostRequest\"$\n" +
+	"\"ServiceInfoGetHostAddressesRequest\"\x1f\n" +
+	"\x1dServiceInfoGetHostnameRequest\"\x1e\n" +
+	"\x1cServiceInfoGetNetworkRequest\"\x1b\n" +
 	"\x19ServiceInfoGetPortRequest\"\"\n" +
-	" ServiceInfoGetServiceNameRequest\"\x14\n" +
-	"\x12GetSubtypesRequest\"-\n" +
-	"\x13GetSubtypesResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
+	" ServiceInfoGetServiceNameRequest\"\"\n" +
+	" ServiceInfoGetServiceTypeRequest\"\x1f\n" +
+	"\x1dServiceInfoGetSubtypesRequest\"7\n" +
 	"!ServiceInfoRemoveAttributeRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"H\n" +
 	"\x1eServiceInfoSetAttributeRequest\x12\x12\n" +
@@ -7877,8 +8232,9 @@ const file_proto_nsd_nsd_proto_rawDesc = "" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"-\n" +
 	"\x17SetHostAddressesRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1a\n" +
-	"\x18SetHostAddressesResponse\"\x15\n" +
-	"\x13SetNetworkResponse2\"/\n" +
+	"\x18SetHostAddressesResponse\"2\n" +
+	"\x1cServiceInfoSetNetworkRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"/\n" +
 	"\x19ServiceInfoSetPortRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"6\n" +
 	" ServiceInfoSetServiceNameRequest\x12\x12\n" +
@@ -7887,24 +8243,35 @@ const file_proto_nsd_nsd_proto_rawDesc = "" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"(\n" +
 	"\x12SetSubtypesRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x15\n" +
-	"\x13SetSubtypesResponse2\xa0\x04\n" +
-	"\x17DiscoveryRequestService\x12O\n" +
-	"\x10DescribeContents\x12\x1c.nsd.DescribeContentsRequest\x1a\x1d.nsd.DescribeContentsResponse\x121\n" +
-	"\x06Equals\x12\x12.nsd.EqualsRequest\x1a\x13.nsd.EqualsResponse\x12=\n" +
+	"\x13SetSubtypesResponse\"\x1c\n" +
+	"\x1aServiceInfoToStringRequest\"I\n" +
+	"\x1fServiceInfoWriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg12\xae\v\n" +
+	"\x12ServiceInfoService\x12I\n" +
+	"\x0eNewServiceInfo\x12\x1a.nsd.NewServiceInfoRequest\x1a\x1b.nsd.NewServiceInfoResponse\x12O\n" +
+	"\x10DescribeContents\x12\x1c.nsd.DescribeContentsRequest\x1a\x1d.nsd.DescribeContentsResponse\x124\n" +
+	"\aGetHost\x12\x13.nsd.GetHostRequest\x1a\x14.nsd.GetHostResponse\x12O\n" +
+	"\x10GetHostAddresses\x12\x1c.nsd.GetHostAddressesRequest\x1a\x1d.nsd.GetHostAddressesResponse\x12@\n" +
+	"\vGetHostname\x12\x17.nsd.GetHostnameRequest\x1a\x18.nsd.GetHostnameResponse\x12=\n" +
 	"\n" +
-	"GetNetwork\x12\x16.nsd.GetNetworkRequest\x1a\x17.nsd.GetNetworkResponse\x12I\n" +
-	"\x0eGetServiceType\x12\x1a.nsd.GetServiceTypeRequest\x1a\x1b.nsd.GetServiceTypeResponse\x12=\n" +
+	"GetNetwork\x12\x16.nsd.GetNetworkRequest\x1a\x17.nsd.GetNetworkResponse\x124\n" +
+	"\aGetPort\x12\x13.nsd.GetPortRequest\x1a\x14.nsd.GetPortResponse\x12I\n" +
+	"\x0eGetServiceName\x12\x1a.nsd.GetServiceNameRequest\x1a\x1b.nsd.GetServiceNameResponse\x12I\n" +
+	"\x0eGetServiceType\x12\x1a.nsd.GetServiceTypeRequest\x1a\x1b.nsd.GetServiceTypeResponse\x12@\n" +
+	"\vGetSubtypes\x12\x17.nsd.GetSubtypesRequest\x1a\x18.nsd.GetSubtypesResponse\x12L\n" +
+	"\x0fRemoveAttribute\x12\x1b.nsd.RemoveAttributeRequest\x1a\x1c.nsd.RemoveAttributeResponse\x12C\n" +
+	"\fSetAttribute\x12\x18.nsd.SetAttributeRequest\x1a\x19.nsd.SetAttributeResponse\x124\n" +
+	"\aSetHost\x12\x13.nsd.SetHostRequest\x1a\x14.nsd.SetHostResponse\x12=\n" +
 	"\n" +
-	"GetSubtype\x12\x16.nsd.GetSubtypeRequest\x1a\x17.nsd.GetSubtypeResponse\x127\n" +
-	"\bHashCode\x12\x14.nsd.HashCodeRequest\x1a\x15.nsd.HashCodeResponse\x127\n" +
+	"SetNetwork\x12\x16.nsd.SetNetworkRequest\x1a\x17.nsd.SetNetworkResponse\x124\n" +
+	"\aSetPort\x12\x13.nsd.SetPortRequest\x1a\x14.nsd.SetPortResponse\x12I\n" +
+	"\x0eSetServiceName\x12\x1a.nsd.SetServiceNameRequest\x1a\x1b.nsd.SetServiceNameResponse\x12I\n" +
+	"\x0eSetServiceType\x12\x1a.nsd.SetServiceTypeRequest\x1a\x1b.nsd.SetServiceTypeResponse\x127\n" +
 	"\bToString\x12\x14.nsd.ToStringRequest\x1a\x15.nsd.ToStringResponse\x12F\n" +
-	"\rWriteToParcel\x12\x19.nsd.WriteToParcelRequest\x1a\x1a.nsd.WriteToParcelResponse2\xce\x01\n" +
-	"\x1eDiscoveryRequestBuilderService\x12.\n" +
-	"\x05Build\x12\x11.nsd.BuildRequest\x1a\x12.nsd.BuildResponse\x12=\n" +
-	"\n" +
-	"SetNetwork\x12\x16.nsd.SetNetworkRequest\x1a\x17.nsd.SetNetworkResponse\x12=\n" +
-	"\n" +
-	"SetSubtype\x12\x16.nsd.SetSubtypeRequest\x1a\x17.nsd.SetSubtypeResponse2\xb7\t\n" +
+	"\rWriteToParcel\x12\x19.nsd.WriteToParcelRequest\x1a\x1a.nsd.WriteToParcelResponse\x12O\n" +
+	"\x10SetHostAddresses\x12\x1c.nsd.SetHostAddressesRequest\x1a\x1d.nsd.SetHostAddressesResponse\x12@\n" +
+	"\vSetSubtypes\x12\x17.nsd.SetSubtypesRequest\x1a\x18.nsd.SetSubtypesResponse2\xb7\t\n" +
 	"\x0eManagerService\x12R\n" +
 	"\x11DiscoverServices3\x12\x1d.nsd.DiscoverServices3Request\x1a\x1e.nsd.DiscoverServices3Response\x12X\n" +
 	"\x13DiscoverServices5_1\x12\x1f.nsd.DiscoverServices5_1Request\x1a .nsd.DiscoverServices5_1Response\x12X\n" +
@@ -7938,86 +8305,79 @@ const file_proto_nsd_nsd_proto_rawDesc = "" +
 	"'OnServiceInfoCallbackRegistrationFailed\x123.nsd.OnServiceInfoCallbackRegistrationFailedRequest\x1a4.nsd.OnServiceInfoCallbackRegistrationFailedResponse\x12\x82\x01\n" +
 	"!OnServiceInfoCallbackUnregistered\x12-.nsd.OnServiceInfoCallbackUnregisteredRequest\x1a..nsd.OnServiceInfoCallbackUnregisteredResponse\x12`\n" +
 	"\rOnServiceLost\x123.nsd.ManagerServiceInfoCallbackOnServiceLostRequest\x1a\x1a.nsd.OnServiceLostResponse\x12O\n" +
-	"\x10OnServiceUpdated\x12\x1c.nsd.OnServiceUpdatedRequest\x1a\x1d.nsd.OnServiceUpdatedResponse2\xfb\v\n" +
-	"\x12ServiceInfoService\x12I\n" +
-	"\x0eNewServiceInfo\x12\x1a.nsd.NewServiceInfoRequest\x1a\x1b.nsd.NewServiceInfoResponse\x12Z\n" +
-	"\x10DescribeContents\x12'.nsd.ServiceInfoDescribeContentsRequest\x1a\x1d.nsd.DescribeContentsResponse\x124\n" +
-	"\aGetHost\x12\x13.nsd.GetHostRequest\x1a\x14.nsd.GetHostResponse\x12@\n" +
-	"\vGetHostname\x12\x17.nsd.GetHostnameRequest\x1a\x18.nsd.GetHostnameResponse\x12H\n" +
+	"\x10OnServiceUpdated\x12\x1c.nsd.OnServiceUpdatedRequest\x1a\x1d.nsd.OnServiceUpdatedResponse2\xf0\x04\n" +
+	"\x17DiscoveryRequestService\x12_\n" +
+	"\x10DescribeContents\x12,.nsd.DiscoveryRequestDescribeContentsRequest\x1a\x1d.nsd.DescribeContentsResponse\x121\n" +
+	"\x06Equals\x12\x12.nsd.EqualsRequest\x1a\x13.nsd.EqualsResponse\x12M\n" +
 	"\n" +
-	"GetNetwork\x12!.nsd.ServiceInfoGetNetworkRequest\x1a\x17.nsd.GetNetworkResponse\x124\n" +
-	"\aGetPort\x12\x13.nsd.GetPortRequest\x1a\x14.nsd.GetPortResponse\x12I\n" +
-	"\x0eGetServiceName\x12\x1a.nsd.GetServiceNameRequest\x1a\x1b.nsd.GetServiceNameResponse\x12T\n" +
-	"\x0eGetServiceType\x12%.nsd.ServiceInfoGetServiceTypeRequest\x1a\x1b.nsd.GetServiceTypeResponse\x12L\n" +
-	"\x0fRemoveAttribute\x12\x1b.nsd.RemoveAttributeRequest\x1a\x1c.nsd.RemoveAttributeResponse\x12C\n" +
-	"\fSetAttribute\x12\x18.nsd.SetAttributeRequest\x1a\x19.nsd.SetAttributeResponse\x124\n" +
-	"\aSetHost\x12\x13.nsd.SetHostRequest\x1a\x14.nsd.SetHostResponse\x12S\n" +
+	"GetNetwork\x12&.nsd.DiscoveryRequestGetNetworkRequest\x1a\x17.nsd.GetNetworkResponse\x12Y\n" +
+	"\x0eGetServiceType\x12*.nsd.DiscoveryRequestGetServiceTypeRequest\x1a\x1b.nsd.GetServiceTypeResponse\x12=\n" +
 	"\n" +
-	"SetNetwork\x12!.nsd.ServiceInfoSetNetworkRequest\x1a\".nsd.ServiceInfoSetNetworkResponse\x124\n" +
-	"\aSetPort\x12\x13.nsd.SetPortRequest\x1a\x14.nsd.SetPortResponse\x12I\n" +
-	"\x0eSetServiceName\x12\x1a.nsd.SetServiceNameRequest\x1a\x1b.nsd.SetServiceNameResponse\x12I\n" +
-	"\x0eSetServiceType\x12\x1a.nsd.SetServiceTypeRequest\x1a\x1b.nsd.SetServiceTypeResponse\x12B\n" +
-	"\bToString\x12\x1f.nsd.ServiceInfoToStringRequest\x1a\x15.nsd.ToStringResponse\x12Q\n" +
-	"\rWriteToParcel\x12$.nsd.ServiceInfoWriteToParcelRequest\x1a\x1a.nsd.WriteToParcelResponse\x12O\n" +
-	"\x10GetHostAddresses\x12\x1c.nsd.GetHostAddressesRequest\x1a\x1d.nsd.GetHostAddressesResponse\x12@\n" +
-	"\vGetSubtypes\x12\x17.nsd.GetSubtypesRequest\x1a\x18.nsd.GetSubtypesResponse\x12O\n" +
-	"\x10SetHostAddresses\x12\x1c.nsd.SetHostAddressesRequest\x1a\x1d.nsd.SetHostAddressesResponse\x12@\n" +
-	"\vSetSubtypes\x12\x17.nsd.SetSubtypesRequest\x1a\x18.nsd.SetSubtypesResponse2\xab\x04\n" +
-	"\x19AdvertisingRequestService\x12O\n" +
-	"\x10DescribeContents\x12\x1c.nsd.DescribeContentsRequest\x1a\x1d.nsd.DescribeContentsResponse\x121\n" +
+	"GetSubtype\x12\x16.nsd.GetSubtypeRequest\x1a\x17.nsd.GetSubtypeResponse\x127\n" +
+	"\bHashCode\x12\x14.nsd.HashCodeRequest\x1a\x15.nsd.HashCodeResponse\x12G\n" +
+	"\bToString\x12$.nsd.DiscoveryRequestToStringRequest\x1a\x15.nsd.ToStringResponse\x12V\n" +
+	"\rWriteToParcel\x12).nsd.DiscoveryRequestWriteToParcelRequest\x1a\x1a.nsd.WriteToParcelResponse2\xfc\x01\n" +
+	"\x1eDiscoveryRequestBuilderService\x12.\n" +
+	"\x05Build\x12\x11.nsd.BuildRequest\x1a\x12.nsd.BuildResponse\x12k\n" +
+	"\n" +
+	"SetNetwork\x12-.nsd.DiscoveryRequestBuilderSetNetworkRequest\x1a..nsd.DiscoveryRequestBuilderSetNetworkResponse\x12=\n" +
+	"\n" +
+	"SetSubtype\x12\x16.nsd.SetSubtypeRequest\x1a\x17.nsd.SetSubtypeResponse2\xe1\x04\n" +
+	"\x19AdvertisingRequestService\x12a\n" +
+	"\x10DescribeContents\x12..nsd.AdvertisingRequestDescribeContentsRequest\x1a\x1d.nsd.DescribeContentsResponse\x121\n" +
 	"\x06Equals\x12\x12.nsd.EqualsRequest\x1a\x13.nsd.EqualsResponse\x127\n" +
 	"\bGetFlags\x12\x14.nsd.GetFlagsRequest\x1a\x15.nsd.GetFlagsResponse\x12L\n" +
 	"\x0fGetProtocolType\x12\x1b.nsd.GetProtocolTypeRequest\x1a\x1c.nsd.GetProtocolTypeResponse\x12I\n" +
 	"\x0eGetServiceInfo\x12\x1a.nsd.GetServiceInfoRequest\x1a\x1b.nsd.GetServiceInfoResponse\x127\n" +
-	"\bHashCode\x12\x14.nsd.HashCodeRequest\x1a\x15.nsd.HashCodeResponse\x127\n" +
-	"\bToString\x12\x14.nsd.ToStringRequest\x1a\x15.nsd.ToStringResponse\x12F\n" +
-	"\rWriteToParcel\x12\x19.nsd.WriteToParcelRequest\x1a\x1a.nsd.WriteToParcelResponse2\xd9\x01\n" +
+	"\bHashCode\x12\x14.nsd.HashCodeRequest\x1a\x15.nsd.HashCodeResponse\x12I\n" +
+	"\bToString\x12&.nsd.AdvertisingRequestToStringRequest\x1a\x15.nsd.ToStringResponse\x12X\n" +
+	"\rWriteToParcel\x12+.nsd.AdvertisingRequestWriteToParcelRequest\x1a\x1a.nsd.WriteToParcelResponse2\xd9\x01\n" +
 	" AdvertisingRequestBuilderService\x12.\n" +
 	"\x05Build\x12\x11.nsd.BuildRequest\x1a\x12.nsd.BuildResponse\x127\n" +
 	"\bSetFlags\x12\x14.nsd.SetFlagsRequest\x1a\x15.nsd.SetFlagsResponse\x12L\n" +
-	"\x0fSetProtocolType\x12\x1b.nsd.SetProtocolTypeRequest\x1a\x1c.nsd.SetProtocolTypeResponse2\xc6\x04\n" +
-	"\x19WifiP2pServiceInfoService\x12^\n" +
-	"\x15NewWifiP2pServiceInfo\x12!.nsd.NewWifiP2pServiceInfoRequest\x1a\".nsd.NewWifiP2pServiceInfoResponse\x12a\n" +
-	"\x10DescribeContents\x12..nsd.WifiP2pServiceInfoDescribeContentsRequest\x1a\x1d.nsd.DescribeContentsResponse\x12C\n" +
-	"\x06Equals\x12$.nsd.WifiP2pServiceInfoEqualsRequest\x1a\x13.nsd.EqualsResponse\x12|\n" +
-	"\x1fGetWifiP2pUsdBasedServiceConfig\x12+.nsd.GetWifiP2pUsdBasedServiceConfigRequest\x1a,.nsd.GetWifiP2pUsdBasedServiceConfigResponse\x12I\n" +
-	"\bHashCode\x12&.nsd.WifiP2pServiceInfoHashCodeRequest\x1a\x15.nsd.HashCodeResponse\x12X\n" +
-	"\rWriteToParcel\x12+.nsd.WifiP2pServiceInfoWriteToParcelRequest\x1a\x1a.nsd.WriteToParcelResponse2\xfb\x03\n" +
+	"\x0fSetProtocolType\x12\x1b.nsd.SetProtocolTypeRequest\x1a\x1c.nsd.SetProtocolTypeResponse2\xb2\x01\n" +
+	" WifiP2pUpnpServiceRequestService\x12C\n" +
+	"\fNewInstance0\x12\x18.nsd.NewInstance0Request\x1a\x19.nsd.NewInstance0Response\x12I\n" +
+	"\x0eNewInstance1_1\x12\x1a.nsd.NewInstance1_1Request\x1a\x1b.nsd.NewInstance1_1Response2\xc4\x05\n" +
+	"\x1cWifiP2pServiceRequestService\x12g\n" +
+	"\x18NewWifiP2pServiceRequest\x12$.nsd.NewWifiP2pServiceRequestRequest\x1a%.nsd.NewWifiP2pServiceRequestResponse\x12O\n" +
+	"\x10DescribeContents\x12\x1c.nsd.DescribeContentsRequest\x1a\x1d.nsd.DescribeContentsResponse\x12F\n" +
+	"\x06Equals\x12'.nsd.WifiP2pServiceRequestEqualsRequest\x1a\x13.nsd.EqualsResponse\x12|\n" +
+	"\x1fGetWifiP2pUsdBasedServiceConfig\x12+.nsd.GetWifiP2pUsdBasedServiceConfigRequest\x1a,.nsd.GetWifiP2pUsdBasedServiceConfigResponse\x12L\n" +
+	"\bHashCode\x12).nsd.WifiP2pServiceRequestHashCodeRequest\x1a\x15.nsd.HashCodeResponse\x12F\n" +
+	"\rWriteToParcel\x12\x19.nsd.WriteToParcelRequest\x1a\x1a.nsd.WriteToParcelResponse\x12C\n" +
+	"\fNewInstance1\x12\x18.nsd.NewInstance1Request\x1a\x19.nsd.NewInstance1Response\x12I\n" +
+	"\x0eNewInstance2_1\x12\x1a.nsd.NewInstance2_1Request\x1a\x1b.nsd.NewInstance2_1Response2\x99\x04\n" +
 	"%WifiP2pUsdBasedServiceResponseService\x12m\n" +
 	"\x10DescribeContents\x12:.nsd.WifiP2pUsdBasedServiceResponseDescribeContentsRequest\x1a\x1d.nsd.DescribeContentsResponse\x12a\n" +
 	"\x16GetServiceProtocolType\x12\".nsd.GetServiceProtocolTypeRequest\x1a#.nsd.GetServiceProtocolTypeResponse\x12a\n" +
-	"\x16GetServiceSpecificInfo\x12\".nsd.GetServiceSpecificInfoRequest\x1a#.nsd.GetServiceSpecificInfoResponse\x127\n" +
-	"\bToString\x12\x14.nsd.ToStringRequest\x1a\x15.nsd.ToStringResponse\x12d\n" +
-	"\rWriteToParcel\x127.nsd.WifiP2pUsdBasedServiceResponseWriteToParcelRequest\x1a\x1a.nsd.WriteToParcelResponse2\xb2\x01\n" +
-	" WifiP2pUpnpServiceRequestService\x12C\n" +
-	"\fNewInstance0\x12\x18.nsd.NewInstance0Request\x1a\x19.nsd.NewInstance0Response\x12I\n" +
-	"\x0eNewInstance1_1\x12\x1a.nsd.NewInstance1_1Request\x1a\x1b.nsd.NewInstance1_1Response2\xe2\x05\n" +
-	"\x1cWifiP2pServiceRequestService\x12g\n" +
-	"\x18NewWifiP2pServiceRequest\x12$.nsd.NewWifiP2pServiceRequestRequest\x1a%.nsd.NewWifiP2pServiceRequestResponse\x12a\n" +
-	"\x10DescribeContents\x12..nsd.WifiP2pServiceInfoDescribeContentsRequest\x1a\x1d.nsd.DescribeContentsResponse\x12C\n" +
-	"\x06Equals\x12$.nsd.WifiP2pServiceInfoEqualsRequest\x1a\x13.nsd.EqualsResponse\x12|\n" +
-	"\x1fGetWifiP2pUsdBasedServiceConfig\x12+.nsd.GetWifiP2pUsdBasedServiceConfigRequest\x1a,.nsd.GetWifiP2pUsdBasedServiceConfigResponse\x12I\n" +
-	"\bHashCode\x12&.nsd.WifiP2pServiceInfoHashCodeRequest\x1a\x15.nsd.HashCodeResponse\x12X\n" +
-	"\rWriteToParcel\x12+.nsd.WifiP2pServiceInfoWriteToParcelRequest\x1a\x1a.nsd.WriteToParcelResponse\x12C\n" +
-	"\fNewInstance1\x12\x18.nsd.NewInstance1Request\x1a\x19.nsd.NewInstance1Response\x12I\n" +
-	"\x0eNewInstance2_1\x12\x1a.nsd.NewInstance2_1Request\x1a\x1b.nsd.NewInstance2_1Response2\xfe\x01\n" +
-	"!WifiP2pDnsSdServiceRequestService\x12C\n" +
-	"\fNewInstance0\x12\x18.nsd.NewInstance0Request\x1a\x19.nsd.NewInstance0Response\x12I\n" +
-	"\x0eNewInstance1_1\x12\x1a.nsd.NewInstance1_1Request\x1a\x1b.nsd.NewInstance1_1Response\x12I\n" +
-	"\x0eNewInstance2_2\x12\x1a.nsd.NewInstance2_2Request\x1a\x1b.nsd.NewInstance2_2Response2\x92\a\n" +
+	"\x16GetServiceSpecificInfo\x12\".nsd.GetServiceSpecificInfoRequest\x1a#.nsd.GetServiceSpecificInfoResponse\x12U\n" +
+	"\bToString\x122.nsd.WifiP2pUsdBasedServiceResponseToStringRequest\x1a\x15.nsd.ToStringResponse\x12d\n" +
+	"\rWriteToParcel\x127.nsd.WifiP2pUsdBasedServiceResponseWriteToParcelRequest\x1a\x1a.nsd.WriteToParcelResponse2\xa8\x04\n" +
+	"\x19WifiP2pServiceInfoService\x12^\n" +
+	"\x15NewWifiP2pServiceInfo\x12!.nsd.NewWifiP2pServiceInfoRequest\x1a\".nsd.NewWifiP2pServiceInfoResponse\x12O\n" +
+	"\x10DescribeContents\x12\x1c.nsd.DescribeContentsRequest\x1a\x1d.nsd.DescribeContentsResponse\x12F\n" +
+	"\x06Equals\x12'.nsd.WifiP2pServiceRequestEqualsRequest\x1a\x13.nsd.EqualsResponse\x12|\n" +
+	"\x1fGetWifiP2pUsdBasedServiceConfig\x12+.nsd.GetWifiP2pUsdBasedServiceConfigRequest\x1a,.nsd.GetWifiP2pUsdBasedServiceConfigResponse\x12L\n" +
+	"\bHashCode\x12).nsd.WifiP2pServiceRequestHashCodeRequest\x1a\x15.nsd.HashCodeResponse\x12F\n" +
+	"\rWriteToParcel\x12\x19.nsd.WriteToParcelRequest\x1a\x1a.nsd.WriteToParcelResponse2\xee\x06\n" +
 	"#WifiP2pUsdBasedServiceConfigService\x12|\n" +
-	"\x1fNewWifiP2pUsdBasedServiceConfig\x12+.nsd.NewWifiP2pUsdBasedServiceConfigRequest\x1a,.nsd.NewWifiP2pUsdBasedServiceConfigResponse\x12a\n" +
-	"\x10DescribeContents\x12..nsd.WifiP2pServiceInfoDescribeContentsRequest\x1a\x1d.nsd.DescribeContentsResponse\x12I\n" +
+	"\x1fNewWifiP2pUsdBasedServiceConfig\x12+.nsd.NewWifiP2pUsdBasedServiceConfigRequest\x1a,.nsd.NewWifiP2pUsdBasedServiceConfigResponse\x12O\n" +
+	"\x10DescribeContents\x12\x1c.nsd.DescribeContentsRequest\x1a\x1d.nsd.DescribeContentsResponse\x12I\n" +
 	"\x0eGetServiceName\x12\x1a.nsd.GetServiceNameRequest\x1a\x1b.nsd.GetServiceNameResponse\x12}\n" +
 	"\x16GetServiceProtocolType\x12>.nsd.WifiP2pUsdBasedServiceConfigGetServiceProtocolTypeRequest\x1a#.nsd.GetServiceProtocolTypeResponse\x12}\n" +
 	"\x16GetServiceSpecificInfo\x12>.nsd.WifiP2pUsdBasedServiceConfigGetServiceSpecificInfoRequest\x1a#.nsd.GetServiceSpecificInfoResponse\x12S\n" +
-	"\bToString\x120.nsd.WifiP2pUsdBasedServiceConfigToStringRequest\x1a\x15.nsd.ToStringResponse\x12X\n" +
-	"\rWriteToParcel\x12+.nsd.WifiP2pServiceInfoWriteToParcelRequest\x1a\x1a.nsd.WriteToParcelResponse\x12\x91\x01\n" +
+	"\bToString\x120.nsd.WifiP2pUsdBasedServiceConfigToStringRequest\x1a\x15.nsd.ToStringResponse\x12F\n" +
+	"\rWriteToParcel\x12\x19.nsd.WriteToParcelRequest\x1a\x1a.nsd.WriteToParcelResponse\x12\x91\x01\n" +
 	"&GetMaxAllowedServiceSpecificInfoLength\x122.nsd.GetMaxAllowedServiceSpecificInfoLengthRequest\x1a3.nsd.GetMaxAllowedServiceSpecificInfoLengthResponse2\xa2\x02\n" +
 	"*WifiP2pUsdBasedServiceConfigBuilderService\x12.\n" +
 	"\x05Build\x12\x11.nsd.BuildRequest\x1a\x12.nsd.BuildResponse\x12a\n" +
 	"\x16SetServiceProtocolType\x12\".nsd.SetServiceProtocolTypeRequest\x1a#.nsd.SetServiceProtocolTypeResponse\x12a\n" +
-	"\x16SetServiceSpecificInfo\x12\".nsd.SetServiceSpecificInfoRequest\x1a#.nsd.SetServiceSpecificInfoResponseB-Z+github.com/AndroidGoLab/jni-proxy/proto/nsdb\x06proto3"
+	"\x16SetServiceSpecificInfo\x12\".nsd.SetServiceSpecificInfoRequest\x1a#.nsd.SetServiceSpecificInfoResponse2\xfe\x01\n" +
+	"!WifiP2pDnsSdServiceRequestService\x12C\n" +
+	"\fNewInstance0\x12\x18.nsd.NewInstance0Request\x1a\x19.nsd.NewInstance0Response\x12I\n" +
+	"\x0eNewInstance1_1\x12\x1a.nsd.NewInstance1_1Request\x1a\x1b.nsd.NewInstance1_1Response\x12I\n" +
+	"\x0eNewInstance2_2\x12\x1a.nsd.NewInstance2_2Request\x1a\x1b.nsd.NewInstance2_2ResponseB-Z+github.com/AndroidGoLab/jni-proxy/proto/nsdb\x06proto3"
 
 var (
 	file_proto_nsd_nsd_proto_rawDescOnce sync.Once
@@ -8031,398 +8391,407 @@ func file_proto_nsd_nsd_proto_rawDescGZIP() []byte {
 	return file_proto_nsd_nsd_proto_rawDescData
 }
 
-var file_proto_nsd_nsd_proto_msgTypes = make([]protoimpl.MessageInfo, 174)
+var file_proto_nsd_nsd_proto_msgTypes = make([]protoimpl.MessageInfo, 183)
 var file_proto_nsd_nsd_proto_goTypes = []any{
-	(*DescribeContentsRequest)(nil),                                   // 0: nsd.DescribeContentsRequest
-	(*DescribeContentsResponse)(nil),                                  // 1: nsd.DescribeContentsResponse
-	(*EqualsRequest)(nil),                                             // 2: nsd.EqualsRequest
-	(*EqualsResponse)(nil),                                            // 3: nsd.EqualsResponse
-	(*GetNetworkRequest)(nil),                                         // 4: nsd.GetNetworkRequest
-	(*GetNetworkResponse)(nil),                                        // 5: nsd.GetNetworkResponse
-	(*GetServiceTypeRequest)(nil),                                     // 6: nsd.GetServiceTypeRequest
-	(*GetServiceTypeResponse)(nil),                                    // 7: nsd.GetServiceTypeResponse
-	(*GetSubtypeRequest)(nil),                                         // 8: nsd.GetSubtypeRequest
-	(*GetSubtypeResponse)(nil),                                        // 9: nsd.GetSubtypeResponse
-	(*HashCodeRequest)(nil),                                           // 10: nsd.HashCodeRequest
-	(*HashCodeResponse)(nil),                                          // 11: nsd.HashCodeResponse
-	(*ToStringRequest)(nil),                                           // 12: nsd.ToStringRequest
-	(*ToStringResponse)(nil),                                          // 13: nsd.ToStringResponse
-	(*WriteToParcelRequest)(nil),                                      // 14: nsd.WriteToParcelRequest
-	(*WriteToParcelResponse)(nil),                                     // 15: nsd.WriteToParcelResponse
-	(*BuildRequest)(nil),                                              // 16: nsd.BuildRequest
-	(*BuildResponse)(nil),                                             // 17: nsd.BuildResponse
-	(*SetNetworkRequest)(nil),                                         // 18: nsd.SetNetworkRequest
-	(*SetNetworkResponse)(nil),                                        // 19: nsd.SetNetworkResponse
-	(*SetSubtypeRequest)(nil),                                         // 20: nsd.SetSubtypeRequest
-	(*SetSubtypeResponse)(nil),                                        // 21: nsd.SetSubtypeResponse
-	(*DiscoverServices3Request)(nil),                                  // 22: nsd.DiscoverServices3Request
-	(*DiscoverServices3Response)(nil),                                 // 23: nsd.DiscoverServices3Response
-	(*DiscoverServices5_1Request)(nil),                                // 24: nsd.DiscoverServices5_1Request
-	(*DiscoverServices5_1Response)(nil),                               // 25: nsd.DiscoverServices5_1Response
-	(*DiscoverServices5_2Request)(nil),                                // 26: nsd.DiscoverServices5_2Request
-	(*DiscoverServices5_2Response)(nil),                               // 27: nsd.DiscoverServices5_2Response
-	(*DiscoverServices3_3Request)(nil),                                // 28: nsd.DiscoverServices3_3Request
-	(*DiscoverServices3_3Response)(nil),                               // 29: nsd.DiscoverServices3_3Response
-	(*RegisterService3Request)(nil),                                   // 30: nsd.RegisterService3Request
-	(*RegisterService3Response)(nil),                                  // 31: nsd.RegisterService3Response
-	(*RegisterService4_1Request)(nil),                                 // 32: nsd.RegisterService4_1Request
-	(*RegisterService4_1Response)(nil),                                // 33: nsd.RegisterService4_1Response
-	(*RegisterServiceInfoCallbackRequest)(nil),                        // 34: nsd.RegisterServiceInfoCallbackRequest
-	(*RegisterServiceInfoCallbackResponse)(nil),                       // 35: nsd.RegisterServiceInfoCallbackResponse
-	(*ResolveService2Request)(nil),                                    // 36: nsd.ResolveService2Request
-	(*ResolveService2Response)(nil),                                   // 37: nsd.ResolveService2Response
-	(*ResolveService3_1Request)(nil),                                  // 38: nsd.ResolveService3_1Request
-	(*ResolveService3_1Response)(nil),                                 // 39: nsd.ResolveService3_1Response
-	(*StopServiceDiscoveryRequest)(nil),                               // 40: nsd.StopServiceDiscoveryRequest
-	(*StopServiceDiscoveryResponse)(nil),                              // 41: nsd.StopServiceDiscoveryResponse
-	(*StopServiceResolutionRequest)(nil),                              // 42: nsd.StopServiceResolutionRequest
-	(*StopServiceResolutionResponse)(nil),                             // 43: nsd.StopServiceResolutionResponse
-	(*UnregisterServiceRequest)(nil),                                  // 44: nsd.UnregisterServiceRequest
-	(*UnregisterServiceResponse)(nil),                                 // 45: nsd.UnregisterServiceResponse
-	(*UnregisterServiceInfoCallbackRequest)(nil),                      // 46: nsd.UnregisterServiceInfoCallbackRequest
-	(*UnregisterServiceInfoCallbackResponse)(nil),                     // 47: nsd.UnregisterServiceInfoCallbackResponse
-	(*OnDiscoveryStartedRequest)(nil),                                 // 48: nsd.OnDiscoveryStartedRequest
-	(*OnDiscoveryStartedResponse)(nil),                                // 49: nsd.OnDiscoveryStartedResponse
-	(*OnDiscoveryStoppedRequest)(nil),                                 // 50: nsd.OnDiscoveryStoppedRequest
-	(*OnDiscoveryStoppedResponse)(nil),                                // 51: nsd.OnDiscoveryStoppedResponse
-	(*OnServiceFoundRequest)(nil),                                     // 52: nsd.OnServiceFoundRequest
-	(*OnServiceFoundResponse)(nil),                                    // 53: nsd.OnServiceFoundResponse
-	(*OnServiceLostRequest)(nil),                                      // 54: nsd.OnServiceLostRequest
-	(*OnServiceLostResponse)(nil),                                     // 55: nsd.OnServiceLostResponse
-	(*OnStartDiscoveryFailedRequest)(nil),                             // 56: nsd.OnStartDiscoveryFailedRequest
-	(*OnStartDiscoveryFailedResponse)(nil),                            // 57: nsd.OnStartDiscoveryFailedResponse
-	(*OnStopDiscoveryFailedRequest)(nil),                              // 58: nsd.OnStopDiscoveryFailedRequest
-	(*OnStopDiscoveryFailedResponse)(nil),                             // 59: nsd.OnStopDiscoveryFailedResponse
-	(*OnRegistrationFailedRequest)(nil),                               // 60: nsd.OnRegistrationFailedRequest
-	(*OnRegistrationFailedResponse)(nil),                              // 61: nsd.OnRegistrationFailedResponse
-	(*OnServiceRegisteredRequest)(nil),                                // 62: nsd.OnServiceRegisteredRequest
-	(*OnServiceRegisteredResponse)(nil),                               // 63: nsd.OnServiceRegisteredResponse
-	(*OnServiceUnregisteredRequest)(nil),                              // 64: nsd.OnServiceUnregisteredRequest
-	(*OnServiceUnregisteredResponse)(nil),                             // 65: nsd.OnServiceUnregisteredResponse
-	(*OnUnregistrationFailedRequest)(nil),                             // 66: nsd.OnUnregistrationFailedRequest
-	(*OnUnregistrationFailedResponse)(nil),                            // 67: nsd.OnUnregistrationFailedResponse
-	(*OnResolveFailedRequest)(nil),                                    // 68: nsd.OnResolveFailedRequest
-	(*OnResolveFailedResponse)(nil),                                   // 69: nsd.OnResolveFailedResponse
-	(*OnServiceResolvedRequest)(nil),                                  // 70: nsd.OnServiceResolvedRequest
-	(*OnServiceResolvedResponse)(nil),                                 // 71: nsd.OnServiceResolvedResponse
-	(*OnServiceInfoCallbackRegistrationFailedRequest)(nil),            // 72: nsd.OnServiceInfoCallbackRegistrationFailedRequest
-	(*OnServiceInfoCallbackRegistrationFailedResponse)(nil),           // 73: nsd.OnServiceInfoCallbackRegistrationFailedResponse
-	(*OnServiceInfoCallbackUnregisteredRequest)(nil),                  // 74: nsd.OnServiceInfoCallbackUnregisteredRequest
-	(*OnServiceInfoCallbackUnregisteredResponse)(nil),                 // 75: nsd.OnServiceInfoCallbackUnregisteredResponse
-	(*ManagerServiceInfoCallbackOnServiceLostRequest)(nil),            // 76: nsd.ManagerServiceInfoCallbackOnServiceLostRequest
-	(*OnServiceUpdatedRequest)(nil),                                   // 77: nsd.OnServiceUpdatedRequest
-	(*OnServiceUpdatedResponse)(nil),                                  // 78: nsd.OnServiceUpdatedResponse
-	(*NewServiceInfoRequest)(nil),                                     // 79: nsd.NewServiceInfoRequest
-	(*NewServiceInfoResponse)(nil),                                    // 80: nsd.NewServiceInfoResponse
-	(*ServiceInfoDescribeContentsRequest)(nil),                        // 81: nsd.ServiceInfoDescribeContentsRequest
-	(*GetHostRequest)(nil),                                            // 82: nsd.GetHostRequest
-	(*GetHostResponse)(nil),                                           // 83: nsd.GetHostResponse
-	(*GetHostnameRequest)(nil),                                        // 84: nsd.GetHostnameRequest
-	(*GetHostnameResponse)(nil),                                       // 85: nsd.GetHostnameResponse
-	(*ServiceInfoGetNetworkRequest)(nil),                              // 86: nsd.ServiceInfoGetNetworkRequest
-	(*GetPortRequest)(nil),                                            // 87: nsd.GetPortRequest
-	(*GetPortResponse)(nil),                                           // 88: nsd.GetPortResponse
-	(*GetServiceNameRequest)(nil),                                     // 89: nsd.GetServiceNameRequest
-	(*GetServiceNameResponse)(nil),                                    // 90: nsd.GetServiceNameResponse
-	(*ServiceInfoGetServiceTypeRequest)(nil),                          // 91: nsd.ServiceInfoGetServiceTypeRequest
-	(*RemoveAttributeRequest)(nil),                                    // 92: nsd.RemoveAttributeRequest
-	(*RemoveAttributeResponse)(nil),                                   // 93: nsd.RemoveAttributeResponse
-	(*SetAttributeRequest)(nil),                                       // 94: nsd.SetAttributeRequest
-	(*SetAttributeResponse)(nil),                                      // 95: nsd.SetAttributeResponse
-	(*SetHostRequest)(nil),                                            // 96: nsd.SetHostRequest
-	(*SetHostResponse)(nil),                                           // 97: nsd.SetHostResponse
-	(*ServiceInfoSetNetworkRequest)(nil),                              // 98: nsd.ServiceInfoSetNetworkRequest
-	(*ServiceInfoSetNetworkResponse)(nil),                             // 99: nsd.ServiceInfoSetNetworkResponse
-	(*SetPortRequest)(nil),                                            // 100: nsd.SetPortRequest
-	(*SetPortResponse)(nil),                                           // 101: nsd.SetPortResponse
-	(*SetServiceNameRequest)(nil),                                     // 102: nsd.SetServiceNameRequest
-	(*SetServiceNameResponse)(nil),                                    // 103: nsd.SetServiceNameResponse
-	(*SetServiceTypeRequest)(nil),                                     // 104: nsd.SetServiceTypeRequest
-	(*SetServiceTypeResponse)(nil),                                    // 105: nsd.SetServiceTypeResponse
-	(*ServiceInfoToStringRequest)(nil),                                // 106: nsd.ServiceInfoToStringRequest
-	(*ServiceInfoWriteToParcelRequest)(nil),                           // 107: nsd.ServiceInfoWriteToParcelRequest
-	(*GetFlagsRequest)(nil),                                           // 108: nsd.GetFlagsRequest
-	(*GetFlagsResponse)(nil),                                          // 109: nsd.GetFlagsResponse
-	(*GetProtocolTypeRequest)(nil),                                    // 110: nsd.GetProtocolTypeRequest
-	(*GetProtocolTypeResponse)(nil),                                   // 111: nsd.GetProtocolTypeResponse
-	(*GetServiceInfoRequest)(nil),                                     // 112: nsd.GetServiceInfoRequest
-	(*GetServiceInfoResponse)(nil),                                    // 113: nsd.GetServiceInfoResponse
-	(*SetFlagsRequest)(nil),                                           // 114: nsd.SetFlagsRequest
-	(*SetFlagsResponse)(nil),                                          // 115: nsd.SetFlagsResponse
-	(*SetProtocolTypeRequest)(nil),                                    // 116: nsd.SetProtocolTypeRequest
-	(*SetProtocolTypeResponse)(nil),                                   // 117: nsd.SetProtocolTypeResponse
-	(*NewWifiP2PServiceInfoRequest)(nil),                              // 118: nsd.NewWifiP2pServiceInfoRequest
-	(*NewWifiP2PServiceInfoResponse)(nil),                             // 119: nsd.NewWifiP2pServiceInfoResponse
-	(*WifiP2PServiceInfoDescribeContentsRequest)(nil),                 // 120: nsd.WifiP2pServiceInfoDescribeContentsRequest
-	(*WifiP2PServiceInfoEqualsRequest)(nil),                           // 121: nsd.WifiP2pServiceInfoEqualsRequest
-	(*GetWifiP2PUsdBasedServiceConfigRequest)(nil),                    // 122: nsd.GetWifiP2pUsdBasedServiceConfigRequest
-	(*GetWifiP2PUsdBasedServiceConfigResponse)(nil),                   // 123: nsd.GetWifiP2pUsdBasedServiceConfigResponse
-	(*WifiP2PServiceInfoHashCodeRequest)(nil),                         // 124: nsd.WifiP2pServiceInfoHashCodeRequest
-	(*WifiP2PServiceInfoWriteToParcelRequest)(nil),                    // 125: nsd.WifiP2pServiceInfoWriteToParcelRequest
-	(*WifiP2PUsdBasedServiceResponseDescribeContentsRequest)(nil),     // 126: nsd.WifiP2pUsdBasedServiceResponseDescribeContentsRequest
-	(*GetServiceProtocolTypeRequest)(nil),                             // 127: nsd.GetServiceProtocolTypeRequest
-	(*GetServiceProtocolTypeResponse)(nil),                            // 128: nsd.GetServiceProtocolTypeResponse
-	(*GetServiceSpecificInfoRequest)(nil),                             // 129: nsd.GetServiceSpecificInfoRequest
-	(*GetServiceSpecificInfoResponse)(nil),                            // 130: nsd.GetServiceSpecificInfoResponse
-	(*WifiP2PUsdBasedServiceResponseWriteToParcelRequest)(nil),        // 131: nsd.WifiP2pUsdBasedServiceResponseWriteToParcelRequest
-	(*NewInstance0Request)(nil),                                       // 132: nsd.NewInstance0Request
-	(*NewInstance0Response)(nil),                                      // 133: nsd.NewInstance0Response
-	(*NewInstance1_1Request)(nil),                                     // 134: nsd.NewInstance1_1Request
-	(*NewInstance1_1Response)(nil),                                    // 135: nsd.NewInstance1_1Response
-	(*NewWifiP2PServiceRequestRequest)(nil),                           // 136: nsd.NewWifiP2pServiceRequestRequest
-	(*NewWifiP2PServiceRequestResponse)(nil),                          // 137: nsd.NewWifiP2pServiceRequestResponse
-	(*NewInstance1Request)(nil),                                       // 138: nsd.NewInstance1Request
-	(*NewInstance1Response)(nil),                                      // 139: nsd.NewInstance1Response
-	(*NewInstance2_1Request)(nil),                                     // 140: nsd.NewInstance2_1Request
-	(*NewInstance2_1Response)(nil),                                    // 141: nsd.NewInstance2_1Response
-	(*NewInstance2_2Request)(nil),                                     // 142: nsd.NewInstance2_2Request
-	(*NewInstance2_2Response)(nil),                                    // 143: nsd.NewInstance2_2Response
-	(*NewWifiP2PUsdBasedServiceConfigRequest)(nil),                    // 144: nsd.NewWifiP2pUsdBasedServiceConfigRequest
-	(*NewWifiP2PUsdBasedServiceConfigResponse)(nil),                   // 145: nsd.NewWifiP2pUsdBasedServiceConfigResponse
-	(*WifiP2PUsdBasedServiceConfigGetServiceProtocolTypeRequest)(nil), // 146: nsd.WifiP2pUsdBasedServiceConfigGetServiceProtocolTypeRequest
-	(*WifiP2PUsdBasedServiceConfigGetServiceSpecificInfoRequest)(nil), // 147: nsd.WifiP2pUsdBasedServiceConfigGetServiceSpecificInfoRequest
-	(*WifiP2PUsdBasedServiceConfigToStringRequest)(nil),               // 148: nsd.WifiP2pUsdBasedServiceConfigToStringRequest
-	(*GetMaxAllowedServiceSpecificInfoLengthRequest)(nil),             // 149: nsd.GetMaxAllowedServiceSpecificInfoLengthRequest
-	(*GetMaxAllowedServiceSpecificInfoLengthResponse)(nil),            // 150: nsd.GetMaxAllowedServiceSpecificInfoLengthResponse
-	(*SetServiceProtocolTypeRequest)(nil),                             // 151: nsd.SetServiceProtocolTypeRequest
-	(*SetServiceProtocolTypeResponse)(nil),                            // 152: nsd.SetServiceProtocolTypeResponse
-	(*SetServiceSpecificInfoRequest)(nil),                             // 153: nsd.SetServiceSpecificInfoRequest
-	(*SetServiceSpecificInfoResponse)(nil),                            // 154: nsd.SetServiceSpecificInfoResponse
-	(*ServiceInfoGetHostRequest)(nil),                                 // 155: nsd.ServiceInfoGetHostRequest
-	(*GetHostAddressesRequest)(nil),                                   // 156: nsd.GetHostAddressesRequest
-	(*GetHostAddressesResponse)(nil),                                  // 157: nsd.GetHostAddressesResponse
-	(*ServiceInfoGetHostnameRequest)(nil),                             // 158: nsd.ServiceInfoGetHostnameRequest
-	(*ServiceInfoGetPortRequest)(nil),                                 // 159: nsd.ServiceInfoGetPortRequest
-	(*ServiceInfoGetServiceNameRequest)(nil),                          // 160: nsd.ServiceInfoGetServiceNameRequest
-	(*GetSubtypesRequest)(nil),                                        // 161: nsd.GetSubtypesRequest
-	(*GetSubtypesResponse)(nil),                                       // 162: nsd.GetSubtypesResponse
-	(*ServiceInfoRemoveAttributeRequest)(nil),                         // 163: nsd.ServiceInfoRemoveAttributeRequest
-	(*ServiceInfoSetAttributeRequest)(nil),                            // 164: nsd.ServiceInfoSetAttributeRequest
-	(*ServiceInfoSetHostRequest)(nil),                                 // 165: nsd.ServiceInfoSetHostRequest
-	(*SetHostAddressesRequest)(nil),                                   // 166: nsd.SetHostAddressesRequest
-	(*SetHostAddressesResponse)(nil),                                  // 167: nsd.SetHostAddressesResponse
-	(*SetNetworkResponse2)(nil),                                       // 168: nsd.SetNetworkResponse2
-	(*ServiceInfoSetPortRequest)(nil),                                 // 169: nsd.ServiceInfoSetPortRequest
-	(*ServiceInfoSetServiceNameRequest)(nil),                          // 170: nsd.ServiceInfoSetServiceNameRequest
-	(*ServiceInfoSetServiceTypeRequest)(nil),                          // 171: nsd.ServiceInfoSetServiceTypeRequest
-	(*SetSubtypesRequest)(nil),                                        // 172: nsd.SetSubtypesRequest
-	(*SetSubtypesResponse)(nil),                                       // 173: nsd.SetSubtypesResponse
+	(*NewServiceInfoRequest)(nil),                                     // 0: nsd.NewServiceInfoRequest
+	(*NewServiceInfoResponse)(nil),                                    // 1: nsd.NewServiceInfoResponse
+	(*DescribeContentsRequest)(nil),                                   // 2: nsd.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),                                  // 3: nsd.DescribeContentsResponse
+	(*GetHostRequest)(nil),                                            // 4: nsd.GetHostRequest
+	(*GetHostResponse)(nil),                                           // 5: nsd.GetHostResponse
+	(*GetHostAddressesRequest)(nil),                                   // 6: nsd.GetHostAddressesRequest
+	(*GetHostAddressesResponse)(nil),                                  // 7: nsd.GetHostAddressesResponse
+	(*GetHostnameRequest)(nil),                                        // 8: nsd.GetHostnameRequest
+	(*GetHostnameResponse)(nil),                                       // 9: nsd.GetHostnameResponse
+	(*GetNetworkRequest)(nil),                                         // 10: nsd.GetNetworkRequest
+	(*GetNetworkResponse)(nil),                                        // 11: nsd.GetNetworkResponse
+	(*GetPortRequest)(nil),                                            // 12: nsd.GetPortRequest
+	(*GetPortResponse)(nil),                                           // 13: nsd.GetPortResponse
+	(*GetServiceNameRequest)(nil),                                     // 14: nsd.GetServiceNameRequest
+	(*GetServiceNameResponse)(nil),                                    // 15: nsd.GetServiceNameResponse
+	(*GetServiceTypeRequest)(nil),                                     // 16: nsd.GetServiceTypeRequest
+	(*GetServiceTypeResponse)(nil),                                    // 17: nsd.GetServiceTypeResponse
+	(*GetSubtypesRequest)(nil),                                        // 18: nsd.GetSubtypesRequest
+	(*GetSubtypesResponse)(nil),                                       // 19: nsd.GetSubtypesResponse
+	(*RemoveAttributeRequest)(nil),                                    // 20: nsd.RemoveAttributeRequest
+	(*RemoveAttributeResponse)(nil),                                   // 21: nsd.RemoveAttributeResponse
+	(*SetAttributeRequest)(nil),                                       // 22: nsd.SetAttributeRequest
+	(*SetAttributeResponse)(nil),                                      // 23: nsd.SetAttributeResponse
+	(*SetHostRequest)(nil),                                            // 24: nsd.SetHostRequest
+	(*SetHostResponse)(nil),                                           // 25: nsd.SetHostResponse
+	(*SetNetworkRequest)(nil),                                         // 26: nsd.SetNetworkRequest
+	(*SetNetworkResponse)(nil),                                        // 27: nsd.SetNetworkResponse
+	(*SetPortRequest)(nil),                                            // 28: nsd.SetPortRequest
+	(*SetPortResponse)(nil),                                           // 29: nsd.SetPortResponse
+	(*SetServiceNameRequest)(nil),                                     // 30: nsd.SetServiceNameRequest
+	(*SetServiceNameResponse)(nil),                                    // 31: nsd.SetServiceNameResponse
+	(*SetServiceTypeRequest)(nil),                                     // 32: nsd.SetServiceTypeRequest
+	(*SetServiceTypeResponse)(nil),                                    // 33: nsd.SetServiceTypeResponse
+	(*ToStringRequest)(nil),                                           // 34: nsd.ToStringRequest
+	(*ToStringResponse)(nil),                                          // 35: nsd.ToStringResponse
+	(*WriteToParcelRequest)(nil),                                      // 36: nsd.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                                     // 37: nsd.WriteToParcelResponse
+	(*DiscoverServices3Request)(nil),                                  // 38: nsd.DiscoverServices3Request
+	(*DiscoverServices3Response)(nil),                                 // 39: nsd.DiscoverServices3Response
+	(*DiscoverServices5_1Request)(nil),                                // 40: nsd.DiscoverServices5_1Request
+	(*DiscoverServices5_1Response)(nil),                               // 41: nsd.DiscoverServices5_1Response
+	(*DiscoverServices5_2Request)(nil),                                // 42: nsd.DiscoverServices5_2Request
+	(*DiscoverServices5_2Response)(nil),                               // 43: nsd.DiscoverServices5_2Response
+	(*DiscoverServices3_3Request)(nil),                                // 44: nsd.DiscoverServices3_3Request
+	(*DiscoverServices3_3Response)(nil),                               // 45: nsd.DiscoverServices3_3Response
+	(*RegisterService3Request)(nil),                                   // 46: nsd.RegisterService3Request
+	(*RegisterService3Response)(nil),                                  // 47: nsd.RegisterService3Response
+	(*RegisterService4_1Request)(nil),                                 // 48: nsd.RegisterService4_1Request
+	(*RegisterService4_1Response)(nil),                                // 49: nsd.RegisterService4_1Response
+	(*RegisterServiceInfoCallbackRequest)(nil),                        // 50: nsd.RegisterServiceInfoCallbackRequest
+	(*RegisterServiceInfoCallbackResponse)(nil),                       // 51: nsd.RegisterServiceInfoCallbackResponse
+	(*ResolveService2Request)(nil),                                    // 52: nsd.ResolveService2Request
+	(*ResolveService2Response)(nil),                                   // 53: nsd.ResolveService2Response
+	(*ResolveService3_1Request)(nil),                                  // 54: nsd.ResolveService3_1Request
+	(*ResolveService3_1Response)(nil),                                 // 55: nsd.ResolveService3_1Response
+	(*StopServiceDiscoveryRequest)(nil),                               // 56: nsd.StopServiceDiscoveryRequest
+	(*StopServiceDiscoveryResponse)(nil),                              // 57: nsd.StopServiceDiscoveryResponse
+	(*StopServiceResolutionRequest)(nil),                              // 58: nsd.StopServiceResolutionRequest
+	(*StopServiceResolutionResponse)(nil),                             // 59: nsd.StopServiceResolutionResponse
+	(*UnregisterServiceRequest)(nil),                                  // 60: nsd.UnregisterServiceRequest
+	(*UnregisterServiceResponse)(nil),                                 // 61: nsd.UnregisterServiceResponse
+	(*UnregisterServiceInfoCallbackRequest)(nil),                      // 62: nsd.UnregisterServiceInfoCallbackRequest
+	(*UnregisterServiceInfoCallbackResponse)(nil),                     // 63: nsd.UnregisterServiceInfoCallbackResponse
+	(*OnDiscoveryStartedRequest)(nil),                                 // 64: nsd.OnDiscoveryStartedRequest
+	(*OnDiscoveryStartedResponse)(nil),                                // 65: nsd.OnDiscoveryStartedResponse
+	(*OnDiscoveryStoppedRequest)(nil),                                 // 66: nsd.OnDiscoveryStoppedRequest
+	(*OnDiscoveryStoppedResponse)(nil),                                // 67: nsd.OnDiscoveryStoppedResponse
+	(*OnServiceFoundRequest)(nil),                                     // 68: nsd.OnServiceFoundRequest
+	(*OnServiceFoundResponse)(nil),                                    // 69: nsd.OnServiceFoundResponse
+	(*OnServiceLostRequest)(nil),                                      // 70: nsd.OnServiceLostRequest
+	(*OnServiceLostResponse)(nil),                                     // 71: nsd.OnServiceLostResponse
+	(*OnStartDiscoveryFailedRequest)(nil),                             // 72: nsd.OnStartDiscoveryFailedRequest
+	(*OnStartDiscoveryFailedResponse)(nil),                            // 73: nsd.OnStartDiscoveryFailedResponse
+	(*OnStopDiscoveryFailedRequest)(nil),                              // 74: nsd.OnStopDiscoveryFailedRequest
+	(*OnStopDiscoveryFailedResponse)(nil),                             // 75: nsd.OnStopDiscoveryFailedResponse
+	(*OnRegistrationFailedRequest)(nil),                               // 76: nsd.OnRegistrationFailedRequest
+	(*OnRegistrationFailedResponse)(nil),                              // 77: nsd.OnRegistrationFailedResponse
+	(*OnServiceRegisteredRequest)(nil),                                // 78: nsd.OnServiceRegisteredRequest
+	(*OnServiceRegisteredResponse)(nil),                               // 79: nsd.OnServiceRegisteredResponse
+	(*OnServiceUnregisteredRequest)(nil),                              // 80: nsd.OnServiceUnregisteredRequest
+	(*OnServiceUnregisteredResponse)(nil),                             // 81: nsd.OnServiceUnregisteredResponse
+	(*OnUnregistrationFailedRequest)(nil),                             // 82: nsd.OnUnregistrationFailedRequest
+	(*OnUnregistrationFailedResponse)(nil),                            // 83: nsd.OnUnregistrationFailedResponse
+	(*OnResolveFailedRequest)(nil),                                    // 84: nsd.OnResolveFailedRequest
+	(*OnResolveFailedResponse)(nil),                                   // 85: nsd.OnResolveFailedResponse
+	(*OnServiceResolvedRequest)(nil),                                  // 86: nsd.OnServiceResolvedRequest
+	(*OnServiceResolvedResponse)(nil),                                 // 87: nsd.OnServiceResolvedResponse
+	(*OnServiceInfoCallbackRegistrationFailedRequest)(nil),            // 88: nsd.OnServiceInfoCallbackRegistrationFailedRequest
+	(*OnServiceInfoCallbackRegistrationFailedResponse)(nil),           // 89: nsd.OnServiceInfoCallbackRegistrationFailedResponse
+	(*OnServiceInfoCallbackUnregisteredRequest)(nil),                  // 90: nsd.OnServiceInfoCallbackUnregisteredRequest
+	(*OnServiceInfoCallbackUnregisteredResponse)(nil),                 // 91: nsd.OnServiceInfoCallbackUnregisteredResponse
+	(*ManagerServiceInfoCallbackOnServiceLostRequest)(nil),            // 92: nsd.ManagerServiceInfoCallbackOnServiceLostRequest
+	(*OnServiceUpdatedRequest)(nil),                                   // 93: nsd.OnServiceUpdatedRequest
+	(*OnServiceUpdatedResponse)(nil),                                  // 94: nsd.OnServiceUpdatedResponse
+	(*DiscoveryRequestDescribeContentsRequest)(nil),                   // 95: nsd.DiscoveryRequestDescribeContentsRequest
+	(*EqualsRequest)(nil),                                             // 96: nsd.EqualsRequest
+	(*EqualsResponse)(nil),                                            // 97: nsd.EqualsResponse
+	(*DiscoveryRequestGetNetworkRequest)(nil),                         // 98: nsd.DiscoveryRequestGetNetworkRequest
+	(*DiscoveryRequestGetServiceTypeRequest)(nil),                     // 99: nsd.DiscoveryRequestGetServiceTypeRequest
+	(*GetSubtypeRequest)(nil),                                         // 100: nsd.GetSubtypeRequest
+	(*GetSubtypeResponse)(nil),                                        // 101: nsd.GetSubtypeResponse
+	(*HashCodeRequest)(nil),                                           // 102: nsd.HashCodeRequest
+	(*HashCodeResponse)(nil),                                          // 103: nsd.HashCodeResponse
+	(*DiscoveryRequestToStringRequest)(nil),                           // 104: nsd.DiscoveryRequestToStringRequest
+	(*DiscoveryRequestWriteToParcelRequest)(nil),                      // 105: nsd.DiscoveryRequestWriteToParcelRequest
+	(*BuildRequest)(nil),                                              // 106: nsd.BuildRequest
+	(*BuildResponse)(nil),                                             // 107: nsd.BuildResponse
+	(*DiscoveryRequestBuilderSetNetworkRequest)(nil),                  // 108: nsd.DiscoveryRequestBuilderSetNetworkRequest
+	(*DiscoveryRequestBuilderSetNetworkResponse)(nil),                 // 109: nsd.DiscoveryRequestBuilderSetNetworkResponse
+	(*SetSubtypeRequest)(nil),                                         // 110: nsd.SetSubtypeRequest
+	(*SetSubtypeResponse)(nil),                                        // 111: nsd.SetSubtypeResponse
+	(*AdvertisingRequestDescribeContentsRequest)(nil),                 // 112: nsd.AdvertisingRequestDescribeContentsRequest
+	(*GetFlagsRequest)(nil),                                           // 113: nsd.GetFlagsRequest
+	(*GetFlagsResponse)(nil),                                          // 114: nsd.GetFlagsResponse
+	(*GetProtocolTypeRequest)(nil),                                    // 115: nsd.GetProtocolTypeRequest
+	(*GetProtocolTypeResponse)(nil),                                   // 116: nsd.GetProtocolTypeResponse
+	(*GetServiceInfoRequest)(nil),                                     // 117: nsd.GetServiceInfoRequest
+	(*GetServiceInfoResponse)(nil),                                    // 118: nsd.GetServiceInfoResponse
+	(*AdvertisingRequestToStringRequest)(nil),                         // 119: nsd.AdvertisingRequestToStringRequest
+	(*AdvertisingRequestWriteToParcelRequest)(nil),                    // 120: nsd.AdvertisingRequestWriteToParcelRequest
+	(*SetFlagsRequest)(nil),                                           // 121: nsd.SetFlagsRequest
+	(*SetFlagsResponse)(nil),                                          // 122: nsd.SetFlagsResponse
+	(*SetProtocolTypeRequest)(nil),                                    // 123: nsd.SetProtocolTypeRequest
+	(*SetProtocolTypeResponse)(nil),                                   // 124: nsd.SetProtocolTypeResponse
+	(*NewInstance0Request)(nil),                                       // 125: nsd.NewInstance0Request
+	(*NewInstance0Response)(nil),                                      // 126: nsd.NewInstance0Response
+	(*NewInstance1_1Request)(nil),                                     // 127: nsd.NewInstance1_1Request
+	(*NewInstance1_1Response)(nil),                                    // 128: nsd.NewInstance1_1Response
+	(*NewWifiP2PServiceRequestRequest)(nil),                           // 129: nsd.NewWifiP2pServiceRequestRequest
+	(*NewWifiP2PServiceRequestResponse)(nil),                          // 130: nsd.NewWifiP2pServiceRequestResponse
+	(*WifiP2PServiceRequestEqualsRequest)(nil),                        // 131: nsd.WifiP2pServiceRequestEqualsRequest
+	(*GetWifiP2PUsdBasedServiceConfigRequest)(nil),                    // 132: nsd.GetWifiP2pUsdBasedServiceConfigRequest
+	(*GetWifiP2PUsdBasedServiceConfigResponse)(nil),                   // 133: nsd.GetWifiP2pUsdBasedServiceConfigResponse
+	(*WifiP2PServiceRequestHashCodeRequest)(nil),                      // 134: nsd.WifiP2pServiceRequestHashCodeRequest
+	(*NewInstance1Request)(nil),                                       // 135: nsd.NewInstance1Request
+	(*NewInstance1Response)(nil),                                      // 136: nsd.NewInstance1Response
+	(*NewInstance2_1Request)(nil),                                     // 137: nsd.NewInstance2_1Request
+	(*NewInstance2_1Response)(nil),                                    // 138: nsd.NewInstance2_1Response
+	(*WifiP2PUsdBasedServiceResponseDescribeContentsRequest)(nil),     // 139: nsd.WifiP2pUsdBasedServiceResponseDescribeContentsRequest
+	(*GetServiceProtocolTypeRequest)(nil),                             // 140: nsd.GetServiceProtocolTypeRequest
+	(*GetServiceProtocolTypeResponse)(nil),                            // 141: nsd.GetServiceProtocolTypeResponse
+	(*GetServiceSpecificInfoRequest)(nil),                             // 142: nsd.GetServiceSpecificInfoRequest
+	(*GetServiceSpecificInfoResponse)(nil),                            // 143: nsd.GetServiceSpecificInfoResponse
+	(*WifiP2PUsdBasedServiceResponseToStringRequest)(nil),             // 144: nsd.WifiP2pUsdBasedServiceResponseToStringRequest
+	(*WifiP2PUsdBasedServiceResponseWriteToParcelRequest)(nil),        // 145: nsd.WifiP2pUsdBasedServiceResponseWriteToParcelRequest
+	(*NewWifiP2PServiceInfoRequest)(nil),                              // 146: nsd.NewWifiP2pServiceInfoRequest
+	(*NewWifiP2PServiceInfoResponse)(nil),                             // 147: nsd.NewWifiP2pServiceInfoResponse
+	(*NewWifiP2PUsdBasedServiceConfigRequest)(nil),                    // 148: nsd.NewWifiP2pUsdBasedServiceConfigRequest
+	(*NewWifiP2PUsdBasedServiceConfigResponse)(nil),                   // 149: nsd.NewWifiP2pUsdBasedServiceConfigResponse
+	(*WifiP2PUsdBasedServiceConfigGetServiceProtocolTypeRequest)(nil), // 150: nsd.WifiP2pUsdBasedServiceConfigGetServiceProtocolTypeRequest
+	(*WifiP2PUsdBasedServiceConfigGetServiceSpecificInfoRequest)(nil), // 151: nsd.WifiP2pUsdBasedServiceConfigGetServiceSpecificInfoRequest
+	(*WifiP2PUsdBasedServiceConfigToStringRequest)(nil),               // 152: nsd.WifiP2pUsdBasedServiceConfigToStringRequest
+	(*GetMaxAllowedServiceSpecificInfoLengthRequest)(nil),             // 153: nsd.GetMaxAllowedServiceSpecificInfoLengthRequest
+	(*GetMaxAllowedServiceSpecificInfoLengthResponse)(nil),            // 154: nsd.GetMaxAllowedServiceSpecificInfoLengthResponse
+	(*SetServiceProtocolTypeRequest)(nil),                             // 155: nsd.SetServiceProtocolTypeRequest
+	(*SetServiceProtocolTypeResponse)(nil),                            // 156: nsd.SetServiceProtocolTypeResponse
+	(*SetServiceSpecificInfoRequest)(nil),                             // 157: nsd.SetServiceSpecificInfoRequest
+	(*SetServiceSpecificInfoResponse)(nil),                            // 158: nsd.SetServiceSpecificInfoResponse
+	(*NewInstance2_2Request)(nil),                                     // 159: nsd.NewInstance2_2Request
+	(*NewInstance2_2Response)(nil),                                    // 160: nsd.NewInstance2_2Response
+	(*ServiceInfoDescribeContentsRequest)(nil),                        // 161: nsd.ServiceInfoDescribeContentsRequest
+	(*ServiceInfoGetHostRequest)(nil),                                 // 162: nsd.ServiceInfoGetHostRequest
+	(*ServiceInfoGetHostAddressesRequest)(nil),                        // 163: nsd.ServiceInfoGetHostAddressesRequest
+	(*ServiceInfoGetHostnameRequest)(nil),                             // 164: nsd.ServiceInfoGetHostnameRequest
+	(*ServiceInfoGetNetworkRequest)(nil),                              // 165: nsd.ServiceInfoGetNetworkRequest
+	(*ServiceInfoGetPortRequest)(nil),                                 // 166: nsd.ServiceInfoGetPortRequest
+	(*ServiceInfoGetServiceNameRequest)(nil),                          // 167: nsd.ServiceInfoGetServiceNameRequest
+	(*ServiceInfoGetServiceTypeRequest)(nil),                          // 168: nsd.ServiceInfoGetServiceTypeRequest
+	(*ServiceInfoGetSubtypesRequest)(nil),                             // 169: nsd.ServiceInfoGetSubtypesRequest
+	(*ServiceInfoRemoveAttributeRequest)(nil),                         // 170: nsd.ServiceInfoRemoveAttributeRequest
+	(*ServiceInfoSetAttributeRequest)(nil),                            // 171: nsd.ServiceInfoSetAttributeRequest
+	(*ServiceInfoSetHostRequest)(nil),                                 // 172: nsd.ServiceInfoSetHostRequest
+	(*SetHostAddressesRequest)(nil),                                   // 173: nsd.SetHostAddressesRequest
+	(*SetHostAddressesResponse)(nil),                                  // 174: nsd.SetHostAddressesResponse
+	(*ServiceInfoSetNetworkRequest)(nil),                              // 175: nsd.ServiceInfoSetNetworkRequest
+	(*ServiceInfoSetPortRequest)(nil),                                 // 176: nsd.ServiceInfoSetPortRequest
+	(*ServiceInfoSetServiceNameRequest)(nil),                          // 177: nsd.ServiceInfoSetServiceNameRequest
+	(*ServiceInfoSetServiceTypeRequest)(nil),                          // 178: nsd.ServiceInfoSetServiceTypeRequest
+	(*SetSubtypesRequest)(nil),                                        // 179: nsd.SetSubtypesRequest
+	(*SetSubtypesResponse)(nil),                                       // 180: nsd.SetSubtypesResponse
+	(*ServiceInfoToStringRequest)(nil),                                // 181: nsd.ServiceInfoToStringRequest
+	(*ServiceInfoWriteToParcelRequest)(nil),                           // 182: nsd.ServiceInfoWriteToParcelRequest
 }
 var file_proto_nsd_nsd_proto_depIdxs = []int32{
-	0,   // 0: nsd.DiscoveryRequestService.DescribeContents:input_type -> nsd.DescribeContentsRequest
-	2,   // 1: nsd.DiscoveryRequestService.Equals:input_type -> nsd.EqualsRequest
-	4,   // 2: nsd.DiscoveryRequestService.GetNetwork:input_type -> nsd.GetNetworkRequest
-	6,   // 3: nsd.DiscoveryRequestService.GetServiceType:input_type -> nsd.GetServiceTypeRequest
-	8,   // 4: nsd.DiscoveryRequestService.GetSubtype:input_type -> nsd.GetSubtypeRequest
-	10,  // 5: nsd.DiscoveryRequestService.HashCode:input_type -> nsd.HashCodeRequest
-	12,  // 6: nsd.DiscoveryRequestService.ToString:input_type -> nsd.ToStringRequest
-	14,  // 7: nsd.DiscoveryRequestService.WriteToParcel:input_type -> nsd.WriteToParcelRequest
-	16,  // 8: nsd.DiscoveryRequestBuilderService.Build:input_type -> nsd.BuildRequest
-	18,  // 9: nsd.DiscoveryRequestBuilderService.SetNetwork:input_type -> nsd.SetNetworkRequest
-	20,  // 10: nsd.DiscoveryRequestBuilderService.SetSubtype:input_type -> nsd.SetSubtypeRequest
-	22,  // 11: nsd.ManagerService.DiscoverServices3:input_type -> nsd.DiscoverServices3Request
-	24,  // 12: nsd.ManagerService.DiscoverServices5_1:input_type -> nsd.DiscoverServices5_1Request
-	26,  // 13: nsd.ManagerService.DiscoverServices5_2:input_type -> nsd.DiscoverServices5_2Request
-	28,  // 14: nsd.ManagerService.DiscoverServices3_3:input_type -> nsd.DiscoverServices3_3Request
-	30,  // 15: nsd.ManagerService.RegisterService3:input_type -> nsd.RegisterService3Request
-	32,  // 16: nsd.ManagerService.RegisterService4_1:input_type -> nsd.RegisterService4_1Request
-	34,  // 17: nsd.ManagerService.RegisterServiceInfoCallback:input_type -> nsd.RegisterServiceInfoCallbackRequest
-	36,  // 18: nsd.ManagerService.ResolveService2:input_type -> nsd.ResolveService2Request
-	38,  // 19: nsd.ManagerService.ResolveService3_1:input_type -> nsd.ResolveService3_1Request
-	40,  // 20: nsd.ManagerService.StopServiceDiscovery:input_type -> nsd.StopServiceDiscoveryRequest
-	42,  // 21: nsd.ManagerService.StopServiceResolution:input_type -> nsd.StopServiceResolutionRequest
-	44,  // 22: nsd.ManagerService.UnregisterService:input_type -> nsd.UnregisterServiceRequest
-	46,  // 23: nsd.ManagerService.UnregisterServiceInfoCallback:input_type -> nsd.UnregisterServiceInfoCallbackRequest
-	48,  // 24: nsd.ManagerDiscoveryListenerService.OnDiscoveryStarted:input_type -> nsd.OnDiscoveryStartedRequest
-	50,  // 25: nsd.ManagerDiscoveryListenerService.OnDiscoveryStopped:input_type -> nsd.OnDiscoveryStoppedRequest
-	52,  // 26: nsd.ManagerDiscoveryListenerService.OnServiceFound:input_type -> nsd.OnServiceFoundRequest
-	54,  // 27: nsd.ManagerDiscoveryListenerService.OnServiceLost:input_type -> nsd.OnServiceLostRequest
-	56,  // 28: nsd.ManagerDiscoveryListenerService.OnStartDiscoveryFailed:input_type -> nsd.OnStartDiscoveryFailedRequest
-	58,  // 29: nsd.ManagerDiscoveryListenerService.OnStopDiscoveryFailed:input_type -> nsd.OnStopDiscoveryFailedRequest
-	60,  // 30: nsd.ManagerRegistrationListenerService.OnRegistrationFailed:input_type -> nsd.OnRegistrationFailedRequest
-	62,  // 31: nsd.ManagerRegistrationListenerService.OnServiceRegistered:input_type -> nsd.OnServiceRegisteredRequest
-	64,  // 32: nsd.ManagerRegistrationListenerService.OnServiceUnregistered:input_type -> nsd.OnServiceUnregisteredRequest
-	66,  // 33: nsd.ManagerRegistrationListenerService.OnUnregistrationFailed:input_type -> nsd.OnUnregistrationFailedRequest
-	68,  // 34: nsd.ManagerResolveListenerService.OnResolveFailed:input_type -> nsd.OnResolveFailedRequest
-	70,  // 35: nsd.ManagerResolveListenerService.OnServiceResolved:input_type -> nsd.OnServiceResolvedRequest
-	72,  // 36: nsd.ManagerServiceInfoCallbackService.OnServiceInfoCallbackRegistrationFailed:input_type -> nsd.OnServiceInfoCallbackRegistrationFailedRequest
-	74,  // 37: nsd.ManagerServiceInfoCallbackService.OnServiceInfoCallbackUnregistered:input_type -> nsd.OnServiceInfoCallbackUnregisteredRequest
-	76,  // 38: nsd.ManagerServiceInfoCallbackService.OnServiceLost:input_type -> nsd.ManagerServiceInfoCallbackOnServiceLostRequest
-	77,  // 39: nsd.ManagerServiceInfoCallbackService.OnServiceUpdated:input_type -> nsd.OnServiceUpdatedRequest
-	79,  // 40: nsd.ServiceInfoService.NewServiceInfo:input_type -> nsd.NewServiceInfoRequest
-	81,  // 41: nsd.ServiceInfoService.DescribeContents:input_type -> nsd.ServiceInfoDescribeContentsRequest
-	82,  // 42: nsd.ServiceInfoService.GetHost:input_type -> nsd.GetHostRequest
-	84,  // 43: nsd.ServiceInfoService.GetHostname:input_type -> nsd.GetHostnameRequest
-	86,  // 44: nsd.ServiceInfoService.GetNetwork:input_type -> nsd.ServiceInfoGetNetworkRequest
-	87,  // 45: nsd.ServiceInfoService.GetPort:input_type -> nsd.GetPortRequest
-	89,  // 46: nsd.ServiceInfoService.GetServiceName:input_type -> nsd.GetServiceNameRequest
-	91,  // 47: nsd.ServiceInfoService.GetServiceType:input_type -> nsd.ServiceInfoGetServiceTypeRequest
-	92,  // 48: nsd.ServiceInfoService.RemoveAttribute:input_type -> nsd.RemoveAttributeRequest
-	94,  // 49: nsd.ServiceInfoService.SetAttribute:input_type -> nsd.SetAttributeRequest
-	96,  // 50: nsd.ServiceInfoService.SetHost:input_type -> nsd.SetHostRequest
-	98,  // 51: nsd.ServiceInfoService.SetNetwork:input_type -> nsd.ServiceInfoSetNetworkRequest
-	100, // 52: nsd.ServiceInfoService.SetPort:input_type -> nsd.SetPortRequest
-	102, // 53: nsd.ServiceInfoService.SetServiceName:input_type -> nsd.SetServiceNameRequest
-	104, // 54: nsd.ServiceInfoService.SetServiceType:input_type -> nsd.SetServiceTypeRequest
-	106, // 55: nsd.ServiceInfoService.ToString:input_type -> nsd.ServiceInfoToStringRequest
-	107, // 56: nsd.ServiceInfoService.WriteToParcel:input_type -> nsd.ServiceInfoWriteToParcelRequest
-	156, // 57: nsd.ServiceInfoService.GetHostAddresses:input_type -> nsd.GetHostAddressesRequest
-	161, // 58: nsd.ServiceInfoService.GetSubtypes:input_type -> nsd.GetSubtypesRequest
-	166, // 59: nsd.ServiceInfoService.SetHostAddresses:input_type -> nsd.SetHostAddressesRequest
-	172, // 60: nsd.ServiceInfoService.SetSubtypes:input_type -> nsd.SetSubtypesRequest
-	0,   // 61: nsd.AdvertisingRequestService.DescribeContents:input_type -> nsd.DescribeContentsRequest
-	2,   // 62: nsd.AdvertisingRequestService.Equals:input_type -> nsd.EqualsRequest
-	108, // 63: nsd.AdvertisingRequestService.GetFlags:input_type -> nsd.GetFlagsRequest
-	110, // 64: nsd.AdvertisingRequestService.GetProtocolType:input_type -> nsd.GetProtocolTypeRequest
-	112, // 65: nsd.AdvertisingRequestService.GetServiceInfo:input_type -> nsd.GetServiceInfoRequest
-	10,  // 66: nsd.AdvertisingRequestService.HashCode:input_type -> nsd.HashCodeRequest
-	12,  // 67: nsd.AdvertisingRequestService.ToString:input_type -> nsd.ToStringRequest
-	14,  // 68: nsd.AdvertisingRequestService.WriteToParcel:input_type -> nsd.WriteToParcelRequest
-	16,  // 69: nsd.AdvertisingRequestBuilderService.Build:input_type -> nsd.BuildRequest
-	114, // 70: nsd.AdvertisingRequestBuilderService.SetFlags:input_type -> nsd.SetFlagsRequest
-	116, // 71: nsd.AdvertisingRequestBuilderService.SetProtocolType:input_type -> nsd.SetProtocolTypeRequest
-	118, // 72: nsd.WifiP2pServiceInfoService.NewWifiP2pServiceInfo:input_type -> nsd.NewWifiP2pServiceInfoRequest
-	120, // 73: nsd.WifiP2pServiceInfoService.DescribeContents:input_type -> nsd.WifiP2pServiceInfoDescribeContentsRequest
-	121, // 74: nsd.WifiP2pServiceInfoService.Equals:input_type -> nsd.WifiP2pServiceInfoEqualsRequest
-	122, // 75: nsd.WifiP2pServiceInfoService.GetWifiP2pUsdBasedServiceConfig:input_type -> nsd.GetWifiP2pUsdBasedServiceConfigRequest
-	124, // 76: nsd.WifiP2pServiceInfoService.HashCode:input_type -> nsd.WifiP2pServiceInfoHashCodeRequest
-	125, // 77: nsd.WifiP2pServiceInfoService.WriteToParcel:input_type -> nsd.WifiP2pServiceInfoWriteToParcelRequest
-	126, // 78: nsd.WifiP2pUsdBasedServiceResponseService.DescribeContents:input_type -> nsd.WifiP2pUsdBasedServiceResponseDescribeContentsRequest
-	127, // 79: nsd.WifiP2pUsdBasedServiceResponseService.GetServiceProtocolType:input_type -> nsd.GetServiceProtocolTypeRequest
-	129, // 80: nsd.WifiP2pUsdBasedServiceResponseService.GetServiceSpecificInfo:input_type -> nsd.GetServiceSpecificInfoRequest
-	12,  // 81: nsd.WifiP2pUsdBasedServiceResponseService.ToString:input_type -> nsd.ToStringRequest
-	131, // 82: nsd.WifiP2pUsdBasedServiceResponseService.WriteToParcel:input_type -> nsd.WifiP2pUsdBasedServiceResponseWriteToParcelRequest
-	132, // 83: nsd.WifiP2pUpnpServiceRequestService.NewInstance0:input_type -> nsd.NewInstance0Request
-	134, // 84: nsd.WifiP2pUpnpServiceRequestService.NewInstance1_1:input_type -> nsd.NewInstance1_1Request
-	136, // 85: nsd.WifiP2pServiceRequestService.NewWifiP2pServiceRequest:input_type -> nsd.NewWifiP2pServiceRequestRequest
-	120, // 86: nsd.WifiP2pServiceRequestService.DescribeContents:input_type -> nsd.WifiP2pServiceInfoDescribeContentsRequest
-	121, // 87: nsd.WifiP2pServiceRequestService.Equals:input_type -> nsd.WifiP2pServiceInfoEqualsRequest
-	122, // 88: nsd.WifiP2pServiceRequestService.GetWifiP2pUsdBasedServiceConfig:input_type -> nsd.GetWifiP2pUsdBasedServiceConfigRequest
-	124, // 89: nsd.WifiP2pServiceRequestService.HashCode:input_type -> nsd.WifiP2pServiceInfoHashCodeRequest
-	125, // 90: nsd.WifiP2pServiceRequestService.WriteToParcel:input_type -> nsd.WifiP2pServiceInfoWriteToParcelRequest
-	138, // 91: nsd.WifiP2pServiceRequestService.NewInstance1:input_type -> nsd.NewInstance1Request
-	140, // 92: nsd.WifiP2pServiceRequestService.NewInstance2_1:input_type -> nsd.NewInstance2_1Request
-	132, // 93: nsd.WifiP2pDnsSdServiceRequestService.NewInstance0:input_type -> nsd.NewInstance0Request
-	134, // 94: nsd.WifiP2pDnsSdServiceRequestService.NewInstance1_1:input_type -> nsd.NewInstance1_1Request
-	142, // 95: nsd.WifiP2pDnsSdServiceRequestService.NewInstance2_2:input_type -> nsd.NewInstance2_2Request
-	144, // 96: nsd.WifiP2pUsdBasedServiceConfigService.NewWifiP2pUsdBasedServiceConfig:input_type -> nsd.NewWifiP2pUsdBasedServiceConfigRequest
-	120, // 97: nsd.WifiP2pUsdBasedServiceConfigService.DescribeContents:input_type -> nsd.WifiP2pServiceInfoDescribeContentsRequest
-	89,  // 98: nsd.WifiP2pUsdBasedServiceConfigService.GetServiceName:input_type -> nsd.GetServiceNameRequest
-	146, // 99: nsd.WifiP2pUsdBasedServiceConfigService.GetServiceProtocolType:input_type -> nsd.WifiP2pUsdBasedServiceConfigGetServiceProtocolTypeRequest
-	147, // 100: nsd.WifiP2pUsdBasedServiceConfigService.GetServiceSpecificInfo:input_type -> nsd.WifiP2pUsdBasedServiceConfigGetServiceSpecificInfoRequest
-	148, // 101: nsd.WifiP2pUsdBasedServiceConfigService.ToString:input_type -> nsd.WifiP2pUsdBasedServiceConfigToStringRequest
-	125, // 102: nsd.WifiP2pUsdBasedServiceConfigService.WriteToParcel:input_type -> nsd.WifiP2pServiceInfoWriteToParcelRequest
-	149, // 103: nsd.WifiP2pUsdBasedServiceConfigService.GetMaxAllowedServiceSpecificInfoLength:input_type -> nsd.GetMaxAllowedServiceSpecificInfoLengthRequest
-	16,  // 104: nsd.WifiP2pUsdBasedServiceConfigBuilderService.Build:input_type -> nsd.BuildRequest
-	151, // 105: nsd.WifiP2pUsdBasedServiceConfigBuilderService.SetServiceProtocolType:input_type -> nsd.SetServiceProtocolTypeRequest
-	153, // 106: nsd.WifiP2pUsdBasedServiceConfigBuilderService.SetServiceSpecificInfo:input_type -> nsd.SetServiceSpecificInfoRequest
-	1,   // 107: nsd.DiscoveryRequestService.DescribeContents:output_type -> nsd.DescribeContentsResponse
-	3,   // 108: nsd.DiscoveryRequestService.Equals:output_type -> nsd.EqualsResponse
-	5,   // 109: nsd.DiscoveryRequestService.GetNetwork:output_type -> nsd.GetNetworkResponse
-	7,   // 110: nsd.DiscoveryRequestService.GetServiceType:output_type -> nsd.GetServiceTypeResponse
-	9,   // 111: nsd.DiscoveryRequestService.GetSubtype:output_type -> nsd.GetSubtypeResponse
-	11,  // 112: nsd.DiscoveryRequestService.HashCode:output_type -> nsd.HashCodeResponse
-	13,  // 113: nsd.DiscoveryRequestService.ToString:output_type -> nsd.ToStringResponse
-	15,  // 114: nsd.DiscoveryRequestService.WriteToParcel:output_type -> nsd.WriteToParcelResponse
-	17,  // 115: nsd.DiscoveryRequestBuilderService.Build:output_type -> nsd.BuildResponse
-	19,  // 116: nsd.DiscoveryRequestBuilderService.SetNetwork:output_type -> nsd.SetNetworkResponse
-	21,  // 117: nsd.DiscoveryRequestBuilderService.SetSubtype:output_type -> nsd.SetSubtypeResponse
-	23,  // 118: nsd.ManagerService.DiscoverServices3:output_type -> nsd.DiscoverServices3Response
-	25,  // 119: nsd.ManagerService.DiscoverServices5_1:output_type -> nsd.DiscoverServices5_1Response
-	27,  // 120: nsd.ManagerService.DiscoverServices5_2:output_type -> nsd.DiscoverServices5_2Response
-	29,  // 121: nsd.ManagerService.DiscoverServices3_3:output_type -> nsd.DiscoverServices3_3Response
-	31,  // 122: nsd.ManagerService.RegisterService3:output_type -> nsd.RegisterService3Response
-	33,  // 123: nsd.ManagerService.RegisterService4_1:output_type -> nsd.RegisterService4_1Response
-	35,  // 124: nsd.ManagerService.RegisterServiceInfoCallback:output_type -> nsd.RegisterServiceInfoCallbackResponse
-	37,  // 125: nsd.ManagerService.ResolveService2:output_type -> nsd.ResolveService2Response
-	39,  // 126: nsd.ManagerService.ResolveService3_1:output_type -> nsd.ResolveService3_1Response
-	41,  // 127: nsd.ManagerService.StopServiceDiscovery:output_type -> nsd.StopServiceDiscoveryResponse
-	43,  // 128: nsd.ManagerService.StopServiceResolution:output_type -> nsd.StopServiceResolutionResponse
-	45,  // 129: nsd.ManagerService.UnregisterService:output_type -> nsd.UnregisterServiceResponse
-	47,  // 130: nsd.ManagerService.UnregisterServiceInfoCallback:output_type -> nsd.UnregisterServiceInfoCallbackResponse
-	49,  // 131: nsd.ManagerDiscoveryListenerService.OnDiscoveryStarted:output_type -> nsd.OnDiscoveryStartedResponse
-	51,  // 132: nsd.ManagerDiscoveryListenerService.OnDiscoveryStopped:output_type -> nsd.OnDiscoveryStoppedResponse
-	53,  // 133: nsd.ManagerDiscoveryListenerService.OnServiceFound:output_type -> nsd.OnServiceFoundResponse
-	55,  // 134: nsd.ManagerDiscoveryListenerService.OnServiceLost:output_type -> nsd.OnServiceLostResponse
-	57,  // 135: nsd.ManagerDiscoveryListenerService.OnStartDiscoveryFailed:output_type -> nsd.OnStartDiscoveryFailedResponse
-	59,  // 136: nsd.ManagerDiscoveryListenerService.OnStopDiscoveryFailed:output_type -> nsd.OnStopDiscoveryFailedResponse
-	61,  // 137: nsd.ManagerRegistrationListenerService.OnRegistrationFailed:output_type -> nsd.OnRegistrationFailedResponse
-	63,  // 138: nsd.ManagerRegistrationListenerService.OnServiceRegistered:output_type -> nsd.OnServiceRegisteredResponse
-	65,  // 139: nsd.ManagerRegistrationListenerService.OnServiceUnregistered:output_type -> nsd.OnServiceUnregisteredResponse
-	67,  // 140: nsd.ManagerRegistrationListenerService.OnUnregistrationFailed:output_type -> nsd.OnUnregistrationFailedResponse
-	69,  // 141: nsd.ManagerResolveListenerService.OnResolveFailed:output_type -> nsd.OnResolveFailedResponse
-	71,  // 142: nsd.ManagerResolveListenerService.OnServiceResolved:output_type -> nsd.OnServiceResolvedResponse
-	73,  // 143: nsd.ManagerServiceInfoCallbackService.OnServiceInfoCallbackRegistrationFailed:output_type -> nsd.OnServiceInfoCallbackRegistrationFailedResponse
-	75,  // 144: nsd.ManagerServiceInfoCallbackService.OnServiceInfoCallbackUnregistered:output_type -> nsd.OnServiceInfoCallbackUnregisteredResponse
-	55,  // 145: nsd.ManagerServiceInfoCallbackService.OnServiceLost:output_type -> nsd.OnServiceLostResponse
-	78,  // 146: nsd.ManagerServiceInfoCallbackService.OnServiceUpdated:output_type -> nsd.OnServiceUpdatedResponse
-	80,  // 147: nsd.ServiceInfoService.NewServiceInfo:output_type -> nsd.NewServiceInfoResponse
-	1,   // 148: nsd.ServiceInfoService.DescribeContents:output_type -> nsd.DescribeContentsResponse
-	83,  // 149: nsd.ServiceInfoService.GetHost:output_type -> nsd.GetHostResponse
-	85,  // 150: nsd.ServiceInfoService.GetHostname:output_type -> nsd.GetHostnameResponse
-	5,   // 151: nsd.ServiceInfoService.GetNetwork:output_type -> nsd.GetNetworkResponse
-	88,  // 152: nsd.ServiceInfoService.GetPort:output_type -> nsd.GetPortResponse
-	90,  // 153: nsd.ServiceInfoService.GetServiceName:output_type -> nsd.GetServiceNameResponse
-	7,   // 154: nsd.ServiceInfoService.GetServiceType:output_type -> nsd.GetServiceTypeResponse
-	93,  // 155: nsd.ServiceInfoService.RemoveAttribute:output_type -> nsd.RemoveAttributeResponse
-	95,  // 156: nsd.ServiceInfoService.SetAttribute:output_type -> nsd.SetAttributeResponse
-	97,  // 157: nsd.ServiceInfoService.SetHost:output_type -> nsd.SetHostResponse
-	99,  // 158: nsd.ServiceInfoService.SetNetwork:output_type -> nsd.ServiceInfoSetNetworkResponse
-	101, // 159: nsd.ServiceInfoService.SetPort:output_type -> nsd.SetPortResponse
-	103, // 160: nsd.ServiceInfoService.SetServiceName:output_type -> nsd.SetServiceNameResponse
-	105, // 161: nsd.ServiceInfoService.SetServiceType:output_type -> nsd.SetServiceTypeResponse
-	13,  // 162: nsd.ServiceInfoService.ToString:output_type -> nsd.ToStringResponse
-	15,  // 163: nsd.ServiceInfoService.WriteToParcel:output_type -> nsd.WriteToParcelResponse
-	157, // 164: nsd.ServiceInfoService.GetHostAddresses:output_type -> nsd.GetHostAddressesResponse
-	162, // 165: nsd.ServiceInfoService.GetSubtypes:output_type -> nsd.GetSubtypesResponse
-	167, // 166: nsd.ServiceInfoService.SetHostAddresses:output_type -> nsd.SetHostAddressesResponse
-	173, // 167: nsd.ServiceInfoService.SetSubtypes:output_type -> nsd.SetSubtypesResponse
-	1,   // 168: nsd.AdvertisingRequestService.DescribeContents:output_type -> nsd.DescribeContentsResponse
-	3,   // 169: nsd.AdvertisingRequestService.Equals:output_type -> nsd.EqualsResponse
-	109, // 170: nsd.AdvertisingRequestService.GetFlags:output_type -> nsd.GetFlagsResponse
-	111, // 171: nsd.AdvertisingRequestService.GetProtocolType:output_type -> nsd.GetProtocolTypeResponse
-	113, // 172: nsd.AdvertisingRequestService.GetServiceInfo:output_type -> nsd.GetServiceInfoResponse
-	11,  // 173: nsd.AdvertisingRequestService.HashCode:output_type -> nsd.HashCodeResponse
-	13,  // 174: nsd.AdvertisingRequestService.ToString:output_type -> nsd.ToStringResponse
-	15,  // 175: nsd.AdvertisingRequestService.WriteToParcel:output_type -> nsd.WriteToParcelResponse
-	17,  // 176: nsd.AdvertisingRequestBuilderService.Build:output_type -> nsd.BuildResponse
-	115, // 177: nsd.AdvertisingRequestBuilderService.SetFlags:output_type -> nsd.SetFlagsResponse
-	117, // 178: nsd.AdvertisingRequestBuilderService.SetProtocolType:output_type -> nsd.SetProtocolTypeResponse
-	119, // 179: nsd.WifiP2pServiceInfoService.NewWifiP2pServiceInfo:output_type -> nsd.NewWifiP2pServiceInfoResponse
-	1,   // 180: nsd.WifiP2pServiceInfoService.DescribeContents:output_type -> nsd.DescribeContentsResponse
-	3,   // 181: nsd.WifiP2pServiceInfoService.Equals:output_type -> nsd.EqualsResponse
-	123, // 182: nsd.WifiP2pServiceInfoService.GetWifiP2pUsdBasedServiceConfig:output_type -> nsd.GetWifiP2pUsdBasedServiceConfigResponse
-	11,  // 183: nsd.WifiP2pServiceInfoService.HashCode:output_type -> nsd.HashCodeResponse
-	15,  // 184: nsd.WifiP2pServiceInfoService.WriteToParcel:output_type -> nsd.WriteToParcelResponse
-	1,   // 185: nsd.WifiP2pUsdBasedServiceResponseService.DescribeContents:output_type -> nsd.DescribeContentsResponse
-	128, // 186: nsd.WifiP2pUsdBasedServiceResponseService.GetServiceProtocolType:output_type -> nsd.GetServiceProtocolTypeResponse
-	130, // 187: nsd.WifiP2pUsdBasedServiceResponseService.GetServiceSpecificInfo:output_type -> nsd.GetServiceSpecificInfoResponse
-	13,  // 188: nsd.WifiP2pUsdBasedServiceResponseService.ToString:output_type -> nsd.ToStringResponse
-	15,  // 189: nsd.WifiP2pUsdBasedServiceResponseService.WriteToParcel:output_type -> nsd.WriteToParcelResponse
-	133, // 190: nsd.WifiP2pUpnpServiceRequestService.NewInstance0:output_type -> nsd.NewInstance0Response
-	135, // 191: nsd.WifiP2pUpnpServiceRequestService.NewInstance1_1:output_type -> nsd.NewInstance1_1Response
-	137, // 192: nsd.WifiP2pServiceRequestService.NewWifiP2pServiceRequest:output_type -> nsd.NewWifiP2pServiceRequestResponse
-	1,   // 193: nsd.WifiP2pServiceRequestService.DescribeContents:output_type -> nsd.DescribeContentsResponse
-	3,   // 194: nsd.WifiP2pServiceRequestService.Equals:output_type -> nsd.EqualsResponse
-	123, // 195: nsd.WifiP2pServiceRequestService.GetWifiP2pUsdBasedServiceConfig:output_type -> nsd.GetWifiP2pUsdBasedServiceConfigResponse
-	11,  // 196: nsd.WifiP2pServiceRequestService.HashCode:output_type -> nsd.HashCodeResponse
-	15,  // 197: nsd.WifiP2pServiceRequestService.WriteToParcel:output_type -> nsd.WriteToParcelResponse
-	139, // 198: nsd.WifiP2pServiceRequestService.NewInstance1:output_type -> nsd.NewInstance1Response
-	141, // 199: nsd.WifiP2pServiceRequestService.NewInstance2_1:output_type -> nsd.NewInstance2_1Response
-	133, // 200: nsd.WifiP2pDnsSdServiceRequestService.NewInstance0:output_type -> nsd.NewInstance0Response
-	135, // 201: nsd.WifiP2pDnsSdServiceRequestService.NewInstance1_1:output_type -> nsd.NewInstance1_1Response
-	143, // 202: nsd.WifiP2pDnsSdServiceRequestService.NewInstance2_2:output_type -> nsd.NewInstance2_2Response
-	145, // 203: nsd.WifiP2pUsdBasedServiceConfigService.NewWifiP2pUsdBasedServiceConfig:output_type -> nsd.NewWifiP2pUsdBasedServiceConfigResponse
-	1,   // 204: nsd.WifiP2pUsdBasedServiceConfigService.DescribeContents:output_type -> nsd.DescribeContentsResponse
-	90,  // 205: nsd.WifiP2pUsdBasedServiceConfigService.GetServiceName:output_type -> nsd.GetServiceNameResponse
-	128, // 206: nsd.WifiP2pUsdBasedServiceConfigService.GetServiceProtocolType:output_type -> nsd.GetServiceProtocolTypeResponse
-	130, // 207: nsd.WifiP2pUsdBasedServiceConfigService.GetServiceSpecificInfo:output_type -> nsd.GetServiceSpecificInfoResponse
-	13,  // 208: nsd.WifiP2pUsdBasedServiceConfigService.ToString:output_type -> nsd.ToStringResponse
-	15,  // 209: nsd.WifiP2pUsdBasedServiceConfigService.WriteToParcel:output_type -> nsd.WriteToParcelResponse
-	150, // 210: nsd.WifiP2pUsdBasedServiceConfigService.GetMaxAllowedServiceSpecificInfoLength:output_type -> nsd.GetMaxAllowedServiceSpecificInfoLengthResponse
-	17,  // 211: nsd.WifiP2pUsdBasedServiceConfigBuilderService.Build:output_type -> nsd.BuildResponse
-	152, // 212: nsd.WifiP2pUsdBasedServiceConfigBuilderService.SetServiceProtocolType:output_type -> nsd.SetServiceProtocolTypeResponse
-	154, // 213: nsd.WifiP2pUsdBasedServiceConfigBuilderService.SetServiceSpecificInfo:output_type -> nsd.SetServiceSpecificInfoResponse
+	0,   // 0: nsd.ServiceInfoService.NewServiceInfo:input_type -> nsd.NewServiceInfoRequest
+	2,   // 1: nsd.ServiceInfoService.DescribeContents:input_type -> nsd.DescribeContentsRequest
+	4,   // 2: nsd.ServiceInfoService.GetHost:input_type -> nsd.GetHostRequest
+	6,   // 3: nsd.ServiceInfoService.GetHostAddresses:input_type -> nsd.GetHostAddressesRequest
+	8,   // 4: nsd.ServiceInfoService.GetHostname:input_type -> nsd.GetHostnameRequest
+	10,  // 5: nsd.ServiceInfoService.GetNetwork:input_type -> nsd.GetNetworkRequest
+	12,  // 6: nsd.ServiceInfoService.GetPort:input_type -> nsd.GetPortRequest
+	14,  // 7: nsd.ServiceInfoService.GetServiceName:input_type -> nsd.GetServiceNameRequest
+	16,  // 8: nsd.ServiceInfoService.GetServiceType:input_type -> nsd.GetServiceTypeRequest
+	18,  // 9: nsd.ServiceInfoService.GetSubtypes:input_type -> nsd.GetSubtypesRequest
+	20,  // 10: nsd.ServiceInfoService.RemoveAttribute:input_type -> nsd.RemoveAttributeRequest
+	22,  // 11: nsd.ServiceInfoService.SetAttribute:input_type -> nsd.SetAttributeRequest
+	24,  // 12: nsd.ServiceInfoService.SetHost:input_type -> nsd.SetHostRequest
+	26,  // 13: nsd.ServiceInfoService.SetNetwork:input_type -> nsd.SetNetworkRequest
+	28,  // 14: nsd.ServiceInfoService.SetPort:input_type -> nsd.SetPortRequest
+	30,  // 15: nsd.ServiceInfoService.SetServiceName:input_type -> nsd.SetServiceNameRequest
+	32,  // 16: nsd.ServiceInfoService.SetServiceType:input_type -> nsd.SetServiceTypeRequest
+	34,  // 17: nsd.ServiceInfoService.ToString:input_type -> nsd.ToStringRequest
+	36,  // 18: nsd.ServiceInfoService.WriteToParcel:input_type -> nsd.WriteToParcelRequest
+	173, // 19: nsd.ServiceInfoService.SetHostAddresses:input_type -> nsd.SetHostAddressesRequest
+	179, // 20: nsd.ServiceInfoService.SetSubtypes:input_type -> nsd.SetSubtypesRequest
+	38,  // 21: nsd.ManagerService.DiscoverServices3:input_type -> nsd.DiscoverServices3Request
+	40,  // 22: nsd.ManagerService.DiscoverServices5_1:input_type -> nsd.DiscoverServices5_1Request
+	42,  // 23: nsd.ManagerService.DiscoverServices5_2:input_type -> nsd.DiscoverServices5_2Request
+	44,  // 24: nsd.ManagerService.DiscoverServices3_3:input_type -> nsd.DiscoverServices3_3Request
+	46,  // 25: nsd.ManagerService.RegisterService3:input_type -> nsd.RegisterService3Request
+	48,  // 26: nsd.ManagerService.RegisterService4_1:input_type -> nsd.RegisterService4_1Request
+	50,  // 27: nsd.ManagerService.RegisterServiceInfoCallback:input_type -> nsd.RegisterServiceInfoCallbackRequest
+	52,  // 28: nsd.ManagerService.ResolveService2:input_type -> nsd.ResolveService2Request
+	54,  // 29: nsd.ManagerService.ResolveService3_1:input_type -> nsd.ResolveService3_1Request
+	56,  // 30: nsd.ManagerService.StopServiceDiscovery:input_type -> nsd.StopServiceDiscoveryRequest
+	58,  // 31: nsd.ManagerService.StopServiceResolution:input_type -> nsd.StopServiceResolutionRequest
+	60,  // 32: nsd.ManagerService.UnregisterService:input_type -> nsd.UnregisterServiceRequest
+	62,  // 33: nsd.ManagerService.UnregisterServiceInfoCallback:input_type -> nsd.UnregisterServiceInfoCallbackRequest
+	64,  // 34: nsd.ManagerDiscoveryListenerService.OnDiscoveryStarted:input_type -> nsd.OnDiscoveryStartedRequest
+	66,  // 35: nsd.ManagerDiscoveryListenerService.OnDiscoveryStopped:input_type -> nsd.OnDiscoveryStoppedRequest
+	68,  // 36: nsd.ManagerDiscoveryListenerService.OnServiceFound:input_type -> nsd.OnServiceFoundRequest
+	70,  // 37: nsd.ManagerDiscoveryListenerService.OnServiceLost:input_type -> nsd.OnServiceLostRequest
+	72,  // 38: nsd.ManagerDiscoveryListenerService.OnStartDiscoveryFailed:input_type -> nsd.OnStartDiscoveryFailedRequest
+	74,  // 39: nsd.ManagerDiscoveryListenerService.OnStopDiscoveryFailed:input_type -> nsd.OnStopDiscoveryFailedRequest
+	76,  // 40: nsd.ManagerRegistrationListenerService.OnRegistrationFailed:input_type -> nsd.OnRegistrationFailedRequest
+	78,  // 41: nsd.ManagerRegistrationListenerService.OnServiceRegistered:input_type -> nsd.OnServiceRegisteredRequest
+	80,  // 42: nsd.ManagerRegistrationListenerService.OnServiceUnregistered:input_type -> nsd.OnServiceUnregisteredRequest
+	82,  // 43: nsd.ManagerRegistrationListenerService.OnUnregistrationFailed:input_type -> nsd.OnUnregistrationFailedRequest
+	84,  // 44: nsd.ManagerResolveListenerService.OnResolveFailed:input_type -> nsd.OnResolveFailedRequest
+	86,  // 45: nsd.ManagerResolveListenerService.OnServiceResolved:input_type -> nsd.OnServiceResolvedRequest
+	88,  // 46: nsd.ManagerServiceInfoCallbackService.OnServiceInfoCallbackRegistrationFailed:input_type -> nsd.OnServiceInfoCallbackRegistrationFailedRequest
+	90,  // 47: nsd.ManagerServiceInfoCallbackService.OnServiceInfoCallbackUnregistered:input_type -> nsd.OnServiceInfoCallbackUnregisteredRequest
+	92,  // 48: nsd.ManagerServiceInfoCallbackService.OnServiceLost:input_type -> nsd.ManagerServiceInfoCallbackOnServiceLostRequest
+	93,  // 49: nsd.ManagerServiceInfoCallbackService.OnServiceUpdated:input_type -> nsd.OnServiceUpdatedRequest
+	95,  // 50: nsd.DiscoveryRequestService.DescribeContents:input_type -> nsd.DiscoveryRequestDescribeContentsRequest
+	96,  // 51: nsd.DiscoveryRequestService.Equals:input_type -> nsd.EqualsRequest
+	98,  // 52: nsd.DiscoveryRequestService.GetNetwork:input_type -> nsd.DiscoveryRequestGetNetworkRequest
+	99,  // 53: nsd.DiscoveryRequestService.GetServiceType:input_type -> nsd.DiscoveryRequestGetServiceTypeRequest
+	100, // 54: nsd.DiscoveryRequestService.GetSubtype:input_type -> nsd.GetSubtypeRequest
+	102, // 55: nsd.DiscoveryRequestService.HashCode:input_type -> nsd.HashCodeRequest
+	104, // 56: nsd.DiscoveryRequestService.ToString:input_type -> nsd.DiscoveryRequestToStringRequest
+	105, // 57: nsd.DiscoveryRequestService.WriteToParcel:input_type -> nsd.DiscoveryRequestWriteToParcelRequest
+	106, // 58: nsd.DiscoveryRequestBuilderService.Build:input_type -> nsd.BuildRequest
+	108, // 59: nsd.DiscoveryRequestBuilderService.SetNetwork:input_type -> nsd.DiscoveryRequestBuilderSetNetworkRequest
+	110, // 60: nsd.DiscoveryRequestBuilderService.SetSubtype:input_type -> nsd.SetSubtypeRequest
+	112, // 61: nsd.AdvertisingRequestService.DescribeContents:input_type -> nsd.AdvertisingRequestDescribeContentsRequest
+	96,  // 62: nsd.AdvertisingRequestService.Equals:input_type -> nsd.EqualsRequest
+	113, // 63: nsd.AdvertisingRequestService.GetFlags:input_type -> nsd.GetFlagsRequest
+	115, // 64: nsd.AdvertisingRequestService.GetProtocolType:input_type -> nsd.GetProtocolTypeRequest
+	117, // 65: nsd.AdvertisingRequestService.GetServiceInfo:input_type -> nsd.GetServiceInfoRequest
+	102, // 66: nsd.AdvertisingRequestService.HashCode:input_type -> nsd.HashCodeRequest
+	119, // 67: nsd.AdvertisingRequestService.ToString:input_type -> nsd.AdvertisingRequestToStringRequest
+	120, // 68: nsd.AdvertisingRequestService.WriteToParcel:input_type -> nsd.AdvertisingRequestWriteToParcelRequest
+	106, // 69: nsd.AdvertisingRequestBuilderService.Build:input_type -> nsd.BuildRequest
+	121, // 70: nsd.AdvertisingRequestBuilderService.SetFlags:input_type -> nsd.SetFlagsRequest
+	123, // 71: nsd.AdvertisingRequestBuilderService.SetProtocolType:input_type -> nsd.SetProtocolTypeRequest
+	125, // 72: nsd.WifiP2pUpnpServiceRequestService.NewInstance0:input_type -> nsd.NewInstance0Request
+	127, // 73: nsd.WifiP2pUpnpServiceRequestService.NewInstance1_1:input_type -> nsd.NewInstance1_1Request
+	129, // 74: nsd.WifiP2pServiceRequestService.NewWifiP2pServiceRequest:input_type -> nsd.NewWifiP2pServiceRequestRequest
+	2,   // 75: nsd.WifiP2pServiceRequestService.DescribeContents:input_type -> nsd.DescribeContentsRequest
+	131, // 76: nsd.WifiP2pServiceRequestService.Equals:input_type -> nsd.WifiP2pServiceRequestEqualsRequest
+	132, // 77: nsd.WifiP2pServiceRequestService.GetWifiP2pUsdBasedServiceConfig:input_type -> nsd.GetWifiP2pUsdBasedServiceConfigRequest
+	134, // 78: nsd.WifiP2pServiceRequestService.HashCode:input_type -> nsd.WifiP2pServiceRequestHashCodeRequest
+	36,  // 79: nsd.WifiP2pServiceRequestService.WriteToParcel:input_type -> nsd.WriteToParcelRequest
+	135, // 80: nsd.WifiP2pServiceRequestService.NewInstance1:input_type -> nsd.NewInstance1Request
+	137, // 81: nsd.WifiP2pServiceRequestService.NewInstance2_1:input_type -> nsd.NewInstance2_1Request
+	139, // 82: nsd.WifiP2pUsdBasedServiceResponseService.DescribeContents:input_type -> nsd.WifiP2pUsdBasedServiceResponseDescribeContentsRequest
+	140, // 83: nsd.WifiP2pUsdBasedServiceResponseService.GetServiceProtocolType:input_type -> nsd.GetServiceProtocolTypeRequest
+	142, // 84: nsd.WifiP2pUsdBasedServiceResponseService.GetServiceSpecificInfo:input_type -> nsd.GetServiceSpecificInfoRequest
+	144, // 85: nsd.WifiP2pUsdBasedServiceResponseService.ToString:input_type -> nsd.WifiP2pUsdBasedServiceResponseToStringRequest
+	145, // 86: nsd.WifiP2pUsdBasedServiceResponseService.WriteToParcel:input_type -> nsd.WifiP2pUsdBasedServiceResponseWriteToParcelRequest
+	146, // 87: nsd.WifiP2pServiceInfoService.NewWifiP2pServiceInfo:input_type -> nsd.NewWifiP2pServiceInfoRequest
+	2,   // 88: nsd.WifiP2pServiceInfoService.DescribeContents:input_type -> nsd.DescribeContentsRequest
+	131, // 89: nsd.WifiP2pServiceInfoService.Equals:input_type -> nsd.WifiP2pServiceRequestEqualsRequest
+	132, // 90: nsd.WifiP2pServiceInfoService.GetWifiP2pUsdBasedServiceConfig:input_type -> nsd.GetWifiP2pUsdBasedServiceConfigRequest
+	134, // 91: nsd.WifiP2pServiceInfoService.HashCode:input_type -> nsd.WifiP2pServiceRequestHashCodeRequest
+	36,  // 92: nsd.WifiP2pServiceInfoService.WriteToParcel:input_type -> nsd.WriteToParcelRequest
+	148, // 93: nsd.WifiP2pUsdBasedServiceConfigService.NewWifiP2pUsdBasedServiceConfig:input_type -> nsd.NewWifiP2pUsdBasedServiceConfigRequest
+	2,   // 94: nsd.WifiP2pUsdBasedServiceConfigService.DescribeContents:input_type -> nsd.DescribeContentsRequest
+	14,  // 95: nsd.WifiP2pUsdBasedServiceConfigService.GetServiceName:input_type -> nsd.GetServiceNameRequest
+	150, // 96: nsd.WifiP2pUsdBasedServiceConfigService.GetServiceProtocolType:input_type -> nsd.WifiP2pUsdBasedServiceConfigGetServiceProtocolTypeRequest
+	151, // 97: nsd.WifiP2pUsdBasedServiceConfigService.GetServiceSpecificInfo:input_type -> nsd.WifiP2pUsdBasedServiceConfigGetServiceSpecificInfoRequest
+	152, // 98: nsd.WifiP2pUsdBasedServiceConfigService.ToString:input_type -> nsd.WifiP2pUsdBasedServiceConfigToStringRequest
+	36,  // 99: nsd.WifiP2pUsdBasedServiceConfigService.WriteToParcel:input_type -> nsd.WriteToParcelRequest
+	153, // 100: nsd.WifiP2pUsdBasedServiceConfigService.GetMaxAllowedServiceSpecificInfoLength:input_type -> nsd.GetMaxAllowedServiceSpecificInfoLengthRequest
+	106, // 101: nsd.WifiP2pUsdBasedServiceConfigBuilderService.Build:input_type -> nsd.BuildRequest
+	155, // 102: nsd.WifiP2pUsdBasedServiceConfigBuilderService.SetServiceProtocolType:input_type -> nsd.SetServiceProtocolTypeRequest
+	157, // 103: nsd.WifiP2pUsdBasedServiceConfigBuilderService.SetServiceSpecificInfo:input_type -> nsd.SetServiceSpecificInfoRequest
+	125, // 104: nsd.WifiP2pDnsSdServiceRequestService.NewInstance0:input_type -> nsd.NewInstance0Request
+	127, // 105: nsd.WifiP2pDnsSdServiceRequestService.NewInstance1_1:input_type -> nsd.NewInstance1_1Request
+	159, // 106: nsd.WifiP2pDnsSdServiceRequestService.NewInstance2_2:input_type -> nsd.NewInstance2_2Request
+	1,   // 107: nsd.ServiceInfoService.NewServiceInfo:output_type -> nsd.NewServiceInfoResponse
+	3,   // 108: nsd.ServiceInfoService.DescribeContents:output_type -> nsd.DescribeContentsResponse
+	5,   // 109: nsd.ServiceInfoService.GetHost:output_type -> nsd.GetHostResponse
+	7,   // 110: nsd.ServiceInfoService.GetHostAddresses:output_type -> nsd.GetHostAddressesResponse
+	9,   // 111: nsd.ServiceInfoService.GetHostname:output_type -> nsd.GetHostnameResponse
+	11,  // 112: nsd.ServiceInfoService.GetNetwork:output_type -> nsd.GetNetworkResponse
+	13,  // 113: nsd.ServiceInfoService.GetPort:output_type -> nsd.GetPortResponse
+	15,  // 114: nsd.ServiceInfoService.GetServiceName:output_type -> nsd.GetServiceNameResponse
+	17,  // 115: nsd.ServiceInfoService.GetServiceType:output_type -> nsd.GetServiceTypeResponse
+	19,  // 116: nsd.ServiceInfoService.GetSubtypes:output_type -> nsd.GetSubtypesResponse
+	21,  // 117: nsd.ServiceInfoService.RemoveAttribute:output_type -> nsd.RemoveAttributeResponse
+	23,  // 118: nsd.ServiceInfoService.SetAttribute:output_type -> nsd.SetAttributeResponse
+	25,  // 119: nsd.ServiceInfoService.SetHost:output_type -> nsd.SetHostResponse
+	27,  // 120: nsd.ServiceInfoService.SetNetwork:output_type -> nsd.SetNetworkResponse
+	29,  // 121: nsd.ServiceInfoService.SetPort:output_type -> nsd.SetPortResponse
+	31,  // 122: nsd.ServiceInfoService.SetServiceName:output_type -> nsd.SetServiceNameResponse
+	33,  // 123: nsd.ServiceInfoService.SetServiceType:output_type -> nsd.SetServiceTypeResponse
+	35,  // 124: nsd.ServiceInfoService.ToString:output_type -> nsd.ToStringResponse
+	37,  // 125: nsd.ServiceInfoService.WriteToParcel:output_type -> nsd.WriteToParcelResponse
+	174, // 126: nsd.ServiceInfoService.SetHostAddresses:output_type -> nsd.SetHostAddressesResponse
+	180, // 127: nsd.ServiceInfoService.SetSubtypes:output_type -> nsd.SetSubtypesResponse
+	39,  // 128: nsd.ManagerService.DiscoverServices3:output_type -> nsd.DiscoverServices3Response
+	41,  // 129: nsd.ManagerService.DiscoverServices5_1:output_type -> nsd.DiscoverServices5_1Response
+	43,  // 130: nsd.ManagerService.DiscoverServices5_2:output_type -> nsd.DiscoverServices5_2Response
+	45,  // 131: nsd.ManagerService.DiscoverServices3_3:output_type -> nsd.DiscoverServices3_3Response
+	47,  // 132: nsd.ManagerService.RegisterService3:output_type -> nsd.RegisterService3Response
+	49,  // 133: nsd.ManagerService.RegisterService4_1:output_type -> nsd.RegisterService4_1Response
+	51,  // 134: nsd.ManagerService.RegisterServiceInfoCallback:output_type -> nsd.RegisterServiceInfoCallbackResponse
+	53,  // 135: nsd.ManagerService.ResolveService2:output_type -> nsd.ResolveService2Response
+	55,  // 136: nsd.ManagerService.ResolveService3_1:output_type -> nsd.ResolveService3_1Response
+	57,  // 137: nsd.ManagerService.StopServiceDiscovery:output_type -> nsd.StopServiceDiscoveryResponse
+	59,  // 138: nsd.ManagerService.StopServiceResolution:output_type -> nsd.StopServiceResolutionResponse
+	61,  // 139: nsd.ManagerService.UnregisterService:output_type -> nsd.UnregisterServiceResponse
+	63,  // 140: nsd.ManagerService.UnregisterServiceInfoCallback:output_type -> nsd.UnregisterServiceInfoCallbackResponse
+	65,  // 141: nsd.ManagerDiscoveryListenerService.OnDiscoveryStarted:output_type -> nsd.OnDiscoveryStartedResponse
+	67,  // 142: nsd.ManagerDiscoveryListenerService.OnDiscoveryStopped:output_type -> nsd.OnDiscoveryStoppedResponse
+	69,  // 143: nsd.ManagerDiscoveryListenerService.OnServiceFound:output_type -> nsd.OnServiceFoundResponse
+	71,  // 144: nsd.ManagerDiscoveryListenerService.OnServiceLost:output_type -> nsd.OnServiceLostResponse
+	73,  // 145: nsd.ManagerDiscoveryListenerService.OnStartDiscoveryFailed:output_type -> nsd.OnStartDiscoveryFailedResponse
+	75,  // 146: nsd.ManagerDiscoveryListenerService.OnStopDiscoveryFailed:output_type -> nsd.OnStopDiscoveryFailedResponse
+	77,  // 147: nsd.ManagerRegistrationListenerService.OnRegistrationFailed:output_type -> nsd.OnRegistrationFailedResponse
+	79,  // 148: nsd.ManagerRegistrationListenerService.OnServiceRegistered:output_type -> nsd.OnServiceRegisteredResponse
+	81,  // 149: nsd.ManagerRegistrationListenerService.OnServiceUnregistered:output_type -> nsd.OnServiceUnregisteredResponse
+	83,  // 150: nsd.ManagerRegistrationListenerService.OnUnregistrationFailed:output_type -> nsd.OnUnregistrationFailedResponse
+	85,  // 151: nsd.ManagerResolveListenerService.OnResolveFailed:output_type -> nsd.OnResolveFailedResponse
+	87,  // 152: nsd.ManagerResolveListenerService.OnServiceResolved:output_type -> nsd.OnServiceResolvedResponse
+	89,  // 153: nsd.ManagerServiceInfoCallbackService.OnServiceInfoCallbackRegistrationFailed:output_type -> nsd.OnServiceInfoCallbackRegistrationFailedResponse
+	91,  // 154: nsd.ManagerServiceInfoCallbackService.OnServiceInfoCallbackUnregistered:output_type -> nsd.OnServiceInfoCallbackUnregisteredResponse
+	71,  // 155: nsd.ManagerServiceInfoCallbackService.OnServiceLost:output_type -> nsd.OnServiceLostResponse
+	94,  // 156: nsd.ManagerServiceInfoCallbackService.OnServiceUpdated:output_type -> nsd.OnServiceUpdatedResponse
+	3,   // 157: nsd.DiscoveryRequestService.DescribeContents:output_type -> nsd.DescribeContentsResponse
+	97,  // 158: nsd.DiscoveryRequestService.Equals:output_type -> nsd.EqualsResponse
+	11,  // 159: nsd.DiscoveryRequestService.GetNetwork:output_type -> nsd.GetNetworkResponse
+	17,  // 160: nsd.DiscoveryRequestService.GetServiceType:output_type -> nsd.GetServiceTypeResponse
+	101, // 161: nsd.DiscoveryRequestService.GetSubtype:output_type -> nsd.GetSubtypeResponse
+	103, // 162: nsd.DiscoveryRequestService.HashCode:output_type -> nsd.HashCodeResponse
+	35,  // 163: nsd.DiscoveryRequestService.ToString:output_type -> nsd.ToStringResponse
+	37,  // 164: nsd.DiscoveryRequestService.WriteToParcel:output_type -> nsd.WriteToParcelResponse
+	107, // 165: nsd.DiscoveryRequestBuilderService.Build:output_type -> nsd.BuildResponse
+	109, // 166: nsd.DiscoveryRequestBuilderService.SetNetwork:output_type -> nsd.DiscoveryRequestBuilderSetNetworkResponse
+	111, // 167: nsd.DiscoveryRequestBuilderService.SetSubtype:output_type -> nsd.SetSubtypeResponse
+	3,   // 168: nsd.AdvertisingRequestService.DescribeContents:output_type -> nsd.DescribeContentsResponse
+	97,  // 169: nsd.AdvertisingRequestService.Equals:output_type -> nsd.EqualsResponse
+	114, // 170: nsd.AdvertisingRequestService.GetFlags:output_type -> nsd.GetFlagsResponse
+	116, // 171: nsd.AdvertisingRequestService.GetProtocolType:output_type -> nsd.GetProtocolTypeResponse
+	118, // 172: nsd.AdvertisingRequestService.GetServiceInfo:output_type -> nsd.GetServiceInfoResponse
+	103, // 173: nsd.AdvertisingRequestService.HashCode:output_type -> nsd.HashCodeResponse
+	35,  // 174: nsd.AdvertisingRequestService.ToString:output_type -> nsd.ToStringResponse
+	37,  // 175: nsd.AdvertisingRequestService.WriteToParcel:output_type -> nsd.WriteToParcelResponse
+	107, // 176: nsd.AdvertisingRequestBuilderService.Build:output_type -> nsd.BuildResponse
+	122, // 177: nsd.AdvertisingRequestBuilderService.SetFlags:output_type -> nsd.SetFlagsResponse
+	124, // 178: nsd.AdvertisingRequestBuilderService.SetProtocolType:output_type -> nsd.SetProtocolTypeResponse
+	126, // 179: nsd.WifiP2pUpnpServiceRequestService.NewInstance0:output_type -> nsd.NewInstance0Response
+	128, // 180: nsd.WifiP2pUpnpServiceRequestService.NewInstance1_1:output_type -> nsd.NewInstance1_1Response
+	130, // 181: nsd.WifiP2pServiceRequestService.NewWifiP2pServiceRequest:output_type -> nsd.NewWifiP2pServiceRequestResponse
+	3,   // 182: nsd.WifiP2pServiceRequestService.DescribeContents:output_type -> nsd.DescribeContentsResponse
+	97,  // 183: nsd.WifiP2pServiceRequestService.Equals:output_type -> nsd.EqualsResponse
+	133, // 184: nsd.WifiP2pServiceRequestService.GetWifiP2pUsdBasedServiceConfig:output_type -> nsd.GetWifiP2pUsdBasedServiceConfigResponse
+	103, // 185: nsd.WifiP2pServiceRequestService.HashCode:output_type -> nsd.HashCodeResponse
+	37,  // 186: nsd.WifiP2pServiceRequestService.WriteToParcel:output_type -> nsd.WriteToParcelResponse
+	136, // 187: nsd.WifiP2pServiceRequestService.NewInstance1:output_type -> nsd.NewInstance1Response
+	138, // 188: nsd.WifiP2pServiceRequestService.NewInstance2_1:output_type -> nsd.NewInstance2_1Response
+	3,   // 189: nsd.WifiP2pUsdBasedServiceResponseService.DescribeContents:output_type -> nsd.DescribeContentsResponse
+	141, // 190: nsd.WifiP2pUsdBasedServiceResponseService.GetServiceProtocolType:output_type -> nsd.GetServiceProtocolTypeResponse
+	143, // 191: nsd.WifiP2pUsdBasedServiceResponseService.GetServiceSpecificInfo:output_type -> nsd.GetServiceSpecificInfoResponse
+	35,  // 192: nsd.WifiP2pUsdBasedServiceResponseService.ToString:output_type -> nsd.ToStringResponse
+	37,  // 193: nsd.WifiP2pUsdBasedServiceResponseService.WriteToParcel:output_type -> nsd.WriteToParcelResponse
+	147, // 194: nsd.WifiP2pServiceInfoService.NewWifiP2pServiceInfo:output_type -> nsd.NewWifiP2pServiceInfoResponse
+	3,   // 195: nsd.WifiP2pServiceInfoService.DescribeContents:output_type -> nsd.DescribeContentsResponse
+	97,  // 196: nsd.WifiP2pServiceInfoService.Equals:output_type -> nsd.EqualsResponse
+	133, // 197: nsd.WifiP2pServiceInfoService.GetWifiP2pUsdBasedServiceConfig:output_type -> nsd.GetWifiP2pUsdBasedServiceConfigResponse
+	103, // 198: nsd.WifiP2pServiceInfoService.HashCode:output_type -> nsd.HashCodeResponse
+	37,  // 199: nsd.WifiP2pServiceInfoService.WriteToParcel:output_type -> nsd.WriteToParcelResponse
+	149, // 200: nsd.WifiP2pUsdBasedServiceConfigService.NewWifiP2pUsdBasedServiceConfig:output_type -> nsd.NewWifiP2pUsdBasedServiceConfigResponse
+	3,   // 201: nsd.WifiP2pUsdBasedServiceConfigService.DescribeContents:output_type -> nsd.DescribeContentsResponse
+	15,  // 202: nsd.WifiP2pUsdBasedServiceConfigService.GetServiceName:output_type -> nsd.GetServiceNameResponse
+	141, // 203: nsd.WifiP2pUsdBasedServiceConfigService.GetServiceProtocolType:output_type -> nsd.GetServiceProtocolTypeResponse
+	143, // 204: nsd.WifiP2pUsdBasedServiceConfigService.GetServiceSpecificInfo:output_type -> nsd.GetServiceSpecificInfoResponse
+	35,  // 205: nsd.WifiP2pUsdBasedServiceConfigService.ToString:output_type -> nsd.ToStringResponse
+	37,  // 206: nsd.WifiP2pUsdBasedServiceConfigService.WriteToParcel:output_type -> nsd.WriteToParcelResponse
+	154, // 207: nsd.WifiP2pUsdBasedServiceConfigService.GetMaxAllowedServiceSpecificInfoLength:output_type -> nsd.GetMaxAllowedServiceSpecificInfoLengthResponse
+	107, // 208: nsd.WifiP2pUsdBasedServiceConfigBuilderService.Build:output_type -> nsd.BuildResponse
+	156, // 209: nsd.WifiP2pUsdBasedServiceConfigBuilderService.SetServiceProtocolType:output_type -> nsd.SetServiceProtocolTypeResponse
+	158, // 210: nsd.WifiP2pUsdBasedServiceConfigBuilderService.SetServiceSpecificInfo:output_type -> nsd.SetServiceSpecificInfoResponse
+	126, // 211: nsd.WifiP2pDnsSdServiceRequestService.NewInstance0:output_type -> nsd.NewInstance0Response
+	128, // 212: nsd.WifiP2pDnsSdServiceRequestService.NewInstance1_1:output_type -> nsd.NewInstance1_1Response
+	160, // 213: nsd.WifiP2pDnsSdServiceRequestService.NewInstance2_2:output_type -> nsd.NewInstance2_2Response
 	107, // [107:214] is the sub-list for method output_type
 	0,   // [0:107] is the sub-list for method input_type
 	0,   // [0:0] is the sub-list for extension type_name
@@ -8441,7 +8810,7 @@ func file_proto_nsd_nsd_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_nsd_nsd_proto_rawDesc), len(file_proto_nsd_nsd_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   174,
+			NumMessages:   183,
 			NumExtensions: 0,
 			NumServices:   17,
 		},

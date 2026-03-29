@@ -23,17 +23,2457 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type AnswerCallRequest struct {
+type DescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsRequest) Reset() {
+	*x = DescribeContentsRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsRequest) ProtoMessage() {}
+
+func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{0}
+}
+
+type DescribeContentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsResponse) Reset() {
+	*x = DescribeContentsResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsResponse) ProtoMessage() {}
+
+func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
+func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *DescribeContentsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetAuthUserNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAuthUserNameRequest) Reset() {
+	*x = GetAuthUserNameRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAuthUserNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAuthUserNameRequest) ProtoMessage() {}
+
+func (x *GetAuthUserNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAuthUserNameRequest.ProtoReflect.Descriptor instead.
+func (*GetAuthUserNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{2}
+}
+
+type GetAuthUserNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAuthUserNameResponse) Reset() {
+	*x = GetAuthUserNameResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAuthUserNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAuthUserNameResponse) ProtoMessage() {}
+
+func (x *GetAuthUserNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAuthUserNameResponse.ProtoReflect.Descriptor instead.
+func (*GetAuthUserNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetAuthUserNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetAutoRegistrationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAutoRegistrationRequest) Reset() {
+	*x = GetAutoRegistrationRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAutoRegistrationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAutoRegistrationRequest) ProtoMessage() {}
+
+func (x *GetAutoRegistrationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAutoRegistrationRequest.ProtoReflect.Descriptor instead.
+func (*GetAutoRegistrationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{4}
+}
+
+type GetAutoRegistrationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAutoRegistrationResponse) Reset() {
+	*x = GetAutoRegistrationResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAutoRegistrationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAutoRegistrationResponse) ProtoMessage() {}
+
+func (x *GetAutoRegistrationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAutoRegistrationResponse.ProtoReflect.Descriptor instead.
+func (*GetAutoRegistrationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetAutoRegistrationResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetDisplayNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDisplayNameRequest) Reset() {
+	*x = GetDisplayNameRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDisplayNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDisplayNameRequest) ProtoMessage() {}
+
+func (x *GetDisplayNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDisplayNameRequest.ProtoReflect.Descriptor instead.
+func (*GetDisplayNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{6}
+}
+
+type GetDisplayNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDisplayNameResponse) Reset() {
+	*x = GetDisplayNameResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDisplayNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDisplayNameResponse) ProtoMessage() {}
+
+func (x *GetDisplayNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDisplayNameResponse.ProtoReflect.Descriptor instead.
+func (*GetDisplayNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetDisplayNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetPasswordRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPasswordRequest) Reset() {
+	*x = GetPasswordRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPasswordRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPasswordRequest) ProtoMessage() {}
+
+func (x *GetPasswordRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPasswordRequest.ProtoReflect.Descriptor instead.
+func (*GetPasswordRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{8}
+}
+
+type GetPasswordResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPasswordResponse) Reset() {
+	*x = GetPasswordResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPasswordResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPasswordResponse) ProtoMessage() {}
+
+func (x *GetPasswordResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPasswordResponse.ProtoReflect.Descriptor instead.
+func (*GetPasswordResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetPasswordResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetPortRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPortRequest) Reset() {
+	*x = GetPortRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPortRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPortRequest) ProtoMessage() {}
+
+func (x *GetPortRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPortRequest.ProtoReflect.Descriptor instead.
+func (*GetPortRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{10}
+}
+
+type GetPortResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPortResponse) Reset() {
+	*x = GetPortResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPortResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPortResponse) ProtoMessage() {}
+
+func (x *GetPortResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPortResponse.ProtoReflect.Descriptor instead.
+func (*GetPortResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *GetPortResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetProfileNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetProfileNameRequest) Reset() {
+	*x = GetProfileNameRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetProfileNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetProfileNameRequest) ProtoMessage() {}
+
+func (x *GetProfileNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetProfileNameRequest.ProtoReflect.Descriptor instead.
+func (*GetProfileNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{12}
+}
+
+type GetProfileNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetProfileNameResponse) Reset() {
+	*x = GetProfileNameResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetProfileNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetProfileNameResponse) ProtoMessage() {}
+
+func (x *GetProfileNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetProfileNameResponse.ProtoReflect.Descriptor instead.
+func (*GetProfileNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *GetProfileNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetProtocolRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetProtocolRequest) Reset() {
+	*x = GetProtocolRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetProtocolRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetProtocolRequest) ProtoMessage() {}
+
+func (x *GetProtocolRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetProtocolRequest.ProtoReflect.Descriptor instead.
+func (*GetProtocolRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{14}
+}
+
+type GetProtocolResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetProtocolResponse) Reset() {
+	*x = GetProtocolResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetProtocolResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetProtocolResponse) ProtoMessage() {}
+
+func (x *GetProtocolResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetProtocolResponse.ProtoReflect.Descriptor instead.
+func (*GetProtocolResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GetProtocolResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetProxyAddressRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetProxyAddressRequest) Reset() {
+	*x = GetProxyAddressRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetProxyAddressRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetProxyAddressRequest) ProtoMessage() {}
+
+func (x *GetProxyAddressRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetProxyAddressRequest.ProtoReflect.Descriptor instead.
+func (*GetProxyAddressRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{16}
+}
+
+type GetProxyAddressResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetProxyAddressResponse) Reset() {
+	*x = GetProxyAddressResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetProxyAddressResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetProxyAddressResponse) ProtoMessage() {}
+
+func (x *GetProxyAddressResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetProxyAddressResponse.ProtoReflect.Descriptor instead.
+func (*GetProxyAddressResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *GetProxyAddressResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetSendKeepAliveRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSendKeepAliveRequest) Reset() {
+	*x = GetSendKeepAliveRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSendKeepAliveRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSendKeepAliveRequest) ProtoMessage() {}
+
+func (x *GetSendKeepAliveRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSendKeepAliveRequest.ProtoReflect.Descriptor instead.
+func (*GetSendKeepAliveRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{18}
+}
+
+type GetSendKeepAliveResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSendKeepAliveResponse) Reset() {
+	*x = GetSendKeepAliveResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSendKeepAliveResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSendKeepAliveResponse) ProtoMessage() {}
+
+func (x *GetSendKeepAliveResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSendKeepAliveResponse.ProtoReflect.Descriptor instead.
+func (*GetSendKeepAliveResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *GetSendKeepAliveResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetSipDomainRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSipDomainRequest) Reset() {
+	*x = GetSipDomainRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSipDomainRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSipDomainRequest) ProtoMessage() {}
+
+func (x *GetSipDomainRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSipDomainRequest.ProtoReflect.Descriptor instead.
+func (*GetSipDomainRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{20}
+}
+
+type GetSipDomainResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSipDomainResponse) Reset() {
+	*x = GetSipDomainResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSipDomainResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSipDomainResponse) ProtoMessage() {}
+
+func (x *GetSipDomainResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSipDomainResponse.ProtoReflect.Descriptor instead.
+func (*GetSipDomainResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *GetSipDomainResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetUriStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUriStringRequest) Reset() {
+	*x = GetUriStringRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUriStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUriStringRequest) ProtoMessage() {}
+
+func (x *GetUriStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUriStringRequest.ProtoReflect.Descriptor instead.
+func (*GetUriStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{22}
+}
+
+type GetUriStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUriStringResponse) Reset() {
+	*x = GetUriStringResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUriStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUriStringResponse) ProtoMessage() {}
+
+func (x *GetUriStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUriStringResponse.ProtoReflect.Descriptor instead.
+func (*GetUriStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *GetUriStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetUserNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUserNameRequest) Reset() {
+	*x = GetUserNameRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUserNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUserNameRequest) ProtoMessage() {}
+
+func (x *GetUserNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUserNameRequest.ProtoReflect.Descriptor instead.
+func (*GetUserNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{24}
+}
+
+type GetUserNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUserNameResponse) Reset() {
+	*x = GetUserNameResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUserNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUserNameResponse) ProtoMessage() {}
+
+func (x *GetUserNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUserNameResponse.ProtoReflect.Descriptor instead.
+func (*GetUserNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *GetUserNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type SetCallingUidRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCallingUidRequest) Reset() {
+	*x = SetCallingUidRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCallingUidRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCallingUidRequest) ProtoMessage() {}
+
+func (x *SetCallingUidRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCallingUidRequest.ProtoReflect.Descriptor instead.
+func (*SetCallingUidRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *SetCallingUidRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetCallingUidResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCallingUidResponse) Reset() {
+	*x = SetCallingUidResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCallingUidResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCallingUidResponse) ProtoMessage() {}
+
+func (x *SetCallingUidResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCallingUidResponse.ProtoReflect.Descriptor instead.
+func (*SetCallingUidResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{27}
+}
+
+type WriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelRequest) Reset() {
+	*x = WriteToParcelRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelRequest) ProtoMessage() {}
+
+func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *WriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type WriteToParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelResponse) Reset() {
+	*x = WriteToParcelResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelResponse) ProtoMessage() {}
+
+func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
+func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{29}
+}
+
+type BuildRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildRequest) Reset() {
+	*x = BuildRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildRequest) ProtoMessage() {}
+
+func (x *BuildRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
+func (*BuildRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{30}
+}
+
+type BuildResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildResponse) Reset() {
+	*x = BuildResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildResponse) ProtoMessage() {}
+
+func (x *BuildResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
+func (*BuildResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *BuildResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetAuthUserNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAuthUserNameRequest) Reset() {
+	*x = SetAuthUserNameRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAuthUserNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAuthUserNameRequest) ProtoMessage() {}
+
+func (x *SetAuthUserNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAuthUserNameRequest.ProtoReflect.Descriptor instead.
+func (*SetAuthUserNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *SetAuthUserNameRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetAuthUserNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAuthUserNameResponse) Reset() {
+	*x = SetAuthUserNameResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAuthUserNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAuthUserNameResponse) ProtoMessage() {}
+
+func (x *SetAuthUserNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAuthUserNameResponse.ProtoReflect.Descriptor instead.
+func (*SetAuthUserNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *SetAuthUserNameResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetAutoRegistrationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAutoRegistrationRequest) Reset() {
+	*x = SetAutoRegistrationRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAutoRegistrationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAutoRegistrationRequest) ProtoMessage() {}
+
+func (x *SetAutoRegistrationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAutoRegistrationRequest.ProtoReflect.Descriptor instead.
+func (*SetAutoRegistrationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *SetAutoRegistrationRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetAutoRegistrationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAutoRegistrationResponse) Reset() {
+	*x = SetAutoRegistrationResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAutoRegistrationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAutoRegistrationResponse) ProtoMessage() {}
+
+func (x *SetAutoRegistrationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAutoRegistrationResponse.ProtoReflect.Descriptor instead.
+func (*SetAutoRegistrationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *SetAutoRegistrationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetDisplayNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDisplayNameRequest) Reset() {
+	*x = SetDisplayNameRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDisplayNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDisplayNameRequest) ProtoMessage() {}
+
+func (x *SetDisplayNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDisplayNameRequest.ProtoReflect.Descriptor instead.
+func (*SetDisplayNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *SetDisplayNameRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetDisplayNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDisplayNameResponse) Reset() {
+	*x = SetDisplayNameResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDisplayNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDisplayNameResponse) ProtoMessage() {}
+
+func (x *SetDisplayNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDisplayNameResponse.ProtoReflect.Descriptor instead.
+func (*SetDisplayNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *SetDisplayNameResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetOutboundProxyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOutboundProxyRequest) Reset() {
+	*x = SetOutboundProxyRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOutboundProxyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOutboundProxyRequest) ProtoMessage() {}
+
+func (x *SetOutboundProxyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOutboundProxyRequest.ProtoReflect.Descriptor instead.
+func (*SetOutboundProxyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *SetOutboundProxyRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetOutboundProxyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOutboundProxyResponse) Reset() {
+	*x = SetOutboundProxyResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOutboundProxyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOutboundProxyResponse) ProtoMessage() {}
+
+func (x *SetOutboundProxyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOutboundProxyResponse.ProtoReflect.Descriptor instead.
+func (*SetOutboundProxyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *SetOutboundProxyResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPasswordRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPasswordRequest) Reset() {
+	*x = SetPasswordRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPasswordRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPasswordRequest) ProtoMessage() {}
+
+func (x *SetPasswordRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPasswordRequest.ProtoReflect.Descriptor instead.
+func (*SetPasswordRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *SetPasswordRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetPasswordResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPasswordResponse) Reset() {
+	*x = SetPasswordResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPasswordResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPasswordResponse) ProtoMessage() {}
+
+func (x *SetPasswordResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPasswordResponse.ProtoReflect.Descriptor instead.
+func (*SetPasswordResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *SetPasswordResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPortRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPortRequest) Reset() {
+	*x = SetPortRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPortRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPortRequest) ProtoMessage() {}
+
+func (x *SetPortRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPortRequest.ProtoReflect.Descriptor instead.
+func (*SetPortRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *SetPortRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPortResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPortResponse) Reset() {
+	*x = SetPortResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPortResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPortResponse) ProtoMessage() {}
+
+func (x *SetPortResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPortResponse.ProtoReflect.Descriptor instead.
+func (*SetPortResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *SetPortResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetProfileNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetProfileNameRequest) Reset() {
+	*x = SetProfileNameRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetProfileNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetProfileNameRequest) ProtoMessage() {}
+
+func (x *SetProfileNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetProfileNameRequest.ProtoReflect.Descriptor instead.
+func (*SetProfileNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *SetProfileNameRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetProfileNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetProfileNameResponse) Reset() {
+	*x = SetProfileNameResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetProfileNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetProfileNameResponse) ProtoMessage() {}
+
+func (x *SetProfileNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetProfileNameResponse.ProtoReflect.Descriptor instead.
+func (*SetProfileNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *SetProfileNameResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetProtocolRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetProtocolRequest) Reset() {
+	*x = SetProtocolRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetProtocolRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetProtocolRequest) ProtoMessage() {}
+
+func (x *SetProtocolRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetProtocolRequest.ProtoReflect.Descriptor instead.
+func (*SetProtocolRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *SetProtocolRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetProtocolResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetProtocolResponse) Reset() {
+	*x = SetProtocolResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetProtocolResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetProtocolResponse) ProtoMessage() {}
+
+func (x *SetProtocolResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetProtocolResponse.ProtoReflect.Descriptor instead.
+func (*SetProtocolResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *SetProtocolResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetSendKeepAliveRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSendKeepAliveRequest) Reset() {
+	*x = SetSendKeepAliveRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSendKeepAliveRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSendKeepAliveRequest) ProtoMessage() {}
+
+func (x *SetSendKeepAliveRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSendKeepAliveRequest.ProtoReflect.Descriptor instead.
+func (*SetSendKeepAliveRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *SetSendKeepAliveRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetSendKeepAliveResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSendKeepAliveResponse) Reset() {
+	*x = SetSendKeepAliveResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSendKeepAliveResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSendKeepAliveResponse) ProtoMessage() {}
+
+func (x *SetSendKeepAliveResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSendKeepAliveResponse.ProtoReflect.Descriptor instead.
+func (*SetSendKeepAliveResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *SetSendKeepAliveResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnRegisteringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnRegisteringRequest) Reset() {
+	*x = OnRegisteringRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnRegisteringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnRegisteringRequest) ProtoMessage() {}
+
+func (x *OnRegisteringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnRegisteringRequest.ProtoReflect.Descriptor instead.
+func (*OnRegisteringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *OnRegisteringRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type OnRegisteringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnRegisteringResponse) Reset() {
+	*x = OnRegisteringResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnRegisteringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnRegisteringResponse) ProtoMessage() {}
+
+func (x *OnRegisteringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnRegisteringResponse.ProtoReflect.Descriptor instead.
+func (*OnRegisteringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{51}
+}
+
+type OnRegistrationDoneRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnRegistrationDoneRequest) Reset() {
+	*x = OnRegistrationDoneRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnRegistrationDoneRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnRegistrationDoneRequest) ProtoMessage() {}
+
+func (x *OnRegistrationDoneRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnRegistrationDoneRequest.ProtoReflect.Descriptor instead.
+func (*OnRegistrationDoneRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{52}
+}
+
+func (x *OnRegistrationDoneRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *OnRegistrationDoneRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnRegistrationDoneResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnRegistrationDoneResponse) Reset() {
+	*x = OnRegistrationDoneResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnRegistrationDoneResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnRegistrationDoneResponse) ProtoMessage() {}
+
+func (x *OnRegistrationDoneResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnRegistrationDoneResponse.ProtoReflect.Descriptor instead.
+func (*OnRegistrationDoneResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{53}
+}
+
+type OnRegistrationFailedRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnRegistrationFailedRequest) Reset() {
+	*x = OnRegistrationFailedRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnRegistrationFailedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnRegistrationFailedRequest) ProtoMessage() {}
+
+func (x *OnRegistrationFailedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnRegistrationFailedRequest.ProtoReflect.Descriptor instead.
+func (*OnRegistrationFailedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{54}
+}
+
+func (x *OnRegistrationFailedRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *OnRegistrationFailedRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnRegistrationFailedRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+type OnRegistrationFailedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnRegistrationFailedResponse) Reset() {
+	*x = OnRegistrationFailedResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnRegistrationFailedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnRegistrationFailedResponse) ProtoMessage() {}
+
+func (x *OnRegistrationFailedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnRegistrationFailedResponse.ProtoReflect.Descriptor instead.
+func (*OnRegistrationFailedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{55}
+}
+
+type NewAudioCallRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewAudioCallRequest) Reset() {
+	*x = NewAudioCallRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewAudioCallRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewAudioCallRequest) ProtoMessage() {}
+
+func (x *NewAudioCallRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewAudioCallRequest.ProtoReflect.Descriptor instead.
+func (*NewAudioCallRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{56}
+}
+
+func (x *NewAudioCallRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewAudioCallRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NewAudioCallResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewAudioCallResponse) Reset() {
+	*x = NewAudioCallResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewAudioCallResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewAudioCallResponse) ProtoMessage() {}
+
+func (x *NewAudioCallResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewAudioCallResponse.ProtoReflect.Descriptor instead.
+func (*NewAudioCallResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{57}
+}
+
+func (x *NewAudioCallResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AnswerCallRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *AnswerCallRequest) Reset() {
 	*x = AnswerCallRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[0]
+	mi := &file_proto_sip_sip_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -45,7 +2485,7 @@ func (x *AnswerCallRequest) String() string {
 func (*AnswerCallRequest) ProtoMessage() {}
 
 func (x *AnswerCallRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[0]
+	mi := &file_proto_sip_sip_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -58,19 +2498,19 @@ func (x *AnswerCallRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AnswerCallRequest.ProtoReflect.Descriptor instead.
 func (*AnswerCallRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{0}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{58}
 }
 
-func (x *AnswerCallRequest) GetArg0() string {
+func (x *AnswerCallRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *AnswerCallRequest) GetArg0() int32 {
 	if x != nil {
 		return x.Arg0
-	}
-	return ""
-}
-
-func (x *AnswerCallRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
 	}
 	return 0
 }
@@ -83,7 +2523,7 @@ type AnswerCallResponse struct {
 
 func (x *AnswerCallResponse) Reset() {
 	*x = AnswerCallResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[1]
+	mi := &file_proto_sip_sip_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -95,7 +2535,7 @@ func (x *AnswerCallResponse) String() string {
 func (*AnswerCallResponse) ProtoMessage() {}
 
 func (x *AnswerCallResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[1]
+	mi := &file_proto_sip_sip_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -108,32 +2548,33 @@ func (x *AnswerCallResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AnswerCallResponse.ProtoReflect.Descriptor instead.
 func (*AnswerCallResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{1}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{59}
 }
 
-type ChangeCallRequest struct {
+type AttachCallRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ChangeCallRequest) Reset() {
-	*x = ChangeCallRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[2]
+func (x *AttachCallRequest) Reset() {
+	*x = AttachCallRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ChangeCallRequest) String() string {
+func (x *AttachCallRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ChangeCallRequest) ProtoMessage() {}
+func (*AttachCallRequest) ProtoMessage() {}
 
-func (x *ChangeCallRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[2]
+func (x *AttachCallRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -144,46 +2585,53 @@ func (x *ChangeCallRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ChangeCallRequest.ProtoReflect.Descriptor instead.
-func (*ChangeCallRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{2}
+// Deprecated: Use AttachCallRequest.ProtoReflect.Descriptor instead.
+func (*AttachCallRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{60}
 }
 
-func (x *ChangeCallRequest) GetArg0() string {
+func (x *AttachCallRequest) GetHandle() int64 {
 	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-func (x *ChangeCallRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
+		return x.Handle
 	}
 	return 0
 }
 
-type ChangeCallResponse struct {
+func (x *AttachCallRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *AttachCallRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type AttachCallResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ChangeCallResponse) Reset() {
-	*x = ChangeCallResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[3]
+func (x *AttachCallResponse) Reset() {
+	*x = AttachCallResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ChangeCallResponse) String() string {
+func (x *AttachCallResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ChangeCallResponse) ProtoMessage() {}
+func (*AttachCallResponse) ProtoMessage() {}
 
-func (x *ChangeCallResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[3]
+func (x *AttachCallResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -194,20 +2642,189 @@ func (x *ChangeCallResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ChangeCallResponse.ProtoReflect.Descriptor instead.
-func (*ChangeCallResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{3}
+// Deprecated: Use AttachCallResponse.ProtoReflect.Descriptor instead.
+func (*AttachCallResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{61}
+}
+
+type CloseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CloseRequest) Reset() {
+	*x = CloseRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CloseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CloseRequest) ProtoMessage() {}
+
+func (x *CloseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CloseRequest.ProtoReflect.Descriptor instead.
+func (*CloseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{62}
+}
+
+func (x *CloseRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type CloseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CloseResponse) Reset() {
+	*x = CloseResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CloseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CloseResponse) ProtoMessage() {}
+
+func (x *CloseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CloseResponse.ProtoReflect.Descriptor instead.
+func (*CloseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{63}
+}
+
+type ContinueCallRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ContinueCallRequest) Reset() {
+	*x = ContinueCallRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ContinueCallRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ContinueCallRequest) ProtoMessage() {}
+
+func (x *ContinueCallRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ContinueCallRequest.ProtoReflect.Descriptor instead.
+func (*ContinueCallRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{64}
+}
+
+func (x *ContinueCallRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ContinueCallRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type ContinueCallResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ContinueCallResponse) Reset() {
+	*x = ContinueCallResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ContinueCallResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ContinueCallResponse) ProtoMessage() {}
+
+func (x *ContinueCallResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ContinueCallResponse.ProtoReflect.Descriptor instead.
+func (*ContinueCallResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{65}
 }
 
 type EndCallRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *EndCallRequest) Reset() {
 	*x = EndCallRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[4]
+	mi := &file_proto_sip_sip_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -219,7 +2836,7 @@ func (x *EndCallRequest) String() string {
 func (*EndCallRequest) ProtoMessage() {}
 
 func (x *EndCallRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[4]
+	mi := &file_proto_sip_sip_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -232,7 +2849,14 @@ func (x *EndCallRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EndCallRequest.ProtoReflect.Descriptor instead.
 func (*EndCallRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{4}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{66}
+}
+
+func (x *EndCallRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
 }
 
 type EndCallResponse struct {
@@ -243,7 +2867,7 @@ type EndCallResponse struct {
 
 func (x *EndCallResponse) Reset() {
 	*x = EndCallResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[5]
+	mi := &file_proto_sip_sip_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -255,7 +2879,7 @@ func (x *EndCallResponse) String() string {
 func (*EndCallResponse) ProtoMessage() {}
 
 func (x *EndCallResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[5]
+	mi := &file_proto_sip_sip_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -268,178 +2892,19 @@ func (x *EndCallResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EndCallResponse.ProtoReflect.Descriptor instead.
 func (*EndCallResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{5}
-}
-
-type GetCallIdRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCallIdRequest) Reset() {
-	*x = GetCallIdRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCallIdRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCallIdRequest) ProtoMessage() {}
-
-func (x *GetCallIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[6]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCallIdRequest.ProtoReflect.Descriptor instead.
-func (*GetCallIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{6}
-}
-
-type GetCallIdResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCallIdResponse) Reset() {
-	*x = GetCallIdResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[7]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCallIdResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCallIdResponse) ProtoMessage() {}
-
-func (x *GetCallIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[7]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCallIdResponse.ProtoReflect.Descriptor instead.
-func (*GetCallIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{7}
-}
-
-func (x *GetCallIdResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetLocalIpRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetLocalIpRequest) Reset() {
-	*x = GetLocalIpRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[8]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetLocalIpRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetLocalIpRequest) ProtoMessage() {}
-
-func (x *GetLocalIpRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[8]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetLocalIpRequest.ProtoReflect.Descriptor instead.
-func (*GetLocalIpRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{8}
-}
-
-type GetLocalIpResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetLocalIpResponse) Reset() {
-	*x = GetLocalIpResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[9]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetLocalIpResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetLocalIpResponse) ProtoMessage() {}
-
-func (x *GetLocalIpResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[9]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetLocalIpResponse.ProtoReflect.Descriptor instead.
-func (*GetLocalIpResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{9}
-}
-
-func (x *GetLocalIpResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{67}
 }
 
 type GetLocalProfileRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetLocalProfileRequest) Reset() {
 	*x = GetLocalProfileRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[10]
+	mi := &file_proto_sip_sip_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -451,7 +2916,7 @@ func (x *GetLocalProfileRequest) String() string {
 func (*GetLocalProfileRequest) ProtoMessage() {}
 
 func (x *GetLocalProfileRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[10]
+	mi := &file_proto_sip_sip_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -464,7 +2929,14 @@ func (x *GetLocalProfileRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLocalProfileRequest.ProtoReflect.Descriptor instead.
 func (*GetLocalProfileRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{10}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{68}
+}
+
+func (x *GetLocalProfileRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
 }
 
 type GetLocalProfileResponse struct {
@@ -476,7 +2948,7 @@ type GetLocalProfileResponse struct {
 
 func (x *GetLocalProfileResponse) Reset() {
 	*x = GetLocalProfileResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[11]
+	mi := &file_proto_sip_sip_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -488,7 +2960,7 @@ func (x *GetLocalProfileResponse) String() string {
 func (*GetLocalProfileResponse) ProtoMessage() {}
 
 func (x *GetLocalProfileResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[11]
+	mi := &file_proto_sip_sip_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -501,7 +2973,7 @@ func (x *GetLocalProfileResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLocalProfileResponse.ProtoReflect.Descriptor instead.
 func (*GetLocalProfileResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{11}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{69}
 }
 
 func (x *GetLocalProfileResponse) GetResult() int64 {
@@ -513,13 +2985,14 @@ func (x *GetLocalProfileResponse) GetResult() int64 {
 
 type GetPeerProfileRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetPeerProfileRequest) Reset() {
 	*x = GetPeerProfileRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[12]
+	mi := &file_proto_sip_sip_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -531,7 +3004,7 @@ func (x *GetPeerProfileRequest) String() string {
 func (*GetPeerProfileRequest) ProtoMessage() {}
 
 func (x *GetPeerProfileRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[12]
+	mi := &file_proto_sip_sip_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -544,7 +3017,14 @@ func (x *GetPeerProfileRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPeerProfileRequest.ProtoReflect.Descriptor instead.
 func (*GetPeerProfileRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{12}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{70}
+}
+
+func (x *GetPeerProfileRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
 }
 
 type GetPeerProfileResponse struct {
@@ -556,7 +3036,7 @@ type GetPeerProfileResponse struct {
 
 func (x *GetPeerProfileResponse) Reset() {
 	*x = GetPeerProfileResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[13]
+	mi := &file_proto_sip_sip_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -568,7 +3048,7 @@ func (x *GetPeerProfileResponse) String() string {
 func (*GetPeerProfileResponse) ProtoMessage() {}
 
 func (x *GetPeerProfileResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[13]
+	mi := &file_proto_sip_sip_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -581,7 +3061,7 @@ func (x *GetPeerProfileResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPeerProfileResponse.ProtoReflect.Descriptor instead.
 func (*GetPeerProfileResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{13}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{71}
 }
 
 func (x *GetPeerProfileResponse) GetResult() int64 {
@@ -593,13 +3073,14 @@ func (x *GetPeerProfileResponse) GetResult() int64 {
 
 type GetStateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetStateRequest) Reset() {
 	*x = GetStateRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[14]
+	mi := &file_proto_sip_sip_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -611,7 +3092,7 @@ func (x *GetStateRequest) String() string {
 func (*GetStateRequest) ProtoMessage() {}
 
 func (x *GetStateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[14]
+	mi := &file_proto_sip_sip_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -624,7 +3105,14 @@ func (x *GetStateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStateRequest.ProtoReflect.Descriptor instead.
 func (*GetStateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{14}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{72}
+}
+
+func (x *GetStateRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
 }
 
 type GetStateResponse struct {
@@ -636,7 +3124,7 @@ type GetStateResponse struct {
 
 func (x *GetStateResponse) Reset() {
 	*x = GetStateResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[15]
+	mi := &file_proto_sip_sip_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -648,7 +3136,7 @@ func (x *GetStateResponse) String() string {
 func (*GetStateResponse) ProtoMessage() {}
 
 func (x *GetStateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[15]
+	mi := &file_proto_sip_sip_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -661,7 +3149,7 @@ func (x *GetStateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStateResponse.ProtoReflect.Descriptor instead.
 func (*GetStateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{15}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{73}
 }
 
 func (x *GetStateResponse) GetResult() int32 {
@@ -671,15 +3159,104 @@ func (x *GetStateResponse) GetResult() int32 {
 	return 0
 }
 
+type HoldCallRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HoldCallRequest) Reset() {
+	*x = HoldCallRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[74]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HoldCallRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HoldCallRequest) ProtoMessage() {}
+
+func (x *HoldCallRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[74]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HoldCallRequest.ProtoReflect.Descriptor instead.
+func (*HoldCallRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{74}
+}
+
+func (x *HoldCallRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *HoldCallRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type HoldCallResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HoldCallResponse) Reset() {
+	*x = HoldCallResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[75]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HoldCallResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HoldCallResponse) ProtoMessage() {}
+
+func (x *HoldCallResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[75]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HoldCallResponse.ProtoReflect.Descriptor instead.
+func (*HoldCallResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{75}
+}
+
 type IsInCallRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *IsInCallRequest) Reset() {
 	*x = IsInCallRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[16]
+	mi := &file_proto_sip_sip_proto_msgTypes[76]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -691,7 +3268,7 @@ func (x *IsInCallRequest) String() string {
 func (*IsInCallRequest) ProtoMessage() {}
 
 func (x *IsInCallRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[16]
+	mi := &file_proto_sip_sip_proto_msgTypes[76]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -704,7 +3281,14 @@ func (x *IsInCallRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsInCallRequest.ProtoReflect.Descriptor instead.
 func (*IsInCallRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{16}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{76}
+}
+
+func (x *IsInCallRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
 }
 
 type IsInCallResponse struct {
@@ -716,7 +3300,7 @@ type IsInCallResponse struct {
 
 func (x *IsInCallResponse) Reset() {
 	*x = IsInCallResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[17]
+	mi := &file_proto_sip_sip_proto_msgTypes[77]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -728,7 +3312,7 @@ func (x *IsInCallResponse) String() string {
 func (*IsInCallResponse) ProtoMessage() {}
 
 func (x *IsInCallResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[17]
+	mi := &file_proto_sip_sip_proto_msgTypes[77]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -741,7 +3325,7 @@ func (x *IsInCallResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsInCallResponse.ProtoReflect.Descriptor instead.
 func (*IsInCallResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{17}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{77}
 }
 
 func (x *IsInCallResponse) GetResult() bool {
@@ -751,18 +3335,195 @@ func (x *IsInCallResponse) GetResult() bool {
 	return false
 }
 
+type IsMutedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsMutedRequest) Reset() {
+	*x = IsMutedRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[78]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsMutedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsMutedRequest) ProtoMessage() {}
+
+func (x *IsMutedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[78]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsMutedRequest.ProtoReflect.Descriptor instead.
+func (*IsMutedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{78}
+}
+
+func (x *IsMutedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsMutedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsMutedResponse) Reset() {
+	*x = IsMutedResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsMutedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsMutedResponse) ProtoMessage() {}
+
+func (x *IsMutedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsMutedResponse.ProtoReflect.Descriptor instead.
+func (*IsMutedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{79}
+}
+
+func (x *IsMutedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsOnHoldRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsOnHoldRequest) Reset() {
+	*x = IsOnHoldRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[80]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsOnHoldRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsOnHoldRequest) ProtoMessage() {}
+
+func (x *IsOnHoldRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[80]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsOnHoldRequest.ProtoReflect.Descriptor instead.
+func (*IsOnHoldRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{80}
+}
+
+func (x *IsOnHoldRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsOnHoldResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsOnHoldResponse) Reset() {
+	*x = IsOnHoldResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[81]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsOnHoldResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsOnHoldResponse) ProtoMessage() {}
+
+func (x *IsOnHoldResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[81]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsOnHoldResponse.ProtoReflect.Descriptor instead.
+func (*IsOnHoldResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{81}
+}
+
+func (x *IsOnHoldResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
 type MakeCallRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *MakeCallRequest) Reset() {
 	*x = MakeCallRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[18]
+	mi := &file_proto_sip_sip_proto_msgTypes[82]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -774,7 +3535,7 @@ func (x *MakeCallRequest) String() string {
 func (*MakeCallRequest) ProtoMessage() {}
 
 func (x *MakeCallRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[18]
+	mi := &file_proto_sip_sip_proto_msgTypes[82]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -787,7 +3548,14 @@ func (x *MakeCallRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MakeCallRequest.ProtoReflect.Descriptor instead.
 func (*MakeCallRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{18}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{82}
+}
+
+func (x *MakeCallRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
 }
 
 func (x *MakeCallRequest) GetArg0() int64 {
@@ -797,11 +3565,11 @@ func (x *MakeCallRequest) GetArg0() int64 {
 	return 0
 }
 
-func (x *MakeCallRequest) GetArg1() string {
+func (x *MakeCallRequest) GetArg1() int64 {
 	if x != nil {
 		return x.Arg1
 	}
-	return ""
+	return 0
 }
 
 func (x *MakeCallRequest) GetArg2() int32 {
@@ -819,7 +3587,7 @@ type MakeCallResponse struct {
 
 func (x *MakeCallResponse) Reset() {
 	*x = MakeCallResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[19]
+	mi := &file_proto_sip_sip_proto_msgTypes[83]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -831,7 +3599,7 @@ func (x *MakeCallResponse) String() string {
 func (*MakeCallResponse) ProtoMessage() {}
 
 func (x *MakeCallResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[19]
+	mi := &file_proto_sip_sip_proto_msgTypes[83]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -844,31 +3612,32 @@ func (x *MakeCallResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MakeCallResponse.ProtoReflect.Descriptor instead.
 func (*MakeCallResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{19}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{83}
 }
 
-type RegisterRequest struct {
+type SendDtmf1Request struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *RegisterRequest) Reset() {
-	*x = RegisterRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[20]
+func (x *SendDtmf1Request) Reset() {
+	*x = SendDtmf1Request{}
+	mi := &file_proto_sip_sip_proto_msgTypes[84]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *RegisterRequest) String() string {
+func (x *SendDtmf1Request) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*RegisterRequest) ProtoMessage() {}
+func (*SendDtmf1Request) ProtoMessage() {}
 
-func (x *RegisterRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[20]
+func (x *SendDtmf1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[84]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -879,39 +3648,46 @@ func (x *RegisterRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use RegisterRequest.ProtoReflect.Descriptor instead.
-func (*RegisterRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{20}
+// Deprecated: Use SendDtmf1Request.ProtoReflect.Descriptor instead.
+func (*SendDtmf1Request) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{84}
 }
 
-func (x *RegisterRequest) GetArg0() int32 {
+func (x *SendDtmf1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SendDtmf1Request) GetArg0() int32 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-type RegisterResponse struct {
+type SendDtmf1Response struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *RegisterResponse) Reset() {
-	*x = RegisterResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[21]
+func (x *SendDtmf1Response) Reset() {
+	*x = SendDtmf1Response{}
+	mi := &file_proto_sip_sip_proto_msgTypes[85]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *RegisterResponse) String() string {
+func (x *SendDtmf1Response) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*RegisterResponse) ProtoMessage() {}
+func (*SendDtmf1Response) ProtoMessage() {}
 
-func (x *RegisterResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[21]
+func (x *SendDtmf1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[85]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -922,33 +3698,35 @@ func (x *RegisterResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use RegisterResponse.ProtoReflect.Descriptor instead.
-func (*RegisterResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{21}
+// Deprecated: Use SendDtmf1Response.ProtoReflect.Descriptor instead.
+func (*SendDtmf1Response) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{85}
 }
 
-type SetListenerRequest struct {
+type SendDtmf2_1Request struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetListenerRequest) Reset() {
-	*x = SetListenerRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[22]
+func (x *SendDtmf2_1Request) Reset() {
+	*x = SendDtmf2_1Request{}
+	mi := &file_proto_sip_sip_proto_msgTypes[86]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetListenerRequest) String() string {
+func (x *SendDtmf2_1Request) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetListenerRequest) ProtoMessage() {}
+func (*SendDtmf2_1Request) ProtoMessage() {}
 
-func (x *SetListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[22]
+func (x *SendDtmf2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[86]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -959,39 +3737,53 @@ func (x *SetListenerRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetListenerRequest.ProtoReflect.Descriptor instead.
-func (*SetListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{22}
+// Deprecated: Use SendDtmf2_1Request.ProtoReflect.Descriptor instead.
+func (*SendDtmf2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{86}
 }
 
-func (x *SetListenerRequest) GetArg0() int64 {
+func (x *SendDtmf2_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SendDtmf2_1Request) GetArg0() int32 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-type SetListenerResponse struct {
+func (x *SendDtmf2_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SendDtmf2_1Response struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetListenerResponse) Reset() {
-	*x = SetListenerResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[23]
+func (x *SendDtmf2_1Response) Reset() {
+	*x = SendDtmf2_1Response{}
+	mi := &file_proto_sip_sip_proto_msgTypes[87]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetListenerResponse) String() string {
+func (x *SendDtmf2_1Response) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetListenerResponse) ProtoMessage() {}
+func (*SendDtmf2_1Response) ProtoMessage() {}
 
-func (x *SetListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[23]
+func (x *SendDtmf2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[87]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1002,32 +3794,34 @@ func (x *SetListenerResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetListenerResponse.ProtoReflect.Descriptor instead.
-func (*SetListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{23}
+// Deprecated: Use SendDtmf2_1Response.ProtoReflect.Descriptor instead.
+func (*SendDtmf2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{87}
 }
 
-type UnregisterRequest struct {
+type SetListener1Request struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *UnregisterRequest) Reset() {
-	*x = UnregisterRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[24]
+func (x *SetListener1Request) Reset() {
+	*x = SetListener1Request{}
+	mi := &file_proto_sip_sip_proto_msgTypes[88]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *UnregisterRequest) String() string {
+func (x *SetListener1Request) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UnregisterRequest) ProtoMessage() {}
+func (*SetListener1Request) ProtoMessage() {}
 
-func (x *UnregisterRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[24]
+func (x *SetListener1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[88]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1038,32 +3832,46 @@ func (x *UnregisterRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UnregisterRequest.ProtoReflect.Descriptor instead.
-func (*UnregisterRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{24}
+// Deprecated: Use SetListener1Request.ProtoReflect.Descriptor instead.
+func (*SetListener1Request) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{88}
 }
 
-type UnregisterResponse struct {
+func (x *SetListener1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetListener1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetListener1Response struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *UnregisterResponse) Reset() {
-	*x = UnregisterResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[25]
+func (x *SetListener1Response) Reset() {
+	*x = SetListener1Response{}
+	mi := &file_proto_sip_sip_proto_msgTypes[89]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *UnregisterResponse) String() string {
+func (x *SetListener1Response) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UnregisterResponse) ProtoMessage() {}
+func (*SetListener1Response) ProtoMessage() {}
 
-func (x *UnregisterResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[25]
+func (x *SetListener1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[89]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1074,9 +3882,353 @@ func (x *UnregisterResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UnregisterResponse.ProtoReflect.Descriptor instead.
-func (*UnregisterResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{25}
+// Deprecated: Use SetListener1Response.ProtoReflect.Descriptor instead.
+func (*SetListener1Response) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{89}
+}
+
+type SetListener2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          bool                   `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetListener2_1Request) Reset() {
+	*x = SetListener2_1Request{}
+	mi := &file_proto_sip_sip_proto_msgTypes[90]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetListener2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetListener2_1Request) ProtoMessage() {}
+
+func (x *SetListener2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[90]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetListener2_1Request.ProtoReflect.Descriptor instead.
+func (*SetListener2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{90}
+}
+
+func (x *SetListener2_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetListener2_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetListener2_1Request) GetArg1() bool {
+	if x != nil {
+		return x.Arg1
+	}
+	return false
+}
+
+type SetListener2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetListener2_1Response) Reset() {
+	*x = SetListener2_1Response{}
+	mi := &file_proto_sip_sip_proto_msgTypes[91]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetListener2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetListener2_1Response) ProtoMessage() {}
+
+func (x *SetListener2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[91]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetListener2_1Response.ProtoReflect.Descriptor instead.
+func (*SetListener2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{91}
+}
+
+type SetSpeakerModeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSpeakerModeRequest) Reset() {
+	*x = SetSpeakerModeRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[92]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSpeakerModeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSpeakerModeRequest) ProtoMessage() {}
+
+func (x *SetSpeakerModeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[92]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSpeakerModeRequest.ProtoReflect.Descriptor instead.
+func (*SetSpeakerModeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{92}
+}
+
+func (x *SetSpeakerModeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetSpeakerModeRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetSpeakerModeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSpeakerModeResponse) Reset() {
+	*x = SetSpeakerModeResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[93]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSpeakerModeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSpeakerModeResponse) ProtoMessage() {}
+
+func (x *SetSpeakerModeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[93]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSpeakerModeResponse.ProtoReflect.Descriptor instead.
+func (*SetSpeakerModeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{93}
+}
+
+type StartAudioRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StartAudioRequest) Reset() {
+	*x = StartAudioRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[94]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StartAudioRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StartAudioRequest) ProtoMessage() {}
+
+func (x *StartAudioRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[94]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StartAudioRequest.ProtoReflect.Descriptor instead.
+func (*StartAudioRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{94}
+}
+
+func (x *StartAudioRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type StartAudioResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StartAudioResponse) Reset() {
+	*x = StartAudioResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[95]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StartAudioResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StartAudioResponse) ProtoMessage() {}
+
+func (x *StartAudioResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[95]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StartAudioResponse.ProtoReflect.Descriptor instead.
+func (*StartAudioResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{95}
+}
+
+type ToggleMuteRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToggleMuteRequest) Reset() {
+	*x = ToggleMuteRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[96]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToggleMuteRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToggleMuteRequest) ProtoMessage() {}
+
+func (x *ToggleMuteRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[96]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToggleMuteRequest.ProtoReflect.Descriptor instead.
+func (*ToggleMuteRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{96}
+}
+
+func (x *ToggleMuteRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ToggleMuteResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToggleMuteResponse) Reset() {
+	*x = ToggleMuteResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[97]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToggleMuteResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToggleMuteResponse) ProtoMessage() {}
+
+func (x *ToggleMuteResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[97]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToggleMuteResponse.ProtoReflect.Descriptor instead.
+func (*ToggleMuteResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{97}
 }
 
 type OnCallBusyRequest struct {
@@ -1088,7 +4240,7 @@ type OnCallBusyRequest struct {
 
 func (x *OnCallBusyRequest) Reset() {
 	*x = OnCallBusyRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[26]
+	mi := &file_proto_sip_sip_proto_msgTypes[98]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1100,7 +4252,7 @@ func (x *OnCallBusyRequest) String() string {
 func (*OnCallBusyRequest) ProtoMessage() {}
 
 func (x *OnCallBusyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[26]
+	mi := &file_proto_sip_sip_proto_msgTypes[98]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1113,7 +4265,7 @@ func (x *OnCallBusyRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCallBusyRequest.ProtoReflect.Descriptor instead.
 func (*OnCallBusyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{26}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{98}
 }
 
 func (x *OnCallBusyRequest) GetArg0() int64 {
@@ -1131,7 +4283,7 @@ type OnCallBusyResponse struct {
 
 func (x *OnCallBusyResponse) Reset() {
 	*x = OnCallBusyResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[27]
+	mi := &file_proto_sip_sip_proto_msgTypes[99]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1143,7 +4295,7 @@ func (x *OnCallBusyResponse) String() string {
 func (*OnCallBusyResponse) ProtoMessage() {}
 
 func (x *OnCallBusyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[27]
+	mi := &file_proto_sip_sip_proto_msgTypes[99]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1156,103 +4308,7 @@ func (x *OnCallBusyResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCallBusyResponse.ProtoReflect.Descriptor instead.
 func (*OnCallBusyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{27}
-}
-
-type OnCallChangeFailedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnCallChangeFailedRequest) Reset() {
-	*x = OnCallChangeFailedRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[28]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnCallChangeFailedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnCallChangeFailedRequest) ProtoMessage() {}
-
-func (x *OnCallChangeFailedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[28]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnCallChangeFailedRequest.ProtoReflect.Descriptor instead.
-func (*OnCallChangeFailedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{28}
-}
-
-func (x *OnCallChangeFailedRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *OnCallChangeFailedRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *OnCallChangeFailedRequest) GetArg2() string {
-	if x != nil {
-		return x.Arg2
-	}
-	return ""
-}
-
-type OnCallChangeFailedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnCallChangeFailedResponse) Reset() {
-	*x = OnCallChangeFailedResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[29]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnCallChangeFailedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnCallChangeFailedResponse) ProtoMessage() {}
-
-func (x *OnCallChangeFailedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[29]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnCallChangeFailedResponse.ProtoReflect.Descriptor instead.
-func (*OnCallChangeFailedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{29}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{99}
 }
 
 type OnCallEndedRequest struct {
@@ -1264,7 +4320,7 @@ type OnCallEndedRequest struct {
 
 func (x *OnCallEndedRequest) Reset() {
 	*x = OnCallEndedRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[30]
+	mi := &file_proto_sip_sip_proto_msgTypes[100]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1276,7 +4332,7 @@ func (x *OnCallEndedRequest) String() string {
 func (*OnCallEndedRequest) ProtoMessage() {}
 
 func (x *OnCallEndedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[30]
+	mi := &file_proto_sip_sip_proto_msgTypes[100]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1289,7 +4345,7 @@ func (x *OnCallEndedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCallEndedRequest.ProtoReflect.Descriptor instead.
 func (*OnCallEndedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{30}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{100}
 }
 
 func (x *OnCallEndedRequest) GetArg0() int64 {
@@ -1307,7 +4363,7 @@ type OnCallEndedResponse struct {
 
 func (x *OnCallEndedResponse) Reset() {
 	*x = OnCallEndedResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[31]
+	mi := &file_proto_sip_sip_proto_msgTypes[101]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1319,7 +4375,7 @@ func (x *OnCallEndedResponse) String() string {
 func (*OnCallEndedResponse) ProtoMessage() {}
 
 func (x *OnCallEndedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[31]
+	mi := &file_proto_sip_sip_proto_msgTypes[101]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1332,20 +4388,19 @@ func (x *OnCallEndedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCallEndedResponse.ProtoReflect.Descriptor instead.
 func (*OnCallEndedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{31}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{101}
 }
 
 type OnCallEstablishedRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *OnCallEstablishedRequest) Reset() {
 	*x = OnCallEstablishedRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[32]
+	mi := &file_proto_sip_sip_proto_msgTypes[102]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1357,7 +4412,7 @@ func (x *OnCallEstablishedRequest) String() string {
 func (*OnCallEstablishedRequest) ProtoMessage() {}
 
 func (x *OnCallEstablishedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[32]
+	mi := &file_proto_sip_sip_proto_msgTypes[102]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1370,7 +4425,7 @@ func (x *OnCallEstablishedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCallEstablishedRequest.ProtoReflect.Descriptor instead.
 func (*OnCallEstablishedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{32}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{102}
 }
 
 func (x *OnCallEstablishedRequest) GetArg0() int64 {
@@ -1378,13 +4433,6 @@ func (x *OnCallEstablishedRequest) GetArg0() int64 {
 		return x.Arg0
 	}
 	return 0
-}
-
-func (x *OnCallEstablishedRequest) GetArg1() string {
-	if x != nil {
-		return x.Arg1
-	}
-	return ""
 }
 
 type OnCallEstablishedResponse struct {
@@ -1395,7 +4443,7 @@ type OnCallEstablishedResponse struct {
 
 func (x *OnCallEstablishedResponse) Reset() {
 	*x = OnCallEstablishedResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[33]
+	mi := &file_proto_sip_sip_proto_msgTypes[103]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1407,7 +4455,7 @@ func (x *OnCallEstablishedResponse) String() string {
 func (*OnCallEstablishedResponse) ProtoMessage() {}
 
 func (x *OnCallEstablishedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[33]
+	mi := &file_proto_sip_sip_proto_msgTypes[103]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1420,7 +4468,87 @@ func (x *OnCallEstablishedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCallEstablishedResponse.ProtoReflect.Descriptor instead.
 func (*OnCallEstablishedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{33}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{103}
+}
+
+type OnCallHeldRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCallHeldRequest) Reset() {
+	*x = OnCallHeldRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[104]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCallHeldRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCallHeldRequest) ProtoMessage() {}
+
+func (x *OnCallHeldRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[104]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCallHeldRequest.ProtoReflect.Descriptor instead.
+func (*OnCallHeldRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{104}
+}
+
+func (x *OnCallHeldRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnCallHeldResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCallHeldResponse) Reset() {
+	*x = OnCallHeldResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[105]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCallHeldResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCallHeldResponse) ProtoMessage() {}
+
+func (x *OnCallHeldResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[105]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCallHeldResponse.ProtoReflect.Descriptor instead.
+func (*OnCallHeldResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{105}
 }
 
 type OnCallingRequest struct {
@@ -1432,7 +4560,7 @@ type OnCallingRequest struct {
 
 func (x *OnCallingRequest) Reset() {
 	*x = OnCallingRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[34]
+	mi := &file_proto_sip_sip_proto_msgTypes[106]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1444,7 +4572,7 @@ func (x *OnCallingRequest) String() string {
 func (*OnCallingRequest) ProtoMessage() {}
 
 func (x *OnCallingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[34]
+	mi := &file_proto_sip_sip_proto_msgTypes[106]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1457,7 +4585,7 @@ func (x *OnCallingRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCallingRequest.ProtoReflect.Descriptor instead.
 func (*OnCallingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{34}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{106}
 }
 
 func (x *OnCallingRequest) GetArg0() int64 {
@@ -1475,7 +4603,7 @@ type OnCallingResponse struct {
 
 func (x *OnCallingResponse) Reset() {
 	*x = OnCallingResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[35]
+	mi := &file_proto_sip_sip_proto_msgTypes[107]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1487,7 +4615,7 @@ func (x *OnCallingResponse) String() string {
 func (*OnCallingResponse) ProtoMessage() {}
 
 func (x *OnCallingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[35]
+	mi := &file_proto_sip_sip_proto_msgTypes[107]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1500,7 +4628,87 @@ func (x *OnCallingResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCallingResponse.ProtoReflect.Descriptor instead.
 func (*OnCallingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{35}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{107}
+}
+
+type OnChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnChangedRequest) Reset() {
+	*x = OnChangedRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[108]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnChangedRequest) ProtoMessage() {}
+
+func (x *OnChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[108]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnChangedRequest.ProtoReflect.Descriptor instead.
+func (*OnChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{108}
+}
+
+func (x *OnChangedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnChangedResponse) Reset() {
+	*x = OnChangedResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[109]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnChangedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnChangedResponse) ProtoMessage() {}
+
+func (x *OnChangedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[109]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnChangedResponse.ProtoReflect.Descriptor instead.
+func (*OnChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{109}
 }
 
 type OnErrorRequest struct {
@@ -1514,7 +4722,7 @@ type OnErrorRequest struct {
 
 func (x *OnErrorRequest) Reset() {
 	*x = OnErrorRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[36]
+	mi := &file_proto_sip_sip_proto_msgTypes[110]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1526,7 +4734,7 @@ func (x *OnErrorRequest) String() string {
 func (*OnErrorRequest) ProtoMessage() {}
 
 func (x *OnErrorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[36]
+	mi := &file_proto_sip_sip_proto_msgTypes[110]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1539,7 +4747,7 @@ func (x *OnErrorRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnErrorRequest.ProtoReflect.Descriptor instead.
 func (*OnErrorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{36}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{110}
 }
 
 func (x *OnErrorRequest) GetArg0() int64 {
@@ -1571,7 +4779,7 @@ type OnErrorResponse struct {
 
 func (x *OnErrorResponse) Reset() {
 	*x = OnErrorResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[37]
+	mi := &file_proto_sip_sip_proto_msgTypes[111]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1583,7 +4791,7 @@ func (x *OnErrorResponse) String() string {
 func (*OnErrorResponse) ProtoMessage() {}
 
 func (x *OnErrorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[37]
+	mi := &file_proto_sip_sip_proto_msgTypes[111]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1596,31 +4804,31 @@ func (x *OnErrorResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnErrorResponse.ProtoReflect.Descriptor instead.
 func (*OnErrorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{37}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{111}
 }
 
-type OnRegisteringRequest struct {
+type OnReadyToCallRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *OnRegisteringRequest) Reset() {
-	*x = OnRegisteringRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[38]
+func (x *OnReadyToCallRequest) Reset() {
+	*x = OnReadyToCallRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[112]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *OnRegisteringRequest) String() string {
+func (x *OnReadyToCallRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*OnRegisteringRequest) ProtoMessage() {}
+func (*OnReadyToCallRequest) ProtoMessage() {}
 
-func (x *OnRegisteringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[38]
+func (x *OnReadyToCallRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[112]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1631,39 +4839,39 @@ func (x *OnRegisteringRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use OnRegisteringRequest.ProtoReflect.Descriptor instead.
-func (*OnRegisteringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{38}
+// Deprecated: Use OnReadyToCallRequest.ProtoReflect.Descriptor instead.
+func (*OnReadyToCallRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{112}
 }
 
-func (x *OnRegisteringRequest) GetArg0() int64 {
+func (x *OnReadyToCallRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-type OnRegisteringResponse struct {
+type OnReadyToCallResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *OnRegisteringResponse) Reset() {
-	*x = OnRegisteringResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[39]
+func (x *OnReadyToCallResponse) Reset() {
+	*x = OnReadyToCallResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[113]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *OnRegisteringResponse) String() string {
+func (x *OnReadyToCallResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*OnRegisteringResponse) ProtoMessage() {}
+func (*OnReadyToCallResponse) ProtoMessage() {}
 
-func (x *OnRegisteringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[39]
+func (x *OnReadyToCallResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[113]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1674,287 +4882,22 @@ func (x *OnRegisteringResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use OnRegisteringResponse.ProtoReflect.Descriptor instead.
-func (*OnRegisteringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{39}
-}
-
-type OnRegistrationDoneRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnRegistrationDoneRequest) Reset() {
-	*x = OnRegistrationDoneRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[40]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnRegistrationDoneRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnRegistrationDoneRequest) ProtoMessage() {}
-
-func (x *OnRegistrationDoneRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[40]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnRegistrationDoneRequest.ProtoReflect.Descriptor instead.
-func (*OnRegistrationDoneRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{40}
-}
-
-func (x *OnRegistrationDoneRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *OnRegistrationDoneRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type OnRegistrationDoneResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnRegistrationDoneResponse) Reset() {
-	*x = OnRegistrationDoneResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[41]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnRegistrationDoneResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnRegistrationDoneResponse) ProtoMessage() {}
-
-func (x *OnRegistrationDoneResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[41]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnRegistrationDoneResponse.ProtoReflect.Descriptor instead.
-func (*OnRegistrationDoneResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{41}
-}
-
-type OnRegistrationFailedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnRegistrationFailedRequest) Reset() {
-	*x = OnRegistrationFailedRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[42]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnRegistrationFailedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnRegistrationFailedRequest) ProtoMessage() {}
-
-func (x *OnRegistrationFailedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[42]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnRegistrationFailedRequest.ProtoReflect.Descriptor instead.
-func (*OnRegistrationFailedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{42}
-}
-
-func (x *OnRegistrationFailedRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *OnRegistrationFailedRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *OnRegistrationFailedRequest) GetArg2() string {
-	if x != nil {
-		return x.Arg2
-	}
-	return ""
-}
-
-type OnRegistrationFailedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnRegistrationFailedResponse) Reset() {
-	*x = OnRegistrationFailedResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[43]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnRegistrationFailedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnRegistrationFailedResponse) ProtoMessage() {}
-
-func (x *OnRegistrationFailedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[43]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnRegistrationFailedResponse.ProtoReflect.Descriptor instead.
-func (*OnRegistrationFailedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{43}
-}
-
-type OnRegistrationTimeoutRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnRegistrationTimeoutRequest) Reset() {
-	*x = OnRegistrationTimeoutRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[44]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnRegistrationTimeoutRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnRegistrationTimeoutRequest) ProtoMessage() {}
-
-func (x *OnRegistrationTimeoutRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[44]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnRegistrationTimeoutRequest.ProtoReflect.Descriptor instead.
-func (*OnRegistrationTimeoutRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{44}
-}
-
-func (x *OnRegistrationTimeoutRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnRegistrationTimeoutResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnRegistrationTimeoutResponse) Reset() {
-	*x = OnRegistrationTimeoutResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[45]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnRegistrationTimeoutResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnRegistrationTimeoutResponse) ProtoMessage() {}
-
-func (x *OnRegistrationTimeoutResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[45]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnRegistrationTimeoutResponse.ProtoReflect.Descriptor instead.
-func (*OnRegistrationTimeoutResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{45}
+// Deprecated: Use OnReadyToCallResponse.ProtoReflect.Descriptor instead.
+func (*OnReadyToCallResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{113}
 }
 
 type OnRingingRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *OnRingingRequest) Reset() {
 	*x = OnRingingRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[46]
+	mi := &file_proto_sip_sip_proto_msgTypes[114]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1966,7 +4909,7 @@ func (x *OnRingingRequest) String() string {
 func (*OnRingingRequest) ProtoMessage() {}
 
 func (x *OnRingingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[46]
+	mi := &file_proto_sip_sip_proto_msgTypes[114]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1979,7 +4922,7 @@ func (x *OnRingingRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnRingingRequest.ProtoReflect.Descriptor instead.
 func (*OnRingingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{46}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{114}
 }
 
 func (x *OnRingingRequest) GetArg0() int64 {
@@ -1996,13 +4939,6 @@ func (x *OnRingingRequest) GetArg1() int64 {
 	return 0
 }
 
-func (x *OnRingingRequest) GetArg2() string {
-	if x != nil {
-		return x.Arg2
-	}
-	return ""
-}
-
 type OnRingingResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -2011,7 +4947,7 @@ type OnRingingResponse struct {
 
 func (x *OnRingingResponse) Reset() {
 	*x = OnRingingResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[47]
+	mi := &file_proto_sip_sip_proto_msgTypes[115]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2023,7 +4959,7 @@ func (x *OnRingingResponse) String() string {
 func (*OnRingingResponse) ProtoMessage() {}
 
 func (x *OnRingingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[47]
+	mi := &file_proto_sip_sip_proto_msgTypes[115]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2036,7 +4972,7 @@ func (x *OnRingingResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnRingingResponse.ProtoReflect.Descriptor instead.
 func (*OnRingingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{47}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{115}
 }
 
 type OnRingingBackRequest struct {
@@ -2048,7 +4984,7 @@ type OnRingingBackRequest struct {
 
 func (x *OnRingingBackRequest) Reset() {
 	*x = OnRingingBackRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[48]
+	mi := &file_proto_sip_sip_proto_msgTypes[116]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2060,7 +4996,7 @@ func (x *OnRingingBackRequest) String() string {
 func (*OnRingingBackRequest) ProtoMessage() {}
 
 func (x *OnRingingBackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[48]
+	mi := &file_proto_sip_sip_proto_msgTypes[116]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2073,7 +5009,7 @@ func (x *OnRingingBackRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnRingingBackRequest.ProtoReflect.Descriptor instead.
 func (*OnRingingBackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{48}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{116}
 }
 
 func (x *OnRingingBackRequest) GetArg0() int64 {
@@ -2091,7 +5027,7 @@ type OnRingingBackResponse struct {
 
 func (x *OnRingingBackResponse) Reset() {
 	*x = OnRingingBackResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[49]
+	mi := &file_proto_sip_sip_proto_msgTypes[117]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2103,7 +5039,7 @@ func (x *OnRingingBackResponse) String() string {
 func (*OnRingingBackResponse) ProtoMessage() {}
 
 func (x *OnRingingBackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[49]
+	mi := &file_proto_sip_sip_proto_msgTypes[117]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2116,7 +5052,1223 @@ func (x *OnRingingBackResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnRingingBackResponse.ProtoReflect.Descriptor instead.
 func (*OnRingingBackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{49}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{117}
+}
+
+type SessionAnswerCallRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SessionAnswerCallRequest) Reset() {
+	*x = SessionAnswerCallRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[118]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SessionAnswerCallRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SessionAnswerCallRequest) ProtoMessage() {}
+
+func (x *SessionAnswerCallRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[118]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SessionAnswerCallRequest.ProtoReflect.Descriptor instead.
+func (*SessionAnswerCallRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{118}
+}
+
+func (x *SessionAnswerCallRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *SessionAnswerCallRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type ChangeCallRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ChangeCallRequest) Reset() {
+	*x = ChangeCallRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[119]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ChangeCallRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ChangeCallRequest) ProtoMessage() {}
+
+func (x *ChangeCallRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[119]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ChangeCallRequest.ProtoReflect.Descriptor instead.
+func (*ChangeCallRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{119}
+}
+
+func (x *ChangeCallRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *ChangeCallRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type ChangeCallResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ChangeCallResponse) Reset() {
+	*x = ChangeCallResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[120]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ChangeCallResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ChangeCallResponse) ProtoMessage() {}
+
+func (x *ChangeCallResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[120]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ChangeCallResponse.ProtoReflect.Descriptor instead.
+func (*ChangeCallResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{120}
+}
+
+type SessionEndCallRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SessionEndCallRequest) Reset() {
+	*x = SessionEndCallRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[121]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SessionEndCallRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SessionEndCallRequest) ProtoMessage() {}
+
+func (x *SessionEndCallRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[121]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SessionEndCallRequest.ProtoReflect.Descriptor instead.
+func (*SessionEndCallRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{121}
+}
+
+type GetCallIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCallIdRequest) Reset() {
+	*x = GetCallIdRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[122]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCallIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCallIdRequest) ProtoMessage() {}
+
+func (x *GetCallIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[122]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCallIdRequest.ProtoReflect.Descriptor instead.
+func (*GetCallIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{122}
+}
+
+type GetCallIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCallIdResponse) Reset() {
+	*x = GetCallIdResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[123]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCallIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCallIdResponse) ProtoMessage() {}
+
+func (x *GetCallIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[123]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCallIdResponse.ProtoReflect.Descriptor instead.
+func (*GetCallIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{123}
+}
+
+func (x *GetCallIdResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetLocalIpRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLocalIpRequest) Reset() {
+	*x = GetLocalIpRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[124]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLocalIpRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLocalIpRequest) ProtoMessage() {}
+
+func (x *GetLocalIpRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[124]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLocalIpRequest.ProtoReflect.Descriptor instead.
+func (*GetLocalIpRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{124}
+}
+
+type GetLocalIpResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLocalIpResponse) Reset() {
+	*x = GetLocalIpResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[125]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLocalIpResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLocalIpResponse) ProtoMessage() {}
+
+func (x *GetLocalIpResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[125]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLocalIpResponse.ProtoReflect.Descriptor instead.
+func (*GetLocalIpResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{125}
+}
+
+func (x *GetLocalIpResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type SessionGetLocalProfileRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SessionGetLocalProfileRequest) Reset() {
+	*x = SessionGetLocalProfileRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[126]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SessionGetLocalProfileRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SessionGetLocalProfileRequest) ProtoMessage() {}
+
+func (x *SessionGetLocalProfileRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[126]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SessionGetLocalProfileRequest.ProtoReflect.Descriptor instead.
+func (*SessionGetLocalProfileRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{126}
+}
+
+type SessionGetPeerProfileRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SessionGetPeerProfileRequest) Reset() {
+	*x = SessionGetPeerProfileRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[127]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SessionGetPeerProfileRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SessionGetPeerProfileRequest) ProtoMessage() {}
+
+func (x *SessionGetPeerProfileRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[127]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SessionGetPeerProfileRequest.ProtoReflect.Descriptor instead.
+func (*SessionGetPeerProfileRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{127}
+}
+
+type SessionGetStateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SessionGetStateRequest) Reset() {
+	*x = SessionGetStateRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[128]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SessionGetStateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SessionGetStateRequest) ProtoMessage() {}
+
+func (x *SessionGetStateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[128]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SessionGetStateRequest.ProtoReflect.Descriptor instead.
+func (*SessionGetStateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{128}
+}
+
+type SessionIsInCallRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SessionIsInCallRequest) Reset() {
+	*x = SessionIsInCallRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[129]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SessionIsInCallRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SessionIsInCallRequest) ProtoMessage() {}
+
+func (x *SessionIsInCallRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[129]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SessionIsInCallRequest.ProtoReflect.Descriptor instead.
+func (*SessionIsInCallRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{129}
+}
+
+type SessionMakeCallRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SessionMakeCallRequest) Reset() {
+	*x = SessionMakeCallRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[130]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SessionMakeCallRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SessionMakeCallRequest) ProtoMessage() {}
+
+func (x *SessionMakeCallRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[130]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SessionMakeCallRequest.ProtoReflect.Descriptor instead.
+func (*SessionMakeCallRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{130}
+}
+
+func (x *SessionMakeCallRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SessionMakeCallRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *SessionMakeCallRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type RegisterRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterRequest) Reset() {
+	*x = RegisterRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[131]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterRequest) ProtoMessage() {}
+
+func (x *RegisterRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[131]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterRequest.ProtoReflect.Descriptor instead.
+func (*RegisterRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{131}
+}
+
+func (x *RegisterRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type RegisterResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterResponse) Reset() {
+	*x = RegisterResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[132]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterResponse) ProtoMessage() {}
+
+func (x *RegisterResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[132]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterResponse.ProtoReflect.Descriptor instead.
+func (*RegisterResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{132}
+}
+
+type SetListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetListenerRequest) Reset() {
+	*x = SetListenerRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[133]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetListenerRequest) ProtoMessage() {}
+
+func (x *SetListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[133]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetListenerRequest.ProtoReflect.Descriptor instead.
+func (*SetListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{133}
+}
+
+func (x *SetListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetListenerResponse) Reset() {
+	*x = SetListenerResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[134]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetListenerResponse) ProtoMessage() {}
+
+func (x *SetListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[134]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetListenerResponse.ProtoReflect.Descriptor instead.
+func (*SetListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{134}
+}
+
+type UnregisterRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnregisterRequest) Reset() {
+	*x = UnregisterRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[135]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnregisterRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnregisterRequest) ProtoMessage() {}
+
+func (x *UnregisterRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[135]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnregisterRequest.ProtoReflect.Descriptor instead.
+func (*UnregisterRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{135}
+}
+
+type UnregisterResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnregisterResponse) Reset() {
+	*x = UnregisterResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[136]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnregisterResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnregisterResponse) ProtoMessage() {}
+
+func (x *UnregisterResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[136]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnregisterResponse.ProtoReflect.Descriptor instead.
+func (*UnregisterResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{136}
+}
+
+type OnCallChangeFailedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCallChangeFailedRequest) Reset() {
+	*x = OnCallChangeFailedRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[137]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCallChangeFailedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCallChangeFailedRequest) ProtoMessage() {}
+
+func (x *OnCallChangeFailedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[137]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCallChangeFailedRequest.ProtoReflect.Descriptor instead.
+func (*OnCallChangeFailedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{137}
+}
+
+func (x *OnCallChangeFailedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnCallChangeFailedRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnCallChangeFailedRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+type OnCallChangeFailedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCallChangeFailedResponse) Reset() {
+	*x = OnCallChangeFailedResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[138]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCallChangeFailedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCallChangeFailedResponse) ProtoMessage() {}
+
+func (x *OnCallChangeFailedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[138]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCallChangeFailedResponse.ProtoReflect.Descriptor instead.
+func (*OnCallChangeFailedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{138}
+}
+
+type SessionListenerOnCallEstablishedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SessionListenerOnCallEstablishedRequest) Reset() {
+	*x = SessionListenerOnCallEstablishedRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[139]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SessionListenerOnCallEstablishedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SessionListenerOnCallEstablishedRequest) ProtoMessage() {}
+
+func (x *SessionListenerOnCallEstablishedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[139]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SessionListenerOnCallEstablishedRequest.ProtoReflect.Descriptor instead.
+func (*SessionListenerOnCallEstablishedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{139}
+}
+
+func (x *SessionListenerOnCallEstablishedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SessionListenerOnCallEstablishedRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type SessionListenerOnRegisteringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SessionListenerOnRegisteringRequest) Reset() {
+	*x = SessionListenerOnRegisteringRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[140]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SessionListenerOnRegisteringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SessionListenerOnRegisteringRequest) ProtoMessage() {}
+
+func (x *SessionListenerOnRegisteringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[140]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SessionListenerOnRegisteringRequest.ProtoReflect.Descriptor instead.
+func (*SessionListenerOnRegisteringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{140}
+}
+
+func (x *SessionListenerOnRegisteringRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SessionListenerOnRegistrationDoneRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SessionListenerOnRegistrationDoneRequest) Reset() {
+	*x = SessionListenerOnRegistrationDoneRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[141]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SessionListenerOnRegistrationDoneRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SessionListenerOnRegistrationDoneRequest) ProtoMessage() {}
+
+func (x *SessionListenerOnRegistrationDoneRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[141]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SessionListenerOnRegistrationDoneRequest.ProtoReflect.Descriptor instead.
+func (*SessionListenerOnRegistrationDoneRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{141}
+}
+
+func (x *SessionListenerOnRegistrationDoneRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SessionListenerOnRegistrationDoneRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SessionListenerOnRegistrationFailedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SessionListenerOnRegistrationFailedRequest) Reset() {
+	*x = SessionListenerOnRegistrationFailedRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[142]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SessionListenerOnRegistrationFailedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SessionListenerOnRegistrationFailedRequest) ProtoMessage() {}
+
+func (x *SessionListenerOnRegistrationFailedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[142]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SessionListenerOnRegistrationFailedRequest.ProtoReflect.Descriptor instead.
+func (*SessionListenerOnRegistrationFailedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{142}
+}
+
+func (x *SessionListenerOnRegistrationFailedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SessionListenerOnRegistrationFailedRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *SessionListenerOnRegistrationFailedRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
+}
+
+type OnRegistrationTimeoutRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnRegistrationTimeoutRequest) Reset() {
+	*x = OnRegistrationTimeoutRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[143]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnRegistrationTimeoutRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnRegistrationTimeoutRequest) ProtoMessage() {}
+
+func (x *OnRegistrationTimeoutRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[143]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnRegistrationTimeoutRequest.ProtoReflect.Descriptor instead.
+func (*OnRegistrationTimeoutRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{143}
+}
+
+func (x *OnRegistrationTimeoutRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnRegistrationTimeoutResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnRegistrationTimeoutResponse) Reset() {
+	*x = OnRegistrationTimeoutResponse{}
+	mi := &file_proto_sip_sip_proto_msgTypes[144]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnRegistrationTimeoutResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnRegistrationTimeoutResponse) ProtoMessage() {}
+
+func (x *OnRegistrationTimeoutResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[144]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnRegistrationTimeoutResponse.ProtoReflect.Descriptor instead.
+func (*OnRegistrationTimeoutResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{144}
+}
+
+type SessionListenerOnRingingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SessionListenerOnRingingRequest) Reset() {
+	*x = SessionListenerOnRingingRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[145]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SessionListenerOnRingingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SessionListenerOnRingingRequest) ProtoMessage() {}
+
+func (x *SessionListenerOnRingingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[145]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SessionListenerOnRingingRequest.ProtoReflect.Descriptor instead.
+func (*SessionListenerOnRingingRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{145}
+}
+
+func (x *SessionListenerOnRingingRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SessionListenerOnRingingRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *SessionListenerOnRingingRequest) GetArg2() string {
+	if x != nil {
+		return x.Arg2
+	}
+	return ""
 }
 
 type ToStringRequest struct {
@@ -2128,7 +6280,7 @@ type ToStringRequest struct {
 
 func (x *ToStringRequest) Reset() {
 	*x = ToStringRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[50]
+	mi := &file_proto_sip_sip_proto_msgTypes[146]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2140,7 +6292,7 @@ func (x *ToStringRequest) String() string {
 func (*ToStringRequest) ProtoMessage() {}
 
 func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[50]
+	mi := &file_proto_sip_sip_proto_msgTypes[146]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2153,7 +6305,7 @@ func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
 func (*ToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{50}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{146}
 }
 
 func (x *ToStringRequest) GetArg0() int32 {
@@ -2172,7 +6324,7 @@ type ToStringResponse struct {
 
 func (x *ToStringResponse) Reset() {
 	*x = ToStringResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[51]
+	mi := &file_proto_sip_sip_proto_msgTypes[147]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2184,7 +6336,7 @@ func (x *ToStringResponse) String() string {
 func (*ToStringResponse) ProtoMessage() {}
 
 func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[51]
+	mi := &file_proto_sip_sip_proto_msgTypes[147]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2197,7 +6349,7 @@ func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
 func (*ToStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{51}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{147}
 }
 
 func (x *ToStringResponse) GetResult() string {
@@ -2207,28 +6359,28 @@ func (x *ToStringResponse) GetResult() string {
 	return ""
 }
 
-type CloseRequest struct {
+type ManagerCloseRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *CloseRequest) Reset() {
-	*x = CloseRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[52]
+func (x *ManagerCloseRequest) Reset() {
+	*x = ManagerCloseRequest{}
+	mi := &file_proto_sip_sip_proto_msgTypes[148]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *CloseRequest) String() string {
+func (x *ManagerCloseRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*CloseRequest) ProtoMessage() {}
+func (*ManagerCloseRequest) ProtoMessage() {}
 
-func (x *CloseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[52]
+func (x *ManagerCloseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sip_sip_proto_msgTypes[148]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2239,52 +6391,16 @@ func (x *CloseRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use CloseRequest.ProtoReflect.Descriptor instead.
-func (*CloseRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{52}
+// Deprecated: Use ManagerCloseRequest.ProtoReflect.Descriptor instead.
+func (*ManagerCloseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{148}
 }
 
-func (x *CloseRequest) GetArg0() string {
+func (x *ManagerCloseRequest) GetArg0() string {
 	if x != nil {
 		return x.Arg0
 	}
 	return ""
-}
-
-type CloseResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CloseResponse) Reset() {
-	*x = CloseResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[53]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CloseResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CloseResponse) ProtoMessage() {}
-
-func (x *CloseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[53]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CloseResponse.ProtoReflect.Descriptor instead.
-func (*CloseResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{53}
 }
 
 type CreateSipSessionRequest struct {
@@ -2297,7 +6413,7 @@ type CreateSipSessionRequest struct {
 
 func (x *CreateSipSessionRequest) Reset() {
 	*x = CreateSipSessionRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[54]
+	mi := &file_proto_sip_sip_proto_msgTypes[149]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2309,7 +6425,7 @@ func (x *CreateSipSessionRequest) String() string {
 func (*CreateSipSessionRequest) ProtoMessage() {}
 
 func (x *CreateSipSessionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[54]
+	mi := &file_proto_sip_sip_proto_msgTypes[149]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2322,7 +6438,7 @@ func (x *CreateSipSessionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateSipSessionRequest.ProtoReflect.Descriptor instead.
 func (*CreateSipSessionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{54}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{149}
 }
 
 func (x *CreateSipSessionRequest) GetArg0() int64 {
@@ -2348,7 +6464,7 @@ type CreateSipSessionResponse struct {
 
 func (x *CreateSipSessionResponse) Reset() {
 	*x = CreateSipSessionResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[55]
+	mi := &file_proto_sip_sip_proto_msgTypes[150]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2360,7 +6476,7 @@ func (x *CreateSipSessionResponse) String() string {
 func (*CreateSipSessionResponse) ProtoMessage() {}
 
 func (x *CreateSipSessionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[55]
+	mi := &file_proto_sip_sip_proto_msgTypes[150]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2373,7 +6489,7 @@ func (x *CreateSipSessionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateSipSessionResponse.ProtoReflect.Descriptor instead.
 func (*CreateSipSessionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{55}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{150}
 }
 
 func (x *CreateSipSessionResponse) GetResult() int64 {
@@ -2392,7 +6508,7 @@ type GetSessionForRequest struct {
 
 func (x *GetSessionForRequest) Reset() {
 	*x = GetSessionForRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[56]
+	mi := &file_proto_sip_sip_proto_msgTypes[151]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2404,7 +6520,7 @@ func (x *GetSessionForRequest) String() string {
 func (*GetSessionForRequest) ProtoMessage() {}
 
 func (x *GetSessionForRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[56]
+	mi := &file_proto_sip_sip_proto_msgTypes[151]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2417,7 +6533,7 @@ func (x *GetSessionForRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSessionForRequest.ProtoReflect.Descriptor instead.
 func (*GetSessionForRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{56}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{151}
 }
 
 func (x *GetSessionForRequest) GetArg0() int64 {
@@ -2436,7 +6552,7 @@ type GetSessionForResponse struct {
 
 func (x *GetSessionForResponse) Reset() {
 	*x = GetSessionForResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[57]
+	mi := &file_proto_sip_sip_proto_msgTypes[152]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2448,7 +6564,7 @@ func (x *GetSessionForResponse) String() string {
 func (*GetSessionForResponse) ProtoMessage() {}
 
 func (x *GetSessionForResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[57]
+	mi := &file_proto_sip_sip_proto_msgTypes[152]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2461,7 +6577,7 @@ func (x *GetSessionForResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSessionForResponse.ProtoReflect.Descriptor instead.
 func (*GetSessionForResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{57}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{152}
 }
 
 func (x *GetSessionForResponse) GetResult() int64 {
@@ -2480,7 +6596,7 @@ type IsOpenedRequest struct {
 
 func (x *IsOpenedRequest) Reset() {
 	*x = IsOpenedRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[58]
+	mi := &file_proto_sip_sip_proto_msgTypes[153]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2492,7 +6608,7 @@ func (x *IsOpenedRequest) String() string {
 func (*IsOpenedRequest) ProtoMessage() {}
 
 func (x *IsOpenedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[58]
+	mi := &file_proto_sip_sip_proto_msgTypes[153]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2505,7 +6621,7 @@ func (x *IsOpenedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsOpenedRequest.ProtoReflect.Descriptor instead.
 func (*IsOpenedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{58}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{153}
 }
 
 func (x *IsOpenedRequest) GetArg0() string {
@@ -2524,7 +6640,7 @@ type IsOpenedResponse struct {
 
 func (x *IsOpenedResponse) Reset() {
 	*x = IsOpenedResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[59]
+	mi := &file_proto_sip_sip_proto_msgTypes[154]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2536,7 +6652,7 @@ func (x *IsOpenedResponse) String() string {
 func (*IsOpenedResponse) ProtoMessage() {}
 
 func (x *IsOpenedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[59]
+	mi := &file_proto_sip_sip_proto_msgTypes[154]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2549,7 +6665,7 @@ func (x *IsOpenedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsOpenedResponse.ProtoReflect.Descriptor instead.
 func (*IsOpenedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{59}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{154}
 }
 
 func (x *IsOpenedResponse) GetResult() bool {
@@ -2568,7 +6684,7 @@ type IsRegisteredRequest struct {
 
 func (x *IsRegisteredRequest) Reset() {
 	*x = IsRegisteredRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[60]
+	mi := &file_proto_sip_sip_proto_msgTypes[155]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2580,7 +6696,7 @@ func (x *IsRegisteredRequest) String() string {
 func (*IsRegisteredRequest) ProtoMessage() {}
 
 func (x *IsRegisteredRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[60]
+	mi := &file_proto_sip_sip_proto_msgTypes[155]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2593,7 +6709,7 @@ func (x *IsRegisteredRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsRegisteredRequest.ProtoReflect.Descriptor instead.
 func (*IsRegisteredRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{60}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{155}
 }
 
 func (x *IsRegisteredRequest) GetArg0() string {
@@ -2612,7 +6728,7 @@ type IsRegisteredResponse struct {
 
 func (x *IsRegisteredResponse) Reset() {
 	*x = IsRegisteredResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[61]
+	mi := &file_proto_sip_sip_proto_msgTypes[156]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2624,7 +6740,7 @@ func (x *IsRegisteredResponse) String() string {
 func (*IsRegisteredResponse) ProtoMessage() {}
 
 func (x *IsRegisteredResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[61]
+	mi := &file_proto_sip_sip_proto_msgTypes[156]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2637,7 +6753,7 @@ func (x *IsRegisteredResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsRegisteredResponse.ProtoReflect.Descriptor instead.
 func (*IsRegisteredResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{61}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{156}
 }
 
 func (x *IsRegisteredResponse) GetResult() bool {
@@ -2659,7 +6775,7 @@ type MakeAudioCall4Request struct {
 
 func (x *MakeAudioCall4Request) Reset() {
 	*x = MakeAudioCall4Request{}
-	mi := &file_proto_sip_sip_proto_msgTypes[62]
+	mi := &file_proto_sip_sip_proto_msgTypes[157]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2671,7 +6787,7 @@ func (x *MakeAudioCall4Request) String() string {
 func (*MakeAudioCall4Request) ProtoMessage() {}
 
 func (x *MakeAudioCall4Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[62]
+	mi := &file_proto_sip_sip_proto_msgTypes[157]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2684,7 +6800,7 @@ func (x *MakeAudioCall4Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MakeAudioCall4Request.ProtoReflect.Descriptor instead.
 func (*MakeAudioCall4Request) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{62}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{157}
 }
 
 func (x *MakeAudioCall4Request) GetArg0() int64 {
@@ -2724,7 +6840,7 @@ type MakeAudioCall4Response struct {
 
 func (x *MakeAudioCall4Response) Reset() {
 	*x = MakeAudioCall4Response{}
-	mi := &file_proto_sip_sip_proto_msgTypes[63]
+	mi := &file_proto_sip_sip_proto_msgTypes[158]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2736,7 +6852,7 @@ func (x *MakeAudioCall4Response) String() string {
 func (*MakeAudioCall4Response) ProtoMessage() {}
 
 func (x *MakeAudioCall4Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[63]
+	mi := &file_proto_sip_sip_proto_msgTypes[158]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2749,7 +6865,7 @@ func (x *MakeAudioCall4Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MakeAudioCall4Response.ProtoReflect.Descriptor instead.
 func (*MakeAudioCall4Response) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{63}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{158}
 }
 
 func (x *MakeAudioCall4Response) GetResult() int64 {
@@ -2771,7 +6887,7 @@ type MakeAudioCall4_1Request struct {
 
 func (x *MakeAudioCall4_1Request) Reset() {
 	*x = MakeAudioCall4_1Request{}
-	mi := &file_proto_sip_sip_proto_msgTypes[64]
+	mi := &file_proto_sip_sip_proto_msgTypes[159]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2783,7 +6899,7 @@ func (x *MakeAudioCall4_1Request) String() string {
 func (*MakeAudioCall4_1Request) ProtoMessage() {}
 
 func (x *MakeAudioCall4_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[64]
+	mi := &file_proto_sip_sip_proto_msgTypes[159]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2796,7 +6912,7 @@ func (x *MakeAudioCall4_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MakeAudioCall4_1Request.ProtoReflect.Descriptor instead.
 func (*MakeAudioCall4_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{64}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{159}
 }
 
 func (x *MakeAudioCall4_1Request) GetArg0() string {
@@ -2836,7 +6952,7 @@ type MakeAudioCall4_1Response struct {
 
 func (x *MakeAudioCall4_1Response) Reset() {
 	*x = MakeAudioCall4_1Response{}
-	mi := &file_proto_sip_sip_proto_msgTypes[65]
+	mi := &file_proto_sip_sip_proto_msgTypes[160]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2848,7 +6964,7 @@ func (x *MakeAudioCall4_1Response) String() string {
 func (*MakeAudioCall4_1Response) ProtoMessage() {}
 
 func (x *MakeAudioCall4_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[65]
+	mi := &file_proto_sip_sip_proto_msgTypes[160]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2861,7 +6977,7 @@ func (x *MakeAudioCall4_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MakeAudioCall4_1Response.ProtoReflect.Descriptor instead.
 func (*MakeAudioCall4_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{65}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{160}
 }
 
 func (x *MakeAudioCall4_1Response) GetResult() int64 {
@@ -2880,7 +6996,7 @@ type Open1Request struct {
 
 func (x *Open1Request) Reset() {
 	*x = Open1Request{}
-	mi := &file_proto_sip_sip_proto_msgTypes[66]
+	mi := &file_proto_sip_sip_proto_msgTypes[161]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2892,7 +7008,7 @@ func (x *Open1Request) String() string {
 func (*Open1Request) ProtoMessage() {}
 
 func (x *Open1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[66]
+	mi := &file_proto_sip_sip_proto_msgTypes[161]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2905,7 +7021,7 @@ func (x *Open1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Open1Request.ProtoReflect.Descriptor instead.
 func (*Open1Request) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{66}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{161}
 }
 
 func (x *Open1Request) GetArg0() int64 {
@@ -2923,7 +7039,7 @@ type Open1Response struct {
 
 func (x *Open1Response) Reset() {
 	*x = Open1Response{}
-	mi := &file_proto_sip_sip_proto_msgTypes[67]
+	mi := &file_proto_sip_sip_proto_msgTypes[162]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2935,7 +7051,7 @@ func (x *Open1Response) String() string {
 func (*Open1Response) ProtoMessage() {}
 
 func (x *Open1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[67]
+	mi := &file_proto_sip_sip_proto_msgTypes[162]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2948,7 +7064,7 @@ func (x *Open1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Open1Response.ProtoReflect.Descriptor instead.
 func (*Open1Response) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{67}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{162}
 }
 
 type Open3_1Request struct {
@@ -2962,7 +7078,7 @@ type Open3_1Request struct {
 
 func (x *Open3_1Request) Reset() {
 	*x = Open3_1Request{}
-	mi := &file_proto_sip_sip_proto_msgTypes[68]
+	mi := &file_proto_sip_sip_proto_msgTypes[163]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2974,7 +7090,7 @@ func (x *Open3_1Request) String() string {
 func (*Open3_1Request) ProtoMessage() {}
 
 func (x *Open3_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[68]
+	mi := &file_proto_sip_sip_proto_msgTypes[163]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2987,7 +7103,7 @@ func (x *Open3_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Open3_1Request.ProtoReflect.Descriptor instead.
 func (*Open3_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{68}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{163}
 }
 
 func (x *Open3_1Request) GetArg0() int64 {
@@ -3019,7 +7135,7 @@ type Open3_1Response struct {
 
 func (x *Open3_1Response) Reset() {
 	*x = Open3_1Response{}
-	mi := &file_proto_sip_sip_proto_msgTypes[69]
+	mi := &file_proto_sip_sip_proto_msgTypes[164]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3031,7 +7147,7 @@ func (x *Open3_1Response) String() string {
 func (*Open3_1Response) ProtoMessage() {}
 
 func (x *Open3_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[69]
+	mi := &file_proto_sip_sip_proto_msgTypes[164]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3044,7 +7160,7 @@ func (x *Open3_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Open3_1Response.ProtoReflect.Descriptor instead.
 func (*Open3_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{69}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{164}
 }
 
 type ManagerRegisterRequest struct {
@@ -3058,7 +7174,7 @@ type ManagerRegisterRequest struct {
 
 func (x *ManagerRegisterRequest) Reset() {
 	*x = ManagerRegisterRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[70]
+	mi := &file_proto_sip_sip_proto_msgTypes[165]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3070,7 +7186,7 @@ func (x *ManagerRegisterRequest) String() string {
 func (*ManagerRegisterRequest) ProtoMessage() {}
 
 func (x *ManagerRegisterRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[70]
+	mi := &file_proto_sip_sip_proto_msgTypes[165]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3083,7 +7199,7 @@ func (x *ManagerRegisterRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ManagerRegisterRequest.ProtoReflect.Descriptor instead.
 func (*ManagerRegisterRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{70}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{165}
 }
 
 func (x *ManagerRegisterRequest) GetArg0() int64 {
@@ -3117,7 +7233,7 @@ type SetRegistrationListenerRequest struct {
 
 func (x *SetRegistrationListenerRequest) Reset() {
 	*x = SetRegistrationListenerRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[71]
+	mi := &file_proto_sip_sip_proto_msgTypes[166]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3129,7 +7245,7 @@ func (x *SetRegistrationListenerRequest) String() string {
 func (*SetRegistrationListenerRequest) ProtoMessage() {}
 
 func (x *SetRegistrationListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[71]
+	mi := &file_proto_sip_sip_proto_msgTypes[166]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3142,7 +7258,7 @@ func (x *SetRegistrationListenerRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetRegistrationListenerRequest.ProtoReflect.Descriptor instead.
 func (*SetRegistrationListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{71}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{166}
 }
 
 func (x *SetRegistrationListenerRequest) GetArg0() string {
@@ -3167,7 +7283,7 @@ type SetRegistrationListenerResponse struct {
 
 func (x *SetRegistrationListenerResponse) Reset() {
 	*x = SetRegistrationListenerResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[72]
+	mi := &file_proto_sip_sip_proto_msgTypes[167]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3179,7 +7295,7 @@ func (x *SetRegistrationListenerResponse) String() string {
 func (*SetRegistrationListenerResponse) ProtoMessage() {}
 
 func (x *SetRegistrationListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[72]
+	mi := &file_proto_sip_sip_proto_msgTypes[167]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3192,7 +7308,7 @@ func (x *SetRegistrationListenerResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetRegistrationListenerResponse.ProtoReflect.Descriptor instead.
 func (*SetRegistrationListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{72}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{167}
 }
 
 type TakeAudioCallRequest struct {
@@ -3205,7 +7321,7 @@ type TakeAudioCallRequest struct {
 
 func (x *TakeAudioCallRequest) Reset() {
 	*x = TakeAudioCallRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[73]
+	mi := &file_proto_sip_sip_proto_msgTypes[168]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3217,7 +7333,7 @@ func (x *TakeAudioCallRequest) String() string {
 func (*TakeAudioCallRequest) ProtoMessage() {}
 
 func (x *TakeAudioCallRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[73]
+	mi := &file_proto_sip_sip_proto_msgTypes[168]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3230,7 +7346,7 @@ func (x *TakeAudioCallRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TakeAudioCallRequest.ProtoReflect.Descriptor instead.
 func (*TakeAudioCallRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{73}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{168}
 }
 
 func (x *TakeAudioCallRequest) GetArg0() int64 {
@@ -3256,7 +7372,7 @@ type TakeAudioCallResponse struct {
 
 func (x *TakeAudioCallResponse) Reset() {
 	*x = TakeAudioCallResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[74]
+	mi := &file_proto_sip_sip_proto_msgTypes[169]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3268,7 +7384,7 @@ func (x *TakeAudioCallResponse) String() string {
 func (*TakeAudioCallResponse) ProtoMessage() {}
 
 func (x *TakeAudioCallResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[74]
+	mi := &file_proto_sip_sip_proto_msgTypes[169]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3281,7 +7397,7 @@ func (x *TakeAudioCallResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TakeAudioCallResponse.ProtoReflect.Descriptor instead.
 func (*TakeAudioCallResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{74}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{169}
 }
 
 func (x *TakeAudioCallResponse) GetResult() int64 {
@@ -3301,7 +7417,7 @@ type ManagerUnregisterRequest struct {
 
 func (x *ManagerUnregisterRequest) Reset() {
 	*x = ManagerUnregisterRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[75]
+	mi := &file_proto_sip_sip_proto_msgTypes[170]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3313,7 +7429,7 @@ func (x *ManagerUnregisterRequest) String() string {
 func (*ManagerUnregisterRequest) ProtoMessage() {}
 
 func (x *ManagerUnregisterRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[75]
+	mi := &file_proto_sip_sip_proto_msgTypes[170]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3326,7 +7442,7 @@ func (x *ManagerUnregisterRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ManagerUnregisterRequest.ProtoReflect.Descriptor instead.
 func (*ManagerUnregisterRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{75}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{170}
 }
 
 func (x *ManagerUnregisterRequest) GetArg0() int64 {
@@ -3352,7 +7468,7 @@ type ManagerGetCallIdRequest struct {
 
 func (x *ManagerGetCallIdRequest) Reset() {
 	*x = ManagerGetCallIdRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[76]
+	mi := &file_proto_sip_sip_proto_msgTypes[171]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3364,7 +7480,7 @@ func (x *ManagerGetCallIdRequest) String() string {
 func (*ManagerGetCallIdRequest) ProtoMessage() {}
 
 func (x *ManagerGetCallIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[76]
+	mi := &file_proto_sip_sip_proto_msgTypes[171]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3377,7 +7493,7 @@ func (x *ManagerGetCallIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ManagerGetCallIdRequest.ProtoReflect.Descriptor instead.
 func (*ManagerGetCallIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{76}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{171}
 }
 
 func (x *ManagerGetCallIdRequest) GetArg0() int64 {
@@ -3396,7 +7512,7 @@ type GetOfferSessionDescriptionRequest struct {
 
 func (x *GetOfferSessionDescriptionRequest) Reset() {
 	*x = GetOfferSessionDescriptionRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[77]
+	mi := &file_proto_sip_sip_proto_msgTypes[172]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3408,7 +7524,7 @@ func (x *GetOfferSessionDescriptionRequest) String() string {
 func (*GetOfferSessionDescriptionRequest) ProtoMessage() {}
 
 func (x *GetOfferSessionDescriptionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[77]
+	mi := &file_proto_sip_sip_proto_msgTypes[172]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3421,7 +7537,7 @@ func (x *GetOfferSessionDescriptionRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use GetOfferSessionDescriptionRequest.ProtoReflect.Descriptor instead.
 func (*GetOfferSessionDescriptionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{77}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{172}
 }
 
 func (x *GetOfferSessionDescriptionRequest) GetArg0() int64 {
@@ -3440,7 +7556,7 @@ type GetOfferSessionDescriptionResponse struct {
 
 func (x *GetOfferSessionDescriptionResponse) Reset() {
 	*x = GetOfferSessionDescriptionResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[78]
+	mi := &file_proto_sip_sip_proto_msgTypes[173]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3452,7 +7568,7 @@ func (x *GetOfferSessionDescriptionResponse) String() string {
 func (*GetOfferSessionDescriptionResponse) ProtoMessage() {}
 
 func (x *GetOfferSessionDescriptionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[78]
+	mi := &file_proto_sip_sip_proto_msgTypes[173]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3465,7 +7581,7 @@ func (x *GetOfferSessionDescriptionResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use GetOfferSessionDescriptionResponse.ProtoReflect.Descriptor instead.
 func (*GetOfferSessionDescriptionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{78}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{173}
 }
 
 func (x *GetOfferSessionDescriptionResponse) GetResult() string {
@@ -3484,7 +7600,7 @@ type IsApiSupportedRequest struct {
 
 func (x *IsApiSupportedRequest) Reset() {
 	*x = IsApiSupportedRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[79]
+	mi := &file_proto_sip_sip_proto_msgTypes[174]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3496,7 +7612,7 @@ func (x *IsApiSupportedRequest) String() string {
 func (*IsApiSupportedRequest) ProtoMessage() {}
 
 func (x *IsApiSupportedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[79]
+	mi := &file_proto_sip_sip_proto_msgTypes[174]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3509,7 +7625,7 @@ func (x *IsApiSupportedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsApiSupportedRequest.ProtoReflect.Descriptor instead.
 func (*IsApiSupportedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{79}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{174}
 }
 
 func (x *IsApiSupportedRequest) GetArg0() int64 {
@@ -3528,7 +7644,7 @@ type IsApiSupportedResponse struct {
 
 func (x *IsApiSupportedResponse) Reset() {
 	*x = IsApiSupportedResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[80]
+	mi := &file_proto_sip_sip_proto_msgTypes[175]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3540,7 +7656,7 @@ func (x *IsApiSupportedResponse) String() string {
 func (*IsApiSupportedResponse) ProtoMessage() {}
 
 func (x *IsApiSupportedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[80]
+	mi := &file_proto_sip_sip_proto_msgTypes[175]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3553,7 +7669,7 @@ func (x *IsApiSupportedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsApiSupportedResponse.ProtoReflect.Descriptor instead.
 func (*IsApiSupportedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{80}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{175}
 }
 
 func (x *IsApiSupportedResponse) GetResult() bool {
@@ -3572,7 +7688,7 @@ type IsIncomingCallIntentRequest struct {
 
 func (x *IsIncomingCallIntentRequest) Reset() {
 	*x = IsIncomingCallIntentRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[81]
+	mi := &file_proto_sip_sip_proto_msgTypes[176]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3584,7 +7700,7 @@ func (x *IsIncomingCallIntentRequest) String() string {
 func (*IsIncomingCallIntentRequest) ProtoMessage() {}
 
 func (x *IsIncomingCallIntentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[81]
+	mi := &file_proto_sip_sip_proto_msgTypes[176]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3597,7 +7713,7 @@ func (x *IsIncomingCallIntentRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsIncomingCallIntentRequest.ProtoReflect.Descriptor instead.
 func (*IsIncomingCallIntentRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{81}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{176}
 }
 
 func (x *IsIncomingCallIntentRequest) GetArg0() int64 {
@@ -3616,7 +7732,7 @@ type IsIncomingCallIntentResponse struct {
 
 func (x *IsIncomingCallIntentResponse) Reset() {
 	*x = IsIncomingCallIntentResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[82]
+	mi := &file_proto_sip_sip_proto_msgTypes[177]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3628,7 +7744,7 @@ func (x *IsIncomingCallIntentResponse) String() string {
 func (*IsIncomingCallIntentResponse) ProtoMessage() {}
 
 func (x *IsIncomingCallIntentResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[82]
+	mi := &file_proto_sip_sip_proto_msgTypes[177]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3641,7 +7757,7 @@ func (x *IsIncomingCallIntentResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsIncomingCallIntentResponse.ProtoReflect.Descriptor instead.
 func (*IsIncomingCallIntentResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{82}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{177}
 }
 
 func (x *IsIncomingCallIntentResponse) GetResult() bool {
@@ -3660,7 +7776,7 @@ type IsSipWifiOnlyRequest struct {
 
 func (x *IsSipWifiOnlyRequest) Reset() {
 	*x = IsSipWifiOnlyRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[83]
+	mi := &file_proto_sip_sip_proto_msgTypes[178]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3672,7 +7788,7 @@ func (x *IsSipWifiOnlyRequest) String() string {
 func (*IsSipWifiOnlyRequest) ProtoMessage() {}
 
 func (x *IsSipWifiOnlyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[83]
+	mi := &file_proto_sip_sip_proto_msgTypes[178]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3685,7 +7801,7 @@ func (x *IsSipWifiOnlyRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsSipWifiOnlyRequest.ProtoReflect.Descriptor instead.
 func (*IsSipWifiOnlyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{83}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{178}
 }
 
 func (x *IsSipWifiOnlyRequest) GetArg0() int64 {
@@ -3704,7 +7820,7 @@ type IsSipWifiOnlyResponse struct {
 
 func (x *IsSipWifiOnlyResponse) Reset() {
 	*x = IsSipWifiOnlyResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[84]
+	mi := &file_proto_sip_sip_proto_msgTypes[179]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3716,7 +7832,7 @@ func (x *IsSipWifiOnlyResponse) String() string {
 func (*IsSipWifiOnlyResponse) ProtoMessage() {}
 
 func (x *IsSipWifiOnlyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[84]
+	mi := &file_proto_sip_sip_proto_msgTypes[179]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3729,7 +7845,7 @@ func (x *IsSipWifiOnlyResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsSipWifiOnlyResponse.ProtoReflect.Descriptor instead.
 func (*IsSipWifiOnlyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{84}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{179}
 }
 
 func (x *IsSipWifiOnlyResponse) GetResult() bool {
@@ -3748,7 +7864,7 @@ type IsVoipSupportedRequest struct {
 
 func (x *IsVoipSupportedRequest) Reset() {
 	*x = IsVoipSupportedRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[85]
+	mi := &file_proto_sip_sip_proto_msgTypes[180]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3760,7 +7876,7 @@ func (x *IsVoipSupportedRequest) String() string {
 func (*IsVoipSupportedRequest) ProtoMessage() {}
 
 func (x *IsVoipSupportedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[85]
+	mi := &file_proto_sip_sip_proto_msgTypes[180]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3773,7 +7889,7 @@ func (x *IsVoipSupportedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsVoipSupportedRequest.ProtoReflect.Descriptor instead.
 func (*IsVoipSupportedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{85}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{180}
 }
 
 func (x *IsVoipSupportedRequest) GetArg0() int64 {
@@ -3792,7 +7908,7 @@ type IsVoipSupportedResponse struct {
 
 func (x *IsVoipSupportedResponse) Reset() {
 	*x = IsVoipSupportedResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[86]
+	mi := &file_proto_sip_sip_proto_msgTypes[181]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3804,7 +7920,7 @@ func (x *IsVoipSupportedResponse) String() string {
 func (*IsVoipSupportedResponse) ProtoMessage() {}
 
 func (x *IsVoipSupportedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[86]
+	mi := &file_proto_sip_sip_proto_msgTypes[181]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3817,7 +7933,7 @@ func (x *IsVoipSupportedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsVoipSupportedResponse.ProtoReflect.Descriptor instead.
 func (*IsVoipSupportedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{86}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{181}
 }
 
 func (x *IsVoipSupportedResponse) GetResult() bool {
@@ -3836,7 +7952,7 @@ type NewInstanceRequest struct {
 
 func (x *NewInstanceRequest) Reset() {
 	*x = NewInstanceRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[87]
+	mi := &file_proto_sip_sip_proto_msgTypes[182]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3848,7 +7964,7 @@ func (x *NewInstanceRequest) String() string {
 func (*NewInstanceRequest) ProtoMessage() {}
 
 func (x *NewInstanceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[87]
+	mi := &file_proto_sip_sip_proto_msgTypes[182]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3861,7 +7977,7 @@ func (x *NewInstanceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewInstanceRequest.ProtoReflect.Descriptor instead.
 func (*NewInstanceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{87}
+	return file_proto_sip_sip_proto_rawDescGZIP(), []int{182}
 }
 
 func (x *NewInstanceRequest) GetArg0() int64 {
@@ -3880,7 +7996,7 @@ type NewInstanceResponse struct {
 
 func (x *NewInstanceResponse) Reset() {
 	*x = NewInstanceResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[88]
+	mi := &file_proto_sip_sip_proto_msgTypes[183]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3892,7 +8008,7 @@ func (x *NewInstanceResponse) String() string {
 func (*NewInstanceResponse) ProtoMessage() {}
 
 func (x *NewInstanceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[88]
+	mi := &file_proto_sip_sip_proto_msgTypes[183]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3905,4126 +8021,10 @@ func (x *NewInstanceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewInstanceResponse.ProtoReflect.Descriptor instead.
 func (*NewInstanceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{88}
-}
-
-func (x *NewInstanceResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type NewAudioCallRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewAudioCallRequest) Reset() {
-	*x = NewAudioCallRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[89]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewAudioCallRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewAudioCallRequest) ProtoMessage() {}
-
-func (x *NewAudioCallRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[89]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewAudioCallRequest.ProtoReflect.Descriptor instead.
-func (*NewAudioCallRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{89}
-}
-
-func (x *NewAudioCallRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *NewAudioCallRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type NewAudioCallResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewAudioCallResponse) Reset() {
-	*x = NewAudioCallResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[90]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewAudioCallResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewAudioCallResponse) ProtoMessage() {}
-
-func (x *NewAudioCallResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[90]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewAudioCallResponse.ProtoReflect.Descriptor instead.
-func (*NewAudioCallResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{90}
-}
-
-func (x *NewAudioCallResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type AudioCallAnswerCallRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AudioCallAnswerCallRequest) Reset() {
-	*x = AudioCallAnswerCallRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[91]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AudioCallAnswerCallRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AudioCallAnswerCallRequest) ProtoMessage() {}
-
-func (x *AudioCallAnswerCallRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[91]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AudioCallAnswerCallRequest.ProtoReflect.Descriptor instead.
-func (*AudioCallAnswerCallRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{91}
-}
-
-func (x *AudioCallAnswerCallRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *AudioCallAnswerCallRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type AttachCallRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AttachCallRequest) Reset() {
-	*x = AttachCallRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[92]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AttachCallRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AttachCallRequest) ProtoMessage() {}
-
-func (x *AttachCallRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[92]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AttachCallRequest.ProtoReflect.Descriptor instead.
-func (*AttachCallRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{92}
-}
-
-func (x *AttachCallRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *AttachCallRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *AttachCallRequest) GetArg1() string {
-	if x != nil {
-		return x.Arg1
-	}
-	return ""
-}
-
-type AttachCallResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AttachCallResponse) Reset() {
-	*x = AttachCallResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[93]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AttachCallResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AttachCallResponse) ProtoMessage() {}
-
-func (x *AttachCallResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[93]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AttachCallResponse.ProtoReflect.Descriptor instead.
-func (*AttachCallResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{93}
-}
-
-type AudioCallCloseRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AudioCallCloseRequest) Reset() {
-	*x = AudioCallCloseRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[94]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AudioCallCloseRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AudioCallCloseRequest) ProtoMessage() {}
-
-func (x *AudioCallCloseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[94]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AudioCallCloseRequest.ProtoReflect.Descriptor instead.
-func (*AudioCallCloseRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{94}
-}
-
-func (x *AudioCallCloseRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type ContinueCallRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ContinueCallRequest) Reset() {
-	*x = ContinueCallRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[95]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ContinueCallRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ContinueCallRequest) ProtoMessage() {}
-
-func (x *ContinueCallRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[95]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ContinueCallRequest.ProtoReflect.Descriptor instead.
-func (*ContinueCallRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{95}
-}
-
-func (x *ContinueCallRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *ContinueCallRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type ContinueCallResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ContinueCallResponse) Reset() {
-	*x = ContinueCallResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[96]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ContinueCallResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ContinueCallResponse) ProtoMessage() {}
-
-func (x *ContinueCallResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[96]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ContinueCallResponse.ProtoReflect.Descriptor instead.
-func (*ContinueCallResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{96}
-}
-
-type AudioCallEndCallRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AudioCallEndCallRequest) Reset() {
-	*x = AudioCallEndCallRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[97]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AudioCallEndCallRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AudioCallEndCallRequest) ProtoMessage() {}
-
-func (x *AudioCallEndCallRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[97]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AudioCallEndCallRequest.ProtoReflect.Descriptor instead.
-func (*AudioCallEndCallRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{97}
-}
-
-func (x *AudioCallEndCallRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type AudioCallGetLocalProfileRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AudioCallGetLocalProfileRequest) Reset() {
-	*x = AudioCallGetLocalProfileRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[98]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AudioCallGetLocalProfileRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AudioCallGetLocalProfileRequest) ProtoMessage() {}
-
-func (x *AudioCallGetLocalProfileRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[98]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AudioCallGetLocalProfileRequest.ProtoReflect.Descriptor instead.
-func (*AudioCallGetLocalProfileRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{98}
-}
-
-func (x *AudioCallGetLocalProfileRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type AudioCallGetPeerProfileRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AudioCallGetPeerProfileRequest) Reset() {
-	*x = AudioCallGetPeerProfileRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[99]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AudioCallGetPeerProfileRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AudioCallGetPeerProfileRequest) ProtoMessage() {}
-
-func (x *AudioCallGetPeerProfileRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[99]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AudioCallGetPeerProfileRequest.ProtoReflect.Descriptor instead.
-func (*AudioCallGetPeerProfileRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{99}
-}
-
-func (x *AudioCallGetPeerProfileRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type AudioCallGetStateRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AudioCallGetStateRequest) Reset() {
-	*x = AudioCallGetStateRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[100]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AudioCallGetStateRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AudioCallGetStateRequest) ProtoMessage() {}
-
-func (x *AudioCallGetStateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[100]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AudioCallGetStateRequest.ProtoReflect.Descriptor instead.
-func (*AudioCallGetStateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{100}
-}
-
-func (x *AudioCallGetStateRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type HoldCallRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HoldCallRequest) Reset() {
-	*x = HoldCallRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[101]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HoldCallRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HoldCallRequest) ProtoMessage() {}
-
-func (x *HoldCallRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[101]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HoldCallRequest.ProtoReflect.Descriptor instead.
-func (*HoldCallRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{101}
-}
-
-func (x *HoldCallRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *HoldCallRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type HoldCallResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HoldCallResponse) Reset() {
-	*x = HoldCallResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[102]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HoldCallResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HoldCallResponse) ProtoMessage() {}
-
-func (x *HoldCallResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[102]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HoldCallResponse.ProtoReflect.Descriptor instead.
-func (*HoldCallResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{102}
-}
-
-type AudioCallIsInCallRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AudioCallIsInCallRequest) Reset() {
-	*x = AudioCallIsInCallRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[103]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AudioCallIsInCallRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AudioCallIsInCallRequest) ProtoMessage() {}
-
-func (x *AudioCallIsInCallRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[103]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AudioCallIsInCallRequest.ProtoReflect.Descriptor instead.
-func (*AudioCallIsInCallRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{103}
-}
-
-func (x *AudioCallIsInCallRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type IsMutedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsMutedRequest) Reset() {
-	*x = IsMutedRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[104]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsMutedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsMutedRequest) ProtoMessage() {}
-
-func (x *IsMutedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[104]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsMutedRequest.ProtoReflect.Descriptor instead.
-func (*IsMutedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{104}
-}
-
-func (x *IsMutedRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type IsMutedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsMutedResponse) Reset() {
-	*x = IsMutedResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[105]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsMutedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsMutedResponse) ProtoMessage() {}
-
-func (x *IsMutedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[105]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsMutedResponse.ProtoReflect.Descriptor instead.
-func (*IsMutedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{105}
-}
-
-func (x *IsMutedResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type IsOnHoldRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsOnHoldRequest) Reset() {
-	*x = IsOnHoldRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[106]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsOnHoldRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsOnHoldRequest) ProtoMessage() {}
-
-func (x *IsOnHoldRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[106]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsOnHoldRequest.ProtoReflect.Descriptor instead.
-func (*IsOnHoldRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{106}
-}
-
-func (x *IsOnHoldRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type IsOnHoldResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsOnHoldResponse) Reset() {
-	*x = IsOnHoldResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[107]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsOnHoldResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsOnHoldResponse) ProtoMessage() {}
-
-func (x *IsOnHoldResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[107]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsOnHoldResponse.ProtoReflect.Descriptor instead.
-func (*IsOnHoldResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{107}
-}
-
-func (x *IsOnHoldResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type AudioCallMakeCallRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AudioCallMakeCallRequest) Reset() {
-	*x = AudioCallMakeCallRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[108]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AudioCallMakeCallRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AudioCallMakeCallRequest) ProtoMessage() {}
-
-func (x *AudioCallMakeCallRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[108]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AudioCallMakeCallRequest.ProtoReflect.Descriptor instead.
-func (*AudioCallMakeCallRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{108}
-}
-
-func (x *AudioCallMakeCallRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *AudioCallMakeCallRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *AudioCallMakeCallRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *AudioCallMakeCallRequest) GetArg2() int32 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type SendDtmf1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SendDtmf1Request) Reset() {
-	*x = SendDtmf1Request{}
-	mi := &file_proto_sip_sip_proto_msgTypes[109]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SendDtmf1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SendDtmf1Request) ProtoMessage() {}
-
-func (x *SendDtmf1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[109]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SendDtmf1Request.ProtoReflect.Descriptor instead.
-func (*SendDtmf1Request) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{109}
-}
-
-func (x *SendDtmf1Request) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *SendDtmf1Request) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SendDtmf1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SendDtmf1Response) Reset() {
-	*x = SendDtmf1Response{}
-	mi := &file_proto_sip_sip_proto_msgTypes[110]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SendDtmf1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SendDtmf1Response) ProtoMessage() {}
-
-func (x *SendDtmf1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[110]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SendDtmf1Response.ProtoReflect.Descriptor instead.
-func (*SendDtmf1Response) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{110}
-}
-
-type SendDtmf2_1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SendDtmf2_1Request) Reset() {
-	*x = SendDtmf2_1Request{}
-	mi := &file_proto_sip_sip_proto_msgTypes[111]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SendDtmf2_1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SendDtmf2_1Request) ProtoMessage() {}
-
-func (x *SendDtmf2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[111]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SendDtmf2_1Request.ProtoReflect.Descriptor instead.
-func (*SendDtmf2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{111}
-}
-
-func (x *SendDtmf2_1Request) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *SendDtmf2_1Request) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *SendDtmf2_1Request) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type SendDtmf2_1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SendDtmf2_1Response) Reset() {
-	*x = SendDtmf2_1Response{}
-	mi := &file_proto_sip_sip_proto_msgTypes[112]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SendDtmf2_1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SendDtmf2_1Response) ProtoMessage() {}
-
-func (x *SendDtmf2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[112]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SendDtmf2_1Response.ProtoReflect.Descriptor instead.
-func (*SendDtmf2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{112}
-}
-
-type SetListener1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetListener1Request) Reset() {
-	*x = SetListener1Request{}
-	mi := &file_proto_sip_sip_proto_msgTypes[113]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetListener1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetListener1Request) ProtoMessage() {}
-
-func (x *SetListener1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[113]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetListener1Request.ProtoReflect.Descriptor instead.
-func (*SetListener1Request) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{113}
-}
-
-func (x *SetListener1Request) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *SetListener1Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetListener1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetListener1Response) Reset() {
-	*x = SetListener1Response{}
-	mi := &file_proto_sip_sip_proto_msgTypes[114]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetListener1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetListener1Response) ProtoMessage() {}
-
-func (x *SetListener1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[114]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetListener1Response.ProtoReflect.Descriptor instead.
-func (*SetListener1Response) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{114}
-}
-
-type SetListener2_1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          bool                   `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetListener2_1Request) Reset() {
-	*x = SetListener2_1Request{}
-	mi := &file_proto_sip_sip_proto_msgTypes[115]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetListener2_1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetListener2_1Request) ProtoMessage() {}
-
-func (x *SetListener2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[115]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetListener2_1Request.ProtoReflect.Descriptor instead.
-func (*SetListener2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{115}
-}
-
-func (x *SetListener2_1Request) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *SetListener2_1Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *SetListener2_1Request) GetArg1() bool {
-	if x != nil {
-		return x.Arg1
-	}
-	return false
-}
-
-type SetListener2_1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetListener2_1Response) Reset() {
-	*x = SetListener2_1Response{}
-	mi := &file_proto_sip_sip_proto_msgTypes[116]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetListener2_1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetListener2_1Response) ProtoMessage() {}
-
-func (x *SetListener2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[116]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetListener2_1Response.ProtoReflect.Descriptor instead.
-func (*SetListener2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{116}
-}
-
-type SetSpeakerModeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetSpeakerModeRequest) Reset() {
-	*x = SetSpeakerModeRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[117]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetSpeakerModeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetSpeakerModeRequest) ProtoMessage() {}
-
-func (x *SetSpeakerModeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[117]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetSpeakerModeRequest.ProtoReflect.Descriptor instead.
-func (*SetSpeakerModeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{117}
-}
-
-func (x *SetSpeakerModeRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *SetSpeakerModeRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type SetSpeakerModeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetSpeakerModeResponse) Reset() {
-	*x = SetSpeakerModeResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[118]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetSpeakerModeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetSpeakerModeResponse) ProtoMessage() {}
-
-func (x *SetSpeakerModeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[118]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetSpeakerModeResponse.ProtoReflect.Descriptor instead.
-func (*SetSpeakerModeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{118}
-}
-
-type StartAudioRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *StartAudioRequest) Reset() {
-	*x = StartAudioRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[119]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *StartAudioRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*StartAudioRequest) ProtoMessage() {}
-
-func (x *StartAudioRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[119]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use StartAudioRequest.ProtoReflect.Descriptor instead.
-func (*StartAudioRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{119}
-}
-
-func (x *StartAudioRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type StartAudioResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *StartAudioResponse) Reset() {
-	*x = StartAudioResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[120]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *StartAudioResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*StartAudioResponse) ProtoMessage() {}
-
-func (x *StartAudioResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[120]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use StartAudioResponse.ProtoReflect.Descriptor instead.
-func (*StartAudioResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{120}
-}
-
-type ToggleMuteRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ToggleMuteRequest) Reset() {
-	*x = ToggleMuteRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[121]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ToggleMuteRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ToggleMuteRequest) ProtoMessage() {}
-
-func (x *ToggleMuteRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[121]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ToggleMuteRequest.ProtoReflect.Descriptor instead.
-func (*ToggleMuteRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{121}
-}
-
-func (x *ToggleMuteRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type ToggleMuteResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ToggleMuteResponse) Reset() {
-	*x = ToggleMuteResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[122]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ToggleMuteResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ToggleMuteResponse) ProtoMessage() {}
-
-func (x *ToggleMuteResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[122]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ToggleMuteResponse.ProtoReflect.Descriptor instead.
-func (*ToggleMuteResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{122}
-}
-
-type AudioCallListenerOnCallEstablishedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AudioCallListenerOnCallEstablishedRequest) Reset() {
-	*x = AudioCallListenerOnCallEstablishedRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[123]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AudioCallListenerOnCallEstablishedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AudioCallListenerOnCallEstablishedRequest) ProtoMessage() {}
-
-func (x *AudioCallListenerOnCallEstablishedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[123]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AudioCallListenerOnCallEstablishedRequest.ProtoReflect.Descriptor instead.
-func (*AudioCallListenerOnCallEstablishedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{123}
-}
-
-func (x *AudioCallListenerOnCallEstablishedRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnCallHeldRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnCallHeldRequest) Reset() {
-	*x = OnCallHeldRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[124]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnCallHeldRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnCallHeldRequest) ProtoMessage() {}
-
-func (x *OnCallHeldRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[124]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnCallHeldRequest.ProtoReflect.Descriptor instead.
-func (*OnCallHeldRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{124}
-}
-
-func (x *OnCallHeldRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnCallHeldResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnCallHeldResponse) Reset() {
-	*x = OnCallHeldResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[125]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnCallHeldResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnCallHeldResponse) ProtoMessage() {}
-
-func (x *OnCallHeldResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[125]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnCallHeldResponse.ProtoReflect.Descriptor instead.
-func (*OnCallHeldResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{125}
-}
-
-type OnChangedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnChangedRequest) Reset() {
-	*x = OnChangedRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[126]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnChangedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnChangedRequest) ProtoMessage() {}
-
-func (x *OnChangedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[126]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnChangedRequest.ProtoReflect.Descriptor instead.
-func (*OnChangedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{126}
-}
-
-func (x *OnChangedRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnChangedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnChangedResponse) Reset() {
-	*x = OnChangedResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[127]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnChangedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnChangedResponse) ProtoMessage() {}
-
-func (x *OnChangedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[127]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnChangedResponse.ProtoReflect.Descriptor instead.
-func (*OnChangedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{127}
-}
-
-type OnReadyToCallRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnReadyToCallRequest) Reset() {
-	*x = OnReadyToCallRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[128]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnReadyToCallRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnReadyToCallRequest) ProtoMessage() {}
-
-func (x *OnReadyToCallRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[128]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnReadyToCallRequest.ProtoReflect.Descriptor instead.
-func (*OnReadyToCallRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{128}
-}
-
-func (x *OnReadyToCallRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnReadyToCallResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnReadyToCallResponse) Reset() {
-	*x = OnReadyToCallResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[129]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnReadyToCallResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnReadyToCallResponse) ProtoMessage() {}
-
-func (x *OnReadyToCallResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[129]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnReadyToCallResponse.ProtoReflect.Descriptor instead.
-func (*OnReadyToCallResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{129}
-}
-
-type AudioCallListenerOnRingingRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AudioCallListenerOnRingingRequest) Reset() {
-	*x = AudioCallListenerOnRingingRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[130]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AudioCallListenerOnRingingRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AudioCallListenerOnRingingRequest) ProtoMessage() {}
-
-func (x *AudioCallListenerOnRingingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[130]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AudioCallListenerOnRingingRequest.ProtoReflect.Descriptor instead.
-func (*AudioCallListenerOnRingingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{130}
-}
-
-func (x *AudioCallListenerOnRingingRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *AudioCallListenerOnRingingRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type RegistrationListenerOnRegisteringRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RegistrationListenerOnRegisteringRequest) Reset() {
-	*x = RegistrationListenerOnRegisteringRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[131]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RegistrationListenerOnRegisteringRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RegistrationListenerOnRegisteringRequest) ProtoMessage() {}
-
-func (x *RegistrationListenerOnRegisteringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[131]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RegistrationListenerOnRegisteringRequest.ProtoReflect.Descriptor instead.
-func (*RegistrationListenerOnRegisteringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{131}
-}
-
-func (x *RegistrationListenerOnRegisteringRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type RegistrationListenerOnRegistrationDoneRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RegistrationListenerOnRegistrationDoneRequest) Reset() {
-	*x = RegistrationListenerOnRegistrationDoneRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[132]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RegistrationListenerOnRegistrationDoneRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RegistrationListenerOnRegistrationDoneRequest) ProtoMessage() {}
-
-func (x *RegistrationListenerOnRegistrationDoneRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[132]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RegistrationListenerOnRegistrationDoneRequest.ProtoReflect.Descriptor instead.
-func (*RegistrationListenerOnRegistrationDoneRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{132}
-}
-
-func (x *RegistrationListenerOnRegistrationDoneRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-func (x *RegistrationListenerOnRegistrationDoneRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type RegistrationListenerOnRegistrationFailedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          string                 `protobuf:"bytes,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RegistrationListenerOnRegistrationFailedRequest) Reset() {
-	*x = RegistrationListenerOnRegistrationFailedRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[133]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RegistrationListenerOnRegistrationFailedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RegistrationListenerOnRegistrationFailedRequest) ProtoMessage() {}
-
-func (x *RegistrationListenerOnRegistrationFailedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[133]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RegistrationListenerOnRegistrationFailedRequest.ProtoReflect.Descriptor instead.
-func (*RegistrationListenerOnRegistrationFailedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{133}
-}
-
-func (x *RegistrationListenerOnRegistrationFailedRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-func (x *RegistrationListenerOnRegistrationFailedRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *RegistrationListenerOnRegistrationFailedRequest) GetArg2() string {
-	if x != nil {
-		return x.Arg2
-	}
-	return ""
-}
-
-type DescribeContentsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DescribeContentsRequest) Reset() {
-	*x = DescribeContentsRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[134]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DescribeContentsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DescribeContentsRequest) ProtoMessage() {}
-
-func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[134]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
-func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{134}
-}
-
-type DescribeContentsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DescribeContentsResponse) Reset() {
-	*x = DescribeContentsResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[135]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DescribeContentsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DescribeContentsResponse) ProtoMessage() {}
-
-func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[135]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
-func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{135}
-}
-
-func (x *DescribeContentsResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetAuthUserNameRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAuthUserNameRequest) Reset() {
-	*x = GetAuthUserNameRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[136]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAuthUserNameRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAuthUserNameRequest) ProtoMessage() {}
-
-func (x *GetAuthUserNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[136]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAuthUserNameRequest.ProtoReflect.Descriptor instead.
-func (*GetAuthUserNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{136}
-}
-
-type GetAuthUserNameResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAuthUserNameResponse) Reset() {
-	*x = GetAuthUserNameResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[137]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAuthUserNameResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAuthUserNameResponse) ProtoMessage() {}
-
-func (x *GetAuthUserNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[137]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAuthUserNameResponse.ProtoReflect.Descriptor instead.
-func (*GetAuthUserNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{137}
-}
-
-func (x *GetAuthUserNameResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetAutoRegistrationRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAutoRegistrationRequest) Reset() {
-	*x = GetAutoRegistrationRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[138]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAutoRegistrationRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAutoRegistrationRequest) ProtoMessage() {}
-
-func (x *GetAutoRegistrationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[138]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAutoRegistrationRequest.ProtoReflect.Descriptor instead.
-func (*GetAutoRegistrationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{138}
-}
-
-type GetAutoRegistrationResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAutoRegistrationResponse) Reset() {
-	*x = GetAutoRegistrationResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[139]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAutoRegistrationResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAutoRegistrationResponse) ProtoMessage() {}
-
-func (x *GetAutoRegistrationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[139]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAutoRegistrationResponse.ProtoReflect.Descriptor instead.
-func (*GetAutoRegistrationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{139}
-}
-
-func (x *GetAutoRegistrationResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type GetDisplayNameRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDisplayNameRequest) Reset() {
-	*x = GetDisplayNameRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[140]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDisplayNameRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDisplayNameRequest) ProtoMessage() {}
-
-func (x *GetDisplayNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[140]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDisplayNameRequest.ProtoReflect.Descriptor instead.
-func (*GetDisplayNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{140}
-}
-
-type GetDisplayNameResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDisplayNameResponse) Reset() {
-	*x = GetDisplayNameResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[141]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDisplayNameResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDisplayNameResponse) ProtoMessage() {}
-
-func (x *GetDisplayNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[141]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDisplayNameResponse.ProtoReflect.Descriptor instead.
-func (*GetDisplayNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{141}
-}
-
-func (x *GetDisplayNameResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetPasswordRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPasswordRequest) Reset() {
-	*x = GetPasswordRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[142]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPasswordRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPasswordRequest) ProtoMessage() {}
-
-func (x *GetPasswordRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[142]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPasswordRequest.ProtoReflect.Descriptor instead.
-func (*GetPasswordRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{142}
-}
-
-type GetPasswordResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPasswordResponse) Reset() {
-	*x = GetPasswordResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[143]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPasswordResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPasswordResponse) ProtoMessage() {}
-
-func (x *GetPasswordResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[143]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPasswordResponse.ProtoReflect.Descriptor instead.
-func (*GetPasswordResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{143}
-}
-
-func (x *GetPasswordResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetPortRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPortRequest) Reset() {
-	*x = GetPortRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[144]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPortRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPortRequest) ProtoMessage() {}
-
-func (x *GetPortRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[144]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPortRequest.ProtoReflect.Descriptor instead.
-func (*GetPortRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{144}
-}
-
-type GetPortResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPortResponse) Reset() {
-	*x = GetPortResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[145]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPortResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPortResponse) ProtoMessage() {}
-
-func (x *GetPortResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[145]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPortResponse.ProtoReflect.Descriptor instead.
-func (*GetPortResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{145}
-}
-
-func (x *GetPortResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetProfileNameRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetProfileNameRequest) Reset() {
-	*x = GetProfileNameRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[146]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetProfileNameRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetProfileNameRequest) ProtoMessage() {}
-
-func (x *GetProfileNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[146]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetProfileNameRequest.ProtoReflect.Descriptor instead.
-func (*GetProfileNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{146}
-}
-
-type GetProfileNameResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetProfileNameResponse) Reset() {
-	*x = GetProfileNameResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[147]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetProfileNameResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetProfileNameResponse) ProtoMessage() {}
-
-func (x *GetProfileNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[147]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetProfileNameResponse.ProtoReflect.Descriptor instead.
-func (*GetProfileNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{147}
-}
-
-func (x *GetProfileNameResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetProtocolRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetProtocolRequest) Reset() {
-	*x = GetProtocolRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[148]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetProtocolRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetProtocolRequest) ProtoMessage() {}
-
-func (x *GetProtocolRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[148]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetProtocolRequest.ProtoReflect.Descriptor instead.
-func (*GetProtocolRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{148}
-}
-
-type GetProtocolResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetProtocolResponse) Reset() {
-	*x = GetProtocolResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[149]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetProtocolResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetProtocolResponse) ProtoMessage() {}
-
-func (x *GetProtocolResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[149]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetProtocolResponse.ProtoReflect.Descriptor instead.
-func (*GetProtocolResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{149}
-}
-
-func (x *GetProtocolResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetProxyAddressRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetProxyAddressRequest) Reset() {
-	*x = GetProxyAddressRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[150]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetProxyAddressRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetProxyAddressRequest) ProtoMessage() {}
-
-func (x *GetProxyAddressRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[150]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetProxyAddressRequest.ProtoReflect.Descriptor instead.
-func (*GetProxyAddressRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{150}
-}
-
-type GetProxyAddressResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetProxyAddressResponse) Reset() {
-	*x = GetProxyAddressResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[151]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetProxyAddressResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetProxyAddressResponse) ProtoMessage() {}
-
-func (x *GetProxyAddressResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[151]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetProxyAddressResponse.ProtoReflect.Descriptor instead.
-func (*GetProxyAddressResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{151}
-}
-
-func (x *GetProxyAddressResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetSendKeepAliveRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSendKeepAliveRequest) Reset() {
-	*x = GetSendKeepAliveRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[152]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSendKeepAliveRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSendKeepAliveRequest) ProtoMessage() {}
-
-func (x *GetSendKeepAliveRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[152]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSendKeepAliveRequest.ProtoReflect.Descriptor instead.
-func (*GetSendKeepAliveRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{152}
-}
-
-type GetSendKeepAliveResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSendKeepAliveResponse) Reset() {
-	*x = GetSendKeepAliveResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[153]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSendKeepAliveResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSendKeepAliveResponse) ProtoMessage() {}
-
-func (x *GetSendKeepAliveResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[153]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSendKeepAliveResponse.ProtoReflect.Descriptor instead.
-func (*GetSendKeepAliveResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{153}
-}
-
-func (x *GetSendKeepAliveResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type GetSipDomainRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSipDomainRequest) Reset() {
-	*x = GetSipDomainRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[154]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSipDomainRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSipDomainRequest) ProtoMessage() {}
-
-func (x *GetSipDomainRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[154]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSipDomainRequest.ProtoReflect.Descriptor instead.
-func (*GetSipDomainRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{154}
-}
-
-type GetSipDomainResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSipDomainResponse) Reset() {
-	*x = GetSipDomainResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[155]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSipDomainResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSipDomainResponse) ProtoMessage() {}
-
-func (x *GetSipDomainResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[155]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSipDomainResponse.ProtoReflect.Descriptor instead.
-func (*GetSipDomainResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{155}
-}
-
-func (x *GetSipDomainResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetUriStringRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetUriStringRequest) Reset() {
-	*x = GetUriStringRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[156]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetUriStringRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetUriStringRequest) ProtoMessage() {}
-
-func (x *GetUriStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[156]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetUriStringRequest.ProtoReflect.Descriptor instead.
-func (*GetUriStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{156}
-}
-
-type GetUriStringResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetUriStringResponse) Reset() {
-	*x = GetUriStringResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[157]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetUriStringResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetUriStringResponse) ProtoMessage() {}
-
-func (x *GetUriStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[157]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetUriStringResponse.ProtoReflect.Descriptor instead.
-func (*GetUriStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{157}
-}
-
-func (x *GetUriStringResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetUserNameRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetUserNameRequest) Reset() {
-	*x = GetUserNameRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[158]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetUserNameRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetUserNameRequest) ProtoMessage() {}
-
-func (x *GetUserNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[158]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetUserNameRequest.ProtoReflect.Descriptor instead.
-func (*GetUserNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{158}
-}
-
-type GetUserNameResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetUserNameResponse) Reset() {
-	*x = GetUserNameResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[159]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetUserNameResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetUserNameResponse) ProtoMessage() {}
-
-func (x *GetUserNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[159]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetUserNameResponse.ProtoReflect.Descriptor instead.
-func (*GetUserNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{159}
-}
-
-func (x *GetUserNameResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type SetCallingUidRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetCallingUidRequest) Reset() {
-	*x = SetCallingUidRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[160]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetCallingUidRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetCallingUidRequest) ProtoMessage() {}
-
-func (x *SetCallingUidRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[160]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetCallingUidRequest.ProtoReflect.Descriptor instead.
-func (*SetCallingUidRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{160}
-}
-
-func (x *SetCallingUidRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetCallingUidResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetCallingUidResponse) Reset() {
-	*x = SetCallingUidResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[161]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetCallingUidResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetCallingUidResponse) ProtoMessage() {}
-
-func (x *SetCallingUidResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[161]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetCallingUidResponse.ProtoReflect.Descriptor instead.
-func (*SetCallingUidResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{161}
-}
-
-type WriteToParcelRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *WriteToParcelRequest) Reset() {
-	*x = WriteToParcelRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[162]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WriteToParcelRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WriteToParcelRequest) ProtoMessage() {}
-
-func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[162]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
-func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{162}
-}
-
-func (x *WriteToParcelRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *WriteToParcelRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type WriteToParcelResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *WriteToParcelResponse) Reset() {
-	*x = WriteToParcelResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[163]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WriteToParcelResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WriteToParcelResponse) ProtoMessage() {}
-
-func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[163]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
-func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{163}
-}
-
-type BuildRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BuildRequest) Reset() {
-	*x = BuildRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[164]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BuildRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BuildRequest) ProtoMessage() {}
-
-func (x *BuildRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[164]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
-func (*BuildRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{164}
-}
-
-type BuildResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BuildResponse) Reset() {
-	*x = BuildResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[165]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BuildResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BuildResponse) ProtoMessage() {}
-
-func (x *BuildResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[165]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
-func (*BuildResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{165}
-}
-
-func (x *BuildResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetAuthUserNameRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetAuthUserNameRequest) Reset() {
-	*x = SetAuthUserNameRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[166]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetAuthUserNameRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetAuthUserNameRequest) ProtoMessage() {}
-
-func (x *SetAuthUserNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[166]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetAuthUserNameRequest.ProtoReflect.Descriptor instead.
-func (*SetAuthUserNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{166}
-}
-
-func (x *SetAuthUserNameRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type SetAuthUserNameResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetAuthUserNameResponse) Reset() {
-	*x = SetAuthUserNameResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[167]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetAuthUserNameResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetAuthUserNameResponse) ProtoMessage() {}
-
-func (x *SetAuthUserNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[167]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetAuthUserNameResponse.ProtoReflect.Descriptor instead.
-func (*SetAuthUserNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{167}
-}
-
-func (x *SetAuthUserNameResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetAutoRegistrationRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetAutoRegistrationRequest) Reset() {
-	*x = SetAutoRegistrationRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[168]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetAutoRegistrationRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetAutoRegistrationRequest) ProtoMessage() {}
-
-func (x *SetAutoRegistrationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[168]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetAutoRegistrationRequest.ProtoReflect.Descriptor instead.
-func (*SetAutoRegistrationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{168}
-}
-
-func (x *SetAutoRegistrationRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type SetAutoRegistrationResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetAutoRegistrationResponse) Reset() {
-	*x = SetAutoRegistrationResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[169]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetAutoRegistrationResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetAutoRegistrationResponse) ProtoMessage() {}
-
-func (x *SetAutoRegistrationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[169]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetAutoRegistrationResponse.ProtoReflect.Descriptor instead.
-func (*SetAutoRegistrationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{169}
-}
-
-func (x *SetAutoRegistrationResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetDisplayNameRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetDisplayNameRequest) Reset() {
-	*x = SetDisplayNameRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[170]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetDisplayNameRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetDisplayNameRequest) ProtoMessage() {}
-
-func (x *SetDisplayNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[170]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetDisplayNameRequest.ProtoReflect.Descriptor instead.
-func (*SetDisplayNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{170}
-}
-
-func (x *SetDisplayNameRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type SetDisplayNameResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetDisplayNameResponse) Reset() {
-	*x = SetDisplayNameResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[171]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetDisplayNameResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetDisplayNameResponse) ProtoMessage() {}
-
-func (x *SetDisplayNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[171]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetDisplayNameResponse.ProtoReflect.Descriptor instead.
-func (*SetDisplayNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{171}
-}
-
-func (x *SetDisplayNameResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetOutboundProxyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetOutboundProxyRequest) Reset() {
-	*x = SetOutboundProxyRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[172]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetOutboundProxyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetOutboundProxyRequest) ProtoMessage() {}
-
-func (x *SetOutboundProxyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[172]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetOutboundProxyRequest.ProtoReflect.Descriptor instead.
-func (*SetOutboundProxyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{172}
-}
-
-func (x *SetOutboundProxyRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type SetOutboundProxyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetOutboundProxyResponse) Reset() {
-	*x = SetOutboundProxyResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[173]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetOutboundProxyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetOutboundProxyResponse) ProtoMessage() {}
-
-func (x *SetOutboundProxyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[173]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetOutboundProxyResponse.ProtoReflect.Descriptor instead.
-func (*SetOutboundProxyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{173}
-}
-
-func (x *SetOutboundProxyResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetPasswordRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPasswordRequest) Reset() {
-	*x = SetPasswordRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[174]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPasswordRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPasswordRequest) ProtoMessage() {}
-
-func (x *SetPasswordRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[174]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPasswordRequest.ProtoReflect.Descriptor instead.
-func (*SetPasswordRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{174}
-}
-
-func (x *SetPasswordRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type SetPasswordResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPasswordResponse) Reset() {
-	*x = SetPasswordResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[175]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPasswordResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPasswordResponse) ProtoMessage() {}
-
-func (x *SetPasswordResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[175]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPasswordResponse.ProtoReflect.Descriptor instead.
-func (*SetPasswordResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{175}
-}
-
-func (x *SetPasswordResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetPortRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPortRequest) Reset() {
-	*x = SetPortRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[176]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPortRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPortRequest) ProtoMessage() {}
-
-func (x *SetPortRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[176]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPortRequest.ProtoReflect.Descriptor instead.
-func (*SetPortRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{176}
-}
-
-func (x *SetPortRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetPortResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPortResponse) Reset() {
-	*x = SetPortResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[177]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPortResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPortResponse) ProtoMessage() {}
-
-func (x *SetPortResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[177]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPortResponse.ProtoReflect.Descriptor instead.
-func (*SetPortResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{177}
-}
-
-func (x *SetPortResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetProfileNameRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetProfileNameRequest) Reset() {
-	*x = SetProfileNameRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[178]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetProfileNameRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetProfileNameRequest) ProtoMessage() {}
-
-func (x *SetProfileNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[178]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetProfileNameRequest.ProtoReflect.Descriptor instead.
-func (*SetProfileNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{178}
-}
-
-func (x *SetProfileNameRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type SetProfileNameResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetProfileNameResponse) Reset() {
-	*x = SetProfileNameResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[179]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetProfileNameResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetProfileNameResponse) ProtoMessage() {}
-
-func (x *SetProfileNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[179]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetProfileNameResponse.ProtoReflect.Descriptor instead.
-func (*SetProfileNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{179}
-}
-
-func (x *SetProfileNameResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetProtocolRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetProtocolRequest) Reset() {
-	*x = SetProtocolRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[180]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetProtocolRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetProtocolRequest) ProtoMessage() {}
-
-func (x *SetProtocolRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[180]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetProtocolRequest.ProtoReflect.Descriptor instead.
-func (*SetProtocolRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{180}
-}
-
-func (x *SetProtocolRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type SetProtocolResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetProtocolResponse) Reset() {
-	*x = SetProtocolResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[181]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetProtocolResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetProtocolResponse) ProtoMessage() {}
-
-func (x *SetProtocolResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[181]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetProtocolResponse.ProtoReflect.Descriptor instead.
-func (*SetProtocolResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{181}
-}
-
-func (x *SetProtocolResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetSendKeepAliveRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetSendKeepAliveRequest) Reset() {
-	*x = SetSendKeepAliveRequest{}
-	mi := &file_proto_sip_sip_proto_msgTypes[182]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetSendKeepAliveRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetSendKeepAliveRequest) ProtoMessage() {}
-
-func (x *SetSendKeepAliveRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[182]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetSendKeepAliveRequest.ProtoReflect.Descriptor instead.
-func (*SetSendKeepAliveRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sip_sip_proto_rawDescGZIP(), []int{182}
-}
-
-func (x *SetSendKeepAliveRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type SetSendKeepAliveResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetSendKeepAliveResponse) Reset() {
-	*x = SetSendKeepAliveResponse{}
-	mi := &file_proto_sip_sip_proto_msgTypes[183]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetSendKeepAliveResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetSendKeepAliveResponse) ProtoMessage() {}
-
-func (x *SetSendKeepAliveResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sip_sip_proto_msgTypes[183]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetSendKeepAliveResponse.ProtoReflect.Descriptor instead.
-func (*SetSendKeepAliveResponse) Descriptor() ([]byte, []int) {
 	return file_proto_sip_sip_proto_rawDescGZIP(), []int{183}
 }
 
-func (x *SetSendKeepAliveResponse) GetResult() int64 {
+func (x *NewInstanceResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -8035,279 +8035,7 @@ var File_proto_sip_sip_proto protoreflect.FileDescriptor
 
 const file_proto_sip_sip_proto_rawDesc = "" +
 	"\n" +
-	"\x13proto/sip/sip.proto\x12\x03sip\";\n" +
-	"\x11AnswerCallRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x14\n" +
-	"\x12AnswerCallResponse\";\n" +
-	"\x11ChangeCallRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x14\n" +
-	"\x12ChangeCallResponse\"\x10\n" +
-	"\x0eEndCallRequest\"\x11\n" +
-	"\x0fEndCallResponse\"\x12\n" +
-	"\x10GetCallIdRequest\"+\n" +
-	"\x11GetCallIdResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x13\n" +
-	"\x11GetLocalIpRequest\",\n" +
-	"\x12GetLocalIpResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x18\n" +
-	"\x16GetLocalProfileRequest\"1\n" +
-	"\x17GetLocalProfileResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x17\n" +
-	"\x15GetPeerProfileRequest\"0\n" +
-	"\x16GetPeerProfileResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
-	"\x0fGetStateRequest\"*\n" +
-	"\x10GetStateResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
-	"\x0fIsInCallRequest\"*\n" +
-	"\x10IsInCallResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"M\n" +
-	"\x0fMakeCallRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"\x12\n" +
-	"\x10MakeCallResponse\"%\n" +
-	"\x0fRegisterRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x12\n" +
-	"\x10RegisterResponse\"(\n" +
-	"\x12SetListenerRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x15\n" +
-	"\x13SetListenerResponse\"\x13\n" +
-	"\x11UnregisterRequest\"\x14\n" +
-	"\x12UnregisterResponse\"'\n" +
-	"\x11OnCallBusyRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x14\n" +
-	"\x12OnCallBusyResponse\"W\n" +
-	"\x19OnCallChangeFailedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\tR\x04arg2\"\x1c\n" +
-	"\x1aOnCallChangeFailedResponse\"(\n" +
-	"\x12OnCallEndedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x15\n" +
-	"\x13OnCallEndedResponse\"B\n" +
-	"\x18OnCallEstablishedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"\x1b\n" +
-	"\x19OnCallEstablishedResponse\"&\n" +
-	"\x10OnCallingRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x13\n" +
-	"\x11OnCallingResponse\"L\n" +
-	"\x0eOnErrorRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\tR\x04arg2\"\x11\n" +
-	"\x0fOnErrorResponse\"*\n" +
-	"\x14OnRegisteringRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x17\n" +
-	"\x15OnRegisteringResponse\"C\n" +
-	"\x19OnRegistrationDoneRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x1c\n" +
-	"\x1aOnRegistrationDoneResponse\"Y\n" +
-	"\x1bOnRegistrationFailedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\tR\x04arg2\"\x1e\n" +
-	"\x1cOnRegistrationFailedResponse\"2\n" +
-	"\x1cOnRegistrationTimeoutRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1f\n" +
-	"\x1dOnRegistrationTimeoutResponse\"N\n" +
-	"\x10OnRingingRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\tR\x04arg2\"\x13\n" +
-	"\x11OnRingingResponse\"*\n" +
-	"\x14OnRingingBackRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x17\n" +
-	"\x15OnRingingBackResponse\"%\n" +
-	"\x0fToStringRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"*\n" +
-	"\x10ToStringResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\"\n" +
-	"\fCloseRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"\x0f\n" +
-	"\rCloseResponse\"A\n" +
-	"\x17CreateSipSessionRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"2\n" +
-	"\x18CreateSipSessionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
-	"\x14GetSessionForRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"/\n" +
-	"\x15GetSessionForResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"%\n" +
-	"\x0fIsOpenedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"*\n" +
-	"\x10IsOpenedResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\")\n" +
-	"\x13IsRegisteredRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\".\n" +
-	"\x14IsRegisteredResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"g\n" +
-	"\x15MakeAudioCall4Request\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x04 \x01(\x05R\x04arg3\"0\n" +
-	"\x16MakeAudioCall4Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"i\n" +
-	"\x17MakeAudioCall4_1Request\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x04 \x01(\x05R\x04arg3\"2\n" +
-	"\x18MakeAudioCall4_1Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\"\n" +
-	"\fOpen1Request\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x0f\n" +
-	"\rOpen1Response\"L\n" +
-	"\x0eOpen3_1Request\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"\x11\n" +
-	"\x0fOpen3_1Response\"T\n" +
-	"\x16ManagerRegisterRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"H\n" +
-	"\x1eSetRegistrationListenerRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"!\n" +
-	"\x1fSetRegistrationListenerResponse\">\n" +
-	"\x14TakeAudioCallRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"/\n" +
-	"\x15TakeAudioCallResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"B\n" +
-	"\x18ManagerUnregisterRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"-\n" +
-	"\x17ManagerGetCallIdRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"7\n" +
-	"!GetOfferSessionDescriptionRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"<\n" +
-	"\"GetOfferSessionDescriptionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"+\n" +
-	"\x15IsApiSupportedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"0\n" +
-	"\x16IsApiSupportedResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"1\n" +
-	"\x1bIsIncomingCallIntentRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"6\n" +
-	"\x1cIsIncomingCallIntentResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"*\n" +
-	"\x14IsSipWifiOnlyRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"/\n" +
-	"\x15IsSipWifiOnlyResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\",\n" +
-	"\x16IsVoipSupportedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"1\n" +
-	"\x17IsVoipSupportedResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"(\n" +
-	"\x12NewInstanceRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"-\n" +
-	"\x13NewInstanceResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"=\n" +
-	"\x13NewAudioCallRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\".\n" +
-	"\x14NewAudioCallResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"H\n" +
-	"\x1aAudioCallAnswerCallRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"S\n" +
-	"\x11AttachCallRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\tR\x04arg1\"\x14\n" +
-	"\x12AttachCallResponse\"/\n" +
-	"\x15AudioCallCloseRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"A\n" +
-	"\x13ContinueCallRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x16\n" +
-	"\x14ContinueCallResponse\"1\n" +
-	"\x17AudioCallEndCallRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"9\n" +
-	"\x1fAudioCallGetLocalProfileRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"8\n" +
-	"\x1eAudioCallGetPeerProfileRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
-	"\x18AudioCallGetStateRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"=\n" +
-	"\x0fHoldCallRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x12\n" +
-	"\x10HoldCallResponse\"2\n" +
-	"\x18AudioCallIsInCallRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"(\n" +
-	"\x0eIsMutedRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\")\n" +
-	"\x0fIsMutedResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\")\n" +
-	"\x0fIsOnHoldRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
-	"\x10IsOnHoldResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"n\n" +
-	"\x18AudioCallMakeCallRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\">\n" +
-	"\x10SendDtmf1Request\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x13\n" +
-	"\x11SendDtmf1Response\"T\n" +
-	"\x12SendDtmf2_1Request\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\x15\n" +
-	"\x13SendDtmf2_1Response\"A\n" +
-	"\x13SetListener1Request\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x16\n" +
-	"\x14SetListener1Response\"W\n" +
-	"\x15SetListener2_1Request\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\bR\x04arg1\"\x18\n" +
-	"\x16SetListener2_1Response\"C\n" +
-	"\x15SetSpeakerModeRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\bR\x04arg0\"\x18\n" +
-	"\x16SetSpeakerModeResponse\"+\n" +
-	"\x11StartAudioRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x14\n" +
-	"\x12StartAudioResponse\"+\n" +
-	"\x11ToggleMuteRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x14\n" +
-	"\x12ToggleMuteResponse\"?\n" +
-	")AudioCallListenerOnCallEstablishedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"'\n" +
-	"\x11OnCallHeldRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x14\n" +
-	"\x12OnCallHeldResponse\"&\n" +
-	"\x10OnChangedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x13\n" +
-	"\x11OnChangedResponse\"*\n" +
-	"\x14OnReadyToCallRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x17\n" +
-	"\x15OnReadyToCallResponse\"K\n" +
-	"!AudioCallListenerOnRingingRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\">\n" +
-	"(RegistrationListenerOnRegisteringRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"W\n" +
-	"-RegistrationListenerOnRegistrationDoneRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"m\n" +
-	"/RegistrationListenerOnRegistrationFailedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\tR\x04arg2\"\x19\n" +
+	"\x13proto/sip/sip.proto\x12\x03sip\"\x19\n" +
 	"\x17DescribeContentsRequest\"2\n" +
 	"\x18DescribeContentsResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"\x18\n" +
@@ -8392,106 +8120,279 @@ const file_proto_sip_sip_proto_rawDesc = "" +
 	"\x17SetSendKeepAliveRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"2\n" +
 	"\x18SetSendKeepAliveResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result2\xbd\x06\n" +
-	"\x0eSessionService\x12=\n" +
-	"\n" +
-	"AnswerCall\x12\x16.sip.AnswerCallRequest\x1a\x17.sip.AnswerCallResponse\x12=\n" +
-	"\n" +
-	"ChangeCall\x12\x16.sip.ChangeCallRequest\x1a\x17.sip.ChangeCallResponse\x124\n" +
-	"\aEndCall\x12\x13.sip.EndCallRequest\x1a\x14.sip.EndCallResponse\x12:\n" +
-	"\tGetCallId\x12\x15.sip.GetCallIdRequest\x1a\x16.sip.GetCallIdResponse\x12=\n" +
-	"\n" +
-	"GetLocalIp\x12\x16.sip.GetLocalIpRequest\x1a\x17.sip.GetLocalIpResponse\x12L\n" +
-	"\x0fGetLocalProfile\x12\x1b.sip.GetLocalProfileRequest\x1a\x1c.sip.GetLocalProfileResponse\x12I\n" +
-	"\x0eGetPeerProfile\x12\x1a.sip.GetPeerProfileRequest\x1a\x1b.sip.GetPeerProfileResponse\x127\n" +
-	"\bGetState\x12\x14.sip.GetStateRequest\x1a\x15.sip.GetStateResponse\x127\n" +
-	"\bIsInCall\x12\x14.sip.IsInCallRequest\x1a\x15.sip.IsInCallResponse\x127\n" +
-	"\bMakeCall\x12\x14.sip.MakeCallRequest\x1a\x15.sip.MakeCallResponse\x127\n" +
-	"\bRegister\x12\x14.sip.RegisterRequest\x1a\x15.sip.RegisterResponse\x12@\n" +
-	"\vSetListener\x12\x17.sip.SetListenerRequest\x1a\x18.sip.SetListenerResponse\x12=\n" +
-	"\n" +
-	"Unregister\x12\x16.sip.UnregisterRequest\x1a\x17.sip.UnregisterResponse2\x96\a\n" +
-	"\x16SessionListenerService\x12=\n" +
-	"\n" +
-	"OnCallBusy\x12\x16.sip.OnCallBusyRequest\x1a\x17.sip.OnCallBusyResponse\x12U\n" +
-	"\x12OnCallChangeFailed\x12\x1e.sip.OnCallChangeFailedRequest\x1a\x1f.sip.OnCallChangeFailedResponse\x12@\n" +
-	"\vOnCallEnded\x12\x17.sip.OnCallEndedRequest\x1a\x18.sip.OnCallEndedResponse\x12R\n" +
-	"\x11OnCallEstablished\x12\x1d.sip.OnCallEstablishedRequest\x1a\x1e.sip.OnCallEstablishedResponse\x12:\n" +
-	"\tOnCalling\x12\x15.sip.OnCallingRequest\x1a\x16.sip.OnCallingResponse\x124\n" +
-	"\aOnError\x12\x13.sip.OnErrorRequest\x1a\x14.sip.OnErrorResponse\x12F\n" +
-	"\rOnRegistering\x12\x19.sip.OnRegisteringRequest\x1a\x1a.sip.OnRegisteringResponse\x12U\n" +
-	"\x12OnRegistrationDone\x12\x1e.sip.OnRegistrationDoneRequest\x1a\x1f.sip.OnRegistrationDoneResponse\x12[\n" +
-	"\x14OnRegistrationFailed\x12 .sip.OnRegistrationFailedRequest\x1a!.sip.OnRegistrationFailedResponse\x12^\n" +
-	"\x15OnRegistrationTimeout\x12!.sip.OnRegistrationTimeoutRequest\x1a\".sip.OnRegistrationTimeoutResponse\x12:\n" +
-	"\tOnRinging\x12\x15.sip.OnRingingRequest\x1a\x16.sip.OnRingingResponse\x12F\n" +
-	"\rOnRingingBack\x12\x19.sip.OnRingingBackRequest\x1a\x1a.sip.OnRingingBackResponse2N\n" +
-	"\x13SessionStateService\x127\n" +
-	"\bToString\x12\x14.sip.ToStringRequest\x1a\x15.sip.ToStringResponse2\xbf\v\n" +
-	"\x0eManagerService\x12.\n" +
-	"\x05Close\x12\x11.sip.CloseRequest\x1a\x12.sip.CloseResponse\x12O\n" +
-	"\x10CreateSipSession\x12\x1c.sip.CreateSipSessionRequest\x1a\x1d.sip.CreateSipSessionResponse\x12F\n" +
-	"\rGetSessionFor\x12\x19.sip.GetSessionForRequest\x1a\x1a.sip.GetSessionForResponse\x127\n" +
-	"\bIsOpened\x12\x14.sip.IsOpenedRequest\x1a\x15.sip.IsOpenedResponse\x12C\n" +
-	"\fIsRegistered\x12\x18.sip.IsRegisteredRequest\x1a\x19.sip.IsRegisteredResponse\x12I\n" +
-	"\x0eMakeAudioCall4\x12\x1a.sip.MakeAudioCall4Request\x1a\x1b.sip.MakeAudioCall4Response\x12O\n" +
-	"\x10MakeAudioCall4_1\x12\x1c.sip.MakeAudioCall4_1Request\x1a\x1d.sip.MakeAudioCall4_1Response\x12.\n" +
-	"\x05Open1\x12\x11.sip.Open1Request\x1a\x12.sip.Open1Response\x124\n" +
-	"\aOpen3_1\x12\x13.sip.Open3_1Request\x1a\x14.sip.Open3_1Response\x12>\n" +
-	"\bRegister\x12\x1b.sip.ManagerRegisterRequest\x1a\x15.sip.RegisterResponse\x12d\n" +
-	"\x17SetRegistrationListener\x12#.sip.SetRegistrationListenerRequest\x1a$.sip.SetRegistrationListenerResponse\x12F\n" +
-	"\rTakeAudioCall\x12\x19.sip.TakeAudioCallRequest\x1a\x1a.sip.TakeAudioCallResponse\x12D\n" +
-	"\n" +
-	"Unregister\x12\x1d.sip.ManagerUnregisterRequest\x1a\x17.sip.UnregisterResponse\x12A\n" +
-	"\tGetCallId\x12\x1c.sip.ManagerGetCallIdRequest\x1a\x16.sip.GetCallIdResponse\x12m\n" +
-	"\x1aGetOfferSessionDescription\x12&.sip.GetOfferSessionDescriptionRequest\x1a'.sip.GetOfferSessionDescriptionResponse\x12I\n" +
-	"\x0eIsApiSupported\x12\x1a.sip.IsApiSupportedRequest\x1a\x1b.sip.IsApiSupportedResponse\x12[\n" +
-	"\x14IsIncomingCallIntent\x12 .sip.IsIncomingCallIntentRequest\x1a!.sip.IsIncomingCallIntentResponse\x12F\n" +
-	"\rIsSipWifiOnly\x12\x19.sip.IsSipWifiOnlyRequest\x1a\x1a.sip.IsSipWifiOnlyResponse\x12L\n" +
-	"\x0fIsVoipSupported\x12\x1b.sip.IsVoipSupportedRequest\x1a\x1c.sip.IsVoipSupportedResponse\x12@\n" +
-	"\vNewInstance\x12\x17.sip.NewInstanceRequest\x1a\x18.sip.NewInstanceResponse2\x8b\v\n" +
-	"\x10AudioCallService\x12C\n" +
-	"\fNewAudioCall\x12\x18.sip.NewAudioCallRequest\x1a\x19.sip.NewAudioCallResponse\x12F\n" +
-	"\n" +
-	"AnswerCall\x12\x1f.sip.AudioCallAnswerCallRequest\x1a\x17.sip.AnswerCallResponse\x12=\n" +
-	"\n" +
-	"AttachCall\x12\x16.sip.AttachCallRequest\x1a\x17.sip.AttachCallResponse\x127\n" +
-	"\x05Close\x12\x1a.sip.AudioCallCloseRequest\x1a\x12.sip.CloseResponse\x12C\n" +
-	"\fContinueCall\x12\x18.sip.ContinueCallRequest\x1a\x19.sip.ContinueCallResponse\x12=\n" +
-	"\aEndCall\x12\x1c.sip.AudioCallEndCallRequest\x1a\x14.sip.EndCallResponse\x12U\n" +
-	"\x0fGetLocalProfile\x12$.sip.AudioCallGetLocalProfileRequest\x1a\x1c.sip.GetLocalProfileResponse\x12R\n" +
-	"\x0eGetPeerProfile\x12#.sip.AudioCallGetPeerProfileRequest\x1a\x1b.sip.GetPeerProfileResponse\x12@\n" +
-	"\bGetState\x12\x1d.sip.AudioCallGetStateRequest\x1a\x15.sip.GetStateResponse\x127\n" +
-	"\bHoldCall\x12\x14.sip.HoldCallRequest\x1a\x15.sip.HoldCallResponse\x12@\n" +
-	"\bIsInCall\x12\x1d.sip.AudioCallIsInCallRequest\x1a\x15.sip.IsInCallResponse\x124\n" +
-	"\aIsMuted\x12\x13.sip.IsMutedRequest\x1a\x14.sip.IsMutedResponse\x127\n" +
-	"\bIsOnHold\x12\x14.sip.IsOnHoldRequest\x1a\x15.sip.IsOnHoldResponse\x12@\n" +
-	"\bMakeCall\x12\x1d.sip.AudioCallMakeCallRequest\x1a\x15.sip.MakeCallResponse\x12:\n" +
-	"\tSendDtmf1\x12\x15.sip.SendDtmf1Request\x1a\x16.sip.SendDtmf1Response\x12@\n" +
-	"\vSendDtmf2_1\x12\x17.sip.SendDtmf2_1Request\x1a\x18.sip.SendDtmf2_1Response\x12C\n" +
-	"\fSetListener1\x12\x18.sip.SetListener1Request\x1a\x19.sip.SetListener1Response\x12I\n" +
-	"\x0eSetListener2_1\x12\x1a.sip.SetListener2_1Request\x1a\x1b.sip.SetListener2_1Response\x12I\n" +
-	"\x0eSetSpeakerMode\x12\x1a.sip.SetSpeakerModeRequest\x1a\x1b.sip.SetSpeakerModeResponse\x12=\n" +
-	"\n" +
-	"StartAudio\x12\x16.sip.StartAudioRequest\x1a\x17.sip.StartAudioResponse\x12=\n" +
-	"\n" +
-	"ToggleMute\x12\x16.sip.ToggleMuteRequest\x1a\x17.sip.ToggleMuteResponse2\xca\x05\n" +
-	"\x18AudioCallListenerService\x12=\n" +
-	"\n" +
-	"OnCallBusy\x12\x16.sip.OnCallBusyRequest\x1a\x17.sip.OnCallBusyResponse\x12@\n" +
-	"\vOnCallEnded\x12\x17.sip.OnCallEndedRequest\x1a\x18.sip.OnCallEndedResponse\x12c\n" +
-	"\x11OnCallEstablished\x12..sip.AudioCallListenerOnCallEstablishedRequest\x1a\x1e.sip.OnCallEstablishedResponse\x12=\n" +
-	"\n" +
-	"OnCallHeld\x12\x16.sip.OnCallHeldRequest\x1a\x17.sip.OnCallHeldResponse\x12:\n" +
-	"\tOnCalling\x12\x15.sip.OnCallingRequest\x1a\x16.sip.OnCallingResponse\x12:\n" +
-	"\tOnChanged\x12\x15.sip.OnChangedRequest\x1a\x16.sip.OnChangedResponse\x124\n" +
-	"\aOnError\x12\x13.sip.OnErrorRequest\x1a\x14.sip.OnErrorResponse\x12F\n" +
-	"\rOnReadyToCall\x12\x19.sip.OnReadyToCallRequest\x1a\x1a.sip.OnReadyToCallResponse\x12K\n" +
-	"\tOnRinging\x12&.sip.AudioCallListenerOnRingingRequest\x1a\x16.sip.OnRingingResponse\x12F\n" +
-	"\rOnRingingBack\x12\x19.sip.OnRingingBackRequest\x1a\x1a.sip.OnRingingBackResponse2\xd5\x02\n" +
-	"\x1bRegistrationListenerService\x12Z\n" +
-	"\rOnRegistering\x12-.sip.RegistrationListenerOnRegisteringRequest\x1a\x1a.sip.OnRegisteringResponse\x12i\n" +
-	"\x12OnRegistrationDone\x122.sip.RegistrationListenerOnRegistrationDoneRequest\x1a\x1f.sip.OnRegistrationDoneResponse\x12o\n" +
-	"\x14OnRegistrationFailed\x124.sip.RegistrationListenerOnRegistrationFailedRequest\x1a!.sip.OnRegistrationFailedResponse2\xd4\b\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"\x14OnRegisteringRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"\x17\n" +
+	"\x15OnRegisteringResponse\"C\n" +
+	"\x19OnRegistrationDoneRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x1c\n" +
+	"\x1aOnRegistrationDoneResponse\"Y\n" +
+	"\x1bOnRegistrationFailedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\"\x1e\n" +
+	"\x1cOnRegistrationFailedResponse\"=\n" +
+	"\x13NewAudioCallRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\".\n" +
+	"\x14NewAudioCallResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"?\n" +
+	"\x11AnswerCallRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x14\n" +
+	"\x12AnswerCallResponse\"S\n" +
+	"\x11AttachCallRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\"\x14\n" +
+	"\x12AttachCallResponse\"&\n" +
+	"\fCloseRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x0f\n" +
+	"\rCloseResponse\"A\n" +
+	"\x13ContinueCallRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x16\n" +
+	"\x14ContinueCallResponse\"(\n" +
+	"\x0eEndCallRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x11\n" +
+	"\x0fEndCallResponse\"0\n" +
+	"\x16GetLocalProfileRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
+	"\x17GetLocalProfileResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"\x15GetPeerProfileRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
+	"\x16GetPeerProfileResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x0fGetStateRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10GetStateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"=\n" +
+	"\x0fHoldCallRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x12\n" +
+	"\x10HoldCallResponse\")\n" +
+	"\x0fIsInCallRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10IsInCallResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"(\n" +
+	"\x0eIsMutedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\")\n" +
+	"\x0fIsMutedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\")\n" +
+	"\x0fIsOnHoldRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10IsOnHoldResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"e\n" +
+	"\x0fMakeCallRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\"\x12\n" +
+	"\x10MakeCallResponse\">\n" +
+	"\x10SendDtmf1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x13\n" +
+	"\x11SendDtmf1Response\"T\n" +
+	"\x12SendDtmf2_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\x15\n" +
+	"\x13SendDtmf2_1Response\"A\n" +
+	"\x13SetListener1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x16\n" +
+	"\x14SetListener1Response\"W\n" +
+	"\x15SetListener2_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\bR\x04arg1\"\x18\n" +
+	"\x16SetListener2_1Response\"C\n" +
+	"\x15SetSpeakerModeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\bR\x04arg0\"\x18\n" +
+	"\x16SetSpeakerModeResponse\"+\n" +
+	"\x11StartAudioRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x14\n" +
+	"\x12StartAudioResponse\"+\n" +
+	"\x11ToggleMuteRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x14\n" +
+	"\x12ToggleMuteResponse\"'\n" +
+	"\x11OnCallBusyRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x14\n" +
+	"\x12OnCallBusyResponse\"(\n" +
+	"\x12OnCallEndedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x15\n" +
+	"\x13OnCallEndedResponse\".\n" +
+	"\x18OnCallEstablishedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1b\n" +
+	"\x19OnCallEstablishedResponse\"'\n" +
+	"\x11OnCallHeldRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x14\n" +
+	"\x12OnCallHeldResponse\"&\n" +
+	"\x10OnCallingRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x13\n" +
+	"\x11OnCallingResponse\"&\n" +
+	"\x10OnChangedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x13\n" +
+	"\x11OnChangedResponse\"L\n" +
+	"\x0eOnErrorRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\"\x11\n" +
+	"\x0fOnErrorResponse\"*\n" +
+	"\x14OnReadyToCallRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x17\n" +
+	"\x15OnReadyToCallResponse\":\n" +
+	"\x10OnRingingRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x13\n" +
+	"\x11OnRingingResponse\"*\n" +
+	"\x14OnRingingBackRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x17\n" +
+	"\x15OnRingingBackResponse\"B\n" +
+	"\x18SessionAnswerCallRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\";\n" +
+	"\x11ChangeCallRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x14\n" +
+	"\x12ChangeCallResponse\"\x17\n" +
+	"\x15SessionEndCallRequest\"\x12\n" +
+	"\x10GetCallIdRequest\"+\n" +
+	"\x11GetCallIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x13\n" +
+	"\x11GetLocalIpRequest\",\n" +
+	"\x12GetLocalIpResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x1f\n" +
+	"\x1dSessionGetLocalProfileRequest\"\x1e\n" +
+	"\x1cSessionGetPeerProfileRequest\"\x18\n" +
+	"\x16SessionGetStateRequest\"\x18\n" +
+	"\x16SessionIsInCallRequest\"T\n" +
+	"\x16SessionMakeCallRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"%\n" +
+	"\x0fRegisterRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x12\n" +
+	"\x10RegisterResponse\"(\n" +
+	"\x12SetListenerRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x15\n" +
+	"\x13SetListenerResponse\"\x13\n" +
+	"\x11UnregisterRequest\"\x14\n" +
+	"\x12UnregisterResponse\"W\n" +
+	"\x19OnCallChangeFailedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\"\x1c\n" +
+	"\x1aOnCallChangeFailedResponse\"Q\n" +
+	"'SessionListenerOnCallEstablishedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"9\n" +
+	"#SessionListenerOnRegisteringRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"R\n" +
+	"(SessionListenerOnRegistrationDoneRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"h\n" +
+	"*SessionListenerOnRegistrationFailedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\"2\n" +
+	"\x1cOnRegistrationTimeoutRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1f\n" +
+	"\x1dOnRegistrationTimeoutResponse\"]\n" +
+	"\x1fSessionListenerOnRingingRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\tR\x04arg2\"%\n" +
+	"\x0fToStringRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\")\n" +
+	"\x13ManagerCloseRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"A\n" +
+	"\x17CreateSipSessionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"2\n" +
+	"\x18CreateSipSessionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"\x14GetSessionForRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"/\n" +
+	"\x15GetSessionForResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"%\n" +
+	"\x0fIsOpenedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"*\n" +
+	"\x10IsOpenedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\")\n" +
+	"\x13IsRegisteredRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\".\n" +
+	"\x14IsRegisteredResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"g\n" +
+	"\x15MakeAudioCall4Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x05R\x04arg3\"0\n" +
+	"\x16MakeAudioCall4Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"i\n" +
+	"\x17MakeAudioCall4_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x05R\x04arg3\"2\n" +
+	"\x18MakeAudioCall4_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\"\n" +
+	"\fOpen1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x0f\n" +
+	"\rOpen1Response\"L\n" +
+	"\x0eOpen3_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"\x11\n" +
+	"\x0fOpen3_1Response\"T\n" +
+	"\x16ManagerRegisterRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"H\n" +
+	"\x1eSetRegistrationListenerRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"!\n" +
+	"\x1fSetRegistrationListenerResponse\">\n" +
+	"\x14TakeAudioCallRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"/\n" +
+	"\x15TakeAudioCallResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"B\n" +
+	"\x18ManagerUnregisterRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"-\n" +
+	"\x17ManagerGetCallIdRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"7\n" +
+	"!GetOfferSessionDescriptionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"<\n" +
+	"\"GetOfferSessionDescriptionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"+\n" +
+	"\x15IsApiSupportedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"0\n" +
+	"\x16IsApiSupportedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"1\n" +
+	"\x1bIsIncomingCallIntentRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"6\n" +
+	"\x1cIsIncomingCallIntentResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"*\n" +
+	"\x14IsSipWifiOnlyRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"/\n" +
+	"\x15IsSipWifiOnlyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\",\n" +
+	"\x16IsVoipSupportedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"1\n" +
+	"\x17IsVoipSupportedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"(\n" +
+	"\x12NewInstanceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"-\n" +
+	"\x13NewInstanceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\xd4\b\n" +
 	"\x0eProfileService\x12O\n" +
 	"\x10DescribeContents\x12\x1c.sip.DescribeContentsRequest\x1a\x1d.sip.DescribeContentsResponse\x12L\n" +
 	"\x0fGetAuthUserName\x12\x1b.sip.GetAuthUserNameRequest\x1a\x1c.sip.GetAuthUserNameResponse\x12X\n" +
@@ -8518,9 +8419,109 @@ const file_proto_sip_sip_proto_rawDesc = "" +
 	"\aSetPort\x12\x13.sip.SetPortRequest\x1a\x14.sip.SetPortResponse\x12I\n" +
 	"\x0eSetProfileName\x12\x1a.sip.SetProfileNameRequest\x1a\x1b.sip.SetProfileNameResponse\x12@\n" +
 	"\vSetProtocol\x12\x17.sip.SetProtocolRequest\x1a\x18.sip.SetProtocolResponse\x12O\n" +
-	"\x10SetSendKeepAlive\x12\x1c.sip.SetSendKeepAliveRequest\x1a\x1d.sip.SetSendKeepAliveResponse2K\n" +
+	"\x10SetSendKeepAlive\x12\x1c.sip.SetSendKeepAliveRequest\x1a\x1d.sip.SetSendKeepAliveResponse2\x99\x02\n" +
+	"\x1bRegistrationListenerService\x12F\n" +
+	"\rOnRegistering\x12\x19.sip.OnRegisteringRequest\x1a\x1a.sip.OnRegisteringResponse\x12U\n" +
+	"\x12OnRegistrationDone\x12\x1e.sip.OnRegistrationDoneRequest\x1a\x1f.sip.OnRegistrationDoneResponse\x12[\n" +
+	"\x14OnRegistrationFailed\x12 .sip.OnRegistrationFailedRequest\x1a!.sip.OnRegistrationFailedResponse2\xc3\n" +
+	"\n" +
+	"\x10AudioCallService\x12C\n" +
+	"\fNewAudioCall\x12\x18.sip.NewAudioCallRequest\x1a\x19.sip.NewAudioCallResponse\x12=\n" +
+	"\n" +
+	"AnswerCall\x12\x16.sip.AnswerCallRequest\x1a\x17.sip.AnswerCallResponse\x12=\n" +
+	"\n" +
+	"AttachCall\x12\x16.sip.AttachCallRequest\x1a\x17.sip.AttachCallResponse\x12.\n" +
+	"\x05Close\x12\x11.sip.CloseRequest\x1a\x12.sip.CloseResponse\x12C\n" +
+	"\fContinueCall\x12\x18.sip.ContinueCallRequest\x1a\x19.sip.ContinueCallResponse\x124\n" +
+	"\aEndCall\x12\x13.sip.EndCallRequest\x1a\x14.sip.EndCallResponse\x12L\n" +
+	"\x0fGetLocalProfile\x12\x1b.sip.GetLocalProfileRequest\x1a\x1c.sip.GetLocalProfileResponse\x12I\n" +
+	"\x0eGetPeerProfile\x12\x1a.sip.GetPeerProfileRequest\x1a\x1b.sip.GetPeerProfileResponse\x127\n" +
+	"\bGetState\x12\x14.sip.GetStateRequest\x1a\x15.sip.GetStateResponse\x127\n" +
+	"\bHoldCall\x12\x14.sip.HoldCallRequest\x1a\x15.sip.HoldCallResponse\x127\n" +
+	"\bIsInCall\x12\x14.sip.IsInCallRequest\x1a\x15.sip.IsInCallResponse\x124\n" +
+	"\aIsMuted\x12\x13.sip.IsMutedRequest\x1a\x14.sip.IsMutedResponse\x127\n" +
+	"\bIsOnHold\x12\x14.sip.IsOnHoldRequest\x1a\x15.sip.IsOnHoldResponse\x127\n" +
+	"\bMakeCall\x12\x14.sip.MakeCallRequest\x1a\x15.sip.MakeCallResponse\x12:\n" +
+	"\tSendDtmf1\x12\x15.sip.SendDtmf1Request\x1a\x16.sip.SendDtmf1Response\x12@\n" +
+	"\vSendDtmf2_1\x12\x17.sip.SendDtmf2_1Request\x1a\x18.sip.SendDtmf2_1Response\x12C\n" +
+	"\fSetListener1\x12\x18.sip.SetListener1Request\x1a\x19.sip.SetListener1Response\x12I\n" +
+	"\x0eSetListener2_1\x12\x1a.sip.SetListener2_1Request\x1a\x1b.sip.SetListener2_1Response\x12I\n" +
+	"\x0eSetSpeakerMode\x12\x1a.sip.SetSpeakerModeRequest\x1a\x1b.sip.SetSpeakerModeResponse\x12=\n" +
+	"\n" +
+	"StartAudio\x12\x16.sip.StartAudioRequest\x1a\x17.sip.StartAudioResponse\x12=\n" +
+	"\n" +
+	"ToggleMute\x12\x16.sip.ToggleMuteRequest\x1a\x17.sip.ToggleMuteResponse2\xa8\x05\n" +
+	"\x18AudioCallListenerService\x12=\n" +
+	"\n" +
+	"OnCallBusy\x12\x16.sip.OnCallBusyRequest\x1a\x17.sip.OnCallBusyResponse\x12@\n" +
+	"\vOnCallEnded\x12\x17.sip.OnCallEndedRequest\x1a\x18.sip.OnCallEndedResponse\x12R\n" +
+	"\x11OnCallEstablished\x12\x1d.sip.OnCallEstablishedRequest\x1a\x1e.sip.OnCallEstablishedResponse\x12=\n" +
+	"\n" +
+	"OnCallHeld\x12\x16.sip.OnCallHeldRequest\x1a\x17.sip.OnCallHeldResponse\x12:\n" +
+	"\tOnCalling\x12\x15.sip.OnCallingRequest\x1a\x16.sip.OnCallingResponse\x12:\n" +
+	"\tOnChanged\x12\x15.sip.OnChangedRequest\x1a\x16.sip.OnChangedResponse\x124\n" +
+	"\aOnError\x12\x13.sip.OnErrorRequest\x1a\x14.sip.OnErrorResponse\x12F\n" +
+	"\rOnReadyToCall\x12\x19.sip.OnReadyToCallRequest\x1a\x1a.sip.OnReadyToCallResponse\x12:\n" +
+	"\tOnRinging\x12\x15.sip.OnRingingRequest\x1a\x16.sip.OnRingingResponse\x12F\n" +
+	"\rOnRingingBack\x12\x19.sip.OnRingingBackRequest\x1a\x1a.sip.OnRingingBackResponse2\xee\x06\n" +
+	"\x0eSessionService\x12D\n" +
+	"\n" +
+	"AnswerCall\x12\x1d.sip.SessionAnswerCallRequest\x1a\x17.sip.AnswerCallResponse\x12=\n" +
+	"\n" +
+	"ChangeCall\x12\x16.sip.ChangeCallRequest\x1a\x17.sip.ChangeCallResponse\x12;\n" +
+	"\aEndCall\x12\x1a.sip.SessionEndCallRequest\x1a\x14.sip.EndCallResponse\x12:\n" +
+	"\tGetCallId\x12\x15.sip.GetCallIdRequest\x1a\x16.sip.GetCallIdResponse\x12=\n" +
+	"\n" +
+	"GetLocalIp\x12\x16.sip.GetLocalIpRequest\x1a\x17.sip.GetLocalIpResponse\x12S\n" +
+	"\x0fGetLocalProfile\x12\".sip.SessionGetLocalProfileRequest\x1a\x1c.sip.GetLocalProfileResponse\x12P\n" +
+	"\x0eGetPeerProfile\x12!.sip.SessionGetPeerProfileRequest\x1a\x1b.sip.GetPeerProfileResponse\x12>\n" +
+	"\bGetState\x12\x1b.sip.SessionGetStateRequest\x1a\x15.sip.GetStateResponse\x12>\n" +
+	"\bIsInCall\x12\x1b.sip.SessionIsInCallRequest\x1a\x15.sip.IsInCallResponse\x12>\n" +
+	"\bMakeCall\x12\x1b.sip.SessionMakeCallRequest\x1a\x15.sip.MakeCallResponse\x127\n" +
+	"\bRegister\x12\x14.sip.RegisterRequest\x1a\x15.sip.RegisterResponse\x12@\n" +
+	"\vSetListener\x12\x17.sip.SetListenerRequest\x1a\x18.sip.SetListenerResponse\x12=\n" +
+	"\n" +
+	"Unregister\x12\x16.sip.UnregisterRequest\x1a\x17.sip.UnregisterResponse2\xe1\a\n" +
+	"\x16SessionListenerService\x12=\n" +
+	"\n" +
+	"OnCallBusy\x12\x16.sip.OnCallBusyRequest\x1a\x17.sip.OnCallBusyResponse\x12U\n" +
+	"\x12OnCallChangeFailed\x12\x1e.sip.OnCallChangeFailedRequest\x1a\x1f.sip.OnCallChangeFailedResponse\x12@\n" +
+	"\vOnCallEnded\x12\x17.sip.OnCallEndedRequest\x1a\x18.sip.OnCallEndedResponse\x12a\n" +
+	"\x11OnCallEstablished\x12,.sip.SessionListenerOnCallEstablishedRequest\x1a\x1e.sip.OnCallEstablishedResponse\x12:\n" +
+	"\tOnCalling\x12\x15.sip.OnCallingRequest\x1a\x16.sip.OnCallingResponse\x124\n" +
+	"\aOnError\x12\x13.sip.OnErrorRequest\x1a\x14.sip.OnErrorResponse\x12U\n" +
+	"\rOnRegistering\x12(.sip.SessionListenerOnRegisteringRequest\x1a\x1a.sip.OnRegisteringResponse\x12d\n" +
+	"\x12OnRegistrationDone\x12-.sip.SessionListenerOnRegistrationDoneRequest\x1a\x1f.sip.OnRegistrationDoneResponse\x12j\n" +
+	"\x14OnRegistrationFailed\x12/.sip.SessionListenerOnRegistrationFailedRequest\x1a!.sip.OnRegistrationFailedResponse\x12^\n" +
+	"\x15OnRegistrationTimeout\x12!.sip.OnRegistrationTimeoutRequest\x1a\".sip.OnRegistrationTimeoutResponse\x12I\n" +
+	"\tOnRinging\x12$.sip.SessionListenerOnRingingRequest\x1a\x16.sip.OnRingingResponse\x12F\n" +
+	"\rOnRingingBack\x12\x19.sip.OnRingingBackRequest\x1a\x1a.sip.OnRingingBackResponse2N\n" +
+	"\x13SessionStateService\x127\n" +
+	"\bToString\x12\x14.sip.ToStringRequest\x1a\x15.sip.ToStringResponse2K\n" +
 	"\x10ErrorCodeService\x127\n" +
-	"\bToString\x12\x14.sip.ToStringRequest\x1a\x15.sip.ToStringResponseB-Z+github.com/AndroidGoLab/jni-proxy/proto/sipb\x06proto3"
+	"\bToString\x12\x14.sip.ToStringRequest\x1a\x15.sip.ToStringResponse2\xc6\v\n" +
+	"\x0eManagerService\x125\n" +
+	"\x05Close\x12\x18.sip.ManagerCloseRequest\x1a\x12.sip.CloseResponse\x12O\n" +
+	"\x10CreateSipSession\x12\x1c.sip.CreateSipSessionRequest\x1a\x1d.sip.CreateSipSessionResponse\x12F\n" +
+	"\rGetSessionFor\x12\x19.sip.GetSessionForRequest\x1a\x1a.sip.GetSessionForResponse\x127\n" +
+	"\bIsOpened\x12\x14.sip.IsOpenedRequest\x1a\x15.sip.IsOpenedResponse\x12C\n" +
+	"\fIsRegistered\x12\x18.sip.IsRegisteredRequest\x1a\x19.sip.IsRegisteredResponse\x12I\n" +
+	"\x0eMakeAudioCall4\x12\x1a.sip.MakeAudioCall4Request\x1a\x1b.sip.MakeAudioCall4Response\x12O\n" +
+	"\x10MakeAudioCall4_1\x12\x1c.sip.MakeAudioCall4_1Request\x1a\x1d.sip.MakeAudioCall4_1Response\x12.\n" +
+	"\x05Open1\x12\x11.sip.Open1Request\x1a\x12.sip.Open1Response\x124\n" +
+	"\aOpen3_1\x12\x13.sip.Open3_1Request\x1a\x14.sip.Open3_1Response\x12>\n" +
+	"\bRegister\x12\x1b.sip.ManagerRegisterRequest\x1a\x15.sip.RegisterResponse\x12d\n" +
+	"\x17SetRegistrationListener\x12#.sip.SetRegistrationListenerRequest\x1a$.sip.SetRegistrationListenerResponse\x12F\n" +
+	"\rTakeAudioCall\x12\x19.sip.TakeAudioCallRequest\x1a\x1a.sip.TakeAudioCallResponse\x12D\n" +
+	"\n" +
+	"Unregister\x12\x1d.sip.ManagerUnregisterRequest\x1a\x17.sip.UnregisterResponse\x12A\n" +
+	"\tGetCallId\x12\x1c.sip.ManagerGetCallIdRequest\x1a\x16.sip.GetCallIdResponse\x12m\n" +
+	"\x1aGetOfferSessionDescription\x12&.sip.GetOfferSessionDescriptionRequest\x1a'.sip.GetOfferSessionDescriptionResponse\x12I\n" +
+	"\x0eIsApiSupported\x12\x1a.sip.IsApiSupportedRequest\x1a\x1b.sip.IsApiSupportedResponse\x12[\n" +
+	"\x14IsIncomingCallIntent\x12 .sip.IsIncomingCallIntentRequest\x1a!.sip.IsIncomingCallIntentResponse\x12F\n" +
+	"\rIsSipWifiOnly\x12\x19.sip.IsSipWifiOnlyRequest\x1a\x1a.sip.IsSipWifiOnlyResponse\x12L\n" +
+	"\x0fIsVoipSupported\x12\x1b.sip.IsVoipSupportedRequest\x1a\x1c.sip.IsVoipSupportedResponse\x12@\n" +
+	"\vNewInstance\x12\x17.sip.NewInstanceRequest\x1a\x18.sip.NewInstanceResponseB-Z+github.com/AndroidGoLab/jni-proxy/proto/sipb\x06proto3"
 
 var (
 	file_proto_sip_sip_proto_rawDescOnce sync.Once
@@ -8536,404 +8537,404 @@ func file_proto_sip_sip_proto_rawDescGZIP() []byte {
 
 var file_proto_sip_sip_proto_msgTypes = make([]protoimpl.MessageInfo, 184)
 var file_proto_sip_sip_proto_goTypes = []any{
-	(*AnswerCallRequest)(nil),                               // 0: sip.AnswerCallRequest
-	(*AnswerCallResponse)(nil),                              // 1: sip.AnswerCallResponse
-	(*ChangeCallRequest)(nil),                               // 2: sip.ChangeCallRequest
-	(*ChangeCallResponse)(nil),                              // 3: sip.ChangeCallResponse
-	(*EndCallRequest)(nil),                                  // 4: sip.EndCallRequest
-	(*EndCallResponse)(nil),                                 // 5: sip.EndCallResponse
-	(*GetCallIdRequest)(nil),                                // 6: sip.GetCallIdRequest
-	(*GetCallIdResponse)(nil),                               // 7: sip.GetCallIdResponse
-	(*GetLocalIpRequest)(nil),                               // 8: sip.GetLocalIpRequest
-	(*GetLocalIpResponse)(nil),                              // 9: sip.GetLocalIpResponse
-	(*GetLocalProfileRequest)(nil),                          // 10: sip.GetLocalProfileRequest
-	(*GetLocalProfileResponse)(nil),                         // 11: sip.GetLocalProfileResponse
-	(*GetPeerProfileRequest)(nil),                           // 12: sip.GetPeerProfileRequest
-	(*GetPeerProfileResponse)(nil),                          // 13: sip.GetPeerProfileResponse
-	(*GetStateRequest)(nil),                                 // 14: sip.GetStateRequest
-	(*GetStateResponse)(nil),                                // 15: sip.GetStateResponse
-	(*IsInCallRequest)(nil),                                 // 16: sip.IsInCallRequest
-	(*IsInCallResponse)(nil),                                // 17: sip.IsInCallResponse
-	(*MakeCallRequest)(nil),                                 // 18: sip.MakeCallRequest
-	(*MakeCallResponse)(nil),                                // 19: sip.MakeCallResponse
-	(*RegisterRequest)(nil),                                 // 20: sip.RegisterRequest
-	(*RegisterResponse)(nil),                                // 21: sip.RegisterResponse
-	(*SetListenerRequest)(nil),                              // 22: sip.SetListenerRequest
-	(*SetListenerResponse)(nil),                             // 23: sip.SetListenerResponse
-	(*UnregisterRequest)(nil),                               // 24: sip.UnregisterRequest
-	(*UnregisterResponse)(nil),                              // 25: sip.UnregisterResponse
-	(*OnCallBusyRequest)(nil),                               // 26: sip.OnCallBusyRequest
-	(*OnCallBusyResponse)(nil),                              // 27: sip.OnCallBusyResponse
-	(*OnCallChangeFailedRequest)(nil),                       // 28: sip.OnCallChangeFailedRequest
-	(*OnCallChangeFailedResponse)(nil),                      // 29: sip.OnCallChangeFailedResponse
-	(*OnCallEndedRequest)(nil),                              // 30: sip.OnCallEndedRequest
-	(*OnCallEndedResponse)(nil),                             // 31: sip.OnCallEndedResponse
-	(*OnCallEstablishedRequest)(nil),                        // 32: sip.OnCallEstablishedRequest
-	(*OnCallEstablishedResponse)(nil),                       // 33: sip.OnCallEstablishedResponse
-	(*OnCallingRequest)(nil),                                // 34: sip.OnCallingRequest
-	(*OnCallingResponse)(nil),                               // 35: sip.OnCallingResponse
-	(*OnErrorRequest)(nil),                                  // 36: sip.OnErrorRequest
-	(*OnErrorResponse)(nil),                                 // 37: sip.OnErrorResponse
-	(*OnRegisteringRequest)(nil),                            // 38: sip.OnRegisteringRequest
-	(*OnRegisteringResponse)(nil),                           // 39: sip.OnRegisteringResponse
-	(*OnRegistrationDoneRequest)(nil),                       // 40: sip.OnRegistrationDoneRequest
-	(*OnRegistrationDoneResponse)(nil),                      // 41: sip.OnRegistrationDoneResponse
-	(*OnRegistrationFailedRequest)(nil),                     // 42: sip.OnRegistrationFailedRequest
-	(*OnRegistrationFailedResponse)(nil),                    // 43: sip.OnRegistrationFailedResponse
-	(*OnRegistrationTimeoutRequest)(nil),                    // 44: sip.OnRegistrationTimeoutRequest
-	(*OnRegistrationTimeoutResponse)(nil),                   // 45: sip.OnRegistrationTimeoutResponse
-	(*OnRingingRequest)(nil),                                // 46: sip.OnRingingRequest
-	(*OnRingingResponse)(nil),                               // 47: sip.OnRingingResponse
-	(*OnRingingBackRequest)(nil),                            // 48: sip.OnRingingBackRequest
-	(*OnRingingBackResponse)(nil),                           // 49: sip.OnRingingBackResponse
-	(*ToStringRequest)(nil),                                 // 50: sip.ToStringRequest
-	(*ToStringResponse)(nil),                                // 51: sip.ToStringResponse
-	(*CloseRequest)(nil),                                    // 52: sip.CloseRequest
-	(*CloseResponse)(nil),                                   // 53: sip.CloseResponse
-	(*CreateSipSessionRequest)(nil),                         // 54: sip.CreateSipSessionRequest
-	(*CreateSipSessionResponse)(nil),                        // 55: sip.CreateSipSessionResponse
-	(*GetSessionForRequest)(nil),                            // 56: sip.GetSessionForRequest
-	(*GetSessionForResponse)(nil),                           // 57: sip.GetSessionForResponse
-	(*IsOpenedRequest)(nil),                                 // 58: sip.IsOpenedRequest
-	(*IsOpenedResponse)(nil),                                // 59: sip.IsOpenedResponse
-	(*IsRegisteredRequest)(nil),                             // 60: sip.IsRegisteredRequest
-	(*IsRegisteredResponse)(nil),                            // 61: sip.IsRegisteredResponse
-	(*MakeAudioCall4Request)(nil),                           // 62: sip.MakeAudioCall4Request
-	(*MakeAudioCall4Response)(nil),                          // 63: sip.MakeAudioCall4Response
-	(*MakeAudioCall4_1Request)(nil),                         // 64: sip.MakeAudioCall4_1Request
-	(*MakeAudioCall4_1Response)(nil),                        // 65: sip.MakeAudioCall4_1Response
-	(*Open1Request)(nil),                                    // 66: sip.Open1Request
-	(*Open1Response)(nil),                                   // 67: sip.Open1Response
-	(*Open3_1Request)(nil),                                  // 68: sip.Open3_1Request
-	(*Open3_1Response)(nil),                                 // 69: sip.Open3_1Response
-	(*ManagerRegisterRequest)(nil),                          // 70: sip.ManagerRegisterRequest
-	(*SetRegistrationListenerRequest)(nil),                  // 71: sip.SetRegistrationListenerRequest
-	(*SetRegistrationListenerResponse)(nil),                 // 72: sip.SetRegistrationListenerResponse
-	(*TakeAudioCallRequest)(nil),                            // 73: sip.TakeAudioCallRequest
-	(*TakeAudioCallResponse)(nil),                           // 74: sip.TakeAudioCallResponse
-	(*ManagerUnregisterRequest)(nil),                        // 75: sip.ManagerUnregisterRequest
-	(*ManagerGetCallIdRequest)(nil),                         // 76: sip.ManagerGetCallIdRequest
-	(*GetOfferSessionDescriptionRequest)(nil),               // 77: sip.GetOfferSessionDescriptionRequest
-	(*GetOfferSessionDescriptionResponse)(nil),              // 78: sip.GetOfferSessionDescriptionResponse
-	(*IsApiSupportedRequest)(nil),                           // 79: sip.IsApiSupportedRequest
-	(*IsApiSupportedResponse)(nil),                          // 80: sip.IsApiSupportedResponse
-	(*IsIncomingCallIntentRequest)(nil),                     // 81: sip.IsIncomingCallIntentRequest
-	(*IsIncomingCallIntentResponse)(nil),                    // 82: sip.IsIncomingCallIntentResponse
-	(*IsSipWifiOnlyRequest)(nil),                            // 83: sip.IsSipWifiOnlyRequest
-	(*IsSipWifiOnlyResponse)(nil),                           // 84: sip.IsSipWifiOnlyResponse
-	(*IsVoipSupportedRequest)(nil),                          // 85: sip.IsVoipSupportedRequest
-	(*IsVoipSupportedResponse)(nil),                         // 86: sip.IsVoipSupportedResponse
-	(*NewInstanceRequest)(nil),                              // 87: sip.NewInstanceRequest
-	(*NewInstanceResponse)(nil),                             // 88: sip.NewInstanceResponse
-	(*NewAudioCallRequest)(nil),                             // 89: sip.NewAudioCallRequest
-	(*NewAudioCallResponse)(nil),                            // 90: sip.NewAudioCallResponse
-	(*AudioCallAnswerCallRequest)(nil),                      // 91: sip.AudioCallAnswerCallRequest
-	(*AttachCallRequest)(nil),                               // 92: sip.AttachCallRequest
-	(*AttachCallResponse)(nil),                              // 93: sip.AttachCallResponse
-	(*AudioCallCloseRequest)(nil),                           // 94: sip.AudioCallCloseRequest
-	(*ContinueCallRequest)(nil),                             // 95: sip.ContinueCallRequest
-	(*ContinueCallResponse)(nil),                            // 96: sip.ContinueCallResponse
-	(*AudioCallEndCallRequest)(nil),                         // 97: sip.AudioCallEndCallRequest
-	(*AudioCallGetLocalProfileRequest)(nil),                 // 98: sip.AudioCallGetLocalProfileRequest
-	(*AudioCallGetPeerProfileRequest)(nil),                  // 99: sip.AudioCallGetPeerProfileRequest
-	(*AudioCallGetStateRequest)(nil),                        // 100: sip.AudioCallGetStateRequest
-	(*HoldCallRequest)(nil),                                 // 101: sip.HoldCallRequest
-	(*HoldCallResponse)(nil),                                // 102: sip.HoldCallResponse
-	(*AudioCallIsInCallRequest)(nil),                        // 103: sip.AudioCallIsInCallRequest
-	(*IsMutedRequest)(nil),                                  // 104: sip.IsMutedRequest
-	(*IsMutedResponse)(nil),                                 // 105: sip.IsMutedResponse
-	(*IsOnHoldRequest)(nil),                                 // 106: sip.IsOnHoldRequest
-	(*IsOnHoldResponse)(nil),                                // 107: sip.IsOnHoldResponse
-	(*AudioCallMakeCallRequest)(nil),                        // 108: sip.AudioCallMakeCallRequest
-	(*SendDtmf1Request)(nil),                                // 109: sip.SendDtmf1Request
-	(*SendDtmf1Response)(nil),                               // 110: sip.SendDtmf1Response
-	(*SendDtmf2_1Request)(nil),                              // 111: sip.SendDtmf2_1Request
-	(*SendDtmf2_1Response)(nil),                             // 112: sip.SendDtmf2_1Response
-	(*SetListener1Request)(nil),                             // 113: sip.SetListener1Request
-	(*SetListener1Response)(nil),                            // 114: sip.SetListener1Response
-	(*SetListener2_1Request)(nil),                           // 115: sip.SetListener2_1Request
-	(*SetListener2_1Response)(nil),                          // 116: sip.SetListener2_1Response
-	(*SetSpeakerModeRequest)(nil),                           // 117: sip.SetSpeakerModeRequest
-	(*SetSpeakerModeResponse)(nil),                          // 118: sip.SetSpeakerModeResponse
-	(*StartAudioRequest)(nil),                               // 119: sip.StartAudioRequest
-	(*StartAudioResponse)(nil),                              // 120: sip.StartAudioResponse
-	(*ToggleMuteRequest)(nil),                               // 121: sip.ToggleMuteRequest
-	(*ToggleMuteResponse)(nil),                              // 122: sip.ToggleMuteResponse
-	(*AudioCallListenerOnCallEstablishedRequest)(nil),       // 123: sip.AudioCallListenerOnCallEstablishedRequest
-	(*OnCallHeldRequest)(nil),                               // 124: sip.OnCallHeldRequest
-	(*OnCallHeldResponse)(nil),                              // 125: sip.OnCallHeldResponse
-	(*OnChangedRequest)(nil),                                // 126: sip.OnChangedRequest
-	(*OnChangedResponse)(nil),                               // 127: sip.OnChangedResponse
-	(*OnReadyToCallRequest)(nil),                            // 128: sip.OnReadyToCallRequest
-	(*OnReadyToCallResponse)(nil),                           // 129: sip.OnReadyToCallResponse
-	(*AudioCallListenerOnRingingRequest)(nil),               // 130: sip.AudioCallListenerOnRingingRequest
-	(*RegistrationListenerOnRegisteringRequest)(nil),        // 131: sip.RegistrationListenerOnRegisteringRequest
-	(*RegistrationListenerOnRegistrationDoneRequest)(nil),   // 132: sip.RegistrationListenerOnRegistrationDoneRequest
-	(*RegistrationListenerOnRegistrationFailedRequest)(nil), // 133: sip.RegistrationListenerOnRegistrationFailedRequest
-	(*DescribeContentsRequest)(nil),                         // 134: sip.DescribeContentsRequest
-	(*DescribeContentsResponse)(nil),                        // 135: sip.DescribeContentsResponse
-	(*GetAuthUserNameRequest)(nil),                          // 136: sip.GetAuthUserNameRequest
-	(*GetAuthUserNameResponse)(nil),                         // 137: sip.GetAuthUserNameResponse
-	(*GetAutoRegistrationRequest)(nil),                      // 138: sip.GetAutoRegistrationRequest
-	(*GetAutoRegistrationResponse)(nil),                     // 139: sip.GetAutoRegistrationResponse
-	(*GetDisplayNameRequest)(nil),                           // 140: sip.GetDisplayNameRequest
-	(*GetDisplayNameResponse)(nil),                          // 141: sip.GetDisplayNameResponse
-	(*GetPasswordRequest)(nil),                              // 142: sip.GetPasswordRequest
-	(*GetPasswordResponse)(nil),                             // 143: sip.GetPasswordResponse
-	(*GetPortRequest)(nil),                                  // 144: sip.GetPortRequest
-	(*GetPortResponse)(nil),                                 // 145: sip.GetPortResponse
-	(*GetProfileNameRequest)(nil),                           // 146: sip.GetProfileNameRequest
-	(*GetProfileNameResponse)(nil),                          // 147: sip.GetProfileNameResponse
-	(*GetProtocolRequest)(nil),                              // 148: sip.GetProtocolRequest
-	(*GetProtocolResponse)(nil),                             // 149: sip.GetProtocolResponse
-	(*GetProxyAddressRequest)(nil),                          // 150: sip.GetProxyAddressRequest
-	(*GetProxyAddressResponse)(nil),                         // 151: sip.GetProxyAddressResponse
-	(*GetSendKeepAliveRequest)(nil),                         // 152: sip.GetSendKeepAliveRequest
-	(*GetSendKeepAliveResponse)(nil),                        // 153: sip.GetSendKeepAliveResponse
-	(*GetSipDomainRequest)(nil),                             // 154: sip.GetSipDomainRequest
-	(*GetSipDomainResponse)(nil),                            // 155: sip.GetSipDomainResponse
-	(*GetUriStringRequest)(nil),                             // 156: sip.GetUriStringRequest
-	(*GetUriStringResponse)(nil),                            // 157: sip.GetUriStringResponse
-	(*GetUserNameRequest)(nil),                              // 158: sip.GetUserNameRequest
-	(*GetUserNameResponse)(nil),                             // 159: sip.GetUserNameResponse
-	(*SetCallingUidRequest)(nil),                            // 160: sip.SetCallingUidRequest
-	(*SetCallingUidResponse)(nil),                           // 161: sip.SetCallingUidResponse
-	(*WriteToParcelRequest)(nil),                            // 162: sip.WriteToParcelRequest
-	(*WriteToParcelResponse)(nil),                           // 163: sip.WriteToParcelResponse
-	(*BuildRequest)(nil),                                    // 164: sip.BuildRequest
-	(*BuildResponse)(nil),                                   // 165: sip.BuildResponse
-	(*SetAuthUserNameRequest)(nil),                          // 166: sip.SetAuthUserNameRequest
-	(*SetAuthUserNameResponse)(nil),                         // 167: sip.SetAuthUserNameResponse
-	(*SetAutoRegistrationRequest)(nil),                      // 168: sip.SetAutoRegistrationRequest
-	(*SetAutoRegistrationResponse)(nil),                     // 169: sip.SetAutoRegistrationResponse
-	(*SetDisplayNameRequest)(nil),                           // 170: sip.SetDisplayNameRequest
-	(*SetDisplayNameResponse)(nil),                          // 171: sip.SetDisplayNameResponse
-	(*SetOutboundProxyRequest)(nil),                         // 172: sip.SetOutboundProxyRequest
-	(*SetOutboundProxyResponse)(nil),                        // 173: sip.SetOutboundProxyResponse
-	(*SetPasswordRequest)(nil),                              // 174: sip.SetPasswordRequest
-	(*SetPasswordResponse)(nil),                             // 175: sip.SetPasswordResponse
-	(*SetPortRequest)(nil),                                  // 176: sip.SetPortRequest
-	(*SetPortResponse)(nil),                                 // 177: sip.SetPortResponse
-	(*SetProfileNameRequest)(nil),                           // 178: sip.SetProfileNameRequest
-	(*SetProfileNameResponse)(nil),                          // 179: sip.SetProfileNameResponse
-	(*SetProtocolRequest)(nil),                              // 180: sip.SetProtocolRequest
-	(*SetProtocolResponse)(nil),                             // 181: sip.SetProtocolResponse
-	(*SetSendKeepAliveRequest)(nil),                         // 182: sip.SetSendKeepAliveRequest
-	(*SetSendKeepAliveResponse)(nil),                        // 183: sip.SetSendKeepAliveResponse
+	(*DescribeContentsRequest)(nil),                    // 0: sip.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),                   // 1: sip.DescribeContentsResponse
+	(*GetAuthUserNameRequest)(nil),                     // 2: sip.GetAuthUserNameRequest
+	(*GetAuthUserNameResponse)(nil),                    // 3: sip.GetAuthUserNameResponse
+	(*GetAutoRegistrationRequest)(nil),                 // 4: sip.GetAutoRegistrationRequest
+	(*GetAutoRegistrationResponse)(nil),                // 5: sip.GetAutoRegistrationResponse
+	(*GetDisplayNameRequest)(nil),                      // 6: sip.GetDisplayNameRequest
+	(*GetDisplayNameResponse)(nil),                     // 7: sip.GetDisplayNameResponse
+	(*GetPasswordRequest)(nil),                         // 8: sip.GetPasswordRequest
+	(*GetPasswordResponse)(nil),                        // 9: sip.GetPasswordResponse
+	(*GetPortRequest)(nil),                             // 10: sip.GetPortRequest
+	(*GetPortResponse)(nil),                            // 11: sip.GetPortResponse
+	(*GetProfileNameRequest)(nil),                      // 12: sip.GetProfileNameRequest
+	(*GetProfileNameResponse)(nil),                     // 13: sip.GetProfileNameResponse
+	(*GetProtocolRequest)(nil),                         // 14: sip.GetProtocolRequest
+	(*GetProtocolResponse)(nil),                        // 15: sip.GetProtocolResponse
+	(*GetProxyAddressRequest)(nil),                     // 16: sip.GetProxyAddressRequest
+	(*GetProxyAddressResponse)(nil),                    // 17: sip.GetProxyAddressResponse
+	(*GetSendKeepAliveRequest)(nil),                    // 18: sip.GetSendKeepAliveRequest
+	(*GetSendKeepAliveResponse)(nil),                   // 19: sip.GetSendKeepAliveResponse
+	(*GetSipDomainRequest)(nil),                        // 20: sip.GetSipDomainRequest
+	(*GetSipDomainResponse)(nil),                       // 21: sip.GetSipDomainResponse
+	(*GetUriStringRequest)(nil),                        // 22: sip.GetUriStringRequest
+	(*GetUriStringResponse)(nil),                       // 23: sip.GetUriStringResponse
+	(*GetUserNameRequest)(nil),                         // 24: sip.GetUserNameRequest
+	(*GetUserNameResponse)(nil),                        // 25: sip.GetUserNameResponse
+	(*SetCallingUidRequest)(nil),                       // 26: sip.SetCallingUidRequest
+	(*SetCallingUidResponse)(nil),                      // 27: sip.SetCallingUidResponse
+	(*WriteToParcelRequest)(nil),                       // 28: sip.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                      // 29: sip.WriteToParcelResponse
+	(*BuildRequest)(nil),                               // 30: sip.BuildRequest
+	(*BuildResponse)(nil),                              // 31: sip.BuildResponse
+	(*SetAuthUserNameRequest)(nil),                     // 32: sip.SetAuthUserNameRequest
+	(*SetAuthUserNameResponse)(nil),                    // 33: sip.SetAuthUserNameResponse
+	(*SetAutoRegistrationRequest)(nil),                 // 34: sip.SetAutoRegistrationRequest
+	(*SetAutoRegistrationResponse)(nil),                // 35: sip.SetAutoRegistrationResponse
+	(*SetDisplayNameRequest)(nil),                      // 36: sip.SetDisplayNameRequest
+	(*SetDisplayNameResponse)(nil),                     // 37: sip.SetDisplayNameResponse
+	(*SetOutboundProxyRequest)(nil),                    // 38: sip.SetOutboundProxyRequest
+	(*SetOutboundProxyResponse)(nil),                   // 39: sip.SetOutboundProxyResponse
+	(*SetPasswordRequest)(nil),                         // 40: sip.SetPasswordRequest
+	(*SetPasswordResponse)(nil),                        // 41: sip.SetPasswordResponse
+	(*SetPortRequest)(nil),                             // 42: sip.SetPortRequest
+	(*SetPortResponse)(nil),                            // 43: sip.SetPortResponse
+	(*SetProfileNameRequest)(nil),                      // 44: sip.SetProfileNameRequest
+	(*SetProfileNameResponse)(nil),                     // 45: sip.SetProfileNameResponse
+	(*SetProtocolRequest)(nil),                         // 46: sip.SetProtocolRequest
+	(*SetProtocolResponse)(nil),                        // 47: sip.SetProtocolResponse
+	(*SetSendKeepAliveRequest)(nil),                    // 48: sip.SetSendKeepAliveRequest
+	(*SetSendKeepAliveResponse)(nil),                   // 49: sip.SetSendKeepAliveResponse
+	(*OnRegisteringRequest)(nil),                       // 50: sip.OnRegisteringRequest
+	(*OnRegisteringResponse)(nil),                      // 51: sip.OnRegisteringResponse
+	(*OnRegistrationDoneRequest)(nil),                  // 52: sip.OnRegistrationDoneRequest
+	(*OnRegistrationDoneResponse)(nil),                 // 53: sip.OnRegistrationDoneResponse
+	(*OnRegistrationFailedRequest)(nil),                // 54: sip.OnRegistrationFailedRequest
+	(*OnRegistrationFailedResponse)(nil),               // 55: sip.OnRegistrationFailedResponse
+	(*NewAudioCallRequest)(nil),                        // 56: sip.NewAudioCallRequest
+	(*NewAudioCallResponse)(nil),                       // 57: sip.NewAudioCallResponse
+	(*AnswerCallRequest)(nil),                          // 58: sip.AnswerCallRequest
+	(*AnswerCallResponse)(nil),                         // 59: sip.AnswerCallResponse
+	(*AttachCallRequest)(nil),                          // 60: sip.AttachCallRequest
+	(*AttachCallResponse)(nil),                         // 61: sip.AttachCallResponse
+	(*CloseRequest)(nil),                               // 62: sip.CloseRequest
+	(*CloseResponse)(nil),                              // 63: sip.CloseResponse
+	(*ContinueCallRequest)(nil),                        // 64: sip.ContinueCallRequest
+	(*ContinueCallResponse)(nil),                       // 65: sip.ContinueCallResponse
+	(*EndCallRequest)(nil),                             // 66: sip.EndCallRequest
+	(*EndCallResponse)(nil),                            // 67: sip.EndCallResponse
+	(*GetLocalProfileRequest)(nil),                     // 68: sip.GetLocalProfileRequest
+	(*GetLocalProfileResponse)(nil),                    // 69: sip.GetLocalProfileResponse
+	(*GetPeerProfileRequest)(nil),                      // 70: sip.GetPeerProfileRequest
+	(*GetPeerProfileResponse)(nil),                     // 71: sip.GetPeerProfileResponse
+	(*GetStateRequest)(nil),                            // 72: sip.GetStateRequest
+	(*GetStateResponse)(nil),                           // 73: sip.GetStateResponse
+	(*HoldCallRequest)(nil),                            // 74: sip.HoldCallRequest
+	(*HoldCallResponse)(nil),                           // 75: sip.HoldCallResponse
+	(*IsInCallRequest)(nil),                            // 76: sip.IsInCallRequest
+	(*IsInCallResponse)(nil),                           // 77: sip.IsInCallResponse
+	(*IsMutedRequest)(nil),                             // 78: sip.IsMutedRequest
+	(*IsMutedResponse)(nil),                            // 79: sip.IsMutedResponse
+	(*IsOnHoldRequest)(nil),                            // 80: sip.IsOnHoldRequest
+	(*IsOnHoldResponse)(nil),                           // 81: sip.IsOnHoldResponse
+	(*MakeCallRequest)(nil),                            // 82: sip.MakeCallRequest
+	(*MakeCallResponse)(nil),                           // 83: sip.MakeCallResponse
+	(*SendDtmf1Request)(nil),                           // 84: sip.SendDtmf1Request
+	(*SendDtmf1Response)(nil),                          // 85: sip.SendDtmf1Response
+	(*SendDtmf2_1Request)(nil),                         // 86: sip.SendDtmf2_1Request
+	(*SendDtmf2_1Response)(nil),                        // 87: sip.SendDtmf2_1Response
+	(*SetListener1Request)(nil),                        // 88: sip.SetListener1Request
+	(*SetListener1Response)(nil),                       // 89: sip.SetListener1Response
+	(*SetListener2_1Request)(nil),                      // 90: sip.SetListener2_1Request
+	(*SetListener2_1Response)(nil),                     // 91: sip.SetListener2_1Response
+	(*SetSpeakerModeRequest)(nil),                      // 92: sip.SetSpeakerModeRequest
+	(*SetSpeakerModeResponse)(nil),                     // 93: sip.SetSpeakerModeResponse
+	(*StartAudioRequest)(nil),                          // 94: sip.StartAudioRequest
+	(*StartAudioResponse)(nil),                         // 95: sip.StartAudioResponse
+	(*ToggleMuteRequest)(nil),                          // 96: sip.ToggleMuteRequest
+	(*ToggleMuteResponse)(nil),                         // 97: sip.ToggleMuteResponse
+	(*OnCallBusyRequest)(nil),                          // 98: sip.OnCallBusyRequest
+	(*OnCallBusyResponse)(nil),                         // 99: sip.OnCallBusyResponse
+	(*OnCallEndedRequest)(nil),                         // 100: sip.OnCallEndedRequest
+	(*OnCallEndedResponse)(nil),                        // 101: sip.OnCallEndedResponse
+	(*OnCallEstablishedRequest)(nil),                   // 102: sip.OnCallEstablishedRequest
+	(*OnCallEstablishedResponse)(nil),                  // 103: sip.OnCallEstablishedResponse
+	(*OnCallHeldRequest)(nil),                          // 104: sip.OnCallHeldRequest
+	(*OnCallHeldResponse)(nil),                         // 105: sip.OnCallHeldResponse
+	(*OnCallingRequest)(nil),                           // 106: sip.OnCallingRequest
+	(*OnCallingResponse)(nil),                          // 107: sip.OnCallingResponse
+	(*OnChangedRequest)(nil),                           // 108: sip.OnChangedRequest
+	(*OnChangedResponse)(nil),                          // 109: sip.OnChangedResponse
+	(*OnErrorRequest)(nil),                             // 110: sip.OnErrorRequest
+	(*OnErrorResponse)(nil),                            // 111: sip.OnErrorResponse
+	(*OnReadyToCallRequest)(nil),                       // 112: sip.OnReadyToCallRequest
+	(*OnReadyToCallResponse)(nil),                      // 113: sip.OnReadyToCallResponse
+	(*OnRingingRequest)(nil),                           // 114: sip.OnRingingRequest
+	(*OnRingingResponse)(nil),                          // 115: sip.OnRingingResponse
+	(*OnRingingBackRequest)(nil),                       // 116: sip.OnRingingBackRequest
+	(*OnRingingBackResponse)(nil),                      // 117: sip.OnRingingBackResponse
+	(*SessionAnswerCallRequest)(nil),                   // 118: sip.SessionAnswerCallRequest
+	(*ChangeCallRequest)(nil),                          // 119: sip.ChangeCallRequest
+	(*ChangeCallResponse)(nil),                         // 120: sip.ChangeCallResponse
+	(*SessionEndCallRequest)(nil),                      // 121: sip.SessionEndCallRequest
+	(*GetCallIdRequest)(nil),                           // 122: sip.GetCallIdRequest
+	(*GetCallIdResponse)(nil),                          // 123: sip.GetCallIdResponse
+	(*GetLocalIpRequest)(nil),                          // 124: sip.GetLocalIpRequest
+	(*GetLocalIpResponse)(nil),                         // 125: sip.GetLocalIpResponse
+	(*SessionGetLocalProfileRequest)(nil),              // 126: sip.SessionGetLocalProfileRequest
+	(*SessionGetPeerProfileRequest)(nil),               // 127: sip.SessionGetPeerProfileRequest
+	(*SessionGetStateRequest)(nil),                     // 128: sip.SessionGetStateRequest
+	(*SessionIsInCallRequest)(nil),                     // 129: sip.SessionIsInCallRequest
+	(*SessionMakeCallRequest)(nil),                     // 130: sip.SessionMakeCallRequest
+	(*RegisterRequest)(nil),                            // 131: sip.RegisterRequest
+	(*RegisterResponse)(nil),                           // 132: sip.RegisterResponse
+	(*SetListenerRequest)(nil),                         // 133: sip.SetListenerRequest
+	(*SetListenerResponse)(nil),                        // 134: sip.SetListenerResponse
+	(*UnregisterRequest)(nil),                          // 135: sip.UnregisterRequest
+	(*UnregisterResponse)(nil),                         // 136: sip.UnregisterResponse
+	(*OnCallChangeFailedRequest)(nil),                  // 137: sip.OnCallChangeFailedRequest
+	(*OnCallChangeFailedResponse)(nil),                 // 138: sip.OnCallChangeFailedResponse
+	(*SessionListenerOnCallEstablishedRequest)(nil),    // 139: sip.SessionListenerOnCallEstablishedRequest
+	(*SessionListenerOnRegisteringRequest)(nil),        // 140: sip.SessionListenerOnRegisteringRequest
+	(*SessionListenerOnRegistrationDoneRequest)(nil),   // 141: sip.SessionListenerOnRegistrationDoneRequest
+	(*SessionListenerOnRegistrationFailedRequest)(nil), // 142: sip.SessionListenerOnRegistrationFailedRequest
+	(*OnRegistrationTimeoutRequest)(nil),               // 143: sip.OnRegistrationTimeoutRequest
+	(*OnRegistrationTimeoutResponse)(nil),              // 144: sip.OnRegistrationTimeoutResponse
+	(*SessionListenerOnRingingRequest)(nil),            // 145: sip.SessionListenerOnRingingRequest
+	(*ToStringRequest)(nil),                            // 146: sip.ToStringRequest
+	(*ToStringResponse)(nil),                           // 147: sip.ToStringResponse
+	(*ManagerCloseRequest)(nil),                        // 148: sip.ManagerCloseRequest
+	(*CreateSipSessionRequest)(nil),                    // 149: sip.CreateSipSessionRequest
+	(*CreateSipSessionResponse)(nil),                   // 150: sip.CreateSipSessionResponse
+	(*GetSessionForRequest)(nil),                       // 151: sip.GetSessionForRequest
+	(*GetSessionForResponse)(nil),                      // 152: sip.GetSessionForResponse
+	(*IsOpenedRequest)(nil),                            // 153: sip.IsOpenedRequest
+	(*IsOpenedResponse)(nil),                           // 154: sip.IsOpenedResponse
+	(*IsRegisteredRequest)(nil),                        // 155: sip.IsRegisteredRequest
+	(*IsRegisteredResponse)(nil),                       // 156: sip.IsRegisteredResponse
+	(*MakeAudioCall4Request)(nil),                      // 157: sip.MakeAudioCall4Request
+	(*MakeAudioCall4Response)(nil),                     // 158: sip.MakeAudioCall4Response
+	(*MakeAudioCall4_1Request)(nil),                    // 159: sip.MakeAudioCall4_1Request
+	(*MakeAudioCall4_1Response)(nil),                   // 160: sip.MakeAudioCall4_1Response
+	(*Open1Request)(nil),                               // 161: sip.Open1Request
+	(*Open1Response)(nil),                              // 162: sip.Open1Response
+	(*Open3_1Request)(nil),                             // 163: sip.Open3_1Request
+	(*Open3_1Response)(nil),                            // 164: sip.Open3_1Response
+	(*ManagerRegisterRequest)(nil),                     // 165: sip.ManagerRegisterRequest
+	(*SetRegistrationListenerRequest)(nil),             // 166: sip.SetRegistrationListenerRequest
+	(*SetRegistrationListenerResponse)(nil),            // 167: sip.SetRegistrationListenerResponse
+	(*TakeAudioCallRequest)(nil),                       // 168: sip.TakeAudioCallRequest
+	(*TakeAudioCallResponse)(nil),                      // 169: sip.TakeAudioCallResponse
+	(*ManagerUnregisterRequest)(nil),                   // 170: sip.ManagerUnregisterRequest
+	(*ManagerGetCallIdRequest)(nil),                    // 171: sip.ManagerGetCallIdRequest
+	(*GetOfferSessionDescriptionRequest)(nil),          // 172: sip.GetOfferSessionDescriptionRequest
+	(*GetOfferSessionDescriptionResponse)(nil),         // 173: sip.GetOfferSessionDescriptionResponse
+	(*IsApiSupportedRequest)(nil),                      // 174: sip.IsApiSupportedRequest
+	(*IsApiSupportedResponse)(nil),                     // 175: sip.IsApiSupportedResponse
+	(*IsIncomingCallIntentRequest)(nil),                // 176: sip.IsIncomingCallIntentRequest
+	(*IsIncomingCallIntentResponse)(nil),               // 177: sip.IsIncomingCallIntentResponse
+	(*IsSipWifiOnlyRequest)(nil),                       // 178: sip.IsSipWifiOnlyRequest
+	(*IsSipWifiOnlyResponse)(nil),                      // 179: sip.IsSipWifiOnlyResponse
+	(*IsVoipSupportedRequest)(nil),                     // 180: sip.IsVoipSupportedRequest
+	(*IsVoipSupportedResponse)(nil),                    // 181: sip.IsVoipSupportedResponse
+	(*NewInstanceRequest)(nil),                         // 182: sip.NewInstanceRequest
+	(*NewInstanceResponse)(nil),                        // 183: sip.NewInstanceResponse
 }
 var file_proto_sip_sip_proto_depIdxs = []int32{
-	0,   // 0: sip.SessionService.AnswerCall:input_type -> sip.AnswerCallRequest
-	2,   // 1: sip.SessionService.ChangeCall:input_type -> sip.ChangeCallRequest
-	4,   // 2: sip.SessionService.EndCall:input_type -> sip.EndCallRequest
-	6,   // 3: sip.SessionService.GetCallId:input_type -> sip.GetCallIdRequest
-	8,   // 4: sip.SessionService.GetLocalIp:input_type -> sip.GetLocalIpRequest
-	10,  // 5: sip.SessionService.GetLocalProfile:input_type -> sip.GetLocalProfileRequest
-	12,  // 6: sip.SessionService.GetPeerProfile:input_type -> sip.GetPeerProfileRequest
-	14,  // 7: sip.SessionService.GetState:input_type -> sip.GetStateRequest
-	16,  // 8: sip.SessionService.IsInCall:input_type -> sip.IsInCallRequest
-	18,  // 9: sip.SessionService.MakeCall:input_type -> sip.MakeCallRequest
-	20,  // 10: sip.SessionService.Register:input_type -> sip.RegisterRequest
-	22,  // 11: sip.SessionService.SetListener:input_type -> sip.SetListenerRequest
-	24,  // 12: sip.SessionService.Unregister:input_type -> sip.UnregisterRequest
-	26,  // 13: sip.SessionListenerService.OnCallBusy:input_type -> sip.OnCallBusyRequest
-	28,  // 14: sip.SessionListenerService.OnCallChangeFailed:input_type -> sip.OnCallChangeFailedRequest
-	30,  // 15: sip.SessionListenerService.OnCallEnded:input_type -> sip.OnCallEndedRequest
-	32,  // 16: sip.SessionListenerService.OnCallEstablished:input_type -> sip.OnCallEstablishedRequest
-	34,  // 17: sip.SessionListenerService.OnCalling:input_type -> sip.OnCallingRequest
-	36,  // 18: sip.SessionListenerService.OnError:input_type -> sip.OnErrorRequest
-	38,  // 19: sip.SessionListenerService.OnRegistering:input_type -> sip.OnRegisteringRequest
-	40,  // 20: sip.SessionListenerService.OnRegistrationDone:input_type -> sip.OnRegistrationDoneRequest
-	42,  // 21: sip.SessionListenerService.OnRegistrationFailed:input_type -> sip.OnRegistrationFailedRequest
-	44,  // 22: sip.SessionListenerService.OnRegistrationTimeout:input_type -> sip.OnRegistrationTimeoutRequest
-	46,  // 23: sip.SessionListenerService.OnRinging:input_type -> sip.OnRingingRequest
-	48,  // 24: sip.SessionListenerService.OnRingingBack:input_type -> sip.OnRingingBackRequest
-	50,  // 25: sip.SessionStateService.ToString:input_type -> sip.ToStringRequest
-	52,  // 26: sip.ManagerService.Close:input_type -> sip.CloseRequest
-	54,  // 27: sip.ManagerService.CreateSipSession:input_type -> sip.CreateSipSessionRequest
-	56,  // 28: sip.ManagerService.GetSessionFor:input_type -> sip.GetSessionForRequest
-	58,  // 29: sip.ManagerService.IsOpened:input_type -> sip.IsOpenedRequest
-	60,  // 30: sip.ManagerService.IsRegistered:input_type -> sip.IsRegisteredRequest
-	62,  // 31: sip.ManagerService.MakeAudioCall4:input_type -> sip.MakeAudioCall4Request
-	64,  // 32: sip.ManagerService.MakeAudioCall4_1:input_type -> sip.MakeAudioCall4_1Request
-	66,  // 33: sip.ManagerService.Open1:input_type -> sip.Open1Request
-	68,  // 34: sip.ManagerService.Open3_1:input_type -> sip.Open3_1Request
-	70,  // 35: sip.ManagerService.Register:input_type -> sip.ManagerRegisterRequest
-	71,  // 36: sip.ManagerService.SetRegistrationListener:input_type -> sip.SetRegistrationListenerRequest
-	73,  // 37: sip.ManagerService.TakeAudioCall:input_type -> sip.TakeAudioCallRequest
-	75,  // 38: sip.ManagerService.Unregister:input_type -> sip.ManagerUnregisterRequest
-	76,  // 39: sip.ManagerService.GetCallId:input_type -> sip.ManagerGetCallIdRequest
-	77,  // 40: sip.ManagerService.GetOfferSessionDescription:input_type -> sip.GetOfferSessionDescriptionRequest
-	79,  // 41: sip.ManagerService.IsApiSupported:input_type -> sip.IsApiSupportedRequest
-	81,  // 42: sip.ManagerService.IsIncomingCallIntent:input_type -> sip.IsIncomingCallIntentRequest
-	83,  // 43: sip.ManagerService.IsSipWifiOnly:input_type -> sip.IsSipWifiOnlyRequest
-	85,  // 44: sip.ManagerService.IsVoipSupported:input_type -> sip.IsVoipSupportedRequest
-	87,  // 45: sip.ManagerService.NewInstance:input_type -> sip.NewInstanceRequest
-	89,  // 46: sip.AudioCallService.NewAudioCall:input_type -> sip.NewAudioCallRequest
-	91,  // 47: sip.AudioCallService.AnswerCall:input_type -> sip.AudioCallAnswerCallRequest
-	92,  // 48: sip.AudioCallService.AttachCall:input_type -> sip.AttachCallRequest
-	94,  // 49: sip.AudioCallService.Close:input_type -> sip.AudioCallCloseRequest
-	95,  // 50: sip.AudioCallService.ContinueCall:input_type -> sip.ContinueCallRequest
-	97,  // 51: sip.AudioCallService.EndCall:input_type -> sip.AudioCallEndCallRequest
-	98,  // 52: sip.AudioCallService.GetLocalProfile:input_type -> sip.AudioCallGetLocalProfileRequest
-	99,  // 53: sip.AudioCallService.GetPeerProfile:input_type -> sip.AudioCallGetPeerProfileRequest
-	100, // 54: sip.AudioCallService.GetState:input_type -> sip.AudioCallGetStateRequest
-	101, // 55: sip.AudioCallService.HoldCall:input_type -> sip.HoldCallRequest
-	103, // 56: sip.AudioCallService.IsInCall:input_type -> sip.AudioCallIsInCallRequest
-	104, // 57: sip.AudioCallService.IsMuted:input_type -> sip.IsMutedRequest
-	106, // 58: sip.AudioCallService.IsOnHold:input_type -> sip.IsOnHoldRequest
-	108, // 59: sip.AudioCallService.MakeCall:input_type -> sip.AudioCallMakeCallRequest
-	109, // 60: sip.AudioCallService.SendDtmf1:input_type -> sip.SendDtmf1Request
-	111, // 61: sip.AudioCallService.SendDtmf2_1:input_type -> sip.SendDtmf2_1Request
-	113, // 62: sip.AudioCallService.SetListener1:input_type -> sip.SetListener1Request
-	115, // 63: sip.AudioCallService.SetListener2_1:input_type -> sip.SetListener2_1Request
-	117, // 64: sip.AudioCallService.SetSpeakerMode:input_type -> sip.SetSpeakerModeRequest
-	119, // 65: sip.AudioCallService.StartAudio:input_type -> sip.StartAudioRequest
-	121, // 66: sip.AudioCallService.ToggleMute:input_type -> sip.ToggleMuteRequest
-	26,  // 67: sip.AudioCallListenerService.OnCallBusy:input_type -> sip.OnCallBusyRequest
-	30,  // 68: sip.AudioCallListenerService.OnCallEnded:input_type -> sip.OnCallEndedRequest
-	123, // 69: sip.AudioCallListenerService.OnCallEstablished:input_type -> sip.AudioCallListenerOnCallEstablishedRequest
-	124, // 70: sip.AudioCallListenerService.OnCallHeld:input_type -> sip.OnCallHeldRequest
-	34,  // 71: sip.AudioCallListenerService.OnCalling:input_type -> sip.OnCallingRequest
-	126, // 72: sip.AudioCallListenerService.OnChanged:input_type -> sip.OnChangedRequest
-	36,  // 73: sip.AudioCallListenerService.OnError:input_type -> sip.OnErrorRequest
-	128, // 74: sip.AudioCallListenerService.OnReadyToCall:input_type -> sip.OnReadyToCallRequest
-	130, // 75: sip.AudioCallListenerService.OnRinging:input_type -> sip.AudioCallListenerOnRingingRequest
-	48,  // 76: sip.AudioCallListenerService.OnRingingBack:input_type -> sip.OnRingingBackRequest
-	131, // 77: sip.RegistrationListenerService.OnRegistering:input_type -> sip.RegistrationListenerOnRegisteringRequest
-	132, // 78: sip.RegistrationListenerService.OnRegistrationDone:input_type -> sip.RegistrationListenerOnRegistrationDoneRequest
-	133, // 79: sip.RegistrationListenerService.OnRegistrationFailed:input_type -> sip.RegistrationListenerOnRegistrationFailedRequest
-	134, // 80: sip.ProfileService.DescribeContents:input_type -> sip.DescribeContentsRequest
-	136, // 81: sip.ProfileService.GetAuthUserName:input_type -> sip.GetAuthUserNameRequest
-	138, // 82: sip.ProfileService.GetAutoRegistration:input_type -> sip.GetAutoRegistrationRequest
-	140, // 83: sip.ProfileService.GetDisplayName:input_type -> sip.GetDisplayNameRequest
-	142, // 84: sip.ProfileService.GetPassword:input_type -> sip.GetPasswordRequest
-	144, // 85: sip.ProfileService.GetPort:input_type -> sip.GetPortRequest
-	146, // 86: sip.ProfileService.GetProfileName:input_type -> sip.GetProfileNameRequest
-	148, // 87: sip.ProfileService.GetProtocol:input_type -> sip.GetProtocolRequest
-	150, // 88: sip.ProfileService.GetProxyAddress:input_type -> sip.GetProxyAddressRequest
-	152, // 89: sip.ProfileService.GetSendKeepAlive:input_type -> sip.GetSendKeepAliveRequest
-	154, // 90: sip.ProfileService.GetSipDomain:input_type -> sip.GetSipDomainRequest
-	156, // 91: sip.ProfileService.GetUriString:input_type -> sip.GetUriStringRequest
-	158, // 92: sip.ProfileService.GetUserName:input_type -> sip.GetUserNameRequest
-	160, // 93: sip.ProfileService.SetCallingUid:input_type -> sip.SetCallingUidRequest
-	162, // 94: sip.ProfileService.WriteToParcel:input_type -> sip.WriteToParcelRequest
-	164, // 95: sip.ProfileBuilderService.Build:input_type -> sip.BuildRequest
-	166, // 96: sip.ProfileBuilderService.SetAuthUserName:input_type -> sip.SetAuthUserNameRequest
-	168, // 97: sip.ProfileBuilderService.SetAutoRegistration:input_type -> sip.SetAutoRegistrationRequest
-	170, // 98: sip.ProfileBuilderService.SetDisplayName:input_type -> sip.SetDisplayNameRequest
-	172, // 99: sip.ProfileBuilderService.SetOutboundProxy:input_type -> sip.SetOutboundProxyRequest
-	174, // 100: sip.ProfileBuilderService.SetPassword:input_type -> sip.SetPasswordRequest
-	176, // 101: sip.ProfileBuilderService.SetPort:input_type -> sip.SetPortRequest
-	178, // 102: sip.ProfileBuilderService.SetProfileName:input_type -> sip.SetProfileNameRequest
-	180, // 103: sip.ProfileBuilderService.SetProtocol:input_type -> sip.SetProtocolRequest
-	182, // 104: sip.ProfileBuilderService.SetSendKeepAlive:input_type -> sip.SetSendKeepAliveRequest
-	50,  // 105: sip.ErrorCodeService.ToString:input_type -> sip.ToStringRequest
-	1,   // 106: sip.SessionService.AnswerCall:output_type -> sip.AnswerCallResponse
-	3,   // 107: sip.SessionService.ChangeCall:output_type -> sip.ChangeCallResponse
-	5,   // 108: sip.SessionService.EndCall:output_type -> sip.EndCallResponse
-	7,   // 109: sip.SessionService.GetCallId:output_type -> sip.GetCallIdResponse
-	9,   // 110: sip.SessionService.GetLocalIp:output_type -> sip.GetLocalIpResponse
-	11,  // 111: sip.SessionService.GetLocalProfile:output_type -> sip.GetLocalProfileResponse
-	13,  // 112: sip.SessionService.GetPeerProfile:output_type -> sip.GetPeerProfileResponse
-	15,  // 113: sip.SessionService.GetState:output_type -> sip.GetStateResponse
-	17,  // 114: sip.SessionService.IsInCall:output_type -> sip.IsInCallResponse
-	19,  // 115: sip.SessionService.MakeCall:output_type -> sip.MakeCallResponse
-	21,  // 116: sip.SessionService.Register:output_type -> sip.RegisterResponse
-	23,  // 117: sip.SessionService.SetListener:output_type -> sip.SetListenerResponse
-	25,  // 118: sip.SessionService.Unregister:output_type -> sip.UnregisterResponse
-	27,  // 119: sip.SessionListenerService.OnCallBusy:output_type -> sip.OnCallBusyResponse
-	29,  // 120: sip.SessionListenerService.OnCallChangeFailed:output_type -> sip.OnCallChangeFailedResponse
-	31,  // 121: sip.SessionListenerService.OnCallEnded:output_type -> sip.OnCallEndedResponse
-	33,  // 122: sip.SessionListenerService.OnCallEstablished:output_type -> sip.OnCallEstablishedResponse
-	35,  // 123: sip.SessionListenerService.OnCalling:output_type -> sip.OnCallingResponse
-	37,  // 124: sip.SessionListenerService.OnError:output_type -> sip.OnErrorResponse
-	39,  // 125: sip.SessionListenerService.OnRegistering:output_type -> sip.OnRegisteringResponse
-	41,  // 126: sip.SessionListenerService.OnRegistrationDone:output_type -> sip.OnRegistrationDoneResponse
-	43,  // 127: sip.SessionListenerService.OnRegistrationFailed:output_type -> sip.OnRegistrationFailedResponse
-	45,  // 128: sip.SessionListenerService.OnRegistrationTimeout:output_type -> sip.OnRegistrationTimeoutResponse
-	47,  // 129: sip.SessionListenerService.OnRinging:output_type -> sip.OnRingingResponse
-	49,  // 130: sip.SessionListenerService.OnRingingBack:output_type -> sip.OnRingingBackResponse
-	51,  // 131: sip.SessionStateService.ToString:output_type -> sip.ToStringResponse
-	53,  // 132: sip.ManagerService.Close:output_type -> sip.CloseResponse
-	55,  // 133: sip.ManagerService.CreateSipSession:output_type -> sip.CreateSipSessionResponse
-	57,  // 134: sip.ManagerService.GetSessionFor:output_type -> sip.GetSessionForResponse
-	59,  // 135: sip.ManagerService.IsOpened:output_type -> sip.IsOpenedResponse
-	61,  // 136: sip.ManagerService.IsRegistered:output_type -> sip.IsRegisteredResponse
-	63,  // 137: sip.ManagerService.MakeAudioCall4:output_type -> sip.MakeAudioCall4Response
-	65,  // 138: sip.ManagerService.MakeAudioCall4_1:output_type -> sip.MakeAudioCall4_1Response
-	67,  // 139: sip.ManagerService.Open1:output_type -> sip.Open1Response
-	69,  // 140: sip.ManagerService.Open3_1:output_type -> sip.Open3_1Response
-	21,  // 141: sip.ManagerService.Register:output_type -> sip.RegisterResponse
-	72,  // 142: sip.ManagerService.SetRegistrationListener:output_type -> sip.SetRegistrationListenerResponse
-	74,  // 143: sip.ManagerService.TakeAudioCall:output_type -> sip.TakeAudioCallResponse
-	25,  // 144: sip.ManagerService.Unregister:output_type -> sip.UnregisterResponse
-	7,   // 145: sip.ManagerService.GetCallId:output_type -> sip.GetCallIdResponse
-	78,  // 146: sip.ManagerService.GetOfferSessionDescription:output_type -> sip.GetOfferSessionDescriptionResponse
-	80,  // 147: sip.ManagerService.IsApiSupported:output_type -> sip.IsApiSupportedResponse
-	82,  // 148: sip.ManagerService.IsIncomingCallIntent:output_type -> sip.IsIncomingCallIntentResponse
-	84,  // 149: sip.ManagerService.IsSipWifiOnly:output_type -> sip.IsSipWifiOnlyResponse
-	86,  // 150: sip.ManagerService.IsVoipSupported:output_type -> sip.IsVoipSupportedResponse
-	88,  // 151: sip.ManagerService.NewInstance:output_type -> sip.NewInstanceResponse
-	90,  // 152: sip.AudioCallService.NewAudioCall:output_type -> sip.NewAudioCallResponse
-	1,   // 153: sip.AudioCallService.AnswerCall:output_type -> sip.AnswerCallResponse
-	93,  // 154: sip.AudioCallService.AttachCall:output_type -> sip.AttachCallResponse
-	53,  // 155: sip.AudioCallService.Close:output_type -> sip.CloseResponse
-	96,  // 156: sip.AudioCallService.ContinueCall:output_type -> sip.ContinueCallResponse
-	5,   // 157: sip.AudioCallService.EndCall:output_type -> sip.EndCallResponse
-	11,  // 158: sip.AudioCallService.GetLocalProfile:output_type -> sip.GetLocalProfileResponse
-	13,  // 159: sip.AudioCallService.GetPeerProfile:output_type -> sip.GetPeerProfileResponse
-	15,  // 160: sip.AudioCallService.GetState:output_type -> sip.GetStateResponse
-	102, // 161: sip.AudioCallService.HoldCall:output_type -> sip.HoldCallResponse
-	17,  // 162: sip.AudioCallService.IsInCall:output_type -> sip.IsInCallResponse
-	105, // 163: sip.AudioCallService.IsMuted:output_type -> sip.IsMutedResponse
-	107, // 164: sip.AudioCallService.IsOnHold:output_type -> sip.IsOnHoldResponse
-	19,  // 165: sip.AudioCallService.MakeCall:output_type -> sip.MakeCallResponse
-	110, // 166: sip.AudioCallService.SendDtmf1:output_type -> sip.SendDtmf1Response
-	112, // 167: sip.AudioCallService.SendDtmf2_1:output_type -> sip.SendDtmf2_1Response
-	114, // 168: sip.AudioCallService.SetListener1:output_type -> sip.SetListener1Response
-	116, // 169: sip.AudioCallService.SetListener2_1:output_type -> sip.SetListener2_1Response
-	118, // 170: sip.AudioCallService.SetSpeakerMode:output_type -> sip.SetSpeakerModeResponse
-	120, // 171: sip.AudioCallService.StartAudio:output_type -> sip.StartAudioResponse
-	122, // 172: sip.AudioCallService.ToggleMute:output_type -> sip.ToggleMuteResponse
-	27,  // 173: sip.AudioCallListenerService.OnCallBusy:output_type -> sip.OnCallBusyResponse
-	31,  // 174: sip.AudioCallListenerService.OnCallEnded:output_type -> sip.OnCallEndedResponse
-	33,  // 175: sip.AudioCallListenerService.OnCallEstablished:output_type -> sip.OnCallEstablishedResponse
-	125, // 176: sip.AudioCallListenerService.OnCallHeld:output_type -> sip.OnCallHeldResponse
-	35,  // 177: sip.AudioCallListenerService.OnCalling:output_type -> sip.OnCallingResponse
-	127, // 178: sip.AudioCallListenerService.OnChanged:output_type -> sip.OnChangedResponse
-	37,  // 179: sip.AudioCallListenerService.OnError:output_type -> sip.OnErrorResponse
-	129, // 180: sip.AudioCallListenerService.OnReadyToCall:output_type -> sip.OnReadyToCallResponse
-	47,  // 181: sip.AudioCallListenerService.OnRinging:output_type -> sip.OnRingingResponse
-	49,  // 182: sip.AudioCallListenerService.OnRingingBack:output_type -> sip.OnRingingBackResponse
-	39,  // 183: sip.RegistrationListenerService.OnRegistering:output_type -> sip.OnRegisteringResponse
-	41,  // 184: sip.RegistrationListenerService.OnRegistrationDone:output_type -> sip.OnRegistrationDoneResponse
-	43,  // 185: sip.RegistrationListenerService.OnRegistrationFailed:output_type -> sip.OnRegistrationFailedResponse
-	135, // 186: sip.ProfileService.DescribeContents:output_type -> sip.DescribeContentsResponse
-	137, // 187: sip.ProfileService.GetAuthUserName:output_type -> sip.GetAuthUserNameResponse
-	139, // 188: sip.ProfileService.GetAutoRegistration:output_type -> sip.GetAutoRegistrationResponse
-	141, // 189: sip.ProfileService.GetDisplayName:output_type -> sip.GetDisplayNameResponse
-	143, // 190: sip.ProfileService.GetPassword:output_type -> sip.GetPasswordResponse
-	145, // 191: sip.ProfileService.GetPort:output_type -> sip.GetPortResponse
-	147, // 192: sip.ProfileService.GetProfileName:output_type -> sip.GetProfileNameResponse
-	149, // 193: sip.ProfileService.GetProtocol:output_type -> sip.GetProtocolResponse
-	151, // 194: sip.ProfileService.GetProxyAddress:output_type -> sip.GetProxyAddressResponse
-	153, // 195: sip.ProfileService.GetSendKeepAlive:output_type -> sip.GetSendKeepAliveResponse
-	155, // 196: sip.ProfileService.GetSipDomain:output_type -> sip.GetSipDomainResponse
-	157, // 197: sip.ProfileService.GetUriString:output_type -> sip.GetUriStringResponse
-	159, // 198: sip.ProfileService.GetUserName:output_type -> sip.GetUserNameResponse
-	161, // 199: sip.ProfileService.SetCallingUid:output_type -> sip.SetCallingUidResponse
-	163, // 200: sip.ProfileService.WriteToParcel:output_type -> sip.WriteToParcelResponse
-	165, // 201: sip.ProfileBuilderService.Build:output_type -> sip.BuildResponse
-	167, // 202: sip.ProfileBuilderService.SetAuthUserName:output_type -> sip.SetAuthUserNameResponse
-	169, // 203: sip.ProfileBuilderService.SetAutoRegistration:output_type -> sip.SetAutoRegistrationResponse
-	171, // 204: sip.ProfileBuilderService.SetDisplayName:output_type -> sip.SetDisplayNameResponse
-	173, // 205: sip.ProfileBuilderService.SetOutboundProxy:output_type -> sip.SetOutboundProxyResponse
-	175, // 206: sip.ProfileBuilderService.SetPassword:output_type -> sip.SetPasswordResponse
-	177, // 207: sip.ProfileBuilderService.SetPort:output_type -> sip.SetPortResponse
-	179, // 208: sip.ProfileBuilderService.SetProfileName:output_type -> sip.SetProfileNameResponse
-	181, // 209: sip.ProfileBuilderService.SetProtocol:output_type -> sip.SetProtocolResponse
-	183, // 210: sip.ProfileBuilderService.SetSendKeepAlive:output_type -> sip.SetSendKeepAliveResponse
-	51,  // 211: sip.ErrorCodeService.ToString:output_type -> sip.ToStringResponse
+	0,   // 0: sip.ProfileService.DescribeContents:input_type -> sip.DescribeContentsRequest
+	2,   // 1: sip.ProfileService.GetAuthUserName:input_type -> sip.GetAuthUserNameRequest
+	4,   // 2: sip.ProfileService.GetAutoRegistration:input_type -> sip.GetAutoRegistrationRequest
+	6,   // 3: sip.ProfileService.GetDisplayName:input_type -> sip.GetDisplayNameRequest
+	8,   // 4: sip.ProfileService.GetPassword:input_type -> sip.GetPasswordRequest
+	10,  // 5: sip.ProfileService.GetPort:input_type -> sip.GetPortRequest
+	12,  // 6: sip.ProfileService.GetProfileName:input_type -> sip.GetProfileNameRequest
+	14,  // 7: sip.ProfileService.GetProtocol:input_type -> sip.GetProtocolRequest
+	16,  // 8: sip.ProfileService.GetProxyAddress:input_type -> sip.GetProxyAddressRequest
+	18,  // 9: sip.ProfileService.GetSendKeepAlive:input_type -> sip.GetSendKeepAliveRequest
+	20,  // 10: sip.ProfileService.GetSipDomain:input_type -> sip.GetSipDomainRequest
+	22,  // 11: sip.ProfileService.GetUriString:input_type -> sip.GetUriStringRequest
+	24,  // 12: sip.ProfileService.GetUserName:input_type -> sip.GetUserNameRequest
+	26,  // 13: sip.ProfileService.SetCallingUid:input_type -> sip.SetCallingUidRequest
+	28,  // 14: sip.ProfileService.WriteToParcel:input_type -> sip.WriteToParcelRequest
+	30,  // 15: sip.ProfileBuilderService.Build:input_type -> sip.BuildRequest
+	32,  // 16: sip.ProfileBuilderService.SetAuthUserName:input_type -> sip.SetAuthUserNameRequest
+	34,  // 17: sip.ProfileBuilderService.SetAutoRegistration:input_type -> sip.SetAutoRegistrationRequest
+	36,  // 18: sip.ProfileBuilderService.SetDisplayName:input_type -> sip.SetDisplayNameRequest
+	38,  // 19: sip.ProfileBuilderService.SetOutboundProxy:input_type -> sip.SetOutboundProxyRequest
+	40,  // 20: sip.ProfileBuilderService.SetPassword:input_type -> sip.SetPasswordRequest
+	42,  // 21: sip.ProfileBuilderService.SetPort:input_type -> sip.SetPortRequest
+	44,  // 22: sip.ProfileBuilderService.SetProfileName:input_type -> sip.SetProfileNameRequest
+	46,  // 23: sip.ProfileBuilderService.SetProtocol:input_type -> sip.SetProtocolRequest
+	48,  // 24: sip.ProfileBuilderService.SetSendKeepAlive:input_type -> sip.SetSendKeepAliveRequest
+	50,  // 25: sip.RegistrationListenerService.OnRegistering:input_type -> sip.OnRegisteringRequest
+	52,  // 26: sip.RegistrationListenerService.OnRegistrationDone:input_type -> sip.OnRegistrationDoneRequest
+	54,  // 27: sip.RegistrationListenerService.OnRegistrationFailed:input_type -> sip.OnRegistrationFailedRequest
+	56,  // 28: sip.AudioCallService.NewAudioCall:input_type -> sip.NewAudioCallRequest
+	58,  // 29: sip.AudioCallService.AnswerCall:input_type -> sip.AnswerCallRequest
+	60,  // 30: sip.AudioCallService.AttachCall:input_type -> sip.AttachCallRequest
+	62,  // 31: sip.AudioCallService.Close:input_type -> sip.CloseRequest
+	64,  // 32: sip.AudioCallService.ContinueCall:input_type -> sip.ContinueCallRequest
+	66,  // 33: sip.AudioCallService.EndCall:input_type -> sip.EndCallRequest
+	68,  // 34: sip.AudioCallService.GetLocalProfile:input_type -> sip.GetLocalProfileRequest
+	70,  // 35: sip.AudioCallService.GetPeerProfile:input_type -> sip.GetPeerProfileRequest
+	72,  // 36: sip.AudioCallService.GetState:input_type -> sip.GetStateRequest
+	74,  // 37: sip.AudioCallService.HoldCall:input_type -> sip.HoldCallRequest
+	76,  // 38: sip.AudioCallService.IsInCall:input_type -> sip.IsInCallRequest
+	78,  // 39: sip.AudioCallService.IsMuted:input_type -> sip.IsMutedRequest
+	80,  // 40: sip.AudioCallService.IsOnHold:input_type -> sip.IsOnHoldRequest
+	82,  // 41: sip.AudioCallService.MakeCall:input_type -> sip.MakeCallRequest
+	84,  // 42: sip.AudioCallService.SendDtmf1:input_type -> sip.SendDtmf1Request
+	86,  // 43: sip.AudioCallService.SendDtmf2_1:input_type -> sip.SendDtmf2_1Request
+	88,  // 44: sip.AudioCallService.SetListener1:input_type -> sip.SetListener1Request
+	90,  // 45: sip.AudioCallService.SetListener2_1:input_type -> sip.SetListener2_1Request
+	92,  // 46: sip.AudioCallService.SetSpeakerMode:input_type -> sip.SetSpeakerModeRequest
+	94,  // 47: sip.AudioCallService.StartAudio:input_type -> sip.StartAudioRequest
+	96,  // 48: sip.AudioCallService.ToggleMute:input_type -> sip.ToggleMuteRequest
+	98,  // 49: sip.AudioCallListenerService.OnCallBusy:input_type -> sip.OnCallBusyRequest
+	100, // 50: sip.AudioCallListenerService.OnCallEnded:input_type -> sip.OnCallEndedRequest
+	102, // 51: sip.AudioCallListenerService.OnCallEstablished:input_type -> sip.OnCallEstablishedRequest
+	104, // 52: sip.AudioCallListenerService.OnCallHeld:input_type -> sip.OnCallHeldRequest
+	106, // 53: sip.AudioCallListenerService.OnCalling:input_type -> sip.OnCallingRequest
+	108, // 54: sip.AudioCallListenerService.OnChanged:input_type -> sip.OnChangedRequest
+	110, // 55: sip.AudioCallListenerService.OnError:input_type -> sip.OnErrorRequest
+	112, // 56: sip.AudioCallListenerService.OnReadyToCall:input_type -> sip.OnReadyToCallRequest
+	114, // 57: sip.AudioCallListenerService.OnRinging:input_type -> sip.OnRingingRequest
+	116, // 58: sip.AudioCallListenerService.OnRingingBack:input_type -> sip.OnRingingBackRequest
+	118, // 59: sip.SessionService.AnswerCall:input_type -> sip.SessionAnswerCallRequest
+	119, // 60: sip.SessionService.ChangeCall:input_type -> sip.ChangeCallRequest
+	121, // 61: sip.SessionService.EndCall:input_type -> sip.SessionEndCallRequest
+	122, // 62: sip.SessionService.GetCallId:input_type -> sip.GetCallIdRequest
+	124, // 63: sip.SessionService.GetLocalIp:input_type -> sip.GetLocalIpRequest
+	126, // 64: sip.SessionService.GetLocalProfile:input_type -> sip.SessionGetLocalProfileRequest
+	127, // 65: sip.SessionService.GetPeerProfile:input_type -> sip.SessionGetPeerProfileRequest
+	128, // 66: sip.SessionService.GetState:input_type -> sip.SessionGetStateRequest
+	129, // 67: sip.SessionService.IsInCall:input_type -> sip.SessionIsInCallRequest
+	130, // 68: sip.SessionService.MakeCall:input_type -> sip.SessionMakeCallRequest
+	131, // 69: sip.SessionService.Register:input_type -> sip.RegisterRequest
+	133, // 70: sip.SessionService.SetListener:input_type -> sip.SetListenerRequest
+	135, // 71: sip.SessionService.Unregister:input_type -> sip.UnregisterRequest
+	98,  // 72: sip.SessionListenerService.OnCallBusy:input_type -> sip.OnCallBusyRequest
+	137, // 73: sip.SessionListenerService.OnCallChangeFailed:input_type -> sip.OnCallChangeFailedRequest
+	100, // 74: sip.SessionListenerService.OnCallEnded:input_type -> sip.OnCallEndedRequest
+	139, // 75: sip.SessionListenerService.OnCallEstablished:input_type -> sip.SessionListenerOnCallEstablishedRequest
+	106, // 76: sip.SessionListenerService.OnCalling:input_type -> sip.OnCallingRequest
+	110, // 77: sip.SessionListenerService.OnError:input_type -> sip.OnErrorRequest
+	140, // 78: sip.SessionListenerService.OnRegistering:input_type -> sip.SessionListenerOnRegisteringRequest
+	141, // 79: sip.SessionListenerService.OnRegistrationDone:input_type -> sip.SessionListenerOnRegistrationDoneRequest
+	142, // 80: sip.SessionListenerService.OnRegistrationFailed:input_type -> sip.SessionListenerOnRegistrationFailedRequest
+	143, // 81: sip.SessionListenerService.OnRegistrationTimeout:input_type -> sip.OnRegistrationTimeoutRequest
+	145, // 82: sip.SessionListenerService.OnRinging:input_type -> sip.SessionListenerOnRingingRequest
+	116, // 83: sip.SessionListenerService.OnRingingBack:input_type -> sip.OnRingingBackRequest
+	146, // 84: sip.SessionStateService.ToString:input_type -> sip.ToStringRequest
+	146, // 85: sip.ErrorCodeService.ToString:input_type -> sip.ToStringRequest
+	148, // 86: sip.ManagerService.Close:input_type -> sip.ManagerCloseRequest
+	149, // 87: sip.ManagerService.CreateSipSession:input_type -> sip.CreateSipSessionRequest
+	151, // 88: sip.ManagerService.GetSessionFor:input_type -> sip.GetSessionForRequest
+	153, // 89: sip.ManagerService.IsOpened:input_type -> sip.IsOpenedRequest
+	155, // 90: sip.ManagerService.IsRegistered:input_type -> sip.IsRegisteredRequest
+	157, // 91: sip.ManagerService.MakeAudioCall4:input_type -> sip.MakeAudioCall4Request
+	159, // 92: sip.ManagerService.MakeAudioCall4_1:input_type -> sip.MakeAudioCall4_1Request
+	161, // 93: sip.ManagerService.Open1:input_type -> sip.Open1Request
+	163, // 94: sip.ManagerService.Open3_1:input_type -> sip.Open3_1Request
+	165, // 95: sip.ManagerService.Register:input_type -> sip.ManagerRegisterRequest
+	166, // 96: sip.ManagerService.SetRegistrationListener:input_type -> sip.SetRegistrationListenerRequest
+	168, // 97: sip.ManagerService.TakeAudioCall:input_type -> sip.TakeAudioCallRequest
+	170, // 98: sip.ManagerService.Unregister:input_type -> sip.ManagerUnregisterRequest
+	171, // 99: sip.ManagerService.GetCallId:input_type -> sip.ManagerGetCallIdRequest
+	172, // 100: sip.ManagerService.GetOfferSessionDescription:input_type -> sip.GetOfferSessionDescriptionRequest
+	174, // 101: sip.ManagerService.IsApiSupported:input_type -> sip.IsApiSupportedRequest
+	176, // 102: sip.ManagerService.IsIncomingCallIntent:input_type -> sip.IsIncomingCallIntentRequest
+	178, // 103: sip.ManagerService.IsSipWifiOnly:input_type -> sip.IsSipWifiOnlyRequest
+	180, // 104: sip.ManagerService.IsVoipSupported:input_type -> sip.IsVoipSupportedRequest
+	182, // 105: sip.ManagerService.NewInstance:input_type -> sip.NewInstanceRequest
+	1,   // 106: sip.ProfileService.DescribeContents:output_type -> sip.DescribeContentsResponse
+	3,   // 107: sip.ProfileService.GetAuthUserName:output_type -> sip.GetAuthUserNameResponse
+	5,   // 108: sip.ProfileService.GetAutoRegistration:output_type -> sip.GetAutoRegistrationResponse
+	7,   // 109: sip.ProfileService.GetDisplayName:output_type -> sip.GetDisplayNameResponse
+	9,   // 110: sip.ProfileService.GetPassword:output_type -> sip.GetPasswordResponse
+	11,  // 111: sip.ProfileService.GetPort:output_type -> sip.GetPortResponse
+	13,  // 112: sip.ProfileService.GetProfileName:output_type -> sip.GetProfileNameResponse
+	15,  // 113: sip.ProfileService.GetProtocol:output_type -> sip.GetProtocolResponse
+	17,  // 114: sip.ProfileService.GetProxyAddress:output_type -> sip.GetProxyAddressResponse
+	19,  // 115: sip.ProfileService.GetSendKeepAlive:output_type -> sip.GetSendKeepAliveResponse
+	21,  // 116: sip.ProfileService.GetSipDomain:output_type -> sip.GetSipDomainResponse
+	23,  // 117: sip.ProfileService.GetUriString:output_type -> sip.GetUriStringResponse
+	25,  // 118: sip.ProfileService.GetUserName:output_type -> sip.GetUserNameResponse
+	27,  // 119: sip.ProfileService.SetCallingUid:output_type -> sip.SetCallingUidResponse
+	29,  // 120: sip.ProfileService.WriteToParcel:output_type -> sip.WriteToParcelResponse
+	31,  // 121: sip.ProfileBuilderService.Build:output_type -> sip.BuildResponse
+	33,  // 122: sip.ProfileBuilderService.SetAuthUserName:output_type -> sip.SetAuthUserNameResponse
+	35,  // 123: sip.ProfileBuilderService.SetAutoRegistration:output_type -> sip.SetAutoRegistrationResponse
+	37,  // 124: sip.ProfileBuilderService.SetDisplayName:output_type -> sip.SetDisplayNameResponse
+	39,  // 125: sip.ProfileBuilderService.SetOutboundProxy:output_type -> sip.SetOutboundProxyResponse
+	41,  // 126: sip.ProfileBuilderService.SetPassword:output_type -> sip.SetPasswordResponse
+	43,  // 127: sip.ProfileBuilderService.SetPort:output_type -> sip.SetPortResponse
+	45,  // 128: sip.ProfileBuilderService.SetProfileName:output_type -> sip.SetProfileNameResponse
+	47,  // 129: sip.ProfileBuilderService.SetProtocol:output_type -> sip.SetProtocolResponse
+	49,  // 130: sip.ProfileBuilderService.SetSendKeepAlive:output_type -> sip.SetSendKeepAliveResponse
+	51,  // 131: sip.RegistrationListenerService.OnRegistering:output_type -> sip.OnRegisteringResponse
+	53,  // 132: sip.RegistrationListenerService.OnRegistrationDone:output_type -> sip.OnRegistrationDoneResponse
+	55,  // 133: sip.RegistrationListenerService.OnRegistrationFailed:output_type -> sip.OnRegistrationFailedResponse
+	57,  // 134: sip.AudioCallService.NewAudioCall:output_type -> sip.NewAudioCallResponse
+	59,  // 135: sip.AudioCallService.AnswerCall:output_type -> sip.AnswerCallResponse
+	61,  // 136: sip.AudioCallService.AttachCall:output_type -> sip.AttachCallResponse
+	63,  // 137: sip.AudioCallService.Close:output_type -> sip.CloseResponse
+	65,  // 138: sip.AudioCallService.ContinueCall:output_type -> sip.ContinueCallResponse
+	67,  // 139: sip.AudioCallService.EndCall:output_type -> sip.EndCallResponse
+	69,  // 140: sip.AudioCallService.GetLocalProfile:output_type -> sip.GetLocalProfileResponse
+	71,  // 141: sip.AudioCallService.GetPeerProfile:output_type -> sip.GetPeerProfileResponse
+	73,  // 142: sip.AudioCallService.GetState:output_type -> sip.GetStateResponse
+	75,  // 143: sip.AudioCallService.HoldCall:output_type -> sip.HoldCallResponse
+	77,  // 144: sip.AudioCallService.IsInCall:output_type -> sip.IsInCallResponse
+	79,  // 145: sip.AudioCallService.IsMuted:output_type -> sip.IsMutedResponse
+	81,  // 146: sip.AudioCallService.IsOnHold:output_type -> sip.IsOnHoldResponse
+	83,  // 147: sip.AudioCallService.MakeCall:output_type -> sip.MakeCallResponse
+	85,  // 148: sip.AudioCallService.SendDtmf1:output_type -> sip.SendDtmf1Response
+	87,  // 149: sip.AudioCallService.SendDtmf2_1:output_type -> sip.SendDtmf2_1Response
+	89,  // 150: sip.AudioCallService.SetListener1:output_type -> sip.SetListener1Response
+	91,  // 151: sip.AudioCallService.SetListener2_1:output_type -> sip.SetListener2_1Response
+	93,  // 152: sip.AudioCallService.SetSpeakerMode:output_type -> sip.SetSpeakerModeResponse
+	95,  // 153: sip.AudioCallService.StartAudio:output_type -> sip.StartAudioResponse
+	97,  // 154: sip.AudioCallService.ToggleMute:output_type -> sip.ToggleMuteResponse
+	99,  // 155: sip.AudioCallListenerService.OnCallBusy:output_type -> sip.OnCallBusyResponse
+	101, // 156: sip.AudioCallListenerService.OnCallEnded:output_type -> sip.OnCallEndedResponse
+	103, // 157: sip.AudioCallListenerService.OnCallEstablished:output_type -> sip.OnCallEstablishedResponse
+	105, // 158: sip.AudioCallListenerService.OnCallHeld:output_type -> sip.OnCallHeldResponse
+	107, // 159: sip.AudioCallListenerService.OnCalling:output_type -> sip.OnCallingResponse
+	109, // 160: sip.AudioCallListenerService.OnChanged:output_type -> sip.OnChangedResponse
+	111, // 161: sip.AudioCallListenerService.OnError:output_type -> sip.OnErrorResponse
+	113, // 162: sip.AudioCallListenerService.OnReadyToCall:output_type -> sip.OnReadyToCallResponse
+	115, // 163: sip.AudioCallListenerService.OnRinging:output_type -> sip.OnRingingResponse
+	117, // 164: sip.AudioCallListenerService.OnRingingBack:output_type -> sip.OnRingingBackResponse
+	59,  // 165: sip.SessionService.AnswerCall:output_type -> sip.AnswerCallResponse
+	120, // 166: sip.SessionService.ChangeCall:output_type -> sip.ChangeCallResponse
+	67,  // 167: sip.SessionService.EndCall:output_type -> sip.EndCallResponse
+	123, // 168: sip.SessionService.GetCallId:output_type -> sip.GetCallIdResponse
+	125, // 169: sip.SessionService.GetLocalIp:output_type -> sip.GetLocalIpResponse
+	69,  // 170: sip.SessionService.GetLocalProfile:output_type -> sip.GetLocalProfileResponse
+	71,  // 171: sip.SessionService.GetPeerProfile:output_type -> sip.GetPeerProfileResponse
+	73,  // 172: sip.SessionService.GetState:output_type -> sip.GetStateResponse
+	77,  // 173: sip.SessionService.IsInCall:output_type -> sip.IsInCallResponse
+	83,  // 174: sip.SessionService.MakeCall:output_type -> sip.MakeCallResponse
+	132, // 175: sip.SessionService.Register:output_type -> sip.RegisterResponse
+	134, // 176: sip.SessionService.SetListener:output_type -> sip.SetListenerResponse
+	136, // 177: sip.SessionService.Unregister:output_type -> sip.UnregisterResponse
+	99,  // 178: sip.SessionListenerService.OnCallBusy:output_type -> sip.OnCallBusyResponse
+	138, // 179: sip.SessionListenerService.OnCallChangeFailed:output_type -> sip.OnCallChangeFailedResponse
+	101, // 180: sip.SessionListenerService.OnCallEnded:output_type -> sip.OnCallEndedResponse
+	103, // 181: sip.SessionListenerService.OnCallEstablished:output_type -> sip.OnCallEstablishedResponse
+	107, // 182: sip.SessionListenerService.OnCalling:output_type -> sip.OnCallingResponse
+	111, // 183: sip.SessionListenerService.OnError:output_type -> sip.OnErrorResponse
+	51,  // 184: sip.SessionListenerService.OnRegistering:output_type -> sip.OnRegisteringResponse
+	53,  // 185: sip.SessionListenerService.OnRegistrationDone:output_type -> sip.OnRegistrationDoneResponse
+	55,  // 186: sip.SessionListenerService.OnRegistrationFailed:output_type -> sip.OnRegistrationFailedResponse
+	144, // 187: sip.SessionListenerService.OnRegistrationTimeout:output_type -> sip.OnRegistrationTimeoutResponse
+	115, // 188: sip.SessionListenerService.OnRinging:output_type -> sip.OnRingingResponse
+	117, // 189: sip.SessionListenerService.OnRingingBack:output_type -> sip.OnRingingBackResponse
+	147, // 190: sip.SessionStateService.ToString:output_type -> sip.ToStringResponse
+	147, // 191: sip.ErrorCodeService.ToString:output_type -> sip.ToStringResponse
+	63,  // 192: sip.ManagerService.Close:output_type -> sip.CloseResponse
+	150, // 193: sip.ManagerService.CreateSipSession:output_type -> sip.CreateSipSessionResponse
+	152, // 194: sip.ManagerService.GetSessionFor:output_type -> sip.GetSessionForResponse
+	154, // 195: sip.ManagerService.IsOpened:output_type -> sip.IsOpenedResponse
+	156, // 196: sip.ManagerService.IsRegistered:output_type -> sip.IsRegisteredResponse
+	158, // 197: sip.ManagerService.MakeAudioCall4:output_type -> sip.MakeAudioCall4Response
+	160, // 198: sip.ManagerService.MakeAudioCall4_1:output_type -> sip.MakeAudioCall4_1Response
+	162, // 199: sip.ManagerService.Open1:output_type -> sip.Open1Response
+	164, // 200: sip.ManagerService.Open3_1:output_type -> sip.Open3_1Response
+	132, // 201: sip.ManagerService.Register:output_type -> sip.RegisterResponse
+	167, // 202: sip.ManagerService.SetRegistrationListener:output_type -> sip.SetRegistrationListenerResponse
+	169, // 203: sip.ManagerService.TakeAudioCall:output_type -> sip.TakeAudioCallResponse
+	136, // 204: sip.ManagerService.Unregister:output_type -> sip.UnregisterResponse
+	123, // 205: sip.ManagerService.GetCallId:output_type -> sip.GetCallIdResponse
+	173, // 206: sip.ManagerService.GetOfferSessionDescription:output_type -> sip.GetOfferSessionDescriptionResponse
+	175, // 207: sip.ManagerService.IsApiSupported:output_type -> sip.IsApiSupportedResponse
+	177, // 208: sip.ManagerService.IsIncomingCallIntent:output_type -> sip.IsIncomingCallIntentResponse
+	179, // 209: sip.ManagerService.IsSipWifiOnly:output_type -> sip.IsSipWifiOnlyResponse
+	181, // 210: sip.ManagerService.IsVoipSupported:output_type -> sip.IsVoipSupportedResponse
+	183, // 211: sip.ManagerService.NewInstance:output_type -> sip.NewInstanceResponse
 	106, // [106:212] is the sub-list for method output_type
 	0,   // [0:106] is the sub-list for method input_type
 	0,   // [0:0] is the sub-list for extension type_name

@@ -504,6 +504,998 @@ var AmbientBacklightSettingsService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	AmbientBacklightMetadataService_NewAmbientBacklightMetadata_FullMethodName = "/quality.AmbientBacklightMetadataService/NewAmbientBacklightMetadata"
+	AmbientBacklightMetadataService_DescribeContents_FullMethodName            = "/quality.AmbientBacklightMetadataService/DescribeContents"
+	AmbientBacklightMetadataService_GetColorFormat_FullMethodName              = "/quality.AmbientBacklightMetadataService/GetColorFormat"
+	AmbientBacklightMetadataService_GetCompressionAlgorithm_FullMethodName     = "/quality.AmbientBacklightMetadataService/GetCompressionAlgorithm"
+	AmbientBacklightMetadataService_GetHorizontalZonesCount_FullMethodName     = "/quality.AmbientBacklightMetadataService/GetHorizontalZonesCount"
+	AmbientBacklightMetadataService_GetPackageName_FullMethodName              = "/quality.AmbientBacklightMetadataService/GetPackageName"
+	AmbientBacklightMetadataService_GetSource_FullMethodName                   = "/quality.AmbientBacklightMetadataService/GetSource"
+	AmbientBacklightMetadataService_GetVerticalZonesCount_FullMethodName       = "/quality.AmbientBacklightMetadataService/GetVerticalZonesCount"
+	AmbientBacklightMetadataService_GetZoneColors_FullMethodName               = "/quality.AmbientBacklightMetadataService/GetZoneColors"
+	AmbientBacklightMetadataService_ToString_FullMethodName                    = "/quality.AmbientBacklightMetadataService/ToString"
+	AmbientBacklightMetadataService_WriteToParcel_FullMethodName               = "/quality.AmbientBacklightMetadataService/WriteToParcel"
+)
+
+// AmbientBacklightMetadataServiceClient is the client API for AmbientBacklightMetadataService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AmbientBacklightMetadataServiceClient interface {
+	NewAmbientBacklightMetadata(ctx context.Context, in *NewAmbientBacklightMetadataRequest, opts ...grpc.CallOption) (*NewAmbientBacklightMetadataResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetColorFormat(ctx context.Context, in *GetColorFormatRequest, opts ...grpc.CallOption) (*GetColorFormatResponse, error)
+	GetCompressionAlgorithm(ctx context.Context, in *GetCompressionAlgorithmRequest, opts ...grpc.CallOption) (*GetCompressionAlgorithmResponse, error)
+	GetHorizontalZonesCount(ctx context.Context, in *GetHorizontalZonesCountRequest, opts ...grpc.CallOption) (*GetHorizontalZonesCountResponse, error)
+	GetPackageName(ctx context.Context, in *GetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error)
+	GetSource(ctx context.Context, in *GetSourceRequest, opts ...grpc.CallOption) (*GetSourceResponse, error)
+	GetVerticalZonesCount(ctx context.Context, in *GetVerticalZonesCountRequest, opts ...grpc.CallOption) (*GetVerticalZonesCountResponse, error)
+	GetZoneColors(ctx context.Context, in *GetZoneColorsRequest, opts ...grpc.CallOption) (*GetZoneColorsResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type ambientBacklightMetadataServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAmbientBacklightMetadataServiceClient(cc grpc.ClientConnInterface) AmbientBacklightMetadataServiceClient {
+	return &ambientBacklightMetadataServiceClient{cc}
+}
+
+func (c *ambientBacklightMetadataServiceClient) NewAmbientBacklightMetadata(ctx context.Context, in *NewAmbientBacklightMetadataRequest, opts ...grpc.CallOption) (*NewAmbientBacklightMetadataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewAmbientBacklightMetadataResponse)
+	err := c.cc.Invoke(ctx, AmbientBacklightMetadataService_NewAmbientBacklightMetadata_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ambientBacklightMetadataServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, AmbientBacklightMetadataService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ambientBacklightMetadataServiceClient) GetColorFormat(ctx context.Context, in *GetColorFormatRequest, opts ...grpc.CallOption) (*GetColorFormatResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColorFormatResponse)
+	err := c.cc.Invoke(ctx, AmbientBacklightMetadataService_GetColorFormat_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ambientBacklightMetadataServiceClient) GetCompressionAlgorithm(ctx context.Context, in *GetCompressionAlgorithmRequest, opts ...grpc.CallOption) (*GetCompressionAlgorithmResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCompressionAlgorithmResponse)
+	err := c.cc.Invoke(ctx, AmbientBacklightMetadataService_GetCompressionAlgorithm_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ambientBacklightMetadataServiceClient) GetHorizontalZonesCount(ctx context.Context, in *GetHorizontalZonesCountRequest, opts ...grpc.CallOption) (*GetHorizontalZonesCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetHorizontalZonesCountResponse)
+	err := c.cc.Invoke(ctx, AmbientBacklightMetadataService_GetHorizontalZonesCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ambientBacklightMetadataServiceClient) GetPackageName(ctx context.Context, in *GetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPackageNameResponse)
+	err := c.cc.Invoke(ctx, AmbientBacklightMetadataService_GetPackageName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ambientBacklightMetadataServiceClient) GetSource(ctx context.Context, in *GetSourceRequest, opts ...grpc.CallOption) (*GetSourceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSourceResponse)
+	err := c.cc.Invoke(ctx, AmbientBacklightMetadataService_GetSource_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ambientBacklightMetadataServiceClient) GetVerticalZonesCount(ctx context.Context, in *GetVerticalZonesCountRequest, opts ...grpc.CallOption) (*GetVerticalZonesCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVerticalZonesCountResponse)
+	err := c.cc.Invoke(ctx, AmbientBacklightMetadataService_GetVerticalZonesCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ambientBacklightMetadataServiceClient) GetZoneColors(ctx context.Context, in *GetZoneColorsRequest, opts ...grpc.CallOption) (*GetZoneColorsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetZoneColorsResponse)
+	err := c.cc.Invoke(ctx, AmbientBacklightMetadataService_GetZoneColors_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ambientBacklightMetadataServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, AmbientBacklightMetadataService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *ambientBacklightMetadataServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, AmbientBacklightMetadataService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AmbientBacklightMetadataServiceServer is the server API for AmbientBacklightMetadataService service.
+// All implementations must embed UnimplementedAmbientBacklightMetadataServiceServer
+// for forward compatibility.
+type AmbientBacklightMetadataServiceServer interface {
+	NewAmbientBacklightMetadata(context.Context, *NewAmbientBacklightMetadataRequest) (*NewAmbientBacklightMetadataResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetColorFormat(context.Context, *GetColorFormatRequest) (*GetColorFormatResponse, error)
+	GetCompressionAlgorithm(context.Context, *GetCompressionAlgorithmRequest) (*GetCompressionAlgorithmResponse, error)
+	GetHorizontalZonesCount(context.Context, *GetHorizontalZonesCountRequest) (*GetHorizontalZonesCountResponse, error)
+	GetPackageName(context.Context, *GetPackageNameRequest) (*GetPackageNameResponse, error)
+	GetSource(context.Context, *GetSourceRequest) (*GetSourceResponse, error)
+	GetVerticalZonesCount(context.Context, *GetVerticalZonesCountRequest) (*GetVerticalZonesCountResponse, error)
+	GetZoneColors(context.Context, *GetZoneColorsRequest) (*GetZoneColorsResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedAmbientBacklightMetadataServiceServer()
+}
+
+// UnimplementedAmbientBacklightMetadataServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAmbientBacklightMetadataServiceServer struct{}
+
+func (UnimplementedAmbientBacklightMetadataServiceServer) NewAmbientBacklightMetadata(context.Context, *NewAmbientBacklightMetadataRequest) (*NewAmbientBacklightMetadataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewAmbientBacklightMetadata not implemented")
+}
+func (UnimplementedAmbientBacklightMetadataServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedAmbientBacklightMetadataServiceServer) GetColorFormat(context.Context, *GetColorFormatRequest) (*GetColorFormatResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColorFormat not implemented")
+}
+func (UnimplementedAmbientBacklightMetadataServiceServer) GetCompressionAlgorithm(context.Context, *GetCompressionAlgorithmRequest) (*GetCompressionAlgorithmResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCompressionAlgorithm not implemented")
+}
+func (UnimplementedAmbientBacklightMetadataServiceServer) GetHorizontalZonesCount(context.Context, *GetHorizontalZonesCountRequest) (*GetHorizontalZonesCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetHorizontalZonesCount not implemented")
+}
+func (UnimplementedAmbientBacklightMetadataServiceServer) GetPackageName(context.Context, *GetPackageNameRequest) (*GetPackageNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPackageName not implemented")
+}
+func (UnimplementedAmbientBacklightMetadataServiceServer) GetSource(context.Context, *GetSourceRequest) (*GetSourceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSource not implemented")
+}
+func (UnimplementedAmbientBacklightMetadataServiceServer) GetVerticalZonesCount(context.Context, *GetVerticalZonesCountRequest) (*GetVerticalZonesCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVerticalZonesCount not implemented")
+}
+func (UnimplementedAmbientBacklightMetadataServiceServer) GetZoneColors(context.Context, *GetZoneColorsRequest) (*GetZoneColorsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetZoneColors not implemented")
+}
+func (UnimplementedAmbientBacklightMetadataServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedAmbientBacklightMetadataServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedAmbientBacklightMetadataServiceServer) mustEmbedUnimplementedAmbientBacklightMetadataServiceServer() {
+}
+func (UnimplementedAmbientBacklightMetadataServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAmbientBacklightMetadataServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AmbientBacklightMetadataServiceServer will
+// result in compilation errors.
+type UnsafeAmbientBacklightMetadataServiceServer interface {
+	mustEmbedUnimplementedAmbientBacklightMetadataServiceServer()
+}
+
+func RegisterAmbientBacklightMetadataServiceServer(s grpc.ServiceRegistrar, srv AmbientBacklightMetadataServiceServer) {
+	// If the following call panics, it indicates UnimplementedAmbientBacklightMetadataServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AmbientBacklightMetadataService_ServiceDesc, srv)
+}
+
+func _AmbientBacklightMetadataService_NewAmbientBacklightMetadata_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewAmbientBacklightMetadataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AmbientBacklightMetadataServiceServer).NewAmbientBacklightMetadata(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AmbientBacklightMetadataService_NewAmbientBacklightMetadata_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AmbientBacklightMetadataServiceServer).NewAmbientBacklightMetadata(ctx, req.(*NewAmbientBacklightMetadataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AmbientBacklightMetadataService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AmbientBacklightMetadataServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AmbientBacklightMetadataService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AmbientBacklightMetadataServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AmbientBacklightMetadataService_GetColorFormat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetColorFormatRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AmbientBacklightMetadataServiceServer).GetColorFormat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AmbientBacklightMetadataService_GetColorFormat_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AmbientBacklightMetadataServiceServer).GetColorFormat(ctx, req.(*GetColorFormatRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AmbientBacklightMetadataService_GetCompressionAlgorithm_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCompressionAlgorithmRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AmbientBacklightMetadataServiceServer).GetCompressionAlgorithm(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AmbientBacklightMetadataService_GetCompressionAlgorithm_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AmbientBacklightMetadataServiceServer).GetCompressionAlgorithm(ctx, req.(*GetCompressionAlgorithmRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AmbientBacklightMetadataService_GetHorizontalZonesCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetHorizontalZonesCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AmbientBacklightMetadataServiceServer).GetHorizontalZonesCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AmbientBacklightMetadataService_GetHorizontalZonesCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AmbientBacklightMetadataServiceServer).GetHorizontalZonesCount(ctx, req.(*GetHorizontalZonesCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AmbientBacklightMetadataService_GetPackageName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPackageNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AmbientBacklightMetadataServiceServer).GetPackageName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AmbientBacklightMetadataService_GetPackageName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AmbientBacklightMetadataServiceServer).GetPackageName(ctx, req.(*GetPackageNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AmbientBacklightMetadataService_GetSource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSourceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AmbientBacklightMetadataServiceServer).GetSource(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AmbientBacklightMetadataService_GetSource_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AmbientBacklightMetadataServiceServer).GetSource(ctx, req.(*GetSourceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AmbientBacklightMetadataService_GetVerticalZonesCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVerticalZonesCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AmbientBacklightMetadataServiceServer).GetVerticalZonesCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AmbientBacklightMetadataService_GetVerticalZonesCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AmbientBacklightMetadataServiceServer).GetVerticalZonesCount(ctx, req.(*GetVerticalZonesCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AmbientBacklightMetadataService_GetZoneColors_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetZoneColorsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AmbientBacklightMetadataServiceServer).GetZoneColors(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AmbientBacklightMetadataService_GetZoneColors_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AmbientBacklightMetadataServiceServer).GetZoneColors(ctx, req.(*GetZoneColorsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AmbientBacklightMetadataService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AmbientBacklightMetadataServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AmbientBacklightMetadataService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AmbientBacklightMetadataServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AmbientBacklightMetadataService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AmbientBacklightMetadataServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AmbientBacklightMetadataService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AmbientBacklightMetadataServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AmbientBacklightMetadataService_ServiceDesc is the grpc.ServiceDesc for AmbientBacklightMetadataService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AmbientBacklightMetadataService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "quality.AmbientBacklightMetadataService",
+	HandlerType: (*AmbientBacklightMetadataServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewAmbientBacklightMetadata",
+			Handler:    _AmbientBacklightMetadataService_NewAmbientBacklightMetadata_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _AmbientBacklightMetadataService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetColorFormat",
+			Handler:    _AmbientBacklightMetadataService_GetColorFormat_Handler,
+		},
+		{
+			MethodName: "GetCompressionAlgorithm",
+			Handler:    _AmbientBacklightMetadataService_GetCompressionAlgorithm_Handler,
+		},
+		{
+			MethodName: "GetHorizontalZonesCount",
+			Handler:    _AmbientBacklightMetadataService_GetHorizontalZonesCount_Handler,
+		},
+		{
+			MethodName: "GetPackageName",
+			Handler:    _AmbientBacklightMetadataService_GetPackageName_Handler,
+		},
+		{
+			MethodName: "GetSource",
+			Handler:    _AmbientBacklightMetadataService_GetSource_Handler,
+		},
+		{
+			MethodName: "GetVerticalZonesCount",
+			Handler:    _AmbientBacklightMetadataService_GetVerticalZonesCount_Handler,
+		},
+		{
+			MethodName: "GetZoneColors",
+			Handler:    _AmbientBacklightMetadataService_GetZoneColors_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _AmbientBacklightMetadataService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _AmbientBacklightMetadataService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/quality/quality.proto",
+}
+
+const (
+	SoundProfileService_DescribeContents_FullMethodName = "/quality.SoundProfileService/DescribeContents"
+	SoundProfileService_GetInputId_FullMethodName       = "/quality.SoundProfileService/GetInputId"
+	SoundProfileService_GetName_FullMethodName          = "/quality.SoundProfileService/GetName"
+	SoundProfileService_GetPackageName_FullMethodName   = "/quality.SoundProfileService/GetPackageName"
+	SoundProfileService_GetParameters_FullMethodName    = "/quality.SoundProfileService/GetParameters"
+	SoundProfileService_GetProfileId_FullMethodName     = "/quality.SoundProfileService/GetProfileId"
+	SoundProfileService_GetProfileType_FullMethodName   = "/quality.SoundProfileService/GetProfileType"
+	SoundProfileService_WriteToParcel_FullMethodName    = "/quality.SoundProfileService/WriteToParcel"
+)
+
+// SoundProfileServiceClient is the client API for SoundProfileService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SoundProfileServiceClient interface {
+	DescribeContents(ctx context.Context, in *SoundProfileDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetInputId(ctx context.Context, in *GetInputIdRequest, opts ...grpc.CallOption) (*GetInputIdResponse, error)
+	GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error)
+	GetPackageName(ctx context.Context, in *SoundProfileGetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error)
+	GetParameters(ctx context.Context, in *GetParametersRequest, opts ...grpc.CallOption) (*GetParametersResponse, error)
+	GetProfileId(ctx context.Context, in *GetProfileIdRequest, opts ...grpc.CallOption) (*GetProfileIdResponse, error)
+	GetProfileType(ctx context.Context, in *GetProfileTypeRequest, opts ...grpc.CallOption) (*GetProfileTypeResponse, error)
+	WriteToParcel(ctx context.Context, in *SoundProfileWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type soundProfileServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSoundProfileServiceClient(cc grpc.ClientConnInterface) SoundProfileServiceClient {
+	return &soundProfileServiceClient{cc}
+}
+
+func (c *soundProfileServiceClient) DescribeContents(ctx context.Context, in *SoundProfileDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, SoundProfileService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *soundProfileServiceClient) GetInputId(ctx context.Context, in *GetInputIdRequest, opts ...grpc.CallOption) (*GetInputIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInputIdResponse)
+	err := c.cc.Invoke(ctx, SoundProfileService_GetInputId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *soundProfileServiceClient) GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNameResponse)
+	err := c.cc.Invoke(ctx, SoundProfileService_GetName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *soundProfileServiceClient) GetPackageName(ctx context.Context, in *SoundProfileGetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPackageNameResponse)
+	err := c.cc.Invoke(ctx, SoundProfileService_GetPackageName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *soundProfileServiceClient) GetParameters(ctx context.Context, in *GetParametersRequest, opts ...grpc.CallOption) (*GetParametersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetParametersResponse)
+	err := c.cc.Invoke(ctx, SoundProfileService_GetParameters_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *soundProfileServiceClient) GetProfileId(ctx context.Context, in *GetProfileIdRequest, opts ...grpc.CallOption) (*GetProfileIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetProfileIdResponse)
+	err := c.cc.Invoke(ctx, SoundProfileService_GetProfileId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *soundProfileServiceClient) GetProfileType(ctx context.Context, in *GetProfileTypeRequest, opts ...grpc.CallOption) (*GetProfileTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetProfileTypeResponse)
+	err := c.cc.Invoke(ctx, SoundProfileService_GetProfileType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *soundProfileServiceClient) WriteToParcel(ctx context.Context, in *SoundProfileWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, SoundProfileService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SoundProfileServiceServer is the server API for SoundProfileService service.
+// All implementations must embed UnimplementedSoundProfileServiceServer
+// for forward compatibility.
+type SoundProfileServiceServer interface {
+	DescribeContents(context.Context, *SoundProfileDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetInputId(context.Context, *GetInputIdRequest) (*GetInputIdResponse, error)
+	GetName(context.Context, *GetNameRequest) (*GetNameResponse, error)
+	GetPackageName(context.Context, *SoundProfileGetPackageNameRequest) (*GetPackageNameResponse, error)
+	GetParameters(context.Context, *GetParametersRequest) (*GetParametersResponse, error)
+	GetProfileId(context.Context, *GetProfileIdRequest) (*GetProfileIdResponse, error)
+	GetProfileType(context.Context, *GetProfileTypeRequest) (*GetProfileTypeResponse, error)
+	WriteToParcel(context.Context, *SoundProfileWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedSoundProfileServiceServer()
+}
+
+// UnimplementedSoundProfileServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSoundProfileServiceServer struct{}
+
+func (UnimplementedSoundProfileServiceServer) DescribeContents(context.Context, *SoundProfileDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedSoundProfileServiceServer) GetInputId(context.Context, *GetInputIdRequest) (*GetInputIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInputId not implemented")
+}
+func (UnimplementedSoundProfileServiceServer) GetName(context.Context, *GetNameRequest) (*GetNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetName not implemented")
+}
+func (UnimplementedSoundProfileServiceServer) GetPackageName(context.Context, *SoundProfileGetPackageNameRequest) (*GetPackageNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPackageName not implemented")
+}
+func (UnimplementedSoundProfileServiceServer) GetParameters(context.Context, *GetParametersRequest) (*GetParametersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetParameters not implemented")
+}
+func (UnimplementedSoundProfileServiceServer) GetProfileId(context.Context, *GetProfileIdRequest) (*GetProfileIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetProfileId not implemented")
+}
+func (UnimplementedSoundProfileServiceServer) GetProfileType(context.Context, *GetProfileTypeRequest) (*GetProfileTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetProfileType not implemented")
+}
+func (UnimplementedSoundProfileServiceServer) WriteToParcel(context.Context, *SoundProfileWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedSoundProfileServiceServer) mustEmbedUnimplementedSoundProfileServiceServer() {}
+func (UnimplementedSoundProfileServiceServer) testEmbeddedByValue()                             {}
+
+// UnsafeSoundProfileServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SoundProfileServiceServer will
+// result in compilation errors.
+type UnsafeSoundProfileServiceServer interface {
+	mustEmbedUnimplementedSoundProfileServiceServer()
+}
+
+func RegisterSoundProfileServiceServer(s grpc.ServiceRegistrar, srv SoundProfileServiceServer) {
+	// If the following call panics, it indicates UnimplementedSoundProfileServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SoundProfileService_ServiceDesc, srv)
+}
+
+func _SoundProfileService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SoundProfileDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SoundProfileServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SoundProfileService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SoundProfileServiceServer).DescribeContents(ctx, req.(*SoundProfileDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SoundProfileService_GetInputId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInputIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SoundProfileServiceServer).GetInputId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SoundProfileService_GetInputId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SoundProfileServiceServer).GetInputId(ctx, req.(*GetInputIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SoundProfileService_GetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SoundProfileServiceServer).GetName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SoundProfileService_GetName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SoundProfileServiceServer).GetName(ctx, req.(*GetNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SoundProfileService_GetPackageName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SoundProfileGetPackageNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SoundProfileServiceServer).GetPackageName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SoundProfileService_GetPackageName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SoundProfileServiceServer).GetPackageName(ctx, req.(*SoundProfileGetPackageNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SoundProfileService_GetParameters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetParametersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SoundProfileServiceServer).GetParameters(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SoundProfileService_GetParameters_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SoundProfileServiceServer).GetParameters(ctx, req.(*GetParametersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SoundProfileService_GetProfileId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetProfileIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SoundProfileServiceServer).GetProfileId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SoundProfileService_GetProfileId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SoundProfileServiceServer).GetProfileId(ctx, req.(*GetProfileIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SoundProfileService_GetProfileType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetProfileTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SoundProfileServiceServer).GetProfileType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SoundProfileService_GetProfileType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SoundProfileServiceServer).GetProfileType(ctx, req.(*GetProfileTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SoundProfileService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SoundProfileWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SoundProfileServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SoundProfileService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SoundProfileServiceServer).WriteToParcel(ctx, req.(*SoundProfileWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SoundProfileService_ServiceDesc is the grpc.ServiceDesc for SoundProfileService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SoundProfileService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "quality.SoundProfileService",
+	HandlerType: (*SoundProfileServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _SoundProfileService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetInputId",
+			Handler:    _SoundProfileService_GetInputId_Handler,
+		},
+		{
+			MethodName: "GetName",
+			Handler:    _SoundProfileService_GetName_Handler,
+		},
+		{
+			MethodName: "GetPackageName",
+			Handler:    _SoundProfileService_GetPackageName_Handler,
+		},
+		{
+			MethodName: "GetParameters",
+			Handler:    _SoundProfileService_GetParameters_Handler,
+		},
+		{
+			MethodName: "GetProfileId",
+			Handler:    _SoundProfileService_GetProfileId_Handler,
+		},
+		{
+			MethodName: "GetProfileType",
+			Handler:    _SoundProfileService_GetProfileType_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _SoundProfileService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/quality/quality.proto",
+}
+
+const (
+	SoundProfileBuilderService_Build_FullMethodName         = "/quality.SoundProfileBuilderService/Build"
+	SoundProfileBuilderService_SetParameters_FullMethodName = "/quality.SoundProfileBuilderService/SetParameters"
+)
+
+// SoundProfileBuilderServiceClient is the client API for SoundProfileBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SoundProfileBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetParameters(ctx context.Context, in *SetParametersRequest, opts ...grpc.CallOption) (*SetParametersResponse, error)
+}
+
+type soundProfileBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSoundProfileBuilderServiceClient(cc grpc.ClientConnInterface) SoundProfileBuilderServiceClient {
+	return &soundProfileBuilderServiceClient{cc}
+}
+
+func (c *soundProfileBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, SoundProfileBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *soundProfileBuilderServiceClient) SetParameters(ctx context.Context, in *SetParametersRequest, opts ...grpc.CallOption) (*SetParametersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetParametersResponse)
+	err := c.cc.Invoke(ctx, SoundProfileBuilderService_SetParameters_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SoundProfileBuilderServiceServer is the server API for SoundProfileBuilderService service.
+// All implementations must embed UnimplementedSoundProfileBuilderServiceServer
+// for forward compatibility.
+type SoundProfileBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetParameters(context.Context, *SetParametersRequest) (*SetParametersResponse, error)
+	mustEmbedUnimplementedSoundProfileBuilderServiceServer()
+}
+
+// UnimplementedSoundProfileBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSoundProfileBuilderServiceServer struct{}
+
+func (UnimplementedSoundProfileBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedSoundProfileBuilderServiceServer) SetParameters(context.Context, *SetParametersRequest) (*SetParametersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetParameters not implemented")
+}
+func (UnimplementedSoundProfileBuilderServiceServer) mustEmbedUnimplementedSoundProfileBuilderServiceServer() {
+}
+func (UnimplementedSoundProfileBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSoundProfileBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SoundProfileBuilderServiceServer will
+// result in compilation errors.
+type UnsafeSoundProfileBuilderServiceServer interface {
+	mustEmbedUnimplementedSoundProfileBuilderServiceServer()
+}
+
+func RegisterSoundProfileBuilderServiceServer(s grpc.ServiceRegistrar, srv SoundProfileBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedSoundProfileBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SoundProfileBuilderService_ServiceDesc, srv)
+}
+
+func _SoundProfileBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SoundProfileBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SoundProfileBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SoundProfileBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SoundProfileBuilderService_SetParameters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetParametersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SoundProfileBuilderServiceServer).SetParameters(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SoundProfileBuilderService_SetParameters_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SoundProfileBuilderServiceServer).SetParameters(ctx, req.(*SetParametersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SoundProfileBuilderService_ServiceDesc is the grpc.ServiceDesc for SoundProfileBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SoundProfileBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "quality.SoundProfileBuilderService",
+	HandlerType: (*SoundProfileBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _SoundProfileBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetParameters",
+			Handler:    _SoundProfileBuilderService_SetParameters_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/quality/quality.proto",
+}
+
+const (
 	AmbientBacklightEventService_NewAmbientBacklightEvent_FullMethodName = "/quality.AmbientBacklightEventService/NewAmbientBacklightEvent"
 	AmbientBacklightEventService_DescribeContents_FullMethodName         = "/quality.AmbientBacklightEventService/DescribeContents"
 	AmbientBacklightEventService_Equals_FullMethodName                   = "/quality.AmbientBacklightEventService/Equals"
@@ -873,515 +1865,6 @@ var AmbientBacklightEventService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	PictureProfileService_DescribeContents_FullMethodName = "/quality.PictureProfileService/DescribeContents"
-	PictureProfileService_GetInputId_FullMethodName       = "/quality.PictureProfileService/GetInputId"
-	PictureProfileService_GetName_FullMethodName          = "/quality.PictureProfileService/GetName"
-	PictureProfileService_GetPackageName_FullMethodName   = "/quality.PictureProfileService/GetPackageName"
-	PictureProfileService_GetParameters_FullMethodName    = "/quality.PictureProfileService/GetParameters"
-	PictureProfileService_GetProfileId_FullMethodName     = "/quality.PictureProfileService/GetProfileId"
-	PictureProfileService_GetProfileType_FullMethodName   = "/quality.PictureProfileService/GetProfileType"
-	PictureProfileService_WriteToParcel_FullMethodName    = "/quality.PictureProfileService/WriteToParcel"
-)
-
-// PictureProfileServiceClient is the client API for PictureProfileService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PictureProfileServiceClient interface {
-	DescribeContents(ctx context.Context, in *PictureProfileDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetInputId(ctx context.Context, in *GetInputIdRequest, opts ...grpc.CallOption) (*GetInputIdResponse, error)
-	GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error)
-	GetPackageName(ctx context.Context, in *GetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error)
-	GetParameters(ctx context.Context, in *GetParametersRequest, opts ...grpc.CallOption) (*GetParametersResponse, error)
-	GetProfileId(ctx context.Context, in *GetProfileIdRequest, opts ...grpc.CallOption) (*GetProfileIdResponse, error)
-	GetProfileType(ctx context.Context, in *GetProfileTypeRequest, opts ...grpc.CallOption) (*GetProfileTypeResponse, error)
-	WriteToParcel(ctx context.Context, in *PictureProfileWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type pictureProfileServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPictureProfileServiceClient(cc grpc.ClientConnInterface) PictureProfileServiceClient {
-	return &pictureProfileServiceClient{cc}
-}
-
-func (c *pictureProfileServiceClient) DescribeContents(ctx context.Context, in *PictureProfileDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, PictureProfileService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pictureProfileServiceClient) GetInputId(ctx context.Context, in *GetInputIdRequest, opts ...grpc.CallOption) (*GetInputIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInputIdResponse)
-	err := c.cc.Invoke(ctx, PictureProfileService_GetInputId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pictureProfileServiceClient) GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNameResponse)
-	err := c.cc.Invoke(ctx, PictureProfileService_GetName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pictureProfileServiceClient) GetPackageName(ctx context.Context, in *GetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPackageNameResponse)
-	err := c.cc.Invoke(ctx, PictureProfileService_GetPackageName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pictureProfileServiceClient) GetParameters(ctx context.Context, in *GetParametersRequest, opts ...grpc.CallOption) (*GetParametersResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetParametersResponse)
-	err := c.cc.Invoke(ctx, PictureProfileService_GetParameters_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pictureProfileServiceClient) GetProfileId(ctx context.Context, in *GetProfileIdRequest, opts ...grpc.CallOption) (*GetProfileIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetProfileIdResponse)
-	err := c.cc.Invoke(ctx, PictureProfileService_GetProfileId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pictureProfileServiceClient) GetProfileType(ctx context.Context, in *GetProfileTypeRequest, opts ...grpc.CallOption) (*GetProfileTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetProfileTypeResponse)
-	err := c.cc.Invoke(ctx, PictureProfileService_GetProfileType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pictureProfileServiceClient) WriteToParcel(ctx context.Context, in *PictureProfileWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, PictureProfileService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PictureProfileServiceServer is the server API for PictureProfileService service.
-// All implementations must embed UnimplementedPictureProfileServiceServer
-// for forward compatibility.
-type PictureProfileServiceServer interface {
-	DescribeContents(context.Context, *PictureProfileDescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetInputId(context.Context, *GetInputIdRequest) (*GetInputIdResponse, error)
-	GetName(context.Context, *GetNameRequest) (*GetNameResponse, error)
-	GetPackageName(context.Context, *GetPackageNameRequest) (*GetPackageNameResponse, error)
-	GetParameters(context.Context, *GetParametersRequest) (*GetParametersResponse, error)
-	GetProfileId(context.Context, *GetProfileIdRequest) (*GetProfileIdResponse, error)
-	GetProfileType(context.Context, *GetProfileTypeRequest) (*GetProfileTypeResponse, error)
-	WriteToParcel(context.Context, *PictureProfileWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedPictureProfileServiceServer()
-}
-
-// UnimplementedPictureProfileServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPictureProfileServiceServer struct{}
-
-func (UnimplementedPictureProfileServiceServer) DescribeContents(context.Context, *PictureProfileDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedPictureProfileServiceServer) GetInputId(context.Context, *GetInputIdRequest) (*GetInputIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInputId not implemented")
-}
-func (UnimplementedPictureProfileServiceServer) GetName(context.Context, *GetNameRequest) (*GetNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetName not implemented")
-}
-func (UnimplementedPictureProfileServiceServer) GetPackageName(context.Context, *GetPackageNameRequest) (*GetPackageNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPackageName not implemented")
-}
-func (UnimplementedPictureProfileServiceServer) GetParameters(context.Context, *GetParametersRequest) (*GetParametersResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetParameters not implemented")
-}
-func (UnimplementedPictureProfileServiceServer) GetProfileId(context.Context, *GetProfileIdRequest) (*GetProfileIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetProfileId not implemented")
-}
-func (UnimplementedPictureProfileServiceServer) GetProfileType(context.Context, *GetProfileTypeRequest) (*GetProfileTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetProfileType not implemented")
-}
-func (UnimplementedPictureProfileServiceServer) WriteToParcel(context.Context, *PictureProfileWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedPictureProfileServiceServer) mustEmbedUnimplementedPictureProfileServiceServer() {}
-func (UnimplementedPictureProfileServiceServer) testEmbeddedByValue()                               {}
-
-// UnsafePictureProfileServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PictureProfileServiceServer will
-// result in compilation errors.
-type UnsafePictureProfileServiceServer interface {
-	mustEmbedUnimplementedPictureProfileServiceServer()
-}
-
-func RegisterPictureProfileServiceServer(s grpc.ServiceRegistrar, srv PictureProfileServiceServer) {
-	// If the following call panics, it indicates UnimplementedPictureProfileServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PictureProfileService_ServiceDesc, srv)
-}
-
-func _PictureProfileService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PictureProfileDescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PictureProfileServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PictureProfileService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PictureProfileServiceServer).DescribeContents(ctx, req.(*PictureProfileDescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PictureProfileService_GetInputId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInputIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PictureProfileServiceServer).GetInputId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PictureProfileService_GetInputId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PictureProfileServiceServer).GetInputId(ctx, req.(*GetInputIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PictureProfileService_GetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PictureProfileServiceServer).GetName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PictureProfileService_GetName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PictureProfileServiceServer).GetName(ctx, req.(*GetNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PictureProfileService_GetPackageName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPackageNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PictureProfileServiceServer).GetPackageName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PictureProfileService_GetPackageName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PictureProfileServiceServer).GetPackageName(ctx, req.(*GetPackageNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PictureProfileService_GetParameters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetParametersRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PictureProfileServiceServer).GetParameters(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PictureProfileService_GetParameters_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PictureProfileServiceServer).GetParameters(ctx, req.(*GetParametersRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PictureProfileService_GetProfileId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetProfileIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PictureProfileServiceServer).GetProfileId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PictureProfileService_GetProfileId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PictureProfileServiceServer).GetProfileId(ctx, req.(*GetProfileIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PictureProfileService_GetProfileType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetProfileTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PictureProfileServiceServer).GetProfileType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PictureProfileService_GetProfileType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PictureProfileServiceServer).GetProfileType(ctx, req.(*GetProfileTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PictureProfileService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PictureProfileWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PictureProfileServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PictureProfileService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PictureProfileServiceServer).WriteToParcel(ctx, req.(*PictureProfileWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PictureProfileService_ServiceDesc is the grpc.ServiceDesc for PictureProfileService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PictureProfileService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "quality.PictureProfileService",
-	HandlerType: (*PictureProfileServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _PictureProfileService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetInputId",
-			Handler:    _PictureProfileService_GetInputId_Handler,
-		},
-		{
-			MethodName: "GetName",
-			Handler:    _PictureProfileService_GetName_Handler,
-		},
-		{
-			MethodName: "GetPackageName",
-			Handler:    _PictureProfileService_GetPackageName_Handler,
-		},
-		{
-			MethodName: "GetParameters",
-			Handler:    _PictureProfileService_GetParameters_Handler,
-		},
-		{
-			MethodName: "GetProfileId",
-			Handler:    _PictureProfileService_GetProfileId_Handler,
-		},
-		{
-			MethodName: "GetProfileType",
-			Handler:    _PictureProfileService_GetProfileType_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _PictureProfileService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/quality/quality.proto",
-}
-
-const (
-	PictureProfileBuilderService_Build_FullMethodName         = "/quality.PictureProfileBuilderService/Build"
-	PictureProfileBuilderService_SetParameters_FullMethodName = "/quality.PictureProfileBuilderService/SetParameters"
-)
-
-// PictureProfileBuilderServiceClient is the client API for PictureProfileBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PictureProfileBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetParameters(ctx context.Context, in *SetParametersRequest, opts ...grpc.CallOption) (*SetParametersResponse, error)
-}
-
-type pictureProfileBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPictureProfileBuilderServiceClient(cc grpc.ClientConnInterface) PictureProfileBuilderServiceClient {
-	return &pictureProfileBuilderServiceClient{cc}
-}
-
-func (c *pictureProfileBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, PictureProfileBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *pictureProfileBuilderServiceClient) SetParameters(ctx context.Context, in *SetParametersRequest, opts ...grpc.CallOption) (*SetParametersResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetParametersResponse)
-	err := c.cc.Invoke(ctx, PictureProfileBuilderService_SetParameters_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PictureProfileBuilderServiceServer is the server API for PictureProfileBuilderService service.
-// All implementations must embed UnimplementedPictureProfileBuilderServiceServer
-// for forward compatibility.
-type PictureProfileBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetParameters(context.Context, *SetParametersRequest) (*SetParametersResponse, error)
-	mustEmbedUnimplementedPictureProfileBuilderServiceServer()
-}
-
-// UnimplementedPictureProfileBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPictureProfileBuilderServiceServer struct{}
-
-func (UnimplementedPictureProfileBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedPictureProfileBuilderServiceServer) SetParameters(context.Context, *SetParametersRequest) (*SetParametersResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetParameters not implemented")
-}
-func (UnimplementedPictureProfileBuilderServiceServer) mustEmbedUnimplementedPictureProfileBuilderServiceServer() {
-}
-func (UnimplementedPictureProfileBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafePictureProfileBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PictureProfileBuilderServiceServer will
-// result in compilation errors.
-type UnsafePictureProfileBuilderServiceServer interface {
-	mustEmbedUnimplementedPictureProfileBuilderServiceServer()
-}
-
-func RegisterPictureProfileBuilderServiceServer(s grpc.ServiceRegistrar, srv PictureProfileBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedPictureProfileBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PictureProfileBuilderService_ServiceDesc, srv)
-}
-
-func _PictureProfileBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PictureProfileBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PictureProfileBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PictureProfileBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PictureProfileBuilderService_SetParameters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetParametersRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PictureProfileBuilderServiceServer).SetParameters(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PictureProfileBuilderService_SetParameters_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PictureProfileBuilderServiceServer).SetParameters(ctx, req.(*SetParametersRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PictureProfileBuilderService_ServiceDesc is the grpc.ServiceDesc for PictureProfileBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PictureProfileBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "quality.PictureProfileBuilderService",
-	HandlerType: (*PictureProfileBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _PictureProfileBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetParameters",
-			Handler:    _PictureProfileBuilderService_SetParameters_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/quality/quality.proto",
-}
-
-const (
 	ParameterCapabilityService_DescribeContents_FullMethodName = "/quality.ParameterCapabilityService/DescribeContents"
 	ParameterCapabilityService_GetCapabilities_FullMethodName  = "/quality.ParameterCapabilityService/GetCapabilities"
 	ParameterCapabilityService_GetParameterName_FullMethodName = "/quality.ParameterCapabilityService/GetParameterName"
@@ -1675,482 +2158,763 @@ var ParameterCapabilityService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	AmbientBacklightMetadataService_NewAmbientBacklightMetadata_FullMethodName = "/quality.AmbientBacklightMetadataService/NewAmbientBacklightMetadata"
-	AmbientBacklightMetadataService_DescribeContents_FullMethodName            = "/quality.AmbientBacklightMetadataService/DescribeContents"
-	AmbientBacklightMetadataService_GetColorFormat_FullMethodName              = "/quality.AmbientBacklightMetadataService/GetColorFormat"
-	AmbientBacklightMetadataService_GetCompressionAlgorithm_FullMethodName     = "/quality.AmbientBacklightMetadataService/GetCompressionAlgorithm"
-	AmbientBacklightMetadataService_GetHorizontalZonesCount_FullMethodName     = "/quality.AmbientBacklightMetadataService/GetHorizontalZonesCount"
-	AmbientBacklightMetadataService_GetPackageName_FullMethodName              = "/quality.AmbientBacklightMetadataService/GetPackageName"
-	AmbientBacklightMetadataService_GetSource_FullMethodName                   = "/quality.AmbientBacklightMetadataService/GetSource"
-	AmbientBacklightMetadataService_GetVerticalZonesCount_FullMethodName       = "/quality.AmbientBacklightMetadataService/GetVerticalZonesCount"
-	AmbientBacklightMetadataService_GetZoneColors_FullMethodName               = "/quality.AmbientBacklightMetadataService/GetZoneColors"
-	AmbientBacklightMetadataService_ToString_FullMethodName                    = "/quality.AmbientBacklightMetadataService/ToString"
-	AmbientBacklightMetadataService_WriteToParcel_FullMethodName               = "/quality.AmbientBacklightMetadataService/WriteToParcel"
+	ActiveProcessingPictureService_NewActiveProcessingPicture_FullMethodName = "/quality.ActiveProcessingPictureService/NewActiveProcessingPicture"
+	ActiveProcessingPictureService_DescribeContents_FullMethodName           = "/quality.ActiveProcessingPictureService/DescribeContents"
+	ActiveProcessingPictureService_GetId_FullMethodName                      = "/quality.ActiveProcessingPictureService/GetId"
+	ActiveProcessingPictureService_GetProfileId_FullMethodName               = "/quality.ActiveProcessingPictureService/GetProfileId"
+	ActiveProcessingPictureService_WriteToParcel_FullMethodName              = "/quality.ActiveProcessingPictureService/WriteToParcel"
 )
 
-// AmbientBacklightMetadataServiceClient is the client API for AmbientBacklightMetadataService service.
+// ActiveProcessingPictureServiceClient is the client API for ActiveProcessingPictureService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AmbientBacklightMetadataServiceClient interface {
-	NewAmbientBacklightMetadata(ctx context.Context, in *NewAmbientBacklightMetadataRequest, opts ...grpc.CallOption) (*NewAmbientBacklightMetadataResponse, error)
+type ActiveProcessingPictureServiceClient interface {
+	NewActiveProcessingPicture(ctx context.Context, in *NewActiveProcessingPictureRequest, opts ...grpc.CallOption) (*NewActiveProcessingPictureResponse, error)
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetColorFormat(ctx context.Context, in *GetColorFormatRequest, opts ...grpc.CallOption) (*GetColorFormatResponse, error)
-	GetCompressionAlgorithm(ctx context.Context, in *GetCompressionAlgorithmRequest, opts ...grpc.CallOption) (*GetCompressionAlgorithmResponse, error)
-	GetHorizontalZonesCount(ctx context.Context, in *GetHorizontalZonesCountRequest, opts ...grpc.CallOption) (*GetHorizontalZonesCountResponse, error)
-	GetPackageName(ctx context.Context, in *AmbientBacklightMetadataGetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error)
-	GetSource(ctx context.Context, in *GetSourceRequest, opts ...grpc.CallOption) (*GetSourceResponse, error)
-	GetVerticalZonesCount(ctx context.Context, in *GetVerticalZonesCountRequest, opts ...grpc.CallOption) (*GetVerticalZonesCountResponse, error)
-	GetZoneColors(ctx context.Context, in *GetZoneColorsRequest, opts ...grpc.CallOption) (*GetZoneColorsResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
+	GetProfileId(ctx context.Context, in *ActiveProcessingPictureGetProfileIdRequest, opts ...grpc.CallOption) (*GetProfileIdResponse, error)
 	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type ambientBacklightMetadataServiceClient struct {
+type activeProcessingPictureServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewAmbientBacklightMetadataServiceClient(cc grpc.ClientConnInterface) AmbientBacklightMetadataServiceClient {
-	return &ambientBacklightMetadataServiceClient{cc}
+func NewActiveProcessingPictureServiceClient(cc grpc.ClientConnInterface) ActiveProcessingPictureServiceClient {
+	return &activeProcessingPictureServiceClient{cc}
 }
 
-func (c *ambientBacklightMetadataServiceClient) NewAmbientBacklightMetadata(ctx context.Context, in *NewAmbientBacklightMetadataRequest, opts ...grpc.CallOption) (*NewAmbientBacklightMetadataResponse, error) {
+func (c *activeProcessingPictureServiceClient) NewActiveProcessingPicture(ctx context.Context, in *NewActiveProcessingPictureRequest, opts ...grpc.CallOption) (*NewActiveProcessingPictureResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewAmbientBacklightMetadataResponse)
-	err := c.cc.Invoke(ctx, AmbientBacklightMetadataService_NewAmbientBacklightMetadata_FullMethodName, in, out, cOpts...)
+	out := new(NewActiveProcessingPictureResponse)
+	err := c.cc.Invoke(ctx, ActiveProcessingPictureService_NewActiveProcessingPicture_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *ambientBacklightMetadataServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *activeProcessingPictureServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, AmbientBacklightMetadataService_DescribeContents_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ActiveProcessingPictureService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *ambientBacklightMetadataServiceClient) GetColorFormat(ctx context.Context, in *GetColorFormatRequest, opts ...grpc.CallOption) (*GetColorFormatResponse, error) {
+func (c *activeProcessingPictureServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetColorFormatResponse)
-	err := c.cc.Invoke(ctx, AmbientBacklightMetadataService_GetColorFormat_FullMethodName, in, out, cOpts...)
+	out := new(GetIdResponse)
+	err := c.cc.Invoke(ctx, ActiveProcessingPictureService_GetId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *ambientBacklightMetadataServiceClient) GetCompressionAlgorithm(ctx context.Context, in *GetCompressionAlgorithmRequest, opts ...grpc.CallOption) (*GetCompressionAlgorithmResponse, error) {
+func (c *activeProcessingPictureServiceClient) GetProfileId(ctx context.Context, in *ActiveProcessingPictureGetProfileIdRequest, opts ...grpc.CallOption) (*GetProfileIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCompressionAlgorithmResponse)
-	err := c.cc.Invoke(ctx, AmbientBacklightMetadataService_GetCompressionAlgorithm_FullMethodName, in, out, cOpts...)
+	out := new(GetProfileIdResponse)
+	err := c.cc.Invoke(ctx, ActiveProcessingPictureService_GetProfileId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *ambientBacklightMetadataServiceClient) GetHorizontalZonesCount(ctx context.Context, in *GetHorizontalZonesCountRequest, opts ...grpc.CallOption) (*GetHorizontalZonesCountResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetHorizontalZonesCountResponse)
-	err := c.cc.Invoke(ctx, AmbientBacklightMetadataService_GetHorizontalZonesCount_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *ambientBacklightMetadataServiceClient) GetPackageName(ctx context.Context, in *AmbientBacklightMetadataGetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPackageNameResponse)
-	err := c.cc.Invoke(ctx, AmbientBacklightMetadataService_GetPackageName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *ambientBacklightMetadataServiceClient) GetSource(ctx context.Context, in *GetSourceRequest, opts ...grpc.CallOption) (*GetSourceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSourceResponse)
-	err := c.cc.Invoke(ctx, AmbientBacklightMetadataService_GetSource_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *ambientBacklightMetadataServiceClient) GetVerticalZonesCount(ctx context.Context, in *GetVerticalZonesCountRequest, opts ...grpc.CallOption) (*GetVerticalZonesCountResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetVerticalZonesCountResponse)
-	err := c.cc.Invoke(ctx, AmbientBacklightMetadataService_GetVerticalZonesCount_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *ambientBacklightMetadataServiceClient) GetZoneColors(ctx context.Context, in *GetZoneColorsRequest, opts ...grpc.CallOption) (*GetZoneColorsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetZoneColorsResponse)
-	err := c.cc.Invoke(ctx, AmbientBacklightMetadataService_GetZoneColors_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *ambientBacklightMetadataServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, AmbientBacklightMetadataService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *ambientBacklightMetadataServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *activeProcessingPictureServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, AmbientBacklightMetadataService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ActiveProcessingPictureService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// AmbientBacklightMetadataServiceServer is the server API for AmbientBacklightMetadataService service.
-// All implementations must embed UnimplementedAmbientBacklightMetadataServiceServer
+// ActiveProcessingPictureServiceServer is the server API for ActiveProcessingPictureService service.
+// All implementations must embed UnimplementedActiveProcessingPictureServiceServer
 // for forward compatibility.
-type AmbientBacklightMetadataServiceServer interface {
-	NewAmbientBacklightMetadata(context.Context, *NewAmbientBacklightMetadataRequest) (*NewAmbientBacklightMetadataResponse, error)
+type ActiveProcessingPictureServiceServer interface {
+	NewActiveProcessingPicture(context.Context, *NewActiveProcessingPictureRequest) (*NewActiveProcessingPictureResponse, error)
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetColorFormat(context.Context, *GetColorFormatRequest) (*GetColorFormatResponse, error)
-	GetCompressionAlgorithm(context.Context, *GetCompressionAlgorithmRequest) (*GetCompressionAlgorithmResponse, error)
-	GetHorizontalZonesCount(context.Context, *GetHorizontalZonesCountRequest) (*GetHorizontalZonesCountResponse, error)
-	GetPackageName(context.Context, *AmbientBacklightMetadataGetPackageNameRequest) (*GetPackageNameResponse, error)
-	GetSource(context.Context, *GetSourceRequest) (*GetSourceResponse, error)
-	GetVerticalZonesCount(context.Context, *GetVerticalZonesCountRequest) (*GetVerticalZonesCountResponse, error)
-	GetZoneColors(context.Context, *GetZoneColorsRequest) (*GetZoneColorsResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
+	GetProfileId(context.Context, *ActiveProcessingPictureGetProfileIdRequest) (*GetProfileIdResponse, error)
 	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedAmbientBacklightMetadataServiceServer()
+	mustEmbedUnimplementedActiveProcessingPictureServiceServer()
 }
 
-// UnimplementedAmbientBacklightMetadataServiceServer must be embedded to have
+// UnimplementedActiveProcessingPictureServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedAmbientBacklightMetadataServiceServer struct{}
+type UnimplementedActiveProcessingPictureServiceServer struct{}
 
-func (UnimplementedAmbientBacklightMetadataServiceServer) NewAmbientBacklightMetadata(context.Context, *NewAmbientBacklightMetadataRequest) (*NewAmbientBacklightMetadataResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewAmbientBacklightMetadata not implemented")
+func (UnimplementedActiveProcessingPictureServiceServer) NewActiveProcessingPicture(context.Context, *NewActiveProcessingPictureRequest) (*NewActiveProcessingPictureResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewActiveProcessingPicture not implemented")
 }
-func (UnimplementedAmbientBacklightMetadataServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedActiveProcessingPictureServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedAmbientBacklightMetadataServiceServer) GetColorFormat(context.Context, *GetColorFormatRequest) (*GetColorFormatResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetColorFormat not implemented")
+func (UnimplementedActiveProcessingPictureServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
 }
-func (UnimplementedAmbientBacklightMetadataServiceServer) GetCompressionAlgorithm(context.Context, *GetCompressionAlgorithmRequest) (*GetCompressionAlgorithmResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCompressionAlgorithm not implemented")
+func (UnimplementedActiveProcessingPictureServiceServer) GetProfileId(context.Context, *ActiveProcessingPictureGetProfileIdRequest) (*GetProfileIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetProfileId not implemented")
 }
-func (UnimplementedAmbientBacklightMetadataServiceServer) GetHorizontalZonesCount(context.Context, *GetHorizontalZonesCountRequest) (*GetHorizontalZonesCountResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetHorizontalZonesCount not implemented")
-}
-func (UnimplementedAmbientBacklightMetadataServiceServer) GetPackageName(context.Context, *AmbientBacklightMetadataGetPackageNameRequest) (*GetPackageNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPackageName not implemented")
-}
-func (UnimplementedAmbientBacklightMetadataServiceServer) GetSource(context.Context, *GetSourceRequest) (*GetSourceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSource not implemented")
-}
-func (UnimplementedAmbientBacklightMetadataServiceServer) GetVerticalZonesCount(context.Context, *GetVerticalZonesCountRequest) (*GetVerticalZonesCountResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetVerticalZonesCount not implemented")
-}
-func (UnimplementedAmbientBacklightMetadataServiceServer) GetZoneColors(context.Context, *GetZoneColorsRequest) (*GetZoneColorsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetZoneColors not implemented")
-}
-func (UnimplementedAmbientBacklightMetadataServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedAmbientBacklightMetadataServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedActiveProcessingPictureServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedAmbientBacklightMetadataServiceServer) mustEmbedUnimplementedAmbientBacklightMetadataServiceServer() {
+func (UnimplementedActiveProcessingPictureServiceServer) mustEmbedUnimplementedActiveProcessingPictureServiceServer() {
 }
-func (UnimplementedAmbientBacklightMetadataServiceServer) testEmbeddedByValue() {}
+func (UnimplementedActiveProcessingPictureServiceServer) testEmbeddedByValue() {}
 
-// UnsafeAmbientBacklightMetadataServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AmbientBacklightMetadataServiceServer will
+// UnsafeActiveProcessingPictureServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ActiveProcessingPictureServiceServer will
 // result in compilation errors.
-type UnsafeAmbientBacklightMetadataServiceServer interface {
-	mustEmbedUnimplementedAmbientBacklightMetadataServiceServer()
+type UnsafeActiveProcessingPictureServiceServer interface {
+	mustEmbedUnimplementedActiveProcessingPictureServiceServer()
 }
 
-func RegisterAmbientBacklightMetadataServiceServer(s grpc.ServiceRegistrar, srv AmbientBacklightMetadataServiceServer) {
-	// If the following call panics, it indicates UnimplementedAmbientBacklightMetadataServiceServer was
+func RegisterActiveProcessingPictureServiceServer(s grpc.ServiceRegistrar, srv ActiveProcessingPictureServiceServer) {
+	// If the following call panics, it indicates UnimplementedActiveProcessingPictureServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&AmbientBacklightMetadataService_ServiceDesc, srv)
+	s.RegisterService(&ActiveProcessingPictureService_ServiceDesc, srv)
 }
 
-func _AmbientBacklightMetadataService_NewAmbientBacklightMetadata_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewAmbientBacklightMetadataRequest)
+func _ActiveProcessingPictureService_NewActiveProcessingPicture_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewActiveProcessingPictureRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AmbientBacklightMetadataServiceServer).NewAmbientBacklightMetadata(ctx, in)
+		return srv.(ActiveProcessingPictureServiceServer).NewActiveProcessingPicture(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AmbientBacklightMetadataService_NewAmbientBacklightMetadata_FullMethodName,
+		FullMethod: ActiveProcessingPictureService_NewActiveProcessingPicture_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AmbientBacklightMetadataServiceServer).NewAmbientBacklightMetadata(ctx, req.(*NewAmbientBacklightMetadataRequest))
+		return srv.(ActiveProcessingPictureServiceServer).NewActiveProcessingPicture(ctx, req.(*NewActiveProcessingPictureRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AmbientBacklightMetadataService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ActiveProcessingPictureService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AmbientBacklightMetadataServiceServer).DescribeContents(ctx, in)
+		return srv.(ActiveProcessingPictureServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AmbientBacklightMetadataService_DescribeContents_FullMethodName,
+		FullMethod: ActiveProcessingPictureService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AmbientBacklightMetadataServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(ActiveProcessingPictureServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AmbientBacklightMetadataService_GetColorFormat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetColorFormatRequest)
+func _ActiveProcessingPictureService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AmbientBacklightMetadataServiceServer).GetColorFormat(ctx, in)
+		return srv.(ActiveProcessingPictureServiceServer).GetId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AmbientBacklightMetadataService_GetColorFormat_FullMethodName,
+		FullMethod: ActiveProcessingPictureService_GetId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AmbientBacklightMetadataServiceServer).GetColorFormat(ctx, req.(*GetColorFormatRequest))
+		return srv.(ActiveProcessingPictureServiceServer).GetId(ctx, req.(*GetIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AmbientBacklightMetadataService_GetCompressionAlgorithm_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCompressionAlgorithmRequest)
+func _ActiveProcessingPictureService_GetProfileId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ActiveProcessingPictureGetProfileIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AmbientBacklightMetadataServiceServer).GetCompressionAlgorithm(ctx, in)
+		return srv.(ActiveProcessingPictureServiceServer).GetProfileId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AmbientBacklightMetadataService_GetCompressionAlgorithm_FullMethodName,
+		FullMethod: ActiveProcessingPictureService_GetProfileId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AmbientBacklightMetadataServiceServer).GetCompressionAlgorithm(ctx, req.(*GetCompressionAlgorithmRequest))
+		return srv.(ActiveProcessingPictureServiceServer).GetProfileId(ctx, req.(*ActiveProcessingPictureGetProfileIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AmbientBacklightMetadataService_GetHorizontalZonesCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetHorizontalZonesCountRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AmbientBacklightMetadataServiceServer).GetHorizontalZonesCount(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AmbientBacklightMetadataService_GetHorizontalZonesCount_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AmbientBacklightMetadataServiceServer).GetHorizontalZonesCount(ctx, req.(*GetHorizontalZonesCountRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AmbientBacklightMetadataService_GetPackageName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AmbientBacklightMetadataGetPackageNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AmbientBacklightMetadataServiceServer).GetPackageName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AmbientBacklightMetadataService_GetPackageName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AmbientBacklightMetadataServiceServer).GetPackageName(ctx, req.(*AmbientBacklightMetadataGetPackageNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AmbientBacklightMetadataService_GetSource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSourceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AmbientBacklightMetadataServiceServer).GetSource(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AmbientBacklightMetadataService_GetSource_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AmbientBacklightMetadataServiceServer).GetSource(ctx, req.(*GetSourceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AmbientBacklightMetadataService_GetVerticalZonesCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetVerticalZonesCountRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AmbientBacklightMetadataServiceServer).GetVerticalZonesCount(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AmbientBacklightMetadataService_GetVerticalZonesCount_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AmbientBacklightMetadataServiceServer).GetVerticalZonesCount(ctx, req.(*GetVerticalZonesCountRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AmbientBacklightMetadataService_GetZoneColors_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetZoneColorsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AmbientBacklightMetadataServiceServer).GetZoneColors(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AmbientBacklightMetadataService_GetZoneColors_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AmbientBacklightMetadataServiceServer).GetZoneColors(ctx, req.(*GetZoneColorsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AmbientBacklightMetadataService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AmbientBacklightMetadataServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AmbientBacklightMetadataService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AmbientBacklightMetadataServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AmbientBacklightMetadataService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ActiveProcessingPictureService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AmbientBacklightMetadataServiceServer).WriteToParcel(ctx, in)
+		return srv.(ActiveProcessingPictureServiceServer).WriteToParcel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AmbientBacklightMetadataService_WriteToParcel_FullMethodName,
+		FullMethod: ActiveProcessingPictureService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AmbientBacklightMetadataServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(ActiveProcessingPictureServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// AmbientBacklightMetadataService_ServiceDesc is the grpc.ServiceDesc for AmbientBacklightMetadataService service.
+// ActiveProcessingPictureService_ServiceDesc is the grpc.ServiceDesc for ActiveProcessingPictureService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var AmbientBacklightMetadataService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "quality.AmbientBacklightMetadataService",
-	HandlerType: (*AmbientBacklightMetadataServiceServer)(nil),
+var ActiveProcessingPictureService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "quality.ActiveProcessingPictureService",
+	HandlerType: (*ActiveProcessingPictureServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewAmbientBacklightMetadata",
-			Handler:    _AmbientBacklightMetadataService_NewAmbientBacklightMetadata_Handler,
+			MethodName: "NewActiveProcessingPicture",
+			Handler:    _ActiveProcessingPictureService_NewActiveProcessingPicture_Handler,
 		},
 		{
 			MethodName: "DescribeContents",
-			Handler:    _AmbientBacklightMetadataService_DescribeContents_Handler,
+			Handler:    _ActiveProcessingPictureService_DescribeContents_Handler,
 		},
 		{
-			MethodName: "GetColorFormat",
-			Handler:    _AmbientBacklightMetadataService_GetColorFormat_Handler,
+			MethodName: "GetId",
+			Handler:    _ActiveProcessingPictureService_GetId_Handler,
 		},
 		{
-			MethodName: "GetCompressionAlgorithm",
-			Handler:    _AmbientBacklightMetadataService_GetCompressionAlgorithm_Handler,
-		},
-		{
-			MethodName: "GetHorizontalZonesCount",
-			Handler:    _AmbientBacklightMetadataService_GetHorizontalZonesCount_Handler,
-		},
-		{
-			MethodName: "GetPackageName",
-			Handler:    _AmbientBacklightMetadataService_GetPackageName_Handler,
-		},
-		{
-			MethodName: "GetSource",
-			Handler:    _AmbientBacklightMetadataService_GetSource_Handler,
-		},
-		{
-			MethodName: "GetVerticalZonesCount",
-			Handler:    _AmbientBacklightMetadataService_GetVerticalZonesCount_Handler,
-		},
-		{
-			MethodName: "GetZoneColors",
-			Handler:    _AmbientBacklightMetadataService_GetZoneColors_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _AmbientBacklightMetadataService_ToString_Handler,
+			MethodName: "GetProfileId",
+			Handler:    _ActiveProcessingPictureService_GetProfileId_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _AmbientBacklightMetadataService_WriteToParcel_Handler,
+			Handler:    _ActiveProcessingPictureService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/quality/quality.proto",
+}
+
+const (
+	PictureProfileService_DescribeContents_FullMethodName = "/quality.PictureProfileService/DescribeContents"
+	PictureProfileService_GetInputId_FullMethodName       = "/quality.PictureProfileService/GetInputId"
+	PictureProfileService_GetName_FullMethodName          = "/quality.PictureProfileService/GetName"
+	PictureProfileService_GetPackageName_FullMethodName   = "/quality.PictureProfileService/GetPackageName"
+	PictureProfileService_GetParameters_FullMethodName    = "/quality.PictureProfileService/GetParameters"
+	PictureProfileService_GetProfileId_FullMethodName     = "/quality.PictureProfileService/GetProfileId"
+	PictureProfileService_GetProfileType_FullMethodName   = "/quality.PictureProfileService/GetProfileType"
+	PictureProfileService_WriteToParcel_FullMethodName    = "/quality.PictureProfileService/WriteToParcel"
+)
+
+// PictureProfileServiceClient is the client API for PictureProfileService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PictureProfileServiceClient interface {
+	DescribeContents(ctx context.Context, in *PictureProfileDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetInputId(ctx context.Context, in *GetInputIdRequest, opts ...grpc.CallOption) (*GetInputIdResponse, error)
+	GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error)
+	GetPackageName(ctx context.Context, in *PictureProfileGetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error)
+	GetParameters(ctx context.Context, in *GetParametersRequest, opts ...grpc.CallOption) (*GetParametersResponse, error)
+	GetProfileId(ctx context.Context, in *GetProfileIdRequest, opts ...grpc.CallOption) (*GetProfileIdResponse, error)
+	GetProfileType(ctx context.Context, in *GetProfileTypeRequest, opts ...grpc.CallOption) (*GetProfileTypeResponse, error)
+	WriteToParcel(ctx context.Context, in *PictureProfileWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type pictureProfileServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPictureProfileServiceClient(cc grpc.ClientConnInterface) PictureProfileServiceClient {
+	return &pictureProfileServiceClient{cc}
+}
+
+func (c *pictureProfileServiceClient) DescribeContents(ctx context.Context, in *PictureProfileDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, PictureProfileService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pictureProfileServiceClient) GetInputId(ctx context.Context, in *GetInputIdRequest, opts ...grpc.CallOption) (*GetInputIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInputIdResponse)
+	err := c.cc.Invoke(ctx, PictureProfileService_GetInputId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pictureProfileServiceClient) GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNameResponse)
+	err := c.cc.Invoke(ctx, PictureProfileService_GetName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pictureProfileServiceClient) GetPackageName(ctx context.Context, in *PictureProfileGetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPackageNameResponse)
+	err := c.cc.Invoke(ctx, PictureProfileService_GetPackageName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pictureProfileServiceClient) GetParameters(ctx context.Context, in *GetParametersRequest, opts ...grpc.CallOption) (*GetParametersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetParametersResponse)
+	err := c.cc.Invoke(ctx, PictureProfileService_GetParameters_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pictureProfileServiceClient) GetProfileId(ctx context.Context, in *GetProfileIdRequest, opts ...grpc.CallOption) (*GetProfileIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetProfileIdResponse)
+	err := c.cc.Invoke(ctx, PictureProfileService_GetProfileId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pictureProfileServiceClient) GetProfileType(ctx context.Context, in *GetProfileTypeRequest, opts ...grpc.CallOption) (*GetProfileTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetProfileTypeResponse)
+	err := c.cc.Invoke(ctx, PictureProfileService_GetProfileType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pictureProfileServiceClient) WriteToParcel(ctx context.Context, in *PictureProfileWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, PictureProfileService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PictureProfileServiceServer is the server API for PictureProfileService service.
+// All implementations must embed UnimplementedPictureProfileServiceServer
+// for forward compatibility.
+type PictureProfileServiceServer interface {
+	DescribeContents(context.Context, *PictureProfileDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetInputId(context.Context, *GetInputIdRequest) (*GetInputIdResponse, error)
+	GetName(context.Context, *GetNameRequest) (*GetNameResponse, error)
+	GetPackageName(context.Context, *PictureProfileGetPackageNameRequest) (*GetPackageNameResponse, error)
+	GetParameters(context.Context, *GetParametersRequest) (*GetParametersResponse, error)
+	GetProfileId(context.Context, *GetProfileIdRequest) (*GetProfileIdResponse, error)
+	GetProfileType(context.Context, *GetProfileTypeRequest) (*GetProfileTypeResponse, error)
+	WriteToParcel(context.Context, *PictureProfileWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedPictureProfileServiceServer()
+}
+
+// UnimplementedPictureProfileServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPictureProfileServiceServer struct{}
+
+func (UnimplementedPictureProfileServiceServer) DescribeContents(context.Context, *PictureProfileDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedPictureProfileServiceServer) GetInputId(context.Context, *GetInputIdRequest) (*GetInputIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInputId not implemented")
+}
+func (UnimplementedPictureProfileServiceServer) GetName(context.Context, *GetNameRequest) (*GetNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetName not implemented")
+}
+func (UnimplementedPictureProfileServiceServer) GetPackageName(context.Context, *PictureProfileGetPackageNameRequest) (*GetPackageNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPackageName not implemented")
+}
+func (UnimplementedPictureProfileServiceServer) GetParameters(context.Context, *GetParametersRequest) (*GetParametersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetParameters not implemented")
+}
+func (UnimplementedPictureProfileServiceServer) GetProfileId(context.Context, *GetProfileIdRequest) (*GetProfileIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetProfileId not implemented")
+}
+func (UnimplementedPictureProfileServiceServer) GetProfileType(context.Context, *GetProfileTypeRequest) (*GetProfileTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetProfileType not implemented")
+}
+func (UnimplementedPictureProfileServiceServer) WriteToParcel(context.Context, *PictureProfileWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedPictureProfileServiceServer) mustEmbedUnimplementedPictureProfileServiceServer() {}
+func (UnimplementedPictureProfileServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafePictureProfileServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PictureProfileServiceServer will
+// result in compilation errors.
+type UnsafePictureProfileServiceServer interface {
+	mustEmbedUnimplementedPictureProfileServiceServer()
+}
+
+func RegisterPictureProfileServiceServer(s grpc.ServiceRegistrar, srv PictureProfileServiceServer) {
+	// If the following call panics, it indicates UnimplementedPictureProfileServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PictureProfileService_ServiceDesc, srv)
+}
+
+func _PictureProfileService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PictureProfileDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PictureProfileServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PictureProfileService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PictureProfileServiceServer).DescribeContents(ctx, req.(*PictureProfileDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PictureProfileService_GetInputId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInputIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PictureProfileServiceServer).GetInputId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PictureProfileService_GetInputId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PictureProfileServiceServer).GetInputId(ctx, req.(*GetInputIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PictureProfileService_GetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PictureProfileServiceServer).GetName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PictureProfileService_GetName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PictureProfileServiceServer).GetName(ctx, req.(*GetNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PictureProfileService_GetPackageName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PictureProfileGetPackageNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PictureProfileServiceServer).GetPackageName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PictureProfileService_GetPackageName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PictureProfileServiceServer).GetPackageName(ctx, req.(*PictureProfileGetPackageNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PictureProfileService_GetParameters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetParametersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PictureProfileServiceServer).GetParameters(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PictureProfileService_GetParameters_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PictureProfileServiceServer).GetParameters(ctx, req.(*GetParametersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PictureProfileService_GetProfileId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetProfileIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PictureProfileServiceServer).GetProfileId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PictureProfileService_GetProfileId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PictureProfileServiceServer).GetProfileId(ctx, req.(*GetProfileIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PictureProfileService_GetProfileType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetProfileTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PictureProfileServiceServer).GetProfileType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PictureProfileService_GetProfileType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PictureProfileServiceServer).GetProfileType(ctx, req.(*GetProfileTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PictureProfileService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PictureProfileWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PictureProfileServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PictureProfileService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PictureProfileServiceServer).WriteToParcel(ctx, req.(*PictureProfileWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PictureProfileService_ServiceDesc is the grpc.ServiceDesc for PictureProfileService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PictureProfileService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "quality.PictureProfileService",
+	HandlerType: (*PictureProfileServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _PictureProfileService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetInputId",
+			Handler:    _PictureProfileService_GetInputId_Handler,
+		},
+		{
+			MethodName: "GetName",
+			Handler:    _PictureProfileService_GetName_Handler,
+		},
+		{
+			MethodName: "GetPackageName",
+			Handler:    _PictureProfileService_GetPackageName_Handler,
+		},
+		{
+			MethodName: "GetParameters",
+			Handler:    _PictureProfileService_GetParameters_Handler,
+		},
+		{
+			MethodName: "GetProfileId",
+			Handler:    _PictureProfileService_GetProfileId_Handler,
+		},
+		{
+			MethodName: "GetProfileType",
+			Handler:    _PictureProfileService_GetProfileType_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _PictureProfileService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/quality/quality.proto",
+}
+
+const (
+	PictureProfileBuilderService_Build_FullMethodName         = "/quality.PictureProfileBuilderService/Build"
+	PictureProfileBuilderService_SetParameters_FullMethodName = "/quality.PictureProfileBuilderService/SetParameters"
+)
+
+// PictureProfileBuilderServiceClient is the client API for PictureProfileBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PictureProfileBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetParameters(ctx context.Context, in *SetParametersRequest, opts ...grpc.CallOption) (*SetParametersResponse, error)
+}
+
+type pictureProfileBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPictureProfileBuilderServiceClient(cc grpc.ClientConnInterface) PictureProfileBuilderServiceClient {
+	return &pictureProfileBuilderServiceClient{cc}
+}
+
+func (c *pictureProfileBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, PictureProfileBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *pictureProfileBuilderServiceClient) SetParameters(ctx context.Context, in *SetParametersRequest, opts ...grpc.CallOption) (*SetParametersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetParametersResponse)
+	err := c.cc.Invoke(ctx, PictureProfileBuilderService_SetParameters_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PictureProfileBuilderServiceServer is the server API for PictureProfileBuilderService service.
+// All implementations must embed UnimplementedPictureProfileBuilderServiceServer
+// for forward compatibility.
+type PictureProfileBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetParameters(context.Context, *SetParametersRequest) (*SetParametersResponse, error)
+	mustEmbedUnimplementedPictureProfileBuilderServiceServer()
+}
+
+// UnimplementedPictureProfileBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPictureProfileBuilderServiceServer struct{}
+
+func (UnimplementedPictureProfileBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedPictureProfileBuilderServiceServer) SetParameters(context.Context, *SetParametersRequest) (*SetParametersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetParameters not implemented")
+}
+func (UnimplementedPictureProfileBuilderServiceServer) mustEmbedUnimplementedPictureProfileBuilderServiceServer() {
+}
+func (UnimplementedPictureProfileBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafePictureProfileBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PictureProfileBuilderServiceServer will
+// result in compilation errors.
+type UnsafePictureProfileBuilderServiceServer interface {
+	mustEmbedUnimplementedPictureProfileBuilderServiceServer()
+}
+
+func RegisterPictureProfileBuilderServiceServer(s grpc.ServiceRegistrar, srv PictureProfileBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedPictureProfileBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PictureProfileBuilderService_ServiceDesc, srv)
+}
+
+func _PictureProfileBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PictureProfileBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PictureProfileBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PictureProfileBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PictureProfileBuilderService_SetParameters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetParametersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PictureProfileBuilderServiceServer).SetParameters(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PictureProfileBuilderService_SetParameters_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PictureProfileBuilderServiceServer).SetParameters(ctx, req.(*SetParametersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PictureProfileBuilderService_ServiceDesc is the grpc.ServiceDesc for PictureProfileBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PictureProfileBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "quality.PictureProfileBuilderService",
+	HandlerType: (*PictureProfileBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _PictureProfileBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetParameters",
+			Handler:    _PictureProfileBuilderService_SetParameters_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -2160,6 +2924,8 @@ var AmbientBacklightMetadataService_ServiceDesc = grpc.ServiceDesc{
 const (
 	MediaQualityManagerService_CreatePictureProfile_FullMethodName               = "/quality.MediaQualityManagerService/CreatePictureProfile"
 	MediaQualityManagerService_CreateSoundProfile_FullMethodName                 = "/quality.MediaQualityManagerService/CreateSoundProfile"
+	MediaQualityManagerService_GetAvailablePictureProfiles_FullMethodName        = "/quality.MediaQualityManagerService/GetAvailablePictureProfiles"
+	MediaQualityManagerService_GetAvailableSoundProfiles_FullMethodName          = "/quality.MediaQualityManagerService/GetAvailableSoundProfiles"
 	MediaQualityManagerService_GetPictureProfile_FullMethodName                  = "/quality.MediaQualityManagerService/GetPictureProfile"
 	MediaQualityManagerService_GetSoundProfile_FullMethodName                    = "/quality.MediaQualityManagerService/GetSoundProfile"
 	MediaQualityManagerService_IsAmbientBacklightEnabled_FullMethodName          = "/quality.MediaQualityManagerService/IsAmbientBacklightEnabled"
@@ -2186,6 +2952,8 @@ const (
 type MediaQualityManagerServiceClient interface {
 	CreatePictureProfile(ctx context.Context, in *CreatePictureProfileRequest, opts ...grpc.CallOption) (*CreatePictureProfileResponse, error)
 	CreateSoundProfile(ctx context.Context, in *CreateSoundProfileRequest, opts ...grpc.CallOption) (*CreateSoundProfileResponse, error)
+	GetAvailablePictureProfiles(ctx context.Context, in *GetAvailablePictureProfilesRequest, opts ...grpc.CallOption) (*GetAvailablePictureProfilesResponse, error)
+	GetAvailableSoundProfiles(ctx context.Context, in *GetAvailableSoundProfilesRequest, opts ...grpc.CallOption) (*GetAvailableSoundProfilesResponse, error)
 	GetPictureProfile(ctx context.Context, in *GetPictureProfileRequest, opts ...grpc.CallOption) (*GetPictureProfileResponse, error)
 	GetSoundProfile(ctx context.Context, in *GetSoundProfileRequest, opts ...grpc.CallOption) (*GetSoundProfileResponse, error)
 	IsAmbientBacklightEnabled(ctx context.Context, in *IsAmbientBacklightEnabledRequest, opts ...grpc.CallOption) (*IsAmbientBacklightEnabledResponse, error)
@@ -2228,6 +2996,26 @@ func (c *mediaQualityManagerServiceClient) CreateSoundProfile(ctx context.Contex
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CreateSoundProfileResponse)
 	err := c.cc.Invoke(ctx, MediaQualityManagerService_CreateSoundProfile_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaQualityManagerServiceClient) GetAvailablePictureProfiles(ctx context.Context, in *GetAvailablePictureProfilesRequest, opts ...grpc.CallOption) (*GetAvailablePictureProfilesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAvailablePictureProfilesResponse)
+	err := c.cc.Invoke(ctx, MediaQualityManagerService_GetAvailablePictureProfiles_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mediaQualityManagerServiceClient) GetAvailableSoundProfiles(ctx context.Context, in *GetAvailableSoundProfilesRequest, opts ...grpc.CallOption) (*GetAvailableSoundProfilesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAvailableSoundProfilesResponse)
+	err := c.cc.Invoke(ctx, MediaQualityManagerService_GetAvailableSoundProfiles_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -2420,6 +3208,8 @@ func (c *mediaQualityManagerServiceClient) UpdateSoundProfile(ctx context.Contex
 type MediaQualityManagerServiceServer interface {
 	CreatePictureProfile(context.Context, *CreatePictureProfileRequest) (*CreatePictureProfileResponse, error)
 	CreateSoundProfile(context.Context, *CreateSoundProfileRequest) (*CreateSoundProfileResponse, error)
+	GetAvailablePictureProfiles(context.Context, *GetAvailablePictureProfilesRequest) (*GetAvailablePictureProfilesResponse, error)
+	GetAvailableSoundProfiles(context.Context, *GetAvailableSoundProfilesRequest) (*GetAvailableSoundProfilesResponse, error)
 	GetPictureProfile(context.Context, *GetPictureProfileRequest) (*GetPictureProfileResponse, error)
 	GetSoundProfile(context.Context, *GetSoundProfileRequest) (*GetSoundProfileResponse, error)
 	IsAmbientBacklightEnabled(context.Context, *IsAmbientBacklightEnabledRequest) (*IsAmbientBacklightEnabledResponse, error)
@@ -2453,6 +3243,12 @@ func (UnimplementedMediaQualityManagerServiceServer) CreatePictureProfile(contex
 }
 func (UnimplementedMediaQualityManagerServiceServer) CreateSoundProfile(context.Context, *CreateSoundProfileRequest) (*CreateSoundProfileResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method CreateSoundProfile not implemented")
+}
+func (UnimplementedMediaQualityManagerServiceServer) GetAvailablePictureProfiles(context.Context, *GetAvailablePictureProfilesRequest) (*GetAvailablePictureProfilesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAvailablePictureProfiles not implemented")
+}
+func (UnimplementedMediaQualityManagerServiceServer) GetAvailableSoundProfiles(context.Context, *GetAvailableSoundProfilesRequest) (*GetAvailableSoundProfilesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAvailableSoundProfiles not implemented")
 }
 func (UnimplementedMediaQualityManagerServiceServer) GetPictureProfile(context.Context, *GetPictureProfileRequest) (*GetPictureProfileResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetPictureProfile not implemented")
@@ -2562,6 +3358,42 @@ func _MediaQualityManagerService_CreateSoundProfile_Handler(srv interface{}, ctx
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(MediaQualityManagerServiceServer).CreateSoundProfile(ctx, req.(*CreateSoundProfileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaQualityManagerService_GetAvailablePictureProfiles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAvailablePictureProfilesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaQualityManagerServiceServer).GetAvailablePictureProfiles(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaQualityManagerService_GetAvailablePictureProfiles_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaQualityManagerServiceServer).GetAvailablePictureProfiles(ctx, req.(*GetAvailablePictureProfilesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MediaQualityManagerService_GetAvailableSoundProfiles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAvailableSoundProfilesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MediaQualityManagerServiceServer).GetAvailableSoundProfiles(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MediaQualityManagerService_GetAvailableSoundProfiles_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MediaQualityManagerServiceServer).GetAvailableSoundProfiles(ctx, req.(*GetAvailableSoundProfilesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2904,6 +3736,14 @@ var MediaQualityManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CreateSoundProfile",
 			Handler:    _MediaQualityManagerService_CreateSoundProfile_Handler,
+		},
+		{
+			MethodName: "GetAvailablePictureProfiles",
+			Handler:    _MediaQualityManagerService_GetAvailablePictureProfiles_Handler,
+		},
+		{
+			MethodName: "GetAvailableSoundProfiles",
+			Handler:    _MediaQualityManagerService_GetAvailableSoundProfiles_Handler,
 		},
 		{
 			MethodName: "GetPictureProfile",
@@ -3692,770 +4532,6 @@ var MediaQualityManagerSoundProfileCallbackService_ServiceDesc = grpc.ServiceDes
 		{
 			MethodName: "OnSoundProfileUpdated",
 			Handler:    _MediaQualityManagerSoundProfileCallbackService_OnSoundProfileUpdated_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/quality/quality.proto",
-}
-
-const (
-	ActiveProcessingPictureService_NewActiveProcessingPicture_FullMethodName = "/quality.ActiveProcessingPictureService/NewActiveProcessingPicture"
-	ActiveProcessingPictureService_DescribeContents_FullMethodName           = "/quality.ActiveProcessingPictureService/DescribeContents"
-	ActiveProcessingPictureService_GetId_FullMethodName                      = "/quality.ActiveProcessingPictureService/GetId"
-	ActiveProcessingPictureService_GetProfileId_FullMethodName               = "/quality.ActiveProcessingPictureService/GetProfileId"
-	ActiveProcessingPictureService_WriteToParcel_FullMethodName              = "/quality.ActiveProcessingPictureService/WriteToParcel"
-)
-
-// ActiveProcessingPictureServiceClient is the client API for ActiveProcessingPictureService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ActiveProcessingPictureServiceClient interface {
-	NewActiveProcessingPicture(ctx context.Context, in *NewActiveProcessingPictureRequest, opts ...grpc.CallOption) (*NewActiveProcessingPictureResponse, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
-	GetProfileId(ctx context.Context, in *ActiveProcessingPictureGetProfileIdRequest, opts ...grpc.CallOption) (*GetProfileIdResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type activeProcessingPictureServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewActiveProcessingPictureServiceClient(cc grpc.ClientConnInterface) ActiveProcessingPictureServiceClient {
-	return &activeProcessingPictureServiceClient{cc}
-}
-
-func (c *activeProcessingPictureServiceClient) NewActiveProcessingPicture(ctx context.Context, in *NewActiveProcessingPictureRequest, opts ...grpc.CallOption) (*NewActiveProcessingPictureResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewActiveProcessingPictureResponse)
-	err := c.cc.Invoke(ctx, ActiveProcessingPictureService_NewActiveProcessingPicture_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activeProcessingPictureServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, ActiveProcessingPictureService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activeProcessingPictureServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIdResponse)
-	err := c.cc.Invoke(ctx, ActiveProcessingPictureService_GetId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activeProcessingPictureServiceClient) GetProfileId(ctx context.Context, in *ActiveProcessingPictureGetProfileIdRequest, opts ...grpc.CallOption) (*GetProfileIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetProfileIdResponse)
-	err := c.cc.Invoke(ctx, ActiveProcessingPictureService_GetProfileId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *activeProcessingPictureServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, ActiveProcessingPictureService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ActiveProcessingPictureServiceServer is the server API for ActiveProcessingPictureService service.
-// All implementations must embed UnimplementedActiveProcessingPictureServiceServer
-// for forward compatibility.
-type ActiveProcessingPictureServiceServer interface {
-	NewActiveProcessingPicture(context.Context, *NewActiveProcessingPictureRequest) (*NewActiveProcessingPictureResponse, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
-	GetProfileId(context.Context, *ActiveProcessingPictureGetProfileIdRequest) (*GetProfileIdResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedActiveProcessingPictureServiceServer()
-}
-
-// UnimplementedActiveProcessingPictureServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedActiveProcessingPictureServiceServer struct{}
-
-func (UnimplementedActiveProcessingPictureServiceServer) NewActiveProcessingPicture(context.Context, *NewActiveProcessingPictureRequest) (*NewActiveProcessingPictureResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewActiveProcessingPicture not implemented")
-}
-func (UnimplementedActiveProcessingPictureServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedActiveProcessingPictureServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
-}
-func (UnimplementedActiveProcessingPictureServiceServer) GetProfileId(context.Context, *ActiveProcessingPictureGetProfileIdRequest) (*GetProfileIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetProfileId not implemented")
-}
-func (UnimplementedActiveProcessingPictureServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedActiveProcessingPictureServiceServer) mustEmbedUnimplementedActiveProcessingPictureServiceServer() {
-}
-func (UnimplementedActiveProcessingPictureServiceServer) testEmbeddedByValue() {}
-
-// UnsafeActiveProcessingPictureServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ActiveProcessingPictureServiceServer will
-// result in compilation errors.
-type UnsafeActiveProcessingPictureServiceServer interface {
-	mustEmbedUnimplementedActiveProcessingPictureServiceServer()
-}
-
-func RegisterActiveProcessingPictureServiceServer(s grpc.ServiceRegistrar, srv ActiveProcessingPictureServiceServer) {
-	// If the following call panics, it indicates UnimplementedActiveProcessingPictureServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ActiveProcessingPictureService_ServiceDesc, srv)
-}
-
-func _ActiveProcessingPictureService_NewActiveProcessingPicture_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewActiveProcessingPictureRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActiveProcessingPictureServiceServer).NewActiveProcessingPicture(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActiveProcessingPictureService_NewActiveProcessingPicture_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActiveProcessingPictureServiceServer).NewActiveProcessingPicture(ctx, req.(*NewActiveProcessingPictureRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActiveProcessingPictureService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActiveProcessingPictureServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActiveProcessingPictureService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActiveProcessingPictureServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActiveProcessingPictureService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActiveProcessingPictureServiceServer).GetId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActiveProcessingPictureService_GetId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActiveProcessingPictureServiceServer).GetId(ctx, req.(*GetIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActiveProcessingPictureService_GetProfileId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ActiveProcessingPictureGetProfileIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActiveProcessingPictureServiceServer).GetProfileId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActiveProcessingPictureService_GetProfileId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActiveProcessingPictureServiceServer).GetProfileId(ctx, req.(*ActiveProcessingPictureGetProfileIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActiveProcessingPictureService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActiveProcessingPictureServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActiveProcessingPictureService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActiveProcessingPictureServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ActiveProcessingPictureService_ServiceDesc is the grpc.ServiceDesc for ActiveProcessingPictureService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ActiveProcessingPictureService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "quality.ActiveProcessingPictureService",
-	HandlerType: (*ActiveProcessingPictureServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewActiveProcessingPicture",
-			Handler:    _ActiveProcessingPictureService_NewActiveProcessingPicture_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _ActiveProcessingPictureService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetId",
-			Handler:    _ActiveProcessingPictureService_GetId_Handler,
-		},
-		{
-			MethodName: "GetProfileId",
-			Handler:    _ActiveProcessingPictureService_GetProfileId_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _ActiveProcessingPictureService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/quality/quality.proto",
-}
-
-const (
-	SoundProfileService_DescribeContents_FullMethodName = "/quality.SoundProfileService/DescribeContents"
-	SoundProfileService_GetInputId_FullMethodName       = "/quality.SoundProfileService/GetInputId"
-	SoundProfileService_GetName_FullMethodName          = "/quality.SoundProfileService/GetName"
-	SoundProfileService_GetPackageName_FullMethodName   = "/quality.SoundProfileService/GetPackageName"
-	SoundProfileService_GetParameters_FullMethodName    = "/quality.SoundProfileService/GetParameters"
-	SoundProfileService_GetProfileId_FullMethodName     = "/quality.SoundProfileService/GetProfileId"
-	SoundProfileService_GetProfileType_FullMethodName   = "/quality.SoundProfileService/GetProfileType"
-	SoundProfileService_WriteToParcel_FullMethodName    = "/quality.SoundProfileService/WriteToParcel"
-)
-
-// SoundProfileServiceClient is the client API for SoundProfileService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SoundProfileServiceClient interface {
-	DescribeContents(ctx context.Context, in *SoundProfileDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetInputId(ctx context.Context, in *GetInputIdRequest, opts ...grpc.CallOption) (*GetInputIdResponse, error)
-	GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error)
-	GetPackageName(ctx context.Context, in *GetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error)
-	GetParameters(ctx context.Context, in *GetParametersRequest, opts ...grpc.CallOption) (*GetParametersResponse, error)
-	GetProfileId(ctx context.Context, in *GetProfileIdRequest, opts ...grpc.CallOption) (*GetProfileIdResponse, error)
-	GetProfileType(ctx context.Context, in *GetProfileTypeRequest, opts ...grpc.CallOption) (*GetProfileTypeResponse, error)
-	WriteToParcel(ctx context.Context, in *SoundProfileWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type soundProfileServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSoundProfileServiceClient(cc grpc.ClientConnInterface) SoundProfileServiceClient {
-	return &soundProfileServiceClient{cc}
-}
-
-func (c *soundProfileServiceClient) DescribeContents(ctx context.Context, in *SoundProfileDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, SoundProfileService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *soundProfileServiceClient) GetInputId(ctx context.Context, in *GetInputIdRequest, opts ...grpc.CallOption) (*GetInputIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInputIdResponse)
-	err := c.cc.Invoke(ctx, SoundProfileService_GetInputId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *soundProfileServiceClient) GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNameResponse)
-	err := c.cc.Invoke(ctx, SoundProfileService_GetName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *soundProfileServiceClient) GetPackageName(ctx context.Context, in *GetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPackageNameResponse)
-	err := c.cc.Invoke(ctx, SoundProfileService_GetPackageName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *soundProfileServiceClient) GetParameters(ctx context.Context, in *GetParametersRequest, opts ...grpc.CallOption) (*GetParametersResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetParametersResponse)
-	err := c.cc.Invoke(ctx, SoundProfileService_GetParameters_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *soundProfileServiceClient) GetProfileId(ctx context.Context, in *GetProfileIdRequest, opts ...grpc.CallOption) (*GetProfileIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetProfileIdResponse)
-	err := c.cc.Invoke(ctx, SoundProfileService_GetProfileId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *soundProfileServiceClient) GetProfileType(ctx context.Context, in *GetProfileTypeRequest, opts ...grpc.CallOption) (*GetProfileTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetProfileTypeResponse)
-	err := c.cc.Invoke(ctx, SoundProfileService_GetProfileType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *soundProfileServiceClient) WriteToParcel(ctx context.Context, in *SoundProfileWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, SoundProfileService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SoundProfileServiceServer is the server API for SoundProfileService service.
-// All implementations must embed UnimplementedSoundProfileServiceServer
-// for forward compatibility.
-type SoundProfileServiceServer interface {
-	DescribeContents(context.Context, *SoundProfileDescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetInputId(context.Context, *GetInputIdRequest) (*GetInputIdResponse, error)
-	GetName(context.Context, *GetNameRequest) (*GetNameResponse, error)
-	GetPackageName(context.Context, *GetPackageNameRequest) (*GetPackageNameResponse, error)
-	GetParameters(context.Context, *GetParametersRequest) (*GetParametersResponse, error)
-	GetProfileId(context.Context, *GetProfileIdRequest) (*GetProfileIdResponse, error)
-	GetProfileType(context.Context, *GetProfileTypeRequest) (*GetProfileTypeResponse, error)
-	WriteToParcel(context.Context, *SoundProfileWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedSoundProfileServiceServer()
-}
-
-// UnimplementedSoundProfileServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSoundProfileServiceServer struct{}
-
-func (UnimplementedSoundProfileServiceServer) DescribeContents(context.Context, *SoundProfileDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedSoundProfileServiceServer) GetInputId(context.Context, *GetInputIdRequest) (*GetInputIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInputId not implemented")
-}
-func (UnimplementedSoundProfileServiceServer) GetName(context.Context, *GetNameRequest) (*GetNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetName not implemented")
-}
-func (UnimplementedSoundProfileServiceServer) GetPackageName(context.Context, *GetPackageNameRequest) (*GetPackageNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPackageName not implemented")
-}
-func (UnimplementedSoundProfileServiceServer) GetParameters(context.Context, *GetParametersRequest) (*GetParametersResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetParameters not implemented")
-}
-func (UnimplementedSoundProfileServiceServer) GetProfileId(context.Context, *GetProfileIdRequest) (*GetProfileIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetProfileId not implemented")
-}
-func (UnimplementedSoundProfileServiceServer) GetProfileType(context.Context, *GetProfileTypeRequest) (*GetProfileTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetProfileType not implemented")
-}
-func (UnimplementedSoundProfileServiceServer) WriteToParcel(context.Context, *SoundProfileWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedSoundProfileServiceServer) mustEmbedUnimplementedSoundProfileServiceServer() {}
-func (UnimplementedSoundProfileServiceServer) testEmbeddedByValue()                             {}
-
-// UnsafeSoundProfileServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SoundProfileServiceServer will
-// result in compilation errors.
-type UnsafeSoundProfileServiceServer interface {
-	mustEmbedUnimplementedSoundProfileServiceServer()
-}
-
-func RegisterSoundProfileServiceServer(s grpc.ServiceRegistrar, srv SoundProfileServiceServer) {
-	// If the following call panics, it indicates UnimplementedSoundProfileServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SoundProfileService_ServiceDesc, srv)
-}
-
-func _SoundProfileService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SoundProfileDescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SoundProfileServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SoundProfileService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SoundProfileServiceServer).DescribeContents(ctx, req.(*SoundProfileDescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SoundProfileService_GetInputId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInputIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SoundProfileServiceServer).GetInputId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SoundProfileService_GetInputId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SoundProfileServiceServer).GetInputId(ctx, req.(*GetInputIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SoundProfileService_GetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SoundProfileServiceServer).GetName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SoundProfileService_GetName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SoundProfileServiceServer).GetName(ctx, req.(*GetNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SoundProfileService_GetPackageName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPackageNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SoundProfileServiceServer).GetPackageName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SoundProfileService_GetPackageName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SoundProfileServiceServer).GetPackageName(ctx, req.(*GetPackageNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SoundProfileService_GetParameters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetParametersRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SoundProfileServiceServer).GetParameters(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SoundProfileService_GetParameters_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SoundProfileServiceServer).GetParameters(ctx, req.(*GetParametersRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SoundProfileService_GetProfileId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetProfileIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SoundProfileServiceServer).GetProfileId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SoundProfileService_GetProfileId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SoundProfileServiceServer).GetProfileId(ctx, req.(*GetProfileIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SoundProfileService_GetProfileType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetProfileTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SoundProfileServiceServer).GetProfileType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SoundProfileService_GetProfileType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SoundProfileServiceServer).GetProfileType(ctx, req.(*GetProfileTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SoundProfileService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SoundProfileWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SoundProfileServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SoundProfileService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SoundProfileServiceServer).WriteToParcel(ctx, req.(*SoundProfileWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SoundProfileService_ServiceDesc is the grpc.ServiceDesc for SoundProfileService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SoundProfileService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "quality.SoundProfileService",
-	HandlerType: (*SoundProfileServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _SoundProfileService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetInputId",
-			Handler:    _SoundProfileService_GetInputId_Handler,
-		},
-		{
-			MethodName: "GetName",
-			Handler:    _SoundProfileService_GetName_Handler,
-		},
-		{
-			MethodName: "GetPackageName",
-			Handler:    _SoundProfileService_GetPackageName_Handler,
-		},
-		{
-			MethodName: "GetParameters",
-			Handler:    _SoundProfileService_GetParameters_Handler,
-		},
-		{
-			MethodName: "GetProfileId",
-			Handler:    _SoundProfileService_GetProfileId_Handler,
-		},
-		{
-			MethodName: "GetProfileType",
-			Handler:    _SoundProfileService_GetProfileType_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _SoundProfileService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/quality/quality.proto",
-}
-
-const (
-	SoundProfileBuilderService_Build_FullMethodName         = "/quality.SoundProfileBuilderService/Build"
-	SoundProfileBuilderService_SetParameters_FullMethodName = "/quality.SoundProfileBuilderService/SetParameters"
-)
-
-// SoundProfileBuilderServiceClient is the client API for SoundProfileBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SoundProfileBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetParameters(ctx context.Context, in *SetParametersRequest, opts ...grpc.CallOption) (*SetParametersResponse, error)
-}
-
-type soundProfileBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSoundProfileBuilderServiceClient(cc grpc.ClientConnInterface) SoundProfileBuilderServiceClient {
-	return &soundProfileBuilderServiceClient{cc}
-}
-
-func (c *soundProfileBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, SoundProfileBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *soundProfileBuilderServiceClient) SetParameters(ctx context.Context, in *SetParametersRequest, opts ...grpc.CallOption) (*SetParametersResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetParametersResponse)
-	err := c.cc.Invoke(ctx, SoundProfileBuilderService_SetParameters_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SoundProfileBuilderServiceServer is the server API for SoundProfileBuilderService service.
-// All implementations must embed UnimplementedSoundProfileBuilderServiceServer
-// for forward compatibility.
-type SoundProfileBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetParameters(context.Context, *SetParametersRequest) (*SetParametersResponse, error)
-	mustEmbedUnimplementedSoundProfileBuilderServiceServer()
-}
-
-// UnimplementedSoundProfileBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSoundProfileBuilderServiceServer struct{}
-
-func (UnimplementedSoundProfileBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedSoundProfileBuilderServiceServer) SetParameters(context.Context, *SetParametersRequest) (*SetParametersResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetParameters not implemented")
-}
-func (UnimplementedSoundProfileBuilderServiceServer) mustEmbedUnimplementedSoundProfileBuilderServiceServer() {
-}
-func (UnimplementedSoundProfileBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSoundProfileBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SoundProfileBuilderServiceServer will
-// result in compilation errors.
-type UnsafeSoundProfileBuilderServiceServer interface {
-	mustEmbedUnimplementedSoundProfileBuilderServiceServer()
-}
-
-func RegisterSoundProfileBuilderServiceServer(s grpc.ServiceRegistrar, srv SoundProfileBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedSoundProfileBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SoundProfileBuilderService_ServiceDesc, srv)
-}
-
-func _SoundProfileBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SoundProfileBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SoundProfileBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SoundProfileBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SoundProfileBuilderService_SetParameters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetParametersRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SoundProfileBuilderServiceServer).SetParameters(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SoundProfileBuilderService_SetParameters_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SoundProfileBuilderServiceServer).SetParameters(ctx, req.(*SetParametersRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SoundProfileBuilderService_ServiceDesc is the grpc.ServiceDesc for SoundProfileBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SoundProfileBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "quality.SoundProfileBuilderService",
-	HandlerType: (*SoundProfileBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _SoundProfileBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetParameters",
-			Handler:    _SoundProfileBuilderService_SetParameters_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

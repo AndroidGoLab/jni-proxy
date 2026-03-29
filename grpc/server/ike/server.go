@@ -15,15 +15,15 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// Ipv6AddrIdentificationServer implements pb.Ipv6AddrIdentificationServiceServer.
-type Ipv6AddrIdentificationServer struct {
-	pb.UnimplementedIpv6AddrIdentificationServiceServer
+// SessionConnectionInfoServer implements pb.SessionConnectionInfoServiceServer.
+type SessionConnectionInfoServer struct {
+	pb.UnimplementedSessionConnectionInfoServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *Ipv6AddrIdentificationServer) NewIpv6AddrIdentification(_ context.Context, req *pb.NewIpv6AddrIdentificationRequest) (*pb.NewIpv6AddrIdentificationResponse, error) {
-	obj, err := jnipkg.NewIpv6AddrIdentification(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+func (s *SessionConnectionInfoServer) NewSessionConnectionInfo(_ context.Context, req *pb.NewSessionConnectionInfoRequest) (*pb.NewSessionConnectionInfoResponse, error) {
+	obj, err := jnipkg.NewSessionConnectionInfo(s.Ctx.VM, s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -34,15 +34,106 @@ func (s *Ipv6AddrIdentificationServer) NewIpv6AddrIdentification(_ context.Conte
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewIpv6AddrIdentificationResponse{Result: handle}, nil
+	return &pb.NewSessionConnectionInfoResponse{Result: handle}, nil
 }
 
-func (s *Ipv6AddrIdentificationServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
+func (s *SessionConnectionInfoServer) GetLocalAddress(_ context.Context, req *pb.GetLocalAddressRequest) (*pb.GetLocalAddressResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.Ipv6AddrIdentification{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.SessionConnectionInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetLocalAddress()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetLocalAddressResponse{Result: handle}, nil
+}
+
+func (s *SessionConnectionInfoServer) GetNetwork(_ context.Context, req *pb.GetNetworkRequest) (*pb.GetNetworkResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SessionConnectionInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetNetwork()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetNetworkResponse{Result: handle}, nil
+}
+
+func (s *SessionConnectionInfoServer) GetRemoteAddress(_ context.Context, req *pb.GetRemoteAddressRequest) (*pb.GetRemoteAddressResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SessionConnectionInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetRemoteAddress()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetRemoteAddressResponse{Result: handle}, nil
+}
+
+// DerAsn1DnIdentificationServer implements pb.DerAsn1DnIdentificationServiceServer.
+type DerAsn1DnIdentificationServer struct {
+	pb.UnimplementedDerAsn1DnIdentificationServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *DerAsn1DnIdentificationServer) NewDerAsn1DnIdentification(_ context.Context, req *pb.NewDerAsn1DnIdentificationRequest) (*pb.NewDerAsn1DnIdentificationResponse, error) {
+	obj, err := jnipkg.NewDerAsn1DnIdentification(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewDerAsn1DnIdentificationResponse{Result: handle}, nil
+}
+
+func (s *DerAsn1DnIdentificationServer) Equals(_ context.Context, req *pb.DerAsn1DnIdentificationEqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DerAsn1DnIdentification{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
 	if err != nil {
@@ -51,12 +142,112 @@ func (s *Ipv6AddrIdentificationServer) Equals(_ context.Context, req *pb.EqualsR
 	return &pb.EqualsResponse{Result: result}, nil
 }
 
-func (s *Ipv6AddrIdentificationServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
+func (s *DerAsn1DnIdentificationServer) HashCode(_ context.Context, req *pb.DerAsn1DnIdentificationHashCodeRequest) (*pb.HashCodeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.Ipv6AddrIdentification{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.DerAsn1DnIdentification{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+// Rfc822AddrIdentificationServer implements pb.Rfc822AddrIdentificationServiceServer.
+type Rfc822AddrIdentificationServer struct {
+	pb.UnimplementedRfc822AddrIdentificationServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *Rfc822AddrIdentificationServer) NewRfc822AddrIdentification(_ context.Context, req *pb.NewRfc822AddrIdentificationRequest) (*pb.NewRfc822AddrIdentificationResponse, error) {
+	obj, err := jnipkg.NewRfc822AddrIdentification(s.Ctx.VM, req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewRfc822AddrIdentificationResponse{Result: handle}, nil
+}
+
+func (s *Rfc822AddrIdentificationServer) Equals(_ context.Context, req *pb.Rfc822AddrIdentificationEqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Rfc822AddrIdentification{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *Rfc822AddrIdentificationServer) HashCode(_ context.Context, req *pb.Rfc822AddrIdentificationHashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Rfc822AddrIdentification{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+// TrafficSelectorServer implements pb.TrafficSelectorServiceServer.
+type TrafficSelectorServer struct {
+	pb.UnimplementedTrafficSelectorServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *TrafficSelectorServer) NewTrafficSelector(_ context.Context, req *pb.NewTrafficSelectorRequest) (*pb.NewTrafficSelectorResponse, error) {
+	obj, err := jnipkg.NewTrafficSelector(s.Ctx.VM, req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), s.Handles.Get(req.GetArg3()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewTrafficSelectorResponse{Result: handle}, nil
+}
+
+func (s *TrafficSelectorServer) Equals(_ context.Context, req *pb.TrafficSelectorEqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficSelector{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *TrafficSelectorServer) HashCode(_ context.Context, req *pb.TrafficSelectorHashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TrafficSelector{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.HashCode()
 	if err != nil {
@@ -165,6 +356,106 @@ func (s *SessionServer) OpenChildSession(_ context.Context, req *pb.OpenChildSes
 	return &pb.OpenChildSessionResponse{}, nil
 }
 
+// Ipv4AddrIdentificationServer implements pb.Ipv4AddrIdentificationServiceServer.
+type Ipv4AddrIdentificationServer struct {
+	pb.UnimplementedIpv4AddrIdentificationServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *Ipv4AddrIdentificationServer) NewIpv4AddrIdentification(_ context.Context, req *pb.NewIpv4AddrIdentificationRequest) (*pb.NewIpv4AddrIdentificationResponse, error) {
+	obj, err := jnipkg.NewIpv4AddrIdentification(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewIpv4AddrIdentificationResponse{Result: handle}, nil
+}
+
+func (s *Ipv4AddrIdentificationServer) Equals(_ context.Context, req *pb.Ipv4AddrIdentificationEqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Ipv4AddrIdentification{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *Ipv4AddrIdentificationServer) HashCode(_ context.Context, req *pb.Ipv4AddrIdentificationHashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Ipv4AddrIdentification{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+// Ipv6AddrIdentificationServer implements pb.Ipv6AddrIdentificationServiceServer.
+type Ipv6AddrIdentificationServer struct {
+	pb.UnimplementedIpv6AddrIdentificationServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *Ipv6AddrIdentificationServer) NewIpv6AddrIdentification(_ context.Context, req *pb.NewIpv6AddrIdentificationRequest) (*pb.NewIpv6AddrIdentificationResponse, error) {
+	obj, err := jnipkg.NewIpv6AddrIdentification(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewIpv6AddrIdentificationResponse{Result: handle}, nil
+}
+
+func (s *Ipv6AddrIdentificationServer) Equals(_ context.Context, req *pb.Ipv6AddrIdentificationEqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Ipv6AddrIdentification{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *Ipv6AddrIdentificationServer) HashCode(_ context.Context, req *pb.Ipv6AddrIdentificationHashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Ipv6AddrIdentification{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
 // TunnelConnectionParamsServer implements pb.TunnelConnectionParamsServiceServer.
 type TunnelConnectionParamsServer struct {
 	pb.UnimplementedTunnelConnectionParamsServiceServer
@@ -187,7 +478,7 @@ func (s *TunnelConnectionParamsServer) NewTunnelConnectionParams(_ context.Conte
 	return &pb.NewTunnelConnectionParamsResponse{Result: handle}, nil
 }
 
-func (s *TunnelConnectionParamsServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
+func (s *TunnelConnectionParamsServer) Equals(_ context.Context, req *pb.TunnelConnectionParamsEqualsRequest) (*pb.EqualsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -247,353 +538,12 @@ func (s *TunnelConnectionParamsServer) GetTunnelModeChildSessionParams(_ context
 	return &pb.GetTunnelModeChildSessionParamsResponse{Result: handle}, nil
 }
 
-func (s *TunnelConnectionParamsServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
+func (s *TunnelConnectionParamsServer) HashCode(_ context.Context, req *pb.TunnelConnectionParamsHashCodeRequest) (*pb.HashCodeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
 	mgr := &jnipkg.TunnelConnectionParams{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.HashCode()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.HashCodeResponse{Result: result}, nil
-}
-
-// Ipv4AddrIdentificationServer implements pb.Ipv4AddrIdentificationServiceServer.
-type Ipv4AddrIdentificationServer struct {
-	pb.UnimplementedIpv4AddrIdentificationServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *Ipv4AddrIdentificationServer) NewIpv4AddrIdentification(_ context.Context, req *pb.NewIpv4AddrIdentificationRequest) (*pb.NewIpv4AddrIdentificationResponse, error) {
-	obj, err := jnipkg.NewIpv4AddrIdentification(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewIpv4AddrIdentificationResponse{Result: handle}, nil
-}
-
-func (s *Ipv4AddrIdentificationServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Ipv4AddrIdentification{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EqualsResponse{Result: result}, nil
-}
-
-func (s *Ipv4AddrIdentificationServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Ipv4AddrIdentification{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.HashCode()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.HashCodeResponse{Result: result}, nil
-}
-
-// SessionConnectionInfoServer implements pb.SessionConnectionInfoServiceServer.
-type SessionConnectionInfoServer struct {
-	pb.UnimplementedSessionConnectionInfoServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *SessionConnectionInfoServer) NewSessionConnectionInfo(_ context.Context, req *pb.NewSessionConnectionInfoRequest) (*pb.NewSessionConnectionInfoResponse, error) {
-	obj, err := jnipkg.NewSessionConnectionInfo(s.Ctx.VM, s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()), s.Handles.Get(req.GetArg2()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewSessionConnectionInfoResponse{Result: handle}, nil
-}
-
-func (s *SessionConnectionInfoServer) GetLocalAddress(_ context.Context, req *pb.GetLocalAddressRequest) (*pb.GetLocalAddressResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SessionConnectionInfo{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetLocalAddress()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetLocalAddressResponse{Result: handle}, nil
-}
-
-func (s *SessionConnectionInfoServer) GetNetwork(_ context.Context, req *pb.SessionConnectionInfoGetNetworkRequest) (*pb.GetNetworkResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SessionConnectionInfo{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetNetwork()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetNetworkResponse{Result: handle}, nil
-}
-
-func (s *SessionConnectionInfoServer) GetRemoteAddress(_ context.Context, req *pb.GetRemoteAddressRequest) (*pb.GetRemoteAddressResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.SessionConnectionInfo{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetRemoteAddress()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetRemoteAddressResponse{Result: handle}, nil
-}
-
-// Rfc822AddrIdentificationServer implements pb.Rfc822AddrIdentificationServiceServer.
-type Rfc822AddrIdentificationServer struct {
-	pb.UnimplementedRfc822AddrIdentificationServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *Rfc822AddrIdentificationServer) NewRfc822AddrIdentification(_ context.Context, req *pb.NewRfc822AddrIdentificationRequest) (*pb.NewRfc822AddrIdentificationResponse, error) {
-	obj, err := jnipkg.NewRfc822AddrIdentification(s.Ctx.VM, req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewRfc822AddrIdentificationResponse{Result: handle}, nil
-}
-
-func (s *Rfc822AddrIdentificationServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Rfc822AddrIdentification{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EqualsResponse{Result: result}, nil
-}
-
-func (s *Rfc822AddrIdentificationServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Rfc822AddrIdentification{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.HashCode()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.HashCodeResponse{Result: result}, nil
-}
-
-// FqdnIdentificationServer implements pb.FqdnIdentificationServiceServer.
-type FqdnIdentificationServer struct {
-	pb.UnimplementedFqdnIdentificationServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *FqdnIdentificationServer) NewFqdnIdentification(_ context.Context, req *pb.NewFqdnIdentificationRequest) (*pb.NewFqdnIdentificationResponse, error) {
-	obj, err := jnipkg.NewFqdnIdentification(s.Ctx.VM, req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewFqdnIdentificationResponse{Result: handle}, nil
-}
-
-func (s *FqdnIdentificationServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.FqdnIdentification{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EqualsResponse{Result: result}, nil
-}
-
-func (s *FqdnIdentificationServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.FqdnIdentification{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.HashCode()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.HashCodeResponse{Result: result}, nil
-}
-
-// DerAsn1DnIdentificationServer implements pb.DerAsn1DnIdentificationServiceServer.
-type DerAsn1DnIdentificationServer struct {
-	pb.UnimplementedDerAsn1DnIdentificationServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *DerAsn1DnIdentificationServer) NewDerAsn1DnIdentification(_ context.Context, req *pb.NewDerAsn1DnIdentificationRequest) (*pb.NewDerAsn1DnIdentificationResponse, error) {
-	obj, err := jnipkg.NewDerAsn1DnIdentification(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewDerAsn1DnIdentificationResponse{Result: handle}, nil
-}
-
-func (s *DerAsn1DnIdentificationServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DerAsn1DnIdentification{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EqualsResponse{Result: result}, nil
-}
-
-func (s *DerAsn1DnIdentificationServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.DerAsn1DnIdentification{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.HashCode()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.HashCodeResponse{Result: result}, nil
-}
-
-// TrafficSelectorServer implements pb.TrafficSelectorServiceServer.
-type TrafficSelectorServer struct {
-	pb.UnimplementedTrafficSelectorServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *TrafficSelectorServer) NewTrafficSelector(_ context.Context, req *pb.NewTrafficSelectorRequest) (*pb.NewTrafficSelectorResponse, error) {
-	obj, err := jnipkg.NewTrafficSelector(s.Ctx.VM, req.GetArg0(), req.GetArg1(), s.Handles.Get(req.GetArg2()), s.Handles.Get(req.GetArg3()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewTrafficSelectorResponse{Result: handle}, nil
-}
-
-func (s *TrafficSelectorServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TrafficSelector{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EqualsResponse{Result: result}, nil
-}
-
-func (s *TrafficSelectorServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.TrafficSelector{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.HashCode()
 	if err != nil {
@@ -624,7 +574,7 @@ func (s *KeyIdIdentificationServer) NewKeyIdIdentification(_ context.Context, re
 	return &pb.NewKeyIdIdentificationResponse{Result: handle}, nil
 }
 
-func (s *KeyIdIdentificationServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
+func (s *KeyIdIdentificationServer) Equals(_ context.Context, req *pb.KeyIdIdentificationEqualsRequest) (*pb.EqualsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -638,12 +588,62 @@ func (s *KeyIdIdentificationServer) Equals(_ context.Context, req *pb.EqualsRequ
 	return &pb.EqualsResponse{Result: result}, nil
 }
 
-func (s *KeyIdIdentificationServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
+func (s *KeyIdIdentificationServer) HashCode(_ context.Context, req *pb.KeyIdIdentificationHashCodeRequest) (*pb.HashCodeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
 	mgr := &jnipkg.KeyIdIdentification{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+// FqdnIdentificationServer implements pb.FqdnIdentificationServiceServer.
+type FqdnIdentificationServer struct {
+	pb.UnimplementedFqdnIdentificationServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *FqdnIdentificationServer) NewFqdnIdentification(_ context.Context, req *pb.NewFqdnIdentificationRequest) (*pb.NewFqdnIdentificationResponse, error) {
+	obj, err := jnipkg.NewFqdnIdentification(s.Ctx.VM, req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewFqdnIdentificationResponse{Result: handle}, nil
+}
+
+func (s *FqdnIdentificationServer) Equals(_ context.Context, req *pb.FqdnIdentificationEqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.FqdnIdentification{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *FqdnIdentificationServer) HashCode(_ context.Context, req *pb.FqdnIdentificationHashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.FqdnIdentification{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.HashCode()
 	if err != nil {

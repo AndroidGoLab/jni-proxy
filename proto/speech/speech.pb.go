@@ -23,1102 +23,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type CancelRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CancelRequest) Reset() {
-	*x = CancelRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[0]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CancelRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CancelRequest) ProtoMessage() {}
-
-func (x *CancelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[0]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CancelRequest.ProtoReflect.Descriptor instead.
-func (*CancelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{0}
-}
-
-type CancelResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CancelResponse) Reset() {
-	*x = CancelResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CancelResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CancelResponse) ProtoMessage() {}
-
-func (x *CancelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CancelResponse.ProtoReflect.Descriptor instead.
-func (*CancelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{1}
-}
-
-type CheckRecognitionSupportRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CheckRecognitionSupportRequest) Reset() {
-	*x = CheckRecognitionSupportRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[2]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CheckRecognitionSupportRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CheckRecognitionSupportRequest) ProtoMessage() {}
-
-func (x *CheckRecognitionSupportRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[2]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CheckRecognitionSupportRequest.ProtoReflect.Descriptor instead.
-func (*CheckRecognitionSupportRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *CheckRecognitionSupportRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *CheckRecognitionSupportRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *CheckRecognitionSupportRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type CheckRecognitionSupportResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CheckRecognitionSupportResponse) Reset() {
-	*x = CheckRecognitionSupportResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[3]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CheckRecognitionSupportResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CheckRecognitionSupportResponse) ProtoMessage() {}
-
-func (x *CheckRecognitionSupportResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[3]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CheckRecognitionSupportResponse.ProtoReflect.Descriptor instead.
-func (*CheckRecognitionSupportResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{3}
-}
-
-type DestroyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DestroyRequest) Reset() {
-	*x = DestroyRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[4]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DestroyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DestroyRequest) ProtoMessage() {}
-
-func (x *DestroyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[4]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DestroyRequest.ProtoReflect.Descriptor instead.
-func (*DestroyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{4}
-}
-
-type DestroyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DestroyResponse) Reset() {
-	*x = DestroyResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[5]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DestroyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DestroyResponse) ProtoMessage() {}
-
-func (x *DestroyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[5]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DestroyResponse.ProtoReflect.Descriptor instead.
-func (*DestroyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{5}
-}
-
-type SetRecognitionListenerRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetRecognitionListenerRequest) Reset() {
-	*x = SetRecognitionListenerRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetRecognitionListenerRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetRecognitionListenerRequest) ProtoMessage() {}
-
-func (x *SetRecognitionListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[6]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetRecognitionListenerRequest.ProtoReflect.Descriptor instead.
-func (*SetRecognitionListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{6}
-}
-
-func (x *SetRecognitionListenerRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetRecognitionListenerResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetRecognitionListenerResponse) Reset() {
-	*x = SetRecognitionListenerResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[7]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetRecognitionListenerResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetRecognitionListenerResponse) ProtoMessage() {}
-
-func (x *SetRecognitionListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[7]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetRecognitionListenerResponse.ProtoReflect.Descriptor instead.
-func (*SetRecognitionListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{7}
-}
-
-type StartListeningRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *StartListeningRequest) Reset() {
-	*x = StartListeningRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[8]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *StartListeningRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*StartListeningRequest) ProtoMessage() {}
-
-func (x *StartListeningRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[8]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use StartListeningRequest.ProtoReflect.Descriptor instead.
-func (*StartListeningRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{8}
-}
-
-func (x *StartListeningRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type StartListeningResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *StartListeningResponse) Reset() {
-	*x = StartListeningResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[9]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *StartListeningResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*StartListeningResponse) ProtoMessage() {}
-
-func (x *StartListeningResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[9]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use StartListeningResponse.ProtoReflect.Descriptor instead.
-func (*StartListeningResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{9}
-}
-
-type StopListeningRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *StopListeningRequest) Reset() {
-	*x = StopListeningRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[10]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *StopListeningRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*StopListeningRequest) ProtoMessage() {}
-
-func (x *StopListeningRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[10]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use StopListeningRequest.ProtoReflect.Descriptor instead.
-func (*StopListeningRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{10}
-}
-
-type StopListeningResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *StopListeningResponse) Reset() {
-	*x = StopListeningResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[11]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *StopListeningResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*StopListeningResponse) ProtoMessage() {}
-
-func (x *StopListeningResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[11]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use StopListeningResponse.ProtoReflect.Descriptor instead.
-func (*StopListeningResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{11}
-}
-
-type TriggerModelDownload1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *TriggerModelDownload1Request) Reset() {
-	*x = TriggerModelDownload1Request{}
-	mi := &file_proto_speech_speech_proto_msgTypes[12]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *TriggerModelDownload1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TriggerModelDownload1Request) ProtoMessage() {}
-
-func (x *TriggerModelDownload1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[12]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use TriggerModelDownload1Request.ProtoReflect.Descriptor instead.
-func (*TriggerModelDownload1Request) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{12}
-}
-
-func (x *TriggerModelDownload1Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type TriggerModelDownload1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *TriggerModelDownload1Response) Reset() {
-	*x = TriggerModelDownload1Response{}
-	mi := &file_proto_speech_speech_proto_msgTypes[13]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *TriggerModelDownload1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TriggerModelDownload1Response) ProtoMessage() {}
-
-func (x *TriggerModelDownload1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[13]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use TriggerModelDownload1Response.ProtoReflect.Descriptor instead.
-func (*TriggerModelDownload1Response) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{13}
-}
-
-type TriggerModelDownload3_1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *TriggerModelDownload3_1Request) Reset() {
-	*x = TriggerModelDownload3_1Request{}
-	mi := &file_proto_speech_speech_proto_msgTypes[14]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *TriggerModelDownload3_1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TriggerModelDownload3_1Request) ProtoMessage() {}
-
-func (x *TriggerModelDownload3_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[14]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use TriggerModelDownload3_1Request.ProtoReflect.Descriptor instead.
-func (*TriggerModelDownload3_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{14}
-}
-
-func (x *TriggerModelDownload3_1Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *TriggerModelDownload3_1Request) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *TriggerModelDownload3_1Request) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type TriggerModelDownload3_1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *TriggerModelDownload3_1Response) Reset() {
-	*x = TriggerModelDownload3_1Response{}
-	mi := &file_proto_speech_speech_proto_msgTypes[15]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *TriggerModelDownload3_1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TriggerModelDownload3_1Response) ProtoMessage() {}
-
-func (x *TriggerModelDownload3_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[15]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use TriggerModelDownload3_1Response.ProtoReflect.Descriptor instead.
-func (*TriggerModelDownload3_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{15}
-}
-
-type CreateOnDeviceSpeechRecognizerRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CreateOnDeviceSpeechRecognizerRequest) Reset() {
-	*x = CreateOnDeviceSpeechRecognizerRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[16]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CreateOnDeviceSpeechRecognizerRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateOnDeviceSpeechRecognizerRequest) ProtoMessage() {}
-
-func (x *CreateOnDeviceSpeechRecognizerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[16]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateOnDeviceSpeechRecognizerRequest.ProtoReflect.Descriptor instead.
-func (*CreateOnDeviceSpeechRecognizerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{16}
-}
-
-func (x *CreateOnDeviceSpeechRecognizerRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type CreateOnDeviceSpeechRecognizerResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CreateOnDeviceSpeechRecognizerResponse) Reset() {
-	*x = CreateOnDeviceSpeechRecognizerResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[17]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CreateOnDeviceSpeechRecognizerResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateOnDeviceSpeechRecognizerResponse) ProtoMessage() {}
-
-func (x *CreateOnDeviceSpeechRecognizerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[17]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateOnDeviceSpeechRecognizerResponse.ProtoReflect.Descriptor instead.
-func (*CreateOnDeviceSpeechRecognizerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{17}
-}
-
-func (x *CreateOnDeviceSpeechRecognizerResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type CreateSpeechRecognizer1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CreateSpeechRecognizer1Request) Reset() {
-	*x = CreateSpeechRecognizer1Request{}
-	mi := &file_proto_speech_speech_proto_msgTypes[18]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CreateSpeechRecognizer1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateSpeechRecognizer1Request) ProtoMessage() {}
-
-func (x *CreateSpeechRecognizer1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[18]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateSpeechRecognizer1Request.ProtoReflect.Descriptor instead.
-func (*CreateSpeechRecognizer1Request) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{18}
-}
-
-func (x *CreateSpeechRecognizer1Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type CreateSpeechRecognizer1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CreateSpeechRecognizer1Response) Reset() {
-	*x = CreateSpeechRecognizer1Response{}
-	mi := &file_proto_speech_speech_proto_msgTypes[19]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CreateSpeechRecognizer1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateSpeechRecognizer1Response) ProtoMessage() {}
-
-func (x *CreateSpeechRecognizer1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[19]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateSpeechRecognizer1Response.ProtoReflect.Descriptor instead.
-func (*CreateSpeechRecognizer1Response) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{19}
-}
-
-func (x *CreateSpeechRecognizer1Response) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type CreateSpeechRecognizer2_1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CreateSpeechRecognizer2_1Request) Reset() {
-	*x = CreateSpeechRecognizer2_1Request{}
-	mi := &file_proto_speech_speech_proto_msgTypes[20]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CreateSpeechRecognizer2_1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateSpeechRecognizer2_1Request) ProtoMessage() {}
-
-func (x *CreateSpeechRecognizer2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[20]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateSpeechRecognizer2_1Request.ProtoReflect.Descriptor instead.
-func (*CreateSpeechRecognizer2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{20}
-}
-
-func (x *CreateSpeechRecognizer2_1Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *CreateSpeechRecognizer2_1Request) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type CreateSpeechRecognizer2_1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CreateSpeechRecognizer2_1Response) Reset() {
-	*x = CreateSpeechRecognizer2_1Response{}
-	mi := &file_proto_speech_speech_proto_msgTypes[21]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CreateSpeechRecognizer2_1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateSpeechRecognizer2_1Response) ProtoMessage() {}
-
-func (x *CreateSpeechRecognizer2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[21]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateSpeechRecognizer2_1Response.ProtoReflect.Descriptor instead.
-func (*CreateSpeechRecognizer2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{21}
-}
-
-func (x *CreateSpeechRecognizer2_1Response) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type IsOnDeviceRecognitionAvailableRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsOnDeviceRecognitionAvailableRequest) Reset() {
-	*x = IsOnDeviceRecognitionAvailableRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[22]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsOnDeviceRecognitionAvailableRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsOnDeviceRecognitionAvailableRequest) ProtoMessage() {}
-
-func (x *IsOnDeviceRecognitionAvailableRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[22]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsOnDeviceRecognitionAvailableRequest.ProtoReflect.Descriptor instead.
-func (*IsOnDeviceRecognitionAvailableRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{22}
-}
-
-func (x *IsOnDeviceRecognitionAvailableRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type IsOnDeviceRecognitionAvailableResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsOnDeviceRecognitionAvailableResponse) Reset() {
-	*x = IsOnDeviceRecognitionAvailableResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[23]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsOnDeviceRecognitionAvailableResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsOnDeviceRecognitionAvailableResponse) ProtoMessage() {}
-
-func (x *IsOnDeviceRecognitionAvailableResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[23]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsOnDeviceRecognitionAvailableResponse.ProtoReflect.Descriptor instead.
-func (*IsOnDeviceRecognitionAvailableResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{23}
-}
-
-func (x *IsOnDeviceRecognitionAvailableResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type IsRecognitionAvailableRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsRecognitionAvailableRequest) Reset() {
-	*x = IsRecognitionAvailableRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[24]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsRecognitionAvailableRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsRecognitionAvailableRequest) ProtoMessage() {}
-
-func (x *IsRecognitionAvailableRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[24]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsRecognitionAvailableRequest.ProtoReflect.Descriptor instead.
-func (*IsRecognitionAvailableRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{24}
-}
-
-func (x *IsRecognitionAvailableRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type IsRecognitionAvailableResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsRecognitionAvailableResponse) Reset() {
-	*x = IsRecognitionAvailableResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[25]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsRecognitionAvailableResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsRecognitionAvailableResponse) ProtoMessage() {}
-
-func (x *IsRecognitionAvailableResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[25]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsRecognitionAvailableResponse.ProtoReflect.Descriptor instead.
-func (*IsRecognitionAvailableResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{25}
-}
-
-func (x *IsRecognitionAvailableResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
 type OnErrorRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -1128,7 +32,7 @@ type OnErrorRequest struct {
 
 func (x *OnErrorRequest) Reset() {
 	*x = OnErrorRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[26]
+	mi := &file_proto_speech_speech_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1140,7 +44,7 @@ func (x *OnErrorRequest) String() string {
 func (*OnErrorRequest) ProtoMessage() {}
 
 func (x *OnErrorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[26]
+	mi := &file_proto_speech_speech_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1153,7 +57,7 @@ func (x *OnErrorRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnErrorRequest.ProtoReflect.Descriptor instead.
 func (*OnErrorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{26}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *OnErrorRequest) GetArg0() int32 {
@@ -1171,7 +75,7 @@ type OnErrorResponse struct {
 
 func (x *OnErrorResponse) Reset() {
 	*x = OnErrorResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[27]
+	mi := &file_proto_speech_speech_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1183,7 +87,7 @@ func (x *OnErrorResponse) String() string {
 func (*OnErrorResponse) ProtoMessage() {}
 
 func (x *OnErrorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[27]
+	mi := &file_proto_speech_speech_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1196,31 +100,31 @@ func (x *OnErrorResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnErrorResponse.ProtoReflect.Descriptor instead.
 func (*OnErrorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{27}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{1}
 }
 
-type OnProgressRequest struct {
+type OnSupportResultRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *OnProgressRequest) Reset() {
-	*x = OnProgressRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[28]
+func (x *OnSupportResultRequest) Reset() {
+	*x = OnSupportResultRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *OnProgressRequest) String() string {
+func (x *OnSupportResultRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*OnProgressRequest) ProtoMessage() {}
+func (*OnSupportResultRequest) ProtoMessage() {}
 
-func (x *OnProgressRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[28]
+func (x *OnSupportResultRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1231,39 +135,39 @@ func (x *OnProgressRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use OnProgressRequest.ProtoReflect.Descriptor instead.
-func (*OnProgressRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{28}
+// Deprecated: Use OnSupportResultRequest.ProtoReflect.Descriptor instead.
+func (*OnSupportResultRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *OnProgressRequest) GetArg0() int32 {
+func (x *OnSupportResultRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-type OnProgressResponse struct {
+type OnSupportResultResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *OnProgressResponse) Reset() {
-	*x = OnProgressResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[29]
+func (x *OnSupportResultResponse) Reset() {
+	*x = OnSupportResultResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *OnProgressResponse) String() string {
+func (x *OnSupportResultResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*OnProgressResponse) ProtoMessage() {}
+func (*OnSupportResultResponse) ProtoMessage() {}
 
-func (x *OnProgressResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[29]
+func (x *OnSupportResultResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1274,153 +178,9 @@ func (x *OnProgressResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use OnProgressResponse.ProtoReflect.Descriptor instead.
-func (*OnProgressResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{29}
-}
-
-type OnScheduledRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnScheduledRequest) Reset() {
-	*x = OnScheduledRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[30]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnScheduledRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnScheduledRequest) ProtoMessage() {}
-
-func (x *OnScheduledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[30]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnScheduledRequest.ProtoReflect.Descriptor instead.
-func (*OnScheduledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{30}
-}
-
-type OnScheduledResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnScheduledResponse) Reset() {
-	*x = OnScheduledResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[31]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnScheduledResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnScheduledResponse) ProtoMessage() {}
-
-func (x *OnScheduledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[31]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnScheduledResponse.ProtoReflect.Descriptor instead.
-func (*OnScheduledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{31}
-}
-
-type OnSuccessRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnSuccessRequest) Reset() {
-	*x = OnSuccessRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[32]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnSuccessRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnSuccessRequest) ProtoMessage() {}
-
-func (x *OnSuccessRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[32]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnSuccessRequest.ProtoReflect.Descriptor instead.
-func (*OnSuccessRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{32}
-}
-
-type OnSuccessResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnSuccessResponse) Reset() {
-	*x = OnSuccessResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[33]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnSuccessResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnSuccessResponse) ProtoMessage() {}
-
-func (x *OnSuccessResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[33]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnSuccessResponse.ProtoReflect.Descriptor instead.
-func (*OnSuccessResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{33}
+// Deprecated: Use OnSupportResultResponse.ProtoReflect.Descriptor instead.
+func (*OnSupportResultResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{3}
 }
 
 type DescribeContentsRequest struct {
@@ -1431,7 +191,7 @@ type DescribeContentsRequest struct {
 
 func (x *DescribeContentsRequest) Reset() {
 	*x = DescribeContentsRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[34]
+	mi := &file_proto_speech_speech_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1443,7 +203,7 @@ func (x *DescribeContentsRequest) String() string {
 func (*DescribeContentsRequest) ProtoMessage() {}
 
 func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[34]
+	mi := &file_proto_speech_speech_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1456,7 +216,7 @@ func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
 func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{34}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{4}
 }
 
 type DescribeContentsResponse struct {
@@ -1468,7 +228,7 @@ type DescribeContentsResponse struct {
 
 func (x *DescribeContentsResponse) Reset() {
 	*x = DescribeContentsResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[35]
+	mi := &file_proto_speech_speech_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1480,7 +240,7 @@ func (x *DescribeContentsResponse) String() string {
 func (*DescribeContentsResponse) ProtoMessage() {}
 
 func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[35]
+	mi := &file_proto_speech_speech_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1493,7 +253,7 @@ func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
 func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{35}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *DescribeContentsResponse) GetResult() int32 {
@@ -1512,7 +272,7 @@ type EqualsRequest struct {
 
 func (x *EqualsRequest) Reset() {
 	*x = EqualsRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[36]
+	mi := &file_proto_speech_speech_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1524,7 +284,7 @@ func (x *EqualsRequest) String() string {
 func (*EqualsRequest) ProtoMessage() {}
 
 func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[36]
+	mi := &file_proto_speech_speech_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1537,7 +297,7 @@ func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
 func (*EqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{36}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *EqualsRequest) GetArg0() int64 {
@@ -1556,7 +316,7 @@ type EqualsResponse struct {
 
 func (x *EqualsResponse) Reset() {
 	*x = EqualsResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[37]
+	mi := &file_proto_speech_speech_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1568,7 +328,7 @@ func (x *EqualsResponse) String() string {
 func (*EqualsResponse) ProtoMessage() {}
 
 func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[37]
+	mi := &file_proto_speech_speech_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1581,7 +341,7 @@ func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
 func (*EqualsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{37}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *EqualsResponse) GetResult() bool {
@@ -1591,27 +351,27 @@ func (x *EqualsResponse) GetResult() bool {
 	return false
 }
 
-type GetConfidenceLevelRequest struct {
+type GetInstalledOnDeviceLanguagesRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetConfidenceLevelRequest) Reset() {
-	*x = GetConfidenceLevelRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[38]
+func (x *GetInstalledOnDeviceLanguagesRequest) Reset() {
+	*x = GetInstalledOnDeviceLanguagesRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetConfidenceLevelRequest) String() string {
+func (x *GetInstalledOnDeviceLanguagesRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetConfidenceLevelRequest) ProtoMessage() {}
+func (*GetInstalledOnDeviceLanguagesRequest) ProtoMessage() {}
 
-func (x *GetConfidenceLevelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[38]
+func (x *GetInstalledOnDeviceLanguagesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1622,273 +382,33 @@ func (x *GetConfidenceLevelRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetConfidenceLevelRequest.ProtoReflect.Descriptor instead.
-func (*GetConfidenceLevelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{38}
+// Deprecated: Use GetInstalledOnDeviceLanguagesRequest.ProtoReflect.Descriptor instead.
+func (*GetInstalledOnDeviceLanguagesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{8}
 }
 
-type GetConfidenceLevelResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetConfidenceLevelResponse) Reset() {
-	*x = GetConfidenceLevelResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[39]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetConfidenceLevelResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetConfidenceLevelResponse) ProtoMessage() {}
-
-func (x *GetConfidenceLevelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[39]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetConfidenceLevelResponse.ProtoReflect.Descriptor instead.
-func (*GetConfidenceLevelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{39}
-}
-
-func (x *GetConfidenceLevelResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetFormattedTextRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetFormattedTextRequest) Reset() {
-	*x = GetFormattedTextRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[40]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetFormattedTextRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetFormattedTextRequest) ProtoMessage() {}
-
-func (x *GetFormattedTextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[40]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetFormattedTextRequest.ProtoReflect.Descriptor instead.
-func (*GetFormattedTextRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{40}
-}
-
-type GetFormattedTextResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetFormattedTextResponse) Reset() {
-	*x = GetFormattedTextResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[41]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetFormattedTextResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetFormattedTextResponse) ProtoMessage() {}
-
-func (x *GetFormattedTextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[41]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetFormattedTextResponse.ProtoReflect.Descriptor instead.
-func (*GetFormattedTextResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{41}
-}
-
-func (x *GetFormattedTextResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetRawTextRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRawTextRequest) Reset() {
-	*x = GetRawTextRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[42]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRawTextRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRawTextRequest) ProtoMessage() {}
-
-func (x *GetRawTextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[42]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRawTextRequest.ProtoReflect.Descriptor instead.
-func (*GetRawTextRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{42}
-}
-
-type GetRawTextResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRawTextResponse) Reset() {
-	*x = GetRawTextResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[43]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRawTextResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRawTextResponse) ProtoMessage() {}
-
-func (x *GetRawTextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[43]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRawTextResponse.ProtoReflect.Descriptor instead.
-func (*GetRawTextResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{43}
-}
-
-func (x *GetRawTextResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetTimestampMillisRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTimestampMillisRequest) Reset() {
-	*x = GetTimestampMillisRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[44]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTimestampMillisRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTimestampMillisRequest) ProtoMessage() {}
-
-func (x *GetTimestampMillisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[44]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTimestampMillisRequest.ProtoReflect.Descriptor instead.
-func (*GetTimestampMillisRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{44}
-}
-
-type GetTimestampMillisResponse struct {
+type GetInstalledOnDeviceLanguagesResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetTimestampMillisResponse) Reset() {
-	*x = GetTimestampMillisResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[45]
+func (x *GetInstalledOnDeviceLanguagesResponse) Reset() {
+	*x = GetInstalledOnDeviceLanguagesResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetTimestampMillisResponse) String() string {
+func (x *GetInstalledOnDeviceLanguagesResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetTimestampMillisResponse) ProtoMessage() {}
+func (*GetInstalledOnDeviceLanguagesResponse) ProtoMessage() {}
 
-func (x *GetTimestampMillisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[45]
+func (x *GetInstalledOnDeviceLanguagesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1899,12 +419,252 @@ func (x *GetTimestampMillisResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetTimestampMillisResponse.ProtoReflect.Descriptor instead.
-func (*GetTimestampMillisResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{45}
+// Deprecated: Use GetInstalledOnDeviceLanguagesResponse.ProtoReflect.Descriptor instead.
+func (*GetInstalledOnDeviceLanguagesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{9}
 }
 
-func (x *GetTimestampMillisResponse) GetResult() int64 {
+func (x *GetInstalledOnDeviceLanguagesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetOnlineLanguagesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOnlineLanguagesRequest) Reset() {
+	*x = GetOnlineLanguagesRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOnlineLanguagesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOnlineLanguagesRequest) ProtoMessage() {}
+
+func (x *GetOnlineLanguagesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOnlineLanguagesRequest.ProtoReflect.Descriptor instead.
+func (*GetOnlineLanguagesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{10}
+}
+
+type GetOnlineLanguagesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOnlineLanguagesResponse) Reset() {
+	*x = GetOnlineLanguagesResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOnlineLanguagesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOnlineLanguagesResponse) ProtoMessage() {}
+
+func (x *GetOnlineLanguagesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOnlineLanguagesResponse.ProtoReflect.Descriptor instead.
+func (*GetOnlineLanguagesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *GetOnlineLanguagesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPendingOnDeviceLanguagesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPendingOnDeviceLanguagesRequest) Reset() {
+	*x = GetPendingOnDeviceLanguagesRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPendingOnDeviceLanguagesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPendingOnDeviceLanguagesRequest) ProtoMessage() {}
+
+func (x *GetPendingOnDeviceLanguagesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPendingOnDeviceLanguagesRequest.ProtoReflect.Descriptor instead.
+func (*GetPendingOnDeviceLanguagesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{12}
+}
+
+type GetPendingOnDeviceLanguagesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPendingOnDeviceLanguagesResponse) Reset() {
+	*x = GetPendingOnDeviceLanguagesResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPendingOnDeviceLanguagesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPendingOnDeviceLanguagesResponse) ProtoMessage() {}
+
+func (x *GetPendingOnDeviceLanguagesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPendingOnDeviceLanguagesResponse.ProtoReflect.Descriptor instead.
+func (*GetPendingOnDeviceLanguagesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *GetPendingOnDeviceLanguagesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSupportedOnDeviceLanguagesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSupportedOnDeviceLanguagesRequest) Reset() {
+	*x = GetSupportedOnDeviceLanguagesRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSupportedOnDeviceLanguagesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSupportedOnDeviceLanguagesRequest) ProtoMessage() {}
+
+func (x *GetSupportedOnDeviceLanguagesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSupportedOnDeviceLanguagesRequest.ProtoReflect.Descriptor instead.
+func (*GetSupportedOnDeviceLanguagesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{14}
+}
+
+type GetSupportedOnDeviceLanguagesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSupportedOnDeviceLanguagesResponse) Reset() {
+	*x = GetSupportedOnDeviceLanguagesResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSupportedOnDeviceLanguagesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSupportedOnDeviceLanguagesResponse) ProtoMessage() {}
+
+func (x *GetSupportedOnDeviceLanguagesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSupportedOnDeviceLanguagesResponse.ProtoReflect.Descriptor instead.
+func (*GetSupportedOnDeviceLanguagesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GetSupportedOnDeviceLanguagesResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -1919,7 +679,7 @@ type HashCodeRequest struct {
 
 func (x *HashCodeRequest) Reset() {
 	*x = HashCodeRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[46]
+	mi := &file_proto_speech_speech_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1931,7 +691,7 @@ func (x *HashCodeRequest) String() string {
 func (*HashCodeRequest) ProtoMessage() {}
 
 func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[46]
+	mi := &file_proto_speech_speech_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1944,7 +704,7 @@ func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
 func (*HashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{46}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{16}
 }
 
 type HashCodeResponse struct {
@@ -1956,7 +716,7 @@ type HashCodeResponse struct {
 
 func (x *HashCodeResponse) Reset() {
 	*x = HashCodeResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[47]
+	mi := &file_proto_speech_speech_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1968,7 +728,7 @@ func (x *HashCodeResponse) String() string {
 func (*HashCodeResponse) ProtoMessage() {}
 
 func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[47]
+	mi := &file_proto_speech_speech_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1981,7 +741,7 @@ func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
 func (*HashCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{47}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *HashCodeResponse) GetResult() int32 {
@@ -1999,7 +759,7 @@ type ToStringRequest struct {
 
 func (x *ToStringRequest) Reset() {
 	*x = ToStringRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[48]
+	mi := &file_proto_speech_speech_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2011,7 +771,7 @@ func (x *ToStringRequest) String() string {
 func (*ToStringRequest) ProtoMessage() {}
 
 func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[48]
+	mi := &file_proto_speech_speech_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2024,7 +784,7 @@ func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
 func (*ToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{48}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{18}
 }
 
 type ToStringResponse struct {
@@ -2036,7 +796,7 @@ type ToStringResponse struct {
 
 func (x *ToStringResponse) Reset() {
 	*x = ToStringResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[49]
+	mi := &file_proto_speech_speech_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2048,7 +808,7 @@ func (x *ToStringResponse) String() string {
 func (*ToStringResponse) ProtoMessage() {}
 
 func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[49]
+	mi := &file_proto_speech_speech_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2061,7 +821,7 @@ func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
 func (*ToStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{49}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *ToStringResponse) GetResult() string {
@@ -2081,7 +841,7 @@ type WriteToParcelRequest struct {
 
 func (x *WriteToParcelRequest) Reset() {
 	*x = WriteToParcelRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[50]
+	mi := &file_proto_speech_speech_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2093,7 +853,7 @@ func (x *WriteToParcelRequest) String() string {
 func (*WriteToParcelRequest) ProtoMessage() {}
 
 func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[50]
+	mi := &file_proto_speech_speech_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2106,7 +866,7 @@ func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
 func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{50}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *WriteToParcelRequest) GetArg0() int64 {
@@ -2131,7 +891,7 @@ type WriteToParcelResponse struct {
 
 func (x *WriteToParcelResponse) Reset() {
 	*x = WriteToParcelResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[51]
+	mi := &file_proto_speech_speech_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2143,7 +903,7 @@ func (x *WriteToParcelResponse) String() string {
 func (*WriteToParcelResponse) ProtoMessage() {}
 
 func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[51]
+	mi := &file_proto_speech_speech_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2156,7 +916,359 @@ func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
 func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{51}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{21}
+}
+
+type AddInstalledOnDeviceLanguageRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddInstalledOnDeviceLanguageRequest) Reset() {
+	*x = AddInstalledOnDeviceLanguageRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddInstalledOnDeviceLanguageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddInstalledOnDeviceLanguageRequest) ProtoMessage() {}
+
+func (x *AddInstalledOnDeviceLanguageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddInstalledOnDeviceLanguageRequest.ProtoReflect.Descriptor instead.
+func (*AddInstalledOnDeviceLanguageRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *AddInstalledOnDeviceLanguageRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type AddInstalledOnDeviceLanguageResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddInstalledOnDeviceLanguageResponse) Reset() {
+	*x = AddInstalledOnDeviceLanguageResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddInstalledOnDeviceLanguageResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddInstalledOnDeviceLanguageResponse) ProtoMessage() {}
+
+func (x *AddInstalledOnDeviceLanguageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddInstalledOnDeviceLanguageResponse.ProtoReflect.Descriptor instead.
+func (*AddInstalledOnDeviceLanguageResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *AddInstalledOnDeviceLanguageResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddOnlineLanguageRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddOnlineLanguageRequest) Reset() {
+	*x = AddOnlineLanguageRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddOnlineLanguageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddOnlineLanguageRequest) ProtoMessage() {}
+
+func (x *AddOnlineLanguageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddOnlineLanguageRequest.ProtoReflect.Descriptor instead.
+func (*AddOnlineLanguageRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *AddOnlineLanguageRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type AddOnlineLanguageResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddOnlineLanguageResponse) Reset() {
+	*x = AddOnlineLanguageResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddOnlineLanguageResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddOnlineLanguageResponse) ProtoMessage() {}
+
+func (x *AddOnlineLanguageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddOnlineLanguageResponse.ProtoReflect.Descriptor instead.
+func (*AddOnlineLanguageResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *AddOnlineLanguageResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddPendingOnDeviceLanguageRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddPendingOnDeviceLanguageRequest) Reset() {
+	*x = AddPendingOnDeviceLanguageRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddPendingOnDeviceLanguageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddPendingOnDeviceLanguageRequest) ProtoMessage() {}
+
+func (x *AddPendingOnDeviceLanguageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddPendingOnDeviceLanguageRequest.ProtoReflect.Descriptor instead.
+func (*AddPendingOnDeviceLanguageRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *AddPendingOnDeviceLanguageRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type AddPendingOnDeviceLanguageResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddPendingOnDeviceLanguageResponse) Reset() {
+	*x = AddPendingOnDeviceLanguageResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddPendingOnDeviceLanguageResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddPendingOnDeviceLanguageResponse) ProtoMessage() {}
+
+func (x *AddPendingOnDeviceLanguageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddPendingOnDeviceLanguageResponse.ProtoReflect.Descriptor instead.
+func (*AddPendingOnDeviceLanguageResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *AddPendingOnDeviceLanguageResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddSupportedOnDeviceLanguageRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddSupportedOnDeviceLanguageRequest) Reset() {
+	*x = AddSupportedOnDeviceLanguageRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddSupportedOnDeviceLanguageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddSupportedOnDeviceLanguageRequest) ProtoMessage() {}
+
+func (x *AddSupportedOnDeviceLanguageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddSupportedOnDeviceLanguageRequest.ProtoReflect.Descriptor instead.
+func (*AddSupportedOnDeviceLanguageRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *AddSupportedOnDeviceLanguageRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type AddSupportedOnDeviceLanguageResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddSupportedOnDeviceLanguageResponse) Reset() {
+	*x = AddSupportedOnDeviceLanguageResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddSupportedOnDeviceLanguageResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddSupportedOnDeviceLanguageResponse) ProtoMessage() {}
+
+func (x *AddSupportedOnDeviceLanguageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddSupportedOnDeviceLanguageResponse.ProtoReflect.Descriptor instead.
+func (*AddSupportedOnDeviceLanguageResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *AddSupportedOnDeviceLanguageResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
 }
 
 type BuildRequest struct {
@@ -2167,7 +1279,7 @@ type BuildRequest struct {
 
 func (x *BuildRequest) Reset() {
 	*x = BuildRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[52]
+	mi := &file_proto_speech_speech_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2179,7 +1291,7 @@ func (x *BuildRequest) String() string {
 func (*BuildRequest) ProtoMessage() {}
 
 func (x *BuildRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[52]
+	mi := &file_proto_speech_speech_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2192,7 +1304,7 @@ func (x *BuildRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
 func (*BuildRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{52}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{30}
 }
 
 type BuildResponse struct {
@@ -2204,7 +1316,7 @@ type BuildResponse struct {
 
 func (x *BuildResponse) Reset() {
 	*x = BuildResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[53]
+	mi := &file_proto_speech_speech_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2216,7 +1328,7 @@ func (x *BuildResponse) String() string {
 func (*BuildResponse) ProtoMessage() {}
 
 func (x *BuildResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[53]
+	mi := &file_proto_speech_speech_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2229,10 +1341,330 @@ func (x *BuildResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
 func (*BuildResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{53}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *BuildResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetConfidenceLevelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetConfidenceLevelRequest) Reset() {
+	*x = GetConfidenceLevelRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetConfidenceLevelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetConfidenceLevelRequest) ProtoMessage() {}
+
+func (x *GetConfidenceLevelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetConfidenceLevelRequest.ProtoReflect.Descriptor instead.
+func (*GetConfidenceLevelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{32}
+}
+
+type GetConfidenceLevelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetConfidenceLevelResponse) Reset() {
+	*x = GetConfidenceLevelResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetConfidenceLevelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetConfidenceLevelResponse) ProtoMessage() {}
+
+func (x *GetConfidenceLevelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetConfidenceLevelResponse.ProtoReflect.Descriptor instead.
+func (*GetConfidenceLevelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *GetConfidenceLevelResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetFormattedTextRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFormattedTextRequest) Reset() {
+	*x = GetFormattedTextRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFormattedTextRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFormattedTextRequest) ProtoMessage() {}
+
+func (x *GetFormattedTextRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFormattedTextRequest.ProtoReflect.Descriptor instead.
+func (*GetFormattedTextRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{34}
+}
+
+type GetFormattedTextResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFormattedTextResponse) Reset() {
+	*x = GetFormattedTextResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFormattedTextResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFormattedTextResponse) ProtoMessage() {}
+
+func (x *GetFormattedTextResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFormattedTextResponse.ProtoReflect.Descriptor instead.
+func (*GetFormattedTextResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *GetFormattedTextResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetRawTextRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRawTextRequest) Reset() {
+	*x = GetRawTextRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRawTextRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRawTextRequest) ProtoMessage() {}
+
+func (x *GetRawTextRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRawTextRequest.ProtoReflect.Descriptor instead.
+func (*GetRawTextRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{36}
+}
+
+type GetRawTextResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRawTextResponse) Reset() {
+	*x = GetRawTextResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRawTextResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRawTextResponse) ProtoMessage() {}
+
+func (x *GetRawTextResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRawTextResponse.ProtoReflect.Descriptor instead.
+func (*GetRawTextResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *GetRawTextResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetTimestampMillisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimestampMillisRequest) Reset() {
+	*x = GetTimestampMillisRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimestampMillisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimestampMillisRequest) ProtoMessage() {}
+
+func (x *GetTimestampMillisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimestampMillisRequest.ProtoReflect.Descriptor instead.
+func (*GetTimestampMillisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{38}
+}
+
+type GetTimestampMillisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimestampMillisResponse) Reset() {
+	*x = GetTimestampMillisResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimestampMillisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimestampMillisResponse) ProtoMessage() {}
+
+func (x *GetTimestampMillisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimestampMillisResponse.ProtoReflect.Descriptor instead.
+func (*GetTimestampMillisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *GetTimestampMillisResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -2248,7 +1680,7 @@ type SetConfidenceLevelRequest struct {
 
 func (x *SetConfidenceLevelRequest) Reset() {
 	*x = SetConfidenceLevelRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[54]
+	mi := &file_proto_speech_speech_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2260,7 +1692,7 @@ func (x *SetConfidenceLevelRequest) String() string {
 func (*SetConfidenceLevelRequest) ProtoMessage() {}
 
 func (x *SetConfidenceLevelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[54]
+	mi := &file_proto_speech_speech_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2273,7 +1705,7 @@ func (x *SetConfidenceLevelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetConfidenceLevelRequest.ProtoReflect.Descriptor instead.
 func (*SetConfidenceLevelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{54}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *SetConfidenceLevelRequest) GetArg0() int32 {
@@ -2292,7 +1724,7 @@ type SetConfidenceLevelResponse struct {
 
 func (x *SetConfidenceLevelResponse) Reset() {
 	*x = SetConfidenceLevelResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[55]
+	mi := &file_proto_speech_speech_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2304,7 +1736,7 @@ func (x *SetConfidenceLevelResponse) String() string {
 func (*SetConfidenceLevelResponse) ProtoMessage() {}
 
 func (x *SetConfidenceLevelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[55]
+	mi := &file_proto_speech_speech_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2317,7 +1749,7 @@ func (x *SetConfidenceLevelResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetConfidenceLevelResponse.ProtoReflect.Descriptor instead.
 func (*SetConfidenceLevelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{55}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *SetConfidenceLevelResponse) GetResult() int64 {
@@ -2336,7 +1768,7 @@ type SetFormattedTextRequest struct {
 
 func (x *SetFormattedTextRequest) Reset() {
 	*x = SetFormattedTextRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[56]
+	mi := &file_proto_speech_speech_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2348,7 +1780,7 @@ func (x *SetFormattedTextRequest) String() string {
 func (*SetFormattedTextRequest) ProtoMessage() {}
 
 func (x *SetFormattedTextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[56]
+	mi := &file_proto_speech_speech_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2361,7 +1793,7 @@ func (x *SetFormattedTextRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetFormattedTextRequest.ProtoReflect.Descriptor instead.
 func (*SetFormattedTextRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{56}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *SetFormattedTextRequest) GetArg0() string {
@@ -2380,7 +1812,7 @@ type SetFormattedTextResponse struct {
 
 func (x *SetFormattedTextResponse) Reset() {
 	*x = SetFormattedTextResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[57]
+	mi := &file_proto_speech_speech_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2392,7 +1824,7 @@ func (x *SetFormattedTextResponse) String() string {
 func (*SetFormattedTextResponse) ProtoMessage() {}
 
 func (x *SetFormattedTextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[57]
+	mi := &file_proto_speech_speech_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2405,7 +1837,7 @@ func (x *SetFormattedTextResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetFormattedTextResponse.ProtoReflect.Descriptor instead.
 func (*SetFormattedTextResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{57}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *SetFormattedTextResponse) GetResult() int64 {
@@ -2424,7 +1856,7 @@ type SetRawTextRequest struct {
 
 func (x *SetRawTextRequest) Reset() {
 	*x = SetRawTextRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[58]
+	mi := &file_proto_speech_speech_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2436,7 +1868,7 @@ func (x *SetRawTextRequest) String() string {
 func (*SetRawTextRequest) ProtoMessage() {}
 
 func (x *SetRawTextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[58]
+	mi := &file_proto_speech_speech_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2449,7 +1881,7 @@ func (x *SetRawTextRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetRawTextRequest.ProtoReflect.Descriptor instead.
 func (*SetRawTextRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{58}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *SetRawTextRequest) GetArg0() string {
@@ -2468,7 +1900,7 @@ type SetRawTextResponse struct {
 
 func (x *SetRawTextResponse) Reset() {
 	*x = SetRawTextResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[59]
+	mi := &file_proto_speech_speech_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2480,7 +1912,7 @@ func (x *SetRawTextResponse) String() string {
 func (*SetRawTextResponse) ProtoMessage() {}
 
 func (x *SetRawTextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[59]
+	mi := &file_proto_speech_speech_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2493,7 +1925,7 @@ func (x *SetRawTextResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetRawTextResponse.ProtoReflect.Descriptor instead.
 func (*SetRawTextResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{59}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *SetRawTextResponse) GetResult() int64 {
@@ -2512,7 +1944,7 @@ type SetTimestampMillisRequest struct {
 
 func (x *SetTimestampMillisRequest) Reset() {
 	*x = SetTimestampMillisRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[60]
+	mi := &file_proto_speech_speech_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2524,7 +1956,7 @@ func (x *SetTimestampMillisRequest) String() string {
 func (*SetTimestampMillisRequest) ProtoMessage() {}
 
 func (x *SetTimestampMillisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[60]
+	mi := &file_proto_speech_speech_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2537,7 +1969,7 @@ func (x *SetTimestampMillisRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetTimestampMillisRequest.ProtoReflect.Descriptor instead.
 func (*SetTimestampMillisRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{60}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *SetTimestampMillisRequest) GetArg0() int64 {
@@ -2556,7 +1988,7 @@ type SetTimestampMillisResponse struct {
 
 func (x *SetTimestampMillisResponse) Reset() {
 	*x = SetTimestampMillisResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[61]
+	mi := &file_proto_speech_speech_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2568,7 +2000,7 @@ func (x *SetTimestampMillisResponse) String() string {
 func (*SetTimestampMillisResponse) ProtoMessage() {}
 
 func (x *SetTimestampMillisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[61]
+	mi := &file_proto_speech_speech_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2581,7 +2013,7 @@ func (x *SetTimestampMillisResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetTimestampMillisResponse.ProtoReflect.Descriptor instead.
 func (*SetTimestampMillisResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{61}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *SetTimestampMillisResponse) GetResult() int64 {
@@ -2591,28 +2023,100 @@ func (x *SetTimestampMillisResponse) GetResult() int64 {
 	return 0
 }
 
-type GetVoiceDetailsIntentRequest struct {
+type OnBeginningOfSpeechRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnBeginningOfSpeechRequest) Reset() {
+	*x = OnBeginningOfSpeechRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnBeginningOfSpeechRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnBeginningOfSpeechRequest) ProtoMessage() {}
+
+func (x *OnBeginningOfSpeechRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnBeginningOfSpeechRequest.ProtoReflect.Descriptor instead.
+func (*OnBeginningOfSpeechRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{48}
+}
+
+type OnBeginningOfSpeechResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnBeginningOfSpeechResponse) Reset() {
+	*x = OnBeginningOfSpeechResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnBeginningOfSpeechResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnBeginningOfSpeechResponse) ProtoMessage() {}
+
+func (x *OnBeginningOfSpeechResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnBeginningOfSpeechResponse.ProtoReflect.Descriptor instead.
+func (*OnBeginningOfSpeechResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{49}
+}
+
+type OnBufferReceivedRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetVoiceDetailsIntentRequest) Reset() {
-	*x = GetVoiceDetailsIntentRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[62]
+func (x *OnBufferReceivedRequest) Reset() {
+	*x = OnBufferReceivedRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetVoiceDetailsIntentRequest) String() string {
+func (x *OnBufferReceivedRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetVoiceDetailsIntentRequest) ProtoMessage() {}
+func (*OnBufferReceivedRequest) ProtoMessage() {}
 
-func (x *GetVoiceDetailsIntentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[62]
+func (x *OnBufferReceivedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2623,39 +2127,518 @@ func (x *GetVoiceDetailsIntentRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetVoiceDetailsIntentRequest.ProtoReflect.Descriptor instead.
-func (*GetVoiceDetailsIntentRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{62}
+// Deprecated: Use OnBufferReceivedRequest.ProtoReflect.Descriptor instead.
+func (*OnBufferReceivedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{50}
 }
 
-func (x *GetVoiceDetailsIntentRequest) GetArg0() int64 {
+func (x *OnBufferReceivedRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-type GetVoiceDetailsIntentResponse struct {
+type OnBufferReceivedResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetVoiceDetailsIntentResponse) Reset() {
-	*x = GetVoiceDetailsIntentResponse{}
+func (x *OnBufferReceivedResponse) Reset() {
+	*x = OnBufferReceivedResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnBufferReceivedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnBufferReceivedResponse) ProtoMessage() {}
+
+func (x *OnBufferReceivedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnBufferReceivedResponse.ProtoReflect.Descriptor instead.
+func (*OnBufferReceivedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{51}
+}
+
+type OnEndOfSpeechRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnEndOfSpeechRequest) Reset() {
+	*x = OnEndOfSpeechRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnEndOfSpeechRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnEndOfSpeechRequest) ProtoMessage() {}
+
+func (x *OnEndOfSpeechRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnEndOfSpeechRequest.ProtoReflect.Descriptor instead.
+func (*OnEndOfSpeechRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{52}
+}
+
+type OnEndOfSpeechResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnEndOfSpeechResponse) Reset() {
+	*x = OnEndOfSpeechResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnEndOfSpeechResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnEndOfSpeechResponse) ProtoMessage() {}
+
+func (x *OnEndOfSpeechResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnEndOfSpeechResponse.ProtoReflect.Descriptor instead.
+func (*OnEndOfSpeechResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{53}
+}
+
+type OnEventRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnEventRequest) Reset() {
+	*x = OnEventRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnEventRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnEventRequest) ProtoMessage() {}
+
+func (x *OnEventRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnEventRequest.ProtoReflect.Descriptor instead.
+func (*OnEventRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{54}
+}
+
+func (x *OnEventRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnEventRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnEventResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnEventResponse) Reset() {
+	*x = OnEventResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnEventResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnEventResponse) ProtoMessage() {}
+
+func (x *OnEventResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnEventResponse.ProtoReflect.Descriptor instead.
+func (*OnEventResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{55}
+}
+
+type OnPartialResultsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPartialResultsRequest) Reset() {
+	*x = OnPartialResultsRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPartialResultsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPartialResultsRequest) ProtoMessage() {}
+
+func (x *OnPartialResultsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPartialResultsRequest.ProtoReflect.Descriptor instead.
+func (*OnPartialResultsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{56}
+}
+
+func (x *OnPartialResultsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnPartialResultsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPartialResultsResponse) Reset() {
+	*x = OnPartialResultsResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPartialResultsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPartialResultsResponse) ProtoMessage() {}
+
+func (x *OnPartialResultsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPartialResultsResponse.ProtoReflect.Descriptor instead.
+func (*OnPartialResultsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{57}
+}
+
+type OnReadyForSpeechRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnReadyForSpeechRequest) Reset() {
+	*x = OnReadyForSpeechRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnReadyForSpeechRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnReadyForSpeechRequest) ProtoMessage() {}
+
+func (x *OnReadyForSpeechRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnReadyForSpeechRequest.ProtoReflect.Descriptor instead.
+func (*OnReadyForSpeechRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{58}
+}
+
+func (x *OnReadyForSpeechRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnReadyForSpeechResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnReadyForSpeechResponse) Reset() {
+	*x = OnReadyForSpeechResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnReadyForSpeechResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnReadyForSpeechResponse) ProtoMessage() {}
+
+func (x *OnReadyForSpeechResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnReadyForSpeechResponse.ProtoReflect.Descriptor instead.
+func (*OnReadyForSpeechResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{59}
+}
+
+type OnResultsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnResultsRequest) Reset() {
+	*x = OnResultsRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnResultsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnResultsRequest) ProtoMessage() {}
+
+func (x *OnResultsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnResultsRequest.ProtoReflect.Descriptor instead.
+func (*OnResultsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{60}
+}
+
+func (x *OnResultsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnResultsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnResultsResponse) Reset() {
+	*x = OnResultsResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnResultsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnResultsResponse) ProtoMessage() {}
+
+func (x *OnResultsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnResultsResponse.ProtoReflect.Descriptor instead.
+func (*OnResultsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{61}
+}
+
+type OnRmsChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnRmsChangedRequest) Reset() {
+	*x = OnRmsChangedRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnRmsChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnRmsChangedRequest) ProtoMessage() {}
+
+func (x *OnRmsChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnRmsChangedRequest.ProtoReflect.Descriptor instead.
+func (*OnRmsChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{62}
+}
+
+func (x *OnRmsChangedRequest) GetArg0() float32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnRmsChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnRmsChangedResponse) Reset() {
+	*x = OnRmsChangedResponse{}
 	mi := &file_proto_speech_speech_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetVoiceDetailsIntentResponse) String() string {
+func (x *OnRmsChangedResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetVoiceDetailsIntentResponse) ProtoMessage() {}
+func (*OnRmsChangedResponse) ProtoMessage() {}
 
-func (x *GetVoiceDetailsIntentResponse) ProtoReflect() protoreflect.Message {
+func (x *OnRmsChangedResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_speech_speech_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -2667,16 +2650,9 @@ func (x *GetVoiceDetailsIntentResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetVoiceDetailsIntentResponse.ProtoReflect.Descriptor instead.
-func (*GetVoiceDetailsIntentResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use OnRmsChangedResponse.ProtoReflect.Descriptor instead.
+func (*OnRmsChangedResponse) Descriptor() ([]byte, []int) {
 	return file_proto_speech_speech_proto_rawDescGZIP(), []int{63}
-}
-
-func (x *GetVoiceDetailsIntentResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
 }
 
 type NewAlternativeSpansRequest struct {
@@ -2863,6 +2839,94 @@ func (x *AlternativeSpansEqualsRequest) GetArg0() int64 {
 	return 0
 }
 
+type GetSpansRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSpansRequest) Reset() {
+	*x = GetSpansRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSpansRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSpansRequest) ProtoMessage() {}
+
+func (x *GetSpansRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSpansRequest.ProtoReflect.Descriptor instead.
+func (*GetSpansRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{68}
+}
+
+func (x *GetSpansRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetSpansResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSpansResponse) Reset() {
+	*x = GetSpansResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSpansResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSpansResponse) ProtoMessage() {}
+
+func (x *GetSpansResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSpansResponse.ProtoReflect.Descriptor instead.
+func (*GetSpansResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{69}
+}
+
+func (x *GetSpansResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 type AlternativeSpansHashCodeRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
@@ -2872,7 +2936,7 @@ type AlternativeSpansHashCodeRequest struct {
 
 func (x *AlternativeSpansHashCodeRequest) Reset() {
 	*x = AlternativeSpansHashCodeRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[68]
+	mi := &file_proto_speech_speech_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2884,7 +2948,7 @@ func (x *AlternativeSpansHashCodeRequest) String() string {
 func (*AlternativeSpansHashCodeRequest) ProtoMessage() {}
 
 func (x *AlternativeSpansHashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[68]
+	mi := &file_proto_speech_speech_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2897,7 +2961,7 @@ func (x *AlternativeSpansHashCodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AlternativeSpansHashCodeRequest.ProtoReflect.Descriptor instead.
 func (*AlternativeSpansHashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{68}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{70}
 }
 
 func (x *AlternativeSpansHashCodeRequest) GetHandle() int64 {
@@ -2916,7 +2980,7 @@ type AlternativeSpansToStringRequest struct {
 
 func (x *AlternativeSpansToStringRequest) Reset() {
 	*x = AlternativeSpansToStringRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[69]
+	mi := &file_proto_speech_speech_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2928,7 +2992,7 @@ func (x *AlternativeSpansToStringRequest) String() string {
 func (*AlternativeSpansToStringRequest) ProtoMessage() {}
 
 func (x *AlternativeSpansToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[69]
+	mi := &file_proto_speech_speech_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2941,7 +3005,7 @@ func (x *AlternativeSpansToStringRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AlternativeSpansToStringRequest.ProtoReflect.Descriptor instead.
 func (*AlternativeSpansToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{69}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{71}
 }
 
 func (x *AlternativeSpansToStringRequest) GetHandle() int64 {
@@ -2962,7 +3026,7 @@ type AlternativeSpansWriteToParcelRequest struct {
 
 func (x *AlternativeSpansWriteToParcelRequest) Reset() {
 	*x = AlternativeSpansWriteToParcelRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[70]
+	mi := &file_proto_speech_speech_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2974,7 +3038,7 @@ func (x *AlternativeSpansWriteToParcelRequest) String() string {
 func (*AlternativeSpansWriteToParcelRequest) ProtoMessage() {}
 
 func (x *AlternativeSpansWriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[70]
+	mi := &file_proto_speech_speech_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2987,7 +3051,7 @@ func (x *AlternativeSpansWriteToParcelRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use AlternativeSpansWriteToParcelRequest.ProtoReflect.Descriptor instead.
 func (*AlternativeSpansWriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{70}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{72}
 }
 
 func (x *AlternativeSpansWriteToParcelRequest) GetHandle() int64 {
@@ -3011,6 +3075,2894 @@ func (x *AlternativeSpansWriteToParcelRequest) GetArg1() int32 {
 	return 0
 }
 
+type CancelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CancelRequest) Reset() {
+	*x = CancelRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[73]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CancelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CancelRequest) ProtoMessage() {}
+
+func (x *CancelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[73]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CancelRequest.ProtoReflect.Descriptor instead.
+func (*CancelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{73}
+}
+
+type CancelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CancelResponse) Reset() {
+	*x = CancelResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[74]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CancelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CancelResponse) ProtoMessage() {}
+
+func (x *CancelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[74]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CancelResponse.ProtoReflect.Descriptor instead.
+func (*CancelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{74}
+}
+
+type CheckRecognitionSupportRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CheckRecognitionSupportRequest) Reset() {
+	*x = CheckRecognitionSupportRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[75]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CheckRecognitionSupportRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CheckRecognitionSupportRequest) ProtoMessage() {}
+
+func (x *CheckRecognitionSupportRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[75]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CheckRecognitionSupportRequest.ProtoReflect.Descriptor instead.
+func (*CheckRecognitionSupportRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{75}
+}
+
+func (x *CheckRecognitionSupportRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CheckRecognitionSupportRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *CheckRecognitionSupportRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type CheckRecognitionSupportResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CheckRecognitionSupportResponse) Reset() {
+	*x = CheckRecognitionSupportResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[76]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CheckRecognitionSupportResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CheckRecognitionSupportResponse) ProtoMessage() {}
+
+func (x *CheckRecognitionSupportResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[76]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CheckRecognitionSupportResponse.ProtoReflect.Descriptor instead.
+func (*CheckRecognitionSupportResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{76}
+}
+
+type DestroyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DestroyRequest) Reset() {
+	*x = DestroyRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[77]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DestroyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DestroyRequest) ProtoMessage() {}
+
+func (x *DestroyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[77]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DestroyRequest.ProtoReflect.Descriptor instead.
+func (*DestroyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{77}
+}
+
+type DestroyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DestroyResponse) Reset() {
+	*x = DestroyResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[78]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DestroyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DestroyResponse) ProtoMessage() {}
+
+func (x *DestroyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[78]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DestroyResponse.ProtoReflect.Descriptor instead.
+func (*DestroyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{78}
+}
+
+type SetRecognitionListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRecognitionListenerRequest) Reset() {
+	*x = SetRecognitionListenerRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRecognitionListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRecognitionListenerRequest) ProtoMessage() {}
+
+func (x *SetRecognitionListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRecognitionListenerRequest.ProtoReflect.Descriptor instead.
+func (*SetRecognitionListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{79}
+}
+
+func (x *SetRecognitionListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetRecognitionListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRecognitionListenerResponse) Reset() {
+	*x = SetRecognitionListenerResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[80]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRecognitionListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRecognitionListenerResponse) ProtoMessage() {}
+
+func (x *SetRecognitionListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[80]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRecognitionListenerResponse.ProtoReflect.Descriptor instead.
+func (*SetRecognitionListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{80}
+}
+
+type StartListeningRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StartListeningRequest) Reset() {
+	*x = StartListeningRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[81]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StartListeningRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StartListeningRequest) ProtoMessage() {}
+
+func (x *StartListeningRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[81]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StartListeningRequest.ProtoReflect.Descriptor instead.
+func (*StartListeningRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{81}
+}
+
+func (x *StartListeningRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type StartListeningResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StartListeningResponse) Reset() {
+	*x = StartListeningResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[82]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StartListeningResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StartListeningResponse) ProtoMessage() {}
+
+func (x *StartListeningResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[82]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StartListeningResponse.ProtoReflect.Descriptor instead.
+func (*StartListeningResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{82}
+}
+
+type StopListeningRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StopListeningRequest) Reset() {
+	*x = StopListeningRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[83]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StopListeningRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StopListeningRequest) ProtoMessage() {}
+
+func (x *StopListeningRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[83]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StopListeningRequest.ProtoReflect.Descriptor instead.
+func (*StopListeningRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{83}
+}
+
+type StopListeningResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StopListeningResponse) Reset() {
+	*x = StopListeningResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[84]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StopListeningResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StopListeningResponse) ProtoMessage() {}
+
+func (x *StopListeningResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[84]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StopListeningResponse.ProtoReflect.Descriptor instead.
+func (*StopListeningResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{84}
+}
+
+type TriggerModelDownload1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TriggerModelDownload1Request) Reset() {
+	*x = TriggerModelDownload1Request{}
+	mi := &file_proto_speech_speech_proto_msgTypes[85]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TriggerModelDownload1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TriggerModelDownload1Request) ProtoMessage() {}
+
+func (x *TriggerModelDownload1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[85]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TriggerModelDownload1Request.ProtoReflect.Descriptor instead.
+func (*TriggerModelDownload1Request) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{85}
+}
+
+func (x *TriggerModelDownload1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type TriggerModelDownload1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TriggerModelDownload1Response) Reset() {
+	*x = TriggerModelDownload1Response{}
+	mi := &file_proto_speech_speech_proto_msgTypes[86]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TriggerModelDownload1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TriggerModelDownload1Response) ProtoMessage() {}
+
+func (x *TriggerModelDownload1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[86]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TriggerModelDownload1Response.ProtoReflect.Descriptor instead.
+func (*TriggerModelDownload1Response) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{86}
+}
+
+type TriggerModelDownload3_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TriggerModelDownload3_1Request) Reset() {
+	*x = TriggerModelDownload3_1Request{}
+	mi := &file_proto_speech_speech_proto_msgTypes[87]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TriggerModelDownload3_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TriggerModelDownload3_1Request) ProtoMessage() {}
+
+func (x *TriggerModelDownload3_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[87]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TriggerModelDownload3_1Request.ProtoReflect.Descriptor instead.
+func (*TriggerModelDownload3_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{87}
+}
+
+func (x *TriggerModelDownload3_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *TriggerModelDownload3_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *TriggerModelDownload3_1Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type TriggerModelDownload3_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TriggerModelDownload3_1Response) Reset() {
+	*x = TriggerModelDownload3_1Response{}
+	mi := &file_proto_speech_speech_proto_msgTypes[88]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TriggerModelDownload3_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TriggerModelDownload3_1Response) ProtoMessage() {}
+
+func (x *TriggerModelDownload3_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[88]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TriggerModelDownload3_1Response.ProtoReflect.Descriptor instead.
+func (*TriggerModelDownload3_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{88}
+}
+
+type CreateOnDeviceSpeechRecognizerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateOnDeviceSpeechRecognizerRequest) Reset() {
+	*x = CreateOnDeviceSpeechRecognizerRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[89]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateOnDeviceSpeechRecognizerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateOnDeviceSpeechRecognizerRequest) ProtoMessage() {}
+
+func (x *CreateOnDeviceSpeechRecognizerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[89]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateOnDeviceSpeechRecognizerRequest.ProtoReflect.Descriptor instead.
+func (*CreateOnDeviceSpeechRecognizerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{89}
+}
+
+func (x *CreateOnDeviceSpeechRecognizerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type CreateOnDeviceSpeechRecognizerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateOnDeviceSpeechRecognizerResponse) Reset() {
+	*x = CreateOnDeviceSpeechRecognizerResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[90]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateOnDeviceSpeechRecognizerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateOnDeviceSpeechRecognizerResponse) ProtoMessage() {}
+
+func (x *CreateOnDeviceSpeechRecognizerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[90]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateOnDeviceSpeechRecognizerResponse.ProtoReflect.Descriptor instead.
+func (*CreateOnDeviceSpeechRecognizerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{90}
+}
+
+func (x *CreateOnDeviceSpeechRecognizerResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CreateSpeechRecognizer1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateSpeechRecognizer1Request) Reset() {
+	*x = CreateSpeechRecognizer1Request{}
+	mi := &file_proto_speech_speech_proto_msgTypes[91]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateSpeechRecognizer1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateSpeechRecognizer1Request) ProtoMessage() {}
+
+func (x *CreateSpeechRecognizer1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[91]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateSpeechRecognizer1Request.ProtoReflect.Descriptor instead.
+func (*CreateSpeechRecognizer1Request) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{91}
+}
+
+func (x *CreateSpeechRecognizer1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type CreateSpeechRecognizer1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateSpeechRecognizer1Response) Reset() {
+	*x = CreateSpeechRecognizer1Response{}
+	mi := &file_proto_speech_speech_proto_msgTypes[92]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateSpeechRecognizer1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateSpeechRecognizer1Response) ProtoMessage() {}
+
+func (x *CreateSpeechRecognizer1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[92]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateSpeechRecognizer1Response.ProtoReflect.Descriptor instead.
+func (*CreateSpeechRecognizer1Response) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{92}
+}
+
+func (x *CreateSpeechRecognizer1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CreateSpeechRecognizer2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateSpeechRecognizer2_1Request) Reset() {
+	*x = CreateSpeechRecognizer2_1Request{}
+	mi := &file_proto_speech_speech_proto_msgTypes[93]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateSpeechRecognizer2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateSpeechRecognizer2_1Request) ProtoMessage() {}
+
+func (x *CreateSpeechRecognizer2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[93]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateSpeechRecognizer2_1Request.ProtoReflect.Descriptor instead.
+func (*CreateSpeechRecognizer2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{93}
+}
+
+func (x *CreateSpeechRecognizer2_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CreateSpeechRecognizer2_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type CreateSpeechRecognizer2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateSpeechRecognizer2_1Response) Reset() {
+	*x = CreateSpeechRecognizer2_1Response{}
+	mi := &file_proto_speech_speech_proto_msgTypes[94]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateSpeechRecognizer2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateSpeechRecognizer2_1Response) ProtoMessage() {}
+
+func (x *CreateSpeechRecognizer2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[94]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateSpeechRecognizer2_1Response.ProtoReflect.Descriptor instead.
+func (*CreateSpeechRecognizer2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{94}
+}
+
+func (x *CreateSpeechRecognizer2_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsOnDeviceRecognitionAvailableRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsOnDeviceRecognitionAvailableRequest) Reset() {
+	*x = IsOnDeviceRecognitionAvailableRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[95]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsOnDeviceRecognitionAvailableRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsOnDeviceRecognitionAvailableRequest) ProtoMessage() {}
+
+func (x *IsOnDeviceRecognitionAvailableRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[95]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsOnDeviceRecognitionAvailableRequest.ProtoReflect.Descriptor instead.
+func (*IsOnDeviceRecognitionAvailableRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{95}
+}
+
+func (x *IsOnDeviceRecognitionAvailableRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type IsOnDeviceRecognitionAvailableResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsOnDeviceRecognitionAvailableResponse) Reset() {
+	*x = IsOnDeviceRecognitionAvailableResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[96]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsOnDeviceRecognitionAvailableResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsOnDeviceRecognitionAvailableResponse) ProtoMessage() {}
+
+func (x *IsOnDeviceRecognitionAvailableResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[96]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsOnDeviceRecognitionAvailableResponse.ProtoReflect.Descriptor instead.
+func (*IsOnDeviceRecognitionAvailableResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{96}
+}
+
+func (x *IsOnDeviceRecognitionAvailableResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsRecognitionAvailableRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsRecognitionAvailableRequest) Reset() {
+	*x = IsRecognitionAvailableRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[97]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsRecognitionAvailableRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsRecognitionAvailableRequest) ProtoMessage() {}
+
+func (x *IsRecognitionAvailableRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[97]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsRecognitionAvailableRequest.ProtoReflect.Descriptor instead.
+func (*IsRecognitionAvailableRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{97}
+}
+
+func (x *IsRecognitionAvailableRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type IsRecognitionAvailableResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsRecognitionAvailableResponse) Reset() {
+	*x = IsRecognitionAvailableResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[98]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsRecognitionAvailableResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsRecognitionAvailableResponse) ProtoMessage() {}
+
+func (x *IsRecognitionAvailableResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[98]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsRecognitionAvailableResponse.ProtoReflect.Descriptor instead.
+func (*IsRecognitionAvailableResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{98}
+}
+
+func (x *IsRecognitionAvailableResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type CreateContextRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateContextRequest) Reset() {
+	*x = CreateContextRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[99]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateContextRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateContextRequest) ProtoMessage() {}
+
+func (x *CreateContextRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[99]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateContextRequest.ProtoReflect.Descriptor instead.
+func (*CreateContextRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{99}
+}
+
+func (x *CreateContextRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type CreateContextResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateContextResponse) Reset() {
+	*x = CreateContextResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[100]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateContextResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateContextResponse) ProtoMessage() {}
+
+func (x *CreateContextResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[100]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateContextResponse.ProtoReflect.Descriptor instead.
+func (*CreateContextResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{100}
+}
+
+func (x *CreateContextResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMaxConcurrentSessionsCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxConcurrentSessionsCountRequest) Reset() {
+	*x = GetMaxConcurrentSessionsCountRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[101]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxConcurrentSessionsCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxConcurrentSessionsCountRequest) ProtoMessage() {}
+
+func (x *GetMaxConcurrentSessionsCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[101]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxConcurrentSessionsCountRequest.ProtoReflect.Descriptor instead.
+func (*GetMaxConcurrentSessionsCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{101}
+}
+
+type GetMaxConcurrentSessionsCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaxConcurrentSessionsCountResponse) Reset() {
+	*x = GetMaxConcurrentSessionsCountResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[102]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaxConcurrentSessionsCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaxConcurrentSessionsCountResponse) ProtoMessage() {}
+
+func (x *GetMaxConcurrentSessionsCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[102]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaxConcurrentSessionsCountResponse.ProtoReflect.Descriptor instead.
+func (*GetMaxConcurrentSessionsCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{102}
+}
+
+func (x *GetMaxConcurrentSessionsCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnBindRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnBindRequest) Reset() {
+	*x = OnBindRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[103]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnBindRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnBindRequest) ProtoMessage() {}
+
+func (x *OnBindRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[103]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnBindRequest.ProtoReflect.Descriptor instead.
+func (*OnBindRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{103}
+}
+
+func (x *OnBindRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnBindResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnBindResponse) Reset() {
+	*x = OnBindResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[104]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnBindResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnBindResponse) ProtoMessage() {}
+
+func (x *OnBindResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[104]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnBindResponse.ProtoReflect.Descriptor instead.
+func (*OnBindResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{104}
+}
+
+func (x *OnBindResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnCheckRecognitionSupport3Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCheckRecognitionSupport3Request) Reset() {
+	*x = OnCheckRecognitionSupport3Request{}
+	mi := &file_proto_speech_speech_proto_msgTypes[105]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCheckRecognitionSupport3Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCheckRecognitionSupport3Request) ProtoMessage() {}
+
+func (x *OnCheckRecognitionSupport3Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[105]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCheckRecognitionSupport3Request.ProtoReflect.Descriptor instead.
+func (*OnCheckRecognitionSupport3Request) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{105}
+}
+
+func (x *OnCheckRecognitionSupport3Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnCheckRecognitionSupport3Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnCheckRecognitionSupport3Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnCheckRecognitionSupport3Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCheckRecognitionSupport3Response) Reset() {
+	*x = OnCheckRecognitionSupport3Response{}
+	mi := &file_proto_speech_speech_proto_msgTypes[106]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCheckRecognitionSupport3Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCheckRecognitionSupport3Response) ProtoMessage() {}
+
+func (x *OnCheckRecognitionSupport3Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[106]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCheckRecognitionSupport3Response.ProtoReflect.Descriptor instead.
+func (*OnCheckRecognitionSupport3Response) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{106}
+}
+
+type OnCheckRecognitionSupport2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCheckRecognitionSupport2_1Request) Reset() {
+	*x = OnCheckRecognitionSupport2_1Request{}
+	mi := &file_proto_speech_speech_proto_msgTypes[107]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCheckRecognitionSupport2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCheckRecognitionSupport2_1Request) ProtoMessage() {}
+
+func (x *OnCheckRecognitionSupport2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[107]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCheckRecognitionSupport2_1Request.ProtoReflect.Descriptor instead.
+func (*OnCheckRecognitionSupport2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{107}
+}
+
+func (x *OnCheckRecognitionSupport2_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnCheckRecognitionSupport2_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnCheckRecognitionSupport2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnCheckRecognitionSupport2_1Response) Reset() {
+	*x = OnCheckRecognitionSupport2_1Response{}
+	mi := &file_proto_speech_speech_proto_msgTypes[108]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnCheckRecognitionSupport2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnCheckRecognitionSupport2_1Response) ProtoMessage() {}
+
+func (x *OnCheckRecognitionSupport2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[108]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnCheckRecognitionSupport2_1Response.ProtoReflect.Descriptor instead.
+func (*OnCheckRecognitionSupport2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{108}
+}
+
+type OnDestroyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDestroyRequest) Reset() {
+	*x = OnDestroyRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[109]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDestroyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDestroyRequest) ProtoMessage() {}
+
+func (x *OnDestroyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[109]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDestroyRequest.ProtoReflect.Descriptor instead.
+func (*OnDestroyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{109}
+}
+
+type OnDestroyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDestroyResponse) Reset() {
+	*x = OnDestroyResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[110]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDestroyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDestroyResponse) ProtoMessage() {}
+
+func (x *OnDestroyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[110]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDestroyResponse.ProtoReflect.Descriptor instead.
+func (*OnDestroyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{110}
+}
+
+type OnTriggerModelDownload1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTriggerModelDownload1Request) Reset() {
+	*x = OnTriggerModelDownload1Request{}
+	mi := &file_proto_speech_speech_proto_msgTypes[111]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTriggerModelDownload1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTriggerModelDownload1Request) ProtoMessage() {}
+
+func (x *OnTriggerModelDownload1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[111]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTriggerModelDownload1Request.ProtoReflect.Descriptor instead.
+func (*OnTriggerModelDownload1Request) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{111}
+}
+
+func (x *OnTriggerModelDownload1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnTriggerModelDownload1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTriggerModelDownload1Response) Reset() {
+	*x = OnTriggerModelDownload1Response{}
+	mi := &file_proto_speech_speech_proto_msgTypes[112]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTriggerModelDownload1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTriggerModelDownload1Response) ProtoMessage() {}
+
+func (x *OnTriggerModelDownload1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[112]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTriggerModelDownload1Response.ProtoReflect.Descriptor instead.
+func (*OnTriggerModelDownload1Response) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{112}
+}
+
+type OnTriggerModelDownload2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTriggerModelDownload2_1Request) Reset() {
+	*x = OnTriggerModelDownload2_1Request{}
+	mi := &file_proto_speech_speech_proto_msgTypes[113]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTriggerModelDownload2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTriggerModelDownload2_1Request) ProtoMessage() {}
+
+func (x *OnTriggerModelDownload2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[113]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTriggerModelDownload2_1Request.ProtoReflect.Descriptor instead.
+func (*OnTriggerModelDownload2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{113}
+}
+
+func (x *OnTriggerModelDownload2_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnTriggerModelDownload2_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnTriggerModelDownload2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTriggerModelDownload2_1Response) Reset() {
+	*x = OnTriggerModelDownload2_1Response{}
+	mi := &file_proto_speech_speech_proto_msgTypes[114]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTriggerModelDownload2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTriggerModelDownload2_1Response) ProtoMessage() {}
+
+func (x *OnTriggerModelDownload2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[114]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTriggerModelDownload2_1Response.ProtoReflect.Descriptor instead.
+func (*OnTriggerModelDownload2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{114}
+}
+
+type OnTriggerModelDownload3_2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTriggerModelDownload3_2Request) Reset() {
+	*x = OnTriggerModelDownload3_2Request{}
+	mi := &file_proto_speech_speech_proto_msgTypes[115]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTriggerModelDownload3_2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTriggerModelDownload3_2Request) ProtoMessage() {}
+
+func (x *OnTriggerModelDownload3_2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[115]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTriggerModelDownload3_2Request.ProtoReflect.Descriptor instead.
+func (*OnTriggerModelDownload3_2Request) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{115}
+}
+
+func (x *OnTriggerModelDownload3_2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnTriggerModelDownload3_2Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnTriggerModelDownload3_2Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnTriggerModelDownload3_2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTriggerModelDownload3_2Response) Reset() {
+	*x = OnTriggerModelDownload3_2Response{}
+	mi := &file_proto_speech_speech_proto_msgTypes[116]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTriggerModelDownload3_2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTriggerModelDownload3_2Response) ProtoMessage() {}
+
+func (x *OnTriggerModelDownload3_2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[116]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTriggerModelDownload3_2Response.ProtoReflect.Descriptor instead.
+func (*OnTriggerModelDownload3_2Response) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{116}
+}
+
+type BeginningOfSpeechRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BeginningOfSpeechRequest) Reset() {
+	*x = BeginningOfSpeechRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[117]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BeginningOfSpeechRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BeginningOfSpeechRequest) ProtoMessage() {}
+
+func (x *BeginningOfSpeechRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[117]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BeginningOfSpeechRequest.ProtoReflect.Descriptor instead.
+func (*BeginningOfSpeechRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{117}
+}
+
+type BeginningOfSpeechResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BeginningOfSpeechResponse) Reset() {
+	*x = BeginningOfSpeechResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[118]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BeginningOfSpeechResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BeginningOfSpeechResponse) ProtoMessage() {}
+
+func (x *BeginningOfSpeechResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[118]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BeginningOfSpeechResponse.ProtoReflect.Descriptor instead.
+func (*BeginningOfSpeechResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{118}
+}
+
+type BufferReceivedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BufferReceivedRequest) Reset() {
+	*x = BufferReceivedRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[119]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BufferReceivedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BufferReceivedRequest) ProtoMessage() {}
+
+func (x *BufferReceivedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[119]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BufferReceivedRequest.ProtoReflect.Descriptor instead.
+func (*BufferReceivedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{119}
+}
+
+func (x *BufferReceivedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type BufferReceivedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BufferReceivedResponse) Reset() {
+	*x = BufferReceivedResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[120]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BufferReceivedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BufferReceivedResponse) ProtoMessage() {}
+
+func (x *BufferReceivedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[120]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BufferReceivedResponse.ProtoReflect.Descriptor instead.
+func (*BufferReceivedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{120}
+}
+
+type EndOfSegmentedSessionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EndOfSegmentedSessionRequest) Reset() {
+	*x = EndOfSegmentedSessionRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[121]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EndOfSegmentedSessionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EndOfSegmentedSessionRequest) ProtoMessage() {}
+
+func (x *EndOfSegmentedSessionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[121]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EndOfSegmentedSessionRequest.ProtoReflect.Descriptor instead.
+func (*EndOfSegmentedSessionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{121}
+}
+
+type EndOfSegmentedSessionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EndOfSegmentedSessionResponse) Reset() {
+	*x = EndOfSegmentedSessionResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[122]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EndOfSegmentedSessionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EndOfSegmentedSessionResponse) ProtoMessage() {}
+
+func (x *EndOfSegmentedSessionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[122]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EndOfSegmentedSessionResponse.ProtoReflect.Descriptor instead.
+func (*EndOfSegmentedSessionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{122}
+}
+
+type EndOfSpeechRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EndOfSpeechRequest) Reset() {
+	*x = EndOfSpeechRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[123]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EndOfSpeechRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EndOfSpeechRequest) ProtoMessage() {}
+
+func (x *EndOfSpeechRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[123]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EndOfSpeechRequest.ProtoReflect.Descriptor instead.
+func (*EndOfSpeechRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{123}
+}
+
+type EndOfSpeechResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *EndOfSpeechResponse) Reset() {
+	*x = EndOfSpeechResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[124]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EndOfSpeechResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EndOfSpeechResponse) ProtoMessage() {}
+
+func (x *EndOfSpeechResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[124]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use EndOfSpeechResponse.ProtoReflect.Descriptor instead.
+func (*EndOfSpeechResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{124}
+}
+
+type ErrorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ErrorRequest) Reset() {
+	*x = ErrorRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[125]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ErrorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ErrorRequest) ProtoMessage() {}
+
+func (x *ErrorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[125]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ErrorRequest.ProtoReflect.Descriptor instead.
+func (*ErrorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{125}
+}
+
+func (x *ErrorRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type ErrorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ErrorResponse) Reset() {
+	*x = ErrorResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[126]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ErrorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ErrorResponse) ProtoMessage() {}
+
+func (x *ErrorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[126]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ErrorResponse.ProtoReflect.Descriptor instead.
+func (*ErrorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{126}
+}
+
+type GetCallingAttributionSourceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCallingAttributionSourceRequest) Reset() {
+	*x = GetCallingAttributionSourceRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[127]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCallingAttributionSourceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCallingAttributionSourceRequest) ProtoMessage() {}
+
+func (x *GetCallingAttributionSourceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[127]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCallingAttributionSourceRequest.ProtoReflect.Descriptor instead.
+func (*GetCallingAttributionSourceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{127}
+}
+
+type GetCallingAttributionSourceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCallingAttributionSourceResponse) Reset() {
+	*x = GetCallingAttributionSourceResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[128]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCallingAttributionSourceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCallingAttributionSourceResponse) ProtoMessage() {}
+
+func (x *GetCallingAttributionSourceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[128]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCallingAttributionSourceResponse.ProtoReflect.Descriptor instead.
+func (*GetCallingAttributionSourceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{128}
+}
+
+func (x *GetCallingAttributionSourceResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCallingUidRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCallingUidRequest) Reset() {
+	*x = GetCallingUidRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[129]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCallingUidRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCallingUidRequest) ProtoMessage() {}
+
+func (x *GetCallingUidRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[129]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCallingUidRequest.ProtoReflect.Descriptor instead.
+func (*GetCallingUidRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{129}
+}
+
+type GetCallingUidResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCallingUidResponse) Reset() {
+	*x = GetCallingUidResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[130]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCallingUidResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCallingUidResponse) ProtoMessage() {}
+
+func (x *GetCallingUidResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[130]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCallingUidResponse.ProtoReflect.Descriptor instead.
+func (*GetCallingUidResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{130}
+}
+
+func (x *GetCallingUidResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type LanguageDetectionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LanguageDetectionRequest) Reset() {
+	*x = LanguageDetectionRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[131]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LanguageDetectionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LanguageDetectionRequest) ProtoMessage() {}
+
+func (x *LanguageDetectionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[131]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LanguageDetectionRequest.ProtoReflect.Descriptor instead.
+func (*LanguageDetectionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{131}
+}
+
+func (x *LanguageDetectionRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type LanguageDetectionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LanguageDetectionResponse) Reset() {
+	*x = LanguageDetectionResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[132]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LanguageDetectionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LanguageDetectionResponse) ProtoMessage() {}
+
+func (x *LanguageDetectionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[132]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LanguageDetectionResponse.ProtoReflect.Descriptor instead.
+func (*LanguageDetectionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{132}
+}
+
+type PartialResultsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PartialResultsRequest) Reset() {
+	*x = PartialResultsRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[133]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PartialResultsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PartialResultsRequest) ProtoMessage() {}
+
+func (x *PartialResultsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[133]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PartialResultsRequest.ProtoReflect.Descriptor instead.
+func (*PartialResultsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{133}
+}
+
+func (x *PartialResultsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type PartialResultsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PartialResultsResponse) Reset() {
+	*x = PartialResultsResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[134]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PartialResultsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PartialResultsResponse) ProtoMessage() {}
+
+func (x *PartialResultsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[134]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PartialResultsResponse.ProtoReflect.Descriptor instead.
+func (*PartialResultsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{134}
+}
+
+type ReadyForSpeechRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReadyForSpeechRequest) Reset() {
+	*x = ReadyForSpeechRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[135]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReadyForSpeechRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReadyForSpeechRequest) ProtoMessage() {}
+
+func (x *ReadyForSpeechRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[135]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReadyForSpeechRequest.ProtoReflect.Descriptor instead.
+func (*ReadyForSpeechRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{135}
+}
+
+func (x *ReadyForSpeechRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type ReadyForSpeechResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReadyForSpeechResponse) Reset() {
+	*x = ReadyForSpeechResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[136]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReadyForSpeechResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReadyForSpeechResponse) ProtoMessage() {}
+
+func (x *ReadyForSpeechResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[136]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReadyForSpeechResponse.ProtoReflect.Descriptor instead.
+func (*ReadyForSpeechResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{136}
+}
+
+type ResultsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ResultsRequest) Reset() {
+	*x = ResultsRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[137]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ResultsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ResultsRequest) ProtoMessage() {}
+
+func (x *ResultsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[137]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ResultsRequest.ProtoReflect.Descriptor instead.
+func (*ResultsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{137}
+}
+
+func (x *ResultsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type ResultsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ResultsResponse) Reset() {
+	*x = ResultsResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[138]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ResultsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ResultsResponse) ProtoMessage() {}
+
+func (x *ResultsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[138]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ResultsResponse.ProtoReflect.Descriptor instead.
+func (*ResultsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{138}
+}
+
+type RmsChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RmsChangedRequest) Reset() {
+	*x = RmsChangedRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[139]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RmsChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RmsChangedRequest) ProtoMessage() {}
+
+func (x *RmsChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[139]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RmsChangedRequest.ProtoReflect.Descriptor instead.
+func (*RmsChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{139}
+}
+
+func (x *RmsChangedRequest) GetArg0() float32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type RmsChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RmsChangedResponse) Reset() {
+	*x = RmsChangedResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[140]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RmsChangedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RmsChangedResponse) ProtoMessage() {}
+
+func (x *RmsChangedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[140]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RmsChangedResponse.ProtoReflect.Descriptor instead.
+func (*RmsChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{140}
+}
+
+type SegmentResultsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SegmentResultsRequest) Reset() {
+	*x = SegmentResultsRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[141]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SegmentResultsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SegmentResultsRequest) ProtoMessage() {}
+
+func (x *SegmentResultsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[141]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SegmentResultsRequest.ProtoReflect.Descriptor instead.
+func (*SegmentResultsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{141}
+}
+
+func (x *SegmentResultsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SegmentResultsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SegmentResultsResponse) Reset() {
+	*x = SegmentResultsResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[142]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SegmentResultsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SegmentResultsResponse) ProtoMessage() {}
+
+func (x *SegmentResultsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[142]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SegmentResultsResponse.ProtoReflect.Descriptor instead.
+func (*SegmentResultsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{142}
+}
+
 type NewAlternativeSpanRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -3022,7 +5974,7 @@ type NewAlternativeSpanRequest struct {
 
 func (x *NewAlternativeSpanRequest) Reset() {
 	*x = NewAlternativeSpanRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[71]
+	mi := &file_proto_speech_speech_proto_msgTypes[143]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3034,7 +5986,7 @@ func (x *NewAlternativeSpanRequest) String() string {
 func (*NewAlternativeSpanRequest) ProtoMessage() {}
 
 func (x *NewAlternativeSpanRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[71]
+	mi := &file_proto_speech_speech_proto_msgTypes[143]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3047,7 +5999,7 @@ func (x *NewAlternativeSpanRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewAlternativeSpanRequest.ProtoReflect.Descriptor instead.
 func (*NewAlternativeSpanRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{71}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{143}
 }
 
 func (x *NewAlternativeSpanRequest) GetArg0() int32 {
@@ -3080,7 +6032,7 @@ type NewAlternativeSpanResponse struct {
 
 func (x *NewAlternativeSpanResponse) Reset() {
 	*x = NewAlternativeSpanResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[72]
+	mi := &file_proto_speech_speech_proto_msgTypes[144]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3092,7 +6044,7 @@ func (x *NewAlternativeSpanResponse) String() string {
 func (*NewAlternativeSpanResponse) ProtoMessage() {}
 
 func (x *NewAlternativeSpanResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[72]
+	mi := &file_proto_speech_speech_proto_msgTypes[144]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3105,7 +6057,7 @@ func (x *NewAlternativeSpanResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewAlternativeSpanResponse.ProtoReflect.Descriptor instead.
 func (*NewAlternativeSpanResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{72}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{144}
 }
 
 func (x *NewAlternativeSpanResponse) GetResult() int64 {
@@ -3124,7 +6076,7 @@ type AlternativeSpanDescribeContentsRequest struct {
 
 func (x *AlternativeSpanDescribeContentsRequest) Reset() {
 	*x = AlternativeSpanDescribeContentsRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[73]
+	mi := &file_proto_speech_speech_proto_msgTypes[145]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3136,7 +6088,7 @@ func (x *AlternativeSpanDescribeContentsRequest) String() string {
 func (*AlternativeSpanDescribeContentsRequest) ProtoMessage() {}
 
 func (x *AlternativeSpanDescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[73]
+	mi := &file_proto_speech_speech_proto_msgTypes[145]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3149,7 +6101,7 @@ func (x *AlternativeSpanDescribeContentsRequest) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use AlternativeSpanDescribeContentsRequest.ProtoReflect.Descriptor instead.
 func (*AlternativeSpanDescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{73}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{145}
 }
 
 func (x *AlternativeSpanDescribeContentsRequest) GetHandle() int64 {
@@ -3169,7 +6121,7 @@ type AlternativeSpanEqualsRequest struct {
 
 func (x *AlternativeSpanEqualsRequest) Reset() {
 	*x = AlternativeSpanEqualsRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[74]
+	mi := &file_proto_speech_speech_proto_msgTypes[146]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3181,7 +6133,7 @@ func (x *AlternativeSpanEqualsRequest) String() string {
 func (*AlternativeSpanEqualsRequest) ProtoMessage() {}
 
 func (x *AlternativeSpanEqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[74]
+	mi := &file_proto_speech_speech_proto_msgTypes[146]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3194,7 +6146,7 @@ func (x *AlternativeSpanEqualsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AlternativeSpanEqualsRequest.ProtoReflect.Descriptor instead.
 func (*AlternativeSpanEqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{74}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{146}
 }
 
 func (x *AlternativeSpanEqualsRequest) GetHandle() int64 {
@@ -3211,6 +6163,94 @@ func (x *AlternativeSpanEqualsRequest) GetArg0() int64 {
 	return 0
 }
 
+type GetAlternativesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAlternativesRequest) Reset() {
+	*x = GetAlternativesRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[147]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAlternativesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAlternativesRequest) ProtoMessage() {}
+
+func (x *GetAlternativesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[147]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAlternativesRequest.ProtoReflect.Descriptor instead.
+func (*GetAlternativesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{147}
+}
+
+func (x *GetAlternativesRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetAlternativesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAlternativesResponse) Reset() {
+	*x = GetAlternativesResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[148]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAlternativesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAlternativesResponse) ProtoMessage() {}
+
+func (x *GetAlternativesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[148]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAlternativesResponse.ProtoReflect.Descriptor instead.
+func (*GetAlternativesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{148}
+}
+
+func (x *GetAlternativesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 type GetEndPositionRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
@@ -3220,7 +6260,7 @@ type GetEndPositionRequest struct {
 
 func (x *GetEndPositionRequest) Reset() {
 	*x = GetEndPositionRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[75]
+	mi := &file_proto_speech_speech_proto_msgTypes[149]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3232,7 +6272,7 @@ func (x *GetEndPositionRequest) String() string {
 func (*GetEndPositionRequest) ProtoMessage() {}
 
 func (x *GetEndPositionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[75]
+	mi := &file_proto_speech_speech_proto_msgTypes[149]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3245,7 +6285,7 @@ func (x *GetEndPositionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetEndPositionRequest.ProtoReflect.Descriptor instead.
 func (*GetEndPositionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{75}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{149}
 }
 
 func (x *GetEndPositionRequest) GetHandle() int64 {
@@ -3264,7 +6304,7 @@ type GetEndPositionResponse struct {
 
 func (x *GetEndPositionResponse) Reset() {
 	*x = GetEndPositionResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[76]
+	mi := &file_proto_speech_speech_proto_msgTypes[150]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3276,7 +6316,7 @@ func (x *GetEndPositionResponse) String() string {
 func (*GetEndPositionResponse) ProtoMessage() {}
 
 func (x *GetEndPositionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[76]
+	mi := &file_proto_speech_speech_proto_msgTypes[150]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3289,7 +6329,7 @@ func (x *GetEndPositionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetEndPositionResponse.ProtoReflect.Descriptor instead.
 func (*GetEndPositionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{76}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{150}
 }
 
 func (x *GetEndPositionResponse) GetResult() int32 {
@@ -3308,7 +6348,7 @@ type GetStartPositionRequest struct {
 
 func (x *GetStartPositionRequest) Reset() {
 	*x = GetStartPositionRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[77]
+	mi := &file_proto_speech_speech_proto_msgTypes[151]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3320,7 +6360,7 @@ func (x *GetStartPositionRequest) String() string {
 func (*GetStartPositionRequest) ProtoMessage() {}
 
 func (x *GetStartPositionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[77]
+	mi := &file_proto_speech_speech_proto_msgTypes[151]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3333,7 +6373,7 @@ func (x *GetStartPositionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStartPositionRequest.ProtoReflect.Descriptor instead.
 func (*GetStartPositionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{77}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{151}
 }
 
 func (x *GetStartPositionRequest) GetHandle() int64 {
@@ -3352,7 +6392,7 @@ type GetStartPositionResponse struct {
 
 func (x *GetStartPositionResponse) Reset() {
 	*x = GetStartPositionResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[78]
+	mi := &file_proto_speech_speech_proto_msgTypes[152]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3364,7 +6404,7 @@ func (x *GetStartPositionResponse) String() string {
 func (*GetStartPositionResponse) ProtoMessage() {}
 
 func (x *GetStartPositionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[78]
+	mi := &file_proto_speech_speech_proto_msgTypes[152]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3377,7 +6417,7 @@ func (x *GetStartPositionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStartPositionResponse.ProtoReflect.Descriptor instead.
 func (*GetStartPositionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{78}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{152}
 }
 
 func (x *GetStartPositionResponse) GetResult() int32 {
@@ -3396,7 +6436,7 @@ type AlternativeSpanHashCodeRequest struct {
 
 func (x *AlternativeSpanHashCodeRequest) Reset() {
 	*x = AlternativeSpanHashCodeRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[79]
+	mi := &file_proto_speech_speech_proto_msgTypes[153]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3408,7 +6448,7 @@ func (x *AlternativeSpanHashCodeRequest) String() string {
 func (*AlternativeSpanHashCodeRequest) ProtoMessage() {}
 
 func (x *AlternativeSpanHashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[79]
+	mi := &file_proto_speech_speech_proto_msgTypes[153]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3421,7 +6461,7 @@ func (x *AlternativeSpanHashCodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AlternativeSpanHashCodeRequest.ProtoReflect.Descriptor instead.
 func (*AlternativeSpanHashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{79}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{153}
 }
 
 func (x *AlternativeSpanHashCodeRequest) GetHandle() int64 {
@@ -3440,7 +6480,7 @@ type AlternativeSpanToStringRequest struct {
 
 func (x *AlternativeSpanToStringRequest) Reset() {
 	*x = AlternativeSpanToStringRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[80]
+	mi := &file_proto_speech_speech_proto_msgTypes[154]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3452,7 +6492,7 @@ func (x *AlternativeSpanToStringRequest) String() string {
 func (*AlternativeSpanToStringRequest) ProtoMessage() {}
 
 func (x *AlternativeSpanToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[80]
+	mi := &file_proto_speech_speech_proto_msgTypes[154]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3465,7 +6505,7 @@ func (x *AlternativeSpanToStringRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AlternativeSpanToStringRequest.ProtoReflect.Descriptor instead.
 func (*AlternativeSpanToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{80}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{154}
 }
 
 func (x *AlternativeSpanToStringRequest) GetHandle() int64 {
@@ -3486,7 +6526,7 @@ type AlternativeSpanWriteToParcelRequest struct {
 
 func (x *AlternativeSpanWriteToParcelRequest) Reset() {
 	*x = AlternativeSpanWriteToParcelRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[81]
+	mi := &file_proto_speech_speech_proto_msgTypes[155]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3498,7 +6538,7 @@ func (x *AlternativeSpanWriteToParcelRequest) String() string {
 func (*AlternativeSpanWriteToParcelRequest) ProtoMessage() {}
 
 func (x *AlternativeSpanWriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[81]
+	mi := &file_proto_speech_speech_proto_msgTypes[155]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3511,7 +6551,7 @@ func (x *AlternativeSpanWriteToParcelRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use AlternativeSpanWriteToParcelRequest.ProtoReflect.Descriptor instead.
 func (*AlternativeSpanWriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{81}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{155}
 }
 
 func (x *AlternativeSpanWriteToParcelRequest) GetHandle() int64 {
@@ -3535,6 +6575,94 @@ func (x *AlternativeSpanWriteToParcelRequest) GetArg1() int32 {
 	return 0
 }
 
+type GetVoiceDetailsIntentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVoiceDetailsIntentRequest) Reset() {
+	*x = GetVoiceDetailsIntentRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[156]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVoiceDetailsIntentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVoiceDetailsIntentRequest) ProtoMessage() {}
+
+func (x *GetVoiceDetailsIntentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[156]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVoiceDetailsIntentRequest.ProtoReflect.Descriptor instead.
+func (*GetVoiceDetailsIntentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{156}
+}
+
+func (x *GetVoiceDetailsIntentRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetVoiceDetailsIntentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVoiceDetailsIntentResponse) Reset() {
+	*x = GetVoiceDetailsIntentResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[157]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVoiceDetailsIntentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVoiceDetailsIntentResponse) ProtoMessage() {}
+
+func (x *GetVoiceDetailsIntentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[157]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVoiceDetailsIntentResponse.ProtoReflect.Descriptor instead.
+func (*GetVoiceDetailsIntentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{157}
+}
+
+func (x *GetVoiceDetailsIntentResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 type NewTextToSpeechRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -3545,7 +6673,7 @@ type NewTextToSpeechRequest struct {
 
 func (x *NewTextToSpeechRequest) Reset() {
 	*x = NewTextToSpeechRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[82]
+	mi := &file_proto_speech_speech_proto_msgTypes[158]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3557,7 +6685,7 @@ func (x *NewTextToSpeechRequest) String() string {
 func (*NewTextToSpeechRequest) ProtoMessage() {}
 
 func (x *NewTextToSpeechRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[82]
+	mi := &file_proto_speech_speech_proto_msgTypes[158]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3570,7 +6698,7 @@ func (x *NewTextToSpeechRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewTextToSpeechRequest.ProtoReflect.Descriptor instead.
 func (*NewTextToSpeechRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{82}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{158}
 }
 
 func (x *NewTextToSpeechRequest) GetArg0() int64 {
@@ -3596,7 +6724,7 @@ type NewTextToSpeechResponse struct {
 
 func (x *NewTextToSpeechResponse) Reset() {
 	*x = NewTextToSpeechResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[83]
+	mi := &file_proto_speech_speech_proto_msgTypes[159]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3608,7 +6736,7 @@ func (x *NewTextToSpeechResponse) String() string {
 func (*NewTextToSpeechResponse) ProtoMessage() {}
 
 func (x *NewTextToSpeechResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[83]
+	mi := &file_proto_speech_speech_proto_msgTypes[159]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3621,7 +6749,7 @@ func (x *NewTextToSpeechResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewTextToSpeechResponse.ProtoReflect.Descriptor instead.
 func (*NewTextToSpeechResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{83}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{159}
 }
 
 func (x *NewTextToSpeechResponse) GetResult() int64 {
@@ -3642,7 +6770,7 @@ type AddEarcon2Request struct {
 
 func (x *AddEarcon2Request) Reset() {
 	*x = AddEarcon2Request{}
-	mi := &file_proto_speech_speech_proto_msgTypes[84]
+	mi := &file_proto_speech_speech_proto_msgTypes[160]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3654,7 +6782,7 @@ func (x *AddEarcon2Request) String() string {
 func (*AddEarcon2Request) ProtoMessage() {}
 
 func (x *AddEarcon2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[84]
+	mi := &file_proto_speech_speech_proto_msgTypes[160]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3667,7 +6795,7 @@ func (x *AddEarcon2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddEarcon2Request.ProtoReflect.Descriptor instead.
 func (*AddEarcon2Request) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{84}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{160}
 }
 
 func (x *AddEarcon2Request) GetHandle() int64 {
@@ -3700,7 +6828,7 @@ type AddEarcon2Response struct {
 
 func (x *AddEarcon2Response) Reset() {
 	*x = AddEarcon2Response{}
-	mi := &file_proto_speech_speech_proto_msgTypes[85]
+	mi := &file_proto_speech_speech_proto_msgTypes[161]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3712,7 +6840,7 @@ func (x *AddEarcon2Response) String() string {
 func (*AddEarcon2Response) ProtoMessage() {}
 
 func (x *AddEarcon2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[85]
+	mi := &file_proto_speech_speech_proto_msgTypes[161]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3725,7 +6853,7 @@ func (x *AddEarcon2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddEarcon2Response.ProtoReflect.Descriptor instead.
 func (*AddEarcon2Response) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{85}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{161}
 }
 
 func (x *AddEarcon2Response) GetResult() int32 {
@@ -3746,7 +6874,7 @@ type AddEarcon2_1Request struct {
 
 func (x *AddEarcon2_1Request) Reset() {
 	*x = AddEarcon2_1Request{}
-	mi := &file_proto_speech_speech_proto_msgTypes[86]
+	mi := &file_proto_speech_speech_proto_msgTypes[162]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3758,7 +6886,7 @@ func (x *AddEarcon2_1Request) String() string {
 func (*AddEarcon2_1Request) ProtoMessage() {}
 
 func (x *AddEarcon2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[86]
+	mi := &file_proto_speech_speech_proto_msgTypes[162]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3771,7 +6899,7 @@ func (x *AddEarcon2_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddEarcon2_1Request.ProtoReflect.Descriptor instead.
 func (*AddEarcon2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{86}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{162}
 }
 
 func (x *AddEarcon2_1Request) GetHandle() int64 {
@@ -3804,7 +6932,7 @@ type AddEarcon2_1Response struct {
 
 func (x *AddEarcon2_1Response) Reset() {
 	*x = AddEarcon2_1Response{}
-	mi := &file_proto_speech_speech_proto_msgTypes[87]
+	mi := &file_proto_speech_speech_proto_msgTypes[163]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3816,7 +6944,7 @@ func (x *AddEarcon2_1Response) String() string {
 func (*AddEarcon2_1Response) ProtoMessage() {}
 
 func (x *AddEarcon2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[87]
+	mi := &file_proto_speech_speech_proto_msgTypes[163]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3829,7 +6957,7 @@ func (x *AddEarcon2_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddEarcon2_1Response.ProtoReflect.Descriptor instead.
 func (*AddEarcon2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{87}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{163}
 }
 
 func (x *AddEarcon2_1Response) GetResult() int32 {
@@ -3850,7 +6978,7 @@ type AddEarcon2_2Request struct {
 
 func (x *AddEarcon2_2Request) Reset() {
 	*x = AddEarcon2_2Request{}
-	mi := &file_proto_speech_speech_proto_msgTypes[88]
+	mi := &file_proto_speech_speech_proto_msgTypes[164]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3862,7 +6990,7 @@ func (x *AddEarcon2_2Request) String() string {
 func (*AddEarcon2_2Request) ProtoMessage() {}
 
 func (x *AddEarcon2_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[88]
+	mi := &file_proto_speech_speech_proto_msgTypes[164]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3875,7 +7003,7 @@ func (x *AddEarcon2_2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddEarcon2_2Request.ProtoReflect.Descriptor instead.
 func (*AddEarcon2_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{88}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{164}
 }
 
 func (x *AddEarcon2_2Request) GetHandle() int64 {
@@ -3908,7 +7036,7 @@ type AddEarcon2_2Response struct {
 
 func (x *AddEarcon2_2Response) Reset() {
 	*x = AddEarcon2_2Response{}
-	mi := &file_proto_speech_speech_proto_msgTypes[89]
+	mi := &file_proto_speech_speech_proto_msgTypes[165]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3920,7 +7048,7 @@ func (x *AddEarcon2_2Response) String() string {
 func (*AddEarcon2_2Response) ProtoMessage() {}
 
 func (x *AddEarcon2_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[89]
+	mi := &file_proto_speech_speech_proto_msgTypes[165]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3933,7 +7061,7 @@ func (x *AddEarcon2_2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddEarcon2_2Response.ProtoReflect.Descriptor instead.
 func (*AddEarcon2_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{89}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{165}
 }
 
 func (x *AddEarcon2_2Response) GetResult() int32 {
@@ -3955,7 +7083,7 @@ type AddEarcon3_3Request struct {
 
 func (x *AddEarcon3_3Request) Reset() {
 	*x = AddEarcon3_3Request{}
-	mi := &file_proto_speech_speech_proto_msgTypes[90]
+	mi := &file_proto_speech_speech_proto_msgTypes[166]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3967,7 +7095,7 @@ func (x *AddEarcon3_3Request) String() string {
 func (*AddEarcon3_3Request) ProtoMessage() {}
 
 func (x *AddEarcon3_3Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[90]
+	mi := &file_proto_speech_speech_proto_msgTypes[166]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3980,7 +7108,7 @@ func (x *AddEarcon3_3Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddEarcon3_3Request.ProtoReflect.Descriptor instead.
 func (*AddEarcon3_3Request) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{90}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{166}
 }
 
 func (x *AddEarcon3_3Request) GetHandle() int64 {
@@ -4020,7 +7148,7 @@ type AddEarcon3_3Response struct {
 
 func (x *AddEarcon3_3Response) Reset() {
 	*x = AddEarcon3_3Response{}
-	mi := &file_proto_speech_speech_proto_msgTypes[91]
+	mi := &file_proto_speech_speech_proto_msgTypes[167]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4032,7 +7160,7 @@ func (x *AddEarcon3_3Response) String() string {
 func (*AddEarcon3_3Response) ProtoMessage() {}
 
 func (x *AddEarcon3_3Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[91]
+	mi := &file_proto_speech_speech_proto_msgTypes[167]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4045,7 +7173,7 @@ func (x *AddEarcon3_3Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddEarcon3_3Response.ProtoReflect.Descriptor instead.
 func (*AddEarcon3_3Response) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{91}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{167}
 }
 
 func (x *AddEarcon3_3Response) GetResult() int32 {
@@ -4066,7 +7194,7 @@ type AddSpeech2Request struct {
 
 func (x *AddSpeech2Request) Reset() {
 	*x = AddSpeech2Request{}
-	mi := &file_proto_speech_speech_proto_msgTypes[92]
+	mi := &file_proto_speech_speech_proto_msgTypes[168]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4078,7 +7206,7 @@ func (x *AddSpeech2Request) String() string {
 func (*AddSpeech2Request) ProtoMessage() {}
 
 func (x *AddSpeech2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[92]
+	mi := &file_proto_speech_speech_proto_msgTypes[168]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4091,7 +7219,7 @@ func (x *AddSpeech2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddSpeech2Request.ProtoReflect.Descriptor instead.
 func (*AddSpeech2Request) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{92}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{168}
 }
 
 func (x *AddSpeech2Request) GetHandle() int64 {
@@ -4124,7 +7252,7 @@ type AddSpeech2Response struct {
 
 func (x *AddSpeech2Response) Reset() {
 	*x = AddSpeech2Response{}
-	mi := &file_proto_speech_speech_proto_msgTypes[93]
+	mi := &file_proto_speech_speech_proto_msgTypes[169]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4136,7 +7264,7 @@ func (x *AddSpeech2Response) String() string {
 func (*AddSpeech2Response) ProtoMessage() {}
 
 func (x *AddSpeech2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[93]
+	mi := &file_proto_speech_speech_proto_msgTypes[169]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4149,7 +7277,7 @@ func (x *AddSpeech2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddSpeech2Response.ProtoReflect.Descriptor instead.
 func (*AddSpeech2Response) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{93}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{169}
 }
 
 func (x *AddSpeech2Response) GetResult() int32 {
@@ -4170,7 +7298,7 @@ type AddSpeech2_1Request struct {
 
 func (x *AddSpeech2_1Request) Reset() {
 	*x = AddSpeech2_1Request{}
-	mi := &file_proto_speech_speech_proto_msgTypes[94]
+	mi := &file_proto_speech_speech_proto_msgTypes[170]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4182,7 +7310,7 @@ func (x *AddSpeech2_1Request) String() string {
 func (*AddSpeech2_1Request) ProtoMessage() {}
 
 func (x *AddSpeech2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[94]
+	mi := &file_proto_speech_speech_proto_msgTypes[170]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4195,7 +7323,7 @@ func (x *AddSpeech2_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddSpeech2_1Request.ProtoReflect.Descriptor instead.
 func (*AddSpeech2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{94}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{170}
 }
 
 func (x *AddSpeech2_1Request) GetHandle() int64 {
@@ -4228,7 +7356,7 @@ type AddSpeech2_1Response struct {
 
 func (x *AddSpeech2_1Response) Reset() {
 	*x = AddSpeech2_1Response{}
-	mi := &file_proto_speech_speech_proto_msgTypes[95]
+	mi := &file_proto_speech_speech_proto_msgTypes[171]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4240,7 +7368,7 @@ func (x *AddSpeech2_1Response) String() string {
 func (*AddSpeech2_1Response) ProtoMessage() {}
 
 func (x *AddSpeech2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[95]
+	mi := &file_proto_speech_speech_proto_msgTypes[171]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4253,7 +7381,7 @@ func (x *AddSpeech2_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddSpeech2_1Response.ProtoReflect.Descriptor instead.
 func (*AddSpeech2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{95}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{171}
 }
 
 func (x *AddSpeech2_1Response) GetResult() int32 {
@@ -4275,7 +7403,7 @@ type AddSpeech3_2Request struct {
 
 func (x *AddSpeech3_2Request) Reset() {
 	*x = AddSpeech3_2Request{}
-	mi := &file_proto_speech_speech_proto_msgTypes[96]
+	mi := &file_proto_speech_speech_proto_msgTypes[172]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4287,7 +7415,7 @@ func (x *AddSpeech3_2Request) String() string {
 func (*AddSpeech3_2Request) ProtoMessage() {}
 
 func (x *AddSpeech3_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[96]
+	mi := &file_proto_speech_speech_proto_msgTypes[172]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4300,7 +7428,7 @@ func (x *AddSpeech3_2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddSpeech3_2Request.ProtoReflect.Descriptor instead.
 func (*AddSpeech3_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{96}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{172}
 }
 
 func (x *AddSpeech3_2Request) GetHandle() int64 {
@@ -4340,7 +7468,7 @@ type AddSpeech3_2Response struct {
 
 func (x *AddSpeech3_2Response) Reset() {
 	*x = AddSpeech3_2Response{}
-	mi := &file_proto_speech_speech_proto_msgTypes[97]
+	mi := &file_proto_speech_speech_proto_msgTypes[173]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4352,7 +7480,7 @@ func (x *AddSpeech3_2Response) String() string {
 func (*AddSpeech3_2Response) ProtoMessage() {}
 
 func (x *AddSpeech3_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[97]
+	mi := &file_proto_speech_speech_proto_msgTypes[173]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4365,7 +7493,7 @@ func (x *AddSpeech3_2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddSpeech3_2Response.ProtoReflect.Descriptor instead.
 func (*AddSpeech3_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{97}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{173}
 }
 
 func (x *AddSpeech3_2Response) GetResult() int32 {
@@ -4386,7 +7514,7 @@ type AddSpeech2_3Request struct {
 
 func (x *AddSpeech2_3Request) Reset() {
 	*x = AddSpeech2_3Request{}
-	mi := &file_proto_speech_speech_proto_msgTypes[98]
+	mi := &file_proto_speech_speech_proto_msgTypes[174]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4398,7 +7526,7 @@ func (x *AddSpeech2_3Request) String() string {
 func (*AddSpeech2_3Request) ProtoMessage() {}
 
 func (x *AddSpeech2_3Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[98]
+	mi := &file_proto_speech_speech_proto_msgTypes[174]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4411,7 +7539,7 @@ func (x *AddSpeech2_3Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddSpeech2_3Request.ProtoReflect.Descriptor instead.
 func (*AddSpeech2_3Request) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{98}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{174}
 }
 
 func (x *AddSpeech2_3Request) GetHandle() int64 {
@@ -4444,7 +7572,7 @@ type AddSpeech2_3Response struct {
 
 func (x *AddSpeech2_3Response) Reset() {
 	*x = AddSpeech2_3Response{}
-	mi := &file_proto_speech_speech_proto_msgTypes[99]
+	mi := &file_proto_speech_speech_proto_msgTypes[175]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4456,7 +7584,7 @@ func (x *AddSpeech2_3Response) String() string {
 func (*AddSpeech2_3Response) ProtoMessage() {}
 
 func (x *AddSpeech2_3Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[99]
+	mi := &file_proto_speech_speech_proto_msgTypes[175]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4469,7 +7597,7 @@ func (x *AddSpeech2_3Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddSpeech2_3Response.ProtoReflect.Descriptor instead.
 func (*AddSpeech2_3Response) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{99}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{175}
 }
 
 func (x *AddSpeech2_3Response) GetResult() int32 {
@@ -4491,7 +7619,7 @@ type AddSpeech3_4Request struct {
 
 func (x *AddSpeech3_4Request) Reset() {
 	*x = AddSpeech3_4Request{}
-	mi := &file_proto_speech_speech_proto_msgTypes[100]
+	mi := &file_proto_speech_speech_proto_msgTypes[176]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4503,7 +7631,7 @@ func (x *AddSpeech3_4Request) String() string {
 func (*AddSpeech3_4Request) ProtoMessage() {}
 
 func (x *AddSpeech3_4Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[100]
+	mi := &file_proto_speech_speech_proto_msgTypes[176]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4516,7 +7644,7 @@ func (x *AddSpeech3_4Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddSpeech3_4Request.ProtoReflect.Descriptor instead.
 func (*AddSpeech3_4Request) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{100}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{176}
 }
 
 func (x *AddSpeech3_4Request) GetHandle() int64 {
@@ -4556,7 +7684,7 @@ type AddSpeech3_4Response struct {
 
 func (x *AddSpeech3_4Response) Reset() {
 	*x = AddSpeech3_4Response{}
-	mi := &file_proto_speech_speech_proto_msgTypes[101]
+	mi := &file_proto_speech_speech_proto_msgTypes[177]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4568,7 +7696,7 @@ func (x *AddSpeech3_4Response) String() string {
 func (*AddSpeech3_4Response) ProtoMessage() {}
 
 func (x *AddSpeech3_4Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[101]
+	mi := &file_proto_speech_speech_proto_msgTypes[177]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4581,7 +7709,7 @@ func (x *AddSpeech3_4Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddSpeech3_4Response.ProtoReflect.Descriptor instead.
 func (*AddSpeech3_4Response) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{101}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{177}
 }
 
 func (x *AddSpeech3_4Response) GetResult() int32 {
@@ -4600,7 +7728,7 @@ type AreDefaultsEnforcedRequest struct {
 
 func (x *AreDefaultsEnforcedRequest) Reset() {
 	*x = AreDefaultsEnforcedRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[102]
+	mi := &file_proto_speech_speech_proto_msgTypes[178]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4612,7 +7740,7 @@ func (x *AreDefaultsEnforcedRequest) String() string {
 func (*AreDefaultsEnforcedRequest) ProtoMessage() {}
 
 func (x *AreDefaultsEnforcedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[102]
+	mi := &file_proto_speech_speech_proto_msgTypes[178]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4625,7 +7753,7 @@ func (x *AreDefaultsEnforcedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AreDefaultsEnforcedRequest.ProtoReflect.Descriptor instead.
 func (*AreDefaultsEnforcedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{102}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{178}
 }
 
 func (x *AreDefaultsEnforcedRequest) GetHandle() int64 {
@@ -4644,7 +7772,7 @@ type AreDefaultsEnforcedResponse struct {
 
 func (x *AreDefaultsEnforcedResponse) Reset() {
 	*x = AreDefaultsEnforcedResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[103]
+	mi := &file_proto_speech_speech_proto_msgTypes[179]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4656,7 +7784,7 @@ func (x *AreDefaultsEnforcedResponse) String() string {
 func (*AreDefaultsEnforcedResponse) ProtoMessage() {}
 
 func (x *AreDefaultsEnforcedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[103]
+	mi := &file_proto_speech_speech_proto_msgTypes[179]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4669,7 +7797,7 @@ func (x *AreDefaultsEnforcedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AreDefaultsEnforcedResponse.ProtoReflect.Descriptor instead.
 func (*AreDefaultsEnforcedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{103}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{179}
 }
 
 func (x *AreDefaultsEnforcedResponse) GetResult() bool {
@@ -4677,6 +7805,94 @@ func (x *AreDefaultsEnforcedResponse) GetResult() bool {
 		return x.Result
 	}
 	return false
+}
+
+type GetAvailableLanguagesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAvailableLanguagesRequest) Reset() {
+	*x = GetAvailableLanguagesRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[180]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAvailableLanguagesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAvailableLanguagesRequest) ProtoMessage() {}
+
+func (x *GetAvailableLanguagesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[180]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAvailableLanguagesRequest.ProtoReflect.Descriptor instead.
+func (*GetAvailableLanguagesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{180}
+}
+
+func (x *GetAvailableLanguagesRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetAvailableLanguagesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAvailableLanguagesResponse) Reset() {
+	*x = GetAvailableLanguagesResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[181]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAvailableLanguagesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAvailableLanguagesResponse) ProtoMessage() {}
+
+func (x *GetAvailableLanguagesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[181]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAvailableLanguagesResponse.ProtoReflect.Descriptor instead.
+func (*GetAvailableLanguagesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{181}
+}
+
+func (x *GetAvailableLanguagesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
 }
 
 type GetDefaultEngineRequest struct {
@@ -4688,7 +7904,7 @@ type GetDefaultEngineRequest struct {
 
 func (x *GetDefaultEngineRequest) Reset() {
 	*x = GetDefaultEngineRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[104]
+	mi := &file_proto_speech_speech_proto_msgTypes[182]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4700,7 +7916,7 @@ func (x *GetDefaultEngineRequest) String() string {
 func (*GetDefaultEngineRequest) ProtoMessage() {}
 
 func (x *GetDefaultEngineRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[104]
+	mi := &file_proto_speech_speech_proto_msgTypes[182]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4713,7 +7929,7 @@ func (x *GetDefaultEngineRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDefaultEngineRequest.ProtoReflect.Descriptor instead.
 func (*GetDefaultEngineRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{104}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{182}
 }
 
 func (x *GetDefaultEngineRequest) GetHandle() int64 {
@@ -4732,7 +7948,7 @@ type GetDefaultEngineResponse struct {
 
 func (x *GetDefaultEngineResponse) Reset() {
 	*x = GetDefaultEngineResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[105]
+	mi := &file_proto_speech_speech_proto_msgTypes[183]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4744,7 +7960,7 @@ func (x *GetDefaultEngineResponse) String() string {
 func (*GetDefaultEngineResponse) ProtoMessage() {}
 
 func (x *GetDefaultEngineResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[105]
+	mi := &file_proto_speech_speech_proto_msgTypes[183]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4757,7 +7973,7 @@ func (x *GetDefaultEngineResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDefaultEngineResponse.ProtoReflect.Descriptor instead.
 func (*GetDefaultEngineResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{105}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{183}
 }
 
 func (x *GetDefaultEngineResponse) GetResult() string {
@@ -4776,7 +7992,7 @@ type GetDefaultLanguageRequest struct {
 
 func (x *GetDefaultLanguageRequest) Reset() {
 	*x = GetDefaultLanguageRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[106]
+	mi := &file_proto_speech_speech_proto_msgTypes[184]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4788,7 +8004,7 @@ func (x *GetDefaultLanguageRequest) String() string {
 func (*GetDefaultLanguageRequest) ProtoMessage() {}
 
 func (x *GetDefaultLanguageRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[106]
+	mi := &file_proto_speech_speech_proto_msgTypes[184]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4801,7 +8017,7 @@ func (x *GetDefaultLanguageRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDefaultLanguageRequest.ProtoReflect.Descriptor instead.
 func (*GetDefaultLanguageRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{106}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{184}
 }
 
 func (x *GetDefaultLanguageRequest) GetHandle() int64 {
@@ -4820,7 +8036,7 @@ type GetDefaultLanguageResponse struct {
 
 func (x *GetDefaultLanguageResponse) Reset() {
 	*x = GetDefaultLanguageResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[107]
+	mi := &file_proto_speech_speech_proto_msgTypes[185]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4832,7 +8048,7 @@ func (x *GetDefaultLanguageResponse) String() string {
 func (*GetDefaultLanguageResponse) ProtoMessage() {}
 
 func (x *GetDefaultLanguageResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[107]
+	mi := &file_proto_speech_speech_proto_msgTypes[185]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4845,7 +8061,7 @@ func (x *GetDefaultLanguageResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDefaultLanguageResponse.ProtoReflect.Descriptor instead.
 func (*GetDefaultLanguageResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{107}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{185}
 }
 
 func (x *GetDefaultLanguageResponse) GetResult() int64 {
@@ -4864,7 +8080,7 @@ type GetDefaultVoiceRequest struct {
 
 func (x *GetDefaultVoiceRequest) Reset() {
 	*x = GetDefaultVoiceRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[108]
+	mi := &file_proto_speech_speech_proto_msgTypes[186]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4876,7 +8092,7 @@ func (x *GetDefaultVoiceRequest) String() string {
 func (*GetDefaultVoiceRequest) ProtoMessage() {}
 
 func (x *GetDefaultVoiceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[108]
+	mi := &file_proto_speech_speech_proto_msgTypes[186]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4889,7 +8105,7 @@ func (x *GetDefaultVoiceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDefaultVoiceRequest.ProtoReflect.Descriptor instead.
 func (*GetDefaultVoiceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{108}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{186}
 }
 
 func (x *GetDefaultVoiceRequest) GetHandle() int64 {
@@ -4908,7 +8124,7 @@ type GetDefaultVoiceResponse struct {
 
 func (x *GetDefaultVoiceResponse) Reset() {
 	*x = GetDefaultVoiceResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[109]
+	mi := &file_proto_speech_speech_proto_msgTypes[187]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4920,7 +8136,7 @@ func (x *GetDefaultVoiceResponse) String() string {
 func (*GetDefaultVoiceResponse) ProtoMessage() {}
 
 func (x *GetDefaultVoiceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[109]
+	mi := &file_proto_speech_speech_proto_msgTypes[187]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4933,10 +8149,194 @@ func (x *GetDefaultVoiceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDefaultVoiceResponse.ProtoReflect.Descriptor instead.
 func (*GetDefaultVoiceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{109}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{187}
 }
 
 func (x *GetDefaultVoiceResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetEnginesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEnginesRequest) Reset() {
+	*x = GetEnginesRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[188]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEnginesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEnginesRequest) ProtoMessage() {}
+
+func (x *GetEnginesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[188]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEnginesRequest.ProtoReflect.Descriptor instead.
+func (*GetEnginesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{188}
+}
+
+func (x *GetEnginesRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetEnginesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEnginesResponse) Reset() {
+	*x = GetEnginesResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[189]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEnginesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEnginesResponse) ProtoMessage() {}
+
+func (x *GetEnginesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[189]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEnginesResponse.ProtoReflect.Descriptor instead.
+func (*GetEnginesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{189}
+}
+
+func (x *GetEnginesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetFeaturesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFeaturesRequest) Reset() {
+	*x = GetFeaturesRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[190]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFeaturesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFeaturesRequest) ProtoMessage() {}
+
+func (x *GetFeaturesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[190]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFeaturesRequest.ProtoReflect.Descriptor instead.
+func (*GetFeaturesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{190}
+}
+
+func (x *GetFeaturesRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetFeaturesRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetFeaturesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFeaturesResponse) Reset() {
+	*x = GetFeaturesResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[191]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFeaturesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFeaturesResponse) ProtoMessage() {}
+
+func (x *GetFeaturesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[191]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFeaturesResponse.ProtoReflect.Descriptor instead.
+func (*GetFeaturesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{191}
+}
+
+func (x *GetFeaturesResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -4952,7 +8352,7 @@ type GetLanguageRequest struct {
 
 func (x *GetLanguageRequest) Reset() {
 	*x = GetLanguageRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[110]
+	mi := &file_proto_speech_speech_proto_msgTypes[192]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4964,7 +8364,7 @@ func (x *GetLanguageRequest) String() string {
 func (*GetLanguageRequest) ProtoMessage() {}
 
 func (x *GetLanguageRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[110]
+	mi := &file_proto_speech_speech_proto_msgTypes[192]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4977,7 +8377,7 @@ func (x *GetLanguageRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLanguageRequest.ProtoReflect.Descriptor instead.
 func (*GetLanguageRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{110}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{192}
 }
 
 func (x *GetLanguageRequest) GetHandle() int64 {
@@ -4996,7 +8396,7 @@ type GetLanguageResponse struct {
 
 func (x *GetLanguageResponse) Reset() {
 	*x = GetLanguageResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[111]
+	mi := &file_proto_speech_speech_proto_msgTypes[193]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5008,7 +8408,7 @@ func (x *GetLanguageResponse) String() string {
 func (*GetLanguageResponse) ProtoMessage() {}
 
 func (x *GetLanguageResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[111]
+	mi := &file_proto_speech_speech_proto_msgTypes[193]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5021,7 +8421,7 @@ func (x *GetLanguageResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLanguageResponse.ProtoReflect.Descriptor instead.
 func (*GetLanguageResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{111}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{193}
 }
 
 func (x *GetLanguageResponse) GetResult() int64 {
@@ -5040,7 +8440,7 @@ type GetVoiceRequest struct {
 
 func (x *GetVoiceRequest) Reset() {
 	*x = GetVoiceRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[112]
+	mi := &file_proto_speech_speech_proto_msgTypes[194]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5052,7 +8452,7 @@ func (x *GetVoiceRequest) String() string {
 func (*GetVoiceRequest) ProtoMessage() {}
 
 func (x *GetVoiceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[112]
+	mi := &file_proto_speech_speech_proto_msgTypes[194]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5065,7 +8465,7 @@ func (x *GetVoiceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetVoiceRequest.ProtoReflect.Descriptor instead.
 func (*GetVoiceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{112}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{194}
 }
 
 func (x *GetVoiceRequest) GetHandle() int64 {
@@ -5084,7 +8484,7 @@ type GetVoiceResponse struct {
 
 func (x *GetVoiceResponse) Reset() {
 	*x = GetVoiceResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[113]
+	mi := &file_proto_speech_speech_proto_msgTypes[195]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5096,7 +8496,7 @@ func (x *GetVoiceResponse) String() string {
 func (*GetVoiceResponse) ProtoMessage() {}
 
 func (x *GetVoiceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[113]
+	mi := &file_proto_speech_speech_proto_msgTypes[195]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5109,10 +8509,98 @@ func (x *GetVoiceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetVoiceResponse.ProtoReflect.Descriptor instead.
 func (*GetVoiceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{113}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{195}
 }
 
 func (x *GetVoiceResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetVoicesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVoicesRequest) Reset() {
+	*x = GetVoicesRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[196]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVoicesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVoicesRequest) ProtoMessage() {}
+
+func (x *GetVoicesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[196]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVoicesRequest.ProtoReflect.Descriptor instead.
+func (*GetVoicesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{196}
+}
+
+func (x *GetVoicesRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetVoicesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVoicesResponse) Reset() {
+	*x = GetVoicesResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[197]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVoicesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVoicesResponse) ProtoMessage() {}
+
+func (x *GetVoicesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[197]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVoicesResponse.ProtoReflect.Descriptor instead.
+func (*GetVoicesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{197}
+}
+
+func (x *GetVoicesResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -5129,7 +8617,7 @@ type IsLanguageAvailableRequest struct {
 
 func (x *IsLanguageAvailableRequest) Reset() {
 	*x = IsLanguageAvailableRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[114]
+	mi := &file_proto_speech_speech_proto_msgTypes[198]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5141,7 +8629,7 @@ func (x *IsLanguageAvailableRequest) String() string {
 func (*IsLanguageAvailableRequest) ProtoMessage() {}
 
 func (x *IsLanguageAvailableRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[114]
+	mi := &file_proto_speech_speech_proto_msgTypes[198]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5154,7 +8642,7 @@ func (x *IsLanguageAvailableRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsLanguageAvailableRequest.ProtoReflect.Descriptor instead.
 func (*IsLanguageAvailableRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{114}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{198}
 }
 
 func (x *IsLanguageAvailableRequest) GetHandle() int64 {
@@ -5180,7 +8668,7 @@ type IsLanguageAvailableResponse struct {
 
 func (x *IsLanguageAvailableResponse) Reset() {
 	*x = IsLanguageAvailableResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[115]
+	mi := &file_proto_speech_speech_proto_msgTypes[199]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5192,7 +8680,7 @@ func (x *IsLanguageAvailableResponse) String() string {
 func (*IsLanguageAvailableResponse) ProtoMessage() {}
 
 func (x *IsLanguageAvailableResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[115]
+	mi := &file_proto_speech_speech_proto_msgTypes[199]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5205,7 +8693,7 @@ func (x *IsLanguageAvailableResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsLanguageAvailableResponse.ProtoReflect.Descriptor instead.
 func (*IsLanguageAvailableResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{115}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{199}
 }
 
 func (x *IsLanguageAvailableResponse) GetResult() int32 {
@@ -5224,7 +8712,7 @@ type IsSpeakingRequest struct {
 
 func (x *IsSpeakingRequest) Reset() {
 	*x = IsSpeakingRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[116]
+	mi := &file_proto_speech_speech_proto_msgTypes[200]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5236,7 +8724,7 @@ func (x *IsSpeakingRequest) String() string {
 func (*IsSpeakingRequest) ProtoMessage() {}
 
 func (x *IsSpeakingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[116]
+	mi := &file_proto_speech_speech_proto_msgTypes[200]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5249,7 +8737,7 @@ func (x *IsSpeakingRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsSpeakingRequest.ProtoReflect.Descriptor instead.
 func (*IsSpeakingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{116}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{200}
 }
 
 func (x *IsSpeakingRequest) GetHandle() int64 {
@@ -5268,7 +8756,7 @@ type IsSpeakingResponse struct {
 
 func (x *IsSpeakingResponse) Reset() {
 	*x = IsSpeakingResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[117]
+	mi := &file_proto_speech_speech_proto_msgTypes[201]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5280,7 +8768,7 @@ func (x *IsSpeakingResponse) String() string {
 func (*IsSpeakingResponse) ProtoMessage() {}
 
 func (x *IsSpeakingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[117]
+	mi := &file_proto_speech_speech_proto_msgTypes[201]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5293,7 +8781,7 @@ func (x *IsSpeakingResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsSpeakingResponse.ProtoReflect.Descriptor instead.
 func (*IsSpeakingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{117}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{201}
 }
 
 func (x *IsSpeakingResponse) GetResult() bool {
@@ -5316,7 +8804,7 @@ type PlayEarconRequest struct {
 
 func (x *PlayEarconRequest) Reset() {
 	*x = PlayEarconRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[118]
+	mi := &file_proto_speech_speech_proto_msgTypes[202]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5328,7 +8816,7 @@ func (x *PlayEarconRequest) String() string {
 func (*PlayEarconRequest) ProtoMessage() {}
 
 func (x *PlayEarconRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[118]
+	mi := &file_proto_speech_speech_proto_msgTypes[202]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5341,7 +8829,7 @@ func (x *PlayEarconRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PlayEarconRequest.ProtoReflect.Descriptor instead.
 func (*PlayEarconRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{118}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{202}
 }
 
 func (x *PlayEarconRequest) GetHandle() int64 {
@@ -5388,7 +8876,7 @@ type PlayEarconResponse struct {
 
 func (x *PlayEarconResponse) Reset() {
 	*x = PlayEarconResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[119]
+	mi := &file_proto_speech_speech_proto_msgTypes[203]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5400,7 +8888,7 @@ func (x *PlayEarconResponse) String() string {
 func (*PlayEarconResponse) ProtoMessage() {}
 
 func (x *PlayEarconResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[119]
+	mi := &file_proto_speech_speech_proto_msgTypes[203]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5413,7 +8901,7 @@ func (x *PlayEarconResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PlayEarconResponse.ProtoReflect.Descriptor instead.
 func (*PlayEarconResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{119}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{203}
 }
 
 func (x *PlayEarconResponse) GetResult() int32 {
@@ -5435,7 +8923,7 @@ type PlaySilentUtteranceRequest struct {
 
 func (x *PlaySilentUtteranceRequest) Reset() {
 	*x = PlaySilentUtteranceRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[120]
+	mi := &file_proto_speech_speech_proto_msgTypes[204]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5447,7 +8935,7 @@ func (x *PlaySilentUtteranceRequest) String() string {
 func (*PlaySilentUtteranceRequest) ProtoMessage() {}
 
 func (x *PlaySilentUtteranceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[120]
+	mi := &file_proto_speech_speech_proto_msgTypes[204]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5460,7 +8948,7 @@ func (x *PlaySilentUtteranceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PlaySilentUtteranceRequest.ProtoReflect.Descriptor instead.
 func (*PlaySilentUtteranceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{120}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{204}
 }
 
 func (x *PlaySilentUtteranceRequest) GetHandle() int64 {
@@ -5500,7 +8988,7 @@ type PlaySilentUtteranceResponse struct {
 
 func (x *PlaySilentUtteranceResponse) Reset() {
 	*x = PlaySilentUtteranceResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[121]
+	mi := &file_proto_speech_speech_proto_msgTypes[205]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5512,7 +9000,7 @@ func (x *PlaySilentUtteranceResponse) String() string {
 func (*PlaySilentUtteranceResponse) ProtoMessage() {}
 
 func (x *PlaySilentUtteranceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[121]
+	mi := &file_proto_speech_speech_proto_msgTypes[205]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5525,7 +9013,7 @@ func (x *PlaySilentUtteranceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PlaySilentUtteranceResponse.ProtoReflect.Descriptor instead.
 func (*PlaySilentUtteranceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{121}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{205}
 }
 
 func (x *PlaySilentUtteranceResponse) GetResult() int32 {
@@ -5545,7 +9033,7 @@ type SetAudioAttributesRequest struct {
 
 func (x *SetAudioAttributesRequest) Reset() {
 	*x = SetAudioAttributesRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[122]
+	mi := &file_proto_speech_speech_proto_msgTypes[206]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5557,7 +9045,7 @@ func (x *SetAudioAttributesRequest) String() string {
 func (*SetAudioAttributesRequest) ProtoMessage() {}
 
 func (x *SetAudioAttributesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[122]
+	mi := &file_proto_speech_speech_proto_msgTypes[206]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5570,7 +9058,7 @@ func (x *SetAudioAttributesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetAudioAttributesRequest.ProtoReflect.Descriptor instead.
 func (*SetAudioAttributesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{122}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{206}
 }
 
 func (x *SetAudioAttributesRequest) GetHandle() int64 {
@@ -5596,7 +9084,7 @@ type SetAudioAttributesResponse struct {
 
 func (x *SetAudioAttributesResponse) Reset() {
 	*x = SetAudioAttributesResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[123]
+	mi := &file_proto_speech_speech_proto_msgTypes[207]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5608,7 +9096,7 @@ func (x *SetAudioAttributesResponse) String() string {
 func (*SetAudioAttributesResponse) ProtoMessage() {}
 
 func (x *SetAudioAttributesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[123]
+	mi := &file_proto_speech_speech_proto_msgTypes[207]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5621,7 +9109,7 @@ func (x *SetAudioAttributesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetAudioAttributesResponse.ProtoReflect.Descriptor instead.
 func (*SetAudioAttributesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{123}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{207}
 }
 
 func (x *SetAudioAttributesResponse) GetResult() int32 {
@@ -5641,7 +9129,7 @@ type SetEngineByPackageNameRequest struct {
 
 func (x *SetEngineByPackageNameRequest) Reset() {
 	*x = SetEngineByPackageNameRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[124]
+	mi := &file_proto_speech_speech_proto_msgTypes[208]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5653,7 +9141,7 @@ func (x *SetEngineByPackageNameRequest) String() string {
 func (*SetEngineByPackageNameRequest) ProtoMessage() {}
 
 func (x *SetEngineByPackageNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[124]
+	mi := &file_proto_speech_speech_proto_msgTypes[208]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5666,7 +9154,7 @@ func (x *SetEngineByPackageNameRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetEngineByPackageNameRequest.ProtoReflect.Descriptor instead.
 func (*SetEngineByPackageNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{124}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{208}
 }
 
 func (x *SetEngineByPackageNameRequest) GetHandle() int64 {
@@ -5692,7 +9180,7 @@ type SetEngineByPackageNameResponse struct {
 
 func (x *SetEngineByPackageNameResponse) Reset() {
 	*x = SetEngineByPackageNameResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[125]
+	mi := &file_proto_speech_speech_proto_msgTypes[209]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5704,7 +9192,7 @@ func (x *SetEngineByPackageNameResponse) String() string {
 func (*SetEngineByPackageNameResponse) ProtoMessage() {}
 
 func (x *SetEngineByPackageNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[125]
+	mi := &file_proto_speech_speech_proto_msgTypes[209]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5717,7 +9205,7 @@ func (x *SetEngineByPackageNameResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetEngineByPackageNameResponse.ProtoReflect.Descriptor instead.
 func (*SetEngineByPackageNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{125}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{209}
 }
 
 func (x *SetEngineByPackageNameResponse) GetResult() int32 {
@@ -5737,7 +9225,7 @@ type SetLanguageRequest struct {
 
 func (x *SetLanguageRequest) Reset() {
 	*x = SetLanguageRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[126]
+	mi := &file_proto_speech_speech_proto_msgTypes[210]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5749,7 +9237,7 @@ func (x *SetLanguageRequest) String() string {
 func (*SetLanguageRequest) ProtoMessage() {}
 
 func (x *SetLanguageRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[126]
+	mi := &file_proto_speech_speech_proto_msgTypes[210]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5762,7 +9250,7 @@ func (x *SetLanguageRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetLanguageRequest.ProtoReflect.Descriptor instead.
 func (*SetLanguageRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{126}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{210}
 }
 
 func (x *SetLanguageRequest) GetHandle() int64 {
@@ -5788,7 +9276,7 @@ type SetLanguageResponse struct {
 
 func (x *SetLanguageResponse) Reset() {
 	*x = SetLanguageResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[127]
+	mi := &file_proto_speech_speech_proto_msgTypes[211]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5800,7 +9288,7 @@ func (x *SetLanguageResponse) String() string {
 func (*SetLanguageResponse) ProtoMessage() {}
 
 func (x *SetLanguageResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[127]
+	mi := &file_proto_speech_speech_proto_msgTypes[211]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5813,7 +9301,7 @@ func (x *SetLanguageResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetLanguageResponse.ProtoReflect.Descriptor instead.
 func (*SetLanguageResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{127}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{211}
 }
 
 func (x *SetLanguageResponse) GetResult() int32 {
@@ -5833,7 +9321,7 @@ type SetOnUtteranceCompletedListenerRequest struct {
 
 func (x *SetOnUtteranceCompletedListenerRequest) Reset() {
 	*x = SetOnUtteranceCompletedListenerRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[128]
+	mi := &file_proto_speech_speech_proto_msgTypes[212]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5845,7 +9333,7 @@ func (x *SetOnUtteranceCompletedListenerRequest) String() string {
 func (*SetOnUtteranceCompletedListenerRequest) ProtoMessage() {}
 
 func (x *SetOnUtteranceCompletedListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[128]
+	mi := &file_proto_speech_speech_proto_msgTypes[212]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5858,7 +9346,7 @@ func (x *SetOnUtteranceCompletedListenerRequest) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use SetOnUtteranceCompletedListenerRequest.ProtoReflect.Descriptor instead.
 func (*SetOnUtteranceCompletedListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{128}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{212}
 }
 
 func (x *SetOnUtteranceCompletedListenerRequest) GetHandle() int64 {
@@ -5884,7 +9372,7 @@ type SetOnUtteranceCompletedListenerResponse struct {
 
 func (x *SetOnUtteranceCompletedListenerResponse) Reset() {
 	*x = SetOnUtteranceCompletedListenerResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[129]
+	mi := &file_proto_speech_speech_proto_msgTypes[213]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5896,7 +9384,7 @@ func (x *SetOnUtteranceCompletedListenerResponse) String() string {
 func (*SetOnUtteranceCompletedListenerResponse) ProtoMessage() {}
 
 func (x *SetOnUtteranceCompletedListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[129]
+	mi := &file_proto_speech_speech_proto_msgTypes[213]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5909,7 +9397,7 @@ func (x *SetOnUtteranceCompletedListenerResponse) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use SetOnUtteranceCompletedListenerResponse.ProtoReflect.Descriptor instead.
 func (*SetOnUtteranceCompletedListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{129}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{213}
 }
 
 func (x *SetOnUtteranceCompletedListenerResponse) GetResult() int32 {
@@ -5929,7 +9417,7 @@ type SetOnUtteranceProgressListenerRequest struct {
 
 func (x *SetOnUtteranceProgressListenerRequest) Reset() {
 	*x = SetOnUtteranceProgressListenerRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[130]
+	mi := &file_proto_speech_speech_proto_msgTypes[214]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5941,7 +9429,7 @@ func (x *SetOnUtteranceProgressListenerRequest) String() string {
 func (*SetOnUtteranceProgressListenerRequest) ProtoMessage() {}
 
 func (x *SetOnUtteranceProgressListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[130]
+	mi := &file_proto_speech_speech_proto_msgTypes[214]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5954,7 +9442,7 @@ func (x *SetOnUtteranceProgressListenerRequest) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use SetOnUtteranceProgressListenerRequest.ProtoReflect.Descriptor instead.
 func (*SetOnUtteranceProgressListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{130}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{214}
 }
 
 func (x *SetOnUtteranceProgressListenerRequest) GetHandle() int64 {
@@ -5980,7 +9468,7 @@ type SetOnUtteranceProgressListenerResponse struct {
 
 func (x *SetOnUtteranceProgressListenerResponse) Reset() {
 	*x = SetOnUtteranceProgressListenerResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[131]
+	mi := &file_proto_speech_speech_proto_msgTypes[215]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5992,7 +9480,7 @@ func (x *SetOnUtteranceProgressListenerResponse) String() string {
 func (*SetOnUtteranceProgressListenerResponse) ProtoMessage() {}
 
 func (x *SetOnUtteranceProgressListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[131]
+	mi := &file_proto_speech_speech_proto_msgTypes[215]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6005,7 +9493,7 @@ func (x *SetOnUtteranceProgressListenerResponse) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use SetOnUtteranceProgressListenerResponse.ProtoReflect.Descriptor instead.
 func (*SetOnUtteranceProgressListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{131}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{215}
 }
 
 func (x *SetOnUtteranceProgressListenerResponse) GetResult() int32 {
@@ -6025,7 +9513,7 @@ type SetPitchRequest struct {
 
 func (x *SetPitchRequest) Reset() {
 	*x = SetPitchRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[132]
+	mi := &file_proto_speech_speech_proto_msgTypes[216]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6037,7 +9525,7 @@ func (x *SetPitchRequest) String() string {
 func (*SetPitchRequest) ProtoMessage() {}
 
 func (x *SetPitchRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[132]
+	mi := &file_proto_speech_speech_proto_msgTypes[216]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6050,7 +9538,7 @@ func (x *SetPitchRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetPitchRequest.ProtoReflect.Descriptor instead.
 func (*SetPitchRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{132}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{216}
 }
 
 func (x *SetPitchRequest) GetHandle() int64 {
@@ -6076,7 +9564,7 @@ type SetPitchResponse struct {
 
 func (x *SetPitchResponse) Reset() {
 	*x = SetPitchResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[133]
+	mi := &file_proto_speech_speech_proto_msgTypes[217]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6088,7 +9576,7 @@ func (x *SetPitchResponse) String() string {
 func (*SetPitchResponse) ProtoMessage() {}
 
 func (x *SetPitchResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[133]
+	mi := &file_proto_speech_speech_proto_msgTypes[217]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6101,7 +9589,7 @@ func (x *SetPitchResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetPitchResponse.ProtoReflect.Descriptor instead.
 func (*SetPitchResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{133}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{217}
 }
 
 func (x *SetPitchResponse) GetResult() int32 {
@@ -6121,7 +9609,7 @@ type SetSpeechRateRequest struct {
 
 func (x *SetSpeechRateRequest) Reset() {
 	*x = SetSpeechRateRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[134]
+	mi := &file_proto_speech_speech_proto_msgTypes[218]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6133,7 +9621,7 @@ func (x *SetSpeechRateRequest) String() string {
 func (*SetSpeechRateRequest) ProtoMessage() {}
 
 func (x *SetSpeechRateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[134]
+	mi := &file_proto_speech_speech_proto_msgTypes[218]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6146,7 +9634,7 @@ func (x *SetSpeechRateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetSpeechRateRequest.ProtoReflect.Descriptor instead.
 func (*SetSpeechRateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{134}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{218}
 }
 
 func (x *SetSpeechRateRequest) GetHandle() int64 {
@@ -6172,7 +9660,7 @@ type SetSpeechRateResponse struct {
 
 func (x *SetSpeechRateResponse) Reset() {
 	*x = SetSpeechRateResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[135]
+	mi := &file_proto_speech_speech_proto_msgTypes[219]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6184,7 +9672,7 @@ func (x *SetSpeechRateResponse) String() string {
 func (*SetSpeechRateResponse) ProtoMessage() {}
 
 func (x *SetSpeechRateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[135]
+	mi := &file_proto_speech_speech_proto_msgTypes[219]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6197,7 +9685,7 @@ func (x *SetSpeechRateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetSpeechRateResponse.ProtoReflect.Descriptor instead.
 func (*SetSpeechRateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{135}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{219}
 }
 
 func (x *SetSpeechRateResponse) GetResult() int32 {
@@ -6217,7 +9705,7 @@ type SetVoiceRequest struct {
 
 func (x *SetVoiceRequest) Reset() {
 	*x = SetVoiceRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[136]
+	mi := &file_proto_speech_speech_proto_msgTypes[220]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6229,7 +9717,7 @@ func (x *SetVoiceRequest) String() string {
 func (*SetVoiceRequest) ProtoMessage() {}
 
 func (x *SetVoiceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[136]
+	mi := &file_proto_speech_speech_proto_msgTypes[220]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6242,7 +9730,7 @@ func (x *SetVoiceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetVoiceRequest.ProtoReflect.Descriptor instead.
 func (*SetVoiceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{136}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{220}
 }
 
 func (x *SetVoiceRequest) GetHandle() int64 {
@@ -6268,7 +9756,7 @@ type SetVoiceResponse struct {
 
 func (x *SetVoiceResponse) Reset() {
 	*x = SetVoiceResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[137]
+	mi := &file_proto_speech_speech_proto_msgTypes[221]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6280,7 +9768,7 @@ func (x *SetVoiceResponse) String() string {
 func (*SetVoiceResponse) ProtoMessage() {}
 
 func (x *SetVoiceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[137]
+	mi := &file_proto_speech_speech_proto_msgTypes[221]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6293,7 +9781,7 @@ func (x *SetVoiceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetVoiceResponse.ProtoReflect.Descriptor instead.
 func (*SetVoiceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{137}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{221}
 }
 
 func (x *SetVoiceResponse) GetResult() int32 {
@@ -6312,7 +9800,7 @@ type ShutdownRequest struct {
 
 func (x *ShutdownRequest) Reset() {
 	*x = ShutdownRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[138]
+	mi := &file_proto_speech_speech_proto_msgTypes[222]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6324,7 +9812,7 @@ func (x *ShutdownRequest) String() string {
 func (*ShutdownRequest) ProtoMessage() {}
 
 func (x *ShutdownRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[138]
+	mi := &file_proto_speech_speech_proto_msgTypes[222]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6337,7 +9825,7 @@ func (x *ShutdownRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ShutdownRequest.ProtoReflect.Descriptor instead.
 func (*ShutdownRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{138}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{222}
 }
 
 func (x *ShutdownRequest) GetHandle() int64 {
@@ -6355,7 +9843,7 @@ type ShutdownResponse struct {
 
 func (x *ShutdownResponse) Reset() {
 	*x = ShutdownResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[139]
+	mi := &file_proto_speech_speech_proto_msgTypes[223]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6367,7 +9855,7 @@ func (x *ShutdownResponse) String() string {
 func (*ShutdownResponse) ProtoMessage() {}
 
 func (x *ShutdownResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[139]
+	mi := &file_proto_speech_speech_proto_msgTypes[223]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6380,7 +9868,7 @@ func (x *ShutdownResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ShutdownResponse.ProtoReflect.Descriptor instead.
 func (*ShutdownResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{139}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{223}
 }
 
 type SpeakRequest struct {
@@ -6396,7 +9884,7 @@ type SpeakRequest struct {
 
 func (x *SpeakRequest) Reset() {
 	*x = SpeakRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[140]
+	mi := &file_proto_speech_speech_proto_msgTypes[224]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6408,7 +9896,7 @@ func (x *SpeakRequest) String() string {
 func (*SpeakRequest) ProtoMessage() {}
 
 func (x *SpeakRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[140]
+	mi := &file_proto_speech_speech_proto_msgTypes[224]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6421,7 +9909,7 @@ func (x *SpeakRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SpeakRequest.ProtoReflect.Descriptor instead.
 func (*SpeakRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{140}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{224}
 }
 
 func (x *SpeakRequest) GetHandle() int64 {
@@ -6468,7 +9956,7 @@ type SpeakResponse struct {
 
 func (x *SpeakResponse) Reset() {
 	*x = SpeakResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[141]
+	mi := &file_proto_speech_speech_proto_msgTypes[225]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6480,7 +9968,7 @@ func (x *SpeakResponse) String() string {
 func (*SpeakResponse) ProtoMessage() {}
 
 func (x *SpeakResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[141]
+	mi := &file_proto_speech_speech_proto_msgTypes[225]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6493,7 +9981,7 @@ func (x *SpeakResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SpeakResponse.ProtoReflect.Descriptor instead.
 func (*SpeakResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{141}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{225}
 }
 
 func (x *SpeakResponse) GetResult() int32 {
@@ -6512,7 +10000,7 @@ type StopRequest struct {
 
 func (x *StopRequest) Reset() {
 	*x = StopRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[142]
+	mi := &file_proto_speech_speech_proto_msgTypes[226]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6524,7 +10012,7 @@ func (x *StopRequest) String() string {
 func (*StopRequest) ProtoMessage() {}
 
 func (x *StopRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[142]
+	mi := &file_proto_speech_speech_proto_msgTypes[226]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6537,7 +10025,7 @@ func (x *StopRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StopRequest.ProtoReflect.Descriptor instead.
 func (*StopRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{142}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{226}
 }
 
 func (x *StopRequest) GetHandle() int64 {
@@ -6556,7 +10044,7 @@ type StopResponse struct {
 
 func (x *StopResponse) Reset() {
 	*x = StopResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[143]
+	mi := &file_proto_speech_speech_proto_msgTypes[227]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6568,7 +10056,7 @@ func (x *StopResponse) String() string {
 func (*StopResponse) ProtoMessage() {}
 
 func (x *StopResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[143]
+	mi := &file_proto_speech_speech_proto_msgTypes[227]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6581,7 +10069,7 @@ func (x *StopResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StopResponse.ProtoReflect.Descriptor instead.
 func (*StopResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{143}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{227}
 }
 
 func (x *StopResponse) GetResult() int32 {
@@ -6604,7 +10092,7 @@ type SynthesizeToFile4Request struct {
 
 func (x *SynthesizeToFile4Request) Reset() {
 	*x = SynthesizeToFile4Request{}
-	mi := &file_proto_speech_speech_proto_msgTypes[144]
+	mi := &file_proto_speech_speech_proto_msgTypes[228]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6616,7 +10104,7 @@ func (x *SynthesizeToFile4Request) String() string {
 func (*SynthesizeToFile4Request) ProtoMessage() {}
 
 func (x *SynthesizeToFile4Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[144]
+	mi := &file_proto_speech_speech_proto_msgTypes[228]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6629,7 +10117,7 @@ func (x *SynthesizeToFile4Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SynthesizeToFile4Request.ProtoReflect.Descriptor instead.
 func (*SynthesizeToFile4Request) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{144}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{228}
 }
 
 func (x *SynthesizeToFile4Request) GetHandle() int64 {
@@ -6676,7 +10164,7 @@ type SynthesizeToFile4Response struct {
 
 func (x *SynthesizeToFile4Response) Reset() {
 	*x = SynthesizeToFile4Response{}
-	mi := &file_proto_speech_speech_proto_msgTypes[145]
+	mi := &file_proto_speech_speech_proto_msgTypes[229]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6688,7 +10176,7 @@ func (x *SynthesizeToFile4Response) String() string {
 func (*SynthesizeToFile4Response) ProtoMessage() {}
 
 func (x *SynthesizeToFile4Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[145]
+	mi := &file_proto_speech_speech_proto_msgTypes[229]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6701,7 +10189,7 @@ func (x *SynthesizeToFile4Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SynthesizeToFile4Response.ProtoReflect.Descriptor instead.
 func (*SynthesizeToFile4Response) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{145}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{229}
 }
 
 func (x *SynthesizeToFile4Response) GetResult() int32 {
@@ -6724,7 +10212,7 @@ type SynthesizeToFile4_1Request struct {
 
 func (x *SynthesizeToFile4_1Request) Reset() {
 	*x = SynthesizeToFile4_1Request{}
-	mi := &file_proto_speech_speech_proto_msgTypes[146]
+	mi := &file_proto_speech_speech_proto_msgTypes[230]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6736,7 +10224,7 @@ func (x *SynthesizeToFile4_1Request) String() string {
 func (*SynthesizeToFile4_1Request) ProtoMessage() {}
 
 func (x *SynthesizeToFile4_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[146]
+	mi := &file_proto_speech_speech_proto_msgTypes[230]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6749,7 +10237,7 @@ func (x *SynthesizeToFile4_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SynthesizeToFile4_1Request.ProtoReflect.Descriptor instead.
 func (*SynthesizeToFile4_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{146}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{230}
 }
 
 func (x *SynthesizeToFile4_1Request) GetHandle() int64 {
@@ -6796,7 +10284,7 @@ type SynthesizeToFile4_1Response struct {
 
 func (x *SynthesizeToFile4_1Response) Reset() {
 	*x = SynthesizeToFile4_1Response{}
-	mi := &file_proto_speech_speech_proto_msgTypes[147]
+	mi := &file_proto_speech_speech_proto_msgTypes[231]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6808,7 +10296,7 @@ func (x *SynthesizeToFile4_1Response) String() string {
 func (*SynthesizeToFile4_1Response) ProtoMessage() {}
 
 func (x *SynthesizeToFile4_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[147]
+	mi := &file_proto_speech_speech_proto_msgTypes[231]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6821,7 +10309,7 @@ func (x *SynthesizeToFile4_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SynthesizeToFile4_1Response.ProtoReflect.Descriptor instead.
 func (*SynthesizeToFile4_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{147}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{231}
 }
 
 func (x *SynthesizeToFile4_1Response) GetResult() int32 {
@@ -6840,7 +10328,7 @@ type GetMaxSpeechInputLengthRequest struct {
 
 func (x *GetMaxSpeechInputLengthRequest) Reset() {
 	*x = GetMaxSpeechInputLengthRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[148]
+	mi := &file_proto_speech_speech_proto_msgTypes[232]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6852,7 +10340,7 @@ func (x *GetMaxSpeechInputLengthRequest) String() string {
 func (*GetMaxSpeechInputLengthRequest) ProtoMessage() {}
 
 func (x *GetMaxSpeechInputLengthRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[148]
+	mi := &file_proto_speech_speech_proto_msgTypes[232]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6865,7 +10353,7 @@ func (x *GetMaxSpeechInputLengthRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMaxSpeechInputLengthRequest.ProtoReflect.Descriptor instead.
 func (*GetMaxSpeechInputLengthRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{148}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{232}
 }
 
 func (x *GetMaxSpeechInputLengthRequest) GetHandle() int64 {
@@ -6884,7 +10372,7 @@ type GetMaxSpeechInputLengthResponse struct {
 
 func (x *GetMaxSpeechInputLengthResponse) Reset() {
 	*x = GetMaxSpeechInputLengthResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[149]
+	mi := &file_proto_speech_speech_proto_msgTypes[233]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6896,7 +10384,7 @@ func (x *GetMaxSpeechInputLengthResponse) String() string {
 func (*GetMaxSpeechInputLengthResponse) ProtoMessage() {}
 
 func (x *GetMaxSpeechInputLengthResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[149]
+	mi := &file_proto_speech_speech_proto_msgTypes[233]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6909,7 +10397,7 @@ func (x *GetMaxSpeechInputLengthResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMaxSpeechInputLengthResponse.ProtoReflect.Descriptor instead.
 func (*GetMaxSpeechInputLengthResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{149}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{233}
 }
 
 func (x *GetMaxSpeechInputLengthResponse) GetResult() int32 {
@@ -6928,7 +10416,7 @@ type OnInitRequest struct {
 
 func (x *OnInitRequest) Reset() {
 	*x = OnInitRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[150]
+	mi := &file_proto_speech_speech_proto_msgTypes[234]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6940,7 +10428,7 @@ func (x *OnInitRequest) String() string {
 func (*OnInitRequest) ProtoMessage() {}
 
 func (x *OnInitRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[150]
+	mi := &file_proto_speech_speech_proto_msgTypes[234]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6953,7 +10441,7 @@ func (x *OnInitRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnInitRequest.ProtoReflect.Descriptor instead.
 func (*OnInitRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{150}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{234}
 }
 
 func (x *OnInitRequest) GetArg0() int32 {
@@ -6971,7 +10459,7 @@ type OnInitResponse struct {
 
 func (x *OnInitResponse) Reset() {
 	*x = OnInitResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[151]
+	mi := &file_proto_speech_speech_proto_msgTypes[235]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6983,7 +10471,7 @@ func (x *OnInitResponse) String() string {
 func (*OnInitResponse) ProtoMessage() {}
 
 func (x *OnInitResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[151]
+	mi := &file_proto_speech_speech_proto_msgTypes[235]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6996,7 +10484,7 @@ func (x *OnInitResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnInitResponse.ProtoReflect.Descriptor instead.
 func (*OnInitResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{151}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{235}
 }
 
 type OnUtteranceCompletedRequest struct {
@@ -7008,7 +10496,7 @@ type OnUtteranceCompletedRequest struct {
 
 func (x *OnUtteranceCompletedRequest) Reset() {
 	*x = OnUtteranceCompletedRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[152]
+	mi := &file_proto_speech_speech_proto_msgTypes[236]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7020,7 +10508,7 @@ func (x *OnUtteranceCompletedRequest) String() string {
 func (*OnUtteranceCompletedRequest) ProtoMessage() {}
 
 func (x *OnUtteranceCompletedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[152]
+	mi := &file_proto_speech_speech_proto_msgTypes[236]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7033,7 +10521,7 @@ func (x *OnUtteranceCompletedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnUtteranceCompletedRequest.ProtoReflect.Descriptor instead.
 func (*OnUtteranceCompletedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{152}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{236}
 }
 
 func (x *OnUtteranceCompletedRequest) GetArg0() string {
@@ -7051,7 +10539,7 @@ type OnUtteranceCompletedResponse struct {
 
 func (x *OnUtteranceCompletedResponse) Reset() {
 	*x = OnUtteranceCompletedResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[153]
+	mi := &file_proto_speech_speech_proto_msgTypes[237]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7063,7 +10551,7 @@ func (x *OnUtteranceCompletedResponse) String() string {
 func (*OnUtteranceCompletedResponse) ProtoMessage() {}
 
 func (x *OnUtteranceCompletedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[153]
+	mi := &file_proto_speech_speech_proto_msgTypes[237]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7076,1455 +10564,31 @@ func (x *OnUtteranceCompletedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnUtteranceCompletedResponse.ProtoReflect.Descriptor instead.
 func (*OnUtteranceCompletedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{153}
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{237}
 }
 
-type AddInstalledOnDeviceLanguageRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddInstalledOnDeviceLanguageRequest) Reset() {
-	*x = AddInstalledOnDeviceLanguageRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[154]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddInstalledOnDeviceLanguageRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddInstalledOnDeviceLanguageRequest) ProtoMessage() {}
-
-func (x *AddInstalledOnDeviceLanguageRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[154]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddInstalledOnDeviceLanguageRequest.ProtoReflect.Descriptor instead.
-func (*AddInstalledOnDeviceLanguageRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{154}
-}
-
-func (x *AddInstalledOnDeviceLanguageRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type AddInstalledOnDeviceLanguageResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddInstalledOnDeviceLanguageResponse) Reset() {
-	*x = AddInstalledOnDeviceLanguageResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[155]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddInstalledOnDeviceLanguageResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddInstalledOnDeviceLanguageResponse) ProtoMessage() {}
-
-func (x *AddInstalledOnDeviceLanguageResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[155]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddInstalledOnDeviceLanguageResponse.ProtoReflect.Descriptor instead.
-func (*AddInstalledOnDeviceLanguageResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{155}
-}
-
-func (x *AddInstalledOnDeviceLanguageResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type AddOnlineLanguageRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddOnlineLanguageRequest) Reset() {
-	*x = AddOnlineLanguageRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[156]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddOnlineLanguageRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddOnlineLanguageRequest) ProtoMessage() {}
-
-func (x *AddOnlineLanguageRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[156]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddOnlineLanguageRequest.ProtoReflect.Descriptor instead.
-func (*AddOnlineLanguageRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{156}
-}
-
-func (x *AddOnlineLanguageRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type AddOnlineLanguageResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddOnlineLanguageResponse) Reset() {
-	*x = AddOnlineLanguageResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[157]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddOnlineLanguageResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddOnlineLanguageResponse) ProtoMessage() {}
-
-func (x *AddOnlineLanguageResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[157]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddOnlineLanguageResponse.ProtoReflect.Descriptor instead.
-func (*AddOnlineLanguageResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{157}
-}
-
-func (x *AddOnlineLanguageResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type AddPendingOnDeviceLanguageRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddPendingOnDeviceLanguageRequest) Reset() {
-	*x = AddPendingOnDeviceLanguageRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[158]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddPendingOnDeviceLanguageRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddPendingOnDeviceLanguageRequest) ProtoMessage() {}
-
-func (x *AddPendingOnDeviceLanguageRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[158]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddPendingOnDeviceLanguageRequest.ProtoReflect.Descriptor instead.
-func (*AddPendingOnDeviceLanguageRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{158}
-}
-
-func (x *AddPendingOnDeviceLanguageRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type AddPendingOnDeviceLanguageResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddPendingOnDeviceLanguageResponse) Reset() {
-	*x = AddPendingOnDeviceLanguageResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[159]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddPendingOnDeviceLanguageResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddPendingOnDeviceLanguageResponse) ProtoMessage() {}
-
-func (x *AddPendingOnDeviceLanguageResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[159]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddPendingOnDeviceLanguageResponse.ProtoReflect.Descriptor instead.
-func (*AddPendingOnDeviceLanguageResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{159}
-}
-
-func (x *AddPendingOnDeviceLanguageResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type AddSupportedOnDeviceLanguageRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddSupportedOnDeviceLanguageRequest) Reset() {
-	*x = AddSupportedOnDeviceLanguageRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[160]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddSupportedOnDeviceLanguageRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddSupportedOnDeviceLanguageRequest) ProtoMessage() {}
-
-func (x *AddSupportedOnDeviceLanguageRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[160]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddSupportedOnDeviceLanguageRequest.ProtoReflect.Descriptor instead.
-func (*AddSupportedOnDeviceLanguageRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{160}
-}
-
-func (x *AddSupportedOnDeviceLanguageRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type AddSupportedOnDeviceLanguageResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddSupportedOnDeviceLanguageResponse) Reset() {
-	*x = AddSupportedOnDeviceLanguageResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[161]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddSupportedOnDeviceLanguageResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddSupportedOnDeviceLanguageResponse) ProtoMessage() {}
-
-func (x *AddSupportedOnDeviceLanguageResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[161]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddSupportedOnDeviceLanguageResponse.ProtoReflect.Descriptor instead.
-func (*AddSupportedOnDeviceLanguageResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{161}
-}
-
-func (x *AddSupportedOnDeviceLanguageResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type CreateContextRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CreateContextRequest) Reset() {
-	*x = CreateContextRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[162]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CreateContextRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateContextRequest) ProtoMessage() {}
-
-func (x *CreateContextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[162]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateContextRequest.ProtoReflect.Descriptor instead.
-func (*CreateContextRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{162}
-}
-
-func (x *CreateContextRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type CreateContextResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CreateContextResponse) Reset() {
-	*x = CreateContextResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[163]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CreateContextResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CreateContextResponse) ProtoMessage() {}
-
-func (x *CreateContextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[163]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CreateContextResponse.ProtoReflect.Descriptor instead.
-func (*CreateContextResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{163}
-}
-
-func (x *CreateContextResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetMaxConcurrentSessionsCountRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMaxConcurrentSessionsCountRequest) Reset() {
-	*x = GetMaxConcurrentSessionsCountRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[164]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMaxConcurrentSessionsCountRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMaxConcurrentSessionsCountRequest) ProtoMessage() {}
-
-func (x *GetMaxConcurrentSessionsCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[164]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMaxConcurrentSessionsCountRequest.ProtoReflect.Descriptor instead.
-func (*GetMaxConcurrentSessionsCountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{164}
-}
-
-type GetMaxConcurrentSessionsCountResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMaxConcurrentSessionsCountResponse) Reset() {
-	*x = GetMaxConcurrentSessionsCountResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[165]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMaxConcurrentSessionsCountResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMaxConcurrentSessionsCountResponse) ProtoMessage() {}
-
-func (x *GetMaxConcurrentSessionsCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[165]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMaxConcurrentSessionsCountResponse.ProtoReflect.Descriptor instead.
-func (*GetMaxConcurrentSessionsCountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{165}
-}
-
-func (x *GetMaxConcurrentSessionsCountResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type OnBindRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnBindRequest) Reset() {
-	*x = OnBindRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[166]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnBindRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnBindRequest) ProtoMessage() {}
-
-func (x *OnBindRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[166]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnBindRequest.ProtoReflect.Descriptor instead.
-func (*OnBindRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{166}
-}
-
-func (x *OnBindRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnBindResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnBindResponse) Reset() {
-	*x = OnBindResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[167]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnBindResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnBindResponse) ProtoMessage() {}
-
-func (x *OnBindResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[167]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnBindResponse.ProtoReflect.Descriptor instead.
-func (*OnBindResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{167}
-}
-
-func (x *OnBindResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type OnCheckRecognitionSupport3Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnCheckRecognitionSupport3Request) Reset() {
-	*x = OnCheckRecognitionSupport3Request{}
-	mi := &file_proto_speech_speech_proto_msgTypes[168]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnCheckRecognitionSupport3Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnCheckRecognitionSupport3Request) ProtoMessage() {}
-
-func (x *OnCheckRecognitionSupport3Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[168]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnCheckRecognitionSupport3Request.ProtoReflect.Descriptor instead.
-func (*OnCheckRecognitionSupport3Request) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{168}
-}
-
-func (x *OnCheckRecognitionSupport3Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *OnCheckRecognitionSupport3Request) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *OnCheckRecognitionSupport3Request) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type OnCheckRecognitionSupport3Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnCheckRecognitionSupport3Response) Reset() {
-	*x = OnCheckRecognitionSupport3Response{}
-	mi := &file_proto_speech_speech_proto_msgTypes[169]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnCheckRecognitionSupport3Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnCheckRecognitionSupport3Response) ProtoMessage() {}
-
-func (x *OnCheckRecognitionSupport3Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[169]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnCheckRecognitionSupport3Response.ProtoReflect.Descriptor instead.
-func (*OnCheckRecognitionSupport3Response) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{169}
-}
-
-type OnCheckRecognitionSupport2_1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnCheckRecognitionSupport2_1Request) Reset() {
-	*x = OnCheckRecognitionSupport2_1Request{}
-	mi := &file_proto_speech_speech_proto_msgTypes[170]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnCheckRecognitionSupport2_1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnCheckRecognitionSupport2_1Request) ProtoMessage() {}
-
-func (x *OnCheckRecognitionSupport2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[170]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnCheckRecognitionSupport2_1Request.ProtoReflect.Descriptor instead.
-func (*OnCheckRecognitionSupport2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{170}
-}
-
-func (x *OnCheckRecognitionSupport2_1Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *OnCheckRecognitionSupport2_1Request) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type OnCheckRecognitionSupport2_1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnCheckRecognitionSupport2_1Response) Reset() {
-	*x = OnCheckRecognitionSupport2_1Response{}
-	mi := &file_proto_speech_speech_proto_msgTypes[171]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnCheckRecognitionSupport2_1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnCheckRecognitionSupport2_1Response) ProtoMessage() {}
-
-func (x *OnCheckRecognitionSupport2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[171]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnCheckRecognitionSupport2_1Response.ProtoReflect.Descriptor instead.
-func (*OnCheckRecognitionSupport2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{171}
-}
-
-type OnDestroyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnDestroyRequest) Reset() {
-	*x = OnDestroyRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[172]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnDestroyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnDestroyRequest) ProtoMessage() {}
-
-func (x *OnDestroyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[172]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnDestroyRequest.ProtoReflect.Descriptor instead.
-func (*OnDestroyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{172}
-}
-
-type OnDestroyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnDestroyResponse) Reset() {
-	*x = OnDestroyResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[173]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnDestroyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnDestroyResponse) ProtoMessage() {}
-
-func (x *OnDestroyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[173]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnDestroyResponse.ProtoReflect.Descriptor instead.
-func (*OnDestroyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{173}
-}
-
-type OnTriggerModelDownload1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnTriggerModelDownload1Request) Reset() {
-	*x = OnTriggerModelDownload1Request{}
-	mi := &file_proto_speech_speech_proto_msgTypes[174]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnTriggerModelDownload1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnTriggerModelDownload1Request) ProtoMessage() {}
-
-func (x *OnTriggerModelDownload1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[174]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnTriggerModelDownload1Request.ProtoReflect.Descriptor instead.
-func (*OnTriggerModelDownload1Request) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{174}
-}
-
-func (x *OnTriggerModelDownload1Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnTriggerModelDownload1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnTriggerModelDownload1Response) Reset() {
-	*x = OnTriggerModelDownload1Response{}
-	mi := &file_proto_speech_speech_proto_msgTypes[175]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnTriggerModelDownload1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnTriggerModelDownload1Response) ProtoMessage() {}
-
-func (x *OnTriggerModelDownload1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[175]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnTriggerModelDownload1Response.ProtoReflect.Descriptor instead.
-func (*OnTriggerModelDownload1Response) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{175}
-}
-
-type OnTriggerModelDownload2_1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnTriggerModelDownload2_1Request) Reset() {
-	*x = OnTriggerModelDownload2_1Request{}
-	mi := &file_proto_speech_speech_proto_msgTypes[176]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnTriggerModelDownload2_1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnTriggerModelDownload2_1Request) ProtoMessage() {}
-
-func (x *OnTriggerModelDownload2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[176]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnTriggerModelDownload2_1Request.ProtoReflect.Descriptor instead.
-func (*OnTriggerModelDownload2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{176}
-}
-
-func (x *OnTriggerModelDownload2_1Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *OnTriggerModelDownload2_1Request) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type OnTriggerModelDownload2_1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnTriggerModelDownload2_1Response) Reset() {
-	*x = OnTriggerModelDownload2_1Response{}
-	mi := &file_proto_speech_speech_proto_msgTypes[177]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnTriggerModelDownload2_1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnTriggerModelDownload2_1Response) ProtoMessage() {}
-
-func (x *OnTriggerModelDownload2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[177]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnTriggerModelDownload2_1Response.ProtoReflect.Descriptor instead.
-func (*OnTriggerModelDownload2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{177}
-}
-
-type OnTriggerModelDownload3_2Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnTriggerModelDownload3_2Request) Reset() {
-	*x = OnTriggerModelDownload3_2Request{}
-	mi := &file_proto_speech_speech_proto_msgTypes[178]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnTriggerModelDownload3_2Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnTriggerModelDownload3_2Request) ProtoMessage() {}
-
-func (x *OnTriggerModelDownload3_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[178]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnTriggerModelDownload3_2Request.ProtoReflect.Descriptor instead.
-func (*OnTriggerModelDownload3_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{178}
-}
-
-func (x *OnTriggerModelDownload3_2Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *OnTriggerModelDownload3_2Request) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *OnTriggerModelDownload3_2Request) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type OnTriggerModelDownload3_2Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnTriggerModelDownload3_2Response) Reset() {
-	*x = OnTriggerModelDownload3_2Response{}
-	mi := &file_proto_speech_speech_proto_msgTypes[179]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnTriggerModelDownload3_2Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnTriggerModelDownload3_2Response) ProtoMessage() {}
-
-func (x *OnTriggerModelDownload3_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[179]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnTriggerModelDownload3_2Response.ProtoReflect.Descriptor instead.
-func (*OnTriggerModelDownload3_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{179}
-}
-
-type BeginningOfSpeechRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BeginningOfSpeechRequest) Reset() {
-	*x = BeginningOfSpeechRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[180]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BeginningOfSpeechRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BeginningOfSpeechRequest) ProtoMessage() {}
-
-func (x *BeginningOfSpeechRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[180]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BeginningOfSpeechRequest.ProtoReflect.Descriptor instead.
-func (*BeginningOfSpeechRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{180}
-}
-
-type BeginningOfSpeechResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BeginningOfSpeechResponse) Reset() {
-	*x = BeginningOfSpeechResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[181]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BeginningOfSpeechResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BeginningOfSpeechResponse) ProtoMessage() {}
-
-func (x *BeginningOfSpeechResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[181]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BeginningOfSpeechResponse.ProtoReflect.Descriptor instead.
-func (*BeginningOfSpeechResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{181}
-}
-
-type BufferReceivedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BufferReceivedRequest) Reset() {
-	*x = BufferReceivedRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[182]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BufferReceivedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BufferReceivedRequest) ProtoMessage() {}
-
-func (x *BufferReceivedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[182]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BufferReceivedRequest.ProtoReflect.Descriptor instead.
-func (*BufferReceivedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{182}
-}
-
-func (x *BufferReceivedRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type BufferReceivedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BufferReceivedResponse) Reset() {
-	*x = BufferReceivedResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[183]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BufferReceivedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BufferReceivedResponse) ProtoMessage() {}
-
-func (x *BufferReceivedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[183]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BufferReceivedResponse.ProtoReflect.Descriptor instead.
-func (*BufferReceivedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{183}
-}
-
-type EndOfSegmentedSessionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *EndOfSegmentedSessionRequest) Reset() {
-	*x = EndOfSegmentedSessionRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[184]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *EndOfSegmentedSessionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*EndOfSegmentedSessionRequest) ProtoMessage() {}
-
-func (x *EndOfSegmentedSessionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[184]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use EndOfSegmentedSessionRequest.ProtoReflect.Descriptor instead.
-func (*EndOfSegmentedSessionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{184}
-}
-
-type EndOfSegmentedSessionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *EndOfSegmentedSessionResponse) Reset() {
-	*x = EndOfSegmentedSessionResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[185]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *EndOfSegmentedSessionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*EndOfSegmentedSessionResponse) ProtoMessage() {}
-
-func (x *EndOfSegmentedSessionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[185]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use EndOfSegmentedSessionResponse.ProtoReflect.Descriptor instead.
-func (*EndOfSegmentedSessionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{185}
-}
-
-type EndOfSpeechRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *EndOfSpeechRequest) Reset() {
-	*x = EndOfSpeechRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[186]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *EndOfSpeechRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*EndOfSpeechRequest) ProtoMessage() {}
-
-func (x *EndOfSpeechRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[186]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use EndOfSpeechRequest.ProtoReflect.Descriptor instead.
-func (*EndOfSpeechRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{186}
-}
-
-type EndOfSpeechResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *EndOfSpeechResponse) Reset() {
-	*x = EndOfSpeechResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[187]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *EndOfSpeechResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*EndOfSpeechResponse) ProtoMessage() {}
-
-func (x *EndOfSpeechResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[187]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use EndOfSpeechResponse.ProtoReflect.Descriptor instead.
-func (*EndOfSpeechResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{187}
-}
-
-type ErrorRequest struct {
+type OnProgressRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ErrorRequest) Reset() {
-	*x = ErrorRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[188]
+func (x *OnProgressRequest) Reset() {
+	*x = OnProgressRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[238]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ErrorRequest) String() string {
+func (x *OnProgressRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ErrorRequest) ProtoMessage() {}
+func (*OnProgressRequest) ProtoMessage() {}
 
-func (x *ErrorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[188]
+func (x *OnProgressRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[238]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8535,39 +10599,39 @@ func (x *ErrorRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ErrorRequest.ProtoReflect.Descriptor instead.
-func (*ErrorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{188}
+// Deprecated: Use OnProgressRequest.ProtoReflect.Descriptor instead.
+func (*OnProgressRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{238}
 }
 
-func (x *ErrorRequest) GetArg0() int32 {
+func (x *OnProgressRequest) GetArg0() int32 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-type ErrorResponse struct {
+type OnProgressResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ErrorResponse) Reset() {
-	*x = ErrorResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[189]
+func (x *OnProgressResponse) Reset() {
+	*x = OnProgressResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[239]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ErrorResponse) String() string {
+func (x *OnProgressResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ErrorResponse) ProtoMessage() {}
+func (*OnProgressResponse) ProtoMessage() {}
 
-func (x *ErrorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[189]
+func (x *OnProgressResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[239]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8578,32 +10642,32 @@ func (x *ErrorResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ErrorResponse.ProtoReflect.Descriptor instead.
-func (*ErrorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{189}
+// Deprecated: Use OnProgressResponse.ProtoReflect.Descriptor instead.
+func (*OnProgressResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{239}
 }
 
-type GetCallingAttributionSourceRequest struct {
+type OnScheduledRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetCallingAttributionSourceRequest) Reset() {
-	*x = GetCallingAttributionSourceRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[190]
+func (x *OnScheduledRequest) Reset() {
+	*x = OnScheduledRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[240]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetCallingAttributionSourceRequest) String() string {
+func (x *OnScheduledRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetCallingAttributionSourceRequest) ProtoMessage() {}
+func (*OnScheduledRequest) ProtoMessage() {}
 
-func (x *GetCallingAttributionSourceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[190]
+func (x *OnScheduledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[240]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8614,33 +10678,32 @@ func (x *GetCallingAttributionSourceRequest) ProtoReflect() protoreflect.Message
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetCallingAttributionSourceRequest.ProtoReflect.Descriptor instead.
-func (*GetCallingAttributionSourceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{190}
+// Deprecated: Use OnScheduledRequest.ProtoReflect.Descriptor instead.
+func (*OnScheduledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{240}
 }
 
-type GetCallingAttributionSourceResponse struct {
+type OnScheduledResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetCallingAttributionSourceResponse) Reset() {
-	*x = GetCallingAttributionSourceResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[191]
+func (x *OnScheduledResponse) Reset() {
+	*x = OnScheduledResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[241]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetCallingAttributionSourceResponse) String() string {
+func (x *OnScheduledResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetCallingAttributionSourceResponse) ProtoMessage() {}
+func (*OnScheduledResponse) ProtoMessage() {}
 
-func (x *GetCallingAttributionSourceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[191]
+func (x *OnScheduledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[241]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8651,39 +10714,32 @@ func (x *GetCallingAttributionSourceResponse) ProtoReflect() protoreflect.Messag
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetCallingAttributionSourceResponse.ProtoReflect.Descriptor instead.
-func (*GetCallingAttributionSourceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{191}
+// Deprecated: Use OnScheduledResponse.ProtoReflect.Descriptor instead.
+func (*OnScheduledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{241}
 }
 
-func (x *GetCallingAttributionSourceResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetCallingUidRequest struct {
+type OnSuccessRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetCallingUidRequest) Reset() {
-	*x = GetCallingUidRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[192]
+func (x *OnSuccessRequest) Reset() {
+	*x = OnSuccessRequest{}
+	mi := &file_proto_speech_speech_proto_msgTypes[242]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetCallingUidRequest) String() string {
+func (x *OnSuccessRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetCallingUidRequest) ProtoMessage() {}
+func (*OnSuccessRequest) ProtoMessage() {}
 
-func (x *GetCallingUidRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[192]
+func (x *OnSuccessRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[242]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8694,33 +10750,32 @@ func (x *GetCallingUidRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetCallingUidRequest.ProtoReflect.Descriptor instead.
-func (*GetCallingUidRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{192}
+// Deprecated: Use OnSuccessRequest.ProtoReflect.Descriptor instead.
+func (*OnSuccessRequest) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{242}
 }
 
-type GetCallingUidResponse struct {
+type OnSuccessResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetCallingUidResponse) Reset() {
-	*x = GetCallingUidResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[193]
+func (x *OnSuccessResponse) Reset() {
+	*x = OnSuccessResponse{}
+	mi := &file_proto_speech_speech_proto_msgTypes[243]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetCallingUidResponse) String() string {
+func (x *OnSuccessResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetCallingUidResponse) ProtoMessage() {}
+func (*OnSuccessResponse) ProtoMessage() {}
 
-func (x *GetCallingUidResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[193]
+func (x *OnSuccessResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_speech_speech_proto_msgTypes[243]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8731,1215 +10786,142 @@ func (x *GetCallingUidResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetCallingUidResponse.ProtoReflect.Descriptor instead.
-func (*GetCallingUidResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{193}
-}
-
-func (x *GetCallingUidResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type LanguageDetectionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *LanguageDetectionRequest) Reset() {
-	*x = LanguageDetectionRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[194]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *LanguageDetectionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*LanguageDetectionRequest) ProtoMessage() {}
-
-func (x *LanguageDetectionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[194]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use LanguageDetectionRequest.ProtoReflect.Descriptor instead.
-func (*LanguageDetectionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{194}
-}
-
-func (x *LanguageDetectionRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type LanguageDetectionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *LanguageDetectionResponse) Reset() {
-	*x = LanguageDetectionResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[195]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *LanguageDetectionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*LanguageDetectionResponse) ProtoMessage() {}
-
-func (x *LanguageDetectionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[195]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use LanguageDetectionResponse.ProtoReflect.Descriptor instead.
-func (*LanguageDetectionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{195}
-}
-
-type PartialResultsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PartialResultsRequest) Reset() {
-	*x = PartialResultsRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[196]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PartialResultsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PartialResultsRequest) ProtoMessage() {}
-
-func (x *PartialResultsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[196]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PartialResultsRequest.ProtoReflect.Descriptor instead.
-func (*PartialResultsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{196}
-}
-
-func (x *PartialResultsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type PartialResultsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PartialResultsResponse) Reset() {
-	*x = PartialResultsResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[197]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PartialResultsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PartialResultsResponse) ProtoMessage() {}
-
-func (x *PartialResultsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[197]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PartialResultsResponse.ProtoReflect.Descriptor instead.
-func (*PartialResultsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{197}
-}
-
-type ReadyForSpeechRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ReadyForSpeechRequest) Reset() {
-	*x = ReadyForSpeechRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[198]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ReadyForSpeechRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ReadyForSpeechRequest) ProtoMessage() {}
-
-func (x *ReadyForSpeechRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[198]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ReadyForSpeechRequest.ProtoReflect.Descriptor instead.
-func (*ReadyForSpeechRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{198}
-}
-
-func (x *ReadyForSpeechRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type ReadyForSpeechResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ReadyForSpeechResponse) Reset() {
-	*x = ReadyForSpeechResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[199]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ReadyForSpeechResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ReadyForSpeechResponse) ProtoMessage() {}
-
-func (x *ReadyForSpeechResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[199]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ReadyForSpeechResponse.ProtoReflect.Descriptor instead.
-func (*ReadyForSpeechResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{199}
-}
-
-type ResultsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ResultsRequest) Reset() {
-	*x = ResultsRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[200]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ResultsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ResultsRequest) ProtoMessage() {}
-
-func (x *ResultsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[200]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ResultsRequest.ProtoReflect.Descriptor instead.
-func (*ResultsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{200}
-}
-
-func (x *ResultsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type ResultsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ResultsResponse) Reset() {
-	*x = ResultsResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[201]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ResultsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ResultsResponse) ProtoMessage() {}
-
-func (x *ResultsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[201]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ResultsResponse.ProtoReflect.Descriptor instead.
-func (*ResultsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{201}
-}
-
-type RmsChangedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RmsChangedRequest) Reset() {
-	*x = RmsChangedRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[202]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RmsChangedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RmsChangedRequest) ProtoMessage() {}
-
-func (x *RmsChangedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[202]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RmsChangedRequest.ProtoReflect.Descriptor instead.
-func (*RmsChangedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{202}
-}
-
-func (x *RmsChangedRequest) GetArg0() float32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type RmsChangedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RmsChangedResponse) Reset() {
-	*x = RmsChangedResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[203]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RmsChangedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RmsChangedResponse) ProtoMessage() {}
-
-func (x *RmsChangedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[203]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RmsChangedResponse.ProtoReflect.Descriptor instead.
-func (*RmsChangedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{203}
-}
-
-type SegmentResultsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SegmentResultsRequest) Reset() {
-	*x = SegmentResultsRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[204]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SegmentResultsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SegmentResultsRequest) ProtoMessage() {}
-
-func (x *SegmentResultsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[204]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SegmentResultsRequest.ProtoReflect.Descriptor instead.
-func (*SegmentResultsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{204}
-}
-
-func (x *SegmentResultsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SegmentResultsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SegmentResultsResponse) Reset() {
-	*x = SegmentResultsResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[205]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SegmentResultsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SegmentResultsResponse) ProtoMessage() {}
-
-func (x *SegmentResultsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[205]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SegmentResultsResponse.ProtoReflect.Descriptor instead.
-func (*SegmentResultsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{205}
-}
-
-type OnSupportResultRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnSupportResultRequest) Reset() {
-	*x = OnSupportResultRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[206]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnSupportResultRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnSupportResultRequest) ProtoMessage() {}
-
-func (x *OnSupportResultRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[206]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnSupportResultRequest.ProtoReflect.Descriptor instead.
-func (*OnSupportResultRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{206}
-}
-
-func (x *OnSupportResultRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnSupportResultResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnSupportResultResponse) Reset() {
-	*x = OnSupportResultResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[207]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnSupportResultResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnSupportResultResponse) ProtoMessage() {}
-
-func (x *OnSupportResultResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[207]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnSupportResultResponse.ProtoReflect.Descriptor instead.
-func (*OnSupportResultResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{207}
-}
-
-type OnBeginningOfSpeechRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnBeginningOfSpeechRequest) Reset() {
-	*x = OnBeginningOfSpeechRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[208]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnBeginningOfSpeechRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnBeginningOfSpeechRequest) ProtoMessage() {}
-
-func (x *OnBeginningOfSpeechRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[208]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnBeginningOfSpeechRequest.ProtoReflect.Descriptor instead.
-func (*OnBeginningOfSpeechRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{208}
-}
-
-type OnBeginningOfSpeechResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnBeginningOfSpeechResponse) Reset() {
-	*x = OnBeginningOfSpeechResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[209]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnBeginningOfSpeechResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnBeginningOfSpeechResponse) ProtoMessage() {}
-
-func (x *OnBeginningOfSpeechResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[209]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnBeginningOfSpeechResponse.ProtoReflect.Descriptor instead.
-func (*OnBeginningOfSpeechResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{209}
-}
-
-type OnBufferReceivedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnBufferReceivedRequest) Reset() {
-	*x = OnBufferReceivedRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[210]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnBufferReceivedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnBufferReceivedRequest) ProtoMessage() {}
-
-func (x *OnBufferReceivedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[210]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnBufferReceivedRequest.ProtoReflect.Descriptor instead.
-func (*OnBufferReceivedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{210}
-}
-
-func (x *OnBufferReceivedRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnBufferReceivedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnBufferReceivedResponse) Reset() {
-	*x = OnBufferReceivedResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[211]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnBufferReceivedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnBufferReceivedResponse) ProtoMessage() {}
-
-func (x *OnBufferReceivedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[211]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnBufferReceivedResponse.ProtoReflect.Descriptor instead.
-func (*OnBufferReceivedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{211}
-}
-
-type OnEndOfSpeechRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnEndOfSpeechRequest) Reset() {
-	*x = OnEndOfSpeechRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[212]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnEndOfSpeechRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnEndOfSpeechRequest) ProtoMessage() {}
-
-func (x *OnEndOfSpeechRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[212]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnEndOfSpeechRequest.ProtoReflect.Descriptor instead.
-func (*OnEndOfSpeechRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{212}
-}
-
-type OnEndOfSpeechResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnEndOfSpeechResponse) Reset() {
-	*x = OnEndOfSpeechResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[213]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnEndOfSpeechResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnEndOfSpeechResponse) ProtoMessage() {}
-
-func (x *OnEndOfSpeechResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[213]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnEndOfSpeechResponse.ProtoReflect.Descriptor instead.
-func (*OnEndOfSpeechResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{213}
-}
-
-type OnEventRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnEventRequest) Reset() {
-	*x = OnEventRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[214]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnEventRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnEventRequest) ProtoMessage() {}
-
-func (x *OnEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[214]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnEventRequest.ProtoReflect.Descriptor instead.
-func (*OnEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{214}
-}
-
-func (x *OnEventRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *OnEventRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type OnEventResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnEventResponse) Reset() {
-	*x = OnEventResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[215]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnEventResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnEventResponse) ProtoMessage() {}
-
-func (x *OnEventResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[215]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnEventResponse.ProtoReflect.Descriptor instead.
-func (*OnEventResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{215}
-}
-
-type OnPartialResultsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnPartialResultsRequest) Reset() {
-	*x = OnPartialResultsRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[216]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnPartialResultsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnPartialResultsRequest) ProtoMessage() {}
-
-func (x *OnPartialResultsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[216]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnPartialResultsRequest.ProtoReflect.Descriptor instead.
-func (*OnPartialResultsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{216}
-}
-
-func (x *OnPartialResultsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnPartialResultsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnPartialResultsResponse) Reset() {
-	*x = OnPartialResultsResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[217]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnPartialResultsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnPartialResultsResponse) ProtoMessage() {}
-
-func (x *OnPartialResultsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[217]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnPartialResultsResponse.ProtoReflect.Descriptor instead.
-func (*OnPartialResultsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{217}
-}
-
-type OnReadyForSpeechRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnReadyForSpeechRequest) Reset() {
-	*x = OnReadyForSpeechRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[218]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnReadyForSpeechRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnReadyForSpeechRequest) ProtoMessage() {}
-
-func (x *OnReadyForSpeechRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[218]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnReadyForSpeechRequest.ProtoReflect.Descriptor instead.
-func (*OnReadyForSpeechRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{218}
-}
-
-func (x *OnReadyForSpeechRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnReadyForSpeechResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnReadyForSpeechResponse) Reset() {
-	*x = OnReadyForSpeechResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[219]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnReadyForSpeechResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnReadyForSpeechResponse) ProtoMessage() {}
-
-func (x *OnReadyForSpeechResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[219]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnReadyForSpeechResponse.ProtoReflect.Descriptor instead.
-func (*OnReadyForSpeechResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{219}
-}
-
-type OnResultsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnResultsRequest) Reset() {
-	*x = OnResultsRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[220]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnResultsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnResultsRequest) ProtoMessage() {}
-
-func (x *OnResultsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[220]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnResultsRequest.ProtoReflect.Descriptor instead.
-func (*OnResultsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{220}
-}
-
-func (x *OnResultsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnResultsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnResultsResponse) Reset() {
-	*x = OnResultsResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[221]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnResultsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnResultsResponse) ProtoMessage() {}
-
-func (x *OnResultsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[221]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnResultsResponse.ProtoReflect.Descriptor instead.
-func (*OnResultsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{221}
-}
-
-type OnRmsChangedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          float32                `protobuf:"fixed32,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnRmsChangedRequest) Reset() {
-	*x = OnRmsChangedRequest{}
-	mi := &file_proto_speech_speech_proto_msgTypes[222]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnRmsChangedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnRmsChangedRequest) ProtoMessage() {}
-
-func (x *OnRmsChangedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[222]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnRmsChangedRequest.ProtoReflect.Descriptor instead.
-func (*OnRmsChangedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{222}
-}
-
-func (x *OnRmsChangedRequest) GetArg0() float32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnRmsChangedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnRmsChangedResponse) Reset() {
-	*x = OnRmsChangedResponse{}
-	mi := &file_proto_speech_speech_proto_msgTypes[223]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnRmsChangedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnRmsChangedResponse) ProtoMessage() {}
-
-func (x *OnRmsChangedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_speech_speech_proto_msgTypes[223]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnRmsChangedResponse.ProtoReflect.Descriptor instead.
-func (*OnRmsChangedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_speech_speech_proto_rawDescGZIP(), []int{223}
+// Deprecated: Use OnSuccessResponse.ProtoReflect.Descriptor instead.
+func (*OnSuccessResponse) Descriptor() ([]byte, []int) {
+	return file_proto_speech_speech_proto_rawDescGZIP(), []int{243}
 }
 
 var File_proto_speech_speech_proto protoreflect.FileDescriptor
 
 const file_proto_speech_speech_proto_rawDesc = "" +
 	"\n" +
-	"\x19proto/speech/speech.proto\x12\x06speech\"\x0f\n" +
+	"\x19proto/speech/speech.proto\x12\x06speech\"$\n" +
+	"\x0eOnErrorRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x11\n" +
+	"\x0fOnErrorResponse\",\n" +
+	"\x16OnSupportResultRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x19\n" +
+	"\x17OnSupportResultResponse\"\x19\n" +
+	"\x17DescribeContentsRequest\"2\n" +
+	"\x18DescribeContentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"#\n" +
+	"\rEqualsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eEqualsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"&\n" +
+	"$GetInstalledOnDeviceLanguagesRequest\"?\n" +
+	"%GetInstalledOnDeviceLanguagesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
+	"\x19GetOnlineLanguagesRequest\"4\n" +
+	"\x1aGetOnlineLanguagesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
+	"\"GetPendingOnDeviceLanguagesRequest\"=\n" +
+	"#GetPendingOnDeviceLanguagesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"&\n" +
+	"$GetSupportedOnDeviceLanguagesRequest\"?\n" +
+	"%GetSupportedOnDeviceLanguagesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
+	"\x0fHashCodeRequest\"*\n" +
+	"\x10HashCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
+	"\x0fToStringRequest\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\">\n" +
+	"\x14WriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse\"9\n" +
+	"#AddInstalledOnDeviceLanguageRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\">\n" +
+	"$AddInstalledOnDeviceLanguageResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x18AddOnlineLanguageRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"3\n" +
+	"\x19AddOnlineLanguageResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
+	"!AddPendingOnDeviceLanguageRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"<\n" +
+	"\"AddPendingOnDeviceLanguageResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"9\n" +
+	"#AddSupportedOnDeviceLanguageRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\">\n" +
+	"$AddSupportedOnDeviceLanguageResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0e\n" +
+	"\fBuildRequest\"'\n" +
+	"\rBuildResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
+	"\x19GetConfidenceLevelRequest\"4\n" +
+	"\x1aGetConfidenceLevelResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x19\n" +
+	"\x17GetFormattedTextRequest\"2\n" +
+	"\x18GetFormattedTextResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x13\n" +
+	"\x11GetRawTextRequest\",\n" +
+	"\x12GetRawTextResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x1b\n" +
+	"\x19GetTimestampMillisRequest\"4\n" +
+	"\x1aGetTimestampMillisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"\x19SetConfidenceLevelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"4\n" +
+	"\x1aSetConfidenceLevelResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
+	"\x17SetFormattedTextRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"2\n" +
+	"\x18SetFormattedTextResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"'\n" +
+	"\x11SetRawTextRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\",\n" +
+	"\x12SetRawTextResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"\x19SetTimestampMillisRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"4\n" +
+	"\x1aSetTimestampMillisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1c\n" +
+	"\x1aOnBeginningOfSpeechRequest\"\x1d\n" +
+	"\x1bOnBeginningOfSpeechResponse\"-\n" +
+	"\x17OnBufferReceivedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1a\n" +
+	"\x18OnBufferReceivedResponse\"\x16\n" +
+	"\x14OnEndOfSpeechRequest\"\x17\n" +
+	"\x15OnEndOfSpeechResponse\"8\n" +
+	"\x0eOnEventRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x11\n" +
+	"\x0fOnEventResponse\"-\n" +
+	"\x17OnPartialResultsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1a\n" +
+	"\x18OnPartialResultsResponse\"-\n" +
+	"\x17OnReadyForSpeechRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1a\n" +
+	"\x18OnReadyForSpeechResponse\"&\n" +
+	"\x10OnResultsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x13\n" +
+	"\x11OnResultsResponse\")\n" +
+	"\x13OnRmsChangedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x02R\x04arg0\"\x16\n" +
+	"\x14OnRmsChangedResponse\"0\n" +
+	"\x1aNewAlternativeSpansRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"5\n" +
+	"\x1bNewAlternativeSpansResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"A\n" +
+	"'AlternativeSpansDescribeContentsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"K\n" +
+	"\x1dAlternativeSpansEqualsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\")\n" +
+	"\x0fGetSpansRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10GetSpansResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"9\n" +
+	"\x1fAlternativeSpansHashCodeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"9\n" +
+	"\x1fAlternativeSpansToStringRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"f\n" +
+	"$AlternativeSpansWriteToParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x0f\n" +
 	"\rCancelRequest\"\x10\n" +
 	"\x0eCancelResponse\"\\\n" +
 	"\x1eCheckRecognitionSupportRequest\x12\x12\n" +
@@ -9985,86 +10967,77 @@ const file_proto_speech_speech_proto_rawDesc = "" +
 	"\x1dIsRecognitionAvailableRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"8\n" +
 	"\x1eIsRecognitionAvailableResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"$\n" +
-	"\x0eOnErrorRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x11\n" +
-	"\x0fOnErrorResponse\"'\n" +
-	"\x11OnProgressRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x14\n" +
-	"\x12OnProgressResponse\"\x14\n" +
-	"\x12OnScheduledRequest\"\x15\n" +
-	"\x13OnScheduledResponse\"\x12\n" +
-	"\x10OnSuccessRequest\"\x13\n" +
-	"\x11OnSuccessResponse\"\x19\n" +
-	"\x17DescribeContentsRequest\"2\n" +
-	"\x18DescribeContentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"*\n" +
+	"\x14CreateContextRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"/\n" +
+	"\x15CreateContextResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"&\n" +
+	"$GetMaxConcurrentSessionsCountRequest\"?\n" +
+	"%GetMaxConcurrentSessionsCountResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"#\n" +
-	"\rEqualsRequest\x12\x12\n" +
+	"\rOnBindRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
-	"\x0eEqualsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x1b\n" +
-	"\x19GetConfidenceLevelRequest\"4\n" +
-	"\x1aGetConfidenceLevelResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x19\n" +
-	"\x17GetFormattedTextRequest\"2\n" +
-	"\x18GetFormattedTextResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x13\n" +
-	"\x11GetRawTextRequest\",\n" +
-	"\x12GetRawTextResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x1b\n" +
-	"\x19GetTimestampMillisRequest\"4\n" +
-	"\x1aGetTimestampMillisResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
-	"\x0fHashCodeRequest\"*\n" +
-	"\x10HashCodeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
-	"\x0fToStringRequest\"*\n" +
-	"\x10ToStringResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\">\n" +
-	"\x14WriteToParcelRequest\x12\x12\n" +
+	"\x0eOnBindResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"_\n" +
+	"!OnCheckRecognitionSupport3Request\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
-	"\x15WriteToParcelResponse\"\x0e\n" +
-	"\fBuildRequest\"'\n" +
-	"\rBuildResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
-	"\x19SetConfidenceLevelRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"4\n" +
-	"\x1aSetConfidenceLevelResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
-	"\x17SetFormattedTextRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"2\n" +
-	"\x18SetFormattedTextResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"'\n" +
-	"\x11SetRawTextRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\",\n" +
-	"\x12SetRawTextResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
-	"\x19SetTimestampMillisRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"4\n" +
-	"\x1aSetTimestampMillisResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
-	"\x1cGetVoiceDetailsIntentRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"7\n" +
-	"\x1dGetVoiceDetailsIntentResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
-	"\x1aNewAlternativeSpansRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"5\n" +
-	"\x1bNewAlternativeSpansResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"A\n" +
-	"'AlternativeSpansDescribeContentsRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"K\n" +
-	"\x1dAlternativeSpansEqualsRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"9\n" +
-	"\x1fAlternativeSpansHashCodeRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"9\n" +
-	"\x1fAlternativeSpansToStringRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"f\n" +
-	"$AlternativeSpansWriteToParcelRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"W\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"$\n" +
+	"\"OnCheckRecognitionSupport3Response\"M\n" +
+	"#OnCheckRecognitionSupport2_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"&\n" +
+	"$OnCheckRecognitionSupport2_1Response\"\x12\n" +
+	"\x10OnDestroyRequest\"\x13\n" +
+	"\x11OnDestroyResponse\"4\n" +
+	"\x1eOnTriggerModelDownload1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"!\n" +
+	"\x1fOnTriggerModelDownload1Response\"J\n" +
+	" OnTriggerModelDownload2_1Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"#\n" +
+	"!OnTriggerModelDownload2_1Response\"^\n" +
+	" OnTriggerModelDownload3_2Request\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"#\n" +
+	"!OnTriggerModelDownload3_2Response\"\x1a\n" +
+	"\x18BeginningOfSpeechRequest\"\x1b\n" +
+	"\x19BeginningOfSpeechResponse\"+\n" +
+	"\x15BufferReceivedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x18\n" +
+	"\x16BufferReceivedResponse\"\x1e\n" +
+	"\x1cEndOfSegmentedSessionRequest\"\x1f\n" +
+	"\x1dEndOfSegmentedSessionResponse\"\x14\n" +
+	"\x12EndOfSpeechRequest\"\x15\n" +
+	"\x13EndOfSpeechResponse\"\"\n" +
+	"\fErrorRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x0f\n" +
+	"\rErrorResponse\"$\n" +
+	"\"GetCallingAttributionSourceRequest\"=\n" +
+	"#GetCallingAttributionSourceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
+	"\x14GetCallingUidRequest\"/\n" +
+	"\x15GetCallingUidResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\".\n" +
+	"\x18LanguageDetectionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1b\n" +
+	"\x19LanguageDetectionResponse\"+\n" +
+	"\x15PartialResultsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x18\n" +
+	"\x16PartialResultsResponse\"+\n" +
+	"\x15ReadyForSpeechRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x18\n" +
+	"\x16ReadyForSpeechResponse\"$\n" +
+	"\x0eResultsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x11\n" +
+	"\x0fResultsResponse\"'\n" +
+	"\x11RmsChangedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x02R\x04arg0\"\x14\n" +
+	"\x12RmsChangedResponse\"+\n" +
+	"\x15SegmentResultsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x18\n" +
+	"\x16SegmentResultsResponse\"W\n" +
 	"\x19NewAlternativeSpanRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
@@ -10075,7 +11048,11 @@ const file_proto_speech_speech_proto_rawDesc = "" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"J\n" +
 	"\x1cAlternativeSpanEqualsRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"/\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"0\n" +
+	"\x16GetAlternativesRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
+	"\x17GetAlternativesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
 	"\x15GetEndPositionRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
 	"\x16GetEndPositionResponse\x12\x16\n" +
@@ -10091,7 +11068,11 @@ const file_proto_speech_speech_proto_rawDesc = "" +
 	"#AlternativeSpanWriteToParcelRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
 	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"@\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"2\n" +
+	"\x1cGetVoiceDetailsIntentRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"7\n" +
+	"\x1dGetVoiceDetailsIntentResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
 	"\x16NewTextToSpeechRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"1\n" +
@@ -10157,7 +11138,11 @@ const file_proto_speech_speech_proto_rawDesc = "" +
 	"\x1aAreDefaultsEnforcedRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"5\n" +
 	"\x1bAreDefaultsEnforcedResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"1\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"6\n" +
+	"\x1cGetAvailableLanguagesRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"7\n" +
+	"\x1dGetAvailableLanguagesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
 	"\x17GetDefaultEngineRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
 	"\x18GetDefaultEngineResponse\x12\x16\n" +
@@ -10169,6 +11154,15 @@ const file_proto_speech_speech_proto_rawDesc = "" +
 	"\x16GetDefaultVoiceRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
 	"\x17GetDefaultVoiceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x11GetEnginesRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
+	"\x12GetEnginesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
+	"\x12GetFeaturesRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"-\n" +
+	"\x13GetFeaturesResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
 	"\x12GetLanguageRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
@@ -10177,6 +11171,10 @@ const file_proto_speech_speech_proto_rawDesc = "" +
 	"\x0fGetVoiceRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
 	"\x10GetVoiceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"\x10GetVoicesRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
+	"\x11GetVoicesResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"H\n" +
 	"\x1aIsLanguageAvailableRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
@@ -10282,140 +11280,33 @@ const file_proto_speech_speech_proto_rawDesc = "" +
 	"\x0eOnInitResponse\"1\n" +
 	"\x1bOnUtteranceCompletedRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"\x1e\n" +
-	"\x1cOnUtteranceCompletedResponse\"9\n" +
-	"#AddInstalledOnDeviceLanguageRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\">\n" +
-	"$AddInstalledOnDeviceLanguageResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
-	"\x18AddOnlineLanguageRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"3\n" +
-	"\x19AddOnlineLanguageResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
-	"!AddPendingOnDeviceLanguageRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"<\n" +
-	"\"AddPendingOnDeviceLanguageResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"9\n" +
-	"#AddSupportedOnDeviceLanguageRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\">\n" +
-	"$AddSupportedOnDeviceLanguageResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
-	"\x14CreateContextRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"/\n" +
-	"\x15CreateContextResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"&\n" +
-	"$GetMaxConcurrentSessionsCountRequest\"?\n" +
-	"%GetMaxConcurrentSessionsCountResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"#\n" +
-	"\rOnBindRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
-	"\x0eOnBindResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"_\n" +
-	"!OnCheckRecognitionSupport3Request\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"$\n" +
-	"\"OnCheckRecognitionSupport3Response\"M\n" +
-	"#OnCheckRecognitionSupport2_1Request\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"&\n" +
-	"$OnCheckRecognitionSupport2_1Response\"\x12\n" +
-	"\x10OnDestroyRequest\"\x13\n" +
-	"\x11OnDestroyResponse\"4\n" +
-	"\x1eOnTriggerModelDownload1Request\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"!\n" +
-	"\x1fOnTriggerModelDownload1Response\"J\n" +
-	" OnTriggerModelDownload2_1Request\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"#\n" +
-	"!OnTriggerModelDownload2_1Response\"^\n" +
-	" OnTriggerModelDownload3_2Request\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"#\n" +
-	"!OnTriggerModelDownload3_2Response\"\x1a\n" +
-	"\x18BeginningOfSpeechRequest\"\x1b\n" +
-	"\x19BeginningOfSpeechResponse\"+\n" +
-	"\x15BufferReceivedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x18\n" +
-	"\x16BufferReceivedResponse\"\x1e\n" +
-	"\x1cEndOfSegmentedSessionRequest\"\x1f\n" +
-	"\x1dEndOfSegmentedSessionResponse\"\x14\n" +
-	"\x12EndOfSpeechRequest\"\x15\n" +
-	"\x13EndOfSpeechResponse\"\"\n" +
-	"\fErrorRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x0f\n" +
-	"\rErrorResponse\"$\n" +
-	"\"GetCallingAttributionSourceRequest\"=\n" +
-	"#GetCallingAttributionSourceResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
-	"\x14GetCallingUidRequest\"/\n" +
-	"\x15GetCallingUidResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\".\n" +
-	"\x18LanguageDetectionRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1b\n" +
-	"\x19LanguageDetectionResponse\"+\n" +
-	"\x15PartialResultsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x18\n" +
-	"\x16PartialResultsResponse\"+\n" +
-	"\x15ReadyForSpeechRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x18\n" +
-	"\x16ReadyForSpeechResponse\"$\n" +
-	"\x0eResultsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x11\n" +
-	"\x0fResultsResponse\"'\n" +
-	"\x11RmsChangedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x02R\x04arg0\"\x14\n" +
-	"\x12RmsChangedResponse\"+\n" +
-	"\x15SegmentResultsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x18\n" +
-	"\x16SegmentResultsResponse\",\n" +
-	"\x16OnSupportResultRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x19\n" +
-	"\x17OnSupportResultResponse\"\x1c\n" +
-	"\x1aOnBeginningOfSpeechRequest\"\x1d\n" +
-	"\x1bOnBeginningOfSpeechResponse\"-\n" +
-	"\x17OnBufferReceivedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1a\n" +
-	"\x18OnBufferReceivedResponse\"\x16\n" +
-	"\x14OnEndOfSpeechRequest\"\x17\n" +
-	"\x15OnEndOfSpeechResponse\"8\n" +
-	"\x0eOnEventRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x11\n" +
-	"\x0fOnEventResponse\"-\n" +
-	"\x17OnPartialResultsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1a\n" +
-	"\x18OnPartialResultsResponse\"-\n" +
-	"\x17OnReadyForSpeechRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1a\n" +
-	"\x18OnReadyForSpeechResponse\"&\n" +
-	"\x10OnResultsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x13\n" +
-	"\x11OnResultsResponse\")\n" +
-	"\x13OnRmsChangedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x02R\x04arg0\"\x16\n" +
-	"\x14OnRmsChangedResponse2\x97\n" +
-	"\n" +
-	"\x11RecognizerService\x127\n" +
-	"\x06Cancel\x12\x15.speech.CancelRequest\x1a\x16.speech.CancelResponse\x12j\n" +
-	"\x17CheckRecognitionSupport\x12&.speech.CheckRecognitionSupportRequest\x1a'.speech.CheckRecognitionSupportResponse\x12:\n" +
-	"\aDestroy\x12\x16.speech.DestroyRequest\x1a\x17.speech.DestroyResponse\x12g\n" +
-	"\x16SetRecognitionListener\x12%.speech.SetRecognitionListenerRequest\x1a&.speech.SetRecognitionListenerResponse\x12O\n" +
-	"\x0eStartListening\x12\x1d.speech.StartListeningRequest\x1a\x1e.speech.StartListeningResponse\x12L\n" +
-	"\rStopListening\x12\x1c.speech.StopListeningRequest\x1a\x1d.speech.StopListeningResponse\x12d\n" +
-	"\x15TriggerModelDownload1\x12$.speech.TriggerModelDownload1Request\x1a%.speech.TriggerModelDownload1Response\x12j\n" +
-	"\x17TriggerModelDownload3_1\x12&.speech.TriggerModelDownload3_1Request\x1a'.speech.TriggerModelDownload3_1Response\x12\x7f\n" +
-	"\x1eCreateOnDeviceSpeechRecognizer\x12-.speech.CreateOnDeviceSpeechRecognizerRequest\x1a..speech.CreateOnDeviceSpeechRecognizerResponse\x12j\n" +
-	"\x17CreateSpeechRecognizer1\x12&.speech.CreateSpeechRecognizer1Request\x1a'.speech.CreateSpeechRecognizer1Response\x12p\n" +
-	"\x19CreateSpeechRecognizer2_1\x12(.speech.CreateSpeechRecognizer2_1Request\x1a).speech.CreateSpeechRecognizer2_1Response\x12\x7f\n" +
-	"\x1eIsOnDeviceRecognitionAvailable\x12-.speech.IsOnDeviceRecognitionAvailableRequest\x1a..speech.IsOnDeviceRecognitionAvailableResponse\x12g\n" +
-	"\x16IsRecognitionAvailable\x12%.speech.IsRecognitionAvailableRequest\x1a&.speech.IsRecognitionAvailableResponse2\xa9\x02\n" +
-	"\x1cModelDownloadListenerService\x12:\n" +
-	"\aOnError\x12\x16.speech.OnErrorRequest\x1a\x17.speech.OnErrorResponse\x12C\n" +
-	"\n" +
-	"OnProgress\x12\x19.speech.OnProgressRequest\x1a\x1a.speech.OnProgressResponse\x12F\n" +
-	"\vOnScheduled\x12\x1a.speech.OnScheduledRequest\x1a\x1b.speech.OnScheduledResponse\x12@\n" +
-	"\tOnSuccess\x12\x18.speech.OnSuccessRequest\x1a\x19.speech.OnSuccessResponse2\xca\x05\n" +
+	"\x1cOnUtteranceCompletedResponse\"'\n" +
+	"\x11OnProgressRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x14\n" +
+	"\x12OnProgressResponse\"\x14\n" +
+	"\x12OnScheduledRequest\"\x15\n" +
+	"\x13OnScheduledResponse\"\x12\n" +
+	"\x10OnSuccessRequest\"\x13\n" +
+	"\x11OnSuccessResponse2\xb3\x01\n" +
+	"!RecognitionSupportCallbackService\x12:\n" +
+	"\aOnError\x12\x16.speech.OnErrorRequest\x1a\x17.speech.OnErrorResponse\x12R\n" +
+	"\x0fOnSupportResult\x12\x1e.speech.OnSupportResultRequest\x1a\x1f.speech.OnSupportResultResponse2\xc8\x06\n" +
+	"\x19RecognitionSupportService\x12U\n" +
+	"\x10DescribeContents\x12\x1f.speech.DescribeContentsRequest\x1a .speech.DescribeContentsResponse\x127\n" +
+	"\x06Equals\x12\x15.speech.EqualsRequest\x1a\x16.speech.EqualsResponse\x12|\n" +
+	"\x1dGetInstalledOnDeviceLanguages\x12,.speech.GetInstalledOnDeviceLanguagesRequest\x1a-.speech.GetInstalledOnDeviceLanguagesResponse\x12[\n" +
+	"\x12GetOnlineLanguages\x12!.speech.GetOnlineLanguagesRequest\x1a\".speech.GetOnlineLanguagesResponse\x12v\n" +
+	"\x1bGetPendingOnDeviceLanguages\x12*.speech.GetPendingOnDeviceLanguagesRequest\x1a+.speech.GetPendingOnDeviceLanguagesResponse\x12|\n" +
+	"\x1dGetSupportedOnDeviceLanguages\x12,.speech.GetSupportedOnDeviceLanguagesRequest\x1a-.speech.GetSupportedOnDeviceLanguagesResponse\x12=\n" +
+	"\bHashCode\x12\x17.speech.HashCodeRequest\x1a\x18.speech.HashCodeResponse\x12=\n" +
+	"\bToString\x12\x17.speech.ToStringRequest\x1a\x18.speech.ToStringResponse\x12L\n" +
+	"\rWriteToParcel\x12\x1c.speech.WriteToParcelRequest\x1a\x1d.speech.WriteToParcelResponse2\x9d\x04\n" +
+	" RecognitionSupportBuilderService\x12y\n" +
+	"\x1cAddInstalledOnDeviceLanguage\x12+.speech.AddInstalledOnDeviceLanguageRequest\x1a,.speech.AddInstalledOnDeviceLanguageResponse\x12X\n" +
+	"\x11AddOnlineLanguage\x12 .speech.AddOnlineLanguageRequest\x1a!.speech.AddOnlineLanguageResponse\x12s\n" +
+	"\x1aAddPendingOnDeviceLanguage\x12).speech.AddPendingOnDeviceLanguageRequest\x1a*.speech.AddPendingOnDeviceLanguageResponse\x12y\n" +
+	"\x1cAddSupportedOnDeviceLanguage\x12+.speech.AddSupportedOnDeviceLanguageRequest\x1a,.speech.AddSupportedOnDeviceLanguageResponse\x124\n" +
+	"\x05Build\x12\x14.speech.BuildRequest\x1a\x15.speech.BuildResponse2\xca\x05\n" +
 	"\x16RecognitionPartService\x12U\n" +
 	"\x10DescribeContents\x12\x1f.speech.DescribeContentsRequest\x1a .speech.DescribeContentsResponse\x127\n" +
 	"\x06Equals\x12\x15.speech.EqualsRequest\x1a\x16.speech.EqualsResponse\x12[\n" +
@@ -10433,82 +11324,40 @@ const file_proto_speech_speech_proto_rawDesc = "" +
 	"\x10SetFormattedText\x12\x1f.speech.SetFormattedTextRequest\x1a .speech.SetFormattedTextResponse\x12C\n" +
 	"\n" +
 	"SetRawText\x12\x19.speech.SetRawTextRequest\x1a\x1a.speech.SetRawTextResponse\x12[\n" +
-	"\x12SetTimestampMillis\x12!.speech.SetTimestampMillisRequest\x1a\".speech.SetTimestampMillisResponse2\x7f\n" +
-	"\x17RecognizerIntentService\x12d\n" +
-	"\x15GetVoiceDetailsIntent\x12$.speech.GetVoiceDetailsIntentRequest\x1a%.speech.GetVoiceDetailsIntentResponse2\xa5\x04\n" +
+	"\x12SetTimestampMillis\x12!.speech.SetTimestampMillisRequest\x1a\".speech.SetTimestampMillisResponse2\xd4\x05\n" +
+	"\x1aRecognitionListenerService\x12^\n" +
+	"\x13OnBeginningOfSpeech\x12\".speech.OnBeginningOfSpeechRequest\x1a#.speech.OnBeginningOfSpeechResponse\x12U\n" +
+	"\x10OnBufferReceived\x12\x1f.speech.OnBufferReceivedRequest\x1a .speech.OnBufferReceivedResponse\x12L\n" +
+	"\rOnEndOfSpeech\x12\x1c.speech.OnEndOfSpeechRequest\x1a\x1d.speech.OnEndOfSpeechResponse\x12:\n" +
+	"\aOnError\x12\x16.speech.OnErrorRequest\x1a\x17.speech.OnErrorResponse\x12:\n" +
+	"\aOnEvent\x12\x16.speech.OnEventRequest\x1a\x17.speech.OnEventResponse\x12U\n" +
+	"\x10OnPartialResults\x12\x1f.speech.OnPartialResultsRequest\x1a .speech.OnPartialResultsResponse\x12U\n" +
+	"\x10OnReadyForSpeech\x12\x1f.speech.OnReadyForSpeechRequest\x1a .speech.OnReadyForSpeechResponse\x12@\n" +
+	"\tOnResults\x12\x18.speech.OnResultsRequest\x1a\x19.speech.OnResultsResponse\x12I\n" +
+	"\fOnRmsChanged\x12\x1b.speech.OnRmsChangedRequest\x1a\x1c.speech.OnRmsChangedResponse2\xe4\x04\n" +
 	"\x17AlternativeSpansService\x12^\n" +
 	"\x13NewAlternativeSpans\x12\".speech.NewAlternativeSpansRequest\x1a#.speech.NewAlternativeSpansResponse\x12e\n" +
 	"\x10DescribeContents\x12/.speech.AlternativeSpansDescribeContentsRequest\x1a .speech.DescribeContentsResponse\x12G\n" +
-	"\x06Equals\x12%.speech.AlternativeSpansEqualsRequest\x1a\x16.speech.EqualsResponse\x12M\n" +
+	"\x06Equals\x12%.speech.AlternativeSpansEqualsRequest\x1a\x16.speech.EqualsResponse\x12=\n" +
+	"\bGetSpans\x12\x17.speech.GetSpansRequest\x1a\x18.speech.GetSpansResponse\x12M\n" +
 	"\bHashCode\x12'.speech.AlternativeSpansHashCodeRequest\x1a\x18.speech.HashCodeResponse\x12M\n" +
 	"\bToString\x12'.speech.AlternativeSpansToStringRequest\x1a\x18.speech.ToStringResponse\x12\\\n" +
-	"\rWriteToParcel\x12,.speech.AlternativeSpansWriteToParcelRequest\x1a\x1d.speech.WriteToParcelResponse2\xc4\x05\n" +
-	"\x16AlternativeSpanService\x12[\n" +
-	"\x12NewAlternativeSpan\x12!.speech.NewAlternativeSpanRequest\x1a\".speech.NewAlternativeSpanResponse\x12d\n" +
-	"\x10DescribeContents\x12..speech.AlternativeSpanDescribeContentsRequest\x1a .speech.DescribeContentsResponse\x12F\n" +
-	"\x06Equals\x12$.speech.AlternativeSpanEqualsRequest\x1a\x16.speech.EqualsResponse\x12O\n" +
-	"\x0eGetEndPosition\x12\x1d.speech.GetEndPositionRequest\x1a\x1e.speech.GetEndPositionResponse\x12U\n" +
-	"\x10GetStartPosition\x12\x1f.speech.GetStartPositionRequest\x1a .speech.GetStartPositionResponse\x12L\n" +
-	"\bHashCode\x12&.speech.AlternativeSpanHashCodeRequest\x1a\x18.speech.HashCodeResponse\x12L\n" +
-	"\bToString\x12&.speech.AlternativeSpanToStringRequest\x1a\x18.speech.ToStringResponse\x12[\n" +
-	"\rWriteToParcel\x12+.speech.AlternativeSpanWriteToParcelRequest\x1a\x1d.speech.WriteToParcelResponse2\xe7\x15\n" +
-	"\x13TextToSpeechService\x12R\n" +
-	"\x0fNewTextToSpeech\x12\x1e.speech.NewTextToSpeechRequest\x1a\x1f.speech.NewTextToSpeechResponse\x12C\n" +
+	"\rWriteToParcel\x12,.speech.AlternativeSpansWriteToParcelRequest\x1a\x1d.speech.WriteToParcelResponse2\x97\n" +
 	"\n" +
-	"AddEarcon2\x12\x19.speech.AddEarcon2Request\x1a\x1a.speech.AddEarcon2Response\x12I\n" +
-	"\fAddEarcon2_1\x12\x1b.speech.AddEarcon2_1Request\x1a\x1c.speech.AddEarcon2_1Response\x12I\n" +
-	"\fAddEarcon2_2\x12\x1b.speech.AddEarcon2_2Request\x1a\x1c.speech.AddEarcon2_2Response\x12I\n" +
-	"\fAddEarcon3_3\x12\x1b.speech.AddEarcon3_3Request\x1a\x1c.speech.AddEarcon3_3Response\x12C\n" +
-	"\n" +
-	"AddSpeech2\x12\x19.speech.AddSpeech2Request\x1a\x1a.speech.AddSpeech2Response\x12I\n" +
-	"\fAddSpeech2_1\x12\x1b.speech.AddSpeech2_1Request\x1a\x1c.speech.AddSpeech2_1Response\x12I\n" +
-	"\fAddSpeech3_2\x12\x1b.speech.AddSpeech3_2Request\x1a\x1c.speech.AddSpeech3_2Response\x12I\n" +
-	"\fAddSpeech2_3\x12\x1b.speech.AddSpeech2_3Request\x1a\x1c.speech.AddSpeech2_3Response\x12I\n" +
-	"\fAddSpeech3_4\x12\x1b.speech.AddSpeech3_4Request\x1a\x1c.speech.AddSpeech3_4Response\x12^\n" +
-	"\x13AreDefaultsEnforced\x12\".speech.AreDefaultsEnforcedRequest\x1a#.speech.AreDefaultsEnforcedResponse\x12U\n" +
-	"\x10GetDefaultEngine\x12\x1f.speech.GetDefaultEngineRequest\x1a .speech.GetDefaultEngineResponse\x12[\n" +
-	"\x12GetDefaultLanguage\x12!.speech.GetDefaultLanguageRequest\x1a\".speech.GetDefaultLanguageResponse\x12R\n" +
-	"\x0fGetDefaultVoice\x12\x1e.speech.GetDefaultVoiceRequest\x1a\x1f.speech.GetDefaultVoiceResponse\x12F\n" +
-	"\vGetLanguage\x12\x1a.speech.GetLanguageRequest\x1a\x1b.speech.GetLanguageResponse\x12=\n" +
-	"\bGetVoice\x12\x17.speech.GetVoiceRequest\x1a\x18.speech.GetVoiceResponse\x12^\n" +
-	"\x13IsLanguageAvailable\x12\".speech.IsLanguageAvailableRequest\x1a#.speech.IsLanguageAvailableResponse\x12C\n" +
-	"\n" +
-	"IsSpeaking\x12\x19.speech.IsSpeakingRequest\x1a\x1a.speech.IsSpeakingResponse\x12C\n" +
-	"\n" +
-	"PlayEarcon\x12\x19.speech.PlayEarconRequest\x1a\x1a.speech.PlayEarconResponse\x12^\n" +
-	"\x13PlaySilentUtterance\x12\".speech.PlaySilentUtteranceRequest\x1a#.speech.PlaySilentUtteranceResponse\x12[\n" +
-	"\x12SetAudioAttributes\x12!.speech.SetAudioAttributesRequest\x1a\".speech.SetAudioAttributesResponse\x12g\n" +
-	"\x16SetEngineByPackageName\x12%.speech.SetEngineByPackageNameRequest\x1a&.speech.SetEngineByPackageNameResponse\x12F\n" +
-	"\vSetLanguage\x12\x1a.speech.SetLanguageRequest\x1a\x1b.speech.SetLanguageResponse\x12\x82\x01\n" +
-	"\x1fSetOnUtteranceCompletedListener\x12..speech.SetOnUtteranceCompletedListenerRequest\x1a/.speech.SetOnUtteranceCompletedListenerResponse\x12\x7f\n" +
-	"\x1eSetOnUtteranceProgressListener\x12-.speech.SetOnUtteranceProgressListenerRequest\x1a..speech.SetOnUtteranceProgressListenerResponse\x12=\n" +
-	"\bSetPitch\x12\x17.speech.SetPitchRequest\x1a\x18.speech.SetPitchResponse\x12L\n" +
-	"\rSetSpeechRate\x12\x1c.speech.SetSpeechRateRequest\x1a\x1d.speech.SetSpeechRateResponse\x12=\n" +
-	"\bSetVoice\x12\x17.speech.SetVoiceRequest\x1a\x18.speech.SetVoiceResponse\x12=\n" +
-	"\bShutdown\x12\x17.speech.ShutdownRequest\x1a\x18.speech.ShutdownResponse\x124\n" +
-	"\x05Speak\x12\x14.speech.SpeakRequest\x1a\x15.speech.SpeakResponse\x121\n" +
-	"\x04Stop\x12\x13.speech.StopRequest\x1a\x14.speech.StopResponse\x12X\n" +
-	"\x11SynthesizeToFile4\x12 .speech.SynthesizeToFile4Request\x1a!.speech.SynthesizeToFile4Response\x12^\n" +
-	"\x13SynthesizeToFile4_1\x12\".speech.SynthesizeToFile4_1Request\x1a#.speech.SynthesizeToFile4_1Response\x12j\n" +
-	"\x17GetMaxSpeechInputLength\x12&.speech.GetMaxSpeechInputLengthRequest\x1a'.speech.GetMaxSpeechInputLengthResponse2^\n" +
-	"\x1dTextToSpeechEngineInfoService\x12=\n" +
-	"\bToString\x12\x17.speech.ToStringRequest\x1a\x18.speech.ToStringResponse2\\\n" +
-	"!TextToSpeechOnInitListenerService\x127\n" +
-	"\x06OnInit\x12\x15.speech.OnInitRequest\x1a\x16.speech.OnInitResponse2\x94\x01\n" +
-	"/TextToSpeechOnUtteranceCompletedListenerService\x12a\n" +
-	"\x14OnUtteranceCompleted\x12#.speech.OnUtteranceCompletedRequest\x1a$.speech.OnUtteranceCompletedResponse2\xf7\x02\n" +
-	"\x19RecognitionSupportService\x12U\n" +
-	"\x10DescribeContents\x12\x1f.speech.DescribeContentsRequest\x1a .speech.DescribeContentsResponse\x127\n" +
-	"\x06Equals\x12\x15.speech.EqualsRequest\x1a\x16.speech.EqualsResponse\x12=\n" +
-	"\bHashCode\x12\x17.speech.HashCodeRequest\x1a\x18.speech.HashCodeResponse\x12=\n" +
-	"\bToString\x12\x17.speech.ToStringRequest\x1a\x18.speech.ToStringResponse\x12L\n" +
-	"\rWriteToParcel\x12\x1c.speech.WriteToParcelRequest\x1a\x1d.speech.WriteToParcelResponse2\x9d\x04\n" +
-	" RecognitionSupportBuilderService\x12y\n" +
-	"\x1cAddInstalledOnDeviceLanguage\x12+.speech.AddInstalledOnDeviceLanguageRequest\x1a,.speech.AddInstalledOnDeviceLanguageResponse\x12X\n" +
-	"\x11AddOnlineLanguage\x12 .speech.AddOnlineLanguageRequest\x1a!.speech.AddOnlineLanguageResponse\x12s\n" +
-	"\x1aAddPendingOnDeviceLanguage\x12).speech.AddPendingOnDeviceLanguageRequest\x1a*.speech.AddPendingOnDeviceLanguageResponse\x12y\n" +
-	"\x1cAddSupportedOnDeviceLanguage\x12+.speech.AddSupportedOnDeviceLanguageRequest\x1a,.speech.AddSupportedOnDeviceLanguageResponse\x124\n" +
-	"\x05Build\x12\x14.speech.BuildRequest\x1a\x15.speech.BuildResponse2\xa2\a\n" +
+	"\x11RecognizerService\x127\n" +
+	"\x06Cancel\x12\x15.speech.CancelRequest\x1a\x16.speech.CancelResponse\x12j\n" +
+	"\x17CheckRecognitionSupport\x12&.speech.CheckRecognitionSupportRequest\x1a'.speech.CheckRecognitionSupportResponse\x12:\n" +
+	"\aDestroy\x12\x16.speech.DestroyRequest\x1a\x17.speech.DestroyResponse\x12g\n" +
+	"\x16SetRecognitionListener\x12%.speech.SetRecognitionListenerRequest\x1a&.speech.SetRecognitionListenerResponse\x12O\n" +
+	"\x0eStartListening\x12\x1d.speech.StartListeningRequest\x1a\x1e.speech.StartListeningResponse\x12L\n" +
+	"\rStopListening\x12\x1c.speech.StopListeningRequest\x1a\x1d.speech.StopListeningResponse\x12d\n" +
+	"\x15TriggerModelDownload1\x12$.speech.TriggerModelDownload1Request\x1a%.speech.TriggerModelDownload1Response\x12j\n" +
+	"\x17TriggerModelDownload3_1\x12&.speech.TriggerModelDownload3_1Request\x1a'.speech.TriggerModelDownload3_1Response\x12\x7f\n" +
+	"\x1eCreateOnDeviceSpeechRecognizer\x12-.speech.CreateOnDeviceSpeechRecognizerRequest\x1a..speech.CreateOnDeviceSpeechRecognizerResponse\x12j\n" +
+	"\x17CreateSpeechRecognizer1\x12&.speech.CreateSpeechRecognizer1Request\x1a'.speech.CreateSpeechRecognizer1Response\x12p\n" +
+	"\x19CreateSpeechRecognizer2_1\x12(.speech.CreateSpeechRecognizer2_1Request\x1a).speech.CreateSpeechRecognizer2_1Response\x12\x7f\n" +
+	"\x1eIsOnDeviceRecognitionAvailable\x12-.speech.IsOnDeviceRecognitionAvailableRequest\x1a..speech.IsOnDeviceRecognitionAvailableResponse\x12g\n" +
+	"\x16IsRecognitionAvailable\x12%.speech.IsRecognitionAvailableRequest\x1a&.speech.IsRecognitionAvailableResponse2\xa2\a\n" +
 	"\x19RecognitionServiceService\x12L\n" +
 	"\rCreateContext\x12\x1c.speech.CreateContextRequest\x1a\x1d.speech.CreateContextResponse\x12|\n" +
 	"\x1dGetMaxConcurrentSessionsCount\x12,.speech.GetMaxConcurrentSessionsCountRequest\x1a-.speech.GetMaxConcurrentSessionsCountResponse\x127\n" +
@@ -10536,20 +11385,75 @@ const file_proto_speech_speech_proto_rawDesc = "" +
 	"\x0eSegmentResults\x12\x1d.speech.SegmentResultsRequest\x1a\x1e.speech.SegmentResultsResponse2\xba\x01\n" +
 	"(RecognitionServiceSupportCallbackService\x12:\n" +
 	"\aOnError\x12\x16.speech.OnErrorRequest\x1a\x17.speech.OnErrorResponse\x12R\n" +
-	"\x0fOnSupportResult\x12\x1e.speech.OnSupportResultRequest\x1a\x1f.speech.OnSupportResultResponse2\xd4\x05\n" +
-	"\x1aRecognitionListenerService\x12^\n" +
-	"\x13OnBeginningOfSpeech\x12\".speech.OnBeginningOfSpeechRequest\x1a#.speech.OnBeginningOfSpeechResponse\x12U\n" +
-	"\x10OnBufferReceived\x12\x1f.speech.OnBufferReceivedRequest\x1a .speech.OnBufferReceivedResponse\x12L\n" +
-	"\rOnEndOfSpeech\x12\x1c.speech.OnEndOfSpeechRequest\x1a\x1d.speech.OnEndOfSpeechResponse\x12:\n" +
-	"\aOnError\x12\x16.speech.OnErrorRequest\x1a\x17.speech.OnErrorResponse\x12:\n" +
-	"\aOnEvent\x12\x16.speech.OnEventRequest\x1a\x17.speech.OnEventResponse\x12U\n" +
-	"\x10OnPartialResults\x12\x1f.speech.OnPartialResultsRequest\x1a .speech.OnPartialResultsResponse\x12U\n" +
-	"\x10OnReadyForSpeech\x12\x1f.speech.OnReadyForSpeechRequest\x1a .speech.OnReadyForSpeechResponse\x12@\n" +
-	"\tOnResults\x12\x18.speech.OnResultsRequest\x1a\x19.speech.OnResultsResponse\x12I\n" +
-	"\fOnRmsChanged\x12\x1b.speech.OnRmsChangedRequest\x1a\x1c.speech.OnRmsChangedResponse2\xb3\x01\n" +
-	"!RecognitionSupportCallbackService\x12:\n" +
-	"\aOnError\x12\x16.speech.OnErrorRequest\x1a\x17.speech.OnErrorResponse\x12R\n" +
-	"\x0fOnSupportResult\x12\x1e.speech.OnSupportResultRequest\x1a\x1f.speech.OnSupportResultResponseB0Z.github.com/AndroidGoLab/jni-proxy/proto/speechb\x06proto3"
+	"\x0fOnSupportResult\x12\x1e.speech.OnSupportResultRequest\x1a\x1f.speech.OnSupportResultResponse2\x98\x06\n" +
+	"\x16AlternativeSpanService\x12[\n" +
+	"\x12NewAlternativeSpan\x12!.speech.NewAlternativeSpanRequest\x1a\".speech.NewAlternativeSpanResponse\x12d\n" +
+	"\x10DescribeContents\x12..speech.AlternativeSpanDescribeContentsRequest\x1a .speech.DescribeContentsResponse\x12F\n" +
+	"\x06Equals\x12$.speech.AlternativeSpanEqualsRequest\x1a\x16.speech.EqualsResponse\x12R\n" +
+	"\x0fGetAlternatives\x12\x1e.speech.GetAlternativesRequest\x1a\x1f.speech.GetAlternativesResponse\x12O\n" +
+	"\x0eGetEndPosition\x12\x1d.speech.GetEndPositionRequest\x1a\x1e.speech.GetEndPositionResponse\x12U\n" +
+	"\x10GetStartPosition\x12\x1f.speech.GetStartPositionRequest\x1a .speech.GetStartPositionResponse\x12L\n" +
+	"\bHashCode\x12&.speech.AlternativeSpanHashCodeRequest\x1a\x18.speech.HashCodeResponse\x12L\n" +
+	"\bToString\x12&.speech.AlternativeSpanToStringRequest\x1a\x18.speech.ToStringResponse\x12[\n" +
+	"\rWriteToParcel\x12+.speech.AlternativeSpanWriteToParcelRequest\x1a\x1d.speech.WriteToParcelResponse2\x7f\n" +
+	"\x17RecognizerIntentService\x12d\n" +
+	"\x15GetVoiceDetailsIntent\x12$.speech.GetVoiceDetailsIntentRequest\x1a%.speech.GetVoiceDetailsIntentResponse2\x9c\x18\n" +
+	"\x13TextToSpeechService\x12R\n" +
+	"\x0fNewTextToSpeech\x12\x1e.speech.NewTextToSpeechRequest\x1a\x1f.speech.NewTextToSpeechResponse\x12C\n" +
+	"\n" +
+	"AddEarcon2\x12\x19.speech.AddEarcon2Request\x1a\x1a.speech.AddEarcon2Response\x12I\n" +
+	"\fAddEarcon2_1\x12\x1b.speech.AddEarcon2_1Request\x1a\x1c.speech.AddEarcon2_1Response\x12I\n" +
+	"\fAddEarcon2_2\x12\x1b.speech.AddEarcon2_2Request\x1a\x1c.speech.AddEarcon2_2Response\x12I\n" +
+	"\fAddEarcon3_3\x12\x1b.speech.AddEarcon3_3Request\x1a\x1c.speech.AddEarcon3_3Response\x12C\n" +
+	"\n" +
+	"AddSpeech2\x12\x19.speech.AddSpeech2Request\x1a\x1a.speech.AddSpeech2Response\x12I\n" +
+	"\fAddSpeech2_1\x12\x1b.speech.AddSpeech2_1Request\x1a\x1c.speech.AddSpeech2_1Response\x12I\n" +
+	"\fAddSpeech3_2\x12\x1b.speech.AddSpeech3_2Request\x1a\x1c.speech.AddSpeech3_2Response\x12I\n" +
+	"\fAddSpeech2_3\x12\x1b.speech.AddSpeech2_3Request\x1a\x1c.speech.AddSpeech2_3Response\x12I\n" +
+	"\fAddSpeech3_4\x12\x1b.speech.AddSpeech3_4Request\x1a\x1c.speech.AddSpeech3_4Response\x12^\n" +
+	"\x13AreDefaultsEnforced\x12\".speech.AreDefaultsEnforcedRequest\x1a#.speech.AreDefaultsEnforcedResponse\x12d\n" +
+	"\x15GetAvailableLanguages\x12$.speech.GetAvailableLanguagesRequest\x1a%.speech.GetAvailableLanguagesResponse\x12U\n" +
+	"\x10GetDefaultEngine\x12\x1f.speech.GetDefaultEngineRequest\x1a .speech.GetDefaultEngineResponse\x12[\n" +
+	"\x12GetDefaultLanguage\x12!.speech.GetDefaultLanguageRequest\x1a\".speech.GetDefaultLanguageResponse\x12R\n" +
+	"\x0fGetDefaultVoice\x12\x1e.speech.GetDefaultVoiceRequest\x1a\x1f.speech.GetDefaultVoiceResponse\x12C\n" +
+	"\n" +
+	"GetEngines\x12\x19.speech.GetEnginesRequest\x1a\x1a.speech.GetEnginesResponse\x12F\n" +
+	"\vGetFeatures\x12\x1a.speech.GetFeaturesRequest\x1a\x1b.speech.GetFeaturesResponse\x12F\n" +
+	"\vGetLanguage\x12\x1a.speech.GetLanguageRequest\x1a\x1b.speech.GetLanguageResponse\x12=\n" +
+	"\bGetVoice\x12\x17.speech.GetVoiceRequest\x1a\x18.speech.GetVoiceResponse\x12@\n" +
+	"\tGetVoices\x12\x18.speech.GetVoicesRequest\x1a\x19.speech.GetVoicesResponse\x12^\n" +
+	"\x13IsLanguageAvailable\x12\".speech.IsLanguageAvailableRequest\x1a#.speech.IsLanguageAvailableResponse\x12C\n" +
+	"\n" +
+	"IsSpeaking\x12\x19.speech.IsSpeakingRequest\x1a\x1a.speech.IsSpeakingResponse\x12C\n" +
+	"\n" +
+	"PlayEarcon\x12\x19.speech.PlayEarconRequest\x1a\x1a.speech.PlayEarconResponse\x12^\n" +
+	"\x13PlaySilentUtterance\x12\".speech.PlaySilentUtteranceRequest\x1a#.speech.PlaySilentUtteranceResponse\x12[\n" +
+	"\x12SetAudioAttributes\x12!.speech.SetAudioAttributesRequest\x1a\".speech.SetAudioAttributesResponse\x12g\n" +
+	"\x16SetEngineByPackageName\x12%.speech.SetEngineByPackageNameRequest\x1a&.speech.SetEngineByPackageNameResponse\x12F\n" +
+	"\vSetLanguage\x12\x1a.speech.SetLanguageRequest\x1a\x1b.speech.SetLanguageResponse\x12\x82\x01\n" +
+	"\x1fSetOnUtteranceCompletedListener\x12..speech.SetOnUtteranceCompletedListenerRequest\x1a/.speech.SetOnUtteranceCompletedListenerResponse\x12\x7f\n" +
+	"\x1eSetOnUtteranceProgressListener\x12-.speech.SetOnUtteranceProgressListenerRequest\x1a..speech.SetOnUtteranceProgressListenerResponse\x12=\n" +
+	"\bSetPitch\x12\x17.speech.SetPitchRequest\x1a\x18.speech.SetPitchResponse\x12L\n" +
+	"\rSetSpeechRate\x12\x1c.speech.SetSpeechRateRequest\x1a\x1d.speech.SetSpeechRateResponse\x12=\n" +
+	"\bSetVoice\x12\x17.speech.SetVoiceRequest\x1a\x18.speech.SetVoiceResponse\x12=\n" +
+	"\bShutdown\x12\x17.speech.ShutdownRequest\x1a\x18.speech.ShutdownResponse\x124\n" +
+	"\x05Speak\x12\x14.speech.SpeakRequest\x1a\x15.speech.SpeakResponse\x121\n" +
+	"\x04Stop\x12\x13.speech.StopRequest\x1a\x14.speech.StopResponse\x12X\n" +
+	"\x11SynthesizeToFile4\x12 .speech.SynthesizeToFile4Request\x1a!.speech.SynthesizeToFile4Response\x12^\n" +
+	"\x13SynthesizeToFile4_1\x12\".speech.SynthesizeToFile4_1Request\x1a#.speech.SynthesizeToFile4_1Response\x12j\n" +
+	"\x17GetMaxSpeechInputLength\x12&.speech.GetMaxSpeechInputLengthRequest\x1a'.speech.GetMaxSpeechInputLengthResponse2^\n" +
+	"\x1dTextToSpeechEngineInfoService\x12=\n" +
+	"\bToString\x12\x17.speech.ToStringRequest\x1a\x18.speech.ToStringResponse2\\\n" +
+	"!TextToSpeechOnInitListenerService\x127\n" +
+	"\x06OnInit\x12\x15.speech.OnInitRequest\x1a\x16.speech.OnInitResponse2\x94\x01\n" +
+	"/TextToSpeechOnUtteranceCompletedListenerService\x12a\n" +
+	"\x14OnUtteranceCompleted\x12#.speech.OnUtteranceCompletedRequest\x1a$.speech.OnUtteranceCompletedResponse2\xa9\x02\n" +
+	"\x1cModelDownloadListenerService\x12:\n" +
+	"\aOnError\x12\x16.speech.OnErrorRequest\x1a\x17.speech.OnErrorResponse\x12C\n" +
+	"\n" +
+	"OnProgress\x12\x19.speech.OnProgressRequest\x1a\x1a.speech.OnProgressResponse\x12F\n" +
+	"\vOnScheduled\x12\x1a.speech.OnScheduledRequest\x1a\x1b.speech.OnScheduledResponse\x12@\n" +
+	"\tOnSuccess\x12\x18.speech.OnSuccessRequest\x1a\x19.speech.OnSuccessResponseB0Z.github.com/AndroidGoLab/jni-proxy/proto/speechb\x06proto3"
 
 var (
 	file_proto_speech_speech_proto_rawDescOnce sync.Once
@@ -10563,492 +11467,532 @@ func file_proto_speech_speech_proto_rawDescGZIP() []byte {
 	return file_proto_speech_speech_proto_rawDescData
 }
 
-var file_proto_speech_speech_proto_msgTypes = make([]protoimpl.MessageInfo, 224)
+var file_proto_speech_speech_proto_msgTypes = make([]protoimpl.MessageInfo, 244)
 var file_proto_speech_speech_proto_goTypes = []any{
-	(*CancelRequest)(nil),                           // 0: speech.CancelRequest
-	(*CancelResponse)(nil),                          // 1: speech.CancelResponse
-	(*CheckRecognitionSupportRequest)(nil),          // 2: speech.CheckRecognitionSupportRequest
-	(*CheckRecognitionSupportResponse)(nil),         // 3: speech.CheckRecognitionSupportResponse
-	(*DestroyRequest)(nil),                          // 4: speech.DestroyRequest
-	(*DestroyResponse)(nil),                         // 5: speech.DestroyResponse
-	(*SetRecognitionListenerRequest)(nil),           // 6: speech.SetRecognitionListenerRequest
-	(*SetRecognitionListenerResponse)(nil),          // 7: speech.SetRecognitionListenerResponse
-	(*StartListeningRequest)(nil),                   // 8: speech.StartListeningRequest
-	(*StartListeningResponse)(nil),                  // 9: speech.StartListeningResponse
-	(*StopListeningRequest)(nil),                    // 10: speech.StopListeningRequest
-	(*StopListeningResponse)(nil),                   // 11: speech.StopListeningResponse
-	(*TriggerModelDownload1Request)(nil),            // 12: speech.TriggerModelDownload1Request
-	(*TriggerModelDownload1Response)(nil),           // 13: speech.TriggerModelDownload1Response
-	(*TriggerModelDownload3_1Request)(nil),          // 14: speech.TriggerModelDownload3_1Request
-	(*TriggerModelDownload3_1Response)(nil),         // 15: speech.TriggerModelDownload3_1Response
-	(*CreateOnDeviceSpeechRecognizerRequest)(nil),   // 16: speech.CreateOnDeviceSpeechRecognizerRequest
-	(*CreateOnDeviceSpeechRecognizerResponse)(nil),  // 17: speech.CreateOnDeviceSpeechRecognizerResponse
-	(*CreateSpeechRecognizer1Request)(nil),          // 18: speech.CreateSpeechRecognizer1Request
-	(*CreateSpeechRecognizer1Response)(nil),         // 19: speech.CreateSpeechRecognizer1Response
-	(*CreateSpeechRecognizer2_1Request)(nil),        // 20: speech.CreateSpeechRecognizer2_1Request
-	(*CreateSpeechRecognizer2_1Response)(nil),       // 21: speech.CreateSpeechRecognizer2_1Response
-	(*IsOnDeviceRecognitionAvailableRequest)(nil),   // 22: speech.IsOnDeviceRecognitionAvailableRequest
-	(*IsOnDeviceRecognitionAvailableResponse)(nil),  // 23: speech.IsOnDeviceRecognitionAvailableResponse
-	(*IsRecognitionAvailableRequest)(nil),           // 24: speech.IsRecognitionAvailableRequest
-	(*IsRecognitionAvailableResponse)(nil),          // 25: speech.IsRecognitionAvailableResponse
-	(*OnErrorRequest)(nil),                          // 26: speech.OnErrorRequest
-	(*OnErrorResponse)(nil),                         // 27: speech.OnErrorResponse
-	(*OnProgressRequest)(nil),                       // 28: speech.OnProgressRequest
-	(*OnProgressResponse)(nil),                      // 29: speech.OnProgressResponse
-	(*OnScheduledRequest)(nil),                      // 30: speech.OnScheduledRequest
-	(*OnScheduledResponse)(nil),                     // 31: speech.OnScheduledResponse
-	(*OnSuccessRequest)(nil),                        // 32: speech.OnSuccessRequest
-	(*OnSuccessResponse)(nil),                       // 33: speech.OnSuccessResponse
-	(*DescribeContentsRequest)(nil),                 // 34: speech.DescribeContentsRequest
-	(*DescribeContentsResponse)(nil),                // 35: speech.DescribeContentsResponse
-	(*EqualsRequest)(nil),                           // 36: speech.EqualsRequest
-	(*EqualsResponse)(nil),                          // 37: speech.EqualsResponse
-	(*GetConfidenceLevelRequest)(nil),               // 38: speech.GetConfidenceLevelRequest
-	(*GetConfidenceLevelResponse)(nil),              // 39: speech.GetConfidenceLevelResponse
-	(*GetFormattedTextRequest)(nil),                 // 40: speech.GetFormattedTextRequest
-	(*GetFormattedTextResponse)(nil),                // 41: speech.GetFormattedTextResponse
-	(*GetRawTextRequest)(nil),                       // 42: speech.GetRawTextRequest
-	(*GetRawTextResponse)(nil),                      // 43: speech.GetRawTextResponse
-	(*GetTimestampMillisRequest)(nil),               // 44: speech.GetTimestampMillisRequest
-	(*GetTimestampMillisResponse)(nil),              // 45: speech.GetTimestampMillisResponse
-	(*HashCodeRequest)(nil),                         // 46: speech.HashCodeRequest
-	(*HashCodeResponse)(nil),                        // 47: speech.HashCodeResponse
-	(*ToStringRequest)(nil),                         // 48: speech.ToStringRequest
-	(*ToStringResponse)(nil),                        // 49: speech.ToStringResponse
-	(*WriteToParcelRequest)(nil),                    // 50: speech.WriteToParcelRequest
-	(*WriteToParcelResponse)(nil),                   // 51: speech.WriteToParcelResponse
-	(*BuildRequest)(nil),                            // 52: speech.BuildRequest
-	(*BuildResponse)(nil),                           // 53: speech.BuildResponse
-	(*SetConfidenceLevelRequest)(nil),               // 54: speech.SetConfidenceLevelRequest
-	(*SetConfidenceLevelResponse)(nil),              // 55: speech.SetConfidenceLevelResponse
-	(*SetFormattedTextRequest)(nil),                 // 56: speech.SetFormattedTextRequest
-	(*SetFormattedTextResponse)(nil),                // 57: speech.SetFormattedTextResponse
-	(*SetRawTextRequest)(nil),                       // 58: speech.SetRawTextRequest
-	(*SetRawTextResponse)(nil),                      // 59: speech.SetRawTextResponse
-	(*SetTimestampMillisRequest)(nil),               // 60: speech.SetTimestampMillisRequest
-	(*SetTimestampMillisResponse)(nil),              // 61: speech.SetTimestampMillisResponse
-	(*GetVoiceDetailsIntentRequest)(nil),            // 62: speech.GetVoiceDetailsIntentRequest
-	(*GetVoiceDetailsIntentResponse)(nil),           // 63: speech.GetVoiceDetailsIntentResponse
+	(*OnErrorRequest)(nil),                          // 0: speech.OnErrorRequest
+	(*OnErrorResponse)(nil),                         // 1: speech.OnErrorResponse
+	(*OnSupportResultRequest)(nil),                  // 2: speech.OnSupportResultRequest
+	(*OnSupportResultResponse)(nil),                 // 3: speech.OnSupportResultResponse
+	(*DescribeContentsRequest)(nil),                 // 4: speech.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),                // 5: speech.DescribeContentsResponse
+	(*EqualsRequest)(nil),                           // 6: speech.EqualsRequest
+	(*EqualsResponse)(nil),                          // 7: speech.EqualsResponse
+	(*GetInstalledOnDeviceLanguagesRequest)(nil),    // 8: speech.GetInstalledOnDeviceLanguagesRequest
+	(*GetInstalledOnDeviceLanguagesResponse)(nil),   // 9: speech.GetInstalledOnDeviceLanguagesResponse
+	(*GetOnlineLanguagesRequest)(nil),               // 10: speech.GetOnlineLanguagesRequest
+	(*GetOnlineLanguagesResponse)(nil),              // 11: speech.GetOnlineLanguagesResponse
+	(*GetPendingOnDeviceLanguagesRequest)(nil),      // 12: speech.GetPendingOnDeviceLanguagesRequest
+	(*GetPendingOnDeviceLanguagesResponse)(nil),     // 13: speech.GetPendingOnDeviceLanguagesResponse
+	(*GetSupportedOnDeviceLanguagesRequest)(nil),    // 14: speech.GetSupportedOnDeviceLanguagesRequest
+	(*GetSupportedOnDeviceLanguagesResponse)(nil),   // 15: speech.GetSupportedOnDeviceLanguagesResponse
+	(*HashCodeRequest)(nil),                         // 16: speech.HashCodeRequest
+	(*HashCodeResponse)(nil),                        // 17: speech.HashCodeResponse
+	(*ToStringRequest)(nil),                         // 18: speech.ToStringRequest
+	(*ToStringResponse)(nil),                        // 19: speech.ToStringResponse
+	(*WriteToParcelRequest)(nil),                    // 20: speech.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                   // 21: speech.WriteToParcelResponse
+	(*AddInstalledOnDeviceLanguageRequest)(nil),     // 22: speech.AddInstalledOnDeviceLanguageRequest
+	(*AddInstalledOnDeviceLanguageResponse)(nil),    // 23: speech.AddInstalledOnDeviceLanguageResponse
+	(*AddOnlineLanguageRequest)(nil),                // 24: speech.AddOnlineLanguageRequest
+	(*AddOnlineLanguageResponse)(nil),               // 25: speech.AddOnlineLanguageResponse
+	(*AddPendingOnDeviceLanguageRequest)(nil),       // 26: speech.AddPendingOnDeviceLanguageRequest
+	(*AddPendingOnDeviceLanguageResponse)(nil),      // 27: speech.AddPendingOnDeviceLanguageResponse
+	(*AddSupportedOnDeviceLanguageRequest)(nil),     // 28: speech.AddSupportedOnDeviceLanguageRequest
+	(*AddSupportedOnDeviceLanguageResponse)(nil),    // 29: speech.AddSupportedOnDeviceLanguageResponse
+	(*BuildRequest)(nil),                            // 30: speech.BuildRequest
+	(*BuildResponse)(nil),                           // 31: speech.BuildResponse
+	(*GetConfidenceLevelRequest)(nil),               // 32: speech.GetConfidenceLevelRequest
+	(*GetConfidenceLevelResponse)(nil),              // 33: speech.GetConfidenceLevelResponse
+	(*GetFormattedTextRequest)(nil),                 // 34: speech.GetFormattedTextRequest
+	(*GetFormattedTextResponse)(nil),                // 35: speech.GetFormattedTextResponse
+	(*GetRawTextRequest)(nil),                       // 36: speech.GetRawTextRequest
+	(*GetRawTextResponse)(nil),                      // 37: speech.GetRawTextResponse
+	(*GetTimestampMillisRequest)(nil),               // 38: speech.GetTimestampMillisRequest
+	(*GetTimestampMillisResponse)(nil),              // 39: speech.GetTimestampMillisResponse
+	(*SetConfidenceLevelRequest)(nil),               // 40: speech.SetConfidenceLevelRequest
+	(*SetConfidenceLevelResponse)(nil),              // 41: speech.SetConfidenceLevelResponse
+	(*SetFormattedTextRequest)(nil),                 // 42: speech.SetFormattedTextRequest
+	(*SetFormattedTextResponse)(nil),                // 43: speech.SetFormattedTextResponse
+	(*SetRawTextRequest)(nil),                       // 44: speech.SetRawTextRequest
+	(*SetRawTextResponse)(nil),                      // 45: speech.SetRawTextResponse
+	(*SetTimestampMillisRequest)(nil),               // 46: speech.SetTimestampMillisRequest
+	(*SetTimestampMillisResponse)(nil),              // 47: speech.SetTimestampMillisResponse
+	(*OnBeginningOfSpeechRequest)(nil),              // 48: speech.OnBeginningOfSpeechRequest
+	(*OnBeginningOfSpeechResponse)(nil),             // 49: speech.OnBeginningOfSpeechResponse
+	(*OnBufferReceivedRequest)(nil),                 // 50: speech.OnBufferReceivedRequest
+	(*OnBufferReceivedResponse)(nil),                // 51: speech.OnBufferReceivedResponse
+	(*OnEndOfSpeechRequest)(nil),                    // 52: speech.OnEndOfSpeechRequest
+	(*OnEndOfSpeechResponse)(nil),                   // 53: speech.OnEndOfSpeechResponse
+	(*OnEventRequest)(nil),                          // 54: speech.OnEventRequest
+	(*OnEventResponse)(nil),                         // 55: speech.OnEventResponse
+	(*OnPartialResultsRequest)(nil),                 // 56: speech.OnPartialResultsRequest
+	(*OnPartialResultsResponse)(nil),                // 57: speech.OnPartialResultsResponse
+	(*OnReadyForSpeechRequest)(nil),                 // 58: speech.OnReadyForSpeechRequest
+	(*OnReadyForSpeechResponse)(nil),                // 59: speech.OnReadyForSpeechResponse
+	(*OnResultsRequest)(nil),                        // 60: speech.OnResultsRequest
+	(*OnResultsResponse)(nil),                       // 61: speech.OnResultsResponse
+	(*OnRmsChangedRequest)(nil),                     // 62: speech.OnRmsChangedRequest
+	(*OnRmsChangedResponse)(nil),                    // 63: speech.OnRmsChangedResponse
 	(*NewAlternativeSpansRequest)(nil),              // 64: speech.NewAlternativeSpansRequest
 	(*NewAlternativeSpansResponse)(nil),             // 65: speech.NewAlternativeSpansResponse
 	(*AlternativeSpansDescribeContentsRequest)(nil), // 66: speech.AlternativeSpansDescribeContentsRequest
 	(*AlternativeSpansEqualsRequest)(nil),           // 67: speech.AlternativeSpansEqualsRequest
-	(*AlternativeSpansHashCodeRequest)(nil),         // 68: speech.AlternativeSpansHashCodeRequest
-	(*AlternativeSpansToStringRequest)(nil),         // 69: speech.AlternativeSpansToStringRequest
-	(*AlternativeSpansWriteToParcelRequest)(nil),    // 70: speech.AlternativeSpansWriteToParcelRequest
-	(*NewAlternativeSpanRequest)(nil),               // 71: speech.NewAlternativeSpanRequest
-	(*NewAlternativeSpanResponse)(nil),              // 72: speech.NewAlternativeSpanResponse
-	(*AlternativeSpanDescribeContentsRequest)(nil),  // 73: speech.AlternativeSpanDescribeContentsRequest
-	(*AlternativeSpanEqualsRequest)(nil),            // 74: speech.AlternativeSpanEqualsRequest
-	(*GetEndPositionRequest)(nil),                   // 75: speech.GetEndPositionRequest
-	(*GetEndPositionResponse)(nil),                  // 76: speech.GetEndPositionResponse
-	(*GetStartPositionRequest)(nil),                 // 77: speech.GetStartPositionRequest
-	(*GetStartPositionResponse)(nil),                // 78: speech.GetStartPositionResponse
-	(*AlternativeSpanHashCodeRequest)(nil),          // 79: speech.AlternativeSpanHashCodeRequest
-	(*AlternativeSpanToStringRequest)(nil),          // 80: speech.AlternativeSpanToStringRequest
-	(*AlternativeSpanWriteToParcelRequest)(nil),     // 81: speech.AlternativeSpanWriteToParcelRequest
-	(*NewTextToSpeechRequest)(nil),                  // 82: speech.NewTextToSpeechRequest
-	(*NewTextToSpeechResponse)(nil),                 // 83: speech.NewTextToSpeechResponse
-	(*AddEarcon2Request)(nil),                       // 84: speech.AddEarcon2Request
-	(*AddEarcon2Response)(nil),                      // 85: speech.AddEarcon2Response
-	(*AddEarcon2_1Request)(nil),                     // 86: speech.AddEarcon2_1Request
-	(*AddEarcon2_1Response)(nil),                    // 87: speech.AddEarcon2_1Response
-	(*AddEarcon2_2Request)(nil),                     // 88: speech.AddEarcon2_2Request
-	(*AddEarcon2_2Response)(nil),                    // 89: speech.AddEarcon2_2Response
-	(*AddEarcon3_3Request)(nil),                     // 90: speech.AddEarcon3_3Request
-	(*AddEarcon3_3Response)(nil),                    // 91: speech.AddEarcon3_3Response
-	(*AddSpeech2Request)(nil),                       // 92: speech.AddSpeech2Request
-	(*AddSpeech2Response)(nil),                      // 93: speech.AddSpeech2Response
-	(*AddSpeech2_1Request)(nil),                     // 94: speech.AddSpeech2_1Request
-	(*AddSpeech2_1Response)(nil),                    // 95: speech.AddSpeech2_1Response
-	(*AddSpeech3_2Request)(nil),                     // 96: speech.AddSpeech3_2Request
-	(*AddSpeech3_2Response)(nil),                    // 97: speech.AddSpeech3_2Response
-	(*AddSpeech2_3Request)(nil),                     // 98: speech.AddSpeech2_3Request
-	(*AddSpeech2_3Response)(nil),                    // 99: speech.AddSpeech2_3Response
-	(*AddSpeech3_4Request)(nil),                     // 100: speech.AddSpeech3_4Request
-	(*AddSpeech3_4Response)(nil),                    // 101: speech.AddSpeech3_4Response
-	(*AreDefaultsEnforcedRequest)(nil),              // 102: speech.AreDefaultsEnforcedRequest
-	(*AreDefaultsEnforcedResponse)(nil),             // 103: speech.AreDefaultsEnforcedResponse
-	(*GetDefaultEngineRequest)(nil),                 // 104: speech.GetDefaultEngineRequest
-	(*GetDefaultEngineResponse)(nil),                // 105: speech.GetDefaultEngineResponse
-	(*GetDefaultLanguageRequest)(nil),               // 106: speech.GetDefaultLanguageRequest
-	(*GetDefaultLanguageResponse)(nil),              // 107: speech.GetDefaultLanguageResponse
-	(*GetDefaultVoiceRequest)(nil),                  // 108: speech.GetDefaultVoiceRequest
-	(*GetDefaultVoiceResponse)(nil),                 // 109: speech.GetDefaultVoiceResponse
-	(*GetLanguageRequest)(nil),                      // 110: speech.GetLanguageRequest
-	(*GetLanguageResponse)(nil),                     // 111: speech.GetLanguageResponse
-	(*GetVoiceRequest)(nil),                         // 112: speech.GetVoiceRequest
-	(*GetVoiceResponse)(nil),                        // 113: speech.GetVoiceResponse
-	(*IsLanguageAvailableRequest)(nil),              // 114: speech.IsLanguageAvailableRequest
-	(*IsLanguageAvailableResponse)(nil),             // 115: speech.IsLanguageAvailableResponse
-	(*IsSpeakingRequest)(nil),                       // 116: speech.IsSpeakingRequest
-	(*IsSpeakingResponse)(nil),                      // 117: speech.IsSpeakingResponse
-	(*PlayEarconRequest)(nil),                       // 118: speech.PlayEarconRequest
-	(*PlayEarconResponse)(nil),                      // 119: speech.PlayEarconResponse
-	(*PlaySilentUtteranceRequest)(nil),              // 120: speech.PlaySilentUtteranceRequest
-	(*PlaySilentUtteranceResponse)(nil),             // 121: speech.PlaySilentUtteranceResponse
-	(*SetAudioAttributesRequest)(nil),               // 122: speech.SetAudioAttributesRequest
-	(*SetAudioAttributesResponse)(nil),              // 123: speech.SetAudioAttributesResponse
-	(*SetEngineByPackageNameRequest)(nil),           // 124: speech.SetEngineByPackageNameRequest
-	(*SetEngineByPackageNameResponse)(nil),          // 125: speech.SetEngineByPackageNameResponse
-	(*SetLanguageRequest)(nil),                      // 126: speech.SetLanguageRequest
-	(*SetLanguageResponse)(nil),                     // 127: speech.SetLanguageResponse
-	(*SetOnUtteranceCompletedListenerRequest)(nil),  // 128: speech.SetOnUtteranceCompletedListenerRequest
-	(*SetOnUtteranceCompletedListenerResponse)(nil), // 129: speech.SetOnUtteranceCompletedListenerResponse
-	(*SetOnUtteranceProgressListenerRequest)(nil),   // 130: speech.SetOnUtteranceProgressListenerRequest
-	(*SetOnUtteranceProgressListenerResponse)(nil),  // 131: speech.SetOnUtteranceProgressListenerResponse
-	(*SetPitchRequest)(nil),                         // 132: speech.SetPitchRequest
-	(*SetPitchResponse)(nil),                        // 133: speech.SetPitchResponse
-	(*SetSpeechRateRequest)(nil),                    // 134: speech.SetSpeechRateRequest
-	(*SetSpeechRateResponse)(nil),                   // 135: speech.SetSpeechRateResponse
-	(*SetVoiceRequest)(nil),                         // 136: speech.SetVoiceRequest
-	(*SetVoiceResponse)(nil),                        // 137: speech.SetVoiceResponse
-	(*ShutdownRequest)(nil),                         // 138: speech.ShutdownRequest
-	(*ShutdownResponse)(nil),                        // 139: speech.ShutdownResponse
-	(*SpeakRequest)(nil),                            // 140: speech.SpeakRequest
-	(*SpeakResponse)(nil),                           // 141: speech.SpeakResponse
-	(*StopRequest)(nil),                             // 142: speech.StopRequest
-	(*StopResponse)(nil),                            // 143: speech.StopResponse
-	(*SynthesizeToFile4Request)(nil),                // 144: speech.SynthesizeToFile4Request
-	(*SynthesizeToFile4Response)(nil),               // 145: speech.SynthesizeToFile4Response
-	(*SynthesizeToFile4_1Request)(nil),              // 146: speech.SynthesizeToFile4_1Request
-	(*SynthesizeToFile4_1Response)(nil),             // 147: speech.SynthesizeToFile4_1Response
-	(*GetMaxSpeechInputLengthRequest)(nil),          // 148: speech.GetMaxSpeechInputLengthRequest
-	(*GetMaxSpeechInputLengthResponse)(nil),         // 149: speech.GetMaxSpeechInputLengthResponse
-	(*OnInitRequest)(nil),                           // 150: speech.OnInitRequest
-	(*OnInitResponse)(nil),                          // 151: speech.OnInitResponse
-	(*OnUtteranceCompletedRequest)(nil),             // 152: speech.OnUtteranceCompletedRequest
-	(*OnUtteranceCompletedResponse)(nil),            // 153: speech.OnUtteranceCompletedResponse
-	(*AddInstalledOnDeviceLanguageRequest)(nil),     // 154: speech.AddInstalledOnDeviceLanguageRequest
-	(*AddInstalledOnDeviceLanguageResponse)(nil),    // 155: speech.AddInstalledOnDeviceLanguageResponse
-	(*AddOnlineLanguageRequest)(nil),                // 156: speech.AddOnlineLanguageRequest
-	(*AddOnlineLanguageResponse)(nil),               // 157: speech.AddOnlineLanguageResponse
-	(*AddPendingOnDeviceLanguageRequest)(nil),       // 158: speech.AddPendingOnDeviceLanguageRequest
-	(*AddPendingOnDeviceLanguageResponse)(nil),      // 159: speech.AddPendingOnDeviceLanguageResponse
-	(*AddSupportedOnDeviceLanguageRequest)(nil),     // 160: speech.AddSupportedOnDeviceLanguageRequest
-	(*AddSupportedOnDeviceLanguageResponse)(nil),    // 161: speech.AddSupportedOnDeviceLanguageResponse
-	(*CreateContextRequest)(nil),                    // 162: speech.CreateContextRequest
-	(*CreateContextResponse)(nil),                   // 163: speech.CreateContextResponse
-	(*GetMaxConcurrentSessionsCountRequest)(nil),    // 164: speech.GetMaxConcurrentSessionsCountRequest
-	(*GetMaxConcurrentSessionsCountResponse)(nil),   // 165: speech.GetMaxConcurrentSessionsCountResponse
-	(*OnBindRequest)(nil),                           // 166: speech.OnBindRequest
-	(*OnBindResponse)(nil),                          // 167: speech.OnBindResponse
-	(*OnCheckRecognitionSupport3Request)(nil),       // 168: speech.OnCheckRecognitionSupport3Request
-	(*OnCheckRecognitionSupport3Response)(nil),      // 169: speech.OnCheckRecognitionSupport3Response
-	(*OnCheckRecognitionSupport2_1Request)(nil),     // 170: speech.OnCheckRecognitionSupport2_1Request
-	(*OnCheckRecognitionSupport2_1Response)(nil),    // 171: speech.OnCheckRecognitionSupport2_1Response
-	(*OnDestroyRequest)(nil),                        // 172: speech.OnDestroyRequest
-	(*OnDestroyResponse)(nil),                       // 173: speech.OnDestroyResponse
-	(*OnTriggerModelDownload1Request)(nil),          // 174: speech.OnTriggerModelDownload1Request
-	(*OnTriggerModelDownload1Response)(nil),         // 175: speech.OnTriggerModelDownload1Response
-	(*OnTriggerModelDownload2_1Request)(nil),        // 176: speech.OnTriggerModelDownload2_1Request
-	(*OnTriggerModelDownload2_1Response)(nil),       // 177: speech.OnTriggerModelDownload2_1Response
-	(*OnTriggerModelDownload3_2Request)(nil),        // 178: speech.OnTriggerModelDownload3_2Request
-	(*OnTriggerModelDownload3_2Response)(nil),       // 179: speech.OnTriggerModelDownload3_2Response
-	(*BeginningOfSpeechRequest)(nil),                // 180: speech.BeginningOfSpeechRequest
-	(*BeginningOfSpeechResponse)(nil),               // 181: speech.BeginningOfSpeechResponse
-	(*BufferReceivedRequest)(nil),                   // 182: speech.BufferReceivedRequest
-	(*BufferReceivedResponse)(nil),                  // 183: speech.BufferReceivedResponse
-	(*EndOfSegmentedSessionRequest)(nil),            // 184: speech.EndOfSegmentedSessionRequest
-	(*EndOfSegmentedSessionResponse)(nil),           // 185: speech.EndOfSegmentedSessionResponse
-	(*EndOfSpeechRequest)(nil),                      // 186: speech.EndOfSpeechRequest
-	(*EndOfSpeechResponse)(nil),                     // 187: speech.EndOfSpeechResponse
-	(*ErrorRequest)(nil),                            // 188: speech.ErrorRequest
-	(*ErrorResponse)(nil),                           // 189: speech.ErrorResponse
-	(*GetCallingAttributionSourceRequest)(nil),      // 190: speech.GetCallingAttributionSourceRequest
-	(*GetCallingAttributionSourceResponse)(nil),     // 191: speech.GetCallingAttributionSourceResponse
-	(*GetCallingUidRequest)(nil),                    // 192: speech.GetCallingUidRequest
-	(*GetCallingUidResponse)(nil),                   // 193: speech.GetCallingUidResponse
-	(*LanguageDetectionRequest)(nil),                // 194: speech.LanguageDetectionRequest
-	(*LanguageDetectionResponse)(nil),               // 195: speech.LanguageDetectionResponse
-	(*PartialResultsRequest)(nil),                   // 196: speech.PartialResultsRequest
-	(*PartialResultsResponse)(nil),                  // 197: speech.PartialResultsResponse
-	(*ReadyForSpeechRequest)(nil),                   // 198: speech.ReadyForSpeechRequest
-	(*ReadyForSpeechResponse)(nil),                  // 199: speech.ReadyForSpeechResponse
-	(*ResultsRequest)(nil),                          // 200: speech.ResultsRequest
-	(*ResultsResponse)(nil),                         // 201: speech.ResultsResponse
-	(*RmsChangedRequest)(nil),                       // 202: speech.RmsChangedRequest
-	(*RmsChangedResponse)(nil),                      // 203: speech.RmsChangedResponse
-	(*SegmentResultsRequest)(nil),                   // 204: speech.SegmentResultsRequest
-	(*SegmentResultsResponse)(nil),                  // 205: speech.SegmentResultsResponse
-	(*OnSupportResultRequest)(nil),                  // 206: speech.OnSupportResultRequest
-	(*OnSupportResultResponse)(nil),                 // 207: speech.OnSupportResultResponse
-	(*OnBeginningOfSpeechRequest)(nil),              // 208: speech.OnBeginningOfSpeechRequest
-	(*OnBeginningOfSpeechResponse)(nil),             // 209: speech.OnBeginningOfSpeechResponse
-	(*OnBufferReceivedRequest)(nil),                 // 210: speech.OnBufferReceivedRequest
-	(*OnBufferReceivedResponse)(nil),                // 211: speech.OnBufferReceivedResponse
-	(*OnEndOfSpeechRequest)(nil),                    // 212: speech.OnEndOfSpeechRequest
-	(*OnEndOfSpeechResponse)(nil),                   // 213: speech.OnEndOfSpeechResponse
-	(*OnEventRequest)(nil),                          // 214: speech.OnEventRequest
-	(*OnEventResponse)(nil),                         // 215: speech.OnEventResponse
-	(*OnPartialResultsRequest)(nil),                 // 216: speech.OnPartialResultsRequest
-	(*OnPartialResultsResponse)(nil),                // 217: speech.OnPartialResultsResponse
-	(*OnReadyForSpeechRequest)(nil),                 // 218: speech.OnReadyForSpeechRequest
-	(*OnReadyForSpeechResponse)(nil),                // 219: speech.OnReadyForSpeechResponse
-	(*OnResultsRequest)(nil),                        // 220: speech.OnResultsRequest
-	(*OnResultsResponse)(nil),                       // 221: speech.OnResultsResponse
-	(*OnRmsChangedRequest)(nil),                     // 222: speech.OnRmsChangedRequest
-	(*OnRmsChangedResponse)(nil),                    // 223: speech.OnRmsChangedResponse
+	(*GetSpansRequest)(nil),                         // 68: speech.GetSpansRequest
+	(*GetSpansResponse)(nil),                        // 69: speech.GetSpansResponse
+	(*AlternativeSpansHashCodeRequest)(nil),         // 70: speech.AlternativeSpansHashCodeRequest
+	(*AlternativeSpansToStringRequest)(nil),         // 71: speech.AlternativeSpansToStringRequest
+	(*AlternativeSpansWriteToParcelRequest)(nil),    // 72: speech.AlternativeSpansWriteToParcelRequest
+	(*CancelRequest)(nil),                           // 73: speech.CancelRequest
+	(*CancelResponse)(nil),                          // 74: speech.CancelResponse
+	(*CheckRecognitionSupportRequest)(nil),          // 75: speech.CheckRecognitionSupportRequest
+	(*CheckRecognitionSupportResponse)(nil),         // 76: speech.CheckRecognitionSupportResponse
+	(*DestroyRequest)(nil),                          // 77: speech.DestroyRequest
+	(*DestroyResponse)(nil),                         // 78: speech.DestroyResponse
+	(*SetRecognitionListenerRequest)(nil),           // 79: speech.SetRecognitionListenerRequest
+	(*SetRecognitionListenerResponse)(nil),          // 80: speech.SetRecognitionListenerResponse
+	(*StartListeningRequest)(nil),                   // 81: speech.StartListeningRequest
+	(*StartListeningResponse)(nil),                  // 82: speech.StartListeningResponse
+	(*StopListeningRequest)(nil),                    // 83: speech.StopListeningRequest
+	(*StopListeningResponse)(nil),                   // 84: speech.StopListeningResponse
+	(*TriggerModelDownload1Request)(nil),            // 85: speech.TriggerModelDownload1Request
+	(*TriggerModelDownload1Response)(nil),           // 86: speech.TriggerModelDownload1Response
+	(*TriggerModelDownload3_1Request)(nil),          // 87: speech.TriggerModelDownload3_1Request
+	(*TriggerModelDownload3_1Response)(nil),         // 88: speech.TriggerModelDownload3_1Response
+	(*CreateOnDeviceSpeechRecognizerRequest)(nil),   // 89: speech.CreateOnDeviceSpeechRecognizerRequest
+	(*CreateOnDeviceSpeechRecognizerResponse)(nil),  // 90: speech.CreateOnDeviceSpeechRecognizerResponse
+	(*CreateSpeechRecognizer1Request)(nil),          // 91: speech.CreateSpeechRecognizer1Request
+	(*CreateSpeechRecognizer1Response)(nil),         // 92: speech.CreateSpeechRecognizer1Response
+	(*CreateSpeechRecognizer2_1Request)(nil),        // 93: speech.CreateSpeechRecognizer2_1Request
+	(*CreateSpeechRecognizer2_1Response)(nil),       // 94: speech.CreateSpeechRecognizer2_1Response
+	(*IsOnDeviceRecognitionAvailableRequest)(nil),   // 95: speech.IsOnDeviceRecognitionAvailableRequest
+	(*IsOnDeviceRecognitionAvailableResponse)(nil),  // 96: speech.IsOnDeviceRecognitionAvailableResponse
+	(*IsRecognitionAvailableRequest)(nil),           // 97: speech.IsRecognitionAvailableRequest
+	(*IsRecognitionAvailableResponse)(nil),          // 98: speech.IsRecognitionAvailableResponse
+	(*CreateContextRequest)(nil),                    // 99: speech.CreateContextRequest
+	(*CreateContextResponse)(nil),                   // 100: speech.CreateContextResponse
+	(*GetMaxConcurrentSessionsCountRequest)(nil),    // 101: speech.GetMaxConcurrentSessionsCountRequest
+	(*GetMaxConcurrentSessionsCountResponse)(nil),   // 102: speech.GetMaxConcurrentSessionsCountResponse
+	(*OnBindRequest)(nil),                           // 103: speech.OnBindRequest
+	(*OnBindResponse)(nil),                          // 104: speech.OnBindResponse
+	(*OnCheckRecognitionSupport3Request)(nil),       // 105: speech.OnCheckRecognitionSupport3Request
+	(*OnCheckRecognitionSupport3Response)(nil),      // 106: speech.OnCheckRecognitionSupport3Response
+	(*OnCheckRecognitionSupport2_1Request)(nil),     // 107: speech.OnCheckRecognitionSupport2_1Request
+	(*OnCheckRecognitionSupport2_1Response)(nil),    // 108: speech.OnCheckRecognitionSupport2_1Response
+	(*OnDestroyRequest)(nil),                        // 109: speech.OnDestroyRequest
+	(*OnDestroyResponse)(nil),                       // 110: speech.OnDestroyResponse
+	(*OnTriggerModelDownload1Request)(nil),          // 111: speech.OnTriggerModelDownload1Request
+	(*OnTriggerModelDownload1Response)(nil),         // 112: speech.OnTriggerModelDownload1Response
+	(*OnTriggerModelDownload2_1Request)(nil),        // 113: speech.OnTriggerModelDownload2_1Request
+	(*OnTriggerModelDownload2_1Response)(nil),       // 114: speech.OnTriggerModelDownload2_1Response
+	(*OnTriggerModelDownload3_2Request)(nil),        // 115: speech.OnTriggerModelDownload3_2Request
+	(*OnTriggerModelDownload3_2Response)(nil),       // 116: speech.OnTriggerModelDownload3_2Response
+	(*BeginningOfSpeechRequest)(nil),                // 117: speech.BeginningOfSpeechRequest
+	(*BeginningOfSpeechResponse)(nil),               // 118: speech.BeginningOfSpeechResponse
+	(*BufferReceivedRequest)(nil),                   // 119: speech.BufferReceivedRequest
+	(*BufferReceivedResponse)(nil),                  // 120: speech.BufferReceivedResponse
+	(*EndOfSegmentedSessionRequest)(nil),            // 121: speech.EndOfSegmentedSessionRequest
+	(*EndOfSegmentedSessionResponse)(nil),           // 122: speech.EndOfSegmentedSessionResponse
+	(*EndOfSpeechRequest)(nil),                      // 123: speech.EndOfSpeechRequest
+	(*EndOfSpeechResponse)(nil),                     // 124: speech.EndOfSpeechResponse
+	(*ErrorRequest)(nil),                            // 125: speech.ErrorRequest
+	(*ErrorResponse)(nil),                           // 126: speech.ErrorResponse
+	(*GetCallingAttributionSourceRequest)(nil),      // 127: speech.GetCallingAttributionSourceRequest
+	(*GetCallingAttributionSourceResponse)(nil),     // 128: speech.GetCallingAttributionSourceResponse
+	(*GetCallingUidRequest)(nil),                    // 129: speech.GetCallingUidRequest
+	(*GetCallingUidResponse)(nil),                   // 130: speech.GetCallingUidResponse
+	(*LanguageDetectionRequest)(nil),                // 131: speech.LanguageDetectionRequest
+	(*LanguageDetectionResponse)(nil),               // 132: speech.LanguageDetectionResponse
+	(*PartialResultsRequest)(nil),                   // 133: speech.PartialResultsRequest
+	(*PartialResultsResponse)(nil),                  // 134: speech.PartialResultsResponse
+	(*ReadyForSpeechRequest)(nil),                   // 135: speech.ReadyForSpeechRequest
+	(*ReadyForSpeechResponse)(nil),                  // 136: speech.ReadyForSpeechResponse
+	(*ResultsRequest)(nil),                          // 137: speech.ResultsRequest
+	(*ResultsResponse)(nil),                         // 138: speech.ResultsResponse
+	(*RmsChangedRequest)(nil),                       // 139: speech.RmsChangedRequest
+	(*RmsChangedResponse)(nil),                      // 140: speech.RmsChangedResponse
+	(*SegmentResultsRequest)(nil),                   // 141: speech.SegmentResultsRequest
+	(*SegmentResultsResponse)(nil),                  // 142: speech.SegmentResultsResponse
+	(*NewAlternativeSpanRequest)(nil),               // 143: speech.NewAlternativeSpanRequest
+	(*NewAlternativeSpanResponse)(nil),              // 144: speech.NewAlternativeSpanResponse
+	(*AlternativeSpanDescribeContentsRequest)(nil),  // 145: speech.AlternativeSpanDescribeContentsRequest
+	(*AlternativeSpanEqualsRequest)(nil),            // 146: speech.AlternativeSpanEqualsRequest
+	(*GetAlternativesRequest)(nil),                  // 147: speech.GetAlternativesRequest
+	(*GetAlternativesResponse)(nil),                 // 148: speech.GetAlternativesResponse
+	(*GetEndPositionRequest)(nil),                   // 149: speech.GetEndPositionRequest
+	(*GetEndPositionResponse)(nil),                  // 150: speech.GetEndPositionResponse
+	(*GetStartPositionRequest)(nil),                 // 151: speech.GetStartPositionRequest
+	(*GetStartPositionResponse)(nil),                // 152: speech.GetStartPositionResponse
+	(*AlternativeSpanHashCodeRequest)(nil),          // 153: speech.AlternativeSpanHashCodeRequest
+	(*AlternativeSpanToStringRequest)(nil),          // 154: speech.AlternativeSpanToStringRequest
+	(*AlternativeSpanWriteToParcelRequest)(nil),     // 155: speech.AlternativeSpanWriteToParcelRequest
+	(*GetVoiceDetailsIntentRequest)(nil),            // 156: speech.GetVoiceDetailsIntentRequest
+	(*GetVoiceDetailsIntentResponse)(nil),           // 157: speech.GetVoiceDetailsIntentResponse
+	(*NewTextToSpeechRequest)(nil),                  // 158: speech.NewTextToSpeechRequest
+	(*NewTextToSpeechResponse)(nil),                 // 159: speech.NewTextToSpeechResponse
+	(*AddEarcon2Request)(nil),                       // 160: speech.AddEarcon2Request
+	(*AddEarcon2Response)(nil),                      // 161: speech.AddEarcon2Response
+	(*AddEarcon2_1Request)(nil),                     // 162: speech.AddEarcon2_1Request
+	(*AddEarcon2_1Response)(nil),                    // 163: speech.AddEarcon2_1Response
+	(*AddEarcon2_2Request)(nil),                     // 164: speech.AddEarcon2_2Request
+	(*AddEarcon2_2Response)(nil),                    // 165: speech.AddEarcon2_2Response
+	(*AddEarcon3_3Request)(nil),                     // 166: speech.AddEarcon3_3Request
+	(*AddEarcon3_3Response)(nil),                    // 167: speech.AddEarcon3_3Response
+	(*AddSpeech2Request)(nil),                       // 168: speech.AddSpeech2Request
+	(*AddSpeech2Response)(nil),                      // 169: speech.AddSpeech2Response
+	(*AddSpeech2_1Request)(nil),                     // 170: speech.AddSpeech2_1Request
+	(*AddSpeech2_1Response)(nil),                    // 171: speech.AddSpeech2_1Response
+	(*AddSpeech3_2Request)(nil),                     // 172: speech.AddSpeech3_2Request
+	(*AddSpeech3_2Response)(nil),                    // 173: speech.AddSpeech3_2Response
+	(*AddSpeech2_3Request)(nil),                     // 174: speech.AddSpeech2_3Request
+	(*AddSpeech2_3Response)(nil),                    // 175: speech.AddSpeech2_3Response
+	(*AddSpeech3_4Request)(nil),                     // 176: speech.AddSpeech3_4Request
+	(*AddSpeech3_4Response)(nil),                    // 177: speech.AddSpeech3_4Response
+	(*AreDefaultsEnforcedRequest)(nil),              // 178: speech.AreDefaultsEnforcedRequest
+	(*AreDefaultsEnforcedResponse)(nil),             // 179: speech.AreDefaultsEnforcedResponse
+	(*GetAvailableLanguagesRequest)(nil),            // 180: speech.GetAvailableLanguagesRequest
+	(*GetAvailableLanguagesResponse)(nil),           // 181: speech.GetAvailableLanguagesResponse
+	(*GetDefaultEngineRequest)(nil),                 // 182: speech.GetDefaultEngineRequest
+	(*GetDefaultEngineResponse)(nil),                // 183: speech.GetDefaultEngineResponse
+	(*GetDefaultLanguageRequest)(nil),               // 184: speech.GetDefaultLanguageRequest
+	(*GetDefaultLanguageResponse)(nil),              // 185: speech.GetDefaultLanguageResponse
+	(*GetDefaultVoiceRequest)(nil),                  // 186: speech.GetDefaultVoiceRequest
+	(*GetDefaultVoiceResponse)(nil),                 // 187: speech.GetDefaultVoiceResponse
+	(*GetEnginesRequest)(nil),                       // 188: speech.GetEnginesRequest
+	(*GetEnginesResponse)(nil),                      // 189: speech.GetEnginesResponse
+	(*GetFeaturesRequest)(nil),                      // 190: speech.GetFeaturesRequest
+	(*GetFeaturesResponse)(nil),                     // 191: speech.GetFeaturesResponse
+	(*GetLanguageRequest)(nil),                      // 192: speech.GetLanguageRequest
+	(*GetLanguageResponse)(nil),                     // 193: speech.GetLanguageResponse
+	(*GetVoiceRequest)(nil),                         // 194: speech.GetVoiceRequest
+	(*GetVoiceResponse)(nil),                        // 195: speech.GetVoiceResponse
+	(*GetVoicesRequest)(nil),                        // 196: speech.GetVoicesRequest
+	(*GetVoicesResponse)(nil),                       // 197: speech.GetVoicesResponse
+	(*IsLanguageAvailableRequest)(nil),              // 198: speech.IsLanguageAvailableRequest
+	(*IsLanguageAvailableResponse)(nil),             // 199: speech.IsLanguageAvailableResponse
+	(*IsSpeakingRequest)(nil),                       // 200: speech.IsSpeakingRequest
+	(*IsSpeakingResponse)(nil),                      // 201: speech.IsSpeakingResponse
+	(*PlayEarconRequest)(nil),                       // 202: speech.PlayEarconRequest
+	(*PlayEarconResponse)(nil),                      // 203: speech.PlayEarconResponse
+	(*PlaySilentUtteranceRequest)(nil),              // 204: speech.PlaySilentUtteranceRequest
+	(*PlaySilentUtteranceResponse)(nil),             // 205: speech.PlaySilentUtteranceResponse
+	(*SetAudioAttributesRequest)(nil),               // 206: speech.SetAudioAttributesRequest
+	(*SetAudioAttributesResponse)(nil),              // 207: speech.SetAudioAttributesResponse
+	(*SetEngineByPackageNameRequest)(nil),           // 208: speech.SetEngineByPackageNameRequest
+	(*SetEngineByPackageNameResponse)(nil),          // 209: speech.SetEngineByPackageNameResponse
+	(*SetLanguageRequest)(nil),                      // 210: speech.SetLanguageRequest
+	(*SetLanguageResponse)(nil),                     // 211: speech.SetLanguageResponse
+	(*SetOnUtteranceCompletedListenerRequest)(nil),  // 212: speech.SetOnUtteranceCompletedListenerRequest
+	(*SetOnUtteranceCompletedListenerResponse)(nil), // 213: speech.SetOnUtteranceCompletedListenerResponse
+	(*SetOnUtteranceProgressListenerRequest)(nil),   // 214: speech.SetOnUtteranceProgressListenerRequest
+	(*SetOnUtteranceProgressListenerResponse)(nil),  // 215: speech.SetOnUtteranceProgressListenerResponse
+	(*SetPitchRequest)(nil),                         // 216: speech.SetPitchRequest
+	(*SetPitchResponse)(nil),                        // 217: speech.SetPitchResponse
+	(*SetSpeechRateRequest)(nil),                    // 218: speech.SetSpeechRateRequest
+	(*SetSpeechRateResponse)(nil),                   // 219: speech.SetSpeechRateResponse
+	(*SetVoiceRequest)(nil),                         // 220: speech.SetVoiceRequest
+	(*SetVoiceResponse)(nil),                        // 221: speech.SetVoiceResponse
+	(*ShutdownRequest)(nil),                         // 222: speech.ShutdownRequest
+	(*ShutdownResponse)(nil),                        // 223: speech.ShutdownResponse
+	(*SpeakRequest)(nil),                            // 224: speech.SpeakRequest
+	(*SpeakResponse)(nil),                           // 225: speech.SpeakResponse
+	(*StopRequest)(nil),                             // 226: speech.StopRequest
+	(*StopResponse)(nil),                            // 227: speech.StopResponse
+	(*SynthesizeToFile4Request)(nil),                // 228: speech.SynthesizeToFile4Request
+	(*SynthesizeToFile4Response)(nil),               // 229: speech.SynthesizeToFile4Response
+	(*SynthesizeToFile4_1Request)(nil),              // 230: speech.SynthesizeToFile4_1Request
+	(*SynthesizeToFile4_1Response)(nil),             // 231: speech.SynthesizeToFile4_1Response
+	(*GetMaxSpeechInputLengthRequest)(nil),          // 232: speech.GetMaxSpeechInputLengthRequest
+	(*GetMaxSpeechInputLengthResponse)(nil),         // 233: speech.GetMaxSpeechInputLengthResponse
+	(*OnInitRequest)(nil),                           // 234: speech.OnInitRequest
+	(*OnInitResponse)(nil),                          // 235: speech.OnInitResponse
+	(*OnUtteranceCompletedRequest)(nil),             // 236: speech.OnUtteranceCompletedRequest
+	(*OnUtteranceCompletedResponse)(nil),            // 237: speech.OnUtteranceCompletedResponse
+	(*OnProgressRequest)(nil),                       // 238: speech.OnProgressRequest
+	(*OnProgressResponse)(nil),                      // 239: speech.OnProgressResponse
+	(*OnScheduledRequest)(nil),                      // 240: speech.OnScheduledRequest
+	(*OnScheduledResponse)(nil),                     // 241: speech.OnScheduledResponse
+	(*OnSuccessRequest)(nil),                        // 242: speech.OnSuccessRequest
+	(*OnSuccessResponse)(nil),                       // 243: speech.OnSuccessResponse
 }
 var file_proto_speech_speech_proto_depIdxs = []int32{
-	0,   // 0: speech.RecognizerService.Cancel:input_type -> speech.CancelRequest
-	2,   // 1: speech.RecognizerService.CheckRecognitionSupport:input_type -> speech.CheckRecognitionSupportRequest
-	4,   // 2: speech.RecognizerService.Destroy:input_type -> speech.DestroyRequest
-	6,   // 3: speech.RecognizerService.SetRecognitionListener:input_type -> speech.SetRecognitionListenerRequest
-	8,   // 4: speech.RecognizerService.StartListening:input_type -> speech.StartListeningRequest
-	10,  // 5: speech.RecognizerService.StopListening:input_type -> speech.StopListeningRequest
-	12,  // 6: speech.RecognizerService.TriggerModelDownload1:input_type -> speech.TriggerModelDownload1Request
-	14,  // 7: speech.RecognizerService.TriggerModelDownload3_1:input_type -> speech.TriggerModelDownload3_1Request
-	16,  // 8: speech.RecognizerService.CreateOnDeviceSpeechRecognizer:input_type -> speech.CreateOnDeviceSpeechRecognizerRequest
-	18,  // 9: speech.RecognizerService.CreateSpeechRecognizer1:input_type -> speech.CreateSpeechRecognizer1Request
-	20,  // 10: speech.RecognizerService.CreateSpeechRecognizer2_1:input_type -> speech.CreateSpeechRecognizer2_1Request
-	22,  // 11: speech.RecognizerService.IsOnDeviceRecognitionAvailable:input_type -> speech.IsOnDeviceRecognitionAvailableRequest
-	24,  // 12: speech.RecognizerService.IsRecognitionAvailable:input_type -> speech.IsRecognitionAvailableRequest
-	26,  // 13: speech.ModelDownloadListenerService.OnError:input_type -> speech.OnErrorRequest
-	28,  // 14: speech.ModelDownloadListenerService.OnProgress:input_type -> speech.OnProgressRequest
-	30,  // 15: speech.ModelDownloadListenerService.OnScheduled:input_type -> speech.OnScheduledRequest
-	32,  // 16: speech.ModelDownloadListenerService.OnSuccess:input_type -> speech.OnSuccessRequest
-	34,  // 17: speech.RecognitionPartService.DescribeContents:input_type -> speech.DescribeContentsRequest
-	36,  // 18: speech.RecognitionPartService.Equals:input_type -> speech.EqualsRequest
-	38,  // 19: speech.RecognitionPartService.GetConfidenceLevel:input_type -> speech.GetConfidenceLevelRequest
-	40,  // 20: speech.RecognitionPartService.GetFormattedText:input_type -> speech.GetFormattedTextRequest
-	42,  // 21: speech.RecognitionPartService.GetRawText:input_type -> speech.GetRawTextRequest
-	44,  // 22: speech.RecognitionPartService.GetTimestampMillis:input_type -> speech.GetTimestampMillisRequest
-	46,  // 23: speech.RecognitionPartService.HashCode:input_type -> speech.HashCodeRequest
-	48,  // 24: speech.RecognitionPartService.ToString:input_type -> speech.ToStringRequest
-	50,  // 25: speech.RecognitionPartService.WriteToParcel:input_type -> speech.WriteToParcelRequest
-	52,  // 26: speech.RecognitionPartBuilderService.Build:input_type -> speech.BuildRequest
-	54,  // 27: speech.RecognitionPartBuilderService.SetConfidenceLevel:input_type -> speech.SetConfidenceLevelRequest
-	56,  // 28: speech.RecognitionPartBuilderService.SetFormattedText:input_type -> speech.SetFormattedTextRequest
-	58,  // 29: speech.RecognitionPartBuilderService.SetRawText:input_type -> speech.SetRawTextRequest
-	60,  // 30: speech.RecognitionPartBuilderService.SetTimestampMillis:input_type -> speech.SetTimestampMillisRequest
-	62,  // 31: speech.RecognizerIntentService.GetVoiceDetailsIntent:input_type -> speech.GetVoiceDetailsIntentRequest
-	64,  // 32: speech.AlternativeSpansService.NewAlternativeSpans:input_type -> speech.NewAlternativeSpansRequest
-	66,  // 33: speech.AlternativeSpansService.DescribeContents:input_type -> speech.AlternativeSpansDescribeContentsRequest
-	67,  // 34: speech.AlternativeSpansService.Equals:input_type -> speech.AlternativeSpansEqualsRequest
-	68,  // 35: speech.AlternativeSpansService.HashCode:input_type -> speech.AlternativeSpansHashCodeRequest
-	69,  // 36: speech.AlternativeSpansService.ToString:input_type -> speech.AlternativeSpansToStringRequest
-	70,  // 37: speech.AlternativeSpansService.WriteToParcel:input_type -> speech.AlternativeSpansWriteToParcelRequest
-	71,  // 38: speech.AlternativeSpanService.NewAlternativeSpan:input_type -> speech.NewAlternativeSpanRequest
-	73,  // 39: speech.AlternativeSpanService.DescribeContents:input_type -> speech.AlternativeSpanDescribeContentsRequest
-	74,  // 40: speech.AlternativeSpanService.Equals:input_type -> speech.AlternativeSpanEqualsRequest
-	75,  // 41: speech.AlternativeSpanService.GetEndPosition:input_type -> speech.GetEndPositionRequest
-	77,  // 42: speech.AlternativeSpanService.GetStartPosition:input_type -> speech.GetStartPositionRequest
-	79,  // 43: speech.AlternativeSpanService.HashCode:input_type -> speech.AlternativeSpanHashCodeRequest
-	80,  // 44: speech.AlternativeSpanService.ToString:input_type -> speech.AlternativeSpanToStringRequest
-	81,  // 45: speech.AlternativeSpanService.WriteToParcel:input_type -> speech.AlternativeSpanWriteToParcelRequest
-	82,  // 46: speech.TextToSpeechService.NewTextToSpeech:input_type -> speech.NewTextToSpeechRequest
-	84,  // 47: speech.TextToSpeechService.AddEarcon2:input_type -> speech.AddEarcon2Request
-	86,  // 48: speech.TextToSpeechService.AddEarcon2_1:input_type -> speech.AddEarcon2_1Request
-	88,  // 49: speech.TextToSpeechService.AddEarcon2_2:input_type -> speech.AddEarcon2_2Request
-	90,  // 50: speech.TextToSpeechService.AddEarcon3_3:input_type -> speech.AddEarcon3_3Request
-	92,  // 51: speech.TextToSpeechService.AddSpeech2:input_type -> speech.AddSpeech2Request
-	94,  // 52: speech.TextToSpeechService.AddSpeech2_1:input_type -> speech.AddSpeech2_1Request
-	96,  // 53: speech.TextToSpeechService.AddSpeech3_2:input_type -> speech.AddSpeech3_2Request
-	98,  // 54: speech.TextToSpeechService.AddSpeech2_3:input_type -> speech.AddSpeech2_3Request
-	100, // 55: speech.TextToSpeechService.AddSpeech3_4:input_type -> speech.AddSpeech3_4Request
-	102, // 56: speech.TextToSpeechService.AreDefaultsEnforced:input_type -> speech.AreDefaultsEnforcedRequest
-	104, // 57: speech.TextToSpeechService.GetDefaultEngine:input_type -> speech.GetDefaultEngineRequest
-	106, // 58: speech.TextToSpeechService.GetDefaultLanguage:input_type -> speech.GetDefaultLanguageRequest
-	108, // 59: speech.TextToSpeechService.GetDefaultVoice:input_type -> speech.GetDefaultVoiceRequest
-	110, // 60: speech.TextToSpeechService.GetLanguage:input_type -> speech.GetLanguageRequest
-	112, // 61: speech.TextToSpeechService.GetVoice:input_type -> speech.GetVoiceRequest
-	114, // 62: speech.TextToSpeechService.IsLanguageAvailable:input_type -> speech.IsLanguageAvailableRequest
-	116, // 63: speech.TextToSpeechService.IsSpeaking:input_type -> speech.IsSpeakingRequest
-	118, // 64: speech.TextToSpeechService.PlayEarcon:input_type -> speech.PlayEarconRequest
-	120, // 65: speech.TextToSpeechService.PlaySilentUtterance:input_type -> speech.PlaySilentUtteranceRequest
-	122, // 66: speech.TextToSpeechService.SetAudioAttributes:input_type -> speech.SetAudioAttributesRequest
-	124, // 67: speech.TextToSpeechService.SetEngineByPackageName:input_type -> speech.SetEngineByPackageNameRequest
-	126, // 68: speech.TextToSpeechService.SetLanguage:input_type -> speech.SetLanguageRequest
-	128, // 69: speech.TextToSpeechService.SetOnUtteranceCompletedListener:input_type -> speech.SetOnUtteranceCompletedListenerRequest
-	130, // 70: speech.TextToSpeechService.SetOnUtteranceProgressListener:input_type -> speech.SetOnUtteranceProgressListenerRequest
-	132, // 71: speech.TextToSpeechService.SetPitch:input_type -> speech.SetPitchRequest
-	134, // 72: speech.TextToSpeechService.SetSpeechRate:input_type -> speech.SetSpeechRateRequest
-	136, // 73: speech.TextToSpeechService.SetVoice:input_type -> speech.SetVoiceRequest
-	138, // 74: speech.TextToSpeechService.Shutdown:input_type -> speech.ShutdownRequest
-	140, // 75: speech.TextToSpeechService.Speak:input_type -> speech.SpeakRequest
-	142, // 76: speech.TextToSpeechService.Stop:input_type -> speech.StopRequest
-	144, // 77: speech.TextToSpeechService.SynthesizeToFile4:input_type -> speech.SynthesizeToFile4Request
-	146, // 78: speech.TextToSpeechService.SynthesizeToFile4_1:input_type -> speech.SynthesizeToFile4_1Request
-	148, // 79: speech.TextToSpeechService.GetMaxSpeechInputLength:input_type -> speech.GetMaxSpeechInputLengthRequest
-	48,  // 80: speech.TextToSpeechEngineInfoService.ToString:input_type -> speech.ToStringRequest
-	150, // 81: speech.TextToSpeechOnInitListenerService.OnInit:input_type -> speech.OnInitRequest
-	152, // 82: speech.TextToSpeechOnUtteranceCompletedListenerService.OnUtteranceCompleted:input_type -> speech.OnUtteranceCompletedRequest
-	34,  // 83: speech.RecognitionSupportService.DescribeContents:input_type -> speech.DescribeContentsRequest
-	36,  // 84: speech.RecognitionSupportService.Equals:input_type -> speech.EqualsRequest
-	46,  // 85: speech.RecognitionSupportService.HashCode:input_type -> speech.HashCodeRequest
-	48,  // 86: speech.RecognitionSupportService.ToString:input_type -> speech.ToStringRequest
-	50,  // 87: speech.RecognitionSupportService.WriteToParcel:input_type -> speech.WriteToParcelRequest
-	154, // 88: speech.RecognitionSupportBuilderService.AddInstalledOnDeviceLanguage:input_type -> speech.AddInstalledOnDeviceLanguageRequest
-	156, // 89: speech.RecognitionSupportBuilderService.AddOnlineLanguage:input_type -> speech.AddOnlineLanguageRequest
-	158, // 90: speech.RecognitionSupportBuilderService.AddPendingOnDeviceLanguage:input_type -> speech.AddPendingOnDeviceLanguageRequest
-	160, // 91: speech.RecognitionSupportBuilderService.AddSupportedOnDeviceLanguage:input_type -> speech.AddSupportedOnDeviceLanguageRequest
-	52,  // 92: speech.RecognitionSupportBuilderService.Build:input_type -> speech.BuildRequest
-	162, // 93: speech.RecognitionServiceService.CreateContext:input_type -> speech.CreateContextRequest
-	164, // 94: speech.RecognitionServiceService.GetMaxConcurrentSessionsCount:input_type -> speech.GetMaxConcurrentSessionsCountRequest
-	166, // 95: speech.RecognitionServiceService.OnBind:input_type -> speech.OnBindRequest
-	168, // 96: speech.RecognitionServiceService.OnCheckRecognitionSupport3:input_type -> speech.OnCheckRecognitionSupport3Request
-	170, // 97: speech.RecognitionServiceService.OnCheckRecognitionSupport2_1:input_type -> speech.OnCheckRecognitionSupport2_1Request
-	172, // 98: speech.RecognitionServiceService.OnDestroy:input_type -> speech.OnDestroyRequest
-	174, // 99: speech.RecognitionServiceService.OnTriggerModelDownload1:input_type -> speech.OnTriggerModelDownload1Request
-	176, // 100: speech.RecognitionServiceService.OnTriggerModelDownload2_1:input_type -> speech.OnTriggerModelDownload2_1Request
-	178, // 101: speech.RecognitionServiceService.OnTriggerModelDownload3_2:input_type -> speech.OnTriggerModelDownload3_2Request
-	180, // 102: speech.RecognitionServiceCallbackService.BeginningOfSpeech:input_type -> speech.BeginningOfSpeechRequest
-	182, // 103: speech.RecognitionServiceCallbackService.BufferReceived:input_type -> speech.BufferReceivedRequest
-	184, // 104: speech.RecognitionServiceCallbackService.EndOfSegmentedSession:input_type -> speech.EndOfSegmentedSessionRequest
-	186, // 105: speech.RecognitionServiceCallbackService.EndOfSpeech:input_type -> speech.EndOfSpeechRequest
-	188, // 106: speech.RecognitionServiceCallbackService.Error:input_type -> speech.ErrorRequest
-	190, // 107: speech.RecognitionServiceCallbackService.GetCallingAttributionSource:input_type -> speech.GetCallingAttributionSourceRequest
-	192, // 108: speech.RecognitionServiceCallbackService.GetCallingUid:input_type -> speech.GetCallingUidRequest
-	194, // 109: speech.RecognitionServiceCallbackService.LanguageDetection:input_type -> speech.LanguageDetectionRequest
-	196, // 110: speech.RecognitionServiceCallbackService.PartialResults:input_type -> speech.PartialResultsRequest
-	198, // 111: speech.RecognitionServiceCallbackService.ReadyForSpeech:input_type -> speech.ReadyForSpeechRequest
-	200, // 112: speech.RecognitionServiceCallbackService.Results:input_type -> speech.ResultsRequest
-	202, // 113: speech.RecognitionServiceCallbackService.RmsChanged:input_type -> speech.RmsChangedRequest
-	204, // 114: speech.RecognitionServiceCallbackService.SegmentResults:input_type -> speech.SegmentResultsRequest
-	26,  // 115: speech.RecognitionServiceSupportCallbackService.OnError:input_type -> speech.OnErrorRequest
-	206, // 116: speech.RecognitionServiceSupportCallbackService.OnSupportResult:input_type -> speech.OnSupportResultRequest
-	208, // 117: speech.RecognitionListenerService.OnBeginningOfSpeech:input_type -> speech.OnBeginningOfSpeechRequest
-	210, // 118: speech.RecognitionListenerService.OnBufferReceived:input_type -> speech.OnBufferReceivedRequest
-	212, // 119: speech.RecognitionListenerService.OnEndOfSpeech:input_type -> speech.OnEndOfSpeechRequest
-	26,  // 120: speech.RecognitionListenerService.OnError:input_type -> speech.OnErrorRequest
-	214, // 121: speech.RecognitionListenerService.OnEvent:input_type -> speech.OnEventRequest
-	216, // 122: speech.RecognitionListenerService.OnPartialResults:input_type -> speech.OnPartialResultsRequest
-	218, // 123: speech.RecognitionListenerService.OnReadyForSpeech:input_type -> speech.OnReadyForSpeechRequest
-	220, // 124: speech.RecognitionListenerService.OnResults:input_type -> speech.OnResultsRequest
-	222, // 125: speech.RecognitionListenerService.OnRmsChanged:input_type -> speech.OnRmsChangedRequest
-	26,  // 126: speech.RecognitionSupportCallbackService.OnError:input_type -> speech.OnErrorRequest
-	206, // 127: speech.RecognitionSupportCallbackService.OnSupportResult:input_type -> speech.OnSupportResultRequest
-	1,   // 128: speech.RecognizerService.Cancel:output_type -> speech.CancelResponse
-	3,   // 129: speech.RecognizerService.CheckRecognitionSupport:output_type -> speech.CheckRecognitionSupportResponse
-	5,   // 130: speech.RecognizerService.Destroy:output_type -> speech.DestroyResponse
-	7,   // 131: speech.RecognizerService.SetRecognitionListener:output_type -> speech.SetRecognitionListenerResponse
-	9,   // 132: speech.RecognizerService.StartListening:output_type -> speech.StartListeningResponse
-	11,  // 133: speech.RecognizerService.StopListening:output_type -> speech.StopListeningResponse
-	13,  // 134: speech.RecognizerService.TriggerModelDownload1:output_type -> speech.TriggerModelDownload1Response
-	15,  // 135: speech.RecognizerService.TriggerModelDownload3_1:output_type -> speech.TriggerModelDownload3_1Response
-	17,  // 136: speech.RecognizerService.CreateOnDeviceSpeechRecognizer:output_type -> speech.CreateOnDeviceSpeechRecognizerResponse
-	19,  // 137: speech.RecognizerService.CreateSpeechRecognizer1:output_type -> speech.CreateSpeechRecognizer1Response
-	21,  // 138: speech.RecognizerService.CreateSpeechRecognizer2_1:output_type -> speech.CreateSpeechRecognizer2_1Response
-	23,  // 139: speech.RecognizerService.IsOnDeviceRecognitionAvailable:output_type -> speech.IsOnDeviceRecognitionAvailableResponse
-	25,  // 140: speech.RecognizerService.IsRecognitionAvailable:output_type -> speech.IsRecognitionAvailableResponse
-	27,  // 141: speech.ModelDownloadListenerService.OnError:output_type -> speech.OnErrorResponse
-	29,  // 142: speech.ModelDownloadListenerService.OnProgress:output_type -> speech.OnProgressResponse
-	31,  // 143: speech.ModelDownloadListenerService.OnScheduled:output_type -> speech.OnScheduledResponse
-	33,  // 144: speech.ModelDownloadListenerService.OnSuccess:output_type -> speech.OnSuccessResponse
-	35,  // 145: speech.RecognitionPartService.DescribeContents:output_type -> speech.DescribeContentsResponse
-	37,  // 146: speech.RecognitionPartService.Equals:output_type -> speech.EqualsResponse
-	39,  // 147: speech.RecognitionPartService.GetConfidenceLevel:output_type -> speech.GetConfidenceLevelResponse
-	41,  // 148: speech.RecognitionPartService.GetFormattedText:output_type -> speech.GetFormattedTextResponse
-	43,  // 149: speech.RecognitionPartService.GetRawText:output_type -> speech.GetRawTextResponse
-	45,  // 150: speech.RecognitionPartService.GetTimestampMillis:output_type -> speech.GetTimestampMillisResponse
-	47,  // 151: speech.RecognitionPartService.HashCode:output_type -> speech.HashCodeResponse
-	49,  // 152: speech.RecognitionPartService.ToString:output_type -> speech.ToStringResponse
-	51,  // 153: speech.RecognitionPartService.WriteToParcel:output_type -> speech.WriteToParcelResponse
-	53,  // 154: speech.RecognitionPartBuilderService.Build:output_type -> speech.BuildResponse
-	55,  // 155: speech.RecognitionPartBuilderService.SetConfidenceLevel:output_type -> speech.SetConfidenceLevelResponse
-	57,  // 156: speech.RecognitionPartBuilderService.SetFormattedText:output_type -> speech.SetFormattedTextResponse
-	59,  // 157: speech.RecognitionPartBuilderService.SetRawText:output_type -> speech.SetRawTextResponse
-	61,  // 158: speech.RecognitionPartBuilderService.SetTimestampMillis:output_type -> speech.SetTimestampMillisResponse
-	63,  // 159: speech.RecognizerIntentService.GetVoiceDetailsIntent:output_type -> speech.GetVoiceDetailsIntentResponse
-	65,  // 160: speech.AlternativeSpansService.NewAlternativeSpans:output_type -> speech.NewAlternativeSpansResponse
-	35,  // 161: speech.AlternativeSpansService.DescribeContents:output_type -> speech.DescribeContentsResponse
-	37,  // 162: speech.AlternativeSpansService.Equals:output_type -> speech.EqualsResponse
-	47,  // 163: speech.AlternativeSpansService.HashCode:output_type -> speech.HashCodeResponse
-	49,  // 164: speech.AlternativeSpansService.ToString:output_type -> speech.ToStringResponse
-	51,  // 165: speech.AlternativeSpansService.WriteToParcel:output_type -> speech.WriteToParcelResponse
-	72,  // 166: speech.AlternativeSpanService.NewAlternativeSpan:output_type -> speech.NewAlternativeSpanResponse
-	35,  // 167: speech.AlternativeSpanService.DescribeContents:output_type -> speech.DescribeContentsResponse
-	37,  // 168: speech.AlternativeSpanService.Equals:output_type -> speech.EqualsResponse
-	76,  // 169: speech.AlternativeSpanService.GetEndPosition:output_type -> speech.GetEndPositionResponse
-	78,  // 170: speech.AlternativeSpanService.GetStartPosition:output_type -> speech.GetStartPositionResponse
-	47,  // 171: speech.AlternativeSpanService.HashCode:output_type -> speech.HashCodeResponse
-	49,  // 172: speech.AlternativeSpanService.ToString:output_type -> speech.ToStringResponse
-	51,  // 173: speech.AlternativeSpanService.WriteToParcel:output_type -> speech.WriteToParcelResponse
-	83,  // 174: speech.TextToSpeechService.NewTextToSpeech:output_type -> speech.NewTextToSpeechResponse
-	85,  // 175: speech.TextToSpeechService.AddEarcon2:output_type -> speech.AddEarcon2Response
-	87,  // 176: speech.TextToSpeechService.AddEarcon2_1:output_type -> speech.AddEarcon2_1Response
-	89,  // 177: speech.TextToSpeechService.AddEarcon2_2:output_type -> speech.AddEarcon2_2Response
-	91,  // 178: speech.TextToSpeechService.AddEarcon3_3:output_type -> speech.AddEarcon3_3Response
-	93,  // 179: speech.TextToSpeechService.AddSpeech2:output_type -> speech.AddSpeech2Response
-	95,  // 180: speech.TextToSpeechService.AddSpeech2_1:output_type -> speech.AddSpeech2_1Response
-	97,  // 181: speech.TextToSpeechService.AddSpeech3_2:output_type -> speech.AddSpeech3_2Response
-	99,  // 182: speech.TextToSpeechService.AddSpeech2_3:output_type -> speech.AddSpeech2_3Response
-	101, // 183: speech.TextToSpeechService.AddSpeech3_4:output_type -> speech.AddSpeech3_4Response
-	103, // 184: speech.TextToSpeechService.AreDefaultsEnforced:output_type -> speech.AreDefaultsEnforcedResponse
-	105, // 185: speech.TextToSpeechService.GetDefaultEngine:output_type -> speech.GetDefaultEngineResponse
-	107, // 186: speech.TextToSpeechService.GetDefaultLanguage:output_type -> speech.GetDefaultLanguageResponse
-	109, // 187: speech.TextToSpeechService.GetDefaultVoice:output_type -> speech.GetDefaultVoiceResponse
-	111, // 188: speech.TextToSpeechService.GetLanguage:output_type -> speech.GetLanguageResponse
-	113, // 189: speech.TextToSpeechService.GetVoice:output_type -> speech.GetVoiceResponse
-	115, // 190: speech.TextToSpeechService.IsLanguageAvailable:output_type -> speech.IsLanguageAvailableResponse
-	117, // 191: speech.TextToSpeechService.IsSpeaking:output_type -> speech.IsSpeakingResponse
-	119, // 192: speech.TextToSpeechService.PlayEarcon:output_type -> speech.PlayEarconResponse
-	121, // 193: speech.TextToSpeechService.PlaySilentUtterance:output_type -> speech.PlaySilentUtteranceResponse
-	123, // 194: speech.TextToSpeechService.SetAudioAttributes:output_type -> speech.SetAudioAttributesResponse
-	125, // 195: speech.TextToSpeechService.SetEngineByPackageName:output_type -> speech.SetEngineByPackageNameResponse
-	127, // 196: speech.TextToSpeechService.SetLanguage:output_type -> speech.SetLanguageResponse
-	129, // 197: speech.TextToSpeechService.SetOnUtteranceCompletedListener:output_type -> speech.SetOnUtteranceCompletedListenerResponse
-	131, // 198: speech.TextToSpeechService.SetOnUtteranceProgressListener:output_type -> speech.SetOnUtteranceProgressListenerResponse
-	133, // 199: speech.TextToSpeechService.SetPitch:output_type -> speech.SetPitchResponse
-	135, // 200: speech.TextToSpeechService.SetSpeechRate:output_type -> speech.SetSpeechRateResponse
-	137, // 201: speech.TextToSpeechService.SetVoice:output_type -> speech.SetVoiceResponse
-	139, // 202: speech.TextToSpeechService.Shutdown:output_type -> speech.ShutdownResponse
-	141, // 203: speech.TextToSpeechService.Speak:output_type -> speech.SpeakResponse
-	143, // 204: speech.TextToSpeechService.Stop:output_type -> speech.StopResponse
-	145, // 205: speech.TextToSpeechService.SynthesizeToFile4:output_type -> speech.SynthesizeToFile4Response
-	147, // 206: speech.TextToSpeechService.SynthesizeToFile4_1:output_type -> speech.SynthesizeToFile4_1Response
-	149, // 207: speech.TextToSpeechService.GetMaxSpeechInputLength:output_type -> speech.GetMaxSpeechInputLengthResponse
-	49,  // 208: speech.TextToSpeechEngineInfoService.ToString:output_type -> speech.ToStringResponse
-	151, // 209: speech.TextToSpeechOnInitListenerService.OnInit:output_type -> speech.OnInitResponse
-	153, // 210: speech.TextToSpeechOnUtteranceCompletedListenerService.OnUtteranceCompleted:output_type -> speech.OnUtteranceCompletedResponse
-	35,  // 211: speech.RecognitionSupportService.DescribeContents:output_type -> speech.DescribeContentsResponse
-	37,  // 212: speech.RecognitionSupportService.Equals:output_type -> speech.EqualsResponse
-	47,  // 213: speech.RecognitionSupportService.HashCode:output_type -> speech.HashCodeResponse
-	49,  // 214: speech.RecognitionSupportService.ToString:output_type -> speech.ToStringResponse
-	51,  // 215: speech.RecognitionSupportService.WriteToParcel:output_type -> speech.WriteToParcelResponse
-	155, // 216: speech.RecognitionSupportBuilderService.AddInstalledOnDeviceLanguage:output_type -> speech.AddInstalledOnDeviceLanguageResponse
-	157, // 217: speech.RecognitionSupportBuilderService.AddOnlineLanguage:output_type -> speech.AddOnlineLanguageResponse
-	159, // 218: speech.RecognitionSupportBuilderService.AddPendingOnDeviceLanguage:output_type -> speech.AddPendingOnDeviceLanguageResponse
-	161, // 219: speech.RecognitionSupportBuilderService.AddSupportedOnDeviceLanguage:output_type -> speech.AddSupportedOnDeviceLanguageResponse
-	53,  // 220: speech.RecognitionSupportBuilderService.Build:output_type -> speech.BuildResponse
-	163, // 221: speech.RecognitionServiceService.CreateContext:output_type -> speech.CreateContextResponse
-	165, // 222: speech.RecognitionServiceService.GetMaxConcurrentSessionsCount:output_type -> speech.GetMaxConcurrentSessionsCountResponse
-	167, // 223: speech.RecognitionServiceService.OnBind:output_type -> speech.OnBindResponse
-	169, // 224: speech.RecognitionServiceService.OnCheckRecognitionSupport3:output_type -> speech.OnCheckRecognitionSupport3Response
-	171, // 225: speech.RecognitionServiceService.OnCheckRecognitionSupport2_1:output_type -> speech.OnCheckRecognitionSupport2_1Response
-	173, // 226: speech.RecognitionServiceService.OnDestroy:output_type -> speech.OnDestroyResponse
-	175, // 227: speech.RecognitionServiceService.OnTriggerModelDownload1:output_type -> speech.OnTriggerModelDownload1Response
-	177, // 228: speech.RecognitionServiceService.OnTriggerModelDownload2_1:output_type -> speech.OnTriggerModelDownload2_1Response
-	179, // 229: speech.RecognitionServiceService.OnTriggerModelDownload3_2:output_type -> speech.OnTriggerModelDownload3_2Response
-	181, // 230: speech.RecognitionServiceCallbackService.BeginningOfSpeech:output_type -> speech.BeginningOfSpeechResponse
-	183, // 231: speech.RecognitionServiceCallbackService.BufferReceived:output_type -> speech.BufferReceivedResponse
-	185, // 232: speech.RecognitionServiceCallbackService.EndOfSegmentedSession:output_type -> speech.EndOfSegmentedSessionResponse
-	187, // 233: speech.RecognitionServiceCallbackService.EndOfSpeech:output_type -> speech.EndOfSpeechResponse
-	189, // 234: speech.RecognitionServiceCallbackService.Error:output_type -> speech.ErrorResponse
-	191, // 235: speech.RecognitionServiceCallbackService.GetCallingAttributionSource:output_type -> speech.GetCallingAttributionSourceResponse
-	193, // 236: speech.RecognitionServiceCallbackService.GetCallingUid:output_type -> speech.GetCallingUidResponse
-	195, // 237: speech.RecognitionServiceCallbackService.LanguageDetection:output_type -> speech.LanguageDetectionResponse
-	197, // 238: speech.RecognitionServiceCallbackService.PartialResults:output_type -> speech.PartialResultsResponse
-	199, // 239: speech.RecognitionServiceCallbackService.ReadyForSpeech:output_type -> speech.ReadyForSpeechResponse
-	201, // 240: speech.RecognitionServiceCallbackService.Results:output_type -> speech.ResultsResponse
-	203, // 241: speech.RecognitionServiceCallbackService.RmsChanged:output_type -> speech.RmsChangedResponse
-	205, // 242: speech.RecognitionServiceCallbackService.SegmentResults:output_type -> speech.SegmentResultsResponse
-	27,  // 243: speech.RecognitionServiceSupportCallbackService.OnError:output_type -> speech.OnErrorResponse
-	207, // 244: speech.RecognitionServiceSupportCallbackService.OnSupportResult:output_type -> speech.OnSupportResultResponse
-	209, // 245: speech.RecognitionListenerService.OnBeginningOfSpeech:output_type -> speech.OnBeginningOfSpeechResponse
-	211, // 246: speech.RecognitionListenerService.OnBufferReceived:output_type -> speech.OnBufferReceivedResponse
-	213, // 247: speech.RecognitionListenerService.OnEndOfSpeech:output_type -> speech.OnEndOfSpeechResponse
-	27,  // 248: speech.RecognitionListenerService.OnError:output_type -> speech.OnErrorResponse
-	215, // 249: speech.RecognitionListenerService.OnEvent:output_type -> speech.OnEventResponse
-	217, // 250: speech.RecognitionListenerService.OnPartialResults:output_type -> speech.OnPartialResultsResponse
-	219, // 251: speech.RecognitionListenerService.OnReadyForSpeech:output_type -> speech.OnReadyForSpeechResponse
-	221, // 252: speech.RecognitionListenerService.OnResults:output_type -> speech.OnResultsResponse
-	223, // 253: speech.RecognitionListenerService.OnRmsChanged:output_type -> speech.OnRmsChangedResponse
-	27,  // 254: speech.RecognitionSupportCallbackService.OnError:output_type -> speech.OnErrorResponse
-	207, // 255: speech.RecognitionSupportCallbackService.OnSupportResult:output_type -> speech.OnSupportResultResponse
-	128, // [128:256] is the sub-list for method output_type
-	0,   // [0:128] is the sub-list for method input_type
+	0,   // 0: speech.RecognitionSupportCallbackService.OnError:input_type -> speech.OnErrorRequest
+	2,   // 1: speech.RecognitionSupportCallbackService.OnSupportResult:input_type -> speech.OnSupportResultRequest
+	4,   // 2: speech.RecognitionSupportService.DescribeContents:input_type -> speech.DescribeContentsRequest
+	6,   // 3: speech.RecognitionSupportService.Equals:input_type -> speech.EqualsRequest
+	8,   // 4: speech.RecognitionSupportService.GetInstalledOnDeviceLanguages:input_type -> speech.GetInstalledOnDeviceLanguagesRequest
+	10,  // 5: speech.RecognitionSupportService.GetOnlineLanguages:input_type -> speech.GetOnlineLanguagesRequest
+	12,  // 6: speech.RecognitionSupportService.GetPendingOnDeviceLanguages:input_type -> speech.GetPendingOnDeviceLanguagesRequest
+	14,  // 7: speech.RecognitionSupportService.GetSupportedOnDeviceLanguages:input_type -> speech.GetSupportedOnDeviceLanguagesRequest
+	16,  // 8: speech.RecognitionSupportService.HashCode:input_type -> speech.HashCodeRequest
+	18,  // 9: speech.RecognitionSupportService.ToString:input_type -> speech.ToStringRequest
+	20,  // 10: speech.RecognitionSupportService.WriteToParcel:input_type -> speech.WriteToParcelRequest
+	22,  // 11: speech.RecognitionSupportBuilderService.AddInstalledOnDeviceLanguage:input_type -> speech.AddInstalledOnDeviceLanguageRequest
+	24,  // 12: speech.RecognitionSupportBuilderService.AddOnlineLanguage:input_type -> speech.AddOnlineLanguageRequest
+	26,  // 13: speech.RecognitionSupportBuilderService.AddPendingOnDeviceLanguage:input_type -> speech.AddPendingOnDeviceLanguageRequest
+	28,  // 14: speech.RecognitionSupportBuilderService.AddSupportedOnDeviceLanguage:input_type -> speech.AddSupportedOnDeviceLanguageRequest
+	30,  // 15: speech.RecognitionSupportBuilderService.Build:input_type -> speech.BuildRequest
+	4,   // 16: speech.RecognitionPartService.DescribeContents:input_type -> speech.DescribeContentsRequest
+	6,   // 17: speech.RecognitionPartService.Equals:input_type -> speech.EqualsRequest
+	32,  // 18: speech.RecognitionPartService.GetConfidenceLevel:input_type -> speech.GetConfidenceLevelRequest
+	34,  // 19: speech.RecognitionPartService.GetFormattedText:input_type -> speech.GetFormattedTextRequest
+	36,  // 20: speech.RecognitionPartService.GetRawText:input_type -> speech.GetRawTextRequest
+	38,  // 21: speech.RecognitionPartService.GetTimestampMillis:input_type -> speech.GetTimestampMillisRequest
+	16,  // 22: speech.RecognitionPartService.HashCode:input_type -> speech.HashCodeRequest
+	18,  // 23: speech.RecognitionPartService.ToString:input_type -> speech.ToStringRequest
+	20,  // 24: speech.RecognitionPartService.WriteToParcel:input_type -> speech.WriteToParcelRequest
+	30,  // 25: speech.RecognitionPartBuilderService.Build:input_type -> speech.BuildRequest
+	40,  // 26: speech.RecognitionPartBuilderService.SetConfidenceLevel:input_type -> speech.SetConfidenceLevelRequest
+	42,  // 27: speech.RecognitionPartBuilderService.SetFormattedText:input_type -> speech.SetFormattedTextRequest
+	44,  // 28: speech.RecognitionPartBuilderService.SetRawText:input_type -> speech.SetRawTextRequest
+	46,  // 29: speech.RecognitionPartBuilderService.SetTimestampMillis:input_type -> speech.SetTimestampMillisRequest
+	48,  // 30: speech.RecognitionListenerService.OnBeginningOfSpeech:input_type -> speech.OnBeginningOfSpeechRequest
+	50,  // 31: speech.RecognitionListenerService.OnBufferReceived:input_type -> speech.OnBufferReceivedRequest
+	52,  // 32: speech.RecognitionListenerService.OnEndOfSpeech:input_type -> speech.OnEndOfSpeechRequest
+	0,   // 33: speech.RecognitionListenerService.OnError:input_type -> speech.OnErrorRequest
+	54,  // 34: speech.RecognitionListenerService.OnEvent:input_type -> speech.OnEventRequest
+	56,  // 35: speech.RecognitionListenerService.OnPartialResults:input_type -> speech.OnPartialResultsRequest
+	58,  // 36: speech.RecognitionListenerService.OnReadyForSpeech:input_type -> speech.OnReadyForSpeechRequest
+	60,  // 37: speech.RecognitionListenerService.OnResults:input_type -> speech.OnResultsRequest
+	62,  // 38: speech.RecognitionListenerService.OnRmsChanged:input_type -> speech.OnRmsChangedRequest
+	64,  // 39: speech.AlternativeSpansService.NewAlternativeSpans:input_type -> speech.NewAlternativeSpansRequest
+	66,  // 40: speech.AlternativeSpansService.DescribeContents:input_type -> speech.AlternativeSpansDescribeContentsRequest
+	67,  // 41: speech.AlternativeSpansService.Equals:input_type -> speech.AlternativeSpansEqualsRequest
+	68,  // 42: speech.AlternativeSpansService.GetSpans:input_type -> speech.GetSpansRequest
+	70,  // 43: speech.AlternativeSpansService.HashCode:input_type -> speech.AlternativeSpansHashCodeRequest
+	71,  // 44: speech.AlternativeSpansService.ToString:input_type -> speech.AlternativeSpansToStringRequest
+	72,  // 45: speech.AlternativeSpansService.WriteToParcel:input_type -> speech.AlternativeSpansWriteToParcelRequest
+	73,  // 46: speech.RecognizerService.Cancel:input_type -> speech.CancelRequest
+	75,  // 47: speech.RecognizerService.CheckRecognitionSupport:input_type -> speech.CheckRecognitionSupportRequest
+	77,  // 48: speech.RecognizerService.Destroy:input_type -> speech.DestroyRequest
+	79,  // 49: speech.RecognizerService.SetRecognitionListener:input_type -> speech.SetRecognitionListenerRequest
+	81,  // 50: speech.RecognizerService.StartListening:input_type -> speech.StartListeningRequest
+	83,  // 51: speech.RecognizerService.StopListening:input_type -> speech.StopListeningRequest
+	85,  // 52: speech.RecognizerService.TriggerModelDownload1:input_type -> speech.TriggerModelDownload1Request
+	87,  // 53: speech.RecognizerService.TriggerModelDownload3_1:input_type -> speech.TriggerModelDownload3_1Request
+	89,  // 54: speech.RecognizerService.CreateOnDeviceSpeechRecognizer:input_type -> speech.CreateOnDeviceSpeechRecognizerRequest
+	91,  // 55: speech.RecognizerService.CreateSpeechRecognizer1:input_type -> speech.CreateSpeechRecognizer1Request
+	93,  // 56: speech.RecognizerService.CreateSpeechRecognizer2_1:input_type -> speech.CreateSpeechRecognizer2_1Request
+	95,  // 57: speech.RecognizerService.IsOnDeviceRecognitionAvailable:input_type -> speech.IsOnDeviceRecognitionAvailableRequest
+	97,  // 58: speech.RecognizerService.IsRecognitionAvailable:input_type -> speech.IsRecognitionAvailableRequest
+	99,  // 59: speech.RecognitionServiceService.CreateContext:input_type -> speech.CreateContextRequest
+	101, // 60: speech.RecognitionServiceService.GetMaxConcurrentSessionsCount:input_type -> speech.GetMaxConcurrentSessionsCountRequest
+	103, // 61: speech.RecognitionServiceService.OnBind:input_type -> speech.OnBindRequest
+	105, // 62: speech.RecognitionServiceService.OnCheckRecognitionSupport3:input_type -> speech.OnCheckRecognitionSupport3Request
+	107, // 63: speech.RecognitionServiceService.OnCheckRecognitionSupport2_1:input_type -> speech.OnCheckRecognitionSupport2_1Request
+	109, // 64: speech.RecognitionServiceService.OnDestroy:input_type -> speech.OnDestroyRequest
+	111, // 65: speech.RecognitionServiceService.OnTriggerModelDownload1:input_type -> speech.OnTriggerModelDownload1Request
+	113, // 66: speech.RecognitionServiceService.OnTriggerModelDownload2_1:input_type -> speech.OnTriggerModelDownload2_1Request
+	115, // 67: speech.RecognitionServiceService.OnTriggerModelDownload3_2:input_type -> speech.OnTriggerModelDownload3_2Request
+	117, // 68: speech.RecognitionServiceCallbackService.BeginningOfSpeech:input_type -> speech.BeginningOfSpeechRequest
+	119, // 69: speech.RecognitionServiceCallbackService.BufferReceived:input_type -> speech.BufferReceivedRequest
+	121, // 70: speech.RecognitionServiceCallbackService.EndOfSegmentedSession:input_type -> speech.EndOfSegmentedSessionRequest
+	123, // 71: speech.RecognitionServiceCallbackService.EndOfSpeech:input_type -> speech.EndOfSpeechRequest
+	125, // 72: speech.RecognitionServiceCallbackService.Error:input_type -> speech.ErrorRequest
+	127, // 73: speech.RecognitionServiceCallbackService.GetCallingAttributionSource:input_type -> speech.GetCallingAttributionSourceRequest
+	129, // 74: speech.RecognitionServiceCallbackService.GetCallingUid:input_type -> speech.GetCallingUidRequest
+	131, // 75: speech.RecognitionServiceCallbackService.LanguageDetection:input_type -> speech.LanguageDetectionRequest
+	133, // 76: speech.RecognitionServiceCallbackService.PartialResults:input_type -> speech.PartialResultsRequest
+	135, // 77: speech.RecognitionServiceCallbackService.ReadyForSpeech:input_type -> speech.ReadyForSpeechRequest
+	137, // 78: speech.RecognitionServiceCallbackService.Results:input_type -> speech.ResultsRequest
+	139, // 79: speech.RecognitionServiceCallbackService.RmsChanged:input_type -> speech.RmsChangedRequest
+	141, // 80: speech.RecognitionServiceCallbackService.SegmentResults:input_type -> speech.SegmentResultsRequest
+	0,   // 81: speech.RecognitionServiceSupportCallbackService.OnError:input_type -> speech.OnErrorRequest
+	2,   // 82: speech.RecognitionServiceSupportCallbackService.OnSupportResult:input_type -> speech.OnSupportResultRequest
+	143, // 83: speech.AlternativeSpanService.NewAlternativeSpan:input_type -> speech.NewAlternativeSpanRequest
+	145, // 84: speech.AlternativeSpanService.DescribeContents:input_type -> speech.AlternativeSpanDescribeContentsRequest
+	146, // 85: speech.AlternativeSpanService.Equals:input_type -> speech.AlternativeSpanEqualsRequest
+	147, // 86: speech.AlternativeSpanService.GetAlternatives:input_type -> speech.GetAlternativesRequest
+	149, // 87: speech.AlternativeSpanService.GetEndPosition:input_type -> speech.GetEndPositionRequest
+	151, // 88: speech.AlternativeSpanService.GetStartPosition:input_type -> speech.GetStartPositionRequest
+	153, // 89: speech.AlternativeSpanService.HashCode:input_type -> speech.AlternativeSpanHashCodeRequest
+	154, // 90: speech.AlternativeSpanService.ToString:input_type -> speech.AlternativeSpanToStringRequest
+	155, // 91: speech.AlternativeSpanService.WriteToParcel:input_type -> speech.AlternativeSpanWriteToParcelRequest
+	156, // 92: speech.RecognizerIntentService.GetVoiceDetailsIntent:input_type -> speech.GetVoiceDetailsIntentRequest
+	158, // 93: speech.TextToSpeechService.NewTextToSpeech:input_type -> speech.NewTextToSpeechRequest
+	160, // 94: speech.TextToSpeechService.AddEarcon2:input_type -> speech.AddEarcon2Request
+	162, // 95: speech.TextToSpeechService.AddEarcon2_1:input_type -> speech.AddEarcon2_1Request
+	164, // 96: speech.TextToSpeechService.AddEarcon2_2:input_type -> speech.AddEarcon2_2Request
+	166, // 97: speech.TextToSpeechService.AddEarcon3_3:input_type -> speech.AddEarcon3_3Request
+	168, // 98: speech.TextToSpeechService.AddSpeech2:input_type -> speech.AddSpeech2Request
+	170, // 99: speech.TextToSpeechService.AddSpeech2_1:input_type -> speech.AddSpeech2_1Request
+	172, // 100: speech.TextToSpeechService.AddSpeech3_2:input_type -> speech.AddSpeech3_2Request
+	174, // 101: speech.TextToSpeechService.AddSpeech2_3:input_type -> speech.AddSpeech2_3Request
+	176, // 102: speech.TextToSpeechService.AddSpeech3_4:input_type -> speech.AddSpeech3_4Request
+	178, // 103: speech.TextToSpeechService.AreDefaultsEnforced:input_type -> speech.AreDefaultsEnforcedRequest
+	180, // 104: speech.TextToSpeechService.GetAvailableLanguages:input_type -> speech.GetAvailableLanguagesRequest
+	182, // 105: speech.TextToSpeechService.GetDefaultEngine:input_type -> speech.GetDefaultEngineRequest
+	184, // 106: speech.TextToSpeechService.GetDefaultLanguage:input_type -> speech.GetDefaultLanguageRequest
+	186, // 107: speech.TextToSpeechService.GetDefaultVoice:input_type -> speech.GetDefaultVoiceRequest
+	188, // 108: speech.TextToSpeechService.GetEngines:input_type -> speech.GetEnginesRequest
+	190, // 109: speech.TextToSpeechService.GetFeatures:input_type -> speech.GetFeaturesRequest
+	192, // 110: speech.TextToSpeechService.GetLanguage:input_type -> speech.GetLanguageRequest
+	194, // 111: speech.TextToSpeechService.GetVoice:input_type -> speech.GetVoiceRequest
+	196, // 112: speech.TextToSpeechService.GetVoices:input_type -> speech.GetVoicesRequest
+	198, // 113: speech.TextToSpeechService.IsLanguageAvailable:input_type -> speech.IsLanguageAvailableRequest
+	200, // 114: speech.TextToSpeechService.IsSpeaking:input_type -> speech.IsSpeakingRequest
+	202, // 115: speech.TextToSpeechService.PlayEarcon:input_type -> speech.PlayEarconRequest
+	204, // 116: speech.TextToSpeechService.PlaySilentUtterance:input_type -> speech.PlaySilentUtteranceRequest
+	206, // 117: speech.TextToSpeechService.SetAudioAttributes:input_type -> speech.SetAudioAttributesRequest
+	208, // 118: speech.TextToSpeechService.SetEngineByPackageName:input_type -> speech.SetEngineByPackageNameRequest
+	210, // 119: speech.TextToSpeechService.SetLanguage:input_type -> speech.SetLanguageRequest
+	212, // 120: speech.TextToSpeechService.SetOnUtteranceCompletedListener:input_type -> speech.SetOnUtteranceCompletedListenerRequest
+	214, // 121: speech.TextToSpeechService.SetOnUtteranceProgressListener:input_type -> speech.SetOnUtteranceProgressListenerRequest
+	216, // 122: speech.TextToSpeechService.SetPitch:input_type -> speech.SetPitchRequest
+	218, // 123: speech.TextToSpeechService.SetSpeechRate:input_type -> speech.SetSpeechRateRequest
+	220, // 124: speech.TextToSpeechService.SetVoice:input_type -> speech.SetVoiceRequest
+	222, // 125: speech.TextToSpeechService.Shutdown:input_type -> speech.ShutdownRequest
+	224, // 126: speech.TextToSpeechService.Speak:input_type -> speech.SpeakRequest
+	226, // 127: speech.TextToSpeechService.Stop:input_type -> speech.StopRequest
+	228, // 128: speech.TextToSpeechService.SynthesizeToFile4:input_type -> speech.SynthesizeToFile4Request
+	230, // 129: speech.TextToSpeechService.SynthesizeToFile4_1:input_type -> speech.SynthesizeToFile4_1Request
+	232, // 130: speech.TextToSpeechService.GetMaxSpeechInputLength:input_type -> speech.GetMaxSpeechInputLengthRequest
+	18,  // 131: speech.TextToSpeechEngineInfoService.ToString:input_type -> speech.ToStringRequest
+	234, // 132: speech.TextToSpeechOnInitListenerService.OnInit:input_type -> speech.OnInitRequest
+	236, // 133: speech.TextToSpeechOnUtteranceCompletedListenerService.OnUtteranceCompleted:input_type -> speech.OnUtteranceCompletedRequest
+	0,   // 134: speech.ModelDownloadListenerService.OnError:input_type -> speech.OnErrorRequest
+	238, // 135: speech.ModelDownloadListenerService.OnProgress:input_type -> speech.OnProgressRequest
+	240, // 136: speech.ModelDownloadListenerService.OnScheduled:input_type -> speech.OnScheduledRequest
+	242, // 137: speech.ModelDownloadListenerService.OnSuccess:input_type -> speech.OnSuccessRequest
+	1,   // 138: speech.RecognitionSupportCallbackService.OnError:output_type -> speech.OnErrorResponse
+	3,   // 139: speech.RecognitionSupportCallbackService.OnSupportResult:output_type -> speech.OnSupportResultResponse
+	5,   // 140: speech.RecognitionSupportService.DescribeContents:output_type -> speech.DescribeContentsResponse
+	7,   // 141: speech.RecognitionSupportService.Equals:output_type -> speech.EqualsResponse
+	9,   // 142: speech.RecognitionSupportService.GetInstalledOnDeviceLanguages:output_type -> speech.GetInstalledOnDeviceLanguagesResponse
+	11,  // 143: speech.RecognitionSupportService.GetOnlineLanguages:output_type -> speech.GetOnlineLanguagesResponse
+	13,  // 144: speech.RecognitionSupportService.GetPendingOnDeviceLanguages:output_type -> speech.GetPendingOnDeviceLanguagesResponse
+	15,  // 145: speech.RecognitionSupportService.GetSupportedOnDeviceLanguages:output_type -> speech.GetSupportedOnDeviceLanguagesResponse
+	17,  // 146: speech.RecognitionSupportService.HashCode:output_type -> speech.HashCodeResponse
+	19,  // 147: speech.RecognitionSupportService.ToString:output_type -> speech.ToStringResponse
+	21,  // 148: speech.RecognitionSupportService.WriteToParcel:output_type -> speech.WriteToParcelResponse
+	23,  // 149: speech.RecognitionSupportBuilderService.AddInstalledOnDeviceLanguage:output_type -> speech.AddInstalledOnDeviceLanguageResponse
+	25,  // 150: speech.RecognitionSupportBuilderService.AddOnlineLanguage:output_type -> speech.AddOnlineLanguageResponse
+	27,  // 151: speech.RecognitionSupportBuilderService.AddPendingOnDeviceLanguage:output_type -> speech.AddPendingOnDeviceLanguageResponse
+	29,  // 152: speech.RecognitionSupportBuilderService.AddSupportedOnDeviceLanguage:output_type -> speech.AddSupportedOnDeviceLanguageResponse
+	31,  // 153: speech.RecognitionSupportBuilderService.Build:output_type -> speech.BuildResponse
+	5,   // 154: speech.RecognitionPartService.DescribeContents:output_type -> speech.DescribeContentsResponse
+	7,   // 155: speech.RecognitionPartService.Equals:output_type -> speech.EqualsResponse
+	33,  // 156: speech.RecognitionPartService.GetConfidenceLevel:output_type -> speech.GetConfidenceLevelResponse
+	35,  // 157: speech.RecognitionPartService.GetFormattedText:output_type -> speech.GetFormattedTextResponse
+	37,  // 158: speech.RecognitionPartService.GetRawText:output_type -> speech.GetRawTextResponse
+	39,  // 159: speech.RecognitionPartService.GetTimestampMillis:output_type -> speech.GetTimestampMillisResponse
+	17,  // 160: speech.RecognitionPartService.HashCode:output_type -> speech.HashCodeResponse
+	19,  // 161: speech.RecognitionPartService.ToString:output_type -> speech.ToStringResponse
+	21,  // 162: speech.RecognitionPartService.WriteToParcel:output_type -> speech.WriteToParcelResponse
+	31,  // 163: speech.RecognitionPartBuilderService.Build:output_type -> speech.BuildResponse
+	41,  // 164: speech.RecognitionPartBuilderService.SetConfidenceLevel:output_type -> speech.SetConfidenceLevelResponse
+	43,  // 165: speech.RecognitionPartBuilderService.SetFormattedText:output_type -> speech.SetFormattedTextResponse
+	45,  // 166: speech.RecognitionPartBuilderService.SetRawText:output_type -> speech.SetRawTextResponse
+	47,  // 167: speech.RecognitionPartBuilderService.SetTimestampMillis:output_type -> speech.SetTimestampMillisResponse
+	49,  // 168: speech.RecognitionListenerService.OnBeginningOfSpeech:output_type -> speech.OnBeginningOfSpeechResponse
+	51,  // 169: speech.RecognitionListenerService.OnBufferReceived:output_type -> speech.OnBufferReceivedResponse
+	53,  // 170: speech.RecognitionListenerService.OnEndOfSpeech:output_type -> speech.OnEndOfSpeechResponse
+	1,   // 171: speech.RecognitionListenerService.OnError:output_type -> speech.OnErrorResponse
+	55,  // 172: speech.RecognitionListenerService.OnEvent:output_type -> speech.OnEventResponse
+	57,  // 173: speech.RecognitionListenerService.OnPartialResults:output_type -> speech.OnPartialResultsResponse
+	59,  // 174: speech.RecognitionListenerService.OnReadyForSpeech:output_type -> speech.OnReadyForSpeechResponse
+	61,  // 175: speech.RecognitionListenerService.OnResults:output_type -> speech.OnResultsResponse
+	63,  // 176: speech.RecognitionListenerService.OnRmsChanged:output_type -> speech.OnRmsChangedResponse
+	65,  // 177: speech.AlternativeSpansService.NewAlternativeSpans:output_type -> speech.NewAlternativeSpansResponse
+	5,   // 178: speech.AlternativeSpansService.DescribeContents:output_type -> speech.DescribeContentsResponse
+	7,   // 179: speech.AlternativeSpansService.Equals:output_type -> speech.EqualsResponse
+	69,  // 180: speech.AlternativeSpansService.GetSpans:output_type -> speech.GetSpansResponse
+	17,  // 181: speech.AlternativeSpansService.HashCode:output_type -> speech.HashCodeResponse
+	19,  // 182: speech.AlternativeSpansService.ToString:output_type -> speech.ToStringResponse
+	21,  // 183: speech.AlternativeSpansService.WriteToParcel:output_type -> speech.WriteToParcelResponse
+	74,  // 184: speech.RecognizerService.Cancel:output_type -> speech.CancelResponse
+	76,  // 185: speech.RecognizerService.CheckRecognitionSupport:output_type -> speech.CheckRecognitionSupportResponse
+	78,  // 186: speech.RecognizerService.Destroy:output_type -> speech.DestroyResponse
+	80,  // 187: speech.RecognizerService.SetRecognitionListener:output_type -> speech.SetRecognitionListenerResponse
+	82,  // 188: speech.RecognizerService.StartListening:output_type -> speech.StartListeningResponse
+	84,  // 189: speech.RecognizerService.StopListening:output_type -> speech.StopListeningResponse
+	86,  // 190: speech.RecognizerService.TriggerModelDownload1:output_type -> speech.TriggerModelDownload1Response
+	88,  // 191: speech.RecognizerService.TriggerModelDownload3_1:output_type -> speech.TriggerModelDownload3_1Response
+	90,  // 192: speech.RecognizerService.CreateOnDeviceSpeechRecognizer:output_type -> speech.CreateOnDeviceSpeechRecognizerResponse
+	92,  // 193: speech.RecognizerService.CreateSpeechRecognizer1:output_type -> speech.CreateSpeechRecognizer1Response
+	94,  // 194: speech.RecognizerService.CreateSpeechRecognizer2_1:output_type -> speech.CreateSpeechRecognizer2_1Response
+	96,  // 195: speech.RecognizerService.IsOnDeviceRecognitionAvailable:output_type -> speech.IsOnDeviceRecognitionAvailableResponse
+	98,  // 196: speech.RecognizerService.IsRecognitionAvailable:output_type -> speech.IsRecognitionAvailableResponse
+	100, // 197: speech.RecognitionServiceService.CreateContext:output_type -> speech.CreateContextResponse
+	102, // 198: speech.RecognitionServiceService.GetMaxConcurrentSessionsCount:output_type -> speech.GetMaxConcurrentSessionsCountResponse
+	104, // 199: speech.RecognitionServiceService.OnBind:output_type -> speech.OnBindResponse
+	106, // 200: speech.RecognitionServiceService.OnCheckRecognitionSupport3:output_type -> speech.OnCheckRecognitionSupport3Response
+	108, // 201: speech.RecognitionServiceService.OnCheckRecognitionSupport2_1:output_type -> speech.OnCheckRecognitionSupport2_1Response
+	110, // 202: speech.RecognitionServiceService.OnDestroy:output_type -> speech.OnDestroyResponse
+	112, // 203: speech.RecognitionServiceService.OnTriggerModelDownload1:output_type -> speech.OnTriggerModelDownload1Response
+	114, // 204: speech.RecognitionServiceService.OnTriggerModelDownload2_1:output_type -> speech.OnTriggerModelDownload2_1Response
+	116, // 205: speech.RecognitionServiceService.OnTriggerModelDownload3_2:output_type -> speech.OnTriggerModelDownload3_2Response
+	118, // 206: speech.RecognitionServiceCallbackService.BeginningOfSpeech:output_type -> speech.BeginningOfSpeechResponse
+	120, // 207: speech.RecognitionServiceCallbackService.BufferReceived:output_type -> speech.BufferReceivedResponse
+	122, // 208: speech.RecognitionServiceCallbackService.EndOfSegmentedSession:output_type -> speech.EndOfSegmentedSessionResponse
+	124, // 209: speech.RecognitionServiceCallbackService.EndOfSpeech:output_type -> speech.EndOfSpeechResponse
+	126, // 210: speech.RecognitionServiceCallbackService.Error:output_type -> speech.ErrorResponse
+	128, // 211: speech.RecognitionServiceCallbackService.GetCallingAttributionSource:output_type -> speech.GetCallingAttributionSourceResponse
+	130, // 212: speech.RecognitionServiceCallbackService.GetCallingUid:output_type -> speech.GetCallingUidResponse
+	132, // 213: speech.RecognitionServiceCallbackService.LanguageDetection:output_type -> speech.LanguageDetectionResponse
+	134, // 214: speech.RecognitionServiceCallbackService.PartialResults:output_type -> speech.PartialResultsResponse
+	136, // 215: speech.RecognitionServiceCallbackService.ReadyForSpeech:output_type -> speech.ReadyForSpeechResponse
+	138, // 216: speech.RecognitionServiceCallbackService.Results:output_type -> speech.ResultsResponse
+	140, // 217: speech.RecognitionServiceCallbackService.RmsChanged:output_type -> speech.RmsChangedResponse
+	142, // 218: speech.RecognitionServiceCallbackService.SegmentResults:output_type -> speech.SegmentResultsResponse
+	1,   // 219: speech.RecognitionServiceSupportCallbackService.OnError:output_type -> speech.OnErrorResponse
+	3,   // 220: speech.RecognitionServiceSupportCallbackService.OnSupportResult:output_type -> speech.OnSupportResultResponse
+	144, // 221: speech.AlternativeSpanService.NewAlternativeSpan:output_type -> speech.NewAlternativeSpanResponse
+	5,   // 222: speech.AlternativeSpanService.DescribeContents:output_type -> speech.DescribeContentsResponse
+	7,   // 223: speech.AlternativeSpanService.Equals:output_type -> speech.EqualsResponse
+	148, // 224: speech.AlternativeSpanService.GetAlternatives:output_type -> speech.GetAlternativesResponse
+	150, // 225: speech.AlternativeSpanService.GetEndPosition:output_type -> speech.GetEndPositionResponse
+	152, // 226: speech.AlternativeSpanService.GetStartPosition:output_type -> speech.GetStartPositionResponse
+	17,  // 227: speech.AlternativeSpanService.HashCode:output_type -> speech.HashCodeResponse
+	19,  // 228: speech.AlternativeSpanService.ToString:output_type -> speech.ToStringResponse
+	21,  // 229: speech.AlternativeSpanService.WriteToParcel:output_type -> speech.WriteToParcelResponse
+	157, // 230: speech.RecognizerIntentService.GetVoiceDetailsIntent:output_type -> speech.GetVoiceDetailsIntentResponse
+	159, // 231: speech.TextToSpeechService.NewTextToSpeech:output_type -> speech.NewTextToSpeechResponse
+	161, // 232: speech.TextToSpeechService.AddEarcon2:output_type -> speech.AddEarcon2Response
+	163, // 233: speech.TextToSpeechService.AddEarcon2_1:output_type -> speech.AddEarcon2_1Response
+	165, // 234: speech.TextToSpeechService.AddEarcon2_2:output_type -> speech.AddEarcon2_2Response
+	167, // 235: speech.TextToSpeechService.AddEarcon3_3:output_type -> speech.AddEarcon3_3Response
+	169, // 236: speech.TextToSpeechService.AddSpeech2:output_type -> speech.AddSpeech2Response
+	171, // 237: speech.TextToSpeechService.AddSpeech2_1:output_type -> speech.AddSpeech2_1Response
+	173, // 238: speech.TextToSpeechService.AddSpeech3_2:output_type -> speech.AddSpeech3_2Response
+	175, // 239: speech.TextToSpeechService.AddSpeech2_3:output_type -> speech.AddSpeech2_3Response
+	177, // 240: speech.TextToSpeechService.AddSpeech3_4:output_type -> speech.AddSpeech3_4Response
+	179, // 241: speech.TextToSpeechService.AreDefaultsEnforced:output_type -> speech.AreDefaultsEnforcedResponse
+	181, // 242: speech.TextToSpeechService.GetAvailableLanguages:output_type -> speech.GetAvailableLanguagesResponse
+	183, // 243: speech.TextToSpeechService.GetDefaultEngine:output_type -> speech.GetDefaultEngineResponse
+	185, // 244: speech.TextToSpeechService.GetDefaultLanguage:output_type -> speech.GetDefaultLanguageResponse
+	187, // 245: speech.TextToSpeechService.GetDefaultVoice:output_type -> speech.GetDefaultVoiceResponse
+	189, // 246: speech.TextToSpeechService.GetEngines:output_type -> speech.GetEnginesResponse
+	191, // 247: speech.TextToSpeechService.GetFeatures:output_type -> speech.GetFeaturesResponse
+	193, // 248: speech.TextToSpeechService.GetLanguage:output_type -> speech.GetLanguageResponse
+	195, // 249: speech.TextToSpeechService.GetVoice:output_type -> speech.GetVoiceResponse
+	197, // 250: speech.TextToSpeechService.GetVoices:output_type -> speech.GetVoicesResponse
+	199, // 251: speech.TextToSpeechService.IsLanguageAvailable:output_type -> speech.IsLanguageAvailableResponse
+	201, // 252: speech.TextToSpeechService.IsSpeaking:output_type -> speech.IsSpeakingResponse
+	203, // 253: speech.TextToSpeechService.PlayEarcon:output_type -> speech.PlayEarconResponse
+	205, // 254: speech.TextToSpeechService.PlaySilentUtterance:output_type -> speech.PlaySilentUtteranceResponse
+	207, // 255: speech.TextToSpeechService.SetAudioAttributes:output_type -> speech.SetAudioAttributesResponse
+	209, // 256: speech.TextToSpeechService.SetEngineByPackageName:output_type -> speech.SetEngineByPackageNameResponse
+	211, // 257: speech.TextToSpeechService.SetLanguage:output_type -> speech.SetLanguageResponse
+	213, // 258: speech.TextToSpeechService.SetOnUtteranceCompletedListener:output_type -> speech.SetOnUtteranceCompletedListenerResponse
+	215, // 259: speech.TextToSpeechService.SetOnUtteranceProgressListener:output_type -> speech.SetOnUtteranceProgressListenerResponse
+	217, // 260: speech.TextToSpeechService.SetPitch:output_type -> speech.SetPitchResponse
+	219, // 261: speech.TextToSpeechService.SetSpeechRate:output_type -> speech.SetSpeechRateResponse
+	221, // 262: speech.TextToSpeechService.SetVoice:output_type -> speech.SetVoiceResponse
+	223, // 263: speech.TextToSpeechService.Shutdown:output_type -> speech.ShutdownResponse
+	225, // 264: speech.TextToSpeechService.Speak:output_type -> speech.SpeakResponse
+	227, // 265: speech.TextToSpeechService.Stop:output_type -> speech.StopResponse
+	229, // 266: speech.TextToSpeechService.SynthesizeToFile4:output_type -> speech.SynthesizeToFile4Response
+	231, // 267: speech.TextToSpeechService.SynthesizeToFile4_1:output_type -> speech.SynthesizeToFile4_1Response
+	233, // 268: speech.TextToSpeechService.GetMaxSpeechInputLength:output_type -> speech.GetMaxSpeechInputLengthResponse
+	19,  // 269: speech.TextToSpeechEngineInfoService.ToString:output_type -> speech.ToStringResponse
+	235, // 270: speech.TextToSpeechOnInitListenerService.OnInit:output_type -> speech.OnInitResponse
+	237, // 271: speech.TextToSpeechOnUtteranceCompletedListenerService.OnUtteranceCompleted:output_type -> speech.OnUtteranceCompletedResponse
+	1,   // 272: speech.ModelDownloadListenerService.OnError:output_type -> speech.OnErrorResponse
+	239, // 273: speech.ModelDownloadListenerService.OnProgress:output_type -> speech.OnProgressResponse
+	241, // 274: speech.ModelDownloadListenerService.OnScheduled:output_type -> speech.OnScheduledResponse
+	243, // 275: speech.ModelDownloadListenerService.OnSuccess:output_type -> speech.OnSuccessResponse
+	138, // [138:276] is the sub-list for method output_type
+	0,   // [0:138] is the sub-list for method input_type
 	0,   // [0:0] is the sub-list for extension type_name
 	0,   // [0:0] is the sub-list for extension extendee
 	0,   // [0:0] is the sub-list for field type_name
@@ -11065,7 +12009,7 @@ func file_proto_speech_speech_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_speech_speech_proto_rawDesc), len(file_proto_speech_speech_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   224,
+			NumMessages:   244,
 			NumExtensions: 0,
 			NumServices:   18,
 		},

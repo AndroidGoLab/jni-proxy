@@ -21,6 +21,223 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	SelectWalletCardRequestService_NewSelectWalletCardRequest_FullMethodName = "/quickaccesswallet.SelectWalletCardRequestService/NewSelectWalletCardRequest"
+	SelectWalletCardRequestService_DescribeContents_FullMethodName           = "/quickaccesswallet.SelectWalletCardRequestService/DescribeContents"
+	SelectWalletCardRequestService_GetCardId_FullMethodName                  = "/quickaccesswallet.SelectWalletCardRequestService/GetCardId"
+	SelectWalletCardRequestService_WriteToParcel_FullMethodName              = "/quickaccesswallet.SelectWalletCardRequestService/WriteToParcel"
+)
+
+// SelectWalletCardRequestServiceClient is the client API for SelectWalletCardRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SelectWalletCardRequestServiceClient interface {
+	NewSelectWalletCardRequest(ctx context.Context, in *NewSelectWalletCardRequestRequest, opts ...grpc.CallOption) (*NewSelectWalletCardRequestResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetCardId(ctx context.Context, in *GetCardIdRequest, opts ...grpc.CallOption) (*GetCardIdResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type selectWalletCardRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSelectWalletCardRequestServiceClient(cc grpc.ClientConnInterface) SelectWalletCardRequestServiceClient {
+	return &selectWalletCardRequestServiceClient{cc}
+}
+
+func (c *selectWalletCardRequestServiceClient) NewSelectWalletCardRequest(ctx context.Context, in *NewSelectWalletCardRequestRequest, opts ...grpc.CallOption) (*NewSelectWalletCardRequestResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewSelectWalletCardRequestResponse)
+	err := c.cc.Invoke(ctx, SelectWalletCardRequestService_NewSelectWalletCardRequest_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *selectWalletCardRequestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, SelectWalletCardRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *selectWalletCardRequestServiceClient) GetCardId(ctx context.Context, in *GetCardIdRequest, opts ...grpc.CallOption) (*GetCardIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCardIdResponse)
+	err := c.cc.Invoke(ctx, SelectWalletCardRequestService_GetCardId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *selectWalletCardRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, SelectWalletCardRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SelectWalletCardRequestServiceServer is the server API for SelectWalletCardRequestService service.
+// All implementations must embed UnimplementedSelectWalletCardRequestServiceServer
+// for forward compatibility.
+type SelectWalletCardRequestServiceServer interface {
+	NewSelectWalletCardRequest(context.Context, *NewSelectWalletCardRequestRequest) (*NewSelectWalletCardRequestResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetCardId(context.Context, *GetCardIdRequest) (*GetCardIdResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedSelectWalletCardRequestServiceServer()
+}
+
+// UnimplementedSelectWalletCardRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSelectWalletCardRequestServiceServer struct{}
+
+func (UnimplementedSelectWalletCardRequestServiceServer) NewSelectWalletCardRequest(context.Context, *NewSelectWalletCardRequestRequest) (*NewSelectWalletCardRequestResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewSelectWalletCardRequest not implemented")
+}
+func (UnimplementedSelectWalletCardRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedSelectWalletCardRequestServiceServer) GetCardId(context.Context, *GetCardIdRequest) (*GetCardIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCardId not implemented")
+}
+func (UnimplementedSelectWalletCardRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedSelectWalletCardRequestServiceServer) mustEmbedUnimplementedSelectWalletCardRequestServiceServer() {
+}
+func (UnimplementedSelectWalletCardRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSelectWalletCardRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SelectWalletCardRequestServiceServer will
+// result in compilation errors.
+type UnsafeSelectWalletCardRequestServiceServer interface {
+	mustEmbedUnimplementedSelectWalletCardRequestServiceServer()
+}
+
+func RegisterSelectWalletCardRequestServiceServer(s grpc.ServiceRegistrar, srv SelectWalletCardRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedSelectWalletCardRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SelectWalletCardRequestService_ServiceDesc, srv)
+}
+
+func _SelectWalletCardRequestService_NewSelectWalletCardRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewSelectWalletCardRequestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SelectWalletCardRequestServiceServer).NewSelectWalletCardRequest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SelectWalletCardRequestService_NewSelectWalletCardRequest_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SelectWalletCardRequestServiceServer).NewSelectWalletCardRequest(ctx, req.(*NewSelectWalletCardRequestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SelectWalletCardRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SelectWalletCardRequestServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SelectWalletCardRequestService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SelectWalletCardRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SelectWalletCardRequestService_GetCardId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCardIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SelectWalletCardRequestServiceServer).GetCardId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SelectWalletCardRequestService_GetCardId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SelectWalletCardRequestServiceServer).GetCardId(ctx, req.(*GetCardIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SelectWalletCardRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SelectWalletCardRequestServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SelectWalletCardRequestService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SelectWalletCardRequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SelectWalletCardRequestService_ServiceDesc is the grpc.ServiceDesc for SelectWalletCardRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SelectWalletCardRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "quickaccesswallet.SelectWalletCardRequestService",
+	HandlerType: (*SelectWalletCardRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewSelectWalletCardRequest",
+			Handler:    _SelectWalletCardRequestService_NewSelectWalletCardRequest_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _SelectWalletCardRequestService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetCardId",
+			Handler:    _SelectWalletCardRequestService_GetCardId_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _SelectWalletCardRequestService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/quickaccesswallet/quickaccesswallet.proto",
+}
+
+const (
 	QuickAccessWalletServiceService_GetGestureTargetActivityPendingIntent_FullMethodName = "/quickaccesswallet.QuickAccessWalletServiceService/GetGestureTargetActivityPendingIntent"
 	QuickAccessWalletServiceService_GetTargetActivityPendingIntent_FullMethodName        = "/quickaccesswallet.QuickAccessWalletServiceService/GetTargetActivityPendingIntent"
 	QuickAccessWalletServiceService_OnBind_FullMethodName                                = "/quickaccesswallet.QuickAccessWalletServiceService/OnBind"
@@ -352,11 +569,408 @@ var QuickAccessWalletServiceService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	GetWalletCardsCallbackService_OnFailure_FullMethodName = "/quickaccesswallet.GetWalletCardsCallbackService/OnFailure"
+	GetWalletCardsCallbackService_OnSuccess_FullMethodName = "/quickaccesswallet.GetWalletCardsCallbackService/OnSuccess"
+)
+
+// GetWalletCardsCallbackServiceClient is the client API for GetWalletCardsCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type GetWalletCardsCallbackServiceClient interface {
+	OnFailure(ctx context.Context, in *OnFailureRequest, opts ...grpc.CallOption) (*OnFailureResponse, error)
+	OnSuccess(ctx context.Context, in *OnSuccessRequest, opts ...grpc.CallOption) (*OnSuccessResponse, error)
+}
+
+type getWalletCardsCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewGetWalletCardsCallbackServiceClient(cc grpc.ClientConnInterface) GetWalletCardsCallbackServiceClient {
+	return &getWalletCardsCallbackServiceClient{cc}
+}
+
+func (c *getWalletCardsCallbackServiceClient) OnFailure(ctx context.Context, in *OnFailureRequest, opts ...grpc.CallOption) (*OnFailureResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnFailureResponse)
+	err := c.cc.Invoke(ctx, GetWalletCardsCallbackService_OnFailure_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *getWalletCardsCallbackServiceClient) OnSuccess(ctx context.Context, in *OnSuccessRequest, opts ...grpc.CallOption) (*OnSuccessResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSuccessResponse)
+	err := c.cc.Invoke(ctx, GetWalletCardsCallbackService_OnSuccess_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// GetWalletCardsCallbackServiceServer is the server API for GetWalletCardsCallbackService service.
+// All implementations must embed UnimplementedGetWalletCardsCallbackServiceServer
+// for forward compatibility.
+type GetWalletCardsCallbackServiceServer interface {
+	OnFailure(context.Context, *OnFailureRequest) (*OnFailureResponse, error)
+	OnSuccess(context.Context, *OnSuccessRequest) (*OnSuccessResponse, error)
+	mustEmbedUnimplementedGetWalletCardsCallbackServiceServer()
+}
+
+// UnimplementedGetWalletCardsCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedGetWalletCardsCallbackServiceServer struct{}
+
+func (UnimplementedGetWalletCardsCallbackServiceServer) OnFailure(context.Context, *OnFailureRequest) (*OnFailureResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnFailure not implemented")
+}
+func (UnimplementedGetWalletCardsCallbackServiceServer) OnSuccess(context.Context, *OnSuccessRequest) (*OnSuccessResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSuccess not implemented")
+}
+func (UnimplementedGetWalletCardsCallbackServiceServer) mustEmbedUnimplementedGetWalletCardsCallbackServiceServer() {
+}
+func (UnimplementedGetWalletCardsCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeGetWalletCardsCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to GetWalletCardsCallbackServiceServer will
+// result in compilation errors.
+type UnsafeGetWalletCardsCallbackServiceServer interface {
+	mustEmbedUnimplementedGetWalletCardsCallbackServiceServer()
+}
+
+func RegisterGetWalletCardsCallbackServiceServer(s grpc.ServiceRegistrar, srv GetWalletCardsCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedGetWalletCardsCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&GetWalletCardsCallbackService_ServiceDesc, srv)
+}
+
+func _GetWalletCardsCallbackService_OnFailure_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnFailureRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GetWalletCardsCallbackServiceServer).OnFailure(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GetWalletCardsCallbackService_OnFailure_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GetWalletCardsCallbackServiceServer).OnFailure(ctx, req.(*OnFailureRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GetWalletCardsCallbackService_OnSuccess_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSuccessRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GetWalletCardsCallbackServiceServer).OnSuccess(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GetWalletCardsCallbackService_OnSuccess_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GetWalletCardsCallbackServiceServer).OnSuccess(ctx, req.(*OnSuccessRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// GetWalletCardsCallbackService_ServiceDesc is the grpc.ServiceDesc for GetWalletCardsCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var GetWalletCardsCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "quickaccesswallet.GetWalletCardsCallbackService",
+	HandlerType: (*GetWalletCardsCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnFailure",
+			Handler:    _GetWalletCardsCallbackService_OnFailure_Handler,
+		},
+		{
+			MethodName: "OnSuccess",
+			Handler:    _GetWalletCardsCallbackService_OnSuccess_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/quickaccesswallet/quickaccesswallet.proto",
+}
+
+const (
+	GetWalletCardsErrorService_NewGetWalletCardsError_FullMethodName = "/quickaccesswallet.GetWalletCardsErrorService/NewGetWalletCardsError"
+	GetWalletCardsErrorService_DescribeContents_FullMethodName       = "/quickaccesswallet.GetWalletCardsErrorService/DescribeContents"
+	GetWalletCardsErrorService_GetIcon_FullMethodName                = "/quickaccesswallet.GetWalletCardsErrorService/GetIcon"
+	GetWalletCardsErrorService_GetMessage_FullMethodName             = "/quickaccesswallet.GetWalletCardsErrorService/GetMessage"
+	GetWalletCardsErrorService_WriteToParcel_FullMethodName          = "/quickaccesswallet.GetWalletCardsErrorService/WriteToParcel"
+)
+
+// GetWalletCardsErrorServiceClient is the client API for GetWalletCardsErrorService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type GetWalletCardsErrorServiceClient interface {
+	NewGetWalletCardsError(ctx context.Context, in *NewGetWalletCardsErrorRequest, opts ...grpc.CallOption) (*NewGetWalletCardsErrorResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetIcon(ctx context.Context, in *GetIconRequest, opts ...grpc.CallOption) (*GetIconResponse, error)
+	GetMessage(ctx context.Context, in *GetMessageRequest, opts ...grpc.CallOption) (*GetMessageResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type getWalletCardsErrorServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewGetWalletCardsErrorServiceClient(cc grpc.ClientConnInterface) GetWalletCardsErrorServiceClient {
+	return &getWalletCardsErrorServiceClient{cc}
+}
+
+func (c *getWalletCardsErrorServiceClient) NewGetWalletCardsError(ctx context.Context, in *NewGetWalletCardsErrorRequest, opts ...grpc.CallOption) (*NewGetWalletCardsErrorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewGetWalletCardsErrorResponse)
+	err := c.cc.Invoke(ctx, GetWalletCardsErrorService_NewGetWalletCardsError_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *getWalletCardsErrorServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, GetWalletCardsErrorService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *getWalletCardsErrorServiceClient) GetIcon(ctx context.Context, in *GetIconRequest, opts ...grpc.CallOption) (*GetIconResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIconResponse)
+	err := c.cc.Invoke(ctx, GetWalletCardsErrorService_GetIcon_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *getWalletCardsErrorServiceClient) GetMessage(ctx context.Context, in *GetMessageRequest, opts ...grpc.CallOption) (*GetMessageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMessageResponse)
+	err := c.cc.Invoke(ctx, GetWalletCardsErrorService_GetMessage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *getWalletCardsErrorServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, GetWalletCardsErrorService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// GetWalletCardsErrorServiceServer is the server API for GetWalletCardsErrorService service.
+// All implementations must embed UnimplementedGetWalletCardsErrorServiceServer
+// for forward compatibility.
+type GetWalletCardsErrorServiceServer interface {
+	NewGetWalletCardsError(context.Context, *NewGetWalletCardsErrorRequest) (*NewGetWalletCardsErrorResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetIcon(context.Context, *GetIconRequest) (*GetIconResponse, error)
+	GetMessage(context.Context, *GetMessageRequest) (*GetMessageResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedGetWalletCardsErrorServiceServer()
+}
+
+// UnimplementedGetWalletCardsErrorServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedGetWalletCardsErrorServiceServer struct{}
+
+func (UnimplementedGetWalletCardsErrorServiceServer) NewGetWalletCardsError(context.Context, *NewGetWalletCardsErrorRequest) (*NewGetWalletCardsErrorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewGetWalletCardsError not implemented")
+}
+func (UnimplementedGetWalletCardsErrorServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedGetWalletCardsErrorServiceServer) GetIcon(context.Context, *GetIconRequest) (*GetIconResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIcon not implemented")
+}
+func (UnimplementedGetWalletCardsErrorServiceServer) GetMessage(context.Context, *GetMessageRequest) (*GetMessageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMessage not implemented")
+}
+func (UnimplementedGetWalletCardsErrorServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedGetWalletCardsErrorServiceServer) mustEmbedUnimplementedGetWalletCardsErrorServiceServer() {
+}
+func (UnimplementedGetWalletCardsErrorServiceServer) testEmbeddedByValue() {}
+
+// UnsafeGetWalletCardsErrorServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to GetWalletCardsErrorServiceServer will
+// result in compilation errors.
+type UnsafeGetWalletCardsErrorServiceServer interface {
+	mustEmbedUnimplementedGetWalletCardsErrorServiceServer()
+}
+
+func RegisterGetWalletCardsErrorServiceServer(s grpc.ServiceRegistrar, srv GetWalletCardsErrorServiceServer) {
+	// If the following call panics, it indicates UnimplementedGetWalletCardsErrorServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&GetWalletCardsErrorService_ServiceDesc, srv)
+}
+
+func _GetWalletCardsErrorService_NewGetWalletCardsError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewGetWalletCardsErrorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GetWalletCardsErrorServiceServer).NewGetWalletCardsError(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GetWalletCardsErrorService_NewGetWalletCardsError_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GetWalletCardsErrorServiceServer).NewGetWalletCardsError(ctx, req.(*NewGetWalletCardsErrorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GetWalletCardsErrorService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GetWalletCardsErrorServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GetWalletCardsErrorService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GetWalletCardsErrorServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GetWalletCardsErrorService_GetIcon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIconRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GetWalletCardsErrorServiceServer).GetIcon(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GetWalletCardsErrorService_GetIcon_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GetWalletCardsErrorServiceServer).GetIcon(ctx, req.(*GetIconRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GetWalletCardsErrorService_GetMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMessageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GetWalletCardsErrorServiceServer).GetMessage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GetWalletCardsErrorService_GetMessage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GetWalletCardsErrorServiceServer).GetMessage(ctx, req.(*GetMessageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GetWalletCardsErrorService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GetWalletCardsErrorServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GetWalletCardsErrorService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GetWalletCardsErrorServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// GetWalletCardsErrorService_ServiceDesc is the grpc.ServiceDesc for GetWalletCardsErrorService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var GetWalletCardsErrorService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "quickaccesswallet.GetWalletCardsErrorService",
+	HandlerType: (*GetWalletCardsErrorServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewGetWalletCardsError",
+			Handler:    _GetWalletCardsErrorService_NewGetWalletCardsError_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _GetWalletCardsErrorService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetIcon",
+			Handler:    _GetWalletCardsErrorService_GetIcon_Handler,
+		},
+		{
+			MethodName: "GetMessage",
+			Handler:    _GetWalletCardsErrorService_GetMessage_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _GetWalletCardsErrorService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/quickaccesswallet/quickaccesswallet.proto",
+}
+
+const (
 	WalletCardService_DescribeContents_FullMethodName                = "/quickaccesswallet.WalletCardService/DescribeContents"
 	WalletCardService_GetCardIcon_FullMethodName                     = "/quickaccesswallet.WalletCardService/GetCardIcon"
 	WalletCardService_GetCardId_FullMethodName                       = "/quickaccesswallet.WalletCardService/GetCardId"
 	WalletCardService_GetCardImage_FullMethodName                    = "/quickaccesswallet.WalletCardService/GetCardImage"
 	WalletCardService_GetCardLabel_FullMethodName                    = "/quickaccesswallet.WalletCardService/GetCardLabel"
+	WalletCardService_GetCardLocations_FullMethodName                = "/quickaccesswallet.WalletCardService/GetCardLocations"
 	WalletCardService_GetCardType_FullMethodName                     = "/quickaccesswallet.WalletCardService/GetCardType"
 	WalletCardService_GetContentDescription_FullMethodName           = "/quickaccesswallet.WalletCardService/GetContentDescription"
 	WalletCardService_GetNonPaymentCardSecondaryImage_FullMethodName = "/quickaccesswallet.WalletCardService/GetNonPaymentCardSecondaryImage"
@@ -368,16 +982,17 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type WalletCardServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	DescribeContents(ctx context.Context, in *WalletCardDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	GetCardIcon(ctx context.Context, in *GetCardIconRequest, opts ...grpc.CallOption) (*GetCardIconResponse, error)
-	GetCardId(ctx context.Context, in *GetCardIdRequest, opts ...grpc.CallOption) (*GetCardIdResponse, error)
+	GetCardId(ctx context.Context, in *WalletCardGetCardIdRequest, opts ...grpc.CallOption) (*GetCardIdResponse, error)
 	GetCardImage(ctx context.Context, in *GetCardImageRequest, opts ...grpc.CallOption) (*GetCardImageResponse, error)
 	GetCardLabel(ctx context.Context, in *GetCardLabelRequest, opts ...grpc.CallOption) (*GetCardLabelResponse, error)
+	GetCardLocations(ctx context.Context, in *GetCardLocationsRequest, opts ...grpc.CallOption) (*GetCardLocationsResponse, error)
 	GetCardType(ctx context.Context, in *GetCardTypeRequest, opts ...grpc.CallOption) (*GetCardTypeResponse, error)
 	GetContentDescription(ctx context.Context, in *GetContentDescriptionRequest, opts ...grpc.CallOption) (*GetContentDescriptionResponse, error)
 	GetNonPaymentCardSecondaryImage(ctx context.Context, in *GetNonPaymentCardSecondaryImageRequest, opts ...grpc.CallOption) (*GetNonPaymentCardSecondaryImageResponse, error)
 	GetPendingIntent(ctx context.Context, in *GetPendingIntentRequest, opts ...grpc.CallOption) (*GetPendingIntentResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	WriteToParcel(ctx context.Context, in *WalletCardWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
 type walletCardServiceClient struct {
@@ -388,7 +1003,7 @@ func NewWalletCardServiceClient(cc grpc.ClientConnInterface) WalletCardServiceCl
 	return &walletCardServiceClient{cc}
 }
 
-func (c *walletCardServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *walletCardServiceClient) DescribeContents(ctx context.Context, in *WalletCardDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
 	err := c.cc.Invoke(ctx, WalletCardService_DescribeContents_FullMethodName, in, out, cOpts...)
@@ -408,7 +1023,7 @@ func (c *walletCardServiceClient) GetCardIcon(ctx context.Context, in *GetCardIc
 	return out, nil
 }
 
-func (c *walletCardServiceClient) GetCardId(ctx context.Context, in *GetCardIdRequest, opts ...grpc.CallOption) (*GetCardIdResponse, error) {
+func (c *walletCardServiceClient) GetCardId(ctx context.Context, in *WalletCardGetCardIdRequest, opts ...grpc.CallOption) (*GetCardIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetCardIdResponse)
 	err := c.cc.Invoke(ctx, WalletCardService_GetCardId_FullMethodName, in, out, cOpts...)
@@ -432,6 +1047,16 @@ func (c *walletCardServiceClient) GetCardLabel(ctx context.Context, in *GetCardL
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetCardLabelResponse)
 	err := c.cc.Invoke(ctx, WalletCardService_GetCardLabel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *walletCardServiceClient) GetCardLocations(ctx context.Context, in *GetCardLocationsRequest, opts ...grpc.CallOption) (*GetCardLocationsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCardLocationsResponse)
+	err := c.cc.Invoke(ctx, WalletCardService_GetCardLocations_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -478,7 +1103,7 @@ func (c *walletCardServiceClient) GetPendingIntent(ctx context.Context, in *GetP
 	return out, nil
 }
 
-func (c *walletCardServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *walletCardServiceClient) WriteToParcel(ctx context.Context, in *WalletCardWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
 	err := c.cc.Invoke(ctx, WalletCardService_WriteToParcel_FullMethodName, in, out, cOpts...)
@@ -492,16 +1117,17 @@ func (c *walletCardServiceClient) WriteToParcel(ctx context.Context, in *WriteTo
 // All implementations must embed UnimplementedWalletCardServiceServer
 // for forward compatibility.
 type WalletCardServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	DescribeContents(context.Context, *WalletCardDescribeContentsRequest) (*DescribeContentsResponse, error)
 	GetCardIcon(context.Context, *GetCardIconRequest) (*GetCardIconResponse, error)
-	GetCardId(context.Context, *GetCardIdRequest) (*GetCardIdResponse, error)
+	GetCardId(context.Context, *WalletCardGetCardIdRequest) (*GetCardIdResponse, error)
 	GetCardImage(context.Context, *GetCardImageRequest) (*GetCardImageResponse, error)
 	GetCardLabel(context.Context, *GetCardLabelRequest) (*GetCardLabelResponse, error)
+	GetCardLocations(context.Context, *GetCardLocationsRequest) (*GetCardLocationsResponse, error)
 	GetCardType(context.Context, *GetCardTypeRequest) (*GetCardTypeResponse, error)
 	GetContentDescription(context.Context, *GetContentDescriptionRequest) (*GetContentDescriptionResponse, error)
 	GetNonPaymentCardSecondaryImage(context.Context, *GetNonPaymentCardSecondaryImageRequest) (*GetNonPaymentCardSecondaryImageResponse, error)
 	GetPendingIntent(context.Context, *GetPendingIntentRequest) (*GetPendingIntentResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	WriteToParcel(context.Context, *WalletCardWriteToParcelRequest) (*WriteToParcelResponse, error)
 	mustEmbedUnimplementedWalletCardServiceServer()
 }
 
@@ -512,13 +1138,13 @@ type WalletCardServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedWalletCardServiceServer struct{}
 
-func (UnimplementedWalletCardServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedWalletCardServiceServer) DescribeContents(context.Context, *WalletCardDescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
 func (UnimplementedWalletCardServiceServer) GetCardIcon(context.Context, *GetCardIconRequest) (*GetCardIconResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetCardIcon not implemented")
 }
-func (UnimplementedWalletCardServiceServer) GetCardId(context.Context, *GetCardIdRequest) (*GetCardIdResponse, error) {
+func (UnimplementedWalletCardServiceServer) GetCardId(context.Context, *WalletCardGetCardIdRequest) (*GetCardIdResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetCardId not implemented")
 }
 func (UnimplementedWalletCardServiceServer) GetCardImage(context.Context, *GetCardImageRequest) (*GetCardImageResponse, error) {
@@ -526,6 +1152,9 @@ func (UnimplementedWalletCardServiceServer) GetCardImage(context.Context, *GetCa
 }
 func (UnimplementedWalletCardServiceServer) GetCardLabel(context.Context, *GetCardLabelRequest) (*GetCardLabelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetCardLabel not implemented")
+}
+func (UnimplementedWalletCardServiceServer) GetCardLocations(context.Context, *GetCardLocationsRequest) (*GetCardLocationsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCardLocations not implemented")
 }
 func (UnimplementedWalletCardServiceServer) GetCardType(context.Context, *GetCardTypeRequest) (*GetCardTypeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetCardType not implemented")
@@ -539,7 +1168,7 @@ func (UnimplementedWalletCardServiceServer) GetNonPaymentCardSecondaryImage(cont
 func (UnimplementedWalletCardServiceServer) GetPendingIntent(context.Context, *GetPendingIntentRequest) (*GetPendingIntentResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetPendingIntent not implemented")
 }
-func (UnimplementedWalletCardServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedWalletCardServiceServer) WriteToParcel(context.Context, *WalletCardWriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
 func (UnimplementedWalletCardServiceServer) mustEmbedUnimplementedWalletCardServiceServer() {}
@@ -564,7 +1193,7 @@ func RegisterWalletCardServiceServer(s grpc.ServiceRegistrar, srv WalletCardServ
 }
 
 func _WalletCardService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
+	in := new(WalletCardDescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -576,7 +1205,7 @@ func _WalletCardService_DescribeContents_Handler(srv interface{}, ctx context.Co
 		FullMethod: WalletCardService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WalletCardServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(WalletCardServiceServer).DescribeContents(ctx, req.(*WalletCardDescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -600,7 +1229,7 @@ func _WalletCardService_GetCardIcon_Handler(srv interface{}, ctx context.Context
 }
 
 func _WalletCardService_GetCardId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCardIdRequest)
+	in := new(WalletCardGetCardIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -612,7 +1241,7 @@ func _WalletCardService_GetCardId_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: WalletCardService_GetCardId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WalletCardServiceServer).GetCardId(ctx, req.(*GetCardIdRequest))
+		return srv.(WalletCardServiceServer).GetCardId(ctx, req.(*WalletCardGetCardIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -649,6 +1278,24 @@ func _WalletCardService_GetCardLabel_Handler(srv interface{}, ctx context.Contex
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(WalletCardServiceServer).GetCardLabel(ctx, req.(*GetCardLabelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WalletCardService_GetCardLocations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCardLocationsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WalletCardServiceServer).GetCardLocations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WalletCardService_GetCardLocations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WalletCardServiceServer).GetCardLocations(ctx, req.(*GetCardLocationsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -726,7 +1373,7 @@ func _WalletCardService_GetPendingIntent_Handler(srv interface{}, ctx context.Co
 }
 
 func _WalletCardService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
+	in := new(WalletCardWriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -738,7 +1385,7 @@ func _WalletCardService_WriteToParcel_Handler(srv interface{}, ctx context.Conte
 		FullMethod: WalletCardService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WalletCardServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(WalletCardServiceServer).WriteToParcel(ctx, req.(*WalletCardWriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -769,6 +1416,10 @@ var WalletCardService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetCardLabel",
 			Handler:    _WalletCardService_GetCardLabel_Handler,
+		},
+		{
+			MethodName: "GetCardLocations",
+			Handler:    _WalletCardService_GetCardLocations_Handler,
 		},
 		{
 			MethodName: "GetCardType",
@@ -1013,478 +1664,6 @@ var WalletCardBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	SelectWalletCardRequestService_NewSelectWalletCardRequest_FullMethodName = "/quickaccesswallet.SelectWalletCardRequestService/NewSelectWalletCardRequest"
-	SelectWalletCardRequestService_DescribeContents_FullMethodName           = "/quickaccesswallet.SelectWalletCardRequestService/DescribeContents"
-	SelectWalletCardRequestService_GetCardId_FullMethodName                  = "/quickaccesswallet.SelectWalletCardRequestService/GetCardId"
-	SelectWalletCardRequestService_WriteToParcel_FullMethodName              = "/quickaccesswallet.SelectWalletCardRequestService/WriteToParcel"
-)
-
-// SelectWalletCardRequestServiceClient is the client API for SelectWalletCardRequestService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SelectWalletCardRequestServiceClient interface {
-	NewSelectWalletCardRequest(ctx context.Context, in *NewSelectWalletCardRequestRequest, opts ...grpc.CallOption) (*NewSelectWalletCardRequestResponse, error)
-	DescribeContents(ctx context.Context, in *SelectWalletCardRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetCardId(ctx context.Context, in *SelectWalletCardRequestGetCardIdRequest, opts ...grpc.CallOption) (*GetCardIdResponse, error)
-	WriteToParcel(ctx context.Context, in *SelectWalletCardRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type selectWalletCardRequestServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSelectWalletCardRequestServiceClient(cc grpc.ClientConnInterface) SelectWalletCardRequestServiceClient {
-	return &selectWalletCardRequestServiceClient{cc}
-}
-
-func (c *selectWalletCardRequestServiceClient) NewSelectWalletCardRequest(ctx context.Context, in *NewSelectWalletCardRequestRequest, opts ...grpc.CallOption) (*NewSelectWalletCardRequestResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewSelectWalletCardRequestResponse)
-	err := c.cc.Invoke(ctx, SelectWalletCardRequestService_NewSelectWalletCardRequest_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *selectWalletCardRequestServiceClient) DescribeContents(ctx context.Context, in *SelectWalletCardRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, SelectWalletCardRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *selectWalletCardRequestServiceClient) GetCardId(ctx context.Context, in *SelectWalletCardRequestGetCardIdRequest, opts ...grpc.CallOption) (*GetCardIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCardIdResponse)
-	err := c.cc.Invoke(ctx, SelectWalletCardRequestService_GetCardId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *selectWalletCardRequestServiceClient) WriteToParcel(ctx context.Context, in *SelectWalletCardRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, SelectWalletCardRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SelectWalletCardRequestServiceServer is the server API for SelectWalletCardRequestService service.
-// All implementations must embed UnimplementedSelectWalletCardRequestServiceServer
-// for forward compatibility.
-type SelectWalletCardRequestServiceServer interface {
-	NewSelectWalletCardRequest(context.Context, *NewSelectWalletCardRequestRequest) (*NewSelectWalletCardRequestResponse, error)
-	DescribeContents(context.Context, *SelectWalletCardRequestDescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetCardId(context.Context, *SelectWalletCardRequestGetCardIdRequest) (*GetCardIdResponse, error)
-	WriteToParcel(context.Context, *SelectWalletCardRequestWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedSelectWalletCardRequestServiceServer()
-}
-
-// UnimplementedSelectWalletCardRequestServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSelectWalletCardRequestServiceServer struct{}
-
-func (UnimplementedSelectWalletCardRequestServiceServer) NewSelectWalletCardRequest(context.Context, *NewSelectWalletCardRequestRequest) (*NewSelectWalletCardRequestResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewSelectWalletCardRequest not implemented")
-}
-func (UnimplementedSelectWalletCardRequestServiceServer) DescribeContents(context.Context, *SelectWalletCardRequestDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedSelectWalletCardRequestServiceServer) GetCardId(context.Context, *SelectWalletCardRequestGetCardIdRequest) (*GetCardIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCardId not implemented")
-}
-func (UnimplementedSelectWalletCardRequestServiceServer) WriteToParcel(context.Context, *SelectWalletCardRequestWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedSelectWalletCardRequestServiceServer) mustEmbedUnimplementedSelectWalletCardRequestServiceServer() {
-}
-func (UnimplementedSelectWalletCardRequestServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSelectWalletCardRequestServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SelectWalletCardRequestServiceServer will
-// result in compilation errors.
-type UnsafeSelectWalletCardRequestServiceServer interface {
-	mustEmbedUnimplementedSelectWalletCardRequestServiceServer()
-}
-
-func RegisterSelectWalletCardRequestServiceServer(s grpc.ServiceRegistrar, srv SelectWalletCardRequestServiceServer) {
-	// If the following call panics, it indicates UnimplementedSelectWalletCardRequestServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SelectWalletCardRequestService_ServiceDesc, srv)
-}
-
-func _SelectWalletCardRequestService_NewSelectWalletCardRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewSelectWalletCardRequestRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SelectWalletCardRequestServiceServer).NewSelectWalletCardRequest(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SelectWalletCardRequestService_NewSelectWalletCardRequest_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SelectWalletCardRequestServiceServer).NewSelectWalletCardRequest(ctx, req.(*NewSelectWalletCardRequestRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SelectWalletCardRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SelectWalletCardRequestDescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SelectWalletCardRequestServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SelectWalletCardRequestService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SelectWalletCardRequestServiceServer).DescribeContents(ctx, req.(*SelectWalletCardRequestDescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SelectWalletCardRequestService_GetCardId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SelectWalletCardRequestGetCardIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SelectWalletCardRequestServiceServer).GetCardId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SelectWalletCardRequestService_GetCardId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SelectWalletCardRequestServiceServer).GetCardId(ctx, req.(*SelectWalletCardRequestGetCardIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SelectWalletCardRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SelectWalletCardRequestWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SelectWalletCardRequestServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SelectWalletCardRequestService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SelectWalletCardRequestServiceServer).WriteToParcel(ctx, req.(*SelectWalletCardRequestWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SelectWalletCardRequestService_ServiceDesc is the grpc.ServiceDesc for SelectWalletCardRequestService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SelectWalletCardRequestService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "quickaccesswallet.SelectWalletCardRequestService",
-	HandlerType: (*SelectWalletCardRequestServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewSelectWalletCardRequest",
-			Handler:    _SelectWalletCardRequestService_NewSelectWalletCardRequest_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _SelectWalletCardRequestService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetCardId",
-			Handler:    _SelectWalletCardRequestService_GetCardId_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _SelectWalletCardRequestService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/quickaccesswallet/quickaccesswallet.proto",
-}
-
-const (
-	GetWalletCardsErrorService_NewGetWalletCardsError_FullMethodName = "/quickaccesswallet.GetWalletCardsErrorService/NewGetWalletCardsError"
-	GetWalletCardsErrorService_DescribeContents_FullMethodName       = "/quickaccesswallet.GetWalletCardsErrorService/DescribeContents"
-	GetWalletCardsErrorService_GetIcon_FullMethodName                = "/quickaccesswallet.GetWalletCardsErrorService/GetIcon"
-	GetWalletCardsErrorService_GetMessage_FullMethodName             = "/quickaccesswallet.GetWalletCardsErrorService/GetMessage"
-	GetWalletCardsErrorService_WriteToParcel_FullMethodName          = "/quickaccesswallet.GetWalletCardsErrorService/WriteToParcel"
-)
-
-// GetWalletCardsErrorServiceClient is the client API for GetWalletCardsErrorService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type GetWalletCardsErrorServiceClient interface {
-	NewGetWalletCardsError(ctx context.Context, in *NewGetWalletCardsErrorRequest, opts ...grpc.CallOption) (*NewGetWalletCardsErrorResponse, error)
-	DescribeContents(ctx context.Context, in *GetWalletCardsErrorDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetIcon(ctx context.Context, in *GetIconRequest, opts ...grpc.CallOption) (*GetIconResponse, error)
-	GetMessage(ctx context.Context, in *GetMessageRequest, opts ...grpc.CallOption) (*GetMessageResponse, error)
-	WriteToParcel(ctx context.Context, in *GetWalletCardsErrorWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type getWalletCardsErrorServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewGetWalletCardsErrorServiceClient(cc grpc.ClientConnInterface) GetWalletCardsErrorServiceClient {
-	return &getWalletCardsErrorServiceClient{cc}
-}
-
-func (c *getWalletCardsErrorServiceClient) NewGetWalletCardsError(ctx context.Context, in *NewGetWalletCardsErrorRequest, opts ...grpc.CallOption) (*NewGetWalletCardsErrorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewGetWalletCardsErrorResponse)
-	err := c.cc.Invoke(ctx, GetWalletCardsErrorService_NewGetWalletCardsError_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *getWalletCardsErrorServiceClient) DescribeContents(ctx context.Context, in *GetWalletCardsErrorDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, GetWalletCardsErrorService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *getWalletCardsErrorServiceClient) GetIcon(ctx context.Context, in *GetIconRequest, opts ...grpc.CallOption) (*GetIconResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIconResponse)
-	err := c.cc.Invoke(ctx, GetWalletCardsErrorService_GetIcon_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *getWalletCardsErrorServiceClient) GetMessage(ctx context.Context, in *GetMessageRequest, opts ...grpc.CallOption) (*GetMessageResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMessageResponse)
-	err := c.cc.Invoke(ctx, GetWalletCardsErrorService_GetMessage_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *getWalletCardsErrorServiceClient) WriteToParcel(ctx context.Context, in *GetWalletCardsErrorWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, GetWalletCardsErrorService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// GetWalletCardsErrorServiceServer is the server API for GetWalletCardsErrorService service.
-// All implementations must embed UnimplementedGetWalletCardsErrorServiceServer
-// for forward compatibility.
-type GetWalletCardsErrorServiceServer interface {
-	NewGetWalletCardsError(context.Context, *NewGetWalletCardsErrorRequest) (*NewGetWalletCardsErrorResponse, error)
-	DescribeContents(context.Context, *GetWalletCardsErrorDescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetIcon(context.Context, *GetIconRequest) (*GetIconResponse, error)
-	GetMessage(context.Context, *GetMessageRequest) (*GetMessageResponse, error)
-	WriteToParcel(context.Context, *GetWalletCardsErrorWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedGetWalletCardsErrorServiceServer()
-}
-
-// UnimplementedGetWalletCardsErrorServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedGetWalletCardsErrorServiceServer struct{}
-
-func (UnimplementedGetWalletCardsErrorServiceServer) NewGetWalletCardsError(context.Context, *NewGetWalletCardsErrorRequest) (*NewGetWalletCardsErrorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewGetWalletCardsError not implemented")
-}
-func (UnimplementedGetWalletCardsErrorServiceServer) DescribeContents(context.Context, *GetWalletCardsErrorDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedGetWalletCardsErrorServiceServer) GetIcon(context.Context, *GetIconRequest) (*GetIconResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetIcon not implemented")
-}
-func (UnimplementedGetWalletCardsErrorServiceServer) GetMessage(context.Context, *GetMessageRequest) (*GetMessageResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMessage not implemented")
-}
-func (UnimplementedGetWalletCardsErrorServiceServer) WriteToParcel(context.Context, *GetWalletCardsErrorWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedGetWalletCardsErrorServiceServer) mustEmbedUnimplementedGetWalletCardsErrorServiceServer() {
-}
-func (UnimplementedGetWalletCardsErrorServiceServer) testEmbeddedByValue() {}
-
-// UnsafeGetWalletCardsErrorServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to GetWalletCardsErrorServiceServer will
-// result in compilation errors.
-type UnsafeGetWalletCardsErrorServiceServer interface {
-	mustEmbedUnimplementedGetWalletCardsErrorServiceServer()
-}
-
-func RegisterGetWalletCardsErrorServiceServer(s grpc.ServiceRegistrar, srv GetWalletCardsErrorServiceServer) {
-	// If the following call panics, it indicates UnimplementedGetWalletCardsErrorServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&GetWalletCardsErrorService_ServiceDesc, srv)
-}
-
-func _GetWalletCardsErrorService_NewGetWalletCardsError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewGetWalletCardsErrorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GetWalletCardsErrorServiceServer).NewGetWalletCardsError(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GetWalletCardsErrorService_NewGetWalletCardsError_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GetWalletCardsErrorServiceServer).NewGetWalletCardsError(ctx, req.(*NewGetWalletCardsErrorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GetWalletCardsErrorService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWalletCardsErrorDescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GetWalletCardsErrorServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GetWalletCardsErrorService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GetWalletCardsErrorServiceServer).DescribeContents(ctx, req.(*GetWalletCardsErrorDescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GetWalletCardsErrorService_GetIcon_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIconRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GetWalletCardsErrorServiceServer).GetIcon(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GetWalletCardsErrorService_GetIcon_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GetWalletCardsErrorServiceServer).GetIcon(ctx, req.(*GetIconRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GetWalletCardsErrorService_GetMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMessageRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GetWalletCardsErrorServiceServer).GetMessage(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GetWalletCardsErrorService_GetMessage_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GetWalletCardsErrorServiceServer).GetMessage(ctx, req.(*GetMessageRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GetWalletCardsErrorService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWalletCardsErrorWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GetWalletCardsErrorServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GetWalletCardsErrorService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GetWalletCardsErrorServiceServer).WriteToParcel(ctx, req.(*GetWalletCardsErrorWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// GetWalletCardsErrorService_ServiceDesc is the grpc.ServiceDesc for GetWalletCardsErrorService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var GetWalletCardsErrorService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "quickaccesswallet.GetWalletCardsErrorService",
-	HandlerType: (*GetWalletCardsErrorServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewGetWalletCardsError",
-			Handler:    _GetWalletCardsErrorService_NewGetWalletCardsError_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _GetWalletCardsErrorService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetIcon",
-			Handler:    _GetWalletCardsErrorService_GetIcon_Handler,
-		},
-		{
-			MethodName: "GetMessage",
-			Handler:    _GetWalletCardsErrorService_GetMessage_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _GetWalletCardsErrorService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/quickaccesswallet/quickaccesswallet.proto",
-}
-
-const (
 	WalletServiceEventService_NewWalletServiceEvent_FullMethodName = "/quickaccesswallet.WalletServiceEventService/NewWalletServiceEvent"
 	WalletServiceEventService_DescribeContents_FullMethodName      = "/quickaccesswallet.WalletServiceEventService/DescribeContents"
 	WalletServiceEventService_GetEventType_FullMethodName          = "/quickaccesswallet.WalletServiceEventService/GetEventType"
@@ -1496,9 +1675,9 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type WalletServiceEventServiceClient interface {
 	NewWalletServiceEvent(ctx context.Context, in *NewWalletServiceEventRequest, opts ...grpc.CallOption) (*NewWalletServiceEventResponse, error)
-	DescribeContents(ctx context.Context, in *WalletServiceEventDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	GetEventType(ctx context.Context, in *GetEventTypeRequest, opts ...grpc.CallOption) (*GetEventTypeResponse, error)
-	WriteToParcel(ctx context.Context, in *WalletServiceEventWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
 type walletServiceEventServiceClient struct {
@@ -1519,7 +1698,7 @@ func (c *walletServiceEventServiceClient) NewWalletServiceEvent(ctx context.Cont
 	return out, nil
 }
 
-func (c *walletServiceEventServiceClient) DescribeContents(ctx context.Context, in *WalletServiceEventDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *walletServiceEventServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
 	err := c.cc.Invoke(ctx, WalletServiceEventService_DescribeContents_FullMethodName, in, out, cOpts...)
@@ -1539,7 +1718,7 @@ func (c *walletServiceEventServiceClient) GetEventType(ctx context.Context, in *
 	return out, nil
 }
 
-func (c *walletServiceEventServiceClient) WriteToParcel(ctx context.Context, in *WalletServiceEventWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *walletServiceEventServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
 	err := c.cc.Invoke(ctx, WalletServiceEventService_WriteToParcel_FullMethodName, in, out, cOpts...)
@@ -1554,9 +1733,9 @@ func (c *walletServiceEventServiceClient) WriteToParcel(ctx context.Context, in 
 // for forward compatibility.
 type WalletServiceEventServiceServer interface {
 	NewWalletServiceEvent(context.Context, *NewWalletServiceEventRequest) (*NewWalletServiceEventResponse, error)
-	DescribeContents(context.Context, *WalletServiceEventDescribeContentsRequest) (*DescribeContentsResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
 	GetEventType(context.Context, *GetEventTypeRequest) (*GetEventTypeResponse, error)
-	WriteToParcel(context.Context, *WalletServiceEventWriteToParcelRequest) (*WriteToParcelResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
 	mustEmbedUnimplementedWalletServiceEventServiceServer()
 }
 
@@ -1570,13 +1749,13 @@ type UnimplementedWalletServiceEventServiceServer struct{}
 func (UnimplementedWalletServiceEventServiceServer) NewWalletServiceEvent(context.Context, *NewWalletServiceEventRequest) (*NewWalletServiceEventResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method NewWalletServiceEvent not implemented")
 }
-func (UnimplementedWalletServiceEventServiceServer) DescribeContents(context.Context, *WalletServiceEventDescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedWalletServiceEventServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
 func (UnimplementedWalletServiceEventServiceServer) GetEventType(context.Context, *GetEventTypeRequest) (*GetEventTypeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetEventType not implemented")
 }
-func (UnimplementedWalletServiceEventServiceServer) WriteToParcel(context.Context, *WalletServiceEventWriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedWalletServiceEventServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
 func (UnimplementedWalletServiceEventServiceServer) mustEmbedUnimplementedWalletServiceEventServiceServer() {
@@ -1620,7 +1799,7 @@ func _WalletServiceEventService_NewWalletServiceEvent_Handler(srv interface{}, c
 }
 
 func _WalletServiceEventService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WalletServiceEventDescribeContentsRequest)
+	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1632,7 +1811,7 @@ func _WalletServiceEventService_DescribeContents_Handler(srv interface{}, ctx co
 		FullMethod: WalletServiceEventService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WalletServiceEventServiceServer).DescribeContents(ctx, req.(*WalletServiceEventDescribeContentsRequest))
+		return srv.(WalletServiceEventServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1656,7 +1835,7 @@ func _WalletServiceEventService_GetEventType_Handler(srv interface{}, ctx contex
 }
 
 func _WalletServiceEventService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WalletServiceEventWriteToParcelRequest)
+	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1668,7 +1847,7 @@ func _WalletServiceEventService_WriteToParcel_Handler(srv interface{}, ctx conte
 		FullMethod: WalletServiceEventService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WalletServiceEventServiceServer).WriteToParcel(ctx, req.(*WalletServiceEventWriteToParcelRequest))
+		return srv.(WalletServiceEventServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1702,364 +1881,6 @@ var WalletServiceEventService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	GetWalletCardsCallbackService_OnFailure_FullMethodName = "/quickaccesswallet.GetWalletCardsCallbackService/OnFailure"
-	GetWalletCardsCallbackService_OnSuccess_FullMethodName = "/quickaccesswallet.GetWalletCardsCallbackService/OnSuccess"
-)
-
-// GetWalletCardsCallbackServiceClient is the client API for GetWalletCardsCallbackService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type GetWalletCardsCallbackServiceClient interface {
-	OnFailure(ctx context.Context, in *OnFailureRequest, opts ...grpc.CallOption) (*OnFailureResponse, error)
-	OnSuccess(ctx context.Context, in *OnSuccessRequest, opts ...grpc.CallOption) (*OnSuccessResponse, error)
-}
-
-type getWalletCardsCallbackServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewGetWalletCardsCallbackServiceClient(cc grpc.ClientConnInterface) GetWalletCardsCallbackServiceClient {
-	return &getWalletCardsCallbackServiceClient{cc}
-}
-
-func (c *getWalletCardsCallbackServiceClient) OnFailure(ctx context.Context, in *OnFailureRequest, opts ...grpc.CallOption) (*OnFailureResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnFailureResponse)
-	err := c.cc.Invoke(ctx, GetWalletCardsCallbackService_OnFailure_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *getWalletCardsCallbackServiceClient) OnSuccess(ctx context.Context, in *OnSuccessRequest, opts ...grpc.CallOption) (*OnSuccessResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnSuccessResponse)
-	err := c.cc.Invoke(ctx, GetWalletCardsCallbackService_OnSuccess_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// GetWalletCardsCallbackServiceServer is the server API for GetWalletCardsCallbackService service.
-// All implementations must embed UnimplementedGetWalletCardsCallbackServiceServer
-// for forward compatibility.
-type GetWalletCardsCallbackServiceServer interface {
-	OnFailure(context.Context, *OnFailureRequest) (*OnFailureResponse, error)
-	OnSuccess(context.Context, *OnSuccessRequest) (*OnSuccessResponse, error)
-	mustEmbedUnimplementedGetWalletCardsCallbackServiceServer()
-}
-
-// UnimplementedGetWalletCardsCallbackServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedGetWalletCardsCallbackServiceServer struct{}
-
-func (UnimplementedGetWalletCardsCallbackServiceServer) OnFailure(context.Context, *OnFailureRequest) (*OnFailureResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnFailure not implemented")
-}
-func (UnimplementedGetWalletCardsCallbackServiceServer) OnSuccess(context.Context, *OnSuccessRequest) (*OnSuccessResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnSuccess not implemented")
-}
-func (UnimplementedGetWalletCardsCallbackServiceServer) mustEmbedUnimplementedGetWalletCardsCallbackServiceServer() {
-}
-func (UnimplementedGetWalletCardsCallbackServiceServer) testEmbeddedByValue() {}
-
-// UnsafeGetWalletCardsCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to GetWalletCardsCallbackServiceServer will
-// result in compilation errors.
-type UnsafeGetWalletCardsCallbackServiceServer interface {
-	mustEmbedUnimplementedGetWalletCardsCallbackServiceServer()
-}
-
-func RegisterGetWalletCardsCallbackServiceServer(s grpc.ServiceRegistrar, srv GetWalletCardsCallbackServiceServer) {
-	// If the following call panics, it indicates UnimplementedGetWalletCardsCallbackServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&GetWalletCardsCallbackService_ServiceDesc, srv)
-}
-
-func _GetWalletCardsCallbackService_OnFailure_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnFailureRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GetWalletCardsCallbackServiceServer).OnFailure(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GetWalletCardsCallbackService_OnFailure_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GetWalletCardsCallbackServiceServer).OnFailure(ctx, req.(*OnFailureRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GetWalletCardsCallbackService_OnSuccess_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnSuccessRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GetWalletCardsCallbackServiceServer).OnSuccess(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GetWalletCardsCallbackService_OnSuccess_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GetWalletCardsCallbackServiceServer).OnSuccess(ctx, req.(*OnSuccessRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// GetWalletCardsCallbackService_ServiceDesc is the grpc.ServiceDesc for GetWalletCardsCallbackService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var GetWalletCardsCallbackService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "quickaccesswallet.GetWalletCardsCallbackService",
-	HandlerType: (*GetWalletCardsCallbackServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnFailure",
-			Handler:    _GetWalletCardsCallbackService_OnFailure_Handler,
-		},
-		{
-			MethodName: "OnSuccess",
-			Handler:    _GetWalletCardsCallbackService_OnSuccess_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/quickaccesswallet/quickaccesswallet.proto",
-}
-
-const (
-	GetWalletCardsResponseService_NewGetWalletCardsResponse_FullMethodName = "/quickaccesswallet.GetWalletCardsResponseService/NewGetWalletCardsResponse"
-	GetWalletCardsResponseService_DescribeContents_FullMethodName          = "/quickaccesswallet.GetWalletCardsResponseService/DescribeContents"
-	GetWalletCardsResponseService_GetSelectedIndex_FullMethodName          = "/quickaccesswallet.GetWalletCardsResponseService/GetSelectedIndex"
-	GetWalletCardsResponseService_WriteToParcel_FullMethodName             = "/quickaccesswallet.GetWalletCardsResponseService/WriteToParcel"
-)
-
-// GetWalletCardsResponseServiceClient is the client API for GetWalletCardsResponseService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type GetWalletCardsResponseServiceClient interface {
-	NewGetWalletCardsResponse(ctx context.Context, in *NewGetWalletCardsResponseRequest, opts ...grpc.CallOption) (*NewGetWalletCardsResponseResponse, error)
-	DescribeContents(ctx context.Context, in *GetWalletCardsResponseDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetSelectedIndex(ctx context.Context, in *GetSelectedIndexRequest, opts ...grpc.CallOption) (*GetSelectedIndexResponse, error)
-	WriteToParcel(ctx context.Context, in *GetWalletCardsResponseWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type getWalletCardsResponseServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewGetWalletCardsResponseServiceClient(cc grpc.ClientConnInterface) GetWalletCardsResponseServiceClient {
-	return &getWalletCardsResponseServiceClient{cc}
-}
-
-func (c *getWalletCardsResponseServiceClient) NewGetWalletCardsResponse(ctx context.Context, in *NewGetWalletCardsResponseRequest, opts ...grpc.CallOption) (*NewGetWalletCardsResponseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewGetWalletCardsResponseResponse)
-	err := c.cc.Invoke(ctx, GetWalletCardsResponseService_NewGetWalletCardsResponse_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *getWalletCardsResponseServiceClient) DescribeContents(ctx context.Context, in *GetWalletCardsResponseDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, GetWalletCardsResponseService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *getWalletCardsResponseServiceClient) GetSelectedIndex(ctx context.Context, in *GetSelectedIndexRequest, opts ...grpc.CallOption) (*GetSelectedIndexResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSelectedIndexResponse)
-	err := c.cc.Invoke(ctx, GetWalletCardsResponseService_GetSelectedIndex_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *getWalletCardsResponseServiceClient) WriteToParcel(ctx context.Context, in *GetWalletCardsResponseWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, GetWalletCardsResponseService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// GetWalletCardsResponseServiceServer is the server API for GetWalletCardsResponseService service.
-// All implementations must embed UnimplementedGetWalletCardsResponseServiceServer
-// for forward compatibility.
-type GetWalletCardsResponseServiceServer interface {
-	NewGetWalletCardsResponse(context.Context, *NewGetWalletCardsResponseRequest) (*NewGetWalletCardsResponseResponse, error)
-	DescribeContents(context.Context, *GetWalletCardsResponseDescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetSelectedIndex(context.Context, *GetSelectedIndexRequest) (*GetSelectedIndexResponse, error)
-	WriteToParcel(context.Context, *GetWalletCardsResponseWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedGetWalletCardsResponseServiceServer()
-}
-
-// UnimplementedGetWalletCardsResponseServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedGetWalletCardsResponseServiceServer struct{}
-
-func (UnimplementedGetWalletCardsResponseServiceServer) NewGetWalletCardsResponse(context.Context, *NewGetWalletCardsResponseRequest) (*NewGetWalletCardsResponseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewGetWalletCardsResponse not implemented")
-}
-func (UnimplementedGetWalletCardsResponseServiceServer) DescribeContents(context.Context, *GetWalletCardsResponseDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedGetWalletCardsResponseServiceServer) GetSelectedIndex(context.Context, *GetSelectedIndexRequest) (*GetSelectedIndexResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSelectedIndex not implemented")
-}
-func (UnimplementedGetWalletCardsResponseServiceServer) WriteToParcel(context.Context, *GetWalletCardsResponseWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedGetWalletCardsResponseServiceServer) mustEmbedUnimplementedGetWalletCardsResponseServiceServer() {
-}
-func (UnimplementedGetWalletCardsResponseServiceServer) testEmbeddedByValue() {}
-
-// UnsafeGetWalletCardsResponseServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to GetWalletCardsResponseServiceServer will
-// result in compilation errors.
-type UnsafeGetWalletCardsResponseServiceServer interface {
-	mustEmbedUnimplementedGetWalletCardsResponseServiceServer()
-}
-
-func RegisterGetWalletCardsResponseServiceServer(s grpc.ServiceRegistrar, srv GetWalletCardsResponseServiceServer) {
-	// If the following call panics, it indicates UnimplementedGetWalletCardsResponseServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&GetWalletCardsResponseService_ServiceDesc, srv)
-}
-
-func _GetWalletCardsResponseService_NewGetWalletCardsResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewGetWalletCardsResponseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GetWalletCardsResponseServiceServer).NewGetWalletCardsResponse(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GetWalletCardsResponseService_NewGetWalletCardsResponse_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GetWalletCardsResponseServiceServer).NewGetWalletCardsResponse(ctx, req.(*NewGetWalletCardsResponseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GetWalletCardsResponseService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWalletCardsResponseDescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GetWalletCardsResponseServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GetWalletCardsResponseService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GetWalletCardsResponseServiceServer).DescribeContents(ctx, req.(*GetWalletCardsResponseDescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GetWalletCardsResponseService_GetSelectedIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSelectedIndexRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GetWalletCardsResponseServiceServer).GetSelectedIndex(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GetWalletCardsResponseService_GetSelectedIndex_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GetWalletCardsResponseServiceServer).GetSelectedIndex(ctx, req.(*GetSelectedIndexRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GetWalletCardsResponseService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWalletCardsResponseWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GetWalletCardsResponseServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GetWalletCardsResponseService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GetWalletCardsResponseServiceServer).WriteToParcel(ctx, req.(*GetWalletCardsResponseWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// GetWalletCardsResponseService_ServiceDesc is the grpc.ServiceDesc for GetWalletCardsResponseService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var GetWalletCardsResponseService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "quickaccesswallet.GetWalletCardsResponseService",
-	HandlerType: (*GetWalletCardsResponseServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewGetWalletCardsResponse",
-			Handler:    _GetWalletCardsResponseService_NewGetWalletCardsResponse_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _GetWalletCardsResponseService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetSelectedIndex",
-			Handler:    _GetWalletCardsResponseService_GetSelectedIndex_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _GetWalletCardsResponseService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/quickaccesswallet/quickaccesswallet.proto",
-}
-
-const (
 	GetWalletCardsRequestService_NewGetWalletCardsRequest_FullMethodName = "/quickaccesswallet.GetWalletCardsRequestService/NewGetWalletCardsRequest"
 	GetWalletCardsRequestService_DescribeContents_FullMethodName         = "/quickaccesswallet.GetWalletCardsRequestService/DescribeContents"
 	GetWalletCardsRequestService_GetCardHeightPx_FullMethodName          = "/quickaccesswallet.GetWalletCardsRequestService/GetCardHeightPx"
@@ -2074,12 +1895,12 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type GetWalletCardsRequestServiceClient interface {
 	NewGetWalletCardsRequest(ctx context.Context, in *NewGetWalletCardsRequestRequest, opts ...grpc.CallOption) (*NewGetWalletCardsRequestResponse, error)
-	DescribeContents(ctx context.Context, in *GetWalletCardsRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	GetCardHeightPx(ctx context.Context, in *GetCardHeightPxRequest, opts ...grpc.CallOption) (*GetCardHeightPxResponse, error)
 	GetCardWidthPx(ctx context.Context, in *GetCardWidthPxRequest, opts ...grpc.CallOption) (*GetCardWidthPxResponse, error)
 	GetIconSizePx(ctx context.Context, in *GetIconSizePxRequest, opts ...grpc.CallOption) (*GetIconSizePxResponse, error)
 	GetMaxCards(ctx context.Context, in *GetMaxCardsRequest, opts ...grpc.CallOption) (*GetMaxCardsResponse, error)
-	WriteToParcel(ctx context.Context, in *GetWalletCardsRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
 type getWalletCardsRequestServiceClient struct {
@@ -2100,7 +1921,7 @@ func (c *getWalletCardsRequestServiceClient) NewGetWalletCardsRequest(ctx contex
 	return out, nil
 }
 
-func (c *getWalletCardsRequestServiceClient) DescribeContents(ctx context.Context, in *GetWalletCardsRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *getWalletCardsRequestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
 	err := c.cc.Invoke(ctx, GetWalletCardsRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
@@ -2150,7 +1971,7 @@ func (c *getWalletCardsRequestServiceClient) GetMaxCards(ctx context.Context, in
 	return out, nil
 }
 
-func (c *getWalletCardsRequestServiceClient) WriteToParcel(ctx context.Context, in *GetWalletCardsRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *getWalletCardsRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
 	err := c.cc.Invoke(ctx, GetWalletCardsRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
@@ -2165,12 +1986,12 @@ func (c *getWalletCardsRequestServiceClient) WriteToParcel(ctx context.Context, 
 // for forward compatibility.
 type GetWalletCardsRequestServiceServer interface {
 	NewGetWalletCardsRequest(context.Context, *NewGetWalletCardsRequestRequest) (*NewGetWalletCardsRequestResponse, error)
-	DescribeContents(context.Context, *GetWalletCardsRequestDescribeContentsRequest) (*DescribeContentsResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
 	GetCardHeightPx(context.Context, *GetCardHeightPxRequest) (*GetCardHeightPxResponse, error)
 	GetCardWidthPx(context.Context, *GetCardWidthPxRequest) (*GetCardWidthPxResponse, error)
 	GetIconSizePx(context.Context, *GetIconSizePxRequest) (*GetIconSizePxResponse, error)
 	GetMaxCards(context.Context, *GetMaxCardsRequest) (*GetMaxCardsResponse, error)
-	WriteToParcel(context.Context, *GetWalletCardsRequestWriteToParcelRequest) (*WriteToParcelResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
 	mustEmbedUnimplementedGetWalletCardsRequestServiceServer()
 }
 
@@ -2184,7 +2005,7 @@ type UnimplementedGetWalletCardsRequestServiceServer struct{}
 func (UnimplementedGetWalletCardsRequestServiceServer) NewGetWalletCardsRequest(context.Context, *NewGetWalletCardsRequestRequest) (*NewGetWalletCardsRequestResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method NewGetWalletCardsRequest not implemented")
 }
-func (UnimplementedGetWalletCardsRequestServiceServer) DescribeContents(context.Context, *GetWalletCardsRequestDescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedGetWalletCardsRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
 func (UnimplementedGetWalletCardsRequestServiceServer) GetCardHeightPx(context.Context, *GetCardHeightPxRequest) (*GetCardHeightPxResponse, error) {
@@ -2199,7 +2020,7 @@ func (UnimplementedGetWalletCardsRequestServiceServer) GetIconSizePx(context.Con
 func (UnimplementedGetWalletCardsRequestServiceServer) GetMaxCards(context.Context, *GetMaxCardsRequest) (*GetMaxCardsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetMaxCards not implemented")
 }
-func (UnimplementedGetWalletCardsRequestServiceServer) WriteToParcel(context.Context, *GetWalletCardsRequestWriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedGetWalletCardsRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
 func (UnimplementedGetWalletCardsRequestServiceServer) mustEmbedUnimplementedGetWalletCardsRequestServiceServer() {
@@ -2243,7 +2064,7 @@ func _GetWalletCardsRequestService_NewGetWalletCardsRequest_Handler(srv interfac
 }
 
 func _GetWalletCardsRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWalletCardsRequestDescribeContentsRequest)
+	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2255,7 +2076,7 @@ func _GetWalletCardsRequestService_DescribeContents_Handler(srv interface{}, ctx
 		FullMethod: GetWalletCardsRequestService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GetWalletCardsRequestServiceServer).DescribeContents(ctx, req.(*GetWalletCardsRequestDescribeContentsRequest))
+		return srv.(GetWalletCardsRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2333,7 +2154,7 @@ func _GetWalletCardsRequestService_GetMaxCards_Handler(srv interface{}, ctx cont
 }
 
 func _GetWalletCardsRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWalletCardsRequestWriteToParcelRequest)
+	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2345,7 +2166,7 @@ func _GetWalletCardsRequestService_WriteToParcel_Handler(srv interface{}, ctx co
 		FullMethod: GetWalletCardsRequestService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GetWalletCardsRequestServiceServer).WriteToParcel(ctx, req.(*GetWalletCardsRequestWriteToParcelRequest))
+		return srv.(GetWalletCardsRequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2384,6 +2205,261 @@ var GetWalletCardsRequestService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "WriteToParcel",
 			Handler:    _GetWalletCardsRequestService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/quickaccesswallet/quickaccesswallet.proto",
+}
+
+const (
+	GetWalletCardsResponseService_NewGetWalletCardsResponse_FullMethodName = "/quickaccesswallet.GetWalletCardsResponseService/NewGetWalletCardsResponse"
+	GetWalletCardsResponseService_DescribeContents_FullMethodName          = "/quickaccesswallet.GetWalletCardsResponseService/DescribeContents"
+	GetWalletCardsResponseService_GetSelectedIndex_FullMethodName          = "/quickaccesswallet.GetWalletCardsResponseService/GetSelectedIndex"
+	GetWalletCardsResponseService_GetWalletCards_FullMethodName            = "/quickaccesswallet.GetWalletCardsResponseService/GetWalletCards"
+	GetWalletCardsResponseService_WriteToParcel_FullMethodName             = "/quickaccesswallet.GetWalletCardsResponseService/WriteToParcel"
+)
+
+// GetWalletCardsResponseServiceClient is the client API for GetWalletCardsResponseService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type GetWalletCardsResponseServiceClient interface {
+	NewGetWalletCardsResponse(ctx context.Context, in *NewGetWalletCardsResponseRequest, opts ...grpc.CallOption) (*NewGetWalletCardsResponseResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetSelectedIndex(ctx context.Context, in *GetSelectedIndexRequest, opts ...grpc.CallOption) (*GetSelectedIndexResponse, error)
+	GetWalletCards(ctx context.Context, in *GetWalletCardsRequest, opts ...grpc.CallOption) (*GetWalletCardsResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type getWalletCardsResponseServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewGetWalletCardsResponseServiceClient(cc grpc.ClientConnInterface) GetWalletCardsResponseServiceClient {
+	return &getWalletCardsResponseServiceClient{cc}
+}
+
+func (c *getWalletCardsResponseServiceClient) NewGetWalletCardsResponse(ctx context.Context, in *NewGetWalletCardsResponseRequest, opts ...grpc.CallOption) (*NewGetWalletCardsResponseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewGetWalletCardsResponseResponse)
+	err := c.cc.Invoke(ctx, GetWalletCardsResponseService_NewGetWalletCardsResponse_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *getWalletCardsResponseServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, GetWalletCardsResponseService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *getWalletCardsResponseServiceClient) GetSelectedIndex(ctx context.Context, in *GetSelectedIndexRequest, opts ...grpc.CallOption) (*GetSelectedIndexResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSelectedIndexResponse)
+	err := c.cc.Invoke(ctx, GetWalletCardsResponseService_GetSelectedIndex_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *getWalletCardsResponseServiceClient) GetWalletCards(ctx context.Context, in *GetWalletCardsRequest, opts ...grpc.CallOption) (*GetWalletCardsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWalletCardsResponse)
+	err := c.cc.Invoke(ctx, GetWalletCardsResponseService_GetWalletCards_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *getWalletCardsResponseServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, GetWalletCardsResponseService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// GetWalletCardsResponseServiceServer is the server API for GetWalletCardsResponseService service.
+// All implementations must embed UnimplementedGetWalletCardsResponseServiceServer
+// for forward compatibility.
+type GetWalletCardsResponseServiceServer interface {
+	NewGetWalletCardsResponse(context.Context, *NewGetWalletCardsResponseRequest) (*NewGetWalletCardsResponseResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetSelectedIndex(context.Context, *GetSelectedIndexRequest) (*GetSelectedIndexResponse, error)
+	GetWalletCards(context.Context, *GetWalletCardsRequest) (*GetWalletCardsResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedGetWalletCardsResponseServiceServer()
+}
+
+// UnimplementedGetWalletCardsResponseServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedGetWalletCardsResponseServiceServer struct{}
+
+func (UnimplementedGetWalletCardsResponseServiceServer) NewGetWalletCardsResponse(context.Context, *NewGetWalletCardsResponseRequest) (*NewGetWalletCardsResponseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewGetWalletCardsResponse not implemented")
+}
+func (UnimplementedGetWalletCardsResponseServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedGetWalletCardsResponseServiceServer) GetSelectedIndex(context.Context, *GetSelectedIndexRequest) (*GetSelectedIndexResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSelectedIndex not implemented")
+}
+func (UnimplementedGetWalletCardsResponseServiceServer) GetWalletCards(context.Context, *GetWalletCardsRequest) (*GetWalletCardsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWalletCards not implemented")
+}
+func (UnimplementedGetWalletCardsResponseServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedGetWalletCardsResponseServiceServer) mustEmbedUnimplementedGetWalletCardsResponseServiceServer() {
+}
+func (UnimplementedGetWalletCardsResponseServiceServer) testEmbeddedByValue() {}
+
+// UnsafeGetWalletCardsResponseServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to GetWalletCardsResponseServiceServer will
+// result in compilation errors.
+type UnsafeGetWalletCardsResponseServiceServer interface {
+	mustEmbedUnimplementedGetWalletCardsResponseServiceServer()
+}
+
+func RegisterGetWalletCardsResponseServiceServer(s grpc.ServiceRegistrar, srv GetWalletCardsResponseServiceServer) {
+	// If the following call panics, it indicates UnimplementedGetWalletCardsResponseServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&GetWalletCardsResponseService_ServiceDesc, srv)
+}
+
+func _GetWalletCardsResponseService_NewGetWalletCardsResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewGetWalletCardsResponseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GetWalletCardsResponseServiceServer).NewGetWalletCardsResponse(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GetWalletCardsResponseService_NewGetWalletCardsResponse_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GetWalletCardsResponseServiceServer).NewGetWalletCardsResponse(ctx, req.(*NewGetWalletCardsResponseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GetWalletCardsResponseService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GetWalletCardsResponseServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GetWalletCardsResponseService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GetWalletCardsResponseServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GetWalletCardsResponseService_GetSelectedIndex_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSelectedIndexRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GetWalletCardsResponseServiceServer).GetSelectedIndex(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GetWalletCardsResponseService_GetSelectedIndex_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GetWalletCardsResponseServiceServer).GetSelectedIndex(ctx, req.(*GetSelectedIndexRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GetWalletCardsResponseService_GetWalletCards_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWalletCardsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GetWalletCardsResponseServiceServer).GetWalletCards(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GetWalletCardsResponseService_GetWalletCards_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GetWalletCardsResponseServiceServer).GetWalletCards(ctx, req.(*GetWalletCardsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GetWalletCardsResponseService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GetWalletCardsResponseServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GetWalletCardsResponseService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GetWalletCardsResponseServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// GetWalletCardsResponseService_ServiceDesc is the grpc.ServiceDesc for GetWalletCardsResponseService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var GetWalletCardsResponseService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "quickaccesswallet.GetWalletCardsResponseService",
+	HandlerType: (*GetWalletCardsResponseServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewGetWalletCardsResponse",
+			Handler:    _GetWalletCardsResponseService_NewGetWalletCardsResponse_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _GetWalletCardsResponseService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetSelectedIndex",
+			Handler:    _GetWalletCardsResponseService_GetSelectedIndex_Handler,
+		},
+		{
+			MethodName: "GetWalletCards",
+			Handler:    _GetWalletCardsResponseService_GetWalletCards_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _GetWalletCardsResponseService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

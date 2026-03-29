@@ -179,14 +179,6 @@ message PutStringSetResponse {
   int64 result = 1;
 }
 
-message OnBindRequest {
-  int64 arg0 = 1;
-}
-
-message OnBindResponse {
-  int64 result = 1;
-}
-
 message DescribeContentsRequest {
 }
 
@@ -199,6 +191,13 @@ message GetPreferenceKeyRequest {
 
 message GetPreferenceKeyResponse {
   string result = 1;
+}
+
+message GetPreferenceValueRequest {
+}
+
+message GetPreferenceValueResponse {
+  int64 result = 1;
 }
 
 message GetScreenKeyRequest {
@@ -305,31 +304,6 @@ message SetStringValueResponse {
   int64 result = 1;
 }
 
-message GetResultCodeRequest {
-}
-
-message GetResultCodeResponse {
-  int32 result = 1;
-}
-
-message NewSettingsPreferenceServiceClientRequest {
-  int64 arg0 = 1;
-  string arg1 = 2;
-  int64 arg2 = 3;
-  int64 arg3 = 4;
-}
-
-message NewSettingsPreferenceServiceClientResponse {
-  int64 result = 1;
-}
-
-message CloseRequest {
-  int64 handle = 1;
-}
-
-message CloseResponse {
-}
-
 message GetExtrasRequest {
 }
 
@@ -351,6 +325,13 @@ message GetLaunchIntentResponse {
   int64 result = 1;
 }
 
+message GetReadPermissionsRequest {
+}
+
+message GetReadPermissionsResponse {
+  int64 result = 1;
+}
+
 message GetSummaryRequest {
 }
 
@@ -363,6 +344,13 @@ message GetTitleRequest {
 
 message GetTitleResponse {
   string result = 1;
+}
+
+message GetWritePermissionsRequest {
+}
+
+message GetWritePermissionsResponse {
+  int64 result = 1;
 }
 
 message GetWriteSensitivityRequest {
@@ -472,11 +460,11 @@ message SetWriteSensitivityResponse {
   int64 result = 1;
 }
 
-message GetPreferenceValueRequest {
+message GetResultCodeRequest {
 }
 
-message GetPreferenceValueResponse {
-  int64 result = 1;
+message GetResultCodeResponse {
+  int32 result = 1;
 }
 
 message GetMetadataRequest {
@@ -506,6 +494,39 @@ message SetValueRequest {
 }
 
 message SetValueResponse {
+  int64 result = 1;
+}
+
+message GetMetadataListRequest {
+}
+
+message GetMetadataListResponse {
+  int64 result = 1;
+}
+
+message NewSettingsPreferenceServiceClientRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int64 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message NewSettingsPreferenceServiceClientResponse {
+  int64 result = 1;
+}
+
+message CloseRequest {
+  int64 handle = 1;
+}
+
+message CloseResponse {
+}
+
+message OnBindRequest {
+  int64 arg0 = 1;
+}
+
+message OnBindResponse {
   int64 result = 1;
 }
 
@@ -539,8 +560,16 @@ service SharedPreferencesOnSharedPreferenceChangeListenerService {
   rpc OnSharedPreferenceChanged (OnSharedPreferenceChangedRequest) returns (OnSharedPreferenceChangedResponse);
 }
 
-service SettingsPreferenceServiceService {
-  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+service SetValueRequestService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetPreferenceKey (GetPreferenceKeyRequest) returns (GetPreferenceKeyResponse);
+  rpc GetPreferenceValue (GetPreferenceValueRequest) returns (GetPreferenceValueResponse);
+  rpc GetScreenKey (GetScreenKeyRequest) returns (GetScreenKeyResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SetValueRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
 }
 
 service GetValueRequestService {
@@ -574,48 +603,16 @@ service SettingsPreferenceValueBuilderService {
   rpc SetStringValue (SetStringValueRequest) returns (SetStringValueResponse);
 }
 
-service MetadataResultService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetResultCode (GetResultCodeRequest) returns (GetResultCodeResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service MetadataResultBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-}
-
-service SetValueResultService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetResultCode (GetResultCodeRequest) returns (GetResultCodeResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service SetValueResultBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-}
-
-service SettingsPreferenceServiceClientService {
-  rpc NewSettingsPreferenceServiceClient (NewSettingsPreferenceServiceClientRequest) returns (NewSettingsPreferenceServiceClientResponse);
-  rpc Close (CloseRequest) returns (CloseResponse);
-}
-
-service MetadataRequestService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service MetadataRequestBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
-}
-
 service SettingsPreferenceMetadataService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc GetExtras (GetExtrasRequest) returns (GetExtrasResponse);
   rpc GetKey (GetKeyRequest) returns (GetKeyResponse);
   rpc GetLaunchIntent (GetLaunchIntentRequest) returns (GetLaunchIntentResponse);
+  rpc GetReadPermissions (GetReadPermissionsRequest) returns (GetReadPermissionsResponse);
   rpc GetScreenKey (GetScreenKeyRequest) returns (GetScreenKeyResponse);
   rpc GetSummary (GetSummaryRequest) returns (GetSummaryResponse);
   rpc GetTitle (GetTitleRequest) returns (GetTitleResponse);
+  rpc GetWritePermissions (GetWritePermissionsRequest) returns (GetWritePermissionsResponse);
   rpc GetWriteSensitivity (GetWriteSensitivityRequest) returns (GetWriteSensitivityResponse);
   rpc IsAvailable (IsAvailableRequest) returns (IsAvailableResponse);
   rpc IsEnabled (IsEnabledRequest) returns (IsEnabledResponse);
@@ -637,15 +634,22 @@ service SettingsPreferenceMetadataBuilderService {
   rpc SetWriteSensitivity (SetWriteSensitivityRequest) returns (SetWriteSensitivityResponse);
 }
 
-service SetValueRequestService {
+service MetadataRequestService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetPreferenceKey (GetPreferenceKeyRequest) returns (GetPreferenceKeyResponse);
-  rpc GetPreferenceValue (GetPreferenceValueRequest) returns (GetPreferenceValueResponse);
-  rpc GetScreenKey (GetScreenKeyRequest) returns (GetScreenKeyResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service SetValueRequestBuilderService {
+service MetadataRequestBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service SetValueResultService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetResultCode (GetResultCodeRequest) returns (GetResultCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SetValueResultBuilderService {
   rpc Build (BuildRequest) returns (BuildResponse);
 }
 
@@ -661,4 +665,24 @@ service GetValueResultBuilderService {
   rpc Build (BuildRequest) returns (BuildResponse);
   rpc SetMetadata (SetMetadataRequest) returns (SetMetadataResponse);
   rpc SetValue (SetValueRequest) returns (SetValueResponse);
+}
+
+service MetadataResultService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetMetadataList (GetMetadataListRequest) returns (GetMetadataListResponse);
+  rpc GetResultCode (GetResultCodeRequest) returns (GetResultCodeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service MetadataResultBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
+service SettingsPreferenceServiceClientService {
+  rpc NewSettingsPreferenceServiceClient (NewSettingsPreferenceServiceClientRequest) returns (NewSettingsPreferenceServiceClientResponse);
+  rpc Close (CloseRequest) returns (CloseResponse);
+}
+
+service SettingsPreferenceServiceService {
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
 }

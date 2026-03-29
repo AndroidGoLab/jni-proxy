@@ -12,6 +12,535 @@ var resCmd = &cobra.Command{
 	Short: "res service operations",
 }
 
+var resFontScaleConverterCmd = &cobra.Command{
+	Use:   "font-scale-converter",
+	Short: "FontScaleConverterService operations",
+}
+
+var resFontScaleConverterConvertDpToSpCmd = &cobra.Command{
+	Use:   "convert-dp-to-sp",
+	Short: "ConvertDpToSp RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFontScaleConverterServiceClient(grpcConn)
+		req := &pb.ConvertDpToSpRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ConvertDpToSp(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resFontScaleConverterConvertSpToDpCmd = &cobra.Command{
+	Use:   "convert-sp-to-dp",
+	Short: "ConvertSpToDp RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFontScaleConverterServiceClient(grpcConn)
+		req := &pb.ConvertSpToDpRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ConvertSpToDp(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resFontScaleConverterForScaleCmd = &cobra.Command{
+	Use:   "for-scale",
+	Short: "ForScale RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFontScaleConverterServiceClient(grpcConn)
+		req := &pb.ForScaleRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ForScale(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resFontScaleConverterIsNonLinearFontScalingActiveCmd = &cobra.Command{
+	Use:   "is-non-linear-font-scaling-active",
+	Short: "IsNonLinearFontScalingActive RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFontScaleConverterServiceClient(grpcConn)
+		req := &pb.IsNonLinearFontScalingActiveRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsNonLinearFontScalingActive(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resObbScannerCmd = &cobra.Command{
+	Use:   "obb-scanner",
+	Short: "ObbScannerService operations",
+}
+
+var resObbScannerGetObbInfoCmd = &cobra.Command{
+	Use:   "get-obb-info",
+	Short: "GetObbInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewObbScannerServiceClient(grpcConn)
+		req := &pb.GetObbInfoRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetObbInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resObbInfoCmd = &cobra.Command{
+	Use:   "obb-info",
+	Short: "ObbInfoService operations",
+}
+
+var resObbInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewObbInfoServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resObbInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewObbInfoServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resObbInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewObbInfoServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetManagerCmd = &cobra.Command{
+	Use:   "asset-manager",
+	Short: "AssetManagerService operations",
+}
+
+var resAssetManagerCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetManagerServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetManagerGetLocalesCmd = &cobra.Command{
+	Use:   "get-locales",
+	Short: "GetLocales RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetManagerServiceClient(grpcConn)
+		req := &pb.GetLocalesRequest{}
+		resp, err := client.GetLocales(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetManagerListCmd = &cobra.Command{
+	Use:   "list",
+	Short: "List RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetManagerServiceClient(grpcConn)
+		req := &pb.ListRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.List(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetManagerOpen1Cmd = &cobra.Command{
+	Use:   "open1",
+	Short: "Open1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetManagerServiceClient(grpcConn)
+		req := &pb.Open1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Open1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetManagerOpen2_1Cmd = &cobra.Command{
+	Use:   "open2_1",
+	Short: "Open2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetManagerServiceClient(grpcConn)
+		req := &pb.Open2_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Open2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetManagerOpenFdCmd = &cobra.Command{
+	Use:   "open-fd",
+	Short: "OpenFd RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetManagerServiceClient(grpcConn)
+		req := &pb.OpenFdRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OpenFd(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetManagerOpenNonAssetFd2Cmd = &cobra.Command{
+	Use:   "open-non-asset-fd2",
+	Short: "OpenNonAssetFd2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetManagerServiceClient(grpcConn)
+		req := &pb.OpenNonAssetFd2Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OpenNonAssetFd2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetManagerOpenNonAssetFd1_1Cmd = &cobra.Command{
+	Use:   "open-non-asset-fd1_1",
+	Short: "OpenNonAssetFd1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetManagerServiceClient(grpcConn)
+		req := &pb.OpenNonAssetFd1_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OpenNonAssetFd1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetManagerOpenXmlResourceParser2Cmd = &cobra.Command{
+	Use:   "open-xml-resource-parser2",
+	Short: "OpenXmlResourceParser2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetManagerServiceClient(grpcConn)
+		req := &pb.OpenXmlResourceParser2Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OpenXmlResourceParser2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetManagerOpenXmlResourceParser1_1Cmd = &cobra.Command{
+	Use:   "open-xml-resource-parser1_1",
+	Short: "OpenXmlResourceParser1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetManagerServiceClient(grpcConn)
+		req := &pb.OpenXmlResourceParser1_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OpenXmlResourceParser1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetManagerAssetInputStreamCmd = &cobra.Command{
+	Use:   "asset-manager-asset-input-stream",
+	Short: "AssetManagerAssetInputStreamService operations",
+}
+
+var resAssetManagerAssetInputStreamAvailableCmd = &cobra.Command{
+	Use:   "available",
+	Short: "Available RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetManagerAssetInputStreamServiceClient(grpcConn)
+		req := &pb.AvailableRequest{}
+		resp, err := client.Available(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetManagerAssetInputStreamCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetManagerAssetInputStreamServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetManagerAssetInputStreamMarkCmd = &cobra.Command{
+	Use:   "mark",
+	Short: "Mark RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetManagerAssetInputStreamServiceClient(grpcConn)
+		req := &pb.MarkRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Mark(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetManagerAssetInputStreamMarkSupportedCmd = &cobra.Command{
+	Use:   "mark-supported",
+	Short: "MarkSupported RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetManagerAssetInputStreamServiceClient(grpcConn)
+		req := &pb.MarkSupportedRequest{}
+		resp, err := client.MarkSupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetManagerAssetInputStreamRead0Cmd = &cobra.Command{
+	Use:   "read0",
+	Short: "Read0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetManagerAssetInputStreamServiceClient(grpcConn)
+		req := &pb.Read0Request{}
+		resp, err := client.Read0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetManagerAssetInputStreamRead1_1Cmd = &cobra.Command{
+	Use:   "read1_1",
+	Short: "Read1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetManagerAssetInputStreamServiceClient(grpcConn)
+		req := &pb.Read1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Read1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetManagerAssetInputStreamRead3_2Cmd = &cobra.Command{
+	Use:   "read3_2",
+	Short: "Read3_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetManagerAssetInputStreamServiceClient(grpcConn)
+		req := &pb.Read3_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Read3_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetManagerAssetInputStreamResetCmd = &cobra.Command{
+	Use:   "reset",
+	Short: "Reset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetManagerAssetInputStreamServiceClient(grpcConn)
+		req := &pb.ResetRequest{}
+		resp, err := client.Reset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetManagerAssetInputStreamSkipCmd = &cobra.Command{
+	Use:   "skip",
+	Short: "Skip RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetManagerAssetInputStreamServiceClient(grpcConn)
+		req := &pb.SkipRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Skip(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var resConfigurationCmd = &cobra.Command{
 	Use:   "configuration",
 	Short: "ConfigurationService operations",
@@ -62,7 +591,7 @@ var resConfigurationDescribeContentsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewConfigurationServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
+		req := &pb.ConfigurationDescribeContentsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -185,7 +714,7 @@ var resConfigurationGetLocalesCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewConfigurationServiceClient(grpcConn)
-		req := &pb.GetLocalesRequest{}
+		req := &pb.ConfigurationGetLocalesRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -450,7 +979,7 @@ var resConfigurationToStringCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewConfigurationServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
+		req := &pb.ConfigurationToStringRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -491,7 +1020,7 @@ var resConfigurationWriteToParcelCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewConfigurationServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
+		req := &pb.ConfigurationWriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -581,669 +1110,6 @@ var resConfigurationNeedNewResourcesCmd = &cobra.Command{
 	},
 }
 
-var resAssetFileDescriptorCmd = &cobra.Command{
-	Use:   "asset-file-descriptor",
-	Short: "AssetFileDescriptorService operations",
-}
-
-var resAssetFileDescriptorNewAssetFileDescriptorCmd = &cobra.Command{
-	Use:   "new-asset-file-descriptor",
-	Short: "NewAssetFileDescriptor RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetFileDescriptorServiceClient(grpcConn)
-		req := &pb.NewAssetFileDescriptorRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.NewAssetFileDescriptor(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetFileDescriptorCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetFileDescriptorServiceClient(grpcConn)
-		req := &pb.CloseRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetFileDescriptorCreateInputStreamCmd = &cobra.Command{
-	Use:   "create-input-stream",
-	Short: "CreateInputStream RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetFileDescriptorServiceClient(grpcConn)
-		req := &pb.CreateInputStreamRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.CreateInputStream(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetFileDescriptorCreateOutputStreamCmd = &cobra.Command{
-	Use:   "create-output-stream",
-	Short: "CreateOutputStream RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetFileDescriptorServiceClient(grpcConn)
-		req := &pb.CreateOutputStreamRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.CreateOutputStream(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetFileDescriptorDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetFileDescriptorServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetFileDescriptorGetDeclaredLengthCmd = &cobra.Command{
-	Use:   "get-declared-length",
-	Short: "GetDeclaredLength RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetFileDescriptorServiceClient(grpcConn)
-		req := &pb.GetDeclaredLengthRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetDeclaredLength(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetFileDescriptorGetExtrasCmd = &cobra.Command{
-	Use:   "get-extras",
-	Short: "GetExtras RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetFileDescriptorServiceClient(grpcConn)
-		req := &pb.GetExtrasRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetExtras(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetFileDescriptorGetFileDescriptorCmd = &cobra.Command{
-	Use:   "get-file-descriptor",
-	Short: "GetFileDescriptor RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetFileDescriptorServiceClient(grpcConn)
-		req := &pb.GetFileDescriptorRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetFileDescriptor(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetFileDescriptorGetLengthCmd = &cobra.Command{
-	Use:   "get-length",
-	Short: "GetLength RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetFileDescriptorServiceClient(grpcConn)
-		req := &pb.GetLengthRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetLength(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetFileDescriptorGetParcelFileDescriptorCmd = &cobra.Command{
-	Use:   "get-parcel-file-descriptor",
-	Short: "GetParcelFileDescriptor RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetFileDescriptorServiceClient(grpcConn)
-		req := &pb.GetParcelFileDescriptorRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetParcelFileDescriptor(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetFileDescriptorGetStartOffsetCmd = &cobra.Command{
-	Use:   "get-start-offset",
-	Short: "GetStartOffset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetFileDescriptorServiceClient(grpcConn)
-		req := &pb.GetStartOffsetRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetStartOffset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetFileDescriptorToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetFileDescriptorServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetFileDescriptorWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetFileDescriptorServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetFileDescriptorAutoCloseInputStreamCmd = &cobra.Command{
-	Use:   "asset-file-descriptor-auto-close-input-stream",
-	Short: "AssetFileDescriptorAutoCloseInputStreamService operations",
-}
-
-var resAssetFileDescriptorAutoCloseInputStreamAvailableCmd = &cobra.Command{
-	Use:   "available",
-	Short: "Available RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetFileDescriptorAutoCloseInputStreamServiceClient(grpcConn)
-		req := &pb.AvailableRequest{}
-		resp, err := client.Available(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetFileDescriptorAutoCloseInputStreamCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetFileDescriptorAutoCloseInputStreamServiceClient(grpcConn)
-		req := &pb.AssetFileDescriptorAutoCloseInputStreamCloseRequest{}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetFileDescriptorAutoCloseInputStreamGetChannelCmd = &cobra.Command{
-	Use:   "get-channel",
-	Short: "GetChannel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetFileDescriptorAutoCloseInputStreamServiceClient(grpcConn)
-		req := &pb.GetChannelRequest{}
-		resp, err := client.GetChannel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetFileDescriptorAutoCloseInputStreamMarkCmd = &cobra.Command{
-	Use:   "mark",
-	Short: "Mark RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetFileDescriptorAutoCloseInputStreamServiceClient(grpcConn)
-		req := &pb.MarkRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Mark(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetFileDescriptorAutoCloseInputStreamMarkSupportedCmd = &cobra.Command{
-	Use:   "mark-supported",
-	Short: "MarkSupported RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetFileDescriptorAutoCloseInputStreamServiceClient(grpcConn)
-		req := &pb.MarkSupportedRequest{}
-		resp, err := client.MarkSupported(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetFileDescriptorAutoCloseInputStreamRead0Cmd = &cobra.Command{
-	Use:   "read0",
-	Short: "Read0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetFileDescriptorAutoCloseInputStreamServiceClient(grpcConn)
-		req := &pb.Read0Request{}
-		resp, err := client.Read0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetFileDescriptorAutoCloseInputStreamRead1_1Cmd = &cobra.Command{
-	Use:   "read1_1",
-	Short: "Read1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetFileDescriptorAutoCloseInputStreamServiceClient(grpcConn)
-		req := &pb.Read1_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Read1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetFileDescriptorAutoCloseInputStreamRead3_2Cmd = &cobra.Command{
-	Use:   "read3_2",
-	Short: "Read3_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetFileDescriptorAutoCloseInputStreamServiceClient(grpcConn)
-		req := &pb.Read3_2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Read3_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetFileDescriptorAutoCloseInputStreamSkipCmd = &cobra.Command{
-	Use:   "skip",
-	Short: "Skip RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetFileDescriptorAutoCloseInputStreamServiceClient(grpcConn)
-		req := &pb.SkipRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Skip(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetFileDescriptorAutoCloseOutputStreamCmd = &cobra.Command{
-	Use:   "asset-file-descriptor-auto-close-output-stream",
-	Short: "AssetFileDescriptorAutoCloseOutputStreamService operations",
-}
-
-var resAssetFileDescriptorAutoCloseOutputStreamWrite1Cmd = &cobra.Command{
-	Use:   "write1",
-	Short: "Write1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetFileDescriptorAutoCloseOutputStreamServiceClient(grpcConn)
-		req := &pb.Write1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Write1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetFileDescriptorAutoCloseOutputStreamWrite3_1Cmd = &cobra.Command{
-	Use:   "write3_1",
-	Short: "Write3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetFileDescriptorAutoCloseOutputStreamServiceClient(grpcConn)
-		req := &pb.Write3_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Write3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetFileDescriptorAutoCloseOutputStreamWrite1_2Cmd = &cobra.Command{
-	Use:   "write1_2",
-	Short: "Write1_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetFileDescriptorAutoCloseOutputStreamServiceClient(grpcConn)
-		req := &pb.Write1_2Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Write1_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resFontScaleConverterCmd = &cobra.Command{
-	Use:   "font-scale-converter",
-	Short: "FontScaleConverterService operations",
-}
-
-var resFontScaleConverterConvertDpToSpCmd = &cobra.Command{
-	Use:   "convert-dp-to-sp",
-	Short: "ConvertDpToSp RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFontScaleConverterServiceClient(grpcConn)
-		req := &pb.ConvertDpToSpRequest{}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ConvertDpToSp(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resFontScaleConverterConvertSpToDpCmd = &cobra.Command{
-	Use:   "convert-sp-to-dp",
-	Short: "ConvertSpToDp RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFontScaleConverterServiceClient(grpcConn)
-		req := &pb.ConvertSpToDpRequest{}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ConvertSpToDp(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resFontScaleConverterForScaleCmd = &cobra.Command{
-	Use:   "for-scale",
-	Short: "ForScale RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFontScaleConverterServiceClient(grpcConn)
-		req := &pb.ForScaleRequest{}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ForScale(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resFontScaleConverterIsNonLinearFontScalingActiveCmd = &cobra.Command{
-	Use:   "is-non-linear-font-scaling-active",
-	Short: "IsNonLinearFontScalingActive RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFontScaleConverterServiceClient(grpcConn)
-		req := &pb.IsNonLinearFontScalingActiveRequest{}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsNonLinearFontScalingActive(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resObbScannerCmd = &cobra.Command{
-	Use:   "obb-scanner",
-	Short: "ObbScannerService operations",
-}
-
-var resObbScannerGetObbInfoCmd = &cobra.Command{
-	Use:   "get-obb-info",
-	Short: "GetObbInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewObbScannerServiceClient(grpcConn)
-		req := &pb.GetObbInfoRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetObbInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resObbInfoCmd = &cobra.Command{
-	Use:   "obb-info",
-	Short: "ObbInfoService operations",
-}
-
-var resObbInfoDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewObbInfoServiceClient(grpcConn)
-		req := &pb.ObbInfoDescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resObbInfoToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewObbInfoServiceClient(grpcConn)
-		req := &pb.ObbInfoToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resObbInfoWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewObbInfoServiceClient(grpcConn)
-		req := &pb.ObbInfoWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var resXmlResourceParserCmd = &cobra.Command{
 	Use:   "xml-resource-parser",
 	Short: "XmlResourceParserService operations",
@@ -1256,7 +1122,7 @@ var resXmlResourceParserCloseCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewXmlResourceParserServiceClient(grpcConn)
-		req := &pb.XmlResourceParserCloseRequest{}
+		req := &pb.CloseRequest{}
 		resp, err := client.Close(ctx, req)
 		if err != nil {
 			return err
@@ -1284,681 +1150,6 @@ var resXmlResourceParserGetAttributeNamespaceCmd = &cobra.Command{
 	},
 }
 
-var resColorStateListCmd = &cobra.Command{
-	Use:   "color-state-list",
-	Short: "ColorStateListService operations",
-}
-
-var resColorStateListNewColorStateListCmd = &cobra.Command{
-	Use:   "new-color-state-list",
-	Short: "NewColorStateList RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewColorStateListServiceClient(grpcConn)
-		req := &pb.NewColorStateListRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewColorStateList(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resColorStateListDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewColorStateListServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resColorStateListGetChangingConfigurationsCmd = &cobra.Command{
-	Use:   "get-changing-configurations",
-	Short: "GetChangingConfigurations RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewColorStateListServiceClient(grpcConn)
-		req := &pb.GetChangingConfigurationsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetChangingConfigurations(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resColorStateListGetColorForStateCmd = &cobra.Command{
-	Use:   "get-color-for-state",
-	Short: "GetColorForState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewColorStateListServiceClient(grpcConn)
-		req := &pb.GetColorForStateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetColorForState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resColorStateListGetDefaultColorCmd = &cobra.Command{
-	Use:   "get-default-color",
-	Short: "GetDefaultColor RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewColorStateListServiceClient(grpcConn)
-		req := &pb.GetDefaultColorRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetDefaultColor(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resColorStateListIsOpaqueCmd = &cobra.Command{
-	Use:   "is-opaque",
-	Short: "IsOpaque RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewColorStateListServiceClient(grpcConn)
-		req := &pb.IsOpaqueRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsOpaque(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resColorStateListIsStatefulCmd = &cobra.Command{
-	Use:   "is-stateful",
-	Short: "IsStateful RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewColorStateListServiceClient(grpcConn)
-		req := &pb.IsStatefulRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsStateful(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resColorStateListToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewColorStateListServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resColorStateListWithAlphaCmd = &cobra.Command{
-	Use:   "with-alpha",
-	Short: "WithAlpha RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewColorStateListServiceClient(grpcConn)
-		req := &pb.WithAlphaRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.WithAlpha(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resColorStateListWithLStarCmd = &cobra.Command{
-	Use:   "with-l-star",
-	Short: "WithLStar RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewColorStateListServiceClient(grpcConn)
-		req := &pb.WithLStarRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.WithLStar(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resColorStateListWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewColorStateListServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resColorStateListCreateFromXml2Cmd = &cobra.Command{
-	Use:   "create-from-xml2",
-	Short: "CreateFromXml2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewColorStateListServiceClient(grpcConn)
-		req := &pb.CreateFromXml2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.CreateFromXml2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resColorStateListCreateFromXml3_1Cmd = &cobra.Command{
-	Use:   "create-from-xml3_1",
-	Short: "CreateFromXml3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewColorStateListServiceClient(grpcConn)
-		req := &pb.CreateFromXml3_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.CreateFromXml3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resColorStateListValueOfCmd = &cobra.Command{
-	Use:   "value-of",
-	Short: "ValueOf RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewColorStateListServiceClient(grpcConn)
-		req := &pb.ValueOfRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ValueOf(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetManagerCmd = &cobra.Command{
-	Use:   "asset-manager",
-	Short: "AssetManagerService operations",
-}
-
-var resAssetManagerCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetManagerServiceClient(grpcConn)
-		req := &pb.AssetManagerCloseRequest{}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetManagerGetLocalesCmd = &cobra.Command{
-	Use:   "get-locales",
-	Short: "GetLocales RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetManagerServiceClient(grpcConn)
-		req := &pb.AssetManagerGetLocalesRequest{}
-		resp, err := client.GetLocales(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetManagerListCmd = &cobra.Command{
-	Use:   "list",
-	Short: "List RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetManagerServiceClient(grpcConn)
-		req := &pb.ListRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.List(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetManagerOpen1Cmd = &cobra.Command{
-	Use:   "open1",
-	Short: "Open1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetManagerServiceClient(grpcConn)
-		req := &pb.Open1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Open1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetManagerOpen2_1Cmd = &cobra.Command{
-	Use:   "open2_1",
-	Short: "Open2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetManagerServiceClient(grpcConn)
-		req := &pb.Open2_1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Open2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetManagerOpenFdCmd = &cobra.Command{
-	Use:   "open-fd",
-	Short: "OpenFd RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetManagerServiceClient(grpcConn)
-		req := &pb.OpenFdRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OpenFd(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetManagerOpenNonAssetFd2Cmd = &cobra.Command{
-	Use:   "open-non-asset-fd2",
-	Short: "OpenNonAssetFd2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetManagerServiceClient(grpcConn)
-		req := &pb.OpenNonAssetFd2Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OpenNonAssetFd2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetManagerOpenNonAssetFd1_1Cmd = &cobra.Command{
-	Use:   "open-non-asset-fd1_1",
-	Short: "OpenNonAssetFd1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetManagerServiceClient(grpcConn)
-		req := &pb.OpenNonAssetFd1_1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OpenNonAssetFd1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetManagerOpenXmlResourceParser2Cmd = &cobra.Command{
-	Use:   "open-xml-resource-parser2",
-	Short: "OpenXmlResourceParser2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetManagerServiceClient(grpcConn)
-		req := &pb.OpenXmlResourceParser2Request{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OpenXmlResourceParser2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetManagerOpenXmlResourceParser1_1Cmd = &cobra.Command{
-	Use:   "open-xml-resource-parser1_1",
-	Short: "OpenXmlResourceParser1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetManagerServiceClient(grpcConn)
-		req := &pb.OpenXmlResourceParser1_1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OpenXmlResourceParser1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetManagerAssetInputStreamCmd = &cobra.Command{
-	Use:   "asset-manager-asset-input-stream",
-	Short: "AssetManagerAssetInputStreamService operations",
-}
-
-var resAssetManagerAssetInputStreamAvailableCmd = &cobra.Command{
-	Use:   "available",
-	Short: "Available RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetManagerAssetInputStreamServiceClient(grpcConn)
-		req := &pb.AvailableRequest{}
-		resp, err := client.Available(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetManagerAssetInputStreamCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetManagerAssetInputStreamServiceClient(grpcConn)
-		req := &pb.AssetManagerAssetInputStreamCloseRequest{}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetManagerAssetInputStreamMarkCmd = &cobra.Command{
-	Use:   "mark",
-	Short: "Mark RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetManagerAssetInputStreamServiceClient(grpcConn)
-		req := &pb.MarkRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Mark(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetManagerAssetInputStreamMarkSupportedCmd = &cobra.Command{
-	Use:   "mark-supported",
-	Short: "MarkSupported RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetManagerAssetInputStreamServiceClient(grpcConn)
-		req := &pb.MarkSupportedRequest{}
-		resp, err := client.MarkSupported(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetManagerAssetInputStreamRead0Cmd = &cobra.Command{
-	Use:   "read0",
-	Short: "Read0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetManagerAssetInputStreamServiceClient(grpcConn)
-		req := &pb.Read0Request{}
-		resp, err := client.Read0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetManagerAssetInputStreamRead1_1Cmd = &cobra.Command{
-	Use:   "read1_1",
-	Short: "Read1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetManagerAssetInputStreamServiceClient(grpcConn)
-		req := &pb.Read1_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Read1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetManagerAssetInputStreamRead3_2Cmd = &cobra.Command{
-	Use:   "read3_2",
-	Short: "Read3_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetManagerAssetInputStreamServiceClient(grpcConn)
-		req := &pb.Read3_2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Read3_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetManagerAssetInputStreamResetCmd = &cobra.Command{
-	Use:   "reset",
-	Short: "Reset RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetManagerAssetInputStreamServiceClient(grpcConn)
-		req := &pb.ResetRequest{}
-		resp, err := client.Reset(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var resAssetManagerAssetInputStreamSkipCmd = &cobra.Command{
-	Use:   "skip",
-	Short: "Skip RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAssetManagerAssetInputStreamServiceClient(grpcConn)
-		req := &pb.SkipRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Skip(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var resTypedArrayCmd = &cobra.Command{
 	Use:   "typed-array",
 	Short: "TypedArrayService operations",
@@ -1971,7 +1162,7 @@ var resTypedArrayCloseCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewTypedArrayServiceClient(grpcConn)
-		req := &pb.TypedArrayCloseRequest{}
+		req := &pb.CloseRequest{}
 		resp, err := client.Close(ctx, req)
 		if err != nil {
 			return err
@@ -2009,7 +1200,7 @@ var resTypedArrayGetChangingConfigurationsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewTypedArrayServiceClient(grpcConn)
-		req := &pb.TypedArrayGetChangingConfigurationsRequest{}
+		req := &pb.GetChangingConfigurationsRequest{}
 		resp, err := client.GetChangingConfigurations(ctx, req)
 		if err != nil {
 			return err
@@ -2625,7 +1816,7 @@ var resTypedArrayToStringCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewTypedArrayServiceClient(grpcConn)
-		req := &pb.TypedArrayToStringRequest{}
+		req := &pb.ToStringRequest{}
 		resp, err := client.ToString(ctx, req)
 		if err != nil {
 			return err
@@ -2634,7 +1825,872 @@ var resTypedArrayToStringCmd = &cobra.Command{
 	},
 }
 
+var resColorStateListCmd = &cobra.Command{
+	Use:   "color-state-list",
+	Short: "ColorStateListService operations",
+}
+
+var resColorStateListNewColorStateListCmd = &cobra.Command{
+	Use:   "new-color-state-list",
+	Short: "NewColorStateList RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewColorStateListServiceClient(grpcConn)
+		req := &pb.NewColorStateListRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewColorStateList(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resColorStateListDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewColorStateListServiceClient(grpcConn)
+		req := &pb.ColorStateListDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resColorStateListGetChangingConfigurationsCmd = &cobra.Command{
+	Use:   "get-changing-configurations",
+	Short: "GetChangingConfigurations RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewColorStateListServiceClient(grpcConn)
+		req := &pb.ColorStateListGetChangingConfigurationsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetChangingConfigurations(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resColorStateListGetColorForStateCmd = &cobra.Command{
+	Use:   "get-color-for-state",
+	Short: "GetColorForState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewColorStateListServiceClient(grpcConn)
+		req := &pb.GetColorForStateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetColorForState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resColorStateListGetDefaultColorCmd = &cobra.Command{
+	Use:   "get-default-color",
+	Short: "GetDefaultColor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewColorStateListServiceClient(grpcConn)
+		req := &pb.GetDefaultColorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDefaultColor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resColorStateListIsOpaqueCmd = &cobra.Command{
+	Use:   "is-opaque",
+	Short: "IsOpaque RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewColorStateListServiceClient(grpcConn)
+		req := &pb.IsOpaqueRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsOpaque(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resColorStateListIsStatefulCmd = &cobra.Command{
+	Use:   "is-stateful",
+	Short: "IsStateful RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewColorStateListServiceClient(grpcConn)
+		req := &pb.IsStatefulRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsStateful(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resColorStateListToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewColorStateListServiceClient(grpcConn)
+		req := &pb.ColorStateListToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resColorStateListWithAlphaCmd = &cobra.Command{
+	Use:   "with-alpha",
+	Short: "WithAlpha RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewColorStateListServiceClient(grpcConn)
+		req := &pb.WithAlphaRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.WithAlpha(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resColorStateListWithLStarCmd = &cobra.Command{
+	Use:   "with-l-star",
+	Short: "WithLStar RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewColorStateListServiceClient(grpcConn)
+		req := &pb.WithLStarRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.WithLStar(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resColorStateListWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewColorStateListServiceClient(grpcConn)
+		req := &pb.ColorStateListWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resColorStateListCreateFromXml2Cmd = &cobra.Command{
+	Use:   "create-from-xml2",
+	Short: "CreateFromXml2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewColorStateListServiceClient(grpcConn)
+		req := &pb.CreateFromXml2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CreateFromXml2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resColorStateListCreateFromXml3_1Cmd = &cobra.Command{
+	Use:   "create-from-xml3_1",
+	Short: "CreateFromXml3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewColorStateListServiceClient(grpcConn)
+		req := &pb.CreateFromXml3_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.CreateFromXml3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resColorStateListValueOfCmd = &cobra.Command{
+	Use:   "value-of",
+	Short: "ValueOf RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewColorStateListServiceClient(grpcConn)
+		req := &pb.ValueOfRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ValueOf(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetFileDescriptorCmd = &cobra.Command{
+	Use:   "asset-file-descriptor",
+	Short: "AssetFileDescriptorService operations",
+}
+
+var resAssetFileDescriptorNewAssetFileDescriptorCmd = &cobra.Command{
+	Use:   "new-asset-file-descriptor",
+	Short: "NewAssetFileDescriptor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetFileDescriptorServiceClient(grpcConn)
+		req := &pb.NewAssetFileDescriptorRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewAssetFileDescriptor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetFileDescriptorCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetFileDescriptorServiceClient(grpcConn)
+		req := &pb.AssetFileDescriptorCloseRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetFileDescriptorCreateInputStreamCmd = &cobra.Command{
+	Use:   "create-input-stream",
+	Short: "CreateInputStream RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetFileDescriptorServiceClient(grpcConn)
+		req := &pb.CreateInputStreamRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.CreateInputStream(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetFileDescriptorCreateOutputStreamCmd = &cobra.Command{
+	Use:   "create-output-stream",
+	Short: "CreateOutputStream RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetFileDescriptorServiceClient(grpcConn)
+		req := &pb.CreateOutputStreamRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.CreateOutputStream(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetFileDescriptorDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetFileDescriptorServiceClient(grpcConn)
+		req := &pb.AssetFileDescriptorDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetFileDescriptorGetDeclaredLengthCmd = &cobra.Command{
+	Use:   "get-declared-length",
+	Short: "GetDeclaredLength RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetFileDescriptorServiceClient(grpcConn)
+		req := &pb.GetDeclaredLengthRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDeclaredLength(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetFileDescriptorGetExtrasCmd = &cobra.Command{
+	Use:   "get-extras",
+	Short: "GetExtras RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetFileDescriptorServiceClient(grpcConn)
+		req := &pb.GetExtrasRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetExtras(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetFileDescriptorGetFileDescriptorCmd = &cobra.Command{
+	Use:   "get-file-descriptor",
+	Short: "GetFileDescriptor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetFileDescriptorServiceClient(grpcConn)
+		req := &pb.GetFileDescriptorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetFileDescriptor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetFileDescriptorGetLengthCmd = &cobra.Command{
+	Use:   "get-length",
+	Short: "GetLength RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetFileDescriptorServiceClient(grpcConn)
+		req := &pb.GetLengthRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLength(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetFileDescriptorGetParcelFileDescriptorCmd = &cobra.Command{
+	Use:   "get-parcel-file-descriptor",
+	Short: "GetParcelFileDescriptor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetFileDescriptorServiceClient(grpcConn)
+		req := &pb.GetParcelFileDescriptorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetParcelFileDescriptor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetFileDescriptorGetStartOffsetCmd = &cobra.Command{
+	Use:   "get-start-offset",
+	Short: "GetStartOffset RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetFileDescriptorServiceClient(grpcConn)
+		req := &pb.GetStartOffsetRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetStartOffset(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetFileDescriptorToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetFileDescriptorServiceClient(grpcConn)
+		req := &pb.AssetFileDescriptorToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetFileDescriptorWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetFileDescriptorServiceClient(grpcConn)
+		req := &pb.AssetFileDescriptorWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetFileDescriptorAutoCloseInputStreamCmd = &cobra.Command{
+	Use:   "asset-file-descriptor-auto-close-input-stream",
+	Short: "AssetFileDescriptorAutoCloseInputStreamService operations",
+}
+
+var resAssetFileDescriptorAutoCloseInputStreamAvailableCmd = &cobra.Command{
+	Use:   "available",
+	Short: "Available RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetFileDescriptorAutoCloseInputStreamServiceClient(grpcConn)
+		req := &pb.AvailableRequest{}
+		resp, err := client.Available(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetFileDescriptorAutoCloseInputStreamCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetFileDescriptorAutoCloseInputStreamServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetFileDescriptorAutoCloseInputStreamGetChannelCmd = &cobra.Command{
+	Use:   "get-channel",
+	Short: "GetChannel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetFileDescriptorAutoCloseInputStreamServiceClient(grpcConn)
+		req := &pb.GetChannelRequest{}
+		resp, err := client.GetChannel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetFileDescriptorAutoCloseInputStreamMarkCmd = &cobra.Command{
+	Use:   "mark",
+	Short: "Mark RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetFileDescriptorAutoCloseInputStreamServiceClient(grpcConn)
+		req := &pb.MarkRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Mark(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetFileDescriptorAutoCloseInputStreamMarkSupportedCmd = &cobra.Command{
+	Use:   "mark-supported",
+	Short: "MarkSupported RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetFileDescriptorAutoCloseInputStreamServiceClient(grpcConn)
+		req := &pb.MarkSupportedRequest{}
+		resp, err := client.MarkSupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetFileDescriptorAutoCloseInputStreamRead0Cmd = &cobra.Command{
+	Use:   "read0",
+	Short: "Read0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetFileDescriptorAutoCloseInputStreamServiceClient(grpcConn)
+		req := &pb.Read0Request{}
+		resp, err := client.Read0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetFileDescriptorAutoCloseInputStreamRead1_1Cmd = &cobra.Command{
+	Use:   "read1_1",
+	Short: "Read1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetFileDescriptorAutoCloseInputStreamServiceClient(grpcConn)
+		req := &pb.Read1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Read1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetFileDescriptorAutoCloseInputStreamRead3_2Cmd = &cobra.Command{
+	Use:   "read3_2",
+	Short: "Read3_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetFileDescriptorAutoCloseInputStreamServiceClient(grpcConn)
+		req := &pb.Read3_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Read3_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetFileDescriptorAutoCloseInputStreamSkipCmd = &cobra.Command{
+	Use:   "skip",
+	Short: "Skip RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetFileDescriptorAutoCloseInputStreamServiceClient(grpcConn)
+		req := &pb.SkipRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Skip(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetFileDescriptorAutoCloseOutputStreamCmd = &cobra.Command{
+	Use:   "asset-file-descriptor-auto-close-output-stream",
+	Short: "AssetFileDescriptorAutoCloseOutputStreamService operations",
+}
+
+var resAssetFileDescriptorAutoCloseOutputStreamWrite1Cmd = &cobra.Command{
+	Use:   "write1",
+	Short: "Write1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetFileDescriptorAutoCloseOutputStreamServiceClient(grpcConn)
+		req := &pb.Write1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Write1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetFileDescriptorAutoCloseOutputStreamWrite3_1Cmd = &cobra.Command{
+	Use:   "write3_1",
+	Short: "Write3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetFileDescriptorAutoCloseOutputStreamServiceClient(grpcConn)
+		req := &pb.Write3_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Write3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var resAssetFileDescriptorAutoCloseOutputStreamWrite1_2Cmd = &cobra.Command{
+	Use:   "write1_2",
+	Short: "Write1_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAssetFileDescriptorAutoCloseOutputStreamServiceClient(grpcConn)
+		req := &pb.Write1_2Request{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Write1_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
+	resFontScaleConverterConvertDpToSpCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	resFontScaleConverterCmd.AddCommand(resFontScaleConverterConvertDpToSpCmd)
+	resFontScaleConverterConvertSpToDpCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	resFontScaleConverterCmd.AddCommand(resFontScaleConverterConvertSpToDpCmd)
+	resFontScaleConverterForScaleCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	resFontScaleConverterCmd.AddCommand(resFontScaleConverterForScaleCmd)
+	resFontScaleConverterIsNonLinearFontScalingActiveCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	resFontScaleConverterCmd.AddCommand(resFontScaleConverterIsNonLinearFontScalingActiveCmd)
+	resCmd.AddCommand(resFontScaleConverterCmd)
+	resObbScannerGetObbInfoCmd.Flags().String("arg0", "", "arg0 (string)")
+	resObbScannerCmd.AddCommand(resObbScannerGetObbInfoCmd)
+	resCmd.AddCommand(resObbScannerCmd)
+	resObbInfoCmd.AddCommand(resObbInfoDescribeContentsCmd)
+	resObbInfoCmd.AddCommand(resObbInfoToStringCmd)
+	resObbInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resObbInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	resObbInfoCmd.AddCommand(resObbInfoWriteToParcelCmd)
+	resCmd.AddCommand(resObbInfoCmd)
+	resAssetManagerCmd.AddCommand(resAssetManagerCloseCmd)
+	resAssetManagerCmd.AddCommand(resAssetManagerGetLocalesCmd)
+	resAssetManagerListCmd.Flags().String("arg0", "", "arg0 (string)")
+	resAssetManagerCmd.AddCommand(resAssetManagerListCmd)
+	resAssetManagerOpen1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	resAssetManagerCmd.AddCommand(resAssetManagerOpen1Cmd)
+	resAssetManagerOpen2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	resAssetManagerOpen2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	resAssetManagerCmd.AddCommand(resAssetManagerOpen2_1Cmd)
+	resAssetManagerOpenFdCmd.Flags().String("arg0", "", "arg0 (string)")
+	resAssetManagerCmd.AddCommand(resAssetManagerOpenFdCmd)
+	resAssetManagerOpenNonAssetFd2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	resAssetManagerOpenNonAssetFd2Cmd.Flags().String("arg1", "", "arg1 (string)")
+	resAssetManagerCmd.AddCommand(resAssetManagerOpenNonAssetFd2Cmd)
+	resAssetManagerOpenNonAssetFd1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	resAssetManagerCmd.AddCommand(resAssetManagerOpenNonAssetFd1_1Cmd)
+	resAssetManagerOpenXmlResourceParser2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	resAssetManagerOpenXmlResourceParser2Cmd.Flags().String("arg1", "", "arg1 (string)")
+	resAssetManagerCmd.AddCommand(resAssetManagerOpenXmlResourceParser2Cmd)
+	resAssetManagerOpenXmlResourceParser1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	resAssetManagerCmd.AddCommand(resAssetManagerOpenXmlResourceParser1_1Cmd)
+	resCmd.AddCommand(resAssetManagerCmd)
+	resAssetManagerAssetInputStreamCmd.AddCommand(resAssetManagerAssetInputStreamAvailableCmd)
+	resAssetManagerAssetInputStreamCmd.AddCommand(resAssetManagerAssetInputStreamCloseCmd)
+	resAssetManagerAssetInputStreamMarkCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	resAssetManagerAssetInputStreamCmd.AddCommand(resAssetManagerAssetInputStreamMarkCmd)
+	resAssetManagerAssetInputStreamCmd.AddCommand(resAssetManagerAssetInputStreamMarkSupportedCmd)
+	resAssetManagerAssetInputStreamCmd.AddCommand(resAssetManagerAssetInputStreamRead0Cmd)
+	resAssetManagerAssetInputStreamRead1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resAssetManagerAssetInputStreamCmd.AddCommand(resAssetManagerAssetInputStreamRead1_1Cmd)
+	resAssetManagerAssetInputStreamRead3_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resAssetManagerAssetInputStreamRead3_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	resAssetManagerAssetInputStreamRead3_2Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	resAssetManagerAssetInputStreamCmd.AddCommand(resAssetManagerAssetInputStreamRead3_2Cmd)
+	resAssetManagerAssetInputStreamCmd.AddCommand(resAssetManagerAssetInputStreamResetCmd)
+	resAssetManagerAssetInputStreamSkipCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resAssetManagerAssetInputStreamCmd.AddCommand(resAssetManagerAssetInputStreamSkipCmd)
+	resCmd.AddCommand(resAssetManagerAssetInputStreamCmd)
 	resConfigurationCmd.AddCommand(resConfigurationNewConfigurationCmd)
 	resConfigurationCompareTo1Cmd.Flags().Int64("handle", 0, "handle (int64)")
 	resConfigurationCompareTo1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -2707,164 +2763,10 @@ func init() {
 	resConfigurationNeedNewResourcesCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	resConfigurationCmd.AddCommand(resConfigurationNeedNewResourcesCmd)
 	resCmd.AddCommand(resConfigurationCmd)
-	resAssetFileDescriptorNewAssetFileDescriptorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	resAssetFileDescriptorNewAssetFileDescriptorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	resAssetFileDescriptorNewAssetFileDescriptorCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	resAssetFileDescriptorCmd.AddCommand(resAssetFileDescriptorNewAssetFileDescriptorCmd)
-	resAssetFileDescriptorCloseCmd.Flags().Int64("handle", 0, "handle (int64)")
-	resAssetFileDescriptorCmd.AddCommand(resAssetFileDescriptorCloseCmd)
-	resAssetFileDescriptorCreateInputStreamCmd.Flags().Int64("handle", 0, "handle (int64)")
-	resAssetFileDescriptorCmd.AddCommand(resAssetFileDescriptorCreateInputStreamCmd)
-	resAssetFileDescriptorCreateOutputStreamCmd.Flags().Int64("handle", 0, "handle (int64)")
-	resAssetFileDescriptorCmd.AddCommand(resAssetFileDescriptorCreateOutputStreamCmd)
-	resAssetFileDescriptorDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	resAssetFileDescriptorCmd.AddCommand(resAssetFileDescriptorDescribeContentsCmd)
-	resAssetFileDescriptorGetDeclaredLengthCmd.Flags().Int64("handle", 0, "handle (int64)")
-	resAssetFileDescriptorCmd.AddCommand(resAssetFileDescriptorGetDeclaredLengthCmd)
-	resAssetFileDescriptorGetExtrasCmd.Flags().Int64("handle", 0, "handle (int64)")
-	resAssetFileDescriptorCmd.AddCommand(resAssetFileDescriptorGetExtrasCmd)
-	resAssetFileDescriptorGetFileDescriptorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	resAssetFileDescriptorCmd.AddCommand(resAssetFileDescriptorGetFileDescriptorCmd)
-	resAssetFileDescriptorGetLengthCmd.Flags().Int64("handle", 0, "handle (int64)")
-	resAssetFileDescriptorCmd.AddCommand(resAssetFileDescriptorGetLengthCmd)
-	resAssetFileDescriptorGetParcelFileDescriptorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	resAssetFileDescriptorCmd.AddCommand(resAssetFileDescriptorGetParcelFileDescriptorCmd)
-	resAssetFileDescriptorGetStartOffsetCmd.Flags().Int64("handle", 0, "handle (int64)")
-	resAssetFileDescriptorCmd.AddCommand(resAssetFileDescriptorGetStartOffsetCmd)
-	resAssetFileDescriptorToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	resAssetFileDescriptorCmd.AddCommand(resAssetFileDescriptorToStringCmd)
-	resAssetFileDescriptorWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	resAssetFileDescriptorWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	resAssetFileDescriptorWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	resAssetFileDescriptorCmd.AddCommand(resAssetFileDescriptorWriteToParcelCmd)
-	resCmd.AddCommand(resAssetFileDescriptorCmd)
-	resAssetFileDescriptorAutoCloseInputStreamCmd.AddCommand(resAssetFileDescriptorAutoCloseInputStreamAvailableCmd)
-	resAssetFileDescriptorAutoCloseInputStreamCmd.AddCommand(resAssetFileDescriptorAutoCloseInputStreamCloseCmd)
-	resAssetFileDescriptorAutoCloseInputStreamCmd.AddCommand(resAssetFileDescriptorAutoCloseInputStreamGetChannelCmd)
-	resAssetFileDescriptorAutoCloseInputStreamMarkCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	resAssetFileDescriptorAutoCloseInputStreamCmd.AddCommand(resAssetFileDescriptorAutoCloseInputStreamMarkCmd)
-	resAssetFileDescriptorAutoCloseInputStreamCmd.AddCommand(resAssetFileDescriptorAutoCloseInputStreamMarkSupportedCmd)
-	resAssetFileDescriptorAutoCloseInputStreamCmd.AddCommand(resAssetFileDescriptorAutoCloseInputStreamRead0Cmd)
-	resAssetFileDescriptorAutoCloseInputStreamRead1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	resAssetFileDescriptorAutoCloseInputStreamCmd.AddCommand(resAssetFileDescriptorAutoCloseInputStreamRead1_1Cmd)
-	resAssetFileDescriptorAutoCloseInputStreamRead3_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	resAssetFileDescriptorAutoCloseInputStreamRead3_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	resAssetFileDescriptorAutoCloseInputStreamRead3_2Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	resAssetFileDescriptorAutoCloseInputStreamCmd.AddCommand(resAssetFileDescriptorAutoCloseInputStreamRead3_2Cmd)
-	resAssetFileDescriptorAutoCloseInputStreamSkipCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	resAssetFileDescriptorAutoCloseInputStreamCmd.AddCommand(resAssetFileDescriptorAutoCloseInputStreamSkipCmd)
-	resCmd.AddCommand(resAssetFileDescriptorAutoCloseInputStreamCmd)
-	resAssetFileDescriptorAutoCloseOutputStreamWrite1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	resAssetFileDescriptorAutoCloseOutputStreamCmd.AddCommand(resAssetFileDescriptorAutoCloseOutputStreamWrite1Cmd)
-	resAssetFileDescriptorAutoCloseOutputStreamWrite3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	resAssetFileDescriptorAutoCloseOutputStreamWrite3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	resAssetFileDescriptorAutoCloseOutputStreamWrite3_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	resAssetFileDescriptorAutoCloseOutputStreamCmd.AddCommand(resAssetFileDescriptorAutoCloseOutputStreamWrite3_1Cmd)
-	resAssetFileDescriptorAutoCloseOutputStreamWrite1_2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	resAssetFileDescriptorAutoCloseOutputStreamCmd.AddCommand(resAssetFileDescriptorAutoCloseOutputStreamWrite1_2Cmd)
-	resCmd.AddCommand(resAssetFileDescriptorAutoCloseOutputStreamCmd)
-	resFontScaleConverterConvertDpToSpCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	resFontScaleConverterCmd.AddCommand(resFontScaleConverterConvertDpToSpCmd)
-	resFontScaleConverterConvertSpToDpCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	resFontScaleConverterCmd.AddCommand(resFontScaleConverterConvertSpToDpCmd)
-	resFontScaleConverterForScaleCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	resFontScaleConverterCmd.AddCommand(resFontScaleConverterForScaleCmd)
-	resFontScaleConverterIsNonLinearFontScalingActiveCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	resFontScaleConverterCmd.AddCommand(resFontScaleConverterIsNonLinearFontScalingActiveCmd)
-	resCmd.AddCommand(resFontScaleConverterCmd)
-	resObbScannerGetObbInfoCmd.Flags().String("arg0", "", "arg0 (string)")
-	resObbScannerCmd.AddCommand(resObbScannerGetObbInfoCmd)
-	resCmd.AddCommand(resObbScannerCmd)
-	resObbInfoCmd.AddCommand(resObbInfoDescribeContentsCmd)
-	resObbInfoCmd.AddCommand(resObbInfoToStringCmd)
-	resObbInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	resObbInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	resObbInfoCmd.AddCommand(resObbInfoWriteToParcelCmd)
-	resCmd.AddCommand(resObbInfoCmd)
 	resXmlResourceParserCmd.AddCommand(resXmlResourceParserCloseCmd)
 	resXmlResourceParserGetAttributeNamespaceCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	resXmlResourceParserCmd.AddCommand(resXmlResourceParserGetAttributeNamespaceCmd)
 	resCmd.AddCommand(resXmlResourceParserCmd)
-	resColorStateListNewColorStateListCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	resColorStateListNewColorStateListCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	resColorStateListCmd.AddCommand(resColorStateListNewColorStateListCmd)
-	resColorStateListDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	resColorStateListCmd.AddCommand(resColorStateListDescribeContentsCmd)
-	resColorStateListGetChangingConfigurationsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	resColorStateListCmd.AddCommand(resColorStateListGetChangingConfigurationsCmd)
-	resColorStateListGetColorForStateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	resColorStateListGetColorForStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	resColorStateListGetColorForStateCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	resColorStateListCmd.AddCommand(resColorStateListGetColorForStateCmd)
-	resColorStateListGetDefaultColorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	resColorStateListCmd.AddCommand(resColorStateListGetDefaultColorCmd)
-	resColorStateListIsOpaqueCmd.Flags().Int64("handle", 0, "handle (int64)")
-	resColorStateListCmd.AddCommand(resColorStateListIsOpaqueCmd)
-	resColorStateListIsStatefulCmd.Flags().Int64("handle", 0, "handle (int64)")
-	resColorStateListCmd.AddCommand(resColorStateListIsStatefulCmd)
-	resColorStateListToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	resColorStateListCmd.AddCommand(resColorStateListToStringCmd)
-	resColorStateListWithAlphaCmd.Flags().Int64("handle", 0, "handle (int64)")
-	resColorStateListWithAlphaCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	resColorStateListCmd.AddCommand(resColorStateListWithAlphaCmd)
-	resColorStateListWithLStarCmd.Flags().Int64("handle", 0, "handle (int64)")
-	resColorStateListWithLStarCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	resColorStateListCmd.AddCommand(resColorStateListWithLStarCmd)
-	resColorStateListWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	resColorStateListWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	resColorStateListWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	resColorStateListCmd.AddCommand(resColorStateListWriteToParcelCmd)
-	resColorStateListCreateFromXml2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	resColorStateListCreateFromXml2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	resColorStateListCreateFromXml2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	resColorStateListCmd.AddCommand(resColorStateListCreateFromXml2Cmd)
-	resColorStateListCreateFromXml3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	resColorStateListCreateFromXml3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	resColorStateListCreateFromXml3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	resColorStateListCreateFromXml3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	resColorStateListCmd.AddCommand(resColorStateListCreateFromXml3_1Cmd)
-	resColorStateListValueOfCmd.Flags().Int64("handle", 0, "handle (int64)")
-	resColorStateListValueOfCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	resColorStateListCmd.AddCommand(resColorStateListValueOfCmd)
-	resCmd.AddCommand(resColorStateListCmd)
-	resAssetManagerCmd.AddCommand(resAssetManagerCloseCmd)
-	resAssetManagerCmd.AddCommand(resAssetManagerGetLocalesCmd)
-	resAssetManagerListCmd.Flags().String("arg0", "", "arg0 (string)")
-	resAssetManagerCmd.AddCommand(resAssetManagerListCmd)
-	resAssetManagerOpen1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	resAssetManagerCmd.AddCommand(resAssetManagerOpen1Cmd)
-	resAssetManagerOpen2_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	resAssetManagerOpen2_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	resAssetManagerCmd.AddCommand(resAssetManagerOpen2_1Cmd)
-	resAssetManagerOpenFdCmd.Flags().String("arg0", "", "arg0 (string)")
-	resAssetManagerCmd.AddCommand(resAssetManagerOpenFdCmd)
-	resAssetManagerOpenNonAssetFd2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	resAssetManagerOpenNonAssetFd2Cmd.Flags().String("arg1", "", "arg1 (string)")
-	resAssetManagerCmd.AddCommand(resAssetManagerOpenNonAssetFd2Cmd)
-	resAssetManagerOpenNonAssetFd1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	resAssetManagerCmd.AddCommand(resAssetManagerOpenNonAssetFd1_1Cmd)
-	resAssetManagerOpenXmlResourceParser2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	resAssetManagerOpenXmlResourceParser2Cmd.Flags().String("arg1", "", "arg1 (string)")
-	resAssetManagerCmd.AddCommand(resAssetManagerOpenXmlResourceParser2Cmd)
-	resAssetManagerOpenXmlResourceParser1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	resAssetManagerCmd.AddCommand(resAssetManagerOpenXmlResourceParser1_1Cmd)
-	resCmd.AddCommand(resAssetManagerCmd)
-	resAssetManagerAssetInputStreamCmd.AddCommand(resAssetManagerAssetInputStreamAvailableCmd)
-	resAssetManagerAssetInputStreamCmd.AddCommand(resAssetManagerAssetInputStreamCloseCmd)
-	resAssetManagerAssetInputStreamMarkCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	resAssetManagerAssetInputStreamCmd.AddCommand(resAssetManagerAssetInputStreamMarkCmd)
-	resAssetManagerAssetInputStreamCmd.AddCommand(resAssetManagerAssetInputStreamMarkSupportedCmd)
-	resAssetManagerAssetInputStreamCmd.AddCommand(resAssetManagerAssetInputStreamRead0Cmd)
-	resAssetManagerAssetInputStreamRead1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	resAssetManagerAssetInputStreamCmd.AddCommand(resAssetManagerAssetInputStreamRead1_1Cmd)
-	resAssetManagerAssetInputStreamRead3_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	resAssetManagerAssetInputStreamRead3_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	resAssetManagerAssetInputStreamRead3_2Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	resAssetManagerAssetInputStreamCmd.AddCommand(resAssetManagerAssetInputStreamRead3_2Cmd)
-	resAssetManagerAssetInputStreamCmd.AddCommand(resAssetManagerAssetInputStreamResetCmd)
-	resAssetManagerAssetInputStreamSkipCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	resAssetManagerAssetInputStreamCmd.AddCommand(resAssetManagerAssetInputStreamSkipCmd)
-	resCmd.AddCommand(resAssetManagerAssetInputStreamCmd)
 	resTypedArrayCmd.AddCommand(resTypedArrayCloseCmd)
 	resTypedArrayGetBooleanCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	resTypedArrayGetBooleanCmd.Flags().Bool("arg1", false, "arg1 (bool)")
@@ -2942,5 +2844,103 @@ func init() {
 	resTypedArrayCmd.AddCommand(resTypedArrayRecycleCmd)
 	resTypedArrayCmd.AddCommand(resTypedArrayToStringCmd)
 	resCmd.AddCommand(resTypedArrayCmd)
+	resColorStateListNewColorStateListCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resColorStateListNewColorStateListCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	resColorStateListCmd.AddCommand(resColorStateListNewColorStateListCmd)
+	resColorStateListDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	resColorStateListCmd.AddCommand(resColorStateListDescribeContentsCmd)
+	resColorStateListGetChangingConfigurationsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	resColorStateListCmd.AddCommand(resColorStateListGetChangingConfigurationsCmd)
+	resColorStateListGetColorForStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	resColorStateListGetColorForStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resColorStateListGetColorForStateCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	resColorStateListCmd.AddCommand(resColorStateListGetColorForStateCmd)
+	resColorStateListGetDefaultColorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	resColorStateListCmd.AddCommand(resColorStateListGetDefaultColorCmd)
+	resColorStateListIsOpaqueCmd.Flags().Int64("handle", 0, "handle (int64)")
+	resColorStateListCmd.AddCommand(resColorStateListIsOpaqueCmd)
+	resColorStateListIsStatefulCmd.Flags().Int64("handle", 0, "handle (int64)")
+	resColorStateListCmd.AddCommand(resColorStateListIsStatefulCmd)
+	resColorStateListToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	resColorStateListCmd.AddCommand(resColorStateListToStringCmd)
+	resColorStateListWithAlphaCmd.Flags().Int64("handle", 0, "handle (int64)")
+	resColorStateListWithAlphaCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	resColorStateListCmd.AddCommand(resColorStateListWithAlphaCmd)
+	resColorStateListWithLStarCmd.Flags().Int64("handle", 0, "handle (int64)")
+	resColorStateListWithLStarCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	resColorStateListCmd.AddCommand(resColorStateListWithLStarCmd)
+	resColorStateListWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	resColorStateListWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resColorStateListWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	resColorStateListCmd.AddCommand(resColorStateListWriteToParcelCmd)
+	resColorStateListCreateFromXml2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	resColorStateListCreateFromXml2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resColorStateListCreateFromXml2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	resColorStateListCmd.AddCommand(resColorStateListCreateFromXml2Cmd)
+	resColorStateListCreateFromXml3_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	resColorStateListCreateFromXml3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resColorStateListCreateFromXml3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	resColorStateListCreateFromXml3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	resColorStateListCmd.AddCommand(resColorStateListCreateFromXml3_1Cmd)
+	resColorStateListValueOfCmd.Flags().Int64("handle", 0, "handle (int64)")
+	resColorStateListValueOfCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	resColorStateListCmd.AddCommand(resColorStateListValueOfCmd)
+	resCmd.AddCommand(resColorStateListCmd)
+	resAssetFileDescriptorNewAssetFileDescriptorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resAssetFileDescriptorNewAssetFileDescriptorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	resAssetFileDescriptorNewAssetFileDescriptorCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	resAssetFileDescriptorCmd.AddCommand(resAssetFileDescriptorNewAssetFileDescriptorCmd)
+	resAssetFileDescriptorCloseCmd.Flags().Int64("handle", 0, "handle (int64)")
+	resAssetFileDescriptorCmd.AddCommand(resAssetFileDescriptorCloseCmd)
+	resAssetFileDescriptorCreateInputStreamCmd.Flags().Int64("handle", 0, "handle (int64)")
+	resAssetFileDescriptorCmd.AddCommand(resAssetFileDescriptorCreateInputStreamCmd)
+	resAssetFileDescriptorCreateOutputStreamCmd.Flags().Int64("handle", 0, "handle (int64)")
+	resAssetFileDescriptorCmd.AddCommand(resAssetFileDescriptorCreateOutputStreamCmd)
+	resAssetFileDescriptorDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	resAssetFileDescriptorCmd.AddCommand(resAssetFileDescriptorDescribeContentsCmd)
+	resAssetFileDescriptorGetDeclaredLengthCmd.Flags().Int64("handle", 0, "handle (int64)")
+	resAssetFileDescriptorCmd.AddCommand(resAssetFileDescriptorGetDeclaredLengthCmd)
+	resAssetFileDescriptorGetExtrasCmd.Flags().Int64("handle", 0, "handle (int64)")
+	resAssetFileDescriptorCmd.AddCommand(resAssetFileDescriptorGetExtrasCmd)
+	resAssetFileDescriptorGetFileDescriptorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	resAssetFileDescriptorCmd.AddCommand(resAssetFileDescriptorGetFileDescriptorCmd)
+	resAssetFileDescriptorGetLengthCmd.Flags().Int64("handle", 0, "handle (int64)")
+	resAssetFileDescriptorCmd.AddCommand(resAssetFileDescriptorGetLengthCmd)
+	resAssetFileDescriptorGetParcelFileDescriptorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	resAssetFileDescriptorCmd.AddCommand(resAssetFileDescriptorGetParcelFileDescriptorCmd)
+	resAssetFileDescriptorGetStartOffsetCmd.Flags().Int64("handle", 0, "handle (int64)")
+	resAssetFileDescriptorCmd.AddCommand(resAssetFileDescriptorGetStartOffsetCmd)
+	resAssetFileDescriptorToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	resAssetFileDescriptorCmd.AddCommand(resAssetFileDescriptorToStringCmd)
+	resAssetFileDescriptorWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	resAssetFileDescriptorWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resAssetFileDescriptorWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	resAssetFileDescriptorCmd.AddCommand(resAssetFileDescriptorWriteToParcelCmd)
+	resCmd.AddCommand(resAssetFileDescriptorCmd)
+	resAssetFileDescriptorAutoCloseInputStreamCmd.AddCommand(resAssetFileDescriptorAutoCloseInputStreamAvailableCmd)
+	resAssetFileDescriptorAutoCloseInputStreamCmd.AddCommand(resAssetFileDescriptorAutoCloseInputStreamCloseCmd)
+	resAssetFileDescriptorAutoCloseInputStreamCmd.AddCommand(resAssetFileDescriptorAutoCloseInputStreamGetChannelCmd)
+	resAssetFileDescriptorAutoCloseInputStreamMarkCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	resAssetFileDescriptorAutoCloseInputStreamCmd.AddCommand(resAssetFileDescriptorAutoCloseInputStreamMarkCmd)
+	resAssetFileDescriptorAutoCloseInputStreamCmd.AddCommand(resAssetFileDescriptorAutoCloseInputStreamMarkSupportedCmd)
+	resAssetFileDescriptorAutoCloseInputStreamCmd.AddCommand(resAssetFileDescriptorAutoCloseInputStreamRead0Cmd)
+	resAssetFileDescriptorAutoCloseInputStreamRead1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resAssetFileDescriptorAutoCloseInputStreamCmd.AddCommand(resAssetFileDescriptorAutoCloseInputStreamRead1_1Cmd)
+	resAssetFileDescriptorAutoCloseInputStreamRead3_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resAssetFileDescriptorAutoCloseInputStreamRead3_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	resAssetFileDescriptorAutoCloseInputStreamRead3_2Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	resAssetFileDescriptorAutoCloseInputStreamCmd.AddCommand(resAssetFileDescriptorAutoCloseInputStreamRead3_2Cmd)
+	resAssetFileDescriptorAutoCloseInputStreamSkipCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resAssetFileDescriptorAutoCloseInputStreamCmd.AddCommand(resAssetFileDescriptorAutoCloseInputStreamSkipCmd)
+	resCmd.AddCommand(resAssetFileDescriptorAutoCloseInputStreamCmd)
+	resAssetFileDescriptorAutoCloseOutputStreamWrite1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resAssetFileDescriptorAutoCloseOutputStreamCmd.AddCommand(resAssetFileDescriptorAutoCloseOutputStreamWrite1Cmd)
+	resAssetFileDescriptorAutoCloseOutputStreamWrite3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	resAssetFileDescriptorAutoCloseOutputStreamWrite3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	resAssetFileDescriptorAutoCloseOutputStreamWrite3_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	resAssetFileDescriptorAutoCloseOutputStreamCmd.AddCommand(resAssetFileDescriptorAutoCloseOutputStreamWrite3_1Cmd)
+	resAssetFileDescriptorAutoCloseOutputStreamWrite1_2Cmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	resAssetFileDescriptorAutoCloseOutputStreamCmd.AddCommand(resAssetFileDescriptorAutoCloseOutputStreamWrite1_2Cmd)
+	resCmd.AddCommand(resAssetFileDescriptorAutoCloseOutputStreamCmd)
 	rootCmd.AddCommand(resCmd)
 }

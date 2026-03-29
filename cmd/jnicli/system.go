@@ -12,542 +12,6 @@ var systemCmd = &cobra.Command{
 	Short: "system service operations",
 }
 
-var systemCleanerCmd = &cobra.Command{
-	Use:   "cleaner",
-	Short: "CleanerService operations",
-}
-
-var systemCleanerCleanerCmd = &cobra.Command{
-	Use:   "cleaner",
-	Short: "Cleaner RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCleanerServiceClient(grpcConn)
-		req := &pb.CleanerRequest{}
-		resp, err := client.Cleaner(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var systemVmSocketAddressCmd = &cobra.Command{
-	Use:   "vm-socket-address",
-	Short: "VmSocketAddressService operations",
-}
-
-var systemVmSocketAddressNewVmSocketAddressCmd = &cobra.Command{
-	Use:   "new-vm-socket-address",
-	Short: "NewVmSocketAddress RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVmSocketAddressServiceClient(grpcConn)
-		req := &pb.NewVmSocketAddressRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewVmSocketAddress(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var systemVmSocketAddressGetSvmCidCmd = &cobra.Command{
-	Use:   "get-svm-cid",
-	Short: "GetSvmCid RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVmSocketAddressServiceClient(grpcConn)
-		req := &pb.GetSvmCidRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSvmCid(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var systemVmSocketAddressGetSvmPortCmd = &cobra.Command{
-	Use:   "get-svm-port",
-	Short: "GetSvmPort RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVmSocketAddressServiceClient(grpcConn)
-		req := &pb.GetSvmPortRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSvmPort(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var systemStructStatCmd = &cobra.Command{
-	Use:   "struct-stat",
-	Short: "StructStatService operations",
-}
-
-var systemStructStatNewStructStatCmd = &cobra.Command{
-	Use:   "new-struct-stat",
-	Short: "NewStructStat RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStructStatServiceClient(grpcConn)
-		req := &pb.NewStructStatRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg6"); err == nil {
-			req.Arg6 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg7"); err == nil {
-			req.Arg7 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg8"); err == nil {
-			req.Arg8 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg9"); err == nil {
-			req.Arg9 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg10"); err == nil {
-			req.Arg10 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg11"); err == nil {
-			req.Arg11 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg12"); err == nil {
-			req.Arg12 = v
-		}
-		resp, err := client.NewStructStat(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var systemStructStatToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStructStatServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var systemErrnoExceptionCmd = &cobra.Command{
-	Use:   "errno-exception",
-	Short: "ErrnoExceptionService operations",
-}
-
-var systemErrnoExceptionNewErrnoExceptionCmd = &cobra.Command{
-	Use:   "new-errno-exception",
-	Short: "NewErrnoException RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewErrnoExceptionServiceClient(grpcConn)
-		req := &pb.NewErrnoExceptionRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewErrnoException(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var systemErrnoExceptionGetMessageCmd = &cobra.Command{
-	Use:   "get-message",
-	Short: "GetMessage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewErrnoExceptionServiceClient(grpcConn)
-		req := &pb.GetMessageRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetMessage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var systemErrnoExceptionRethrowAsIOExceptionCmd = &cobra.Command{
-	Use:   "rethrow-as-io-exception",
-	Short: "RethrowAsIOException RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewErrnoExceptionServiceClient(grpcConn)
-		req := &pb.RethrowAsIOExceptionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.RethrowAsIOException(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var systemErrnoExceptionRethrowAsSocketExceptionCmd = &cobra.Command{
-	Use:   "rethrow-as-socket-exception",
-	Short: "RethrowAsSocketException RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewErrnoExceptionServiceClient(grpcConn)
-		req := &pb.RethrowAsSocketExceptionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.RethrowAsSocketException(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var systemStructStatVfsCmd = &cobra.Command{
-	Use:   "struct-stat-vfs",
-	Short: "StructStatVfsService operations",
-}
-
-var systemStructStatVfsNewStructStatVfsCmd = &cobra.Command{
-	Use:   "new-struct-stat-vfs",
-	Short: "NewStructStatVfs RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStructStatVfsServiceClient(grpcConn)
-		req := &pb.NewStructStatVfsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg6"); err == nil {
-			req.Arg6 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg7"); err == nil {
-			req.Arg7 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg8"); err == nil {
-			req.Arg8 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg9"); err == nil {
-			req.Arg9 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg10"); err == nil {
-			req.Arg10 = v
-		}
-		resp, err := client.NewStructStatVfs(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var systemStructStatVfsToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStructStatVfsServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var systemStructTimespecCmd = &cobra.Command{
-	Use:   "struct-timespec",
-	Short: "StructTimespecService operations",
-}
-
-var systemStructTimespecNewStructTimespecCmd = &cobra.Command{
-	Use:   "new-struct-timespec",
-	Short: "NewStructTimespec RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStructTimespecServiceClient(grpcConn)
-		req := &pb.NewStructTimespecRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewStructTimespec(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var systemStructTimespecCompareTo1Cmd = &cobra.Command{
-	Use:   "compare-to1",
-	Short: "CompareTo1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStructTimespecServiceClient(grpcConn)
-		req := &pb.CompareTo1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CompareTo1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var systemStructTimespecEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStructTimespecServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var systemStructTimespecHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStructTimespecServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var systemStructTimespecToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStructTimespecServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var systemStructTimespecCompareTo1_1Cmd = &cobra.Command{
-	Use:   "compare-to1_1",
-	Short: "CompareTo1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStructTimespecServiceClient(grpcConn)
-		req := &pb.CompareTo1_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CompareTo1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var systemInt64RefCmd = &cobra.Command{
-	Use:   "int64ref",
-	Short: "Int64RefService operations",
-}
-
-var systemInt64RefNewInt64RefCmd = &cobra.Command{
-	Use:   "new-int64ref",
-	Short: "NewInt64Ref RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInt64RefServiceClient(grpcConn)
-		req := &pb.NewInt64RefRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewInt64Ref(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var systemInt64RefToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInt64RefServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var systemStructPollfdCmd = &cobra.Command{
-	Use:   "struct-pollfd",
-	Short: "StructPollfdService operations",
-}
-
-var systemStructPollfdNewStructPollfdCmd = &cobra.Command{
-	Use:   "new-struct-pollfd",
-	Short: "NewStructPollfd RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStructPollfdServiceClient(grpcConn)
-		req := &pb.NewStructPollfdRequest{}
-		resp, err := client.NewStructPollfd(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var systemStructPollfdToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStructPollfdServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var systemOsConstantsCmd = &cobra.Command{
 	Use:   "os-constants",
 	Short: "OsConstantsService operations",
@@ -857,6 +321,264 @@ var systemOsConstantsGaiNameCmd = &cobra.Command{
 	},
 }
 
+var systemErrnoExceptionCmd = &cobra.Command{
+	Use:   "errno-exception",
+	Short: "ErrnoExceptionService operations",
+}
+
+var systemErrnoExceptionNewErrnoExceptionCmd = &cobra.Command{
+	Use:   "new-errno-exception",
+	Short: "NewErrnoException RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErrnoExceptionServiceClient(grpcConn)
+		req := &pb.NewErrnoExceptionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewErrnoException(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var systemErrnoExceptionGetMessageCmd = &cobra.Command{
+	Use:   "get-message",
+	Short: "GetMessage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErrnoExceptionServiceClient(grpcConn)
+		req := &pb.GetMessageRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetMessage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var systemErrnoExceptionRethrowAsIOExceptionCmd = &cobra.Command{
+	Use:   "rethrow-as-io-exception",
+	Short: "RethrowAsIOException RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErrnoExceptionServiceClient(grpcConn)
+		req := &pb.RethrowAsIOExceptionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.RethrowAsIOException(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var systemErrnoExceptionRethrowAsSocketExceptionCmd = &cobra.Command{
+	Use:   "rethrow-as-socket-exception",
+	Short: "RethrowAsSocketException RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewErrnoExceptionServiceClient(grpcConn)
+		req := &pb.RethrowAsSocketExceptionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.RethrowAsSocketException(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var systemStructPollfdCmd = &cobra.Command{
+	Use:   "struct-pollfd",
+	Short: "StructPollfdService operations",
+}
+
+var systemStructPollfdNewStructPollfdCmd = &cobra.Command{
+	Use:   "new-struct-pollfd",
+	Short: "NewStructPollfd RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStructPollfdServiceClient(grpcConn)
+		req := &pb.NewStructPollfdRequest{}
+		resp, err := client.NewStructPollfd(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var systemStructPollfdToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStructPollfdServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var systemInt64RefCmd = &cobra.Command{
+	Use:   "int64ref",
+	Short: "Int64RefService operations",
+}
+
+var systemInt64RefNewInt64RefCmd = &cobra.Command{
+	Use:   "new-int64ref",
+	Short: "NewInt64Ref RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInt64RefServiceClient(grpcConn)
+		req := &pb.NewInt64RefRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewInt64Ref(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var systemInt64RefToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInt64RefServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var systemStructTimevalCmd = &cobra.Command{
+	Use:   "struct-timeval",
+	Short: "StructTimevalService operations",
+}
+
+var systemStructTimevalEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStructTimevalServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var systemStructTimevalHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStructTimevalServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var systemStructTimevalToMillisCmd = &cobra.Command{
+	Use:   "to-millis",
+	Short: "ToMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStructTimevalServiceClient(grpcConn)
+		req := &pb.ToMillisRequest{}
+		resp, err := client.ToMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var systemStructTimevalToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStructTimevalServiceClient(grpcConn)
+		req := &pb.StructTimevalToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var systemStructTimevalFromMillisCmd = &cobra.Command{
+	Use:   "from-millis",
+	Short: "FromMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStructTimevalServiceClient(grpcConn)
+		req := &pb.FromMillisRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.FromMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var systemStructUtsnameCmd = &cobra.Command{
 	Use:   "struct-utsname",
 	Short: "StructUtsnameService operations",
@@ -912,19 +634,66 @@ var systemStructUtsnameToStringCmd = &cobra.Command{
 	},
 }
 
-var systemStructTimevalCmd = &cobra.Command{
-	Use:   "struct-timeval",
-	Short: "StructTimevalService operations",
+var systemStructTimespecCmd = &cobra.Command{
+	Use:   "struct-timespec",
+	Short: "StructTimespecService operations",
 }
 
-var systemStructTimevalEqualsCmd = &cobra.Command{
+var systemStructTimespecNewStructTimespecCmd = &cobra.Command{
+	Use:   "new-struct-timespec",
+	Short: "NewStructTimespec RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStructTimespecServiceClient(grpcConn)
+		req := &pb.NewStructTimespecRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewStructTimespec(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var systemStructTimespecCompareTo1Cmd = &cobra.Command{
+	Use:   "compare-to1",
+	Short: "CompareTo1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStructTimespecServiceClient(grpcConn)
+		req := &pb.CompareTo1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CompareTo1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var systemStructTimespecEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStructTimevalServiceClient(grpcConn)
-		req := &pb.StructTimevalEqualsRequest{}
+		client := pb.NewStructTimespecServiceClient(grpcConn)
+		req := &pb.StructTimespecEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -936,14 +705,17 @@ var systemStructTimevalEqualsCmd = &cobra.Command{
 	},
 }
 
-var systemStructTimevalHashCodeCmd = &cobra.Command{
+var systemStructTimespecHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStructTimevalServiceClient(grpcConn)
-		req := &pb.StructTimevalHashCodeRequest{}
+		client := pb.NewStructTimespecServiceClient(grpcConn)
+		req := &pb.StructTimespecHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
 			return err
@@ -952,30 +724,17 @@ var systemStructTimevalHashCodeCmd = &cobra.Command{
 	},
 }
 
-var systemStructTimevalToMillisCmd = &cobra.Command{
-	Use:   "to-millis",
-	Short: "ToMillis RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStructTimevalServiceClient(grpcConn)
-		req := &pb.ToMillisRequest{}
-		resp, err := client.ToMillis(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var systemStructTimevalToStringCmd = &cobra.Command{
+var systemStructTimespecToStringCmd = &cobra.Command{
 	Use:   "to-string",
 	Short: "ToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStructTimevalServiceClient(grpcConn)
-		req := &pb.StructTimevalToStringRequest{}
+		client := pb.NewStructTimespecServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		resp, err := client.ToString(ctx, req)
 		if err != nil {
 			return err
@@ -984,18 +743,21 @@ var systemStructTimevalToStringCmd = &cobra.Command{
 	},
 }
 
-var systemStructTimevalFromMillisCmd = &cobra.Command{
-	Use:   "from-millis",
-	Short: "FromMillis RPC",
+var systemStructTimespecCompareTo1_1Cmd = &cobra.Command{
+	Use:   "compare-to1_1",
+	Short: "CompareTo1_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewStructTimevalServiceClient(grpcConn)
-		req := &pb.FromMillisRequest{}
+		client := pb.NewStructTimespecServiceClient(grpcConn)
+		req := &pb.CompareTo1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.FromMillis(ctx, req)
+		resp, err := client.CompareTo1_1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3219,85 +2981,245 @@ var systemOsWritevCmd = &cobra.Command{
 	},
 }
 
+var systemCleanerCmd = &cobra.Command{
+	Use:   "cleaner",
+	Short: "CleanerService operations",
+}
+
+var systemCleanerCleanerCmd = &cobra.Command{
+	Use:   "cleaner",
+	Short: "Cleaner RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCleanerServiceClient(grpcConn)
+		req := &pb.CleanerRequest{}
+		resp, err := client.Cleaner(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var systemVmSocketAddressCmd = &cobra.Command{
+	Use:   "vm-socket-address",
+	Short: "VmSocketAddressService operations",
+}
+
+var systemVmSocketAddressNewVmSocketAddressCmd = &cobra.Command{
+	Use:   "new-vm-socket-address",
+	Short: "NewVmSocketAddress RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVmSocketAddressServiceClient(grpcConn)
+		req := &pb.NewVmSocketAddressRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewVmSocketAddress(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var systemVmSocketAddressGetSvmCidCmd = &cobra.Command{
+	Use:   "get-svm-cid",
+	Short: "GetSvmCid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVmSocketAddressServiceClient(grpcConn)
+		req := &pb.GetSvmCidRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSvmCid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var systemVmSocketAddressGetSvmPortCmd = &cobra.Command{
+	Use:   "get-svm-port",
+	Short: "GetSvmPort RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVmSocketAddressServiceClient(grpcConn)
+		req := &pb.GetSvmPortRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSvmPort(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var systemStructStatVfsCmd = &cobra.Command{
+	Use:   "struct-stat-vfs",
+	Short: "StructStatVfsService operations",
+}
+
+var systemStructStatVfsNewStructStatVfsCmd = &cobra.Command{
+	Use:   "new-struct-stat-vfs",
+	Short: "NewStructStatVfs RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStructStatVfsServiceClient(grpcConn)
+		req := &pb.NewStructStatVfsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg7"); err == nil {
+			req.Arg7 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg8"); err == nil {
+			req.Arg8 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg9"); err == nil {
+			req.Arg9 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg10"); err == nil {
+			req.Arg10 = v
+		}
+		resp, err := client.NewStructStatVfs(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var systemStructStatVfsToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStructStatVfsServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var systemStructStatCmd = &cobra.Command{
+	Use:   "struct-stat",
+	Short: "StructStatService operations",
+}
+
+var systemStructStatNewStructStatCmd = &cobra.Command{
+	Use:   "new-struct-stat",
+	Short: "NewStructStat RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStructStatServiceClient(grpcConn)
+		req := &pb.NewStructStatRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg7"); err == nil {
+			req.Arg7 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg8"); err == nil {
+			req.Arg8 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg9"); err == nil {
+			req.Arg9 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg10"); err == nil {
+			req.Arg10 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg11"); err == nil {
+			req.Arg11 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg12"); err == nil {
+			req.Arg12 = v
+		}
+		resp, err := client.NewStructStat(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var systemStructStatToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStructStatServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
-	systemCleanerCmd.AddCommand(systemCleanerCleanerCmd)
-	systemCmd.AddCommand(systemCleanerCmd)
-	systemVmSocketAddressNewVmSocketAddressCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	systemVmSocketAddressNewVmSocketAddressCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	systemVmSocketAddressCmd.AddCommand(systemVmSocketAddressNewVmSocketAddressCmd)
-	systemVmSocketAddressGetSvmCidCmd.Flags().Int64("handle", 0, "handle (int64)")
-	systemVmSocketAddressCmd.AddCommand(systemVmSocketAddressGetSvmCidCmd)
-	systemVmSocketAddressGetSvmPortCmd.Flags().Int64("handle", 0, "handle (int64)")
-	systemVmSocketAddressCmd.AddCommand(systemVmSocketAddressGetSvmPortCmd)
-	systemCmd.AddCommand(systemVmSocketAddressCmd)
-	systemStructStatNewStructStatCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	systemStructStatNewStructStatCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	systemStructStatNewStructStatCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	systemStructStatNewStructStatCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	systemStructStatNewStructStatCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	systemStructStatNewStructStatCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
-	systemStructStatNewStructStatCmd.Flags().Int64("arg6", 0, "arg6 (int64)")
-	systemStructStatNewStructStatCmd.Flags().Int64("arg7", 0, "arg7 (int64)")
-	systemStructStatNewStructStatCmd.Flags().Int64("arg8", 0, "arg8 (int64)")
-	systemStructStatNewStructStatCmd.Flags().Int64("arg9", 0, "arg9 (int64)")
-	systemStructStatNewStructStatCmd.Flags().Int64("arg10", 0, "arg10 (int64)")
-	systemStructStatNewStructStatCmd.Flags().Int64("arg11", 0, "arg11 (int64)")
-	systemStructStatNewStructStatCmd.Flags().Int64("arg12", 0, "arg12 (int64)")
-	systemStructStatCmd.AddCommand(systemStructStatNewStructStatCmd)
-	systemStructStatToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	systemStructStatCmd.AddCommand(systemStructStatToStringCmd)
-	systemCmd.AddCommand(systemStructStatCmd)
-	systemErrnoExceptionNewErrnoExceptionCmd.Flags().String("arg0", "", "arg0 (string)")
-	systemErrnoExceptionNewErrnoExceptionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	systemErrnoExceptionCmd.AddCommand(systemErrnoExceptionNewErrnoExceptionCmd)
-	systemErrnoExceptionGetMessageCmd.Flags().Int64("handle", 0, "handle (int64)")
-	systemErrnoExceptionCmd.AddCommand(systemErrnoExceptionGetMessageCmd)
-	systemErrnoExceptionRethrowAsIOExceptionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	systemErrnoExceptionCmd.AddCommand(systemErrnoExceptionRethrowAsIOExceptionCmd)
-	systemErrnoExceptionRethrowAsSocketExceptionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	systemErrnoExceptionCmd.AddCommand(systemErrnoExceptionRethrowAsSocketExceptionCmd)
-	systemCmd.AddCommand(systemErrnoExceptionCmd)
-	systemStructStatVfsNewStructStatVfsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	systemStructStatVfsNewStructStatVfsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	systemStructStatVfsNewStructStatVfsCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	systemStructStatVfsNewStructStatVfsCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	systemStructStatVfsNewStructStatVfsCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
-	systemStructStatVfsNewStructStatVfsCmd.Flags().Int64("arg5", 0, "arg5 (int64)")
-	systemStructStatVfsNewStructStatVfsCmd.Flags().Int64("arg6", 0, "arg6 (int64)")
-	systemStructStatVfsNewStructStatVfsCmd.Flags().Int64("arg7", 0, "arg7 (int64)")
-	systemStructStatVfsNewStructStatVfsCmd.Flags().Int64("arg8", 0, "arg8 (int64)")
-	systemStructStatVfsNewStructStatVfsCmd.Flags().Int64("arg9", 0, "arg9 (int64)")
-	systemStructStatVfsNewStructStatVfsCmd.Flags().Int64("arg10", 0, "arg10 (int64)")
-	systemStructStatVfsCmd.AddCommand(systemStructStatVfsNewStructStatVfsCmd)
-	systemStructStatVfsToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	systemStructStatVfsCmd.AddCommand(systemStructStatVfsToStringCmd)
-	systemCmd.AddCommand(systemStructStatVfsCmd)
-	systemStructTimespecNewStructTimespecCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	systemStructTimespecNewStructTimespecCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	systemStructTimespecCmd.AddCommand(systemStructTimespecNewStructTimespecCmd)
-	systemStructTimespecCompareTo1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	systemStructTimespecCompareTo1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	systemStructTimespecCmd.AddCommand(systemStructTimespecCompareTo1Cmd)
-	systemStructTimespecEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	systemStructTimespecEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	systemStructTimespecCmd.AddCommand(systemStructTimespecEqualsCmd)
-	systemStructTimespecHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	systemStructTimespecCmd.AddCommand(systemStructTimespecHashCodeCmd)
-	systemStructTimespecToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	systemStructTimespecCmd.AddCommand(systemStructTimespecToStringCmd)
-	systemStructTimespecCompareTo1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	systemStructTimespecCompareTo1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	systemStructTimespecCmd.AddCommand(systemStructTimespecCompareTo1_1Cmd)
-	systemCmd.AddCommand(systemStructTimespecCmd)
-	systemInt64RefNewInt64RefCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	systemInt64RefCmd.AddCommand(systemInt64RefNewInt64RefCmd)
-	systemInt64RefToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	systemInt64RefCmd.AddCommand(systemInt64RefToStringCmd)
-	systemCmd.AddCommand(systemInt64RefCmd)
-	systemStructPollfdCmd.AddCommand(systemStructPollfdNewStructPollfdCmd)
-	systemStructPollfdToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	systemStructPollfdCmd.AddCommand(systemStructPollfdToStringCmd)
-	systemCmd.AddCommand(systemStructPollfdCmd)
 	systemOsConstantsS_ISBLKCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	systemOsConstantsCmd.AddCommand(systemOsConstantsS_ISBLKCmd)
 	systemOsConstantsS_ISCHRCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
@@ -3331,6 +3253,33 @@ func init() {
 	systemOsConstantsGaiNameCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	systemOsConstantsCmd.AddCommand(systemOsConstantsGaiNameCmd)
 	systemCmd.AddCommand(systemOsConstantsCmd)
+	systemErrnoExceptionNewErrnoExceptionCmd.Flags().String("arg0", "", "arg0 (string)")
+	systemErrnoExceptionNewErrnoExceptionCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	systemErrnoExceptionCmd.AddCommand(systemErrnoExceptionNewErrnoExceptionCmd)
+	systemErrnoExceptionGetMessageCmd.Flags().Int64("handle", 0, "handle (int64)")
+	systemErrnoExceptionCmd.AddCommand(systemErrnoExceptionGetMessageCmd)
+	systemErrnoExceptionRethrowAsIOExceptionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	systemErrnoExceptionCmd.AddCommand(systemErrnoExceptionRethrowAsIOExceptionCmd)
+	systemErrnoExceptionRethrowAsSocketExceptionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	systemErrnoExceptionCmd.AddCommand(systemErrnoExceptionRethrowAsSocketExceptionCmd)
+	systemCmd.AddCommand(systemErrnoExceptionCmd)
+	systemStructPollfdCmd.AddCommand(systemStructPollfdNewStructPollfdCmd)
+	systemStructPollfdToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	systemStructPollfdCmd.AddCommand(systemStructPollfdToStringCmd)
+	systemCmd.AddCommand(systemStructPollfdCmd)
+	systemInt64RefNewInt64RefCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	systemInt64RefCmd.AddCommand(systemInt64RefNewInt64RefCmd)
+	systemInt64RefToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	systemInt64RefCmd.AddCommand(systemInt64RefToStringCmd)
+	systemCmd.AddCommand(systemInt64RefCmd)
+	systemStructTimevalEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	systemStructTimevalCmd.AddCommand(systemStructTimevalEqualsCmd)
+	systemStructTimevalCmd.AddCommand(systemStructTimevalHashCodeCmd)
+	systemStructTimevalCmd.AddCommand(systemStructTimevalToMillisCmd)
+	systemStructTimevalCmd.AddCommand(systemStructTimevalToStringCmd)
+	systemStructTimevalFromMillisCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	systemStructTimevalCmd.AddCommand(systemStructTimevalFromMillisCmd)
+	systemCmd.AddCommand(systemStructTimevalCmd)
 	systemStructUtsnameNewStructUtsnameCmd.Flags().String("arg0", "", "arg0 (string)")
 	systemStructUtsnameNewStructUtsnameCmd.Flags().String("arg1", "", "arg1 (string)")
 	systemStructUtsnameNewStructUtsnameCmd.Flags().String("arg2", "", "arg2 (string)")
@@ -3340,14 +3289,23 @@ func init() {
 	systemStructUtsnameToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
 	systemStructUtsnameCmd.AddCommand(systemStructUtsnameToStringCmd)
 	systemCmd.AddCommand(systemStructUtsnameCmd)
-	systemStructTimevalEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	systemStructTimevalCmd.AddCommand(systemStructTimevalEqualsCmd)
-	systemStructTimevalCmd.AddCommand(systemStructTimevalHashCodeCmd)
-	systemStructTimevalCmd.AddCommand(systemStructTimevalToMillisCmd)
-	systemStructTimevalCmd.AddCommand(systemStructTimevalToStringCmd)
-	systemStructTimevalFromMillisCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	systemStructTimevalCmd.AddCommand(systemStructTimevalFromMillisCmd)
-	systemCmd.AddCommand(systemStructTimevalCmd)
+	systemStructTimespecNewStructTimespecCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	systemStructTimespecNewStructTimespecCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	systemStructTimespecCmd.AddCommand(systemStructTimespecNewStructTimespecCmd)
+	systemStructTimespecCompareTo1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	systemStructTimespecCompareTo1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	systemStructTimespecCmd.AddCommand(systemStructTimespecCompareTo1Cmd)
+	systemStructTimespecEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	systemStructTimespecEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	systemStructTimespecCmd.AddCommand(systemStructTimespecEqualsCmd)
+	systemStructTimespecHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	systemStructTimespecCmd.AddCommand(systemStructTimespecHashCodeCmd)
+	systemStructTimespecToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	systemStructTimespecCmd.AddCommand(systemStructTimespecToStringCmd)
+	systemStructTimespecCompareTo1_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	systemStructTimespecCompareTo1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	systemStructTimespecCmd.AddCommand(systemStructTimespecCompareTo1_1Cmd)
+	systemCmd.AddCommand(systemStructTimespecCmd)
 	systemOsAcceptCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	systemOsAcceptCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	systemOsCmd.AddCommand(systemOsAcceptCmd)
@@ -3657,5 +3615,47 @@ func init() {
 	systemOsWritevCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
 	systemOsCmd.AddCommand(systemOsWritevCmd)
 	systemCmd.AddCommand(systemOsCmd)
+	systemCleanerCmd.AddCommand(systemCleanerCleanerCmd)
+	systemCmd.AddCommand(systemCleanerCmd)
+	systemVmSocketAddressNewVmSocketAddressCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	systemVmSocketAddressNewVmSocketAddressCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	systemVmSocketAddressCmd.AddCommand(systemVmSocketAddressNewVmSocketAddressCmd)
+	systemVmSocketAddressGetSvmCidCmd.Flags().Int64("handle", 0, "handle (int64)")
+	systemVmSocketAddressCmd.AddCommand(systemVmSocketAddressGetSvmCidCmd)
+	systemVmSocketAddressGetSvmPortCmd.Flags().Int64("handle", 0, "handle (int64)")
+	systemVmSocketAddressCmd.AddCommand(systemVmSocketAddressGetSvmPortCmd)
+	systemCmd.AddCommand(systemVmSocketAddressCmd)
+	systemStructStatVfsNewStructStatVfsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	systemStructStatVfsNewStructStatVfsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	systemStructStatVfsNewStructStatVfsCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	systemStructStatVfsNewStructStatVfsCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	systemStructStatVfsNewStructStatVfsCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	systemStructStatVfsNewStructStatVfsCmd.Flags().Int64("arg5", 0, "arg5 (int64)")
+	systemStructStatVfsNewStructStatVfsCmd.Flags().Int64("arg6", 0, "arg6 (int64)")
+	systemStructStatVfsNewStructStatVfsCmd.Flags().Int64("arg7", 0, "arg7 (int64)")
+	systemStructStatVfsNewStructStatVfsCmd.Flags().Int64("arg8", 0, "arg8 (int64)")
+	systemStructStatVfsNewStructStatVfsCmd.Flags().Int64("arg9", 0, "arg9 (int64)")
+	systemStructStatVfsNewStructStatVfsCmd.Flags().Int64("arg10", 0, "arg10 (int64)")
+	systemStructStatVfsCmd.AddCommand(systemStructStatVfsNewStructStatVfsCmd)
+	systemStructStatVfsToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	systemStructStatVfsCmd.AddCommand(systemStructStatVfsToStringCmd)
+	systemCmd.AddCommand(systemStructStatVfsCmd)
+	systemStructStatNewStructStatCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	systemStructStatNewStructStatCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	systemStructStatNewStructStatCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	systemStructStatNewStructStatCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	systemStructStatNewStructStatCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	systemStructStatNewStructStatCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	systemStructStatNewStructStatCmd.Flags().Int64("arg6", 0, "arg6 (int64)")
+	systemStructStatNewStructStatCmd.Flags().Int64("arg7", 0, "arg7 (int64)")
+	systemStructStatNewStructStatCmd.Flags().Int64("arg8", 0, "arg8 (int64)")
+	systemStructStatNewStructStatCmd.Flags().Int64("arg9", 0, "arg9 (int64)")
+	systemStructStatNewStructStatCmd.Flags().Int64("arg10", 0, "arg10 (int64)")
+	systemStructStatNewStructStatCmd.Flags().Int64("arg11", 0, "arg11 (int64)")
+	systemStructStatNewStructStatCmd.Flags().Int64("arg12", 0, "arg12 (int64)")
+	systemStructStatCmd.AddCommand(systemStructStatNewStructStatCmd)
+	systemStructStatToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	systemStructStatCmd.AddCommand(systemStructStatToStringCmd)
+	systemCmd.AddCommand(systemStructStatCmd)
 	rootCmd.AddCommand(systemCmd)
 }

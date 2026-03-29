@@ -23,6 +23,278 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type NewRequestSurfacePackageExceptionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewRequestSurfacePackageExceptionRequest) Reset() {
+	*x = NewRequestSurfacePackageExceptionRequest{}
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewRequestSurfacePackageExceptionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewRequestSurfacePackageExceptionRequest) ProtoMessage() {}
+
+func (x *NewRequestSurfacePackageExceptionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewRequestSurfacePackageExceptionRequest.ProtoReflect.Descriptor instead.
+func (*NewRequestSurfacePackageExceptionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *NewRequestSurfacePackageExceptionRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewRequestSurfacePackageExceptionRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+type NewRequestSurfacePackageExceptionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewRequestSurfacePackageExceptionResponse) Reset() {
+	*x = NewRequestSurfacePackageExceptionResponse{}
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewRequestSurfacePackageExceptionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewRequestSurfacePackageExceptionResponse) ProtoMessage() {}
+
+func (x *NewRequestSurfacePackageExceptionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewRequestSurfacePackageExceptionResponse.ProtoReflect.Descriptor instead.
+func (*NewRequestSurfacePackageExceptionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *NewRequestSurfacePackageExceptionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetExtraErrorInformationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExtraErrorInformationRequest) Reset() {
+	*x = GetExtraErrorInformationRequest{}
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExtraErrorInformationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExtraErrorInformationRequest) ProtoMessage() {}
+
+func (x *GetExtraErrorInformationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExtraErrorInformationRequest.ProtoReflect.Descriptor instead.
+func (*GetExtraErrorInformationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *GetExtraErrorInformationRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetExtraErrorInformationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExtraErrorInformationResponse) Reset() {
+	*x = GetExtraErrorInformationResponse{}
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExtraErrorInformationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExtraErrorInformationResponse) ProtoMessage() {}
+
+func (x *GetExtraErrorInformationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExtraErrorInformationResponse.ProtoReflect.Descriptor instead.
+func (*GetExtraErrorInformationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetExtraErrorInformationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRequestSurfacePackageErrorCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRequestSurfacePackageErrorCodeRequest) Reset() {
+	*x = GetRequestSurfacePackageErrorCodeRequest{}
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRequestSurfacePackageErrorCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRequestSurfacePackageErrorCodeRequest) ProtoMessage() {}
+
+func (x *GetRequestSurfacePackageErrorCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRequestSurfacePackageErrorCodeRequest.ProtoReflect.Descriptor instead.
+func (*GetRequestSurfacePackageErrorCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *GetRequestSurfacePackageErrorCodeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetRequestSurfacePackageErrorCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRequestSurfacePackageErrorCodeResponse) Reset() {
+	*x = GetRequestSurfacePackageErrorCodeResponse{}
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRequestSurfacePackageErrorCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRequestSurfacePackageErrorCodeResponse) ProtoMessage() {}
+
+func (x *GetRequestSurfacePackageErrorCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRequestSurfacePackageErrorCodeResponse.ProtoReflect.Descriptor instead.
+func (*GetRequestSurfacePackageErrorCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetRequestSurfacePackageErrorCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 type AttachContextRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -32,7 +304,7 @@ type AttachContextRequest struct {
 
 func (x *AttachContextRequest) Reset() {
 	*x = AttachContextRequest{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[0]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -44,7 +316,7 @@ func (x *AttachContextRequest) String() string {
 func (*AttachContextRequest) ProtoMessage() {}
 
 func (x *AttachContextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[0]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -57,7 +329,7 @@ func (x *AttachContextRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AttachContextRequest.ProtoReflect.Descriptor instead.
 func (*AttachContextRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{0}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *AttachContextRequest) GetArg0() int64 {
@@ -75,7 +347,7 @@ type AttachContextResponse struct {
 
 func (x *AttachContextResponse) Reset() {
 	*x = AttachContextResponse{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[1]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -87,7 +359,7 @@ func (x *AttachContextResponse) String() string {
 func (*AttachContextResponse) ProtoMessage() {}
 
 func (x *AttachContextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[1]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -100,7 +372,7 @@ func (x *AttachContextResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AttachContextResponse.ProtoReflect.Descriptor instead.
 func (*AttachContextResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{1}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{7}
 }
 
 type BeforeUnloadSdkRequest struct {
@@ -111,7 +383,7 @@ type BeforeUnloadSdkRequest struct {
 
 func (x *BeforeUnloadSdkRequest) Reset() {
 	*x = BeforeUnloadSdkRequest{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[2]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -123,7 +395,7 @@ func (x *BeforeUnloadSdkRequest) String() string {
 func (*BeforeUnloadSdkRequest) ProtoMessage() {}
 
 func (x *BeforeUnloadSdkRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[2]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -136,7 +408,7 @@ func (x *BeforeUnloadSdkRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BeforeUnloadSdkRequest.ProtoReflect.Descriptor instead.
 func (*BeforeUnloadSdkRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{2}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{8}
 }
 
 type BeforeUnloadSdkResponse struct {
@@ -147,7 +419,7 @@ type BeforeUnloadSdkResponse struct {
 
 func (x *BeforeUnloadSdkResponse) Reset() {
 	*x = BeforeUnloadSdkResponse{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[3]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -159,7 +431,7 @@ func (x *BeforeUnloadSdkResponse) String() string {
 func (*BeforeUnloadSdkResponse) ProtoMessage() {}
 
 func (x *BeforeUnloadSdkResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[3]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -172,7 +444,7 @@ func (x *BeforeUnloadSdkResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BeforeUnloadSdkResponse.ProtoReflect.Descriptor instead.
 func (*BeforeUnloadSdkResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{3}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{9}
 }
 
 type GetContextRequest struct {
@@ -183,7 +455,7 @@ type GetContextRequest struct {
 
 func (x *GetContextRequest) Reset() {
 	*x = GetContextRequest{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[4]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -195,7 +467,7 @@ func (x *GetContextRequest) String() string {
 func (*GetContextRequest) ProtoMessage() {}
 
 func (x *GetContextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[4]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -208,7 +480,7 @@ func (x *GetContextRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetContextRequest.ProtoReflect.Descriptor instead.
 func (*GetContextRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{4}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{10}
 }
 
 type GetContextResponse struct {
@@ -220,7 +492,7 @@ type GetContextResponse struct {
 
 func (x *GetContextResponse) Reset() {
 	*x = GetContextResponse{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[5]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -232,7 +504,7 @@ func (x *GetContextResponse) String() string {
 func (*GetContextResponse) ProtoMessage() {}
 
 func (x *GetContextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[5]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -245,7 +517,7 @@ func (x *GetContextResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetContextResponse.ProtoReflect.Descriptor instead.
 func (*GetContextResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{5}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *GetContextResponse) GetResult() int64 {
@@ -267,7 +539,7 @@ type GetViewRequest struct {
 
 func (x *GetViewRequest) Reset() {
 	*x = GetViewRequest{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[6]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -279,7 +551,7 @@ func (x *GetViewRequest) String() string {
 func (*GetViewRequest) ProtoMessage() {}
 
 func (x *GetViewRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[6]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -292,7 +564,7 @@ func (x *GetViewRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetViewRequest.ProtoReflect.Descriptor instead.
 func (*GetViewRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{6}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *GetViewRequest) GetArg0() int64 {
@@ -332,7 +604,7 @@ type GetViewResponse struct {
 
 func (x *GetViewResponse) Reset() {
 	*x = GetViewResponse{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[7]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -344,7 +616,7 @@ func (x *GetViewResponse) String() string {
 func (*GetViewResponse) ProtoMessage() {}
 
 func (x *GetViewResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[7]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -357,7 +629,7 @@ func (x *GetViewResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetViewResponse.ProtoReflect.Descriptor instead.
 func (*GetViewResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{7}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *GetViewResponse) GetResult() int64 {
@@ -376,7 +648,7 @@ type OnLoadSdkRequest struct {
 
 func (x *OnLoadSdkRequest) Reset() {
 	*x = OnLoadSdkRequest{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[8]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -388,7 +660,7 @@ func (x *OnLoadSdkRequest) String() string {
 func (*OnLoadSdkRequest) ProtoMessage() {}
 
 func (x *OnLoadSdkRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[8]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -401,7 +673,7 @@ func (x *OnLoadSdkRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnLoadSdkRequest.ProtoReflect.Descriptor instead.
 func (*OnLoadSdkRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{8}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *OnLoadSdkRequest) GetArg0() int64 {
@@ -420,7 +692,7 @@ type OnLoadSdkResponse struct {
 
 func (x *OnLoadSdkResponse) Reset() {
 	*x = OnLoadSdkResponse{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[9]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -432,7 +704,7 @@ func (x *OnLoadSdkResponse) String() string {
 func (*OnLoadSdkResponse) ProtoMessage() {}
 
 func (x *OnLoadSdkResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[9]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -445,7 +717,7 @@ func (x *OnLoadSdkResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnLoadSdkResponse.ProtoReflect.Descriptor instead.
 func (*OnLoadSdkResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{9}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *OnLoadSdkResponse) GetResult() int64 {
@@ -465,7 +737,7 @@ type AddSdkSandboxProcessDeathCallbackRequest struct {
 
 func (x *AddSdkSandboxProcessDeathCallbackRequest) Reset() {
 	*x = AddSdkSandboxProcessDeathCallbackRequest{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[10]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -477,7 +749,7 @@ func (x *AddSdkSandboxProcessDeathCallbackRequest) String() string {
 func (*AddSdkSandboxProcessDeathCallbackRequest) ProtoMessage() {}
 
 func (x *AddSdkSandboxProcessDeathCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[10]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -490,7 +762,7 @@ func (x *AddSdkSandboxProcessDeathCallbackRequest) ProtoReflect() protoreflect.M
 
 // Deprecated: Use AddSdkSandboxProcessDeathCallbackRequest.ProtoReflect.Descriptor instead.
 func (*AddSdkSandboxProcessDeathCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{10}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *AddSdkSandboxProcessDeathCallbackRequest) GetArg0() int64 {
@@ -515,7 +787,7 @@ type AddSdkSandboxProcessDeathCallbackResponse struct {
 
 func (x *AddSdkSandboxProcessDeathCallbackResponse) Reset() {
 	*x = AddSdkSandboxProcessDeathCallbackResponse{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[11]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -527,7 +799,7 @@ func (x *AddSdkSandboxProcessDeathCallbackResponse) String() string {
 func (*AddSdkSandboxProcessDeathCallbackResponse) ProtoMessage() {}
 
 func (x *AddSdkSandboxProcessDeathCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[11]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -540,7 +812,247 @@ func (x *AddSdkSandboxProcessDeathCallbackResponse) ProtoReflect() protoreflect.
 
 // Deprecated: Use AddSdkSandboxProcessDeathCallbackResponse.ProtoReflect.Descriptor instead.
 func (*AddSdkSandboxProcessDeathCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{11}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{17}
+}
+
+type GetAppOwnedSdkSandboxInterfacesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAppOwnedSdkSandboxInterfacesRequest) Reset() {
+	*x = GetAppOwnedSdkSandboxInterfacesRequest{}
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAppOwnedSdkSandboxInterfacesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAppOwnedSdkSandboxInterfacesRequest) ProtoMessage() {}
+
+func (x *GetAppOwnedSdkSandboxInterfacesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAppOwnedSdkSandboxInterfacesRequest.ProtoReflect.Descriptor instead.
+func (*GetAppOwnedSdkSandboxInterfacesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{18}
+}
+
+type GetAppOwnedSdkSandboxInterfacesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAppOwnedSdkSandboxInterfacesResponse) Reset() {
+	*x = GetAppOwnedSdkSandboxInterfacesResponse{}
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAppOwnedSdkSandboxInterfacesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAppOwnedSdkSandboxInterfacesResponse) ProtoMessage() {}
+
+func (x *GetAppOwnedSdkSandboxInterfacesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAppOwnedSdkSandboxInterfacesResponse.ProtoReflect.Descriptor instead.
+func (*GetAppOwnedSdkSandboxInterfacesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *GetAppOwnedSdkSandboxInterfacesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSandboxedSdksRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSandboxedSdksRequest) Reset() {
+	*x = GetSandboxedSdksRequest{}
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSandboxedSdksRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSandboxedSdksRequest) ProtoMessage() {}
+
+func (x *GetSandboxedSdksRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSandboxedSdksRequest.ProtoReflect.Descriptor instead.
+func (*GetSandboxedSdksRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{20}
+}
+
+type GetSandboxedSdksResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSandboxedSdksResponse) Reset() {
+	*x = GetSandboxedSdksResponse{}
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSandboxedSdksResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSandboxedSdksResponse) ProtoMessage() {}
+
+func (x *GetSandboxedSdksResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSandboxedSdksResponse.ProtoReflect.Descriptor instead.
+func (*GetSandboxedSdksResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *GetSandboxedSdksResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSyncedSharedPreferencesKeysRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSyncedSharedPreferencesKeysRequest) Reset() {
+	*x = GetSyncedSharedPreferencesKeysRequest{}
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSyncedSharedPreferencesKeysRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSyncedSharedPreferencesKeysRequest) ProtoMessage() {}
+
+func (x *GetSyncedSharedPreferencesKeysRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSyncedSharedPreferencesKeysRequest.ProtoReflect.Descriptor instead.
+func (*GetSyncedSharedPreferencesKeysRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{22}
+}
+
+type GetSyncedSharedPreferencesKeysResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSyncedSharedPreferencesKeysResponse) Reset() {
+	*x = GetSyncedSharedPreferencesKeysResponse{}
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSyncedSharedPreferencesKeysResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSyncedSharedPreferencesKeysResponse) ProtoMessage() {}
+
+func (x *GetSyncedSharedPreferencesKeysResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSyncedSharedPreferencesKeysResponse.ProtoReflect.Descriptor instead.
+func (*GetSyncedSharedPreferencesKeysResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *GetSyncedSharedPreferencesKeysResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
 }
 
 type RegisterAppOwnedSdkSandboxInterfaceRequest struct {
@@ -552,7 +1064,7 @@ type RegisterAppOwnedSdkSandboxInterfaceRequest struct {
 
 func (x *RegisterAppOwnedSdkSandboxInterfaceRequest) Reset() {
 	*x = RegisterAppOwnedSdkSandboxInterfaceRequest{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[12]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -564,7 +1076,7 @@ func (x *RegisterAppOwnedSdkSandboxInterfaceRequest) String() string {
 func (*RegisterAppOwnedSdkSandboxInterfaceRequest) ProtoMessage() {}
 
 func (x *RegisterAppOwnedSdkSandboxInterfaceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[12]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -577,7 +1089,7 @@ func (x *RegisterAppOwnedSdkSandboxInterfaceRequest) ProtoReflect() protoreflect
 
 // Deprecated: Use RegisterAppOwnedSdkSandboxInterfaceRequest.ProtoReflect.Descriptor instead.
 func (*RegisterAppOwnedSdkSandboxInterfaceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{12}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *RegisterAppOwnedSdkSandboxInterfaceRequest) GetArg0() int64 {
@@ -595,7 +1107,7 @@ type RegisterAppOwnedSdkSandboxInterfaceResponse struct {
 
 func (x *RegisterAppOwnedSdkSandboxInterfaceResponse) Reset() {
 	*x = RegisterAppOwnedSdkSandboxInterfaceResponse{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[13]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -607,7 +1119,7 @@ func (x *RegisterAppOwnedSdkSandboxInterfaceResponse) String() string {
 func (*RegisterAppOwnedSdkSandboxInterfaceResponse) ProtoMessage() {}
 
 func (x *RegisterAppOwnedSdkSandboxInterfaceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[13]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -620,7 +1132,7 @@ func (x *RegisterAppOwnedSdkSandboxInterfaceResponse) ProtoReflect() protoreflec
 
 // Deprecated: Use RegisterAppOwnedSdkSandboxInterfaceResponse.ProtoReflect.Descriptor instead.
 func (*RegisterAppOwnedSdkSandboxInterfaceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{13}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{25}
 }
 
 type RemoveSdkSandboxProcessDeathCallbackRequest struct {
@@ -632,7 +1144,7 @@ type RemoveSdkSandboxProcessDeathCallbackRequest struct {
 
 func (x *RemoveSdkSandboxProcessDeathCallbackRequest) Reset() {
 	*x = RemoveSdkSandboxProcessDeathCallbackRequest{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[14]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -644,7 +1156,7 @@ func (x *RemoveSdkSandboxProcessDeathCallbackRequest) String() string {
 func (*RemoveSdkSandboxProcessDeathCallbackRequest) ProtoMessage() {}
 
 func (x *RemoveSdkSandboxProcessDeathCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[14]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -657,7 +1169,7 @@ func (x *RemoveSdkSandboxProcessDeathCallbackRequest) ProtoReflect() protoreflec
 
 // Deprecated: Use RemoveSdkSandboxProcessDeathCallbackRequest.ProtoReflect.Descriptor instead.
 func (*RemoveSdkSandboxProcessDeathCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{14}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *RemoveSdkSandboxProcessDeathCallbackRequest) GetArg0() int64 {
@@ -675,7 +1187,7 @@ type RemoveSdkSandboxProcessDeathCallbackResponse struct {
 
 func (x *RemoveSdkSandboxProcessDeathCallbackResponse) Reset() {
 	*x = RemoveSdkSandboxProcessDeathCallbackResponse{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[15]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -687,7 +1199,7 @@ func (x *RemoveSdkSandboxProcessDeathCallbackResponse) String() string {
 func (*RemoveSdkSandboxProcessDeathCallbackResponse) ProtoMessage() {}
 
 func (x *RemoveSdkSandboxProcessDeathCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[15]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -700,7 +1212,7 @@ func (x *RemoveSdkSandboxProcessDeathCallbackResponse) ProtoReflect() protorefle
 
 // Deprecated: Use RemoveSdkSandboxProcessDeathCallbackResponse.ProtoReflect.Descriptor instead.
 func (*RemoveSdkSandboxProcessDeathCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{15}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{27}
 }
 
 type StartSdkSandboxActivityRequest struct {
@@ -713,7 +1225,7 @@ type StartSdkSandboxActivityRequest struct {
 
 func (x *StartSdkSandboxActivityRequest) Reset() {
 	*x = StartSdkSandboxActivityRequest{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[16]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -725,7 +1237,7 @@ func (x *StartSdkSandboxActivityRequest) String() string {
 func (*StartSdkSandboxActivityRequest) ProtoMessage() {}
 
 func (x *StartSdkSandboxActivityRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[16]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -738,7 +1250,7 @@ func (x *StartSdkSandboxActivityRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartSdkSandboxActivityRequest.ProtoReflect.Descriptor instead.
 func (*StartSdkSandboxActivityRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{16}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *StartSdkSandboxActivityRequest) GetArg0() int64 {
@@ -763,7 +1275,7 @@ type StartSdkSandboxActivityResponse struct {
 
 func (x *StartSdkSandboxActivityResponse) Reset() {
 	*x = StartSdkSandboxActivityResponse{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[17]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -775,7 +1287,7 @@ func (x *StartSdkSandboxActivityResponse) String() string {
 func (*StartSdkSandboxActivityResponse) ProtoMessage() {}
 
 func (x *StartSdkSandboxActivityResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[17]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -788,7 +1300,7 @@ func (x *StartSdkSandboxActivityResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartSdkSandboxActivityResponse.ProtoReflect.Descriptor instead.
 func (*StartSdkSandboxActivityResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{17}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{29}
 }
 
 type UnloadSdkRequest struct {
@@ -800,7 +1312,7 @@ type UnloadSdkRequest struct {
 
 func (x *UnloadSdkRequest) Reset() {
 	*x = UnloadSdkRequest{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[18]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -812,7 +1324,7 @@ func (x *UnloadSdkRequest) String() string {
 func (*UnloadSdkRequest) ProtoMessage() {}
 
 func (x *UnloadSdkRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[18]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -825,7 +1337,7 @@ func (x *UnloadSdkRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UnloadSdkRequest.ProtoReflect.Descriptor instead.
 func (*UnloadSdkRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{18}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *UnloadSdkRequest) GetArg0() string {
@@ -843,7 +1355,7 @@ type UnloadSdkResponse struct {
 
 func (x *UnloadSdkResponse) Reset() {
 	*x = UnloadSdkResponse{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[19]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -855,7 +1367,7 @@ func (x *UnloadSdkResponse) String() string {
 func (*UnloadSdkResponse) ProtoMessage() {}
 
 func (x *UnloadSdkResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[19]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -868,7 +1380,7 @@ func (x *UnloadSdkResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UnloadSdkResponse.ProtoReflect.Descriptor instead.
 func (*UnloadSdkResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{19}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{31}
 }
 
 type UnregisterAppOwnedSdkSandboxInterfaceRequest struct {
@@ -880,7 +1392,7 @@ type UnregisterAppOwnedSdkSandboxInterfaceRequest struct {
 
 func (x *UnregisterAppOwnedSdkSandboxInterfaceRequest) Reset() {
 	*x = UnregisterAppOwnedSdkSandboxInterfaceRequest{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[20]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -892,7 +1404,7 @@ func (x *UnregisterAppOwnedSdkSandboxInterfaceRequest) String() string {
 func (*UnregisterAppOwnedSdkSandboxInterfaceRequest) ProtoMessage() {}
 
 func (x *UnregisterAppOwnedSdkSandboxInterfaceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[20]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -905,7 +1417,7 @@ func (x *UnregisterAppOwnedSdkSandboxInterfaceRequest) ProtoReflect() protorefle
 
 // Deprecated: Use UnregisterAppOwnedSdkSandboxInterfaceRequest.ProtoReflect.Descriptor instead.
 func (*UnregisterAppOwnedSdkSandboxInterfaceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{20}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *UnregisterAppOwnedSdkSandboxInterfaceRequest) GetArg0() string {
@@ -923,7 +1435,7 @@ type UnregisterAppOwnedSdkSandboxInterfaceResponse struct {
 
 func (x *UnregisterAppOwnedSdkSandboxInterfaceResponse) Reset() {
 	*x = UnregisterAppOwnedSdkSandboxInterfaceResponse{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[21]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -935,7 +1447,7 @@ func (x *UnregisterAppOwnedSdkSandboxInterfaceResponse) String() string {
 func (*UnregisterAppOwnedSdkSandboxInterfaceResponse) ProtoMessage() {}
 
 func (x *UnregisterAppOwnedSdkSandboxInterfaceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[21]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -948,7 +1460,7 @@ func (x *UnregisterAppOwnedSdkSandboxInterfaceResponse) ProtoReflect() protorefl
 
 // Deprecated: Use UnregisterAppOwnedSdkSandboxInterfaceResponse.ProtoReflect.Descriptor instead.
 func (*UnregisterAppOwnedSdkSandboxInterfaceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{21}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{33}
 }
 
 type GetSdkSandboxStateRequest struct {
@@ -959,7 +1471,7 @@ type GetSdkSandboxStateRequest struct {
 
 func (x *GetSdkSandboxStateRequest) Reset() {
 	*x = GetSdkSandboxStateRequest{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[22]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -971,7 +1483,7 @@ func (x *GetSdkSandboxStateRequest) String() string {
 func (*GetSdkSandboxStateRequest) ProtoMessage() {}
 
 func (x *GetSdkSandboxStateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[22]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -984,7 +1496,7 @@ func (x *GetSdkSandboxStateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSdkSandboxStateRequest.ProtoReflect.Descriptor instead.
 func (*GetSdkSandboxStateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{22}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{34}
 }
 
 type GetSdkSandboxStateResponse struct {
@@ -996,7 +1508,7 @@ type GetSdkSandboxStateResponse struct {
 
 func (x *GetSdkSandboxStateResponse) Reset() {
 	*x = GetSdkSandboxStateResponse{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[23]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1008,7 +1520,7 @@ func (x *GetSdkSandboxStateResponse) String() string {
 func (*GetSdkSandboxStateResponse) ProtoMessage() {}
 
 func (x *GetSdkSandboxStateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[23]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1021,7 +1533,7 @@ func (x *GetSdkSandboxStateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSdkSandboxStateResponse.ProtoReflect.Descriptor instead.
 func (*GetSdkSandboxStateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{23}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *GetSdkSandboxStateResponse) GetResult() int32 {
@@ -1039,7 +1551,7 @@ type OnSdkSandboxDiedRequest struct {
 
 func (x *OnSdkSandboxDiedRequest) Reset() {
 	*x = OnSdkSandboxDiedRequest{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[24]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1051,7 +1563,7 @@ func (x *OnSdkSandboxDiedRequest) String() string {
 func (*OnSdkSandboxDiedRequest) ProtoMessage() {}
 
 func (x *OnSdkSandboxDiedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[24]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1064,7 +1576,7 @@ func (x *OnSdkSandboxDiedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnSdkSandboxDiedRequest.ProtoReflect.Descriptor instead.
 func (*OnSdkSandboxDiedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{24}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{36}
 }
 
 type OnSdkSandboxDiedResponse struct {
@@ -1075,7 +1587,7 @@ type OnSdkSandboxDiedResponse struct {
 
 func (x *OnSdkSandboxDiedResponse) Reset() {
 	*x = OnSdkSandboxDiedResponse{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[25]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1087,7 +1599,7 @@ func (x *OnSdkSandboxDiedResponse) String() string {
 func (*OnSdkSandboxDiedResponse) ProtoMessage() {}
 
 func (x *OnSdkSandboxDiedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[25]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1100,7 +1612,455 @@ func (x *OnSdkSandboxDiedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnSdkSandboxDiedResponse.ProtoReflect.Descriptor instead.
 func (*OnSdkSandboxDiedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{25}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{37}
+}
+
+type NewSandboxedSdkRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewSandboxedSdkRequest) Reset() {
+	*x = NewSandboxedSdkRequest{}
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewSandboxedSdkRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewSandboxedSdkRequest) ProtoMessage() {}
+
+func (x *NewSandboxedSdkRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewSandboxedSdkRequest.ProtoReflect.Descriptor instead.
+func (*NewSandboxedSdkRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *NewSandboxedSdkRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewSandboxedSdkResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewSandboxedSdkResponse) Reset() {
+	*x = NewSandboxedSdkResponse{}
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewSandboxedSdkResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewSandboxedSdkResponse) ProtoMessage() {}
+
+func (x *NewSandboxedSdkResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewSandboxedSdkResponse.ProtoReflect.Descriptor instead.
+func (*NewSandboxedSdkResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *NewSandboxedSdkResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsRequest) Reset() {
+	*x = DescribeContentsRequest{}
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsRequest) ProtoMessage() {}
+
+func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *DescribeContentsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type DescribeContentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsResponse) Reset() {
+	*x = DescribeContentsResponse{}
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsResponse) ProtoMessage() {}
+
+func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
+func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *DescribeContentsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetInterfaceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInterfaceRequest) Reset() {
+	*x = GetInterfaceRequest{}
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInterfaceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInterfaceRequest) ProtoMessage() {}
+
+func (x *GetInterfaceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInterfaceRequest.ProtoReflect.Descriptor instead.
+func (*GetInterfaceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *GetInterfaceRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetInterfaceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInterfaceResponse) Reset() {
+	*x = GetInterfaceResponse{}
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInterfaceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInterfaceResponse) ProtoMessage() {}
+
+func (x *GetInterfaceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInterfaceResponse.ProtoReflect.Descriptor instead.
+func (*GetInterfaceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *GetInterfaceResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSharedLibraryInfoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSharedLibraryInfoRequest) Reset() {
+	*x = GetSharedLibraryInfoRequest{}
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSharedLibraryInfoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSharedLibraryInfoRequest) ProtoMessage() {}
+
+func (x *GetSharedLibraryInfoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSharedLibraryInfoRequest.ProtoReflect.Descriptor instead.
+func (*GetSharedLibraryInfoRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *GetSharedLibraryInfoRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetSharedLibraryInfoResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSharedLibraryInfoResponse) Reset() {
+	*x = GetSharedLibraryInfoResponse{}
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSharedLibraryInfoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSharedLibraryInfoResponse) ProtoMessage() {}
+
+func (x *GetSharedLibraryInfoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSharedLibraryInfoResponse.ProtoReflect.Descriptor instead.
+func (*GetSharedLibraryInfoResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *GetSharedLibraryInfoResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type WriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelRequest) Reset() {
+	*x = WriteToParcelRequest{}
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelRequest) ProtoMessage() {}
+
+func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *WriteToParcelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *WriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type WriteToParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelResponse) Reset() {
+	*x = WriteToParcelResponse{}
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelResponse) ProtoMessage() {}
+
+func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
+func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{47}
 }
 
 type NewAppOwnedSdkSandboxInterfaceRequest struct {
@@ -1114,7 +2074,7 @@ type NewAppOwnedSdkSandboxInterfaceRequest struct {
 
 func (x *NewAppOwnedSdkSandboxInterfaceRequest) Reset() {
 	*x = NewAppOwnedSdkSandboxInterfaceRequest{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[26]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1126,7 +2086,7 @@ func (x *NewAppOwnedSdkSandboxInterfaceRequest) String() string {
 func (*NewAppOwnedSdkSandboxInterfaceRequest) ProtoMessage() {}
 
 func (x *NewAppOwnedSdkSandboxInterfaceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[26]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1139,7 +2099,7 @@ func (x *NewAppOwnedSdkSandboxInterfaceRequest) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use NewAppOwnedSdkSandboxInterfaceRequest.ProtoReflect.Descriptor instead.
 func (*NewAppOwnedSdkSandboxInterfaceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{26}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *NewAppOwnedSdkSandboxInterfaceRequest) GetArg0() string {
@@ -1172,7 +2132,7 @@ type NewAppOwnedSdkSandboxInterfaceResponse struct {
 
 func (x *NewAppOwnedSdkSandboxInterfaceResponse) Reset() {
 	*x = NewAppOwnedSdkSandboxInterfaceResponse{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[27]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1184,7 +2144,7 @@ func (x *NewAppOwnedSdkSandboxInterfaceResponse) String() string {
 func (*NewAppOwnedSdkSandboxInterfaceResponse) ProtoMessage() {}
 
 func (x *NewAppOwnedSdkSandboxInterfaceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[27]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1197,186 +2157,10 @@ func (x *NewAppOwnedSdkSandboxInterfaceResponse) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use NewAppOwnedSdkSandboxInterfaceResponse.ProtoReflect.Descriptor instead.
 func (*NewAppOwnedSdkSandboxInterfaceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{27}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{49}
 }
 
 func (x *NewAppOwnedSdkSandboxInterfaceResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type DescribeContentsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DescribeContentsRequest) Reset() {
-	*x = DescribeContentsRequest{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[28]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DescribeContentsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DescribeContentsRequest) ProtoMessage() {}
-
-func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[28]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
-func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{28}
-}
-
-func (x *DescribeContentsRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type DescribeContentsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DescribeContentsResponse) Reset() {
-	*x = DescribeContentsResponse{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[29]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DescribeContentsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DescribeContentsResponse) ProtoMessage() {}
-
-func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[29]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
-func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{29}
-}
-
-func (x *DescribeContentsResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetInterfaceRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetInterfaceRequest) Reset() {
-	*x = GetInterfaceRequest{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[30]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetInterfaceRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetInterfaceRequest) ProtoMessage() {}
-
-func (x *GetInterfaceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[30]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetInterfaceRequest.ProtoReflect.Descriptor instead.
-func (*GetInterfaceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{30}
-}
-
-func (x *GetInterfaceRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetInterfaceResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetInterfaceResponse) Reset() {
-	*x = GetInterfaceResponse{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[31]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetInterfaceResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetInterfaceResponse) ProtoMessage() {}
-
-func (x *GetInterfaceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[31]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetInterfaceResponse.ProtoReflect.Descriptor instead.
-func (*GetInterfaceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{31}
-}
-
-func (x *GetInterfaceResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -1392,7 +2176,7 @@ type GetNameRequest struct {
 
 func (x *GetNameRequest) Reset() {
 	*x = GetNameRequest{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[32]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1404,7 +2188,7 @@ func (x *GetNameRequest) String() string {
 func (*GetNameRequest) ProtoMessage() {}
 
 func (x *GetNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[32]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1417,7 +2201,7 @@ func (x *GetNameRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNameRequest.ProtoReflect.Descriptor instead.
 func (*GetNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{32}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *GetNameRequest) GetHandle() int64 {
@@ -1436,7 +2220,7 @@ type GetNameResponse struct {
 
 func (x *GetNameResponse) Reset() {
 	*x = GetNameResponse{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[33]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1448,7 +2232,7 @@ func (x *GetNameResponse) String() string {
 func (*GetNameResponse) ProtoMessage() {}
 
 func (x *GetNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[33]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1461,7 +2245,7 @@ func (x *GetNameResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNameResponse.ProtoReflect.Descriptor instead.
 func (*GetNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{33}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{51}
 }
 
 func (x *GetNameResponse) GetResult() string {
@@ -1480,7 +2264,7 @@ type GetVersionRequest struct {
 
 func (x *GetVersionRequest) Reset() {
 	*x = GetVersionRequest{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[34]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1492,7 +2276,7 @@ func (x *GetVersionRequest) String() string {
 func (*GetVersionRequest) ProtoMessage() {}
 
 func (x *GetVersionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[34]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1505,7 +2289,7 @@ func (x *GetVersionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetVersionRequest.ProtoReflect.Descriptor instead.
 func (*GetVersionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{34}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *GetVersionRequest) GetHandle() int64 {
@@ -1524,7 +2308,7 @@ type GetVersionResponse struct {
 
 func (x *GetVersionResponse) Reset() {
 	*x = GetVersionResponse{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[35]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1536,7 +2320,7 @@ func (x *GetVersionResponse) String() string {
 func (*GetVersionResponse) ProtoMessage() {}
 
 func (x *GetVersionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[35]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1549,554 +2333,10 @@ func (x *GetVersionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetVersionResponse.ProtoReflect.Descriptor instead.
 func (*GetVersionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{35}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *GetVersionResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type WriteToParcelRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *WriteToParcelRequest) Reset() {
-	*x = WriteToParcelRequest{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[36]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WriteToParcelRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WriteToParcelRequest) ProtoMessage() {}
-
-func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[36]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
-func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{36}
-}
-
-func (x *WriteToParcelRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *WriteToParcelRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *WriteToParcelRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type WriteToParcelResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *WriteToParcelResponse) Reset() {
-	*x = WriteToParcelResponse{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[37]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WriteToParcelResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WriteToParcelResponse) ProtoMessage() {}
-
-func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[37]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
-func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{37}
-}
-
-type NewRequestSurfacePackageExceptionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewRequestSurfacePackageExceptionRequest) Reset() {
-	*x = NewRequestSurfacePackageExceptionRequest{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[38]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewRequestSurfacePackageExceptionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewRequestSurfacePackageExceptionRequest) ProtoMessage() {}
-
-func (x *NewRequestSurfacePackageExceptionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[38]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewRequestSurfacePackageExceptionRequest.ProtoReflect.Descriptor instead.
-func (*NewRequestSurfacePackageExceptionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{38}
-}
-
-func (x *NewRequestSurfacePackageExceptionRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *NewRequestSurfacePackageExceptionRequest) GetArg1() string {
-	if x != nil {
-		return x.Arg1
-	}
-	return ""
-}
-
-type NewRequestSurfacePackageExceptionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewRequestSurfacePackageExceptionResponse) Reset() {
-	*x = NewRequestSurfacePackageExceptionResponse{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[39]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewRequestSurfacePackageExceptionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewRequestSurfacePackageExceptionResponse) ProtoMessage() {}
-
-func (x *NewRequestSurfacePackageExceptionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[39]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewRequestSurfacePackageExceptionResponse.ProtoReflect.Descriptor instead.
-func (*NewRequestSurfacePackageExceptionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{39}
-}
-
-func (x *NewRequestSurfacePackageExceptionResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetExtraErrorInformationRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetExtraErrorInformationRequest) Reset() {
-	*x = GetExtraErrorInformationRequest{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[40]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetExtraErrorInformationRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetExtraErrorInformationRequest) ProtoMessage() {}
-
-func (x *GetExtraErrorInformationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[40]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetExtraErrorInformationRequest.ProtoReflect.Descriptor instead.
-func (*GetExtraErrorInformationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{40}
-}
-
-func (x *GetExtraErrorInformationRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetExtraErrorInformationResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetExtraErrorInformationResponse) Reset() {
-	*x = GetExtraErrorInformationResponse{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[41]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetExtraErrorInformationResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetExtraErrorInformationResponse) ProtoMessage() {}
-
-func (x *GetExtraErrorInformationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[41]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetExtraErrorInformationResponse.ProtoReflect.Descriptor instead.
-func (*GetExtraErrorInformationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{41}
-}
-
-func (x *GetExtraErrorInformationResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetRequestSurfacePackageErrorCodeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRequestSurfacePackageErrorCodeRequest) Reset() {
-	*x = GetRequestSurfacePackageErrorCodeRequest{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[42]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRequestSurfacePackageErrorCodeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRequestSurfacePackageErrorCodeRequest) ProtoMessage() {}
-
-func (x *GetRequestSurfacePackageErrorCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[42]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRequestSurfacePackageErrorCodeRequest.ProtoReflect.Descriptor instead.
-func (*GetRequestSurfacePackageErrorCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{42}
-}
-
-func (x *GetRequestSurfacePackageErrorCodeRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetRequestSurfacePackageErrorCodeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRequestSurfacePackageErrorCodeResponse) Reset() {
-	*x = GetRequestSurfacePackageErrorCodeResponse{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[43]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRequestSurfacePackageErrorCodeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRequestSurfacePackageErrorCodeResponse) ProtoMessage() {}
-
-func (x *GetRequestSurfacePackageErrorCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[43]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRequestSurfacePackageErrorCodeResponse.ProtoReflect.Descriptor instead.
-func (*GetRequestSurfacePackageErrorCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{43}
-}
-
-func (x *GetRequestSurfacePackageErrorCodeResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type NewSandboxedSdkRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewSandboxedSdkRequest) Reset() {
-	*x = NewSandboxedSdkRequest{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[44]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewSandboxedSdkRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewSandboxedSdkRequest) ProtoMessage() {}
-
-func (x *NewSandboxedSdkRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[44]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewSandboxedSdkRequest.ProtoReflect.Descriptor instead.
-func (*NewSandboxedSdkRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{44}
-}
-
-func (x *NewSandboxedSdkRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type NewSandboxedSdkResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewSandboxedSdkResponse) Reset() {
-	*x = NewSandboxedSdkResponse{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[45]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewSandboxedSdkResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewSandboxedSdkResponse) ProtoMessage() {}
-
-func (x *NewSandboxedSdkResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[45]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewSandboxedSdkResponse.ProtoReflect.Descriptor instead.
-func (*NewSandboxedSdkResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{45}
-}
-
-func (x *NewSandboxedSdkResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetSharedLibraryInfoRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSharedLibraryInfoRequest) Reset() {
-	*x = GetSharedLibraryInfoRequest{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[46]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSharedLibraryInfoRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSharedLibraryInfoRequest) ProtoMessage() {}
-
-func (x *GetSharedLibraryInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[46]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSharedLibraryInfoRequest.ProtoReflect.Descriptor instead.
-func (*GetSharedLibraryInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{46}
-}
-
-func (x *GetSharedLibraryInfoRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetSharedLibraryInfoResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSharedLibraryInfoResponse) Reset() {
-	*x = GetSharedLibraryInfoResponse{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[47]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSharedLibraryInfoResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSharedLibraryInfoResponse) ProtoMessage() {}
-
-func (x *GetSharedLibraryInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[47]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSharedLibraryInfoResponse.ProtoReflect.Descriptor instead.
-func (*GetSharedLibraryInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{47}
-}
-
-func (x *GetSharedLibraryInfoResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -2113,7 +2353,7 @@ type NewLoadSdkExceptionRequest struct {
 
 func (x *NewLoadSdkExceptionRequest) Reset() {
 	*x = NewLoadSdkExceptionRequest{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[48]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2125,7 +2365,7 @@ func (x *NewLoadSdkExceptionRequest) String() string {
 func (*NewLoadSdkExceptionRequest) ProtoMessage() {}
 
 func (x *NewLoadSdkExceptionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[48]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2138,7 +2378,7 @@ func (x *NewLoadSdkExceptionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewLoadSdkExceptionRequest.ProtoReflect.Descriptor instead.
 func (*NewLoadSdkExceptionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{48}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *NewLoadSdkExceptionRequest) GetArg0() int64 {
@@ -2164,7 +2404,7 @@ type NewLoadSdkExceptionResponse struct {
 
 func (x *NewLoadSdkExceptionResponse) Reset() {
 	*x = NewLoadSdkExceptionResponse{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[49]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2176,7 +2416,7 @@ func (x *NewLoadSdkExceptionResponse) String() string {
 func (*NewLoadSdkExceptionResponse) ProtoMessage() {}
 
 func (x *NewLoadSdkExceptionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[49]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2189,7 +2429,7 @@ func (x *NewLoadSdkExceptionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewLoadSdkExceptionResponse.ProtoReflect.Descriptor instead.
 func (*NewLoadSdkExceptionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{49}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{55}
 }
 
 func (x *NewLoadSdkExceptionResponse) GetResult() int64 {
@@ -2208,7 +2448,7 @@ type GetExtraInformationRequest struct {
 
 func (x *GetExtraInformationRequest) Reset() {
 	*x = GetExtraInformationRequest{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[50]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2220,7 +2460,7 @@ func (x *GetExtraInformationRequest) String() string {
 func (*GetExtraInformationRequest) ProtoMessage() {}
 
 func (x *GetExtraInformationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[50]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2233,7 +2473,7 @@ func (x *GetExtraInformationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetExtraInformationRequest.ProtoReflect.Descriptor instead.
 func (*GetExtraInformationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{50}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *GetExtraInformationRequest) GetHandle() int64 {
@@ -2252,7 +2492,7 @@ type GetExtraInformationResponse struct {
 
 func (x *GetExtraInformationResponse) Reset() {
 	*x = GetExtraInformationResponse{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[51]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2264,7 +2504,7 @@ func (x *GetExtraInformationResponse) String() string {
 func (*GetExtraInformationResponse) ProtoMessage() {}
 
 func (x *GetExtraInformationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[51]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2277,7 +2517,7 @@ func (x *GetExtraInformationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetExtraInformationResponse.ProtoReflect.Descriptor instead.
 func (*GetExtraInformationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{51}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{57}
 }
 
 func (x *GetExtraInformationResponse) GetResult() int64 {
@@ -2296,7 +2536,7 @@ type GetLoadSdkErrorCodeRequest struct {
 
 func (x *GetLoadSdkErrorCodeRequest) Reset() {
 	*x = GetLoadSdkErrorCodeRequest{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[52]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2308,7 +2548,7 @@ func (x *GetLoadSdkErrorCodeRequest) String() string {
 func (*GetLoadSdkErrorCodeRequest) ProtoMessage() {}
 
 func (x *GetLoadSdkErrorCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[52]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2321,7 +2561,7 @@ func (x *GetLoadSdkErrorCodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLoadSdkErrorCodeRequest.ProtoReflect.Descriptor instead.
 func (*GetLoadSdkErrorCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{52}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *GetLoadSdkErrorCodeRequest) GetHandle() int64 {
@@ -2340,7 +2580,7 @@ type GetLoadSdkErrorCodeResponse struct {
 
 func (x *GetLoadSdkErrorCodeResponse) Reset() {
 	*x = GetLoadSdkErrorCodeResponse{}
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[53]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2352,7 +2592,7 @@ func (x *GetLoadSdkErrorCodeResponse) String() string {
 func (*GetLoadSdkErrorCodeResponse) ProtoMessage() {}
 
 func (x *GetLoadSdkErrorCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[53]
+	mi := &file_proto_sdksandbox_sdksandbox_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2365,7 +2605,7 @@ func (x *GetLoadSdkErrorCodeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLoadSdkErrorCodeResponse.ProtoReflect.Descriptor instead.
 func (*GetLoadSdkErrorCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{53}
+	return file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP(), []int{59}
 }
 
 func (x *GetLoadSdkErrorCodeResponse) GetResult() int32 {
@@ -2380,7 +2620,20 @@ var File_proto_sdksandbox_sdksandbox_proto protoreflect.FileDescriptor
 const file_proto_sdksandbox_sdksandbox_proto_rawDesc = "" +
 	"\n" +
 	"!proto/sdksandbox/sdksandbox.proto\x12\n" +
-	"sdksandbox\"*\n" +
+	"sdksandbox\"R\n" +
+	"(NewRequestSurfacePackageExceptionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"C\n" +
+	")NewRequestSurfacePackageExceptionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"9\n" +
+	"\x1fGetExtraErrorInformationRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\":\n" +
+	" GetExtraErrorInformationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"B\n" +
+	"(GetRequestSurfacePackageErrorCodeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"C\n" +
+	")GetRequestSurfacePackageErrorCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"*\n" +
 	"\x14AttachContextRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x17\n" +
 	"\x15AttachContextResponse\"\x18\n" +
@@ -2403,7 +2656,16 @@ const file_proto_sdksandbox_sdksandbox_proto_rawDesc = "" +
 	"(AddSdkSandboxProcessDeathCallbackRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"+\n" +
-	")AddSdkSandboxProcessDeathCallbackResponse\"@\n" +
+	")AddSdkSandboxProcessDeathCallbackResponse\"(\n" +
+	"&GetAppOwnedSdkSandboxInterfacesRequest\"A\n" +
+	"'GetAppOwnedSdkSandboxInterfacesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
+	"\x17GetSandboxedSdksRequest\"2\n" +
+	"\x18GetSandboxedSdksResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"'\n" +
+	"%GetSyncedSharedPreferencesKeysRequest\"@\n" +
+	"&GetSyncedSharedPreferencesKeysResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
 	"*RegisterAppOwnedSdkSandboxInterfaceRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"-\n" +
 	"+RegisterAppOwnedSdkSandboxInterfaceResponse\"A\n" +
@@ -2424,12 +2686,10 @@ const file_proto_sdksandbox_sdksandbox_proto_rawDesc = "" +
 	"\x1aGetSdkSandboxStateResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"\x19\n" +
 	"\x17OnSdkSandboxDiedRequest\"\x1a\n" +
-	"\x18OnSdkSandboxDiedResponse\"c\n" +
-	"%NewAppOwnedSdkSandboxInterfaceRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"@\n" +
-	"&NewAppOwnedSdkSandboxInterfaceResponse\x12\x16\n" +
+	"\x18OnSdkSandboxDiedResponse\",\n" +
+	"\x16NewSandboxedSdkRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"1\n" +
+	"\x17NewSandboxedSdkResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
 	"\x17DescribeContentsRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
@@ -2438,6 +2698,21 @@ const file_proto_sdksandbox_sdksandbox_proto_rawDesc = "" +
 	"\x13GetInterfaceRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\".\n" +
 	"\x14GetInterfaceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
+	"\x1bGetSharedLibraryInfoRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"6\n" +
+	"\x1cGetSharedLibraryInfoResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"V\n" +
+	"\x14WriteToParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse\"c\n" +
+	"%NewAppOwnedSdkSandboxInterfaceRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"@\n" +
+	"&NewAppOwnedSdkSandboxInterfaceResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
 	"\x0eGetNameRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\")\n" +
@@ -2446,32 +2721,6 @@ const file_proto_sdksandbox_sdksandbox_proto_rawDesc = "" +
 	"\x11GetVersionRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
 	"\x12GetVersionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"V\n" +
-	"\x14WriteToParcelRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x17\n" +
-	"\x15WriteToParcelResponse\"R\n" +
-	"(NewRequestSurfacePackageExceptionRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\tR\x04arg1\"C\n" +
-	")NewRequestSurfacePackageExceptionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"9\n" +
-	"\x1fGetExtraErrorInformationRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\":\n" +
-	" GetExtraErrorInformationResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"B\n" +
-	"(GetRequestSurfacePackageErrorCodeRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"C\n" +
-	")GetRequestSurfacePackageErrorCodeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\",\n" +
-	"\x16NewSandboxedSdkRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"1\n" +
-	"\x17NewSandboxedSdkResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
-	"\x1bGetSharedLibraryInfoRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"6\n" +
-	"\x1cGetSharedLibraryInfoResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"D\n" +
 	"\x1aNewLoadSdkExceptionRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
@@ -2485,16 +2734,24 @@ const file_proto_sdksandbox_sdksandbox_proto_rawDesc = "" +
 	"\x1aGetLoadSdkErrorCodeRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"5\n" +
 	"\x1bGetLoadSdkErrorCodeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result2\xaa\x03\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result2\xc4\x03\n" +
+	"%RequestSurfacePackageExceptionService\x12\x90\x01\n" +
+	"!NewRequestSurfacePackageException\x124.sdksandbox.NewRequestSurfacePackageExceptionRequest\x1a5.sdksandbox.NewRequestSurfacePackageExceptionResponse\x12u\n" +
+	"\x18GetExtraErrorInformation\x12+.sdksandbox.GetExtraErrorInformationRequest\x1a,.sdksandbox.GetExtraErrorInformationResponse\x12\x90\x01\n" +
+	"!GetRequestSurfacePackageErrorCode\x124.sdksandbox.GetRequestSurfacePackageErrorCodeRequest\x1a5.sdksandbox.GetRequestSurfacePackageErrorCodeResponse2\xaa\x03\n" +
 	"\x1bSandboxedSdkProviderService\x12T\n" +
 	"\rAttachContext\x12 .sdksandbox.AttachContextRequest\x1a!.sdksandbox.AttachContextResponse\x12Z\n" +
 	"\x0fBeforeUnloadSdk\x12\".sdksandbox.BeforeUnloadSdkRequest\x1a#.sdksandbox.BeforeUnloadSdkResponse\x12K\n" +
 	"\n" +
 	"GetContext\x12\x1d.sdksandbox.GetContextRequest\x1a\x1e.sdksandbox.GetContextResponse\x12B\n" +
 	"\aGetView\x12\x1a.sdksandbox.GetViewRequest\x1a\x1b.sdksandbox.GetViewResponse\x12H\n" +
-	"\tOnLoadSdk\x12\x1c.sdksandbox.OnLoadSdkRequest\x1a\x1d.sdksandbox.OnLoadSdkResponse2\xa4\a\n" +
+	"\tOnLoadSdk\x12\x1c.sdksandbox.OnLoadSdkRequest\x1a\x1d.sdksandbox.OnLoadSdkResponse2\x9a\n" +
+	"\n" +
 	"\x18SdkSandboxManagerService\x12\x90\x01\n" +
-	"!AddSdkSandboxProcessDeathCallback\x124.sdksandbox.AddSdkSandboxProcessDeathCallbackRequest\x1a5.sdksandbox.AddSdkSandboxProcessDeathCallbackResponse\x12\x96\x01\n" +
+	"!AddSdkSandboxProcessDeathCallback\x124.sdksandbox.AddSdkSandboxProcessDeathCallbackRequest\x1a5.sdksandbox.AddSdkSandboxProcessDeathCallbackResponse\x12\x8a\x01\n" +
+	"\x1fGetAppOwnedSdkSandboxInterfaces\x122.sdksandbox.GetAppOwnedSdkSandboxInterfacesRequest\x1a3.sdksandbox.GetAppOwnedSdkSandboxInterfacesResponse\x12]\n" +
+	"\x10GetSandboxedSdks\x12#.sdksandbox.GetSandboxedSdksRequest\x1a$.sdksandbox.GetSandboxedSdksResponse\x12\x87\x01\n" +
+	"\x1eGetSyncedSharedPreferencesKeys\x121.sdksandbox.GetSyncedSharedPreferencesKeysRequest\x1a2.sdksandbox.GetSyncedSharedPreferencesKeysResponse\x12\x96\x01\n" +
 	"#RegisterAppOwnedSdkSandboxInterface\x126.sdksandbox.RegisterAppOwnedSdkSandboxInterfaceRequest\x1a7.sdksandbox.RegisterAppOwnedSdkSandboxInterfaceResponse\x12\x99\x01\n" +
 	"$RemoveSdkSandboxProcessDeathCallback\x127.sdksandbox.RemoveSdkSandboxProcessDeathCallbackRequest\x1a8.sdksandbox.RemoveSdkSandboxProcessDeathCallbackResponse\x12r\n" +
 	"\x17StartSdkSandboxActivity\x12*.sdksandbox.StartSdkSandboxActivityRequest\x1a+.sdksandbox.StartSdkSandboxActivityResponse\x12H\n" +
@@ -2502,7 +2759,13 @@ const file_proto_sdksandbox_sdksandbox_proto_rawDesc = "" +
 	"%UnregisterAppOwnedSdkSandboxInterface\x128.sdksandbox.UnregisterAppOwnedSdkSandboxInterfaceRequest\x1a9.sdksandbox.UnregisterAppOwnedSdkSandboxInterfaceResponse\x12c\n" +
 	"\x12GetSdkSandboxState\x12%.sdksandbox.GetSdkSandboxStateRequest\x1a&.sdksandbox.GetSdkSandboxStateResponse2\x97\x01\n" +
 	"6SdkSandboxManagerSdkSandboxProcessDeathCallbackService\x12]\n" +
-	"\x10OnSdkSandboxDied\x12#.sdksandbox.OnSdkSandboxDiedRequest\x1a$.sdksandbox.OnSdkSandboxDiedResponse2\xc7\x04\n" +
+	"\x10OnSdkSandboxDied\x12#.sdksandbox.OnSdkSandboxDiedRequest\x1a$.sdksandbox.OnSdkSandboxDiedResponse2\xe4\x03\n" +
+	"\x13SandboxedSdkService\x12Z\n" +
+	"\x0fNewSandboxedSdk\x12\".sdksandbox.NewSandboxedSdkRequest\x1a#.sdksandbox.NewSandboxedSdkResponse\x12]\n" +
+	"\x10DescribeContents\x12#.sdksandbox.DescribeContentsRequest\x1a$.sdksandbox.DescribeContentsResponse\x12Q\n" +
+	"\fGetInterface\x12\x1f.sdksandbox.GetInterfaceRequest\x1a .sdksandbox.GetInterfaceResponse\x12i\n" +
+	"\x14GetSharedLibraryInfo\x12'.sdksandbox.GetSharedLibraryInfoRequest\x1a(.sdksandbox.GetSharedLibraryInfoResponse\x12T\n" +
+	"\rWriteToParcel\x12 .sdksandbox.WriteToParcelRequest\x1a!.sdksandbox.WriteToParcelResponse2\xc7\x04\n" +
 	"\"AppOwnedSdkSandboxInterfaceService\x12\x87\x01\n" +
 	"\x1eNewAppOwnedSdkSandboxInterface\x121.sdksandbox.NewAppOwnedSdkSandboxInterfaceRequest\x1a2.sdksandbox.NewAppOwnedSdkSandboxInterfaceResponse\x12]\n" +
 	"\x10DescribeContents\x12#.sdksandbox.DescribeContentsRequest\x1a$.sdksandbox.DescribeContentsResponse\x12Q\n" +
@@ -2510,16 +2773,6 @@ const file_proto_sdksandbox_sdksandbox_proto_rawDesc = "" +
 	"\aGetName\x12\x1a.sdksandbox.GetNameRequest\x1a\x1b.sdksandbox.GetNameResponse\x12K\n" +
 	"\n" +
 	"GetVersion\x12\x1d.sdksandbox.GetVersionRequest\x1a\x1e.sdksandbox.GetVersionResponse\x12T\n" +
-	"\rWriteToParcel\x12 .sdksandbox.WriteToParcelRequest\x1a!.sdksandbox.WriteToParcelResponse2\xc4\x03\n" +
-	"%RequestSurfacePackageExceptionService\x12\x90\x01\n" +
-	"!NewRequestSurfacePackageException\x124.sdksandbox.NewRequestSurfacePackageExceptionRequest\x1a5.sdksandbox.NewRequestSurfacePackageExceptionResponse\x12u\n" +
-	"\x18GetExtraErrorInformation\x12+.sdksandbox.GetExtraErrorInformationRequest\x1a,.sdksandbox.GetExtraErrorInformationResponse\x12\x90\x01\n" +
-	"!GetRequestSurfacePackageErrorCode\x124.sdksandbox.GetRequestSurfacePackageErrorCodeRequest\x1a5.sdksandbox.GetRequestSurfacePackageErrorCodeResponse2\xe4\x03\n" +
-	"\x13SandboxedSdkService\x12Z\n" +
-	"\x0fNewSandboxedSdk\x12\".sdksandbox.NewSandboxedSdkRequest\x1a#.sdksandbox.NewSandboxedSdkResponse\x12]\n" +
-	"\x10DescribeContents\x12#.sdksandbox.DescribeContentsRequest\x1a$.sdksandbox.DescribeContentsResponse\x12Q\n" +
-	"\fGetInterface\x12\x1f.sdksandbox.GetInterfaceRequest\x1a .sdksandbox.GetInterfaceResponse\x12i\n" +
-	"\x14GetSharedLibraryInfo\x12'.sdksandbox.GetSharedLibraryInfoRequest\x1a(.sdksandbox.GetSharedLibraryInfoResponse\x12T\n" +
 	"\rWriteToParcel\x12 .sdksandbox.WriteToParcelRequest\x1a!.sdksandbox.WriteToParcelResponse2\x86\x04\n" +
 	"\x17LoadSdkExceptionService\x12f\n" +
 	"\x13NewLoadSdkException\x12&.sdksandbox.NewLoadSdkExceptionRequest\x1a'.sdksandbox.NewLoadSdkExceptionResponse\x12]\n" +
@@ -2540,130 +2793,142 @@ func file_proto_sdksandbox_sdksandbox_proto_rawDescGZIP() []byte {
 	return file_proto_sdksandbox_sdksandbox_proto_rawDescData
 }
 
-var file_proto_sdksandbox_sdksandbox_proto_msgTypes = make([]protoimpl.MessageInfo, 54)
+var file_proto_sdksandbox_sdksandbox_proto_msgTypes = make([]protoimpl.MessageInfo, 60)
 var file_proto_sdksandbox_sdksandbox_proto_goTypes = []any{
-	(*AttachContextRequest)(nil),                          // 0: sdksandbox.AttachContextRequest
-	(*AttachContextResponse)(nil),                         // 1: sdksandbox.AttachContextResponse
-	(*BeforeUnloadSdkRequest)(nil),                        // 2: sdksandbox.BeforeUnloadSdkRequest
-	(*BeforeUnloadSdkResponse)(nil),                       // 3: sdksandbox.BeforeUnloadSdkResponse
-	(*GetContextRequest)(nil),                             // 4: sdksandbox.GetContextRequest
-	(*GetContextResponse)(nil),                            // 5: sdksandbox.GetContextResponse
-	(*GetViewRequest)(nil),                                // 6: sdksandbox.GetViewRequest
-	(*GetViewResponse)(nil),                               // 7: sdksandbox.GetViewResponse
-	(*OnLoadSdkRequest)(nil),                              // 8: sdksandbox.OnLoadSdkRequest
-	(*OnLoadSdkResponse)(nil),                             // 9: sdksandbox.OnLoadSdkResponse
-	(*AddSdkSandboxProcessDeathCallbackRequest)(nil),      // 10: sdksandbox.AddSdkSandboxProcessDeathCallbackRequest
-	(*AddSdkSandboxProcessDeathCallbackResponse)(nil),     // 11: sdksandbox.AddSdkSandboxProcessDeathCallbackResponse
-	(*RegisterAppOwnedSdkSandboxInterfaceRequest)(nil),    // 12: sdksandbox.RegisterAppOwnedSdkSandboxInterfaceRequest
-	(*RegisterAppOwnedSdkSandboxInterfaceResponse)(nil),   // 13: sdksandbox.RegisterAppOwnedSdkSandboxInterfaceResponse
-	(*RemoveSdkSandboxProcessDeathCallbackRequest)(nil),   // 14: sdksandbox.RemoveSdkSandboxProcessDeathCallbackRequest
-	(*RemoveSdkSandboxProcessDeathCallbackResponse)(nil),  // 15: sdksandbox.RemoveSdkSandboxProcessDeathCallbackResponse
-	(*StartSdkSandboxActivityRequest)(nil),                // 16: sdksandbox.StartSdkSandboxActivityRequest
-	(*StartSdkSandboxActivityResponse)(nil),               // 17: sdksandbox.StartSdkSandboxActivityResponse
-	(*UnloadSdkRequest)(nil),                              // 18: sdksandbox.UnloadSdkRequest
-	(*UnloadSdkResponse)(nil),                             // 19: sdksandbox.UnloadSdkResponse
-	(*UnregisterAppOwnedSdkSandboxInterfaceRequest)(nil),  // 20: sdksandbox.UnregisterAppOwnedSdkSandboxInterfaceRequest
-	(*UnregisterAppOwnedSdkSandboxInterfaceResponse)(nil), // 21: sdksandbox.UnregisterAppOwnedSdkSandboxInterfaceResponse
-	(*GetSdkSandboxStateRequest)(nil),                     // 22: sdksandbox.GetSdkSandboxStateRequest
-	(*GetSdkSandboxStateResponse)(nil),                    // 23: sdksandbox.GetSdkSandboxStateResponse
-	(*OnSdkSandboxDiedRequest)(nil),                       // 24: sdksandbox.OnSdkSandboxDiedRequest
-	(*OnSdkSandboxDiedResponse)(nil),                      // 25: sdksandbox.OnSdkSandboxDiedResponse
-	(*NewAppOwnedSdkSandboxInterfaceRequest)(nil),         // 26: sdksandbox.NewAppOwnedSdkSandboxInterfaceRequest
-	(*NewAppOwnedSdkSandboxInterfaceResponse)(nil),        // 27: sdksandbox.NewAppOwnedSdkSandboxInterfaceResponse
-	(*DescribeContentsRequest)(nil),                       // 28: sdksandbox.DescribeContentsRequest
-	(*DescribeContentsResponse)(nil),                      // 29: sdksandbox.DescribeContentsResponse
-	(*GetInterfaceRequest)(nil),                           // 30: sdksandbox.GetInterfaceRequest
-	(*GetInterfaceResponse)(nil),                          // 31: sdksandbox.GetInterfaceResponse
-	(*GetNameRequest)(nil),                                // 32: sdksandbox.GetNameRequest
-	(*GetNameResponse)(nil),                               // 33: sdksandbox.GetNameResponse
-	(*GetVersionRequest)(nil),                             // 34: sdksandbox.GetVersionRequest
-	(*GetVersionResponse)(nil),                            // 35: sdksandbox.GetVersionResponse
-	(*WriteToParcelRequest)(nil),                          // 36: sdksandbox.WriteToParcelRequest
-	(*WriteToParcelResponse)(nil),                         // 37: sdksandbox.WriteToParcelResponse
-	(*NewRequestSurfacePackageExceptionRequest)(nil),      // 38: sdksandbox.NewRequestSurfacePackageExceptionRequest
-	(*NewRequestSurfacePackageExceptionResponse)(nil),     // 39: sdksandbox.NewRequestSurfacePackageExceptionResponse
-	(*GetExtraErrorInformationRequest)(nil),               // 40: sdksandbox.GetExtraErrorInformationRequest
-	(*GetExtraErrorInformationResponse)(nil),              // 41: sdksandbox.GetExtraErrorInformationResponse
-	(*GetRequestSurfacePackageErrorCodeRequest)(nil),      // 42: sdksandbox.GetRequestSurfacePackageErrorCodeRequest
-	(*GetRequestSurfacePackageErrorCodeResponse)(nil),     // 43: sdksandbox.GetRequestSurfacePackageErrorCodeResponse
-	(*NewSandboxedSdkRequest)(nil),                        // 44: sdksandbox.NewSandboxedSdkRequest
-	(*NewSandboxedSdkResponse)(nil),                       // 45: sdksandbox.NewSandboxedSdkResponse
-	(*GetSharedLibraryInfoRequest)(nil),                   // 46: sdksandbox.GetSharedLibraryInfoRequest
-	(*GetSharedLibraryInfoResponse)(nil),                  // 47: sdksandbox.GetSharedLibraryInfoResponse
-	(*NewLoadSdkExceptionRequest)(nil),                    // 48: sdksandbox.NewLoadSdkExceptionRequest
-	(*NewLoadSdkExceptionResponse)(nil),                   // 49: sdksandbox.NewLoadSdkExceptionResponse
-	(*GetExtraInformationRequest)(nil),                    // 50: sdksandbox.GetExtraInformationRequest
-	(*GetExtraInformationResponse)(nil),                   // 51: sdksandbox.GetExtraInformationResponse
-	(*GetLoadSdkErrorCodeRequest)(nil),                    // 52: sdksandbox.GetLoadSdkErrorCodeRequest
-	(*GetLoadSdkErrorCodeResponse)(nil),                   // 53: sdksandbox.GetLoadSdkErrorCodeResponse
+	(*NewRequestSurfacePackageExceptionRequest)(nil),      // 0: sdksandbox.NewRequestSurfacePackageExceptionRequest
+	(*NewRequestSurfacePackageExceptionResponse)(nil),     // 1: sdksandbox.NewRequestSurfacePackageExceptionResponse
+	(*GetExtraErrorInformationRequest)(nil),               // 2: sdksandbox.GetExtraErrorInformationRequest
+	(*GetExtraErrorInformationResponse)(nil),              // 3: sdksandbox.GetExtraErrorInformationResponse
+	(*GetRequestSurfacePackageErrorCodeRequest)(nil),      // 4: sdksandbox.GetRequestSurfacePackageErrorCodeRequest
+	(*GetRequestSurfacePackageErrorCodeResponse)(nil),     // 5: sdksandbox.GetRequestSurfacePackageErrorCodeResponse
+	(*AttachContextRequest)(nil),                          // 6: sdksandbox.AttachContextRequest
+	(*AttachContextResponse)(nil),                         // 7: sdksandbox.AttachContextResponse
+	(*BeforeUnloadSdkRequest)(nil),                        // 8: sdksandbox.BeforeUnloadSdkRequest
+	(*BeforeUnloadSdkResponse)(nil),                       // 9: sdksandbox.BeforeUnloadSdkResponse
+	(*GetContextRequest)(nil),                             // 10: sdksandbox.GetContextRequest
+	(*GetContextResponse)(nil),                            // 11: sdksandbox.GetContextResponse
+	(*GetViewRequest)(nil),                                // 12: sdksandbox.GetViewRequest
+	(*GetViewResponse)(nil),                               // 13: sdksandbox.GetViewResponse
+	(*OnLoadSdkRequest)(nil),                              // 14: sdksandbox.OnLoadSdkRequest
+	(*OnLoadSdkResponse)(nil),                             // 15: sdksandbox.OnLoadSdkResponse
+	(*AddSdkSandboxProcessDeathCallbackRequest)(nil),      // 16: sdksandbox.AddSdkSandboxProcessDeathCallbackRequest
+	(*AddSdkSandboxProcessDeathCallbackResponse)(nil),     // 17: sdksandbox.AddSdkSandboxProcessDeathCallbackResponse
+	(*GetAppOwnedSdkSandboxInterfacesRequest)(nil),        // 18: sdksandbox.GetAppOwnedSdkSandboxInterfacesRequest
+	(*GetAppOwnedSdkSandboxInterfacesResponse)(nil),       // 19: sdksandbox.GetAppOwnedSdkSandboxInterfacesResponse
+	(*GetSandboxedSdksRequest)(nil),                       // 20: sdksandbox.GetSandboxedSdksRequest
+	(*GetSandboxedSdksResponse)(nil),                      // 21: sdksandbox.GetSandboxedSdksResponse
+	(*GetSyncedSharedPreferencesKeysRequest)(nil),         // 22: sdksandbox.GetSyncedSharedPreferencesKeysRequest
+	(*GetSyncedSharedPreferencesKeysResponse)(nil),        // 23: sdksandbox.GetSyncedSharedPreferencesKeysResponse
+	(*RegisterAppOwnedSdkSandboxInterfaceRequest)(nil),    // 24: sdksandbox.RegisterAppOwnedSdkSandboxInterfaceRequest
+	(*RegisterAppOwnedSdkSandboxInterfaceResponse)(nil),   // 25: sdksandbox.RegisterAppOwnedSdkSandboxInterfaceResponse
+	(*RemoveSdkSandboxProcessDeathCallbackRequest)(nil),   // 26: sdksandbox.RemoveSdkSandboxProcessDeathCallbackRequest
+	(*RemoveSdkSandboxProcessDeathCallbackResponse)(nil),  // 27: sdksandbox.RemoveSdkSandboxProcessDeathCallbackResponse
+	(*StartSdkSandboxActivityRequest)(nil),                // 28: sdksandbox.StartSdkSandboxActivityRequest
+	(*StartSdkSandboxActivityResponse)(nil),               // 29: sdksandbox.StartSdkSandboxActivityResponse
+	(*UnloadSdkRequest)(nil),                              // 30: sdksandbox.UnloadSdkRequest
+	(*UnloadSdkResponse)(nil),                             // 31: sdksandbox.UnloadSdkResponse
+	(*UnregisterAppOwnedSdkSandboxInterfaceRequest)(nil),  // 32: sdksandbox.UnregisterAppOwnedSdkSandboxInterfaceRequest
+	(*UnregisterAppOwnedSdkSandboxInterfaceResponse)(nil), // 33: sdksandbox.UnregisterAppOwnedSdkSandboxInterfaceResponse
+	(*GetSdkSandboxStateRequest)(nil),                     // 34: sdksandbox.GetSdkSandboxStateRequest
+	(*GetSdkSandboxStateResponse)(nil),                    // 35: sdksandbox.GetSdkSandboxStateResponse
+	(*OnSdkSandboxDiedRequest)(nil),                       // 36: sdksandbox.OnSdkSandboxDiedRequest
+	(*OnSdkSandboxDiedResponse)(nil),                      // 37: sdksandbox.OnSdkSandboxDiedResponse
+	(*NewSandboxedSdkRequest)(nil),                        // 38: sdksandbox.NewSandboxedSdkRequest
+	(*NewSandboxedSdkResponse)(nil),                       // 39: sdksandbox.NewSandboxedSdkResponse
+	(*DescribeContentsRequest)(nil),                       // 40: sdksandbox.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),                      // 41: sdksandbox.DescribeContentsResponse
+	(*GetInterfaceRequest)(nil),                           // 42: sdksandbox.GetInterfaceRequest
+	(*GetInterfaceResponse)(nil),                          // 43: sdksandbox.GetInterfaceResponse
+	(*GetSharedLibraryInfoRequest)(nil),                   // 44: sdksandbox.GetSharedLibraryInfoRequest
+	(*GetSharedLibraryInfoResponse)(nil),                  // 45: sdksandbox.GetSharedLibraryInfoResponse
+	(*WriteToParcelRequest)(nil),                          // 46: sdksandbox.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                         // 47: sdksandbox.WriteToParcelResponse
+	(*NewAppOwnedSdkSandboxInterfaceRequest)(nil),         // 48: sdksandbox.NewAppOwnedSdkSandboxInterfaceRequest
+	(*NewAppOwnedSdkSandboxInterfaceResponse)(nil),        // 49: sdksandbox.NewAppOwnedSdkSandboxInterfaceResponse
+	(*GetNameRequest)(nil),                                // 50: sdksandbox.GetNameRequest
+	(*GetNameResponse)(nil),                               // 51: sdksandbox.GetNameResponse
+	(*GetVersionRequest)(nil),                             // 52: sdksandbox.GetVersionRequest
+	(*GetVersionResponse)(nil),                            // 53: sdksandbox.GetVersionResponse
+	(*NewLoadSdkExceptionRequest)(nil),                    // 54: sdksandbox.NewLoadSdkExceptionRequest
+	(*NewLoadSdkExceptionResponse)(nil),                   // 55: sdksandbox.NewLoadSdkExceptionResponse
+	(*GetExtraInformationRequest)(nil),                    // 56: sdksandbox.GetExtraInformationRequest
+	(*GetExtraInformationResponse)(nil),                   // 57: sdksandbox.GetExtraInformationResponse
+	(*GetLoadSdkErrorCodeRequest)(nil),                    // 58: sdksandbox.GetLoadSdkErrorCodeRequest
+	(*GetLoadSdkErrorCodeResponse)(nil),                   // 59: sdksandbox.GetLoadSdkErrorCodeResponse
 }
 var file_proto_sdksandbox_sdksandbox_proto_depIdxs = []int32{
-	0,  // 0: sdksandbox.SandboxedSdkProviderService.AttachContext:input_type -> sdksandbox.AttachContextRequest
-	2,  // 1: sdksandbox.SandboxedSdkProviderService.BeforeUnloadSdk:input_type -> sdksandbox.BeforeUnloadSdkRequest
-	4,  // 2: sdksandbox.SandboxedSdkProviderService.GetContext:input_type -> sdksandbox.GetContextRequest
-	6,  // 3: sdksandbox.SandboxedSdkProviderService.GetView:input_type -> sdksandbox.GetViewRequest
-	8,  // 4: sdksandbox.SandboxedSdkProviderService.OnLoadSdk:input_type -> sdksandbox.OnLoadSdkRequest
-	10, // 5: sdksandbox.SdkSandboxManagerService.AddSdkSandboxProcessDeathCallback:input_type -> sdksandbox.AddSdkSandboxProcessDeathCallbackRequest
-	12, // 6: sdksandbox.SdkSandboxManagerService.RegisterAppOwnedSdkSandboxInterface:input_type -> sdksandbox.RegisterAppOwnedSdkSandboxInterfaceRequest
-	14, // 7: sdksandbox.SdkSandboxManagerService.RemoveSdkSandboxProcessDeathCallback:input_type -> sdksandbox.RemoveSdkSandboxProcessDeathCallbackRequest
-	16, // 8: sdksandbox.SdkSandboxManagerService.StartSdkSandboxActivity:input_type -> sdksandbox.StartSdkSandboxActivityRequest
-	18, // 9: sdksandbox.SdkSandboxManagerService.UnloadSdk:input_type -> sdksandbox.UnloadSdkRequest
-	20, // 10: sdksandbox.SdkSandboxManagerService.UnregisterAppOwnedSdkSandboxInterface:input_type -> sdksandbox.UnregisterAppOwnedSdkSandboxInterfaceRequest
-	22, // 11: sdksandbox.SdkSandboxManagerService.GetSdkSandboxState:input_type -> sdksandbox.GetSdkSandboxStateRequest
-	24, // 12: sdksandbox.SdkSandboxManagerSdkSandboxProcessDeathCallbackService.OnSdkSandboxDied:input_type -> sdksandbox.OnSdkSandboxDiedRequest
-	26, // 13: sdksandbox.AppOwnedSdkSandboxInterfaceService.NewAppOwnedSdkSandboxInterface:input_type -> sdksandbox.NewAppOwnedSdkSandboxInterfaceRequest
-	28, // 14: sdksandbox.AppOwnedSdkSandboxInterfaceService.DescribeContents:input_type -> sdksandbox.DescribeContentsRequest
-	30, // 15: sdksandbox.AppOwnedSdkSandboxInterfaceService.GetInterface:input_type -> sdksandbox.GetInterfaceRequest
-	32, // 16: sdksandbox.AppOwnedSdkSandboxInterfaceService.GetName:input_type -> sdksandbox.GetNameRequest
-	34, // 17: sdksandbox.AppOwnedSdkSandboxInterfaceService.GetVersion:input_type -> sdksandbox.GetVersionRequest
-	36, // 18: sdksandbox.AppOwnedSdkSandboxInterfaceService.WriteToParcel:input_type -> sdksandbox.WriteToParcelRequest
-	38, // 19: sdksandbox.RequestSurfacePackageExceptionService.NewRequestSurfacePackageException:input_type -> sdksandbox.NewRequestSurfacePackageExceptionRequest
-	40, // 20: sdksandbox.RequestSurfacePackageExceptionService.GetExtraErrorInformation:input_type -> sdksandbox.GetExtraErrorInformationRequest
-	42, // 21: sdksandbox.RequestSurfacePackageExceptionService.GetRequestSurfacePackageErrorCode:input_type -> sdksandbox.GetRequestSurfacePackageErrorCodeRequest
-	44, // 22: sdksandbox.SandboxedSdkService.NewSandboxedSdk:input_type -> sdksandbox.NewSandboxedSdkRequest
-	28, // 23: sdksandbox.SandboxedSdkService.DescribeContents:input_type -> sdksandbox.DescribeContentsRequest
-	30, // 24: sdksandbox.SandboxedSdkService.GetInterface:input_type -> sdksandbox.GetInterfaceRequest
-	46, // 25: sdksandbox.SandboxedSdkService.GetSharedLibraryInfo:input_type -> sdksandbox.GetSharedLibraryInfoRequest
-	36, // 26: sdksandbox.SandboxedSdkService.WriteToParcel:input_type -> sdksandbox.WriteToParcelRequest
-	48, // 27: sdksandbox.LoadSdkExceptionService.NewLoadSdkException:input_type -> sdksandbox.NewLoadSdkExceptionRequest
-	28, // 28: sdksandbox.LoadSdkExceptionService.DescribeContents:input_type -> sdksandbox.DescribeContentsRequest
-	50, // 29: sdksandbox.LoadSdkExceptionService.GetExtraInformation:input_type -> sdksandbox.GetExtraInformationRequest
-	52, // 30: sdksandbox.LoadSdkExceptionService.GetLoadSdkErrorCode:input_type -> sdksandbox.GetLoadSdkErrorCodeRequest
-	36, // 31: sdksandbox.LoadSdkExceptionService.WriteToParcel:input_type -> sdksandbox.WriteToParcelRequest
-	1,  // 32: sdksandbox.SandboxedSdkProviderService.AttachContext:output_type -> sdksandbox.AttachContextResponse
-	3,  // 33: sdksandbox.SandboxedSdkProviderService.BeforeUnloadSdk:output_type -> sdksandbox.BeforeUnloadSdkResponse
-	5,  // 34: sdksandbox.SandboxedSdkProviderService.GetContext:output_type -> sdksandbox.GetContextResponse
-	7,  // 35: sdksandbox.SandboxedSdkProviderService.GetView:output_type -> sdksandbox.GetViewResponse
-	9,  // 36: sdksandbox.SandboxedSdkProviderService.OnLoadSdk:output_type -> sdksandbox.OnLoadSdkResponse
-	11, // 37: sdksandbox.SdkSandboxManagerService.AddSdkSandboxProcessDeathCallback:output_type -> sdksandbox.AddSdkSandboxProcessDeathCallbackResponse
-	13, // 38: sdksandbox.SdkSandboxManagerService.RegisterAppOwnedSdkSandboxInterface:output_type -> sdksandbox.RegisterAppOwnedSdkSandboxInterfaceResponse
-	15, // 39: sdksandbox.SdkSandboxManagerService.RemoveSdkSandboxProcessDeathCallback:output_type -> sdksandbox.RemoveSdkSandboxProcessDeathCallbackResponse
-	17, // 40: sdksandbox.SdkSandboxManagerService.StartSdkSandboxActivity:output_type -> sdksandbox.StartSdkSandboxActivityResponse
-	19, // 41: sdksandbox.SdkSandboxManagerService.UnloadSdk:output_type -> sdksandbox.UnloadSdkResponse
-	21, // 42: sdksandbox.SdkSandboxManagerService.UnregisterAppOwnedSdkSandboxInterface:output_type -> sdksandbox.UnregisterAppOwnedSdkSandboxInterfaceResponse
-	23, // 43: sdksandbox.SdkSandboxManagerService.GetSdkSandboxState:output_type -> sdksandbox.GetSdkSandboxStateResponse
-	25, // 44: sdksandbox.SdkSandboxManagerSdkSandboxProcessDeathCallbackService.OnSdkSandboxDied:output_type -> sdksandbox.OnSdkSandboxDiedResponse
-	27, // 45: sdksandbox.AppOwnedSdkSandboxInterfaceService.NewAppOwnedSdkSandboxInterface:output_type -> sdksandbox.NewAppOwnedSdkSandboxInterfaceResponse
-	29, // 46: sdksandbox.AppOwnedSdkSandboxInterfaceService.DescribeContents:output_type -> sdksandbox.DescribeContentsResponse
-	31, // 47: sdksandbox.AppOwnedSdkSandboxInterfaceService.GetInterface:output_type -> sdksandbox.GetInterfaceResponse
-	33, // 48: sdksandbox.AppOwnedSdkSandboxInterfaceService.GetName:output_type -> sdksandbox.GetNameResponse
-	35, // 49: sdksandbox.AppOwnedSdkSandboxInterfaceService.GetVersion:output_type -> sdksandbox.GetVersionResponse
-	37, // 50: sdksandbox.AppOwnedSdkSandboxInterfaceService.WriteToParcel:output_type -> sdksandbox.WriteToParcelResponse
-	39, // 51: sdksandbox.RequestSurfacePackageExceptionService.NewRequestSurfacePackageException:output_type -> sdksandbox.NewRequestSurfacePackageExceptionResponse
-	41, // 52: sdksandbox.RequestSurfacePackageExceptionService.GetExtraErrorInformation:output_type -> sdksandbox.GetExtraErrorInformationResponse
-	43, // 53: sdksandbox.RequestSurfacePackageExceptionService.GetRequestSurfacePackageErrorCode:output_type -> sdksandbox.GetRequestSurfacePackageErrorCodeResponse
-	45, // 54: sdksandbox.SandboxedSdkService.NewSandboxedSdk:output_type -> sdksandbox.NewSandboxedSdkResponse
-	29, // 55: sdksandbox.SandboxedSdkService.DescribeContents:output_type -> sdksandbox.DescribeContentsResponse
-	31, // 56: sdksandbox.SandboxedSdkService.GetInterface:output_type -> sdksandbox.GetInterfaceResponse
-	47, // 57: sdksandbox.SandboxedSdkService.GetSharedLibraryInfo:output_type -> sdksandbox.GetSharedLibraryInfoResponse
-	37, // 58: sdksandbox.SandboxedSdkService.WriteToParcel:output_type -> sdksandbox.WriteToParcelResponse
-	49, // 59: sdksandbox.LoadSdkExceptionService.NewLoadSdkException:output_type -> sdksandbox.NewLoadSdkExceptionResponse
-	29, // 60: sdksandbox.LoadSdkExceptionService.DescribeContents:output_type -> sdksandbox.DescribeContentsResponse
-	51, // 61: sdksandbox.LoadSdkExceptionService.GetExtraInformation:output_type -> sdksandbox.GetExtraInformationResponse
-	53, // 62: sdksandbox.LoadSdkExceptionService.GetLoadSdkErrorCode:output_type -> sdksandbox.GetLoadSdkErrorCodeResponse
-	37, // 63: sdksandbox.LoadSdkExceptionService.WriteToParcel:output_type -> sdksandbox.WriteToParcelResponse
-	32, // [32:64] is the sub-list for method output_type
-	0,  // [0:32] is the sub-list for method input_type
+	0,  // 0: sdksandbox.RequestSurfacePackageExceptionService.NewRequestSurfacePackageException:input_type -> sdksandbox.NewRequestSurfacePackageExceptionRequest
+	2,  // 1: sdksandbox.RequestSurfacePackageExceptionService.GetExtraErrorInformation:input_type -> sdksandbox.GetExtraErrorInformationRequest
+	4,  // 2: sdksandbox.RequestSurfacePackageExceptionService.GetRequestSurfacePackageErrorCode:input_type -> sdksandbox.GetRequestSurfacePackageErrorCodeRequest
+	6,  // 3: sdksandbox.SandboxedSdkProviderService.AttachContext:input_type -> sdksandbox.AttachContextRequest
+	8,  // 4: sdksandbox.SandboxedSdkProviderService.BeforeUnloadSdk:input_type -> sdksandbox.BeforeUnloadSdkRequest
+	10, // 5: sdksandbox.SandboxedSdkProviderService.GetContext:input_type -> sdksandbox.GetContextRequest
+	12, // 6: sdksandbox.SandboxedSdkProviderService.GetView:input_type -> sdksandbox.GetViewRequest
+	14, // 7: sdksandbox.SandboxedSdkProviderService.OnLoadSdk:input_type -> sdksandbox.OnLoadSdkRequest
+	16, // 8: sdksandbox.SdkSandboxManagerService.AddSdkSandboxProcessDeathCallback:input_type -> sdksandbox.AddSdkSandboxProcessDeathCallbackRequest
+	18, // 9: sdksandbox.SdkSandboxManagerService.GetAppOwnedSdkSandboxInterfaces:input_type -> sdksandbox.GetAppOwnedSdkSandboxInterfacesRequest
+	20, // 10: sdksandbox.SdkSandboxManagerService.GetSandboxedSdks:input_type -> sdksandbox.GetSandboxedSdksRequest
+	22, // 11: sdksandbox.SdkSandboxManagerService.GetSyncedSharedPreferencesKeys:input_type -> sdksandbox.GetSyncedSharedPreferencesKeysRequest
+	24, // 12: sdksandbox.SdkSandboxManagerService.RegisterAppOwnedSdkSandboxInterface:input_type -> sdksandbox.RegisterAppOwnedSdkSandboxInterfaceRequest
+	26, // 13: sdksandbox.SdkSandboxManagerService.RemoveSdkSandboxProcessDeathCallback:input_type -> sdksandbox.RemoveSdkSandboxProcessDeathCallbackRequest
+	28, // 14: sdksandbox.SdkSandboxManagerService.StartSdkSandboxActivity:input_type -> sdksandbox.StartSdkSandboxActivityRequest
+	30, // 15: sdksandbox.SdkSandboxManagerService.UnloadSdk:input_type -> sdksandbox.UnloadSdkRequest
+	32, // 16: sdksandbox.SdkSandboxManagerService.UnregisterAppOwnedSdkSandboxInterface:input_type -> sdksandbox.UnregisterAppOwnedSdkSandboxInterfaceRequest
+	34, // 17: sdksandbox.SdkSandboxManagerService.GetSdkSandboxState:input_type -> sdksandbox.GetSdkSandboxStateRequest
+	36, // 18: sdksandbox.SdkSandboxManagerSdkSandboxProcessDeathCallbackService.OnSdkSandboxDied:input_type -> sdksandbox.OnSdkSandboxDiedRequest
+	38, // 19: sdksandbox.SandboxedSdkService.NewSandboxedSdk:input_type -> sdksandbox.NewSandboxedSdkRequest
+	40, // 20: sdksandbox.SandboxedSdkService.DescribeContents:input_type -> sdksandbox.DescribeContentsRequest
+	42, // 21: sdksandbox.SandboxedSdkService.GetInterface:input_type -> sdksandbox.GetInterfaceRequest
+	44, // 22: sdksandbox.SandboxedSdkService.GetSharedLibraryInfo:input_type -> sdksandbox.GetSharedLibraryInfoRequest
+	46, // 23: sdksandbox.SandboxedSdkService.WriteToParcel:input_type -> sdksandbox.WriteToParcelRequest
+	48, // 24: sdksandbox.AppOwnedSdkSandboxInterfaceService.NewAppOwnedSdkSandboxInterface:input_type -> sdksandbox.NewAppOwnedSdkSandboxInterfaceRequest
+	40, // 25: sdksandbox.AppOwnedSdkSandboxInterfaceService.DescribeContents:input_type -> sdksandbox.DescribeContentsRequest
+	42, // 26: sdksandbox.AppOwnedSdkSandboxInterfaceService.GetInterface:input_type -> sdksandbox.GetInterfaceRequest
+	50, // 27: sdksandbox.AppOwnedSdkSandboxInterfaceService.GetName:input_type -> sdksandbox.GetNameRequest
+	52, // 28: sdksandbox.AppOwnedSdkSandboxInterfaceService.GetVersion:input_type -> sdksandbox.GetVersionRequest
+	46, // 29: sdksandbox.AppOwnedSdkSandboxInterfaceService.WriteToParcel:input_type -> sdksandbox.WriteToParcelRequest
+	54, // 30: sdksandbox.LoadSdkExceptionService.NewLoadSdkException:input_type -> sdksandbox.NewLoadSdkExceptionRequest
+	40, // 31: sdksandbox.LoadSdkExceptionService.DescribeContents:input_type -> sdksandbox.DescribeContentsRequest
+	56, // 32: sdksandbox.LoadSdkExceptionService.GetExtraInformation:input_type -> sdksandbox.GetExtraInformationRequest
+	58, // 33: sdksandbox.LoadSdkExceptionService.GetLoadSdkErrorCode:input_type -> sdksandbox.GetLoadSdkErrorCodeRequest
+	46, // 34: sdksandbox.LoadSdkExceptionService.WriteToParcel:input_type -> sdksandbox.WriteToParcelRequest
+	1,  // 35: sdksandbox.RequestSurfacePackageExceptionService.NewRequestSurfacePackageException:output_type -> sdksandbox.NewRequestSurfacePackageExceptionResponse
+	3,  // 36: sdksandbox.RequestSurfacePackageExceptionService.GetExtraErrorInformation:output_type -> sdksandbox.GetExtraErrorInformationResponse
+	5,  // 37: sdksandbox.RequestSurfacePackageExceptionService.GetRequestSurfacePackageErrorCode:output_type -> sdksandbox.GetRequestSurfacePackageErrorCodeResponse
+	7,  // 38: sdksandbox.SandboxedSdkProviderService.AttachContext:output_type -> sdksandbox.AttachContextResponse
+	9,  // 39: sdksandbox.SandboxedSdkProviderService.BeforeUnloadSdk:output_type -> sdksandbox.BeforeUnloadSdkResponse
+	11, // 40: sdksandbox.SandboxedSdkProviderService.GetContext:output_type -> sdksandbox.GetContextResponse
+	13, // 41: sdksandbox.SandboxedSdkProviderService.GetView:output_type -> sdksandbox.GetViewResponse
+	15, // 42: sdksandbox.SandboxedSdkProviderService.OnLoadSdk:output_type -> sdksandbox.OnLoadSdkResponse
+	17, // 43: sdksandbox.SdkSandboxManagerService.AddSdkSandboxProcessDeathCallback:output_type -> sdksandbox.AddSdkSandboxProcessDeathCallbackResponse
+	19, // 44: sdksandbox.SdkSandboxManagerService.GetAppOwnedSdkSandboxInterfaces:output_type -> sdksandbox.GetAppOwnedSdkSandboxInterfacesResponse
+	21, // 45: sdksandbox.SdkSandboxManagerService.GetSandboxedSdks:output_type -> sdksandbox.GetSandboxedSdksResponse
+	23, // 46: sdksandbox.SdkSandboxManagerService.GetSyncedSharedPreferencesKeys:output_type -> sdksandbox.GetSyncedSharedPreferencesKeysResponse
+	25, // 47: sdksandbox.SdkSandboxManagerService.RegisterAppOwnedSdkSandboxInterface:output_type -> sdksandbox.RegisterAppOwnedSdkSandboxInterfaceResponse
+	27, // 48: sdksandbox.SdkSandboxManagerService.RemoveSdkSandboxProcessDeathCallback:output_type -> sdksandbox.RemoveSdkSandboxProcessDeathCallbackResponse
+	29, // 49: sdksandbox.SdkSandboxManagerService.StartSdkSandboxActivity:output_type -> sdksandbox.StartSdkSandboxActivityResponse
+	31, // 50: sdksandbox.SdkSandboxManagerService.UnloadSdk:output_type -> sdksandbox.UnloadSdkResponse
+	33, // 51: sdksandbox.SdkSandboxManagerService.UnregisterAppOwnedSdkSandboxInterface:output_type -> sdksandbox.UnregisterAppOwnedSdkSandboxInterfaceResponse
+	35, // 52: sdksandbox.SdkSandboxManagerService.GetSdkSandboxState:output_type -> sdksandbox.GetSdkSandboxStateResponse
+	37, // 53: sdksandbox.SdkSandboxManagerSdkSandboxProcessDeathCallbackService.OnSdkSandboxDied:output_type -> sdksandbox.OnSdkSandboxDiedResponse
+	39, // 54: sdksandbox.SandboxedSdkService.NewSandboxedSdk:output_type -> sdksandbox.NewSandboxedSdkResponse
+	41, // 55: sdksandbox.SandboxedSdkService.DescribeContents:output_type -> sdksandbox.DescribeContentsResponse
+	43, // 56: sdksandbox.SandboxedSdkService.GetInterface:output_type -> sdksandbox.GetInterfaceResponse
+	45, // 57: sdksandbox.SandboxedSdkService.GetSharedLibraryInfo:output_type -> sdksandbox.GetSharedLibraryInfoResponse
+	47, // 58: sdksandbox.SandboxedSdkService.WriteToParcel:output_type -> sdksandbox.WriteToParcelResponse
+	49, // 59: sdksandbox.AppOwnedSdkSandboxInterfaceService.NewAppOwnedSdkSandboxInterface:output_type -> sdksandbox.NewAppOwnedSdkSandboxInterfaceResponse
+	41, // 60: sdksandbox.AppOwnedSdkSandboxInterfaceService.DescribeContents:output_type -> sdksandbox.DescribeContentsResponse
+	43, // 61: sdksandbox.AppOwnedSdkSandboxInterfaceService.GetInterface:output_type -> sdksandbox.GetInterfaceResponse
+	51, // 62: sdksandbox.AppOwnedSdkSandboxInterfaceService.GetName:output_type -> sdksandbox.GetNameResponse
+	53, // 63: sdksandbox.AppOwnedSdkSandboxInterfaceService.GetVersion:output_type -> sdksandbox.GetVersionResponse
+	47, // 64: sdksandbox.AppOwnedSdkSandboxInterfaceService.WriteToParcel:output_type -> sdksandbox.WriteToParcelResponse
+	55, // 65: sdksandbox.LoadSdkExceptionService.NewLoadSdkException:output_type -> sdksandbox.NewLoadSdkExceptionResponse
+	41, // 66: sdksandbox.LoadSdkExceptionService.DescribeContents:output_type -> sdksandbox.DescribeContentsResponse
+	57, // 67: sdksandbox.LoadSdkExceptionService.GetExtraInformation:output_type -> sdksandbox.GetExtraInformationResponse
+	59, // 68: sdksandbox.LoadSdkExceptionService.GetLoadSdkErrorCode:output_type -> sdksandbox.GetLoadSdkErrorCodeResponse
+	47, // 69: sdksandbox.LoadSdkExceptionService.WriteToParcel:output_type -> sdksandbox.WriteToParcelResponse
+	35, // [35:70] is the sub-list for method output_type
+	0,  // [0:35] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -2680,7 +2945,7 @@ func file_proto_sdksandbox_sdksandbox_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_sdksandbox_sdksandbox_proto_rawDesc), len(file_proto_sdksandbox_sdksandbox_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   54,
+			NumMessages:   60,
 			NumExtensions: 0,
 			NumServices:   7,
 		},

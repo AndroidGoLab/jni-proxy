@@ -12,6 +12,236 @@ var rawCmd = &cobra.Command{
 	Short: "raw service operations",
 }
 
+var rawResponderRangingConfigCmd = &cobra.Command{
+	Use:   "responder-ranging-config",
+	Short: "ResponderRangingConfigService operations",
+}
+
+var rawResponderRangingConfigDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderRangingConfigServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rawResponderRangingConfigGetRawRangingDeviceCmd = &cobra.Command{
+	Use:   "get-raw-ranging-device",
+	Short: "GetRawRangingDevice RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderRangingConfigServiceClient(grpcConn)
+		req := &pb.GetRawRangingDeviceRequest{}
+		resp, err := client.GetRawRangingDevice(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rawResponderRangingConfigToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderRangingConfigServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rawResponderRangingConfigWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderRangingConfigServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rawResponderRangingConfigBuilderCmd = &cobra.Command{
+	Use:   "responder-ranging-config-builder",
+	Short: "ResponderRangingConfigBuilderService operations",
+}
+
+var rawResponderRangingConfigBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderRangingConfigBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rawResponderRangingConfigBuilderSetRawRangingDeviceCmd = &cobra.Command{
+	Use:   "set-raw-ranging-device",
+	Short: "SetRawRangingDevice RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResponderRangingConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetRawRangingDeviceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRawRangingDevice(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rawInitiatorRangingConfigCmd = &cobra.Command{
+	Use:   "initiator-ranging-config",
+	Short: "InitiatorRangingConfigService operations",
+}
+
+var rawInitiatorRangingConfigDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInitiatorRangingConfigServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rawInitiatorRangingConfigGetRawRangingDevicesCmd = &cobra.Command{
+	Use:   "get-raw-ranging-devices",
+	Short: "GetRawRangingDevices RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInitiatorRangingConfigServiceClient(grpcConn)
+		req := &pb.GetRawRangingDevicesRequest{}
+		resp, err := client.GetRawRangingDevices(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rawInitiatorRangingConfigToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInitiatorRangingConfigServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rawInitiatorRangingConfigWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInitiatorRangingConfigServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rawInitiatorRangingConfigBuilderCmd = &cobra.Command{
+	Use:   "initiator-ranging-config-builder",
+	Short: "InitiatorRangingConfigBuilderService operations",
+}
+
+var rawInitiatorRangingConfigBuilderAddRawRangingDeviceCmd = &cobra.Command{
+	Use:   "add-raw-ranging-device",
+	Short: "AddRawRangingDevice RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInitiatorRangingConfigBuilderServiceClient(grpcConn)
+		req := &pb.AddRawRangingDeviceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddRawRangingDevice(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rawInitiatorRangingConfigBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInitiatorRangingConfigBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var rawRangingDeviceCmd = &cobra.Command{
 	Use:   "ranging-device",
 	Short: "RangingDeviceService operations",
@@ -267,221 +497,29 @@ var rawRangingDeviceBuilderSetUwbRangingParamsCmd = &cobra.Command{
 	},
 }
 
-var rawResponderRangingConfigCmd = &cobra.Command{
-	Use:   "responder-ranging-config",
-	Short: "ResponderRangingConfigService operations",
-}
-
-var rawResponderRangingConfigDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResponderRangingConfigServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rawResponderRangingConfigGetRawRangingDeviceCmd = &cobra.Command{
-	Use:   "get-raw-ranging-device",
-	Short: "GetRawRangingDevice RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResponderRangingConfigServiceClient(grpcConn)
-		req := &pb.GetRawRangingDeviceRequest{}
-		resp, err := client.GetRawRangingDevice(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rawResponderRangingConfigToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResponderRangingConfigServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rawResponderRangingConfigWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResponderRangingConfigServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rawResponderRangingConfigBuilderCmd = &cobra.Command{
-	Use:   "responder-ranging-config-builder",
-	Short: "ResponderRangingConfigBuilderService operations",
-}
-
-var rawResponderRangingConfigBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResponderRangingConfigBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rawResponderRangingConfigBuilderSetRawRangingDeviceCmd = &cobra.Command{
-	Use:   "set-raw-ranging-device",
-	Short: "SetRawRangingDevice RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResponderRangingConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetRawRangingDeviceRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetRawRangingDevice(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rawInitiatorRangingConfigCmd = &cobra.Command{
-	Use:   "initiator-ranging-config",
-	Short: "InitiatorRangingConfigService operations",
-}
-
-var rawInitiatorRangingConfigDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInitiatorRangingConfigServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rawInitiatorRangingConfigToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInitiatorRangingConfigServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rawInitiatorRangingConfigWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInitiatorRangingConfigServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rawInitiatorRangingConfigBuilderCmd = &cobra.Command{
-	Use:   "initiator-ranging-config-builder",
-	Short: "InitiatorRangingConfigBuilderService operations",
-}
-
-var rawInitiatorRangingConfigBuilderAddRawRangingDeviceCmd = &cobra.Command{
-	Use:   "add-raw-ranging-device",
-	Short: "AddRawRangingDevice RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInitiatorRangingConfigBuilderServiceClient(grpcConn)
-		req := &pb.AddRawRangingDeviceRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddRawRangingDevice(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rawInitiatorRangingConfigBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInitiatorRangingConfigBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
+	rawResponderRangingConfigCmd.AddCommand(rawResponderRangingConfigDescribeContentsCmd)
+	rawResponderRangingConfigCmd.AddCommand(rawResponderRangingConfigGetRawRangingDeviceCmd)
+	rawResponderRangingConfigCmd.AddCommand(rawResponderRangingConfigToStringCmd)
+	rawResponderRangingConfigWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	rawResponderRangingConfigWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	rawResponderRangingConfigCmd.AddCommand(rawResponderRangingConfigWriteToParcelCmd)
+	rawCmd.AddCommand(rawResponderRangingConfigCmd)
+	rawResponderRangingConfigBuilderCmd.AddCommand(rawResponderRangingConfigBuilderBuildCmd)
+	rawResponderRangingConfigBuilderSetRawRangingDeviceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	rawResponderRangingConfigBuilderCmd.AddCommand(rawResponderRangingConfigBuilderSetRawRangingDeviceCmd)
+	rawCmd.AddCommand(rawResponderRangingConfigBuilderCmd)
+	rawInitiatorRangingConfigCmd.AddCommand(rawInitiatorRangingConfigDescribeContentsCmd)
+	rawInitiatorRangingConfigCmd.AddCommand(rawInitiatorRangingConfigGetRawRangingDevicesCmd)
+	rawInitiatorRangingConfigCmd.AddCommand(rawInitiatorRangingConfigToStringCmd)
+	rawInitiatorRangingConfigWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	rawInitiatorRangingConfigWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	rawInitiatorRangingConfigCmd.AddCommand(rawInitiatorRangingConfigWriteToParcelCmd)
+	rawCmd.AddCommand(rawInitiatorRangingConfigCmd)
+	rawInitiatorRangingConfigBuilderAddRawRangingDeviceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	rawInitiatorRangingConfigBuilderCmd.AddCommand(rawInitiatorRangingConfigBuilderAddRawRangingDeviceCmd)
+	rawInitiatorRangingConfigBuilderCmd.AddCommand(rawInitiatorRangingConfigBuilderBuildCmd)
+	rawCmd.AddCommand(rawInitiatorRangingConfigBuilderCmd)
 	rawRangingDeviceCmd.AddCommand(rawRangingDeviceDescribeContentsCmd)
 	rawRangingDeviceCmd.AddCommand(rawRangingDeviceGetBleRssiRangingParamsCmd)
 	rawRangingDeviceCmd.AddCommand(rawRangingDeviceGetCsRangingParamsCmd)
@@ -505,26 +543,5 @@ func init() {
 	rawRangingDeviceBuilderSetUwbRangingParamsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	rawRangingDeviceBuilderCmd.AddCommand(rawRangingDeviceBuilderSetUwbRangingParamsCmd)
 	rawCmd.AddCommand(rawRangingDeviceBuilderCmd)
-	rawResponderRangingConfigCmd.AddCommand(rawResponderRangingConfigDescribeContentsCmd)
-	rawResponderRangingConfigCmd.AddCommand(rawResponderRangingConfigGetRawRangingDeviceCmd)
-	rawResponderRangingConfigCmd.AddCommand(rawResponderRangingConfigToStringCmd)
-	rawResponderRangingConfigWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	rawResponderRangingConfigWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	rawResponderRangingConfigCmd.AddCommand(rawResponderRangingConfigWriteToParcelCmd)
-	rawCmd.AddCommand(rawResponderRangingConfigCmd)
-	rawResponderRangingConfigBuilderCmd.AddCommand(rawResponderRangingConfigBuilderBuildCmd)
-	rawResponderRangingConfigBuilderSetRawRangingDeviceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	rawResponderRangingConfigBuilderCmd.AddCommand(rawResponderRangingConfigBuilderSetRawRangingDeviceCmd)
-	rawCmd.AddCommand(rawResponderRangingConfigBuilderCmd)
-	rawInitiatorRangingConfigCmd.AddCommand(rawInitiatorRangingConfigDescribeContentsCmd)
-	rawInitiatorRangingConfigCmd.AddCommand(rawInitiatorRangingConfigToStringCmd)
-	rawInitiatorRangingConfigWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	rawInitiatorRangingConfigWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	rawInitiatorRangingConfigCmd.AddCommand(rawInitiatorRangingConfigWriteToParcelCmd)
-	rawCmd.AddCommand(rawInitiatorRangingConfigCmd)
-	rawInitiatorRangingConfigBuilderAddRawRangingDeviceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	rawInitiatorRangingConfigBuilderCmd.AddCommand(rawInitiatorRangingConfigBuilderAddRawRangingDeviceCmd)
-	rawInitiatorRangingConfigBuilderCmd.AddCommand(rawInitiatorRangingConfigBuilderBuildCmd)
-	rawCmd.AddCommand(rawInitiatorRangingConfigBuilderCmd)
 	rootCmd.AddCommand(rawCmd)
 }

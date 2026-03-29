@@ -15,15 +15,15 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// BassBoostServer implements pb.BassBoostServiceServer.
-type BassBoostServer struct {
-	pb.UnimplementedBassBoostServiceServer
+// PresetReverbServer implements pb.PresetReverbServiceServer.
+type PresetReverbServer struct {
+	pb.UnimplementedPresetReverbServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *BassBoostServer) NewBassBoost(_ context.Context, req *pb.NewBassBoostRequest) (*pb.NewBassBoostResponse, error) {
-	obj, err := jnipkg.NewBassBoost(s.Ctx.VM, req.GetArg0(), req.GetArg1())
+func (s *PresetReverbServer) NewPresetReverb(_ context.Context, req *pb.NewPresetReverbRequest) (*pb.NewPresetReverbResponse, error) {
+	obj, err := jnipkg.NewPresetReverb(s.Ctx.VM, req.GetArg0(), req.GetArg1())
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -34,15 +34,29 @@ func (s *BassBoostServer) NewBassBoost(_ context.Context, req *pb.NewBassBoostRe
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewBassBoostResponse{Result: handle}, nil
+	return &pb.NewPresetReverbResponse{Result: handle}, nil
 }
 
-func (s *BassBoostServer) GetProperties(_ context.Context, req *pb.GetPropertiesRequest) (*pb.GetPropertiesResponse, error) {
+func (s *PresetReverbServer) GetPreset(_ context.Context, req *pb.GetPresetRequest) (*pb.GetPresetResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.BassBoost{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.PresetReverb{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPreset()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetPresetResponse{Result: int32(result)}, nil
+}
+
+func (s *PresetReverbServer) GetProperties(_ context.Context, req *pb.GetPropertiesRequest) (*pb.GetPropertiesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PresetReverb{VM: s.Ctx.VM, Obj: rawObj}
 
 	result, err := mgr.GetProperties()
 	if err != nil {
@@ -60,40 +74,12 @@ func (s *BassBoostServer) GetProperties(_ context.Context, req *pb.GetProperties
 	return &pb.GetPropertiesResponse{Result: handle}, nil
 }
 
-func (s *BassBoostServer) GetRoundedStrength(_ context.Context, req *pb.GetRoundedStrengthRequest) (*pb.GetRoundedStrengthResponse, error) {
+func (s *PresetReverbServer) SetParameterListener(_ context.Context, req *pb.SetParameterListenerRequest) (*pb.SetParameterListenerResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.BassBoost{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetRoundedStrength()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetRoundedStrengthResponse{Result: int32(result)}, nil
-}
-
-func (s *BassBoostServer) GetStrengthSupported(_ context.Context, req *pb.GetStrengthSupportedRequest) (*pb.GetStrengthSupportedResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.BassBoost{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetStrengthSupported()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetStrengthSupportedResponse{Result: result}, nil
-}
-
-func (s *BassBoostServer) SetParameterListener(_ context.Context, req *pb.SetParameterListenerRequest) (*pb.SetParameterListenerResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.BassBoost{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.PresetReverb{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.SetParameterListener(s.Handles.Get(req.GetArg0())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
@@ -101,284 +87,30 @@ func (s *BassBoostServer) SetParameterListener(_ context.Context, req *pb.SetPar
 	return &pb.SetParameterListenerResponse{}, nil
 }
 
-func (s *BassBoostServer) SetProperties(_ context.Context, req *pb.SetPropertiesRequest) (*pb.SetPropertiesResponse, error) {
+func (s *PresetReverbServer) SetPreset(_ context.Context, req *pb.SetPresetRequest) (*pb.SetPresetResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.BassBoost{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.PresetReverb{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetPreset(int16(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetPresetResponse{}, nil
+}
+
+func (s *PresetReverbServer) SetProperties(_ context.Context, req *pb.SetPropertiesRequest) (*pb.SetPropertiesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PresetReverb{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.SetProperties(s.Handles.Get(req.GetArg0())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.SetPropertiesResponse{}, nil
-}
-
-func (s *BassBoostServer) SetStrength(_ context.Context, req *pb.SetStrengthRequest) (*pb.SetStrengthResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.BassBoost{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetStrength(int16(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetStrengthResponse{}, nil
-}
-
-// VisualizerServer implements pb.VisualizerServiceServer.
-type VisualizerServer struct {
-	pb.UnimplementedVisualizerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *VisualizerServer) NewVisualizer(_ context.Context, req *pb.NewVisualizerRequest) (*pb.NewVisualizerResponse, error) {
-	obj, err := jnipkg.NewVisualizer(s.Ctx.VM, req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewVisualizerResponse{Result: handle}, nil
-}
-
-func (s *VisualizerServer) GetCaptureSize(_ context.Context, req *pb.GetCaptureSizeRequest) (*pb.GetCaptureSizeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Visualizer{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetCaptureSize()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetCaptureSizeResponse{Result: result}, nil
-}
-
-func (s *VisualizerServer) GetEnabled(_ context.Context, req *pb.GetEnabledRequest) (*pb.GetEnabledResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Visualizer{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetEnabled()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetEnabledResponse{Result: result}, nil
-}
-
-func (s *VisualizerServer) GetFft(_ context.Context, req *pb.GetFftRequest) (*pb.GetFftResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Visualizer{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetFft(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetFftResponse{Result: result}, nil
-}
-
-func (s *VisualizerServer) GetMeasurementMode(_ context.Context, req *pb.GetMeasurementModeRequest) (*pb.GetMeasurementModeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Visualizer{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetMeasurementMode()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetMeasurementModeResponse{Result: result}, nil
-}
-
-func (s *VisualizerServer) GetMeasurementPeakRms(_ context.Context, req *pb.GetMeasurementPeakRmsRequest) (*pb.GetMeasurementPeakRmsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Visualizer{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetMeasurementPeakRms(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetMeasurementPeakRmsResponse{Result: result}, nil
-}
-
-func (s *VisualizerServer) GetSamplingRate(_ context.Context, req *pb.GetSamplingRateRequest) (*pb.GetSamplingRateResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Visualizer{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetSamplingRate()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetSamplingRateResponse{Result: result}, nil
-}
-
-func (s *VisualizerServer) GetScalingMode(_ context.Context, req *pb.GetScalingModeRequest) (*pb.GetScalingModeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Visualizer{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetScalingMode()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetScalingModeResponse{Result: result}, nil
-}
-
-func (s *VisualizerServer) GetWaveForm(_ context.Context, req *pb.GetWaveFormRequest) (*pb.GetWaveFormResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Visualizer{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetWaveForm(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetWaveFormResponse{Result: result}, nil
-}
-
-func (s *VisualizerServer) Release(_ context.Context, req *pb.ReleaseRequest) (*pb.ReleaseResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Visualizer{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Release(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ReleaseResponse{}, nil
-}
-
-func (s *VisualizerServer) SetCaptureSize(_ context.Context, req *pb.SetCaptureSizeRequest) (*pb.SetCaptureSizeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Visualizer{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.SetCaptureSize(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetCaptureSizeResponse{Result: result}, nil
-}
-
-func (s *VisualizerServer) SetDataCaptureListener(_ context.Context, req *pb.SetDataCaptureListenerRequest) (*pb.SetDataCaptureListenerResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Visualizer{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.SetDataCaptureListener(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetDataCaptureListenerResponse{Result: result}, nil
-}
-
-func (s *VisualizerServer) SetEnabled(_ context.Context, req *pb.SetEnabledRequest) (*pb.SetEnabledResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Visualizer{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.SetEnabled(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetEnabledResponse{Result: result}, nil
-}
-
-func (s *VisualizerServer) SetMeasurementMode(_ context.Context, req *pb.SetMeasurementModeRequest) (*pb.SetMeasurementModeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Visualizer{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.SetMeasurementMode(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetMeasurementModeResponse{Result: result}, nil
-}
-
-func (s *VisualizerServer) SetScalingMode(_ context.Context, req *pb.SetScalingModeRequest) (*pb.SetScalingModeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Visualizer{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.SetScalingMode(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetScalingModeResponse{Result: result}, nil
-}
-
-func (s *VisualizerServer) GetCaptureSizeRange(_ context.Context, req *pb.GetCaptureSizeRangeRequest) (*pb.GetCaptureSizeRangeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Visualizer{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetCaptureSizeRange()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetCaptureSizeRangeResponse{Result: handle}, nil
-}
-
-func (s *VisualizerServer) GetMaxCaptureRate(_ context.Context, req *pb.GetMaxCaptureRateRequest) (*pb.GetMaxCaptureRateResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Visualizer{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetMaxCaptureRate()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetMaxCaptureRateResponse{Result: result}, nil
 }
 
 // EnvironmentalReverbServer implements pb.EnvironmentalReverbServiceServer.
@@ -720,394 +452,6 @@ func (s *EnvironmentalReverbServer) SetRoomLevel(_ context.Context, req *pb.SetR
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.SetRoomLevelResponse{}, nil
-}
-
-// EqualizerServer implements pb.EqualizerServiceServer.
-type EqualizerServer struct {
-	pb.UnimplementedEqualizerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *EqualizerServer) NewEqualizer(_ context.Context, req *pb.NewEqualizerRequest) (*pb.NewEqualizerResponse, error) {
-	obj, err := jnipkg.NewEqualizer(s.Ctx.VM, req.GetArg0(), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewEqualizerResponse{Result: handle}, nil
-}
-
-func (s *EqualizerServer) GetBand(_ context.Context, req *pb.GetBandRequest) (*pb.GetBandResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Equalizer{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetBand(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetBandResponse{Result: int32(result)}, nil
-}
-
-func (s *EqualizerServer) GetBandFreqRange(_ context.Context, req *pb.GetBandFreqRangeRequest) (*pb.GetBandFreqRangeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Equalizer{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetBandFreqRange(int16(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetBandFreqRangeResponse{Result: handle}, nil
-}
-
-func (s *EqualizerServer) GetBandLevel(_ context.Context, req *pb.GetBandLevelRequest) (*pb.GetBandLevelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Equalizer{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetBandLevel(int16(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetBandLevelResponse{Result: int32(result)}, nil
-}
-
-func (s *EqualizerServer) GetBandLevelRange(_ context.Context, req *pb.GetBandLevelRangeRequest) (*pb.GetBandLevelRangeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Equalizer{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetBandLevelRange()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetBandLevelRangeResponse{Result: handle}, nil
-}
-
-func (s *EqualizerServer) GetCenterFreq(_ context.Context, req *pb.GetCenterFreqRequest) (*pb.GetCenterFreqResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Equalizer{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetCenterFreq(int16(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetCenterFreqResponse{Result: result}, nil
-}
-
-func (s *EqualizerServer) GetCurrentPreset(_ context.Context, req *pb.GetCurrentPresetRequest) (*pb.GetCurrentPresetResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Equalizer{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetCurrentPreset()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetCurrentPresetResponse{Result: int32(result)}, nil
-}
-
-func (s *EqualizerServer) GetNumberOfBands(_ context.Context, req *pb.GetNumberOfBandsRequest) (*pb.GetNumberOfBandsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Equalizer{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetNumberOfBands()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetNumberOfBandsResponse{Result: int32(result)}, nil
-}
-
-func (s *EqualizerServer) GetNumberOfPresets(_ context.Context, req *pb.GetNumberOfPresetsRequest) (*pb.GetNumberOfPresetsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Equalizer{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetNumberOfPresets()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetNumberOfPresetsResponse{Result: int32(result)}, nil
-}
-
-func (s *EqualizerServer) GetPresetName(_ context.Context, req *pb.GetPresetNameRequest) (*pb.GetPresetNameResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Equalizer{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetPresetName(int16(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetPresetNameResponse{Result: result}, nil
-}
-
-func (s *EqualizerServer) GetProperties(_ context.Context, req *pb.GetPropertiesRequest) (*pb.GetPropertiesResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Equalizer{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetProperties()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetPropertiesResponse{Result: handle}, nil
-}
-
-func (s *EqualizerServer) SetBandLevel(_ context.Context, req *pb.SetBandLevelRequest) (*pb.SetBandLevelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Equalizer{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetBandLevel(int16(req.GetArg0()), int16(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetBandLevelResponse{}, nil
-}
-
-func (s *EqualizerServer) SetParameterListener(_ context.Context, req *pb.SetParameterListenerRequest) (*pb.SetParameterListenerResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Equalizer{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetParameterListener(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetParameterListenerResponse{}, nil
-}
-
-func (s *EqualizerServer) SetProperties(_ context.Context, req *pb.SetPropertiesRequest) (*pb.SetPropertiesResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Equalizer{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetProperties(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetPropertiesResponse{}, nil
-}
-
-func (s *EqualizerServer) UsePreset(_ context.Context, req *pb.UsePresetRequest) (*pb.UsePresetResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Equalizer{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.UsePreset(int16(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.UsePresetResponse{}, nil
-}
-
-// PresetReverbServer implements pb.PresetReverbServiceServer.
-type PresetReverbServer struct {
-	pb.UnimplementedPresetReverbServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *PresetReverbServer) NewPresetReverb(_ context.Context, req *pb.NewPresetReverbRequest) (*pb.NewPresetReverbResponse, error) {
-	obj, err := jnipkg.NewPresetReverb(s.Ctx.VM, req.GetArg0(), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewPresetReverbResponse{Result: handle}, nil
-}
-
-func (s *PresetReverbServer) GetPreset(_ context.Context, req *pb.GetPresetRequest) (*pb.GetPresetResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PresetReverb{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetPreset()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetPresetResponse{Result: int32(result)}, nil
-}
-
-func (s *PresetReverbServer) GetProperties(_ context.Context, req *pb.GetPropertiesRequest) (*pb.GetPropertiesResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PresetReverb{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetProperties()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetPropertiesResponse{Result: handle}, nil
-}
-
-func (s *PresetReverbServer) SetParameterListener(_ context.Context, req *pb.SetParameterListenerRequest) (*pb.SetParameterListenerResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PresetReverb{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetParameterListener(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetParameterListenerResponse{}, nil
-}
-
-func (s *PresetReverbServer) SetPreset(_ context.Context, req *pb.SetPresetRequest) (*pb.SetPresetResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PresetReverb{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetPreset(int16(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetPresetResponse{}, nil
-}
-
-func (s *PresetReverbServer) SetProperties(_ context.Context, req *pb.SetPropertiesRequest) (*pb.SetPropertiesResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PresetReverb{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetProperties(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetPropertiesResponse{}, nil
-}
-
-// LoudnessEnhancerServer implements pb.LoudnessEnhancerServiceServer.
-type LoudnessEnhancerServer struct {
-	pb.UnimplementedLoudnessEnhancerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *LoudnessEnhancerServer) NewLoudnessEnhancer(_ context.Context, req *pb.NewLoudnessEnhancerRequest) (*pb.NewLoudnessEnhancerResponse, error) {
-	obj, err := jnipkg.NewLoudnessEnhancer(s.Ctx.VM, req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewLoudnessEnhancerResponse{Result: handle}, nil
-}
-
-func (s *LoudnessEnhancerServer) GetTargetGain(_ context.Context, req *pb.GetTargetGainRequest) (*pb.GetTargetGainResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LoudnessEnhancer{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetTargetGain()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetTargetGainResponse{Result: result}, nil
-}
-
-func (s *LoudnessEnhancerServer) SetTargetGain(_ context.Context, req *pb.SetTargetGainRequest) (*pb.SetTargetGainResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.LoudnessEnhancer{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetTargetGain(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetTargetGainResponse{}, nil
 }
 
 // DynamicsProcessingServer implements pb.DynamicsProcessingServiceServer.
@@ -1599,6 +943,662 @@ func (s *DynamicsProcessingServer) SetPreEqByChannelIndex(_ context.Context, req
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.SetPreEqByChannelIndexResponse{}, nil
+}
+
+// BassBoostServer implements pb.BassBoostServiceServer.
+type BassBoostServer struct {
+	pb.UnimplementedBassBoostServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *BassBoostServer) NewBassBoost(_ context.Context, req *pb.NewBassBoostRequest) (*pb.NewBassBoostResponse, error) {
+	obj, err := jnipkg.NewBassBoost(s.Ctx.VM, req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewBassBoostResponse{Result: handle}, nil
+}
+
+func (s *BassBoostServer) GetProperties(_ context.Context, req *pb.GetPropertiesRequest) (*pb.GetPropertiesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.BassBoost{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetProperties()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetPropertiesResponse{Result: handle}, nil
+}
+
+func (s *BassBoostServer) GetRoundedStrength(_ context.Context, req *pb.GetRoundedStrengthRequest) (*pb.GetRoundedStrengthResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.BassBoost{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetRoundedStrength()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetRoundedStrengthResponse{Result: int32(result)}, nil
+}
+
+func (s *BassBoostServer) GetStrengthSupported(_ context.Context, req *pb.GetStrengthSupportedRequest) (*pb.GetStrengthSupportedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.BassBoost{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetStrengthSupported()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetStrengthSupportedResponse{Result: result}, nil
+}
+
+func (s *BassBoostServer) SetParameterListener(_ context.Context, req *pb.SetParameterListenerRequest) (*pb.SetParameterListenerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.BassBoost{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetParameterListener(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetParameterListenerResponse{}, nil
+}
+
+func (s *BassBoostServer) SetProperties(_ context.Context, req *pb.SetPropertiesRequest) (*pb.SetPropertiesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.BassBoost{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetProperties(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetPropertiesResponse{}, nil
+}
+
+func (s *BassBoostServer) SetStrength(_ context.Context, req *pb.SetStrengthRequest) (*pb.SetStrengthResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.BassBoost{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetStrength(int16(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetStrengthResponse{}, nil
+}
+
+// LoudnessEnhancerServer implements pb.LoudnessEnhancerServiceServer.
+type LoudnessEnhancerServer struct {
+	pb.UnimplementedLoudnessEnhancerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *LoudnessEnhancerServer) NewLoudnessEnhancer(_ context.Context, req *pb.NewLoudnessEnhancerRequest) (*pb.NewLoudnessEnhancerResponse, error) {
+	obj, err := jnipkg.NewLoudnessEnhancer(s.Ctx.VM, req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewLoudnessEnhancerResponse{Result: handle}, nil
+}
+
+func (s *LoudnessEnhancerServer) GetTargetGain(_ context.Context, req *pb.GetTargetGainRequest) (*pb.GetTargetGainResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LoudnessEnhancer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetTargetGain()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetTargetGainResponse{Result: result}, nil
+}
+
+func (s *LoudnessEnhancerServer) SetTargetGain(_ context.Context, req *pb.SetTargetGainRequest) (*pb.SetTargetGainResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.LoudnessEnhancer{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetTargetGain(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetTargetGainResponse{}, nil
+}
+
+// EqualizerServer implements pb.EqualizerServiceServer.
+type EqualizerServer struct {
+	pb.UnimplementedEqualizerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *EqualizerServer) NewEqualizer(_ context.Context, req *pb.NewEqualizerRequest) (*pb.NewEqualizerResponse, error) {
+	obj, err := jnipkg.NewEqualizer(s.Ctx.VM, req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewEqualizerResponse{Result: handle}, nil
+}
+
+func (s *EqualizerServer) GetBand(_ context.Context, req *pb.EqualizerGetBandRequest) (*pb.EqualizerGetBandResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Equalizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetBand(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualizerGetBandResponse{Result: int32(result)}, nil
+}
+
+func (s *EqualizerServer) GetBandFreqRange(_ context.Context, req *pb.GetBandFreqRangeRequest) (*pb.GetBandFreqRangeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Equalizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetBandFreqRange(int16(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetBandFreqRangeResponse{Result: handle}, nil
+}
+
+func (s *EqualizerServer) GetBandLevel(_ context.Context, req *pb.GetBandLevelRequest) (*pb.GetBandLevelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Equalizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetBandLevel(int16(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetBandLevelResponse{Result: int32(result)}, nil
+}
+
+func (s *EqualizerServer) GetBandLevelRange(_ context.Context, req *pb.GetBandLevelRangeRequest) (*pb.GetBandLevelRangeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Equalizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetBandLevelRange()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetBandLevelRangeResponse{Result: handle}, nil
+}
+
+func (s *EqualizerServer) GetCenterFreq(_ context.Context, req *pb.GetCenterFreqRequest) (*pb.GetCenterFreqResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Equalizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetCenterFreq(int16(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetCenterFreqResponse{Result: result}, nil
+}
+
+func (s *EqualizerServer) GetCurrentPreset(_ context.Context, req *pb.GetCurrentPresetRequest) (*pb.GetCurrentPresetResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Equalizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetCurrentPreset()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetCurrentPresetResponse{Result: int32(result)}, nil
+}
+
+func (s *EqualizerServer) GetNumberOfBands(_ context.Context, req *pb.GetNumberOfBandsRequest) (*pb.GetNumberOfBandsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Equalizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetNumberOfBands()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetNumberOfBandsResponse{Result: int32(result)}, nil
+}
+
+func (s *EqualizerServer) GetNumberOfPresets(_ context.Context, req *pb.GetNumberOfPresetsRequest) (*pb.GetNumberOfPresetsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Equalizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetNumberOfPresets()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetNumberOfPresetsResponse{Result: int32(result)}, nil
+}
+
+func (s *EqualizerServer) GetPresetName(_ context.Context, req *pb.GetPresetNameRequest) (*pb.GetPresetNameResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Equalizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPresetName(int16(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetPresetNameResponse{Result: result}, nil
+}
+
+func (s *EqualizerServer) GetProperties(_ context.Context, req *pb.GetPropertiesRequest) (*pb.GetPropertiesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Equalizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetProperties()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetPropertiesResponse{Result: handle}, nil
+}
+
+func (s *EqualizerServer) SetBandLevel(_ context.Context, req *pb.SetBandLevelRequest) (*pb.SetBandLevelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Equalizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetBandLevel(int16(req.GetArg0()), int16(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetBandLevelResponse{}, nil
+}
+
+func (s *EqualizerServer) SetParameterListener(_ context.Context, req *pb.SetParameterListenerRequest) (*pb.SetParameterListenerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Equalizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetParameterListener(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetParameterListenerResponse{}, nil
+}
+
+func (s *EqualizerServer) SetProperties(_ context.Context, req *pb.SetPropertiesRequest) (*pb.SetPropertiesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Equalizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetProperties(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetPropertiesResponse{}, nil
+}
+
+func (s *EqualizerServer) UsePreset(_ context.Context, req *pb.UsePresetRequest) (*pb.UsePresetResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Equalizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.UsePreset(int16(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.UsePresetResponse{}, nil
+}
+
+// VisualizerServer implements pb.VisualizerServiceServer.
+type VisualizerServer struct {
+	pb.UnimplementedVisualizerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *VisualizerServer) NewVisualizer(_ context.Context, req *pb.NewVisualizerRequest) (*pb.NewVisualizerResponse, error) {
+	obj, err := jnipkg.NewVisualizer(s.Ctx.VM, req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewVisualizerResponse{Result: handle}, nil
+}
+
+func (s *VisualizerServer) GetCaptureSize(_ context.Context, req *pb.GetCaptureSizeRequest) (*pb.GetCaptureSizeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Visualizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetCaptureSize()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetCaptureSizeResponse{Result: result}, nil
+}
+
+func (s *VisualizerServer) GetEnabled(_ context.Context, req *pb.VisualizerGetEnabledRequest) (*pb.GetEnabledResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Visualizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetEnabled()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetEnabledResponse{Result: result}, nil
+}
+
+func (s *VisualizerServer) GetFft(_ context.Context, req *pb.GetFftRequest) (*pb.GetFftResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Visualizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetFft(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetFftResponse{Result: result}, nil
+}
+
+func (s *VisualizerServer) GetMeasurementMode(_ context.Context, req *pb.GetMeasurementModeRequest) (*pb.GetMeasurementModeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Visualizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetMeasurementMode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetMeasurementModeResponse{Result: result}, nil
+}
+
+func (s *VisualizerServer) GetMeasurementPeakRms(_ context.Context, req *pb.GetMeasurementPeakRmsRequest) (*pb.GetMeasurementPeakRmsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Visualizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetMeasurementPeakRms(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetMeasurementPeakRmsResponse{Result: result}, nil
+}
+
+func (s *VisualizerServer) GetSamplingRate(_ context.Context, req *pb.GetSamplingRateRequest) (*pb.GetSamplingRateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Visualizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSamplingRate()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetSamplingRateResponse{Result: result}, nil
+}
+
+func (s *VisualizerServer) GetScalingMode(_ context.Context, req *pb.GetScalingModeRequest) (*pb.GetScalingModeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Visualizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetScalingMode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetScalingModeResponse{Result: result}, nil
+}
+
+func (s *VisualizerServer) GetWaveForm(_ context.Context, req *pb.GetWaveFormRequest) (*pb.GetWaveFormResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Visualizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetWaveForm(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetWaveFormResponse{Result: result}, nil
+}
+
+func (s *VisualizerServer) Release(_ context.Context, req *pb.VisualizerReleaseRequest) (*pb.ReleaseResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Visualizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Release(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ReleaseResponse{}, nil
+}
+
+func (s *VisualizerServer) SetCaptureSize(_ context.Context, req *pb.SetCaptureSizeRequest) (*pb.SetCaptureSizeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Visualizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.SetCaptureSize(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetCaptureSizeResponse{Result: result}, nil
+}
+
+func (s *VisualizerServer) SetDataCaptureListener(_ context.Context, req *pb.SetDataCaptureListenerRequest) (*pb.SetDataCaptureListenerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Visualizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.SetDataCaptureListener(s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2(), req.GetArg3())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetDataCaptureListenerResponse{Result: result}, nil
+}
+
+func (s *VisualizerServer) SetEnabled(_ context.Context, req *pb.VisualizerSetEnabledRequest) (*pb.VisualizerSetEnabledResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Visualizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.SetEnabled(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.VisualizerSetEnabledResponse{Result: result}, nil
+}
+
+func (s *VisualizerServer) SetMeasurementMode(_ context.Context, req *pb.SetMeasurementModeRequest) (*pb.SetMeasurementModeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Visualizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.SetMeasurementMode(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetMeasurementModeResponse{Result: result}, nil
+}
+
+func (s *VisualizerServer) SetScalingMode(_ context.Context, req *pb.SetScalingModeRequest) (*pb.SetScalingModeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Visualizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.SetScalingMode(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetScalingModeResponse{Result: result}, nil
+}
+
+func (s *VisualizerServer) GetCaptureSizeRange(_ context.Context, req *pb.GetCaptureSizeRangeRequest) (*pb.GetCaptureSizeRangeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Visualizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetCaptureSizeRange()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetCaptureSizeRangeResponse{Result: handle}, nil
+}
+
+func (s *VisualizerServer) GetMaxCaptureRate(_ context.Context, req *pb.GetMaxCaptureRateRequest) (*pb.GetMaxCaptureRateResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Visualizer{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetMaxCaptureRate()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetMaxCaptureRateResponse{Result: result}, nil
 }
 
 // VirtualizerServer implements pb.VirtualizerServiceServer.

@@ -111,6 +111,50 @@ func (c *DownloadableSubscriptionBuilderClient) SetEncodedActivationCode(ctx con
 	return resp.GetResult(), nil
 }
 
+// InfoClient wraps the gRPC InfoService client.
+type InfoClient struct {
+	svc pb.InfoServiceClient
+}
+
+// NewInfoClient creates a new Info client.
+func NewInfoClient(cc grpc.ClientConnInterface) *InfoClient {
+	return &InfoClient{
+		svc: pb.NewInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *InfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.InfoDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOsVersion calls the GetOsVersion RPC.
+func (c *InfoClient) GetOsVersion(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetOsVersion(ctx, &pb.GetOsVersionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *InfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.InfoWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
 // ManagerClient wraps the gRPC ManagerService client.
 type ManagerClient struct {
 	svc pb.ManagerServiceClient
@@ -236,50 +280,6 @@ func (c *ManagerClient) UpdateSubscriptionNickname(ctx context.Context, arg0 int
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
-	})
-	return err
-}
-
-// InfoClient wraps the gRPC InfoService client.
-type InfoClient struct {
-	svc pb.InfoServiceClient
-}
-
-// NewInfoClient creates a new Info client.
-func NewInfoClient(cc grpc.ClientConnInterface) *InfoClient {
-	return &InfoClient{
-		svc: pb.NewInfoServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *InfoClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.InfoDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOsVersion calls the GetOsVersion RPC.
-func (c *InfoClient) GetOsVersion(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetOsVersion(ctx, &pb.GetOsVersionRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *InfoClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.InfoWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
 	})
 	return err
 }

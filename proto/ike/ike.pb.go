@@ -23,27 +23,26 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type NewIpv6AddrIdentificationRequest struct {
+type GetEapInfoRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *NewIpv6AddrIdentificationRequest) Reset() {
-	*x = NewIpv6AddrIdentificationRequest{}
+func (x *GetEapInfoRequest) Reset() {
+	*x = GetEapInfoRequest{}
 	mi := &file_proto_ike_ike_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *NewIpv6AddrIdentificationRequest) String() string {
+func (x *GetEapInfoRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*NewIpv6AddrIdentificationRequest) ProtoMessage() {}
+func (*GetEapInfoRequest) ProtoMessage() {}
 
-func (x *NewIpv6AddrIdentificationRequest) ProtoReflect() protoreflect.Message {
+func (x *GetEapInfoRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_ike_ike_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -55,39 +54,32 @@ func (x *NewIpv6AddrIdentificationRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use NewIpv6AddrIdentificationRequest.ProtoReflect.Descriptor instead.
-func (*NewIpv6AddrIdentificationRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetEapInfoRequest.ProtoReflect.Descriptor instead.
+func (*GetEapInfoRequest) Descriptor() ([]byte, []int) {
 	return file_proto_ike_ike_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *NewIpv6AddrIdentificationRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type NewIpv6AddrIdentificationResponse struct {
+type GetEapInfoResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *NewIpv6AddrIdentificationResponse) Reset() {
-	*x = NewIpv6AddrIdentificationResponse{}
+func (x *GetEapInfoResponse) Reset() {
+	*x = GetEapInfoResponse{}
 	mi := &file_proto_ike_ike_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *NewIpv6AddrIdentificationResponse) String() string {
+func (x *GetEapInfoResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*NewIpv6AddrIdentificationResponse) ProtoMessage() {}
+func (*GetEapInfoResponse) ProtoMessage() {}
 
-func (x *NewIpv6AddrIdentificationResponse) ProtoReflect() protoreflect.Message {
+func (x *GetEapInfoResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_ike_ike_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -99,12 +91,1380 @@ func (x *NewIpv6AddrIdentificationResponse) ProtoReflect() protoreflect.Message 
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use NewIpv6AddrIdentificationResponse.ProtoReflect.Descriptor instead.
-func (*NewIpv6AddrIdentificationResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetEapInfoResponse.ProtoReflect.Descriptor instead.
+func (*GetEapInfoResponse) Descriptor() ([]byte, []int) {
 	return file_proto_ike_ike_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *NewIpv6AddrIdentificationResponse) GetResult() int64 {
+func (x *GetEapInfoResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetIkeSessionConnectionInfoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIkeSessionConnectionInfoRequest) Reset() {
+	*x = GetIkeSessionConnectionInfoRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIkeSessionConnectionInfoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIkeSessionConnectionInfoRequest) ProtoMessage() {}
+
+func (x *GetIkeSessionConnectionInfoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIkeSessionConnectionInfoRequest.ProtoReflect.Descriptor instead.
+func (*GetIkeSessionConnectionInfoRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{2}
+}
+
+type GetIkeSessionConnectionInfoResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIkeSessionConnectionInfoResponse) Reset() {
+	*x = GetIkeSessionConnectionInfoResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIkeSessionConnectionInfoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIkeSessionConnectionInfoResponse) ProtoMessage() {}
+
+func (x *GetIkeSessionConnectionInfoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIkeSessionConnectionInfoResponse.ProtoReflect.Descriptor instead.
+func (*GetIkeSessionConnectionInfoResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetIkeSessionConnectionInfoResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRemoteApplicationVersionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRemoteApplicationVersionRequest) Reset() {
+	*x = GetRemoteApplicationVersionRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRemoteApplicationVersionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRemoteApplicationVersionRequest) ProtoMessage() {}
+
+func (x *GetRemoteApplicationVersionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRemoteApplicationVersionRequest.ProtoReflect.Descriptor instead.
+func (*GetRemoteApplicationVersionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{4}
+}
+
+type GetRemoteApplicationVersionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRemoteApplicationVersionResponse) Reset() {
+	*x = GetRemoteApplicationVersionResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRemoteApplicationVersionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRemoteApplicationVersionResponse) ProtoMessage() {}
+
+func (x *GetRemoteApplicationVersionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRemoteApplicationVersionResponse.ProtoReflect.Descriptor instead.
+func (*GetRemoteApplicationVersionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetRemoteApplicationVersionResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetRemoteVendorIdsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRemoteVendorIdsRequest) Reset() {
+	*x = GetRemoteVendorIdsRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRemoteVendorIdsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRemoteVendorIdsRequest) ProtoMessage() {}
+
+func (x *GetRemoteVendorIdsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRemoteVendorIdsRequest.ProtoReflect.Descriptor instead.
+func (*GetRemoteVendorIdsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{6}
+}
+
+type GetRemoteVendorIdsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRemoteVendorIdsResponse) Reset() {
+	*x = GetRemoteVendorIdsResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRemoteVendorIdsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRemoteVendorIdsResponse) ProtoMessage() {}
+
+func (x *GetRemoteVendorIdsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRemoteVendorIdsResponse.ProtoReflect.Descriptor instead.
+func (*GetRemoteVendorIdsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetRemoteVendorIdsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsIkeExtensionEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsIkeExtensionEnabledRequest) Reset() {
+	*x = IsIkeExtensionEnabledRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsIkeExtensionEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsIkeExtensionEnabledRequest) ProtoMessage() {}
+
+func (x *IsIkeExtensionEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsIkeExtensionEnabledRequest.ProtoReflect.Descriptor instead.
+func (*IsIkeExtensionEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *IsIkeExtensionEnabledRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type IsIkeExtensionEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsIkeExtensionEnabledResponse) Reset() {
+	*x = IsIkeExtensionEnabledResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsIkeExtensionEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsIkeExtensionEnabledResponse) ProtoMessage() {}
+
+func (x *IsIkeExtensionEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsIkeExtensionEnabledResponse.ProtoReflect.Descriptor instead.
+func (*IsIkeExtensionEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *IsIkeExtensionEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type AddIkeExtensionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddIkeExtensionRequest) Reset() {
+	*x = AddIkeExtensionRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddIkeExtensionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddIkeExtensionRequest) ProtoMessage() {}
+
+func (x *AddIkeExtensionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddIkeExtensionRequest.ProtoReflect.Descriptor instead.
+func (*AddIkeExtensionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *AddIkeExtensionRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddIkeExtensionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddIkeExtensionResponse) Reset() {
+	*x = AddIkeExtensionResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddIkeExtensionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddIkeExtensionResponse) ProtoMessage() {}
+
+func (x *AddIkeExtensionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddIkeExtensionResponse.ProtoReflect.Descriptor instead.
+func (*AddIkeExtensionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *AddIkeExtensionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddRemoteVendorIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddRemoteVendorIdRequest) Reset() {
+	*x = AddRemoteVendorIdRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddRemoteVendorIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddRemoteVendorIdRequest) ProtoMessage() {}
+
+func (x *AddRemoteVendorIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddRemoteVendorIdRequest.ProtoReflect.Descriptor instead.
+func (*AddRemoteVendorIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *AddRemoteVendorIdRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddRemoteVendorIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddRemoteVendorIdResponse) Reset() {
+	*x = AddRemoteVendorIdResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddRemoteVendorIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddRemoteVendorIdResponse) ProtoMessage() {}
+
+func (x *AddRemoteVendorIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddRemoteVendorIdResponse.ProtoReflect.Descriptor instead.
+func (*AddRemoteVendorIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *AddRemoteVendorIdResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type BuildRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildRequest) Reset() {
+	*x = BuildRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildRequest) ProtoMessage() {}
+
+func (x *BuildRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
+func (*BuildRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{14}
+}
+
+type BuildResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuildResponse) Reset() {
+	*x = BuildResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuildResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuildResponse) ProtoMessage() {}
+
+func (x *BuildResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
+func (*BuildResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *BuildResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearIkeExtensionsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearIkeExtensionsRequest) Reset() {
+	*x = ClearIkeExtensionsRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearIkeExtensionsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearIkeExtensionsRequest) ProtoMessage() {}
+
+func (x *ClearIkeExtensionsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearIkeExtensionsRequest.ProtoReflect.Descriptor instead.
+func (*ClearIkeExtensionsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{16}
+}
+
+type ClearIkeExtensionsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearIkeExtensionsResponse) Reset() {
+	*x = ClearIkeExtensionsResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearIkeExtensionsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearIkeExtensionsResponse) ProtoMessage() {}
+
+func (x *ClearIkeExtensionsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearIkeExtensionsResponse.ProtoReflect.Descriptor instead.
+func (*ClearIkeExtensionsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *ClearIkeExtensionsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearRemoteApplicationVersionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearRemoteApplicationVersionRequest) Reset() {
+	*x = ClearRemoteApplicationVersionRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearRemoteApplicationVersionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearRemoteApplicationVersionRequest) ProtoMessage() {}
+
+func (x *ClearRemoteApplicationVersionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearRemoteApplicationVersionRequest.ProtoReflect.Descriptor instead.
+func (*ClearRemoteApplicationVersionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{18}
+}
+
+type ClearRemoteApplicationVersionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearRemoteApplicationVersionResponse) Reset() {
+	*x = ClearRemoteApplicationVersionResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearRemoteApplicationVersionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearRemoteApplicationVersionResponse) ProtoMessage() {}
+
+func (x *ClearRemoteApplicationVersionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearRemoteApplicationVersionResponse.ProtoReflect.Descriptor instead.
+func (*ClearRemoteApplicationVersionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *ClearRemoteApplicationVersionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearRemoteVendorIdsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearRemoteVendorIdsRequest) Reset() {
+	*x = ClearRemoteVendorIdsRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearRemoteVendorIdsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearRemoteVendorIdsRequest) ProtoMessage() {}
+
+func (x *ClearRemoteVendorIdsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearRemoteVendorIdsRequest.ProtoReflect.Descriptor instead.
+func (*ClearRemoteVendorIdsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{20}
+}
+
+type ClearRemoteVendorIdsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearRemoteVendorIdsResponse) Reset() {
+	*x = ClearRemoteVendorIdsResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearRemoteVendorIdsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearRemoteVendorIdsResponse) ProtoMessage() {}
+
+func (x *ClearRemoteVendorIdsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearRemoteVendorIdsResponse.ProtoReflect.Descriptor instead.
+func (*ClearRemoteVendorIdsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *ClearRemoteVendorIdsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetEapInfoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEapInfoRequest) Reset() {
+	*x = SetEapInfoRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEapInfoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEapInfoRequest) ProtoMessage() {}
+
+func (x *SetEapInfoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEapInfoRequest.ProtoReflect.Descriptor instead.
+func (*SetEapInfoRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *SetEapInfoRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetEapInfoResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetEapInfoResponse) Reset() {
+	*x = SetEapInfoResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetEapInfoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetEapInfoResponse) ProtoMessage() {}
+
+func (x *SetEapInfoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetEapInfoResponse.ProtoReflect.Descriptor instead.
+func (*SetEapInfoResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *SetEapInfoResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetRemoteApplicationVersionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRemoteApplicationVersionRequest) Reset() {
+	*x = SetRemoteApplicationVersionRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRemoteApplicationVersionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRemoteApplicationVersionRequest) ProtoMessage() {}
+
+func (x *SetRemoteApplicationVersionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRemoteApplicationVersionRequest.ProtoReflect.Descriptor instead.
+func (*SetRemoteApplicationVersionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *SetRemoteApplicationVersionRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetRemoteApplicationVersionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRemoteApplicationVersionResponse) Reset() {
+	*x = SetRemoteApplicationVersionResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRemoteApplicationVersionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRemoteApplicationVersionResponse) ProtoMessage() {}
+
+func (x *SetRemoteApplicationVersionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRemoteApplicationVersionResponse.ProtoReflect.Descriptor instead.
+func (*SetRemoteApplicationVersionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *SetRemoteApplicationVersionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewSessionConnectionInfoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewSessionConnectionInfoRequest) Reset() {
+	*x = NewSessionConnectionInfoRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewSessionConnectionInfoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewSessionConnectionInfoRequest) ProtoMessage() {}
+
+func (x *NewSessionConnectionInfoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewSessionConnectionInfoRequest.ProtoReflect.Descriptor instead.
+func (*NewSessionConnectionInfoRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *NewSessionConnectionInfoRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewSessionConnectionInfoRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *NewSessionConnectionInfoRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type NewSessionConnectionInfoResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewSessionConnectionInfoResponse) Reset() {
+	*x = NewSessionConnectionInfoResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewSessionConnectionInfoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewSessionConnectionInfoResponse) ProtoMessage() {}
+
+func (x *NewSessionConnectionInfoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewSessionConnectionInfoResponse.ProtoReflect.Descriptor instead.
+func (*NewSessionConnectionInfoResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *NewSessionConnectionInfoResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetLocalAddressRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLocalAddressRequest) Reset() {
+	*x = GetLocalAddressRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLocalAddressRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLocalAddressRequest) ProtoMessage() {}
+
+func (x *GetLocalAddressRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLocalAddressRequest.ProtoReflect.Descriptor instead.
+func (*GetLocalAddressRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *GetLocalAddressRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetLocalAddressResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLocalAddressResponse) Reset() {
+	*x = GetLocalAddressResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLocalAddressResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLocalAddressResponse) ProtoMessage() {}
+
+func (x *GetLocalAddressResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLocalAddressResponse.ProtoReflect.Descriptor instead.
+func (*GetLocalAddressResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *GetLocalAddressResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetNetworkRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNetworkRequest) Reset() {
+	*x = GetNetworkRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNetworkRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNetworkRequest) ProtoMessage() {}
+
+func (x *GetNetworkRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNetworkRequest.ProtoReflect.Descriptor instead.
+func (*GetNetworkRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *GetNetworkRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetNetworkResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNetworkResponse) Reset() {
+	*x = GetNetworkResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNetworkResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNetworkResponse) ProtoMessage() {}
+
+func (x *GetNetworkResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNetworkResponse.ProtoReflect.Descriptor instead.
+func (*GetNetworkResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *GetNetworkResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRemoteAddressRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRemoteAddressRequest) Reset() {
+	*x = GetRemoteAddressRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRemoteAddressRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRemoteAddressRequest) ProtoMessage() {}
+
+func (x *GetRemoteAddressRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRemoteAddressRequest.ProtoReflect.Descriptor instead.
+func (*GetRemoteAddressRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *GetRemoteAddressRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetRemoteAddressResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRemoteAddressResponse) Reset() {
+	*x = GetRemoteAddressResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRemoteAddressResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRemoteAddressResponse) ProtoMessage() {}
+
+func (x *GetRemoteAddressResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRemoteAddressResponse.ProtoReflect.Descriptor instead.
+func (*GetRemoteAddressResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *GetRemoteAddressResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -113,15 +1473,14 @@ func (x *NewIpv6AddrIdentificationResponse) GetResult() int64 {
 
 type EqualsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *EqualsRequest) Reset() {
 	*x = EqualsRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[2]
+	mi := &file_proto_ike_ike_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -133,7 +1492,7 @@ func (x *EqualsRequest) String() string {
 func (*EqualsRequest) ProtoMessage() {}
 
 func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[2]
+	mi := &file_proto_ike_ike_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -146,14 +1505,7 @@ func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
 func (*EqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *EqualsRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *EqualsRequest) GetArg0() int64 {
@@ -172,7 +1524,7 @@ type EqualsResponse struct {
 
 func (x *EqualsResponse) Reset() {
 	*x = EqualsResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[3]
+	mi := &file_proto_ike_ike_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -184,7 +1536,7 @@ func (x *EqualsResponse) String() string {
 func (*EqualsResponse) ProtoMessage() {}
 
 func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[3]
+	mi := &file_proto_ike_ike_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -197,7 +1549,7 @@ func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
 func (*EqualsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{3}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *EqualsResponse) GetResult() bool {
@@ -209,14 +1561,13 @@ func (x *EqualsResponse) GetResult() bool {
 
 type HashCodeRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *HashCodeRequest) Reset() {
 	*x = HashCodeRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[4]
+	mi := &file_proto_ike_ike_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -228,7 +1579,7 @@ func (x *HashCodeRequest) String() string {
 func (*HashCodeRequest) ProtoMessage() {}
 
 func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[4]
+	mi := &file_proto_ike_ike_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -241,14 +1592,7 @@ func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
 func (*HashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *HashCodeRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{36}
 }
 
 type HashCodeResponse struct {
@@ -260,7 +1604,7 @@ type HashCodeResponse struct {
 
 func (x *HashCodeResponse) Reset() {
 	*x = HashCodeResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[5]
+	mi := &file_proto_ike_ike_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -272,7 +1616,7 @@ func (x *HashCodeResponse) String() string {
 func (*HashCodeResponse) ProtoMessage() {}
 
 func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[5]
+	mi := &file_proto_ike_ike_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -285,10 +1629,4574 @@ func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
 func (*HashCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{5}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *HashCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSupportedEncryptionAlgorithmsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSupportedEncryptionAlgorithmsRequest) Reset() {
+	*x = GetSupportedEncryptionAlgorithmsRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSupportedEncryptionAlgorithmsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSupportedEncryptionAlgorithmsRequest) ProtoMessage() {}
+
+func (x *GetSupportedEncryptionAlgorithmsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSupportedEncryptionAlgorithmsRequest.ProtoReflect.Descriptor instead.
+func (*GetSupportedEncryptionAlgorithmsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{38}
+}
+
+type GetSupportedEncryptionAlgorithmsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSupportedEncryptionAlgorithmsResponse) Reset() {
+	*x = GetSupportedEncryptionAlgorithmsResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSupportedEncryptionAlgorithmsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSupportedEncryptionAlgorithmsResponse) ProtoMessage() {}
+
+func (x *GetSupportedEncryptionAlgorithmsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSupportedEncryptionAlgorithmsResponse.ProtoReflect.Descriptor instead.
+func (*GetSupportedEncryptionAlgorithmsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *GetSupportedEncryptionAlgorithmsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSupportedIntegrityAlgorithmsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSupportedIntegrityAlgorithmsRequest) Reset() {
+	*x = GetSupportedIntegrityAlgorithmsRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSupportedIntegrityAlgorithmsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSupportedIntegrityAlgorithmsRequest) ProtoMessage() {}
+
+func (x *GetSupportedIntegrityAlgorithmsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSupportedIntegrityAlgorithmsRequest.ProtoReflect.Descriptor instead.
+func (*GetSupportedIntegrityAlgorithmsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{40}
+}
+
+type GetSupportedIntegrityAlgorithmsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSupportedIntegrityAlgorithmsResponse) Reset() {
+	*x = GetSupportedIntegrityAlgorithmsResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSupportedIntegrityAlgorithmsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSupportedIntegrityAlgorithmsResponse) ProtoMessage() {}
+
+func (x *GetSupportedIntegrityAlgorithmsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSupportedIntegrityAlgorithmsResponse.ProtoReflect.Descriptor instead.
+func (*GetSupportedIntegrityAlgorithmsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *GetSupportedIntegrityAlgorithmsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddDhGroupRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddDhGroupRequest) Reset() {
+	*x = AddDhGroupRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddDhGroupRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddDhGroupRequest) ProtoMessage() {}
+
+func (x *AddDhGroupRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddDhGroupRequest.ProtoReflect.Descriptor instead.
+func (*AddDhGroupRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *AddDhGroupRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddDhGroupResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddDhGroupResponse) Reset() {
+	*x = AddDhGroupResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddDhGroupResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddDhGroupResponse) ProtoMessage() {}
+
+func (x *AddDhGroupResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddDhGroupResponse.ProtoReflect.Descriptor instead.
+func (*AddDhGroupResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *AddDhGroupResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddEncryptionAlgorithmRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddEncryptionAlgorithmRequest) Reset() {
+	*x = AddEncryptionAlgorithmRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddEncryptionAlgorithmRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddEncryptionAlgorithmRequest) ProtoMessage() {}
+
+func (x *AddEncryptionAlgorithmRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddEncryptionAlgorithmRequest.ProtoReflect.Descriptor instead.
+func (*AddEncryptionAlgorithmRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *AddEncryptionAlgorithmRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *AddEncryptionAlgorithmRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type AddEncryptionAlgorithmResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddEncryptionAlgorithmResponse) Reset() {
+	*x = AddEncryptionAlgorithmResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddEncryptionAlgorithmResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddEncryptionAlgorithmResponse) ProtoMessage() {}
+
+func (x *AddEncryptionAlgorithmResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddEncryptionAlgorithmResponse.ProtoReflect.Descriptor instead.
+func (*AddEncryptionAlgorithmResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *AddEncryptionAlgorithmResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddIntegrityAlgorithmRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddIntegrityAlgorithmRequest) Reset() {
+	*x = AddIntegrityAlgorithmRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddIntegrityAlgorithmRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddIntegrityAlgorithmRequest) ProtoMessage() {}
+
+func (x *AddIntegrityAlgorithmRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddIntegrityAlgorithmRequest.ProtoReflect.Descriptor instead.
+func (*AddIntegrityAlgorithmRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *AddIntegrityAlgorithmRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddIntegrityAlgorithmResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddIntegrityAlgorithmResponse) Reset() {
+	*x = AddIntegrityAlgorithmResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddIntegrityAlgorithmResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddIntegrityAlgorithmResponse) ProtoMessage() {}
+
+func (x *AddIntegrityAlgorithmResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddIntegrityAlgorithmResponse.ProtoReflect.Descriptor instead.
+func (*AddIntegrityAlgorithmResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *AddIntegrityAlgorithmResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewDerAsn1DnIdentificationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewDerAsn1DnIdentificationRequest) Reset() {
+	*x = NewDerAsn1DnIdentificationRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewDerAsn1DnIdentificationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewDerAsn1DnIdentificationRequest) ProtoMessage() {}
+
+func (x *NewDerAsn1DnIdentificationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewDerAsn1DnIdentificationRequest.ProtoReflect.Descriptor instead.
+func (*NewDerAsn1DnIdentificationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *NewDerAsn1DnIdentificationRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewDerAsn1DnIdentificationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewDerAsn1DnIdentificationResponse) Reset() {
+	*x = NewDerAsn1DnIdentificationResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewDerAsn1DnIdentificationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewDerAsn1DnIdentificationResponse) ProtoMessage() {}
+
+func (x *NewDerAsn1DnIdentificationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewDerAsn1DnIdentificationResponse.ProtoReflect.Descriptor instead.
+func (*NewDerAsn1DnIdentificationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *NewDerAsn1DnIdentificationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DerAsn1DnIdentificationEqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DerAsn1DnIdentificationEqualsRequest) Reset() {
+	*x = DerAsn1DnIdentificationEqualsRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DerAsn1DnIdentificationEqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DerAsn1DnIdentificationEqualsRequest) ProtoMessage() {}
+
+func (x *DerAsn1DnIdentificationEqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DerAsn1DnIdentificationEqualsRequest.ProtoReflect.Descriptor instead.
+func (*DerAsn1DnIdentificationEqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *DerAsn1DnIdentificationEqualsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *DerAsn1DnIdentificationEqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type DerAsn1DnIdentificationHashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DerAsn1DnIdentificationHashCodeRequest) Reset() {
+	*x = DerAsn1DnIdentificationHashCodeRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DerAsn1DnIdentificationHashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DerAsn1DnIdentificationHashCodeRequest) ProtoMessage() {}
+
+func (x *DerAsn1DnIdentificationHashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DerAsn1DnIdentificationHashCodeRequest.ProtoReflect.Descriptor instead.
+func (*DerAsn1DnIdentificationHashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *DerAsn1DnIdentificationHashCodeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetDhGroupsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDhGroupsRequest) Reset() {
+	*x = GetDhGroupsRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDhGroupsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDhGroupsRequest) ProtoMessage() {}
+
+func (x *GetDhGroupsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDhGroupsRequest.ProtoReflect.Descriptor instead.
+func (*GetDhGroupsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{52}
+}
+
+type GetDhGroupsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDhGroupsResponse) Reset() {
+	*x = GetDhGroupsResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDhGroupsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDhGroupsResponse) ProtoMessage() {}
+
+func (x *GetDhGroupsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDhGroupsResponse.ProtoReflect.Descriptor instead.
+func (*GetDhGroupsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *GetDhGroupsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetIntegrityAlgorithmsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIntegrityAlgorithmsRequest) Reset() {
+	*x = GetIntegrityAlgorithmsRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIntegrityAlgorithmsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIntegrityAlgorithmsRequest) ProtoMessage() {}
+
+func (x *GetIntegrityAlgorithmsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIntegrityAlgorithmsRequest.ProtoReflect.Descriptor instead.
+func (*GetIntegrityAlgorithmsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{54}
+}
+
+type GetIntegrityAlgorithmsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIntegrityAlgorithmsResponse) Reset() {
+	*x = GetIntegrityAlgorithmsResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIntegrityAlgorithmsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIntegrityAlgorithmsResponse) ProtoMessage() {}
+
+func (x *GetIntegrityAlgorithmsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIntegrityAlgorithmsResponse.ProtoReflect.Descriptor instead.
+func (*GetIntegrityAlgorithmsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *GetIntegrityAlgorithmsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringRequest) ProtoMessage() {}
+
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{56}
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{57}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetSupportedDhGroupsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSupportedDhGroupsRequest) Reset() {
+	*x = GetSupportedDhGroupsRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSupportedDhGroupsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSupportedDhGroupsRequest) ProtoMessage() {}
+
+func (x *GetSupportedDhGroupsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSupportedDhGroupsRequest.ProtoReflect.Descriptor instead.
+func (*GetSupportedDhGroupsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{58}
+}
+
+type GetSupportedDhGroupsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSupportedDhGroupsResponse) Reset() {
+	*x = GetSupportedDhGroupsResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSupportedDhGroupsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSupportedDhGroupsResponse) ProtoMessage() {}
+
+func (x *GetSupportedDhGroupsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSupportedDhGroupsResponse.ProtoReflect.Descriptor instead.
+func (*GetSupportedDhGroupsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{59}
+}
+
+func (x *GetSupportedDhGroupsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDpdDelaySecondsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDpdDelaySecondsRequest) Reset() {
+	*x = GetDpdDelaySecondsRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDpdDelaySecondsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDpdDelaySecondsRequest) ProtoMessage() {}
+
+func (x *GetDpdDelaySecondsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDpdDelaySecondsRequest.ProtoReflect.Descriptor instead.
+func (*GetDpdDelaySecondsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{60}
+}
+
+type GetDpdDelaySecondsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDpdDelaySecondsResponse) Reset() {
+	*x = GetDpdDelaySecondsResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDpdDelaySecondsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDpdDelaySecondsResponse) ProtoMessage() {}
+
+func (x *GetDpdDelaySecondsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDpdDelaySecondsResponse.ProtoReflect.Descriptor instead.
+func (*GetDpdDelaySecondsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{61}
+}
+
+func (x *GetDpdDelaySecondsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetHardLifetimeSecondsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetHardLifetimeSecondsRequest) Reset() {
+	*x = GetHardLifetimeSecondsRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetHardLifetimeSecondsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetHardLifetimeSecondsRequest) ProtoMessage() {}
+
+func (x *GetHardLifetimeSecondsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetHardLifetimeSecondsRequest.ProtoReflect.Descriptor instead.
+func (*GetHardLifetimeSecondsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{62}
+}
+
+type GetHardLifetimeSecondsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetHardLifetimeSecondsResponse) Reset() {
+	*x = GetHardLifetimeSecondsResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetHardLifetimeSecondsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetHardLifetimeSecondsResponse) ProtoMessage() {}
+
+func (x *GetHardLifetimeSecondsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetHardLifetimeSecondsResponse.ProtoReflect.Descriptor instead.
+func (*GetHardLifetimeSecondsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{63}
+}
+
+func (x *GetHardLifetimeSecondsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetIkeOptionsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIkeOptionsRequest) Reset() {
+	*x = GetIkeOptionsRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIkeOptionsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIkeOptionsRequest) ProtoMessage() {}
+
+func (x *GetIkeOptionsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIkeOptionsRequest.ProtoReflect.Descriptor instead.
+func (*GetIkeOptionsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{64}
+}
+
+type GetIkeOptionsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIkeOptionsResponse) Reset() {
+	*x = GetIkeOptionsResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIkeOptionsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIkeOptionsResponse) ProtoMessage() {}
+
+func (x *GetIkeOptionsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIkeOptionsResponse.ProtoReflect.Descriptor instead.
+func (*GetIkeOptionsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{65}
+}
+
+func (x *GetIkeOptionsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetIkeSaProposalsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIkeSaProposalsRequest) Reset() {
+	*x = GetIkeSaProposalsRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIkeSaProposalsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIkeSaProposalsRequest) ProtoMessage() {}
+
+func (x *GetIkeSaProposalsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIkeSaProposalsRequest.ProtoReflect.Descriptor instead.
+func (*GetIkeSaProposalsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{66}
+}
+
+type GetIkeSaProposalsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIkeSaProposalsResponse) Reset() {
+	*x = GetIkeSaProposalsResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIkeSaProposalsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIkeSaProposalsResponse) ProtoMessage() {}
+
+func (x *GetIkeSaProposalsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIkeSaProposalsResponse.ProtoReflect.Descriptor instead.
+func (*GetIkeSaProposalsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{67}
+}
+
+func (x *GetIkeSaProposalsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetLocalAuthConfigRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLocalAuthConfigRequest) Reset() {
+	*x = GetLocalAuthConfigRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLocalAuthConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLocalAuthConfigRequest) ProtoMessage() {}
+
+func (x *GetLocalAuthConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLocalAuthConfigRequest.ProtoReflect.Descriptor instead.
+func (*GetLocalAuthConfigRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{68}
+}
+
+type GetLocalAuthConfigResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLocalAuthConfigResponse) Reset() {
+	*x = GetLocalAuthConfigResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLocalAuthConfigResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLocalAuthConfigResponse) ProtoMessage() {}
+
+func (x *GetLocalAuthConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLocalAuthConfigResponse.ProtoReflect.Descriptor instead.
+func (*GetLocalAuthConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{69}
+}
+
+func (x *GetLocalAuthConfigResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetLocalIdentificationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLocalIdentificationRequest) Reset() {
+	*x = GetLocalIdentificationRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[70]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLocalIdentificationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLocalIdentificationRequest) ProtoMessage() {}
+
+func (x *GetLocalIdentificationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[70]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLocalIdentificationRequest.ProtoReflect.Descriptor instead.
+func (*GetLocalIdentificationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{70}
+}
+
+type GetLocalIdentificationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetLocalIdentificationResponse) Reset() {
+	*x = GetLocalIdentificationResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[71]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetLocalIdentificationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetLocalIdentificationResponse) ProtoMessage() {}
+
+func (x *GetLocalIdentificationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[71]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetLocalIdentificationResponse.ProtoReflect.Descriptor instead.
+func (*GetLocalIdentificationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{71}
+}
+
+func (x *GetLocalIdentificationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetNattKeepAliveDelaySecondsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNattKeepAliveDelaySecondsRequest) Reset() {
+	*x = GetNattKeepAliveDelaySecondsRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[72]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNattKeepAliveDelaySecondsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNattKeepAliveDelaySecondsRequest) ProtoMessage() {}
+
+func (x *GetNattKeepAliveDelaySecondsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[72]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNattKeepAliveDelaySecondsRequest.ProtoReflect.Descriptor instead.
+func (*GetNattKeepAliveDelaySecondsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{72}
+}
+
+type GetNattKeepAliveDelaySecondsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetNattKeepAliveDelaySecondsResponse) Reset() {
+	*x = GetNattKeepAliveDelaySecondsResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[73]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetNattKeepAliveDelaySecondsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetNattKeepAliveDelaySecondsResponse) ProtoMessage() {}
+
+func (x *GetNattKeepAliveDelaySecondsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[73]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetNattKeepAliveDelaySecondsResponse.ProtoReflect.Descriptor instead.
+func (*GetNattKeepAliveDelaySecondsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{73}
+}
+
+func (x *GetNattKeepAliveDelaySecondsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SessionParamsGetNetworkRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SessionParamsGetNetworkRequest) Reset() {
+	*x = SessionParamsGetNetworkRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[74]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SessionParamsGetNetworkRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SessionParamsGetNetworkRequest) ProtoMessage() {}
+
+func (x *SessionParamsGetNetworkRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[74]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SessionParamsGetNetworkRequest.ProtoReflect.Descriptor instead.
+func (*SessionParamsGetNetworkRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{74}
+}
+
+type GetRemoteAuthConfigRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRemoteAuthConfigRequest) Reset() {
+	*x = GetRemoteAuthConfigRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[75]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRemoteAuthConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRemoteAuthConfigRequest) ProtoMessage() {}
+
+func (x *GetRemoteAuthConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[75]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRemoteAuthConfigRequest.ProtoReflect.Descriptor instead.
+func (*GetRemoteAuthConfigRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{75}
+}
+
+type GetRemoteAuthConfigResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRemoteAuthConfigResponse) Reset() {
+	*x = GetRemoteAuthConfigResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[76]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRemoteAuthConfigResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRemoteAuthConfigResponse) ProtoMessage() {}
+
+func (x *GetRemoteAuthConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[76]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRemoteAuthConfigResponse.ProtoReflect.Descriptor instead.
+func (*GetRemoteAuthConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{76}
+}
+
+func (x *GetRemoteAuthConfigResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRemoteIdentificationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRemoteIdentificationRequest) Reset() {
+	*x = GetRemoteIdentificationRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[77]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRemoteIdentificationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRemoteIdentificationRequest) ProtoMessage() {}
+
+func (x *GetRemoteIdentificationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[77]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRemoteIdentificationRequest.ProtoReflect.Descriptor instead.
+func (*GetRemoteIdentificationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{77}
+}
+
+type GetRemoteIdentificationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRemoteIdentificationResponse) Reset() {
+	*x = GetRemoteIdentificationResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[78]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRemoteIdentificationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRemoteIdentificationResponse) ProtoMessage() {}
+
+func (x *GetRemoteIdentificationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[78]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRemoteIdentificationResponse.ProtoReflect.Descriptor instead.
+func (*GetRemoteIdentificationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{78}
+}
+
+func (x *GetRemoteIdentificationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRetransmissionTimeoutsMillisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRetransmissionTimeoutsMillisRequest) Reset() {
+	*x = GetRetransmissionTimeoutsMillisRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRetransmissionTimeoutsMillisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRetransmissionTimeoutsMillisRequest) ProtoMessage() {}
+
+func (x *GetRetransmissionTimeoutsMillisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRetransmissionTimeoutsMillisRequest.ProtoReflect.Descriptor instead.
+func (*GetRetransmissionTimeoutsMillisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{79}
+}
+
+type GetRetransmissionTimeoutsMillisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRetransmissionTimeoutsMillisResponse) Reset() {
+	*x = GetRetransmissionTimeoutsMillisResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[80]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRetransmissionTimeoutsMillisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRetransmissionTimeoutsMillisResponse) ProtoMessage() {}
+
+func (x *GetRetransmissionTimeoutsMillisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[80]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRetransmissionTimeoutsMillisResponse.ProtoReflect.Descriptor instead.
+func (*GetRetransmissionTimeoutsMillisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{80}
+}
+
+func (x *GetRetransmissionTimeoutsMillisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetServerHostnameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetServerHostnameRequest) Reset() {
+	*x = GetServerHostnameRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[81]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetServerHostnameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetServerHostnameRequest) ProtoMessage() {}
+
+func (x *GetServerHostnameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[81]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetServerHostnameRequest.ProtoReflect.Descriptor instead.
+func (*GetServerHostnameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{81}
+}
+
+type GetServerHostnameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetServerHostnameResponse) Reset() {
+	*x = GetServerHostnameResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[82]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetServerHostnameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetServerHostnameResponse) ProtoMessage() {}
+
+func (x *GetServerHostnameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[82]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetServerHostnameResponse.ProtoReflect.Descriptor instead.
+func (*GetServerHostnameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{82}
+}
+
+func (x *GetServerHostnameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetSoftLifetimeSecondsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSoftLifetimeSecondsRequest) Reset() {
+	*x = GetSoftLifetimeSecondsRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[83]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSoftLifetimeSecondsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSoftLifetimeSecondsRequest) ProtoMessage() {}
+
+func (x *GetSoftLifetimeSecondsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[83]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSoftLifetimeSecondsRequest.ProtoReflect.Descriptor instead.
+func (*GetSoftLifetimeSecondsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{83}
+}
+
+type GetSoftLifetimeSecondsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSoftLifetimeSecondsResponse) Reset() {
+	*x = GetSoftLifetimeSecondsResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[84]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSoftLifetimeSecondsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSoftLifetimeSecondsResponse) ProtoMessage() {}
+
+func (x *GetSoftLifetimeSecondsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[84]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSoftLifetimeSecondsResponse.ProtoReflect.Descriptor instead.
+func (*GetSoftLifetimeSecondsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{84}
+}
+
+func (x *GetSoftLifetimeSecondsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type HasIkeOptionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasIkeOptionRequest) Reset() {
+	*x = HasIkeOptionRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[85]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasIkeOptionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasIkeOptionRequest) ProtoMessage() {}
+
+func (x *HasIkeOptionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[85]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasIkeOptionRequest.ProtoReflect.Descriptor instead.
+func (*HasIkeOptionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{85}
+}
+
+func (x *HasIkeOptionRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type HasIkeOptionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasIkeOptionResponse) Reset() {
+	*x = HasIkeOptionResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[86]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasIkeOptionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasIkeOptionResponse) ProtoMessage() {}
+
+func (x *HasIkeOptionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[86]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasIkeOptionResponse.ProtoReflect.Descriptor instead.
+func (*HasIkeOptionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{86}
+}
+
+func (x *HasIkeOptionResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type AddIkeOptionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddIkeOptionRequest) Reset() {
+	*x = AddIkeOptionRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[87]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddIkeOptionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddIkeOptionRequest) ProtoMessage() {}
+
+func (x *AddIkeOptionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[87]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddIkeOptionRequest.ProtoReflect.Descriptor instead.
+func (*AddIkeOptionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{87}
+}
+
+func (x *AddIkeOptionRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddIkeOptionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddIkeOptionResponse) Reset() {
+	*x = AddIkeOptionResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[88]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddIkeOptionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddIkeOptionResponse) ProtoMessage() {}
+
+func (x *AddIkeOptionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[88]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddIkeOptionResponse.ProtoReflect.Descriptor instead.
+func (*AddIkeOptionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{88}
+}
+
+func (x *AddIkeOptionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddIkeSaProposalRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddIkeSaProposalRequest) Reset() {
+	*x = AddIkeSaProposalRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[89]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddIkeSaProposalRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddIkeSaProposalRequest) ProtoMessage() {}
+
+func (x *AddIkeSaProposalRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[89]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddIkeSaProposalRequest.ProtoReflect.Descriptor instead.
+func (*AddIkeSaProposalRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{89}
+}
+
+func (x *AddIkeSaProposalRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddIkeSaProposalResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddIkeSaProposalResponse) Reset() {
+	*x = AddIkeSaProposalResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[90]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddIkeSaProposalResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddIkeSaProposalResponse) ProtoMessage() {}
+
+func (x *AddIkeSaProposalResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[90]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddIkeSaProposalResponse.ProtoReflect.Descriptor instead.
+func (*AddIkeSaProposalResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{90}
+}
+
+func (x *AddIkeSaProposalResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type RemoveIkeOptionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveIkeOptionRequest) Reset() {
+	*x = RemoveIkeOptionRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[91]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveIkeOptionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveIkeOptionRequest) ProtoMessage() {}
+
+func (x *RemoveIkeOptionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[91]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveIkeOptionRequest.ProtoReflect.Descriptor instead.
+func (*RemoveIkeOptionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{91}
+}
+
+func (x *RemoveIkeOptionRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type RemoveIkeOptionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemoveIkeOptionResponse) Reset() {
+	*x = RemoveIkeOptionResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[92]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemoveIkeOptionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveIkeOptionResponse) ProtoMessage() {}
+
+func (x *RemoveIkeOptionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[92]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveIkeOptionResponse.ProtoReflect.Descriptor instead.
+func (*RemoveIkeOptionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{92}
+}
+
+func (x *RemoveIkeOptionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetAuthDigitalSignatureRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAuthDigitalSignatureRequest) Reset() {
+	*x = SetAuthDigitalSignatureRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[93]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAuthDigitalSignatureRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAuthDigitalSignatureRequest) ProtoMessage() {}
+
+func (x *SetAuthDigitalSignatureRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[93]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAuthDigitalSignatureRequest.ProtoReflect.Descriptor instead.
+func (*SetAuthDigitalSignatureRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{93}
+}
+
+func (x *SetAuthDigitalSignatureRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetAuthDigitalSignatureRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *SetAuthDigitalSignatureRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type SetAuthDigitalSignatureResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAuthDigitalSignatureResponse) Reset() {
+	*x = SetAuthDigitalSignatureResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[94]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAuthDigitalSignatureResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAuthDigitalSignatureResponse) ProtoMessage() {}
+
+func (x *SetAuthDigitalSignatureResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[94]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAuthDigitalSignatureResponse.ProtoReflect.Descriptor instead.
+func (*SetAuthDigitalSignatureResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{94}
+}
+
+func (x *SetAuthDigitalSignatureResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetAuthEapRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAuthEapRequest) Reset() {
+	*x = SetAuthEapRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[95]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAuthEapRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAuthEapRequest) ProtoMessage() {}
+
+func (x *SetAuthEapRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[95]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAuthEapRequest.ProtoReflect.Descriptor instead.
+func (*SetAuthEapRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{95}
+}
+
+func (x *SetAuthEapRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetAuthEapRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetAuthEapResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAuthEapResponse) Reset() {
+	*x = SetAuthEapResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[96]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAuthEapResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAuthEapResponse) ProtoMessage() {}
+
+func (x *SetAuthEapResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[96]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAuthEapResponse.ProtoReflect.Descriptor instead.
+func (*SetAuthEapResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{96}
+}
+
+func (x *SetAuthEapResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetAuthPskRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAuthPskRequest) Reset() {
+	*x = SetAuthPskRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[97]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAuthPskRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAuthPskRequest) ProtoMessage() {}
+
+func (x *SetAuthPskRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[97]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAuthPskRequest.ProtoReflect.Descriptor instead.
+func (*SetAuthPskRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{97}
+}
+
+func (x *SetAuthPskRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetAuthPskResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAuthPskResponse) Reset() {
+	*x = SetAuthPskResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[98]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAuthPskResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAuthPskResponse) ProtoMessage() {}
+
+func (x *SetAuthPskResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[98]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAuthPskResponse.ProtoReflect.Descriptor instead.
+func (*SetAuthPskResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{98}
+}
+
+func (x *SetAuthPskResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetDpdDelaySecondsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDpdDelaySecondsRequest) Reset() {
+	*x = SetDpdDelaySecondsRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[99]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDpdDelaySecondsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDpdDelaySecondsRequest) ProtoMessage() {}
+
+func (x *SetDpdDelaySecondsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[99]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDpdDelaySecondsRequest.ProtoReflect.Descriptor instead.
+func (*SetDpdDelaySecondsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{99}
+}
+
+func (x *SetDpdDelaySecondsRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetDpdDelaySecondsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDpdDelaySecondsResponse) Reset() {
+	*x = SetDpdDelaySecondsResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[100]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDpdDelaySecondsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDpdDelaySecondsResponse) ProtoMessage() {}
+
+func (x *SetDpdDelaySecondsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[100]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDpdDelaySecondsResponse.ProtoReflect.Descriptor instead.
+func (*SetDpdDelaySecondsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{100}
+}
+
+func (x *SetDpdDelaySecondsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetLifetimeSecondsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetLifetimeSecondsRequest) Reset() {
+	*x = SetLifetimeSecondsRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[101]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetLifetimeSecondsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetLifetimeSecondsRequest) ProtoMessage() {}
+
+func (x *SetLifetimeSecondsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[101]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetLifetimeSecondsRequest.ProtoReflect.Descriptor instead.
+func (*SetLifetimeSecondsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{101}
+}
+
+func (x *SetLifetimeSecondsRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetLifetimeSecondsRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetLifetimeSecondsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetLifetimeSecondsResponse) Reset() {
+	*x = SetLifetimeSecondsResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[102]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetLifetimeSecondsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetLifetimeSecondsResponse) ProtoMessage() {}
+
+func (x *SetLifetimeSecondsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[102]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetLifetimeSecondsResponse.ProtoReflect.Descriptor instead.
+func (*SetLifetimeSecondsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{102}
+}
+
+func (x *SetLifetimeSecondsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetLocalIdentificationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetLocalIdentificationRequest) Reset() {
+	*x = SetLocalIdentificationRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[103]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetLocalIdentificationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetLocalIdentificationRequest) ProtoMessage() {}
+
+func (x *SetLocalIdentificationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[103]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetLocalIdentificationRequest.ProtoReflect.Descriptor instead.
+func (*SetLocalIdentificationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{103}
+}
+
+func (x *SetLocalIdentificationRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetLocalIdentificationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetLocalIdentificationResponse) Reset() {
+	*x = SetLocalIdentificationResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[104]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetLocalIdentificationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetLocalIdentificationResponse) ProtoMessage() {}
+
+func (x *SetLocalIdentificationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[104]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetLocalIdentificationResponse.ProtoReflect.Descriptor instead.
+func (*SetLocalIdentificationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{104}
+}
+
+func (x *SetLocalIdentificationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetNattKeepAliveDelaySecondsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNattKeepAliveDelaySecondsRequest) Reset() {
+	*x = SetNattKeepAliveDelaySecondsRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[105]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNattKeepAliveDelaySecondsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNattKeepAliveDelaySecondsRequest) ProtoMessage() {}
+
+func (x *SetNattKeepAliveDelaySecondsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[105]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNattKeepAliveDelaySecondsRequest.ProtoReflect.Descriptor instead.
+func (*SetNattKeepAliveDelaySecondsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{105}
+}
+
+func (x *SetNattKeepAliveDelaySecondsRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetNattKeepAliveDelaySecondsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNattKeepAliveDelaySecondsResponse) Reset() {
+	*x = SetNattKeepAliveDelaySecondsResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[106]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNattKeepAliveDelaySecondsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNattKeepAliveDelaySecondsResponse) ProtoMessage() {}
+
+func (x *SetNattKeepAliveDelaySecondsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[106]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNattKeepAliveDelaySecondsResponse.ProtoReflect.Descriptor instead.
+func (*SetNattKeepAliveDelaySecondsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{106}
+}
+
+func (x *SetNattKeepAliveDelaySecondsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetNetworkRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNetworkRequest) Reset() {
+	*x = SetNetworkRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[107]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNetworkRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNetworkRequest) ProtoMessage() {}
+
+func (x *SetNetworkRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[107]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNetworkRequest.ProtoReflect.Descriptor instead.
+func (*SetNetworkRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{107}
+}
+
+func (x *SetNetworkRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetNetworkResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetNetworkResponse) Reset() {
+	*x = SetNetworkResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[108]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetNetworkResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetNetworkResponse) ProtoMessage() {}
+
+func (x *SetNetworkResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[108]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetNetworkResponse.ProtoReflect.Descriptor instead.
+func (*SetNetworkResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{108}
+}
+
+func (x *SetNetworkResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetRemoteIdentificationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRemoteIdentificationRequest) Reset() {
+	*x = SetRemoteIdentificationRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[109]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRemoteIdentificationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRemoteIdentificationRequest) ProtoMessage() {}
+
+func (x *SetRemoteIdentificationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[109]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRemoteIdentificationRequest.ProtoReflect.Descriptor instead.
+func (*SetRemoteIdentificationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{109}
+}
+
+func (x *SetRemoteIdentificationRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetRemoteIdentificationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRemoteIdentificationResponse) Reset() {
+	*x = SetRemoteIdentificationResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[110]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRemoteIdentificationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRemoteIdentificationResponse) ProtoMessage() {}
+
+func (x *SetRemoteIdentificationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[110]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRemoteIdentificationResponse.ProtoReflect.Descriptor instead.
+func (*SetRemoteIdentificationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{110}
+}
+
+func (x *SetRemoteIdentificationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetRetransmissionTimeoutsMillisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRetransmissionTimeoutsMillisRequest) Reset() {
+	*x = SetRetransmissionTimeoutsMillisRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[111]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRetransmissionTimeoutsMillisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRetransmissionTimeoutsMillisRequest) ProtoMessage() {}
+
+func (x *SetRetransmissionTimeoutsMillisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[111]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRetransmissionTimeoutsMillisRequest.ProtoReflect.Descriptor instead.
+func (*SetRetransmissionTimeoutsMillisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{111}
+}
+
+func (x *SetRetransmissionTimeoutsMillisRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetRetransmissionTimeoutsMillisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetRetransmissionTimeoutsMillisResponse) Reset() {
+	*x = SetRetransmissionTimeoutsMillisResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[112]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetRetransmissionTimeoutsMillisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetRetransmissionTimeoutsMillisResponse) ProtoMessage() {}
+
+func (x *SetRetransmissionTimeoutsMillisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[112]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetRetransmissionTimeoutsMillisResponse.ProtoReflect.Descriptor instead.
+func (*SetRetransmissionTimeoutsMillisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{112}
+}
+
+func (x *SetRetransmissionTimeoutsMillisResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetServerHostnameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetServerHostnameRequest) Reset() {
+	*x = SetServerHostnameRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[113]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetServerHostnameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetServerHostnameRequest) ProtoMessage() {}
+
+func (x *SetServerHostnameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[113]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetServerHostnameRequest.ProtoReflect.Descriptor instead.
+func (*SetServerHostnameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{113}
+}
+
+func (x *SetServerHostnameRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetServerHostnameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetServerHostnameResponse) Reset() {
+	*x = SetServerHostnameResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[114]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetServerHostnameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetServerHostnameResponse) ProtoMessage() {}
+
+func (x *SetServerHostnameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[114]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetServerHostnameResponse.ProtoReflect.Descriptor instead.
+func (*SetServerHostnameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{114}
+}
+
+func (x *SetServerHostnameResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetClientEndCertificateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetClientEndCertificateRequest) Reset() {
+	*x = GetClientEndCertificateRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[115]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetClientEndCertificateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetClientEndCertificateRequest) ProtoMessage() {}
+
+func (x *GetClientEndCertificateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[115]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetClientEndCertificateRequest.ProtoReflect.Descriptor instead.
+func (*GetClientEndCertificateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{115}
+}
+
+type GetClientEndCertificateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetClientEndCertificateResponse) Reset() {
+	*x = GetClientEndCertificateResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[116]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetClientEndCertificateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetClientEndCertificateResponse) ProtoMessage() {}
+
+func (x *GetClientEndCertificateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[116]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetClientEndCertificateResponse.ProtoReflect.Descriptor instead.
+func (*GetClientEndCertificateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{116}
+}
+
+func (x *GetClientEndCertificateResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetIntermediateCertificatesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIntermediateCertificatesRequest) Reset() {
+	*x = GetIntermediateCertificatesRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[117]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIntermediateCertificatesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIntermediateCertificatesRequest) ProtoMessage() {}
+
+func (x *GetIntermediateCertificatesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[117]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIntermediateCertificatesRequest.ProtoReflect.Descriptor instead.
+func (*GetIntermediateCertificatesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{117}
+}
+
+type GetIntermediateCertificatesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIntermediateCertificatesResponse) Reset() {
+	*x = GetIntermediateCertificatesResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[118]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIntermediateCertificatesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIntermediateCertificatesResponse) ProtoMessage() {}
+
+func (x *GetIntermediateCertificatesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[118]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIntermediateCertificatesResponse.ProtoReflect.Descriptor instead.
+func (*GetIntermediateCertificatesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{118}
+}
+
+func (x *GetIntermediateCertificatesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPrivateKeyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPrivateKeyRequest) Reset() {
+	*x = GetPrivateKeyRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[119]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPrivateKeyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPrivateKeyRequest) ProtoMessage() {}
+
+func (x *GetPrivateKeyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[119]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPrivateKeyRequest.ProtoReflect.Descriptor instead.
+func (*GetPrivateKeyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{119}
+}
+
+type GetPrivateKeyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPrivateKeyResponse) Reset() {
+	*x = GetPrivateKeyResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[120]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPrivateKeyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPrivateKeyResponse) ProtoMessage() {}
+
+func (x *GetPrivateKeyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[120]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPrivateKeyResponse.ProtoReflect.Descriptor instead.
+func (*GetPrivateKeyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{120}
+}
+
+func (x *GetPrivateKeyResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRemoteCaCertRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRemoteCaCertRequest) Reset() {
+	*x = GetRemoteCaCertRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[121]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRemoteCaCertRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRemoteCaCertRequest) ProtoMessage() {}
+
+func (x *GetRemoteCaCertRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[121]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRemoteCaCertRequest.ProtoReflect.Descriptor instead.
+func (*GetRemoteCaCertRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{121}
+}
+
+type GetRemoteCaCertResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRemoteCaCertResponse) Reset() {
+	*x = GetRemoteCaCertResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[122]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRemoteCaCertResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRemoteCaCertResponse) ProtoMessage() {}
+
+func (x *GetRemoteCaCertResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[122]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRemoteCaCertResponse.ProtoReflect.Descriptor instead.
+func (*GetRemoteCaCertResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{122}
+}
+
+func (x *GetRemoteCaCertResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetEapConfigRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEapConfigRequest) Reset() {
+	*x = GetEapConfigRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[123]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEapConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEapConfigRequest) ProtoMessage() {}
+
+func (x *GetEapConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[123]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEapConfigRequest.ProtoReflect.Descriptor instead.
+func (*GetEapConfigRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{123}
+}
+
+type GetEapConfigResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEapConfigResponse) Reset() {
+	*x = GetEapConfigResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[124]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEapConfigResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEapConfigResponse) ProtoMessage() {}
+
+func (x *GetEapConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[124]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEapConfigResponse.ProtoReflect.Descriptor instead.
+func (*GetEapConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{124}
+}
+
+func (x *GetEapConfigResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPskRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPskRequest) Reset() {
+	*x = GetPskRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[125]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPskRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPskRequest) ProtoMessage() {}
+
+func (x *GetPskRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[125]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPskRequest.ProtoReflect.Descriptor instead.
+func (*GetPskRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{125}
+}
+
+type GetPskResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPskResponse) Reset() {
+	*x = GetPskResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[126]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPskResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPskResponse) ProtoMessage() {}
+
+func (x *GetPskResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[126]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPskResponse.ProtoReflect.Descriptor instead.
+func (*GetPskResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{126}
+}
+
+func (x *GetPskResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewRfc822AddrIdentificationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewRfc822AddrIdentificationRequest) Reset() {
+	*x = NewRfc822AddrIdentificationRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[127]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewRfc822AddrIdentificationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewRfc822AddrIdentificationRequest) ProtoMessage() {}
+
+func (x *NewRfc822AddrIdentificationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[127]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewRfc822AddrIdentificationRequest.ProtoReflect.Descriptor instead.
+func (*NewRfc822AddrIdentificationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{127}
+}
+
+func (x *NewRfc822AddrIdentificationRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type NewRfc822AddrIdentificationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewRfc822AddrIdentificationResponse) Reset() {
+	*x = NewRfc822AddrIdentificationResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[128]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewRfc822AddrIdentificationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewRfc822AddrIdentificationResponse) ProtoMessage() {}
+
+func (x *NewRfc822AddrIdentificationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[128]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewRfc822AddrIdentificationResponse.ProtoReflect.Descriptor instead.
+func (*NewRfc822AddrIdentificationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{128}
+}
+
+func (x *NewRfc822AddrIdentificationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Rfc822AddrIdentificationEqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Rfc822AddrIdentificationEqualsRequest) Reset() {
+	*x = Rfc822AddrIdentificationEqualsRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[129]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Rfc822AddrIdentificationEqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Rfc822AddrIdentificationEqualsRequest) ProtoMessage() {}
+
+func (x *Rfc822AddrIdentificationEqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[129]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Rfc822AddrIdentificationEqualsRequest.ProtoReflect.Descriptor instead.
+func (*Rfc822AddrIdentificationEqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{129}
+}
+
+func (x *Rfc822AddrIdentificationEqualsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Rfc822AddrIdentificationEqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type Rfc822AddrIdentificationHashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Rfc822AddrIdentificationHashCodeRequest) Reset() {
+	*x = Rfc822AddrIdentificationHashCodeRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[130]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Rfc822AddrIdentificationHashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Rfc822AddrIdentificationHashCodeRequest) ProtoMessage() {}
+
+func (x *Rfc822AddrIdentificationHashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[130]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Rfc822AddrIdentificationHashCodeRequest.ProtoReflect.Descriptor instead.
+func (*Rfc822AddrIdentificationHashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{130}
+}
+
+func (x *Rfc822AddrIdentificationHashCodeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type NewTrafficSelectorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewTrafficSelectorRequest) Reset() {
+	*x = NewTrafficSelectorRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[131]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewTrafficSelectorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewTrafficSelectorRequest) ProtoMessage() {}
+
+func (x *NewTrafficSelectorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[131]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewTrafficSelectorRequest.ProtoReflect.Descriptor instead.
+func (*NewTrafficSelectorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{131}
+}
+
+func (x *NewTrafficSelectorRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewTrafficSelectorRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *NewTrafficSelectorRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *NewTrafficSelectorRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type NewTrafficSelectorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewTrafficSelectorResponse) Reset() {
+	*x = NewTrafficSelectorResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[132]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewTrafficSelectorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewTrafficSelectorResponse) ProtoMessage() {}
+
+func (x *NewTrafficSelectorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[132]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewTrafficSelectorResponse.ProtoReflect.Descriptor instead.
+func (*NewTrafficSelectorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{132}
+}
+
+func (x *NewTrafficSelectorResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type TrafficSelectorEqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TrafficSelectorEqualsRequest) Reset() {
+	*x = TrafficSelectorEqualsRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[133]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TrafficSelectorEqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TrafficSelectorEqualsRequest) ProtoMessage() {}
+
+func (x *TrafficSelectorEqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[133]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TrafficSelectorEqualsRequest.ProtoReflect.Descriptor instead.
+func (*TrafficSelectorEqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{133}
+}
+
+func (x *TrafficSelectorEqualsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *TrafficSelectorEqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type TrafficSelectorHashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TrafficSelectorHashCodeRequest) Reset() {
+	*x = TrafficSelectorHashCodeRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[134]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TrafficSelectorHashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TrafficSelectorHashCodeRequest) ProtoMessage() {}
+
+func (x *TrafficSelectorHashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[134]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TrafficSelectorHashCodeRequest.ProtoReflect.Descriptor instead.
+func (*TrafficSelectorHashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{134}
+}
+
+func (x *TrafficSelectorHashCodeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetInboundTrafficSelectorsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInboundTrafficSelectorsRequest) Reset() {
+	*x = GetInboundTrafficSelectorsRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[135]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInboundTrafficSelectorsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInboundTrafficSelectorsRequest) ProtoMessage() {}
+
+func (x *GetInboundTrafficSelectorsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[135]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInboundTrafficSelectorsRequest.ProtoReflect.Descriptor instead.
+func (*GetInboundTrafficSelectorsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{135}
+}
+
+type GetInboundTrafficSelectorsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInboundTrafficSelectorsResponse) Reset() {
+	*x = GetInboundTrafficSelectorsResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[136]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInboundTrafficSelectorsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInboundTrafficSelectorsResponse) ProtoMessage() {}
+
+func (x *GetInboundTrafficSelectorsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[136]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInboundTrafficSelectorsResponse.ProtoReflect.Descriptor instead.
+func (*GetInboundTrafficSelectorsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{136}
+}
+
+func (x *GetInboundTrafficSelectorsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetOutboundTrafficSelectorsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOutboundTrafficSelectorsRequest) Reset() {
+	*x = GetOutboundTrafficSelectorsRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[137]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOutboundTrafficSelectorsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOutboundTrafficSelectorsRequest) ProtoMessage() {}
+
+func (x *GetOutboundTrafficSelectorsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[137]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOutboundTrafficSelectorsRequest.ProtoReflect.Descriptor instead.
+func (*GetOutboundTrafficSelectorsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{137}
+}
+
+type GetOutboundTrafficSelectorsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOutboundTrafficSelectorsResponse) Reset() {
+	*x = GetOutboundTrafficSelectorsResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[138]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOutboundTrafficSelectorsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOutboundTrafficSelectorsResponse) ProtoMessage() {}
+
+func (x *GetOutboundTrafficSelectorsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[138]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOutboundTrafficSelectorsResponse.ProtoReflect.Descriptor instead.
+func (*GetOutboundTrafficSelectorsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{138}
+}
+
+func (x *GetOutboundTrafficSelectorsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPseudorandomFunctionsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPseudorandomFunctionsRequest) Reset() {
+	*x = GetPseudorandomFunctionsRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[139]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPseudorandomFunctionsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPseudorandomFunctionsRequest) ProtoMessage() {}
+
+func (x *GetPseudorandomFunctionsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[139]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPseudorandomFunctionsRequest.ProtoReflect.Descriptor instead.
+func (*GetPseudorandomFunctionsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{139}
+}
+
+type GetPseudorandomFunctionsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPseudorandomFunctionsResponse) Reset() {
+	*x = GetPseudorandomFunctionsResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[140]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPseudorandomFunctionsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPseudorandomFunctionsResponse) ProtoMessage() {}
+
+func (x *GetPseudorandomFunctionsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[140]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPseudorandomFunctionsResponse.ProtoReflect.Descriptor instead.
+func (*GetPseudorandomFunctionsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{140}
+}
+
+func (x *GetPseudorandomFunctionsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSupportedPseudorandomFunctionsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSupportedPseudorandomFunctionsRequest) Reset() {
+	*x = GetSupportedPseudorandomFunctionsRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[141]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSupportedPseudorandomFunctionsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSupportedPseudorandomFunctionsRequest) ProtoMessage() {}
+
+func (x *GetSupportedPseudorandomFunctionsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[141]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSupportedPseudorandomFunctionsRequest.ProtoReflect.Descriptor instead.
+func (*GetSupportedPseudorandomFunctionsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{141}
+}
+
+type GetSupportedPseudorandomFunctionsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSupportedPseudorandomFunctionsResponse) Reset() {
+	*x = GetSupportedPseudorandomFunctionsResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[142]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSupportedPseudorandomFunctionsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSupportedPseudorandomFunctionsResponse) ProtoMessage() {}
+
+func (x *GetSupportedPseudorandomFunctionsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[142]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSupportedPseudorandomFunctionsResponse.ProtoReflect.Descriptor instead.
+func (*GetSupportedPseudorandomFunctionsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{142}
+}
+
+func (x *GetSupportedPseudorandomFunctionsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddPseudorandomFunctionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddPseudorandomFunctionRequest) Reset() {
+	*x = AddPseudorandomFunctionRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[143]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddPseudorandomFunctionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddPseudorandomFunctionRequest) ProtoMessage() {}
+
+func (x *AddPseudorandomFunctionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[143]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddPseudorandomFunctionRequest.ProtoReflect.Descriptor instead.
+func (*AddPseudorandomFunctionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{143}
+}
+
+func (x *AddPseudorandomFunctionRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddPseudorandomFunctionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddPseudorandomFunctionResponse) Reset() {
+	*x = AddPseudorandomFunctionResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[144]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddPseudorandomFunctionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddPseudorandomFunctionResponse) ProtoMessage() {}
+
+func (x *AddPseudorandomFunctionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[144]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddPseudorandomFunctionResponse.ProtoReflect.Descriptor instead.
+func (*AddPseudorandomFunctionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{144}
+}
+
+func (x *AddPseudorandomFunctionResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -309,7 +6217,7 @@ type NewSessionRequest struct {
 
 func (x *NewSessionRequest) Reset() {
 	*x = NewSessionRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[6]
+	mi := &file_proto_ike_ike_proto_msgTypes[145]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -321,7 +6229,7 @@ func (x *NewSessionRequest) String() string {
 func (*NewSessionRequest) ProtoMessage() {}
 
 func (x *NewSessionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[6]
+	mi := &file_proto_ike_ike_proto_msgTypes[145]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -334,7 +6242,7 @@ func (x *NewSessionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewSessionRequest.ProtoReflect.Descriptor instead.
 func (*NewSessionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{6}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{145}
 }
 
 func (x *NewSessionRequest) GetArg0() int64 {
@@ -388,7 +6296,7 @@ type NewSessionResponse struct {
 
 func (x *NewSessionResponse) Reset() {
 	*x = NewSessionResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[7]
+	mi := &file_proto_ike_ike_proto_msgTypes[146]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -400,7 +6308,7 @@ func (x *NewSessionResponse) String() string {
 func (*NewSessionResponse) ProtoMessage() {}
 
 func (x *NewSessionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[7]
+	mi := &file_proto_ike_ike_proto_msgTypes[146]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -413,7 +6321,7 @@ func (x *NewSessionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewSessionResponse.ProtoReflect.Descriptor instead.
 func (*NewSessionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{7}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{146}
 }
 
 func (x *NewSessionResponse) GetResult() int64 {
@@ -432,7 +6340,7 @@ type CloseRequest struct {
 
 func (x *CloseRequest) Reset() {
 	*x = CloseRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[8]
+	mi := &file_proto_ike_ike_proto_msgTypes[147]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -444,7 +6352,7 @@ func (x *CloseRequest) String() string {
 func (*CloseRequest) ProtoMessage() {}
 
 func (x *CloseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[8]
+	mi := &file_proto_ike_ike_proto_msgTypes[147]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -457,7 +6365,7 @@ func (x *CloseRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CloseRequest.ProtoReflect.Descriptor instead.
 func (*CloseRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{8}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{147}
 }
 
 func (x *CloseRequest) GetHandle() int64 {
@@ -475,7 +6383,7 @@ type CloseResponse struct {
 
 func (x *CloseResponse) Reset() {
 	*x = CloseResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[9]
+	mi := &file_proto_ike_ike_proto_msgTypes[148]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -487,7 +6395,7 @@ func (x *CloseResponse) String() string {
 func (*CloseResponse) ProtoMessage() {}
 
 func (x *CloseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[9]
+	mi := &file_proto_ike_ike_proto_msgTypes[148]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -500,7 +6408,7 @@ func (x *CloseResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CloseResponse.ProtoReflect.Descriptor instead.
 func (*CloseResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{9}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{148}
 }
 
 type CloseChildSessionRequest struct {
@@ -513,7 +6421,7 @@ type CloseChildSessionRequest struct {
 
 func (x *CloseChildSessionRequest) Reset() {
 	*x = CloseChildSessionRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[10]
+	mi := &file_proto_ike_ike_proto_msgTypes[149]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -525,7 +6433,7 @@ func (x *CloseChildSessionRequest) String() string {
 func (*CloseChildSessionRequest) ProtoMessage() {}
 
 func (x *CloseChildSessionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[10]
+	mi := &file_proto_ike_ike_proto_msgTypes[149]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -538,7 +6446,7 @@ func (x *CloseChildSessionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CloseChildSessionRequest.ProtoReflect.Descriptor instead.
 func (*CloseChildSessionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{10}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{149}
 }
 
 func (x *CloseChildSessionRequest) GetHandle() int64 {
@@ -563,7 +6471,7 @@ type CloseChildSessionResponse struct {
 
 func (x *CloseChildSessionResponse) Reset() {
 	*x = CloseChildSessionResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[11]
+	mi := &file_proto_ike_ike_proto_msgTypes[150]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -575,7 +6483,7 @@ func (x *CloseChildSessionResponse) String() string {
 func (*CloseChildSessionResponse) ProtoMessage() {}
 
 func (x *CloseChildSessionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[11]
+	mi := &file_proto_ike_ike_proto_msgTypes[150]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -588,7 +6496,7 @@ func (x *CloseChildSessionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CloseChildSessionResponse.ProtoReflect.Descriptor instead.
 func (*CloseChildSessionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{11}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{150}
 }
 
 type DumpRequest struct {
@@ -601,7 +6509,7 @@ type DumpRequest struct {
 
 func (x *DumpRequest) Reset() {
 	*x = DumpRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[12]
+	mi := &file_proto_ike_ike_proto_msgTypes[151]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -613,7 +6521,7 @@ func (x *DumpRequest) String() string {
 func (*DumpRequest) ProtoMessage() {}
 
 func (x *DumpRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[12]
+	mi := &file_proto_ike_ike_proto_msgTypes[151]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -626,7 +6534,7 @@ func (x *DumpRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DumpRequest.ProtoReflect.Descriptor instead.
 func (*DumpRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{12}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{151}
 }
 
 func (x *DumpRequest) GetHandle() int64 {
@@ -651,7 +6559,7 @@ type DumpResponse struct {
 
 func (x *DumpResponse) Reset() {
 	*x = DumpResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[13]
+	mi := &file_proto_ike_ike_proto_msgTypes[152]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -663,7 +6571,7 @@ func (x *DumpResponse) String() string {
 func (*DumpResponse) ProtoMessage() {}
 
 func (x *DumpResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[13]
+	mi := &file_proto_ike_ike_proto_msgTypes[152]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -676,7 +6584,7 @@ func (x *DumpResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DumpResponse.ProtoReflect.Descriptor instead.
 func (*DumpResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{13}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{152}
 }
 
 type FinalizeRequest struct {
@@ -688,7 +6596,7 @@ type FinalizeRequest struct {
 
 func (x *FinalizeRequest) Reset() {
 	*x = FinalizeRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[14]
+	mi := &file_proto_ike_ike_proto_msgTypes[153]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -700,7 +6608,7 @@ func (x *FinalizeRequest) String() string {
 func (*FinalizeRequest) ProtoMessage() {}
 
 func (x *FinalizeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[14]
+	mi := &file_proto_ike_ike_proto_msgTypes[153]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -713,7 +6621,7 @@ func (x *FinalizeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FinalizeRequest.ProtoReflect.Descriptor instead.
 func (*FinalizeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{14}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{153}
 }
 
 func (x *FinalizeRequest) GetHandle() int64 {
@@ -731,7 +6639,7 @@ type FinalizeResponse struct {
 
 func (x *FinalizeResponse) Reset() {
 	*x = FinalizeResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[15]
+	mi := &file_proto_ike_ike_proto_msgTypes[154]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -743,7 +6651,7 @@ func (x *FinalizeResponse) String() string {
 func (*FinalizeResponse) ProtoMessage() {}
 
 func (x *FinalizeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[15]
+	mi := &file_proto_ike_ike_proto_msgTypes[154]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -756,7 +6664,7 @@ func (x *FinalizeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FinalizeResponse.ProtoReflect.Descriptor instead.
 func (*FinalizeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{15}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{154}
 }
 
 type KillRequest struct {
@@ -768,7 +6676,7 @@ type KillRequest struct {
 
 func (x *KillRequest) Reset() {
 	*x = KillRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[16]
+	mi := &file_proto_ike_ike_proto_msgTypes[155]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -780,7 +6688,7 @@ func (x *KillRequest) String() string {
 func (*KillRequest) ProtoMessage() {}
 
 func (x *KillRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[16]
+	mi := &file_proto_ike_ike_proto_msgTypes[155]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -793,7 +6701,7 @@ func (x *KillRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use KillRequest.ProtoReflect.Descriptor instead.
 func (*KillRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{16}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{155}
 }
 
 func (x *KillRequest) GetHandle() int64 {
@@ -811,7 +6719,7 @@ type KillResponse struct {
 
 func (x *KillResponse) Reset() {
 	*x = KillResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[17]
+	mi := &file_proto_ike_ike_proto_msgTypes[156]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -823,7 +6731,7 @@ func (x *KillResponse) String() string {
 func (*KillResponse) ProtoMessage() {}
 
 func (x *KillResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[17]
+	mi := &file_proto_ike_ike_proto_msgTypes[156]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -836,7 +6744,7 @@ func (x *KillResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use KillResponse.ProtoReflect.Descriptor instead.
 func (*KillResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{17}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{156}
 }
 
 type OpenChildSessionRequest struct {
@@ -850,7 +6758,7 @@ type OpenChildSessionRequest struct {
 
 func (x *OpenChildSessionRequest) Reset() {
 	*x = OpenChildSessionRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[18]
+	mi := &file_proto_ike_ike_proto_msgTypes[157]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -862,7 +6770,7 @@ func (x *OpenChildSessionRequest) String() string {
 func (*OpenChildSessionRequest) ProtoMessage() {}
 
 func (x *OpenChildSessionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[18]
+	mi := &file_proto_ike_ike_proto_msgTypes[157]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -875,7 +6783,7 @@ func (x *OpenChildSessionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenChildSessionRequest.ProtoReflect.Descriptor instead.
 func (*OpenChildSessionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{18}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{157}
 }
 
 func (x *OpenChildSessionRequest) GetHandle() int64 {
@@ -907,7 +6815,7 @@ type OpenChildSessionResponse struct {
 
 func (x *OpenChildSessionResponse) Reset() {
 	*x = OpenChildSessionResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[19]
+	mi := &file_proto_ike_ike_proto_msgTypes[158]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -919,7 +6827,7 @@ func (x *OpenChildSessionResponse) String() string {
 func (*OpenChildSessionResponse) ProtoMessage() {}
 
 func (x *OpenChildSessionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[19]
+	mi := &file_proto_ike_ike_proto_msgTypes[158]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -932,7 +6840,375 @@ func (x *OpenChildSessionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenChildSessionResponse.ProtoReflect.Descriptor instead.
 func (*OpenChildSessionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{19}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{158}
+}
+
+type NewIpv4AddrIdentificationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewIpv4AddrIdentificationRequest) Reset() {
+	*x = NewIpv4AddrIdentificationRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[159]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewIpv4AddrIdentificationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewIpv4AddrIdentificationRequest) ProtoMessage() {}
+
+func (x *NewIpv4AddrIdentificationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[159]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewIpv4AddrIdentificationRequest.ProtoReflect.Descriptor instead.
+func (*NewIpv4AddrIdentificationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{159}
+}
+
+func (x *NewIpv4AddrIdentificationRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewIpv4AddrIdentificationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewIpv4AddrIdentificationResponse) Reset() {
+	*x = NewIpv4AddrIdentificationResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[160]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewIpv4AddrIdentificationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewIpv4AddrIdentificationResponse) ProtoMessage() {}
+
+func (x *NewIpv4AddrIdentificationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[160]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewIpv4AddrIdentificationResponse.ProtoReflect.Descriptor instead.
+func (*NewIpv4AddrIdentificationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{160}
+}
+
+func (x *NewIpv4AddrIdentificationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Ipv4AddrIdentificationEqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Ipv4AddrIdentificationEqualsRequest) Reset() {
+	*x = Ipv4AddrIdentificationEqualsRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[161]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Ipv4AddrIdentificationEqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Ipv4AddrIdentificationEqualsRequest) ProtoMessage() {}
+
+func (x *Ipv4AddrIdentificationEqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[161]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Ipv4AddrIdentificationEqualsRequest.ProtoReflect.Descriptor instead.
+func (*Ipv4AddrIdentificationEqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{161}
+}
+
+func (x *Ipv4AddrIdentificationEqualsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Ipv4AddrIdentificationEqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type Ipv4AddrIdentificationHashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Ipv4AddrIdentificationHashCodeRequest) Reset() {
+	*x = Ipv4AddrIdentificationHashCodeRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[162]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Ipv4AddrIdentificationHashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Ipv4AddrIdentificationHashCodeRequest) ProtoMessage() {}
+
+func (x *Ipv4AddrIdentificationHashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[162]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Ipv4AddrIdentificationHashCodeRequest.ProtoReflect.Descriptor instead.
+func (*Ipv4AddrIdentificationHashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{162}
+}
+
+func (x *Ipv4AddrIdentificationHashCodeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type NewIpv6AddrIdentificationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewIpv6AddrIdentificationRequest) Reset() {
+	*x = NewIpv6AddrIdentificationRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[163]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewIpv6AddrIdentificationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewIpv6AddrIdentificationRequest) ProtoMessage() {}
+
+func (x *NewIpv6AddrIdentificationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[163]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewIpv6AddrIdentificationRequest.ProtoReflect.Descriptor instead.
+func (*NewIpv6AddrIdentificationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{163}
+}
+
+func (x *NewIpv6AddrIdentificationRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewIpv6AddrIdentificationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewIpv6AddrIdentificationResponse) Reset() {
+	*x = NewIpv6AddrIdentificationResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[164]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewIpv6AddrIdentificationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewIpv6AddrIdentificationResponse) ProtoMessage() {}
+
+func (x *NewIpv6AddrIdentificationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[164]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewIpv6AddrIdentificationResponse.ProtoReflect.Descriptor instead.
+func (*NewIpv6AddrIdentificationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{164}
+}
+
+func (x *NewIpv6AddrIdentificationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type Ipv6AddrIdentificationEqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Ipv6AddrIdentificationEqualsRequest) Reset() {
+	*x = Ipv6AddrIdentificationEqualsRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[165]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Ipv6AddrIdentificationEqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Ipv6AddrIdentificationEqualsRequest) ProtoMessage() {}
+
+func (x *Ipv6AddrIdentificationEqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[165]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Ipv6AddrIdentificationEqualsRequest.ProtoReflect.Descriptor instead.
+func (*Ipv6AddrIdentificationEqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{165}
+}
+
+func (x *Ipv6AddrIdentificationEqualsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *Ipv6AddrIdentificationEqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type Ipv6AddrIdentificationHashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Ipv6AddrIdentificationHashCodeRequest) Reset() {
+	*x = Ipv6AddrIdentificationHashCodeRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[166]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Ipv6AddrIdentificationHashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Ipv6AddrIdentificationHashCodeRequest) ProtoMessage() {}
+
+func (x *Ipv6AddrIdentificationHashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[166]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Ipv6AddrIdentificationHashCodeRequest.ProtoReflect.Descriptor instead.
+func (*Ipv6AddrIdentificationHashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{166}
+}
+
+func (x *Ipv6AddrIdentificationHashCodeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
 }
 
 type NewTunnelConnectionParamsRequest struct {
@@ -945,7 +7221,7 @@ type NewTunnelConnectionParamsRequest struct {
 
 func (x *NewTunnelConnectionParamsRequest) Reset() {
 	*x = NewTunnelConnectionParamsRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[20]
+	mi := &file_proto_ike_ike_proto_msgTypes[167]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -957,7 +7233,7 @@ func (x *NewTunnelConnectionParamsRequest) String() string {
 func (*NewTunnelConnectionParamsRequest) ProtoMessage() {}
 
 func (x *NewTunnelConnectionParamsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[20]
+	mi := &file_proto_ike_ike_proto_msgTypes[167]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -970,7 +7246,7 @@ func (x *NewTunnelConnectionParamsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewTunnelConnectionParamsRequest.ProtoReflect.Descriptor instead.
 func (*NewTunnelConnectionParamsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{20}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{167}
 }
 
 func (x *NewTunnelConnectionParamsRequest) GetArg0() int64 {
@@ -996,7 +7272,7 @@ type NewTunnelConnectionParamsResponse struct {
 
 func (x *NewTunnelConnectionParamsResponse) Reset() {
 	*x = NewTunnelConnectionParamsResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[21]
+	mi := &file_proto_ike_ike_proto_msgTypes[168]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1008,7 +7284,7 @@ func (x *NewTunnelConnectionParamsResponse) String() string {
 func (*NewTunnelConnectionParamsResponse) ProtoMessage() {}
 
 func (x *NewTunnelConnectionParamsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[21]
+	mi := &file_proto_ike_ike_proto_msgTypes[168]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1021,12 +7297,64 @@ func (x *NewTunnelConnectionParamsResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use NewTunnelConnectionParamsResponse.ProtoReflect.Descriptor instead.
 func (*NewTunnelConnectionParamsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{21}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{168}
 }
 
 func (x *NewTunnelConnectionParamsResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
+	}
+	return 0
+}
+
+type TunnelConnectionParamsEqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TunnelConnectionParamsEqualsRequest) Reset() {
+	*x = TunnelConnectionParamsEqualsRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[169]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TunnelConnectionParamsEqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TunnelConnectionParamsEqualsRequest) ProtoMessage() {}
+
+func (x *TunnelConnectionParamsEqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[169]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TunnelConnectionParamsEqualsRequest.ProtoReflect.Descriptor instead.
+func (*TunnelConnectionParamsEqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{169}
+}
+
+func (x *TunnelConnectionParamsEqualsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *TunnelConnectionParamsEqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
 	}
 	return 0
 }
@@ -1040,7 +7368,7 @@ type GetIkeSessionParamsRequest struct {
 
 func (x *GetIkeSessionParamsRequest) Reset() {
 	*x = GetIkeSessionParamsRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[22]
+	mi := &file_proto_ike_ike_proto_msgTypes[170]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1052,7 +7380,7 @@ func (x *GetIkeSessionParamsRequest) String() string {
 func (*GetIkeSessionParamsRequest) ProtoMessage() {}
 
 func (x *GetIkeSessionParamsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[22]
+	mi := &file_proto_ike_ike_proto_msgTypes[170]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1065,7 +7393,7 @@ func (x *GetIkeSessionParamsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIkeSessionParamsRequest.ProtoReflect.Descriptor instead.
 func (*GetIkeSessionParamsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{22}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{170}
 }
 
 func (x *GetIkeSessionParamsRequest) GetHandle() int64 {
@@ -1084,7 +7412,7 @@ type GetIkeSessionParamsResponse struct {
 
 func (x *GetIkeSessionParamsResponse) Reset() {
 	*x = GetIkeSessionParamsResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[23]
+	mi := &file_proto_ike_ike_proto_msgTypes[171]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1096,7 +7424,7 @@ func (x *GetIkeSessionParamsResponse) String() string {
 func (*GetIkeSessionParamsResponse) ProtoMessage() {}
 
 func (x *GetIkeSessionParamsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[23]
+	mi := &file_proto_ike_ike_proto_msgTypes[171]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1109,7 +7437,7 @@ func (x *GetIkeSessionParamsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIkeSessionParamsResponse.ProtoReflect.Descriptor instead.
 func (*GetIkeSessionParamsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{23}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{171}
 }
 
 func (x *GetIkeSessionParamsResponse) GetResult() int64 {
@@ -1128,7 +7456,7 @@ type GetTunnelModeChildSessionParamsRequest struct {
 
 func (x *GetTunnelModeChildSessionParamsRequest) Reset() {
 	*x = GetTunnelModeChildSessionParamsRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[24]
+	mi := &file_proto_ike_ike_proto_msgTypes[172]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1140,7 +7468,7 @@ func (x *GetTunnelModeChildSessionParamsRequest) String() string {
 func (*GetTunnelModeChildSessionParamsRequest) ProtoMessage() {}
 
 func (x *GetTunnelModeChildSessionParamsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[24]
+	mi := &file_proto_ike_ike_proto_msgTypes[172]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1153,7 +7481,7 @@ func (x *GetTunnelModeChildSessionParamsRequest) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use GetTunnelModeChildSessionParamsRequest.ProtoReflect.Descriptor instead.
 func (*GetTunnelModeChildSessionParamsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{24}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{172}
 }
 
 func (x *GetTunnelModeChildSessionParamsRequest) GetHandle() int64 {
@@ -1172,7 +7500,7 @@ type GetTunnelModeChildSessionParamsResponse struct {
 
 func (x *GetTunnelModeChildSessionParamsResponse) Reset() {
 	*x = GetTunnelModeChildSessionParamsResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[25]
+	mi := &file_proto_ike_ike_proto_msgTypes[173]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1184,7 +7512,7 @@ func (x *GetTunnelModeChildSessionParamsResponse) String() string {
 func (*GetTunnelModeChildSessionParamsResponse) ProtoMessage() {}
 
 func (x *GetTunnelModeChildSessionParamsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[25]
+	mi := &file_proto_ike_ike_proto_msgTypes[173]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1197,7 +7525,7 @@ func (x *GetTunnelModeChildSessionParamsResponse) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use GetTunnelModeChildSessionParamsResponse.ProtoReflect.Descriptor instead.
 func (*GetTunnelModeChildSessionParamsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{25}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{173}
 }
 
 func (x *GetTunnelModeChildSessionParamsResponse) GetResult() int64 {
@@ -1207,28 +7535,28 @@ func (x *GetTunnelModeChildSessionParamsResponse) GetResult() int64 {
 	return 0
 }
 
-type AddChildSaProposalRequest struct {
+type TunnelConnectionParamsHashCodeRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *AddChildSaProposalRequest) Reset() {
-	*x = AddChildSaProposalRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[26]
+func (x *TunnelConnectionParamsHashCodeRequest) Reset() {
+	*x = TunnelConnectionParamsHashCodeRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[174]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *AddChildSaProposalRequest) String() string {
+func (x *TunnelConnectionParamsHashCodeRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*AddChildSaProposalRequest) ProtoMessage() {}
+func (*TunnelConnectionParamsHashCodeRequest) ProtoMessage() {}
 
-func (x *AddChildSaProposalRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[26]
+func (x *TunnelConnectionParamsHashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[174]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1239,410 +7567,14 @@ func (x *AddChildSaProposalRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use AddChildSaProposalRequest.ProtoReflect.Descriptor instead.
-func (*AddChildSaProposalRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{26}
+// Deprecated: Use TunnelConnectionParamsHashCodeRequest.ProtoReflect.Descriptor instead.
+func (*TunnelConnectionParamsHashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{174}
 }
 
-func (x *AddChildSaProposalRequest) GetArg0() int64 {
+func (x *TunnelConnectionParamsHashCodeRequest) GetHandle() int64 {
 	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type AddChildSaProposalResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddChildSaProposalResponse) Reset() {
-	*x = AddChildSaProposalResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[27]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddChildSaProposalResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddChildSaProposalResponse) ProtoMessage() {}
-
-func (x *AddChildSaProposalResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[27]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddChildSaProposalResponse.ProtoReflect.Descriptor instead.
-func (*AddChildSaProposalResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{27}
-}
-
-func (x *AddChildSaProposalResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type AddInboundTrafficSelectorsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddInboundTrafficSelectorsRequest) Reset() {
-	*x = AddInboundTrafficSelectorsRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[28]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddInboundTrafficSelectorsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddInboundTrafficSelectorsRequest) ProtoMessage() {}
-
-func (x *AddInboundTrafficSelectorsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[28]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddInboundTrafficSelectorsRequest.ProtoReflect.Descriptor instead.
-func (*AddInboundTrafficSelectorsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{28}
-}
-
-func (x *AddInboundTrafficSelectorsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type AddInboundTrafficSelectorsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddInboundTrafficSelectorsResponse) Reset() {
-	*x = AddInboundTrafficSelectorsResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[29]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddInboundTrafficSelectorsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddInboundTrafficSelectorsResponse) ProtoMessage() {}
-
-func (x *AddInboundTrafficSelectorsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[29]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddInboundTrafficSelectorsResponse.ProtoReflect.Descriptor instead.
-func (*AddInboundTrafficSelectorsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{29}
-}
-
-func (x *AddInboundTrafficSelectorsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type AddOutboundTrafficSelectorsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddOutboundTrafficSelectorsRequest) Reset() {
-	*x = AddOutboundTrafficSelectorsRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[30]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddOutboundTrafficSelectorsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddOutboundTrafficSelectorsRequest) ProtoMessage() {}
-
-func (x *AddOutboundTrafficSelectorsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[30]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddOutboundTrafficSelectorsRequest.ProtoReflect.Descriptor instead.
-func (*AddOutboundTrafficSelectorsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{30}
-}
-
-func (x *AddOutboundTrafficSelectorsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type AddOutboundTrafficSelectorsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddOutboundTrafficSelectorsResponse) Reset() {
-	*x = AddOutboundTrafficSelectorsResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[31]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddOutboundTrafficSelectorsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddOutboundTrafficSelectorsResponse) ProtoMessage() {}
-
-func (x *AddOutboundTrafficSelectorsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[31]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddOutboundTrafficSelectorsResponse.ProtoReflect.Descriptor instead.
-func (*AddOutboundTrafficSelectorsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{31}
-}
-
-func (x *AddOutboundTrafficSelectorsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type BuildRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BuildRequest) Reset() {
-	*x = BuildRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[32]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BuildRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BuildRequest) ProtoMessage() {}
-
-func (x *BuildRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[32]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
-func (*BuildRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{32}
-}
-
-type BuildResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BuildResponse) Reset() {
-	*x = BuildResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[33]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BuildResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BuildResponse) ProtoMessage() {}
-
-func (x *BuildResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[33]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
-func (*BuildResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{33}
-}
-
-func (x *BuildResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetLifetimeSecondsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetLifetimeSecondsRequest) Reset() {
-	*x = SetLifetimeSecondsRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[34]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetLifetimeSecondsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetLifetimeSecondsRequest) ProtoMessage() {}
-
-func (x *SetLifetimeSecondsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[34]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetLifetimeSecondsRequest.ProtoReflect.Descriptor instead.
-func (*SetLifetimeSecondsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{34}
-}
-
-func (x *SetLifetimeSecondsRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *SetLifetimeSecondsRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type SetLifetimeSecondsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetLifetimeSecondsResponse) Reset() {
-	*x = SetLifetimeSecondsResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[35]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetLifetimeSecondsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetLifetimeSecondsResponse) ProtoMessage() {}
-
-func (x *SetLifetimeSecondsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[35]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetLifetimeSecondsResponse.ProtoReflect.Descriptor instead.
-func (*SetLifetimeSecondsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{35}
-}
-
-func (x *SetLifetimeSecondsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
+		return x.Handle
 	}
 	return 0
 }
@@ -1655,7 +7587,7 @@ type OnClosedRequest struct {
 
 func (x *OnClosedRequest) Reset() {
 	*x = OnClosedRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[36]
+	mi := &file_proto_ike_ike_proto_msgTypes[175]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1667,7 +7599,7 @@ func (x *OnClosedRequest) String() string {
 func (*OnClosedRequest) ProtoMessage() {}
 
 func (x *OnClosedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[36]
+	mi := &file_proto_ike_ike_proto_msgTypes[175]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1680,7 +7612,7 @@ func (x *OnClosedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnClosedRequest.ProtoReflect.Descriptor instead.
 func (*OnClosedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{36}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{175}
 }
 
 type OnClosedResponse struct {
@@ -1691,7 +7623,7 @@ type OnClosedResponse struct {
 
 func (x *OnClosedResponse) Reset() {
 	*x = OnClosedResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[37]
+	mi := &file_proto_ike_ike_proto_msgTypes[176]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1703,7 +7635,7 @@ func (x *OnClosedResponse) String() string {
 func (*OnClosedResponse) ProtoMessage() {}
 
 func (x *OnClosedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[37]
+	mi := &file_proto_ike_ike_proto_msgTypes[176]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1716,7 +7648,87 @@ func (x *OnClosedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnClosedResponse.ProtoReflect.Descriptor instead.
 func (*OnClosedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{37}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{176}
+}
+
+type OnOpenedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnOpenedRequest) Reset() {
+	*x = OnOpenedRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[177]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnOpenedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnOpenedRequest) ProtoMessage() {}
+
+func (x *OnOpenedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[177]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnOpenedRequest.ProtoReflect.Descriptor instead.
+func (*OnOpenedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{177}
+}
+
+func (x *OnOpenedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnOpenedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnOpenedResponse) Reset() {
+	*x = OnOpenedResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[178]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnOpenedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnOpenedResponse) ProtoMessage() {}
+
+func (x *OnOpenedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[178]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnOpenedResponse.ProtoReflect.Descriptor instead.
+func (*OnOpenedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{178}
 }
 
 type OnIpSecTransformCreatedRequest struct {
@@ -1729,7 +7741,7 @@ type OnIpSecTransformCreatedRequest struct {
 
 func (x *OnIpSecTransformCreatedRequest) Reset() {
 	*x = OnIpSecTransformCreatedRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[38]
+	mi := &file_proto_ike_ike_proto_msgTypes[179]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1741,7 +7753,7 @@ func (x *OnIpSecTransformCreatedRequest) String() string {
 func (*OnIpSecTransformCreatedRequest) ProtoMessage() {}
 
 func (x *OnIpSecTransformCreatedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[38]
+	mi := &file_proto_ike_ike_proto_msgTypes[179]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1754,7 +7766,7 @@ func (x *OnIpSecTransformCreatedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnIpSecTransformCreatedRequest.ProtoReflect.Descriptor instead.
 func (*OnIpSecTransformCreatedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{38}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{179}
 }
 
 func (x *OnIpSecTransformCreatedRequest) GetArg0() int64 {
@@ -1779,7 +7791,7 @@ type OnIpSecTransformCreatedResponse struct {
 
 func (x *OnIpSecTransformCreatedResponse) Reset() {
 	*x = OnIpSecTransformCreatedResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[39]
+	mi := &file_proto_ike_ike_proto_msgTypes[180]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1791,7 +7803,7 @@ func (x *OnIpSecTransformCreatedResponse) String() string {
 func (*OnIpSecTransformCreatedResponse) ProtoMessage() {}
 
 func (x *OnIpSecTransformCreatedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[39]
+	mi := &file_proto_ike_ike_proto_msgTypes[180]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1804,7 +7816,7 @@ func (x *OnIpSecTransformCreatedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnIpSecTransformCreatedResponse.ProtoReflect.Descriptor instead.
 func (*OnIpSecTransformCreatedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{39}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{180}
 }
 
 type OnIpSecTransformDeletedRequest struct {
@@ -1817,7 +7829,7 @@ type OnIpSecTransformDeletedRequest struct {
 
 func (x *OnIpSecTransformDeletedRequest) Reset() {
 	*x = OnIpSecTransformDeletedRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[40]
+	mi := &file_proto_ike_ike_proto_msgTypes[181]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1829,7 +7841,7 @@ func (x *OnIpSecTransformDeletedRequest) String() string {
 func (*OnIpSecTransformDeletedRequest) ProtoMessage() {}
 
 func (x *OnIpSecTransformDeletedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[40]
+	mi := &file_proto_ike_ike_proto_msgTypes[181]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1842,7 +7854,7 @@ func (x *OnIpSecTransformDeletedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnIpSecTransformDeletedRequest.ProtoReflect.Descriptor instead.
 func (*OnIpSecTransformDeletedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{40}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{181}
 }
 
 func (x *OnIpSecTransformDeletedRequest) GetArg0() int64 {
@@ -1867,7 +7879,7 @@ type OnIpSecTransformDeletedResponse struct {
 
 func (x *OnIpSecTransformDeletedResponse) Reset() {
 	*x = OnIpSecTransformDeletedResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[41]
+	mi := &file_proto_ike_ike_proto_msgTypes[182]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1879,7 +7891,7 @@ func (x *OnIpSecTransformDeletedResponse) String() string {
 func (*OnIpSecTransformDeletedResponse) ProtoMessage() {}
 
 func (x *OnIpSecTransformDeletedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[41]
+	mi := &file_proto_ike_ike_proto_msgTypes[182]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1892,31 +7904,31 @@ func (x *OnIpSecTransformDeletedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnIpSecTransformDeletedResponse.ProtoReflect.Descriptor instead.
 func (*OnIpSecTransformDeletedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{41}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{182}
 }
 
-type OnOpenedRequest struct {
+type NewKeyIdIdentificationRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *OnOpenedRequest) Reset() {
-	*x = OnOpenedRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[42]
+func (x *NewKeyIdIdentificationRequest) Reset() {
+	*x = NewKeyIdIdentificationRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[183]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *OnOpenedRequest) String() string {
+func (x *NewKeyIdIdentificationRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*OnOpenedRequest) ProtoMessage() {}
+func (*NewKeyIdIdentificationRequest) ProtoMessage() {}
 
-func (x *OnOpenedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[42]
+func (x *NewKeyIdIdentificationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[183]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1927,316 +7939,40 @@ func (x *OnOpenedRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use OnOpenedRequest.ProtoReflect.Descriptor instead.
-func (*OnOpenedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{42}
+// Deprecated: Use NewKeyIdIdentificationRequest.ProtoReflect.Descriptor instead.
+func (*NewKeyIdIdentificationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{183}
 }
 
-func (x *OnOpenedRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnOpenedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnOpenedResponse) Reset() {
-	*x = OnOpenedResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[43]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnOpenedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnOpenedResponse) ProtoMessage() {}
-
-func (x *OnOpenedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[43]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnOpenedResponse.ProtoReflect.Descriptor instead.
-func (*OnOpenedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{43}
-}
-
-type SessionParamsEqualsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SessionParamsEqualsRequest) Reset() {
-	*x = SessionParamsEqualsRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[44]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SessionParamsEqualsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SessionParamsEqualsRequest) ProtoMessage() {}
-
-func (x *SessionParamsEqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[44]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SessionParamsEqualsRequest.ProtoReflect.Descriptor instead.
-func (*SessionParamsEqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{44}
-}
-
-func (x *SessionParamsEqualsRequest) GetArg0() int64 {
+func (x *NewKeyIdIdentificationRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-type GetDpdDelaySecondsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDpdDelaySecondsRequest) Reset() {
-	*x = GetDpdDelaySecondsRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[45]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDpdDelaySecondsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDpdDelaySecondsRequest) ProtoMessage() {}
-
-func (x *GetDpdDelaySecondsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[45]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDpdDelaySecondsRequest.ProtoReflect.Descriptor instead.
-func (*GetDpdDelaySecondsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{45}
-}
-
-type GetDpdDelaySecondsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDpdDelaySecondsResponse) Reset() {
-	*x = GetDpdDelaySecondsResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[46]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDpdDelaySecondsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDpdDelaySecondsResponse) ProtoMessage() {}
-
-func (x *GetDpdDelaySecondsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[46]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDpdDelaySecondsResponse.ProtoReflect.Descriptor instead.
-func (*GetDpdDelaySecondsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{46}
-}
-
-func (x *GetDpdDelaySecondsResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetHardLifetimeSecondsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetHardLifetimeSecondsRequest) Reset() {
-	*x = GetHardLifetimeSecondsRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[47]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetHardLifetimeSecondsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetHardLifetimeSecondsRequest) ProtoMessage() {}
-
-func (x *GetHardLifetimeSecondsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[47]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetHardLifetimeSecondsRequest.ProtoReflect.Descriptor instead.
-func (*GetHardLifetimeSecondsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{47}
-}
-
-type GetHardLifetimeSecondsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetHardLifetimeSecondsResponse) Reset() {
-	*x = GetHardLifetimeSecondsResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[48]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetHardLifetimeSecondsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetHardLifetimeSecondsResponse) ProtoMessage() {}
-
-func (x *GetHardLifetimeSecondsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[48]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetHardLifetimeSecondsResponse.ProtoReflect.Descriptor instead.
-func (*GetHardLifetimeSecondsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{48}
-}
-
-func (x *GetHardLifetimeSecondsResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetLocalAuthConfigRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetLocalAuthConfigRequest) Reset() {
-	*x = GetLocalAuthConfigRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[49]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetLocalAuthConfigRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetLocalAuthConfigRequest) ProtoMessage() {}
-
-func (x *GetLocalAuthConfigRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[49]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetLocalAuthConfigRequest.ProtoReflect.Descriptor instead.
-func (*GetLocalAuthConfigRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{49}
-}
-
-type GetLocalAuthConfigResponse struct {
+type NewKeyIdIdentificationResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetLocalAuthConfigResponse) Reset() {
-	*x = GetLocalAuthConfigResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[50]
+func (x *NewKeyIdIdentificationResponse) Reset() {
+	*x = NewKeyIdIdentificationResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[184]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetLocalAuthConfigResponse) String() string {
+func (x *NewKeyIdIdentificationResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetLocalAuthConfigResponse) ProtoMessage() {}
+func (*NewKeyIdIdentificationResponse) ProtoMessage() {}
 
-func (x *GetLocalAuthConfigResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[50]
+func (x *NewKeyIdIdentificationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[184]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2247,3884 +7983,41 @@ func (x *GetLocalAuthConfigResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetLocalAuthConfigResponse.ProtoReflect.Descriptor instead.
-func (*GetLocalAuthConfigResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{50}
+// Deprecated: Use NewKeyIdIdentificationResponse.ProtoReflect.Descriptor instead.
+func (*NewKeyIdIdentificationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{184}
 }
 
-func (x *GetLocalAuthConfigResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetLocalIdentificationRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetLocalIdentificationRequest) Reset() {
-	*x = GetLocalIdentificationRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[51]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetLocalIdentificationRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetLocalIdentificationRequest) ProtoMessage() {}
-
-func (x *GetLocalIdentificationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[51]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetLocalIdentificationRequest.ProtoReflect.Descriptor instead.
-func (*GetLocalIdentificationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{51}
-}
-
-type GetLocalIdentificationResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetLocalIdentificationResponse) Reset() {
-	*x = GetLocalIdentificationResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[52]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetLocalIdentificationResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetLocalIdentificationResponse) ProtoMessage() {}
-
-func (x *GetLocalIdentificationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[52]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetLocalIdentificationResponse.ProtoReflect.Descriptor instead.
-func (*GetLocalIdentificationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{52}
-}
-
-func (x *GetLocalIdentificationResponse) GetResult() int64 {
+func (x *NewKeyIdIdentificationResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type GetNattKeepAliveDelaySecondsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetNattKeepAliveDelaySecondsRequest) Reset() {
-	*x = GetNattKeepAliveDelaySecondsRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[53]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetNattKeepAliveDelaySecondsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetNattKeepAliveDelaySecondsRequest) ProtoMessage() {}
-
-func (x *GetNattKeepAliveDelaySecondsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[53]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetNattKeepAliveDelaySecondsRequest.ProtoReflect.Descriptor instead.
-func (*GetNattKeepAliveDelaySecondsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{53}
-}
-
-type GetNattKeepAliveDelaySecondsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetNattKeepAliveDelaySecondsResponse) Reset() {
-	*x = GetNattKeepAliveDelaySecondsResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[54]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetNattKeepAliveDelaySecondsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetNattKeepAliveDelaySecondsResponse) ProtoMessage() {}
-
-func (x *GetNattKeepAliveDelaySecondsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[54]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetNattKeepAliveDelaySecondsResponse.ProtoReflect.Descriptor instead.
-func (*GetNattKeepAliveDelaySecondsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{54}
-}
-
-func (x *GetNattKeepAliveDelaySecondsResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetNetworkRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetNetworkRequest) Reset() {
-	*x = GetNetworkRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[55]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetNetworkRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetNetworkRequest) ProtoMessage() {}
-
-func (x *GetNetworkRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[55]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetNetworkRequest.ProtoReflect.Descriptor instead.
-func (*GetNetworkRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{55}
-}
-
-type GetNetworkResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetNetworkResponse) Reset() {
-	*x = GetNetworkResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[56]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetNetworkResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetNetworkResponse) ProtoMessage() {}
-
-func (x *GetNetworkResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[56]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetNetworkResponse.ProtoReflect.Descriptor instead.
-func (*GetNetworkResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{56}
-}
-
-func (x *GetNetworkResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetRemoteAuthConfigRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRemoteAuthConfigRequest) Reset() {
-	*x = GetRemoteAuthConfigRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[57]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRemoteAuthConfigRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRemoteAuthConfigRequest) ProtoMessage() {}
-
-func (x *GetRemoteAuthConfigRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[57]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRemoteAuthConfigRequest.ProtoReflect.Descriptor instead.
-func (*GetRemoteAuthConfigRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{57}
-}
-
-type GetRemoteAuthConfigResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRemoteAuthConfigResponse) Reset() {
-	*x = GetRemoteAuthConfigResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[58]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRemoteAuthConfigResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRemoteAuthConfigResponse) ProtoMessage() {}
-
-func (x *GetRemoteAuthConfigResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[58]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRemoteAuthConfigResponse.ProtoReflect.Descriptor instead.
-func (*GetRemoteAuthConfigResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{58}
-}
-
-func (x *GetRemoteAuthConfigResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetRemoteIdentificationRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRemoteIdentificationRequest) Reset() {
-	*x = GetRemoteIdentificationRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[59]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRemoteIdentificationRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRemoteIdentificationRequest) ProtoMessage() {}
-
-func (x *GetRemoteIdentificationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[59]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRemoteIdentificationRequest.ProtoReflect.Descriptor instead.
-func (*GetRemoteIdentificationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{59}
-}
-
-type GetRemoteIdentificationResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRemoteIdentificationResponse) Reset() {
-	*x = GetRemoteIdentificationResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[60]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRemoteIdentificationResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRemoteIdentificationResponse) ProtoMessage() {}
-
-func (x *GetRemoteIdentificationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[60]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRemoteIdentificationResponse.ProtoReflect.Descriptor instead.
-func (*GetRemoteIdentificationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{60}
-}
-
-func (x *GetRemoteIdentificationResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetRetransmissionTimeoutsMillisRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRetransmissionTimeoutsMillisRequest) Reset() {
-	*x = GetRetransmissionTimeoutsMillisRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[61]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRetransmissionTimeoutsMillisRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRetransmissionTimeoutsMillisRequest) ProtoMessage() {}
-
-func (x *GetRetransmissionTimeoutsMillisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[61]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRetransmissionTimeoutsMillisRequest.ProtoReflect.Descriptor instead.
-func (*GetRetransmissionTimeoutsMillisRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{61}
-}
-
-type GetRetransmissionTimeoutsMillisResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRetransmissionTimeoutsMillisResponse) Reset() {
-	*x = GetRetransmissionTimeoutsMillisResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[62]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRetransmissionTimeoutsMillisResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRetransmissionTimeoutsMillisResponse) ProtoMessage() {}
-
-func (x *GetRetransmissionTimeoutsMillisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[62]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRetransmissionTimeoutsMillisResponse.ProtoReflect.Descriptor instead.
-func (*GetRetransmissionTimeoutsMillisResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{62}
-}
-
-func (x *GetRetransmissionTimeoutsMillisResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetServerHostnameRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetServerHostnameRequest) Reset() {
-	*x = GetServerHostnameRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[63]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetServerHostnameRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetServerHostnameRequest) ProtoMessage() {}
-
-func (x *GetServerHostnameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[63]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetServerHostnameRequest.ProtoReflect.Descriptor instead.
-func (*GetServerHostnameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{63}
-}
-
-type GetServerHostnameResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetServerHostnameResponse) Reset() {
-	*x = GetServerHostnameResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[64]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetServerHostnameResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetServerHostnameResponse) ProtoMessage() {}
-
-func (x *GetServerHostnameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[64]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetServerHostnameResponse.ProtoReflect.Descriptor instead.
-func (*GetServerHostnameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{64}
-}
-
-func (x *GetServerHostnameResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetSoftLifetimeSecondsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSoftLifetimeSecondsRequest) Reset() {
-	*x = GetSoftLifetimeSecondsRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[65]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSoftLifetimeSecondsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSoftLifetimeSecondsRequest) ProtoMessage() {}
-
-func (x *GetSoftLifetimeSecondsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[65]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSoftLifetimeSecondsRequest.ProtoReflect.Descriptor instead.
-func (*GetSoftLifetimeSecondsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{65}
-}
-
-type GetSoftLifetimeSecondsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSoftLifetimeSecondsResponse) Reset() {
-	*x = GetSoftLifetimeSecondsResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[66]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSoftLifetimeSecondsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSoftLifetimeSecondsResponse) ProtoMessage() {}
-
-func (x *GetSoftLifetimeSecondsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[66]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSoftLifetimeSecondsResponse.ProtoReflect.Descriptor instead.
-func (*GetSoftLifetimeSecondsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{66}
-}
-
-func (x *GetSoftLifetimeSecondsResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type HasIkeOptionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasIkeOptionRequest) Reset() {
-	*x = HasIkeOptionRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[67]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasIkeOptionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasIkeOptionRequest) ProtoMessage() {}
-
-func (x *HasIkeOptionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[67]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasIkeOptionRequest.ProtoReflect.Descriptor instead.
-func (*HasIkeOptionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{67}
-}
-
-func (x *HasIkeOptionRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type HasIkeOptionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasIkeOptionResponse) Reset() {
-	*x = HasIkeOptionResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[68]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasIkeOptionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasIkeOptionResponse) ProtoMessage() {}
-
-func (x *HasIkeOptionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[68]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasIkeOptionResponse.ProtoReflect.Descriptor instead.
-func (*HasIkeOptionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{68}
-}
-
-func (x *HasIkeOptionResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type SessionParamsHashCodeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SessionParamsHashCodeRequest) Reset() {
-	*x = SessionParamsHashCodeRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[69]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SessionParamsHashCodeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SessionParamsHashCodeRequest) ProtoMessage() {}
-
-func (x *SessionParamsHashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[69]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SessionParamsHashCodeRequest.ProtoReflect.Descriptor instead.
-func (*SessionParamsHashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{69}
-}
-
-type AddIkeOptionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddIkeOptionRequest) Reset() {
-	*x = AddIkeOptionRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[70]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddIkeOptionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddIkeOptionRequest) ProtoMessage() {}
-
-func (x *AddIkeOptionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[70]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddIkeOptionRequest.ProtoReflect.Descriptor instead.
-func (*AddIkeOptionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{70}
-}
-
-func (x *AddIkeOptionRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type AddIkeOptionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddIkeOptionResponse) Reset() {
-	*x = AddIkeOptionResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[71]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddIkeOptionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddIkeOptionResponse) ProtoMessage() {}
-
-func (x *AddIkeOptionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[71]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddIkeOptionResponse.ProtoReflect.Descriptor instead.
-func (*AddIkeOptionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{71}
-}
-
-func (x *AddIkeOptionResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type AddIkeSaProposalRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddIkeSaProposalRequest) Reset() {
-	*x = AddIkeSaProposalRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[72]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddIkeSaProposalRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddIkeSaProposalRequest) ProtoMessage() {}
-
-func (x *AddIkeSaProposalRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[72]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddIkeSaProposalRequest.ProtoReflect.Descriptor instead.
-func (*AddIkeSaProposalRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{72}
-}
-
-func (x *AddIkeSaProposalRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type AddIkeSaProposalResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddIkeSaProposalResponse) Reset() {
-	*x = AddIkeSaProposalResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[73]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddIkeSaProposalResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddIkeSaProposalResponse) ProtoMessage() {}
-
-func (x *AddIkeSaProposalResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[73]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddIkeSaProposalResponse.ProtoReflect.Descriptor instead.
-func (*AddIkeSaProposalResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{73}
-}
-
-func (x *AddIkeSaProposalResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type RemoveIkeOptionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveIkeOptionRequest) Reset() {
-	*x = RemoveIkeOptionRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[74]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveIkeOptionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveIkeOptionRequest) ProtoMessage() {}
-
-func (x *RemoveIkeOptionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[74]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveIkeOptionRequest.ProtoReflect.Descriptor instead.
-func (*RemoveIkeOptionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{74}
-}
-
-func (x *RemoveIkeOptionRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type RemoveIkeOptionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RemoveIkeOptionResponse) Reset() {
-	*x = RemoveIkeOptionResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[75]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RemoveIkeOptionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RemoveIkeOptionResponse) ProtoMessage() {}
-
-func (x *RemoveIkeOptionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[75]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RemoveIkeOptionResponse.ProtoReflect.Descriptor instead.
-func (*RemoveIkeOptionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{75}
-}
-
-func (x *RemoveIkeOptionResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetAuthDigitalSignatureRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetAuthDigitalSignatureRequest) Reset() {
-	*x = SetAuthDigitalSignatureRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[76]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetAuthDigitalSignatureRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetAuthDigitalSignatureRequest) ProtoMessage() {}
-
-func (x *SetAuthDigitalSignatureRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[76]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetAuthDigitalSignatureRequest.ProtoReflect.Descriptor instead.
-func (*SetAuthDigitalSignatureRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{76}
-}
-
-func (x *SetAuthDigitalSignatureRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *SetAuthDigitalSignatureRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *SetAuthDigitalSignatureRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type SetAuthDigitalSignatureResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetAuthDigitalSignatureResponse) Reset() {
-	*x = SetAuthDigitalSignatureResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[77]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetAuthDigitalSignatureResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetAuthDigitalSignatureResponse) ProtoMessage() {}
-
-func (x *SetAuthDigitalSignatureResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[77]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetAuthDigitalSignatureResponse.ProtoReflect.Descriptor instead.
-func (*SetAuthDigitalSignatureResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{77}
-}
-
-func (x *SetAuthDigitalSignatureResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetAuthEapRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetAuthEapRequest) Reset() {
-	*x = SetAuthEapRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[78]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetAuthEapRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetAuthEapRequest) ProtoMessage() {}
-
-func (x *SetAuthEapRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[78]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetAuthEapRequest.ProtoReflect.Descriptor instead.
-func (*SetAuthEapRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{78}
-}
-
-func (x *SetAuthEapRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *SetAuthEapRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type SetAuthEapResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetAuthEapResponse) Reset() {
-	*x = SetAuthEapResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[79]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetAuthEapResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetAuthEapResponse) ProtoMessage() {}
-
-func (x *SetAuthEapResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[79]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetAuthEapResponse.ProtoReflect.Descriptor instead.
-func (*SetAuthEapResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{79}
-}
-
-func (x *SetAuthEapResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetAuthPskRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetAuthPskRequest) Reset() {
-	*x = SetAuthPskRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[80]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetAuthPskRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetAuthPskRequest) ProtoMessage() {}
-
-func (x *SetAuthPskRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[80]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetAuthPskRequest.ProtoReflect.Descriptor instead.
-func (*SetAuthPskRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{80}
-}
-
-func (x *SetAuthPskRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetAuthPskResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetAuthPskResponse) Reset() {
-	*x = SetAuthPskResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[81]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetAuthPskResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetAuthPskResponse) ProtoMessage() {}
-
-func (x *SetAuthPskResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[81]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetAuthPskResponse.ProtoReflect.Descriptor instead.
-func (*SetAuthPskResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{81}
-}
-
-func (x *SetAuthPskResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetDpdDelaySecondsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetDpdDelaySecondsRequest) Reset() {
-	*x = SetDpdDelaySecondsRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[82]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetDpdDelaySecondsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetDpdDelaySecondsRequest) ProtoMessage() {}
-
-func (x *SetDpdDelaySecondsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[82]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetDpdDelaySecondsRequest.ProtoReflect.Descriptor instead.
-func (*SetDpdDelaySecondsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{82}
-}
-
-func (x *SetDpdDelaySecondsRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetDpdDelaySecondsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetDpdDelaySecondsResponse) Reset() {
-	*x = SetDpdDelaySecondsResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[83]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetDpdDelaySecondsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetDpdDelaySecondsResponse) ProtoMessage() {}
-
-func (x *SetDpdDelaySecondsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[83]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetDpdDelaySecondsResponse.ProtoReflect.Descriptor instead.
-func (*SetDpdDelaySecondsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{83}
-}
-
-func (x *SetDpdDelaySecondsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetLocalIdentificationRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetLocalIdentificationRequest) Reset() {
-	*x = SetLocalIdentificationRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[84]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetLocalIdentificationRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetLocalIdentificationRequest) ProtoMessage() {}
-
-func (x *SetLocalIdentificationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[84]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetLocalIdentificationRequest.ProtoReflect.Descriptor instead.
-func (*SetLocalIdentificationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{84}
-}
-
-func (x *SetLocalIdentificationRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetLocalIdentificationResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetLocalIdentificationResponse) Reset() {
-	*x = SetLocalIdentificationResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[85]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetLocalIdentificationResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetLocalIdentificationResponse) ProtoMessage() {}
-
-func (x *SetLocalIdentificationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[85]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetLocalIdentificationResponse.ProtoReflect.Descriptor instead.
-func (*SetLocalIdentificationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{85}
-}
-
-func (x *SetLocalIdentificationResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetNattKeepAliveDelaySecondsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetNattKeepAliveDelaySecondsRequest) Reset() {
-	*x = SetNattKeepAliveDelaySecondsRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[86]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetNattKeepAliveDelaySecondsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetNattKeepAliveDelaySecondsRequest) ProtoMessage() {}
-
-func (x *SetNattKeepAliveDelaySecondsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[86]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetNattKeepAliveDelaySecondsRequest.ProtoReflect.Descriptor instead.
-func (*SetNattKeepAliveDelaySecondsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{86}
-}
-
-func (x *SetNattKeepAliveDelaySecondsRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetNattKeepAliveDelaySecondsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetNattKeepAliveDelaySecondsResponse) Reset() {
-	*x = SetNattKeepAliveDelaySecondsResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[87]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetNattKeepAliveDelaySecondsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetNattKeepAliveDelaySecondsResponse) ProtoMessage() {}
-
-func (x *SetNattKeepAliveDelaySecondsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[87]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetNattKeepAliveDelaySecondsResponse.ProtoReflect.Descriptor instead.
-func (*SetNattKeepAliveDelaySecondsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{87}
-}
-
-func (x *SetNattKeepAliveDelaySecondsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetNetworkRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetNetworkRequest) Reset() {
-	*x = SetNetworkRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[88]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetNetworkRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetNetworkRequest) ProtoMessage() {}
-
-func (x *SetNetworkRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[88]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetNetworkRequest.ProtoReflect.Descriptor instead.
-func (*SetNetworkRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{88}
-}
-
-func (x *SetNetworkRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetNetworkResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetNetworkResponse) Reset() {
-	*x = SetNetworkResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[89]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetNetworkResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetNetworkResponse) ProtoMessage() {}
-
-func (x *SetNetworkResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[89]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetNetworkResponse.ProtoReflect.Descriptor instead.
-func (*SetNetworkResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{89}
-}
-
-func (x *SetNetworkResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetRemoteIdentificationRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetRemoteIdentificationRequest) Reset() {
-	*x = SetRemoteIdentificationRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[90]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetRemoteIdentificationRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetRemoteIdentificationRequest) ProtoMessage() {}
-
-func (x *SetRemoteIdentificationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[90]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetRemoteIdentificationRequest.ProtoReflect.Descriptor instead.
-func (*SetRemoteIdentificationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{90}
-}
-
-func (x *SetRemoteIdentificationRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetRemoteIdentificationResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetRemoteIdentificationResponse) Reset() {
-	*x = SetRemoteIdentificationResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[91]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetRemoteIdentificationResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetRemoteIdentificationResponse) ProtoMessage() {}
-
-func (x *SetRemoteIdentificationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[91]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetRemoteIdentificationResponse.ProtoReflect.Descriptor instead.
-func (*SetRemoteIdentificationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{91}
-}
-
-func (x *SetRemoteIdentificationResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetRetransmissionTimeoutsMillisRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetRetransmissionTimeoutsMillisRequest) Reset() {
-	*x = SetRetransmissionTimeoutsMillisRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[92]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetRetransmissionTimeoutsMillisRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetRetransmissionTimeoutsMillisRequest) ProtoMessage() {}
-
-func (x *SetRetransmissionTimeoutsMillisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[92]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetRetransmissionTimeoutsMillisRequest.ProtoReflect.Descriptor instead.
-func (*SetRetransmissionTimeoutsMillisRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{92}
-}
-
-func (x *SetRetransmissionTimeoutsMillisRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetRetransmissionTimeoutsMillisResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetRetransmissionTimeoutsMillisResponse) Reset() {
-	*x = SetRetransmissionTimeoutsMillisResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[93]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetRetransmissionTimeoutsMillisResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetRetransmissionTimeoutsMillisResponse) ProtoMessage() {}
-
-func (x *SetRetransmissionTimeoutsMillisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[93]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetRetransmissionTimeoutsMillisResponse.ProtoReflect.Descriptor instead.
-func (*SetRetransmissionTimeoutsMillisResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{93}
-}
-
-func (x *SetRetransmissionTimeoutsMillisResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetServerHostnameRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetServerHostnameRequest) Reset() {
-	*x = SetServerHostnameRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[94]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetServerHostnameRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetServerHostnameRequest) ProtoMessage() {}
-
-func (x *SetServerHostnameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[94]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetServerHostnameRequest.ProtoReflect.Descriptor instead.
-func (*SetServerHostnameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{94}
-}
-
-func (x *SetServerHostnameRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type SetServerHostnameResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetServerHostnameResponse) Reset() {
-	*x = SetServerHostnameResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[95]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetServerHostnameResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetServerHostnameResponse) ProtoMessage() {}
-
-func (x *SetServerHostnameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[95]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetServerHostnameResponse.ProtoReflect.Descriptor instead.
-func (*SetServerHostnameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{95}
-}
-
-func (x *SetServerHostnameResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SessionParamsIkeAuthConfigEqualsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SessionParamsIkeAuthConfigEqualsRequest) Reset() {
-	*x = SessionParamsIkeAuthConfigEqualsRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[96]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SessionParamsIkeAuthConfigEqualsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SessionParamsIkeAuthConfigEqualsRequest) ProtoMessage() {}
-
-func (x *SessionParamsIkeAuthConfigEqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[96]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SessionParamsIkeAuthConfigEqualsRequest.ProtoReflect.Descriptor instead.
-func (*SessionParamsIkeAuthConfigEqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{96}
-}
-
-func (x *SessionParamsIkeAuthConfigEqualsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SessionParamsIkeAuthConfigHashCodeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SessionParamsIkeAuthConfigHashCodeRequest) Reset() {
-	*x = SessionParamsIkeAuthConfigHashCodeRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[97]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SessionParamsIkeAuthConfigHashCodeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SessionParamsIkeAuthConfigHashCodeRequest) ProtoMessage() {}
-
-func (x *SessionParamsIkeAuthConfigHashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[97]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SessionParamsIkeAuthConfigHashCodeRequest.ProtoReflect.Descriptor instead.
-func (*SessionParamsIkeAuthConfigHashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{97}
-}
-
-type SessionParamsIkeAuthDigitalSignLocalConfigEqualsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SessionParamsIkeAuthDigitalSignLocalConfigEqualsRequest) Reset() {
-	*x = SessionParamsIkeAuthDigitalSignLocalConfigEqualsRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[98]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SessionParamsIkeAuthDigitalSignLocalConfigEqualsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SessionParamsIkeAuthDigitalSignLocalConfigEqualsRequest) ProtoMessage() {}
-
-func (x *SessionParamsIkeAuthDigitalSignLocalConfigEqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[98]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SessionParamsIkeAuthDigitalSignLocalConfigEqualsRequest.ProtoReflect.Descriptor instead.
-func (*SessionParamsIkeAuthDigitalSignLocalConfigEqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{98}
-}
-
-func (x *SessionParamsIkeAuthDigitalSignLocalConfigEqualsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetClientEndCertificateRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetClientEndCertificateRequest) Reset() {
-	*x = GetClientEndCertificateRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[99]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetClientEndCertificateRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetClientEndCertificateRequest) ProtoMessage() {}
-
-func (x *GetClientEndCertificateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[99]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetClientEndCertificateRequest.ProtoReflect.Descriptor instead.
-func (*GetClientEndCertificateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{99}
-}
-
-type GetClientEndCertificateResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetClientEndCertificateResponse) Reset() {
-	*x = GetClientEndCertificateResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[100]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetClientEndCertificateResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetClientEndCertificateResponse) ProtoMessage() {}
-
-func (x *GetClientEndCertificateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[100]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetClientEndCertificateResponse.ProtoReflect.Descriptor instead.
-func (*GetClientEndCertificateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{100}
-}
-
-func (x *GetClientEndCertificateResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetPrivateKeyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPrivateKeyRequest) Reset() {
-	*x = GetPrivateKeyRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[101]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPrivateKeyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPrivateKeyRequest) ProtoMessage() {}
-
-func (x *GetPrivateKeyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[101]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPrivateKeyRequest.ProtoReflect.Descriptor instead.
-func (*GetPrivateKeyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{101}
-}
-
-type GetPrivateKeyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPrivateKeyResponse) Reset() {
-	*x = GetPrivateKeyResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[102]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPrivateKeyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPrivateKeyResponse) ProtoMessage() {}
-
-func (x *GetPrivateKeyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[102]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPrivateKeyResponse.ProtoReflect.Descriptor instead.
-func (*GetPrivateKeyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{102}
-}
-
-func (x *GetPrivateKeyResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SessionParamsIkeAuthDigitalSignLocalConfigHashCodeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SessionParamsIkeAuthDigitalSignLocalConfigHashCodeRequest) Reset() {
-	*x = SessionParamsIkeAuthDigitalSignLocalConfigHashCodeRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[103]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SessionParamsIkeAuthDigitalSignLocalConfigHashCodeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SessionParamsIkeAuthDigitalSignLocalConfigHashCodeRequest) ProtoMessage() {}
-
-func (x *SessionParamsIkeAuthDigitalSignLocalConfigHashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[103]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SessionParamsIkeAuthDigitalSignLocalConfigHashCodeRequest.ProtoReflect.Descriptor instead.
-func (*SessionParamsIkeAuthDigitalSignLocalConfigHashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{103}
-}
-
-type SessionParamsIkeAuthDigitalSignRemoteConfigEqualsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SessionParamsIkeAuthDigitalSignRemoteConfigEqualsRequest) Reset() {
-	*x = SessionParamsIkeAuthDigitalSignRemoteConfigEqualsRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[104]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SessionParamsIkeAuthDigitalSignRemoteConfigEqualsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SessionParamsIkeAuthDigitalSignRemoteConfigEqualsRequest) ProtoMessage() {}
-
-func (x *SessionParamsIkeAuthDigitalSignRemoteConfigEqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[104]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SessionParamsIkeAuthDigitalSignRemoteConfigEqualsRequest.ProtoReflect.Descriptor instead.
-func (*SessionParamsIkeAuthDigitalSignRemoteConfigEqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{104}
-}
-
-func (x *SessionParamsIkeAuthDigitalSignRemoteConfigEqualsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetRemoteCaCertRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRemoteCaCertRequest) Reset() {
-	*x = GetRemoteCaCertRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[105]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRemoteCaCertRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRemoteCaCertRequest) ProtoMessage() {}
-
-func (x *GetRemoteCaCertRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[105]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRemoteCaCertRequest.ProtoReflect.Descriptor instead.
-func (*GetRemoteCaCertRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{105}
-}
-
-type GetRemoteCaCertResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRemoteCaCertResponse) Reset() {
-	*x = GetRemoteCaCertResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[106]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRemoteCaCertResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRemoteCaCertResponse) ProtoMessage() {}
-
-func (x *GetRemoteCaCertResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[106]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRemoteCaCertResponse.ProtoReflect.Descriptor instead.
-func (*GetRemoteCaCertResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{106}
-}
-
-func (x *GetRemoteCaCertResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SessionParamsIkeAuthDigitalSignRemoteConfigHashCodeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SessionParamsIkeAuthDigitalSignRemoteConfigHashCodeRequest) Reset() {
-	*x = SessionParamsIkeAuthDigitalSignRemoteConfigHashCodeRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[107]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SessionParamsIkeAuthDigitalSignRemoteConfigHashCodeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SessionParamsIkeAuthDigitalSignRemoteConfigHashCodeRequest) ProtoMessage() {}
-
-func (x *SessionParamsIkeAuthDigitalSignRemoteConfigHashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[107]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SessionParamsIkeAuthDigitalSignRemoteConfigHashCodeRequest.ProtoReflect.Descriptor instead.
-func (*SessionParamsIkeAuthDigitalSignRemoteConfigHashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{107}
-}
-
-type SessionParamsIkeAuthEapConfigEqualsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SessionParamsIkeAuthEapConfigEqualsRequest) Reset() {
-	*x = SessionParamsIkeAuthEapConfigEqualsRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[108]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SessionParamsIkeAuthEapConfigEqualsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SessionParamsIkeAuthEapConfigEqualsRequest) ProtoMessage() {}
-
-func (x *SessionParamsIkeAuthEapConfigEqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[108]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SessionParamsIkeAuthEapConfigEqualsRequest.ProtoReflect.Descriptor instead.
-func (*SessionParamsIkeAuthEapConfigEqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{108}
-}
-
-func (x *SessionParamsIkeAuthEapConfigEqualsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetEapConfigRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetEapConfigRequest) Reset() {
-	*x = GetEapConfigRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[109]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetEapConfigRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetEapConfigRequest) ProtoMessage() {}
-
-func (x *GetEapConfigRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[109]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetEapConfigRequest.ProtoReflect.Descriptor instead.
-func (*GetEapConfigRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{109}
-}
-
-type GetEapConfigResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetEapConfigResponse) Reset() {
-	*x = GetEapConfigResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[110]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetEapConfigResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetEapConfigResponse) ProtoMessage() {}
-
-func (x *GetEapConfigResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[110]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetEapConfigResponse.ProtoReflect.Descriptor instead.
-func (*GetEapConfigResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{110}
-}
-
-func (x *GetEapConfigResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SessionParamsIkeAuthEapConfigHashCodeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SessionParamsIkeAuthEapConfigHashCodeRequest) Reset() {
-	*x = SessionParamsIkeAuthEapConfigHashCodeRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[111]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SessionParamsIkeAuthEapConfigHashCodeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SessionParamsIkeAuthEapConfigHashCodeRequest) ProtoMessage() {}
-
-func (x *SessionParamsIkeAuthEapConfigHashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[111]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SessionParamsIkeAuthEapConfigHashCodeRequest.ProtoReflect.Descriptor instead.
-func (*SessionParamsIkeAuthEapConfigHashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{111}
-}
-
-type SessionParamsIkeAuthPskConfigEqualsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SessionParamsIkeAuthPskConfigEqualsRequest) Reset() {
-	*x = SessionParamsIkeAuthPskConfigEqualsRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[112]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SessionParamsIkeAuthPskConfigEqualsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SessionParamsIkeAuthPskConfigEqualsRequest) ProtoMessage() {}
-
-func (x *SessionParamsIkeAuthPskConfigEqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[112]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SessionParamsIkeAuthPskConfigEqualsRequest.ProtoReflect.Descriptor instead.
-func (*SessionParamsIkeAuthPskConfigEqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{112}
-}
-
-func (x *SessionParamsIkeAuthPskConfigEqualsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetPskRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPskRequest) Reset() {
-	*x = GetPskRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[113]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPskRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPskRequest) ProtoMessage() {}
-
-func (x *GetPskRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[113]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPskRequest.ProtoReflect.Descriptor instead.
-func (*GetPskRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{113}
-}
-
-type GetPskResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPskResponse) Reset() {
-	*x = GetPskResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[114]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPskResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPskResponse) ProtoMessage() {}
-
-func (x *GetPskResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[114]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPskResponse.ProtoReflect.Descriptor instead.
-func (*GetPskResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{114}
-}
-
-func (x *GetPskResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SessionParamsIkeAuthPskConfigHashCodeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SessionParamsIkeAuthPskConfigHashCodeRequest) Reset() {
-	*x = SessionParamsIkeAuthPskConfigHashCodeRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[115]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SessionParamsIkeAuthPskConfigHashCodeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SessionParamsIkeAuthPskConfigHashCodeRequest) ProtoMessage() {}
-
-func (x *SessionParamsIkeAuthPskConfigHashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[115]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SessionParamsIkeAuthPskConfigHashCodeRequest.ProtoReflect.Descriptor instead.
-func (*SessionParamsIkeAuthPskConfigHashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{115}
-}
-
-type GetEapInfoRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetEapInfoRequest) Reset() {
-	*x = GetEapInfoRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[116]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetEapInfoRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetEapInfoRequest) ProtoMessage() {}
-
-func (x *GetEapInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[116]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetEapInfoRequest.ProtoReflect.Descriptor instead.
-func (*GetEapInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{116}
-}
-
-type GetEapInfoResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetEapInfoResponse) Reset() {
-	*x = GetEapInfoResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[117]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetEapInfoResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetEapInfoResponse) ProtoMessage() {}
-
-func (x *GetEapInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[117]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetEapInfoResponse.ProtoReflect.Descriptor instead.
-func (*GetEapInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{117}
-}
-
-func (x *GetEapInfoResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetIkeSessionConnectionInfoRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetIkeSessionConnectionInfoRequest) Reset() {
-	*x = GetIkeSessionConnectionInfoRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[118]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetIkeSessionConnectionInfoRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetIkeSessionConnectionInfoRequest) ProtoMessage() {}
-
-func (x *GetIkeSessionConnectionInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[118]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetIkeSessionConnectionInfoRequest.ProtoReflect.Descriptor instead.
-func (*GetIkeSessionConnectionInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{118}
-}
-
-type GetIkeSessionConnectionInfoResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetIkeSessionConnectionInfoResponse) Reset() {
-	*x = GetIkeSessionConnectionInfoResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[119]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetIkeSessionConnectionInfoResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetIkeSessionConnectionInfoResponse) ProtoMessage() {}
-
-func (x *GetIkeSessionConnectionInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[119]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetIkeSessionConnectionInfoResponse.ProtoReflect.Descriptor instead.
-func (*GetIkeSessionConnectionInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{119}
-}
-
-func (x *GetIkeSessionConnectionInfoResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetRemoteApplicationVersionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRemoteApplicationVersionRequest) Reset() {
-	*x = GetRemoteApplicationVersionRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[120]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRemoteApplicationVersionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRemoteApplicationVersionRequest) ProtoMessage() {}
-
-func (x *GetRemoteApplicationVersionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[120]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRemoteApplicationVersionRequest.ProtoReflect.Descriptor instead.
-func (*GetRemoteApplicationVersionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{120}
-}
-
-type GetRemoteApplicationVersionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRemoteApplicationVersionResponse) Reset() {
-	*x = GetRemoteApplicationVersionResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[121]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRemoteApplicationVersionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRemoteApplicationVersionResponse) ProtoMessage() {}
-
-func (x *GetRemoteApplicationVersionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[121]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRemoteApplicationVersionResponse.ProtoReflect.Descriptor instead.
-func (*GetRemoteApplicationVersionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{121}
-}
-
-func (x *GetRemoteApplicationVersionResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type IsIkeExtensionEnabledRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsIkeExtensionEnabledRequest) Reset() {
-	*x = IsIkeExtensionEnabledRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[122]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsIkeExtensionEnabledRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsIkeExtensionEnabledRequest) ProtoMessage() {}
-
-func (x *IsIkeExtensionEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[122]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsIkeExtensionEnabledRequest.ProtoReflect.Descriptor instead.
-func (*IsIkeExtensionEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{122}
-}
-
-func (x *IsIkeExtensionEnabledRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type IsIkeExtensionEnabledResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsIkeExtensionEnabledResponse) Reset() {
-	*x = IsIkeExtensionEnabledResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[123]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsIkeExtensionEnabledResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsIkeExtensionEnabledResponse) ProtoMessage() {}
-
-func (x *IsIkeExtensionEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[123]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsIkeExtensionEnabledResponse.ProtoReflect.Descriptor instead.
-func (*IsIkeExtensionEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{123}
-}
-
-func (x *IsIkeExtensionEnabledResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type AddIkeExtensionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddIkeExtensionRequest) Reset() {
-	*x = AddIkeExtensionRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[124]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddIkeExtensionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddIkeExtensionRequest) ProtoMessage() {}
-
-func (x *AddIkeExtensionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[124]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddIkeExtensionRequest.ProtoReflect.Descriptor instead.
-func (*AddIkeExtensionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{124}
-}
-
-func (x *AddIkeExtensionRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type AddIkeExtensionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddIkeExtensionResponse) Reset() {
-	*x = AddIkeExtensionResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[125]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddIkeExtensionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddIkeExtensionResponse) ProtoMessage() {}
-
-func (x *AddIkeExtensionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[125]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddIkeExtensionResponse.ProtoReflect.Descriptor instead.
-func (*AddIkeExtensionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{125}
-}
-
-func (x *AddIkeExtensionResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type AddRemoteVendorIdRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddRemoteVendorIdRequest) Reset() {
-	*x = AddRemoteVendorIdRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[126]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddRemoteVendorIdRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddRemoteVendorIdRequest) ProtoMessage() {}
-
-func (x *AddRemoteVendorIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[126]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddRemoteVendorIdRequest.ProtoReflect.Descriptor instead.
-func (*AddRemoteVendorIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{126}
-}
-
-func (x *AddRemoteVendorIdRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type AddRemoteVendorIdResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddRemoteVendorIdResponse) Reset() {
-	*x = AddRemoteVendorIdResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[127]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddRemoteVendorIdResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddRemoteVendorIdResponse) ProtoMessage() {}
-
-func (x *AddRemoteVendorIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[127]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddRemoteVendorIdResponse.ProtoReflect.Descriptor instead.
-func (*AddRemoteVendorIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{127}
-}
-
-func (x *AddRemoteVendorIdResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ClearIkeExtensionsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ClearIkeExtensionsRequest) Reset() {
-	*x = ClearIkeExtensionsRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[128]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ClearIkeExtensionsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ClearIkeExtensionsRequest) ProtoMessage() {}
-
-func (x *ClearIkeExtensionsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[128]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ClearIkeExtensionsRequest.ProtoReflect.Descriptor instead.
-func (*ClearIkeExtensionsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{128}
-}
-
-type ClearIkeExtensionsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ClearIkeExtensionsResponse) Reset() {
-	*x = ClearIkeExtensionsResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[129]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ClearIkeExtensionsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ClearIkeExtensionsResponse) ProtoMessage() {}
-
-func (x *ClearIkeExtensionsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[129]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ClearIkeExtensionsResponse.ProtoReflect.Descriptor instead.
-func (*ClearIkeExtensionsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{129}
-}
-
-func (x *ClearIkeExtensionsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ClearRemoteApplicationVersionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ClearRemoteApplicationVersionRequest) Reset() {
-	*x = ClearRemoteApplicationVersionRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[130]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ClearRemoteApplicationVersionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ClearRemoteApplicationVersionRequest) ProtoMessage() {}
-
-func (x *ClearRemoteApplicationVersionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[130]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ClearRemoteApplicationVersionRequest.ProtoReflect.Descriptor instead.
-func (*ClearRemoteApplicationVersionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{130}
-}
-
-type ClearRemoteApplicationVersionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ClearRemoteApplicationVersionResponse) Reset() {
-	*x = ClearRemoteApplicationVersionResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[131]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ClearRemoteApplicationVersionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ClearRemoteApplicationVersionResponse) ProtoMessage() {}
-
-func (x *ClearRemoteApplicationVersionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[131]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ClearRemoteApplicationVersionResponse.ProtoReflect.Descriptor instead.
-func (*ClearRemoteApplicationVersionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{131}
-}
-
-func (x *ClearRemoteApplicationVersionResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ClearRemoteVendorIdsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ClearRemoteVendorIdsRequest) Reset() {
-	*x = ClearRemoteVendorIdsRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[132]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ClearRemoteVendorIdsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ClearRemoteVendorIdsRequest) ProtoMessage() {}
-
-func (x *ClearRemoteVendorIdsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[132]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ClearRemoteVendorIdsRequest.ProtoReflect.Descriptor instead.
-func (*ClearRemoteVendorIdsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{132}
-}
-
-type ClearRemoteVendorIdsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ClearRemoteVendorIdsResponse) Reset() {
-	*x = ClearRemoteVendorIdsResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[133]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ClearRemoteVendorIdsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ClearRemoteVendorIdsResponse) ProtoMessage() {}
-
-func (x *ClearRemoteVendorIdsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[133]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ClearRemoteVendorIdsResponse.ProtoReflect.Descriptor instead.
-func (*ClearRemoteVendorIdsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{133}
-}
-
-func (x *ClearRemoteVendorIdsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetEapInfoRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetEapInfoRequest) Reset() {
-	*x = SetEapInfoRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[134]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetEapInfoRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetEapInfoRequest) ProtoMessage() {}
-
-func (x *SetEapInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[134]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetEapInfoRequest.ProtoReflect.Descriptor instead.
-func (*SetEapInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{134}
-}
-
-func (x *SetEapInfoRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetEapInfoResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetEapInfoResponse) Reset() {
-	*x = SetEapInfoResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[135]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetEapInfoResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetEapInfoResponse) ProtoMessage() {}
-
-func (x *SetEapInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[135]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetEapInfoResponse.ProtoReflect.Descriptor instead.
-func (*SetEapInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{135}
-}
-
-func (x *SetEapInfoResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetRemoteApplicationVersionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetRemoteApplicationVersionRequest) Reset() {
-	*x = SetRemoteApplicationVersionRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[136]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetRemoteApplicationVersionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetRemoteApplicationVersionRequest) ProtoMessage() {}
-
-func (x *SetRemoteApplicationVersionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[136]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetRemoteApplicationVersionRequest.ProtoReflect.Descriptor instead.
-func (*SetRemoteApplicationVersionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{136}
-}
-
-func (x *SetRemoteApplicationVersionRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type SetRemoteApplicationVersionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetRemoteApplicationVersionResponse) Reset() {
-	*x = SetRemoteApplicationVersionResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[137]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetRemoteApplicationVersionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetRemoteApplicationVersionResponse) ProtoMessage() {}
-
-func (x *SetRemoteApplicationVersionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[137]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetRemoteApplicationVersionResponse.ProtoReflect.Descriptor instead.
-func (*SetRemoteApplicationVersionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{137}
-}
-
-func (x *SetRemoteApplicationVersionResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type NewIpv4AddrIdentificationRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewIpv4AddrIdentificationRequest) Reset() {
-	*x = NewIpv4AddrIdentificationRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[138]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewIpv4AddrIdentificationRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewIpv4AddrIdentificationRequest) ProtoMessage() {}
-
-func (x *NewIpv4AddrIdentificationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[138]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewIpv4AddrIdentificationRequest.ProtoReflect.Descriptor instead.
-func (*NewIpv4AddrIdentificationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{138}
-}
-
-func (x *NewIpv4AddrIdentificationRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type NewIpv4AddrIdentificationResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewIpv4AddrIdentificationResponse) Reset() {
-	*x = NewIpv4AddrIdentificationResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[139]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewIpv4AddrIdentificationResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewIpv4AddrIdentificationResponse) ProtoMessage() {}
-
-func (x *NewIpv4AddrIdentificationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[139]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewIpv4AddrIdentificationResponse.ProtoReflect.Descriptor instead.
-func (*NewIpv4AddrIdentificationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{139}
-}
-
-func (x *NewIpv4AddrIdentificationResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type NewSessionConnectionInfoRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewSessionConnectionInfoRequest) Reset() {
-	*x = NewSessionConnectionInfoRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[140]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewSessionConnectionInfoRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewSessionConnectionInfoRequest) ProtoMessage() {}
-
-func (x *NewSessionConnectionInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[140]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewSessionConnectionInfoRequest.ProtoReflect.Descriptor instead.
-func (*NewSessionConnectionInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{140}
-}
-
-func (x *NewSessionConnectionInfoRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *NewSessionConnectionInfoRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *NewSessionConnectionInfoRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type NewSessionConnectionInfoResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewSessionConnectionInfoResponse) Reset() {
-	*x = NewSessionConnectionInfoResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[141]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewSessionConnectionInfoResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewSessionConnectionInfoResponse) ProtoMessage() {}
-
-func (x *NewSessionConnectionInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[141]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewSessionConnectionInfoResponse.ProtoReflect.Descriptor instead.
-func (*NewSessionConnectionInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{141}
-}
-
-func (x *NewSessionConnectionInfoResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetLocalAddressRequest struct {
+type KeyIdIdentificationEqualsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetLocalAddressRequest) Reset() {
-	*x = GetLocalAddressRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[142]
+func (x *KeyIdIdentificationEqualsRequest) Reset() {
+	*x = KeyIdIdentificationEqualsRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[185]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetLocalAddressRequest) String() string {
+func (x *KeyIdIdentificationEqualsRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetLocalAddressRequest) ProtoMessage() {}
+func (*KeyIdIdentificationEqualsRequest) ProtoMessage() {}
 
-func (x *GetLocalAddressRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[142]
+func (x *KeyIdIdentificationEqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[185]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6135,347 +8028,47 @@ func (x *GetLocalAddressRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetLocalAddressRequest.ProtoReflect.Descriptor instead.
-func (*GetLocalAddressRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{142}
+// Deprecated: Use KeyIdIdentificationEqualsRequest.ProtoReflect.Descriptor instead.
+func (*KeyIdIdentificationEqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{185}
 }
 
-func (x *GetLocalAddressRequest) GetHandle() int64 {
+func (x *KeyIdIdentificationEqualsRequest) GetHandle() int64 {
 	if x != nil {
 		return x.Handle
 	}
 	return 0
 }
 
-type GetLocalAddressResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetLocalAddressResponse) Reset() {
-	*x = GetLocalAddressResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[143]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetLocalAddressResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetLocalAddressResponse) ProtoMessage() {}
-
-func (x *GetLocalAddressResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[143]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetLocalAddressResponse.ProtoReflect.Descriptor instead.
-func (*GetLocalAddressResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{143}
-}
-
-func (x *GetLocalAddressResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SessionConnectionInfoGetNetworkRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SessionConnectionInfoGetNetworkRequest) Reset() {
-	*x = SessionConnectionInfoGetNetworkRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[144]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SessionConnectionInfoGetNetworkRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SessionConnectionInfoGetNetworkRequest) ProtoMessage() {}
-
-func (x *SessionConnectionInfoGetNetworkRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[144]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SessionConnectionInfoGetNetworkRequest.ProtoReflect.Descriptor instead.
-func (*SessionConnectionInfoGetNetworkRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{144}
-}
-
-func (x *SessionConnectionInfoGetNetworkRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetRemoteAddressRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRemoteAddressRequest) Reset() {
-	*x = GetRemoteAddressRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[145]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRemoteAddressRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRemoteAddressRequest) ProtoMessage() {}
-
-func (x *GetRemoteAddressRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[145]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRemoteAddressRequest.ProtoReflect.Descriptor instead.
-func (*GetRemoteAddressRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{145}
-}
-
-func (x *GetRemoteAddressRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetRemoteAddressResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRemoteAddressResponse) Reset() {
-	*x = GetRemoteAddressResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[146]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRemoteAddressResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRemoteAddressResponse) ProtoMessage() {}
-
-func (x *GetRemoteAddressResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[146]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRemoteAddressResponse.ProtoReflect.Descriptor instead.
-func (*GetRemoteAddressResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{146}
-}
-
-func (x *GetRemoteAddressResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type NewRfc822AddrIdentificationRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewRfc822AddrIdentificationRequest) Reset() {
-	*x = NewRfc822AddrIdentificationRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[147]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewRfc822AddrIdentificationRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewRfc822AddrIdentificationRequest) ProtoMessage() {}
-
-func (x *NewRfc822AddrIdentificationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[147]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewRfc822AddrIdentificationRequest.ProtoReflect.Descriptor instead.
-func (*NewRfc822AddrIdentificationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{147}
-}
-
-func (x *NewRfc822AddrIdentificationRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type NewRfc822AddrIdentificationResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewRfc822AddrIdentificationResponse) Reset() {
-	*x = NewRfc822AddrIdentificationResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[148]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewRfc822AddrIdentificationResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewRfc822AddrIdentificationResponse) ProtoMessage() {}
-
-func (x *NewRfc822AddrIdentificationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[148]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewRfc822AddrIdentificationResponse.ProtoReflect.Descriptor instead.
-func (*NewRfc822AddrIdentificationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{148}
-}
-
-func (x *NewRfc822AddrIdentificationResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SaProposalEqualsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SaProposalEqualsRequest) Reset() {
-	*x = SaProposalEqualsRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[149]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SaProposalEqualsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SaProposalEqualsRequest) ProtoMessage() {}
-
-func (x *SaProposalEqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[149]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SaProposalEqualsRequest.ProtoReflect.Descriptor instead.
-func (*SaProposalEqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{149}
-}
-
-func (x *SaProposalEqualsRequest) GetArg0() int64 {
+func (x *KeyIdIdentificationEqualsRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-type SaProposalHashCodeRequest struct {
+type KeyIdIdentificationHashCodeRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SaProposalHashCodeRequest) Reset() {
-	*x = SaProposalHashCodeRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[150]
+func (x *KeyIdIdentificationHashCodeRequest) Reset() {
+	*x = KeyIdIdentificationHashCodeRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[186]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SaProposalHashCodeRequest) String() string {
+func (x *KeyIdIdentificationHashCodeRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SaProposalHashCodeRequest) ProtoMessage() {}
+func (*KeyIdIdentificationHashCodeRequest) ProtoMessage() {}
 
-func (x *SaProposalHashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[150]
+func (x *KeyIdIdentificationHashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[186]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6486,89 +8079,16 @@ func (x *SaProposalHashCodeRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SaProposalHashCodeRequest.ProtoReflect.Descriptor instead.
-func (*SaProposalHashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{150}
+// Deprecated: Use KeyIdIdentificationHashCodeRequest.ProtoReflect.Descriptor instead.
+func (*KeyIdIdentificationHashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{186}
 }
 
-type ToStringRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ToStringRequest) Reset() {
-	*x = ToStringRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[151]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ToStringRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ToStringRequest) ProtoMessage() {}
-
-func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[151]
+func (x *KeyIdIdentificationHashCodeRequest) GetHandle() int64 {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
+		return x.Handle
 	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
-func (*ToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{151}
-}
-
-type ToStringResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ToStringResponse) Reset() {
-	*x = ToStringResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[152]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ToStringResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ToStringResponse) ProtoMessage() {}
-
-func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[152]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
-func (*ToStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{152}
-}
-
-func (x *ToStringResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
+	return 0
 }
 
 type NewFqdnIdentificationRequest struct {
@@ -6580,7 +8100,7 @@ type NewFqdnIdentificationRequest struct {
 
 func (x *NewFqdnIdentificationRequest) Reset() {
 	*x = NewFqdnIdentificationRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[153]
+	mi := &file_proto_ike_ike_proto_msgTypes[187]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6592,7 +8112,7 @@ func (x *NewFqdnIdentificationRequest) String() string {
 func (*NewFqdnIdentificationRequest) ProtoMessage() {}
 
 func (x *NewFqdnIdentificationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[153]
+	mi := &file_proto_ike_ike_proto_msgTypes[187]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6605,7 +8125,7 @@ func (x *NewFqdnIdentificationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewFqdnIdentificationRequest.ProtoReflect.Descriptor instead.
 func (*NewFqdnIdentificationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{153}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{187}
 }
 
 func (x *NewFqdnIdentificationRequest) GetArg0() string {
@@ -6624,7 +8144,7 @@ type NewFqdnIdentificationResponse struct {
 
 func (x *NewFqdnIdentificationResponse) Reset() {
 	*x = NewFqdnIdentificationResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[154]
+	mi := &file_proto_ike_ike_proto_msgTypes[188]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6636,7 +8156,7 @@ func (x *NewFqdnIdentificationResponse) String() string {
 func (*NewFqdnIdentificationResponse) ProtoMessage() {}
 
 func (x *NewFqdnIdentificationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[154]
+	mi := &file_proto_ike_ike_proto_msgTypes[188]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6649,7 +8169,7 @@ func (x *NewFqdnIdentificationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewFqdnIdentificationResponse.ProtoReflect.Descriptor instead.
 func (*NewFqdnIdentificationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{154}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{188}
 }
 
 func (x *NewFqdnIdentificationResponse) GetResult() int64 {
@@ -6659,28 +8179,29 @@ func (x *NewFqdnIdentificationResponse) GetResult() int64 {
 	return 0
 }
 
-type ChildSaProposalEqualsRequest struct {
+type FqdnIdentificationEqualsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ChildSaProposalEqualsRequest) Reset() {
-	*x = ChildSaProposalEqualsRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[155]
+func (x *FqdnIdentificationEqualsRequest) Reset() {
+	*x = FqdnIdentificationEqualsRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[189]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ChildSaProposalEqualsRequest) String() string {
+func (x *FqdnIdentificationEqualsRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ChildSaProposalEqualsRequest) ProtoMessage() {}
+func (*FqdnIdentificationEqualsRequest) ProtoMessage() {}
 
-func (x *ChildSaProposalEqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[155]
+func (x *FqdnIdentificationEqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[189]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6691,39 +8212,47 @@ func (x *ChildSaProposalEqualsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ChildSaProposalEqualsRequest.ProtoReflect.Descriptor instead.
-func (*ChildSaProposalEqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{155}
+// Deprecated: Use FqdnIdentificationEqualsRequest.ProtoReflect.Descriptor instead.
+func (*FqdnIdentificationEqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{189}
 }
 
-func (x *ChildSaProposalEqualsRequest) GetArg0() int64 {
+func (x *FqdnIdentificationEqualsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *FqdnIdentificationEqualsRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-type ChildSaProposalHashCodeRequest struct {
+type FqdnIdentificationHashCodeRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ChildSaProposalHashCodeRequest) Reset() {
-	*x = ChildSaProposalHashCodeRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[156]
+func (x *FqdnIdentificationHashCodeRequest) Reset() {
+	*x = FqdnIdentificationHashCodeRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[190]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ChildSaProposalHashCodeRequest) String() string {
+func (x *FqdnIdentificationHashCodeRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ChildSaProposalHashCodeRequest) ProtoMessage() {}
+func (*FqdnIdentificationHashCodeRequest) ProtoMessage() {}
 
-func (x *ChildSaProposalHashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[156]
+func (x *FqdnIdentificationHashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[190]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6734,77 +8263,76 @@ func (x *ChildSaProposalHashCodeRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ChildSaProposalHashCodeRequest.ProtoReflect.Descriptor instead.
-func (*ChildSaProposalHashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{156}
+// Deprecated: Use FqdnIdentificationHashCodeRequest.ProtoReflect.Descriptor instead.
+func (*FqdnIdentificationHashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{190}
 }
 
-type AddDhGroupRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddDhGroupRequest) Reset() {
-	*x = AddDhGroupRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[157]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddDhGroupRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddDhGroupRequest) ProtoMessage() {}
-
-func (x *AddDhGroupRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[157]
+func (x *FqdnIdentificationHashCodeRequest) GetHandle() int64 {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddDhGroupRequest.ProtoReflect.Descriptor instead.
-func (*AddDhGroupRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{157}
-}
-
-func (x *AddDhGroupRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
+		return x.Handle
 	}
 	return 0
 }
 
-type AddDhGroupResponse struct {
+type GetChildSaProposalsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetChildSaProposalsRequest) Reset() {
+	*x = GetChildSaProposalsRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[191]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetChildSaProposalsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetChildSaProposalsRequest) ProtoMessage() {}
+
+func (x *GetChildSaProposalsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[191]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetChildSaProposalsRequest.ProtoReflect.Descriptor instead.
+func (*GetChildSaProposalsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{191}
+}
+
+type GetChildSaProposalsResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *AddDhGroupResponse) Reset() {
-	*x = AddDhGroupResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[158]
+func (x *GetChildSaProposalsResponse) Reset() {
+	*x = GetChildSaProposalsResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[192]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *AddDhGroupResponse) String() string {
+func (x *GetChildSaProposalsResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*AddDhGroupResponse) ProtoMessage() {}
+func (*GetChildSaProposalsResponse) ProtoMessage() {}
 
-func (x *AddDhGroupResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[158]
+func (x *GetChildSaProposalsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[192]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6815,41 +8343,39 @@ func (x *AddDhGroupResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use AddDhGroupResponse.ProtoReflect.Descriptor instead.
-func (*AddDhGroupResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{158}
+// Deprecated: Use GetChildSaProposalsResponse.ProtoReflect.Descriptor instead.
+func (*GetChildSaProposalsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{192}
 }
 
-func (x *AddDhGroupResponse) GetResult() int64 {
+func (x *GetChildSaProposalsResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type AddEncryptionAlgorithmRequest struct {
+type GetConfigurationRequestsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *AddEncryptionAlgorithmRequest) Reset() {
-	*x = AddEncryptionAlgorithmRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[159]
+func (x *GetConfigurationRequestsRequest) Reset() {
+	*x = GetConfigurationRequestsRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[193]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *AddEncryptionAlgorithmRequest) String() string {
+func (x *GetConfigurationRequestsRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*AddEncryptionAlgorithmRequest) ProtoMessage() {}
+func (*GetConfigurationRequestsRequest) ProtoMessage() {}
 
-func (x *AddEncryptionAlgorithmRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[159]
+func (x *GetConfigurationRequestsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[193]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6860,47 +8386,33 @@ func (x *AddEncryptionAlgorithmRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use AddEncryptionAlgorithmRequest.ProtoReflect.Descriptor instead.
-func (*AddEncryptionAlgorithmRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{159}
+// Deprecated: Use GetConfigurationRequestsRequest.ProtoReflect.Descriptor instead.
+func (*GetConfigurationRequestsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{193}
 }
 
-func (x *AddEncryptionAlgorithmRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *AddEncryptionAlgorithmRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type AddEncryptionAlgorithmResponse struct {
+type GetConfigurationRequestsResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *AddEncryptionAlgorithmResponse) Reset() {
-	*x = AddEncryptionAlgorithmResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[160]
+func (x *GetConfigurationRequestsResponse) Reset() {
+	*x = GetConfigurationRequestsResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[194]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *AddEncryptionAlgorithmResponse) String() string {
+func (x *GetConfigurationRequestsResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*AddEncryptionAlgorithmResponse) ProtoMessage() {}
+func (*GetConfigurationRequestsResponse) ProtoMessage() {}
 
-func (x *AddEncryptionAlgorithmResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[160]
+func (x *GetConfigurationRequestsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[194]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6911,40 +8423,40 @@ func (x *AddEncryptionAlgorithmResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use AddEncryptionAlgorithmResponse.ProtoReflect.Descriptor instead.
-func (*AddEncryptionAlgorithmResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{160}
+// Deprecated: Use GetConfigurationRequestsResponse.ProtoReflect.Descriptor instead.
+func (*GetConfigurationRequestsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{194}
 }
 
-func (x *AddEncryptionAlgorithmResponse) GetResult() int64 {
+func (x *GetConfigurationRequestsResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type AddIntegrityAlgorithmRequest struct {
+type AddChildSaProposalRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *AddIntegrityAlgorithmRequest) Reset() {
-	*x = AddIntegrityAlgorithmRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[161]
+func (x *AddChildSaProposalRequest) Reset() {
+	*x = AddChildSaProposalRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[195]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *AddIntegrityAlgorithmRequest) String() string {
+func (x *AddChildSaProposalRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*AddIntegrityAlgorithmRequest) ProtoMessage() {}
+func (*AddChildSaProposalRequest) ProtoMessage() {}
 
-func (x *AddIntegrityAlgorithmRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[161]
+func (x *AddChildSaProposalRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[195]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6955,40 +8467,40 @@ func (x *AddIntegrityAlgorithmRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use AddIntegrityAlgorithmRequest.ProtoReflect.Descriptor instead.
-func (*AddIntegrityAlgorithmRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{161}
+// Deprecated: Use AddChildSaProposalRequest.ProtoReflect.Descriptor instead.
+func (*AddChildSaProposalRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{195}
 }
 
-func (x *AddIntegrityAlgorithmRequest) GetArg0() int32 {
+func (x *AddChildSaProposalRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-type AddIntegrityAlgorithmResponse struct {
+type AddChildSaProposalResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *AddIntegrityAlgorithmResponse) Reset() {
-	*x = AddIntegrityAlgorithmResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[162]
+func (x *AddChildSaProposalResponse) Reset() {
+	*x = AddChildSaProposalResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[196]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *AddIntegrityAlgorithmResponse) String() string {
+func (x *AddChildSaProposalResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*AddIntegrityAlgorithmResponse) ProtoMessage() {}
+func (*AddChildSaProposalResponse) ProtoMessage() {}
 
-func (x *AddIntegrityAlgorithmResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[162]
+func (x *AddChildSaProposalResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[196]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6999,40 +8511,40 @@ func (x *AddIntegrityAlgorithmResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use AddIntegrityAlgorithmResponse.ProtoReflect.Descriptor instead.
-func (*AddIntegrityAlgorithmResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{162}
+// Deprecated: Use AddChildSaProposalResponse.ProtoReflect.Descriptor instead.
+func (*AddChildSaProposalResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{196}
 }
 
-func (x *AddIntegrityAlgorithmResponse) GetResult() int64 {
+func (x *AddChildSaProposalResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type ChildSessionParamsEqualsRequest struct {
+type AddInboundTrafficSelectorsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ChildSessionParamsEqualsRequest) Reset() {
-	*x = ChildSessionParamsEqualsRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[163]
+func (x *AddInboundTrafficSelectorsRequest) Reset() {
+	*x = AddInboundTrafficSelectorsRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[197]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ChildSessionParamsEqualsRequest) String() string {
+func (x *AddInboundTrafficSelectorsRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ChildSessionParamsEqualsRequest) ProtoMessage() {}
+func (*AddInboundTrafficSelectorsRequest) ProtoMessage() {}
 
-func (x *ChildSessionParamsEqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[163]
+func (x *AddInboundTrafficSelectorsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[197]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7043,39 +8555,40 @@ func (x *ChildSessionParamsEqualsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ChildSessionParamsEqualsRequest.ProtoReflect.Descriptor instead.
-func (*ChildSessionParamsEqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{163}
+// Deprecated: Use AddInboundTrafficSelectorsRequest.ProtoReflect.Descriptor instead.
+func (*AddInboundTrafficSelectorsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{197}
 }
 
-func (x *ChildSessionParamsEqualsRequest) GetArg0() int64 {
+func (x *AddInboundTrafficSelectorsRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-type ChildSessionParamsHashCodeRequest struct {
+type AddInboundTrafficSelectorsResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ChildSessionParamsHashCodeRequest) Reset() {
-	*x = ChildSessionParamsHashCodeRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[164]
+func (x *AddInboundTrafficSelectorsResponse) Reset() {
+	*x = AddInboundTrafficSelectorsResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[198]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ChildSessionParamsHashCodeRequest) String() string {
+func (x *AddInboundTrafficSelectorsResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ChildSessionParamsHashCodeRequest) ProtoMessage() {}
+func (*AddInboundTrafficSelectorsResponse) ProtoMessage() {}
 
-func (x *ChildSessionParamsHashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[164]
+func (x *AddInboundTrafficSelectorsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[198]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7086,89 +8599,16 @@ func (x *ChildSessionParamsHashCodeRequest) ProtoReflect() protoreflect.Message 
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ChildSessionParamsHashCodeRequest.ProtoReflect.Descriptor instead.
-func (*ChildSessionParamsHashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{164}
+// Deprecated: Use AddInboundTrafficSelectorsResponse.ProtoReflect.Descriptor instead.
+func (*AddInboundTrafficSelectorsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{198}
 }
 
-type TunnelModeChildSessionParamsEqualsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *TunnelModeChildSessionParamsEqualsRequest) Reset() {
-	*x = TunnelModeChildSessionParamsEqualsRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[165]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *TunnelModeChildSessionParamsEqualsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TunnelModeChildSessionParamsEqualsRequest) ProtoMessage() {}
-
-func (x *TunnelModeChildSessionParamsEqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[165]
+func (x *AddInboundTrafficSelectorsResponse) GetResult() int64 {
 	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use TunnelModeChildSessionParamsEqualsRequest.ProtoReflect.Descriptor instead.
-func (*TunnelModeChildSessionParamsEqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{165}
-}
-
-func (x *TunnelModeChildSessionParamsEqualsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
+		return x.Result
 	}
 	return 0
-}
-
-type TunnelModeChildSessionParamsHashCodeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *TunnelModeChildSessionParamsHashCodeRequest) Reset() {
-	*x = TunnelModeChildSessionParamsHashCodeRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[166]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *TunnelModeChildSessionParamsHashCodeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TunnelModeChildSessionParamsHashCodeRequest) ProtoMessage() {}
-
-func (x *TunnelModeChildSessionParamsHashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[166]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use TunnelModeChildSessionParamsHashCodeRequest.ProtoReflect.Descriptor instead.
-func (*TunnelModeChildSessionParamsHashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{166}
 }
 
 type AddInternalAddressRequest1Request struct {
@@ -7180,7 +8620,7 @@ type AddInternalAddressRequest1Request struct {
 
 func (x *AddInternalAddressRequest1Request) Reset() {
 	*x = AddInternalAddressRequest1Request{}
-	mi := &file_proto_ike_ike_proto_msgTypes[167]
+	mi := &file_proto_ike_ike_proto_msgTypes[199]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7192,7 +8632,7 @@ func (x *AddInternalAddressRequest1Request) String() string {
 func (*AddInternalAddressRequest1Request) ProtoMessage() {}
 
 func (x *AddInternalAddressRequest1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[167]
+	mi := &file_proto_ike_ike_proto_msgTypes[199]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7205,7 +8645,7 @@ func (x *AddInternalAddressRequest1Request) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use AddInternalAddressRequest1Request.ProtoReflect.Descriptor instead.
 func (*AddInternalAddressRequest1Request) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{167}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{199}
 }
 
 func (x *AddInternalAddressRequest1Request) GetArg0() int32 {
@@ -7224,7 +8664,7 @@ type AddInternalAddressRequest1Response struct {
 
 func (x *AddInternalAddressRequest1Response) Reset() {
 	*x = AddInternalAddressRequest1Response{}
-	mi := &file_proto_ike_ike_proto_msgTypes[168]
+	mi := &file_proto_ike_ike_proto_msgTypes[200]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7236,7 +8676,7 @@ func (x *AddInternalAddressRequest1Response) String() string {
 func (*AddInternalAddressRequest1Response) ProtoMessage() {}
 
 func (x *AddInternalAddressRequest1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[168]
+	mi := &file_proto_ike_ike_proto_msgTypes[200]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7249,7 +8689,7 @@ func (x *AddInternalAddressRequest1Response) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use AddInternalAddressRequest1Response.ProtoReflect.Descriptor instead.
 func (*AddInternalAddressRequest1Response) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{168}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{200}
 }
 
 func (x *AddInternalAddressRequest1Response) GetResult() int64 {
@@ -7268,7 +8708,7 @@ type AddInternalAddressRequest1_1Request struct {
 
 func (x *AddInternalAddressRequest1_1Request) Reset() {
 	*x = AddInternalAddressRequest1_1Request{}
-	mi := &file_proto_ike_ike_proto_msgTypes[169]
+	mi := &file_proto_ike_ike_proto_msgTypes[201]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7280,7 +8720,7 @@ func (x *AddInternalAddressRequest1_1Request) String() string {
 func (*AddInternalAddressRequest1_1Request) ProtoMessage() {}
 
 func (x *AddInternalAddressRequest1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[169]
+	mi := &file_proto_ike_ike_proto_msgTypes[201]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7293,7 +8733,7 @@ func (x *AddInternalAddressRequest1_1Request) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use AddInternalAddressRequest1_1Request.ProtoReflect.Descriptor instead.
 func (*AddInternalAddressRequest1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{169}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{201}
 }
 
 func (x *AddInternalAddressRequest1_1Request) GetArg0() int64 {
@@ -7312,7 +8752,7 @@ type AddInternalAddressRequest1_1Response struct {
 
 func (x *AddInternalAddressRequest1_1Response) Reset() {
 	*x = AddInternalAddressRequest1_1Response{}
-	mi := &file_proto_ike_ike_proto_msgTypes[170]
+	mi := &file_proto_ike_ike_proto_msgTypes[202]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7324,7 +8764,7 @@ func (x *AddInternalAddressRequest1_1Response) String() string {
 func (*AddInternalAddressRequest1_1Response) ProtoMessage() {}
 
 func (x *AddInternalAddressRequest1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[170]
+	mi := &file_proto_ike_ike_proto_msgTypes[202]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7337,7 +8777,7 @@ func (x *AddInternalAddressRequest1_1Response) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use AddInternalAddressRequest1_1Response.ProtoReflect.Descriptor instead.
 func (*AddInternalAddressRequest1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{170}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{202}
 }
 
 func (x *AddInternalAddressRequest1_1Response) GetResult() int64 {
@@ -7357,7 +8797,7 @@ type AddInternalAddressRequest2_2Request struct {
 
 func (x *AddInternalAddressRequest2_2Request) Reset() {
 	*x = AddInternalAddressRequest2_2Request{}
-	mi := &file_proto_ike_ike_proto_msgTypes[171]
+	mi := &file_proto_ike_ike_proto_msgTypes[203]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7369,7 +8809,7 @@ func (x *AddInternalAddressRequest2_2Request) String() string {
 func (*AddInternalAddressRequest2_2Request) ProtoMessage() {}
 
 func (x *AddInternalAddressRequest2_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[171]
+	mi := &file_proto_ike_ike_proto_msgTypes[203]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7382,7 +8822,7 @@ func (x *AddInternalAddressRequest2_2Request) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use AddInternalAddressRequest2_2Request.ProtoReflect.Descriptor instead.
 func (*AddInternalAddressRequest2_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{171}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{203}
 }
 
 func (x *AddInternalAddressRequest2_2Request) GetArg0() int64 {
@@ -7408,7 +8848,7 @@ type AddInternalAddressRequest2_2Response struct {
 
 func (x *AddInternalAddressRequest2_2Response) Reset() {
 	*x = AddInternalAddressRequest2_2Response{}
-	mi := &file_proto_ike_ike_proto_msgTypes[172]
+	mi := &file_proto_ike_ike_proto_msgTypes[204]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7420,7 +8860,7 @@ func (x *AddInternalAddressRequest2_2Response) String() string {
 func (*AddInternalAddressRequest2_2Response) ProtoMessage() {}
 
 func (x *AddInternalAddressRequest2_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[172]
+	mi := &file_proto_ike_ike_proto_msgTypes[204]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7433,7 +8873,7 @@ func (x *AddInternalAddressRequest2_2Response) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use AddInternalAddressRequest2_2Response.ProtoReflect.Descriptor instead.
 func (*AddInternalAddressRequest2_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{172}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{204}
 }
 
 func (x *AddInternalAddressRequest2_2Response) GetResult() int64 {
@@ -7452,7 +8892,7 @@ type AddInternalDhcpServerRequestRequest struct {
 
 func (x *AddInternalDhcpServerRequestRequest) Reset() {
 	*x = AddInternalDhcpServerRequestRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[173]
+	mi := &file_proto_ike_ike_proto_msgTypes[205]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7464,7 +8904,7 @@ func (x *AddInternalDhcpServerRequestRequest) String() string {
 func (*AddInternalDhcpServerRequestRequest) ProtoMessage() {}
 
 func (x *AddInternalDhcpServerRequestRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[173]
+	mi := &file_proto_ike_ike_proto_msgTypes[205]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7477,7 +8917,7 @@ func (x *AddInternalDhcpServerRequestRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use AddInternalDhcpServerRequestRequest.ProtoReflect.Descriptor instead.
 func (*AddInternalDhcpServerRequestRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{173}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{205}
 }
 
 func (x *AddInternalDhcpServerRequestRequest) GetArg0() int32 {
@@ -7496,7 +8936,7 @@ type AddInternalDhcpServerRequestResponse struct {
 
 func (x *AddInternalDhcpServerRequestResponse) Reset() {
 	*x = AddInternalDhcpServerRequestResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[174]
+	mi := &file_proto_ike_ike_proto_msgTypes[206]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7508,7 +8948,7 @@ func (x *AddInternalDhcpServerRequestResponse) String() string {
 func (*AddInternalDhcpServerRequestResponse) ProtoMessage() {}
 
 func (x *AddInternalDhcpServerRequestResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[174]
+	mi := &file_proto_ike_ike_proto_msgTypes[206]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7521,7 +8961,7 @@ func (x *AddInternalDhcpServerRequestResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use AddInternalDhcpServerRequestResponse.ProtoReflect.Descriptor instead.
 func (*AddInternalDhcpServerRequestResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{174}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{206}
 }
 
 func (x *AddInternalDhcpServerRequestResponse) GetResult() int64 {
@@ -7540,7 +8980,7 @@ type AddInternalDnsServerRequestRequest struct {
 
 func (x *AddInternalDnsServerRequestRequest) Reset() {
 	*x = AddInternalDnsServerRequestRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[175]
+	mi := &file_proto_ike_ike_proto_msgTypes[207]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7552,7 +8992,7 @@ func (x *AddInternalDnsServerRequestRequest) String() string {
 func (*AddInternalDnsServerRequestRequest) ProtoMessage() {}
 
 func (x *AddInternalDnsServerRequestRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[175]
+	mi := &file_proto_ike_ike_proto_msgTypes[207]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7565,7 +9005,7 @@ func (x *AddInternalDnsServerRequestRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use AddInternalDnsServerRequestRequest.ProtoReflect.Descriptor instead.
 func (*AddInternalDnsServerRequestRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{175}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{207}
 }
 
 func (x *AddInternalDnsServerRequestRequest) GetArg0() int32 {
@@ -7584,7 +9024,7 @@ type AddInternalDnsServerRequestResponse struct {
 
 func (x *AddInternalDnsServerRequestResponse) Reset() {
 	*x = AddInternalDnsServerRequestResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[176]
+	mi := &file_proto_ike_ike_proto_msgTypes[208]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7596,7 +9036,7 @@ func (x *AddInternalDnsServerRequestResponse) String() string {
 func (*AddInternalDnsServerRequestResponse) ProtoMessage() {}
 
 func (x *AddInternalDnsServerRequestResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[176]
+	mi := &file_proto_ike_ike_proto_msgTypes[208]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7609,10 +9049,98 @@ func (x *AddInternalDnsServerRequestResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use AddInternalDnsServerRequestResponse.ProtoReflect.Descriptor instead.
 func (*AddInternalDnsServerRequestResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{176}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{208}
 }
 
 func (x *AddInternalDnsServerRequestResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddOutboundTrafficSelectorsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddOutboundTrafficSelectorsRequest) Reset() {
+	*x = AddOutboundTrafficSelectorsRequest{}
+	mi := &file_proto_ike_ike_proto_msgTypes[209]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddOutboundTrafficSelectorsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddOutboundTrafficSelectorsRequest) ProtoMessage() {}
+
+func (x *AddOutboundTrafficSelectorsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[209]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddOutboundTrafficSelectorsRequest.ProtoReflect.Descriptor instead.
+func (*AddOutboundTrafficSelectorsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{209}
+}
+
+func (x *AddOutboundTrafficSelectorsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddOutboundTrafficSelectorsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddOutboundTrafficSelectorsResponse) Reset() {
+	*x = AddOutboundTrafficSelectorsResponse{}
+	mi := &file_proto_ike_ike_proto_msgTypes[210]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddOutboundTrafficSelectorsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddOutboundTrafficSelectorsResponse) ProtoMessage() {}
+
+func (x *AddOutboundTrafficSelectorsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ike_ike_proto_msgTypes[210]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddOutboundTrafficSelectorsResponse.ProtoReflect.Descriptor instead.
+func (*AddOutboundTrafficSelectorsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{210}
+}
+
+func (x *AddOutboundTrafficSelectorsResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -7627,7 +9155,7 @@ type GetAddressRequest struct {
 
 func (x *GetAddressRequest) Reset() {
 	*x = GetAddressRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[177]
+	mi := &file_proto_ike_ike_proto_msgTypes[211]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7639,7 +9167,7 @@ func (x *GetAddressRequest) String() string {
 func (*GetAddressRequest) ProtoMessage() {}
 
 func (x *GetAddressRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[177]
+	mi := &file_proto_ike_ike_proto_msgTypes[211]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7652,7 +9180,7 @@ func (x *GetAddressRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAddressRequest.ProtoReflect.Descriptor instead.
 func (*GetAddressRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{177}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{211}
 }
 
 type GetAddressResponse struct {
@@ -7664,7 +9192,7 @@ type GetAddressResponse struct {
 
 func (x *GetAddressResponse) Reset() {
 	*x = GetAddressResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[178]
+	mi := &file_proto_ike_ike_proto_msgTypes[212]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7676,7 +9204,7 @@ func (x *GetAddressResponse) String() string {
 func (*GetAddressResponse) ProtoMessage() {}
 
 func (x *GetAddressResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[178]
+	mi := &file_proto_ike_ike_proto_msgTypes[212]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7689,7 +9217,7 @@ func (x *GetAddressResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAddressResponse.ProtoReflect.Descriptor instead.
 func (*GetAddressResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{178}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{212}
 }
 
 func (x *GetAddressResponse) GetResult() int64 {
@@ -7707,7 +9235,7 @@ type GetPrefixLengthRequest struct {
 
 func (x *GetPrefixLengthRequest) Reset() {
 	*x = GetPrefixLengthRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[179]
+	mi := &file_proto_ike_ike_proto_msgTypes[213]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7719,7 +9247,7 @@ func (x *GetPrefixLengthRequest) String() string {
 func (*GetPrefixLengthRequest) ProtoMessage() {}
 
 func (x *GetPrefixLengthRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[179]
+	mi := &file_proto_ike_ike_proto_msgTypes[213]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7732,7 +9260,7 @@ func (x *GetPrefixLengthRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPrefixLengthRequest.ProtoReflect.Descriptor instead.
 func (*GetPrefixLengthRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{179}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{213}
 }
 
 type GetPrefixLengthResponse struct {
@@ -7744,7 +9272,7 @@ type GetPrefixLengthResponse struct {
 
 func (x *GetPrefixLengthResponse) Reset() {
 	*x = GetPrefixLengthResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[180]
+	mi := &file_proto_ike_ike_proto_msgTypes[214]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7756,7 +9284,7 @@ func (x *GetPrefixLengthResponse) String() string {
 func (*GetPrefixLengthResponse) ProtoMessage() {}
 
 func (x *GetPrefixLengthResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[180]
+	mi := &file_proto_ike_ike_proto_msgTypes[214]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7769,466 +9297,10 @@ func (x *GetPrefixLengthResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPrefixLengthResponse.ProtoReflect.Descriptor instead.
 func (*GetPrefixLengthResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{180}
+	return file_proto_ike_ike_proto_rawDescGZIP(), []int{214}
 }
 
 func (x *GetPrefixLengthResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type IkeSaProposalEqualsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IkeSaProposalEqualsRequest) Reset() {
-	*x = IkeSaProposalEqualsRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[181]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IkeSaProposalEqualsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IkeSaProposalEqualsRequest) ProtoMessage() {}
-
-func (x *IkeSaProposalEqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[181]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IkeSaProposalEqualsRequest.ProtoReflect.Descriptor instead.
-func (*IkeSaProposalEqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{181}
-}
-
-func (x *IkeSaProposalEqualsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type IkeSaProposalHashCodeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IkeSaProposalHashCodeRequest) Reset() {
-	*x = IkeSaProposalHashCodeRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[182]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IkeSaProposalHashCodeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IkeSaProposalHashCodeRequest) ProtoMessage() {}
-
-func (x *IkeSaProposalHashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[182]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IkeSaProposalHashCodeRequest.ProtoReflect.Descriptor instead.
-func (*IkeSaProposalHashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{182}
-}
-
-type AddPseudorandomFunctionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddPseudorandomFunctionRequest) Reset() {
-	*x = AddPseudorandomFunctionRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[183]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddPseudorandomFunctionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddPseudorandomFunctionRequest) ProtoMessage() {}
-
-func (x *AddPseudorandomFunctionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[183]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddPseudorandomFunctionRequest.ProtoReflect.Descriptor instead.
-func (*AddPseudorandomFunctionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{183}
-}
-
-func (x *AddPseudorandomFunctionRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type AddPseudorandomFunctionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddPseudorandomFunctionResponse) Reset() {
-	*x = AddPseudorandomFunctionResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[184]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddPseudorandomFunctionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddPseudorandomFunctionResponse) ProtoMessage() {}
-
-func (x *AddPseudorandomFunctionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[184]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddPseudorandomFunctionResponse.ProtoReflect.Descriptor instead.
-func (*AddPseudorandomFunctionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{184}
-}
-
-func (x *AddPseudorandomFunctionResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type NewDerAsn1DnIdentificationRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewDerAsn1DnIdentificationRequest) Reset() {
-	*x = NewDerAsn1DnIdentificationRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[185]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewDerAsn1DnIdentificationRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewDerAsn1DnIdentificationRequest) ProtoMessage() {}
-
-func (x *NewDerAsn1DnIdentificationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[185]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewDerAsn1DnIdentificationRequest.ProtoReflect.Descriptor instead.
-func (*NewDerAsn1DnIdentificationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{185}
-}
-
-func (x *NewDerAsn1DnIdentificationRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type NewDerAsn1DnIdentificationResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewDerAsn1DnIdentificationResponse) Reset() {
-	*x = NewDerAsn1DnIdentificationResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[186]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewDerAsn1DnIdentificationResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewDerAsn1DnIdentificationResponse) ProtoMessage() {}
-
-func (x *NewDerAsn1DnIdentificationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[186]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewDerAsn1DnIdentificationResponse.ProtoReflect.Descriptor instead.
-func (*NewDerAsn1DnIdentificationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{186}
-}
-
-func (x *NewDerAsn1DnIdentificationResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type NewTrafficSelectorRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewTrafficSelectorRequest) Reset() {
-	*x = NewTrafficSelectorRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[187]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewTrafficSelectorRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewTrafficSelectorRequest) ProtoMessage() {}
-
-func (x *NewTrafficSelectorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[187]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewTrafficSelectorRequest.ProtoReflect.Descriptor instead.
-func (*NewTrafficSelectorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{187}
-}
-
-func (x *NewTrafficSelectorRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *NewTrafficSelectorRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *NewTrafficSelectorRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-func (x *NewTrafficSelectorRequest) GetArg3() int64 {
-	if x != nil {
-		return x.Arg3
-	}
-	return 0
-}
-
-type NewTrafficSelectorResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewTrafficSelectorResponse) Reset() {
-	*x = NewTrafficSelectorResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[188]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewTrafficSelectorResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewTrafficSelectorResponse) ProtoMessage() {}
-
-func (x *NewTrafficSelectorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[188]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewTrafficSelectorResponse.ProtoReflect.Descriptor instead.
-func (*NewTrafficSelectorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{188}
-}
-
-func (x *NewTrafficSelectorResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type NewKeyIdIdentificationRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewKeyIdIdentificationRequest) Reset() {
-	*x = NewKeyIdIdentificationRequest{}
-	mi := &file_proto_ike_ike_proto_msgTypes[189]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewKeyIdIdentificationRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewKeyIdIdentificationRequest) ProtoMessage() {}
-
-func (x *NewKeyIdIdentificationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[189]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewKeyIdIdentificationRequest.ProtoReflect.Descriptor instead.
-func (*NewKeyIdIdentificationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{189}
-}
-
-func (x *NewKeyIdIdentificationRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type NewKeyIdIdentificationResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewKeyIdIdentificationResponse) Reset() {
-	*x = NewKeyIdIdentificationResponse{}
-	mi := &file_proto_ike_ike_proto_msgTypes[190]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewKeyIdIdentificationResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewKeyIdIdentificationResponse) ProtoMessage() {}
-
-func (x *NewKeyIdIdentificationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ike_ike_proto_msgTypes[190]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewKeyIdIdentificationResponse.ProtoReflect.Descriptor instead.
-func (*NewKeyIdIdentificationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ike_ike_proto_rawDescGZIP(), []int{190}
-}
-
-func (x *NewKeyIdIdentificationResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -8239,105 +9311,128 @@ var File_proto_ike_ike_proto protoreflect.FileDescriptor
 
 const file_proto_ike_ike_proto_rawDesc = "" +
 	"\n" +
-	"\x13proto/ike/ike.proto\x12\x03ike\"6\n" +
-	" NewIpv6AddrIdentificationRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\";\n" +
-	"!NewIpv6AddrIdentificationResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\";\n" +
-	"\rEqualsRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"(\n" +
-	"\x0eEqualsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\")\n" +
-	"\x0fHashCodeRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
-	"\x10HashCodeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x8b\x01\n" +
-	"\x11NewSessionRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\x12\x12\n" +
-	"\x04arg4\x18\x05 \x01(\x03R\x04arg4\x12\x12\n" +
-	"\x04arg5\x18\x06 \x01(\x03R\x04arg5\",\n" +
-	"\x12NewSessionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"&\n" +
-	"\fCloseRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x0f\n" +
-	"\rCloseResponse\"F\n" +
-	"\x18CloseChildSessionRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1b\n" +
-	"\x19CloseChildSessionResponse\"9\n" +
-	"\vDumpRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x0e\n" +
-	"\fDumpResponse\")\n" +
-	"\x0fFinalizeRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x12\n" +
-	"\x10FinalizeResponse\"%\n" +
-	"\vKillRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x0e\n" +
-	"\fKillResponse\"Y\n" +
-	"\x17OpenChildSessionRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\x1a\n" +
-	"\x18OpenChildSessionResponse\"J\n" +
-	" NewTunnelConnectionParamsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\";\n" +
-	"!NewTunnelConnectionParamsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"4\n" +
-	"\x1aGetIkeSessionParamsRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"5\n" +
-	"\x1bGetIkeSessionParamsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
-	"&GetTunnelModeChildSessionParamsRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"A\n" +
-	"'GetTunnelModeChildSessionParamsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
-	"\x19AddChildSaProposalRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"4\n" +
-	"\x1aAddChildSaProposalResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
-	"!AddInboundTrafficSelectorsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"<\n" +
-	"\"AddInboundTrafficSelectorsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"8\n" +
-	"\"AddOutboundTrafficSelectorsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"=\n" +
-	"#AddOutboundTrafficSelectorsResponse\x12\x16\n" +
+	"\x13proto/ike/ike.proto\x12\x03ike\"\x13\n" +
+	"\x11GetEapInfoRequest\",\n" +
+	"\x12GetEapInfoResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
+	"\"GetIkeSessionConnectionInfoRequest\"=\n" +
+	"#GetIkeSessionConnectionInfoResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
+	"\"GetRemoteApplicationVersionRequest\"=\n" +
+	"#GetRemoteApplicationVersionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x1b\n" +
+	"\x19GetRemoteVendorIdsRequest\"4\n" +
+	"\x1aGetRemoteVendorIdsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x1cIsIkeExtensionEnabledRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"7\n" +
+	"\x1dIsIkeExtensionEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\",\n" +
+	"\x16AddIkeExtensionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"1\n" +
+	"\x17AddIkeExtensionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x18AddRemoteVendorIdRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"3\n" +
+	"\x19AddRemoteVendorIdResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0e\n" +
 	"\fBuildRequest\"'\n" +
 	"\rBuildResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"C\n" +
-	"\x19SetLifetimeSecondsRequest\x12\x12\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
+	"\x19ClearIkeExtensionsRequest\"4\n" +
+	"\x1aClearIkeExtensionsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"&\n" +
+	"$ClearRemoteApplicationVersionRequest\"?\n" +
+	"%ClearRemoteApplicationVersionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1d\n" +
+	"\x1bClearRemoteVendorIdsRequest\"6\n" +
+	"\x1cClearRemoteVendorIdsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"'\n" +
+	"\x11SetEapInfoRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\",\n" +
+	"\x12SetEapInfoResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"8\n" +
+	"\"SetRemoteApplicationVersionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"=\n" +
+	"#SetRemoteApplicationVersionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"]\n" +
+	"\x1fNewSessionConnectionInfoRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\":\n" +
+	" NewSessionConnectionInfoResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	"\x16GetLocalAddressRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
+	"\x17GetLocalAddressResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x11GetNetworkRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
+	"\x12GetNetworkResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x17GetRemoteAddressRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
+	"\x18GetRemoteAddressResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
+	"\rEqualsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
+	"\x0eEqualsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x11\n" +
+	"\x0fHashCodeRequest\"*\n" +
+	"\x10HashCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\")\n" +
+	"'GetSupportedEncryptionAlgorithmsRequest\"B\n" +
+	"(GetSupportedEncryptionAlgorithmsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
+	"&GetSupportedIntegrityAlgorithmsRequest\"A\n" +
+	"'GetSupportedIntegrityAlgorithmsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"'\n" +
+	"\x11AddDhGroupRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\",\n" +
+	"\x12AddDhGroupResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"G\n" +
+	"\x1dAddEncryptionAlgorithmRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"4\n" +
-	"\x1aSetLifetimeSecondsResponse\x12\x16\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"8\n" +
+	"\x1eAddEncryptionAlgorithmResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x1cAddIntegrityAlgorithmRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"7\n" +
+	"\x1dAddIntegrityAlgorithmResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
+	"!NewDerAsn1DnIdentificationRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"<\n" +
+	"\"NewDerAsn1DnIdentificationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"R\n" +
+	"$DerAsn1DnIdentificationEqualsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"@\n" +
+	"&DerAsn1DnIdentificationHashCodeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x14\n" +
+	"\x12GetDhGroupsRequest\"-\n" +
+	"\x13GetDhGroupsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1f\n" +
+	"\x1dGetIntegrityAlgorithmsRequest\"8\n" +
+	"\x1eGetIntegrityAlgorithmsResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
-	"\x0fOnClosedRequest\"\x12\n" +
-	"\x10OnClosedResponse\"H\n" +
-	"\x1eOnIpSecTransformCreatedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"!\n" +
-	"\x1fOnIpSecTransformCreatedResponse\"H\n" +
-	"\x1eOnIpSecTransformDeletedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"!\n" +
-	"\x1fOnIpSecTransformDeletedResponse\"%\n" +
-	"\x0fOnOpenedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x12\n" +
-	"\x10OnOpenedResponse\"0\n" +
-	"\x1aSessionParamsEqualsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1b\n" +
+	"\x0fToStringRequest\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x1d\n" +
+	"\x1bGetSupportedDhGroupsRequest\"6\n" +
+	"\x1cGetSupportedDhGroupsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
 	"\x19GetDpdDelaySecondsRequest\"4\n" +
 	"\x1aGetDpdDelaySecondsResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1f\n" +
 	"\x1dGetHardLifetimeSecondsRequest\"8\n" +
 	"\x1eGetHardLifetimeSecondsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1b\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x16\n" +
+	"\x14GetIkeOptionsRequest\"/\n" +
+	"\x15GetIkeOptionsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1a\n" +
+	"\x18GetIkeSaProposalsRequest\"3\n" +
+	"\x19GetIkeSaProposalsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
 	"\x19GetLocalAuthConfigRequest\"4\n" +
 	"\x1aGetLocalAuthConfigResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1f\n" +
@@ -8346,10 +9441,8 @@ const file_proto_ike_ike_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"%\n" +
 	"#GetNattKeepAliveDelaySecondsRequest\">\n" +
 	"$GetNattKeepAliveDelaySecondsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x13\n" +
-	"\x11GetNetworkRequest\",\n" +
-	"\x12GetNetworkResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1c\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\" \n" +
+	"\x1eSessionParamsGetNetworkRequest\"\x1c\n" +
 	"\x1aGetRemoteAuthConfigRequest\"5\n" +
 	"\x1bGetRemoteAuthConfigResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\" \n" +
@@ -8368,8 +9461,7 @@ const file_proto_ike_ike_proto_rawDesc = "" +
 	"\x13HasIkeOptionRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\".\n" +
 	"\x14HasIkeOptionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x1e\n" +
-	"\x1cSessionParamsHashCodeRequest\")\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\")\n" +
 	"\x13AddIkeOptionRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\".\n" +
 	"\x14AddIkeOptionResponse\x12\x16\n" +
@@ -8400,6 +9492,11 @@ const file_proto_ike_ike_proto_rawDesc = "" +
 	"\x19SetDpdDelaySecondsRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"4\n" +
 	"\x1aSetDpdDelaySecondsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"C\n" +
+	"\x19SetLifetimeSecondsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"4\n" +
+	"\x1aSetLifetimeSecondsResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"3\n" +
 	"\x1dSetLocalIdentificationRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"8\n" +
@@ -8424,131 +9521,174 @@ const file_proto_ike_ike_proto_rawDesc = "" +
 	"\x18SetServerHostnameRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"3\n" +
 	"\x19SetServerHostnameResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"=\n" +
-	"'SessionParamsIkeAuthConfigEqualsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"+\n" +
-	")SessionParamsIkeAuthConfigHashCodeRequest\"M\n" +
-	"7SessionParamsIkeAuthDigitalSignLocalConfigEqualsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\" \n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\" \n" +
 	"\x1eGetClientEndCertificateRequest\"9\n" +
 	"\x1fGetClientEndCertificateResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
+	"\"GetIntermediateCertificatesRequest\"=\n" +
+	"#GetIntermediateCertificatesResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
 	"\x14GetPrivateKeyRequest\"/\n" +
 	"\x15GetPrivateKeyResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\";\n" +
-	"9SessionParamsIkeAuthDigitalSignLocalConfigHashCodeRequest\"N\n" +
-	"8SessionParamsIkeAuthDigitalSignRemoteConfigEqualsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x18\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
 	"\x16GetRemoteCaCertRequest\"1\n" +
 	"\x17GetRemoteCaCertResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"<\n" +
-	":SessionParamsIkeAuthDigitalSignRemoteConfigHashCodeRequest\"@\n" +
-	"*SessionParamsIkeAuthEapConfigEqualsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x15\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
 	"\x13GetEapConfigRequest\".\n" +
 	"\x14GetEapConfigResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
-	",SessionParamsIkeAuthEapConfigHashCodeRequest\"@\n" +
-	"*SessionParamsIkeAuthPskConfigEqualsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x0f\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0f\n" +
 	"\rGetPskRequest\"(\n" +
 	"\x0eGetPskResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
-	",SessionParamsIkeAuthPskConfigHashCodeRequest\"\x13\n" +
-	"\x11GetEapInfoRequest\",\n" +
-	"\x12GetEapInfoResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
-	"\"GetIkeSessionConnectionInfoRequest\"=\n" +
-	"#GetIkeSessionConnectionInfoResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
-	"\"GetRemoteApplicationVersionRequest\"=\n" +
-	"#GetRemoteApplicationVersionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"2\n" +
-	"\x1cIsIkeExtensionEnabledRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"7\n" +
-	"\x1dIsIkeExtensionEnabledResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\",\n" +
-	"\x16AddIkeExtensionRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"1\n" +
-	"\x17AddIkeExtensionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
-	"\x18AddRemoteVendorIdRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"3\n" +
-	"\x19AddRemoteVendorIdResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
-	"\x19ClearIkeExtensionsRequest\"4\n" +
-	"\x1aClearIkeExtensionsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"&\n" +
-	"$ClearRemoteApplicationVersionRequest\"?\n" +
-	"%ClearRemoteApplicationVersionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1d\n" +
-	"\x1bClearRemoteVendorIdsRequest\"6\n" +
-	"\x1cClearRemoteVendorIdsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"'\n" +
-	"\x11SetEapInfoRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\",\n" +
-	"\x12SetEapInfoResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"8\n" +
-	"\"SetRemoteApplicationVersionRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"=\n" +
-	"#SetRemoteApplicationVersionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"6\n" +
-	" NewIpv4AddrIdentificationRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\";\n" +
-	"!NewIpv4AddrIdentificationResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"]\n" +
-	"\x1fNewSessionConnectionInfoRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\":\n" +
-	" NewSessionConnectionInfoResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
-	"\x16GetLocalAddressRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
-	"\x17GetLocalAddressResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
-	"&SessionConnectionInfoGetNetworkRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
-	"\x17GetRemoteAddressRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
-	"\x18GetRemoteAddressResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"8\n" +
 	"\"NewRfc822AddrIdentificationRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"=\n" +
 	"#NewRfc822AddrIdentificationResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
-	"\x17SaProposalEqualsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1b\n" +
-	"\x19SaProposalHashCodeRequest\"\x11\n" +
-	"\x0fToStringRequest\"*\n" +
-	"\x10ToStringResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"2\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"S\n" +
+	"%Rfc822AddrIdentificationEqualsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"A\n" +
+	"'Rfc822AddrIdentificationHashCodeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"k\n" +
+	"\x19NewTrafficSelectorRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"4\n" +
+	"\x1aNewTrafficSelectorResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"J\n" +
+	"\x1cTrafficSelectorEqualsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"8\n" +
+	"\x1eTrafficSelectorHashCodeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"#\n" +
+	"!GetInboundTrafficSelectorsRequest\"<\n" +
+	"\"GetInboundTrafficSelectorsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
+	"\"GetOutboundTrafficSelectorsRequest\"=\n" +
+	"#GetOutboundTrafficSelectorsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"!\n" +
+	"\x1fGetPseudorandomFunctionsRequest\":\n" +
+	" GetPseudorandomFunctionsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"*\n" +
+	"(GetSupportedPseudorandomFunctionsRequest\"C\n" +
+	")GetSupportedPseudorandomFunctionsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"4\n" +
+	"\x1eAddPseudorandomFunctionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"9\n" +
+	"\x1fAddPseudorandomFunctionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x8b\x01\n" +
+	"\x11NewSessionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x05 \x01(\x03R\x04arg4\x12\x12\n" +
+	"\x04arg5\x18\x06 \x01(\x03R\x04arg5\",\n" +
+	"\x12NewSessionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"&\n" +
+	"\fCloseRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x0f\n" +
+	"\rCloseResponse\"F\n" +
+	"\x18CloseChildSessionRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1b\n" +
+	"\x19CloseChildSessionResponse\"9\n" +
+	"\vDumpRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x0e\n" +
+	"\fDumpResponse\")\n" +
+	"\x0fFinalizeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x12\n" +
+	"\x10FinalizeResponse\"%\n" +
+	"\vKillRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x0e\n" +
+	"\fKillResponse\"Y\n" +
+	"\x17OpenChildSessionRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\x1a\n" +
+	"\x18OpenChildSessionResponse\"6\n" +
+	" NewIpv4AddrIdentificationRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\";\n" +
+	"!NewIpv4AddrIdentificationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"Q\n" +
+	"#Ipv4AddrIdentificationEqualsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"?\n" +
+	"%Ipv4AddrIdentificationHashCodeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"6\n" +
+	" NewIpv6AddrIdentificationRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\";\n" +
+	"!NewIpv6AddrIdentificationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"Q\n" +
+	"#Ipv6AddrIdentificationEqualsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"?\n" +
+	"%Ipv6AddrIdentificationHashCodeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"J\n" +
+	" NewTunnelConnectionParamsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\";\n" +
+	"!NewTunnelConnectionParamsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"Q\n" +
+	"#TunnelConnectionParamsEqualsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"4\n" +
+	"\x1aGetIkeSessionParamsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"5\n" +
+	"\x1bGetIkeSessionParamsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
+	"&GetTunnelModeChildSessionParamsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"A\n" +
+	"'GetTunnelModeChildSessionParamsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"?\n" +
+	"%TunnelConnectionParamsHashCodeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x11\n" +
+	"\x0fOnClosedRequest\"\x12\n" +
+	"\x10OnClosedResponse\"%\n" +
+	"\x0fOnOpenedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x12\n" +
+	"\x10OnOpenedResponse\"H\n" +
+	"\x1eOnIpSecTransformCreatedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"!\n" +
+	"\x1fOnIpSecTransformCreatedResponse\"H\n" +
+	"\x1eOnIpSecTransformDeletedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"!\n" +
+	"\x1fOnIpSecTransformDeletedResponse\"3\n" +
+	"\x1dNewKeyIdIdentificationRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"8\n" +
+	"\x1eNewKeyIdIdentificationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"N\n" +
+	" KeyIdIdentificationEqualsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"<\n" +
+	"\"KeyIdIdentificationHashCodeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
 	"\x1cNewFqdnIdentificationRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"7\n" +
 	"\x1dNewFqdnIdentificationResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
-	"\x1cChildSaProposalEqualsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\" \n" +
-	"\x1eChildSaProposalHashCodeRequest\"'\n" +
-	"\x11AddDhGroupRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\",\n" +
-	"\x12AddDhGroupResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"G\n" +
-	"\x1dAddEncryptionAlgorithmRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"8\n" +
-	"\x1eAddEncryptionAlgorithmResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
-	"\x1cAddIntegrityAlgorithmRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"7\n" +
-	"\x1dAddIntegrityAlgorithmResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
-	"\x1fChildSessionParamsEqualsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"#\n" +
-	"!ChildSessionParamsHashCodeRequest\"?\n" +
-	")TunnelModeChildSessionParamsEqualsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"-\n" +
-	"+TunnelModeChildSessionParamsHashCodeRequest\"7\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"M\n" +
+	"\x1fFqdnIdentificationEqualsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\";\n" +
+	"!FqdnIdentificationHashCodeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x1c\n" +
+	"\x1aGetChildSaProposalsRequest\"5\n" +
+	"\x1bGetChildSaProposalsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"!\n" +
+	"\x1fGetConfigurationRequestsRequest\":\n" +
+	" GetConfigurationRequestsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"\x19AddChildSaProposalRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"4\n" +
+	"\x1aAddChildSaProposalResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
+	"!AddInboundTrafficSelectorsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"<\n" +
+	"\"AddInboundTrafficSelectorsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
 	"!AddInternalAddressRequest1Request\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"<\n" +
 	"\"AddInternalAddressRequest1Response\x12\x16\n" +
@@ -8569,81 +9709,80 @@ const file_proto_ike_ike_proto_rawDesc = "" +
 	"\"AddInternalDnsServerRequestRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"=\n" +
 	"#AddInternalDnsServerRequestResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"8\n" +
+	"\"AddOutboundTrafficSelectorsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"=\n" +
+	"#AddOutboundTrafficSelectorsResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x13\n" +
 	"\x11GetAddressRequest\",\n" +
 	"\x12GetAddressResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x18\n" +
 	"\x16GetPrefixLengthRequest\"1\n" +
 	"\x17GetPrefixLengthResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"0\n" +
-	"\x1aIkeSaProposalEqualsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1e\n" +
-	"\x1cIkeSaProposalHashCodeRequest\"4\n" +
-	"\x1eAddPseudorandomFunctionRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"9\n" +
-	"\x1fAddPseudorandomFunctionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
-	"!NewDerAsn1DnIdentificationRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"<\n" +
-	"\"NewDerAsn1DnIdentificationResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"k\n" +
-	"\x19NewTrafficSelectorRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"4\n" +
-	"\x1aNewTrafficSelectorResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"3\n" +
-	"\x1dNewKeyIdIdentificationRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"8\n" +
-	"\x1eNewKeyIdIdentificationResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result2\xf7\x01\n" +
-	"\x1dIpv6AddrIdentificationService\x12j\n" +
-	"\x19NewIpv6AddrIdentification\x12%.ike.NewIpv6AddrIdentificationRequest\x1a&.ike.NewIpv6AddrIdentificationResponse\x121\n" +
-	"\x06Equals\x12\x12.ike.EqualsRequest\x1a\x13.ike.EqualsResponse\x127\n" +
-	"\bHashCode\x12\x14.ike.HashCodeRequest\x1a\x15.ike.HashCodeResponse2\xb7\x03\n" +
-	"\x0eSessionService\x12=\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result2\xf7\x03\n" +
+	"\x1bSessionConfigurationService\x12=\n" +
 	"\n" +
-	"NewSession\x12\x16.ike.NewSessionRequest\x1a\x17.ike.NewSessionResponse\x12.\n" +
-	"\x05Close\x12\x11.ike.CloseRequest\x1a\x12.ike.CloseResponse\x12R\n" +
-	"\x11CloseChildSession\x12\x1d.ike.CloseChildSessionRequest\x1a\x1e.ike.CloseChildSessionResponse\x12+\n" +
-	"\x04Dump\x12\x10.ike.DumpRequest\x1a\x11.ike.DumpResponse\x127\n" +
-	"\bFinalize\x12\x14.ike.FinalizeRequest\x1a\x15.ike.FinalizeResponse\x12+\n" +
-	"\x04Kill\x12\x10.ike.KillRequest\x1a\x11.ike.KillResponse\x12O\n" +
-	"\x10OpenChildSession\x12\x1c.ike.OpenChildSessionRequest\x1a\x1d.ike.OpenChildSessionResponse2\xcf\x03\n" +
-	"\x1dTunnelConnectionParamsService\x12j\n" +
-	"\x19NewTunnelConnectionParams\x12%.ike.NewTunnelConnectionParamsRequest\x1a&.ike.NewTunnelConnectionParamsResponse\x121\n" +
-	"\x06Equals\x12\x12.ike.EqualsRequest\x1a\x13.ike.EqualsResponse\x12X\n" +
-	"\x13GetIkeSessionParams\x12\x1f.ike.GetIkeSessionParamsRequest\x1a .ike.GetIkeSessionParamsResponse\x12|\n" +
-	"\x1fGetTunnelModeChildSessionParams\x12+.ike.GetTunnelModeChildSessionParamsRequest\x1a,.ike.GetTunnelModeChildSessionParamsResponse\x127\n" +
-	"\bHashCode\x12\x14.ike.HashCodeRequest\x1a\x15.ike.HashCodeResponse2\xee\x03\n" +
-	"-TransportModeChildSessionParamsBuilderService\x12U\n" +
-	"\x12AddChildSaProposal\x12\x1e.ike.AddChildSaProposalRequest\x1a\x1f.ike.AddChildSaProposalResponse\x12m\n" +
-	"\x1aAddInboundTrafficSelectors\x12&.ike.AddInboundTrafficSelectorsRequest\x1a'.ike.AddInboundTrafficSelectorsResponse\x12p\n" +
-	"\x1bAddOutboundTrafficSelectors\x12'.ike.AddOutboundTrafficSelectorsRequest\x1a(.ike.AddOutboundTrafficSelectorsResponse\x12.\n" +
+	"GetEapInfo\x12\x16.ike.GetEapInfoRequest\x1a\x17.ike.GetEapInfoResponse\x12p\n" +
+	"\x1bGetIkeSessionConnectionInfo\x12'.ike.GetIkeSessionConnectionInfoRequest\x1a(.ike.GetIkeSessionConnectionInfoResponse\x12p\n" +
+	"\x1bGetRemoteApplicationVersion\x12'.ike.GetRemoteApplicationVersionRequest\x1a(.ike.GetRemoteApplicationVersionResponse\x12U\n" +
+	"\x12GetRemoteVendorIds\x12\x1e.ike.GetRemoteVendorIdsRequest\x1a\x1f.ike.GetRemoteVendorIdsResponse\x12^\n" +
+	"\x15IsIkeExtensionEnabled\x12!.ike.IsIkeExtensionEnabledRequest\x1a\".ike.IsIkeExtensionEnabledResponse2\xd3\x05\n" +
+	"\"SessionConfigurationBuilderService\x12L\n" +
+	"\x0fAddIkeExtension\x12\x1b.ike.AddIkeExtensionRequest\x1a\x1c.ike.AddIkeExtensionResponse\x12R\n" +
+	"\x11AddRemoteVendorId\x12\x1d.ike.AddRemoteVendorIdRequest\x1a\x1e.ike.AddRemoteVendorIdResponse\x12.\n" +
 	"\x05Build\x12\x11.ike.BuildRequest\x1a\x12.ike.BuildResponse\x12U\n" +
-	"\x12SetLifetimeSeconds\x12\x1e.ike.SetLifetimeSecondsRequest\x1a\x1f.ike.SetLifetimeSecondsResponse2\xdb\x02\n" +
-	"\x1bChildSessionCallbackService\x127\n" +
-	"\bOnClosed\x12\x14.ike.OnClosedRequest\x1a\x15.ike.OnClosedResponse\x12d\n" +
-	"\x17OnIpSecTransformCreated\x12#.ike.OnIpSecTransformCreatedRequest\x1a$.ike.OnIpSecTransformCreatedResponse\x12d\n" +
-	"\x17OnIpSecTransformDeleted\x12#.ike.OnIpSecTransformDeletedRequest\x1a$.ike.OnIpSecTransformDeletedResponse\x127\n" +
-	"\bOnOpened\x12\x14.ike.OnOpenedRequest\x1a\x15.ike.OnOpenedResponse2\xfe\t\n" +
-	"\x14SessionParamsService\x12>\n" +
-	"\x06Equals\x12\x1f.ike.SessionParamsEqualsRequest\x1a\x13.ike.EqualsResponse\x12U\n" +
+	"\x12ClearIkeExtensions\x12\x1e.ike.ClearIkeExtensionsRequest\x1a\x1f.ike.ClearIkeExtensionsResponse\x12v\n" +
+	"\x1dClearRemoteApplicationVersion\x12).ike.ClearRemoteApplicationVersionRequest\x1a*.ike.ClearRemoteApplicationVersionResponse\x12[\n" +
+	"\x14ClearRemoteVendorIds\x12 .ike.ClearRemoteVendorIdsRequest\x1a!.ike.ClearRemoteVendorIdsResponse\x12=\n" +
+	"\n" +
+	"SetEapInfo\x12\x16.ike.SetEapInfoRequest\x1a\x17.ike.SetEapInfoResponse\x12p\n" +
+	"\x1bSetRemoteApplicationVersion\x12'.ike.SetRemoteApplicationVersionRequest\x1a(.ike.SetRemoteApplicationVersionResponse2\xe5\x02\n" +
+	"\x1cSessionConnectionInfoService\x12g\n" +
+	"\x18NewSessionConnectionInfo\x12$.ike.NewSessionConnectionInfoRequest\x1a%.ike.NewSessionConnectionInfoResponse\x12L\n" +
+	"\x0fGetLocalAddress\x12\x1b.ike.GetLocalAddressRequest\x1a\x1c.ike.GetLocalAddressResponse\x12=\n" +
+	"\n" +
+	"GetNetwork\x12\x16.ike.GetNetworkRequest\x1a\x17.ike.GetNetworkResponse\x12O\n" +
+	"\x10GetRemoteAddress\x12\x1c.ike.GetRemoteAddressRequest\x1a\x1d.ike.GetRemoteAddressResponse2\x83\x03\n" +
+	"\x16ChildSaProposalService\x121\n" +
+	"\x06Equals\x12\x12.ike.EqualsRequest\x1a\x13.ike.EqualsResponse\x127\n" +
+	"\bHashCode\x12\x14.ike.HashCodeRequest\x1a\x15.ike.HashCodeResponse\x12\x7f\n" +
+	" GetSupportedEncryptionAlgorithms\x12,.ike.GetSupportedEncryptionAlgorithmsRequest\x1a-.ike.GetSupportedEncryptionAlgorithmsResponse\x12|\n" +
+	"\x1fGetSupportedIntegrityAlgorithms\x12+.ike.GetSupportedIntegrityAlgorithmsRequest\x1a,.ike.GetSupportedIntegrityAlgorithmsResponse2\xd1\x02\n" +
+	"\x1dChildSaProposalBuilderService\x12=\n" +
+	"\n" +
+	"AddDhGroup\x12\x16.ike.AddDhGroupRequest\x1a\x17.ike.AddDhGroupResponse\x12a\n" +
+	"\x16AddEncryptionAlgorithm\x12\".ike.AddEncryptionAlgorithmRequest\x1a#.ike.AddEncryptionAlgorithmResponse\x12^\n" +
+	"\x15AddIntegrityAlgorithm\x12!.ike.AddIntegrityAlgorithmRequest\x1a\".ike.AddIntegrityAlgorithmResponse\x12.\n" +
+	"\x05Build\x12\x11.ike.BuildRequest\x1a\x12.ike.BuildResponse2\xa9\x02\n" +
+	"\x1eDerAsn1DnIdentificationService\x12m\n" +
+	"\x1aNewDerAsn1DnIdentification\x12&.ike.NewDerAsn1DnIdentificationRequest\x1a'.ike.NewDerAsn1DnIdentificationResponse\x12H\n" +
+	"\x06Equals\x12).ike.DerAsn1DnIdentificationEqualsRequest\x1a\x13.ike.EqualsResponse\x12N\n" +
+	"\bHashCode\x12+.ike.DerAsn1DnIdentificationHashCodeRequest\x1a\x15.ike.HashCodeResponse2\xba\x03\n" +
+	"\x11SaProposalService\x121\n" +
+	"\x06Equals\x12\x12.ike.EqualsRequest\x1a\x13.ike.EqualsResponse\x12@\n" +
+	"\vGetDhGroups\x12\x17.ike.GetDhGroupsRequest\x1a\x18.ike.GetDhGroupsResponse\x12a\n" +
+	"\x16GetIntegrityAlgorithms\x12\".ike.GetIntegrityAlgorithmsRequest\x1a#.ike.GetIntegrityAlgorithmsResponse\x127\n" +
+	"\bHashCode\x12\x14.ike.HashCodeRequest\x1a\x15.ike.HashCodeResponse\x127\n" +
+	"\bToString\x12\x14.ike.ToStringRequest\x1a\x15.ike.ToStringResponse\x12[\n" +
+	"\x14GetSupportedDhGroups\x12 .ike.GetSupportedDhGroupsRequest\x1a!.ike.GetSupportedDhGroupsResponse2\x8d\v\n" +
+	"\x14SessionParamsService\x121\n" +
+	"\x06Equals\x12\x12.ike.EqualsRequest\x1a\x13.ike.EqualsResponse\x12U\n" +
 	"\x12GetDpdDelaySeconds\x12\x1e.ike.GetDpdDelaySecondsRequest\x1a\x1f.ike.GetDpdDelaySecondsResponse\x12a\n" +
-	"\x16GetHardLifetimeSeconds\x12\".ike.GetHardLifetimeSecondsRequest\x1a#.ike.GetHardLifetimeSecondsResponse\x12U\n" +
+	"\x16GetHardLifetimeSeconds\x12\".ike.GetHardLifetimeSecondsRequest\x1a#.ike.GetHardLifetimeSecondsResponse\x12F\n" +
+	"\rGetIkeOptions\x12\x19.ike.GetIkeOptionsRequest\x1a\x1a.ike.GetIkeOptionsResponse\x12R\n" +
+	"\x11GetIkeSaProposals\x12\x1d.ike.GetIkeSaProposalsRequest\x1a\x1e.ike.GetIkeSaProposalsResponse\x12U\n" +
 	"\x12GetLocalAuthConfig\x12\x1e.ike.GetLocalAuthConfigRequest\x1a\x1f.ike.GetLocalAuthConfigResponse\x12a\n" +
 	"\x16GetLocalIdentification\x12\".ike.GetLocalIdentificationRequest\x1a#.ike.GetLocalIdentificationResponse\x12s\n" +
-	"\x1cGetNattKeepAliveDelaySeconds\x12(.ike.GetNattKeepAliveDelaySecondsRequest\x1a).ike.GetNattKeepAliveDelaySecondsResponse\x12=\n" +
+	"\x1cGetNattKeepAliveDelaySeconds\x12(.ike.GetNattKeepAliveDelaySecondsRequest\x1a).ike.GetNattKeepAliveDelaySecondsResponse\x12J\n" +
 	"\n" +
-	"GetNetwork\x12\x16.ike.GetNetworkRequest\x1a\x17.ike.GetNetworkResponse\x12X\n" +
+	"GetNetwork\x12#.ike.SessionParamsGetNetworkRequest\x1a\x17.ike.GetNetworkResponse\x12X\n" +
 	"\x13GetRemoteAuthConfig\x12\x1f.ike.GetRemoteAuthConfigRequest\x1a .ike.GetRemoteAuthConfigResponse\x12d\n" +
 	"\x17GetRemoteIdentification\x12#.ike.GetRemoteIdentificationRequest\x1a$.ike.GetRemoteIdentificationResponse\x12|\n" +
 	"\x1fGetRetransmissionTimeoutsMillis\x12+.ike.GetRetransmissionTimeoutsMillisRequest\x1a,.ike.GetRetransmissionTimeoutsMillisResponse\x12R\n" +
 	"\x11GetServerHostname\x12\x1d.ike.GetServerHostnameRequest\x1a\x1e.ike.GetServerHostnameResponse\x12a\n" +
 	"\x16GetSoftLifetimeSeconds\x12\".ike.GetSoftLifetimeSecondsRequest\x1a#.ike.GetSoftLifetimeSecondsResponse\x12C\n" +
-	"\fHasIkeOption\x12\x18.ike.HasIkeOptionRequest\x1a\x19.ike.HasIkeOptionResponse\x12D\n" +
-	"\bHashCode\x12!.ike.SessionParamsHashCodeRequest\x1a\x15.ike.HashCodeResponse2\x92\n" +
+	"\fHasIkeOption\x12\x18.ike.HasIkeOptionRequest\x1a\x19.ike.HasIkeOptionResponse\x127\n" +
+	"\bHashCode\x12\x14.ike.HashCodeRequest\x1a\x15.ike.HashCodeResponse2\x92\n" +
 	"\n" +
 	"\x1bSessionParamsBuilderService\x12C\n" +
 	"\fAddIkeOption\x12\x18.ike.AddIkeOptionRequest\x1a\x19.ike.AddIkeOptionResponse\x12O\n" +
@@ -8663,85 +9802,106 @@ const file_proto_ike_ike_proto_rawDesc = "" +
 	"SetNetwork\x12\x16.ike.SetNetworkRequest\x1a\x17.ike.SetNetworkResponse\x12d\n" +
 	"\x17SetRemoteIdentification\x12#.ike.SetRemoteIdentificationRequest\x1a$.ike.SetRemoteIdentificationResponse\x12|\n" +
 	"\x1fSetRetransmissionTimeoutsMillis\x12+.ike.SetRetransmissionTimeoutsMillisRequest\x1a,.ike.SetRetransmissionTimeoutsMillisResponse\x12R\n" +
-	"\x11SetServerHostname\x12\x1d.ike.SetServerHostnameRequest\x1a\x1e.ike.SetServerHostnameResponse2\xc3\x01\n" +
-	"!SessionParamsIkeAuthConfigService\x12K\n" +
-	"\x06Equals\x12,.ike.SessionParamsIkeAuthConfigEqualsRequest\x1a\x13.ike.EqualsResponse\x12Q\n" +
-	"\bHashCode\x12..ike.SessionParamsIkeAuthConfigHashCodeRequest\x1a\x15.ike.HashCodeResponse2\xa1\x03\n" +
-	"1SessionParamsIkeAuthDigitalSignLocalConfigService\x12[\n" +
-	"\x06Equals\x12<.ike.SessionParamsIkeAuthDigitalSignLocalConfigEqualsRequest\x1a\x13.ike.EqualsResponse\x12d\n" +
-	"\x17GetClientEndCertificate\x12#.ike.GetClientEndCertificateRequest\x1a$.ike.GetClientEndCertificateResponse\x12F\n" +
-	"\rGetPrivateKey\x12\x19.ike.GetPrivateKeyRequest\x1a\x1a.ike.GetPrivateKeyResponse\x12a\n" +
-	"\bHashCode\x12>.ike.SessionParamsIkeAuthDigitalSignLocalConfigHashCodeRequest\x1a\x15.ike.HashCodeResponse2\xc4\x02\n" +
-	"2SessionParamsIkeAuthDigitalSignRemoteConfigService\x12\\\n" +
-	"\x06Equals\x12=.ike.SessionParamsIkeAuthDigitalSignRemoteConfigEqualsRequest\x1a\x13.ike.EqualsResponse\x12L\n" +
-	"\x0fGetRemoteCaCert\x12\x1b.ike.GetRemoteCaCertRequest\x1a\x1c.ike.GetRemoteCaCertResponse\x12b\n" +
-	"\bHashCode\x12?.ike.SessionParamsIkeAuthDigitalSignRemoteConfigHashCodeRequest\x1a\x15.ike.HashCodeResponse2\x91\x02\n" +
-	"$SessionParamsIkeAuthEapConfigService\x12N\n" +
-	"\x06Equals\x12/.ike.SessionParamsIkeAuthEapConfigEqualsRequest\x1a\x13.ike.EqualsResponse\x12C\n" +
-	"\fGetEapConfig\x12\x18.ike.GetEapConfigRequest\x1a\x19.ike.GetEapConfigResponse\x12T\n" +
-	"\bHashCode\x121.ike.SessionParamsIkeAuthEapConfigHashCodeRequest\x1a\x15.ike.HashCodeResponse2\xff\x01\n" +
-	"$SessionParamsIkeAuthPskConfigService\x12N\n" +
-	"\x06Equals\x12/.ike.SessionParamsIkeAuthPskConfigEqualsRequest\x1a\x13.ike.EqualsResponse\x121\n" +
-	"\x06GetPsk\x12\x12.ike.GetPskRequest\x1a\x13.ike.GetPskResponse\x12T\n" +
-	"\bHashCode\x121.ike.SessionParamsIkeAuthPskConfigHashCodeRequest\x1a\x15.ike.HashCodeResponse2\xa0\x03\n" +
-	"\x1bSessionConfigurationService\x12=\n" +
-	"\n" +
-	"GetEapInfo\x12\x16.ike.GetEapInfoRequest\x1a\x17.ike.GetEapInfoResponse\x12p\n" +
-	"\x1bGetIkeSessionConnectionInfo\x12'.ike.GetIkeSessionConnectionInfoRequest\x1a(.ike.GetIkeSessionConnectionInfoResponse\x12p\n" +
-	"\x1bGetRemoteApplicationVersion\x12'.ike.GetRemoteApplicationVersionRequest\x1a(.ike.GetRemoteApplicationVersionResponse\x12^\n" +
-	"\x15IsIkeExtensionEnabled\x12!.ike.IsIkeExtensionEnabledRequest\x1a\".ike.IsIkeExtensionEnabledResponse2\xd3\x05\n" +
-	"\"SessionConfigurationBuilderService\x12L\n" +
-	"\x0fAddIkeExtension\x12\x1b.ike.AddIkeExtensionRequest\x1a\x1c.ike.AddIkeExtensionResponse\x12R\n" +
-	"\x11AddRemoteVendorId\x12\x1d.ike.AddRemoteVendorIdRequest\x1a\x1e.ike.AddRemoteVendorIdResponse\x12.\n" +
-	"\x05Build\x12\x11.ike.BuildRequest\x1a\x12.ike.BuildResponse\x12U\n" +
-	"\x12ClearIkeExtensions\x12\x1e.ike.ClearIkeExtensionsRequest\x1a\x1f.ike.ClearIkeExtensionsResponse\x12v\n" +
-	"\x1dClearRemoteApplicationVersion\x12).ike.ClearRemoteApplicationVersionRequest\x1a*.ike.ClearRemoteApplicationVersionResponse\x12[\n" +
-	"\x14ClearRemoteVendorIds\x12 .ike.ClearRemoteVendorIdsRequest\x1a!.ike.ClearRemoteVendorIdsResponse\x12=\n" +
-	"\n" +
-	"SetEapInfo\x12\x16.ike.SetEapInfoRequest\x1a\x17.ike.SetEapInfoResponse\x12p\n" +
-	"\x1bSetRemoteApplicationVersion\x12'.ike.SetRemoteApplicationVersionRequest\x1a(.ike.SetRemoteApplicationVersionResponse2\xf7\x01\n" +
-	"\x1dIpv4AddrIdentificationService\x12j\n" +
-	"\x19NewIpv4AddrIdentification\x12%.ike.NewIpv4AddrIdentificationRequest\x1a&.ike.NewIpv4AddrIdentificationResponse\x121\n" +
+	"\x11SetServerHostname\x12\x1d.ike.SetServerHostnameRequest\x1a\x1e.ike.SetServerHostnameResponse2\x8f\x01\n" +
+	"!SessionParamsIkeAuthConfigService\x121\n" +
 	"\x06Equals\x12\x12.ike.EqualsRequest\x1a\x13.ike.EqualsResponse\x127\n" +
-	"\bHashCode\x12\x14.ike.HashCodeRequest\x1a\x15.ike.HashCodeResponse2\xfa\x02\n" +
-	"\x1cSessionConnectionInfoService\x12g\n" +
-	"\x18NewSessionConnectionInfo\x12$.ike.NewSessionConnectionInfoRequest\x1a%.ike.NewSessionConnectionInfoResponse\x12L\n" +
-	"\x0fGetLocalAddress\x12\x1b.ike.GetLocalAddressRequest\x1a\x1c.ike.GetLocalAddressResponse\x12R\n" +
-	"\n" +
-	"GetNetwork\x12+.ike.SessionConnectionInfoGetNetworkRequest\x1a\x17.ike.GetNetworkResponse\x12O\n" +
-	"\x10GetRemoteAddress\x12\x1c.ike.GetRemoteAddressRequest\x1a\x1d.ike.GetRemoteAddressResponse2\xff\x01\n" +
+	"\bHashCode\x12\x14.ike.HashCodeRequest\x1a\x15.ike.HashCodeResponse2\xbf\x03\n" +
+	"1SessionParamsIkeAuthDigitalSignLocalConfigService\x121\n" +
+	"\x06Equals\x12\x12.ike.EqualsRequest\x1a\x13.ike.EqualsResponse\x12d\n" +
+	"\x17GetClientEndCertificate\x12#.ike.GetClientEndCertificateRequest\x1a$.ike.GetClientEndCertificateResponse\x12p\n" +
+	"\x1bGetIntermediateCertificates\x12'.ike.GetIntermediateCertificatesRequest\x1a(.ike.GetIntermediateCertificatesResponse\x12F\n" +
+	"\rGetPrivateKey\x12\x19.ike.GetPrivateKeyRequest\x1a\x1a.ike.GetPrivateKeyResponse\x127\n" +
+	"\bHashCode\x12\x14.ike.HashCodeRequest\x1a\x15.ike.HashCodeResponse2\xee\x01\n" +
+	"2SessionParamsIkeAuthDigitalSignRemoteConfigService\x121\n" +
+	"\x06Equals\x12\x12.ike.EqualsRequest\x1a\x13.ike.EqualsResponse\x12L\n" +
+	"\x0fGetRemoteCaCert\x12\x1b.ike.GetRemoteCaCertRequest\x1a\x1c.ike.GetRemoteCaCertResponse\x127\n" +
+	"\bHashCode\x12\x14.ike.HashCodeRequest\x1a\x15.ike.HashCodeResponse2\xd7\x01\n" +
+	"$SessionParamsIkeAuthEapConfigService\x121\n" +
+	"\x06Equals\x12\x12.ike.EqualsRequest\x1a\x13.ike.EqualsResponse\x12C\n" +
+	"\fGetEapConfig\x12\x18.ike.GetEapConfigRequest\x1a\x19.ike.GetEapConfigResponse\x127\n" +
+	"\bHashCode\x12\x14.ike.HashCodeRequest\x1a\x15.ike.HashCodeResponse2\xc5\x01\n" +
+	"$SessionParamsIkeAuthPskConfigService\x121\n" +
+	"\x06Equals\x12\x12.ike.EqualsRequest\x1a\x13.ike.EqualsResponse\x121\n" +
+	"\x06GetPsk\x12\x12.ike.GetPskRequest\x1a\x13.ike.GetPskResponse\x127\n" +
+	"\bHashCode\x12\x14.ike.HashCodeRequest\x1a\x15.ike.HashCodeResponse2\xaf\x02\n" +
 	"\x1fRfc822AddrIdentificationService\x12p\n" +
-	"\x1bNewRfc822AddrIdentification\x12'.ike.NewRfc822AddrIdentificationRequest\x1a(.ike.NewRfc822AddrIdentificationResponse\x121\n" +
-	"\x06Equals\x12\x12.ike.EqualsRequest\x1a\x13.ike.EqualsResponse\x127\n" +
-	"\bHashCode\x12\x14.ike.HashCodeRequest\x1a\x15.ike.HashCodeResponse2\xcc\x01\n" +
-	"\x11SaProposalService\x12;\n" +
-	"\x06Equals\x12\x1c.ike.SaProposalEqualsRequest\x1a\x13.ike.EqualsResponse\x12A\n" +
-	"\bHashCode\x12\x1e.ike.SaProposalHashCodeRequest\x1a\x15.ike.HashCodeResponse\x127\n" +
-	"\bToString\x12\x14.ike.ToStringRequest\x1a\x15.ike.ToStringResponse2\x8a\x01\n" +
-	"\x16SessionCallbackService\x127\n" +
-	"\bOnClosed\x12\x14.ike.OnClosedRequest\x1a\x15.ike.OnClosedResponse\x127\n" +
-	"\bOnOpened\x12\x14.ike.OnOpenedRequest\x1a\x15.ike.OnOpenedResponse2\xe7\x01\n" +
-	"\x19FqdnIdentificationService\x12^\n" +
-	"\x15NewFqdnIdentification\x12!.ike.NewFqdnIdentificationRequest\x1a\".ike.NewFqdnIdentificationResponse\x121\n" +
-	"\x06Equals\x12\x12.ike.EqualsRequest\x1a\x13.ike.EqualsResponse\x127\n" +
-	"\bHashCode\x12\x14.ike.HashCodeRequest\x1a\x15.ike.HashCodeResponse2\xa2\x01\n" +
-	"\x16ChildSaProposalService\x12@\n" +
-	"\x06Equals\x12!.ike.ChildSaProposalEqualsRequest\x1a\x13.ike.EqualsResponse\x12F\n" +
-	"\bHashCode\x12#.ike.ChildSaProposalHashCodeRequest\x1a\x15.ike.HashCodeResponse2\xd1\x02\n" +
-	"\x1dChildSaProposalBuilderService\x12=\n" +
+	"\x1bNewRfc822AddrIdentification\x12'.ike.NewRfc822AddrIdentificationRequest\x1a(.ike.NewRfc822AddrIdentificationResponse\x12I\n" +
+	"\x06Equals\x12*.ike.Rfc822AddrIdentificationEqualsRequest\x1a\x13.ike.EqualsResponse\x12O\n" +
+	"\bHashCode\x12,.ike.Rfc822AddrIdentificationHashCodeRequest\x1a\x15.ike.HashCodeResponse2\xf9\x01\n" +
+	"\x16TrafficSelectorService\x12U\n" +
+	"\x12NewTrafficSelector\x12\x1e.ike.NewTrafficSelectorRequest\x1a\x1f.ike.NewTrafficSelectorResponse\x12@\n" +
+	"\x06Equals\x12!.ike.TrafficSelectorEqualsRequest\x1a\x13.ike.EqualsResponse\x12F\n" +
+	"\bHashCode\x12#.ike.TrafficSelectorHashCodeRequest\x1a\x15.ike.HashCodeResponse2\x83\x02\n" +
+	" ChildSessionConfigurationService\x12m\n" +
+	"\x1aGetInboundTrafficSelectors\x12&.ike.GetInboundTrafficSelectorsRequest\x1a'.ike.GetInboundTrafficSelectorsResponse\x12p\n" +
+	"\x1bGetOutboundTrafficSelectors\x12'.ike.GetOutboundTrafficSelectorsRequest\x1a(.ike.GetOutboundTrafficSelectorsResponse2Y\n" +
+	"'ChildSessionConfigurationBuilderService\x12.\n" +
+	"\x05Build\x12\x11.ike.BuildRequest\x1a\x12.ike.BuildResponse2\xef\x04\n" +
+	"\x14IkeSaProposalService\x121\n" +
+	"\x06Equals\x12\x12.ike.EqualsRequest\x1a\x13.ike.EqualsResponse\x12g\n" +
+	"\x18GetPseudorandomFunctions\x12$.ike.GetPseudorandomFunctionsRequest\x1a%.ike.GetPseudorandomFunctionsResponse\x127\n" +
+	"\bHashCode\x12\x14.ike.HashCodeRequest\x1a\x15.ike.HashCodeResponse\x12\x7f\n" +
+	" GetSupportedEncryptionAlgorithms\x12,.ike.GetSupportedEncryptionAlgorithmsRequest\x1a-.ike.GetSupportedEncryptionAlgorithmsResponse\x12|\n" +
+	"\x1fGetSupportedIntegrityAlgorithms\x12+.ike.GetSupportedIntegrityAlgorithmsRequest\x1a,.ike.GetSupportedIntegrityAlgorithmsResponse\x12\x82\x01\n" +
+	"!GetSupportedPseudorandomFunctions\x12-.ike.GetSupportedPseudorandomFunctionsRequest\x1a..ike.GetSupportedPseudorandomFunctionsResponse2\xb2\x03\n" +
+	"\x18SaProposalBuilderService\x12=\n" +
 	"\n" +
 	"AddDhGroup\x12\x16.ike.AddDhGroupRequest\x1a\x17.ike.AddDhGroupResponse\x12a\n" +
 	"\x16AddEncryptionAlgorithm\x12\".ike.AddEncryptionAlgorithmRequest\x1a#.ike.AddEncryptionAlgorithmResponse\x12^\n" +
-	"\x15AddIntegrityAlgorithm\x12!.ike.AddIntegrityAlgorithmRequest\x1a\".ike.AddIntegrityAlgorithmResponse\x12.\n" +
-	"\x05Build\x12\x11.ike.BuildRequest\x1a\x12.ike.BuildResponse2\xf1\x02\n" +
-	"\x19ChildSessionParamsService\x12C\n" +
-	"\x06Equals\x12$.ike.ChildSessionParamsEqualsRequest\x1a\x13.ike.EqualsResponse\x12a\n" +
-	"\x16GetHardLifetimeSeconds\x12\".ike.GetHardLifetimeSecondsRequest\x1a#.ike.GetHardLifetimeSecondsResponse\x12a\n" +
-	"\x16GetSoftLifetimeSeconds\x12\".ike.GetSoftLifetimeSecondsRequest\x1a#.ike.GetSoftLifetimeSecondsResponse\x12I\n" +
-	"\bHashCode\x12&.ike.ChildSessionParamsHashCodeRequest\x1a\x15.ike.HashCodeResponse2\xc9\x01\n" +
-	"#TunnelModeChildSessionParamsService\x12M\n" +
-	"\x06Equals\x12..ike.TunnelModeChildSessionParamsEqualsRequest\x1a\x13.ike.EqualsResponse\x12S\n" +
-	"\bHashCode\x120.ike.TunnelModeChildSessionParamsHashCodeRequest\x1a\x15.ike.HashCodeResponse2\xab\b\n" +
+	"\x15AddIntegrityAlgorithm\x12!.ike.AddIntegrityAlgorithmRequest\x1a\".ike.AddIntegrityAlgorithmResponse\x12d\n" +
+	"\x17AddPseudorandomFunction\x12#.ike.AddPseudorandomFunctionRequest\x1a$.ike.AddPseudorandomFunctionResponse\x12.\n" +
+	"\x05Build\x12\x11.ike.BuildRequest\x1a\x12.ike.BuildResponse2\xb7\x03\n" +
+	"\x0eSessionService\x12=\n" +
+	"\n" +
+	"NewSession\x12\x16.ike.NewSessionRequest\x1a\x17.ike.NewSessionResponse\x12.\n" +
+	"\x05Close\x12\x11.ike.CloseRequest\x1a\x12.ike.CloseResponse\x12R\n" +
+	"\x11CloseChildSession\x12\x1d.ike.CloseChildSessionRequest\x1a\x1e.ike.CloseChildSessionResponse\x12+\n" +
+	"\x04Dump\x12\x10.ike.DumpRequest\x1a\x11.ike.DumpResponse\x127\n" +
+	"\bFinalize\x12\x14.ike.FinalizeRequest\x1a\x15.ike.FinalizeResponse\x12+\n" +
+	"\x04Kill\x12\x10.ike.KillRequest\x1a\x11.ike.KillResponse\x12O\n" +
+	"\x10OpenChildSession\x12\x1c.ike.OpenChildSessionRequest\x1a\x1d.ike.OpenChildSessionResponse2\xa3\x02\n" +
+	"\x1dIpv4AddrIdentificationService\x12j\n" +
+	"\x19NewIpv4AddrIdentification\x12%.ike.NewIpv4AddrIdentificationRequest\x1a&.ike.NewIpv4AddrIdentificationResponse\x12G\n" +
+	"\x06Equals\x12(.ike.Ipv4AddrIdentificationEqualsRequest\x1a\x13.ike.EqualsResponse\x12M\n" +
+	"\bHashCode\x12*.ike.Ipv4AddrIdentificationHashCodeRequest\x1a\x15.ike.HashCodeResponse2\xa3\x02\n" +
+	"\x1dIpv6AddrIdentificationService\x12j\n" +
+	"\x19NewIpv6AddrIdentification\x12%.ike.NewIpv6AddrIdentificationRequest\x1a&.ike.NewIpv6AddrIdentificationResponse\x12G\n" +
+	"\x06Equals\x12(.ike.Ipv6AddrIdentificationEqualsRequest\x1a\x13.ike.EqualsResponse\x12M\n" +
+	"\bHashCode\x12*.ike.Ipv6AddrIdentificationHashCodeRequest\x1a\x15.ike.HashCodeResponse2\xfb\x03\n" +
+	"\x1dTunnelConnectionParamsService\x12j\n" +
+	"\x19NewTunnelConnectionParams\x12%.ike.NewTunnelConnectionParamsRequest\x1a&.ike.NewTunnelConnectionParamsResponse\x12G\n" +
+	"\x06Equals\x12(.ike.TunnelConnectionParamsEqualsRequest\x1a\x13.ike.EqualsResponse\x12X\n" +
+	"\x13GetIkeSessionParams\x12\x1f.ike.GetIkeSessionParamsRequest\x1a .ike.GetIkeSessionParamsResponse\x12|\n" +
+	"\x1fGetTunnelModeChildSessionParams\x12+.ike.GetTunnelModeChildSessionParamsRequest\x1a,.ike.GetTunnelModeChildSessionParamsResponse\x12M\n" +
+	"\bHashCode\x12*.ike.TunnelConnectionParamsHashCodeRequest\x1a\x15.ike.HashCodeResponse2\x8a\x01\n" +
+	"\x16SessionCallbackService\x127\n" +
+	"\bOnClosed\x12\x14.ike.OnClosedRequest\x1a\x15.ike.OnClosedResponse\x127\n" +
+	"\bOnOpened\x12\x14.ike.OnOpenedRequest\x1a\x15.ike.OnOpenedResponse2\xdb\x02\n" +
+	"\x1bChildSessionCallbackService\x127\n" +
+	"\bOnClosed\x12\x14.ike.OnClosedRequest\x1a\x15.ike.OnClosedResponse\x12d\n" +
+	"\x17OnIpSecTransformCreated\x12#.ike.OnIpSecTransformCreatedRequest\x1a$.ike.OnIpSecTransformCreatedResponse\x12d\n" +
+	"\x17OnIpSecTransformDeleted\x12#.ike.OnIpSecTransformDeletedRequest\x1a$.ike.OnIpSecTransformDeletedResponse\x127\n" +
+	"\bOnOpened\x12\x14.ike.OnOpenedRequest\x1a\x15.ike.OnOpenedResponse2\x91\x02\n" +
+	"\x1aKeyIdIdentificationService\x12a\n" +
+	"\x16NewKeyIdIdentification\x12\".ike.NewKeyIdIdentificationRequest\x1a#.ike.NewKeyIdIdentificationResponse\x12D\n" +
+	"\x06Equals\x12%.ike.KeyIdIdentificationEqualsRequest\x1a\x13.ike.EqualsResponse\x12J\n" +
+	"\bHashCode\x12'.ike.KeyIdIdentificationHashCodeRequest\x1a\x15.ike.HashCodeResponse2\x8b\x02\n" +
+	"\x19FqdnIdentificationService\x12^\n" +
+	"\x15NewFqdnIdentification\x12!.ike.NewFqdnIdentificationRequest\x1a\".ike.NewFqdnIdentificationResponse\x12C\n" +
+	"\x06Equals\x12$.ike.FqdnIdentificationEqualsRequest\x1a\x13.ike.EqualsResponse\x12I\n" +
+	"\bHashCode\x12&.ike.FqdnIdentificationHashCodeRequest\x1a\x15.ike.HashCodeResponse2\x88\x05\n" +
+	"\x19ChildSessionParamsService\x121\n" +
+	"\x06Equals\x12\x12.ike.EqualsRequest\x1a\x13.ike.EqualsResponse\x12X\n" +
+	"\x13GetChildSaProposals\x12\x1f.ike.GetChildSaProposalsRequest\x1a .ike.GetChildSaProposalsResponse\x12a\n" +
+	"\x16GetHardLifetimeSeconds\x12\".ike.GetHardLifetimeSecondsRequest\x1a#.ike.GetHardLifetimeSecondsResponse\x12m\n" +
+	"\x1aGetInboundTrafficSelectors\x12&.ike.GetInboundTrafficSelectorsRequest\x1a'.ike.GetInboundTrafficSelectorsResponse\x12p\n" +
+	"\x1bGetOutboundTrafficSelectors\x12'.ike.GetOutboundTrafficSelectorsRequest\x1a(.ike.GetOutboundTrafficSelectorsResponse\x12a\n" +
+	"\x16GetSoftLifetimeSeconds\x12\".ike.GetSoftLifetimeSecondsRequest\x1a#.ike.GetSoftLifetimeSecondsResponse\x127\n" +
+	"\bHashCode\x12\x14.ike.HashCodeRequest\x1a\x15.ike.HashCodeResponse2\xfa\x01\n" +
+	"#TunnelModeChildSessionParamsService\x121\n" +
+	"\x06Equals\x12\x12.ike.EqualsRequest\x1a\x13.ike.EqualsResponse\x12g\n" +
+	"\x18GetConfigurationRequests\x12$.ike.GetConfigurationRequestsRequest\x1a%.ike.GetConfigurationRequestsResponse\x127\n" +
+	"\bHashCode\x12\x14.ike.HashCodeRequest\x1a\x15.ike.HashCodeResponse2\xab\b\n" +
 	"*TunnelModeChildSessionParamsBuilderService\x12U\n" +
 	"\x12AddChildSaProposal\x12\x1e.ike.AddChildSaProposalRequest\x1a\x1f.ike.AddChildSaProposalResponse\x12m\n" +
 	"\x1aAddInboundTrafficSelectors\x12&.ike.AddInboundTrafficSelectorsRequest\x1a'.ike.AddInboundTrafficSelectorsResponse\x12m\n" +
@@ -8759,31 +9919,13 @@ const file_proto_ike_ike_proto_rawDesc = "" +
 	";TunnelModeChildSessionParamsConfigRequestIpv6AddressService\x12=\n" +
 	"\n" +
 	"GetAddress\x12\x16.ike.GetAddressRequest\x1a\x17.ike.GetAddressResponse\x12L\n" +
-	"\x0fGetPrefixLength\x12\x1b.ike.GetPrefixLengthRequest\x1a\x1c.ike.GetPrefixLengthResponse2\x9c\x01\n" +
-	"\x14IkeSaProposalService\x12>\n" +
-	"\x06Equals\x12\x1f.ike.IkeSaProposalEqualsRequest\x1a\x13.ike.EqualsResponse\x12D\n" +
-	"\bHashCode\x12!.ike.IkeSaProposalHashCodeRequest\x1a\x15.ike.HashCodeResponse2\xb2\x03\n" +
-	"\x18SaProposalBuilderService\x12=\n" +
-	"\n" +
-	"AddDhGroup\x12\x16.ike.AddDhGroupRequest\x1a\x17.ike.AddDhGroupResponse\x12a\n" +
-	"\x16AddEncryptionAlgorithm\x12\".ike.AddEncryptionAlgorithmRequest\x1a#.ike.AddEncryptionAlgorithmResponse\x12^\n" +
-	"\x15AddIntegrityAlgorithm\x12!.ike.AddIntegrityAlgorithmRequest\x1a\".ike.AddIntegrityAlgorithmResponse\x12d\n" +
-	"\x17AddPseudorandomFunction\x12#.ike.AddPseudorandomFunctionRequest\x1a$.ike.AddPseudorandomFunctionResponse\x12.\n" +
-	"\x05Build\x12\x11.ike.BuildRequest\x1a\x12.ike.BuildResponse2\xfb\x01\n" +
-	"\x1eDerAsn1DnIdentificationService\x12m\n" +
-	"\x1aNewDerAsn1DnIdentification\x12&.ike.NewDerAsn1DnIdentificationRequest\x1a'.ike.NewDerAsn1DnIdentificationResponse\x121\n" +
-	"\x06Equals\x12\x12.ike.EqualsRequest\x1a\x13.ike.EqualsResponse\x127\n" +
-	"\bHashCode\x12\x14.ike.HashCodeRequest\x1a\x15.ike.HashCodeResponse2\xdb\x01\n" +
-	"\x16TrafficSelectorService\x12U\n" +
-	"\x12NewTrafficSelector\x12\x1e.ike.NewTrafficSelectorRequest\x1a\x1f.ike.NewTrafficSelectorResponse\x121\n" +
-	"\x06Equals\x12\x12.ike.EqualsRequest\x1a\x13.ike.EqualsResponse\x127\n" +
-	"\bHashCode\x12\x14.ike.HashCodeRequest\x1a\x15.ike.HashCodeResponse2\xeb\x01\n" +
-	"\x1aKeyIdIdentificationService\x12a\n" +
-	"\x16NewKeyIdIdentification\x12\".ike.NewKeyIdIdentificationRequest\x1a#.ike.NewKeyIdIdentificationResponse\x121\n" +
-	"\x06Equals\x12\x12.ike.EqualsRequest\x1a\x13.ike.EqualsResponse\x127\n" +
-	"\bHashCode\x12\x14.ike.HashCodeRequest\x1a\x15.ike.HashCodeResponse2Y\n" +
-	"'ChildSessionConfigurationBuilderService\x12.\n" +
-	"\x05Build\x12\x11.ike.BuildRequest\x1a\x12.ike.BuildResponseB-Z+github.com/AndroidGoLab/jni-proxy/proto/ikeb\x06proto3"
+	"\x0fGetPrefixLength\x12\x1b.ike.GetPrefixLengthRequest\x1a\x1c.ike.GetPrefixLengthResponse2\xee\x03\n" +
+	"-TransportModeChildSessionParamsBuilderService\x12U\n" +
+	"\x12AddChildSaProposal\x12\x1e.ike.AddChildSaProposalRequest\x1a\x1f.ike.AddChildSaProposalResponse\x12m\n" +
+	"\x1aAddInboundTrafficSelectors\x12&.ike.AddInboundTrafficSelectorsRequest\x1a'.ike.AddInboundTrafficSelectorsResponse\x12p\n" +
+	"\x1bAddOutboundTrafficSelectors\x12'.ike.AddOutboundTrafficSelectorsRequest\x1a(.ike.AddOutboundTrafficSelectorsResponse\x12.\n" +
+	"\x05Build\x12\x11.ike.BuildRequest\x1a\x12.ike.BuildResponse\x12U\n" +
+	"\x12SetLifetimeSeconds\x12\x1e.ike.SetLifetimeSecondsRequest\x1a\x1f.ike.SetLifetimeSecondsResponseB-Z+github.com/AndroidGoLab/jni-proxy/proto/ikeb\x06proto3"
 
 var (
 	file_proto_ike_ike_proto_rawDescOnce sync.Once
@@ -8797,483 +9939,545 @@ func file_proto_ike_ike_proto_rawDescGZIP() []byte {
 	return file_proto_ike_ike_proto_rawDescData
 }
 
-var file_proto_ike_ike_proto_msgTypes = make([]protoimpl.MessageInfo, 191)
+var file_proto_ike_ike_proto_msgTypes = make([]protoimpl.MessageInfo, 215)
 var file_proto_ike_ike_proto_goTypes = []any{
-	(*NewIpv6AddrIdentificationRequest)(nil),                           // 0: ike.NewIpv6AddrIdentificationRequest
-	(*NewIpv6AddrIdentificationResponse)(nil),                          // 1: ike.NewIpv6AddrIdentificationResponse
-	(*EqualsRequest)(nil),                                              // 2: ike.EqualsRequest
-	(*EqualsResponse)(nil),                                             // 3: ike.EqualsResponse
-	(*HashCodeRequest)(nil),                                            // 4: ike.HashCodeRequest
-	(*HashCodeResponse)(nil),                                           // 5: ike.HashCodeResponse
-	(*NewSessionRequest)(nil),                                          // 6: ike.NewSessionRequest
-	(*NewSessionResponse)(nil),                                         // 7: ike.NewSessionResponse
-	(*CloseRequest)(nil),                                               // 8: ike.CloseRequest
-	(*CloseResponse)(nil),                                              // 9: ike.CloseResponse
-	(*CloseChildSessionRequest)(nil),                                   // 10: ike.CloseChildSessionRequest
-	(*CloseChildSessionResponse)(nil),                                  // 11: ike.CloseChildSessionResponse
-	(*DumpRequest)(nil),                                                // 12: ike.DumpRequest
-	(*DumpResponse)(nil),                                               // 13: ike.DumpResponse
-	(*FinalizeRequest)(nil),                                            // 14: ike.FinalizeRequest
-	(*FinalizeResponse)(nil),                                           // 15: ike.FinalizeResponse
-	(*KillRequest)(nil),                                                // 16: ike.KillRequest
-	(*KillResponse)(nil),                                               // 17: ike.KillResponse
-	(*OpenChildSessionRequest)(nil),                                    // 18: ike.OpenChildSessionRequest
-	(*OpenChildSessionResponse)(nil),                                   // 19: ike.OpenChildSessionResponse
-	(*NewTunnelConnectionParamsRequest)(nil),                           // 20: ike.NewTunnelConnectionParamsRequest
-	(*NewTunnelConnectionParamsResponse)(nil),                          // 21: ike.NewTunnelConnectionParamsResponse
-	(*GetIkeSessionParamsRequest)(nil),                                 // 22: ike.GetIkeSessionParamsRequest
-	(*GetIkeSessionParamsResponse)(nil),                                // 23: ike.GetIkeSessionParamsResponse
-	(*GetTunnelModeChildSessionParamsRequest)(nil),                     // 24: ike.GetTunnelModeChildSessionParamsRequest
-	(*GetTunnelModeChildSessionParamsResponse)(nil),                    // 25: ike.GetTunnelModeChildSessionParamsResponse
-	(*AddChildSaProposalRequest)(nil),                                  // 26: ike.AddChildSaProposalRequest
-	(*AddChildSaProposalResponse)(nil),                                 // 27: ike.AddChildSaProposalResponse
-	(*AddInboundTrafficSelectorsRequest)(nil),                          // 28: ike.AddInboundTrafficSelectorsRequest
-	(*AddInboundTrafficSelectorsResponse)(nil),                         // 29: ike.AddInboundTrafficSelectorsResponse
-	(*AddOutboundTrafficSelectorsRequest)(nil),                         // 30: ike.AddOutboundTrafficSelectorsRequest
-	(*AddOutboundTrafficSelectorsResponse)(nil),                        // 31: ike.AddOutboundTrafficSelectorsResponse
-	(*BuildRequest)(nil),                                               // 32: ike.BuildRequest
-	(*BuildResponse)(nil),                                              // 33: ike.BuildResponse
-	(*SetLifetimeSecondsRequest)(nil),                                  // 34: ike.SetLifetimeSecondsRequest
-	(*SetLifetimeSecondsResponse)(nil),                                 // 35: ike.SetLifetimeSecondsResponse
-	(*OnClosedRequest)(nil),                                            // 36: ike.OnClosedRequest
-	(*OnClosedResponse)(nil),                                           // 37: ike.OnClosedResponse
-	(*OnIpSecTransformCreatedRequest)(nil),                             // 38: ike.OnIpSecTransformCreatedRequest
-	(*OnIpSecTransformCreatedResponse)(nil),                            // 39: ike.OnIpSecTransformCreatedResponse
-	(*OnIpSecTransformDeletedRequest)(nil),                             // 40: ike.OnIpSecTransformDeletedRequest
-	(*OnIpSecTransformDeletedResponse)(nil),                            // 41: ike.OnIpSecTransformDeletedResponse
-	(*OnOpenedRequest)(nil),                                            // 42: ike.OnOpenedRequest
-	(*OnOpenedResponse)(nil),                                           // 43: ike.OnOpenedResponse
-	(*SessionParamsEqualsRequest)(nil),                                 // 44: ike.SessionParamsEqualsRequest
-	(*GetDpdDelaySecondsRequest)(nil),                                  // 45: ike.GetDpdDelaySecondsRequest
-	(*GetDpdDelaySecondsResponse)(nil),                                 // 46: ike.GetDpdDelaySecondsResponse
-	(*GetHardLifetimeSecondsRequest)(nil),                              // 47: ike.GetHardLifetimeSecondsRequest
-	(*GetHardLifetimeSecondsResponse)(nil),                             // 48: ike.GetHardLifetimeSecondsResponse
-	(*GetLocalAuthConfigRequest)(nil),                                  // 49: ike.GetLocalAuthConfigRequest
-	(*GetLocalAuthConfigResponse)(nil),                                 // 50: ike.GetLocalAuthConfigResponse
-	(*GetLocalIdentificationRequest)(nil),                              // 51: ike.GetLocalIdentificationRequest
-	(*GetLocalIdentificationResponse)(nil),                             // 52: ike.GetLocalIdentificationResponse
-	(*GetNattKeepAliveDelaySecondsRequest)(nil),                        // 53: ike.GetNattKeepAliveDelaySecondsRequest
-	(*GetNattKeepAliveDelaySecondsResponse)(nil),                       // 54: ike.GetNattKeepAliveDelaySecondsResponse
-	(*GetNetworkRequest)(nil),                                          // 55: ike.GetNetworkRequest
-	(*GetNetworkResponse)(nil),                                         // 56: ike.GetNetworkResponse
-	(*GetRemoteAuthConfigRequest)(nil),                                 // 57: ike.GetRemoteAuthConfigRequest
-	(*GetRemoteAuthConfigResponse)(nil),                                // 58: ike.GetRemoteAuthConfigResponse
-	(*GetRemoteIdentificationRequest)(nil),                             // 59: ike.GetRemoteIdentificationRequest
-	(*GetRemoteIdentificationResponse)(nil),                            // 60: ike.GetRemoteIdentificationResponse
-	(*GetRetransmissionTimeoutsMillisRequest)(nil),                     // 61: ike.GetRetransmissionTimeoutsMillisRequest
-	(*GetRetransmissionTimeoutsMillisResponse)(nil),                    // 62: ike.GetRetransmissionTimeoutsMillisResponse
-	(*GetServerHostnameRequest)(nil),                                   // 63: ike.GetServerHostnameRequest
-	(*GetServerHostnameResponse)(nil),                                  // 64: ike.GetServerHostnameResponse
-	(*GetSoftLifetimeSecondsRequest)(nil),                              // 65: ike.GetSoftLifetimeSecondsRequest
-	(*GetSoftLifetimeSecondsResponse)(nil),                             // 66: ike.GetSoftLifetimeSecondsResponse
-	(*HasIkeOptionRequest)(nil),                                        // 67: ike.HasIkeOptionRequest
-	(*HasIkeOptionResponse)(nil),                                       // 68: ike.HasIkeOptionResponse
-	(*SessionParamsHashCodeRequest)(nil),                               // 69: ike.SessionParamsHashCodeRequest
-	(*AddIkeOptionRequest)(nil),                                        // 70: ike.AddIkeOptionRequest
-	(*AddIkeOptionResponse)(nil),                                       // 71: ike.AddIkeOptionResponse
-	(*AddIkeSaProposalRequest)(nil),                                    // 72: ike.AddIkeSaProposalRequest
-	(*AddIkeSaProposalResponse)(nil),                                   // 73: ike.AddIkeSaProposalResponse
-	(*RemoveIkeOptionRequest)(nil),                                     // 74: ike.RemoveIkeOptionRequest
-	(*RemoveIkeOptionResponse)(nil),                                    // 75: ike.RemoveIkeOptionResponse
-	(*SetAuthDigitalSignatureRequest)(nil),                             // 76: ike.SetAuthDigitalSignatureRequest
-	(*SetAuthDigitalSignatureResponse)(nil),                            // 77: ike.SetAuthDigitalSignatureResponse
-	(*SetAuthEapRequest)(nil),                                          // 78: ike.SetAuthEapRequest
-	(*SetAuthEapResponse)(nil),                                         // 79: ike.SetAuthEapResponse
-	(*SetAuthPskRequest)(nil),                                          // 80: ike.SetAuthPskRequest
-	(*SetAuthPskResponse)(nil),                                         // 81: ike.SetAuthPskResponse
-	(*SetDpdDelaySecondsRequest)(nil),                                  // 82: ike.SetDpdDelaySecondsRequest
-	(*SetDpdDelaySecondsResponse)(nil),                                 // 83: ike.SetDpdDelaySecondsResponse
-	(*SetLocalIdentificationRequest)(nil),                              // 84: ike.SetLocalIdentificationRequest
-	(*SetLocalIdentificationResponse)(nil),                             // 85: ike.SetLocalIdentificationResponse
-	(*SetNattKeepAliveDelaySecondsRequest)(nil),                        // 86: ike.SetNattKeepAliveDelaySecondsRequest
-	(*SetNattKeepAliveDelaySecondsResponse)(nil),                       // 87: ike.SetNattKeepAliveDelaySecondsResponse
-	(*SetNetworkRequest)(nil),                                          // 88: ike.SetNetworkRequest
-	(*SetNetworkResponse)(nil),                                         // 89: ike.SetNetworkResponse
-	(*SetRemoteIdentificationRequest)(nil),                             // 90: ike.SetRemoteIdentificationRequest
-	(*SetRemoteIdentificationResponse)(nil),                            // 91: ike.SetRemoteIdentificationResponse
-	(*SetRetransmissionTimeoutsMillisRequest)(nil),                     // 92: ike.SetRetransmissionTimeoutsMillisRequest
-	(*SetRetransmissionTimeoutsMillisResponse)(nil),                    // 93: ike.SetRetransmissionTimeoutsMillisResponse
-	(*SetServerHostnameRequest)(nil),                                   // 94: ike.SetServerHostnameRequest
-	(*SetServerHostnameResponse)(nil),                                  // 95: ike.SetServerHostnameResponse
-	(*SessionParamsIkeAuthConfigEqualsRequest)(nil),                    // 96: ike.SessionParamsIkeAuthConfigEqualsRequest
-	(*SessionParamsIkeAuthConfigHashCodeRequest)(nil),                  // 97: ike.SessionParamsIkeAuthConfigHashCodeRequest
-	(*SessionParamsIkeAuthDigitalSignLocalConfigEqualsRequest)(nil),    // 98: ike.SessionParamsIkeAuthDigitalSignLocalConfigEqualsRequest
-	(*GetClientEndCertificateRequest)(nil),                             // 99: ike.GetClientEndCertificateRequest
-	(*GetClientEndCertificateResponse)(nil),                            // 100: ike.GetClientEndCertificateResponse
-	(*GetPrivateKeyRequest)(nil),                                       // 101: ike.GetPrivateKeyRequest
-	(*GetPrivateKeyResponse)(nil),                                      // 102: ike.GetPrivateKeyResponse
-	(*SessionParamsIkeAuthDigitalSignLocalConfigHashCodeRequest)(nil),  // 103: ike.SessionParamsIkeAuthDigitalSignLocalConfigHashCodeRequest
-	(*SessionParamsIkeAuthDigitalSignRemoteConfigEqualsRequest)(nil),   // 104: ike.SessionParamsIkeAuthDigitalSignRemoteConfigEqualsRequest
-	(*GetRemoteCaCertRequest)(nil),                                     // 105: ike.GetRemoteCaCertRequest
-	(*GetRemoteCaCertResponse)(nil),                                    // 106: ike.GetRemoteCaCertResponse
-	(*SessionParamsIkeAuthDigitalSignRemoteConfigHashCodeRequest)(nil), // 107: ike.SessionParamsIkeAuthDigitalSignRemoteConfigHashCodeRequest
-	(*SessionParamsIkeAuthEapConfigEqualsRequest)(nil),                 // 108: ike.SessionParamsIkeAuthEapConfigEqualsRequest
-	(*GetEapConfigRequest)(nil),                                        // 109: ike.GetEapConfigRequest
-	(*GetEapConfigResponse)(nil),                                       // 110: ike.GetEapConfigResponse
-	(*SessionParamsIkeAuthEapConfigHashCodeRequest)(nil),               // 111: ike.SessionParamsIkeAuthEapConfigHashCodeRequest
-	(*SessionParamsIkeAuthPskConfigEqualsRequest)(nil),                 // 112: ike.SessionParamsIkeAuthPskConfigEqualsRequest
-	(*GetPskRequest)(nil),                                              // 113: ike.GetPskRequest
-	(*GetPskResponse)(nil),                                             // 114: ike.GetPskResponse
-	(*SessionParamsIkeAuthPskConfigHashCodeRequest)(nil),               // 115: ike.SessionParamsIkeAuthPskConfigHashCodeRequest
-	(*GetEapInfoRequest)(nil),                                          // 116: ike.GetEapInfoRequest
-	(*GetEapInfoResponse)(nil),                                         // 117: ike.GetEapInfoResponse
-	(*GetIkeSessionConnectionInfoRequest)(nil),                         // 118: ike.GetIkeSessionConnectionInfoRequest
-	(*GetIkeSessionConnectionInfoResponse)(nil),                        // 119: ike.GetIkeSessionConnectionInfoResponse
-	(*GetRemoteApplicationVersionRequest)(nil),                         // 120: ike.GetRemoteApplicationVersionRequest
-	(*GetRemoteApplicationVersionResponse)(nil),                        // 121: ike.GetRemoteApplicationVersionResponse
-	(*IsIkeExtensionEnabledRequest)(nil),                               // 122: ike.IsIkeExtensionEnabledRequest
-	(*IsIkeExtensionEnabledResponse)(nil),                              // 123: ike.IsIkeExtensionEnabledResponse
-	(*AddIkeExtensionRequest)(nil),                                     // 124: ike.AddIkeExtensionRequest
-	(*AddIkeExtensionResponse)(nil),                                    // 125: ike.AddIkeExtensionResponse
-	(*AddRemoteVendorIdRequest)(nil),                                   // 126: ike.AddRemoteVendorIdRequest
-	(*AddRemoteVendorIdResponse)(nil),                                  // 127: ike.AddRemoteVendorIdResponse
-	(*ClearIkeExtensionsRequest)(nil),                                  // 128: ike.ClearIkeExtensionsRequest
-	(*ClearIkeExtensionsResponse)(nil),                                 // 129: ike.ClearIkeExtensionsResponse
-	(*ClearRemoteApplicationVersionRequest)(nil),                       // 130: ike.ClearRemoteApplicationVersionRequest
-	(*ClearRemoteApplicationVersionResponse)(nil),                      // 131: ike.ClearRemoteApplicationVersionResponse
-	(*ClearRemoteVendorIdsRequest)(nil),                                // 132: ike.ClearRemoteVendorIdsRequest
-	(*ClearRemoteVendorIdsResponse)(nil),                               // 133: ike.ClearRemoteVendorIdsResponse
-	(*SetEapInfoRequest)(nil),                                          // 134: ike.SetEapInfoRequest
-	(*SetEapInfoResponse)(nil),                                         // 135: ike.SetEapInfoResponse
-	(*SetRemoteApplicationVersionRequest)(nil),                         // 136: ike.SetRemoteApplicationVersionRequest
-	(*SetRemoteApplicationVersionResponse)(nil),                        // 137: ike.SetRemoteApplicationVersionResponse
-	(*NewIpv4AddrIdentificationRequest)(nil),                           // 138: ike.NewIpv4AddrIdentificationRequest
-	(*NewIpv4AddrIdentificationResponse)(nil),                          // 139: ike.NewIpv4AddrIdentificationResponse
-	(*NewSessionConnectionInfoRequest)(nil),                            // 140: ike.NewSessionConnectionInfoRequest
-	(*NewSessionConnectionInfoResponse)(nil),                           // 141: ike.NewSessionConnectionInfoResponse
-	(*GetLocalAddressRequest)(nil),                                     // 142: ike.GetLocalAddressRequest
-	(*GetLocalAddressResponse)(nil),                                    // 143: ike.GetLocalAddressResponse
-	(*SessionConnectionInfoGetNetworkRequest)(nil),                     // 144: ike.SessionConnectionInfoGetNetworkRequest
-	(*GetRemoteAddressRequest)(nil),                                    // 145: ike.GetRemoteAddressRequest
-	(*GetRemoteAddressResponse)(nil),                                   // 146: ike.GetRemoteAddressResponse
-	(*NewRfc822AddrIdentificationRequest)(nil),                         // 147: ike.NewRfc822AddrIdentificationRequest
-	(*NewRfc822AddrIdentificationResponse)(nil),                        // 148: ike.NewRfc822AddrIdentificationResponse
-	(*SaProposalEqualsRequest)(nil),                                    // 149: ike.SaProposalEqualsRequest
-	(*SaProposalHashCodeRequest)(nil),                                  // 150: ike.SaProposalHashCodeRequest
-	(*ToStringRequest)(nil),                                            // 151: ike.ToStringRequest
-	(*ToStringResponse)(nil),                                           // 152: ike.ToStringResponse
-	(*NewFqdnIdentificationRequest)(nil),                               // 153: ike.NewFqdnIdentificationRequest
-	(*NewFqdnIdentificationResponse)(nil),                              // 154: ike.NewFqdnIdentificationResponse
-	(*ChildSaProposalEqualsRequest)(nil),                               // 155: ike.ChildSaProposalEqualsRequest
-	(*ChildSaProposalHashCodeRequest)(nil),                             // 156: ike.ChildSaProposalHashCodeRequest
-	(*AddDhGroupRequest)(nil),                                          // 157: ike.AddDhGroupRequest
-	(*AddDhGroupResponse)(nil),                                         // 158: ike.AddDhGroupResponse
-	(*AddEncryptionAlgorithmRequest)(nil),                              // 159: ike.AddEncryptionAlgorithmRequest
-	(*AddEncryptionAlgorithmResponse)(nil),                             // 160: ike.AddEncryptionAlgorithmResponse
-	(*AddIntegrityAlgorithmRequest)(nil),                               // 161: ike.AddIntegrityAlgorithmRequest
-	(*AddIntegrityAlgorithmResponse)(nil),                              // 162: ike.AddIntegrityAlgorithmResponse
-	(*ChildSessionParamsEqualsRequest)(nil),                            // 163: ike.ChildSessionParamsEqualsRequest
-	(*ChildSessionParamsHashCodeRequest)(nil),                          // 164: ike.ChildSessionParamsHashCodeRequest
-	(*TunnelModeChildSessionParamsEqualsRequest)(nil),                  // 165: ike.TunnelModeChildSessionParamsEqualsRequest
-	(*TunnelModeChildSessionParamsHashCodeRequest)(nil),                // 166: ike.TunnelModeChildSessionParamsHashCodeRequest
-	(*AddInternalAddressRequest1Request)(nil),                          // 167: ike.AddInternalAddressRequest1Request
-	(*AddInternalAddressRequest1Response)(nil),                         // 168: ike.AddInternalAddressRequest1Response
-	(*AddInternalAddressRequest1_1Request)(nil),                        // 169: ike.AddInternalAddressRequest1_1Request
-	(*AddInternalAddressRequest1_1Response)(nil),                       // 170: ike.AddInternalAddressRequest1_1Response
-	(*AddInternalAddressRequest2_2Request)(nil),                        // 171: ike.AddInternalAddressRequest2_2Request
-	(*AddInternalAddressRequest2_2Response)(nil),                       // 172: ike.AddInternalAddressRequest2_2Response
-	(*AddInternalDhcpServerRequestRequest)(nil),                        // 173: ike.AddInternalDhcpServerRequestRequest
-	(*AddInternalDhcpServerRequestResponse)(nil),                       // 174: ike.AddInternalDhcpServerRequestResponse
-	(*AddInternalDnsServerRequestRequest)(nil),                         // 175: ike.AddInternalDnsServerRequestRequest
-	(*AddInternalDnsServerRequestResponse)(nil),                        // 176: ike.AddInternalDnsServerRequestResponse
-	(*GetAddressRequest)(nil),                                          // 177: ike.GetAddressRequest
-	(*GetAddressResponse)(nil),                                         // 178: ike.GetAddressResponse
-	(*GetPrefixLengthRequest)(nil),                                     // 179: ike.GetPrefixLengthRequest
-	(*GetPrefixLengthResponse)(nil),                                    // 180: ike.GetPrefixLengthResponse
-	(*IkeSaProposalEqualsRequest)(nil),                                 // 181: ike.IkeSaProposalEqualsRequest
-	(*IkeSaProposalHashCodeRequest)(nil),                               // 182: ike.IkeSaProposalHashCodeRequest
-	(*AddPseudorandomFunctionRequest)(nil),                             // 183: ike.AddPseudorandomFunctionRequest
-	(*AddPseudorandomFunctionResponse)(nil),                            // 184: ike.AddPseudorandomFunctionResponse
-	(*NewDerAsn1DnIdentificationRequest)(nil),                          // 185: ike.NewDerAsn1DnIdentificationRequest
-	(*NewDerAsn1DnIdentificationResponse)(nil),                         // 186: ike.NewDerAsn1DnIdentificationResponse
-	(*NewTrafficSelectorRequest)(nil),                                  // 187: ike.NewTrafficSelectorRequest
-	(*NewTrafficSelectorResponse)(nil),                                 // 188: ike.NewTrafficSelectorResponse
-	(*NewKeyIdIdentificationRequest)(nil),                              // 189: ike.NewKeyIdIdentificationRequest
-	(*NewKeyIdIdentificationResponse)(nil),                             // 190: ike.NewKeyIdIdentificationResponse
+	(*GetEapInfoRequest)(nil),                         // 0: ike.GetEapInfoRequest
+	(*GetEapInfoResponse)(nil),                        // 1: ike.GetEapInfoResponse
+	(*GetIkeSessionConnectionInfoRequest)(nil),        // 2: ike.GetIkeSessionConnectionInfoRequest
+	(*GetIkeSessionConnectionInfoResponse)(nil),       // 3: ike.GetIkeSessionConnectionInfoResponse
+	(*GetRemoteApplicationVersionRequest)(nil),        // 4: ike.GetRemoteApplicationVersionRequest
+	(*GetRemoteApplicationVersionResponse)(nil),       // 5: ike.GetRemoteApplicationVersionResponse
+	(*GetRemoteVendorIdsRequest)(nil),                 // 6: ike.GetRemoteVendorIdsRequest
+	(*GetRemoteVendorIdsResponse)(nil),                // 7: ike.GetRemoteVendorIdsResponse
+	(*IsIkeExtensionEnabledRequest)(nil),              // 8: ike.IsIkeExtensionEnabledRequest
+	(*IsIkeExtensionEnabledResponse)(nil),             // 9: ike.IsIkeExtensionEnabledResponse
+	(*AddIkeExtensionRequest)(nil),                    // 10: ike.AddIkeExtensionRequest
+	(*AddIkeExtensionResponse)(nil),                   // 11: ike.AddIkeExtensionResponse
+	(*AddRemoteVendorIdRequest)(nil),                  // 12: ike.AddRemoteVendorIdRequest
+	(*AddRemoteVendorIdResponse)(nil),                 // 13: ike.AddRemoteVendorIdResponse
+	(*BuildRequest)(nil),                              // 14: ike.BuildRequest
+	(*BuildResponse)(nil),                             // 15: ike.BuildResponse
+	(*ClearIkeExtensionsRequest)(nil),                 // 16: ike.ClearIkeExtensionsRequest
+	(*ClearIkeExtensionsResponse)(nil),                // 17: ike.ClearIkeExtensionsResponse
+	(*ClearRemoteApplicationVersionRequest)(nil),      // 18: ike.ClearRemoteApplicationVersionRequest
+	(*ClearRemoteApplicationVersionResponse)(nil),     // 19: ike.ClearRemoteApplicationVersionResponse
+	(*ClearRemoteVendorIdsRequest)(nil),               // 20: ike.ClearRemoteVendorIdsRequest
+	(*ClearRemoteVendorIdsResponse)(nil),              // 21: ike.ClearRemoteVendorIdsResponse
+	(*SetEapInfoRequest)(nil),                         // 22: ike.SetEapInfoRequest
+	(*SetEapInfoResponse)(nil),                        // 23: ike.SetEapInfoResponse
+	(*SetRemoteApplicationVersionRequest)(nil),        // 24: ike.SetRemoteApplicationVersionRequest
+	(*SetRemoteApplicationVersionResponse)(nil),       // 25: ike.SetRemoteApplicationVersionResponse
+	(*NewSessionConnectionInfoRequest)(nil),           // 26: ike.NewSessionConnectionInfoRequest
+	(*NewSessionConnectionInfoResponse)(nil),          // 27: ike.NewSessionConnectionInfoResponse
+	(*GetLocalAddressRequest)(nil),                    // 28: ike.GetLocalAddressRequest
+	(*GetLocalAddressResponse)(nil),                   // 29: ike.GetLocalAddressResponse
+	(*GetNetworkRequest)(nil),                         // 30: ike.GetNetworkRequest
+	(*GetNetworkResponse)(nil),                        // 31: ike.GetNetworkResponse
+	(*GetRemoteAddressRequest)(nil),                   // 32: ike.GetRemoteAddressRequest
+	(*GetRemoteAddressResponse)(nil),                  // 33: ike.GetRemoteAddressResponse
+	(*EqualsRequest)(nil),                             // 34: ike.EqualsRequest
+	(*EqualsResponse)(nil),                            // 35: ike.EqualsResponse
+	(*HashCodeRequest)(nil),                           // 36: ike.HashCodeRequest
+	(*HashCodeResponse)(nil),                          // 37: ike.HashCodeResponse
+	(*GetSupportedEncryptionAlgorithmsRequest)(nil),   // 38: ike.GetSupportedEncryptionAlgorithmsRequest
+	(*GetSupportedEncryptionAlgorithmsResponse)(nil),  // 39: ike.GetSupportedEncryptionAlgorithmsResponse
+	(*GetSupportedIntegrityAlgorithmsRequest)(nil),    // 40: ike.GetSupportedIntegrityAlgorithmsRequest
+	(*GetSupportedIntegrityAlgorithmsResponse)(nil),   // 41: ike.GetSupportedIntegrityAlgorithmsResponse
+	(*AddDhGroupRequest)(nil),                         // 42: ike.AddDhGroupRequest
+	(*AddDhGroupResponse)(nil),                        // 43: ike.AddDhGroupResponse
+	(*AddEncryptionAlgorithmRequest)(nil),             // 44: ike.AddEncryptionAlgorithmRequest
+	(*AddEncryptionAlgorithmResponse)(nil),            // 45: ike.AddEncryptionAlgorithmResponse
+	(*AddIntegrityAlgorithmRequest)(nil),              // 46: ike.AddIntegrityAlgorithmRequest
+	(*AddIntegrityAlgorithmResponse)(nil),             // 47: ike.AddIntegrityAlgorithmResponse
+	(*NewDerAsn1DnIdentificationRequest)(nil),         // 48: ike.NewDerAsn1DnIdentificationRequest
+	(*NewDerAsn1DnIdentificationResponse)(nil),        // 49: ike.NewDerAsn1DnIdentificationResponse
+	(*DerAsn1DnIdentificationEqualsRequest)(nil),      // 50: ike.DerAsn1DnIdentificationEqualsRequest
+	(*DerAsn1DnIdentificationHashCodeRequest)(nil),    // 51: ike.DerAsn1DnIdentificationHashCodeRequest
+	(*GetDhGroupsRequest)(nil),                        // 52: ike.GetDhGroupsRequest
+	(*GetDhGroupsResponse)(nil),                       // 53: ike.GetDhGroupsResponse
+	(*GetIntegrityAlgorithmsRequest)(nil),             // 54: ike.GetIntegrityAlgorithmsRequest
+	(*GetIntegrityAlgorithmsResponse)(nil),            // 55: ike.GetIntegrityAlgorithmsResponse
+	(*ToStringRequest)(nil),                           // 56: ike.ToStringRequest
+	(*ToStringResponse)(nil),                          // 57: ike.ToStringResponse
+	(*GetSupportedDhGroupsRequest)(nil),               // 58: ike.GetSupportedDhGroupsRequest
+	(*GetSupportedDhGroupsResponse)(nil),              // 59: ike.GetSupportedDhGroupsResponse
+	(*GetDpdDelaySecondsRequest)(nil),                 // 60: ike.GetDpdDelaySecondsRequest
+	(*GetDpdDelaySecondsResponse)(nil),                // 61: ike.GetDpdDelaySecondsResponse
+	(*GetHardLifetimeSecondsRequest)(nil),             // 62: ike.GetHardLifetimeSecondsRequest
+	(*GetHardLifetimeSecondsResponse)(nil),            // 63: ike.GetHardLifetimeSecondsResponse
+	(*GetIkeOptionsRequest)(nil),                      // 64: ike.GetIkeOptionsRequest
+	(*GetIkeOptionsResponse)(nil),                     // 65: ike.GetIkeOptionsResponse
+	(*GetIkeSaProposalsRequest)(nil),                  // 66: ike.GetIkeSaProposalsRequest
+	(*GetIkeSaProposalsResponse)(nil),                 // 67: ike.GetIkeSaProposalsResponse
+	(*GetLocalAuthConfigRequest)(nil),                 // 68: ike.GetLocalAuthConfigRequest
+	(*GetLocalAuthConfigResponse)(nil),                // 69: ike.GetLocalAuthConfigResponse
+	(*GetLocalIdentificationRequest)(nil),             // 70: ike.GetLocalIdentificationRequest
+	(*GetLocalIdentificationResponse)(nil),            // 71: ike.GetLocalIdentificationResponse
+	(*GetNattKeepAliveDelaySecondsRequest)(nil),       // 72: ike.GetNattKeepAliveDelaySecondsRequest
+	(*GetNattKeepAliveDelaySecondsResponse)(nil),      // 73: ike.GetNattKeepAliveDelaySecondsResponse
+	(*SessionParamsGetNetworkRequest)(nil),            // 74: ike.SessionParamsGetNetworkRequest
+	(*GetRemoteAuthConfigRequest)(nil),                // 75: ike.GetRemoteAuthConfigRequest
+	(*GetRemoteAuthConfigResponse)(nil),               // 76: ike.GetRemoteAuthConfigResponse
+	(*GetRemoteIdentificationRequest)(nil),            // 77: ike.GetRemoteIdentificationRequest
+	(*GetRemoteIdentificationResponse)(nil),           // 78: ike.GetRemoteIdentificationResponse
+	(*GetRetransmissionTimeoutsMillisRequest)(nil),    // 79: ike.GetRetransmissionTimeoutsMillisRequest
+	(*GetRetransmissionTimeoutsMillisResponse)(nil),   // 80: ike.GetRetransmissionTimeoutsMillisResponse
+	(*GetServerHostnameRequest)(nil),                  // 81: ike.GetServerHostnameRequest
+	(*GetServerHostnameResponse)(nil),                 // 82: ike.GetServerHostnameResponse
+	(*GetSoftLifetimeSecondsRequest)(nil),             // 83: ike.GetSoftLifetimeSecondsRequest
+	(*GetSoftLifetimeSecondsResponse)(nil),            // 84: ike.GetSoftLifetimeSecondsResponse
+	(*HasIkeOptionRequest)(nil),                       // 85: ike.HasIkeOptionRequest
+	(*HasIkeOptionResponse)(nil),                      // 86: ike.HasIkeOptionResponse
+	(*AddIkeOptionRequest)(nil),                       // 87: ike.AddIkeOptionRequest
+	(*AddIkeOptionResponse)(nil),                      // 88: ike.AddIkeOptionResponse
+	(*AddIkeSaProposalRequest)(nil),                   // 89: ike.AddIkeSaProposalRequest
+	(*AddIkeSaProposalResponse)(nil),                  // 90: ike.AddIkeSaProposalResponse
+	(*RemoveIkeOptionRequest)(nil),                    // 91: ike.RemoveIkeOptionRequest
+	(*RemoveIkeOptionResponse)(nil),                   // 92: ike.RemoveIkeOptionResponse
+	(*SetAuthDigitalSignatureRequest)(nil),            // 93: ike.SetAuthDigitalSignatureRequest
+	(*SetAuthDigitalSignatureResponse)(nil),           // 94: ike.SetAuthDigitalSignatureResponse
+	(*SetAuthEapRequest)(nil),                         // 95: ike.SetAuthEapRequest
+	(*SetAuthEapResponse)(nil),                        // 96: ike.SetAuthEapResponse
+	(*SetAuthPskRequest)(nil),                         // 97: ike.SetAuthPskRequest
+	(*SetAuthPskResponse)(nil),                        // 98: ike.SetAuthPskResponse
+	(*SetDpdDelaySecondsRequest)(nil),                 // 99: ike.SetDpdDelaySecondsRequest
+	(*SetDpdDelaySecondsResponse)(nil),                // 100: ike.SetDpdDelaySecondsResponse
+	(*SetLifetimeSecondsRequest)(nil),                 // 101: ike.SetLifetimeSecondsRequest
+	(*SetLifetimeSecondsResponse)(nil),                // 102: ike.SetLifetimeSecondsResponse
+	(*SetLocalIdentificationRequest)(nil),             // 103: ike.SetLocalIdentificationRequest
+	(*SetLocalIdentificationResponse)(nil),            // 104: ike.SetLocalIdentificationResponse
+	(*SetNattKeepAliveDelaySecondsRequest)(nil),       // 105: ike.SetNattKeepAliveDelaySecondsRequest
+	(*SetNattKeepAliveDelaySecondsResponse)(nil),      // 106: ike.SetNattKeepAliveDelaySecondsResponse
+	(*SetNetworkRequest)(nil),                         // 107: ike.SetNetworkRequest
+	(*SetNetworkResponse)(nil),                        // 108: ike.SetNetworkResponse
+	(*SetRemoteIdentificationRequest)(nil),            // 109: ike.SetRemoteIdentificationRequest
+	(*SetRemoteIdentificationResponse)(nil),           // 110: ike.SetRemoteIdentificationResponse
+	(*SetRetransmissionTimeoutsMillisRequest)(nil),    // 111: ike.SetRetransmissionTimeoutsMillisRequest
+	(*SetRetransmissionTimeoutsMillisResponse)(nil),   // 112: ike.SetRetransmissionTimeoutsMillisResponse
+	(*SetServerHostnameRequest)(nil),                  // 113: ike.SetServerHostnameRequest
+	(*SetServerHostnameResponse)(nil),                 // 114: ike.SetServerHostnameResponse
+	(*GetClientEndCertificateRequest)(nil),            // 115: ike.GetClientEndCertificateRequest
+	(*GetClientEndCertificateResponse)(nil),           // 116: ike.GetClientEndCertificateResponse
+	(*GetIntermediateCertificatesRequest)(nil),        // 117: ike.GetIntermediateCertificatesRequest
+	(*GetIntermediateCertificatesResponse)(nil),       // 118: ike.GetIntermediateCertificatesResponse
+	(*GetPrivateKeyRequest)(nil),                      // 119: ike.GetPrivateKeyRequest
+	(*GetPrivateKeyResponse)(nil),                     // 120: ike.GetPrivateKeyResponse
+	(*GetRemoteCaCertRequest)(nil),                    // 121: ike.GetRemoteCaCertRequest
+	(*GetRemoteCaCertResponse)(nil),                   // 122: ike.GetRemoteCaCertResponse
+	(*GetEapConfigRequest)(nil),                       // 123: ike.GetEapConfigRequest
+	(*GetEapConfigResponse)(nil),                      // 124: ike.GetEapConfigResponse
+	(*GetPskRequest)(nil),                             // 125: ike.GetPskRequest
+	(*GetPskResponse)(nil),                            // 126: ike.GetPskResponse
+	(*NewRfc822AddrIdentificationRequest)(nil),        // 127: ike.NewRfc822AddrIdentificationRequest
+	(*NewRfc822AddrIdentificationResponse)(nil),       // 128: ike.NewRfc822AddrIdentificationResponse
+	(*Rfc822AddrIdentificationEqualsRequest)(nil),     // 129: ike.Rfc822AddrIdentificationEqualsRequest
+	(*Rfc822AddrIdentificationHashCodeRequest)(nil),   // 130: ike.Rfc822AddrIdentificationHashCodeRequest
+	(*NewTrafficSelectorRequest)(nil),                 // 131: ike.NewTrafficSelectorRequest
+	(*NewTrafficSelectorResponse)(nil),                // 132: ike.NewTrafficSelectorResponse
+	(*TrafficSelectorEqualsRequest)(nil),              // 133: ike.TrafficSelectorEqualsRequest
+	(*TrafficSelectorHashCodeRequest)(nil),            // 134: ike.TrafficSelectorHashCodeRequest
+	(*GetInboundTrafficSelectorsRequest)(nil),         // 135: ike.GetInboundTrafficSelectorsRequest
+	(*GetInboundTrafficSelectorsResponse)(nil),        // 136: ike.GetInboundTrafficSelectorsResponse
+	(*GetOutboundTrafficSelectorsRequest)(nil),        // 137: ike.GetOutboundTrafficSelectorsRequest
+	(*GetOutboundTrafficSelectorsResponse)(nil),       // 138: ike.GetOutboundTrafficSelectorsResponse
+	(*GetPseudorandomFunctionsRequest)(nil),           // 139: ike.GetPseudorandomFunctionsRequest
+	(*GetPseudorandomFunctionsResponse)(nil),          // 140: ike.GetPseudorandomFunctionsResponse
+	(*GetSupportedPseudorandomFunctionsRequest)(nil),  // 141: ike.GetSupportedPseudorandomFunctionsRequest
+	(*GetSupportedPseudorandomFunctionsResponse)(nil), // 142: ike.GetSupportedPseudorandomFunctionsResponse
+	(*AddPseudorandomFunctionRequest)(nil),            // 143: ike.AddPseudorandomFunctionRequest
+	(*AddPseudorandomFunctionResponse)(nil),           // 144: ike.AddPseudorandomFunctionResponse
+	(*NewSessionRequest)(nil),                         // 145: ike.NewSessionRequest
+	(*NewSessionResponse)(nil),                        // 146: ike.NewSessionResponse
+	(*CloseRequest)(nil),                              // 147: ike.CloseRequest
+	(*CloseResponse)(nil),                             // 148: ike.CloseResponse
+	(*CloseChildSessionRequest)(nil),                  // 149: ike.CloseChildSessionRequest
+	(*CloseChildSessionResponse)(nil),                 // 150: ike.CloseChildSessionResponse
+	(*DumpRequest)(nil),                               // 151: ike.DumpRequest
+	(*DumpResponse)(nil),                              // 152: ike.DumpResponse
+	(*FinalizeRequest)(nil),                           // 153: ike.FinalizeRequest
+	(*FinalizeResponse)(nil),                          // 154: ike.FinalizeResponse
+	(*KillRequest)(nil),                               // 155: ike.KillRequest
+	(*KillResponse)(nil),                              // 156: ike.KillResponse
+	(*OpenChildSessionRequest)(nil),                   // 157: ike.OpenChildSessionRequest
+	(*OpenChildSessionResponse)(nil),                  // 158: ike.OpenChildSessionResponse
+	(*NewIpv4AddrIdentificationRequest)(nil),          // 159: ike.NewIpv4AddrIdentificationRequest
+	(*NewIpv4AddrIdentificationResponse)(nil),         // 160: ike.NewIpv4AddrIdentificationResponse
+	(*Ipv4AddrIdentificationEqualsRequest)(nil),       // 161: ike.Ipv4AddrIdentificationEqualsRequest
+	(*Ipv4AddrIdentificationHashCodeRequest)(nil),     // 162: ike.Ipv4AddrIdentificationHashCodeRequest
+	(*NewIpv6AddrIdentificationRequest)(nil),          // 163: ike.NewIpv6AddrIdentificationRequest
+	(*NewIpv6AddrIdentificationResponse)(nil),         // 164: ike.NewIpv6AddrIdentificationResponse
+	(*Ipv6AddrIdentificationEqualsRequest)(nil),       // 165: ike.Ipv6AddrIdentificationEqualsRequest
+	(*Ipv6AddrIdentificationHashCodeRequest)(nil),     // 166: ike.Ipv6AddrIdentificationHashCodeRequest
+	(*NewTunnelConnectionParamsRequest)(nil),          // 167: ike.NewTunnelConnectionParamsRequest
+	(*NewTunnelConnectionParamsResponse)(nil),         // 168: ike.NewTunnelConnectionParamsResponse
+	(*TunnelConnectionParamsEqualsRequest)(nil),       // 169: ike.TunnelConnectionParamsEqualsRequest
+	(*GetIkeSessionParamsRequest)(nil),                // 170: ike.GetIkeSessionParamsRequest
+	(*GetIkeSessionParamsResponse)(nil),               // 171: ike.GetIkeSessionParamsResponse
+	(*GetTunnelModeChildSessionParamsRequest)(nil),    // 172: ike.GetTunnelModeChildSessionParamsRequest
+	(*GetTunnelModeChildSessionParamsResponse)(nil),   // 173: ike.GetTunnelModeChildSessionParamsResponse
+	(*TunnelConnectionParamsHashCodeRequest)(nil),     // 174: ike.TunnelConnectionParamsHashCodeRequest
+	(*OnClosedRequest)(nil),                           // 175: ike.OnClosedRequest
+	(*OnClosedResponse)(nil),                          // 176: ike.OnClosedResponse
+	(*OnOpenedRequest)(nil),                           // 177: ike.OnOpenedRequest
+	(*OnOpenedResponse)(nil),                          // 178: ike.OnOpenedResponse
+	(*OnIpSecTransformCreatedRequest)(nil),            // 179: ike.OnIpSecTransformCreatedRequest
+	(*OnIpSecTransformCreatedResponse)(nil),           // 180: ike.OnIpSecTransformCreatedResponse
+	(*OnIpSecTransformDeletedRequest)(nil),            // 181: ike.OnIpSecTransformDeletedRequest
+	(*OnIpSecTransformDeletedResponse)(nil),           // 182: ike.OnIpSecTransformDeletedResponse
+	(*NewKeyIdIdentificationRequest)(nil),             // 183: ike.NewKeyIdIdentificationRequest
+	(*NewKeyIdIdentificationResponse)(nil),            // 184: ike.NewKeyIdIdentificationResponse
+	(*KeyIdIdentificationEqualsRequest)(nil),          // 185: ike.KeyIdIdentificationEqualsRequest
+	(*KeyIdIdentificationHashCodeRequest)(nil),        // 186: ike.KeyIdIdentificationHashCodeRequest
+	(*NewFqdnIdentificationRequest)(nil),              // 187: ike.NewFqdnIdentificationRequest
+	(*NewFqdnIdentificationResponse)(nil),             // 188: ike.NewFqdnIdentificationResponse
+	(*FqdnIdentificationEqualsRequest)(nil),           // 189: ike.FqdnIdentificationEqualsRequest
+	(*FqdnIdentificationHashCodeRequest)(nil),         // 190: ike.FqdnIdentificationHashCodeRequest
+	(*GetChildSaProposalsRequest)(nil),                // 191: ike.GetChildSaProposalsRequest
+	(*GetChildSaProposalsResponse)(nil),               // 192: ike.GetChildSaProposalsResponse
+	(*GetConfigurationRequestsRequest)(nil),           // 193: ike.GetConfigurationRequestsRequest
+	(*GetConfigurationRequestsResponse)(nil),          // 194: ike.GetConfigurationRequestsResponse
+	(*AddChildSaProposalRequest)(nil),                 // 195: ike.AddChildSaProposalRequest
+	(*AddChildSaProposalResponse)(nil),                // 196: ike.AddChildSaProposalResponse
+	(*AddInboundTrafficSelectorsRequest)(nil),         // 197: ike.AddInboundTrafficSelectorsRequest
+	(*AddInboundTrafficSelectorsResponse)(nil),        // 198: ike.AddInboundTrafficSelectorsResponse
+	(*AddInternalAddressRequest1Request)(nil),         // 199: ike.AddInternalAddressRequest1Request
+	(*AddInternalAddressRequest1Response)(nil),        // 200: ike.AddInternalAddressRequest1Response
+	(*AddInternalAddressRequest1_1Request)(nil),       // 201: ike.AddInternalAddressRequest1_1Request
+	(*AddInternalAddressRequest1_1Response)(nil),      // 202: ike.AddInternalAddressRequest1_1Response
+	(*AddInternalAddressRequest2_2Request)(nil),       // 203: ike.AddInternalAddressRequest2_2Request
+	(*AddInternalAddressRequest2_2Response)(nil),      // 204: ike.AddInternalAddressRequest2_2Response
+	(*AddInternalDhcpServerRequestRequest)(nil),       // 205: ike.AddInternalDhcpServerRequestRequest
+	(*AddInternalDhcpServerRequestResponse)(nil),      // 206: ike.AddInternalDhcpServerRequestResponse
+	(*AddInternalDnsServerRequestRequest)(nil),        // 207: ike.AddInternalDnsServerRequestRequest
+	(*AddInternalDnsServerRequestResponse)(nil),       // 208: ike.AddInternalDnsServerRequestResponse
+	(*AddOutboundTrafficSelectorsRequest)(nil),        // 209: ike.AddOutboundTrafficSelectorsRequest
+	(*AddOutboundTrafficSelectorsResponse)(nil),       // 210: ike.AddOutboundTrafficSelectorsResponse
+	(*GetAddressRequest)(nil),                         // 211: ike.GetAddressRequest
+	(*GetAddressResponse)(nil),                        // 212: ike.GetAddressResponse
+	(*GetPrefixLengthRequest)(nil),                    // 213: ike.GetPrefixLengthRequest
+	(*GetPrefixLengthResponse)(nil),                   // 214: ike.GetPrefixLengthResponse
 }
 var file_proto_ike_ike_proto_depIdxs = []int32{
-	0,   // 0: ike.Ipv6AddrIdentificationService.NewIpv6AddrIdentification:input_type -> ike.NewIpv6AddrIdentificationRequest
-	2,   // 1: ike.Ipv6AddrIdentificationService.Equals:input_type -> ike.EqualsRequest
-	4,   // 2: ike.Ipv6AddrIdentificationService.HashCode:input_type -> ike.HashCodeRequest
-	6,   // 3: ike.SessionService.NewSession:input_type -> ike.NewSessionRequest
-	8,   // 4: ike.SessionService.Close:input_type -> ike.CloseRequest
-	10,  // 5: ike.SessionService.CloseChildSession:input_type -> ike.CloseChildSessionRequest
-	12,  // 6: ike.SessionService.Dump:input_type -> ike.DumpRequest
-	14,  // 7: ike.SessionService.Finalize:input_type -> ike.FinalizeRequest
-	16,  // 8: ike.SessionService.Kill:input_type -> ike.KillRequest
-	18,  // 9: ike.SessionService.OpenChildSession:input_type -> ike.OpenChildSessionRequest
-	20,  // 10: ike.TunnelConnectionParamsService.NewTunnelConnectionParams:input_type -> ike.NewTunnelConnectionParamsRequest
-	2,   // 11: ike.TunnelConnectionParamsService.Equals:input_type -> ike.EqualsRequest
-	22,  // 12: ike.TunnelConnectionParamsService.GetIkeSessionParams:input_type -> ike.GetIkeSessionParamsRequest
-	24,  // 13: ike.TunnelConnectionParamsService.GetTunnelModeChildSessionParams:input_type -> ike.GetTunnelModeChildSessionParamsRequest
-	4,   // 14: ike.TunnelConnectionParamsService.HashCode:input_type -> ike.HashCodeRequest
-	26,  // 15: ike.TransportModeChildSessionParamsBuilderService.AddChildSaProposal:input_type -> ike.AddChildSaProposalRequest
-	28,  // 16: ike.TransportModeChildSessionParamsBuilderService.AddInboundTrafficSelectors:input_type -> ike.AddInboundTrafficSelectorsRequest
-	30,  // 17: ike.TransportModeChildSessionParamsBuilderService.AddOutboundTrafficSelectors:input_type -> ike.AddOutboundTrafficSelectorsRequest
-	32,  // 18: ike.TransportModeChildSessionParamsBuilderService.Build:input_type -> ike.BuildRequest
-	34,  // 19: ike.TransportModeChildSessionParamsBuilderService.SetLifetimeSeconds:input_type -> ike.SetLifetimeSecondsRequest
-	36,  // 20: ike.ChildSessionCallbackService.OnClosed:input_type -> ike.OnClosedRequest
-	38,  // 21: ike.ChildSessionCallbackService.OnIpSecTransformCreated:input_type -> ike.OnIpSecTransformCreatedRequest
-	40,  // 22: ike.ChildSessionCallbackService.OnIpSecTransformDeleted:input_type -> ike.OnIpSecTransformDeletedRequest
-	42,  // 23: ike.ChildSessionCallbackService.OnOpened:input_type -> ike.OnOpenedRequest
-	44,  // 24: ike.SessionParamsService.Equals:input_type -> ike.SessionParamsEqualsRequest
-	45,  // 25: ike.SessionParamsService.GetDpdDelaySeconds:input_type -> ike.GetDpdDelaySecondsRequest
-	47,  // 26: ike.SessionParamsService.GetHardLifetimeSeconds:input_type -> ike.GetHardLifetimeSecondsRequest
-	49,  // 27: ike.SessionParamsService.GetLocalAuthConfig:input_type -> ike.GetLocalAuthConfigRequest
-	51,  // 28: ike.SessionParamsService.GetLocalIdentification:input_type -> ike.GetLocalIdentificationRequest
-	53,  // 29: ike.SessionParamsService.GetNattKeepAliveDelaySeconds:input_type -> ike.GetNattKeepAliveDelaySecondsRequest
-	55,  // 30: ike.SessionParamsService.GetNetwork:input_type -> ike.GetNetworkRequest
-	57,  // 31: ike.SessionParamsService.GetRemoteAuthConfig:input_type -> ike.GetRemoteAuthConfigRequest
-	59,  // 32: ike.SessionParamsService.GetRemoteIdentification:input_type -> ike.GetRemoteIdentificationRequest
-	61,  // 33: ike.SessionParamsService.GetRetransmissionTimeoutsMillis:input_type -> ike.GetRetransmissionTimeoutsMillisRequest
-	63,  // 34: ike.SessionParamsService.GetServerHostname:input_type -> ike.GetServerHostnameRequest
-	65,  // 35: ike.SessionParamsService.GetSoftLifetimeSeconds:input_type -> ike.GetSoftLifetimeSecondsRequest
-	67,  // 36: ike.SessionParamsService.HasIkeOption:input_type -> ike.HasIkeOptionRequest
-	69,  // 37: ike.SessionParamsService.HashCode:input_type -> ike.SessionParamsHashCodeRequest
-	70,  // 38: ike.SessionParamsBuilderService.AddIkeOption:input_type -> ike.AddIkeOptionRequest
-	72,  // 39: ike.SessionParamsBuilderService.AddIkeSaProposal:input_type -> ike.AddIkeSaProposalRequest
-	32,  // 40: ike.SessionParamsBuilderService.Build:input_type -> ike.BuildRequest
-	74,  // 41: ike.SessionParamsBuilderService.RemoveIkeOption:input_type -> ike.RemoveIkeOptionRequest
-	76,  // 42: ike.SessionParamsBuilderService.SetAuthDigitalSignature:input_type -> ike.SetAuthDigitalSignatureRequest
-	78,  // 43: ike.SessionParamsBuilderService.SetAuthEap:input_type -> ike.SetAuthEapRequest
-	80,  // 44: ike.SessionParamsBuilderService.SetAuthPsk:input_type -> ike.SetAuthPskRequest
-	82,  // 45: ike.SessionParamsBuilderService.SetDpdDelaySeconds:input_type -> ike.SetDpdDelaySecondsRequest
-	34,  // 46: ike.SessionParamsBuilderService.SetLifetimeSeconds:input_type -> ike.SetLifetimeSecondsRequest
-	84,  // 47: ike.SessionParamsBuilderService.SetLocalIdentification:input_type -> ike.SetLocalIdentificationRequest
-	86,  // 48: ike.SessionParamsBuilderService.SetNattKeepAliveDelaySeconds:input_type -> ike.SetNattKeepAliveDelaySecondsRequest
-	88,  // 49: ike.SessionParamsBuilderService.SetNetwork:input_type -> ike.SetNetworkRequest
-	90,  // 50: ike.SessionParamsBuilderService.SetRemoteIdentification:input_type -> ike.SetRemoteIdentificationRequest
-	92,  // 51: ike.SessionParamsBuilderService.SetRetransmissionTimeoutsMillis:input_type -> ike.SetRetransmissionTimeoutsMillisRequest
-	94,  // 52: ike.SessionParamsBuilderService.SetServerHostname:input_type -> ike.SetServerHostnameRequest
-	96,  // 53: ike.SessionParamsIkeAuthConfigService.Equals:input_type -> ike.SessionParamsIkeAuthConfigEqualsRequest
-	97,  // 54: ike.SessionParamsIkeAuthConfigService.HashCode:input_type -> ike.SessionParamsIkeAuthConfigHashCodeRequest
-	98,  // 55: ike.SessionParamsIkeAuthDigitalSignLocalConfigService.Equals:input_type -> ike.SessionParamsIkeAuthDigitalSignLocalConfigEqualsRequest
-	99,  // 56: ike.SessionParamsIkeAuthDigitalSignLocalConfigService.GetClientEndCertificate:input_type -> ike.GetClientEndCertificateRequest
-	101, // 57: ike.SessionParamsIkeAuthDigitalSignLocalConfigService.GetPrivateKey:input_type -> ike.GetPrivateKeyRequest
-	103, // 58: ike.SessionParamsIkeAuthDigitalSignLocalConfigService.HashCode:input_type -> ike.SessionParamsIkeAuthDigitalSignLocalConfigHashCodeRequest
-	104, // 59: ike.SessionParamsIkeAuthDigitalSignRemoteConfigService.Equals:input_type -> ike.SessionParamsIkeAuthDigitalSignRemoteConfigEqualsRequest
-	105, // 60: ike.SessionParamsIkeAuthDigitalSignRemoteConfigService.GetRemoteCaCert:input_type -> ike.GetRemoteCaCertRequest
-	107, // 61: ike.SessionParamsIkeAuthDigitalSignRemoteConfigService.HashCode:input_type -> ike.SessionParamsIkeAuthDigitalSignRemoteConfigHashCodeRequest
-	108, // 62: ike.SessionParamsIkeAuthEapConfigService.Equals:input_type -> ike.SessionParamsIkeAuthEapConfigEqualsRequest
-	109, // 63: ike.SessionParamsIkeAuthEapConfigService.GetEapConfig:input_type -> ike.GetEapConfigRequest
-	111, // 64: ike.SessionParamsIkeAuthEapConfigService.HashCode:input_type -> ike.SessionParamsIkeAuthEapConfigHashCodeRequest
-	112, // 65: ike.SessionParamsIkeAuthPskConfigService.Equals:input_type -> ike.SessionParamsIkeAuthPskConfigEqualsRequest
-	113, // 66: ike.SessionParamsIkeAuthPskConfigService.GetPsk:input_type -> ike.GetPskRequest
-	115, // 67: ike.SessionParamsIkeAuthPskConfigService.HashCode:input_type -> ike.SessionParamsIkeAuthPskConfigHashCodeRequest
-	116, // 68: ike.SessionConfigurationService.GetEapInfo:input_type -> ike.GetEapInfoRequest
-	118, // 69: ike.SessionConfigurationService.GetIkeSessionConnectionInfo:input_type -> ike.GetIkeSessionConnectionInfoRequest
-	120, // 70: ike.SessionConfigurationService.GetRemoteApplicationVersion:input_type -> ike.GetRemoteApplicationVersionRequest
-	122, // 71: ike.SessionConfigurationService.IsIkeExtensionEnabled:input_type -> ike.IsIkeExtensionEnabledRequest
-	124, // 72: ike.SessionConfigurationBuilderService.AddIkeExtension:input_type -> ike.AddIkeExtensionRequest
-	126, // 73: ike.SessionConfigurationBuilderService.AddRemoteVendorId:input_type -> ike.AddRemoteVendorIdRequest
-	32,  // 74: ike.SessionConfigurationBuilderService.Build:input_type -> ike.BuildRequest
-	128, // 75: ike.SessionConfigurationBuilderService.ClearIkeExtensions:input_type -> ike.ClearIkeExtensionsRequest
-	130, // 76: ike.SessionConfigurationBuilderService.ClearRemoteApplicationVersion:input_type -> ike.ClearRemoteApplicationVersionRequest
-	132, // 77: ike.SessionConfigurationBuilderService.ClearRemoteVendorIds:input_type -> ike.ClearRemoteVendorIdsRequest
-	134, // 78: ike.SessionConfigurationBuilderService.SetEapInfo:input_type -> ike.SetEapInfoRequest
-	136, // 79: ike.SessionConfigurationBuilderService.SetRemoteApplicationVersion:input_type -> ike.SetRemoteApplicationVersionRequest
-	138, // 80: ike.Ipv4AddrIdentificationService.NewIpv4AddrIdentification:input_type -> ike.NewIpv4AddrIdentificationRequest
-	2,   // 81: ike.Ipv4AddrIdentificationService.Equals:input_type -> ike.EqualsRequest
-	4,   // 82: ike.Ipv4AddrIdentificationService.HashCode:input_type -> ike.HashCodeRequest
-	140, // 83: ike.SessionConnectionInfoService.NewSessionConnectionInfo:input_type -> ike.NewSessionConnectionInfoRequest
-	142, // 84: ike.SessionConnectionInfoService.GetLocalAddress:input_type -> ike.GetLocalAddressRequest
-	144, // 85: ike.SessionConnectionInfoService.GetNetwork:input_type -> ike.SessionConnectionInfoGetNetworkRequest
-	145, // 86: ike.SessionConnectionInfoService.GetRemoteAddress:input_type -> ike.GetRemoteAddressRequest
-	147, // 87: ike.Rfc822AddrIdentificationService.NewRfc822AddrIdentification:input_type -> ike.NewRfc822AddrIdentificationRequest
-	2,   // 88: ike.Rfc822AddrIdentificationService.Equals:input_type -> ike.EqualsRequest
-	4,   // 89: ike.Rfc822AddrIdentificationService.HashCode:input_type -> ike.HashCodeRequest
-	149, // 90: ike.SaProposalService.Equals:input_type -> ike.SaProposalEqualsRequest
-	150, // 91: ike.SaProposalService.HashCode:input_type -> ike.SaProposalHashCodeRequest
-	151, // 92: ike.SaProposalService.ToString:input_type -> ike.ToStringRequest
-	36,  // 93: ike.SessionCallbackService.OnClosed:input_type -> ike.OnClosedRequest
-	42,  // 94: ike.SessionCallbackService.OnOpened:input_type -> ike.OnOpenedRequest
-	153, // 95: ike.FqdnIdentificationService.NewFqdnIdentification:input_type -> ike.NewFqdnIdentificationRequest
-	2,   // 96: ike.FqdnIdentificationService.Equals:input_type -> ike.EqualsRequest
-	4,   // 97: ike.FqdnIdentificationService.HashCode:input_type -> ike.HashCodeRequest
-	155, // 98: ike.ChildSaProposalService.Equals:input_type -> ike.ChildSaProposalEqualsRequest
-	156, // 99: ike.ChildSaProposalService.HashCode:input_type -> ike.ChildSaProposalHashCodeRequest
-	157, // 100: ike.ChildSaProposalBuilderService.AddDhGroup:input_type -> ike.AddDhGroupRequest
-	159, // 101: ike.ChildSaProposalBuilderService.AddEncryptionAlgorithm:input_type -> ike.AddEncryptionAlgorithmRequest
-	161, // 102: ike.ChildSaProposalBuilderService.AddIntegrityAlgorithm:input_type -> ike.AddIntegrityAlgorithmRequest
-	32,  // 103: ike.ChildSaProposalBuilderService.Build:input_type -> ike.BuildRequest
-	163, // 104: ike.ChildSessionParamsService.Equals:input_type -> ike.ChildSessionParamsEqualsRequest
-	47,  // 105: ike.ChildSessionParamsService.GetHardLifetimeSeconds:input_type -> ike.GetHardLifetimeSecondsRequest
-	65,  // 106: ike.ChildSessionParamsService.GetSoftLifetimeSeconds:input_type -> ike.GetSoftLifetimeSecondsRequest
-	164, // 107: ike.ChildSessionParamsService.HashCode:input_type -> ike.ChildSessionParamsHashCodeRequest
-	165, // 108: ike.TunnelModeChildSessionParamsService.Equals:input_type -> ike.TunnelModeChildSessionParamsEqualsRequest
-	166, // 109: ike.TunnelModeChildSessionParamsService.HashCode:input_type -> ike.TunnelModeChildSessionParamsHashCodeRequest
-	26,  // 110: ike.TunnelModeChildSessionParamsBuilderService.AddChildSaProposal:input_type -> ike.AddChildSaProposalRequest
-	28,  // 111: ike.TunnelModeChildSessionParamsBuilderService.AddInboundTrafficSelectors:input_type -> ike.AddInboundTrafficSelectorsRequest
-	167, // 112: ike.TunnelModeChildSessionParamsBuilderService.AddInternalAddressRequest1:input_type -> ike.AddInternalAddressRequest1Request
-	169, // 113: ike.TunnelModeChildSessionParamsBuilderService.AddInternalAddressRequest1_1:input_type -> ike.AddInternalAddressRequest1_1Request
-	171, // 114: ike.TunnelModeChildSessionParamsBuilderService.AddInternalAddressRequest2_2:input_type -> ike.AddInternalAddressRequest2_2Request
-	173, // 115: ike.TunnelModeChildSessionParamsBuilderService.AddInternalDhcpServerRequest:input_type -> ike.AddInternalDhcpServerRequestRequest
-	175, // 116: ike.TunnelModeChildSessionParamsBuilderService.AddInternalDnsServerRequest:input_type -> ike.AddInternalDnsServerRequestRequest
-	30,  // 117: ike.TunnelModeChildSessionParamsBuilderService.AddOutboundTrafficSelectors:input_type -> ike.AddOutboundTrafficSelectorsRequest
-	32,  // 118: ike.TunnelModeChildSessionParamsBuilderService.Build:input_type -> ike.BuildRequest
-	34,  // 119: ike.TunnelModeChildSessionParamsBuilderService.SetLifetimeSeconds:input_type -> ike.SetLifetimeSecondsRequest
-	177, // 120: ike.TunnelModeChildSessionParamsConfigRequestIpv4AddressService.GetAddress:input_type -> ike.GetAddressRequest
-	177, // 121: ike.TunnelModeChildSessionParamsConfigRequestIpv6AddressService.GetAddress:input_type -> ike.GetAddressRequest
-	179, // 122: ike.TunnelModeChildSessionParamsConfigRequestIpv6AddressService.GetPrefixLength:input_type -> ike.GetPrefixLengthRequest
-	181, // 123: ike.IkeSaProposalService.Equals:input_type -> ike.IkeSaProposalEqualsRequest
-	182, // 124: ike.IkeSaProposalService.HashCode:input_type -> ike.IkeSaProposalHashCodeRequest
-	157, // 125: ike.SaProposalBuilderService.AddDhGroup:input_type -> ike.AddDhGroupRequest
-	159, // 126: ike.SaProposalBuilderService.AddEncryptionAlgorithm:input_type -> ike.AddEncryptionAlgorithmRequest
-	161, // 127: ike.SaProposalBuilderService.AddIntegrityAlgorithm:input_type -> ike.AddIntegrityAlgorithmRequest
-	183, // 128: ike.SaProposalBuilderService.AddPseudorandomFunction:input_type -> ike.AddPseudorandomFunctionRequest
-	32,  // 129: ike.SaProposalBuilderService.Build:input_type -> ike.BuildRequest
-	185, // 130: ike.DerAsn1DnIdentificationService.NewDerAsn1DnIdentification:input_type -> ike.NewDerAsn1DnIdentificationRequest
-	2,   // 131: ike.DerAsn1DnIdentificationService.Equals:input_type -> ike.EqualsRequest
-	4,   // 132: ike.DerAsn1DnIdentificationService.HashCode:input_type -> ike.HashCodeRequest
-	187, // 133: ike.TrafficSelectorService.NewTrafficSelector:input_type -> ike.NewTrafficSelectorRequest
-	2,   // 134: ike.TrafficSelectorService.Equals:input_type -> ike.EqualsRequest
-	4,   // 135: ike.TrafficSelectorService.HashCode:input_type -> ike.HashCodeRequest
-	189, // 136: ike.KeyIdIdentificationService.NewKeyIdIdentification:input_type -> ike.NewKeyIdIdentificationRequest
-	2,   // 137: ike.KeyIdIdentificationService.Equals:input_type -> ike.EqualsRequest
-	4,   // 138: ike.KeyIdIdentificationService.HashCode:input_type -> ike.HashCodeRequest
-	32,  // 139: ike.ChildSessionConfigurationBuilderService.Build:input_type -> ike.BuildRequest
-	1,   // 140: ike.Ipv6AddrIdentificationService.NewIpv6AddrIdentification:output_type -> ike.NewIpv6AddrIdentificationResponse
-	3,   // 141: ike.Ipv6AddrIdentificationService.Equals:output_type -> ike.EqualsResponse
-	5,   // 142: ike.Ipv6AddrIdentificationService.HashCode:output_type -> ike.HashCodeResponse
-	7,   // 143: ike.SessionService.NewSession:output_type -> ike.NewSessionResponse
-	9,   // 144: ike.SessionService.Close:output_type -> ike.CloseResponse
-	11,  // 145: ike.SessionService.CloseChildSession:output_type -> ike.CloseChildSessionResponse
-	13,  // 146: ike.SessionService.Dump:output_type -> ike.DumpResponse
-	15,  // 147: ike.SessionService.Finalize:output_type -> ike.FinalizeResponse
-	17,  // 148: ike.SessionService.Kill:output_type -> ike.KillResponse
-	19,  // 149: ike.SessionService.OpenChildSession:output_type -> ike.OpenChildSessionResponse
-	21,  // 150: ike.TunnelConnectionParamsService.NewTunnelConnectionParams:output_type -> ike.NewTunnelConnectionParamsResponse
-	3,   // 151: ike.TunnelConnectionParamsService.Equals:output_type -> ike.EqualsResponse
-	23,  // 152: ike.TunnelConnectionParamsService.GetIkeSessionParams:output_type -> ike.GetIkeSessionParamsResponse
-	25,  // 153: ike.TunnelConnectionParamsService.GetTunnelModeChildSessionParams:output_type -> ike.GetTunnelModeChildSessionParamsResponse
-	5,   // 154: ike.TunnelConnectionParamsService.HashCode:output_type -> ike.HashCodeResponse
-	27,  // 155: ike.TransportModeChildSessionParamsBuilderService.AddChildSaProposal:output_type -> ike.AddChildSaProposalResponse
-	29,  // 156: ike.TransportModeChildSessionParamsBuilderService.AddInboundTrafficSelectors:output_type -> ike.AddInboundTrafficSelectorsResponse
-	31,  // 157: ike.TransportModeChildSessionParamsBuilderService.AddOutboundTrafficSelectors:output_type -> ike.AddOutboundTrafficSelectorsResponse
-	33,  // 158: ike.TransportModeChildSessionParamsBuilderService.Build:output_type -> ike.BuildResponse
-	35,  // 159: ike.TransportModeChildSessionParamsBuilderService.SetLifetimeSeconds:output_type -> ike.SetLifetimeSecondsResponse
-	37,  // 160: ike.ChildSessionCallbackService.OnClosed:output_type -> ike.OnClosedResponse
-	39,  // 161: ike.ChildSessionCallbackService.OnIpSecTransformCreated:output_type -> ike.OnIpSecTransformCreatedResponse
-	41,  // 162: ike.ChildSessionCallbackService.OnIpSecTransformDeleted:output_type -> ike.OnIpSecTransformDeletedResponse
-	43,  // 163: ike.ChildSessionCallbackService.OnOpened:output_type -> ike.OnOpenedResponse
-	3,   // 164: ike.SessionParamsService.Equals:output_type -> ike.EqualsResponse
-	46,  // 165: ike.SessionParamsService.GetDpdDelaySeconds:output_type -> ike.GetDpdDelaySecondsResponse
-	48,  // 166: ike.SessionParamsService.GetHardLifetimeSeconds:output_type -> ike.GetHardLifetimeSecondsResponse
-	50,  // 167: ike.SessionParamsService.GetLocalAuthConfig:output_type -> ike.GetLocalAuthConfigResponse
-	52,  // 168: ike.SessionParamsService.GetLocalIdentification:output_type -> ike.GetLocalIdentificationResponse
-	54,  // 169: ike.SessionParamsService.GetNattKeepAliveDelaySeconds:output_type -> ike.GetNattKeepAliveDelaySecondsResponse
-	56,  // 170: ike.SessionParamsService.GetNetwork:output_type -> ike.GetNetworkResponse
-	58,  // 171: ike.SessionParamsService.GetRemoteAuthConfig:output_type -> ike.GetRemoteAuthConfigResponse
-	60,  // 172: ike.SessionParamsService.GetRemoteIdentification:output_type -> ike.GetRemoteIdentificationResponse
-	62,  // 173: ike.SessionParamsService.GetRetransmissionTimeoutsMillis:output_type -> ike.GetRetransmissionTimeoutsMillisResponse
-	64,  // 174: ike.SessionParamsService.GetServerHostname:output_type -> ike.GetServerHostnameResponse
-	66,  // 175: ike.SessionParamsService.GetSoftLifetimeSeconds:output_type -> ike.GetSoftLifetimeSecondsResponse
-	68,  // 176: ike.SessionParamsService.HasIkeOption:output_type -> ike.HasIkeOptionResponse
-	5,   // 177: ike.SessionParamsService.HashCode:output_type -> ike.HashCodeResponse
-	71,  // 178: ike.SessionParamsBuilderService.AddIkeOption:output_type -> ike.AddIkeOptionResponse
-	73,  // 179: ike.SessionParamsBuilderService.AddIkeSaProposal:output_type -> ike.AddIkeSaProposalResponse
-	33,  // 180: ike.SessionParamsBuilderService.Build:output_type -> ike.BuildResponse
-	75,  // 181: ike.SessionParamsBuilderService.RemoveIkeOption:output_type -> ike.RemoveIkeOptionResponse
-	77,  // 182: ike.SessionParamsBuilderService.SetAuthDigitalSignature:output_type -> ike.SetAuthDigitalSignatureResponse
-	79,  // 183: ike.SessionParamsBuilderService.SetAuthEap:output_type -> ike.SetAuthEapResponse
-	81,  // 184: ike.SessionParamsBuilderService.SetAuthPsk:output_type -> ike.SetAuthPskResponse
-	83,  // 185: ike.SessionParamsBuilderService.SetDpdDelaySeconds:output_type -> ike.SetDpdDelaySecondsResponse
-	35,  // 186: ike.SessionParamsBuilderService.SetLifetimeSeconds:output_type -> ike.SetLifetimeSecondsResponse
-	85,  // 187: ike.SessionParamsBuilderService.SetLocalIdentification:output_type -> ike.SetLocalIdentificationResponse
-	87,  // 188: ike.SessionParamsBuilderService.SetNattKeepAliveDelaySeconds:output_type -> ike.SetNattKeepAliveDelaySecondsResponse
-	89,  // 189: ike.SessionParamsBuilderService.SetNetwork:output_type -> ike.SetNetworkResponse
-	91,  // 190: ike.SessionParamsBuilderService.SetRemoteIdentification:output_type -> ike.SetRemoteIdentificationResponse
-	93,  // 191: ike.SessionParamsBuilderService.SetRetransmissionTimeoutsMillis:output_type -> ike.SetRetransmissionTimeoutsMillisResponse
-	95,  // 192: ike.SessionParamsBuilderService.SetServerHostname:output_type -> ike.SetServerHostnameResponse
-	3,   // 193: ike.SessionParamsIkeAuthConfigService.Equals:output_type -> ike.EqualsResponse
-	5,   // 194: ike.SessionParamsIkeAuthConfigService.HashCode:output_type -> ike.HashCodeResponse
-	3,   // 195: ike.SessionParamsIkeAuthDigitalSignLocalConfigService.Equals:output_type -> ike.EqualsResponse
-	100, // 196: ike.SessionParamsIkeAuthDigitalSignLocalConfigService.GetClientEndCertificate:output_type -> ike.GetClientEndCertificateResponse
-	102, // 197: ike.SessionParamsIkeAuthDigitalSignLocalConfigService.GetPrivateKey:output_type -> ike.GetPrivateKeyResponse
-	5,   // 198: ike.SessionParamsIkeAuthDigitalSignLocalConfigService.HashCode:output_type -> ike.HashCodeResponse
-	3,   // 199: ike.SessionParamsIkeAuthDigitalSignRemoteConfigService.Equals:output_type -> ike.EqualsResponse
-	106, // 200: ike.SessionParamsIkeAuthDigitalSignRemoteConfigService.GetRemoteCaCert:output_type -> ike.GetRemoteCaCertResponse
-	5,   // 201: ike.SessionParamsIkeAuthDigitalSignRemoteConfigService.HashCode:output_type -> ike.HashCodeResponse
-	3,   // 202: ike.SessionParamsIkeAuthEapConfigService.Equals:output_type -> ike.EqualsResponse
-	110, // 203: ike.SessionParamsIkeAuthEapConfigService.GetEapConfig:output_type -> ike.GetEapConfigResponse
-	5,   // 204: ike.SessionParamsIkeAuthEapConfigService.HashCode:output_type -> ike.HashCodeResponse
-	3,   // 205: ike.SessionParamsIkeAuthPskConfigService.Equals:output_type -> ike.EqualsResponse
-	114, // 206: ike.SessionParamsIkeAuthPskConfigService.GetPsk:output_type -> ike.GetPskResponse
-	5,   // 207: ike.SessionParamsIkeAuthPskConfigService.HashCode:output_type -> ike.HashCodeResponse
-	117, // 208: ike.SessionConfigurationService.GetEapInfo:output_type -> ike.GetEapInfoResponse
-	119, // 209: ike.SessionConfigurationService.GetIkeSessionConnectionInfo:output_type -> ike.GetIkeSessionConnectionInfoResponse
-	121, // 210: ike.SessionConfigurationService.GetRemoteApplicationVersion:output_type -> ike.GetRemoteApplicationVersionResponse
-	123, // 211: ike.SessionConfigurationService.IsIkeExtensionEnabled:output_type -> ike.IsIkeExtensionEnabledResponse
-	125, // 212: ike.SessionConfigurationBuilderService.AddIkeExtension:output_type -> ike.AddIkeExtensionResponse
-	127, // 213: ike.SessionConfigurationBuilderService.AddRemoteVendorId:output_type -> ike.AddRemoteVendorIdResponse
-	33,  // 214: ike.SessionConfigurationBuilderService.Build:output_type -> ike.BuildResponse
-	129, // 215: ike.SessionConfigurationBuilderService.ClearIkeExtensions:output_type -> ike.ClearIkeExtensionsResponse
-	131, // 216: ike.SessionConfigurationBuilderService.ClearRemoteApplicationVersion:output_type -> ike.ClearRemoteApplicationVersionResponse
-	133, // 217: ike.SessionConfigurationBuilderService.ClearRemoteVendorIds:output_type -> ike.ClearRemoteVendorIdsResponse
-	135, // 218: ike.SessionConfigurationBuilderService.SetEapInfo:output_type -> ike.SetEapInfoResponse
-	137, // 219: ike.SessionConfigurationBuilderService.SetRemoteApplicationVersion:output_type -> ike.SetRemoteApplicationVersionResponse
-	139, // 220: ike.Ipv4AddrIdentificationService.NewIpv4AddrIdentification:output_type -> ike.NewIpv4AddrIdentificationResponse
-	3,   // 221: ike.Ipv4AddrIdentificationService.Equals:output_type -> ike.EqualsResponse
-	5,   // 222: ike.Ipv4AddrIdentificationService.HashCode:output_type -> ike.HashCodeResponse
-	141, // 223: ike.SessionConnectionInfoService.NewSessionConnectionInfo:output_type -> ike.NewSessionConnectionInfoResponse
-	143, // 224: ike.SessionConnectionInfoService.GetLocalAddress:output_type -> ike.GetLocalAddressResponse
-	56,  // 225: ike.SessionConnectionInfoService.GetNetwork:output_type -> ike.GetNetworkResponse
-	146, // 226: ike.SessionConnectionInfoService.GetRemoteAddress:output_type -> ike.GetRemoteAddressResponse
-	148, // 227: ike.Rfc822AddrIdentificationService.NewRfc822AddrIdentification:output_type -> ike.NewRfc822AddrIdentificationResponse
-	3,   // 228: ike.Rfc822AddrIdentificationService.Equals:output_type -> ike.EqualsResponse
-	5,   // 229: ike.Rfc822AddrIdentificationService.HashCode:output_type -> ike.HashCodeResponse
-	3,   // 230: ike.SaProposalService.Equals:output_type -> ike.EqualsResponse
-	5,   // 231: ike.SaProposalService.HashCode:output_type -> ike.HashCodeResponse
-	152, // 232: ike.SaProposalService.ToString:output_type -> ike.ToStringResponse
-	37,  // 233: ike.SessionCallbackService.OnClosed:output_type -> ike.OnClosedResponse
-	43,  // 234: ike.SessionCallbackService.OnOpened:output_type -> ike.OnOpenedResponse
-	154, // 235: ike.FqdnIdentificationService.NewFqdnIdentification:output_type -> ike.NewFqdnIdentificationResponse
-	3,   // 236: ike.FqdnIdentificationService.Equals:output_type -> ike.EqualsResponse
-	5,   // 237: ike.FqdnIdentificationService.HashCode:output_type -> ike.HashCodeResponse
-	3,   // 238: ike.ChildSaProposalService.Equals:output_type -> ike.EqualsResponse
-	5,   // 239: ike.ChildSaProposalService.HashCode:output_type -> ike.HashCodeResponse
-	158, // 240: ike.ChildSaProposalBuilderService.AddDhGroup:output_type -> ike.AddDhGroupResponse
-	160, // 241: ike.ChildSaProposalBuilderService.AddEncryptionAlgorithm:output_type -> ike.AddEncryptionAlgorithmResponse
-	162, // 242: ike.ChildSaProposalBuilderService.AddIntegrityAlgorithm:output_type -> ike.AddIntegrityAlgorithmResponse
-	33,  // 243: ike.ChildSaProposalBuilderService.Build:output_type -> ike.BuildResponse
-	3,   // 244: ike.ChildSessionParamsService.Equals:output_type -> ike.EqualsResponse
-	48,  // 245: ike.ChildSessionParamsService.GetHardLifetimeSeconds:output_type -> ike.GetHardLifetimeSecondsResponse
-	66,  // 246: ike.ChildSessionParamsService.GetSoftLifetimeSeconds:output_type -> ike.GetSoftLifetimeSecondsResponse
-	5,   // 247: ike.ChildSessionParamsService.HashCode:output_type -> ike.HashCodeResponse
-	3,   // 248: ike.TunnelModeChildSessionParamsService.Equals:output_type -> ike.EqualsResponse
-	5,   // 249: ike.TunnelModeChildSessionParamsService.HashCode:output_type -> ike.HashCodeResponse
-	27,  // 250: ike.TunnelModeChildSessionParamsBuilderService.AddChildSaProposal:output_type -> ike.AddChildSaProposalResponse
-	29,  // 251: ike.TunnelModeChildSessionParamsBuilderService.AddInboundTrafficSelectors:output_type -> ike.AddInboundTrafficSelectorsResponse
-	168, // 252: ike.TunnelModeChildSessionParamsBuilderService.AddInternalAddressRequest1:output_type -> ike.AddInternalAddressRequest1Response
-	170, // 253: ike.TunnelModeChildSessionParamsBuilderService.AddInternalAddressRequest1_1:output_type -> ike.AddInternalAddressRequest1_1Response
-	172, // 254: ike.TunnelModeChildSessionParamsBuilderService.AddInternalAddressRequest2_2:output_type -> ike.AddInternalAddressRequest2_2Response
-	174, // 255: ike.TunnelModeChildSessionParamsBuilderService.AddInternalDhcpServerRequest:output_type -> ike.AddInternalDhcpServerRequestResponse
-	176, // 256: ike.TunnelModeChildSessionParamsBuilderService.AddInternalDnsServerRequest:output_type -> ike.AddInternalDnsServerRequestResponse
-	31,  // 257: ike.TunnelModeChildSessionParamsBuilderService.AddOutboundTrafficSelectors:output_type -> ike.AddOutboundTrafficSelectorsResponse
-	33,  // 258: ike.TunnelModeChildSessionParamsBuilderService.Build:output_type -> ike.BuildResponse
-	35,  // 259: ike.TunnelModeChildSessionParamsBuilderService.SetLifetimeSeconds:output_type -> ike.SetLifetimeSecondsResponse
-	178, // 260: ike.TunnelModeChildSessionParamsConfigRequestIpv4AddressService.GetAddress:output_type -> ike.GetAddressResponse
-	178, // 261: ike.TunnelModeChildSessionParamsConfigRequestIpv6AddressService.GetAddress:output_type -> ike.GetAddressResponse
-	180, // 262: ike.TunnelModeChildSessionParamsConfigRequestIpv6AddressService.GetPrefixLength:output_type -> ike.GetPrefixLengthResponse
-	3,   // 263: ike.IkeSaProposalService.Equals:output_type -> ike.EqualsResponse
-	5,   // 264: ike.IkeSaProposalService.HashCode:output_type -> ike.HashCodeResponse
-	158, // 265: ike.SaProposalBuilderService.AddDhGroup:output_type -> ike.AddDhGroupResponse
-	160, // 266: ike.SaProposalBuilderService.AddEncryptionAlgorithm:output_type -> ike.AddEncryptionAlgorithmResponse
-	162, // 267: ike.SaProposalBuilderService.AddIntegrityAlgorithm:output_type -> ike.AddIntegrityAlgorithmResponse
-	184, // 268: ike.SaProposalBuilderService.AddPseudorandomFunction:output_type -> ike.AddPseudorandomFunctionResponse
-	33,  // 269: ike.SaProposalBuilderService.Build:output_type -> ike.BuildResponse
-	186, // 270: ike.DerAsn1DnIdentificationService.NewDerAsn1DnIdentification:output_type -> ike.NewDerAsn1DnIdentificationResponse
-	3,   // 271: ike.DerAsn1DnIdentificationService.Equals:output_type -> ike.EqualsResponse
-	5,   // 272: ike.DerAsn1DnIdentificationService.HashCode:output_type -> ike.HashCodeResponse
-	188, // 273: ike.TrafficSelectorService.NewTrafficSelector:output_type -> ike.NewTrafficSelectorResponse
-	3,   // 274: ike.TrafficSelectorService.Equals:output_type -> ike.EqualsResponse
-	5,   // 275: ike.TrafficSelectorService.HashCode:output_type -> ike.HashCodeResponse
-	190, // 276: ike.KeyIdIdentificationService.NewKeyIdIdentification:output_type -> ike.NewKeyIdIdentificationResponse
-	3,   // 277: ike.KeyIdIdentificationService.Equals:output_type -> ike.EqualsResponse
-	5,   // 278: ike.KeyIdIdentificationService.HashCode:output_type -> ike.HashCodeResponse
-	33,  // 279: ike.ChildSessionConfigurationBuilderService.Build:output_type -> ike.BuildResponse
-	140, // [140:280] is the sub-list for method output_type
-	0,   // [0:140] is the sub-list for method input_type
+	0,   // 0: ike.SessionConfigurationService.GetEapInfo:input_type -> ike.GetEapInfoRequest
+	2,   // 1: ike.SessionConfigurationService.GetIkeSessionConnectionInfo:input_type -> ike.GetIkeSessionConnectionInfoRequest
+	4,   // 2: ike.SessionConfigurationService.GetRemoteApplicationVersion:input_type -> ike.GetRemoteApplicationVersionRequest
+	6,   // 3: ike.SessionConfigurationService.GetRemoteVendorIds:input_type -> ike.GetRemoteVendorIdsRequest
+	8,   // 4: ike.SessionConfigurationService.IsIkeExtensionEnabled:input_type -> ike.IsIkeExtensionEnabledRequest
+	10,  // 5: ike.SessionConfigurationBuilderService.AddIkeExtension:input_type -> ike.AddIkeExtensionRequest
+	12,  // 6: ike.SessionConfigurationBuilderService.AddRemoteVendorId:input_type -> ike.AddRemoteVendorIdRequest
+	14,  // 7: ike.SessionConfigurationBuilderService.Build:input_type -> ike.BuildRequest
+	16,  // 8: ike.SessionConfigurationBuilderService.ClearIkeExtensions:input_type -> ike.ClearIkeExtensionsRequest
+	18,  // 9: ike.SessionConfigurationBuilderService.ClearRemoteApplicationVersion:input_type -> ike.ClearRemoteApplicationVersionRequest
+	20,  // 10: ike.SessionConfigurationBuilderService.ClearRemoteVendorIds:input_type -> ike.ClearRemoteVendorIdsRequest
+	22,  // 11: ike.SessionConfigurationBuilderService.SetEapInfo:input_type -> ike.SetEapInfoRequest
+	24,  // 12: ike.SessionConfigurationBuilderService.SetRemoteApplicationVersion:input_type -> ike.SetRemoteApplicationVersionRequest
+	26,  // 13: ike.SessionConnectionInfoService.NewSessionConnectionInfo:input_type -> ike.NewSessionConnectionInfoRequest
+	28,  // 14: ike.SessionConnectionInfoService.GetLocalAddress:input_type -> ike.GetLocalAddressRequest
+	30,  // 15: ike.SessionConnectionInfoService.GetNetwork:input_type -> ike.GetNetworkRequest
+	32,  // 16: ike.SessionConnectionInfoService.GetRemoteAddress:input_type -> ike.GetRemoteAddressRequest
+	34,  // 17: ike.ChildSaProposalService.Equals:input_type -> ike.EqualsRequest
+	36,  // 18: ike.ChildSaProposalService.HashCode:input_type -> ike.HashCodeRequest
+	38,  // 19: ike.ChildSaProposalService.GetSupportedEncryptionAlgorithms:input_type -> ike.GetSupportedEncryptionAlgorithmsRequest
+	40,  // 20: ike.ChildSaProposalService.GetSupportedIntegrityAlgorithms:input_type -> ike.GetSupportedIntegrityAlgorithmsRequest
+	42,  // 21: ike.ChildSaProposalBuilderService.AddDhGroup:input_type -> ike.AddDhGroupRequest
+	44,  // 22: ike.ChildSaProposalBuilderService.AddEncryptionAlgorithm:input_type -> ike.AddEncryptionAlgorithmRequest
+	46,  // 23: ike.ChildSaProposalBuilderService.AddIntegrityAlgorithm:input_type -> ike.AddIntegrityAlgorithmRequest
+	14,  // 24: ike.ChildSaProposalBuilderService.Build:input_type -> ike.BuildRequest
+	48,  // 25: ike.DerAsn1DnIdentificationService.NewDerAsn1DnIdentification:input_type -> ike.NewDerAsn1DnIdentificationRequest
+	50,  // 26: ike.DerAsn1DnIdentificationService.Equals:input_type -> ike.DerAsn1DnIdentificationEqualsRequest
+	51,  // 27: ike.DerAsn1DnIdentificationService.HashCode:input_type -> ike.DerAsn1DnIdentificationHashCodeRequest
+	34,  // 28: ike.SaProposalService.Equals:input_type -> ike.EqualsRequest
+	52,  // 29: ike.SaProposalService.GetDhGroups:input_type -> ike.GetDhGroupsRequest
+	54,  // 30: ike.SaProposalService.GetIntegrityAlgorithms:input_type -> ike.GetIntegrityAlgorithmsRequest
+	36,  // 31: ike.SaProposalService.HashCode:input_type -> ike.HashCodeRequest
+	56,  // 32: ike.SaProposalService.ToString:input_type -> ike.ToStringRequest
+	58,  // 33: ike.SaProposalService.GetSupportedDhGroups:input_type -> ike.GetSupportedDhGroupsRequest
+	34,  // 34: ike.SessionParamsService.Equals:input_type -> ike.EqualsRequest
+	60,  // 35: ike.SessionParamsService.GetDpdDelaySeconds:input_type -> ike.GetDpdDelaySecondsRequest
+	62,  // 36: ike.SessionParamsService.GetHardLifetimeSeconds:input_type -> ike.GetHardLifetimeSecondsRequest
+	64,  // 37: ike.SessionParamsService.GetIkeOptions:input_type -> ike.GetIkeOptionsRequest
+	66,  // 38: ike.SessionParamsService.GetIkeSaProposals:input_type -> ike.GetIkeSaProposalsRequest
+	68,  // 39: ike.SessionParamsService.GetLocalAuthConfig:input_type -> ike.GetLocalAuthConfigRequest
+	70,  // 40: ike.SessionParamsService.GetLocalIdentification:input_type -> ike.GetLocalIdentificationRequest
+	72,  // 41: ike.SessionParamsService.GetNattKeepAliveDelaySeconds:input_type -> ike.GetNattKeepAliveDelaySecondsRequest
+	74,  // 42: ike.SessionParamsService.GetNetwork:input_type -> ike.SessionParamsGetNetworkRequest
+	75,  // 43: ike.SessionParamsService.GetRemoteAuthConfig:input_type -> ike.GetRemoteAuthConfigRequest
+	77,  // 44: ike.SessionParamsService.GetRemoteIdentification:input_type -> ike.GetRemoteIdentificationRequest
+	79,  // 45: ike.SessionParamsService.GetRetransmissionTimeoutsMillis:input_type -> ike.GetRetransmissionTimeoutsMillisRequest
+	81,  // 46: ike.SessionParamsService.GetServerHostname:input_type -> ike.GetServerHostnameRequest
+	83,  // 47: ike.SessionParamsService.GetSoftLifetimeSeconds:input_type -> ike.GetSoftLifetimeSecondsRequest
+	85,  // 48: ike.SessionParamsService.HasIkeOption:input_type -> ike.HasIkeOptionRequest
+	36,  // 49: ike.SessionParamsService.HashCode:input_type -> ike.HashCodeRequest
+	87,  // 50: ike.SessionParamsBuilderService.AddIkeOption:input_type -> ike.AddIkeOptionRequest
+	89,  // 51: ike.SessionParamsBuilderService.AddIkeSaProposal:input_type -> ike.AddIkeSaProposalRequest
+	14,  // 52: ike.SessionParamsBuilderService.Build:input_type -> ike.BuildRequest
+	91,  // 53: ike.SessionParamsBuilderService.RemoveIkeOption:input_type -> ike.RemoveIkeOptionRequest
+	93,  // 54: ike.SessionParamsBuilderService.SetAuthDigitalSignature:input_type -> ike.SetAuthDigitalSignatureRequest
+	95,  // 55: ike.SessionParamsBuilderService.SetAuthEap:input_type -> ike.SetAuthEapRequest
+	97,  // 56: ike.SessionParamsBuilderService.SetAuthPsk:input_type -> ike.SetAuthPskRequest
+	99,  // 57: ike.SessionParamsBuilderService.SetDpdDelaySeconds:input_type -> ike.SetDpdDelaySecondsRequest
+	101, // 58: ike.SessionParamsBuilderService.SetLifetimeSeconds:input_type -> ike.SetLifetimeSecondsRequest
+	103, // 59: ike.SessionParamsBuilderService.SetLocalIdentification:input_type -> ike.SetLocalIdentificationRequest
+	105, // 60: ike.SessionParamsBuilderService.SetNattKeepAliveDelaySeconds:input_type -> ike.SetNattKeepAliveDelaySecondsRequest
+	107, // 61: ike.SessionParamsBuilderService.SetNetwork:input_type -> ike.SetNetworkRequest
+	109, // 62: ike.SessionParamsBuilderService.SetRemoteIdentification:input_type -> ike.SetRemoteIdentificationRequest
+	111, // 63: ike.SessionParamsBuilderService.SetRetransmissionTimeoutsMillis:input_type -> ike.SetRetransmissionTimeoutsMillisRequest
+	113, // 64: ike.SessionParamsBuilderService.SetServerHostname:input_type -> ike.SetServerHostnameRequest
+	34,  // 65: ike.SessionParamsIkeAuthConfigService.Equals:input_type -> ike.EqualsRequest
+	36,  // 66: ike.SessionParamsIkeAuthConfigService.HashCode:input_type -> ike.HashCodeRequest
+	34,  // 67: ike.SessionParamsIkeAuthDigitalSignLocalConfigService.Equals:input_type -> ike.EqualsRequest
+	115, // 68: ike.SessionParamsIkeAuthDigitalSignLocalConfigService.GetClientEndCertificate:input_type -> ike.GetClientEndCertificateRequest
+	117, // 69: ike.SessionParamsIkeAuthDigitalSignLocalConfigService.GetIntermediateCertificates:input_type -> ike.GetIntermediateCertificatesRequest
+	119, // 70: ike.SessionParamsIkeAuthDigitalSignLocalConfigService.GetPrivateKey:input_type -> ike.GetPrivateKeyRequest
+	36,  // 71: ike.SessionParamsIkeAuthDigitalSignLocalConfigService.HashCode:input_type -> ike.HashCodeRequest
+	34,  // 72: ike.SessionParamsIkeAuthDigitalSignRemoteConfigService.Equals:input_type -> ike.EqualsRequest
+	121, // 73: ike.SessionParamsIkeAuthDigitalSignRemoteConfigService.GetRemoteCaCert:input_type -> ike.GetRemoteCaCertRequest
+	36,  // 74: ike.SessionParamsIkeAuthDigitalSignRemoteConfigService.HashCode:input_type -> ike.HashCodeRequest
+	34,  // 75: ike.SessionParamsIkeAuthEapConfigService.Equals:input_type -> ike.EqualsRequest
+	123, // 76: ike.SessionParamsIkeAuthEapConfigService.GetEapConfig:input_type -> ike.GetEapConfigRequest
+	36,  // 77: ike.SessionParamsIkeAuthEapConfigService.HashCode:input_type -> ike.HashCodeRequest
+	34,  // 78: ike.SessionParamsIkeAuthPskConfigService.Equals:input_type -> ike.EqualsRequest
+	125, // 79: ike.SessionParamsIkeAuthPskConfigService.GetPsk:input_type -> ike.GetPskRequest
+	36,  // 80: ike.SessionParamsIkeAuthPskConfigService.HashCode:input_type -> ike.HashCodeRequest
+	127, // 81: ike.Rfc822AddrIdentificationService.NewRfc822AddrIdentification:input_type -> ike.NewRfc822AddrIdentificationRequest
+	129, // 82: ike.Rfc822AddrIdentificationService.Equals:input_type -> ike.Rfc822AddrIdentificationEqualsRequest
+	130, // 83: ike.Rfc822AddrIdentificationService.HashCode:input_type -> ike.Rfc822AddrIdentificationHashCodeRequest
+	131, // 84: ike.TrafficSelectorService.NewTrafficSelector:input_type -> ike.NewTrafficSelectorRequest
+	133, // 85: ike.TrafficSelectorService.Equals:input_type -> ike.TrafficSelectorEqualsRequest
+	134, // 86: ike.TrafficSelectorService.HashCode:input_type -> ike.TrafficSelectorHashCodeRequest
+	135, // 87: ike.ChildSessionConfigurationService.GetInboundTrafficSelectors:input_type -> ike.GetInboundTrafficSelectorsRequest
+	137, // 88: ike.ChildSessionConfigurationService.GetOutboundTrafficSelectors:input_type -> ike.GetOutboundTrafficSelectorsRequest
+	14,  // 89: ike.ChildSessionConfigurationBuilderService.Build:input_type -> ike.BuildRequest
+	34,  // 90: ike.IkeSaProposalService.Equals:input_type -> ike.EqualsRequest
+	139, // 91: ike.IkeSaProposalService.GetPseudorandomFunctions:input_type -> ike.GetPseudorandomFunctionsRequest
+	36,  // 92: ike.IkeSaProposalService.HashCode:input_type -> ike.HashCodeRequest
+	38,  // 93: ike.IkeSaProposalService.GetSupportedEncryptionAlgorithms:input_type -> ike.GetSupportedEncryptionAlgorithmsRequest
+	40,  // 94: ike.IkeSaProposalService.GetSupportedIntegrityAlgorithms:input_type -> ike.GetSupportedIntegrityAlgorithmsRequest
+	141, // 95: ike.IkeSaProposalService.GetSupportedPseudorandomFunctions:input_type -> ike.GetSupportedPseudorandomFunctionsRequest
+	42,  // 96: ike.SaProposalBuilderService.AddDhGroup:input_type -> ike.AddDhGroupRequest
+	44,  // 97: ike.SaProposalBuilderService.AddEncryptionAlgorithm:input_type -> ike.AddEncryptionAlgorithmRequest
+	46,  // 98: ike.SaProposalBuilderService.AddIntegrityAlgorithm:input_type -> ike.AddIntegrityAlgorithmRequest
+	143, // 99: ike.SaProposalBuilderService.AddPseudorandomFunction:input_type -> ike.AddPseudorandomFunctionRequest
+	14,  // 100: ike.SaProposalBuilderService.Build:input_type -> ike.BuildRequest
+	145, // 101: ike.SessionService.NewSession:input_type -> ike.NewSessionRequest
+	147, // 102: ike.SessionService.Close:input_type -> ike.CloseRequest
+	149, // 103: ike.SessionService.CloseChildSession:input_type -> ike.CloseChildSessionRequest
+	151, // 104: ike.SessionService.Dump:input_type -> ike.DumpRequest
+	153, // 105: ike.SessionService.Finalize:input_type -> ike.FinalizeRequest
+	155, // 106: ike.SessionService.Kill:input_type -> ike.KillRequest
+	157, // 107: ike.SessionService.OpenChildSession:input_type -> ike.OpenChildSessionRequest
+	159, // 108: ike.Ipv4AddrIdentificationService.NewIpv4AddrIdentification:input_type -> ike.NewIpv4AddrIdentificationRequest
+	161, // 109: ike.Ipv4AddrIdentificationService.Equals:input_type -> ike.Ipv4AddrIdentificationEqualsRequest
+	162, // 110: ike.Ipv4AddrIdentificationService.HashCode:input_type -> ike.Ipv4AddrIdentificationHashCodeRequest
+	163, // 111: ike.Ipv6AddrIdentificationService.NewIpv6AddrIdentification:input_type -> ike.NewIpv6AddrIdentificationRequest
+	165, // 112: ike.Ipv6AddrIdentificationService.Equals:input_type -> ike.Ipv6AddrIdentificationEqualsRequest
+	166, // 113: ike.Ipv6AddrIdentificationService.HashCode:input_type -> ike.Ipv6AddrIdentificationHashCodeRequest
+	167, // 114: ike.TunnelConnectionParamsService.NewTunnelConnectionParams:input_type -> ike.NewTunnelConnectionParamsRequest
+	169, // 115: ike.TunnelConnectionParamsService.Equals:input_type -> ike.TunnelConnectionParamsEqualsRequest
+	170, // 116: ike.TunnelConnectionParamsService.GetIkeSessionParams:input_type -> ike.GetIkeSessionParamsRequest
+	172, // 117: ike.TunnelConnectionParamsService.GetTunnelModeChildSessionParams:input_type -> ike.GetTunnelModeChildSessionParamsRequest
+	174, // 118: ike.TunnelConnectionParamsService.HashCode:input_type -> ike.TunnelConnectionParamsHashCodeRequest
+	175, // 119: ike.SessionCallbackService.OnClosed:input_type -> ike.OnClosedRequest
+	177, // 120: ike.SessionCallbackService.OnOpened:input_type -> ike.OnOpenedRequest
+	175, // 121: ike.ChildSessionCallbackService.OnClosed:input_type -> ike.OnClosedRequest
+	179, // 122: ike.ChildSessionCallbackService.OnIpSecTransformCreated:input_type -> ike.OnIpSecTransformCreatedRequest
+	181, // 123: ike.ChildSessionCallbackService.OnIpSecTransformDeleted:input_type -> ike.OnIpSecTransformDeletedRequest
+	177, // 124: ike.ChildSessionCallbackService.OnOpened:input_type -> ike.OnOpenedRequest
+	183, // 125: ike.KeyIdIdentificationService.NewKeyIdIdentification:input_type -> ike.NewKeyIdIdentificationRequest
+	185, // 126: ike.KeyIdIdentificationService.Equals:input_type -> ike.KeyIdIdentificationEqualsRequest
+	186, // 127: ike.KeyIdIdentificationService.HashCode:input_type -> ike.KeyIdIdentificationHashCodeRequest
+	187, // 128: ike.FqdnIdentificationService.NewFqdnIdentification:input_type -> ike.NewFqdnIdentificationRequest
+	189, // 129: ike.FqdnIdentificationService.Equals:input_type -> ike.FqdnIdentificationEqualsRequest
+	190, // 130: ike.FqdnIdentificationService.HashCode:input_type -> ike.FqdnIdentificationHashCodeRequest
+	34,  // 131: ike.ChildSessionParamsService.Equals:input_type -> ike.EqualsRequest
+	191, // 132: ike.ChildSessionParamsService.GetChildSaProposals:input_type -> ike.GetChildSaProposalsRequest
+	62,  // 133: ike.ChildSessionParamsService.GetHardLifetimeSeconds:input_type -> ike.GetHardLifetimeSecondsRequest
+	135, // 134: ike.ChildSessionParamsService.GetInboundTrafficSelectors:input_type -> ike.GetInboundTrafficSelectorsRequest
+	137, // 135: ike.ChildSessionParamsService.GetOutboundTrafficSelectors:input_type -> ike.GetOutboundTrafficSelectorsRequest
+	83,  // 136: ike.ChildSessionParamsService.GetSoftLifetimeSeconds:input_type -> ike.GetSoftLifetimeSecondsRequest
+	36,  // 137: ike.ChildSessionParamsService.HashCode:input_type -> ike.HashCodeRequest
+	34,  // 138: ike.TunnelModeChildSessionParamsService.Equals:input_type -> ike.EqualsRequest
+	193, // 139: ike.TunnelModeChildSessionParamsService.GetConfigurationRequests:input_type -> ike.GetConfigurationRequestsRequest
+	36,  // 140: ike.TunnelModeChildSessionParamsService.HashCode:input_type -> ike.HashCodeRequest
+	195, // 141: ike.TunnelModeChildSessionParamsBuilderService.AddChildSaProposal:input_type -> ike.AddChildSaProposalRequest
+	197, // 142: ike.TunnelModeChildSessionParamsBuilderService.AddInboundTrafficSelectors:input_type -> ike.AddInboundTrafficSelectorsRequest
+	199, // 143: ike.TunnelModeChildSessionParamsBuilderService.AddInternalAddressRequest1:input_type -> ike.AddInternalAddressRequest1Request
+	201, // 144: ike.TunnelModeChildSessionParamsBuilderService.AddInternalAddressRequest1_1:input_type -> ike.AddInternalAddressRequest1_1Request
+	203, // 145: ike.TunnelModeChildSessionParamsBuilderService.AddInternalAddressRequest2_2:input_type -> ike.AddInternalAddressRequest2_2Request
+	205, // 146: ike.TunnelModeChildSessionParamsBuilderService.AddInternalDhcpServerRequest:input_type -> ike.AddInternalDhcpServerRequestRequest
+	207, // 147: ike.TunnelModeChildSessionParamsBuilderService.AddInternalDnsServerRequest:input_type -> ike.AddInternalDnsServerRequestRequest
+	209, // 148: ike.TunnelModeChildSessionParamsBuilderService.AddOutboundTrafficSelectors:input_type -> ike.AddOutboundTrafficSelectorsRequest
+	14,  // 149: ike.TunnelModeChildSessionParamsBuilderService.Build:input_type -> ike.BuildRequest
+	101, // 150: ike.TunnelModeChildSessionParamsBuilderService.SetLifetimeSeconds:input_type -> ike.SetLifetimeSecondsRequest
+	211, // 151: ike.TunnelModeChildSessionParamsConfigRequestIpv4AddressService.GetAddress:input_type -> ike.GetAddressRequest
+	211, // 152: ike.TunnelModeChildSessionParamsConfigRequestIpv6AddressService.GetAddress:input_type -> ike.GetAddressRequest
+	213, // 153: ike.TunnelModeChildSessionParamsConfigRequestIpv6AddressService.GetPrefixLength:input_type -> ike.GetPrefixLengthRequest
+	195, // 154: ike.TransportModeChildSessionParamsBuilderService.AddChildSaProposal:input_type -> ike.AddChildSaProposalRequest
+	197, // 155: ike.TransportModeChildSessionParamsBuilderService.AddInboundTrafficSelectors:input_type -> ike.AddInboundTrafficSelectorsRequest
+	209, // 156: ike.TransportModeChildSessionParamsBuilderService.AddOutboundTrafficSelectors:input_type -> ike.AddOutboundTrafficSelectorsRequest
+	14,  // 157: ike.TransportModeChildSessionParamsBuilderService.Build:input_type -> ike.BuildRequest
+	101, // 158: ike.TransportModeChildSessionParamsBuilderService.SetLifetimeSeconds:input_type -> ike.SetLifetimeSecondsRequest
+	1,   // 159: ike.SessionConfigurationService.GetEapInfo:output_type -> ike.GetEapInfoResponse
+	3,   // 160: ike.SessionConfigurationService.GetIkeSessionConnectionInfo:output_type -> ike.GetIkeSessionConnectionInfoResponse
+	5,   // 161: ike.SessionConfigurationService.GetRemoteApplicationVersion:output_type -> ike.GetRemoteApplicationVersionResponse
+	7,   // 162: ike.SessionConfigurationService.GetRemoteVendorIds:output_type -> ike.GetRemoteVendorIdsResponse
+	9,   // 163: ike.SessionConfigurationService.IsIkeExtensionEnabled:output_type -> ike.IsIkeExtensionEnabledResponse
+	11,  // 164: ike.SessionConfigurationBuilderService.AddIkeExtension:output_type -> ike.AddIkeExtensionResponse
+	13,  // 165: ike.SessionConfigurationBuilderService.AddRemoteVendorId:output_type -> ike.AddRemoteVendorIdResponse
+	15,  // 166: ike.SessionConfigurationBuilderService.Build:output_type -> ike.BuildResponse
+	17,  // 167: ike.SessionConfigurationBuilderService.ClearIkeExtensions:output_type -> ike.ClearIkeExtensionsResponse
+	19,  // 168: ike.SessionConfigurationBuilderService.ClearRemoteApplicationVersion:output_type -> ike.ClearRemoteApplicationVersionResponse
+	21,  // 169: ike.SessionConfigurationBuilderService.ClearRemoteVendorIds:output_type -> ike.ClearRemoteVendorIdsResponse
+	23,  // 170: ike.SessionConfigurationBuilderService.SetEapInfo:output_type -> ike.SetEapInfoResponse
+	25,  // 171: ike.SessionConfigurationBuilderService.SetRemoteApplicationVersion:output_type -> ike.SetRemoteApplicationVersionResponse
+	27,  // 172: ike.SessionConnectionInfoService.NewSessionConnectionInfo:output_type -> ike.NewSessionConnectionInfoResponse
+	29,  // 173: ike.SessionConnectionInfoService.GetLocalAddress:output_type -> ike.GetLocalAddressResponse
+	31,  // 174: ike.SessionConnectionInfoService.GetNetwork:output_type -> ike.GetNetworkResponse
+	33,  // 175: ike.SessionConnectionInfoService.GetRemoteAddress:output_type -> ike.GetRemoteAddressResponse
+	35,  // 176: ike.ChildSaProposalService.Equals:output_type -> ike.EqualsResponse
+	37,  // 177: ike.ChildSaProposalService.HashCode:output_type -> ike.HashCodeResponse
+	39,  // 178: ike.ChildSaProposalService.GetSupportedEncryptionAlgorithms:output_type -> ike.GetSupportedEncryptionAlgorithmsResponse
+	41,  // 179: ike.ChildSaProposalService.GetSupportedIntegrityAlgorithms:output_type -> ike.GetSupportedIntegrityAlgorithmsResponse
+	43,  // 180: ike.ChildSaProposalBuilderService.AddDhGroup:output_type -> ike.AddDhGroupResponse
+	45,  // 181: ike.ChildSaProposalBuilderService.AddEncryptionAlgorithm:output_type -> ike.AddEncryptionAlgorithmResponse
+	47,  // 182: ike.ChildSaProposalBuilderService.AddIntegrityAlgorithm:output_type -> ike.AddIntegrityAlgorithmResponse
+	15,  // 183: ike.ChildSaProposalBuilderService.Build:output_type -> ike.BuildResponse
+	49,  // 184: ike.DerAsn1DnIdentificationService.NewDerAsn1DnIdentification:output_type -> ike.NewDerAsn1DnIdentificationResponse
+	35,  // 185: ike.DerAsn1DnIdentificationService.Equals:output_type -> ike.EqualsResponse
+	37,  // 186: ike.DerAsn1DnIdentificationService.HashCode:output_type -> ike.HashCodeResponse
+	35,  // 187: ike.SaProposalService.Equals:output_type -> ike.EqualsResponse
+	53,  // 188: ike.SaProposalService.GetDhGroups:output_type -> ike.GetDhGroupsResponse
+	55,  // 189: ike.SaProposalService.GetIntegrityAlgorithms:output_type -> ike.GetIntegrityAlgorithmsResponse
+	37,  // 190: ike.SaProposalService.HashCode:output_type -> ike.HashCodeResponse
+	57,  // 191: ike.SaProposalService.ToString:output_type -> ike.ToStringResponse
+	59,  // 192: ike.SaProposalService.GetSupportedDhGroups:output_type -> ike.GetSupportedDhGroupsResponse
+	35,  // 193: ike.SessionParamsService.Equals:output_type -> ike.EqualsResponse
+	61,  // 194: ike.SessionParamsService.GetDpdDelaySeconds:output_type -> ike.GetDpdDelaySecondsResponse
+	63,  // 195: ike.SessionParamsService.GetHardLifetimeSeconds:output_type -> ike.GetHardLifetimeSecondsResponse
+	65,  // 196: ike.SessionParamsService.GetIkeOptions:output_type -> ike.GetIkeOptionsResponse
+	67,  // 197: ike.SessionParamsService.GetIkeSaProposals:output_type -> ike.GetIkeSaProposalsResponse
+	69,  // 198: ike.SessionParamsService.GetLocalAuthConfig:output_type -> ike.GetLocalAuthConfigResponse
+	71,  // 199: ike.SessionParamsService.GetLocalIdentification:output_type -> ike.GetLocalIdentificationResponse
+	73,  // 200: ike.SessionParamsService.GetNattKeepAliveDelaySeconds:output_type -> ike.GetNattKeepAliveDelaySecondsResponse
+	31,  // 201: ike.SessionParamsService.GetNetwork:output_type -> ike.GetNetworkResponse
+	76,  // 202: ike.SessionParamsService.GetRemoteAuthConfig:output_type -> ike.GetRemoteAuthConfigResponse
+	78,  // 203: ike.SessionParamsService.GetRemoteIdentification:output_type -> ike.GetRemoteIdentificationResponse
+	80,  // 204: ike.SessionParamsService.GetRetransmissionTimeoutsMillis:output_type -> ike.GetRetransmissionTimeoutsMillisResponse
+	82,  // 205: ike.SessionParamsService.GetServerHostname:output_type -> ike.GetServerHostnameResponse
+	84,  // 206: ike.SessionParamsService.GetSoftLifetimeSeconds:output_type -> ike.GetSoftLifetimeSecondsResponse
+	86,  // 207: ike.SessionParamsService.HasIkeOption:output_type -> ike.HasIkeOptionResponse
+	37,  // 208: ike.SessionParamsService.HashCode:output_type -> ike.HashCodeResponse
+	88,  // 209: ike.SessionParamsBuilderService.AddIkeOption:output_type -> ike.AddIkeOptionResponse
+	90,  // 210: ike.SessionParamsBuilderService.AddIkeSaProposal:output_type -> ike.AddIkeSaProposalResponse
+	15,  // 211: ike.SessionParamsBuilderService.Build:output_type -> ike.BuildResponse
+	92,  // 212: ike.SessionParamsBuilderService.RemoveIkeOption:output_type -> ike.RemoveIkeOptionResponse
+	94,  // 213: ike.SessionParamsBuilderService.SetAuthDigitalSignature:output_type -> ike.SetAuthDigitalSignatureResponse
+	96,  // 214: ike.SessionParamsBuilderService.SetAuthEap:output_type -> ike.SetAuthEapResponse
+	98,  // 215: ike.SessionParamsBuilderService.SetAuthPsk:output_type -> ike.SetAuthPskResponse
+	100, // 216: ike.SessionParamsBuilderService.SetDpdDelaySeconds:output_type -> ike.SetDpdDelaySecondsResponse
+	102, // 217: ike.SessionParamsBuilderService.SetLifetimeSeconds:output_type -> ike.SetLifetimeSecondsResponse
+	104, // 218: ike.SessionParamsBuilderService.SetLocalIdentification:output_type -> ike.SetLocalIdentificationResponse
+	106, // 219: ike.SessionParamsBuilderService.SetNattKeepAliveDelaySeconds:output_type -> ike.SetNattKeepAliveDelaySecondsResponse
+	108, // 220: ike.SessionParamsBuilderService.SetNetwork:output_type -> ike.SetNetworkResponse
+	110, // 221: ike.SessionParamsBuilderService.SetRemoteIdentification:output_type -> ike.SetRemoteIdentificationResponse
+	112, // 222: ike.SessionParamsBuilderService.SetRetransmissionTimeoutsMillis:output_type -> ike.SetRetransmissionTimeoutsMillisResponse
+	114, // 223: ike.SessionParamsBuilderService.SetServerHostname:output_type -> ike.SetServerHostnameResponse
+	35,  // 224: ike.SessionParamsIkeAuthConfigService.Equals:output_type -> ike.EqualsResponse
+	37,  // 225: ike.SessionParamsIkeAuthConfigService.HashCode:output_type -> ike.HashCodeResponse
+	35,  // 226: ike.SessionParamsIkeAuthDigitalSignLocalConfigService.Equals:output_type -> ike.EqualsResponse
+	116, // 227: ike.SessionParamsIkeAuthDigitalSignLocalConfigService.GetClientEndCertificate:output_type -> ike.GetClientEndCertificateResponse
+	118, // 228: ike.SessionParamsIkeAuthDigitalSignLocalConfigService.GetIntermediateCertificates:output_type -> ike.GetIntermediateCertificatesResponse
+	120, // 229: ike.SessionParamsIkeAuthDigitalSignLocalConfigService.GetPrivateKey:output_type -> ike.GetPrivateKeyResponse
+	37,  // 230: ike.SessionParamsIkeAuthDigitalSignLocalConfigService.HashCode:output_type -> ike.HashCodeResponse
+	35,  // 231: ike.SessionParamsIkeAuthDigitalSignRemoteConfigService.Equals:output_type -> ike.EqualsResponse
+	122, // 232: ike.SessionParamsIkeAuthDigitalSignRemoteConfigService.GetRemoteCaCert:output_type -> ike.GetRemoteCaCertResponse
+	37,  // 233: ike.SessionParamsIkeAuthDigitalSignRemoteConfigService.HashCode:output_type -> ike.HashCodeResponse
+	35,  // 234: ike.SessionParamsIkeAuthEapConfigService.Equals:output_type -> ike.EqualsResponse
+	124, // 235: ike.SessionParamsIkeAuthEapConfigService.GetEapConfig:output_type -> ike.GetEapConfigResponse
+	37,  // 236: ike.SessionParamsIkeAuthEapConfigService.HashCode:output_type -> ike.HashCodeResponse
+	35,  // 237: ike.SessionParamsIkeAuthPskConfigService.Equals:output_type -> ike.EqualsResponse
+	126, // 238: ike.SessionParamsIkeAuthPskConfigService.GetPsk:output_type -> ike.GetPskResponse
+	37,  // 239: ike.SessionParamsIkeAuthPskConfigService.HashCode:output_type -> ike.HashCodeResponse
+	128, // 240: ike.Rfc822AddrIdentificationService.NewRfc822AddrIdentification:output_type -> ike.NewRfc822AddrIdentificationResponse
+	35,  // 241: ike.Rfc822AddrIdentificationService.Equals:output_type -> ike.EqualsResponse
+	37,  // 242: ike.Rfc822AddrIdentificationService.HashCode:output_type -> ike.HashCodeResponse
+	132, // 243: ike.TrafficSelectorService.NewTrafficSelector:output_type -> ike.NewTrafficSelectorResponse
+	35,  // 244: ike.TrafficSelectorService.Equals:output_type -> ike.EqualsResponse
+	37,  // 245: ike.TrafficSelectorService.HashCode:output_type -> ike.HashCodeResponse
+	136, // 246: ike.ChildSessionConfigurationService.GetInboundTrafficSelectors:output_type -> ike.GetInboundTrafficSelectorsResponse
+	138, // 247: ike.ChildSessionConfigurationService.GetOutboundTrafficSelectors:output_type -> ike.GetOutboundTrafficSelectorsResponse
+	15,  // 248: ike.ChildSessionConfigurationBuilderService.Build:output_type -> ike.BuildResponse
+	35,  // 249: ike.IkeSaProposalService.Equals:output_type -> ike.EqualsResponse
+	140, // 250: ike.IkeSaProposalService.GetPseudorandomFunctions:output_type -> ike.GetPseudorandomFunctionsResponse
+	37,  // 251: ike.IkeSaProposalService.HashCode:output_type -> ike.HashCodeResponse
+	39,  // 252: ike.IkeSaProposalService.GetSupportedEncryptionAlgorithms:output_type -> ike.GetSupportedEncryptionAlgorithmsResponse
+	41,  // 253: ike.IkeSaProposalService.GetSupportedIntegrityAlgorithms:output_type -> ike.GetSupportedIntegrityAlgorithmsResponse
+	142, // 254: ike.IkeSaProposalService.GetSupportedPseudorandomFunctions:output_type -> ike.GetSupportedPseudorandomFunctionsResponse
+	43,  // 255: ike.SaProposalBuilderService.AddDhGroup:output_type -> ike.AddDhGroupResponse
+	45,  // 256: ike.SaProposalBuilderService.AddEncryptionAlgorithm:output_type -> ike.AddEncryptionAlgorithmResponse
+	47,  // 257: ike.SaProposalBuilderService.AddIntegrityAlgorithm:output_type -> ike.AddIntegrityAlgorithmResponse
+	144, // 258: ike.SaProposalBuilderService.AddPseudorandomFunction:output_type -> ike.AddPseudorandomFunctionResponse
+	15,  // 259: ike.SaProposalBuilderService.Build:output_type -> ike.BuildResponse
+	146, // 260: ike.SessionService.NewSession:output_type -> ike.NewSessionResponse
+	148, // 261: ike.SessionService.Close:output_type -> ike.CloseResponse
+	150, // 262: ike.SessionService.CloseChildSession:output_type -> ike.CloseChildSessionResponse
+	152, // 263: ike.SessionService.Dump:output_type -> ike.DumpResponse
+	154, // 264: ike.SessionService.Finalize:output_type -> ike.FinalizeResponse
+	156, // 265: ike.SessionService.Kill:output_type -> ike.KillResponse
+	158, // 266: ike.SessionService.OpenChildSession:output_type -> ike.OpenChildSessionResponse
+	160, // 267: ike.Ipv4AddrIdentificationService.NewIpv4AddrIdentification:output_type -> ike.NewIpv4AddrIdentificationResponse
+	35,  // 268: ike.Ipv4AddrIdentificationService.Equals:output_type -> ike.EqualsResponse
+	37,  // 269: ike.Ipv4AddrIdentificationService.HashCode:output_type -> ike.HashCodeResponse
+	164, // 270: ike.Ipv6AddrIdentificationService.NewIpv6AddrIdentification:output_type -> ike.NewIpv6AddrIdentificationResponse
+	35,  // 271: ike.Ipv6AddrIdentificationService.Equals:output_type -> ike.EqualsResponse
+	37,  // 272: ike.Ipv6AddrIdentificationService.HashCode:output_type -> ike.HashCodeResponse
+	168, // 273: ike.TunnelConnectionParamsService.NewTunnelConnectionParams:output_type -> ike.NewTunnelConnectionParamsResponse
+	35,  // 274: ike.TunnelConnectionParamsService.Equals:output_type -> ike.EqualsResponse
+	171, // 275: ike.TunnelConnectionParamsService.GetIkeSessionParams:output_type -> ike.GetIkeSessionParamsResponse
+	173, // 276: ike.TunnelConnectionParamsService.GetTunnelModeChildSessionParams:output_type -> ike.GetTunnelModeChildSessionParamsResponse
+	37,  // 277: ike.TunnelConnectionParamsService.HashCode:output_type -> ike.HashCodeResponse
+	176, // 278: ike.SessionCallbackService.OnClosed:output_type -> ike.OnClosedResponse
+	178, // 279: ike.SessionCallbackService.OnOpened:output_type -> ike.OnOpenedResponse
+	176, // 280: ike.ChildSessionCallbackService.OnClosed:output_type -> ike.OnClosedResponse
+	180, // 281: ike.ChildSessionCallbackService.OnIpSecTransformCreated:output_type -> ike.OnIpSecTransformCreatedResponse
+	182, // 282: ike.ChildSessionCallbackService.OnIpSecTransformDeleted:output_type -> ike.OnIpSecTransformDeletedResponse
+	178, // 283: ike.ChildSessionCallbackService.OnOpened:output_type -> ike.OnOpenedResponse
+	184, // 284: ike.KeyIdIdentificationService.NewKeyIdIdentification:output_type -> ike.NewKeyIdIdentificationResponse
+	35,  // 285: ike.KeyIdIdentificationService.Equals:output_type -> ike.EqualsResponse
+	37,  // 286: ike.KeyIdIdentificationService.HashCode:output_type -> ike.HashCodeResponse
+	188, // 287: ike.FqdnIdentificationService.NewFqdnIdentification:output_type -> ike.NewFqdnIdentificationResponse
+	35,  // 288: ike.FqdnIdentificationService.Equals:output_type -> ike.EqualsResponse
+	37,  // 289: ike.FqdnIdentificationService.HashCode:output_type -> ike.HashCodeResponse
+	35,  // 290: ike.ChildSessionParamsService.Equals:output_type -> ike.EqualsResponse
+	192, // 291: ike.ChildSessionParamsService.GetChildSaProposals:output_type -> ike.GetChildSaProposalsResponse
+	63,  // 292: ike.ChildSessionParamsService.GetHardLifetimeSeconds:output_type -> ike.GetHardLifetimeSecondsResponse
+	136, // 293: ike.ChildSessionParamsService.GetInboundTrafficSelectors:output_type -> ike.GetInboundTrafficSelectorsResponse
+	138, // 294: ike.ChildSessionParamsService.GetOutboundTrafficSelectors:output_type -> ike.GetOutboundTrafficSelectorsResponse
+	84,  // 295: ike.ChildSessionParamsService.GetSoftLifetimeSeconds:output_type -> ike.GetSoftLifetimeSecondsResponse
+	37,  // 296: ike.ChildSessionParamsService.HashCode:output_type -> ike.HashCodeResponse
+	35,  // 297: ike.TunnelModeChildSessionParamsService.Equals:output_type -> ike.EqualsResponse
+	194, // 298: ike.TunnelModeChildSessionParamsService.GetConfigurationRequests:output_type -> ike.GetConfigurationRequestsResponse
+	37,  // 299: ike.TunnelModeChildSessionParamsService.HashCode:output_type -> ike.HashCodeResponse
+	196, // 300: ike.TunnelModeChildSessionParamsBuilderService.AddChildSaProposal:output_type -> ike.AddChildSaProposalResponse
+	198, // 301: ike.TunnelModeChildSessionParamsBuilderService.AddInboundTrafficSelectors:output_type -> ike.AddInboundTrafficSelectorsResponse
+	200, // 302: ike.TunnelModeChildSessionParamsBuilderService.AddInternalAddressRequest1:output_type -> ike.AddInternalAddressRequest1Response
+	202, // 303: ike.TunnelModeChildSessionParamsBuilderService.AddInternalAddressRequest1_1:output_type -> ike.AddInternalAddressRequest1_1Response
+	204, // 304: ike.TunnelModeChildSessionParamsBuilderService.AddInternalAddressRequest2_2:output_type -> ike.AddInternalAddressRequest2_2Response
+	206, // 305: ike.TunnelModeChildSessionParamsBuilderService.AddInternalDhcpServerRequest:output_type -> ike.AddInternalDhcpServerRequestResponse
+	208, // 306: ike.TunnelModeChildSessionParamsBuilderService.AddInternalDnsServerRequest:output_type -> ike.AddInternalDnsServerRequestResponse
+	210, // 307: ike.TunnelModeChildSessionParamsBuilderService.AddOutboundTrafficSelectors:output_type -> ike.AddOutboundTrafficSelectorsResponse
+	15,  // 308: ike.TunnelModeChildSessionParamsBuilderService.Build:output_type -> ike.BuildResponse
+	102, // 309: ike.TunnelModeChildSessionParamsBuilderService.SetLifetimeSeconds:output_type -> ike.SetLifetimeSecondsResponse
+	212, // 310: ike.TunnelModeChildSessionParamsConfigRequestIpv4AddressService.GetAddress:output_type -> ike.GetAddressResponse
+	212, // 311: ike.TunnelModeChildSessionParamsConfigRequestIpv6AddressService.GetAddress:output_type -> ike.GetAddressResponse
+	214, // 312: ike.TunnelModeChildSessionParamsConfigRequestIpv6AddressService.GetPrefixLength:output_type -> ike.GetPrefixLengthResponse
+	196, // 313: ike.TransportModeChildSessionParamsBuilderService.AddChildSaProposal:output_type -> ike.AddChildSaProposalResponse
+	198, // 314: ike.TransportModeChildSessionParamsBuilderService.AddInboundTrafficSelectors:output_type -> ike.AddInboundTrafficSelectorsResponse
+	210, // 315: ike.TransportModeChildSessionParamsBuilderService.AddOutboundTrafficSelectors:output_type -> ike.AddOutboundTrafficSelectorsResponse
+	15,  // 316: ike.TransportModeChildSessionParamsBuilderService.Build:output_type -> ike.BuildResponse
+	102, // 317: ike.TransportModeChildSessionParamsBuilderService.SetLifetimeSeconds:output_type -> ike.SetLifetimeSecondsResponse
+	159, // [159:318] is the sub-list for method output_type
+	0,   // [0:159] is the sub-list for method input_type
 	0,   // [0:0] is the sub-list for extension type_name
 	0,   // [0:0] is the sub-list for extension extendee
 	0,   // [0:0] is the sub-list for field type_name
@@ -9290,9 +10494,9 @@ func file_proto_ike_ike_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_ike_ike_proto_rawDesc), len(file_proto_ike_ike_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   191,
+			NumMessages:   215,
 			NumExtensions: 0,
-			NumServices:   33,
+			NumServices:   34,
 		},
 		GoTypes:           file_proto_ike_ike_proto_goTypes,
 		DependencyIndexes: file_proto_ike_ike_proto_depIdxs,

@@ -12,6 +12,662 @@ var styleCmd = &cobra.Command{
 	Short: "style service operations",
 }
 
+var styleTypefaceSpanCmd = &cobra.Command{
+	Use:   "typeface-span",
+	Short: "TypefaceSpanService operations",
+}
+
+var styleTypefaceSpanNewTypefaceSpanCmd = &cobra.Command{
+	Use:   "new-typeface-span",
+	Short: "NewTypefaceSpan RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypefaceSpanServiceClient(grpcConn)
+		req := &pb.NewTypefaceSpanRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewTypefaceSpan(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleTypefaceSpanDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypefaceSpanServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleTypefaceSpanGetFamilyCmd = &cobra.Command{
+	Use:   "get-family",
+	Short: "GetFamily RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypefaceSpanServiceClient(grpcConn)
+		req := &pb.GetFamilyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetFamily(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleTypefaceSpanGetSpanTypeIdCmd = &cobra.Command{
+	Use:   "get-span-type-id",
+	Short: "GetSpanTypeId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypefaceSpanServiceClient(grpcConn)
+		req := &pb.GetSpanTypeIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSpanTypeId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleTypefaceSpanGetTypefaceCmd = &cobra.Command{
+	Use:   "get-typeface",
+	Short: "GetTypeface RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypefaceSpanServiceClient(grpcConn)
+		req := &pb.GetTypefaceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTypeface(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleTypefaceSpanToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypefaceSpanServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleTypefaceSpanUpdateDrawStateCmd = &cobra.Command{
+	Use:   "update-draw-state",
+	Short: "UpdateDrawState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypefaceSpanServiceClient(grpcConn)
+		req := &pb.UpdateDrawStateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UpdateDrawState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleTypefaceSpanUpdateMeasureStateCmd = &cobra.Command{
+	Use:   "update-measure-state",
+	Short: "UpdateMeasureState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypefaceSpanServiceClient(grpcConn)
+		req := &pb.UpdateMeasureStateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UpdateMeasureState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleTypefaceSpanWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTypefaceSpanServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleIconMarginSpanCmd = &cobra.Command{
+	Use:   "icon-margin-span",
+	Short: "IconMarginSpanService operations",
+}
+
+var styleIconMarginSpanNewIconMarginSpanCmd = &cobra.Command{
+	Use:   "new-icon-margin-span",
+	Short: "NewIconMarginSpan RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIconMarginSpanServiceClient(grpcConn)
+		req := &pb.NewIconMarginSpanRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewIconMarginSpan(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleIconMarginSpanChooseHeightCmd = &cobra.Command{
+	Use:   "choose-height",
+	Short: "ChooseHeight RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIconMarginSpanServiceClient(grpcConn)
+		req := &pb.ChooseHeightRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.ChooseHeight(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleIconMarginSpanDrawLeadingMarginCmd = &cobra.Command{
+	Use:   "draw-leading-margin",
+	Short: "DrawLeadingMargin RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIconMarginSpanServiceClient(grpcConn)
+		req := &pb.DrawLeadingMarginRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		if v, err := cmd.Flags().GetString("arg7"); err == nil {
+			req.Arg7 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg8"); err == nil {
+			req.Arg8 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg9"); err == nil {
+			req.Arg9 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg10"); err == nil {
+			req.Arg10 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg11"); err == nil {
+			req.Arg11 = v
+		}
+		resp, err := client.DrawLeadingMargin(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleIconMarginSpanGetBitmapCmd = &cobra.Command{
+	Use:   "get-bitmap",
+	Short: "GetBitmap RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIconMarginSpanServiceClient(grpcConn)
+		req := &pb.GetBitmapRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetBitmap(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleIconMarginSpanGetLeadingMarginCmd = &cobra.Command{
+	Use:   "get-leading-margin",
+	Short: "GetLeadingMargin RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIconMarginSpanServiceClient(grpcConn)
+		req := &pb.GetLeadingMarginRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetLeadingMargin(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleIconMarginSpanGetPaddingCmd = &cobra.Command{
+	Use:   "get-padding",
+	Short: "GetPadding RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIconMarginSpanServiceClient(grpcConn)
+		req := &pb.GetPaddingRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPadding(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleIconMarginSpanToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIconMarginSpanServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleSuggestionSpanCmd = &cobra.Command{
+	Use:   "suggestion-span",
+	Short: "SuggestionSpanService operations",
+}
+
+var styleSuggestionSpanNewSuggestionSpanCmd = &cobra.Command{
+	Use:   "new-suggestion-span",
+	Short: "NewSuggestionSpan RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSuggestionSpanServiceClient(grpcConn)
+		req := &pb.NewSuggestionSpanRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewSuggestionSpan(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleSuggestionSpanDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSuggestionSpanServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleSuggestionSpanEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSuggestionSpanServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleSuggestionSpanGetFlagsCmd = &cobra.Command{
+	Use:   "get-flags",
+	Short: "GetFlags RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSuggestionSpanServiceClient(grpcConn)
+		req := &pb.GetFlagsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetFlags(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleSuggestionSpanGetLocaleCmd = &cobra.Command{
+	Use:   "get-locale",
+	Short: "GetLocale RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSuggestionSpanServiceClient(grpcConn)
+		req := &pb.GetLocaleRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLocale(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleSuggestionSpanGetLocaleObjectCmd = &cobra.Command{
+	Use:   "get-locale-object",
+	Short: "GetLocaleObject RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSuggestionSpanServiceClient(grpcConn)
+		req := &pb.GetLocaleObjectRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLocaleObject(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleSuggestionSpanGetSpanTypeIdCmd = &cobra.Command{
+	Use:   "get-span-type-id",
+	Short: "GetSpanTypeId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSuggestionSpanServiceClient(grpcConn)
+		req := &pb.GetSpanTypeIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSpanTypeId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleSuggestionSpanGetSuggestionsCmd = &cobra.Command{
+	Use:   "get-suggestions",
+	Short: "GetSuggestions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSuggestionSpanServiceClient(grpcConn)
+		req := &pb.GetSuggestionsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSuggestions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleSuggestionSpanGetUnderlineColorCmd = &cobra.Command{
+	Use:   "get-underline-color",
+	Short: "GetUnderlineColor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSuggestionSpanServiceClient(grpcConn)
+		req := &pb.GetUnderlineColorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetUnderlineColor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleSuggestionSpanHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSuggestionSpanServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleSuggestionSpanSetFlagsCmd = &cobra.Command{
+	Use:   "set-flags",
+	Short: "SetFlags RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSuggestionSpanServiceClient(grpcConn)
+		req := &pb.SetFlagsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFlags(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleSuggestionSpanUpdateDrawStateCmd = &cobra.Command{
+	Use:   "update-draw-state",
+	Short: "UpdateDrawState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSuggestionSpanServiceClient(grpcConn)
+		req := &pb.UpdateDrawStateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UpdateDrawState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleSuggestionSpanWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSuggestionSpanServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var styleTextAppearanceSpanCmd = &cobra.Command{
 	Use:   "text-appearance-span",
 	Short: "TextAppearanceSpanService operations",
@@ -469,1908 +1125,6 @@ var styleTextAppearanceSpanWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var styleNoWritingToolsSpanCmd = &cobra.Command{
-	Use:   "no-writing-tools-span",
-	Short: "NoWritingToolsSpanService operations",
-}
-
-var styleNoWritingToolsSpanNewNoWritingToolsSpanCmd = &cobra.Command{
-	Use:   "new-no-writing-tools-span",
-	Short: "NewNoWritingToolsSpan RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNoWritingToolsSpanServiceClient(grpcConn)
-		req := &pb.NewNoWritingToolsSpanRequest{}
-		resp, err := client.NewNoWritingToolsSpan(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleNoWritingToolsSpanDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNoWritingToolsSpanServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleNoWritingToolsSpanGetSpanTypeIdCmd = &cobra.Command{
-	Use:   "get-span-type-id",
-	Short: "GetSpanTypeId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNoWritingToolsSpanServiceClient(grpcConn)
-		req := &pb.GetSpanTypeIdRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSpanTypeId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleNoWritingToolsSpanToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNoWritingToolsSpanServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleNoWritingToolsSpanWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewNoWritingToolsSpanServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleQuoteSpanCmd = &cobra.Command{
-	Use:   "quote-span",
-	Short: "QuoteSpanService operations",
-}
-
-var styleQuoteSpanNewQuoteSpanCmd = &cobra.Command{
-	Use:   "new-quote-span",
-	Short: "NewQuoteSpan RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewQuoteSpanServiceClient(grpcConn)
-		req := &pb.NewQuoteSpanRequest{}
-		resp, err := client.NewQuoteSpan(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleQuoteSpanDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewQuoteSpanServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleQuoteSpanDrawLeadingMarginCmd = &cobra.Command{
-	Use:   "draw-leading-margin",
-	Short: "DrawLeadingMargin RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewQuoteSpanServiceClient(grpcConn)
-		req := &pb.DrawLeadingMarginRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg6"); err == nil {
-			req.Arg6 = v
-		}
-		if v, err := cmd.Flags().GetString("arg7"); err == nil {
-			req.Arg7 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg8"); err == nil {
-			req.Arg8 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg9"); err == nil {
-			req.Arg9 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg10"); err == nil {
-			req.Arg10 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg11"); err == nil {
-			req.Arg11 = v
-		}
-		resp, err := client.DrawLeadingMargin(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleQuoteSpanGetColorCmd = &cobra.Command{
-	Use:   "get-color",
-	Short: "GetColor RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewQuoteSpanServiceClient(grpcConn)
-		req := &pb.GetColorRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetColor(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleQuoteSpanGetGapWidthCmd = &cobra.Command{
-	Use:   "get-gap-width",
-	Short: "GetGapWidth RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewQuoteSpanServiceClient(grpcConn)
-		req := &pb.GetGapWidthRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetGapWidth(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleQuoteSpanGetLeadingMarginCmd = &cobra.Command{
-	Use:   "get-leading-margin",
-	Short: "GetLeadingMargin RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewQuoteSpanServiceClient(grpcConn)
-		req := &pb.GetLeadingMarginRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetLeadingMargin(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleQuoteSpanGetSpanTypeIdCmd = &cobra.Command{
-	Use:   "get-span-type-id",
-	Short: "GetSpanTypeId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewQuoteSpanServiceClient(grpcConn)
-		req := &pb.GetSpanTypeIdRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSpanTypeId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleQuoteSpanGetStripeWidthCmd = &cobra.Command{
-	Use:   "get-stripe-width",
-	Short: "GetStripeWidth RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewQuoteSpanServiceClient(grpcConn)
-		req := &pb.GetStripeWidthRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetStripeWidth(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleQuoteSpanToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewQuoteSpanServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleQuoteSpanWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewQuoteSpanServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleCharacterStyleCmd = &cobra.Command{
-	Use:   "character-style",
-	Short: "CharacterStyleService operations",
-}
-
-var styleCharacterStyleGetUnderlyingCmd = &cobra.Command{
-	Use:   "get-underlying",
-	Short: "GetUnderlying RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCharacterStyleServiceClient(grpcConn)
-		req := &pb.GetUnderlyingRequest{}
-		resp, err := client.GetUnderlying(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleCharacterStyleUpdateDrawStateCmd = &cobra.Command{
-	Use:   "update-draw-state",
-	Short: "UpdateDrawState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCharacterStyleServiceClient(grpcConn)
-		req := &pb.CharacterStyleUpdateDrawStateRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UpdateDrawState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleCharacterStyleWrapCmd = &cobra.Command{
-	Use:   "wrap",
-	Short: "Wrap RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCharacterStyleServiceClient(grpcConn)
-		req := &pb.WrapRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Wrap(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleLineHeightSpanCmd = &cobra.Command{
-	Use:   "line-height-span",
-	Short: "LineHeightSpanService operations",
-}
-
-var styleLineHeightSpanChooseHeightCmd = &cobra.Command{
-	Use:   "choose-height",
-	Short: "ChooseHeight RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLineHeightSpanServiceClient(grpcConn)
-		req := &pb.ChooseHeightRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		resp, err := client.ChooseHeight(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleLineHeightSpanStandardCmd = &cobra.Command{
-	Use:   "line-height-span-standard",
-	Short: "LineHeightSpanStandardService operations",
-}
-
-var styleLineHeightSpanStandardChooseHeightCmd = &cobra.Command{
-	Use:   "choose-height",
-	Short: "ChooseHeight RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLineHeightSpanStandardServiceClient(grpcConn)
-		req := &pb.ChooseHeightRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		resp, err := client.ChooseHeight(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleLineHeightSpanStandardDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLineHeightSpanStandardServiceClient(grpcConn)
-		req := &pb.LineHeightSpanStandardDescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleLineHeightSpanStandardGetHeightCmd = &cobra.Command{
-	Use:   "get-height",
-	Short: "GetHeight RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLineHeightSpanStandardServiceClient(grpcConn)
-		req := &pb.GetHeightRequest{}
-		resp, err := client.GetHeight(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleLineHeightSpanStandardGetSpanTypeIdCmd = &cobra.Command{
-	Use:   "get-span-type-id",
-	Short: "GetSpanTypeId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLineHeightSpanStandardServiceClient(grpcConn)
-		req := &pb.LineHeightSpanStandardGetSpanTypeIdRequest{}
-		resp, err := client.GetSpanTypeId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleLineHeightSpanStandardWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLineHeightSpanStandardServiceClient(grpcConn)
-		req := &pb.LineHeightSpanStandardWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleLineHeightSpanWithDensityCmd = &cobra.Command{
-	Use:   "line-height-span-with-density",
-	Short: "LineHeightSpanWithDensityService operations",
-}
-
-var styleLineHeightSpanWithDensityChooseHeightCmd = &cobra.Command{
-	Use:   "choose-height",
-	Short: "ChooseHeight RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLineHeightSpanWithDensityServiceClient(grpcConn)
-		req := &pb.LineHeightSpanWithDensityChooseHeightRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg6"); err == nil {
-			req.Arg6 = v
-		}
-		resp, err := client.ChooseHeight(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleRelativeSizeSpanCmd = &cobra.Command{
-	Use:   "relative-size-span",
-	Short: "RelativeSizeSpanService operations",
-}
-
-var styleRelativeSizeSpanNewRelativeSizeSpanCmd = &cobra.Command{
-	Use:   "new-relative-size-span",
-	Short: "NewRelativeSizeSpan RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRelativeSizeSpanServiceClient(grpcConn)
-		req := &pb.NewRelativeSizeSpanRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewRelativeSizeSpan(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleRelativeSizeSpanDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRelativeSizeSpanServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleRelativeSizeSpanGetSizeChangeCmd = &cobra.Command{
-	Use:   "get-size-change",
-	Short: "GetSizeChange RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRelativeSizeSpanServiceClient(grpcConn)
-		req := &pb.GetSizeChangeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSizeChange(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleRelativeSizeSpanGetSpanTypeIdCmd = &cobra.Command{
-	Use:   "get-span-type-id",
-	Short: "GetSpanTypeId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRelativeSizeSpanServiceClient(grpcConn)
-		req := &pb.GetSpanTypeIdRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSpanTypeId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleRelativeSizeSpanToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRelativeSizeSpanServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleRelativeSizeSpanUpdateDrawStateCmd = &cobra.Command{
-	Use:   "update-draw-state",
-	Short: "UpdateDrawState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRelativeSizeSpanServiceClient(grpcConn)
-		req := &pb.UpdateDrawStateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UpdateDrawState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleRelativeSizeSpanUpdateMeasureStateCmd = &cobra.Command{
-	Use:   "update-measure-state",
-	Short: "UpdateMeasureState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRelativeSizeSpanServiceClient(grpcConn)
-		req := &pb.UpdateMeasureStateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UpdateMeasureState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleRelativeSizeSpanWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRelativeSizeSpanServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleAbsoluteSizeSpanCmd = &cobra.Command{
-	Use:   "absolute-size-span",
-	Short: "AbsoluteSizeSpanService operations",
-}
-
-var styleAbsoluteSizeSpanNewAbsoluteSizeSpanCmd = &cobra.Command{
-	Use:   "new-absolute-size-span",
-	Short: "NewAbsoluteSizeSpan RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbsoluteSizeSpanServiceClient(grpcConn)
-		req := &pb.NewAbsoluteSizeSpanRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewAbsoluteSizeSpan(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleAbsoluteSizeSpanDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbsoluteSizeSpanServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleAbsoluteSizeSpanGetDipCmd = &cobra.Command{
-	Use:   "get-dip",
-	Short: "GetDip RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbsoluteSizeSpanServiceClient(grpcConn)
-		req := &pb.GetDipRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetDip(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleAbsoluteSizeSpanGetSizeCmd = &cobra.Command{
-	Use:   "get-size",
-	Short: "GetSize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbsoluteSizeSpanServiceClient(grpcConn)
-		req := &pb.GetSizeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleAbsoluteSizeSpanGetSpanTypeIdCmd = &cobra.Command{
-	Use:   "get-span-type-id",
-	Short: "GetSpanTypeId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbsoluteSizeSpanServiceClient(grpcConn)
-		req := &pb.GetSpanTypeIdRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSpanTypeId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleAbsoluteSizeSpanToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbsoluteSizeSpanServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleAbsoluteSizeSpanUpdateDrawStateCmd = &cobra.Command{
-	Use:   "update-draw-state",
-	Short: "UpdateDrawState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbsoluteSizeSpanServiceClient(grpcConn)
-		req := &pb.UpdateDrawStateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UpdateDrawState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleAbsoluteSizeSpanUpdateMeasureStateCmd = &cobra.Command{
-	Use:   "update-measure-state",
-	Short: "UpdateMeasureState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbsoluteSizeSpanServiceClient(grpcConn)
-		req := &pb.UpdateMeasureStateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UpdateMeasureState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleAbsoluteSizeSpanWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbsoluteSizeSpanServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleSubscriptSpanCmd = &cobra.Command{
-	Use:   "subscript-span",
-	Short: "SubscriptSpanService operations",
-}
-
-var styleSubscriptSpanNewSubscriptSpanCmd = &cobra.Command{
-	Use:   "new-subscript-span",
-	Short: "NewSubscriptSpan RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSubscriptSpanServiceClient(grpcConn)
-		req := &pb.NewSubscriptSpanRequest{}
-		resp, err := client.NewSubscriptSpan(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleSubscriptSpanDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSubscriptSpanServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleSubscriptSpanGetSpanTypeIdCmd = &cobra.Command{
-	Use:   "get-span-type-id",
-	Short: "GetSpanTypeId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSubscriptSpanServiceClient(grpcConn)
-		req := &pb.GetSpanTypeIdRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSpanTypeId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleSubscriptSpanToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSubscriptSpanServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleSubscriptSpanUpdateDrawStateCmd = &cobra.Command{
-	Use:   "update-draw-state",
-	Short: "UpdateDrawState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSubscriptSpanServiceClient(grpcConn)
-		req := &pb.UpdateDrawStateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UpdateDrawState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleSubscriptSpanUpdateMeasureStateCmd = &cobra.Command{
-	Use:   "update-measure-state",
-	Short: "UpdateMeasureState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSubscriptSpanServiceClient(grpcConn)
-		req := &pb.UpdateMeasureStateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UpdateMeasureState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleSubscriptSpanWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSubscriptSpanServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleDrawableMarginSpanCmd = &cobra.Command{
-	Use:   "drawable-margin-span",
-	Short: "DrawableMarginSpanService operations",
-}
-
-var styleDrawableMarginSpanNewDrawableMarginSpanCmd = &cobra.Command{
-	Use:   "new-drawable-margin-span",
-	Short: "NewDrawableMarginSpan RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDrawableMarginSpanServiceClient(grpcConn)
-		req := &pb.NewDrawableMarginSpanRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewDrawableMarginSpan(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleDrawableMarginSpanChooseHeightCmd = &cobra.Command{
-	Use:   "choose-height",
-	Short: "ChooseHeight RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDrawableMarginSpanServiceClient(grpcConn)
-		req := &pb.DrawableMarginSpanChooseHeightRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		resp, err := client.ChooseHeight(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleDrawableMarginSpanDrawLeadingMarginCmd = &cobra.Command{
-	Use:   "draw-leading-margin",
-	Short: "DrawLeadingMargin RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDrawableMarginSpanServiceClient(grpcConn)
-		req := &pb.DrawLeadingMarginRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg6"); err == nil {
-			req.Arg6 = v
-		}
-		if v, err := cmd.Flags().GetString("arg7"); err == nil {
-			req.Arg7 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg8"); err == nil {
-			req.Arg8 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg9"); err == nil {
-			req.Arg9 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg10"); err == nil {
-			req.Arg10 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg11"); err == nil {
-			req.Arg11 = v
-		}
-		resp, err := client.DrawLeadingMargin(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleDrawableMarginSpanGetDrawableCmd = &cobra.Command{
-	Use:   "get-drawable",
-	Short: "GetDrawable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDrawableMarginSpanServiceClient(grpcConn)
-		req := &pb.GetDrawableRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetDrawable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleDrawableMarginSpanGetLeadingMarginCmd = &cobra.Command{
-	Use:   "get-leading-margin",
-	Short: "GetLeadingMargin RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDrawableMarginSpanServiceClient(grpcConn)
-		req := &pb.GetLeadingMarginRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetLeadingMargin(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleDrawableMarginSpanGetPaddingCmd = &cobra.Command{
-	Use:   "get-padding",
-	Short: "GetPadding RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDrawableMarginSpanServiceClient(grpcConn)
-		req := &pb.GetPaddingRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetPadding(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleDrawableMarginSpanToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDrawableMarginSpanServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleReplacementSpanCmd = &cobra.Command{
-	Use:   "replacement-span",
-	Short: "ReplacementSpanService operations",
-}
-
-var styleReplacementSpanDrawCmd = &cobra.Command{
-	Use:   "draw",
-	Short: "Draw RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReplacementSpanServiceClient(grpcConn)
-		req := &pb.DrawRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg6"); err == nil {
-			req.Arg6 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg7"); err == nil {
-			req.Arg7 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg8"); err == nil {
-			req.Arg8 = v
-		}
-		resp, err := client.Draw(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleReplacementSpanGetContentDescriptionCmd = &cobra.Command{
-	Use:   "get-content-description",
-	Short: "GetContentDescription RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReplacementSpanServiceClient(grpcConn)
-		req := &pb.GetContentDescriptionRequest{}
-		resp, err := client.GetContentDescription(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleReplacementSpanGetSizeCmd = &cobra.Command{
-	Use:   "get-size",
-	Short: "GetSize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReplacementSpanServiceClient(grpcConn)
-		req := &pb.ReplacementSpanGetSizeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.GetSize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleReplacementSpanSetContentDescriptionCmd = &cobra.Command{
-	Use:   "set-content-description",
-	Short: "SetContentDescription RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReplacementSpanServiceClient(grpcConn)
-		req := &pb.SetContentDescriptionRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetContentDescription(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleReplacementSpanUpdateDrawStateCmd = &cobra.Command{
-	Use:   "update-draw-state",
-	Short: "UpdateDrawState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReplacementSpanServiceClient(grpcConn)
-		req := &pb.ReplacementSpanUpdateDrawStateRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UpdateDrawState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleReplacementSpanUpdateMeasureStateCmd = &cobra.Command{
-	Use:   "update-measure-state",
-	Short: "UpdateMeasureState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReplacementSpanServiceClient(grpcConn)
-		req := &pb.ReplacementSpanUpdateMeasureStateRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UpdateMeasureState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleForegroundColorSpanCmd = &cobra.Command{
-	Use:   "foreground-color-span",
-	Short: "ForegroundColorSpanService operations",
-}
-
-var styleForegroundColorSpanNewForegroundColorSpanCmd = &cobra.Command{
-	Use:   "new-foreground-color-span",
-	Short: "NewForegroundColorSpan RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewForegroundColorSpanServiceClient(grpcConn)
-		req := &pb.NewForegroundColorSpanRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewForegroundColorSpan(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleForegroundColorSpanDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewForegroundColorSpanServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleForegroundColorSpanGetForegroundColorCmd = &cobra.Command{
-	Use:   "get-foreground-color",
-	Short: "GetForegroundColor RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewForegroundColorSpanServiceClient(grpcConn)
-		req := &pb.GetForegroundColorRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetForegroundColor(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleForegroundColorSpanGetSpanTypeIdCmd = &cobra.Command{
-	Use:   "get-span-type-id",
-	Short: "GetSpanTypeId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewForegroundColorSpanServiceClient(grpcConn)
-		req := &pb.GetSpanTypeIdRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSpanTypeId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleForegroundColorSpanToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewForegroundColorSpanServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleForegroundColorSpanUpdateDrawStateCmd = &cobra.Command{
-	Use:   "update-draw-state",
-	Short: "UpdateDrawState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewForegroundColorSpanServiceClient(grpcConn)
-		req := &pb.UpdateDrawStateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UpdateDrawState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleForegroundColorSpanWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewForegroundColorSpanServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleTypefaceSpanCmd = &cobra.Command{
-	Use:   "typeface-span",
-	Short: "TypefaceSpanService operations",
-}
-
-var styleTypefaceSpanNewTypefaceSpanCmd = &cobra.Command{
-	Use:   "new-typeface-span",
-	Short: "NewTypefaceSpan RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTypefaceSpanServiceClient(grpcConn)
-		req := &pb.NewTypefaceSpanRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewTypefaceSpan(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleTypefaceSpanDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTypefaceSpanServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleTypefaceSpanGetFamilyCmd = &cobra.Command{
-	Use:   "get-family",
-	Short: "GetFamily RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTypefaceSpanServiceClient(grpcConn)
-		req := &pb.GetFamilyRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetFamily(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleTypefaceSpanGetSpanTypeIdCmd = &cobra.Command{
-	Use:   "get-span-type-id",
-	Short: "GetSpanTypeId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTypefaceSpanServiceClient(grpcConn)
-		req := &pb.GetSpanTypeIdRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSpanTypeId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleTypefaceSpanGetTypefaceCmd = &cobra.Command{
-	Use:   "get-typeface",
-	Short: "GetTypeface RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTypefaceSpanServiceClient(grpcConn)
-		req := &pb.GetTypefaceRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetTypeface(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleTypefaceSpanToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTypefaceSpanServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleTypefaceSpanUpdateDrawStateCmd = &cobra.Command{
-	Use:   "update-draw-state",
-	Short: "UpdateDrawState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTypefaceSpanServiceClient(grpcConn)
-		req := &pb.UpdateDrawStateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UpdateDrawState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleTypefaceSpanUpdateMeasureStateCmd = &cobra.Command{
-	Use:   "update-measure-state",
-	Short: "UpdateMeasureState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTypefaceSpanServiceClient(grpcConn)
-		req := &pb.UpdateMeasureStateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UpdateMeasureState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleTypefaceSpanWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTypefaceSpanServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleDynamicDrawableSpanCmd = &cobra.Command{
-	Use:   "dynamic-drawable-span",
-	Short: "DynamicDrawableSpanService operations",
-}
-
-var styleDynamicDrawableSpanDrawCmd = &cobra.Command{
-	Use:   "draw",
-	Short: "Draw RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDynamicDrawableSpanServiceClient(grpcConn)
-		req := &pb.DrawRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg6"); err == nil {
-			req.Arg6 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg7"); err == nil {
-			req.Arg7 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg8"); err == nil {
-			req.Arg8 = v
-		}
-		resp, err := client.Draw(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleDynamicDrawableSpanGetDrawableCmd = &cobra.Command{
-	Use:   "get-drawable",
-	Short: "GetDrawable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDynamicDrawableSpanServiceClient(grpcConn)
-		req := &pb.DynamicDrawableSpanGetDrawableRequest{}
-		resp, err := client.GetDrawable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleDynamicDrawableSpanGetSizeCmd = &cobra.Command{
-	Use:   "get-size",
-	Short: "GetSize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDynamicDrawableSpanServiceClient(grpcConn)
-		req := &pb.DynamicDrawableSpanGetSizeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.GetSize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleDynamicDrawableSpanGetVerticalAlignmentCmd = &cobra.Command{
-	Use:   "get-vertical-alignment",
-	Short: "GetVerticalAlignment RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDynamicDrawableSpanServiceClient(grpcConn)
-		req := &pb.GetVerticalAlignmentRequest{}
-		resp, err := client.GetVerticalAlignment(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleDynamicDrawableSpanToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDynamicDrawableSpanServiceClient(grpcConn)
-		req := &pb.DynamicDrawableSpanToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var styleBulletSpanCmd = &cobra.Command{
 	Use:   "bullet-span",
 	Short: "BulletSpanService operations",
@@ -2608,20 +1362,20 @@ var styleBulletSpanWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var styleUnderlineSpanCmd = &cobra.Command{
-	Use:   "underline-span",
-	Short: "UnderlineSpanService operations",
+var styleStrikethroughSpanCmd = &cobra.Command{
+	Use:   "strikethrough-span",
+	Short: "StrikethroughSpanService operations",
 }
 
-var styleUnderlineSpanNewUnderlineSpanCmd = &cobra.Command{
-	Use:   "new-underline-span",
-	Short: "NewUnderlineSpan RPC",
+var styleStrikethroughSpanNewStrikethroughSpanCmd = &cobra.Command{
+	Use:   "new-strikethrough-span",
+	Short: "NewStrikethroughSpan RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewUnderlineSpanServiceClient(grpcConn)
-		req := &pb.NewUnderlineSpanRequest{}
-		resp, err := client.NewUnderlineSpan(ctx, req)
+		client := pb.NewStrikethroughSpanServiceClient(grpcConn)
+		req := &pb.NewStrikethroughSpanRequest{}
+		resp, err := client.NewStrikethroughSpan(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2629,13 +1383,13 @@ var styleUnderlineSpanNewUnderlineSpanCmd = &cobra.Command{
 	},
 }
 
-var styleUnderlineSpanDescribeContentsCmd = &cobra.Command{
+var styleStrikethroughSpanDescribeContentsCmd = &cobra.Command{
 	Use:   "describe-contents",
 	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewUnderlineSpanServiceClient(grpcConn)
+		client := pb.NewStrikethroughSpanServiceClient(grpcConn)
 		req := &pb.DescribeContentsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -2648,13 +1402,13 @@ var styleUnderlineSpanDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var styleUnderlineSpanGetSpanTypeIdCmd = &cobra.Command{
+var styleStrikethroughSpanGetSpanTypeIdCmd = &cobra.Command{
 	Use:   "get-span-type-id",
 	Short: "GetSpanTypeId RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewUnderlineSpanServiceClient(grpcConn)
+		client := pb.NewStrikethroughSpanServiceClient(grpcConn)
 		req := &pb.GetSpanTypeIdRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -2667,13 +1421,13 @@ var styleUnderlineSpanGetSpanTypeIdCmd = &cobra.Command{
 	},
 }
 
-var styleUnderlineSpanToStringCmd = &cobra.Command{
+var styleStrikethroughSpanToStringCmd = &cobra.Command{
 	Use:   "to-string",
 	Short: "ToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewUnderlineSpanServiceClient(grpcConn)
+		client := pb.NewStrikethroughSpanServiceClient(grpcConn)
 		req := &pb.ToStringRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -2686,13 +1440,13 @@ var styleUnderlineSpanToStringCmd = &cobra.Command{
 	},
 }
 
-var styleUnderlineSpanUpdateDrawStateCmd = &cobra.Command{
+var styleStrikethroughSpanUpdateDrawStateCmd = &cobra.Command{
 	Use:   "update-draw-state",
 	Short: "UpdateDrawState RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewUnderlineSpanServiceClient(grpcConn)
+		client := pb.NewStrikethroughSpanServiceClient(grpcConn)
 		req := &pb.UpdateDrawStateRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -2708,13 +1462,13 @@ var styleUnderlineSpanUpdateDrawStateCmd = &cobra.Command{
 	},
 }
 
-var styleUnderlineSpanWriteToParcelCmd = &cobra.Command{
+var styleStrikethroughSpanWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewUnderlineSpanServiceClient(grpcConn)
+		client := pb.NewStrikethroughSpanServiceClient(grpcConn)
 		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -2733,23 +1487,23 @@ var styleUnderlineSpanWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var styleLineBackgroundSpanCmd = &cobra.Command{
-	Use:   "line-background-span",
-	Short: "LineBackgroundSpanService operations",
+var styleDynamicDrawableSpanCmd = &cobra.Command{
+	Use:   "dynamic-drawable-span",
+	Short: "DynamicDrawableSpanService operations",
 }
 
-var styleLineBackgroundSpanDrawBackgroundCmd = &cobra.Command{
-	Use:   "draw-background",
-	Short: "DrawBackground RPC",
+var styleDynamicDrawableSpanDrawCmd = &cobra.Command{
+	Use:   "draw",
+	Short: "Draw RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewLineBackgroundSpanServiceClient(grpcConn)
-		req := &pb.DrawBackgroundRequest{}
+		client := pb.NewDynamicDrawableSpanServiceClient(grpcConn)
+		req := &pb.DrawRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
 			req.Arg1 = v
 		}
 		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
@@ -2758,7 +1512,7 @@ var styleLineBackgroundSpanDrawBackgroundCmd = &cobra.Command{
 		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
 			req.Arg3 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+		if v, err := cmd.Flags().GetFloat32("arg4"); err == nil {
 			req.Arg4 = v
 		}
 		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
@@ -2767,19 +1521,13 @@ var styleLineBackgroundSpanDrawBackgroundCmd = &cobra.Command{
 		if v, err := cmd.Flags().GetInt32("arg6"); err == nil {
 			req.Arg6 = v
 		}
-		if v, err := cmd.Flags().GetString("arg7"); err == nil {
+		if v, err := cmd.Flags().GetInt32("arg7"); err == nil {
 			req.Arg7 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg8"); err == nil {
+		if v, err := cmd.Flags().GetInt64("arg8"); err == nil {
 			req.Arg8 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg9"); err == nil {
-			req.Arg9 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg10"); err == nil {
-			req.Arg10 = v
-		}
-		resp, err := client.DrawBackground(ctx, req)
+		resp, err := client.Draw(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2787,20 +1535,15 @@ var styleLineBackgroundSpanDrawBackgroundCmd = &cobra.Command{
 	},
 }
 
-var styleLineBackgroundSpanStandardCmd = &cobra.Command{
-	Use:   "line-background-span-standard",
-	Short: "LineBackgroundSpanStandardService operations",
-}
-
-var styleLineBackgroundSpanStandardDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
+var styleDynamicDrawableSpanGetDrawableCmd = &cobra.Command{
+	Use:   "get-drawable",
+	Short: "GetDrawable RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewLineBackgroundSpanStandardServiceClient(grpcConn)
-		req := &pb.LineBackgroundSpanStandardDescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
+		client := pb.NewDynamicDrawableSpanServiceClient(grpcConn)
+		req := &pb.GetDrawableRequest{}
+		resp, err := client.GetDrawable(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2808,18 +1551,18 @@ var styleLineBackgroundSpanStandardDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var styleLineBackgroundSpanStandardDrawBackgroundCmd = &cobra.Command{
-	Use:   "draw-background",
-	Short: "DrawBackground RPC",
+var styleDynamicDrawableSpanGetSizeCmd = &cobra.Command{
+	Use:   "get-size",
+	Short: "GetSize RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewLineBackgroundSpanStandardServiceClient(grpcConn)
-		req := &pb.DrawBackgroundRequest{}
+		client := pb.NewDynamicDrawableSpanServiceClient(grpcConn)
+		req := &pb.GetSizeRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
 			req.Arg1 = v
 		}
 		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
@@ -2828,28 +1571,10 @@ var styleLineBackgroundSpanStandardDrawBackgroundCmd = &cobra.Command{
 		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
 			req.Arg3 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
 			req.Arg4 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg6"); err == nil {
-			req.Arg6 = v
-		}
-		if v, err := cmd.Flags().GetString("arg7"); err == nil {
-			req.Arg7 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg8"); err == nil {
-			req.Arg8 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg9"); err == nil {
-			req.Arg9 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg10"); err == nil {
-			req.Arg10 = v
-		}
-		resp, err := client.DrawBackground(ctx, req)
+		resp, err := client.GetSize(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2857,15 +1582,15 @@ var styleLineBackgroundSpanStandardDrawBackgroundCmd = &cobra.Command{
 	},
 }
 
-var styleLineBackgroundSpanStandardGetColorCmd = &cobra.Command{
-	Use:   "get-color",
-	Short: "GetColor RPC",
+var styleDynamicDrawableSpanGetVerticalAlignmentCmd = &cobra.Command{
+	Use:   "get-vertical-alignment",
+	Short: "GetVerticalAlignment RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewLineBackgroundSpanStandardServiceClient(grpcConn)
-		req := &pb.LineBackgroundSpanStandardGetColorRequest{}
-		resp, err := client.GetColor(ctx, req)
+		client := pb.NewDynamicDrawableSpanServiceClient(grpcConn)
+		req := &pb.GetVerticalAlignmentRequest{}
+		resp, err := client.GetVerticalAlignment(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2873,76 +1598,14 @@ var styleLineBackgroundSpanStandardGetColorCmd = &cobra.Command{
 	},
 }
 
-var styleLineBackgroundSpanStandardGetSpanTypeIdCmd = &cobra.Command{
-	Use:   "get-span-type-id",
-	Short: "GetSpanTypeId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLineBackgroundSpanStandardServiceClient(grpcConn)
-		req := &pb.LineBackgroundSpanStandardGetSpanTypeIdRequest{}
-		resp, err := client.GetSpanTypeId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleLineBackgroundSpanStandardWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLineBackgroundSpanStandardServiceClient(grpcConn)
-		req := &pb.LineBackgroundSpanStandardWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleClickableSpanCmd = &cobra.Command{
-	Use:   "clickable-span",
-	Short: "ClickableSpanService operations",
-}
-
-var styleClickableSpanOnClickCmd = &cobra.Command{
-	Use:   "on-click",
-	Short: "OnClick RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewClickableSpanServiceClient(grpcConn)
-		req := &pb.OnClickRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnClick(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleClickableSpanToStringCmd = &cobra.Command{
+var styleDynamicDrawableSpanToStringCmd = &cobra.Command{
 	Use:   "to-string",
 	Short: "ToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewClickableSpanServiceClient(grpcConn)
-		req := &pb.ClickableSpanToStringRequest{}
+		client := pb.NewDynamicDrawableSpanServiceClient(grpcConn)
+		req := &pb.DynamicDrawableSpanToStringRequest{}
 		resp, err := client.ToString(ctx, req)
 		if err != nil {
 			return err
@@ -2951,18 +1614,20 @@ var styleClickableSpanToStringCmd = &cobra.Command{
 	},
 }
 
-var styleClickableSpanUpdateDrawStateCmd = &cobra.Command{
-	Use:   "update-draw-state",
-	Short: "UpdateDrawState RPC",
+var styleTabStopSpanCmd = &cobra.Command{
+	Use:   "tab-stop-span",
+	Short: "TabStopSpanService operations",
+}
+
+var styleTabStopSpanGetTabStopCmd = &cobra.Command{
+	Use:   "get-tab-stop",
+	Short: "GetTabStop RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewClickableSpanServiceClient(grpcConn)
-		req := &pb.ClickableSpanUpdateDrawStateRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UpdateDrawState(ctx, req)
+		client := pb.NewTabStopSpanServiceClient(grpcConn)
+		req := &pb.GetTabStopRequest{}
+		resp, err := client.GetTabStop(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2970,23 +1635,20 @@ var styleClickableSpanUpdateDrawStateCmd = &cobra.Command{
 	},
 }
 
-var styleSpanCmd = &cobra.Command{
-	Use:   "span",
-	Short: "SpanService operations",
+var styleTabStopSpanStandardCmd = &cobra.Command{
+	Use:   "tab-stop-span-standard",
+	Short: "TabStopSpanStandardService operations",
 }
 
-var styleSpanNewSpanCmd = &cobra.Command{
-	Use:   "new-span",
-	Short: "NewSpan RPC",
+var styleTabStopSpanStandardGetTabStopCmd = &cobra.Command{
+	Use:   "get-tab-stop",
+	Short: "GetTabStop RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSpanServiceClient(grpcConn)
-		req := &pb.NewSpanRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewSpan(ctx, req)
+		client := pb.NewTabStopSpanStandardServiceClient(grpcConn)
+		req := &pb.GetTabStopRequest{}
+		resp, err := client.GetTabStop(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2994,13 +1656,50 @@ var styleSpanNewSpanCmd = &cobra.Command{
 	},
 }
 
-var styleSpanDescribeContentsCmd = &cobra.Command{
+var styleTabStopSpanStandardToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTabStopSpanStandardServiceClient(grpcConn)
+		req := &pb.TabStopSpanStandardToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleSubscriptSpanCmd = &cobra.Command{
+	Use:   "subscript-span",
+	Short: "SubscriptSpanService operations",
+}
+
+var styleSubscriptSpanNewSubscriptSpanCmd = &cobra.Command{
+	Use:   "new-subscript-span",
+	Short: "NewSubscriptSpan RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscriptSpanServiceClient(grpcConn)
+		req := &pb.NewSubscriptSpanRequest{}
+		resp, err := client.NewSubscriptSpan(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleSubscriptSpanDescribeContentsCmd = &cobra.Command{
 	Use:   "describe-contents",
 	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSpanServiceClient(grpcConn)
+		client := pb.NewSubscriptSpanServiceClient(grpcConn)
 		req := &pb.DescribeContentsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -3013,32 +1712,13 @@ var styleSpanDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var styleSpanGetFontWeightAdjustmentCmd = &cobra.Command{
-	Use:   "get-font-weight-adjustment",
-	Short: "GetFontWeightAdjustment RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSpanServiceClient(grpcConn)
-		req := &pb.GetFontWeightAdjustmentRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetFontWeightAdjustment(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleSpanGetSpanTypeIdCmd = &cobra.Command{
+var styleSubscriptSpanGetSpanTypeIdCmd = &cobra.Command{
 	Use:   "get-span-type-id",
 	Short: "GetSpanTypeId RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSpanServiceClient(grpcConn)
+		client := pb.NewSubscriptSpanServiceClient(grpcConn)
 		req := &pb.GetSpanTypeIdRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -3051,32 +1731,13 @@ var styleSpanGetSpanTypeIdCmd = &cobra.Command{
 	},
 }
 
-var styleSpanGetStyleCmd = &cobra.Command{
-	Use:   "get-style",
-	Short: "GetStyle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSpanServiceClient(grpcConn)
-		req := &pb.GetStyleRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetStyle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleSpanToStringCmd = &cobra.Command{
+var styleSubscriptSpanToStringCmd = &cobra.Command{
 	Use:   "to-string",
 	Short: "ToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSpanServiceClient(grpcConn)
+		client := pb.NewSubscriptSpanServiceClient(grpcConn)
 		req := &pb.ToStringRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -3089,13 +1750,13 @@ var styleSpanToStringCmd = &cobra.Command{
 	},
 }
 
-var styleSpanUpdateDrawStateCmd = &cobra.Command{
+var styleSubscriptSpanUpdateDrawStateCmd = &cobra.Command{
 	Use:   "update-draw-state",
 	Short: "UpdateDrawState RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSpanServiceClient(grpcConn)
+		client := pb.NewSubscriptSpanServiceClient(grpcConn)
 		req := &pb.UpdateDrawStateRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -3111,13 +1772,13 @@ var styleSpanUpdateDrawStateCmd = &cobra.Command{
 	},
 }
 
-var styleSpanUpdateMeasureStateCmd = &cobra.Command{
+var styleSubscriptSpanUpdateMeasureStateCmd = &cobra.Command{
 	Use:   "update-measure-state",
 	Short: "UpdateMeasureState RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSpanServiceClient(grpcConn)
+		client := pb.NewSubscriptSpanServiceClient(grpcConn)
 		req := &pb.UpdateMeasureStateRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -3133,13 +1794,13 @@ var styleSpanUpdateMeasureStateCmd = &cobra.Command{
 	},
 }
 
-var styleSpanWriteToParcelCmd = &cobra.Command{
+var styleSubscriptSpanWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSpanServiceClient(grpcConn)
+		client := pb.NewSubscriptSpanServiceClient(grpcConn)
 		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -3158,29 +1819,20 @@ var styleSpanWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var styleSuggestionSpanCmd = &cobra.Command{
-	Use:   "suggestion-span",
-	Short: "SuggestionSpanService operations",
+var styleSuggestionRangeSpanCmd = &cobra.Command{
+	Use:   "suggestion-range-span",
+	Short: "SuggestionRangeSpanService operations",
 }
 
-var styleSuggestionSpanNewSuggestionSpanCmd = &cobra.Command{
-	Use:   "new-suggestion-span",
-	Short: "NewSuggestionSpan RPC",
+var styleSuggestionRangeSpanNewSuggestionRangeSpanCmd = &cobra.Command{
+	Use:   "new-suggestion-range-span",
+	Short: "NewSuggestionRangeSpan RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSuggestionSpanServiceClient(grpcConn)
-		req := &pb.NewSuggestionSpanRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.NewSuggestionSpan(ctx, req)
+		client := pb.NewSuggestionRangeSpanServiceClient(grpcConn)
+		req := &pb.NewSuggestionRangeSpanRequest{}
+		resp, err := client.NewSuggestionRangeSpan(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3188,13 +1840,13 @@ var styleSuggestionSpanNewSuggestionSpanCmd = &cobra.Command{
 	},
 }
 
-var styleSuggestionSpanDescribeContentsCmd = &cobra.Command{
+var styleSuggestionRangeSpanDescribeContentsCmd = &cobra.Command{
 	Use:   "describe-contents",
 	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSuggestionSpanServiceClient(grpcConn)
+		client := pb.NewSuggestionRangeSpanServiceClient(grpcConn)
 		req := &pb.DescribeContentsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -3207,21 +1859,18 @@ var styleSuggestionSpanDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var styleSuggestionSpanEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
+var styleSuggestionRangeSpanGetBackgroundColorCmd = &cobra.Command{
+	Use:   "get-background-color",
+	Short: "GetBackgroundColor RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSuggestionSpanServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
+		client := pb.NewSuggestionRangeSpanServiceClient(grpcConn)
+		req := &pb.GetBackgroundColorRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
+		resp, err := client.GetBackgroundColor(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3229,70 +1878,13 @@ var styleSuggestionSpanEqualsCmd = &cobra.Command{
 	},
 }
 
-var styleSuggestionSpanGetFlagsCmd = &cobra.Command{
-	Use:   "get-flags",
-	Short: "GetFlags RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSuggestionSpanServiceClient(grpcConn)
-		req := &pb.GetFlagsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetFlags(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleSuggestionSpanGetLocaleCmd = &cobra.Command{
-	Use:   "get-locale",
-	Short: "GetLocale RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSuggestionSpanServiceClient(grpcConn)
-		req := &pb.GetLocaleRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetLocale(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleSuggestionSpanGetLocaleObjectCmd = &cobra.Command{
-	Use:   "get-locale-object",
-	Short: "GetLocaleObject RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSuggestionSpanServiceClient(grpcConn)
-		req := &pb.GetLocaleObjectRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetLocaleObject(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleSuggestionSpanGetSpanTypeIdCmd = &cobra.Command{
+var styleSuggestionRangeSpanGetSpanTypeIdCmd = &cobra.Command{
 	Use:   "get-span-type-id",
 	Short: "GetSpanTypeId RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSuggestionSpanServiceClient(grpcConn)
+		client := pb.NewSuggestionRangeSpanServiceClient(grpcConn)
 		req := &pb.GetSpanTypeIdRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -3305,78 +1897,21 @@ var styleSuggestionSpanGetSpanTypeIdCmd = &cobra.Command{
 	},
 }
 
-var styleSuggestionSpanGetSuggestionsCmd = &cobra.Command{
-	Use:   "get-suggestions",
-	Short: "GetSuggestions RPC",
+var styleSuggestionRangeSpanSetBackgroundColorCmd = &cobra.Command{
+	Use:   "set-background-color",
+	Short: "SetBackgroundColor RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSuggestionSpanServiceClient(grpcConn)
-		req := &pb.GetSuggestionsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSuggestions(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleSuggestionSpanGetUnderlineColorCmd = &cobra.Command{
-	Use:   "get-underline-color",
-	Short: "GetUnderlineColor RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSuggestionSpanServiceClient(grpcConn)
-		req := &pb.GetUnderlineColorRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetUnderlineColor(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleSuggestionSpanHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSuggestionSpanServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleSuggestionSpanSetFlagsCmd = &cobra.Command{
-	Use:   "set-flags",
-	Short: "SetFlags RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSuggestionSpanServiceClient(grpcConn)
-		req := &pb.SetFlagsRequest{}
+		client := pb.NewSuggestionRangeSpanServiceClient(grpcConn)
+		req := &pb.SetBackgroundColorRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetFlags(ctx, req)
+		resp, err := client.SetBackgroundColor(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3384,13 +1919,13 @@ var styleSuggestionSpanSetFlagsCmd = &cobra.Command{
 	},
 }
 
-var styleSuggestionSpanUpdateDrawStateCmd = &cobra.Command{
+var styleSuggestionRangeSpanUpdateDrawStateCmd = &cobra.Command{
 	Use:   "update-draw-state",
 	Short: "UpdateDrawState RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSuggestionSpanServiceClient(grpcConn)
+		client := pb.NewSuggestionRangeSpanServiceClient(grpcConn)
 		req := &pb.UpdateDrawStateRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -3406,13 +1941,13 @@ var styleSuggestionSpanUpdateDrawStateCmd = &cobra.Command{
 	},
 }
 
-var styleSuggestionSpanWriteToParcelCmd = &cobra.Command{
+var styleSuggestionRangeSpanWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSuggestionSpanServiceClient(grpcConn)
+		client := pb.NewSuggestionRangeSpanServiceClient(grpcConn)
 		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -3635,81 +2170,23 @@ var styleLineBreakConfigSpanCreateNoHyphenationSpanCmd = &cobra.Command{
 	},
 }
 
-var styleTabStopSpanCmd = &cobra.Command{
-	Use:   "tab-stop-span",
-	Short: "TabStopSpanService operations",
+var styleSpanCmd = &cobra.Command{
+	Use:   "span",
+	Short: "SpanService operations",
 }
 
-var styleTabStopSpanGetTabStopCmd = &cobra.Command{
-	Use:   "get-tab-stop",
-	Short: "GetTabStop RPC",
+var styleSpanNewSpanCmd = &cobra.Command{
+	Use:   "new-span",
+	Short: "NewSpan RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTabStopSpanServiceClient(grpcConn)
-		req := &pb.GetTabStopRequest{}
-		resp, err := client.GetTabStop(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleTabStopSpanStandardCmd = &cobra.Command{
-	Use:   "tab-stop-span-standard",
-	Short: "TabStopSpanStandardService operations",
-}
-
-var styleTabStopSpanStandardGetTabStopCmd = &cobra.Command{
-	Use:   "get-tab-stop",
-	Short: "GetTabStop RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTabStopSpanStandardServiceClient(grpcConn)
-		req := &pb.GetTabStopRequest{}
-		resp, err := client.GetTabStop(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleTabStopSpanStandardToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTabStopSpanStandardServiceClient(grpcConn)
-		req := &pb.TabStopSpanStandardToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleScaleXSpanCmd = &cobra.Command{
-	Use:   "scale-x-span",
-	Short: "ScaleXSpanService operations",
-}
-
-var styleScaleXSpanNewScaleXSpanCmd = &cobra.Command{
-	Use:   "new-scale-x-span",
-	Short: "NewScaleXSpan RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewScaleXSpanServiceClient(grpcConn)
-		req := &pb.NewScaleXSpanRequest{}
+		client := pb.NewSpanServiceClient(grpcConn)
+		req := &pb.NewSpanRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.NewScaleXSpan(ctx, req)
+		resp, err := client.NewSpan(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3717,13 +2194,13 @@ var styleScaleXSpanNewScaleXSpanCmd = &cobra.Command{
 	},
 }
 
-var styleScaleXSpanDescribeContentsCmd = &cobra.Command{
+var styleSpanDescribeContentsCmd = &cobra.Command{
 	Use:   "describe-contents",
 	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScaleXSpanServiceClient(grpcConn)
+		client := pb.NewSpanServiceClient(grpcConn)
 		req := &pb.DescribeContentsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -3736,18 +2213,18 @@ var styleScaleXSpanDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var styleScaleXSpanGetScaleXCmd = &cobra.Command{
-	Use:   "get-scale-x",
-	Short: "GetScaleX RPC",
+var styleSpanGetFontWeightAdjustmentCmd = &cobra.Command{
+	Use:   "get-font-weight-adjustment",
+	Short: "GetFontWeightAdjustment RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScaleXSpanServiceClient(grpcConn)
-		req := &pb.GetScaleXRequest{}
+		client := pb.NewSpanServiceClient(grpcConn)
+		req := &pb.GetFontWeightAdjustmentRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetScaleX(ctx, req)
+		resp, err := client.GetFontWeightAdjustment(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3755,13 +2232,13 @@ var styleScaleXSpanGetScaleXCmd = &cobra.Command{
 	},
 }
 
-var styleScaleXSpanGetSpanTypeIdCmd = &cobra.Command{
+var styleSpanGetSpanTypeIdCmd = &cobra.Command{
 	Use:   "get-span-type-id",
 	Short: "GetSpanTypeId RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScaleXSpanServiceClient(grpcConn)
+		client := pb.NewSpanServiceClient(grpcConn)
 		req := &pb.GetSpanTypeIdRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -3774,13 +2251,32 @@ var styleScaleXSpanGetSpanTypeIdCmd = &cobra.Command{
 	},
 }
 
-var styleScaleXSpanToStringCmd = &cobra.Command{
+var styleSpanGetStyleCmd = &cobra.Command{
+	Use:   "get-style",
+	Short: "GetStyle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSpanServiceClient(grpcConn)
+		req := &pb.GetStyleRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetStyle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleSpanToStringCmd = &cobra.Command{
 	Use:   "to-string",
 	Short: "ToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScaleXSpanServiceClient(grpcConn)
+		client := pb.NewSpanServiceClient(grpcConn)
 		req := &pb.ToStringRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -3793,13 +2289,13 @@ var styleScaleXSpanToStringCmd = &cobra.Command{
 	},
 }
 
-var styleScaleXSpanUpdateDrawStateCmd = &cobra.Command{
+var styleSpanUpdateDrawStateCmd = &cobra.Command{
 	Use:   "update-draw-state",
 	Short: "UpdateDrawState RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScaleXSpanServiceClient(grpcConn)
+		client := pb.NewSpanServiceClient(grpcConn)
 		req := &pb.UpdateDrawStateRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -3815,13 +2311,13 @@ var styleScaleXSpanUpdateDrawStateCmd = &cobra.Command{
 	},
 }
 
-var styleScaleXSpanUpdateMeasureStateCmd = &cobra.Command{
+var styleSpanUpdateMeasureStateCmd = &cobra.Command{
 	Use:   "update-measure-state",
 	Short: "UpdateMeasureState RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScaleXSpanServiceClient(grpcConn)
+		client := pb.NewSpanServiceClient(grpcConn)
 		req := &pb.UpdateMeasureStateRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -3837,854 +2333,13 @@ var styleScaleXSpanUpdateMeasureStateCmd = &cobra.Command{
 	},
 }
 
-var styleScaleXSpanWriteToParcelCmd = &cobra.Command{
+var styleSpanWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewScaleXSpanServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleImageSpanCmd = &cobra.Command{
-	Use:   "image-span",
-	Short: "ImageSpanService operations",
-}
-
-var styleImageSpanNewImageSpanCmd = &cobra.Command{
-	Use:   "new-image-span",
-	Short: "NewImageSpan RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewImageSpanServiceClient(grpcConn)
-		req := &pb.NewImageSpanRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewImageSpan(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleImageSpanGetDrawableCmd = &cobra.Command{
-	Use:   "get-drawable",
-	Short: "GetDrawable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewImageSpanServiceClient(grpcConn)
-		req := &pb.GetDrawableRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetDrawable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleImageSpanGetSourceCmd = &cobra.Command{
-	Use:   "get-source",
-	Short: "GetSource RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewImageSpanServiceClient(grpcConn)
-		req := &pb.GetSourceRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSource(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleImageSpanToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewImageSpanServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleLeadingMarginSpanCmd = &cobra.Command{
-	Use:   "leading-margin-span",
-	Short: "LeadingMarginSpanService operations",
-}
-
-var styleLeadingMarginSpanDrawLeadingMarginCmd = &cobra.Command{
-	Use:   "draw-leading-margin",
-	Short: "DrawLeadingMargin RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLeadingMarginSpanServiceClient(grpcConn)
-		req := &pb.LeadingMarginSpanDrawLeadingMarginRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg6"); err == nil {
-			req.Arg6 = v
-		}
-		if v, err := cmd.Flags().GetString("arg7"); err == nil {
-			req.Arg7 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg8"); err == nil {
-			req.Arg8 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg9"); err == nil {
-			req.Arg9 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg10"); err == nil {
-			req.Arg10 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg11"); err == nil {
-			req.Arg11 = v
-		}
-		resp, err := client.DrawLeadingMargin(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleLeadingMarginSpanGetLeadingMarginCmd = &cobra.Command{
-	Use:   "get-leading-margin",
-	Short: "GetLeadingMargin RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLeadingMarginSpanServiceClient(grpcConn)
-		req := &pb.LeadingMarginSpanGetLeadingMarginRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetLeadingMargin(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleLeadingMarginSpanLeadingMarginSpan2Cmd = &cobra.Command{
-	Use:   "leading-margin-span-leading-margin-span2",
-	Short: "LeadingMarginSpanLeadingMarginSpan2Service operations",
-}
-
-var styleLeadingMarginSpanLeadingMarginSpan2GetLeadingMarginLineCountCmd = &cobra.Command{
-	Use:   "get-leading-margin-line-count",
-	Short: "GetLeadingMarginLineCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLeadingMarginSpanLeadingMarginSpan2ServiceClient(grpcConn)
-		req := &pb.GetLeadingMarginLineCountRequest{}
-		resp, err := client.GetLeadingMarginLineCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleLeadingMarginSpanStandardCmd = &cobra.Command{
-	Use:   "leading-margin-span-standard",
-	Short: "LeadingMarginSpanStandardService operations",
-}
-
-var styleLeadingMarginSpanStandardDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLeadingMarginSpanStandardServiceClient(grpcConn)
-		req := &pb.LeadingMarginSpanStandardDescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleLeadingMarginSpanStandardDrawLeadingMarginCmd = &cobra.Command{
-	Use:   "draw-leading-margin",
-	Short: "DrawLeadingMargin RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLeadingMarginSpanStandardServiceClient(grpcConn)
-		req := &pb.LeadingMarginSpanStandardDrawLeadingMarginRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg6"); err == nil {
-			req.Arg6 = v
-		}
-		if v, err := cmd.Flags().GetString("arg7"); err == nil {
-			req.Arg7 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg8"); err == nil {
-			req.Arg8 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg9"); err == nil {
-			req.Arg9 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg10"); err == nil {
-			req.Arg10 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg11"); err == nil {
-			req.Arg11 = v
-		}
-		resp, err := client.DrawLeadingMargin(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleLeadingMarginSpanStandardGetLeadingMarginCmd = &cobra.Command{
-	Use:   "get-leading-margin",
-	Short: "GetLeadingMargin RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLeadingMarginSpanStandardServiceClient(grpcConn)
-		req := &pb.LeadingMarginSpanStandardGetLeadingMarginRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetLeadingMargin(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleLeadingMarginSpanStandardGetSpanTypeIdCmd = &cobra.Command{
-	Use:   "get-span-type-id",
-	Short: "GetSpanTypeId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLeadingMarginSpanStandardServiceClient(grpcConn)
-		req := &pb.LeadingMarginSpanStandardGetSpanTypeIdRequest{}
-		resp, err := client.GetSpanTypeId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleLeadingMarginSpanStandardWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLeadingMarginSpanStandardServiceClient(grpcConn)
-		req := &pb.LeadingMarginSpanStandardWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleIconMarginSpanCmd = &cobra.Command{
-	Use:   "icon-margin-span",
-	Short: "IconMarginSpanService operations",
-}
-
-var styleIconMarginSpanNewIconMarginSpanCmd = &cobra.Command{
-	Use:   "new-icon-margin-span",
-	Short: "NewIconMarginSpan RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIconMarginSpanServiceClient(grpcConn)
-		req := &pb.NewIconMarginSpanRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewIconMarginSpan(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleIconMarginSpanChooseHeightCmd = &cobra.Command{
-	Use:   "choose-height",
-	Short: "ChooseHeight RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIconMarginSpanServiceClient(grpcConn)
-		req := &pb.IconMarginSpanChooseHeightRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		resp, err := client.ChooseHeight(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleIconMarginSpanDrawLeadingMarginCmd = &cobra.Command{
-	Use:   "draw-leading-margin",
-	Short: "DrawLeadingMargin RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIconMarginSpanServiceClient(grpcConn)
-		req := &pb.DrawLeadingMarginRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg6"); err == nil {
-			req.Arg6 = v
-		}
-		if v, err := cmd.Flags().GetString("arg7"); err == nil {
-			req.Arg7 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg8"); err == nil {
-			req.Arg8 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg9"); err == nil {
-			req.Arg9 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg10"); err == nil {
-			req.Arg10 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg11"); err == nil {
-			req.Arg11 = v
-		}
-		resp, err := client.DrawLeadingMargin(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleIconMarginSpanGetBitmapCmd = &cobra.Command{
-	Use:   "get-bitmap",
-	Short: "GetBitmap RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIconMarginSpanServiceClient(grpcConn)
-		req := &pb.GetBitmapRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetBitmap(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleIconMarginSpanGetLeadingMarginCmd = &cobra.Command{
-	Use:   "get-leading-margin",
-	Short: "GetLeadingMargin RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIconMarginSpanServiceClient(grpcConn)
-		req := &pb.GetLeadingMarginRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetLeadingMargin(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleIconMarginSpanGetPaddingCmd = &cobra.Command{
-	Use:   "get-padding",
-	Short: "GetPadding RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIconMarginSpanServiceClient(grpcConn)
-		req := &pb.GetPaddingRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetPadding(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleIconMarginSpanToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIconMarginSpanServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleLocaleSpanCmd = &cobra.Command{
-	Use:   "locale-span",
-	Short: "LocaleSpanService operations",
-}
-
-var styleLocaleSpanNewLocaleSpanCmd = &cobra.Command{
-	Use:   "new-locale-span",
-	Short: "NewLocaleSpan RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLocaleSpanServiceClient(grpcConn)
-		req := &pb.NewLocaleSpanRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewLocaleSpan(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleLocaleSpanDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLocaleSpanServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleLocaleSpanGetLocaleCmd = &cobra.Command{
-	Use:   "get-locale",
-	Short: "GetLocale RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLocaleSpanServiceClient(grpcConn)
-		req := &pb.GetLocaleRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetLocale(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleLocaleSpanGetLocalesCmd = &cobra.Command{
-	Use:   "get-locales",
-	Short: "GetLocales RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLocaleSpanServiceClient(grpcConn)
-		req := &pb.GetLocalesRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetLocales(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleLocaleSpanGetSpanTypeIdCmd = &cobra.Command{
-	Use:   "get-span-type-id",
-	Short: "GetSpanTypeId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLocaleSpanServiceClient(grpcConn)
-		req := &pb.GetSpanTypeIdRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSpanTypeId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleLocaleSpanToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLocaleSpanServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleLocaleSpanUpdateDrawStateCmd = &cobra.Command{
-	Use:   "update-draw-state",
-	Short: "UpdateDrawState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLocaleSpanServiceClient(grpcConn)
-		req := &pb.UpdateDrawStateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UpdateDrawState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleLocaleSpanUpdateMeasureStateCmd = &cobra.Command{
-	Use:   "update-measure-state",
-	Short: "UpdateMeasureState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLocaleSpanServiceClient(grpcConn)
-		req := &pb.UpdateMeasureStateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UpdateMeasureState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleLocaleSpanWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLocaleSpanServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleSuperscriptSpanCmd = &cobra.Command{
-	Use:   "superscript-span",
-	Short: "SuperscriptSpanService operations",
-}
-
-var styleSuperscriptSpanNewSuperscriptSpanCmd = &cobra.Command{
-	Use:   "new-superscript-span",
-	Short: "NewSuperscriptSpan RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSuperscriptSpanServiceClient(grpcConn)
-		req := &pb.NewSuperscriptSpanRequest{}
-		resp, err := client.NewSuperscriptSpan(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleSuperscriptSpanDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSuperscriptSpanServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleSuperscriptSpanGetSpanTypeIdCmd = &cobra.Command{
-	Use:   "get-span-type-id",
-	Short: "GetSpanTypeId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSuperscriptSpanServiceClient(grpcConn)
-		req := &pb.GetSpanTypeIdRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSpanTypeId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleSuperscriptSpanToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSuperscriptSpanServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleSuperscriptSpanUpdateDrawStateCmd = &cobra.Command{
-	Use:   "update-draw-state",
-	Short: "UpdateDrawState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSuperscriptSpanServiceClient(grpcConn)
-		req := &pb.UpdateDrawStateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UpdateDrawState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleSuperscriptSpanUpdateMeasureStateCmd = &cobra.Command{
-	Use:   "update-measure-state",
-	Short: "UpdateMeasureState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSuperscriptSpanServiceClient(grpcConn)
-		req := &pb.UpdateMeasureStateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UpdateMeasureState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleSuperscriptSpanWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSuperscriptSpanServiceClient(grpcConn)
+		client := pb.NewSpanServiceClient(grpcConn)
 		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -5954,20 +3609,23 @@ var styleTtsSpanVerbatimBuilderSetVerbatimCmd = &cobra.Command{
 	},
 }
 
-var styleSuggestionRangeSpanCmd = &cobra.Command{
-	Use:   "suggestion-range-span",
-	Short: "SuggestionRangeSpanService operations",
+var styleRelativeSizeSpanCmd = &cobra.Command{
+	Use:   "relative-size-span",
+	Short: "RelativeSizeSpanService operations",
 }
 
-var styleSuggestionRangeSpanNewSuggestionRangeSpanCmd = &cobra.Command{
-	Use:   "new-suggestion-range-span",
-	Short: "NewSuggestionRangeSpan RPC",
+var styleRelativeSizeSpanNewRelativeSizeSpanCmd = &cobra.Command{
+	Use:   "new-relative-size-span",
+	Short: "NewRelativeSizeSpan RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSuggestionRangeSpanServiceClient(grpcConn)
-		req := &pb.NewSuggestionRangeSpanRequest{}
-		resp, err := client.NewSuggestionRangeSpan(ctx, req)
+		client := pb.NewRelativeSizeSpanServiceClient(grpcConn)
+		req := &pb.NewRelativeSizeSpanRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewRelativeSizeSpan(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -5975,13 +3633,13 @@ var styleSuggestionRangeSpanNewSuggestionRangeSpanCmd = &cobra.Command{
 	},
 }
 
-var styleSuggestionRangeSpanDescribeContentsCmd = &cobra.Command{
+var styleRelativeSizeSpanDescribeContentsCmd = &cobra.Command{
 	Use:   "describe-contents",
 	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSuggestionRangeSpanServiceClient(grpcConn)
+		client := pb.NewRelativeSizeSpanServiceClient(grpcConn)
 		req := &pb.DescribeContentsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -5994,18 +3652,18 @@ var styleSuggestionRangeSpanDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var styleSuggestionRangeSpanGetBackgroundColorCmd = &cobra.Command{
-	Use:   "get-background-color",
-	Short: "GetBackgroundColor RPC",
+var styleRelativeSizeSpanGetSizeChangeCmd = &cobra.Command{
+	Use:   "get-size-change",
+	Short: "GetSizeChange RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSuggestionRangeSpanServiceClient(grpcConn)
-		req := &pb.GetBackgroundColorRequest{}
+		client := pb.NewRelativeSizeSpanServiceClient(grpcConn)
+		req := &pb.GetSizeChangeRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.GetBackgroundColor(ctx, req)
+		resp, err := client.GetSizeChange(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -6013,13 +3671,13 @@ var styleSuggestionRangeSpanGetBackgroundColorCmd = &cobra.Command{
 	},
 }
 
-var styleSuggestionRangeSpanGetSpanTypeIdCmd = &cobra.Command{
+var styleRelativeSizeSpanGetSpanTypeIdCmd = &cobra.Command{
 	Use:   "get-span-type-id",
 	Short: "GetSpanTypeId RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSuggestionRangeSpanServiceClient(grpcConn)
+		client := pb.NewRelativeSizeSpanServiceClient(grpcConn)
 		req := &pb.GetSpanTypeIdRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -6032,21 +3690,18 @@ var styleSuggestionRangeSpanGetSpanTypeIdCmd = &cobra.Command{
 	},
 }
 
-var styleSuggestionRangeSpanSetBackgroundColorCmd = &cobra.Command{
-	Use:   "set-background-color",
-	Short: "SetBackgroundColor RPC",
+var styleRelativeSizeSpanToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSuggestionRangeSpanServiceClient(grpcConn)
-		req := &pb.SetBackgroundColorRequest{}
+		client := pb.NewRelativeSizeSpanServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetBackgroundColor(ctx, req)
+		resp, err := client.ToString(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -6054,13 +3709,13 @@ var styleSuggestionRangeSpanSetBackgroundColorCmd = &cobra.Command{
 	},
 }
 
-var styleSuggestionRangeSpanUpdateDrawStateCmd = &cobra.Command{
+var styleRelativeSizeSpanUpdateDrawStateCmd = &cobra.Command{
 	Use:   "update-draw-state",
 	Short: "UpdateDrawState RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSuggestionRangeSpanServiceClient(grpcConn)
+		client := pb.NewRelativeSizeSpanServiceClient(grpcConn)
 		req := &pb.UpdateDrawStateRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -6076,13 +3731,35 @@ var styleSuggestionRangeSpanUpdateDrawStateCmd = &cobra.Command{
 	},
 }
 
-var styleSuggestionRangeSpanWriteToParcelCmd = &cobra.Command{
+var styleRelativeSizeSpanUpdateMeasureStateCmd = &cobra.Command{
+	Use:   "update-measure-state",
+	Short: "UpdateMeasureState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRelativeSizeSpanServiceClient(grpcConn)
+		req := &pb.UpdateMeasureStateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UpdateMeasureState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleRelativeSizeSpanWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSuggestionRangeSpanServiceClient(grpcConn)
+		client := pb.NewRelativeSizeSpanServiceClient(grpcConn)
 		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -6178,6 +3855,642 @@ var styleEasyEditSpanWriteToParcelCmd = &cobra.Command{
 			req.Arg1 = v
 		}
 		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleURLSpanCmd = &cobra.Command{
+	Use:   "url-span",
+	Short: "URLSpanService operations",
+}
+
+var styleURLSpanNewURLSpanCmd = &cobra.Command{
+	Use:   "new-url-span",
+	Short: "NewURLSpan RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewURLSpanServiceClient(grpcConn)
+		req := &pb.NewURLSpanRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewURLSpan(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleURLSpanDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewURLSpanServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleURLSpanGetSpanTypeIdCmd = &cobra.Command{
+	Use:   "get-span-type-id",
+	Short: "GetSpanTypeId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewURLSpanServiceClient(grpcConn)
+		req := &pb.GetSpanTypeIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSpanTypeId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleURLSpanGetURLCmd = &cobra.Command{
+	Use:   "get-url",
+	Short: "GetURL RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewURLSpanServiceClient(grpcConn)
+		req := &pb.GetURLRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetURL(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleURLSpanOnClickCmd = &cobra.Command{
+	Use:   "on-click",
+	Short: "OnClick RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewURLSpanServiceClient(grpcConn)
+		req := &pb.OnClickRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnClick(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleURLSpanToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewURLSpanServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleURLSpanWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewURLSpanServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleForegroundColorSpanCmd = &cobra.Command{
+	Use:   "foreground-color-span",
+	Short: "ForegroundColorSpanService operations",
+}
+
+var styleForegroundColorSpanNewForegroundColorSpanCmd = &cobra.Command{
+	Use:   "new-foreground-color-span",
+	Short: "NewForegroundColorSpan RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewForegroundColorSpanServiceClient(grpcConn)
+		req := &pb.NewForegroundColorSpanRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewForegroundColorSpan(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleForegroundColorSpanDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewForegroundColorSpanServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleForegroundColorSpanGetForegroundColorCmd = &cobra.Command{
+	Use:   "get-foreground-color",
+	Short: "GetForegroundColor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewForegroundColorSpanServiceClient(grpcConn)
+		req := &pb.GetForegroundColorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetForegroundColor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleForegroundColorSpanGetSpanTypeIdCmd = &cobra.Command{
+	Use:   "get-span-type-id",
+	Short: "GetSpanTypeId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewForegroundColorSpanServiceClient(grpcConn)
+		req := &pb.GetSpanTypeIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSpanTypeId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleForegroundColorSpanToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewForegroundColorSpanServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleForegroundColorSpanUpdateDrawStateCmd = &cobra.Command{
+	Use:   "update-draw-state",
+	Short: "UpdateDrawState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewForegroundColorSpanServiceClient(grpcConn)
+		req := &pb.UpdateDrawStateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UpdateDrawState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleForegroundColorSpanWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewForegroundColorSpanServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleReplacementSpanCmd = &cobra.Command{
+	Use:   "replacement-span",
+	Short: "ReplacementSpanService operations",
+}
+
+var styleReplacementSpanDrawCmd = &cobra.Command{
+	Use:   "draw",
+	Short: "Draw RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReplacementSpanServiceClient(grpcConn)
+		req := &pb.DrawRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg7"); err == nil {
+			req.Arg7 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg8"); err == nil {
+			req.Arg8 = v
+		}
+		resp, err := client.Draw(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleReplacementSpanGetContentDescriptionCmd = &cobra.Command{
+	Use:   "get-content-description",
+	Short: "GetContentDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReplacementSpanServiceClient(grpcConn)
+		req := &pb.GetContentDescriptionRequest{}
+		resp, err := client.GetContentDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleReplacementSpanGetSizeCmd = &cobra.Command{
+	Use:   "get-size",
+	Short: "GetSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReplacementSpanServiceClient(grpcConn)
+		req := &pb.GetSizeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.GetSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleReplacementSpanSetContentDescriptionCmd = &cobra.Command{
+	Use:   "set-content-description",
+	Short: "SetContentDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReplacementSpanServiceClient(grpcConn)
+		req := &pb.SetContentDescriptionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetContentDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleReplacementSpanUpdateDrawStateCmd = &cobra.Command{
+	Use:   "update-draw-state",
+	Short: "UpdateDrawState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReplacementSpanServiceClient(grpcConn)
+		req := &pb.ReplacementSpanUpdateDrawStateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UpdateDrawState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleReplacementSpanUpdateMeasureStateCmd = &cobra.Command{
+	Use:   "update-measure-state",
+	Short: "UpdateMeasureState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReplacementSpanServiceClient(grpcConn)
+		req := &pb.ReplacementSpanUpdateMeasureStateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UpdateMeasureState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleLineHeightSpanCmd = &cobra.Command{
+	Use:   "line-height-span",
+	Short: "LineHeightSpanService operations",
+}
+
+var styleLineHeightSpanChooseHeightCmd = &cobra.Command{
+	Use:   "choose-height",
+	Short: "ChooseHeight RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLineHeightSpanServiceClient(grpcConn)
+		req := &pb.LineHeightSpanChooseHeightRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.ChooseHeight(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleLineHeightSpanStandardCmd = &cobra.Command{
+	Use:   "line-height-span-standard",
+	Short: "LineHeightSpanStandardService operations",
+}
+
+var styleLineHeightSpanStandardChooseHeightCmd = &cobra.Command{
+	Use:   "choose-height",
+	Short: "ChooseHeight RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLineHeightSpanStandardServiceClient(grpcConn)
+		req := &pb.LineHeightSpanStandardChooseHeightRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.ChooseHeight(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleLineHeightSpanStandardDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLineHeightSpanStandardServiceClient(grpcConn)
+		req := &pb.LineHeightSpanStandardDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleLineHeightSpanStandardGetHeightCmd = &cobra.Command{
+	Use:   "get-height",
+	Short: "GetHeight RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLineHeightSpanStandardServiceClient(grpcConn)
+		req := &pb.GetHeightRequest{}
+		resp, err := client.GetHeight(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleLineHeightSpanStandardGetSpanTypeIdCmd = &cobra.Command{
+	Use:   "get-span-type-id",
+	Short: "GetSpanTypeId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLineHeightSpanStandardServiceClient(grpcConn)
+		req := &pb.LineHeightSpanStandardGetSpanTypeIdRequest{}
+		resp, err := client.GetSpanTypeId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleLineHeightSpanStandardWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLineHeightSpanStandardServiceClient(grpcConn)
+		req := &pb.LineHeightSpanStandardWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleLineHeightSpanWithDensityCmd = &cobra.Command{
+	Use:   "line-height-span-with-density",
+	Short: "LineHeightSpanWithDensityService operations",
+}
+
+var styleLineHeightSpanWithDensityChooseHeightCmd = &cobra.Command{
+	Use:   "choose-height",
+	Short: "ChooseHeight RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLineHeightSpanWithDensityServiceClient(grpcConn)
+		req := &pb.LineHeightSpanWithDensityChooseHeightRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		resp, err := client.ChooseHeight(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -6297,6 +4610,853 @@ var styleAlignmentSpanStandardWriteToParcelCmd = &cobra.Command{
 	},
 }
 
+var styleLineBackgroundSpanCmd = &cobra.Command{
+	Use:   "line-background-span",
+	Short: "LineBackgroundSpanService operations",
+}
+
+var styleLineBackgroundSpanDrawBackgroundCmd = &cobra.Command{
+	Use:   "draw-background",
+	Short: "DrawBackground RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLineBackgroundSpanServiceClient(grpcConn)
+		req := &pb.DrawBackgroundRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		if v, err := cmd.Flags().GetString("arg7"); err == nil {
+			req.Arg7 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg8"); err == nil {
+			req.Arg8 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg9"); err == nil {
+			req.Arg9 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg10"); err == nil {
+			req.Arg10 = v
+		}
+		resp, err := client.DrawBackground(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleLineBackgroundSpanStandardCmd = &cobra.Command{
+	Use:   "line-background-span-standard",
+	Short: "LineBackgroundSpanStandardService operations",
+}
+
+var styleLineBackgroundSpanStandardDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLineBackgroundSpanStandardServiceClient(grpcConn)
+		req := &pb.LineBackgroundSpanStandardDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleLineBackgroundSpanStandardDrawBackgroundCmd = &cobra.Command{
+	Use:   "draw-background",
+	Short: "DrawBackground RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLineBackgroundSpanStandardServiceClient(grpcConn)
+		req := &pb.DrawBackgroundRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		if v, err := cmd.Flags().GetString("arg7"); err == nil {
+			req.Arg7 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg8"); err == nil {
+			req.Arg8 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg9"); err == nil {
+			req.Arg9 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg10"); err == nil {
+			req.Arg10 = v
+		}
+		resp, err := client.DrawBackground(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleLineBackgroundSpanStandardGetColorCmd = &cobra.Command{
+	Use:   "get-color",
+	Short: "GetColor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLineBackgroundSpanStandardServiceClient(grpcConn)
+		req := &pb.LineBackgroundSpanStandardGetColorRequest{}
+		resp, err := client.GetColor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleLineBackgroundSpanStandardGetSpanTypeIdCmd = &cobra.Command{
+	Use:   "get-span-type-id",
+	Short: "GetSpanTypeId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLineBackgroundSpanStandardServiceClient(grpcConn)
+		req := &pb.LineBackgroundSpanStandardGetSpanTypeIdRequest{}
+		resp, err := client.GetSpanTypeId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleLineBackgroundSpanStandardWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLineBackgroundSpanStandardServiceClient(grpcConn)
+		req := &pb.LineBackgroundSpanStandardWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleDrawableMarginSpanCmd = &cobra.Command{
+	Use:   "drawable-margin-span",
+	Short: "DrawableMarginSpanService operations",
+}
+
+var styleDrawableMarginSpanNewDrawableMarginSpanCmd = &cobra.Command{
+	Use:   "new-drawable-margin-span",
+	Short: "NewDrawableMarginSpan RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDrawableMarginSpanServiceClient(grpcConn)
+		req := &pb.NewDrawableMarginSpanRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewDrawableMarginSpan(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleDrawableMarginSpanChooseHeightCmd = &cobra.Command{
+	Use:   "choose-height",
+	Short: "ChooseHeight RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDrawableMarginSpanServiceClient(grpcConn)
+		req := &pb.ChooseHeightRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.ChooseHeight(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleDrawableMarginSpanDrawLeadingMarginCmd = &cobra.Command{
+	Use:   "draw-leading-margin",
+	Short: "DrawLeadingMargin RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDrawableMarginSpanServiceClient(grpcConn)
+		req := &pb.DrawLeadingMarginRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		if v, err := cmd.Flags().GetString("arg7"); err == nil {
+			req.Arg7 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg8"); err == nil {
+			req.Arg8 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg9"); err == nil {
+			req.Arg9 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg10"); err == nil {
+			req.Arg10 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg11"); err == nil {
+			req.Arg11 = v
+		}
+		resp, err := client.DrawLeadingMargin(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleDrawableMarginSpanGetDrawableCmd = &cobra.Command{
+	Use:   "get-drawable",
+	Short: "GetDrawable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDrawableMarginSpanServiceClient(grpcConn)
+		req := &pb.DrawableMarginSpanGetDrawableRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDrawable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleDrawableMarginSpanGetLeadingMarginCmd = &cobra.Command{
+	Use:   "get-leading-margin",
+	Short: "GetLeadingMargin RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDrawableMarginSpanServiceClient(grpcConn)
+		req := &pb.GetLeadingMarginRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetLeadingMargin(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleDrawableMarginSpanGetPaddingCmd = &cobra.Command{
+	Use:   "get-padding",
+	Short: "GetPadding RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDrawableMarginSpanServiceClient(grpcConn)
+		req := &pb.GetPaddingRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPadding(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleDrawableMarginSpanToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDrawableMarginSpanServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleAbsoluteSizeSpanCmd = &cobra.Command{
+	Use:   "absolute-size-span",
+	Short: "AbsoluteSizeSpanService operations",
+}
+
+var styleAbsoluteSizeSpanNewAbsoluteSizeSpanCmd = &cobra.Command{
+	Use:   "new-absolute-size-span",
+	Short: "NewAbsoluteSizeSpan RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbsoluteSizeSpanServiceClient(grpcConn)
+		req := &pb.NewAbsoluteSizeSpanRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewAbsoluteSizeSpan(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleAbsoluteSizeSpanDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbsoluteSizeSpanServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleAbsoluteSizeSpanGetDipCmd = &cobra.Command{
+	Use:   "get-dip",
+	Short: "GetDip RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbsoluteSizeSpanServiceClient(grpcConn)
+		req := &pb.GetDipRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDip(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleAbsoluteSizeSpanGetSizeCmd = &cobra.Command{
+	Use:   "get-size",
+	Short: "GetSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbsoluteSizeSpanServiceClient(grpcConn)
+		req := &pb.AbsoluteSizeSpanGetSizeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleAbsoluteSizeSpanGetSpanTypeIdCmd = &cobra.Command{
+	Use:   "get-span-type-id",
+	Short: "GetSpanTypeId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbsoluteSizeSpanServiceClient(grpcConn)
+		req := &pb.GetSpanTypeIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSpanTypeId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleAbsoluteSizeSpanToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbsoluteSizeSpanServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleAbsoluteSizeSpanUpdateDrawStateCmd = &cobra.Command{
+	Use:   "update-draw-state",
+	Short: "UpdateDrawState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbsoluteSizeSpanServiceClient(grpcConn)
+		req := &pb.UpdateDrawStateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UpdateDrawState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleAbsoluteSizeSpanUpdateMeasureStateCmd = &cobra.Command{
+	Use:   "update-measure-state",
+	Short: "UpdateMeasureState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbsoluteSizeSpanServiceClient(grpcConn)
+		req := &pb.UpdateMeasureStateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UpdateMeasureState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleAbsoluteSizeSpanWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbsoluteSizeSpanServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleLeadingMarginSpanCmd = &cobra.Command{
+	Use:   "leading-margin-span",
+	Short: "LeadingMarginSpanService operations",
+}
+
+var styleLeadingMarginSpanDrawLeadingMarginCmd = &cobra.Command{
+	Use:   "draw-leading-margin",
+	Short: "DrawLeadingMargin RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLeadingMarginSpanServiceClient(grpcConn)
+		req := &pb.LeadingMarginSpanDrawLeadingMarginRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		if v, err := cmd.Flags().GetString("arg7"); err == nil {
+			req.Arg7 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg8"); err == nil {
+			req.Arg8 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg9"); err == nil {
+			req.Arg9 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg10"); err == nil {
+			req.Arg10 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg11"); err == nil {
+			req.Arg11 = v
+		}
+		resp, err := client.DrawLeadingMargin(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleLeadingMarginSpanGetLeadingMarginCmd = &cobra.Command{
+	Use:   "get-leading-margin",
+	Short: "GetLeadingMargin RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLeadingMarginSpanServiceClient(grpcConn)
+		req := &pb.LeadingMarginSpanGetLeadingMarginRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetLeadingMargin(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleLeadingMarginSpanLeadingMarginSpan2Cmd = &cobra.Command{
+	Use:   "leading-margin-span-leading-margin-span2",
+	Short: "LeadingMarginSpanLeadingMarginSpan2Service operations",
+}
+
+var styleLeadingMarginSpanLeadingMarginSpan2GetLeadingMarginLineCountCmd = &cobra.Command{
+	Use:   "get-leading-margin-line-count",
+	Short: "GetLeadingMarginLineCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLeadingMarginSpanLeadingMarginSpan2ServiceClient(grpcConn)
+		req := &pb.GetLeadingMarginLineCountRequest{}
+		resp, err := client.GetLeadingMarginLineCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleLeadingMarginSpanStandardCmd = &cobra.Command{
+	Use:   "leading-margin-span-standard",
+	Short: "LeadingMarginSpanStandardService operations",
+}
+
+var styleLeadingMarginSpanStandardDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLeadingMarginSpanStandardServiceClient(grpcConn)
+		req := &pb.LeadingMarginSpanStandardDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleLeadingMarginSpanStandardDrawLeadingMarginCmd = &cobra.Command{
+	Use:   "draw-leading-margin",
+	Short: "DrawLeadingMargin RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLeadingMarginSpanStandardServiceClient(grpcConn)
+		req := &pb.LeadingMarginSpanStandardDrawLeadingMarginRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		if v, err := cmd.Flags().GetString("arg7"); err == nil {
+			req.Arg7 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg8"); err == nil {
+			req.Arg8 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg9"); err == nil {
+			req.Arg9 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg10"); err == nil {
+			req.Arg10 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg11"); err == nil {
+			req.Arg11 = v
+		}
+		resp, err := client.DrawLeadingMargin(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleLeadingMarginSpanStandardGetLeadingMarginCmd = &cobra.Command{
+	Use:   "get-leading-margin",
+	Short: "GetLeadingMargin RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLeadingMarginSpanStandardServiceClient(grpcConn)
+		req := &pb.LeadingMarginSpanStandardGetLeadingMarginRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetLeadingMargin(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleLeadingMarginSpanStandardGetSpanTypeIdCmd = &cobra.Command{
+	Use:   "get-span-type-id",
+	Short: "GetSpanTypeId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLeadingMarginSpanStandardServiceClient(grpcConn)
+		req := &pb.LeadingMarginSpanStandardGetSpanTypeIdRequest{}
+		resp, err := client.GetSpanTypeId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleLeadingMarginSpanStandardWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLeadingMarginSpanStandardServiceClient(grpcConn)
+		req := &pb.LeadingMarginSpanStandardWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleCharacterStyleCmd = &cobra.Command{
+	Use:   "character-style",
+	Short: "CharacterStyleService operations",
+}
+
+var styleCharacterStyleGetUnderlyingCmd = &cobra.Command{
+	Use:   "get-underlying",
+	Short: "GetUnderlying RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCharacterStyleServiceClient(grpcConn)
+		req := &pb.GetUnderlyingRequest{}
+		resp, err := client.GetUnderlying(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleCharacterStyleUpdateDrawStateCmd = &cobra.Command{
+	Use:   "update-draw-state",
+	Short: "UpdateDrawState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCharacterStyleServiceClient(grpcConn)
+		req := &pb.CharacterStyleUpdateDrawStateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UpdateDrawState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleCharacterStyleWrapCmd = &cobra.Command{
+	Use:   "wrap",
+	Short: "Wrap RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCharacterStyleServiceClient(grpcConn)
+		req := &pb.WrapRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Wrap(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var styleMaskFilterSpanCmd = &cobra.Command{
 	Use:   "mask-filter-span",
 	Short: "MaskFilterSpanService operations",
@@ -6374,6 +5534,1115 @@ var styleMaskFilterSpanUpdateDrawStateCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.UpdateDrawState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleUnderlineSpanCmd = &cobra.Command{
+	Use:   "underline-span",
+	Short: "UnderlineSpanService operations",
+}
+
+var styleUnderlineSpanNewUnderlineSpanCmd = &cobra.Command{
+	Use:   "new-underline-span",
+	Short: "NewUnderlineSpan RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUnderlineSpanServiceClient(grpcConn)
+		req := &pb.NewUnderlineSpanRequest{}
+		resp, err := client.NewUnderlineSpan(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleUnderlineSpanDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUnderlineSpanServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleUnderlineSpanGetSpanTypeIdCmd = &cobra.Command{
+	Use:   "get-span-type-id",
+	Short: "GetSpanTypeId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUnderlineSpanServiceClient(grpcConn)
+		req := &pb.GetSpanTypeIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSpanTypeId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleUnderlineSpanToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUnderlineSpanServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleUnderlineSpanUpdateDrawStateCmd = &cobra.Command{
+	Use:   "update-draw-state",
+	Short: "UpdateDrawState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUnderlineSpanServiceClient(grpcConn)
+		req := &pb.UpdateDrawStateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UpdateDrawState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleUnderlineSpanWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUnderlineSpanServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleNoWritingToolsSpanCmd = &cobra.Command{
+	Use:   "no-writing-tools-span",
+	Short: "NoWritingToolsSpanService operations",
+}
+
+var styleNoWritingToolsSpanNewNoWritingToolsSpanCmd = &cobra.Command{
+	Use:   "new-no-writing-tools-span",
+	Short: "NewNoWritingToolsSpan RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNoWritingToolsSpanServiceClient(grpcConn)
+		req := &pb.NewNoWritingToolsSpanRequest{}
+		resp, err := client.NewNoWritingToolsSpan(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleNoWritingToolsSpanDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNoWritingToolsSpanServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleNoWritingToolsSpanGetSpanTypeIdCmd = &cobra.Command{
+	Use:   "get-span-type-id",
+	Short: "GetSpanTypeId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNoWritingToolsSpanServiceClient(grpcConn)
+		req := &pb.GetSpanTypeIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSpanTypeId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleNoWritingToolsSpanToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNoWritingToolsSpanServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleNoWritingToolsSpanWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewNoWritingToolsSpanServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleQuoteSpanCmd = &cobra.Command{
+	Use:   "quote-span",
+	Short: "QuoteSpanService operations",
+}
+
+var styleQuoteSpanNewQuoteSpanCmd = &cobra.Command{
+	Use:   "new-quote-span",
+	Short: "NewQuoteSpan RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewQuoteSpanServiceClient(grpcConn)
+		req := &pb.NewQuoteSpanRequest{}
+		resp, err := client.NewQuoteSpan(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleQuoteSpanDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewQuoteSpanServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleQuoteSpanDrawLeadingMarginCmd = &cobra.Command{
+	Use:   "draw-leading-margin",
+	Short: "DrawLeadingMargin RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewQuoteSpanServiceClient(grpcConn)
+		req := &pb.DrawLeadingMarginRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		if v, err := cmd.Flags().GetString("arg7"); err == nil {
+			req.Arg7 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg8"); err == nil {
+			req.Arg8 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg9"); err == nil {
+			req.Arg9 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg10"); err == nil {
+			req.Arg10 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg11"); err == nil {
+			req.Arg11 = v
+		}
+		resp, err := client.DrawLeadingMargin(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleQuoteSpanGetColorCmd = &cobra.Command{
+	Use:   "get-color",
+	Short: "GetColor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewQuoteSpanServiceClient(grpcConn)
+		req := &pb.GetColorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetColor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleQuoteSpanGetGapWidthCmd = &cobra.Command{
+	Use:   "get-gap-width",
+	Short: "GetGapWidth RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewQuoteSpanServiceClient(grpcConn)
+		req := &pb.GetGapWidthRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetGapWidth(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleQuoteSpanGetLeadingMarginCmd = &cobra.Command{
+	Use:   "get-leading-margin",
+	Short: "GetLeadingMargin RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewQuoteSpanServiceClient(grpcConn)
+		req := &pb.GetLeadingMarginRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetLeadingMargin(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleQuoteSpanGetSpanTypeIdCmd = &cobra.Command{
+	Use:   "get-span-type-id",
+	Short: "GetSpanTypeId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewQuoteSpanServiceClient(grpcConn)
+		req := &pb.GetSpanTypeIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSpanTypeId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleQuoteSpanGetStripeWidthCmd = &cobra.Command{
+	Use:   "get-stripe-width",
+	Short: "GetStripeWidth RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewQuoteSpanServiceClient(grpcConn)
+		req := &pb.GetStripeWidthRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetStripeWidth(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleQuoteSpanToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewQuoteSpanServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleQuoteSpanWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewQuoteSpanServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleSuperscriptSpanCmd = &cobra.Command{
+	Use:   "superscript-span",
+	Short: "SuperscriptSpanService operations",
+}
+
+var styleSuperscriptSpanNewSuperscriptSpanCmd = &cobra.Command{
+	Use:   "new-superscript-span",
+	Short: "NewSuperscriptSpan RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSuperscriptSpanServiceClient(grpcConn)
+		req := &pb.NewSuperscriptSpanRequest{}
+		resp, err := client.NewSuperscriptSpan(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleSuperscriptSpanDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSuperscriptSpanServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleSuperscriptSpanGetSpanTypeIdCmd = &cobra.Command{
+	Use:   "get-span-type-id",
+	Short: "GetSpanTypeId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSuperscriptSpanServiceClient(grpcConn)
+		req := &pb.GetSpanTypeIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSpanTypeId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleSuperscriptSpanToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSuperscriptSpanServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleSuperscriptSpanUpdateDrawStateCmd = &cobra.Command{
+	Use:   "update-draw-state",
+	Short: "UpdateDrawState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSuperscriptSpanServiceClient(grpcConn)
+		req := &pb.UpdateDrawStateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UpdateDrawState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleSuperscriptSpanUpdateMeasureStateCmd = &cobra.Command{
+	Use:   "update-measure-state",
+	Short: "UpdateMeasureState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSuperscriptSpanServiceClient(grpcConn)
+		req := &pb.UpdateMeasureStateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UpdateMeasureState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleSuperscriptSpanWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSuperscriptSpanServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleMetricAffectingSpanCmd = &cobra.Command{
+	Use:   "metric-affecting-span",
+	Short: "MetricAffectingSpanService operations",
+}
+
+var styleMetricAffectingSpanGetUnderlying0Cmd = &cobra.Command{
+	Use:   "get-underlying0",
+	Short: "GetUnderlying0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMetricAffectingSpanServiceClient(grpcConn)
+		req := &pb.GetUnderlying0Request{}
+		resp, err := client.GetUnderlying0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleMetricAffectingSpanUpdateMeasureStateCmd = &cobra.Command{
+	Use:   "update-measure-state",
+	Short: "UpdateMeasureState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMetricAffectingSpanServiceClient(grpcConn)
+		req := &pb.MetricAffectingSpanUpdateMeasureStateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UpdateMeasureState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleMetricAffectingSpanGetUnderlying0_1Cmd = &cobra.Command{
+	Use:   "get-underlying0_1",
+	Short: "GetUnderlying0_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMetricAffectingSpanServiceClient(grpcConn)
+		req := &pb.GetUnderlying0_1Request{}
+		resp, err := client.GetUnderlying0_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleLocaleSpanCmd = &cobra.Command{
+	Use:   "locale-span",
+	Short: "LocaleSpanService operations",
+}
+
+var styleLocaleSpanNewLocaleSpanCmd = &cobra.Command{
+	Use:   "new-locale-span",
+	Short: "NewLocaleSpan RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLocaleSpanServiceClient(grpcConn)
+		req := &pb.NewLocaleSpanRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewLocaleSpan(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleLocaleSpanDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLocaleSpanServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleLocaleSpanGetLocaleCmd = &cobra.Command{
+	Use:   "get-locale",
+	Short: "GetLocale RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLocaleSpanServiceClient(grpcConn)
+		req := &pb.GetLocaleRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLocale(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleLocaleSpanGetLocalesCmd = &cobra.Command{
+	Use:   "get-locales",
+	Short: "GetLocales RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLocaleSpanServiceClient(grpcConn)
+		req := &pb.GetLocalesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLocales(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleLocaleSpanGetSpanTypeIdCmd = &cobra.Command{
+	Use:   "get-span-type-id",
+	Short: "GetSpanTypeId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLocaleSpanServiceClient(grpcConn)
+		req := &pb.GetSpanTypeIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSpanTypeId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleLocaleSpanToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLocaleSpanServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleLocaleSpanUpdateDrawStateCmd = &cobra.Command{
+	Use:   "update-draw-state",
+	Short: "UpdateDrawState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLocaleSpanServiceClient(grpcConn)
+		req := &pb.UpdateDrawStateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UpdateDrawState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleLocaleSpanUpdateMeasureStateCmd = &cobra.Command{
+	Use:   "update-measure-state",
+	Short: "UpdateMeasureState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLocaleSpanServiceClient(grpcConn)
+		req := &pb.UpdateMeasureStateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UpdateMeasureState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleLocaleSpanWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLocaleSpanServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleScaleXSpanCmd = &cobra.Command{
+	Use:   "scale-x-span",
+	Short: "ScaleXSpanService operations",
+}
+
+var styleScaleXSpanNewScaleXSpanCmd = &cobra.Command{
+	Use:   "new-scale-x-span",
+	Short: "NewScaleXSpan RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScaleXSpanServiceClient(grpcConn)
+		req := &pb.NewScaleXSpanRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewScaleXSpan(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleScaleXSpanDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScaleXSpanServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleScaleXSpanGetScaleXCmd = &cobra.Command{
+	Use:   "get-scale-x",
+	Short: "GetScaleX RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScaleXSpanServiceClient(grpcConn)
+		req := &pb.GetScaleXRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetScaleX(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleScaleXSpanGetSpanTypeIdCmd = &cobra.Command{
+	Use:   "get-span-type-id",
+	Short: "GetSpanTypeId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScaleXSpanServiceClient(grpcConn)
+		req := &pb.GetSpanTypeIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSpanTypeId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleScaleXSpanToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScaleXSpanServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleScaleXSpanUpdateDrawStateCmd = &cobra.Command{
+	Use:   "update-draw-state",
+	Short: "UpdateDrawState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScaleXSpanServiceClient(grpcConn)
+		req := &pb.UpdateDrawStateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UpdateDrawState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleScaleXSpanUpdateMeasureStateCmd = &cobra.Command{
+	Use:   "update-measure-state",
+	Short: "UpdateMeasureState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScaleXSpanServiceClient(grpcConn)
+		req := &pb.UpdateMeasureStateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UpdateMeasureState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleScaleXSpanWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewScaleXSpanServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleImageSpanCmd = &cobra.Command{
+	Use:   "image-span",
+	Short: "ImageSpanService operations",
+}
+
+var styleImageSpanNewImageSpanCmd = &cobra.Command{
+	Use:   "new-image-span",
+	Short: "NewImageSpan RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewImageSpanServiceClient(grpcConn)
+		req := &pb.NewImageSpanRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewImageSpan(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleImageSpanGetDrawableCmd = &cobra.Command{
+	Use:   "get-drawable",
+	Short: "GetDrawable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewImageSpanServiceClient(grpcConn)
+		req := &pb.ImageSpanGetDrawableRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDrawable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleImageSpanGetSourceCmd = &cobra.Command{
+	Use:   "get-source",
+	Short: "GetSource RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewImageSpanServiceClient(grpcConn)
+		req := &pb.GetSourceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSource(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var styleImageSpanToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewImageSpanServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -6528,279 +6797,19 @@ var styleBackgroundColorSpanWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var styleStrikethroughSpanCmd = &cobra.Command{
-	Use:   "strikethrough-span",
-	Short: "StrikethroughSpanService operations",
+var styleClickableSpanCmd = &cobra.Command{
+	Use:   "clickable-span",
+	Short: "ClickableSpanService operations",
 }
 
-var styleStrikethroughSpanNewStrikethroughSpanCmd = &cobra.Command{
-	Use:   "new-strikethrough-span",
-	Short: "NewStrikethroughSpan RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStrikethroughSpanServiceClient(grpcConn)
-		req := &pb.NewStrikethroughSpanRequest{}
-		resp, err := client.NewStrikethroughSpan(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleStrikethroughSpanDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStrikethroughSpanServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleStrikethroughSpanGetSpanTypeIdCmd = &cobra.Command{
-	Use:   "get-span-type-id",
-	Short: "GetSpanTypeId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStrikethroughSpanServiceClient(grpcConn)
-		req := &pb.GetSpanTypeIdRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSpanTypeId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleStrikethroughSpanToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStrikethroughSpanServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleStrikethroughSpanUpdateDrawStateCmd = &cobra.Command{
-	Use:   "update-draw-state",
-	Short: "UpdateDrawState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStrikethroughSpanServiceClient(grpcConn)
-		req := &pb.UpdateDrawStateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UpdateDrawState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleStrikethroughSpanWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStrikethroughSpanServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleMetricAffectingSpanCmd = &cobra.Command{
-	Use:   "metric-affecting-span",
-	Short: "MetricAffectingSpanService operations",
-}
-
-var styleMetricAffectingSpanGetUnderlying0Cmd = &cobra.Command{
-	Use:   "get-underlying0",
-	Short: "GetUnderlying0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMetricAffectingSpanServiceClient(grpcConn)
-		req := &pb.GetUnderlying0Request{}
-		resp, err := client.GetUnderlying0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleMetricAffectingSpanUpdateMeasureStateCmd = &cobra.Command{
-	Use:   "update-measure-state",
-	Short: "UpdateMeasureState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMetricAffectingSpanServiceClient(grpcConn)
-		req := &pb.MetricAffectingSpanUpdateMeasureStateRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UpdateMeasureState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleMetricAffectingSpanGetUnderlying0_1Cmd = &cobra.Command{
-	Use:   "get-underlying0_1",
-	Short: "GetUnderlying0_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMetricAffectingSpanServiceClient(grpcConn)
-		req := &pb.GetUnderlying0_1Request{}
-		resp, err := client.GetUnderlying0_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleURLSpanCmd = &cobra.Command{
-	Use:   "url-span",
-	Short: "URLSpanService operations",
-}
-
-var styleURLSpanNewURLSpanCmd = &cobra.Command{
-	Use:   "new-url-span",
-	Short: "NewURLSpan RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewURLSpanServiceClient(grpcConn)
-		req := &pb.NewURLSpanRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewURLSpan(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleURLSpanDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewURLSpanServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleURLSpanGetSpanTypeIdCmd = &cobra.Command{
-	Use:   "get-span-type-id",
-	Short: "GetSpanTypeId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewURLSpanServiceClient(grpcConn)
-		req := &pb.GetSpanTypeIdRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSpanTypeId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleURLSpanGetURLCmd = &cobra.Command{
-	Use:   "get-url",
-	Short: "GetURL RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewURLSpanServiceClient(grpcConn)
-		req := &pb.GetURLRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetURL(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var styleURLSpanOnClickCmd = &cobra.Command{
+var styleClickableSpanOnClickCmd = &cobra.Command{
 	Use:   "on-click",
 	Short: "OnClick RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewURLSpanServiceClient(grpcConn)
-		req := &pb.URLSpanOnClickRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
+		client := pb.NewClickableSpanServiceClient(grpcConn)
+		req := &pb.ClickableSpanOnClickRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -6812,17 +6821,14 @@ var styleURLSpanOnClickCmd = &cobra.Command{
 	},
 }
 
-var styleURLSpanToStringCmd = &cobra.Command{
+var styleClickableSpanToStringCmd = &cobra.Command{
 	Use:   "to-string",
 	Short: "ToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewURLSpanServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
+		client := pb.NewClickableSpanServiceClient(grpcConn)
+		req := &pb.ClickableSpanToStringRequest{}
 		resp, err := client.ToString(ctx, req)
 		if err != nil {
 			return err
@@ -6831,24 +6837,18 @@ var styleURLSpanToStringCmd = &cobra.Command{
 	},
 }
 
-var styleURLSpanWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
+var styleClickableSpanUpdateDrawStateCmd = &cobra.Command{
+	Use:   "update-draw-state",
+	Short: "UpdateDrawState RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewURLSpanServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
+		client := pb.NewClickableSpanServiceClient(grpcConn)
+		req := &pb.ClickableSpanUpdateDrawStateRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
+		resp, err := client.UpdateDrawState(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -6857,6 +6857,97 @@ var styleURLSpanWriteToParcelCmd = &cobra.Command{
 }
 
 func init() {
+	styleTypefaceSpanNewTypefaceSpanCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleTypefaceSpanCmd.AddCommand(styleTypefaceSpanNewTypefaceSpanCmd)
+	styleTypefaceSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleTypefaceSpanCmd.AddCommand(styleTypefaceSpanDescribeContentsCmd)
+	styleTypefaceSpanGetFamilyCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleTypefaceSpanCmd.AddCommand(styleTypefaceSpanGetFamilyCmd)
+	styleTypefaceSpanGetSpanTypeIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleTypefaceSpanCmd.AddCommand(styleTypefaceSpanGetSpanTypeIdCmd)
+	styleTypefaceSpanGetTypefaceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleTypefaceSpanCmd.AddCommand(styleTypefaceSpanGetTypefaceCmd)
+	styleTypefaceSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleTypefaceSpanCmd.AddCommand(styleTypefaceSpanToStringCmd)
+	styleTypefaceSpanUpdateDrawStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleTypefaceSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleTypefaceSpanCmd.AddCommand(styleTypefaceSpanUpdateDrawStateCmd)
+	styleTypefaceSpanUpdateMeasureStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleTypefaceSpanUpdateMeasureStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleTypefaceSpanCmd.AddCommand(styleTypefaceSpanUpdateMeasureStateCmd)
+	styleTypefaceSpanWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleTypefaceSpanWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleTypefaceSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	styleTypefaceSpanCmd.AddCommand(styleTypefaceSpanWriteToParcelCmd)
+	styleCmd.AddCommand(styleTypefaceSpanCmd)
+	styleIconMarginSpanNewIconMarginSpanCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleIconMarginSpanCmd.AddCommand(styleIconMarginSpanNewIconMarginSpanCmd)
+	styleIconMarginSpanChooseHeightCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleIconMarginSpanChooseHeightCmd.Flags().String("arg0", "", "arg0 (string)")
+	styleIconMarginSpanChooseHeightCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	styleIconMarginSpanChooseHeightCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	styleIconMarginSpanChooseHeightCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	styleIconMarginSpanChooseHeightCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	styleIconMarginSpanChooseHeightCmd.Flags().Int64("arg5", 0, "arg5 (int64)")
+	styleIconMarginSpanCmd.AddCommand(styleIconMarginSpanChooseHeightCmd)
+	styleIconMarginSpanDrawLeadingMarginCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleIconMarginSpanDrawLeadingMarginCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleIconMarginSpanDrawLeadingMarginCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	styleIconMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	styleIconMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	styleIconMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	styleIconMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	styleIconMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg6", 0, "arg6 (int32)")
+	styleIconMarginSpanDrawLeadingMarginCmd.Flags().String("arg7", "", "arg7 (string)")
+	styleIconMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg8", 0, "arg8 (int32)")
+	styleIconMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg9", 0, "arg9 (int32)")
+	styleIconMarginSpanDrawLeadingMarginCmd.Flags().Bool("arg10", false, "arg10 (bool)")
+	styleIconMarginSpanDrawLeadingMarginCmd.Flags().Int64("arg11", 0, "arg11 (int64)")
+	styleIconMarginSpanCmd.AddCommand(styleIconMarginSpanDrawLeadingMarginCmd)
+	styleIconMarginSpanGetBitmapCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleIconMarginSpanCmd.AddCommand(styleIconMarginSpanGetBitmapCmd)
+	styleIconMarginSpanGetLeadingMarginCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleIconMarginSpanGetLeadingMarginCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	styleIconMarginSpanCmd.AddCommand(styleIconMarginSpanGetLeadingMarginCmd)
+	styleIconMarginSpanGetPaddingCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleIconMarginSpanCmd.AddCommand(styleIconMarginSpanGetPaddingCmd)
+	styleIconMarginSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleIconMarginSpanCmd.AddCommand(styleIconMarginSpanToStringCmd)
+	styleCmd.AddCommand(styleIconMarginSpanCmd)
+	styleSuggestionSpanNewSuggestionSpanCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleSuggestionSpanNewSuggestionSpanCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	styleSuggestionSpanNewSuggestionSpanCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	styleSuggestionSpanCmd.AddCommand(styleSuggestionSpanNewSuggestionSpanCmd)
+	styleSuggestionSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSuggestionSpanCmd.AddCommand(styleSuggestionSpanDescribeContentsCmd)
+	styleSuggestionSpanEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSuggestionSpanEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleSuggestionSpanCmd.AddCommand(styleSuggestionSpanEqualsCmd)
+	styleSuggestionSpanGetFlagsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSuggestionSpanCmd.AddCommand(styleSuggestionSpanGetFlagsCmd)
+	styleSuggestionSpanGetLocaleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSuggestionSpanCmd.AddCommand(styleSuggestionSpanGetLocaleCmd)
+	styleSuggestionSpanGetLocaleObjectCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSuggestionSpanCmd.AddCommand(styleSuggestionSpanGetLocaleObjectCmd)
+	styleSuggestionSpanGetSpanTypeIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSuggestionSpanCmd.AddCommand(styleSuggestionSpanGetSpanTypeIdCmd)
+	styleSuggestionSpanGetSuggestionsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSuggestionSpanCmd.AddCommand(styleSuggestionSpanGetSuggestionsCmd)
+	styleSuggestionSpanGetUnderlineColorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSuggestionSpanCmd.AddCommand(styleSuggestionSpanGetUnderlineColorCmd)
+	styleSuggestionSpanHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSuggestionSpanCmd.AddCommand(styleSuggestionSpanHashCodeCmd)
+	styleSuggestionSpanSetFlagsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSuggestionSpanSetFlagsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	styleSuggestionSpanCmd.AddCommand(styleSuggestionSpanSetFlagsCmd)
+	styleSuggestionSpanUpdateDrawStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSuggestionSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleSuggestionSpanCmd.AddCommand(styleSuggestionSpanUpdateDrawStateCmd)
+	styleSuggestionSpanWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSuggestionSpanWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleSuggestionSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	styleSuggestionSpanCmd.AddCommand(styleSuggestionSpanWriteToParcelCmd)
+	styleCmd.AddCommand(styleSuggestionSpanCmd)
 	styleTextAppearanceSpanNewTextAppearanceSpanCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	styleTextAppearanceSpanNewTextAppearanceSpanCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	styleTextAppearanceSpanCmd.AddCommand(styleTextAppearanceSpanNewTextAppearanceSpanCmd)
@@ -6909,271 +7000,6 @@ func init() {
 	styleTextAppearanceSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	styleTextAppearanceSpanCmd.AddCommand(styleTextAppearanceSpanWriteToParcelCmd)
 	styleCmd.AddCommand(styleTextAppearanceSpanCmd)
-	styleNoWritingToolsSpanCmd.AddCommand(styleNoWritingToolsSpanNewNoWritingToolsSpanCmd)
-	styleNoWritingToolsSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleNoWritingToolsSpanCmd.AddCommand(styleNoWritingToolsSpanDescribeContentsCmd)
-	styleNoWritingToolsSpanGetSpanTypeIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleNoWritingToolsSpanCmd.AddCommand(styleNoWritingToolsSpanGetSpanTypeIdCmd)
-	styleNoWritingToolsSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleNoWritingToolsSpanCmd.AddCommand(styleNoWritingToolsSpanToStringCmd)
-	styleNoWritingToolsSpanWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleNoWritingToolsSpanWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleNoWritingToolsSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	styleNoWritingToolsSpanCmd.AddCommand(styleNoWritingToolsSpanWriteToParcelCmd)
-	styleCmd.AddCommand(styleNoWritingToolsSpanCmd)
-	styleQuoteSpanCmd.AddCommand(styleQuoteSpanNewQuoteSpanCmd)
-	styleQuoteSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleQuoteSpanCmd.AddCommand(styleQuoteSpanDescribeContentsCmd)
-	styleQuoteSpanDrawLeadingMarginCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleQuoteSpanDrawLeadingMarginCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleQuoteSpanDrawLeadingMarginCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	styleQuoteSpanDrawLeadingMarginCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	styleQuoteSpanDrawLeadingMarginCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	styleQuoteSpanDrawLeadingMarginCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	styleQuoteSpanDrawLeadingMarginCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
-	styleQuoteSpanDrawLeadingMarginCmd.Flags().Int32("arg6", 0, "arg6 (int32)")
-	styleQuoteSpanDrawLeadingMarginCmd.Flags().String("arg7", "", "arg7 (string)")
-	styleQuoteSpanDrawLeadingMarginCmd.Flags().Int32("arg8", 0, "arg8 (int32)")
-	styleQuoteSpanDrawLeadingMarginCmd.Flags().Int32("arg9", 0, "arg9 (int32)")
-	styleQuoteSpanDrawLeadingMarginCmd.Flags().Bool("arg10", false, "arg10 (bool)")
-	styleQuoteSpanDrawLeadingMarginCmd.Flags().Int64("arg11", 0, "arg11 (int64)")
-	styleQuoteSpanCmd.AddCommand(styleQuoteSpanDrawLeadingMarginCmd)
-	styleQuoteSpanGetColorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleQuoteSpanCmd.AddCommand(styleQuoteSpanGetColorCmd)
-	styleQuoteSpanGetGapWidthCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleQuoteSpanCmd.AddCommand(styleQuoteSpanGetGapWidthCmd)
-	styleQuoteSpanGetLeadingMarginCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleQuoteSpanGetLeadingMarginCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	styleQuoteSpanCmd.AddCommand(styleQuoteSpanGetLeadingMarginCmd)
-	styleQuoteSpanGetSpanTypeIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleQuoteSpanCmd.AddCommand(styleQuoteSpanGetSpanTypeIdCmd)
-	styleQuoteSpanGetStripeWidthCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleQuoteSpanCmd.AddCommand(styleQuoteSpanGetStripeWidthCmd)
-	styleQuoteSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleQuoteSpanCmd.AddCommand(styleQuoteSpanToStringCmd)
-	styleQuoteSpanWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleQuoteSpanWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleQuoteSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	styleQuoteSpanCmd.AddCommand(styleQuoteSpanWriteToParcelCmd)
-	styleCmd.AddCommand(styleQuoteSpanCmd)
-	styleCharacterStyleCmd.AddCommand(styleCharacterStyleGetUnderlyingCmd)
-	styleCharacterStyleUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleCharacterStyleCmd.AddCommand(styleCharacterStyleUpdateDrawStateCmd)
-	styleCharacterStyleWrapCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleCharacterStyleCmd.AddCommand(styleCharacterStyleWrapCmd)
-	styleCmd.AddCommand(styleCharacterStyleCmd)
-	styleLineHeightSpanChooseHeightCmd.Flags().String("arg0", "", "arg0 (string)")
-	styleLineHeightSpanChooseHeightCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	styleLineHeightSpanChooseHeightCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	styleLineHeightSpanChooseHeightCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	styleLineHeightSpanChooseHeightCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	styleLineHeightSpanChooseHeightCmd.Flags().Int64("arg5", 0, "arg5 (int64)")
-	styleLineHeightSpanCmd.AddCommand(styleLineHeightSpanChooseHeightCmd)
-	styleCmd.AddCommand(styleLineHeightSpanCmd)
-	styleLineHeightSpanStandardChooseHeightCmd.Flags().String("arg0", "", "arg0 (string)")
-	styleLineHeightSpanStandardChooseHeightCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	styleLineHeightSpanStandardChooseHeightCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	styleLineHeightSpanStandardChooseHeightCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	styleLineHeightSpanStandardChooseHeightCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	styleLineHeightSpanStandardChooseHeightCmd.Flags().Int64("arg5", 0, "arg5 (int64)")
-	styleLineHeightSpanStandardCmd.AddCommand(styleLineHeightSpanStandardChooseHeightCmd)
-	styleLineHeightSpanStandardCmd.AddCommand(styleLineHeightSpanStandardDescribeContentsCmd)
-	styleLineHeightSpanStandardCmd.AddCommand(styleLineHeightSpanStandardGetHeightCmd)
-	styleLineHeightSpanStandardCmd.AddCommand(styleLineHeightSpanStandardGetSpanTypeIdCmd)
-	styleLineHeightSpanStandardWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleLineHeightSpanStandardWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	styleLineHeightSpanStandardCmd.AddCommand(styleLineHeightSpanStandardWriteToParcelCmd)
-	styleCmd.AddCommand(styleLineHeightSpanStandardCmd)
-	styleLineHeightSpanWithDensityChooseHeightCmd.Flags().String("arg0", "", "arg0 (string)")
-	styleLineHeightSpanWithDensityChooseHeightCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	styleLineHeightSpanWithDensityChooseHeightCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	styleLineHeightSpanWithDensityChooseHeightCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	styleLineHeightSpanWithDensityChooseHeightCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	styleLineHeightSpanWithDensityChooseHeightCmd.Flags().Int64("arg5", 0, "arg5 (int64)")
-	styleLineHeightSpanWithDensityChooseHeightCmd.Flags().Int64("arg6", 0, "arg6 (int64)")
-	styleLineHeightSpanWithDensityCmd.AddCommand(styleLineHeightSpanWithDensityChooseHeightCmd)
-	styleCmd.AddCommand(styleLineHeightSpanWithDensityCmd)
-	styleRelativeSizeSpanNewRelativeSizeSpanCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleRelativeSizeSpanCmd.AddCommand(styleRelativeSizeSpanNewRelativeSizeSpanCmd)
-	styleRelativeSizeSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleRelativeSizeSpanCmd.AddCommand(styleRelativeSizeSpanDescribeContentsCmd)
-	styleRelativeSizeSpanGetSizeChangeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleRelativeSizeSpanCmd.AddCommand(styleRelativeSizeSpanGetSizeChangeCmd)
-	styleRelativeSizeSpanGetSpanTypeIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleRelativeSizeSpanCmd.AddCommand(styleRelativeSizeSpanGetSpanTypeIdCmd)
-	styleRelativeSizeSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleRelativeSizeSpanCmd.AddCommand(styleRelativeSizeSpanToStringCmd)
-	styleRelativeSizeSpanUpdateDrawStateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleRelativeSizeSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleRelativeSizeSpanCmd.AddCommand(styleRelativeSizeSpanUpdateDrawStateCmd)
-	styleRelativeSizeSpanUpdateMeasureStateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleRelativeSizeSpanUpdateMeasureStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleRelativeSizeSpanCmd.AddCommand(styleRelativeSizeSpanUpdateMeasureStateCmd)
-	styleRelativeSizeSpanWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleRelativeSizeSpanWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleRelativeSizeSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	styleRelativeSizeSpanCmd.AddCommand(styleRelativeSizeSpanWriteToParcelCmd)
-	styleCmd.AddCommand(styleRelativeSizeSpanCmd)
-	styleAbsoluteSizeSpanNewAbsoluteSizeSpanCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleAbsoluteSizeSpanCmd.AddCommand(styleAbsoluteSizeSpanNewAbsoluteSizeSpanCmd)
-	styleAbsoluteSizeSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleAbsoluteSizeSpanCmd.AddCommand(styleAbsoluteSizeSpanDescribeContentsCmd)
-	styleAbsoluteSizeSpanGetDipCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleAbsoluteSizeSpanCmd.AddCommand(styleAbsoluteSizeSpanGetDipCmd)
-	styleAbsoluteSizeSpanGetSizeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleAbsoluteSizeSpanCmd.AddCommand(styleAbsoluteSizeSpanGetSizeCmd)
-	styleAbsoluteSizeSpanGetSpanTypeIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleAbsoluteSizeSpanCmd.AddCommand(styleAbsoluteSizeSpanGetSpanTypeIdCmd)
-	styleAbsoluteSizeSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleAbsoluteSizeSpanCmd.AddCommand(styleAbsoluteSizeSpanToStringCmd)
-	styleAbsoluteSizeSpanUpdateDrawStateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleAbsoluteSizeSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleAbsoluteSizeSpanCmd.AddCommand(styleAbsoluteSizeSpanUpdateDrawStateCmd)
-	styleAbsoluteSizeSpanUpdateMeasureStateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleAbsoluteSizeSpanUpdateMeasureStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleAbsoluteSizeSpanCmd.AddCommand(styleAbsoluteSizeSpanUpdateMeasureStateCmd)
-	styleAbsoluteSizeSpanWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleAbsoluteSizeSpanWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleAbsoluteSizeSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	styleAbsoluteSizeSpanCmd.AddCommand(styleAbsoluteSizeSpanWriteToParcelCmd)
-	styleCmd.AddCommand(styleAbsoluteSizeSpanCmd)
-	styleSubscriptSpanCmd.AddCommand(styleSubscriptSpanNewSubscriptSpanCmd)
-	styleSubscriptSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSubscriptSpanCmd.AddCommand(styleSubscriptSpanDescribeContentsCmd)
-	styleSubscriptSpanGetSpanTypeIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSubscriptSpanCmd.AddCommand(styleSubscriptSpanGetSpanTypeIdCmd)
-	styleSubscriptSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSubscriptSpanCmd.AddCommand(styleSubscriptSpanToStringCmd)
-	styleSubscriptSpanUpdateDrawStateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSubscriptSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleSubscriptSpanCmd.AddCommand(styleSubscriptSpanUpdateDrawStateCmd)
-	styleSubscriptSpanUpdateMeasureStateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSubscriptSpanUpdateMeasureStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleSubscriptSpanCmd.AddCommand(styleSubscriptSpanUpdateMeasureStateCmd)
-	styleSubscriptSpanWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSubscriptSpanWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleSubscriptSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	styleSubscriptSpanCmd.AddCommand(styleSubscriptSpanWriteToParcelCmd)
-	styleCmd.AddCommand(styleSubscriptSpanCmd)
-	styleDrawableMarginSpanNewDrawableMarginSpanCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleDrawableMarginSpanCmd.AddCommand(styleDrawableMarginSpanNewDrawableMarginSpanCmd)
-	styleDrawableMarginSpanChooseHeightCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleDrawableMarginSpanChooseHeightCmd.Flags().String("arg0", "", "arg0 (string)")
-	styleDrawableMarginSpanChooseHeightCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	styleDrawableMarginSpanChooseHeightCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	styleDrawableMarginSpanChooseHeightCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	styleDrawableMarginSpanChooseHeightCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	styleDrawableMarginSpanChooseHeightCmd.Flags().Int64("arg5", 0, "arg5 (int64)")
-	styleDrawableMarginSpanCmd.AddCommand(styleDrawableMarginSpanChooseHeightCmd)
-	styleDrawableMarginSpanDrawLeadingMarginCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleDrawableMarginSpanDrawLeadingMarginCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleDrawableMarginSpanDrawLeadingMarginCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	styleDrawableMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	styleDrawableMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	styleDrawableMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	styleDrawableMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
-	styleDrawableMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg6", 0, "arg6 (int32)")
-	styleDrawableMarginSpanDrawLeadingMarginCmd.Flags().String("arg7", "", "arg7 (string)")
-	styleDrawableMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg8", 0, "arg8 (int32)")
-	styleDrawableMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg9", 0, "arg9 (int32)")
-	styleDrawableMarginSpanDrawLeadingMarginCmd.Flags().Bool("arg10", false, "arg10 (bool)")
-	styleDrawableMarginSpanDrawLeadingMarginCmd.Flags().Int64("arg11", 0, "arg11 (int64)")
-	styleDrawableMarginSpanCmd.AddCommand(styleDrawableMarginSpanDrawLeadingMarginCmd)
-	styleDrawableMarginSpanGetDrawableCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleDrawableMarginSpanCmd.AddCommand(styleDrawableMarginSpanGetDrawableCmd)
-	styleDrawableMarginSpanGetLeadingMarginCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleDrawableMarginSpanGetLeadingMarginCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	styleDrawableMarginSpanCmd.AddCommand(styleDrawableMarginSpanGetLeadingMarginCmd)
-	styleDrawableMarginSpanGetPaddingCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleDrawableMarginSpanCmd.AddCommand(styleDrawableMarginSpanGetPaddingCmd)
-	styleDrawableMarginSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleDrawableMarginSpanCmd.AddCommand(styleDrawableMarginSpanToStringCmd)
-	styleCmd.AddCommand(styleDrawableMarginSpanCmd)
-	styleReplacementSpanDrawCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleReplacementSpanDrawCmd.Flags().String("arg1", "", "arg1 (string)")
-	styleReplacementSpanDrawCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	styleReplacementSpanDrawCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	styleReplacementSpanDrawCmd.Flags().Float32("arg4", 0, "arg4 (float32)")
-	styleReplacementSpanDrawCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
-	styleReplacementSpanDrawCmd.Flags().Int32("arg6", 0, "arg6 (int32)")
-	styleReplacementSpanDrawCmd.Flags().Int32("arg7", 0, "arg7 (int32)")
-	styleReplacementSpanDrawCmd.Flags().Int64("arg8", 0, "arg8 (int64)")
-	styleReplacementSpanCmd.AddCommand(styleReplacementSpanDrawCmd)
-	styleReplacementSpanCmd.AddCommand(styleReplacementSpanGetContentDescriptionCmd)
-	styleReplacementSpanGetSizeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleReplacementSpanGetSizeCmd.Flags().String("arg1", "", "arg1 (string)")
-	styleReplacementSpanGetSizeCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	styleReplacementSpanGetSizeCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	styleReplacementSpanGetSizeCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
-	styleReplacementSpanCmd.AddCommand(styleReplacementSpanGetSizeCmd)
-	styleReplacementSpanSetContentDescriptionCmd.Flags().String("arg0", "", "arg0 (string)")
-	styleReplacementSpanCmd.AddCommand(styleReplacementSpanSetContentDescriptionCmd)
-	styleReplacementSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleReplacementSpanCmd.AddCommand(styleReplacementSpanUpdateDrawStateCmd)
-	styleReplacementSpanUpdateMeasureStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleReplacementSpanCmd.AddCommand(styleReplacementSpanUpdateMeasureStateCmd)
-	styleCmd.AddCommand(styleReplacementSpanCmd)
-	styleForegroundColorSpanNewForegroundColorSpanCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleForegroundColorSpanCmd.AddCommand(styleForegroundColorSpanNewForegroundColorSpanCmd)
-	styleForegroundColorSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleForegroundColorSpanCmd.AddCommand(styleForegroundColorSpanDescribeContentsCmd)
-	styleForegroundColorSpanGetForegroundColorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleForegroundColorSpanCmd.AddCommand(styleForegroundColorSpanGetForegroundColorCmd)
-	styleForegroundColorSpanGetSpanTypeIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleForegroundColorSpanCmd.AddCommand(styleForegroundColorSpanGetSpanTypeIdCmd)
-	styleForegroundColorSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleForegroundColorSpanCmd.AddCommand(styleForegroundColorSpanToStringCmd)
-	styleForegroundColorSpanUpdateDrawStateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleForegroundColorSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleForegroundColorSpanCmd.AddCommand(styleForegroundColorSpanUpdateDrawStateCmd)
-	styleForegroundColorSpanWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleForegroundColorSpanWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleForegroundColorSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	styleForegroundColorSpanCmd.AddCommand(styleForegroundColorSpanWriteToParcelCmd)
-	styleCmd.AddCommand(styleForegroundColorSpanCmd)
-	styleTypefaceSpanNewTypefaceSpanCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleTypefaceSpanCmd.AddCommand(styleTypefaceSpanNewTypefaceSpanCmd)
-	styleTypefaceSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleTypefaceSpanCmd.AddCommand(styleTypefaceSpanDescribeContentsCmd)
-	styleTypefaceSpanGetFamilyCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleTypefaceSpanCmd.AddCommand(styleTypefaceSpanGetFamilyCmd)
-	styleTypefaceSpanGetSpanTypeIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleTypefaceSpanCmd.AddCommand(styleTypefaceSpanGetSpanTypeIdCmd)
-	styleTypefaceSpanGetTypefaceCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleTypefaceSpanCmd.AddCommand(styleTypefaceSpanGetTypefaceCmd)
-	styleTypefaceSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleTypefaceSpanCmd.AddCommand(styleTypefaceSpanToStringCmd)
-	styleTypefaceSpanUpdateDrawStateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleTypefaceSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleTypefaceSpanCmd.AddCommand(styleTypefaceSpanUpdateDrawStateCmd)
-	styleTypefaceSpanUpdateMeasureStateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleTypefaceSpanUpdateMeasureStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleTypefaceSpanCmd.AddCommand(styleTypefaceSpanUpdateMeasureStateCmd)
-	styleTypefaceSpanWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleTypefaceSpanWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleTypefaceSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	styleTypefaceSpanCmd.AddCommand(styleTypefaceSpanWriteToParcelCmd)
-	styleCmd.AddCommand(styleTypefaceSpanCmd)
-	styleDynamicDrawableSpanDrawCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleDynamicDrawableSpanDrawCmd.Flags().String("arg1", "", "arg1 (string)")
-	styleDynamicDrawableSpanDrawCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	styleDynamicDrawableSpanDrawCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	styleDynamicDrawableSpanDrawCmd.Flags().Float32("arg4", 0, "arg4 (float32)")
-	styleDynamicDrawableSpanDrawCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
-	styleDynamicDrawableSpanDrawCmd.Flags().Int32("arg6", 0, "arg6 (int32)")
-	styleDynamicDrawableSpanDrawCmd.Flags().Int32("arg7", 0, "arg7 (int32)")
-	styleDynamicDrawableSpanDrawCmd.Flags().Int64("arg8", 0, "arg8 (int64)")
-	styleDynamicDrawableSpanCmd.AddCommand(styleDynamicDrawableSpanDrawCmd)
-	styleDynamicDrawableSpanCmd.AddCommand(styleDynamicDrawableSpanGetDrawableCmd)
-	styleDynamicDrawableSpanGetSizeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleDynamicDrawableSpanGetSizeCmd.Flags().String("arg1", "", "arg1 (string)")
-	styleDynamicDrawableSpanGetSizeCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	styleDynamicDrawableSpanGetSizeCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	styleDynamicDrawableSpanGetSizeCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
-	styleDynamicDrawableSpanCmd.AddCommand(styleDynamicDrawableSpanGetSizeCmd)
-	styleDynamicDrawableSpanCmd.AddCommand(styleDynamicDrawableSpanGetVerticalAlignmentCmd)
-	styleDynamicDrawableSpanCmd.AddCommand(styleDynamicDrawableSpanToStringCmd)
-	styleCmd.AddCommand(styleDynamicDrawableSpanCmd)
 	styleBulletSpanCmd.AddCommand(styleBulletSpanNewBulletSpanCmd)
 	styleBulletSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
 	styleBulletSpanCmd.AddCommand(styleBulletSpanDescribeContentsCmd)
@@ -7209,116 +7035,82 @@ func init() {
 	styleBulletSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	styleBulletSpanCmd.AddCommand(styleBulletSpanWriteToParcelCmd)
 	styleCmd.AddCommand(styleBulletSpanCmd)
-	styleUnderlineSpanCmd.AddCommand(styleUnderlineSpanNewUnderlineSpanCmd)
-	styleUnderlineSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleUnderlineSpanCmd.AddCommand(styleUnderlineSpanDescribeContentsCmd)
-	styleUnderlineSpanGetSpanTypeIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleUnderlineSpanCmd.AddCommand(styleUnderlineSpanGetSpanTypeIdCmd)
-	styleUnderlineSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleUnderlineSpanCmd.AddCommand(styleUnderlineSpanToStringCmd)
-	styleUnderlineSpanUpdateDrawStateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleUnderlineSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleUnderlineSpanCmd.AddCommand(styleUnderlineSpanUpdateDrawStateCmd)
-	styleUnderlineSpanWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleUnderlineSpanWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleUnderlineSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	styleUnderlineSpanCmd.AddCommand(styleUnderlineSpanWriteToParcelCmd)
-	styleCmd.AddCommand(styleUnderlineSpanCmd)
-	styleLineBackgroundSpanDrawBackgroundCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleLineBackgroundSpanDrawBackgroundCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	styleLineBackgroundSpanDrawBackgroundCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	styleLineBackgroundSpanDrawBackgroundCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	styleLineBackgroundSpanDrawBackgroundCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	styleLineBackgroundSpanDrawBackgroundCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
-	styleLineBackgroundSpanDrawBackgroundCmd.Flags().Int32("arg6", 0, "arg6 (int32)")
-	styleLineBackgroundSpanDrawBackgroundCmd.Flags().String("arg7", "", "arg7 (string)")
-	styleLineBackgroundSpanDrawBackgroundCmd.Flags().Int32("arg8", 0, "arg8 (int32)")
-	styleLineBackgroundSpanDrawBackgroundCmd.Flags().Int32("arg9", 0, "arg9 (int32)")
-	styleLineBackgroundSpanDrawBackgroundCmd.Flags().Int32("arg10", 0, "arg10 (int32)")
-	styleLineBackgroundSpanCmd.AddCommand(styleLineBackgroundSpanDrawBackgroundCmd)
-	styleCmd.AddCommand(styleLineBackgroundSpanCmd)
-	styleLineBackgroundSpanStandardCmd.AddCommand(styleLineBackgroundSpanStandardDescribeContentsCmd)
-	styleLineBackgroundSpanStandardDrawBackgroundCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleLineBackgroundSpanStandardDrawBackgroundCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	styleLineBackgroundSpanStandardDrawBackgroundCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	styleLineBackgroundSpanStandardDrawBackgroundCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	styleLineBackgroundSpanStandardDrawBackgroundCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	styleLineBackgroundSpanStandardDrawBackgroundCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
-	styleLineBackgroundSpanStandardDrawBackgroundCmd.Flags().Int32("arg6", 0, "arg6 (int32)")
-	styleLineBackgroundSpanStandardDrawBackgroundCmd.Flags().String("arg7", "", "arg7 (string)")
-	styleLineBackgroundSpanStandardDrawBackgroundCmd.Flags().Int32("arg8", 0, "arg8 (int32)")
-	styleLineBackgroundSpanStandardDrawBackgroundCmd.Flags().Int32("arg9", 0, "arg9 (int32)")
-	styleLineBackgroundSpanStandardDrawBackgroundCmd.Flags().Int32("arg10", 0, "arg10 (int32)")
-	styleLineBackgroundSpanStandardCmd.AddCommand(styleLineBackgroundSpanStandardDrawBackgroundCmd)
-	styleLineBackgroundSpanStandardCmd.AddCommand(styleLineBackgroundSpanStandardGetColorCmd)
-	styleLineBackgroundSpanStandardCmd.AddCommand(styleLineBackgroundSpanStandardGetSpanTypeIdCmd)
-	styleLineBackgroundSpanStandardWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleLineBackgroundSpanStandardWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	styleLineBackgroundSpanStandardCmd.AddCommand(styleLineBackgroundSpanStandardWriteToParcelCmd)
-	styleCmd.AddCommand(styleLineBackgroundSpanStandardCmd)
-	styleClickableSpanOnClickCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleClickableSpanCmd.AddCommand(styleClickableSpanOnClickCmd)
-	styleClickableSpanCmd.AddCommand(styleClickableSpanToStringCmd)
-	styleClickableSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleClickableSpanCmd.AddCommand(styleClickableSpanUpdateDrawStateCmd)
-	styleCmd.AddCommand(styleClickableSpanCmd)
-	styleSpanNewSpanCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleSpanCmd.AddCommand(styleSpanNewSpanCmd)
-	styleSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSpanCmd.AddCommand(styleSpanDescribeContentsCmd)
-	styleSpanGetFontWeightAdjustmentCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSpanCmd.AddCommand(styleSpanGetFontWeightAdjustmentCmd)
-	styleSpanGetSpanTypeIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSpanCmd.AddCommand(styleSpanGetSpanTypeIdCmd)
-	styleSpanGetStyleCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSpanCmd.AddCommand(styleSpanGetStyleCmd)
-	styleSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSpanCmd.AddCommand(styleSpanToStringCmd)
-	styleSpanUpdateDrawStateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleSpanCmd.AddCommand(styleSpanUpdateDrawStateCmd)
-	styleSpanUpdateMeasureStateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSpanUpdateMeasureStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleSpanCmd.AddCommand(styleSpanUpdateMeasureStateCmd)
-	styleSpanWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSpanWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	styleSpanCmd.AddCommand(styleSpanWriteToParcelCmd)
-	styleCmd.AddCommand(styleSpanCmd)
-	styleSuggestionSpanNewSuggestionSpanCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleSuggestionSpanNewSuggestionSpanCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	styleSuggestionSpanNewSuggestionSpanCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	styleSuggestionSpanCmd.AddCommand(styleSuggestionSpanNewSuggestionSpanCmd)
-	styleSuggestionSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSuggestionSpanCmd.AddCommand(styleSuggestionSpanDescribeContentsCmd)
-	styleSuggestionSpanEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSuggestionSpanEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleSuggestionSpanCmd.AddCommand(styleSuggestionSpanEqualsCmd)
-	styleSuggestionSpanGetFlagsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSuggestionSpanCmd.AddCommand(styleSuggestionSpanGetFlagsCmd)
-	styleSuggestionSpanGetLocaleCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSuggestionSpanCmd.AddCommand(styleSuggestionSpanGetLocaleCmd)
-	styleSuggestionSpanGetLocaleObjectCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSuggestionSpanCmd.AddCommand(styleSuggestionSpanGetLocaleObjectCmd)
-	styleSuggestionSpanGetSpanTypeIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSuggestionSpanCmd.AddCommand(styleSuggestionSpanGetSpanTypeIdCmd)
-	styleSuggestionSpanGetSuggestionsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSuggestionSpanCmd.AddCommand(styleSuggestionSpanGetSuggestionsCmd)
-	styleSuggestionSpanGetUnderlineColorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSuggestionSpanCmd.AddCommand(styleSuggestionSpanGetUnderlineColorCmd)
-	styleSuggestionSpanHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSuggestionSpanCmd.AddCommand(styleSuggestionSpanHashCodeCmd)
-	styleSuggestionSpanSetFlagsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSuggestionSpanSetFlagsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	styleSuggestionSpanCmd.AddCommand(styleSuggestionSpanSetFlagsCmd)
-	styleSuggestionSpanUpdateDrawStateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSuggestionSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleSuggestionSpanCmd.AddCommand(styleSuggestionSpanUpdateDrawStateCmd)
-	styleSuggestionSpanWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSuggestionSpanWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleSuggestionSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	styleSuggestionSpanCmd.AddCommand(styleSuggestionSpanWriteToParcelCmd)
-	styleCmd.AddCommand(styleSuggestionSpanCmd)
+	styleStrikethroughSpanCmd.AddCommand(styleStrikethroughSpanNewStrikethroughSpanCmd)
+	styleStrikethroughSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleStrikethroughSpanCmd.AddCommand(styleStrikethroughSpanDescribeContentsCmd)
+	styleStrikethroughSpanGetSpanTypeIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleStrikethroughSpanCmd.AddCommand(styleStrikethroughSpanGetSpanTypeIdCmd)
+	styleStrikethroughSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleStrikethroughSpanCmd.AddCommand(styleStrikethroughSpanToStringCmd)
+	styleStrikethroughSpanUpdateDrawStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleStrikethroughSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleStrikethroughSpanCmd.AddCommand(styleStrikethroughSpanUpdateDrawStateCmd)
+	styleStrikethroughSpanWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleStrikethroughSpanWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleStrikethroughSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	styleStrikethroughSpanCmd.AddCommand(styleStrikethroughSpanWriteToParcelCmd)
+	styleCmd.AddCommand(styleStrikethroughSpanCmd)
+	styleDynamicDrawableSpanDrawCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleDynamicDrawableSpanDrawCmd.Flags().String("arg1", "", "arg1 (string)")
+	styleDynamicDrawableSpanDrawCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	styleDynamicDrawableSpanDrawCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	styleDynamicDrawableSpanDrawCmd.Flags().Float32("arg4", 0, "arg4 (float32)")
+	styleDynamicDrawableSpanDrawCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	styleDynamicDrawableSpanDrawCmd.Flags().Int32("arg6", 0, "arg6 (int32)")
+	styleDynamicDrawableSpanDrawCmd.Flags().Int32("arg7", 0, "arg7 (int32)")
+	styleDynamicDrawableSpanDrawCmd.Flags().Int64("arg8", 0, "arg8 (int64)")
+	styleDynamicDrawableSpanCmd.AddCommand(styleDynamicDrawableSpanDrawCmd)
+	styleDynamicDrawableSpanCmd.AddCommand(styleDynamicDrawableSpanGetDrawableCmd)
+	styleDynamicDrawableSpanGetSizeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleDynamicDrawableSpanGetSizeCmd.Flags().String("arg1", "", "arg1 (string)")
+	styleDynamicDrawableSpanGetSizeCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	styleDynamicDrawableSpanGetSizeCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	styleDynamicDrawableSpanGetSizeCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	styleDynamicDrawableSpanCmd.AddCommand(styleDynamicDrawableSpanGetSizeCmd)
+	styleDynamicDrawableSpanCmd.AddCommand(styleDynamicDrawableSpanGetVerticalAlignmentCmd)
+	styleDynamicDrawableSpanCmd.AddCommand(styleDynamicDrawableSpanToStringCmd)
+	styleCmd.AddCommand(styleDynamicDrawableSpanCmd)
+	styleTabStopSpanCmd.AddCommand(styleTabStopSpanGetTabStopCmd)
+	styleCmd.AddCommand(styleTabStopSpanCmd)
+	styleTabStopSpanStandardCmd.AddCommand(styleTabStopSpanStandardGetTabStopCmd)
+	styleTabStopSpanStandardCmd.AddCommand(styleTabStopSpanStandardToStringCmd)
+	styleCmd.AddCommand(styleTabStopSpanStandardCmd)
+	styleSubscriptSpanCmd.AddCommand(styleSubscriptSpanNewSubscriptSpanCmd)
+	styleSubscriptSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSubscriptSpanCmd.AddCommand(styleSubscriptSpanDescribeContentsCmd)
+	styleSubscriptSpanGetSpanTypeIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSubscriptSpanCmd.AddCommand(styleSubscriptSpanGetSpanTypeIdCmd)
+	styleSubscriptSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSubscriptSpanCmd.AddCommand(styleSubscriptSpanToStringCmd)
+	styleSubscriptSpanUpdateDrawStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSubscriptSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleSubscriptSpanCmd.AddCommand(styleSubscriptSpanUpdateDrawStateCmd)
+	styleSubscriptSpanUpdateMeasureStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSubscriptSpanUpdateMeasureStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleSubscriptSpanCmd.AddCommand(styleSubscriptSpanUpdateMeasureStateCmd)
+	styleSubscriptSpanWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSubscriptSpanWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleSubscriptSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	styleSubscriptSpanCmd.AddCommand(styleSubscriptSpanWriteToParcelCmd)
+	styleCmd.AddCommand(styleSubscriptSpanCmd)
+	styleSuggestionRangeSpanCmd.AddCommand(styleSuggestionRangeSpanNewSuggestionRangeSpanCmd)
+	styleSuggestionRangeSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSuggestionRangeSpanCmd.AddCommand(styleSuggestionRangeSpanDescribeContentsCmd)
+	styleSuggestionRangeSpanGetBackgroundColorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSuggestionRangeSpanCmd.AddCommand(styleSuggestionRangeSpanGetBackgroundColorCmd)
+	styleSuggestionRangeSpanGetSpanTypeIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSuggestionRangeSpanCmd.AddCommand(styleSuggestionRangeSpanGetSpanTypeIdCmd)
+	styleSuggestionRangeSpanSetBackgroundColorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSuggestionRangeSpanSetBackgroundColorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	styleSuggestionRangeSpanCmd.AddCommand(styleSuggestionRangeSpanSetBackgroundColorCmd)
+	styleSuggestionRangeSpanUpdateDrawStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSuggestionRangeSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleSuggestionRangeSpanCmd.AddCommand(styleSuggestionRangeSpanUpdateDrawStateCmd)
+	styleSuggestionRangeSpanWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSuggestionRangeSpanWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleSuggestionRangeSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	styleSuggestionRangeSpanCmd.AddCommand(styleSuggestionRangeSpanWriteToParcelCmd)
+	styleCmd.AddCommand(styleSuggestionRangeSpanCmd)
 	styleLineBreakConfigSpanNewLineBreakConfigSpanCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	styleLineBreakConfigSpanCmd.AddCommand(styleLineBreakConfigSpanNewLineBreakConfigSpanCmd)
 	styleLineBreakConfigSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
@@ -7343,156 +7135,29 @@ func init() {
 	styleLineBreakConfigSpanCreateNoHyphenationSpanCmd.Flags().Int64("handle", 0, "handle (int64)")
 	styleLineBreakConfigSpanCmd.AddCommand(styleLineBreakConfigSpanCreateNoHyphenationSpanCmd)
 	styleCmd.AddCommand(styleLineBreakConfigSpanCmd)
-	styleTabStopSpanCmd.AddCommand(styleTabStopSpanGetTabStopCmd)
-	styleCmd.AddCommand(styleTabStopSpanCmd)
-	styleTabStopSpanStandardCmd.AddCommand(styleTabStopSpanStandardGetTabStopCmd)
-	styleTabStopSpanStandardCmd.AddCommand(styleTabStopSpanStandardToStringCmd)
-	styleCmd.AddCommand(styleTabStopSpanStandardCmd)
-	styleScaleXSpanNewScaleXSpanCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleScaleXSpanCmd.AddCommand(styleScaleXSpanNewScaleXSpanCmd)
-	styleScaleXSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleScaleXSpanCmd.AddCommand(styleScaleXSpanDescribeContentsCmd)
-	styleScaleXSpanGetScaleXCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleScaleXSpanCmd.AddCommand(styleScaleXSpanGetScaleXCmd)
-	styleScaleXSpanGetSpanTypeIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleScaleXSpanCmd.AddCommand(styleScaleXSpanGetSpanTypeIdCmd)
-	styleScaleXSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleScaleXSpanCmd.AddCommand(styleScaleXSpanToStringCmd)
-	styleScaleXSpanUpdateDrawStateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleScaleXSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleScaleXSpanCmd.AddCommand(styleScaleXSpanUpdateDrawStateCmd)
-	styleScaleXSpanUpdateMeasureStateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleScaleXSpanUpdateMeasureStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleScaleXSpanCmd.AddCommand(styleScaleXSpanUpdateMeasureStateCmd)
-	styleScaleXSpanWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleScaleXSpanWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleScaleXSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	styleScaleXSpanCmd.AddCommand(styleScaleXSpanWriteToParcelCmd)
-	styleCmd.AddCommand(styleScaleXSpanCmd)
-	styleImageSpanNewImageSpanCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleImageSpanNewImageSpanCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	styleImageSpanCmd.AddCommand(styleImageSpanNewImageSpanCmd)
-	styleImageSpanGetDrawableCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleImageSpanCmd.AddCommand(styleImageSpanGetDrawableCmd)
-	styleImageSpanGetSourceCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleImageSpanCmd.AddCommand(styleImageSpanGetSourceCmd)
-	styleImageSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleImageSpanCmd.AddCommand(styleImageSpanToStringCmd)
-	styleCmd.AddCommand(styleImageSpanCmd)
-	styleLeadingMarginSpanDrawLeadingMarginCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleLeadingMarginSpanDrawLeadingMarginCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	styleLeadingMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	styleLeadingMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	styleLeadingMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	styleLeadingMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
-	styleLeadingMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg6", 0, "arg6 (int32)")
-	styleLeadingMarginSpanDrawLeadingMarginCmd.Flags().String("arg7", "", "arg7 (string)")
-	styleLeadingMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg8", 0, "arg8 (int32)")
-	styleLeadingMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg9", 0, "arg9 (int32)")
-	styleLeadingMarginSpanDrawLeadingMarginCmd.Flags().Bool("arg10", false, "arg10 (bool)")
-	styleLeadingMarginSpanDrawLeadingMarginCmd.Flags().Int64("arg11", 0, "arg11 (int64)")
-	styleLeadingMarginSpanCmd.AddCommand(styleLeadingMarginSpanDrawLeadingMarginCmd)
-	styleLeadingMarginSpanGetLeadingMarginCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	styleLeadingMarginSpanCmd.AddCommand(styleLeadingMarginSpanGetLeadingMarginCmd)
-	styleCmd.AddCommand(styleLeadingMarginSpanCmd)
-	styleLeadingMarginSpanLeadingMarginSpan2Cmd.AddCommand(styleLeadingMarginSpanLeadingMarginSpan2GetLeadingMarginLineCountCmd)
-	styleCmd.AddCommand(styleLeadingMarginSpanLeadingMarginSpan2Cmd)
-	styleLeadingMarginSpanStandardCmd.AddCommand(styleLeadingMarginSpanStandardDescribeContentsCmd)
-	styleLeadingMarginSpanStandardDrawLeadingMarginCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleLeadingMarginSpanStandardDrawLeadingMarginCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	styleLeadingMarginSpanStandardDrawLeadingMarginCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	styleLeadingMarginSpanStandardDrawLeadingMarginCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	styleLeadingMarginSpanStandardDrawLeadingMarginCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	styleLeadingMarginSpanStandardDrawLeadingMarginCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
-	styleLeadingMarginSpanStandardDrawLeadingMarginCmd.Flags().Int32("arg6", 0, "arg6 (int32)")
-	styleLeadingMarginSpanStandardDrawLeadingMarginCmd.Flags().String("arg7", "", "arg7 (string)")
-	styleLeadingMarginSpanStandardDrawLeadingMarginCmd.Flags().Int32("arg8", 0, "arg8 (int32)")
-	styleLeadingMarginSpanStandardDrawLeadingMarginCmd.Flags().Int32("arg9", 0, "arg9 (int32)")
-	styleLeadingMarginSpanStandardDrawLeadingMarginCmd.Flags().Bool("arg10", false, "arg10 (bool)")
-	styleLeadingMarginSpanStandardDrawLeadingMarginCmd.Flags().Int64("arg11", 0, "arg11 (int64)")
-	styleLeadingMarginSpanStandardCmd.AddCommand(styleLeadingMarginSpanStandardDrawLeadingMarginCmd)
-	styleLeadingMarginSpanStandardGetLeadingMarginCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	styleLeadingMarginSpanStandardCmd.AddCommand(styleLeadingMarginSpanStandardGetLeadingMarginCmd)
-	styleLeadingMarginSpanStandardCmd.AddCommand(styleLeadingMarginSpanStandardGetSpanTypeIdCmd)
-	styleLeadingMarginSpanStandardWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleLeadingMarginSpanStandardWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	styleLeadingMarginSpanStandardCmd.AddCommand(styleLeadingMarginSpanStandardWriteToParcelCmd)
-	styleCmd.AddCommand(styleLeadingMarginSpanStandardCmd)
-	styleIconMarginSpanNewIconMarginSpanCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleIconMarginSpanCmd.AddCommand(styleIconMarginSpanNewIconMarginSpanCmd)
-	styleIconMarginSpanChooseHeightCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleIconMarginSpanChooseHeightCmd.Flags().String("arg0", "", "arg0 (string)")
-	styleIconMarginSpanChooseHeightCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	styleIconMarginSpanChooseHeightCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	styleIconMarginSpanChooseHeightCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	styleIconMarginSpanChooseHeightCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	styleIconMarginSpanChooseHeightCmd.Flags().Int64("arg5", 0, "arg5 (int64)")
-	styleIconMarginSpanCmd.AddCommand(styleIconMarginSpanChooseHeightCmd)
-	styleIconMarginSpanDrawLeadingMarginCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleIconMarginSpanDrawLeadingMarginCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleIconMarginSpanDrawLeadingMarginCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	styleIconMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	styleIconMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	styleIconMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	styleIconMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
-	styleIconMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg6", 0, "arg6 (int32)")
-	styleIconMarginSpanDrawLeadingMarginCmd.Flags().String("arg7", "", "arg7 (string)")
-	styleIconMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg8", 0, "arg8 (int32)")
-	styleIconMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg9", 0, "arg9 (int32)")
-	styleIconMarginSpanDrawLeadingMarginCmd.Flags().Bool("arg10", false, "arg10 (bool)")
-	styleIconMarginSpanDrawLeadingMarginCmd.Flags().Int64("arg11", 0, "arg11 (int64)")
-	styleIconMarginSpanCmd.AddCommand(styleIconMarginSpanDrawLeadingMarginCmd)
-	styleIconMarginSpanGetBitmapCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleIconMarginSpanCmd.AddCommand(styleIconMarginSpanGetBitmapCmd)
-	styleIconMarginSpanGetLeadingMarginCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleIconMarginSpanGetLeadingMarginCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	styleIconMarginSpanCmd.AddCommand(styleIconMarginSpanGetLeadingMarginCmd)
-	styleIconMarginSpanGetPaddingCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleIconMarginSpanCmd.AddCommand(styleIconMarginSpanGetPaddingCmd)
-	styleIconMarginSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleIconMarginSpanCmd.AddCommand(styleIconMarginSpanToStringCmd)
-	styleCmd.AddCommand(styleIconMarginSpanCmd)
-	styleLocaleSpanNewLocaleSpanCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleLocaleSpanCmd.AddCommand(styleLocaleSpanNewLocaleSpanCmd)
-	styleLocaleSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleLocaleSpanCmd.AddCommand(styleLocaleSpanDescribeContentsCmd)
-	styleLocaleSpanGetLocaleCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleLocaleSpanCmd.AddCommand(styleLocaleSpanGetLocaleCmd)
-	styleLocaleSpanGetLocalesCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleLocaleSpanCmd.AddCommand(styleLocaleSpanGetLocalesCmd)
-	styleLocaleSpanGetSpanTypeIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleLocaleSpanCmd.AddCommand(styleLocaleSpanGetSpanTypeIdCmd)
-	styleLocaleSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleLocaleSpanCmd.AddCommand(styleLocaleSpanToStringCmd)
-	styleLocaleSpanUpdateDrawStateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleLocaleSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleLocaleSpanCmd.AddCommand(styleLocaleSpanUpdateDrawStateCmd)
-	styleLocaleSpanUpdateMeasureStateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleLocaleSpanUpdateMeasureStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleLocaleSpanCmd.AddCommand(styleLocaleSpanUpdateMeasureStateCmd)
-	styleLocaleSpanWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleLocaleSpanWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleLocaleSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	styleLocaleSpanCmd.AddCommand(styleLocaleSpanWriteToParcelCmd)
-	styleCmd.AddCommand(styleLocaleSpanCmd)
-	styleSuperscriptSpanCmd.AddCommand(styleSuperscriptSpanNewSuperscriptSpanCmd)
-	styleSuperscriptSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSuperscriptSpanCmd.AddCommand(styleSuperscriptSpanDescribeContentsCmd)
-	styleSuperscriptSpanGetSpanTypeIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSuperscriptSpanCmd.AddCommand(styleSuperscriptSpanGetSpanTypeIdCmd)
-	styleSuperscriptSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSuperscriptSpanCmd.AddCommand(styleSuperscriptSpanToStringCmd)
-	styleSuperscriptSpanUpdateDrawStateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSuperscriptSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleSuperscriptSpanCmd.AddCommand(styleSuperscriptSpanUpdateDrawStateCmd)
-	styleSuperscriptSpanUpdateMeasureStateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSuperscriptSpanUpdateMeasureStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleSuperscriptSpanCmd.AddCommand(styleSuperscriptSpanUpdateMeasureStateCmd)
-	styleSuperscriptSpanWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSuperscriptSpanWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleSuperscriptSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	styleSuperscriptSpanCmd.AddCommand(styleSuperscriptSpanWriteToParcelCmd)
-	styleCmd.AddCommand(styleSuperscriptSpanCmd)
+	styleSpanNewSpanCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleSpanCmd.AddCommand(styleSpanNewSpanCmd)
+	styleSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSpanCmd.AddCommand(styleSpanDescribeContentsCmd)
+	styleSpanGetFontWeightAdjustmentCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSpanCmd.AddCommand(styleSpanGetFontWeightAdjustmentCmd)
+	styleSpanGetSpanTypeIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSpanCmd.AddCommand(styleSpanGetSpanTypeIdCmd)
+	styleSpanGetStyleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSpanCmd.AddCommand(styleSpanGetStyleCmd)
+	styleSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSpanCmd.AddCommand(styleSpanToStringCmd)
+	styleSpanUpdateDrawStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleSpanCmd.AddCommand(styleSpanUpdateDrawStateCmd)
+	styleSpanUpdateMeasureStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSpanUpdateMeasureStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleSpanCmd.AddCommand(styleSpanUpdateMeasureStateCmd)
+	styleSpanWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSpanWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	styleSpanCmd.AddCommand(styleSpanWriteToParcelCmd)
+	styleCmd.AddCommand(styleSpanCmd)
 	styleTtsSpanNewTtsSpanCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	styleTtsSpanCmd.AddCommand(styleTtsSpanNewTtsSpanCmd)
 	styleTtsSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
@@ -7635,24 +7300,27 @@ func init() {
 	styleTtsSpanVerbatimBuilderSetVerbatimCmd.Flags().String("arg0", "", "arg0 (string)")
 	styleTtsSpanVerbatimBuilderCmd.AddCommand(styleTtsSpanVerbatimBuilderSetVerbatimCmd)
 	styleCmd.AddCommand(styleTtsSpanVerbatimBuilderCmd)
-	styleSuggestionRangeSpanCmd.AddCommand(styleSuggestionRangeSpanNewSuggestionRangeSpanCmd)
-	styleSuggestionRangeSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSuggestionRangeSpanCmd.AddCommand(styleSuggestionRangeSpanDescribeContentsCmd)
-	styleSuggestionRangeSpanGetBackgroundColorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSuggestionRangeSpanCmd.AddCommand(styleSuggestionRangeSpanGetBackgroundColorCmd)
-	styleSuggestionRangeSpanGetSpanTypeIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSuggestionRangeSpanCmd.AddCommand(styleSuggestionRangeSpanGetSpanTypeIdCmd)
-	styleSuggestionRangeSpanSetBackgroundColorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSuggestionRangeSpanSetBackgroundColorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	styleSuggestionRangeSpanCmd.AddCommand(styleSuggestionRangeSpanSetBackgroundColorCmd)
-	styleSuggestionRangeSpanUpdateDrawStateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSuggestionRangeSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleSuggestionRangeSpanCmd.AddCommand(styleSuggestionRangeSpanUpdateDrawStateCmd)
-	styleSuggestionRangeSpanWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleSuggestionRangeSpanWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleSuggestionRangeSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	styleSuggestionRangeSpanCmd.AddCommand(styleSuggestionRangeSpanWriteToParcelCmd)
-	styleCmd.AddCommand(styleSuggestionRangeSpanCmd)
+	styleRelativeSizeSpanNewRelativeSizeSpanCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleRelativeSizeSpanCmd.AddCommand(styleRelativeSizeSpanNewRelativeSizeSpanCmd)
+	styleRelativeSizeSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleRelativeSizeSpanCmd.AddCommand(styleRelativeSizeSpanDescribeContentsCmd)
+	styleRelativeSizeSpanGetSizeChangeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleRelativeSizeSpanCmd.AddCommand(styleRelativeSizeSpanGetSizeChangeCmd)
+	styleRelativeSizeSpanGetSpanTypeIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleRelativeSizeSpanCmd.AddCommand(styleRelativeSizeSpanGetSpanTypeIdCmd)
+	styleRelativeSizeSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleRelativeSizeSpanCmd.AddCommand(styleRelativeSizeSpanToStringCmd)
+	styleRelativeSizeSpanUpdateDrawStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleRelativeSizeSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleRelativeSizeSpanCmd.AddCommand(styleRelativeSizeSpanUpdateDrawStateCmd)
+	styleRelativeSizeSpanUpdateMeasureStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleRelativeSizeSpanUpdateMeasureStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleRelativeSizeSpanCmd.AddCommand(styleRelativeSizeSpanUpdateMeasureStateCmd)
+	styleRelativeSizeSpanWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleRelativeSizeSpanWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleRelativeSizeSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	styleRelativeSizeSpanCmd.AddCommand(styleRelativeSizeSpanWriteToParcelCmd)
+	styleCmd.AddCommand(styleRelativeSizeSpanCmd)
 	styleEasyEditSpanCmd.AddCommand(styleEasyEditSpanNewEasyEditSpanCmd)
 	styleEasyEditSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
 	styleEasyEditSpanCmd.AddCommand(styleEasyEditSpanDescribeContentsCmd)
@@ -7663,64 +7331,6 @@ func init() {
 	styleEasyEditSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	styleEasyEditSpanCmd.AddCommand(styleEasyEditSpanWriteToParcelCmd)
 	styleCmd.AddCommand(styleEasyEditSpanCmd)
-	styleAlignmentSpanCmd.AddCommand(styleAlignmentSpanGetAlignmentCmd)
-	styleCmd.AddCommand(styleAlignmentSpanCmd)
-	styleAlignmentSpanStandardCmd.AddCommand(styleAlignmentSpanStandardDescribeContentsCmd)
-	styleAlignmentSpanStandardCmd.AddCommand(styleAlignmentSpanStandardGetAlignmentCmd)
-	styleAlignmentSpanStandardCmd.AddCommand(styleAlignmentSpanStandardGetSpanTypeIdCmd)
-	styleAlignmentSpanStandardCmd.AddCommand(styleAlignmentSpanStandardToStringCmd)
-	styleAlignmentSpanStandardWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleAlignmentSpanStandardWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	styleAlignmentSpanStandardCmd.AddCommand(styleAlignmentSpanStandardWriteToParcelCmd)
-	styleCmd.AddCommand(styleAlignmentSpanStandardCmd)
-	styleMaskFilterSpanNewMaskFilterSpanCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleMaskFilterSpanCmd.AddCommand(styleMaskFilterSpanNewMaskFilterSpanCmd)
-	styleMaskFilterSpanGetMaskFilterCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleMaskFilterSpanCmd.AddCommand(styleMaskFilterSpanGetMaskFilterCmd)
-	styleMaskFilterSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleMaskFilterSpanCmd.AddCommand(styleMaskFilterSpanToStringCmd)
-	styleMaskFilterSpanUpdateDrawStateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleMaskFilterSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleMaskFilterSpanCmd.AddCommand(styleMaskFilterSpanUpdateDrawStateCmd)
-	styleCmd.AddCommand(styleMaskFilterSpanCmd)
-	styleBackgroundColorSpanNewBackgroundColorSpanCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleBackgroundColorSpanCmd.AddCommand(styleBackgroundColorSpanNewBackgroundColorSpanCmd)
-	styleBackgroundColorSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleBackgroundColorSpanCmd.AddCommand(styleBackgroundColorSpanDescribeContentsCmd)
-	styleBackgroundColorSpanGetBackgroundColorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleBackgroundColorSpanCmd.AddCommand(styleBackgroundColorSpanGetBackgroundColorCmd)
-	styleBackgroundColorSpanGetSpanTypeIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleBackgroundColorSpanCmd.AddCommand(styleBackgroundColorSpanGetSpanTypeIdCmd)
-	styleBackgroundColorSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleBackgroundColorSpanCmd.AddCommand(styleBackgroundColorSpanToStringCmd)
-	styleBackgroundColorSpanUpdateDrawStateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleBackgroundColorSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleBackgroundColorSpanCmd.AddCommand(styleBackgroundColorSpanUpdateDrawStateCmd)
-	styleBackgroundColorSpanWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleBackgroundColorSpanWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleBackgroundColorSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	styleBackgroundColorSpanCmd.AddCommand(styleBackgroundColorSpanWriteToParcelCmd)
-	styleCmd.AddCommand(styleBackgroundColorSpanCmd)
-	styleStrikethroughSpanCmd.AddCommand(styleStrikethroughSpanNewStrikethroughSpanCmd)
-	styleStrikethroughSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleStrikethroughSpanCmd.AddCommand(styleStrikethroughSpanDescribeContentsCmd)
-	styleStrikethroughSpanGetSpanTypeIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleStrikethroughSpanCmd.AddCommand(styleStrikethroughSpanGetSpanTypeIdCmd)
-	styleStrikethroughSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleStrikethroughSpanCmd.AddCommand(styleStrikethroughSpanToStringCmd)
-	styleStrikethroughSpanUpdateDrawStateCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleStrikethroughSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleStrikethroughSpanCmd.AddCommand(styleStrikethroughSpanUpdateDrawStateCmd)
-	styleStrikethroughSpanWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	styleStrikethroughSpanWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleStrikethroughSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	styleStrikethroughSpanCmd.AddCommand(styleStrikethroughSpanWriteToParcelCmd)
-	styleCmd.AddCommand(styleStrikethroughSpanCmd)
-	styleMetricAffectingSpanCmd.AddCommand(styleMetricAffectingSpanGetUnderlying0Cmd)
-	styleMetricAffectingSpanUpdateMeasureStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	styleMetricAffectingSpanCmd.AddCommand(styleMetricAffectingSpanUpdateMeasureStateCmd)
-	styleMetricAffectingSpanCmd.AddCommand(styleMetricAffectingSpanGetUnderlying0_1Cmd)
-	styleCmd.AddCommand(styleMetricAffectingSpanCmd)
 	styleURLSpanNewURLSpanCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	styleURLSpanCmd.AddCommand(styleURLSpanNewURLSpanCmd)
 	styleURLSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
@@ -7739,5 +7349,395 @@ func init() {
 	styleURLSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	styleURLSpanCmd.AddCommand(styleURLSpanWriteToParcelCmd)
 	styleCmd.AddCommand(styleURLSpanCmd)
+	styleForegroundColorSpanNewForegroundColorSpanCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleForegroundColorSpanCmd.AddCommand(styleForegroundColorSpanNewForegroundColorSpanCmd)
+	styleForegroundColorSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleForegroundColorSpanCmd.AddCommand(styleForegroundColorSpanDescribeContentsCmd)
+	styleForegroundColorSpanGetForegroundColorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleForegroundColorSpanCmd.AddCommand(styleForegroundColorSpanGetForegroundColorCmd)
+	styleForegroundColorSpanGetSpanTypeIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleForegroundColorSpanCmd.AddCommand(styleForegroundColorSpanGetSpanTypeIdCmd)
+	styleForegroundColorSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleForegroundColorSpanCmd.AddCommand(styleForegroundColorSpanToStringCmd)
+	styleForegroundColorSpanUpdateDrawStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleForegroundColorSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleForegroundColorSpanCmd.AddCommand(styleForegroundColorSpanUpdateDrawStateCmd)
+	styleForegroundColorSpanWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleForegroundColorSpanWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleForegroundColorSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	styleForegroundColorSpanCmd.AddCommand(styleForegroundColorSpanWriteToParcelCmd)
+	styleCmd.AddCommand(styleForegroundColorSpanCmd)
+	styleReplacementSpanDrawCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleReplacementSpanDrawCmd.Flags().String("arg1", "", "arg1 (string)")
+	styleReplacementSpanDrawCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	styleReplacementSpanDrawCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	styleReplacementSpanDrawCmd.Flags().Float32("arg4", 0, "arg4 (float32)")
+	styleReplacementSpanDrawCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	styleReplacementSpanDrawCmd.Flags().Int32("arg6", 0, "arg6 (int32)")
+	styleReplacementSpanDrawCmd.Flags().Int32("arg7", 0, "arg7 (int32)")
+	styleReplacementSpanDrawCmd.Flags().Int64("arg8", 0, "arg8 (int64)")
+	styleReplacementSpanCmd.AddCommand(styleReplacementSpanDrawCmd)
+	styleReplacementSpanCmd.AddCommand(styleReplacementSpanGetContentDescriptionCmd)
+	styleReplacementSpanGetSizeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleReplacementSpanGetSizeCmd.Flags().String("arg1", "", "arg1 (string)")
+	styleReplacementSpanGetSizeCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	styleReplacementSpanGetSizeCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	styleReplacementSpanGetSizeCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	styleReplacementSpanCmd.AddCommand(styleReplacementSpanGetSizeCmd)
+	styleReplacementSpanSetContentDescriptionCmd.Flags().String("arg0", "", "arg0 (string)")
+	styleReplacementSpanCmd.AddCommand(styleReplacementSpanSetContentDescriptionCmd)
+	styleReplacementSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleReplacementSpanCmd.AddCommand(styleReplacementSpanUpdateDrawStateCmd)
+	styleReplacementSpanUpdateMeasureStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleReplacementSpanCmd.AddCommand(styleReplacementSpanUpdateMeasureStateCmd)
+	styleCmd.AddCommand(styleReplacementSpanCmd)
+	styleLineHeightSpanChooseHeightCmd.Flags().String("arg0", "", "arg0 (string)")
+	styleLineHeightSpanChooseHeightCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	styleLineHeightSpanChooseHeightCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	styleLineHeightSpanChooseHeightCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	styleLineHeightSpanChooseHeightCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	styleLineHeightSpanChooseHeightCmd.Flags().Int64("arg5", 0, "arg5 (int64)")
+	styleLineHeightSpanCmd.AddCommand(styleLineHeightSpanChooseHeightCmd)
+	styleCmd.AddCommand(styleLineHeightSpanCmd)
+	styleLineHeightSpanStandardChooseHeightCmd.Flags().String("arg0", "", "arg0 (string)")
+	styleLineHeightSpanStandardChooseHeightCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	styleLineHeightSpanStandardChooseHeightCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	styleLineHeightSpanStandardChooseHeightCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	styleLineHeightSpanStandardChooseHeightCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	styleLineHeightSpanStandardChooseHeightCmd.Flags().Int64("arg5", 0, "arg5 (int64)")
+	styleLineHeightSpanStandardCmd.AddCommand(styleLineHeightSpanStandardChooseHeightCmd)
+	styleLineHeightSpanStandardCmd.AddCommand(styleLineHeightSpanStandardDescribeContentsCmd)
+	styleLineHeightSpanStandardCmd.AddCommand(styleLineHeightSpanStandardGetHeightCmd)
+	styleLineHeightSpanStandardCmd.AddCommand(styleLineHeightSpanStandardGetSpanTypeIdCmd)
+	styleLineHeightSpanStandardWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleLineHeightSpanStandardWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	styleLineHeightSpanStandardCmd.AddCommand(styleLineHeightSpanStandardWriteToParcelCmd)
+	styleCmd.AddCommand(styleLineHeightSpanStandardCmd)
+	styleLineHeightSpanWithDensityChooseHeightCmd.Flags().String("arg0", "", "arg0 (string)")
+	styleLineHeightSpanWithDensityChooseHeightCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	styleLineHeightSpanWithDensityChooseHeightCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	styleLineHeightSpanWithDensityChooseHeightCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	styleLineHeightSpanWithDensityChooseHeightCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	styleLineHeightSpanWithDensityChooseHeightCmd.Flags().Int64("arg5", 0, "arg5 (int64)")
+	styleLineHeightSpanWithDensityChooseHeightCmd.Flags().Int64("arg6", 0, "arg6 (int64)")
+	styleLineHeightSpanWithDensityCmd.AddCommand(styleLineHeightSpanWithDensityChooseHeightCmd)
+	styleCmd.AddCommand(styleLineHeightSpanWithDensityCmd)
+	styleAlignmentSpanCmd.AddCommand(styleAlignmentSpanGetAlignmentCmd)
+	styleCmd.AddCommand(styleAlignmentSpanCmd)
+	styleAlignmentSpanStandardCmd.AddCommand(styleAlignmentSpanStandardDescribeContentsCmd)
+	styleAlignmentSpanStandardCmd.AddCommand(styleAlignmentSpanStandardGetAlignmentCmd)
+	styleAlignmentSpanStandardCmd.AddCommand(styleAlignmentSpanStandardGetSpanTypeIdCmd)
+	styleAlignmentSpanStandardCmd.AddCommand(styleAlignmentSpanStandardToStringCmd)
+	styleAlignmentSpanStandardWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleAlignmentSpanStandardWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	styleAlignmentSpanStandardCmd.AddCommand(styleAlignmentSpanStandardWriteToParcelCmd)
+	styleCmd.AddCommand(styleAlignmentSpanStandardCmd)
+	styleLineBackgroundSpanDrawBackgroundCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleLineBackgroundSpanDrawBackgroundCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	styleLineBackgroundSpanDrawBackgroundCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	styleLineBackgroundSpanDrawBackgroundCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	styleLineBackgroundSpanDrawBackgroundCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	styleLineBackgroundSpanDrawBackgroundCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	styleLineBackgroundSpanDrawBackgroundCmd.Flags().Int32("arg6", 0, "arg6 (int32)")
+	styleLineBackgroundSpanDrawBackgroundCmd.Flags().String("arg7", "", "arg7 (string)")
+	styleLineBackgroundSpanDrawBackgroundCmd.Flags().Int32("arg8", 0, "arg8 (int32)")
+	styleLineBackgroundSpanDrawBackgroundCmd.Flags().Int32("arg9", 0, "arg9 (int32)")
+	styleLineBackgroundSpanDrawBackgroundCmd.Flags().Int32("arg10", 0, "arg10 (int32)")
+	styleLineBackgroundSpanCmd.AddCommand(styleLineBackgroundSpanDrawBackgroundCmd)
+	styleCmd.AddCommand(styleLineBackgroundSpanCmd)
+	styleLineBackgroundSpanStandardCmd.AddCommand(styleLineBackgroundSpanStandardDescribeContentsCmd)
+	styleLineBackgroundSpanStandardDrawBackgroundCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleLineBackgroundSpanStandardDrawBackgroundCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	styleLineBackgroundSpanStandardDrawBackgroundCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	styleLineBackgroundSpanStandardDrawBackgroundCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	styleLineBackgroundSpanStandardDrawBackgroundCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	styleLineBackgroundSpanStandardDrawBackgroundCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	styleLineBackgroundSpanStandardDrawBackgroundCmd.Flags().Int32("arg6", 0, "arg6 (int32)")
+	styleLineBackgroundSpanStandardDrawBackgroundCmd.Flags().String("arg7", "", "arg7 (string)")
+	styleLineBackgroundSpanStandardDrawBackgroundCmd.Flags().Int32("arg8", 0, "arg8 (int32)")
+	styleLineBackgroundSpanStandardDrawBackgroundCmd.Flags().Int32("arg9", 0, "arg9 (int32)")
+	styleLineBackgroundSpanStandardDrawBackgroundCmd.Flags().Int32("arg10", 0, "arg10 (int32)")
+	styleLineBackgroundSpanStandardCmd.AddCommand(styleLineBackgroundSpanStandardDrawBackgroundCmd)
+	styleLineBackgroundSpanStandardCmd.AddCommand(styleLineBackgroundSpanStandardGetColorCmd)
+	styleLineBackgroundSpanStandardCmd.AddCommand(styleLineBackgroundSpanStandardGetSpanTypeIdCmd)
+	styleLineBackgroundSpanStandardWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleLineBackgroundSpanStandardWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	styleLineBackgroundSpanStandardCmd.AddCommand(styleLineBackgroundSpanStandardWriteToParcelCmd)
+	styleCmd.AddCommand(styleLineBackgroundSpanStandardCmd)
+	styleDrawableMarginSpanNewDrawableMarginSpanCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleDrawableMarginSpanCmd.AddCommand(styleDrawableMarginSpanNewDrawableMarginSpanCmd)
+	styleDrawableMarginSpanChooseHeightCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleDrawableMarginSpanChooseHeightCmd.Flags().String("arg0", "", "arg0 (string)")
+	styleDrawableMarginSpanChooseHeightCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	styleDrawableMarginSpanChooseHeightCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	styleDrawableMarginSpanChooseHeightCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	styleDrawableMarginSpanChooseHeightCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	styleDrawableMarginSpanChooseHeightCmd.Flags().Int64("arg5", 0, "arg5 (int64)")
+	styleDrawableMarginSpanCmd.AddCommand(styleDrawableMarginSpanChooseHeightCmd)
+	styleDrawableMarginSpanDrawLeadingMarginCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleDrawableMarginSpanDrawLeadingMarginCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleDrawableMarginSpanDrawLeadingMarginCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	styleDrawableMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	styleDrawableMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	styleDrawableMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	styleDrawableMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	styleDrawableMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg6", 0, "arg6 (int32)")
+	styleDrawableMarginSpanDrawLeadingMarginCmd.Flags().String("arg7", "", "arg7 (string)")
+	styleDrawableMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg8", 0, "arg8 (int32)")
+	styleDrawableMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg9", 0, "arg9 (int32)")
+	styleDrawableMarginSpanDrawLeadingMarginCmd.Flags().Bool("arg10", false, "arg10 (bool)")
+	styleDrawableMarginSpanDrawLeadingMarginCmd.Flags().Int64("arg11", 0, "arg11 (int64)")
+	styleDrawableMarginSpanCmd.AddCommand(styleDrawableMarginSpanDrawLeadingMarginCmd)
+	styleDrawableMarginSpanGetDrawableCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleDrawableMarginSpanCmd.AddCommand(styleDrawableMarginSpanGetDrawableCmd)
+	styleDrawableMarginSpanGetLeadingMarginCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleDrawableMarginSpanGetLeadingMarginCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	styleDrawableMarginSpanCmd.AddCommand(styleDrawableMarginSpanGetLeadingMarginCmd)
+	styleDrawableMarginSpanGetPaddingCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleDrawableMarginSpanCmd.AddCommand(styleDrawableMarginSpanGetPaddingCmd)
+	styleDrawableMarginSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleDrawableMarginSpanCmd.AddCommand(styleDrawableMarginSpanToStringCmd)
+	styleCmd.AddCommand(styleDrawableMarginSpanCmd)
+	styleAbsoluteSizeSpanNewAbsoluteSizeSpanCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleAbsoluteSizeSpanCmd.AddCommand(styleAbsoluteSizeSpanNewAbsoluteSizeSpanCmd)
+	styleAbsoluteSizeSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleAbsoluteSizeSpanCmd.AddCommand(styleAbsoluteSizeSpanDescribeContentsCmd)
+	styleAbsoluteSizeSpanGetDipCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleAbsoluteSizeSpanCmd.AddCommand(styleAbsoluteSizeSpanGetDipCmd)
+	styleAbsoluteSizeSpanGetSizeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleAbsoluteSizeSpanCmd.AddCommand(styleAbsoluteSizeSpanGetSizeCmd)
+	styleAbsoluteSizeSpanGetSpanTypeIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleAbsoluteSizeSpanCmd.AddCommand(styleAbsoluteSizeSpanGetSpanTypeIdCmd)
+	styleAbsoluteSizeSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleAbsoluteSizeSpanCmd.AddCommand(styleAbsoluteSizeSpanToStringCmd)
+	styleAbsoluteSizeSpanUpdateDrawStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleAbsoluteSizeSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleAbsoluteSizeSpanCmd.AddCommand(styleAbsoluteSizeSpanUpdateDrawStateCmd)
+	styleAbsoluteSizeSpanUpdateMeasureStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleAbsoluteSizeSpanUpdateMeasureStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleAbsoluteSizeSpanCmd.AddCommand(styleAbsoluteSizeSpanUpdateMeasureStateCmd)
+	styleAbsoluteSizeSpanWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleAbsoluteSizeSpanWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleAbsoluteSizeSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	styleAbsoluteSizeSpanCmd.AddCommand(styleAbsoluteSizeSpanWriteToParcelCmd)
+	styleCmd.AddCommand(styleAbsoluteSizeSpanCmd)
+	styleLeadingMarginSpanDrawLeadingMarginCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleLeadingMarginSpanDrawLeadingMarginCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	styleLeadingMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	styleLeadingMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	styleLeadingMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	styleLeadingMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	styleLeadingMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg6", 0, "arg6 (int32)")
+	styleLeadingMarginSpanDrawLeadingMarginCmd.Flags().String("arg7", "", "arg7 (string)")
+	styleLeadingMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg8", 0, "arg8 (int32)")
+	styleLeadingMarginSpanDrawLeadingMarginCmd.Flags().Int32("arg9", 0, "arg9 (int32)")
+	styleLeadingMarginSpanDrawLeadingMarginCmd.Flags().Bool("arg10", false, "arg10 (bool)")
+	styleLeadingMarginSpanDrawLeadingMarginCmd.Flags().Int64("arg11", 0, "arg11 (int64)")
+	styleLeadingMarginSpanCmd.AddCommand(styleLeadingMarginSpanDrawLeadingMarginCmd)
+	styleLeadingMarginSpanGetLeadingMarginCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	styleLeadingMarginSpanCmd.AddCommand(styleLeadingMarginSpanGetLeadingMarginCmd)
+	styleCmd.AddCommand(styleLeadingMarginSpanCmd)
+	styleLeadingMarginSpanLeadingMarginSpan2Cmd.AddCommand(styleLeadingMarginSpanLeadingMarginSpan2GetLeadingMarginLineCountCmd)
+	styleCmd.AddCommand(styleLeadingMarginSpanLeadingMarginSpan2Cmd)
+	styleLeadingMarginSpanStandardCmd.AddCommand(styleLeadingMarginSpanStandardDescribeContentsCmd)
+	styleLeadingMarginSpanStandardDrawLeadingMarginCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleLeadingMarginSpanStandardDrawLeadingMarginCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	styleLeadingMarginSpanStandardDrawLeadingMarginCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	styleLeadingMarginSpanStandardDrawLeadingMarginCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	styleLeadingMarginSpanStandardDrawLeadingMarginCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	styleLeadingMarginSpanStandardDrawLeadingMarginCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	styleLeadingMarginSpanStandardDrawLeadingMarginCmd.Flags().Int32("arg6", 0, "arg6 (int32)")
+	styleLeadingMarginSpanStandardDrawLeadingMarginCmd.Flags().String("arg7", "", "arg7 (string)")
+	styleLeadingMarginSpanStandardDrawLeadingMarginCmd.Flags().Int32("arg8", 0, "arg8 (int32)")
+	styleLeadingMarginSpanStandardDrawLeadingMarginCmd.Flags().Int32("arg9", 0, "arg9 (int32)")
+	styleLeadingMarginSpanStandardDrawLeadingMarginCmd.Flags().Bool("arg10", false, "arg10 (bool)")
+	styleLeadingMarginSpanStandardDrawLeadingMarginCmd.Flags().Int64("arg11", 0, "arg11 (int64)")
+	styleLeadingMarginSpanStandardCmd.AddCommand(styleLeadingMarginSpanStandardDrawLeadingMarginCmd)
+	styleLeadingMarginSpanStandardGetLeadingMarginCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	styleLeadingMarginSpanStandardCmd.AddCommand(styleLeadingMarginSpanStandardGetLeadingMarginCmd)
+	styleLeadingMarginSpanStandardCmd.AddCommand(styleLeadingMarginSpanStandardGetSpanTypeIdCmd)
+	styleLeadingMarginSpanStandardWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleLeadingMarginSpanStandardWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	styleLeadingMarginSpanStandardCmd.AddCommand(styleLeadingMarginSpanStandardWriteToParcelCmd)
+	styleCmd.AddCommand(styleLeadingMarginSpanStandardCmd)
+	styleCharacterStyleCmd.AddCommand(styleCharacterStyleGetUnderlyingCmd)
+	styleCharacterStyleUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleCharacterStyleCmd.AddCommand(styleCharacterStyleUpdateDrawStateCmd)
+	styleCharacterStyleWrapCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleCharacterStyleCmd.AddCommand(styleCharacterStyleWrapCmd)
+	styleCmd.AddCommand(styleCharacterStyleCmd)
+	styleMaskFilterSpanNewMaskFilterSpanCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleMaskFilterSpanCmd.AddCommand(styleMaskFilterSpanNewMaskFilterSpanCmd)
+	styleMaskFilterSpanGetMaskFilterCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleMaskFilterSpanCmd.AddCommand(styleMaskFilterSpanGetMaskFilterCmd)
+	styleMaskFilterSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleMaskFilterSpanCmd.AddCommand(styleMaskFilterSpanToStringCmd)
+	styleMaskFilterSpanUpdateDrawStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleMaskFilterSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleMaskFilterSpanCmd.AddCommand(styleMaskFilterSpanUpdateDrawStateCmd)
+	styleCmd.AddCommand(styleMaskFilterSpanCmd)
+	styleUnderlineSpanCmd.AddCommand(styleUnderlineSpanNewUnderlineSpanCmd)
+	styleUnderlineSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleUnderlineSpanCmd.AddCommand(styleUnderlineSpanDescribeContentsCmd)
+	styleUnderlineSpanGetSpanTypeIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleUnderlineSpanCmd.AddCommand(styleUnderlineSpanGetSpanTypeIdCmd)
+	styleUnderlineSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleUnderlineSpanCmd.AddCommand(styleUnderlineSpanToStringCmd)
+	styleUnderlineSpanUpdateDrawStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleUnderlineSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleUnderlineSpanCmd.AddCommand(styleUnderlineSpanUpdateDrawStateCmd)
+	styleUnderlineSpanWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleUnderlineSpanWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleUnderlineSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	styleUnderlineSpanCmd.AddCommand(styleUnderlineSpanWriteToParcelCmd)
+	styleCmd.AddCommand(styleUnderlineSpanCmd)
+	styleNoWritingToolsSpanCmd.AddCommand(styleNoWritingToolsSpanNewNoWritingToolsSpanCmd)
+	styleNoWritingToolsSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleNoWritingToolsSpanCmd.AddCommand(styleNoWritingToolsSpanDescribeContentsCmd)
+	styleNoWritingToolsSpanGetSpanTypeIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleNoWritingToolsSpanCmd.AddCommand(styleNoWritingToolsSpanGetSpanTypeIdCmd)
+	styleNoWritingToolsSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleNoWritingToolsSpanCmd.AddCommand(styleNoWritingToolsSpanToStringCmd)
+	styleNoWritingToolsSpanWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleNoWritingToolsSpanWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleNoWritingToolsSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	styleNoWritingToolsSpanCmd.AddCommand(styleNoWritingToolsSpanWriteToParcelCmd)
+	styleCmd.AddCommand(styleNoWritingToolsSpanCmd)
+	styleQuoteSpanCmd.AddCommand(styleQuoteSpanNewQuoteSpanCmd)
+	styleQuoteSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleQuoteSpanCmd.AddCommand(styleQuoteSpanDescribeContentsCmd)
+	styleQuoteSpanDrawLeadingMarginCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleQuoteSpanDrawLeadingMarginCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleQuoteSpanDrawLeadingMarginCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	styleQuoteSpanDrawLeadingMarginCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	styleQuoteSpanDrawLeadingMarginCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	styleQuoteSpanDrawLeadingMarginCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	styleQuoteSpanDrawLeadingMarginCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	styleQuoteSpanDrawLeadingMarginCmd.Flags().Int32("arg6", 0, "arg6 (int32)")
+	styleQuoteSpanDrawLeadingMarginCmd.Flags().String("arg7", "", "arg7 (string)")
+	styleQuoteSpanDrawLeadingMarginCmd.Flags().Int32("arg8", 0, "arg8 (int32)")
+	styleQuoteSpanDrawLeadingMarginCmd.Flags().Int32("arg9", 0, "arg9 (int32)")
+	styleQuoteSpanDrawLeadingMarginCmd.Flags().Bool("arg10", false, "arg10 (bool)")
+	styleQuoteSpanDrawLeadingMarginCmd.Flags().Int64("arg11", 0, "arg11 (int64)")
+	styleQuoteSpanCmd.AddCommand(styleQuoteSpanDrawLeadingMarginCmd)
+	styleQuoteSpanGetColorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleQuoteSpanCmd.AddCommand(styleQuoteSpanGetColorCmd)
+	styleQuoteSpanGetGapWidthCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleQuoteSpanCmd.AddCommand(styleQuoteSpanGetGapWidthCmd)
+	styleQuoteSpanGetLeadingMarginCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleQuoteSpanGetLeadingMarginCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	styleQuoteSpanCmd.AddCommand(styleQuoteSpanGetLeadingMarginCmd)
+	styleQuoteSpanGetSpanTypeIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleQuoteSpanCmd.AddCommand(styleQuoteSpanGetSpanTypeIdCmd)
+	styleQuoteSpanGetStripeWidthCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleQuoteSpanCmd.AddCommand(styleQuoteSpanGetStripeWidthCmd)
+	styleQuoteSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleQuoteSpanCmd.AddCommand(styleQuoteSpanToStringCmd)
+	styleQuoteSpanWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleQuoteSpanWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleQuoteSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	styleQuoteSpanCmd.AddCommand(styleQuoteSpanWriteToParcelCmd)
+	styleCmd.AddCommand(styleQuoteSpanCmd)
+	styleSuperscriptSpanCmd.AddCommand(styleSuperscriptSpanNewSuperscriptSpanCmd)
+	styleSuperscriptSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSuperscriptSpanCmd.AddCommand(styleSuperscriptSpanDescribeContentsCmd)
+	styleSuperscriptSpanGetSpanTypeIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSuperscriptSpanCmd.AddCommand(styleSuperscriptSpanGetSpanTypeIdCmd)
+	styleSuperscriptSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSuperscriptSpanCmd.AddCommand(styleSuperscriptSpanToStringCmd)
+	styleSuperscriptSpanUpdateDrawStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSuperscriptSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleSuperscriptSpanCmd.AddCommand(styleSuperscriptSpanUpdateDrawStateCmd)
+	styleSuperscriptSpanUpdateMeasureStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSuperscriptSpanUpdateMeasureStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleSuperscriptSpanCmd.AddCommand(styleSuperscriptSpanUpdateMeasureStateCmd)
+	styleSuperscriptSpanWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleSuperscriptSpanWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleSuperscriptSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	styleSuperscriptSpanCmd.AddCommand(styleSuperscriptSpanWriteToParcelCmd)
+	styleCmd.AddCommand(styleSuperscriptSpanCmd)
+	styleMetricAffectingSpanCmd.AddCommand(styleMetricAffectingSpanGetUnderlying0Cmd)
+	styleMetricAffectingSpanUpdateMeasureStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleMetricAffectingSpanCmd.AddCommand(styleMetricAffectingSpanUpdateMeasureStateCmd)
+	styleMetricAffectingSpanCmd.AddCommand(styleMetricAffectingSpanGetUnderlying0_1Cmd)
+	styleCmd.AddCommand(styleMetricAffectingSpanCmd)
+	styleLocaleSpanNewLocaleSpanCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleLocaleSpanCmd.AddCommand(styleLocaleSpanNewLocaleSpanCmd)
+	styleLocaleSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleLocaleSpanCmd.AddCommand(styleLocaleSpanDescribeContentsCmd)
+	styleLocaleSpanGetLocaleCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleLocaleSpanCmd.AddCommand(styleLocaleSpanGetLocaleCmd)
+	styleLocaleSpanGetLocalesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleLocaleSpanCmd.AddCommand(styleLocaleSpanGetLocalesCmd)
+	styleLocaleSpanGetSpanTypeIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleLocaleSpanCmd.AddCommand(styleLocaleSpanGetSpanTypeIdCmd)
+	styleLocaleSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleLocaleSpanCmd.AddCommand(styleLocaleSpanToStringCmd)
+	styleLocaleSpanUpdateDrawStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleLocaleSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleLocaleSpanCmd.AddCommand(styleLocaleSpanUpdateDrawStateCmd)
+	styleLocaleSpanUpdateMeasureStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleLocaleSpanUpdateMeasureStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleLocaleSpanCmd.AddCommand(styleLocaleSpanUpdateMeasureStateCmd)
+	styleLocaleSpanWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleLocaleSpanWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleLocaleSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	styleLocaleSpanCmd.AddCommand(styleLocaleSpanWriteToParcelCmd)
+	styleCmd.AddCommand(styleLocaleSpanCmd)
+	styleScaleXSpanNewScaleXSpanCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleScaleXSpanCmd.AddCommand(styleScaleXSpanNewScaleXSpanCmd)
+	styleScaleXSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleScaleXSpanCmd.AddCommand(styleScaleXSpanDescribeContentsCmd)
+	styleScaleXSpanGetScaleXCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleScaleXSpanCmd.AddCommand(styleScaleXSpanGetScaleXCmd)
+	styleScaleXSpanGetSpanTypeIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleScaleXSpanCmd.AddCommand(styleScaleXSpanGetSpanTypeIdCmd)
+	styleScaleXSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleScaleXSpanCmd.AddCommand(styleScaleXSpanToStringCmd)
+	styleScaleXSpanUpdateDrawStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleScaleXSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleScaleXSpanCmd.AddCommand(styleScaleXSpanUpdateDrawStateCmd)
+	styleScaleXSpanUpdateMeasureStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleScaleXSpanUpdateMeasureStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleScaleXSpanCmd.AddCommand(styleScaleXSpanUpdateMeasureStateCmd)
+	styleScaleXSpanWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleScaleXSpanWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleScaleXSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	styleScaleXSpanCmd.AddCommand(styleScaleXSpanWriteToParcelCmd)
+	styleCmd.AddCommand(styleScaleXSpanCmd)
+	styleImageSpanNewImageSpanCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleImageSpanNewImageSpanCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	styleImageSpanCmd.AddCommand(styleImageSpanNewImageSpanCmd)
+	styleImageSpanGetDrawableCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleImageSpanCmd.AddCommand(styleImageSpanGetDrawableCmd)
+	styleImageSpanGetSourceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleImageSpanCmd.AddCommand(styleImageSpanGetSourceCmd)
+	styleImageSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleImageSpanCmd.AddCommand(styleImageSpanToStringCmd)
+	styleCmd.AddCommand(styleImageSpanCmd)
+	styleBackgroundColorSpanNewBackgroundColorSpanCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleBackgroundColorSpanCmd.AddCommand(styleBackgroundColorSpanNewBackgroundColorSpanCmd)
+	styleBackgroundColorSpanDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleBackgroundColorSpanCmd.AddCommand(styleBackgroundColorSpanDescribeContentsCmd)
+	styleBackgroundColorSpanGetBackgroundColorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleBackgroundColorSpanCmd.AddCommand(styleBackgroundColorSpanGetBackgroundColorCmd)
+	styleBackgroundColorSpanGetSpanTypeIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleBackgroundColorSpanCmd.AddCommand(styleBackgroundColorSpanGetSpanTypeIdCmd)
+	styleBackgroundColorSpanToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleBackgroundColorSpanCmd.AddCommand(styleBackgroundColorSpanToStringCmd)
+	styleBackgroundColorSpanUpdateDrawStateCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleBackgroundColorSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleBackgroundColorSpanCmd.AddCommand(styleBackgroundColorSpanUpdateDrawStateCmd)
+	styleBackgroundColorSpanWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	styleBackgroundColorSpanWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleBackgroundColorSpanWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	styleBackgroundColorSpanCmd.AddCommand(styleBackgroundColorSpanWriteToParcelCmd)
+	styleCmd.AddCommand(styleBackgroundColorSpanCmd)
+	styleClickableSpanOnClickCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleClickableSpanCmd.AddCommand(styleClickableSpanOnClickCmd)
+	styleClickableSpanCmd.AddCommand(styleClickableSpanToStringCmd)
+	styleClickableSpanUpdateDrawStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	styleClickableSpanCmd.AddCommand(styleClickableSpanUpdateDrawStateCmd)
+	styleCmd.AddCommand(styleClickableSpanCmd)
 	rootCmd.AddCommand(styleCmd)
 }

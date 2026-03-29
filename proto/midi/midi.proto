@@ -6,11 +6,119 @@ package midi;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/midi";
 
+message CloseRequest {
+}
+
+message CloseResponse {
+}
+
+message GetPortNumberRequest {
+}
+
+message GetPortNumberResponse {
+  int32 result = 1;
+}
+
+message OnFlushRequest {
+}
+
+message OnFlushResponse {
+}
+
+message OnSendRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int64 arg3 = 4;
+}
+
+message OnSendResponse {
+}
+
+message GetDeviceInfoRequest {
+}
+
+message GetDeviceInfoResponse {
+  int64 result = 1;
+}
+
+message GetOutputPortReceiversRequest {
+}
+
+message GetOutputPortReceiversResponse {
+  int64 result = 1;
+}
+
+message OnBindRequest {
+  int64 arg0 = 1;
+}
+
+message OnBindResponse {
+  int64 result = 1;
+}
+
+message OnCloseRequest {
+}
+
+message OnCloseResponse {
+}
+
+message OnCreateRequest {
+}
+
+message OnCreateResponse {
+}
+
+message OnDeviceStatusChangedRequest {
+  int64 arg0 = 1;
+}
+
+message OnDeviceStatusChangedResponse {
+}
+
+message OnGetInputPortReceiversRequest {
+}
+
+message OnGetInputPortReceiversResponse {
+  int64 result = 1;
+}
+
 message DescribeContentsRequest {
 }
 
 message DescribeContentsResponse {
   int32 result = 1;
+}
+
+message GetOutputPortOpenCountRequest {
+  int32 arg0 = 1;
+}
+
+message GetOutputPortOpenCountResponse {
+  int32 result = 1;
+}
+
+message IsInputPortOpenRequest {
+  int32 arg0 = 1;
+}
+
+message IsInputPortOpenResponse {
+  bool result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
 }
 
 message EqualsRequest {
@@ -84,21 +192,6 @@ message IsPrivateResponse {
   bool result = 1;
 }
 
-message ToStringRequest {
-}
-
-message ToStringResponse {
-  string result = 1;
-}
-
-message WriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message WriteToParcelResponse {
-}
-
 message GetNameRequest {
 }
 
@@ -106,33 +199,64 @@ message GetNameResponse {
   string result = 1;
 }
 
-message GetPortNumberRequest {
-}
-
-message GetPortNumberResponse {
-  int32 result = 1;
-}
-
-message CloseRequest {
-}
-
-message CloseResponse {
-}
-
-message OnFlushRequest {
-}
-
-message OnFlushResponse {
-}
-
-message OnSendRequest {
+message ConnectPortsRequest {
   int64 arg0 = 1;
   int32 arg1 = 2;
-  int32 arg2 = 3;
-  int64 arg3 = 4;
 }
 
-message OnSendResponse {
+message ConnectPortsResponse {
+  int64 result = 1;
+}
+
+message GetInfoRequest {
+}
+
+message GetInfoResponse {
+  int64 result = 1;
+}
+
+message OpenInputPortRequest {
+  int32 arg0 = 1;
+}
+
+message OpenInputPortResponse {
+  int64 result = 1;
+}
+
+message OpenOutputPortRequest {
+  int32 arg0 = 1;
+}
+
+message OpenOutputPortResponse {
+  int64 result = 1;
+}
+
+message ConnectRequest {
+  int64 arg0 = 1;
+}
+
+message ConnectResponse {
+}
+
+message DisconnectRequest {
+  int64 arg0 = 1;
+}
+
+message DisconnectResponse {
+}
+
+message OnConnectRequest {
+  int64 arg0 = 1;
+}
+
+message OnConnectResponse {
+}
+
+message OnDisconnectRequest {
+  int64 arg0 = 1;
+}
+
+message OnDisconnectResponse {
 }
 
 message FlushRequest {
@@ -174,6 +298,14 @@ message GetDevicesResponse {
   int64 result = 1;
 }
 
+message GetDevicesForTransportRequest {
+  int32 arg0 = 1;
+}
+
+message GetDevicesForTransportResponse {
+  int64 result = 1;
+}
+
 message RegisterDeviceCallbackRequest {
   int32 arg0 = 1;
   int64 arg1 = 2;
@@ -204,13 +336,6 @@ message OnDeviceRemovedRequest {
 message OnDeviceRemovedResponse {
 }
 
-message OnDeviceStatusChangedRequest {
-  int64 arg0 = 1;
-}
-
-message OnDeviceStatusChangedResponse {
-}
-
 message OnDeviceOpenedRequest {
   int64 arg0 = 1;
 }
@@ -218,121 +343,30 @@ message OnDeviceOpenedRequest {
 message OnDeviceOpenedResponse {
 }
 
-message ConnectRequest {
-  int64 arg0 = 1;
+service InputPortService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+  rpc GetPortNumber (GetPortNumberRequest) returns (GetPortNumberResponse);
+  rpc OnFlush (OnFlushRequest) returns (OnFlushResponse);
+  rpc OnSend (OnSendRequest) returns (OnSendResponse);
 }
 
-message ConnectResponse {
+service UmpDeviceServiceService {
+  rpc GetDeviceInfo (GetDeviceInfoRequest) returns (GetDeviceInfoResponse);
+  rpc GetOutputPortReceivers (GetOutputPortReceiversRequest) returns (GetOutputPortReceiversResponse);
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+  rpc OnClose (OnCloseRequest) returns (OnCloseResponse);
+  rpc OnCreate (OnCreateRequest) returns (OnCreateResponse);
+  rpc OnDeviceStatusChanged (OnDeviceStatusChangedRequest) returns (OnDeviceStatusChangedResponse);
+  rpc OnGetInputPortReceivers (OnGetInputPortReceiversRequest) returns (OnGetInputPortReceiversResponse);
 }
 
-message DisconnectRequest {
-  int64 arg0 = 1;
-}
-
-message DisconnectResponse {
-}
-
-message OnConnectRequest {
-  int64 arg0 = 1;
-}
-
-message OnConnectResponse {
-}
-
-message OnDisconnectRequest {
-  int64 arg0 = 1;
-}
-
-message OnDisconnectResponse {
-}
-
-message GetDeviceInfoRequest {
-}
-
-message GetDeviceInfoResponse {
-  int64 result = 1;
-}
-
-message OnBindRequest {
-  int64 arg0 = 1;
-}
-
-message OnBindResponse {
-  int64 result = 1;
-}
-
-message OnCloseRequest {
-}
-
-message OnCloseResponse {
-}
-
-message OnCreateRequest {
-}
-
-message OnCreateResponse {
-}
-
-message GetOutputPortReceiversRequest {
-}
-
-message GetOutputPortReceiversResponse {
-  int64 result = 1;
-}
-
-message OnGetInputPortReceiversRequest {
-}
-
-message OnGetInputPortReceiversResponse {
-  int64 result = 1;
-}
-
-message GetOutputPortOpenCountRequest {
-  int32 arg0 = 1;
-}
-
-message GetOutputPortOpenCountResponse {
-  int32 result = 1;
-}
-
-message IsInputPortOpenRequest {
-  int32 arg0 = 1;
-}
-
-message IsInputPortOpenResponse {
-  bool result = 1;
-}
-
-message ConnectPortsRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message ConnectPortsResponse {
-  int64 result = 1;
-}
-
-message GetInfoRequest {
-}
-
-message GetInfoResponse {
-  int64 result = 1;
-}
-
-message OpenInputPortRequest {
-  int32 arg0 = 1;
-}
-
-message OpenInputPortResponse {
-  int64 result = 1;
-}
-
-message OpenOutputPortRequest {
-  int32 arg0 = 1;
-}
-
-message OpenOutputPortResponse {
-  int64 result = 1;
+service DeviceStatusService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetDeviceInfo (GetDeviceInfoRequest) returns (GetDeviceInfoResponse);
+  rpc GetOutputPortOpenCount (GetOutputPortOpenCountRequest) returns (GetOutputPortOpenCountResponse);
+  rpc IsInputPortOpen (IsInputPortOpenRequest) returns (IsInputPortOpenResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
 service DeviceInfoService {
@@ -357,11 +391,34 @@ service DeviceInfoPortInfoService {
   rpc GetType (GetTypeRequest) returns (GetTypeResponse);
 }
 
-service InputPortService {
+service DeviceServiceService {
+  rpc GetDeviceInfo (GetDeviceInfoRequest) returns (GetDeviceInfoResponse);
+  rpc GetOutputPortReceivers (GetOutputPortReceiversRequest) returns (GetOutputPortReceiversResponse);
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+  rpc OnClose (OnCloseRequest) returns (OnCloseResponse);
+  rpc OnCreate (OnCreateRequest) returns (OnCreateResponse);
+  rpc OnDeviceStatusChanged (OnDeviceStatusChangedRequest) returns (OnDeviceStatusChangedResponse);
+  rpc OnGetInputPortReceivers (OnGetInputPortReceiversRequest) returns (OnGetInputPortReceiversResponse);
+}
+
+service DeviceService {
   rpc Close (CloseRequest) returns (CloseResponse);
-  rpc GetPortNumber (GetPortNumberRequest) returns (GetPortNumberResponse);
-  rpc OnFlush (OnFlushRequest) returns (OnFlushResponse);
-  rpc OnSend (OnSendRequest) returns (OnSendResponse);
+  rpc ConnectPorts (ConnectPortsRequest) returns (ConnectPortsResponse);
+  rpc GetInfo (GetInfoRequest) returns (GetInfoResponse);
+  rpc OpenInputPort (OpenInputPortRequest) returns (OpenInputPortResponse);
+  rpc OpenOutputPort (OpenOutputPortRequest) returns (OpenOutputPortResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service DeviceMidiConnectionService {
+  rpc Close (CloseRequest) returns (CloseResponse);
+}
+
+service SenderService {
+  rpc Connect (ConnectRequest) returns (ConnectResponse);
+  rpc Disconnect (DisconnectRequest) returns (DisconnectResponse);
+  rpc OnConnect (OnConnectRequest) returns (OnConnectResponse);
+  rpc OnDisconnect (OnDisconnectRequest) returns (OnDisconnectResponse);
 }
 
 service ReceiverService {
@@ -375,6 +432,7 @@ service ReceiverService {
 
 service ManagerService {
   rpc GetDevices (GetDevicesRequest) returns (GetDevicesResponse);
+  rpc GetDevicesForTransport (GetDevicesForTransportRequest) returns (GetDevicesForTransportResponse);
   rpc RegisterDeviceCallback (RegisterDeviceCallbackRequest) returns (RegisterDeviceCallbackResponse);
   rpc UnregisterDeviceCallback (UnregisterDeviceCallbackRequest) returns (UnregisterDeviceCallbackResponse);
 }
@@ -389,56 +447,9 @@ service ManagerOnDeviceOpenedListenerService {
   rpc OnDeviceOpened (OnDeviceOpenedRequest) returns (OnDeviceOpenedResponse);
 }
 
-service SenderService {
-  rpc Connect (ConnectRequest) returns (ConnectResponse);
-  rpc Disconnect (DisconnectRequest) returns (DisconnectResponse);
-  rpc OnConnect (OnConnectRequest) returns (OnConnectResponse);
-  rpc OnDisconnect (OnDisconnectRequest) returns (OnDisconnectResponse);
-}
-
-service UmpDeviceServiceService {
-  rpc GetDeviceInfo (GetDeviceInfoRequest) returns (GetDeviceInfoResponse);
-  rpc OnBind (OnBindRequest) returns (OnBindResponse);
-  rpc OnClose (OnCloseRequest) returns (OnCloseResponse);
-  rpc OnCreate (OnCreateRequest) returns (OnCreateResponse);
-  rpc OnDeviceStatusChanged (OnDeviceStatusChangedRequest) returns (OnDeviceStatusChangedResponse);
-}
-
-service DeviceServiceService {
-  rpc GetDeviceInfo (GetDeviceInfoRequest) returns (GetDeviceInfoResponse);
-  rpc GetOutputPortReceivers (GetOutputPortReceiversRequest) returns (GetOutputPortReceiversResponse);
-  rpc OnBind (OnBindRequest) returns (OnBindResponse);
-  rpc OnClose (OnCloseRequest) returns (OnCloseResponse);
-  rpc OnCreate (OnCreateRequest) returns (OnCreateResponse);
-  rpc OnDeviceStatusChanged (OnDeviceStatusChangedRequest) returns (OnDeviceStatusChangedResponse);
-  rpc OnGetInputPortReceivers (OnGetInputPortReceiversRequest) returns (OnGetInputPortReceiversResponse);
-}
-
 service OutputPortService {
   rpc Close (CloseRequest) returns (CloseResponse);
   rpc GetPortNumber (GetPortNumberRequest) returns (GetPortNumberResponse);
   rpc OnConnect (OnConnectRequest) returns (OnConnectResponse);
   rpc OnDisconnect (OnDisconnectRequest) returns (OnDisconnectResponse);
-}
-
-service DeviceStatusService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetDeviceInfo (GetDeviceInfoRequest) returns (GetDeviceInfoResponse);
-  rpc GetOutputPortOpenCount (GetOutputPortOpenCountRequest) returns (GetOutputPortOpenCountResponse);
-  rpc IsInputPortOpen (IsInputPortOpenRequest) returns (IsInputPortOpenResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service DeviceService {
-  rpc Close (CloseRequest) returns (CloseResponse);
-  rpc ConnectPorts (ConnectPortsRequest) returns (ConnectPortsResponse);
-  rpc GetInfo (GetInfoRequest) returns (GetInfoResponse);
-  rpc OpenInputPort (OpenInputPortRequest) returns (OpenInputPortResponse);
-  rpc OpenOutputPort (OpenOutputPortRequest) returns (OpenOutputPortResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-}
-
-service DeviceMidiConnectionService {
-  rpc Close (CloseRequest) returns (CloseResponse);
 }

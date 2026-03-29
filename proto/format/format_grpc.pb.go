@@ -21,1236 +21,6 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	DateFormatService_NewDateFormat_FullMethodName          = "/format.DateFormatService/NewDateFormat"
-	DateFormatService_Format2_FullMethodName                = "/format.DateFormatService/Format2"
-	DateFormatService_Format2_1_FullMethodName              = "/format.DateFormatService/Format2_1"
-	DateFormatService_Format2_2_FullMethodName              = "/format.DateFormatService/Format2_2"
-	DateFormatService_GetBestDateTimePattern_FullMethodName = "/format.DateFormatService/GetBestDateTimePattern"
-	DateFormatService_GetDateFormat_FullMethodName          = "/format.DateFormatService/GetDateFormat"
-	DateFormatService_GetDateFormatOrder_FullMethodName     = "/format.DateFormatService/GetDateFormatOrder"
-	DateFormatService_GetLongDateFormat_FullMethodName      = "/format.DateFormatService/GetLongDateFormat"
-	DateFormatService_GetMediumDateFormat_FullMethodName    = "/format.DateFormatService/GetMediumDateFormat"
-	DateFormatService_GetTimeFormat_FullMethodName          = "/format.DateFormatService/GetTimeFormat"
-	DateFormatService_Is24HourFormat_FullMethodName         = "/format.DateFormatService/Is24HourFormat"
-)
-
-// DateFormatServiceClient is the client API for DateFormatService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DateFormatServiceClient interface {
-	NewDateFormat(ctx context.Context, in *NewDateFormatRequest, opts ...grpc.CallOption) (*NewDateFormatResponse, error)
-	Format2(ctx context.Context, in *Format2Request, opts ...grpc.CallOption) (*Format2Response, error)
-	Format2_1(ctx context.Context, in *Format2_1Request, opts ...grpc.CallOption) (*Format2_1Response, error)
-	Format2_2(ctx context.Context, in *Format2_2Request, opts ...grpc.CallOption) (*Format2_2Response, error)
-	GetBestDateTimePattern(ctx context.Context, in *GetBestDateTimePatternRequest, opts ...grpc.CallOption) (*GetBestDateTimePatternResponse, error)
-	GetDateFormat(ctx context.Context, in *GetDateFormatRequest, opts ...grpc.CallOption) (*GetDateFormatResponse, error)
-	GetDateFormatOrder(ctx context.Context, in *GetDateFormatOrderRequest, opts ...grpc.CallOption) (*GetDateFormatOrderResponse, error)
-	GetLongDateFormat(ctx context.Context, in *GetLongDateFormatRequest, opts ...grpc.CallOption) (*GetLongDateFormatResponse, error)
-	GetMediumDateFormat(ctx context.Context, in *GetMediumDateFormatRequest, opts ...grpc.CallOption) (*GetMediumDateFormatResponse, error)
-	GetTimeFormat(ctx context.Context, in *GetTimeFormatRequest, opts ...grpc.CallOption) (*GetTimeFormatResponse, error)
-	Is24HourFormat(ctx context.Context, in *Is24HourFormatRequest, opts ...grpc.CallOption) (*Is24HourFormatResponse, error)
-}
-
-type dateFormatServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewDateFormatServiceClient(cc grpc.ClientConnInterface) DateFormatServiceClient {
-	return &dateFormatServiceClient{cc}
-}
-
-func (c *dateFormatServiceClient) NewDateFormat(ctx context.Context, in *NewDateFormatRequest, opts ...grpc.CallOption) (*NewDateFormatResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewDateFormatResponse)
-	err := c.cc.Invoke(ctx, DateFormatService_NewDateFormat_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dateFormatServiceClient) Format2(ctx context.Context, in *Format2Request, opts ...grpc.CallOption) (*Format2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Format2Response)
-	err := c.cc.Invoke(ctx, DateFormatService_Format2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dateFormatServiceClient) Format2_1(ctx context.Context, in *Format2_1Request, opts ...grpc.CallOption) (*Format2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Format2_1Response)
-	err := c.cc.Invoke(ctx, DateFormatService_Format2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dateFormatServiceClient) Format2_2(ctx context.Context, in *Format2_2Request, opts ...grpc.CallOption) (*Format2_2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Format2_2Response)
-	err := c.cc.Invoke(ctx, DateFormatService_Format2_2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dateFormatServiceClient) GetBestDateTimePattern(ctx context.Context, in *GetBestDateTimePatternRequest, opts ...grpc.CallOption) (*GetBestDateTimePatternResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetBestDateTimePatternResponse)
-	err := c.cc.Invoke(ctx, DateFormatService_GetBestDateTimePattern_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dateFormatServiceClient) GetDateFormat(ctx context.Context, in *GetDateFormatRequest, opts ...grpc.CallOption) (*GetDateFormatResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDateFormatResponse)
-	err := c.cc.Invoke(ctx, DateFormatService_GetDateFormat_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dateFormatServiceClient) GetDateFormatOrder(ctx context.Context, in *GetDateFormatOrderRequest, opts ...grpc.CallOption) (*GetDateFormatOrderResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDateFormatOrderResponse)
-	err := c.cc.Invoke(ctx, DateFormatService_GetDateFormatOrder_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dateFormatServiceClient) GetLongDateFormat(ctx context.Context, in *GetLongDateFormatRequest, opts ...grpc.CallOption) (*GetLongDateFormatResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLongDateFormatResponse)
-	err := c.cc.Invoke(ctx, DateFormatService_GetLongDateFormat_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dateFormatServiceClient) GetMediumDateFormat(ctx context.Context, in *GetMediumDateFormatRequest, opts ...grpc.CallOption) (*GetMediumDateFormatResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMediumDateFormatResponse)
-	err := c.cc.Invoke(ctx, DateFormatService_GetMediumDateFormat_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dateFormatServiceClient) GetTimeFormat(ctx context.Context, in *GetTimeFormatRequest, opts ...grpc.CallOption) (*GetTimeFormatResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTimeFormatResponse)
-	err := c.cc.Invoke(ctx, DateFormatService_GetTimeFormat_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dateFormatServiceClient) Is24HourFormat(ctx context.Context, in *Is24HourFormatRequest, opts ...grpc.CallOption) (*Is24HourFormatResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Is24HourFormatResponse)
-	err := c.cc.Invoke(ctx, DateFormatService_Is24HourFormat_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DateFormatServiceServer is the server API for DateFormatService service.
-// All implementations must embed UnimplementedDateFormatServiceServer
-// for forward compatibility.
-type DateFormatServiceServer interface {
-	NewDateFormat(context.Context, *NewDateFormatRequest) (*NewDateFormatResponse, error)
-	Format2(context.Context, *Format2Request) (*Format2Response, error)
-	Format2_1(context.Context, *Format2_1Request) (*Format2_1Response, error)
-	Format2_2(context.Context, *Format2_2Request) (*Format2_2Response, error)
-	GetBestDateTimePattern(context.Context, *GetBestDateTimePatternRequest) (*GetBestDateTimePatternResponse, error)
-	GetDateFormat(context.Context, *GetDateFormatRequest) (*GetDateFormatResponse, error)
-	GetDateFormatOrder(context.Context, *GetDateFormatOrderRequest) (*GetDateFormatOrderResponse, error)
-	GetLongDateFormat(context.Context, *GetLongDateFormatRequest) (*GetLongDateFormatResponse, error)
-	GetMediumDateFormat(context.Context, *GetMediumDateFormatRequest) (*GetMediumDateFormatResponse, error)
-	GetTimeFormat(context.Context, *GetTimeFormatRequest) (*GetTimeFormatResponse, error)
-	Is24HourFormat(context.Context, *Is24HourFormatRequest) (*Is24HourFormatResponse, error)
-	mustEmbedUnimplementedDateFormatServiceServer()
-}
-
-// UnimplementedDateFormatServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedDateFormatServiceServer struct{}
-
-func (UnimplementedDateFormatServiceServer) NewDateFormat(context.Context, *NewDateFormatRequest) (*NewDateFormatResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewDateFormat not implemented")
-}
-func (UnimplementedDateFormatServiceServer) Format2(context.Context, *Format2Request) (*Format2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Format2 not implemented")
-}
-func (UnimplementedDateFormatServiceServer) Format2_1(context.Context, *Format2_1Request) (*Format2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Format2_1 not implemented")
-}
-func (UnimplementedDateFormatServiceServer) Format2_2(context.Context, *Format2_2Request) (*Format2_2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Format2_2 not implemented")
-}
-func (UnimplementedDateFormatServiceServer) GetBestDateTimePattern(context.Context, *GetBestDateTimePatternRequest) (*GetBestDateTimePatternResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetBestDateTimePattern not implemented")
-}
-func (UnimplementedDateFormatServiceServer) GetDateFormat(context.Context, *GetDateFormatRequest) (*GetDateFormatResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDateFormat not implemented")
-}
-func (UnimplementedDateFormatServiceServer) GetDateFormatOrder(context.Context, *GetDateFormatOrderRequest) (*GetDateFormatOrderResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDateFormatOrder not implemented")
-}
-func (UnimplementedDateFormatServiceServer) GetLongDateFormat(context.Context, *GetLongDateFormatRequest) (*GetLongDateFormatResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLongDateFormat not implemented")
-}
-func (UnimplementedDateFormatServiceServer) GetMediumDateFormat(context.Context, *GetMediumDateFormatRequest) (*GetMediumDateFormatResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMediumDateFormat not implemented")
-}
-func (UnimplementedDateFormatServiceServer) GetTimeFormat(context.Context, *GetTimeFormatRequest) (*GetTimeFormatResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTimeFormat not implemented")
-}
-func (UnimplementedDateFormatServiceServer) Is24HourFormat(context.Context, *Is24HourFormatRequest) (*Is24HourFormatResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Is24HourFormat not implemented")
-}
-func (UnimplementedDateFormatServiceServer) mustEmbedUnimplementedDateFormatServiceServer() {}
-func (UnimplementedDateFormatServiceServer) testEmbeddedByValue()                           {}
-
-// UnsafeDateFormatServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DateFormatServiceServer will
-// result in compilation errors.
-type UnsafeDateFormatServiceServer interface {
-	mustEmbedUnimplementedDateFormatServiceServer()
-}
-
-func RegisterDateFormatServiceServer(s grpc.ServiceRegistrar, srv DateFormatServiceServer) {
-	// If the following call panics, it indicates UnimplementedDateFormatServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&DateFormatService_ServiceDesc, srv)
-}
-
-func _DateFormatService_NewDateFormat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewDateFormatRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DateFormatServiceServer).NewDateFormat(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DateFormatService_NewDateFormat_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DateFormatServiceServer).NewDateFormat(ctx, req.(*NewDateFormatRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DateFormatService_Format2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Format2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DateFormatServiceServer).Format2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DateFormatService_Format2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DateFormatServiceServer).Format2(ctx, req.(*Format2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DateFormatService_Format2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Format2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DateFormatServiceServer).Format2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DateFormatService_Format2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DateFormatServiceServer).Format2_1(ctx, req.(*Format2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DateFormatService_Format2_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Format2_2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DateFormatServiceServer).Format2_2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DateFormatService_Format2_2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DateFormatServiceServer).Format2_2(ctx, req.(*Format2_2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DateFormatService_GetBestDateTimePattern_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetBestDateTimePatternRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DateFormatServiceServer).GetBestDateTimePattern(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DateFormatService_GetBestDateTimePattern_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DateFormatServiceServer).GetBestDateTimePattern(ctx, req.(*GetBestDateTimePatternRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DateFormatService_GetDateFormat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDateFormatRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DateFormatServiceServer).GetDateFormat(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DateFormatService_GetDateFormat_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DateFormatServiceServer).GetDateFormat(ctx, req.(*GetDateFormatRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DateFormatService_GetDateFormatOrder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDateFormatOrderRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DateFormatServiceServer).GetDateFormatOrder(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DateFormatService_GetDateFormatOrder_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DateFormatServiceServer).GetDateFormatOrder(ctx, req.(*GetDateFormatOrderRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DateFormatService_GetLongDateFormat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLongDateFormatRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DateFormatServiceServer).GetLongDateFormat(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DateFormatService_GetLongDateFormat_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DateFormatServiceServer).GetLongDateFormat(ctx, req.(*GetLongDateFormatRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DateFormatService_GetMediumDateFormat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMediumDateFormatRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DateFormatServiceServer).GetMediumDateFormat(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DateFormatService_GetMediumDateFormat_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DateFormatServiceServer).GetMediumDateFormat(ctx, req.(*GetMediumDateFormatRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DateFormatService_GetTimeFormat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTimeFormatRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DateFormatServiceServer).GetTimeFormat(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DateFormatService_GetTimeFormat_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DateFormatServiceServer).GetTimeFormat(ctx, req.(*GetTimeFormatRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DateFormatService_Is24HourFormat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Is24HourFormatRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DateFormatServiceServer).Is24HourFormat(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DateFormatService_Is24HourFormat_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DateFormatServiceServer).Is24HourFormat(ctx, req.(*Is24HourFormatRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DateFormatService_ServiceDesc is the grpc.ServiceDesc for DateFormatService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var DateFormatService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "format.DateFormatService",
-	HandlerType: (*DateFormatServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewDateFormat",
-			Handler:    _DateFormatService_NewDateFormat_Handler,
-		},
-		{
-			MethodName: "Format2",
-			Handler:    _DateFormatService_Format2_Handler,
-		},
-		{
-			MethodName: "Format2_1",
-			Handler:    _DateFormatService_Format2_1_Handler,
-		},
-		{
-			MethodName: "Format2_2",
-			Handler:    _DateFormatService_Format2_2_Handler,
-		},
-		{
-			MethodName: "GetBestDateTimePattern",
-			Handler:    _DateFormatService_GetBestDateTimePattern_Handler,
-		},
-		{
-			MethodName: "GetDateFormat",
-			Handler:    _DateFormatService_GetDateFormat_Handler,
-		},
-		{
-			MethodName: "GetDateFormatOrder",
-			Handler:    _DateFormatService_GetDateFormatOrder_Handler,
-		},
-		{
-			MethodName: "GetLongDateFormat",
-			Handler:    _DateFormatService_GetLongDateFormat_Handler,
-		},
-		{
-			MethodName: "GetMediumDateFormat",
-			Handler:    _DateFormatService_GetMediumDateFormat_Handler,
-		},
-		{
-			MethodName: "GetTimeFormat",
-			Handler:    _DateFormatService_GetTimeFormat_Handler,
-		},
-		{
-			MethodName: "Is24HourFormat",
-			Handler:    _DateFormatService_Is24HourFormat_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/format/format.proto",
-}
-
-const (
-	DateUtilsService_NewDateUtils_FullMethodName                 = "/format.DateUtilsService/NewDateUtils"
-	DateUtilsService_FormatDateRange5_FullMethodName             = "/format.DateUtilsService/FormatDateRange5"
-	DateUtilsService_FormatDateRange6_1_FullMethodName           = "/format.DateUtilsService/FormatDateRange6_1"
-	DateUtilsService_FormatDateRange4_2_FullMethodName           = "/format.DateUtilsService/FormatDateRange4_2"
-	DateUtilsService_FormatDateTime_FullMethodName               = "/format.DateUtilsService/FormatDateTime"
-	DateUtilsService_FormatElapsedTime2_FullMethodName           = "/format.DateUtilsService/FormatElapsedTime2"
-	DateUtilsService_FormatElapsedTime1_1_FullMethodName         = "/format.DateUtilsService/FormatElapsedTime1_1"
-	DateUtilsService_FormatSameDayTime_FullMethodName            = "/format.DateUtilsService/FormatSameDayTime"
-	DateUtilsService_GetAMPMString_FullMethodName                = "/format.DateUtilsService/GetAMPMString"
-	DateUtilsService_GetDayOfWeekString_FullMethodName           = "/format.DateUtilsService/GetDayOfWeekString"
-	DateUtilsService_GetMonthString_FullMethodName               = "/format.DateUtilsService/GetMonthString"
-	DateUtilsService_GetRelativeDateTimeString_FullMethodName    = "/format.DateUtilsService/GetRelativeDateTimeString"
-	DateUtilsService_GetRelativeTimeSpanString2_FullMethodName   = "/format.DateUtilsService/GetRelativeTimeSpanString2"
-	DateUtilsService_GetRelativeTimeSpanString3_1_FullMethodName = "/format.DateUtilsService/GetRelativeTimeSpanString3_1"
-	DateUtilsService_GetRelativeTimeSpanString1_2_FullMethodName = "/format.DateUtilsService/GetRelativeTimeSpanString1_2"
-	DateUtilsService_GetRelativeTimeSpanString3_3_FullMethodName = "/format.DateUtilsService/GetRelativeTimeSpanString3_3"
-	DateUtilsService_GetRelativeTimeSpanString4_4_FullMethodName = "/format.DateUtilsService/GetRelativeTimeSpanString4_4"
-	DateUtilsService_IsToday_FullMethodName                      = "/format.DateUtilsService/IsToday"
-)
-
-// DateUtilsServiceClient is the client API for DateUtilsService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DateUtilsServiceClient interface {
-	NewDateUtils(ctx context.Context, in *NewDateUtilsRequest, opts ...grpc.CallOption) (*NewDateUtilsResponse, error)
-	FormatDateRange5(ctx context.Context, in *FormatDateRange5Request, opts ...grpc.CallOption) (*FormatDateRange5Response, error)
-	FormatDateRange6_1(ctx context.Context, in *FormatDateRange6_1Request, opts ...grpc.CallOption) (*FormatDateRange6_1Response, error)
-	FormatDateRange4_2(ctx context.Context, in *FormatDateRange4_2Request, opts ...grpc.CallOption) (*FormatDateRange4_2Response, error)
-	FormatDateTime(ctx context.Context, in *FormatDateTimeRequest, opts ...grpc.CallOption) (*FormatDateTimeResponse, error)
-	FormatElapsedTime2(ctx context.Context, in *FormatElapsedTime2Request, opts ...grpc.CallOption) (*FormatElapsedTime2Response, error)
-	FormatElapsedTime1_1(ctx context.Context, in *FormatElapsedTime1_1Request, opts ...grpc.CallOption) (*FormatElapsedTime1_1Response, error)
-	FormatSameDayTime(ctx context.Context, in *FormatSameDayTimeRequest, opts ...grpc.CallOption) (*FormatSameDayTimeResponse, error)
-	GetAMPMString(ctx context.Context, in *GetAMPMStringRequest, opts ...grpc.CallOption) (*GetAMPMStringResponse, error)
-	GetDayOfWeekString(ctx context.Context, in *GetDayOfWeekStringRequest, opts ...grpc.CallOption) (*GetDayOfWeekStringResponse, error)
-	GetMonthString(ctx context.Context, in *GetMonthStringRequest, opts ...grpc.CallOption) (*GetMonthStringResponse, error)
-	GetRelativeDateTimeString(ctx context.Context, in *GetRelativeDateTimeStringRequest, opts ...grpc.CallOption) (*GetRelativeDateTimeStringResponse, error)
-	GetRelativeTimeSpanString2(ctx context.Context, in *GetRelativeTimeSpanString2Request, opts ...grpc.CallOption) (*GetRelativeTimeSpanString2Response, error)
-	GetRelativeTimeSpanString3_1(ctx context.Context, in *GetRelativeTimeSpanString3_1Request, opts ...grpc.CallOption) (*GetRelativeTimeSpanString3_1Response, error)
-	GetRelativeTimeSpanString1_2(ctx context.Context, in *GetRelativeTimeSpanString1_2Request, opts ...grpc.CallOption) (*GetRelativeTimeSpanString1_2Response, error)
-	GetRelativeTimeSpanString3_3(ctx context.Context, in *GetRelativeTimeSpanString3_3Request, opts ...grpc.CallOption) (*GetRelativeTimeSpanString3_3Response, error)
-	GetRelativeTimeSpanString4_4(ctx context.Context, in *GetRelativeTimeSpanString4_4Request, opts ...grpc.CallOption) (*GetRelativeTimeSpanString4_4Response, error)
-	IsToday(ctx context.Context, in *IsTodayRequest, opts ...grpc.CallOption) (*IsTodayResponse, error)
-}
-
-type dateUtilsServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewDateUtilsServiceClient(cc grpc.ClientConnInterface) DateUtilsServiceClient {
-	return &dateUtilsServiceClient{cc}
-}
-
-func (c *dateUtilsServiceClient) NewDateUtils(ctx context.Context, in *NewDateUtilsRequest, opts ...grpc.CallOption) (*NewDateUtilsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewDateUtilsResponse)
-	err := c.cc.Invoke(ctx, DateUtilsService_NewDateUtils_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dateUtilsServiceClient) FormatDateRange5(ctx context.Context, in *FormatDateRange5Request, opts ...grpc.CallOption) (*FormatDateRange5Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FormatDateRange5Response)
-	err := c.cc.Invoke(ctx, DateUtilsService_FormatDateRange5_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dateUtilsServiceClient) FormatDateRange6_1(ctx context.Context, in *FormatDateRange6_1Request, opts ...grpc.CallOption) (*FormatDateRange6_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FormatDateRange6_1Response)
-	err := c.cc.Invoke(ctx, DateUtilsService_FormatDateRange6_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dateUtilsServiceClient) FormatDateRange4_2(ctx context.Context, in *FormatDateRange4_2Request, opts ...grpc.CallOption) (*FormatDateRange4_2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FormatDateRange4_2Response)
-	err := c.cc.Invoke(ctx, DateUtilsService_FormatDateRange4_2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dateUtilsServiceClient) FormatDateTime(ctx context.Context, in *FormatDateTimeRequest, opts ...grpc.CallOption) (*FormatDateTimeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FormatDateTimeResponse)
-	err := c.cc.Invoke(ctx, DateUtilsService_FormatDateTime_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dateUtilsServiceClient) FormatElapsedTime2(ctx context.Context, in *FormatElapsedTime2Request, opts ...grpc.CallOption) (*FormatElapsedTime2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FormatElapsedTime2Response)
-	err := c.cc.Invoke(ctx, DateUtilsService_FormatElapsedTime2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dateUtilsServiceClient) FormatElapsedTime1_1(ctx context.Context, in *FormatElapsedTime1_1Request, opts ...grpc.CallOption) (*FormatElapsedTime1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FormatElapsedTime1_1Response)
-	err := c.cc.Invoke(ctx, DateUtilsService_FormatElapsedTime1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dateUtilsServiceClient) FormatSameDayTime(ctx context.Context, in *FormatSameDayTimeRequest, opts ...grpc.CallOption) (*FormatSameDayTimeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FormatSameDayTimeResponse)
-	err := c.cc.Invoke(ctx, DateUtilsService_FormatSameDayTime_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dateUtilsServiceClient) GetAMPMString(ctx context.Context, in *GetAMPMStringRequest, opts ...grpc.CallOption) (*GetAMPMStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAMPMStringResponse)
-	err := c.cc.Invoke(ctx, DateUtilsService_GetAMPMString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dateUtilsServiceClient) GetDayOfWeekString(ctx context.Context, in *GetDayOfWeekStringRequest, opts ...grpc.CallOption) (*GetDayOfWeekStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDayOfWeekStringResponse)
-	err := c.cc.Invoke(ctx, DateUtilsService_GetDayOfWeekString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dateUtilsServiceClient) GetMonthString(ctx context.Context, in *GetMonthStringRequest, opts ...grpc.CallOption) (*GetMonthStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMonthStringResponse)
-	err := c.cc.Invoke(ctx, DateUtilsService_GetMonthString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dateUtilsServiceClient) GetRelativeDateTimeString(ctx context.Context, in *GetRelativeDateTimeStringRequest, opts ...grpc.CallOption) (*GetRelativeDateTimeStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRelativeDateTimeStringResponse)
-	err := c.cc.Invoke(ctx, DateUtilsService_GetRelativeDateTimeString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dateUtilsServiceClient) GetRelativeTimeSpanString2(ctx context.Context, in *GetRelativeTimeSpanString2Request, opts ...grpc.CallOption) (*GetRelativeTimeSpanString2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRelativeTimeSpanString2Response)
-	err := c.cc.Invoke(ctx, DateUtilsService_GetRelativeTimeSpanString2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dateUtilsServiceClient) GetRelativeTimeSpanString3_1(ctx context.Context, in *GetRelativeTimeSpanString3_1Request, opts ...grpc.CallOption) (*GetRelativeTimeSpanString3_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRelativeTimeSpanString3_1Response)
-	err := c.cc.Invoke(ctx, DateUtilsService_GetRelativeTimeSpanString3_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dateUtilsServiceClient) GetRelativeTimeSpanString1_2(ctx context.Context, in *GetRelativeTimeSpanString1_2Request, opts ...grpc.CallOption) (*GetRelativeTimeSpanString1_2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRelativeTimeSpanString1_2Response)
-	err := c.cc.Invoke(ctx, DateUtilsService_GetRelativeTimeSpanString1_2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dateUtilsServiceClient) GetRelativeTimeSpanString3_3(ctx context.Context, in *GetRelativeTimeSpanString3_3Request, opts ...grpc.CallOption) (*GetRelativeTimeSpanString3_3Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRelativeTimeSpanString3_3Response)
-	err := c.cc.Invoke(ctx, DateUtilsService_GetRelativeTimeSpanString3_3_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dateUtilsServiceClient) GetRelativeTimeSpanString4_4(ctx context.Context, in *GetRelativeTimeSpanString4_4Request, opts ...grpc.CallOption) (*GetRelativeTimeSpanString4_4Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRelativeTimeSpanString4_4Response)
-	err := c.cc.Invoke(ctx, DateUtilsService_GetRelativeTimeSpanString4_4_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dateUtilsServiceClient) IsToday(ctx context.Context, in *IsTodayRequest, opts ...grpc.CallOption) (*IsTodayResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsTodayResponse)
-	err := c.cc.Invoke(ctx, DateUtilsService_IsToday_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DateUtilsServiceServer is the server API for DateUtilsService service.
-// All implementations must embed UnimplementedDateUtilsServiceServer
-// for forward compatibility.
-type DateUtilsServiceServer interface {
-	NewDateUtils(context.Context, *NewDateUtilsRequest) (*NewDateUtilsResponse, error)
-	FormatDateRange5(context.Context, *FormatDateRange5Request) (*FormatDateRange5Response, error)
-	FormatDateRange6_1(context.Context, *FormatDateRange6_1Request) (*FormatDateRange6_1Response, error)
-	FormatDateRange4_2(context.Context, *FormatDateRange4_2Request) (*FormatDateRange4_2Response, error)
-	FormatDateTime(context.Context, *FormatDateTimeRequest) (*FormatDateTimeResponse, error)
-	FormatElapsedTime2(context.Context, *FormatElapsedTime2Request) (*FormatElapsedTime2Response, error)
-	FormatElapsedTime1_1(context.Context, *FormatElapsedTime1_1Request) (*FormatElapsedTime1_1Response, error)
-	FormatSameDayTime(context.Context, *FormatSameDayTimeRequest) (*FormatSameDayTimeResponse, error)
-	GetAMPMString(context.Context, *GetAMPMStringRequest) (*GetAMPMStringResponse, error)
-	GetDayOfWeekString(context.Context, *GetDayOfWeekStringRequest) (*GetDayOfWeekStringResponse, error)
-	GetMonthString(context.Context, *GetMonthStringRequest) (*GetMonthStringResponse, error)
-	GetRelativeDateTimeString(context.Context, *GetRelativeDateTimeStringRequest) (*GetRelativeDateTimeStringResponse, error)
-	GetRelativeTimeSpanString2(context.Context, *GetRelativeTimeSpanString2Request) (*GetRelativeTimeSpanString2Response, error)
-	GetRelativeTimeSpanString3_1(context.Context, *GetRelativeTimeSpanString3_1Request) (*GetRelativeTimeSpanString3_1Response, error)
-	GetRelativeTimeSpanString1_2(context.Context, *GetRelativeTimeSpanString1_2Request) (*GetRelativeTimeSpanString1_2Response, error)
-	GetRelativeTimeSpanString3_3(context.Context, *GetRelativeTimeSpanString3_3Request) (*GetRelativeTimeSpanString3_3Response, error)
-	GetRelativeTimeSpanString4_4(context.Context, *GetRelativeTimeSpanString4_4Request) (*GetRelativeTimeSpanString4_4Response, error)
-	IsToday(context.Context, *IsTodayRequest) (*IsTodayResponse, error)
-	mustEmbedUnimplementedDateUtilsServiceServer()
-}
-
-// UnimplementedDateUtilsServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedDateUtilsServiceServer struct{}
-
-func (UnimplementedDateUtilsServiceServer) NewDateUtils(context.Context, *NewDateUtilsRequest) (*NewDateUtilsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewDateUtils not implemented")
-}
-func (UnimplementedDateUtilsServiceServer) FormatDateRange5(context.Context, *FormatDateRange5Request) (*FormatDateRange5Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method FormatDateRange5 not implemented")
-}
-func (UnimplementedDateUtilsServiceServer) FormatDateRange6_1(context.Context, *FormatDateRange6_1Request) (*FormatDateRange6_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method FormatDateRange6_1 not implemented")
-}
-func (UnimplementedDateUtilsServiceServer) FormatDateRange4_2(context.Context, *FormatDateRange4_2Request) (*FormatDateRange4_2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method FormatDateRange4_2 not implemented")
-}
-func (UnimplementedDateUtilsServiceServer) FormatDateTime(context.Context, *FormatDateTimeRequest) (*FormatDateTimeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method FormatDateTime not implemented")
-}
-func (UnimplementedDateUtilsServiceServer) FormatElapsedTime2(context.Context, *FormatElapsedTime2Request) (*FormatElapsedTime2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method FormatElapsedTime2 not implemented")
-}
-func (UnimplementedDateUtilsServiceServer) FormatElapsedTime1_1(context.Context, *FormatElapsedTime1_1Request) (*FormatElapsedTime1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method FormatElapsedTime1_1 not implemented")
-}
-func (UnimplementedDateUtilsServiceServer) FormatSameDayTime(context.Context, *FormatSameDayTimeRequest) (*FormatSameDayTimeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method FormatSameDayTime not implemented")
-}
-func (UnimplementedDateUtilsServiceServer) GetAMPMString(context.Context, *GetAMPMStringRequest) (*GetAMPMStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAMPMString not implemented")
-}
-func (UnimplementedDateUtilsServiceServer) GetDayOfWeekString(context.Context, *GetDayOfWeekStringRequest) (*GetDayOfWeekStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDayOfWeekString not implemented")
-}
-func (UnimplementedDateUtilsServiceServer) GetMonthString(context.Context, *GetMonthStringRequest) (*GetMonthStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMonthString not implemented")
-}
-func (UnimplementedDateUtilsServiceServer) GetRelativeDateTimeString(context.Context, *GetRelativeDateTimeStringRequest) (*GetRelativeDateTimeStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRelativeDateTimeString not implemented")
-}
-func (UnimplementedDateUtilsServiceServer) GetRelativeTimeSpanString2(context.Context, *GetRelativeTimeSpanString2Request) (*GetRelativeTimeSpanString2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRelativeTimeSpanString2 not implemented")
-}
-func (UnimplementedDateUtilsServiceServer) GetRelativeTimeSpanString3_1(context.Context, *GetRelativeTimeSpanString3_1Request) (*GetRelativeTimeSpanString3_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRelativeTimeSpanString3_1 not implemented")
-}
-func (UnimplementedDateUtilsServiceServer) GetRelativeTimeSpanString1_2(context.Context, *GetRelativeTimeSpanString1_2Request) (*GetRelativeTimeSpanString1_2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRelativeTimeSpanString1_2 not implemented")
-}
-func (UnimplementedDateUtilsServiceServer) GetRelativeTimeSpanString3_3(context.Context, *GetRelativeTimeSpanString3_3Request) (*GetRelativeTimeSpanString3_3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRelativeTimeSpanString3_3 not implemented")
-}
-func (UnimplementedDateUtilsServiceServer) GetRelativeTimeSpanString4_4(context.Context, *GetRelativeTimeSpanString4_4Request) (*GetRelativeTimeSpanString4_4Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRelativeTimeSpanString4_4 not implemented")
-}
-func (UnimplementedDateUtilsServiceServer) IsToday(context.Context, *IsTodayRequest) (*IsTodayResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsToday not implemented")
-}
-func (UnimplementedDateUtilsServiceServer) mustEmbedUnimplementedDateUtilsServiceServer() {}
-func (UnimplementedDateUtilsServiceServer) testEmbeddedByValue()                          {}
-
-// UnsafeDateUtilsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DateUtilsServiceServer will
-// result in compilation errors.
-type UnsafeDateUtilsServiceServer interface {
-	mustEmbedUnimplementedDateUtilsServiceServer()
-}
-
-func RegisterDateUtilsServiceServer(s grpc.ServiceRegistrar, srv DateUtilsServiceServer) {
-	// If the following call panics, it indicates UnimplementedDateUtilsServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&DateUtilsService_ServiceDesc, srv)
-}
-
-func _DateUtilsService_NewDateUtils_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewDateUtilsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DateUtilsServiceServer).NewDateUtils(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DateUtilsService_NewDateUtils_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DateUtilsServiceServer).NewDateUtils(ctx, req.(*NewDateUtilsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DateUtilsService_FormatDateRange5_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FormatDateRange5Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DateUtilsServiceServer).FormatDateRange5(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DateUtilsService_FormatDateRange5_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DateUtilsServiceServer).FormatDateRange5(ctx, req.(*FormatDateRange5Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DateUtilsService_FormatDateRange6_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FormatDateRange6_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DateUtilsServiceServer).FormatDateRange6_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DateUtilsService_FormatDateRange6_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DateUtilsServiceServer).FormatDateRange6_1(ctx, req.(*FormatDateRange6_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DateUtilsService_FormatDateRange4_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FormatDateRange4_2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DateUtilsServiceServer).FormatDateRange4_2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DateUtilsService_FormatDateRange4_2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DateUtilsServiceServer).FormatDateRange4_2(ctx, req.(*FormatDateRange4_2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DateUtilsService_FormatDateTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FormatDateTimeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DateUtilsServiceServer).FormatDateTime(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DateUtilsService_FormatDateTime_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DateUtilsServiceServer).FormatDateTime(ctx, req.(*FormatDateTimeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DateUtilsService_FormatElapsedTime2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FormatElapsedTime2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DateUtilsServiceServer).FormatElapsedTime2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DateUtilsService_FormatElapsedTime2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DateUtilsServiceServer).FormatElapsedTime2(ctx, req.(*FormatElapsedTime2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DateUtilsService_FormatElapsedTime1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FormatElapsedTime1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DateUtilsServiceServer).FormatElapsedTime1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DateUtilsService_FormatElapsedTime1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DateUtilsServiceServer).FormatElapsedTime1_1(ctx, req.(*FormatElapsedTime1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DateUtilsService_FormatSameDayTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FormatSameDayTimeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DateUtilsServiceServer).FormatSameDayTime(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DateUtilsService_FormatSameDayTime_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DateUtilsServiceServer).FormatSameDayTime(ctx, req.(*FormatSameDayTimeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DateUtilsService_GetAMPMString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAMPMStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DateUtilsServiceServer).GetAMPMString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DateUtilsService_GetAMPMString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DateUtilsServiceServer).GetAMPMString(ctx, req.(*GetAMPMStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DateUtilsService_GetDayOfWeekString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDayOfWeekStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DateUtilsServiceServer).GetDayOfWeekString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DateUtilsService_GetDayOfWeekString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DateUtilsServiceServer).GetDayOfWeekString(ctx, req.(*GetDayOfWeekStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DateUtilsService_GetMonthString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMonthStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DateUtilsServiceServer).GetMonthString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DateUtilsService_GetMonthString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DateUtilsServiceServer).GetMonthString(ctx, req.(*GetMonthStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DateUtilsService_GetRelativeDateTimeString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRelativeDateTimeStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DateUtilsServiceServer).GetRelativeDateTimeString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DateUtilsService_GetRelativeDateTimeString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DateUtilsServiceServer).GetRelativeDateTimeString(ctx, req.(*GetRelativeDateTimeStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DateUtilsService_GetRelativeTimeSpanString2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRelativeTimeSpanString2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DateUtilsServiceServer).GetRelativeTimeSpanString2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DateUtilsService_GetRelativeTimeSpanString2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DateUtilsServiceServer).GetRelativeTimeSpanString2(ctx, req.(*GetRelativeTimeSpanString2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DateUtilsService_GetRelativeTimeSpanString3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRelativeTimeSpanString3_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DateUtilsServiceServer).GetRelativeTimeSpanString3_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DateUtilsService_GetRelativeTimeSpanString3_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DateUtilsServiceServer).GetRelativeTimeSpanString3_1(ctx, req.(*GetRelativeTimeSpanString3_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DateUtilsService_GetRelativeTimeSpanString1_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRelativeTimeSpanString1_2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DateUtilsServiceServer).GetRelativeTimeSpanString1_2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DateUtilsService_GetRelativeTimeSpanString1_2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DateUtilsServiceServer).GetRelativeTimeSpanString1_2(ctx, req.(*GetRelativeTimeSpanString1_2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DateUtilsService_GetRelativeTimeSpanString3_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRelativeTimeSpanString3_3Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DateUtilsServiceServer).GetRelativeTimeSpanString3_3(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DateUtilsService_GetRelativeTimeSpanString3_3_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DateUtilsServiceServer).GetRelativeTimeSpanString3_3(ctx, req.(*GetRelativeTimeSpanString3_3Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DateUtilsService_GetRelativeTimeSpanString4_4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRelativeTimeSpanString4_4Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DateUtilsServiceServer).GetRelativeTimeSpanString4_4(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DateUtilsService_GetRelativeTimeSpanString4_4_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DateUtilsServiceServer).GetRelativeTimeSpanString4_4(ctx, req.(*GetRelativeTimeSpanString4_4Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DateUtilsService_IsToday_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsTodayRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DateUtilsServiceServer).IsToday(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DateUtilsService_IsToday_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DateUtilsServiceServer).IsToday(ctx, req.(*IsTodayRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DateUtilsService_ServiceDesc is the grpc.ServiceDesc for DateUtilsService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var DateUtilsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "format.DateUtilsService",
-	HandlerType: (*DateUtilsServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewDateUtils",
-			Handler:    _DateUtilsService_NewDateUtils_Handler,
-		},
-		{
-			MethodName: "FormatDateRange5",
-			Handler:    _DateUtilsService_FormatDateRange5_Handler,
-		},
-		{
-			MethodName: "FormatDateRange6_1",
-			Handler:    _DateUtilsService_FormatDateRange6_1_Handler,
-		},
-		{
-			MethodName: "FormatDateRange4_2",
-			Handler:    _DateUtilsService_FormatDateRange4_2_Handler,
-		},
-		{
-			MethodName: "FormatDateTime",
-			Handler:    _DateUtilsService_FormatDateTime_Handler,
-		},
-		{
-			MethodName: "FormatElapsedTime2",
-			Handler:    _DateUtilsService_FormatElapsedTime2_Handler,
-		},
-		{
-			MethodName: "FormatElapsedTime1_1",
-			Handler:    _DateUtilsService_FormatElapsedTime1_1_Handler,
-		},
-		{
-			MethodName: "FormatSameDayTime",
-			Handler:    _DateUtilsService_FormatSameDayTime_Handler,
-		},
-		{
-			MethodName: "GetAMPMString",
-			Handler:    _DateUtilsService_GetAMPMString_Handler,
-		},
-		{
-			MethodName: "GetDayOfWeekString",
-			Handler:    _DateUtilsService_GetDayOfWeekString_Handler,
-		},
-		{
-			MethodName: "GetMonthString",
-			Handler:    _DateUtilsService_GetMonthString_Handler,
-		},
-		{
-			MethodName: "GetRelativeDateTimeString",
-			Handler:    _DateUtilsService_GetRelativeDateTimeString_Handler,
-		},
-		{
-			MethodName: "GetRelativeTimeSpanString2",
-			Handler:    _DateUtilsService_GetRelativeTimeSpanString2_Handler,
-		},
-		{
-			MethodName: "GetRelativeTimeSpanString3_1",
-			Handler:    _DateUtilsService_GetRelativeTimeSpanString3_1_Handler,
-		},
-		{
-			MethodName: "GetRelativeTimeSpanString1_2",
-			Handler:    _DateUtilsService_GetRelativeTimeSpanString1_2_Handler,
-		},
-		{
-			MethodName: "GetRelativeTimeSpanString3_3",
-			Handler:    _DateUtilsService_GetRelativeTimeSpanString3_3_Handler,
-		},
-		{
-			MethodName: "GetRelativeTimeSpanString4_4",
-			Handler:    _DateUtilsService_GetRelativeTimeSpanString4_4_Handler,
-		},
-		{
-			MethodName: "IsToday",
-			Handler:    _DateUtilsService_IsToday_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/format/format.proto",
-}
-
-const (
 	TimeService_NewTime_FullMethodName                            = "/format.TimeService/NewTime"
 	TimeService_After_FullMethodName                              = "/format.TimeService/After"
 	TimeService_Before_FullMethodName                             = "/format.TimeService/Before"
@@ -2550,6 +1320,1236 @@ var TerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "FormatShortFileSize",
 			Handler:    _TerService_FormatShortFileSize_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/format/format.proto",
+}
+
+const (
+	DateFormatService_NewDateFormat_FullMethodName          = "/format.DateFormatService/NewDateFormat"
+	DateFormatService_Format2_FullMethodName                = "/format.DateFormatService/Format2"
+	DateFormatService_Format2_1_FullMethodName              = "/format.DateFormatService/Format2_1"
+	DateFormatService_Format2_2_FullMethodName              = "/format.DateFormatService/Format2_2"
+	DateFormatService_GetBestDateTimePattern_FullMethodName = "/format.DateFormatService/GetBestDateTimePattern"
+	DateFormatService_GetDateFormat_FullMethodName          = "/format.DateFormatService/GetDateFormat"
+	DateFormatService_GetDateFormatOrder_FullMethodName     = "/format.DateFormatService/GetDateFormatOrder"
+	DateFormatService_GetLongDateFormat_FullMethodName      = "/format.DateFormatService/GetLongDateFormat"
+	DateFormatService_GetMediumDateFormat_FullMethodName    = "/format.DateFormatService/GetMediumDateFormat"
+	DateFormatService_GetTimeFormat_FullMethodName          = "/format.DateFormatService/GetTimeFormat"
+	DateFormatService_Is24HourFormat_FullMethodName         = "/format.DateFormatService/Is24HourFormat"
+)
+
+// DateFormatServiceClient is the client API for DateFormatService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DateFormatServiceClient interface {
+	NewDateFormat(ctx context.Context, in *NewDateFormatRequest, opts ...grpc.CallOption) (*NewDateFormatResponse, error)
+	Format2(ctx context.Context, in *Format2Request, opts ...grpc.CallOption) (*Format2Response, error)
+	Format2_1(ctx context.Context, in *Format2_1Request, opts ...grpc.CallOption) (*Format2_1Response, error)
+	Format2_2(ctx context.Context, in *Format2_2Request, opts ...grpc.CallOption) (*Format2_2Response, error)
+	GetBestDateTimePattern(ctx context.Context, in *GetBestDateTimePatternRequest, opts ...grpc.CallOption) (*GetBestDateTimePatternResponse, error)
+	GetDateFormat(ctx context.Context, in *GetDateFormatRequest, opts ...grpc.CallOption) (*GetDateFormatResponse, error)
+	GetDateFormatOrder(ctx context.Context, in *GetDateFormatOrderRequest, opts ...grpc.CallOption) (*GetDateFormatOrderResponse, error)
+	GetLongDateFormat(ctx context.Context, in *GetLongDateFormatRequest, opts ...grpc.CallOption) (*GetLongDateFormatResponse, error)
+	GetMediumDateFormat(ctx context.Context, in *GetMediumDateFormatRequest, opts ...grpc.CallOption) (*GetMediumDateFormatResponse, error)
+	GetTimeFormat(ctx context.Context, in *GetTimeFormatRequest, opts ...grpc.CallOption) (*GetTimeFormatResponse, error)
+	Is24HourFormat(ctx context.Context, in *Is24HourFormatRequest, opts ...grpc.CallOption) (*Is24HourFormatResponse, error)
+}
+
+type dateFormatServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDateFormatServiceClient(cc grpc.ClientConnInterface) DateFormatServiceClient {
+	return &dateFormatServiceClient{cc}
+}
+
+func (c *dateFormatServiceClient) NewDateFormat(ctx context.Context, in *NewDateFormatRequest, opts ...grpc.CallOption) (*NewDateFormatResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewDateFormatResponse)
+	err := c.cc.Invoke(ctx, DateFormatService_NewDateFormat_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dateFormatServiceClient) Format2(ctx context.Context, in *Format2Request, opts ...grpc.CallOption) (*Format2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Format2Response)
+	err := c.cc.Invoke(ctx, DateFormatService_Format2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dateFormatServiceClient) Format2_1(ctx context.Context, in *Format2_1Request, opts ...grpc.CallOption) (*Format2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Format2_1Response)
+	err := c.cc.Invoke(ctx, DateFormatService_Format2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dateFormatServiceClient) Format2_2(ctx context.Context, in *Format2_2Request, opts ...grpc.CallOption) (*Format2_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Format2_2Response)
+	err := c.cc.Invoke(ctx, DateFormatService_Format2_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dateFormatServiceClient) GetBestDateTimePattern(ctx context.Context, in *GetBestDateTimePatternRequest, opts ...grpc.CallOption) (*GetBestDateTimePatternResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBestDateTimePatternResponse)
+	err := c.cc.Invoke(ctx, DateFormatService_GetBestDateTimePattern_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dateFormatServiceClient) GetDateFormat(ctx context.Context, in *GetDateFormatRequest, opts ...grpc.CallOption) (*GetDateFormatResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDateFormatResponse)
+	err := c.cc.Invoke(ctx, DateFormatService_GetDateFormat_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dateFormatServiceClient) GetDateFormatOrder(ctx context.Context, in *GetDateFormatOrderRequest, opts ...grpc.CallOption) (*GetDateFormatOrderResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDateFormatOrderResponse)
+	err := c.cc.Invoke(ctx, DateFormatService_GetDateFormatOrder_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dateFormatServiceClient) GetLongDateFormat(ctx context.Context, in *GetLongDateFormatRequest, opts ...grpc.CallOption) (*GetLongDateFormatResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLongDateFormatResponse)
+	err := c.cc.Invoke(ctx, DateFormatService_GetLongDateFormat_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dateFormatServiceClient) GetMediumDateFormat(ctx context.Context, in *GetMediumDateFormatRequest, opts ...grpc.CallOption) (*GetMediumDateFormatResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMediumDateFormatResponse)
+	err := c.cc.Invoke(ctx, DateFormatService_GetMediumDateFormat_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dateFormatServiceClient) GetTimeFormat(ctx context.Context, in *GetTimeFormatRequest, opts ...grpc.CallOption) (*GetTimeFormatResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTimeFormatResponse)
+	err := c.cc.Invoke(ctx, DateFormatService_GetTimeFormat_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dateFormatServiceClient) Is24HourFormat(ctx context.Context, in *Is24HourFormatRequest, opts ...grpc.CallOption) (*Is24HourFormatResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Is24HourFormatResponse)
+	err := c.cc.Invoke(ctx, DateFormatService_Is24HourFormat_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DateFormatServiceServer is the server API for DateFormatService service.
+// All implementations must embed UnimplementedDateFormatServiceServer
+// for forward compatibility.
+type DateFormatServiceServer interface {
+	NewDateFormat(context.Context, *NewDateFormatRequest) (*NewDateFormatResponse, error)
+	Format2(context.Context, *Format2Request) (*Format2Response, error)
+	Format2_1(context.Context, *Format2_1Request) (*Format2_1Response, error)
+	Format2_2(context.Context, *Format2_2Request) (*Format2_2Response, error)
+	GetBestDateTimePattern(context.Context, *GetBestDateTimePatternRequest) (*GetBestDateTimePatternResponse, error)
+	GetDateFormat(context.Context, *GetDateFormatRequest) (*GetDateFormatResponse, error)
+	GetDateFormatOrder(context.Context, *GetDateFormatOrderRequest) (*GetDateFormatOrderResponse, error)
+	GetLongDateFormat(context.Context, *GetLongDateFormatRequest) (*GetLongDateFormatResponse, error)
+	GetMediumDateFormat(context.Context, *GetMediumDateFormatRequest) (*GetMediumDateFormatResponse, error)
+	GetTimeFormat(context.Context, *GetTimeFormatRequest) (*GetTimeFormatResponse, error)
+	Is24HourFormat(context.Context, *Is24HourFormatRequest) (*Is24HourFormatResponse, error)
+	mustEmbedUnimplementedDateFormatServiceServer()
+}
+
+// UnimplementedDateFormatServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDateFormatServiceServer struct{}
+
+func (UnimplementedDateFormatServiceServer) NewDateFormat(context.Context, *NewDateFormatRequest) (*NewDateFormatResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewDateFormat not implemented")
+}
+func (UnimplementedDateFormatServiceServer) Format2(context.Context, *Format2Request) (*Format2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Format2 not implemented")
+}
+func (UnimplementedDateFormatServiceServer) Format2_1(context.Context, *Format2_1Request) (*Format2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Format2_1 not implemented")
+}
+func (UnimplementedDateFormatServiceServer) Format2_2(context.Context, *Format2_2Request) (*Format2_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Format2_2 not implemented")
+}
+func (UnimplementedDateFormatServiceServer) GetBestDateTimePattern(context.Context, *GetBestDateTimePatternRequest) (*GetBestDateTimePatternResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBestDateTimePattern not implemented")
+}
+func (UnimplementedDateFormatServiceServer) GetDateFormat(context.Context, *GetDateFormatRequest) (*GetDateFormatResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDateFormat not implemented")
+}
+func (UnimplementedDateFormatServiceServer) GetDateFormatOrder(context.Context, *GetDateFormatOrderRequest) (*GetDateFormatOrderResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDateFormatOrder not implemented")
+}
+func (UnimplementedDateFormatServiceServer) GetLongDateFormat(context.Context, *GetLongDateFormatRequest) (*GetLongDateFormatResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLongDateFormat not implemented")
+}
+func (UnimplementedDateFormatServiceServer) GetMediumDateFormat(context.Context, *GetMediumDateFormatRequest) (*GetMediumDateFormatResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMediumDateFormat not implemented")
+}
+func (UnimplementedDateFormatServiceServer) GetTimeFormat(context.Context, *GetTimeFormatRequest) (*GetTimeFormatResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTimeFormat not implemented")
+}
+func (UnimplementedDateFormatServiceServer) Is24HourFormat(context.Context, *Is24HourFormatRequest) (*Is24HourFormatResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Is24HourFormat not implemented")
+}
+func (UnimplementedDateFormatServiceServer) mustEmbedUnimplementedDateFormatServiceServer() {}
+func (UnimplementedDateFormatServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafeDateFormatServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DateFormatServiceServer will
+// result in compilation errors.
+type UnsafeDateFormatServiceServer interface {
+	mustEmbedUnimplementedDateFormatServiceServer()
+}
+
+func RegisterDateFormatServiceServer(s grpc.ServiceRegistrar, srv DateFormatServiceServer) {
+	// If the following call panics, it indicates UnimplementedDateFormatServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DateFormatService_ServiceDesc, srv)
+}
+
+func _DateFormatService_NewDateFormat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewDateFormatRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DateFormatServiceServer).NewDateFormat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DateFormatService_NewDateFormat_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DateFormatServiceServer).NewDateFormat(ctx, req.(*NewDateFormatRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DateFormatService_Format2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Format2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DateFormatServiceServer).Format2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DateFormatService_Format2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DateFormatServiceServer).Format2(ctx, req.(*Format2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DateFormatService_Format2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Format2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DateFormatServiceServer).Format2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DateFormatService_Format2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DateFormatServiceServer).Format2_1(ctx, req.(*Format2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DateFormatService_Format2_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Format2_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DateFormatServiceServer).Format2_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DateFormatService_Format2_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DateFormatServiceServer).Format2_2(ctx, req.(*Format2_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DateFormatService_GetBestDateTimePattern_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBestDateTimePatternRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DateFormatServiceServer).GetBestDateTimePattern(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DateFormatService_GetBestDateTimePattern_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DateFormatServiceServer).GetBestDateTimePattern(ctx, req.(*GetBestDateTimePatternRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DateFormatService_GetDateFormat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDateFormatRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DateFormatServiceServer).GetDateFormat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DateFormatService_GetDateFormat_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DateFormatServiceServer).GetDateFormat(ctx, req.(*GetDateFormatRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DateFormatService_GetDateFormatOrder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDateFormatOrderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DateFormatServiceServer).GetDateFormatOrder(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DateFormatService_GetDateFormatOrder_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DateFormatServiceServer).GetDateFormatOrder(ctx, req.(*GetDateFormatOrderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DateFormatService_GetLongDateFormat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLongDateFormatRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DateFormatServiceServer).GetLongDateFormat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DateFormatService_GetLongDateFormat_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DateFormatServiceServer).GetLongDateFormat(ctx, req.(*GetLongDateFormatRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DateFormatService_GetMediumDateFormat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMediumDateFormatRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DateFormatServiceServer).GetMediumDateFormat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DateFormatService_GetMediumDateFormat_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DateFormatServiceServer).GetMediumDateFormat(ctx, req.(*GetMediumDateFormatRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DateFormatService_GetTimeFormat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTimeFormatRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DateFormatServiceServer).GetTimeFormat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DateFormatService_GetTimeFormat_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DateFormatServiceServer).GetTimeFormat(ctx, req.(*GetTimeFormatRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DateFormatService_Is24HourFormat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Is24HourFormatRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DateFormatServiceServer).Is24HourFormat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DateFormatService_Is24HourFormat_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DateFormatServiceServer).Is24HourFormat(ctx, req.(*Is24HourFormatRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DateFormatService_ServiceDesc is the grpc.ServiceDesc for DateFormatService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DateFormatService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "format.DateFormatService",
+	HandlerType: (*DateFormatServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewDateFormat",
+			Handler:    _DateFormatService_NewDateFormat_Handler,
+		},
+		{
+			MethodName: "Format2",
+			Handler:    _DateFormatService_Format2_Handler,
+		},
+		{
+			MethodName: "Format2_1",
+			Handler:    _DateFormatService_Format2_1_Handler,
+		},
+		{
+			MethodName: "Format2_2",
+			Handler:    _DateFormatService_Format2_2_Handler,
+		},
+		{
+			MethodName: "GetBestDateTimePattern",
+			Handler:    _DateFormatService_GetBestDateTimePattern_Handler,
+		},
+		{
+			MethodName: "GetDateFormat",
+			Handler:    _DateFormatService_GetDateFormat_Handler,
+		},
+		{
+			MethodName: "GetDateFormatOrder",
+			Handler:    _DateFormatService_GetDateFormatOrder_Handler,
+		},
+		{
+			MethodName: "GetLongDateFormat",
+			Handler:    _DateFormatService_GetLongDateFormat_Handler,
+		},
+		{
+			MethodName: "GetMediumDateFormat",
+			Handler:    _DateFormatService_GetMediumDateFormat_Handler,
+		},
+		{
+			MethodName: "GetTimeFormat",
+			Handler:    _DateFormatService_GetTimeFormat_Handler,
+		},
+		{
+			MethodName: "Is24HourFormat",
+			Handler:    _DateFormatService_Is24HourFormat_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/format/format.proto",
+}
+
+const (
+	DateUtilsService_NewDateUtils_FullMethodName                 = "/format.DateUtilsService/NewDateUtils"
+	DateUtilsService_FormatDateRange5_FullMethodName             = "/format.DateUtilsService/FormatDateRange5"
+	DateUtilsService_FormatDateRange6_1_FullMethodName           = "/format.DateUtilsService/FormatDateRange6_1"
+	DateUtilsService_FormatDateRange4_2_FullMethodName           = "/format.DateUtilsService/FormatDateRange4_2"
+	DateUtilsService_FormatDateTime_FullMethodName               = "/format.DateUtilsService/FormatDateTime"
+	DateUtilsService_FormatElapsedTime2_FullMethodName           = "/format.DateUtilsService/FormatElapsedTime2"
+	DateUtilsService_FormatElapsedTime1_1_FullMethodName         = "/format.DateUtilsService/FormatElapsedTime1_1"
+	DateUtilsService_FormatSameDayTime_FullMethodName            = "/format.DateUtilsService/FormatSameDayTime"
+	DateUtilsService_GetAMPMString_FullMethodName                = "/format.DateUtilsService/GetAMPMString"
+	DateUtilsService_GetDayOfWeekString_FullMethodName           = "/format.DateUtilsService/GetDayOfWeekString"
+	DateUtilsService_GetMonthString_FullMethodName               = "/format.DateUtilsService/GetMonthString"
+	DateUtilsService_GetRelativeDateTimeString_FullMethodName    = "/format.DateUtilsService/GetRelativeDateTimeString"
+	DateUtilsService_GetRelativeTimeSpanString2_FullMethodName   = "/format.DateUtilsService/GetRelativeTimeSpanString2"
+	DateUtilsService_GetRelativeTimeSpanString3_1_FullMethodName = "/format.DateUtilsService/GetRelativeTimeSpanString3_1"
+	DateUtilsService_GetRelativeTimeSpanString1_2_FullMethodName = "/format.DateUtilsService/GetRelativeTimeSpanString1_2"
+	DateUtilsService_GetRelativeTimeSpanString3_3_FullMethodName = "/format.DateUtilsService/GetRelativeTimeSpanString3_3"
+	DateUtilsService_GetRelativeTimeSpanString4_4_FullMethodName = "/format.DateUtilsService/GetRelativeTimeSpanString4_4"
+	DateUtilsService_IsToday_FullMethodName                      = "/format.DateUtilsService/IsToday"
+)
+
+// DateUtilsServiceClient is the client API for DateUtilsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DateUtilsServiceClient interface {
+	NewDateUtils(ctx context.Context, in *NewDateUtilsRequest, opts ...grpc.CallOption) (*NewDateUtilsResponse, error)
+	FormatDateRange5(ctx context.Context, in *FormatDateRange5Request, opts ...grpc.CallOption) (*FormatDateRange5Response, error)
+	FormatDateRange6_1(ctx context.Context, in *FormatDateRange6_1Request, opts ...grpc.CallOption) (*FormatDateRange6_1Response, error)
+	FormatDateRange4_2(ctx context.Context, in *FormatDateRange4_2Request, opts ...grpc.CallOption) (*FormatDateRange4_2Response, error)
+	FormatDateTime(ctx context.Context, in *FormatDateTimeRequest, opts ...grpc.CallOption) (*FormatDateTimeResponse, error)
+	FormatElapsedTime2(ctx context.Context, in *FormatElapsedTime2Request, opts ...grpc.CallOption) (*FormatElapsedTime2Response, error)
+	FormatElapsedTime1_1(ctx context.Context, in *FormatElapsedTime1_1Request, opts ...grpc.CallOption) (*FormatElapsedTime1_1Response, error)
+	FormatSameDayTime(ctx context.Context, in *FormatSameDayTimeRequest, opts ...grpc.CallOption) (*FormatSameDayTimeResponse, error)
+	GetAMPMString(ctx context.Context, in *GetAMPMStringRequest, opts ...grpc.CallOption) (*GetAMPMStringResponse, error)
+	GetDayOfWeekString(ctx context.Context, in *GetDayOfWeekStringRequest, opts ...grpc.CallOption) (*GetDayOfWeekStringResponse, error)
+	GetMonthString(ctx context.Context, in *GetMonthStringRequest, opts ...grpc.CallOption) (*GetMonthStringResponse, error)
+	GetRelativeDateTimeString(ctx context.Context, in *GetRelativeDateTimeStringRequest, opts ...grpc.CallOption) (*GetRelativeDateTimeStringResponse, error)
+	GetRelativeTimeSpanString2(ctx context.Context, in *GetRelativeTimeSpanString2Request, opts ...grpc.CallOption) (*GetRelativeTimeSpanString2Response, error)
+	GetRelativeTimeSpanString3_1(ctx context.Context, in *GetRelativeTimeSpanString3_1Request, opts ...grpc.CallOption) (*GetRelativeTimeSpanString3_1Response, error)
+	GetRelativeTimeSpanString1_2(ctx context.Context, in *GetRelativeTimeSpanString1_2Request, opts ...grpc.CallOption) (*GetRelativeTimeSpanString1_2Response, error)
+	GetRelativeTimeSpanString3_3(ctx context.Context, in *GetRelativeTimeSpanString3_3Request, opts ...grpc.CallOption) (*GetRelativeTimeSpanString3_3Response, error)
+	GetRelativeTimeSpanString4_4(ctx context.Context, in *GetRelativeTimeSpanString4_4Request, opts ...grpc.CallOption) (*GetRelativeTimeSpanString4_4Response, error)
+	IsToday(ctx context.Context, in *IsTodayRequest, opts ...grpc.CallOption) (*IsTodayResponse, error)
+}
+
+type dateUtilsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDateUtilsServiceClient(cc grpc.ClientConnInterface) DateUtilsServiceClient {
+	return &dateUtilsServiceClient{cc}
+}
+
+func (c *dateUtilsServiceClient) NewDateUtils(ctx context.Context, in *NewDateUtilsRequest, opts ...grpc.CallOption) (*NewDateUtilsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewDateUtilsResponse)
+	err := c.cc.Invoke(ctx, DateUtilsService_NewDateUtils_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dateUtilsServiceClient) FormatDateRange5(ctx context.Context, in *FormatDateRange5Request, opts ...grpc.CallOption) (*FormatDateRange5Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FormatDateRange5Response)
+	err := c.cc.Invoke(ctx, DateUtilsService_FormatDateRange5_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dateUtilsServiceClient) FormatDateRange6_1(ctx context.Context, in *FormatDateRange6_1Request, opts ...grpc.CallOption) (*FormatDateRange6_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FormatDateRange6_1Response)
+	err := c.cc.Invoke(ctx, DateUtilsService_FormatDateRange6_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dateUtilsServiceClient) FormatDateRange4_2(ctx context.Context, in *FormatDateRange4_2Request, opts ...grpc.CallOption) (*FormatDateRange4_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FormatDateRange4_2Response)
+	err := c.cc.Invoke(ctx, DateUtilsService_FormatDateRange4_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dateUtilsServiceClient) FormatDateTime(ctx context.Context, in *FormatDateTimeRequest, opts ...grpc.CallOption) (*FormatDateTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FormatDateTimeResponse)
+	err := c.cc.Invoke(ctx, DateUtilsService_FormatDateTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dateUtilsServiceClient) FormatElapsedTime2(ctx context.Context, in *FormatElapsedTime2Request, opts ...grpc.CallOption) (*FormatElapsedTime2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FormatElapsedTime2Response)
+	err := c.cc.Invoke(ctx, DateUtilsService_FormatElapsedTime2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dateUtilsServiceClient) FormatElapsedTime1_1(ctx context.Context, in *FormatElapsedTime1_1Request, opts ...grpc.CallOption) (*FormatElapsedTime1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FormatElapsedTime1_1Response)
+	err := c.cc.Invoke(ctx, DateUtilsService_FormatElapsedTime1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dateUtilsServiceClient) FormatSameDayTime(ctx context.Context, in *FormatSameDayTimeRequest, opts ...grpc.CallOption) (*FormatSameDayTimeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FormatSameDayTimeResponse)
+	err := c.cc.Invoke(ctx, DateUtilsService_FormatSameDayTime_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dateUtilsServiceClient) GetAMPMString(ctx context.Context, in *GetAMPMStringRequest, opts ...grpc.CallOption) (*GetAMPMStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAMPMStringResponse)
+	err := c.cc.Invoke(ctx, DateUtilsService_GetAMPMString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dateUtilsServiceClient) GetDayOfWeekString(ctx context.Context, in *GetDayOfWeekStringRequest, opts ...grpc.CallOption) (*GetDayOfWeekStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDayOfWeekStringResponse)
+	err := c.cc.Invoke(ctx, DateUtilsService_GetDayOfWeekString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dateUtilsServiceClient) GetMonthString(ctx context.Context, in *GetMonthStringRequest, opts ...grpc.CallOption) (*GetMonthStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMonthStringResponse)
+	err := c.cc.Invoke(ctx, DateUtilsService_GetMonthString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dateUtilsServiceClient) GetRelativeDateTimeString(ctx context.Context, in *GetRelativeDateTimeStringRequest, opts ...grpc.CallOption) (*GetRelativeDateTimeStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRelativeDateTimeStringResponse)
+	err := c.cc.Invoke(ctx, DateUtilsService_GetRelativeDateTimeString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dateUtilsServiceClient) GetRelativeTimeSpanString2(ctx context.Context, in *GetRelativeTimeSpanString2Request, opts ...grpc.CallOption) (*GetRelativeTimeSpanString2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRelativeTimeSpanString2Response)
+	err := c.cc.Invoke(ctx, DateUtilsService_GetRelativeTimeSpanString2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dateUtilsServiceClient) GetRelativeTimeSpanString3_1(ctx context.Context, in *GetRelativeTimeSpanString3_1Request, opts ...grpc.CallOption) (*GetRelativeTimeSpanString3_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRelativeTimeSpanString3_1Response)
+	err := c.cc.Invoke(ctx, DateUtilsService_GetRelativeTimeSpanString3_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dateUtilsServiceClient) GetRelativeTimeSpanString1_2(ctx context.Context, in *GetRelativeTimeSpanString1_2Request, opts ...grpc.CallOption) (*GetRelativeTimeSpanString1_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRelativeTimeSpanString1_2Response)
+	err := c.cc.Invoke(ctx, DateUtilsService_GetRelativeTimeSpanString1_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dateUtilsServiceClient) GetRelativeTimeSpanString3_3(ctx context.Context, in *GetRelativeTimeSpanString3_3Request, opts ...grpc.CallOption) (*GetRelativeTimeSpanString3_3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRelativeTimeSpanString3_3Response)
+	err := c.cc.Invoke(ctx, DateUtilsService_GetRelativeTimeSpanString3_3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dateUtilsServiceClient) GetRelativeTimeSpanString4_4(ctx context.Context, in *GetRelativeTimeSpanString4_4Request, opts ...grpc.CallOption) (*GetRelativeTimeSpanString4_4Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRelativeTimeSpanString4_4Response)
+	err := c.cc.Invoke(ctx, DateUtilsService_GetRelativeTimeSpanString4_4_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dateUtilsServiceClient) IsToday(ctx context.Context, in *IsTodayRequest, opts ...grpc.CallOption) (*IsTodayResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsTodayResponse)
+	err := c.cc.Invoke(ctx, DateUtilsService_IsToday_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DateUtilsServiceServer is the server API for DateUtilsService service.
+// All implementations must embed UnimplementedDateUtilsServiceServer
+// for forward compatibility.
+type DateUtilsServiceServer interface {
+	NewDateUtils(context.Context, *NewDateUtilsRequest) (*NewDateUtilsResponse, error)
+	FormatDateRange5(context.Context, *FormatDateRange5Request) (*FormatDateRange5Response, error)
+	FormatDateRange6_1(context.Context, *FormatDateRange6_1Request) (*FormatDateRange6_1Response, error)
+	FormatDateRange4_2(context.Context, *FormatDateRange4_2Request) (*FormatDateRange4_2Response, error)
+	FormatDateTime(context.Context, *FormatDateTimeRequest) (*FormatDateTimeResponse, error)
+	FormatElapsedTime2(context.Context, *FormatElapsedTime2Request) (*FormatElapsedTime2Response, error)
+	FormatElapsedTime1_1(context.Context, *FormatElapsedTime1_1Request) (*FormatElapsedTime1_1Response, error)
+	FormatSameDayTime(context.Context, *FormatSameDayTimeRequest) (*FormatSameDayTimeResponse, error)
+	GetAMPMString(context.Context, *GetAMPMStringRequest) (*GetAMPMStringResponse, error)
+	GetDayOfWeekString(context.Context, *GetDayOfWeekStringRequest) (*GetDayOfWeekStringResponse, error)
+	GetMonthString(context.Context, *GetMonthStringRequest) (*GetMonthStringResponse, error)
+	GetRelativeDateTimeString(context.Context, *GetRelativeDateTimeStringRequest) (*GetRelativeDateTimeStringResponse, error)
+	GetRelativeTimeSpanString2(context.Context, *GetRelativeTimeSpanString2Request) (*GetRelativeTimeSpanString2Response, error)
+	GetRelativeTimeSpanString3_1(context.Context, *GetRelativeTimeSpanString3_1Request) (*GetRelativeTimeSpanString3_1Response, error)
+	GetRelativeTimeSpanString1_2(context.Context, *GetRelativeTimeSpanString1_2Request) (*GetRelativeTimeSpanString1_2Response, error)
+	GetRelativeTimeSpanString3_3(context.Context, *GetRelativeTimeSpanString3_3Request) (*GetRelativeTimeSpanString3_3Response, error)
+	GetRelativeTimeSpanString4_4(context.Context, *GetRelativeTimeSpanString4_4Request) (*GetRelativeTimeSpanString4_4Response, error)
+	IsToday(context.Context, *IsTodayRequest) (*IsTodayResponse, error)
+	mustEmbedUnimplementedDateUtilsServiceServer()
+}
+
+// UnimplementedDateUtilsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDateUtilsServiceServer struct{}
+
+func (UnimplementedDateUtilsServiceServer) NewDateUtils(context.Context, *NewDateUtilsRequest) (*NewDateUtilsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewDateUtils not implemented")
+}
+func (UnimplementedDateUtilsServiceServer) FormatDateRange5(context.Context, *FormatDateRange5Request) (*FormatDateRange5Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method FormatDateRange5 not implemented")
+}
+func (UnimplementedDateUtilsServiceServer) FormatDateRange6_1(context.Context, *FormatDateRange6_1Request) (*FormatDateRange6_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method FormatDateRange6_1 not implemented")
+}
+func (UnimplementedDateUtilsServiceServer) FormatDateRange4_2(context.Context, *FormatDateRange4_2Request) (*FormatDateRange4_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method FormatDateRange4_2 not implemented")
+}
+func (UnimplementedDateUtilsServiceServer) FormatDateTime(context.Context, *FormatDateTimeRequest) (*FormatDateTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FormatDateTime not implemented")
+}
+func (UnimplementedDateUtilsServiceServer) FormatElapsedTime2(context.Context, *FormatElapsedTime2Request) (*FormatElapsedTime2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method FormatElapsedTime2 not implemented")
+}
+func (UnimplementedDateUtilsServiceServer) FormatElapsedTime1_1(context.Context, *FormatElapsedTime1_1Request) (*FormatElapsedTime1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method FormatElapsedTime1_1 not implemented")
+}
+func (UnimplementedDateUtilsServiceServer) FormatSameDayTime(context.Context, *FormatSameDayTimeRequest) (*FormatSameDayTimeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FormatSameDayTime not implemented")
+}
+func (UnimplementedDateUtilsServiceServer) GetAMPMString(context.Context, *GetAMPMStringRequest) (*GetAMPMStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAMPMString not implemented")
+}
+func (UnimplementedDateUtilsServiceServer) GetDayOfWeekString(context.Context, *GetDayOfWeekStringRequest) (*GetDayOfWeekStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDayOfWeekString not implemented")
+}
+func (UnimplementedDateUtilsServiceServer) GetMonthString(context.Context, *GetMonthStringRequest) (*GetMonthStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMonthString not implemented")
+}
+func (UnimplementedDateUtilsServiceServer) GetRelativeDateTimeString(context.Context, *GetRelativeDateTimeStringRequest) (*GetRelativeDateTimeStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRelativeDateTimeString not implemented")
+}
+func (UnimplementedDateUtilsServiceServer) GetRelativeTimeSpanString2(context.Context, *GetRelativeTimeSpanString2Request) (*GetRelativeTimeSpanString2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRelativeTimeSpanString2 not implemented")
+}
+func (UnimplementedDateUtilsServiceServer) GetRelativeTimeSpanString3_1(context.Context, *GetRelativeTimeSpanString3_1Request) (*GetRelativeTimeSpanString3_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRelativeTimeSpanString3_1 not implemented")
+}
+func (UnimplementedDateUtilsServiceServer) GetRelativeTimeSpanString1_2(context.Context, *GetRelativeTimeSpanString1_2Request) (*GetRelativeTimeSpanString1_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRelativeTimeSpanString1_2 not implemented")
+}
+func (UnimplementedDateUtilsServiceServer) GetRelativeTimeSpanString3_3(context.Context, *GetRelativeTimeSpanString3_3Request) (*GetRelativeTimeSpanString3_3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRelativeTimeSpanString3_3 not implemented")
+}
+func (UnimplementedDateUtilsServiceServer) GetRelativeTimeSpanString4_4(context.Context, *GetRelativeTimeSpanString4_4Request) (*GetRelativeTimeSpanString4_4Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRelativeTimeSpanString4_4 not implemented")
+}
+func (UnimplementedDateUtilsServiceServer) IsToday(context.Context, *IsTodayRequest) (*IsTodayResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsToday not implemented")
+}
+func (UnimplementedDateUtilsServiceServer) mustEmbedUnimplementedDateUtilsServiceServer() {}
+func (UnimplementedDateUtilsServiceServer) testEmbeddedByValue()                          {}
+
+// UnsafeDateUtilsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DateUtilsServiceServer will
+// result in compilation errors.
+type UnsafeDateUtilsServiceServer interface {
+	mustEmbedUnimplementedDateUtilsServiceServer()
+}
+
+func RegisterDateUtilsServiceServer(s grpc.ServiceRegistrar, srv DateUtilsServiceServer) {
+	// If the following call panics, it indicates UnimplementedDateUtilsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DateUtilsService_ServiceDesc, srv)
+}
+
+func _DateUtilsService_NewDateUtils_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewDateUtilsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DateUtilsServiceServer).NewDateUtils(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DateUtilsService_NewDateUtils_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DateUtilsServiceServer).NewDateUtils(ctx, req.(*NewDateUtilsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DateUtilsService_FormatDateRange5_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FormatDateRange5Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DateUtilsServiceServer).FormatDateRange5(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DateUtilsService_FormatDateRange5_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DateUtilsServiceServer).FormatDateRange5(ctx, req.(*FormatDateRange5Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DateUtilsService_FormatDateRange6_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FormatDateRange6_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DateUtilsServiceServer).FormatDateRange6_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DateUtilsService_FormatDateRange6_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DateUtilsServiceServer).FormatDateRange6_1(ctx, req.(*FormatDateRange6_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DateUtilsService_FormatDateRange4_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FormatDateRange4_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DateUtilsServiceServer).FormatDateRange4_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DateUtilsService_FormatDateRange4_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DateUtilsServiceServer).FormatDateRange4_2(ctx, req.(*FormatDateRange4_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DateUtilsService_FormatDateTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FormatDateTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DateUtilsServiceServer).FormatDateTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DateUtilsService_FormatDateTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DateUtilsServiceServer).FormatDateTime(ctx, req.(*FormatDateTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DateUtilsService_FormatElapsedTime2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FormatElapsedTime2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DateUtilsServiceServer).FormatElapsedTime2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DateUtilsService_FormatElapsedTime2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DateUtilsServiceServer).FormatElapsedTime2(ctx, req.(*FormatElapsedTime2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DateUtilsService_FormatElapsedTime1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FormatElapsedTime1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DateUtilsServiceServer).FormatElapsedTime1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DateUtilsService_FormatElapsedTime1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DateUtilsServiceServer).FormatElapsedTime1_1(ctx, req.(*FormatElapsedTime1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DateUtilsService_FormatSameDayTime_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FormatSameDayTimeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DateUtilsServiceServer).FormatSameDayTime(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DateUtilsService_FormatSameDayTime_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DateUtilsServiceServer).FormatSameDayTime(ctx, req.(*FormatSameDayTimeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DateUtilsService_GetAMPMString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAMPMStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DateUtilsServiceServer).GetAMPMString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DateUtilsService_GetAMPMString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DateUtilsServiceServer).GetAMPMString(ctx, req.(*GetAMPMStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DateUtilsService_GetDayOfWeekString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDayOfWeekStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DateUtilsServiceServer).GetDayOfWeekString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DateUtilsService_GetDayOfWeekString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DateUtilsServiceServer).GetDayOfWeekString(ctx, req.(*GetDayOfWeekStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DateUtilsService_GetMonthString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMonthStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DateUtilsServiceServer).GetMonthString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DateUtilsService_GetMonthString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DateUtilsServiceServer).GetMonthString(ctx, req.(*GetMonthStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DateUtilsService_GetRelativeDateTimeString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRelativeDateTimeStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DateUtilsServiceServer).GetRelativeDateTimeString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DateUtilsService_GetRelativeDateTimeString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DateUtilsServiceServer).GetRelativeDateTimeString(ctx, req.(*GetRelativeDateTimeStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DateUtilsService_GetRelativeTimeSpanString2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRelativeTimeSpanString2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DateUtilsServiceServer).GetRelativeTimeSpanString2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DateUtilsService_GetRelativeTimeSpanString2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DateUtilsServiceServer).GetRelativeTimeSpanString2(ctx, req.(*GetRelativeTimeSpanString2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DateUtilsService_GetRelativeTimeSpanString3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRelativeTimeSpanString3_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DateUtilsServiceServer).GetRelativeTimeSpanString3_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DateUtilsService_GetRelativeTimeSpanString3_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DateUtilsServiceServer).GetRelativeTimeSpanString3_1(ctx, req.(*GetRelativeTimeSpanString3_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DateUtilsService_GetRelativeTimeSpanString1_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRelativeTimeSpanString1_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DateUtilsServiceServer).GetRelativeTimeSpanString1_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DateUtilsService_GetRelativeTimeSpanString1_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DateUtilsServiceServer).GetRelativeTimeSpanString1_2(ctx, req.(*GetRelativeTimeSpanString1_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DateUtilsService_GetRelativeTimeSpanString3_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRelativeTimeSpanString3_3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DateUtilsServiceServer).GetRelativeTimeSpanString3_3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DateUtilsService_GetRelativeTimeSpanString3_3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DateUtilsServiceServer).GetRelativeTimeSpanString3_3(ctx, req.(*GetRelativeTimeSpanString3_3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DateUtilsService_GetRelativeTimeSpanString4_4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRelativeTimeSpanString4_4Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DateUtilsServiceServer).GetRelativeTimeSpanString4_4(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DateUtilsService_GetRelativeTimeSpanString4_4_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DateUtilsServiceServer).GetRelativeTimeSpanString4_4(ctx, req.(*GetRelativeTimeSpanString4_4Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DateUtilsService_IsToday_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsTodayRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DateUtilsServiceServer).IsToday(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DateUtilsService_IsToday_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DateUtilsServiceServer).IsToday(ctx, req.(*IsTodayRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DateUtilsService_ServiceDesc is the grpc.ServiceDesc for DateUtilsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DateUtilsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "format.DateUtilsService",
+	HandlerType: (*DateUtilsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewDateUtils",
+			Handler:    _DateUtilsService_NewDateUtils_Handler,
+		},
+		{
+			MethodName: "FormatDateRange5",
+			Handler:    _DateUtilsService_FormatDateRange5_Handler,
+		},
+		{
+			MethodName: "FormatDateRange6_1",
+			Handler:    _DateUtilsService_FormatDateRange6_1_Handler,
+		},
+		{
+			MethodName: "FormatDateRange4_2",
+			Handler:    _DateUtilsService_FormatDateRange4_2_Handler,
+		},
+		{
+			MethodName: "FormatDateTime",
+			Handler:    _DateUtilsService_FormatDateTime_Handler,
+		},
+		{
+			MethodName: "FormatElapsedTime2",
+			Handler:    _DateUtilsService_FormatElapsedTime2_Handler,
+		},
+		{
+			MethodName: "FormatElapsedTime1_1",
+			Handler:    _DateUtilsService_FormatElapsedTime1_1_Handler,
+		},
+		{
+			MethodName: "FormatSameDayTime",
+			Handler:    _DateUtilsService_FormatSameDayTime_Handler,
+		},
+		{
+			MethodName: "GetAMPMString",
+			Handler:    _DateUtilsService_GetAMPMString_Handler,
+		},
+		{
+			MethodName: "GetDayOfWeekString",
+			Handler:    _DateUtilsService_GetDayOfWeekString_Handler,
+		},
+		{
+			MethodName: "GetMonthString",
+			Handler:    _DateUtilsService_GetMonthString_Handler,
+		},
+		{
+			MethodName: "GetRelativeDateTimeString",
+			Handler:    _DateUtilsService_GetRelativeDateTimeString_Handler,
+		},
+		{
+			MethodName: "GetRelativeTimeSpanString2",
+			Handler:    _DateUtilsService_GetRelativeTimeSpanString2_Handler,
+		},
+		{
+			MethodName: "GetRelativeTimeSpanString3_1",
+			Handler:    _DateUtilsService_GetRelativeTimeSpanString3_1_Handler,
+		},
+		{
+			MethodName: "GetRelativeTimeSpanString1_2",
+			Handler:    _DateUtilsService_GetRelativeTimeSpanString1_2_Handler,
+		},
+		{
+			MethodName: "GetRelativeTimeSpanString3_3",
+			Handler:    _DateUtilsService_GetRelativeTimeSpanString3_3_Handler,
+		},
+		{
+			MethodName: "GetRelativeTimeSpanString4_4",
+			Handler:    _DateUtilsService_GetRelativeTimeSpanString4_4_Handler,
+		},
+		{
+			MethodName: "IsToday",
+			Handler:    _DateUtilsService_IsToday_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -15,6 +15,201 @@ import (
 	"google.golang.org/grpc/status"
 )
 
+// MediaSessionManagerServer implements pb.MediaSessionManagerServiceServer.
+type MediaSessionManagerServer struct {
+	pb.UnimplementedMediaSessionManagerServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *MediaSessionManagerServer) AddOnActiveSessionsChangedListener(_ context.Context, req *pb.AddOnActiveSessionsChangedListenerRequest) (*pb.AddOnActiveSessionsChangedListenerResponse, error) {
+	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.AddOnActiveSessionsChangedListener(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.AddOnActiveSessionsChangedListenerResponse{}, nil
+}
+
+func (s *MediaSessionManagerServer) AddOnMediaKeyEventSessionChangedListener(_ context.Context, req *pb.AddOnMediaKeyEventSessionChangedListenerRequest) (*pb.AddOnMediaKeyEventSessionChangedListenerResponse, error) {
+	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.AddOnMediaKeyEventSessionChangedListener(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.AddOnMediaKeyEventSessionChangedListenerResponse{}, nil
+}
+
+func (s *MediaSessionManagerServer) AddOnSession2TokensChangedListener(_ context.Context, req *pb.AddOnSession2TokensChangedListenerRequest) (*pb.AddOnSession2TokensChangedListenerResponse, error) {
+	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.AddOnSession2TokensChangedListener(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.AddOnSession2TokensChangedListenerResponse{}, nil
+}
+
+func (s *MediaSessionManagerServer) GetActiveSessions(_ context.Context, req *pb.GetActiveSessionsRequest) (*pb.GetActiveSessionsResponse, error) {
+	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetActiveSessions(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetActiveSessionsResponse{Result: handle}, nil
+}
+
+func (s *MediaSessionManagerServer) GetMediaKeyEventSession(_ context.Context, req *pb.GetMediaKeyEventSessionRequest) (*pb.GetMediaKeyEventSessionResponse, error) {
+	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetMediaKeyEventSession()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetMediaKeyEventSessionResponse{Result: handle}, nil
+}
+
+func (s *MediaSessionManagerServer) GetMediaKeyEventSessionPackageName(_ context.Context, req *pb.GetMediaKeyEventSessionPackageNameRequest) (*pb.GetMediaKeyEventSessionPackageNameResponse, error) {
+	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetMediaKeyEventSessionPackageName()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetMediaKeyEventSessionPackageNameResponse{Result: result}, nil
+}
+
+func (s *MediaSessionManagerServer) GetSession2Tokens(_ context.Context, req *pb.GetSession2TokensRequest) (*pb.GetSession2TokensResponse, error) {
+	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.GetSession2Tokens()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetSession2TokensResponse{Result: handle}, nil
+}
+
+func (s *MediaSessionManagerServer) IsTrustedForMediaControl(_ context.Context, req *pb.IsTrustedForMediaControlRequest) (*pb.IsTrustedForMediaControlResponse, error) {
+	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	result, err := mgr.IsTrustedForMediaControl(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsTrustedForMediaControlResponse{Result: result}, nil
+}
+
+func (s *MediaSessionManagerServer) NotifySession2Created(_ context.Context, req *pb.NotifySession2CreatedRequest) (*pb.NotifySession2CreatedResponse, error) {
+	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.NotifySession2Created(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.NotifySession2CreatedResponse{}, nil
+}
+
+func (s *MediaSessionManagerServer) RemoveOnActiveSessionsChangedListener(_ context.Context, req *pb.RemoveOnActiveSessionsChangedListenerRequest) (*pb.RemoveOnActiveSessionsChangedListenerResponse, error) {
+	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.RemoveOnActiveSessionsChangedListener(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RemoveOnActiveSessionsChangedListenerResponse{}, nil
+}
+
+func (s *MediaSessionManagerServer) RemoveOnMediaKeyEventSessionChangedListener(_ context.Context, req *pb.RemoveOnMediaKeyEventSessionChangedListenerRequest) (*pb.RemoveOnMediaKeyEventSessionChangedListenerResponse, error) {
+	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.RemoveOnMediaKeyEventSessionChangedListener(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RemoveOnMediaKeyEventSessionChangedListenerResponse{}, nil
+}
+
+func (s *MediaSessionManagerServer) RemoveOnSession2TokensChangedListener(_ context.Context, req *pb.RemoveOnSession2TokensChangedListenerRequest) (*pb.RemoveOnSession2TokensChangedListenerResponse, error) {
+	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
+	}
+	defer mgr.Close()
+
+	if err := mgr.RemoveOnSession2TokensChangedListener(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.RemoveOnSession2TokensChangedListenerResponse{}, nil
+}
+
 // MediaSessionServer implements pb.MediaSessionServiceServer.
 type MediaSessionServer struct {
 	pb.UnimplementedMediaSessionServiceServer
@@ -424,7 +619,7 @@ func (s *MediaControllerServer) GetMetadata(_ context.Context, req *pb.GetMetada
 	return &pb.GetMetadataResponse{Result: handle}, nil
 }
 
-func (s *MediaControllerServer) GetPackageName(_ context.Context, req *pb.GetPackageNameRequest) (*pb.GetPackageNameResponse, error) {
+func (s *MediaControllerServer) GetPackageName(_ context.Context, req *pb.MediaControllerGetPackageNameRequest) (*pb.GetPackageNameResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -482,6 +677,29 @@ func (s *MediaControllerServer) GetPlaybackState(_ context.Context, req *pb.GetP
 		}
 	}
 	return &pb.GetPlaybackStateResponse{Result: handle}, nil
+}
+
+func (s *MediaControllerServer) GetQueue(_ context.Context, req *pb.GetQueueRequest) (*pb.GetQueueResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MediaController{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetQueue()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetQueueResponse{Result: handle}, nil
 }
 
 func (s *MediaControllerServer) GetQueueTitle(_ context.Context, req *pb.GetQueueTitleRequest) (*pb.GetQueueTitleResponse, error) {
@@ -677,153 +895,4 @@ func (s *MediaControllerServer) UnregisterCallback(_ context.Context, req *pb.Un
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.UnregisterCallbackResponse{}, nil
-}
-
-// MediaSessionManagerServer implements pb.MediaSessionManagerServiceServer.
-type MediaSessionManagerServer struct {
-	pb.UnimplementedMediaSessionManagerServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *MediaSessionManagerServer) AddOnActiveSessionsChangedListener(_ context.Context, req *pb.AddOnActiveSessionsChangedListenerRequest) (*pb.AddOnActiveSessionsChangedListenerResponse, error) {
-	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.AddOnActiveSessionsChangedListener(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.AddOnActiveSessionsChangedListenerResponse{}, nil
-}
-
-func (s *MediaSessionManagerServer) AddOnMediaKeyEventSessionChangedListener(_ context.Context, req *pb.AddOnMediaKeyEventSessionChangedListenerRequest) (*pb.AddOnMediaKeyEventSessionChangedListenerResponse, error) {
-	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.AddOnMediaKeyEventSessionChangedListener(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.AddOnMediaKeyEventSessionChangedListenerResponse{}, nil
-}
-
-func (s *MediaSessionManagerServer) AddOnSession2TokensChangedListener(_ context.Context, req *pb.AddOnSession2TokensChangedListenerRequest) (*pb.AddOnSession2TokensChangedListenerResponse, error) {
-	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.AddOnSession2TokensChangedListener(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.AddOnSession2TokensChangedListenerResponse{}, nil
-}
-
-func (s *MediaSessionManagerServer) GetMediaKeyEventSession(_ context.Context, req *pb.GetMediaKeyEventSessionRequest) (*pb.GetMediaKeyEventSessionResponse, error) {
-	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetMediaKeyEventSession()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetMediaKeyEventSessionResponse{Result: handle}, nil
-}
-
-func (s *MediaSessionManagerServer) GetMediaKeyEventSessionPackageName(_ context.Context, req *pb.GetMediaKeyEventSessionPackageNameRequest) (*pb.GetMediaKeyEventSessionPackageNameResponse, error) {
-	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.GetMediaKeyEventSessionPackageName()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetMediaKeyEventSessionPackageNameResponse{Result: result}, nil
-}
-
-func (s *MediaSessionManagerServer) IsTrustedForMediaControl(_ context.Context, req *pb.IsTrustedForMediaControlRequest) (*pb.IsTrustedForMediaControlResponse, error) {
-	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	result, err := mgr.IsTrustedForMediaControl(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsTrustedForMediaControlResponse{Result: result}, nil
-}
-
-func (s *MediaSessionManagerServer) NotifySession2Created(_ context.Context, req *pb.NotifySession2CreatedRequest) (*pb.NotifySession2CreatedResponse, error) {
-	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.NotifySession2Created(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.NotifySession2CreatedResponse{}, nil
-}
-
-func (s *MediaSessionManagerServer) RemoveOnActiveSessionsChangedListener(_ context.Context, req *pb.RemoveOnActiveSessionsChangedListenerRequest) (*pb.RemoveOnActiveSessionsChangedListenerResponse, error) {
-	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.RemoveOnActiveSessionsChangedListener(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RemoveOnActiveSessionsChangedListenerResponse{}, nil
-}
-
-func (s *MediaSessionManagerServer) RemoveOnMediaKeyEventSessionChangedListener(_ context.Context, req *pb.RemoveOnMediaKeyEventSessionChangedListenerRequest) (*pb.RemoveOnMediaKeyEventSessionChangedListenerResponse, error) {
-	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.RemoveOnMediaKeyEventSessionChangedListener(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RemoveOnMediaKeyEventSessionChangedListenerResponse{}, nil
-}
-
-func (s *MediaSessionManagerServer) RemoveOnSession2TokensChangedListener(_ context.Context, req *pb.RemoveOnSession2TokensChangedListenerRequest) (*pb.RemoveOnSession2TokensChangedListenerResponse, error) {
-	mgr, err := jnipkg.NewMediaSessionManager(s.Ctx)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create manager: %v", err)
-	}
-	defer mgr.Close()
-
-	if err := mgr.RemoveOnSession2TokensChangedListener(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.RemoveOnSession2TokensChangedListenerResponse{}, nil
 }

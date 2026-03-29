@@ -21,542 +21,6 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	BassBoostService_NewBassBoost_FullMethodName         = "/audiofx.BassBoostService/NewBassBoost"
-	BassBoostService_GetProperties_FullMethodName        = "/audiofx.BassBoostService/GetProperties"
-	BassBoostService_GetRoundedStrength_FullMethodName   = "/audiofx.BassBoostService/GetRoundedStrength"
-	BassBoostService_GetStrengthSupported_FullMethodName = "/audiofx.BassBoostService/GetStrengthSupported"
-	BassBoostService_SetParameterListener_FullMethodName = "/audiofx.BassBoostService/SetParameterListener"
-	BassBoostService_SetProperties_FullMethodName        = "/audiofx.BassBoostService/SetProperties"
-	BassBoostService_SetStrength_FullMethodName          = "/audiofx.BassBoostService/SetStrength"
-)
-
-// BassBoostServiceClient is the client API for BassBoostService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type BassBoostServiceClient interface {
-	NewBassBoost(ctx context.Context, in *NewBassBoostRequest, opts ...grpc.CallOption) (*NewBassBoostResponse, error)
-	GetProperties(ctx context.Context, in *GetPropertiesRequest, opts ...grpc.CallOption) (*GetPropertiesResponse, error)
-	GetRoundedStrength(ctx context.Context, in *GetRoundedStrengthRequest, opts ...grpc.CallOption) (*GetRoundedStrengthResponse, error)
-	GetStrengthSupported(ctx context.Context, in *GetStrengthSupportedRequest, opts ...grpc.CallOption) (*GetStrengthSupportedResponse, error)
-	SetParameterListener(ctx context.Context, in *SetParameterListenerRequest, opts ...grpc.CallOption) (*SetParameterListenerResponse, error)
-	SetProperties(ctx context.Context, in *SetPropertiesRequest, opts ...grpc.CallOption) (*SetPropertiesResponse, error)
-	SetStrength(ctx context.Context, in *SetStrengthRequest, opts ...grpc.CallOption) (*SetStrengthResponse, error)
-}
-
-type bassBoostServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewBassBoostServiceClient(cc grpc.ClientConnInterface) BassBoostServiceClient {
-	return &bassBoostServiceClient{cc}
-}
-
-func (c *bassBoostServiceClient) NewBassBoost(ctx context.Context, in *NewBassBoostRequest, opts ...grpc.CallOption) (*NewBassBoostResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewBassBoostResponse)
-	err := c.cc.Invoke(ctx, BassBoostService_NewBassBoost_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *bassBoostServiceClient) GetProperties(ctx context.Context, in *GetPropertiesRequest, opts ...grpc.CallOption) (*GetPropertiesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPropertiesResponse)
-	err := c.cc.Invoke(ctx, BassBoostService_GetProperties_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *bassBoostServiceClient) GetRoundedStrength(ctx context.Context, in *GetRoundedStrengthRequest, opts ...grpc.CallOption) (*GetRoundedStrengthResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRoundedStrengthResponse)
-	err := c.cc.Invoke(ctx, BassBoostService_GetRoundedStrength_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *bassBoostServiceClient) GetStrengthSupported(ctx context.Context, in *GetStrengthSupportedRequest, opts ...grpc.CallOption) (*GetStrengthSupportedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStrengthSupportedResponse)
-	err := c.cc.Invoke(ctx, BassBoostService_GetStrengthSupported_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *bassBoostServiceClient) SetParameterListener(ctx context.Context, in *SetParameterListenerRequest, opts ...grpc.CallOption) (*SetParameterListenerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetParameterListenerResponse)
-	err := c.cc.Invoke(ctx, BassBoostService_SetParameterListener_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *bassBoostServiceClient) SetProperties(ctx context.Context, in *SetPropertiesRequest, opts ...grpc.CallOption) (*SetPropertiesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPropertiesResponse)
-	err := c.cc.Invoke(ctx, BassBoostService_SetProperties_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *bassBoostServiceClient) SetStrength(ctx context.Context, in *SetStrengthRequest, opts ...grpc.CallOption) (*SetStrengthResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetStrengthResponse)
-	err := c.cc.Invoke(ctx, BassBoostService_SetStrength_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// BassBoostServiceServer is the server API for BassBoostService service.
-// All implementations must embed UnimplementedBassBoostServiceServer
-// for forward compatibility.
-type BassBoostServiceServer interface {
-	NewBassBoost(context.Context, *NewBassBoostRequest) (*NewBassBoostResponse, error)
-	GetProperties(context.Context, *GetPropertiesRequest) (*GetPropertiesResponse, error)
-	GetRoundedStrength(context.Context, *GetRoundedStrengthRequest) (*GetRoundedStrengthResponse, error)
-	GetStrengthSupported(context.Context, *GetStrengthSupportedRequest) (*GetStrengthSupportedResponse, error)
-	SetParameterListener(context.Context, *SetParameterListenerRequest) (*SetParameterListenerResponse, error)
-	SetProperties(context.Context, *SetPropertiesRequest) (*SetPropertiesResponse, error)
-	SetStrength(context.Context, *SetStrengthRequest) (*SetStrengthResponse, error)
-	mustEmbedUnimplementedBassBoostServiceServer()
-}
-
-// UnimplementedBassBoostServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedBassBoostServiceServer struct{}
-
-func (UnimplementedBassBoostServiceServer) NewBassBoost(context.Context, *NewBassBoostRequest) (*NewBassBoostResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewBassBoost not implemented")
-}
-func (UnimplementedBassBoostServiceServer) GetProperties(context.Context, *GetPropertiesRequest) (*GetPropertiesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetProperties not implemented")
-}
-func (UnimplementedBassBoostServiceServer) GetRoundedStrength(context.Context, *GetRoundedStrengthRequest) (*GetRoundedStrengthResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRoundedStrength not implemented")
-}
-func (UnimplementedBassBoostServiceServer) GetStrengthSupported(context.Context, *GetStrengthSupportedRequest) (*GetStrengthSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStrengthSupported not implemented")
-}
-func (UnimplementedBassBoostServiceServer) SetParameterListener(context.Context, *SetParameterListenerRequest) (*SetParameterListenerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetParameterListener not implemented")
-}
-func (UnimplementedBassBoostServiceServer) SetProperties(context.Context, *SetPropertiesRequest) (*SetPropertiesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetProperties not implemented")
-}
-func (UnimplementedBassBoostServiceServer) SetStrength(context.Context, *SetStrengthRequest) (*SetStrengthResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetStrength not implemented")
-}
-func (UnimplementedBassBoostServiceServer) mustEmbedUnimplementedBassBoostServiceServer() {}
-func (UnimplementedBassBoostServiceServer) testEmbeddedByValue()                          {}
-
-// UnsafeBassBoostServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to BassBoostServiceServer will
-// result in compilation errors.
-type UnsafeBassBoostServiceServer interface {
-	mustEmbedUnimplementedBassBoostServiceServer()
-}
-
-func RegisterBassBoostServiceServer(s grpc.ServiceRegistrar, srv BassBoostServiceServer) {
-	// If the following call panics, it indicates UnimplementedBassBoostServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&BassBoostService_ServiceDesc, srv)
-}
-
-func _BassBoostService_NewBassBoost_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewBassBoostRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BassBoostServiceServer).NewBassBoost(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BassBoostService_NewBassBoost_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BassBoostServiceServer).NewBassBoost(ctx, req.(*NewBassBoostRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BassBoostService_GetProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPropertiesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BassBoostServiceServer).GetProperties(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BassBoostService_GetProperties_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BassBoostServiceServer).GetProperties(ctx, req.(*GetPropertiesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BassBoostService_GetRoundedStrength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRoundedStrengthRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BassBoostServiceServer).GetRoundedStrength(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BassBoostService_GetRoundedStrength_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BassBoostServiceServer).GetRoundedStrength(ctx, req.(*GetRoundedStrengthRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BassBoostService_GetStrengthSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStrengthSupportedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BassBoostServiceServer).GetStrengthSupported(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BassBoostService_GetStrengthSupported_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BassBoostServiceServer).GetStrengthSupported(ctx, req.(*GetStrengthSupportedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BassBoostService_SetParameterListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetParameterListenerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BassBoostServiceServer).SetParameterListener(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BassBoostService_SetParameterListener_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BassBoostServiceServer).SetParameterListener(ctx, req.(*SetParameterListenerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BassBoostService_SetProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPropertiesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BassBoostServiceServer).SetProperties(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BassBoostService_SetProperties_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BassBoostServiceServer).SetProperties(ctx, req.(*SetPropertiesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BassBoostService_SetStrength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetStrengthRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BassBoostServiceServer).SetStrength(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BassBoostService_SetStrength_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BassBoostServiceServer).SetStrength(ctx, req.(*SetStrengthRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// BassBoostService_ServiceDesc is the grpc.ServiceDesc for BassBoostService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var BassBoostService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "audiofx.BassBoostService",
-	HandlerType: (*BassBoostServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewBassBoost",
-			Handler:    _BassBoostService_NewBassBoost_Handler,
-		},
-		{
-			MethodName: "GetProperties",
-			Handler:    _BassBoostService_GetProperties_Handler,
-		},
-		{
-			MethodName: "GetRoundedStrength",
-			Handler:    _BassBoostService_GetRoundedStrength_Handler,
-		},
-		{
-			MethodName: "GetStrengthSupported",
-			Handler:    _BassBoostService_GetStrengthSupported_Handler,
-		},
-		{
-			MethodName: "SetParameterListener",
-			Handler:    _BassBoostService_SetParameterListener_Handler,
-		},
-		{
-			MethodName: "SetProperties",
-			Handler:    _BassBoostService_SetProperties_Handler,
-		},
-		{
-			MethodName: "SetStrength",
-			Handler:    _BassBoostService_SetStrength_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/audiofx/audiofx.proto",
-}
-
-const (
-	BassBoostOnParameterChangeListenerService_OnParameterChange_FullMethodName = "/audiofx.BassBoostOnParameterChangeListenerService/OnParameterChange"
-)
-
-// BassBoostOnParameterChangeListenerServiceClient is the client API for BassBoostOnParameterChangeListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type BassBoostOnParameterChangeListenerServiceClient interface {
-	OnParameterChange(ctx context.Context, in *OnParameterChangeRequest, opts ...grpc.CallOption) (*OnParameterChangeResponse, error)
-}
-
-type bassBoostOnParameterChangeListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewBassBoostOnParameterChangeListenerServiceClient(cc grpc.ClientConnInterface) BassBoostOnParameterChangeListenerServiceClient {
-	return &bassBoostOnParameterChangeListenerServiceClient{cc}
-}
-
-func (c *bassBoostOnParameterChangeListenerServiceClient) OnParameterChange(ctx context.Context, in *OnParameterChangeRequest, opts ...grpc.CallOption) (*OnParameterChangeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnParameterChangeResponse)
-	err := c.cc.Invoke(ctx, BassBoostOnParameterChangeListenerService_OnParameterChange_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// BassBoostOnParameterChangeListenerServiceServer is the server API for BassBoostOnParameterChangeListenerService service.
-// All implementations must embed UnimplementedBassBoostOnParameterChangeListenerServiceServer
-// for forward compatibility.
-type BassBoostOnParameterChangeListenerServiceServer interface {
-	OnParameterChange(context.Context, *OnParameterChangeRequest) (*OnParameterChangeResponse, error)
-	mustEmbedUnimplementedBassBoostOnParameterChangeListenerServiceServer()
-}
-
-// UnimplementedBassBoostOnParameterChangeListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedBassBoostOnParameterChangeListenerServiceServer struct{}
-
-func (UnimplementedBassBoostOnParameterChangeListenerServiceServer) OnParameterChange(context.Context, *OnParameterChangeRequest) (*OnParameterChangeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnParameterChange not implemented")
-}
-func (UnimplementedBassBoostOnParameterChangeListenerServiceServer) mustEmbedUnimplementedBassBoostOnParameterChangeListenerServiceServer() {
-}
-func (UnimplementedBassBoostOnParameterChangeListenerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeBassBoostOnParameterChangeListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to BassBoostOnParameterChangeListenerServiceServer will
-// result in compilation errors.
-type UnsafeBassBoostOnParameterChangeListenerServiceServer interface {
-	mustEmbedUnimplementedBassBoostOnParameterChangeListenerServiceServer()
-}
-
-func RegisterBassBoostOnParameterChangeListenerServiceServer(s grpc.ServiceRegistrar, srv BassBoostOnParameterChangeListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedBassBoostOnParameterChangeListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&BassBoostOnParameterChangeListenerService_ServiceDesc, srv)
-}
-
-func _BassBoostOnParameterChangeListenerService_OnParameterChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnParameterChangeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BassBoostOnParameterChangeListenerServiceServer).OnParameterChange(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BassBoostOnParameterChangeListenerService_OnParameterChange_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BassBoostOnParameterChangeListenerServiceServer).OnParameterChange(ctx, req.(*OnParameterChangeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// BassBoostOnParameterChangeListenerService_ServiceDesc is the grpc.ServiceDesc for BassBoostOnParameterChangeListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var BassBoostOnParameterChangeListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "audiofx.BassBoostOnParameterChangeListenerService",
-	HandlerType: (*BassBoostOnParameterChangeListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnParameterChange",
-			Handler:    _BassBoostOnParameterChangeListenerService_OnParameterChange_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/audiofx/audiofx.proto",
-}
-
-const (
-	BassBoostSettingsService_ToString_FullMethodName = "/audiofx.BassBoostSettingsService/ToString"
-)
-
-// BassBoostSettingsServiceClient is the client API for BassBoostSettingsService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type BassBoostSettingsServiceClient interface {
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type bassBoostSettingsServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewBassBoostSettingsServiceClient(cc grpc.ClientConnInterface) BassBoostSettingsServiceClient {
-	return &bassBoostSettingsServiceClient{cc}
-}
-
-func (c *bassBoostSettingsServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, BassBoostSettingsService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// BassBoostSettingsServiceServer is the server API for BassBoostSettingsService service.
-// All implementations must embed UnimplementedBassBoostSettingsServiceServer
-// for forward compatibility.
-type BassBoostSettingsServiceServer interface {
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedBassBoostSettingsServiceServer()
-}
-
-// UnimplementedBassBoostSettingsServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedBassBoostSettingsServiceServer struct{}
-
-func (UnimplementedBassBoostSettingsServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedBassBoostSettingsServiceServer) mustEmbedUnimplementedBassBoostSettingsServiceServer() {
-}
-func (UnimplementedBassBoostSettingsServiceServer) testEmbeddedByValue() {}
-
-// UnsafeBassBoostSettingsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to BassBoostSettingsServiceServer will
-// result in compilation errors.
-type UnsafeBassBoostSettingsServiceServer interface {
-	mustEmbedUnimplementedBassBoostSettingsServiceServer()
-}
-
-func RegisterBassBoostSettingsServiceServer(s grpc.ServiceRegistrar, srv BassBoostSettingsServiceServer) {
-	// If the following call panics, it indicates UnimplementedBassBoostSettingsServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&BassBoostSettingsService_ServiceDesc, srv)
-}
-
-func _BassBoostSettingsService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BassBoostSettingsServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BassBoostSettingsService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BassBoostSettingsServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// BassBoostSettingsService_ServiceDesc is the grpc.ServiceDesc for BassBoostSettingsService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var BassBoostSettingsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "audiofx.BassBoostSettingsService",
-	HandlerType: (*BassBoostSettingsServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "ToString",
-			Handler:    _BassBoostSettingsService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/audiofx/audiofx.proto",
-}
-
-const (
 	AutomaticGainControlService_Create_FullMethodName      = "/audiofx.AutomaticGainControlService/Create"
 	AutomaticGainControlService_IsAvailable_FullMethodName = "/audiofx.AutomaticGainControlService/IsAvailable"
 )
@@ -698,709 +162,291 @@ var AutomaticGainControlService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	VisualizerService_NewVisualizer_FullMethodName          = "/audiofx.VisualizerService/NewVisualizer"
-	VisualizerService_GetCaptureSize_FullMethodName         = "/audiofx.VisualizerService/GetCaptureSize"
-	VisualizerService_GetEnabled_FullMethodName             = "/audiofx.VisualizerService/GetEnabled"
-	VisualizerService_GetFft_FullMethodName                 = "/audiofx.VisualizerService/GetFft"
-	VisualizerService_GetMeasurementMode_FullMethodName     = "/audiofx.VisualizerService/GetMeasurementMode"
-	VisualizerService_GetMeasurementPeakRms_FullMethodName  = "/audiofx.VisualizerService/GetMeasurementPeakRms"
-	VisualizerService_GetSamplingRate_FullMethodName        = "/audiofx.VisualizerService/GetSamplingRate"
-	VisualizerService_GetScalingMode_FullMethodName         = "/audiofx.VisualizerService/GetScalingMode"
-	VisualizerService_GetWaveForm_FullMethodName            = "/audiofx.VisualizerService/GetWaveForm"
-	VisualizerService_Release_FullMethodName                = "/audiofx.VisualizerService/Release"
-	VisualizerService_SetCaptureSize_FullMethodName         = "/audiofx.VisualizerService/SetCaptureSize"
-	VisualizerService_SetDataCaptureListener_FullMethodName = "/audiofx.VisualizerService/SetDataCaptureListener"
-	VisualizerService_SetEnabled_FullMethodName             = "/audiofx.VisualizerService/SetEnabled"
-	VisualizerService_SetMeasurementMode_FullMethodName     = "/audiofx.VisualizerService/SetMeasurementMode"
-	VisualizerService_SetScalingMode_FullMethodName         = "/audiofx.VisualizerService/SetScalingMode"
-	VisualizerService_GetCaptureSizeRange_FullMethodName    = "/audiofx.VisualizerService/GetCaptureSizeRange"
-	VisualizerService_GetMaxCaptureRate_FullMethodName      = "/audiofx.VisualizerService/GetMaxCaptureRate"
+	PresetReverbService_NewPresetReverb_FullMethodName      = "/audiofx.PresetReverbService/NewPresetReverb"
+	PresetReverbService_GetPreset_FullMethodName            = "/audiofx.PresetReverbService/GetPreset"
+	PresetReverbService_GetProperties_FullMethodName        = "/audiofx.PresetReverbService/GetProperties"
+	PresetReverbService_SetParameterListener_FullMethodName = "/audiofx.PresetReverbService/SetParameterListener"
+	PresetReverbService_SetPreset_FullMethodName            = "/audiofx.PresetReverbService/SetPreset"
+	PresetReverbService_SetProperties_FullMethodName        = "/audiofx.PresetReverbService/SetProperties"
 )
 
-// VisualizerServiceClient is the client API for VisualizerService service.
+// PresetReverbServiceClient is the client API for PresetReverbService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type VisualizerServiceClient interface {
-	NewVisualizer(ctx context.Context, in *NewVisualizerRequest, opts ...grpc.CallOption) (*NewVisualizerResponse, error)
-	GetCaptureSize(ctx context.Context, in *GetCaptureSizeRequest, opts ...grpc.CallOption) (*GetCaptureSizeResponse, error)
-	GetEnabled(ctx context.Context, in *GetEnabledRequest, opts ...grpc.CallOption) (*GetEnabledResponse, error)
-	GetFft(ctx context.Context, in *GetFftRequest, opts ...grpc.CallOption) (*GetFftResponse, error)
-	GetMeasurementMode(ctx context.Context, in *GetMeasurementModeRequest, opts ...grpc.CallOption) (*GetMeasurementModeResponse, error)
-	GetMeasurementPeakRms(ctx context.Context, in *GetMeasurementPeakRmsRequest, opts ...grpc.CallOption) (*GetMeasurementPeakRmsResponse, error)
-	GetSamplingRate(ctx context.Context, in *GetSamplingRateRequest, opts ...grpc.CallOption) (*GetSamplingRateResponse, error)
-	GetScalingMode(ctx context.Context, in *GetScalingModeRequest, opts ...grpc.CallOption) (*GetScalingModeResponse, error)
-	GetWaveForm(ctx context.Context, in *GetWaveFormRequest, opts ...grpc.CallOption) (*GetWaveFormResponse, error)
-	Release(ctx context.Context, in *ReleaseRequest, opts ...grpc.CallOption) (*ReleaseResponse, error)
-	SetCaptureSize(ctx context.Context, in *SetCaptureSizeRequest, opts ...grpc.CallOption) (*SetCaptureSizeResponse, error)
-	SetDataCaptureListener(ctx context.Context, in *SetDataCaptureListenerRequest, opts ...grpc.CallOption) (*SetDataCaptureListenerResponse, error)
-	SetEnabled(ctx context.Context, in *SetEnabledRequest, opts ...grpc.CallOption) (*SetEnabledResponse, error)
-	SetMeasurementMode(ctx context.Context, in *SetMeasurementModeRequest, opts ...grpc.CallOption) (*SetMeasurementModeResponse, error)
-	SetScalingMode(ctx context.Context, in *SetScalingModeRequest, opts ...grpc.CallOption) (*SetScalingModeResponse, error)
-	GetCaptureSizeRange(ctx context.Context, in *GetCaptureSizeRangeRequest, opts ...grpc.CallOption) (*GetCaptureSizeRangeResponse, error)
-	GetMaxCaptureRate(ctx context.Context, in *GetMaxCaptureRateRequest, opts ...grpc.CallOption) (*GetMaxCaptureRateResponse, error)
+type PresetReverbServiceClient interface {
+	NewPresetReverb(ctx context.Context, in *NewPresetReverbRequest, opts ...grpc.CallOption) (*NewPresetReverbResponse, error)
+	GetPreset(ctx context.Context, in *GetPresetRequest, opts ...grpc.CallOption) (*GetPresetResponse, error)
+	GetProperties(ctx context.Context, in *GetPropertiesRequest, opts ...grpc.CallOption) (*GetPropertiesResponse, error)
+	SetParameterListener(ctx context.Context, in *SetParameterListenerRequest, opts ...grpc.CallOption) (*SetParameterListenerResponse, error)
+	SetPreset(ctx context.Context, in *SetPresetRequest, opts ...grpc.CallOption) (*SetPresetResponse, error)
+	SetProperties(ctx context.Context, in *SetPropertiesRequest, opts ...grpc.CallOption) (*SetPropertiesResponse, error)
 }
 
-type visualizerServiceClient struct {
+type presetReverbServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewVisualizerServiceClient(cc grpc.ClientConnInterface) VisualizerServiceClient {
-	return &visualizerServiceClient{cc}
+func NewPresetReverbServiceClient(cc grpc.ClientConnInterface) PresetReverbServiceClient {
+	return &presetReverbServiceClient{cc}
 }
 
-func (c *visualizerServiceClient) NewVisualizer(ctx context.Context, in *NewVisualizerRequest, opts ...grpc.CallOption) (*NewVisualizerResponse, error) {
+func (c *presetReverbServiceClient) NewPresetReverb(ctx context.Context, in *NewPresetReverbRequest, opts ...grpc.CallOption) (*NewPresetReverbResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewVisualizerResponse)
-	err := c.cc.Invoke(ctx, VisualizerService_NewVisualizer_FullMethodName, in, out, cOpts...)
+	out := new(NewPresetReverbResponse)
+	err := c.cc.Invoke(ctx, PresetReverbService_NewPresetReverb_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *visualizerServiceClient) GetCaptureSize(ctx context.Context, in *GetCaptureSizeRequest, opts ...grpc.CallOption) (*GetCaptureSizeResponse, error) {
+func (c *presetReverbServiceClient) GetPreset(ctx context.Context, in *GetPresetRequest, opts ...grpc.CallOption) (*GetPresetResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCaptureSizeResponse)
-	err := c.cc.Invoke(ctx, VisualizerService_GetCaptureSize_FullMethodName, in, out, cOpts...)
+	out := new(GetPresetResponse)
+	err := c.cc.Invoke(ctx, PresetReverbService_GetPreset_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *visualizerServiceClient) GetEnabled(ctx context.Context, in *GetEnabledRequest, opts ...grpc.CallOption) (*GetEnabledResponse, error) {
+func (c *presetReverbServiceClient) GetProperties(ctx context.Context, in *GetPropertiesRequest, opts ...grpc.CallOption) (*GetPropertiesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetEnabledResponse)
-	err := c.cc.Invoke(ctx, VisualizerService_GetEnabled_FullMethodName, in, out, cOpts...)
+	out := new(GetPropertiesResponse)
+	err := c.cc.Invoke(ctx, PresetReverbService_GetProperties_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *visualizerServiceClient) GetFft(ctx context.Context, in *GetFftRequest, opts ...grpc.CallOption) (*GetFftResponse, error) {
+func (c *presetReverbServiceClient) SetParameterListener(ctx context.Context, in *SetParameterListenerRequest, opts ...grpc.CallOption) (*SetParameterListenerResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFftResponse)
-	err := c.cc.Invoke(ctx, VisualizerService_GetFft_FullMethodName, in, out, cOpts...)
+	out := new(SetParameterListenerResponse)
+	err := c.cc.Invoke(ctx, PresetReverbService_SetParameterListener_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *visualizerServiceClient) GetMeasurementMode(ctx context.Context, in *GetMeasurementModeRequest, opts ...grpc.CallOption) (*GetMeasurementModeResponse, error) {
+func (c *presetReverbServiceClient) SetPreset(ctx context.Context, in *SetPresetRequest, opts ...grpc.CallOption) (*SetPresetResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMeasurementModeResponse)
-	err := c.cc.Invoke(ctx, VisualizerService_GetMeasurementMode_FullMethodName, in, out, cOpts...)
+	out := new(SetPresetResponse)
+	err := c.cc.Invoke(ctx, PresetReverbService_SetPreset_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *visualizerServiceClient) GetMeasurementPeakRms(ctx context.Context, in *GetMeasurementPeakRmsRequest, opts ...grpc.CallOption) (*GetMeasurementPeakRmsResponse, error) {
+func (c *presetReverbServiceClient) SetProperties(ctx context.Context, in *SetPropertiesRequest, opts ...grpc.CallOption) (*SetPropertiesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMeasurementPeakRmsResponse)
-	err := c.cc.Invoke(ctx, VisualizerService_GetMeasurementPeakRms_FullMethodName, in, out, cOpts...)
+	out := new(SetPropertiesResponse)
+	err := c.cc.Invoke(ctx, PresetReverbService_SetProperties_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *visualizerServiceClient) GetSamplingRate(ctx context.Context, in *GetSamplingRateRequest, opts ...grpc.CallOption) (*GetSamplingRateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSamplingRateResponse)
-	err := c.cc.Invoke(ctx, VisualizerService_GetSamplingRate_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *visualizerServiceClient) GetScalingMode(ctx context.Context, in *GetScalingModeRequest, opts ...grpc.CallOption) (*GetScalingModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetScalingModeResponse)
-	err := c.cc.Invoke(ctx, VisualizerService_GetScalingMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *visualizerServiceClient) GetWaveForm(ctx context.Context, in *GetWaveFormRequest, opts ...grpc.CallOption) (*GetWaveFormResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetWaveFormResponse)
-	err := c.cc.Invoke(ctx, VisualizerService_GetWaveForm_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *visualizerServiceClient) Release(ctx context.Context, in *ReleaseRequest, opts ...grpc.CallOption) (*ReleaseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ReleaseResponse)
-	err := c.cc.Invoke(ctx, VisualizerService_Release_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *visualizerServiceClient) SetCaptureSize(ctx context.Context, in *SetCaptureSizeRequest, opts ...grpc.CallOption) (*SetCaptureSizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetCaptureSizeResponse)
-	err := c.cc.Invoke(ctx, VisualizerService_SetCaptureSize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *visualizerServiceClient) SetDataCaptureListener(ctx context.Context, in *SetDataCaptureListenerRequest, opts ...grpc.CallOption) (*SetDataCaptureListenerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetDataCaptureListenerResponse)
-	err := c.cc.Invoke(ctx, VisualizerService_SetDataCaptureListener_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *visualizerServiceClient) SetEnabled(ctx context.Context, in *SetEnabledRequest, opts ...grpc.CallOption) (*SetEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetEnabledResponse)
-	err := c.cc.Invoke(ctx, VisualizerService_SetEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *visualizerServiceClient) SetMeasurementMode(ctx context.Context, in *SetMeasurementModeRequest, opts ...grpc.CallOption) (*SetMeasurementModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetMeasurementModeResponse)
-	err := c.cc.Invoke(ctx, VisualizerService_SetMeasurementMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *visualizerServiceClient) SetScalingMode(ctx context.Context, in *SetScalingModeRequest, opts ...grpc.CallOption) (*SetScalingModeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetScalingModeResponse)
-	err := c.cc.Invoke(ctx, VisualizerService_SetScalingMode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *visualizerServiceClient) GetCaptureSizeRange(ctx context.Context, in *GetCaptureSizeRangeRequest, opts ...grpc.CallOption) (*GetCaptureSizeRangeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCaptureSizeRangeResponse)
-	err := c.cc.Invoke(ctx, VisualizerService_GetCaptureSizeRange_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *visualizerServiceClient) GetMaxCaptureRate(ctx context.Context, in *GetMaxCaptureRateRequest, opts ...grpc.CallOption) (*GetMaxCaptureRateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMaxCaptureRateResponse)
-	err := c.cc.Invoke(ctx, VisualizerService_GetMaxCaptureRate_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// VisualizerServiceServer is the server API for VisualizerService service.
-// All implementations must embed UnimplementedVisualizerServiceServer
+// PresetReverbServiceServer is the server API for PresetReverbService service.
+// All implementations must embed UnimplementedPresetReverbServiceServer
 // for forward compatibility.
-type VisualizerServiceServer interface {
-	NewVisualizer(context.Context, *NewVisualizerRequest) (*NewVisualizerResponse, error)
-	GetCaptureSize(context.Context, *GetCaptureSizeRequest) (*GetCaptureSizeResponse, error)
-	GetEnabled(context.Context, *GetEnabledRequest) (*GetEnabledResponse, error)
-	GetFft(context.Context, *GetFftRequest) (*GetFftResponse, error)
-	GetMeasurementMode(context.Context, *GetMeasurementModeRequest) (*GetMeasurementModeResponse, error)
-	GetMeasurementPeakRms(context.Context, *GetMeasurementPeakRmsRequest) (*GetMeasurementPeakRmsResponse, error)
-	GetSamplingRate(context.Context, *GetSamplingRateRequest) (*GetSamplingRateResponse, error)
-	GetScalingMode(context.Context, *GetScalingModeRequest) (*GetScalingModeResponse, error)
-	GetWaveForm(context.Context, *GetWaveFormRequest) (*GetWaveFormResponse, error)
-	Release(context.Context, *ReleaseRequest) (*ReleaseResponse, error)
-	SetCaptureSize(context.Context, *SetCaptureSizeRequest) (*SetCaptureSizeResponse, error)
-	SetDataCaptureListener(context.Context, *SetDataCaptureListenerRequest) (*SetDataCaptureListenerResponse, error)
-	SetEnabled(context.Context, *SetEnabledRequest) (*SetEnabledResponse, error)
-	SetMeasurementMode(context.Context, *SetMeasurementModeRequest) (*SetMeasurementModeResponse, error)
-	SetScalingMode(context.Context, *SetScalingModeRequest) (*SetScalingModeResponse, error)
-	GetCaptureSizeRange(context.Context, *GetCaptureSizeRangeRequest) (*GetCaptureSizeRangeResponse, error)
-	GetMaxCaptureRate(context.Context, *GetMaxCaptureRateRequest) (*GetMaxCaptureRateResponse, error)
-	mustEmbedUnimplementedVisualizerServiceServer()
+type PresetReverbServiceServer interface {
+	NewPresetReverb(context.Context, *NewPresetReverbRequest) (*NewPresetReverbResponse, error)
+	GetPreset(context.Context, *GetPresetRequest) (*GetPresetResponse, error)
+	GetProperties(context.Context, *GetPropertiesRequest) (*GetPropertiesResponse, error)
+	SetParameterListener(context.Context, *SetParameterListenerRequest) (*SetParameterListenerResponse, error)
+	SetPreset(context.Context, *SetPresetRequest) (*SetPresetResponse, error)
+	SetProperties(context.Context, *SetPropertiesRequest) (*SetPropertiesResponse, error)
+	mustEmbedUnimplementedPresetReverbServiceServer()
 }
 
-// UnimplementedVisualizerServiceServer must be embedded to have
+// UnimplementedPresetReverbServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedVisualizerServiceServer struct{}
+type UnimplementedPresetReverbServiceServer struct{}
 
-func (UnimplementedVisualizerServiceServer) NewVisualizer(context.Context, *NewVisualizerRequest) (*NewVisualizerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewVisualizer not implemented")
+func (UnimplementedPresetReverbServiceServer) NewPresetReverb(context.Context, *NewPresetReverbRequest) (*NewPresetReverbResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewPresetReverb not implemented")
 }
-func (UnimplementedVisualizerServiceServer) GetCaptureSize(context.Context, *GetCaptureSizeRequest) (*GetCaptureSizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCaptureSize not implemented")
+func (UnimplementedPresetReverbServiceServer) GetPreset(context.Context, *GetPresetRequest) (*GetPresetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPreset not implemented")
 }
-func (UnimplementedVisualizerServiceServer) GetEnabled(context.Context, *GetEnabledRequest) (*GetEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetEnabled not implemented")
+func (UnimplementedPresetReverbServiceServer) GetProperties(context.Context, *GetPropertiesRequest) (*GetPropertiesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetProperties not implemented")
 }
-func (UnimplementedVisualizerServiceServer) GetFft(context.Context, *GetFftRequest) (*GetFftResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFft not implemented")
+func (UnimplementedPresetReverbServiceServer) SetParameterListener(context.Context, *SetParameterListenerRequest) (*SetParameterListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetParameterListener not implemented")
 }
-func (UnimplementedVisualizerServiceServer) GetMeasurementMode(context.Context, *GetMeasurementModeRequest) (*GetMeasurementModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMeasurementMode not implemented")
+func (UnimplementedPresetReverbServiceServer) SetPreset(context.Context, *SetPresetRequest) (*SetPresetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPreset not implemented")
 }
-func (UnimplementedVisualizerServiceServer) GetMeasurementPeakRms(context.Context, *GetMeasurementPeakRmsRequest) (*GetMeasurementPeakRmsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMeasurementPeakRms not implemented")
+func (UnimplementedPresetReverbServiceServer) SetProperties(context.Context, *SetPropertiesRequest) (*SetPropertiesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetProperties not implemented")
 }
-func (UnimplementedVisualizerServiceServer) GetSamplingRate(context.Context, *GetSamplingRateRequest) (*GetSamplingRateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSamplingRate not implemented")
-}
-func (UnimplementedVisualizerServiceServer) GetScalingMode(context.Context, *GetScalingModeRequest) (*GetScalingModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetScalingMode not implemented")
-}
-func (UnimplementedVisualizerServiceServer) GetWaveForm(context.Context, *GetWaveFormRequest) (*GetWaveFormResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetWaveForm not implemented")
-}
-func (UnimplementedVisualizerServiceServer) Release(context.Context, *ReleaseRequest) (*ReleaseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Release not implemented")
-}
-func (UnimplementedVisualizerServiceServer) SetCaptureSize(context.Context, *SetCaptureSizeRequest) (*SetCaptureSizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetCaptureSize not implemented")
-}
-func (UnimplementedVisualizerServiceServer) SetDataCaptureListener(context.Context, *SetDataCaptureListenerRequest) (*SetDataCaptureListenerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetDataCaptureListener not implemented")
-}
-func (UnimplementedVisualizerServiceServer) SetEnabled(context.Context, *SetEnabledRequest) (*SetEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetEnabled not implemented")
-}
-func (UnimplementedVisualizerServiceServer) SetMeasurementMode(context.Context, *SetMeasurementModeRequest) (*SetMeasurementModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetMeasurementMode not implemented")
-}
-func (UnimplementedVisualizerServiceServer) SetScalingMode(context.Context, *SetScalingModeRequest) (*SetScalingModeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetScalingMode not implemented")
-}
-func (UnimplementedVisualizerServiceServer) GetCaptureSizeRange(context.Context, *GetCaptureSizeRangeRequest) (*GetCaptureSizeRangeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCaptureSizeRange not implemented")
-}
-func (UnimplementedVisualizerServiceServer) GetMaxCaptureRate(context.Context, *GetMaxCaptureRateRequest) (*GetMaxCaptureRateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMaxCaptureRate not implemented")
-}
-func (UnimplementedVisualizerServiceServer) mustEmbedUnimplementedVisualizerServiceServer() {}
-func (UnimplementedVisualizerServiceServer) testEmbeddedByValue()                           {}
+func (UnimplementedPresetReverbServiceServer) mustEmbedUnimplementedPresetReverbServiceServer() {}
+func (UnimplementedPresetReverbServiceServer) testEmbeddedByValue()                             {}
 
-// UnsafeVisualizerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to VisualizerServiceServer will
+// UnsafePresetReverbServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PresetReverbServiceServer will
 // result in compilation errors.
-type UnsafeVisualizerServiceServer interface {
-	mustEmbedUnimplementedVisualizerServiceServer()
+type UnsafePresetReverbServiceServer interface {
+	mustEmbedUnimplementedPresetReverbServiceServer()
 }
 
-func RegisterVisualizerServiceServer(s grpc.ServiceRegistrar, srv VisualizerServiceServer) {
-	// If the following call panics, it indicates UnimplementedVisualizerServiceServer was
+func RegisterPresetReverbServiceServer(s grpc.ServiceRegistrar, srv PresetReverbServiceServer) {
+	// If the following call panics, it indicates UnimplementedPresetReverbServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&VisualizerService_ServiceDesc, srv)
+	s.RegisterService(&PresetReverbService_ServiceDesc, srv)
 }
 
-func _VisualizerService_NewVisualizer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewVisualizerRequest)
+func _PresetReverbService_NewPresetReverb_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewPresetReverbRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(VisualizerServiceServer).NewVisualizer(ctx, in)
+		return srv.(PresetReverbServiceServer).NewPresetReverb(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: VisualizerService_NewVisualizer_FullMethodName,
+		FullMethod: PresetReverbService_NewPresetReverb_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisualizerServiceServer).NewVisualizer(ctx, req.(*NewVisualizerRequest))
+		return srv.(PresetReverbServiceServer).NewPresetReverb(ctx, req.(*NewPresetReverbRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _VisualizerService_GetCaptureSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCaptureSizeRequest)
+func _PresetReverbService_GetPreset_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPresetRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(VisualizerServiceServer).GetCaptureSize(ctx, in)
+		return srv.(PresetReverbServiceServer).GetPreset(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: VisualizerService_GetCaptureSize_FullMethodName,
+		FullMethod: PresetReverbService_GetPreset_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisualizerServiceServer).GetCaptureSize(ctx, req.(*GetCaptureSizeRequest))
+		return srv.(PresetReverbServiceServer).GetPreset(ctx, req.(*GetPresetRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _VisualizerService_GetEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetEnabledRequest)
+func _PresetReverbService_GetProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPropertiesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(VisualizerServiceServer).GetEnabled(ctx, in)
+		return srv.(PresetReverbServiceServer).GetProperties(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: VisualizerService_GetEnabled_FullMethodName,
+		FullMethod: PresetReverbService_GetProperties_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisualizerServiceServer).GetEnabled(ctx, req.(*GetEnabledRequest))
+		return srv.(PresetReverbServiceServer).GetProperties(ctx, req.(*GetPropertiesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _VisualizerService_GetFft_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFftRequest)
+func _PresetReverbService_SetParameterListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetParameterListenerRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(VisualizerServiceServer).GetFft(ctx, in)
+		return srv.(PresetReverbServiceServer).SetParameterListener(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: VisualizerService_GetFft_FullMethodName,
+		FullMethod: PresetReverbService_SetParameterListener_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisualizerServiceServer).GetFft(ctx, req.(*GetFftRequest))
+		return srv.(PresetReverbServiceServer).SetParameterListener(ctx, req.(*SetParameterListenerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _VisualizerService_GetMeasurementMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMeasurementModeRequest)
+func _PresetReverbService_SetPreset_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPresetRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(VisualizerServiceServer).GetMeasurementMode(ctx, in)
+		return srv.(PresetReverbServiceServer).SetPreset(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: VisualizerService_GetMeasurementMode_FullMethodName,
+		FullMethod: PresetReverbService_SetPreset_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisualizerServiceServer).GetMeasurementMode(ctx, req.(*GetMeasurementModeRequest))
+		return srv.(PresetReverbServiceServer).SetPreset(ctx, req.(*SetPresetRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _VisualizerService_GetMeasurementPeakRms_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMeasurementPeakRmsRequest)
+func _PresetReverbService_SetProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPropertiesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(VisualizerServiceServer).GetMeasurementPeakRms(ctx, in)
+		return srv.(PresetReverbServiceServer).SetProperties(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: VisualizerService_GetMeasurementPeakRms_FullMethodName,
+		FullMethod: PresetReverbService_SetProperties_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisualizerServiceServer).GetMeasurementPeakRms(ctx, req.(*GetMeasurementPeakRmsRequest))
+		return srv.(PresetReverbServiceServer).SetProperties(ctx, req.(*SetPropertiesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _VisualizerService_GetSamplingRate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSamplingRateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VisualizerServiceServer).GetSamplingRate(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VisualizerService_GetSamplingRate_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisualizerServiceServer).GetSamplingRate(ctx, req.(*GetSamplingRateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VisualizerService_GetScalingMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetScalingModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VisualizerServiceServer).GetScalingMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VisualizerService_GetScalingMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisualizerServiceServer).GetScalingMode(ctx, req.(*GetScalingModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VisualizerService_GetWaveForm_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWaveFormRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VisualizerServiceServer).GetWaveForm(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VisualizerService_GetWaveForm_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisualizerServiceServer).GetWaveForm(ctx, req.(*GetWaveFormRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VisualizerService_Release_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReleaseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VisualizerServiceServer).Release(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VisualizerService_Release_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisualizerServiceServer).Release(ctx, req.(*ReleaseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VisualizerService_SetCaptureSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetCaptureSizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VisualizerServiceServer).SetCaptureSize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VisualizerService_SetCaptureSize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisualizerServiceServer).SetCaptureSize(ctx, req.(*SetCaptureSizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VisualizerService_SetDataCaptureListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetDataCaptureListenerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VisualizerServiceServer).SetDataCaptureListener(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VisualizerService_SetDataCaptureListener_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisualizerServiceServer).SetDataCaptureListener(ctx, req.(*SetDataCaptureListenerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VisualizerService_SetEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VisualizerServiceServer).SetEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VisualizerService_SetEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisualizerServiceServer).SetEnabled(ctx, req.(*SetEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VisualizerService_SetMeasurementMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetMeasurementModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VisualizerServiceServer).SetMeasurementMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VisualizerService_SetMeasurementMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisualizerServiceServer).SetMeasurementMode(ctx, req.(*SetMeasurementModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VisualizerService_SetScalingMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetScalingModeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VisualizerServiceServer).SetScalingMode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VisualizerService_SetScalingMode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisualizerServiceServer).SetScalingMode(ctx, req.(*SetScalingModeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VisualizerService_GetCaptureSizeRange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCaptureSizeRangeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VisualizerServiceServer).GetCaptureSizeRange(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VisualizerService_GetCaptureSizeRange_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisualizerServiceServer).GetCaptureSizeRange(ctx, req.(*GetCaptureSizeRangeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _VisualizerService_GetMaxCaptureRate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMaxCaptureRateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VisualizerServiceServer).GetMaxCaptureRate(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VisualizerService_GetMaxCaptureRate_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisualizerServiceServer).GetMaxCaptureRate(ctx, req.(*GetMaxCaptureRateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// VisualizerService_ServiceDesc is the grpc.ServiceDesc for VisualizerService service.
+// PresetReverbService_ServiceDesc is the grpc.ServiceDesc for PresetReverbService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var VisualizerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "audiofx.VisualizerService",
-	HandlerType: (*VisualizerServiceServer)(nil),
+var PresetReverbService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "audiofx.PresetReverbService",
+	HandlerType: (*PresetReverbServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewVisualizer",
-			Handler:    _VisualizerService_NewVisualizer_Handler,
+			MethodName: "NewPresetReverb",
+			Handler:    _PresetReverbService_NewPresetReverb_Handler,
 		},
 		{
-			MethodName: "GetCaptureSize",
-			Handler:    _VisualizerService_GetCaptureSize_Handler,
+			MethodName: "GetPreset",
+			Handler:    _PresetReverbService_GetPreset_Handler,
 		},
 		{
-			MethodName: "GetEnabled",
-			Handler:    _VisualizerService_GetEnabled_Handler,
+			MethodName: "GetProperties",
+			Handler:    _PresetReverbService_GetProperties_Handler,
 		},
 		{
-			MethodName: "GetFft",
-			Handler:    _VisualizerService_GetFft_Handler,
+			MethodName: "SetParameterListener",
+			Handler:    _PresetReverbService_SetParameterListener_Handler,
 		},
 		{
-			MethodName: "GetMeasurementMode",
-			Handler:    _VisualizerService_GetMeasurementMode_Handler,
+			MethodName: "SetPreset",
+			Handler:    _PresetReverbService_SetPreset_Handler,
 		},
 		{
-			MethodName: "GetMeasurementPeakRms",
-			Handler:    _VisualizerService_GetMeasurementPeakRms_Handler,
-		},
-		{
-			MethodName: "GetSamplingRate",
-			Handler:    _VisualizerService_GetSamplingRate_Handler,
-		},
-		{
-			MethodName: "GetScalingMode",
-			Handler:    _VisualizerService_GetScalingMode_Handler,
-		},
-		{
-			MethodName: "GetWaveForm",
-			Handler:    _VisualizerService_GetWaveForm_Handler,
-		},
-		{
-			MethodName: "Release",
-			Handler:    _VisualizerService_Release_Handler,
-		},
-		{
-			MethodName: "SetCaptureSize",
-			Handler:    _VisualizerService_SetCaptureSize_Handler,
-		},
-		{
-			MethodName: "SetDataCaptureListener",
-			Handler:    _VisualizerService_SetDataCaptureListener_Handler,
-		},
-		{
-			MethodName: "SetEnabled",
-			Handler:    _VisualizerService_SetEnabled_Handler,
-		},
-		{
-			MethodName: "SetMeasurementMode",
-			Handler:    _VisualizerService_SetMeasurementMode_Handler,
-		},
-		{
-			MethodName: "SetScalingMode",
-			Handler:    _VisualizerService_SetScalingMode_Handler,
-		},
-		{
-			MethodName: "GetCaptureSizeRange",
-			Handler:    _VisualizerService_GetCaptureSizeRange_Handler,
-		},
-		{
-			MethodName: "GetMaxCaptureRate",
-			Handler:    _VisualizerService_GetMaxCaptureRate_Handler,
+			MethodName: "SetProperties",
+			Handler:    _PresetReverbService_SetProperties_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1408,140 +454,346 @@ var VisualizerService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	VisualizerOnDataCaptureListenerService_OnFftDataCapture_FullMethodName      = "/audiofx.VisualizerOnDataCaptureListenerService/OnFftDataCapture"
-	VisualizerOnDataCaptureListenerService_OnWaveFormDataCapture_FullMethodName = "/audiofx.VisualizerOnDataCaptureListenerService/OnWaveFormDataCapture"
+	PresetReverbOnParameterChangeListenerService_OnParameterChange_FullMethodName = "/audiofx.PresetReverbOnParameterChangeListenerService/OnParameterChange"
 )
 
-// VisualizerOnDataCaptureListenerServiceClient is the client API for VisualizerOnDataCaptureListenerService service.
+// PresetReverbOnParameterChangeListenerServiceClient is the client API for PresetReverbOnParameterChangeListenerService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type VisualizerOnDataCaptureListenerServiceClient interface {
-	OnFftDataCapture(ctx context.Context, in *OnFftDataCaptureRequest, opts ...grpc.CallOption) (*OnFftDataCaptureResponse, error)
-	OnWaveFormDataCapture(ctx context.Context, in *OnWaveFormDataCaptureRequest, opts ...grpc.CallOption) (*OnWaveFormDataCaptureResponse, error)
+type PresetReverbOnParameterChangeListenerServiceClient interface {
+	OnParameterChange(ctx context.Context, in *OnParameterChangeRequest, opts ...grpc.CallOption) (*OnParameterChangeResponse, error)
 }
 
-type visualizerOnDataCaptureListenerServiceClient struct {
+type presetReverbOnParameterChangeListenerServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewVisualizerOnDataCaptureListenerServiceClient(cc grpc.ClientConnInterface) VisualizerOnDataCaptureListenerServiceClient {
-	return &visualizerOnDataCaptureListenerServiceClient{cc}
+func NewPresetReverbOnParameterChangeListenerServiceClient(cc grpc.ClientConnInterface) PresetReverbOnParameterChangeListenerServiceClient {
+	return &presetReverbOnParameterChangeListenerServiceClient{cc}
 }
 
-func (c *visualizerOnDataCaptureListenerServiceClient) OnFftDataCapture(ctx context.Context, in *OnFftDataCaptureRequest, opts ...grpc.CallOption) (*OnFftDataCaptureResponse, error) {
+func (c *presetReverbOnParameterChangeListenerServiceClient) OnParameterChange(ctx context.Context, in *OnParameterChangeRequest, opts ...grpc.CallOption) (*OnParameterChangeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnFftDataCaptureResponse)
-	err := c.cc.Invoke(ctx, VisualizerOnDataCaptureListenerService_OnFftDataCapture_FullMethodName, in, out, cOpts...)
+	out := new(OnParameterChangeResponse)
+	err := c.cc.Invoke(ctx, PresetReverbOnParameterChangeListenerService_OnParameterChange_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *visualizerOnDataCaptureListenerServiceClient) OnWaveFormDataCapture(ctx context.Context, in *OnWaveFormDataCaptureRequest, opts ...grpc.CallOption) (*OnWaveFormDataCaptureResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnWaveFormDataCaptureResponse)
-	err := c.cc.Invoke(ctx, VisualizerOnDataCaptureListenerService_OnWaveFormDataCapture_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// VisualizerOnDataCaptureListenerServiceServer is the server API for VisualizerOnDataCaptureListenerService service.
-// All implementations must embed UnimplementedVisualizerOnDataCaptureListenerServiceServer
+// PresetReverbOnParameterChangeListenerServiceServer is the server API for PresetReverbOnParameterChangeListenerService service.
+// All implementations must embed UnimplementedPresetReverbOnParameterChangeListenerServiceServer
 // for forward compatibility.
-type VisualizerOnDataCaptureListenerServiceServer interface {
-	OnFftDataCapture(context.Context, *OnFftDataCaptureRequest) (*OnFftDataCaptureResponse, error)
-	OnWaveFormDataCapture(context.Context, *OnWaveFormDataCaptureRequest) (*OnWaveFormDataCaptureResponse, error)
-	mustEmbedUnimplementedVisualizerOnDataCaptureListenerServiceServer()
+type PresetReverbOnParameterChangeListenerServiceServer interface {
+	OnParameterChange(context.Context, *OnParameterChangeRequest) (*OnParameterChangeResponse, error)
+	mustEmbedUnimplementedPresetReverbOnParameterChangeListenerServiceServer()
 }
 
-// UnimplementedVisualizerOnDataCaptureListenerServiceServer must be embedded to have
+// UnimplementedPresetReverbOnParameterChangeListenerServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedVisualizerOnDataCaptureListenerServiceServer struct{}
+type UnimplementedPresetReverbOnParameterChangeListenerServiceServer struct{}
 
-func (UnimplementedVisualizerOnDataCaptureListenerServiceServer) OnFftDataCapture(context.Context, *OnFftDataCaptureRequest) (*OnFftDataCaptureResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnFftDataCapture not implemented")
+func (UnimplementedPresetReverbOnParameterChangeListenerServiceServer) OnParameterChange(context.Context, *OnParameterChangeRequest) (*OnParameterChangeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnParameterChange not implemented")
 }
-func (UnimplementedVisualizerOnDataCaptureListenerServiceServer) OnWaveFormDataCapture(context.Context, *OnWaveFormDataCaptureRequest) (*OnWaveFormDataCaptureResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnWaveFormDataCapture not implemented")
+func (UnimplementedPresetReverbOnParameterChangeListenerServiceServer) mustEmbedUnimplementedPresetReverbOnParameterChangeListenerServiceServer() {
 }
-func (UnimplementedVisualizerOnDataCaptureListenerServiceServer) mustEmbedUnimplementedVisualizerOnDataCaptureListenerServiceServer() {
-}
-func (UnimplementedVisualizerOnDataCaptureListenerServiceServer) testEmbeddedByValue() {}
+func (UnimplementedPresetReverbOnParameterChangeListenerServiceServer) testEmbeddedByValue() {}
 
-// UnsafeVisualizerOnDataCaptureListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to VisualizerOnDataCaptureListenerServiceServer will
+// UnsafePresetReverbOnParameterChangeListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PresetReverbOnParameterChangeListenerServiceServer will
 // result in compilation errors.
-type UnsafeVisualizerOnDataCaptureListenerServiceServer interface {
-	mustEmbedUnimplementedVisualizerOnDataCaptureListenerServiceServer()
+type UnsafePresetReverbOnParameterChangeListenerServiceServer interface {
+	mustEmbedUnimplementedPresetReverbOnParameterChangeListenerServiceServer()
 }
 
-func RegisterVisualizerOnDataCaptureListenerServiceServer(s grpc.ServiceRegistrar, srv VisualizerOnDataCaptureListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedVisualizerOnDataCaptureListenerServiceServer was
+func RegisterPresetReverbOnParameterChangeListenerServiceServer(s grpc.ServiceRegistrar, srv PresetReverbOnParameterChangeListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedPresetReverbOnParameterChangeListenerServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&VisualizerOnDataCaptureListenerService_ServiceDesc, srv)
+	s.RegisterService(&PresetReverbOnParameterChangeListenerService_ServiceDesc, srv)
 }
 
-func _VisualizerOnDataCaptureListenerService_OnFftDataCapture_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnFftDataCaptureRequest)
+func _PresetReverbOnParameterChangeListenerService_OnParameterChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnParameterChangeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(VisualizerOnDataCaptureListenerServiceServer).OnFftDataCapture(ctx, in)
+		return srv.(PresetReverbOnParameterChangeListenerServiceServer).OnParameterChange(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: VisualizerOnDataCaptureListenerService_OnFftDataCapture_FullMethodName,
+		FullMethod: PresetReverbOnParameterChangeListenerService_OnParameterChange_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisualizerOnDataCaptureListenerServiceServer).OnFftDataCapture(ctx, req.(*OnFftDataCaptureRequest))
+		return srv.(PresetReverbOnParameterChangeListenerServiceServer).OnParameterChange(ctx, req.(*OnParameterChangeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _VisualizerOnDataCaptureListenerService_OnWaveFormDataCapture_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnWaveFormDataCaptureRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VisualizerOnDataCaptureListenerServiceServer).OnWaveFormDataCapture(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VisualizerOnDataCaptureListenerService_OnWaveFormDataCapture_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VisualizerOnDataCaptureListenerServiceServer).OnWaveFormDataCapture(ctx, req.(*OnWaveFormDataCaptureRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// VisualizerOnDataCaptureListenerService_ServiceDesc is the grpc.ServiceDesc for VisualizerOnDataCaptureListenerService service.
+// PresetReverbOnParameterChangeListenerService_ServiceDesc is the grpc.ServiceDesc for PresetReverbOnParameterChangeListenerService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var VisualizerOnDataCaptureListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "audiofx.VisualizerOnDataCaptureListenerService",
-	HandlerType: (*VisualizerOnDataCaptureListenerServiceServer)(nil),
+var PresetReverbOnParameterChangeListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "audiofx.PresetReverbOnParameterChangeListenerService",
+	HandlerType: (*PresetReverbOnParameterChangeListenerServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "OnFftDataCapture",
-			Handler:    _VisualizerOnDataCaptureListenerService_OnFftDataCapture_Handler,
+			MethodName: "OnParameterChange",
+			Handler:    _PresetReverbOnParameterChangeListenerService_OnParameterChange_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/audiofx/audiofx.proto",
+}
+
+const (
+	PresetReverbSettingsService_ToString_FullMethodName = "/audiofx.PresetReverbSettingsService/ToString"
+)
+
+// PresetReverbSettingsServiceClient is the client API for PresetReverbSettingsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PresetReverbSettingsServiceClient interface {
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type presetReverbSettingsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPresetReverbSettingsServiceClient(cc grpc.ClientConnInterface) PresetReverbSettingsServiceClient {
+	return &presetReverbSettingsServiceClient{cc}
+}
+
+func (c *presetReverbSettingsServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, PresetReverbSettingsService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PresetReverbSettingsServiceServer is the server API for PresetReverbSettingsService service.
+// All implementations must embed UnimplementedPresetReverbSettingsServiceServer
+// for forward compatibility.
+type PresetReverbSettingsServiceServer interface {
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedPresetReverbSettingsServiceServer()
+}
+
+// UnimplementedPresetReverbSettingsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPresetReverbSettingsServiceServer struct{}
+
+func (UnimplementedPresetReverbSettingsServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedPresetReverbSettingsServiceServer) mustEmbedUnimplementedPresetReverbSettingsServiceServer() {
+}
+func (UnimplementedPresetReverbSettingsServiceServer) testEmbeddedByValue() {}
+
+// UnsafePresetReverbSettingsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PresetReverbSettingsServiceServer will
+// result in compilation errors.
+type UnsafePresetReverbSettingsServiceServer interface {
+	mustEmbedUnimplementedPresetReverbSettingsServiceServer()
+}
+
+func RegisterPresetReverbSettingsServiceServer(s grpc.ServiceRegistrar, srv PresetReverbSettingsServiceServer) {
+	// If the following call panics, it indicates UnimplementedPresetReverbSettingsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PresetReverbSettingsService_ServiceDesc, srv)
+}
+
+func _PresetReverbSettingsService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PresetReverbSettingsServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PresetReverbSettingsService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PresetReverbSettingsServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PresetReverbSettingsService_ServiceDesc is the grpc.ServiceDesc for PresetReverbSettingsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PresetReverbSettingsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "audiofx.PresetReverbSettingsService",
+	HandlerType: (*PresetReverbSettingsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "ToString",
+			Handler:    _PresetReverbSettingsService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/audiofx/audiofx.proto",
+}
+
+const (
+	AcousticEchoCancelerService_Create_FullMethodName      = "/audiofx.AcousticEchoCancelerService/Create"
+	AcousticEchoCancelerService_IsAvailable_FullMethodName = "/audiofx.AcousticEchoCancelerService/IsAvailable"
+)
+
+// AcousticEchoCancelerServiceClient is the client API for AcousticEchoCancelerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AcousticEchoCancelerServiceClient interface {
+	Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error)
+	IsAvailable(ctx context.Context, in *IsAvailableRequest, opts ...grpc.CallOption) (*IsAvailableResponse, error)
+}
+
+type acousticEchoCancelerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAcousticEchoCancelerServiceClient(cc grpc.ClientConnInterface) AcousticEchoCancelerServiceClient {
+	return &acousticEchoCancelerServiceClient{cc}
+}
+
+func (c *acousticEchoCancelerServiceClient) Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateResponse)
+	err := c.cc.Invoke(ctx, AcousticEchoCancelerService_Create_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *acousticEchoCancelerServiceClient) IsAvailable(ctx context.Context, in *IsAvailableRequest, opts ...grpc.CallOption) (*IsAvailableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsAvailableResponse)
+	err := c.cc.Invoke(ctx, AcousticEchoCancelerService_IsAvailable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AcousticEchoCancelerServiceServer is the server API for AcousticEchoCancelerService service.
+// All implementations must embed UnimplementedAcousticEchoCancelerServiceServer
+// for forward compatibility.
+type AcousticEchoCancelerServiceServer interface {
+	Create(context.Context, *CreateRequest) (*CreateResponse, error)
+	IsAvailable(context.Context, *IsAvailableRequest) (*IsAvailableResponse, error)
+	mustEmbedUnimplementedAcousticEchoCancelerServiceServer()
+}
+
+// UnimplementedAcousticEchoCancelerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAcousticEchoCancelerServiceServer struct{}
+
+func (UnimplementedAcousticEchoCancelerServiceServer) Create(context.Context, *CreateRequest) (*CreateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Create not implemented")
+}
+func (UnimplementedAcousticEchoCancelerServiceServer) IsAvailable(context.Context, *IsAvailableRequest) (*IsAvailableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsAvailable not implemented")
+}
+func (UnimplementedAcousticEchoCancelerServiceServer) mustEmbedUnimplementedAcousticEchoCancelerServiceServer() {
+}
+func (UnimplementedAcousticEchoCancelerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAcousticEchoCancelerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AcousticEchoCancelerServiceServer will
+// result in compilation errors.
+type UnsafeAcousticEchoCancelerServiceServer interface {
+	mustEmbedUnimplementedAcousticEchoCancelerServiceServer()
+}
+
+func RegisterAcousticEchoCancelerServiceServer(s grpc.ServiceRegistrar, srv AcousticEchoCancelerServiceServer) {
+	// If the following call panics, it indicates UnimplementedAcousticEchoCancelerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AcousticEchoCancelerService_ServiceDesc, srv)
+}
+
+func _AcousticEchoCancelerService_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AcousticEchoCancelerServiceServer).Create(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AcousticEchoCancelerService_Create_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AcousticEchoCancelerServiceServer).Create(ctx, req.(*CreateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AcousticEchoCancelerService_IsAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsAvailableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AcousticEchoCancelerServiceServer).IsAvailable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AcousticEchoCancelerService_IsAvailable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AcousticEchoCancelerServiceServer).IsAvailable(ctx, req.(*IsAvailableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AcousticEchoCancelerService_ServiceDesc is the grpc.ServiceDesc for AcousticEchoCancelerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AcousticEchoCancelerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "audiofx.AcousticEchoCancelerService",
+	HandlerType: (*AcousticEchoCancelerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Create",
+			Handler:    _AcousticEchoCancelerService_Create_Handler,
 		},
 		{
-			MethodName: "OnWaveFormDataCapture",
-			Handler:    _VisualizerOnDataCaptureListenerService_OnWaveFormDataCapture_Handler,
+			MethodName: "IsAvailable",
+			Handler:    _AcousticEchoCancelerService_IsAvailable_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -2732,2269 +1984,140 @@ var EnvironmentalReverbSettingsService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	AudioEffectService_GetDescriptor_FullMethodName            = "/audiofx.AudioEffectService/GetDescriptor"
-	AudioEffectService_GetEnabled_FullMethodName               = "/audiofx.AudioEffectService/GetEnabled"
-	AudioEffectService_GetId_FullMethodName                    = "/audiofx.AudioEffectService/GetId"
-	AudioEffectService_HasControl_FullMethodName               = "/audiofx.AudioEffectService/HasControl"
-	AudioEffectService_Release_FullMethodName                  = "/audiofx.AudioEffectService/Release"
-	AudioEffectService_SetControlStatusListener_FullMethodName = "/audiofx.AudioEffectService/SetControlStatusListener"
-	AudioEffectService_SetEnableStatusListener_FullMethodName  = "/audiofx.AudioEffectService/SetEnableStatusListener"
-	AudioEffectService_SetEnabled_FullMethodName               = "/audiofx.AudioEffectService/SetEnabled"
-	AudioEffectService_QueryEffects_FullMethodName             = "/audiofx.AudioEffectService/QueryEffects"
+	NoiseSuppressorService_Create_FullMethodName      = "/audiofx.NoiseSuppressorService/Create"
+	NoiseSuppressorService_IsAvailable_FullMethodName = "/audiofx.NoiseSuppressorService/IsAvailable"
 )
 
-// AudioEffectServiceClient is the client API for AudioEffectService service.
+// NoiseSuppressorServiceClient is the client API for NoiseSuppressorService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AudioEffectServiceClient interface {
-	GetDescriptor(ctx context.Context, in *GetDescriptorRequest, opts ...grpc.CallOption) (*GetDescriptorResponse, error)
-	GetEnabled(ctx context.Context, in *AudioEffectGetEnabledRequest, opts ...grpc.CallOption) (*GetEnabledResponse, error)
-	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
-	HasControl(ctx context.Context, in *HasControlRequest, opts ...grpc.CallOption) (*HasControlResponse, error)
-	Release(ctx context.Context, in *AudioEffectReleaseRequest, opts ...grpc.CallOption) (*ReleaseResponse, error)
-	SetControlStatusListener(ctx context.Context, in *SetControlStatusListenerRequest, opts ...grpc.CallOption) (*SetControlStatusListenerResponse, error)
-	SetEnableStatusListener(ctx context.Context, in *SetEnableStatusListenerRequest, opts ...grpc.CallOption) (*SetEnableStatusListenerResponse, error)
-	SetEnabled(ctx context.Context, in *AudioEffectSetEnabledRequest, opts ...grpc.CallOption) (*SetEnabledResponse, error)
-	QueryEffects(ctx context.Context, in *QueryEffectsRequest, opts ...grpc.CallOption) (*QueryEffectsResponse, error)
+type NoiseSuppressorServiceClient interface {
+	Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error)
+	IsAvailable(ctx context.Context, in *IsAvailableRequest, opts ...grpc.CallOption) (*IsAvailableResponse, error)
 }
 
-type audioEffectServiceClient struct {
+type noiseSuppressorServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewAudioEffectServiceClient(cc grpc.ClientConnInterface) AudioEffectServiceClient {
-	return &audioEffectServiceClient{cc}
+func NewNoiseSuppressorServiceClient(cc grpc.ClientConnInterface) NoiseSuppressorServiceClient {
+	return &noiseSuppressorServiceClient{cc}
 }
 
-func (c *audioEffectServiceClient) GetDescriptor(ctx context.Context, in *GetDescriptorRequest, opts ...grpc.CallOption) (*GetDescriptorResponse, error) {
+func (c *noiseSuppressorServiceClient) Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDescriptorResponse)
-	err := c.cc.Invoke(ctx, AudioEffectService_GetDescriptor_FullMethodName, in, out, cOpts...)
+	out := new(CreateResponse)
+	err := c.cc.Invoke(ctx, NoiseSuppressorService_Create_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *audioEffectServiceClient) GetEnabled(ctx context.Context, in *AudioEffectGetEnabledRequest, opts ...grpc.CallOption) (*GetEnabledResponse, error) {
+func (c *noiseSuppressorServiceClient) IsAvailable(ctx context.Context, in *IsAvailableRequest, opts ...grpc.CallOption) (*IsAvailableResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetEnabledResponse)
-	err := c.cc.Invoke(ctx, AudioEffectService_GetEnabled_FullMethodName, in, out, cOpts...)
+	out := new(IsAvailableResponse)
+	err := c.cc.Invoke(ctx, NoiseSuppressorService_IsAvailable_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *audioEffectServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIdResponse)
-	err := c.cc.Invoke(ctx, AudioEffectService_GetId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioEffectServiceClient) HasControl(ctx context.Context, in *HasControlRequest, opts ...grpc.CallOption) (*HasControlResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HasControlResponse)
-	err := c.cc.Invoke(ctx, AudioEffectService_HasControl_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioEffectServiceClient) Release(ctx context.Context, in *AudioEffectReleaseRequest, opts ...grpc.CallOption) (*ReleaseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ReleaseResponse)
-	err := c.cc.Invoke(ctx, AudioEffectService_Release_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioEffectServiceClient) SetControlStatusListener(ctx context.Context, in *SetControlStatusListenerRequest, opts ...grpc.CallOption) (*SetControlStatusListenerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetControlStatusListenerResponse)
-	err := c.cc.Invoke(ctx, AudioEffectService_SetControlStatusListener_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioEffectServiceClient) SetEnableStatusListener(ctx context.Context, in *SetEnableStatusListenerRequest, opts ...grpc.CallOption) (*SetEnableStatusListenerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetEnableStatusListenerResponse)
-	err := c.cc.Invoke(ctx, AudioEffectService_SetEnableStatusListener_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioEffectServiceClient) SetEnabled(ctx context.Context, in *AudioEffectSetEnabledRequest, opts ...grpc.CallOption) (*SetEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetEnabledResponse)
-	err := c.cc.Invoke(ctx, AudioEffectService_SetEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioEffectServiceClient) QueryEffects(ctx context.Context, in *QueryEffectsRequest, opts ...grpc.CallOption) (*QueryEffectsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(QueryEffectsResponse)
-	err := c.cc.Invoke(ctx, AudioEffectService_QueryEffects_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AudioEffectServiceServer is the server API for AudioEffectService service.
-// All implementations must embed UnimplementedAudioEffectServiceServer
+// NoiseSuppressorServiceServer is the server API for NoiseSuppressorService service.
+// All implementations must embed UnimplementedNoiseSuppressorServiceServer
 // for forward compatibility.
-type AudioEffectServiceServer interface {
-	GetDescriptor(context.Context, *GetDescriptorRequest) (*GetDescriptorResponse, error)
-	GetEnabled(context.Context, *AudioEffectGetEnabledRequest) (*GetEnabledResponse, error)
-	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
-	HasControl(context.Context, *HasControlRequest) (*HasControlResponse, error)
-	Release(context.Context, *AudioEffectReleaseRequest) (*ReleaseResponse, error)
-	SetControlStatusListener(context.Context, *SetControlStatusListenerRequest) (*SetControlStatusListenerResponse, error)
-	SetEnableStatusListener(context.Context, *SetEnableStatusListenerRequest) (*SetEnableStatusListenerResponse, error)
-	SetEnabled(context.Context, *AudioEffectSetEnabledRequest) (*SetEnabledResponse, error)
-	QueryEffects(context.Context, *QueryEffectsRequest) (*QueryEffectsResponse, error)
-	mustEmbedUnimplementedAudioEffectServiceServer()
+type NoiseSuppressorServiceServer interface {
+	Create(context.Context, *CreateRequest) (*CreateResponse, error)
+	IsAvailable(context.Context, *IsAvailableRequest) (*IsAvailableResponse, error)
+	mustEmbedUnimplementedNoiseSuppressorServiceServer()
 }
 
-// UnimplementedAudioEffectServiceServer must be embedded to have
+// UnimplementedNoiseSuppressorServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedAudioEffectServiceServer struct{}
+type UnimplementedNoiseSuppressorServiceServer struct{}
 
-func (UnimplementedAudioEffectServiceServer) GetDescriptor(context.Context, *GetDescriptorRequest) (*GetDescriptorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDescriptor not implemented")
+func (UnimplementedNoiseSuppressorServiceServer) Create(context.Context, *CreateRequest) (*CreateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Create not implemented")
 }
-func (UnimplementedAudioEffectServiceServer) GetEnabled(context.Context, *AudioEffectGetEnabledRequest) (*GetEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetEnabled not implemented")
+func (UnimplementedNoiseSuppressorServiceServer) IsAvailable(context.Context, *IsAvailableRequest) (*IsAvailableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsAvailable not implemented")
 }
-func (UnimplementedAudioEffectServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
+func (UnimplementedNoiseSuppressorServiceServer) mustEmbedUnimplementedNoiseSuppressorServiceServer() {
 }
-func (UnimplementedAudioEffectServiceServer) HasControl(context.Context, *HasControlRequest) (*HasControlResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HasControl not implemented")
-}
-func (UnimplementedAudioEffectServiceServer) Release(context.Context, *AudioEffectReleaseRequest) (*ReleaseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Release not implemented")
-}
-func (UnimplementedAudioEffectServiceServer) SetControlStatusListener(context.Context, *SetControlStatusListenerRequest) (*SetControlStatusListenerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetControlStatusListener not implemented")
-}
-func (UnimplementedAudioEffectServiceServer) SetEnableStatusListener(context.Context, *SetEnableStatusListenerRequest) (*SetEnableStatusListenerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetEnableStatusListener not implemented")
-}
-func (UnimplementedAudioEffectServiceServer) SetEnabled(context.Context, *AudioEffectSetEnabledRequest) (*SetEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetEnabled not implemented")
-}
-func (UnimplementedAudioEffectServiceServer) QueryEffects(context.Context, *QueryEffectsRequest) (*QueryEffectsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method QueryEffects not implemented")
-}
-func (UnimplementedAudioEffectServiceServer) mustEmbedUnimplementedAudioEffectServiceServer() {}
-func (UnimplementedAudioEffectServiceServer) testEmbeddedByValue()                            {}
+func (UnimplementedNoiseSuppressorServiceServer) testEmbeddedByValue() {}
 
-// UnsafeAudioEffectServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AudioEffectServiceServer will
+// UnsafeNoiseSuppressorServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to NoiseSuppressorServiceServer will
 // result in compilation errors.
-type UnsafeAudioEffectServiceServer interface {
-	mustEmbedUnimplementedAudioEffectServiceServer()
+type UnsafeNoiseSuppressorServiceServer interface {
+	mustEmbedUnimplementedNoiseSuppressorServiceServer()
 }
 
-func RegisterAudioEffectServiceServer(s grpc.ServiceRegistrar, srv AudioEffectServiceServer) {
-	// If the following call panics, it indicates UnimplementedAudioEffectServiceServer was
+func RegisterNoiseSuppressorServiceServer(s grpc.ServiceRegistrar, srv NoiseSuppressorServiceServer) {
+	// If the following call panics, it indicates UnimplementedNoiseSuppressorServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&AudioEffectService_ServiceDesc, srv)
+	s.RegisterService(&NoiseSuppressorService_ServiceDesc, srv)
 }
 
-func _AudioEffectService_GetDescriptor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDescriptorRequest)
+func _NoiseSuppressorService_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AudioEffectServiceServer).GetDescriptor(ctx, in)
+		return srv.(NoiseSuppressorServiceServer).Create(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AudioEffectService_GetDescriptor_FullMethodName,
+		FullMethod: NoiseSuppressorService_Create_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioEffectServiceServer).GetDescriptor(ctx, req.(*GetDescriptorRequest))
+		return srv.(NoiseSuppressorServiceServer).Create(ctx, req.(*CreateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AudioEffectService_GetEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AudioEffectGetEnabledRequest)
+func _NoiseSuppressorService_IsAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsAvailableRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AudioEffectServiceServer).GetEnabled(ctx, in)
+		return srv.(NoiseSuppressorServiceServer).IsAvailable(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AudioEffectService_GetEnabled_FullMethodName,
+		FullMethod: NoiseSuppressorService_IsAvailable_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioEffectServiceServer).GetEnabled(ctx, req.(*AudioEffectGetEnabledRequest))
+		return srv.(NoiseSuppressorServiceServer).IsAvailable(ctx, req.(*IsAvailableRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AudioEffectService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioEffectServiceServer).GetId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioEffectService_GetId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioEffectServiceServer).GetId(ctx, req.(*GetIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioEffectService_HasControl_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HasControlRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioEffectServiceServer).HasControl(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioEffectService_HasControl_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioEffectServiceServer).HasControl(ctx, req.(*HasControlRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioEffectService_Release_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AudioEffectReleaseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioEffectServiceServer).Release(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioEffectService_Release_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioEffectServiceServer).Release(ctx, req.(*AudioEffectReleaseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioEffectService_SetControlStatusListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetControlStatusListenerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioEffectServiceServer).SetControlStatusListener(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioEffectService_SetControlStatusListener_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioEffectServiceServer).SetControlStatusListener(ctx, req.(*SetControlStatusListenerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioEffectService_SetEnableStatusListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetEnableStatusListenerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioEffectServiceServer).SetEnableStatusListener(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioEffectService_SetEnableStatusListener_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioEffectServiceServer).SetEnableStatusListener(ctx, req.(*SetEnableStatusListenerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioEffectService_SetEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AudioEffectSetEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioEffectServiceServer).SetEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioEffectService_SetEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioEffectServiceServer).SetEnabled(ctx, req.(*AudioEffectSetEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioEffectService_QueryEffects_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QueryEffectsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioEffectServiceServer).QueryEffects(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioEffectService_QueryEffects_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioEffectServiceServer).QueryEffects(ctx, req.(*QueryEffectsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AudioEffectService_ServiceDesc is the grpc.ServiceDesc for AudioEffectService service.
+// NoiseSuppressorService_ServiceDesc is the grpc.ServiceDesc for NoiseSuppressorService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var AudioEffectService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "audiofx.AudioEffectService",
-	HandlerType: (*AudioEffectServiceServer)(nil),
+var NoiseSuppressorService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "audiofx.NoiseSuppressorService",
+	HandlerType: (*NoiseSuppressorServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "GetDescriptor",
-			Handler:    _AudioEffectService_GetDescriptor_Handler,
+			MethodName: "Create",
+			Handler:    _NoiseSuppressorService_Create_Handler,
 		},
 		{
-			MethodName: "GetEnabled",
-			Handler:    _AudioEffectService_GetEnabled_Handler,
-		},
-		{
-			MethodName: "GetId",
-			Handler:    _AudioEffectService_GetId_Handler,
-		},
-		{
-			MethodName: "HasControl",
-			Handler:    _AudioEffectService_HasControl_Handler,
-		},
-		{
-			MethodName: "Release",
-			Handler:    _AudioEffectService_Release_Handler,
-		},
-		{
-			MethodName: "SetControlStatusListener",
-			Handler:    _AudioEffectService_SetControlStatusListener_Handler,
-		},
-		{
-			MethodName: "SetEnableStatusListener",
-			Handler:    _AudioEffectService_SetEnableStatusListener_Handler,
-		},
-		{
-			MethodName: "SetEnabled",
-			Handler:    _AudioEffectService_SetEnabled_Handler,
-		},
-		{
-			MethodName: "QueryEffects",
-			Handler:    _AudioEffectService_QueryEffects_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/audiofx/audiofx.proto",
-}
-
-const (
-	AudioEffectDescriptorService_Equals_FullMethodName   = "/audiofx.AudioEffectDescriptorService/Equals"
-	AudioEffectDescriptorService_HashCode_FullMethodName = "/audiofx.AudioEffectDescriptorService/HashCode"
-)
-
-// AudioEffectDescriptorServiceClient is the client API for AudioEffectDescriptorService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AudioEffectDescriptorServiceClient interface {
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-}
-
-type audioEffectDescriptorServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAudioEffectDescriptorServiceClient(cc grpc.ClientConnInterface) AudioEffectDescriptorServiceClient {
-	return &audioEffectDescriptorServiceClient{cc}
-}
-
-func (c *audioEffectDescriptorServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, AudioEffectDescriptorService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *audioEffectDescriptorServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, AudioEffectDescriptorService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AudioEffectDescriptorServiceServer is the server API for AudioEffectDescriptorService service.
-// All implementations must embed UnimplementedAudioEffectDescriptorServiceServer
-// for forward compatibility.
-type AudioEffectDescriptorServiceServer interface {
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	mustEmbedUnimplementedAudioEffectDescriptorServiceServer()
-}
-
-// UnimplementedAudioEffectDescriptorServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAudioEffectDescriptorServiceServer struct{}
-
-func (UnimplementedAudioEffectDescriptorServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedAudioEffectDescriptorServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedAudioEffectDescriptorServiceServer) mustEmbedUnimplementedAudioEffectDescriptorServiceServer() {
-}
-func (UnimplementedAudioEffectDescriptorServiceServer) testEmbeddedByValue() {}
-
-// UnsafeAudioEffectDescriptorServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AudioEffectDescriptorServiceServer will
-// result in compilation errors.
-type UnsafeAudioEffectDescriptorServiceServer interface {
-	mustEmbedUnimplementedAudioEffectDescriptorServiceServer()
-}
-
-func RegisterAudioEffectDescriptorServiceServer(s grpc.ServiceRegistrar, srv AudioEffectDescriptorServiceServer) {
-	// If the following call panics, it indicates UnimplementedAudioEffectDescriptorServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AudioEffectDescriptorService_ServiceDesc, srv)
-}
-
-func _AudioEffectDescriptorService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioEffectDescriptorServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioEffectDescriptorService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioEffectDescriptorServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AudioEffectDescriptorService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioEffectDescriptorServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioEffectDescriptorService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioEffectDescriptorServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AudioEffectDescriptorService_ServiceDesc is the grpc.ServiceDesc for AudioEffectDescriptorService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AudioEffectDescriptorService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "audiofx.AudioEffectDescriptorService",
-	HandlerType: (*AudioEffectDescriptorServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Equals",
-			Handler:    _AudioEffectDescriptorService_Equals_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _AudioEffectDescriptorService_HashCode_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/audiofx/audiofx.proto",
-}
-
-const (
-	AudioEffectOnControlStatusChangeListenerService_OnControlStatusChange_FullMethodName = "/audiofx.AudioEffectOnControlStatusChangeListenerService/OnControlStatusChange"
-)
-
-// AudioEffectOnControlStatusChangeListenerServiceClient is the client API for AudioEffectOnControlStatusChangeListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AudioEffectOnControlStatusChangeListenerServiceClient interface {
-	OnControlStatusChange(ctx context.Context, in *OnControlStatusChangeRequest, opts ...grpc.CallOption) (*OnControlStatusChangeResponse, error)
-}
-
-type audioEffectOnControlStatusChangeListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAudioEffectOnControlStatusChangeListenerServiceClient(cc grpc.ClientConnInterface) AudioEffectOnControlStatusChangeListenerServiceClient {
-	return &audioEffectOnControlStatusChangeListenerServiceClient{cc}
-}
-
-func (c *audioEffectOnControlStatusChangeListenerServiceClient) OnControlStatusChange(ctx context.Context, in *OnControlStatusChangeRequest, opts ...grpc.CallOption) (*OnControlStatusChangeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnControlStatusChangeResponse)
-	err := c.cc.Invoke(ctx, AudioEffectOnControlStatusChangeListenerService_OnControlStatusChange_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AudioEffectOnControlStatusChangeListenerServiceServer is the server API for AudioEffectOnControlStatusChangeListenerService service.
-// All implementations must embed UnimplementedAudioEffectOnControlStatusChangeListenerServiceServer
-// for forward compatibility.
-type AudioEffectOnControlStatusChangeListenerServiceServer interface {
-	OnControlStatusChange(context.Context, *OnControlStatusChangeRequest) (*OnControlStatusChangeResponse, error)
-	mustEmbedUnimplementedAudioEffectOnControlStatusChangeListenerServiceServer()
-}
-
-// UnimplementedAudioEffectOnControlStatusChangeListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAudioEffectOnControlStatusChangeListenerServiceServer struct{}
-
-func (UnimplementedAudioEffectOnControlStatusChangeListenerServiceServer) OnControlStatusChange(context.Context, *OnControlStatusChangeRequest) (*OnControlStatusChangeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnControlStatusChange not implemented")
-}
-func (UnimplementedAudioEffectOnControlStatusChangeListenerServiceServer) mustEmbedUnimplementedAudioEffectOnControlStatusChangeListenerServiceServer() {
-}
-func (UnimplementedAudioEffectOnControlStatusChangeListenerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeAudioEffectOnControlStatusChangeListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AudioEffectOnControlStatusChangeListenerServiceServer will
-// result in compilation errors.
-type UnsafeAudioEffectOnControlStatusChangeListenerServiceServer interface {
-	mustEmbedUnimplementedAudioEffectOnControlStatusChangeListenerServiceServer()
-}
-
-func RegisterAudioEffectOnControlStatusChangeListenerServiceServer(s grpc.ServiceRegistrar, srv AudioEffectOnControlStatusChangeListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedAudioEffectOnControlStatusChangeListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AudioEffectOnControlStatusChangeListenerService_ServiceDesc, srv)
-}
-
-func _AudioEffectOnControlStatusChangeListenerService_OnControlStatusChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnControlStatusChangeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioEffectOnControlStatusChangeListenerServiceServer).OnControlStatusChange(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioEffectOnControlStatusChangeListenerService_OnControlStatusChange_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioEffectOnControlStatusChangeListenerServiceServer).OnControlStatusChange(ctx, req.(*OnControlStatusChangeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AudioEffectOnControlStatusChangeListenerService_ServiceDesc is the grpc.ServiceDesc for AudioEffectOnControlStatusChangeListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AudioEffectOnControlStatusChangeListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "audiofx.AudioEffectOnControlStatusChangeListenerService",
-	HandlerType: (*AudioEffectOnControlStatusChangeListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnControlStatusChange",
-			Handler:    _AudioEffectOnControlStatusChangeListenerService_OnControlStatusChange_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/audiofx/audiofx.proto",
-}
-
-const (
-	AudioEffectOnEnableStatusChangeListenerService_OnEnableStatusChange_FullMethodName = "/audiofx.AudioEffectOnEnableStatusChangeListenerService/OnEnableStatusChange"
-)
-
-// AudioEffectOnEnableStatusChangeListenerServiceClient is the client API for AudioEffectOnEnableStatusChangeListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AudioEffectOnEnableStatusChangeListenerServiceClient interface {
-	OnEnableStatusChange(ctx context.Context, in *OnEnableStatusChangeRequest, opts ...grpc.CallOption) (*OnEnableStatusChangeResponse, error)
-}
-
-type audioEffectOnEnableStatusChangeListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAudioEffectOnEnableStatusChangeListenerServiceClient(cc grpc.ClientConnInterface) AudioEffectOnEnableStatusChangeListenerServiceClient {
-	return &audioEffectOnEnableStatusChangeListenerServiceClient{cc}
-}
-
-func (c *audioEffectOnEnableStatusChangeListenerServiceClient) OnEnableStatusChange(ctx context.Context, in *OnEnableStatusChangeRequest, opts ...grpc.CallOption) (*OnEnableStatusChangeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnEnableStatusChangeResponse)
-	err := c.cc.Invoke(ctx, AudioEffectOnEnableStatusChangeListenerService_OnEnableStatusChange_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AudioEffectOnEnableStatusChangeListenerServiceServer is the server API for AudioEffectOnEnableStatusChangeListenerService service.
-// All implementations must embed UnimplementedAudioEffectOnEnableStatusChangeListenerServiceServer
-// for forward compatibility.
-type AudioEffectOnEnableStatusChangeListenerServiceServer interface {
-	OnEnableStatusChange(context.Context, *OnEnableStatusChangeRequest) (*OnEnableStatusChangeResponse, error)
-	mustEmbedUnimplementedAudioEffectOnEnableStatusChangeListenerServiceServer()
-}
-
-// UnimplementedAudioEffectOnEnableStatusChangeListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAudioEffectOnEnableStatusChangeListenerServiceServer struct{}
-
-func (UnimplementedAudioEffectOnEnableStatusChangeListenerServiceServer) OnEnableStatusChange(context.Context, *OnEnableStatusChangeRequest) (*OnEnableStatusChangeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnEnableStatusChange not implemented")
-}
-func (UnimplementedAudioEffectOnEnableStatusChangeListenerServiceServer) mustEmbedUnimplementedAudioEffectOnEnableStatusChangeListenerServiceServer() {
-}
-func (UnimplementedAudioEffectOnEnableStatusChangeListenerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeAudioEffectOnEnableStatusChangeListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AudioEffectOnEnableStatusChangeListenerServiceServer will
-// result in compilation errors.
-type UnsafeAudioEffectOnEnableStatusChangeListenerServiceServer interface {
-	mustEmbedUnimplementedAudioEffectOnEnableStatusChangeListenerServiceServer()
-}
-
-func RegisterAudioEffectOnEnableStatusChangeListenerServiceServer(s grpc.ServiceRegistrar, srv AudioEffectOnEnableStatusChangeListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedAudioEffectOnEnableStatusChangeListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AudioEffectOnEnableStatusChangeListenerService_ServiceDesc, srv)
-}
-
-func _AudioEffectOnEnableStatusChangeListenerService_OnEnableStatusChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnEnableStatusChangeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AudioEffectOnEnableStatusChangeListenerServiceServer).OnEnableStatusChange(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AudioEffectOnEnableStatusChangeListenerService_OnEnableStatusChange_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AudioEffectOnEnableStatusChangeListenerServiceServer).OnEnableStatusChange(ctx, req.(*OnEnableStatusChangeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AudioEffectOnEnableStatusChangeListenerService_ServiceDesc is the grpc.ServiceDesc for AudioEffectOnEnableStatusChangeListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AudioEffectOnEnableStatusChangeListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "audiofx.AudioEffectOnEnableStatusChangeListenerService",
-	HandlerType: (*AudioEffectOnEnableStatusChangeListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnEnableStatusChange",
-			Handler:    _AudioEffectOnEnableStatusChangeListenerService_OnEnableStatusChange_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/audiofx/audiofx.proto",
-}
-
-const (
-	EqualizerService_NewEqualizer_FullMethodName         = "/audiofx.EqualizerService/NewEqualizer"
-	EqualizerService_GetBand_FullMethodName              = "/audiofx.EqualizerService/GetBand"
-	EqualizerService_GetBandFreqRange_FullMethodName     = "/audiofx.EqualizerService/GetBandFreqRange"
-	EqualizerService_GetBandLevel_FullMethodName         = "/audiofx.EqualizerService/GetBandLevel"
-	EqualizerService_GetBandLevelRange_FullMethodName    = "/audiofx.EqualizerService/GetBandLevelRange"
-	EqualizerService_GetCenterFreq_FullMethodName        = "/audiofx.EqualizerService/GetCenterFreq"
-	EqualizerService_GetCurrentPreset_FullMethodName     = "/audiofx.EqualizerService/GetCurrentPreset"
-	EqualizerService_GetNumberOfBands_FullMethodName     = "/audiofx.EqualizerService/GetNumberOfBands"
-	EqualizerService_GetNumberOfPresets_FullMethodName   = "/audiofx.EqualizerService/GetNumberOfPresets"
-	EqualizerService_GetPresetName_FullMethodName        = "/audiofx.EqualizerService/GetPresetName"
-	EqualizerService_GetProperties_FullMethodName        = "/audiofx.EqualizerService/GetProperties"
-	EqualizerService_SetBandLevel_FullMethodName         = "/audiofx.EqualizerService/SetBandLevel"
-	EqualizerService_SetParameterListener_FullMethodName = "/audiofx.EqualizerService/SetParameterListener"
-	EqualizerService_SetProperties_FullMethodName        = "/audiofx.EqualizerService/SetProperties"
-	EqualizerService_UsePreset_FullMethodName            = "/audiofx.EqualizerService/UsePreset"
-)
-
-// EqualizerServiceClient is the client API for EqualizerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type EqualizerServiceClient interface {
-	NewEqualizer(ctx context.Context, in *NewEqualizerRequest, opts ...grpc.CallOption) (*NewEqualizerResponse, error)
-	GetBand(ctx context.Context, in *GetBandRequest, opts ...grpc.CallOption) (*GetBandResponse, error)
-	GetBandFreqRange(ctx context.Context, in *GetBandFreqRangeRequest, opts ...grpc.CallOption) (*GetBandFreqRangeResponse, error)
-	GetBandLevel(ctx context.Context, in *GetBandLevelRequest, opts ...grpc.CallOption) (*GetBandLevelResponse, error)
-	GetBandLevelRange(ctx context.Context, in *GetBandLevelRangeRequest, opts ...grpc.CallOption) (*GetBandLevelRangeResponse, error)
-	GetCenterFreq(ctx context.Context, in *GetCenterFreqRequest, opts ...grpc.CallOption) (*GetCenterFreqResponse, error)
-	GetCurrentPreset(ctx context.Context, in *GetCurrentPresetRequest, opts ...grpc.CallOption) (*GetCurrentPresetResponse, error)
-	GetNumberOfBands(ctx context.Context, in *GetNumberOfBandsRequest, opts ...grpc.CallOption) (*GetNumberOfBandsResponse, error)
-	GetNumberOfPresets(ctx context.Context, in *GetNumberOfPresetsRequest, opts ...grpc.CallOption) (*GetNumberOfPresetsResponse, error)
-	GetPresetName(ctx context.Context, in *GetPresetNameRequest, opts ...grpc.CallOption) (*GetPresetNameResponse, error)
-	GetProperties(ctx context.Context, in *GetPropertiesRequest, opts ...grpc.CallOption) (*GetPropertiesResponse, error)
-	SetBandLevel(ctx context.Context, in *SetBandLevelRequest, opts ...grpc.CallOption) (*SetBandLevelResponse, error)
-	SetParameterListener(ctx context.Context, in *SetParameterListenerRequest, opts ...grpc.CallOption) (*SetParameterListenerResponse, error)
-	SetProperties(ctx context.Context, in *SetPropertiesRequest, opts ...grpc.CallOption) (*SetPropertiesResponse, error)
-	UsePreset(ctx context.Context, in *UsePresetRequest, opts ...grpc.CallOption) (*UsePresetResponse, error)
-}
-
-type equalizerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewEqualizerServiceClient(cc grpc.ClientConnInterface) EqualizerServiceClient {
-	return &equalizerServiceClient{cc}
-}
-
-func (c *equalizerServiceClient) NewEqualizer(ctx context.Context, in *NewEqualizerRequest, opts ...grpc.CallOption) (*NewEqualizerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewEqualizerResponse)
-	err := c.cc.Invoke(ctx, EqualizerService_NewEqualizer_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *equalizerServiceClient) GetBand(ctx context.Context, in *GetBandRequest, opts ...grpc.CallOption) (*GetBandResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetBandResponse)
-	err := c.cc.Invoke(ctx, EqualizerService_GetBand_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *equalizerServiceClient) GetBandFreqRange(ctx context.Context, in *GetBandFreqRangeRequest, opts ...grpc.CallOption) (*GetBandFreqRangeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetBandFreqRangeResponse)
-	err := c.cc.Invoke(ctx, EqualizerService_GetBandFreqRange_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *equalizerServiceClient) GetBandLevel(ctx context.Context, in *GetBandLevelRequest, opts ...grpc.CallOption) (*GetBandLevelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetBandLevelResponse)
-	err := c.cc.Invoke(ctx, EqualizerService_GetBandLevel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *equalizerServiceClient) GetBandLevelRange(ctx context.Context, in *GetBandLevelRangeRequest, opts ...grpc.CallOption) (*GetBandLevelRangeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetBandLevelRangeResponse)
-	err := c.cc.Invoke(ctx, EqualizerService_GetBandLevelRange_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *equalizerServiceClient) GetCenterFreq(ctx context.Context, in *GetCenterFreqRequest, opts ...grpc.CallOption) (*GetCenterFreqResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCenterFreqResponse)
-	err := c.cc.Invoke(ctx, EqualizerService_GetCenterFreq_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *equalizerServiceClient) GetCurrentPreset(ctx context.Context, in *GetCurrentPresetRequest, opts ...grpc.CallOption) (*GetCurrentPresetResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCurrentPresetResponse)
-	err := c.cc.Invoke(ctx, EqualizerService_GetCurrentPreset_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *equalizerServiceClient) GetNumberOfBands(ctx context.Context, in *GetNumberOfBandsRequest, opts ...grpc.CallOption) (*GetNumberOfBandsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNumberOfBandsResponse)
-	err := c.cc.Invoke(ctx, EqualizerService_GetNumberOfBands_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *equalizerServiceClient) GetNumberOfPresets(ctx context.Context, in *GetNumberOfPresetsRequest, opts ...grpc.CallOption) (*GetNumberOfPresetsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNumberOfPresetsResponse)
-	err := c.cc.Invoke(ctx, EqualizerService_GetNumberOfPresets_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *equalizerServiceClient) GetPresetName(ctx context.Context, in *GetPresetNameRequest, opts ...grpc.CallOption) (*GetPresetNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPresetNameResponse)
-	err := c.cc.Invoke(ctx, EqualizerService_GetPresetName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *equalizerServiceClient) GetProperties(ctx context.Context, in *GetPropertiesRequest, opts ...grpc.CallOption) (*GetPropertiesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPropertiesResponse)
-	err := c.cc.Invoke(ctx, EqualizerService_GetProperties_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *equalizerServiceClient) SetBandLevel(ctx context.Context, in *SetBandLevelRequest, opts ...grpc.CallOption) (*SetBandLevelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetBandLevelResponse)
-	err := c.cc.Invoke(ctx, EqualizerService_SetBandLevel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *equalizerServiceClient) SetParameterListener(ctx context.Context, in *SetParameterListenerRequest, opts ...grpc.CallOption) (*SetParameterListenerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetParameterListenerResponse)
-	err := c.cc.Invoke(ctx, EqualizerService_SetParameterListener_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *equalizerServiceClient) SetProperties(ctx context.Context, in *SetPropertiesRequest, opts ...grpc.CallOption) (*SetPropertiesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPropertiesResponse)
-	err := c.cc.Invoke(ctx, EqualizerService_SetProperties_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *equalizerServiceClient) UsePreset(ctx context.Context, in *UsePresetRequest, opts ...grpc.CallOption) (*UsePresetResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UsePresetResponse)
-	err := c.cc.Invoke(ctx, EqualizerService_UsePreset_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// EqualizerServiceServer is the server API for EqualizerService service.
-// All implementations must embed UnimplementedEqualizerServiceServer
-// for forward compatibility.
-type EqualizerServiceServer interface {
-	NewEqualizer(context.Context, *NewEqualizerRequest) (*NewEqualizerResponse, error)
-	GetBand(context.Context, *GetBandRequest) (*GetBandResponse, error)
-	GetBandFreqRange(context.Context, *GetBandFreqRangeRequest) (*GetBandFreqRangeResponse, error)
-	GetBandLevel(context.Context, *GetBandLevelRequest) (*GetBandLevelResponse, error)
-	GetBandLevelRange(context.Context, *GetBandLevelRangeRequest) (*GetBandLevelRangeResponse, error)
-	GetCenterFreq(context.Context, *GetCenterFreqRequest) (*GetCenterFreqResponse, error)
-	GetCurrentPreset(context.Context, *GetCurrentPresetRequest) (*GetCurrentPresetResponse, error)
-	GetNumberOfBands(context.Context, *GetNumberOfBandsRequest) (*GetNumberOfBandsResponse, error)
-	GetNumberOfPresets(context.Context, *GetNumberOfPresetsRequest) (*GetNumberOfPresetsResponse, error)
-	GetPresetName(context.Context, *GetPresetNameRequest) (*GetPresetNameResponse, error)
-	GetProperties(context.Context, *GetPropertiesRequest) (*GetPropertiesResponse, error)
-	SetBandLevel(context.Context, *SetBandLevelRequest) (*SetBandLevelResponse, error)
-	SetParameterListener(context.Context, *SetParameterListenerRequest) (*SetParameterListenerResponse, error)
-	SetProperties(context.Context, *SetPropertiesRequest) (*SetPropertiesResponse, error)
-	UsePreset(context.Context, *UsePresetRequest) (*UsePresetResponse, error)
-	mustEmbedUnimplementedEqualizerServiceServer()
-}
-
-// UnimplementedEqualizerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedEqualizerServiceServer struct{}
-
-func (UnimplementedEqualizerServiceServer) NewEqualizer(context.Context, *NewEqualizerRequest) (*NewEqualizerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewEqualizer not implemented")
-}
-func (UnimplementedEqualizerServiceServer) GetBand(context.Context, *GetBandRequest) (*GetBandResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetBand not implemented")
-}
-func (UnimplementedEqualizerServiceServer) GetBandFreqRange(context.Context, *GetBandFreqRangeRequest) (*GetBandFreqRangeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetBandFreqRange not implemented")
-}
-func (UnimplementedEqualizerServiceServer) GetBandLevel(context.Context, *GetBandLevelRequest) (*GetBandLevelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetBandLevel not implemented")
-}
-func (UnimplementedEqualizerServiceServer) GetBandLevelRange(context.Context, *GetBandLevelRangeRequest) (*GetBandLevelRangeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetBandLevelRange not implemented")
-}
-func (UnimplementedEqualizerServiceServer) GetCenterFreq(context.Context, *GetCenterFreqRequest) (*GetCenterFreqResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCenterFreq not implemented")
-}
-func (UnimplementedEqualizerServiceServer) GetCurrentPreset(context.Context, *GetCurrentPresetRequest) (*GetCurrentPresetResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCurrentPreset not implemented")
-}
-func (UnimplementedEqualizerServiceServer) GetNumberOfBands(context.Context, *GetNumberOfBandsRequest) (*GetNumberOfBandsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetNumberOfBands not implemented")
-}
-func (UnimplementedEqualizerServiceServer) GetNumberOfPresets(context.Context, *GetNumberOfPresetsRequest) (*GetNumberOfPresetsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetNumberOfPresets not implemented")
-}
-func (UnimplementedEqualizerServiceServer) GetPresetName(context.Context, *GetPresetNameRequest) (*GetPresetNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPresetName not implemented")
-}
-func (UnimplementedEqualizerServiceServer) GetProperties(context.Context, *GetPropertiesRequest) (*GetPropertiesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetProperties not implemented")
-}
-func (UnimplementedEqualizerServiceServer) SetBandLevel(context.Context, *SetBandLevelRequest) (*SetBandLevelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetBandLevel not implemented")
-}
-func (UnimplementedEqualizerServiceServer) SetParameterListener(context.Context, *SetParameterListenerRequest) (*SetParameterListenerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetParameterListener not implemented")
-}
-func (UnimplementedEqualizerServiceServer) SetProperties(context.Context, *SetPropertiesRequest) (*SetPropertiesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetProperties not implemented")
-}
-func (UnimplementedEqualizerServiceServer) UsePreset(context.Context, *UsePresetRequest) (*UsePresetResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UsePreset not implemented")
-}
-func (UnimplementedEqualizerServiceServer) mustEmbedUnimplementedEqualizerServiceServer() {}
-func (UnimplementedEqualizerServiceServer) testEmbeddedByValue()                          {}
-
-// UnsafeEqualizerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to EqualizerServiceServer will
-// result in compilation errors.
-type UnsafeEqualizerServiceServer interface {
-	mustEmbedUnimplementedEqualizerServiceServer()
-}
-
-func RegisterEqualizerServiceServer(s grpc.ServiceRegistrar, srv EqualizerServiceServer) {
-	// If the following call panics, it indicates UnimplementedEqualizerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&EqualizerService_ServiceDesc, srv)
-}
-
-func _EqualizerService_NewEqualizer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewEqualizerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EqualizerServiceServer).NewEqualizer(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EqualizerService_NewEqualizer_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EqualizerServiceServer).NewEqualizer(ctx, req.(*NewEqualizerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EqualizerService_GetBand_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetBandRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EqualizerServiceServer).GetBand(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EqualizerService_GetBand_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EqualizerServiceServer).GetBand(ctx, req.(*GetBandRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EqualizerService_GetBandFreqRange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetBandFreqRangeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EqualizerServiceServer).GetBandFreqRange(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EqualizerService_GetBandFreqRange_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EqualizerServiceServer).GetBandFreqRange(ctx, req.(*GetBandFreqRangeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EqualizerService_GetBandLevel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetBandLevelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EqualizerServiceServer).GetBandLevel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EqualizerService_GetBandLevel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EqualizerServiceServer).GetBandLevel(ctx, req.(*GetBandLevelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EqualizerService_GetBandLevelRange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetBandLevelRangeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EqualizerServiceServer).GetBandLevelRange(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EqualizerService_GetBandLevelRange_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EqualizerServiceServer).GetBandLevelRange(ctx, req.(*GetBandLevelRangeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EqualizerService_GetCenterFreq_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCenterFreqRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EqualizerServiceServer).GetCenterFreq(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EqualizerService_GetCenterFreq_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EqualizerServiceServer).GetCenterFreq(ctx, req.(*GetCenterFreqRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EqualizerService_GetCurrentPreset_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCurrentPresetRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EqualizerServiceServer).GetCurrentPreset(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EqualizerService_GetCurrentPreset_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EqualizerServiceServer).GetCurrentPreset(ctx, req.(*GetCurrentPresetRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EqualizerService_GetNumberOfBands_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNumberOfBandsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EqualizerServiceServer).GetNumberOfBands(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EqualizerService_GetNumberOfBands_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EqualizerServiceServer).GetNumberOfBands(ctx, req.(*GetNumberOfBandsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EqualizerService_GetNumberOfPresets_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNumberOfPresetsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EqualizerServiceServer).GetNumberOfPresets(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EqualizerService_GetNumberOfPresets_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EqualizerServiceServer).GetNumberOfPresets(ctx, req.(*GetNumberOfPresetsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EqualizerService_GetPresetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPresetNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EqualizerServiceServer).GetPresetName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EqualizerService_GetPresetName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EqualizerServiceServer).GetPresetName(ctx, req.(*GetPresetNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EqualizerService_GetProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPropertiesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EqualizerServiceServer).GetProperties(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EqualizerService_GetProperties_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EqualizerServiceServer).GetProperties(ctx, req.(*GetPropertiesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EqualizerService_SetBandLevel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetBandLevelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EqualizerServiceServer).SetBandLevel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EqualizerService_SetBandLevel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EqualizerServiceServer).SetBandLevel(ctx, req.(*SetBandLevelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EqualizerService_SetParameterListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetParameterListenerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EqualizerServiceServer).SetParameterListener(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EqualizerService_SetParameterListener_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EqualizerServiceServer).SetParameterListener(ctx, req.(*SetParameterListenerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EqualizerService_SetProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPropertiesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EqualizerServiceServer).SetProperties(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EqualizerService_SetProperties_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EqualizerServiceServer).SetProperties(ctx, req.(*SetPropertiesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EqualizerService_UsePreset_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UsePresetRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EqualizerServiceServer).UsePreset(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EqualizerService_UsePreset_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EqualizerServiceServer).UsePreset(ctx, req.(*UsePresetRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// EqualizerService_ServiceDesc is the grpc.ServiceDesc for EqualizerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var EqualizerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "audiofx.EqualizerService",
-	HandlerType: (*EqualizerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewEqualizer",
-			Handler:    _EqualizerService_NewEqualizer_Handler,
-		},
-		{
-			MethodName: "GetBand",
-			Handler:    _EqualizerService_GetBand_Handler,
-		},
-		{
-			MethodName: "GetBandFreqRange",
-			Handler:    _EqualizerService_GetBandFreqRange_Handler,
-		},
-		{
-			MethodName: "GetBandLevel",
-			Handler:    _EqualizerService_GetBandLevel_Handler,
-		},
-		{
-			MethodName: "GetBandLevelRange",
-			Handler:    _EqualizerService_GetBandLevelRange_Handler,
-		},
-		{
-			MethodName: "GetCenterFreq",
-			Handler:    _EqualizerService_GetCenterFreq_Handler,
-		},
-		{
-			MethodName: "GetCurrentPreset",
-			Handler:    _EqualizerService_GetCurrentPreset_Handler,
-		},
-		{
-			MethodName: "GetNumberOfBands",
-			Handler:    _EqualizerService_GetNumberOfBands_Handler,
-		},
-		{
-			MethodName: "GetNumberOfPresets",
-			Handler:    _EqualizerService_GetNumberOfPresets_Handler,
-		},
-		{
-			MethodName: "GetPresetName",
-			Handler:    _EqualizerService_GetPresetName_Handler,
-		},
-		{
-			MethodName: "GetProperties",
-			Handler:    _EqualizerService_GetProperties_Handler,
-		},
-		{
-			MethodName: "SetBandLevel",
-			Handler:    _EqualizerService_SetBandLevel_Handler,
-		},
-		{
-			MethodName: "SetParameterListener",
-			Handler:    _EqualizerService_SetParameterListener_Handler,
-		},
-		{
-			MethodName: "SetProperties",
-			Handler:    _EqualizerService_SetProperties_Handler,
-		},
-		{
-			MethodName: "UsePreset",
-			Handler:    _EqualizerService_UsePreset_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/audiofx/audiofx.proto",
-}
-
-const (
-	EqualizerOnParameterChangeListenerService_OnParameterChange_FullMethodName = "/audiofx.EqualizerOnParameterChangeListenerService/OnParameterChange"
-)
-
-// EqualizerOnParameterChangeListenerServiceClient is the client API for EqualizerOnParameterChangeListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type EqualizerOnParameterChangeListenerServiceClient interface {
-	OnParameterChange(ctx context.Context, in *EqualizerOnParameterChangeListenerOnParameterChangeRequest, opts ...grpc.CallOption) (*OnParameterChangeResponse, error)
-}
-
-type equalizerOnParameterChangeListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewEqualizerOnParameterChangeListenerServiceClient(cc grpc.ClientConnInterface) EqualizerOnParameterChangeListenerServiceClient {
-	return &equalizerOnParameterChangeListenerServiceClient{cc}
-}
-
-func (c *equalizerOnParameterChangeListenerServiceClient) OnParameterChange(ctx context.Context, in *EqualizerOnParameterChangeListenerOnParameterChangeRequest, opts ...grpc.CallOption) (*OnParameterChangeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnParameterChangeResponse)
-	err := c.cc.Invoke(ctx, EqualizerOnParameterChangeListenerService_OnParameterChange_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// EqualizerOnParameterChangeListenerServiceServer is the server API for EqualizerOnParameterChangeListenerService service.
-// All implementations must embed UnimplementedEqualizerOnParameterChangeListenerServiceServer
-// for forward compatibility.
-type EqualizerOnParameterChangeListenerServiceServer interface {
-	OnParameterChange(context.Context, *EqualizerOnParameterChangeListenerOnParameterChangeRequest) (*OnParameterChangeResponse, error)
-	mustEmbedUnimplementedEqualizerOnParameterChangeListenerServiceServer()
-}
-
-// UnimplementedEqualizerOnParameterChangeListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedEqualizerOnParameterChangeListenerServiceServer struct{}
-
-func (UnimplementedEqualizerOnParameterChangeListenerServiceServer) OnParameterChange(context.Context, *EqualizerOnParameterChangeListenerOnParameterChangeRequest) (*OnParameterChangeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnParameterChange not implemented")
-}
-func (UnimplementedEqualizerOnParameterChangeListenerServiceServer) mustEmbedUnimplementedEqualizerOnParameterChangeListenerServiceServer() {
-}
-func (UnimplementedEqualizerOnParameterChangeListenerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeEqualizerOnParameterChangeListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to EqualizerOnParameterChangeListenerServiceServer will
-// result in compilation errors.
-type UnsafeEqualizerOnParameterChangeListenerServiceServer interface {
-	mustEmbedUnimplementedEqualizerOnParameterChangeListenerServiceServer()
-}
-
-func RegisterEqualizerOnParameterChangeListenerServiceServer(s grpc.ServiceRegistrar, srv EqualizerOnParameterChangeListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedEqualizerOnParameterChangeListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&EqualizerOnParameterChangeListenerService_ServiceDesc, srv)
-}
-
-func _EqualizerOnParameterChangeListenerService_OnParameterChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualizerOnParameterChangeListenerOnParameterChangeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EqualizerOnParameterChangeListenerServiceServer).OnParameterChange(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EqualizerOnParameterChangeListenerService_OnParameterChange_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EqualizerOnParameterChangeListenerServiceServer).OnParameterChange(ctx, req.(*EqualizerOnParameterChangeListenerOnParameterChangeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// EqualizerOnParameterChangeListenerService_ServiceDesc is the grpc.ServiceDesc for EqualizerOnParameterChangeListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var EqualizerOnParameterChangeListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "audiofx.EqualizerOnParameterChangeListenerService",
-	HandlerType: (*EqualizerOnParameterChangeListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnParameterChange",
-			Handler:    _EqualizerOnParameterChangeListenerService_OnParameterChange_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/audiofx/audiofx.proto",
-}
-
-const (
-	EqualizerSettingsService_ToString_FullMethodName = "/audiofx.EqualizerSettingsService/ToString"
-)
-
-// EqualizerSettingsServiceClient is the client API for EqualizerSettingsService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type EqualizerSettingsServiceClient interface {
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type equalizerSettingsServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewEqualizerSettingsServiceClient(cc grpc.ClientConnInterface) EqualizerSettingsServiceClient {
-	return &equalizerSettingsServiceClient{cc}
-}
-
-func (c *equalizerSettingsServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, EqualizerSettingsService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// EqualizerSettingsServiceServer is the server API for EqualizerSettingsService service.
-// All implementations must embed UnimplementedEqualizerSettingsServiceServer
-// for forward compatibility.
-type EqualizerSettingsServiceServer interface {
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedEqualizerSettingsServiceServer()
-}
-
-// UnimplementedEqualizerSettingsServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedEqualizerSettingsServiceServer struct{}
-
-func (UnimplementedEqualizerSettingsServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedEqualizerSettingsServiceServer) mustEmbedUnimplementedEqualizerSettingsServiceServer() {
-}
-func (UnimplementedEqualizerSettingsServiceServer) testEmbeddedByValue() {}
-
-// UnsafeEqualizerSettingsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to EqualizerSettingsServiceServer will
-// result in compilation errors.
-type UnsafeEqualizerSettingsServiceServer interface {
-	mustEmbedUnimplementedEqualizerSettingsServiceServer()
-}
-
-func RegisterEqualizerSettingsServiceServer(s grpc.ServiceRegistrar, srv EqualizerSettingsServiceServer) {
-	// If the following call panics, it indicates UnimplementedEqualizerSettingsServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&EqualizerSettingsService_ServiceDesc, srv)
-}
-
-func _EqualizerSettingsService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EqualizerSettingsServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EqualizerSettingsService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EqualizerSettingsServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// EqualizerSettingsService_ServiceDesc is the grpc.ServiceDesc for EqualizerSettingsService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var EqualizerSettingsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "audiofx.EqualizerSettingsService",
-	HandlerType: (*EqualizerSettingsServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "ToString",
-			Handler:    _EqualizerSettingsService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/audiofx/audiofx.proto",
-}
-
-const (
-	PresetReverbService_NewPresetReverb_FullMethodName      = "/audiofx.PresetReverbService/NewPresetReverb"
-	PresetReverbService_GetPreset_FullMethodName            = "/audiofx.PresetReverbService/GetPreset"
-	PresetReverbService_GetProperties_FullMethodName        = "/audiofx.PresetReverbService/GetProperties"
-	PresetReverbService_SetParameterListener_FullMethodName = "/audiofx.PresetReverbService/SetParameterListener"
-	PresetReverbService_SetPreset_FullMethodName            = "/audiofx.PresetReverbService/SetPreset"
-	PresetReverbService_SetProperties_FullMethodName        = "/audiofx.PresetReverbService/SetProperties"
-)
-
-// PresetReverbServiceClient is the client API for PresetReverbService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PresetReverbServiceClient interface {
-	NewPresetReverb(ctx context.Context, in *NewPresetReverbRequest, opts ...grpc.CallOption) (*NewPresetReverbResponse, error)
-	GetPreset(ctx context.Context, in *GetPresetRequest, opts ...grpc.CallOption) (*GetPresetResponse, error)
-	GetProperties(ctx context.Context, in *GetPropertiesRequest, opts ...grpc.CallOption) (*GetPropertiesResponse, error)
-	SetParameterListener(ctx context.Context, in *SetParameterListenerRequest, opts ...grpc.CallOption) (*SetParameterListenerResponse, error)
-	SetPreset(ctx context.Context, in *SetPresetRequest, opts ...grpc.CallOption) (*SetPresetResponse, error)
-	SetProperties(ctx context.Context, in *SetPropertiesRequest, opts ...grpc.CallOption) (*SetPropertiesResponse, error)
-}
-
-type presetReverbServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPresetReverbServiceClient(cc grpc.ClientConnInterface) PresetReverbServiceClient {
-	return &presetReverbServiceClient{cc}
-}
-
-func (c *presetReverbServiceClient) NewPresetReverb(ctx context.Context, in *NewPresetReverbRequest, opts ...grpc.CallOption) (*NewPresetReverbResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewPresetReverbResponse)
-	err := c.cc.Invoke(ctx, PresetReverbService_NewPresetReverb_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *presetReverbServiceClient) GetPreset(ctx context.Context, in *GetPresetRequest, opts ...grpc.CallOption) (*GetPresetResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPresetResponse)
-	err := c.cc.Invoke(ctx, PresetReverbService_GetPreset_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *presetReverbServiceClient) GetProperties(ctx context.Context, in *GetPropertiesRequest, opts ...grpc.CallOption) (*GetPropertiesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPropertiesResponse)
-	err := c.cc.Invoke(ctx, PresetReverbService_GetProperties_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *presetReverbServiceClient) SetParameterListener(ctx context.Context, in *SetParameterListenerRequest, opts ...grpc.CallOption) (*SetParameterListenerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetParameterListenerResponse)
-	err := c.cc.Invoke(ctx, PresetReverbService_SetParameterListener_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *presetReverbServiceClient) SetPreset(ctx context.Context, in *SetPresetRequest, opts ...grpc.CallOption) (*SetPresetResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPresetResponse)
-	err := c.cc.Invoke(ctx, PresetReverbService_SetPreset_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *presetReverbServiceClient) SetProperties(ctx context.Context, in *SetPropertiesRequest, opts ...grpc.CallOption) (*SetPropertiesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPropertiesResponse)
-	err := c.cc.Invoke(ctx, PresetReverbService_SetProperties_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PresetReverbServiceServer is the server API for PresetReverbService service.
-// All implementations must embed UnimplementedPresetReverbServiceServer
-// for forward compatibility.
-type PresetReverbServiceServer interface {
-	NewPresetReverb(context.Context, *NewPresetReverbRequest) (*NewPresetReverbResponse, error)
-	GetPreset(context.Context, *GetPresetRequest) (*GetPresetResponse, error)
-	GetProperties(context.Context, *GetPropertiesRequest) (*GetPropertiesResponse, error)
-	SetParameterListener(context.Context, *SetParameterListenerRequest) (*SetParameterListenerResponse, error)
-	SetPreset(context.Context, *SetPresetRequest) (*SetPresetResponse, error)
-	SetProperties(context.Context, *SetPropertiesRequest) (*SetPropertiesResponse, error)
-	mustEmbedUnimplementedPresetReverbServiceServer()
-}
-
-// UnimplementedPresetReverbServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPresetReverbServiceServer struct{}
-
-func (UnimplementedPresetReverbServiceServer) NewPresetReverb(context.Context, *NewPresetReverbRequest) (*NewPresetReverbResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewPresetReverb not implemented")
-}
-func (UnimplementedPresetReverbServiceServer) GetPreset(context.Context, *GetPresetRequest) (*GetPresetResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPreset not implemented")
-}
-func (UnimplementedPresetReverbServiceServer) GetProperties(context.Context, *GetPropertiesRequest) (*GetPropertiesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetProperties not implemented")
-}
-func (UnimplementedPresetReverbServiceServer) SetParameterListener(context.Context, *SetParameterListenerRequest) (*SetParameterListenerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetParameterListener not implemented")
-}
-func (UnimplementedPresetReverbServiceServer) SetPreset(context.Context, *SetPresetRequest) (*SetPresetResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPreset not implemented")
-}
-func (UnimplementedPresetReverbServiceServer) SetProperties(context.Context, *SetPropertiesRequest) (*SetPropertiesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetProperties not implemented")
-}
-func (UnimplementedPresetReverbServiceServer) mustEmbedUnimplementedPresetReverbServiceServer() {}
-func (UnimplementedPresetReverbServiceServer) testEmbeddedByValue()                             {}
-
-// UnsafePresetReverbServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PresetReverbServiceServer will
-// result in compilation errors.
-type UnsafePresetReverbServiceServer interface {
-	mustEmbedUnimplementedPresetReverbServiceServer()
-}
-
-func RegisterPresetReverbServiceServer(s grpc.ServiceRegistrar, srv PresetReverbServiceServer) {
-	// If the following call panics, it indicates UnimplementedPresetReverbServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PresetReverbService_ServiceDesc, srv)
-}
-
-func _PresetReverbService_NewPresetReverb_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewPresetReverbRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PresetReverbServiceServer).NewPresetReverb(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PresetReverbService_NewPresetReverb_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PresetReverbServiceServer).NewPresetReverb(ctx, req.(*NewPresetReverbRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PresetReverbService_GetPreset_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPresetRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PresetReverbServiceServer).GetPreset(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PresetReverbService_GetPreset_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PresetReverbServiceServer).GetPreset(ctx, req.(*GetPresetRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PresetReverbService_GetProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPropertiesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PresetReverbServiceServer).GetProperties(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PresetReverbService_GetProperties_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PresetReverbServiceServer).GetProperties(ctx, req.(*GetPropertiesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PresetReverbService_SetParameterListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetParameterListenerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PresetReverbServiceServer).SetParameterListener(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PresetReverbService_SetParameterListener_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PresetReverbServiceServer).SetParameterListener(ctx, req.(*SetParameterListenerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PresetReverbService_SetPreset_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPresetRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PresetReverbServiceServer).SetPreset(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PresetReverbService_SetPreset_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PresetReverbServiceServer).SetPreset(ctx, req.(*SetPresetRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PresetReverbService_SetProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPropertiesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PresetReverbServiceServer).SetProperties(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PresetReverbService_SetProperties_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PresetReverbServiceServer).SetProperties(ctx, req.(*SetPropertiesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PresetReverbService_ServiceDesc is the grpc.ServiceDesc for PresetReverbService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PresetReverbService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "audiofx.PresetReverbService",
-	HandlerType: (*PresetReverbServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewPresetReverb",
-			Handler:    _PresetReverbService_NewPresetReverb_Handler,
-		},
-		{
-			MethodName: "GetPreset",
-			Handler:    _PresetReverbService_GetPreset_Handler,
-		},
-		{
-			MethodName: "GetProperties",
-			Handler:    _PresetReverbService_GetProperties_Handler,
-		},
-		{
-			MethodName: "SetParameterListener",
-			Handler:    _PresetReverbService_SetParameterListener_Handler,
-		},
-		{
-			MethodName: "SetPreset",
-			Handler:    _PresetReverbService_SetPreset_Handler,
-		},
-		{
-			MethodName: "SetProperties",
-			Handler:    _PresetReverbService_SetProperties_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/audiofx/audiofx.proto",
-}
-
-const (
-	PresetReverbOnParameterChangeListenerService_OnParameterChange_FullMethodName = "/audiofx.PresetReverbOnParameterChangeListenerService/OnParameterChange"
-)
-
-// PresetReverbOnParameterChangeListenerServiceClient is the client API for PresetReverbOnParameterChangeListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PresetReverbOnParameterChangeListenerServiceClient interface {
-	OnParameterChange(ctx context.Context, in *OnParameterChangeRequest, opts ...grpc.CallOption) (*OnParameterChangeResponse, error)
-}
-
-type presetReverbOnParameterChangeListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPresetReverbOnParameterChangeListenerServiceClient(cc grpc.ClientConnInterface) PresetReverbOnParameterChangeListenerServiceClient {
-	return &presetReverbOnParameterChangeListenerServiceClient{cc}
-}
-
-func (c *presetReverbOnParameterChangeListenerServiceClient) OnParameterChange(ctx context.Context, in *OnParameterChangeRequest, opts ...grpc.CallOption) (*OnParameterChangeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnParameterChangeResponse)
-	err := c.cc.Invoke(ctx, PresetReverbOnParameterChangeListenerService_OnParameterChange_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PresetReverbOnParameterChangeListenerServiceServer is the server API for PresetReverbOnParameterChangeListenerService service.
-// All implementations must embed UnimplementedPresetReverbOnParameterChangeListenerServiceServer
-// for forward compatibility.
-type PresetReverbOnParameterChangeListenerServiceServer interface {
-	OnParameterChange(context.Context, *OnParameterChangeRequest) (*OnParameterChangeResponse, error)
-	mustEmbedUnimplementedPresetReverbOnParameterChangeListenerServiceServer()
-}
-
-// UnimplementedPresetReverbOnParameterChangeListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPresetReverbOnParameterChangeListenerServiceServer struct{}
-
-func (UnimplementedPresetReverbOnParameterChangeListenerServiceServer) OnParameterChange(context.Context, *OnParameterChangeRequest) (*OnParameterChangeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnParameterChange not implemented")
-}
-func (UnimplementedPresetReverbOnParameterChangeListenerServiceServer) mustEmbedUnimplementedPresetReverbOnParameterChangeListenerServiceServer() {
-}
-func (UnimplementedPresetReverbOnParameterChangeListenerServiceServer) testEmbeddedByValue() {}
-
-// UnsafePresetReverbOnParameterChangeListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PresetReverbOnParameterChangeListenerServiceServer will
-// result in compilation errors.
-type UnsafePresetReverbOnParameterChangeListenerServiceServer interface {
-	mustEmbedUnimplementedPresetReverbOnParameterChangeListenerServiceServer()
-}
-
-func RegisterPresetReverbOnParameterChangeListenerServiceServer(s grpc.ServiceRegistrar, srv PresetReverbOnParameterChangeListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedPresetReverbOnParameterChangeListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PresetReverbOnParameterChangeListenerService_ServiceDesc, srv)
-}
-
-func _PresetReverbOnParameterChangeListenerService_OnParameterChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnParameterChangeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PresetReverbOnParameterChangeListenerServiceServer).OnParameterChange(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PresetReverbOnParameterChangeListenerService_OnParameterChange_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PresetReverbOnParameterChangeListenerServiceServer).OnParameterChange(ctx, req.(*OnParameterChangeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PresetReverbOnParameterChangeListenerService_ServiceDesc is the grpc.ServiceDesc for PresetReverbOnParameterChangeListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PresetReverbOnParameterChangeListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "audiofx.PresetReverbOnParameterChangeListenerService",
-	HandlerType: (*PresetReverbOnParameterChangeListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnParameterChange",
-			Handler:    _PresetReverbOnParameterChangeListenerService_OnParameterChange_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/audiofx/audiofx.proto",
-}
-
-const (
-	PresetReverbSettingsService_ToString_FullMethodName = "/audiofx.PresetReverbSettingsService/ToString"
-)
-
-// PresetReverbSettingsServiceClient is the client API for PresetReverbSettingsService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PresetReverbSettingsServiceClient interface {
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type presetReverbSettingsServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPresetReverbSettingsServiceClient(cc grpc.ClientConnInterface) PresetReverbSettingsServiceClient {
-	return &presetReverbSettingsServiceClient{cc}
-}
-
-func (c *presetReverbSettingsServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, PresetReverbSettingsService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PresetReverbSettingsServiceServer is the server API for PresetReverbSettingsService service.
-// All implementations must embed UnimplementedPresetReverbSettingsServiceServer
-// for forward compatibility.
-type PresetReverbSettingsServiceServer interface {
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedPresetReverbSettingsServiceServer()
-}
-
-// UnimplementedPresetReverbSettingsServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPresetReverbSettingsServiceServer struct{}
-
-func (UnimplementedPresetReverbSettingsServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedPresetReverbSettingsServiceServer) mustEmbedUnimplementedPresetReverbSettingsServiceServer() {
-}
-func (UnimplementedPresetReverbSettingsServiceServer) testEmbeddedByValue() {}
-
-// UnsafePresetReverbSettingsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PresetReverbSettingsServiceServer will
-// result in compilation errors.
-type UnsafePresetReverbSettingsServiceServer interface {
-	mustEmbedUnimplementedPresetReverbSettingsServiceServer()
-}
-
-func RegisterPresetReverbSettingsServiceServer(s grpc.ServiceRegistrar, srv PresetReverbSettingsServiceServer) {
-	// If the following call panics, it indicates UnimplementedPresetReverbSettingsServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PresetReverbSettingsService_ServiceDesc, srv)
-}
-
-func _PresetReverbSettingsService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PresetReverbSettingsServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PresetReverbSettingsService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PresetReverbSettingsServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PresetReverbSettingsService_ServiceDesc is the grpc.ServiceDesc for PresetReverbSettingsService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PresetReverbSettingsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "audiofx.PresetReverbSettingsService",
-	HandlerType: (*PresetReverbSettingsServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "ToString",
-			Handler:    _PresetReverbSettingsService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/audiofx/audiofx.proto",
-}
-
-const (
-	LoudnessEnhancerService_NewLoudnessEnhancer_FullMethodName = "/audiofx.LoudnessEnhancerService/NewLoudnessEnhancer"
-	LoudnessEnhancerService_GetTargetGain_FullMethodName       = "/audiofx.LoudnessEnhancerService/GetTargetGain"
-	LoudnessEnhancerService_SetTargetGain_FullMethodName       = "/audiofx.LoudnessEnhancerService/SetTargetGain"
-)
-
-// LoudnessEnhancerServiceClient is the client API for LoudnessEnhancerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type LoudnessEnhancerServiceClient interface {
-	NewLoudnessEnhancer(ctx context.Context, in *NewLoudnessEnhancerRequest, opts ...grpc.CallOption) (*NewLoudnessEnhancerResponse, error)
-	GetTargetGain(ctx context.Context, in *GetTargetGainRequest, opts ...grpc.CallOption) (*GetTargetGainResponse, error)
-	SetTargetGain(ctx context.Context, in *SetTargetGainRequest, opts ...grpc.CallOption) (*SetTargetGainResponse, error)
-}
-
-type loudnessEnhancerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewLoudnessEnhancerServiceClient(cc grpc.ClientConnInterface) LoudnessEnhancerServiceClient {
-	return &loudnessEnhancerServiceClient{cc}
-}
-
-func (c *loudnessEnhancerServiceClient) NewLoudnessEnhancer(ctx context.Context, in *NewLoudnessEnhancerRequest, opts ...grpc.CallOption) (*NewLoudnessEnhancerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewLoudnessEnhancerResponse)
-	err := c.cc.Invoke(ctx, LoudnessEnhancerService_NewLoudnessEnhancer_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *loudnessEnhancerServiceClient) GetTargetGain(ctx context.Context, in *GetTargetGainRequest, opts ...grpc.CallOption) (*GetTargetGainResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTargetGainResponse)
-	err := c.cc.Invoke(ctx, LoudnessEnhancerService_GetTargetGain_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *loudnessEnhancerServiceClient) SetTargetGain(ctx context.Context, in *SetTargetGainRequest, opts ...grpc.CallOption) (*SetTargetGainResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetTargetGainResponse)
-	err := c.cc.Invoke(ctx, LoudnessEnhancerService_SetTargetGain_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// LoudnessEnhancerServiceServer is the server API for LoudnessEnhancerService service.
-// All implementations must embed UnimplementedLoudnessEnhancerServiceServer
-// for forward compatibility.
-type LoudnessEnhancerServiceServer interface {
-	NewLoudnessEnhancer(context.Context, *NewLoudnessEnhancerRequest) (*NewLoudnessEnhancerResponse, error)
-	GetTargetGain(context.Context, *GetTargetGainRequest) (*GetTargetGainResponse, error)
-	SetTargetGain(context.Context, *SetTargetGainRequest) (*SetTargetGainResponse, error)
-	mustEmbedUnimplementedLoudnessEnhancerServiceServer()
-}
-
-// UnimplementedLoudnessEnhancerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedLoudnessEnhancerServiceServer struct{}
-
-func (UnimplementedLoudnessEnhancerServiceServer) NewLoudnessEnhancer(context.Context, *NewLoudnessEnhancerRequest) (*NewLoudnessEnhancerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewLoudnessEnhancer not implemented")
-}
-func (UnimplementedLoudnessEnhancerServiceServer) GetTargetGain(context.Context, *GetTargetGainRequest) (*GetTargetGainResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTargetGain not implemented")
-}
-func (UnimplementedLoudnessEnhancerServiceServer) SetTargetGain(context.Context, *SetTargetGainRequest) (*SetTargetGainResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetTargetGain not implemented")
-}
-func (UnimplementedLoudnessEnhancerServiceServer) mustEmbedUnimplementedLoudnessEnhancerServiceServer() {
-}
-func (UnimplementedLoudnessEnhancerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeLoudnessEnhancerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to LoudnessEnhancerServiceServer will
-// result in compilation errors.
-type UnsafeLoudnessEnhancerServiceServer interface {
-	mustEmbedUnimplementedLoudnessEnhancerServiceServer()
-}
-
-func RegisterLoudnessEnhancerServiceServer(s grpc.ServiceRegistrar, srv LoudnessEnhancerServiceServer) {
-	// If the following call panics, it indicates UnimplementedLoudnessEnhancerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&LoudnessEnhancerService_ServiceDesc, srv)
-}
-
-func _LoudnessEnhancerService_NewLoudnessEnhancer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewLoudnessEnhancerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LoudnessEnhancerServiceServer).NewLoudnessEnhancer(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LoudnessEnhancerService_NewLoudnessEnhancer_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LoudnessEnhancerServiceServer).NewLoudnessEnhancer(ctx, req.(*NewLoudnessEnhancerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LoudnessEnhancerService_GetTargetGain_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTargetGainRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LoudnessEnhancerServiceServer).GetTargetGain(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LoudnessEnhancerService_GetTargetGain_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LoudnessEnhancerServiceServer).GetTargetGain(ctx, req.(*GetTargetGainRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LoudnessEnhancerService_SetTargetGain_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetTargetGainRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LoudnessEnhancerServiceServer).SetTargetGain(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LoudnessEnhancerService_SetTargetGain_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LoudnessEnhancerServiceServer).SetTargetGain(ctx, req.(*SetTargetGainRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// LoudnessEnhancerService_ServiceDesc is the grpc.ServiceDesc for LoudnessEnhancerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var LoudnessEnhancerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "audiofx.LoudnessEnhancerService",
-	HandlerType: (*LoudnessEnhancerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewLoudnessEnhancer",
-			Handler:    _LoudnessEnhancerService_NewLoudnessEnhancer_Handler,
-		},
-		{
-			MethodName: "GetTargetGain",
-			Handler:    _LoudnessEnhancerService_GetTargetGain_Handler,
-		},
-		{
-			MethodName: "SetTargetGain",
-			Handler:    _LoudnessEnhancerService_SetTargetGain_Handler,
+			MethodName: "IsAvailable",
+			Handler:    _NoiseSuppressorService_IsAvailable_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -6221,7 +3344,7 @@ type DynamicsProcessingBandBaseServiceClient interface {
 	GetCutoffFrequency(ctx context.Context, in *GetCutoffFrequencyRequest, opts ...grpc.CallOption) (*GetCutoffFrequencyResponse, error)
 	IsEnabled(ctx context.Context, in *IsEnabledRequest, opts ...grpc.CallOption) (*IsEnabledResponse, error)
 	SetCutoffFrequency(ctx context.Context, in *SetCutoffFrequencyRequest, opts ...grpc.CallOption) (*SetCutoffFrequencyResponse, error)
-	SetEnabled(ctx context.Context, in *DynamicsProcessingBandBaseSetEnabledRequest, opts ...grpc.CallOption) (*DynamicsProcessingBandBaseSetEnabledResponse, error)
+	SetEnabled(ctx context.Context, in *SetEnabledRequest, opts ...grpc.CallOption) (*SetEnabledResponse, error)
 	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
 }
 
@@ -6263,9 +3386,9 @@ func (c *dynamicsProcessingBandBaseServiceClient) SetCutoffFrequency(ctx context
 	return out, nil
 }
 
-func (c *dynamicsProcessingBandBaseServiceClient) SetEnabled(ctx context.Context, in *DynamicsProcessingBandBaseSetEnabledRequest, opts ...grpc.CallOption) (*DynamicsProcessingBandBaseSetEnabledResponse, error) {
+func (c *dynamicsProcessingBandBaseServiceClient) SetEnabled(ctx context.Context, in *SetEnabledRequest, opts ...grpc.CallOption) (*SetEnabledResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DynamicsProcessingBandBaseSetEnabledResponse)
+	out := new(SetEnabledResponse)
 	err := c.cc.Invoke(ctx, DynamicsProcessingBandBaseService_SetEnabled_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -6290,7 +3413,7 @@ type DynamicsProcessingBandBaseServiceServer interface {
 	GetCutoffFrequency(context.Context, *GetCutoffFrequencyRequest) (*GetCutoffFrequencyResponse, error)
 	IsEnabled(context.Context, *IsEnabledRequest) (*IsEnabledResponse, error)
 	SetCutoffFrequency(context.Context, *SetCutoffFrequencyRequest) (*SetCutoffFrequencyResponse, error)
-	SetEnabled(context.Context, *DynamicsProcessingBandBaseSetEnabledRequest) (*DynamicsProcessingBandBaseSetEnabledResponse, error)
+	SetEnabled(context.Context, *SetEnabledRequest) (*SetEnabledResponse, error)
 	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
 	mustEmbedUnimplementedDynamicsProcessingBandBaseServiceServer()
 }
@@ -6311,7 +3434,7 @@ func (UnimplementedDynamicsProcessingBandBaseServiceServer) IsEnabled(context.Co
 func (UnimplementedDynamicsProcessingBandBaseServiceServer) SetCutoffFrequency(context.Context, *SetCutoffFrequencyRequest) (*SetCutoffFrequencyResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetCutoffFrequency not implemented")
 }
-func (UnimplementedDynamicsProcessingBandBaseServiceServer) SetEnabled(context.Context, *DynamicsProcessingBandBaseSetEnabledRequest) (*DynamicsProcessingBandBaseSetEnabledResponse, error) {
+func (UnimplementedDynamicsProcessingBandBaseServiceServer) SetEnabled(context.Context, *SetEnabledRequest) (*SetEnabledResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetEnabled not implemented")
 }
 func (UnimplementedDynamicsProcessingBandBaseServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
@@ -6394,7 +3517,7 @@ func _DynamicsProcessingBandBaseService_SetCutoffFrequency_Handler(srv interface
 }
 
 func _DynamicsProcessingBandBaseService_SetEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DynamicsProcessingBandBaseSetEnabledRequest)
+	in := new(SetEnabledRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -6406,7 +3529,7 @@ func _DynamicsProcessingBandBaseService_SetEnabled_Handler(srv interface{}, ctx 
 		FullMethod: DynamicsProcessingBandBaseService_SetEnabled_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DynamicsProcessingBandBaseServiceServer).SetEnabled(ctx, req.(*DynamicsProcessingBandBaseSetEnabledRequest))
+		return srv.(DynamicsProcessingBandBaseServiceServer).SetEnabled(ctx, req.(*SetEnabledRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -8794,7 +5917,7 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type DynamicsProcessingEqServiceClient interface {
-	GetBand(ctx context.Context, in *DynamicsProcessingEqGetBandRequest, opts ...grpc.CallOption) (*DynamicsProcessingEqGetBandResponse, error)
+	GetBand(ctx context.Context, in *GetBandRequest, opts ...grpc.CallOption) (*GetBandResponse, error)
 	SetBand(ctx context.Context, in *SetBandRequest, opts ...grpc.CallOption) (*SetBandResponse, error)
 	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
 }
@@ -8807,9 +5930,9 @@ func NewDynamicsProcessingEqServiceClient(cc grpc.ClientConnInterface) DynamicsP
 	return &dynamicsProcessingEqServiceClient{cc}
 }
 
-func (c *dynamicsProcessingEqServiceClient) GetBand(ctx context.Context, in *DynamicsProcessingEqGetBandRequest, opts ...grpc.CallOption) (*DynamicsProcessingEqGetBandResponse, error) {
+func (c *dynamicsProcessingEqServiceClient) GetBand(ctx context.Context, in *GetBandRequest, opts ...grpc.CallOption) (*GetBandResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DynamicsProcessingEqGetBandResponse)
+	out := new(GetBandResponse)
 	err := c.cc.Invoke(ctx, DynamicsProcessingEqService_GetBand_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -8841,7 +5964,7 @@ func (c *dynamicsProcessingEqServiceClient) ToString(ctx context.Context, in *To
 // All implementations must embed UnimplementedDynamicsProcessingEqServiceServer
 // for forward compatibility.
 type DynamicsProcessingEqServiceServer interface {
-	GetBand(context.Context, *DynamicsProcessingEqGetBandRequest) (*DynamicsProcessingEqGetBandResponse, error)
+	GetBand(context.Context, *GetBandRequest) (*GetBandResponse, error)
 	SetBand(context.Context, *SetBandRequest) (*SetBandResponse, error)
 	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
 	mustEmbedUnimplementedDynamicsProcessingEqServiceServer()
@@ -8854,7 +5977,7 @@ type DynamicsProcessingEqServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedDynamicsProcessingEqServiceServer struct{}
 
-func (UnimplementedDynamicsProcessingEqServiceServer) GetBand(context.Context, *DynamicsProcessingEqGetBandRequest) (*DynamicsProcessingEqGetBandResponse, error) {
+func (UnimplementedDynamicsProcessingEqServiceServer) GetBand(context.Context, *GetBandRequest) (*GetBandResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetBand not implemented")
 }
 func (UnimplementedDynamicsProcessingEqServiceServer) SetBand(context.Context, *SetBandRequest) (*SetBandResponse, error) {
@@ -8886,7 +6009,7 @@ func RegisterDynamicsProcessingEqServiceServer(s grpc.ServiceRegistrar, srv Dyna
 }
 
 func _DynamicsProcessingEqService_GetBand_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DynamicsProcessingEqGetBandRequest)
+	in := new(GetBandRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -8898,7 +6021,7 @@ func _DynamicsProcessingEqService_GetBand_Handler(srv interface{}, ctx context.C
 		FullMethod: DynamicsProcessingEqService_GetBand_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DynamicsProcessingEqServiceServer).GetBand(ctx, req.(*DynamicsProcessingEqGetBandRequest))
+		return srv.(DynamicsProcessingEqServiceServer).GetBand(ctx, req.(*GetBandRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -9711,7 +6834,7 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type DynamicsProcessingMbcServiceClient interface {
-	GetBand(ctx context.Context, in *DynamicsProcessingMbcGetBandRequest, opts ...grpc.CallOption) (*DynamicsProcessingMbcGetBandResponse, error)
+	GetBand(ctx context.Context, in *GetBandRequest, opts ...grpc.CallOption) (*GetBandResponse, error)
 	SetBand(ctx context.Context, in *SetBandRequest, opts ...grpc.CallOption) (*SetBandResponse, error)
 	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
 }
@@ -9724,9 +6847,9 @@ func NewDynamicsProcessingMbcServiceClient(cc grpc.ClientConnInterface) Dynamics
 	return &dynamicsProcessingMbcServiceClient{cc}
 }
 
-func (c *dynamicsProcessingMbcServiceClient) GetBand(ctx context.Context, in *DynamicsProcessingMbcGetBandRequest, opts ...grpc.CallOption) (*DynamicsProcessingMbcGetBandResponse, error) {
+func (c *dynamicsProcessingMbcServiceClient) GetBand(ctx context.Context, in *GetBandRequest, opts ...grpc.CallOption) (*GetBandResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DynamicsProcessingMbcGetBandResponse)
+	out := new(GetBandResponse)
 	err := c.cc.Invoke(ctx, DynamicsProcessingMbcService_GetBand_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -9758,7 +6881,7 @@ func (c *dynamicsProcessingMbcServiceClient) ToString(ctx context.Context, in *T
 // All implementations must embed UnimplementedDynamicsProcessingMbcServiceServer
 // for forward compatibility.
 type DynamicsProcessingMbcServiceServer interface {
-	GetBand(context.Context, *DynamicsProcessingMbcGetBandRequest) (*DynamicsProcessingMbcGetBandResponse, error)
+	GetBand(context.Context, *GetBandRequest) (*GetBandResponse, error)
 	SetBand(context.Context, *SetBandRequest) (*SetBandResponse, error)
 	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
 	mustEmbedUnimplementedDynamicsProcessingMbcServiceServer()
@@ -9771,7 +6894,7 @@ type DynamicsProcessingMbcServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedDynamicsProcessingMbcServiceServer struct{}
 
-func (UnimplementedDynamicsProcessingMbcServiceServer) GetBand(context.Context, *DynamicsProcessingMbcGetBandRequest) (*DynamicsProcessingMbcGetBandResponse, error) {
+func (UnimplementedDynamicsProcessingMbcServiceServer) GetBand(context.Context, *GetBandRequest) (*GetBandResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetBand not implemented")
 }
 func (UnimplementedDynamicsProcessingMbcServiceServer) SetBand(context.Context, *SetBandRequest) (*SetBandResponse, error) {
@@ -9803,7 +6926,7 @@ func RegisterDynamicsProcessingMbcServiceServer(s grpc.ServiceRegistrar, srv Dyn
 }
 
 func _DynamicsProcessingMbcService_GetBand_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DynamicsProcessingMbcGetBandRequest)
+	in := new(GetBandRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -9815,7 +6938,7 @@ func _DynamicsProcessingMbcService_GetBand_Handler(srv interface{}, ctx context.
 		FullMethod: DynamicsProcessingMbcService_GetBand_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DynamicsProcessingMbcServiceServer).GetBand(ctx, req.(*DynamicsProcessingMbcGetBandRequest))
+		return srv.(DynamicsProcessingMbcServiceServer).GetBand(ctx, req.(*GetBandRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -10680,7 +7803,7 @@ const (
 type DynamicsProcessingStageServiceClient interface {
 	IsEnabled(ctx context.Context, in *IsEnabledRequest, opts ...grpc.CallOption) (*IsEnabledResponse, error)
 	IsInUse(ctx context.Context, in *IsInUseRequest, opts ...grpc.CallOption) (*IsInUseResponse, error)
-	SetEnabled(ctx context.Context, in *DynamicsProcessingStageSetEnabledRequest, opts ...grpc.CallOption) (*DynamicsProcessingStageSetEnabledResponse, error)
+	SetEnabled(ctx context.Context, in *SetEnabledRequest, opts ...grpc.CallOption) (*SetEnabledResponse, error)
 	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
 }
 
@@ -10712,9 +7835,9 @@ func (c *dynamicsProcessingStageServiceClient) IsInUse(ctx context.Context, in *
 	return out, nil
 }
 
-func (c *dynamicsProcessingStageServiceClient) SetEnabled(ctx context.Context, in *DynamicsProcessingStageSetEnabledRequest, opts ...grpc.CallOption) (*DynamicsProcessingStageSetEnabledResponse, error) {
+func (c *dynamicsProcessingStageServiceClient) SetEnabled(ctx context.Context, in *SetEnabledRequest, opts ...grpc.CallOption) (*SetEnabledResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DynamicsProcessingStageSetEnabledResponse)
+	out := new(SetEnabledResponse)
 	err := c.cc.Invoke(ctx, DynamicsProcessingStageService_SetEnabled_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -10738,7 +7861,7 @@ func (c *dynamicsProcessingStageServiceClient) ToString(ctx context.Context, in 
 type DynamicsProcessingStageServiceServer interface {
 	IsEnabled(context.Context, *IsEnabledRequest) (*IsEnabledResponse, error)
 	IsInUse(context.Context, *IsInUseRequest) (*IsInUseResponse, error)
-	SetEnabled(context.Context, *DynamicsProcessingStageSetEnabledRequest) (*DynamicsProcessingStageSetEnabledResponse, error)
+	SetEnabled(context.Context, *SetEnabledRequest) (*SetEnabledResponse, error)
 	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
 	mustEmbedUnimplementedDynamicsProcessingStageServiceServer()
 }
@@ -10756,7 +7879,7 @@ func (UnimplementedDynamicsProcessingStageServiceServer) IsEnabled(context.Conte
 func (UnimplementedDynamicsProcessingStageServiceServer) IsInUse(context.Context, *IsInUseRequest) (*IsInUseResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsInUse not implemented")
 }
-func (UnimplementedDynamicsProcessingStageServiceServer) SetEnabled(context.Context, *DynamicsProcessingStageSetEnabledRequest) (*DynamicsProcessingStageSetEnabledResponse, error) {
+func (UnimplementedDynamicsProcessingStageServiceServer) SetEnabled(context.Context, *SetEnabledRequest) (*SetEnabledResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetEnabled not implemented")
 }
 func (UnimplementedDynamicsProcessingStageServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
@@ -10821,7 +7944,7 @@ func _DynamicsProcessingStageService_IsInUse_Handler(srv interface{}, ctx contex
 }
 
 func _DynamicsProcessingStageService_SetEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DynamicsProcessingStageSetEnabledRequest)
+	in := new(SetEnabledRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -10833,7 +7956,7 @@ func _DynamicsProcessingStageService_SetEnabled_Handler(srv interface{}, ctx con
 		FullMethod: DynamicsProcessingStageService_SetEnabled_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DynamicsProcessingStageServiceServer).SetEnabled(ctx, req.(*DynamicsProcessingStageSetEnabledRequest))
+		return srv.(DynamicsProcessingStageServiceServer).SetEnabled(ctx, req.(*SetEnabledRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -10885,140 +8008,3413 @@ var DynamicsProcessingStageService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	NoiseSuppressorService_Create_FullMethodName      = "/audiofx.NoiseSuppressorService/Create"
-	NoiseSuppressorService_IsAvailable_FullMethodName = "/audiofx.NoiseSuppressorService/IsAvailable"
+	BassBoostService_NewBassBoost_FullMethodName         = "/audiofx.BassBoostService/NewBassBoost"
+	BassBoostService_GetProperties_FullMethodName        = "/audiofx.BassBoostService/GetProperties"
+	BassBoostService_GetRoundedStrength_FullMethodName   = "/audiofx.BassBoostService/GetRoundedStrength"
+	BassBoostService_GetStrengthSupported_FullMethodName = "/audiofx.BassBoostService/GetStrengthSupported"
+	BassBoostService_SetParameterListener_FullMethodName = "/audiofx.BassBoostService/SetParameterListener"
+	BassBoostService_SetProperties_FullMethodName        = "/audiofx.BassBoostService/SetProperties"
+	BassBoostService_SetStrength_FullMethodName          = "/audiofx.BassBoostService/SetStrength"
 )
 
-// NoiseSuppressorServiceClient is the client API for NoiseSuppressorService service.
+// BassBoostServiceClient is the client API for BassBoostService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type NoiseSuppressorServiceClient interface {
-	Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error)
-	IsAvailable(ctx context.Context, in *IsAvailableRequest, opts ...grpc.CallOption) (*IsAvailableResponse, error)
+type BassBoostServiceClient interface {
+	NewBassBoost(ctx context.Context, in *NewBassBoostRequest, opts ...grpc.CallOption) (*NewBassBoostResponse, error)
+	GetProperties(ctx context.Context, in *GetPropertiesRequest, opts ...grpc.CallOption) (*GetPropertiesResponse, error)
+	GetRoundedStrength(ctx context.Context, in *GetRoundedStrengthRequest, opts ...grpc.CallOption) (*GetRoundedStrengthResponse, error)
+	GetStrengthSupported(ctx context.Context, in *GetStrengthSupportedRequest, opts ...grpc.CallOption) (*GetStrengthSupportedResponse, error)
+	SetParameterListener(ctx context.Context, in *SetParameterListenerRequest, opts ...grpc.CallOption) (*SetParameterListenerResponse, error)
+	SetProperties(ctx context.Context, in *SetPropertiesRequest, opts ...grpc.CallOption) (*SetPropertiesResponse, error)
+	SetStrength(ctx context.Context, in *SetStrengthRequest, opts ...grpc.CallOption) (*SetStrengthResponse, error)
 }
 
-type noiseSuppressorServiceClient struct {
+type bassBoostServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewNoiseSuppressorServiceClient(cc grpc.ClientConnInterface) NoiseSuppressorServiceClient {
-	return &noiseSuppressorServiceClient{cc}
+func NewBassBoostServiceClient(cc grpc.ClientConnInterface) BassBoostServiceClient {
+	return &bassBoostServiceClient{cc}
 }
 
-func (c *noiseSuppressorServiceClient) Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error) {
+func (c *bassBoostServiceClient) NewBassBoost(ctx context.Context, in *NewBassBoostRequest, opts ...grpc.CallOption) (*NewBassBoostResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateResponse)
-	err := c.cc.Invoke(ctx, NoiseSuppressorService_Create_FullMethodName, in, out, cOpts...)
+	out := new(NewBassBoostResponse)
+	err := c.cc.Invoke(ctx, BassBoostService_NewBassBoost_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *noiseSuppressorServiceClient) IsAvailable(ctx context.Context, in *IsAvailableRequest, opts ...grpc.CallOption) (*IsAvailableResponse, error) {
+func (c *bassBoostServiceClient) GetProperties(ctx context.Context, in *GetPropertiesRequest, opts ...grpc.CallOption) (*GetPropertiesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsAvailableResponse)
-	err := c.cc.Invoke(ctx, NoiseSuppressorService_IsAvailable_FullMethodName, in, out, cOpts...)
+	out := new(GetPropertiesResponse)
+	err := c.cc.Invoke(ctx, BassBoostService_GetProperties_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// NoiseSuppressorServiceServer is the server API for NoiseSuppressorService service.
-// All implementations must embed UnimplementedNoiseSuppressorServiceServer
+func (c *bassBoostServiceClient) GetRoundedStrength(ctx context.Context, in *GetRoundedStrengthRequest, opts ...grpc.CallOption) (*GetRoundedStrengthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRoundedStrengthResponse)
+	err := c.cc.Invoke(ctx, BassBoostService_GetRoundedStrength_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bassBoostServiceClient) GetStrengthSupported(ctx context.Context, in *GetStrengthSupportedRequest, opts ...grpc.CallOption) (*GetStrengthSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStrengthSupportedResponse)
+	err := c.cc.Invoke(ctx, BassBoostService_GetStrengthSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bassBoostServiceClient) SetParameterListener(ctx context.Context, in *SetParameterListenerRequest, opts ...grpc.CallOption) (*SetParameterListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetParameterListenerResponse)
+	err := c.cc.Invoke(ctx, BassBoostService_SetParameterListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bassBoostServiceClient) SetProperties(ctx context.Context, in *SetPropertiesRequest, opts ...grpc.CallOption) (*SetPropertiesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPropertiesResponse)
+	err := c.cc.Invoke(ctx, BassBoostService_SetProperties_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bassBoostServiceClient) SetStrength(ctx context.Context, in *SetStrengthRequest, opts ...grpc.CallOption) (*SetStrengthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetStrengthResponse)
+	err := c.cc.Invoke(ctx, BassBoostService_SetStrength_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// BassBoostServiceServer is the server API for BassBoostService service.
+// All implementations must embed UnimplementedBassBoostServiceServer
 // for forward compatibility.
-type NoiseSuppressorServiceServer interface {
-	Create(context.Context, *CreateRequest) (*CreateResponse, error)
-	IsAvailable(context.Context, *IsAvailableRequest) (*IsAvailableResponse, error)
-	mustEmbedUnimplementedNoiseSuppressorServiceServer()
+type BassBoostServiceServer interface {
+	NewBassBoost(context.Context, *NewBassBoostRequest) (*NewBassBoostResponse, error)
+	GetProperties(context.Context, *GetPropertiesRequest) (*GetPropertiesResponse, error)
+	GetRoundedStrength(context.Context, *GetRoundedStrengthRequest) (*GetRoundedStrengthResponse, error)
+	GetStrengthSupported(context.Context, *GetStrengthSupportedRequest) (*GetStrengthSupportedResponse, error)
+	SetParameterListener(context.Context, *SetParameterListenerRequest) (*SetParameterListenerResponse, error)
+	SetProperties(context.Context, *SetPropertiesRequest) (*SetPropertiesResponse, error)
+	SetStrength(context.Context, *SetStrengthRequest) (*SetStrengthResponse, error)
+	mustEmbedUnimplementedBassBoostServiceServer()
 }
 
-// UnimplementedNoiseSuppressorServiceServer must be embedded to have
+// UnimplementedBassBoostServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedNoiseSuppressorServiceServer struct{}
+type UnimplementedBassBoostServiceServer struct{}
 
-func (UnimplementedNoiseSuppressorServiceServer) Create(context.Context, *CreateRequest) (*CreateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Create not implemented")
+func (UnimplementedBassBoostServiceServer) NewBassBoost(context.Context, *NewBassBoostRequest) (*NewBassBoostResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewBassBoost not implemented")
 }
-func (UnimplementedNoiseSuppressorServiceServer) IsAvailable(context.Context, *IsAvailableRequest) (*IsAvailableResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsAvailable not implemented")
+func (UnimplementedBassBoostServiceServer) GetProperties(context.Context, *GetPropertiesRequest) (*GetPropertiesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetProperties not implemented")
 }
-func (UnimplementedNoiseSuppressorServiceServer) mustEmbedUnimplementedNoiseSuppressorServiceServer() {
+func (UnimplementedBassBoostServiceServer) GetRoundedStrength(context.Context, *GetRoundedStrengthRequest) (*GetRoundedStrengthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRoundedStrength not implemented")
 }
-func (UnimplementedNoiseSuppressorServiceServer) testEmbeddedByValue() {}
+func (UnimplementedBassBoostServiceServer) GetStrengthSupported(context.Context, *GetStrengthSupportedRequest) (*GetStrengthSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStrengthSupported not implemented")
+}
+func (UnimplementedBassBoostServiceServer) SetParameterListener(context.Context, *SetParameterListenerRequest) (*SetParameterListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetParameterListener not implemented")
+}
+func (UnimplementedBassBoostServiceServer) SetProperties(context.Context, *SetPropertiesRequest) (*SetPropertiesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetProperties not implemented")
+}
+func (UnimplementedBassBoostServiceServer) SetStrength(context.Context, *SetStrengthRequest) (*SetStrengthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetStrength not implemented")
+}
+func (UnimplementedBassBoostServiceServer) mustEmbedUnimplementedBassBoostServiceServer() {}
+func (UnimplementedBassBoostServiceServer) testEmbeddedByValue()                          {}
 
-// UnsafeNoiseSuppressorServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to NoiseSuppressorServiceServer will
+// UnsafeBassBoostServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to BassBoostServiceServer will
 // result in compilation errors.
-type UnsafeNoiseSuppressorServiceServer interface {
-	mustEmbedUnimplementedNoiseSuppressorServiceServer()
+type UnsafeBassBoostServiceServer interface {
+	mustEmbedUnimplementedBassBoostServiceServer()
 }
 
-func RegisterNoiseSuppressorServiceServer(s grpc.ServiceRegistrar, srv NoiseSuppressorServiceServer) {
-	// If the following call panics, it indicates UnimplementedNoiseSuppressorServiceServer was
+func RegisterBassBoostServiceServer(s grpc.ServiceRegistrar, srv BassBoostServiceServer) {
+	// If the following call panics, it indicates UnimplementedBassBoostServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&NoiseSuppressorService_ServiceDesc, srv)
+	s.RegisterService(&BassBoostService_ServiceDesc, srv)
 }
 
-func _NoiseSuppressorService_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _BassBoostService_NewBassBoost_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewBassBoostRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BassBoostServiceServer).NewBassBoost(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BassBoostService_NewBassBoost_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BassBoostServiceServer).NewBassBoost(ctx, req.(*NewBassBoostRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BassBoostService_GetProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPropertiesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BassBoostServiceServer).GetProperties(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BassBoostService_GetProperties_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BassBoostServiceServer).GetProperties(ctx, req.(*GetPropertiesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BassBoostService_GetRoundedStrength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRoundedStrengthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BassBoostServiceServer).GetRoundedStrength(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BassBoostService_GetRoundedStrength_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BassBoostServiceServer).GetRoundedStrength(ctx, req.(*GetRoundedStrengthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BassBoostService_GetStrengthSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStrengthSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BassBoostServiceServer).GetStrengthSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BassBoostService_GetStrengthSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BassBoostServiceServer).GetStrengthSupported(ctx, req.(*GetStrengthSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BassBoostService_SetParameterListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetParameterListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BassBoostServiceServer).SetParameterListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BassBoostService_SetParameterListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BassBoostServiceServer).SetParameterListener(ctx, req.(*SetParameterListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BassBoostService_SetProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPropertiesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BassBoostServiceServer).SetProperties(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BassBoostService_SetProperties_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BassBoostServiceServer).SetProperties(ctx, req.(*SetPropertiesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BassBoostService_SetStrength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetStrengthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BassBoostServiceServer).SetStrength(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BassBoostService_SetStrength_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BassBoostServiceServer).SetStrength(ctx, req.(*SetStrengthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// BassBoostService_ServiceDesc is the grpc.ServiceDesc for BassBoostService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var BassBoostService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "audiofx.BassBoostService",
+	HandlerType: (*BassBoostServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewBassBoost",
+			Handler:    _BassBoostService_NewBassBoost_Handler,
+		},
+		{
+			MethodName: "GetProperties",
+			Handler:    _BassBoostService_GetProperties_Handler,
+		},
+		{
+			MethodName: "GetRoundedStrength",
+			Handler:    _BassBoostService_GetRoundedStrength_Handler,
+		},
+		{
+			MethodName: "GetStrengthSupported",
+			Handler:    _BassBoostService_GetStrengthSupported_Handler,
+		},
+		{
+			MethodName: "SetParameterListener",
+			Handler:    _BassBoostService_SetParameterListener_Handler,
+		},
+		{
+			MethodName: "SetProperties",
+			Handler:    _BassBoostService_SetProperties_Handler,
+		},
+		{
+			MethodName: "SetStrength",
+			Handler:    _BassBoostService_SetStrength_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/audiofx/audiofx.proto",
+}
+
+const (
+	BassBoostOnParameterChangeListenerService_OnParameterChange_FullMethodName = "/audiofx.BassBoostOnParameterChangeListenerService/OnParameterChange"
+)
+
+// BassBoostOnParameterChangeListenerServiceClient is the client API for BassBoostOnParameterChangeListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type BassBoostOnParameterChangeListenerServiceClient interface {
+	OnParameterChange(ctx context.Context, in *OnParameterChangeRequest, opts ...grpc.CallOption) (*OnParameterChangeResponse, error)
+}
+
+type bassBoostOnParameterChangeListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewBassBoostOnParameterChangeListenerServiceClient(cc grpc.ClientConnInterface) BassBoostOnParameterChangeListenerServiceClient {
+	return &bassBoostOnParameterChangeListenerServiceClient{cc}
+}
+
+func (c *bassBoostOnParameterChangeListenerServiceClient) OnParameterChange(ctx context.Context, in *OnParameterChangeRequest, opts ...grpc.CallOption) (*OnParameterChangeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnParameterChangeResponse)
+	err := c.cc.Invoke(ctx, BassBoostOnParameterChangeListenerService_OnParameterChange_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// BassBoostOnParameterChangeListenerServiceServer is the server API for BassBoostOnParameterChangeListenerService service.
+// All implementations must embed UnimplementedBassBoostOnParameterChangeListenerServiceServer
+// for forward compatibility.
+type BassBoostOnParameterChangeListenerServiceServer interface {
+	OnParameterChange(context.Context, *OnParameterChangeRequest) (*OnParameterChangeResponse, error)
+	mustEmbedUnimplementedBassBoostOnParameterChangeListenerServiceServer()
+}
+
+// UnimplementedBassBoostOnParameterChangeListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedBassBoostOnParameterChangeListenerServiceServer struct{}
+
+func (UnimplementedBassBoostOnParameterChangeListenerServiceServer) OnParameterChange(context.Context, *OnParameterChangeRequest) (*OnParameterChangeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnParameterChange not implemented")
+}
+func (UnimplementedBassBoostOnParameterChangeListenerServiceServer) mustEmbedUnimplementedBassBoostOnParameterChangeListenerServiceServer() {
+}
+func (UnimplementedBassBoostOnParameterChangeListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeBassBoostOnParameterChangeListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to BassBoostOnParameterChangeListenerServiceServer will
+// result in compilation errors.
+type UnsafeBassBoostOnParameterChangeListenerServiceServer interface {
+	mustEmbedUnimplementedBassBoostOnParameterChangeListenerServiceServer()
+}
+
+func RegisterBassBoostOnParameterChangeListenerServiceServer(s grpc.ServiceRegistrar, srv BassBoostOnParameterChangeListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedBassBoostOnParameterChangeListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&BassBoostOnParameterChangeListenerService_ServiceDesc, srv)
+}
+
+func _BassBoostOnParameterChangeListenerService_OnParameterChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnParameterChangeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BassBoostOnParameterChangeListenerServiceServer).OnParameterChange(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BassBoostOnParameterChangeListenerService_OnParameterChange_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BassBoostOnParameterChangeListenerServiceServer).OnParameterChange(ctx, req.(*OnParameterChangeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// BassBoostOnParameterChangeListenerService_ServiceDesc is the grpc.ServiceDesc for BassBoostOnParameterChangeListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var BassBoostOnParameterChangeListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "audiofx.BassBoostOnParameterChangeListenerService",
+	HandlerType: (*BassBoostOnParameterChangeListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnParameterChange",
+			Handler:    _BassBoostOnParameterChangeListenerService_OnParameterChange_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/audiofx/audiofx.proto",
+}
+
+const (
+	BassBoostSettingsService_ToString_FullMethodName = "/audiofx.BassBoostSettingsService/ToString"
+)
+
+// BassBoostSettingsServiceClient is the client API for BassBoostSettingsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type BassBoostSettingsServiceClient interface {
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type bassBoostSettingsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewBassBoostSettingsServiceClient(cc grpc.ClientConnInterface) BassBoostSettingsServiceClient {
+	return &bassBoostSettingsServiceClient{cc}
+}
+
+func (c *bassBoostSettingsServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, BassBoostSettingsService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// BassBoostSettingsServiceServer is the server API for BassBoostSettingsService service.
+// All implementations must embed UnimplementedBassBoostSettingsServiceServer
+// for forward compatibility.
+type BassBoostSettingsServiceServer interface {
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedBassBoostSettingsServiceServer()
+}
+
+// UnimplementedBassBoostSettingsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedBassBoostSettingsServiceServer struct{}
+
+func (UnimplementedBassBoostSettingsServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedBassBoostSettingsServiceServer) mustEmbedUnimplementedBassBoostSettingsServiceServer() {
+}
+func (UnimplementedBassBoostSettingsServiceServer) testEmbeddedByValue() {}
+
+// UnsafeBassBoostSettingsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to BassBoostSettingsServiceServer will
+// result in compilation errors.
+type UnsafeBassBoostSettingsServiceServer interface {
+	mustEmbedUnimplementedBassBoostSettingsServiceServer()
+}
+
+func RegisterBassBoostSettingsServiceServer(s grpc.ServiceRegistrar, srv BassBoostSettingsServiceServer) {
+	// If the following call panics, it indicates UnimplementedBassBoostSettingsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&BassBoostSettingsService_ServiceDesc, srv)
+}
+
+func _BassBoostSettingsService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BassBoostSettingsServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BassBoostSettingsService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BassBoostSettingsServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// BassBoostSettingsService_ServiceDesc is the grpc.ServiceDesc for BassBoostSettingsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var BassBoostSettingsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "audiofx.BassBoostSettingsService",
+	HandlerType: (*BassBoostSettingsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "ToString",
+			Handler:    _BassBoostSettingsService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/audiofx/audiofx.proto",
+}
+
+const (
+	HapticGeneratorService_Close_FullMethodName       = "/audiofx.HapticGeneratorService/Close"
+	HapticGeneratorService_Release_FullMethodName     = "/audiofx.HapticGeneratorService/Release"
+	HapticGeneratorService_SetEnabled_FullMethodName  = "/audiofx.HapticGeneratorService/SetEnabled"
+	HapticGeneratorService_Create_FullMethodName      = "/audiofx.HapticGeneratorService/Create"
+	HapticGeneratorService_IsAvailable_FullMethodName = "/audiofx.HapticGeneratorService/IsAvailable"
+)
+
+// HapticGeneratorServiceClient is the client API for HapticGeneratorService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type HapticGeneratorServiceClient interface {
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	Release(ctx context.Context, in *ReleaseRequest, opts ...grpc.CallOption) (*ReleaseResponse, error)
+	SetEnabled(ctx context.Context, in *SetEnabledRequest, opts ...grpc.CallOption) (*HapticGeneratorSetEnabledResponse, error)
+	Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error)
+	IsAvailable(ctx context.Context, in *IsAvailableRequest, opts ...grpc.CallOption) (*IsAvailableResponse, error)
+}
+
+type hapticGeneratorServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewHapticGeneratorServiceClient(cc grpc.ClientConnInterface) HapticGeneratorServiceClient {
+	return &hapticGeneratorServiceClient{cc}
+}
+
+func (c *hapticGeneratorServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, HapticGeneratorService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *hapticGeneratorServiceClient) Release(ctx context.Context, in *ReleaseRequest, opts ...grpc.CallOption) (*ReleaseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ReleaseResponse)
+	err := c.cc.Invoke(ctx, HapticGeneratorService_Release_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *hapticGeneratorServiceClient) SetEnabled(ctx context.Context, in *SetEnabledRequest, opts ...grpc.CallOption) (*HapticGeneratorSetEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HapticGeneratorSetEnabledResponse)
+	err := c.cc.Invoke(ctx, HapticGeneratorService_SetEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *hapticGeneratorServiceClient) Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateResponse)
+	err := c.cc.Invoke(ctx, HapticGeneratorService_Create_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *hapticGeneratorServiceClient) IsAvailable(ctx context.Context, in *IsAvailableRequest, opts ...grpc.CallOption) (*IsAvailableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsAvailableResponse)
+	err := c.cc.Invoke(ctx, HapticGeneratorService_IsAvailable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// HapticGeneratorServiceServer is the server API for HapticGeneratorService service.
+// All implementations must embed UnimplementedHapticGeneratorServiceServer
+// for forward compatibility.
+type HapticGeneratorServiceServer interface {
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	Release(context.Context, *ReleaseRequest) (*ReleaseResponse, error)
+	SetEnabled(context.Context, *SetEnabledRequest) (*HapticGeneratorSetEnabledResponse, error)
+	Create(context.Context, *CreateRequest) (*CreateResponse, error)
+	IsAvailable(context.Context, *IsAvailableRequest) (*IsAvailableResponse, error)
+	mustEmbedUnimplementedHapticGeneratorServiceServer()
+}
+
+// UnimplementedHapticGeneratorServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedHapticGeneratorServiceServer struct{}
+
+func (UnimplementedHapticGeneratorServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedHapticGeneratorServiceServer) Release(context.Context, *ReleaseRequest) (*ReleaseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Release not implemented")
+}
+func (UnimplementedHapticGeneratorServiceServer) SetEnabled(context.Context, *SetEnabledRequest) (*HapticGeneratorSetEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEnabled not implemented")
+}
+func (UnimplementedHapticGeneratorServiceServer) Create(context.Context, *CreateRequest) (*CreateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Create not implemented")
+}
+func (UnimplementedHapticGeneratorServiceServer) IsAvailable(context.Context, *IsAvailableRequest) (*IsAvailableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsAvailable not implemented")
+}
+func (UnimplementedHapticGeneratorServiceServer) mustEmbedUnimplementedHapticGeneratorServiceServer() {
+}
+func (UnimplementedHapticGeneratorServiceServer) testEmbeddedByValue() {}
+
+// UnsafeHapticGeneratorServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to HapticGeneratorServiceServer will
+// result in compilation errors.
+type UnsafeHapticGeneratorServiceServer interface {
+	mustEmbedUnimplementedHapticGeneratorServiceServer()
+}
+
+func RegisterHapticGeneratorServiceServer(s grpc.ServiceRegistrar, srv HapticGeneratorServiceServer) {
+	// If the following call panics, it indicates UnimplementedHapticGeneratorServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&HapticGeneratorService_ServiceDesc, srv)
+}
+
+func _HapticGeneratorService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HapticGeneratorServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HapticGeneratorService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HapticGeneratorServiceServer).Close(ctx, req.(*CloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HapticGeneratorService_Release_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReleaseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HapticGeneratorServiceServer).Release(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HapticGeneratorService_Release_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HapticGeneratorServiceServer).Release(ctx, req.(*ReleaseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HapticGeneratorService_SetEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HapticGeneratorServiceServer).SetEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HapticGeneratorService_SetEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HapticGeneratorServiceServer).SetEnabled(ctx, req.(*SetEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HapticGeneratorService_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NoiseSuppressorServiceServer).Create(ctx, in)
+		return srv.(HapticGeneratorServiceServer).Create(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NoiseSuppressorService_Create_FullMethodName,
+		FullMethod: HapticGeneratorService_Create_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoiseSuppressorServiceServer).Create(ctx, req.(*CreateRequest))
+		return srv.(HapticGeneratorServiceServer).Create(ctx, req.(*CreateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NoiseSuppressorService_IsAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _HapticGeneratorService_IsAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsAvailableRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NoiseSuppressorServiceServer).IsAvailable(ctx, in)
+		return srv.(HapticGeneratorServiceServer).IsAvailable(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NoiseSuppressorService_IsAvailable_FullMethodName,
+		FullMethod: HapticGeneratorService_IsAvailable_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NoiseSuppressorServiceServer).IsAvailable(ctx, req.(*IsAvailableRequest))
+		return srv.(HapticGeneratorServiceServer).IsAvailable(ctx, req.(*IsAvailableRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// NoiseSuppressorService_ServiceDesc is the grpc.ServiceDesc for NoiseSuppressorService service.
+// HapticGeneratorService_ServiceDesc is the grpc.ServiceDesc for HapticGeneratorService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var NoiseSuppressorService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "audiofx.NoiseSuppressorService",
-	HandlerType: (*NoiseSuppressorServiceServer)(nil),
+var HapticGeneratorService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "audiofx.HapticGeneratorService",
+	HandlerType: (*HapticGeneratorServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
+			MethodName: "Close",
+			Handler:    _HapticGeneratorService_Close_Handler,
+		},
+		{
+			MethodName: "Release",
+			Handler:    _HapticGeneratorService_Release_Handler,
+		},
+		{
+			MethodName: "SetEnabled",
+			Handler:    _HapticGeneratorService_SetEnabled_Handler,
+		},
+		{
 			MethodName: "Create",
-			Handler:    _NoiseSuppressorService_Create_Handler,
+			Handler:    _HapticGeneratorService_Create_Handler,
 		},
 		{
 			MethodName: "IsAvailable",
-			Handler:    _NoiseSuppressorService_IsAvailable_Handler,
+			Handler:    _HapticGeneratorService_IsAvailable_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/audiofx/audiofx.proto",
+}
+
+const (
+	LoudnessEnhancerService_NewLoudnessEnhancer_FullMethodName = "/audiofx.LoudnessEnhancerService/NewLoudnessEnhancer"
+	LoudnessEnhancerService_GetTargetGain_FullMethodName       = "/audiofx.LoudnessEnhancerService/GetTargetGain"
+	LoudnessEnhancerService_SetTargetGain_FullMethodName       = "/audiofx.LoudnessEnhancerService/SetTargetGain"
+)
+
+// LoudnessEnhancerServiceClient is the client API for LoudnessEnhancerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type LoudnessEnhancerServiceClient interface {
+	NewLoudnessEnhancer(ctx context.Context, in *NewLoudnessEnhancerRequest, opts ...grpc.CallOption) (*NewLoudnessEnhancerResponse, error)
+	GetTargetGain(ctx context.Context, in *GetTargetGainRequest, opts ...grpc.CallOption) (*GetTargetGainResponse, error)
+	SetTargetGain(ctx context.Context, in *SetTargetGainRequest, opts ...grpc.CallOption) (*SetTargetGainResponse, error)
+}
+
+type loudnessEnhancerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewLoudnessEnhancerServiceClient(cc grpc.ClientConnInterface) LoudnessEnhancerServiceClient {
+	return &loudnessEnhancerServiceClient{cc}
+}
+
+func (c *loudnessEnhancerServiceClient) NewLoudnessEnhancer(ctx context.Context, in *NewLoudnessEnhancerRequest, opts ...grpc.CallOption) (*NewLoudnessEnhancerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewLoudnessEnhancerResponse)
+	err := c.cc.Invoke(ctx, LoudnessEnhancerService_NewLoudnessEnhancer_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *loudnessEnhancerServiceClient) GetTargetGain(ctx context.Context, in *GetTargetGainRequest, opts ...grpc.CallOption) (*GetTargetGainResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTargetGainResponse)
+	err := c.cc.Invoke(ctx, LoudnessEnhancerService_GetTargetGain_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *loudnessEnhancerServiceClient) SetTargetGain(ctx context.Context, in *SetTargetGainRequest, opts ...grpc.CallOption) (*SetTargetGainResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTargetGainResponse)
+	err := c.cc.Invoke(ctx, LoudnessEnhancerService_SetTargetGain_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// LoudnessEnhancerServiceServer is the server API for LoudnessEnhancerService service.
+// All implementations must embed UnimplementedLoudnessEnhancerServiceServer
+// for forward compatibility.
+type LoudnessEnhancerServiceServer interface {
+	NewLoudnessEnhancer(context.Context, *NewLoudnessEnhancerRequest) (*NewLoudnessEnhancerResponse, error)
+	GetTargetGain(context.Context, *GetTargetGainRequest) (*GetTargetGainResponse, error)
+	SetTargetGain(context.Context, *SetTargetGainRequest) (*SetTargetGainResponse, error)
+	mustEmbedUnimplementedLoudnessEnhancerServiceServer()
+}
+
+// UnimplementedLoudnessEnhancerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedLoudnessEnhancerServiceServer struct{}
+
+func (UnimplementedLoudnessEnhancerServiceServer) NewLoudnessEnhancer(context.Context, *NewLoudnessEnhancerRequest) (*NewLoudnessEnhancerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewLoudnessEnhancer not implemented")
+}
+func (UnimplementedLoudnessEnhancerServiceServer) GetTargetGain(context.Context, *GetTargetGainRequest) (*GetTargetGainResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTargetGain not implemented")
+}
+func (UnimplementedLoudnessEnhancerServiceServer) SetTargetGain(context.Context, *SetTargetGainRequest) (*SetTargetGainResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTargetGain not implemented")
+}
+func (UnimplementedLoudnessEnhancerServiceServer) mustEmbedUnimplementedLoudnessEnhancerServiceServer() {
+}
+func (UnimplementedLoudnessEnhancerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeLoudnessEnhancerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to LoudnessEnhancerServiceServer will
+// result in compilation errors.
+type UnsafeLoudnessEnhancerServiceServer interface {
+	mustEmbedUnimplementedLoudnessEnhancerServiceServer()
+}
+
+func RegisterLoudnessEnhancerServiceServer(s grpc.ServiceRegistrar, srv LoudnessEnhancerServiceServer) {
+	// If the following call panics, it indicates UnimplementedLoudnessEnhancerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&LoudnessEnhancerService_ServiceDesc, srv)
+}
+
+func _LoudnessEnhancerService_NewLoudnessEnhancer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewLoudnessEnhancerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LoudnessEnhancerServiceServer).NewLoudnessEnhancer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LoudnessEnhancerService_NewLoudnessEnhancer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LoudnessEnhancerServiceServer).NewLoudnessEnhancer(ctx, req.(*NewLoudnessEnhancerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LoudnessEnhancerService_GetTargetGain_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTargetGainRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LoudnessEnhancerServiceServer).GetTargetGain(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LoudnessEnhancerService_GetTargetGain_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LoudnessEnhancerServiceServer).GetTargetGain(ctx, req.(*GetTargetGainRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LoudnessEnhancerService_SetTargetGain_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTargetGainRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LoudnessEnhancerServiceServer).SetTargetGain(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LoudnessEnhancerService_SetTargetGain_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LoudnessEnhancerServiceServer).SetTargetGain(ctx, req.(*SetTargetGainRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// LoudnessEnhancerService_ServiceDesc is the grpc.ServiceDesc for LoudnessEnhancerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var LoudnessEnhancerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "audiofx.LoudnessEnhancerService",
+	HandlerType: (*LoudnessEnhancerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewLoudnessEnhancer",
+			Handler:    _LoudnessEnhancerService_NewLoudnessEnhancer_Handler,
+		},
+		{
+			MethodName: "GetTargetGain",
+			Handler:    _LoudnessEnhancerService_GetTargetGain_Handler,
+		},
+		{
+			MethodName: "SetTargetGain",
+			Handler:    _LoudnessEnhancerService_SetTargetGain_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/audiofx/audiofx.proto",
+}
+
+const (
+	AudioEffectService_GetDescriptor_FullMethodName            = "/audiofx.AudioEffectService/GetDescriptor"
+	AudioEffectService_GetEnabled_FullMethodName               = "/audiofx.AudioEffectService/GetEnabled"
+	AudioEffectService_GetId_FullMethodName                    = "/audiofx.AudioEffectService/GetId"
+	AudioEffectService_HasControl_FullMethodName               = "/audiofx.AudioEffectService/HasControl"
+	AudioEffectService_Release_FullMethodName                  = "/audiofx.AudioEffectService/Release"
+	AudioEffectService_SetControlStatusListener_FullMethodName = "/audiofx.AudioEffectService/SetControlStatusListener"
+	AudioEffectService_SetEnableStatusListener_FullMethodName  = "/audiofx.AudioEffectService/SetEnableStatusListener"
+	AudioEffectService_SetEnabled_FullMethodName               = "/audiofx.AudioEffectService/SetEnabled"
+	AudioEffectService_QueryEffects_FullMethodName             = "/audiofx.AudioEffectService/QueryEffects"
+)
+
+// AudioEffectServiceClient is the client API for AudioEffectService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AudioEffectServiceClient interface {
+	GetDescriptor(ctx context.Context, in *GetDescriptorRequest, opts ...grpc.CallOption) (*GetDescriptorResponse, error)
+	GetEnabled(ctx context.Context, in *GetEnabledRequest, opts ...grpc.CallOption) (*GetEnabledResponse, error)
+	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
+	HasControl(ctx context.Context, in *HasControlRequest, opts ...grpc.CallOption) (*HasControlResponse, error)
+	Release(ctx context.Context, in *ReleaseRequest, opts ...grpc.CallOption) (*ReleaseResponse, error)
+	SetControlStatusListener(ctx context.Context, in *SetControlStatusListenerRequest, opts ...grpc.CallOption) (*SetControlStatusListenerResponse, error)
+	SetEnableStatusListener(ctx context.Context, in *SetEnableStatusListenerRequest, opts ...grpc.CallOption) (*SetEnableStatusListenerResponse, error)
+	SetEnabled(ctx context.Context, in *SetEnabledRequest, opts ...grpc.CallOption) (*AudioEffectSetEnabledResponse, error)
+	QueryEffects(ctx context.Context, in *QueryEffectsRequest, opts ...grpc.CallOption) (*QueryEffectsResponse, error)
+}
+
+type audioEffectServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAudioEffectServiceClient(cc grpc.ClientConnInterface) AudioEffectServiceClient {
+	return &audioEffectServiceClient{cc}
+}
+
+func (c *audioEffectServiceClient) GetDescriptor(ctx context.Context, in *GetDescriptorRequest, opts ...grpc.CallOption) (*GetDescriptorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDescriptorResponse)
+	err := c.cc.Invoke(ctx, AudioEffectService_GetDescriptor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioEffectServiceClient) GetEnabled(ctx context.Context, in *GetEnabledRequest, opts ...grpc.CallOption) (*GetEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEnabledResponse)
+	err := c.cc.Invoke(ctx, AudioEffectService_GetEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioEffectServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIdResponse)
+	err := c.cc.Invoke(ctx, AudioEffectService_GetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioEffectServiceClient) HasControl(ctx context.Context, in *HasControlRequest, opts ...grpc.CallOption) (*HasControlResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HasControlResponse)
+	err := c.cc.Invoke(ctx, AudioEffectService_HasControl_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioEffectServiceClient) Release(ctx context.Context, in *ReleaseRequest, opts ...grpc.CallOption) (*ReleaseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ReleaseResponse)
+	err := c.cc.Invoke(ctx, AudioEffectService_Release_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioEffectServiceClient) SetControlStatusListener(ctx context.Context, in *SetControlStatusListenerRequest, opts ...grpc.CallOption) (*SetControlStatusListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetControlStatusListenerResponse)
+	err := c.cc.Invoke(ctx, AudioEffectService_SetControlStatusListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioEffectServiceClient) SetEnableStatusListener(ctx context.Context, in *SetEnableStatusListenerRequest, opts ...grpc.CallOption) (*SetEnableStatusListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEnableStatusListenerResponse)
+	err := c.cc.Invoke(ctx, AudioEffectService_SetEnableStatusListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioEffectServiceClient) SetEnabled(ctx context.Context, in *SetEnabledRequest, opts ...grpc.CallOption) (*AudioEffectSetEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AudioEffectSetEnabledResponse)
+	err := c.cc.Invoke(ctx, AudioEffectService_SetEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioEffectServiceClient) QueryEffects(ctx context.Context, in *QueryEffectsRequest, opts ...grpc.CallOption) (*QueryEffectsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(QueryEffectsResponse)
+	err := c.cc.Invoke(ctx, AudioEffectService_QueryEffects_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AudioEffectServiceServer is the server API for AudioEffectService service.
+// All implementations must embed UnimplementedAudioEffectServiceServer
+// for forward compatibility.
+type AudioEffectServiceServer interface {
+	GetDescriptor(context.Context, *GetDescriptorRequest) (*GetDescriptorResponse, error)
+	GetEnabled(context.Context, *GetEnabledRequest) (*GetEnabledResponse, error)
+	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
+	HasControl(context.Context, *HasControlRequest) (*HasControlResponse, error)
+	Release(context.Context, *ReleaseRequest) (*ReleaseResponse, error)
+	SetControlStatusListener(context.Context, *SetControlStatusListenerRequest) (*SetControlStatusListenerResponse, error)
+	SetEnableStatusListener(context.Context, *SetEnableStatusListenerRequest) (*SetEnableStatusListenerResponse, error)
+	SetEnabled(context.Context, *SetEnabledRequest) (*AudioEffectSetEnabledResponse, error)
+	QueryEffects(context.Context, *QueryEffectsRequest) (*QueryEffectsResponse, error)
+	mustEmbedUnimplementedAudioEffectServiceServer()
+}
+
+// UnimplementedAudioEffectServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAudioEffectServiceServer struct{}
+
+func (UnimplementedAudioEffectServiceServer) GetDescriptor(context.Context, *GetDescriptorRequest) (*GetDescriptorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDescriptor not implemented")
+}
+func (UnimplementedAudioEffectServiceServer) GetEnabled(context.Context, *GetEnabledRequest) (*GetEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEnabled not implemented")
+}
+func (UnimplementedAudioEffectServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
+}
+func (UnimplementedAudioEffectServiceServer) HasControl(context.Context, *HasControlRequest) (*HasControlResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasControl not implemented")
+}
+func (UnimplementedAudioEffectServiceServer) Release(context.Context, *ReleaseRequest) (*ReleaseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Release not implemented")
+}
+func (UnimplementedAudioEffectServiceServer) SetControlStatusListener(context.Context, *SetControlStatusListenerRequest) (*SetControlStatusListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetControlStatusListener not implemented")
+}
+func (UnimplementedAudioEffectServiceServer) SetEnableStatusListener(context.Context, *SetEnableStatusListenerRequest) (*SetEnableStatusListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEnableStatusListener not implemented")
+}
+func (UnimplementedAudioEffectServiceServer) SetEnabled(context.Context, *SetEnabledRequest) (*AudioEffectSetEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEnabled not implemented")
+}
+func (UnimplementedAudioEffectServiceServer) QueryEffects(context.Context, *QueryEffectsRequest) (*QueryEffectsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method QueryEffects not implemented")
+}
+func (UnimplementedAudioEffectServiceServer) mustEmbedUnimplementedAudioEffectServiceServer() {}
+func (UnimplementedAudioEffectServiceServer) testEmbeddedByValue()                            {}
+
+// UnsafeAudioEffectServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AudioEffectServiceServer will
+// result in compilation errors.
+type UnsafeAudioEffectServiceServer interface {
+	mustEmbedUnimplementedAudioEffectServiceServer()
+}
+
+func RegisterAudioEffectServiceServer(s grpc.ServiceRegistrar, srv AudioEffectServiceServer) {
+	// If the following call panics, it indicates UnimplementedAudioEffectServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AudioEffectService_ServiceDesc, srv)
+}
+
+func _AudioEffectService_GetDescriptor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDescriptorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioEffectServiceServer).GetDescriptor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioEffectService_GetDescriptor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioEffectServiceServer).GetDescriptor(ctx, req.(*GetDescriptorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioEffectService_GetEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioEffectServiceServer).GetEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioEffectService_GetEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioEffectServiceServer).GetEnabled(ctx, req.(*GetEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioEffectService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioEffectServiceServer).GetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioEffectService_GetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioEffectServiceServer).GetId(ctx, req.(*GetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioEffectService_HasControl_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasControlRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioEffectServiceServer).HasControl(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioEffectService_HasControl_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioEffectServiceServer).HasControl(ctx, req.(*HasControlRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioEffectService_Release_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReleaseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioEffectServiceServer).Release(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioEffectService_Release_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioEffectServiceServer).Release(ctx, req.(*ReleaseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioEffectService_SetControlStatusListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetControlStatusListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioEffectServiceServer).SetControlStatusListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioEffectService_SetControlStatusListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioEffectServiceServer).SetControlStatusListener(ctx, req.(*SetControlStatusListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioEffectService_SetEnableStatusListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEnableStatusListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioEffectServiceServer).SetEnableStatusListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioEffectService_SetEnableStatusListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioEffectServiceServer).SetEnableStatusListener(ctx, req.(*SetEnableStatusListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioEffectService_SetEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioEffectServiceServer).SetEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioEffectService_SetEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioEffectServiceServer).SetEnabled(ctx, req.(*SetEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioEffectService_QueryEffects_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryEffectsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioEffectServiceServer).QueryEffects(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioEffectService_QueryEffects_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioEffectServiceServer).QueryEffects(ctx, req.(*QueryEffectsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AudioEffectService_ServiceDesc is the grpc.ServiceDesc for AudioEffectService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AudioEffectService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "audiofx.AudioEffectService",
+	HandlerType: (*AudioEffectServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetDescriptor",
+			Handler:    _AudioEffectService_GetDescriptor_Handler,
+		},
+		{
+			MethodName: "GetEnabled",
+			Handler:    _AudioEffectService_GetEnabled_Handler,
+		},
+		{
+			MethodName: "GetId",
+			Handler:    _AudioEffectService_GetId_Handler,
+		},
+		{
+			MethodName: "HasControl",
+			Handler:    _AudioEffectService_HasControl_Handler,
+		},
+		{
+			MethodName: "Release",
+			Handler:    _AudioEffectService_Release_Handler,
+		},
+		{
+			MethodName: "SetControlStatusListener",
+			Handler:    _AudioEffectService_SetControlStatusListener_Handler,
+		},
+		{
+			MethodName: "SetEnableStatusListener",
+			Handler:    _AudioEffectService_SetEnableStatusListener_Handler,
+		},
+		{
+			MethodName: "SetEnabled",
+			Handler:    _AudioEffectService_SetEnabled_Handler,
+		},
+		{
+			MethodName: "QueryEffects",
+			Handler:    _AudioEffectService_QueryEffects_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/audiofx/audiofx.proto",
+}
+
+const (
+	AudioEffectDescriptorService_Equals_FullMethodName   = "/audiofx.AudioEffectDescriptorService/Equals"
+	AudioEffectDescriptorService_HashCode_FullMethodName = "/audiofx.AudioEffectDescriptorService/HashCode"
+)
+
+// AudioEffectDescriptorServiceClient is the client API for AudioEffectDescriptorService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AudioEffectDescriptorServiceClient interface {
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+}
+
+type audioEffectDescriptorServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAudioEffectDescriptorServiceClient(cc grpc.ClientConnInterface) AudioEffectDescriptorServiceClient {
+	return &audioEffectDescriptorServiceClient{cc}
+}
+
+func (c *audioEffectDescriptorServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, AudioEffectDescriptorService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *audioEffectDescriptorServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, AudioEffectDescriptorService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AudioEffectDescriptorServiceServer is the server API for AudioEffectDescriptorService service.
+// All implementations must embed UnimplementedAudioEffectDescriptorServiceServer
+// for forward compatibility.
+type AudioEffectDescriptorServiceServer interface {
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	mustEmbedUnimplementedAudioEffectDescriptorServiceServer()
+}
+
+// UnimplementedAudioEffectDescriptorServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAudioEffectDescriptorServiceServer struct{}
+
+func (UnimplementedAudioEffectDescriptorServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedAudioEffectDescriptorServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedAudioEffectDescriptorServiceServer) mustEmbedUnimplementedAudioEffectDescriptorServiceServer() {
+}
+func (UnimplementedAudioEffectDescriptorServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAudioEffectDescriptorServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AudioEffectDescriptorServiceServer will
+// result in compilation errors.
+type UnsafeAudioEffectDescriptorServiceServer interface {
+	mustEmbedUnimplementedAudioEffectDescriptorServiceServer()
+}
+
+func RegisterAudioEffectDescriptorServiceServer(s grpc.ServiceRegistrar, srv AudioEffectDescriptorServiceServer) {
+	// If the following call panics, it indicates UnimplementedAudioEffectDescriptorServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AudioEffectDescriptorService_ServiceDesc, srv)
+}
+
+func _AudioEffectDescriptorService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioEffectDescriptorServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioEffectDescriptorService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioEffectDescriptorServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AudioEffectDescriptorService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioEffectDescriptorServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioEffectDescriptorService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioEffectDescriptorServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AudioEffectDescriptorService_ServiceDesc is the grpc.ServiceDesc for AudioEffectDescriptorService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AudioEffectDescriptorService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "audiofx.AudioEffectDescriptorService",
+	HandlerType: (*AudioEffectDescriptorServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Equals",
+			Handler:    _AudioEffectDescriptorService_Equals_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _AudioEffectDescriptorService_HashCode_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/audiofx/audiofx.proto",
+}
+
+const (
+	AudioEffectOnControlStatusChangeListenerService_OnControlStatusChange_FullMethodName = "/audiofx.AudioEffectOnControlStatusChangeListenerService/OnControlStatusChange"
+)
+
+// AudioEffectOnControlStatusChangeListenerServiceClient is the client API for AudioEffectOnControlStatusChangeListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AudioEffectOnControlStatusChangeListenerServiceClient interface {
+	OnControlStatusChange(ctx context.Context, in *OnControlStatusChangeRequest, opts ...grpc.CallOption) (*OnControlStatusChangeResponse, error)
+}
+
+type audioEffectOnControlStatusChangeListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAudioEffectOnControlStatusChangeListenerServiceClient(cc grpc.ClientConnInterface) AudioEffectOnControlStatusChangeListenerServiceClient {
+	return &audioEffectOnControlStatusChangeListenerServiceClient{cc}
+}
+
+func (c *audioEffectOnControlStatusChangeListenerServiceClient) OnControlStatusChange(ctx context.Context, in *OnControlStatusChangeRequest, opts ...grpc.CallOption) (*OnControlStatusChangeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnControlStatusChangeResponse)
+	err := c.cc.Invoke(ctx, AudioEffectOnControlStatusChangeListenerService_OnControlStatusChange_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AudioEffectOnControlStatusChangeListenerServiceServer is the server API for AudioEffectOnControlStatusChangeListenerService service.
+// All implementations must embed UnimplementedAudioEffectOnControlStatusChangeListenerServiceServer
+// for forward compatibility.
+type AudioEffectOnControlStatusChangeListenerServiceServer interface {
+	OnControlStatusChange(context.Context, *OnControlStatusChangeRequest) (*OnControlStatusChangeResponse, error)
+	mustEmbedUnimplementedAudioEffectOnControlStatusChangeListenerServiceServer()
+}
+
+// UnimplementedAudioEffectOnControlStatusChangeListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAudioEffectOnControlStatusChangeListenerServiceServer struct{}
+
+func (UnimplementedAudioEffectOnControlStatusChangeListenerServiceServer) OnControlStatusChange(context.Context, *OnControlStatusChangeRequest) (*OnControlStatusChangeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnControlStatusChange not implemented")
+}
+func (UnimplementedAudioEffectOnControlStatusChangeListenerServiceServer) mustEmbedUnimplementedAudioEffectOnControlStatusChangeListenerServiceServer() {
+}
+func (UnimplementedAudioEffectOnControlStatusChangeListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAudioEffectOnControlStatusChangeListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AudioEffectOnControlStatusChangeListenerServiceServer will
+// result in compilation errors.
+type UnsafeAudioEffectOnControlStatusChangeListenerServiceServer interface {
+	mustEmbedUnimplementedAudioEffectOnControlStatusChangeListenerServiceServer()
+}
+
+func RegisterAudioEffectOnControlStatusChangeListenerServiceServer(s grpc.ServiceRegistrar, srv AudioEffectOnControlStatusChangeListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedAudioEffectOnControlStatusChangeListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AudioEffectOnControlStatusChangeListenerService_ServiceDesc, srv)
+}
+
+func _AudioEffectOnControlStatusChangeListenerService_OnControlStatusChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnControlStatusChangeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioEffectOnControlStatusChangeListenerServiceServer).OnControlStatusChange(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioEffectOnControlStatusChangeListenerService_OnControlStatusChange_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioEffectOnControlStatusChangeListenerServiceServer).OnControlStatusChange(ctx, req.(*OnControlStatusChangeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AudioEffectOnControlStatusChangeListenerService_ServiceDesc is the grpc.ServiceDesc for AudioEffectOnControlStatusChangeListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AudioEffectOnControlStatusChangeListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "audiofx.AudioEffectOnControlStatusChangeListenerService",
+	HandlerType: (*AudioEffectOnControlStatusChangeListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnControlStatusChange",
+			Handler:    _AudioEffectOnControlStatusChangeListenerService_OnControlStatusChange_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/audiofx/audiofx.proto",
+}
+
+const (
+	AudioEffectOnEnableStatusChangeListenerService_OnEnableStatusChange_FullMethodName = "/audiofx.AudioEffectOnEnableStatusChangeListenerService/OnEnableStatusChange"
+)
+
+// AudioEffectOnEnableStatusChangeListenerServiceClient is the client API for AudioEffectOnEnableStatusChangeListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AudioEffectOnEnableStatusChangeListenerServiceClient interface {
+	OnEnableStatusChange(ctx context.Context, in *OnEnableStatusChangeRequest, opts ...grpc.CallOption) (*OnEnableStatusChangeResponse, error)
+}
+
+type audioEffectOnEnableStatusChangeListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAudioEffectOnEnableStatusChangeListenerServiceClient(cc grpc.ClientConnInterface) AudioEffectOnEnableStatusChangeListenerServiceClient {
+	return &audioEffectOnEnableStatusChangeListenerServiceClient{cc}
+}
+
+func (c *audioEffectOnEnableStatusChangeListenerServiceClient) OnEnableStatusChange(ctx context.Context, in *OnEnableStatusChangeRequest, opts ...grpc.CallOption) (*OnEnableStatusChangeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnEnableStatusChangeResponse)
+	err := c.cc.Invoke(ctx, AudioEffectOnEnableStatusChangeListenerService_OnEnableStatusChange_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AudioEffectOnEnableStatusChangeListenerServiceServer is the server API for AudioEffectOnEnableStatusChangeListenerService service.
+// All implementations must embed UnimplementedAudioEffectOnEnableStatusChangeListenerServiceServer
+// for forward compatibility.
+type AudioEffectOnEnableStatusChangeListenerServiceServer interface {
+	OnEnableStatusChange(context.Context, *OnEnableStatusChangeRequest) (*OnEnableStatusChangeResponse, error)
+	mustEmbedUnimplementedAudioEffectOnEnableStatusChangeListenerServiceServer()
+}
+
+// UnimplementedAudioEffectOnEnableStatusChangeListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAudioEffectOnEnableStatusChangeListenerServiceServer struct{}
+
+func (UnimplementedAudioEffectOnEnableStatusChangeListenerServiceServer) OnEnableStatusChange(context.Context, *OnEnableStatusChangeRequest) (*OnEnableStatusChangeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnEnableStatusChange not implemented")
+}
+func (UnimplementedAudioEffectOnEnableStatusChangeListenerServiceServer) mustEmbedUnimplementedAudioEffectOnEnableStatusChangeListenerServiceServer() {
+}
+func (UnimplementedAudioEffectOnEnableStatusChangeListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAudioEffectOnEnableStatusChangeListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AudioEffectOnEnableStatusChangeListenerServiceServer will
+// result in compilation errors.
+type UnsafeAudioEffectOnEnableStatusChangeListenerServiceServer interface {
+	mustEmbedUnimplementedAudioEffectOnEnableStatusChangeListenerServiceServer()
+}
+
+func RegisterAudioEffectOnEnableStatusChangeListenerServiceServer(s grpc.ServiceRegistrar, srv AudioEffectOnEnableStatusChangeListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedAudioEffectOnEnableStatusChangeListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AudioEffectOnEnableStatusChangeListenerService_ServiceDesc, srv)
+}
+
+func _AudioEffectOnEnableStatusChangeListenerService_OnEnableStatusChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnEnableStatusChangeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AudioEffectOnEnableStatusChangeListenerServiceServer).OnEnableStatusChange(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AudioEffectOnEnableStatusChangeListenerService_OnEnableStatusChange_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AudioEffectOnEnableStatusChangeListenerServiceServer).OnEnableStatusChange(ctx, req.(*OnEnableStatusChangeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AudioEffectOnEnableStatusChangeListenerService_ServiceDesc is the grpc.ServiceDesc for AudioEffectOnEnableStatusChangeListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AudioEffectOnEnableStatusChangeListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "audiofx.AudioEffectOnEnableStatusChangeListenerService",
+	HandlerType: (*AudioEffectOnEnableStatusChangeListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnEnableStatusChange",
+			Handler:    _AudioEffectOnEnableStatusChangeListenerService_OnEnableStatusChange_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/audiofx/audiofx.proto",
+}
+
+const (
+	EqualizerService_NewEqualizer_FullMethodName         = "/audiofx.EqualizerService/NewEqualizer"
+	EqualizerService_GetBand_FullMethodName              = "/audiofx.EqualizerService/GetBand"
+	EqualizerService_GetBandFreqRange_FullMethodName     = "/audiofx.EqualizerService/GetBandFreqRange"
+	EqualizerService_GetBandLevel_FullMethodName         = "/audiofx.EqualizerService/GetBandLevel"
+	EqualizerService_GetBandLevelRange_FullMethodName    = "/audiofx.EqualizerService/GetBandLevelRange"
+	EqualizerService_GetCenterFreq_FullMethodName        = "/audiofx.EqualizerService/GetCenterFreq"
+	EqualizerService_GetCurrentPreset_FullMethodName     = "/audiofx.EqualizerService/GetCurrentPreset"
+	EqualizerService_GetNumberOfBands_FullMethodName     = "/audiofx.EqualizerService/GetNumberOfBands"
+	EqualizerService_GetNumberOfPresets_FullMethodName   = "/audiofx.EqualizerService/GetNumberOfPresets"
+	EqualizerService_GetPresetName_FullMethodName        = "/audiofx.EqualizerService/GetPresetName"
+	EqualizerService_GetProperties_FullMethodName        = "/audiofx.EqualizerService/GetProperties"
+	EqualizerService_SetBandLevel_FullMethodName         = "/audiofx.EqualizerService/SetBandLevel"
+	EqualizerService_SetParameterListener_FullMethodName = "/audiofx.EqualizerService/SetParameterListener"
+	EqualizerService_SetProperties_FullMethodName        = "/audiofx.EqualizerService/SetProperties"
+	EqualizerService_UsePreset_FullMethodName            = "/audiofx.EqualizerService/UsePreset"
+)
+
+// EqualizerServiceClient is the client API for EqualizerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type EqualizerServiceClient interface {
+	NewEqualizer(ctx context.Context, in *NewEqualizerRequest, opts ...grpc.CallOption) (*NewEqualizerResponse, error)
+	GetBand(ctx context.Context, in *EqualizerGetBandRequest, opts ...grpc.CallOption) (*EqualizerGetBandResponse, error)
+	GetBandFreqRange(ctx context.Context, in *GetBandFreqRangeRequest, opts ...grpc.CallOption) (*GetBandFreqRangeResponse, error)
+	GetBandLevel(ctx context.Context, in *GetBandLevelRequest, opts ...grpc.CallOption) (*GetBandLevelResponse, error)
+	GetBandLevelRange(ctx context.Context, in *GetBandLevelRangeRequest, opts ...grpc.CallOption) (*GetBandLevelRangeResponse, error)
+	GetCenterFreq(ctx context.Context, in *GetCenterFreqRequest, opts ...grpc.CallOption) (*GetCenterFreqResponse, error)
+	GetCurrentPreset(ctx context.Context, in *GetCurrentPresetRequest, opts ...grpc.CallOption) (*GetCurrentPresetResponse, error)
+	GetNumberOfBands(ctx context.Context, in *GetNumberOfBandsRequest, opts ...grpc.CallOption) (*GetNumberOfBandsResponse, error)
+	GetNumberOfPresets(ctx context.Context, in *GetNumberOfPresetsRequest, opts ...grpc.CallOption) (*GetNumberOfPresetsResponse, error)
+	GetPresetName(ctx context.Context, in *GetPresetNameRequest, opts ...grpc.CallOption) (*GetPresetNameResponse, error)
+	GetProperties(ctx context.Context, in *GetPropertiesRequest, opts ...grpc.CallOption) (*GetPropertiesResponse, error)
+	SetBandLevel(ctx context.Context, in *SetBandLevelRequest, opts ...grpc.CallOption) (*SetBandLevelResponse, error)
+	SetParameterListener(ctx context.Context, in *SetParameterListenerRequest, opts ...grpc.CallOption) (*SetParameterListenerResponse, error)
+	SetProperties(ctx context.Context, in *SetPropertiesRequest, opts ...grpc.CallOption) (*SetPropertiesResponse, error)
+	UsePreset(ctx context.Context, in *UsePresetRequest, opts ...grpc.CallOption) (*UsePresetResponse, error)
+}
+
+type equalizerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewEqualizerServiceClient(cc grpc.ClientConnInterface) EqualizerServiceClient {
+	return &equalizerServiceClient{cc}
+}
+
+func (c *equalizerServiceClient) NewEqualizer(ctx context.Context, in *NewEqualizerRequest, opts ...grpc.CallOption) (*NewEqualizerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewEqualizerResponse)
+	err := c.cc.Invoke(ctx, EqualizerService_NewEqualizer_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *equalizerServiceClient) GetBand(ctx context.Context, in *EqualizerGetBandRequest, opts ...grpc.CallOption) (*EqualizerGetBandResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualizerGetBandResponse)
+	err := c.cc.Invoke(ctx, EqualizerService_GetBand_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *equalizerServiceClient) GetBandFreqRange(ctx context.Context, in *GetBandFreqRangeRequest, opts ...grpc.CallOption) (*GetBandFreqRangeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBandFreqRangeResponse)
+	err := c.cc.Invoke(ctx, EqualizerService_GetBandFreqRange_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *equalizerServiceClient) GetBandLevel(ctx context.Context, in *GetBandLevelRequest, opts ...grpc.CallOption) (*GetBandLevelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBandLevelResponse)
+	err := c.cc.Invoke(ctx, EqualizerService_GetBandLevel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *equalizerServiceClient) GetBandLevelRange(ctx context.Context, in *GetBandLevelRangeRequest, opts ...grpc.CallOption) (*GetBandLevelRangeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBandLevelRangeResponse)
+	err := c.cc.Invoke(ctx, EqualizerService_GetBandLevelRange_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *equalizerServiceClient) GetCenterFreq(ctx context.Context, in *GetCenterFreqRequest, opts ...grpc.CallOption) (*GetCenterFreqResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCenterFreqResponse)
+	err := c.cc.Invoke(ctx, EqualizerService_GetCenterFreq_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *equalizerServiceClient) GetCurrentPreset(ctx context.Context, in *GetCurrentPresetRequest, opts ...grpc.CallOption) (*GetCurrentPresetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCurrentPresetResponse)
+	err := c.cc.Invoke(ctx, EqualizerService_GetCurrentPreset_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *equalizerServiceClient) GetNumberOfBands(ctx context.Context, in *GetNumberOfBandsRequest, opts ...grpc.CallOption) (*GetNumberOfBandsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNumberOfBandsResponse)
+	err := c.cc.Invoke(ctx, EqualizerService_GetNumberOfBands_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *equalizerServiceClient) GetNumberOfPresets(ctx context.Context, in *GetNumberOfPresetsRequest, opts ...grpc.CallOption) (*GetNumberOfPresetsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNumberOfPresetsResponse)
+	err := c.cc.Invoke(ctx, EqualizerService_GetNumberOfPresets_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *equalizerServiceClient) GetPresetName(ctx context.Context, in *GetPresetNameRequest, opts ...grpc.CallOption) (*GetPresetNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPresetNameResponse)
+	err := c.cc.Invoke(ctx, EqualizerService_GetPresetName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *equalizerServiceClient) GetProperties(ctx context.Context, in *GetPropertiesRequest, opts ...grpc.CallOption) (*GetPropertiesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPropertiesResponse)
+	err := c.cc.Invoke(ctx, EqualizerService_GetProperties_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *equalizerServiceClient) SetBandLevel(ctx context.Context, in *SetBandLevelRequest, opts ...grpc.CallOption) (*SetBandLevelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetBandLevelResponse)
+	err := c.cc.Invoke(ctx, EqualizerService_SetBandLevel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *equalizerServiceClient) SetParameterListener(ctx context.Context, in *SetParameterListenerRequest, opts ...grpc.CallOption) (*SetParameterListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetParameterListenerResponse)
+	err := c.cc.Invoke(ctx, EqualizerService_SetParameterListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *equalizerServiceClient) SetProperties(ctx context.Context, in *SetPropertiesRequest, opts ...grpc.CallOption) (*SetPropertiesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPropertiesResponse)
+	err := c.cc.Invoke(ctx, EqualizerService_SetProperties_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *equalizerServiceClient) UsePreset(ctx context.Context, in *UsePresetRequest, opts ...grpc.CallOption) (*UsePresetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UsePresetResponse)
+	err := c.cc.Invoke(ctx, EqualizerService_UsePreset_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// EqualizerServiceServer is the server API for EqualizerService service.
+// All implementations must embed UnimplementedEqualizerServiceServer
+// for forward compatibility.
+type EqualizerServiceServer interface {
+	NewEqualizer(context.Context, *NewEqualizerRequest) (*NewEqualizerResponse, error)
+	GetBand(context.Context, *EqualizerGetBandRequest) (*EqualizerGetBandResponse, error)
+	GetBandFreqRange(context.Context, *GetBandFreqRangeRequest) (*GetBandFreqRangeResponse, error)
+	GetBandLevel(context.Context, *GetBandLevelRequest) (*GetBandLevelResponse, error)
+	GetBandLevelRange(context.Context, *GetBandLevelRangeRequest) (*GetBandLevelRangeResponse, error)
+	GetCenterFreq(context.Context, *GetCenterFreqRequest) (*GetCenterFreqResponse, error)
+	GetCurrentPreset(context.Context, *GetCurrentPresetRequest) (*GetCurrentPresetResponse, error)
+	GetNumberOfBands(context.Context, *GetNumberOfBandsRequest) (*GetNumberOfBandsResponse, error)
+	GetNumberOfPresets(context.Context, *GetNumberOfPresetsRequest) (*GetNumberOfPresetsResponse, error)
+	GetPresetName(context.Context, *GetPresetNameRequest) (*GetPresetNameResponse, error)
+	GetProperties(context.Context, *GetPropertiesRequest) (*GetPropertiesResponse, error)
+	SetBandLevel(context.Context, *SetBandLevelRequest) (*SetBandLevelResponse, error)
+	SetParameterListener(context.Context, *SetParameterListenerRequest) (*SetParameterListenerResponse, error)
+	SetProperties(context.Context, *SetPropertiesRequest) (*SetPropertiesResponse, error)
+	UsePreset(context.Context, *UsePresetRequest) (*UsePresetResponse, error)
+	mustEmbedUnimplementedEqualizerServiceServer()
+}
+
+// UnimplementedEqualizerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedEqualizerServiceServer struct{}
+
+func (UnimplementedEqualizerServiceServer) NewEqualizer(context.Context, *NewEqualizerRequest) (*NewEqualizerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewEqualizer not implemented")
+}
+func (UnimplementedEqualizerServiceServer) GetBand(context.Context, *EqualizerGetBandRequest) (*EqualizerGetBandResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBand not implemented")
+}
+func (UnimplementedEqualizerServiceServer) GetBandFreqRange(context.Context, *GetBandFreqRangeRequest) (*GetBandFreqRangeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBandFreqRange not implemented")
+}
+func (UnimplementedEqualizerServiceServer) GetBandLevel(context.Context, *GetBandLevelRequest) (*GetBandLevelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBandLevel not implemented")
+}
+func (UnimplementedEqualizerServiceServer) GetBandLevelRange(context.Context, *GetBandLevelRangeRequest) (*GetBandLevelRangeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBandLevelRange not implemented")
+}
+func (UnimplementedEqualizerServiceServer) GetCenterFreq(context.Context, *GetCenterFreqRequest) (*GetCenterFreqResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCenterFreq not implemented")
+}
+func (UnimplementedEqualizerServiceServer) GetCurrentPreset(context.Context, *GetCurrentPresetRequest) (*GetCurrentPresetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCurrentPreset not implemented")
+}
+func (UnimplementedEqualizerServiceServer) GetNumberOfBands(context.Context, *GetNumberOfBandsRequest) (*GetNumberOfBandsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNumberOfBands not implemented")
+}
+func (UnimplementedEqualizerServiceServer) GetNumberOfPresets(context.Context, *GetNumberOfPresetsRequest) (*GetNumberOfPresetsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNumberOfPresets not implemented")
+}
+func (UnimplementedEqualizerServiceServer) GetPresetName(context.Context, *GetPresetNameRequest) (*GetPresetNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPresetName not implemented")
+}
+func (UnimplementedEqualizerServiceServer) GetProperties(context.Context, *GetPropertiesRequest) (*GetPropertiesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetProperties not implemented")
+}
+func (UnimplementedEqualizerServiceServer) SetBandLevel(context.Context, *SetBandLevelRequest) (*SetBandLevelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetBandLevel not implemented")
+}
+func (UnimplementedEqualizerServiceServer) SetParameterListener(context.Context, *SetParameterListenerRequest) (*SetParameterListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetParameterListener not implemented")
+}
+func (UnimplementedEqualizerServiceServer) SetProperties(context.Context, *SetPropertiesRequest) (*SetPropertiesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetProperties not implemented")
+}
+func (UnimplementedEqualizerServiceServer) UsePreset(context.Context, *UsePresetRequest) (*UsePresetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UsePreset not implemented")
+}
+func (UnimplementedEqualizerServiceServer) mustEmbedUnimplementedEqualizerServiceServer() {}
+func (UnimplementedEqualizerServiceServer) testEmbeddedByValue()                          {}
+
+// UnsafeEqualizerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to EqualizerServiceServer will
+// result in compilation errors.
+type UnsafeEqualizerServiceServer interface {
+	mustEmbedUnimplementedEqualizerServiceServer()
+}
+
+func RegisterEqualizerServiceServer(s grpc.ServiceRegistrar, srv EqualizerServiceServer) {
+	// If the following call panics, it indicates UnimplementedEqualizerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&EqualizerService_ServiceDesc, srv)
+}
+
+func _EqualizerService_NewEqualizer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewEqualizerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EqualizerServiceServer).NewEqualizer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EqualizerService_NewEqualizer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EqualizerServiceServer).NewEqualizer(ctx, req.(*NewEqualizerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EqualizerService_GetBand_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualizerGetBandRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EqualizerServiceServer).GetBand(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EqualizerService_GetBand_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EqualizerServiceServer).GetBand(ctx, req.(*EqualizerGetBandRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EqualizerService_GetBandFreqRange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBandFreqRangeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EqualizerServiceServer).GetBandFreqRange(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EqualizerService_GetBandFreqRange_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EqualizerServiceServer).GetBandFreqRange(ctx, req.(*GetBandFreqRangeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EqualizerService_GetBandLevel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBandLevelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EqualizerServiceServer).GetBandLevel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EqualizerService_GetBandLevel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EqualizerServiceServer).GetBandLevel(ctx, req.(*GetBandLevelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EqualizerService_GetBandLevelRange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBandLevelRangeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EqualizerServiceServer).GetBandLevelRange(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EqualizerService_GetBandLevelRange_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EqualizerServiceServer).GetBandLevelRange(ctx, req.(*GetBandLevelRangeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EqualizerService_GetCenterFreq_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCenterFreqRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EqualizerServiceServer).GetCenterFreq(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EqualizerService_GetCenterFreq_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EqualizerServiceServer).GetCenterFreq(ctx, req.(*GetCenterFreqRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EqualizerService_GetCurrentPreset_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCurrentPresetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EqualizerServiceServer).GetCurrentPreset(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EqualizerService_GetCurrentPreset_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EqualizerServiceServer).GetCurrentPreset(ctx, req.(*GetCurrentPresetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EqualizerService_GetNumberOfBands_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNumberOfBandsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EqualizerServiceServer).GetNumberOfBands(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EqualizerService_GetNumberOfBands_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EqualizerServiceServer).GetNumberOfBands(ctx, req.(*GetNumberOfBandsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EqualizerService_GetNumberOfPresets_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNumberOfPresetsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EqualizerServiceServer).GetNumberOfPresets(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EqualizerService_GetNumberOfPresets_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EqualizerServiceServer).GetNumberOfPresets(ctx, req.(*GetNumberOfPresetsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EqualizerService_GetPresetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPresetNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EqualizerServiceServer).GetPresetName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EqualizerService_GetPresetName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EqualizerServiceServer).GetPresetName(ctx, req.(*GetPresetNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EqualizerService_GetProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPropertiesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EqualizerServiceServer).GetProperties(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EqualizerService_GetProperties_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EqualizerServiceServer).GetProperties(ctx, req.(*GetPropertiesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EqualizerService_SetBandLevel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetBandLevelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EqualizerServiceServer).SetBandLevel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EqualizerService_SetBandLevel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EqualizerServiceServer).SetBandLevel(ctx, req.(*SetBandLevelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EqualizerService_SetParameterListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetParameterListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EqualizerServiceServer).SetParameterListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EqualizerService_SetParameterListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EqualizerServiceServer).SetParameterListener(ctx, req.(*SetParameterListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EqualizerService_SetProperties_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPropertiesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EqualizerServiceServer).SetProperties(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EqualizerService_SetProperties_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EqualizerServiceServer).SetProperties(ctx, req.(*SetPropertiesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EqualizerService_UsePreset_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UsePresetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EqualizerServiceServer).UsePreset(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EqualizerService_UsePreset_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EqualizerServiceServer).UsePreset(ctx, req.(*UsePresetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// EqualizerService_ServiceDesc is the grpc.ServiceDesc for EqualizerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var EqualizerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "audiofx.EqualizerService",
+	HandlerType: (*EqualizerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewEqualizer",
+			Handler:    _EqualizerService_NewEqualizer_Handler,
+		},
+		{
+			MethodName: "GetBand",
+			Handler:    _EqualizerService_GetBand_Handler,
+		},
+		{
+			MethodName: "GetBandFreqRange",
+			Handler:    _EqualizerService_GetBandFreqRange_Handler,
+		},
+		{
+			MethodName: "GetBandLevel",
+			Handler:    _EqualizerService_GetBandLevel_Handler,
+		},
+		{
+			MethodName: "GetBandLevelRange",
+			Handler:    _EqualizerService_GetBandLevelRange_Handler,
+		},
+		{
+			MethodName: "GetCenterFreq",
+			Handler:    _EqualizerService_GetCenterFreq_Handler,
+		},
+		{
+			MethodName: "GetCurrentPreset",
+			Handler:    _EqualizerService_GetCurrentPreset_Handler,
+		},
+		{
+			MethodName: "GetNumberOfBands",
+			Handler:    _EqualizerService_GetNumberOfBands_Handler,
+		},
+		{
+			MethodName: "GetNumberOfPresets",
+			Handler:    _EqualizerService_GetNumberOfPresets_Handler,
+		},
+		{
+			MethodName: "GetPresetName",
+			Handler:    _EqualizerService_GetPresetName_Handler,
+		},
+		{
+			MethodName: "GetProperties",
+			Handler:    _EqualizerService_GetProperties_Handler,
+		},
+		{
+			MethodName: "SetBandLevel",
+			Handler:    _EqualizerService_SetBandLevel_Handler,
+		},
+		{
+			MethodName: "SetParameterListener",
+			Handler:    _EqualizerService_SetParameterListener_Handler,
+		},
+		{
+			MethodName: "SetProperties",
+			Handler:    _EqualizerService_SetProperties_Handler,
+		},
+		{
+			MethodName: "UsePreset",
+			Handler:    _EqualizerService_UsePreset_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/audiofx/audiofx.proto",
+}
+
+const (
+	EqualizerOnParameterChangeListenerService_OnParameterChange_FullMethodName = "/audiofx.EqualizerOnParameterChangeListenerService/OnParameterChange"
+)
+
+// EqualizerOnParameterChangeListenerServiceClient is the client API for EqualizerOnParameterChangeListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type EqualizerOnParameterChangeListenerServiceClient interface {
+	OnParameterChange(ctx context.Context, in *EqualizerOnParameterChangeListenerOnParameterChangeRequest, opts ...grpc.CallOption) (*OnParameterChangeResponse, error)
+}
+
+type equalizerOnParameterChangeListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewEqualizerOnParameterChangeListenerServiceClient(cc grpc.ClientConnInterface) EqualizerOnParameterChangeListenerServiceClient {
+	return &equalizerOnParameterChangeListenerServiceClient{cc}
+}
+
+func (c *equalizerOnParameterChangeListenerServiceClient) OnParameterChange(ctx context.Context, in *EqualizerOnParameterChangeListenerOnParameterChangeRequest, opts ...grpc.CallOption) (*OnParameterChangeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnParameterChangeResponse)
+	err := c.cc.Invoke(ctx, EqualizerOnParameterChangeListenerService_OnParameterChange_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// EqualizerOnParameterChangeListenerServiceServer is the server API for EqualizerOnParameterChangeListenerService service.
+// All implementations must embed UnimplementedEqualizerOnParameterChangeListenerServiceServer
+// for forward compatibility.
+type EqualizerOnParameterChangeListenerServiceServer interface {
+	OnParameterChange(context.Context, *EqualizerOnParameterChangeListenerOnParameterChangeRequest) (*OnParameterChangeResponse, error)
+	mustEmbedUnimplementedEqualizerOnParameterChangeListenerServiceServer()
+}
+
+// UnimplementedEqualizerOnParameterChangeListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedEqualizerOnParameterChangeListenerServiceServer struct{}
+
+func (UnimplementedEqualizerOnParameterChangeListenerServiceServer) OnParameterChange(context.Context, *EqualizerOnParameterChangeListenerOnParameterChangeRequest) (*OnParameterChangeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnParameterChange not implemented")
+}
+func (UnimplementedEqualizerOnParameterChangeListenerServiceServer) mustEmbedUnimplementedEqualizerOnParameterChangeListenerServiceServer() {
+}
+func (UnimplementedEqualizerOnParameterChangeListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeEqualizerOnParameterChangeListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to EqualizerOnParameterChangeListenerServiceServer will
+// result in compilation errors.
+type UnsafeEqualizerOnParameterChangeListenerServiceServer interface {
+	mustEmbedUnimplementedEqualizerOnParameterChangeListenerServiceServer()
+}
+
+func RegisterEqualizerOnParameterChangeListenerServiceServer(s grpc.ServiceRegistrar, srv EqualizerOnParameterChangeListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedEqualizerOnParameterChangeListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&EqualizerOnParameterChangeListenerService_ServiceDesc, srv)
+}
+
+func _EqualizerOnParameterChangeListenerService_OnParameterChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualizerOnParameterChangeListenerOnParameterChangeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EqualizerOnParameterChangeListenerServiceServer).OnParameterChange(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EqualizerOnParameterChangeListenerService_OnParameterChange_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EqualizerOnParameterChangeListenerServiceServer).OnParameterChange(ctx, req.(*EqualizerOnParameterChangeListenerOnParameterChangeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// EqualizerOnParameterChangeListenerService_ServiceDesc is the grpc.ServiceDesc for EqualizerOnParameterChangeListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var EqualizerOnParameterChangeListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "audiofx.EqualizerOnParameterChangeListenerService",
+	HandlerType: (*EqualizerOnParameterChangeListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnParameterChange",
+			Handler:    _EqualizerOnParameterChangeListenerService_OnParameterChange_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/audiofx/audiofx.proto",
+}
+
+const (
+	EqualizerSettingsService_ToString_FullMethodName = "/audiofx.EqualizerSettingsService/ToString"
+)
+
+// EqualizerSettingsServiceClient is the client API for EqualizerSettingsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type EqualizerSettingsServiceClient interface {
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type equalizerSettingsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewEqualizerSettingsServiceClient(cc grpc.ClientConnInterface) EqualizerSettingsServiceClient {
+	return &equalizerSettingsServiceClient{cc}
+}
+
+func (c *equalizerSettingsServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, EqualizerSettingsService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// EqualizerSettingsServiceServer is the server API for EqualizerSettingsService service.
+// All implementations must embed UnimplementedEqualizerSettingsServiceServer
+// for forward compatibility.
+type EqualizerSettingsServiceServer interface {
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedEqualizerSettingsServiceServer()
+}
+
+// UnimplementedEqualizerSettingsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedEqualizerSettingsServiceServer struct{}
+
+func (UnimplementedEqualizerSettingsServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedEqualizerSettingsServiceServer) mustEmbedUnimplementedEqualizerSettingsServiceServer() {
+}
+func (UnimplementedEqualizerSettingsServiceServer) testEmbeddedByValue() {}
+
+// UnsafeEqualizerSettingsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to EqualizerSettingsServiceServer will
+// result in compilation errors.
+type UnsafeEqualizerSettingsServiceServer interface {
+	mustEmbedUnimplementedEqualizerSettingsServiceServer()
+}
+
+func RegisterEqualizerSettingsServiceServer(s grpc.ServiceRegistrar, srv EqualizerSettingsServiceServer) {
+	// If the following call panics, it indicates UnimplementedEqualizerSettingsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&EqualizerSettingsService_ServiceDesc, srv)
+}
+
+func _EqualizerSettingsService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EqualizerSettingsServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EqualizerSettingsService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EqualizerSettingsServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// EqualizerSettingsService_ServiceDesc is the grpc.ServiceDesc for EqualizerSettingsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var EqualizerSettingsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "audiofx.EqualizerSettingsService",
+	HandlerType: (*EqualizerSettingsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "ToString",
+			Handler:    _EqualizerSettingsService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/audiofx/audiofx.proto",
+}
+
+const (
+	VisualizerService_NewVisualizer_FullMethodName          = "/audiofx.VisualizerService/NewVisualizer"
+	VisualizerService_GetCaptureSize_FullMethodName         = "/audiofx.VisualizerService/GetCaptureSize"
+	VisualizerService_GetEnabled_FullMethodName             = "/audiofx.VisualizerService/GetEnabled"
+	VisualizerService_GetFft_FullMethodName                 = "/audiofx.VisualizerService/GetFft"
+	VisualizerService_GetMeasurementMode_FullMethodName     = "/audiofx.VisualizerService/GetMeasurementMode"
+	VisualizerService_GetMeasurementPeakRms_FullMethodName  = "/audiofx.VisualizerService/GetMeasurementPeakRms"
+	VisualizerService_GetSamplingRate_FullMethodName        = "/audiofx.VisualizerService/GetSamplingRate"
+	VisualizerService_GetScalingMode_FullMethodName         = "/audiofx.VisualizerService/GetScalingMode"
+	VisualizerService_GetWaveForm_FullMethodName            = "/audiofx.VisualizerService/GetWaveForm"
+	VisualizerService_Release_FullMethodName                = "/audiofx.VisualizerService/Release"
+	VisualizerService_SetCaptureSize_FullMethodName         = "/audiofx.VisualizerService/SetCaptureSize"
+	VisualizerService_SetDataCaptureListener_FullMethodName = "/audiofx.VisualizerService/SetDataCaptureListener"
+	VisualizerService_SetEnabled_FullMethodName             = "/audiofx.VisualizerService/SetEnabled"
+	VisualizerService_SetMeasurementMode_FullMethodName     = "/audiofx.VisualizerService/SetMeasurementMode"
+	VisualizerService_SetScalingMode_FullMethodName         = "/audiofx.VisualizerService/SetScalingMode"
+	VisualizerService_GetCaptureSizeRange_FullMethodName    = "/audiofx.VisualizerService/GetCaptureSizeRange"
+	VisualizerService_GetMaxCaptureRate_FullMethodName      = "/audiofx.VisualizerService/GetMaxCaptureRate"
+)
+
+// VisualizerServiceClient is the client API for VisualizerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type VisualizerServiceClient interface {
+	NewVisualizer(ctx context.Context, in *NewVisualizerRequest, opts ...grpc.CallOption) (*NewVisualizerResponse, error)
+	GetCaptureSize(ctx context.Context, in *GetCaptureSizeRequest, opts ...grpc.CallOption) (*GetCaptureSizeResponse, error)
+	GetEnabled(ctx context.Context, in *VisualizerGetEnabledRequest, opts ...grpc.CallOption) (*GetEnabledResponse, error)
+	GetFft(ctx context.Context, in *GetFftRequest, opts ...grpc.CallOption) (*GetFftResponse, error)
+	GetMeasurementMode(ctx context.Context, in *GetMeasurementModeRequest, opts ...grpc.CallOption) (*GetMeasurementModeResponse, error)
+	GetMeasurementPeakRms(ctx context.Context, in *GetMeasurementPeakRmsRequest, opts ...grpc.CallOption) (*GetMeasurementPeakRmsResponse, error)
+	GetSamplingRate(ctx context.Context, in *GetSamplingRateRequest, opts ...grpc.CallOption) (*GetSamplingRateResponse, error)
+	GetScalingMode(ctx context.Context, in *GetScalingModeRequest, opts ...grpc.CallOption) (*GetScalingModeResponse, error)
+	GetWaveForm(ctx context.Context, in *GetWaveFormRequest, opts ...grpc.CallOption) (*GetWaveFormResponse, error)
+	Release(ctx context.Context, in *VisualizerReleaseRequest, opts ...grpc.CallOption) (*ReleaseResponse, error)
+	SetCaptureSize(ctx context.Context, in *SetCaptureSizeRequest, opts ...grpc.CallOption) (*SetCaptureSizeResponse, error)
+	SetDataCaptureListener(ctx context.Context, in *SetDataCaptureListenerRequest, opts ...grpc.CallOption) (*SetDataCaptureListenerResponse, error)
+	SetEnabled(ctx context.Context, in *VisualizerSetEnabledRequest, opts ...grpc.CallOption) (*VisualizerSetEnabledResponse, error)
+	SetMeasurementMode(ctx context.Context, in *SetMeasurementModeRequest, opts ...grpc.CallOption) (*SetMeasurementModeResponse, error)
+	SetScalingMode(ctx context.Context, in *SetScalingModeRequest, opts ...grpc.CallOption) (*SetScalingModeResponse, error)
+	GetCaptureSizeRange(ctx context.Context, in *GetCaptureSizeRangeRequest, opts ...grpc.CallOption) (*GetCaptureSizeRangeResponse, error)
+	GetMaxCaptureRate(ctx context.Context, in *GetMaxCaptureRateRequest, opts ...grpc.CallOption) (*GetMaxCaptureRateResponse, error)
+}
+
+type visualizerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewVisualizerServiceClient(cc grpc.ClientConnInterface) VisualizerServiceClient {
+	return &visualizerServiceClient{cc}
+}
+
+func (c *visualizerServiceClient) NewVisualizer(ctx context.Context, in *NewVisualizerRequest, opts ...grpc.CallOption) (*NewVisualizerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewVisualizerResponse)
+	err := c.cc.Invoke(ctx, VisualizerService_NewVisualizer_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *visualizerServiceClient) GetCaptureSize(ctx context.Context, in *GetCaptureSizeRequest, opts ...grpc.CallOption) (*GetCaptureSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCaptureSizeResponse)
+	err := c.cc.Invoke(ctx, VisualizerService_GetCaptureSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *visualizerServiceClient) GetEnabled(ctx context.Context, in *VisualizerGetEnabledRequest, opts ...grpc.CallOption) (*GetEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEnabledResponse)
+	err := c.cc.Invoke(ctx, VisualizerService_GetEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *visualizerServiceClient) GetFft(ctx context.Context, in *GetFftRequest, opts ...grpc.CallOption) (*GetFftResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFftResponse)
+	err := c.cc.Invoke(ctx, VisualizerService_GetFft_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *visualizerServiceClient) GetMeasurementMode(ctx context.Context, in *GetMeasurementModeRequest, opts ...grpc.CallOption) (*GetMeasurementModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMeasurementModeResponse)
+	err := c.cc.Invoke(ctx, VisualizerService_GetMeasurementMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *visualizerServiceClient) GetMeasurementPeakRms(ctx context.Context, in *GetMeasurementPeakRmsRequest, opts ...grpc.CallOption) (*GetMeasurementPeakRmsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMeasurementPeakRmsResponse)
+	err := c.cc.Invoke(ctx, VisualizerService_GetMeasurementPeakRms_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *visualizerServiceClient) GetSamplingRate(ctx context.Context, in *GetSamplingRateRequest, opts ...grpc.CallOption) (*GetSamplingRateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSamplingRateResponse)
+	err := c.cc.Invoke(ctx, VisualizerService_GetSamplingRate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *visualizerServiceClient) GetScalingMode(ctx context.Context, in *GetScalingModeRequest, opts ...grpc.CallOption) (*GetScalingModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetScalingModeResponse)
+	err := c.cc.Invoke(ctx, VisualizerService_GetScalingMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *visualizerServiceClient) GetWaveForm(ctx context.Context, in *GetWaveFormRequest, opts ...grpc.CallOption) (*GetWaveFormResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWaveFormResponse)
+	err := c.cc.Invoke(ctx, VisualizerService_GetWaveForm_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *visualizerServiceClient) Release(ctx context.Context, in *VisualizerReleaseRequest, opts ...grpc.CallOption) (*ReleaseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ReleaseResponse)
+	err := c.cc.Invoke(ctx, VisualizerService_Release_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *visualizerServiceClient) SetCaptureSize(ctx context.Context, in *SetCaptureSizeRequest, opts ...grpc.CallOption) (*SetCaptureSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetCaptureSizeResponse)
+	err := c.cc.Invoke(ctx, VisualizerService_SetCaptureSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *visualizerServiceClient) SetDataCaptureListener(ctx context.Context, in *SetDataCaptureListenerRequest, opts ...grpc.CallOption) (*SetDataCaptureListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDataCaptureListenerResponse)
+	err := c.cc.Invoke(ctx, VisualizerService_SetDataCaptureListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *visualizerServiceClient) SetEnabled(ctx context.Context, in *VisualizerSetEnabledRequest, opts ...grpc.CallOption) (*VisualizerSetEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(VisualizerSetEnabledResponse)
+	err := c.cc.Invoke(ctx, VisualizerService_SetEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *visualizerServiceClient) SetMeasurementMode(ctx context.Context, in *SetMeasurementModeRequest, opts ...grpc.CallOption) (*SetMeasurementModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetMeasurementModeResponse)
+	err := c.cc.Invoke(ctx, VisualizerService_SetMeasurementMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *visualizerServiceClient) SetScalingMode(ctx context.Context, in *SetScalingModeRequest, opts ...grpc.CallOption) (*SetScalingModeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetScalingModeResponse)
+	err := c.cc.Invoke(ctx, VisualizerService_SetScalingMode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *visualizerServiceClient) GetCaptureSizeRange(ctx context.Context, in *GetCaptureSizeRangeRequest, opts ...grpc.CallOption) (*GetCaptureSizeRangeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCaptureSizeRangeResponse)
+	err := c.cc.Invoke(ctx, VisualizerService_GetCaptureSizeRange_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *visualizerServiceClient) GetMaxCaptureRate(ctx context.Context, in *GetMaxCaptureRateRequest, opts ...grpc.CallOption) (*GetMaxCaptureRateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxCaptureRateResponse)
+	err := c.cc.Invoke(ctx, VisualizerService_GetMaxCaptureRate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// VisualizerServiceServer is the server API for VisualizerService service.
+// All implementations must embed UnimplementedVisualizerServiceServer
+// for forward compatibility.
+type VisualizerServiceServer interface {
+	NewVisualizer(context.Context, *NewVisualizerRequest) (*NewVisualizerResponse, error)
+	GetCaptureSize(context.Context, *GetCaptureSizeRequest) (*GetCaptureSizeResponse, error)
+	GetEnabled(context.Context, *VisualizerGetEnabledRequest) (*GetEnabledResponse, error)
+	GetFft(context.Context, *GetFftRequest) (*GetFftResponse, error)
+	GetMeasurementMode(context.Context, *GetMeasurementModeRequest) (*GetMeasurementModeResponse, error)
+	GetMeasurementPeakRms(context.Context, *GetMeasurementPeakRmsRequest) (*GetMeasurementPeakRmsResponse, error)
+	GetSamplingRate(context.Context, *GetSamplingRateRequest) (*GetSamplingRateResponse, error)
+	GetScalingMode(context.Context, *GetScalingModeRequest) (*GetScalingModeResponse, error)
+	GetWaveForm(context.Context, *GetWaveFormRequest) (*GetWaveFormResponse, error)
+	Release(context.Context, *VisualizerReleaseRequest) (*ReleaseResponse, error)
+	SetCaptureSize(context.Context, *SetCaptureSizeRequest) (*SetCaptureSizeResponse, error)
+	SetDataCaptureListener(context.Context, *SetDataCaptureListenerRequest) (*SetDataCaptureListenerResponse, error)
+	SetEnabled(context.Context, *VisualizerSetEnabledRequest) (*VisualizerSetEnabledResponse, error)
+	SetMeasurementMode(context.Context, *SetMeasurementModeRequest) (*SetMeasurementModeResponse, error)
+	SetScalingMode(context.Context, *SetScalingModeRequest) (*SetScalingModeResponse, error)
+	GetCaptureSizeRange(context.Context, *GetCaptureSizeRangeRequest) (*GetCaptureSizeRangeResponse, error)
+	GetMaxCaptureRate(context.Context, *GetMaxCaptureRateRequest) (*GetMaxCaptureRateResponse, error)
+	mustEmbedUnimplementedVisualizerServiceServer()
+}
+
+// UnimplementedVisualizerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedVisualizerServiceServer struct{}
+
+func (UnimplementedVisualizerServiceServer) NewVisualizer(context.Context, *NewVisualizerRequest) (*NewVisualizerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewVisualizer not implemented")
+}
+func (UnimplementedVisualizerServiceServer) GetCaptureSize(context.Context, *GetCaptureSizeRequest) (*GetCaptureSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCaptureSize not implemented")
+}
+func (UnimplementedVisualizerServiceServer) GetEnabled(context.Context, *VisualizerGetEnabledRequest) (*GetEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEnabled not implemented")
+}
+func (UnimplementedVisualizerServiceServer) GetFft(context.Context, *GetFftRequest) (*GetFftResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFft not implemented")
+}
+func (UnimplementedVisualizerServiceServer) GetMeasurementMode(context.Context, *GetMeasurementModeRequest) (*GetMeasurementModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMeasurementMode not implemented")
+}
+func (UnimplementedVisualizerServiceServer) GetMeasurementPeakRms(context.Context, *GetMeasurementPeakRmsRequest) (*GetMeasurementPeakRmsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMeasurementPeakRms not implemented")
+}
+func (UnimplementedVisualizerServiceServer) GetSamplingRate(context.Context, *GetSamplingRateRequest) (*GetSamplingRateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSamplingRate not implemented")
+}
+func (UnimplementedVisualizerServiceServer) GetScalingMode(context.Context, *GetScalingModeRequest) (*GetScalingModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetScalingMode not implemented")
+}
+func (UnimplementedVisualizerServiceServer) GetWaveForm(context.Context, *GetWaveFormRequest) (*GetWaveFormResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWaveForm not implemented")
+}
+func (UnimplementedVisualizerServiceServer) Release(context.Context, *VisualizerReleaseRequest) (*ReleaseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Release not implemented")
+}
+func (UnimplementedVisualizerServiceServer) SetCaptureSize(context.Context, *SetCaptureSizeRequest) (*SetCaptureSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetCaptureSize not implemented")
+}
+func (UnimplementedVisualizerServiceServer) SetDataCaptureListener(context.Context, *SetDataCaptureListenerRequest) (*SetDataCaptureListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDataCaptureListener not implemented")
+}
+func (UnimplementedVisualizerServiceServer) SetEnabled(context.Context, *VisualizerSetEnabledRequest) (*VisualizerSetEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEnabled not implemented")
+}
+func (UnimplementedVisualizerServiceServer) SetMeasurementMode(context.Context, *SetMeasurementModeRequest) (*SetMeasurementModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMeasurementMode not implemented")
+}
+func (UnimplementedVisualizerServiceServer) SetScalingMode(context.Context, *SetScalingModeRequest) (*SetScalingModeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetScalingMode not implemented")
+}
+func (UnimplementedVisualizerServiceServer) GetCaptureSizeRange(context.Context, *GetCaptureSizeRangeRequest) (*GetCaptureSizeRangeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCaptureSizeRange not implemented")
+}
+func (UnimplementedVisualizerServiceServer) GetMaxCaptureRate(context.Context, *GetMaxCaptureRateRequest) (*GetMaxCaptureRateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxCaptureRate not implemented")
+}
+func (UnimplementedVisualizerServiceServer) mustEmbedUnimplementedVisualizerServiceServer() {}
+func (UnimplementedVisualizerServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafeVisualizerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to VisualizerServiceServer will
+// result in compilation errors.
+type UnsafeVisualizerServiceServer interface {
+	mustEmbedUnimplementedVisualizerServiceServer()
+}
+
+func RegisterVisualizerServiceServer(s grpc.ServiceRegistrar, srv VisualizerServiceServer) {
+	// If the following call panics, it indicates UnimplementedVisualizerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&VisualizerService_ServiceDesc, srv)
+}
+
+func _VisualizerService_NewVisualizer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewVisualizerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisualizerServiceServer).NewVisualizer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisualizerService_NewVisualizer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisualizerServiceServer).NewVisualizer(ctx, req.(*NewVisualizerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VisualizerService_GetCaptureSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCaptureSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisualizerServiceServer).GetCaptureSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisualizerService_GetCaptureSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisualizerServiceServer).GetCaptureSize(ctx, req.(*GetCaptureSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VisualizerService_GetEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(VisualizerGetEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisualizerServiceServer).GetEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisualizerService_GetEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisualizerServiceServer).GetEnabled(ctx, req.(*VisualizerGetEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VisualizerService_GetFft_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFftRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisualizerServiceServer).GetFft(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisualizerService_GetFft_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisualizerServiceServer).GetFft(ctx, req.(*GetFftRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VisualizerService_GetMeasurementMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMeasurementModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisualizerServiceServer).GetMeasurementMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisualizerService_GetMeasurementMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisualizerServiceServer).GetMeasurementMode(ctx, req.(*GetMeasurementModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VisualizerService_GetMeasurementPeakRms_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMeasurementPeakRmsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisualizerServiceServer).GetMeasurementPeakRms(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisualizerService_GetMeasurementPeakRms_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisualizerServiceServer).GetMeasurementPeakRms(ctx, req.(*GetMeasurementPeakRmsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VisualizerService_GetSamplingRate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSamplingRateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisualizerServiceServer).GetSamplingRate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisualizerService_GetSamplingRate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisualizerServiceServer).GetSamplingRate(ctx, req.(*GetSamplingRateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VisualizerService_GetScalingMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetScalingModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisualizerServiceServer).GetScalingMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisualizerService_GetScalingMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisualizerServiceServer).GetScalingMode(ctx, req.(*GetScalingModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VisualizerService_GetWaveForm_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWaveFormRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisualizerServiceServer).GetWaveForm(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisualizerService_GetWaveForm_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisualizerServiceServer).GetWaveForm(ctx, req.(*GetWaveFormRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VisualizerService_Release_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(VisualizerReleaseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisualizerServiceServer).Release(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisualizerService_Release_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisualizerServiceServer).Release(ctx, req.(*VisualizerReleaseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VisualizerService_SetCaptureSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetCaptureSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisualizerServiceServer).SetCaptureSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisualizerService_SetCaptureSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisualizerServiceServer).SetCaptureSize(ctx, req.(*SetCaptureSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VisualizerService_SetDataCaptureListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDataCaptureListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisualizerServiceServer).SetDataCaptureListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisualizerService_SetDataCaptureListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisualizerServiceServer).SetDataCaptureListener(ctx, req.(*SetDataCaptureListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VisualizerService_SetEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(VisualizerSetEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisualizerServiceServer).SetEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisualizerService_SetEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisualizerServiceServer).SetEnabled(ctx, req.(*VisualizerSetEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VisualizerService_SetMeasurementMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMeasurementModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisualizerServiceServer).SetMeasurementMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisualizerService_SetMeasurementMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisualizerServiceServer).SetMeasurementMode(ctx, req.(*SetMeasurementModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VisualizerService_SetScalingMode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetScalingModeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisualizerServiceServer).SetScalingMode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisualizerService_SetScalingMode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisualizerServiceServer).SetScalingMode(ctx, req.(*SetScalingModeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VisualizerService_GetCaptureSizeRange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCaptureSizeRangeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisualizerServiceServer).GetCaptureSizeRange(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisualizerService_GetCaptureSizeRange_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisualizerServiceServer).GetCaptureSizeRange(ctx, req.(*GetCaptureSizeRangeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VisualizerService_GetMaxCaptureRate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxCaptureRateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisualizerServiceServer).GetMaxCaptureRate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisualizerService_GetMaxCaptureRate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisualizerServiceServer).GetMaxCaptureRate(ctx, req.(*GetMaxCaptureRateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// VisualizerService_ServiceDesc is the grpc.ServiceDesc for VisualizerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var VisualizerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "audiofx.VisualizerService",
+	HandlerType: (*VisualizerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewVisualizer",
+			Handler:    _VisualizerService_NewVisualizer_Handler,
+		},
+		{
+			MethodName: "GetCaptureSize",
+			Handler:    _VisualizerService_GetCaptureSize_Handler,
+		},
+		{
+			MethodName: "GetEnabled",
+			Handler:    _VisualizerService_GetEnabled_Handler,
+		},
+		{
+			MethodName: "GetFft",
+			Handler:    _VisualizerService_GetFft_Handler,
+		},
+		{
+			MethodName: "GetMeasurementMode",
+			Handler:    _VisualizerService_GetMeasurementMode_Handler,
+		},
+		{
+			MethodName: "GetMeasurementPeakRms",
+			Handler:    _VisualizerService_GetMeasurementPeakRms_Handler,
+		},
+		{
+			MethodName: "GetSamplingRate",
+			Handler:    _VisualizerService_GetSamplingRate_Handler,
+		},
+		{
+			MethodName: "GetScalingMode",
+			Handler:    _VisualizerService_GetScalingMode_Handler,
+		},
+		{
+			MethodName: "GetWaveForm",
+			Handler:    _VisualizerService_GetWaveForm_Handler,
+		},
+		{
+			MethodName: "Release",
+			Handler:    _VisualizerService_Release_Handler,
+		},
+		{
+			MethodName: "SetCaptureSize",
+			Handler:    _VisualizerService_SetCaptureSize_Handler,
+		},
+		{
+			MethodName: "SetDataCaptureListener",
+			Handler:    _VisualizerService_SetDataCaptureListener_Handler,
+		},
+		{
+			MethodName: "SetEnabled",
+			Handler:    _VisualizerService_SetEnabled_Handler,
+		},
+		{
+			MethodName: "SetMeasurementMode",
+			Handler:    _VisualizerService_SetMeasurementMode_Handler,
+		},
+		{
+			MethodName: "SetScalingMode",
+			Handler:    _VisualizerService_SetScalingMode_Handler,
+		},
+		{
+			MethodName: "GetCaptureSizeRange",
+			Handler:    _VisualizerService_GetCaptureSizeRange_Handler,
+		},
+		{
+			MethodName: "GetMaxCaptureRate",
+			Handler:    _VisualizerService_GetMaxCaptureRate_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/audiofx/audiofx.proto",
+}
+
+const (
+	VisualizerOnDataCaptureListenerService_OnFftDataCapture_FullMethodName      = "/audiofx.VisualizerOnDataCaptureListenerService/OnFftDataCapture"
+	VisualizerOnDataCaptureListenerService_OnWaveFormDataCapture_FullMethodName = "/audiofx.VisualizerOnDataCaptureListenerService/OnWaveFormDataCapture"
+)
+
+// VisualizerOnDataCaptureListenerServiceClient is the client API for VisualizerOnDataCaptureListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type VisualizerOnDataCaptureListenerServiceClient interface {
+	OnFftDataCapture(ctx context.Context, in *OnFftDataCaptureRequest, opts ...grpc.CallOption) (*OnFftDataCaptureResponse, error)
+	OnWaveFormDataCapture(ctx context.Context, in *OnWaveFormDataCaptureRequest, opts ...grpc.CallOption) (*OnWaveFormDataCaptureResponse, error)
+}
+
+type visualizerOnDataCaptureListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewVisualizerOnDataCaptureListenerServiceClient(cc grpc.ClientConnInterface) VisualizerOnDataCaptureListenerServiceClient {
+	return &visualizerOnDataCaptureListenerServiceClient{cc}
+}
+
+func (c *visualizerOnDataCaptureListenerServiceClient) OnFftDataCapture(ctx context.Context, in *OnFftDataCaptureRequest, opts ...grpc.CallOption) (*OnFftDataCaptureResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnFftDataCaptureResponse)
+	err := c.cc.Invoke(ctx, VisualizerOnDataCaptureListenerService_OnFftDataCapture_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *visualizerOnDataCaptureListenerServiceClient) OnWaveFormDataCapture(ctx context.Context, in *OnWaveFormDataCaptureRequest, opts ...grpc.CallOption) (*OnWaveFormDataCaptureResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnWaveFormDataCaptureResponse)
+	err := c.cc.Invoke(ctx, VisualizerOnDataCaptureListenerService_OnWaveFormDataCapture_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// VisualizerOnDataCaptureListenerServiceServer is the server API for VisualizerOnDataCaptureListenerService service.
+// All implementations must embed UnimplementedVisualizerOnDataCaptureListenerServiceServer
+// for forward compatibility.
+type VisualizerOnDataCaptureListenerServiceServer interface {
+	OnFftDataCapture(context.Context, *OnFftDataCaptureRequest) (*OnFftDataCaptureResponse, error)
+	OnWaveFormDataCapture(context.Context, *OnWaveFormDataCaptureRequest) (*OnWaveFormDataCaptureResponse, error)
+	mustEmbedUnimplementedVisualizerOnDataCaptureListenerServiceServer()
+}
+
+// UnimplementedVisualizerOnDataCaptureListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedVisualizerOnDataCaptureListenerServiceServer struct{}
+
+func (UnimplementedVisualizerOnDataCaptureListenerServiceServer) OnFftDataCapture(context.Context, *OnFftDataCaptureRequest) (*OnFftDataCaptureResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnFftDataCapture not implemented")
+}
+func (UnimplementedVisualizerOnDataCaptureListenerServiceServer) OnWaveFormDataCapture(context.Context, *OnWaveFormDataCaptureRequest) (*OnWaveFormDataCaptureResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnWaveFormDataCapture not implemented")
+}
+func (UnimplementedVisualizerOnDataCaptureListenerServiceServer) mustEmbedUnimplementedVisualizerOnDataCaptureListenerServiceServer() {
+}
+func (UnimplementedVisualizerOnDataCaptureListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeVisualizerOnDataCaptureListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to VisualizerOnDataCaptureListenerServiceServer will
+// result in compilation errors.
+type UnsafeVisualizerOnDataCaptureListenerServiceServer interface {
+	mustEmbedUnimplementedVisualizerOnDataCaptureListenerServiceServer()
+}
+
+func RegisterVisualizerOnDataCaptureListenerServiceServer(s grpc.ServiceRegistrar, srv VisualizerOnDataCaptureListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedVisualizerOnDataCaptureListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&VisualizerOnDataCaptureListenerService_ServiceDesc, srv)
+}
+
+func _VisualizerOnDataCaptureListenerService_OnFftDataCapture_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnFftDataCaptureRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisualizerOnDataCaptureListenerServiceServer).OnFftDataCapture(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisualizerOnDataCaptureListenerService_OnFftDataCapture_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisualizerOnDataCaptureListenerServiceServer).OnFftDataCapture(ctx, req.(*OnFftDataCaptureRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _VisualizerOnDataCaptureListenerService_OnWaveFormDataCapture_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnWaveFormDataCaptureRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VisualizerOnDataCaptureListenerServiceServer).OnWaveFormDataCapture(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VisualizerOnDataCaptureListenerService_OnWaveFormDataCapture_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VisualizerOnDataCaptureListenerServiceServer).OnWaveFormDataCapture(ctx, req.(*OnWaveFormDataCaptureRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// VisualizerOnDataCaptureListenerService_ServiceDesc is the grpc.ServiceDesc for VisualizerOnDataCaptureListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var VisualizerOnDataCaptureListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "audiofx.VisualizerOnDataCaptureListenerService",
+	HandlerType: (*VisualizerOnDataCaptureListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnFftDataCapture",
+			Handler:    _VisualizerOnDataCaptureListenerService_OnFftDataCapture_Handler,
+		},
+		{
+			MethodName: "OnWaveFormDataCapture",
+			Handler:    _VisualizerOnDataCaptureListenerService_OnWaveFormDataCapture_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -11707,402 +12103,6 @@ var VirtualizerSettingsService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ToString",
 			Handler:    _VirtualizerSettingsService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/audiofx/audiofx.proto",
-}
-
-const (
-	AcousticEchoCancelerService_Create_FullMethodName      = "/audiofx.AcousticEchoCancelerService/Create"
-	AcousticEchoCancelerService_IsAvailable_FullMethodName = "/audiofx.AcousticEchoCancelerService/IsAvailable"
-)
-
-// AcousticEchoCancelerServiceClient is the client API for AcousticEchoCancelerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AcousticEchoCancelerServiceClient interface {
-	Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error)
-	IsAvailable(ctx context.Context, in *IsAvailableRequest, opts ...grpc.CallOption) (*IsAvailableResponse, error)
-}
-
-type acousticEchoCancelerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAcousticEchoCancelerServiceClient(cc grpc.ClientConnInterface) AcousticEchoCancelerServiceClient {
-	return &acousticEchoCancelerServiceClient{cc}
-}
-
-func (c *acousticEchoCancelerServiceClient) Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateResponse)
-	err := c.cc.Invoke(ctx, AcousticEchoCancelerService_Create_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *acousticEchoCancelerServiceClient) IsAvailable(ctx context.Context, in *IsAvailableRequest, opts ...grpc.CallOption) (*IsAvailableResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsAvailableResponse)
-	err := c.cc.Invoke(ctx, AcousticEchoCancelerService_IsAvailable_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AcousticEchoCancelerServiceServer is the server API for AcousticEchoCancelerService service.
-// All implementations must embed UnimplementedAcousticEchoCancelerServiceServer
-// for forward compatibility.
-type AcousticEchoCancelerServiceServer interface {
-	Create(context.Context, *CreateRequest) (*CreateResponse, error)
-	IsAvailable(context.Context, *IsAvailableRequest) (*IsAvailableResponse, error)
-	mustEmbedUnimplementedAcousticEchoCancelerServiceServer()
-}
-
-// UnimplementedAcousticEchoCancelerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAcousticEchoCancelerServiceServer struct{}
-
-func (UnimplementedAcousticEchoCancelerServiceServer) Create(context.Context, *CreateRequest) (*CreateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Create not implemented")
-}
-func (UnimplementedAcousticEchoCancelerServiceServer) IsAvailable(context.Context, *IsAvailableRequest) (*IsAvailableResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsAvailable not implemented")
-}
-func (UnimplementedAcousticEchoCancelerServiceServer) mustEmbedUnimplementedAcousticEchoCancelerServiceServer() {
-}
-func (UnimplementedAcousticEchoCancelerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeAcousticEchoCancelerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AcousticEchoCancelerServiceServer will
-// result in compilation errors.
-type UnsafeAcousticEchoCancelerServiceServer interface {
-	mustEmbedUnimplementedAcousticEchoCancelerServiceServer()
-}
-
-func RegisterAcousticEchoCancelerServiceServer(s grpc.ServiceRegistrar, srv AcousticEchoCancelerServiceServer) {
-	// If the following call panics, it indicates UnimplementedAcousticEchoCancelerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AcousticEchoCancelerService_ServiceDesc, srv)
-}
-
-func _AcousticEchoCancelerService_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AcousticEchoCancelerServiceServer).Create(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AcousticEchoCancelerService_Create_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AcousticEchoCancelerServiceServer).Create(ctx, req.(*CreateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AcousticEchoCancelerService_IsAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsAvailableRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AcousticEchoCancelerServiceServer).IsAvailable(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AcousticEchoCancelerService_IsAvailable_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AcousticEchoCancelerServiceServer).IsAvailable(ctx, req.(*IsAvailableRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AcousticEchoCancelerService_ServiceDesc is the grpc.ServiceDesc for AcousticEchoCancelerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AcousticEchoCancelerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "audiofx.AcousticEchoCancelerService",
-	HandlerType: (*AcousticEchoCancelerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Create",
-			Handler:    _AcousticEchoCancelerService_Create_Handler,
-		},
-		{
-			MethodName: "IsAvailable",
-			Handler:    _AcousticEchoCancelerService_IsAvailable_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/audiofx/audiofx.proto",
-}
-
-const (
-	HapticGeneratorService_Close_FullMethodName       = "/audiofx.HapticGeneratorService/Close"
-	HapticGeneratorService_Release_FullMethodName     = "/audiofx.HapticGeneratorService/Release"
-	HapticGeneratorService_SetEnabled_FullMethodName  = "/audiofx.HapticGeneratorService/SetEnabled"
-	HapticGeneratorService_Create_FullMethodName      = "/audiofx.HapticGeneratorService/Create"
-	HapticGeneratorService_IsAvailable_FullMethodName = "/audiofx.HapticGeneratorService/IsAvailable"
-)
-
-// HapticGeneratorServiceClient is the client API for HapticGeneratorService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type HapticGeneratorServiceClient interface {
-	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
-	Release(ctx context.Context, in *HapticGeneratorReleaseRequest, opts ...grpc.CallOption) (*ReleaseResponse, error)
-	SetEnabled(ctx context.Context, in *HapticGeneratorSetEnabledRequest, opts ...grpc.CallOption) (*SetEnabledResponse, error)
-	Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error)
-	IsAvailable(ctx context.Context, in *IsAvailableRequest, opts ...grpc.CallOption) (*IsAvailableResponse, error)
-}
-
-type hapticGeneratorServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewHapticGeneratorServiceClient(cc grpc.ClientConnInterface) HapticGeneratorServiceClient {
-	return &hapticGeneratorServiceClient{cc}
-}
-
-func (c *hapticGeneratorServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, HapticGeneratorService_Close_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *hapticGeneratorServiceClient) Release(ctx context.Context, in *HapticGeneratorReleaseRequest, opts ...grpc.CallOption) (*ReleaseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ReleaseResponse)
-	err := c.cc.Invoke(ctx, HapticGeneratorService_Release_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *hapticGeneratorServiceClient) SetEnabled(ctx context.Context, in *HapticGeneratorSetEnabledRequest, opts ...grpc.CallOption) (*SetEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetEnabledResponse)
-	err := c.cc.Invoke(ctx, HapticGeneratorService_SetEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *hapticGeneratorServiceClient) Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateResponse)
-	err := c.cc.Invoke(ctx, HapticGeneratorService_Create_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *hapticGeneratorServiceClient) IsAvailable(ctx context.Context, in *IsAvailableRequest, opts ...grpc.CallOption) (*IsAvailableResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsAvailableResponse)
-	err := c.cc.Invoke(ctx, HapticGeneratorService_IsAvailable_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// HapticGeneratorServiceServer is the server API for HapticGeneratorService service.
-// All implementations must embed UnimplementedHapticGeneratorServiceServer
-// for forward compatibility.
-type HapticGeneratorServiceServer interface {
-	Close(context.Context, *CloseRequest) (*CloseResponse, error)
-	Release(context.Context, *HapticGeneratorReleaseRequest) (*ReleaseResponse, error)
-	SetEnabled(context.Context, *HapticGeneratorSetEnabledRequest) (*SetEnabledResponse, error)
-	Create(context.Context, *CreateRequest) (*CreateResponse, error)
-	IsAvailable(context.Context, *IsAvailableRequest) (*IsAvailableResponse, error)
-	mustEmbedUnimplementedHapticGeneratorServiceServer()
-}
-
-// UnimplementedHapticGeneratorServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedHapticGeneratorServiceServer struct{}
-
-func (UnimplementedHapticGeneratorServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
-}
-func (UnimplementedHapticGeneratorServiceServer) Release(context.Context, *HapticGeneratorReleaseRequest) (*ReleaseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Release not implemented")
-}
-func (UnimplementedHapticGeneratorServiceServer) SetEnabled(context.Context, *HapticGeneratorSetEnabledRequest) (*SetEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetEnabled not implemented")
-}
-func (UnimplementedHapticGeneratorServiceServer) Create(context.Context, *CreateRequest) (*CreateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Create not implemented")
-}
-func (UnimplementedHapticGeneratorServiceServer) IsAvailable(context.Context, *IsAvailableRequest) (*IsAvailableResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsAvailable not implemented")
-}
-func (UnimplementedHapticGeneratorServiceServer) mustEmbedUnimplementedHapticGeneratorServiceServer() {
-}
-func (UnimplementedHapticGeneratorServiceServer) testEmbeddedByValue() {}
-
-// UnsafeHapticGeneratorServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to HapticGeneratorServiceServer will
-// result in compilation errors.
-type UnsafeHapticGeneratorServiceServer interface {
-	mustEmbedUnimplementedHapticGeneratorServiceServer()
-}
-
-func RegisterHapticGeneratorServiceServer(s grpc.ServiceRegistrar, srv HapticGeneratorServiceServer) {
-	// If the following call panics, it indicates UnimplementedHapticGeneratorServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&HapticGeneratorService_ServiceDesc, srv)
-}
-
-func _HapticGeneratorService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HapticGeneratorServiceServer).Close(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: HapticGeneratorService_Close_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HapticGeneratorServiceServer).Close(ctx, req.(*CloseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _HapticGeneratorService_Release_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HapticGeneratorReleaseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HapticGeneratorServiceServer).Release(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: HapticGeneratorService_Release_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HapticGeneratorServiceServer).Release(ctx, req.(*HapticGeneratorReleaseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _HapticGeneratorService_SetEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HapticGeneratorSetEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HapticGeneratorServiceServer).SetEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: HapticGeneratorService_SetEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HapticGeneratorServiceServer).SetEnabled(ctx, req.(*HapticGeneratorSetEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _HapticGeneratorService_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HapticGeneratorServiceServer).Create(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: HapticGeneratorService_Create_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HapticGeneratorServiceServer).Create(ctx, req.(*CreateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _HapticGeneratorService_IsAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsAvailableRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HapticGeneratorServiceServer).IsAvailable(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: HapticGeneratorService_IsAvailable_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HapticGeneratorServiceServer).IsAvailable(ctx, req.(*IsAvailableRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// HapticGeneratorService_ServiceDesc is the grpc.ServiceDesc for HapticGeneratorService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var HapticGeneratorService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "audiofx.HapticGeneratorService",
-	HandlerType: (*HapticGeneratorServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Close",
-			Handler:    _HapticGeneratorService_Close_Handler,
-		},
-		{
-			MethodName: "Release",
-			Handler:    _HapticGeneratorService_Release_Handler,
-		},
-		{
-			MethodName: "SetEnabled",
-			Handler:    _HapticGeneratorService_SetEnabled_Handler,
-		},
-		{
-			MethodName: "Create",
-			Handler:    _HapticGeneratorService_Create_Handler,
-		},
-		{
-			MethodName: "IsAvailable",
-			Handler:    _HapticGeneratorService_IsAvailable_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

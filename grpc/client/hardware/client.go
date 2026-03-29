@@ -9,6 +9,488 @@ import (
 	"google.golang.org/grpc"
 )
 
+// SensorEventListener2Client wraps the gRPC SensorEventListener2Service client.
+type SensorEventListener2Client struct {
+	svc pb.SensorEventListener2ServiceClient
+}
+
+// NewSensorEventListener2Client creates a new SensorEventListener2 client.
+func NewSensorEventListener2Client(cc grpc.ClientConnInterface) *SensorEventListener2Client {
+	return &SensorEventListener2Client{
+		svc: pb.NewSensorEventListener2ServiceClient(cc),
+	}
+}
+
+// OnFlushCompleted calls the OnFlushCompleted RPC.
+func (c *SensorEventListener2Client) OnFlushCompleted(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnFlushCompleted(ctx, &pb.OnFlushCompletedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DisplayLutsClient wraps the gRPC DisplayLutsService client.
+type DisplayLutsClient struct {
+	svc pb.DisplayLutsServiceClient
+}
+
+// NewDisplayLutsClient creates a new DisplayLuts client.
+func NewDisplayLutsClient(cc grpc.ClientConnInterface) *DisplayLutsClient {
+	return &DisplayLutsClient{
+		svc: pb.NewDisplayLutsServiceClient(cc),
+	}
+}
+
+// Set1 calls the Set1 RPC.
+func (c *DisplayLutsClient) Set1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.Set1(ctx, &pb.Set1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Set2_1 calls the Set2_1 RPC.
+func (c *DisplayLutsClient) Set2_1(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.Set2_1(ctx, &pb.Set2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *DisplayLutsClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// DisplayLutsEntryClient wraps the gRPC DisplayLutsEntryService client.
+type DisplayLutsEntryClient struct {
+	svc pb.DisplayLutsEntryServiceClient
+}
+
+// NewDisplayLutsEntryClient creates a new DisplayLutsEntry client.
+func NewDisplayLutsEntryClient(cc grpc.ClientConnInterface) *DisplayLutsEntryClient {
+	return &DisplayLutsEntryClient{
+		svc: pb.NewDisplayLutsEntryServiceClient(cc),
+	}
+}
+
+// GetBuffer calls the GetBuffer RPC.
+func (c *DisplayLutsEntryClient) GetBuffer(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBuffer(ctx, &pb.GetBufferRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDimension calls the GetDimension RPC.
+func (c *DisplayLutsEntryClient) GetDimension(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDimension(ctx, &pb.GetDimensionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSamplingKey calls the GetSamplingKey RPC.
+func (c *DisplayLutsEntryClient) GetSamplingKey(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSamplingKey(ctx, &pb.GetSamplingKeyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *DisplayLutsEntryClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.DisplayLutsEntryToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// SensorEventCallbackClient wraps the gRPC SensorEventCallbackService client.
+type SensorEventCallbackClient struct {
+	svc pb.SensorEventCallbackServiceClient
+}
+
+// NewSensorEventCallbackClient creates a new SensorEventCallback client.
+func NewSensorEventCallbackClient(cc grpc.ClientConnInterface) *SensorEventCallbackClient {
+	return &SensorEventCallbackClient{
+		svc: pb.NewSensorEventCallbackServiceClient(cc),
+	}
+}
+
+// OnAccuracyChanged calls the OnAccuracyChanged RPC.
+func (c *SensorEventCallbackClient) OnAccuracyChanged(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnAccuracyChanged(ctx, &pb.OnAccuracyChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnFlushCompleted calls the OnFlushCompleted RPC.
+func (c *SensorEventCallbackClient) OnFlushCompleted(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnFlushCompleted(ctx, &pb.OnFlushCompletedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnSensorAdditionalInfo calls the OnSensorAdditionalInfo RPC.
+func (c *SensorEventCallbackClient) OnSensorAdditionalInfo(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnSensorAdditionalInfo(ctx, &pb.OnSensorAdditionalInfoRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnSensorChanged calls the OnSensorChanged RPC.
+func (c *SensorEventCallbackClient) OnSensorChanged(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnSensorChanged(ctx, &pb.OnSensorChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DataSpaceClient wraps the gRPC DataSpaceService client.
+type DataSpaceClient struct {
+	svc pb.DataSpaceServiceClient
+}
+
+// NewDataSpaceClient creates a new DataSpace client.
+func NewDataSpaceClient(cc grpc.ClientConnInterface) *DataSpaceClient {
+	return &DataSpaceClient{
+		svc: pb.NewDataSpaceServiceClient(cc),
+	}
+}
+
+// GetRange calls the GetRange RPC.
+func (c *DataSpaceClient) GetRange(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetRange(ctx, &pb.GetRangeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStandard calls the GetStandard RPC.
+func (c *DataSpaceClient) GetStandard(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetStandard(ctx, &pb.GetStandardRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTransfer calls the GetTransfer RPC.
+func (c *DataSpaceClient) GetTransfer(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetTransfer(ctx, &pb.GetTransferRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Pack calls the Pack RPC.
+func (c *DataSpaceClient) Pack(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) (int32, error) {
+	resp, err := c.svc.Pack(ctx, &pb.PackRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SensorEventListenerClient wraps the gRPC SensorEventListenerService client.
+type SensorEventListenerClient struct {
+	svc pb.SensorEventListenerServiceClient
+}
+
+// NewSensorEventListenerClient creates a new SensorEventListener client.
+func NewSensorEventListenerClient(cc grpc.ClientConnInterface) *SensorEventListenerClient {
+	return &SensorEventListenerClient{
+		svc: pb.NewSensorEventListenerServiceClient(cc),
+	}
+}
+
+// OnAccuracyChanged calls the OnAccuracyChanged RPC.
+func (c *SensorEventListenerClient) OnAccuracyChanged(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnAccuracyChanged(ctx, &pb.OnAccuracyChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnSensorChanged calls the OnSensorChanged RPC.
+func (c *SensorEventListenerClient) OnSensorChanged(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnSensorChanged(ctx, &pb.OnSensorChangedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SensorPrivacyManagerClient wraps the gRPC SensorPrivacyManagerService client.
+type SensorPrivacyManagerClient struct {
+	svc pb.SensorPrivacyManagerServiceClient
+}
+
+// NewSensorPrivacyManagerClient creates a new SensorPrivacyManager client.
+func NewSensorPrivacyManagerClient(cc grpc.ClientConnInterface) *SensorPrivacyManagerClient {
+	return &SensorPrivacyManagerClient{
+		svc: pb.NewSensorPrivacyManagerServiceClient(cc),
+	}
+}
+
+// SupportsSensorToggle1 calls the SupportsSensorToggle1 RPC.
+func (c *SensorPrivacyManagerClient) SupportsSensorToggle1(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.SupportsSensorToggle1(ctx, &pb.SupportsSensorToggle1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SupportsSensorToggle2_1 calls the SupportsSensorToggle2_1 RPC.
+func (c *SensorPrivacyManagerClient) SupportsSensorToggle2_1(ctx context.Context, arg0 int32, arg1 int32) (bool, error) {
+	resp, err := c.svc.SupportsSensorToggle2_1(ctx, &pb.SupportsSensorToggle2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SensorListenerClient wraps the gRPC SensorListenerService client.
+type SensorListenerClient struct {
+	svc pb.SensorListenerServiceClient
+}
+
+// NewSensorListenerClient creates a new SensorListener client.
+func NewSensorListenerClient(cc grpc.ClientConnInterface) *SensorListenerClient {
+	return &SensorListenerClient{
+		svc: pb.NewSensorListenerServiceClient(cc),
+	}
+}
+
+// OnAccuracyChanged calls the OnAccuracyChanged RPC.
+func (c *SensorListenerClient) OnAccuracyChanged(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.OnAccuracyChanged(ctx, &pb.SensorListenerOnAccuracyChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// OnSensorChanged calls the OnSensorChanged RPC.
+func (c *SensorListenerClient) OnSensorChanged(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.OnSensorChanged(ctx, &pb.SensorListenerOnSensorChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SyncFenceClient wraps the gRPC SyncFenceService client.
+type SyncFenceClient struct {
+	svc pb.SyncFenceServiceClient
+}
+
+// NewSyncFenceClient creates a new SyncFence client.
+func NewSyncFenceClient(cc grpc.ClientConnInterface) *SyncFenceClient {
+	return &SyncFenceClient{
+		svc: pb.NewSyncFenceServiceClient(cc),
+	}
+}
+
+// Await calls the Await RPC.
+func (c *SyncFenceClient) Await(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Await(ctx, &pb.AwaitRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AwaitForever calls the AwaitForever RPC.
+func (c *SyncFenceClient) AwaitForever(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.AwaitForever(ctx, &pb.AwaitForeverRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Close calls the Close RPC.
+func (c *SyncFenceClient) Close(ctx context.Context, handle int64) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SyncFenceClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSignalTime calls the GetSignalTime RPC.
+func (c *SyncFenceClient) GetSignalTime(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSignalTime(ctx, &pb.GetSignalTimeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsValid calls the IsValid RPC.
+func (c *SyncFenceClient) IsValid(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsValid(ctx, &pb.IsValidRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SyncFenceClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GeomagneticFieldClient wraps the gRPC GeomagneticFieldService client.
+type GeomagneticFieldClient struct {
+	svc pb.GeomagneticFieldServiceClient
+}
+
+// NewGeomagneticFieldClient creates a new GeomagneticField client.
+func NewGeomagneticFieldClient(cc grpc.ClientConnInterface) *GeomagneticFieldClient {
+	return &GeomagneticFieldClient{
+		svc: pb.NewGeomagneticFieldServiceClient(cc),
+	}
+}
+
+// GetDeclination calls the GetDeclination RPC.
+func (c *GeomagneticFieldClient) GetDeclination(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetDeclination(ctx, &pb.GetDeclinationRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFieldStrength calls the GetFieldStrength RPC.
+func (c *GeomagneticFieldClient) GetFieldStrength(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetFieldStrength(ctx, &pb.GetFieldStrengthRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHorizontalStrength calls the GetHorizontalStrength RPC.
+func (c *GeomagneticFieldClient) GetHorizontalStrength(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetHorizontalStrength(ctx, &pb.GetHorizontalStrengthRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInclination calls the GetInclination RPC.
+func (c *GeomagneticFieldClient) GetInclination(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetInclination(ctx, &pb.GetInclinationRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetX calls the GetX RPC.
+func (c *GeomagneticFieldClient) GetX(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetX(ctx, &pb.GetXRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetY calls the GetY RPC.
+func (c *GeomagneticFieldClient) GetY(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetY(ctx, &pb.GetYRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetZ calls the GetZ RPC.
+func (c *GeomagneticFieldClient) GetZ(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetZ(ctx, &pb.GetZRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // SensorManagerClient wraps the gRPC SensorManagerService client.
 type SensorManagerClient struct {
 	svc pb.SensorManagerServiceClient
@@ -82,6 +564,28 @@ func (c *SensorManagerClient) GetDefaultSensor2_1(ctx context.Context, arg0 int3
 	resp, err := c.svc.GetDefaultSensor2_1(ctx, &pb.GetDefaultSensor2_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDynamicSensorList calls the GetDynamicSensorList RPC.
+func (c *SensorManagerClient) GetDynamicSensorList(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetDynamicSensorList(ctx, &pb.GetDynamicSensorListRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSensorList calls the GetSensorList RPC.
+func (c *SensorManagerClient) GetSensorList(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetSensorList(ctx, &pb.GetSensorListRequest{
+		Arg0: arg0,
 	})
 	if err != nil {
 		return 0, err
@@ -245,7 +749,7 @@ func (c *SensorManagerClient) GetAngleChange(ctx context.Context, arg0 int64, ar
 
 // GetInclination calls the GetInclination RPC.
 func (c *SensorManagerClient) GetInclination(ctx context.Context, arg0 int64) (float32, error) {
-	resp, err := c.svc.GetInclination(ctx, &pb.GetInclinationRequest{
+	resp, err := c.svc.GetInclination(ctx, &pb.SensorManagerGetInclinationRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -340,210 +844,63 @@ func (c *SensorManagerDynamicSensorCallbackClient) OnDynamicSensorDisconnected(c
 	return err
 }
 
-// SyncFenceClient wraps the gRPC SyncFenceService client.
-type SyncFenceClient struct {
-	svc pb.SyncFenceServiceClient
+// BatteryStateClient wraps the gRPC BatteryStateService client.
+type BatteryStateClient struct {
+	svc pb.BatteryStateServiceClient
 }
 
-// NewSyncFenceClient creates a new SyncFence client.
-func NewSyncFenceClient(cc grpc.ClientConnInterface) *SyncFenceClient {
-	return &SyncFenceClient{
-		svc: pb.NewSyncFenceServiceClient(cc),
+// NewBatteryStateClient creates a new BatteryState client.
+func NewBatteryStateClient(cc grpc.ClientConnInterface) *BatteryStateClient {
+	return &BatteryStateClient{
+		svc: pb.NewBatteryStateServiceClient(cc),
 	}
 }
 
-// Await calls the Await RPC.
-func (c *SyncFenceClient) Await(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Await(ctx, &pb.AwaitRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AwaitForever calls the AwaitForever RPC.
-func (c *SyncFenceClient) AwaitForever(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.AwaitForever(ctx, &pb.AwaitForeverRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Close calls the Close RPC.
-func (c *SyncFenceClient) Close(ctx context.Context, handle int64) error {
-	_, err := c.svc.Close(ctx, &pb.CloseRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *SyncFenceClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
-		Handle: handle,
-	})
+// GetCapacity calls the GetCapacity RPC.
+func (c *BatteryStateClient) GetCapacity(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetCapacity(ctx, &pb.GetCapacityRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetSignalTime calls the GetSignalTime RPC.
-func (c *SyncFenceClient) GetSignalTime(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetSignalTime(ctx, &pb.GetSignalTimeRequest{
-		Handle: handle,
-	})
+// GetStatus calls the GetStatus RPC.
+func (c *BatteryStateClient) GetStatus(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetStatus(ctx, &pb.GetStatusRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// IsValid calls the IsValid RPC.
-func (c *SyncFenceClient) IsValid(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsValid(ctx, &pb.IsValidRequest{
-		Handle: handle,
-	})
+// IsPresent calls the IsPresent RPC.
+func (c *BatteryStateClient) IsPresent(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsPresent(ctx, &pb.IsPresentRequest{})
 	if err != nil {
 		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *SyncFenceClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
+// TriggerEventListenerClient wraps the gRPC TriggerEventListenerService client.
+type TriggerEventListenerClient struct {
+	svc pb.TriggerEventListenerServiceClient
 }
 
-// SensorListenerClient wraps the gRPC SensorListenerService client.
-type SensorListenerClient struct {
-	svc pb.SensorListenerServiceClient
-}
-
-// NewSensorListenerClient creates a new SensorListener client.
-func NewSensorListenerClient(cc grpc.ClientConnInterface) *SensorListenerClient {
-	return &SensorListenerClient{
-		svc: pb.NewSensorListenerServiceClient(cc),
+// NewTriggerEventListenerClient creates a new TriggerEventListener client.
+func NewTriggerEventListenerClient(cc grpc.ClientConnInterface) *TriggerEventListenerClient {
+	return &TriggerEventListenerClient{
+		svc: pb.NewTriggerEventListenerServiceClient(cc),
 	}
 }
 
-// OnAccuracyChanged calls the OnAccuracyChanged RPC.
-func (c *SensorListenerClient) OnAccuracyChanged(ctx context.Context, arg0 int32, arg1 int32) error {
-	_, err := c.svc.OnAccuracyChanged(ctx, &pb.OnAccuracyChangedRequest{
+// OnTrigger calls the OnTrigger RPC.
+func (c *TriggerEventListenerClient) OnTrigger(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnTrigger(ctx, &pb.OnTriggerRequest{
 		Arg0: arg0,
-		Arg1: arg1,
 	})
 	return err
-}
-
-// OnSensorChanged calls the OnSensorChanged RPC.
-func (c *SensorListenerClient) OnSensorChanged(ctx context.Context, arg0 int32, arg1 int64) error {
-	_, err := c.svc.OnSensorChanged(ctx, &pb.OnSensorChangedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// DisplayLutsClient wraps the gRPC DisplayLutsService client.
-type DisplayLutsClient struct {
-	svc pb.DisplayLutsServiceClient
-}
-
-// NewDisplayLutsClient creates a new DisplayLuts client.
-func NewDisplayLutsClient(cc grpc.ClientConnInterface) *DisplayLutsClient {
-	return &DisplayLutsClient{
-		svc: pb.NewDisplayLutsServiceClient(cc),
-	}
-}
-
-// Set1 calls the Set1 RPC.
-func (c *DisplayLutsClient) Set1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.Set1(ctx, &pb.Set1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// Set2_1 calls the Set2_1 RPC.
-func (c *DisplayLutsClient) Set2_1(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.Set2_1(ctx, &pb.Set2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// ToString calls the ToString RPC.
-func (c *DisplayLutsClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// DisplayLutsEntryClient wraps the gRPC DisplayLutsEntryService client.
-type DisplayLutsEntryClient struct {
-	svc pb.DisplayLutsEntryServiceClient
-}
-
-// NewDisplayLutsEntryClient creates a new DisplayLutsEntry client.
-func NewDisplayLutsEntryClient(cc grpc.ClientConnInterface) *DisplayLutsEntryClient {
-	return &DisplayLutsEntryClient{
-		svc: pb.NewDisplayLutsEntryServiceClient(cc),
-	}
-}
-
-// GetBuffer calls the GetBuffer RPC.
-func (c *DisplayLutsEntryClient) GetBuffer(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetBuffer(ctx, &pb.GetBufferRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDimension calls the GetDimension RPC.
-func (c *DisplayLutsEntryClient) GetDimension(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetDimension(ctx, &pb.GetDimensionRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSamplingKey calls the GetSamplingKey RPC.
-func (c *DisplayLutsEntryClient) GetSamplingKey(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetSamplingKey(ctx, &pb.GetSamplingKeyRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *DisplayLutsEntryClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.DisplayLutsEntryToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
 }
 
 // SensorClient wraps the gRPC SensorService client.
@@ -740,42 +1097,89 @@ func (c *SensorClient) ToString(ctx context.Context) (string, error) {
 	return resp.GetResult(), nil
 }
 
-// TriggerEventListenerClient wraps the gRPC TriggerEventListenerService client.
-type TriggerEventListenerClient struct {
-	svc pb.TriggerEventListenerServiceClient
+// OverlayPropertiesClient wraps the gRPC OverlayPropertiesService client.
+type OverlayPropertiesClient struct {
+	svc pb.OverlayPropertiesServiceClient
 }
 
-// NewTriggerEventListenerClient creates a new TriggerEventListener client.
-func NewTriggerEventListenerClient(cc grpc.ClientConnInterface) *TriggerEventListenerClient {
-	return &TriggerEventListenerClient{
-		svc: pb.NewTriggerEventListenerServiceClient(cc),
+// NewOverlayPropertiesClient creates a new OverlayProperties client.
+func NewOverlayPropertiesClient(cc grpc.ClientConnInterface) *OverlayPropertiesClient {
+	return &OverlayPropertiesClient{
+		svc: pb.NewOverlayPropertiesServiceClient(cc),
 	}
 }
 
-// OnTrigger calls the OnTrigger RPC.
-func (c *TriggerEventListenerClient) OnTrigger(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnTrigger(ctx, &pb.OnTriggerRequest{
+// DescribeContents calls the DescribeContents RPC.
+func (c *OverlayPropertiesClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.OverlayPropertiesDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLutProperties calls the GetLutProperties RPC.
+func (c *OverlayPropertiesClient) GetLutProperties(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetLutProperties(ctx, &pb.GetLutPropertiesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsCombinationSupported calls the IsCombinationSupported RPC.
+func (c *OverlayPropertiesClient) IsCombinationSupported(ctx context.Context, arg0 int32, arg1 int32) (bool, error) {
+	resp, err := c.svc.IsCombinationSupported(ctx, &pb.IsCombinationSupportedRequest{
 		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsMixedColorSpacesSupported calls the IsMixedColorSpacesSupported RPC.
+func (c *OverlayPropertiesClient) IsMixedColorSpacesSupported(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsMixedColorSpacesSupported(ctx, &pb.IsMixedColorSpacesSupportedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *OverlayPropertiesClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.OverlayPropertiesWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
 	})
 	return err
 }
 
-// GeomagneticFieldClient wraps the gRPC GeomagneticFieldService client.
-type GeomagneticFieldClient struct {
-	svc pb.GeomagneticFieldServiceClient
+// SensorDirectChannelClient wraps the gRPC SensorDirectChannelService client.
+type SensorDirectChannelClient struct {
+	svc pb.SensorDirectChannelServiceClient
 }
 
-// NewGeomagneticFieldClient creates a new GeomagneticField client.
-func NewGeomagneticFieldClient(cc grpc.ClientConnInterface) *GeomagneticFieldClient {
-	return &GeomagneticFieldClient{
-		svc: pb.NewGeomagneticFieldServiceClient(cc),
+// NewSensorDirectChannelClient creates a new SensorDirectChannel client.
+func NewSensorDirectChannelClient(cc grpc.ClientConnInterface) *SensorDirectChannelClient {
+	return &SensorDirectChannelClient{
+		svc: pb.NewSensorDirectChannelServiceClient(cc),
 	}
 }
 
-// GetDeclination calls the GetDeclination RPC.
-func (c *GeomagneticFieldClient) GetDeclination(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetDeclination(ctx, &pb.GetDeclinationRequest{
-		Handle: handle,
+// Close calls the Close RPC.
+func (c *SensorDirectChannelClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.SensorDirectChannelCloseRequest{})
+	return err
+}
+
+// Configure calls the Configure RPC.
+func (c *SensorDirectChannelClient) Configure(ctx context.Context, arg0 int64, arg1 int32) (int32, error) {
+	resp, err := c.svc.Configure(ctx, &pb.ConfigureRequest{
+		Arg0: arg0,
+		Arg1: arg1,
 	})
 	if err != nil {
 		return 0, err
@@ -783,68 +1187,11 @@ func (c *GeomagneticFieldClient) GetDeclination(ctx context.Context, handle int6
 	return resp.GetResult(), nil
 }
 
-// GetFieldStrength calls the GetFieldStrength RPC.
-func (c *GeomagneticFieldClient) GetFieldStrength(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetFieldStrength(ctx, &pb.GetFieldStrengthRequest{
-		Handle: handle,
-	})
+// IsOpen calls the IsOpen RPC.
+func (c *SensorDirectChannelClient) IsOpen(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsOpen(ctx, &pb.IsOpenRequest{})
 	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetHorizontalStrength calls the GetHorizontalStrength RPC.
-func (c *GeomagneticFieldClient) GetHorizontalStrength(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetHorizontalStrength(ctx, &pb.GetHorizontalStrengthRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInclination calls the GetInclination RPC.
-func (c *GeomagneticFieldClient) GetInclination(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetInclination(ctx, &pb.GeomagneticFieldGetInclinationRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetX calls the GetX RPC.
-func (c *GeomagneticFieldClient) GetX(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetX(ctx, &pb.GetXRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetY calls the GetY RPC.
-func (c *GeomagneticFieldClient) GetY(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetY(ctx, &pb.GetYRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetZ calls the GetZ RPC.
-func (c *GeomagneticFieldClient) GetZ(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetZ(ctx, &pb.GetZRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
+		return false, err
 	}
 	return resp.GetResult(), nil
 }
@@ -974,171 +1321,6 @@ func (c *BufferClient) IsSupported(ctx context.Context, arg0 int32, arg1 int32, 
 	})
 	if err != nil {
 		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SensorEventListenerClient wraps the gRPC SensorEventListenerService client.
-type SensorEventListenerClient struct {
-	svc pb.SensorEventListenerServiceClient
-}
-
-// NewSensorEventListenerClient creates a new SensorEventListener client.
-func NewSensorEventListenerClient(cc grpc.ClientConnInterface) *SensorEventListenerClient {
-	return &SensorEventListenerClient{
-		svc: pb.NewSensorEventListenerServiceClient(cc),
-	}
-}
-
-// OnAccuracyChanged calls the OnAccuracyChanged RPC.
-func (c *SensorEventListenerClient) OnAccuracyChanged(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.OnAccuracyChanged(ctx, &pb.SensorEventListenerOnAccuracyChangedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// OnSensorChanged calls the OnSensorChanged RPC.
-func (c *SensorEventListenerClient) OnSensorChanged(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnSensorChanged(ctx, &pb.SensorEventListenerOnSensorChangedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SensorDirectChannelClient wraps the gRPC SensorDirectChannelService client.
-type SensorDirectChannelClient struct {
-	svc pb.SensorDirectChannelServiceClient
-}
-
-// NewSensorDirectChannelClient creates a new SensorDirectChannel client.
-func NewSensorDirectChannelClient(cc grpc.ClientConnInterface) *SensorDirectChannelClient {
-	return &SensorDirectChannelClient{
-		svc: pb.NewSensorDirectChannelServiceClient(cc),
-	}
-}
-
-// Close calls the Close RPC.
-func (c *SensorDirectChannelClient) Close(ctx context.Context) error {
-	_, err := c.svc.Close(ctx, &pb.SensorDirectChannelCloseRequest{})
-	return err
-}
-
-// Configure calls the Configure RPC.
-func (c *SensorDirectChannelClient) Configure(ctx context.Context, arg0 int64, arg1 int32) (int32, error) {
-	resp, err := c.svc.Configure(ctx, &pb.ConfigureRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsOpen calls the IsOpen RPC.
-func (c *SensorDirectChannelClient) IsOpen(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsOpen(ctx, &pb.IsOpenRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LutPropertiesClient wraps the gRPC LutPropertiesService client.
-type LutPropertiesClient struct {
-	svc pb.LutPropertiesServiceClient
-}
-
-// NewLutPropertiesClient creates a new LutProperties client.
-func NewLutPropertiesClient(cc grpc.ClientConnInterface) *LutPropertiesClient {
-	return &LutPropertiesClient{
-		svc: pb.NewLutPropertiesServiceClient(cc),
-	}
-}
-
-// GetDimension calls the GetDimension RPC.
-func (c *LutPropertiesClient) GetDimension(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetDimension(ctx, &pb.GetDimensionRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSamplingKeys calls the GetSamplingKeys RPC.
-func (c *LutPropertiesClient) GetSamplingKeys(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSamplingKeys(ctx, &pb.GetSamplingKeysRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSize calls the GetSize RPC.
-func (c *LutPropertiesClient) GetSize(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetSize(ctx, &pb.GetSizeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DataSpaceClient wraps the gRPC DataSpaceService client.
-type DataSpaceClient struct {
-	svc pb.DataSpaceServiceClient
-}
-
-// NewDataSpaceClient creates a new DataSpace client.
-func NewDataSpaceClient(cc grpc.ClientConnInterface) *DataSpaceClient {
-	return &DataSpaceClient{
-		svc: pb.NewDataSpaceServiceClient(cc),
-	}
-}
-
-// GetRange calls the GetRange RPC.
-func (c *DataSpaceClient) GetRange(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetRange(ctx, &pb.GetRangeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStandard calls the GetStandard RPC.
-func (c *DataSpaceClient) GetStandard(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetStandard(ctx, &pb.GetStandardRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTransfer calls the GetTransfer RPC.
-func (c *DataSpaceClient) GetTransfer(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetTransfer(ctx, &pb.GetTransferRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Pack calls the Pack RPC.
-func (c *DataSpaceClient) Pack(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) (int32, error) {
-	resp, err := c.svc.Pack(ctx, &pb.PackRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -1639,6 +1821,15 @@ func (c *CameraParametersClient) GetFocalLength(ctx context.Context) (float32, e
 	return resp.GetResult(), nil
 }
 
+// GetFocusAreas calls the GetFocusAreas RPC.
+func (c *CameraParametersClient) GetFocusAreas(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFocusAreas(ctx, &pb.GetFocusAreasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetFocusDistances calls the GetFocusDistances RPC.
 func (c *CameraParametersClient) GetFocusDistances(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.GetFocusDistances(ctx, &pb.GetFocusDistancesRequest{
@@ -1748,6 +1939,15 @@ func (c *CameraParametersClient) GetMaxZoom(ctx context.Context) (int32, error) 
 	return resp.GetResult(), nil
 }
 
+// GetMeteringAreas calls the GetMeteringAreas RPC.
+func (c *CameraParametersClient) GetMeteringAreas(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMeteringAreas(ctx, &pb.GetMeteringAreasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetMinExposureCompensation calls the GetMinExposureCompensation RPC.
 func (c *CameraParametersClient) GetMinExposureCompensation(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetMinExposureCompensation(ctx, &pb.GetMinExposureCompensationRequest{})
@@ -1828,6 +2028,132 @@ func (c *CameraParametersClient) GetSceneMode(ctx context.Context) (string, erro
 	return resp.GetResult(), nil
 }
 
+// GetSupportedAntibanding calls the GetSupportedAntibanding RPC.
+func (c *CameraParametersClient) GetSupportedAntibanding(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedAntibanding(ctx, &pb.GetSupportedAntibandingRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedColorEffects calls the GetSupportedColorEffects RPC.
+func (c *CameraParametersClient) GetSupportedColorEffects(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedColorEffects(ctx, &pb.GetSupportedColorEffectsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedFlashModes calls the GetSupportedFlashModes RPC.
+func (c *CameraParametersClient) GetSupportedFlashModes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedFlashModes(ctx, &pb.GetSupportedFlashModesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedFocusModes calls the GetSupportedFocusModes RPC.
+func (c *CameraParametersClient) GetSupportedFocusModes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedFocusModes(ctx, &pb.GetSupportedFocusModesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedJpegThumbnailSizes calls the GetSupportedJpegThumbnailSizes RPC.
+func (c *CameraParametersClient) GetSupportedJpegThumbnailSizes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedJpegThumbnailSizes(ctx, &pb.GetSupportedJpegThumbnailSizesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedPictureFormats calls the GetSupportedPictureFormats RPC.
+func (c *CameraParametersClient) GetSupportedPictureFormats(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedPictureFormats(ctx, &pb.GetSupportedPictureFormatsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedPictureSizes calls the GetSupportedPictureSizes RPC.
+func (c *CameraParametersClient) GetSupportedPictureSizes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedPictureSizes(ctx, &pb.GetSupportedPictureSizesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedPreviewFormats calls the GetSupportedPreviewFormats RPC.
+func (c *CameraParametersClient) GetSupportedPreviewFormats(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedPreviewFormats(ctx, &pb.GetSupportedPreviewFormatsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedPreviewFpsRange calls the GetSupportedPreviewFpsRange RPC.
+func (c *CameraParametersClient) GetSupportedPreviewFpsRange(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedPreviewFpsRange(ctx, &pb.GetSupportedPreviewFpsRangeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedPreviewFrameRates calls the GetSupportedPreviewFrameRates RPC.
+func (c *CameraParametersClient) GetSupportedPreviewFrameRates(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedPreviewFrameRates(ctx, &pb.GetSupportedPreviewFrameRatesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedPreviewSizes calls the GetSupportedPreviewSizes RPC.
+func (c *CameraParametersClient) GetSupportedPreviewSizes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedPreviewSizes(ctx, &pb.GetSupportedPreviewSizesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedSceneModes calls the GetSupportedSceneModes RPC.
+func (c *CameraParametersClient) GetSupportedSceneModes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedSceneModes(ctx, &pb.GetSupportedSceneModesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedVideoSizes calls the GetSupportedVideoSizes RPC.
+func (c *CameraParametersClient) GetSupportedVideoSizes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedVideoSizes(ctx, &pb.GetSupportedVideoSizesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSupportedWhiteBalance calls the GetSupportedWhiteBalance RPC.
+func (c *CameraParametersClient) GetSupportedWhiteBalance(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedWhiteBalance(ctx, &pb.GetSupportedWhiteBalanceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetVerticalViewAngle calls the GetVerticalViewAngle RPC.
 func (c *CameraParametersClient) GetVerticalViewAngle(ctx context.Context) (float32, error) {
 	resp, err := c.svc.GetVerticalViewAngle(ctx, &pb.GetVerticalViewAngleRequest{})
@@ -1858,6 +2184,15 @@ func (c *CameraParametersClient) GetWhiteBalance(ctx context.Context) (string, e
 // GetZoom calls the GetZoom RPC.
 func (c *CameraParametersClient) GetZoom(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetZoom(ctx, &pb.GetZoomRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetZoomRatios calls the GetZoomRatios RPC.
+func (c *CameraParametersClient) GetZoomRatios(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetZoomRatios(ctx, &pb.GetZoomRatiosRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -2270,201 +2605,41 @@ func (c *CameraSizeClient) HashCode(ctx context.Context) (int32, error) {
 	return resp.GetResult(), nil
 }
 
-// BatteryStateClient wraps the gRPC BatteryStateService client.
-type BatteryStateClient struct {
-	svc pb.BatteryStateServiceClient
+// LutPropertiesClient wraps the gRPC LutPropertiesService client.
+type LutPropertiesClient struct {
+	svc pb.LutPropertiesServiceClient
 }
 
-// NewBatteryStateClient creates a new BatteryState client.
-func NewBatteryStateClient(cc grpc.ClientConnInterface) *BatteryStateClient {
-	return &BatteryStateClient{
-		svc: pb.NewBatteryStateServiceClient(cc),
+// NewLutPropertiesClient creates a new LutProperties client.
+func NewLutPropertiesClient(cc grpc.ClientConnInterface) *LutPropertiesClient {
+	return &LutPropertiesClient{
+		svc: pb.NewLutPropertiesServiceClient(cc),
 	}
 }
 
-// GetCapacity calls the GetCapacity RPC.
-func (c *BatteryStateClient) GetCapacity(ctx context.Context) (float32, error) {
-	resp, err := c.svc.GetCapacity(ctx, &pb.GetCapacityRequest{})
+// GetDimension calls the GetDimension RPC.
+func (c *LutPropertiesClient) GetDimension(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetDimension(ctx, &pb.GetDimensionRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetStatus calls the GetStatus RPC.
-func (c *BatteryStateClient) GetStatus(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetStatus(ctx, &pb.GetStatusRequest{})
+// GetSamplingKeys calls the GetSamplingKeys RPC.
+func (c *LutPropertiesClient) GetSamplingKeys(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSamplingKeys(ctx, &pb.GetSamplingKeysRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// IsPresent calls the IsPresent RPC.
-func (c *BatteryStateClient) IsPresent(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsPresent(ctx, &pb.IsPresentRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OverlayPropertiesClient wraps the gRPC OverlayPropertiesService client.
-type OverlayPropertiesClient struct {
-	svc pb.OverlayPropertiesServiceClient
-}
-
-// NewOverlayPropertiesClient creates a new OverlayProperties client.
-func NewOverlayPropertiesClient(cc grpc.ClientConnInterface) *OverlayPropertiesClient {
-	return &OverlayPropertiesClient{
-		svc: pb.NewOverlayPropertiesServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *OverlayPropertiesClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.OverlayPropertiesDescribeContentsRequest{})
+// GetSize calls the GetSize RPC.
+func (c *LutPropertiesClient) GetSize(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSize(ctx, &pb.GetSizeRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
-}
-
-// GetLutProperties calls the GetLutProperties RPC.
-func (c *OverlayPropertiesClient) GetLutProperties(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetLutProperties(ctx, &pb.GetLutPropertiesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsCombinationSupported calls the IsCombinationSupported RPC.
-func (c *OverlayPropertiesClient) IsCombinationSupported(ctx context.Context, arg0 int32, arg1 int32) (bool, error) {
-	resp, err := c.svc.IsCombinationSupported(ctx, &pb.IsCombinationSupportedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsMixedColorSpacesSupported calls the IsMixedColorSpacesSupported RPC.
-func (c *OverlayPropertiesClient) IsMixedColorSpacesSupported(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsMixedColorSpacesSupported(ctx, &pb.IsMixedColorSpacesSupportedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *OverlayPropertiesClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.OverlayPropertiesWriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// SensorEventCallbackClient wraps the gRPC SensorEventCallbackService client.
-type SensorEventCallbackClient struct {
-	svc pb.SensorEventCallbackServiceClient
-}
-
-// NewSensorEventCallbackClient creates a new SensorEventCallback client.
-func NewSensorEventCallbackClient(cc grpc.ClientConnInterface) *SensorEventCallbackClient {
-	return &SensorEventCallbackClient{
-		svc: pb.NewSensorEventCallbackServiceClient(cc),
-	}
-}
-
-// OnAccuracyChanged calls the OnAccuracyChanged RPC.
-func (c *SensorEventCallbackClient) OnAccuracyChanged(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.OnAccuracyChanged(ctx, &pb.SensorEventCallbackOnAccuracyChangedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// OnFlushCompleted calls the OnFlushCompleted RPC.
-func (c *SensorEventCallbackClient) OnFlushCompleted(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnFlushCompleted(ctx, &pb.OnFlushCompletedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnSensorAdditionalInfo calls the OnSensorAdditionalInfo RPC.
-func (c *SensorEventCallbackClient) OnSensorAdditionalInfo(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnSensorAdditionalInfo(ctx, &pb.OnSensorAdditionalInfoRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnSensorChanged calls the OnSensorChanged RPC.
-func (c *SensorEventCallbackClient) OnSensorChanged(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnSensorChanged(ctx, &pb.SensorEventCallbackOnSensorChangedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SensorPrivacyManagerClient wraps the gRPC SensorPrivacyManagerService client.
-type SensorPrivacyManagerClient struct {
-	svc pb.SensorPrivacyManagerServiceClient
-}
-
-// NewSensorPrivacyManagerClient creates a new SensorPrivacyManager client.
-func NewSensorPrivacyManagerClient(cc grpc.ClientConnInterface) *SensorPrivacyManagerClient {
-	return &SensorPrivacyManagerClient{
-		svc: pb.NewSensorPrivacyManagerServiceClient(cc),
-	}
-}
-
-// SupportsSensorToggle1 calls the SupportsSensorToggle1 RPC.
-func (c *SensorPrivacyManagerClient) SupportsSensorToggle1(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.SupportsSensorToggle1(ctx, &pb.SupportsSensorToggle1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SupportsSensorToggle2_1 calls the SupportsSensorToggle2_1 RPC.
-func (c *SensorPrivacyManagerClient) SupportsSensorToggle2_1(ctx context.Context, arg0 int32, arg1 int32) (bool, error) {
-	resp, err := c.svc.SupportsSensorToggle2_1(ctx, &pb.SupportsSensorToggle2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SensorEventListener2Client wraps the gRPC SensorEventListener2Service client.
-type SensorEventListener2Client struct {
-	svc pb.SensorEventListener2ServiceClient
-}
-
-// NewSensorEventListener2Client creates a new SensorEventListener2 client.
-func NewSensorEventListener2Client(cc grpc.ClientConnInterface) *SensorEventListener2Client {
-	return &SensorEventListener2Client{
-		svc: pb.NewSensorEventListener2ServiceClient(cc),
-	}
-}
-
-// OnFlushCompleted calls the OnFlushCompleted RPC.
-func (c *SensorEventListener2Client) OnFlushCompleted(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnFlushCompleted(ctx, &pb.OnFlushCompletedRequest{
-		Arg0: arg0,
-	})
-	return err
 }

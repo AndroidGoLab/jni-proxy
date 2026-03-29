@@ -15,51 +15,6 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// AttestedKeyPairServer implements pb.AttestedKeyPairServiceServer.
-type AttestedKeyPairServer struct {
-	pb.UnimplementedAttestedKeyPairServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *AttestedKeyPairServer) NewAttestedKeyPair(_ context.Context, req *pb.NewAttestedKeyPairRequest) (*pb.NewAttestedKeyPairResponse, error) {
-	obj, err := jnipkg.NewAttestedKeyPair(s.Ctx.VM, s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewAttestedKeyPairResponse{Result: handle}, nil
-}
-
-func (s *AttestedKeyPairServer) GetKeyPair(_ context.Context, req *pb.GetKeyPairRequest) (*pb.GetKeyPairResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.AttestedKeyPair{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetKeyPair()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetKeyPairResponse{Result: handle}, nil
-}
-
 // FileIntegrityManagerServer implements pb.FileIntegrityManagerServiceServer.
 type FileIntegrityManagerServer struct {
 	pb.UnimplementedFileIntegrityManagerServiceServer
@@ -312,4 +267,72 @@ func (s *KeyChainServer) RemoveCredentialManagementApp(_ context.Context, req *p
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.RemoveCredentialManagementAppResponse{Result: result}, nil
+}
+
+// AttestedKeyPairServer implements pb.AttestedKeyPairServiceServer.
+type AttestedKeyPairServer struct {
+	pb.UnimplementedAttestedKeyPairServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *AttestedKeyPairServer) NewAttestedKeyPair(_ context.Context, req *pb.NewAttestedKeyPairRequest) (*pb.NewAttestedKeyPairResponse, error) {
+	obj, err := jnipkg.NewAttestedKeyPair(s.Ctx.VM, s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewAttestedKeyPairResponse{Result: handle}, nil
+}
+
+func (s *AttestedKeyPairServer) GetAttestationRecord(_ context.Context, req *pb.GetAttestationRecordRequest) (*pb.GetAttestationRecordResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AttestedKeyPair{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAttestationRecord()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetAttestationRecordResponse{Result: handle}, nil
+}
+
+func (s *AttestedKeyPairServer) GetKeyPair(_ context.Context, req *pb.GetKeyPairRequest) (*pb.GetKeyPairResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AttestedKeyPair{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetKeyPair()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetKeyPairResponse{Result: handle}, nil
 }

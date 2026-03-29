@@ -15,100 +15,6 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// MessagePduServer implements pb.MessagePduServiceServer.
-type MessagePduServer struct {
-	pb.UnimplementedMessagePduServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *MessagePduServer) NewMessagePdu(_ context.Context, req *pb.NewMessagePduRequest) (*pb.NewMessagePduResponse, error) {
-	obj, err := jnipkg.NewMessagePdu(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewMessagePduResponse{Result: handle}, nil
-}
-
-func (s *MessagePduServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.MessagePdu{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *MessagePduServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.MessagePdu{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
-// MessagingClientServiceServer implements pb.MessagingClientServiceServiceServer.
-type MessagingClientServiceServer struct {
-	pb.UnimplementedMessagingClientServiceServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *MessagingClientServiceServer) NewMessagingClientService(_ context.Context, req *pb.NewMessagingClientServiceRequest) (*pb.NewMessagingClientServiceResponse, error) {
-	obj, err := jnipkg.NewMessagingClientService(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewMessagingClientServiceResponse{Result: handle}, nil
-}
-
-func (s *MessagingClientServiceServer) OnBind(_ context.Context, req *pb.MessagingClientServiceOnBindRequest) (*pb.OnBindResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.MessagingClientService{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.OnBind(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.OnBindResponse{Result: handle}, nil
-}
-
 // IdentifierServer implements pb.IdentifierServiceServer.
 type IdentifierServer struct {
 	pb.UnimplementedIdentifierServiceServer
@@ -305,6 +211,123 @@ func (s *IdentifierServer) WriteToParcel(_ context.Context, req *pb.WriteToParce
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
 	mgr := &jnipkg.Identifier{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// MessagingClientServiceServer implements pb.MessagingClientServiceServiceServer.
+type MessagingClientServiceServer struct {
+	pb.UnimplementedMessagingClientServiceServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *MessagingClientServiceServer) NewMessagingClientService(_ context.Context, req *pb.NewMessagingClientServiceRequest) (*pb.NewMessagingClientServiceResponse, error) {
+	obj, err := jnipkg.NewMessagingClientService(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewMessagingClientServiceResponse{Result: handle}, nil
+}
+
+func (s *MessagingClientServiceServer) OnBind(_ context.Context, req *pb.MessagingClientServiceOnBindRequest) (*pb.OnBindResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MessagingClientService{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.OnBind(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.OnBindResponse{Result: handle}, nil
+}
+
+// MessagePduServer implements pb.MessagePduServiceServer.
+type MessagePduServer struct {
+	pb.UnimplementedMessagePduServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *MessagePduServer) NewMessagePdu(_ context.Context, req *pb.NewMessagePduRequest) (*pb.NewMessagePduResponse, error) {
+	obj, err := jnipkg.NewMessagePdu(s.Ctx.VM, s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewMessagePduResponse{Result: handle}, nil
+}
+
+func (s *MessagePduServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MessagePdu{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *MessagePduServer) GetPdus(_ context.Context, req *pb.GetPdusRequest) (*pb.GetPdusResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MessagePdu{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetPdus()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetPdusResponse{Result: handle}, nil
+}
+
+func (s *MessagePduServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MessagePdu{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)

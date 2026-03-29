@@ -9,6 +9,1763 @@ import (
 	"google.golang.org/grpc"
 )
 
+// ArcMotionClient wraps the gRPC ArcMotionService client.
+type ArcMotionClient struct {
+	svc pb.ArcMotionServiceClient
+}
+
+// NewArcMotionClient creates a new ArcMotion client.
+func NewArcMotionClient(cc grpc.ClientConnInterface) *ArcMotionClient {
+	return &ArcMotionClient{
+		svc: pb.NewArcMotionServiceClient(cc),
+	}
+}
+
+// GetMaximumAngle calls the GetMaximumAngle RPC.
+func (c *ArcMotionClient) GetMaximumAngle(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetMaximumAngle(ctx, &pb.GetMaximumAngleRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinimumHorizontalAngle calls the GetMinimumHorizontalAngle RPC.
+func (c *ArcMotionClient) GetMinimumHorizontalAngle(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetMinimumHorizontalAngle(ctx, &pb.GetMinimumHorizontalAngleRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinimumVerticalAngle calls the GetMinimumVerticalAngle RPC.
+func (c *ArcMotionClient) GetMinimumVerticalAngle(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetMinimumVerticalAngle(ctx, &pb.GetMinimumVerticalAngleRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPath calls the GetPath RPC.
+func (c *ArcMotionClient) GetPath(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32) (int64, error) {
+	resp, err := c.svc.GetPath(ctx, &pb.GetPathRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMaximumAngle calls the SetMaximumAngle RPC.
+func (c *ArcMotionClient) SetMaximumAngle(ctx context.Context, handle int64, arg0 float32) error {
+	_, err := c.svc.SetMaximumAngle(ctx, &pb.SetMaximumAngleRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetMinimumHorizontalAngle calls the SetMinimumHorizontalAngle RPC.
+func (c *ArcMotionClient) SetMinimumHorizontalAngle(ctx context.Context, handle int64, arg0 float32) error {
+	_, err := c.svc.SetMinimumHorizontalAngle(ctx, &pb.SetMinimumHorizontalAngleRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetMinimumVerticalAngle calls the SetMinimumVerticalAngle RPC.
+func (c *ArcMotionClient) SetMinimumVerticalAngle(ctx context.Context, handle int64, arg0 float32) error {
+	_, err := c.svc.SetMinimumVerticalAngle(ctx, &pb.SetMinimumVerticalAngleRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// InflaterClient wraps the gRPC InflaterService client.
+type InflaterClient struct {
+	svc pb.InflaterServiceClient
+}
+
+// NewInflaterClient creates a new Inflater client.
+func NewInflaterClient(cc grpc.ClientConnInterface) *InflaterClient {
+	return &InflaterClient{
+		svc: pb.NewInflaterServiceClient(cc),
+	}
+}
+
+// InflateTransition calls the InflateTransition RPC.
+func (c *InflaterClient) InflateTransition(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.InflateTransition(ctx, &pb.InflateTransitionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// InflateTransitionManager calls the InflateTransitionManager RPC.
+func (c *InflaterClient) InflateTransitionManager(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
+	resp, err := c.svc.InflateTransitionManager(ctx, &pb.InflateTransitionManagerRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// From calls the From RPC.
+func (c *InflaterClient) From(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.From(ctx, &pb.FromRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValuesClient wraps the gRPC ValuesService client.
+type ValuesClient struct {
+	svc pb.ValuesServiceClient
+}
+
+// NewValuesClient creates a new Values client.
+func NewValuesClient(cc grpc.ClientConnInterface) *ValuesClient {
+	return &ValuesClient{
+		svc: pb.NewValuesServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *ValuesClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ValuesClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ValuesClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// PropagationClient wraps the gRPC PropagationService client.
+type PropagationClient struct {
+	svc pb.PropagationServiceClient
+}
+
+// NewPropagationClient creates a new Propagation client.
+func NewPropagationClient(cc grpc.ClientConnInterface) *PropagationClient {
+	return &PropagationClient{
+		svc: pb.NewPropagationServiceClient(cc),
+	}
+}
+
+// CaptureValues calls the CaptureValues RPC.
+func (c *PropagationClient) CaptureValues(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CaptureValues(ctx, &pb.CaptureValuesRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetPropagationProperties calls the GetPropagationProperties RPC.
+func (c *PropagationClient) GetPropagationProperties(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPropagationProperties(ctx, &pb.GetPropagationPropertiesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStartDelay calls the GetStartDelay RPC.
+func (c *PropagationClient) GetStartDelay(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.GetStartDelay(ctx, &pb.GetStartDelayRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CircularPropagationClient wraps the gRPC CircularPropagationService client.
+type CircularPropagationClient struct {
+	svc pb.CircularPropagationServiceClient
+}
+
+// NewCircularPropagationClient creates a new CircularPropagation client.
+func NewCircularPropagationClient(cc grpc.ClientConnInterface) *CircularPropagationClient {
+	return &CircularPropagationClient{
+		svc: pb.NewCircularPropagationServiceClient(cc),
+	}
+}
+
+// GetStartDelay calls the GetStartDelay RPC.
+func (c *CircularPropagationClient) GetStartDelay(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.GetStartDelay(ctx, &pb.CircularPropagationGetStartDelayRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPropagationSpeed calls the SetPropagationSpeed RPC.
+func (c *CircularPropagationClient) SetPropagationSpeed(ctx context.Context, handle int64, arg0 float32) error {
+	_, err := c.svc.SetPropagationSpeed(ctx, &pb.SetPropagationSpeedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SidePropagationClient wraps the gRPC SidePropagationService client.
+type SidePropagationClient struct {
+	svc pb.SidePropagationServiceClient
+}
+
+// NewSidePropagationClient creates a new SidePropagation client.
+func NewSidePropagationClient(cc grpc.ClientConnInterface) *SidePropagationClient {
+	return &SidePropagationClient{
+		svc: pb.NewSidePropagationServiceClient(cc),
+	}
+}
+
+// GetStartDelay calls the GetStartDelay RPC.
+func (c *SidePropagationClient) GetStartDelay(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.GetStartDelay(ctx, &pb.SidePropagationGetStartDelayRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPropagationSpeed calls the SetPropagationSpeed RPC.
+func (c *SidePropagationClient) SetPropagationSpeed(ctx context.Context, handle int64, arg0 float32) error {
+	_, err := c.svc.SetPropagationSpeed(ctx, &pb.SetPropagationSpeedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetSide calls the SetSide RPC.
+func (c *SidePropagationClient) SetSide(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetSide(ctx, &pb.SetSideRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// TransitionClient wraps the gRPC TransitionService client.
+type TransitionClient struct {
+	svc pb.TransitionServiceClient
+}
+
+// NewTransitionClient creates a new Transition client.
+func NewTransitionClient(cc grpc.ClientConnInterface) *TransitionClient {
+	return &TransitionClient{
+		svc: pb.NewTransitionServiceClient(cc),
+	}
+}
+
+// AddListener calls the AddListener RPC.
+func (c *TransitionClient) AddListener(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddListener(ctx, &pb.AddListenerRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddTarget1 calls the AddTarget1 RPC.
+func (c *TransitionClient) AddTarget1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddTarget1(ctx, &pb.AddTarget1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddTarget1_1 calls the AddTarget1_1 RPC.
+func (c *TransitionClient) AddTarget1_1(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.AddTarget1_1(ctx, &pb.AddTarget1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddTarget1_2 calls the AddTarget1_2 RPC.
+func (c *TransitionClient) AddTarget1_2(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddTarget1_2(ctx, &pb.AddTarget1_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddTarget1_3 calls the AddTarget1_3 RPC.
+func (c *TransitionClient) AddTarget1_3(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.AddTarget1_3(ctx, &pb.AddTarget1_3Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CanRemoveViews calls the CanRemoveViews RPC.
+func (c *TransitionClient) CanRemoveViews(ctx context.Context) (bool, error) {
+	resp, err := c.svc.CanRemoveViews(ctx, &pb.CanRemoveViewsRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CaptureEndValues calls the CaptureEndValues RPC.
+func (c *TransitionClient) CaptureEndValues(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CaptureEndValues(ctx, &pb.CaptureEndValuesRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CaptureStartValues calls the CaptureStartValues RPC.
+func (c *TransitionClient) CaptureStartValues(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CaptureStartValues(ctx, &pb.CaptureStartValuesRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Clone0 calls the Clone0 RPC.
+func (c *TransitionClient) Clone0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Clone0(ctx, &pb.Clone0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateAnimator calls the CreateAnimator RPC.
+func (c *TransitionClient) CreateAnimator(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.CreateAnimator(ctx, &pb.CreateAnimatorRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ExcludeChildren2 calls the ExcludeChildren2 RPC.
+func (c *TransitionClient) ExcludeChildren2(ctx context.Context, arg0 int64, arg1 bool) (int64, error) {
+	resp, err := c.svc.ExcludeChildren2(ctx, &pb.ExcludeChildren2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ExcludeChildren2_1 calls the ExcludeChildren2_1 RPC.
+func (c *TransitionClient) ExcludeChildren2_1(ctx context.Context, arg0 int32, arg1 bool) (int64, error) {
+	resp, err := c.svc.ExcludeChildren2_1(ctx, &pb.ExcludeChildren2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ExcludeChildren2_2 calls the ExcludeChildren2_2 RPC.
+func (c *TransitionClient) ExcludeChildren2_2(ctx context.Context, arg0 int64, arg1 bool) (int64, error) {
+	resp, err := c.svc.ExcludeChildren2_2(ctx, &pb.ExcludeChildren2_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ExcludeTarget2 calls the ExcludeTarget2 RPC.
+func (c *TransitionClient) ExcludeTarget2(ctx context.Context, arg0 int64, arg1 bool) (int64, error) {
+	resp, err := c.svc.ExcludeTarget2(ctx, &pb.ExcludeTarget2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ExcludeTarget2_1 calls the ExcludeTarget2_1 RPC.
+func (c *TransitionClient) ExcludeTarget2_1(ctx context.Context, arg0 int32, arg1 bool) (int64, error) {
+	resp, err := c.svc.ExcludeTarget2_1(ctx, &pb.ExcludeTarget2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ExcludeTarget2_2 calls the ExcludeTarget2_2 RPC.
+func (c *TransitionClient) ExcludeTarget2_2(ctx context.Context, arg0 int64, arg1 bool) (int64, error) {
+	resp, err := c.svc.ExcludeTarget2_2(ctx, &pb.ExcludeTarget2_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ExcludeTarget2_3 calls the ExcludeTarget2_3 RPC.
+func (c *TransitionClient) ExcludeTarget2_3(ctx context.Context, arg0 string, arg1 bool) (int64, error) {
+	resp, err := c.svc.ExcludeTarget2_3(ctx, &pb.ExcludeTarget2_3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDuration calls the GetDuration RPC.
+func (c *TransitionClient) GetDuration(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDuration(ctx, &pb.GetDurationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEpicenter calls the GetEpicenter RPC.
+func (c *TransitionClient) GetEpicenter(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEpicenter(ctx, &pb.GetEpicenterRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEpicenterCallback calls the GetEpicenterCallback RPC.
+func (c *TransitionClient) GetEpicenterCallback(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEpicenterCallback(ctx, &pb.GetEpicenterCallbackRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInterpolator calls the GetInterpolator RPC.
+func (c *TransitionClient) GetInterpolator(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInterpolator(ctx, &pb.GetInterpolatorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *TransitionClient) GetName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPathMotion calls the GetPathMotion RPC.
+func (c *TransitionClient) GetPathMotion(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPathMotion(ctx, &pb.GetPathMotionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPropagation calls the GetPropagation RPC.
+func (c *TransitionClient) GetPropagation(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPropagation(ctx, &pb.GetPropagationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStartDelay calls the GetStartDelay RPC.
+func (c *TransitionClient) GetStartDelay(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetStartDelay(ctx, &pb.TransitionGetStartDelayRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTargetIds calls the GetTargetIds RPC.
+func (c *TransitionClient) GetTargetIds(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTargetIds(ctx, &pb.GetTargetIdsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTargetNames calls the GetTargetNames RPC.
+func (c *TransitionClient) GetTargetNames(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTargetNames(ctx, &pb.GetTargetNamesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTargetTypes calls the GetTargetTypes RPC.
+func (c *TransitionClient) GetTargetTypes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTargetTypes(ctx, &pb.GetTargetTypesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTargets calls the GetTargets RPC.
+func (c *TransitionClient) GetTargets(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTargets(ctx, &pb.GetTargetsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTransitionProperties calls the GetTransitionProperties RPC.
+func (c *TransitionClient) GetTransitionProperties(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTransitionProperties(ctx, &pb.GetTransitionPropertiesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTransitionValues calls the GetTransitionValues RPC.
+func (c *TransitionClient) GetTransitionValues(ctx context.Context, arg0 int64, arg1 bool) (int64, error) {
+	resp, err := c.svc.GetTransitionValues(ctx, &pb.GetTransitionValuesRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsTransitionRequired calls the IsTransitionRequired RPC.
+func (c *TransitionClient) IsTransitionRequired(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.IsTransitionRequired(ctx, &pb.IsTransitionRequiredRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveListener calls the RemoveListener RPC.
+func (c *TransitionClient) RemoveListener(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.RemoveListener(ctx, &pb.RemoveListenerRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveTarget1 calls the RemoveTarget1 RPC.
+func (c *TransitionClient) RemoveTarget1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.RemoveTarget1(ctx, &pb.RemoveTarget1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveTarget1_1 calls the RemoveTarget1_1 RPC.
+func (c *TransitionClient) RemoveTarget1_1(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.RemoveTarget1_1(ctx, &pb.RemoveTarget1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveTarget1_2 calls the RemoveTarget1_2 RPC.
+func (c *TransitionClient) RemoveTarget1_2(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.RemoveTarget1_2(ctx, &pb.RemoveTarget1_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveTarget1_3 calls the RemoveTarget1_3 RPC.
+func (c *TransitionClient) RemoveTarget1_3(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.RemoveTarget1_3(ctx, &pb.RemoveTarget1_3Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDuration calls the SetDuration RPC.
+func (c *TransitionClient) SetDuration(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetDuration(ctx, &pb.SetDurationRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEpicenterCallback calls the SetEpicenterCallback RPC.
+func (c *TransitionClient) SetEpicenterCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetEpicenterCallback(ctx, &pb.SetEpicenterCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetInterpolator calls the SetInterpolator RPC.
+func (c *TransitionClient) SetInterpolator(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetInterpolator(ctx, &pb.SetInterpolatorRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMatchOrder calls the SetMatchOrder RPC.
+func (c *TransitionClient) SetMatchOrder(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetMatchOrder(ctx, &pb.SetMatchOrderRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetPathMotion calls the SetPathMotion RPC.
+func (c *TransitionClient) SetPathMotion(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetPathMotion(ctx, &pb.SetPathMotionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetPropagation calls the SetPropagation RPC.
+func (c *TransitionClient) SetPropagation(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetPropagation(ctx, &pb.SetPropagationRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetStartDelay calls the SetStartDelay RPC.
+func (c *TransitionClient) SetStartDelay(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetStartDelay(ctx, &pb.SetStartDelayRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *TransitionClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.TransitionToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Clone0_1 calls the Clone0_1 RPC.
+func (c *TransitionClient) Clone0_1(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Clone0_1(ctx, &pb.Clone0_1Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EpicenterCallbackClient wraps the gRPC EpicenterCallbackService client.
+type EpicenterCallbackClient struct {
+	svc pb.EpicenterCallbackServiceClient
+}
+
+// NewEpicenterCallbackClient creates a new EpicenterCallback client.
+func NewEpicenterCallbackClient(cc grpc.ClientConnInterface) *EpicenterCallbackClient {
+	return &EpicenterCallbackClient{
+		svc: pb.NewEpicenterCallbackServiceClient(cc),
+	}
+}
+
+// OnGetEpicenter calls the OnGetEpicenter RPC.
+func (c *EpicenterCallbackClient) OnGetEpicenter(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnGetEpicenter(ctx, &pb.OnGetEpicenterRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TransitionListenerClient wraps the gRPC TransitionListenerService client.
+type TransitionListenerClient struct {
+	svc pb.TransitionListenerServiceClient
+}
+
+// NewTransitionListenerClient creates a new TransitionListener client.
+func NewTransitionListenerClient(cc grpc.ClientConnInterface) *TransitionListenerClient {
+	return &TransitionListenerClient{
+		svc: pb.NewTransitionListenerServiceClient(cc),
+	}
+}
+
+// OnTransitionCancel calls the OnTransitionCancel RPC.
+func (c *TransitionListenerClient) OnTransitionCancel(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnTransitionCancel(ctx, &pb.OnTransitionCancelRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnTransitionEnd calls the OnTransitionEnd RPC.
+func (c *TransitionListenerClient) OnTransitionEnd(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnTransitionEnd(ctx, &pb.OnTransitionEndRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnTransitionPause calls the OnTransitionPause RPC.
+func (c *TransitionListenerClient) OnTransitionPause(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnTransitionPause(ctx, &pb.OnTransitionPauseRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnTransitionResume calls the OnTransitionResume RPC.
+func (c *TransitionListenerClient) OnTransitionResume(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnTransitionResume(ctx, &pb.OnTransitionResumeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnTransitionStart calls the OnTransitionStart RPC.
+func (c *TransitionListenerClient) OnTransitionStart(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnTransitionStart(ctx, &pb.OnTransitionStartRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ManagerClient wraps the gRPC ManagerService client.
+type ManagerClient struct {
+	svc pb.ManagerServiceClient
+}
+
+// NewManagerClient creates a new Manager client.
+func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
+	return &ManagerClient{
+		svc: pb.NewManagerServiceClient(cc),
+	}
+}
+
+// SetTransition3 calls the SetTransition3 RPC.
+func (c *ManagerClient) SetTransition3(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.SetTransition3(ctx, &pb.SetTransition3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// SetTransition2_1 calls the SetTransition2_1 RPC.
+func (c *ManagerClient) SetTransition2_1(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.SetTransition2_1(ctx, &pb.SetTransition2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// TransitionTo calls the TransitionTo RPC.
+func (c *ManagerClient) TransitionTo(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.TransitionTo(ctx, &pb.TransitionToRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// BeginDelayedTransition1 calls the BeginDelayedTransition1 RPC.
+func (c *ManagerClient) BeginDelayedTransition1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.BeginDelayedTransition1(ctx, &pb.BeginDelayedTransition1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// BeginDelayedTransition2_1 calls the BeginDelayedTransition2_1 RPC.
+func (c *ManagerClient) BeginDelayedTransition2_1(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.BeginDelayedTransition2_1(ctx, &pb.BeginDelayedTransition2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// EndTransitions calls the EndTransitions RPC.
+func (c *ManagerClient) EndTransitions(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.EndTransitions(ctx, &pb.EndTransitionsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Go1 calls the Go1 RPC.
+func (c *ManagerClient) Go1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.Go1(ctx, &pb.Go1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Go2_1 calls the Go2_1 RPC.
+func (c *ManagerClient) Go2_1(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.Go2_1(ctx, &pb.Go2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// VisibilityClient wraps the gRPC VisibilityService client.
+type VisibilityClient struct {
+	svc pb.VisibilityServiceClient
+}
+
+// NewVisibilityClient creates a new Visibility client.
+func NewVisibilityClient(cc grpc.ClientConnInterface) *VisibilityClient {
+	return &VisibilityClient{
+		svc: pb.NewVisibilityServiceClient(cc),
+	}
+}
+
+// CaptureEndValues calls the CaptureEndValues RPC.
+func (c *VisibilityClient) CaptureEndValues(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CaptureEndValues(ctx, &pb.CaptureEndValuesRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CaptureStartValues calls the CaptureStartValues RPC.
+func (c *VisibilityClient) CaptureStartValues(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CaptureStartValues(ctx, &pb.CaptureStartValuesRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CreateAnimator calls the CreateAnimator RPC.
+func (c *VisibilityClient) CreateAnimator(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.CreateAnimator(ctx, &pb.CreateAnimatorRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMode calls the GetMode RPC.
+func (c *VisibilityClient) GetMode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMode(ctx, &pb.GetModeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTransitionProperties calls the GetTransitionProperties RPC.
+func (c *VisibilityClient) GetTransitionProperties(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTransitionProperties(ctx, &pb.GetTransitionPropertiesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsTransitionRequired calls the IsTransitionRequired RPC.
+func (c *VisibilityClient) IsTransitionRequired(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.IsTransitionRequired(ctx, &pb.IsTransitionRequiredRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsVisible calls the IsVisible RPC.
+func (c *VisibilityClient) IsVisible(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.IsVisible(ctx, &pb.IsVisibleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnAppear5 calls the OnAppear5 RPC.
+func (c *VisibilityClient) OnAppear5(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int64, arg4 int32) (int64, error) {
+	resp, err := c.svc.OnAppear5(ctx, &pb.OnAppear5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnAppear4_1 calls the OnAppear4_1 RPC.
+func (c *VisibilityClient) OnAppear4_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.OnAppear4_1(ctx, &pb.OnAppear4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnDisappear5 calls the OnDisappear5 RPC.
+func (c *VisibilityClient) OnDisappear5(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int64, arg4 int32) (int64, error) {
+	resp, err := c.svc.OnDisappear5(ctx, &pb.OnDisappear5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnDisappear4_1 calls the OnDisappear4_1 RPC.
+func (c *VisibilityClient) OnDisappear4_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.OnDisappear4_1(ctx, &pb.OnDisappear4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMode calls the SetMode RPC.
+func (c *VisibilityClient) SetMode(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetMode(ctx, &pb.SetModeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SceneClient wraps the gRPC SceneService client.
+type SceneClient struct {
+	svc pb.SceneServiceClient
+}
+
+// NewSceneClient creates a new Scene client.
+func NewSceneClient(cc grpc.ClientConnInterface) *SceneClient {
+	return &SceneClient{
+		svc: pb.NewSceneServiceClient(cc),
+	}
+}
+
+// Enter calls the Enter RPC.
+func (c *SceneClient) Enter(ctx context.Context, handle int64) error {
+	_, err := c.svc.Enter(ctx, &pb.EnterRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// Exit calls the Exit RPC.
+func (c *SceneClient) Exit(ctx context.Context, handle int64) error {
+	_, err := c.svc.Exit(ctx, &pb.ExitRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// GetSceneRoot calls the GetSceneRoot RPC.
+func (c *SceneClient) GetSceneRoot(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSceneRoot(ctx, &pb.GetSceneRootRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEnterAction calls the SetEnterAction RPC.
+func (c *SceneClient) SetEnterAction(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetEnterAction(ctx, &pb.SetEnterActionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetExitAction calls the SetExitAction RPC.
+func (c *SceneClient) SetExitAction(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetExitAction(ctx, &pb.SetExitActionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GetCurrentScene calls the GetCurrentScene RPC.
+func (c *SceneClient) GetCurrentScene(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetCurrentScene(ctx, &pb.GetCurrentSceneRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSceneForLayout calls the GetSceneForLayout RPC.
+func (c *SceneClient) GetSceneForLayout(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64) (int64, error) {
+	resp, err := c.svc.GetSceneForLayout(ctx, &pb.GetSceneForLayoutRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ChangeTransformClient wraps the gRPC ChangeTransformService client.
+type ChangeTransformClient struct {
+	svc pb.ChangeTransformServiceClient
+}
+
+// NewChangeTransformClient creates a new ChangeTransform client.
+func NewChangeTransformClient(cc grpc.ClientConnInterface) *ChangeTransformClient {
+	return &ChangeTransformClient{
+		svc: pb.NewChangeTransformServiceClient(cc),
+	}
+}
+
+// CaptureEndValues calls the CaptureEndValues RPC.
+func (c *ChangeTransformClient) CaptureEndValues(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.CaptureEndValues(ctx, &pb.ChangeTransformCaptureEndValuesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// CaptureStartValues calls the CaptureStartValues RPC.
+func (c *ChangeTransformClient) CaptureStartValues(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.CaptureStartValues(ctx, &pb.ChangeTransformCaptureStartValuesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// CreateAnimator calls the CreateAnimator RPC.
+func (c *ChangeTransformClient) CreateAnimator(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.CreateAnimator(ctx, &pb.ChangeTransformCreateAnimatorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetReparent calls the GetReparent RPC.
+func (c *ChangeTransformClient) GetReparent(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.GetReparent(ctx, &pb.GetReparentRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetReparentWithOverlay calls the GetReparentWithOverlay RPC.
+func (c *ChangeTransformClient) GetReparentWithOverlay(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.GetReparentWithOverlay(ctx, &pb.GetReparentWithOverlayRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTransitionProperties calls the GetTransitionProperties RPC.
+func (c *ChangeTransformClient) GetTransitionProperties(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTransitionProperties(ctx, &pb.ChangeTransformGetTransitionPropertiesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetReparent calls the SetReparent RPC.
+func (c *ChangeTransformClient) SetReparent(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetReparent(ctx, &pb.SetReparentRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetReparentWithOverlay calls the SetReparentWithOverlay RPC.
+func (c *ChangeTransformClient) SetReparentWithOverlay(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetReparentWithOverlay(ctx, &pb.SetReparentWithOverlayRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ChangeScrollClient wraps the gRPC ChangeScrollService client.
+type ChangeScrollClient struct {
+	svc pb.ChangeScrollServiceClient
+}
+
+// NewChangeScrollClient creates a new ChangeScroll client.
+func NewChangeScrollClient(cc grpc.ClientConnInterface) *ChangeScrollClient {
+	return &ChangeScrollClient{
+		svc: pb.NewChangeScrollServiceClient(cc),
+	}
+}
+
+// CaptureEndValues calls the CaptureEndValues RPC.
+func (c *ChangeScrollClient) CaptureEndValues(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.CaptureEndValues(ctx, &pb.ChangeScrollCaptureEndValuesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// CaptureStartValues calls the CaptureStartValues RPC.
+func (c *ChangeScrollClient) CaptureStartValues(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.CaptureStartValues(ctx, &pb.ChangeScrollCaptureStartValuesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// CreateAnimator calls the CreateAnimator RPC.
+func (c *ChangeScrollClient) CreateAnimator(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.CreateAnimator(ctx, &pb.ChangeScrollCreateAnimatorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTransitionProperties calls the GetTransitionProperties RPC.
+func (c *ChangeScrollClient) GetTransitionProperties(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTransitionProperties(ctx, &pb.ChangeScrollGetTransitionPropertiesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ChangeBoundsClient wraps the gRPC ChangeBoundsService client.
+type ChangeBoundsClient struct {
+	svc pb.ChangeBoundsServiceClient
+}
+
+// NewChangeBoundsClient creates a new ChangeBounds client.
+func NewChangeBoundsClient(cc grpc.ClientConnInterface) *ChangeBoundsClient {
+	return &ChangeBoundsClient{
+		svc: pb.NewChangeBoundsServiceClient(cc),
+	}
+}
+
+// CaptureEndValues calls the CaptureEndValues RPC.
+func (c *ChangeBoundsClient) CaptureEndValues(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.CaptureEndValues(ctx, &pb.ChangeBoundsCaptureEndValuesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// CaptureStartValues calls the CaptureStartValues RPC.
+func (c *ChangeBoundsClient) CaptureStartValues(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.CaptureStartValues(ctx, &pb.ChangeBoundsCaptureStartValuesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// CreateAnimator calls the CreateAnimator RPC.
+func (c *ChangeBoundsClient) CreateAnimator(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.CreateAnimator(ctx, &pb.ChangeBoundsCreateAnimatorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResizeClip calls the GetResizeClip RPC.
+func (c *ChangeBoundsClient) GetResizeClip(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.GetResizeClip(ctx, &pb.GetResizeClipRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTransitionProperties calls the GetTransitionProperties RPC.
+func (c *ChangeBoundsClient) GetTransitionProperties(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTransitionProperties(ctx, &pb.ChangeBoundsGetTransitionPropertiesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetReparent calls the SetReparent RPC.
+func (c *ChangeBoundsClient) SetReparent(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetReparent(ctx, &pb.SetReparentRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetResizeClip calls the SetResizeClip RPC.
+func (c *ChangeBoundsClient) SetResizeClip(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetResizeClip(ctx, &pb.SetResizeClipRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// FadeClient wraps the gRPC FadeService client.
+type FadeClient struct {
+	svc pb.FadeServiceClient
+}
+
+// NewFadeClient creates a new Fade client.
+func NewFadeClient(cc grpc.ClientConnInterface) *FadeClient {
+	return &FadeClient{
+		svc: pb.NewFadeServiceClient(cc),
+	}
+}
+
+// CaptureStartValues calls the CaptureStartValues RPC.
+func (c *FadeClient) CaptureStartValues(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.CaptureStartValues(ctx, &pb.FadeCaptureStartValuesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// OnAppear calls the OnAppear RPC.
+func (c *FadeClient) OnAppear(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.OnAppear(ctx, &pb.OnAppearRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnDisappear calls the OnDisappear RPC.
+func (c *FadeClient) OnDisappear(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.OnDisappear(ctx, &pb.OnDisappearRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ListenerAdapterClient wraps the gRPC ListenerAdapterService client.
+type ListenerAdapterClient struct {
+	svc pb.ListenerAdapterServiceClient
+}
+
+// NewListenerAdapterClient creates a new ListenerAdapter client.
+func NewListenerAdapterClient(cc grpc.ClientConnInterface) *ListenerAdapterClient {
+	return &ListenerAdapterClient{
+		svc: pb.NewListenerAdapterServiceClient(cc),
+	}
+}
+
+// OnTransitionCancel calls the OnTransitionCancel RPC.
+func (c *ListenerAdapterClient) OnTransitionCancel(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnTransitionCancel(ctx, &pb.OnTransitionCancelRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnTransitionEnd calls the OnTransitionEnd RPC.
+func (c *ListenerAdapterClient) OnTransitionEnd(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnTransitionEnd(ctx, &pb.OnTransitionEndRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnTransitionPause calls the OnTransitionPause RPC.
+func (c *ListenerAdapterClient) OnTransitionPause(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnTransitionPause(ctx, &pb.OnTransitionPauseRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnTransitionResume calls the OnTransitionResume RPC.
+func (c *ListenerAdapterClient) OnTransitionResume(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnTransitionResume(ctx, &pb.OnTransitionResumeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnTransitionStart calls the OnTransitionStart RPC.
+func (c *ListenerAdapterClient) OnTransitionStart(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnTransitionStart(ctx, &pb.OnTransitionStartRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// PathMotionClient wraps the gRPC PathMotionService client.
+type PathMotionClient struct {
+	svc pb.PathMotionServiceClient
+}
+
+// NewPathMotionClient creates a new PathMotion client.
+func NewPathMotionClient(cc grpc.ClientConnInterface) *PathMotionClient {
+	return &PathMotionClient{
+		svc: pb.NewPathMotionServiceClient(cc),
+	}
+}
+
+// GetPath calls the GetPath RPC.
+func (c *PathMotionClient) GetPath(ctx context.Context, arg0 float32, arg1 float32, arg2 float32, arg3 float32) (int64, error) {
+	resp, err := c.svc.GetPath(ctx, &pb.PathMotionGetPathRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// VisibilityPropagationClient wraps the gRPC VisibilityPropagationService client.
+type VisibilityPropagationClient struct {
+	svc pb.VisibilityPropagationServiceClient
+}
+
+// NewVisibilityPropagationClient creates a new VisibilityPropagation client.
+func NewVisibilityPropagationClient(cc grpc.ClientConnInterface) *VisibilityPropagationClient {
+	return &VisibilityPropagationClient{
+		svc: pb.NewVisibilityPropagationServiceClient(cc),
+	}
+}
+
+// CaptureValues calls the CaptureValues RPC.
+func (c *VisibilityPropagationClient) CaptureValues(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CaptureValues(ctx, &pb.CaptureValuesRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetPropagationProperties calls the GetPropagationProperties RPC.
+func (c *VisibilityPropagationClient) GetPropagationProperties(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPropagationProperties(ctx, &pb.GetPropagationPropertiesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetViewVisibility calls the GetViewVisibility RPC.
+func (c *VisibilityPropagationClient) GetViewVisibility(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.GetViewVisibility(ctx, &pb.GetViewVisibilityRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetViewX calls the GetViewX RPC.
+func (c *VisibilityPropagationClient) GetViewX(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.GetViewX(ctx, &pb.GetViewXRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetViewY calls the GetViewY RPC.
+func (c *VisibilityPropagationClient) GetViewY(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.GetViewY(ctx, &pb.GetViewYRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ChangeImageTransformClient wraps the gRPC ChangeImageTransformService client.
+type ChangeImageTransformClient struct {
+	svc pb.ChangeImageTransformServiceClient
+}
+
+// NewChangeImageTransformClient creates a new ChangeImageTransform client.
+func NewChangeImageTransformClient(cc grpc.ClientConnInterface) *ChangeImageTransformClient {
+	return &ChangeImageTransformClient{
+		svc: pb.NewChangeImageTransformServiceClient(cc),
+	}
+}
+
+// CaptureEndValues calls the CaptureEndValues RPC.
+func (c *ChangeImageTransformClient) CaptureEndValues(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.CaptureEndValues(ctx, &pb.ChangeImageTransformCaptureEndValuesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// CaptureStartValues calls the CaptureStartValues RPC.
+func (c *ChangeImageTransformClient) CaptureStartValues(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.CaptureStartValues(ctx, &pb.ChangeImageTransformCaptureStartValuesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// CreateAnimator calls the CreateAnimator RPC.
+func (c *ChangeImageTransformClient) CreateAnimator(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.CreateAnimator(ctx, &pb.ChangeImageTransformCreateAnimatorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTransitionProperties calls the GetTransitionProperties RPC.
+func (c *ChangeImageTransformClient) GetTransitionProperties(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTransitionProperties(ctx, &pb.ChangeImageTransformGetTransitionPropertiesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PatternPathMotionClient wraps the gRPC PatternPathMotionService client.
+type PatternPathMotionClient struct {
+	svc pb.PatternPathMotionServiceClient
+}
+
+// NewPatternPathMotionClient creates a new PatternPathMotion client.
+func NewPatternPathMotionClient(cc grpc.ClientConnInterface) *PatternPathMotionClient {
+	return &PatternPathMotionClient{
+		svc: pb.NewPatternPathMotionServiceClient(cc),
+	}
+}
+
+// GetPath calls the GetPath RPC.
+func (c *PatternPathMotionClient) GetPath(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32) (int64, error) {
+	resp, err := c.svc.GetPath(ctx, &pb.GetPathRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPatternPath calls the GetPatternPath RPC.
+func (c *PatternPathMotionClient) GetPatternPath(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetPatternPath(ctx, &pb.GetPatternPathRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPatternPath calls the SetPatternPath RPC.
+func (c *PatternPathMotionClient) SetPatternPath(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetPatternPath(ctx, &pb.SetPatternPathRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ChangeClipBoundsClient wraps the gRPC ChangeClipBoundsService client.
+type ChangeClipBoundsClient struct {
+	svc pb.ChangeClipBoundsServiceClient
+}
+
+// NewChangeClipBoundsClient creates a new ChangeClipBounds client.
+func NewChangeClipBoundsClient(cc grpc.ClientConnInterface) *ChangeClipBoundsClient {
+	return &ChangeClipBoundsClient{
+		svc: pb.NewChangeClipBoundsServiceClient(cc),
+	}
+}
+
+// CaptureEndValues calls the CaptureEndValues RPC.
+func (c *ChangeClipBoundsClient) CaptureEndValues(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.CaptureEndValues(ctx, &pb.ChangeClipBoundsCaptureEndValuesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// CaptureStartValues calls the CaptureStartValues RPC.
+func (c *ChangeClipBoundsClient) CaptureStartValues(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.CaptureStartValues(ctx, &pb.ChangeClipBoundsCaptureStartValuesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// CreateAnimator calls the CreateAnimator RPC.
+func (c *ChangeClipBoundsClient) CreateAnimator(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.CreateAnimator(ctx, &pb.ChangeClipBoundsCreateAnimatorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTransitionProperties calls the GetTransitionProperties RPC.
+func (c *ChangeClipBoundsClient) GetTransitionProperties(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTransitionProperties(ctx, &pb.ChangeClipBoundsGetTransitionPropertiesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // SetClient wraps the gRPC SetService client.
 type SetClient struct {
 	svc pb.SetServiceClient
@@ -35,7 +1792,7 @@ func (c *SetClient) AddListener1(ctx context.Context, handle int64, arg0 int64) 
 
 // AddTarget1 calls the AddTarget1 RPC.
 func (c *SetClient) AddTarget1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddTarget1(ctx, &pb.AddTarget1Request{
+	resp, err := c.svc.AddTarget1(ctx, &pb.SetAddTarget1Request{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -47,7 +1804,7 @@ func (c *SetClient) AddTarget1(ctx context.Context, handle int64, arg0 int64) (i
 
 // AddTarget1_1 calls the AddTarget1_1 RPC.
 func (c *SetClient) AddTarget1_1(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.AddTarget1_1(ctx, &pb.AddTarget1_1Request{
+	resp, err := c.svc.AddTarget1_1(ctx, &pb.SetAddTarget1_1Request{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -59,7 +1816,7 @@ func (c *SetClient) AddTarget1_1(ctx context.Context, handle int64, arg0 int32) 
 
 // AddTarget1_2 calls the AddTarget1_2 RPC.
 func (c *SetClient) AddTarget1_2(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddTarget1_2(ctx, &pb.AddTarget1_2Request{
+	resp, err := c.svc.AddTarget1_2(ctx, &pb.SetAddTarget1_2Request{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -71,7 +1828,7 @@ func (c *SetClient) AddTarget1_2(ctx context.Context, handle int64, arg0 int64) 
 
 // AddTarget1_3 calls the AddTarget1_3 RPC.
 func (c *SetClient) AddTarget1_3(ctx context.Context, handle int64, arg0 string) (int64, error) {
-	resp, err := c.svc.AddTarget1_3(ctx, &pb.AddTarget1_3Request{
+	resp, err := c.svc.AddTarget1_3(ctx, &pb.SetAddTarget1_3Request{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -95,7 +1852,7 @@ func (c *SetClient) AddTransition(ctx context.Context, handle int64, arg0 int64)
 
 // CaptureEndValues calls the CaptureEndValues RPC.
 func (c *SetClient) CaptureEndValues(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.CaptureEndValues(ctx, &pb.CaptureEndValuesRequest{
+	_, err := c.svc.CaptureEndValues(ctx, &pb.SetCaptureEndValuesRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -104,7 +1861,7 @@ func (c *SetClient) CaptureEndValues(ctx context.Context, handle int64, arg0 int
 
 // CaptureStartValues calls the CaptureStartValues RPC.
 func (c *SetClient) CaptureStartValues(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.CaptureStartValues(ctx, &pb.CaptureStartValuesRequest{
+	_, err := c.svc.CaptureStartValues(ctx, &pb.SetCaptureStartValuesRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -113,7 +1870,7 @@ func (c *SetClient) CaptureStartValues(ctx context.Context, handle int64, arg0 i
 
 // Clone0 calls the Clone0 RPC.
 func (c *SetClient) Clone0(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone0(ctx, &pb.Clone0Request{
+	resp, err := c.svc.Clone0(ctx, &pb.SetClone0Request{
 		Handle: handle,
 	})
 	if err != nil {
@@ -124,7 +1881,7 @@ func (c *SetClient) Clone0(ctx context.Context, handle int64) (int64, error) {
 
 // ExcludeTarget2 calls the ExcludeTarget2 RPC.
 func (c *SetClient) ExcludeTarget2(ctx context.Context, handle int64, arg0 int64, arg1 bool) (int64, error) {
-	resp, err := c.svc.ExcludeTarget2(ctx, &pb.ExcludeTarget2Request{
+	resp, err := c.svc.ExcludeTarget2(ctx, &pb.SetExcludeTarget2Request{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -137,7 +1894,7 @@ func (c *SetClient) ExcludeTarget2(ctx context.Context, handle int64, arg0 int64
 
 // ExcludeTarget2_1 calls the ExcludeTarget2_1 RPC.
 func (c *SetClient) ExcludeTarget2_1(ctx context.Context, handle int64, arg0 int32, arg1 bool) (int64, error) {
-	resp, err := c.svc.ExcludeTarget2_1(ctx, &pb.ExcludeTarget2_1Request{
+	resp, err := c.svc.ExcludeTarget2_1(ctx, &pb.SetExcludeTarget2_1Request{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -150,7 +1907,7 @@ func (c *SetClient) ExcludeTarget2_1(ctx context.Context, handle int64, arg0 int
 
 // ExcludeTarget2_2 calls the ExcludeTarget2_2 RPC.
 func (c *SetClient) ExcludeTarget2_2(ctx context.Context, handle int64, arg0 int64, arg1 bool) (int64, error) {
-	resp, err := c.svc.ExcludeTarget2_2(ctx, &pb.ExcludeTarget2_2Request{
+	resp, err := c.svc.ExcludeTarget2_2(ctx, &pb.SetExcludeTarget2_2Request{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -163,7 +1920,7 @@ func (c *SetClient) ExcludeTarget2_2(ctx context.Context, handle int64, arg0 int
 
 // ExcludeTarget2_3 calls the ExcludeTarget2_3 RPC.
 func (c *SetClient) ExcludeTarget2_3(ctx context.Context, handle int64, arg0 string, arg1 bool) (int64, error) {
-	resp, err := c.svc.ExcludeTarget2_3(ctx, &pb.ExcludeTarget2_3Request{
+	resp, err := c.svc.ExcludeTarget2_3(ctx, &pb.SetExcludeTarget2_3Request{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -222,7 +1979,7 @@ func (c *SetClient) RemoveListener1(ctx context.Context, handle int64, arg0 int6
 
 // RemoveTarget1 calls the RemoveTarget1 RPC.
 func (c *SetClient) RemoveTarget1(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.RemoveTarget1(ctx, &pb.RemoveTarget1Request{
+	resp, err := c.svc.RemoveTarget1(ctx, &pb.SetRemoveTarget1Request{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -234,7 +1991,7 @@ func (c *SetClient) RemoveTarget1(ctx context.Context, handle int64, arg0 int64)
 
 // RemoveTarget1_1 calls the RemoveTarget1_1 RPC.
 func (c *SetClient) RemoveTarget1_1(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.RemoveTarget1_1(ctx, &pb.RemoveTarget1_1Request{
+	resp, err := c.svc.RemoveTarget1_1(ctx, &pb.SetRemoveTarget1_1Request{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -246,7 +2003,7 @@ func (c *SetClient) RemoveTarget1_1(ctx context.Context, handle int64, arg0 int3
 
 // RemoveTarget1_2 calls the RemoveTarget1_2 RPC.
 func (c *SetClient) RemoveTarget1_2(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.RemoveTarget1_2(ctx, &pb.RemoveTarget1_2Request{
+	resp, err := c.svc.RemoveTarget1_2(ctx, &pb.SetRemoveTarget1_2Request{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -258,7 +2015,7 @@ func (c *SetClient) RemoveTarget1_2(ctx context.Context, handle int64, arg0 int6
 
 // RemoveTarget1_3 calls the RemoveTarget1_3 RPC.
 func (c *SetClient) RemoveTarget1_3(ctx context.Context, handle int64, arg0 string) (int64, error) {
-	resp, err := c.svc.RemoveTarget1_3(ctx, &pb.RemoveTarget1_3Request{
+	resp, err := c.svc.RemoveTarget1_3(ctx, &pb.SetRemoveTarget1_3Request{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -294,7 +2051,7 @@ func (c *SetClient) SetDuration1(ctx context.Context, handle int64, arg0 int64) 
 
 // SetEpicenterCallback calls the SetEpicenterCallback RPC.
 func (c *SetClient) SetEpicenterCallback(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetEpicenterCallback(ctx, &pb.SetEpicenterCallbackRequest{
+	_, err := c.svc.SetEpicenterCallback(ctx, &pb.SetSetEpicenterCallbackRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -327,7 +2084,7 @@ func (c *SetClient) SetOrdering(ctx context.Context, handle int64, arg0 int32) (
 
 // SetPathMotion calls the SetPathMotion RPC.
 func (c *SetClient) SetPathMotion(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetPathMotion(ctx, &pb.SetPathMotionRequest{
+	_, err := c.svc.SetPathMotion(ctx, &pb.SetSetPathMotionRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -336,7 +2093,7 @@ func (c *SetClient) SetPathMotion(ctx context.Context, handle int64, arg0 int64)
 
 // SetPropagation calls the SetPropagation RPC.
 func (c *SetClient) SetPropagation(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetPropagation(ctx, &pb.SetPropagationRequest{
+	_, err := c.svc.SetPropagation(ctx, &pb.SetSetPropagationRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -453,7 +2210,7 @@ func (c *SetClient) RemoveListener1_1(ctx context.Context, handle int64, arg0 in
 
 // Clone0_1 calls the Clone0_1 RPC.
 func (c *SetClient) Clone0_1(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Clone0_1(ctx, &pb.Clone0_1Request{
+	resp, err := c.svc.Clone0_1(ctx, &pb.SetClone0_1Request{
 		Handle: handle,
 	})
 	if err != nil {
@@ -533,1740 +2290,6 @@ func (c *SetClient) Clone0_2(ctx context.Context, handle int64) (int64, error) {
 	return resp.GetResult(), nil
 }
 
-// VisibilityPropagationClient wraps the gRPC VisibilityPropagationService client.
-type VisibilityPropagationClient struct {
-	svc pb.VisibilityPropagationServiceClient
-}
-
-// NewVisibilityPropagationClient creates a new VisibilityPropagation client.
-func NewVisibilityPropagationClient(cc grpc.ClientConnInterface) *VisibilityPropagationClient {
-	return &VisibilityPropagationClient{
-		svc: pb.NewVisibilityPropagationServiceClient(cc),
-	}
-}
-
-// CaptureValues calls the CaptureValues RPC.
-func (c *VisibilityPropagationClient) CaptureValues(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.CaptureValues(ctx, &pb.CaptureValuesRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// GetPropagationProperties calls the GetPropagationProperties RPC.
-func (c *VisibilityPropagationClient) GetPropagationProperties(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetPropagationProperties(ctx, &pb.GetPropagationPropertiesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetViewVisibility calls the GetViewVisibility RPC.
-func (c *VisibilityPropagationClient) GetViewVisibility(ctx context.Context, arg0 int64) (int32, error) {
-	resp, err := c.svc.GetViewVisibility(ctx, &pb.GetViewVisibilityRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetViewX calls the GetViewX RPC.
-func (c *VisibilityPropagationClient) GetViewX(ctx context.Context, arg0 int64) (int32, error) {
-	resp, err := c.svc.GetViewX(ctx, &pb.GetViewXRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetViewY calls the GetViewY RPC.
-func (c *VisibilityPropagationClient) GetViewY(ctx context.Context, arg0 int64) (int32, error) {
-	resp, err := c.svc.GetViewY(ctx, &pb.GetViewYRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ChangeClipBoundsClient wraps the gRPC ChangeClipBoundsService client.
-type ChangeClipBoundsClient struct {
-	svc pb.ChangeClipBoundsServiceClient
-}
-
-// NewChangeClipBoundsClient creates a new ChangeClipBounds client.
-func NewChangeClipBoundsClient(cc grpc.ClientConnInterface) *ChangeClipBoundsClient {
-	return &ChangeClipBoundsClient{
-		svc: pb.NewChangeClipBoundsServiceClient(cc),
-	}
-}
-
-// CaptureEndValues calls the CaptureEndValues RPC.
-func (c *ChangeClipBoundsClient) CaptureEndValues(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.CaptureEndValues(ctx, &pb.CaptureEndValuesRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// CaptureStartValues calls the CaptureStartValues RPC.
-func (c *ChangeClipBoundsClient) CaptureStartValues(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.CaptureStartValues(ctx, &pb.CaptureStartValuesRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// CreateAnimator calls the CreateAnimator RPC.
-func (c *ChangeClipBoundsClient) CreateAnimator(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.CreateAnimator(ctx, &pb.CreateAnimatorRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTransitionProperties calls the GetTransitionProperties RPC.
-func (c *ChangeClipBoundsClient) GetTransitionProperties(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetTransitionProperties(ctx, &pb.GetTransitionPropertiesRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ChangeScrollClient wraps the gRPC ChangeScrollService client.
-type ChangeScrollClient struct {
-	svc pb.ChangeScrollServiceClient
-}
-
-// NewChangeScrollClient creates a new ChangeScroll client.
-func NewChangeScrollClient(cc grpc.ClientConnInterface) *ChangeScrollClient {
-	return &ChangeScrollClient{
-		svc: pb.NewChangeScrollServiceClient(cc),
-	}
-}
-
-// CaptureEndValues calls the CaptureEndValues RPC.
-func (c *ChangeScrollClient) CaptureEndValues(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.CaptureEndValues(ctx, &pb.CaptureEndValuesRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// CaptureStartValues calls the CaptureStartValues RPC.
-func (c *ChangeScrollClient) CaptureStartValues(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.CaptureStartValues(ctx, &pb.CaptureStartValuesRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// CreateAnimator calls the CreateAnimator RPC.
-func (c *ChangeScrollClient) CreateAnimator(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.CreateAnimator(ctx, &pb.CreateAnimatorRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTransitionProperties calls the GetTransitionProperties RPC.
-func (c *ChangeScrollClient) GetTransitionProperties(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetTransitionProperties(ctx, &pb.GetTransitionPropertiesRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SceneClient wraps the gRPC SceneService client.
-type SceneClient struct {
-	svc pb.SceneServiceClient
-}
-
-// NewSceneClient creates a new Scene client.
-func NewSceneClient(cc grpc.ClientConnInterface) *SceneClient {
-	return &SceneClient{
-		svc: pb.NewSceneServiceClient(cc),
-	}
-}
-
-// Enter calls the Enter RPC.
-func (c *SceneClient) Enter(ctx context.Context, handle int64) error {
-	_, err := c.svc.Enter(ctx, &pb.EnterRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// Exit calls the Exit RPC.
-func (c *SceneClient) Exit(ctx context.Context, handle int64) error {
-	_, err := c.svc.Exit(ctx, &pb.ExitRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// GetSceneRoot calls the GetSceneRoot RPC.
-func (c *SceneClient) GetSceneRoot(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetSceneRoot(ctx, &pb.GetSceneRootRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetEnterAction calls the SetEnterAction RPC.
-func (c *SceneClient) SetEnterAction(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetEnterAction(ctx, &pb.SetEnterActionRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetExitAction calls the SetExitAction RPC.
-func (c *SceneClient) SetExitAction(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetExitAction(ctx, &pb.SetExitActionRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GetCurrentScene calls the GetCurrentScene RPC.
-func (c *SceneClient) GetCurrentScene(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetCurrentScene(ctx, &pb.GetCurrentSceneRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSceneForLayout calls the GetSceneForLayout RPC.
-func (c *SceneClient) GetSceneForLayout(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64) (int64, error) {
-	resp, err := c.svc.GetSceneForLayout(ctx, &pb.GetSceneForLayoutRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// TransitionClient wraps the gRPC TransitionService client.
-type TransitionClient struct {
-	svc pb.TransitionServiceClient
-}
-
-// NewTransitionClient creates a new Transition client.
-func NewTransitionClient(cc grpc.ClientConnInterface) *TransitionClient {
-	return &TransitionClient{
-		svc: pb.NewTransitionServiceClient(cc),
-	}
-}
-
-// AddListener calls the AddListener RPC.
-func (c *TransitionClient) AddListener(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddListener(ctx, &pb.AddListenerRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddTarget1 calls the AddTarget1 RPC.
-func (c *TransitionClient) AddTarget1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddTarget1(ctx, &pb.TransitionAddTarget1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddTarget1_1 calls the AddTarget1_1 RPC.
-func (c *TransitionClient) AddTarget1_1(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.AddTarget1_1(ctx, &pb.TransitionAddTarget1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddTarget1_2 calls the AddTarget1_2 RPC.
-func (c *TransitionClient) AddTarget1_2(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddTarget1_2(ctx, &pb.TransitionAddTarget1_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddTarget1_3 calls the AddTarget1_3 RPC.
-func (c *TransitionClient) AddTarget1_3(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.AddTarget1_3(ctx, &pb.TransitionAddTarget1_3Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CanRemoveViews calls the CanRemoveViews RPC.
-func (c *TransitionClient) CanRemoveViews(ctx context.Context) (bool, error) {
-	resp, err := c.svc.CanRemoveViews(ctx, &pb.CanRemoveViewsRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CaptureEndValues calls the CaptureEndValues RPC.
-func (c *TransitionClient) CaptureEndValues(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.CaptureEndValues(ctx, &pb.TransitionCaptureEndValuesRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CaptureStartValues calls the CaptureStartValues RPC.
-func (c *TransitionClient) CaptureStartValues(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.CaptureStartValues(ctx, &pb.TransitionCaptureStartValuesRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// Clone0 calls the Clone0 RPC.
-func (c *TransitionClient) Clone0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Clone0(ctx, &pb.TransitionClone0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateAnimator calls the CreateAnimator RPC.
-func (c *TransitionClient) CreateAnimator(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.CreateAnimator(ctx, &pb.TransitionCreateAnimatorRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ExcludeChildren2 calls the ExcludeChildren2 RPC.
-func (c *TransitionClient) ExcludeChildren2(ctx context.Context, arg0 int64, arg1 bool) (int64, error) {
-	resp, err := c.svc.ExcludeChildren2(ctx, &pb.ExcludeChildren2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ExcludeChildren2_1 calls the ExcludeChildren2_1 RPC.
-func (c *TransitionClient) ExcludeChildren2_1(ctx context.Context, arg0 int32, arg1 bool) (int64, error) {
-	resp, err := c.svc.ExcludeChildren2_1(ctx, &pb.ExcludeChildren2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ExcludeChildren2_2 calls the ExcludeChildren2_2 RPC.
-func (c *TransitionClient) ExcludeChildren2_2(ctx context.Context, arg0 int64, arg1 bool) (int64, error) {
-	resp, err := c.svc.ExcludeChildren2_2(ctx, &pb.ExcludeChildren2_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ExcludeTarget2 calls the ExcludeTarget2 RPC.
-func (c *TransitionClient) ExcludeTarget2(ctx context.Context, arg0 int64, arg1 bool) (int64, error) {
-	resp, err := c.svc.ExcludeTarget2(ctx, &pb.TransitionExcludeTarget2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ExcludeTarget2_1 calls the ExcludeTarget2_1 RPC.
-func (c *TransitionClient) ExcludeTarget2_1(ctx context.Context, arg0 int32, arg1 bool) (int64, error) {
-	resp, err := c.svc.ExcludeTarget2_1(ctx, &pb.TransitionExcludeTarget2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ExcludeTarget2_2 calls the ExcludeTarget2_2 RPC.
-func (c *TransitionClient) ExcludeTarget2_2(ctx context.Context, arg0 int64, arg1 bool) (int64, error) {
-	resp, err := c.svc.ExcludeTarget2_2(ctx, &pb.TransitionExcludeTarget2_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ExcludeTarget2_3 calls the ExcludeTarget2_3 RPC.
-func (c *TransitionClient) ExcludeTarget2_3(ctx context.Context, arg0 string, arg1 bool) (int64, error) {
-	resp, err := c.svc.ExcludeTarget2_3(ctx, &pb.TransitionExcludeTarget2_3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDuration calls the GetDuration RPC.
-func (c *TransitionClient) GetDuration(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDuration(ctx, &pb.GetDurationRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetEpicenter calls the GetEpicenter RPC.
-func (c *TransitionClient) GetEpicenter(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetEpicenter(ctx, &pb.GetEpicenterRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetEpicenterCallback calls the GetEpicenterCallback RPC.
-func (c *TransitionClient) GetEpicenterCallback(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetEpicenterCallback(ctx, &pb.GetEpicenterCallbackRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInterpolator calls the GetInterpolator RPC.
-func (c *TransitionClient) GetInterpolator(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetInterpolator(ctx, &pb.GetInterpolatorRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetName calls the GetName RPC.
-func (c *TransitionClient) GetName(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPathMotion calls the GetPathMotion RPC.
-func (c *TransitionClient) GetPathMotion(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetPathMotion(ctx, &pb.GetPathMotionRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPropagation calls the GetPropagation RPC.
-func (c *TransitionClient) GetPropagation(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetPropagation(ctx, &pb.GetPropagationRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStartDelay calls the GetStartDelay RPC.
-func (c *TransitionClient) GetStartDelay(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetStartDelay(ctx, &pb.GetStartDelayRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTransitionProperties calls the GetTransitionProperties RPC.
-func (c *TransitionClient) GetTransitionProperties(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTransitionProperties(ctx, &pb.TransitionGetTransitionPropertiesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTransitionValues calls the GetTransitionValues RPC.
-func (c *TransitionClient) GetTransitionValues(ctx context.Context, arg0 int64, arg1 bool) (int64, error) {
-	resp, err := c.svc.GetTransitionValues(ctx, &pb.GetTransitionValuesRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsTransitionRequired calls the IsTransitionRequired RPC.
-func (c *TransitionClient) IsTransitionRequired(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.IsTransitionRequired(ctx, &pb.IsTransitionRequiredRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RemoveListener calls the RemoveListener RPC.
-func (c *TransitionClient) RemoveListener(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.RemoveListener(ctx, &pb.RemoveListenerRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RemoveTarget1 calls the RemoveTarget1 RPC.
-func (c *TransitionClient) RemoveTarget1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.RemoveTarget1(ctx, &pb.TransitionRemoveTarget1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RemoveTarget1_1 calls the RemoveTarget1_1 RPC.
-func (c *TransitionClient) RemoveTarget1_1(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.RemoveTarget1_1(ctx, &pb.TransitionRemoveTarget1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RemoveTarget1_2 calls the RemoveTarget1_2 RPC.
-func (c *TransitionClient) RemoveTarget1_2(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.RemoveTarget1_2(ctx, &pb.TransitionRemoveTarget1_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RemoveTarget1_3 calls the RemoveTarget1_3 RPC.
-func (c *TransitionClient) RemoveTarget1_3(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.RemoveTarget1_3(ctx, &pb.TransitionRemoveTarget1_3Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetDuration calls the SetDuration RPC.
-func (c *TransitionClient) SetDuration(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetDuration(ctx, &pb.SetDurationRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetEpicenterCallback calls the SetEpicenterCallback RPC.
-func (c *TransitionClient) SetEpicenterCallback(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetEpicenterCallback(ctx, &pb.TransitionSetEpicenterCallbackRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetInterpolator calls the SetInterpolator RPC.
-func (c *TransitionClient) SetInterpolator(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetInterpolator(ctx, &pb.SetInterpolatorRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetMatchOrder calls the SetMatchOrder RPC.
-func (c *TransitionClient) SetMatchOrder(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetMatchOrder(ctx, &pb.SetMatchOrderRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetPathMotion calls the SetPathMotion RPC.
-func (c *TransitionClient) SetPathMotion(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetPathMotion(ctx, &pb.TransitionSetPathMotionRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetPropagation calls the SetPropagation RPC.
-func (c *TransitionClient) SetPropagation(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetPropagation(ctx, &pb.TransitionSetPropagationRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetStartDelay calls the SetStartDelay RPC.
-func (c *TransitionClient) SetStartDelay(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetStartDelay(ctx, &pb.SetStartDelayRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *TransitionClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Clone0_1 calls the Clone0_1 RPC.
-func (c *TransitionClient) Clone0_1(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Clone0_1(ctx, &pb.TransitionClone0_1Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EpicenterCallbackClient wraps the gRPC EpicenterCallbackService client.
-type EpicenterCallbackClient struct {
-	svc pb.EpicenterCallbackServiceClient
-}
-
-// NewEpicenterCallbackClient creates a new EpicenterCallback client.
-func NewEpicenterCallbackClient(cc grpc.ClientConnInterface) *EpicenterCallbackClient {
-	return &EpicenterCallbackClient{
-		svc: pb.NewEpicenterCallbackServiceClient(cc),
-	}
-}
-
-// OnGetEpicenter calls the OnGetEpicenter RPC.
-func (c *EpicenterCallbackClient) OnGetEpicenter(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.OnGetEpicenter(ctx, &pb.OnGetEpicenterRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// TransitionListenerClient wraps the gRPC TransitionListenerService client.
-type TransitionListenerClient struct {
-	svc pb.TransitionListenerServiceClient
-}
-
-// NewTransitionListenerClient creates a new TransitionListener client.
-func NewTransitionListenerClient(cc grpc.ClientConnInterface) *TransitionListenerClient {
-	return &TransitionListenerClient{
-		svc: pb.NewTransitionListenerServiceClient(cc),
-	}
-}
-
-// OnTransitionCancel calls the OnTransitionCancel RPC.
-func (c *TransitionListenerClient) OnTransitionCancel(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnTransitionCancel(ctx, &pb.OnTransitionCancelRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnTransitionEnd calls the OnTransitionEnd RPC.
-func (c *TransitionListenerClient) OnTransitionEnd(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnTransitionEnd(ctx, &pb.OnTransitionEndRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnTransitionPause calls the OnTransitionPause RPC.
-func (c *TransitionListenerClient) OnTransitionPause(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnTransitionPause(ctx, &pb.OnTransitionPauseRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnTransitionResume calls the OnTransitionResume RPC.
-func (c *TransitionListenerClient) OnTransitionResume(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnTransitionResume(ctx, &pb.OnTransitionResumeRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnTransitionStart calls the OnTransitionStart RPC.
-func (c *TransitionListenerClient) OnTransitionStart(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnTransitionStart(ctx, &pb.OnTransitionStartRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ArcMotionClient wraps the gRPC ArcMotionService client.
-type ArcMotionClient struct {
-	svc pb.ArcMotionServiceClient
-}
-
-// NewArcMotionClient creates a new ArcMotion client.
-func NewArcMotionClient(cc grpc.ClientConnInterface) *ArcMotionClient {
-	return &ArcMotionClient{
-		svc: pb.NewArcMotionServiceClient(cc),
-	}
-}
-
-// GetMaximumAngle calls the GetMaximumAngle RPC.
-func (c *ArcMotionClient) GetMaximumAngle(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetMaximumAngle(ctx, &pb.GetMaximumAngleRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMinimumHorizontalAngle calls the GetMinimumHorizontalAngle RPC.
-func (c *ArcMotionClient) GetMinimumHorizontalAngle(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetMinimumHorizontalAngle(ctx, &pb.GetMinimumHorizontalAngleRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMinimumVerticalAngle calls the GetMinimumVerticalAngle RPC.
-func (c *ArcMotionClient) GetMinimumVerticalAngle(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetMinimumVerticalAngle(ctx, &pb.GetMinimumVerticalAngleRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPath calls the GetPath RPC.
-func (c *ArcMotionClient) GetPath(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32) (int64, error) {
-	resp, err := c.svc.GetPath(ctx, &pb.GetPathRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetMaximumAngle calls the SetMaximumAngle RPC.
-func (c *ArcMotionClient) SetMaximumAngle(ctx context.Context, handle int64, arg0 float32) error {
-	_, err := c.svc.SetMaximumAngle(ctx, &pb.SetMaximumAngleRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetMinimumHorizontalAngle calls the SetMinimumHorizontalAngle RPC.
-func (c *ArcMotionClient) SetMinimumHorizontalAngle(ctx context.Context, handle int64, arg0 float32) error {
-	_, err := c.svc.SetMinimumHorizontalAngle(ctx, &pb.SetMinimumHorizontalAngleRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetMinimumVerticalAngle calls the SetMinimumVerticalAngle RPC.
-func (c *ArcMotionClient) SetMinimumVerticalAngle(ctx context.Context, handle int64, arg0 float32) error {
-	_, err := c.svc.SetMinimumVerticalAngle(ctx, &pb.SetMinimumVerticalAngleRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// VisibilityClient wraps the gRPC VisibilityService client.
-type VisibilityClient struct {
-	svc pb.VisibilityServiceClient
-}
-
-// NewVisibilityClient creates a new Visibility client.
-func NewVisibilityClient(cc grpc.ClientConnInterface) *VisibilityClient {
-	return &VisibilityClient{
-		svc: pb.NewVisibilityServiceClient(cc),
-	}
-}
-
-// CaptureEndValues calls the CaptureEndValues RPC.
-func (c *VisibilityClient) CaptureEndValues(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.CaptureEndValues(ctx, &pb.VisibilityCaptureEndValuesRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CaptureStartValues calls the CaptureStartValues RPC.
-func (c *VisibilityClient) CaptureStartValues(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.CaptureStartValues(ctx, &pb.VisibilityCaptureStartValuesRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CreateAnimator calls the CreateAnimator RPC.
-func (c *VisibilityClient) CreateAnimator(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.CreateAnimator(ctx, &pb.VisibilityCreateAnimatorRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMode calls the GetMode RPC.
-func (c *VisibilityClient) GetMode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMode(ctx, &pb.GetModeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTransitionProperties calls the GetTransitionProperties RPC.
-func (c *VisibilityClient) GetTransitionProperties(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTransitionProperties(ctx, &pb.VisibilityGetTransitionPropertiesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsTransitionRequired calls the IsTransitionRequired RPC.
-func (c *VisibilityClient) IsTransitionRequired(ctx context.Context, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.IsTransitionRequired(ctx, &pb.IsTransitionRequiredRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsVisible calls the IsVisible RPC.
-func (c *VisibilityClient) IsVisible(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.IsVisible(ctx, &pb.IsVisibleRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnAppear5 calls the OnAppear5 RPC.
-func (c *VisibilityClient) OnAppear5(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int64, arg4 int32) (int64, error) {
-	resp, err := c.svc.OnAppear5(ctx, &pb.OnAppear5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnAppear4_1 calls the OnAppear4_1 RPC.
-func (c *VisibilityClient) OnAppear4_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
-	resp, err := c.svc.OnAppear4_1(ctx, &pb.OnAppear4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnDisappear5 calls the OnDisappear5 RPC.
-func (c *VisibilityClient) OnDisappear5(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int64, arg4 int32) (int64, error) {
-	resp, err := c.svc.OnDisappear5(ctx, &pb.OnDisappear5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnDisappear4_1 calls the OnDisappear4_1 RPC.
-func (c *VisibilityClient) OnDisappear4_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
-	resp, err := c.svc.OnDisappear4_1(ctx, &pb.OnDisappear4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetMode calls the SetMode RPC.
-func (c *VisibilityClient) SetMode(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetMode(ctx, &pb.SetModeRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ExplodeClient wraps the gRPC ExplodeService client.
-type ExplodeClient struct {
-	svc pb.ExplodeServiceClient
-}
-
-// NewExplodeClient creates a new Explode client.
-func NewExplodeClient(cc grpc.ClientConnInterface) *ExplodeClient {
-	return &ExplodeClient{
-		svc: pb.NewExplodeServiceClient(cc),
-	}
-}
-
-// CaptureEndValues calls the CaptureEndValues RPC.
-func (c *ExplodeClient) CaptureEndValues(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.CaptureEndValues(ctx, &pb.CaptureEndValuesRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// CaptureStartValues calls the CaptureStartValues RPC.
-func (c *ExplodeClient) CaptureStartValues(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.CaptureStartValues(ctx, &pb.CaptureStartValuesRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// OnAppear calls the OnAppear RPC.
-func (c *ExplodeClient) OnAppear(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
-	resp, err := c.svc.OnAppear(ctx, &pb.OnAppearRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnDisappear calls the OnDisappear RPC.
-func (c *ExplodeClient) OnDisappear(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
-	resp, err := c.svc.OnDisappear(ctx, &pb.OnDisappearRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ListenerAdapterClient wraps the gRPC ListenerAdapterService client.
-type ListenerAdapterClient struct {
-	svc pb.ListenerAdapterServiceClient
-}
-
-// NewListenerAdapterClient creates a new ListenerAdapter client.
-func NewListenerAdapterClient(cc grpc.ClientConnInterface) *ListenerAdapterClient {
-	return &ListenerAdapterClient{
-		svc: pb.NewListenerAdapterServiceClient(cc),
-	}
-}
-
-// OnTransitionCancel calls the OnTransitionCancel RPC.
-func (c *ListenerAdapterClient) OnTransitionCancel(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnTransitionCancel(ctx, &pb.OnTransitionCancelRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnTransitionEnd calls the OnTransitionEnd RPC.
-func (c *ListenerAdapterClient) OnTransitionEnd(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnTransitionEnd(ctx, &pb.OnTransitionEndRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnTransitionPause calls the OnTransitionPause RPC.
-func (c *ListenerAdapterClient) OnTransitionPause(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnTransitionPause(ctx, &pb.OnTransitionPauseRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnTransitionResume calls the OnTransitionResume RPC.
-func (c *ListenerAdapterClient) OnTransitionResume(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnTransitionResume(ctx, &pb.OnTransitionResumeRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnTransitionStart calls the OnTransitionStart RPC.
-func (c *ListenerAdapterClient) OnTransitionStart(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnTransitionStart(ctx, &pb.OnTransitionStartRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ChangeTransformClient wraps the gRPC ChangeTransformService client.
-type ChangeTransformClient struct {
-	svc pb.ChangeTransformServiceClient
-}
-
-// NewChangeTransformClient creates a new ChangeTransform client.
-func NewChangeTransformClient(cc grpc.ClientConnInterface) *ChangeTransformClient {
-	return &ChangeTransformClient{
-		svc: pb.NewChangeTransformServiceClient(cc),
-	}
-}
-
-// CaptureEndValues calls the CaptureEndValues RPC.
-func (c *ChangeTransformClient) CaptureEndValues(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.CaptureEndValues(ctx, &pb.CaptureEndValuesRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// CaptureStartValues calls the CaptureStartValues RPC.
-func (c *ChangeTransformClient) CaptureStartValues(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.CaptureStartValues(ctx, &pb.CaptureStartValuesRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// CreateAnimator calls the CreateAnimator RPC.
-func (c *ChangeTransformClient) CreateAnimator(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.CreateAnimator(ctx, &pb.CreateAnimatorRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetReparent calls the GetReparent RPC.
-func (c *ChangeTransformClient) GetReparent(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.GetReparent(ctx, &pb.GetReparentRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetReparentWithOverlay calls the GetReparentWithOverlay RPC.
-func (c *ChangeTransformClient) GetReparentWithOverlay(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.GetReparentWithOverlay(ctx, &pb.GetReparentWithOverlayRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTransitionProperties calls the GetTransitionProperties RPC.
-func (c *ChangeTransformClient) GetTransitionProperties(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetTransitionProperties(ctx, &pb.GetTransitionPropertiesRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetReparent calls the SetReparent RPC.
-func (c *ChangeTransformClient) SetReparent(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetReparent(ctx, &pb.SetReparentRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetReparentWithOverlay calls the SetReparentWithOverlay RPC.
-func (c *ChangeTransformClient) SetReparentWithOverlay(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetReparentWithOverlay(ctx, &pb.SetReparentWithOverlayRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// CircularPropagationClient wraps the gRPC CircularPropagationService client.
-type CircularPropagationClient struct {
-	svc pb.CircularPropagationServiceClient
-}
-
-// NewCircularPropagationClient creates a new CircularPropagation client.
-func NewCircularPropagationClient(cc grpc.ClientConnInterface) *CircularPropagationClient {
-	return &CircularPropagationClient{
-		svc: pb.NewCircularPropagationServiceClient(cc),
-	}
-}
-
-// GetStartDelay calls the GetStartDelay RPC.
-func (c *CircularPropagationClient) GetStartDelay(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
-	resp, err := c.svc.GetStartDelay(ctx, &pb.CircularPropagationGetStartDelayRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPropagationSpeed calls the SetPropagationSpeed RPC.
-func (c *CircularPropagationClient) SetPropagationSpeed(ctx context.Context, handle int64, arg0 float32) error {
-	_, err := c.svc.SetPropagationSpeed(ctx, &pb.SetPropagationSpeedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SidePropagationClient wraps the gRPC SidePropagationService client.
-type SidePropagationClient struct {
-	svc pb.SidePropagationServiceClient
-}
-
-// NewSidePropagationClient creates a new SidePropagation client.
-func NewSidePropagationClient(cc grpc.ClientConnInterface) *SidePropagationClient {
-	return &SidePropagationClient{
-		svc: pb.NewSidePropagationServiceClient(cc),
-	}
-}
-
-// GetStartDelay calls the GetStartDelay RPC.
-func (c *SidePropagationClient) GetStartDelay(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
-	resp, err := c.svc.GetStartDelay(ctx, &pb.SidePropagationGetStartDelayRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPropagationSpeed calls the SetPropagationSpeed RPC.
-func (c *SidePropagationClient) SetPropagationSpeed(ctx context.Context, handle int64, arg0 float32) error {
-	_, err := c.svc.SetPropagationSpeed(ctx, &pb.SetPropagationSpeedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetSide calls the SetSide RPC.
-func (c *SidePropagationClient) SetSide(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetSide(ctx, &pb.SetSideRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// ManagerClient wraps the gRPC ManagerService client.
-type ManagerClient struct {
-	svc pb.ManagerServiceClient
-}
-
-// NewManagerClient creates a new Manager client.
-func NewManagerClient(cc grpc.ClientConnInterface) *ManagerClient {
-	return &ManagerClient{
-		svc: pb.NewManagerServiceClient(cc),
-	}
-}
-
-// SetTransition3 calls the SetTransition3 RPC.
-func (c *ManagerClient) SetTransition3(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.SetTransition3(ctx, &pb.SetTransition3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// SetTransition2_1 calls the SetTransition2_1 RPC.
-func (c *ManagerClient) SetTransition2_1(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.SetTransition2_1(ctx, &pb.SetTransition2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// TransitionTo calls the TransitionTo RPC.
-func (c *ManagerClient) TransitionTo(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.TransitionTo(ctx, &pb.TransitionToRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// BeginDelayedTransition1 calls the BeginDelayedTransition1 RPC.
-func (c *ManagerClient) BeginDelayedTransition1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.BeginDelayedTransition1(ctx, &pb.BeginDelayedTransition1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// BeginDelayedTransition2_1 calls the BeginDelayedTransition2_1 RPC.
-func (c *ManagerClient) BeginDelayedTransition2_1(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.BeginDelayedTransition2_1(ctx, &pb.BeginDelayedTransition2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// EndTransitions calls the EndTransitions RPC.
-func (c *ManagerClient) EndTransitions(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.EndTransitions(ctx, &pb.EndTransitionsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// Go1 calls the Go1 RPC.
-func (c *ManagerClient) Go1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.Go1(ctx, &pb.Go1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// Go2_1 calls the Go2_1 RPC.
-func (c *ManagerClient) Go2_1(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.Go2_1(ctx, &pb.Go2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// InflaterClient wraps the gRPC InflaterService client.
-type InflaterClient struct {
-	svc pb.InflaterServiceClient
-}
-
-// NewInflaterClient creates a new Inflater client.
-func NewInflaterClient(cc grpc.ClientConnInterface) *InflaterClient {
-	return &InflaterClient{
-		svc: pb.NewInflaterServiceClient(cc),
-	}
-}
-
-// InflateTransition calls the InflateTransition RPC.
-func (c *InflaterClient) InflateTransition(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.InflateTransition(ctx, &pb.InflateTransitionRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// InflateTransitionManager calls the InflateTransitionManager RPC.
-func (c *InflaterClient) InflateTransitionManager(ctx context.Context, arg0 int32, arg1 int64) (int64, error) {
-	resp, err := c.svc.InflateTransitionManager(ctx, &pb.InflateTransitionManagerRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// From calls the From RPC.
-func (c *InflaterClient) From(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.From(ctx, &pb.FromRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ChangeImageTransformClient wraps the gRPC ChangeImageTransformService client.
-type ChangeImageTransformClient struct {
-	svc pb.ChangeImageTransformServiceClient
-}
-
-// NewChangeImageTransformClient creates a new ChangeImageTransform client.
-func NewChangeImageTransformClient(cc grpc.ClientConnInterface) *ChangeImageTransformClient {
-	return &ChangeImageTransformClient{
-		svc: pb.NewChangeImageTransformServiceClient(cc),
-	}
-}
-
-// CaptureEndValues calls the CaptureEndValues RPC.
-func (c *ChangeImageTransformClient) CaptureEndValues(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.CaptureEndValues(ctx, &pb.CaptureEndValuesRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// CaptureStartValues calls the CaptureStartValues RPC.
-func (c *ChangeImageTransformClient) CaptureStartValues(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.CaptureStartValues(ctx, &pb.CaptureStartValuesRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// CreateAnimator calls the CreateAnimator RPC.
-func (c *ChangeImageTransformClient) CreateAnimator(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.CreateAnimator(ctx, &pb.CreateAnimatorRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTransitionProperties calls the GetTransitionProperties RPC.
-func (c *ChangeImageTransformClient) GetTransitionProperties(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetTransitionProperties(ctx, &pb.GetTransitionPropertiesRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PathMotionClient wraps the gRPC PathMotionService client.
-type PathMotionClient struct {
-	svc pb.PathMotionServiceClient
-}
-
-// NewPathMotionClient creates a new PathMotion client.
-func NewPathMotionClient(cc grpc.ClientConnInterface) *PathMotionClient {
-	return &PathMotionClient{
-		svc: pb.NewPathMotionServiceClient(cc),
-	}
-}
-
-// GetPath calls the GetPath RPC.
-func (c *PathMotionClient) GetPath(ctx context.Context, arg0 float32, arg1 float32, arg2 float32, arg3 float32) (int64, error) {
-	resp, err := c.svc.GetPath(ctx, &pb.PathMotionGetPathRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FadeClient wraps the gRPC FadeService client.
-type FadeClient struct {
-	svc pb.FadeServiceClient
-}
-
-// NewFadeClient creates a new Fade client.
-func NewFadeClient(cc grpc.ClientConnInterface) *FadeClient {
-	return &FadeClient{
-		svc: pb.NewFadeServiceClient(cc),
-	}
-}
-
-// CaptureStartValues calls the CaptureStartValues RPC.
-func (c *FadeClient) CaptureStartValues(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.CaptureStartValues(ctx, &pb.CaptureStartValuesRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// OnAppear calls the OnAppear RPC.
-func (c *FadeClient) OnAppear(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
-	resp, err := c.svc.OnAppear(ctx, &pb.OnAppearRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnDisappear calls the OnDisappear RPC.
-func (c *FadeClient) OnDisappear(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
-	resp, err := c.svc.OnDisappear(ctx, &pb.OnDisappearRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValuesClient wraps the gRPC ValuesService client.
-type ValuesClient struct {
-	svc pb.ValuesServiceClient
-}
-
-// NewValuesClient creates a new Values client.
-func NewValuesClient(cc grpc.ClientConnInterface) *ValuesClient {
-	return &ValuesClient{
-		svc: pb.NewValuesServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *ValuesClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *ValuesClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *ValuesClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ValuesToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// ChangeBoundsClient wraps the gRPC ChangeBoundsService client.
-type ChangeBoundsClient struct {
-	svc pb.ChangeBoundsServiceClient
-}
-
-// NewChangeBoundsClient creates a new ChangeBounds client.
-func NewChangeBoundsClient(cc grpc.ClientConnInterface) *ChangeBoundsClient {
-	return &ChangeBoundsClient{
-		svc: pb.NewChangeBoundsServiceClient(cc),
-	}
-}
-
-// CaptureEndValues calls the CaptureEndValues RPC.
-func (c *ChangeBoundsClient) CaptureEndValues(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.CaptureEndValues(ctx, &pb.CaptureEndValuesRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// CaptureStartValues calls the CaptureStartValues RPC.
-func (c *ChangeBoundsClient) CaptureStartValues(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.CaptureStartValues(ctx, &pb.CaptureStartValuesRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// CreateAnimator calls the CreateAnimator RPC.
-func (c *ChangeBoundsClient) CreateAnimator(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.CreateAnimator(ctx, &pb.CreateAnimatorRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetResizeClip calls the GetResizeClip RPC.
-func (c *ChangeBoundsClient) GetResizeClip(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.GetResizeClip(ctx, &pb.GetResizeClipRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTransitionProperties calls the GetTransitionProperties RPC.
-func (c *ChangeBoundsClient) GetTransitionProperties(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetTransitionProperties(ctx, &pb.GetTransitionPropertiesRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetReparent calls the SetReparent RPC.
-func (c *ChangeBoundsClient) SetReparent(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetReparent(ctx, &pb.SetReparentRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetResizeClip calls the SetResizeClip RPC.
-func (c *ChangeBoundsClient) SetResizeClip(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetResizeClip(ctx, &pb.SetResizeClipRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// PropagationClient wraps the gRPC PropagationService client.
-type PropagationClient struct {
-	svc pb.PropagationServiceClient
-}
-
-// NewPropagationClient creates a new Propagation client.
-func NewPropagationClient(cc grpc.ClientConnInterface) *PropagationClient {
-	return &PropagationClient{
-		svc: pb.NewPropagationServiceClient(cc),
-	}
-}
-
-// CaptureValues calls the CaptureValues RPC.
-func (c *PropagationClient) CaptureValues(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.CaptureValues(ctx, &pb.CaptureValuesRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// GetPropagationProperties calls the GetPropagationProperties RPC.
-func (c *PropagationClient) GetPropagationProperties(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetPropagationProperties(ctx, &pb.GetPropagationPropertiesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStartDelay calls the GetStartDelay RPC.
-func (c *PropagationClient) GetStartDelay(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
-	resp, err := c.svc.GetStartDelay(ctx, &pb.PropagationGetStartDelayRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // SlideClient wraps the gRPC SlideService client.
 type SlideClient struct {
 	svc pb.SlideServiceClient
@@ -2281,7 +2304,7 @@ func NewSlideClient(cc grpc.ClientConnInterface) *SlideClient {
 
 // CaptureEndValues calls the CaptureEndValues RPC.
 func (c *SlideClient) CaptureEndValues(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.CaptureEndValues(ctx, &pb.CaptureEndValuesRequest{
+	_, err := c.svc.CaptureEndValues(ctx, &pb.SlideCaptureEndValuesRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -2290,7 +2313,7 @@ func (c *SlideClient) CaptureEndValues(ctx context.Context, handle int64, arg0 i
 
 // CaptureStartValues calls the CaptureStartValues RPC.
 func (c *SlideClient) CaptureStartValues(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.CaptureStartValues(ctx, &pb.CaptureStartValuesRequest{
+	_, err := c.svc.CaptureStartValues(ctx, &pb.SlideCaptureStartValuesRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -2347,21 +2370,39 @@ func (c *SlideClient) SetSlideEdge(ctx context.Context, handle int64, arg0 int32
 	return err
 }
 
-// PatternPathMotionClient wraps the gRPC PatternPathMotionService client.
-type PatternPathMotionClient struct {
-	svc pb.PatternPathMotionServiceClient
+// ExplodeClient wraps the gRPC ExplodeService client.
+type ExplodeClient struct {
+	svc pb.ExplodeServiceClient
 }
 
-// NewPatternPathMotionClient creates a new PatternPathMotion client.
-func NewPatternPathMotionClient(cc grpc.ClientConnInterface) *PatternPathMotionClient {
-	return &PatternPathMotionClient{
-		svc: pb.NewPatternPathMotionServiceClient(cc),
+// NewExplodeClient creates a new Explode client.
+func NewExplodeClient(cc grpc.ClientConnInterface) *ExplodeClient {
+	return &ExplodeClient{
+		svc: pb.NewExplodeServiceClient(cc),
 	}
 }
 
-// GetPath calls the GetPath RPC.
-func (c *PatternPathMotionClient) GetPath(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32) (int64, error) {
-	resp, err := c.svc.GetPath(ctx, &pb.GetPathRequest{
+// CaptureEndValues calls the CaptureEndValues RPC.
+func (c *ExplodeClient) CaptureEndValues(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.CaptureEndValues(ctx, &pb.ExplodeCaptureEndValuesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// CaptureStartValues calls the CaptureStartValues RPC.
+func (c *ExplodeClient) CaptureStartValues(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.CaptureStartValues(ctx, &pb.ExplodeCaptureStartValuesRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// OnAppear calls the OnAppear RPC.
+func (c *ExplodeClient) OnAppear(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.OnAppear(ctx, &pb.OnAppearRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -2374,22 +2415,17 @@ func (c *PatternPathMotionClient) GetPath(ctx context.Context, handle int64, arg
 	return resp.GetResult(), nil
 }
 
-// GetPatternPath calls the GetPatternPath RPC.
-func (c *PatternPathMotionClient) GetPatternPath(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetPatternPath(ctx, &pb.GetPatternPathRequest{
+// OnDisappear calls the OnDisappear RPC.
+func (c *ExplodeClient) OnDisappear(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.OnDisappear(ctx, &pb.OnDisappearRequest{
 		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
 	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
-}
-
-// SetPatternPath calls the SetPatternPath RPC.
-func (c *PatternPathMotionClient) SetPatternPath(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetPatternPath(ctx, &pb.SetPatternPathRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
 }

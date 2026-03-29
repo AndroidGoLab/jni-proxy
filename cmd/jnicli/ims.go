@@ -12,6 +12,124 @@ var imsCmd = &cobra.Command{
 	Short: "ims service operations",
 }
 
+var imsStateCallbackCmd = &cobra.Command{
+	Use:   "state-callback",
+	Short: "StateCallbackService operations",
+}
+
+var imsStateCallbackOnAvailableCmd = &cobra.Command{
+	Use:   "on-available",
+	Short: "OnAvailable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStateCallbackServiceClient(grpcConn)
+		req := &pb.OnAvailableRequest{}
+		resp, err := client.OnAvailable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var imsStateCallbackOnErrorCmd = &cobra.Command{
+	Use:   "on-error",
+	Short: "OnError RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStateCallbackServiceClient(grpcConn)
+		req := &pb.OnErrorRequest{}
+		resp, err := client.OnError(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var imsStateCallbackOnUnavailableCmd = &cobra.Command{
+	Use:   "on-unavailable",
+	Short: "OnUnavailable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewStateCallbackServiceClient(grpcConn)
+		req := &pb.OnUnavailableRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnUnavailable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var imsManagerCmd = &cobra.Command{
+	Use:   "manager",
+	Short: "ManagerService operations",
+}
+
+var imsManagerGetImsMmTelManagerCmd = &cobra.Command{
+	Use:   "get-ims-mm-tel-manager",
+	Short: "GetImsMmTelManager RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetImsMmTelManagerRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetImsMmTelManager(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var imsManagerGetImsRcsManagerCmd = &cobra.Command{
+	Use:   "get-ims-rcs-manager",
+	Short: "GetImsRcsManager RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetImsRcsManagerRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetImsRcsManager(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var imsManagerGetProvisioningManagerCmd = &cobra.Command{
+	Use:   "get-provisioning-manager",
+	Short: "GetProvisioningManager RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetProvisioningManagerRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetProvisioningManager(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var imsRegistrationManagerCmd = &cobra.Command{
 	Use:   "registration-manager",
 	Short: "RegistrationManagerService operations",
@@ -180,18 +298,39 @@ var imsRegistrationManagerRegistrationCallbackOnUnregisteredCmd = &cobra.Command
 	},
 }
 
-var imsRegistrationAttributesCmd = &cobra.Command{
-	Use:   "registration-attributes",
-	Short: "RegistrationAttributesService operations",
+var imsRcsUceAdapterCmd = &cobra.Command{
+	Use:   "rcs-uce-adapter",
+	Short: "RcsUceAdapterService operations",
 }
 
-var imsRegistrationAttributesDescribeContentsCmd = &cobra.Command{
+var imsRcsUceAdapterIsUceSettingEnabledCmd = &cobra.Command{
+	Use:   "is-uce-setting-enabled",
+	Short: "IsUceSettingEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRcsUceAdapterServiceClient(grpcConn)
+		req := &pb.IsUceSettingEnabledRequest{}
+		resp, err := client.IsUceSettingEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var imsSipDetailsCmd = &cobra.Command{
+	Use:   "sip-details",
+	Short: "SipDetailsService operations",
+}
+
+var imsSipDetailsDescribeContentsCmd = &cobra.Command{
 	Use:   "describe-contents",
 	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRegistrationAttributesServiceClient(grpcConn)
+		client := pb.NewSipDetailsServiceClient(grpcConn)
 		req := &pb.DescribeContentsRequest{}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
@@ -201,13 +340,13 @@ var imsRegistrationAttributesDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var imsRegistrationAttributesEqualsCmd = &cobra.Command{
+var imsSipDetailsEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRegistrationAttributesServiceClient(grpcConn)
+		client := pb.NewSipDetailsServiceClient(grpcConn)
 		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -220,15 +359,15 @@ var imsRegistrationAttributesEqualsCmd = &cobra.Command{
 	},
 }
 
-var imsRegistrationAttributesGetAttributeFlagsCmd = &cobra.Command{
-	Use:   "get-attribute-flags",
-	Short: "GetAttributeFlags RPC",
+var imsSipDetailsGetCSeqCmd = &cobra.Command{
+	Use:   "get-c-seq",
+	Short: "GetCSeq RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRegistrationAttributesServiceClient(grpcConn)
-		req := &pb.GetAttributeFlagsRequest{}
-		resp, err := client.GetAttributeFlags(ctx, req)
+		client := pb.NewSipDetailsServiceClient(grpcConn)
+		req := &pb.GetCSeqRequest{}
+		resp, err := client.GetCSeq(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -236,15 +375,15 @@ var imsRegistrationAttributesGetAttributeFlagsCmd = &cobra.Command{
 	},
 }
 
-var imsRegistrationAttributesGetSipDetailsCmd = &cobra.Command{
-	Use:   "get-sip-details",
-	Short: "GetSipDetails RPC",
+var imsSipDetailsGetCallIdCmd = &cobra.Command{
+	Use:   "get-call-id",
+	Short: "GetCallId RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRegistrationAttributesServiceClient(grpcConn)
-		req := &pb.GetSipDetailsRequest{}
-		resp, err := client.GetSipDetails(ctx, req)
+		client := pb.NewSipDetailsServiceClient(grpcConn)
+		req := &pb.GetCallIdRequest{}
+		resp, err := client.GetCallId(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -252,15 +391,15 @@ var imsRegistrationAttributesGetSipDetailsCmd = &cobra.Command{
 	},
 }
 
-var imsRegistrationAttributesGetTransportTypeCmd = &cobra.Command{
-	Use:   "get-transport-type",
-	Short: "GetTransportType RPC",
+var imsSipDetailsGetMethodCmd = &cobra.Command{
+	Use:   "get-method",
+	Short: "GetMethod RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRegistrationAttributesServiceClient(grpcConn)
-		req := &pb.GetTransportTypeRequest{}
-		resp, err := client.GetTransportType(ctx, req)
+		client := pb.NewSipDetailsServiceClient(grpcConn)
+		req := &pb.GetMethodRequest{}
+		resp, err := client.GetMethod(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -268,13 +407,77 @@ var imsRegistrationAttributesGetTransportTypeCmd = &cobra.Command{
 	},
 }
 
-var imsRegistrationAttributesHashCodeCmd = &cobra.Command{
+var imsSipDetailsGetReasonHeaderCauseCmd = &cobra.Command{
+	Use:   "get-reason-header-cause",
+	Short: "GetReasonHeaderCause RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSipDetailsServiceClient(grpcConn)
+		req := &pb.GetReasonHeaderCauseRequest{}
+		resp, err := client.GetReasonHeaderCause(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var imsSipDetailsGetReasonHeaderTextCmd = &cobra.Command{
+	Use:   "get-reason-header-text",
+	Short: "GetReasonHeaderText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSipDetailsServiceClient(grpcConn)
+		req := &pb.GetReasonHeaderTextRequest{}
+		resp, err := client.GetReasonHeaderText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var imsSipDetailsGetResponseCodeCmd = &cobra.Command{
+	Use:   "get-response-code",
+	Short: "GetResponseCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSipDetailsServiceClient(grpcConn)
+		req := &pb.GetResponseCodeRequest{}
+		resp, err := client.GetResponseCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var imsSipDetailsGetResponsePhraseCmd = &cobra.Command{
+	Use:   "get-response-phrase",
+	Short: "GetResponsePhrase RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSipDetailsServiceClient(grpcConn)
+		req := &pb.GetResponsePhraseRequest{}
+		resp, err := client.GetResponsePhrase(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var imsSipDetailsHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRegistrationAttributesServiceClient(grpcConn)
+		client := pb.NewSipDetailsServiceClient(grpcConn)
 		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
@@ -284,13 +487,13 @@ var imsRegistrationAttributesHashCodeCmd = &cobra.Command{
 	},
 }
 
-var imsRegistrationAttributesToStringCmd = &cobra.Command{
+var imsSipDetailsToStringCmd = &cobra.Command{
 	Use:   "to-string",
 	Short: "ToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRegistrationAttributesServiceClient(grpcConn)
+		client := pb.NewSipDetailsServiceClient(grpcConn)
 		req := &pb.ToStringRequest{}
 		resp, err := client.ToString(ctx, req)
 		if err != nil {
@@ -300,13 +503,13 @@ var imsRegistrationAttributesToStringCmd = &cobra.Command{
 	},
 }
 
-var imsRegistrationAttributesWriteToParcelCmd = &cobra.Command{
+var imsSipDetailsWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewRegistrationAttributesServiceClient(grpcConn)
+		client := pb.NewSipDetailsServiceClient(grpcConn)
 		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -418,233 +621,6 @@ var imsRcsManagerUnregisterImsStateCallbackCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.UnregisterImsStateCallback(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var imsStateCallbackCmd = &cobra.Command{
-	Use:   "state-callback",
-	Short: "StateCallbackService operations",
-}
-
-var imsStateCallbackOnAvailableCmd = &cobra.Command{
-	Use:   "on-available",
-	Short: "OnAvailable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStateCallbackServiceClient(grpcConn)
-		req := &pb.OnAvailableRequest{}
-		resp, err := client.OnAvailable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var imsStateCallbackOnErrorCmd = &cobra.Command{
-	Use:   "on-error",
-	Short: "OnError RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStateCallbackServiceClient(grpcConn)
-		req := &pb.OnErrorRequest{}
-		resp, err := client.OnError(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var imsStateCallbackOnUnavailableCmd = &cobra.Command{
-	Use:   "on-unavailable",
-	Short: "OnUnavailable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewStateCallbackServiceClient(grpcConn)
-		req := &pb.OnUnavailableRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnUnavailable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var imsRcsUceAdapterCmd = &cobra.Command{
-	Use:   "rcs-uce-adapter",
-	Short: "RcsUceAdapterService operations",
-}
-
-var imsRcsUceAdapterIsUceSettingEnabledCmd = &cobra.Command{
-	Use:   "is-uce-setting-enabled",
-	Short: "IsUceSettingEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRcsUceAdapterServiceClient(grpcConn)
-		req := &pb.IsUceSettingEnabledRequest{}
-		resp, err := client.IsUceSettingEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var imsReasonInfoCmd = &cobra.Command{
-	Use:   "reason-info",
-	Short: "ReasonInfoService operations",
-}
-
-var imsReasonInfoNewReasonInfoCmd = &cobra.Command{
-	Use:   "new-reason-info",
-	Short: "NewReasonInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReasonInfoServiceClient(grpcConn)
-		req := &pb.NewReasonInfoRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.NewReasonInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var imsReasonInfoDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReasonInfoServiceClient(grpcConn)
-		req := &pb.ReasonInfoDescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var imsReasonInfoGetCodeCmd = &cobra.Command{
-	Use:   "get-code",
-	Short: "GetCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReasonInfoServiceClient(grpcConn)
-		req := &pb.GetCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var imsReasonInfoGetExtraCodeCmd = &cobra.Command{
-	Use:   "get-extra-code",
-	Short: "GetExtraCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReasonInfoServiceClient(grpcConn)
-		req := &pb.GetExtraCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetExtraCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var imsReasonInfoGetExtraMessageCmd = &cobra.Command{
-	Use:   "get-extra-message",
-	Short: "GetExtraMessage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReasonInfoServiceClient(grpcConn)
-		req := &pb.GetExtraMessageRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetExtraMessage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var imsReasonInfoToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReasonInfoServiceClient(grpcConn)
-		req := &pb.ReasonInfoToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var imsReasonInfoWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewReasonInfoServiceClient(grpcConn)
-		req := &pb.ReasonInfoWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -916,212 +892,6 @@ var imsMmTelManagerCapabilityCallbackOnCapabilitiesStatusChangedCmd = &cobra.Com
 	},
 }
 
-var imsSipDetailsCmd = &cobra.Command{
-	Use:   "sip-details",
-	Short: "SipDetailsService operations",
-}
-
-var imsSipDetailsDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSipDetailsServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var imsSipDetailsEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSipDetailsServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var imsSipDetailsGetCSeqCmd = &cobra.Command{
-	Use:   "get-c-seq",
-	Short: "GetCSeq RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSipDetailsServiceClient(grpcConn)
-		req := &pb.GetCSeqRequest{}
-		resp, err := client.GetCSeq(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var imsSipDetailsGetCallIdCmd = &cobra.Command{
-	Use:   "get-call-id",
-	Short: "GetCallId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSipDetailsServiceClient(grpcConn)
-		req := &pb.GetCallIdRequest{}
-		resp, err := client.GetCallId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var imsSipDetailsGetMethodCmd = &cobra.Command{
-	Use:   "get-method",
-	Short: "GetMethod RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSipDetailsServiceClient(grpcConn)
-		req := &pb.GetMethodRequest{}
-		resp, err := client.GetMethod(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var imsSipDetailsGetReasonHeaderCauseCmd = &cobra.Command{
-	Use:   "get-reason-header-cause",
-	Short: "GetReasonHeaderCause RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSipDetailsServiceClient(grpcConn)
-		req := &pb.GetReasonHeaderCauseRequest{}
-		resp, err := client.GetReasonHeaderCause(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var imsSipDetailsGetReasonHeaderTextCmd = &cobra.Command{
-	Use:   "get-reason-header-text",
-	Short: "GetReasonHeaderText RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSipDetailsServiceClient(grpcConn)
-		req := &pb.GetReasonHeaderTextRequest{}
-		resp, err := client.GetReasonHeaderText(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var imsSipDetailsGetResponseCodeCmd = &cobra.Command{
-	Use:   "get-response-code",
-	Short: "GetResponseCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSipDetailsServiceClient(grpcConn)
-		req := &pb.GetResponseCodeRequest{}
-		resp, err := client.GetResponseCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var imsSipDetailsGetResponsePhraseCmd = &cobra.Command{
-	Use:   "get-response-phrase",
-	Short: "GetResponsePhrase RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSipDetailsServiceClient(grpcConn)
-		req := &pb.GetResponsePhraseRequest{}
-		resp, err := client.GetResponsePhrase(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var imsSipDetailsHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSipDetailsServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var imsSipDetailsToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSipDetailsServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var imsSipDetailsWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSipDetailsServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var imsExceptionCmd = &cobra.Command{
 	Use:   "exception",
 	Short: "ExceptionService operations",
@@ -1134,70 +904,8 @@ var imsExceptionGetCodeCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewExceptionServiceClient(grpcConn)
-		req := &pb.ExceptionGetCodeRequest{}
+		req := &pb.GetCodeRequest{}
 		resp, err := client.GetCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var imsManagerCmd = &cobra.Command{
-	Use:   "manager",
-	Short: "ManagerService operations",
-}
-
-var imsManagerGetImsMmTelManagerCmd = &cobra.Command{
-	Use:   "get-ims-mm-tel-manager",
-	Short: "GetImsMmTelManager RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetImsMmTelManagerRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetImsMmTelManager(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var imsManagerGetImsRcsManagerCmd = &cobra.Command{
-	Use:   "get-ims-rcs-manager",
-	Short: "GetImsRcsManager RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetImsRcsManagerRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetImsRcsManager(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var imsManagerGetProvisioningManagerCmd = &cobra.Command{
-	Use:   "get-provisioning-manager",
-	Short: "GetProvisioningManager RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetProvisioningManagerRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetProvisioningManager(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1444,7 +1152,327 @@ var imsProvisioningManagerFeatureProvisioningCallbackOnRcsFeatureProvisioningCha
 	},
 }
 
+var imsReasonInfoCmd = &cobra.Command{
+	Use:   "reason-info",
+	Short: "ReasonInfoService operations",
+}
+
+var imsReasonInfoNewReasonInfoCmd = &cobra.Command{
+	Use:   "new-reason-info",
+	Short: "NewReasonInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReasonInfoServiceClient(grpcConn)
+		req := &pb.NewReasonInfoRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewReasonInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var imsReasonInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReasonInfoServiceClient(grpcConn)
+		req := &pb.ReasonInfoDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var imsReasonInfoGetCodeCmd = &cobra.Command{
+	Use:   "get-code",
+	Short: "GetCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReasonInfoServiceClient(grpcConn)
+		req := &pb.ReasonInfoGetCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var imsReasonInfoGetExtraCodeCmd = &cobra.Command{
+	Use:   "get-extra-code",
+	Short: "GetExtraCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReasonInfoServiceClient(grpcConn)
+		req := &pb.GetExtraCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetExtraCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var imsReasonInfoGetExtraMessageCmd = &cobra.Command{
+	Use:   "get-extra-message",
+	Short: "GetExtraMessage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReasonInfoServiceClient(grpcConn)
+		req := &pb.GetExtraMessageRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetExtraMessage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var imsReasonInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReasonInfoServiceClient(grpcConn)
+		req := &pb.ReasonInfoToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var imsReasonInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewReasonInfoServiceClient(grpcConn)
+		req := &pb.ReasonInfoWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var imsRegistrationAttributesCmd = &cobra.Command{
+	Use:   "registration-attributes",
+	Short: "RegistrationAttributesService operations",
+}
+
+var imsRegistrationAttributesDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRegistrationAttributesServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var imsRegistrationAttributesEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRegistrationAttributesServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var imsRegistrationAttributesGetAttributeFlagsCmd = &cobra.Command{
+	Use:   "get-attribute-flags",
+	Short: "GetAttributeFlags RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRegistrationAttributesServiceClient(grpcConn)
+		req := &pb.GetAttributeFlagsRequest{}
+		resp, err := client.GetAttributeFlags(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var imsRegistrationAttributesGetFeatureTagsCmd = &cobra.Command{
+	Use:   "get-feature-tags",
+	Short: "GetFeatureTags RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRegistrationAttributesServiceClient(grpcConn)
+		req := &pb.GetFeatureTagsRequest{}
+		resp, err := client.GetFeatureTags(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var imsRegistrationAttributesGetSipDetailsCmd = &cobra.Command{
+	Use:   "get-sip-details",
+	Short: "GetSipDetails RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRegistrationAttributesServiceClient(grpcConn)
+		req := &pb.GetSipDetailsRequest{}
+		resp, err := client.GetSipDetails(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var imsRegistrationAttributesGetTransportTypeCmd = &cobra.Command{
+	Use:   "get-transport-type",
+	Short: "GetTransportType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRegistrationAttributesServiceClient(grpcConn)
+		req := &pb.GetTransportTypeRequest{}
+		resp, err := client.GetTransportType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var imsRegistrationAttributesHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRegistrationAttributesServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var imsRegistrationAttributesToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRegistrationAttributesServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var imsRegistrationAttributesWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRegistrationAttributesServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
+	imsStateCallbackCmd.AddCommand(imsStateCallbackOnAvailableCmd)
+	imsStateCallbackCmd.AddCommand(imsStateCallbackOnErrorCmd)
+	imsStateCallbackOnUnavailableCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	imsStateCallbackCmd.AddCommand(imsStateCallbackOnUnavailableCmd)
+	imsCmd.AddCommand(imsStateCallbackCmd)
+	imsManagerGetImsMmTelManagerCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	imsManagerCmd.AddCommand(imsManagerGetImsMmTelManagerCmd)
+	imsManagerGetImsRcsManagerCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	imsManagerCmd.AddCommand(imsManagerGetImsRcsManagerCmd)
+	imsManagerGetProvisioningManagerCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	imsManagerCmd.AddCommand(imsManagerGetProvisioningManagerCmd)
+	imsCmd.AddCommand(imsManagerCmd)
 	imsRegistrationManagerRegisterImsRegistrationCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	imsRegistrationManagerRegisterImsRegistrationCallbackCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	imsRegistrationManagerCmd.AddCommand(imsRegistrationManagerRegisterImsRegistrationCallbackCmd)
@@ -1465,18 +1493,24 @@ func init() {
 	imsRegistrationManagerRegistrationCallbackOnUnregisteredCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	imsRegistrationManagerRegistrationCallbackCmd.AddCommand(imsRegistrationManagerRegistrationCallbackOnUnregisteredCmd)
 	imsCmd.AddCommand(imsRegistrationManagerRegistrationCallbackCmd)
-	imsRegistrationAttributesCmd.AddCommand(imsRegistrationAttributesDescribeContentsCmd)
-	imsRegistrationAttributesEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	imsRegistrationAttributesCmd.AddCommand(imsRegistrationAttributesEqualsCmd)
-	imsRegistrationAttributesCmd.AddCommand(imsRegistrationAttributesGetAttributeFlagsCmd)
-	imsRegistrationAttributesCmd.AddCommand(imsRegistrationAttributesGetSipDetailsCmd)
-	imsRegistrationAttributesCmd.AddCommand(imsRegistrationAttributesGetTransportTypeCmd)
-	imsRegistrationAttributesCmd.AddCommand(imsRegistrationAttributesHashCodeCmd)
-	imsRegistrationAttributesCmd.AddCommand(imsRegistrationAttributesToStringCmd)
-	imsRegistrationAttributesWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	imsRegistrationAttributesWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	imsRegistrationAttributesCmd.AddCommand(imsRegistrationAttributesWriteToParcelCmd)
-	imsCmd.AddCommand(imsRegistrationAttributesCmd)
+	imsRcsUceAdapterCmd.AddCommand(imsRcsUceAdapterIsUceSettingEnabledCmd)
+	imsCmd.AddCommand(imsRcsUceAdapterCmd)
+	imsSipDetailsCmd.AddCommand(imsSipDetailsDescribeContentsCmd)
+	imsSipDetailsEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	imsSipDetailsCmd.AddCommand(imsSipDetailsEqualsCmd)
+	imsSipDetailsCmd.AddCommand(imsSipDetailsGetCSeqCmd)
+	imsSipDetailsCmd.AddCommand(imsSipDetailsGetCallIdCmd)
+	imsSipDetailsCmd.AddCommand(imsSipDetailsGetMethodCmd)
+	imsSipDetailsCmd.AddCommand(imsSipDetailsGetReasonHeaderCauseCmd)
+	imsSipDetailsCmd.AddCommand(imsSipDetailsGetReasonHeaderTextCmd)
+	imsSipDetailsCmd.AddCommand(imsSipDetailsGetResponseCodeCmd)
+	imsSipDetailsCmd.AddCommand(imsSipDetailsGetResponsePhraseCmd)
+	imsSipDetailsCmd.AddCommand(imsSipDetailsHashCodeCmd)
+	imsSipDetailsCmd.AddCommand(imsSipDetailsToStringCmd)
+	imsSipDetailsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	imsSipDetailsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	imsSipDetailsCmd.AddCommand(imsSipDetailsWriteToParcelCmd)
+	imsCmd.AddCommand(imsSipDetailsCmd)
 	imsRcsManagerCmd.AddCommand(imsRcsManagerGetUceAdapterCmd)
 	imsRcsManagerRegisterImsRegistrationCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	imsRcsManagerRegisterImsRegistrationCallbackCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
@@ -1489,32 +1523,6 @@ func init() {
 	imsRcsManagerUnregisterImsStateCallbackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	imsRcsManagerCmd.AddCommand(imsRcsManagerUnregisterImsStateCallbackCmd)
 	imsCmd.AddCommand(imsRcsManagerCmd)
-	imsStateCallbackCmd.AddCommand(imsStateCallbackOnAvailableCmd)
-	imsStateCallbackCmd.AddCommand(imsStateCallbackOnErrorCmd)
-	imsStateCallbackOnUnavailableCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	imsStateCallbackCmd.AddCommand(imsStateCallbackOnUnavailableCmd)
-	imsCmd.AddCommand(imsStateCallbackCmd)
-	imsRcsUceAdapterCmd.AddCommand(imsRcsUceAdapterIsUceSettingEnabledCmd)
-	imsCmd.AddCommand(imsRcsUceAdapterCmd)
-	imsReasonInfoNewReasonInfoCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	imsReasonInfoNewReasonInfoCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	imsReasonInfoNewReasonInfoCmd.Flags().String("arg2", "", "arg2 (string)")
-	imsReasonInfoCmd.AddCommand(imsReasonInfoNewReasonInfoCmd)
-	imsReasonInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	imsReasonInfoCmd.AddCommand(imsReasonInfoDescribeContentsCmd)
-	imsReasonInfoGetCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	imsReasonInfoCmd.AddCommand(imsReasonInfoGetCodeCmd)
-	imsReasonInfoGetExtraCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	imsReasonInfoCmd.AddCommand(imsReasonInfoGetExtraCodeCmd)
-	imsReasonInfoGetExtraMessageCmd.Flags().Int64("handle", 0, "handle (int64)")
-	imsReasonInfoCmd.AddCommand(imsReasonInfoGetExtraMessageCmd)
-	imsReasonInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	imsReasonInfoCmd.AddCommand(imsReasonInfoToStringCmd)
-	imsReasonInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	imsReasonInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	imsReasonInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	imsReasonInfoCmd.AddCommand(imsReasonInfoWriteToParcelCmd)
-	imsCmd.AddCommand(imsReasonInfoCmd)
 	imsMmTelManagerCmd.AddCommand(imsMmTelManagerGetVoWiFiModeSettingCmd)
 	imsMmTelManagerCmd.AddCommand(imsMmTelManagerIsAdvancedCallingSettingEnabledCmd)
 	imsMmTelManagerCmd.AddCommand(imsMmTelManagerIsCrossSimCallingEnabledCmd)
@@ -1541,31 +1549,8 @@ func init() {
 	imsMmTelManagerCapabilityCallbackOnCapabilitiesStatusChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	imsMmTelManagerCapabilityCallbackCmd.AddCommand(imsMmTelManagerCapabilityCallbackOnCapabilitiesStatusChangedCmd)
 	imsCmd.AddCommand(imsMmTelManagerCapabilityCallbackCmd)
-	imsSipDetailsCmd.AddCommand(imsSipDetailsDescribeContentsCmd)
-	imsSipDetailsEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	imsSipDetailsCmd.AddCommand(imsSipDetailsEqualsCmd)
-	imsSipDetailsCmd.AddCommand(imsSipDetailsGetCSeqCmd)
-	imsSipDetailsCmd.AddCommand(imsSipDetailsGetCallIdCmd)
-	imsSipDetailsCmd.AddCommand(imsSipDetailsGetMethodCmd)
-	imsSipDetailsCmd.AddCommand(imsSipDetailsGetReasonHeaderCauseCmd)
-	imsSipDetailsCmd.AddCommand(imsSipDetailsGetReasonHeaderTextCmd)
-	imsSipDetailsCmd.AddCommand(imsSipDetailsGetResponseCodeCmd)
-	imsSipDetailsCmd.AddCommand(imsSipDetailsGetResponsePhraseCmd)
-	imsSipDetailsCmd.AddCommand(imsSipDetailsHashCodeCmd)
-	imsSipDetailsCmd.AddCommand(imsSipDetailsToStringCmd)
-	imsSipDetailsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	imsSipDetailsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	imsSipDetailsCmd.AddCommand(imsSipDetailsWriteToParcelCmd)
-	imsCmd.AddCommand(imsSipDetailsCmd)
 	imsExceptionCmd.AddCommand(imsExceptionGetCodeCmd)
 	imsCmd.AddCommand(imsExceptionCmd)
-	imsManagerGetImsMmTelManagerCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	imsManagerCmd.AddCommand(imsManagerGetImsMmTelManagerCmd)
-	imsManagerGetImsRcsManagerCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	imsManagerCmd.AddCommand(imsManagerGetImsRcsManagerCmd)
-	imsManagerGetProvisioningManagerCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	imsManagerCmd.AddCommand(imsManagerGetProvisioningManagerCmd)
-	imsCmd.AddCommand(imsManagerCmd)
 	imsProvisioningManagerGetProvisioningStatusForCapabilityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	imsProvisioningManagerGetProvisioningStatusForCapabilityCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	imsProvisioningManagerCmd.AddCommand(imsProvisioningManagerGetProvisioningStatusForCapabilityCmd)
@@ -1601,5 +1586,37 @@ func init() {
 	imsProvisioningManagerFeatureProvisioningCallbackOnRcsFeatureProvisioningChangedCmd.Flags().Bool("arg2", false, "arg2 (bool)")
 	imsProvisioningManagerFeatureProvisioningCallbackCmd.AddCommand(imsProvisioningManagerFeatureProvisioningCallbackOnRcsFeatureProvisioningChangedCmd)
 	imsCmd.AddCommand(imsProvisioningManagerFeatureProvisioningCallbackCmd)
+	imsReasonInfoNewReasonInfoCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	imsReasonInfoNewReasonInfoCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	imsReasonInfoNewReasonInfoCmd.Flags().String("arg2", "", "arg2 (string)")
+	imsReasonInfoCmd.AddCommand(imsReasonInfoNewReasonInfoCmd)
+	imsReasonInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	imsReasonInfoCmd.AddCommand(imsReasonInfoDescribeContentsCmd)
+	imsReasonInfoGetCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	imsReasonInfoCmd.AddCommand(imsReasonInfoGetCodeCmd)
+	imsReasonInfoGetExtraCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	imsReasonInfoCmd.AddCommand(imsReasonInfoGetExtraCodeCmd)
+	imsReasonInfoGetExtraMessageCmd.Flags().Int64("handle", 0, "handle (int64)")
+	imsReasonInfoCmd.AddCommand(imsReasonInfoGetExtraMessageCmd)
+	imsReasonInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	imsReasonInfoCmd.AddCommand(imsReasonInfoToStringCmd)
+	imsReasonInfoWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	imsReasonInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	imsReasonInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	imsReasonInfoCmd.AddCommand(imsReasonInfoWriteToParcelCmd)
+	imsCmd.AddCommand(imsReasonInfoCmd)
+	imsRegistrationAttributesCmd.AddCommand(imsRegistrationAttributesDescribeContentsCmd)
+	imsRegistrationAttributesEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	imsRegistrationAttributesCmd.AddCommand(imsRegistrationAttributesEqualsCmd)
+	imsRegistrationAttributesCmd.AddCommand(imsRegistrationAttributesGetAttributeFlagsCmd)
+	imsRegistrationAttributesCmd.AddCommand(imsRegistrationAttributesGetFeatureTagsCmd)
+	imsRegistrationAttributesCmd.AddCommand(imsRegistrationAttributesGetSipDetailsCmd)
+	imsRegistrationAttributesCmd.AddCommand(imsRegistrationAttributesGetTransportTypeCmd)
+	imsRegistrationAttributesCmd.AddCommand(imsRegistrationAttributesHashCodeCmd)
+	imsRegistrationAttributesCmd.AddCommand(imsRegistrationAttributesToStringCmd)
+	imsRegistrationAttributesWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	imsRegistrationAttributesWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	imsRegistrationAttributesCmd.AddCommand(imsRegistrationAttributesWriteToParcelCmd)
+	imsCmd.AddCommand(imsRegistrationAttributesCmd)
 	rootCmd.AddCommand(imsCmd)
 }

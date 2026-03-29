@@ -88,11 +88,11 @@ message OnGetSuggestionsMultipleResponse {
   int64 result = 1;
 }
 
-message NewSuggestionsInfoRequest {
+message NewTextInfoRequest {
   int64 arg0 = 1;
 }
 
-message NewSuggestionsInfoResponse {
+message NewTextInfoResponse {
   int64 result = 1;
 }
 
@@ -102,6 +102,14 @@ message DescribeContentsRequest {
 
 message DescribeContentsResponse {
   int32 result = 1;
+}
+
+message GetCharSequenceRequest {
+  int64 handle = 1;
+}
+
+message GetCharSequenceResponse {
+  int64 result = 1;
 }
 
 message GetCookieRequest {
@@ -120,38 +128,12 @@ message GetSequenceResponse {
   int32 result = 1;
 }
 
-message GetSuggestionAtRequest {
+message GetTextRequest {
   int64 handle = 1;
-  int32 arg0 = 2;
 }
 
-message GetSuggestionAtResponse {
+message GetTextResponse {
   string result = 1;
-}
-
-message GetSuggestionsAttributesRequest {
-  int64 handle = 1;
-}
-
-message GetSuggestionsAttributesResponse {
-  int32 result = 1;
-}
-
-message GetSuggestionsCountRequest {
-  int64 handle = 1;
-}
-
-message GetSuggestionsCountResponse {
-  int32 result = 1;
-}
-
-message SetCookieAndSequenceRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message SetCookieAndSequenceResponse {
 }
 
 message WriteToParcelRequest {
@@ -161,100 +143,6 @@ message WriteToParcelRequest {
 }
 
 message WriteToParcelResponse {
-}
-
-message GetCurrentSpellCheckerInfoRequest {
-}
-
-message GetCurrentSpellCheckerInfoResponse {
-  int64 result = 1;
-}
-
-message IsSpellCheckerEnabledRequest {
-}
-
-message IsSpellCheckerEnabledResponse {
-  bool result = 1;
-}
-
-message NewSpellCheckerSession4Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-  bool arg3 = 4;
-}
-
-message NewSpellCheckerSession4Response {
-  int64 result = 1;
-}
-
-message NewSpellCheckerSession3_1Request {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int64 arg2 = 3;
-}
-
-message NewSpellCheckerSession3_1Response {
-  int64 result = 1;
-}
-
-message NewSentenceSuggestionsInfoRequest {
-  int64 arg0 = 1;
-}
-
-message NewSentenceSuggestionsInfoResponse {
-  int64 result = 1;
-}
-
-message GetLengthAtRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message GetLengthAtResponse {
-  int32 result = 1;
-}
-
-message GetOffsetAtRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message GetOffsetAtResponse {
-  int32 result = 1;
-}
-
-message GetSuggestionsInfoAtRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message GetSuggestionsInfoAtResponse {
-  int64 result = 1;
-}
-
-message NewTextInfoRequest {
-  int64 arg0 = 1;
-}
-
-message NewTextInfoResponse {
-  int64 result = 1;
-}
-
-message GetCharSequenceRequest {
-  int64 handle = 1;
-}
-
-message GetCharSequenceResponse {
-  int64 result = 1;
-}
-
-message GetTextRequest {
-  int64 handle = 1;
-}
-
-message GetTextResponse {
-  string result = 1;
 }
 
 message NewSpellCheckerSubtypeRequest {
@@ -341,78 +229,47 @@ message HashCodeResponse {
   int32 result = 1;
 }
 
-message SpellCheckerInfoDescribeContentsRequest {
+message NewSentenceSuggestionsInfoRequest {
+  int64 arg0 = 1;
 }
 
-message GetComponentRequest {
-}
-
-message GetComponentResponse {
+message NewSentenceSuggestionsInfoResponse {
   int64 result = 1;
 }
 
-message GetIdRequest {
+message GetLengthAtRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
 }
 
-message GetIdResponse {
-  string result = 1;
-}
-
-message GetPackageNameRequest {
-}
-
-message GetPackageNameResponse {
-  string result = 1;
-}
-
-message GetServiceInfoRequest {
-}
-
-message GetServiceInfoResponse {
-  int64 result = 1;
-}
-
-message GetSettingsActivityRequest {
-}
-
-message GetSettingsActivityResponse {
-  string result = 1;
-}
-
-message GetSubtypeAtRequest {
-  int32 arg0 = 1;
-}
-
-message GetSubtypeAtResponse {
-  int64 result = 1;
-}
-
-message GetSubtypeCountRequest {
-}
-
-message GetSubtypeCountResponse {
+message GetLengthAtResponse {
   int32 result = 1;
 }
 
-message LoadIconRequest {
-  int64 arg0 = 1;
+message GetOffsetAtRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
 }
 
-message LoadIconResponse {
+message GetOffsetAtResponse {
+  int32 result = 1;
+}
+
+message GetSuggestionsCountRequest {
+  int64 handle = 1;
+}
+
+message GetSuggestionsCountResponse {
+  int32 result = 1;
+}
+
+message GetSuggestionsInfoAtRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetSuggestionsInfoAtResponse {
   int64 result = 1;
-}
-
-message LoadLabelRequest {
-  int64 arg0 = 1;
-}
-
-message LoadLabelResponse {
-  int64 result = 1;
-}
-
-message SpellCheckerInfoWriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
 }
 
 message CancelRequest {
@@ -501,6 +358,156 @@ message ShouldReferToSpellCheckerLanguageSettingsResponse {
   bool result = 1;
 }
 
+message GetCurrentSpellCheckerInfoRequest {
+}
+
+message GetCurrentSpellCheckerInfoResponse {
+  int64 result = 1;
+}
+
+message GetEnabledSpellCheckerInfosRequest {
+}
+
+message GetEnabledSpellCheckerInfosResponse {
+  int64 result = 1;
+}
+
+message IsSpellCheckerEnabledRequest {
+}
+
+message IsSpellCheckerEnabledResponse {
+  bool result = 1;
+}
+
+message NewSpellCheckerSession4Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+  bool arg3 = 4;
+}
+
+message NewSpellCheckerSession4Response {
+  int64 result = 1;
+}
+
+message NewSpellCheckerSession3_1Request {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int64 arg2 = 3;
+}
+
+message NewSpellCheckerSession3_1Response {
+  int64 result = 1;
+}
+
+message NewSuggestionsInfoRequest {
+  int64 arg0 = 1;
+}
+
+message NewSuggestionsInfoResponse {
+  int64 result = 1;
+}
+
+message GetSuggestionAtRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message GetSuggestionAtResponse {
+  string result = 1;
+}
+
+message GetSuggestionsAttributesRequest {
+  int64 handle = 1;
+}
+
+message GetSuggestionsAttributesResponse {
+  int32 result = 1;
+}
+
+message SetCookieAndSequenceRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message SetCookieAndSequenceResponse {
+}
+
+message SpellCheckerInfoDescribeContentsRequest {
+}
+
+message GetComponentRequest {
+}
+
+message GetComponentResponse {
+  int64 result = 1;
+}
+
+message GetIdRequest {
+}
+
+message GetIdResponse {
+  string result = 1;
+}
+
+message GetPackageNameRequest {
+}
+
+message GetPackageNameResponse {
+  string result = 1;
+}
+
+message GetServiceInfoRequest {
+}
+
+message GetServiceInfoResponse {
+  int64 result = 1;
+}
+
+message GetSettingsActivityRequest {
+}
+
+message GetSettingsActivityResponse {
+  string result = 1;
+}
+
+message GetSubtypeAtRequest {
+  int32 arg0 = 1;
+}
+
+message GetSubtypeAtResponse {
+  int64 result = 1;
+}
+
+message GetSubtypeCountRequest {
+}
+
+message GetSubtypeCountResponse {
+  int32 result = 1;
+}
+
+message LoadIconRequest {
+  int64 arg0 = 1;
+}
+
+message LoadIconResponse {
+  int64 result = 1;
+}
+
+message LoadLabelRequest {
+  int64 arg0 = 1;
+}
+
+message LoadLabelResponse {
+  int64 result = 1;
+}
+
+message SpellCheckerInfoWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
 service SpellCheckerServiceService {
   rpc CreateSession (CreateSessionRequest) returns (CreateSessionResponse);
   rpc OnBind (OnBindRequest) returns (OnBindResponse);
@@ -516,35 +523,6 @@ service SpellCheckerServiceSessionService {
   rpc OnGetSentenceSuggestionsMultiple (OnGetSentenceSuggestionsMultipleRequest) returns (OnGetSentenceSuggestionsMultipleResponse);
   rpc OnGetSuggestions (OnGetSuggestionsRequest) returns (OnGetSuggestionsResponse);
   rpc OnGetSuggestionsMultiple (OnGetSuggestionsMultipleRequest) returns (OnGetSuggestionsMultipleResponse);
-}
-
-service SuggestionsInfoService {
-  rpc NewSuggestionsInfo (NewSuggestionsInfoRequest) returns (NewSuggestionsInfoResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetCookie (GetCookieRequest) returns (GetCookieResponse);
-  rpc GetSequence (GetSequenceRequest) returns (GetSequenceResponse);
-  rpc GetSuggestionAt (GetSuggestionAtRequest) returns (GetSuggestionAtResponse);
-  rpc GetSuggestionsAttributes (GetSuggestionsAttributesRequest) returns (GetSuggestionsAttributesResponse);
-  rpc GetSuggestionsCount (GetSuggestionsCountRequest) returns (GetSuggestionsCountResponse);
-  rpc SetCookieAndSequence (SetCookieAndSequenceRequest) returns (SetCookieAndSequenceResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service TextServicesManagerService {
-  rpc GetCurrentSpellCheckerInfo (GetCurrentSpellCheckerInfoRequest) returns (GetCurrentSpellCheckerInfoResponse);
-  rpc IsSpellCheckerEnabled (IsSpellCheckerEnabledRequest) returns (IsSpellCheckerEnabledResponse);
-  rpc NewSpellCheckerSession4 (NewSpellCheckerSession4Request) returns (NewSpellCheckerSession4Response);
-  rpc NewSpellCheckerSession3_1 (NewSpellCheckerSession3_1Request) returns (NewSpellCheckerSession3_1Response);
-}
-
-service SentenceSuggestionsInfoService {
-  rpc NewSentenceSuggestionsInfo (NewSentenceSuggestionsInfoRequest) returns (NewSentenceSuggestionsInfoResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetLengthAt (GetLengthAtRequest) returns (GetLengthAtResponse);
-  rpc GetOffsetAt (GetOffsetAtRequest) returns (GetOffsetAtResponse);
-  rpc GetSuggestionsCount (GetSuggestionsCountRequest) returns (GetSuggestionsCountResponse);
-  rpc GetSuggestionsInfoAt (GetSuggestionsInfoAtRequest) returns (GetSuggestionsInfoAtResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
 service TextInfoService {
@@ -572,18 +550,14 @@ service SpellCheckerSubtypeService {
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service SpellCheckerInfoService {
-  rpc DescribeContents (SpellCheckerInfoDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetComponent (GetComponentRequest) returns (GetComponentResponse);
-  rpc GetId (GetIdRequest) returns (GetIdResponse);
-  rpc GetPackageName (GetPackageNameRequest) returns (GetPackageNameResponse);
-  rpc GetServiceInfo (GetServiceInfoRequest) returns (GetServiceInfoResponse);
-  rpc GetSettingsActivity (GetSettingsActivityRequest) returns (GetSettingsActivityResponse);
-  rpc GetSubtypeAt (GetSubtypeAtRequest) returns (GetSubtypeAtResponse);
-  rpc GetSubtypeCount (GetSubtypeCountRequest) returns (GetSubtypeCountResponse);
-  rpc LoadIcon (LoadIconRequest) returns (LoadIconResponse);
-  rpc LoadLabel (LoadLabelRequest) returns (LoadLabelResponse);
-  rpc WriteToParcel (SpellCheckerInfoWriteToParcelRequest) returns (WriteToParcelResponse);
+service SentenceSuggestionsInfoService {
+  rpc NewSentenceSuggestionsInfo (NewSentenceSuggestionsInfoRequest) returns (NewSentenceSuggestionsInfoResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetLengthAt (GetLengthAtRequest) returns (GetLengthAtResponse);
+  rpc GetOffsetAt (GetOffsetAtRequest) returns (GetOffsetAtResponse);
+  rpc GetSuggestionsCount (GetSuggestionsCountRequest) returns (GetSuggestionsCountResponse);
+  rpc GetSuggestionsInfoAt (GetSuggestionsInfoAtRequest) returns (GetSuggestionsInfoAtResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
 service SpellCheckerSessionService {
@@ -606,4 +580,38 @@ service SpellCheckerSessionSpellCheckerSessionParamsService {
   rpc GetLocale (SpellCheckerSessionSpellCheckerSessionParamsGetLocaleRequest) returns (SpellCheckerSessionSpellCheckerSessionParamsGetLocaleResponse);
   rpc GetSupportedAttributes (GetSupportedAttributesRequest) returns (GetSupportedAttributesResponse);
   rpc ShouldReferToSpellCheckerLanguageSettings (ShouldReferToSpellCheckerLanguageSettingsRequest) returns (ShouldReferToSpellCheckerLanguageSettingsResponse);
+}
+
+service TextServicesManagerService {
+  rpc GetCurrentSpellCheckerInfo (GetCurrentSpellCheckerInfoRequest) returns (GetCurrentSpellCheckerInfoResponse);
+  rpc GetEnabledSpellCheckerInfos (GetEnabledSpellCheckerInfosRequest) returns (GetEnabledSpellCheckerInfosResponse);
+  rpc IsSpellCheckerEnabled (IsSpellCheckerEnabledRequest) returns (IsSpellCheckerEnabledResponse);
+  rpc NewSpellCheckerSession4 (NewSpellCheckerSession4Request) returns (NewSpellCheckerSession4Response);
+  rpc NewSpellCheckerSession3_1 (NewSpellCheckerSession3_1Request) returns (NewSpellCheckerSession3_1Response);
+}
+
+service SuggestionsInfoService {
+  rpc NewSuggestionsInfo (NewSuggestionsInfoRequest) returns (NewSuggestionsInfoResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetCookie (GetCookieRequest) returns (GetCookieResponse);
+  rpc GetSequence (GetSequenceRequest) returns (GetSequenceResponse);
+  rpc GetSuggestionAt (GetSuggestionAtRequest) returns (GetSuggestionAtResponse);
+  rpc GetSuggestionsAttributes (GetSuggestionsAttributesRequest) returns (GetSuggestionsAttributesResponse);
+  rpc GetSuggestionsCount (GetSuggestionsCountRequest) returns (GetSuggestionsCountResponse);
+  rpc SetCookieAndSequence (SetCookieAndSequenceRequest) returns (SetCookieAndSequenceResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SpellCheckerInfoService {
+  rpc DescribeContents (SpellCheckerInfoDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetComponent (GetComponentRequest) returns (GetComponentResponse);
+  rpc GetId (GetIdRequest) returns (GetIdResponse);
+  rpc GetPackageName (GetPackageNameRequest) returns (GetPackageNameResponse);
+  rpc GetServiceInfo (GetServiceInfoRequest) returns (GetServiceInfoResponse);
+  rpc GetSettingsActivity (GetSettingsActivityRequest) returns (GetSettingsActivityResponse);
+  rpc GetSubtypeAt (GetSubtypeAtRequest) returns (GetSubtypeAtResponse);
+  rpc GetSubtypeCount (GetSubtypeCountRequest) returns (GetSubtypeCountResponse);
+  rpc LoadIcon (LoadIconRequest) returns (LoadIconResponse);
+  rpc LoadLabel (LoadLabelRequest) returns (LoadLabelResponse);
+  rpc WriteToParcel (SpellCheckerInfoWriteToParcelRequest) returns (WriteToParcelResponse);
 }

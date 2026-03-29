@@ -12,6 +12,323 @@ var midiCmd = &cobra.Command{
 	Short: "midi service operations",
 }
 
+var midiInputPortCmd = &cobra.Command{
+	Use:   "input-port",
+	Short: "InputPortService operations",
+}
+
+var midiInputPortCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputPortServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var midiInputPortGetPortNumberCmd = &cobra.Command{
+	Use:   "get-port-number",
+	Short: "GetPortNumber RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputPortServiceClient(grpcConn)
+		req := &pb.GetPortNumberRequest{}
+		resp, err := client.GetPortNumber(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var midiInputPortOnFlushCmd = &cobra.Command{
+	Use:   "on-flush",
+	Short: "OnFlush RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputPortServiceClient(grpcConn)
+		req := &pb.OnFlushRequest{}
+		resp, err := client.OnFlush(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var midiInputPortOnSendCmd = &cobra.Command{
+	Use:   "on-send",
+	Short: "OnSend RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInputPortServiceClient(grpcConn)
+		req := &pb.OnSendRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.OnSend(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var midiUmpDeviceServiceCmd = &cobra.Command{
+	Use:   "ump-device-service",
+	Short: "UmpDeviceServiceService operations",
+}
+
+var midiUmpDeviceServiceGetDeviceInfoCmd = &cobra.Command{
+	Use:   "get-device-info",
+	Short: "GetDeviceInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUmpDeviceServiceServiceClient(grpcConn)
+		req := &pb.GetDeviceInfoRequest{}
+		resp, err := client.GetDeviceInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var midiUmpDeviceServiceGetOutputPortReceiversCmd = &cobra.Command{
+	Use:   "get-output-port-receivers",
+	Short: "GetOutputPortReceivers RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUmpDeviceServiceServiceClient(grpcConn)
+		req := &pb.GetOutputPortReceiversRequest{}
+		resp, err := client.GetOutputPortReceivers(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var midiUmpDeviceServiceOnBindCmd = &cobra.Command{
+	Use:   "on-bind",
+	Short: "OnBind RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUmpDeviceServiceServiceClient(grpcConn)
+		req := &pb.OnBindRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnBind(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var midiUmpDeviceServiceOnCloseCmd = &cobra.Command{
+	Use:   "on-close",
+	Short: "OnClose RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUmpDeviceServiceServiceClient(grpcConn)
+		req := &pb.OnCloseRequest{}
+		resp, err := client.OnClose(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var midiUmpDeviceServiceOnCreateCmd = &cobra.Command{
+	Use:   "on-create",
+	Short: "OnCreate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUmpDeviceServiceServiceClient(grpcConn)
+		req := &pb.OnCreateRequest{}
+		resp, err := client.OnCreate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var midiUmpDeviceServiceOnDeviceStatusChangedCmd = &cobra.Command{
+	Use:   "on-device-status-changed",
+	Short: "OnDeviceStatusChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUmpDeviceServiceServiceClient(grpcConn)
+		req := &pb.OnDeviceStatusChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnDeviceStatusChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var midiUmpDeviceServiceOnGetInputPortReceiversCmd = &cobra.Command{
+	Use:   "on-get-input-port-receivers",
+	Short: "OnGetInputPortReceivers RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUmpDeviceServiceServiceClient(grpcConn)
+		req := &pb.OnGetInputPortReceiversRequest{}
+		resp, err := client.OnGetInputPortReceivers(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var midiDeviceStatusCmd = &cobra.Command{
+	Use:   "device-status",
+	Short: "DeviceStatusService operations",
+}
+
+var midiDeviceStatusDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceStatusServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var midiDeviceStatusGetDeviceInfoCmd = &cobra.Command{
+	Use:   "get-device-info",
+	Short: "GetDeviceInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceStatusServiceClient(grpcConn)
+		req := &pb.GetDeviceInfoRequest{}
+		resp, err := client.GetDeviceInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var midiDeviceStatusGetOutputPortOpenCountCmd = &cobra.Command{
+	Use:   "get-output-port-open-count",
+	Short: "GetOutputPortOpenCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceStatusServiceClient(grpcConn)
+		req := &pb.GetOutputPortOpenCountRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetOutputPortOpenCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var midiDeviceStatusIsInputPortOpenCmd = &cobra.Command{
+	Use:   "is-input-port-open",
+	Short: "IsInputPortOpen RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceStatusServiceClient(grpcConn)
+		req := &pb.IsInputPortOpenRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsInputPortOpen(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var midiDeviceStatusToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceStatusServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var midiDeviceStatusWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceStatusServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var midiDeviceInfoCmd = &cobra.Command{
 	Use:   "device-info",
 	Short: "DeviceInfoService operations",
@@ -287,18 +604,141 @@ var midiDeviceInfoPortInfoGetTypeCmd = &cobra.Command{
 	},
 }
 
-var midiInputPortCmd = &cobra.Command{
-	Use:   "input-port",
-	Short: "InputPortService operations",
+var midiDeviceServiceCmd = &cobra.Command{
+	Use:   "device-service",
+	Short: "DeviceServiceService operations",
 }
 
-var midiInputPortCloseCmd = &cobra.Command{
+var midiDeviceServiceGetDeviceInfoCmd = &cobra.Command{
+	Use:   "get-device-info",
+	Short: "GetDeviceInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceServiceClient(grpcConn)
+		req := &pb.GetDeviceInfoRequest{}
+		resp, err := client.GetDeviceInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var midiDeviceServiceGetOutputPortReceiversCmd = &cobra.Command{
+	Use:   "get-output-port-receivers",
+	Short: "GetOutputPortReceivers RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceServiceClient(grpcConn)
+		req := &pb.GetOutputPortReceiversRequest{}
+		resp, err := client.GetOutputPortReceivers(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var midiDeviceServiceOnBindCmd = &cobra.Command{
+	Use:   "on-bind",
+	Short: "OnBind RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceServiceClient(grpcConn)
+		req := &pb.OnBindRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnBind(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var midiDeviceServiceOnCloseCmd = &cobra.Command{
+	Use:   "on-close",
+	Short: "OnClose RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceServiceClient(grpcConn)
+		req := &pb.OnCloseRequest{}
+		resp, err := client.OnClose(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var midiDeviceServiceOnCreateCmd = &cobra.Command{
+	Use:   "on-create",
+	Short: "OnCreate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceServiceClient(grpcConn)
+		req := &pb.OnCreateRequest{}
+		resp, err := client.OnCreate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var midiDeviceServiceOnDeviceStatusChangedCmd = &cobra.Command{
+	Use:   "on-device-status-changed",
+	Short: "OnDeviceStatusChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceServiceClient(grpcConn)
+		req := &pb.OnDeviceStatusChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnDeviceStatusChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var midiDeviceServiceOnGetInputPortReceiversCmd = &cobra.Command{
+	Use:   "on-get-input-port-receivers",
+	Short: "OnGetInputPortReceivers RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceServiceClient(grpcConn)
+		req := &pb.OnGetInputPortReceiversRequest{}
+		resp, err := client.OnGetInputPortReceivers(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var midiDeviceCmd = &cobra.Command{
+	Use:   "device",
+	Short: "DeviceService operations",
+}
+
+var midiDeviceCloseCmd = &cobra.Command{
 	Use:   "close",
 	Short: "Close RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewInputPortServiceClient(grpcConn)
+		client := pb.NewDeviceServiceClient(grpcConn)
 		req := &pb.CloseRequest{}
 		resp, err := client.Close(ctx, req)
 		if err != nil {
@@ -308,59 +748,193 @@ var midiInputPortCloseCmd = &cobra.Command{
 	},
 }
 
-var midiInputPortGetPortNumberCmd = &cobra.Command{
-	Use:   "get-port-number",
-	Short: "GetPortNumber RPC",
+var midiDeviceConnectPortsCmd = &cobra.Command{
+	Use:   "connect-ports",
+	Short: "ConnectPorts RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewInputPortServiceClient(grpcConn)
-		req := &pb.GetPortNumberRequest{}
-		resp, err := client.GetPortNumber(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var midiInputPortOnFlushCmd = &cobra.Command{
-	Use:   "on-flush",
-	Short: "OnFlush RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInputPortServiceClient(grpcConn)
-		req := &pb.OnFlushRequest{}
-		resp, err := client.OnFlush(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var midiInputPortOnSendCmd = &cobra.Command{
-	Use:   "on-send",
-	Short: "OnSend RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInputPortServiceClient(grpcConn)
-		req := &pb.OnSendRequest{}
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.ConnectPortsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
+		resp, err := client.ConnectPorts(ctx, req)
+		if err != nil {
+			return err
 		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
+		return printProtoMessage(resp)
+	},
+}
+
+var midiDeviceGetInfoCmd = &cobra.Command{
+	Use:   "get-info",
+	Short: "GetInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.GetInfoRequest{}
+		resp, err := client.GetInfo(ctx, req)
+		if err != nil {
+			return err
 		}
-		resp, err := client.OnSend(ctx, req)
+		return printProtoMessage(resp)
+	},
+}
+
+var midiDeviceOpenInputPortCmd = &cobra.Command{
+	Use:   "open-input-port",
+	Short: "OpenInputPort RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.OpenInputPortRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OpenInputPort(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var midiDeviceOpenOutputPortCmd = &cobra.Command{
+	Use:   "open-output-port",
+	Short: "OpenOutputPort RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.OpenOutputPortRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OpenOutputPort(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var midiDeviceToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var midiDeviceMidiConnectionCmd = &cobra.Command{
+	Use:   "device-midi-connection",
+	Short: "DeviceMidiConnectionService operations",
+}
+
+var midiDeviceMidiConnectionCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeviceMidiConnectionServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var midiSenderCmd = &cobra.Command{
+	Use:   "sender",
+	Short: "SenderService operations",
+}
+
+var midiSenderConnectCmd = &cobra.Command{
+	Use:   "connect",
+	Short: "Connect RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSenderServiceClient(grpcConn)
+		req := &pb.ConnectRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Connect(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var midiSenderDisconnectCmd = &cobra.Command{
+	Use:   "disconnect",
+	Short: "Disconnect RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSenderServiceClient(grpcConn)
+		req := &pb.DisconnectRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Disconnect(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var midiSenderOnConnectCmd = &cobra.Command{
+	Use:   "on-connect",
+	Short: "OnConnect RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSenderServiceClient(grpcConn)
+		req := &pb.OnConnectRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnConnect(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var midiSenderOnDisconnectCmd = &cobra.Command{
+	Use:   "on-disconnect",
+	Short: "OnDisconnect RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSenderServiceClient(grpcConn)
+		req := &pb.OnDisconnectRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnDisconnect(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -523,6 +1097,25 @@ var midiManagerGetDevicesCmd = &cobra.Command{
 	},
 }
 
+var midiManagerGetDevicesForTransportCmd = &cobra.Command{
+	Use:   "get-devices-for-transport",
+	Short: "GetDevicesForTransport RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetDevicesForTransportRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetDevicesForTransport(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var midiManagerRegisterDeviceCallbackCmd = &cobra.Command{
 	Use:   "register-device-callback",
 	Short: "RegisterDeviceCallback RPC",
@@ -653,301 +1246,6 @@ var midiManagerOnDeviceOpenedListenerOnDeviceOpenedCmd = &cobra.Command{
 	},
 }
 
-var midiSenderCmd = &cobra.Command{
-	Use:   "sender",
-	Short: "SenderService operations",
-}
-
-var midiSenderConnectCmd = &cobra.Command{
-	Use:   "connect",
-	Short: "Connect RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSenderServiceClient(grpcConn)
-		req := &pb.ConnectRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Connect(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var midiSenderDisconnectCmd = &cobra.Command{
-	Use:   "disconnect",
-	Short: "Disconnect RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSenderServiceClient(grpcConn)
-		req := &pb.DisconnectRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Disconnect(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var midiSenderOnConnectCmd = &cobra.Command{
-	Use:   "on-connect",
-	Short: "OnConnect RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSenderServiceClient(grpcConn)
-		req := &pb.OnConnectRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnConnect(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var midiSenderOnDisconnectCmd = &cobra.Command{
-	Use:   "on-disconnect",
-	Short: "OnDisconnect RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSenderServiceClient(grpcConn)
-		req := &pb.OnDisconnectRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnDisconnect(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var midiUmpDeviceServiceCmd = &cobra.Command{
-	Use:   "ump-device-service",
-	Short: "UmpDeviceServiceService operations",
-}
-
-var midiUmpDeviceServiceGetDeviceInfoCmd = &cobra.Command{
-	Use:   "get-device-info",
-	Short: "GetDeviceInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUmpDeviceServiceServiceClient(grpcConn)
-		req := &pb.GetDeviceInfoRequest{}
-		resp, err := client.GetDeviceInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var midiUmpDeviceServiceOnBindCmd = &cobra.Command{
-	Use:   "on-bind",
-	Short: "OnBind RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUmpDeviceServiceServiceClient(grpcConn)
-		req := &pb.OnBindRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnBind(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var midiUmpDeviceServiceOnCloseCmd = &cobra.Command{
-	Use:   "on-close",
-	Short: "OnClose RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUmpDeviceServiceServiceClient(grpcConn)
-		req := &pb.OnCloseRequest{}
-		resp, err := client.OnClose(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var midiUmpDeviceServiceOnCreateCmd = &cobra.Command{
-	Use:   "on-create",
-	Short: "OnCreate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUmpDeviceServiceServiceClient(grpcConn)
-		req := &pb.OnCreateRequest{}
-		resp, err := client.OnCreate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var midiUmpDeviceServiceOnDeviceStatusChangedCmd = &cobra.Command{
-	Use:   "on-device-status-changed",
-	Short: "OnDeviceStatusChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUmpDeviceServiceServiceClient(grpcConn)
-		req := &pb.OnDeviceStatusChangedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnDeviceStatusChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var midiDeviceServiceCmd = &cobra.Command{
-	Use:   "device-service",
-	Short: "DeviceServiceService operations",
-}
-
-var midiDeviceServiceGetDeviceInfoCmd = &cobra.Command{
-	Use:   "get-device-info",
-	Short: "GetDeviceInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceServiceClient(grpcConn)
-		req := &pb.GetDeviceInfoRequest{}
-		resp, err := client.GetDeviceInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var midiDeviceServiceGetOutputPortReceiversCmd = &cobra.Command{
-	Use:   "get-output-port-receivers",
-	Short: "GetOutputPortReceivers RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceServiceClient(grpcConn)
-		req := &pb.GetOutputPortReceiversRequest{}
-		resp, err := client.GetOutputPortReceivers(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var midiDeviceServiceOnBindCmd = &cobra.Command{
-	Use:   "on-bind",
-	Short: "OnBind RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceServiceClient(grpcConn)
-		req := &pb.OnBindRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnBind(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var midiDeviceServiceOnCloseCmd = &cobra.Command{
-	Use:   "on-close",
-	Short: "OnClose RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceServiceClient(grpcConn)
-		req := &pb.OnCloseRequest{}
-		resp, err := client.OnClose(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var midiDeviceServiceOnCreateCmd = &cobra.Command{
-	Use:   "on-create",
-	Short: "OnCreate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceServiceClient(grpcConn)
-		req := &pb.OnCreateRequest{}
-		resp, err := client.OnCreate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var midiDeviceServiceOnDeviceStatusChangedCmd = &cobra.Command{
-	Use:   "on-device-status-changed",
-	Short: "OnDeviceStatusChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceServiceClient(grpcConn)
-		req := &pb.OnDeviceStatusChangedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnDeviceStatusChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var midiDeviceServiceOnGetInputPortReceiversCmd = &cobra.Command{
-	Use:   "on-get-input-port-receivers",
-	Short: "OnGetInputPortReceivers RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceServiceClient(grpcConn)
-		req := &pb.OnGetInputPortReceiversRequest{}
-		resp, err := client.OnGetInputPortReceivers(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var midiOutputPortCmd = &cobra.Command{
 	Use:   "output-port",
 	Short: "OutputPortService operations",
@@ -1023,254 +1321,37 @@ var midiOutputPortOnDisconnectCmd = &cobra.Command{
 	},
 }
 
-var midiDeviceStatusCmd = &cobra.Command{
-	Use:   "device-status",
-	Short: "DeviceStatusService operations",
-}
-
-var midiDeviceStatusDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceStatusServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var midiDeviceStatusGetDeviceInfoCmd = &cobra.Command{
-	Use:   "get-device-info",
-	Short: "GetDeviceInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceStatusServiceClient(grpcConn)
-		req := &pb.GetDeviceInfoRequest{}
-		resp, err := client.GetDeviceInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var midiDeviceStatusGetOutputPortOpenCountCmd = &cobra.Command{
-	Use:   "get-output-port-open-count",
-	Short: "GetOutputPortOpenCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceStatusServiceClient(grpcConn)
-		req := &pb.GetOutputPortOpenCountRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetOutputPortOpenCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var midiDeviceStatusIsInputPortOpenCmd = &cobra.Command{
-	Use:   "is-input-port-open",
-	Short: "IsInputPortOpen RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceStatusServiceClient(grpcConn)
-		req := &pb.IsInputPortOpenRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsInputPortOpen(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var midiDeviceStatusToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceStatusServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var midiDeviceStatusWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceStatusServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var midiDeviceCmd = &cobra.Command{
-	Use:   "device",
-	Short: "DeviceService operations",
-}
-
-var midiDeviceCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.CloseRequest{}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var midiDeviceConnectPortsCmd = &cobra.Command{
-	Use:   "connect-ports",
-	Short: "ConnectPorts RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.ConnectPortsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ConnectPorts(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var midiDeviceGetInfoCmd = &cobra.Command{
-	Use:   "get-info",
-	Short: "GetInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.GetInfoRequest{}
-		resp, err := client.GetInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var midiDeviceOpenInputPortCmd = &cobra.Command{
-	Use:   "open-input-port",
-	Short: "OpenInputPort RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.OpenInputPortRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OpenInputPort(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var midiDeviceOpenOutputPortCmd = &cobra.Command{
-	Use:   "open-output-port",
-	Short: "OpenOutputPort RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.OpenOutputPortRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OpenOutputPort(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var midiDeviceToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var midiDeviceMidiConnectionCmd = &cobra.Command{
-	Use:   "device-midi-connection",
-	Short: "DeviceMidiConnectionService operations",
-}
-
-var midiDeviceMidiConnectionCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDeviceMidiConnectionServiceClient(grpcConn)
-		req := &pb.CloseRequest{}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
+	midiInputPortCmd.AddCommand(midiInputPortCloseCmd)
+	midiInputPortCmd.AddCommand(midiInputPortGetPortNumberCmd)
+	midiInputPortCmd.AddCommand(midiInputPortOnFlushCmd)
+	midiInputPortOnSendCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	midiInputPortOnSendCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	midiInputPortOnSendCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	midiInputPortOnSendCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	midiInputPortCmd.AddCommand(midiInputPortOnSendCmd)
+	midiCmd.AddCommand(midiInputPortCmd)
+	midiUmpDeviceServiceCmd.AddCommand(midiUmpDeviceServiceGetDeviceInfoCmd)
+	midiUmpDeviceServiceCmd.AddCommand(midiUmpDeviceServiceGetOutputPortReceiversCmd)
+	midiUmpDeviceServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	midiUmpDeviceServiceCmd.AddCommand(midiUmpDeviceServiceOnBindCmd)
+	midiUmpDeviceServiceCmd.AddCommand(midiUmpDeviceServiceOnCloseCmd)
+	midiUmpDeviceServiceCmd.AddCommand(midiUmpDeviceServiceOnCreateCmd)
+	midiUmpDeviceServiceOnDeviceStatusChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	midiUmpDeviceServiceCmd.AddCommand(midiUmpDeviceServiceOnDeviceStatusChangedCmd)
+	midiUmpDeviceServiceCmd.AddCommand(midiUmpDeviceServiceOnGetInputPortReceiversCmd)
+	midiCmd.AddCommand(midiUmpDeviceServiceCmd)
+	midiDeviceStatusCmd.AddCommand(midiDeviceStatusDescribeContentsCmd)
+	midiDeviceStatusCmd.AddCommand(midiDeviceStatusGetDeviceInfoCmd)
+	midiDeviceStatusGetOutputPortOpenCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	midiDeviceStatusCmd.AddCommand(midiDeviceStatusGetOutputPortOpenCountCmd)
+	midiDeviceStatusIsInputPortOpenCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	midiDeviceStatusCmd.AddCommand(midiDeviceStatusIsInputPortOpenCmd)
+	midiDeviceStatusCmd.AddCommand(midiDeviceStatusToStringCmd)
+	midiDeviceStatusWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	midiDeviceStatusWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	midiDeviceStatusCmd.AddCommand(midiDeviceStatusWriteToParcelCmd)
+	midiCmd.AddCommand(midiDeviceStatusCmd)
 	midiDeviceInfoCmd.AddCommand(midiDeviceInfoDescribeContentsCmd)
 	midiDeviceInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	midiDeviceInfoCmd.AddCommand(midiDeviceInfoEqualsCmd)
@@ -1292,15 +1373,38 @@ func init() {
 	midiDeviceInfoPortInfoCmd.AddCommand(midiDeviceInfoPortInfoGetPortNumberCmd)
 	midiDeviceInfoPortInfoCmd.AddCommand(midiDeviceInfoPortInfoGetTypeCmd)
 	midiCmd.AddCommand(midiDeviceInfoPortInfoCmd)
-	midiInputPortCmd.AddCommand(midiInputPortCloseCmd)
-	midiInputPortCmd.AddCommand(midiInputPortGetPortNumberCmd)
-	midiInputPortCmd.AddCommand(midiInputPortOnFlushCmd)
-	midiInputPortOnSendCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	midiInputPortOnSendCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	midiInputPortOnSendCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	midiInputPortOnSendCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	midiInputPortCmd.AddCommand(midiInputPortOnSendCmd)
-	midiCmd.AddCommand(midiInputPortCmd)
+	midiDeviceServiceCmd.AddCommand(midiDeviceServiceGetDeviceInfoCmd)
+	midiDeviceServiceCmd.AddCommand(midiDeviceServiceGetOutputPortReceiversCmd)
+	midiDeviceServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	midiDeviceServiceCmd.AddCommand(midiDeviceServiceOnBindCmd)
+	midiDeviceServiceCmd.AddCommand(midiDeviceServiceOnCloseCmd)
+	midiDeviceServiceCmd.AddCommand(midiDeviceServiceOnCreateCmd)
+	midiDeviceServiceOnDeviceStatusChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	midiDeviceServiceCmd.AddCommand(midiDeviceServiceOnDeviceStatusChangedCmd)
+	midiDeviceServiceCmd.AddCommand(midiDeviceServiceOnGetInputPortReceiversCmd)
+	midiCmd.AddCommand(midiDeviceServiceCmd)
+	midiDeviceCmd.AddCommand(midiDeviceCloseCmd)
+	midiDeviceConnectPortsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	midiDeviceConnectPortsCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	midiDeviceCmd.AddCommand(midiDeviceConnectPortsCmd)
+	midiDeviceCmd.AddCommand(midiDeviceGetInfoCmd)
+	midiDeviceOpenInputPortCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	midiDeviceCmd.AddCommand(midiDeviceOpenInputPortCmd)
+	midiDeviceOpenOutputPortCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	midiDeviceCmd.AddCommand(midiDeviceOpenOutputPortCmd)
+	midiDeviceCmd.AddCommand(midiDeviceToStringCmd)
+	midiCmd.AddCommand(midiDeviceCmd)
+	midiDeviceMidiConnectionCmd.AddCommand(midiDeviceMidiConnectionCloseCmd)
+	midiCmd.AddCommand(midiDeviceMidiConnectionCmd)
+	midiSenderConnectCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	midiSenderCmd.AddCommand(midiSenderConnectCmd)
+	midiSenderDisconnectCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	midiSenderCmd.AddCommand(midiSenderDisconnectCmd)
+	midiSenderOnConnectCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	midiSenderCmd.AddCommand(midiSenderOnConnectCmd)
+	midiSenderOnDisconnectCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	midiSenderCmd.AddCommand(midiSenderOnDisconnectCmd)
+	midiCmd.AddCommand(midiSenderCmd)
 	midiReceiverCmd.AddCommand(midiReceiverFlushCmd)
 	midiReceiverCmd.AddCommand(midiReceiverGetMaxMessageSizeCmd)
 	midiReceiverCmd.AddCommand(midiReceiverOnFlushCmd)
@@ -1320,6 +1424,8 @@ func init() {
 	midiReceiverCmd.AddCommand(midiReceiverSend4_1Cmd)
 	midiCmd.AddCommand(midiReceiverCmd)
 	midiManagerCmd.AddCommand(midiManagerGetDevicesCmd)
+	midiManagerGetDevicesForTransportCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	midiManagerCmd.AddCommand(midiManagerGetDevicesForTransportCmd)
 	midiManagerRegisterDeviceCallbackCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	midiManagerRegisterDeviceCallbackCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	midiManagerRegisterDeviceCallbackCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
@@ -1337,33 +1443,6 @@ func init() {
 	midiManagerOnDeviceOpenedListenerOnDeviceOpenedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	midiManagerOnDeviceOpenedListenerCmd.AddCommand(midiManagerOnDeviceOpenedListenerOnDeviceOpenedCmd)
 	midiCmd.AddCommand(midiManagerOnDeviceOpenedListenerCmd)
-	midiSenderConnectCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	midiSenderCmd.AddCommand(midiSenderConnectCmd)
-	midiSenderDisconnectCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	midiSenderCmd.AddCommand(midiSenderDisconnectCmd)
-	midiSenderOnConnectCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	midiSenderCmd.AddCommand(midiSenderOnConnectCmd)
-	midiSenderOnDisconnectCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	midiSenderCmd.AddCommand(midiSenderOnDisconnectCmd)
-	midiCmd.AddCommand(midiSenderCmd)
-	midiUmpDeviceServiceCmd.AddCommand(midiUmpDeviceServiceGetDeviceInfoCmd)
-	midiUmpDeviceServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	midiUmpDeviceServiceCmd.AddCommand(midiUmpDeviceServiceOnBindCmd)
-	midiUmpDeviceServiceCmd.AddCommand(midiUmpDeviceServiceOnCloseCmd)
-	midiUmpDeviceServiceCmd.AddCommand(midiUmpDeviceServiceOnCreateCmd)
-	midiUmpDeviceServiceOnDeviceStatusChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	midiUmpDeviceServiceCmd.AddCommand(midiUmpDeviceServiceOnDeviceStatusChangedCmd)
-	midiCmd.AddCommand(midiUmpDeviceServiceCmd)
-	midiDeviceServiceCmd.AddCommand(midiDeviceServiceGetDeviceInfoCmd)
-	midiDeviceServiceCmd.AddCommand(midiDeviceServiceGetOutputPortReceiversCmd)
-	midiDeviceServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	midiDeviceServiceCmd.AddCommand(midiDeviceServiceOnBindCmd)
-	midiDeviceServiceCmd.AddCommand(midiDeviceServiceOnCloseCmd)
-	midiDeviceServiceCmd.AddCommand(midiDeviceServiceOnCreateCmd)
-	midiDeviceServiceOnDeviceStatusChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	midiDeviceServiceCmd.AddCommand(midiDeviceServiceOnDeviceStatusChangedCmd)
-	midiDeviceServiceCmd.AddCommand(midiDeviceServiceOnGetInputPortReceiversCmd)
-	midiCmd.AddCommand(midiDeviceServiceCmd)
 	midiOutputPortCmd.AddCommand(midiOutputPortCloseCmd)
 	midiOutputPortCmd.AddCommand(midiOutputPortGetPortNumberCmd)
 	midiOutputPortOnConnectCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -1371,29 +1450,5 @@ func init() {
 	midiOutputPortOnDisconnectCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	midiOutputPortCmd.AddCommand(midiOutputPortOnDisconnectCmd)
 	midiCmd.AddCommand(midiOutputPortCmd)
-	midiDeviceStatusCmd.AddCommand(midiDeviceStatusDescribeContentsCmd)
-	midiDeviceStatusCmd.AddCommand(midiDeviceStatusGetDeviceInfoCmd)
-	midiDeviceStatusGetOutputPortOpenCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	midiDeviceStatusCmd.AddCommand(midiDeviceStatusGetOutputPortOpenCountCmd)
-	midiDeviceStatusIsInputPortOpenCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	midiDeviceStatusCmd.AddCommand(midiDeviceStatusIsInputPortOpenCmd)
-	midiDeviceStatusCmd.AddCommand(midiDeviceStatusToStringCmd)
-	midiDeviceStatusWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	midiDeviceStatusWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	midiDeviceStatusCmd.AddCommand(midiDeviceStatusWriteToParcelCmd)
-	midiCmd.AddCommand(midiDeviceStatusCmd)
-	midiDeviceCmd.AddCommand(midiDeviceCloseCmd)
-	midiDeviceConnectPortsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	midiDeviceConnectPortsCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	midiDeviceCmd.AddCommand(midiDeviceConnectPortsCmd)
-	midiDeviceCmd.AddCommand(midiDeviceGetInfoCmd)
-	midiDeviceOpenInputPortCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	midiDeviceCmd.AddCommand(midiDeviceOpenInputPortCmd)
-	midiDeviceOpenOutputPortCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	midiDeviceCmd.AddCommand(midiDeviceOpenOutputPortCmd)
-	midiDeviceCmd.AddCommand(midiDeviceToStringCmd)
-	midiCmd.AddCommand(midiDeviceCmd)
-	midiDeviceMidiConnectionCmd.AddCommand(midiDeviceMidiConnectionCloseCmd)
-	midiCmd.AddCommand(midiDeviceMidiConnectionCmd)
 	rootCmd.AddCommand(midiCmd)
 }

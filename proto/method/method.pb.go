@@ -23,31 +23,28 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type NewCharacterPickerDialogRequest struct {
+type NewQwertyKeyListenerRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	Arg3          string                 `protobuf:"bytes,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
-	Arg4          bool                   `protobuf:"varint,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	Arg1          bool                   `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *NewCharacterPickerDialogRequest) Reset() {
-	*x = NewCharacterPickerDialogRequest{}
+func (x *NewQwertyKeyListenerRequest) Reset() {
+	*x = NewQwertyKeyListenerRequest{}
 	mi := &file_proto_method_method_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *NewCharacterPickerDialogRequest) String() string {
+func (x *NewQwertyKeyListenerRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*NewCharacterPickerDialogRequest) ProtoMessage() {}
+func (*NewQwertyKeyListenerRequest) ProtoMessage() {}
 
-func (x *NewCharacterPickerDialogRequest) ProtoReflect() protoreflect.Message {
+func (x *NewQwertyKeyListenerRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_method_method_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -59,67 +56,46 @@ func (x *NewCharacterPickerDialogRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use NewCharacterPickerDialogRequest.ProtoReflect.Descriptor instead.
-func (*NewCharacterPickerDialogRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use NewQwertyKeyListenerRequest.ProtoReflect.Descriptor instead.
+func (*NewQwertyKeyListenerRequest) Descriptor() ([]byte, []int) {
 	return file_proto_method_method_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *NewCharacterPickerDialogRequest) GetArg0() int64 {
+func (x *NewQwertyKeyListenerRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-func (x *NewCharacterPickerDialogRequest) GetArg1() int64 {
+func (x *NewQwertyKeyListenerRequest) GetArg1() bool {
 	if x != nil {
 		return x.Arg1
-	}
-	return 0
-}
-
-func (x *NewCharacterPickerDialogRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-func (x *NewCharacterPickerDialogRequest) GetArg3() string {
-	if x != nil {
-		return x.Arg3
-	}
-	return ""
-}
-
-func (x *NewCharacterPickerDialogRequest) GetArg4() bool {
-	if x != nil {
-		return x.Arg4
 	}
 	return false
 }
 
-type NewCharacterPickerDialogResponse struct {
+type NewQwertyKeyListenerResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *NewCharacterPickerDialogResponse) Reset() {
-	*x = NewCharacterPickerDialogResponse{}
+func (x *NewQwertyKeyListenerResponse) Reset() {
+	*x = NewQwertyKeyListenerResponse{}
 	mi := &file_proto_method_method_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *NewCharacterPickerDialogResponse) String() string {
+func (x *NewQwertyKeyListenerResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*NewCharacterPickerDialogResponse) ProtoMessage() {}
+func (*NewQwertyKeyListenerResponse) ProtoMessage() {}
 
-func (x *NewCharacterPickerDialogResponse) ProtoReflect() protoreflect.Message {
+func (x *NewQwertyKeyListenerResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_method_method_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -131,40 +107,39 @@ func (x *NewCharacterPickerDialogResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use NewCharacterPickerDialogResponse.ProtoReflect.Descriptor instead.
-func (*NewCharacterPickerDialogResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use NewQwertyKeyListenerResponse.ProtoReflect.Descriptor instead.
+func (*NewQwertyKeyListenerResponse) Descriptor() ([]byte, []int) {
 	return file_proto_method_method_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *NewCharacterPickerDialogResponse) GetResult() int64 {
+func (x *NewQwertyKeyListenerResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type OnClickRequest struct {
+type GetInputTypeRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *OnClickRequest) Reset() {
-	*x = OnClickRequest{}
+func (x *GetInputTypeRequest) Reset() {
+	*x = GetInputTypeRequest{}
 	mi := &file_proto_method_method_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *OnClickRequest) String() string {
+func (x *GetInputTypeRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*OnClickRequest) ProtoMessage() {}
+func (*GetInputTypeRequest) ProtoMessage() {}
 
-func (x *OnClickRequest) ProtoReflect() protoreflect.Message {
+func (x *GetInputTypeRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_method_method_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -176,45 +151,39 @@ func (x *OnClickRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use OnClickRequest.ProtoReflect.Descriptor instead.
-func (*OnClickRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetInputTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetInputTypeRequest) Descriptor() ([]byte, []int) {
 	return file_proto_method_method_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *OnClickRequest) GetHandle() int64 {
+func (x *GetInputTypeRequest) GetHandle() int64 {
 	if x != nil {
 		return x.Handle
 	}
 	return 0
 }
 
-func (x *OnClickRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnClickResponse struct {
+type GetInputTypeResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *OnClickResponse) Reset() {
-	*x = OnClickResponse{}
+func (x *GetInputTypeResponse) Reset() {
+	*x = GetInputTypeResponse{}
 	mi := &file_proto_method_method_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *OnClickResponse) String() string {
+func (x *GetInputTypeResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*OnClickResponse) ProtoMessage() {}
+func (*GetInputTypeResponse) ProtoMessage() {}
 
-func (x *OnClickResponse) ProtoReflect() protoreflect.Message {
+func (x *GetInputTypeResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_method_method_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -226,12 +195,19 @@ func (x *OnClickResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use OnClickResponse.ProtoReflect.Descriptor instead.
-func (*OnClickResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetInputTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetInputTypeResponse) Descriptor() ([]byte, []int) {
 	return file_proto_method_method_proto_rawDescGZIP(), []int{3}
 }
 
-type OnItemClickRequest struct {
+func (x *GetInputTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnKeyDownRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -242,20 +218,20 @@ type OnItemClickRequest struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *OnItemClickRequest) Reset() {
-	*x = OnItemClickRequest{}
+func (x *OnKeyDownRequest) Reset() {
+	*x = OnKeyDownRequest{}
 	mi := &file_proto_method_method_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *OnItemClickRequest) String() string {
+func (x *OnKeyDownRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*OnItemClickRequest) ProtoMessage() {}
+func (*OnKeyDownRequest) ProtoMessage() {}
 
-func (x *OnItemClickRequest) ProtoReflect() protoreflect.Message {
+func (x *OnKeyDownRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_method_method_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -267,66 +243,67 @@ func (x *OnItemClickRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use OnItemClickRequest.ProtoReflect.Descriptor instead.
-func (*OnItemClickRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use OnKeyDownRequest.ProtoReflect.Descriptor instead.
+func (*OnKeyDownRequest) Descriptor() ([]byte, []int) {
 	return file_proto_method_method_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *OnItemClickRequest) GetHandle() int64 {
+func (x *OnKeyDownRequest) GetHandle() int64 {
 	if x != nil {
 		return x.Handle
 	}
 	return 0
 }
 
-func (x *OnItemClickRequest) GetArg0() int64 {
+func (x *OnKeyDownRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-func (x *OnItemClickRequest) GetArg1() int64 {
+func (x *OnKeyDownRequest) GetArg1() int64 {
 	if x != nil {
 		return x.Arg1
 	}
 	return 0
 }
 
-func (x *OnItemClickRequest) GetArg2() int32 {
+func (x *OnKeyDownRequest) GetArg2() int32 {
 	if x != nil {
 		return x.Arg2
 	}
 	return 0
 }
 
-func (x *OnItemClickRequest) GetArg3() int64 {
+func (x *OnKeyDownRequest) GetArg3() int64 {
 	if x != nil {
 		return x.Arg3
 	}
 	return 0
 }
 
-type OnItemClickResponse struct {
+type OnKeyDownResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *OnItemClickResponse) Reset() {
-	*x = OnItemClickResponse{}
+func (x *OnKeyDownResponse) Reset() {
+	*x = OnKeyDownResponse{}
 	mi := &file_proto_method_method_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *OnItemClickResponse) String() string {
+func (x *OnKeyDownResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*OnItemClickResponse) ProtoMessage() {}
+func (*OnKeyDownResponse) ProtoMessage() {}
 
-func (x *OnItemClickResponse) ProtoReflect() protoreflect.Message {
+func (x *OnKeyDownResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_method_method_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -338,9 +315,5040 @@ func (x *OnItemClickResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use OnItemClickResponse.ProtoReflect.Descriptor instead.
-func (*OnItemClickResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use OnKeyDownResponse.ProtoReflect.Descriptor instead.
+func (*OnKeyDownResponse) Descriptor() ([]byte, []int) {
 	return file_proto_method_method_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *OnKeyDownResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type GetInstanceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInstanceRequest) Reset() {
+	*x = GetInstanceRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInstanceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInstanceRequest) ProtoMessage() {}
+
+func (x *GetInstanceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInstanceRequest.ProtoReflect.Descriptor instead.
+func (*GetInstanceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *GetInstanceRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetInstanceRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+func (x *GetInstanceRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetInstanceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInstanceResponse) Reset() {
+	*x = GetInstanceResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInstanceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInstanceResponse) ProtoMessage() {}
+
+func (x *GetInstanceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInstanceResponse.ProtoReflect.Descriptor instead.
+func (*GetInstanceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetInstanceResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetInstanceForFullKeyboardRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInstanceForFullKeyboardRequest) Reset() {
+	*x = GetInstanceForFullKeyboardRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInstanceForFullKeyboardRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInstanceForFullKeyboardRequest) ProtoMessage() {}
+
+func (x *GetInstanceForFullKeyboardRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInstanceForFullKeyboardRequest.ProtoReflect.Descriptor instead.
+func (*GetInstanceForFullKeyboardRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *GetInstanceForFullKeyboardRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetInstanceForFullKeyboardResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInstanceForFullKeyboardResponse) Reset() {
+	*x = GetInstanceForFullKeyboardResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInstanceForFullKeyboardResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInstanceForFullKeyboardResponse) ProtoMessage() {}
+
+func (x *GetInstanceForFullKeyboardResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInstanceForFullKeyboardResponse.ProtoReflect.Descriptor instead.
+func (*GetInstanceForFullKeyboardResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetInstanceForFullKeyboardResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type MarkAsReplacedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          string                 `protobuf:"bytes,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MarkAsReplacedRequest) Reset() {
+	*x = MarkAsReplacedRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MarkAsReplacedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MarkAsReplacedRequest) ProtoMessage() {}
+
+func (x *MarkAsReplacedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MarkAsReplacedRequest.ProtoReflect.Descriptor instead.
+func (*MarkAsReplacedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *MarkAsReplacedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *MarkAsReplacedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *MarkAsReplacedRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *MarkAsReplacedRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *MarkAsReplacedRequest) GetArg3() string {
+	if x != nil {
+		return x.Arg3
+	}
+	return ""
+}
+
+type MarkAsReplacedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MarkAsReplacedResponse) Reset() {
+	*x = MarkAsReplacedResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MarkAsReplacedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MarkAsReplacedResponse) ProtoMessage() {}
+
+func (x *MarkAsReplacedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MarkAsReplacedResponse.ProtoReflect.Descriptor instead.
+func (*MarkAsReplacedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{11}
+}
+
+type NewBaseMovementMethodRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewBaseMovementMethodRequest) Reset() {
+	*x = NewBaseMovementMethodRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewBaseMovementMethodRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewBaseMovementMethodRequest) ProtoMessage() {}
+
+func (x *NewBaseMovementMethodRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewBaseMovementMethodRequest.ProtoReflect.Descriptor instead.
+func (*NewBaseMovementMethodRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{12}
+}
+
+type NewBaseMovementMethodResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewBaseMovementMethodResponse) Reset() {
+	*x = NewBaseMovementMethodResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewBaseMovementMethodResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewBaseMovementMethodResponse) ProtoMessage() {}
+
+func (x *NewBaseMovementMethodResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewBaseMovementMethodResponse.ProtoReflect.Descriptor instead.
+func (*NewBaseMovementMethodResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *NewBaseMovementMethodResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CanSelectArbitrarilyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CanSelectArbitrarilyRequest) Reset() {
+	*x = CanSelectArbitrarilyRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CanSelectArbitrarilyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CanSelectArbitrarilyRequest) ProtoMessage() {}
+
+func (x *CanSelectArbitrarilyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CanSelectArbitrarilyRequest.ProtoReflect.Descriptor instead.
+func (*CanSelectArbitrarilyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *CanSelectArbitrarilyRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type CanSelectArbitrarilyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CanSelectArbitrarilyResponse) Reset() {
+	*x = CanSelectArbitrarilyResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CanSelectArbitrarilyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CanSelectArbitrarilyResponse) ProtoMessage() {}
+
+func (x *CanSelectArbitrarilyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CanSelectArbitrarilyResponse.ProtoReflect.Descriptor instead.
+func (*CanSelectArbitrarilyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *CanSelectArbitrarilyResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type InitializeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InitializeRequest) Reset() {
+	*x = InitializeRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InitializeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InitializeRequest) ProtoMessage() {}
+
+func (x *InitializeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InitializeRequest.ProtoReflect.Descriptor instead.
+func (*InitializeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *InitializeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *InitializeRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *InitializeRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type InitializeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InitializeResponse) Reset() {
+	*x = InitializeResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InitializeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InitializeResponse) ProtoMessage() {}
+
+func (x *InitializeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InitializeResponse.ProtoReflect.Descriptor instead.
+func (*InitializeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{17}
+}
+
+type NextParagraphRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NextParagraphRequest) Reset() {
+	*x = NextParagraphRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NextParagraphRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NextParagraphRequest) ProtoMessage() {}
+
+func (x *NextParagraphRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NextParagraphRequest.ProtoReflect.Descriptor instead.
+func (*NextParagraphRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *NextParagraphRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *NextParagraphRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NextParagraphRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NextParagraphResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NextParagraphResponse) Reset() {
+	*x = NextParagraphResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NextParagraphResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NextParagraphResponse) ProtoMessage() {}
+
+func (x *NextParagraphResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NextParagraphResponse.ProtoReflect.Descriptor instead.
+func (*NextParagraphResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *NextParagraphResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type OnGenericMotionEventRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnGenericMotionEventRequest) Reset() {
+	*x = OnGenericMotionEventRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnGenericMotionEventRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnGenericMotionEventRequest) ProtoMessage() {}
+
+func (x *OnGenericMotionEventRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnGenericMotionEventRequest.ProtoReflect.Descriptor instead.
+func (*OnGenericMotionEventRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *OnGenericMotionEventRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnGenericMotionEventRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnGenericMotionEventRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnGenericMotionEventRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnGenericMotionEventResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnGenericMotionEventResponse) Reset() {
+	*x = OnGenericMotionEventResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnGenericMotionEventResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnGenericMotionEventResponse) ProtoMessage() {}
+
+func (x *OnGenericMotionEventResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnGenericMotionEventResponse.ProtoReflect.Descriptor instead.
+func (*OnGenericMotionEventResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *OnGenericMotionEventResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type OnKeyOtherRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnKeyOtherRequest) Reset() {
+	*x = OnKeyOtherRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnKeyOtherRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnKeyOtherRequest) ProtoMessage() {}
+
+func (x *OnKeyOtherRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnKeyOtherRequest.ProtoReflect.Descriptor instead.
+func (*OnKeyOtherRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *OnKeyOtherRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnKeyOtherRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnKeyOtherRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnKeyOtherRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnKeyOtherResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnKeyOtherResponse) Reset() {
+	*x = OnKeyOtherResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnKeyOtherResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnKeyOtherResponse) ProtoMessage() {}
+
+func (x *OnKeyOtherResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnKeyOtherResponse.ProtoReflect.Descriptor instead.
+func (*OnKeyOtherResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *OnKeyOtherResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type OnKeyUpRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnKeyUpRequest) Reset() {
+	*x = OnKeyUpRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnKeyUpRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnKeyUpRequest) ProtoMessage() {}
+
+func (x *OnKeyUpRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnKeyUpRequest.ProtoReflect.Descriptor instead.
+func (*OnKeyUpRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *OnKeyUpRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnKeyUpRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnKeyUpRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnKeyUpRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *OnKeyUpRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type OnKeyUpResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnKeyUpResponse) Reset() {
+	*x = OnKeyUpResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnKeyUpResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnKeyUpResponse) ProtoMessage() {}
+
+func (x *OnKeyUpResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnKeyUpResponse.ProtoReflect.Descriptor instead.
+func (*OnKeyUpResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *OnKeyUpResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type OnTakeFocusRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTakeFocusRequest) Reset() {
+	*x = OnTakeFocusRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTakeFocusRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTakeFocusRequest) ProtoMessage() {}
+
+func (x *OnTakeFocusRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTakeFocusRequest.ProtoReflect.Descriptor instead.
+func (*OnTakeFocusRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *OnTakeFocusRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnTakeFocusRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnTakeFocusRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnTakeFocusRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnTakeFocusResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTakeFocusResponse) Reset() {
+	*x = OnTakeFocusResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTakeFocusResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTakeFocusResponse) ProtoMessage() {}
+
+func (x *OnTakeFocusResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTakeFocusResponse.ProtoReflect.Descriptor instead.
+func (*OnTakeFocusResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{27}
+}
+
+type OnTouchEventRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTouchEventRequest) Reset() {
+	*x = OnTouchEventRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTouchEventRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTouchEventRequest) ProtoMessage() {}
+
+func (x *OnTouchEventRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTouchEventRequest.ProtoReflect.Descriptor instead.
+func (*OnTouchEventRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *OnTouchEventRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnTouchEventRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnTouchEventRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnTouchEventRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnTouchEventResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTouchEventResponse) Reset() {
+	*x = OnTouchEventResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTouchEventResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTouchEventResponse) ProtoMessage() {}
+
+func (x *OnTouchEventResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTouchEventResponse.ProtoReflect.Descriptor instead.
+func (*OnTouchEventResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *OnTouchEventResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type OnTrackballEventRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTrackballEventRequest) Reset() {
+	*x = OnTrackballEventRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTrackballEventRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTrackballEventRequest) ProtoMessage() {}
+
+func (x *OnTrackballEventRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTrackballEventRequest.ProtoReflect.Descriptor instead.
+func (*OnTrackballEventRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *OnTrackballEventRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnTrackballEventRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnTrackballEventRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnTrackballEventRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type OnTrackballEventResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTrackballEventResponse) Reset() {
+	*x = OnTrackballEventResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTrackballEventResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTrackballEventResponse) ProtoMessage() {}
+
+func (x *OnTrackballEventResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTrackballEventResponse.ProtoReflect.Descriptor instead.
+func (*OnTrackballEventResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *OnTrackballEventResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type PreviousParagraphRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PreviousParagraphRequest) Reset() {
+	*x = PreviousParagraphRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PreviousParagraphRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PreviousParagraphRequest) ProtoMessage() {}
+
+func (x *PreviousParagraphRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PreviousParagraphRequest.ProtoReflect.Descriptor instead.
+func (*PreviousParagraphRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *PreviousParagraphRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *PreviousParagraphRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *PreviousParagraphRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type PreviousParagraphResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PreviousParagraphResponse) Reset() {
+	*x = PreviousParagraphResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PreviousParagraphResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PreviousParagraphResponse) ProtoMessage() {}
+
+func (x *PreviousParagraphResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PreviousParagraphResponse.ProtoReflect.Descriptor instead.
+func (*PreviousParagraphResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *PreviousParagraphResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type NewSingleLineTransformationMethodRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewSingleLineTransformationMethodRequest) Reset() {
+	*x = NewSingleLineTransformationMethodRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewSingleLineTransformationMethodRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewSingleLineTransformationMethodRequest) ProtoMessage() {}
+
+func (x *NewSingleLineTransformationMethodRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewSingleLineTransformationMethodRequest.ProtoReflect.Descriptor instead.
+func (*NewSingleLineTransformationMethodRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{34}
+}
+
+type NewSingleLineTransformationMethodResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewSingleLineTransformationMethodResponse) Reset() {
+	*x = NewSingleLineTransformationMethodResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewSingleLineTransformationMethodResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewSingleLineTransformationMethodResponse) ProtoMessage() {}
+
+func (x *NewSingleLineTransformationMethodResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewSingleLineTransformationMethodResponse.ProtoReflect.Descriptor instead.
+func (*NewSingleLineTransformationMethodResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *NewSingleLineTransformationMethodResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SingleLineTransformationMethodGetInstanceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SingleLineTransformationMethodGetInstanceRequest) Reset() {
+	*x = SingleLineTransformationMethodGetInstanceRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SingleLineTransformationMethodGetInstanceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SingleLineTransformationMethodGetInstanceRequest) ProtoMessage() {}
+
+func (x *SingleLineTransformationMethodGetInstanceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SingleLineTransformationMethodGetInstanceRequest.ProtoReflect.Descriptor instead.
+func (*SingleLineTransformationMethodGetInstanceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *SingleLineTransformationMethodGetInstanceRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetTransformationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTransformationRequest) Reset() {
+	*x = GetTransformationRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTransformationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTransformationRequest) ProtoMessage() {}
+
+func (x *GetTransformationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTransformationRequest.ProtoReflect.Descriptor instead.
+func (*GetTransformationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *GetTransformationRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *GetTransformationRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetTransformationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTransformationResponse) Reset() {
+	*x = GetTransformationResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTransformationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTransformationResponse) ProtoMessage() {}
+
+func (x *GetTransformationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTransformationResponse.ProtoReflect.Descriptor instead.
+func (*GetTransformationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *GetTransformationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type OnFocusChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          bool                   `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          int64                  `protobuf:"varint,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnFocusChangedRequest) Reset() {
+	*x = OnFocusChangedRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnFocusChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnFocusChangedRequest) ProtoMessage() {}
+
+func (x *OnFocusChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnFocusChangedRequest.ProtoReflect.Descriptor instead.
+func (*OnFocusChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *OnFocusChangedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnFocusChangedRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *OnFocusChangedRequest) GetArg2() bool {
+	if x != nil {
+		return x.Arg2
+	}
+	return false
+}
+
+func (x *OnFocusChangedRequest) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *OnFocusChangedRequest) GetArg4() int64 {
+	if x != nil {
+		return x.Arg4
+	}
+	return 0
+}
+
+type OnFocusChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnFocusChangedResponse) Reset() {
+	*x = OnFocusChangedResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnFocusChangedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnFocusChangedResponse) ProtoMessage() {}
+
+func (x *OnFocusChangedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnFocusChangedResponse.ProtoReflect.Descriptor instead.
+func (*OnFocusChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{40}
+}
+
+type BackspaceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BackspaceRequest) Reset() {
+	*x = BackspaceRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BackspaceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BackspaceRequest) ProtoMessage() {}
+
+func (x *BackspaceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BackspaceRequest.ProtoReflect.Descriptor instead.
+func (*BackspaceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *BackspaceRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *BackspaceRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *BackspaceRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *BackspaceRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type BackspaceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BackspaceResponse) Reset() {
+	*x = BackspaceResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BackspaceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BackspaceResponse) ProtoMessage() {}
+
+func (x *BackspaceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BackspaceResponse.ProtoReflect.Descriptor instead.
+func (*BackspaceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *BackspaceResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type ForwardDeleteRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ForwardDeleteRequest) Reset() {
+	*x = ForwardDeleteRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ForwardDeleteRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ForwardDeleteRequest) ProtoMessage() {}
+
+func (x *ForwardDeleteRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ForwardDeleteRequest.ProtoReflect.Descriptor instead.
+func (*ForwardDeleteRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *ForwardDeleteRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *ForwardDeleteRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *ForwardDeleteRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *ForwardDeleteRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type ForwardDeleteResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ForwardDeleteResponse) Reset() {
+	*x = ForwardDeleteResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ForwardDeleteResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ForwardDeleteResponse) ProtoMessage() {}
+
+func (x *ForwardDeleteResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ForwardDeleteResponse.ProtoReflect.Descriptor instead.
+func (*ForwardDeleteResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *ForwardDeleteResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type BaseKeyListenerOnKeyDownRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BaseKeyListenerOnKeyDownRequest) Reset() {
+	*x = BaseKeyListenerOnKeyDownRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BaseKeyListenerOnKeyDownRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BaseKeyListenerOnKeyDownRequest) ProtoMessage() {}
+
+func (x *BaseKeyListenerOnKeyDownRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BaseKeyListenerOnKeyDownRequest.ProtoReflect.Descriptor instead.
+func (*BaseKeyListenerOnKeyDownRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *BaseKeyListenerOnKeyDownRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *BaseKeyListenerOnKeyDownRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *BaseKeyListenerOnKeyDownRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *BaseKeyListenerOnKeyDownRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type BaseKeyListenerOnKeyOtherRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BaseKeyListenerOnKeyOtherRequest) Reset() {
+	*x = BaseKeyListenerOnKeyOtherRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BaseKeyListenerOnKeyOtherRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BaseKeyListenerOnKeyOtherRequest) ProtoMessage() {}
+
+func (x *BaseKeyListenerOnKeyOtherRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BaseKeyListenerOnKeyOtherRequest.ProtoReflect.Descriptor instead.
+func (*BaseKeyListenerOnKeyOtherRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *BaseKeyListenerOnKeyOtherRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *BaseKeyListenerOnKeyOtherRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *BaseKeyListenerOnKeyOtherRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type ClearMetaKeyState3_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearMetaKeyState3_1Request) Reset() {
+	*x = ClearMetaKeyState3_1Request{}
+	mi := &file_proto_method_method_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearMetaKeyState3_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearMetaKeyState3_1Request) ProtoMessage() {}
+
+func (x *ClearMetaKeyState3_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearMetaKeyState3_1Request.ProtoReflect.Descriptor instead.
+func (*ClearMetaKeyState3_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *ClearMetaKeyState3_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *ClearMetaKeyState3_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *ClearMetaKeyState3_1Request) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type ClearMetaKeyState3_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearMetaKeyState3_1Response) Reset() {
+	*x = ClearMetaKeyState3_1Response{}
+	mi := &file_proto_method_method_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearMetaKeyState3_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearMetaKeyState3_1Response) ProtoMessage() {}
+
+func (x *ClearMetaKeyState3_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearMetaKeyState3_1Response.ProtoReflect.Descriptor instead.
+func (*ClearMetaKeyState3_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{48}
+}
+
+type ClearMetaKeyState2_2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearMetaKeyState2_2Request) Reset() {
+	*x = ClearMetaKeyState2_2Request{}
+	mi := &file_proto_method_method_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearMetaKeyState2_2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearMetaKeyState2_2Request) ProtoMessage() {}
+
+func (x *ClearMetaKeyState2_2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearMetaKeyState2_2Request.ProtoReflect.Descriptor instead.
+func (*ClearMetaKeyState2_2Request) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *ClearMetaKeyState2_2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *ClearMetaKeyState2_2Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type ClearMetaKeyState2_2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearMetaKeyState2_2Response) Reset() {
+	*x = ClearMetaKeyState2_2Response{}
+	mi := &file_proto_method_method_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearMetaKeyState2_2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearMetaKeyState2_2Response) ProtoMessage() {}
+
+func (x *ClearMetaKeyState2_2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearMetaKeyState2_2Response.ProtoReflect.Descriptor instead.
+func (*ClearMetaKeyState2_2Response) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *ClearMetaKeyState2_2Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type MetaKeyKeyListenerOnKeyDownRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MetaKeyKeyListenerOnKeyDownRequest) Reset() {
+	*x = MetaKeyKeyListenerOnKeyDownRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MetaKeyKeyListenerOnKeyDownRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MetaKeyKeyListenerOnKeyDownRequest) ProtoMessage() {}
+
+func (x *MetaKeyKeyListenerOnKeyDownRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MetaKeyKeyListenerOnKeyDownRequest.ProtoReflect.Descriptor instead.
+func (*MetaKeyKeyListenerOnKeyDownRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *MetaKeyKeyListenerOnKeyDownRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *MetaKeyKeyListenerOnKeyDownRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *MetaKeyKeyListenerOnKeyDownRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *MetaKeyKeyListenerOnKeyDownRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type MetaKeyKeyListenerOnKeyUpRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MetaKeyKeyListenerOnKeyUpRequest) Reset() {
+	*x = MetaKeyKeyListenerOnKeyUpRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MetaKeyKeyListenerOnKeyUpRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MetaKeyKeyListenerOnKeyUpRequest) ProtoMessage() {}
+
+func (x *MetaKeyKeyListenerOnKeyUpRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MetaKeyKeyListenerOnKeyUpRequest.ProtoReflect.Descriptor instead.
+func (*MetaKeyKeyListenerOnKeyUpRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{52}
+}
+
+func (x *MetaKeyKeyListenerOnKeyUpRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *MetaKeyKeyListenerOnKeyUpRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *MetaKeyKeyListenerOnKeyUpRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *MetaKeyKeyListenerOnKeyUpRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type AdjustMetaAfterKeypress1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AdjustMetaAfterKeypress1Request) Reset() {
+	*x = AdjustMetaAfterKeypress1Request{}
+	mi := &file_proto_method_method_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AdjustMetaAfterKeypress1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AdjustMetaAfterKeypress1Request) ProtoMessage() {}
+
+func (x *AdjustMetaAfterKeypress1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AdjustMetaAfterKeypress1Request.ProtoReflect.Descriptor instead.
+func (*AdjustMetaAfterKeypress1Request) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *AdjustMetaAfterKeypress1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AdjustMetaAfterKeypress1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AdjustMetaAfterKeypress1Response) Reset() {
+	*x = AdjustMetaAfterKeypress1Response{}
+	mi := &file_proto_method_method_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AdjustMetaAfterKeypress1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AdjustMetaAfterKeypress1Response) ProtoMessage() {}
+
+func (x *AdjustMetaAfterKeypress1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AdjustMetaAfterKeypress1Response.ProtoReflect.Descriptor instead.
+func (*AdjustMetaAfterKeypress1Response) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{54}
+}
+
+type AdjustMetaAfterKeypress1_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AdjustMetaAfterKeypress1_1Request) Reset() {
+	*x = AdjustMetaAfterKeypress1_1Request{}
+	mi := &file_proto_method_method_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AdjustMetaAfterKeypress1_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AdjustMetaAfterKeypress1_1Request) ProtoMessage() {}
+
+func (x *AdjustMetaAfterKeypress1_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AdjustMetaAfterKeypress1_1Request.ProtoReflect.Descriptor instead.
+func (*AdjustMetaAfterKeypress1_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *AdjustMetaAfterKeypress1_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AdjustMetaAfterKeypress1_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AdjustMetaAfterKeypress1_1Response) Reset() {
+	*x = AdjustMetaAfterKeypress1_1Response{}
+	mi := &file_proto_method_method_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AdjustMetaAfterKeypress1_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AdjustMetaAfterKeypress1_1Response) ProtoMessage() {}
+
+func (x *AdjustMetaAfterKeypress1_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AdjustMetaAfterKeypress1_1Response.ProtoReflect.Descriptor instead.
+func (*AdjustMetaAfterKeypress1_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{56}
+}
+
+func (x *AdjustMetaAfterKeypress1_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearMetaKeyState2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearMetaKeyState2Request) Reset() {
+	*x = ClearMetaKeyState2Request{}
+	mi := &file_proto_method_method_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearMetaKeyState2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearMetaKeyState2Request) ProtoMessage() {}
+
+func (x *ClearMetaKeyState2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearMetaKeyState2Request.ProtoReflect.Descriptor instead.
+func (*ClearMetaKeyState2Request) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{57}
+}
+
+func (x *ClearMetaKeyState2Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *ClearMetaKeyState2Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type ClearMetaKeyState2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearMetaKeyState2Response) Reset() {
+	*x = ClearMetaKeyState2Response{}
+	mi := &file_proto_method_method_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearMetaKeyState2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearMetaKeyState2Response) ProtoMessage() {}
+
+func (x *ClearMetaKeyState2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearMetaKeyState2Response.ProtoReflect.Descriptor instead.
+func (*ClearMetaKeyState2Response) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{58}
+}
+
+type GetMetaState1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMetaState1Request) Reset() {
+	*x = GetMetaState1Request{}
+	mi := &file_proto_method_method_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMetaState1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMetaState1Request) ProtoMessage() {}
+
+func (x *GetMetaState1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMetaState1Request.ProtoReflect.Descriptor instead.
+func (*GetMetaState1Request) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{59}
+}
+
+func (x *GetMetaState1Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type GetMetaState1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMetaState1Response) Reset() {
+	*x = GetMetaState1Response{}
+	mi := &file_proto_method_method_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMetaState1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMetaState1Response) ProtoMessage() {}
+
+func (x *GetMetaState1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMetaState1Response.ProtoReflect.Descriptor instead.
+func (*GetMetaState1Response) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{60}
+}
+
+func (x *GetMetaState1Response) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMetaState2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMetaState2_1Request) Reset() {
+	*x = GetMetaState2_1Request{}
+	mi := &file_proto_method_method_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMetaState2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMetaState2_1Request) ProtoMessage() {}
+
+func (x *GetMetaState2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMetaState2_1Request.ProtoReflect.Descriptor instead.
+func (*GetMetaState2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{61}
+}
+
+func (x *GetMetaState2_1Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *GetMetaState2_1Request) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetMetaState2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMetaState2_1Response) Reset() {
+	*x = GetMetaState2_1Response{}
+	mi := &file_proto_method_method_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMetaState2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMetaState2_1Response) ProtoMessage() {}
+
+func (x *GetMetaState2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMetaState2_1Response.ProtoReflect.Descriptor instead.
+func (*GetMetaState2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{62}
+}
+
+func (x *GetMetaState2_1Response) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMetaState2_2Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMetaState2_2Request) Reset() {
+	*x = GetMetaState2_2Request{}
+	mi := &file_proto_method_method_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMetaState2_2Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMetaState2_2Request) ProtoMessage() {}
+
+func (x *GetMetaState2_2Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMetaState2_2Request.ProtoReflect.Descriptor instead.
+func (*GetMetaState2_2Request) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{63}
+}
+
+func (x *GetMetaState2_2Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *GetMetaState2_2Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetMetaState2_2Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMetaState2_2Response) Reset() {
+	*x = GetMetaState2_2Response{}
+	mi := &file_proto_method_method_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMetaState2_2Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMetaState2_2Response) ProtoMessage() {}
+
+func (x *GetMetaState2_2Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMetaState2_2Response.ProtoReflect.Descriptor instead.
+func (*GetMetaState2_2Response) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{64}
+}
+
+func (x *GetMetaState2_2Response) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMetaState3_3Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMetaState3_3Request) Reset() {
+	*x = GetMetaState3_3Request{}
+	mi := &file_proto_method_method_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMetaState3_3Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMetaState3_3Request) ProtoMessage() {}
+
+func (x *GetMetaState3_3Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMetaState3_3Request.ProtoReflect.Descriptor instead.
+func (*GetMetaState3_3Request) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{65}
+}
+
+func (x *GetMetaState3_3Request) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *GetMetaState3_3Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *GetMetaState3_3Request) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type GetMetaState3_3Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMetaState3_3Response) Reset() {
+	*x = GetMetaState3_3Response{}
+	mi := &file_proto_method_method_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMetaState3_3Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMetaState3_3Response) ProtoMessage() {}
+
+func (x *GetMetaState3_3Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMetaState3_3Response.ProtoReflect.Descriptor instead.
+func (*GetMetaState3_3Response) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{66}
+}
+
+func (x *GetMetaState3_3Response) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMetaState1_4Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMetaState1_4Request) Reset() {
+	*x = GetMetaState1_4Request{}
+	mi := &file_proto_method_method_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMetaState1_4Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMetaState1_4Request) ProtoMessage() {}
+
+func (x *GetMetaState1_4Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMetaState1_4Request.ProtoReflect.Descriptor instead.
+func (*GetMetaState1_4Request) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{67}
+}
+
+func (x *GetMetaState1_4Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetMetaState1_4Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMetaState1_4Response) Reset() {
+	*x = GetMetaState1_4Response{}
+	mi := &file_proto_method_method_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMetaState1_4Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMetaState1_4Response) ProtoMessage() {}
+
+func (x *GetMetaState1_4Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMetaState1_4Response.ProtoReflect.Descriptor instead.
+func (*GetMetaState1_4Response) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{68}
+}
+
+func (x *GetMetaState1_4Response) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMetaState2_5Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMetaState2_5Request) Reset() {
+	*x = GetMetaState2_5Request{}
+	mi := &file_proto_method_method_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMetaState2_5Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMetaState2_5Request) ProtoMessage() {}
+
+func (x *GetMetaState2_5Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMetaState2_5Request.ProtoReflect.Descriptor instead.
+func (*GetMetaState2_5Request) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{69}
+}
+
+func (x *GetMetaState2_5Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetMetaState2_5Request) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetMetaState2_5Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMetaState2_5Response) Reset() {
+	*x = GetMetaState2_5Response{}
+	mi := &file_proto_method_method_proto_msgTypes[70]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMetaState2_5Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMetaState2_5Response) ProtoMessage() {}
+
+func (x *GetMetaState2_5Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[70]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMetaState2_5Response.ProtoReflect.Descriptor instead.
+func (*GetMetaState2_5Response) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{70}
+}
+
+func (x *GetMetaState2_5Response) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type HandleKeyDownRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HandleKeyDownRequest) Reset() {
+	*x = HandleKeyDownRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[71]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HandleKeyDownRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HandleKeyDownRequest) ProtoMessage() {}
+
+func (x *HandleKeyDownRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[71]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HandleKeyDownRequest.ProtoReflect.Descriptor instead.
+func (*HandleKeyDownRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{71}
+}
+
+func (x *HandleKeyDownRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *HandleKeyDownRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *HandleKeyDownRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type HandleKeyDownResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HandleKeyDownResponse) Reset() {
+	*x = HandleKeyDownResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[72]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HandleKeyDownResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HandleKeyDownResponse) ProtoMessage() {}
+
+func (x *HandleKeyDownResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[72]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HandleKeyDownResponse.ProtoReflect.Descriptor instead.
+func (*HandleKeyDownResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{72}
+}
+
+func (x *HandleKeyDownResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type HandleKeyUpRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HandleKeyUpRequest) Reset() {
+	*x = HandleKeyUpRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[73]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HandleKeyUpRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HandleKeyUpRequest) ProtoMessage() {}
+
+func (x *HandleKeyUpRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[73]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HandleKeyUpRequest.ProtoReflect.Descriptor instead.
+func (*HandleKeyUpRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{73}
+}
+
+func (x *HandleKeyUpRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *HandleKeyUpRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *HandleKeyUpRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type HandleKeyUpResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HandleKeyUpResponse) Reset() {
+	*x = HandleKeyUpResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[74]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HandleKeyUpResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HandleKeyUpResponse) ProtoMessage() {}
+
+func (x *HandleKeyUpResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[74]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HandleKeyUpResponse.ProtoReflect.Descriptor instead.
+func (*HandleKeyUpResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{74}
+}
+
+func (x *HandleKeyUpResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsMetaTrackerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsMetaTrackerRequest) Reset() {
+	*x = IsMetaTrackerRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[75]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsMetaTrackerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsMetaTrackerRequest) ProtoMessage() {}
+
+func (x *IsMetaTrackerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[75]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsMetaTrackerRequest.ProtoReflect.Descriptor instead.
+func (*IsMetaTrackerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{75}
+}
+
+func (x *IsMetaTrackerRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *IsMetaTrackerRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type IsMetaTrackerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsMetaTrackerResponse) Reset() {
+	*x = IsMetaTrackerResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[76]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsMetaTrackerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsMetaTrackerResponse) ProtoMessage() {}
+
+func (x *IsMetaTrackerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[76]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsMetaTrackerResponse.ProtoReflect.Descriptor instead.
+func (*IsMetaTrackerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{76}
+}
+
+func (x *IsMetaTrackerResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsSelectingMetaTrackerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsSelectingMetaTrackerRequest) Reset() {
+	*x = IsSelectingMetaTrackerRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[77]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsSelectingMetaTrackerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsSelectingMetaTrackerRequest) ProtoMessage() {}
+
+func (x *IsSelectingMetaTrackerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[77]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsSelectingMetaTrackerRequest.ProtoReflect.Descriptor instead.
+func (*IsSelectingMetaTrackerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{77}
+}
+
+func (x *IsSelectingMetaTrackerRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *IsSelectingMetaTrackerRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type IsSelectingMetaTrackerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsSelectingMetaTrackerResponse) Reset() {
+	*x = IsSelectingMetaTrackerResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[78]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsSelectingMetaTrackerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsSelectingMetaTrackerResponse) ProtoMessage() {}
+
+func (x *IsSelectingMetaTrackerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[78]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsSelectingMetaTrackerResponse.ProtoReflect.Descriptor instead.
+func (*IsSelectingMetaTrackerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{78}
+}
+
+func (x *IsSelectingMetaTrackerResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type ResetLockedMetaRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ResetLockedMetaRequest) Reset() {
+	*x = ResetLockedMetaRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ResetLockedMetaRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ResetLockedMetaRequest) ProtoMessage() {}
+
+func (x *ResetLockedMetaRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ResetLockedMetaRequest.ProtoReflect.Descriptor instead.
+func (*ResetLockedMetaRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{79}
+}
+
+func (x *ResetLockedMetaRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type ResetLockedMetaResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ResetLockedMetaResponse) Reset() {
+	*x = ResetLockedMetaResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[80]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ResetLockedMetaResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ResetLockedMetaResponse) ProtoMessage() {}
+
+func (x *ResetLockedMetaResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[80]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ResetLockedMetaResponse.ProtoReflect.Descriptor instead.
+func (*ResetLockedMetaResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{80}
+}
+
+func (x *ResetLockedMetaResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ResetMetaStateRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ResetMetaStateRequest) Reset() {
+	*x = ResetMetaStateRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[81]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ResetMetaStateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ResetMetaStateRequest) ProtoMessage() {}
+
+func (x *ResetMetaStateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[81]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ResetMetaStateRequest.ProtoReflect.Descriptor instead.
+func (*ResetMetaStateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{81}
+}
+
+func (x *ResetMetaStateRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type ResetMetaStateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ResetMetaStateResponse) Reset() {
+	*x = ResetMetaStateResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[82]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ResetMetaStateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ResetMetaStateResponse) ProtoMessage() {}
+
+func (x *ResetMetaStateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[82]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ResetMetaStateResponse.ProtoReflect.Descriptor instead.
+func (*ResetMetaStateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{82}
+}
+
+type NewPasswordTransformationMethodRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewPasswordTransformationMethodRequest) Reset() {
+	*x = NewPasswordTransformationMethodRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[83]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewPasswordTransformationMethodRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewPasswordTransformationMethodRequest) ProtoMessage() {}
+
+func (x *NewPasswordTransformationMethodRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[83]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewPasswordTransformationMethodRequest.ProtoReflect.Descriptor instead.
+func (*NewPasswordTransformationMethodRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{83}
+}
+
+type NewPasswordTransformationMethodResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewPasswordTransformationMethodResponse) Reset() {
+	*x = NewPasswordTransformationMethodResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[84]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewPasswordTransformationMethodResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewPasswordTransformationMethodResponse) ProtoMessage() {}
+
+func (x *NewPasswordTransformationMethodResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[84]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewPasswordTransformationMethodResponse.ProtoReflect.Descriptor instead.
+func (*NewPasswordTransformationMethodResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{84}
+}
+
+func (x *NewPasswordTransformationMethodResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AfterTextChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AfterTextChangedRequest) Reset() {
+	*x = AfterTextChangedRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[85]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AfterTextChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AfterTextChangedRequest) ProtoMessage() {}
+
+func (x *AfterTextChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[85]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AfterTextChangedRequest.ProtoReflect.Descriptor instead.
+func (*AfterTextChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{85}
+}
+
+func (x *AfterTextChangedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *AfterTextChangedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AfterTextChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AfterTextChangedResponse) Reset() {
+	*x = AfterTextChangedResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[86]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AfterTextChangedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AfterTextChangedResponse) ProtoMessage() {}
+
+func (x *AfterTextChangedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[86]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AfterTextChangedResponse.ProtoReflect.Descriptor instead.
+func (*AfterTextChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{86}
+}
+
+type BeforeTextChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BeforeTextChangedRequest) Reset() {
+	*x = BeforeTextChangedRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[87]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BeforeTextChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BeforeTextChangedRequest) ProtoMessage() {}
+
+func (x *BeforeTextChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[87]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BeforeTextChangedRequest.ProtoReflect.Descriptor instead.
+func (*BeforeTextChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{87}
+}
+
+func (x *BeforeTextChangedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *BeforeTextChangedRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *BeforeTextChangedRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *BeforeTextChangedRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *BeforeTextChangedRequest) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type BeforeTextChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BeforeTextChangedResponse) Reset() {
+	*x = BeforeTextChangedResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[88]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BeforeTextChangedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BeforeTextChangedResponse) ProtoMessage() {}
+
+func (x *BeforeTextChangedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[88]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BeforeTextChangedResponse.ProtoReflect.Descriptor instead.
+func (*BeforeTextChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{88}
+}
+
+type PasswordTransformationMethodGetTransformationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PasswordTransformationMethodGetTransformationRequest) Reset() {
+	*x = PasswordTransformationMethodGetTransformationRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[89]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PasswordTransformationMethodGetTransformationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PasswordTransformationMethodGetTransformationRequest) ProtoMessage() {}
+
+func (x *PasswordTransformationMethodGetTransformationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[89]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PasswordTransformationMethodGetTransformationRequest.ProtoReflect.Descriptor instead.
+func (*PasswordTransformationMethodGetTransformationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{89}
+}
+
+func (x *PasswordTransformationMethodGetTransformationRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *PasswordTransformationMethodGetTransformationRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *PasswordTransformationMethodGetTransformationRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type PasswordTransformationMethodOnFocusChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          bool                   `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          int64                  `protobuf:"varint,6,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PasswordTransformationMethodOnFocusChangedRequest) Reset() {
+	*x = PasswordTransformationMethodOnFocusChangedRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[90]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PasswordTransformationMethodOnFocusChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PasswordTransformationMethodOnFocusChangedRequest) ProtoMessage() {}
+
+func (x *PasswordTransformationMethodOnFocusChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[90]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PasswordTransformationMethodOnFocusChangedRequest.ProtoReflect.Descriptor instead.
+func (*PasswordTransformationMethodOnFocusChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{90}
+}
+
+func (x *PasswordTransformationMethodOnFocusChangedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *PasswordTransformationMethodOnFocusChangedRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *PasswordTransformationMethodOnFocusChangedRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *PasswordTransformationMethodOnFocusChangedRequest) GetArg2() bool {
+	if x != nil {
+		return x.Arg2
+	}
+	return false
+}
+
+func (x *PasswordTransformationMethodOnFocusChangedRequest) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+func (x *PasswordTransformationMethodOnFocusChangedRequest) GetArg4() int64 {
+	if x != nil {
+		return x.Arg4
+	}
+	return 0
+}
+
+type OnTextChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTextChangedRequest) Reset() {
+	*x = OnTextChangedRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[91]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTextChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTextChangedRequest) ProtoMessage() {}
+
+func (x *OnTextChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[91]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTextChangedRequest.ProtoReflect.Descriptor instead.
+func (*OnTextChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{91}
+}
+
+func (x *OnTextChangedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnTextChangedRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *OnTextChangedRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnTextChangedRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *OnTextChangedRequest) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type OnTextChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTextChangedResponse) Reset() {
+	*x = OnTextChangedResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[92]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTextChangedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTextChangedResponse) ProtoMessage() {}
+
+func (x *OnTextChangedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[92]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTextChangedResponse.ProtoReflect.Descriptor instead.
+func (*OnTextChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{92}
+}
+
+type PasswordTransformationMethodGetInstanceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PasswordTransformationMethodGetInstanceRequest) Reset() {
+	*x = PasswordTransformationMethodGetInstanceRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[93]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PasswordTransformationMethodGetInstanceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PasswordTransformationMethodGetInstanceRequest) ProtoMessage() {}
+
+func (x *PasswordTransformationMethodGetInstanceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[93]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PasswordTransformationMethodGetInstanceRequest.ProtoReflect.Descriptor instead.
+func (*PasswordTransformationMethodGetInstanceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{93}
+}
+
+func (x *PasswordTransformationMethodGetInstanceRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type NewArrowKeyMovementMethodRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewArrowKeyMovementMethodRequest) Reset() {
+	*x = NewArrowKeyMovementMethodRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[94]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewArrowKeyMovementMethodRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewArrowKeyMovementMethodRequest) ProtoMessage() {}
+
+func (x *NewArrowKeyMovementMethodRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[94]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewArrowKeyMovementMethodRequest.ProtoReflect.Descriptor instead.
+func (*NewArrowKeyMovementMethodRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{94}
+}
+
+type NewArrowKeyMovementMethodResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewArrowKeyMovementMethodResponse) Reset() {
+	*x = NewArrowKeyMovementMethodResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[95]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewArrowKeyMovementMethodResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewArrowKeyMovementMethodResponse) ProtoMessage() {}
+
+func (x *NewArrowKeyMovementMethodResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[95]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewArrowKeyMovementMethodResponse.ProtoReflect.Descriptor instead.
+func (*NewArrowKeyMovementMethodResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{95}
+}
+
+func (x *NewArrowKeyMovementMethodResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ArrowKeyMovementMethodGetInstanceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ArrowKeyMovementMethodGetInstanceRequest) Reset() {
+	*x = ArrowKeyMovementMethodGetInstanceRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[96]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ArrowKeyMovementMethodGetInstanceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ArrowKeyMovementMethodGetInstanceRequest) ProtoMessage() {}
+
+func (x *ArrowKeyMovementMethodGetInstanceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[96]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ArrowKeyMovementMethodGetInstanceRequest.ProtoReflect.Descriptor instead.
+func (*ArrowKeyMovementMethodGetInstanceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{96}
+}
+
+func (x *ArrowKeyMovementMethodGetInstanceRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type NewDateTimeKeyListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewDateTimeKeyListenerRequest) Reset() {
+	*x = NewDateTimeKeyListenerRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[97]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewDateTimeKeyListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewDateTimeKeyListenerRequest) ProtoMessage() {}
+
+func (x *NewDateTimeKeyListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[97]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewDateTimeKeyListenerRequest.ProtoReflect.Descriptor instead.
+func (*NewDateTimeKeyListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{97}
+}
+
+type NewDateTimeKeyListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewDateTimeKeyListenerResponse) Reset() {
+	*x = NewDateTimeKeyListenerResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[98]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewDateTimeKeyListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewDateTimeKeyListenerResponse) ProtoMessage() {}
+
+func (x *NewDateTimeKeyListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[98]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewDateTimeKeyListenerResponse.ProtoReflect.Descriptor instead.
+func (*NewDateTimeKeyListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{98}
+}
+
+func (x *NewDateTimeKeyListenerResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetInstance0Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInstance0Request) Reset() {
+	*x = GetInstance0Request{}
+	mi := &file_proto_method_method_proto_msgTypes[99]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInstance0Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInstance0Request) ProtoMessage() {}
+
+func (x *GetInstance0Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[99]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInstance0Request.ProtoReflect.Descriptor instead.
+func (*GetInstance0Request) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{99}
+}
+
+func (x *GetInstance0Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetInstance0Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInstance0Response) Reset() {
+	*x = GetInstance0Response{}
+	mi := &file_proto_method_method_proto_msgTypes[100]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInstance0Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInstance0Response) ProtoMessage() {}
+
+func (x *GetInstance0Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[100]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInstance0Response.ProtoReflect.Descriptor instead.
+func (*GetInstance0Response) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{100}
+}
+
+func (x *GetInstance0Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetInstance1_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInstance1_1Request) Reset() {
+	*x = GetInstance1_1Request{}
+	mi := &file_proto_method_method_proto_msgTypes[101]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInstance1_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInstance1_1Request) ProtoMessage() {}
+
+func (x *GetInstance1_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[101]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInstance1_1Request.ProtoReflect.Descriptor instead.
+func (*GetInstance1_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{101}
+}
+
+func (x *GetInstance1_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetInstance1_1Request) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetInstance1_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInstance1_1Response) Reset() {
+	*x = GetInstance1_1Response{}
+	mi := &file_proto_method_method_proto_msgTypes[102]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInstance1_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInstance1_1Response) ProtoMessage() {}
+
+func (x *GetInstance1_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[102]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInstance1_1Response.ProtoReflect.Descriptor instead.
+func (*GetInstance1_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{102}
+}
+
+func (x *GetInstance1_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewScrollingMovementMethodRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewScrollingMovementMethodRequest) Reset() {
+	*x = NewScrollingMovementMethodRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[103]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewScrollingMovementMethodRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewScrollingMovementMethodRequest) ProtoMessage() {}
+
+func (x *NewScrollingMovementMethodRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[103]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewScrollingMovementMethodRequest.ProtoReflect.Descriptor instead.
+func (*NewScrollingMovementMethodRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{103}
+}
+
+type NewScrollingMovementMethodResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewScrollingMovementMethodResponse) Reset() {
+	*x = NewScrollingMovementMethodResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[104]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewScrollingMovementMethodResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewScrollingMovementMethodResponse) ProtoMessage() {}
+
+func (x *NewScrollingMovementMethodResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[104]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewScrollingMovementMethodResponse.ProtoReflect.Descriptor instead.
+func (*NewScrollingMovementMethodResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{104}
+}
+
+func (x *NewScrollingMovementMethodResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ScrollingMovementMethodGetInstanceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ScrollingMovementMethodGetInstanceRequest) Reset() {
+	*x = ScrollingMovementMethodGetInstanceRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[105]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ScrollingMovementMethodGetInstanceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ScrollingMovementMethodGetInstanceRequest) ProtoMessage() {}
+
+func (x *ScrollingMovementMethodGetInstanceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[105]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ScrollingMovementMethodGetInstanceRequest.ProtoReflect.Descriptor instead.
+func (*ScrollingMovementMethodGetInstanceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{105}
+}
+
+func (x *ScrollingMovementMethodGetInstanceRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type NewTimeKeyListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewTimeKeyListenerRequest) Reset() {
+	*x = NewTimeKeyListenerRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[106]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewTimeKeyListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewTimeKeyListenerRequest) ProtoMessage() {}
+
+func (x *NewTimeKeyListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[106]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewTimeKeyListenerRequest.ProtoReflect.Descriptor instead.
+func (*NewTimeKeyListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{106}
+}
+
+type NewTimeKeyListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewTimeKeyListenerResponse) Reset() {
+	*x = NewTimeKeyListenerResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[107]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewTimeKeyListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewTimeKeyListenerResponse) ProtoMessage() {}
+
+func (x *NewTimeKeyListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[107]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewTimeKeyListenerResponse.ProtoReflect.Descriptor instead.
+func (*NewTimeKeyListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{107}
+}
+
+func (x *NewTimeKeyListenerResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
 }
 
 type FilterRequest struct {
@@ -357,7 +5365,7 @@ type FilterRequest struct {
 
 func (x *FilterRequest) Reset() {
 	*x = FilterRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[6]
+	mi := &file_proto_method_method_proto_msgTypes[108]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -369,7 +5377,7 @@ func (x *FilterRequest) String() string {
 func (*FilterRequest) ProtoMessage() {}
 
 func (x *FilterRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[6]
+	mi := &file_proto_method_method_proto_msgTypes[108]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -382,7 +5390,7 @@ func (x *FilterRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FilterRequest.ProtoReflect.Descriptor instead.
 func (*FilterRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{6}
+	return file_proto_method_method_proto_rawDescGZIP(), []int{108}
 }
 
 func (x *FilterRequest) GetArg0() string {
@@ -436,7 +5444,7 @@ type FilterResponse struct {
 
 func (x *FilterResponse) Reset() {
 	*x = FilterResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[7]
+	mi := &file_proto_method_method_proto_msgTypes[109]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -448,7 +5456,7 @@ func (x *FilterResponse) String() string {
 func (*FilterResponse) ProtoMessage() {}
 
 func (x *FilterResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[7]
+	mi := &file_proto_method_method_proto_msgTypes[109]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -461,7 +5469,7 @@ func (x *FilterResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FilterResponse.ProtoReflect.Descriptor instead.
 func (*FilterResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{7}
+	return file_proto_method_method_proto_rawDescGZIP(), []int{109}
 }
 
 func (x *FilterResponse) GetResult() int64 {
@@ -471,7 +5479,7 @@ func (x *FilterResponse) GetResult() int64 {
 	return 0
 }
 
-type OnKeyDownRequest struct {
+type NumberKeyListenerOnKeyDownRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
@@ -481,21 +5489,21 @@ type OnKeyDownRequest struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *OnKeyDownRequest) Reset() {
-	*x = OnKeyDownRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[8]
+func (x *NumberKeyListenerOnKeyDownRequest) Reset() {
+	*x = NumberKeyListenerOnKeyDownRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[110]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *OnKeyDownRequest) String() string {
+func (x *NumberKeyListenerOnKeyDownRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*OnKeyDownRequest) ProtoMessage() {}
+func (*NumberKeyListenerOnKeyDownRequest) ProtoMessage() {}
 
-func (x *OnKeyDownRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[8]
+func (x *NumberKeyListenerOnKeyDownRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[110]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -506,61 +5514,60 @@ func (x *OnKeyDownRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use OnKeyDownRequest.ProtoReflect.Descriptor instead.
-func (*OnKeyDownRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{8}
+// Deprecated: Use NumberKeyListenerOnKeyDownRequest.ProtoReflect.Descriptor instead.
+func (*NumberKeyListenerOnKeyDownRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{110}
 }
 
-func (x *OnKeyDownRequest) GetArg0() int64 {
+func (x *NumberKeyListenerOnKeyDownRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-func (x *OnKeyDownRequest) GetArg1() int64 {
+func (x *NumberKeyListenerOnKeyDownRequest) GetArg1() int64 {
 	if x != nil {
 		return x.Arg1
 	}
 	return 0
 }
 
-func (x *OnKeyDownRequest) GetArg2() int32 {
+func (x *NumberKeyListenerOnKeyDownRequest) GetArg2() int32 {
 	if x != nil {
 		return x.Arg2
 	}
 	return 0
 }
 
-func (x *OnKeyDownRequest) GetArg3() int64 {
+func (x *NumberKeyListenerOnKeyDownRequest) GetArg3() int64 {
 	if x != nil {
 		return x.Arg3
 	}
 	return 0
 }
 
-type OnKeyDownResponse struct {
+type MovementMethodCanSelectArbitrarilyRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *OnKeyDownResponse) Reset() {
-	*x = OnKeyDownResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[9]
+func (x *MovementMethodCanSelectArbitrarilyRequest) Reset() {
+	*x = MovementMethodCanSelectArbitrarilyRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[111]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *OnKeyDownResponse) String() string {
+func (x *MovementMethodCanSelectArbitrarilyRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*OnKeyDownResponse) ProtoMessage() {}
+func (*MovementMethodCanSelectArbitrarilyRequest) ProtoMessage() {}
 
-func (x *OnKeyDownResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[9]
+func (x *MovementMethodCanSelectArbitrarilyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[111]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -571,267 +5578,12 @@ func (x *OnKeyDownResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use OnKeyDownResponse.ProtoReflect.Descriptor instead.
-func (*OnKeyDownResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{9}
+// Deprecated: Use MovementMethodCanSelectArbitrarilyRequest.ProtoReflect.Descriptor instead.
+func (*MovementMethodCanSelectArbitrarilyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{111}
 }
 
-func (x *OnKeyDownResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type NewSingleLineTransformationMethodRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewSingleLineTransformationMethodRequest) Reset() {
-	*x = NewSingleLineTransformationMethodRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[10]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewSingleLineTransformationMethodRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewSingleLineTransformationMethodRequest) ProtoMessage() {}
-
-func (x *NewSingleLineTransformationMethodRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[10]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewSingleLineTransformationMethodRequest.ProtoReflect.Descriptor instead.
-func (*NewSingleLineTransformationMethodRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{10}
-}
-
-type NewSingleLineTransformationMethodResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewSingleLineTransformationMethodResponse) Reset() {
-	*x = NewSingleLineTransformationMethodResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[11]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewSingleLineTransformationMethodResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewSingleLineTransformationMethodResponse) ProtoMessage() {}
-
-func (x *NewSingleLineTransformationMethodResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[11]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewSingleLineTransformationMethodResponse.ProtoReflect.Descriptor instead.
-func (*NewSingleLineTransformationMethodResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{11}
-}
-
-func (x *NewSingleLineTransformationMethodResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetInstanceRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetInstanceRequest) Reset() {
-	*x = GetInstanceRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[12]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetInstanceRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetInstanceRequest) ProtoMessage() {}
-
-func (x *GetInstanceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[12]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetInstanceRequest.ProtoReflect.Descriptor instead.
-func (*GetInstanceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{12}
-}
-
-func (x *GetInstanceRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetInstanceResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetInstanceResponse) Reset() {
-	*x = GetInstanceResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[13]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetInstanceResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetInstanceResponse) ProtoMessage() {}
-
-func (x *GetInstanceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[13]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetInstanceResponse.ProtoReflect.Descriptor instead.
-func (*GetInstanceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{13}
-}
-
-func (x *GetInstanceResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type CanSelectArbitrarilyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CanSelectArbitrarilyRequest) Reset() {
-	*x = CanSelectArbitrarilyRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[14]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CanSelectArbitrarilyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CanSelectArbitrarilyRequest) ProtoMessage() {}
-
-func (x *CanSelectArbitrarilyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[14]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CanSelectArbitrarilyRequest.ProtoReflect.Descriptor instead.
-func (*CanSelectArbitrarilyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{14}
-}
-
-type CanSelectArbitrarilyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CanSelectArbitrarilyResponse) Reset() {
-	*x = CanSelectArbitrarilyResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[15]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CanSelectArbitrarilyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CanSelectArbitrarilyResponse) ProtoMessage() {}
-
-func (x *CanSelectArbitrarilyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[15]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CanSelectArbitrarilyResponse.ProtoReflect.Descriptor instead.
-func (*CanSelectArbitrarilyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{15}
-}
-
-func (x *CanSelectArbitrarilyResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type InitializeRequest struct {
+type MovementMethodInitializeRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
@@ -839,21 +5591,21 @@ type InitializeRequest struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *InitializeRequest) Reset() {
-	*x = InitializeRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[16]
+func (x *MovementMethodInitializeRequest) Reset() {
+	*x = MovementMethodInitializeRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[112]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *InitializeRequest) String() string {
+func (x *MovementMethodInitializeRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*InitializeRequest) ProtoMessage() {}
+func (*MovementMethodInitializeRequest) ProtoMessage() {}
 
-func (x *InitializeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[16]
+func (x *MovementMethodInitializeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[112]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -864,62 +5616,26 @@ func (x *InitializeRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use InitializeRequest.ProtoReflect.Descriptor instead.
-func (*InitializeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{16}
+// Deprecated: Use MovementMethodInitializeRequest.ProtoReflect.Descriptor instead.
+func (*MovementMethodInitializeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{112}
 }
 
-func (x *InitializeRequest) GetArg0() int64 {
+func (x *MovementMethodInitializeRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-func (x *InitializeRequest) GetArg1() int64 {
+func (x *MovementMethodInitializeRequest) GetArg1() int64 {
 	if x != nil {
 		return x.Arg1
 	}
 	return 0
 }
 
-type InitializeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *InitializeResponse) Reset() {
-	*x = InitializeResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[17]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *InitializeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*InitializeResponse) ProtoMessage() {}
-
-func (x *InitializeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[17]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use InitializeResponse.ProtoReflect.Descriptor instead.
-func (*InitializeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{17}
-}
-
-type OnGenericMotionEventRequest struct {
+type MovementMethodOnGenericMotionEventRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
@@ -928,21 +5644,21 @@ type OnGenericMotionEventRequest struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *OnGenericMotionEventRequest) Reset() {
-	*x = OnGenericMotionEventRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[18]
+func (x *MovementMethodOnGenericMotionEventRequest) Reset() {
+	*x = MovementMethodOnGenericMotionEventRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[113]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *OnGenericMotionEventRequest) String() string {
+func (x *MovementMethodOnGenericMotionEventRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*OnGenericMotionEventRequest) ProtoMessage() {}
+func (*MovementMethodOnGenericMotionEventRequest) ProtoMessage() {}
 
-func (x *OnGenericMotionEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[18]
+func (x *MovementMethodOnGenericMotionEventRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[113]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -953,181 +5669,33 @@ func (x *OnGenericMotionEventRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use OnGenericMotionEventRequest.ProtoReflect.Descriptor instead.
-func (*OnGenericMotionEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{18}
+// Deprecated: Use MovementMethodOnGenericMotionEventRequest.ProtoReflect.Descriptor instead.
+func (*MovementMethodOnGenericMotionEventRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{113}
 }
 
-func (x *OnGenericMotionEventRequest) GetArg0() int64 {
+func (x *MovementMethodOnGenericMotionEventRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-func (x *OnGenericMotionEventRequest) GetArg1() int64 {
+func (x *MovementMethodOnGenericMotionEventRequest) GetArg1() int64 {
 	if x != nil {
 		return x.Arg1
 	}
 	return 0
 }
 
-func (x *OnGenericMotionEventRequest) GetArg2() int64 {
+func (x *MovementMethodOnGenericMotionEventRequest) GetArg2() int64 {
 	if x != nil {
 		return x.Arg2
 	}
 	return 0
 }
 
-type OnGenericMotionEventResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnGenericMotionEventResponse) Reset() {
-	*x = OnGenericMotionEventResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[19]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnGenericMotionEventResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnGenericMotionEventResponse) ProtoMessage() {}
-
-func (x *OnGenericMotionEventResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[19]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnGenericMotionEventResponse.ProtoReflect.Descriptor instead.
-func (*OnGenericMotionEventResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{19}
-}
-
-func (x *OnGenericMotionEventResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type OnKeyOtherRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnKeyOtherRequest) Reset() {
-	*x = OnKeyOtherRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[20]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnKeyOtherRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnKeyOtherRequest) ProtoMessage() {}
-
-func (x *OnKeyOtherRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[20]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnKeyOtherRequest.ProtoReflect.Descriptor instead.
-func (*OnKeyOtherRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{20}
-}
-
-func (x *OnKeyOtherRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *OnKeyOtherRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *OnKeyOtherRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type OnKeyOtherResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnKeyOtherResponse) Reset() {
-	*x = OnKeyOtherResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[21]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnKeyOtherResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnKeyOtherResponse) ProtoMessage() {}
-
-func (x *OnKeyOtherResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[21]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnKeyOtherResponse.ProtoReflect.Descriptor instead.
-func (*OnKeyOtherResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{21}
-}
-
-func (x *OnKeyOtherResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type OnKeyUpRequest struct {
+type MovementMethodOnKeyDownRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
@@ -1137,21 +5705,21 @@ type OnKeyUpRequest struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *OnKeyUpRequest) Reset() {
-	*x = OnKeyUpRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[22]
+func (x *MovementMethodOnKeyDownRequest) Reset() {
+	*x = MovementMethodOnKeyDownRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[114]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *OnKeyUpRequest) String() string {
+func (x *MovementMethodOnKeyDownRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*OnKeyUpRequest) ProtoMessage() {}
+func (*MovementMethodOnKeyDownRequest) ProtoMessage() {}
 
-func (x *OnKeyUpRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[22]
+func (x *MovementMethodOnKeyDownRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[114]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1162,61 +5730,63 @@ func (x *OnKeyUpRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use OnKeyUpRequest.ProtoReflect.Descriptor instead.
-func (*OnKeyUpRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{22}
+// Deprecated: Use MovementMethodOnKeyDownRequest.ProtoReflect.Descriptor instead.
+func (*MovementMethodOnKeyDownRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{114}
 }
 
-func (x *OnKeyUpRequest) GetArg0() int64 {
+func (x *MovementMethodOnKeyDownRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-func (x *OnKeyUpRequest) GetArg1() int64 {
+func (x *MovementMethodOnKeyDownRequest) GetArg1() int64 {
 	if x != nil {
 		return x.Arg1
 	}
 	return 0
 }
 
-func (x *OnKeyUpRequest) GetArg2() int32 {
+func (x *MovementMethodOnKeyDownRequest) GetArg2() int32 {
 	if x != nil {
 		return x.Arg2
 	}
 	return 0
 }
 
-func (x *OnKeyUpRequest) GetArg3() int64 {
+func (x *MovementMethodOnKeyDownRequest) GetArg3() int64 {
 	if x != nil {
 		return x.Arg3
 	}
 	return 0
 }
 
-type OnKeyUpResponse struct {
+type MovementMethodOnKeyOtherRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *OnKeyUpResponse) Reset() {
-	*x = OnKeyUpResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[23]
+func (x *MovementMethodOnKeyOtherRequest) Reset() {
+	*x = MovementMethodOnKeyOtherRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[115]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *OnKeyUpResponse) String() string {
+func (x *MovementMethodOnKeyOtherRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*OnKeyUpResponse) ProtoMessage() {}
+func (*MovementMethodOnKeyOtherRequest) ProtoMessage() {}
 
-func (x *OnKeyUpResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[23]
+func (x *MovementMethodOnKeyOtherRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[115]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1227,19 +5797,101 @@ func (x *OnKeyUpResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use OnKeyUpResponse.ProtoReflect.Descriptor instead.
-func (*OnKeyUpResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{23}
+// Deprecated: Use MovementMethodOnKeyOtherRequest.ProtoReflect.Descriptor instead.
+func (*MovementMethodOnKeyOtherRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{115}
 }
 
-func (x *OnKeyUpResponse) GetResult() bool {
+func (x *MovementMethodOnKeyOtherRequest) GetArg0() int64 {
 	if x != nil {
-		return x.Result
+		return x.Arg0
 	}
-	return false
+	return 0
 }
 
-type OnTakeFocusRequest struct {
+func (x *MovementMethodOnKeyOtherRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *MovementMethodOnKeyOtherRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type MovementMethodOnKeyUpRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MovementMethodOnKeyUpRequest) Reset() {
+	*x = MovementMethodOnKeyUpRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[116]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MovementMethodOnKeyUpRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MovementMethodOnKeyUpRequest) ProtoMessage() {}
+
+func (x *MovementMethodOnKeyUpRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[116]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MovementMethodOnKeyUpRequest.ProtoReflect.Descriptor instead.
+func (*MovementMethodOnKeyUpRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{116}
+}
+
+func (x *MovementMethodOnKeyUpRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *MovementMethodOnKeyUpRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *MovementMethodOnKeyUpRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *MovementMethodOnKeyUpRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type MovementMethodOnTakeFocusRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
@@ -1248,21 +5900,21 @@ type OnTakeFocusRequest struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *OnTakeFocusRequest) Reset() {
-	*x = OnTakeFocusRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[24]
+func (x *MovementMethodOnTakeFocusRequest) Reset() {
+	*x = MovementMethodOnTakeFocusRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[117]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *OnTakeFocusRequest) String() string {
+func (x *MovementMethodOnTakeFocusRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*OnTakeFocusRequest) ProtoMessage() {}
+func (*MovementMethodOnTakeFocusRequest) ProtoMessage() {}
 
-func (x *OnTakeFocusRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[24]
+func (x *MovementMethodOnTakeFocusRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[117]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1273,69 +5925,33 @@ func (x *OnTakeFocusRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use OnTakeFocusRequest.ProtoReflect.Descriptor instead.
-func (*OnTakeFocusRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{24}
+// Deprecated: Use MovementMethodOnTakeFocusRequest.ProtoReflect.Descriptor instead.
+func (*MovementMethodOnTakeFocusRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{117}
 }
 
-func (x *OnTakeFocusRequest) GetArg0() int64 {
+func (x *MovementMethodOnTakeFocusRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-func (x *OnTakeFocusRequest) GetArg1() int64 {
+func (x *MovementMethodOnTakeFocusRequest) GetArg1() int64 {
 	if x != nil {
 		return x.Arg1
 	}
 	return 0
 }
 
-func (x *OnTakeFocusRequest) GetArg2() int32 {
+func (x *MovementMethodOnTakeFocusRequest) GetArg2() int32 {
 	if x != nil {
 		return x.Arg2
 	}
 	return 0
 }
 
-type OnTakeFocusResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnTakeFocusResponse) Reset() {
-	*x = OnTakeFocusResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[25]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnTakeFocusResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnTakeFocusResponse) ProtoMessage() {}
-
-func (x *OnTakeFocusResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[25]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnTakeFocusResponse.ProtoReflect.Descriptor instead.
-func (*OnTakeFocusResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{25}
-}
-
-type OnTouchEventRequest struct {
+type MovementMethodOnTouchEventRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
@@ -1344,21 +5960,21 @@ type OnTouchEventRequest struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *OnTouchEventRequest) Reset() {
-	*x = OnTouchEventRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[26]
+func (x *MovementMethodOnTouchEventRequest) Reset() {
+	*x = MovementMethodOnTouchEventRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[118]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *OnTouchEventRequest) String() string {
+func (x *MovementMethodOnTouchEventRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*OnTouchEventRequest) ProtoMessage() {}
+func (*MovementMethodOnTouchEventRequest) ProtoMessage() {}
 
-func (x *OnTouchEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[26]
+func (x *MovementMethodOnTouchEventRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[118]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1369,77 +5985,33 @@ func (x *OnTouchEventRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use OnTouchEventRequest.ProtoReflect.Descriptor instead.
-func (*OnTouchEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{26}
+// Deprecated: Use MovementMethodOnTouchEventRequest.ProtoReflect.Descriptor instead.
+func (*MovementMethodOnTouchEventRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{118}
 }
 
-func (x *OnTouchEventRequest) GetArg0() int64 {
+func (x *MovementMethodOnTouchEventRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-func (x *OnTouchEventRequest) GetArg1() int64 {
+func (x *MovementMethodOnTouchEventRequest) GetArg1() int64 {
 	if x != nil {
 		return x.Arg1
 	}
 	return 0
 }
 
-func (x *OnTouchEventRequest) GetArg2() int64 {
+func (x *MovementMethodOnTouchEventRequest) GetArg2() int64 {
 	if x != nil {
 		return x.Arg2
 	}
 	return 0
 }
 
-type OnTouchEventResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnTouchEventResponse) Reset() {
-	*x = OnTouchEventResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[27]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnTouchEventResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnTouchEventResponse) ProtoMessage() {}
-
-func (x *OnTouchEventResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[27]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnTouchEventResponse.ProtoReflect.Descriptor instead.
-func (*OnTouchEventResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{27}
-}
-
-func (x *OnTouchEventResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type OnTrackballEventRequest struct {
+type MovementMethodOnTrackballEventRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
@@ -1448,21 +6020,21 @@ type OnTrackballEventRequest struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *OnTrackballEventRequest) Reset() {
-	*x = OnTrackballEventRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[28]
+func (x *MovementMethodOnTrackballEventRequest) Reset() {
+	*x = MovementMethodOnTrackballEventRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[119]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *OnTrackballEventRequest) String() string {
+func (x *MovementMethodOnTrackballEventRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*OnTrackballEventRequest) ProtoMessage() {}
+func (*MovementMethodOnTrackballEventRequest) ProtoMessage() {}
 
-func (x *OnTrackballEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[28]
+func (x *MovementMethodOnTrackballEventRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[119]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1473,198 +6045,56 @@ func (x *OnTrackballEventRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use OnTrackballEventRequest.ProtoReflect.Descriptor instead.
-func (*OnTrackballEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{28}
+// Deprecated: Use MovementMethodOnTrackballEventRequest.ProtoReflect.Descriptor instead.
+func (*MovementMethodOnTrackballEventRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{119}
 }
 
-func (x *OnTrackballEventRequest) GetArg0() int64 {
+func (x *MovementMethodOnTrackballEventRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-func (x *OnTrackballEventRequest) GetArg1() int64 {
+func (x *MovementMethodOnTrackballEventRequest) GetArg1() int64 {
 	if x != nil {
 		return x.Arg1
 	}
 	return 0
 }
 
-func (x *OnTrackballEventRequest) GetArg2() int64 {
+func (x *MovementMethodOnTrackballEventRequest) GetArg2() int64 {
 	if x != nil {
 		return x.Arg2
 	}
 	return 0
 }
 
-type OnTrackballEventResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnTrackballEventResponse) Reset() {
-	*x = OnTrackballEventResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[29]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnTrackballEventResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnTrackballEventResponse) ProtoMessage() {}
-
-func (x *OnTrackballEventResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[29]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnTrackballEventResponse.ProtoReflect.Descriptor instead.
-func (*OnTrackballEventResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{29}
-}
-
-func (x *OnTrackballEventResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type GetTransformationRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTransformationRequest) Reset() {
-	*x = GetTransformationRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[30]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTransformationRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTransformationRequest) ProtoMessage() {}
-
-func (x *GetTransformationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[30]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTransformationRequest.ProtoReflect.Descriptor instead.
-func (*GetTransformationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{30}
-}
-
-func (x *GetTransformationRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-func (x *GetTransformationRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type GetTransformationResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTransformationResponse) Reset() {
-	*x = GetTransformationResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[31]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTransformationResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTransformationResponse) ProtoMessage() {}
-
-func (x *GetTransformationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[31]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTransformationResponse.ProtoReflect.Descriptor instead.
-func (*GetTransformationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{31}
-}
-
-func (x *GetTransformationResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type OnFocusChangedRequest struct {
+type ClearMetaKeyStateRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          bool                   `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	Arg3          int32                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
-	Arg4          int64                  `protobuf:"varint,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *OnFocusChangedRequest) Reset() {
-	*x = OnFocusChangedRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[32]
+func (x *ClearMetaKeyStateRequest) Reset() {
+	*x = ClearMetaKeyStateRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[120]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *OnFocusChangedRequest) String() string {
+func (x *ClearMetaKeyStateRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*OnFocusChangedRequest) ProtoMessage() {}
+func (*ClearMetaKeyStateRequest) ProtoMessage() {}
 
-func (x *OnFocusChangedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[32]
+func (x *ClearMetaKeyStateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[120]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1675,748 +6105,398 @@ func (x *OnFocusChangedRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use OnFocusChangedRequest.ProtoReflect.Descriptor instead.
-func (*OnFocusChangedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{32}
+// Deprecated: Use ClearMetaKeyStateRequest.ProtoReflect.Descriptor instead.
+func (*ClearMetaKeyStateRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{120}
 }
 
-func (x *OnFocusChangedRequest) GetArg0() int64 {
+func (x *ClearMetaKeyStateRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-func (x *OnFocusChangedRequest) GetArg1() string {
+func (x *ClearMetaKeyStateRequest) GetArg1() int64 {
 	if x != nil {
 		return x.Arg1
 	}
-	return ""
+	return 0
 }
 
-func (x *OnFocusChangedRequest) GetArg2() bool {
+func (x *ClearMetaKeyStateRequest) GetArg2() int32 {
 	if x != nil {
 		return x.Arg2
 	}
-	return false
+	return 0
 }
 
-func (x *OnFocusChangedRequest) GetArg3() int32 {
+type ClearMetaKeyStateResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearMetaKeyStateResponse) Reset() {
+	*x = ClearMetaKeyStateResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[121]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearMetaKeyStateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearMetaKeyStateResponse) ProtoMessage() {}
+
+func (x *ClearMetaKeyStateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[121]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearMetaKeyStateResponse.ProtoReflect.Descriptor instead.
+func (*ClearMetaKeyStateResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{121}
+}
+
+type KeyListenerGetInputTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *KeyListenerGetInputTypeRequest) Reset() {
+	*x = KeyListenerGetInputTypeRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[122]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *KeyListenerGetInputTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*KeyListenerGetInputTypeRequest) ProtoMessage() {}
+
+func (x *KeyListenerGetInputTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[122]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use KeyListenerGetInputTypeRequest.ProtoReflect.Descriptor instead.
+func (*KeyListenerGetInputTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{122}
+}
+
+type KeyListenerOnKeyDownRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *KeyListenerOnKeyDownRequest) Reset() {
+	*x = KeyListenerOnKeyDownRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[123]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *KeyListenerOnKeyDownRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*KeyListenerOnKeyDownRequest) ProtoMessage() {}
+
+func (x *KeyListenerOnKeyDownRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[123]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use KeyListenerOnKeyDownRequest.ProtoReflect.Descriptor instead.
+func (*KeyListenerOnKeyDownRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{123}
+}
+
+func (x *KeyListenerOnKeyDownRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *KeyListenerOnKeyDownRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *KeyListenerOnKeyDownRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *KeyListenerOnKeyDownRequest) GetArg3() int64 {
 	if x != nil {
 		return x.Arg3
 	}
 	return 0
 }
 
-func (x *OnFocusChangedRequest) GetArg4() int64 {
+type KeyListenerOnKeyOtherRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *KeyListenerOnKeyOtherRequest) Reset() {
+	*x = KeyListenerOnKeyOtherRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[124]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *KeyListenerOnKeyOtherRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*KeyListenerOnKeyOtherRequest) ProtoMessage() {}
+
+func (x *KeyListenerOnKeyOtherRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[124]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use KeyListenerOnKeyOtherRequest.ProtoReflect.Descriptor instead.
+func (*KeyListenerOnKeyOtherRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{124}
+}
+
+func (x *KeyListenerOnKeyOtherRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *KeyListenerOnKeyOtherRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *KeyListenerOnKeyOtherRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type KeyListenerOnKeyUpRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *KeyListenerOnKeyUpRequest) Reset() {
+	*x = KeyListenerOnKeyUpRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[125]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *KeyListenerOnKeyUpRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*KeyListenerOnKeyUpRequest) ProtoMessage() {}
+
+func (x *KeyListenerOnKeyUpRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[125]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use KeyListenerOnKeyUpRequest.ProtoReflect.Descriptor instead.
+func (*KeyListenerOnKeyUpRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{125}
+}
+
+func (x *KeyListenerOnKeyUpRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *KeyListenerOnKeyUpRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *KeyListenerOnKeyUpRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *KeyListenerOnKeyUpRequest) GetArg3() int64 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type NewCharacterPickerDialogRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          string                 `protobuf:"bytes,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	Arg4          bool                   `protobuf:"varint,5,opt,name=arg4,proto3" json:"arg4,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewCharacterPickerDialogRequest) Reset() {
+	*x = NewCharacterPickerDialogRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[126]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewCharacterPickerDialogRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewCharacterPickerDialogRequest) ProtoMessage() {}
+
+func (x *NewCharacterPickerDialogRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[126]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewCharacterPickerDialogRequest.ProtoReflect.Descriptor instead.
+func (*NewCharacterPickerDialogRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{126}
+}
+
+func (x *NewCharacterPickerDialogRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewCharacterPickerDialogRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *NewCharacterPickerDialogRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *NewCharacterPickerDialogRequest) GetArg3() string {
+	if x != nil {
+		return x.Arg3
+	}
+	return ""
+}
+
+func (x *NewCharacterPickerDialogRequest) GetArg4() bool {
 	if x != nil {
 		return x.Arg4
 	}
-	return 0
-}
-
-type OnFocusChangedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnFocusChangedResponse) Reset() {
-	*x = OnFocusChangedResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[33]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnFocusChangedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnFocusChangedResponse) ProtoMessage() {}
-
-func (x *OnFocusChangedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[33]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnFocusChangedResponse.ProtoReflect.Descriptor instead.
-func (*OnFocusChangedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{33}
-}
-
-type GetInitialScrollXRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetInitialScrollXRequest) Reset() {
-	*x = GetInitialScrollXRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[34]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetInitialScrollXRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetInitialScrollXRequest) ProtoMessage() {}
-
-func (x *GetInitialScrollXRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[34]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetInitialScrollXRequest.ProtoReflect.Descriptor instead.
-func (*GetInitialScrollXRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{34}
-}
-
-func (x *GetInitialScrollXRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *GetInitialScrollXRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type GetInitialScrollXResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetInitialScrollXResponse) Reset() {
-	*x = GetInitialScrollXResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[35]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetInitialScrollXResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetInitialScrollXResponse) ProtoMessage() {}
-
-func (x *GetInitialScrollXResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[35]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetInitialScrollXResponse.ProtoReflect.Descriptor instead.
-func (*GetInitialScrollXResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{35}
-}
-
-func (x *GetInitialScrollXResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetInitialScrollYRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetInitialScrollYRequest) Reset() {
-	*x = GetInitialScrollYRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[36]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetInitialScrollYRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetInitialScrollYRequest) ProtoMessage() {}
-
-func (x *GetInitialScrollYRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[36]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetInitialScrollYRequest.ProtoReflect.Descriptor instead.
-func (*GetInitialScrollYRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{36}
-}
-
-func (x *GetInitialScrollYRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *GetInitialScrollYRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type GetInitialScrollYResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetInitialScrollYResponse) Reset() {
-	*x = GetInitialScrollYResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[37]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetInitialScrollYResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetInitialScrollYResponse) ProtoMessage() {}
-
-func (x *GetInitialScrollYResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[37]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetInitialScrollYResponse.ProtoReflect.Descriptor instead.
-func (*GetInitialScrollYResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{37}
-}
-
-func (x *GetInitialScrollYResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ScrollToRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	Arg3          int32                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ScrollToRequest) Reset() {
-	*x = ScrollToRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[38]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ScrollToRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ScrollToRequest) ProtoMessage() {}
-
-func (x *ScrollToRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[38]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ScrollToRequest.ProtoReflect.Descriptor instead.
-func (*ScrollToRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{38}
-}
-
-func (x *ScrollToRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *ScrollToRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *ScrollToRequest) GetArg2() int32 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-func (x *ScrollToRequest) GetArg3() int32 {
-	if x != nil {
-		return x.Arg3
-	}
-	return 0
-}
-
-type ScrollToResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ScrollToResponse) Reset() {
-	*x = ScrollToResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[39]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ScrollToResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ScrollToResponse) ProtoMessage() {}
-
-func (x *ScrollToResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[39]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ScrollToResponse.ProtoReflect.Descriptor instead.
-func (*ScrollToResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{39}
-}
-
-type NewScrollingMovementMethodRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewScrollingMovementMethodRequest) Reset() {
-	*x = NewScrollingMovementMethodRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[40]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewScrollingMovementMethodRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewScrollingMovementMethodRequest) ProtoMessage() {}
-
-func (x *NewScrollingMovementMethodRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[40]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewScrollingMovementMethodRequest.ProtoReflect.Descriptor instead.
-func (*NewScrollingMovementMethodRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{40}
-}
-
-type NewScrollingMovementMethodResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewScrollingMovementMethodResponse) Reset() {
-	*x = NewScrollingMovementMethodResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[41]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewScrollingMovementMethodResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewScrollingMovementMethodResponse) ProtoMessage() {}
-
-func (x *NewScrollingMovementMethodResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[41]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewScrollingMovementMethodResponse.ProtoReflect.Descriptor instead.
-func (*NewScrollingMovementMethodResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{41}
-}
-
-func (x *NewScrollingMovementMethodResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ScrollingMovementMethodOnTakeFocusRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ScrollingMovementMethodOnTakeFocusRequest) Reset() {
-	*x = ScrollingMovementMethodOnTakeFocusRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[42]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ScrollingMovementMethodOnTakeFocusRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ScrollingMovementMethodOnTakeFocusRequest) ProtoMessage() {}
-
-func (x *ScrollingMovementMethodOnTakeFocusRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[42]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ScrollingMovementMethodOnTakeFocusRequest.ProtoReflect.Descriptor instead.
-func (*ScrollingMovementMethodOnTakeFocusRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{42}
-}
-
-func (x *ScrollingMovementMethodOnTakeFocusRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *ScrollingMovementMethodOnTakeFocusRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *ScrollingMovementMethodOnTakeFocusRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *ScrollingMovementMethodOnTakeFocusRequest) GetArg2() int32 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type ScrollingMovementMethodOnTouchEventRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ScrollingMovementMethodOnTouchEventRequest) Reset() {
-	*x = ScrollingMovementMethodOnTouchEventRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[43]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ScrollingMovementMethodOnTouchEventRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ScrollingMovementMethodOnTouchEventRequest) ProtoMessage() {}
-
-func (x *ScrollingMovementMethodOnTouchEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[43]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ScrollingMovementMethodOnTouchEventRequest.ProtoReflect.Descriptor instead.
-func (*ScrollingMovementMethodOnTouchEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{43}
-}
-
-func (x *ScrollingMovementMethodOnTouchEventRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *ScrollingMovementMethodOnTouchEventRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *ScrollingMovementMethodOnTouchEventRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *ScrollingMovementMethodOnTouchEventRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type NewHideReturnsTransformationMethodRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewHideReturnsTransformationMethodRequest) Reset() {
-	*x = NewHideReturnsTransformationMethodRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[44]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewHideReturnsTransformationMethodRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewHideReturnsTransformationMethodRequest) ProtoMessage() {}
-
-func (x *NewHideReturnsTransformationMethodRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[44]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewHideReturnsTransformationMethodRequest.ProtoReflect.Descriptor instead.
-func (*NewHideReturnsTransformationMethodRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{44}
-}
-
-type NewHideReturnsTransformationMethodResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewHideReturnsTransformationMethodResponse) Reset() {
-	*x = NewHideReturnsTransformationMethodResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[45]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewHideReturnsTransformationMethodResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewHideReturnsTransformationMethodResponse) ProtoMessage() {}
-
-func (x *NewHideReturnsTransformationMethodResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[45]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewHideReturnsTransformationMethodResponse.ProtoReflect.Descriptor instead.
-func (*NewHideReturnsTransformationMethodResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{45}
-}
-
-func (x *NewHideReturnsTransformationMethodResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type NewMultiTapKeyListenerRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          bool                   `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewMultiTapKeyListenerRequest) Reset() {
-	*x = NewMultiTapKeyListenerRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[46]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewMultiTapKeyListenerRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewMultiTapKeyListenerRequest) ProtoMessage() {}
-
-func (x *NewMultiTapKeyListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[46]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewMultiTapKeyListenerRequest.ProtoReflect.Descriptor instead.
-func (*NewMultiTapKeyListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{46}
-}
-
-func (x *NewMultiTapKeyListenerRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *NewMultiTapKeyListenerRequest) GetArg1() bool {
-	if x != nil {
-		return x.Arg1
-	}
 	return false
 }
 
-type NewMultiTapKeyListenerResponse struct {
+type NewCharacterPickerDialogResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *NewMultiTapKeyListenerResponse) Reset() {
-	*x = NewMultiTapKeyListenerResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[47]
+func (x *NewCharacterPickerDialogResponse) Reset() {
+	*x = NewCharacterPickerDialogResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[127]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *NewMultiTapKeyListenerResponse) String() string {
+func (x *NewCharacterPickerDialogResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*NewMultiTapKeyListenerResponse) ProtoMessage() {}
+func (*NewCharacterPickerDialogResponse) ProtoMessage() {}
 
-func (x *NewMultiTapKeyListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[47]
+func (x *NewCharacterPickerDialogResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[127]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2427,40 +6507,41 @@ func (x *NewMultiTapKeyListenerResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use NewMultiTapKeyListenerResponse.ProtoReflect.Descriptor instead.
-func (*NewMultiTapKeyListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{47}
+// Deprecated: Use NewCharacterPickerDialogResponse.ProtoReflect.Descriptor instead.
+func (*NewCharacterPickerDialogResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{127}
 }
 
-func (x *NewMultiTapKeyListenerResponse) GetResult() int64 {
+func (x *NewCharacterPickerDialogResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type GetInputTypeRequest struct {
+type OnClickRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetInputTypeRequest) Reset() {
-	*x = GetInputTypeRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[48]
+func (x *OnClickRequest) Reset() {
+	*x = OnClickRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[128]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetInputTypeRequest) String() string {
+func (x *OnClickRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetInputTypeRequest) ProtoMessage() {}
+func (*OnClickRequest) ProtoMessage() {}
 
-func (x *GetInputTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[48]
+func (x *OnClickRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[128]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2471,40 +6552,46 @@ func (x *GetInputTypeRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetInputTypeRequest.ProtoReflect.Descriptor instead.
-func (*GetInputTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{48}
+// Deprecated: Use OnClickRequest.ProtoReflect.Descriptor instead.
+func (*OnClickRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{128}
 }
 
-func (x *GetInputTypeRequest) GetHandle() int64 {
+func (x *OnClickRequest) GetHandle() int64 {
 	if x != nil {
 		return x.Handle
 	}
 	return 0
 }
 
-type GetInputTypeResponse struct {
+func (x *OnClickRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnClickResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetInputTypeResponse) Reset() {
-	*x = GetInputTypeResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[49]
+func (x *OnClickResponse) Reset() {
+	*x = OnClickResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[129]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetInputTypeResponse) String() string {
+func (x *OnClickResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetInputTypeResponse) ProtoMessage() {}
+func (*OnClickResponse) ProtoMessage() {}
 
-func (x *GetInputTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[49]
+func (x *OnClickResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[129]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2515,19 +6602,12 @@ func (x *GetInputTypeResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetInputTypeResponse.ProtoReflect.Descriptor instead.
-func (*GetInputTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{49}
+// Deprecated: Use OnClickResponse.ProtoReflect.Descriptor instead.
+func (*OnClickResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{129}
 }
 
-func (x *GetInputTypeResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type MultiTapKeyListenerOnKeyDownRequest struct {
+type OnItemClickRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -2538,21 +6618,21 @@ type MultiTapKeyListenerOnKeyDownRequest struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *MultiTapKeyListenerOnKeyDownRequest) Reset() {
-	*x = MultiTapKeyListenerOnKeyDownRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[50]
+func (x *OnItemClickRequest) Reset() {
+	*x = OnItemClickRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[130]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *MultiTapKeyListenerOnKeyDownRequest) String() string {
+func (x *OnItemClickRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MultiTapKeyListenerOnKeyDownRequest) ProtoMessage() {}
+func (*OnItemClickRequest) ProtoMessage() {}
 
-func (x *MultiTapKeyListenerOnKeyDownRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[50]
+func (x *OnItemClickRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[130]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2563,42 +6643,174 @@ func (x *MultiTapKeyListenerOnKeyDownRequest) ProtoReflect() protoreflect.Messag
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use MultiTapKeyListenerOnKeyDownRequest.ProtoReflect.Descriptor instead.
-func (*MultiTapKeyListenerOnKeyDownRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{50}
+// Deprecated: Use OnItemClickRequest.ProtoReflect.Descriptor instead.
+func (*OnItemClickRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{130}
 }
 
-func (x *MultiTapKeyListenerOnKeyDownRequest) GetHandle() int64 {
+func (x *OnItemClickRequest) GetHandle() int64 {
 	if x != nil {
 		return x.Handle
 	}
 	return 0
 }
 
-func (x *MultiTapKeyListenerOnKeyDownRequest) GetArg0() int64 {
+func (x *OnItemClickRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-func (x *MultiTapKeyListenerOnKeyDownRequest) GetArg1() int64 {
+func (x *OnItemClickRequest) GetArg1() int64 {
 	if x != nil {
 		return x.Arg1
 	}
 	return 0
 }
 
-func (x *MultiTapKeyListenerOnKeyDownRequest) GetArg2() int32 {
+func (x *OnItemClickRequest) GetArg2() int32 {
 	if x != nil {
 		return x.Arg2
 	}
 	return 0
 }
 
-func (x *MultiTapKeyListenerOnKeyDownRequest) GetArg3() int64 {
+func (x *OnItemClickRequest) GetArg3() int64 {
 	if x != nil {
 		return x.Arg3
+	}
+	return 0
+}
+
+type OnItemClickResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnItemClickResponse) Reset() {
+	*x = OnItemClickResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[131]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnItemClickResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnItemClickResponse) ProtoMessage() {}
+
+func (x *OnItemClickResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[131]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnItemClickResponse.ProtoReflect.Descriptor instead.
+func (*OnItemClickResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{131}
+}
+
+type NewTextKeyListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          bool                   `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewTextKeyListenerRequest) Reset() {
+	*x = NewTextKeyListenerRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[132]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewTextKeyListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewTextKeyListenerRequest) ProtoMessage() {}
+
+func (x *NewTextKeyListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[132]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewTextKeyListenerRequest.ProtoReflect.Descriptor instead.
+func (*NewTextKeyListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{132}
+}
+
+func (x *NewTextKeyListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewTextKeyListenerRequest) GetArg1() bool {
+	if x != nil {
+		return x.Arg1
+	}
+	return false
+}
+
+type NewTextKeyListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewTextKeyListenerResponse) Reset() {
+	*x = NewTextKeyListenerResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[133]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewTextKeyListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewTextKeyListenerResponse) ProtoMessage() {}
+
+func (x *NewTextKeyListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[133]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewTextKeyListenerResponse.ProtoReflect.Descriptor instead.
+func (*NewTextKeyListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{133}
+}
+
+func (x *NewTextKeyListenerResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
 	}
 	return 0
 }
@@ -2616,7 +6828,7 @@ type OnSpanAddedRequest struct {
 
 func (x *OnSpanAddedRequest) Reset() {
 	*x = OnSpanAddedRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[51]
+	mi := &file_proto_method_method_proto_msgTypes[134]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2628,7 +6840,7 @@ func (x *OnSpanAddedRequest) String() string {
 func (*OnSpanAddedRequest) ProtoMessage() {}
 
 func (x *OnSpanAddedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[51]
+	mi := &file_proto_method_method_proto_msgTypes[134]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2641,7 +6853,7 @@ func (x *OnSpanAddedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnSpanAddedRequest.ProtoReflect.Descriptor instead.
 func (*OnSpanAddedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{51}
+	return file_proto_method_method_proto_rawDescGZIP(), []int{134}
 }
 
 func (x *OnSpanAddedRequest) GetHandle() int64 {
@@ -2687,7 +6899,7 @@ type OnSpanAddedResponse struct {
 
 func (x *OnSpanAddedResponse) Reset() {
 	*x = OnSpanAddedResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[52]
+	mi := &file_proto_method_method_proto_msgTypes[135]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2699,7 +6911,7 @@ func (x *OnSpanAddedResponse) String() string {
 func (*OnSpanAddedResponse) ProtoMessage() {}
 
 func (x *OnSpanAddedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[52]
+	mi := &file_proto_method_method_proto_msgTypes[135]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2712,7 +6924,7 @@ func (x *OnSpanAddedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnSpanAddedResponse.ProtoReflect.Descriptor instead.
 func (*OnSpanAddedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{52}
+	return file_proto_method_method_proto_rawDescGZIP(), []int{135}
 }
 
 type OnSpanChangedRequest struct {
@@ -2730,7 +6942,7 @@ type OnSpanChangedRequest struct {
 
 func (x *OnSpanChangedRequest) Reset() {
 	*x = OnSpanChangedRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[53]
+	mi := &file_proto_method_method_proto_msgTypes[136]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2742,7 +6954,7 @@ func (x *OnSpanChangedRequest) String() string {
 func (*OnSpanChangedRequest) ProtoMessage() {}
 
 func (x *OnSpanChangedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[53]
+	mi := &file_proto_method_method_proto_msgTypes[136]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2755,7 +6967,7 @@ func (x *OnSpanChangedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnSpanChangedRequest.ProtoReflect.Descriptor instead.
 func (*OnSpanChangedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{53}
+	return file_proto_method_method_proto_rawDescGZIP(), []int{136}
 }
 
 func (x *OnSpanChangedRequest) GetHandle() int64 {
@@ -2815,7 +7027,7 @@ type OnSpanChangedResponse struct {
 
 func (x *OnSpanChangedResponse) Reset() {
 	*x = OnSpanChangedResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[54]
+	mi := &file_proto_method_method_proto_msgTypes[137]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2827,7 +7039,7 @@ func (x *OnSpanChangedResponse) String() string {
 func (*OnSpanChangedResponse) ProtoMessage() {}
 
 func (x *OnSpanChangedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[54]
+	mi := &file_proto_method_method_proto_msgTypes[137]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2840,7 +7052,7 @@ func (x *OnSpanChangedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnSpanChangedResponse.ProtoReflect.Descriptor instead.
 func (*OnSpanChangedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{54}
+	return file_proto_method_method_proto_rawDescGZIP(), []int{137}
 }
 
 type OnSpanRemovedRequest struct {
@@ -2856,7 +7068,7 @@ type OnSpanRemovedRequest struct {
 
 func (x *OnSpanRemovedRequest) Reset() {
 	*x = OnSpanRemovedRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[55]
+	mi := &file_proto_method_method_proto_msgTypes[138]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2868,7 +7080,7 @@ func (x *OnSpanRemovedRequest) String() string {
 func (*OnSpanRemovedRequest) ProtoMessage() {}
 
 func (x *OnSpanRemovedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[55]
+	mi := &file_proto_method_method_proto_msgTypes[138]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2881,7 +7093,7 @@ func (x *OnSpanRemovedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnSpanRemovedRequest.ProtoReflect.Descriptor instead.
 func (*OnSpanRemovedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{55}
+	return file_proto_method_method_proto_rawDescGZIP(), []int{138}
 }
 
 func (x *OnSpanRemovedRequest) GetHandle() int64 {
@@ -2927,7 +7139,7 @@ type OnSpanRemovedResponse struct {
 
 func (x *OnSpanRemovedResponse) Reset() {
 	*x = OnSpanRemovedResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[56]
+	mi := &file_proto_method_method_proto_msgTypes[139]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2939,7 +7151,7 @@ func (x *OnSpanRemovedResponse) String() string {
 func (*OnSpanRemovedResponse) ProtoMessage() {}
 
 func (x *OnSpanRemovedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[56]
+	mi := &file_proto_method_method_proto_msgTypes[139]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2952,33 +7164,31 @@ func (x *OnSpanRemovedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnSpanRemovedResponse.ProtoReflect.Descriptor instead.
 func (*OnSpanRemovedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{56}
+	return file_proto_method_method_proto_rawDescGZIP(), []int{139}
 }
 
-type MultiTapKeyListenerGetInstanceRequest struct {
+type ReleaseRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *MultiTapKeyListenerGetInstanceRequest) Reset() {
-	*x = MultiTapKeyListenerGetInstanceRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[57]
+func (x *ReleaseRequest) Reset() {
+	*x = ReleaseRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[140]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *MultiTapKeyListenerGetInstanceRequest) String() string {
+func (x *ReleaseRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MultiTapKeyListenerGetInstanceRequest) ProtoMessage() {}
+func (*ReleaseRequest) ProtoMessage() {}
 
-func (x *MultiTapKeyListenerGetInstanceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[57]
+func (x *ReleaseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[140]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2989,30 +7199,1180 @@ func (x *MultiTapKeyListenerGetInstanceRequest) ProtoReflect() protoreflect.Mess
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use MultiTapKeyListenerGetInstanceRequest.ProtoReflect.Descriptor instead.
-func (*MultiTapKeyListenerGetInstanceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{57}
+// Deprecated: Use ReleaseRequest.ProtoReflect.Descriptor instead.
+func (*ReleaseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{140}
 }
 
-func (x *MultiTapKeyListenerGetInstanceRequest) GetHandle() int64 {
+func (x *ReleaseRequest) GetHandle() int64 {
 	if x != nil {
 		return x.Handle
 	}
 	return 0
 }
 
-func (x *MultiTapKeyListenerGetInstanceRequest) GetArg0() bool {
+type ReleaseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReleaseResponse) Reset() {
+	*x = ReleaseResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[141]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReleaseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReleaseResponse) ProtoMessage() {}
+
+func (x *ReleaseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[141]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReleaseResponse.ProtoReflect.Descriptor instead.
+func (*ReleaseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{141}
+}
+
+type ClearRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearRequest) Reset() {
+	*x = ClearRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[142]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearRequest) ProtoMessage() {}
+
+func (x *ClearRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[142]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearRequest.ProtoReflect.Descriptor instead.
+func (*ClearRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{142}
+}
+
+func (x *ClearRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ClearRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type ClearResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearResponse) Reset() {
+	*x = ClearResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[143]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearResponse) ProtoMessage() {}
+
+func (x *ClearResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[143]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearResponse.ProtoReflect.Descriptor instead.
+func (*ClearResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{143}
+}
+
+type GetInstance2_1Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInstance2_1Request) Reset() {
+	*x = GetInstance2_1Request{}
+	mi := &file_proto_method_method_proto_msgTypes[144]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInstance2_1Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInstance2_1Request) ProtoMessage() {}
+
+func (x *GetInstance2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[144]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInstance2_1Request.ProtoReflect.Descriptor instead.
+func (*GetInstance2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{144}
+}
+
+func (x *GetInstance2_1Request) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetInstance2_1Request) GetArg0() bool {
 	if x != nil {
 		return x.Arg0
 	}
 	return false
 }
 
-func (x *MultiTapKeyListenerGetInstanceRequest) GetArg1() int64 {
+func (x *GetInstance2_1Request) GetArg1() int64 {
 	if x != nil {
 		return x.Arg1
 	}
 	return 0
+}
+
+type GetInstance2_1Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInstance2_1Response) Reset() {
+	*x = GetInstance2_1Response{}
+	mi := &file_proto_method_method_proto_msgTypes[145]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInstance2_1Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInstance2_1Response) ProtoMessage() {}
+
+func (x *GetInstance2_1Response) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[145]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInstance2_1Response.ProtoReflect.Descriptor instead.
+func (*GetInstance2_1Response) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{145}
+}
+
+func (x *GetInstance2_1Response) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ShouldCapRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ShouldCapRequest) Reset() {
+	*x = ShouldCapRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[146]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ShouldCapRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ShouldCapRequest) ProtoMessage() {}
+
+func (x *ShouldCapRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[146]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ShouldCapRequest.ProtoReflect.Descriptor instead.
+func (*ShouldCapRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{146}
+}
+
+func (x *ShouldCapRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ShouldCapRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *ShouldCapRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *ShouldCapRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type ShouldCapResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ShouldCapResponse) Reset() {
+	*x = ShouldCapResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[147]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ShouldCapResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ShouldCapResponse) ProtoMessage() {}
+
+func (x *ShouldCapResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[147]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ShouldCapResponse.ProtoReflect.Descriptor instead.
+func (*ShouldCapResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{147}
+}
+
+func (x *ShouldCapResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type ValuesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ValuesRequest) Reset() {
+	*x = ValuesRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[148]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ValuesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ValuesRequest) ProtoMessage() {}
+
+func (x *ValuesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[148]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ValuesRequest.ProtoReflect.Descriptor instead.
+func (*ValuesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{148}
+}
+
+type ValuesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ValuesResponse) Reset() {
+	*x = ValuesResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[149]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ValuesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ValuesResponse) ProtoMessage() {}
+
+func (x *ValuesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[149]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ValuesResponse.ProtoReflect.Descriptor instead.
+func (*ValuesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{149}
+}
+
+func (x *ValuesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ValueOfRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ValueOfRequest) Reset() {
+	*x = ValueOfRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[150]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ValueOfRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ValueOfRequest) ProtoMessage() {}
+
+func (x *ValueOfRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[150]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ValueOfRequest.ProtoReflect.Descriptor instead.
+func (*ValueOfRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{150}
+}
+
+func (x *ValueOfRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type ValueOfResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ValueOfResponse) Reset() {
+	*x = ValueOfResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[151]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ValueOfResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ValueOfResponse) ProtoMessage() {}
+
+func (x *ValueOfResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[151]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ValueOfResponse.ProtoReflect.Descriptor instead.
+func (*ValueOfResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{151}
+}
+
+func (x *ValueOfResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewDateKeyListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewDateKeyListenerRequest) Reset() {
+	*x = NewDateKeyListenerRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[152]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewDateKeyListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewDateKeyListenerRequest) ProtoMessage() {}
+
+func (x *NewDateKeyListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[152]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewDateKeyListenerRequest.ProtoReflect.Descriptor instead.
+func (*NewDateKeyListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{152}
+}
+
+type NewDateKeyListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewDateKeyListenerResponse) Reset() {
+	*x = NewDateKeyListenerResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[153]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewDateKeyListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewDateKeyListenerResponse) ProtoMessage() {}
+
+func (x *NewDateKeyListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[153]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewDateKeyListenerResponse.ProtoReflect.Descriptor instead.
+func (*NewDateKeyListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{153}
+}
+
+func (x *NewDateKeyListenerResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewDialerKeyListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewDialerKeyListenerRequest) Reset() {
+	*x = NewDialerKeyListenerRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[154]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewDialerKeyListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewDialerKeyListenerRequest) ProtoMessage() {}
+
+func (x *NewDialerKeyListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[154]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewDialerKeyListenerRequest.ProtoReflect.Descriptor instead.
+func (*NewDialerKeyListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{154}
+}
+
+type NewDialerKeyListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewDialerKeyListenerResponse) Reset() {
+	*x = NewDialerKeyListenerResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[155]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewDialerKeyListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewDialerKeyListenerResponse) ProtoMessage() {}
+
+func (x *NewDialerKeyListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[155]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewDialerKeyListenerResponse.ProtoReflect.Descriptor instead.
+func (*NewDialerKeyListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{155}
+}
+
+func (x *NewDialerKeyListenerResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DialerKeyListenerGetInstanceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DialerKeyListenerGetInstanceRequest) Reset() {
+	*x = DialerKeyListenerGetInstanceRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[156]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DialerKeyListenerGetInstanceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DialerKeyListenerGetInstanceRequest) ProtoMessage() {}
+
+func (x *DialerKeyListenerGetInstanceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[156]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DialerKeyListenerGetInstanceRequest.ProtoReflect.Descriptor instead.
+func (*DialerKeyListenerGetInstanceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{156}
+}
+
+func (x *DialerKeyListenerGetInstanceRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type NewMultiTapKeyListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          bool                   `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewMultiTapKeyListenerRequest) Reset() {
+	*x = NewMultiTapKeyListenerRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[157]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewMultiTapKeyListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewMultiTapKeyListenerRequest) ProtoMessage() {}
+
+func (x *NewMultiTapKeyListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[157]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewMultiTapKeyListenerRequest.ProtoReflect.Descriptor instead.
+func (*NewMultiTapKeyListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{157}
+}
+
+func (x *NewMultiTapKeyListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewMultiTapKeyListenerRequest) GetArg1() bool {
+	if x != nil {
+		return x.Arg1
+	}
+	return false
+}
+
+type NewMultiTapKeyListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewMultiTapKeyListenerResponse) Reset() {
+	*x = NewMultiTapKeyListenerResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[158]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewMultiTapKeyListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewMultiTapKeyListenerResponse) ProtoMessage() {}
+
+func (x *NewMultiTapKeyListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[158]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewMultiTapKeyListenerResponse.ProtoReflect.Descriptor instead.
+func (*NewMultiTapKeyListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{158}
+}
+
+func (x *NewMultiTapKeyListenerResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetInitialScrollXRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInitialScrollXRequest) Reset() {
+	*x = GetInitialScrollXRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[159]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInitialScrollXRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInitialScrollXRequest) ProtoMessage() {}
+
+func (x *GetInitialScrollXRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[159]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInitialScrollXRequest.ProtoReflect.Descriptor instead.
+func (*GetInitialScrollXRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{159}
+}
+
+func (x *GetInitialScrollXRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetInitialScrollXRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetInitialScrollXResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInitialScrollXResponse) Reset() {
+	*x = GetInitialScrollXResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[160]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInitialScrollXResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInitialScrollXResponse) ProtoMessage() {}
+
+func (x *GetInitialScrollXResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[160]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInitialScrollXResponse.ProtoReflect.Descriptor instead.
+func (*GetInitialScrollXResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{160}
+}
+
+func (x *GetInitialScrollXResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetInitialScrollYRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInitialScrollYRequest) Reset() {
+	*x = GetInitialScrollYRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[161]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInitialScrollYRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInitialScrollYRequest) ProtoMessage() {}
+
+func (x *GetInitialScrollYRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[161]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInitialScrollYRequest.ProtoReflect.Descriptor instead.
+func (*GetInitialScrollYRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{161}
+}
+
+func (x *GetInitialScrollYRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetInitialScrollYRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetInitialScrollYResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInitialScrollYResponse) Reset() {
+	*x = GetInitialScrollYResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[162]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInitialScrollYResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInitialScrollYResponse) ProtoMessage() {}
+
+func (x *GetInitialScrollYResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[162]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInitialScrollYResponse.ProtoReflect.Descriptor instead.
+func (*GetInitialScrollYResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{162}
+}
+
+func (x *GetInitialScrollYResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type TouchOnTouchEventRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *TouchOnTouchEventRequest) Reset() {
+	*x = TouchOnTouchEventRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[163]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TouchOnTouchEventRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TouchOnTouchEventRequest) ProtoMessage() {}
+
+func (x *TouchOnTouchEventRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[163]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TouchOnTouchEventRequest.ProtoReflect.Descriptor instead.
+func (*TouchOnTouchEventRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{163}
+}
+
+func (x *TouchOnTouchEventRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *TouchOnTouchEventRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *TouchOnTouchEventRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type ScrollToRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ScrollToRequest) Reset() {
+	*x = ScrollToRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[164]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ScrollToRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ScrollToRequest) ProtoMessage() {}
+
+func (x *ScrollToRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[164]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ScrollToRequest.ProtoReflect.Descriptor instead.
+func (*ScrollToRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{164}
+}
+
+func (x *ScrollToRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *ScrollToRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *ScrollToRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *ScrollToRequest) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type ScrollToResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ScrollToResponse) Reset() {
+	*x = ScrollToResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[165]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ScrollToResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ScrollToResponse) ProtoMessage() {}
+
+func (x *ScrollToResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[165]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ScrollToResponse.ProtoReflect.Descriptor instead.
+func (*ScrollToResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{165}
 }
 
 type NewDigitsKeyListenerRequest struct {
@@ -3023,7 +8383,7 @@ type NewDigitsKeyListenerRequest struct {
 
 func (x *NewDigitsKeyListenerRequest) Reset() {
 	*x = NewDigitsKeyListenerRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[58]
+	mi := &file_proto_method_method_proto_msgTypes[166]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3035,7 +8395,7 @@ func (x *NewDigitsKeyListenerRequest) String() string {
 func (*NewDigitsKeyListenerRequest) ProtoMessage() {}
 
 func (x *NewDigitsKeyListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[58]
+	mi := &file_proto_method_method_proto_msgTypes[166]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3048,7 +8408,7 @@ func (x *NewDigitsKeyListenerRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewDigitsKeyListenerRequest.ProtoReflect.Descriptor instead.
 func (*NewDigitsKeyListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{58}
+	return file_proto_method_method_proto_rawDescGZIP(), []int{166}
 }
 
 type NewDigitsKeyListenerResponse struct {
@@ -3060,7 +8420,7 @@ type NewDigitsKeyListenerResponse struct {
 
 func (x *NewDigitsKeyListenerResponse) Reset() {
 	*x = NewDigitsKeyListenerResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[59]
+	mi := &file_proto_method_method_proto_msgTypes[167]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3072,7 +8432,7 @@ func (x *NewDigitsKeyListenerResponse) String() string {
 func (*NewDigitsKeyListenerResponse) ProtoMessage() {}
 
 func (x *NewDigitsKeyListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[59]
+	mi := &file_proto_method_method_proto_msgTypes[167]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3085,7 +8445,7 @@ func (x *NewDigitsKeyListenerResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewDigitsKeyListenerResponse.ProtoReflect.Descriptor instead.
 func (*NewDigitsKeyListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{59}
+	return file_proto_method_method_proto_rawDescGZIP(), []int{167}
 }
 
 func (x *NewDigitsKeyListenerResponse) GetResult() int64 {
@@ -3110,7 +8470,7 @@ type DigitsKeyListenerFilterRequest struct {
 
 func (x *DigitsKeyListenerFilterRequest) Reset() {
 	*x = DigitsKeyListenerFilterRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[60]
+	mi := &file_proto_method_method_proto_msgTypes[168]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3122,7 +8482,7 @@ func (x *DigitsKeyListenerFilterRequest) String() string {
 func (*DigitsKeyListenerFilterRequest) ProtoMessage() {}
 
 func (x *DigitsKeyListenerFilterRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[60]
+	mi := &file_proto_method_method_proto_msgTypes[168]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3135,7 +8495,7 @@ func (x *DigitsKeyListenerFilterRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DigitsKeyListenerFilterRequest.ProtoReflect.Descriptor instead.
 func (*DigitsKeyListenerFilterRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{60}
+	return file_proto_method_method_proto_rawDescGZIP(), []int{168}
 }
 
 func (x *DigitsKeyListenerFilterRequest) GetHandle() int64 {
@@ -3187,95 +8547,7 @@ func (x *DigitsKeyListenerFilterRequest) GetArg5() int32 {
 	return 0
 }
 
-type GetInstance0Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetInstance0Request) Reset() {
-	*x = GetInstance0Request{}
-	mi := &file_proto_method_method_proto_msgTypes[61]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetInstance0Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetInstance0Request) ProtoMessage() {}
-
-func (x *GetInstance0Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[61]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetInstance0Request.ProtoReflect.Descriptor instead.
-func (*GetInstance0Request) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{61}
-}
-
-func (x *GetInstance0Request) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetInstance0Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetInstance0Response) Reset() {
-	*x = GetInstance0Response{}
-	mi := &file_proto_method_method_proto_msgTypes[62]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetInstance0Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetInstance0Response) ProtoMessage() {}
-
-func (x *GetInstance0Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[62]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetInstance0Response.ProtoReflect.Descriptor instead.
-func (*GetInstance0Response) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{62}
-}
-
-func (x *GetInstance0Response) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetInstance2_1Request struct {
+type DigitsKeyListenerGetInstance2_1Request struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -3284,21 +8556,21 @@ type GetInstance2_1Request struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetInstance2_1Request) Reset() {
-	*x = GetInstance2_1Request{}
-	mi := &file_proto_method_method_proto_msgTypes[63]
+func (x *DigitsKeyListenerGetInstance2_1Request) Reset() {
+	*x = DigitsKeyListenerGetInstance2_1Request{}
+	mi := &file_proto_method_method_proto_msgTypes[169]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetInstance2_1Request) String() string {
+func (x *DigitsKeyListenerGetInstance2_1Request) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetInstance2_1Request) ProtoMessage() {}
+func (*DigitsKeyListenerGetInstance2_1Request) ProtoMessage() {}
 
-func (x *GetInstance2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[63]
+func (x *DigitsKeyListenerGetInstance2_1Request) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[169]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3309,74 +8581,30 @@ func (x *GetInstance2_1Request) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetInstance2_1Request.ProtoReflect.Descriptor instead.
-func (*GetInstance2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{63}
+// Deprecated: Use DigitsKeyListenerGetInstance2_1Request.ProtoReflect.Descriptor instead.
+func (*DigitsKeyListenerGetInstance2_1Request) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{169}
 }
 
-func (x *GetInstance2_1Request) GetHandle() int64 {
+func (x *DigitsKeyListenerGetInstance2_1Request) GetHandle() int64 {
 	if x != nil {
 		return x.Handle
 	}
 	return 0
 }
 
-func (x *GetInstance2_1Request) GetArg0() bool {
+func (x *DigitsKeyListenerGetInstance2_1Request) GetArg0() bool {
 	if x != nil {
 		return x.Arg0
 	}
 	return false
 }
 
-func (x *GetInstance2_1Request) GetArg1() bool {
+func (x *DigitsKeyListenerGetInstance2_1Request) GetArg1() bool {
 	if x != nil {
 		return x.Arg1
 	}
 	return false
-}
-
-type GetInstance2_1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetInstance2_1Response) Reset() {
-	*x = GetInstance2_1Response{}
-	mi := &file_proto_method_method_proto_msgTypes[64]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetInstance2_1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetInstance2_1Response) ProtoMessage() {}
-
-func (x *GetInstance2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[64]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetInstance2_1Response.ProtoReflect.Descriptor instead.
-func (*GetInstance2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{64}
-}
-
-func (x *GetInstance2_1Response) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
 }
 
 type GetInstance1_2Request struct {
@@ -3389,7 +8617,7 @@ type GetInstance1_2Request struct {
 
 func (x *GetInstance1_2Request) Reset() {
 	*x = GetInstance1_2Request{}
-	mi := &file_proto_method_method_proto_msgTypes[65]
+	mi := &file_proto_method_method_proto_msgTypes[170]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3401,7 +8629,7 @@ func (x *GetInstance1_2Request) String() string {
 func (*GetInstance1_2Request) ProtoMessage() {}
 
 func (x *GetInstance1_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[65]
+	mi := &file_proto_method_method_proto_msgTypes[170]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3414,7 +8642,7 @@ func (x *GetInstance1_2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetInstance1_2Request.ProtoReflect.Descriptor instead.
 func (*GetInstance1_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{65}
+	return file_proto_method_method_proto_rawDescGZIP(), []int{170}
 }
 
 func (x *GetInstance1_2Request) GetHandle() int64 {
@@ -3440,7 +8668,7 @@ type GetInstance1_2Response struct {
 
 func (x *GetInstance1_2Response) Reset() {
 	*x = GetInstance1_2Response{}
-	mi := &file_proto_method_method_proto_msgTypes[66]
+	mi := &file_proto_method_method_proto_msgTypes[171]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3452,7 +8680,7 @@ func (x *GetInstance1_2Response) String() string {
 func (*GetInstance1_2Response) ProtoMessage() {}
 
 func (x *GetInstance1_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[66]
+	mi := &file_proto_method_method_proto_msgTypes[171]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3465,7 +8693,7 @@ func (x *GetInstance1_2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetInstance1_2Response.ProtoReflect.Descriptor instead.
 func (*GetInstance1_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{66}
+	return file_proto_method_method_proto_rawDescGZIP(), []int{171}
 }
 
 func (x *GetInstance1_2Response) GetResult() int64 {
@@ -3485,7 +8713,7 @@ type GetInstance1_3Request struct {
 
 func (x *GetInstance1_3Request) Reset() {
 	*x = GetInstance1_3Request{}
-	mi := &file_proto_method_method_proto_msgTypes[67]
+	mi := &file_proto_method_method_proto_msgTypes[172]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3497,7 +8725,7 @@ func (x *GetInstance1_3Request) String() string {
 func (*GetInstance1_3Request) ProtoMessage() {}
 
 func (x *GetInstance1_3Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[67]
+	mi := &file_proto_method_method_proto_msgTypes[172]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3510,7 +8738,7 @@ func (x *GetInstance1_3Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetInstance1_3Request.ProtoReflect.Descriptor instead.
 func (*GetInstance1_3Request) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{67}
+	return file_proto_method_method_proto_rawDescGZIP(), []int{172}
 }
 
 func (x *GetInstance1_3Request) GetHandle() int64 {
@@ -3536,7 +8764,7 @@ type GetInstance1_3Response struct {
 
 func (x *GetInstance1_3Response) Reset() {
 	*x = GetInstance1_3Response{}
-	mi := &file_proto_method_method_proto_msgTypes[68]
+	mi := &file_proto_method_method_proto_msgTypes[173]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3548,7 +8776,7 @@ func (x *GetInstance1_3Response) String() string {
 func (*GetInstance1_3Response) ProtoMessage() {}
 
 func (x *GetInstance1_3Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[68]
+	mi := &file_proto_method_method_proto_msgTypes[173]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3561,7 +8789,7 @@ func (x *GetInstance1_3Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetInstance1_3Response.ProtoReflect.Descriptor instead.
 func (*GetInstance1_3Response) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{68}
+	return file_proto_method_method_proto_rawDescGZIP(), []int{173}
 }
 
 func (x *GetInstance1_3Response) GetResult() int64 {
@@ -3583,7 +8811,7 @@ type GetInstance3_4Request struct {
 
 func (x *GetInstance3_4Request) Reset() {
 	*x = GetInstance3_4Request{}
-	mi := &file_proto_method_method_proto_msgTypes[69]
+	mi := &file_proto_method_method_proto_msgTypes[174]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3595,7 +8823,7 @@ func (x *GetInstance3_4Request) String() string {
 func (*GetInstance3_4Request) ProtoMessage() {}
 
 func (x *GetInstance3_4Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[69]
+	mi := &file_proto_method_method_proto_msgTypes[174]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3608,7 +8836,7 @@ func (x *GetInstance3_4Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetInstance3_4Request.ProtoReflect.Descriptor instead.
 func (*GetInstance3_4Request) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{69}
+	return file_proto_method_method_proto_rawDescGZIP(), []int{174}
 }
 
 func (x *GetInstance3_4Request) GetHandle() int64 {
@@ -3648,7 +8876,7 @@ type GetInstance3_4Response struct {
 
 func (x *GetInstance3_4Response) Reset() {
 	*x = GetInstance3_4Response{}
-	mi := &file_proto_method_method_proto_msgTypes[70]
+	mi := &file_proto_method_method_proto_msgTypes[175]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3660,7 +8888,7 @@ func (x *GetInstance3_4Response) String() string {
 func (*GetInstance3_4Response) ProtoMessage() {}
 
 func (x *GetInstance3_4Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[70]
+	mi := &file_proto_method_method_proto_msgTypes[175]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3673,7 +8901,7 @@ func (x *GetInstance3_4Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetInstance3_4Response.ProtoReflect.Descriptor instead.
 func (*GetInstance3_4Response) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{70}
+	return file_proto_method_method_proto_rawDescGZIP(), []int{175}
 }
 
 func (x *GetInstance3_4Response) GetResult() int64 {
@@ -3681,4682 +8909,6 @@ func (x *GetInstance3_4Response) GetResult() int64 {
 		return x.Result
 	}
 	return 0
-}
-
-type NewDialerKeyListenerRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewDialerKeyListenerRequest) Reset() {
-	*x = NewDialerKeyListenerRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[71]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewDialerKeyListenerRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewDialerKeyListenerRequest) ProtoMessage() {}
-
-func (x *NewDialerKeyListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[71]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewDialerKeyListenerRequest.ProtoReflect.Descriptor instead.
-func (*NewDialerKeyListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{71}
-}
-
-type NewDialerKeyListenerResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewDialerKeyListenerResponse) Reset() {
-	*x = NewDialerKeyListenerResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[72]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewDialerKeyListenerResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewDialerKeyListenerResponse) ProtoMessage() {}
-
-func (x *NewDialerKeyListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[72]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewDialerKeyListenerResponse.ProtoReflect.Descriptor instead.
-func (*NewDialerKeyListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{72}
-}
-
-func (x *NewDialerKeyListenerResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type NewTimeKeyListenerRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewTimeKeyListenerRequest) Reset() {
-	*x = NewTimeKeyListenerRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[73]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewTimeKeyListenerRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewTimeKeyListenerRequest) ProtoMessage() {}
-
-func (x *NewTimeKeyListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[73]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewTimeKeyListenerRequest.ProtoReflect.Descriptor instead.
-func (*NewTimeKeyListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{73}
-}
-
-type NewTimeKeyListenerResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewTimeKeyListenerResponse) Reset() {
-	*x = NewTimeKeyListenerResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[74]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewTimeKeyListenerResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewTimeKeyListenerResponse) ProtoMessage() {}
-
-func (x *NewTimeKeyListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[74]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewTimeKeyListenerResponse.ProtoReflect.Descriptor instead.
-func (*NewTimeKeyListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{74}
-}
-
-func (x *NewTimeKeyListenerResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetInstance1_1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetInstance1_1Request) Reset() {
-	*x = GetInstance1_1Request{}
-	mi := &file_proto_method_method_proto_msgTypes[75]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetInstance1_1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetInstance1_1Request) ProtoMessage() {}
-
-func (x *GetInstance1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[75]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetInstance1_1Request.ProtoReflect.Descriptor instead.
-func (*GetInstance1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{75}
-}
-
-func (x *GetInstance1_1Request) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *GetInstance1_1Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetInstance1_1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetInstance1_1Response) Reset() {
-	*x = GetInstance1_1Response{}
-	mi := &file_proto_method_method_proto_msgTypes[76]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetInstance1_1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetInstance1_1Response) ProtoMessage() {}
-
-func (x *GetInstance1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[76]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetInstance1_1Response.ProtoReflect.Descriptor instead.
-func (*GetInstance1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{76}
-}
-
-func (x *GetInstance1_1Response) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type NewQwertyKeyListenerRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          bool                   `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewQwertyKeyListenerRequest) Reset() {
-	*x = NewQwertyKeyListenerRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[77]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewQwertyKeyListenerRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewQwertyKeyListenerRequest) ProtoMessage() {}
-
-func (x *NewQwertyKeyListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[77]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewQwertyKeyListenerRequest.ProtoReflect.Descriptor instead.
-func (*NewQwertyKeyListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{77}
-}
-
-func (x *NewQwertyKeyListenerRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *NewQwertyKeyListenerRequest) GetArg1() bool {
-	if x != nil {
-		return x.Arg1
-	}
-	return false
-}
-
-type NewQwertyKeyListenerResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewQwertyKeyListenerResponse) Reset() {
-	*x = NewQwertyKeyListenerResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[78]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewQwertyKeyListenerResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewQwertyKeyListenerResponse) ProtoMessage() {}
-
-func (x *NewQwertyKeyListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[78]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewQwertyKeyListenerResponse.ProtoReflect.Descriptor instead.
-func (*NewQwertyKeyListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{78}
-}
-
-func (x *NewQwertyKeyListenerResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type QwertyKeyListenerOnKeyDownRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	Arg3          int64                  `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *QwertyKeyListenerOnKeyDownRequest) Reset() {
-	*x = QwertyKeyListenerOnKeyDownRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[79]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *QwertyKeyListenerOnKeyDownRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*QwertyKeyListenerOnKeyDownRequest) ProtoMessage() {}
-
-func (x *QwertyKeyListenerOnKeyDownRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[79]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use QwertyKeyListenerOnKeyDownRequest.ProtoReflect.Descriptor instead.
-func (*QwertyKeyListenerOnKeyDownRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{79}
-}
-
-func (x *QwertyKeyListenerOnKeyDownRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *QwertyKeyListenerOnKeyDownRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *QwertyKeyListenerOnKeyDownRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *QwertyKeyListenerOnKeyDownRequest) GetArg2() int32 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-func (x *QwertyKeyListenerOnKeyDownRequest) GetArg3() int64 {
-	if x != nil {
-		return x.Arg3
-	}
-	return 0
-}
-
-type QwertyKeyListenerGetInstanceRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *QwertyKeyListenerGetInstanceRequest) Reset() {
-	*x = QwertyKeyListenerGetInstanceRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[80]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *QwertyKeyListenerGetInstanceRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*QwertyKeyListenerGetInstanceRequest) ProtoMessage() {}
-
-func (x *QwertyKeyListenerGetInstanceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[80]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use QwertyKeyListenerGetInstanceRequest.ProtoReflect.Descriptor instead.
-func (*QwertyKeyListenerGetInstanceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{80}
-}
-
-func (x *QwertyKeyListenerGetInstanceRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *QwertyKeyListenerGetInstanceRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-func (x *QwertyKeyListenerGetInstanceRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type GetInstanceForFullKeyboardRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetInstanceForFullKeyboardRequest) Reset() {
-	*x = GetInstanceForFullKeyboardRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[81]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetInstanceForFullKeyboardRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetInstanceForFullKeyboardRequest) ProtoMessage() {}
-
-func (x *GetInstanceForFullKeyboardRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[81]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetInstanceForFullKeyboardRequest.ProtoReflect.Descriptor instead.
-func (*GetInstanceForFullKeyboardRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{81}
-}
-
-func (x *GetInstanceForFullKeyboardRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetInstanceForFullKeyboardResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetInstanceForFullKeyboardResponse) Reset() {
-	*x = GetInstanceForFullKeyboardResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[82]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetInstanceForFullKeyboardResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetInstanceForFullKeyboardResponse) ProtoMessage() {}
-
-func (x *GetInstanceForFullKeyboardResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[82]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetInstanceForFullKeyboardResponse.ProtoReflect.Descriptor instead.
-func (*GetInstanceForFullKeyboardResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{82}
-}
-
-func (x *GetInstanceForFullKeyboardResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type MarkAsReplacedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	Arg3          string                 `protobuf:"bytes,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *MarkAsReplacedRequest) Reset() {
-	*x = MarkAsReplacedRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[83]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *MarkAsReplacedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*MarkAsReplacedRequest) ProtoMessage() {}
-
-func (x *MarkAsReplacedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[83]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use MarkAsReplacedRequest.ProtoReflect.Descriptor instead.
-func (*MarkAsReplacedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{83}
-}
-
-func (x *MarkAsReplacedRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *MarkAsReplacedRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *MarkAsReplacedRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *MarkAsReplacedRequest) GetArg2() int32 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-func (x *MarkAsReplacedRequest) GetArg3() string {
-	if x != nil {
-		return x.Arg3
-	}
-	return ""
-}
-
-type MarkAsReplacedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *MarkAsReplacedResponse) Reset() {
-	*x = MarkAsReplacedResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[84]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *MarkAsReplacedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*MarkAsReplacedResponse) ProtoMessage() {}
-
-func (x *MarkAsReplacedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[84]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use MarkAsReplacedResponse.ProtoReflect.Descriptor instead.
-func (*MarkAsReplacedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{84}
-}
-
-type BackspaceRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BackspaceRequest) Reset() {
-	*x = BackspaceRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[85]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BackspaceRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BackspaceRequest) ProtoMessage() {}
-
-func (x *BackspaceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[85]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BackspaceRequest.ProtoReflect.Descriptor instead.
-func (*BackspaceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{85}
-}
-
-func (x *BackspaceRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *BackspaceRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *BackspaceRequest) GetArg2() int32 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-func (x *BackspaceRequest) GetArg3() int64 {
-	if x != nil {
-		return x.Arg3
-	}
-	return 0
-}
-
-type BackspaceResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BackspaceResponse) Reset() {
-	*x = BackspaceResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[86]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BackspaceResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BackspaceResponse) ProtoMessage() {}
-
-func (x *BackspaceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[86]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BackspaceResponse.ProtoReflect.Descriptor instead.
-func (*BackspaceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{86}
-}
-
-func (x *BackspaceResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type ForwardDeleteRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	Arg3          int64                  `protobuf:"varint,4,opt,name=arg3,proto3" json:"arg3,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ForwardDeleteRequest) Reset() {
-	*x = ForwardDeleteRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[87]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ForwardDeleteRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ForwardDeleteRequest) ProtoMessage() {}
-
-func (x *ForwardDeleteRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[87]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ForwardDeleteRequest.ProtoReflect.Descriptor instead.
-func (*ForwardDeleteRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{87}
-}
-
-func (x *ForwardDeleteRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *ForwardDeleteRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *ForwardDeleteRequest) GetArg2() int32 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-func (x *ForwardDeleteRequest) GetArg3() int64 {
-	if x != nil {
-		return x.Arg3
-	}
-	return 0
-}
-
-type ForwardDeleteResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ForwardDeleteResponse) Reset() {
-	*x = ForwardDeleteResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[88]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ForwardDeleteResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ForwardDeleteResponse) ProtoMessage() {}
-
-func (x *ForwardDeleteResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[88]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ForwardDeleteResponse.ProtoReflect.Descriptor instead.
-func (*ForwardDeleteResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{88}
-}
-
-func (x *ForwardDeleteResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type ClearMetaKeyState3_1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ClearMetaKeyState3_1Request) Reset() {
-	*x = ClearMetaKeyState3_1Request{}
-	mi := &file_proto_method_method_proto_msgTypes[89]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ClearMetaKeyState3_1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ClearMetaKeyState3_1Request) ProtoMessage() {}
-
-func (x *ClearMetaKeyState3_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[89]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ClearMetaKeyState3_1Request.ProtoReflect.Descriptor instead.
-func (*ClearMetaKeyState3_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{89}
-}
-
-func (x *ClearMetaKeyState3_1Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *ClearMetaKeyState3_1Request) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *ClearMetaKeyState3_1Request) GetArg2() int32 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type ClearMetaKeyState3_1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ClearMetaKeyState3_1Response) Reset() {
-	*x = ClearMetaKeyState3_1Response{}
-	mi := &file_proto_method_method_proto_msgTypes[90]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ClearMetaKeyState3_1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ClearMetaKeyState3_1Response) ProtoMessage() {}
-
-func (x *ClearMetaKeyState3_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[90]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ClearMetaKeyState3_1Response.ProtoReflect.Descriptor instead.
-func (*ClearMetaKeyState3_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{90}
-}
-
-type ClearMetaKeyState2_2Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ClearMetaKeyState2_2Request) Reset() {
-	*x = ClearMetaKeyState2_2Request{}
-	mi := &file_proto_method_method_proto_msgTypes[91]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ClearMetaKeyState2_2Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ClearMetaKeyState2_2Request) ProtoMessage() {}
-
-func (x *ClearMetaKeyState2_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[91]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ClearMetaKeyState2_2Request.ProtoReflect.Descriptor instead.
-func (*ClearMetaKeyState2_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{91}
-}
-
-func (x *ClearMetaKeyState2_2Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *ClearMetaKeyState2_2Request) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type ClearMetaKeyState2_2Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ClearMetaKeyState2_2Response) Reset() {
-	*x = ClearMetaKeyState2_2Response{}
-	mi := &file_proto_method_method_proto_msgTypes[92]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ClearMetaKeyState2_2Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ClearMetaKeyState2_2Response) ProtoMessage() {}
-
-func (x *ClearMetaKeyState2_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[92]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ClearMetaKeyState2_2Response.ProtoReflect.Descriptor instead.
-func (*ClearMetaKeyState2_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{92}
-}
-
-func (x *ClearMetaKeyState2_2Response) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type AdjustMetaAfterKeypress1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AdjustMetaAfterKeypress1Request) Reset() {
-	*x = AdjustMetaAfterKeypress1Request{}
-	mi := &file_proto_method_method_proto_msgTypes[93]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AdjustMetaAfterKeypress1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AdjustMetaAfterKeypress1Request) ProtoMessage() {}
-
-func (x *AdjustMetaAfterKeypress1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[93]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AdjustMetaAfterKeypress1Request.ProtoReflect.Descriptor instead.
-func (*AdjustMetaAfterKeypress1Request) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{93}
-}
-
-func (x *AdjustMetaAfterKeypress1Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type AdjustMetaAfterKeypress1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AdjustMetaAfterKeypress1Response) Reset() {
-	*x = AdjustMetaAfterKeypress1Response{}
-	mi := &file_proto_method_method_proto_msgTypes[94]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AdjustMetaAfterKeypress1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AdjustMetaAfterKeypress1Response) ProtoMessage() {}
-
-func (x *AdjustMetaAfterKeypress1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[94]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AdjustMetaAfterKeypress1Response.ProtoReflect.Descriptor instead.
-func (*AdjustMetaAfterKeypress1Response) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{94}
-}
-
-type AdjustMetaAfterKeypress1_1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AdjustMetaAfterKeypress1_1Request) Reset() {
-	*x = AdjustMetaAfterKeypress1_1Request{}
-	mi := &file_proto_method_method_proto_msgTypes[95]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AdjustMetaAfterKeypress1_1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AdjustMetaAfterKeypress1_1Request) ProtoMessage() {}
-
-func (x *AdjustMetaAfterKeypress1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[95]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AdjustMetaAfterKeypress1_1Request.ProtoReflect.Descriptor instead.
-func (*AdjustMetaAfterKeypress1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{95}
-}
-
-func (x *AdjustMetaAfterKeypress1_1Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type AdjustMetaAfterKeypress1_1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AdjustMetaAfterKeypress1_1Response) Reset() {
-	*x = AdjustMetaAfterKeypress1_1Response{}
-	mi := &file_proto_method_method_proto_msgTypes[96]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AdjustMetaAfterKeypress1_1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AdjustMetaAfterKeypress1_1Response) ProtoMessage() {}
-
-func (x *AdjustMetaAfterKeypress1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[96]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AdjustMetaAfterKeypress1_1Response.ProtoReflect.Descriptor instead.
-func (*AdjustMetaAfterKeypress1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{96}
-}
-
-func (x *AdjustMetaAfterKeypress1_1Response) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ClearMetaKeyState2Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ClearMetaKeyState2Request) Reset() {
-	*x = ClearMetaKeyState2Request{}
-	mi := &file_proto_method_method_proto_msgTypes[97]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ClearMetaKeyState2Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ClearMetaKeyState2Request) ProtoMessage() {}
-
-func (x *ClearMetaKeyState2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[97]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ClearMetaKeyState2Request.ProtoReflect.Descriptor instead.
-func (*ClearMetaKeyState2Request) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{97}
-}
-
-func (x *ClearMetaKeyState2Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *ClearMetaKeyState2Request) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type ClearMetaKeyState2Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ClearMetaKeyState2Response) Reset() {
-	*x = ClearMetaKeyState2Response{}
-	mi := &file_proto_method_method_proto_msgTypes[98]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ClearMetaKeyState2Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ClearMetaKeyState2Response) ProtoMessage() {}
-
-func (x *ClearMetaKeyState2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[98]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ClearMetaKeyState2Response.ProtoReflect.Descriptor instead.
-func (*ClearMetaKeyState2Response) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{98}
-}
-
-type GetMetaState1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMetaState1Request) Reset() {
-	*x = GetMetaState1Request{}
-	mi := &file_proto_method_method_proto_msgTypes[99]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMetaState1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMetaState1Request) ProtoMessage() {}
-
-func (x *GetMetaState1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[99]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMetaState1Request.ProtoReflect.Descriptor instead.
-func (*GetMetaState1Request) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{99}
-}
-
-func (x *GetMetaState1Request) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type GetMetaState1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMetaState1Response) Reset() {
-	*x = GetMetaState1Response{}
-	mi := &file_proto_method_method_proto_msgTypes[100]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMetaState1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMetaState1Response) ProtoMessage() {}
-
-func (x *GetMetaState1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[100]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMetaState1Response.ProtoReflect.Descriptor instead.
-func (*GetMetaState1Response) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{100}
-}
-
-func (x *GetMetaState1Response) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetMetaState2_1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMetaState2_1Request) Reset() {
-	*x = GetMetaState2_1Request{}
-	mi := &file_proto_method_method_proto_msgTypes[101]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMetaState2_1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMetaState2_1Request) ProtoMessage() {}
-
-func (x *GetMetaState2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[101]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMetaState2_1Request.ProtoReflect.Descriptor instead.
-func (*GetMetaState2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{101}
-}
-
-func (x *GetMetaState2_1Request) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-func (x *GetMetaState2_1Request) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type GetMetaState2_1Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMetaState2_1Response) Reset() {
-	*x = GetMetaState2_1Response{}
-	mi := &file_proto_method_method_proto_msgTypes[102]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMetaState2_1Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMetaState2_1Response) ProtoMessage() {}
-
-func (x *GetMetaState2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[102]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMetaState2_1Response.ProtoReflect.Descriptor instead.
-func (*GetMetaState2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{102}
-}
-
-func (x *GetMetaState2_1Response) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetMetaState2_2Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMetaState2_2Request) Reset() {
-	*x = GetMetaState2_2Request{}
-	mi := &file_proto_method_method_proto_msgTypes[103]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMetaState2_2Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMetaState2_2Request) ProtoMessage() {}
-
-func (x *GetMetaState2_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[103]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMetaState2_2Request.ProtoReflect.Descriptor instead.
-func (*GetMetaState2_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{103}
-}
-
-func (x *GetMetaState2_2Request) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-func (x *GetMetaState2_2Request) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type GetMetaState2_2Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMetaState2_2Response) Reset() {
-	*x = GetMetaState2_2Response{}
-	mi := &file_proto_method_method_proto_msgTypes[104]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMetaState2_2Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMetaState2_2Response) ProtoMessage() {}
-
-func (x *GetMetaState2_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[104]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMetaState2_2Response.ProtoReflect.Descriptor instead.
-func (*GetMetaState2_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{104}
-}
-
-func (x *GetMetaState2_2Response) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetMetaState3_3Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMetaState3_3Request) Reset() {
-	*x = GetMetaState3_3Request{}
-	mi := &file_proto_method_method_proto_msgTypes[105]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMetaState3_3Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMetaState3_3Request) ProtoMessage() {}
-
-func (x *GetMetaState3_3Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[105]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMetaState3_3Request.ProtoReflect.Descriptor instead.
-func (*GetMetaState3_3Request) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{105}
-}
-
-func (x *GetMetaState3_3Request) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-func (x *GetMetaState3_3Request) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *GetMetaState3_3Request) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type GetMetaState3_3Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMetaState3_3Response) Reset() {
-	*x = GetMetaState3_3Response{}
-	mi := &file_proto_method_method_proto_msgTypes[106]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMetaState3_3Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMetaState3_3Response) ProtoMessage() {}
-
-func (x *GetMetaState3_3Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[106]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMetaState3_3Response.ProtoReflect.Descriptor instead.
-func (*GetMetaState3_3Response) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{106}
-}
-
-func (x *GetMetaState3_3Response) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetMetaState1_4Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMetaState1_4Request) Reset() {
-	*x = GetMetaState1_4Request{}
-	mi := &file_proto_method_method_proto_msgTypes[107]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMetaState1_4Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMetaState1_4Request) ProtoMessage() {}
-
-func (x *GetMetaState1_4Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[107]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMetaState1_4Request.ProtoReflect.Descriptor instead.
-func (*GetMetaState1_4Request) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{107}
-}
-
-func (x *GetMetaState1_4Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetMetaState1_4Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMetaState1_4Response) Reset() {
-	*x = GetMetaState1_4Response{}
-	mi := &file_proto_method_method_proto_msgTypes[108]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMetaState1_4Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMetaState1_4Response) ProtoMessage() {}
-
-func (x *GetMetaState1_4Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[108]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMetaState1_4Response.ProtoReflect.Descriptor instead.
-func (*GetMetaState1_4Response) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{108}
-}
-
-func (x *GetMetaState1_4Response) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetMetaState2_5Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMetaState2_5Request) Reset() {
-	*x = GetMetaState2_5Request{}
-	mi := &file_proto_method_method_proto_msgTypes[109]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMetaState2_5Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMetaState2_5Request) ProtoMessage() {}
-
-func (x *GetMetaState2_5Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[109]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMetaState2_5Request.ProtoReflect.Descriptor instead.
-func (*GetMetaState2_5Request) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{109}
-}
-
-func (x *GetMetaState2_5Request) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *GetMetaState2_5Request) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type GetMetaState2_5Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMetaState2_5Response) Reset() {
-	*x = GetMetaState2_5Response{}
-	mi := &file_proto_method_method_proto_msgTypes[110]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMetaState2_5Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMetaState2_5Response) ProtoMessage() {}
-
-func (x *GetMetaState2_5Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[110]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMetaState2_5Response.ProtoReflect.Descriptor instead.
-func (*GetMetaState2_5Response) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{110}
-}
-
-func (x *GetMetaState2_5Response) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type HandleKeyDownRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HandleKeyDownRequest) Reset() {
-	*x = HandleKeyDownRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[111]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HandleKeyDownRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HandleKeyDownRequest) ProtoMessage() {}
-
-func (x *HandleKeyDownRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[111]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HandleKeyDownRequest.ProtoReflect.Descriptor instead.
-func (*HandleKeyDownRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{111}
-}
-
-func (x *HandleKeyDownRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *HandleKeyDownRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *HandleKeyDownRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type HandleKeyDownResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HandleKeyDownResponse) Reset() {
-	*x = HandleKeyDownResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[112]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HandleKeyDownResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HandleKeyDownResponse) ProtoMessage() {}
-
-func (x *HandleKeyDownResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[112]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HandleKeyDownResponse.ProtoReflect.Descriptor instead.
-func (*HandleKeyDownResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{112}
-}
-
-func (x *HandleKeyDownResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type HandleKeyUpRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HandleKeyUpRequest) Reset() {
-	*x = HandleKeyUpRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[113]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HandleKeyUpRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HandleKeyUpRequest) ProtoMessage() {}
-
-func (x *HandleKeyUpRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[113]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HandleKeyUpRequest.ProtoReflect.Descriptor instead.
-func (*HandleKeyUpRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{113}
-}
-
-func (x *HandleKeyUpRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *HandleKeyUpRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *HandleKeyUpRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type HandleKeyUpResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HandleKeyUpResponse) Reset() {
-	*x = HandleKeyUpResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[114]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HandleKeyUpResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HandleKeyUpResponse) ProtoMessage() {}
-
-func (x *HandleKeyUpResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[114]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HandleKeyUpResponse.ProtoReflect.Descriptor instead.
-func (*HandleKeyUpResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{114}
-}
-
-func (x *HandleKeyUpResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type IsMetaTrackerRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsMetaTrackerRequest) Reset() {
-	*x = IsMetaTrackerRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[115]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsMetaTrackerRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsMetaTrackerRequest) ProtoMessage() {}
-
-func (x *IsMetaTrackerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[115]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsMetaTrackerRequest.ProtoReflect.Descriptor instead.
-func (*IsMetaTrackerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{115}
-}
-
-func (x *IsMetaTrackerRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-func (x *IsMetaTrackerRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type IsMetaTrackerResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsMetaTrackerResponse) Reset() {
-	*x = IsMetaTrackerResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[116]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsMetaTrackerResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsMetaTrackerResponse) ProtoMessage() {}
-
-func (x *IsMetaTrackerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[116]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsMetaTrackerResponse.ProtoReflect.Descriptor instead.
-func (*IsMetaTrackerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{116}
-}
-
-func (x *IsMetaTrackerResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type IsSelectingMetaTrackerRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsSelectingMetaTrackerRequest) Reset() {
-	*x = IsSelectingMetaTrackerRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[117]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsSelectingMetaTrackerRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsSelectingMetaTrackerRequest) ProtoMessage() {}
-
-func (x *IsSelectingMetaTrackerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[117]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsSelectingMetaTrackerRequest.ProtoReflect.Descriptor instead.
-func (*IsSelectingMetaTrackerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{117}
-}
-
-func (x *IsSelectingMetaTrackerRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-func (x *IsSelectingMetaTrackerRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type IsSelectingMetaTrackerResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsSelectingMetaTrackerResponse) Reset() {
-	*x = IsSelectingMetaTrackerResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[118]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsSelectingMetaTrackerResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsSelectingMetaTrackerResponse) ProtoMessage() {}
-
-func (x *IsSelectingMetaTrackerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[118]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsSelectingMetaTrackerResponse.ProtoReflect.Descriptor instead.
-func (*IsSelectingMetaTrackerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{118}
-}
-
-func (x *IsSelectingMetaTrackerResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type ResetLockedMetaRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ResetLockedMetaRequest) Reset() {
-	*x = ResetLockedMetaRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[119]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ResetLockedMetaRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ResetLockedMetaRequest) ProtoMessage() {}
-
-func (x *ResetLockedMetaRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[119]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ResetLockedMetaRequest.ProtoReflect.Descriptor instead.
-func (*ResetLockedMetaRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{119}
-}
-
-func (x *ResetLockedMetaRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type ResetLockedMetaResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ResetLockedMetaResponse) Reset() {
-	*x = ResetLockedMetaResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[120]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ResetLockedMetaResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ResetLockedMetaResponse) ProtoMessage() {}
-
-func (x *ResetLockedMetaResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[120]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ResetLockedMetaResponse.ProtoReflect.Descriptor instead.
-func (*ResetLockedMetaResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{120}
-}
-
-func (x *ResetLockedMetaResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ResetMetaStateRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ResetMetaStateRequest) Reset() {
-	*x = ResetMetaStateRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[121]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ResetMetaStateRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ResetMetaStateRequest) ProtoMessage() {}
-
-func (x *ResetMetaStateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[121]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ResetMetaStateRequest.ProtoReflect.Descriptor instead.
-func (*ResetMetaStateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{121}
-}
-
-func (x *ResetMetaStateRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type ResetMetaStateResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ResetMetaStateResponse) Reset() {
-	*x = ResetMetaStateResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[122]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ResetMetaStateResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ResetMetaStateResponse) ProtoMessage() {}
-
-func (x *ResetMetaStateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[122]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ResetMetaStateResponse.ProtoReflect.Descriptor instead.
-func (*ResetMetaStateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{122}
-}
-
-type NewTextKeyListenerRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          bool                   `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewTextKeyListenerRequest) Reset() {
-	*x = NewTextKeyListenerRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[123]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewTextKeyListenerRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewTextKeyListenerRequest) ProtoMessage() {}
-
-func (x *NewTextKeyListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[123]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewTextKeyListenerRequest.ProtoReflect.Descriptor instead.
-func (*NewTextKeyListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{123}
-}
-
-func (x *NewTextKeyListenerRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *NewTextKeyListenerRequest) GetArg1() bool {
-	if x != nil {
-		return x.Arg1
-	}
-	return false
-}
-
-type NewTextKeyListenerResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewTextKeyListenerResponse) Reset() {
-	*x = NewTextKeyListenerResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[124]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewTextKeyListenerResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewTextKeyListenerResponse) ProtoMessage() {}
-
-func (x *NewTextKeyListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[124]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewTextKeyListenerResponse.ProtoReflect.Descriptor instead.
-func (*NewTextKeyListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{124}
-}
-
-func (x *NewTextKeyListenerResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type TextKeyListenerOnKeyDownRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	Arg3          int64                  `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *TextKeyListenerOnKeyDownRequest) Reset() {
-	*x = TextKeyListenerOnKeyDownRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[125]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *TextKeyListenerOnKeyDownRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TextKeyListenerOnKeyDownRequest) ProtoMessage() {}
-
-func (x *TextKeyListenerOnKeyDownRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[125]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use TextKeyListenerOnKeyDownRequest.ProtoReflect.Descriptor instead.
-func (*TextKeyListenerOnKeyDownRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{125}
-}
-
-func (x *TextKeyListenerOnKeyDownRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *TextKeyListenerOnKeyDownRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *TextKeyListenerOnKeyDownRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *TextKeyListenerOnKeyDownRequest) GetArg2() int32 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-func (x *TextKeyListenerOnKeyDownRequest) GetArg3() int64 {
-	if x != nil {
-		return x.Arg3
-	}
-	return 0
-}
-
-type TextKeyListenerOnKeyOtherRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *TextKeyListenerOnKeyOtherRequest) Reset() {
-	*x = TextKeyListenerOnKeyOtherRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[126]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *TextKeyListenerOnKeyOtherRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TextKeyListenerOnKeyOtherRequest) ProtoMessage() {}
-
-func (x *TextKeyListenerOnKeyOtherRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[126]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use TextKeyListenerOnKeyOtherRequest.ProtoReflect.Descriptor instead.
-func (*TextKeyListenerOnKeyOtherRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{126}
-}
-
-func (x *TextKeyListenerOnKeyOtherRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *TextKeyListenerOnKeyOtherRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *TextKeyListenerOnKeyOtherRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *TextKeyListenerOnKeyOtherRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type TextKeyListenerOnKeyUpRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	Arg3          int64                  `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *TextKeyListenerOnKeyUpRequest) Reset() {
-	*x = TextKeyListenerOnKeyUpRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[127]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *TextKeyListenerOnKeyUpRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TextKeyListenerOnKeyUpRequest) ProtoMessage() {}
-
-func (x *TextKeyListenerOnKeyUpRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[127]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use TextKeyListenerOnKeyUpRequest.ProtoReflect.Descriptor instead.
-func (*TextKeyListenerOnKeyUpRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{127}
-}
-
-func (x *TextKeyListenerOnKeyUpRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *TextKeyListenerOnKeyUpRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *TextKeyListenerOnKeyUpRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *TextKeyListenerOnKeyUpRequest) GetArg2() int32 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-func (x *TextKeyListenerOnKeyUpRequest) GetArg3() int64 {
-	if x != nil {
-		return x.Arg3
-	}
-	return 0
-}
-
-type ReleaseRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ReleaseRequest) Reset() {
-	*x = ReleaseRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[128]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ReleaseRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ReleaseRequest) ProtoMessage() {}
-
-func (x *ReleaseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[128]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ReleaseRequest.ProtoReflect.Descriptor instead.
-func (*ReleaseRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{128}
-}
-
-func (x *ReleaseRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type ReleaseResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ReleaseResponse) Reset() {
-	*x = ReleaseResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[129]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ReleaseResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ReleaseResponse) ProtoMessage() {}
-
-func (x *ReleaseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[129]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ReleaseResponse.ProtoReflect.Descriptor instead.
-func (*ReleaseResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{129}
-}
-
-type ClearRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ClearRequest) Reset() {
-	*x = ClearRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[130]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ClearRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ClearRequest) ProtoMessage() {}
-
-func (x *ClearRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[130]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ClearRequest.ProtoReflect.Descriptor instead.
-func (*ClearRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{130}
-}
-
-func (x *ClearRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *ClearRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type ClearResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ClearResponse) Reset() {
-	*x = ClearResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[131]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ClearResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ClearResponse) ProtoMessage() {}
-
-func (x *ClearResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[131]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ClearResponse.ProtoReflect.Descriptor instead.
-func (*ClearResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{131}
-}
-
-type TextKeyListenerGetInstance2_1Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *TextKeyListenerGetInstance2_1Request) Reset() {
-	*x = TextKeyListenerGetInstance2_1Request{}
-	mi := &file_proto_method_method_proto_msgTypes[132]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *TextKeyListenerGetInstance2_1Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*TextKeyListenerGetInstance2_1Request) ProtoMessage() {}
-
-func (x *TextKeyListenerGetInstance2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[132]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use TextKeyListenerGetInstance2_1Request.ProtoReflect.Descriptor instead.
-func (*TextKeyListenerGetInstance2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{132}
-}
-
-func (x *TextKeyListenerGetInstance2_1Request) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *TextKeyListenerGetInstance2_1Request) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-func (x *TextKeyListenerGetInstance2_1Request) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type ShouldCapRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ShouldCapRequest) Reset() {
-	*x = ShouldCapRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[133]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ShouldCapRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ShouldCapRequest) ProtoMessage() {}
-
-func (x *ShouldCapRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[133]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ShouldCapRequest.ProtoReflect.Descriptor instead.
-func (*ShouldCapRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{133}
-}
-
-func (x *ShouldCapRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *ShouldCapRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *ShouldCapRequest) GetArg1() string {
-	if x != nil {
-		return x.Arg1
-	}
-	return ""
-}
-
-func (x *ShouldCapRequest) GetArg2() int32 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type ShouldCapResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ShouldCapResponse) Reset() {
-	*x = ShouldCapResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[134]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ShouldCapResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ShouldCapResponse) ProtoMessage() {}
-
-func (x *ShouldCapResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[134]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ShouldCapResponse.ProtoReflect.Descriptor instead.
-func (*ShouldCapResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{134}
-}
-
-func (x *ShouldCapResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type ValuesRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ValuesRequest) Reset() {
-	*x = ValuesRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[135]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ValuesRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ValuesRequest) ProtoMessage() {}
-
-func (x *ValuesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[135]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ValuesRequest.ProtoReflect.Descriptor instead.
-func (*ValuesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{135}
-}
-
-type ValuesResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ValuesResponse) Reset() {
-	*x = ValuesResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[136]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ValuesResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ValuesResponse) ProtoMessage() {}
-
-func (x *ValuesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[136]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ValuesResponse.ProtoReflect.Descriptor instead.
-func (*ValuesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{136}
-}
-
-func (x *ValuesResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ValueOfRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ValueOfRequest) Reset() {
-	*x = ValueOfRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[137]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ValueOfRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ValueOfRequest) ProtoMessage() {}
-
-func (x *ValueOfRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[137]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ValueOfRequest.ProtoReflect.Descriptor instead.
-func (*ValueOfRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{137}
-}
-
-func (x *ValueOfRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type ValueOfResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ValueOfResponse) Reset() {
-	*x = ValueOfResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[138]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ValueOfResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ValueOfResponse) ProtoMessage() {}
-
-func (x *ValueOfResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[138]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ValueOfResponse.ProtoReflect.Descriptor instead.
-func (*ValueOfResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{138}
-}
-
-func (x *ValueOfResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type NewArrowKeyMovementMethodRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewArrowKeyMovementMethodRequest) Reset() {
-	*x = NewArrowKeyMovementMethodRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[139]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewArrowKeyMovementMethodRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewArrowKeyMovementMethodRequest) ProtoMessage() {}
-
-func (x *NewArrowKeyMovementMethodRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[139]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewArrowKeyMovementMethodRequest.ProtoReflect.Descriptor instead.
-func (*NewArrowKeyMovementMethodRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{139}
-}
-
-type NewArrowKeyMovementMethodResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewArrowKeyMovementMethodResponse) Reset() {
-	*x = NewArrowKeyMovementMethodResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[140]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewArrowKeyMovementMethodResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewArrowKeyMovementMethodResponse) ProtoMessage() {}
-
-func (x *NewArrowKeyMovementMethodResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[140]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewArrowKeyMovementMethodResponse.ProtoReflect.Descriptor instead.
-func (*NewArrowKeyMovementMethodResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{140}
-}
-
-func (x *NewArrowKeyMovementMethodResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ArrowKeyMovementMethodCanSelectArbitrarilyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ArrowKeyMovementMethodCanSelectArbitrarilyRequest) Reset() {
-	*x = ArrowKeyMovementMethodCanSelectArbitrarilyRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[141]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ArrowKeyMovementMethodCanSelectArbitrarilyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ArrowKeyMovementMethodCanSelectArbitrarilyRequest) ProtoMessage() {}
-
-func (x *ArrowKeyMovementMethodCanSelectArbitrarilyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[141]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ArrowKeyMovementMethodCanSelectArbitrarilyRequest.ProtoReflect.Descriptor instead.
-func (*ArrowKeyMovementMethodCanSelectArbitrarilyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{141}
-}
-
-func (x *ArrowKeyMovementMethodCanSelectArbitrarilyRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type ArrowKeyMovementMethodInitializeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ArrowKeyMovementMethodInitializeRequest) Reset() {
-	*x = ArrowKeyMovementMethodInitializeRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[142]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ArrowKeyMovementMethodInitializeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ArrowKeyMovementMethodInitializeRequest) ProtoMessage() {}
-
-func (x *ArrowKeyMovementMethodInitializeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[142]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ArrowKeyMovementMethodInitializeRequest.ProtoReflect.Descriptor instead.
-func (*ArrowKeyMovementMethodInitializeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{142}
-}
-
-func (x *ArrowKeyMovementMethodInitializeRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *ArrowKeyMovementMethodInitializeRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *ArrowKeyMovementMethodInitializeRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type NextParagraphRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NextParagraphRequest) Reset() {
-	*x = NextParagraphRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[143]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NextParagraphRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NextParagraphRequest) ProtoMessage() {}
-
-func (x *NextParagraphRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[143]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NextParagraphRequest.ProtoReflect.Descriptor instead.
-func (*NextParagraphRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{143}
-}
-
-func (x *NextParagraphRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *NextParagraphRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *NextParagraphRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type NextParagraphResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NextParagraphResponse) Reset() {
-	*x = NextParagraphResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[144]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NextParagraphResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NextParagraphResponse) ProtoMessage() {}
-
-func (x *NextParagraphResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[144]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NextParagraphResponse.ProtoReflect.Descriptor instead.
-func (*NextParagraphResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{144}
-}
-
-func (x *NextParagraphResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type ArrowKeyMovementMethodOnTakeFocusRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ArrowKeyMovementMethodOnTakeFocusRequest) Reset() {
-	*x = ArrowKeyMovementMethodOnTakeFocusRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[145]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ArrowKeyMovementMethodOnTakeFocusRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ArrowKeyMovementMethodOnTakeFocusRequest) ProtoMessage() {}
-
-func (x *ArrowKeyMovementMethodOnTakeFocusRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[145]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ArrowKeyMovementMethodOnTakeFocusRequest.ProtoReflect.Descriptor instead.
-func (*ArrowKeyMovementMethodOnTakeFocusRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{145}
-}
-
-func (x *ArrowKeyMovementMethodOnTakeFocusRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *ArrowKeyMovementMethodOnTakeFocusRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *ArrowKeyMovementMethodOnTakeFocusRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *ArrowKeyMovementMethodOnTakeFocusRequest) GetArg2() int32 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type ArrowKeyMovementMethodOnTouchEventRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ArrowKeyMovementMethodOnTouchEventRequest) Reset() {
-	*x = ArrowKeyMovementMethodOnTouchEventRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[146]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ArrowKeyMovementMethodOnTouchEventRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ArrowKeyMovementMethodOnTouchEventRequest) ProtoMessage() {}
-
-func (x *ArrowKeyMovementMethodOnTouchEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[146]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ArrowKeyMovementMethodOnTouchEventRequest.ProtoReflect.Descriptor instead.
-func (*ArrowKeyMovementMethodOnTouchEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{146}
-}
-
-func (x *ArrowKeyMovementMethodOnTouchEventRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *ArrowKeyMovementMethodOnTouchEventRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *ArrowKeyMovementMethodOnTouchEventRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *ArrowKeyMovementMethodOnTouchEventRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type PreviousParagraphRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PreviousParagraphRequest) Reset() {
-	*x = PreviousParagraphRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[147]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PreviousParagraphRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PreviousParagraphRequest) ProtoMessage() {}
-
-func (x *PreviousParagraphRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[147]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PreviousParagraphRequest.ProtoReflect.Descriptor instead.
-func (*PreviousParagraphRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{147}
-}
-
-func (x *PreviousParagraphRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *PreviousParagraphRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *PreviousParagraphRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type PreviousParagraphResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PreviousParagraphResponse) Reset() {
-	*x = PreviousParagraphResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[148]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PreviousParagraphResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PreviousParagraphResponse) ProtoMessage() {}
-
-func (x *PreviousParagraphResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[148]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PreviousParagraphResponse.ProtoReflect.Descriptor instead.
-func (*PreviousParagraphResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{148}
-}
-
-func (x *PreviousParagraphResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type ClearMetaKeyStateRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ClearMetaKeyStateRequest) Reset() {
-	*x = ClearMetaKeyStateRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[149]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ClearMetaKeyStateRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ClearMetaKeyStateRequest) ProtoMessage() {}
-
-func (x *ClearMetaKeyStateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[149]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ClearMetaKeyStateRequest.ProtoReflect.Descriptor instead.
-func (*ClearMetaKeyStateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{149}
-}
-
-func (x *ClearMetaKeyStateRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *ClearMetaKeyStateRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *ClearMetaKeyStateRequest) GetArg2() int32 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type ClearMetaKeyStateResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ClearMetaKeyStateResponse) Reset() {
-	*x = ClearMetaKeyStateResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[150]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ClearMetaKeyStateResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ClearMetaKeyStateResponse) ProtoMessage() {}
-
-func (x *ClearMetaKeyStateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[150]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ClearMetaKeyStateResponse.ProtoReflect.Descriptor instead.
-func (*ClearMetaKeyStateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{150}
-}
-
-type KeyListenerGetInputTypeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *KeyListenerGetInputTypeRequest) Reset() {
-	*x = KeyListenerGetInputTypeRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[151]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *KeyListenerGetInputTypeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*KeyListenerGetInputTypeRequest) ProtoMessage() {}
-
-func (x *KeyListenerGetInputTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[151]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use KeyListenerGetInputTypeRequest.ProtoReflect.Descriptor instead.
-func (*KeyListenerGetInputTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{151}
-}
-
-type NewDateTimeKeyListenerRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewDateTimeKeyListenerRequest) Reset() {
-	*x = NewDateTimeKeyListenerRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[152]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewDateTimeKeyListenerRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewDateTimeKeyListenerRequest) ProtoMessage() {}
-
-func (x *NewDateTimeKeyListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[152]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewDateTimeKeyListenerRequest.ProtoReflect.Descriptor instead.
-func (*NewDateTimeKeyListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{152}
-}
-
-type NewDateTimeKeyListenerResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewDateTimeKeyListenerResponse) Reset() {
-	*x = NewDateTimeKeyListenerResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[153]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewDateTimeKeyListenerResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewDateTimeKeyListenerResponse) ProtoMessage() {}
-
-func (x *NewDateTimeKeyListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[153]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewDateTimeKeyListenerResponse.ProtoReflect.Descriptor instead.
-func (*NewDateTimeKeyListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{153}
-}
-
-func (x *NewDateTimeKeyListenerResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type NewDateKeyListenerRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewDateKeyListenerRequest) Reset() {
-	*x = NewDateKeyListenerRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[154]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewDateKeyListenerRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewDateKeyListenerRequest) ProtoMessage() {}
-
-func (x *NewDateKeyListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[154]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewDateKeyListenerRequest.ProtoReflect.Descriptor instead.
-func (*NewDateKeyListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{154}
-}
-
-type NewDateKeyListenerResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewDateKeyListenerResponse) Reset() {
-	*x = NewDateKeyListenerResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[155]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewDateKeyListenerResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewDateKeyListenerResponse) ProtoMessage() {}
-
-func (x *NewDateKeyListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[155]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewDateKeyListenerResponse.ProtoReflect.Descriptor instead.
-func (*NewDateKeyListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{155}
-}
-
-func (x *NewDateKeyListenerResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type NewPasswordTransformationMethodRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewPasswordTransformationMethodRequest) Reset() {
-	*x = NewPasswordTransformationMethodRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[156]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewPasswordTransformationMethodRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewPasswordTransformationMethodRequest) ProtoMessage() {}
-
-func (x *NewPasswordTransformationMethodRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[156]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewPasswordTransformationMethodRequest.ProtoReflect.Descriptor instead.
-func (*NewPasswordTransformationMethodRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{156}
-}
-
-type NewPasswordTransformationMethodResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewPasswordTransformationMethodResponse) Reset() {
-	*x = NewPasswordTransformationMethodResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[157]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewPasswordTransformationMethodResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewPasswordTransformationMethodResponse) ProtoMessage() {}
-
-func (x *NewPasswordTransformationMethodResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[157]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewPasswordTransformationMethodResponse.ProtoReflect.Descriptor instead.
-func (*NewPasswordTransformationMethodResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{157}
-}
-
-func (x *NewPasswordTransformationMethodResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type AfterTextChangedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AfterTextChangedRequest) Reset() {
-	*x = AfterTextChangedRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[158]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AfterTextChangedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AfterTextChangedRequest) ProtoMessage() {}
-
-func (x *AfterTextChangedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[158]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AfterTextChangedRequest.ProtoReflect.Descriptor instead.
-func (*AfterTextChangedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{158}
-}
-
-func (x *AfterTextChangedRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *AfterTextChangedRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type AfterTextChangedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AfterTextChangedResponse) Reset() {
-	*x = AfterTextChangedResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[159]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AfterTextChangedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AfterTextChangedResponse) ProtoMessage() {}
-
-func (x *AfterTextChangedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[159]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AfterTextChangedResponse.ProtoReflect.Descriptor instead.
-func (*AfterTextChangedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{159}
-}
-
-type BeforeTextChangedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	Arg3          int32                  `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BeforeTextChangedRequest) Reset() {
-	*x = BeforeTextChangedRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[160]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BeforeTextChangedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BeforeTextChangedRequest) ProtoMessage() {}
-
-func (x *BeforeTextChangedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[160]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BeforeTextChangedRequest.ProtoReflect.Descriptor instead.
-func (*BeforeTextChangedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{160}
-}
-
-func (x *BeforeTextChangedRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *BeforeTextChangedRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-func (x *BeforeTextChangedRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *BeforeTextChangedRequest) GetArg2() int32 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-func (x *BeforeTextChangedRequest) GetArg3() int32 {
-	if x != nil {
-		return x.Arg3
-	}
-	return 0
-}
-
-type BeforeTextChangedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BeforeTextChangedResponse) Reset() {
-	*x = BeforeTextChangedResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[161]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BeforeTextChangedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BeforeTextChangedResponse) ProtoMessage() {}
-
-func (x *BeforeTextChangedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[161]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BeforeTextChangedResponse.ProtoReflect.Descriptor instead.
-func (*BeforeTextChangedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{161}
-}
-
-type PasswordTransformationMethodGetTransformationRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PasswordTransformationMethodGetTransformationRequest) Reset() {
-	*x = PasswordTransformationMethodGetTransformationRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[162]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PasswordTransformationMethodGetTransformationRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PasswordTransformationMethodGetTransformationRequest) ProtoMessage() {}
-
-func (x *PasswordTransformationMethodGetTransformationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[162]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PasswordTransformationMethodGetTransformationRequest.ProtoReflect.Descriptor instead.
-func (*PasswordTransformationMethodGetTransformationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{162}
-}
-
-func (x *PasswordTransformationMethodGetTransformationRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *PasswordTransformationMethodGetTransformationRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-func (x *PasswordTransformationMethodGetTransformationRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type PasswordTransformationMethodOnFocusChangedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          string                 `protobuf:"bytes,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          bool                   `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	Arg3          int32                  `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
-	Arg4          int64                  `protobuf:"varint,6,opt,name=arg4,proto3" json:"arg4,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PasswordTransformationMethodOnFocusChangedRequest) Reset() {
-	*x = PasswordTransformationMethodOnFocusChangedRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[163]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PasswordTransformationMethodOnFocusChangedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PasswordTransformationMethodOnFocusChangedRequest) ProtoMessage() {}
-
-func (x *PasswordTransformationMethodOnFocusChangedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[163]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PasswordTransformationMethodOnFocusChangedRequest.ProtoReflect.Descriptor instead.
-func (*PasswordTransformationMethodOnFocusChangedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{163}
-}
-
-func (x *PasswordTransformationMethodOnFocusChangedRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *PasswordTransformationMethodOnFocusChangedRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *PasswordTransformationMethodOnFocusChangedRequest) GetArg1() string {
-	if x != nil {
-		return x.Arg1
-	}
-	return ""
-}
-
-func (x *PasswordTransformationMethodOnFocusChangedRequest) GetArg2() bool {
-	if x != nil {
-		return x.Arg2
-	}
-	return false
-}
-
-func (x *PasswordTransformationMethodOnFocusChangedRequest) GetArg3() int32 {
-	if x != nil {
-		return x.Arg3
-	}
-	return 0
-}
-
-func (x *PasswordTransformationMethodOnFocusChangedRequest) GetArg4() int64 {
-	if x != nil {
-		return x.Arg4
-	}
-	return 0
-}
-
-type OnTextChangedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          string                 `protobuf:"bytes,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	Arg3          int32                  `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnTextChangedRequest) Reset() {
-	*x = OnTextChangedRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[164]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnTextChangedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnTextChangedRequest) ProtoMessage() {}
-
-func (x *OnTextChangedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[164]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnTextChangedRequest.ProtoReflect.Descriptor instead.
-func (*OnTextChangedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{164}
-}
-
-func (x *OnTextChangedRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *OnTextChangedRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-func (x *OnTextChangedRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *OnTextChangedRequest) GetArg2() int32 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-func (x *OnTextChangedRequest) GetArg3() int32 {
-	if x != nil {
-		return x.Arg3
-	}
-	return 0
-}
-
-type OnTextChangedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnTextChangedResponse) Reset() {
-	*x = OnTextChangedResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[165]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnTextChangedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnTextChangedResponse) ProtoMessage() {}
-
-func (x *OnTextChangedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[165]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnTextChangedResponse.ProtoReflect.Descriptor instead.
-func (*OnTextChangedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{165}
 }
 
 type NewLinkMovementMethodRequest struct {
@@ -8367,7 +8919,7 @@ type NewLinkMovementMethodRequest struct {
 
 func (x *NewLinkMovementMethodRequest) Reset() {
 	*x = NewLinkMovementMethodRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[166]
+	mi := &file_proto_method_method_proto_msgTypes[176]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8379,7 +8931,7 @@ func (x *NewLinkMovementMethodRequest) String() string {
 func (*NewLinkMovementMethodRequest) ProtoMessage() {}
 
 func (x *NewLinkMovementMethodRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[166]
+	mi := &file_proto_method_method_proto_msgTypes[176]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8392,7 +8944,7 @@ func (x *NewLinkMovementMethodRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewLinkMovementMethodRequest.ProtoReflect.Descriptor instead.
 func (*NewLinkMovementMethodRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{166}
+	return file_proto_method_method_proto_rawDescGZIP(), []int{176}
 }
 
 type NewLinkMovementMethodResponse struct {
@@ -8404,7 +8956,7 @@ type NewLinkMovementMethodResponse struct {
 
 func (x *NewLinkMovementMethodResponse) Reset() {
 	*x = NewLinkMovementMethodResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[167]
+	mi := &file_proto_method_method_proto_msgTypes[177]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8416,7 +8968,7 @@ func (x *NewLinkMovementMethodResponse) String() string {
 func (*NewLinkMovementMethodResponse) ProtoMessage() {}
 
 func (x *NewLinkMovementMethodResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[167]
+	mi := &file_proto_method_method_proto_msgTypes[177]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8429,7 +8981,7 @@ func (x *NewLinkMovementMethodResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewLinkMovementMethodResponse.ProtoReflect.Descriptor instead.
 func (*NewLinkMovementMethodResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{167}
+	return file_proto_method_method_proto_rawDescGZIP(), []int{177}
 }
 
 func (x *NewLinkMovementMethodResponse) GetResult() int64 {
@@ -8439,28 +8991,28 @@ func (x *NewLinkMovementMethodResponse) GetResult() int64 {
 	return 0
 }
 
-type LinkMovementMethodCanSelectArbitrarilyRequest struct {
+type LinkMovementMethodGetInstanceRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *LinkMovementMethodCanSelectArbitrarilyRequest) Reset() {
-	*x = LinkMovementMethodCanSelectArbitrarilyRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[168]
+func (x *LinkMovementMethodGetInstanceRequest) Reset() {
+	*x = LinkMovementMethodGetInstanceRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[178]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *LinkMovementMethodCanSelectArbitrarilyRequest) String() string {
+func (x *LinkMovementMethodGetInstanceRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*LinkMovementMethodCanSelectArbitrarilyRequest) ProtoMessage() {}
+func (*LinkMovementMethodGetInstanceRequest) ProtoMessage() {}
 
-func (x *LinkMovementMethodCanSelectArbitrarilyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[168]
+func (x *LinkMovementMethodGetInstanceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[178]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8471,42 +9023,39 @@ func (x *LinkMovementMethodCanSelectArbitrarilyRequest) ProtoReflect() protorefl
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use LinkMovementMethodCanSelectArbitrarilyRequest.ProtoReflect.Descriptor instead.
-func (*LinkMovementMethodCanSelectArbitrarilyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{168}
+// Deprecated: Use LinkMovementMethodGetInstanceRequest.ProtoReflect.Descriptor instead.
+func (*LinkMovementMethodGetInstanceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{178}
 }
 
-func (x *LinkMovementMethodCanSelectArbitrarilyRequest) GetHandle() int64 {
+func (x *LinkMovementMethodGetInstanceRequest) GetHandle() int64 {
 	if x != nil {
 		return x.Handle
 	}
 	return 0
 }
 
-type LinkMovementMethodInitializeRequest struct {
+type NewHideReturnsTransformationMethodRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *LinkMovementMethodInitializeRequest) Reset() {
-	*x = LinkMovementMethodInitializeRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[169]
+func (x *NewHideReturnsTransformationMethodRequest) Reset() {
+	*x = NewHideReturnsTransformationMethodRequest{}
+	mi := &file_proto_method_method_proto_msgTypes[179]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *LinkMovementMethodInitializeRequest) String() string {
+func (x *NewHideReturnsTransformationMethodRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*LinkMovementMethodInitializeRequest) ProtoMessage() {}
+func (*NewHideReturnsTransformationMethodRequest) ProtoMessage() {}
 
-func (x *LinkMovementMethodInitializeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[169]
+func (x *NewHideReturnsTransformationMethodRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[179]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8517,226 +9066,33 @@ func (x *LinkMovementMethodInitializeRequest) ProtoReflect() protoreflect.Messag
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use LinkMovementMethodInitializeRequest.ProtoReflect.Descriptor instead.
-func (*LinkMovementMethodInitializeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{169}
+// Deprecated: Use NewHideReturnsTransformationMethodRequest.ProtoReflect.Descriptor instead.
+func (*NewHideReturnsTransformationMethodRequest) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{179}
 }
 
-func (x *LinkMovementMethodInitializeRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *LinkMovementMethodInitializeRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *LinkMovementMethodInitializeRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type LinkMovementMethodOnTakeFocusRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *LinkMovementMethodOnTakeFocusRequest) Reset() {
-	*x = LinkMovementMethodOnTakeFocusRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[170]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *LinkMovementMethodOnTakeFocusRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*LinkMovementMethodOnTakeFocusRequest) ProtoMessage() {}
-
-func (x *LinkMovementMethodOnTakeFocusRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[170]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use LinkMovementMethodOnTakeFocusRequest.ProtoReflect.Descriptor instead.
-func (*LinkMovementMethodOnTakeFocusRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{170}
-}
-
-func (x *LinkMovementMethodOnTakeFocusRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *LinkMovementMethodOnTakeFocusRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *LinkMovementMethodOnTakeFocusRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *LinkMovementMethodOnTakeFocusRequest) GetArg2() int32 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type LinkMovementMethodOnTouchEventRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *LinkMovementMethodOnTouchEventRequest) Reset() {
-	*x = LinkMovementMethodOnTouchEventRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[171]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *LinkMovementMethodOnTouchEventRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*LinkMovementMethodOnTouchEventRequest) ProtoMessage() {}
-
-func (x *LinkMovementMethodOnTouchEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[171]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use LinkMovementMethodOnTouchEventRequest.ProtoReflect.Descriptor instead.
-func (*LinkMovementMethodOnTouchEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{171}
-}
-
-func (x *LinkMovementMethodOnTouchEventRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *LinkMovementMethodOnTouchEventRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *LinkMovementMethodOnTouchEventRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *LinkMovementMethodOnTouchEventRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type NewBaseMovementMethodRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewBaseMovementMethodRequest) Reset() {
-	*x = NewBaseMovementMethodRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[172]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewBaseMovementMethodRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewBaseMovementMethodRequest) ProtoMessage() {}
-
-func (x *NewBaseMovementMethodRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[172]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewBaseMovementMethodRequest.ProtoReflect.Descriptor instead.
-func (*NewBaseMovementMethodRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{172}
-}
-
-type NewBaseMovementMethodResponse struct {
+type NewHideReturnsTransformationMethodResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *NewBaseMovementMethodResponse) Reset() {
-	*x = NewBaseMovementMethodResponse{}
-	mi := &file_proto_method_method_proto_msgTypes[173]
+func (x *NewHideReturnsTransformationMethodResponse) Reset() {
+	*x = NewHideReturnsTransformationMethodResponse{}
+	mi := &file_proto_method_method_proto_msgTypes[180]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *NewBaseMovementMethodResponse) String() string {
+func (x *NewHideReturnsTransformationMethodResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*NewBaseMovementMethodResponse) ProtoMessage() {}
+func (*NewHideReturnsTransformationMethodResponse) ProtoMessage() {}
 
-func (x *NewBaseMovementMethodResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[173]
+func (x *NewHideReturnsTransformationMethodResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_method_method_proto_msgTypes[180]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8747,502 +9103,39 @@ func (x *NewBaseMovementMethodResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use NewBaseMovementMethodResponse.ProtoReflect.Descriptor instead.
-func (*NewBaseMovementMethodResponse) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{173}
+// Deprecated: Use NewHideReturnsTransformationMethodResponse.ProtoReflect.Descriptor instead.
+func (*NewHideReturnsTransformationMethodResponse) Descriptor() ([]byte, []int) {
+	return file_proto_method_method_proto_rawDescGZIP(), []int{180}
 }
 
-func (x *NewBaseMovementMethodResponse) GetResult() int64 {
+func (x *NewHideReturnsTransformationMethodResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type BaseMovementMethodCanSelectArbitrarilyRequest struct {
+type HideReturnsTransformationMethodGetInstanceRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *BaseMovementMethodCanSelectArbitrarilyRequest) Reset() {
-	*x = BaseMovementMethodCanSelectArbitrarilyRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[174]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BaseMovementMethodCanSelectArbitrarilyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BaseMovementMethodCanSelectArbitrarilyRequest) ProtoMessage() {}
-
-func (x *BaseMovementMethodCanSelectArbitrarilyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[174]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BaseMovementMethodCanSelectArbitrarilyRequest.ProtoReflect.Descriptor instead.
-func (*BaseMovementMethodCanSelectArbitrarilyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{174}
-}
-
-func (x *BaseMovementMethodCanSelectArbitrarilyRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type BaseMovementMethodInitializeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BaseMovementMethodInitializeRequest) Reset() {
-	*x = BaseMovementMethodInitializeRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[175]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BaseMovementMethodInitializeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BaseMovementMethodInitializeRequest) ProtoMessage() {}
-
-func (x *BaseMovementMethodInitializeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[175]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BaseMovementMethodInitializeRequest.ProtoReflect.Descriptor instead.
-func (*BaseMovementMethodInitializeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{175}
-}
-
-func (x *BaseMovementMethodInitializeRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *BaseMovementMethodInitializeRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *BaseMovementMethodInitializeRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type BaseMovementMethodOnGenericMotionEventRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BaseMovementMethodOnGenericMotionEventRequest) Reset() {
-	*x = BaseMovementMethodOnGenericMotionEventRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[176]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BaseMovementMethodOnGenericMotionEventRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BaseMovementMethodOnGenericMotionEventRequest) ProtoMessage() {}
-
-func (x *BaseMovementMethodOnGenericMotionEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[176]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BaseMovementMethodOnGenericMotionEventRequest.ProtoReflect.Descriptor instead.
-func (*BaseMovementMethodOnGenericMotionEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{176}
-}
-
-func (x *BaseMovementMethodOnGenericMotionEventRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *BaseMovementMethodOnGenericMotionEventRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *BaseMovementMethodOnGenericMotionEventRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *BaseMovementMethodOnGenericMotionEventRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type BaseMovementMethodOnKeyDownRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	Arg3          int64                  `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BaseMovementMethodOnKeyDownRequest) Reset() {
-	*x = BaseMovementMethodOnKeyDownRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[177]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BaseMovementMethodOnKeyDownRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BaseMovementMethodOnKeyDownRequest) ProtoMessage() {}
-
-func (x *BaseMovementMethodOnKeyDownRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[177]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BaseMovementMethodOnKeyDownRequest.ProtoReflect.Descriptor instead.
-func (*BaseMovementMethodOnKeyDownRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{177}
-}
-
-func (x *BaseMovementMethodOnKeyDownRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *BaseMovementMethodOnKeyDownRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *BaseMovementMethodOnKeyDownRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *BaseMovementMethodOnKeyDownRequest) GetArg2() int32 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-func (x *BaseMovementMethodOnKeyDownRequest) GetArg3() int64 {
-	if x != nil {
-		return x.Arg3
-	}
-	return 0
-}
-
-type BaseMovementMethodOnKeyOtherRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BaseMovementMethodOnKeyOtherRequest) Reset() {
-	*x = BaseMovementMethodOnKeyOtherRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[178]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BaseMovementMethodOnKeyOtherRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BaseMovementMethodOnKeyOtherRequest) ProtoMessage() {}
-
-func (x *BaseMovementMethodOnKeyOtherRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[178]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BaseMovementMethodOnKeyOtherRequest.ProtoReflect.Descriptor instead.
-func (*BaseMovementMethodOnKeyOtherRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{178}
-}
-
-func (x *BaseMovementMethodOnKeyOtherRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *BaseMovementMethodOnKeyOtherRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *BaseMovementMethodOnKeyOtherRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *BaseMovementMethodOnKeyOtherRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type BaseMovementMethodOnKeyUpRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	Arg3          int64                  `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BaseMovementMethodOnKeyUpRequest) Reset() {
-	*x = BaseMovementMethodOnKeyUpRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[179]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BaseMovementMethodOnKeyUpRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BaseMovementMethodOnKeyUpRequest) ProtoMessage() {}
-
-func (x *BaseMovementMethodOnKeyUpRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[179]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BaseMovementMethodOnKeyUpRequest.ProtoReflect.Descriptor instead.
-func (*BaseMovementMethodOnKeyUpRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{179}
-}
-
-func (x *BaseMovementMethodOnKeyUpRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *BaseMovementMethodOnKeyUpRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *BaseMovementMethodOnKeyUpRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *BaseMovementMethodOnKeyUpRequest) GetArg2() int32 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-func (x *BaseMovementMethodOnKeyUpRequest) GetArg3() int64 {
-	if x != nil {
-		return x.Arg3
-	}
-	return 0
-}
-
-type BaseMovementMethodOnTakeFocusRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BaseMovementMethodOnTakeFocusRequest) Reset() {
-	*x = BaseMovementMethodOnTakeFocusRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[180]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BaseMovementMethodOnTakeFocusRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BaseMovementMethodOnTakeFocusRequest) ProtoMessage() {}
-
-func (x *BaseMovementMethodOnTakeFocusRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[180]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BaseMovementMethodOnTakeFocusRequest.ProtoReflect.Descriptor instead.
-func (*BaseMovementMethodOnTakeFocusRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{180}
-}
-
-func (x *BaseMovementMethodOnTakeFocusRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *BaseMovementMethodOnTakeFocusRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *BaseMovementMethodOnTakeFocusRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *BaseMovementMethodOnTakeFocusRequest) GetArg2() int32 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type BaseMovementMethodOnTouchEventRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BaseMovementMethodOnTouchEventRequest) Reset() {
-	*x = BaseMovementMethodOnTouchEventRequest{}
+func (x *HideReturnsTransformationMethodGetInstanceRequest) Reset() {
+	*x = HideReturnsTransformationMethodGetInstanceRequest{}
 	mi := &file_proto_method_method_proto_msgTypes[181]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *BaseMovementMethodOnTouchEventRequest) String() string {
+func (x *HideReturnsTransformationMethodGetInstanceRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*BaseMovementMethodOnTouchEventRequest) ProtoMessage() {}
+func (*HideReturnsTransformationMethodGetInstanceRequest) ProtoMessage() {}
 
-func (x *BaseMovementMethodOnTouchEventRequest) ProtoReflect() protoreflect.Message {
+func (x *HideReturnsTransformationMethodGetInstanceRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_method_method_proto_msgTypes[181]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -9254,103 +9147,14 @@ func (x *BaseMovementMethodOnTouchEventRequest) ProtoReflect() protoreflect.Mess
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use BaseMovementMethodOnTouchEventRequest.ProtoReflect.Descriptor instead.
-func (*BaseMovementMethodOnTouchEventRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use HideReturnsTransformationMethodGetInstanceRequest.ProtoReflect.Descriptor instead.
+func (*HideReturnsTransformationMethodGetInstanceRequest) Descriptor() ([]byte, []int) {
 	return file_proto_method_method_proto_rawDescGZIP(), []int{181}
 }
 
-func (x *BaseMovementMethodOnTouchEventRequest) GetHandle() int64 {
+func (x *HideReturnsTransformationMethodGetInstanceRequest) GetHandle() int64 {
 	if x != nil {
 		return x.Handle
-	}
-	return 0
-}
-
-func (x *BaseMovementMethodOnTouchEventRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *BaseMovementMethodOnTouchEventRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *BaseMovementMethodOnTouchEventRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type BaseMovementMethodOnTrackballEventRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BaseMovementMethodOnTrackballEventRequest) Reset() {
-	*x = BaseMovementMethodOnTrackballEventRequest{}
-	mi := &file_proto_method_method_proto_msgTypes[182]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BaseMovementMethodOnTrackballEventRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BaseMovementMethodOnTrackballEventRequest) ProtoMessage() {}
-
-func (x *BaseMovementMethodOnTrackballEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_method_method_proto_msgTypes[182]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BaseMovementMethodOnTrackballEventRequest.ProtoReflect.Descriptor instead.
-func (*BaseMovementMethodOnTrackballEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_method_method_proto_rawDescGZIP(), []int{182}
-}
-
-func (x *BaseMovementMethodOnTrackballEventRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *BaseMovementMethodOnTrackballEventRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *BaseMovementMethodOnTrackballEventRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *BaseMovementMethodOnTrackballEventRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
 	}
 	return 0
 }
@@ -9359,92 +9163,112 @@ var File_proto_method_method_proto protoreflect.FileDescriptor
 
 const file_proto_method_method_proto_rawDesc = "" +
 	"\n" +
-	"\x19proto/method/method.proto\x12\x06method\"\x85\x01\n" +
-	"\x1fNewCharacterPickerDialogRequest\x12\x12\n" +
+	"\x19proto/method/method.proto\x12\x06method\"E\n" +
+	"\x1bNewQwertyKeyListenerRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x04 \x01(\tR\x04arg3\x12\x12\n" +
-	"\x04arg4\x18\x05 \x01(\bR\x04arg4\":\n" +
-	" NewCharacterPickerDialogResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"<\n" +
-	"\x0eOnClickRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x11\n" +
-	"\x0fOnClickResponse\"|\n" +
-	"\x12OnItemClickRequest\x12\x16\n" +
+	"\x04arg1\x18\x02 \x01(\bR\x04arg1\"6\n" +
+	"\x1cNewQwertyKeyListenerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
+	"\x13GetInputTypeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\".\n" +
+	"\x14GetInputTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"z\n" +
+	"\x10OnKeyDownRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
 	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
 	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x05 \x01(\x03R\x04arg3\"\x15\n" +
-	"\x13OnItemClickResponse\"\x87\x01\n" +
-	"\rFilterRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\x12\x12\n" +
-	"\x04arg4\x18\x05 \x01(\x05R\x04arg4\x12\x12\n" +
-	"\x04arg5\x18\x06 \x01(\x05R\x04arg5\"(\n" +
-	"\x0eFilterResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"b\n" +
-	"\x10OnKeyDownRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"+\n" +
+	"\x04arg3\x18\x05 \x01(\x03R\x04arg3\"+\n" +
 	"\x11OnKeyDownResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"T\n" +
+	"\x12GetInstanceRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\bR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"-\n" +
+	"\x13GetInstanceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\";\n" +
+	"!GetInstanceForFullKeyboardRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"<\n" +
+	"\"GetInstanceForFullKeyboardResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x7f\n" +
+	"\x15MarkAsReplacedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\tR\x04arg3\"\x18\n" +
+	"\x16MarkAsReplacedResponse\"\x1e\n" +
+	"\x1cNewBaseMovementMethodRequest\"7\n" +
+	"\x1dNewBaseMovementMethodResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
+	"\x1bCanSelectArbitrarilyRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"6\n" +
+	"\x1cCanSelectArbitrarilyResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"S\n" +
+	"\x11InitializeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\x14\n" +
+	"\x12InitializeResponse\"V\n" +
+	"\x14NextParagraphRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"/\n" +
+	"\x15NextParagraphResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"q\n" +
+	"\x1bOnGenericMotionEventRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\"6\n" +
+	"\x1cOnGenericMotionEventResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"g\n" +
+	"\x11OnKeyOtherRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\",\n" +
+	"\x12OnKeyOtherResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"x\n" +
+	"\x0eOnKeyUpRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\x03R\x04arg3\")\n" +
+	"\x0fOnKeyUpResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"h\n" +
+	"\x12OnTakeFocusRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\"\x15\n" +
+	"\x13OnTakeFocusResponse\"i\n" +
+	"\x13OnTouchEventRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\".\n" +
+	"\x14OnTouchEventResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"m\n" +
+	"\x17OnTrackballEventRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\"2\n" +
+	"\x18OnTrackballEventResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"Z\n" +
+	"\x18PreviousParagraphRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"3\n" +
+	"\x19PreviousParagraphResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\bR\x06result\"*\n" +
 	"(NewSingleLineTransformationMethodRequest\"C\n" +
 	")NewSingleLineTransformationMethodResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
-	"\x12GetInstanceRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
-	"\x13GetInstanceResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1d\n" +
-	"\x1bCanSelectArbitrarilyRequest\"6\n" +
-	"\x1cCanSelectArbitrarilyResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\";\n" +
-	"\x11InitializeRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x14\n" +
-	"\x12InitializeResponse\"Y\n" +
-	"\x1bOnGenericMotionEventRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"6\n" +
-	"\x1cOnGenericMotionEventResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"O\n" +
-	"\x11OnKeyOtherRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\",\n" +
-	"\x12OnKeyOtherResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"`\n" +
-	"\x0eOnKeyUpRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\")\n" +
-	"\x0fOnKeyUpResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"P\n" +
-	"\x12OnTakeFocusRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"\x15\n" +
-	"\x13OnTakeFocusResponse\"Q\n" +
-	"\x13OnTouchEventRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\".\n" +
-	"\x14OnTouchEventResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"U\n" +
-	"\x17OnTrackballEventRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"2\n" +
-	"\x18OnTrackballEventResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"B\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"J\n" +
+	"0SingleLineTransformationMethodGetInstanceRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"B\n" +
 	"\x18GetTransformationRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"3\n" +
@@ -9456,156 +9280,7 @@ const file_proto_method_method_proto_rawDesc = "" +
 	"\x04arg2\x18\x03 \x01(\bR\x04arg2\x12\x12\n" +
 	"\x04arg3\x18\x04 \x01(\x05R\x04arg3\x12\x12\n" +
 	"\x04arg4\x18\x05 \x01(\x03R\x04arg4\"\x18\n" +
-	"\x16OnFocusChangedResponse\"B\n" +
-	"\x18GetInitialScrollXRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"3\n" +
-	"\x19GetInitialScrollXResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"B\n" +
-	"\x18GetInitialScrollYRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"3\n" +
-	"\x19GetInitialScrollYResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"a\n" +
-	"\x0fScrollToRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x04 \x01(\x05R\x04arg3\"\x12\n" +
-	"\x10ScrollToResponse\"#\n" +
-	"!NewScrollingMovementMethodRequest\"<\n" +
-	"\"NewScrollingMovementMethodResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x7f\n" +
-	")ScrollingMovementMethodOnTakeFocusRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\"\x80\x01\n" +
-	"*ScrollingMovementMethodOnTouchEventRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\"+\n" +
-	")NewHideReturnsTransformationMethodRequest\"D\n" +
-	"*NewHideReturnsTransformationMethodResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"G\n" +
-	"\x1dNewMultiTapKeyListenerRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\bR\x04arg1\"8\n" +
-	"\x1eNewMultiTapKeyListenerResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
-	"\x13GetInputTypeRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\".\n" +
-	"\x14GetInputTypeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x8d\x01\n" +
-	"#MultiTapKeyListenerOnKeyDownRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x05 \x01(\x03R\x04arg3\"|\n" +
-	"\x12OnSpanAddedRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x05 \x01(\x05R\x04arg3\"\x15\n" +
-	"\x13OnSpanAddedResponse\"\xa6\x01\n" +
-	"\x14OnSpanChangedRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x05 \x01(\x05R\x04arg3\x12\x12\n" +
-	"\x04arg4\x18\x06 \x01(\x05R\x04arg4\x12\x12\n" +
-	"\x04arg5\x18\a \x01(\x05R\x04arg5\"\x17\n" +
-	"\x15OnSpanChangedResponse\"~\n" +
-	"\x14OnSpanRemovedRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x05 \x01(\x05R\x04arg3\"\x17\n" +
-	"\x15OnSpanRemovedResponse\"g\n" +
-	"%MultiTapKeyListenerGetInstanceRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\bR\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\x1d\n" +
-	"\x1bNewDigitsKeyListenerRequest\"6\n" +
-	"\x1cNewDigitsKeyListenerResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\xb0\x01\n" +
-	"\x1eDigitsKeyListenerFilterRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\tR\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x05 \x01(\x03R\x04arg3\x12\x12\n" +
-	"\x04arg4\x18\x06 \x01(\x05R\x04arg4\x12\x12\n" +
-	"\x04arg5\x18\a \x01(\x05R\x04arg5\"-\n" +
-	"\x13GetInstance0Request\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\".\n" +
-	"\x14GetInstance0Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"W\n" +
-	"\x15GetInstance2_1Request\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\bR\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\bR\x04arg1\"0\n" +
-	"\x16GetInstance2_1Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"C\n" +
-	"\x15GetInstance1_2Request\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"0\n" +
-	"\x16GetInstance1_2Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"C\n" +
-	"\x15GetInstance1_3Request\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"0\n" +
-	"\x16GetInstance1_3Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"k\n" +
-	"\x15GetInstance3_4Request\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\bR\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x04 \x01(\bR\x04arg2\"0\n" +
-	"\x16GetInstance3_4Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1d\n" +
-	"\x1bNewDialerKeyListenerRequest\"6\n" +
-	"\x1cNewDialerKeyListenerResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
-	"\x19NewTimeKeyListenerRequest\"4\n" +
-	"\x1aNewTimeKeyListenerResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"C\n" +
-	"\x15GetInstance1_1Request\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"0\n" +
-	"\x16GetInstance1_1Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"E\n" +
-	"\x1bNewQwertyKeyListenerRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\bR\x04arg1\"6\n" +
-	"\x1cNewQwertyKeyListenerResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x8b\x01\n" +
-	"!QwertyKeyListenerOnKeyDownRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x05 \x01(\x03R\x04arg3\"e\n" +
-	"#QwertyKeyListenerGetInstanceRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\bR\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\";\n" +
-	"!GetInstanceForFullKeyboardRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"<\n" +
-	"\"GetInstanceForFullKeyboardResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x7f\n" +
-	"\x15MarkAsReplacedRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x05 \x01(\tR\x04arg3\"\x18\n" +
-	"\x16MarkAsReplacedResponse\"b\n" +
+	"\x16OnFocusChangedResponse\"b\n" +
 	"\x10BackspaceRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
@@ -9619,7 +9294,16 @@ const file_proto_method_method_proto_rawDesc = "" +
 	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
 	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"/\n" +
 	"\x15ForwardDeleteResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"Y\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"q\n" +
+	"\x1fBaseKeyListenerOnKeyDownRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"^\n" +
+	" BaseKeyListenerOnKeyOtherRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"Y\n" +
 	"\x1bClearMetaKeyState3_1Request\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
@@ -9629,7 +9313,17 @@ const file_proto_method_method_proto_rawDesc = "" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"6\n" +
 	"\x1cClearMetaKeyState2_2Response\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"t\n" +
+	"\"MetaKeyKeyListenerOnKeyDownRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"r\n" +
+	" MetaKeyKeyListenerOnKeyUpRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"5\n" +
 	"\x1fAdjustMetaAfterKeypress1Request\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\"\n" +
 	" AdjustMetaAfterKeypress1Response\"7\n" +
@@ -9698,97 +9392,7 @@ const file_proto_method_method_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
 	"\x15ResetMetaStateRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x18\n" +
-	"\x16ResetMetaStateResponse\"C\n" +
-	"\x19NewTextKeyListenerRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\bR\x04arg1\"4\n" +
-	"\x1aNewTextKeyListenerResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x89\x01\n" +
-	"\x1fTextKeyListenerOnKeyDownRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x05 \x01(\x03R\x04arg3\"v\n" +
-	" TextKeyListenerOnKeyOtherRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\"\x87\x01\n" +
-	"\x1dTextKeyListenerOnKeyUpRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x05 \x01(\x03R\x04arg3\"(\n" +
-	"\x0eReleaseRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x11\n" +
-	"\x0fReleaseResponse\":\n" +
-	"\fClearRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x0f\n" +
-	"\rClearResponse\"f\n" +
-	"$TextKeyListenerGetInstance2_1Request\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\bR\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"f\n" +
-	"\x10ShouldCapRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\tR\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\"+\n" +
-	"\x11ShouldCapResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x0f\n" +
-	"\rValuesRequest\"(\n" +
-	"\x0eValuesResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
-	"\x0eValueOfRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\")\n" +
-	"\x0fValueOfResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\"\n" +
-	" NewArrowKeyMovementMethodRequest\";\n" +
-	"!NewArrowKeyMovementMethodResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"K\n" +
-	"1ArrowKeyMovementMethodCanSelectArbitrarilyRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"i\n" +
-	"'ArrowKeyMovementMethodInitializeRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"V\n" +
-	"\x14NextParagraphRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"/\n" +
-	"\x15NextParagraphResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"~\n" +
-	"(ArrowKeyMovementMethodOnTakeFocusRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\"\x7f\n" +
-	")ArrowKeyMovementMethodOnTouchEventRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\"Z\n" +
-	"\x18PreviousParagraphRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"3\n" +
-	"\x19PreviousParagraphResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"V\n" +
-	"\x18ClearMetaKeyStateRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"\x1b\n" +
-	"\x19ClearMetaKeyStateResponse\" \n" +
-	"\x1eKeyListenerGetInputTypeRequest\"\x1f\n" +
-	"\x1dNewDateTimeKeyListenerRequest\"8\n" +
-	"\x1eNewDateTimeKeyListenerResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
-	"\x19NewDateKeyListenerRequest\"4\n" +
-	"\x1aNewDateKeyListenerResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
+	"\x16ResetMetaStateResponse\"(\n" +
 	"&NewPasswordTransformationMethodRequest\"A\n" +
 	"'NewPasswordTransformationMethodResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"E\n" +
@@ -9820,86 +9424,264 @@ const file_proto_method_method_proto_rawDesc = "" +
 	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
 	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
 	"\x04arg3\x18\x05 \x01(\x05R\x04arg3\"\x17\n" +
-	"\x15OnTextChangedResponse\"\x1e\n" +
+	"\x15OnTextChangedResponse\"H\n" +
+	".PasswordTransformationMethodGetInstanceRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\"\n" +
+	" NewArrowKeyMovementMethodRequest\";\n" +
+	"!NewArrowKeyMovementMethodResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"B\n" +
+	"(ArrowKeyMovementMethodGetInstanceRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x1f\n" +
+	"\x1dNewDateTimeKeyListenerRequest\"8\n" +
+	"\x1eNewDateTimeKeyListenerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
+	"\x13GetInstance0Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\".\n" +
+	"\x14GetInstance0Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"C\n" +
+	"\x15GetInstance1_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"0\n" +
+	"\x16GetInstance1_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
+	"!NewScrollingMovementMethodRequest\"<\n" +
+	"\"NewScrollingMovementMethodResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"C\n" +
+	")ScrollingMovementMethodGetInstanceRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x1b\n" +
+	"\x19NewTimeKeyListenerRequest\"4\n" +
+	"\x1aNewTimeKeyListenerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x87\x01\n" +
+	"\rFilterRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x05 \x01(\x05R\x04arg4\x12\x12\n" +
+	"\x04arg5\x18\x06 \x01(\x05R\x04arg5\"(\n" +
+	"\x0eFilterResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"s\n" +
+	"!NumberKeyListenerOnKeyDownRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"+\n" +
+	")MovementMethodCanSelectArbitrarilyRequest\"I\n" +
+	"\x1fMovementMethodInitializeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"g\n" +
+	")MovementMethodOnGenericMotionEventRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"p\n" +
+	"\x1eMovementMethodOnKeyDownRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"]\n" +
+	"\x1fMovementMethodOnKeyOtherRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"n\n" +
+	"\x1cMovementMethodOnKeyUpRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"^\n" +
+	" MovementMethodOnTakeFocusRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"_\n" +
+	"!MovementMethodOnTouchEventRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"c\n" +
+	"%MovementMethodOnTrackballEventRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"V\n" +
+	"\x18ClearMetaKeyStateRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"\x1b\n" +
+	"\x19ClearMetaKeyStateResponse\" \n" +
+	"\x1eKeyListenerGetInputTypeRequest\"m\n" +
+	"\x1bKeyListenerOnKeyDownRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"Z\n" +
+	"\x1cKeyListenerOnKeyOtherRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"k\n" +
+	"\x19KeyListenerOnKeyUpRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x03R\x04arg3\"\x85\x01\n" +
+	"\x1fNewCharacterPickerDialogRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\tR\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x05 \x01(\bR\x04arg4\":\n" +
+	" NewCharacterPickerDialogResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"<\n" +
+	"\x0eOnClickRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x11\n" +
+	"\x0fOnClickResponse\"|\n" +
+	"\x12OnItemClickRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\x03R\x04arg3\"\x15\n" +
+	"\x13OnItemClickResponse\"C\n" +
+	"\x19NewTextKeyListenerRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\bR\x04arg1\"4\n" +
+	"\x1aNewTextKeyListenerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"|\n" +
+	"\x12OnSpanAddedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\x05R\x04arg3\"\x15\n" +
+	"\x13OnSpanAddedResponse\"\xa6\x01\n" +
+	"\x14OnSpanChangedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\x05R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x06 \x01(\x05R\x04arg4\x12\x12\n" +
+	"\x04arg5\x18\a \x01(\x05R\x04arg5\"\x17\n" +
+	"\x15OnSpanChangedResponse\"~\n" +
+	"\x14OnSpanRemovedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\x05R\x04arg3\"\x17\n" +
+	"\x15OnSpanRemovedResponse\"(\n" +
+	"\x0eReleaseRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x11\n" +
+	"\x0fReleaseResponse\":\n" +
+	"\fClearRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x0f\n" +
+	"\rClearResponse\"W\n" +
+	"\x15GetInstance2_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\bR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"0\n" +
+	"\x16GetInstance2_1Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"f\n" +
+	"\x10ShouldCapRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\"+\n" +
+	"\x11ShouldCapResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x0f\n" +
+	"\rValuesRequest\"(\n" +
+	"\x0eValuesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
+	"\x0eValueOfRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\")\n" +
+	"\x0fValueOfResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
+	"\x19NewDateKeyListenerRequest\"4\n" +
+	"\x1aNewDateKeyListenerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1d\n" +
+	"\x1bNewDialerKeyListenerRequest\"6\n" +
+	"\x1cNewDialerKeyListenerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"=\n" +
+	"#DialerKeyListenerGetInstanceRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"G\n" +
+	"\x1dNewMultiTapKeyListenerRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\bR\x04arg1\"8\n" +
+	"\x1eNewMultiTapKeyListenerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"B\n" +
+	"\x18GetInitialScrollXRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"3\n" +
+	"\x19GetInitialScrollXResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"B\n" +
+	"\x18GetInitialScrollYRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"3\n" +
+	"\x19GetInitialScrollYResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"V\n" +
+	"\x18TouchOnTouchEventRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"a\n" +
+	"\x0fScrollToRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x04 \x01(\x05R\x04arg3\"\x12\n" +
+	"\x10ScrollToResponse\"\x1d\n" +
+	"\x1bNewDigitsKeyListenerRequest\"6\n" +
+	"\x1cNewDigitsKeyListenerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\xb0\x01\n" +
+	"\x1eDigitsKeyListenerFilterRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\x03R\x04arg3\x12\x12\n" +
+	"\x04arg4\x18\x06 \x01(\x05R\x04arg4\x12\x12\n" +
+	"\x04arg5\x18\a \x01(\x05R\x04arg5\"h\n" +
+	"&DigitsKeyListenerGetInstance2_1Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\bR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\bR\x04arg1\"C\n" +
+	"\x15GetInstance1_2Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\tR\x04arg0\"0\n" +
+	"\x16GetInstance1_2Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"C\n" +
+	"\x15GetInstance1_3Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"0\n" +
+	"\x16GetInstance1_3Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"k\n" +
+	"\x15GetInstance3_4Request\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\bR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\bR\x04arg2\"0\n" +
+	"\x16GetInstance3_4Response\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1e\n" +
 	"\x1cNewLinkMovementMethodRequest\"7\n" +
 	"\x1dNewLinkMovementMethodResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"G\n" +
-	"-LinkMovementMethodCanSelectArbitrarilyRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"e\n" +
-	"#LinkMovementMethodInitializeRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"z\n" +
-	"$LinkMovementMethodOnTakeFocusRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\"{\n" +
-	"%LinkMovementMethodOnTouchEventRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\"\x1e\n" +
-	"\x1cNewBaseMovementMethodRequest\"7\n" +
-	"\x1dNewBaseMovementMethodResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"G\n" +
-	"-BaseMovementMethodCanSelectArbitrarilyRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"e\n" +
-	"#BaseMovementMethodInitializeRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"\x83\x01\n" +
-	"-BaseMovementMethodOnGenericMotionEventRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\"\x8c\x01\n" +
-	"\"BaseMovementMethodOnKeyDownRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x05 \x01(\x03R\x04arg3\"y\n" +
-	"#BaseMovementMethodOnKeyOtherRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\"\x8a\x01\n" +
-	" BaseMovementMethodOnKeyUpRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x05 \x01(\x03R\x04arg3\"z\n" +
-	"$BaseMovementMethodOnTakeFocusRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\"{\n" +
-	"%BaseMovementMethodOnTouchEventRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x04 \x01(\x03R\x04arg2\"\x7f\n" +
-	")BaseMovementMethodOnTrackballEventRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x04 \x01(\x03R\x04arg22\x91\x02\n" +
-	"\x1cCharacterPickerDialogService\x12m\n" +
-	"\x18NewCharacterPickerDialog\x12'.method.NewCharacterPickerDialogRequest\x1a(.method.NewCharacterPickerDialogResponse\x12:\n" +
-	"\aOnClick\x12\x16.method.OnClickRequest\x1a\x17.method.OnClickResponse\x12F\n" +
-	"\vOnItemClick\x12\x1a.method.OnItemClickRequest\x1a\x1b.method.OnItemClickResponse2\x95\x01\n" +
-	"\x18NumberKeyListenerService\x127\n" +
-	"\x06Filter\x12\x15.method.FilterRequest\x1a\x16.method.FilterResponse\x12@\n" +
-	"\tOnKeyDown\x12\x18.method.OnKeyDownRequest\x1a\x19.method.OnKeyDownResponse2\xfa\x01\n" +
-	"%SingleLineTransformationMethodService\x12\x88\x01\n" +
-	"!NewSingleLineTransformationMethod\x120.method.NewSingleLineTransformationMethodRequest\x1a1.method.NewSingleLineTransformationMethodResponse\x12F\n" +
-	"\vGetInstance\x12\x1a.method.GetInstanceRequest\x1a\x1b.method.GetInstanceResponse2\xcf\x05\n" +
-	"\x15MovementMethodService\x12a\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
+	"$LinkMovementMethodGetInstanceRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
+	")NewHideReturnsTransformationMethodRequest\"D\n" +
+	"*NewHideReturnsTransformationMethodResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"K\n" +
+	"1HideReturnsTransformationMethodGetInstanceRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle2\x98\x04\n" +
+	"\x18QwertyKeyListenerService\x12a\n" +
+	"\x14NewQwertyKeyListener\x12#.method.NewQwertyKeyListenerRequest\x1a$.method.NewQwertyKeyListenerResponse\x12I\n" +
+	"\fGetInputType\x12\x1b.method.GetInputTypeRequest\x1a\x1c.method.GetInputTypeResponse\x12@\n" +
+	"\tOnKeyDown\x12\x18.method.OnKeyDownRequest\x1a\x19.method.OnKeyDownResponse\x12F\n" +
+	"\vGetInstance\x12\x1a.method.GetInstanceRequest\x1a\x1b.method.GetInstanceResponse\x12s\n" +
+	"\x1aGetInstanceForFullKeyboard\x12).method.GetInstanceForFullKeyboardRequest\x1a*.method.GetInstanceForFullKeyboardResponse\x12O\n" +
+	"\x0eMarkAsReplaced\x12\x1d.method.MarkAsReplacedRequest\x1a\x1e.method.MarkAsReplacedResponse2\xe1\a\n" +
+	"\x19BaseMovementMethodService\x12d\n" +
+	"\x15NewBaseMovementMethod\x12$.method.NewBaseMovementMethodRequest\x1a%.method.NewBaseMovementMethodResponse\x12a\n" +
 	"\x14CanSelectArbitrarily\x12#.method.CanSelectArbitrarilyRequest\x1a$.method.CanSelectArbitrarilyResponse\x12C\n" +
 	"\n" +
-	"Initialize\x12\x19.method.InitializeRequest\x1a\x1a.method.InitializeResponse\x12a\n" +
+	"Initialize\x12\x19.method.InitializeRequest\x1a\x1a.method.InitializeResponse\x12L\n" +
+	"\rNextParagraph\x12\x1c.method.NextParagraphRequest\x1a\x1d.method.NextParagraphResponse\x12a\n" +
 	"\x14OnGenericMotionEvent\x12#.method.OnGenericMotionEventRequest\x1a$.method.OnGenericMotionEventResponse\x12@\n" +
 	"\tOnKeyDown\x12\x18.method.OnKeyDownRequest\x1a\x19.method.OnKeyDownResponse\x12C\n" +
 	"\n" +
@@ -9907,67 +9689,28 @@ const file_proto_method_method_proto_rawDesc = "" +
 	"\aOnKeyUp\x12\x16.method.OnKeyUpRequest\x1a\x17.method.OnKeyUpResponse\x12F\n" +
 	"\vOnTakeFocus\x12\x1a.method.OnTakeFocusRequest\x1a\x1b.method.OnTakeFocusResponse\x12I\n" +
 	"\fOnTouchEvent\x12\x1b.method.OnTouchEventRequest\x1a\x1c.method.OnTouchEventResponse\x12U\n" +
-	"\x10OnTrackballEvent\x12\x1f.method.OnTrackballEventRequest\x1a .method.OnTrackballEventResponse2\xd3\x01\n" +
+	"\x10OnTrackballEvent\x12\x1f.method.OnTrackballEventRequest\x1a .method.OnTrackballEventResponse\x12X\n" +
+	"\x11PreviousParagraph\x12 .method.PreviousParagraphRequest\x1a!.method.PreviousParagraphResponse2\x98\x02\n" +
+	"%SingleLineTransformationMethodService\x12\x88\x01\n" +
+	"!NewSingleLineTransformationMethod\x120.method.NewSingleLineTransformationMethodRequest\x1a1.method.NewSingleLineTransformationMethodResponse\x12d\n" +
+	"\vGetInstance\x128.method.SingleLineTransformationMethodGetInstanceRequest\x1a\x1b.method.GetInstanceResponse2\xd3\x01\n" +
 	"&ReplacementTransformationMethodService\x12X\n" +
 	"\x11GetTransformation\x12 .method.GetTransformationRequest\x1a!.method.GetTransformationResponse\x12O\n" +
-	"\x0eOnFocusChanged\x12\x1d.method.OnFocusChangedRequest\x1a\x1e.method.OnFocusChangedResponse2\xcc\x02\n" +
-	"\fTouchService\x12X\n" +
-	"\x11GetInitialScrollX\x12 .method.GetInitialScrollXRequest\x1a!.method.GetInitialScrollXResponse\x12X\n" +
-	"\x11GetInitialScrollY\x12 .method.GetInitialScrollYRequest\x1a!.method.GetInitialScrollYResponse\x12I\n" +
-	"\fOnTouchEvent\x12\x1b.method.OnTouchEventRequest\x1a\x1c.method.OnTouchEventResponse\x12=\n" +
-	"\bScrollTo\x12\x17.method.ScrollToRequest\x1a\x18.method.ScrollToResponse2\x9e\x03\n" +
-	"\x1eScrollingMovementMethodService\x12s\n" +
-	"\x1aNewScrollingMovementMethod\x12).method.NewScrollingMovementMethodRequest\x1a*.method.NewScrollingMovementMethodResponse\x12]\n" +
-	"\vOnTakeFocus\x121.method.ScrollingMovementMethodOnTakeFocusRequest\x1a\x1b.method.OnTakeFocusResponse\x12`\n" +
-	"\fOnTouchEvent\x122.method.ScrollingMovementMethodOnTouchEventRequest\x1a\x1c.method.OnTouchEventResponse\x12F\n" +
-	"\vGetInstance\x12\x1a.method.GetInstanceRequest\x1a\x1b.method.GetInstanceResponse2\xfe\x01\n" +
-	"&HideReturnsTransformationMethodService\x12\x8b\x01\n" +
-	"\"NewHideReturnsTransformationMethod\x121.method.NewHideReturnsTransformationMethodRequest\x1a2.method.NewHideReturnsTransformationMethodResponse\x12F\n" +
-	"\vGetInstance\x12\x1a.method.GetInstanceRequest\x1a\x1b.method.GetInstanceResponse2\xe4\x04\n" +
-	"\x1aMultiTapKeyListenerService\x12g\n" +
-	"\x16NewMultiTapKeyListener\x12%.method.NewMultiTapKeyListenerRequest\x1a&.method.NewMultiTapKeyListenerResponse\x12I\n" +
-	"\fGetInputType\x12\x1b.method.GetInputTypeRequest\x1a\x1c.method.GetInputTypeResponse\x12S\n" +
-	"\tOnKeyDown\x12+.method.MultiTapKeyListenerOnKeyDownRequest\x1a\x19.method.OnKeyDownResponse\x12F\n" +
-	"\vOnSpanAdded\x12\x1a.method.OnSpanAddedRequest\x1a\x1b.method.OnSpanAddedResponse\x12L\n" +
-	"\rOnSpanChanged\x12\x1c.method.OnSpanChangedRequest\x1a\x1d.method.OnSpanChangedResponse\x12L\n" +
-	"\rOnSpanRemoved\x12\x1c.method.OnSpanRemovedRequest\x1a\x1d.method.OnSpanRemovedResponse\x12Y\n" +
-	"\vGetInstance\x12-.method.MultiTapKeyListenerGetInstanceRequest\x1a\x1b.method.GetInstanceResponse2\xa1\x05\n" +
-	"\x18DigitsKeyListenerService\x12a\n" +
-	"\x14NewDigitsKeyListener\x12#.method.NewDigitsKeyListenerRequest\x1a$.method.NewDigitsKeyListenerResponse\x12H\n" +
-	"\x06Filter\x12&.method.DigitsKeyListenerFilterRequest\x1a\x16.method.FilterResponse\x12I\n" +
-	"\fGetInputType\x12\x1b.method.GetInputTypeRequest\x1a\x1c.method.GetInputTypeResponse\x12I\n" +
-	"\fGetInstance0\x12\x1b.method.GetInstance0Request\x1a\x1c.method.GetInstance0Response\x12O\n" +
-	"\x0eGetInstance2_1\x12\x1d.method.GetInstance2_1Request\x1a\x1e.method.GetInstance2_1Response\x12O\n" +
-	"\x0eGetInstance1_2\x12\x1d.method.GetInstance1_2Request\x1a\x1e.method.GetInstance1_2Response\x12O\n" +
-	"\x0eGetInstance1_3\x12\x1d.method.GetInstance1_3Request\x1a\x1e.method.GetInstance1_3Response\x12O\n" +
-	"\x0eGetInstance3_4\x12\x1d.method.GetInstance3_4Request\x1a\x1e.method.GetInstance3_4Response2\x90\x02\n" +
-	"\x18DialerKeyListenerService\x12a\n" +
-	"\x14NewDialerKeyListener\x12#.method.NewDialerKeyListenerRequest\x1a$.method.NewDialerKeyListenerResponse\x12I\n" +
-	"\fGetInputType\x12\x1b.method.GetInputTypeRequest\x1a\x1c.method.GetInputTypeResponse\x12F\n" +
-	"\vGetInstance\x12\x1a.method.GetInstanceRequest\x1a\x1b.method.GetInstanceResponse2\xdc\x02\n" +
-	"\x16TimeKeyListenerService\x12[\n" +
-	"\x12NewTimeKeyListener\x12!.method.NewTimeKeyListenerRequest\x1a\".method.NewTimeKeyListenerResponse\x12I\n" +
-	"\fGetInputType\x12\x1b.method.GetInputTypeRequest\x1a\x1c.method.GetInputTypeResponse\x12I\n" +
-	"\fGetInstance0\x12\x1b.method.GetInstance0Request\x1a\x1c.method.GetInstance0Response\x12O\n" +
-	"\x0eGetInstance1_1\x12\x1d.method.GetInstance1_1Request\x1a\x1e.method.GetInstance1_1Response2\xba\x04\n" +
-	"\x18QwertyKeyListenerService\x12a\n" +
-	"\x14NewQwertyKeyListener\x12#.method.NewQwertyKeyListenerRequest\x1a$.method.NewQwertyKeyListenerResponse\x12I\n" +
-	"\fGetInputType\x12\x1b.method.GetInputTypeRequest\x1a\x1c.method.GetInputTypeResponse\x12Q\n" +
-	"\tOnKeyDown\x12).method.QwertyKeyListenerOnKeyDownRequest\x1a\x19.method.OnKeyDownResponse\x12W\n" +
-	"\vGetInstance\x12+.method.QwertyKeyListenerGetInstanceRequest\x1a\x1b.method.GetInstanceResponse\x12s\n" +
-	"\x1aGetInstanceForFullKeyboard\x12).method.GetInstanceForFullKeyboardRequest\x1a*.method.GetInstanceForFullKeyboardResponse\x12O\n" +
-	"\x0eMarkAsReplaced\x12\x1d.method.MarkAsReplacedRequest\x1a\x1e.method.MarkAsReplacedResponse2\xaf\x02\n" +
+	"\x0eOnFocusChanged\x12\x1d.method.OnFocusChangedRequest\x1a\x1e.method.OnFocusChangedResponse2\xcd\x02\n" +
 	"\x16BaseKeyListenerService\x12@\n" +
 	"\tBackspace\x12\x18.method.BackspaceRequest\x1a\x19.method.BackspaceResponse\x12L\n" +
-	"\rForwardDelete\x12\x1c.method.ForwardDeleteRequest\x1a\x1d.method.ForwardDeleteResponse\x12@\n" +
-	"\tOnKeyDown\x12\x18.method.OnKeyDownRequest\x1a\x19.method.OnKeyDownResponse\x12C\n" +
+	"\rForwardDelete\x12\x1c.method.ForwardDeleteRequest\x1a\x1d.method.ForwardDeleteResponse\x12O\n" +
+	"\tOnKeyDown\x12'.method.BaseKeyListenerOnKeyDownRequest\x1a\x19.method.OnKeyDownResponse\x12R\n" +
 	"\n" +
-	"OnKeyOther\x12\x19.method.OnKeyOtherRequest\x1a\x1a.method.OnKeyOtherResponse2\x84\r\n" +
+	"OnKeyOther\x12(.method.BaseKeyListenerOnKeyOtherRequest\x1a\x1a.method.OnKeyOtherResponse2\xc8\x01\n" +
+	"\x1bTransformationMethodService\x12X\n" +
+	"\x11GetTransformation\x12 .method.GetTransformationRequest\x1a!.method.GetTransformationResponse\x12O\n" +
+	"\x0eOnFocusChanged\x12\x1d.method.OnFocusChangedRequest\x1a\x1e.method.OnFocusChangedResponse2\xa8\r\n" +
 	"\x19MetaKeyKeyListenerService\x12a\n" +
 	"\x14ClearMetaKeyState3_1\x12#.method.ClearMetaKeyState3_1Request\x1a$.method.ClearMetaKeyState3_1Response\x12a\n" +
-	"\x14ClearMetaKeyState2_2\x12#.method.ClearMetaKeyState2_2Request\x1a$.method.ClearMetaKeyState2_2Response\x12@\n" +
-	"\tOnKeyDown\x12\x18.method.OnKeyDownRequest\x1a\x19.method.OnKeyDownResponse\x12:\n" +
-	"\aOnKeyUp\x12\x16.method.OnKeyUpRequest\x1a\x17.method.OnKeyUpResponse\x12m\n" +
+	"\x14ClearMetaKeyState2_2\x12#.method.ClearMetaKeyState2_2Request\x1a$.method.ClearMetaKeyState2_2Response\x12R\n" +
+	"\tOnKeyDown\x12*.method.MetaKeyKeyListenerOnKeyDownRequest\x1a\x19.method.OnKeyDownResponse\x12L\n" +
+	"\aOnKeyUp\x12(.method.MetaKeyKeyListenerOnKeyUpRequest\x1a\x17.method.OnKeyUpResponse\x12m\n" +
 	"\x18AdjustMetaAfterKeypress1\x12'.method.AdjustMetaAfterKeypress1Request\x1a(.method.AdjustMetaAfterKeypress1Response\x12s\n" +
 	"\x1aAdjustMetaAfterKeypress1_1\x12).method.AdjustMetaAfterKeypress1_1Request\x1a*.method.AdjustMetaAfterKeypress1_1Response\x12[\n" +
 	"\x12ClearMetaKeyState2\x12!.method.ClearMetaKeyState2Request\x1a\".method.ClearMetaKeyState2Response\x12L\n" +
@@ -9982,86 +9725,126 @@ const file_proto_method_method_proto_rawDesc = "" +
 	"\rIsMetaTracker\x12\x1c.method.IsMetaTrackerRequest\x1a\x1d.method.IsMetaTrackerResponse\x12g\n" +
 	"\x16IsSelectingMetaTracker\x12%.method.IsSelectingMetaTrackerRequest\x1a&.method.IsSelectingMetaTrackerResponse\x12R\n" +
 	"\x0fResetLockedMeta\x12\x1e.method.ResetLockedMetaRequest\x1a\x1f.method.ResetLockedMetaResponse\x12O\n" +
-	"\x0eResetMetaState\x12\x1d.method.ResetMetaStateRequest\x1a\x1e.method.ResetMetaStateResponse2\xc8\x01\n" +
-	"\x1bTransformationMethodService\x12X\n" +
-	"\x11GetTransformation\x12 .method.GetTransformationRequest\x1a!.method.GetTransformationResponse\x12O\n" +
-	"\x0eOnFocusChanged\x12\x1d.method.OnFocusChangedRequest\x1a\x1e.method.OnFocusChangedResponse2\xf3\a\n" +
-	"\x16TextKeyListenerService\x12[\n" +
-	"\x12NewTextKeyListener\x12!.method.NewTextKeyListenerRequest\x1a\".method.NewTextKeyListenerResponse\x12I\n" +
-	"\fGetInputType\x12\x1b.method.GetInputTypeRequest\x1a\x1c.method.GetInputTypeResponse\x12O\n" +
-	"\tOnKeyDown\x12'.method.TextKeyListenerOnKeyDownRequest\x1a\x19.method.OnKeyDownResponse\x12R\n" +
-	"\n" +
-	"OnKeyOther\x12(.method.TextKeyListenerOnKeyOtherRequest\x1a\x1a.method.OnKeyOtherResponse\x12I\n" +
-	"\aOnKeyUp\x12%.method.TextKeyListenerOnKeyUpRequest\x1a\x17.method.OnKeyUpResponse\x12F\n" +
-	"\vOnSpanAdded\x12\x1a.method.OnSpanAddedRequest\x1a\x1b.method.OnSpanAddedResponse\x12L\n" +
-	"\rOnSpanChanged\x12\x1c.method.OnSpanChangedRequest\x1a\x1d.method.OnSpanChangedResponse\x12L\n" +
-	"\rOnSpanRemoved\x12\x1c.method.OnSpanRemovedRequest\x1a\x1d.method.OnSpanRemovedResponse\x12:\n" +
-	"\aRelease\x12\x16.method.ReleaseRequest\x1a\x17.method.ReleaseResponse\x124\n" +
-	"\x05Clear\x12\x14.method.ClearRequest\x1a\x15.method.ClearResponse\x12I\n" +
-	"\fGetInstance0\x12\x1b.method.GetInstance0Request\x1a\x1c.method.GetInstance0Response\x12^\n" +
-	"\x0eGetInstance2_1\x12,.method.TextKeyListenerGetInstance2_1Request\x1a\x1e.method.GetInstance2_1Response\x12@\n" +
-	"\tShouldCap\x12\x18.method.ShouldCapRequest\x1a\x19.method.ShouldCapResponse2\x97\x01\n" +
-	" TextKeyListenerCapitalizeService\x127\n" +
-	"\x06Values\x12\x15.method.ValuesRequest\x1a\x16.method.ValuesResponse\x12:\n" +
-	"\aValueOf\x12\x16.method.ValueOfRequest\x1a\x17.method.ValueOfResponse2\x94\x06\n" +
-	"\x1dArrowKeyMovementMethodService\x12p\n" +
-	"\x19NewArrowKeyMovementMethod\x12(.method.NewArrowKeyMovementMethodRequest\x1a).method.NewArrowKeyMovementMethodResponse\x12w\n" +
-	"\x14CanSelectArbitrarily\x129.method.ArrowKeyMovementMethodCanSelectArbitrarilyRequest\x1a$.method.CanSelectArbitrarilyResponse\x12Y\n" +
-	"\n" +
-	"Initialize\x12/.method.ArrowKeyMovementMethodInitializeRequest\x1a\x1a.method.InitializeResponse\x12L\n" +
-	"\rNextParagraph\x12\x1c.method.NextParagraphRequest\x1a\x1d.method.NextParagraphResponse\x12\\\n" +
-	"\vOnTakeFocus\x120.method.ArrowKeyMovementMethodOnTakeFocusRequest\x1a\x1b.method.OnTakeFocusResponse\x12_\n" +
-	"\fOnTouchEvent\x121.method.ArrowKeyMovementMethodOnTouchEventRequest\x1a\x1c.method.OnTouchEventResponse\x12X\n" +
-	"\x11PreviousParagraph\x12 .method.PreviousParagraphRequest\x1a!.method.PreviousParagraphResponse\x12F\n" +
-	"\vGetInstance\x12\x1a.method.GetInstanceRequest\x1a\x1b.method.GetInstanceResponse2\x87\x03\n" +
-	"\x12KeyListenerService\x12X\n" +
-	"\x11ClearMetaKeyState\x12 .method.ClearMetaKeyStateRequest\x1a!.method.ClearMetaKeyStateResponse\x12T\n" +
-	"\fGetInputType\x12&.method.KeyListenerGetInputTypeRequest\x1a\x1c.method.GetInputTypeResponse\x12@\n" +
-	"\tOnKeyDown\x12\x18.method.OnKeyDownRequest\x1a\x19.method.OnKeyDownResponse\x12C\n" +
-	"\n" +
-	"OnKeyOther\x12\x19.method.OnKeyOtherRequest\x1a\x1a.method.OnKeyOtherResponse\x12:\n" +
-	"\aOnKeyUp\x12\x16.method.OnKeyUpRequest\x1a\x17.method.OnKeyUpResponse2\xec\x02\n" +
-	"\x1aDateTimeKeyListenerService\x12g\n" +
-	"\x16NewDateTimeKeyListener\x12%.method.NewDateTimeKeyListenerRequest\x1a&.method.NewDateTimeKeyListenerResponse\x12I\n" +
-	"\fGetInputType\x12\x1b.method.GetInputTypeRequest\x1a\x1c.method.GetInputTypeResponse\x12I\n" +
-	"\fGetInstance0\x12\x1b.method.GetInstance0Request\x1a\x1c.method.GetInstance0Response\x12O\n" +
-	"\x0eGetInstance1_1\x12\x1d.method.GetInstance1_1Request\x1a\x1e.method.GetInstance1_1Response2\xdc\x02\n" +
-	"\x16DateKeyListenerService\x12[\n" +
-	"\x12NewDateKeyListener\x12!.method.NewDateKeyListenerRequest\x1a\".method.NewDateKeyListenerResponse\x12I\n" +
-	"\fGetInputType\x12\x1b.method.GetInputTypeRequest\x1a\x1c.method.GetInputTypeResponse\x12I\n" +
-	"\fGetInstance0\x12\x1b.method.GetInstance0Request\x1a\x1c.method.GetInstance0Response\x12O\n" +
-	"\x0eGetInstance1_1\x12\x1d.method.GetInstance1_1Request\x1a\x1e.method.GetInstance1_1Response2\xd4\x05\n" +
+	"\x0eResetMetaState\x12\x1d.method.ResetMetaStateRequest\x1a\x1e.method.ResetMetaStateResponse2\xf0\x05\n" +
 	"#PasswordTransformationMethodService\x12\x82\x01\n" +
 	"\x1fNewPasswordTransformationMethod\x12..method.NewPasswordTransformationMethodRequest\x1a/.method.NewPasswordTransformationMethodResponse\x12U\n" +
 	"\x10AfterTextChanged\x12\x1f.method.AfterTextChangedRequest\x1a .method.AfterTextChangedResponse\x12X\n" +
 	"\x11BeforeTextChanged\x12 .method.BeforeTextChangedRequest\x1a!.method.BeforeTextChangedResponse\x12t\n" +
 	"\x11GetTransformation\x12<.method.PasswordTransformationMethodGetTransformationRequest\x1a!.method.GetTransformationResponse\x12k\n" +
 	"\x0eOnFocusChanged\x129.method.PasswordTransformationMethodOnFocusChangedRequest\x1a\x1e.method.OnFocusChangedResponse\x12L\n" +
-	"\rOnTextChanged\x12\x1c.method.OnTextChangedRequest\x1a\x1d.method.OnTextChangedResponse\x12F\n" +
-	"\vGetInstance\x12\x1a.method.GetInstanceRequest\x1a\x1b.method.GetInstanceResponse2\xcc\x04\n" +
+	"\rOnTextChanged\x12\x1c.method.OnTextChangedRequest\x1a\x1d.method.OnTextChangedResponse\x12b\n" +
+	"\vGetInstance\x126.method.PasswordTransformationMethodGetInstanceRequest\x1a\x1b.method.GetInstanceResponse2\xd2\x05\n" +
+	"\x1dArrowKeyMovementMethodService\x12p\n" +
+	"\x19NewArrowKeyMovementMethod\x12(.method.NewArrowKeyMovementMethodRequest\x1a).method.NewArrowKeyMovementMethodResponse\x12a\n" +
+	"\x14CanSelectArbitrarily\x12#.method.CanSelectArbitrarilyRequest\x1a$.method.CanSelectArbitrarilyResponse\x12C\n" +
+	"\n" +
+	"Initialize\x12\x19.method.InitializeRequest\x1a\x1a.method.InitializeResponse\x12L\n" +
+	"\rNextParagraph\x12\x1c.method.NextParagraphRequest\x1a\x1d.method.NextParagraphResponse\x12F\n" +
+	"\vOnTakeFocus\x12\x1a.method.OnTakeFocusRequest\x1a\x1b.method.OnTakeFocusResponse\x12I\n" +
+	"\fOnTouchEvent\x12\x1b.method.OnTouchEventRequest\x1a\x1c.method.OnTouchEventResponse\x12X\n" +
+	"\x11PreviousParagraph\x12 .method.PreviousParagraphRequest\x1a!.method.PreviousParagraphResponse\x12\\\n" +
+	"\vGetInstance\x120.method.ArrowKeyMovementMethodGetInstanceRequest\x1a\x1b.method.GetInstanceResponse2\xec\x02\n" +
+	"\x1aDateTimeKeyListenerService\x12g\n" +
+	"\x16NewDateTimeKeyListener\x12%.method.NewDateTimeKeyListenerRequest\x1a&.method.NewDateTimeKeyListenerResponse\x12I\n" +
+	"\fGetInputType\x12\x1b.method.GetInputTypeRequest\x1a\x1c.method.GetInputTypeResponse\x12I\n" +
+	"\fGetInstance0\x12\x1b.method.GetInstance0Request\x1a\x1c.method.GetInstance0Response\x12O\n" +
+	"\x0eGetInstance1_1\x12\x1d.method.GetInstance1_1Request\x1a\x1e.method.GetInstance1_1Response2\x87\x03\n" +
+	"\x1eScrollingMovementMethodService\x12s\n" +
+	"\x1aNewScrollingMovementMethod\x12).method.NewScrollingMovementMethodRequest\x1a*.method.NewScrollingMovementMethodResponse\x12F\n" +
+	"\vOnTakeFocus\x12\x1a.method.OnTakeFocusRequest\x1a\x1b.method.OnTakeFocusResponse\x12I\n" +
+	"\fOnTouchEvent\x12\x1b.method.OnTouchEventRequest\x1a\x1c.method.OnTouchEventResponse\x12]\n" +
+	"\vGetInstance\x121.method.ScrollingMovementMethodGetInstanceRequest\x1a\x1b.method.GetInstanceResponse2\xdc\x02\n" +
+	"\x16TimeKeyListenerService\x12[\n" +
+	"\x12NewTimeKeyListener\x12!.method.NewTimeKeyListenerRequest\x1a\".method.NewTimeKeyListenerResponse\x12I\n" +
+	"\fGetInputType\x12\x1b.method.GetInputTypeRequest\x1a\x1c.method.GetInputTypeResponse\x12I\n" +
+	"\fGetInstance0\x12\x1b.method.GetInstance0Request\x1a\x1c.method.GetInstance0Response\x12O\n" +
+	"\x0eGetInstance1_1\x12\x1d.method.GetInstance1_1Request\x1a\x1e.method.GetInstance1_1Response2\xa6\x01\n" +
+	"\x18NumberKeyListenerService\x127\n" +
+	"\x06Filter\x12\x15.method.FilterRequest\x1a\x16.method.FilterResponse\x12Q\n" +
+	"\tOnKeyDown\x12).method.NumberKeyListenerOnKeyDownRequest\x1a\x19.method.OnKeyDownResponse2\xcd\x06\n" +
+	"\x15MovementMethodService\x12o\n" +
+	"\x14CanSelectArbitrarily\x121.method.MovementMethodCanSelectArbitrarilyRequest\x1a$.method.CanSelectArbitrarilyResponse\x12Q\n" +
+	"\n" +
+	"Initialize\x12'.method.MovementMethodInitializeRequest\x1a\x1a.method.InitializeResponse\x12o\n" +
+	"\x14OnGenericMotionEvent\x121.method.MovementMethodOnGenericMotionEventRequest\x1a$.method.OnGenericMotionEventResponse\x12N\n" +
+	"\tOnKeyDown\x12&.method.MovementMethodOnKeyDownRequest\x1a\x19.method.OnKeyDownResponse\x12Q\n" +
+	"\n" +
+	"OnKeyOther\x12'.method.MovementMethodOnKeyOtherRequest\x1a\x1a.method.OnKeyOtherResponse\x12H\n" +
+	"\aOnKeyUp\x12$.method.MovementMethodOnKeyUpRequest\x1a\x17.method.OnKeyUpResponse\x12T\n" +
+	"\vOnTakeFocus\x12(.method.MovementMethodOnTakeFocusRequest\x1a\x1b.method.OnTakeFocusResponse\x12W\n" +
+	"\fOnTouchEvent\x12).method.MovementMethodOnTouchEventRequest\x1a\x1c.method.OnTouchEventResponse\x12c\n" +
+	"\x10OnTrackballEvent\x12-.method.MovementMethodOnTrackballEventRequest\x1a .method.OnTrackballEventResponse2\xa8\x03\n" +
+	"\x12KeyListenerService\x12X\n" +
+	"\x11ClearMetaKeyState\x12 .method.ClearMetaKeyStateRequest\x1a!.method.ClearMetaKeyStateResponse\x12T\n" +
+	"\fGetInputType\x12&.method.KeyListenerGetInputTypeRequest\x1a\x1c.method.GetInputTypeResponse\x12K\n" +
+	"\tOnKeyDown\x12#.method.KeyListenerOnKeyDownRequest\x1a\x19.method.OnKeyDownResponse\x12N\n" +
+	"\n" +
+	"OnKeyOther\x12$.method.KeyListenerOnKeyOtherRequest\x1a\x1a.method.OnKeyOtherResponse\x12E\n" +
+	"\aOnKeyUp\x12!.method.KeyListenerOnKeyUpRequest\x1a\x17.method.OnKeyUpResponse2\x91\x02\n" +
+	"\x1cCharacterPickerDialogService\x12m\n" +
+	"\x18NewCharacterPickerDialog\x12'.method.NewCharacterPickerDialogRequest\x1a(.method.NewCharacterPickerDialogResponse\x12:\n" +
+	"\aOnClick\x12\x16.method.OnClickRequest\x1a\x17.method.OnClickResponse\x12F\n" +
+	"\vOnItemClick\x12\x1a.method.OnItemClickRequest\x1a\x1b.method.OnItemClickResponse2\xb7\a\n" +
+	"\x16TextKeyListenerService\x12[\n" +
+	"\x12NewTextKeyListener\x12!.method.NewTextKeyListenerRequest\x1a\".method.NewTextKeyListenerResponse\x12I\n" +
+	"\fGetInputType\x12\x1b.method.GetInputTypeRequest\x1a\x1c.method.GetInputTypeResponse\x12@\n" +
+	"\tOnKeyDown\x12\x18.method.OnKeyDownRequest\x1a\x19.method.OnKeyDownResponse\x12C\n" +
+	"\n" +
+	"OnKeyOther\x12\x19.method.OnKeyOtherRequest\x1a\x1a.method.OnKeyOtherResponse\x12:\n" +
+	"\aOnKeyUp\x12\x16.method.OnKeyUpRequest\x1a\x17.method.OnKeyUpResponse\x12F\n" +
+	"\vOnSpanAdded\x12\x1a.method.OnSpanAddedRequest\x1a\x1b.method.OnSpanAddedResponse\x12L\n" +
+	"\rOnSpanChanged\x12\x1c.method.OnSpanChangedRequest\x1a\x1d.method.OnSpanChangedResponse\x12L\n" +
+	"\rOnSpanRemoved\x12\x1c.method.OnSpanRemovedRequest\x1a\x1d.method.OnSpanRemovedResponse\x12:\n" +
+	"\aRelease\x12\x16.method.ReleaseRequest\x1a\x17.method.ReleaseResponse\x124\n" +
+	"\x05Clear\x12\x14.method.ClearRequest\x1a\x15.method.ClearResponse\x12I\n" +
+	"\fGetInstance0\x12\x1b.method.GetInstance0Request\x1a\x1c.method.GetInstance0Response\x12O\n" +
+	"\x0eGetInstance2_1\x12\x1d.method.GetInstance2_1Request\x1a\x1e.method.GetInstance2_1Response\x12@\n" +
+	"\tShouldCap\x12\x18.method.ShouldCapRequest\x1a\x19.method.ShouldCapResponse2\x97\x01\n" +
+	" TextKeyListenerCapitalizeService\x127\n" +
+	"\x06Values\x12\x15.method.ValuesRequest\x1a\x16.method.ValuesResponse\x12:\n" +
+	"\aValueOf\x12\x16.method.ValueOfRequest\x1a\x17.method.ValueOfResponse2\xdc\x02\n" +
+	"\x16DateKeyListenerService\x12[\n" +
+	"\x12NewDateKeyListener\x12!.method.NewDateKeyListenerRequest\x1a\".method.NewDateKeyListenerResponse\x12I\n" +
+	"\fGetInputType\x12\x1b.method.GetInputTypeRequest\x1a\x1c.method.GetInputTypeResponse\x12I\n" +
+	"\fGetInstance0\x12\x1b.method.GetInstance0Request\x1a\x1c.method.GetInstance0Response\x12O\n" +
+	"\x0eGetInstance1_1\x12\x1d.method.GetInstance1_1Request\x1a\x1e.method.GetInstance1_1Response2\xa1\x02\n" +
+	"\x18DialerKeyListenerService\x12a\n" +
+	"\x14NewDialerKeyListener\x12#.method.NewDialerKeyListenerRequest\x1a$.method.NewDialerKeyListenerResponse\x12I\n" +
+	"\fGetInputType\x12\x1b.method.GetInputTypeRequest\x1a\x1c.method.GetInputTypeResponse\x12W\n" +
+	"\vGetInstance\x12+.method.DialerKeyListenerGetInstanceRequest\x1a\x1b.method.GetInstanceResponse2\xbe\x04\n" +
+	"\x1aMultiTapKeyListenerService\x12g\n" +
+	"\x16NewMultiTapKeyListener\x12%.method.NewMultiTapKeyListenerRequest\x1a&.method.NewMultiTapKeyListenerResponse\x12I\n" +
+	"\fGetInputType\x12\x1b.method.GetInputTypeRequest\x1a\x1c.method.GetInputTypeResponse\x12@\n" +
+	"\tOnKeyDown\x12\x18.method.OnKeyDownRequest\x1a\x19.method.OnKeyDownResponse\x12F\n" +
+	"\vOnSpanAdded\x12\x1a.method.OnSpanAddedRequest\x1a\x1b.method.OnSpanAddedResponse\x12L\n" +
+	"\rOnSpanChanged\x12\x1c.method.OnSpanChangedRequest\x1a\x1d.method.OnSpanChangedResponse\x12L\n" +
+	"\rOnSpanRemoved\x12\x1c.method.OnSpanRemovedRequest\x1a\x1d.method.OnSpanRemovedResponse\x12F\n" +
+	"\vGetInstance\x12\x1a.method.GetInstanceRequest\x1a\x1b.method.GetInstanceResponse2\xd1\x02\n" +
+	"\fTouchService\x12X\n" +
+	"\x11GetInitialScrollX\x12 .method.GetInitialScrollXRequest\x1a!.method.GetInitialScrollXResponse\x12X\n" +
+	"\x11GetInitialScrollY\x12 .method.GetInitialScrollYRequest\x1a!.method.GetInitialScrollYResponse\x12N\n" +
+	"\fOnTouchEvent\x12 .method.TouchOnTouchEventRequest\x1a\x1c.method.OnTouchEventResponse\x12=\n" +
+	"\bScrollTo\x12\x17.method.ScrollToRequest\x1a\x18.method.ScrollToResponse2\xb2\x05\n" +
+	"\x18DigitsKeyListenerService\x12a\n" +
+	"\x14NewDigitsKeyListener\x12#.method.NewDigitsKeyListenerRequest\x1a$.method.NewDigitsKeyListenerResponse\x12H\n" +
+	"\x06Filter\x12&.method.DigitsKeyListenerFilterRequest\x1a\x16.method.FilterResponse\x12I\n" +
+	"\fGetInputType\x12\x1b.method.GetInputTypeRequest\x1a\x1c.method.GetInputTypeResponse\x12I\n" +
+	"\fGetInstance0\x12\x1b.method.GetInstance0Request\x1a\x1c.method.GetInstance0Response\x12`\n" +
+	"\x0eGetInstance2_1\x12..method.DigitsKeyListenerGetInstance2_1Request\x1a\x1e.method.GetInstance2_1Response\x12O\n" +
+	"\x0eGetInstance1_2\x12\x1d.method.GetInstance1_2Request\x1a\x1e.method.GetInstance1_2Response\x12O\n" +
+	"\x0eGetInstance1_3\x12\x1d.method.GetInstance1_3Request\x1a\x1e.method.GetInstance1_3Response\x12O\n" +
+	"\x0eGetInstance3_4\x12\x1d.method.GetInstance3_4Request\x1a\x1e.method.GetInstance3_4Response2\x96\x04\n" +
 	"\x19LinkMovementMethodService\x12d\n" +
-	"\x15NewLinkMovementMethod\x12$.method.NewLinkMovementMethodRequest\x1a%.method.NewLinkMovementMethodResponse\x12s\n" +
-	"\x14CanSelectArbitrarily\x125.method.LinkMovementMethodCanSelectArbitrarilyRequest\x1a$.method.CanSelectArbitrarilyResponse\x12U\n" +
+	"\x15NewLinkMovementMethod\x12$.method.NewLinkMovementMethodRequest\x1a%.method.NewLinkMovementMethodResponse\x12a\n" +
+	"\x14CanSelectArbitrarily\x12#.method.CanSelectArbitrarilyRequest\x1a$.method.CanSelectArbitrarilyResponse\x12C\n" +
 	"\n" +
-	"Initialize\x12+.method.LinkMovementMethodInitializeRequest\x1a\x1a.method.InitializeResponse\x12X\n" +
-	"\vOnTakeFocus\x12,.method.LinkMovementMethodOnTakeFocusRequest\x1a\x1b.method.OnTakeFocusResponse\x12[\n" +
-	"\fOnTouchEvent\x12-.method.LinkMovementMethodOnTouchEventRequest\x1a\x1c.method.OnTouchEventResponse\x12F\n" +
-	"\vGetInstance\x12\x1a.method.GetInstanceRequest\x1a\x1b.method.GetInstanceResponse2\x83\t\n" +
-	"\x19BaseMovementMethodService\x12d\n" +
-	"\x15NewBaseMovementMethod\x12$.method.NewBaseMovementMethodRequest\x1a%.method.NewBaseMovementMethodResponse\x12s\n" +
-	"\x14CanSelectArbitrarily\x125.method.BaseMovementMethodCanSelectArbitrarilyRequest\x1a$.method.CanSelectArbitrarilyResponse\x12U\n" +
-	"\n" +
-	"Initialize\x12+.method.BaseMovementMethodInitializeRequest\x1a\x1a.method.InitializeResponse\x12L\n" +
-	"\rNextParagraph\x12\x1c.method.NextParagraphRequest\x1a\x1d.method.NextParagraphResponse\x12s\n" +
-	"\x14OnGenericMotionEvent\x125.method.BaseMovementMethodOnGenericMotionEventRequest\x1a$.method.OnGenericMotionEventResponse\x12R\n" +
-	"\tOnKeyDown\x12*.method.BaseMovementMethodOnKeyDownRequest\x1a\x19.method.OnKeyDownResponse\x12U\n" +
-	"\n" +
-	"OnKeyOther\x12+.method.BaseMovementMethodOnKeyOtherRequest\x1a\x1a.method.OnKeyOtherResponse\x12L\n" +
-	"\aOnKeyUp\x12(.method.BaseMovementMethodOnKeyUpRequest\x1a\x17.method.OnKeyUpResponse\x12X\n" +
-	"\vOnTakeFocus\x12,.method.BaseMovementMethodOnTakeFocusRequest\x1a\x1b.method.OnTakeFocusResponse\x12[\n" +
-	"\fOnTouchEvent\x12-.method.BaseMovementMethodOnTouchEventRequest\x1a\x1c.method.OnTouchEventResponse\x12g\n" +
-	"\x10OnTrackballEvent\x121.method.BaseMovementMethodOnTrackballEventRequest\x1a .method.OnTrackballEventResponse\x12X\n" +
-	"\x11PreviousParagraph\x12 .method.PreviousParagraphRequest\x1a!.method.PreviousParagraphResponseB0Z.github.com/AndroidGoLab/jni-proxy/proto/methodb\x06proto3"
+	"Initialize\x12\x19.method.InitializeRequest\x1a\x1a.method.InitializeResponse\x12F\n" +
+	"\vOnTakeFocus\x12\x1a.method.OnTakeFocusRequest\x1a\x1b.method.OnTakeFocusResponse\x12I\n" +
+	"\fOnTouchEvent\x12\x1b.method.OnTouchEventRequest\x1a\x1c.method.OnTouchEventResponse\x12X\n" +
+	"\vGetInstance\x12,.method.LinkMovementMethodGetInstanceRequest\x1a\x1b.method.GetInstanceResponse2\x9d\x02\n" +
+	"&HideReturnsTransformationMethodService\x12\x8b\x01\n" +
+	"\"NewHideReturnsTransformationMethod\x121.method.NewHideReturnsTransformationMethodRequest\x1a2.method.NewHideReturnsTransformationMethodResponse\x12e\n" +
+	"\vGetInstance\x129.method.HideReturnsTransformationMethodGetInstanceRequest\x1a\x1b.method.GetInstanceResponseB0Z.github.com/AndroidGoLab/jni-proxy/proto/methodb\x06proto3"
 
 var (
 	file_proto_method_method_proto_rawDescOnce sync.Once
@@ -10075,477 +9858,476 @@ func file_proto_method_method_proto_rawDescGZIP() []byte {
 	return file_proto_method_method_proto_rawDescData
 }
 
-var file_proto_method_method_proto_msgTypes = make([]protoimpl.MessageInfo, 183)
+var file_proto_method_method_proto_msgTypes = make([]protoimpl.MessageInfo, 182)
 var file_proto_method_method_proto_goTypes = []any{
-	(*NewCharacterPickerDialogRequest)(nil),                      // 0: method.NewCharacterPickerDialogRequest
-	(*NewCharacterPickerDialogResponse)(nil),                     // 1: method.NewCharacterPickerDialogResponse
-	(*OnClickRequest)(nil),                                       // 2: method.OnClickRequest
-	(*OnClickResponse)(nil),                                      // 3: method.OnClickResponse
-	(*OnItemClickRequest)(nil),                                   // 4: method.OnItemClickRequest
-	(*OnItemClickResponse)(nil),                                  // 5: method.OnItemClickResponse
-	(*FilterRequest)(nil),                                        // 6: method.FilterRequest
-	(*FilterResponse)(nil),                                       // 7: method.FilterResponse
-	(*OnKeyDownRequest)(nil),                                     // 8: method.OnKeyDownRequest
-	(*OnKeyDownResponse)(nil),                                    // 9: method.OnKeyDownResponse
-	(*NewSingleLineTransformationMethodRequest)(nil),             // 10: method.NewSingleLineTransformationMethodRequest
-	(*NewSingleLineTransformationMethodResponse)(nil),            // 11: method.NewSingleLineTransformationMethodResponse
-	(*GetInstanceRequest)(nil),                                   // 12: method.GetInstanceRequest
-	(*GetInstanceResponse)(nil),                                  // 13: method.GetInstanceResponse
+	(*NewQwertyKeyListenerRequest)(nil),                          // 0: method.NewQwertyKeyListenerRequest
+	(*NewQwertyKeyListenerResponse)(nil),                         // 1: method.NewQwertyKeyListenerResponse
+	(*GetInputTypeRequest)(nil),                                  // 2: method.GetInputTypeRequest
+	(*GetInputTypeResponse)(nil),                                 // 3: method.GetInputTypeResponse
+	(*OnKeyDownRequest)(nil),                                     // 4: method.OnKeyDownRequest
+	(*OnKeyDownResponse)(nil),                                    // 5: method.OnKeyDownResponse
+	(*GetInstanceRequest)(nil),                                   // 6: method.GetInstanceRequest
+	(*GetInstanceResponse)(nil),                                  // 7: method.GetInstanceResponse
+	(*GetInstanceForFullKeyboardRequest)(nil),                    // 8: method.GetInstanceForFullKeyboardRequest
+	(*GetInstanceForFullKeyboardResponse)(nil),                   // 9: method.GetInstanceForFullKeyboardResponse
+	(*MarkAsReplacedRequest)(nil),                                // 10: method.MarkAsReplacedRequest
+	(*MarkAsReplacedResponse)(nil),                               // 11: method.MarkAsReplacedResponse
+	(*NewBaseMovementMethodRequest)(nil),                         // 12: method.NewBaseMovementMethodRequest
+	(*NewBaseMovementMethodResponse)(nil),                        // 13: method.NewBaseMovementMethodResponse
 	(*CanSelectArbitrarilyRequest)(nil),                          // 14: method.CanSelectArbitrarilyRequest
 	(*CanSelectArbitrarilyResponse)(nil),                         // 15: method.CanSelectArbitrarilyResponse
 	(*InitializeRequest)(nil),                                    // 16: method.InitializeRequest
 	(*InitializeResponse)(nil),                                   // 17: method.InitializeResponse
-	(*OnGenericMotionEventRequest)(nil),                          // 18: method.OnGenericMotionEventRequest
-	(*OnGenericMotionEventResponse)(nil),                         // 19: method.OnGenericMotionEventResponse
-	(*OnKeyOtherRequest)(nil),                                    // 20: method.OnKeyOtherRequest
-	(*OnKeyOtherResponse)(nil),                                   // 21: method.OnKeyOtherResponse
-	(*OnKeyUpRequest)(nil),                                       // 22: method.OnKeyUpRequest
-	(*OnKeyUpResponse)(nil),                                      // 23: method.OnKeyUpResponse
-	(*OnTakeFocusRequest)(nil),                                   // 24: method.OnTakeFocusRequest
-	(*OnTakeFocusResponse)(nil),                                  // 25: method.OnTakeFocusResponse
-	(*OnTouchEventRequest)(nil),                                  // 26: method.OnTouchEventRequest
-	(*OnTouchEventResponse)(nil),                                 // 27: method.OnTouchEventResponse
-	(*OnTrackballEventRequest)(nil),                              // 28: method.OnTrackballEventRequest
-	(*OnTrackballEventResponse)(nil),                             // 29: method.OnTrackballEventResponse
-	(*GetTransformationRequest)(nil),                             // 30: method.GetTransformationRequest
-	(*GetTransformationResponse)(nil),                            // 31: method.GetTransformationResponse
-	(*OnFocusChangedRequest)(nil),                                // 32: method.OnFocusChangedRequest
-	(*OnFocusChangedResponse)(nil),                               // 33: method.OnFocusChangedResponse
-	(*GetInitialScrollXRequest)(nil),                             // 34: method.GetInitialScrollXRequest
-	(*GetInitialScrollXResponse)(nil),                            // 35: method.GetInitialScrollXResponse
-	(*GetInitialScrollYRequest)(nil),                             // 36: method.GetInitialScrollYRequest
-	(*GetInitialScrollYResponse)(nil),                            // 37: method.GetInitialScrollYResponse
-	(*ScrollToRequest)(nil),                                      // 38: method.ScrollToRequest
-	(*ScrollToResponse)(nil),                                     // 39: method.ScrollToResponse
-	(*NewScrollingMovementMethodRequest)(nil),                    // 40: method.NewScrollingMovementMethodRequest
-	(*NewScrollingMovementMethodResponse)(nil),                   // 41: method.NewScrollingMovementMethodResponse
-	(*ScrollingMovementMethodOnTakeFocusRequest)(nil),            // 42: method.ScrollingMovementMethodOnTakeFocusRequest
-	(*ScrollingMovementMethodOnTouchEventRequest)(nil),           // 43: method.ScrollingMovementMethodOnTouchEventRequest
-	(*NewHideReturnsTransformationMethodRequest)(nil),            // 44: method.NewHideReturnsTransformationMethodRequest
-	(*NewHideReturnsTransformationMethodResponse)(nil),           // 45: method.NewHideReturnsTransformationMethodResponse
-	(*NewMultiTapKeyListenerRequest)(nil),                        // 46: method.NewMultiTapKeyListenerRequest
-	(*NewMultiTapKeyListenerResponse)(nil),                       // 47: method.NewMultiTapKeyListenerResponse
-	(*GetInputTypeRequest)(nil),                                  // 48: method.GetInputTypeRequest
-	(*GetInputTypeResponse)(nil),                                 // 49: method.GetInputTypeResponse
-	(*MultiTapKeyListenerOnKeyDownRequest)(nil),                  // 50: method.MultiTapKeyListenerOnKeyDownRequest
-	(*OnSpanAddedRequest)(nil),                                   // 51: method.OnSpanAddedRequest
-	(*OnSpanAddedResponse)(nil),                                  // 52: method.OnSpanAddedResponse
-	(*OnSpanChangedRequest)(nil),                                 // 53: method.OnSpanChangedRequest
-	(*OnSpanChangedResponse)(nil),                                // 54: method.OnSpanChangedResponse
-	(*OnSpanRemovedRequest)(nil),                                 // 55: method.OnSpanRemovedRequest
-	(*OnSpanRemovedResponse)(nil),                                // 56: method.OnSpanRemovedResponse
-	(*MultiTapKeyListenerGetInstanceRequest)(nil),                // 57: method.MultiTapKeyListenerGetInstanceRequest
-	(*NewDigitsKeyListenerRequest)(nil),                          // 58: method.NewDigitsKeyListenerRequest
-	(*NewDigitsKeyListenerResponse)(nil),                         // 59: method.NewDigitsKeyListenerResponse
-	(*DigitsKeyListenerFilterRequest)(nil),                       // 60: method.DigitsKeyListenerFilterRequest
-	(*GetInstance0Request)(nil),                                  // 61: method.GetInstance0Request
-	(*GetInstance0Response)(nil),                                 // 62: method.GetInstance0Response
-	(*GetInstance2_1Request)(nil),                                // 63: method.GetInstance2_1Request
-	(*GetInstance2_1Response)(nil),                               // 64: method.GetInstance2_1Response
-	(*GetInstance1_2Request)(nil),                                // 65: method.GetInstance1_2Request
-	(*GetInstance1_2Response)(nil),                               // 66: method.GetInstance1_2Response
-	(*GetInstance1_3Request)(nil),                                // 67: method.GetInstance1_3Request
-	(*GetInstance1_3Response)(nil),                               // 68: method.GetInstance1_3Response
-	(*GetInstance3_4Request)(nil),                                // 69: method.GetInstance3_4Request
-	(*GetInstance3_4Response)(nil),                               // 70: method.GetInstance3_4Response
-	(*NewDialerKeyListenerRequest)(nil),                          // 71: method.NewDialerKeyListenerRequest
-	(*NewDialerKeyListenerResponse)(nil),                         // 72: method.NewDialerKeyListenerResponse
-	(*NewTimeKeyListenerRequest)(nil),                            // 73: method.NewTimeKeyListenerRequest
-	(*NewTimeKeyListenerResponse)(nil),                           // 74: method.NewTimeKeyListenerResponse
-	(*GetInstance1_1Request)(nil),                                // 75: method.GetInstance1_1Request
-	(*GetInstance1_1Response)(nil),                               // 76: method.GetInstance1_1Response
-	(*NewQwertyKeyListenerRequest)(nil),                          // 77: method.NewQwertyKeyListenerRequest
-	(*NewQwertyKeyListenerResponse)(nil),                         // 78: method.NewQwertyKeyListenerResponse
-	(*QwertyKeyListenerOnKeyDownRequest)(nil),                    // 79: method.QwertyKeyListenerOnKeyDownRequest
-	(*QwertyKeyListenerGetInstanceRequest)(nil),                  // 80: method.QwertyKeyListenerGetInstanceRequest
-	(*GetInstanceForFullKeyboardRequest)(nil),                    // 81: method.GetInstanceForFullKeyboardRequest
-	(*GetInstanceForFullKeyboardResponse)(nil),                   // 82: method.GetInstanceForFullKeyboardResponse
-	(*MarkAsReplacedRequest)(nil),                                // 83: method.MarkAsReplacedRequest
-	(*MarkAsReplacedResponse)(nil),                               // 84: method.MarkAsReplacedResponse
-	(*BackspaceRequest)(nil),                                     // 85: method.BackspaceRequest
-	(*BackspaceResponse)(nil),                                    // 86: method.BackspaceResponse
-	(*ForwardDeleteRequest)(nil),                                 // 87: method.ForwardDeleteRequest
-	(*ForwardDeleteResponse)(nil),                                // 88: method.ForwardDeleteResponse
-	(*ClearMetaKeyState3_1Request)(nil),                          // 89: method.ClearMetaKeyState3_1Request
-	(*ClearMetaKeyState3_1Response)(nil),                         // 90: method.ClearMetaKeyState3_1Response
-	(*ClearMetaKeyState2_2Request)(nil),                          // 91: method.ClearMetaKeyState2_2Request
-	(*ClearMetaKeyState2_2Response)(nil),                         // 92: method.ClearMetaKeyState2_2Response
-	(*AdjustMetaAfterKeypress1Request)(nil),                      // 93: method.AdjustMetaAfterKeypress1Request
-	(*AdjustMetaAfterKeypress1Response)(nil),                     // 94: method.AdjustMetaAfterKeypress1Response
-	(*AdjustMetaAfterKeypress1_1Request)(nil),                    // 95: method.AdjustMetaAfterKeypress1_1Request
-	(*AdjustMetaAfterKeypress1_1Response)(nil),                   // 96: method.AdjustMetaAfterKeypress1_1Response
-	(*ClearMetaKeyState2Request)(nil),                            // 97: method.ClearMetaKeyState2Request
-	(*ClearMetaKeyState2Response)(nil),                           // 98: method.ClearMetaKeyState2Response
-	(*GetMetaState1Request)(nil),                                 // 99: method.GetMetaState1Request
-	(*GetMetaState1Response)(nil),                                // 100: method.GetMetaState1Response
-	(*GetMetaState2_1Request)(nil),                               // 101: method.GetMetaState2_1Request
-	(*GetMetaState2_1Response)(nil),                              // 102: method.GetMetaState2_1Response
-	(*GetMetaState2_2Request)(nil),                               // 103: method.GetMetaState2_2Request
-	(*GetMetaState2_2Response)(nil),                              // 104: method.GetMetaState2_2Response
-	(*GetMetaState3_3Request)(nil),                               // 105: method.GetMetaState3_3Request
-	(*GetMetaState3_3Response)(nil),                              // 106: method.GetMetaState3_3Response
-	(*GetMetaState1_4Request)(nil),                               // 107: method.GetMetaState1_4Request
-	(*GetMetaState1_4Response)(nil),                              // 108: method.GetMetaState1_4Response
-	(*GetMetaState2_5Request)(nil),                               // 109: method.GetMetaState2_5Request
-	(*GetMetaState2_5Response)(nil),                              // 110: method.GetMetaState2_5Response
-	(*HandleKeyDownRequest)(nil),                                 // 111: method.HandleKeyDownRequest
-	(*HandleKeyDownResponse)(nil),                                // 112: method.HandleKeyDownResponse
-	(*HandleKeyUpRequest)(nil),                                   // 113: method.HandleKeyUpRequest
-	(*HandleKeyUpResponse)(nil),                                  // 114: method.HandleKeyUpResponse
-	(*IsMetaTrackerRequest)(nil),                                 // 115: method.IsMetaTrackerRequest
-	(*IsMetaTrackerResponse)(nil),                                // 116: method.IsMetaTrackerResponse
-	(*IsSelectingMetaTrackerRequest)(nil),                        // 117: method.IsSelectingMetaTrackerRequest
-	(*IsSelectingMetaTrackerResponse)(nil),                       // 118: method.IsSelectingMetaTrackerResponse
-	(*ResetLockedMetaRequest)(nil),                               // 119: method.ResetLockedMetaRequest
-	(*ResetLockedMetaResponse)(nil),                              // 120: method.ResetLockedMetaResponse
-	(*ResetMetaStateRequest)(nil),                                // 121: method.ResetMetaStateRequest
-	(*ResetMetaStateResponse)(nil),                               // 122: method.ResetMetaStateResponse
-	(*NewTextKeyListenerRequest)(nil),                            // 123: method.NewTextKeyListenerRequest
-	(*NewTextKeyListenerResponse)(nil),                           // 124: method.NewTextKeyListenerResponse
-	(*TextKeyListenerOnKeyDownRequest)(nil),                      // 125: method.TextKeyListenerOnKeyDownRequest
-	(*TextKeyListenerOnKeyOtherRequest)(nil),                     // 126: method.TextKeyListenerOnKeyOtherRequest
-	(*TextKeyListenerOnKeyUpRequest)(nil),                        // 127: method.TextKeyListenerOnKeyUpRequest
-	(*ReleaseRequest)(nil),                                       // 128: method.ReleaseRequest
-	(*ReleaseResponse)(nil),                                      // 129: method.ReleaseResponse
-	(*ClearRequest)(nil),                                         // 130: method.ClearRequest
-	(*ClearResponse)(nil),                                        // 131: method.ClearResponse
-	(*TextKeyListenerGetInstance2_1Request)(nil),                 // 132: method.TextKeyListenerGetInstance2_1Request
-	(*ShouldCapRequest)(nil),                                     // 133: method.ShouldCapRequest
-	(*ShouldCapResponse)(nil),                                    // 134: method.ShouldCapResponse
-	(*ValuesRequest)(nil),                                        // 135: method.ValuesRequest
-	(*ValuesResponse)(nil),                                       // 136: method.ValuesResponse
-	(*ValueOfRequest)(nil),                                       // 137: method.ValueOfRequest
-	(*ValueOfResponse)(nil),                                      // 138: method.ValueOfResponse
-	(*NewArrowKeyMovementMethodRequest)(nil),                     // 139: method.NewArrowKeyMovementMethodRequest
-	(*NewArrowKeyMovementMethodResponse)(nil),                    // 140: method.NewArrowKeyMovementMethodResponse
-	(*ArrowKeyMovementMethodCanSelectArbitrarilyRequest)(nil),    // 141: method.ArrowKeyMovementMethodCanSelectArbitrarilyRequest
-	(*ArrowKeyMovementMethodInitializeRequest)(nil),              // 142: method.ArrowKeyMovementMethodInitializeRequest
-	(*NextParagraphRequest)(nil),                                 // 143: method.NextParagraphRequest
-	(*NextParagraphResponse)(nil),                                // 144: method.NextParagraphResponse
-	(*ArrowKeyMovementMethodOnTakeFocusRequest)(nil),             // 145: method.ArrowKeyMovementMethodOnTakeFocusRequest
-	(*ArrowKeyMovementMethodOnTouchEventRequest)(nil),            // 146: method.ArrowKeyMovementMethodOnTouchEventRequest
-	(*PreviousParagraphRequest)(nil),                             // 147: method.PreviousParagraphRequest
-	(*PreviousParagraphResponse)(nil),                            // 148: method.PreviousParagraphResponse
-	(*ClearMetaKeyStateRequest)(nil),                             // 149: method.ClearMetaKeyStateRequest
-	(*ClearMetaKeyStateResponse)(nil),                            // 150: method.ClearMetaKeyStateResponse
-	(*KeyListenerGetInputTypeRequest)(nil),                       // 151: method.KeyListenerGetInputTypeRequest
-	(*NewDateTimeKeyListenerRequest)(nil),                        // 152: method.NewDateTimeKeyListenerRequest
-	(*NewDateTimeKeyListenerResponse)(nil),                       // 153: method.NewDateTimeKeyListenerResponse
-	(*NewDateKeyListenerRequest)(nil),                            // 154: method.NewDateKeyListenerRequest
-	(*NewDateKeyListenerResponse)(nil),                           // 155: method.NewDateKeyListenerResponse
-	(*NewPasswordTransformationMethodRequest)(nil),               // 156: method.NewPasswordTransformationMethodRequest
-	(*NewPasswordTransformationMethodResponse)(nil),              // 157: method.NewPasswordTransformationMethodResponse
-	(*AfterTextChangedRequest)(nil),                              // 158: method.AfterTextChangedRequest
-	(*AfterTextChangedResponse)(nil),                             // 159: method.AfterTextChangedResponse
-	(*BeforeTextChangedRequest)(nil),                             // 160: method.BeforeTextChangedRequest
-	(*BeforeTextChangedResponse)(nil),                            // 161: method.BeforeTextChangedResponse
-	(*PasswordTransformationMethodGetTransformationRequest)(nil), // 162: method.PasswordTransformationMethodGetTransformationRequest
-	(*PasswordTransformationMethodOnFocusChangedRequest)(nil),    // 163: method.PasswordTransformationMethodOnFocusChangedRequest
-	(*OnTextChangedRequest)(nil),                                 // 164: method.OnTextChangedRequest
-	(*OnTextChangedResponse)(nil),                                // 165: method.OnTextChangedResponse
-	(*NewLinkMovementMethodRequest)(nil),                         // 166: method.NewLinkMovementMethodRequest
-	(*NewLinkMovementMethodResponse)(nil),                        // 167: method.NewLinkMovementMethodResponse
-	(*LinkMovementMethodCanSelectArbitrarilyRequest)(nil),        // 168: method.LinkMovementMethodCanSelectArbitrarilyRequest
-	(*LinkMovementMethodInitializeRequest)(nil),                  // 169: method.LinkMovementMethodInitializeRequest
-	(*LinkMovementMethodOnTakeFocusRequest)(nil),                 // 170: method.LinkMovementMethodOnTakeFocusRequest
-	(*LinkMovementMethodOnTouchEventRequest)(nil),                // 171: method.LinkMovementMethodOnTouchEventRequest
-	(*NewBaseMovementMethodRequest)(nil),                         // 172: method.NewBaseMovementMethodRequest
-	(*NewBaseMovementMethodResponse)(nil),                        // 173: method.NewBaseMovementMethodResponse
-	(*BaseMovementMethodCanSelectArbitrarilyRequest)(nil),        // 174: method.BaseMovementMethodCanSelectArbitrarilyRequest
-	(*BaseMovementMethodInitializeRequest)(nil),                  // 175: method.BaseMovementMethodInitializeRequest
-	(*BaseMovementMethodOnGenericMotionEventRequest)(nil),        // 176: method.BaseMovementMethodOnGenericMotionEventRequest
-	(*BaseMovementMethodOnKeyDownRequest)(nil),                   // 177: method.BaseMovementMethodOnKeyDownRequest
-	(*BaseMovementMethodOnKeyOtherRequest)(nil),                  // 178: method.BaseMovementMethodOnKeyOtherRequest
-	(*BaseMovementMethodOnKeyUpRequest)(nil),                     // 179: method.BaseMovementMethodOnKeyUpRequest
-	(*BaseMovementMethodOnTakeFocusRequest)(nil),                 // 180: method.BaseMovementMethodOnTakeFocusRequest
-	(*BaseMovementMethodOnTouchEventRequest)(nil),                // 181: method.BaseMovementMethodOnTouchEventRequest
-	(*BaseMovementMethodOnTrackballEventRequest)(nil),            // 182: method.BaseMovementMethodOnTrackballEventRequest
+	(*NextParagraphRequest)(nil),                                 // 18: method.NextParagraphRequest
+	(*NextParagraphResponse)(nil),                                // 19: method.NextParagraphResponse
+	(*OnGenericMotionEventRequest)(nil),                          // 20: method.OnGenericMotionEventRequest
+	(*OnGenericMotionEventResponse)(nil),                         // 21: method.OnGenericMotionEventResponse
+	(*OnKeyOtherRequest)(nil),                                    // 22: method.OnKeyOtherRequest
+	(*OnKeyOtherResponse)(nil),                                   // 23: method.OnKeyOtherResponse
+	(*OnKeyUpRequest)(nil),                                       // 24: method.OnKeyUpRequest
+	(*OnKeyUpResponse)(nil),                                      // 25: method.OnKeyUpResponse
+	(*OnTakeFocusRequest)(nil),                                   // 26: method.OnTakeFocusRequest
+	(*OnTakeFocusResponse)(nil),                                  // 27: method.OnTakeFocusResponse
+	(*OnTouchEventRequest)(nil),                                  // 28: method.OnTouchEventRequest
+	(*OnTouchEventResponse)(nil),                                 // 29: method.OnTouchEventResponse
+	(*OnTrackballEventRequest)(nil),                              // 30: method.OnTrackballEventRequest
+	(*OnTrackballEventResponse)(nil),                             // 31: method.OnTrackballEventResponse
+	(*PreviousParagraphRequest)(nil),                             // 32: method.PreviousParagraphRequest
+	(*PreviousParagraphResponse)(nil),                            // 33: method.PreviousParagraphResponse
+	(*NewSingleLineTransformationMethodRequest)(nil),             // 34: method.NewSingleLineTransformationMethodRequest
+	(*NewSingleLineTransformationMethodResponse)(nil),            // 35: method.NewSingleLineTransformationMethodResponse
+	(*SingleLineTransformationMethodGetInstanceRequest)(nil),     // 36: method.SingleLineTransformationMethodGetInstanceRequest
+	(*GetTransformationRequest)(nil),                             // 37: method.GetTransformationRequest
+	(*GetTransformationResponse)(nil),                            // 38: method.GetTransformationResponse
+	(*OnFocusChangedRequest)(nil),                                // 39: method.OnFocusChangedRequest
+	(*OnFocusChangedResponse)(nil),                               // 40: method.OnFocusChangedResponse
+	(*BackspaceRequest)(nil),                                     // 41: method.BackspaceRequest
+	(*BackspaceResponse)(nil),                                    // 42: method.BackspaceResponse
+	(*ForwardDeleteRequest)(nil),                                 // 43: method.ForwardDeleteRequest
+	(*ForwardDeleteResponse)(nil),                                // 44: method.ForwardDeleteResponse
+	(*BaseKeyListenerOnKeyDownRequest)(nil),                      // 45: method.BaseKeyListenerOnKeyDownRequest
+	(*BaseKeyListenerOnKeyOtherRequest)(nil),                     // 46: method.BaseKeyListenerOnKeyOtherRequest
+	(*ClearMetaKeyState3_1Request)(nil),                          // 47: method.ClearMetaKeyState3_1Request
+	(*ClearMetaKeyState3_1Response)(nil),                         // 48: method.ClearMetaKeyState3_1Response
+	(*ClearMetaKeyState2_2Request)(nil),                          // 49: method.ClearMetaKeyState2_2Request
+	(*ClearMetaKeyState2_2Response)(nil),                         // 50: method.ClearMetaKeyState2_2Response
+	(*MetaKeyKeyListenerOnKeyDownRequest)(nil),                   // 51: method.MetaKeyKeyListenerOnKeyDownRequest
+	(*MetaKeyKeyListenerOnKeyUpRequest)(nil),                     // 52: method.MetaKeyKeyListenerOnKeyUpRequest
+	(*AdjustMetaAfterKeypress1Request)(nil),                      // 53: method.AdjustMetaAfterKeypress1Request
+	(*AdjustMetaAfterKeypress1Response)(nil),                     // 54: method.AdjustMetaAfterKeypress1Response
+	(*AdjustMetaAfterKeypress1_1Request)(nil),                    // 55: method.AdjustMetaAfterKeypress1_1Request
+	(*AdjustMetaAfterKeypress1_1Response)(nil),                   // 56: method.AdjustMetaAfterKeypress1_1Response
+	(*ClearMetaKeyState2Request)(nil),                            // 57: method.ClearMetaKeyState2Request
+	(*ClearMetaKeyState2Response)(nil),                           // 58: method.ClearMetaKeyState2Response
+	(*GetMetaState1Request)(nil),                                 // 59: method.GetMetaState1Request
+	(*GetMetaState1Response)(nil),                                // 60: method.GetMetaState1Response
+	(*GetMetaState2_1Request)(nil),                               // 61: method.GetMetaState2_1Request
+	(*GetMetaState2_1Response)(nil),                              // 62: method.GetMetaState2_1Response
+	(*GetMetaState2_2Request)(nil),                               // 63: method.GetMetaState2_2Request
+	(*GetMetaState2_2Response)(nil),                              // 64: method.GetMetaState2_2Response
+	(*GetMetaState3_3Request)(nil),                               // 65: method.GetMetaState3_3Request
+	(*GetMetaState3_3Response)(nil),                              // 66: method.GetMetaState3_3Response
+	(*GetMetaState1_4Request)(nil),                               // 67: method.GetMetaState1_4Request
+	(*GetMetaState1_4Response)(nil),                              // 68: method.GetMetaState1_4Response
+	(*GetMetaState2_5Request)(nil),                               // 69: method.GetMetaState2_5Request
+	(*GetMetaState2_5Response)(nil),                              // 70: method.GetMetaState2_5Response
+	(*HandleKeyDownRequest)(nil),                                 // 71: method.HandleKeyDownRequest
+	(*HandleKeyDownResponse)(nil),                                // 72: method.HandleKeyDownResponse
+	(*HandleKeyUpRequest)(nil),                                   // 73: method.HandleKeyUpRequest
+	(*HandleKeyUpResponse)(nil),                                  // 74: method.HandleKeyUpResponse
+	(*IsMetaTrackerRequest)(nil),                                 // 75: method.IsMetaTrackerRequest
+	(*IsMetaTrackerResponse)(nil),                                // 76: method.IsMetaTrackerResponse
+	(*IsSelectingMetaTrackerRequest)(nil),                        // 77: method.IsSelectingMetaTrackerRequest
+	(*IsSelectingMetaTrackerResponse)(nil),                       // 78: method.IsSelectingMetaTrackerResponse
+	(*ResetLockedMetaRequest)(nil),                               // 79: method.ResetLockedMetaRequest
+	(*ResetLockedMetaResponse)(nil),                              // 80: method.ResetLockedMetaResponse
+	(*ResetMetaStateRequest)(nil),                                // 81: method.ResetMetaStateRequest
+	(*ResetMetaStateResponse)(nil),                               // 82: method.ResetMetaStateResponse
+	(*NewPasswordTransformationMethodRequest)(nil),               // 83: method.NewPasswordTransformationMethodRequest
+	(*NewPasswordTransformationMethodResponse)(nil),              // 84: method.NewPasswordTransformationMethodResponse
+	(*AfterTextChangedRequest)(nil),                              // 85: method.AfterTextChangedRequest
+	(*AfterTextChangedResponse)(nil),                             // 86: method.AfterTextChangedResponse
+	(*BeforeTextChangedRequest)(nil),                             // 87: method.BeforeTextChangedRequest
+	(*BeforeTextChangedResponse)(nil),                            // 88: method.BeforeTextChangedResponse
+	(*PasswordTransformationMethodGetTransformationRequest)(nil), // 89: method.PasswordTransformationMethodGetTransformationRequest
+	(*PasswordTransformationMethodOnFocusChangedRequest)(nil),    // 90: method.PasswordTransformationMethodOnFocusChangedRequest
+	(*OnTextChangedRequest)(nil),                                 // 91: method.OnTextChangedRequest
+	(*OnTextChangedResponse)(nil),                                // 92: method.OnTextChangedResponse
+	(*PasswordTransformationMethodGetInstanceRequest)(nil),       // 93: method.PasswordTransformationMethodGetInstanceRequest
+	(*NewArrowKeyMovementMethodRequest)(nil),                     // 94: method.NewArrowKeyMovementMethodRequest
+	(*NewArrowKeyMovementMethodResponse)(nil),                    // 95: method.NewArrowKeyMovementMethodResponse
+	(*ArrowKeyMovementMethodGetInstanceRequest)(nil),             // 96: method.ArrowKeyMovementMethodGetInstanceRequest
+	(*NewDateTimeKeyListenerRequest)(nil),                        // 97: method.NewDateTimeKeyListenerRequest
+	(*NewDateTimeKeyListenerResponse)(nil),                       // 98: method.NewDateTimeKeyListenerResponse
+	(*GetInstance0Request)(nil),                                  // 99: method.GetInstance0Request
+	(*GetInstance0Response)(nil),                                 // 100: method.GetInstance0Response
+	(*GetInstance1_1Request)(nil),                                // 101: method.GetInstance1_1Request
+	(*GetInstance1_1Response)(nil),                               // 102: method.GetInstance1_1Response
+	(*NewScrollingMovementMethodRequest)(nil),                    // 103: method.NewScrollingMovementMethodRequest
+	(*NewScrollingMovementMethodResponse)(nil),                   // 104: method.NewScrollingMovementMethodResponse
+	(*ScrollingMovementMethodGetInstanceRequest)(nil),            // 105: method.ScrollingMovementMethodGetInstanceRequest
+	(*NewTimeKeyListenerRequest)(nil),                            // 106: method.NewTimeKeyListenerRequest
+	(*NewTimeKeyListenerResponse)(nil),                           // 107: method.NewTimeKeyListenerResponse
+	(*FilterRequest)(nil),                                        // 108: method.FilterRequest
+	(*FilterResponse)(nil),                                       // 109: method.FilterResponse
+	(*NumberKeyListenerOnKeyDownRequest)(nil),                    // 110: method.NumberKeyListenerOnKeyDownRequest
+	(*MovementMethodCanSelectArbitrarilyRequest)(nil),            // 111: method.MovementMethodCanSelectArbitrarilyRequest
+	(*MovementMethodInitializeRequest)(nil),                      // 112: method.MovementMethodInitializeRequest
+	(*MovementMethodOnGenericMotionEventRequest)(nil),            // 113: method.MovementMethodOnGenericMotionEventRequest
+	(*MovementMethodOnKeyDownRequest)(nil),                       // 114: method.MovementMethodOnKeyDownRequest
+	(*MovementMethodOnKeyOtherRequest)(nil),                      // 115: method.MovementMethodOnKeyOtherRequest
+	(*MovementMethodOnKeyUpRequest)(nil),                         // 116: method.MovementMethodOnKeyUpRequest
+	(*MovementMethodOnTakeFocusRequest)(nil),                     // 117: method.MovementMethodOnTakeFocusRequest
+	(*MovementMethodOnTouchEventRequest)(nil),                    // 118: method.MovementMethodOnTouchEventRequest
+	(*MovementMethodOnTrackballEventRequest)(nil),                // 119: method.MovementMethodOnTrackballEventRequest
+	(*ClearMetaKeyStateRequest)(nil),                             // 120: method.ClearMetaKeyStateRequest
+	(*ClearMetaKeyStateResponse)(nil),                            // 121: method.ClearMetaKeyStateResponse
+	(*KeyListenerGetInputTypeRequest)(nil),                       // 122: method.KeyListenerGetInputTypeRequest
+	(*KeyListenerOnKeyDownRequest)(nil),                          // 123: method.KeyListenerOnKeyDownRequest
+	(*KeyListenerOnKeyOtherRequest)(nil),                         // 124: method.KeyListenerOnKeyOtherRequest
+	(*KeyListenerOnKeyUpRequest)(nil),                            // 125: method.KeyListenerOnKeyUpRequest
+	(*NewCharacterPickerDialogRequest)(nil),                      // 126: method.NewCharacterPickerDialogRequest
+	(*NewCharacterPickerDialogResponse)(nil),                     // 127: method.NewCharacterPickerDialogResponse
+	(*OnClickRequest)(nil),                                       // 128: method.OnClickRequest
+	(*OnClickResponse)(nil),                                      // 129: method.OnClickResponse
+	(*OnItemClickRequest)(nil),                                   // 130: method.OnItemClickRequest
+	(*OnItemClickResponse)(nil),                                  // 131: method.OnItemClickResponse
+	(*NewTextKeyListenerRequest)(nil),                            // 132: method.NewTextKeyListenerRequest
+	(*NewTextKeyListenerResponse)(nil),                           // 133: method.NewTextKeyListenerResponse
+	(*OnSpanAddedRequest)(nil),                                   // 134: method.OnSpanAddedRequest
+	(*OnSpanAddedResponse)(nil),                                  // 135: method.OnSpanAddedResponse
+	(*OnSpanChangedRequest)(nil),                                 // 136: method.OnSpanChangedRequest
+	(*OnSpanChangedResponse)(nil),                                // 137: method.OnSpanChangedResponse
+	(*OnSpanRemovedRequest)(nil),                                 // 138: method.OnSpanRemovedRequest
+	(*OnSpanRemovedResponse)(nil),                                // 139: method.OnSpanRemovedResponse
+	(*ReleaseRequest)(nil),                                       // 140: method.ReleaseRequest
+	(*ReleaseResponse)(nil),                                      // 141: method.ReleaseResponse
+	(*ClearRequest)(nil),                                         // 142: method.ClearRequest
+	(*ClearResponse)(nil),                                        // 143: method.ClearResponse
+	(*GetInstance2_1Request)(nil),                                // 144: method.GetInstance2_1Request
+	(*GetInstance2_1Response)(nil),                               // 145: method.GetInstance2_1Response
+	(*ShouldCapRequest)(nil),                                     // 146: method.ShouldCapRequest
+	(*ShouldCapResponse)(nil),                                    // 147: method.ShouldCapResponse
+	(*ValuesRequest)(nil),                                        // 148: method.ValuesRequest
+	(*ValuesResponse)(nil),                                       // 149: method.ValuesResponse
+	(*ValueOfRequest)(nil),                                       // 150: method.ValueOfRequest
+	(*ValueOfResponse)(nil),                                      // 151: method.ValueOfResponse
+	(*NewDateKeyListenerRequest)(nil),                            // 152: method.NewDateKeyListenerRequest
+	(*NewDateKeyListenerResponse)(nil),                           // 153: method.NewDateKeyListenerResponse
+	(*NewDialerKeyListenerRequest)(nil),                          // 154: method.NewDialerKeyListenerRequest
+	(*NewDialerKeyListenerResponse)(nil),                         // 155: method.NewDialerKeyListenerResponse
+	(*DialerKeyListenerGetInstanceRequest)(nil),                  // 156: method.DialerKeyListenerGetInstanceRequest
+	(*NewMultiTapKeyListenerRequest)(nil),                        // 157: method.NewMultiTapKeyListenerRequest
+	(*NewMultiTapKeyListenerResponse)(nil),                       // 158: method.NewMultiTapKeyListenerResponse
+	(*GetInitialScrollXRequest)(nil),                             // 159: method.GetInitialScrollXRequest
+	(*GetInitialScrollXResponse)(nil),                            // 160: method.GetInitialScrollXResponse
+	(*GetInitialScrollYRequest)(nil),                             // 161: method.GetInitialScrollYRequest
+	(*GetInitialScrollYResponse)(nil),                            // 162: method.GetInitialScrollYResponse
+	(*TouchOnTouchEventRequest)(nil),                             // 163: method.TouchOnTouchEventRequest
+	(*ScrollToRequest)(nil),                                      // 164: method.ScrollToRequest
+	(*ScrollToResponse)(nil),                                     // 165: method.ScrollToResponse
+	(*NewDigitsKeyListenerRequest)(nil),                          // 166: method.NewDigitsKeyListenerRequest
+	(*NewDigitsKeyListenerResponse)(nil),                         // 167: method.NewDigitsKeyListenerResponse
+	(*DigitsKeyListenerFilterRequest)(nil),                       // 168: method.DigitsKeyListenerFilterRequest
+	(*DigitsKeyListenerGetInstance2_1Request)(nil),               // 169: method.DigitsKeyListenerGetInstance2_1Request
+	(*GetInstance1_2Request)(nil),                                // 170: method.GetInstance1_2Request
+	(*GetInstance1_2Response)(nil),                               // 171: method.GetInstance1_2Response
+	(*GetInstance1_3Request)(nil),                                // 172: method.GetInstance1_3Request
+	(*GetInstance1_3Response)(nil),                               // 173: method.GetInstance1_3Response
+	(*GetInstance3_4Request)(nil),                                // 174: method.GetInstance3_4Request
+	(*GetInstance3_4Response)(nil),                               // 175: method.GetInstance3_4Response
+	(*NewLinkMovementMethodRequest)(nil),                         // 176: method.NewLinkMovementMethodRequest
+	(*NewLinkMovementMethodResponse)(nil),                        // 177: method.NewLinkMovementMethodResponse
+	(*LinkMovementMethodGetInstanceRequest)(nil),                 // 178: method.LinkMovementMethodGetInstanceRequest
+	(*NewHideReturnsTransformationMethodRequest)(nil),            // 179: method.NewHideReturnsTransformationMethodRequest
+	(*NewHideReturnsTransformationMethodResponse)(nil),           // 180: method.NewHideReturnsTransformationMethodResponse
+	(*HideReturnsTransformationMethodGetInstanceRequest)(nil),    // 181: method.HideReturnsTransformationMethodGetInstanceRequest
 }
 var file_proto_method_method_proto_depIdxs = []int32{
-	0,   // 0: method.CharacterPickerDialogService.NewCharacterPickerDialog:input_type -> method.NewCharacterPickerDialogRequest
-	2,   // 1: method.CharacterPickerDialogService.OnClick:input_type -> method.OnClickRequest
-	4,   // 2: method.CharacterPickerDialogService.OnItemClick:input_type -> method.OnItemClickRequest
-	6,   // 3: method.NumberKeyListenerService.Filter:input_type -> method.FilterRequest
-	8,   // 4: method.NumberKeyListenerService.OnKeyDown:input_type -> method.OnKeyDownRequest
-	10,  // 5: method.SingleLineTransformationMethodService.NewSingleLineTransformationMethod:input_type -> method.NewSingleLineTransformationMethodRequest
-	12,  // 6: method.SingleLineTransformationMethodService.GetInstance:input_type -> method.GetInstanceRequest
-	14,  // 7: method.MovementMethodService.CanSelectArbitrarily:input_type -> method.CanSelectArbitrarilyRequest
-	16,  // 8: method.MovementMethodService.Initialize:input_type -> method.InitializeRequest
-	18,  // 9: method.MovementMethodService.OnGenericMotionEvent:input_type -> method.OnGenericMotionEventRequest
-	8,   // 10: method.MovementMethodService.OnKeyDown:input_type -> method.OnKeyDownRequest
-	20,  // 11: method.MovementMethodService.OnKeyOther:input_type -> method.OnKeyOtherRequest
-	22,  // 12: method.MovementMethodService.OnKeyUp:input_type -> method.OnKeyUpRequest
-	24,  // 13: method.MovementMethodService.OnTakeFocus:input_type -> method.OnTakeFocusRequest
-	26,  // 14: method.MovementMethodService.OnTouchEvent:input_type -> method.OnTouchEventRequest
-	28,  // 15: method.MovementMethodService.OnTrackballEvent:input_type -> method.OnTrackballEventRequest
-	30,  // 16: method.ReplacementTransformationMethodService.GetTransformation:input_type -> method.GetTransformationRequest
-	32,  // 17: method.ReplacementTransformationMethodService.OnFocusChanged:input_type -> method.OnFocusChangedRequest
-	34,  // 18: method.TouchService.GetInitialScrollX:input_type -> method.GetInitialScrollXRequest
-	36,  // 19: method.TouchService.GetInitialScrollY:input_type -> method.GetInitialScrollYRequest
-	26,  // 20: method.TouchService.OnTouchEvent:input_type -> method.OnTouchEventRequest
-	38,  // 21: method.TouchService.ScrollTo:input_type -> method.ScrollToRequest
-	40,  // 22: method.ScrollingMovementMethodService.NewScrollingMovementMethod:input_type -> method.NewScrollingMovementMethodRequest
-	42,  // 23: method.ScrollingMovementMethodService.OnTakeFocus:input_type -> method.ScrollingMovementMethodOnTakeFocusRequest
-	43,  // 24: method.ScrollingMovementMethodService.OnTouchEvent:input_type -> method.ScrollingMovementMethodOnTouchEventRequest
-	12,  // 25: method.ScrollingMovementMethodService.GetInstance:input_type -> method.GetInstanceRequest
-	44,  // 26: method.HideReturnsTransformationMethodService.NewHideReturnsTransformationMethod:input_type -> method.NewHideReturnsTransformationMethodRequest
-	12,  // 27: method.HideReturnsTransformationMethodService.GetInstance:input_type -> method.GetInstanceRequest
-	46,  // 28: method.MultiTapKeyListenerService.NewMultiTapKeyListener:input_type -> method.NewMultiTapKeyListenerRequest
-	48,  // 29: method.MultiTapKeyListenerService.GetInputType:input_type -> method.GetInputTypeRequest
-	50,  // 30: method.MultiTapKeyListenerService.OnKeyDown:input_type -> method.MultiTapKeyListenerOnKeyDownRequest
-	51,  // 31: method.MultiTapKeyListenerService.OnSpanAdded:input_type -> method.OnSpanAddedRequest
-	53,  // 32: method.MultiTapKeyListenerService.OnSpanChanged:input_type -> method.OnSpanChangedRequest
-	55,  // 33: method.MultiTapKeyListenerService.OnSpanRemoved:input_type -> method.OnSpanRemovedRequest
-	57,  // 34: method.MultiTapKeyListenerService.GetInstance:input_type -> method.MultiTapKeyListenerGetInstanceRequest
-	58,  // 35: method.DigitsKeyListenerService.NewDigitsKeyListener:input_type -> method.NewDigitsKeyListenerRequest
-	60,  // 36: method.DigitsKeyListenerService.Filter:input_type -> method.DigitsKeyListenerFilterRequest
-	48,  // 37: method.DigitsKeyListenerService.GetInputType:input_type -> method.GetInputTypeRequest
-	61,  // 38: method.DigitsKeyListenerService.GetInstance0:input_type -> method.GetInstance0Request
-	63,  // 39: method.DigitsKeyListenerService.GetInstance2_1:input_type -> method.GetInstance2_1Request
-	65,  // 40: method.DigitsKeyListenerService.GetInstance1_2:input_type -> method.GetInstance1_2Request
-	67,  // 41: method.DigitsKeyListenerService.GetInstance1_3:input_type -> method.GetInstance1_3Request
-	69,  // 42: method.DigitsKeyListenerService.GetInstance3_4:input_type -> method.GetInstance3_4Request
-	71,  // 43: method.DialerKeyListenerService.NewDialerKeyListener:input_type -> method.NewDialerKeyListenerRequest
-	48,  // 44: method.DialerKeyListenerService.GetInputType:input_type -> method.GetInputTypeRequest
-	12,  // 45: method.DialerKeyListenerService.GetInstance:input_type -> method.GetInstanceRequest
-	73,  // 46: method.TimeKeyListenerService.NewTimeKeyListener:input_type -> method.NewTimeKeyListenerRequest
-	48,  // 47: method.TimeKeyListenerService.GetInputType:input_type -> method.GetInputTypeRequest
-	61,  // 48: method.TimeKeyListenerService.GetInstance0:input_type -> method.GetInstance0Request
-	75,  // 49: method.TimeKeyListenerService.GetInstance1_1:input_type -> method.GetInstance1_1Request
-	77,  // 50: method.QwertyKeyListenerService.NewQwertyKeyListener:input_type -> method.NewQwertyKeyListenerRequest
-	48,  // 51: method.QwertyKeyListenerService.GetInputType:input_type -> method.GetInputTypeRequest
-	79,  // 52: method.QwertyKeyListenerService.OnKeyDown:input_type -> method.QwertyKeyListenerOnKeyDownRequest
-	80,  // 53: method.QwertyKeyListenerService.GetInstance:input_type -> method.QwertyKeyListenerGetInstanceRequest
-	81,  // 54: method.QwertyKeyListenerService.GetInstanceForFullKeyboard:input_type -> method.GetInstanceForFullKeyboardRequest
-	83,  // 55: method.QwertyKeyListenerService.MarkAsReplaced:input_type -> method.MarkAsReplacedRequest
-	85,  // 56: method.BaseKeyListenerService.Backspace:input_type -> method.BackspaceRequest
-	87,  // 57: method.BaseKeyListenerService.ForwardDelete:input_type -> method.ForwardDeleteRequest
-	8,   // 58: method.BaseKeyListenerService.OnKeyDown:input_type -> method.OnKeyDownRequest
-	20,  // 59: method.BaseKeyListenerService.OnKeyOther:input_type -> method.OnKeyOtherRequest
-	89,  // 60: method.MetaKeyKeyListenerService.ClearMetaKeyState3_1:input_type -> method.ClearMetaKeyState3_1Request
-	91,  // 61: method.MetaKeyKeyListenerService.ClearMetaKeyState2_2:input_type -> method.ClearMetaKeyState2_2Request
-	8,   // 62: method.MetaKeyKeyListenerService.OnKeyDown:input_type -> method.OnKeyDownRequest
-	22,  // 63: method.MetaKeyKeyListenerService.OnKeyUp:input_type -> method.OnKeyUpRequest
-	93,  // 64: method.MetaKeyKeyListenerService.AdjustMetaAfterKeypress1:input_type -> method.AdjustMetaAfterKeypress1Request
-	95,  // 65: method.MetaKeyKeyListenerService.AdjustMetaAfterKeypress1_1:input_type -> method.AdjustMetaAfterKeypress1_1Request
-	97,  // 66: method.MetaKeyKeyListenerService.ClearMetaKeyState2:input_type -> method.ClearMetaKeyState2Request
-	99,  // 67: method.MetaKeyKeyListenerService.GetMetaState1:input_type -> method.GetMetaState1Request
-	101, // 68: method.MetaKeyKeyListenerService.GetMetaState2_1:input_type -> method.GetMetaState2_1Request
-	103, // 69: method.MetaKeyKeyListenerService.GetMetaState2_2:input_type -> method.GetMetaState2_2Request
-	105, // 70: method.MetaKeyKeyListenerService.GetMetaState3_3:input_type -> method.GetMetaState3_3Request
-	107, // 71: method.MetaKeyKeyListenerService.GetMetaState1_4:input_type -> method.GetMetaState1_4Request
-	109, // 72: method.MetaKeyKeyListenerService.GetMetaState2_5:input_type -> method.GetMetaState2_5Request
-	111, // 73: method.MetaKeyKeyListenerService.HandleKeyDown:input_type -> method.HandleKeyDownRequest
-	113, // 74: method.MetaKeyKeyListenerService.HandleKeyUp:input_type -> method.HandleKeyUpRequest
-	115, // 75: method.MetaKeyKeyListenerService.IsMetaTracker:input_type -> method.IsMetaTrackerRequest
-	117, // 76: method.MetaKeyKeyListenerService.IsSelectingMetaTracker:input_type -> method.IsSelectingMetaTrackerRequest
-	119, // 77: method.MetaKeyKeyListenerService.ResetLockedMeta:input_type -> method.ResetLockedMetaRequest
-	121, // 78: method.MetaKeyKeyListenerService.ResetMetaState:input_type -> method.ResetMetaStateRequest
-	30,  // 79: method.TransformationMethodService.GetTransformation:input_type -> method.GetTransformationRequest
-	32,  // 80: method.TransformationMethodService.OnFocusChanged:input_type -> method.OnFocusChangedRequest
-	123, // 81: method.TextKeyListenerService.NewTextKeyListener:input_type -> method.NewTextKeyListenerRequest
-	48,  // 82: method.TextKeyListenerService.GetInputType:input_type -> method.GetInputTypeRequest
-	125, // 83: method.TextKeyListenerService.OnKeyDown:input_type -> method.TextKeyListenerOnKeyDownRequest
-	126, // 84: method.TextKeyListenerService.OnKeyOther:input_type -> method.TextKeyListenerOnKeyOtherRequest
-	127, // 85: method.TextKeyListenerService.OnKeyUp:input_type -> method.TextKeyListenerOnKeyUpRequest
-	51,  // 86: method.TextKeyListenerService.OnSpanAdded:input_type -> method.OnSpanAddedRequest
-	53,  // 87: method.TextKeyListenerService.OnSpanChanged:input_type -> method.OnSpanChangedRequest
-	55,  // 88: method.TextKeyListenerService.OnSpanRemoved:input_type -> method.OnSpanRemovedRequest
-	128, // 89: method.TextKeyListenerService.Release:input_type -> method.ReleaseRequest
-	130, // 90: method.TextKeyListenerService.Clear:input_type -> method.ClearRequest
-	61,  // 91: method.TextKeyListenerService.GetInstance0:input_type -> method.GetInstance0Request
-	132, // 92: method.TextKeyListenerService.GetInstance2_1:input_type -> method.TextKeyListenerGetInstance2_1Request
-	133, // 93: method.TextKeyListenerService.ShouldCap:input_type -> method.ShouldCapRequest
-	135, // 94: method.TextKeyListenerCapitalizeService.Values:input_type -> method.ValuesRequest
-	137, // 95: method.TextKeyListenerCapitalizeService.ValueOf:input_type -> method.ValueOfRequest
-	139, // 96: method.ArrowKeyMovementMethodService.NewArrowKeyMovementMethod:input_type -> method.NewArrowKeyMovementMethodRequest
-	141, // 97: method.ArrowKeyMovementMethodService.CanSelectArbitrarily:input_type -> method.ArrowKeyMovementMethodCanSelectArbitrarilyRequest
-	142, // 98: method.ArrowKeyMovementMethodService.Initialize:input_type -> method.ArrowKeyMovementMethodInitializeRequest
-	143, // 99: method.ArrowKeyMovementMethodService.NextParagraph:input_type -> method.NextParagraphRequest
-	145, // 100: method.ArrowKeyMovementMethodService.OnTakeFocus:input_type -> method.ArrowKeyMovementMethodOnTakeFocusRequest
-	146, // 101: method.ArrowKeyMovementMethodService.OnTouchEvent:input_type -> method.ArrowKeyMovementMethodOnTouchEventRequest
-	147, // 102: method.ArrowKeyMovementMethodService.PreviousParagraph:input_type -> method.PreviousParagraphRequest
-	12,  // 103: method.ArrowKeyMovementMethodService.GetInstance:input_type -> method.GetInstanceRequest
-	149, // 104: method.KeyListenerService.ClearMetaKeyState:input_type -> method.ClearMetaKeyStateRequest
-	151, // 105: method.KeyListenerService.GetInputType:input_type -> method.KeyListenerGetInputTypeRequest
-	8,   // 106: method.KeyListenerService.OnKeyDown:input_type -> method.OnKeyDownRequest
-	20,  // 107: method.KeyListenerService.OnKeyOther:input_type -> method.OnKeyOtherRequest
-	22,  // 108: method.KeyListenerService.OnKeyUp:input_type -> method.OnKeyUpRequest
-	152, // 109: method.DateTimeKeyListenerService.NewDateTimeKeyListener:input_type -> method.NewDateTimeKeyListenerRequest
-	48,  // 110: method.DateTimeKeyListenerService.GetInputType:input_type -> method.GetInputTypeRequest
-	61,  // 111: method.DateTimeKeyListenerService.GetInstance0:input_type -> method.GetInstance0Request
-	75,  // 112: method.DateTimeKeyListenerService.GetInstance1_1:input_type -> method.GetInstance1_1Request
-	154, // 113: method.DateKeyListenerService.NewDateKeyListener:input_type -> method.NewDateKeyListenerRequest
-	48,  // 114: method.DateKeyListenerService.GetInputType:input_type -> method.GetInputTypeRequest
-	61,  // 115: method.DateKeyListenerService.GetInstance0:input_type -> method.GetInstance0Request
-	75,  // 116: method.DateKeyListenerService.GetInstance1_1:input_type -> method.GetInstance1_1Request
-	156, // 117: method.PasswordTransformationMethodService.NewPasswordTransformationMethod:input_type -> method.NewPasswordTransformationMethodRequest
-	158, // 118: method.PasswordTransformationMethodService.AfterTextChanged:input_type -> method.AfterTextChangedRequest
-	160, // 119: method.PasswordTransformationMethodService.BeforeTextChanged:input_type -> method.BeforeTextChangedRequest
-	162, // 120: method.PasswordTransformationMethodService.GetTransformation:input_type -> method.PasswordTransformationMethodGetTransformationRequest
-	163, // 121: method.PasswordTransformationMethodService.OnFocusChanged:input_type -> method.PasswordTransformationMethodOnFocusChangedRequest
-	164, // 122: method.PasswordTransformationMethodService.OnTextChanged:input_type -> method.OnTextChangedRequest
-	12,  // 123: method.PasswordTransformationMethodService.GetInstance:input_type -> method.GetInstanceRequest
-	166, // 124: method.LinkMovementMethodService.NewLinkMovementMethod:input_type -> method.NewLinkMovementMethodRequest
-	168, // 125: method.LinkMovementMethodService.CanSelectArbitrarily:input_type -> method.LinkMovementMethodCanSelectArbitrarilyRequest
-	169, // 126: method.LinkMovementMethodService.Initialize:input_type -> method.LinkMovementMethodInitializeRequest
-	170, // 127: method.LinkMovementMethodService.OnTakeFocus:input_type -> method.LinkMovementMethodOnTakeFocusRequest
-	171, // 128: method.LinkMovementMethodService.OnTouchEvent:input_type -> method.LinkMovementMethodOnTouchEventRequest
-	12,  // 129: method.LinkMovementMethodService.GetInstance:input_type -> method.GetInstanceRequest
-	172, // 130: method.BaseMovementMethodService.NewBaseMovementMethod:input_type -> method.NewBaseMovementMethodRequest
-	174, // 131: method.BaseMovementMethodService.CanSelectArbitrarily:input_type -> method.BaseMovementMethodCanSelectArbitrarilyRequest
-	175, // 132: method.BaseMovementMethodService.Initialize:input_type -> method.BaseMovementMethodInitializeRequest
-	143, // 133: method.BaseMovementMethodService.NextParagraph:input_type -> method.NextParagraphRequest
-	176, // 134: method.BaseMovementMethodService.OnGenericMotionEvent:input_type -> method.BaseMovementMethodOnGenericMotionEventRequest
-	177, // 135: method.BaseMovementMethodService.OnKeyDown:input_type -> method.BaseMovementMethodOnKeyDownRequest
-	178, // 136: method.BaseMovementMethodService.OnKeyOther:input_type -> method.BaseMovementMethodOnKeyOtherRequest
-	179, // 137: method.BaseMovementMethodService.OnKeyUp:input_type -> method.BaseMovementMethodOnKeyUpRequest
-	180, // 138: method.BaseMovementMethodService.OnTakeFocus:input_type -> method.BaseMovementMethodOnTakeFocusRequest
-	181, // 139: method.BaseMovementMethodService.OnTouchEvent:input_type -> method.BaseMovementMethodOnTouchEventRequest
-	182, // 140: method.BaseMovementMethodService.OnTrackballEvent:input_type -> method.BaseMovementMethodOnTrackballEventRequest
-	147, // 141: method.BaseMovementMethodService.PreviousParagraph:input_type -> method.PreviousParagraphRequest
-	1,   // 142: method.CharacterPickerDialogService.NewCharacterPickerDialog:output_type -> method.NewCharacterPickerDialogResponse
-	3,   // 143: method.CharacterPickerDialogService.OnClick:output_type -> method.OnClickResponse
-	5,   // 144: method.CharacterPickerDialogService.OnItemClick:output_type -> method.OnItemClickResponse
-	7,   // 145: method.NumberKeyListenerService.Filter:output_type -> method.FilterResponse
-	9,   // 146: method.NumberKeyListenerService.OnKeyDown:output_type -> method.OnKeyDownResponse
-	11,  // 147: method.SingleLineTransformationMethodService.NewSingleLineTransformationMethod:output_type -> method.NewSingleLineTransformationMethodResponse
-	13,  // 148: method.SingleLineTransformationMethodService.GetInstance:output_type -> method.GetInstanceResponse
-	15,  // 149: method.MovementMethodService.CanSelectArbitrarily:output_type -> method.CanSelectArbitrarilyResponse
-	17,  // 150: method.MovementMethodService.Initialize:output_type -> method.InitializeResponse
-	19,  // 151: method.MovementMethodService.OnGenericMotionEvent:output_type -> method.OnGenericMotionEventResponse
-	9,   // 152: method.MovementMethodService.OnKeyDown:output_type -> method.OnKeyDownResponse
-	21,  // 153: method.MovementMethodService.OnKeyOther:output_type -> method.OnKeyOtherResponse
-	23,  // 154: method.MovementMethodService.OnKeyUp:output_type -> method.OnKeyUpResponse
-	25,  // 155: method.MovementMethodService.OnTakeFocus:output_type -> method.OnTakeFocusResponse
-	27,  // 156: method.MovementMethodService.OnTouchEvent:output_type -> method.OnTouchEventResponse
-	29,  // 157: method.MovementMethodService.OnTrackballEvent:output_type -> method.OnTrackballEventResponse
-	31,  // 158: method.ReplacementTransformationMethodService.GetTransformation:output_type -> method.GetTransformationResponse
-	33,  // 159: method.ReplacementTransformationMethodService.OnFocusChanged:output_type -> method.OnFocusChangedResponse
-	35,  // 160: method.TouchService.GetInitialScrollX:output_type -> method.GetInitialScrollXResponse
-	37,  // 161: method.TouchService.GetInitialScrollY:output_type -> method.GetInitialScrollYResponse
-	27,  // 162: method.TouchService.OnTouchEvent:output_type -> method.OnTouchEventResponse
-	39,  // 163: method.TouchService.ScrollTo:output_type -> method.ScrollToResponse
-	41,  // 164: method.ScrollingMovementMethodService.NewScrollingMovementMethod:output_type -> method.NewScrollingMovementMethodResponse
-	25,  // 165: method.ScrollingMovementMethodService.OnTakeFocus:output_type -> method.OnTakeFocusResponse
-	27,  // 166: method.ScrollingMovementMethodService.OnTouchEvent:output_type -> method.OnTouchEventResponse
-	13,  // 167: method.ScrollingMovementMethodService.GetInstance:output_type -> method.GetInstanceResponse
-	45,  // 168: method.HideReturnsTransformationMethodService.NewHideReturnsTransformationMethod:output_type -> method.NewHideReturnsTransformationMethodResponse
-	13,  // 169: method.HideReturnsTransformationMethodService.GetInstance:output_type -> method.GetInstanceResponse
-	47,  // 170: method.MultiTapKeyListenerService.NewMultiTapKeyListener:output_type -> method.NewMultiTapKeyListenerResponse
-	49,  // 171: method.MultiTapKeyListenerService.GetInputType:output_type -> method.GetInputTypeResponse
-	9,   // 172: method.MultiTapKeyListenerService.OnKeyDown:output_type -> method.OnKeyDownResponse
-	52,  // 173: method.MultiTapKeyListenerService.OnSpanAdded:output_type -> method.OnSpanAddedResponse
-	54,  // 174: method.MultiTapKeyListenerService.OnSpanChanged:output_type -> method.OnSpanChangedResponse
-	56,  // 175: method.MultiTapKeyListenerService.OnSpanRemoved:output_type -> method.OnSpanRemovedResponse
-	13,  // 176: method.MultiTapKeyListenerService.GetInstance:output_type -> method.GetInstanceResponse
-	59,  // 177: method.DigitsKeyListenerService.NewDigitsKeyListener:output_type -> method.NewDigitsKeyListenerResponse
-	7,   // 178: method.DigitsKeyListenerService.Filter:output_type -> method.FilterResponse
-	49,  // 179: method.DigitsKeyListenerService.GetInputType:output_type -> method.GetInputTypeResponse
-	62,  // 180: method.DigitsKeyListenerService.GetInstance0:output_type -> method.GetInstance0Response
-	64,  // 181: method.DigitsKeyListenerService.GetInstance2_1:output_type -> method.GetInstance2_1Response
-	66,  // 182: method.DigitsKeyListenerService.GetInstance1_2:output_type -> method.GetInstance1_2Response
-	68,  // 183: method.DigitsKeyListenerService.GetInstance1_3:output_type -> method.GetInstance1_3Response
-	70,  // 184: method.DigitsKeyListenerService.GetInstance3_4:output_type -> method.GetInstance3_4Response
-	72,  // 185: method.DialerKeyListenerService.NewDialerKeyListener:output_type -> method.NewDialerKeyListenerResponse
-	49,  // 186: method.DialerKeyListenerService.GetInputType:output_type -> method.GetInputTypeResponse
-	13,  // 187: method.DialerKeyListenerService.GetInstance:output_type -> method.GetInstanceResponse
-	74,  // 188: method.TimeKeyListenerService.NewTimeKeyListener:output_type -> method.NewTimeKeyListenerResponse
-	49,  // 189: method.TimeKeyListenerService.GetInputType:output_type -> method.GetInputTypeResponse
-	62,  // 190: method.TimeKeyListenerService.GetInstance0:output_type -> method.GetInstance0Response
-	76,  // 191: method.TimeKeyListenerService.GetInstance1_1:output_type -> method.GetInstance1_1Response
-	78,  // 192: method.QwertyKeyListenerService.NewQwertyKeyListener:output_type -> method.NewQwertyKeyListenerResponse
-	49,  // 193: method.QwertyKeyListenerService.GetInputType:output_type -> method.GetInputTypeResponse
-	9,   // 194: method.QwertyKeyListenerService.OnKeyDown:output_type -> method.OnKeyDownResponse
-	13,  // 195: method.QwertyKeyListenerService.GetInstance:output_type -> method.GetInstanceResponse
-	82,  // 196: method.QwertyKeyListenerService.GetInstanceForFullKeyboard:output_type -> method.GetInstanceForFullKeyboardResponse
-	84,  // 197: method.QwertyKeyListenerService.MarkAsReplaced:output_type -> method.MarkAsReplacedResponse
-	86,  // 198: method.BaseKeyListenerService.Backspace:output_type -> method.BackspaceResponse
-	88,  // 199: method.BaseKeyListenerService.ForwardDelete:output_type -> method.ForwardDeleteResponse
-	9,   // 200: method.BaseKeyListenerService.OnKeyDown:output_type -> method.OnKeyDownResponse
-	21,  // 201: method.BaseKeyListenerService.OnKeyOther:output_type -> method.OnKeyOtherResponse
-	90,  // 202: method.MetaKeyKeyListenerService.ClearMetaKeyState3_1:output_type -> method.ClearMetaKeyState3_1Response
-	92,  // 203: method.MetaKeyKeyListenerService.ClearMetaKeyState2_2:output_type -> method.ClearMetaKeyState2_2Response
-	9,   // 204: method.MetaKeyKeyListenerService.OnKeyDown:output_type -> method.OnKeyDownResponse
-	23,  // 205: method.MetaKeyKeyListenerService.OnKeyUp:output_type -> method.OnKeyUpResponse
-	94,  // 206: method.MetaKeyKeyListenerService.AdjustMetaAfterKeypress1:output_type -> method.AdjustMetaAfterKeypress1Response
-	96,  // 207: method.MetaKeyKeyListenerService.AdjustMetaAfterKeypress1_1:output_type -> method.AdjustMetaAfterKeypress1_1Response
-	98,  // 208: method.MetaKeyKeyListenerService.ClearMetaKeyState2:output_type -> method.ClearMetaKeyState2Response
-	100, // 209: method.MetaKeyKeyListenerService.GetMetaState1:output_type -> method.GetMetaState1Response
-	102, // 210: method.MetaKeyKeyListenerService.GetMetaState2_1:output_type -> method.GetMetaState2_1Response
-	104, // 211: method.MetaKeyKeyListenerService.GetMetaState2_2:output_type -> method.GetMetaState2_2Response
-	106, // 212: method.MetaKeyKeyListenerService.GetMetaState3_3:output_type -> method.GetMetaState3_3Response
-	108, // 213: method.MetaKeyKeyListenerService.GetMetaState1_4:output_type -> method.GetMetaState1_4Response
-	110, // 214: method.MetaKeyKeyListenerService.GetMetaState2_5:output_type -> method.GetMetaState2_5Response
-	112, // 215: method.MetaKeyKeyListenerService.HandleKeyDown:output_type -> method.HandleKeyDownResponse
-	114, // 216: method.MetaKeyKeyListenerService.HandleKeyUp:output_type -> method.HandleKeyUpResponse
-	116, // 217: method.MetaKeyKeyListenerService.IsMetaTracker:output_type -> method.IsMetaTrackerResponse
-	118, // 218: method.MetaKeyKeyListenerService.IsSelectingMetaTracker:output_type -> method.IsSelectingMetaTrackerResponse
-	120, // 219: method.MetaKeyKeyListenerService.ResetLockedMeta:output_type -> method.ResetLockedMetaResponse
-	122, // 220: method.MetaKeyKeyListenerService.ResetMetaState:output_type -> method.ResetMetaStateResponse
-	31,  // 221: method.TransformationMethodService.GetTransformation:output_type -> method.GetTransformationResponse
-	33,  // 222: method.TransformationMethodService.OnFocusChanged:output_type -> method.OnFocusChangedResponse
-	124, // 223: method.TextKeyListenerService.NewTextKeyListener:output_type -> method.NewTextKeyListenerResponse
-	49,  // 224: method.TextKeyListenerService.GetInputType:output_type -> method.GetInputTypeResponse
-	9,   // 225: method.TextKeyListenerService.OnKeyDown:output_type -> method.OnKeyDownResponse
-	21,  // 226: method.TextKeyListenerService.OnKeyOther:output_type -> method.OnKeyOtherResponse
-	23,  // 227: method.TextKeyListenerService.OnKeyUp:output_type -> method.OnKeyUpResponse
-	52,  // 228: method.TextKeyListenerService.OnSpanAdded:output_type -> method.OnSpanAddedResponse
-	54,  // 229: method.TextKeyListenerService.OnSpanChanged:output_type -> method.OnSpanChangedResponse
-	56,  // 230: method.TextKeyListenerService.OnSpanRemoved:output_type -> method.OnSpanRemovedResponse
-	129, // 231: method.TextKeyListenerService.Release:output_type -> method.ReleaseResponse
-	131, // 232: method.TextKeyListenerService.Clear:output_type -> method.ClearResponse
-	62,  // 233: method.TextKeyListenerService.GetInstance0:output_type -> method.GetInstance0Response
-	64,  // 234: method.TextKeyListenerService.GetInstance2_1:output_type -> method.GetInstance2_1Response
-	134, // 235: method.TextKeyListenerService.ShouldCap:output_type -> method.ShouldCapResponse
-	136, // 236: method.TextKeyListenerCapitalizeService.Values:output_type -> method.ValuesResponse
-	138, // 237: method.TextKeyListenerCapitalizeService.ValueOf:output_type -> method.ValueOfResponse
-	140, // 238: method.ArrowKeyMovementMethodService.NewArrowKeyMovementMethod:output_type -> method.NewArrowKeyMovementMethodResponse
-	15,  // 239: method.ArrowKeyMovementMethodService.CanSelectArbitrarily:output_type -> method.CanSelectArbitrarilyResponse
-	17,  // 240: method.ArrowKeyMovementMethodService.Initialize:output_type -> method.InitializeResponse
-	144, // 241: method.ArrowKeyMovementMethodService.NextParagraph:output_type -> method.NextParagraphResponse
-	25,  // 242: method.ArrowKeyMovementMethodService.OnTakeFocus:output_type -> method.OnTakeFocusResponse
-	27,  // 243: method.ArrowKeyMovementMethodService.OnTouchEvent:output_type -> method.OnTouchEventResponse
-	148, // 244: method.ArrowKeyMovementMethodService.PreviousParagraph:output_type -> method.PreviousParagraphResponse
-	13,  // 245: method.ArrowKeyMovementMethodService.GetInstance:output_type -> method.GetInstanceResponse
-	150, // 246: method.KeyListenerService.ClearMetaKeyState:output_type -> method.ClearMetaKeyStateResponse
-	49,  // 247: method.KeyListenerService.GetInputType:output_type -> method.GetInputTypeResponse
-	9,   // 248: method.KeyListenerService.OnKeyDown:output_type -> method.OnKeyDownResponse
-	21,  // 249: method.KeyListenerService.OnKeyOther:output_type -> method.OnKeyOtherResponse
-	23,  // 250: method.KeyListenerService.OnKeyUp:output_type -> method.OnKeyUpResponse
-	153, // 251: method.DateTimeKeyListenerService.NewDateTimeKeyListener:output_type -> method.NewDateTimeKeyListenerResponse
-	49,  // 252: method.DateTimeKeyListenerService.GetInputType:output_type -> method.GetInputTypeResponse
-	62,  // 253: method.DateTimeKeyListenerService.GetInstance0:output_type -> method.GetInstance0Response
-	76,  // 254: method.DateTimeKeyListenerService.GetInstance1_1:output_type -> method.GetInstance1_1Response
-	155, // 255: method.DateKeyListenerService.NewDateKeyListener:output_type -> method.NewDateKeyListenerResponse
-	49,  // 256: method.DateKeyListenerService.GetInputType:output_type -> method.GetInputTypeResponse
-	62,  // 257: method.DateKeyListenerService.GetInstance0:output_type -> method.GetInstance0Response
-	76,  // 258: method.DateKeyListenerService.GetInstance1_1:output_type -> method.GetInstance1_1Response
-	157, // 259: method.PasswordTransformationMethodService.NewPasswordTransformationMethod:output_type -> method.NewPasswordTransformationMethodResponse
-	159, // 260: method.PasswordTransformationMethodService.AfterTextChanged:output_type -> method.AfterTextChangedResponse
-	161, // 261: method.PasswordTransformationMethodService.BeforeTextChanged:output_type -> method.BeforeTextChangedResponse
-	31,  // 262: method.PasswordTransformationMethodService.GetTransformation:output_type -> method.GetTransformationResponse
-	33,  // 263: method.PasswordTransformationMethodService.OnFocusChanged:output_type -> method.OnFocusChangedResponse
-	165, // 264: method.PasswordTransformationMethodService.OnTextChanged:output_type -> method.OnTextChangedResponse
-	13,  // 265: method.PasswordTransformationMethodService.GetInstance:output_type -> method.GetInstanceResponse
-	167, // 266: method.LinkMovementMethodService.NewLinkMovementMethod:output_type -> method.NewLinkMovementMethodResponse
-	15,  // 267: method.LinkMovementMethodService.CanSelectArbitrarily:output_type -> method.CanSelectArbitrarilyResponse
-	17,  // 268: method.LinkMovementMethodService.Initialize:output_type -> method.InitializeResponse
-	25,  // 269: method.LinkMovementMethodService.OnTakeFocus:output_type -> method.OnTakeFocusResponse
-	27,  // 270: method.LinkMovementMethodService.OnTouchEvent:output_type -> method.OnTouchEventResponse
-	13,  // 271: method.LinkMovementMethodService.GetInstance:output_type -> method.GetInstanceResponse
-	173, // 272: method.BaseMovementMethodService.NewBaseMovementMethod:output_type -> method.NewBaseMovementMethodResponse
-	15,  // 273: method.BaseMovementMethodService.CanSelectArbitrarily:output_type -> method.CanSelectArbitrarilyResponse
-	17,  // 274: method.BaseMovementMethodService.Initialize:output_type -> method.InitializeResponse
-	144, // 275: method.BaseMovementMethodService.NextParagraph:output_type -> method.NextParagraphResponse
-	19,  // 276: method.BaseMovementMethodService.OnGenericMotionEvent:output_type -> method.OnGenericMotionEventResponse
-	9,   // 277: method.BaseMovementMethodService.OnKeyDown:output_type -> method.OnKeyDownResponse
-	21,  // 278: method.BaseMovementMethodService.OnKeyOther:output_type -> method.OnKeyOtherResponse
-	23,  // 279: method.BaseMovementMethodService.OnKeyUp:output_type -> method.OnKeyUpResponse
-	25,  // 280: method.BaseMovementMethodService.OnTakeFocus:output_type -> method.OnTakeFocusResponse
-	27,  // 281: method.BaseMovementMethodService.OnTouchEvent:output_type -> method.OnTouchEventResponse
-	29,  // 282: method.BaseMovementMethodService.OnTrackballEvent:output_type -> method.OnTrackballEventResponse
-	148, // 283: method.BaseMovementMethodService.PreviousParagraph:output_type -> method.PreviousParagraphResponse
+	0,   // 0: method.QwertyKeyListenerService.NewQwertyKeyListener:input_type -> method.NewQwertyKeyListenerRequest
+	2,   // 1: method.QwertyKeyListenerService.GetInputType:input_type -> method.GetInputTypeRequest
+	4,   // 2: method.QwertyKeyListenerService.OnKeyDown:input_type -> method.OnKeyDownRequest
+	6,   // 3: method.QwertyKeyListenerService.GetInstance:input_type -> method.GetInstanceRequest
+	8,   // 4: method.QwertyKeyListenerService.GetInstanceForFullKeyboard:input_type -> method.GetInstanceForFullKeyboardRequest
+	10,  // 5: method.QwertyKeyListenerService.MarkAsReplaced:input_type -> method.MarkAsReplacedRequest
+	12,  // 6: method.BaseMovementMethodService.NewBaseMovementMethod:input_type -> method.NewBaseMovementMethodRequest
+	14,  // 7: method.BaseMovementMethodService.CanSelectArbitrarily:input_type -> method.CanSelectArbitrarilyRequest
+	16,  // 8: method.BaseMovementMethodService.Initialize:input_type -> method.InitializeRequest
+	18,  // 9: method.BaseMovementMethodService.NextParagraph:input_type -> method.NextParagraphRequest
+	20,  // 10: method.BaseMovementMethodService.OnGenericMotionEvent:input_type -> method.OnGenericMotionEventRequest
+	4,   // 11: method.BaseMovementMethodService.OnKeyDown:input_type -> method.OnKeyDownRequest
+	22,  // 12: method.BaseMovementMethodService.OnKeyOther:input_type -> method.OnKeyOtherRequest
+	24,  // 13: method.BaseMovementMethodService.OnKeyUp:input_type -> method.OnKeyUpRequest
+	26,  // 14: method.BaseMovementMethodService.OnTakeFocus:input_type -> method.OnTakeFocusRequest
+	28,  // 15: method.BaseMovementMethodService.OnTouchEvent:input_type -> method.OnTouchEventRequest
+	30,  // 16: method.BaseMovementMethodService.OnTrackballEvent:input_type -> method.OnTrackballEventRequest
+	32,  // 17: method.BaseMovementMethodService.PreviousParagraph:input_type -> method.PreviousParagraphRequest
+	34,  // 18: method.SingleLineTransformationMethodService.NewSingleLineTransformationMethod:input_type -> method.NewSingleLineTransformationMethodRequest
+	36,  // 19: method.SingleLineTransformationMethodService.GetInstance:input_type -> method.SingleLineTransformationMethodGetInstanceRequest
+	37,  // 20: method.ReplacementTransformationMethodService.GetTransformation:input_type -> method.GetTransformationRequest
+	39,  // 21: method.ReplacementTransformationMethodService.OnFocusChanged:input_type -> method.OnFocusChangedRequest
+	41,  // 22: method.BaseKeyListenerService.Backspace:input_type -> method.BackspaceRequest
+	43,  // 23: method.BaseKeyListenerService.ForwardDelete:input_type -> method.ForwardDeleteRequest
+	45,  // 24: method.BaseKeyListenerService.OnKeyDown:input_type -> method.BaseKeyListenerOnKeyDownRequest
+	46,  // 25: method.BaseKeyListenerService.OnKeyOther:input_type -> method.BaseKeyListenerOnKeyOtherRequest
+	37,  // 26: method.TransformationMethodService.GetTransformation:input_type -> method.GetTransformationRequest
+	39,  // 27: method.TransformationMethodService.OnFocusChanged:input_type -> method.OnFocusChangedRequest
+	47,  // 28: method.MetaKeyKeyListenerService.ClearMetaKeyState3_1:input_type -> method.ClearMetaKeyState3_1Request
+	49,  // 29: method.MetaKeyKeyListenerService.ClearMetaKeyState2_2:input_type -> method.ClearMetaKeyState2_2Request
+	51,  // 30: method.MetaKeyKeyListenerService.OnKeyDown:input_type -> method.MetaKeyKeyListenerOnKeyDownRequest
+	52,  // 31: method.MetaKeyKeyListenerService.OnKeyUp:input_type -> method.MetaKeyKeyListenerOnKeyUpRequest
+	53,  // 32: method.MetaKeyKeyListenerService.AdjustMetaAfterKeypress1:input_type -> method.AdjustMetaAfterKeypress1Request
+	55,  // 33: method.MetaKeyKeyListenerService.AdjustMetaAfterKeypress1_1:input_type -> method.AdjustMetaAfterKeypress1_1Request
+	57,  // 34: method.MetaKeyKeyListenerService.ClearMetaKeyState2:input_type -> method.ClearMetaKeyState2Request
+	59,  // 35: method.MetaKeyKeyListenerService.GetMetaState1:input_type -> method.GetMetaState1Request
+	61,  // 36: method.MetaKeyKeyListenerService.GetMetaState2_1:input_type -> method.GetMetaState2_1Request
+	63,  // 37: method.MetaKeyKeyListenerService.GetMetaState2_2:input_type -> method.GetMetaState2_2Request
+	65,  // 38: method.MetaKeyKeyListenerService.GetMetaState3_3:input_type -> method.GetMetaState3_3Request
+	67,  // 39: method.MetaKeyKeyListenerService.GetMetaState1_4:input_type -> method.GetMetaState1_4Request
+	69,  // 40: method.MetaKeyKeyListenerService.GetMetaState2_5:input_type -> method.GetMetaState2_5Request
+	71,  // 41: method.MetaKeyKeyListenerService.HandleKeyDown:input_type -> method.HandleKeyDownRequest
+	73,  // 42: method.MetaKeyKeyListenerService.HandleKeyUp:input_type -> method.HandleKeyUpRequest
+	75,  // 43: method.MetaKeyKeyListenerService.IsMetaTracker:input_type -> method.IsMetaTrackerRequest
+	77,  // 44: method.MetaKeyKeyListenerService.IsSelectingMetaTracker:input_type -> method.IsSelectingMetaTrackerRequest
+	79,  // 45: method.MetaKeyKeyListenerService.ResetLockedMeta:input_type -> method.ResetLockedMetaRequest
+	81,  // 46: method.MetaKeyKeyListenerService.ResetMetaState:input_type -> method.ResetMetaStateRequest
+	83,  // 47: method.PasswordTransformationMethodService.NewPasswordTransformationMethod:input_type -> method.NewPasswordTransformationMethodRequest
+	85,  // 48: method.PasswordTransformationMethodService.AfterTextChanged:input_type -> method.AfterTextChangedRequest
+	87,  // 49: method.PasswordTransformationMethodService.BeforeTextChanged:input_type -> method.BeforeTextChangedRequest
+	89,  // 50: method.PasswordTransformationMethodService.GetTransformation:input_type -> method.PasswordTransformationMethodGetTransformationRequest
+	90,  // 51: method.PasswordTransformationMethodService.OnFocusChanged:input_type -> method.PasswordTransformationMethodOnFocusChangedRequest
+	91,  // 52: method.PasswordTransformationMethodService.OnTextChanged:input_type -> method.OnTextChangedRequest
+	93,  // 53: method.PasswordTransformationMethodService.GetInstance:input_type -> method.PasswordTransformationMethodGetInstanceRequest
+	94,  // 54: method.ArrowKeyMovementMethodService.NewArrowKeyMovementMethod:input_type -> method.NewArrowKeyMovementMethodRequest
+	14,  // 55: method.ArrowKeyMovementMethodService.CanSelectArbitrarily:input_type -> method.CanSelectArbitrarilyRequest
+	16,  // 56: method.ArrowKeyMovementMethodService.Initialize:input_type -> method.InitializeRequest
+	18,  // 57: method.ArrowKeyMovementMethodService.NextParagraph:input_type -> method.NextParagraphRequest
+	26,  // 58: method.ArrowKeyMovementMethodService.OnTakeFocus:input_type -> method.OnTakeFocusRequest
+	28,  // 59: method.ArrowKeyMovementMethodService.OnTouchEvent:input_type -> method.OnTouchEventRequest
+	32,  // 60: method.ArrowKeyMovementMethodService.PreviousParagraph:input_type -> method.PreviousParagraphRequest
+	96,  // 61: method.ArrowKeyMovementMethodService.GetInstance:input_type -> method.ArrowKeyMovementMethodGetInstanceRequest
+	97,  // 62: method.DateTimeKeyListenerService.NewDateTimeKeyListener:input_type -> method.NewDateTimeKeyListenerRequest
+	2,   // 63: method.DateTimeKeyListenerService.GetInputType:input_type -> method.GetInputTypeRequest
+	99,  // 64: method.DateTimeKeyListenerService.GetInstance0:input_type -> method.GetInstance0Request
+	101, // 65: method.DateTimeKeyListenerService.GetInstance1_1:input_type -> method.GetInstance1_1Request
+	103, // 66: method.ScrollingMovementMethodService.NewScrollingMovementMethod:input_type -> method.NewScrollingMovementMethodRequest
+	26,  // 67: method.ScrollingMovementMethodService.OnTakeFocus:input_type -> method.OnTakeFocusRequest
+	28,  // 68: method.ScrollingMovementMethodService.OnTouchEvent:input_type -> method.OnTouchEventRequest
+	105, // 69: method.ScrollingMovementMethodService.GetInstance:input_type -> method.ScrollingMovementMethodGetInstanceRequest
+	106, // 70: method.TimeKeyListenerService.NewTimeKeyListener:input_type -> method.NewTimeKeyListenerRequest
+	2,   // 71: method.TimeKeyListenerService.GetInputType:input_type -> method.GetInputTypeRequest
+	99,  // 72: method.TimeKeyListenerService.GetInstance0:input_type -> method.GetInstance0Request
+	101, // 73: method.TimeKeyListenerService.GetInstance1_1:input_type -> method.GetInstance1_1Request
+	108, // 74: method.NumberKeyListenerService.Filter:input_type -> method.FilterRequest
+	110, // 75: method.NumberKeyListenerService.OnKeyDown:input_type -> method.NumberKeyListenerOnKeyDownRequest
+	111, // 76: method.MovementMethodService.CanSelectArbitrarily:input_type -> method.MovementMethodCanSelectArbitrarilyRequest
+	112, // 77: method.MovementMethodService.Initialize:input_type -> method.MovementMethodInitializeRequest
+	113, // 78: method.MovementMethodService.OnGenericMotionEvent:input_type -> method.MovementMethodOnGenericMotionEventRequest
+	114, // 79: method.MovementMethodService.OnKeyDown:input_type -> method.MovementMethodOnKeyDownRequest
+	115, // 80: method.MovementMethodService.OnKeyOther:input_type -> method.MovementMethodOnKeyOtherRequest
+	116, // 81: method.MovementMethodService.OnKeyUp:input_type -> method.MovementMethodOnKeyUpRequest
+	117, // 82: method.MovementMethodService.OnTakeFocus:input_type -> method.MovementMethodOnTakeFocusRequest
+	118, // 83: method.MovementMethodService.OnTouchEvent:input_type -> method.MovementMethodOnTouchEventRequest
+	119, // 84: method.MovementMethodService.OnTrackballEvent:input_type -> method.MovementMethodOnTrackballEventRequest
+	120, // 85: method.KeyListenerService.ClearMetaKeyState:input_type -> method.ClearMetaKeyStateRequest
+	122, // 86: method.KeyListenerService.GetInputType:input_type -> method.KeyListenerGetInputTypeRequest
+	123, // 87: method.KeyListenerService.OnKeyDown:input_type -> method.KeyListenerOnKeyDownRequest
+	124, // 88: method.KeyListenerService.OnKeyOther:input_type -> method.KeyListenerOnKeyOtherRequest
+	125, // 89: method.KeyListenerService.OnKeyUp:input_type -> method.KeyListenerOnKeyUpRequest
+	126, // 90: method.CharacterPickerDialogService.NewCharacterPickerDialog:input_type -> method.NewCharacterPickerDialogRequest
+	128, // 91: method.CharacterPickerDialogService.OnClick:input_type -> method.OnClickRequest
+	130, // 92: method.CharacterPickerDialogService.OnItemClick:input_type -> method.OnItemClickRequest
+	132, // 93: method.TextKeyListenerService.NewTextKeyListener:input_type -> method.NewTextKeyListenerRequest
+	2,   // 94: method.TextKeyListenerService.GetInputType:input_type -> method.GetInputTypeRequest
+	4,   // 95: method.TextKeyListenerService.OnKeyDown:input_type -> method.OnKeyDownRequest
+	22,  // 96: method.TextKeyListenerService.OnKeyOther:input_type -> method.OnKeyOtherRequest
+	24,  // 97: method.TextKeyListenerService.OnKeyUp:input_type -> method.OnKeyUpRequest
+	134, // 98: method.TextKeyListenerService.OnSpanAdded:input_type -> method.OnSpanAddedRequest
+	136, // 99: method.TextKeyListenerService.OnSpanChanged:input_type -> method.OnSpanChangedRequest
+	138, // 100: method.TextKeyListenerService.OnSpanRemoved:input_type -> method.OnSpanRemovedRequest
+	140, // 101: method.TextKeyListenerService.Release:input_type -> method.ReleaseRequest
+	142, // 102: method.TextKeyListenerService.Clear:input_type -> method.ClearRequest
+	99,  // 103: method.TextKeyListenerService.GetInstance0:input_type -> method.GetInstance0Request
+	144, // 104: method.TextKeyListenerService.GetInstance2_1:input_type -> method.GetInstance2_1Request
+	146, // 105: method.TextKeyListenerService.ShouldCap:input_type -> method.ShouldCapRequest
+	148, // 106: method.TextKeyListenerCapitalizeService.Values:input_type -> method.ValuesRequest
+	150, // 107: method.TextKeyListenerCapitalizeService.ValueOf:input_type -> method.ValueOfRequest
+	152, // 108: method.DateKeyListenerService.NewDateKeyListener:input_type -> method.NewDateKeyListenerRequest
+	2,   // 109: method.DateKeyListenerService.GetInputType:input_type -> method.GetInputTypeRequest
+	99,  // 110: method.DateKeyListenerService.GetInstance0:input_type -> method.GetInstance0Request
+	101, // 111: method.DateKeyListenerService.GetInstance1_1:input_type -> method.GetInstance1_1Request
+	154, // 112: method.DialerKeyListenerService.NewDialerKeyListener:input_type -> method.NewDialerKeyListenerRequest
+	2,   // 113: method.DialerKeyListenerService.GetInputType:input_type -> method.GetInputTypeRequest
+	156, // 114: method.DialerKeyListenerService.GetInstance:input_type -> method.DialerKeyListenerGetInstanceRequest
+	157, // 115: method.MultiTapKeyListenerService.NewMultiTapKeyListener:input_type -> method.NewMultiTapKeyListenerRequest
+	2,   // 116: method.MultiTapKeyListenerService.GetInputType:input_type -> method.GetInputTypeRequest
+	4,   // 117: method.MultiTapKeyListenerService.OnKeyDown:input_type -> method.OnKeyDownRequest
+	134, // 118: method.MultiTapKeyListenerService.OnSpanAdded:input_type -> method.OnSpanAddedRequest
+	136, // 119: method.MultiTapKeyListenerService.OnSpanChanged:input_type -> method.OnSpanChangedRequest
+	138, // 120: method.MultiTapKeyListenerService.OnSpanRemoved:input_type -> method.OnSpanRemovedRequest
+	6,   // 121: method.MultiTapKeyListenerService.GetInstance:input_type -> method.GetInstanceRequest
+	159, // 122: method.TouchService.GetInitialScrollX:input_type -> method.GetInitialScrollXRequest
+	161, // 123: method.TouchService.GetInitialScrollY:input_type -> method.GetInitialScrollYRequest
+	163, // 124: method.TouchService.OnTouchEvent:input_type -> method.TouchOnTouchEventRequest
+	164, // 125: method.TouchService.ScrollTo:input_type -> method.ScrollToRequest
+	166, // 126: method.DigitsKeyListenerService.NewDigitsKeyListener:input_type -> method.NewDigitsKeyListenerRequest
+	168, // 127: method.DigitsKeyListenerService.Filter:input_type -> method.DigitsKeyListenerFilterRequest
+	2,   // 128: method.DigitsKeyListenerService.GetInputType:input_type -> method.GetInputTypeRequest
+	99,  // 129: method.DigitsKeyListenerService.GetInstance0:input_type -> method.GetInstance0Request
+	169, // 130: method.DigitsKeyListenerService.GetInstance2_1:input_type -> method.DigitsKeyListenerGetInstance2_1Request
+	170, // 131: method.DigitsKeyListenerService.GetInstance1_2:input_type -> method.GetInstance1_2Request
+	172, // 132: method.DigitsKeyListenerService.GetInstance1_3:input_type -> method.GetInstance1_3Request
+	174, // 133: method.DigitsKeyListenerService.GetInstance3_4:input_type -> method.GetInstance3_4Request
+	176, // 134: method.LinkMovementMethodService.NewLinkMovementMethod:input_type -> method.NewLinkMovementMethodRequest
+	14,  // 135: method.LinkMovementMethodService.CanSelectArbitrarily:input_type -> method.CanSelectArbitrarilyRequest
+	16,  // 136: method.LinkMovementMethodService.Initialize:input_type -> method.InitializeRequest
+	26,  // 137: method.LinkMovementMethodService.OnTakeFocus:input_type -> method.OnTakeFocusRequest
+	28,  // 138: method.LinkMovementMethodService.OnTouchEvent:input_type -> method.OnTouchEventRequest
+	178, // 139: method.LinkMovementMethodService.GetInstance:input_type -> method.LinkMovementMethodGetInstanceRequest
+	179, // 140: method.HideReturnsTransformationMethodService.NewHideReturnsTransformationMethod:input_type -> method.NewHideReturnsTransformationMethodRequest
+	181, // 141: method.HideReturnsTransformationMethodService.GetInstance:input_type -> method.HideReturnsTransformationMethodGetInstanceRequest
+	1,   // 142: method.QwertyKeyListenerService.NewQwertyKeyListener:output_type -> method.NewQwertyKeyListenerResponse
+	3,   // 143: method.QwertyKeyListenerService.GetInputType:output_type -> method.GetInputTypeResponse
+	5,   // 144: method.QwertyKeyListenerService.OnKeyDown:output_type -> method.OnKeyDownResponse
+	7,   // 145: method.QwertyKeyListenerService.GetInstance:output_type -> method.GetInstanceResponse
+	9,   // 146: method.QwertyKeyListenerService.GetInstanceForFullKeyboard:output_type -> method.GetInstanceForFullKeyboardResponse
+	11,  // 147: method.QwertyKeyListenerService.MarkAsReplaced:output_type -> method.MarkAsReplacedResponse
+	13,  // 148: method.BaseMovementMethodService.NewBaseMovementMethod:output_type -> method.NewBaseMovementMethodResponse
+	15,  // 149: method.BaseMovementMethodService.CanSelectArbitrarily:output_type -> method.CanSelectArbitrarilyResponse
+	17,  // 150: method.BaseMovementMethodService.Initialize:output_type -> method.InitializeResponse
+	19,  // 151: method.BaseMovementMethodService.NextParagraph:output_type -> method.NextParagraphResponse
+	21,  // 152: method.BaseMovementMethodService.OnGenericMotionEvent:output_type -> method.OnGenericMotionEventResponse
+	5,   // 153: method.BaseMovementMethodService.OnKeyDown:output_type -> method.OnKeyDownResponse
+	23,  // 154: method.BaseMovementMethodService.OnKeyOther:output_type -> method.OnKeyOtherResponse
+	25,  // 155: method.BaseMovementMethodService.OnKeyUp:output_type -> method.OnKeyUpResponse
+	27,  // 156: method.BaseMovementMethodService.OnTakeFocus:output_type -> method.OnTakeFocusResponse
+	29,  // 157: method.BaseMovementMethodService.OnTouchEvent:output_type -> method.OnTouchEventResponse
+	31,  // 158: method.BaseMovementMethodService.OnTrackballEvent:output_type -> method.OnTrackballEventResponse
+	33,  // 159: method.BaseMovementMethodService.PreviousParagraph:output_type -> method.PreviousParagraphResponse
+	35,  // 160: method.SingleLineTransformationMethodService.NewSingleLineTransformationMethod:output_type -> method.NewSingleLineTransformationMethodResponse
+	7,   // 161: method.SingleLineTransformationMethodService.GetInstance:output_type -> method.GetInstanceResponse
+	38,  // 162: method.ReplacementTransformationMethodService.GetTransformation:output_type -> method.GetTransformationResponse
+	40,  // 163: method.ReplacementTransformationMethodService.OnFocusChanged:output_type -> method.OnFocusChangedResponse
+	42,  // 164: method.BaseKeyListenerService.Backspace:output_type -> method.BackspaceResponse
+	44,  // 165: method.BaseKeyListenerService.ForwardDelete:output_type -> method.ForwardDeleteResponse
+	5,   // 166: method.BaseKeyListenerService.OnKeyDown:output_type -> method.OnKeyDownResponse
+	23,  // 167: method.BaseKeyListenerService.OnKeyOther:output_type -> method.OnKeyOtherResponse
+	38,  // 168: method.TransformationMethodService.GetTransformation:output_type -> method.GetTransformationResponse
+	40,  // 169: method.TransformationMethodService.OnFocusChanged:output_type -> method.OnFocusChangedResponse
+	48,  // 170: method.MetaKeyKeyListenerService.ClearMetaKeyState3_1:output_type -> method.ClearMetaKeyState3_1Response
+	50,  // 171: method.MetaKeyKeyListenerService.ClearMetaKeyState2_2:output_type -> method.ClearMetaKeyState2_2Response
+	5,   // 172: method.MetaKeyKeyListenerService.OnKeyDown:output_type -> method.OnKeyDownResponse
+	25,  // 173: method.MetaKeyKeyListenerService.OnKeyUp:output_type -> method.OnKeyUpResponse
+	54,  // 174: method.MetaKeyKeyListenerService.AdjustMetaAfterKeypress1:output_type -> method.AdjustMetaAfterKeypress1Response
+	56,  // 175: method.MetaKeyKeyListenerService.AdjustMetaAfterKeypress1_1:output_type -> method.AdjustMetaAfterKeypress1_1Response
+	58,  // 176: method.MetaKeyKeyListenerService.ClearMetaKeyState2:output_type -> method.ClearMetaKeyState2Response
+	60,  // 177: method.MetaKeyKeyListenerService.GetMetaState1:output_type -> method.GetMetaState1Response
+	62,  // 178: method.MetaKeyKeyListenerService.GetMetaState2_1:output_type -> method.GetMetaState2_1Response
+	64,  // 179: method.MetaKeyKeyListenerService.GetMetaState2_2:output_type -> method.GetMetaState2_2Response
+	66,  // 180: method.MetaKeyKeyListenerService.GetMetaState3_3:output_type -> method.GetMetaState3_3Response
+	68,  // 181: method.MetaKeyKeyListenerService.GetMetaState1_4:output_type -> method.GetMetaState1_4Response
+	70,  // 182: method.MetaKeyKeyListenerService.GetMetaState2_5:output_type -> method.GetMetaState2_5Response
+	72,  // 183: method.MetaKeyKeyListenerService.HandleKeyDown:output_type -> method.HandleKeyDownResponse
+	74,  // 184: method.MetaKeyKeyListenerService.HandleKeyUp:output_type -> method.HandleKeyUpResponse
+	76,  // 185: method.MetaKeyKeyListenerService.IsMetaTracker:output_type -> method.IsMetaTrackerResponse
+	78,  // 186: method.MetaKeyKeyListenerService.IsSelectingMetaTracker:output_type -> method.IsSelectingMetaTrackerResponse
+	80,  // 187: method.MetaKeyKeyListenerService.ResetLockedMeta:output_type -> method.ResetLockedMetaResponse
+	82,  // 188: method.MetaKeyKeyListenerService.ResetMetaState:output_type -> method.ResetMetaStateResponse
+	84,  // 189: method.PasswordTransformationMethodService.NewPasswordTransformationMethod:output_type -> method.NewPasswordTransformationMethodResponse
+	86,  // 190: method.PasswordTransformationMethodService.AfterTextChanged:output_type -> method.AfterTextChangedResponse
+	88,  // 191: method.PasswordTransformationMethodService.BeforeTextChanged:output_type -> method.BeforeTextChangedResponse
+	38,  // 192: method.PasswordTransformationMethodService.GetTransformation:output_type -> method.GetTransformationResponse
+	40,  // 193: method.PasswordTransformationMethodService.OnFocusChanged:output_type -> method.OnFocusChangedResponse
+	92,  // 194: method.PasswordTransformationMethodService.OnTextChanged:output_type -> method.OnTextChangedResponse
+	7,   // 195: method.PasswordTransformationMethodService.GetInstance:output_type -> method.GetInstanceResponse
+	95,  // 196: method.ArrowKeyMovementMethodService.NewArrowKeyMovementMethod:output_type -> method.NewArrowKeyMovementMethodResponse
+	15,  // 197: method.ArrowKeyMovementMethodService.CanSelectArbitrarily:output_type -> method.CanSelectArbitrarilyResponse
+	17,  // 198: method.ArrowKeyMovementMethodService.Initialize:output_type -> method.InitializeResponse
+	19,  // 199: method.ArrowKeyMovementMethodService.NextParagraph:output_type -> method.NextParagraphResponse
+	27,  // 200: method.ArrowKeyMovementMethodService.OnTakeFocus:output_type -> method.OnTakeFocusResponse
+	29,  // 201: method.ArrowKeyMovementMethodService.OnTouchEvent:output_type -> method.OnTouchEventResponse
+	33,  // 202: method.ArrowKeyMovementMethodService.PreviousParagraph:output_type -> method.PreviousParagraphResponse
+	7,   // 203: method.ArrowKeyMovementMethodService.GetInstance:output_type -> method.GetInstanceResponse
+	98,  // 204: method.DateTimeKeyListenerService.NewDateTimeKeyListener:output_type -> method.NewDateTimeKeyListenerResponse
+	3,   // 205: method.DateTimeKeyListenerService.GetInputType:output_type -> method.GetInputTypeResponse
+	100, // 206: method.DateTimeKeyListenerService.GetInstance0:output_type -> method.GetInstance0Response
+	102, // 207: method.DateTimeKeyListenerService.GetInstance1_1:output_type -> method.GetInstance1_1Response
+	104, // 208: method.ScrollingMovementMethodService.NewScrollingMovementMethod:output_type -> method.NewScrollingMovementMethodResponse
+	27,  // 209: method.ScrollingMovementMethodService.OnTakeFocus:output_type -> method.OnTakeFocusResponse
+	29,  // 210: method.ScrollingMovementMethodService.OnTouchEvent:output_type -> method.OnTouchEventResponse
+	7,   // 211: method.ScrollingMovementMethodService.GetInstance:output_type -> method.GetInstanceResponse
+	107, // 212: method.TimeKeyListenerService.NewTimeKeyListener:output_type -> method.NewTimeKeyListenerResponse
+	3,   // 213: method.TimeKeyListenerService.GetInputType:output_type -> method.GetInputTypeResponse
+	100, // 214: method.TimeKeyListenerService.GetInstance0:output_type -> method.GetInstance0Response
+	102, // 215: method.TimeKeyListenerService.GetInstance1_1:output_type -> method.GetInstance1_1Response
+	109, // 216: method.NumberKeyListenerService.Filter:output_type -> method.FilterResponse
+	5,   // 217: method.NumberKeyListenerService.OnKeyDown:output_type -> method.OnKeyDownResponse
+	15,  // 218: method.MovementMethodService.CanSelectArbitrarily:output_type -> method.CanSelectArbitrarilyResponse
+	17,  // 219: method.MovementMethodService.Initialize:output_type -> method.InitializeResponse
+	21,  // 220: method.MovementMethodService.OnGenericMotionEvent:output_type -> method.OnGenericMotionEventResponse
+	5,   // 221: method.MovementMethodService.OnKeyDown:output_type -> method.OnKeyDownResponse
+	23,  // 222: method.MovementMethodService.OnKeyOther:output_type -> method.OnKeyOtherResponse
+	25,  // 223: method.MovementMethodService.OnKeyUp:output_type -> method.OnKeyUpResponse
+	27,  // 224: method.MovementMethodService.OnTakeFocus:output_type -> method.OnTakeFocusResponse
+	29,  // 225: method.MovementMethodService.OnTouchEvent:output_type -> method.OnTouchEventResponse
+	31,  // 226: method.MovementMethodService.OnTrackballEvent:output_type -> method.OnTrackballEventResponse
+	121, // 227: method.KeyListenerService.ClearMetaKeyState:output_type -> method.ClearMetaKeyStateResponse
+	3,   // 228: method.KeyListenerService.GetInputType:output_type -> method.GetInputTypeResponse
+	5,   // 229: method.KeyListenerService.OnKeyDown:output_type -> method.OnKeyDownResponse
+	23,  // 230: method.KeyListenerService.OnKeyOther:output_type -> method.OnKeyOtherResponse
+	25,  // 231: method.KeyListenerService.OnKeyUp:output_type -> method.OnKeyUpResponse
+	127, // 232: method.CharacterPickerDialogService.NewCharacterPickerDialog:output_type -> method.NewCharacterPickerDialogResponse
+	129, // 233: method.CharacterPickerDialogService.OnClick:output_type -> method.OnClickResponse
+	131, // 234: method.CharacterPickerDialogService.OnItemClick:output_type -> method.OnItemClickResponse
+	133, // 235: method.TextKeyListenerService.NewTextKeyListener:output_type -> method.NewTextKeyListenerResponse
+	3,   // 236: method.TextKeyListenerService.GetInputType:output_type -> method.GetInputTypeResponse
+	5,   // 237: method.TextKeyListenerService.OnKeyDown:output_type -> method.OnKeyDownResponse
+	23,  // 238: method.TextKeyListenerService.OnKeyOther:output_type -> method.OnKeyOtherResponse
+	25,  // 239: method.TextKeyListenerService.OnKeyUp:output_type -> method.OnKeyUpResponse
+	135, // 240: method.TextKeyListenerService.OnSpanAdded:output_type -> method.OnSpanAddedResponse
+	137, // 241: method.TextKeyListenerService.OnSpanChanged:output_type -> method.OnSpanChangedResponse
+	139, // 242: method.TextKeyListenerService.OnSpanRemoved:output_type -> method.OnSpanRemovedResponse
+	141, // 243: method.TextKeyListenerService.Release:output_type -> method.ReleaseResponse
+	143, // 244: method.TextKeyListenerService.Clear:output_type -> method.ClearResponse
+	100, // 245: method.TextKeyListenerService.GetInstance0:output_type -> method.GetInstance0Response
+	145, // 246: method.TextKeyListenerService.GetInstance2_1:output_type -> method.GetInstance2_1Response
+	147, // 247: method.TextKeyListenerService.ShouldCap:output_type -> method.ShouldCapResponse
+	149, // 248: method.TextKeyListenerCapitalizeService.Values:output_type -> method.ValuesResponse
+	151, // 249: method.TextKeyListenerCapitalizeService.ValueOf:output_type -> method.ValueOfResponse
+	153, // 250: method.DateKeyListenerService.NewDateKeyListener:output_type -> method.NewDateKeyListenerResponse
+	3,   // 251: method.DateKeyListenerService.GetInputType:output_type -> method.GetInputTypeResponse
+	100, // 252: method.DateKeyListenerService.GetInstance0:output_type -> method.GetInstance0Response
+	102, // 253: method.DateKeyListenerService.GetInstance1_1:output_type -> method.GetInstance1_1Response
+	155, // 254: method.DialerKeyListenerService.NewDialerKeyListener:output_type -> method.NewDialerKeyListenerResponse
+	3,   // 255: method.DialerKeyListenerService.GetInputType:output_type -> method.GetInputTypeResponse
+	7,   // 256: method.DialerKeyListenerService.GetInstance:output_type -> method.GetInstanceResponse
+	158, // 257: method.MultiTapKeyListenerService.NewMultiTapKeyListener:output_type -> method.NewMultiTapKeyListenerResponse
+	3,   // 258: method.MultiTapKeyListenerService.GetInputType:output_type -> method.GetInputTypeResponse
+	5,   // 259: method.MultiTapKeyListenerService.OnKeyDown:output_type -> method.OnKeyDownResponse
+	135, // 260: method.MultiTapKeyListenerService.OnSpanAdded:output_type -> method.OnSpanAddedResponse
+	137, // 261: method.MultiTapKeyListenerService.OnSpanChanged:output_type -> method.OnSpanChangedResponse
+	139, // 262: method.MultiTapKeyListenerService.OnSpanRemoved:output_type -> method.OnSpanRemovedResponse
+	7,   // 263: method.MultiTapKeyListenerService.GetInstance:output_type -> method.GetInstanceResponse
+	160, // 264: method.TouchService.GetInitialScrollX:output_type -> method.GetInitialScrollXResponse
+	162, // 265: method.TouchService.GetInitialScrollY:output_type -> method.GetInitialScrollYResponse
+	29,  // 266: method.TouchService.OnTouchEvent:output_type -> method.OnTouchEventResponse
+	165, // 267: method.TouchService.ScrollTo:output_type -> method.ScrollToResponse
+	167, // 268: method.DigitsKeyListenerService.NewDigitsKeyListener:output_type -> method.NewDigitsKeyListenerResponse
+	109, // 269: method.DigitsKeyListenerService.Filter:output_type -> method.FilterResponse
+	3,   // 270: method.DigitsKeyListenerService.GetInputType:output_type -> method.GetInputTypeResponse
+	100, // 271: method.DigitsKeyListenerService.GetInstance0:output_type -> method.GetInstance0Response
+	145, // 272: method.DigitsKeyListenerService.GetInstance2_1:output_type -> method.GetInstance2_1Response
+	171, // 273: method.DigitsKeyListenerService.GetInstance1_2:output_type -> method.GetInstance1_2Response
+	173, // 274: method.DigitsKeyListenerService.GetInstance1_3:output_type -> method.GetInstance1_3Response
+	175, // 275: method.DigitsKeyListenerService.GetInstance3_4:output_type -> method.GetInstance3_4Response
+	177, // 276: method.LinkMovementMethodService.NewLinkMovementMethod:output_type -> method.NewLinkMovementMethodResponse
+	15,  // 277: method.LinkMovementMethodService.CanSelectArbitrarily:output_type -> method.CanSelectArbitrarilyResponse
+	17,  // 278: method.LinkMovementMethodService.Initialize:output_type -> method.InitializeResponse
+	27,  // 279: method.LinkMovementMethodService.OnTakeFocus:output_type -> method.OnTakeFocusResponse
+	29,  // 280: method.LinkMovementMethodService.OnTouchEvent:output_type -> method.OnTouchEventResponse
+	7,   // 281: method.LinkMovementMethodService.GetInstance:output_type -> method.GetInstanceResponse
+	180, // 282: method.HideReturnsTransformationMethodService.NewHideReturnsTransformationMethod:output_type -> method.NewHideReturnsTransformationMethodResponse
+	7,   // 283: method.HideReturnsTransformationMethodService.GetInstance:output_type -> method.GetInstanceResponse
 	142, // [142:284] is the sub-list for method output_type
 	0,   // [0:142] is the sub-list for method input_type
 	0,   // [0:0] is the sub-list for extension type_name
@@ -10564,7 +10346,7 @@ func file_proto_method_method_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_method_method_proto_rawDesc), len(file_proto_method_method_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   183,
+			NumMessages:   182,
 			NumExtensions: 0,
 			NumServices:   25,
 		},

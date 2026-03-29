@@ -9,39 +9,6 @@ import (
 	"google.golang.org/grpc"
 )
 
-// PromptContentItemPlainTextClient wraps the gRPC PromptContentItemPlainTextService client.
-type PromptContentItemPlainTextClient struct {
-	svc pb.PromptContentItemPlainTextServiceClient
-}
-
-// NewPromptContentItemPlainTextClient creates a new PromptContentItemPlainText client.
-func NewPromptContentItemPlainTextClient(cc grpc.ClientConnInterface) *PromptContentItemPlainTextClient {
-	return &PromptContentItemPlainTextClient{
-		svc: pb.NewPromptContentItemPlainTextServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *PromptContentItemPlainTextClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *PromptContentItemPlainTextClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
 // PromptVerticalListContentViewClient wraps the gRPC PromptVerticalListContentViewService client.
 type PromptVerticalListContentViewClient struct {
 	svc pb.PromptVerticalListContentViewServiceClient
@@ -56,7 +23,7 @@ func NewPromptVerticalListContentViewClient(cc grpc.ClientConnInterface) *Prompt
 
 // DescribeContents calls the DescribeContents RPC.
 func (c *PromptVerticalListContentViewClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.PromptVerticalListContentViewDescribeContentsRequest{})
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -72,9 +39,18 @@ func (c *PromptVerticalListContentViewClient) GetDescription(ctx context.Context
 	return resp.GetResult(), nil
 }
 
+// GetListItems calls the GetListItems RPC.
+func (c *PromptVerticalListContentViewClient) GetListItems(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetListItems(ctx, &pb.GetListItemsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // WriteToParcel calls the WriteToParcel RPC.
 func (c *PromptVerticalListContentViewClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.PromptVerticalListContentViewWriteToParcelRequest{
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -168,7 +144,7 @@ func NewPromptContentItemBulletedTextClient(cc grpc.ClientConnInterface) *Prompt
 
 // DescribeContents calls the DescribeContents RPC.
 func (c *PromptContentItemBulletedTextClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+	resp, err := c.svc.DescribeContents(ctx, &pb.PromptContentItemBulletedTextDescribeContentsRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -179,7 +155,40 @@ func (c *PromptContentItemBulletedTextClient) DescribeContents(ctx context.Conte
 
 // WriteToParcel calls the WriteToParcel RPC.
 func (c *PromptContentItemBulletedTextClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+	_, err := c.svc.WriteToParcel(ctx, &pb.PromptContentItemBulletedTextWriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// PromptContentItemPlainTextClient wraps the gRPC PromptContentItemPlainTextService client.
+type PromptContentItemPlainTextClient struct {
+	svc pb.PromptContentItemPlainTextServiceClient
+}
+
+// NewPromptContentItemPlainTextClient creates a new PromptContentItemPlainText client.
+func NewPromptContentItemPlainTextClient(cc grpc.ClientConnInterface) *PromptContentItemPlainTextClient {
+	return &PromptContentItemPlainTextClient{
+		svc: pb.NewPromptContentItemPlainTextServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *PromptContentItemPlainTextClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.PromptContentItemPlainTextDescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PromptContentItemPlainTextClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.PromptContentItemPlainTextWriteToParcelRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -201,7 +210,7 @@ func NewPromptContentViewWithMoreOptionsButtonClient(cc grpc.ClientConnInterface
 
 // DescribeContents calls the DescribeContents RPC.
 func (c *PromptContentViewWithMoreOptionsButtonClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.PromptContentViewWithMoreOptionsButtonDescribeContentsRequest{})
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -228,7 +237,7 @@ func (c *PromptContentViewWithMoreOptionsButtonClient) GetMoreOptionsButtonListe
 
 // WriteToParcel calls the WriteToParcel RPC.
 func (c *PromptContentViewWithMoreOptionsButtonClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.PromptContentViewWithMoreOptionsButtonWriteToParcelRequest{
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})

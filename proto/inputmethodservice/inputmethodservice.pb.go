@@ -23,6 +23,2782 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type NewKeyboardViewRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewKeyboardViewRequest) Reset() {
+	*x = NewKeyboardViewRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewKeyboardViewRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewKeyboardViewRequest) ProtoMessage() {}
+
+func (x *NewKeyboardViewRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewKeyboardViewRequest.ProtoReflect.Descriptor instead.
+func (*NewKeyboardViewRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *NewKeyboardViewRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewKeyboardViewRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NewKeyboardViewResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewKeyboardViewResponse) Reset() {
+	*x = NewKeyboardViewResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewKeyboardViewResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewKeyboardViewResponse) ProtoMessage() {}
+
+func (x *NewKeyboardViewResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewKeyboardViewResponse.ProtoReflect.Descriptor instead.
+func (*NewKeyboardViewResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *NewKeyboardViewResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClosingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClosingRequest) Reset() {
+	*x = ClosingRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClosingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClosingRequest) ProtoMessage() {}
+
+func (x *ClosingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClosingRequest.ProtoReflect.Descriptor instead.
+func (*ClosingRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *ClosingRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ClosingResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClosingResponse) Reset() {
+	*x = ClosingResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClosingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClosingResponse) ProtoMessage() {}
+
+func (x *ClosingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClosingResponse.ProtoReflect.Descriptor instead.
+func (*ClosingResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{3}
+}
+
+type GetKeyboardRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetKeyboardRequest) Reset() {
+	*x = GetKeyboardRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetKeyboardRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetKeyboardRequest) ProtoMessage() {}
+
+func (x *GetKeyboardRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetKeyboardRequest.ProtoReflect.Descriptor instead.
+func (*GetKeyboardRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *GetKeyboardRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetKeyboardResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetKeyboardResponse) Reset() {
+	*x = GetKeyboardResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetKeyboardResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetKeyboardResponse) ProtoMessage() {}
+
+func (x *GetKeyboardResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetKeyboardResponse.ProtoReflect.Descriptor instead.
+func (*GetKeyboardResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetKeyboardResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type HandleBackRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HandleBackRequest) Reset() {
+	*x = HandleBackRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HandleBackRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HandleBackRequest) ProtoMessage() {}
+
+func (x *HandleBackRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HandleBackRequest.ProtoReflect.Descriptor instead.
+func (*HandleBackRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *HandleBackRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type HandleBackResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HandleBackResponse) Reset() {
+	*x = HandleBackResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HandleBackResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HandleBackResponse) ProtoMessage() {}
+
+func (x *HandleBackResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HandleBackResponse.ProtoReflect.Descriptor instead.
+func (*HandleBackResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *HandleBackResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type InvalidateAllKeysRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InvalidateAllKeysRequest) Reset() {
+	*x = InvalidateAllKeysRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InvalidateAllKeysRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InvalidateAllKeysRequest) ProtoMessage() {}
+
+func (x *InvalidateAllKeysRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InvalidateAllKeysRequest.ProtoReflect.Descriptor instead.
+func (*InvalidateAllKeysRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *InvalidateAllKeysRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type InvalidateAllKeysResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InvalidateAllKeysResponse) Reset() {
+	*x = InvalidateAllKeysResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InvalidateAllKeysResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InvalidateAllKeysResponse) ProtoMessage() {}
+
+func (x *InvalidateAllKeysResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InvalidateAllKeysResponse.ProtoReflect.Descriptor instead.
+func (*InvalidateAllKeysResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{9}
+}
+
+type InvalidateKeyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InvalidateKeyRequest) Reset() {
+	*x = InvalidateKeyRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InvalidateKeyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InvalidateKeyRequest) ProtoMessage() {}
+
+func (x *InvalidateKeyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InvalidateKeyRequest.ProtoReflect.Descriptor instead.
+func (*InvalidateKeyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *InvalidateKeyRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *InvalidateKeyRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type InvalidateKeyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InvalidateKeyResponse) Reset() {
+	*x = InvalidateKeyResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InvalidateKeyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InvalidateKeyResponse) ProtoMessage() {}
+
+func (x *InvalidateKeyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InvalidateKeyResponse.ProtoReflect.Descriptor instead.
+func (*InvalidateKeyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{11}
+}
+
+type IsPreviewEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPreviewEnabledRequest) Reset() {
+	*x = IsPreviewEnabledRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPreviewEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPreviewEnabledRequest) ProtoMessage() {}
+
+func (x *IsPreviewEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPreviewEnabledRequest.ProtoReflect.Descriptor instead.
+func (*IsPreviewEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *IsPreviewEnabledRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsPreviewEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsPreviewEnabledResponse) Reset() {
+	*x = IsPreviewEnabledResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsPreviewEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsPreviewEnabledResponse) ProtoMessage() {}
+
+func (x *IsPreviewEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsPreviewEnabledResponse.ProtoReflect.Descriptor instead.
+func (*IsPreviewEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *IsPreviewEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsProximityCorrectionEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsProximityCorrectionEnabledRequest) Reset() {
+	*x = IsProximityCorrectionEnabledRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsProximityCorrectionEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsProximityCorrectionEnabledRequest) ProtoMessage() {}
+
+func (x *IsProximityCorrectionEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsProximityCorrectionEnabledRequest.ProtoReflect.Descriptor instead.
+func (*IsProximityCorrectionEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *IsProximityCorrectionEnabledRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsProximityCorrectionEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsProximityCorrectionEnabledResponse) Reset() {
+	*x = IsProximityCorrectionEnabledResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsProximityCorrectionEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsProximityCorrectionEnabledResponse) ProtoMessage() {}
+
+func (x *IsProximityCorrectionEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsProximityCorrectionEnabledResponse.ProtoReflect.Descriptor instead.
+func (*IsProximityCorrectionEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *IsProximityCorrectionEnabledResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsShiftedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsShiftedRequest) Reset() {
+	*x = IsShiftedRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsShiftedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsShiftedRequest) ProtoMessage() {}
+
+func (x *IsShiftedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsShiftedRequest.ProtoReflect.Descriptor instead.
+func (*IsShiftedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *IsShiftedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsShiftedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsShiftedResponse) Reset() {
+	*x = IsShiftedResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsShiftedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsShiftedResponse) ProtoMessage() {}
+
+func (x *IsShiftedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsShiftedResponse.ProtoReflect.Descriptor instead.
+func (*IsShiftedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *IsShiftedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type OnClickRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnClickRequest) Reset() {
+	*x = OnClickRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnClickRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnClickRequest) ProtoMessage() {}
+
+func (x *OnClickRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnClickRequest.ProtoReflect.Descriptor instead.
+func (*OnClickRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *OnClickRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnClickRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnClickResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnClickResponse) Reset() {
+	*x = OnClickResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnClickResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnClickResponse) ProtoMessage() {}
+
+func (x *OnClickResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnClickResponse.ProtoReflect.Descriptor instead.
+func (*OnClickResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{19}
+}
+
+type OnDetachedFromWindowRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDetachedFromWindowRequest) Reset() {
+	*x = OnDetachedFromWindowRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDetachedFromWindowRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDetachedFromWindowRequest) ProtoMessage() {}
+
+func (x *OnDetachedFromWindowRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDetachedFromWindowRequest.ProtoReflect.Descriptor instead.
+func (*OnDetachedFromWindowRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *OnDetachedFromWindowRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type OnDetachedFromWindowResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDetachedFromWindowResponse) Reset() {
+	*x = OnDetachedFromWindowResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDetachedFromWindowResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDetachedFromWindowResponse) ProtoMessage() {}
+
+func (x *OnDetachedFromWindowResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDetachedFromWindowResponse.ProtoReflect.Descriptor instead.
+func (*OnDetachedFromWindowResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{21}
+}
+
+type OnDrawRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDrawRequest) Reset() {
+	*x = OnDrawRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDrawRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDrawRequest) ProtoMessage() {}
+
+func (x *OnDrawRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDrawRequest.ProtoReflect.Descriptor instead.
+func (*OnDrawRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *OnDrawRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnDrawRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnDrawResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDrawResponse) Reset() {
+	*x = OnDrawResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDrawResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDrawResponse) ProtoMessage() {}
+
+func (x *OnDrawResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDrawResponse.ProtoReflect.Descriptor instead.
+func (*OnDrawResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{23}
+}
+
+type OnHoverEventRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnHoverEventRequest) Reset() {
+	*x = OnHoverEventRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnHoverEventRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnHoverEventRequest) ProtoMessage() {}
+
+func (x *OnHoverEventRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnHoverEventRequest.ProtoReflect.Descriptor instead.
+func (*OnHoverEventRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *OnHoverEventRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnHoverEventRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnHoverEventResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnHoverEventResponse) Reset() {
+	*x = OnHoverEventResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnHoverEventResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnHoverEventResponse) ProtoMessage() {}
+
+func (x *OnHoverEventResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnHoverEventResponse.ProtoReflect.Descriptor instead.
+func (*OnHoverEventResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *OnHoverEventResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type OnMeasureRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnMeasureRequest) Reset() {
+	*x = OnMeasureRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnMeasureRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnMeasureRequest) ProtoMessage() {}
+
+func (x *OnMeasureRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnMeasureRequest.ProtoReflect.Descriptor instead.
+func (*OnMeasureRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *OnMeasureRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnMeasureRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnMeasureRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnMeasureResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnMeasureResponse) Reset() {
+	*x = OnMeasureResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnMeasureResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnMeasureResponse) ProtoMessage() {}
+
+func (x *OnMeasureResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnMeasureResponse.ProtoReflect.Descriptor instead.
+func (*OnMeasureResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{27}
+}
+
+type OnSizeChangedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	Arg3          int32                  `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSizeChangedRequest) Reset() {
+	*x = OnSizeChangedRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSizeChangedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSizeChangedRequest) ProtoMessage() {}
+
+func (x *OnSizeChangedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSizeChangedRequest.ProtoReflect.Descriptor instead.
+func (*OnSizeChangedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *OnSizeChangedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnSizeChangedRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnSizeChangedRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+func (x *OnSizeChangedRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+func (x *OnSizeChangedRequest) GetArg3() int32 {
+	if x != nil {
+		return x.Arg3
+	}
+	return 0
+}
+
+type OnSizeChangedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnSizeChangedResponse) Reset() {
+	*x = OnSizeChangedResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnSizeChangedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnSizeChangedResponse) ProtoMessage() {}
+
+func (x *OnSizeChangedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnSizeChangedResponse.ProtoReflect.Descriptor instead.
+func (*OnSizeChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{29}
+}
+
+type OnTouchEventRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTouchEventRequest) Reset() {
+	*x = OnTouchEventRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTouchEventRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTouchEventRequest) ProtoMessage() {}
+
+func (x *OnTouchEventRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTouchEventRequest.ProtoReflect.Descriptor instead.
+func (*OnTouchEventRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *OnTouchEventRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnTouchEventRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnTouchEventResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTouchEventResponse) Reset() {
+	*x = OnTouchEventResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTouchEventResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTouchEventResponse) ProtoMessage() {}
+
+func (x *OnTouchEventResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTouchEventResponse.ProtoReflect.Descriptor instead.
+func (*OnTouchEventResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *OnTouchEventResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type SetKeyboardRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetKeyboardRequest) Reset() {
+	*x = SetKeyboardRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetKeyboardRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetKeyboardRequest) ProtoMessage() {}
+
+func (x *SetKeyboardRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetKeyboardRequest.ProtoReflect.Descriptor instead.
+func (*SetKeyboardRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *SetKeyboardRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetKeyboardRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetKeyboardResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetKeyboardResponse) Reset() {
+	*x = SetKeyboardResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetKeyboardResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetKeyboardResponse) ProtoMessage() {}
+
+func (x *SetKeyboardResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetKeyboardResponse.ProtoReflect.Descriptor instead.
+func (*SetKeyboardResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{33}
+}
+
+type SetOnKeyboardActionListenerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOnKeyboardActionListenerRequest) Reset() {
+	*x = SetOnKeyboardActionListenerRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOnKeyboardActionListenerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOnKeyboardActionListenerRequest) ProtoMessage() {}
+
+func (x *SetOnKeyboardActionListenerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOnKeyboardActionListenerRequest.ProtoReflect.Descriptor instead.
+func (*SetOnKeyboardActionListenerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *SetOnKeyboardActionListenerRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetOnKeyboardActionListenerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetOnKeyboardActionListenerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetOnKeyboardActionListenerResponse) Reset() {
+	*x = SetOnKeyboardActionListenerResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetOnKeyboardActionListenerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetOnKeyboardActionListenerResponse) ProtoMessage() {}
+
+func (x *SetOnKeyboardActionListenerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetOnKeyboardActionListenerResponse.ProtoReflect.Descriptor instead.
+func (*SetOnKeyboardActionListenerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{35}
+}
+
+type SetPopupOffsetRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPopupOffsetRequest) Reset() {
+	*x = SetPopupOffsetRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPopupOffsetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPopupOffsetRequest) ProtoMessage() {}
+
+func (x *SetPopupOffsetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPopupOffsetRequest.ProtoReflect.Descriptor instead.
+func (*SetPopupOffsetRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *SetPopupOffsetRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetPopupOffsetRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *SetPopupOffsetRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetPopupOffsetResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPopupOffsetResponse) Reset() {
+	*x = SetPopupOffsetResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPopupOffsetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPopupOffsetResponse) ProtoMessage() {}
+
+func (x *SetPopupOffsetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPopupOffsetResponse.ProtoReflect.Descriptor instead.
+func (*SetPopupOffsetResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{37}
+}
+
+type SetPopupParentRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPopupParentRequest) Reset() {
+	*x = SetPopupParentRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPopupParentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPopupParentRequest) ProtoMessage() {}
+
+func (x *SetPopupParentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPopupParentRequest.ProtoReflect.Descriptor instead.
+func (*SetPopupParentRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *SetPopupParentRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetPopupParentRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPopupParentResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPopupParentResponse) Reset() {
+	*x = SetPopupParentResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPopupParentResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPopupParentResponse) ProtoMessage() {}
+
+func (x *SetPopupParentResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPopupParentResponse.ProtoReflect.Descriptor instead.
+func (*SetPopupParentResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{39}
+}
+
+type SetPreviewEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPreviewEnabledRequest) Reset() {
+	*x = SetPreviewEnabledRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPreviewEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPreviewEnabledRequest) ProtoMessage() {}
+
+func (x *SetPreviewEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPreviewEnabledRequest.ProtoReflect.Descriptor instead.
+func (*SetPreviewEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *SetPreviewEnabledRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetPreviewEnabledRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetPreviewEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPreviewEnabledResponse) Reset() {
+	*x = SetPreviewEnabledResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPreviewEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPreviewEnabledResponse) ProtoMessage() {}
+
+func (x *SetPreviewEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPreviewEnabledResponse.ProtoReflect.Descriptor instead.
+func (*SetPreviewEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{41}
+}
+
+type SetProximityCorrectionEnabledRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetProximityCorrectionEnabledRequest) Reset() {
+	*x = SetProximityCorrectionEnabledRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetProximityCorrectionEnabledRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetProximityCorrectionEnabledRequest) ProtoMessage() {}
+
+func (x *SetProximityCorrectionEnabledRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetProximityCorrectionEnabledRequest.ProtoReflect.Descriptor instead.
+func (*SetProximityCorrectionEnabledRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *SetProximityCorrectionEnabledRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetProximityCorrectionEnabledRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetProximityCorrectionEnabledResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetProximityCorrectionEnabledResponse) Reset() {
+	*x = SetProximityCorrectionEnabledResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetProximityCorrectionEnabledResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetProximityCorrectionEnabledResponse) ProtoMessage() {}
+
+func (x *SetProximityCorrectionEnabledResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetProximityCorrectionEnabledResponse.ProtoReflect.Descriptor instead.
+func (*SetProximityCorrectionEnabledResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{43}
+}
+
+type SetShiftedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetShiftedRequest) Reset() {
+	*x = SetShiftedRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetShiftedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetShiftedRequest) ProtoMessage() {}
+
+func (x *SetShiftedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetShiftedRequest.ProtoReflect.Descriptor instead.
+func (*SetShiftedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *SetShiftedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetShiftedRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetShiftedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetShiftedResponse) Reset() {
+	*x = SetShiftedResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetShiftedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetShiftedResponse) ProtoMessage() {}
+
+func (x *SetShiftedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetShiftedResponse.ProtoReflect.Descriptor instead.
+func (*SetShiftedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *SetShiftedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type SetVerticalCorrectionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetVerticalCorrectionRequest) Reset() {
+	*x = SetVerticalCorrectionRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetVerticalCorrectionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetVerticalCorrectionRequest) ProtoMessage() {}
+
+func (x *SetVerticalCorrectionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetVerticalCorrectionRequest.ProtoReflect.Descriptor instead.
+func (*SetVerticalCorrectionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *SetVerticalCorrectionRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetVerticalCorrectionRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetVerticalCorrectionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetVerticalCorrectionResponse) Reset() {
+	*x = SetVerticalCorrectionResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetVerticalCorrectionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetVerticalCorrectionResponse) ProtoMessage() {}
+
+func (x *SetVerticalCorrectionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetVerticalCorrectionResponse.ProtoReflect.Descriptor instead.
+func (*SetVerticalCorrectionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{47}
+}
+
+type OnKeyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnKeyRequest) Reset() {
+	*x = OnKeyRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnKeyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnKeyRequest) ProtoMessage() {}
+
+func (x *OnKeyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnKeyRequest.ProtoReflect.Descriptor instead.
+func (*OnKeyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *OnKeyRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *OnKeyRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type OnKeyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnKeyResponse) Reset() {
+	*x = OnKeyResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnKeyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnKeyResponse) ProtoMessage() {}
+
+func (x *OnKeyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnKeyResponse.ProtoReflect.Descriptor instead.
+func (*OnKeyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{49}
+}
+
+type OnPressRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPressRequest) Reset() {
+	*x = OnPressRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPressRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPressRequest) ProtoMessage() {}
+
+func (x *OnPressRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPressRequest.ProtoReflect.Descriptor instead.
+func (*OnPressRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *OnPressRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnPressResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnPressResponse) Reset() {
+	*x = OnPressResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnPressResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnPressResponse) ProtoMessage() {}
+
+func (x *OnPressResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnPressResponse.ProtoReflect.Descriptor instead.
+func (*OnPressResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{51}
+}
+
+type OnReleaseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnReleaseRequest) Reset() {
+	*x = OnReleaseRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnReleaseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnReleaseRequest) ProtoMessage() {}
+
+func (x *OnReleaseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnReleaseRequest.ProtoReflect.Descriptor instead.
+func (*OnReleaseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{52}
+}
+
+func (x *OnReleaseRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnReleaseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnReleaseResponse) Reset() {
+	*x = OnReleaseResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnReleaseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnReleaseResponse) ProtoMessage() {}
+
+func (x *OnReleaseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnReleaseResponse.ProtoReflect.Descriptor instead.
+func (*OnReleaseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{53}
+}
+
+type OnTextRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTextRequest) Reset() {
+	*x = OnTextRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTextRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTextRequest) ProtoMessage() {}
+
+func (x *OnTextRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTextRequest.ProtoReflect.Descriptor instead.
+func (*OnTextRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{54}
+}
+
+func (x *OnTextRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type OnTextResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTextResponse) Reset() {
+	*x = OnTextResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTextResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTextResponse) ProtoMessage() {}
+
+func (x *OnTextResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTextResponse.ProtoReflect.Descriptor instead.
+func (*OnTextResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{55}
+}
+
+type SwipeDownRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SwipeDownRequest) Reset() {
+	*x = SwipeDownRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SwipeDownRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SwipeDownRequest) ProtoMessage() {}
+
+func (x *SwipeDownRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SwipeDownRequest.ProtoReflect.Descriptor instead.
+func (*SwipeDownRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{56}
+}
+
+type SwipeDownResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SwipeDownResponse) Reset() {
+	*x = SwipeDownResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SwipeDownResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SwipeDownResponse) ProtoMessage() {}
+
+func (x *SwipeDownResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SwipeDownResponse.ProtoReflect.Descriptor instead.
+func (*SwipeDownResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{57}
+}
+
+type SwipeLeftRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SwipeLeftRequest) Reset() {
+	*x = SwipeLeftRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SwipeLeftRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SwipeLeftRequest) ProtoMessage() {}
+
+func (x *SwipeLeftRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SwipeLeftRequest.ProtoReflect.Descriptor instead.
+func (*SwipeLeftRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{58}
+}
+
+type SwipeLeftResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SwipeLeftResponse) Reset() {
+	*x = SwipeLeftResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SwipeLeftResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SwipeLeftResponse) ProtoMessage() {}
+
+func (x *SwipeLeftResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SwipeLeftResponse.ProtoReflect.Descriptor instead.
+func (*SwipeLeftResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{59}
+}
+
+type SwipeRightRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SwipeRightRequest) Reset() {
+	*x = SwipeRightRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SwipeRightRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SwipeRightRequest) ProtoMessage() {}
+
+func (x *SwipeRightRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SwipeRightRequest.ProtoReflect.Descriptor instead.
+func (*SwipeRightRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{60}
+}
+
+type SwipeRightResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SwipeRightResponse) Reset() {
+	*x = SwipeRightResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SwipeRightResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SwipeRightResponse) ProtoMessage() {}
+
+func (x *SwipeRightResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SwipeRightResponse.ProtoReflect.Descriptor instead.
+func (*SwipeRightResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{61}
+}
+
+type SwipeUpRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SwipeUpRequest) Reset() {
+	*x = SwipeUpRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SwipeUpRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SwipeUpRequest) ProtoMessage() {}
+
+func (x *SwipeUpRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SwipeUpRequest.ProtoReflect.Descriptor instead.
+func (*SwipeUpRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{62}
+}
+
+type SwipeUpResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SwipeUpResponse) Reset() {
+	*x = SwipeUpResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SwipeUpResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SwipeUpResponse) ProtoMessage() {}
+
+func (x *SwipeUpResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SwipeUpResponse.ProtoReflect.Descriptor instead.
+func (*SwipeUpResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{63}
+}
+
 type NewKeyboardRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -33,7 +2809,7 @@ type NewKeyboardRequest struct {
 
 func (x *NewKeyboardRequest) Reset() {
 	*x = NewKeyboardRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[0]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -45,7 +2821,7 @@ func (x *NewKeyboardRequest) String() string {
 func (*NewKeyboardRequest) ProtoMessage() {}
 
 func (x *NewKeyboardRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[0]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -58,7 +2834,7 @@ func (x *NewKeyboardRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewKeyboardRequest.ProtoReflect.Descriptor instead.
 func (*NewKeyboardRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{0}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{64}
 }
 
 func (x *NewKeyboardRequest) GetArg0() int64 {
@@ -84,7 +2860,7 @@ type NewKeyboardResponse struct {
 
 func (x *NewKeyboardResponse) Reset() {
 	*x = NewKeyboardResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[1]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -96,7 +2872,7 @@ func (x *NewKeyboardResponse) String() string {
 func (*NewKeyboardResponse) ProtoMessage() {}
 
 func (x *NewKeyboardResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[1]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -109,7 +2885,7 @@ func (x *NewKeyboardResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewKeyboardResponse.ProtoReflect.Descriptor instead.
 func (*NewKeyboardResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{1}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{65}
 }
 
 func (x *NewKeyboardResponse) GetResult() int64 {
@@ -128,7 +2904,7 @@ type GetHeightRequest struct {
 
 func (x *GetHeightRequest) Reset() {
 	*x = GetHeightRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[2]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -140,7 +2916,7 @@ func (x *GetHeightRequest) String() string {
 func (*GetHeightRequest) ProtoMessage() {}
 
 func (x *GetHeightRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[2]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -153,7 +2929,7 @@ func (x *GetHeightRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetHeightRequest.ProtoReflect.Descriptor instead.
 func (*GetHeightRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{2}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{66}
 }
 
 func (x *GetHeightRequest) GetHandle() int64 {
@@ -172,7 +2948,7 @@ type GetHeightResponse struct {
 
 func (x *GetHeightResponse) Reset() {
 	*x = GetHeightResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[3]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -184,7 +2960,7 @@ func (x *GetHeightResponse) String() string {
 func (*GetHeightResponse) ProtoMessage() {}
 
 func (x *GetHeightResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[3]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -197,10 +2973,98 @@ func (x *GetHeightResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetHeightResponse.ProtoReflect.Descriptor instead.
 func (*GetHeightResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{3}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{67}
 }
 
 func (x *GetHeightResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetKeysRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetKeysRequest) Reset() {
+	*x = GetKeysRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetKeysRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetKeysRequest) ProtoMessage() {}
+
+func (x *GetKeysRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetKeysRequest.ProtoReflect.Descriptor instead.
+func (*GetKeysRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{68}
+}
+
+func (x *GetKeysRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetKeysResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetKeysResponse) Reset() {
+	*x = GetKeysResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetKeysResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetKeysResponse) ProtoMessage() {}
+
+func (x *GetKeysResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetKeysResponse.ProtoReflect.Descriptor instead.
+func (*GetKeysResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{69}
+}
+
+func (x *GetKeysResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -216,7 +3080,7 @@ type GetMinWidthRequest struct {
 
 func (x *GetMinWidthRequest) Reset() {
 	*x = GetMinWidthRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[4]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -228,7 +3092,7 @@ func (x *GetMinWidthRequest) String() string {
 func (*GetMinWidthRequest) ProtoMessage() {}
 
 func (x *GetMinWidthRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[4]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -241,7 +3105,7 @@ func (x *GetMinWidthRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMinWidthRequest.ProtoReflect.Descriptor instead.
 func (*GetMinWidthRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{4}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{70}
 }
 
 func (x *GetMinWidthRequest) GetHandle() int64 {
@@ -260,7 +3124,7 @@ type GetMinWidthResponse struct {
 
 func (x *GetMinWidthResponse) Reset() {
 	*x = GetMinWidthResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[5]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -272,7 +3136,7 @@ func (x *GetMinWidthResponse) String() string {
 func (*GetMinWidthResponse) ProtoMessage() {}
 
 func (x *GetMinWidthResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[5]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -285,10 +3149,98 @@ func (x *GetMinWidthResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMinWidthResponse.ProtoReflect.Descriptor instead.
 func (*GetMinWidthResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{5}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{71}
 }
 
 func (x *GetMinWidthResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetModifierKeysRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetModifierKeysRequest) Reset() {
+	*x = GetModifierKeysRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[72]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetModifierKeysRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetModifierKeysRequest) ProtoMessage() {}
+
+func (x *GetModifierKeysRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[72]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetModifierKeysRequest.ProtoReflect.Descriptor instead.
+func (*GetModifierKeysRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{72}
+}
+
+func (x *GetModifierKeysRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetModifierKeysResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetModifierKeysResponse) Reset() {
+	*x = GetModifierKeysResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[73]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetModifierKeysResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetModifierKeysResponse) ProtoMessage() {}
+
+func (x *GetModifierKeysResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[73]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetModifierKeysResponse.ProtoReflect.Descriptor instead.
+func (*GetModifierKeysResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{73}
+}
+
+func (x *GetModifierKeysResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -306,7 +3258,7 @@ type GetNearestKeysRequest struct {
 
 func (x *GetNearestKeysRequest) Reset() {
 	*x = GetNearestKeysRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[6]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[74]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -318,7 +3270,7 @@ func (x *GetNearestKeysRequest) String() string {
 func (*GetNearestKeysRequest) ProtoMessage() {}
 
 func (x *GetNearestKeysRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[6]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[74]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -331,7 +3283,7 @@ func (x *GetNearestKeysRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNearestKeysRequest.ProtoReflect.Descriptor instead.
 func (*GetNearestKeysRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{6}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{74}
 }
 
 func (x *GetNearestKeysRequest) GetHandle() int64 {
@@ -364,7 +3316,7 @@ type GetNearestKeysResponse struct {
 
 func (x *GetNearestKeysResponse) Reset() {
 	*x = GetNearestKeysResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[7]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[75]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -376,7 +3328,7 @@ func (x *GetNearestKeysResponse) String() string {
 func (*GetNearestKeysResponse) ProtoMessage() {}
 
 func (x *GetNearestKeysResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[7]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[75]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -389,7 +3341,7 @@ func (x *GetNearestKeysResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNearestKeysResponse.ProtoReflect.Descriptor instead.
 func (*GetNearestKeysResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{7}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{75}
 }
 
 func (x *GetNearestKeysResponse) GetResult() int64 {
@@ -408,7 +3360,7 @@ type GetShiftKeyIndexRequest struct {
 
 func (x *GetShiftKeyIndexRequest) Reset() {
 	*x = GetShiftKeyIndexRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[8]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[76]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -420,7 +3372,7 @@ func (x *GetShiftKeyIndexRequest) String() string {
 func (*GetShiftKeyIndexRequest) ProtoMessage() {}
 
 func (x *GetShiftKeyIndexRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[8]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[76]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -433,7 +3385,7 @@ func (x *GetShiftKeyIndexRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetShiftKeyIndexRequest.ProtoReflect.Descriptor instead.
 func (*GetShiftKeyIndexRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{8}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{76}
 }
 
 func (x *GetShiftKeyIndexRequest) GetHandle() int64 {
@@ -452,7 +3404,7 @@ type GetShiftKeyIndexResponse struct {
 
 func (x *GetShiftKeyIndexResponse) Reset() {
 	*x = GetShiftKeyIndexResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[9]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[77]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -464,7 +3416,7 @@ func (x *GetShiftKeyIndexResponse) String() string {
 func (*GetShiftKeyIndexResponse) ProtoMessage() {}
 
 func (x *GetShiftKeyIndexResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[9]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[77]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -477,7 +3429,7 @@ func (x *GetShiftKeyIndexResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetShiftKeyIndexResponse.ProtoReflect.Descriptor instead.
 func (*GetShiftKeyIndexResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{9}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{77}
 }
 
 func (x *GetShiftKeyIndexResponse) GetResult() int32 {
@@ -485,190 +3437,6 @@ func (x *GetShiftKeyIndexResponse) GetResult() int32 {
 		return x.Result
 	}
 	return 0
-}
-
-type IsShiftedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsShiftedRequest) Reset() {
-	*x = IsShiftedRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[10]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsShiftedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsShiftedRequest) ProtoMessage() {}
-
-func (x *IsShiftedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[10]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsShiftedRequest.ProtoReflect.Descriptor instead.
-func (*IsShiftedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{10}
-}
-
-func (x *IsShiftedRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type IsShiftedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsShiftedResponse) Reset() {
-	*x = IsShiftedResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[11]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsShiftedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsShiftedResponse) ProtoMessage() {}
-
-func (x *IsShiftedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[11]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsShiftedResponse.ProtoReflect.Descriptor instead.
-func (*IsShiftedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{11}
-}
-
-func (x *IsShiftedResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type SetShiftedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetShiftedRequest) Reset() {
-	*x = SetShiftedRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[12]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetShiftedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetShiftedRequest) ProtoMessage() {}
-
-func (x *SetShiftedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[12]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetShiftedRequest.ProtoReflect.Descriptor instead.
-func (*SetShiftedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{12}
-}
-
-func (x *SetShiftedRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *SetShiftedRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type SetShiftedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetShiftedResponse) Reset() {
-	*x = SetShiftedResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[13]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetShiftedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetShiftedResponse) ProtoMessage() {}
-
-func (x *SetShiftedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[13]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetShiftedResponse.ProtoReflect.Descriptor instead.
-func (*SetShiftedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{13}
-}
-
-func (x *SetShiftedResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
 }
 
 type GetCurrentDrawableStateRequest struct {
@@ -679,7 +3447,7 @@ type GetCurrentDrawableStateRequest struct {
 
 func (x *GetCurrentDrawableStateRequest) Reset() {
 	*x = GetCurrentDrawableStateRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[14]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[78]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -691,7 +3459,7 @@ func (x *GetCurrentDrawableStateRequest) String() string {
 func (*GetCurrentDrawableStateRequest) ProtoMessage() {}
 
 func (x *GetCurrentDrawableStateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[14]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[78]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -704,7 +3472,7 @@ func (x *GetCurrentDrawableStateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCurrentDrawableStateRequest.ProtoReflect.Descriptor instead.
 func (*GetCurrentDrawableStateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{14}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{78}
 }
 
 type GetCurrentDrawableStateResponse struct {
@@ -716,7 +3484,7 @@ type GetCurrentDrawableStateResponse struct {
 
 func (x *GetCurrentDrawableStateResponse) Reset() {
 	*x = GetCurrentDrawableStateResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[15]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[79]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -728,7 +3496,7 @@ func (x *GetCurrentDrawableStateResponse) String() string {
 func (*GetCurrentDrawableStateResponse) ProtoMessage() {}
 
 func (x *GetCurrentDrawableStateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[15]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[79]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -741,7 +3509,7 @@ func (x *GetCurrentDrawableStateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCurrentDrawableStateResponse.ProtoReflect.Descriptor instead.
 func (*GetCurrentDrawableStateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{15}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{79}
 }
 
 func (x *GetCurrentDrawableStateResponse) GetResult() int64 {
@@ -761,7 +3529,7 @@ type IsInsideRequest struct {
 
 func (x *IsInsideRequest) Reset() {
 	*x = IsInsideRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[16]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[80]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -773,7 +3541,7 @@ func (x *IsInsideRequest) String() string {
 func (*IsInsideRequest) ProtoMessage() {}
 
 func (x *IsInsideRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[16]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[80]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -786,7 +3554,7 @@ func (x *IsInsideRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsInsideRequest.ProtoReflect.Descriptor instead.
 func (*IsInsideRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{16}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{80}
 }
 
 func (x *IsInsideRequest) GetArg0() int32 {
@@ -812,7 +3580,7 @@ type IsInsideResponse struct {
 
 func (x *IsInsideResponse) Reset() {
 	*x = IsInsideResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[17]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[81]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -824,7 +3592,7 @@ func (x *IsInsideResponse) String() string {
 func (*IsInsideResponse) ProtoMessage() {}
 
 func (x *IsInsideResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[17]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[81]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -837,7 +3605,7 @@ func (x *IsInsideResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsInsideResponse.ProtoReflect.Descriptor instead.
 func (*IsInsideResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{17}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{81}
 }
 
 func (x *IsInsideResponse) GetResult() bool {
@@ -855,7 +3623,7 @@ type OnPressedRequest struct {
 
 func (x *OnPressedRequest) Reset() {
 	*x = OnPressedRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[18]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[82]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -867,7 +3635,7 @@ func (x *OnPressedRequest) String() string {
 func (*OnPressedRequest) ProtoMessage() {}
 
 func (x *OnPressedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[18]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[82]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -880,7 +3648,7 @@ func (x *OnPressedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnPressedRequest.ProtoReflect.Descriptor instead.
 func (*OnPressedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{18}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{82}
 }
 
 type OnPressedResponse struct {
@@ -891,7 +3659,7 @@ type OnPressedResponse struct {
 
 func (x *OnPressedResponse) Reset() {
 	*x = OnPressedResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[19]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[83]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -903,7 +3671,7 @@ func (x *OnPressedResponse) String() string {
 func (*OnPressedResponse) ProtoMessage() {}
 
 func (x *OnPressedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[19]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[83]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -916,7 +3684,7 @@ func (x *OnPressedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnPressedResponse.ProtoReflect.Descriptor instead.
 func (*OnPressedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{19}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{83}
 }
 
 type OnReleasedRequest struct {
@@ -928,7 +3696,7 @@ type OnReleasedRequest struct {
 
 func (x *OnReleasedRequest) Reset() {
 	*x = OnReleasedRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[20]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[84]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -940,7 +3708,7 @@ func (x *OnReleasedRequest) String() string {
 func (*OnReleasedRequest) ProtoMessage() {}
 
 func (x *OnReleasedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[20]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[84]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -953,7 +3721,7 @@ func (x *OnReleasedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnReleasedRequest.ProtoReflect.Descriptor instead.
 func (*OnReleasedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{20}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{84}
 }
 
 func (x *OnReleasedRequest) GetArg0() bool {
@@ -971,7 +3739,7 @@ type OnReleasedResponse struct {
 
 func (x *OnReleasedResponse) Reset() {
 	*x = OnReleasedResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[21]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[85]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -983,7 +3751,7 @@ func (x *OnReleasedResponse) String() string {
 func (*OnReleasedResponse) ProtoMessage() {}
 
 func (x *OnReleasedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[21]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[85]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -996,7 +3764,7 @@ func (x *OnReleasedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnReleasedResponse.ProtoReflect.Descriptor instead.
 func (*OnReleasedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{21}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{85}
 }
 
 type SquaredDistanceFromRequest struct {
@@ -1009,7 +3777,7 @@ type SquaredDistanceFromRequest struct {
 
 func (x *SquaredDistanceFromRequest) Reset() {
 	*x = SquaredDistanceFromRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[22]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[86]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1021,7 +3789,7 @@ func (x *SquaredDistanceFromRequest) String() string {
 func (*SquaredDistanceFromRequest) ProtoMessage() {}
 
 func (x *SquaredDistanceFromRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[22]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[86]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1034,7 +3802,7 @@ func (x *SquaredDistanceFromRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SquaredDistanceFromRequest.ProtoReflect.Descriptor instead.
 func (*SquaredDistanceFromRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{22}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{86}
 }
 
 func (x *SquaredDistanceFromRequest) GetArg0() int32 {
@@ -1060,7 +3828,7 @@ type SquaredDistanceFromResponse struct {
 
 func (x *SquaredDistanceFromResponse) Reset() {
 	*x = SquaredDistanceFromResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[23]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[87]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1072,7 +3840,7 @@ func (x *SquaredDistanceFromResponse) String() string {
 func (*SquaredDistanceFromResponse) ProtoMessage() {}
 
 func (x *SquaredDistanceFromResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[23]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[87]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1085,7 +3853,7 @@ func (x *SquaredDistanceFromResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SquaredDistanceFromResponse.ProtoReflect.Descriptor instead.
 func (*SquaredDistanceFromResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{23}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{87}
 }
 
 func (x *SquaredDistanceFromResponse) GetResult() int32 {
@@ -1093,6 +3861,966 @@ func (x *SquaredDistanceFromResponse) GetResult() int32 {
 		return x.Result
 	}
 	return 0
+}
+
+type NewExtractEditTextRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewExtractEditTextRequest) Reset() {
+	*x = NewExtractEditTextRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[88]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewExtractEditTextRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewExtractEditTextRequest) ProtoMessage() {}
+
+func (x *NewExtractEditTextRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[88]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewExtractEditTextRequest.ProtoReflect.Descriptor instead.
+func (*NewExtractEditTextRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{88}
+}
+
+func (x *NewExtractEditTextRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewExtractEditTextResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewExtractEditTextResponse) Reset() {
+	*x = NewExtractEditTextResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[89]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewExtractEditTextResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewExtractEditTextResponse) ProtoMessage() {}
+
+func (x *NewExtractEditTextResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[89]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewExtractEditTextResponse.ProtoReflect.Descriptor instead.
+func (*NewExtractEditTextResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{89}
+}
+
+func (x *NewExtractEditTextResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type FinishInternalChangesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FinishInternalChangesRequest) Reset() {
+	*x = FinishInternalChangesRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[90]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FinishInternalChangesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FinishInternalChangesRequest) ProtoMessage() {}
+
+func (x *FinishInternalChangesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[90]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FinishInternalChangesRequest.ProtoReflect.Descriptor instead.
+func (*FinishInternalChangesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{90}
+}
+
+func (x *FinishInternalChangesRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type FinishInternalChangesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FinishInternalChangesResponse) Reset() {
+	*x = FinishInternalChangesResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[91]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FinishInternalChangesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FinishInternalChangesResponse) ProtoMessage() {}
+
+func (x *FinishInternalChangesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[91]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FinishInternalChangesResponse.ProtoReflect.Descriptor instead.
+func (*FinishInternalChangesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{91}
+}
+
+type HasFocusRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasFocusRequest) Reset() {
+	*x = HasFocusRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[92]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasFocusRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasFocusRequest) ProtoMessage() {}
+
+func (x *HasFocusRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[92]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasFocusRequest.ProtoReflect.Descriptor instead.
+func (*HasFocusRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{92}
+}
+
+func (x *HasFocusRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type HasFocusResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasFocusResponse) Reset() {
+	*x = HasFocusResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[93]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasFocusResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasFocusResponse) ProtoMessage() {}
+
+func (x *HasFocusResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[93]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasFocusResponse.ProtoReflect.Descriptor instead.
+func (*HasFocusResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{93}
+}
+
+func (x *HasFocusResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type HasVerticalScrollBarRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasVerticalScrollBarRequest) Reset() {
+	*x = HasVerticalScrollBarRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[94]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasVerticalScrollBarRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasVerticalScrollBarRequest) ProtoMessage() {}
+
+func (x *HasVerticalScrollBarRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[94]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasVerticalScrollBarRequest.ProtoReflect.Descriptor instead.
+func (*HasVerticalScrollBarRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{94}
+}
+
+func (x *HasVerticalScrollBarRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type HasVerticalScrollBarResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasVerticalScrollBarResponse) Reset() {
+	*x = HasVerticalScrollBarResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[95]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasVerticalScrollBarResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasVerticalScrollBarResponse) ProtoMessage() {}
+
+func (x *HasVerticalScrollBarResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[95]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasVerticalScrollBarResponse.ProtoReflect.Descriptor instead.
+func (*HasVerticalScrollBarResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{95}
+}
+
+func (x *HasVerticalScrollBarResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type HasWindowFocusRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasWindowFocusRequest) Reset() {
+	*x = HasWindowFocusRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[96]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasWindowFocusRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasWindowFocusRequest) ProtoMessage() {}
+
+func (x *HasWindowFocusRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[96]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasWindowFocusRequest.ProtoReflect.Descriptor instead.
+func (*HasWindowFocusRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{96}
+}
+
+func (x *HasWindowFocusRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type HasWindowFocusResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HasWindowFocusResponse) Reset() {
+	*x = HasWindowFocusResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[97]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HasWindowFocusResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HasWindowFocusResponse) ProtoMessage() {}
+
+func (x *HasWindowFocusResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[97]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HasWindowFocusResponse.ProtoReflect.Descriptor instead.
+func (*HasWindowFocusResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{97}
+}
+
+func (x *HasWindowFocusResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsFocusedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsFocusedRequest) Reset() {
+	*x = IsFocusedRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[98]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsFocusedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsFocusedRequest) ProtoMessage() {}
+
+func (x *IsFocusedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[98]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsFocusedRequest.ProtoReflect.Descriptor instead.
+func (*IsFocusedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{98}
+}
+
+func (x *IsFocusedRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsFocusedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsFocusedResponse) Reset() {
+	*x = IsFocusedResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[99]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsFocusedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsFocusedResponse) ProtoMessage() {}
+
+func (x *IsFocusedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[99]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsFocusedResponse.ProtoReflect.Descriptor instead.
+func (*IsFocusedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{99}
+}
+
+func (x *IsFocusedResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type IsInputMethodTargetRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsInputMethodTargetRequest) Reset() {
+	*x = IsInputMethodTargetRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[100]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsInputMethodTargetRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsInputMethodTargetRequest) ProtoMessage() {}
+
+func (x *IsInputMethodTargetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[100]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsInputMethodTargetRequest.ProtoReflect.Descriptor instead.
+func (*IsInputMethodTargetRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{100}
+}
+
+func (x *IsInputMethodTargetRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type IsInputMethodTargetResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsInputMethodTargetResponse) Reset() {
+	*x = IsInputMethodTargetResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[101]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsInputMethodTargetResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsInputMethodTargetResponse) ProtoMessage() {}
+
+func (x *IsInputMethodTargetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[101]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsInputMethodTargetResponse.ProtoReflect.Descriptor instead.
+func (*IsInputMethodTargetResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{101}
+}
+
+func (x *IsInputMethodTargetResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type OnTextContextMenuItemRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTextContextMenuItemRequest) Reset() {
+	*x = OnTextContextMenuItemRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[102]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTextContextMenuItemRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTextContextMenuItemRequest) ProtoMessage() {}
+
+func (x *OnTextContextMenuItemRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[102]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTextContextMenuItemRequest.ProtoReflect.Descriptor instead.
+func (*OnTextContextMenuItemRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{102}
+}
+
+func (x *OnTextContextMenuItemRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *OnTextContextMenuItemRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnTextContextMenuItemResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnTextContextMenuItemResponse) Reset() {
+	*x = OnTextContextMenuItemResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[103]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnTextContextMenuItemResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnTextContextMenuItemResponse) ProtoMessage() {}
+
+func (x *OnTextContextMenuItemResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[103]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnTextContextMenuItemResponse.ProtoReflect.Descriptor instead.
+func (*OnTextContextMenuItemResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{103}
+}
+
+func (x *OnTextContextMenuItemResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type PerformClickRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PerformClickRequest) Reset() {
+	*x = PerformClickRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[104]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PerformClickRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PerformClickRequest) ProtoMessage() {}
+
+func (x *PerformClickRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[104]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PerformClickRequest.ProtoReflect.Descriptor instead.
+func (*PerformClickRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{104}
+}
+
+func (x *PerformClickRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type PerformClickResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PerformClickResponse) Reset() {
+	*x = PerformClickResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[105]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PerformClickResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PerformClickResponse) ProtoMessage() {}
+
+func (x *PerformClickResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[105]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PerformClickResponse.ProtoReflect.Descriptor instead.
+func (*PerformClickResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{105}
+}
+
+func (x *PerformClickResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type SetExtractedTextRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetExtractedTextRequest) Reset() {
+	*x = SetExtractedTextRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[106]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetExtractedTextRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetExtractedTextRequest) ProtoMessage() {}
+
+func (x *SetExtractedTextRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[106]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetExtractedTextRequest.ProtoReflect.Descriptor instead.
+func (*SetExtractedTextRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{106}
+}
+
+func (x *SetExtractedTextRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *SetExtractedTextRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetExtractedTextResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetExtractedTextResponse) Reset() {
+	*x = SetExtractedTextResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[107]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetExtractedTextResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetExtractedTextResponse) ProtoMessage() {}
+
+func (x *SetExtractedTextResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[107]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetExtractedTextResponse.ProtoReflect.Descriptor instead.
+func (*SetExtractedTextResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{107}
+}
+
+type StartInternalChangesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StartInternalChangesRequest) Reset() {
+	*x = StartInternalChangesRequest{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[108]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StartInternalChangesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StartInternalChangesRequest) ProtoMessage() {}
+
+func (x *StartInternalChangesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[108]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StartInternalChangesRequest.ProtoReflect.Descriptor instead.
+func (*StartInternalChangesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{108}
+}
+
+func (x *StartInternalChangesRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type StartInternalChangesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StartInternalChangesResponse) Reset() {
+	*x = StartInternalChangesResponse{}
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[109]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StartInternalChangesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StartInternalChangesResponse) ProtoMessage() {}
+
+func (x *StartInternalChangesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[109]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StartInternalChangesResponse.ProtoReflect.Descriptor instead.
+func (*StartInternalChangesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{109}
 }
 
 type GetKeyDispatcherStateRequest struct {
@@ -1103,7 +4831,7 @@ type GetKeyDispatcherStateRequest struct {
 
 func (x *GetKeyDispatcherStateRequest) Reset() {
 	*x = GetKeyDispatcherStateRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[24]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[110]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1115,7 +4843,7 @@ func (x *GetKeyDispatcherStateRequest) String() string {
 func (*GetKeyDispatcherStateRequest) ProtoMessage() {}
 
 func (x *GetKeyDispatcherStateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[24]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[110]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1128,7 +4856,7 @@ func (x *GetKeyDispatcherStateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetKeyDispatcherStateRequest.ProtoReflect.Descriptor instead.
 func (*GetKeyDispatcherStateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{24}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{110}
 }
 
 type GetKeyDispatcherStateResponse struct {
@@ -1140,7 +4868,7 @@ type GetKeyDispatcherStateResponse struct {
 
 func (x *GetKeyDispatcherStateResponse) Reset() {
 	*x = GetKeyDispatcherStateResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[25]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[111]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1152,7 +4880,7 @@ func (x *GetKeyDispatcherStateResponse) String() string {
 func (*GetKeyDispatcherStateResponse) ProtoMessage() {}
 
 func (x *GetKeyDispatcherStateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[25]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[111]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1165,7 +4893,7 @@ func (x *GetKeyDispatcherStateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetKeyDispatcherStateResponse.ProtoReflect.Descriptor instead.
 func (*GetKeyDispatcherStateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{25}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{111}
 }
 
 func (x *GetKeyDispatcherStateResponse) GetResult() int64 {
@@ -1184,7 +4912,7 @@ type GetSystemServiceRequest struct {
 
 func (x *GetSystemServiceRequest) Reset() {
 	*x = GetSystemServiceRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[26]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[112]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1196,7 +4924,7 @@ func (x *GetSystemServiceRequest) String() string {
 func (*GetSystemServiceRequest) ProtoMessage() {}
 
 func (x *GetSystemServiceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[26]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[112]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1209,7 +4937,7 @@ func (x *GetSystemServiceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSystemServiceRequest.ProtoReflect.Descriptor instead.
 func (*GetSystemServiceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{26}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{112}
 }
 
 func (x *GetSystemServiceRequest) GetArg0() string {
@@ -1228,7 +4956,7 @@ type GetSystemServiceResponse struct {
 
 func (x *GetSystemServiceResponse) Reset() {
 	*x = GetSystemServiceResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[27]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[113]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1240,7 +4968,7 @@ func (x *GetSystemServiceResponse) String() string {
 func (*GetSystemServiceResponse) ProtoMessage() {}
 
 func (x *GetSystemServiceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[27]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[113]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1253,7 +4981,7 @@ func (x *GetSystemServiceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSystemServiceResponse.ProtoReflect.Descriptor instead.
 func (*GetSystemServiceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{27}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{113}
 }
 
 func (x *GetSystemServiceResponse) GetResult() int64 {
@@ -1272,7 +5000,7 @@ type OnBindRequest struct {
 
 func (x *OnBindRequest) Reset() {
 	*x = OnBindRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[28]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[114]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1284,7 +5012,7 @@ func (x *OnBindRequest) String() string {
 func (*OnBindRequest) ProtoMessage() {}
 
 func (x *OnBindRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[28]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[114]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1297,7 +5025,7 @@ func (x *OnBindRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnBindRequest.ProtoReflect.Descriptor instead.
 func (*OnBindRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{28}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{114}
 }
 
 func (x *OnBindRequest) GetArg0() int64 {
@@ -1316,7 +5044,7 @@ type OnBindResponse struct {
 
 func (x *OnBindResponse) Reset() {
 	*x = OnBindResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[29]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[115]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1328,7 +5056,7 @@ func (x *OnBindResponse) String() string {
 func (*OnBindResponse) ProtoMessage() {}
 
 func (x *OnBindResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[29]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[115]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1341,7 +5069,7 @@ func (x *OnBindResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnBindResponse.ProtoReflect.Descriptor instead.
 func (*OnBindResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{29}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{115}
 }
 
 func (x *OnBindResponse) GetResult() int64 {
@@ -1360,7 +5088,7 @@ type OnConfigurationChangedRequest struct {
 
 func (x *OnConfigurationChangedRequest) Reset() {
 	*x = OnConfigurationChangedRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[30]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[116]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1372,7 +5100,7 @@ func (x *OnConfigurationChangedRequest) String() string {
 func (*OnConfigurationChangedRequest) ProtoMessage() {}
 
 func (x *OnConfigurationChangedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[30]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[116]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1385,7 +5113,7 @@ func (x *OnConfigurationChangedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnConfigurationChangedRequest.ProtoReflect.Descriptor instead.
 func (*OnConfigurationChangedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{30}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{116}
 }
 
 func (x *OnConfigurationChangedRequest) GetArg0() int64 {
@@ -1403,7 +5131,7 @@ type OnConfigurationChangedResponse struct {
 
 func (x *OnConfigurationChangedResponse) Reset() {
 	*x = OnConfigurationChangedResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[31]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[117]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1415,7 +5143,7 @@ func (x *OnConfigurationChangedResponse) String() string {
 func (*OnConfigurationChangedResponse) ProtoMessage() {}
 
 func (x *OnConfigurationChangedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[31]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[117]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1428,7 +5156,7 @@ func (x *OnConfigurationChangedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnConfigurationChangedResponse.ProtoReflect.Descriptor instead.
 func (*OnConfigurationChangedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{31}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{117}
 }
 
 type OnCreateInputMethodInterfaceRequest struct {
@@ -1439,7 +5167,7 @@ type OnCreateInputMethodInterfaceRequest struct {
 
 func (x *OnCreateInputMethodInterfaceRequest) Reset() {
 	*x = OnCreateInputMethodInterfaceRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[32]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[118]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1451,7 +5179,7 @@ func (x *OnCreateInputMethodInterfaceRequest) String() string {
 func (*OnCreateInputMethodInterfaceRequest) ProtoMessage() {}
 
 func (x *OnCreateInputMethodInterfaceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[32]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[118]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1464,7 +5192,7 @@ func (x *OnCreateInputMethodInterfaceRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use OnCreateInputMethodInterfaceRequest.ProtoReflect.Descriptor instead.
 func (*OnCreateInputMethodInterfaceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{32}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{118}
 }
 
 type OnCreateInputMethodInterfaceResponse struct {
@@ -1476,7 +5204,7 @@ type OnCreateInputMethodInterfaceResponse struct {
 
 func (x *OnCreateInputMethodInterfaceResponse) Reset() {
 	*x = OnCreateInputMethodInterfaceResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[33]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[119]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1488,7 +5216,7 @@ func (x *OnCreateInputMethodInterfaceResponse) String() string {
 func (*OnCreateInputMethodInterfaceResponse) ProtoMessage() {}
 
 func (x *OnCreateInputMethodInterfaceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[33]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[119]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1501,7 +5229,7 @@ func (x *OnCreateInputMethodInterfaceResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use OnCreateInputMethodInterfaceResponse.ProtoReflect.Descriptor instead.
 func (*OnCreateInputMethodInterfaceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{33}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{119}
 }
 
 func (x *OnCreateInputMethodInterfaceResponse) GetResult() int64 {
@@ -1519,7 +5247,7 @@ type OnCreateInputMethodSessionInterfaceRequest struct {
 
 func (x *OnCreateInputMethodSessionInterfaceRequest) Reset() {
 	*x = OnCreateInputMethodSessionInterfaceRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[34]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[120]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1531,7 +5259,7 @@ func (x *OnCreateInputMethodSessionInterfaceRequest) String() string {
 func (*OnCreateInputMethodSessionInterfaceRequest) ProtoMessage() {}
 
 func (x *OnCreateInputMethodSessionInterfaceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[34]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[120]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1544,7 +5272,7 @@ func (x *OnCreateInputMethodSessionInterfaceRequest) ProtoReflect() protoreflect
 
 // Deprecated: Use OnCreateInputMethodSessionInterfaceRequest.ProtoReflect.Descriptor instead.
 func (*OnCreateInputMethodSessionInterfaceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{34}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{120}
 }
 
 type OnCreateInputMethodSessionInterfaceResponse struct {
@@ -1556,7 +5284,7 @@ type OnCreateInputMethodSessionInterfaceResponse struct {
 
 func (x *OnCreateInputMethodSessionInterfaceResponse) Reset() {
 	*x = OnCreateInputMethodSessionInterfaceResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[35]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[121]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1568,7 +5296,7 @@ func (x *OnCreateInputMethodSessionInterfaceResponse) String() string {
 func (*OnCreateInputMethodSessionInterfaceResponse) ProtoMessage() {}
 
 func (x *OnCreateInputMethodSessionInterfaceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[35]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[121]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1581,7 +5309,7 @@ func (x *OnCreateInputMethodSessionInterfaceResponse) ProtoReflect() protoreflec
 
 // Deprecated: Use OnCreateInputMethodSessionInterfaceResponse.ProtoReflect.Descriptor instead.
 func (*OnCreateInputMethodSessionInterfaceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{35}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{121}
 }
 
 func (x *OnCreateInputMethodSessionInterfaceResponse) GetResult() int64 {
@@ -1599,7 +5327,7 @@ type OnDestroyRequest struct {
 
 func (x *OnDestroyRequest) Reset() {
 	*x = OnDestroyRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[36]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[122]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1611,7 +5339,7 @@ func (x *OnDestroyRequest) String() string {
 func (*OnDestroyRequest) ProtoMessage() {}
 
 func (x *OnDestroyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[36]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[122]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1624,7 +5352,7 @@ func (x *OnDestroyRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnDestroyRequest.ProtoReflect.Descriptor instead.
 func (*OnDestroyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{36}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{122}
 }
 
 type OnDestroyResponse struct {
@@ -1635,7 +5363,7 @@ type OnDestroyResponse struct {
 
 func (x *OnDestroyResponse) Reset() {
 	*x = OnDestroyResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[37]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[123]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1647,7 +5375,7 @@ func (x *OnDestroyResponse) String() string {
 func (*OnDestroyResponse) ProtoMessage() {}
 
 func (x *OnDestroyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[37]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[123]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1660,7 +5388,7 @@ func (x *OnDestroyResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnDestroyResponse.ProtoReflect.Descriptor instead.
 func (*OnDestroyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{37}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{123}
 }
 
 type OnGenericMotionEventRequest struct {
@@ -1672,7 +5400,7 @@ type OnGenericMotionEventRequest struct {
 
 func (x *OnGenericMotionEventRequest) Reset() {
 	*x = OnGenericMotionEventRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[38]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[124]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1684,7 +5412,7 @@ func (x *OnGenericMotionEventRequest) String() string {
 func (*OnGenericMotionEventRequest) ProtoMessage() {}
 
 func (x *OnGenericMotionEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[38]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[124]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1697,7 +5425,7 @@ func (x *OnGenericMotionEventRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnGenericMotionEventRequest.ProtoReflect.Descriptor instead.
 func (*OnGenericMotionEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{38}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{124}
 }
 
 func (x *OnGenericMotionEventRequest) GetArg0() int64 {
@@ -1716,7 +5444,7 @@ type OnGenericMotionEventResponse struct {
 
 func (x *OnGenericMotionEventResponse) Reset() {
 	*x = OnGenericMotionEventResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[39]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[125]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1728,7 +5456,7 @@ func (x *OnGenericMotionEventResponse) String() string {
 func (*OnGenericMotionEventResponse) ProtoMessage() {}
 
 func (x *OnGenericMotionEventResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[39]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[125]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1741,7 +5469,7 @@ func (x *OnGenericMotionEventResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnGenericMotionEventResponse.ProtoReflect.Descriptor instead.
 func (*OnGenericMotionEventResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{39}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{125}
 }
 
 func (x *OnGenericMotionEventResponse) GetResult() bool {
@@ -1759,7 +5487,7 @@ type OnLowMemoryRequest struct {
 
 func (x *OnLowMemoryRequest) Reset() {
 	*x = OnLowMemoryRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[40]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[126]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1771,7 +5499,7 @@ func (x *OnLowMemoryRequest) String() string {
 func (*OnLowMemoryRequest) ProtoMessage() {}
 
 func (x *OnLowMemoryRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[40]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[126]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1784,7 +5512,7 @@ func (x *OnLowMemoryRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnLowMemoryRequest.ProtoReflect.Descriptor instead.
 func (*OnLowMemoryRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{40}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{126}
 }
 
 type OnLowMemoryResponse struct {
@@ -1795,7 +5523,7 @@ type OnLowMemoryResponse struct {
 
 func (x *OnLowMemoryResponse) Reset() {
 	*x = OnLowMemoryResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[41]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[127]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1807,7 +5535,7 @@ func (x *OnLowMemoryResponse) String() string {
 func (*OnLowMemoryResponse) ProtoMessage() {}
 
 func (x *OnLowMemoryResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[41]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[127]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1820,7 +5548,7 @@ func (x *OnLowMemoryResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnLowMemoryResponse.ProtoReflect.Descriptor instead.
 func (*OnLowMemoryResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{41}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{127}
 }
 
 type OnShouldVerifyKeyEventRequest struct {
@@ -1832,7 +5560,7 @@ type OnShouldVerifyKeyEventRequest struct {
 
 func (x *OnShouldVerifyKeyEventRequest) Reset() {
 	*x = OnShouldVerifyKeyEventRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[42]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[128]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1844,7 +5572,7 @@ func (x *OnShouldVerifyKeyEventRequest) String() string {
 func (*OnShouldVerifyKeyEventRequest) ProtoMessage() {}
 
 func (x *OnShouldVerifyKeyEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[42]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[128]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1857,7 +5585,7 @@ func (x *OnShouldVerifyKeyEventRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnShouldVerifyKeyEventRequest.ProtoReflect.Descriptor instead.
 func (*OnShouldVerifyKeyEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{42}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{128}
 }
 
 func (x *OnShouldVerifyKeyEventRequest) GetArg0() int64 {
@@ -1876,7 +5604,7 @@ type OnShouldVerifyKeyEventResponse struct {
 
 func (x *OnShouldVerifyKeyEventResponse) Reset() {
 	*x = OnShouldVerifyKeyEventResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[43]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[129]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1888,7 +5616,7 @@ func (x *OnShouldVerifyKeyEventResponse) String() string {
 func (*OnShouldVerifyKeyEventResponse) ProtoMessage() {}
 
 func (x *OnShouldVerifyKeyEventResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[43]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[129]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1901,7 +5629,7 @@ func (x *OnShouldVerifyKeyEventResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnShouldVerifyKeyEventResponse.ProtoReflect.Descriptor instead.
 func (*OnShouldVerifyKeyEventResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{43}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{129}
 }
 
 func (x *OnShouldVerifyKeyEventResponse) GetResult() bool {
@@ -1920,7 +5648,7 @@ type OnTrackballEventRequest struct {
 
 func (x *OnTrackballEventRequest) Reset() {
 	*x = OnTrackballEventRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[44]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[130]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1932,7 +5660,7 @@ func (x *OnTrackballEventRequest) String() string {
 func (*OnTrackballEventRequest) ProtoMessage() {}
 
 func (x *OnTrackballEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[44]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[130]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1945,7 +5673,7 @@ func (x *OnTrackballEventRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnTrackballEventRequest.ProtoReflect.Descriptor instead.
 func (*OnTrackballEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{44}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{130}
 }
 
 func (x *OnTrackballEventRequest) GetArg0() int64 {
@@ -1964,7 +5692,7 @@ type OnTrackballEventResponse struct {
 
 func (x *OnTrackballEventResponse) Reset() {
 	*x = OnTrackballEventResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[45]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[131]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1976,7 +5704,7 @@ func (x *OnTrackballEventResponse) String() string {
 func (*OnTrackballEventResponse) ProtoMessage() {}
 
 func (x *OnTrackballEventResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[45]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[131]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1989,7 +5717,7 @@ func (x *OnTrackballEventResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnTrackballEventResponse.ProtoReflect.Descriptor instead.
 func (*OnTrackballEventResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{45}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{131}
 }
 
 func (x *OnTrackballEventResponse) GetResult() bool {
@@ -2008,7 +5736,7 @@ type OnTrimMemoryRequest struct {
 
 func (x *OnTrimMemoryRequest) Reset() {
 	*x = OnTrimMemoryRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[46]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[132]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2020,7 +5748,7 @@ func (x *OnTrimMemoryRequest) String() string {
 func (*OnTrimMemoryRequest) ProtoMessage() {}
 
 func (x *OnTrimMemoryRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[46]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[132]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2033,7 +5761,7 @@ func (x *OnTrimMemoryRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnTrimMemoryRequest.ProtoReflect.Descriptor instead.
 func (*OnTrimMemoryRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{46}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{132}
 }
 
 func (x *OnTrimMemoryRequest) GetArg0() int32 {
@@ -2051,7 +5779,7 @@ type OnTrimMemoryResponse struct {
 
 func (x *OnTrimMemoryResponse) Reset() {
 	*x = OnTrimMemoryResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[47]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[133]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2063,7 +5791,7 @@ func (x *OnTrimMemoryResponse) String() string {
 func (*OnTrimMemoryResponse) ProtoMessage() {}
 
 func (x *OnTrimMemoryResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[47]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[133]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2076,7 +5804,7 @@ func (x *OnTrimMemoryResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnTrimMemoryResponse.ProtoReflect.Descriptor instead.
 func (*OnTrimMemoryResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{47}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{133}
 }
 
 type RegisterComponentCallbacksRequest struct {
@@ -2088,7 +5816,7 @@ type RegisterComponentCallbacksRequest struct {
 
 func (x *RegisterComponentCallbacksRequest) Reset() {
 	*x = RegisterComponentCallbacksRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[48]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[134]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2100,7 +5828,7 @@ func (x *RegisterComponentCallbacksRequest) String() string {
 func (*RegisterComponentCallbacksRequest) ProtoMessage() {}
 
 func (x *RegisterComponentCallbacksRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[48]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[134]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2113,7 +5841,7 @@ func (x *RegisterComponentCallbacksRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use RegisterComponentCallbacksRequest.ProtoReflect.Descriptor instead.
 func (*RegisterComponentCallbacksRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{48}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{134}
 }
 
 func (x *RegisterComponentCallbacksRequest) GetArg0() int64 {
@@ -2131,7 +5859,7 @@ type RegisterComponentCallbacksResponse struct {
 
 func (x *RegisterComponentCallbacksResponse) Reset() {
 	*x = RegisterComponentCallbacksResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[49]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[135]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2143,7 +5871,7 @@ func (x *RegisterComponentCallbacksResponse) String() string {
 func (*RegisterComponentCallbacksResponse) ProtoMessage() {}
 
 func (x *RegisterComponentCallbacksResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[49]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[135]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2156,7 +5884,7 @@ func (x *RegisterComponentCallbacksResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use RegisterComponentCallbacksResponse.ProtoReflect.Descriptor instead.
 func (*RegisterComponentCallbacksResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{49}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{135}
 }
 
 type UnregisterComponentCallbacksRequest struct {
@@ -2168,7 +5896,7 @@ type UnregisterComponentCallbacksRequest struct {
 
 func (x *UnregisterComponentCallbacksRequest) Reset() {
 	*x = UnregisterComponentCallbacksRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[50]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[136]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2180,7 +5908,7 @@ func (x *UnregisterComponentCallbacksRequest) String() string {
 func (*UnregisterComponentCallbacksRequest) ProtoMessage() {}
 
 func (x *UnregisterComponentCallbacksRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[50]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[136]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2193,7 +5921,7 @@ func (x *UnregisterComponentCallbacksRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use UnregisterComponentCallbacksRequest.ProtoReflect.Descriptor instead.
 func (*UnregisterComponentCallbacksRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{50}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{136}
 }
 
 func (x *UnregisterComponentCallbacksRequest) GetArg0() int64 {
@@ -2211,7 +5939,7 @@ type UnregisterComponentCallbacksResponse struct {
 
 func (x *UnregisterComponentCallbacksResponse) Reset() {
 	*x = UnregisterComponentCallbacksResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[51]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[137]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2223,7 +5951,7 @@ func (x *UnregisterComponentCallbacksResponse) String() string {
 func (*UnregisterComponentCallbacksResponse) ProtoMessage() {}
 
 func (x *UnregisterComponentCallbacksResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[51]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[137]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2236,7 +5964,7 @@ func (x *UnregisterComponentCallbacksResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use UnregisterComponentCallbacksResponse.ProtoReflect.Descriptor instead.
 func (*UnregisterComponentCallbacksResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{51}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{137}
 }
 
 type CreateSessionRequest struct {
@@ -2248,7 +5976,7 @@ type CreateSessionRequest struct {
 
 func (x *CreateSessionRequest) Reset() {
 	*x = CreateSessionRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[52]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[138]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2260,7 +5988,7 @@ func (x *CreateSessionRequest) String() string {
 func (*CreateSessionRequest) ProtoMessage() {}
 
 func (x *CreateSessionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[52]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[138]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2273,7 +6001,7 @@ func (x *CreateSessionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateSessionRequest.ProtoReflect.Descriptor instead.
 func (*CreateSessionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{52}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{138}
 }
 
 func (x *CreateSessionRequest) GetArg0() int64 {
@@ -2291,7 +6019,7 @@ type CreateSessionResponse struct {
 
 func (x *CreateSessionResponse) Reset() {
 	*x = CreateSessionResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[53]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[139]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2303,7 +6031,7 @@ func (x *CreateSessionResponse) String() string {
 func (*CreateSessionResponse) ProtoMessage() {}
 
 func (x *CreateSessionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[53]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[139]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2316,7 +6044,7 @@ func (x *CreateSessionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateSessionResponse.ProtoReflect.Descriptor instead.
 func (*CreateSessionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{53}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{139}
 }
 
 type RevokeSessionRequest struct {
@@ -2328,7 +6056,7 @@ type RevokeSessionRequest struct {
 
 func (x *RevokeSessionRequest) Reset() {
 	*x = RevokeSessionRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[54]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[140]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2340,7 +6068,7 @@ func (x *RevokeSessionRequest) String() string {
 func (*RevokeSessionRequest) ProtoMessage() {}
 
 func (x *RevokeSessionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[54]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[140]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2353,7 +6081,7 @@ func (x *RevokeSessionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RevokeSessionRequest.ProtoReflect.Descriptor instead.
 func (*RevokeSessionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{54}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{140}
 }
 
 func (x *RevokeSessionRequest) GetArg0() int64 {
@@ -2371,7 +6099,7 @@ type RevokeSessionResponse struct {
 
 func (x *RevokeSessionResponse) Reset() {
 	*x = RevokeSessionResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[55]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[141]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2383,7 +6111,7 @@ func (x *RevokeSessionResponse) String() string {
 func (*RevokeSessionResponse) ProtoMessage() {}
 
 func (x *RevokeSessionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[55]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[141]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2396,7 +6124,7 @@ func (x *RevokeSessionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RevokeSessionResponse.ProtoReflect.Descriptor instead.
 func (*RevokeSessionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{55}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{141}
 }
 
 type SetSessionEnabledRequest struct {
@@ -2409,7 +6137,7 @@ type SetSessionEnabledRequest struct {
 
 func (x *SetSessionEnabledRequest) Reset() {
 	*x = SetSessionEnabledRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[56]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[142]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2421,7 +6149,7 @@ func (x *SetSessionEnabledRequest) String() string {
 func (*SetSessionEnabledRequest) ProtoMessage() {}
 
 func (x *SetSessionEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[56]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[142]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2434,7 +6162,7 @@ func (x *SetSessionEnabledRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetSessionEnabledRequest.ProtoReflect.Descriptor instead.
 func (*SetSessionEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{56}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{142}
 }
 
 func (x *SetSessionEnabledRequest) GetArg0() int64 {
@@ -2459,7 +6187,7 @@ type SetSessionEnabledResponse struct {
 
 func (x *SetSessionEnabledResponse) Reset() {
 	*x = SetSessionEnabledResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[57]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[143]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2471,7 +6199,7 @@ func (x *SetSessionEnabledResponse) String() string {
 func (*SetSessionEnabledResponse) ProtoMessage() {}
 
 func (x *SetSessionEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[57]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[143]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2484,7 +6212,7 @@ func (x *SetSessionEnabledResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetSessionEnabledResponse.ProtoReflect.Descriptor instead.
 func (*SetSessionEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{57}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{143}
 }
 
 type DispatchGenericMotionEventRequest struct {
@@ -2498,7 +6226,7 @@ type DispatchGenericMotionEventRequest struct {
 
 func (x *DispatchGenericMotionEventRequest) Reset() {
 	*x = DispatchGenericMotionEventRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[58]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[144]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2510,7 +6238,7 @@ func (x *DispatchGenericMotionEventRequest) String() string {
 func (*DispatchGenericMotionEventRequest) ProtoMessage() {}
 
 func (x *DispatchGenericMotionEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[58]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[144]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2523,7 +6251,7 @@ func (x *DispatchGenericMotionEventRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use DispatchGenericMotionEventRequest.ProtoReflect.Descriptor instead.
 func (*DispatchGenericMotionEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{58}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{144}
 }
 
 func (x *DispatchGenericMotionEventRequest) GetArg0() int32 {
@@ -2555,7 +6283,7 @@ type DispatchGenericMotionEventResponse struct {
 
 func (x *DispatchGenericMotionEventResponse) Reset() {
 	*x = DispatchGenericMotionEventResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[59]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[145]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2567,7 +6295,7 @@ func (x *DispatchGenericMotionEventResponse) String() string {
 func (*DispatchGenericMotionEventResponse) ProtoMessage() {}
 
 func (x *DispatchGenericMotionEventResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[59]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[145]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2580,7 +6308,7 @@ func (x *DispatchGenericMotionEventResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use DispatchGenericMotionEventResponse.ProtoReflect.Descriptor instead.
 func (*DispatchGenericMotionEventResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{59}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{145}
 }
 
 type DispatchKeyEventRequest struct {
@@ -2594,7 +6322,7 @@ type DispatchKeyEventRequest struct {
 
 func (x *DispatchKeyEventRequest) Reset() {
 	*x = DispatchKeyEventRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[60]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[146]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2606,7 +6334,7 @@ func (x *DispatchKeyEventRequest) String() string {
 func (*DispatchKeyEventRequest) ProtoMessage() {}
 
 func (x *DispatchKeyEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[60]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[146]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2619,7 +6347,7 @@ func (x *DispatchKeyEventRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DispatchKeyEventRequest.ProtoReflect.Descriptor instead.
 func (*DispatchKeyEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{60}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{146}
 }
 
 func (x *DispatchKeyEventRequest) GetArg0() int32 {
@@ -2651,7 +6379,7 @@ type DispatchKeyEventResponse struct {
 
 func (x *DispatchKeyEventResponse) Reset() {
 	*x = DispatchKeyEventResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[61]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[147]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2663,7 +6391,7 @@ func (x *DispatchKeyEventResponse) String() string {
 func (*DispatchKeyEventResponse) ProtoMessage() {}
 
 func (x *DispatchKeyEventResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[61]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[147]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2676,7 +6404,7 @@ func (x *DispatchKeyEventResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DispatchKeyEventResponse.ProtoReflect.Descriptor instead.
 func (*DispatchKeyEventResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{61}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{147}
 }
 
 type DispatchTrackballEventRequest struct {
@@ -2690,7 +6418,7 @@ type DispatchTrackballEventRequest struct {
 
 func (x *DispatchTrackballEventRequest) Reset() {
 	*x = DispatchTrackballEventRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[62]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[148]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2702,7 +6430,7 @@ func (x *DispatchTrackballEventRequest) String() string {
 func (*DispatchTrackballEventRequest) ProtoMessage() {}
 
 func (x *DispatchTrackballEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[62]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[148]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2715,7 +6443,7 @@ func (x *DispatchTrackballEventRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DispatchTrackballEventRequest.ProtoReflect.Descriptor instead.
 func (*DispatchTrackballEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{62}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{148}
 }
 
 func (x *DispatchTrackballEventRequest) GetArg0() int32 {
@@ -2747,7 +6475,7 @@ type DispatchTrackballEventResponse struct {
 
 func (x *DispatchTrackballEventResponse) Reset() {
 	*x = DispatchTrackballEventResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[63]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[149]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2759,7 +6487,7 @@ func (x *DispatchTrackballEventResponse) String() string {
 func (*DispatchTrackballEventResponse) ProtoMessage() {}
 
 func (x *DispatchTrackballEventResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[63]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[149]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2772,7 +6500,7 @@ func (x *DispatchTrackballEventResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DispatchTrackballEventResponse.ProtoReflect.Descriptor instead.
 func (*DispatchTrackballEventResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{63}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{149}
 }
 
 type IsEnabledRequest struct {
@@ -2783,7 +6511,7 @@ type IsEnabledRequest struct {
 
 func (x *IsEnabledRequest) Reset() {
 	*x = IsEnabledRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[64]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[150]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2795,7 +6523,7 @@ func (x *IsEnabledRequest) String() string {
 func (*IsEnabledRequest) ProtoMessage() {}
 
 func (x *IsEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[64]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[150]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2808,7 +6536,7 @@ func (x *IsEnabledRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsEnabledRequest.ProtoReflect.Descriptor instead.
 func (*IsEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{64}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{150}
 }
 
 type IsEnabledResponse struct {
@@ -2820,7 +6548,7 @@ type IsEnabledResponse struct {
 
 func (x *IsEnabledResponse) Reset() {
 	*x = IsEnabledResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[65]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[151]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2832,7 +6560,7 @@ func (x *IsEnabledResponse) String() string {
 func (*IsEnabledResponse) ProtoMessage() {}
 
 func (x *IsEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[65]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[151]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2845,7 +6573,7 @@ func (x *IsEnabledResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsEnabledResponse.ProtoReflect.Descriptor instead.
 func (*IsEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{65}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{151}
 }
 
 func (x *IsEnabledResponse) GetResult() bool {
@@ -2863,7 +6591,7 @@ type IsRevokedRequest struct {
 
 func (x *IsRevokedRequest) Reset() {
 	*x = IsRevokedRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[66]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[152]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2875,7 +6603,7 @@ func (x *IsRevokedRequest) String() string {
 func (*IsRevokedRequest) ProtoMessage() {}
 
 func (x *IsRevokedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[66]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[152]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2888,7 +6616,7 @@ func (x *IsRevokedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsRevokedRequest.ProtoReflect.Descriptor instead.
 func (*IsRevokedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{66}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{152}
 }
 
 type IsRevokedResponse struct {
@@ -2900,7 +6628,7 @@ type IsRevokedResponse struct {
 
 func (x *IsRevokedResponse) Reset() {
 	*x = IsRevokedResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[67]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[153]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2912,7 +6640,7 @@ func (x *IsRevokedResponse) String() string {
 func (*IsRevokedResponse) ProtoMessage() {}
 
 func (x *IsRevokedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[67]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[153]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2925,7 +6653,7 @@ func (x *IsRevokedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsRevokedResponse.ProtoReflect.Descriptor instead.
 func (*IsRevokedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{67}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{153}
 }
 
 func (x *IsRevokedResponse) GetResult() bool {
@@ -2943,7 +6671,7 @@ type RevokeSelfRequest struct {
 
 func (x *RevokeSelfRequest) Reset() {
 	*x = RevokeSelfRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[68]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[154]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2955,7 +6683,7 @@ func (x *RevokeSelfRequest) String() string {
 func (*RevokeSelfRequest) ProtoMessage() {}
 
 func (x *RevokeSelfRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[68]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[154]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2968,7 +6696,7 @@ func (x *RevokeSelfRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RevokeSelfRequest.ProtoReflect.Descriptor instead.
 func (*RevokeSelfRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{68}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{154}
 }
 
 type RevokeSelfResponse struct {
@@ -2979,7 +6707,7 @@ type RevokeSelfResponse struct {
 
 func (x *RevokeSelfResponse) Reset() {
 	*x = RevokeSelfResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[69]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[155]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2991,7 +6719,7 @@ func (x *RevokeSelfResponse) String() string {
 func (*RevokeSelfResponse) ProtoMessage() {}
 
 func (x *RevokeSelfResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[69]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[155]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3004,7 +6732,7 @@ func (x *RevokeSelfResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RevokeSelfResponse.ProtoReflect.Descriptor instead.
 func (*RevokeSelfResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{69}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{155}
 }
 
 type SetEnabledRequest struct {
@@ -3016,7 +6744,7 @@ type SetEnabledRequest struct {
 
 func (x *SetEnabledRequest) Reset() {
 	*x = SetEnabledRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[70]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[156]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3028,7 +6756,7 @@ func (x *SetEnabledRequest) String() string {
 func (*SetEnabledRequest) ProtoMessage() {}
 
 func (x *SetEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[70]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[156]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3041,7 +6769,7 @@ func (x *SetEnabledRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetEnabledRequest.ProtoReflect.Descriptor instead.
 func (*SetEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{70}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{156}
 }
 
 func (x *SetEnabledRequest) GetArg0() bool {
@@ -3059,7 +6787,7 @@ type SetEnabledResponse struct {
 
 func (x *SetEnabledResponse) Reset() {
 	*x = SetEnabledResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[71]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[157]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3071,7 +6799,7 @@ func (x *SetEnabledResponse) String() string {
 func (*SetEnabledResponse) ProtoMessage() {}
 
 func (x *SetEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[71]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[157]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3084,7 +6812,7 @@ func (x *SetEnabledResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetEnabledResponse.ProtoReflect.Descriptor instead.
 func (*SetEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{71}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{157}
 }
 
 type NewInputMethodServiceRequest struct {
@@ -3095,7 +6823,7 @@ type NewInputMethodServiceRequest struct {
 
 func (x *NewInputMethodServiceRequest) Reset() {
 	*x = NewInputMethodServiceRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[72]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[158]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3107,7 +6835,7 @@ func (x *NewInputMethodServiceRequest) String() string {
 func (*NewInputMethodServiceRequest) ProtoMessage() {}
 
 func (x *NewInputMethodServiceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[72]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[158]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3120,7 +6848,7 @@ func (x *NewInputMethodServiceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewInputMethodServiceRequest.ProtoReflect.Descriptor instead.
 func (*NewInputMethodServiceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{72}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{158}
 }
 
 type NewInputMethodServiceResponse struct {
@@ -3132,7 +6860,7 @@ type NewInputMethodServiceResponse struct {
 
 func (x *NewInputMethodServiceResponse) Reset() {
 	*x = NewInputMethodServiceResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[73]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[159]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3144,7 +6872,7 @@ func (x *NewInputMethodServiceResponse) String() string {
 func (*NewInputMethodServiceResponse) ProtoMessage() {}
 
 func (x *NewInputMethodServiceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[73]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[159]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3157,7 +6885,7 @@ func (x *NewInputMethodServiceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewInputMethodServiceResponse.ProtoReflect.Descriptor instead.
 func (*NewInputMethodServiceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{73}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{159}
 }
 
 func (x *NewInputMethodServiceResponse) GetResult() int64 {
@@ -3176,7 +6904,7 @@ type EnableHardwareAccelerationRequest struct {
 
 func (x *EnableHardwareAccelerationRequest) Reset() {
 	*x = EnableHardwareAccelerationRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[74]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[160]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3188,7 +6916,7 @@ func (x *EnableHardwareAccelerationRequest) String() string {
 func (*EnableHardwareAccelerationRequest) ProtoMessage() {}
 
 func (x *EnableHardwareAccelerationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[74]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[160]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3201,7 +6929,7 @@ func (x *EnableHardwareAccelerationRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use EnableHardwareAccelerationRequest.ProtoReflect.Descriptor instead.
 func (*EnableHardwareAccelerationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{74}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{160}
 }
 
 func (x *EnableHardwareAccelerationRequest) GetHandle() int64 {
@@ -3220,7 +6948,7 @@ type EnableHardwareAccelerationResponse struct {
 
 func (x *EnableHardwareAccelerationResponse) Reset() {
 	*x = EnableHardwareAccelerationResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[75]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[161]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3232,7 +6960,7 @@ func (x *EnableHardwareAccelerationResponse) String() string {
 func (*EnableHardwareAccelerationResponse) ProtoMessage() {}
 
 func (x *EnableHardwareAccelerationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[75]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[161]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3245,7 +6973,7 @@ func (x *EnableHardwareAccelerationResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use EnableHardwareAccelerationResponse.ProtoReflect.Descriptor instead.
 func (*EnableHardwareAccelerationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{75}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{161}
 }
 
 func (x *EnableHardwareAccelerationResponse) GetResult() bool {
@@ -3265,7 +6993,7 @@ type FinishConnectionlessStylusHandwritingRequest struct {
 
 func (x *FinishConnectionlessStylusHandwritingRequest) Reset() {
 	*x = FinishConnectionlessStylusHandwritingRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[76]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[162]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3277,7 +7005,7 @@ func (x *FinishConnectionlessStylusHandwritingRequest) String() string {
 func (*FinishConnectionlessStylusHandwritingRequest) ProtoMessage() {}
 
 func (x *FinishConnectionlessStylusHandwritingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[76]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[162]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3290,7 +7018,7 @@ func (x *FinishConnectionlessStylusHandwritingRequest) ProtoReflect() protorefle
 
 // Deprecated: Use FinishConnectionlessStylusHandwritingRequest.ProtoReflect.Descriptor instead.
 func (*FinishConnectionlessStylusHandwritingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{76}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{162}
 }
 
 func (x *FinishConnectionlessStylusHandwritingRequest) GetHandle() int64 {
@@ -3315,7 +7043,7 @@ type FinishConnectionlessStylusHandwritingResponse struct {
 
 func (x *FinishConnectionlessStylusHandwritingResponse) Reset() {
 	*x = FinishConnectionlessStylusHandwritingResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[77]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[163]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3327,7 +7055,7 @@ func (x *FinishConnectionlessStylusHandwritingResponse) String() string {
 func (*FinishConnectionlessStylusHandwritingResponse) ProtoMessage() {}
 
 func (x *FinishConnectionlessStylusHandwritingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[77]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[163]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3340,7 +7068,7 @@ func (x *FinishConnectionlessStylusHandwritingResponse) ProtoReflect() protorefl
 
 // Deprecated: Use FinishConnectionlessStylusHandwritingResponse.ProtoReflect.Descriptor instead.
 func (*FinishConnectionlessStylusHandwritingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{77}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{163}
 }
 
 type FinishStylusHandwritingRequest struct {
@@ -3352,7 +7080,7 @@ type FinishStylusHandwritingRequest struct {
 
 func (x *FinishStylusHandwritingRequest) Reset() {
 	*x = FinishStylusHandwritingRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[78]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[164]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3364,7 +7092,7 @@ func (x *FinishStylusHandwritingRequest) String() string {
 func (*FinishStylusHandwritingRequest) ProtoMessage() {}
 
 func (x *FinishStylusHandwritingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[78]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[164]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3377,7 +7105,7 @@ func (x *FinishStylusHandwritingRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FinishStylusHandwritingRequest.ProtoReflect.Descriptor instead.
 func (*FinishStylusHandwritingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{78}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{164}
 }
 
 func (x *FinishStylusHandwritingRequest) GetHandle() int64 {
@@ -3395,7 +7123,7 @@ type FinishStylusHandwritingResponse struct {
 
 func (x *FinishStylusHandwritingResponse) Reset() {
 	*x = FinishStylusHandwritingResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[79]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[165]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3407,7 +7135,7 @@ func (x *FinishStylusHandwritingResponse) String() string {
 func (*FinishStylusHandwritingResponse) ProtoMessage() {}
 
 func (x *FinishStylusHandwritingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[79]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[165]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3420,7 +7148,7 @@ func (x *FinishStylusHandwritingResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FinishStylusHandwritingResponse.ProtoReflect.Descriptor instead.
 func (*FinishStylusHandwritingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{79}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{165}
 }
 
 type GetBackDispositionRequest struct {
@@ -3432,7 +7160,7 @@ type GetBackDispositionRequest struct {
 
 func (x *GetBackDispositionRequest) Reset() {
 	*x = GetBackDispositionRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[80]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[166]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3444,7 +7172,7 @@ func (x *GetBackDispositionRequest) String() string {
 func (*GetBackDispositionRequest) ProtoMessage() {}
 
 func (x *GetBackDispositionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[80]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[166]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3457,7 +7185,7 @@ func (x *GetBackDispositionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBackDispositionRequest.ProtoReflect.Descriptor instead.
 func (*GetBackDispositionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{80}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{166}
 }
 
 func (x *GetBackDispositionRequest) GetHandle() int64 {
@@ -3476,7 +7204,7 @@ type GetBackDispositionResponse struct {
 
 func (x *GetBackDispositionResponse) Reset() {
 	*x = GetBackDispositionResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[81]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[167]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3488,7 +7216,7 @@ func (x *GetBackDispositionResponse) String() string {
 func (*GetBackDispositionResponse) ProtoMessage() {}
 
 func (x *GetBackDispositionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[81]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[167]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3501,7 +7229,7 @@ func (x *GetBackDispositionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBackDispositionResponse.ProtoReflect.Descriptor instead.
 func (*GetBackDispositionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{81}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{167}
 }
 
 func (x *GetBackDispositionResponse) GetResult() int32 {
@@ -3520,7 +7248,7 @@ type GetCandidatesHiddenVisibilityRequest struct {
 
 func (x *GetCandidatesHiddenVisibilityRequest) Reset() {
 	*x = GetCandidatesHiddenVisibilityRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[82]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[168]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3532,7 +7260,7 @@ func (x *GetCandidatesHiddenVisibilityRequest) String() string {
 func (*GetCandidatesHiddenVisibilityRequest) ProtoMessage() {}
 
 func (x *GetCandidatesHiddenVisibilityRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[82]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[168]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3545,7 +7273,7 @@ func (x *GetCandidatesHiddenVisibilityRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use GetCandidatesHiddenVisibilityRequest.ProtoReflect.Descriptor instead.
 func (*GetCandidatesHiddenVisibilityRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{82}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{168}
 }
 
 func (x *GetCandidatesHiddenVisibilityRequest) GetHandle() int64 {
@@ -3564,7 +7292,7 @@ type GetCandidatesHiddenVisibilityResponse struct {
 
 func (x *GetCandidatesHiddenVisibilityResponse) Reset() {
 	*x = GetCandidatesHiddenVisibilityResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[83]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[169]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3576,7 +7304,7 @@ func (x *GetCandidatesHiddenVisibilityResponse) String() string {
 func (*GetCandidatesHiddenVisibilityResponse) ProtoMessage() {}
 
 func (x *GetCandidatesHiddenVisibilityResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[83]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[169]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3589,7 +7317,7 @@ func (x *GetCandidatesHiddenVisibilityResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use GetCandidatesHiddenVisibilityResponse.ProtoReflect.Descriptor instead.
 func (*GetCandidatesHiddenVisibilityResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{83}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{169}
 }
 
 func (x *GetCandidatesHiddenVisibilityResponse) GetResult() int32 {
@@ -3608,7 +7336,7 @@ type GetCurrentInputBindingRequest struct {
 
 func (x *GetCurrentInputBindingRequest) Reset() {
 	*x = GetCurrentInputBindingRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[84]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[170]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3620,7 +7348,7 @@ func (x *GetCurrentInputBindingRequest) String() string {
 func (*GetCurrentInputBindingRequest) ProtoMessage() {}
 
 func (x *GetCurrentInputBindingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[84]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[170]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3633,7 +7361,7 @@ func (x *GetCurrentInputBindingRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCurrentInputBindingRequest.ProtoReflect.Descriptor instead.
 func (*GetCurrentInputBindingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{84}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{170}
 }
 
 func (x *GetCurrentInputBindingRequest) GetHandle() int64 {
@@ -3652,7 +7380,7 @@ type GetCurrentInputBindingResponse struct {
 
 func (x *GetCurrentInputBindingResponse) Reset() {
 	*x = GetCurrentInputBindingResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[85]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[171]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3664,7 +7392,7 @@ func (x *GetCurrentInputBindingResponse) String() string {
 func (*GetCurrentInputBindingResponse) ProtoMessage() {}
 
 func (x *GetCurrentInputBindingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[85]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[171]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3677,7 +7405,7 @@ func (x *GetCurrentInputBindingResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCurrentInputBindingResponse.ProtoReflect.Descriptor instead.
 func (*GetCurrentInputBindingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{85}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{171}
 }
 
 func (x *GetCurrentInputBindingResponse) GetResult() int64 {
@@ -3696,7 +7424,7 @@ type GetCurrentInputConnectionRequest struct {
 
 func (x *GetCurrentInputConnectionRequest) Reset() {
 	*x = GetCurrentInputConnectionRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[86]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[172]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3708,7 +7436,7 @@ func (x *GetCurrentInputConnectionRequest) String() string {
 func (*GetCurrentInputConnectionRequest) ProtoMessage() {}
 
 func (x *GetCurrentInputConnectionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[86]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[172]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3721,7 +7449,7 @@ func (x *GetCurrentInputConnectionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCurrentInputConnectionRequest.ProtoReflect.Descriptor instead.
 func (*GetCurrentInputConnectionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{86}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{172}
 }
 
 func (x *GetCurrentInputConnectionRequest) GetHandle() int64 {
@@ -3740,7 +7468,7 @@ type GetCurrentInputConnectionResponse struct {
 
 func (x *GetCurrentInputConnectionResponse) Reset() {
 	*x = GetCurrentInputConnectionResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[87]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[173]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3752,7 +7480,7 @@ func (x *GetCurrentInputConnectionResponse) String() string {
 func (*GetCurrentInputConnectionResponse) ProtoMessage() {}
 
 func (x *GetCurrentInputConnectionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[87]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[173]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3765,7 +7493,7 @@ func (x *GetCurrentInputConnectionResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use GetCurrentInputConnectionResponse.ProtoReflect.Descriptor instead.
 func (*GetCurrentInputConnectionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{87}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{173}
 }
 
 func (x *GetCurrentInputConnectionResponse) GetResult() int64 {
@@ -3784,7 +7512,7 @@ type GetCurrentInputEditorInfoRequest struct {
 
 func (x *GetCurrentInputEditorInfoRequest) Reset() {
 	*x = GetCurrentInputEditorInfoRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[88]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[174]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3796,7 +7524,7 @@ func (x *GetCurrentInputEditorInfoRequest) String() string {
 func (*GetCurrentInputEditorInfoRequest) ProtoMessage() {}
 
 func (x *GetCurrentInputEditorInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[88]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[174]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3809,7 +7537,7 @@ func (x *GetCurrentInputEditorInfoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCurrentInputEditorInfoRequest.ProtoReflect.Descriptor instead.
 func (*GetCurrentInputEditorInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{88}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{174}
 }
 
 func (x *GetCurrentInputEditorInfoRequest) GetHandle() int64 {
@@ -3828,7 +7556,7 @@ type GetCurrentInputEditorInfoResponse struct {
 
 func (x *GetCurrentInputEditorInfoResponse) Reset() {
 	*x = GetCurrentInputEditorInfoResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[89]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[175]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3840,7 +7568,7 @@ func (x *GetCurrentInputEditorInfoResponse) String() string {
 func (*GetCurrentInputEditorInfoResponse) ProtoMessage() {}
 
 func (x *GetCurrentInputEditorInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[89]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[175]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3853,7 +7581,7 @@ func (x *GetCurrentInputEditorInfoResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use GetCurrentInputEditorInfoResponse.ProtoReflect.Descriptor instead.
 func (*GetCurrentInputEditorInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{89}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{175}
 }
 
 func (x *GetCurrentInputEditorInfoResponse) GetResult() int64 {
@@ -3872,7 +7600,7 @@ type GetCurrentInputStartedRequest struct {
 
 func (x *GetCurrentInputStartedRequest) Reset() {
 	*x = GetCurrentInputStartedRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[90]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[176]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3884,7 +7612,7 @@ func (x *GetCurrentInputStartedRequest) String() string {
 func (*GetCurrentInputStartedRequest) ProtoMessage() {}
 
 func (x *GetCurrentInputStartedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[90]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[176]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3897,7 +7625,7 @@ func (x *GetCurrentInputStartedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCurrentInputStartedRequest.ProtoReflect.Descriptor instead.
 func (*GetCurrentInputStartedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{90}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{176}
 }
 
 func (x *GetCurrentInputStartedRequest) GetHandle() int64 {
@@ -3916,7 +7644,7 @@ type GetCurrentInputStartedResponse struct {
 
 func (x *GetCurrentInputStartedResponse) Reset() {
 	*x = GetCurrentInputStartedResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[91]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[177]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3928,7 +7656,7 @@ func (x *GetCurrentInputStartedResponse) String() string {
 func (*GetCurrentInputStartedResponse) ProtoMessage() {}
 
 func (x *GetCurrentInputStartedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[91]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[177]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3941,7 +7669,7 @@ func (x *GetCurrentInputStartedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCurrentInputStartedResponse.ProtoReflect.Descriptor instead.
 func (*GetCurrentInputStartedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{91}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{177}
 }
 
 func (x *GetCurrentInputStartedResponse) GetResult() bool {
@@ -3960,7 +7688,7 @@ type GetInputMethodWindowRecommendedHeightRequest struct {
 
 func (x *GetInputMethodWindowRecommendedHeightRequest) Reset() {
 	*x = GetInputMethodWindowRecommendedHeightRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[92]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[178]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3972,7 +7700,7 @@ func (x *GetInputMethodWindowRecommendedHeightRequest) String() string {
 func (*GetInputMethodWindowRecommendedHeightRequest) ProtoMessage() {}
 
 func (x *GetInputMethodWindowRecommendedHeightRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[92]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[178]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3985,7 +7713,7 @@ func (x *GetInputMethodWindowRecommendedHeightRequest) ProtoReflect() protorefle
 
 // Deprecated: Use GetInputMethodWindowRecommendedHeightRequest.ProtoReflect.Descriptor instead.
 func (*GetInputMethodWindowRecommendedHeightRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{92}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{178}
 }
 
 func (x *GetInputMethodWindowRecommendedHeightRequest) GetHandle() int64 {
@@ -4004,7 +7732,7 @@ type GetInputMethodWindowRecommendedHeightResponse struct {
 
 func (x *GetInputMethodWindowRecommendedHeightResponse) Reset() {
 	*x = GetInputMethodWindowRecommendedHeightResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[93]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[179]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4016,7 +7744,7 @@ func (x *GetInputMethodWindowRecommendedHeightResponse) String() string {
 func (*GetInputMethodWindowRecommendedHeightResponse) ProtoMessage() {}
 
 func (x *GetInputMethodWindowRecommendedHeightResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[93]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[179]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4029,7 +7757,7 @@ func (x *GetInputMethodWindowRecommendedHeightResponse) ProtoReflect() protorefl
 
 // Deprecated: Use GetInputMethodWindowRecommendedHeightResponse.ProtoReflect.Descriptor instead.
 func (*GetInputMethodWindowRecommendedHeightResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{93}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{179}
 }
 
 func (x *GetInputMethodWindowRecommendedHeightResponse) GetResult() int32 {
@@ -4048,7 +7776,7 @@ type GetLayoutInflaterRequest struct {
 
 func (x *GetLayoutInflaterRequest) Reset() {
 	*x = GetLayoutInflaterRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[94]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[180]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4060,7 +7788,7 @@ func (x *GetLayoutInflaterRequest) String() string {
 func (*GetLayoutInflaterRequest) ProtoMessage() {}
 
 func (x *GetLayoutInflaterRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[94]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[180]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4073,7 +7801,7 @@ func (x *GetLayoutInflaterRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLayoutInflaterRequest.ProtoReflect.Descriptor instead.
 func (*GetLayoutInflaterRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{94}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{180}
 }
 
 func (x *GetLayoutInflaterRequest) GetHandle() int64 {
@@ -4092,7 +7820,7 @@ type GetLayoutInflaterResponse struct {
 
 func (x *GetLayoutInflaterResponse) Reset() {
 	*x = GetLayoutInflaterResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[95]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[181]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4104,7 +7832,7 @@ func (x *GetLayoutInflaterResponse) String() string {
 func (*GetLayoutInflaterResponse) ProtoMessage() {}
 
 func (x *GetLayoutInflaterResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[95]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[181]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4117,7 +7845,7 @@ func (x *GetLayoutInflaterResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLayoutInflaterResponse.ProtoReflect.Descriptor instead.
 func (*GetLayoutInflaterResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{95}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{181}
 }
 
 func (x *GetLayoutInflaterResponse) GetResult() int64 {
@@ -4136,7 +7864,7 @@ type GetMaxWidthRequest struct {
 
 func (x *GetMaxWidthRequest) Reset() {
 	*x = GetMaxWidthRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[96]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[182]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4148,7 +7876,7 @@ func (x *GetMaxWidthRequest) String() string {
 func (*GetMaxWidthRequest) ProtoMessage() {}
 
 func (x *GetMaxWidthRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[96]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[182]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4161,7 +7889,7 @@ func (x *GetMaxWidthRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMaxWidthRequest.ProtoReflect.Descriptor instead.
 func (*GetMaxWidthRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{96}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{182}
 }
 
 func (x *GetMaxWidthRequest) GetHandle() int64 {
@@ -4180,7 +7908,7 @@ type GetMaxWidthResponse struct {
 
 func (x *GetMaxWidthResponse) Reset() {
 	*x = GetMaxWidthResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[97]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[183]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4192,7 +7920,7 @@ func (x *GetMaxWidthResponse) String() string {
 func (*GetMaxWidthResponse) ProtoMessage() {}
 
 func (x *GetMaxWidthResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[97]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[183]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4205,7 +7933,7 @@ func (x *GetMaxWidthResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMaxWidthResponse.ProtoReflect.Descriptor instead.
 func (*GetMaxWidthResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{97}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{183}
 }
 
 func (x *GetMaxWidthResponse) GetResult() int32 {
@@ -4224,7 +7952,7 @@ type GetStylusHandwritingSessionTimeoutRequest struct {
 
 func (x *GetStylusHandwritingSessionTimeoutRequest) Reset() {
 	*x = GetStylusHandwritingSessionTimeoutRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[98]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[184]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4236,7 +7964,7 @@ func (x *GetStylusHandwritingSessionTimeoutRequest) String() string {
 func (*GetStylusHandwritingSessionTimeoutRequest) ProtoMessage() {}
 
 func (x *GetStylusHandwritingSessionTimeoutRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[98]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[184]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4249,7 +7977,7 @@ func (x *GetStylusHandwritingSessionTimeoutRequest) ProtoReflect() protoreflect.
 
 // Deprecated: Use GetStylusHandwritingSessionTimeoutRequest.ProtoReflect.Descriptor instead.
 func (*GetStylusHandwritingSessionTimeoutRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{98}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{184}
 }
 
 func (x *GetStylusHandwritingSessionTimeoutRequest) GetHandle() int64 {
@@ -4268,7 +7996,7 @@ type GetStylusHandwritingSessionTimeoutResponse struct {
 
 func (x *GetStylusHandwritingSessionTimeoutResponse) Reset() {
 	*x = GetStylusHandwritingSessionTimeoutResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[99]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[185]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4280,7 +8008,7 @@ func (x *GetStylusHandwritingSessionTimeoutResponse) String() string {
 func (*GetStylusHandwritingSessionTimeoutResponse) ProtoMessage() {}
 
 func (x *GetStylusHandwritingSessionTimeoutResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[99]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[185]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4293,7 +8021,7 @@ func (x *GetStylusHandwritingSessionTimeoutResponse) ProtoReflect() protoreflect
 
 // Deprecated: Use GetStylusHandwritingSessionTimeoutResponse.ProtoReflect.Descriptor instead.
 func (*GetStylusHandwritingSessionTimeoutResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{99}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{185}
 }
 
 func (x *GetStylusHandwritingSessionTimeoutResponse) GetResult() int64 {
@@ -4312,7 +8040,7 @@ type GetStylusHandwritingWindowRequest struct {
 
 func (x *GetStylusHandwritingWindowRequest) Reset() {
 	*x = GetStylusHandwritingWindowRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[100]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[186]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4324,7 +8052,7 @@ func (x *GetStylusHandwritingWindowRequest) String() string {
 func (*GetStylusHandwritingWindowRequest) ProtoMessage() {}
 
 func (x *GetStylusHandwritingWindowRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[100]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[186]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4337,7 +8065,7 @@ func (x *GetStylusHandwritingWindowRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use GetStylusHandwritingWindowRequest.ProtoReflect.Descriptor instead.
 func (*GetStylusHandwritingWindowRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{100}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{186}
 }
 
 func (x *GetStylusHandwritingWindowRequest) GetHandle() int64 {
@@ -4356,7 +8084,7 @@ type GetStylusHandwritingWindowResponse struct {
 
 func (x *GetStylusHandwritingWindowResponse) Reset() {
 	*x = GetStylusHandwritingWindowResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[101]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[187]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4368,7 +8096,7 @@ func (x *GetStylusHandwritingWindowResponse) String() string {
 func (*GetStylusHandwritingWindowResponse) ProtoMessage() {}
 
 func (x *GetStylusHandwritingWindowResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[101]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[187]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4381,7 +8109,7 @@ func (x *GetStylusHandwritingWindowResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use GetStylusHandwritingWindowResponse.ProtoReflect.Descriptor instead.
 func (*GetStylusHandwritingWindowResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{101}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{187}
 }
 
 func (x *GetStylusHandwritingWindowResponse) GetResult() int64 {
@@ -4401,7 +8129,7 @@ type InputMethodServiceGetSystemServiceRequest struct {
 
 func (x *InputMethodServiceGetSystemServiceRequest) Reset() {
 	*x = InputMethodServiceGetSystemServiceRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[102]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[188]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4413,7 +8141,7 @@ func (x *InputMethodServiceGetSystemServiceRequest) String() string {
 func (*InputMethodServiceGetSystemServiceRequest) ProtoMessage() {}
 
 func (x *InputMethodServiceGetSystemServiceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[102]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[188]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4426,7 +8154,7 @@ func (x *InputMethodServiceGetSystemServiceRequest) ProtoReflect() protoreflect.
 
 // Deprecated: Use InputMethodServiceGetSystemServiceRequest.ProtoReflect.Descriptor instead.
 func (*InputMethodServiceGetSystemServiceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{102}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{188}
 }
 
 func (x *InputMethodServiceGetSystemServiceRequest) GetHandle() int64 {
@@ -4453,7 +8181,7 @@ type GetTextForImeActionRequest struct {
 
 func (x *GetTextForImeActionRequest) Reset() {
 	*x = GetTextForImeActionRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[103]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[189]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4465,7 +8193,7 @@ func (x *GetTextForImeActionRequest) String() string {
 func (*GetTextForImeActionRequest) ProtoMessage() {}
 
 func (x *GetTextForImeActionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[103]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[189]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4478,7 +8206,7 @@ func (x *GetTextForImeActionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTextForImeActionRequest.ProtoReflect.Descriptor instead.
 func (*GetTextForImeActionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{103}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{189}
 }
 
 func (x *GetTextForImeActionRequest) GetHandle() int64 {
@@ -4504,7 +8232,7 @@ type GetTextForImeActionResponse struct {
 
 func (x *GetTextForImeActionResponse) Reset() {
 	*x = GetTextForImeActionResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[104]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[190]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4516,7 +8244,7 @@ func (x *GetTextForImeActionResponse) String() string {
 func (*GetTextForImeActionResponse) ProtoMessage() {}
 
 func (x *GetTextForImeActionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[104]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[190]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4529,7 +8257,7 @@ func (x *GetTextForImeActionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTextForImeActionResponse.ProtoReflect.Descriptor instead.
 func (*GetTextForImeActionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{104}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{190}
 }
 
 func (x *GetTextForImeActionResponse) GetResult() int64 {
@@ -4548,7 +8276,7 @@ type GetWindowRequest struct {
 
 func (x *GetWindowRequest) Reset() {
 	*x = GetWindowRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[105]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[191]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4560,7 +8288,7 @@ func (x *GetWindowRequest) String() string {
 func (*GetWindowRequest) ProtoMessage() {}
 
 func (x *GetWindowRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[105]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[191]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4573,7 +8301,7 @@ func (x *GetWindowRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetWindowRequest.ProtoReflect.Descriptor instead.
 func (*GetWindowRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{105}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{191}
 }
 
 func (x *GetWindowRequest) GetHandle() int64 {
@@ -4592,7 +8320,7 @@ type GetWindowResponse struct {
 
 func (x *GetWindowResponse) Reset() {
 	*x = GetWindowResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[106]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[192]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4604,7 +8332,7 @@ func (x *GetWindowResponse) String() string {
 func (*GetWindowResponse) ProtoMessage() {}
 
 func (x *GetWindowResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[106]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[192]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4617,7 +8345,7 @@ func (x *GetWindowResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetWindowResponse.ProtoReflect.Descriptor instead.
 func (*GetWindowResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{106}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{192}
 }
 
 func (x *GetWindowResponse) GetResult() int64 {
@@ -4636,7 +8364,7 @@ type HideStatusIconRequest struct {
 
 func (x *HideStatusIconRequest) Reset() {
 	*x = HideStatusIconRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[107]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[193]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4648,7 +8376,7 @@ func (x *HideStatusIconRequest) String() string {
 func (*HideStatusIconRequest) ProtoMessage() {}
 
 func (x *HideStatusIconRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[107]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[193]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4661,7 +8389,7 @@ func (x *HideStatusIconRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HideStatusIconRequest.ProtoReflect.Descriptor instead.
 func (*HideStatusIconRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{107}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{193}
 }
 
 func (x *HideStatusIconRequest) GetHandle() int64 {
@@ -4679,7 +8407,7 @@ type HideStatusIconResponse struct {
 
 func (x *HideStatusIconResponse) Reset() {
 	*x = HideStatusIconResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[108]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[194]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4691,7 +8419,7 @@ func (x *HideStatusIconResponse) String() string {
 func (*HideStatusIconResponse) ProtoMessage() {}
 
 func (x *HideStatusIconResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[108]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[194]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4704,7 +8432,7 @@ func (x *HideStatusIconResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HideStatusIconResponse.ProtoReflect.Descriptor instead.
 func (*HideStatusIconResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{108}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{194}
 }
 
 type HideWindowRequest struct {
@@ -4716,7 +8444,7 @@ type HideWindowRequest struct {
 
 func (x *HideWindowRequest) Reset() {
 	*x = HideWindowRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[109]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[195]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4728,7 +8456,7 @@ func (x *HideWindowRequest) String() string {
 func (*HideWindowRequest) ProtoMessage() {}
 
 func (x *HideWindowRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[109]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[195]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4741,7 +8469,7 @@ func (x *HideWindowRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HideWindowRequest.ProtoReflect.Descriptor instead.
 func (*HideWindowRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{109}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{195}
 }
 
 func (x *HideWindowRequest) GetHandle() int64 {
@@ -4759,7 +8487,7 @@ type HideWindowResponse struct {
 
 func (x *HideWindowResponse) Reset() {
 	*x = HideWindowResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[110]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[196]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4771,7 +8499,7 @@ func (x *HideWindowResponse) String() string {
 func (*HideWindowResponse) ProtoMessage() {}
 
 func (x *HideWindowResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[110]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[196]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4784,7 +8512,7 @@ func (x *HideWindowResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HideWindowResponse.ProtoReflect.Descriptor instead.
 func (*HideWindowResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{110}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{196}
 }
 
 type IsExtractViewShownRequest struct {
@@ -4796,7 +8524,7 @@ type IsExtractViewShownRequest struct {
 
 func (x *IsExtractViewShownRequest) Reset() {
 	*x = IsExtractViewShownRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[111]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[197]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4808,7 +8536,7 @@ func (x *IsExtractViewShownRequest) String() string {
 func (*IsExtractViewShownRequest) ProtoMessage() {}
 
 func (x *IsExtractViewShownRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[111]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[197]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4821,7 +8549,7 @@ func (x *IsExtractViewShownRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsExtractViewShownRequest.ProtoReflect.Descriptor instead.
 func (*IsExtractViewShownRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{111}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{197}
 }
 
 func (x *IsExtractViewShownRequest) GetHandle() int64 {
@@ -4840,7 +8568,7 @@ type IsExtractViewShownResponse struct {
 
 func (x *IsExtractViewShownResponse) Reset() {
 	*x = IsExtractViewShownResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[112]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[198]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4852,7 +8580,7 @@ func (x *IsExtractViewShownResponse) String() string {
 func (*IsExtractViewShownResponse) ProtoMessage() {}
 
 func (x *IsExtractViewShownResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[112]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[198]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4865,7 +8593,7 @@ func (x *IsExtractViewShownResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsExtractViewShownResponse.ProtoReflect.Descriptor instead.
 func (*IsExtractViewShownResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{112}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{198}
 }
 
 func (x *IsExtractViewShownResponse) GetResult() bool {
@@ -4884,7 +8612,7 @@ type IsFullscreenModeRequest struct {
 
 func (x *IsFullscreenModeRequest) Reset() {
 	*x = IsFullscreenModeRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[113]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[199]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4896,7 +8624,7 @@ func (x *IsFullscreenModeRequest) String() string {
 func (*IsFullscreenModeRequest) ProtoMessage() {}
 
 func (x *IsFullscreenModeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[113]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[199]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4909,7 +8637,7 @@ func (x *IsFullscreenModeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsFullscreenModeRequest.ProtoReflect.Descriptor instead.
 func (*IsFullscreenModeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{113}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{199}
 }
 
 func (x *IsFullscreenModeRequest) GetHandle() int64 {
@@ -4928,7 +8656,7 @@ type IsFullscreenModeResponse struct {
 
 func (x *IsFullscreenModeResponse) Reset() {
 	*x = IsFullscreenModeResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[114]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[200]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4940,7 +8668,7 @@ func (x *IsFullscreenModeResponse) String() string {
 func (*IsFullscreenModeResponse) ProtoMessage() {}
 
 func (x *IsFullscreenModeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[114]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[200]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4953,7 +8681,7 @@ func (x *IsFullscreenModeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsFullscreenModeResponse.ProtoReflect.Descriptor instead.
 func (*IsFullscreenModeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{114}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{200}
 }
 
 func (x *IsFullscreenModeResponse) GetResult() bool {
@@ -4972,7 +8700,7 @@ type IsInputViewShownRequest struct {
 
 func (x *IsInputViewShownRequest) Reset() {
 	*x = IsInputViewShownRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[115]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[201]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4984,7 +8712,7 @@ func (x *IsInputViewShownRequest) String() string {
 func (*IsInputViewShownRequest) ProtoMessage() {}
 
 func (x *IsInputViewShownRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[115]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[201]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4997,7 +8725,7 @@ func (x *IsInputViewShownRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsInputViewShownRequest.ProtoReflect.Descriptor instead.
 func (*IsInputViewShownRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{115}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{201}
 }
 
 func (x *IsInputViewShownRequest) GetHandle() int64 {
@@ -5016,7 +8744,7 @@ type IsInputViewShownResponse struct {
 
 func (x *IsInputViewShownResponse) Reset() {
 	*x = IsInputViewShownResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[116]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[202]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5028,7 +8756,7 @@ func (x *IsInputViewShownResponse) String() string {
 func (*IsInputViewShownResponse) ProtoMessage() {}
 
 func (x *IsInputViewShownResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[116]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[202]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5041,7 +8769,7 @@ func (x *IsInputViewShownResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsInputViewShownResponse.ProtoReflect.Descriptor instead.
 func (*IsInputViewShownResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{116}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{202}
 }
 
 func (x *IsInputViewShownResponse) GetResult() bool {
@@ -5060,7 +8788,7 @@ type IsShowInputRequestedRequest struct {
 
 func (x *IsShowInputRequestedRequest) Reset() {
 	*x = IsShowInputRequestedRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[117]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[203]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5072,7 +8800,7 @@ func (x *IsShowInputRequestedRequest) String() string {
 func (*IsShowInputRequestedRequest) ProtoMessage() {}
 
 func (x *IsShowInputRequestedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[117]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[203]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5085,7 +8813,7 @@ func (x *IsShowInputRequestedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsShowInputRequestedRequest.ProtoReflect.Descriptor instead.
 func (*IsShowInputRequestedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{117}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{203}
 }
 
 func (x *IsShowInputRequestedRequest) GetHandle() int64 {
@@ -5104,7 +8832,7 @@ type IsShowInputRequestedResponse struct {
 
 func (x *IsShowInputRequestedResponse) Reset() {
 	*x = IsShowInputRequestedResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[118]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[204]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5116,7 +8844,7 @@ func (x *IsShowInputRequestedResponse) String() string {
 func (*IsShowInputRequestedResponse) ProtoMessage() {}
 
 func (x *IsShowInputRequestedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[118]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[204]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5129,7 +8857,7 @@ func (x *IsShowInputRequestedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsShowInputRequestedResponse.ProtoReflect.Descriptor instead.
 func (*IsShowInputRequestedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{118}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{204}
 }
 
 func (x *IsShowInputRequestedResponse) GetResult() bool {
@@ -5150,7 +8878,7 @@ type OnAppPrivateCommandRequest struct {
 
 func (x *OnAppPrivateCommandRequest) Reset() {
 	*x = OnAppPrivateCommandRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[119]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[205]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5162,7 +8890,7 @@ func (x *OnAppPrivateCommandRequest) String() string {
 func (*OnAppPrivateCommandRequest) ProtoMessage() {}
 
 func (x *OnAppPrivateCommandRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[119]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[205]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5175,7 +8903,7 @@ func (x *OnAppPrivateCommandRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnAppPrivateCommandRequest.ProtoReflect.Descriptor instead.
 func (*OnAppPrivateCommandRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{119}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{205}
 }
 
 func (x *OnAppPrivateCommandRequest) GetHandle() int64 {
@@ -5207,7 +8935,7 @@ type OnAppPrivateCommandResponse struct {
 
 func (x *OnAppPrivateCommandResponse) Reset() {
 	*x = OnAppPrivateCommandResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[120]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[206]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5219,7 +8947,7 @@ func (x *OnAppPrivateCommandResponse) String() string {
 func (*OnAppPrivateCommandResponse) ProtoMessage() {}
 
 func (x *OnAppPrivateCommandResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[120]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[206]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5232,7 +8960,7 @@ func (x *OnAppPrivateCommandResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnAppPrivateCommandResponse.ProtoReflect.Descriptor instead.
 func (*OnAppPrivateCommandResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{120}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{206}
 }
 
 type OnBindInputRequest struct {
@@ -5244,7 +8972,7 @@ type OnBindInputRequest struct {
 
 func (x *OnBindInputRequest) Reset() {
 	*x = OnBindInputRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[121]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[207]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5256,7 +8984,7 @@ func (x *OnBindInputRequest) String() string {
 func (*OnBindInputRequest) ProtoMessage() {}
 
 func (x *OnBindInputRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[121]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[207]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5269,7 +8997,7 @@ func (x *OnBindInputRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnBindInputRequest.ProtoReflect.Descriptor instead.
 func (*OnBindInputRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{121}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{207}
 }
 
 func (x *OnBindInputRequest) GetHandle() int64 {
@@ -5287,7 +9015,7 @@ type OnBindInputResponse struct {
 
 func (x *OnBindInputResponse) Reset() {
 	*x = OnBindInputResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[122]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[208]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5299,7 +9027,7 @@ func (x *OnBindInputResponse) String() string {
 func (*OnBindInputResponse) ProtoMessage() {}
 
 func (x *OnBindInputResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[122]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[208]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5312,7 +9040,7 @@ func (x *OnBindInputResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnBindInputResponse.ProtoReflect.Descriptor instead.
 func (*OnBindInputResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{122}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{208}
 }
 
 type OnComputeInsetsRequest struct {
@@ -5325,7 +9053,7 @@ type OnComputeInsetsRequest struct {
 
 func (x *OnComputeInsetsRequest) Reset() {
 	*x = OnComputeInsetsRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[123]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[209]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5337,7 +9065,7 @@ func (x *OnComputeInsetsRequest) String() string {
 func (*OnComputeInsetsRequest) ProtoMessage() {}
 
 func (x *OnComputeInsetsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[123]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[209]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5350,7 +9078,7 @@ func (x *OnComputeInsetsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnComputeInsetsRequest.ProtoReflect.Descriptor instead.
 func (*OnComputeInsetsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{123}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{209}
 }
 
 func (x *OnComputeInsetsRequest) GetHandle() int64 {
@@ -5375,7 +9103,7 @@ type OnComputeInsetsResponse struct {
 
 func (x *OnComputeInsetsResponse) Reset() {
 	*x = OnComputeInsetsResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[124]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[210]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5387,7 +9115,7 @@ func (x *OnComputeInsetsResponse) String() string {
 func (*OnComputeInsetsResponse) ProtoMessage() {}
 
 func (x *OnComputeInsetsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[124]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[210]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5400,7 +9128,7 @@ func (x *OnComputeInsetsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnComputeInsetsResponse.ProtoReflect.Descriptor instead.
 func (*OnComputeInsetsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{124}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{210}
 }
 
 type InputMethodServiceOnConfigurationChangedRequest struct {
@@ -5413,7 +9141,7 @@ type InputMethodServiceOnConfigurationChangedRequest struct {
 
 func (x *InputMethodServiceOnConfigurationChangedRequest) Reset() {
 	*x = InputMethodServiceOnConfigurationChangedRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[125]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[211]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5425,7 +9153,7 @@ func (x *InputMethodServiceOnConfigurationChangedRequest) String() string {
 func (*InputMethodServiceOnConfigurationChangedRequest) ProtoMessage() {}
 
 func (x *InputMethodServiceOnConfigurationChangedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[125]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[211]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5438,7 +9166,7 @@ func (x *InputMethodServiceOnConfigurationChangedRequest) ProtoReflect() protore
 
 // Deprecated: Use InputMethodServiceOnConfigurationChangedRequest.ProtoReflect.Descriptor instead.
 func (*InputMethodServiceOnConfigurationChangedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{125}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{211}
 }
 
 func (x *InputMethodServiceOnConfigurationChangedRequest) GetHandle() int64 {
@@ -5467,7 +9195,7 @@ type OnConfigureWindowRequest struct {
 
 func (x *OnConfigureWindowRequest) Reset() {
 	*x = OnConfigureWindowRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[126]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[212]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5479,7 +9207,7 @@ func (x *OnConfigureWindowRequest) String() string {
 func (*OnConfigureWindowRequest) ProtoMessage() {}
 
 func (x *OnConfigureWindowRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[126]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[212]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5492,7 +9220,7 @@ func (x *OnConfigureWindowRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnConfigureWindowRequest.ProtoReflect.Descriptor instead.
 func (*OnConfigureWindowRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{126}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{212}
 }
 
 func (x *OnConfigureWindowRequest) GetHandle() int64 {
@@ -5531,7 +9259,7 @@ type OnConfigureWindowResponse struct {
 
 func (x *OnConfigureWindowResponse) Reset() {
 	*x = OnConfigureWindowResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[127]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[213]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5543,7 +9271,7 @@ func (x *OnConfigureWindowResponse) String() string {
 func (*OnConfigureWindowResponse) ProtoMessage() {}
 
 func (x *OnConfigureWindowResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[127]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[213]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5556,7 +9284,7 @@ func (x *OnConfigureWindowResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnConfigureWindowResponse.ProtoReflect.Descriptor instead.
 func (*OnConfigureWindowResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{127}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{213}
 }
 
 type OnCreateRequest struct {
@@ -5568,7 +9296,7 @@ type OnCreateRequest struct {
 
 func (x *OnCreateRequest) Reset() {
 	*x = OnCreateRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[128]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[214]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5580,7 +9308,7 @@ func (x *OnCreateRequest) String() string {
 func (*OnCreateRequest) ProtoMessage() {}
 
 func (x *OnCreateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[128]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[214]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5593,7 +9321,7 @@ func (x *OnCreateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCreateRequest.ProtoReflect.Descriptor instead.
 func (*OnCreateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{128}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{214}
 }
 
 func (x *OnCreateRequest) GetHandle() int64 {
@@ -5611,7 +9339,7 @@ type OnCreateResponse struct {
 
 func (x *OnCreateResponse) Reset() {
 	*x = OnCreateResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[129]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[215]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5623,7 +9351,7 @@ func (x *OnCreateResponse) String() string {
 func (*OnCreateResponse) ProtoMessage() {}
 
 func (x *OnCreateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[129]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[215]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5636,7 +9364,7 @@ func (x *OnCreateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCreateResponse.ProtoReflect.Descriptor instead.
 func (*OnCreateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{129}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{215}
 }
 
 type OnCreateCandidatesViewRequest struct {
@@ -5648,7 +9376,7 @@ type OnCreateCandidatesViewRequest struct {
 
 func (x *OnCreateCandidatesViewRequest) Reset() {
 	*x = OnCreateCandidatesViewRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[130]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[216]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5660,7 +9388,7 @@ func (x *OnCreateCandidatesViewRequest) String() string {
 func (*OnCreateCandidatesViewRequest) ProtoMessage() {}
 
 func (x *OnCreateCandidatesViewRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[130]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[216]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5673,7 +9401,7 @@ func (x *OnCreateCandidatesViewRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCreateCandidatesViewRequest.ProtoReflect.Descriptor instead.
 func (*OnCreateCandidatesViewRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{130}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{216}
 }
 
 func (x *OnCreateCandidatesViewRequest) GetHandle() int64 {
@@ -5692,7 +9420,7 @@ type OnCreateCandidatesViewResponse struct {
 
 func (x *OnCreateCandidatesViewResponse) Reset() {
 	*x = OnCreateCandidatesViewResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[131]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[217]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5704,7 +9432,7 @@ func (x *OnCreateCandidatesViewResponse) String() string {
 func (*OnCreateCandidatesViewResponse) ProtoMessage() {}
 
 func (x *OnCreateCandidatesViewResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[131]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[217]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5717,7 +9445,7 @@ func (x *OnCreateCandidatesViewResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCreateCandidatesViewResponse.ProtoReflect.Descriptor instead.
 func (*OnCreateCandidatesViewResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{131}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{217}
 }
 
 func (x *OnCreateCandidatesViewResponse) GetResult() int64 {
@@ -5736,7 +9464,7 @@ type OnCreateExtractTextViewRequest struct {
 
 func (x *OnCreateExtractTextViewRequest) Reset() {
 	*x = OnCreateExtractTextViewRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[132]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[218]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5748,7 +9476,7 @@ func (x *OnCreateExtractTextViewRequest) String() string {
 func (*OnCreateExtractTextViewRequest) ProtoMessage() {}
 
 func (x *OnCreateExtractTextViewRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[132]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[218]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5761,7 +9489,7 @@ func (x *OnCreateExtractTextViewRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCreateExtractTextViewRequest.ProtoReflect.Descriptor instead.
 func (*OnCreateExtractTextViewRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{132}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{218}
 }
 
 func (x *OnCreateExtractTextViewRequest) GetHandle() int64 {
@@ -5780,7 +9508,7 @@ type OnCreateExtractTextViewResponse struct {
 
 func (x *OnCreateExtractTextViewResponse) Reset() {
 	*x = OnCreateExtractTextViewResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[133]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[219]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5792,7 +9520,7 @@ func (x *OnCreateExtractTextViewResponse) String() string {
 func (*OnCreateExtractTextViewResponse) ProtoMessage() {}
 
 func (x *OnCreateExtractTextViewResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[133]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[219]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5805,7 +9533,7 @@ func (x *OnCreateExtractTextViewResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCreateExtractTextViewResponse.ProtoReflect.Descriptor instead.
 func (*OnCreateExtractTextViewResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{133}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{219}
 }
 
 func (x *OnCreateExtractTextViewResponse) GetResult() int64 {
@@ -5825,7 +9553,7 @@ type OnCreateInlineSuggestionsRequestRequest struct {
 
 func (x *OnCreateInlineSuggestionsRequestRequest) Reset() {
 	*x = OnCreateInlineSuggestionsRequestRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[134]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[220]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5837,7 +9565,7 @@ func (x *OnCreateInlineSuggestionsRequestRequest) String() string {
 func (*OnCreateInlineSuggestionsRequestRequest) ProtoMessage() {}
 
 func (x *OnCreateInlineSuggestionsRequestRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[134]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[220]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5850,7 +9578,7 @@ func (x *OnCreateInlineSuggestionsRequestRequest) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use OnCreateInlineSuggestionsRequestRequest.ProtoReflect.Descriptor instead.
 func (*OnCreateInlineSuggestionsRequestRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{134}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{220}
 }
 
 func (x *OnCreateInlineSuggestionsRequestRequest) GetHandle() int64 {
@@ -5876,7 +9604,7 @@ type OnCreateInlineSuggestionsRequestResponse struct {
 
 func (x *OnCreateInlineSuggestionsRequestResponse) Reset() {
 	*x = OnCreateInlineSuggestionsRequestResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[135]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[221]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5888,7 +9616,7 @@ func (x *OnCreateInlineSuggestionsRequestResponse) String() string {
 func (*OnCreateInlineSuggestionsRequestResponse) ProtoMessage() {}
 
 func (x *OnCreateInlineSuggestionsRequestResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[135]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[221]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5901,7 +9629,7 @@ func (x *OnCreateInlineSuggestionsRequestResponse) ProtoReflect() protoreflect.M
 
 // Deprecated: Use OnCreateInlineSuggestionsRequestResponse.ProtoReflect.Descriptor instead.
 func (*OnCreateInlineSuggestionsRequestResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{135}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{221}
 }
 
 func (x *OnCreateInlineSuggestionsRequestResponse) GetResult() int64 {
@@ -5920,7 +9648,7 @@ type InputMethodServiceOnCreateInputMethodInterfaceRequest struct {
 
 func (x *InputMethodServiceOnCreateInputMethodInterfaceRequest) Reset() {
 	*x = InputMethodServiceOnCreateInputMethodInterfaceRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[136]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[222]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5932,7 +9660,7 @@ func (x *InputMethodServiceOnCreateInputMethodInterfaceRequest) String() string 
 func (*InputMethodServiceOnCreateInputMethodInterfaceRequest) ProtoMessage() {}
 
 func (x *InputMethodServiceOnCreateInputMethodInterfaceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[136]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[222]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5945,7 +9673,7 @@ func (x *InputMethodServiceOnCreateInputMethodInterfaceRequest) ProtoReflect() p
 
 // Deprecated: Use InputMethodServiceOnCreateInputMethodInterfaceRequest.ProtoReflect.Descriptor instead.
 func (*InputMethodServiceOnCreateInputMethodInterfaceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{136}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{222}
 }
 
 func (x *InputMethodServiceOnCreateInputMethodInterfaceRequest) GetHandle() int64 {
@@ -5964,7 +9692,7 @@ type InputMethodServiceOnCreateInputMethodSessionInterfaceRequest struct {
 
 func (x *InputMethodServiceOnCreateInputMethodSessionInterfaceRequest) Reset() {
 	*x = InputMethodServiceOnCreateInputMethodSessionInterfaceRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[137]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[223]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5976,7 +9704,7 @@ func (x *InputMethodServiceOnCreateInputMethodSessionInterfaceRequest) String() 
 func (*InputMethodServiceOnCreateInputMethodSessionInterfaceRequest) ProtoMessage() {}
 
 func (x *InputMethodServiceOnCreateInputMethodSessionInterfaceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[137]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[223]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5989,7 +9717,7 @@ func (x *InputMethodServiceOnCreateInputMethodSessionInterfaceRequest) ProtoRefl
 
 // Deprecated: Use InputMethodServiceOnCreateInputMethodSessionInterfaceRequest.ProtoReflect.Descriptor instead.
 func (*InputMethodServiceOnCreateInputMethodSessionInterfaceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{137}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{223}
 }
 
 func (x *InputMethodServiceOnCreateInputMethodSessionInterfaceRequest) GetHandle() int64 {
@@ -6008,7 +9736,7 @@ type OnCreateInputViewRequest struct {
 
 func (x *OnCreateInputViewRequest) Reset() {
 	*x = OnCreateInputViewRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[138]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[224]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6020,7 +9748,7 @@ func (x *OnCreateInputViewRequest) String() string {
 func (*OnCreateInputViewRequest) ProtoMessage() {}
 
 func (x *OnCreateInputViewRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[138]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[224]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6033,7 +9761,7 @@ func (x *OnCreateInputViewRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCreateInputViewRequest.ProtoReflect.Descriptor instead.
 func (*OnCreateInputViewRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{138}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{224}
 }
 
 func (x *OnCreateInputViewRequest) GetHandle() int64 {
@@ -6052,7 +9780,7 @@ type OnCreateInputViewResponse struct {
 
 func (x *OnCreateInputViewResponse) Reset() {
 	*x = OnCreateInputViewResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[139]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[225]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6064,7 +9792,7 @@ func (x *OnCreateInputViewResponse) String() string {
 func (*OnCreateInputViewResponse) ProtoMessage() {}
 
 func (x *OnCreateInputViewResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[139]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[225]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6077,7 +9805,7 @@ func (x *OnCreateInputViewResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCreateInputViewResponse.ProtoReflect.Descriptor instead.
 func (*OnCreateInputViewResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{139}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{225}
 }
 
 func (x *OnCreateInputViewResponse) GetResult() int64 {
@@ -6097,7 +9825,7 @@ type OnCustomImeSwitcherButtonRequestedVisibleRequest struct {
 
 func (x *OnCustomImeSwitcherButtonRequestedVisibleRequest) Reset() {
 	*x = OnCustomImeSwitcherButtonRequestedVisibleRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[140]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[226]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6109,7 +9837,7 @@ func (x *OnCustomImeSwitcherButtonRequestedVisibleRequest) String() string {
 func (*OnCustomImeSwitcherButtonRequestedVisibleRequest) ProtoMessage() {}
 
 func (x *OnCustomImeSwitcherButtonRequestedVisibleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[140]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[226]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6122,7 +9850,7 @@ func (x *OnCustomImeSwitcherButtonRequestedVisibleRequest) ProtoReflect() protor
 
 // Deprecated: Use OnCustomImeSwitcherButtonRequestedVisibleRequest.ProtoReflect.Descriptor instead.
 func (*OnCustomImeSwitcherButtonRequestedVisibleRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{140}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{226}
 }
 
 func (x *OnCustomImeSwitcherButtonRequestedVisibleRequest) GetHandle() int64 {
@@ -6147,7 +9875,7 @@ type OnCustomImeSwitcherButtonRequestedVisibleResponse struct {
 
 func (x *OnCustomImeSwitcherButtonRequestedVisibleResponse) Reset() {
 	*x = OnCustomImeSwitcherButtonRequestedVisibleResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[141]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[227]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6159,7 +9887,7 @@ func (x *OnCustomImeSwitcherButtonRequestedVisibleResponse) String() string {
 func (*OnCustomImeSwitcherButtonRequestedVisibleResponse) ProtoMessage() {}
 
 func (x *OnCustomImeSwitcherButtonRequestedVisibleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[141]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[227]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6172,7 +9900,7 @@ func (x *OnCustomImeSwitcherButtonRequestedVisibleResponse) ProtoReflect() proto
 
 // Deprecated: Use OnCustomImeSwitcherButtonRequestedVisibleResponse.ProtoReflect.Descriptor instead.
 func (*OnCustomImeSwitcherButtonRequestedVisibleResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{141}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{227}
 }
 
 type InputMethodServiceOnDestroyRequest struct {
@@ -6184,7 +9912,7 @@ type InputMethodServiceOnDestroyRequest struct {
 
 func (x *InputMethodServiceOnDestroyRequest) Reset() {
 	*x = InputMethodServiceOnDestroyRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[142]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[228]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6196,7 +9924,7 @@ func (x *InputMethodServiceOnDestroyRequest) String() string {
 func (*InputMethodServiceOnDestroyRequest) ProtoMessage() {}
 
 func (x *InputMethodServiceOnDestroyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[142]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[228]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6209,7 +9937,7 @@ func (x *InputMethodServiceOnDestroyRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use InputMethodServiceOnDestroyRequest.ProtoReflect.Descriptor instead.
 func (*InputMethodServiceOnDestroyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{142}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{228}
 }
 
 func (x *InputMethodServiceOnDestroyRequest) GetHandle() int64 {
@@ -6229,7 +9957,7 @@ type OnDisplayCompletionsRequest struct {
 
 func (x *OnDisplayCompletionsRequest) Reset() {
 	*x = OnDisplayCompletionsRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[143]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[229]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6241,7 +9969,7 @@ func (x *OnDisplayCompletionsRequest) String() string {
 func (*OnDisplayCompletionsRequest) ProtoMessage() {}
 
 func (x *OnDisplayCompletionsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[143]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[229]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6254,7 +9982,7 @@ func (x *OnDisplayCompletionsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnDisplayCompletionsRequest.ProtoReflect.Descriptor instead.
 func (*OnDisplayCompletionsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{143}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{229}
 }
 
 func (x *OnDisplayCompletionsRequest) GetHandle() int64 {
@@ -6279,7 +10007,7 @@ type OnDisplayCompletionsResponse struct {
 
 func (x *OnDisplayCompletionsResponse) Reset() {
 	*x = OnDisplayCompletionsResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[144]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[230]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6291,7 +10019,7 @@ func (x *OnDisplayCompletionsResponse) String() string {
 func (*OnDisplayCompletionsResponse) ProtoMessage() {}
 
 func (x *OnDisplayCompletionsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[144]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[230]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6304,7 +10032,7 @@ func (x *OnDisplayCompletionsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnDisplayCompletionsResponse.ProtoReflect.Descriptor instead.
 func (*OnDisplayCompletionsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{144}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{230}
 }
 
 type OnEvaluateFullscreenModeRequest struct {
@@ -6316,7 +10044,7 @@ type OnEvaluateFullscreenModeRequest struct {
 
 func (x *OnEvaluateFullscreenModeRequest) Reset() {
 	*x = OnEvaluateFullscreenModeRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[145]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[231]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6328,7 +10056,7 @@ func (x *OnEvaluateFullscreenModeRequest) String() string {
 func (*OnEvaluateFullscreenModeRequest) ProtoMessage() {}
 
 func (x *OnEvaluateFullscreenModeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[145]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[231]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6341,7 +10069,7 @@ func (x *OnEvaluateFullscreenModeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnEvaluateFullscreenModeRequest.ProtoReflect.Descriptor instead.
 func (*OnEvaluateFullscreenModeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{145}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{231}
 }
 
 func (x *OnEvaluateFullscreenModeRequest) GetHandle() int64 {
@@ -6360,7 +10088,7 @@ type OnEvaluateFullscreenModeResponse struct {
 
 func (x *OnEvaluateFullscreenModeResponse) Reset() {
 	*x = OnEvaluateFullscreenModeResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[146]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[232]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6372,7 +10100,7 @@ func (x *OnEvaluateFullscreenModeResponse) String() string {
 func (*OnEvaluateFullscreenModeResponse) ProtoMessage() {}
 
 func (x *OnEvaluateFullscreenModeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[146]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[232]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6385,7 +10113,7 @@ func (x *OnEvaluateFullscreenModeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnEvaluateFullscreenModeResponse.ProtoReflect.Descriptor instead.
 func (*OnEvaluateFullscreenModeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{146}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{232}
 }
 
 func (x *OnEvaluateFullscreenModeResponse) GetResult() bool {
@@ -6404,7 +10132,7 @@ type OnEvaluateInputViewShownRequest struct {
 
 func (x *OnEvaluateInputViewShownRequest) Reset() {
 	*x = OnEvaluateInputViewShownRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[147]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[233]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6416,7 +10144,7 @@ func (x *OnEvaluateInputViewShownRequest) String() string {
 func (*OnEvaluateInputViewShownRequest) ProtoMessage() {}
 
 func (x *OnEvaluateInputViewShownRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[147]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[233]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6429,7 +10157,7 @@ func (x *OnEvaluateInputViewShownRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnEvaluateInputViewShownRequest.ProtoReflect.Descriptor instead.
 func (*OnEvaluateInputViewShownRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{147}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{233}
 }
 
 func (x *OnEvaluateInputViewShownRequest) GetHandle() int64 {
@@ -6448,7 +10176,7 @@ type OnEvaluateInputViewShownResponse struct {
 
 func (x *OnEvaluateInputViewShownResponse) Reset() {
 	*x = OnEvaluateInputViewShownResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[148]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[234]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6460,7 +10188,7 @@ func (x *OnEvaluateInputViewShownResponse) String() string {
 func (*OnEvaluateInputViewShownResponse) ProtoMessage() {}
 
 func (x *OnEvaluateInputViewShownResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[148]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[234]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6473,7 +10201,7 @@ func (x *OnEvaluateInputViewShownResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnEvaluateInputViewShownResponse.ProtoReflect.Descriptor instead.
 func (*OnEvaluateInputViewShownResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{148}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{234}
 }
 
 func (x *OnEvaluateInputViewShownResponse) GetResult() bool {
@@ -6493,7 +10221,7 @@ type OnExtractTextContextMenuItemRequest struct {
 
 func (x *OnExtractTextContextMenuItemRequest) Reset() {
 	*x = OnExtractTextContextMenuItemRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[149]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[235]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6505,7 +10233,7 @@ func (x *OnExtractTextContextMenuItemRequest) String() string {
 func (*OnExtractTextContextMenuItemRequest) ProtoMessage() {}
 
 func (x *OnExtractTextContextMenuItemRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[149]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[235]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6518,7 +10246,7 @@ func (x *OnExtractTextContextMenuItemRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use OnExtractTextContextMenuItemRequest.ProtoReflect.Descriptor instead.
 func (*OnExtractTextContextMenuItemRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{149}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{235}
 }
 
 func (x *OnExtractTextContextMenuItemRequest) GetHandle() int64 {
@@ -6544,7 +10272,7 @@ type OnExtractTextContextMenuItemResponse struct {
 
 func (x *OnExtractTextContextMenuItemResponse) Reset() {
 	*x = OnExtractTextContextMenuItemResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[150]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[236]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6556,7 +10284,7 @@ func (x *OnExtractTextContextMenuItemResponse) String() string {
 func (*OnExtractTextContextMenuItemResponse) ProtoMessage() {}
 
 func (x *OnExtractTextContextMenuItemResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[150]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[236]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6569,7 +10297,7 @@ func (x *OnExtractTextContextMenuItemResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use OnExtractTextContextMenuItemResponse.ProtoReflect.Descriptor instead.
 func (*OnExtractTextContextMenuItemResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{150}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{236}
 }
 
 func (x *OnExtractTextContextMenuItemResponse) GetResult() bool {
@@ -6590,7 +10318,7 @@ type OnExtractedCursorMovementRequest struct {
 
 func (x *OnExtractedCursorMovementRequest) Reset() {
 	*x = OnExtractedCursorMovementRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[151]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[237]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6602,7 +10330,7 @@ func (x *OnExtractedCursorMovementRequest) String() string {
 func (*OnExtractedCursorMovementRequest) ProtoMessage() {}
 
 func (x *OnExtractedCursorMovementRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[151]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[237]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6615,7 +10343,7 @@ func (x *OnExtractedCursorMovementRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnExtractedCursorMovementRequest.ProtoReflect.Descriptor instead.
 func (*OnExtractedCursorMovementRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{151}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{237}
 }
 
 func (x *OnExtractedCursorMovementRequest) GetHandle() int64 {
@@ -6647,7 +10375,7 @@ type OnExtractedCursorMovementResponse struct {
 
 func (x *OnExtractedCursorMovementResponse) Reset() {
 	*x = OnExtractedCursorMovementResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[152]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[238]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6659,7 +10387,7 @@ func (x *OnExtractedCursorMovementResponse) String() string {
 func (*OnExtractedCursorMovementResponse) ProtoMessage() {}
 
 func (x *OnExtractedCursorMovementResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[152]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[238]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6672,7 +10400,7 @@ func (x *OnExtractedCursorMovementResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use OnExtractedCursorMovementResponse.ProtoReflect.Descriptor instead.
 func (*OnExtractedCursorMovementResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{152}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{238}
 }
 
 type OnExtractedSelectionChangedRequest struct {
@@ -6686,7 +10414,7 @@ type OnExtractedSelectionChangedRequest struct {
 
 func (x *OnExtractedSelectionChangedRequest) Reset() {
 	*x = OnExtractedSelectionChangedRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[153]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[239]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6698,7 +10426,7 @@ func (x *OnExtractedSelectionChangedRequest) String() string {
 func (*OnExtractedSelectionChangedRequest) ProtoMessage() {}
 
 func (x *OnExtractedSelectionChangedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[153]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[239]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6711,7 +10439,7 @@ func (x *OnExtractedSelectionChangedRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use OnExtractedSelectionChangedRequest.ProtoReflect.Descriptor instead.
 func (*OnExtractedSelectionChangedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{153}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{239}
 }
 
 func (x *OnExtractedSelectionChangedRequest) GetHandle() int64 {
@@ -6743,7 +10471,7 @@ type OnExtractedSelectionChangedResponse struct {
 
 func (x *OnExtractedSelectionChangedResponse) Reset() {
 	*x = OnExtractedSelectionChangedResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[154]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[240]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6755,7 +10483,7 @@ func (x *OnExtractedSelectionChangedResponse) String() string {
 func (*OnExtractedSelectionChangedResponse) ProtoMessage() {}
 
 func (x *OnExtractedSelectionChangedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[154]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[240]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6768,7 +10496,7 @@ func (x *OnExtractedSelectionChangedResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use OnExtractedSelectionChangedResponse.ProtoReflect.Descriptor instead.
 func (*OnExtractedSelectionChangedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{154}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{240}
 }
 
 type OnExtractedTextClickedRequest struct {
@@ -6780,7 +10508,7 @@ type OnExtractedTextClickedRequest struct {
 
 func (x *OnExtractedTextClickedRequest) Reset() {
 	*x = OnExtractedTextClickedRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[155]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[241]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6792,7 +10520,7 @@ func (x *OnExtractedTextClickedRequest) String() string {
 func (*OnExtractedTextClickedRequest) ProtoMessage() {}
 
 func (x *OnExtractedTextClickedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[155]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[241]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6805,7 +10533,7 @@ func (x *OnExtractedTextClickedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnExtractedTextClickedRequest.ProtoReflect.Descriptor instead.
 func (*OnExtractedTextClickedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{155}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{241}
 }
 
 func (x *OnExtractedTextClickedRequest) GetHandle() int64 {
@@ -6823,7 +10551,7 @@ type OnExtractedTextClickedResponse struct {
 
 func (x *OnExtractedTextClickedResponse) Reset() {
 	*x = OnExtractedTextClickedResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[156]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[242]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6835,7 +10563,7 @@ func (x *OnExtractedTextClickedResponse) String() string {
 func (*OnExtractedTextClickedResponse) ProtoMessage() {}
 
 func (x *OnExtractedTextClickedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[156]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[242]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6848,7 +10576,7 @@ func (x *OnExtractedTextClickedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnExtractedTextClickedResponse.ProtoReflect.Descriptor instead.
 func (*OnExtractedTextClickedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{156}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{242}
 }
 
 type OnExtractingInputChangedRequest struct {
@@ -6861,7 +10589,7 @@ type OnExtractingInputChangedRequest struct {
 
 func (x *OnExtractingInputChangedRequest) Reset() {
 	*x = OnExtractingInputChangedRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[157]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[243]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6873,7 +10601,7 @@ func (x *OnExtractingInputChangedRequest) String() string {
 func (*OnExtractingInputChangedRequest) ProtoMessage() {}
 
 func (x *OnExtractingInputChangedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[157]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[243]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6886,7 +10614,7 @@ func (x *OnExtractingInputChangedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnExtractingInputChangedRequest.ProtoReflect.Descriptor instead.
 func (*OnExtractingInputChangedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{157}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{243}
 }
 
 func (x *OnExtractingInputChangedRequest) GetHandle() int64 {
@@ -6911,7 +10639,7 @@ type OnExtractingInputChangedResponse struct {
 
 func (x *OnExtractingInputChangedResponse) Reset() {
 	*x = OnExtractingInputChangedResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[158]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[244]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6923,7 +10651,7 @@ func (x *OnExtractingInputChangedResponse) String() string {
 func (*OnExtractingInputChangedResponse) ProtoMessage() {}
 
 func (x *OnExtractingInputChangedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[158]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[244]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6936,7 +10664,7 @@ func (x *OnExtractingInputChangedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnExtractingInputChangedResponse.ProtoReflect.Descriptor instead.
 func (*OnExtractingInputChangedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{158}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{244}
 }
 
 type OnFinishCandidatesViewRequest struct {
@@ -6949,7 +10677,7 @@ type OnFinishCandidatesViewRequest struct {
 
 func (x *OnFinishCandidatesViewRequest) Reset() {
 	*x = OnFinishCandidatesViewRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[159]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[245]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6961,7 +10689,7 @@ func (x *OnFinishCandidatesViewRequest) String() string {
 func (*OnFinishCandidatesViewRequest) ProtoMessage() {}
 
 func (x *OnFinishCandidatesViewRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[159]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[245]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6974,7 +10702,7 @@ func (x *OnFinishCandidatesViewRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnFinishCandidatesViewRequest.ProtoReflect.Descriptor instead.
 func (*OnFinishCandidatesViewRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{159}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{245}
 }
 
 func (x *OnFinishCandidatesViewRequest) GetHandle() int64 {
@@ -6999,7 +10727,7 @@ type OnFinishCandidatesViewResponse struct {
 
 func (x *OnFinishCandidatesViewResponse) Reset() {
 	*x = OnFinishCandidatesViewResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[160]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[246]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7011,7 +10739,7 @@ func (x *OnFinishCandidatesViewResponse) String() string {
 func (*OnFinishCandidatesViewResponse) ProtoMessage() {}
 
 func (x *OnFinishCandidatesViewResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[160]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[246]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7024,7 +10752,7 @@ func (x *OnFinishCandidatesViewResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnFinishCandidatesViewResponse.ProtoReflect.Descriptor instead.
 func (*OnFinishCandidatesViewResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{160}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{246}
 }
 
 type OnFinishInputRequest struct {
@@ -7036,7 +10764,7 @@ type OnFinishInputRequest struct {
 
 func (x *OnFinishInputRequest) Reset() {
 	*x = OnFinishInputRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[161]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[247]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7048,7 +10776,7 @@ func (x *OnFinishInputRequest) String() string {
 func (*OnFinishInputRequest) ProtoMessage() {}
 
 func (x *OnFinishInputRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[161]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[247]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7061,7 +10789,7 @@ func (x *OnFinishInputRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnFinishInputRequest.ProtoReflect.Descriptor instead.
 func (*OnFinishInputRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{161}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{247}
 }
 
 func (x *OnFinishInputRequest) GetHandle() int64 {
@@ -7079,7 +10807,7 @@ type OnFinishInputResponse struct {
 
 func (x *OnFinishInputResponse) Reset() {
 	*x = OnFinishInputResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[162]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[248]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7091,7 +10819,7 @@ func (x *OnFinishInputResponse) String() string {
 func (*OnFinishInputResponse) ProtoMessage() {}
 
 func (x *OnFinishInputResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[162]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[248]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7104,7 +10832,7 @@ func (x *OnFinishInputResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnFinishInputResponse.ProtoReflect.Descriptor instead.
 func (*OnFinishInputResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{162}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{248}
 }
 
 type OnFinishInputViewRequest struct {
@@ -7117,7 +10845,7 @@ type OnFinishInputViewRequest struct {
 
 func (x *OnFinishInputViewRequest) Reset() {
 	*x = OnFinishInputViewRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[163]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[249]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7129,7 +10857,7 @@ func (x *OnFinishInputViewRequest) String() string {
 func (*OnFinishInputViewRequest) ProtoMessage() {}
 
 func (x *OnFinishInputViewRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[163]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[249]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7142,7 +10870,7 @@ func (x *OnFinishInputViewRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnFinishInputViewRequest.ProtoReflect.Descriptor instead.
 func (*OnFinishInputViewRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{163}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{249}
 }
 
 func (x *OnFinishInputViewRequest) GetHandle() int64 {
@@ -7167,7 +10895,7 @@ type OnFinishInputViewResponse struct {
 
 func (x *OnFinishInputViewResponse) Reset() {
 	*x = OnFinishInputViewResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[164]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[250]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7179,7 +10907,7 @@ func (x *OnFinishInputViewResponse) String() string {
 func (*OnFinishInputViewResponse) ProtoMessage() {}
 
 func (x *OnFinishInputViewResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[164]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[250]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7192,7 +10920,7 @@ func (x *OnFinishInputViewResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnFinishInputViewResponse.ProtoReflect.Descriptor instead.
 func (*OnFinishInputViewResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{164}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{250}
 }
 
 type OnFinishStylusHandwritingRequest struct {
@@ -7204,7 +10932,7 @@ type OnFinishStylusHandwritingRequest struct {
 
 func (x *OnFinishStylusHandwritingRequest) Reset() {
 	*x = OnFinishStylusHandwritingRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[165]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[251]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7216,7 +10944,7 @@ func (x *OnFinishStylusHandwritingRequest) String() string {
 func (*OnFinishStylusHandwritingRequest) ProtoMessage() {}
 
 func (x *OnFinishStylusHandwritingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[165]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[251]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7229,7 +10957,7 @@ func (x *OnFinishStylusHandwritingRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnFinishStylusHandwritingRequest.ProtoReflect.Descriptor instead.
 func (*OnFinishStylusHandwritingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{165}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{251}
 }
 
 func (x *OnFinishStylusHandwritingRequest) GetHandle() int64 {
@@ -7247,7 +10975,7 @@ type OnFinishStylusHandwritingResponse struct {
 
 func (x *OnFinishStylusHandwritingResponse) Reset() {
 	*x = OnFinishStylusHandwritingResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[166]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[252]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7259,7 +10987,7 @@ func (x *OnFinishStylusHandwritingResponse) String() string {
 func (*OnFinishStylusHandwritingResponse) ProtoMessage() {}
 
 func (x *OnFinishStylusHandwritingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[166]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[252]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7272,7 +11000,7 @@ func (x *OnFinishStylusHandwritingResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use OnFinishStylusHandwritingResponse.ProtoReflect.Descriptor instead.
 func (*OnFinishStylusHandwritingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{166}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{252}
 }
 
 type InputMethodServiceOnGenericMotionEventRequest struct {
@@ -7285,7 +11013,7 @@ type InputMethodServiceOnGenericMotionEventRequest struct {
 
 func (x *InputMethodServiceOnGenericMotionEventRequest) Reset() {
 	*x = InputMethodServiceOnGenericMotionEventRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[167]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[253]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7297,7 +11025,7 @@ func (x *InputMethodServiceOnGenericMotionEventRequest) String() string {
 func (*InputMethodServiceOnGenericMotionEventRequest) ProtoMessage() {}
 
 func (x *InputMethodServiceOnGenericMotionEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[167]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[253]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7310,7 +11038,7 @@ func (x *InputMethodServiceOnGenericMotionEventRequest) ProtoReflect() protorefl
 
 // Deprecated: Use InputMethodServiceOnGenericMotionEventRequest.ProtoReflect.Descriptor instead.
 func (*InputMethodServiceOnGenericMotionEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{167}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{253}
 }
 
 func (x *InputMethodServiceOnGenericMotionEventRequest) GetHandle() int64 {
@@ -7336,7 +11064,7 @@ type OnInitializeInterfaceRequest struct {
 
 func (x *OnInitializeInterfaceRequest) Reset() {
 	*x = OnInitializeInterfaceRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[168]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[254]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7348,7 +11076,7 @@ func (x *OnInitializeInterfaceRequest) String() string {
 func (*OnInitializeInterfaceRequest) ProtoMessage() {}
 
 func (x *OnInitializeInterfaceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[168]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[254]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7361,7 +11089,7 @@ func (x *OnInitializeInterfaceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnInitializeInterfaceRequest.ProtoReflect.Descriptor instead.
 func (*OnInitializeInterfaceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{168}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{254}
 }
 
 func (x *OnInitializeInterfaceRequest) GetHandle() int64 {
@@ -7379,7 +11107,7 @@ type OnInitializeInterfaceResponse struct {
 
 func (x *OnInitializeInterfaceResponse) Reset() {
 	*x = OnInitializeInterfaceResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[169]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[255]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7391,7 +11119,7 @@ func (x *OnInitializeInterfaceResponse) String() string {
 func (*OnInitializeInterfaceResponse) ProtoMessage() {}
 
 func (x *OnInitializeInterfaceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[169]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[255]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7404,7 +11132,7 @@ func (x *OnInitializeInterfaceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnInitializeInterfaceResponse.ProtoReflect.Descriptor instead.
 func (*OnInitializeInterfaceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{169}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{255}
 }
 
 type OnInlineSuggestionsResponseRequest struct {
@@ -7417,7 +11145,7 @@ type OnInlineSuggestionsResponseRequest struct {
 
 func (x *OnInlineSuggestionsResponseRequest) Reset() {
 	*x = OnInlineSuggestionsResponseRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[170]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[256]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7429,7 +11157,7 @@ func (x *OnInlineSuggestionsResponseRequest) String() string {
 func (*OnInlineSuggestionsResponseRequest) ProtoMessage() {}
 
 func (x *OnInlineSuggestionsResponseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[170]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[256]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7442,7 +11170,7 @@ func (x *OnInlineSuggestionsResponseRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use OnInlineSuggestionsResponseRequest.ProtoReflect.Descriptor instead.
 func (*OnInlineSuggestionsResponseRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{170}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{256}
 }
 
 func (x *OnInlineSuggestionsResponseRequest) GetHandle() int64 {
@@ -7468,7 +11196,7 @@ type OnInlineSuggestionsResponseResponse struct {
 
 func (x *OnInlineSuggestionsResponseResponse) Reset() {
 	*x = OnInlineSuggestionsResponseResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[171]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[257]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7480,7 +11208,7 @@ func (x *OnInlineSuggestionsResponseResponse) String() string {
 func (*OnInlineSuggestionsResponseResponse) ProtoMessage() {}
 
 func (x *OnInlineSuggestionsResponseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[171]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[257]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7493,7 +11221,7 @@ func (x *OnInlineSuggestionsResponseResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use OnInlineSuggestionsResponseResponse.ProtoReflect.Descriptor instead.
 func (*OnInlineSuggestionsResponseResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{171}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{257}
 }
 
 func (x *OnInlineSuggestionsResponseResponse) GetResult() bool {
@@ -7514,7 +11242,7 @@ type OnKeyDownRequest struct {
 
 func (x *OnKeyDownRequest) Reset() {
 	*x = OnKeyDownRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[172]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[258]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7526,7 +11254,7 @@ func (x *OnKeyDownRequest) String() string {
 func (*OnKeyDownRequest) ProtoMessage() {}
 
 func (x *OnKeyDownRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[172]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[258]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7539,7 +11267,7 @@ func (x *OnKeyDownRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnKeyDownRequest.ProtoReflect.Descriptor instead.
 func (*OnKeyDownRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{172}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{258}
 }
 
 func (x *OnKeyDownRequest) GetHandle() int64 {
@@ -7572,7 +11300,7 @@ type OnKeyDownResponse struct {
 
 func (x *OnKeyDownResponse) Reset() {
 	*x = OnKeyDownResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[173]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[259]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7584,7 +11312,7 @@ func (x *OnKeyDownResponse) String() string {
 func (*OnKeyDownResponse) ProtoMessage() {}
 
 func (x *OnKeyDownResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[173]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[259]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7597,7 +11325,7 @@ func (x *OnKeyDownResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnKeyDownResponse.ProtoReflect.Descriptor instead.
 func (*OnKeyDownResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{173}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{259}
 }
 
 func (x *OnKeyDownResponse) GetResult() bool {
@@ -7618,7 +11346,7 @@ type OnKeyLongPressRequest struct {
 
 func (x *OnKeyLongPressRequest) Reset() {
 	*x = OnKeyLongPressRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[174]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[260]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7630,7 +11358,7 @@ func (x *OnKeyLongPressRequest) String() string {
 func (*OnKeyLongPressRequest) ProtoMessage() {}
 
 func (x *OnKeyLongPressRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[174]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[260]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7643,7 +11371,7 @@ func (x *OnKeyLongPressRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnKeyLongPressRequest.ProtoReflect.Descriptor instead.
 func (*OnKeyLongPressRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{174}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{260}
 }
 
 func (x *OnKeyLongPressRequest) GetHandle() int64 {
@@ -7676,7 +11404,7 @@ type OnKeyLongPressResponse struct {
 
 func (x *OnKeyLongPressResponse) Reset() {
 	*x = OnKeyLongPressResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[175]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[261]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7688,7 +11416,7 @@ func (x *OnKeyLongPressResponse) String() string {
 func (*OnKeyLongPressResponse) ProtoMessage() {}
 
 func (x *OnKeyLongPressResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[175]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[261]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7701,7 +11429,7 @@ func (x *OnKeyLongPressResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnKeyLongPressResponse.ProtoReflect.Descriptor instead.
 func (*OnKeyLongPressResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{175}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{261}
 }
 
 func (x *OnKeyLongPressResponse) GetResult() bool {
@@ -7723,7 +11451,7 @@ type OnKeyMultipleRequest struct {
 
 func (x *OnKeyMultipleRequest) Reset() {
 	*x = OnKeyMultipleRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[176]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[262]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7735,7 +11463,7 @@ func (x *OnKeyMultipleRequest) String() string {
 func (*OnKeyMultipleRequest) ProtoMessage() {}
 
 func (x *OnKeyMultipleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[176]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[262]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7748,7 +11476,7 @@ func (x *OnKeyMultipleRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnKeyMultipleRequest.ProtoReflect.Descriptor instead.
 func (*OnKeyMultipleRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{176}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{262}
 }
 
 func (x *OnKeyMultipleRequest) GetHandle() int64 {
@@ -7788,7 +11516,7 @@ type OnKeyMultipleResponse struct {
 
 func (x *OnKeyMultipleResponse) Reset() {
 	*x = OnKeyMultipleResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[177]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[263]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7800,7 +11528,7 @@ func (x *OnKeyMultipleResponse) String() string {
 func (*OnKeyMultipleResponse) ProtoMessage() {}
 
 func (x *OnKeyMultipleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[177]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[263]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7813,7 +11541,7 @@ func (x *OnKeyMultipleResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnKeyMultipleResponse.ProtoReflect.Descriptor instead.
 func (*OnKeyMultipleResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{177}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{263}
 }
 
 func (x *OnKeyMultipleResponse) GetResult() bool {
@@ -7834,7 +11562,7 @@ type OnKeyUpRequest struct {
 
 func (x *OnKeyUpRequest) Reset() {
 	*x = OnKeyUpRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[178]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[264]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7846,7 +11574,7 @@ func (x *OnKeyUpRequest) String() string {
 func (*OnKeyUpRequest) ProtoMessage() {}
 
 func (x *OnKeyUpRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[178]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[264]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7859,7 +11587,7 @@ func (x *OnKeyUpRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnKeyUpRequest.ProtoReflect.Descriptor instead.
 func (*OnKeyUpRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{178}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{264}
 }
 
 func (x *OnKeyUpRequest) GetHandle() int64 {
@@ -7892,7 +11620,7 @@ type OnKeyUpResponse struct {
 
 func (x *OnKeyUpResponse) Reset() {
 	*x = OnKeyUpResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[179]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[265]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7904,7 +11632,7 @@ func (x *OnKeyUpResponse) String() string {
 func (*OnKeyUpResponse) ProtoMessage() {}
 
 func (x *OnKeyUpResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[179]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[265]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7917,7 +11645,7 @@ func (x *OnKeyUpResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnKeyUpResponse.ProtoReflect.Descriptor instead.
 func (*OnKeyUpResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{179}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{265}
 }
 
 func (x *OnKeyUpResponse) GetResult() bool {
@@ -7936,7 +11664,7 @@ type OnPrepareStylusHandwritingRequest struct {
 
 func (x *OnPrepareStylusHandwritingRequest) Reset() {
 	*x = OnPrepareStylusHandwritingRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[180]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[266]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7948,7 +11676,7 @@ func (x *OnPrepareStylusHandwritingRequest) String() string {
 func (*OnPrepareStylusHandwritingRequest) ProtoMessage() {}
 
 func (x *OnPrepareStylusHandwritingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[180]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[266]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7961,7 +11689,7 @@ func (x *OnPrepareStylusHandwritingRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use OnPrepareStylusHandwritingRequest.ProtoReflect.Descriptor instead.
 func (*OnPrepareStylusHandwritingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{180}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{266}
 }
 
 func (x *OnPrepareStylusHandwritingRequest) GetHandle() int64 {
@@ -7979,7 +11707,7 @@ type OnPrepareStylusHandwritingResponse struct {
 
 func (x *OnPrepareStylusHandwritingResponse) Reset() {
 	*x = OnPrepareStylusHandwritingResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[181]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[267]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7991,7 +11719,7 @@ func (x *OnPrepareStylusHandwritingResponse) String() string {
 func (*OnPrepareStylusHandwritingResponse) ProtoMessage() {}
 
 func (x *OnPrepareStylusHandwritingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[181]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[267]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8004,7 +11732,7 @@ func (x *OnPrepareStylusHandwritingResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use OnPrepareStylusHandwritingResponse.ProtoReflect.Descriptor instead.
 func (*OnPrepareStylusHandwritingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{181}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{267}
 }
 
 type InputMethodServiceOnShouldVerifyKeyEventRequest struct {
@@ -8017,7 +11745,7 @@ type InputMethodServiceOnShouldVerifyKeyEventRequest struct {
 
 func (x *InputMethodServiceOnShouldVerifyKeyEventRequest) Reset() {
 	*x = InputMethodServiceOnShouldVerifyKeyEventRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[182]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[268]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8029,7 +11757,7 @@ func (x *InputMethodServiceOnShouldVerifyKeyEventRequest) String() string {
 func (*InputMethodServiceOnShouldVerifyKeyEventRequest) ProtoMessage() {}
 
 func (x *InputMethodServiceOnShouldVerifyKeyEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[182]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[268]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8042,7 +11770,7 @@ func (x *InputMethodServiceOnShouldVerifyKeyEventRequest) ProtoReflect() protore
 
 // Deprecated: Use InputMethodServiceOnShouldVerifyKeyEventRequest.ProtoReflect.Descriptor instead.
 func (*InputMethodServiceOnShouldVerifyKeyEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{182}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{268}
 }
 
 func (x *InputMethodServiceOnShouldVerifyKeyEventRequest) GetHandle() int64 {
@@ -8070,7 +11798,7 @@ type OnShowInputRequestedRequest struct {
 
 func (x *OnShowInputRequestedRequest) Reset() {
 	*x = OnShowInputRequestedRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[183]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[269]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8082,7 +11810,7 @@ func (x *OnShowInputRequestedRequest) String() string {
 func (*OnShowInputRequestedRequest) ProtoMessage() {}
 
 func (x *OnShowInputRequestedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[183]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[269]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8095,7 +11823,7 @@ func (x *OnShowInputRequestedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnShowInputRequestedRequest.ProtoReflect.Descriptor instead.
 func (*OnShowInputRequestedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{183}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{269}
 }
 
 func (x *OnShowInputRequestedRequest) GetHandle() int64 {
@@ -8128,7 +11856,7 @@ type OnShowInputRequestedResponse struct {
 
 func (x *OnShowInputRequestedResponse) Reset() {
 	*x = OnShowInputRequestedResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[184]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[270]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8140,7 +11868,7 @@ func (x *OnShowInputRequestedResponse) String() string {
 func (*OnShowInputRequestedResponse) ProtoMessage() {}
 
 func (x *OnShowInputRequestedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[184]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[270]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8153,7 +11881,7 @@ func (x *OnShowInputRequestedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnShowInputRequestedResponse.ProtoReflect.Descriptor instead.
 func (*OnShowInputRequestedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{184}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{270}
 }
 
 func (x *OnShowInputRequestedResponse) GetResult() bool {
@@ -8174,7 +11902,7 @@ type OnStartCandidatesViewRequest struct {
 
 func (x *OnStartCandidatesViewRequest) Reset() {
 	*x = OnStartCandidatesViewRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[185]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[271]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8186,7 +11914,7 @@ func (x *OnStartCandidatesViewRequest) String() string {
 func (*OnStartCandidatesViewRequest) ProtoMessage() {}
 
 func (x *OnStartCandidatesViewRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[185]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[271]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8199,7 +11927,7 @@ func (x *OnStartCandidatesViewRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnStartCandidatesViewRequest.ProtoReflect.Descriptor instead.
 func (*OnStartCandidatesViewRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{185}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{271}
 }
 
 func (x *OnStartCandidatesViewRequest) GetHandle() int64 {
@@ -8231,7 +11959,7 @@ type OnStartCandidatesViewResponse struct {
 
 func (x *OnStartCandidatesViewResponse) Reset() {
 	*x = OnStartCandidatesViewResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[186]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[272]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8243,7 +11971,7 @@ func (x *OnStartCandidatesViewResponse) String() string {
 func (*OnStartCandidatesViewResponse) ProtoMessage() {}
 
 func (x *OnStartCandidatesViewResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[186]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[272]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8256,7 +11984,7 @@ func (x *OnStartCandidatesViewResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnStartCandidatesViewResponse.ProtoReflect.Descriptor instead.
 func (*OnStartCandidatesViewResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{186}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{272}
 }
 
 type OnStartConnectionlessStylusHandwritingRequest struct {
@@ -8270,7 +11998,7 @@ type OnStartConnectionlessStylusHandwritingRequest struct {
 
 func (x *OnStartConnectionlessStylusHandwritingRequest) Reset() {
 	*x = OnStartConnectionlessStylusHandwritingRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[187]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[273]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8282,7 +12010,7 @@ func (x *OnStartConnectionlessStylusHandwritingRequest) String() string {
 func (*OnStartConnectionlessStylusHandwritingRequest) ProtoMessage() {}
 
 func (x *OnStartConnectionlessStylusHandwritingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[187]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[273]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8295,7 +12023,7 @@ func (x *OnStartConnectionlessStylusHandwritingRequest) ProtoReflect() protorefl
 
 // Deprecated: Use OnStartConnectionlessStylusHandwritingRequest.ProtoReflect.Descriptor instead.
 func (*OnStartConnectionlessStylusHandwritingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{187}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{273}
 }
 
 func (x *OnStartConnectionlessStylusHandwritingRequest) GetHandle() int64 {
@@ -8328,7 +12056,7 @@ type OnStartConnectionlessStylusHandwritingResponse struct {
 
 func (x *OnStartConnectionlessStylusHandwritingResponse) Reset() {
 	*x = OnStartConnectionlessStylusHandwritingResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[188]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[274]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8340,7 +12068,7 @@ func (x *OnStartConnectionlessStylusHandwritingResponse) String() string {
 func (*OnStartConnectionlessStylusHandwritingResponse) ProtoMessage() {}
 
 func (x *OnStartConnectionlessStylusHandwritingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[188]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[274]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8353,7 +12081,7 @@ func (x *OnStartConnectionlessStylusHandwritingResponse) ProtoReflect() protoref
 
 // Deprecated: Use OnStartConnectionlessStylusHandwritingResponse.ProtoReflect.Descriptor instead.
 func (*OnStartConnectionlessStylusHandwritingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{188}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{274}
 }
 
 func (x *OnStartConnectionlessStylusHandwritingResponse) GetResult() bool {
@@ -8374,7 +12102,7 @@ type OnStartInputRequest struct {
 
 func (x *OnStartInputRequest) Reset() {
 	*x = OnStartInputRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[189]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[275]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8386,7 +12114,7 @@ func (x *OnStartInputRequest) String() string {
 func (*OnStartInputRequest) ProtoMessage() {}
 
 func (x *OnStartInputRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[189]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[275]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8399,7 +12127,7 @@ func (x *OnStartInputRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnStartInputRequest.ProtoReflect.Descriptor instead.
 func (*OnStartInputRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{189}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{275}
 }
 
 func (x *OnStartInputRequest) GetHandle() int64 {
@@ -8431,7 +12159,7 @@ type OnStartInputResponse struct {
 
 func (x *OnStartInputResponse) Reset() {
 	*x = OnStartInputResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[190]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[276]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8443,7 +12171,7 @@ func (x *OnStartInputResponse) String() string {
 func (*OnStartInputResponse) ProtoMessage() {}
 
 func (x *OnStartInputResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[190]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[276]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8456,7 +12184,7 @@ func (x *OnStartInputResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnStartInputResponse.ProtoReflect.Descriptor instead.
 func (*OnStartInputResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{190}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{276}
 }
 
 type OnStartInputViewRequest struct {
@@ -8470,7 +12198,7 @@ type OnStartInputViewRequest struct {
 
 func (x *OnStartInputViewRequest) Reset() {
 	*x = OnStartInputViewRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[191]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[277]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8482,7 +12210,7 @@ func (x *OnStartInputViewRequest) String() string {
 func (*OnStartInputViewRequest) ProtoMessage() {}
 
 func (x *OnStartInputViewRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[191]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[277]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8495,7 +12223,7 @@ func (x *OnStartInputViewRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnStartInputViewRequest.ProtoReflect.Descriptor instead.
 func (*OnStartInputViewRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{191}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{277}
 }
 
 func (x *OnStartInputViewRequest) GetHandle() int64 {
@@ -8527,7 +12255,7 @@ type OnStartInputViewResponse struct {
 
 func (x *OnStartInputViewResponse) Reset() {
 	*x = OnStartInputViewResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[192]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[278]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8539,7 +12267,7 @@ func (x *OnStartInputViewResponse) String() string {
 func (*OnStartInputViewResponse) ProtoMessage() {}
 
 func (x *OnStartInputViewResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[192]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[278]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8552,7 +12280,7 @@ func (x *OnStartInputViewResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnStartInputViewResponse.ProtoReflect.Descriptor instead.
 func (*OnStartInputViewResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{192}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{278}
 }
 
 type OnStartStylusHandwritingRequest struct {
@@ -8564,7 +12292,7 @@ type OnStartStylusHandwritingRequest struct {
 
 func (x *OnStartStylusHandwritingRequest) Reset() {
 	*x = OnStartStylusHandwritingRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[193]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[279]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8576,7 +12304,7 @@ func (x *OnStartStylusHandwritingRequest) String() string {
 func (*OnStartStylusHandwritingRequest) ProtoMessage() {}
 
 func (x *OnStartStylusHandwritingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[193]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[279]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8589,7 +12317,7 @@ func (x *OnStartStylusHandwritingRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnStartStylusHandwritingRequest.ProtoReflect.Descriptor instead.
 func (*OnStartStylusHandwritingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{193}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{279}
 }
 
 func (x *OnStartStylusHandwritingRequest) GetHandle() int64 {
@@ -8608,7 +12336,7 @@ type OnStartStylusHandwritingResponse struct {
 
 func (x *OnStartStylusHandwritingResponse) Reset() {
 	*x = OnStartStylusHandwritingResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[194]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[280]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8620,7 +12348,7 @@ func (x *OnStartStylusHandwritingResponse) String() string {
 func (*OnStartStylusHandwritingResponse) ProtoMessage() {}
 
 func (x *OnStartStylusHandwritingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[194]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[280]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8633,7 +12361,7 @@ func (x *OnStartStylusHandwritingResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnStartStylusHandwritingResponse.ProtoReflect.Descriptor instead.
 func (*OnStartStylusHandwritingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{194}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{280}
 }
 
 func (x *OnStartStylusHandwritingResponse) GetResult() bool {
@@ -8653,7 +12381,7 @@ type OnStylusHandwritingMotionEventRequest struct {
 
 func (x *OnStylusHandwritingMotionEventRequest) Reset() {
 	*x = OnStylusHandwritingMotionEventRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[195]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[281]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8665,7 +12393,7 @@ func (x *OnStylusHandwritingMotionEventRequest) String() string {
 func (*OnStylusHandwritingMotionEventRequest) ProtoMessage() {}
 
 func (x *OnStylusHandwritingMotionEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[195]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[281]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8678,7 +12406,7 @@ func (x *OnStylusHandwritingMotionEventRequest) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use OnStylusHandwritingMotionEventRequest.ProtoReflect.Descriptor instead.
 func (*OnStylusHandwritingMotionEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{195}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{281}
 }
 
 func (x *OnStylusHandwritingMotionEventRequest) GetHandle() int64 {
@@ -8703,7 +12431,7 @@ type OnStylusHandwritingMotionEventResponse struct {
 
 func (x *OnStylusHandwritingMotionEventResponse) Reset() {
 	*x = OnStylusHandwritingMotionEventResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[196]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[282]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8715,7 +12443,7 @@ func (x *OnStylusHandwritingMotionEventResponse) String() string {
 func (*OnStylusHandwritingMotionEventResponse) ProtoMessage() {}
 
 func (x *OnStylusHandwritingMotionEventResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[196]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[282]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8728,7 +12456,7 @@ func (x *OnStylusHandwritingMotionEventResponse) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use OnStylusHandwritingMotionEventResponse.ProtoReflect.Descriptor instead.
 func (*OnStylusHandwritingMotionEventResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{196}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{282}
 }
 
 type InputMethodServiceOnTrackballEventRequest struct {
@@ -8741,7 +12469,7 @@ type InputMethodServiceOnTrackballEventRequest struct {
 
 func (x *InputMethodServiceOnTrackballEventRequest) Reset() {
 	*x = InputMethodServiceOnTrackballEventRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[197]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[283]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8753,7 +12481,7 @@ func (x *InputMethodServiceOnTrackballEventRequest) String() string {
 func (*InputMethodServiceOnTrackballEventRequest) ProtoMessage() {}
 
 func (x *InputMethodServiceOnTrackballEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[197]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[283]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8766,7 +12494,7 @@ func (x *InputMethodServiceOnTrackballEventRequest) ProtoReflect() protoreflect.
 
 // Deprecated: Use InputMethodServiceOnTrackballEventRequest.ProtoReflect.Descriptor instead.
 func (*InputMethodServiceOnTrackballEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{197}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{283}
 }
 
 func (x *InputMethodServiceOnTrackballEventRequest) GetHandle() int64 {
@@ -8792,7 +12520,7 @@ type OnUnbindInputRequest struct {
 
 func (x *OnUnbindInputRequest) Reset() {
 	*x = OnUnbindInputRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[198]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[284]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8804,7 +12532,7 @@ func (x *OnUnbindInputRequest) String() string {
 func (*OnUnbindInputRequest) ProtoMessage() {}
 
 func (x *OnUnbindInputRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[198]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[284]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8817,7 +12545,7 @@ func (x *OnUnbindInputRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnUnbindInputRequest.ProtoReflect.Descriptor instead.
 func (*OnUnbindInputRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{198}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{284}
 }
 
 func (x *OnUnbindInputRequest) GetHandle() int64 {
@@ -8835,7 +12563,7 @@ type OnUnbindInputResponse struct {
 
 func (x *OnUnbindInputResponse) Reset() {
 	*x = OnUnbindInputResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[199]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[285]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8847,7 +12575,7 @@ func (x *OnUnbindInputResponse) String() string {
 func (*OnUnbindInputResponse) ProtoMessage() {}
 
 func (x *OnUnbindInputResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[199]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[285]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8860,7 +12588,7 @@ func (x *OnUnbindInputResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnUnbindInputResponse.ProtoReflect.Descriptor instead.
 func (*OnUnbindInputResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{199}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{285}
 }
 
 type OnUpdateCursorRequest struct {
@@ -8873,7 +12601,7 @@ type OnUpdateCursorRequest struct {
 
 func (x *OnUpdateCursorRequest) Reset() {
 	*x = OnUpdateCursorRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[200]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[286]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8885,7 +12613,7 @@ func (x *OnUpdateCursorRequest) String() string {
 func (*OnUpdateCursorRequest) ProtoMessage() {}
 
 func (x *OnUpdateCursorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[200]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[286]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8898,7 +12626,7 @@ func (x *OnUpdateCursorRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnUpdateCursorRequest.ProtoReflect.Descriptor instead.
 func (*OnUpdateCursorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{200}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{286}
 }
 
 func (x *OnUpdateCursorRequest) GetHandle() int64 {
@@ -8923,7 +12651,7 @@ type OnUpdateCursorResponse struct {
 
 func (x *OnUpdateCursorResponse) Reset() {
 	*x = OnUpdateCursorResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[201]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[287]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8935,7 +12663,7 @@ func (x *OnUpdateCursorResponse) String() string {
 func (*OnUpdateCursorResponse) ProtoMessage() {}
 
 func (x *OnUpdateCursorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[201]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[287]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8948,7 +12676,7 @@ func (x *OnUpdateCursorResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnUpdateCursorResponse.ProtoReflect.Descriptor instead.
 func (*OnUpdateCursorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{201}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{287}
 }
 
 type OnUpdateCursorAnchorInfoRequest struct {
@@ -8961,7 +12689,7 @@ type OnUpdateCursorAnchorInfoRequest struct {
 
 func (x *OnUpdateCursorAnchorInfoRequest) Reset() {
 	*x = OnUpdateCursorAnchorInfoRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[202]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[288]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8973,7 +12701,7 @@ func (x *OnUpdateCursorAnchorInfoRequest) String() string {
 func (*OnUpdateCursorAnchorInfoRequest) ProtoMessage() {}
 
 func (x *OnUpdateCursorAnchorInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[202]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[288]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8986,7 +12714,7 @@ func (x *OnUpdateCursorAnchorInfoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnUpdateCursorAnchorInfoRequest.ProtoReflect.Descriptor instead.
 func (*OnUpdateCursorAnchorInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{202}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{288}
 }
 
 func (x *OnUpdateCursorAnchorInfoRequest) GetHandle() int64 {
@@ -9011,7 +12739,7 @@ type OnUpdateCursorAnchorInfoResponse struct {
 
 func (x *OnUpdateCursorAnchorInfoResponse) Reset() {
 	*x = OnUpdateCursorAnchorInfoResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[203]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[289]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9023,7 +12751,7 @@ func (x *OnUpdateCursorAnchorInfoResponse) String() string {
 func (*OnUpdateCursorAnchorInfoResponse) ProtoMessage() {}
 
 func (x *OnUpdateCursorAnchorInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[203]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[289]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9036,7 +12764,7 @@ func (x *OnUpdateCursorAnchorInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnUpdateCursorAnchorInfoResponse.ProtoReflect.Descriptor instead.
 func (*OnUpdateCursorAnchorInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{203}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{289}
 }
 
 type OnUpdateEditorToolTypeRequest struct {
@@ -9049,7 +12777,7 @@ type OnUpdateEditorToolTypeRequest struct {
 
 func (x *OnUpdateEditorToolTypeRequest) Reset() {
 	*x = OnUpdateEditorToolTypeRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[204]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[290]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9061,7 +12789,7 @@ func (x *OnUpdateEditorToolTypeRequest) String() string {
 func (*OnUpdateEditorToolTypeRequest) ProtoMessage() {}
 
 func (x *OnUpdateEditorToolTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[204]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[290]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9074,7 +12802,7 @@ func (x *OnUpdateEditorToolTypeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnUpdateEditorToolTypeRequest.ProtoReflect.Descriptor instead.
 func (*OnUpdateEditorToolTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{204}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{290}
 }
 
 func (x *OnUpdateEditorToolTypeRequest) GetHandle() int64 {
@@ -9099,7 +12827,7 @@ type OnUpdateEditorToolTypeResponse struct {
 
 func (x *OnUpdateEditorToolTypeResponse) Reset() {
 	*x = OnUpdateEditorToolTypeResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[205]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[291]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9111,7 +12839,7 @@ func (x *OnUpdateEditorToolTypeResponse) String() string {
 func (*OnUpdateEditorToolTypeResponse) ProtoMessage() {}
 
 func (x *OnUpdateEditorToolTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[205]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[291]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9124,7 +12852,7 @@ func (x *OnUpdateEditorToolTypeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnUpdateEditorToolTypeResponse.ProtoReflect.Descriptor instead.
 func (*OnUpdateEditorToolTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{205}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{291}
 }
 
 type OnUpdateExtractedTextRequest struct {
@@ -9138,7 +12866,7 @@ type OnUpdateExtractedTextRequest struct {
 
 func (x *OnUpdateExtractedTextRequest) Reset() {
 	*x = OnUpdateExtractedTextRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[206]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[292]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9150,7 +12878,7 @@ func (x *OnUpdateExtractedTextRequest) String() string {
 func (*OnUpdateExtractedTextRequest) ProtoMessage() {}
 
 func (x *OnUpdateExtractedTextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[206]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[292]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9163,7 +12891,7 @@ func (x *OnUpdateExtractedTextRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnUpdateExtractedTextRequest.ProtoReflect.Descriptor instead.
 func (*OnUpdateExtractedTextRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{206}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{292}
 }
 
 func (x *OnUpdateExtractedTextRequest) GetHandle() int64 {
@@ -9195,7 +12923,7 @@ type OnUpdateExtractedTextResponse struct {
 
 func (x *OnUpdateExtractedTextResponse) Reset() {
 	*x = OnUpdateExtractedTextResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[207]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[293]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9207,7 +12935,7 @@ func (x *OnUpdateExtractedTextResponse) String() string {
 func (*OnUpdateExtractedTextResponse) ProtoMessage() {}
 
 func (x *OnUpdateExtractedTextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[207]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[293]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9220,7 +12948,7 @@ func (x *OnUpdateExtractedTextResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnUpdateExtractedTextResponse.ProtoReflect.Descriptor instead.
 func (*OnUpdateExtractedTextResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{207}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{293}
 }
 
 type OnUpdateExtractingViewsRequest struct {
@@ -9233,7 +12961,7 @@ type OnUpdateExtractingViewsRequest struct {
 
 func (x *OnUpdateExtractingViewsRequest) Reset() {
 	*x = OnUpdateExtractingViewsRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[208]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[294]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9245,7 +12973,7 @@ func (x *OnUpdateExtractingViewsRequest) String() string {
 func (*OnUpdateExtractingViewsRequest) ProtoMessage() {}
 
 func (x *OnUpdateExtractingViewsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[208]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[294]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9258,7 +12986,7 @@ func (x *OnUpdateExtractingViewsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnUpdateExtractingViewsRequest.ProtoReflect.Descriptor instead.
 func (*OnUpdateExtractingViewsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{208}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{294}
 }
 
 func (x *OnUpdateExtractingViewsRequest) GetHandle() int64 {
@@ -9283,7 +13011,7 @@ type OnUpdateExtractingViewsResponse struct {
 
 func (x *OnUpdateExtractingViewsResponse) Reset() {
 	*x = OnUpdateExtractingViewsResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[209]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[295]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9295,7 +13023,7 @@ func (x *OnUpdateExtractingViewsResponse) String() string {
 func (*OnUpdateExtractingViewsResponse) ProtoMessage() {}
 
 func (x *OnUpdateExtractingViewsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[209]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[295]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9308,7 +13036,7 @@ func (x *OnUpdateExtractingViewsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnUpdateExtractingViewsResponse.ProtoReflect.Descriptor instead.
 func (*OnUpdateExtractingViewsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{209}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{295}
 }
 
 type OnUpdateExtractingVisibilityRequest struct {
@@ -9321,7 +13049,7 @@ type OnUpdateExtractingVisibilityRequest struct {
 
 func (x *OnUpdateExtractingVisibilityRequest) Reset() {
 	*x = OnUpdateExtractingVisibilityRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[210]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[296]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9333,7 +13061,7 @@ func (x *OnUpdateExtractingVisibilityRequest) String() string {
 func (*OnUpdateExtractingVisibilityRequest) ProtoMessage() {}
 
 func (x *OnUpdateExtractingVisibilityRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[210]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[296]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9346,7 +13074,7 @@ func (x *OnUpdateExtractingVisibilityRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use OnUpdateExtractingVisibilityRequest.ProtoReflect.Descriptor instead.
 func (*OnUpdateExtractingVisibilityRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{210}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{296}
 }
 
 func (x *OnUpdateExtractingVisibilityRequest) GetHandle() int64 {
@@ -9371,7 +13099,7 @@ type OnUpdateExtractingVisibilityResponse struct {
 
 func (x *OnUpdateExtractingVisibilityResponse) Reset() {
 	*x = OnUpdateExtractingVisibilityResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[211]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[297]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9383,7 +13111,7 @@ func (x *OnUpdateExtractingVisibilityResponse) String() string {
 func (*OnUpdateExtractingVisibilityResponse) ProtoMessage() {}
 
 func (x *OnUpdateExtractingVisibilityResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[211]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[297]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9396,7 +13124,7 @@ func (x *OnUpdateExtractingVisibilityResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use OnUpdateExtractingVisibilityResponse.ProtoReflect.Descriptor instead.
 func (*OnUpdateExtractingVisibilityResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{211}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{297}
 }
 
 type OnUpdateSelectionRequest struct {
@@ -9414,7 +13142,7 @@ type OnUpdateSelectionRequest struct {
 
 func (x *OnUpdateSelectionRequest) Reset() {
 	*x = OnUpdateSelectionRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[212]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[298]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9426,7 +13154,7 @@ func (x *OnUpdateSelectionRequest) String() string {
 func (*OnUpdateSelectionRequest) ProtoMessage() {}
 
 func (x *OnUpdateSelectionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[212]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[298]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9439,7 +13167,7 @@ func (x *OnUpdateSelectionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnUpdateSelectionRequest.ProtoReflect.Descriptor instead.
 func (*OnUpdateSelectionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{212}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{298}
 }
 
 func (x *OnUpdateSelectionRequest) GetHandle() int64 {
@@ -9499,7 +13227,7 @@ type OnUpdateSelectionResponse struct {
 
 func (x *OnUpdateSelectionResponse) Reset() {
 	*x = OnUpdateSelectionResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[213]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[299]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9511,7 +13239,7 @@ func (x *OnUpdateSelectionResponse) String() string {
 func (*OnUpdateSelectionResponse) ProtoMessage() {}
 
 func (x *OnUpdateSelectionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[213]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[299]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9524,7 +13252,7 @@ func (x *OnUpdateSelectionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnUpdateSelectionResponse.ProtoReflect.Descriptor instead.
 func (*OnUpdateSelectionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{213}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{299}
 }
 
 type OnViewClickedRequest struct {
@@ -9537,7 +13265,7 @@ type OnViewClickedRequest struct {
 
 func (x *OnViewClickedRequest) Reset() {
 	*x = OnViewClickedRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[214]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[300]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9549,7 +13277,7 @@ func (x *OnViewClickedRequest) String() string {
 func (*OnViewClickedRequest) ProtoMessage() {}
 
 func (x *OnViewClickedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[214]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[300]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9562,7 +13290,7 @@ func (x *OnViewClickedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnViewClickedRequest.ProtoReflect.Descriptor instead.
 func (*OnViewClickedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{214}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{300}
 }
 
 func (x *OnViewClickedRequest) GetHandle() int64 {
@@ -9587,7 +13315,7 @@ type OnViewClickedResponse struct {
 
 func (x *OnViewClickedResponse) Reset() {
 	*x = OnViewClickedResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[215]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[301]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9599,7 +13327,7 @@ func (x *OnViewClickedResponse) String() string {
 func (*OnViewClickedResponse) ProtoMessage() {}
 
 func (x *OnViewClickedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[215]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[301]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9612,7 +13340,7 @@ func (x *OnViewClickedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnViewClickedResponse.ProtoReflect.Descriptor instead.
 func (*OnViewClickedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{215}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{301}
 }
 
 type OnWindowHiddenRequest struct {
@@ -9624,7 +13352,7 @@ type OnWindowHiddenRequest struct {
 
 func (x *OnWindowHiddenRequest) Reset() {
 	*x = OnWindowHiddenRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[216]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[302]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9636,7 +13364,7 @@ func (x *OnWindowHiddenRequest) String() string {
 func (*OnWindowHiddenRequest) ProtoMessage() {}
 
 func (x *OnWindowHiddenRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[216]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[302]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9649,7 +13377,7 @@ func (x *OnWindowHiddenRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnWindowHiddenRequest.ProtoReflect.Descriptor instead.
 func (*OnWindowHiddenRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{216}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{302}
 }
 
 func (x *OnWindowHiddenRequest) GetHandle() int64 {
@@ -9667,7 +13395,7 @@ type OnWindowHiddenResponse struct {
 
 func (x *OnWindowHiddenResponse) Reset() {
 	*x = OnWindowHiddenResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[217]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[303]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9679,7 +13407,7 @@ func (x *OnWindowHiddenResponse) String() string {
 func (*OnWindowHiddenResponse) ProtoMessage() {}
 
 func (x *OnWindowHiddenResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[217]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[303]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9692,7 +13420,7 @@ func (x *OnWindowHiddenResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnWindowHiddenResponse.ProtoReflect.Descriptor instead.
 func (*OnWindowHiddenResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{217}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{303}
 }
 
 type OnWindowShownRequest struct {
@@ -9704,7 +13432,7 @@ type OnWindowShownRequest struct {
 
 func (x *OnWindowShownRequest) Reset() {
 	*x = OnWindowShownRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[218]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[304]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9716,7 +13444,7 @@ func (x *OnWindowShownRequest) String() string {
 func (*OnWindowShownRequest) ProtoMessage() {}
 
 func (x *OnWindowShownRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[218]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[304]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9729,7 +13457,7 @@ func (x *OnWindowShownRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnWindowShownRequest.ProtoReflect.Descriptor instead.
 func (*OnWindowShownRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{218}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{304}
 }
 
 func (x *OnWindowShownRequest) GetHandle() int64 {
@@ -9747,7 +13475,7 @@ type OnWindowShownResponse struct {
 
 func (x *OnWindowShownResponse) Reset() {
 	*x = OnWindowShownResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[219]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[305]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9759,7 +13487,7 @@ func (x *OnWindowShownResponse) String() string {
 func (*OnWindowShownResponse) ProtoMessage() {}
 
 func (x *OnWindowShownResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[219]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[305]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9772,7 +13500,7 @@ func (x *OnWindowShownResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnWindowShownResponse.ProtoReflect.Descriptor instead.
 func (*OnWindowShownResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{219}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{305}
 }
 
 type RequestHideSelfRequest struct {
@@ -9785,7 +13513,7 @@ type RequestHideSelfRequest struct {
 
 func (x *RequestHideSelfRequest) Reset() {
 	*x = RequestHideSelfRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[220]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[306]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9797,7 +13525,7 @@ func (x *RequestHideSelfRequest) String() string {
 func (*RequestHideSelfRequest) ProtoMessage() {}
 
 func (x *RequestHideSelfRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[220]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[306]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9810,7 +13538,7 @@ func (x *RequestHideSelfRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestHideSelfRequest.ProtoReflect.Descriptor instead.
 func (*RequestHideSelfRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{220}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{306}
 }
 
 func (x *RequestHideSelfRequest) GetHandle() int64 {
@@ -9835,7 +13563,7 @@ type RequestHideSelfResponse struct {
 
 func (x *RequestHideSelfResponse) Reset() {
 	*x = RequestHideSelfResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[221]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[307]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9847,7 +13575,7 @@ func (x *RequestHideSelfResponse) String() string {
 func (*RequestHideSelfResponse) ProtoMessage() {}
 
 func (x *RequestHideSelfResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[221]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[307]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9860,7 +13588,7 @@ func (x *RequestHideSelfResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestHideSelfResponse.ProtoReflect.Descriptor instead.
 func (*RequestHideSelfResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{221}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{307}
 }
 
 type RequestShowSelfRequest struct {
@@ -9873,7 +13601,7 @@ type RequestShowSelfRequest struct {
 
 func (x *RequestShowSelfRequest) Reset() {
 	*x = RequestShowSelfRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[222]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[308]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9885,7 +13613,7 @@ func (x *RequestShowSelfRequest) String() string {
 func (*RequestShowSelfRequest) ProtoMessage() {}
 
 func (x *RequestShowSelfRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[222]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[308]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9898,7 +13626,7 @@ func (x *RequestShowSelfRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestShowSelfRequest.ProtoReflect.Descriptor instead.
 func (*RequestShowSelfRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{222}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{308}
 }
 
 func (x *RequestShowSelfRequest) GetHandle() int64 {
@@ -9923,7 +13651,7 @@ type RequestShowSelfResponse struct {
 
 func (x *RequestShowSelfResponse) Reset() {
 	*x = RequestShowSelfResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[223]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[309]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9935,7 +13663,7 @@ func (x *RequestShowSelfResponse) String() string {
 func (*RequestShowSelfResponse) ProtoMessage() {}
 
 func (x *RequestShowSelfResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[223]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[309]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9948,7 +13676,7 @@ func (x *RequestShowSelfResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestShowSelfResponse.ProtoReflect.Descriptor instead.
 func (*RequestShowSelfResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{223}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{309}
 }
 
 type SendDefaultEditorActionRequest struct {
@@ -9961,7 +13689,7 @@ type SendDefaultEditorActionRequest struct {
 
 func (x *SendDefaultEditorActionRequest) Reset() {
 	*x = SendDefaultEditorActionRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[224]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[310]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9973,7 +13701,7 @@ func (x *SendDefaultEditorActionRequest) String() string {
 func (*SendDefaultEditorActionRequest) ProtoMessage() {}
 
 func (x *SendDefaultEditorActionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[224]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[310]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9986,7 +13714,7 @@ func (x *SendDefaultEditorActionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendDefaultEditorActionRequest.ProtoReflect.Descriptor instead.
 func (*SendDefaultEditorActionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{224}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{310}
 }
 
 func (x *SendDefaultEditorActionRequest) GetHandle() int64 {
@@ -10012,7 +13740,7 @@ type SendDefaultEditorActionResponse struct {
 
 func (x *SendDefaultEditorActionResponse) Reset() {
 	*x = SendDefaultEditorActionResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[225]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[311]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10024,7 +13752,7 @@ func (x *SendDefaultEditorActionResponse) String() string {
 func (*SendDefaultEditorActionResponse) ProtoMessage() {}
 
 func (x *SendDefaultEditorActionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[225]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[311]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10037,7 +13765,7 @@ func (x *SendDefaultEditorActionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendDefaultEditorActionResponse.ProtoReflect.Descriptor instead.
 func (*SendDefaultEditorActionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{225}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{311}
 }
 
 func (x *SendDefaultEditorActionResponse) GetResult() bool {
@@ -10057,7 +13785,7 @@ type SendDownUpKeyEventsRequest struct {
 
 func (x *SendDownUpKeyEventsRequest) Reset() {
 	*x = SendDownUpKeyEventsRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[226]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[312]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10069,7 +13797,7 @@ func (x *SendDownUpKeyEventsRequest) String() string {
 func (*SendDownUpKeyEventsRequest) ProtoMessage() {}
 
 func (x *SendDownUpKeyEventsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[226]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[312]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10082,7 +13810,7 @@ func (x *SendDownUpKeyEventsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendDownUpKeyEventsRequest.ProtoReflect.Descriptor instead.
 func (*SendDownUpKeyEventsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{226}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{312}
 }
 
 func (x *SendDownUpKeyEventsRequest) GetHandle() int64 {
@@ -10107,7 +13835,7 @@ type SendDownUpKeyEventsResponse struct {
 
 func (x *SendDownUpKeyEventsResponse) Reset() {
 	*x = SendDownUpKeyEventsResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[227]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[313]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10119,7 +13847,7 @@ func (x *SendDownUpKeyEventsResponse) String() string {
 func (*SendDownUpKeyEventsResponse) ProtoMessage() {}
 
 func (x *SendDownUpKeyEventsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[227]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[313]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10132,7 +13860,7 @@ func (x *SendDownUpKeyEventsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendDownUpKeyEventsResponse.ProtoReflect.Descriptor instead.
 func (*SendDownUpKeyEventsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{227}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{313}
 }
 
 type SendKeyCharRequest struct {
@@ -10145,7 +13873,7 @@ type SendKeyCharRequest struct {
 
 func (x *SendKeyCharRequest) Reset() {
 	*x = SendKeyCharRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[228]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[314]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10157,7 +13885,7 @@ func (x *SendKeyCharRequest) String() string {
 func (*SendKeyCharRequest) ProtoMessage() {}
 
 func (x *SendKeyCharRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[228]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[314]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10170,7 +13898,7 @@ func (x *SendKeyCharRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendKeyCharRequest.ProtoReflect.Descriptor instead.
 func (*SendKeyCharRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{228}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{314}
 }
 
 func (x *SendKeyCharRequest) GetHandle() int64 {
@@ -10195,7 +13923,7 @@ type SendKeyCharResponse struct {
 
 func (x *SendKeyCharResponse) Reset() {
 	*x = SendKeyCharResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[229]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[315]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10207,7 +13935,7 @@ func (x *SendKeyCharResponse) String() string {
 func (*SendKeyCharResponse) ProtoMessage() {}
 
 func (x *SendKeyCharResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[229]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[315]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10220,7 +13948,7 @@ func (x *SendKeyCharResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendKeyCharResponse.ProtoReflect.Descriptor instead.
 func (*SendKeyCharResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{229}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{315}
 }
 
 type SetBackDispositionRequest struct {
@@ -10233,7 +13961,7 @@ type SetBackDispositionRequest struct {
 
 func (x *SetBackDispositionRequest) Reset() {
 	*x = SetBackDispositionRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[230]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[316]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10245,7 +13973,7 @@ func (x *SetBackDispositionRequest) String() string {
 func (*SetBackDispositionRequest) ProtoMessage() {}
 
 func (x *SetBackDispositionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[230]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[316]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10258,7 +13986,7 @@ func (x *SetBackDispositionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetBackDispositionRequest.ProtoReflect.Descriptor instead.
 func (*SetBackDispositionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{230}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{316}
 }
 
 func (x *SetBackDispositionRequest) GetHandle() int64 {
@@ -10283,7 +14011,7 @@ type SetBackDispositionResponse struct {
 
 func (x *SetBackDispositionResponse) Reset() {
 	*x = SetBackDispositionResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[231]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[317]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10295,7 +14023,7 @@ func (x *SetBackDispositionResponse) String() string {
 func (*SetBackDispositionResponse) ProtoMessage() {}
 
 func (x *SetBackDispositionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[231]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[317]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10308,7 +14036,7 @@ func (x *SetBackDispositionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetBackDispositionResponse.ProtoReflect.Descriptor instead.
 func (*SetBackDispositionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{231}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{317}
 }
 
 type SetCandidatesViewRequest struct {
@@ -10321,7 +14049,7 @@ type SetCandidatesViewRequest struct {
 
 func (x *SetCandidatesViewRequest) Reset() {
 	*x = SetCandidatesViewRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[232]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[318]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10333,7 +14061,7 @@ func (x *SetCandidatesViewRequest) String() string {
 func (*SetCandidatesViewRequest) ProtoMessage() {}
 
 func (x *SetCandidatesViewRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[232]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[318]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10346,7 +14074,7 @@ func (x *SetCandidatesViewRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetCandidatesViewRequest.ProtoReflect.Descriptor instead.
 func (*SetCandidatesViewRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{232}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{318}
 }
 
 func (x *SetCandidatesViewRequest) GetHandle() int64 {
@@ -10371,7 +14099,7 @@ type SetCandidatesViewResponse struct {
 
 func (x *SetCandidatesViewResponse) Reset() {
 	*x = SetCandidatesViewResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[233]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[319]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10383,7 +14111,7 @@ func (x *SetCandidatesViewResponse) String() string {
 func (*SetCandidatesViewResponse) ProtoMessage() {}
 
 func (x *SetCandidatesViewResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[233]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[319]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10396,7 +14124,7 @@ func (x *SetCandidatesViewResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetCandidatesViewResponse.ProtoReflect.Descriptor instead.
 func (*SetCandidatesViewResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{233}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{319}
 }
 
 type SetCandidatesViewShownRequest struct {
@@ -10409,7 +14137,7 @@ type SetCandidatesViewShownRequest struct {
 
 func (x *SetCandidatesViewShownRequest) Reset() {
 	*x = SetCandidatesViewShownRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[234]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[320]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10421,7 +14149,7 @@ func (x *SetCandidatesViewShownRequest) String() string {
 func (*SetCandidatesViewShownRequest) ProtoMessage() {}
 
 func (x *SetCandidatesViewShownRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[234]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[320]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10434,7 +14162,7 @@ func (x *SetCandidatesViewShownRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetCandidatesViewShownRequest.ProtoReflect.Descriptor instead.
 func (*SetCandidatesViewShownRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{234}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{320}
 }
 
 func (x *SetCandidatesViewShownRequest) GetHandle() int64 {
@@ -10459,7 +14187,7 @@ type SetCandidatesViewShownResponse struct {
 
 func (x *SetCandidatesViewShownResponse) Reset() {
 	*x = SetCandidatesViewShownResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[235]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[321]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10471,7 +14199,7 @@ func (x *SetCandidatesViewShownResponse) String() string {
 func (*SetCandidatesViewShownResponse) ProtoMessage() {}
 
 func (x *SetCandidatesViewShownResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[235]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[321]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10484,7 +14212,7 @@ func (x *SetCandidatesViewShownResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetCandidatesViewShownResponse.ProtoReflect.Descriptor instead.
 func (*SetCandidatesViewShownResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{235}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{321}
 }
 
 type SetExtractViewRequest struct {
@@ -10497,7 +14225,7 @@ type SetExtractViewRequest struct {
 
 func (x *SetExtractViewRequest) Reset() {
 	*x = SetExtractViewRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[236]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[322]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10509,7 +14237,7 @@ func (x *SetExtractViewRequest) String() string {
 func (*SetExtractViewRequest) ProtoMessage() {}
 
 func (x *SetExtractViewRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[236]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[322]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10522,7 +14250,7 @@ func (x *SetExtractViewRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetExtractViewRequest.ProtoReflect.Descriptor instead.
 func (*SetExtractViewRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{236}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{322}
 }
 
 func (x *SetExtractViewRequest) GetHandle() int64 {
@@ -10547,7 +14275,7 @@ type SetExtractViewResponse struct {
 
 func (x *SetExtractViewResponse) Reset() {
 	*x = SetExtractViewResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[237]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[323]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10559,7 +14287,7 @@ func (x *SetExtractViewResponse) String() string {
 func (*SetExtractViewResponse) ProtoMessage() {}
 
 func (x *SetExtractViewResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[237]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[323]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10572,7 +14300,7 @@ func (x *SetExtractViewResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetExtractViewResponse.ProtoReflect.Descriptor instead.
 func (*SetExtractViewResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{237}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{323}
 }
 
 type SetExtractViewShownRequest struct {
@@ -10585,7 +14313,7 @@ type SetExtractViewShownRequest struct {
 
 func (x *SetExtractViewShownRequest) Reset() {
 	*x = SetExtractViewShownRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[238]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[324]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10597,7 +14325,7 @@ func (x *SetExtractViewShownRequest) String() string {
 func (*SetExtractViewShownRequest) ProtoMessage() {}
 
 func (x *SetExtractViewShownRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[238]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[324]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10610,7 +14338,7 @@ func (x *SetExtractViewShownRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetExtractViewShownRequest.ProtoReflect.Descriptor instead.
 func (*SetExtractViewShownRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{238}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{324}
 }
 
 func (x *SetExtractViewShownRequest) GetHandle() int64 {
@@ -10635,7 +14363,7 @@ type SetExtractViewShownResponse struct {
 
 func (x *SetExtractViewShownResponse) Reset() {
 	*x = SetExtractViewShownResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[239]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[325]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10647,7 +14375,7 @@ func (x *SetExtractViewShownResponse) String() string {
 func (*SetExtractViewShownResponse) ProtoMessage() {}
 
 func (x *SetExtractViewShownResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[239]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[325]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10660,7 +14388,7 @@ func (x *SetExtractViewShownResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetExtractViewShownResponse.ProtoReflect.Descriptor instead.
 func (*SetExtractViewShownResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{239}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{325}
 }
 
 type SetInputViewRequest struct {
@@ -10673,7 +14401,7 @@ type SetInputViewRequest struct {
 
 func (x *SetInputViewRequest) Reset() {
 	*x = SetInputViewRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[240]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[326]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10685,7 +14413,7 @@ func (x *SetInputViewRequest) String() string {
 func (*SetInputViewRequest) ProtoMessage() {}
 
 func (x *SetInputViewRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[240]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[326]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10698,7 +14426,7 @@ func (x *SetInputViewRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetInputViewRequest.ProtoReflect.Descriptor instead.
 func (*SetInputViewRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{240}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{326}
 }
 
 func (x *SetInputViewRequest) GetHandle() int64 {
@@ -10723,7 +14451,7 @@ type SetInputViewResponse struct {
 
 func (x *SetInputViewResponse) Reset() {
 	*x = SetInputViewResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[241]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[327]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10735,7 +14463,7 @@ func (x *SetInputViewResponse) String() string {
 func (*SetInputViewResponse) ProtoMessage() {}
 
 func (x *SetInputViewResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[241]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[327]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10748,7 +14476,7 @@ func (x *SetInputViewResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetInputViewResponse.ProtoReflect.Descriptor instead.
 func (*SetInputViewResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{241}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{327}
 }
 
 type SetStylusHandwritingRegionRequest struct {
@@ -10761,7 +14489,7 @@ type SetStylusHandwritingRegionRequest struct {
 
 func (x *SetStylusHandwritingRegionRequest) Reset() {
 	*x = SetStylusHandwritingRegionRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[242]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[328]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10773,7 +14501,7 @@ func (x *SetStylusHandwritingRegionRequest) String() string {
 func (*SetStylusHandwritingRegionRequest) ProtoMessage() {}
 
 func (x *SetStylusHandwritingRegionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[242]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[328]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10786,7 +14514,7 @@ func (x *SetStylusHandwritingRegionRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use SetStylusHandwritingRegionRequest.ProtoReflect.Descriptor instead.
 func (*SetStylusHandwritingRegionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{242}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{328}
 }
 
 func (x *SetStylusHandwritingRegionRequest) GetHandle() int64 {
@@ -10811,7 +14539,7 @@ type SetStylusHandwritingRegionResponse struct {
 
 func (x *SetStylusHandwritingRegionResponse) Reset() {
 	*x = SetStylusHandwritingRegionResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[243]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[329]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10823,7 +14551,7 @@ func (x *SetStylusHandwritingRegionResponse) String() string {
 func (*SetStylusHandwritingRegionResponse) ProtoMessage() {}
 
 func (x *SetStylusHandwritingRegionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[243]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[329]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10836,7 +14564,7 @@ func (x *SetStylusHandwritingRegionResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use SetStylusHandwritingRegionResponse.ProtoReflect.Descriptor instead.
 func (*SetStylusHandwritingRegionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{243}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{329}
 }
 
 type SetStylusHandwritingSessionTimeoutRequest struct {
@@ -10849,7 +14577,7 @@ type SetStylusHandwritingSessionTimeoutRequest struct {
 
 func (x *SetStylusHandwritingSessionTimeoutRequest) Reset() {
 	*x = SetStylusHandwritingSessionTimeoutRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[244]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[330]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10861,7 +14589,7 @@ func (x *SetStylusHandwritingSessionTimeoutRequest) String() string {
 func (*SetStylusHandwritingSessionTimeoutRequest) ProtoMessage() {}
 
 func (x *SetStylusHandwritingSessionTimeoutRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[244]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[330]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10874,7 +14602,7 @@ func (x *SetStylusHandwritingSessionTimeoutRequest) ProtoReflect() protoreflect.
 
 // Deprecated: Use SetStylusHandwritingSessionTimeoutRequest.ProtoReflect.Descriptor instead.
 func (*SetStylusHandwritingSessionTimeoutRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{244}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{330}
 }
 
 func (x *SetStylusHandwritingSessionTimeoutRequest) GetHandle() int64 {
@@ -10899,7 +14627,7 @@ type SetStylusHandwritingSessionTimeoutResponse struct {
 
 func (x *SetStylusHandwritingSessionTimeoutResponse) Reset() {
 	*x = SetStylusHandwritingSessionTimeoutResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[245]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[331]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10911,7 +14639,7 @@ func (x *SetStylusHandwritingSessionTimeoutResponse) String() string {
 func (*SetStylusHandwritingSessionTimeoutResponse) ProtoMessage() {}
 
 func (x *SetStylusHandwritingSessionTimeoutResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[245]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[331]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10924,7 +14652,7 @@ func (x *SetStylusHandwritingSessionTimeoutResponse) ProtoReflect() protoreflect
 
 // Deprecated: Use SetStylusHandwritingSessionTimeoutResponse.ProtoReflect.Descriptor instead.
 func (*SetStylusHandwritingSessionTimeoutResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{245}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{331}
 }
 
 type SetThemeRequest struct {
@@ -10937,7 +14665,7 @@ type SetThemeRequest struct {
 
 func (x *SetThemeRequest) Reset() {
 	*x = SetThemeRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[246]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[332]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10949,7 +14677,7 @@ func (x *SetThemeRequest) String() string {
 func (*SetThemeRequest) ProtoMessage() {}
 
 func (x *SetThemeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[246]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[332]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10962,7 +14690,7 @@ func (x *SetThemeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetThemeRequest.ProtoReflect.Descriptor instead.
 func (*SetThemeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{246}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{332}
 }
 
 func (x *SetThemeRequest) GetHandle() int64 {
@@ -10987,7 +14715,7 @@ type SetThemeResponse struct {
 
 func (x *SetThemeResponse) Reset() {
 	*x = SetThemeResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[247]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[333]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10999,7 +14727,7 @@ func (x *SetThemeResponse) String() string {
 func (*SetThemeResponse) ProtoMessage() {}
 
 func (x *SetThemeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[247]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[333]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11012,7 +14740,7 @@ func (x *SetThemeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetThemeResponse.ProtoReflect.Descriptor instead.
 func (*SetThemeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{247}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{333}
 }
 
 type ShouldOfferSwitchingToNextInputMethodRequest struct {
@@ -11024,7 +14752,7 @@ type ShouldOfferSwitchingToNextInputMethodRequest struct {
 
 func (x *ShouldOfferSwitchingToNextInputMethodRequest) Reset() {
 	*x = ShouldOfferSwitchingToNextInputMethodRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[248]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[334]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11036,7 +14764,7 @@ func (x *ShouldOfferSwitchingToNextInputMethodRequest) String() string {
 func (*ShouldOfferSwitchingToNextInputMethodRequest) ProtoMessage() {}
 
 func (x *ShouldOfferSwitchingToNextInputMethodRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[248]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[334]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11049,7 +14777,7 @@ func (x *ShouldOfferSwitchingToNextInputMethodRequest) ProtoReflect() protorefle
 
 // Deprecated: Use ShouldOfferSwitchingToNextInputMethodRequest.ProtoReflect.Descriptor instead.
 func (*ShouldOfferSwitchingToNextInputMethodRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{248}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{334}
 }
 
 func (x *ShouldOfferSwitchingToNextInputMethodRequest) GetHandle() int64 {
@@ -11068,7 +14796,7 @@ type ShouldOfferSwitchingToNextInputMethodResponse struct {
 
 func (x *ShouldOfferSwitchingToNextInputMethodResponse) Reset() {
 	*x = ShouldOfferSwitchingToNextInputMethodResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[249]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[335]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11080,7 +14808,7 @@ func (x *ShouldOfferSwitchingToNextInputMethodResponse) String() string {
 func (*ShouldOfferSwitchingToNextInputMethodResponse) ProtoMessage() {}
 
 func (x *ShouldOfferSwitchingToNextInputMethodResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[249]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[335]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11093,7 +14821,7 @@ func (x *ShouldOfferSwitchingToNextInputMethodResponse) ProtoReflect() protorefl
 
 // Deprecated: Use ShouldOfferSwitchingToNextInputMethodResponse.ProtoReflect.Descriptor instead.
 func (*ShouldOfferSwitchingToNextInputMethodResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{249}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{335}
 }
 
 func (x *ShouldOfferSwitchingToNextInputMethodResponse) GetResult() bool {
@@ -11113,7 +14841,7 @@ type ShowStatusIconRequest struct {
 
 func (x *ShowStatusIconRequest) Reset() {
 	*x = ShowStatusIconRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[250]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[336]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11125,7 +14853,7 @@ func (x *ShowStatusIconRequest) String() string {
 func (*ShowStatusIconRequest) ProtoMessage() {}
 
 func (x *ShowStatusIconRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[250]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[336]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11138,7 +14866,7 @@ func (x *ShowStatusIconRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ShowStatusIconRequest.ProtoReflect.Descriptor instead.
 func (*ShowStatusIconRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{250}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{336}
 }
 
 func (x *ShowStatusIconRequest) GetHandle() int64 {
@@ -11163,7 +14891,7 @@ type ShowStatusIconResponse struct {
 
 func (x *ShowStatusIconResponse) Reset() {
 	*x = ShowStatusIconResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[251]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[337]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11175,7 +14903,7 @@ func (x *ShowStatusIconResponse) String() string {
 func (*ShowStatusIconResponse) ProtoMessage() {}
 
 func (x *ShowStatusIconResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[251]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[337]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11188,7 +14916,7 @@ func (x *ShowStatusIconResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ShowStatusIconResponse.ProtoReflect.Descriptor instead.
 func (*ShowStatusIconResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{251}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{337}
 }
 
 type ShowWindowRequest struct {
@@ -11201,7 +14929,7 @@ type ShowWindowRequest struct {
 
 func (x *ShowWindowRequest) Reset() {
 	*x = ShowWindowRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[252]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[338]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11213,7 +14941,7 @@ func (x *ShowWindowRequest) String() string {
 func (*ShowWindowRequest) ProtoMessage() {}
 
 func (x *ShowWindowRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[252]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[338]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11226,7 +14954,7 @@ func (x *ShowWindowRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ShowWindowRequest.ProtoReflect.Descriptor instead.
 func (*ShowWindowRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{252}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{338}
 }
 
 func (x *ShowWindowRequest) GetHandle() int64 {
@@ -11251,7 +14979,7 @@ type ShowWindowResponse struct {
 
 func (x *ShowWindowResponse) Reset() {
 	*x = ShowWindowResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[253]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[339]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11263,7 +14991,7 @@ func (x *ShowWindowResponse) String() string {
 func (*ShowWindowResponse) ProtoMessage() {}
 
 func (x *ShowWindowResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[253]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[339]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11276,7 +15004,7 @@ func (x *ShowWindowResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ShowWindowResponse.ProtoReflect.Descriptor instead.
 func (*ShowWindowResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{253}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{339}
 }
 
 type SwitchInputMethod1Request struct {
@@ -11289,7 +15017,7 @@ type SwitchInputMethod1Request struct {
 
 func (x *SwitchInputMethod1Request) Reset() {
 	*x = SwitchInputMethod1Request{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[254]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[340]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11301,7 +15029,7 @@ func (x *SwitchInputMethod1Request) String() string {
 func (*SwitchInputMethod1Request) ProtoMessage() {}
 
 func (x *SwitchInputMethod1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[254]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[340]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11314,7 +15042,7 @@ func (x *SwitchInputMethod1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SwitchInputMethod1Request.ProtoReflect.Descriptor instead.
 func (*SwitchInputMethod1Request) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{254}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{340}
 }
 
 func (x *SwitchInputMethod1Request) GetHandle() int64 {
@@ -11339,7 +15067,7 @@ type SwitchInputMethod1Response struct {
 
 func (x *SwitchInputMethod1Response) Reset() {
 	*x = SwitchInputMethod1Response{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[255]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[341]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11351,7 +15079,7 @@ func (x *SwitchInputMethod1Response) String() string {
 func (*SwitchInputMethod1Response) ProtoMessage() {}
 
 func (x *SwitchInputMethod1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[255]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[341]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11364,7 +15092,7 @@ func (x *SwitchInputMethod1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SwitchInputMethod1Response.ProtoReflect.Descriptor instead.
 func (*SwitchInputMethod1Response) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{255}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{341}
 }
 
 type SwitchInputMethod2_1Request struct {
@@ -11378,7 +15106,7 @@ type SwitchInputMethod2_1Request struct {
 
 func (x *SwitchInputMethod2_1Request) Reset() {
 	*x = SwitchInputMethod2_1Request{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[256]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[342]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11390,7 +15118,7 @@ func (x *SwitchInputMethod2_1Request) String() string {
 func (*SwitchInputMethod2_1Request) ProtoMessage() {}
 
 func (x *SwitchInputMethod2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[256]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[342]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11403,7 +15131,7 @@ func (x *SwitchInputMethod2_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SwitchInputMethod2_1Request.ProtoReflect.Descriptor instead.
 func (*SwitchInputMethod2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{256}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{342}
 }
 
 func (x *SwitchInputMethod2_1Request) GetHandle() int64 {
@@ -11435,7 +15163,7 @@ type SwitchInputMethod2_1Response struct {
 
 func (x *SwitchInputMethod2_1Response) Reset() {
 	*x = SwitchInputMethod2_1Response{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[257]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[343]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11447,7 +15175,7 @@ func (x *SwitchInputMethod2_1Response) String() string {
 func (*SwitchInputMethod2_1Response) ProtoMessage() {}
 
 func (x *SwitchInputMethod2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[257]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[343]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11460,7 +15188,7 @@ func (x *SwitchInputMethod2_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SwitchInputMethod2_1Response.ProtoReflect.Descriptor instead.
 func (*SwitchInputMethod2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{257}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{343}
 }
 
 type SwitchToNextInputMethodRequest struct {
@@ -11473,7 +15201,7 @@ type SwitchToNextInputMethodRequest struct {
 
 func (x *SwitchToNextInputMethodRequest) Reset() {
 	*x = SwitchToNextInputMethodRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[258]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[344]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11485,7 +15213,7 @@ func (x *SwitchToNextInputMethodRequest) String() string {
 func (*SwitchToNextInputMethodRequest) ProtoMessage() {}
 
 func (x *SwitchToNextInputMethodRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[258]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[344]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11498,7 +15226,7 @@ func (x *SwitchToNextInputMethodRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SwitchToNextInputMethodRequest.ProtoReflect.Descriptor instead.
 func (*SwitchToNextInputMethodRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{258}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{344}
 }
 
 func (x *SwitchToNextInputMethodRequest) GetHandle() int64 {
@@ -11524,7 +15252,7 @@ type SwitchToNextInputMethodResponse struct {
 
 func (x *SwitchToNextInputMethodResponse) Reset() {
 	*x = SwitchToNextInputMethodResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[259]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[345]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11536,7 +15264,7 @@ func (x *SwitchToNextInputMethodResponse) String() string {
 func (*SwitchToNextInputMethodResponse) ProtoMessage() {}
 
 func (x *SwitchToNextInputMethodResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[259]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[345]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11549,7 +15277,7 @@ func (x *SwitchToNextInputMethodResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SwitchToNextInputMethodResponse.ProtoReflect.Descriptor instead.
 func (*SwitchToNextInputMethodResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{259}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{345}
 }
 
 func (x *SwitchToNextInputMethodResponse) GetResult() bool {
@@ -11568,7 +15296,7 @@ type SwitchToPreviousInputMethodRequest struct {
 
 func (x *SwitchToPreviousInputMethodRequest) Reset() {
 	*x = SwitchToPreviousInputMethodRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[260]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[346]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11580,7 +15308,7 @@ func (x *SwitchToPreviousInputMethodRequest) String() string {
 func (*SwitchToPreviousInputMethodRequest) ProtoMessage() {}
 
 func (x *SwitchToPreviousInputMethodRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[260]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[346]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11593,7 +15321,7 @@ func (x *SwitchToPreviousInputMethodRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use SwitchToPreviousInputMethodRequest.ProtoReflect.Descriptor instead.
 func (*SwitchToPreviousInputMethodRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{260}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{346}
 }
 
 func (x *SwitchToPreviousInputMethodRequest) GetHandle() int64 {
@@ -11612,7 +15340,7 @@ type SwitchToPreviousInputMethodResponse struct {
 
 func (x *SwitchToPreviousInputMethodResponse) Reset() {
 	*x = SwitchToPreviousInputMethodResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[261]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[347]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11624,7 +15352,7 @@ func (x *SwitchToPreviousInputMethodResponse) String() string {
 func (*SwitchToPreviousInputMethodResponse) ProtoMessage() {}
 
 func (x *SwitchToPreviousInputMethodResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[261]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[347]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11637,7 +15365,7 @@ func (x *SwitchToPreviousInputMethodResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use SwitchToPreviousInputMethodResponse.ProtoReflect.Descriptor instead.
 func (*SwitchToPreviousInputMethodResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{261}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{347}
 }
 
 func (x *SwitchToPreviousInputMethodResponse) GetResult() bool {
@@ -11656,7 +15384,7 @@ type UpdateFullscreenModeRequest struct {
 
 func (x *UpdateFullscreenModeRequest) Reset() {
 	*x = UpdateFullscreenModeRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[262]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[348]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11668,7 +15396,7 @@ func (x *UpdateFullscreenModeRequest) String() string {
 func (*UpdateFullscreenModeRequest) ProtoMessage() {}
 
 func (x *UpdateFullscreenModeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[262]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[348]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11681,7 +15409,7 @@ func (x *UpdateFullscreenModeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateFullscreenModeRequest.ProtoReflect.Descriptor instead.
 func (*UpdateFullscreenModeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{262}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{348}
 }
 
 func (x *UpdateFullscreenModeRequest) GetHandle() int64 {
@@ -11699,7 +15427,7 @@ type UpdateFullscreenModeResponse struct {
 
 func (x *UpdateFullscreenModeResponse) Reset() {
 	*x = UpdateFullscreenModeResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[263]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[349]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11711,7 +15439,7 @@ func (x *UpdateFullscreenModeResponse) String() string {
 func (*UpdateFullscreenModeResponse) ProtoMessage() {}
 
 func (x *UpdateFullscreenModeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[263]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[349]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11724,7 +15452,7 @@ func (x *UpdateFullscreenModeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateFullscreenModeResponse.ProtoReflect.Descriptor instead.
 func (*UpdateFullscreenModeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{263}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{349}
 }
 
 type UpdateInputViewShownRequest struct {
@@ -11736,7 +15464,7 @@ type UpdateInputViewShownRequest struct {
 
 func (x *UpdateInputViewShownRequest) Reset() {
 	*x = UpdateInputViewShownRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[264]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[350]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11748,7 +15476,7 @@ func (x *UpdateInputViewShownRequest) String() string {
 func (*UpdateInputViewShownRequest) ProtoMessage() {}
 
 func (x *UpdateInputViewShownRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[264]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[350]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11761,7 +15489,7 @@ func (x *UpdateInputViewShownRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateInputViewShownRequest.ProtoReflect.Descriptor instead.
 func (*UpdateInputViewShownRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{264}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{350}
 }
 
 func (x *UpdateInputViewShownRequest) GetHandle() int64 {
@@ -11779,7 +15507,7 @@ type UpdateInputViewShownResponse struct {
 
 func (x *UpdateInputViewShownResponse) Reset() {
 	*x = UpdateInputViewShownResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[265]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[351]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11791,7 +15519,7 @@ func (x *UpdateInputViewShownResponse) String() string {
 func (*UpdateInputViewShownResponse) ProtoMessage() {}
 
 func (x *UpdateInputViewShownResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[265]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[351]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11804,7 +15532,7 @@ func (x *UpdateInputViewShownResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateInputViewShownResponse.ProtoReflect.Descriptor instead.
 func (*UpdateInputViewShownResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{265}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{351}
 }
 
 type GetStylusHandwritingIdleTimeoutMaxRequest struct {
@@ -11816,7 +15544,7 @@ type GetStylusHandwritingIdleTimeoutMaxRequest struct {
 
 func (x *GetStylusHandwritingIdleTimeoutMaxRequest) Reset() {
 	*x = GetStylusHandwritingIdleTimeoutMaxRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[266]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[352]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11828,7 +15556,7 @@ func (x *GetStylusHandwritingIdleTimeoutMaxRequest) String() string {
 func (*GetStylusHandwritingIdleTimeoutMaxRequest) ProtoMessage() {}
 
 func (x *GetStylusHandwritingIdleTimeoutMaxRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[266]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[352]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11841,7 +15569,7 @@ func (x *GetStylusHandwritingIdleTimeoutMaxRequest) ProtoReflect() protoreflect.
 
 // Deprecated: Use GetStylusHandwritingIdleTimeoutMaxRequest.ProtoReflect.Descriptor instead.
 func (*GetStylusHandwritingIdleTimeoutMaxRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{266}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{352}
 }
 
 func (x *GetStylusHandwritingIdleTimeoutMaxRequest) GetHandle() int64 {
@@ -11860,7 +15588,7 @@ type GetStylusHandwritingIdleTimeoutMaxResponse struct {
 
 func (x *GetStylusHandwritingIdleTimeoutMaxResponse) Reset() {
 	*x = GetStylusHandwritingIdleTimeoutMaxResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[267]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[353]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11872,7 +15600,7 @@ func (x *GetStylusHandwritingIdleTimeoutMaxResponse) String() string {
 func (*GetStylusHandwritingIdleTimeoutMaxResponse) ProtoMessage() {}
 
 func (x *GetStylusHandwritingIdleTimeoutMaxResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[267]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[353]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11885,7 +15613,7 @@ func (x *GetStylusHandwritingIdleTimeoutMaxResponse) ProtoReflect() protoreflect
 
 // Deprecated: Use GetStylusHandwritingIdleTimeoutMaxResponse.ProtoReflect.Descriptor instead.
 func (*GetStylusHandwritingIdleTimeoutMaxResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{267}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{353}
 }
 
 func (x *GetStylusHandwritingIdleTimeoutMaxResponse) GetResult() int64 {
@@ -11904,7 +15632,7 @@ type AttachTokenRequest struct {
 
 func (x *AttachTokenRequest) Reset() {
 	*x = AttachTokenRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[268]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[354]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11916,7 +15644,7 @@ func (x *AttachTokenRequest) String() string {
 func (*AttachTokenRequest) ProtoMessage() {}
 
 func (x *AttachTokenRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[268]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[354]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11929,7 +15657,7 @@ func (x *AttachTokenRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AttachTokenRequest.ProtoReflect.Descriptor instead.
 func (*AttachTokenRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{268}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{354}
 }
 
 func (x *AttachTokenRequest) GetArg0() int64 {
@@ -11947,7 +15675,7 @@ type AttachTokenResponse struct {
 
 func (x *AttachTokenResponse) Reset() {
 	*x = AttachTokenResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[269]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[355]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11959,7 +15687,7 @@ func (x *AttachTokenResponse) String() string {
 func (*AttachTokenResponse) ProtoMessage() {}
 
 func (x *AttachTokenResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[269]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[355]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11972,7 +15700,7 @@ func (x *AttachTokenResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AttachTokenResponse.ProtoReflect.Descriptor instead.
 func (*AttachTokenResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{269}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{355}
 }
 
 type BindInputRequest struct {
@@ -11984,7 +15712,7 @@ type BindInputRequest struct {
 
 func (x *BindInputRequest) Reset() {
 	*x = BindInputRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[270]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[356]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11996,7 +15724,7 @@ func (x *BindInputRequest) String() string {
 func (*BindInputRequest) ProtoMessage() {}
 
 func (x *BindInputRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[270]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[356]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12009,7 +15737,7 @@ func (x *BindInputRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BindInputRequest.ProtoReflect.Descriptor instead.
 func (*BindInputRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{270}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{356}
 }
 
 func (x *BindInputRequest) GetArg0() int64 {
@@ -12027,7 +15755,7 @@ type BindInputResponse struct {
 
 func (x *BindInputResponse) Reset() {
 	*x = BindInputResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[271]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[357]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12039,7 +15767,7 @@ func (x *BindInputResponse) String() string {
 func (*BindInputResponse) ProtoMessage() {}
 
 func (x *BindInputResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[271]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[357]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12052,7 +15780,7 @@ func (x *BindInputResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BindInputResponse.ProtoReflect.Descriptor instead.
 func (*BindInputResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{271}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{357}
 }
 
 type ChangeInputMethodSubtypeRequest struct {
@@ -12064,7 +15792,7 @@ type ChangeInputMethodSubtypeRequest struct {
 
 func (x *ChangeInputMethodSubtypeRequest) Reset() {
 	*x = ChangeInputMethodSubtypeRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[272]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[358]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12076,7 +15804,7 @@ func (x *ChangeInputMethodSubtypeRequest) String() string {
 func (*ChangeInputMethodSubtypeRequest) ProtoMessage() {}
 
 func (x *ChangeInputMethodSubtypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[272]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[358]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12089,7 +15817,7 @@ func (x *ChangeInputMethodSubtypeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ChangeInputMethodSubtypeRequest.ProtoReflect.Descriptor instead.
 func (*ChangeInputMethodSubtypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{272}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{358}
 }
 
 func (x *ChangeInputMethodSubtypeRequest) GetArg0() int64 {
@@ -12107,7 +15835,7 @@ type ChangeInputMethodSubtypeResponse struct {
 
 func (x *ChangeInputMethodSubtypeResponse) Reset() {
 	*x = ChangeInputMethodSubtypeResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[273]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[359]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12119,7 +15847,7 @@ func (x *ChangeInputMethodSubtypeResponse) String() string {
 func (*ChangeInputMethodSubtypeResponse) ProtoMessage() {}
 
 func (x *ChangeInputMethodSubtypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[273]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[359]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12132,7 +15860,7 @@ func (x *ChangeInputMethodSubtypeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ChangeInputMethodSubtypeResponse.ProtoReflect.Descriptor instead.
 func (*ChangeInputMethodSubtypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{273}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{359}
 }
 
 type HideSoftInputRequest struct {
@@ -12145,7 +15873,7 @@ type HideSoftInputRequest struct {
 
 func (x *HideSoftInputRequest) Reset() {
 	*x = HideSoftInputRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[274]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[360]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12157,7 +15885,7 @@ func (x *HideSoftInputRequest) String() string {
 func (*HideSoftInputRequest) ProtoMessage() {}
 
 func (x *HideSoftInputRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[274]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[360]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12170,7 +15898,7 @@ func (x *HideSoftInputRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HideSoftInputRequest.ProtoReflect.Descriptor instead.
 func (*HideSoftInputRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{274}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{360}
 }
 
 func (x *HideSoftInputRequest) GetArg0() int32 {
@@ -12195,7 +15923,7 @@ type HideSoftInputResponse struct {
 
 func (x *HideSoftInputResponse) Reset() {
 	*x = HideSoftInputResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[275]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[361]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12207,7 +15935,7 @@ func (x *HideSoftInputResponse) String() string {
 func (*HideSoftInputResponse) ProtoMessage() {}
 
 func (x *HideSoftInputResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[275]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[361]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12220,7 +15948,7 @@ func (x *HideSoftInputResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HideSoftInputResponse.ProtoReflect.Descriptor instead.
 func (*HideSoftInputResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{275}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{361}
 }
 
 type RestartInputRequest struct {
@@ -12233,7 +15961,7 @@ type RestartInputRequest struct {
 
 func (x *RestartInputRequest) Reset() {
 	*x = RestartInputRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[276]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[362]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12245,7 +15973,7 @@ func (x *RestartInputRequest) String() string {
 func (*RestartInputRequest) ProtoMessage() {}
 
 func (x *RestartInputRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[276]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[362]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12258,7 +15986,7 @@ func (x *RestartInputRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RestartInputRequest.ProtoReflect.Descriptor instead.
 func (*RestartInputRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{276}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{362}
 }
 
 func (x *RestartInputRequest) GetArg0() int64 {
@@ -12283,7 +16011,7 @@ type RestartInputResponse struct {
 
 func (x *RestartInputResponse) Reset() {
 	*x = RestartInputResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[277]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[363]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12295,7 +16023,7 @@ func (x *RestartInputResponse) String() string {
 func (*RestartInputResponse) ProtoMessage() {}
 
 func (x *RestartInputResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[277]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[363]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12308,7 +16036,7 @@ func (x *RestartInputResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RestartInputResponse.ProtoReflect.Descriptor instead.
 func (*RestartInputResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{277}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{363}
 }
 
 type ShowSoftInputRequest struct {
@@ -12321,7 +16049,7 @@ type ShowSoftInputRequest struct {
 
 func (x *ShowSoftInputRequest) Reset() {
 	*x = ShowSoftInputRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[278]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[364]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12333,7 +16061,7 @@ func (x *ShowSoftInputRequest) String() string {
 func (*ShowSoftInputRequest) ProtoMessage() {}
 
 func (x *ShowSoftInputRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[278]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[364]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12346,7 +16074,7 @@ func (x *ShowSoftInputRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ShowSoftInputRequest.ProtoReflect.Descriptor instead.
 func (*ShowSoftInputRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{278}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{364}
 }
 
 func (x *ShowSoftInputRequest) GetArg0() int32 {
@@ -12371,7 +16099,7 @@ type ShowSoftInputResponse struct {
 
 func (x *ShowSoftInputResponse) Reset() {
 	*x = ShowSoftInputResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[279]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[365]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12383,7 +16111,7 @@ func (x *ShowSoftInputResponse) String() string {
 func (*ShowSoftInputResponse) ProtoMessage() {}
 
 func (x *ShowSoftInputResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[279]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[365]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12396,7 +16124,7 @@ func (x *ShowSoftInputResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ShowSoftInputResponse.ProtoReflect.Descriptor instead.
 func (*ShowSoftInputResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{279}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{365}
 }
 
 type StartInputRequest struct {
@@ -12409,7 +16137,7 @@ type StartInputRequest struct {
 
 func (x *StartInputRequest) Reset() {
 	*x = StartInputRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[280]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[366]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12421,7 +16149,7 @@ func (x *StartInputRequest) String() string {
 func (*StartInputRequest) ProtoMessage() {}
 
 func (x *StartInputRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[280]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[366]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12434,7 +16162,7 @@ func (x *StartInputRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartInputRequest.ProtoReflect.Descriptor instead.
 func (*StartInputRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{280}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{366}
 }
 
 func (x *StartInputRequest) GetArg0() int64 {
@@ -12459,7 +16187,7 @@ type StartInputResponse struct {
 
 func (x *StartInputResponse) Reset() {
 	*x = StartInputResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[281]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[367]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12471,7 +16199,7 @@ func (x *StartInputResponse) String() string {
 func (*StartInputResponse) ProtoMessage() {}
 
 func (x *StartInputResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[281]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[367]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12484,7 +16212,7 @@ func (x *StartInputResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartInputResponse.ProtoReflect.Descriptor instead.
 func (*StartInputResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{281}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{367}
 }
 
 type UnbindInputRequest struct {
@@ -12495,7 +16223,7 @@ type UnbindInputRequest struct {
 
 func (x *UnbindInputRequest) Reset() {
 	*x = UnbindInputRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[282]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[368]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12507,7 +16235,7 @@ func (x *UnbindInputRequest) String() string {
 func (*UnbindInputRequest) ProtoMessage() {}
 
 func (x *UnbindInputRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[282]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[368]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12520,7 +16248,7 @@ func (x *UnbindInputRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UnbindInputRequest.ProtoReflect.Descriptor instead.
 func (*UnbindInputRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{282}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{368}
 }
 
 type UnbindInputResponse struct {
@@ -12531,7 +16259,7 @@ type UnbindInputResponse struct {
 
 func (x *UnbindInputResponse) Reset() {
 	*x = UnbindInputResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[283]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[369]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12543,7 +16271,7 @@ func (x *UnbindInputResponse) String() string {
 func (*UnbindInputResponse) ProtoMessage() {}
 
 func (x *UnbindInputResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[283]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[369]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12556,7 +16284,7 @@ func (x *UnbindInputResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UnbindInputResponse.ProtoReflect.Descriptor instead.
 func (*UnbindInputResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{283}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{369}
 }
 
 type AppPrivateCommandRequest struct {
@@ -12569,7 +16297,7 @@ type AppPrivateCommandRequest struct {
 
 func (x *AppPrivateCommandRequest) Reset() {
 	*x = AppPrivateCommandRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[284]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[370]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12581,7 +16309,7 @@ func (x *AppPrivateCommandRequest) String() string {
 func (*AppPrivateCommandRequest) ProtoMessage() {}
 
 func (x *AppPrivateCommandRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[284]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[370]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12594,7 +16322,7 @@ func (x *AppPrivateCommandRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AppPrivateCommandRequest.ProtoReflect.Descriptor instead.
 func (*AppPrivateCommandRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{284}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{370}
 }
 
 func (x *AppPrivateCommandRequest) GetArg0() string {
@@ -12619,7 +16347,7 @@ type AppPrivateCommandResponse struct {
 
 func (x *AppPrivateCommandResponse) Reset() {
 	*x = AppPrivateCommandResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[285]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[371]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12631,7 +16359,7 @@ func (x *AppPrivateCommandResponse) String() string {
 func (*AppPrivateCommandResponse) ProtoMessage() {}
 
 func (x *AppPrivateCommandResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[285]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[371]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12644,7 +16372,7 @@ func (x *AppPrivateCommandResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AppPrivateCommandResponse.ProtoReflect.Descriptor instead.
 func (*AppPrivateCommandResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{285}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{371}
 }
 
 type DisplayCompletionsRequest struct {
@@ -12656,7 +16384,7 @@ type DisplayCompletionsRequest struct {
 
 func (x *DisplayCompletionsRequest) Reset() {
 	*x = DisplayCompletionsRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[286]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[372]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12668,7 +16396,7 @@ func (x *DisplayCompletionsRequest) String() string {
 func (*DisplayCompletionsRequest) ProtoMessage() {}
 
 func (x *DisplayCompletionsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[286]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[372]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12681,7 +16409,7 @@ func (x *DisplayCompletionsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DisplayCompletionsRequest.ProtoReflect.Descriptor instead.
 func (*DisplayCompletionsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{286}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{372}
 }
 
 func (x *DisplayCompletionsRequest) GetArg0() int64 {
@@ -12699,7 +16427,7 @@ type DisplayCompletionsResponse struct {
 
 func (x *DisplayCompletionsResponse) Reset() {
 	*x = DisplayCompletionsResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[287]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[373]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12711,7 +16439,7 @@ func (x *DisplayCompletionsResponse) String() string {
 func (*DisplayCompletionsResponse) ProtoMessage() {}
 
 func (x *DisplayCompletionsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[287]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[373]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12724,7 +16452,7 @@ func (x *DisplayCompletionsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DisplayCompletionsResponse.ProtoReflect.Descriptor instead.
 func (*DisplayCompletionsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{287}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{373}
 }
 
 type FinishInputRequest struct {
@@ -12735,7 +16463,7 @@ type FinishInputRequest struct {
 
 func (x *FinishInputRequest) Reset() {
 	*x = FinishInputRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[288]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[374]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12747,7 +16475,7 @@ func (x *FinishInputRequest) String() string {
 func (*FinishInputRequest) ProtoMessage() {}
 
 func (x *FinishInputRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[288]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[374]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12760,7 +16488,7 @@ func (x *FinishInputRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FinishInputRequest.ProtoReflect.Descriptor instead.
 func (*FinishInputRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{288}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{374}
 }
 
 type FinishInputResponse struct {
@@ -12771,7 +16499,7 @@ type FinishInputResponse struct {
 
 func (x *FinishInputResponse) Reset() {
 	*x = FinishInputResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[289]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[375]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12783,7 +16511,7 @@ func (x *FinishInputResponse) String() string {
 func (*FinishInputResponse) ProtoMessage() {}
 
 func (x *FinishInputResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[289]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[375]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12796,7 +16524,7 @@ func (x *FinishInputResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FinishInputResponse.ProtoReflect.Descriptor instead.
 func (*FinishInputResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{289}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{375}
 }
 
 type ToggleSoftInputRequest struct {
@@ -12809,7 +16537,7 @@ type ToggleSoftInputRequest struct {
 
 func (x *ToggleSoftInputRequest) Reset() {
 	*x = ToggleSoftInputRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[290]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[376]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12821,7 +16549,7 @@ func (x *ToggleSoftInputRequest) String() string {
 func (*ToggleSoftInputRequest) ProtoMessage() {}
 
 func (x *ToggleSoftInputRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[290]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[376]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12834,7 +16562,7 @@ func (x *ToggleSoftInputRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToggleSoftInputRequest.ProtoReflect.Descriptor instead.
 func (*ToggleSoftInputRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{290}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{376}
 }
 
 func (x *ToggleSoftInputRequest) GetArg0() int32 {
@@ -12859,7 +16587,7 @@ type ToggleSoftInputResponse struct {
 
 func (x *ToggleSoftInputResponse) Reset() {
 	*x = ToggleSoftInputResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[291]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[377]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12871,7 +16599,7 @@ func (x *ToggleSoftInputResponse) String() string {
 func (*ToggleSoftInputResponse) ProtoMessage() {}
 
 func (x *ToggleSoftInputResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[291]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[377]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12884,7 +16612,7 @@ func (x *ToggleSoftInputResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToggleSoftInputResponse.ProtoReflect.Descriptor instead.
 func (*ToggleSoftInputResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{291}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{377}
 }
 
 type UpdateCursorRequest struct {
@@ -12896,7 +16624,7 @@ type UpdateCursorRequest struct {
 
 func (x *UpdateCursorRequest) Reset() {
 	*x = UpdateCursorRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[292]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[378]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12908,7 +16636,7 @@ func (x *UpdateCursorRequest) String() string {
 func (*UpdateCursorRequest) ProtoMessage() {}
 
 func (x *UpdateCursorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[292]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[378]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12921,7 +16649,7 @@ func (x *UpdateCursorRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateCursorRequest.ProtoReflect.Descriptor instead.
 func (*UpdateCursorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{292}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{378}
 }
 
 func (x *UpdateCursorRequest) GetArg0() int64 {
@@ -12939,7 +16667,7 @@ type UpdateCursorResponse struct {
 
 func (x *UpdateCursorResponse) Reset() {
 	*x = UpdateCursorResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[293]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[379]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12951,7 +16679,7 @@ func (x *UpdateCursorResponse) String() string {
 func (*UpdateCursorResponse) ProtoMessage() {}
 
 func (x *UpdateCursorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[293]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[379]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -12964,7 +16692,7 @@ func (x *UpdateCursorResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateCursorResponse.ProtoReflect.Descriptor instead.
 func (*UpdateCursorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{293}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{379}
 }
 
 type UpdateCursorAnchorInfoRequest struct {
@@ -12976,7 +16704,7 @@ type UpdateCursorAnchorInfoRequest struct {
 
 func (x *UpdateCursorAnchorInfoRequest) Reset() {
 	*x = UpdateCursorAnchorInfoRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[294]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[380]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -12988,7 +16716,7 @@ func (x *UpdateCursorAnchorInfoRequest) String() string {
 func (*UpdateCursorAnchorInfoRequest) ProtoMessage() {}
 
 func (x *UpdateCursorAnchorInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[294]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[380]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13001,7 +16729,7 @@ func (x *UpdateCursorAnchorInfoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateCursorAnchorInfoRequest.ProtoReflect.Descriptor instead.
 func (*UpdateCursorAnchorInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{294}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{380}
 }
 
 func (x *UpdateCursorAnchorInfoRequest) GetArg0() int64 {
@@ -13019,7 +16747,7 @@ type UpdateCursorAnchorInfoResponse struct {
 
 func (x *UpdateCursorAnchorInfoResponse) Reset() {
 	*x = UpdateCursorAnchorInfoResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[295]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[381]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13031,7 +16759,7 @@ func (x *UpdateCursorAnchorInfoResponse) String() string {
 func (*UpdateCursorAnchorInfoResponse) ProtoMessage() {}
 
 func (x *UpdateCursorAnchorInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[295]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[381]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13044,7 +16772,7 @@ func (x *UpdateCursorAnchorInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateCursorAnchorInfoResponse.ProtoReflect.Descriptor instead.
 func (*UpdateCursorAnchorInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{295}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{381}
 }
 
 type UpdateExtractedTextRequest struct {
@@ -13057,7 +16785,7 @@ type UpdateExtractedTextRequest struct {
 
 func (x *UpdateExtractedTextRequest) Reset() {
 	*x = UpdateExtractedTextRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[296]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[382]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13069,7 +16797,7 @@ func (x *UpdateExtractedTextRequest) String() string {
 func (*UpdateExtractedTextRequest) ProtoMessage() {}
 
 func (x *UpdateExtractedTextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[296]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[382]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13082,7 +16810,7 @@ func (x *UpdateExtractedTextRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateExtractedTextRequest.ProtoReflect.Descriptor instead.
 func (*UpdateExtractedTextRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{296}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{382}
 }
 
 func (x *UpdateExtractedTextRequest) GetArg0() int32 {
@@ -13107,7 +16835,7 @@ type UpdateExtractedTextResponse struct {
 
 func (x *UpdateExtractedTextResponse) Reset() {
 	*x = UpdateExtractedTextResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[297]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[383]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13119,7 +16847,7 @@ func (x *UpdateExtractedTextResponse) String() string {
 func (*UpdateExtractedTextResponse) ProtoMessage() {}
 
 func (x *UpdateExtractedTextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[297]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[383]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13132,7 +16860,7 @@ func (x *UpdateExtractedTextResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateExtractedTextResponse.ProtoReflect.Descriptor instead.
 func (*UpdateExtractedTextResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{297}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{383}
 }
 
 type UpdateSelectionRequest struct {
@@ -13149,7 +16877,7 @@ type UpdateSelectionRequest struct {
 
 func (x *UpdateSelectionRequest) Reset() {
 	*x = UpdateSelectionRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[298]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[384]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13161,7 +16889,7 @@ func (x *UpdateSelectionRequest) String() string {
 func (*UpdateSelectionRequest) ProtoMessage() {}
 
 func (x *UpdateSelectionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[298]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[384]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13174,7 +16902,7 @@ func (x *UpdateSelectionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateSelectionRequest.ProtoReflect.Descriptor instead.
 func (*UpdateSelectionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{298}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{384}
 }
 
 func (x *UpdateSelectionRequest) GetArg0() int32 {
@@ -13227,7 +16955,7 @@ type UpdateSelectionResponse struct {
 
 func (x *UpdateSelectionResponse) Reset() {
 	*x = UpdateSelectionResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[299]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[385]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13239,7 +16967,7 @@ func (x *UpdateSelectionResponse) String() string {
 func (*UpdateSelectionResponse) ProtoMessage() {}
 
 func (x *UpdateSelectionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[299]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[385]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13252,7 +16980,7 @@ func (x *UpdateSelectionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateSelectionResponse.ProtoReflect.Descriptor instead.
 func (*UpdateSelectionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{299}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{385}
 }
 
 type ViewClickedRequest struct {
@@ -13264,7 +16992,7 @@ type ViewClickedRequest struct {
 
 func (x *ViewClickedRequest) Reset() {
 	*x = ViewClickedRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[300]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[386]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13276,7 +17004,7 @@ func (x *ViewClickedRequest) String() string {
 func (*ViewClickedRequest) ProtoMessage() {}
 
 func (x *ViewClickedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[300]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[386]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13289,7 +17017,7 @@ func (x *ViewClickedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ViewClickedRequest.ProtoReflect.Descriptor instead.
 func (*ViewClickedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{300}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{386}
 }
 
 func (x *ViewClickedRequest) GetArg0() bool {
@@ -13307,7 +17035,7 @@ type ViewClickedResponse struct {
 
 func (x *ViewClickedResponse) Reset() {
 	*x = ViewClickedResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[301]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[387]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -13319,7 +17047,7 @@ func (x *ViewClickedResponse) String() string {
 func (*ViewClickedResponse) ProtoMessage() {}
 
 func (x *ViewClickedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[301]
+	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[387]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -13332,3566 +17060,137 @@ func (x *ViewClickedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ViewClickedResponse.ProtoReflect.Descriptor instead.
 func (*ViewClickedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{301}
-}
-
-type NewExtractEditTextRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewExtractEditTextRequest) Reset() {
-	*x = NewExtractEditTextRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[302]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewExtractEditTextRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewExtractEditTextRequest) ProtoMessage() {}
-
-func (x *NewExtractEditTextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[302]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewExtractEditTextRequest.ProtoReflect.Descriptor instead.
-func (*NewExtractEditTextRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{302}
-}
-
-func (x *NewExtractEditTextRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type NewExtractEditTextResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewExtractEditTextResponse) Reset() {
-	*x = NewExtractEditTextResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[303]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewExtractEditTextResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewExtractEditTextResponse) ProtoMessage() {}
-
-func (x *NewExtractEditTextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[303]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewExtractEditTextResponse.ProtoReflect.Descriptor instead.
-func (*NewExtractEditTextResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{303}
-}
-
-func (x *NewExtractEditTextResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type FinishInternalChangesRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FinishInternalChangesRequest) Reset() {
-	*x = FinishInternalChangesRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[304]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FinishInternalChangesRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FinishInternalChangesRequest) ProtoMessage() {}
-
-func (x *FinishInternalChangesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[304]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use FinishInternalChangesRequest.ProtoReflect.Descriptor instead.
-func (*FinishInternalChangesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{304}
-}
-
-func (x *FinishInternalChangesRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type FinishInternalChangesResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FinishInternalChangesResponse) Reset() {
-	*x = FinishInternalChangesResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[305]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FinishInternalChangesResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FinishInternalChangesResponse) ProtoMessage() {}
-
-func (x *FinishInternalChangesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[305]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use FinishInternalChangesResponse.ProtoReflect.Descriptor instead.
-func (*FinishInternalChangesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{305}
-}
-
-type HasFocusRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasFocusRequest) Reset() {
-	*x = HasFocusRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[306]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasFocusRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasFocusRequest) ProtoMessage() {}
-
-func (x *HasFocusRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[306]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasFocusRequest.ProtoReflect.Descriptor instead.
-func (*HasFocusRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{306}
-}
-
-func (x *HasFocusRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type HasFocusResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasFocusResponse) Reset() {
-	*x = HasFocusResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[307]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasFocusResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasFocusResponse) ProtoMessage() {}
-
-func (x *HasFocusResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[307]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasFocusResponse.ProtoReflect.Descriptor instead.
-func (*HasFocusResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{307}
-}
-
-func (x *HasFocusResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type HasVerticalScrollBarRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasVerticalScrollBarRequest) Reset() {
-	*x = HasVerticalScrollBarRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[308]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasVerticalScrollBarRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasVerticalScrollBarRequest) ProtoMessage() {}
-
-func (x *HasVerticalScrollBarRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[308]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasVerticalScrollBarRequest.ProtoReflect.Descriptor instead.
-func (*HasVerticalScrollBarRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{308}
-}
-
-func (x *HasVerticalScrollBarRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type HasVerticalScrollBarResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasVerticalScrollBarResponse) Reset() {
-	*x = HasVerticalScrollBarResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[309]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasVerticalScrollBarResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasVerticalScrollBarResponse) ProtoMessage() {}
-
-func (x *HasVerticalScrollBarResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[309]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasVerticalScrollBarResponse.ProtoReflect.Descriptor instead.
-func (*HasVerticalScrollBarResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{309}
-}
-
-func (x *HasVerticalScrollBarResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type HasWindowFocusRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasWindowFocusRequest) Reset() {
-	*x = HasWindowFocusRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[310]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasWindowFocusRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasWindowFocusRequest) ProtoMessage() {}
-
-func (x *HasWindowFocusRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[310]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasWindowFocusRequest.ProtoReflect.Descriptor instead.
-func (*HasWindowFocusRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{310}
-}
-
-func (x *HasWindowFocusRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type HasWindowFocusResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HasWindowFocusResponse) Reset() {
-	*x = HasWindowFocusResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[311]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HasWindowFocusResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HasWindowFocusResponse) ProtoMessage() {}
-
-func (x *HasWindowFocusResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[311]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HasWindowFocusResponse.ProtoReflect.Descriptor instead.
-func (*HasWindowFocusResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{311}
-}
-
-func (x *HasWindowFocusResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type IsFocusedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsFocusedRequest) Reset() {
-	*x = IsFocusedRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[312]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsFocusedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsFocusedRequest) ProtoMessage() {}
-
-func (x *IsFocusedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[312]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsFocusedRequest.ProtoReflect.Descriptor instead.
-func (*IsFocusedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{312}
-}
-
-func (x *IsFocusedRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type IsFocusedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsFocusedResponse) Reset() {
-	*x = IsFocusedResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[313]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsFocusedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsFocusedResponse) ProtoMessage() {}
-
-func (x *IsFocusedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[313]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsFocusedResponse.ProtoReflect.Descriptor instead.
-func (*IsFocusedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{313}
-}
-
-func (x *IsFocusedResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type IsInputMethodTargetRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsInputMethodTargetRequest) Reset() {
-	*x = IsInputMethodTargetRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[314]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsInputMethodTargetRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsInputMethodTargetRequest) ProtoMessage() {}
-
-func (x *IsInputMethodTargetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[314]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsInputMethodTargetRequest.ProtoReflect.Descriptor instead.
-func (*IsInputMethodTargetRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{314}
-}
-
-func (x *IsInputMethodTargetRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type IsInputMethodTargetResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsInputMethodTargetResponse) Reset() {
-	*x = IsInputMethodTargetResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[315]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsInputMethodTargetResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsInputMethodTargetResponse) ProtoMessage() {}
-
-func (x *IsInputMethodTargetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[315]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsInputMethodTargetResponse.ProtoReflect.Descriptor instead.
-func (*IsInputMethodTargetResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{315}
-}
-
-func (x *IsInputMethodTargetResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type OnTextContextMenuItemRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnTextContextMenuItemRequest) Reset() {
-	*x = OnTextContextMenuItemRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[316]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnTextContextMenuItemRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnTextContextMenuItemRequest) ProtoMessage() {}
-
-func (x *OnTextContextMenuItemRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[316]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnTextContextMenuItemRequest.ProtoReflect.Descriptor instead.
-func (*OnTextContextMenuItemRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{316}
-}
-
-func (x *OnTextContextMenuItemRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *OnTextContextMenuItemRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnTextContextMenuItemResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnTextContextMenuItemResponse) Reset() {
-	*x = OnTextContextMenuItemResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[317]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnTextContextMenuItemResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnTextContextMenuItemResponse) ProtoMessage() {}
-
-func (x *OnTextContextMenuItemResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[317]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnTextContextMenuItemResponse.ProtoReflect.Descriptor instead.
-func (*OnTextContextMenuItemResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{317}
-}
-
-func (x *OnTextContextMenuItemResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type PerformClickRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PerformClickRequest) Reset() {
-	*x = PerformClickRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[318]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PerformClickRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PerformClickRequest) ProtoMessage() {}
-
-func (x *PerformClickRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[318]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PerformClickRequest.ProtoReflect.Descriptor instead.
-func (*PerformClickRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{318}
-}
-
-func (x *PerformClickRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type PerformClickResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PerformClickResponse) Reset() {
-	*x = PerformClickResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[319]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PerformClickResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PerformClickResponse) ProtoMessage() {}
-
-func (x *PerformClickResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[319]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PerformClickResponse.ProtoReflect.Descriptor instead.
-func (*PerformClickResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{319}
-}
-
-func (x *PerformClickResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type SetExtractedTextRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetExtractedTextRequest) Reset() {
-	*x = SetExtractedTextRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[320]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetExtractedTextRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetExtractedTextRequest) ProtoMessage() {}
-
-func (x *SetExtractedTextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[320]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetExtractedTextRequest.ProtoReflect.Descriptor instead.
-func (*SetExtractedTextRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{320}
-}
-
-func (x *SetExtractedTextRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *SetExtractedTextRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetExtractedTextResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetExtractedTextResponse) Reset() {
-	*x = SetExtractedTextResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[321]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetExtractedTextResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetExtractedTextResponse) ProtoMessage() {}
-
-func (x *SetExtractedTextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[321]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetExtractedTextResponse.ProtoReflect.Descriptor instead.
-func (*SetExtractedTextResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{321}
-}
-
-type StartInternalChangesRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *StartInternalChangesRequest) Reset() {
-	*x = StartInternalChangesRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[322]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *StartInternalChangesRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*StartInternalChangesRequest) ProtoMessage() {}
-
-func (x *StartInternalChangesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[322]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use StartInternalChangesRequest.ProtoReflect.Descriptor instead.
-func (*StartInternalChangesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{322}
-}
-
-func (x *StartInternalChangesRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type StartInternalChangesResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *StartInternalChangesResponse) Reset() {
-	*x = StartInternalChangesResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[323]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *StartInternalChangesResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*StartInternalChangesResponse) ProtoMessage() {}
-
-func (x *StartInternalChangesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[323]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use StartInternalChangesResponse.ProtoReflect.Descriptor instead.
-func (*StartInternalChangesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{323}
-}
-
-type NewKeyboardViewRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewKeyboardViewRequest) Reset() {
-	*x = NewKeyboardViewRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[324]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewKeyboardViewRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewKeyboardViewRequest) ProtoMessage() {}
-
-func (x *NewKeyboardViewRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[324]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewKeyboardViewRequest.ProtoReflect.Descriptor instead.
-func (*NewKeyboardViewRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{324}
-}
-
-func (x *NewKeyboardViewRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *NewKeyboardViewRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type NewKeyboardViewResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewKeyboardViewResponse) Reset() {
-	*x = NewKeyboardViewResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[325]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewKeyboardViewResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewKeyboardViewResponse) ProtoMessage() {}
-
-func (x *NewKeyboardViewResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[325]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewKeyboardViewResponse.ProtoReflect.Descriptor instead.
-func (*NewKeyboardViewResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{325}
-}
-
-func (x *NewKeyboardViewResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ClosingRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ClosingRequest) Reset() {
-	*x = ClosingRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[326]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ClosingRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ClosingRequest) ProtoMessage() {}
-
-func (x *ClosingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[326]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ClosingRequest.ProtoReflect.Descriptor instead.
-func (*ClosingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{326}
-}
-
-func (x *ClosingRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type ClosingResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ClosingResponse) Reset() {
-	*x = ClosingResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[327]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ClosingResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ClosingResponse) ProtoMessage() {}
-
-func (x *ClosingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[327]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ClosingResponse.ProtoReflect.Descriptor instead.
-func (*ClosingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{327}
-}
-
-type GetKeyboardRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetKeyboardRequest) Reset() {
-	*x = GetKeyboardRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[328]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetKeyboardRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetKeyboardRequest) ProtoMessage() {}
-
-func (x *GetKeyboardRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[328]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetKeyboardRequest.ProtoReflect.Descriptor instead.
-func (*GetKeyboardRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{328}
-}
-
-func (x *GetKeyboardRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetKeyboardResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetKeyboardResponse) Reset() {
-	*x = GetKeyboardResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[329]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetKeyboardResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetKeyboardResponse) ProtoMessage() {}
-
-func (x *GetKeyboardResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[329]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetKeyboardResponse.ProtoReflect.Descriptor instead.
-func (*GetKeyboardResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{329}
-}
-
-func (x *GetKeyboardResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type HandleBackRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HandleBackRequest) Reset() {
-	*x = HandleBackRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[330]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HandleBackRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HandleBackRequest) ProtoMessage() {}
-
-func (x *HandleBackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[330]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HandleBackRequest.ProtoReflect.Descriptor instead.
-func (*HandleBackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{330}
-}
-
-func (x *HandleBackRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type HandleBackResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *HandleBackResponse) Reset() {
-	*x = HandleBackResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[331]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *HandleBackResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*HandleBackResponse) ProtoMessage() {}
-
-func (x *HandleBackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[331]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use HandleBackResponse.ProtoReflect.Descriptor instead.
-func (*HandleBackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{331}
-}
-
-func (x *HandleBackResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type InvalidateAllKeysRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *InvalidateAllKeysRequest) Reset() {
-	*x = InvalidateAllKeysRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[332]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *InvalidateAllKeysRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*InvalidateAllKeysRequest) ProtoMessage() {}
-
-func (x *InvalidateAllKeysRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[332]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use InvalidateAllKeysRequest.ProtoReflect.Descriptor instead.
-func (*InvalidateAllKeysRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{332}
-}
-
-func (x *InvalidateAllKeysRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type InvalidateAllKeysResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *InvalidateAllKeysResponse) Reset() {
-	*x = InvalidateAllKeysResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[333]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *InvalidateAllKeysResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*InvalidateAllKeysResponse) ProtoMessage() {}
-
-func (x *InvalidateAllKeysResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[333]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use InvalidateAllKeysResponse.ProtoReflect.Descriptor instead.
-func (*InvalidateAllKeysResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{333}
-}
-
-type InvalidateKeyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *InvalidateKeyRequest) Reset() {
-	*x = InvalidateKeyRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[334]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *InvalidateKeyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*InvalidateKeyRequest) ProtoMessage() {}
-
-func (x *InvalidateKeyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[334]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use InvalidateKeyRequest.ProtoReflect.Descriptor instead.
-func (*InvalidateKeyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{334}
-}
-
-func (x *InvalidateKeyRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *InvalidateKeyRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type InvalidateKeyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *InvalidateKeyResponse) Reset() {
-	*x = InvalidateKeyResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[335]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *InvalidateKeyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*InvalidateKeyResponse) ProtoMessage() {}
-
-func (x *InvalidateKeyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[335]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use InvalidateKeyResponse.ProtoReflect.Descriptor instead.
-func (*InvalidateKeyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{335}
-}
-
-type IsPreviewEnabledRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsPreviewEnabledRequest) Reset() {
-	*x = IsPreviewEnabledRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[336]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsPreviewEnabledRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsPreviewEnabledRequest) ProtoMessage() {}
-
-func (x *IsPreviewEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[336]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsPreviewEnabledRequest.ProtoReflect.Descriptor instead.
-func (*IsPreviewEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{336}
-}
-
-func (x *IsPreviewEnabledRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type IsPreviewEnabledResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsPreviewEnabledResponse) Reset() {
-	*x = IsPreviewEnabledResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[337]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsPreviewEnabledResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsPreviewEnabledResponse) ProtoMessage() {}
-
-func (x *IsPreviewEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[337]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsPreviewEnabledResponse.ProtoReflect.Descriptor instead.
-func (*IsPreviewEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{337}
-}
-
-func (x *IsPreviewEnabledResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type IsProximityCorrectionEnabledRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsProximityCorrectionEnabledRequest) Reset() {
-	*x = IsProximityCorrectionEnabledRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[338]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsProximityCorrectionEnabledRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsProximityCorrectionEnabledRequest) ProtoMessage() {}
-
-func (x *IsProximityCorrectionEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[338]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsProximityCorrectionEnabledRequest.ProtoReflect.Descriptor instead.
-func (*IsProximityCorrectionEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{338}
-}
-
-func (x *IsProximityCorrectionEnabledRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type IsProximityCorrectionEnabledResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsProximityCorrectionEnabledResponse) Reset() {
-	*x = IsProximityCorrectionEnabledResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[339]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsProximityCorrectionEnabledResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsProximityCorrectionEnabledResponse) ProtoMessage() {}
-
-func (x *IsProximityCorrectionEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[339]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsProximityCorrectionEnabledResponse.ProtoReflect.Descriptor instead.
-func (*IsProximityCorrectionEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{339}
-}
-
-func (x *IsProximityCorrectionEnabledResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type OnClickRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnClickRequest) Reset() {
-	*x = OnClickRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[340]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnClickRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnClickRequest) ProtoMessage() {}
-
-func (x *OnClickRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[340]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnClickRequest.ProtoReflect.Descriptor instead.
-func (*OnClickRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{340}
-}
-
-func (x *OnClickRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *OnClickRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnClickResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnClickResponse) Reset() {
-	*x = OnClickResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[341]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnClickResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnClickResponse) ProtoMessage() {}
-
-func (x *OnClickResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[341]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnClickResponse.ProtoReflect.Descriptor instead.
-func (*OnClickResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{341}
-}
-
-type OnDetachedFromWindowRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnDetachedFromWindowRequest) Reset() {
-	*x = OnDetachedFromWindowRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[342]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnDetachedFromWindowRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnDetachedFromWindowRequest) ProtoMessage() {}
-
-func (x *OnDetachedFromWindowRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[342]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnDetachedFromWindowRequest.ProtoReflect.Descriptor instead.
-func (*OnDetachedFromWindowRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{342}
-}
-
-func (x *OnDetachedFromWindowRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type OnDetachedFromWindowResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnDetachedFromWindowResponse) Reset() {
-	*x = OnDetachedFromWindowResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[343]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnDetachedFromWindowResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnDetachedFromWindowResponse) ProtoMessage() {}
-
-func (x *OnDetachedFromWindowResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[343]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnDetachedFromWindowResponse.ProtoReflect.Descriptor instead.
-func (*OnDetachedFromWindowResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{343}
-}
-
-type OnDrawRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnDrawRequest) Reset() {
-	*x = OnDrawRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[344]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnDrawRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnDrawRequest) ProtoMessage() {}
-
-func (x *OnDrawRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[344]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnDrawRequest.ProtoReflect.Descriptor instead.
-func (*OnDrawRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{344}
-}
-
-func (x *OnDrawRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *OnDrawRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnDrawResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnDrawResponse) Reset() {
-	*x = OnDrawResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[345]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnDrawResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnDrawResponse) ProtoMessage() {}
-
-func (x *OnDrawResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[345]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnDrawResponse.ProtoReflect.Descriptor instead.
-func (*OnDrawResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{345}
-}
-
-type OnHoverEventRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnHoverEventRequest) Reset() {
-	*x = OnHoverEventRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[346]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnHoverEventRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnHoverEventRequest) ProtoMessage() {}
-
-func (x *OnHoverEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[346]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnHoverEventRequest.ProtoReflect.Descriptor instead.
-func (*OnHoverEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{346}
-}
-
-func (x *OnHoverEventRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *OnHoverEventRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnHoverEventResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnHoverEventResponse) Reset() {
-	*x = OnHoverEventResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[347]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnHoverEventResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnHoverEventResponse) ProtoMessage() {}
-
-func (x *OnHoverEventResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[347]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnHoverEventResponse.ProtoReflect.Descriptor instead.
-func (*OnHoverEventResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{347}
-}
-
-func (x *OnHoverEventResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type OnMeasureRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnMeasureRequest) Reset() {
-	*x = OnMeasureRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[348]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnMeasureRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnMeasureRequest) ProtoMessage() {}
-
-func (x *OnMeasureRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[348]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnMeasureRequest.ProtoReflect.Descriptor instead.
-func (*OnMeasureRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{348}
-}
-
-func (x *OnMeasureRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *OnMeasureRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *OnMeasureRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type OnMeasureResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnMeasureResponse) Reset() {
-	*x = OnMeasureResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[349]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnMeasureResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnMeasureResponse) ProtoMessage() {}
-
-func (x *OnMeasureResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[349]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnMeasureResponse.ProtoReflect.Descriptor instead.
-func (*OnMeasureResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{349}
-}
-
-type OnSizeChangedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int32                  `protobuf:"varint,4,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	Arg3          int32                  `protobuf:"varint,5,opt,name=arg3,proto3" json:"arg3,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnSizeChangedRequest) Reset() {
-	*x = OnSizeChangedRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[350]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnSizeChangedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnSizeChangedRequest) ProtoMessage() {}
-
-func (x *OnSizeChangedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[350]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnSizeChangedRequest.ProtoReflect.Descriptor instead.
-func (*OnSizeChangedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{350}
-}
-
-func (x *OnSizeChangedRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *OnSizeChangedRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *OnSizeChangedRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-func (x *OnSizeChangedRequest) GetArg2() int32 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-func (x *OnSizeChangedRequest) GetArg3() int32 {
-	if x != nil {
-		return x.Arg3
-	}
-	return 0
-}
-
-type OnSizeChangedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnSizeChangedResponse) Reset() {
-	*x = OnSizeChangedResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[351]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnSizeChangedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnSizeChangedResponse) ProtoMessage() {}
-
-func (x *OnSizeChangedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[351]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnSizeChangedResponse.ProtoReflect.Descriptor instead.
-func (*OnSizeChangedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{351}
-}
-
-type OnTouchEventRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnTouchEventRequest) Reset() {
-	*x = OnTouchEventRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[352]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnTouchEventRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnTouchEventRequest) ProtoMessage() {}
-
-func (x *OnTouchEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[352]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnTouchEventRequest.ProtoReflect.Descriptor instead.
-func (*OnTouchEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{352}
-}
-
-func (x *OnTouchEventRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *OnTouchEventRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnTouchEventResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnTouchEventResponse) Reset() {
-	*x = OnTouchEventResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[353]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnTouchEventResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnTouchEventResponse) ProtoMessage() {}
-
-func (x *OnTouchEventResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[353]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnTouchEventResponse.ProtoReflect.Descriptor instead.
-func (*OnTouchEventResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{353}
-}
-
-func (x *OnTouchEventResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type SetKeyboardRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetKeyboardRequest) Reset() {
-	*x = SetKeyboardRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[354]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetKeyboardRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetKeyboardRequest) ProtoMessage() {}
-
-func (x *SetKeyboardRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[354]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetKeyboardRequest.ProtoReflect.Descriptor instead.
-func (*SetKeyboardRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{354}
-}
-
-func (x *SetKeyboardRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *SetKeyboardRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetKeyboardResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetKeyboardResponse) Reset() {
-	*x = SetKeyboardResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[355]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetKeyboardResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetKeyboardResponse) ProtoMessage() {}
-
-func (x *SetKeyboardResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[355]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetKeyboardResponse.ProtoReflect.Descriptor instead.
-func (*SetKeyboardResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{355}
-}
-
-type SetOnKeyboardActionListenerRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetOnKeyboardActionListenerRequest) Reset() {
-	*x = SetOnKeyboardActionListenerRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[356]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetOnKeyboardActionListenerRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetOnKeyboardActionListenerRequest) ProtoMessage() {}
-
-func (x *SetOnKeyboardActionListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[356]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetOnKeyboardActionListenerRequest.ProtoReflect.Descriptor instead.
-func (*SetOnKeyboardActionListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{356}
-}
-
-func (x *SetOnKeyboardActionListenerRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *SetOnKeyboardActionListenerRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetOnKeyboardActionListenerResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetOnKeyboardActionListenerResponse) Reset() {
-	*x = SetOnKeyboardActionListenerResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[357]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetOnKeyboardActionListenerResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetOnKeyboardActionListenerResponse) ProtoMessage() {}
-
-func (x *SetOnKeyboardActionListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[357]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetOnKeyboardActionListenerResponse.ProtoReflect.Descriptor instead.
-func (*SetOnKeyboardActionListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{357}
-}
-
-type SetPopupOffsetRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPopupOffsetRequest) Reset() {
-	*x = SetPopupOffsetRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[358]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPopupOffsetRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPopupOffsetRequest) ProtoMessage() {}
-
-func (x *SetPopupOffsetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[358]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPopupOffsetRequest.ProtoReflect.Descriptor instead.
-func (*SetPopupOffsetRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{358}
-}
-
-func (x *SetPopupOffsetRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *SetPopupOffsetRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *SetPopupOffsetRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type SetPopupOffsetResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPopupOffsetResponse) Reset() {
-	*x = SetPopupOffsetResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[359]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPopupOffsetResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPopupOffsetResponse) ProtoMessage() {}
-
-func (x *SetPopupOffsetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[359]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPopupOffsetResponse.ProtoReflect.Descriptor instead.
-func (*SetPopupOffsetResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{359}
-}
-
-type SetPopupParentRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPopupParentRequest) Reset() {
-	*x = SetPopupParentRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[360]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPopupParentRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPopupParentRequest) ProtoMessage() {}
-
-func (x *SetPopupParentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[360]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPopupParentRequest.ProtoReflect.Descriptor instead.
-func (*SetPopupParentRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{360}
-}
-
-func (x *SetPopupParentRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *SetPopupParentRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetPopupParentResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPopupParentResponse) Reset() {
-	*x = SetPopupParentResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[361]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPopupParentResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPopupParentResponse) ProtoMessage() {}
-
-func (x *SetPopupParentResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[361]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPopupParentResponse.ProtoReflect.Descriptor instead.
-func (*SetPopupParentResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{361}
-}
-
-type SetPreviewEnabledRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPreviewEnabledRequest) Reset() {
-	*x = SetPreviewEnabledRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[362]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPreviewEnabledRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPreviewEnabledRequest) ProtoMessage() {}
-
-func (x *SetPreviewEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[362]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPreviewEnabledRequest.ProtoReflect.Descriptor instead.
-func (*SetPreviewEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{362}
-}
-
-func (x *SetPreviewEnabledRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *SetPreviewEnabledRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type SetPreviewEnabledResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPreviewEnabledResponse) Reset() {
-	*x = SetPreviewEnabledResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[363]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPreviewEnabledResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPreviewEnabledResponse) ProtoMessage() {}
-
-func (x *SetPreviewEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[363]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPreviewEnabledResponse.ProtoReflect.Descriptor instead.
-func (*SetPreviewEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{363}
-}
-
-type SetProximityCorrectionEnabledRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          bool                   `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetProximityCorrectionEnabledRequest) Reset() {
-	*x = SetProximityCorrectionEnabledRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[364]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetProximityCorrectionEnabledRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetProximityCorrectionEnabledRequest) ProtoMessage() {}
-
-func (x *SetProximityCorrectionEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[364]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetProximityCorrectionEnabledRequest.ProtoReflect.Descriptor instead.
-func (*SetProximityCorrectionEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{364}
-}
-
-func (x *SetProximityCorrectionEnabledRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *SetProximityCorrectionEnabledRequest) GetArg0() bool {
-	if x != nil {
-		return x.Arg0
-	}
-	return false
-}
-
-type SetProximityCorrectionEnabledResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetProximityCorrectionEnabledResponse) Reset() {
-	*x = SetProximityCorrectionEnabledResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[365]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetProximityCorrectionEnabledResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetProximityCorrectionEnabledResponse) ProtoMessage() {}
-
-func (x *SetProximityCorrectionEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[365]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetProximityCorrectionEnabledResponse.ProtoReflect.Descriptor instead.
-func (*SetProximityCorrectionEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{365}
-}
-
-type SetVerticalCorrectionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int32                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetVerticalCorrectionRequest) Reset() {
-	*x = SetVerticalCorrectionRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[366]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetVerticalCorrectionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetVerticalCorrectionRequest) ProtoMessage() {}
-
-func (x *SetVerticalCorrectionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[366]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetVerticalCorrectionRequest.ProtoReflect.Descriptor instead.
-func (*SetVerticalCorrectionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{366}
-}
-
-func (x *SetVerticalCorrectionRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *SetVerticalCorrectionRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetVerticalCorrectionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetVerticalCorrectionResponse) Reset() {
-	*x = SetVerticalCorrectionResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[367]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetVerticalCorrectionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetVerticalCorrectionResponse) ProtoMessage() {}
-
-func (x *SetVerticalCorrectionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[367]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetVerticalCorrectionResponse.ProtoReflect.Descriptor instead.
-func (*SetVerticalCorrectionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{367}
-}
-
-type OnKeyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnKeyRequest) Reset() {
-	*x = OnKeyRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[368]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnKeyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnKeyRequest) ProtoMessage() {}
-
-func (x *OnKeyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[368]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnKeyRequest.ProtoReflect.Descriptor instead.
-func (*OnKeyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{368}
-}
-
-func (x *OnKeyRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *OnKeyRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type OnKeyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnKeyResponse) Reset() {
-	*x = OnKeyResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[369]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnKeyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnKeyResponse) ProtoMessage() {}
-
-func (x *OnKeyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[369]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnKeyResponse.ProtoReflect.Descriptor instead.
-func (*OnKeyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{369}
-}
-
-type OnPressRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnPressRequest) Reset() {
-	*x = OnPressRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[370]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnPressRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnPressRequest) ProtoMessage() {}
-
-func (x *OnPressRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[370]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnPressRequest.ProtoReflect.Descriptor instead.
-func (*OnPressRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{370}
-}
-
-func (x *OnPressRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnPressResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnPressResponse) Reset() {
-	*x = OnPressResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[371]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnPressResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnPressResponse) ProtoMessage() {}
-
-func (x *OnPressResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[371]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnPressResponse.ProtoReflect.Descriptor instead.
-func (*OnPressResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{371}
-}
-
-type OnReleaseRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnReleaseRequest) Reset() {
-	*x = OnReleaseRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[372]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnReleaseRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnReleaseRequest) ProtoMessage() {}
-
-func (x *OnReleaseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[372]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnReleaseRequest.ProtoReflect.Descriptor instead.
-func (*OnReleaseRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{372}
-}
-
-func (x *OnReleaseRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnReleaseResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnReleaseResponse) Reset() {
-	*x = OnReleaseResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[373]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnReleaseResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnReleaseResponse) ProtoMessage() {}
-
-func (x *OnReleaseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[373]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnReleaseResponse.ProtoReflect.Descriptor instead.
-func (*OnReleaseResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{373}
-}
-
-type OnTextRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnTextRequest) Reset() {
-	*x = OnTextRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[374]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnTextRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnTextRequest) ProtoMessage() {}
-
-func (x *OnTextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[374]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnTextRequest.ProtoReflect.Descriptor instead.
-func (*OnTextRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{374}
-}
-
-func (x *OnTextRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type OnTextResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnTextResponse) Reset() {
-	*x = OnTextResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[375]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnTextResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnTextResponse) ProtoMessage() {}
-
-func (x *OnTextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[375]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnTextResponse.ProtoReflect.Descriptor instead.
-func (*OnTextResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{375}
-}
-
-type SwipeDownRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SwipeDownRequest) Reset() {
-	*x = SwipeDownRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[376]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SwipeDownRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SwipeDownRequest) ProtoMessage() {}
-
-func (x *SwipeDownRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[376]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SwipeDownRequest.ProtoReflect.Descriptor instead.
-func (*SwipeDownRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{376}
-}
-
-type SwipeDownResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SwipeDownResponse) Reset() {
-	*x = SwipeDownResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[377]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SwipeDownResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SwipeDownResponse) ProtoMessage() {}
-
-func (x *SwipeDownResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[377]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SwipeDownResponse.ProtoReflect.Descriptor instead.
-func (*SwipeDownResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{377}
-}
-
-type SwipeLeftRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SwipeLeftRequest) Reset() {
-	*x = SwipeLeftRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[378]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SwipeLeftRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SwipeLeftRequest) ProtoMessage() {}
-
-func (x *SwipeLeftRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[378]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SwipeLeftRequest.ProtoReflect.Descriptor instead.
-func (*SwipeLeftRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{378}
-}
-
-type SwipeLeftResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SwipeLeftResponse) Reset() {
-	*x = SwipeLeftResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[379]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SwipeLeftResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SwipeLeftResponse) ProtoMessage() {}
-
-func (x *SwipeLeftResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[379]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SwipeLeftResponse.ProtoReflect.Descriptor instead.
-func (*SwipeLeftResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{379}
-}
-
-type SwipeRightRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SwipeRightRequest) Reset() {
-	*x = SwipeRightRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[380]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SwipeRightRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SwipeRightRequest) ProtoMessage() {}
-
-func (x *SwipeRightRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[380]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SwipeRightRequest.ProtoReflect.Descriptor instead.
-func (*SwipeRightRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{380}
-}
-
-type SwipeRightResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SwipeRightResponse) Reset() {
-	*x = SwipeRightResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[381]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SwipeRightResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SwipeRightResponse) ProtoMessage() {}
-
-func (x *SwipeRightResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[381]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SwipeRightResponse.ProtoReflect.Descriptor instead.
-func (*SwipeRightResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{381}
-}
-
-type SwipeUpRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SwipeUpRequest) Reset() {
-	*x = SwipeUpRequest{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[382]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SwipeUpRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SwipeUpRequest) ProtoMessage() {}
-
-func (x *SwipeUpRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[382]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SwipeUpRequest.ProtoReflect.Descriptor instead.
-func (*SwipeUpRequest) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{382}
-}
-
-type SwipeUpResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SwipeUpResponse) Reset() {
-	*x = SwipeUpResponse{}
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[383]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SwipeUpResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SwipeUpResponse) ProtoMessage() {}
-
-func (x *SwipeUpResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_inputmethodservice_inputmethodservice_proto_msgTypes[383]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SwipeUpResponse.ProtoReflect.Descriptor instead.
-func (*SwipeUpResponse) Descriptor() ([]byte, []int) {
-	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{383}
+	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP(), []int{387}
 }
 
 var File_proto_inputmethodservice_inputmethodservice_proto protoreflect.FileDescriptor
 
 const file_proto_inputmethodservice_inputmethodservice_proto_rawDesc = "" +
 	"\n" +
-	"1proto/inputmethodservice/inputmethodservice.proto\x12\x12inputmethodservice\"<\n" +
+	"1proto/inputmethodservice/inputmethodservice.proto\x12\x12inputmethodservice\"@\n" +
+	"\x16NewKeyboardViewRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"1\n" +
+	"\x17NewKeyboardViewResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
+	"\x0eClosingRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x11\n" +
+	"\x0fClosingResponse\",\n" +
+	"\x12GetKeyboardRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
+	"\x13GetKeyboardResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x11HandleBackRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
+	"\x12HandleBackResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"2\n" +
+	"\x18InvalidateAllKeysRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x1b\n" +
+	"\x19InvalidateAllKeysResponse\"B\n" +
+	"\x14InvalidateKeyRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x17\n" +
+	"\x15InvalidateKeyResponse\"1\n" +
+	"\x17IsPreviewEnabledRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
+	"\x18IsPreviewEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"=\n" +
+	"#IsProximityCorrectionEnabledRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\">\n" +
+	"$IsProximityCorrectionEnabledResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"*\n" +
+	"\x10IsShiftedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
+	"\x11IsShiftedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"<\n" +
+	"\x0eOnClickRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x11\n" +
+	"\x0fOnClickResponse\"5\n" +
+	"\x1bOnDetachedFromWindowRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x1e\n" +
+	"\x1cOnDetachedFromWindowResponse\";\n" +
+	"\rOnDrawRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x10\n" +
+	"\x0eOnDrawResponse\"A\n" +
+	"\x13OnHoverEventRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\".\n" +
+	"\x14OnHoverEventResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"R\n" +
+	"\x10OnMeasureRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x13\n" +
+	"\x11OnMeasureResponse\"~\n" +
+	"\x14OnSizeChangedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
+	"\x04arg3\x18\x05 \x01(\x05R\x04arg3\"\x17\n" +
+	"\x15OnSizeChangedResponse\"A\n" +
+	"\x13OnTouchEventRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\".\n" +
+	"\x14OnTouchEventResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"@\n" +
+	"\x12SetKeyboardRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x15\n" +
+	"\x13SetKeyboardResponse\"P\n" +
+	"\"SetOnKeyboardActionListenerRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"%\n" +
+	"#SetOnKeyboardActionListenerResponse\"W\n" +
+	"\x15SetPopupOffsetRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x18\n" +
+	"\x16SetPopupOffsetResponse\"C\n" +
+	"\x15SetPopupParentRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x18\n" +
+	"\x16SetPopupParentResponse\"F\n" +
+	"\x18SetPreviewEnabledRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\bR\x04arg0\"\x1b\n" +
+	"\x19SetPreviewEnabledResponse\"R\n" +
+	"$SetProximityCorrectionEnabledRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\bR\x04arg0\"'\n" +
+	"%SetProximityCorrectionEnabledResponse\"?\n" +
+	"\x11SetShiftedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\bR\x04arg0\",\n" +
+	"\x12SetShiftedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"J\n" +
+	"\x1cSetVerticalCorrectionRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x1f\n" +
+	"\x1dSetVerticalCorrectionResponse\"6\n" +
+	"\fOnKeyRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x0f\n" +
+	"\rOnKeyResponse\"$\n" +
+	"\x0eOnPressRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x11\n" +
+	"\x0fOnPressResponse\"&\n" +
+	"\x10OnReleaseRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x13\n" +
+	"\x11OnReleaseResponse\"#\n" +
+	"\rOnTextRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"\x10\n" +
+	"\x0eOnTextResponse\"\x12\n" +
+	"\x10SwipeDownRequest\"\x13\n" +
+	"\x11SwipeDownResponse\"\x12\n" +
+	"\x10SwipeLeftRequest\"\x13\n" +
+	"\x11SwipeLeftResponse\"\x13\n" +
+	"\x11SwipeRightRequest\"\x14\n" +
+	"\x12SwipeRightResponse\"\x10\n" +
+	"\x0eSwipeUpRequest\"\x11\n" +
+	"\x0fSwipeUpResponse\"<\n" +
 	"\x12NewKeyboardRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"-\n" +
@@ -16900,11 +17199,19 @@ const file_proto_inputmethodservice_inputmethodservice_proto_rawDesc = "" +
 	"\x10GetHeightRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
 	"\x11GetHeightResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\",\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"(\n" +
+	"\x0eGetKeysRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\")\n" +
+	"\x0fGetKeysResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
 	"\x12GetMinWidthRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
 	"\x13GetMinWidthResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"W\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"0\n" +
+	"\x16GetModifierKeysRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
+	"\x17GetModifierKeysResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"W\n" +
 	"\x15GetNearestKeysRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
 	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
@@ -16914,16 +17221,7 @@ const file_proto_inputmethodservice_inputmethodservice_proto_rawDesc = "" +
 	"\x17GetShiftKeyIndexRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
 	"\x18GetShiftKeyIndexResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"*\n" +
-	"\x10IsShiftedRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
-	"\x11IsShiftedResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"?\n" +
-	"\x11SetShiftedRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\bR\x04arg0\",\n" +
-	"\x12SetShiftedResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\" \n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\" \n" +
 	"\x1eGetCurrentDrawableStateRequest\"9\n" +
 	"\x1fGetCurrentDrawableStateResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"9\n" +
@@ -16941,7 +17239,50 @@ const file_proto_inputmethodservice_inputmethodservice_proto_rawDesc = "" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"5\n" +
 	"\x1bSquaredDistanceFromResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x1e\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"/\n" +
+	"\x19NewExtractEditTextRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"4\n" +
+	"\x1aNewExtractEditTextResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"6\n" +
+	"\x1cFinishInternalChangesRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x1f\n" +
+	"\x1dFinishInternalChangesResponse\")\n" +
+	"\x0fHasFocusRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10HasFocusResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"5\n" +
+	"\x1bHasVerticalScrollBarRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"6\n" +
+	"\x1cHasVerticalScrollBarResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"/\n" +
+	"\x15HasWindowFocusRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
+	"\x16HasWindowFocusResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"*\n" +
+	"\x10IsFocusedRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
+	"\x11IsFocusedResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"4\n" +
+	"\x1aIsInputMethodTargetRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"5\n" +
+	"\x1bIsInputMethodTargetResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"J\n" +
+	"\x1cOnTextContextMenuItemRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"7\n" +
+	"\x1dOnTextContextMenuItemResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"-\n" +
+	"\x13PerformClickRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\".\n" +
+	"\x14PerformClickResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"E\n" +
+	"\x17SetExtractedTextRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1a\n" +
+	"\x18SetExtractedTextResponse\"5\n" +
+	"\x1bStartInternalChangesRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x1e\n" +
+	"\x1cStartInternalChangesResponse\"\x1e\n" +
 	"\x1cGetKeyDispatcherStateRequest\"7\n" +
 	"\x1dGetKeyDispatcherStateResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
@@ -17498,168 +17839,50 @@ const file_proto_inputmethodservice_inputmethodservice_proto_rawDesc = "" +
 	"\x17UpdateSelectionResponse\"(\n" +
 	"\x12ViewClickedRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"\x15\n" +
-	"\x13ViewClickedResponse\"/\n" +
-	"\x19NewExtractEditTextRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"4\n" +
-	"\x1aNewExtractEditTextResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"6\n" +
-	"\x1cFinishInternalChangesRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x1f\n" +
-	"\x1dFinishInternalChangesResponse\")\n" +
-	"\x0fHasFocusRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
-	"\x10HasFocusResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"5\n" +
-	"\x1bHasVerticalScrollBarRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"6\n" +
-	"\x1cHasVerticalScrollBarResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"/\n" +
-	"\x15HasWindowFocusRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
-	"\x16HasWindowFocusResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"*\n" +
-	"\x10IsFocusedRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"+\n" +
-	"\x11IsFocusedResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"4\n" +
-	"\x1aIsInputMethodTargetRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"5\n" +
-	"\x1bIsInputMethodTargetResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"J\n" +
-	"\x1cOnTextContextMenuItemRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"7\n" +
-	"\x1dOnTextContextMenuItemResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"-\n" +
-	"\x13PerformClickRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\".\n" +
-	"\x14PerformClickResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"E\n" +
-	"\x17SetExtractedTextRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x1a\n" +
-	"\x18SetExtractedTextResponse\"5\n" +
-	"\x1bStartInternalChangesRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x1e\n" +
-	"\x1cStartInternalChangesResponse\"@\n" +
-	"\x16NewKeyboardViewRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"1\n" +
-	"\x17NewKeyboardViewResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
-	"\x0eClosingRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x11\n" +
-	"\x0fClosingResponse\",\n" +
-	"\x12GetKeyboardRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
-	"\x13GetKeyboardResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
-	"\x11HandleBackRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\",\n" +
-	"\x12HandleBackResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"2\n" +
-	"\x18InvalidateAllKeysRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x1b\n" +
-	"\x19InvalidateAllKeysResponse\"B\n" +
-	"\x14InvalidateKeyRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x17\n" +
-	"\x15InvalidateKeyResponse\"1\n" +
-	"\x17IsPreviewEnabledRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
-	"\x18IsPreviewEnabledResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"=\n" +
-	"#IsProximityCorrectionEnabledRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\">\n" +
-	"$IsProximityCorrectionEnabledResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"<\n" +
-	"\x0eOnClickRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x11\n" +
-	"\x0fOnClickResponse\"5\n" +
-	"\x1bOnDetachedFromWindowRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x1e\n" +
-	"\x1cOnDetachedFromWindowResponse\";\n" +
-	"\rOnDrawRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x10\n" +
-	"\x0eOnDrawResponse\"A\n" +
-	"\x13OnHoverEventRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\".\n" +
-	"\x14OnHoverEventResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"R\n" +
-	"\x10OnMeasureRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x13\n" +
-	"\x11OnMeasureResponse\"~\n" +
-	"\x14OnSizeChangedRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x04 \x01(\x05R\x04arg2\x12\x12\n" +
-	"\x04arg3\x18\x05 \x01(\x05R\x04arg3\"\x17\n" +
-	"\x15OnSizeChangedResponse\"A\n" +
-	"\x13OnTouchEventRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\".\n" +
-	"\x14OnTouchEventResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"@\n" +
-	"\x12SetKeyboardRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x15\n" +
-	"\x13SetKeyboardResponse\"P\n" +
-	"\"SetOnKeyboardActionListenerRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"%\n" +
-	"#SetOnKeyboardActionListenerResponse\"W\n" +
-	"\x15SetPopupOffsetRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x18\n" +
-	"\x16SetPopupOffsetResponse\"C\n" +
-	"\x15SetPopupParentRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"\x18\n" +
-	"\x16SetPopupParentResponse\"F\n" +
-	"\x18SetPreviewEnabledRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\bR\x04arg0\"\x1b\n" +
-	"\x19SetPreviewEnabledResponse\"R\n" +
-	"$SetProximityCorrectionEnabledRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\bR\x04arg0\"'\n" +
-	"%SetProximityCorrectionEnabledResponse\"J\n" +
-	"\x1cSetVerticalCorrectionRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x05R\x04arg0\"\x1f\n" +
-	"\x1dSetVerticalCorrectionResponse\"6\n" +
-	"\fOnKeyRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x0f\n" +
-	"\rOnKeyResponse\"$\n" +
-	"\x0eOnPressRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x11\n" +
-	"\x0fOnPressResponse\"&\n" +
-	"\x10OnReleaseRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x13\n" +
-	"\x11OnReleaseResponse\"#\n" +
-	"\rOnTextRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"\x10\n" +
-	"\x0eOnTextResponse\"\x12\n" +
-	"\x10SwipeDownRequest\"\x13\n" +
-	"\x11SwipeDownResponse\"\x12\n" +
-	"\x10SwipeLeftRequest\"\x13\n" +
-	"\x11SwipeLeftResponse\"\x13\n" +
-	"\x11SwipeRightRequest\"\x14\n" +
-	"\x12SwipeRightResponse\"\x10\n" +
-	"\x0eSwipeUpRequest\"\x11\n" +
-	"\x0fSwipeUpResponse2\xba\x05\n" +
+	"\x13ViewClickedResponse2\x94\x14\n" +
+	"\x13KeyboardViewService\x12j\n" +
+	"\x0fNewKeyboardView\x12*.inputmethodservice.NewKeyboardViewRequest\x1a+.inputmethodservice.NewKeyboardViewResponse\x12R\n" +
+	"\aClosing\x12\".inputmethodservice.ClosingRequest\x1a#.inputmethodservice.ClosingResponse\x12^\n" +
+	"\vGetKeyboard\x12&.inputmethodservice.GetKeyboardRequest\x1a'.inputmethodservice.GetKeyboardResponse\x12[\n" +
+	"\n" +
+	"HandleBack\x12%.inputmethodservice.HandleBackRequest\x1a&.inputmethodservice.HandleBackResponse\x12p\n" +
+	"\x11InvalidateAllKeys\x12,.inputmethodservice.InvalidateAllKeysRequest\x1a-.inputmethodservice.InvalidateAllKeysResponse\x12d\n" +
+	"\rInvalidateKey\x12(.inputmethodservice.InvalidateKeyRequest\x1a).inputmethodservice.InvalidateKeyResponse\x12m\n" +
+	"\x10IsPreviewEnabled\x12+.inputmethodservice.IsPreviewEnabledRequest\x1a,.inputmethodservice.IsPreviewEnabledResponse\x12\x91\x01\n" +
+	"\x1cIsProximityCorrectionEnabled\x127.inputmethodservice.IsProximityCorrectionEnabledRequest\x1a8.inputmethodservice.IsProximityCorrectionEnabledResponse\x12X\n" +
+	"\tIsShifted\x12$.inputmethodservice.IsShiftedRequest\x1a%.inputmethodservice.IsShiftedResponse\x12R\n" +
+	"\aOnClick\x12\".inputmethodservice.OnClickRequest\x1a#.inputmethodservice.OnClickResponse\x12y\n" +
+	"\x14OnDetachedFromWindow\x12/.inputmethodservice.OnDetachedFromWindowRequest\x1a0.inputmethodservice.OnDetachedFromWindowResponse\x12O\n" +
+	"\x06OnDraw\x12!.inputmethodservice.OnDrawRequest\x1a\".inputmethodservice.OnDrawResponse\x12a\n" +
+	"\fOnHoverEvent\x12'.inputmethodservice.OnHoverEventRequest\x1a(.inputmethodservice.OnHoverEventResponse\x12X\n" +
+	"\tOnMeasure\x12$.inputmethodservice.OnMeasureRequest\x1a%.inputmethodservice.OnMeasureResponse\x12d\n" +
+	"\rOnSizeChanged\x12(.inputmethodservice.OnSizeChangedRequest\x1a).inputmethodservice.OnSizeChangedResponse\x12a\n" +
+	"\fOnTouchEvent\x12'.inputmethodservice.OnTouchEventRequest\x1a(.inputmethodservice.OnTouchEventResponse\x12^\n" +
+	"\vSetKeyboard\x12&.inputmethodservice.SetKeyboardRequest\x1a'.inputmethodservice.SetKeyboardResponse\x12\x8e\x01\n" +
+	"\x1bSetOnKeyboardActionListener\x126.inputmethodservice.SetOnKeyboardActionListenerRequest\x1a7.inputmethodservice.SetOnKeyboardActionListenerResponse\x12g\n" +
+	"\x0eSetPopupOffset\x12).inputmethodservice.SetPopupOffsetRequest\x1a*.inputmethodservice.SetPopupOffsetResponse\x12g\n" +
+	"\x0eSetPopupParent\x12).inputmethodservice.SetPopupParentRequest\x1a*.inputmethodservice.SetPopupParentResponse\x12p\n" +
+	"\x11SetPreviewEnabled\x12,.inputmethodservice.SetPreviewEnabledRequest\x1a-.inputmethodservice.SetPreviewEnabledResponse\x12\x94\x01\n" +
+	"\x1dSetProximityCorrectionEnabled\x128.inputmethodservice.SetProximityCorrectionEnabledRequest\x1a9.inputmethodservice.SetProximityCorrectionEnabledResponse\x12[\n" +
+	"\n" +
+	"SetShifted\x12%.inputmethodservice.SetShiftedRequest\x1a&.inputmethodservice.SetShiftedResponse\x12|\n" +
+	"\x15SetVerticalCorrection\x120.inputmethodservice.SetVerticalCorrectionRequest\x1a1.inputmethodservice.SetVerticalCorrectionResponse2\xdf\x05\n" +
+	"+KeyboardViewOnKeyboardActionListenerService\x12L\n" +
+	"\x05OnKey\x12 .inputmethodservice.OnKeyRequest\x1a!.inputmethodservice.OnKeyResponse\x12R\n" +
+	"\aOnPress\x12\".inputmethodservice.OnPressRequest\x1a#.inputmethodservice.OnPressResponse\x12X\n" +
+	"\tOnRelease\x12$.inputmethodservice.OnReleaseRequest\x1a%.inputmethodservice.OnReleaseResponse\x12O\n" +
+	"\x06OnText\x12!.inputmethodservice.OnTextRequest\x1a\".inputmethodservice.OnTextResponse\x12X\n" +
+	"\tSwipeDown\x12$.inputmethodservice.SwipeDownRequest\x1a%.inputmethodservice.SwipeDownResponse\x12X\n" +
+	"\tSwipeLeft\x12$.inputmethodservice.SwipeLeftRequest\x1a%.inputmethodservice.SwipeLeftResponse\x12[\n" +
+	"\n" +
+	"SwipeRight\x12%.inputmethodservice.SwipeRightRequest\x1a&.inputmethodservice.SwipeRightResponse\x12R\n" +
+	"\aSwipeUp\x12\".inputmethodservice.SwipeUpRequest\x1a#.inputmethodservice.SwipeUpResponse2\xfa\x06\n" +
 	"\x0fKeyboardService\x12^\n" +
 	"\vNewKeyboard\x12&.inputmethodservice.NewKeyboardRequest\x1a'.inputmethodservice.NewKeyboardResponse\x12X\n" +
-	"\tGetHeight\x12$.inputmethodservice.GetHeightRequest\x1a%.inputmethodservice.GetHeightResponse\x12^\n" +
-	"\vGetMinWidth\x12&.inputmethodservice.GetMinWidthRequest\x1a'.inputmethodservice.GetMinWidthResponse\x12g\n" +
+	"\tGetHeight\x12$.inputmethodservice.GetHeightRequest\x1a%.inputmethodservice.GetHeightResponse\x12R\n" +
+	"\aGetKeys\x12\".inputmethodservice.GetKeysRequest\x1a#.inputmethodservice.GetKeysResponse\x12^\n" +
+	"\vGetMinWidth\x12&.inputmethodservice.GetMinWidthRequest\x1a'.inputmethodservice.GetMinWidthResponse\x12j\n" +
+	"\x0fGetModifierKeys\x12*.inputmethodservice.GetModifierKeysRequest\x1a+.inputmethodservice.GetModifierKeysResponse\x12g\n" +
 	"\x0eGetNearestKeys\x12).inputmethodservice.GetNearestKeysRequest\x1a*.inputmethodservice.GetNearestKeysResponse\x12m\n" +
 	"\x10GetShiftKeyIndex\x12+.inputmethodservice.GetShiftKeyIndexRequest\x1a,.inputmethodservice.GetShiftKeyIndexResponse\x12X\n" +
 	"\tIsShifted\x12$.inputmethodservice.IsShiftedRequest\x1a%.inputmethodservice.IsShiftedResponse\x12[\n" +
@@ -17671,7 +17894,19 @@ const file_proto_inputmethodservice_inputmethodservice_proto_rawDesc = "" +
 	"\tOnPressed\x12$.inputmethodservice.OnPressedRequest\x1a%.inputmethodservice.OnPressedResponse\x12[\n" +
 	"\n" +
 	"OnReleased\x12%.inputmethodservice.OnReleasedRequest\x1a&.inputmethodservice.OnReleasedResponse\x12v\n" +
-	"\x13SquaredDistanceFrom\x12..inputmethodservice.SquaredDistanceFromRequest\x1a/.inputmethodservice.SquaredDistanceFromResponse2\xc9\r\n" +
+	"\x13SquaredDistanceFrom\x12..inputmethodservice.SquaredDistanceFromRequest\x1a/.inputmethodservice.SquaredDistanceFromResponse2\xe3\t\n" +
+	"\x16ExtractEditTextService\x12s\n" +
+	"\x12NewExtractEditText\x12-.inputmethodservice.NewExtractEditTextRequest\x1a..inputmethodservice.NewExtractEditTextResponse\x12|\n" +
+	"\x15FinishInternalChanges\x120.inputmethodservice.FinishInternalChangesRequest\x1a1.inputmethodservice.FinishInternalChangesResponse\x12U\n" +
+	"\bHasFocus\x12#.inputmethodservice.HasFocusRequest\x1a$.inputmethodservice.HasFocusResponse\x12y\n" +
+	"\x14HasVerticalScrollBar\x12/.inputmethodservice.HasVerticalScrollBarRequest\x1a0.inputmethodservice.HasVerticalScrollBarResponse\x12g\n" +
+	"\x0eHasWindowFocus\x12).inputmethodservice.HasWindowFocusRequest\x1a*.inputmethodservice.HasWindowFocusResponse\x12X\n" +
+	"\tIsFocused\x12$.inputmethodservice.IsFocusedRequest\x1a%.inputmethodservice.IsFocusedResponse\x12v\n" +
+	"\x13IsInputMethodTarget\x12..inputmethodservice.IsInputMethodTargetRequest\x1a/.inputmethodservice.IsInputMethodTargetResponse\x12|\n" +
+	"\x15OnTextContextMenuItem\x120.inputmethodservice.OnTextContextMenuItemRequest\x1a1.inputmethodservice.OnTextContextMenuItemResponse\x12a\n" +
+	"\fPerformClick\x12'.inputmethodservice.PerformClickRequest\x1a(.inputmethodservice.PerformClickResponse\x12m\n" +
+	"\x10SetExtractedText\x12+.inputmethodservice.SetExtractedTextRequest\x1a,.inputmethodservice.SetExtractedTextResponse\x12y\n" +
+	"\x14StartInternalChanges\x12/.inputmethodservice.StartInternalChangesRequest\x1a0.inputmethodservice.StartInternalChangesResponse2\xc9\r\n" +
 	"!AbstractInputMethodServiceService\x12|\n" +
 	"\x15GetKeyDispatcherState\x120.inputmethodservice.GetKeyDispatcherStateRequest\x1a1.inputmethodservice.GetKeyDispatcherStateResponse\x12m\n" +
 	"\x10GetSystemService\x12+.inputmethodservice.GetSystemServiceRequest\x1a,.inputmethodservice.GetSystemServiceResponse\x12O\n" +
@@ -17826,56 +18061,7 @@ const file_proto_inputmethodservice_inputmethodservice_proto_rawDesc = "" +
 	"\x16UpdateCursorAnchorInfo\x121.inputmethodservice.UpdateCursorAnchorInfoRequest\x1a2.inputmethodservice.UpdateCursorAnchorInfoResponse\x12v\n" +
 	"\x13UpdateExtractedText\x12..inputmethodservice.UpdateExtractedTextRequest\x1a/.inputmethodservice.UpdateExtractedTextResponse\x12j\n" +
 	"\x0fUpdateSelection\x12*.inputmethodservice.UpdateSelectionRequest\x1a+.inputmethodservice.UpdateSelectionResponse\x12^\n" +
-	"\vViewClicked\x12&.inputmethodservice.ViewClickedRequest\x1a'.inputmethodservice.ViewClickedResponse2\xe3\t\n" +
-	"\x16ExtractEditTextService\x12s\n" +
-	"\x12NewExtractEditText\x12-.inputmethodservice.NewExtractEditTextRequest\x1a..inputmethodservice.NewExtractEditTextResponse\x12|\n" +
-	"\x15FinishInternalChanges\x120.inputmethodservice.FinishInternalChangesRequest\x1a1.inputmethodservice.FinishInternalChangesResponse\x12U\n" +
-	"\bHasFocus\x12#.inputmethodservice.HasFocusRequest\x1a$.inputmethodservice.HasFocusResponse\x12y\n" +
-	"\x14HasVerticalScrollBar\x12/.inputmethodservice.HasVerticalScrollBarRequest\x1a0.inputmethodservice.HasVerticalScrollBarResponse\x12g\n" +
-	"\x0eHasWindowFocus\x12).inputmethodservice.HasWindowFocusRequest\x1a*.inputmethodservice.HasWindowFocusResponse\x12X\n" +
-	"\tIsFocused\x12$.inputmethodservice.IsFocusedRequest\x1a%.inputmethodservice.IsFocusedResponse\x12v\n" +
-	"\x13IsInputMethodTarget\x12..inputmethodservice.IsInputMethodTargetRequest\x1a/.inputmethodservice.IsInputMethodTargetResponse\x12|\n" +
-	"\x15OnTextContextMenuItem\x120.inputmethodservice.OnTextContextMenuItemRequest\x1a1.inputmethodservice.OnTextContextMenuItemResponse\x12a\n" +
-	"\fPerformClick\x12'.inputmethodservice.PerformClickRequest\x1a(.inputmethodservice.PerformClickResponse\x12m\n" +
-	"\x10SetExtractedText\x12+.inputmethodservice.SetExtractedTextRequest\x1a,.inputmethodservice.SetExtractedTextResponse\x12y\n" +
-	"\x14StartInternalChanges\x12/.inputmethodservice.StartInternalChangesRequest\x1a0.inputmethodservice.StartInternalChangesResponse2\x94\x14\n" +
-	"\x13KeyboardViewService\x12j\n" +
-	"\x0fNewKeyboardView\x12*.inputmethodservice.NewKeyboardViewRequest\x1a+.inputmethodservice.NewKeyboardViewResponse\x12R\n" +
-	"\aClosing\x12\".inputmethodservice.ClosingRequest\x1a#.inputmethodservice.ClosingResponse\x12^\n" +
-	"\vGetKeyboard\x12&.inputmethodservice.GetKeyboardRequest\x1a'.inputmethodservice.GetKeyboardResponse\x12[\n" +
-	"\n" +
-	"HandleBack\x12%.inputmethodservice.HandleBackRequest\x1a&.inputmethodservice.HandleBackResponse\x12p\n" +
-	"\x11InvalidateAllKeys\x12,.inputmethodservice.InvalidateAllKeysRequest\x1a-.inputmethodservice.InvalidateAllKeysResponse\x12d\n" +
-	"\rInvalidateKey\x12(.inputmethodservice.InvalidateKeyRequest\x1a).inputmethodservice.InvalidateKeyResponse\x12m\n" +
-	"\x10IsPreviewEnabled\x12+.inputmethodservice.IsPreviewEnabledRequest\x1a,.inputmethodservice.IsPreviewEnabledResponse\x12\x91\x01\n" +
-	"\x1cIsProximityCorrectionEnabled\x127.inputmethodservice.IsProximityCorrectionEnabledRequest\x1a8.inputmethodservice.IsProximityCorrectionEnabledResponse\x12X\n" +
-	"\tIsShifted\x12$.inputmethodservice.IsShiftedRequest\x1a%.inputmethodservice.IsShiftedResponse\x12R\n" +
-	"\aOnClick\x12\".inputmethodservice.OnClickRequest\x1a#.inputmethodservice.OnClickResponse\x12y\n" +
-	"\x14OnDetachedFromWindow\x12/.inputmethodservice.OnDetachedFromWindowRequest\x1a0.inputmethodservice.OnDetachedFromWindowResponse\x12O\n" +
-	"\x06OnDraw\x12!.inputmethodservice.OnDrawRequest\x1a\".inputmethodservice.OnDrawResponse\x12a\n" +
-	"\fOnHoverEvent\x12'.inputmethodservice.OnHoverEventRequest\x1a(.inputmethodservice.OnHoverEventResponse\x12X\n" +
-	"\tOnMeasure\x12$.inputmethodservice.OnMeasureRequest\x1a%.inputmethodservice.OnMeasureResponse\x12d\n" +
-	"\rOnSizeChanged\x12(.inputmethodservice.OnSizeChangedRequest\x1a).inputmethodservice.OnSizeChangedResponse\x12a\n" +
-	"\fOnTouchEvent\x12'.inputmethodservice.OnTouchEventRequest\x1a(.inputmethodservice.OnTouchEventResponse\x12^\n" +
-	"\vSetKeyboard\x12&.inputmethodservice.SetKeyboardRequest\x1a'.inputmethodservice.SetKeyboardResponse\x12\x8e\x01\n" +
-	"\x1bSetOnKeyboardActionListener\x126.inputmethodservice.SetOnKeyboardActionListenerRequest\x1a7.inputmethodservice.SetOnKeyboardActionListenerResponse\x12g\n" +
-	"\x0eSetPopupOffset\x12).inputmethodservice.SetPopupOffsetRequest\x1a*.inputmethodservice.SetPopupOffsetResponse\x12g\n" +
-	"\x0eSetPopupParent\x12).inputmethodservice.SetPopupParentRequest\x1a*.inputmethodservice.SetPopupParentResponse\x12p\n" +
-	"\x11SetPreviewEnabled\x12,.inputmethodservice.SetPreviewEnabledRequest\x1a-.inputmethodservice.SetPreviewEnabledResponse\x12\x94\x01\n" +
-	"\x1dSetProximityCorrectionEnabled\x128.inputmethodservice.SetProximityCorrectionEnabledRequest\x1a9.inputmethodservice.SetProximityCorrectionEnabledResponse\x12[\n" +
-	"\n" +
-	"SetShifted\x12%.inputmethodservice.SetShiftedRequest\x1a&.inputmethodservice.SetShiftedResponse\x12|\n" +
-	"\x15SetVerticalCorrection\x120.inputmethodservice.SetVerticalCorrectionRequest\x1a1.inputmethodservice.SetVerticalCorrectionResponse2\xdf\x05\n" +
-	"+KeyboardViewOnKeyboardActionListenerService\x12L\n" +
-	"\x05OnKey\x12 .inputmethodservice.OnKeyRequest\x1a!.inputmethodservice.OnKeyResponse\x12R\n" +
-	"\aOnPress\x12\".inputmethodservice.OnPressRequest\x1a#.inputmethodservice.OnPressResponse\x12X\n" +
-	"\tOnRelease\x12$.inputmethodservice.OnReleaseRequest\x1a%.inputmethodservice.OnReleaseResponse\x12O\n" +
-	"\x06OnText\x12!.inputmethodservice.OnTextRequest\x1a\".inputmethodservice.OnTextResponse\x12X\n" +
-	"\tSwipeDown\x12$.inputmethodservice.SwipeDownRequest\x1a%.inputmethodservice.SwipeDownResponse\x12X\n" +
-	"\tSwipeLeft\x12$.inputmethodservice.SwipeLeftRequest\x1a%.inputmethodservice.SwipeLeftResponse\x12[\n" +
-	"\n" +
-	"SwipeRight\x12%.inputmethodservice.SwipeRightRequest\x1a&.inputmethodservice.SwipeRightResponse\x12R\n" +
-	"\aSwipeUp\x12\".inputmethodservice.SwipeUpRequest\x1a#.inputmethodservice.SwipeUpResponseB<Z:github.com/AndroidGoLab/jni-proxy/proto/inputmethodserviceb\x06proto3"
+	"\vViewClicked\x12&.inputmethodservice.ViewClickedRequest\x1a'.inputmethodservice.ViewClickedResponseB<Z:github.com/AndroidGoLab/jni-proxy/proto/inputmethodserviceb\x06proto3"
 
 var (
 	file_proto_inputmethodservice_inputmethodservice_proto_rawDescOnce sync.Once
@@ -17889,794 +18075,802 @@ func file_proto_inputmethodservice_inputmethodservice_proto_rawDescGZIP() []byte
 	return file_proto_inputmethodservice_inputmethodservice_proto_rawDescData
 }
 
-var file_proto_inputmethodservice_inputmethodservice_proto_msgTypes = make([]protoimpl.MessageInfo, 384)
+var file_proto_inputmethodservice_inputmethodservice_proto_msgTypes = make([]protoimpl.MessageInfo, 388)
 var file_proto_inputmethodservice_inputmethodservice_proto_goTypes = []any{
-	(*NewKeyboardRequest)(nil),                                           // 0: inputmethodservice.NewKeyboardRequest
-	(*NewKeyboardResponse)(nil),                                          // 1: inputmethodservice.NewKeyboardResponse
-	(*GetHeightRequest)(nil),                                             // 2: inputmethodservice.GetHeightRequest
-	(*GetHeightResponse)(nil),                                            // 3: inputmethodservice.GetHeightResponse
-	(*GetMinWidthRequest)(nil),                                           // 4: inputmethodservice.GetMinWidthRequest
-	(*GetMinWidthResponse)(nil),                                          // 5: inputmethodservice.GetMinWidthResponse
-	(*GetNearestKeysRequest)(nil),                                        // 6: inputmethodservice.GetNearestKeysRequest
-	(*GetNearestKeysResponse)(nil),                                       // 7: inputmethodservice.GetNearestKeysResponse
-	(*GetShiftKeyIndexRequest)(nil),                                      // 8: inputmethodservice.GetShiftKeyIndexRequest
-	(*GetShiftKeyIndexResponse)(nil),                                     // 9: inputmethodservice.GetShiftKeyIndexResponse
-	(*IsShiftedRequest)(nil),                                             // 10: inputmethodservice.IsShiftedRequest
-	(*IsShiftedResponse)(nil),                                            // 11: inputmethodservice.IsShiftedResponse
-	(*SetShiftedRequest)(nil),                                            // 12: inputmethodservice.SetShiftedRequest
-	(*SetShiftedResponse)(nil),                                           // 13: inputmethodservice.SetShiftedResponse
-	(*GetCurrentDrawableStateRequest)(nil),                               // 14: inputmethodservice.GetCurrentDrawableStateRequest
-	(*GetCurrentDrawableStateResponse)(nil),                              // 15: inputmethodservice.GetCurrentDrawableStateResponse
-	(*IsInsideRequest)(nil),                                              // 16: inputmethodservice.IsInsideRequest
-	(*IsInsideResponse)(nil),                                             // 17: inputmethodservice.IsInsideResponse
-	(*OnPressedRequest)(nil),                                             // 18: inputmethodservice.OnPressedRequest
-	(*OnPressedResponse)(nil),                                            // 19: inputmethodservice.OnPressedResponse
-	(*OnReleasedRequest)(nil),                                            // 20: inputmethodservice.OnReleasedRequest
-	(*OnReleasedResponse)(nil),                                           // 21: inputmethodservice.OnReleasedResponse
-	(*SquaredDistanceFromRequest)(nil),                                   // 22: inputmethodservice.SquaredDistanceFromRequest
-	(*SquaredDistanceFromResponse)(nil),                                  // 23: inputmethodservice.SquaredDistanceFromResponse
-	(*GetKeyDispatcherStateRequest)(nil),                                 // 24: inputmethodservice.GetKeyDispatcherStateRequest
-	(*GetKeyDispatcherStateResponse)(nil),                                // 25: inputmethodservice.GetKeyDispatcherStateResponse
-	(*GetSystemServiceRequest)(nil),                                      // 26: inputmethodservice.GetSystemServiceRequest
-	(*GetSystemServiceResponse)(nil),                                     // 27: inputmethodservice.GetSystemServiceResponse
-	(*OnBindRequest)(nil),                                                // 28: inputmethodservice.OnBindRequest
-	(*OnBindResponse)(nil),                                               // 29: inputmethodservice.OnBindResponse
-	(*OnConfigurationChangedRequest)(nil),                                // 30: inputmethodservice.OnConfigurationChangedRequest
-	(*OnConfigurationChangedResponse)(nil),                               // 31: inputmethodservice.OnConfigurationChangedResponse
-	(*OnCreateInputMethodInterfaceRequest)(nil),                          // 32: inputmethodservice.OnCreateInputMethodInterfaceRequest
-	(*OnCreateInputMethodInterfaceResponse)(nil),                         // 33: inputmethodservice.OnCreateInputMethodInterfaceResponse
-	(*OnCreateInputMethodSessionInterfaceRequest)(nil),                   // 34: inputmethodservice.OnCreateInputMethodSessionInterfaceRequest
-	(*OnCreateInputMethodSessionInterfaceResponse)(nil),                  // 35: inputmethodservice.OnCreateInputMethodSessionInterfaceResponse
-	(*OnDestroyRequest)(nil),                                             // 36: inputmethodservice.OnDestroyRequest
-	(*OnDestroyResponse)(nil),                                            // 37: inputmethodservice.OnDestroyResponse
-	(*OnGenericMotionEventRequest)(nil),                                  // 38: inputmethodservice.OnGenericMotionEventRequest
-	(*OnGenericMotionEventResponse)(nil),                                 // 39: inputmethodservice.OnGenericMotionEventResponse
-	(*OnLowMemoryRequest)(nil),                                           // 40: inputmethodservice.OnLowMemoryRequest
-	(*OnLowMemoryResponse)(nil),                                          // 41: inputmethodservice.OnLowMemoryResponse
-	(*OnShouldVerifyKeyEventRequest)(nil),                                // 42: inputmethodservice.OnShouldVerifyKeyEventRequest
-	(*OnShouldVerifyKeyEventResponse)(nil),                               // 43: inputmethodservice.OnShouldVerifyKeyEventResponse
-	(*OnTrackballEventRequest)(nil),                                      // 44: inputmethodservice.OnTrackballEventRequest
-	(*OnTrackballEventResponse)(nil),                                     // 45: inputmethodservice.OnTrackballEventResponse
-	(*OnTrimMemoryRequest)(nil),                                          // 46: inputmethodservice.OnTrimMemoryRequest
-	(*OnTrimMemoryResponse)(nil),                                         // 47: inputmethodservice.OnTrimMemoryResponse
-	(*RegisterComponentCallbacksRequest)(nil),                            // 48: inputmethodservice.RegisterComponentCallbacksRequest
-	(*RegisterComponentCallbacksResponse)(nil),                           // 49: inputmethodservice.RegisterComponentCallbacksResponse
-	(*UnregisterComponentCallbacksRequest)(nil),                          // 50: inputmethodservice.UnregisterComponentCallbacksRequest
-	(*UnregisterComponentCallbacksResponse)(nil),                         // 51: inputmethodservice.UnregisterComponentCallbacksResponse
-	(*CreateSessionRequest)(nil),                                         // 52: inputmethodservice.CreateSessionRequest
-	(*CreateSessionResponse)(nil),                                        // 53: inputmethodservice.CreateSessionResponse
-	(*RevokeSessionRequest)(nil),                                         // 54: inputmethodservice.RevokeSessionRequest
-	(*RevokeSessionResponse)(nil),                                        // 55: inputmethodservice.RevokeSessionResponse
-	(*SetSessionEnabledRequest)(nil),                                     // 56: inputmethodservice.SetSessionEnabledRequest
-	(*SetSessionEnabledResponse)(nil),                                    // 57: inputmethodservice.SetSessionEnabledResponse
-	(*DispatchGenericMotionEventRequest)(nil),                            // 58: inputmethodservice.DispatchGenericMotionEventRequest
-	(*DispatchGenericMotionEventResponse)(nil),                           // 59: inputmethodservice.DispatchGenericMotionEventResponse
-	(*DispatchKeyEventRequest)(nil),                                      // 60: inputmethodservice.DispatchKeyEventRequest
-	(*DispatchKeyEventResponse)(nil),                                     // 61: inputmethodservice.DispatchKeyEventResponse
-	(*DispatchTrackballEventRequest)(nil),                                // 62: inputmethodservice.DispatchTrackballEventRequest
-	(*DispatchTrackballEventResponse)(nil),                               // 63: inputmethodservice.DispatchTrackballEventResponse
-	(*IsEnabledRequest)(nil),                                             // 64: inputmethodservice.IsEnabledRequest
-	(*IsEnabledResponse)(nil),                                            // 65: inputmethodservice.IsEnabledResponse
-	(*IsRevokedRequest)(nil),                                             // 66: inputmethodservice.IsRevokedRequest
-	(*IsRevokedResponse)(nil),                                            // 67: inputmethodservice.IsRevokedResponse
-	(*RevokeSelfRequest)(nil),                                            // 68: inputmethodservice.RevokeSelfRequest
-	(*RevokeSelfResponse)(nil),                                           // 69: inputmethodservice.RevokeSelfResponse
-	(*SetEnabledRequest)(nil),                                            // 70: inputmethodservice.SetEnabledRequest
-	(*SetEnabledResponse)(nil),                                           // 71: inputmethodservice.SetEnabledResponse
-	(*NewInputMethodServiceRequest)(nil),                                 // 72: inputmethodservice.NewInputMethodServiceRequest
-	(*NewInputMethodServiceResponse)(nil),                                // 73: inputmethodservice.NewInputMethodServiceResponse
-	(*EnableHardwareAccelerationRequest)(nil),                            // 74: inputmethodservice.EnableHardwareAccelerationRequest
-	(*EnableHardwareAccelerationResponse)(nil),                           // 75: inputmethodservice.EnableHardwareAccelerationResponse
-	(*FinishConnectionlessStylusHandwritingRequest)(nil),                 // 76: inputmethodservice.FinishConnectionlessStylusHandwritingRequest
-	(*FinishConnectionlessStylusHandwritingResponse)(nil),                // 77: inputmethodservice.FinishConnectionlessStylusHandwritingResponse
-	(*FinishStylusHandwritingRequest)(nil),                               // 78: inputmethodservice.FinishStylusHandwritingRequest
-	(*FinishStylusHandwritingResponse)(nil),                              // 79: inputmethodservice.FinishStylusHandwritingResponse
-	(*GetBackDispositionRequest)(nil),                                    // 80: inputmethodservice.GetBackDispositionRequest
-	(*GetBackDispositionResponse)(nil),                                   // 81: inputmethodservice.GetBackDispositionResponse
-	(*GetCandidatesHiddenVisibilityRequest)(nil),                         // 82: inputmethodservice.GetCandidatesHiddenVisibilityRequest
-	(*GetCandidatesHiddenVisibilityResponse)(nil),                        // 83: inputmethodservice.GetCandidatesHiddenVisibilityResponse
-	(*GetCurrentInputBindingRequest)(nil),                                // 84: inputmethodservice.GetCurrentInputBindingRequest
-	(*GetCurrentInputBindingResponse)(nil),                               // 85: inputmethodservice.GetCurrentInputBindingResponse
-	(*GetCurrentInputConnectionRequest)(nil),                             // 86: inputmethodservice.GetCurrentInputConnectionRequest
-	(*GetCurrentInputConnectionResponse)(nil),                            // 87: inputmethodservice.GetCurrentInputConnectionResponse
-	(*GetCurrentInputEditorInfoRequest)(nil),                             // 88: inputmethodservice.GetCurrentInputEditorInfoRequest
-	(*GetCurrentInputEditorInfoResponse)(nil),                            // 89: inputmethodservice.GetCurrentInputEditorInfoResponse
-	(*GetCurrentInputStartedRequest)(nil),                                // 90: inputmethodservice.GetCurrentInputStartedRequest
-	(*GetCurrentInputStartedResponse)(nil),                               // 91: inputmethodservice.GetCurrentInputStartedResponse
-	(*GetInputMethodWindowRecommendedHeightRequest)(nil),                 // 92: inputmethodservice.GetInputMethodWindowRecommendedHeightRequest
-	(*GetInputMethodWindowRecommendedHeightResponse)(nil),                // 93: inputmethodservice.GetInputMethodWindowRecommendedHeightResponse
-	(*GetLayoutInflaterRequest)(nil),                                     // 94: inputmethodservice.GetLayoutInflaterRequest
-	(*GetLayoutInflaterResponse)(nil),                                    // 95: inputmethodservice.GetLayoutInflaterResponse
-	(*GetMaxWidthRequest)(nil),                                           // 96: inputmethodservice.GetMaxWidthRequest
-	(*GetMaxWidthResponse)(nil),                                          // 97: inputmethodservice.GetMaxWidthResponse
-	(*GetStylusHandwritingSessionTimeoutRequest)(nil),                    // 98: inputmethodservice.GetStylusHandwritingSessionTimeoutRequest
-	(*GetStylusHandwritingSessionTimeoutResponse)(nil),                   // 99: inputmethodservice.GetStylusHandwritingSessionTimeoutResponse
-	(*GetStylusHandwritingWindowRequest)(nil),                            // 100: inputmethodservice.GetStylusHandwritingWindowRequest
-	(*GetStylusHandwritingWindowResponse)(nil),                           // 101: inputmethodservice.GetStylusHandwritingWindowResponse
-	(*InputMethodServiceGetSystemServiceRequest)(nil),                    // 102: inputmethodservice.InputMethodServiceGetSystemServiceRequest
-	(*GetTextForImeActionRequest)(nil),                                   // 103: inputmethodservice.GetTextForImeActionRequest
-	(*GetTextForImeActionResponse)(nil),                                  // 104: inputmethodservice.GetTextForImeActionResponse
-	(*GetWindowRequest)(nil),                                             // 105: inputmethodservice.GetWindowRequest
-	(*GetWindowResponse)(nil),                                            // 106: inputmethodservice.GetWindowResponse
-	(*HideStatusIconRequest)(nil),                                        // 107: inputmethodservice.HideStatusIconRequest
-	(*HideStatusIconResponse)(nil),                                       // 108: inputmethodservice.HideStatusIconResponse
-	(*HideWindowRequest)(nil),                                            // 109: inputmethodservice.HideWindowRequest
-	(*HideWindowResponse)(nil),                                           // 110: inputmethodservice.HideWindowResponse
-	(*IsExtractViewShownRequest)(nil),                                    // 111: inputmethodservice.IsExtractViewShownRequest
-	(*IsExtractViewShownResponse)(nil),                                   // 112: inputmethodservice.IsExtractViewShownResponse
-	(*IsFullscreenModeRequest)(nil),                                      // 113: inputmethodservice.IsFullscreenModeRequest
-	(*IsFullscreenModeResponse)(nil),                                     // 114: inputmethodservice.IsFullscreenModeResponse
-	(*IsInputViewShownRequest)(nil),                                      // 115: inputmethodservice.IsInputViewShownRequest
-	(*IsInputViewShownResponse)(nil),                                     // 116: inputmethodservice.IsInputViewShownResponse
-	(*IsShowInputRequestedRequest)(nil),                                  // 117: inputmethodservice.IsShowInputRequestedRequest
-	(*IsShowInputRequestedResponse)(nil),                                 // 118: inputmethodservice.IsShowInputRequestedResponse
-	(*OnAppPrivateCommandRequest)(nil),                                   // 119: inputmethodservice.OnAppPrivateCommandRequest
-	(*OnAppPrivateCommandResponse)(nil),                                  // 120: inputmethodservice.OnAppPrivateCommandResponse
-	(*OnBindInputRequest)(nil),                                           // 121: inputmethodservice.OnBindInputRequest
-	(*OnBindInputResponse)(nil),                                          // 122: inputmethodservice.OnBindInputResponse
-	(*OnComputeInsetsRequest)(nil),                                       // 123: inputmethodservice.OnComputeInsetsRequest
-	(*OnComputeInsetsResponse)(nil),                                      // 124: inputmethodservice.OnComputeInsetsResponse
-	(*InputMethodServiceOnConfigurationChangedRequest)(nil),              // 125: inputmethodservice.InputMethodServiceOnConfigurationChangedRequest
-	(*OnConfigureWindowRequest)(nil),                                     // 126: inputmethodservice.OnConfigureWindowRequest
-	(*OnConfigureWindowResponse)(nil),                                    // 127: inputmethodservice.OnConfigureWindowResponse
-	(*OnCreateRequest)(nil),                                              // 128: inputmethodservice.OnCreateRequest
-	(*OnCreateResponse)(nil),                                             // 129: inputmethodservice.OnCreateResponse
-	(*OnCreateCandidatesViewRequest)(nil),                                // 130: inputmethodservice.OnCreateCandidatesViewRequest
-	(*OnCreateCandidatesViewResponse)(nil),                               // 131: inputmethodservice.OnCreateCandidatesViewResponse
-	(*OnCreateExtractTextViewRequest)(nil),                               // 132: inputmethodservice.OnCreateExtractTextViewRequest
-	(*OnCreateExtractTextViewResponse)(nil),                              // 133: inputmethodservice.OnCreateExtractTextViewResponse
-	(*OnCreateInlineSuggestionsRequestRequest)(nil),                      // 134: inputmethodservice.OnCreateInlineSuggestionsRequestRequest
-	(*OnCreateInlineSuggestionsRequestResponse)(nil),                     // 135: inputmethodservice.OnCreateInlineSuggestionsRequestResponse
-	(*InputMethodServiceOnCreateInputMethodInterfaceRequest)(nil),        // 136: inputmethodservice.InputMethodServiceOnCreateInputMethodInterfaceRequest
-	(*InputMethodServiceOnCreateInputMethodSessionInterfaceRequest)(nil), // 137: inputmethodservice.InputMethodServiceOnCreateInputMethodSessionInterfaceRequest
-	(*OnCreateInputViewRequest)(nil),                                     // 138: inputmethodservice.OnCreateInputViewRequest
-	(*OnCreateInputViewResponse)(nil),                                    // 139: inputmethodservice.OnCreateInputViewResponse
-	(*OnCustomImeSwitcherButtonRequestedVisibleRequest)(nil),             // 140: inputmethodservice.OnCustomImeSwitcherButtonRequestedVisibleRequest
-	(*OnCustomImeSwitcherButtonRequestedVisibleResponse)(nil),            // 141: inputmethodservice.OnCustomImeSwitcherButtonRequestedVisibleResponse
-	(*InputMethodServiceOnDestroyRequest)(nil),                           // 142: inputmethodservice.InputMethodServiceOnDestroyRequest
-	(*OnDisplayCompletionsRequest)(nil),                                  // 143: inputmethodservice.OnDisplayCompletionsRequest
-	(*OnDisplayCompletionsResponse)(nil),                                 // 144: inputmethodservice.OnDisplayCompletionsResponse
-	(*OnEvaluateFullscreenModeRequest)(nil),                              // 145: inputmethodservice.OnEvaluateFullscreenModeRequest
-	(*OnEvaluateFullscreenModeResponse)(nil),                             // 146: inputmethodservice.OnEvaluateFullscreenModeResponse
-	(*OnEvaluateInputViewShownRequest)(nil),                              // 147: inputmethodservice.OnEvaluateInputViewShownRequest
-	(*OnEvaluateInputViewShownResponse)(nil),                             // 148: inputmethodservice.OnEvaluateInputViewShownResponse
-	(*OnExtractTextContextMenuItemRequest)(nil),                          // 149: inputmethodservice.OnExtractTextContextMenuItemRequest
-	(*OnExtractTextContextMenuItemResponse)(nil),                         // 150: inputmethodservice.OnExtractTextContextMenuItemResponse
-	(*OnExtractedCursorMovementRequest)(nil),                             // 151: inputmethodservice.OnExtractedCursorMovementRequest
-	(*OnExtractedCursorMovementResponse)(nil),                            // 152: inputmethodservice.OnExtractedCursorMovementResponse
-	(*OnExtractedSelectionChangedRequest)(nil),                           // 153: inputmethodservice.OnExtractedSelectionChangedRequest
-	(*OnExtractedSelectionChangedResponse)(nil),                          // 154: inputmethodservice.OnExtractedSelectionChangedResponse
-	(*OnExtractedTextClickedRequest)(nil),                                // 155: inputmethodservice.OnExtractedTextClickedRequest
-	(*OnExtractedTextClickedResponse)(nil),                               // 156: inputmethodservice.OnExtractedTextClickedResponse
-	(*OnExtractingInputChangedRequest)(nil),                              // 157: inputmethodservice.OnExtractingInputChangedRequest
-	(*OnExtractingInputChangedResponse)(nil),                             // 158: inputmethodservice.OnExtractingInputChangedResponse
-	(*OnFinishCandidatesViewRequest)(nil),                                // 159: inputmethodservice.OnFinishCandidatesViewRequest
-	(*OnFinishCandidatesViewResponse)(nil),                               // 160: inputmethodservice.OnFinishCandidatesViewResponse
-	(*OnFinishInputRequest)(nil),                                         // 161: inputmethodservice.OnFinishInputRequest
-	(*OnFinishInputResponse)(nil),                                        // 162: inputmethodservice.OnFinishInputResponse
-	(*OnFinishInputViewRequest)(nil),                                     // 163: inputmethodservice.OnFinishInputViewRequest
-	(*OnFinishInputViewResponse)(nil),                                    // 164: inputmethodservice.OnFinishInputViewResponse
-	(*OnFinishStylusHandwritingRequest)(nil),                             // 165: inputmethodservice.OnFinishStylusHandwritingRequest
-	(*OnFinishStylusHandwritingResponse)(nil),                            // 166: inputmethodservice.OnFinishStylusHandwritingResponse
-	(*InputMethodServiceOnGenericMotionEventRequest)(nil),                // 167: inputmethodservice.InputMethodServiceOnGenericMotionEventRequest
-	(*OnInitializeInterfaceRequest)(nil),                                 // 168: inputmethodservice.OnInitializeInterfaceRequest
-	(*OnInitializeInterfaceResponse)(nil),                                // 169: inputmethodservice.OnInitializeInterfaceResponse
-	(*OnInlineSuggestionsResponseRequest)(nil),                           // 170: inputmethodservice.OnInlineSuggestionsResponseRequest
-	(*OnInlineSuggestionsResponseResponse)(nil),                          // 171: inputmethodservice.OnInlineSuggestionsResponseResponse
-	(*OnKeyDownRequest)(nil),                                             // 172: inputmethodservice.OnKeyDownRequest
-	(*OnKeyDownResponse)(nil),                                            // 173: inputmethodservice.OnKeyDownResponse
-	(*OnKeyLongPressRequest)(nil),                                        // 174: inputmethodservice.OnKeyLongPressRequest
-	(*OnKeyLongPressResponse)(nil),                                       // 175: inputmethodservice.OnKeyLongPressResponse
-	(*OnKeyMultipleRequest)(nil),                                         // 176: inputmethodservice.OnKeyMultipleRequest
-	(*OnKeyMultipleResponse)(nil),                                        // 177: inputmethodservice.OnKeyMultipleResponse
-	(*OnKeyUpRequest)(nil),                                               // 178: inputmethodservice.OnKeyUpRequest
-	(*OnKeyUpResponse)(nil),                                              // 179: inputmethodservice.OnKeyUpResponse
-	(*OnPrepareStylusHandwritingRequest)(nil),                            // 180: inputmethodservice.OnPrepareStylusHandwritingRequest
-	(*OnPrepareStylusHandwritingResponse)(nil),                           // 181: inputmethodservice.OnPrepareStylusHandwritingResponse
-	(*InputMethodServiceOnShouldVerifyKeyEventRequest)(nil),              // 182: inputmethodservice.InputMethodServiceOnShouldVerifyKeyEventRequest
-	(*OnShowInputRequestedRequest)(nil),                                  // 183: inputmethodservice.OnShowInputRequestedRequest
-	(*OnShowInputRequestedResponse)(nil),                                 // 184: inputmethodservice.OnShowInputRequestedResponse
-	(*OnStartCandidatesViewRequest)(nil),                                 // 185: inputmethodservice.OnStartCandidatesViewRequest
-	(*OnStartCandidatesViewResponse)(nil),                                // 186: inputmethodservice.OnStartCandidatesViewResponse
-	(*OnStartConnectionlessStylusHandwritingRequest)(nil),                // 187: inputmethodservice.OnStartConnectionlessStylusHandwritingRequest
-	(*OnStartConnectionlessStylusHandwritingResponse)(nil),               // 188: inputmethodservice.OnStartConnectionlessStylusHandwritingResponse
-	(*OnStartInputRequest)(nil),                                          // 189: inputmethodservice.OnStartInputRequest
-	(*OnStartInputResponse)(nil),                                         // 190: inputmethodservice.OnStartInputResponse
-	(*OnStartInputViewRequest)(nil),                                      // 191: inputmethodservice.OnStartInputViewRequest
-	(*OnStartInputViewResponse)(nil),                                     // 192: inputmethodservice.OnStartInputViewResponse
-	(*OnStartStylusHandwritingRequest)(nil),                              // 193: inputmethodservice.OnStartStylusHandwritingRequest
-	(*OnStartStylusHandwritingResponse)(nil),                             // 194: inputmethodservice.OnStartStylusHandwritingResponse
-	(*OnStylusHandwritingMotionEventRequest)(nil),                        // 195: inputmethodservice.OnStylusHandwritingMotionEventRequest
-	(*OnStylusHandwritingMotionEventResponse)(nil),                       // 196: inputmethodservice.OnStylusHandwritingMotionEventResponse
-	(*InputMethodServiceOnTrackballEventRequest)(nil),                    // 197: inputmethodservice.InputMethodServiceOnTrackballEventRequest
-	(*OnUnbindInputRequest)(nil),                                         // 198: inputmethodservice.OnUnbindInputRequest
-	(*OnUnbindInputResponse)(nil),                                        // 199: inputmethodservice.OnUnbindInputResponse
-	(*OnUpdateCursorRequest)(nil),                                        // 200: inputmethodservice.OnUpdateCursorRequest
-	(*OnUpdateCursorResponse)(nil),                                       // 201: inputmethodservice.OnUpdateCursorResponse
-	(*OnUpdateCursorAnchorInfoRequest)(nil),                              // 202: inputmethodservice.OnUpdateCursorAnchorInfoRequest
-	(*OnUpdateCursorAnchorInfoResponse)(nil),                             // 203: inputmethodservice.OnUpdateCursorAnchorInfoResponse
-	(*OnUpdateEditorToolTypeRequest)(nil),                                // 204: inputmethodservice.OnUpdateEditorToolTypeRequest
-	(*OnUpdateEditorToolTypeResponse)(nil),                               // 205: inputmethodservice.OnUpdateEditorToolTypeResponse
-	(*OnUpdateExtractedTextRequest)(nil),                                 // 206: inputmethodservice.OnUpdateExtractedTextRequest
-	(*OnUpdateExtractedTextResponse)(nil),                                // 207: inputmethodservice.OnUpdateExtractedTextResponse
-	(*OnUpdateExtractingViewsRequest)(nil),                               // 208: inputmethodservice.OnUpdateExtractingViewsRequest
-	(*OnUpdateExtractingViewsResponse)(nil),                              // 209: inputmethodservice.OnUpdateExtractingViewsResponse
-	(*OnUpdateExtractingVisibilityRequest)(nil),                          // 210: inputmethodservice.OnUpdateExtractingVisibilityRequest
-	(*OnUpdateExtractingVisibilityResponse)(nil),                         // 211: inputmethodservice.OnUpdateExtractingVisibilityResponse
-	(*OnUpdateSelectionRequest)(nil),                                     // 212: inputmethodservice.OnUpdateSelectionRequest
-	(*OnUpdateSelectionResponse)(nil),                                    // 213: inputmethodservice.OnUpdateSelectionResponse
-	(*OnViewClickedRequest)(nil),                                         // 214: inputmethodservice.OnViewClickedRequest
-	(*OnViewClickedResponse)(nil),                                        // 215: inputmethodservice.OnViewClickedResponse
-	(*OnWindowHiddenRequest)(nil),                                        // 216: inputmethodservice.OnWindowHiddenRequest
-	(*OnWindowHiddenResponse)(nil),                                       // 217: inputmethodservice.OnWindowHiddenResponse
-	(*OnWindowShownRequest)(nil),                                         // 218: inputmethodservice.OnWindowShownRequest
-	(*OnWindowShownResponse)(nil),                                        // 219: inputmethodservice.OnWindowShownResponse
-	(*RequestHideSelfRequest)(nil),                                       // 220: inputmethodservice.RequestHideSelfRequest
-	(*RequestHideSelfResponse)(nil),                                      // 221: inputmethodservice.RequestHideSelfResponse
-	(*RequestShowSelfRequest)(nil),                                       // 222: inputmethodservice.RequestShowSelfRequest
-	(*RequestShowSelfResponse)(nil),                                      // 223: inputmethodservice.RequestShowSelfResponse
-	(*SendDefaultEditorActionRequest)(nil),                               // 224: inputmethodservice.SendDefaultEditorActionRequest
-	(*SendDefaultEditorActionResponse)(nil),                              // 225: inputmethodservice.SendDefaultEditorActionResponse
-	(*SendDownUpKeyEventsRequest)(nil),                                   // 226: inputmethodservice.SendDownUpKeyEventsRequest
-	(*SendDownUpKeyEventsResponse)(nil),                                  // 227: inputmethodservice.SendDownUpKeyEventsResponse
-	(*SendKeyCharRequest)(nil),                                           // 228: inputmethodservice.SendKeyCharRequest
-	(*SendKeyCharResponse)(nil),                                          // 229: inputmethodservice.SendKeyCharResponse
-	(*SetBackDispositionRequest)(nil),                                    // 230: inputmethodservice.SetBackDispositionRequest
-	(*SetBackDispositionResponse)(nil),                                   // 231: inputmethodservice.SetBackDispositionResponse
-	(*SetCandidatesViewRequest)(nil),                                     // 232: inputmethodservice.SetCandidatesViewRequest
-	(*SetCandidatesViewResponse)(nil),                                    // 233: inputmethodservice.SetCandidatesViewResponse
-	(*SetCandidatesViewShownRequest)(nil),                                // 234: inputmethodservice.SetCandidatesViewShownRequest
-	(*SetCandidatesViewShownResponse)(nil),                               // 235: inputmethodservice.SetCandidatesViewShownResponse
-	(*SetExtractViewRequest)(nil),                                        // 236: inputmethodservice.SetExtractViewRequest
-	(*SetExtractViewResponse)(nil),                                       // 237: inputmethodservice.SetExtractViewResponse
-	(*SetExtractViewShownRequest)(nil),                                   // 238: inputmethodservice.SetExtractViewShownRequest
-	(*SetExtractViewShownResponse)(nil),                                  // 239: inputmethodservice.SetExtractViewShownResponse
-	(*SetInputViewRequest)(nil),                                          // 240: inputmethodservice.SetInputViewRequest
-	(*SetInputViewResponse)(nil),                                         // 241: inputmethodservice.SetInputViewResponse
-	(*SetStylusHandwritingRegionRequest)(nil),                            // 242: inputmethodservice.SetStylusHandwritingRegionRequest
-	(*SetStylusHandwritingRegionResponse)(nil),                           // 243: inputmethodservice.SetStylusHandwritingRegionResponse
-	(*SetStylusHandwritingSessionTimeoutRequest)(nil),                    // 244: inputmethodservice.SetStylusHandwritingSessionTimeoutRequest
-	(*SetStylusHandwritingSessionTimeoutResponse)(nil),                   // 245: inputmethodservice.SetStylusHandwritingSessionTimeoutResponse
-	(*SetThemeRequest)(nil),                                              // 246: inputmethodservice.SetThemeRequest
-	(*SetThemeResponse)(nil),                                             // 247: inputmethodservice.SetThemeResponse
-	(*ShouldOfferSwitchingToNextInputMethodRequest)(nil),                 // 248: inputmethodservice.ShouldOfferSwitchingToNextInputMethodRequest
-	(*ShouldOfferSwitchingToNextInputMethodResponse)(nil),                // 249: inputmethodservice.ShouldOfferSwitchingToNextInputMethodResponse
-	(*ShowStatusIconRequest)(nil),                                        // 250: inputmethodservice.ShowStatusIconRequest
-	(*ShowStatusIconResponse)(nil),                                       // 251: inputmethodservice.ShowStatusIconResponse
-	(*ShowWindowRequest)(nil),                                            // 252: inputmethodservice.ShowWindowRequest
-	(*ShowWindowResponse)(nil),                                           // 253: inputmethodservice.ShowWindowResponse
-	(*SwitchInputMethod1Request)(nil),                                    // 254: inputmethodservice.SwitchInputMethod1Request
-	(*SwitchInputMethod1Response)(nil),                                   // 255: inputmethodservice.SwitchInputMethod1Response
-	(*SwitchInputMethod2_1Request)(nil),                                  // 256: inputmethodservice.SwitchInputMethod2_1Request
-	(*SwitchInputMethod2_1Response)(nil),                                 // 257: inputmethodservice.SwitchInputMethod2_1Response
-	(*SwitchToNextInputMethodRequest)(nil),                               // 258: inputmethodservice.SwitchToNextInputMethodRequest
-	(*SwitchToNextInputMethodResponse)(nil),                              // 259: inputmethodservice.SwitchToNextInputMethodResponse
-	(*SwitchToPreviousInputMethodRequest)(nil),                           // 260: inputmethodservice.SwitchToPreviousInputMethodRequest
-	(*SwitchToPreviousInputMethodResponse)(nil),                          // 261: inputmethodservice.SwitchToPreviousInputMethodResponse
-	(*UpdateFullscreenModeRequest)(nil),                                  // 262: inputmethodservice.UpdateFullscreenModeRequest
-	(*UpdateFullscreenModeResponse)(nil),                                 // 263: inputmethodservice.UpdateFullscreenModeResponse
-	(*UpdateInputViewShownRequest)(nil),                                  // 264: inputmethodservice.UpdateInputViewShownRequest
-	(*UpdateInputViewShownResponse)(nil),                                 // 265: inputmethodservice.UpdateInputViewShownResponse
-	(*GetStylusHandwritingIdleTimeoutMaxRequest)(nil),                    // 266: inputmethodservice.GetStylusHandwritingIdleTimeoutMaxRequest
-	(*GetStylusHandwritingIdleTimeoutMaxResponse)(nil),                   // 267: inputmethodservice.GetStylusHandwritingIdleTimeoutMaxResponse
-	(*AttachTokenRequest)(nil),                                           // 268: inputmethodservice.AttachTokenRequest
-	(*AttachTokenResponse)(nil),                                          // 269: inputmethodservice.AttachTokenResponse
-	(*BindInputRequest)(nil),                                             // 270: inputmethodservice.BindInputRequest
-	(*BindInputResponse)(nil),                                            // 271: inputmethodservice.BindInputResponse
-	(*ChangeInputMethodSubtypeRequest)(nil),                              // 272: inputmethodservice.ChangeInputMethodSubtypeRequest
-	(*ChangeInputMethodSubtypeResponse)(nil),                             // 273: inputmethodservice.ChangeInputMethodSubtypeResponse
-	(*HideSoftInputRequest)(nil),                                         // 274: inputmethodservice.HideSoftInputRequest
-	(*HideSoftInputResponse)(nil),                                        // 275: inputmethodservice.HideSoftInputResponse
-	(*RestartInputRequest)(nil),                                          // 276: inputmethodservice.RestartInputRequest
-	(*RestartInputResponse)(nil),                                         // 277: inputmethodservice.RestartInputResponse
-	(*ShowSoftInputRequest)(nil),                                         // 278: inputmethodservice.ShowSoftInputRequest
-	(*ShowSoftInputResponse)(nil),                                        // 279: inputmethodservice.ShowSoftInputResponse
-	(*StartInputRequest)(nil),                                            // 280: inputmethodservice.StartInputRequest
-	(*StartInputResponse)(nil),                                           // 281: inputmethodservice.StartInputResponse
-	(*UnbindInputRequest)(nil),                                           // 282: inputmethodservice.UnbindInputRequest
-	(*UnbindInputResponse)(nil),                                          // 283: inputmethodservice.UnbindInputResponse
-	(*AppPrivateCommandRequest)(nil),                                     // 284: inputmethodservice.AppPrivateCommandRequest
-	(*AppPrivateCommandResponse)(nil),                                    // 285: inputmethodservice.AppPrivateCommandResponse
-	(*DisplayCompletionsRequest)(nil),                                    // 286: inputmethodservice.DisplayCompletionsRequest
-	(*DisplayCompletionsResponse)(nil),                                   // 287: inputmethodservice.DisplayCompletionsResponse
-	(*FinishInputRequest)(nil),                                           // 288: inputmethodservice.FinishInputRequest
-	(*FinishInputResponse)(nil),                                          // 289: inputmethodservice.FinishInputResponse
-	(*ToggleSoftInputRequest)(nil),                                       // 290: inputmethodservice.ToggleSoftInputRequest
-	(*ToggleSoftInputResponse)(nil),                                      // 291: inputmethodservice.ToggleSoftInputResponse
-	(*UpdateCursorRequest)(nil),                                          // 292: inputmethodservice.UpdateCursorRequest
-	(*UpdateCursorResponse)(nil),                                         // 293: inputmethodservice.UpdateCursorResponse
-	(*UpdateCursorAnchorInfoRequest)(nil),                                // 294: inputmethodservice.UpdateCursorAnchorInfoRequest
-	(*UpdateCursorAnchorInfoResponse)(nil),                               // 295: inputmethodservice.UpdateCursorAnchorInfoResponse
-	(*UpdateExtractedTextRequest)(nil),                                   // 296: inputmethodservice.UpdateExtractedTextRequest
-	(*UpdateExtractedTextResponse)(nil),                                  // 297: inputmethodservice.UpdateExtractedTextResponse
-	(*UpdateSelectionRequest)(nil),                                       // 298: inputmethodservice.UpdateSelectionRequest
-	(*UpdateSelectionResponse)(nil),                                      // 299: inputmethodservice.UpdateSelectionResponse
-	(*ViewClickedRequest)(nil),                                           // 300: inputmethodservice.ViewClickedRequest
-	(*ViewClickedResponse)(nil),                                          // 301: inputmethodservice.ViewClickedResponse
-	(*NewExtractEditTextRequest)(nil),                                    // 302: inputmethodservice.NewExtractEditTextRequest
-	(*NewExtractEditTextResponse)(nil),                                   // 303: inputmethodservice.NewExtractEditTextResponse
-	(*FinishInternalChangesRequest)(nil),                                 // 304: inputmethodservice.FinishInternalChangesRequest
-	(*FinishInternalChangesResponse)(nil),                                // 305: inputmethodservice.FinishInternalChangesResponse
-	(*HasFocusRequest)(nil),                                              // 306: inputmethodservice.HasFocusRequest
-	(*HasFocusResponse)(nil),                                             // 307: inputmethodservice.HasFocusResponse
-	(*HasVerticalScrollBarRequest)(nil),                                  // 308: inputmethodservice.HasVerticalScrollBarRequest
-	(*HasVerticalScrollBarResponse)(nil),                                 // 309: inputmethodservice.HasVerticalScrollBarResponse
-	(*HasWindowFocusRequest)(nil),                                        // 310: inputmethodservice.HasWindowFocusRequest
-	(*HasWindowFocusResponse)(nil),                                       // 311: inputmethodservice.HasWindowFocusResponse
-	(*IsFocusedRequest)(nil),                                             // 312: inputmethodservice.IsFocusedRequest
-	(*IsFocusedResponse)(nil),                                            // 313: inputmethodservice.IsFocusedResponse
-	(*IsInputMethodTargetRequest)(nil),                                   // 314: inputmethodservice.IsInputMethodTargetRequest
-	(*IsInputMethodTargetResponse)(nil),                                  // 315: inputmethodservice.IsInputMethodTargetResponse
-	(*OnTextContextMenuItemRequest)(nil),                                 // 316: inputmethodservice.OnTextContextMenuItemRequest
-	(*OnTextContextMenuItemResponse)(nil),                                // 317: inputmethodservice.OnTextContextMenuItemResponse
-	(*PerformClickRequest)(nil),                                          // 318: inputmethodservice.PerformClickRequest
-	(*PerformClickResponse)(nil),                                         // 319: inputmethodservice.PerformClickResponse
-	(*SetExtractedTextRequest)(nil),                                      // 320: inputmethodservice.SetExtractedTextRequest
-	(*SetExtractedTextResponse)(nil),                                     // 321: inputmethodservice.SetExtractedTextResponse
-	(*StartInternalChangesRequest)(nil),                                  // 322: inputmethodservice.StartInternalChangesRequest
-	(*StartInternalChangesResponse)(nil),                                 // 323: inputmethodservice.StartInternalChangesResponse
-	(*NewKeyboardViewRequest)(nil),                                       // 324: inputmethodservice.NewKeyboardViewRequest
-	(*NewKeyboardViewResponse)(nil),                                      // 325: inputmethodservice.NewKeyboardViewResponse
-	(*ClosingRequest)(nil),                                               // 326: inputmethodservice.ClosingRequest
-	(*ClosingResponse)(nil),                                              // 327: inputmethodservice.ClosingResponse
-	(*GetKeyboardRequest)(nil),                                           // 328: inputmethodservice.GetKeyboardRequest
-	(*GetKeyboardResponse)(nil),                                          // 329: inputmethodservice.GetKeyboardResponse
-	(*HandleBackRequest)(nil),                                            // 330: inputmethodservice.HandleBackRequest
-	(*HandleBackResponse)(nil),                                           // 331: inputmethodservice.HandleBackResponse
-	(*InvalidateAllKeysRequest)(nil),                                     // 332: inputmethodservice.InvalidateAllKeysRequest
-	(*InvalidateAllKeysResponse)(nil),                                    // 333: inputmethodservice.InvalidateAllKeysResponse
-	(*InvalidateKeyRequest)(nil),                                         // 334: inputmethodservice.InvalidateKeyRequest
-	(*InvalidateKeyResponse)(nil),                                        // 335: inputmethodservice.InvalidateKeyResponse
-	(*IsPreviewEnabledRequest)(nil),                                      // 336: inputmethodservice.IsPreviewEnabledRequest
-	(*IsPreviewEnabledResponse)(nil),                                     // 337: inputmethodservice.IsPreviewEnabledResponse
-	(*IsProximityCorrectionEnabledRequest)(nil),                          // 338: inputmethodservice.IsProximityCorrectionEnabledRequest
-	(*IsProximityCorrectionEnabledResponse)(nil),                         // 339: inputmethodservice.IsProximityCorrectionEnabledResponse
-	(*OnClickRequest)(nil),                                               // 340: inputmethodservice.OnClickRequest
-	(*OnClickResponse)(nil),                                              // 341: inputmethodservice.OnClickResponse
-	(*OnDetachedFromWindowRequest)(nil),                                  // 342: inputmethodservice.OnDetachedFromWindowRequest
-	(*OnDetachedFromWindowResponse)(nil),                                 // 343: inputmethodservice.OnDetachedFromWindowResponse
-	(*OnDrawRequest)(nil),                                                // 344: inputmethodservice.OnDrawRequest
-	(*OnDrawResponse)(nil),                                               // 345: inputmethodservice.OnDrawResponse
-	(*OnHoverEventRequest)(nil),                                          // 346: inputmethodservice.OnHoverEventRequest
-	(*OnHoverEventResponse)(nil),                                         // 347: inputmethodservice.OnHoverEventResponse
-	(*OnMeasureRequest)(nil),                                             // 348: inputmethodservice.OnMeasureRequest
-	(*OnMeasureResponse)(nil),                                            // 349: inputmethodservice.OnMeasureResponse
-	(*OnSizeChangedRequest)(nil),                                         // 350: inputmethodservice.OnSizeChangedRequest
-	(*OnSizeChangedResponse)(nil),                                        // 351: inputmethodservice.OnSizeChangedResponse
-	(*OnTouchEventRequest)(nil),                                          // 352: inputmethodservice.OnTouchEventRequest
-	(*OnTouchEventResponse)(nil),                                         // 353: inputmethodservice.OnTouchEventResponse
-	(*SetKeyboardRequest)(nil),                                           // 354: inputmethodservice.SetKeyboardRequest
-	(*SetKeyboardResponse)(nil),                                          // 355: inputmethodservice.SetKeyboardResponse
-	(*SetOnKeyboardActionListenerRequest)(nil),                           // 356: inputmethodservice.SetOnKeyboardActionListenerRequest
-	(*SetOnKeyboardActionListenerResponse)(nil),                          // 357: inputmethodservice.SetOnKeyboardActionListenerResponse
-	(*SetPopupOffsetRequest)(nil),                                        // 358: inputmethodservice.SetPopupOffsetRequest
-	(*SetPopupOffsetResponse)(nil),                                       // 359: inputmethodservice.SetPopupOffsetResponse
-	(*SetPopupParentRequest)(nil),                                        // 360: inputmethodservice.SetPopupParentRequest
-	(*SetPopupParentResponse)(nil),                                       // 361: inputmethodservice.SetPopupParentResponse
-	(*SetPreviewEnabledRequest)(nil),                                     // 362: inputmethodservice.SetPreviewEnabledRequest
-	(*SetPreviewEnabledResponse)(nil),                                    // 363: inputmethodservice.SetPreviewEnabledResponse
-	(*SetProximityCorrectionEnabledRequest)(nil),                         // 364: inputmethodservice.SetProximityCorrectionEnabledRequest
-	(*SetProximityCorrectionEnabledResponse)(nil),                        // 365: inputmethodservice.SetProximityCorrectionEnabledResponse
-	(*SetVerticalCorrectionRequest)(nil),                                 // 366: inputmethodservice.SetVerticalCorrectionRequest
-	(*SetVerticalCorrectionResponse)(nil),                                // 367: inputmethodservice.SetVerticalCorrectionResponse
-	(*OnKeyRequest)(nil),                                                 // 368: inputmethodservice.OnKeyRequest
-	(*OnKeyResponse)(nil),                                                // 369: inputmethodservice.OnKeyResponse
-	(*OnPressRequest)(nil),                                               // 370: inputmethodservice.OnPressRequest
-	(*OnPressResponse)(nil),                                              // 371: inputmethodservice.OnPressResponse
-	(*OnReleaseRequest)(nil),                                             // 372: inputmethodservice.OnReleaseRequest
-	(*OnReleaseResponse)(nil),                                            // 373: inputmethodservice.OnReleaseResponse
-	(*OnTextRequest)(nil),                                                // 374: inputmethodservice.OnTextRequest
-	(*OnTextResponse)(nil),                                               // 375: inputmethodservice.OnTextResponse
-	(*SwipeDownRequest)(nil),                                             // 376: inputmethodservice.SwipeDownRequest
-	(*SwipeDownResponse)(nil),                                            // 377: inputmethodservice.SwipeDownResponse
-	(*SwipeLeftRequest)(nil),                                             // 378: inputmethodservice.SwipeLeftRequest
-	(*SwipeLeftResponse)(nil),                                            // 379: inputmethodservice.SwipeLeftResponse
-	(*SwipeRightRequest)(nil),                                            // 380: inputmethodservice.SwipeRightRequest
-	(*SwipeRightResponse)(nil),                                           // 381: inputmethodservice.SwipeRightResponse
-	(*SwipeUpRequest)(nil),                                               // 382: inputmethodservice.SwipeUpRequest
-	(*SwipeUpResponse)(nil),                                              // 383: inputmethodservice.SwipeUpResponse
+	(*NewKeyboardViewRequest)(nil),                                       // 0: inputmethodservice.NewKeyboardViewRequest
+	(*NewKeyboardViewResponse)(nil),                                      // 1: inputmethodservice.NewKeyboardViewResponse
+	(*ClosingRequest)(nil),                                               // 2: inputmethodservice.ClosingRequest
+	(*ClosingResponse)(nil),                                              // 3: inputmethodservice.ClosingResponse
+	(*GetKeyboardRequest)(nil),                                           // 4: inputmethodservice.GetKeyboardRequest
+	(*GetKeyboardResponse)(nil),                                          // 5: inputmethodservice.GetKeyboardResponse
+	(*HandleBackRequest)(nil),                                            // 6: inputmethodservice.HandleBackRequest
+	(*HandleBackResponse)(nil),                                           // 7: inputmethodservice.HandleBackResponse
+	(*InvalidateAllKeysRequest)(nil),                                     // 8: inputmethodservice.InvalidateAllKeysRequest
+	(*InvalidateAllKeysResponse)(nil),                                    // 9: inputmethodservice.InvalidateAllKeysResponse
+	(*InvalidateKeyRequest)(nil),                                         // 10: inputmethodservice.InvalidateKeyRequest
+	(*InvalidateKeyResponse)(nil),                                        // 11: inputmethodservice.InvalidateKeyResponse
+	(*IsPreviewEnabledRequest)(nil),                                      // 12: inputmethodservice.IsPreviewEnabledRequest
+	(*IsPreviewEnabledResponse)(nil),                                     // 13: inputmethodservice.IsPreviewEnabledResponse
+	(*IsProximityCorrectionEnabledRequest)(nil),                          // 14: inputmethodservice.IsProximityCorrectionEnabledRequest
+	(*IsProximityCorrectionEnabledResponse)(nil),                         // 15: inputmethodservice.IsProximityCorrectionEnabledResponse
+	(*IsShiftedRequest)(nil),                                             // 16: inputmethodservice.IsShiftedRequest
+	(*IsShiftedResponse)(nil),                                            // 17: inputmethodservice.IsShiftedResponse
+	(*OnClickRequest)(nil),                                               // 18: inputmethodservice.OnClickRequest
+	(*OnClickResponse)(nil),                                              // 19: inputmethodservice.OnClickResponse
+	(*OnDetachedFromWindowRequest)(nil),                                  // 20: inputmethodservice.OnDetachedFromWindowRequest
+	(*OnDetachedFromWindowResponse)(nil),                                 // 21: inputmethodservice.OnDetachedFromWindowResponse
+	(*OnDrawRequest)(nil),                                                // 22: inputmethodservice.OnDrawRequest
+	(*OnDrawResponse)(nil),                                               // 23: inputmethodservice.OnDrawResponse
+	(*OnHoverEventRequest)(nil),                                          // 24: inputmethodservice.OnHoverEventRequest
+	(*OnHoverEventResponse)(nil),                                         // 25: inputmethodservice.OnHoverEventResponse
+	(*OnMeasureRequest)(nil),                                             // 26: inputmethodservice.OnMeasureRequest
+	(*OnMeasureResponse)(nil),                                            // 27: inputmethodservice.OnMeasureResponse
+	(*OnSizeChangedRequest)(nil),                                         // 28: inputmethodservice.OnSizeChangedRequest
+	(*OnSizeChangedResponse)(nil),                                        // 29: inputmethodservice.OnSizeChangedResponse
+	(*OnTouchEventRequest)(nil),                                          // 30: inputmethodservice.OnTouchEventRequest
+	(*OnTouchEventResponse)(nil),                                         // 31: inputmethodservice.OnTouchEventResponse
+	(*SetKeyboardRequest)(nil),                                           // 32: inputmethodservice.SetKeyboardRequest
+	(*SetKeyboardResponse)(nil),                                          // 33: inputmethodservice.SetKeyboardResponse
+	(*SetOnKeyboardActionListenerRequest)(nil),                           // 34: inputmethodservice.SetOnKeyboardActionListenerRequest
+	(*SetOnKeyboardActionListenerResponse)(nil),                          // 35: inputmethodservice.SetOnKeyboardActionListenerResponse
+	(*SetPopupOffsetRequest)(nil),                                        // 36: inputmethodservice.SetPopupOffsetRequest
+	(*SetPopupOffsetResponse)(nil),                                       // 37: inputmethodservice.SetPopupOffsetResponse
+	(*SetPopupParentRequest)(nil),                                        // 38: inputmethodservice.SetPopupParentRequest
+	(*SetPopupParentResponse)(nil),                                       // 39: inputmethodservice.SetPopupParentResponse
+	(*SetPreviewEnabledRequest)(nil),                                     // 40: inputmethodservice.SetPreviewEnabledRequest
+	(*SetPreviewEnabledResponse)(nil),                                    // 41: inputmethodservice.SetPreviewEnabledResponse
+	(*SetProximityCorrectionEnabledRequest)(nil),                         // 42: inputmethodservice.SetProximityCorrectionEnabledRequest
+	(*SetProximityCorrectionEnabledResponse)(nil),                        // 43: inputmethodservice.SetProximityCorrectionEnabledResponse
+	(*SetShiftedRequest)(nil),                                            // 44: inputmethodservice.SetShiftedRequest
+	(*SetShiftedResponse)(nil),                                           // 45: inputmethodservice.SetShiftedResponse
+	(*SetVerticalCorrectionRequest)(nil),                                 // 46: inputmethodservice.SetVerticalCorrectionRequest
+	(*SetVerticalCorrectionResponse)(nil),                                // 47: inputmethodservice.SetVerticalCorrectionResponse
+	(*OnKeyRequest)(nil),                                                 // 48: inputmethodservice.OnKeyRequest
+	(*OnKeyResponse)(nil),                                                // 49: inputmethodservice.OnKeyResponse
+	(*OnPressRequest)(nil),                                               // 50: inputmethodservice.OnPressRequest
+	(*OnPressResponse)(nil),                                              // 51: inputmethodservice.OnPressResponse
+	(*OnReleaseRequest)(nil),                                             // 52: inputmethodservice.OnReleaseRequest
+	(*OnReleaseResponse)(nil),                                            // 53: inputmethodservice.OnReleaseResponse
+	(*OnTextRequest)(nil),                                                // 54: inputmethodservice.OnTextRequest
+	(*OnTextResponse)(nil),                                               // 55: inputmethodservice.OnTextResponse
+	(*SwipeDownRequest)(nil),                                             // 56: inputmethodservice.SwipeDownRequest
+	(*SwipeDownResponse)(nil),                                            // 57: inputmethodservice.SwipeDownResponse
+	(*SwipeLeftRequest)(nil),                                             // 58: inputmethodservice.SwipeLeftRequest
+	(*SwipeLeftResponse)(nil),                                            // 59: inputmethodservice.SwipeLeftResponse
+	(*SwipeRightRequest)(nil),                                            // 60: inputmethodservice.SwipeRightRequest
+	(*SwipeRightResponse)(nil),                                           // 61: inputmethodservice.SwipeRightResponse
+	(*SwipeUpRequest)(nil),                                               // 62: inputmethodservice.SwipeUpRequest
+	(*SwipeUpResponse)(nil),                                              // 63: inputmethodservice.SwipeUpResponse
+	(*NewKeyboardRequest)(nil),                                           // 64: inputmethodservice.NewKeyboardRequest
+	(*NewKeyboardResponse)(nil),                                          // 65: inputmethodservice.NewKeyboardResponse
+	(*GetHeightRequest)(nil),                                             // 66: inputmethodservice.GetHeightRequest
+	(*GetHeightResponse)(nil),                                            // 67: inputmethodservice.GetHeightResponse
+	(*GetKeysRequest)(nil),                                               // 68: inputmethodservice.GetKeysRequest
+	(*GetKeysResponse)(nil),                                              // 69: inputmethodservice.GetKeysResponse
+	(*GetMinWidthRequest)(nil),                                           // 70: inputmethodservice.GetMinWidthRequest
+	(*GetMinWidthResponse)(nil),                                          // 71: inputmethodservice.GetMinWidthResponse
+	(*GetModifierKeysRequest)(nil),                                       // 72: inputmethodservice.GetModifierKeysRequest
+	(*GetModifierKeysResponse)(nil),                                      // 73: inputmethodservice.GetModifierKeysResponse
+	(*GetNearestKeysRequest)(nil),                                        // 74: inputmethodservice.GetNearestKeysRequest
+	(*GetNearestKeysResponse)(nil),                                       // 75: inputmethodservice.GetNearestKeysResponse
+	(*GetShiftKeyIndexRequest)(nil),                                      // 76: inputmethodservice.GetShiftKeyIndexRequest
+	(*GetShiftKeyIndexResponse)(nil),                                     // 77: inputmethodservice.GetShiftKeyIndexResponse
+	(*GetCurrentDrawableStateRequest)(nil),                               // 78: inputmethodservice.GetCurrentDrawableStateRequest
+	(*GetCurrentDrawableStateResponse)(nil),                              // 79: inputmethodservice.GetCurrentDrawableStateResponse
+	(*IsInsideRequest)(nil),                                              // 80: inputmethodservice.IsInsideRequest
+	(*IsInsideResponse)(nil),                                             // 81: inputmethodservice.IsInsideResponse
+	(*OnPressedRequest)(nil),                                             // 82: inputmethodservice.OnPressedRequest
+	(*OnPressedResponse)(nil),                                            // 83: inputmethodservice.OnPressedResponse
+	(*OnReleasedRequest)(nil),                                            // 84: inputmethodservice.OnReleasedRequest
+	(*OnReleasedResponse)(nil),                                           // 85: inputmethodservice.OnReleasedResponse
+	(*SquaredDistanceFromRequest)(nil),                                   // 86: inputmethodservice.SquaredDistanceFromRequest
+	(*SquaredDistanceFromResponse)(nil),                                  // 87: inputmethodservice.SquaredDistanceFromResponse
+	(*NewExtractEditTextRequest)(nil),                                    // 88: inputmethodservice.NewExtractEditTextRequest
+	(*NewExtractEditTextResponse)(nil),                                   // 89: inputmethodservice.NewExtractEditTextResponse
+	(*FinishInternalChangesRequest)(nil),                                 // 90: inputmethodservice.FinishInternalChangesRequest
+	(*FinishInternalChangesResponse)(nil),                                // 91: inputmethodservice.FinishInternalChangesResponse
+	(*HasFocusRequest)(nil),                                              // 92: inputmethodservice.HasFocusRequest
+	(*HasFocusResponse)(nil),                                             // 93: inputmethodservice.HasFocusResponse
+	(*HasVerticalScrollBarRequest)(nil),                                  // 94: inputmethodservice.HasVerticalScrollBarRequest
+	(*HasVerticalScrollBarResponse)(nil),                                 // 95: inputmethodservice.HasVerticalScrollBarResponse
+	(*HasWindowFocusRequest)(nil),                                        // 96: inputmethodservice.HasWindowFocusRequest
+	(*HasWindowFocusResponse)(nil),                                       // 97: inputmethodservice.HasWindowFocusResponse
+	(*IsFocusedRequest)(nil),                                             // 98: inputmethodservice.IsFocusedRequest
+	(*IsFocusedResponse)(nil),                                            // 99: inputmethodservice.IsFocusedResponse
+	(*IsInputMethodTargetRequest)(nil),                                   // 100: inputmethodservice.IsInputMethodTargetRequest
+	(*IsInputMethodTargetResponse)(nil),                                  // 101: inputmethodservice.IsInputMethodTargetResponse
+	(*OnTextContextMenuItemRequest)(nil),                                 // 102: inputmethodservice.OnTextContextMenuItemRequest
+	(*OnTextContextMenuItemResponse)(nil),                                // 103: inputmethodservice.OnTextContextMenuItemResponse
+	(*PerformClickRequest)(nil),                                          // 104: inputmethodservice.PerformClickRequest
+	(*PerformClickResponse)(nil),                                         // 105: inputmethodservice.PerformClickResponse
+	(*SetExtractedTextRequest)(nil),                                      // 106: inputmethodservice.SetExtractedTextRequest
+	(*SetExtractedTextResponse)(nil),                                     // 107: inputmethodservice.SetExtractedTextResponse
+	(*StartInternalChangesRequest)(nil),                                  // 108: inputmethodservice.StartInternalChangesRequest
+	(*StartInternalChangesResponse)(nil),                                 // 109: inputmethodservice.StartInternalChangesResponse
+	(*GetKeyDispatcherStateRequest)(nil),                                 // 110: inputmethodservice.GetKeyDispatcherStateRequest
+	(*GetKeyDispatcherStateResponse)(nil),                                // 111: inputmethodservice.GetKeyDispatcherStateResponse
+	(*GetSystemServiceRequest)(nil),                                      // 112: inputmethodservice.GetSystemServiceRequest
+	(*GetSystemServiceResponse)(nil),                                     // 113: inputmethodservice.GetSystemServiceResponse
+	(*OnBindRequest)(nil),                                                // 114: inputmethodservice.OnBindRequest
+	(*OnBindResponse)(nil),                                               // 115: inputmethodservice.OnBindResponse
+	(*OnConfigurationChangedRequest)(nil),                                // 116: inputmethodservice.OnConfigurationChangedRequest
+	(*OnConfigurationChangedResponse)(nil),                               // 117: inputmethodservice.OnConfigurationChangedResponse
+	(*OnCreateInputMethodInterfaceRequest)(nil),                          // 118: inputmethodservice.OnCreateInputMethodInterfaceRequest
+	(*OnCreateInputMethodInterfaceResponse)(nil),                         // 119: inputmethodservice.OnCreateInputMethodInterfaceResponse
+	(*OnCreateInputMethodSessionInterfaceRequest)(nil),                   // 120: inputmethodservice.OnCreateInputMethodSessionInterfaceRequest
+	(*OnCreateInputMethodSessionInterfaceResponse)(nil),                  // 121: inputmethodservice.OnCreateInputMethodSessionInterfaceResponse
+	(*OnDestroyRequest)(nil),                                             // 122: inputmethodservice.OnDestroyRequest
+	(*OnDestroyResponse)(nil),                                            // 123: inputmethodservice.OnDestroyResponse
+	(*OnGenericMotionEventRequest)(nil),                                  // 124: inputmethodservice.OnGenericMotionEventRequest
+	(*OnGenericMotionEventResponse)(nil),                                 // 125: inputmethodservice.OnGenericMotionEventResponse
+	(*OnLowMemoryRequest)(nil),                                           // 126: inputmethodservice.OnLowMemoryRequest
+	(*OnLowMemoryResponse)(nil),                                          // 127: inputmethodservice.OnLowMemoryResponse
+	(*OnShouldVerifyKeyEventRequest)(nil),                                // 128: inputmethodservice.OnShouldVerifyKeyEventRequest
+	(*OnShouldVerifyKeyEventResponse)(nil),                               // 129: inputmethodservice.OnShouldVerifyKeyEventResponse
+	(*OnTrackballEventRequest)(nil),                                      // 130: inputmethodservice.OnTrackballEventRequest
+	(*OnTrackballEventResponse)(nil),                                     // 131: inputmethodservice.OnTrackballEventResponse
+	(*OnTrimMemoryRequest)(nil),                                          // 132: inputmethodservice.OnTrimMemoryRequest
+	(*OnTrimMemoryResponse)(nil),                                         // 133: inputmethodservice.OnTrimMemoryResponse
+	(*RegisterComponentCallbacksRequest)(nil),                            // 134: inputmethodservice.RegisterComponentCallbacksRequest
+	(*RegisterComponentCallbacksResponse)(nil),                           // 135: inputmethodservice.RegisterComponentCallbacksResponse
+	(*UnregisterComponentCallbacksRequest)(nil),                          // 136: inputmethodservice.UnregisterComponentCallbacksRequest
+	(*UnregisterComponentCallbacksResponse)(nil),                         // 137: inputmethodservice.UnregisterComponentCallbacksResponse
+	(*CreateSessionRequest)(nil),                                         // 138: inputmethodservice.CreateSessionRequest
+	(*CreateSessionResponse)(nil),                                        // 139: inputmethodservice.CreateSessionResponse
+	(*RevokeSessionRequest)(nil),                                         // 140: inputmethodservice.RevokeSessionRequest
+	(*RevokeSessionResponse)(nil),                                        // 141: inputmethodservice.RevokeSessionResponse
+	(*SetSessionEnabledRequest)(nil),                                     // 142: inputmethodservice.SetSessionEnabledRequest
+	(*SetSessionEnabledResponse)(nil),                                    // 143: inputmethodservice.SetSessionEnabledResponse
+	(*DispatchGenericMotionEventRequest)(nil),                            // 144: inputmethodservice.DispatchGenericMotionEventRequest
+	(*DispatchGenericMotionEventResponse)(nil),                           // 145: inputmethodservice.DispatchGenericMotionEventResponse
+	(*DispatchKeyEventRequest)(nil),                                      // 146: inputmethodservice.DispatchKeyEventRequest
+	(*DispatchKeyEventResponse)(nil),                                     // 147: inputmethodservice.DispatchKeyEventResponse
+	(*DispatchTrackballEventRequest)(nil),                                // 148: inputmethodservice.DispatchTrackballEventRequest
+	(*DispatchTrackballEventResponse)(nil),                               // 149: inputmethodservice.DispatchTrackballEventResponse
+	(*IsEnabledRequest)(nil),                                             // 150: inputmethodservice.IsEnabledRequest
+	(*IsEnabledResponse)(nil),                                            // 151: inputmethodservice.IsEnabledResponse
+	(*IsRevokedRequest)(nil),                                             // 152: inputmethodservice.IsRevokedRequest
+	(*IsRevokedResponse)(nil),                                            // 153: inputmethodservice.IsRevokedResponse
+	(*RevokeSelfRequest)(nil),                                            // 154: inputmethodservice.RevokeSelfRequest
+	(*RevokeSelfResponse)(nil),                                           // 155: inputmethodservice.RevokeSelfResponse
+	(*SetEnabledRequest)(nil),                                            // 156: inputmethodservice.SetEnabledRequest
+	(*SetEnabledResponse)(nil),                                           // 157: inputmethodservice.SetEnabledResponse
+	(*NewInputMethodServiceRequest)(nil),                                 // 158: inputmethodservice.NewInputMethodServiceRequest
+	(*NewInputMethodServiceResponse)(nil),                                // 159: inputmethodservice.NewInputMethodServiceResponse
+	(*EnableHardwareAccelerationRequest)(nil),                            // 160: inputmethodservice.EnableHardwareAccelerationRequest
+	(*EnableHardwareAccelerationResponse)(nil),                           // 161: inputmethodservice.EnableHardwareAccelerationResponse
+	(*FinishConnectionlessStylusHandwritingRequest)(nil),                 // 162: inputmethodservice.FinishConnectionlessStylusHandwritingRequest
+	(*FinishConnectionlessStylusHandwritingResponse)(nil),                // 163: inputmethodservice.FinishConnectionlessStylusHandwritingResponse
+	(*FinishStylusHandwritingRequest)(nil),                               // 164: inputmethodservice.FinishStylusHandwritingRequest
+	(*FinishStylusHandwritingResponse)(nil),                              // 165: inputmethodservice.FinishStylusHandwritingResponse
+	(*GetBackDispositionRequest)(nil),                                    // 166: inputmethodservice.GetBackDispositionRequest
+	(*GetBackDispositionResponse)(nil),                                   // 167: inputmethodservice.GetBackDispositionResponse
+	(*GetCandidatesHiddenVisibilityRequest)(nil),                         // 168: inputmethodservice.GetCandidatesHiddenVisibilityRequest
+	(*GetCandidatesHiddenVisibilityResponse)(nil),                        // 169: inputmethodservice.GetCandidatesHiddenVisibilityResponse
+	(*GetCurrentInputBindingRequest)(nil),                                // 170: inputmethodservice.GetCurrentInputBindingRequest
+	(*GetCurrentInputBindingResponse)(nil),                               // 171: inputmethodservice.GetCurrentInputBindingResponse
+	(*GetCurrentInputConnectionRequest)(nil),                             // 172: inputmethodservice.GetCurrentInputConnectionRequest
+	(*GetCurrentInputConnectionResponse)(nil),                            // 173: inputmethodservice.GetCurrentInputConnectionResponse
+	(*GetCurrentInputEditorInfoRequest)(nil),                             // 174: inputmethodservice.GetCurrentInputEditorInfoRequest
+	(*GetCurrentInputEditorInfoResponse)(nil),                            // 175: inputmethodservice.GetCurrentInputEditorInfoResponse
+	(*GetCurrentInputStartedRequest)(nil),                                // 176: inputmethodservice.GetCurrentInputStartedRequest
+	(*GetCurrentInputStartedResponse)(nil),                               // 177: inputmethodservice.GetCurrentInputStartedResponse
+	(*GetInputMethodWindowRecommendedHeightRequest)(nil),                 // 178: inputmethodservice.GetInputMethodWindowRecommendedHeightRequest
+	(*GetInputMethodWindowRecommendedHeightResponse)(nil),                // 179: inputmethodservice.GetInputMethodWindowRecommendedHeightResponse
+	(*GetLayoutInflaterRequest)(nil),                                     // 180: inputmethodservice.GetLayoutInflaterRequest
+	(*GetLayoutInflaterResponse)(nil),                                    // 181: inputmethodservice.GetLayoutInflaterResponse
+	(*GetMaxWidthRequest)(nil),                                           // 182: inputmethodservice.GetMaxWidthRequest
+	(*GetMaxWidthResponse)(nil),                                          // 183: inputmethodservice.GetMaxWidthResponse
+	(*GetStylusHandwritingSessionTimeoutRequest)(nil),                    // 184: inputmethodservice.GetStylusHandwritingSessionTimeoutRequest
+	(*GetStylusHandwritingSessionTimeoutResponse)(nil),                   // 185: inputmethodservice.GetStylusHandwritingSessionTimeoutResponse
+	(*GetStylusHandwritingWindowRequest)(nil),                            // 186: inputmethodservice.GetStylusHandwritingWindowRequest
+	(*GetStylusHandwritingWindowResponse)(nil),                           // 187: inputmethodservice.GetStylusHandwritingWindowResponse
+	(*InputMethodServiceGetSystemServiceRequest)(nil),                    // 188: inputmethodservice.InputMethodServiceGetSystemServiceRequest
+	(*GetTextForImeActionRequest)(nil),                                   // 189: inputmethodservice.GetTextForImeActionRequest
+	(*GetTextForImeActionResponse)(nil),                                  // 190: inputmethodservice.GetTextForImeActionResponse
+	(*GetWindowRequest)(nil),                                             // 191: inputmethodservice.GetWindowRequest
+	(*GetWindowResponse)(nil),                                            // 192: inputmethodservice.GetWindowResponse
+	(*HideStatusIconRequest)(nil),                                        // 193: inputmethodservice.HideStatusIconRequest
+	(*HideStatusIconResponse)(nil),                                       // 194: inputmethodservice.HideStatusIconResponse
+	(*HideWindowRequest)(nil),                                            // 195: inputmethodservice.HideWindowRequest
+	(*HideWindowResponse)(nil),                                           // 196: inputmethodservice.HideWindowResponse
+	(*IsExtractViewShownRequest)(nil),                                    // 197: inputmethodservice.IsExtractViewShownRequest
+	(*IsExtractViewShownResponse)(nil),                                   // 198: inputmethodservice.IsExtractViewShownResponse
+	(*IsFullscreenModeRequest)(nil),                                      // 199: inputmethodservice.IsFullscreenModeRequest
+	(*IsFullscreenModeResponse)(nil),                                     // 200: inputmethodservice.IsFullscreenModeResponse
+	(*IsInputViewShownRequest)(nil),                                      // 201: inputmethodservice.IsInputViewShownRequest
+	(*IsInputViewShownResponse)(nil),                                     // 202: inputmethodservice.IsInputViewShownResponse
+	(*IsShowInputRequestedRequest)(nil),                                  // 203: inputmethodservice.IsShowInputRequestedRequest
+	(*IsShowInputRequestedResponse)(nil),                                 // 204: inputmethodservice.IsShowInputRequestedResponse
+	(*OnAppPrivateCommandRequest)(nil),                                   // 205: inputmethodservice.OnAppPrivateCommandRequest
+	(*OnAppPrivateCommandResponse)(nil),                                  // 206: inputmethodservice.OnAppPrivateCommandResponse
+	(*OnBindInputRequest)(nil),                                           // 207: inputmethodservice.OnBindInputRequest
+	(*OnBindInputResponse)(nil),                                          // 208: inputmethodservice.OnBindInputResponse
+	(*OnComputeInsetsRequest)(nil),                                       // 209: inputmethodservice.OnComputeInsetsRequest
+	(*OnComputeInsetsResponse)(nil),                                      // 210: inputmethodservice.OnComputeInsetsResponse
+	(*InputMethodServiceOnConfigurationChangedRequest)(nil),              // 211: inputmethodservice.InputMethodServiceOnConfigurationChangedRequest
+	(*OnConfigureWindowRequest)(nil),                                     // 212: inputmethodservice.OnConfigureWindowRequest
+	(*OnConfigureWindowResponse)(nil),                                    // 213: inputmethodservice.OnConfigureWindowResponse
+	(*OnCreateRequest)(nil),                                              // 214: inputmethodservice.OnCreateRequest
+	(*OnCreateResponse)(nil),                                             // 215: inputmethodservice.OnCreateResponse
+	(*OnCreateCandidatesViewRequest)(nil),                                // 216: inputmethodservice.OnCreateCandidatesViewRequest
+	(*OnCreateCandidatesViewResponse)(nil),                               // 217: inputmethodservice.OnCreateCandidatesViewResponse
+	(*OnCreateExtractTextViewRequest)(nil),                               // 218: inputmethodservice.OnCreateExtractTextViewRequest
+	(*OnCreateExtractTextViewResponse)(nil),                              // 219: inputmethodservice.OnCreateExtractTextViewResponse
+	(*OnCreateInlineSuggestionsRequestRequest)(nil),                      // 220: inputmethodservice.OnCreateInlineSuggestionsRequestRequest
+	(*OnCreateInlineSuggestionsRequestResponse)(nil),                     // 221: inputmethodservice.OnCreateInlineSuggestionsRequestResponse
+	(*InputMethodServiceOnCreateInputMethodInterfaceRequest)(nil),        // 222: inputmethodservice.InputMethodServiceOnCreateInputMethodInterfaceRequest
+	(*InputMethodServiceOnCreateInputMethodSessionInterfaceRequest)(nil), // 223: inputmethodservice.InputMethodServiceOnCreateInputMethodSessionInterfaceRequest
+	(*OnCreateInputViewRequest)(nil),                                     // 224: inputmethodservice.OnCreateInputViewRequest
+	(*OnCreateInputViewResponse)(nil),                                    // 225: inputmethodservice.OnCreateInputViewResponse
+	(*OnCustomImeSwitcherButtonRequestedVisibleRequest)(nil),             // 226: inputmethodservice.OnCustomImeSwitcherButtonRequestedVisibleRequest
+	(*OnCustomImeSwitcherButtonRequestedVisibleResponse)(nil),            // 227: inputmethodservice.OnCustomImeSwitcherButtonRequestedVisibleResponse
+	(*InputMethodServiceOnDestroyRequest)(nil),                           // 228: inputmethodservice.InputMethodServiceOnDestroyRequest
+	(*OnDisplayCompletionsRequest)(nil),                                  // 229: inputmethodservice.OnDisplayCompletionsRequest
+	(*OnDisplayCompletionsResponse)(nil),                                 // 230: inputmethodservice.OnDisplayCompletionsResponse
+	(*OnEvaluateFullscreenModeRequest)(nil),                              // 231: inputmethodservice.OnEvaluateFullscreenModeRequest
+	(*OnEvaluateFullscreenModeResponse)(nil),                             // 232: inputmethodservice.OnEvaluateFullscreenModeResponse
+	(*OnEvaluateInputViewShownRequest)(nil),                              // 233: inputmethodservice.OnEvaluateInputViewShownRequest
+	(*OnEvaluateInputViewShownResponse)(nil),                             // 234: inputmethodservice.OnEvaluateInputViewShownResponse
+	(*OnExtractTextContextMenuItemRequest)(nil),                          // 235: inputmethodservice.OnExtractTextContextMenuItemRequest
+	(*OnExtractTextContextMenuItemResponse)(nil),                         // 236: inputmethodservice.OnExtractTextContextMenuItemResponse
+	(*OnExtractedCursorMovementRequest)(nil),                             // 237: inputmethodservice.OnExtractedCursorMovementRequest
+	(*OnExtractedCursorMovementResponse)(nil),                            // 238: inputmethodservice.OnExtractedCursorMovementResponse
+	(*OnExtractedSelectionChangedRequest)(nil),                           // 239: inputmethodservice.OnExtractedSelectionChangedRequest
+	(*OnExtractedSelectionChangedResponse)(nil),                          // 240: inputmethodservice.OnExtractedSelectionChangedResponse
+	(*OnExtractedTextClickedRequest)(nil),                                // 241: inputmethodservice.OnExtractedTextClickedRequest
+	(*OnExtractedTextClickedResponse)(nil),                               // 242: inputmethodservice.OnExtractedTextClickedResponse
+	(*OnExtractingInputChangedRequest)(nil),                              // 243: inputmethodservice.OnExtractingInputChangedRequest
+	(*OnExtractingInputChangedResponse)(nil),                             // 244: inputmethodservice.OnExtractingInputChangedResponse
+	(*OnFinishCandidatesViewRequest)(nil),                                // 245: inputmethodservice.OnFinishCandidatesViewRequest
+	(*OnFinishCandidatesViewResponse)(nil),                               // 246: inputmethodservice.OnFinishCandidatesViewResponse
+	(*OnFinishInputRequest)(nil),                                         // 247: inputmethodservice.OnFinishInputRequest
+	(*OnFinishInputResponse)(nil),                                        // 248: inputmethodservice.OnFinishInputResponse
+	(*OnFinishInputViewRequest)(nil),                                     // 249: inputmethodservice.OnFinishInputViewRequest
+	(*OnFinishInputViewResponse)(nil),                                    // 250: inputmethodservice.OnFinishInputViewResponse
+	(*OnFinishStylusHandwritingRequest)(nil),                             // 251: inputmethodservice.OnFinishStylusHandwritingRequest
+	(*OnFinishStylusHandwritingResponse)(nil),                            // 252: inputmethodservice.OnFinishStylusHandwritingResponse
+	(*InputMethodServiceOnGenericMotionEventRequest)(nil),                // 253: inputmethodservice.InputMethodServiceOnGenericMotionEventRequest
+	(*OnInitializeInterfaceRequest)(nil),                                 // 254: inputmethodservice.OnInitializeInterfaceRequest
+	(*OnInitializeInterfaceResponse)(nil),                                // 255: inputmethodservice.OnInitializeInterfaceResponse
+	(*OnInlineSuggestionsResponseRequest)(nil),                           // 256: inputmethodservice.OnInlineSuggestionsResponseRequest
+	(*OnInlineSuggestionsResponseResponse)(nil),                          // 257: inputmethodservice.OnInlineSuggestionsResponseResponse
+	(*OnKeyDownRequest)(nil),                                             // 258: inputmethodservice.OnKeyDownRequest
+	(*OnKeyDownResponse)(nil),                                            // 259: inputmethodservice.OnKeyDownResponse
+	(*OnKeyLongPressRequest)(nil),                                        // 260: inputmethodservice.OnKeyLongPressRequest
+	(*OnKeyLongPressResponse)(nil),                                       // 261: inputmethodservice.OnKeyLongPressResponse
+	(*OnKeyMultipleRequest)(nil),                                         // 262: inputmethodservice.OnKeyMultipleRequest
+	(*OnKeyMultipleResponse)(nil),                                        // 263: inputmethodservice.OnKeyMultipleResponse
+	(*OnKeyUpRequest)(nil),                                               // 264: inputmethodservice.OnKeyUpRequest
+	(*OnKeyUpResponse)(nil),                                              // 265: inputmethodservice.OnKeyUpResponse
+	(*OnPrepareStylusHandwritingRequest)(nil),                            // 266: inputmethodservice.OnPrepareStylusHandwritingRequest
+	(*OnPrepareStylusHandwritingResponse)(nil),                           // 267: inputmethodservice.OnPrepareStylusHandwritingResponse
+	(*InputMethodServiceOnShouldVerifyKeyEventRequest)(nil),              // 268: inputmethodservice.InputMethodServiceOnShouldVerifyKeyEventRequest
+	(*OnShowInputRequestedRequest)(nil),                                  // 269: inputmethodservice.OnShowInputRequestedRequest
+	(*OnShowInputRequestedResponse)(nil),                                 // 270: inputmethodservice.OnShowInputRequestedResponse
+	(*OnStartCandidatesViewRequest)(nil),                                 // 271: inputmethodservice.OnStartCandidatesViewRequest
+	(*OnStartCandidatesViewResponse)(nil),                                // 272: inputmethodservice.OnStartCandidatesViewResponse
+	(*OnStartConnectionlessStylusHandwritingRequest)(nil),                // 273: inputmethodservice.OnStartConnectionlessStylusHandwritingRequest
+	(*OnStartConnectionlessStylusHandwritingResponse)(nil),               // 274: inputmethodservice.OnStartConnectionlessStylusHandwritingResponse
+	(*OnStartInputRequest)(nil),                                          // 275: inputmethodservice.OnStartInputRequest
+	(*OnStartInputResponse)(nil),                                         // 276: inputmethodservice.OnStartInputResponse
+	(*OnStartInputViewRequest)(nil),                                      // 277: inputmethodservice.OnStartInputViewRequest
+	(*OnStartInputViewResponse)(nil),                                     // 278: inputmethodservice.OnStartInputViewResponse
+	(*OnStartStylusHandwritingRequest)(nil),                              // 279: inputmethodservice.OnStartStylusHandwritingRequest
+	(*OnStartStylusHandwritingResponse)(nil),                             // 280: inputmethodservice.OnStartStylusHandwritingResponse
+	(*OnStylusHandwritingMotionEventRequest)(nil),                        // 281: inputmethodservice.OnStylusHandwritingMotionEventRequest
+	(*OnStylusHandwritingMotionEventResponse)(nil),                       // 282: inputmethodservice.OnStylusHandwritingMotionEventResponse
+	(*InputMethodServiceOnTrackballEventRequest)(nil),                    // 283: inputmethodservice.InputMethodServiceOnTrackballEventRequest
+	(*OnUnbindInputRequest)(nil),                                         // 284: inputmethodservice.OnUnbindInputRequest
+	(*OnUnbindInputResponse)(nil),                                        // 285: inputmethodservice.OnUnbindInputResponse
+	(*OnUpdateCursorRequest)(nil),                                        // 286: inputmethodservice.OnUpdateCursorRequest
+	(*OnUpdateCursorResponse)(nil),                                       // 287: inputmethodservice.OnUpdateCursorResponse
+	(*OnUpdateCursorAnchorInfoRequest)(nil),                              // 288: inputmethodservice.OnUpdateCursorAnchorInfoRequest
+	(*OnUpdateCursorAnchorInfoResponse)(nil),                             // 289: inputmethodservice.OnUpdateCursorAnchorInfoResponse
+	(*OnUpdateEditorToolTypeRequest)(nil),                                // 290: inputmethodservice.OnUpdateEditorToolTypeRequest
+	(*OnUpdateEditorToolTypeResponse)(nil),                               // 291: inputmethodservice.OnUpdateEditorToolTypeResponse
+	(*OnUpdateExtractedTextRequest)(nil),                                 // 292: inputmethodservice.OnUpdateExtractedTextRequest
+	(*OnUpdateExtractedTextResponse)(nil),                                // 293: inputmethodservice.OnUpdateExtractedTextResponse
+	(*OnUpdateExtractingViewsRequest)(nil),                               // 294: inputmethodservice.OnUpdateExtractingViewsRequest
+	(*OnUpdateExtractingViewsResponse)(nil),                              // 295: inputmethodservice.OnUpdateExtractingViewsResponse
+	(*OnUpdateExtractingVisibilityRequest)(nil),                          // 296: inputmethodservice.OnUpdateExtractingVisibilityRequest
+	(*OnUpdateExtractingVisibilityResponse)(nil),                         // 297: inputmethodservice.OnUpdateExtractingVisibilityResponse
+	(*OnUpdateSelectionRequest)(nil),                                     // 298: inputmethodservice.OnUpdateSelectionRequest
+	(*OnUpdateSelectionResponse)(nil),                                    // 299: inputmethodservice.OnUpdateSelectionResponse
+	(*OnViewClickedRequest)(nil),                                         // 300: inputmethodservice.OnViewClickedRequest
+	(*OnViewClickedResponse)(nil),                                        // 301: inputmethodservice.OnViewClickedResponse
+	(*OnWindowHiddenRequest)(nil),                                        // 302: inputmethodservice.OnWindowHiddenRequest
+	(*OnWindowHiddenResponse)(nil),                                       // 303: inputmethodservice.OnWindowHiddenResponse
+	(*OnWindowShownRequest)(nil),                                         // 304: inputmethodservice.OnWindowShownRequest
+	(*OnWindowShownResponse)(nil),                                        // 305: inputmethodservice.OnWindowShownResponse
+	(*RequestHideSelfRequest)(nil),                                       // 306: inputmethodservice.RequestHideSelfRequest
+	(*RequestHideSelfResponse)(nil),                                      // 307: inputmethodservice.RequestHideSelfResponse
+	(*RequestShowSelfRequest)(nil),                                       // 308: inputmethodservice.RequestShowSelfRequest
+	(*RequestShowSelfResponse)(nil),                                      // 309: inputmethodservice.RequestShowSelfResponse
+	(*SendDefaultEditorActionRequest)(nil),                               // 310: inputmethodservice.SendDefaultEditorActionRequest
+	(*SendDefaultEditorActionResponse)(nil),                              // 311: inputmethodservice.SendDefaultEditorActionResponse
+	(*SendDownUpKeyEventsRequest)(nil),                                   // 312: inputmethodservice.SendDownUpKeyEventsRequest
+	(*SendDownUpKeyEventsResponse)(nil),                                  // 313: inputmethodservice.SendDownUpKeyEventsResponse
+	(*SendKeyCharRequest)(nil),                                           // 314: inputmethodservice.SendKeyCharRequest
+	(*SendKeyCharResponse)(nil),                                          // 315: inputmethodservice.SendKeyCharResponse
+	(*SetBackDispositionRequest)(nil),                                    // 316: inputmethodservice.SetBackDispositionRequest
+	(*SetBackDispositionResponse)(nil),                                   // 317: inputmethodservice.SetBackDispositionResponse
+	(*SetCandidatesViewRequest)(nil),                                     // 318: inputmethodservice.SetCandidatesViewRequest
+	(*SetCandidatesViewResponse)(nil),                                    // 319: inputmethodservice.SetCandidatesViewResponse
+	(*SetCandidatesViewShownRequest)(nil),                                // 320: inputmethodservice.SetCandidatesViewShownRequest
+	(*SetCandidatesViewShownResponse)(nil),                               // 321: inputmethodservice.SetCandidatesViewShownResponse
+	(*SetExtractViewRequest)(nil),                                        // 322: inputmethodservice.SetExtractViewRequest
+	(*SetExtractViewResponse)(nil),                                       // 323: inputmethodservice.SetExtractViewResponse
+	(*SetExtractViewShownRequest)(nil),                                   // 324: inputmethodservice.SetExtractViewShownRequest
+	(*SetExtractViewShownResponse)(nil),                                  // 325: inputmethodservice.SetExtractViewShownResponse
+	(*SetInputViewRequest)(nil),                                          // 326: inputmethodservice.SetInputViewRequest
+	(*SetInputViewResponse)(nil),                                         // 327: inputmethodservice.SetInputViewResponse
+	(*SetStylusHandwritingRegionRequest)(nil),                            // 328: inputmethodservice.SetStylusHandwritingRegionRequest
+	(*SetStylusHandwritingRegionResponse)(nil),                           // 329: inputmethodservice.SetStylusHandwritingRegionResponse
+	(*SetStylusHandwritingSessionTimeoutRequest)(nil),                    // 330: inputmethodservice.SetStylusHandwritingSessionTimeoutRequest
+	(*SetStylusHandwritingSessionTimeoutResponse)(nil),                   // 331: inputmethodservice.SetStylusHandwritingSessionTimeoutResponse
+	(*SetThemeRequest)(nil),                                              // 332: inputmethodservice.SetThemeRequest
+	(*SetThemeResponse)(nil),                                             // 333: inputmethodservice.SetThemeResponse
+	(*ShouldOfferSwitchingToNextInputMethodRequest)(nil),                 // 334: inputmethodservice.ShouldOfferSwitchingToNextInputMethodRequest
+	(*ShouldOfferSwitchingToNextInputMethodResponse)(nil),                // 335: inputmethodservice.ShouldOfferSwitchingToNextInputMethodResponse
+	(*ShowStatusIconRequest)(nil),                                        // 336: inputmethodservice.ShowStatusIconRequest
+	(*ShowStatusIconResponse)(nil),                                       // 337: inputmethodservice.ShowStatusIconResponse
+	(*ShowWindowRequest)(nil),                                            // 338: inputmethodservice.ShowWindowRequest
+	(*ShowWindowResponse)(nil),                                           // 339: inputmethodservice.ShowWindowResponse
+	(*SwitchInputMethod1Request)(nil),                                    // 340: inputmethodservice.SwitchInputMethod1Request
+	(*SwitchInputMethod1Response)(nil),                                   // 341: inputmethodservice.SwitchInputMethod1Response
+	(*SwitchInputMethod2_1Request)(nil),                                  // 342: inputmethodservice.SwitchInputMethod2_1Request
+	(*SwitchInputMethod2_1Response)(nil),                                 // 343: inputmethodservice.SwitchInputMethod2_1Response
+	(*SwitchToNextInputMethodRequest)(nil),                               // 344: inputmethodservice.SwitchToNextInputMethodRequest
+	(*SwitchToNextInputMethodResponse)(nil),                              // 345: inputmethodservice.SwitchToNextInputMethodResponse
+	(*SwitchToPreviousInputMethodRequest)(nil),                           // 346: inputmethodservice.SwitchToPreviousInputMethodRequest
+	(*SwitchToPreviousInputMethodResponse)(nil),                          // 347: inputmethodservice.SwitchToPreviousInputMethodResponse
+	(*UpdateFullscreenModeRequest)(nil),                                  // 348: inputmethodservice.UpdateFullscreenModeRequest
+	(*UpdateFullscreenModeResponse)(nil),                                 // 349: inputmethodservice.UpdateFullscreenModeResponse
+	(*UpdateInputViewShownRequest)(nil),                                  // 350: inputmethodservice.UpdateInputViewShownRequest
+	(*UpdateInputViewShownResponse)(nil),                                 // 351: inputmethodservice.UpdateInputViewShownResponse
+	(*GetStylusHandwritingIdleTimeoutMaxRequest)(nil),                    // 352: inputmethodservice.GetStylusHandwritingIdleTimeoutMaxRequest
+	(*GetStylusHandwritingIdleTimeoutMaxResponse)(nil),                   // 353: inputmethodservice.GetStylusHandwritingIdleTimeoutMaxResponse
+	(*AttachTokenRequest)(nil),                                           // 354: inputmethodservice.AttachTokenRequest
+	(*AttachTokenResponse)(nil),                                          // 355: inputmethodservice.AttachTokenResponse
+	(*BindInputRequest)(nil),                                             // 356: inputmethodservice.BindInputRequest
+	(*BindInputResponse)(nil),                                            // 357: inputmethodservice.BindInputResponse
+	(*ChangeInputMethodSubtypeRequest)(nil),                              // 358: inputmethodservice.ChangeInputMethodSubtypeRequest
+	(*ChangeInputMethodSubtypeResponse)(nil),                             // 359: inputmethodservice.ChangeInputMethodSubtypeResponse
+	(*HideSoftInputRequest)(nil),                                         // 360: inputmethodservice.HideSoftInputRequest
+	(*HideSoftInputResponse)(nil),                                        // 361: inputmethodservice.HideSoftInputResponse
+	(*RestartInputRequest)(nil),                                          // 362: inputmethodservice.RestartInputRequest
+	(*RestartInputResponse)(nil),                                         // 363: inputmethodservice.RestartInputResponse
+	(*ShowSoftInputRequest)(nil),                                         // 364: inputmethodservice.ShowSoftInputRequest
+	(*ShowSoftInputResponse)(nil),                                        // 365: inputmethodservice.ShowSoftInputResponse
+	(*StartInputRequest)(nil),                                            // 366: inputmethodservice.StartInputRequest
+	(*StartInputResponse)(nil),                                           // 367: inputmethodservice.StartInputResponse
+	(*UnbindInputRequest)(nil),                                           // 368: inputmethodservice.UnbindInputRequest
+	(*UnbindInputResponse)(nil),                                          // 369: inputmethodservice.UnbindInputResponse
+	(*AppPrivateCommandRequest)(nil),                                     // 370: inputmethodservice.AppPrivateCommandRequest
+	(*AppPrivateCommandResponse)(nil),                                    // 371: inputmethodservice.AppPrivateCommandResponse
+	(*DisplayCompletionsRequest)(nil),                                    // 372: inputmethodservice.DisplayCompletionsRequest
+	(*DisplayCompletionsResponse)(nil),                                   // 373: inputmethodservice.DisplayCompletionsResponse
+	(*FinishInputRequest)(nil),                                           // 374: inputmethodservice.FinishInputRequest
+	(*FinishInputResponse)(nil),                                          // 375: inputmethodservice.FinishInputResponse
+	(*ToggleSoftInputRequest)(nil),                                       // 376: inputmethodservice.ToggleSoftInputRequest
+	(*ToggleSoftInputResponse)(nil),                                      // 377: inputmethodservice.ToggleSoftInputResponse
+	(*UpdateCursorRequest)(nil),                                          // 378: inputmethodservice.UpdateCursorRequest
+	(*UpdateCursorResponse)(nil),                                         // 379: inputmethodservice.UpdateCursorResponse
+	(*UpdateCursorAnchorInfoRequest)(nil),                                // 380: inputmethodservice.UpdateCursorAnchorInfoRequest
+	(*UpdateCursorAnchorInfoResponse)(nil),                               // 381: inputmethodservice.UpdateCursorAnchorInfoResponse
+	(*UpdateExtractedTextRequest)(nil),                                   // 382: inputmethodservice.UpdateExtractedTextRequest
+	(*UpdateExtractedTextResponse)(nil),                                  // 383: inputmethodservice.UpdateExtractedTextResponse
+	(*UpdateSelectionRequest)(nil),                                       // 384: inputmethodservice.UpdateSelectionRequest
+	(*UpdateSelectionResponse)(nil),                                      // 385: inputmethodservice.UpdateSelectionResponse
+	(*ViewClickedRequest)(nil),                                           // 386: inputmethodservice.ViewClickedRequest
+	(*ViewClickedResponse)(nil),                                          // 387: inputmethodservice.ViewClickedResponse
 }
 var file_proto_inputmethodservice_inputmethodservice_proto_depIdxs = []int32{
-	0,   // 0: inputmethodservice.KeyboardService.NewKeyboard:input_type -> inputmethodservice.NewKeyboardRequest
-	2,   // 1: inputmethodservice.KeyboardService.GetHeight:input_type -> inputmethodservice.GetHeightRequest
-	4,   // 2: inputmethodservice.KeyboardService.GetMinWidth:input_type -> inputmethodservice.GetMinWidthRequest
-	6,   // 3: inputmethodservice.KeyboardService.GetNearestKeys:input_type -> inputmethodservice.GetNearestKeysRequest
-	8,   // 4: inputmethodservice.KeyboardService.GetShiftKeyIndex:input_type -> inputmethodservice.GetShiftKeyIndexRequest
-	10,  // 5: inputmethodservice.KeyboardService.IsShifted:input_type -> inputmethodservice.IsShiftedRequest
-	12,  // 6: inputmethodservice.KeyboardService.SetShifted:input_type -> inputmethodservice.SetShiftedRequest
-	14,  // 7: inputmethodservice.KeyboardKeyService.GetCurrentDrawableState:input_type -> inputmethodservice.GetCurrentDrawableStateRequest
-	16,  // 8: inputmethodservice.KeyboardKeyService.IsInside:input_type -> inputmethodservice.IsInsideRequest
-	18,  // 9: inputmethodservice.KeyboardKeyService.OnPressed:input_type -> inputmethodservice.OnPressedRequest
-	20,  // 10: inputmethodservice.KeyboardKeyService.OnReleased:input_type -> inputmethodservice.OnReleasedRequest
-	22,  // 11: inputmethodservice.KeyboardKeyService.SquaredDistanceFrom:input_type -> inputmethodservice.SquaredDistanceFromRequest
-	24,  // 12: inputmethodservice.AbstractInputMethodServiceService.GetKeyDispatcherState:input_type -> inputmethodservice.GetKeyDispatcherStateRequest
-	26,  // 13: inputmethodservice.AbstractInputMethodServiceService.GetSystemService:input_type -> inputmethodservice.GetSystemServiceRequest
-	28,  // 14: inputmethodservice.AbstractInputMethodServiceService.OnBind:input_type -> inputmethodservice.OnBindRequest
-	30,  // 15: inputmethodservice.AbstractInputMethodServiceService.OnConfigurationChanged:input_type -> inputmethodservice.OnConfigurationChangedRequest
-	32,  // 16: inputmethodservice.AbstractInputMethodServiceService.OnCreateInputMethodInterface:input_type -> inputmethodservice.OnCreateInputMethodInterfaceRequest
-	34,  // 17: inputmethodservice.AbstractInputMethodServiceService.OnCreateInputMethodSessionInterface:input_type -> inputmethodservice.OnCreateInputMethodSessionInterfaceRequest
-	36,  // 18: inputmethodservice.AbstractInputMethodServiceService.OnDestroy:input_type -> inputmethodservice.OnDestroyRequest
-	38,  // 19: inputmethodservice.AbstractInputMethodServiceService.OnGenericMotionEvent:input_type -> inputmethodservice.OnGenericMotionEventRequest
-	40,  // 20: inputmethodservice.AbstractInputMethodServiceService.OnLowMemory:input_type -> inputmethodservice.OnLowMemoryRequest
-	42,  // 21: inputmethodservice.AbstractInputMethodServiceService.OnShouldVerifyKeyEvent:input_type -> inputmethodservice.OnShouldVerifyKeyEventRequest
-	44,  // 22: inputmethodservice.AbstractInputMethodServiceService.OnTrackballEvent:input_type -> inputmethodservice.OnTrackballEventRequest
-	46,  // 23: inputmethodservice.AbstractInputMethodServiceService.OnTrimMemory:input_type -> inputmethodservice.OnTrimMemoryRequest
-	48,  // 24: inputmethodservice.AbstractInputMethodServiceService.RegisterComponentCallbacks:input_type -> inputmethodservice.RegisterComponentCallbacksRequest
-	50,  // 25: inputmethodservice.AbstractInputMethodServiceService.UnregisterComponentCallbacks:input_type -> inputmethodservice.UnregisterComponentCallbacksRequest
-	52,  // 26: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodImplService.CreateSession:input_type -> inputmethodservice.CreateSessionRequest
-	54,  // 27: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodImplService.RevokeSession:input_type -> inputmethodservice.RevokeSessionRequest
-	56,  // 28: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodImplService.SetSessionEnabled:input_type -> inputmethodservice.SetSessionEnabledRequest
-	58,  // 29: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodSessionImplService.DispatchGenericMotionEvent:input_type -> inputmethodservice.DispatchGenericMotionEventRequest
-	60,  // 30: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodSessionImplService.DispatchKeyEvent:input_type -> inputmethodservice.DispatchKeyEventRequest
-	62,  // 31: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodSessionImplService.DispatchTrackballEvent:input_type -> inputmethodservice.DispatchTrackballEventRequest
-	64,  // 32: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodSessionImplService.IsEnabled:input_type -> inputmethodservice.IsEnabledRequest
-	66,  // 33: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodSessionImplService.IsRevoked:input_type -> inputmethodservice.IsRevokedRequest
-	42,  // 34: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodSessionImplService.OnShouldVerifyKeyEvent:input_type -> inputmethodservice.OnShouldVerifyKeyEventRequest
-	68,  // 35: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodSessionImplService.RevokeSelf:input_type -> inputmethodservice.RevokeSelfRequest
-	70,  // 36: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodSessionImplService.SetEnabled:input_type -> inputmethodservice.SetEnabledRequest
-	72,  // 37: inputmethodservice.InputMethodServiceService.NewInputMethodService:input_type -> inputmethodservice.NewInputMethodServiceRequest
-	74,  // 38: inputmethodservice.InputMethodServiceService.EnableHardwareAcceleration:input_type -> inputmethodservice.EnableHardwareAccelerationRequest
-	76,  // 39: inputmethodservice.InputMethodServiceService.FinishConnectionlessStylusHandwriting:input_type -> inputmethodservice.FinishConnectionlessStylusHandwritingRequest
-	78,  // 40: inputmethodservice.InputMethodServiceService.FinishStylusHandwriting:input_type -> inputmethodservice.FinishStylusHandwritingRequest
-	80,  // 41: inputmethodservice.InputMethodServiceService.GetBackDisposition:input_type -> inputmethodservice.GetBackDispositionRequest
-	82,  // 42: inputmethodservice.InputMethodServiceService.GetCandidatesHiddenVisibility:input_type -> inputmethodservice.GetCandidatesHiddenVisibilityRequest
-	84,  // 43: inputmethodservice.InputMethodServiceService.GetCurrentInputBinding:input_type -> inputmethodservice.GetCurrentInputBindingRequest
-	86,  // 44: inputmethodservice.InputMethodServiceService.GetCurrentInputConnection:input_type -> inputmethodservice.GetCurrentInputConnectionRequest
-	88,  // 45: inputmethodservice.InputMethodServiceService.GetCurrentInputEditorInfo:input_type -> inputmethodservice.GetCurrentInputEditorInfoRequest
-	90,  // 46: inputmethodservice.InputMethodServiceService.GetCurrentInputStarted:input_type -> inputmethodservice.GetCurrentInputStartedRequest
-	92,  // 47: inputmethodservice.InputMethodServiceService.GetInputMethodWindowRecommendedHeight:input_type -> inputmethodservice.GetInputMethodWindowRecommendedHeightRequest
-	94,  // 48: inputmethodservice.InputMethodServiceService.GetLayoutInflater:input_type -> inputmethodservice.GetLayoutInflaterRequest
-	96,  // 49: inputmethodservice.InputMethodServiceService.GetMaxWidth:input_type -> inputmethodservice.GetMaxWidthRequest
-	98,  // 50: inputmethodservice.InputMethodServiceService.GetStylusHandwritingSessionTimeout:input_type -> inputmethodservice.GetStylusHandwritingSessionTimeoutRequest
-	100, // 51: inputmethodservice.InputMethodServiceService.GetStylusHandwritingWindow:input_type -> inputmethodservice.GetStylusHandwritingWindowRequest
-	102, // 52: inputmethodservice.InputMethodServiceService.GetSystemService:input_type -> inputmethodservice.InputMethodServiceGetSystemServiceRequest
-	103, // 53: inputmethodservice.InputMethodServiceService.GetTextForImeAction:input_type -> inputmethodservice.GetTextForImeActionRequest
-	105, // 54: inputmethodservice.InputMethodServiceService.GetWindow:input_type -> inputmethodservice.GetWindowRequest
-	107, // 55: inputmethodservice.InputMethodServiceService.HideStatusIcon:input_type -> inputmethodservice.HideStatusIconRequest
-	109, // 56: inputmethodservice.InputMethodServiceService.HideWindow:input_type -> inputmethodservice.HideWindowRequest
-	111, // 57: inputmethodservice.InputMethodServiceService.IsExtractViewShown:input_type -> inputmethodservice.IsExtractViewShownRequest
-	113, // 58: inputmethodservice.InputMethodServiceService.IsFullscreenMode:input_type -> inputmethodservice.IsFullscreenModeRequest
-	115, // 59: inputmethodservice.InputMethodServiceService.IsInputViewShown:input_type -> inputmethodservice.IsInputViewShownRequest
-	117, // 60: inputmethodservice.InputMethodServiceService.IsShowInputRequested:input_type -> inputmethodservice.IsShowInputRequestedRequest
-	119, // 61: inputmethodservice.InputMethodServiceService.OnAppPrivateCommand:input_type -> inputmethodservice.OnAppPrivateCommandRequest
-	121, // 62: inputmethodservice.InputMethodServiceService.OnBindInput:input_type -> inputmethodservice.OnBindInputRequest
-	123, // 63: inputmethodservice.InputMethodServiceService.OnComputeInsets:input_type -> inputmethodservice.OnComputeInsetsRequest
-	125, // 64: inputmethodservice.InputMethodServiceService.OnConfigurationChanged:input_type -> inputmethodservice.InputMethodServiceOnConfigurationChangedRequest
-	126, // 65: inputmethodservice.InputMethodServiceService.OnConfigureWindow:input_type -> inputmethodservice.OnConfigureWindowRequest
-	128, // 66: inputmethodservice.InputMethodServiceService.OnCreate:input_type -> inputmethodservice.OnCreateRequest
-	130, // 67: inputmethodservice.InputMethodServiceService.OnCreateCandidatesView:input_type -> inputmethodservice.OnCreateCandidatesViewRequest
-	132, // 68: inputmethodservice.InputMethodServiceService.OnCreateExtractTextView:input_type -> inputmethodservice.OnCreateExtractTextViewRequest
-	134, // 69: inputmethodservice.InputMethodServiceService.OnCreateInlineSuggestionsRequest:input_type -> inputmethodservice.OnCreateInlineSuggestionsRequestRequest
-	136, // 70: inputmethodservice.InputMethodServiceService.OnCreateInputMethodInterface:input_type -> inputmethodservice.InputMethodServiceOnCreateInputMethodInterfaceRequest
-	137, // 71: inputmethodservice.InputMethodServiceService.OnCreateInputMethodSessionInterface:input_type -> inputmethodservice.InputMethodServiceOnCreateInputMethodSessionInterfaceRequest
-	138, // 72: inputmethodservice.InputMethodServiceService.OnCreateInputView:input_type -> inputmethodservice.OnCreateInputViewRequest
-	140, // 73: inputmethodservice.InputMethodServiceService.OnCustomImeSwitcherButtonRequestedVisible:input_type -> inputmethodservice.OnCustomImeSwitcherButtonRequestedVisibleRequest
-	142, // 74: inputmethodservice.InputMethodServiceService.OnDestroy:input_type -> inputmethodservice.InputMethodServiceOnDestroyRequest
-	143, // 75: inputmethodservice.InputMethodServiceService.OnDisplayCompletions:input_type -> inputmethodservice.OnDisplayCompletionsRequest
-	145, // 76: inputmethodservice.InputMethodServiceService.OnEvaluateFullscreenMode:input_type -> inputmethodservice.OnEvaluateFullscreenModeRequest
-	147, // 77: inputmethodservice.InputMethodServiceService.OnEvaluateInputViewShown:input_type -> inputmethodservice.OnEvaluateInputViewShownRequest
-	149, // 78: inputmethodservice.InputMethodServiceService.OnExtractTextContextMenuItem:input_type -> inputmethodservice.OnExtractTextContextMenuItemRequest
-	151, // 79: inputmethodservice.InputMethodServiceService.OnExtractedCursorMovement:input_type -> inputmethodservice.OnExtractedCursorMovementRequest
-	153, // 80: inputmethodservice.InputMethodServiceService.OnExtractedSelectionChanged:input_type -> inputmethodservice.OnExtractedSelectionChangedRequest
-	155, // 81: inputmethodservice.InputMethodServiceService.OnExtractedTextClicked:input_type -> inputmethodservice.OnExtractedTextClickedRequest
-	157, // 82: inputmethodservice.InputMethodServiceService.OnExtractingInputChanged:input_type -> inputmethodservice.OnExtractingInputChangedRequest
-	159, // 83: inputmethodservice.InputMethodServiceService.OnFinishCandidatesView:input_type -> inputmethodservice.OnFinishCandidatesViewRequest
-	161, // 84: inputmethodservice.InputMethodServiceService.OnFinishInput:input_type -> inputmethodservice.OnFinishInputRequest
-	163, // 85: inputmethodservice.InputMethodServiceService.OnFinishInputView:input_type -> inputmethodservice.OnFinishInputViewRequest
-	165, // 86: inputmethodservice.InputMethodServiceService.OnFinishStylusHandwriting:input_type -> inputmethodservice.OnFinishStylusHandwritingRequest
-	167, // 87: inputmethodservice.InputMethodServiceService.OnGenericMotionEvent:input_type -> inputmethodservice.InputMethodServiceOnGenericMotionEventRequest
-	168, // 88: inputmethodservice.InputMethodServiceService.OnInitializeInterface:input_type -> inputmethodservice.OnInitializeInterfaceRequest
-	170, // 89: inputmethodservice.InputMethodServiceService.OnInlineSuggestionsResponse:input_type -> inputmethodservice.OnInlineSuggestionsResponseRequest
-	172, // 90: inputmethodservice.InputMethodServiceService.OnKeyDown:input_type -> inputmethodservice.OnKeyDownRequest
-	174, // 91: inputmethodservice.InputMethodServiceService.OnKeyLongPress:input_type -> inputmethodservice.OnKeyLongPressRequest
-	176, // 92: inputmethodservice.InputMethodServiceService.OnKeyMultiple:input_type -> inputmethodservice.OnKeyMultipleRequest
-	178, // 93: inputmethodservice.InputMethodServiceService.OnKeyUp:input_type -> inputmethodservice.OnKeyUpRequest
-	180, // 94: inputmethodservice.InputMethodServiceService.OnPrepareStylusHandwriting:input_type -> inputmethodservice.OnPrepareStylusHandwritingRequest
-	182, // 95: inputmethodservice.InputMethodServiceService.OnShouldVerifyKeyEvent:input_type -> inputmethodservice.InputMethodServiceOnShouldVerifyKeyEventRequest
-	183, // 96: inputmethodservice.InputMethodServiceService.OnShowInputRequested:input_type -> inputmethodservice.OnShowInputRequestedRequest
-	185, // 97: inputmethodservice.InputMethodServiceService.OnStartCandidatesView:input_type -> inputmethodservice.OnStartCandidatesViewRequest
-	187, // 98: inputmethodservice.InputMethodServiceService.OnStartConnectionlessStylusHandwriting:input_type -> inputmethodservice.OnStartConnectionlessStylusHandwritingRequest
-	189, // 99: inputmethodservice.InputMethodServiceService.OnStartInput:input_type -> inputmethodservice.OnStartInputRequest
-	191, // 100: inputmethodservice.InputMethodServiceService.OnStartInputView:input_type -> inputmethodservice.OnStartInputViewRequest
-	193, // 101: inputmethodservice.InputMethodServiceService.OnStartStylusHandwriting:input_type -> inputmethodservice.OnStartStylusHandwritingRequest
-	195, // 102: inputmethodservice.InputMethodServiceService.OnStylusHandwritingMotionEvent:input_type -> inputmethodservice.OnStylusHandwritingMotionEventRequest
-	197, // 103: inputmethodservice.InputMethodServiceService.OnTrackballEvent:input_type -> inputmethodservice.InputMethodServiceOnTrackballEventRequest
-	198, // 104: inputmethodservice.InputMethodServiceService.OnUnbindInput:input_type -> inputmethodservice.OnUnbindInputRequest
-	200, // 105: inputmethodservice.InputMethodServiceService.OnUpdateCursor:input_type -> inputmethodservice.OnUpdateCursorRequest
-	202, // 106: inputmethodservice.InputMethodServiceService.OnUpdateCursorAnchorInfo:input_type -> inputmethodservice.OnUpdateCursorAnchorInfoRequest
-	204, // 107: inputmethodservice.InputMethodServiceService.OnUpdateEditorToolType:input_type -> inputmethodservice.OnUpdateEditorToolTypeRequest
-	206, // 108: inputmethodservice.InputMethodServiceService.OnUpdateExtractedText:input_type -> inputmethodservice.OnUpdateExtractedTextRequest
-	208, // 109: inputmethodservice.InputMethodServiceService.OnUpdateExtractingViews:input_type -> inputmethodservice.OnUpdateExtractingViewsRequest
-	210, // 110: inputmethodservice.InputMethodServiceService.OnUpdateExtractingVisibility:input_type -> inputmethodservice.OnUpdateExtractingVisibilityRequest
-	212, // 111: inputmethodservice.InputMethodServiceService.OnUpdateSelection:input_type -> inputmethodservice.OnUpdateSelectionRequest
-	214, // 112: inputmethodservice.InputMethodServiceService.OnViewClicked:input_type -> inputmethodservice.OnViewClickedRequest
-	216, // 113: inputmethodservice.InputMethodServiceService.OnWindowHidden:input_type -> inputmethodservice.OnWindowHiddenRequest
-	218, // 114: inputmethodservice.InputMethodServiceService.OnWindowShown:input_type -> inputmethodservice.OnWindowShownRequest
-	220, // 115: inputmethodservice.InputMethodServiceService.RequestHideSelf:input_type -> inputmethodservice.RequestHideSelfRequest
-	222, // 116: inputmethodservice.InputMethodServiceService.RequestShowSelf:input_type -> inputmethodservice.RequestShowSelfRequest
-	224, // 117: inputmethodservice.InputMethodServiceService.SendDefaultEditorAction:input_type -> inputmethodservice.SendDefaultEditorActionRequest
-	226, // 118: inputmethodservice.InputMethodServiceService.SendDownUpKeyEvents:input_type -> inputmethodservice.SendDownUpKeyEventsRequest
-	228, // 119: inputmethodservice.InputMethodServiceService.SendKeyChar:input_type -> inputmethodservice.SendKeyCharRequest
-	230, // 120: inputmethodservice.InputMethodServiceService.SetBackDisposition:input_type -> inputmethodservice.SetBackDispositionRequest
-	232, // 121: inputmethodservice.InputMethodServiceService.SetCandidatesView:input_type -> inputmethodservice.SetCandidatesViewRequest
-	234, // 122: inputmethodservice.InputMethodServiceService.SetCandidatesViewShown:input_type -> inputmethodservice.SetCandidatesViewShownRequest
-	236, // 123: inputmethodservice.InputMethodServiceService.SetExtractView:input_type -> inputmethodservice.SetExtractViewRequest
-	238, // 124: inputmethodservice.InputMethodServiceService.SetExtractViewShown:input_type -> inputmethodservice.SetExtractViewShownRequest
-	240, // 125: inputmethodservice.InputMethodServiceService.SetInputView:input_type -> inputmethodservice.SetInputViewRequest
-	242, // 126: inputmethodservice.InputMethodServiceService.SetStylusHandwritingRegion:input_type -> inputmethodservice.SetStylusHandwritingRegionRequest
-	244, // 127: inputmethodservice.InputMethodServiceService.SetStylusHandwritingSessionTimeout:input_type -> inputmethodservice.SetStylusHandwritingSessionTimeoutRequest
-	246, // 128: inputmethodservice.InputMethodServiceService.SetTheme:input_type -> inputmethodservice.SetThemeRequest
-	248, // 129: inputmethodservice.InputMethodServiceService.ShouldOfferSwitchingToNextInputMethod:input_type -> inputmethodservice.ShouldOfferSwitchingToNextInputMethodRequest
-	250, // 130: inputmethodservice.InputMethodServiceService.ShowStatusIcon:input_type -> inputmethodservice.ShowStatusIconRequest
-	252, // 131: inputmethodservice.InputMethodServiceService.ShowWindow:input_type -> inputmethodservice.ShowWindowRequest
-	254, // 132: inputmethodservice.InputMethodServiceService.SwitchInputMethod1:input_type -> inputmethodservice.SwitchInputMethod1Request
-	256, // 133: inputmethodservice.InputMethodServiceService.SwitchInputMethod2_1:input_type -> inputmethodservice.SwitchInputMethod2_1Request
-	258, // 134: inputmethodservice.InputMethodServiceService.SwitchToNextInputMethod:input_type -> inputmethodservice.SwitchToNextInputMethodRequest
-	260, // 135: inputmethodservice.InputMethodServiceService.SwitchToPreviousInputMethod:input_type -> inputmethodservice.SwitchToPreviousInputMethodRequest
-	262, // 136: inputmethodservice.InputMethodServiceService.UpdateFullscreenMode:input_type -> inputmethodservice.UpdateFullscreenModeRequest
-	264, // 137: inputmethodservice.InputMethodServiceService.UpdateInputViewShown:input_type -> inputmethodservice.UpdateInputViewShownRequest
-	266, // 138: inputmethodservice.InputMethodServiceService.GetStylusHandwritingIdleTimeoutMax:input_type -> inputmethodservice.GetStylusHandwritingIdleTimeoutMaxRequest
-	268, // 139: inputmethodservice.InputMethodServiceInputMethodImplService.AttachToken:input_type -> inputmethodservice.AttachTokenRequest
-	270, // 140: inputmethodservice.InputMethodServiceInputMethodImplService.BindInput:input_type -> inputmethodservice.BindInputRequest
-	272, // 141: inputmethodservice.InputMethodServiceInputMethodImplService.ChangeInputMethodSubtype:input_type -> inputmethodservice.ChangeInputMethodSubtypeRequest
-	274, // 142: inputmethodservice.InputMethodServiceInputMethodImplService.HideSoftInput:input_type -> inputmethodservice.HideSoftInputRequest
-	276, // 143: inputmethodservice.InputMethodServiceInputMethodImplService.RestartInput:input_type -> inputmethodservice.RestartInputRequest
-	278, // 144: inputmethodservice.InputMethodServiceInputMethodImplService.ShowSoftInput:input_type -> inputmethodservice.ShowSoftInputRequest
-	280, // 145: inputmethodservice.InputMethodServiceInputMethodImplService.StartInput:input_type -> inputmethodservice.StartInputRequest
-	282, // 146: inputmethodservice.InputMethodServiceInputMethodImplService.UnbindInput:input_type -> inputmethodservice.UnbindInputRequest
-	284, // 147: inputmethodservice.InputMethodServiceInputMethodSessionImplService.AppPrivateCommand:input_type -> inputmethodservice.AppPrivateCommandRequest
-	286, // 148: inputmethodservice.InputMethodServiceInputMethodSessionImplService.DisplayCompletions:input_type -> inputmethodservice.DisplayCompletionsRequest
-	288, // 149: inputmethodservice.InputMethodServiceInputMethodSessionImplService.FinishInput:input_type -> inputmethodservice.FinishInputRequest
-	290, // 150: inputmethodservice.InputMethodServiceInputMethodSessionImplService.ToggleSoftInput:input_type -> inputmethodservice.ToggleSoftInputRequest
-	292, // 151: inputmethodservice.InputMethodServiceInputMethodSessionImplService.UpdateCursor:input_type -> inputmethodservice.UpdateCursorRequest
-	294, // 152: inputmethodservice.InputMethodServiceInputMethodSessionImplService.UpdateCursorAnchorInfo:input_type -> inputmethodservice.UpdateCursorAnchorInfoRequest
-	296, // 153: inputmethodservice.InputMethodServiceInputMethodSessionImplService.UpdateExtractedText:input_type -> inputmethodservice.UpdateExtractedTextRequest
-	298, // 154: inputmethodservice.InputMethodServiceInputMethodSessionImplService.UpdateSelection:input_type -> inputmethodservice.UpdateSelectionRequest
-	300, // 155: inputmethodservice.InputMethodServiceInputMethodSessionImplService.ViewClicked:input_type -> inputmethodservice.ViewClickedRequest
-	302, // 156: inputmethodservice.ExtractEditTextService.NewExtractEditText:input_type -> inputmethodservice.NewExtractEditTextRequest
-	304, // 157: inputmethodservice.ExtractEditTextService.FinishInternalChanges:input_type -> inputmethodservice.FinishInternalChangesRequest
-	306, // 158: inputmethodservice.ExtractEditTextService.HasFocus:input_type -> inputmethodservice.HasFocusRequest
-	308, // 159: inputmethodservice.ExtractEditTextService.HasVerticalScrollBar:input_type -> inputmethodservice.HasVerticalScrollBarRequest
-	310, // 160: inputmethodservice.ExtractEditTextService.HasWindowFocus:input_type -> inputmethodservice.HasWindowFocusRequest
-	312, // 161: inputmethodservice.ExtractEditTextService.IsFocused:input_type -> inputmethodservice.IsFocusedRequest
-	314, // 162: inputmethodservice.ExtractEditTextService.IsInputMethodTarget:input_type -> inputmethodservice.IsInputMethodTargetRequest
-	316, // 163: inputmethodservice.ExtractEditTextService.OnTextContextMenuItem:input_type -> inputmethodservice.OnTextContextMenuItemRequest
-	318, // 164: inputmethodservice.ExtractEditTextService.PerformClick:input_type -> inputmethodservice.PerformClickRequest
-	320, // 165: inputmethodservice.ExtractEditTextService.SetExtractedText:input_type -> inputmethodservice.SetExtractedTextRequest
-	322, // 166: inputmethodservice.ExtractEditTextService.StartInternalChanges:input_type -> inputmethodservice.StartInternalChangesRequest
-	324, // 167: inputmethodservice.KeyboardViewService.NewKeyboardView:input_type -> inputmethodservice.NewKeyboardViewRequest
-	326, // 168: inputmethodservice.KeyboardViewService.Closing:input_type -> inputmethodservice.ClosingRequest
-	328, // 169: inputmethodservice.KeyboardViewService.GetKeyboard:input_type -> inputmethodservice.GetKeyboardRequest
-	330, // 170: inputmethodservice.KeyboardViewService.HandleBack:input_type -> inputmethodservice.HandleBackRequest
-	332, // 171: inputmethodservice.KeyboardViewService.InvalidateAllKeys:input_type -> inputmethodservice.InvalidateAllKeysRequest
-	334, // 172: inputmethodservice.KeyboardViewService.InvalidateKey:input_type -> inputmethodservice.InvalidateKeyRequest
-	336, // 173: inputmethodservice.KeyboardViewService.IsPreviewEnabled:input_type -> inputmethodservice.IsPreviewEnabledRequest
-	338, // 174: inputmethodservice.KeyboardViewService.IsProximityCorrectionEnabled:input_type -> inputmethodservice.IsProximityCorrectionEnabledRequest
-	10,  // 175: inputmethodservice.KeyboardViewService.IsShifted:input_type -> inputmethodservice.IsShiftedRequest
-	340, // 176: inputmethodservice.KeyboardViewService.OnClick:input_type -> inputmethodservice.OnClickRequest
-	342, // 177: inputmethodservice.KeyboardViewService.OnDetachedFromWindow:input_type -> inputmethodservice.OnDetachedFromWindowRequest
-	344, // 178: inputmethodservice.KeyboardViewService.OnDraw:input_type -> inputmethodservice.OnDrawRequest
-	346, // 179: inputmethodservice.KeyboardViewService.OnHoverEvent:input_type -> inputmethodservice.OnHoverEventRequest
-	348, // 180: inputmethodservice.KeyboardViewService.OnMeasure:input_type -> inputmethodservice.OnMeasureRequest
-	350, // 181: inputmethodservice.KeyboardViewService.OnSizeChanged:input_type -> inputmethodservice.OnSizeChangedRequest
-	352, // 182: inputmethodservice.KeyboardViewService.OnTouchEvent:input_type -> inputmethodservice.OnTouchEventRequest
-	354, // 183: inputmethodservice.KeyboardViewService.SetKeyboard:input_type -> inputmethodservice.SetKeyboardRequest
-	356, // 184: inputmethodservice.KeyboardViewService.SetOnKeyboardActionListener:input_type -> inputmethodservice.SetOnKeyboardActionListenerRequest
-	358, // 185: inputmethodservice.KeyboardViewService.SetPopupOffset:input_type -> inputmethodservice.SetPopupOffsetRequest
-	360, // 186: inputmethodservice.KeyboardViewService.SetPopupParent:input_type -> inputmethodservice.SetPopupParentRequest
-	362, // 187: inputmethodservice.KeyboardViewService.SetPreviewEnabled:input_type -> inputmethodservice.SetPreviewEnabledRequest
-	364, // 188: inputmethodservice.KeyboardViewService.SetProximityCorrectionEnabled:input_type -> inputmethodservice.SetProximityCorrectionEnabledRequest
-	12,  // 189: inputmethodservice.KeyboardViewService.SetShifted:input_type -> inputmethodservice.SetShiftedRequest
-	366, // 190: inputmethodservice.KeyboardViewService.SetVerticalCorrection:input_type -> inputmethodservice.SetVerticalCorrectionRequest
-	368, // 191: inputmethodservice.KeyboardViewOnKeyboardActionListenerService.OnKey:input_type -> inputmethodservice.OnKeyRequest
-	370, // 192: inputmethodservice.KeyboardViewOnKeyboardActionListenerService.OnPress:input_type -> inputmethodservice.OnPressRequest
-	372, // 193: inputmethodservice.KeyboardViewOnKeyboardActionListenerService.OnRelease:input_type -> inputmethodservice.OnReleaseRequest
-	374, // 194: inputmethodservice.KeyboardViewOnKeyboardActionListenerService.OnText:input_type -> inputmethodservice.OnTextRequest
-	376, // 195: inputmethodservice.KeyboardViewOnKeyboardActionListenerService.SwipeDown:input_type -> inputmethodservice.SwipeDownRequest
-	378, // 196: inputmethodservice.KeyboardViewOnKeyboardActionListenerService.SwipeLeft:input_type -> inputmethodservice.SwipeLeftRequest
-	380, // 197: inputmethodservice.KeyboardViewOnKeyboardActionListenerService.SwipeRight:input_type -> inputmethodservice.SwipeRightRequest
-	382, // 198: inputmethodservice.KeyboardViewOnKeyboardActionListenerService.SwipeUp:input_type -> inputmethodservice.SwipeUpRequest
-	1,   // 199: inputmethodservice.KeyboardService.NewKeyboard:output_type -> inputmethodservice.NewKeyboardResponse
-	3,   // 200: inputmethodservice.KeyboardService.GetHeight:output_type -> inputmethodservice.GetHeightResponse
-	5,   // 201: inputmethodservice.KeyboardService.GetMinWidth:output_type -> inputmethodservice.GetMinWidthResponse
-	7,   // 202: inputmethodservice.KeyboardService.GetNearestKeys:output_type -> inputmethodservice.GetNearestKeysResponse
-	9,   // 203: inputmethodservice.KeyboardService.GetShiftKeyIndex:output_type -> inputmethodservice.GetShiftKeyIndexResponse
-	11,  // 204: inputmethodservice.KeyboardService.IsShifted:output_type -> inputmethodservice.IsShiftedResponse
-	13,  // 205: inputmethodservice.KeyboardService.SetShifted:output_type -> inputmethodservice.SetShiftedResponse
-	15,  // 206: inputmethodservice.KeyboardKeyService.GetCurrentDrawableState:output_type -> inputmethodservice.GetCurrentDrawableStateResponse
-	17,  // 207: inputmethodservice.KeyboardKeyService.IsInside:output_type -> inputmethodservice.IsInsideResponse
-	19,  // 208: inputmethodservice.KeyboardKeyService.OnPressed:output_type -> inputmethodservice.OnPressedResponse
-	21,  // 209: inputmethodservice.KeyboardKeyService.OnReleased:output_type -> inputmethodservice.OnReleasedResponse
-	23,  // 210: inputmethodservice.KeyboardKeyService.SquaredDistanceFrom:output_type -> inputmethodservice.SquaredDistanceFromResponse
-	25,  // 211: inputmethodservice.AbstractInputMethodServiceService.GetKeyDispatcherState:output_type -> inputmethodservice.GetKeyDispatcherStateResponse
-	27,  // 212: inputmethodservice.AbstractInputMethodServiceService.GetSystemService:output_type -> inputmethodservice.GetSystemServiceResponse
-	29,  // 213: inputmethodservice.AbstractInputMethodServiceService.OnBind:output_type -> inputmethodservice.OnBindResponse
-	31,  // 214: inputmethodservice.AbstractInputMethodServiceService.OnConfigurationChanged:output_type -> inputmethodservice.OnConfigurationChangedResponse
-	33,  // 215: inputmethodservice.AbstractInputMethodServiceService.OnCreateInputMethodInterface:output_type -> inputmethodservice.OnCreateInputMethodInterfaceResponse
-	35,  // 216: inputmethodservice.AbstractInputMethodServiceService.OnCreateInputMethodSessionInterface:output_type -> inputmethodservice.OnCreateInputMethodSessionInterfaceResponse
-	37,  // 217: inputmethodservice.AbstractInputMethodServiceService.OnDestroy:output_type -> inputmethodservice.OnDestroyResponse
-	39,  // 218: inputmethodservice.AbstractInputMethodServiceService.OnGenericMotionEvent:output_type -> inputmethodservice.OnGenericMotionEventResponse
-	41,  // 219: inputmethodservice.AbstractInputMethodServiceService.OnLowMemory:output_type -> inputmethodservice.OnLowMemoryResponse
-	43,  // 220: inputmethodservice.AbstractInputMethodServiceService.OnShouldVerifyKeyEvent:output_type -> inputmethodservice.OnShouldVerifyKeyEventResponse
-	45,  // 221: inputmethodservice.AbstractInputMethodServiceService.OnTrackballEvent:output_type -> inputmethodservice.OnTrackballEventResponse
-	47,  // 222: inputmethodservice.AbstractInputMethodServiceService.OnTrimMemory:output_type -> inputmethodservice.OnTrimMemoryResponse
-	49,  // 223: inputmethodservice.AbstractInputMethodServiceService.RegisterComponentCallbacks:output_type -> inputmethodservice.RegisterComponentCallbacksResponse
-	51,  // 224: inputmethodservice.AbstractInputMethodServiceService.UnregisterComponentCallbacks:output_type -> inputmethodservice.UnregisterComponentCallbacksResponse
-	53,  // 225: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodImplService.CreateSession:output_type -> inputmethodservice.CreateSessionResponse
-	55,  // 226: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodImplService.RevokeSession:output_type -> inputmethodservice.RevokeSessionResponse
-	57,  // 227: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodImplService.SetSessionEnabled:output_type -> inputmethodservice.SetSessionEnabledResponse
-	59,  // 228: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodSessionImplService.DispatchGenericMotionEvent:output_type -> inputmethodservice.DispatchGenericMotionEventResponse
-	61,  // 229: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodSessionImplService.DispatchKeyEvent:output_type -> inputmethodservice.DispatchKeyEventResponse
-	63,  // 230: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodSessionImplService.DispatchTrackballEvent:output_type -> inputmethodservice.DispatchTrackballEventResponse
-	65,  // 231: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodSessionImplService.IsEnabled:output_type -> inputmethodservice.IsEnabledResponse
-	67,  // 232: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodSessionImplService.IsRevoked:output_type -> inputmethodservice.IsRevokedResponse
-	43,  // 233: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodSessionImplService.OnShouldVerifyKeyEvent:output_type -> inputmethodservice.OnShouldVerifyKeyEventResponse
-	69,  // 234: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodSessionImplService.RevokeSelf:output_type -> inputmethodservice.RevokeSelfResponse
-	71,  // 235: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodSessionImplService.SetEnabled:output_type -> inputmethodservice.SetEnabledResponse
-	73,  // 236: inputmethodservice.InputMethodServiceService.NewInputMethodService:output_type -> inputmethodservice.NewInputMethodServiceResponse
-	75,  // 237: inputmethodservice.InputMethodServiceService.EnableHardwareAcceleration:output_type -> inputmethodservice.EnableHardwareAccelerationResponse
-	77,  // 238: inputmethodservice.InputMethodServiceService.FinishConnectionlessStylusHandwriting:output_type -> inputmethodservice.FinishConnectionlessStylusHandwritingResponse
-	79,  // 239: inputmethodservice.InputMethodServiceService.FinishStylusHandwriting:output_type -> inputmethodservice.FinishStylusHandwritingResponse
-	81,  // 240: inputmethodservice.InputMethodServiceService.GetBackDisposition:output_type -> inputmethodservice.GetBackDispositionResponse
-	83,  // 241: inputmethodservice.InputMethodServiceService.GetCandidatesHiddenVisibility:output_type -> inputmethodservice.GetCandidatesHiddenVisibilityResponse
-	85,  // 242: inputmethodservice.InputMethodServiceService.GetCurrentInputBinding:output_type -> inputmethodservice.GetCurrentInputBindingResponse
-	87,  // 243: inputmethodservice.InputMethodServiceService.GetCurrentInputConnection:output_type -> inputmethodservice.GetCurrentInputConnectionResponse
-	89,  // 244: inputmethodservice.InputMethodServiceService.GetCurrentInputEditorInfo:output_type -> inputmethodservice.GetCurrentInputEditorInfoResponse
-	91,  // 245: inputmethodservice.InputMethodServiceService.GetCurrentInputStarted:output_type -> inputmethodservice.GetCurrentInputStartedResponse
-	93,  // 246: inputmethodservice.InputMethodServiceService.GetInputMethodWindowRecommendedHeight:output_type -> inputmethodservice.GetInputMethodWindowRecommendedHeightResponse
-	95,  // 247: inputmethodservice.InputMethodServiceService.GetLayoutInflater:output_type -> inputmethodservice.GetLayoutInflaterResponse
-	97,  // 248: inputmethodservice.InputMethodServiceService.GetMaxWidth:output_type -> inputmethodservice.GetMaxWidthResponse
-	99,  // 249: inputmethodservice.InputMethodServiceService.GetStylusHandwritingSessionTimeout:output_type -> inputmethodservice.GetStylusHandwritingSessionTimeoutResponse
-	101, // 250: inputmethodservice.InputMethodServiceService.GetStylusHandwritingWindow:output_type -> inputmethodservice.GetStylusHandwritingWindowResponse
-	27,  // 251: inputmethodservice.InputMethodServiceService.GetSystemService:output_type -> inputmethodservice.GetSystemServiceResponse
-	104, // 252: inputmethodservice.InputMethodServiceService.GetTextForImeAction:output_type -> inputmethodservice.GetTextForImeActionResponse
-	106, // 253: inputmethodservice.InputMethodServiceService.GetWindow:output_type -> inputmethodservice.GetWindowResponse
-	108, // 254: inputmethodservice.InputMethodServiceService.HideStatusIcon:output_type -> inputmethodservice.HideStatusIconResponse
-	110, // 255: inputmethodservice.InputMethodServiceService.HideWindow:output_type -> inputmethodservice.HideWindowResponse
-	112, // 256: inputmethodservice.InputMethodServiceService.IsExtractViewShown:output_type -> inputmethodservice.IsExtractViewShownResponse
-	114, // 257: inputmethodservice.InputMethodServiceService.IsFullscreenMode:output_type -> inputmethodservice.IsFullscreenModeResponse
-	116, // 258: inputmethodservice.InputMethodServiceService.IsInputViewShown:output_type -> inputmethodservice.IsInputViewShownResponse
-	118, // 259: inputmethodservice.InputMethodServiceService.IsShowInputRequested:output_type -> inputmethodservice.IsShowInputRequestedResponse
-	120, // 260: inputmethodservice.InputMethodServiceService.OnAppPrivateCommand:output_type -> inputmethodservice.OnAppPrivateCommandResponse
-	122, // 261: inputmethodservice.InputMethodServiceService.OnBindInput:output_type -> inputmethodservice.OnBindInputResponse
-	124, // 262: inputmethodservice.InputMethodServiceService.OnComputeInsets:output_type -> inputmethodservice.OnComputeInsetsResponse
-	31,  // 263: inputmethodservice.InputMethodServiceService.OnConfigurationChanged:output_type -> inputmethodservice.OnConfigurationChangedResponse
-	127, // 264: inputmethodservice.InputMethodServiceService.OnConfigureWindow:output_type -> inputmethodservice.OnConfigureWindowResponse
-	129, // 265: inputmethodservice.InputMethodServiceService.OnCreate:output_type -> inputmethodservice.OnCreateResponse
-	131, // 266: inputmethodservice.InputMethodServiceService.OnCreateCandidatesView:output_type -> inputmethodservice.OnCreateCandidatesViewResponse
-	133, // 267: inputmethodservice.InputMethodServiceService.OnCreateExtractTextView:output_type -> inputmethodservice.OnCreateExtractTextViewResponse
-	135, // 268: inputmethodservice.InputMethodServiceService.OnCreateInlineSuggestionsRequest:output_type -> inputmethodservice.OnCreateInlineSuggestionsRequestResponse
-	33,  // 269: inputmethodservice.InputMethodServiceService.OnCreateInputMethodInterface:output_type -> inputmethodservice.OnCreateInputMethodInterfaceResponse
-	35,  // 270: inputmethodservice.InputMethodServiceService.OnCreateInputMethodSessionInterface:output_type -> inputmethodservice.OnCreateInputMethodSessionInterfaceResponse
-	139, // 271: inputmethodservice.InputMethodServiceService.OnCreateInputView:output_type -> inputmethodservice.OnCreateInputViewResponse
-	141, // 272: inputmethodservice.InputMethodServiceService.OnCustomImeSwitcherButtonRequestedVisible:output_type -> inputmethodservice.OnCustomImeSwitcherButtonRequestedVisibleResponse
-	37,  // 273: inputmethodservice.InputMethodServiceService.OnDestroy:output_type -> inputmethodservice.OnDestroyResponse
-	144, // 274: inputmethodservice.InputMethodServiceService.OnDisplayCompletions:output_type -> inputmethodservice.OnDisplayCompletionsResponse
-	146, // 275: inputmethodservice.InputMethodServiceService.OnEvaluateFullscreenMode:output_type -> inputmethodservice.OnEvaluateFullscreenModeResponse
-	148, // 276: inputmethodservice.InputMethodServiceService.OnEvaluateInputViewShown:output_type -> inputmethodservice.OnEvaluateInputViewShownResponse
-	150, // 277: inputmethodservice.InputMethodServiceService.OnExtractTextContextMenuItem:output_type -> inputmethodservice.OnExtractTextContextMenuItemResponse
-	152, // 278: inputmethodservice.InputMethodServiceService.OnExtractedCursorMovement:output_type -> inputmethodservice.OnExtractedCursorMovementResponse
-	154, // 279: inputmethodservice.InputMethodServiceService.OnExtractedSelectionChanged:output_type -> inputmethodservice.OnExtractedSelectionChangedResponse
-	156, // 280: inputmethodservice.InputMethodServiceService.OnExtractedTextClicked:output_type -> inputmethodservice.OnExtractedTextClickedResponse
-	158, // 281: inputmethodservice.InputMethodServiceService.OnExtractingInputChanged:output_type -> inputmethodservice.OnExtractingInputChangedResponse
-	160, // 282: inputmethodservice.InputMethodServiceService.OnFinishCandidatesView:output_type -> inputmethodservice.OnFinishCandidatesViewResponse
-	162, // 283: inputmethodservice.InputMethodServiceService.OnFinishInput:output_type -> inputmethodservice.OnFinishInputResponse
-	164, // 284: inputmethodservice.InputMethodServiceService.OnFinishInputView:output_type -> inputmethodservice.OnFinishInputViewResponse
-	166, // 285: inputmethodservice.InputMethodServiceService.OnFinishStylusHandwriting:output_type -> inputmethodservice.OnFinishStylusHandwritingResponse
-	39,  // 286: inputmethodservice.InputMethodServiceService.OnGenericMotionEvent:output_type -> inputmethodservice.OnGenericMotionEventResponse
-	169, // 287: inputmethodservice.InputMethodServiceService.OnInitializeInterface:output_type -> inputmethodservice.OnInitializeInterfaceResponse
-	171, // 288: inputmethodservice.InputMethodServiceService.OnInlineSuggestionsResponse:output_type -> inputmethodservice.OnInlineSuggestionsResponseResponse
-	173, // 289: inputmethodservice.InputMethodServiceService.OnKeyDown:output_type -> inputmethodservice.OnKeyDownResponse
-	175, // 290: inputmethodservice.InputMethodServiceService.OnKeyLongPress:output_type -> inputmethodservice.OnKeyLongPressResponse
-	177, // 291: inputmethodservice.InputMethodServiceService.OnKeyMultiple:output_type -> inputmethodservice.OnKeyMultipleResponse
-	179, // 292: inputmethodservice.InputMethodServiceService.OnKeyUp:output_type -> inputmethodservice.OnKeyUpResponse
-	181, // 293: inputmethodservice.InputMethodServiceService.OnPrepareStylusHandwriting:output_type -> inputmethodservice.OnPrepareStylusHandwritingResponse
-	43,  // 294: inputmethodservice.InputMethodServiceService.OnShouldVerifyKeyEvent:output_type -> inputmethodservice.OnShouldVerifyKeyEventResponse
-	184, // 295: inputmethodservice.InputMethodServiceService.OnShowInputRequested:output_type -> inputmethodservice.OnShowInputRequestedResponse
-	186, // 296: inputmethodservice.InputMethodServiceService.OnStartCandidatesView:output_type -> inputmethodservice.OnStartCandidatesViewResponse
-	188, // 297: inputmethodservice.InputMethodServiceService.OnStartConnectionlessStylusHandwriting:output_type -> inputmethodservice.OnStartConnectionlessStylusHandwritingResponse
-	190, // 298: inputmethodservice.InputMethodServiceService.OnStartInput:output_type -> inputmethodservice.OnStartInputResponse
-	192, // 299: inputmethodservice.InputMethodServiceService.OnStartInputView:output_type -> inputmethodservice.OnStartInputViewResponse
-	194, // 300: inputmethodservice.InputMethodServiceService.OnStartStylusHandwriting:output_type -> inputmethodservice.OnStartStylusHandwritingResponse
-	196, // 301: inputmethodservice.InputMethodServiceService.OnStylusHandwritingMotionEvent:output_type -> inputmethodservice.OnStylusHandwritingMotionEventResponse
-	45,  // 302: inputmethodservice.InputMethodServiceService.OnTrackballEvent:output_type -> inputmethodservice.OnTrackballEventResponse
-	199, // 303: inputmethodservice.InputMethodServiceService.OnUnbindInput:output_type -> inputmethodservice.OnUnbindInputResponse
-	201, // 304: inputmethodservice.InputMethodServiceService.OnUpdateCursor:output_type -> inputmethodservice.OnUpdateCursorResponse
-	203, // 305: inputmethodservice.InputMethodServiceService.OnUpdateCursorAnchorInfo:output_type -> inputmethodservice.OnUpdateCursorAnchorInfoResponse
-	205, // 306: inputmethodservice.InputMethodServiceService.OnUpdateEditorToolType:output_type -> inputmethodservice.OnUpdateEditorToolTypeResponse
-	207, // 307: inputmethodservice.InputMethodServiceService.OnUpdateExtractedText:output_type -> inputmethodservice.OnUpdateExtractedTextResponse
-	209, // 308: inputmethodservice.InputMethodServiceService.OnUpdateExtractingViews:output_type -> inputmethodservice.OnUpdateExtractingViewsResponse
-	211, // 309: inputmethodservice.InputMethodServiceService.OnUpdateExtractingVisibility:output_type -> inputmethodservice.OnUpdateExtractingVisibilityResponse
-	213, // 310: inputmethodservice.InputMethodServiceService.OnUpdateSelection:output_type -> inputmethodservice.OnUpdateSelectionResponse
-	215, // 311: inputmethodservice.InputMethodServiceService.OnViewClicked:output_type -> inputmethodservice.OnViewClickedResponse
-	217, // 312: inputmethodservice.InputMethodServiceService.OnWindowHidden:output_type -> inputmethodservice.OnWindowHiddenResponse
-	219, // 313: inputmethodservice.InputMethodServiceService.OnWindowShown:output_type -> inputmethodservice.OnWindowShownResponse
-	221, // 314: inputmethodservice.InputMethodServiceService.RequestHideSelf:output_type -> inputmethodservice.RequestHideSelfResponse
-	223, // 315: inputmethodservice.InputMethodServiceService.RequestShowSelf:output_type -> inputmethodservice.RequestShowSelfResponse
-	225, // 316: inputmethodservice.InputMethodServiceService.SendDefaultEditorAction:output_type -> inputmethodservice.SendDefaultEditorActionResponse
-	227, // 317: inputmethodservice.InputMethodServiceService.SendDownUpKeyEvents:output_type -> inputmethodservice.SendDownUpKeyEventsResponse
-	229, // 318: inputmethodservice.InputMethodServiceService.SendKeyChar:output_type -> inputmethodservice.SendKeyCharResponse
-	231, // 319: inputmethodservice.InputMethodServiceService.SetBackDisposition:output_type -> inputmethodservice.SetBackDispositionResponse
-	233, // 320: inputmethodservice.InputMethodServiceService.SetCandidatesView:output_type -> inputmethodservice.SetCandidatesViewResponse
-	235, // 321: inputmethodservice.InputMethodServiceService.SetCandidatesViewShown:output_type -> inputmethodservice.SetCandidatesViewShownResponse
-	237, // 322: inputmethodservice.InputMethodServiceService.SetExtractView:output_type -> inputmethodservice.SetExtractViewResponse
-	239, // 323: inputmethodservice.InputMethodServiceService.SetExtractViewShown:output_type -> inputmethodservice.SetExtractViewShownResponse
-	241, // 324: inputmethodservice.InputMethodServiceService.SetInputView:output_type -> inputmethodservice.SetInputViewResponse
-	243, // 325: inputmethodservice.InputMethodServiceService.SetStylusHandwritingRegion:output_type -> inputmethodservice.SetStylusHandwritingRegionResponse
-	245, // 326: inputmethodservice.InputMethodServiceService.SetStylusHandwritingSessionTimeout:output_type -> inputmethodservice.SetStylusHandwritingSessionTimeoutResponse
-	247, // 327: inputmethodservice.InputMethodServiceService.SetTheme:output_type -> inputmethodservice.SetThemeResponse
-	249, // 328: inputmethodservice.InputMethodServiceService.ShouldOfferSwitchingToNextInputMethod:output_type -> inputmethodservice.ShouldOfferSwitchingToNextInputMethodResponse
-	251, // 329: inputmethodservice.InputMethodServiceService.ShowStatusIcon:output_type -> inputmethodservice.ShowStatusIconResponse
-	253, // 330: inputmethodservice.InputMethodServiceService.ShowWindow:output_type -> inputmethodservice.ShowWindowResponse
-	255, // 331: inputmethodservice.InputMethodServiceService.SwitchInputMethod1:output_type -> inputmethodservice.SwitchInputMethod1Response
-	257, // 332: inputmethodservice.InputMethodServiceService.SwitchInputMethod2_1:output_type -> inputmethodservice.SwitchInputMethod2_1Response
-	259, // 333: inputmethodservice.InputMethodServiceService.SwitchToNextInputMethod:output_type -> inputmethodservice.SwitchToNextInputMethodResponse
-	261, // 334: inputmethodservice.InputMethodServiceService.SwitchToPreviousInputMethod:output_type -> inputmethodservice.SwitchToPreviousInputMethodResponse
-	263, // 335: inputmethodservice.InputMethodServiceService.UpdateFullscreenMode:output_type -> inputmethodservice.UpdateFullscreenModeResponse
-	265, // 336: inputmethodservice.InputMethodServiceService.UpdateInputViewShown:output_type -> inputmethodservice.UpdateInputViewShownResponse
-	267, // 337: inputmethodservice.InputMethodServiceService.GetStylusHandwritingIdleTimeoutMax:output_type -> inputmethodservice.GetStylusHandwritingIdleTimeoutMaxResponse
-	269, // 338: inputmethodservice.InputMethodServiceInputMethodImplService.AttachToken:output_type -> inputmethodservice.AttachTokenResponse
-	271, // 339: inputmethodservice.InputMethodServiceInputMethodImplService.BindInput:output_type -> inputmethodservice.BindInputResponse
-	273, // 340: inputmethodservice.InputMethodServiceInputMethodImplService.ChangeInputMethodSubtype:output_type -> inputmethodservice.ChangeInputMethodSubtypeResponse
-	275, // 341: inputmethodservice.InputMethodServiceInputMethodImplService.HideSoftInput:output_type -> inputmethodservice.HideSoftInputResponse
-	277, // 342: inputmethodservice.InputMethodServiceInputMethodImplService.RestartInput:output_type -> inputmethodservice.RestartInputResponse
-	279, // 343: inputmethodservice.InputMethodServiceInputMethodImplService.ShowSoftInput:output_type -> inputmethodservice.ShowSoftInputResponse
-	281, // 344: inputmethodservice.InputMethodServiceInputMethodImplService.StartInput:output_type -> inputmethodservice.StartInputResponse
-	283, // 345: inputmethodservice.InputMethodServiceInputMethodImplService.UnbindInput:output_type -> inputmethodservice.UnbindInputResponse
-	285, // 346: inputmethodservice.InputMethodServiceInputMethodSessionImplService.AppPrivateCommand:output_type -> inputmethodservice.AppPrivateCommandResponse
-	287, // 347: inputmethodservice.InputMethodServiceInputMethodSessionImplService.DisplayCompletions:output_type -> inputmethodservice.DisplayCompletionsResponse
-	289, // 348: inputmethodservice.InputMethodServiceInputMethodSessionImplService.FinishInput:output_type -> inputmethodservice.FinishInputResponse
-	291, // 349: inputmethodservice.InputMethodServiceInputMethodSessionImplService.ToggleSoftInput:output_type -> inputmethodservice.ToggleSoftInputResponse
-	293, // 350: inputmethodservice.InputMethodServiceInputMethodSessionImplService.UpdateCursor:output_type -> inputmethodservice.UpdateCursorResponse
-	295, // 351: inputmethodservice.InputMethodServiceInputMethodSessionImplService.UpdateCursorAnchorInfo:output_type -> inputmethodservice.UpdateCursorAnchorInfoResponse
-	297, // 352: inputmethodservice.InputMethodServiceInputMethodSessionImplService.UpdateExtractedText:output_type -> inputmethodservice.UpdateExtractedTextResponse
-	299, // 353: inputmethodservice.InputMethodServiceInputMethodSessionImplService.UpdateSelection:output_type -> inputmethodservice.UpdateSelectionResponse
-	301, // 354: inputmethodservice.InputMethodServiceInputMethodSessionImplService.ViewClicked:output_type -> inputmethodservice.ViewClickedResponse
-	303, // 355: inputmethodservice.ExtractEditTextService.NewExtractEditText:output_type -> inputmethodservice.NewExtractEditTextResponse
-	305, // 356: inputmethodservice.ExtractEditTextService.FinishInternalChanges:output_type -> inputmethodservice.FinishInternalChangesResponse
-	307, // 357: inputmethodservice.ExtractEditTextService.HasFocus:output_type -> inputmethodservice.HasFocusResponse
-	309, // 358: inputmethodservice.ExtractEditTextService.HasVerticalScrollBar:output_type -> inputmethodservice.HasVerticalScrollBarResponse
-	311, // 359: inputmethodservice.ExtractEditTextService.HasWindowFocus:output_type -> inputmethodservice.HasWindowFocusResponse
-	313, // 360: inputmethodservice.ExtractEditTextService.IsFocused:output_type -> inputmethodservice.IsFocusedResponse
-	315, // 361: inputmethodservice.ExtractEditTextService.IsInputMethodTarget:output_type -> inputmethodservice.IsInputMethodTargetResponse
-	317, // 362: inputmethodservice.ExtractEditTextService.OnTextContextMenuItem:output_type -> inputmethodservice.OnTextContextMenuItemResponse
-	319, // 363: inputmethodservice.ExtractEditTextService.PerformClick:output_type -> inputmethodservice.PerformClickResponse
-	321, // 364: inputmethodservice.ExtractEditTextService.SetExtractedText:output_type -> inputmethodservice.SetExtractedTextResponse
-	323, // 365: inputmethodservice.ExtractEditTextService.StartInternalChanges:output_type -> inputmethodservice.StartInternalChangesResponse
-	325, // 366: inputmethodservice.KeyboardViewService.NewKeyboardView:output_type -> inputmethodservice.NewKeyboardViewResponse
-	327, // 367: inputmethodservice.KeyboardViewService.Closing:output_type -> inputmethodservice.ClosingResponse
-	329, // 368: inputmethodservice.KeyboardViewService.GetKeyboard:output_type -> inputmethodservice.GetKeyboardResponse
-	331, // 369: inputmethodservice.KeyboardViewService.HandleBack:output_type -> inputmethodservice.HandleBackResponse
-	333, // 370: inputmethodservice.KeyboardViewService.InvalidateAllKeys:output_type -> inputmethodservice.InvalidateAllKeysResponse
-	335, // 371: inputmethodservice.KeyboardViewService.InvalidateKey:output_type -> inputmethodservice.InvalidateKeyResponse
-	337, // 372: inputmethodservice.KeyboardViewService.IsPreviewEnabled:output_type -> inputmethodservice.IsPreviewEnabledResponse
-	339, // 373: inputmethodservice.KeyboardViewService.IsProximityCorrectionEnabled:output_type -> inputmethodservice.IsProximityCorrectionEnabledResponse
-	11,  // 374: inputmethodservice.KeyboardViewService.IsShifted:output_type -> inputmethodservice.IsShiftedResponse
-	341, // 375: inputmethodservice.KeyboardViewService.OnClick:output_type -> inputmethodservice.OnClickResponse
-	343, // 376: inputmethodservice.KeyboardViewService.OnDetachedFromWindow:output_type -> inputmethodservice.OnDetachedFromWindowResponse
-	345, // 377: inputmethodservice.KeyboardViewService.OnDraw:output_type -> inputmethodservice.OnDrawResponse
-	347, // 378: inputmethodservice.KeyboardViewService.OnHoverEvent:output_type -> inputmethodservice.OnHoverEventResponse
-	349, // 379: inputmethodservice.KeyboardViewService.OnMeasure:output_type -> inputmethodservice.OnMeasureResponse
-	351, // 380: inputmethodservice.KeyboardViewService.OnSizeChanged:output_type -> inputmethodservice.OnSizeChangedResponse
-	353, // 381: inputmethodservice.KeyboardViewService.OnTouchEvent:output_type -> inputmethodservice.OnTouchEventResponse
-	355, // 382: inputmethodservice.KeyboardViewService.SetKeyboard:output_type -> inputmethodservice.SetKeyboardResponse
-	357, // 383: inputmethodservice.KeyboardViewService.SetOnKeyboardActionListener:output_type -> inputmethodservice.SetOnKeyboardActionListenerResponse
-	359, // 384: inputmethodservice.KeyboardViewService.SetPopupOffset:output_type -> inputmethodservice.SetPopupOffsetResponse
-	361, // 385: inputmethodservice.KeyboardViewService.SetPopupParent:output_type -> inputmethodservice.SetPopupParentResponse
-	363, // 386: inputmethodservice.KeyboardViewService.SetPreviewEnabled:output_type -> inputmethodservice.SetPreviewEnabledResponse
-	365, // 387: inputmethodservice.KeyboardViewService.SetProximityCorrectionEnabled:output_type -> inputmethodservice.SetProximityCorrectionEnabledResponse
-	13,  // 388: inputmethodservice.KeyboardViewService.SetShifted:output_type -> inputmethodservice.SetShiftedResponse
-	367, // 389: inputmethodservice.KeyboardViewService.SetVerticalCorrection:output_type -> inputmethodservice.SetVerticalCorrectionResponse
-	369, // 390: inputmethodservice.KeyboardViewOnKeyboardActionListenerService.OnKey:output_type -> inputmethodservice.OnKeyResponse
-	371, // 391: inputmethodservice.KeyboardViewOnKeyboardActionListenerService.OnPress:output_type -> inputmethodservice.OnPressResponse
-	373, // 392: inputmethodservice.KeyboardViewOnKeyboardActionListenerService.OnRelease:output_type -> inputmethodservice.OnReleaseResponse
-	375, // 393: inputmethodservice.KeyboardViewOnKeyboardActionListenerService.OnText:output_type -> inputmethodservice.OnTextResponse
-	377, // 394: inputmethodservice.KeyboardViewOnKeyboardActionListenerService.SwipeDown:output_type -> inputmethodservice.SwipeDownResponse
-	379, // 395: inputmethodservice.KeyboardViewOnKeyboardActionListenerService.SwipeLeft:output_type -> inputmethodservice.SwipeLeftResponse
-	381, // 396: inputmethodservice.KeyboardViewOnKeyboardActionListenerService.SwipeRight:output_type -> inputmethodservice.SwipeRightResponse
-	383, // 397: inputmethodservice.KeyboardViewOnKeyboardActionListenerService.SwipeUp:output_type -> inputmethodservice.SwipeUpResponse
-	199, // [199:398] is the sub-list for method output_type
-	0,   // [0:199] is the sub-list for method input_type
+	0,   // 0: inputmethodservice.KeyboardViewService.NewKeyboardView:input_type -> inputmethodservice.NewKeyboardViewRequest
+	2,   // 1: inputmethodservice.KeyboardViewService.Closing:input_type -> inputmethodservice.ClosingRequest
+	4,   // 2: inputmethodservice.KeyboardViewService.GetKeyboard:input_type -> inputmethodservice.GetKeyboardRequest
+	6,   // 3: inputmethodservice.KeyboardViewService.HandleBack:input_type -> inputmethodservice.HandleBackRequest
+	8,   // 4: inputmethodservice.KeyboardViewService.InvalidateAllKeys:input_type -> inputmethodservice.InvalidateAllKeysRequest
+	10,  // 5: inputmethodservice.KeyboardViewService.InvalidateKey:input_type -> inputmethodservice.InvalidateKeyRequest
+	12,  // 6: inputmethodservice.KeyboardViewService.IsPreviewEnabled:input_type -> inputmethodservice.IsPreviewEnabledRequest
+	14,  // 7: inputmethodservice.KeyboardViewService.IsProximityCorrectionEnabled:input_type -> inputmethodservice.IsProximityCorrectionEnabledRequest
+	16,  // 8: inputmethodservice.KeyboardViewService.IsShifted:input_type -> inputmethodservice.IsShiftedRequest
+	18,  // 9: inputmethodservice.KeyboardViewService.OnClick:input_type -> inputmethodservice.OnClickRequest
+	20,  // 10: inputmethodservice.KeyboardViewService.OnDetachedFromWindow:input_type -> inputmethodservice.OnDetachedFromWindowRequest
+	22,  // 11: inputmethodservice.KeyboardViewService.OnDraw:input_type -> inputmethodservice.OnDrawRequest
+	24,  // 12: inputmethodservice.KeyboardViewService.OnHoverEvent:input_type -> inputmethodservice.OnHoverEventRequest
+	26,  // 13: inputmethodservice.KeyboardViewService.OnMeasure:input_type -> inputmethodservice.OnMeasureRequest
+	28,  // 14: inputmethodservice.KeyboardViewService.OnSizeChanged:input_type -> inputmethodservice.OnSizeChangedRequest
+	30,  // 15: inputmethodservice.KeyboardViewService.OnTouchEvent:input_type -> inputmethodservice.OnTouchEventRequest
+	32,  // 16: inputmethodservice.KeyboardViewService.SetKeyboard:input_type -> inputmethodservice.SetKeyboardRequest
+	34,  // 17: inputmethodservice.KeyboardViewService.SetOnKeyboardActionListener:input_type -> inputmethodservice.SetOnKeyboardActionListenerRequest
+	36,  // 18: inputmethodservice.KeyboardViewService.SetPopupOffset:input_type -> inputmethodservice.SetPopupOffsetRequest
+	38,  // 19: inputmethodservice.KeyboardViewService.SetPopupParent:input_type -> inputmethodservice.SetPopupParentRequest
+	40,  // 20: inputmethodservice.KeyboardViewService.SetPreviewEnabled:input_type -> inputmethodservice.SetPreviewEnabledRequest
+	42,  // 21: inputmethodservice.KeyboardViewService.SetProximityCorrectionEnabled:input_type -> inputmethodservice.SetProximityCorrectionEnabledRequest
+	44,  // 22: inputmethodservice.KeyboardViewService.SetShifted:input_type -> inputmethodservice.SetShiftedRequest
+	46,  // 23: inputmethodservice.KeyboardViewService.SetVerticalCorrection:input_type -> inputmethodservice.SetVerticalCorrectionRequest
+	48,  // 24: inputmethodservice.KeyboardViewOnKeyboardActionListenerService.OnKey:input_type -> inputmethodservice.OnKeyRequest
+	50,  // 25: inputmethodservice.KeyboardViewOnKeyboardActionListenerService.OnPress:input_type -> inputmethodservice.OnPressRequest
+	52,  // 26: inputmethodservice.KeyboardViewOnKeyboardActionListenerService.OnRelease:input_type -> inputmethodservice.OnReleaseRequest
+	54,  // 27: inputmethodservice.KeyboardViewOnKeyboardActionListenerService.OnText:input_type -> inputmethodservice.OnTextRequest
+	56,  // 28: inputmethodservice.KeyboardViewOnKeyboardActionListenerService.SwipeDown:input_type -> inputmethodservice.SwipeDownRequest
+	58,  // 29: inputmethodservice.KeyboardViewOnKeyboardActionListenerService.SwipeLeft:input_type -> inputmethodservice.SwipeLeftRequest
+	60,  // 30: inputmethodservice.KeyboardViewOnKeyboardActionListenerService.SwipeRight:input_type -> inputmethodservice.SwipeRightRequest
+	62,  // 31: inputmethodservice.KeyboardViewOnKeyboardActionListenerService.SwipeUp:input_type -> inputmethodservice.SwipeUpRequest
+	64,  // 32: inputmethodservice.KeyboardService.NewKeyboard:input_type -> inputmethodservice.NewKeyboardRequest
+	66,  // 33: inputmethodservice.KeyboardService.GetHeight:input_type -> inputmethodservice.GetHeightRequest
+	68,  // 34: inputmethodservice.KeyboardService.GetKeys:input_type -> inputmethodservice.GetKeysRequest
+	70,  // 35: inputmethodservice.KeyboardService.GetMinWidth:input_type -> inputmethodservice.GetMinWidthRequest
+	72,  // 36: inputmethodservice.KeyboardService.GetModifierKeys:input_type -> inputmethodservice.GetModifierKeysRequest
+	74,  // 37: inputmethodservice.KeyboardService.GetNearestKeys:input_type -> inputmethodservice.GetNearestKeysRequest
+	76,  // 38: inputmethodservice.KeyboardService.GetShiftKeyIndex:input_type -> inputmethodservice.GetShiftKeyIndexRequest
+	16,  // 39: inputmethodservice.KeyboardService.IsShifted:input_type -> inputmethodservice.IsShiftedRequest
+	44,  // 40: inputmethodservice.KeyboardService.SetShifted:input_type -> inputmethodservice.SetShiftedRequest
+	78,  // 41: inputmethodservice.KeyboardKeyService.GetCurrentDrawableState:input_type -> inputmethodservice.GetCurrentDrawableStateRequest
+	80,  // 42: inputmethodservice.KeyboardKeyService.IsInside:input_type -> inputmethodservice.IsInsideRequest
+	82,  // 43: inputmethodservice.KeyboardKeyService.OnPressed:input_type -> inputmethodservice.OnPressedRequest
+	84,  // 44: inputmethodservice.KeyboardKeyService.OnReleased:input_type -> inputmethodservice.OnReleasedRequest
+	86,  // 45: inputmethodservice.KeyboardKeyService.SquaredDistanceFrom:input_type -> inputmethodservice.SquaredDistanceFromRequest
+	88,  // 46: inputmethodservice.ExtractEditTextService.NewExtractEditText:input_type -> inputmethodservice.NewExtractEditTextRequest
+	90,  // 47: inputmethodservice.ExtractEditTextService.FinishInternalChanges:input_type -> inputmethodservice.FinishInternalChangesRequest
+	92,  // 48: inputmethodservice.ExtractEditTextService.HasFocus:input_type -> inputmethodservice.HasFocusRequest
+	94,  // 49: inputmethodservice.ExtractEditTextService.HasVerticalScrollBar:input_type -> inputmethodservice.HasVerticalScrollBarRequest
+	96,  // 50: inputmethodservice.ExtractEditTextService.HasWindowFocus:input_type -> inputmethodservice.HasWindowFocusRequest
+	98,  // 51: inputmethodservice.ExtractEditTextService.IsFocused:input_type -> inputmethodservice.IsFocusedRequest
+	100, // 52: inputmethodservice.ExtractEditTextService.IsInputMethodTarget:input_type -> inputmethodservice.IsInputMethodTargetRequest
+	102, // 53: inputmethodservice.ExtractEditTextService.OnTextContextMenuItem:input_type -> inputmethodservice.OnTextContextMenuItemRequest
+	104, // 54: inputmethodservice.ExtractEditTextService.PerformClick:input_type -> inputmethodservice.PerformClickRequest
+	106, // 55: inputmethodservice.ExtractEditTextService.SetExtractedText:input_type -> inputmethodservice.SetExtractedTextRequest
+	108, // 56: inputmethodservice.ExtractEditTextService.StartInternalChanges:input_type -> inputmethodservice.StartInternalChangesRequest
+	110, // 57: inputmethodservice.AbstractInputMethodServiceService.GetKeyDispatcherState:input_type -> inputmethodservice.GetKeyDispatcherStateRequest
+	112, // 58: inputmethodservice.AbstractInputMethodServiceService.GetSystemService:input_type -> inputmethodservice.GetSystemServiceRequest
+	114, // 59: inputmethodservice.AbstractInputMethodServiceService.OnBind:input_type -> inputmethodservice.OnBindRequest
+	116, // 60: inputmethodservice.AbstractInputMethodServiceService.OnConfigurationChanged:input_type -> inputmethodservice.OnConfigurationChangedRequest
+	118, // 61: inputmethodservice.AbstractInputMethodServiceService.OnCreateInputMethodInterface:input_type -> inputmethodservice.OnCreateInputMethodInterfaceRequest
+	120, // 62: inputmethodservice.AbstractInputMethodServiceService.OnCreateInputMethodSessionInterface:input_type -> inputmethodservice.OnCreateInputMethodSessionInterfaceRequest
+	122, // 63: inputmethodservice.AbstractInputMethodServiceService.OnDestroy:input_type -> inputmethodservice.OnDestroyRequest
+	124, // 64: inputmethodservice.AbstractInputMethodServiceService.OnGenericMotionEvent:input_type -> inputmethodservice.OnGenericMotionEventRequest
+	126, // 65: inputmethodservice.AbstractInputMethodServiceService.OnLowMemory:input_type -> inputmethodservice.OnLowMemoryRequest
+	128, // 66: inputmethodservice.AbstractInputMethodServiceService.OnShouldVerifyKeyEvent:input_type -> inputmethodservice.OnShouldVerifyKeyEventRequest
+	130, // 67: inputmethodservice.AbstractInputMethodServiceService.OnTrackballEvent:input_type -> inputmethodservice.OnTrackballEventRequest
+	132, // 68: inputmethodservice.AbstractInputMethodServiceService.OnTrimMemory:input_type -> inputmethodservice.OnTrimMemoryRequest
+	134, // 69: inputmethodservice.AbstractInputMethodServiceService.RegisterComponentCallbacks:input_type -> inputmethodservice.RegisterComponentCallbacksRequest
+	136, // 70: inputmethodservice.AbstractInputMethodServiceService.UnregisterComponentCallbacks:input_type -> inputmethodservice.UnregisterComponentCallbacksRequest
+	138, // 71: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodImplService.CreateSession:input_type -> inputmethodservice.CreateSessionRequest
+	140, // 72: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodImplService.RevokeSession:input_type -> inputmethodservice.RevokeSessionRequest
+	142, // 73: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodImplService.SetSessionEnabled:input_type -> inputmethodservice.SetSessionEnabledRequest
+	144, // 74: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodSessionImplService.DispatchGenericMotionEvent:input_type -> inputmethodservice.DispatchGenericMotionEventRequest
+	146, // 75: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodSessionImplService.DispatchKeyEvent:input_type -> inputmethodservice.DispatchKeyEventRequest
+	148, // 76: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodSessionImplService.DispatchTrackballEvent:input_type -> inputmethodservice.DispatchTrackballEventRequest
+	150, // 77: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodSessionImplService.IsEnabled:input_type -> inputmethodservice.IsEnabledRequest
+	152, // 78: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodSessionImplService.IsRevoked:input_type -> inputmethodservice.IsRevokedRequest
+	128, // 79: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodSessionImplService.OnShouldVerifyKeyEvent:input_type -> inputmethodservice.OnShouldVerifyKeyEventRequest
+	154, // 80: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodSessionImplService.RevokeSelf:input_type -> inputmethodservice.RevokeSelfRequest
+	156, // 81: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodSessionImplService.SetEnabled:input_type -> inputmethodservice.SetEnabledRequest
+	158, // 82: inputmethodservice.InputMethodServiceService.NewInputMethodService:input_type -> inputmethodservice.NewInputMethodServiceRequest
+	160, // 83: inputmethodservice.InputMethodServiceService.EnableHardwareAcceleration:input_type -> inputmethodservice.EnableHardwareAccelerationRequest
+	162, // 84: inputmethodservice.InputMethodServiceService.FinishConnectionlessStylusHandwriting:input_type -> inputmethodservice.FinishConnectionlessStylusHandwritingRequest
+	164, // 85: inputmethodservice.InputMethodServiceService.FinishStylusHandwriting:input_type -> inputmethodservice.FinishStylusHandwritingRequest
+	166, // 86: inputmethodservice.InputMethodServiceService.GetBackDisposition:input_type -> inputmethodservice.GetBackDispositionRequest
+	168, // 87: inputmethodservice.InputMethodServiceService.GetCandidatesHiddenVisibility:input_type -> inputmethodservice.GetCandidatesHiddenVisibilityRequest
+	170, // 88: inputmethodservice.InputMethodServiceService.GetCurrentInputBinding:input_type -> inputmethodservice.GetCurrentInputBindingRequest
+	172, // 89: inputmethodservice.InputMethodServiceService.GetCurrentInputConnection:input_type -> inputmethodservice.GetCurrentInputConnectionRequest
+	174, // 90: inputmethodservice.InputMethodServiceService.GetCurrentInputEditorInfo:input_type -> inputmethodservice.GetCurrentInputEditorInfoRequest
+	176, // 91: inputmethodservice.InputMethodServiceService.GetCurrentInputStarted:input_type -> inputmethodservice.GetCurrentInputStartedRequest
+	178, // 92: inputmethodservice.InputMethodServiceService.GetInputMethodWindowRecommendedHeight:input_type -> inputmethodservice.GetInputMethodWindowRecommendedHeightRequest
+	180, // 93: inputmethodservice.InputMethodServiceService.GetLayoutInflater:input_type -> inputmethodservice.GetLayoutInflaterRequest
+	182, // 94: inputmethodservice.InputMethodServiceService.GetMaxWidth:input_type -> inputmethodservice.GetMaxWidthRequest
+	184, // 95: inputmethodservice.InputMethodServiceService.GetStylusHandwritingSessionTimeout:input_type -> inputmethodservice.GetStylusHandwritingSessionTimeoutRequest
+	186, // 96: inputmethodservice.InputMethodServiceService.GetStylusHandwritingWindow:input_type -> inputmethodservice.GetStylusHandwritingWindowRequest
+	188, // 97: inputmethodservice.InputMethodServiceService.GetSystemService:input_type -> inputmethodservice.InputMethodServiceGetSystemServiceRequest
+	189, // 98: inputmethodservice.InputMethodServiceService.GetTextForImeAction:input_type -> inputmethodservice.GetTextForImeActionRequest
+	191, // 99: inputmethodservice.InputMethodServiceService.GetWindow:input_type -> inputmethodservice.GetWindowRequest
+	193, // 100: inputmethodservice.InputMethodServiceService.HideStatusIcon:input_type -> inputmethodservice.HideStatusIconRequest
+	195, // 101: inputmethodservice.InputMethodServiceService.HideWindow:input_type -> inputmethodservice.HideWindowRequest
+	197, // 102: inputmethodservice.InputMethodServiceService.IsExtractViewShown:input_type -> inputmethodservice.IsExtractViewShownRequest
+	199, // 103: inputmethodservice.InputMethodServiceService.IsFullscreenMode:input_type -> inputmethodservice.IsFullscreenModeRequest
+	201, // 104: inputmethodservice.InputMethodServiceService.IsInputViewShown:input_type -> inputmethodservice.IsInputViewShownRequest
+	203, // 105: inputmethodservice.InputMethodServiceService.IsShowInputRequested:input_type -> inputmethodservice.IsShowInputRequestedRequest
+	205, // 106: inputmethodservice.InputMethodServiceService.OnAppPrivateCommand:input_type -> inputmethodservice.OnAppPrivateCommandRequest
+	207, // 107: inputmethodservice.InputMethodServiceService.OnBindInput:input_type -> inputmethodservice.OnBindInputRequest
+	209, // 108: inputmethodservice.InputMethodServiceService.OnComputeInsets:input_type -> inputmethodservice.OnComputeInsetsRequest
+	211, // 109: inputmethodservice.InputMethodServiceService.OnConfigurationChanged:input_type -> inputmethodservice.InputMethodServiceOnConfigurationChangedRequest
+	212, // 110: inputmethodservice.InputMethodServiceService.OnConfigureWindow:input_type -> inputmethodservice.OnConfigureWindowRequest
+	214, // 111: inputmethodservice.InputMethodServiceService.OnCreate:input_type -> inputmethodservice.OnCreateRequest
+	216, // 112: inputmethodservice.InputMethodServiceService.OnCreateCandidatesView:input_type -> inputmethodservice.OnCreateCandidatesViewRequest
+	218, // 113: inputmethodservice.InputMethodServiceService.OnCreateExtractTextView:input_type -> inputmethodservice.OnCreateExtractTextViewRequest
+	220, // 114: inputmethodservice.InputMethodServiceService.OnCreateInlineSuggestionsRequest:input_type -> inputmethodservice.OnCreateInlineSuggestionsRequestRequest
+	222, // 115: inputmethodservice.InputMethodServiceService.OnCreateInputMethodInterface:input_type -> inputmethodservice.InputMethodServiceOnCreateInputMethodInterfaceRequest
+	223, // 116: inputmethodservice.InputMethodServiceService.OnCreateInputMethodSessionInterface:input_type -> inputmethodservice.InputMethodServiceOnCreateInputMethodSessionInterfaceRequest
+	224, // 117: inputmethodservice.InputMethodServiceService.OnCreateInputView:input_type -> inputmethodservice.OnCreateInputViewRequest
+	226, // 118: inputmethodservice.InputMethodServiceService.OnCustomImeSwitcherButtonRequestedVisible:input_type -> inputmethodservice.OnCustomImeSwitcherButtonRequestedVisibleRequest
+	228, // 119: inputmethodservice.InputMethodServiceService.OnDestroy:input_type -> inputmethodservice.InputMethodServiceOnDestroyRequest
+	229, // 120: inputmethodservice.InputMethodServiceService.OnDisplayCompletions:input_type -> inputmethodservice.OnDisplayCompletionsRequest
+	231, // 121: inputmethodservice.InputMethodServiceService.OnEvaluateFullscreenMode:input_type -> inputmethodservice.OnEvaluateFullscreenModeRequest
+	233, // 122: inputmethodservice.InputMethodServiceService.OnEvaluateInputViewShown:input_type -> inputmethodservice.OnEvaluateInputViewShownRequest
+	235, // 123: inputmethodservice.InputMethodServiceService.OnExtractTextContextMenuItem:input_type -> inputmethodservice.OnExtractTextContextMenuItemRequest
+	237, // 124: inputmethodservice.InputMethodServiceService.OnExtractedCursorMovement:input_type -> inputmethodservice.OnExtractedCursorMovementRequest
+	239, // 125: inputmethodservice.InputMethodServiceService.OnExtractedSelectionChanged:input_type -> inputmethodservice.OnExtractedSelectionChangedRequest
+	241, // 126: inputmethodservice.InputMethodServiceService.OnExtractedTextClicked:input_type -> inputmethodservice.OnExtractedTextClickedRequest
+	243, // 127: inputmethodservice.InputMethodServiceService.OnExtractingInputChanged:input_type -> inputmethodservice.OnExtractingInputChangedRequest
+	245, // 128: inputmethodservice.InputMethodServiceService.OnFinishCandidatesView:input_type -> inputmethodservice.OnFinishCandidatesViewRequest
+	247, // 129: inputmethodservice.InputMethodServiceService.OnFinishInput:input_type -> inputmethodservice.OnFinishInputRequest
+	249, // 130: inputmethodservice.InputMethodServiceService.OnFinishInputView:input_type -> inputmethodservice.OnFinishInputViewRequest
+	251, // 131: inputmethodservice.InputMethodServiceService.OnFinishStylusHandwriting:input_type -> inputmethodservice.OnFinishStylusHandwritingRequest
+	253, // 132: inputmethodservice.InputMethodServiceService.OnGenericMotionEvent:input_type -> inputmethodservice.InputMethodServiceOnGenericMotionEventRequest
+	254, // 133: inputmethodservice.InputMethodServiceService.OnInitializeInterface:input_type -> inputmethodservice.OnInitializeInterfaceRequest
+	256, // 134: inputmethodservice.InputMethodServiceService.OnInlineSuggestionsResponse:input_type -> inputmethodservice.OnInlineSuggestionsResponseRequest
+	258, // 135: inputmethodservice.InputMethodServiceService.OnKeyDown:input_type -> inputmethodservice.OnKeyDownRequest
+	260, // 136: inputmethodservice.InputMethodServiceService.OnKeyLongPress:input_type -> inputmethodservice.OnKeyLongPressRequest
+	262, // 137: inputmethodservice.InputMethodServiceService.OnKeyMultiple:input_type -> inputmethodservice.OnKeyMultipleRequest
+	264, // 138: inputmethodservice.InputMethodServiceService.OnKeyUp:input_type -> inputmethodservice.OnKeyUpRequest
+	266, // 139: inputmethodservice.InputMethodServiceService.OnPrepareStylusHandwriting:input_type -> inputmethodservice.OnPrepareStylusHandwritingRequest
+	268, // 140: inputmethodservice.InputMethodServiceService.OnShouldVerifyKeyEvent:input_type -> inputmethodservice.InputMethodServiceOnShouldVerifyKeyEventRequest
+	269, // 141: inputmethodservice.InputMethodServiceService.OnShowInputRequested:input_type -> inputmethodservice.OnShowInputRequestedRequest
+	271, // 142: inputmethodservice.InputMethodServiceService.OnStartCandidatesView:input_type -> inputmethodservice.OnStartCandidatesViewRequest
+	273, // 143: inputmethodservice.InputMethodServiceService.OnStartConnectionlessStylusHandwriting:input_type -> inputmethodservice.OnStartConnectionlessStylusHandwritingRequest
+	275, // 144: inputmethodservice.InputMethodServiceService.OnStartInput:input_type -> inputmethodservice.OnStartInputRequest
+	277, // 145: inputmethodservice.InputMethodServiceService.OnStartInputView:input_type -> inputmethodservice.OnStartInputViewRequest
+	279, // 146: inputmethodservice.InputMethodServiceService.OnStartStylusHandwriting:input_type -> inputmethodservice.OnStartStylusHandwritingRequest
+	281, // 147: inputmethodservice.InputMethodServiceService.OnStylusHandwritingMotionEvent:input_type -> inputmethodservice.OnStylusHandwritingMotionEventRequest
+	283, // 148: inputmethodservice.InputMethodServiceService.OnTrackballEvent:input_type -> inputmethodservice.InputMethodServiceOnTrackballEventRequest
+	284, // 149: inputmethodservice.InputMethodServiceService.OnUnbindInput:input_type -> inputmethodservice.OnUnbindInputRequest
+	286, // 150: inputmethodservice.InputMethodServiceService.OnUpdateCursor:input_type -> inputmethodservice.OnUpdateCursorRequest
+	288, // 151: inputmethodservice.InputMethodServiceService.OnUpdateCursorAnchorInfo:input_type -> inputmethodservice.OnUpdateCursorAnchorInfoRequest
+	290, // 152: inputmethodservice.InputMethodServiceService.OnUpdateEditorToolType:input_type -> inputmethodservice.OnUpdateEditorToolTypeRequest
+	292, // 153: inputmethodservice.InputMethodServiceService.OnUpdateExtractedText:input_type -> inputmethodservice.OnUpdateExtractedTextRequest
+	294, // 154: inputmethodservice.InputMethodServiceService.OnUpdateExtractingViews:input_type -> inputmethodservice.OnUpdateExtractingViewsRequest
+	296, // 155: inputmethodservice.InputMethodServiceService.OnUpdateExtractingVisibility:input_type -> inputmethodservice.OnUpdateExtractingVisibilityRequest
+	298, // 156: inputmethodservice.InputMethodServiceService.OnUpdateSelection:input_type -> inputmethodservice.OnUpdateSelectionRequest
+	300, // 157: inputmethodservice.InputMethodServiceService.OnViewClicked:input_type -> inputmethodservice.OnViewClickedRequest
+	302, // 158: inputmethodservice.InputMethodServiceService.OnWindowHidden:input_type -> inputmethodservice.OnWindowHiddenRequest
+	304, // 159: inputmethodservice.InputMethodServiceService.OnWindowShown:input_type -> inputmethodservice.OnWindowShownRequest
+	306, // 160: inputmethodservice.InputMethodServiceService.RequestHideSelf:input_type -> inputmethodservice.RequestHideSelfRequest
+	308, // 161: inputmethodservice.InputMethodServiceService.RequestShowSelf:input_type -> inputmethodservice.RequestShowSelfRequest
+	310, // 162: inputmethodservice.InputMethodServiceService.SendDefaultEditorAction:input_type -> inputmethodservice.SendDefaultEditorActionRequest
+	312, // 163: inputmethodservice.InputMethodServiceService.SendDownUpKeyEvents:input_type -> inputmethodservice.SendDownUpKeyEventsRequest
+	314, // 164: inputmethodservice.InputMethodServiceService.SendKeyChar:input_type -> inputmethodservice.SendKeyCharRequest
+	316, // 165: inputmethodservice.InputMethodServiceService.SetBackDisposition:input_type -> inputmethodservice.SetBackDispositionRequest
+	318, // 166: inputmethodservice.InputMethodServiceService.SetCandidatesView:input_type -> inputmethodservice.SetCandidatesViewRequest
+	320, // 167: inputmethodservice.InputMethodServiceService.SetCandidatesViewShown:input_type -> inputmethodservice.SetCandidatesViewShownRequest
+	322, // 168: inputmethodservice.InputMethodServiceService.SetExtractView:input_type -> inputmethodservice.SetExtractViewRequest
+	324, // 169: inputmethodservice.InputMethodServiceService.SetExtractViewShown:input_type -> inputmethodservice.SetExtractViewShownRequest
+	326, // 170: inputmethodservice.InputMethodServiceService.SetInputView:input_type -> inputmethodservice.SetInputViewRequest
+	328, // 171: inputmethodservice.InputMethodServiceService.SetStylusHandwritingRegion:input_type -> inputmethodservice.SetStylusHandwritingRegionRequest
+	330, // 172: inputmethodservice.InputMethodServiceService.SetStylusHandwritingSessionTimeout:input_type -> inputmethodservice.SetStylusHandwritingSessionTimeoutRequest
+	332, // 173: inputmethodservice.InputMethodServiceService.SetTheme:input_type -> inputmethodservice.SetThemeRequest
+	334, // 174: inputmethodservice.InputMethodServiceService.ShouldOfferSwitchingToNextInputMethod:input_type -> inputmethodservice.ShouldOfferSwitchingToNextInputMethodRequest
+	336, // 175: inputmethodservice.InputMethodServiceService.ShowStatusIcon:input_type -> inputmethodservice.ShowStatusIconRequest
+	338, // 176: inputmethodservice.InputMethodServiceService.ShowWindow:input_type -> inputmethodservice.ShowWindowRequest
+	340, // 177: inputmethodservice.InputMethodServiceService.SwitchInputMethod1:input_type -> inputmethodservice.SwitchInputMethod1Request
+	342, // 178: inputmethodservice.InputMethodServiceService.SwitchInputMethod2_1:input_type -> inputmethodservice.SwitchInputMethod2_1Request
+	344, // 179: inputmethodservice.InputMethodServiceService.SwitchToNextInputMethod:input_type -> inputmethodservice.SwitchToNextInputMethodRequest
+	346, // 180: inputmethodservice.InputMethodServiceService.SwitchToPreviousInputMethod:input_type -> inputmethodservice.SwitchToPreviousInputMethodRequest
+	348, // 181: inputmethodservice.InputMethodServiceService.UpdateFullscreenMode:input_type -> inputmethodservice.UpdateFullscreenModeRequest
+	350, // 182: inputmethodservice.InputMethodServiceService.UpdateInputViewShown:input_type -> inputmethodservice.UpdateInputViewShownRequest
+	352, // 183: inputmethodservice.InputMethodServiceService.GetStylusHandwritingIdleTimeoutMax:input_type -> inputmethodservice.GetStylusHandwritingIdleTimeoutMaxRequest
+	354, // 184: inputmethodservice.InputMethodServiceInputMethodImplService.AttachToken:input_type -> inputmethodservice.AttachTokenRequest
+	356, // 185: inputmethodservice.InputMethodServiceInputMethodImplService.BindInput:input_type -> inputmethodservice.BindInputRequest
+	358, // 186: inputmethodservice.InputMethodServiceInputMethodImplService.ChangeInputMethodSubtype:input_type -> inputmethodservice.ChangeInputMethodSubtypeRequest
+	360, // 187: inputmethodservice.InputMethodServiceInputMethodImplService.HideSoftInput:input_type -> inputmethodservice.HideSoftInputRequest
+	362, // 188: inputmethodservice.InputMethodServiceInputMethodImplService.RestartInput:input_type -> inputmethodservice.RestartInputRequest
+	364, // 189: inputmethodservice.InputMethodServiceInputMethodImplService.ShowSoftInput:input_type -> inputmethodservice.ShowSoftInputRequest
+	366, // 190: inputmethodservice.InputMethodServiceInputMethodImplService.StartInput:input_type -> inputmethodservice.StartInputRequest
+	368, // 191: inputmethodservice.InputMethodServiceInputMethodImplService.UnbindInput:input_type -> inputmethodservice.UnbindInputRequest
+	370, // 192: inputmethodservice.InputMethodServiceInputMethodSessionImplService.AppPrivateCommand:input_type -> inputmethodservice.AppPrivateCommandRequest
+	372, // 193: inputmethodservice.InputMethodServiceInputMethodSessionImplService.DisplayCompletions:input_type -> inputmethodservice.DisplayCompletionsRequest
+	374, // 194: inputmethodservice.InputMethodServiceInputMethodSessionImplService.FinishInput:input_type -> inputmethodservice.FinishInputRequest
+	376, // 195: inputmethodservice.InputMethodServiceInputMethodSessionImplService.ToggleSoftInput:input_type -> inputmethodservice.ToggleSoftInputRequest
+	378, // 196: inputmethodservice.InputMethodServiceInputMethodSessionImplService.UpdateCursor:input_type -> inputmethodservice.UpdateCursorRequest
+	380, // 197: inputmethodservice.InputMethodServiceInputMethodSessionImplService.UpdateCursorAnchorInfo:input_type -> inputmethodservice.UpdateCursorAnchorInfoRequest
+	382, // 198: inputmethodservice.InputMethodServiceInputMethodSessionImplService.UpdateExtractedText:input_type -> inputmethodservice.UpdateExtractedTextRequest
+	384, // 199: inputmethodservice.InputMethodServiceInputMethodSessionImplService.UpdateSelection:input_type -> inputmethodservice.UpdateSelectionRequest
+	386, // 200: inputmethodservice.InputMethodServiceInputMethodSessionImplService.ViewClicked:input_type -> inputmethodservice.ViewClickedRequest
+	1,   // 201: inputmethodservice.KeyboardViewService.NewKeyboardView:output_type -> inputmethodservice.NewKeyboardViewResponse
+	3,   // 202: inputmethodservice.KeyboardViewService.Closing:output_type -> inputmethodservice.ClosingResponse
+	5,   // 203: inputmethodservice.KeyboardViewService.GetKeyboard:output_type -> inputmethodservice.GetKeyboardResponse
+	7,   // 204: inputmethodservice.KeyboardViewService.HandleBack:output_type -> inputmethodservice.HandleBackResponse
+	9,   // 205: inputmethodservice.KeyboardViewService.InvalidateAllKeys:output_type -> inputmethodservice.InvalidateAllKeysResponse
+	11,  // 206: inputmethodservice.KeyboardViewService.InvalidateKey:output_type -> inputmethodservice.InvalidateKeyResponse
+	13,  // 207: inputmethodservice.KeyboardViewService.IsPreviewEnabled:output_type -> inputmethodservice.IsPreviewEnabledResponse
+	15,  // 208: inputmethodservice.KeyboardViewService.IsProximityCorrectionEnabled:output_type -> inputmethodservice.IsProximityCorrectionEnabledResponse
+	17,  // 209: inputmethodservice.KeyboardViewService.IsShifted:output_type -> inputmethodservice.IsShiftedResponse
+	19,  // 210: inputmethodservice.KeyboardViewService.OnClick:output_type -> inputmethodservice.OnClickResponse
+	21,  // 211: inputmethodservice.KeyboardViewService.OnDetachedFromWindow:output_type -> inputmethodservice.OnDetachedFromWindowResponse
+	23,  // 212: inputmethodservice.KeyboardViewService.OnDraw:output_type -> inputmethodservice.OnDrawResponse
+	25,  // 213: inputmethodservice.KeyboardViewService.OnHoverEvent:output_type -> inputmethodservice.OnHoverEventResponse
+	27,  // 214: inputmethodservice.KeyboardViewService.OnMeasure:output_type -> inputmethodservice.OnMeasureResponse
+	29,  // 215: inputmethodservice.KeyboardViewService.OnSizeChanged:output_type -> inputmethodservice.OnSizeChangedResponse
+	31,  // 216: inputmethodservice.KeyboardViewService.OnTouchEvent:output_type -> inputmethodservice.OnTouchEventResponse
+	33,  // 217: inputmethodservice.KeyboardViewService.SetKeyboard:output_type -> inputmethodservice.SetKeyboardResponse
+	35,  // 218: inputmethodservice.KeyboardViewService.SetOnKeyboardActionListener:output_type -> inputmethodservice.SetOnKeyboardActionListenerResponse
+	37,  // 219: inputmethodservice.KeyboardViewService.SetPopupOffset:output_type -> inputmethodservice.SetPopupOffsetResponse
+	39,  // 220: inputmethodservice.KeyboardViewService.SetPopupParent:output_type -> inputmethodservice.SetPopupParentResponse
+	41,  // 221: inputmethodservice.KeyboardViewService.SetPreviewEnabled:output_type -> inputmethodservice.SetPreviewEnabledResponse
+	43,  // 222: inputmethodservice.KeyboardViewService.SetProximityCorrectionEnabled:output_type -> inputmethodservice.SetProximityCorrectionEnabledResponse
+	45,  // 223: inputmethodservice.KeyboardViewService.SetShifted:output_type -> inputmethodservice.SetShiftedResponse
+	47,  // 224: inputmethodservice.KeyboardViewService.SetVerticalCorrection:output_type -> inputmethodservice.SetVerticalCorrectionResponse
+	49,  // 225: inputmethodservice.KeyboardViewOnKeyboardActionListenerService.OnKey:output_type -> inputmethodservice.OnKeyResponse
+	51,  // 226: inputmethodservice.KeyboardViewOnKeyboardActionListenerService.OnPress:output_type -> inputmethodservice.OnPressResponse
+	53,  // 227: inputmethodservice.KeyboardViewOnKeyboardActionListenerService.OnRelease:output_type -> inputmethodservice.OnReleaseResponse
+	55,  // 228: inputmethodservice.KeyboardViewOnKeyboardActionListenerService.OnText:output_type -> inputmethodservice.OnTextResponse
+	57,  // 229: inputmethodservice.KeyboardViewOnKeyboardActionListenerService.SwipeDown:output_type -> inputmethodservice.SwipeDownResponse
+	59,  // 230: inputmethodservice.KeyboardViewOnKeyboardActionListenerService.SwipeLeft:output_type -> inputmethodservice.SwipeLeftResponse
+	61,  // 231: inputmethodservice.KeyboardViewOnKeyboardActionListenerService.SwipeRight:output_type -> inputmethodservice.SwipeRightResponse
+	63,  // 232: inputmethodservice.KeyboardViewOnKeyboardActionListenerService.SwipeUp:output_type -> inputmethodservice.SwipeUpResponse
+	65,  // 233: inputmethodservice.KeyboardService.NewKeyboard:output_type -> inputmethodservice.NewKeyboardResponse
+	67,  // 234: inputmethodservice.KeyboardService.GetHeight:output_type -> inputmethodservice.GetHeightResponse
+	69,  // 235: inputmethodservice.KeyboardService.GetKeys:output_type -> inputmethodservice.GetKeysResponse
+	71,  // 236: inputmethodservice.KeyboardService.GetMinWidth:output_type -> inputmethodservice.GetMinWidthResponse
+	73,  // 237: inputmethodservice.KeyboardService.GetModifierKeys:output_type -> inputmethodservice.GetModifierKeysResponse
+	75,  // 238: inputmethodservice.KeyboardService.GetNearestKeys:output_type -> inputmethodservice.GetNearestKeysResponse
+	77,  // 239: inputmethodservice.KeyboardService.GetShiftKeyIndex:output_type -> inputmethodservice.GetShiftKeyIndexResponse
+	17,  // 240: inputmethodservice.KeyboardService.IsShifted:output_type -> inputmethodservice.IsShiftedResponse
+	45,  // 241: inputmethodservice.KeyboardService.SetShifted:output_type -> inputmethodservice.SetShiftedResponse
+	79,  // 242: inputmethodservice.KeyboardKeyService.GetCurrentDrawableState:output_type -> inputmethodservice.GetCurrentDrawableStateResponse
+	81,  // 243: inputmethodservice.KeyboardKeyService.IsInside:output_type -> inputmethodservice.IsInsideResponse
+	83,  // 244: inputmethodservice.KeyboardKeyService.OnPressed:output_type -> inputmethodservice.OnPressedResponse
+	85,  // 245: inputmethodservice.KeyboardKeyService.OnReleased:output_type -> inputmethodservice.OnReleasedResponse
+	87,  // 246: inputmethodservice.KeyboardKeyService.SquaredDistanceFrom:output_type -> inputmethodservice.SquaredDistanceFromResponse
+	89,  // 247: inputmethodservice.ExtractEditTextService.NewExtractEditText:output_type -> inputmethodservice.NewExtractEditTextResponse
+	91,  // 248: inputmethodservice.ExtractEditTextService.FinishInternalChanges:output_type -> inputmethodservice.FinishInternalChangesResponse
+	93,  // 249: inputmethodservice.ExtractEditTextService.HasFocus:output_type -> inputmethodservice.HasFocusResponse
+	95,  // 250: inputmethodservice.ExtractEditTextService.HasVerticalScrollBar:output_type -> inputmethodservice.HasVerticalScrollBarResponse
+	97,  // 251: inputmethodservice.ExtractEditTextService.HasWindowFocus:output_type -> inputmethodservice.HasWindowFocusResponse
+	99,  // 252: inputmethodservice.ExtractEditTextService.IsFocused:output_type -> inputmethodservice.IsFocusedResponse
+	101, // 253: inputmethodservice.ExtractEditTextService.IsInputMethodTarget:output_type -> inputmethodservice.IsInputMethodTargetResponse
+	103, // 254: inputmethodservice.ExtractEditTextService.OnTextContextMenuItem:output_type -> inputmethodservice.OnTextContextMenuItemResponse
+	105, // 255: inputmethodservice.ExtractEditTextService.PerformClick:output_type -> inputmethodservice.PerformClickResponse
+	107, // 256: inputmethodservice.ExtractEditTextService.SetExtractedText:output_type -> inputmethodservice.SetExtractedTextResponse
+	109, // 257: inputmethodservice.ExtractEditTextService.StartInternalChanges:output_type -> inputmethodservice.StartInternalChangesResponse
+	111, // 258: inputmethodservice.AbstractInputMethodServiceService.GetKeyDispatcherState:output_type -> inputmethodservice.GetKeyDispatcherStateResponse
+	113, // 259: inputmethodservice.AbstractInputMethodServiceService.GetSystemService:output_type -> inputmethodservice.GetSystemServiceResponse
+	115, // 260: inputmethodservice.AbstractInputMethodServiceService.OnBind:output_type -> inputmethodservice.OnBindResponse
+	117, // 261: inputmethodservice.AbstractInputMethodServiceService.OnConfigurationChanged:output_type -> inputmethodservice.OnConfigurationChangedResponse
+	119, // 262: inputmethodservice.AbstractInputMethodServiceService.OnCreateInputMethodInterface:output_type -> inputmethodservice.OnCreateInputMethodInterfaceResponse
+	121, // 263: inputmethodservice.AbstractInputMethodServiceService.OnCreateInputMethodSessionInterface:output_type -> inputmethodservice.OnCreateInputMethodSessionInterfaceResponse
+	123, // 264: inputmethodservice.AbstractInputMethodServiceService.OnDestroy:output_type -> inputmethodservice.OnDestroyResponse
+	125, // 265: inputmethodservice.AbstractInputMethodServiceService.OnGenericMotionEvent:output_type -> inputmethodservice.OnGenericMotionEventResponse
+	127, // 266: inputmethodservice.AbstractInputMethodServiceService.OnLowMemory:output_type -> inputmethodservice.OnLowMemoryResponse
+	129, // 267: inputmethodservice.AbstractInputMethodServiceService.OnShouldVerifyKeyEvent:output_type -> inputmethodservice.OnShouldVerifyKeyEventResponse
+	131, // 268: inputmethodservice.AbstractInputMethodServiceService.OnTrackballEvent:output_type -> inputmethodservice.OnTrackballEventResponse
+	133, // 269: inputmethodservice.AbstractInputMethodServiceService.OnTrimMemory:output_type -> inputmethodservice.OnTrimMemoryResponse
+	135, // 270: inputmethodservice.AbstractInputMethodServiceService.RegisterComponentCallbacks:output_type -> inputmethodservice.RegisterComponentCallbacksResponse
+	137, // 271: inputmethodservice.AbstractInputMethodServiceService.UnregisterComponentCallbacks:output_type -> inputmethodservice.UnregisterComponentCallbacksResponse
+	139, // 272: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodImplService.CreateSession:output_type -> inputmethodservice.CreateSessionResponse
+	141, // 273: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodImplService.RevokeSession:output_type -> inputmethodservice.RevokeSessionResponse
+	143, // 274: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodImplService.SetSessionEnabled:output_type -> inputmethodservice.SetSessionEnabledResponse
+	145, // 275: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodSessionImplService.DispatchGenericMotionEvent:output_type -> inputmethodservice.DispatchGenericMotionEventResponse
+	147, // 276: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodSessionImplService.DispatchKeyEvent:output_type -> inputmethodservice.DispatchKeyEventResponse
+	149, // 277: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodSessionImplService.DispatchTrackballEvent:output_type -> inputmethodservice.DispatchTrackballEventResponse
+	151, // 278: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodSessionImplService.IsEnabled:output_type -> inputmethodservice.IsEnabledResponse
+	153, // 279: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodSessionImplService.IsRevoked:output_type -> inputmethodservice.IsRevokedResponse
+	129, // 280: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodSessionImplService.OnShouldVerifyKeyEvent:output_type -> inputmethodservice.OnShouldVerifyKeyEventResponse
+	155, // 281: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodSessionImplService.RevokeSelf:output_type -> inputmethodservice.RevokeSelfResponse
+	157, // 282: inputmethodservice.AbstractInputMethodServiceAbstractInputMethodSessionImplService.SetEnabled:output_type -> inputmethodservice.SetEnabledResponse
+	159, // 283: inputmethodservice.InputMethodServiceService.NewInputMethodService:output_type -> inputmethodservice.NewInputMethodServiceResponse
+	161, // 284: inputmethodservice.InputMethodServiceService.EnableHardwareAcceleration:output_type -> inputmethodservice.EnableHardwareAccelerationResponse
+	163, // 285: inputmethodservice.InputMethodServiceService.FinishConnectionlessStylusHandwriting:output_type -> inputmethodservice.FinishConnectionlessStylusHandwritingResponse
+	165, // 286: inputmethodservice.InputMethodServiceService.FinishStylusHandwriting:output_type -> inputmethodservice.FinishStylusHandwritingResponse
+	167, // 287: inputmethodservice.InputMethodServiceService.GetBackDisposition:output_type -> inputmethodservice.GetBackDispositionResponse
+	169, // 288: inputmethodservice.InputMethodServiceService.GetCandidatesHiddenVisibility:output_type -> inputmethodservice.GetCandidatesHiddenVisibilityResponse
+	171, // 289: inputmethodservice.InputMethodServiceService.GetCurrentInputBinding:output_type -> inputmethodservice.GetCurrentInputBindingResponse
+	173, // 290: inputmethodservice.InputMethodServiceService.GetCurrentInputConnection:output_type -> inputmethodservice.GetCurrentInputConnectionResponse
+	175, // 291: inputmethodservice.InputMethodServiceService.GetCurrentInputEditorInfo:output_type -> inputmethodservice.GetCurrentInputEditorInfoResponse
+	177, // 292: inputmethodservice.InputMethodServiceService.GetCurrentInputStarted:output_type -> inputmethodservice.GetCurrentInputStartedResponse
+	179, // 293: inputmethodservice.InputMethodServiceService.GetInputMethodWindowRecommendedHeight:output_type -> inputmethodservice.GetInputMethodWindowRecommendedHeightResponse
+	181, // 294: inputmethodservice.InputMethodServiceService.GetLayoutInflater:output_type -> inputmethodservice.GetLayoutInflaterResponse
+	183, // 295: inputmethodservice.InputMethodServiceService.GetMaxWidth:output_type -> inputmethodservice.GetMaxWidthResponse
+	185, // 296: inputmethodservice.InputMethodServiceService.GetStylusHandwritingSessionTimeout:output_type -> inputmethodservice.GetStylusHandwritingSessionTimeoutResponse
+	187, // 297: inputmethodservice.InputMethodServiceService.GetStylusHandwritingWindow:output_type -> inputmethodservice.GetStylusHandwritingWindowResponse
+	113, // 298: inputmethodservice.InputMethodServiceService.GetSystemService:output_type -> inputmethodservice.GetSystemServiceResponse
+	190, // 299: inputmethodservice.InputMethodServiceService.GetTextForImeAction:output_type -> inputmethodservice.GetTextForImeActionResponse
+	192, // 300: inputmethodservice.InputMethodServiceService.GetWindow:output_type -> inputmethodservice.GetWindowResponse
+	194, // 301: inputmethodservice.InputMethodServiceService.HideStatusIcon:output_type -> inputmethodservice.HideStatusIconResponse
+	196, // 302: inputmethodservice.InputMethodServiceService.HideWindow:output_type -> inputmethodservice.HideWindowResponse
+	198, // 303: inputmethodservice.InputMethodServiceService.IsExtractViewShown:output_type -> inputmethodservice.IsExtractViewShownResponse
+	200, // 304: inputmethodservice.InputMethodServiceService.IsFullscreenMode:output_type -> inputmethodservice.IsFullscreenModeResponse
+	202, // 305: inputmethodservice.InputMethodServiceService.IsInputViewShown:output_type -> inputmethodservice.IsInputViewShownResponse
+	204, // 306: inputmethodservice.InputMethodServiceService.IsShowInputRequested:output_type -> inputmethodservice.IsShowInputRequestedResponse
+	206, // 307: inputmethodservice.InputMethodServiceService.OnAppPrivateCommand:output_type -> inputmethodservice.OnAppPrivateCommandResponse
+	208, // 308: inputmethodservice.InputMethodServiceService.OnBindInput:output_type -> inputmethodservice.OnBindInputResponse
+	210, // 309: inputmethodservice.InputMethodServiceService.OnComputeInsets:output_type -> inputmethodservice.OnComputeInsetsResponse
+	117, // 310: inputmethodservice.InputMethodServiceService.OnConfigurationChanged:output_type -> inputmethodservice.OnConfigurationChangedResponse
+	213, // 311: inputmethodservice.InputMethodServiceService.OnConfigureWindow:output_type -> inputmethodservice.OnConfigureWindowResponse
+	215, // 312: inputmethodservice.InputMethodServiceService.OnCreate:output_type -> inputmethodservice.OnCreateResponse
+	217, // 313: inputmethodservice.InputMethodServiceService.OnCreateCandidatesView:output_type -> inputmethodservice.OnCreateCandidatesViewResponse
+	219, // 314: inputmethodservice.InputMethodServiceService.OnCreateExtractTextView:output_type -> inputmethodservice.OnCreateExtractTextViewResponse
+	221, // 315: inputmethodservice.InputMethodServiceService.OnCreateInlineSuggestionsRequest:output_type -> inputmethodservice.OnCreateInlineSuggestionsRequestResponse
+	119, // 316: inputmethodservice.InputMethodServiceService.OnCreateInputMethodInterface:output_type -> inputmethodservice.OnCreateInputMethodInterfaceResponse
+	121, // 317: inputmethodservice.InputMethodServiceService.OnCreateInputMethodSessionInterface:output_type -> inputmethodservice.OnCreateInputMethodSessionInterfaceResponse
+	225, // 318: inputmethodservice.InputMethodServiceService.OnCreateInputView:output_type -> inputmethodservice.OnCreateInputViewResponse
+	227, // 319: inputmethodservice.InputMethodServiceService.OnCustomImeSwitcherButtonRequestedVisible:output_type -> inputmethodservice.OnCustomImeSwitcherButtonRequestedVisibleResponse
+	123, // 320: inputmethodservice.InputMethodServiceService.OnDestroy:output_type -> inputmethodservice.OnDestroyResponse
+	230, // 321: inputmethodservice.InputMethodServiceService.OnDisplayCompletions:output_type -> inputmethodservice.OnDisplayCompletionsResponse
+	232, // 322: inputmethodservice.InputMethodServiceService.OnEvaluateFullscreenMode:output_type -> inputmethodservice.OnEvaluateFullscreenModeResponse
+	234, // 323: inputmethodservice.InputMethodServiceService.OnEvaluateInputViewShown:output_type -> inputmethodservice.OnEvaluateInputViewShownResponse
+	236, // 324: inputmethodservice.InputMethodServiceService.OnExtractTextContextMenuItem:output_type -> inputmethodservice.OnExtractTextContextMenuItemResponse
+	238, // 325: inputmethodservice.InputMethodServiceService.OnExtractedCursorMovement:output_type -> inputmethodservice.OnExtractedCursorMovementResponse
+	240, // 326: inputmethodservice.InputMethodServiceService.OnExtractedSelectionChanged:output_type -> inputmethodservice.OnExtractedSelectionChangedResponse
+	242, // 327: inputmethodservice.InputMethodServiceService.OnExtractedTextClicked:output_type -> inputmethodservice.OnExtractedTextClickedResponse
+	244, // 328: inputmethodservice.InputMethodServiceService.OnExtractingInputChanged:output_type -> inputmethodservice.OnExtractingInputChangedResponse
+	246, // 329: inputmethodservice.InputMethodServiceService.OnFinishCandidatesView:output_type -> inputmethodservice.OnFinishCandidatesViewResponse
+	248, // 330: inputmethodservice.InputMethodServiceService.OnFinishInput:output_type -> inputmethodservice.OnFinishInputResponse
+	250, // 331: inputmethodservice.InputMethodServiceService.OnFinishInputView:output_type -> inputmethodservice.OnFinishInputViewResponse
+	252, // 332: inputmethodservice.InputMethodServiceService.OnFinishStylusHandwriting:output_type -> inputmethodservice.OnFinishStylusHandwritingResponse
+	125, // 333: inputmethodservice.InputMethodServiceService.OnGenericMotionEvent:output_type -> inputmethodservice.OnGenericMotionEventResponse
+	255, // 334: inputmethodservice.InputMethodServiceService.OnInitializeInterface:output_type -> inputmethodservice.OnInitializeInterfaceResponse
+	257, // 335: inputmethodservice.InputMethodServiceService.OnInlineSuggestionsResponse:output_type -> inputmethodservice.OnInlineSuggestionsResponseResponse
+	259, // 336: inputmethodservice.InputMethodServiceService.OnKeyDown:output_type -> inputmethodservice.OnKeyDownResponse
+	261, // 337: inputmethodservice.InputMethodServiceService.OnKeyLongPress:output_type -> inputmethodservice.OnKeyLongPressResponse
+	263, // 338: inputmethodservice.InputMethodServiceService.OnKeyMultiple:output_type -> inputmethodservice.OnKeyMultipleResponse
+	265, // 339: inputmethodservice.InputMethodServiceService.OnKeyUp:output_type -> inputmethodservice.OnKeyUpResponse
+	267, // 340: inputmethodservice.InputMethodServiceService.OnPrepareStylusHandwriting:output_type -> inputmethodservice.OnPrepareStylusHandwritingResponse
+	129, // 341: inputmethodservice.InputMethodServiceService.OnShouldVerifyKeyEvent:output_type -> inputmethodservice.OnShouldVerifyKeyEventResponse
+	270, // 342: inputmethodservice.InputMethodServiceService.OnShowInputRequested:output_type -> inputmethodservice.OnShowInputRequestedResponse
+	272, // 343: inputmethodservice.InputMethodServiceService.OnStartCandidatesView:output_type -> inputmethodservice.OnStartCandidatesViewResponse
+	274, // 344: inputmethodservice.InputMethodServiceService.OnStartConnectionlessStylusHandwriting:output_type -> inputmethodservice.OnStartConnectionlessStylusHandwritingResponse
+	276, // 345: inputmethodservice.InputMethodServiceService.OnStartInput:output_type -> inputmethodservice.OnStartInputResponse
+	278, // 346: inputmethodservice.InputMethodServiceService.OnStartInputView:output_type -> inputmethodservice.OnStartInputViewResponse
+	280, // 347: inputmethodservice.InputMethodServiceService.OnStartStylusHandwriting:output_type -> inputmethodservice.OnStartStylusHandwritingResponse
+	282, // 348: inputmethodservice.InputMethodServiceService.OnStylusHandwritingMotionEvent:output_type -> inputmethodservice.OnStylusHandwritingMotionEventResponse
+	131, // 349: inputmethodservice.InputMethodServiceService.OnTrackballEvent:output_type -> inputmethodservice.OnTrackballEventResponse
+	285, // 350: inputmethodservice.InputMethodServiceService.OnUnbindInput:output_type -> inputmethodservice.OnUnbindInputResponse
+	287, // 351: inputmethodservice.InputMethodServiceService.OnUpdateCursor:output_type -> inputmethodservice.OnUpdateCursorResponse
+	289, // 352: inputmethodservice.InputMethodServiceService.OnUpdateCursorAnchorInfo:output_type -> inputmethodservice.OnUpdateCursorAnchorInfoResponse
+	291, // 353: inputmethodservice.InputMethodServiceService.OnUpdateEditorToolType:output_type -> inputmethodservice.OnUpdateEditorToolTypeResponse
+	293, // 354: inputmethodservice.InputMethodServiceService.OnUpdateExtractedText:output_type -> inputmethodservice.OnUpdateExtractedTextResponse
+	295, // 355: inputmethodservice.InputMethodServiceService.OnUpdateExtractingViews:output_type -> inputmethodservice.OnUpdateExtractingViewsResponse
+	297, // 356: inputmethodservice.InputMethodServiceService.OnUpdateExtractingVisibility:output_type -> inputmethodservice.OnUpdateExtractingVisibilityResponse
+	299, // 357: inputmethodservice.InputMethodServiceService.OnUpdateSelection:output_type -> inputmethodservice.OnUpdateSelectionResponse
+	301, // 358: inputmethodservice.InputMethodServiceService.OnViewClicked:output_type -> inputmethodservice.OnViewClickedResponse
+	303, // 359: inputmethodservice.InputMethodServiceService.OnWindowHidden:output_type -> inputmethodservice.OnWindowHiddenResponse
+	305, // 360: inputmethodservice.InputMethodServiceService.OnWindowShown:output_type -> inputmethodservice.OnWindowShownResponse
+	307, // 361: inputmethodservice.InputMethodServiceService.RequestHideSelf:output_type -> inputmethodservice.RequestHideSelfResponse
+	309, // 362: inputmethodservice.InputMethodServiceService.RequestShowSelf:output_type -> inputmethodservice.RequestShowSelfResponse
+	311, // 363: inputmethodservice.InputMethodServiceService.SendDefaultEditorAction:output_type -> inputmethodservice.SendDefaultEditorActionResponse
+	313, // 364: inputmethodservice.InputMethodServiceService.SendDownUpKeyEvents:output_type -> inputmethodservice.SendDownUpKeyEventsResponse
+	315, // 365: inputmethodservice.InputMethodServiceService.SendKeyChar:output_type -> inputmethodservice.SendKeyCharResponse
+	317, // 366: inputmethodservice.InputMethodServiceService.SetBackDisposition:output_type -> inputmethodservice.SetBackDispositionResponse
+	319, // 367: inputmethodservice.InputMethodServiceService.SetCandidatesView:output_type -> inputmethodservice.SetCandidatesViewResponse
+	321, // 368: inputmethodservice.InputMethodServiceService.SetCandidatesViewShown:output_type -> inputmethodservice.SetCandidatesViewShownResponse
+	323, // 369: inputmethodservice.InputMethodServiceService.SetExtractView:output_type -> inputmethodservice.SetExtractViewResponse
+	325, // 370: inputmethodservice.InputMethodServiceService.SetExtractViewShown:output_type -> inputmethodservice.SetExtractViewShownResponse
+	327, // 371: inputmethodservice.InputMethodServiceService.SetInputView:output_type -> inputmethodservice.SetInputViewResponse
+	329, // 372: inputmethodservice.InputMethodServiceService.SetStylusHandwritingRegion:output_type -> inputmethodservice.SetStylusHandwritingRegionResponse
+	331, // 373: inputmethodservice.InputMethodServiceService.SetStylusHandwritingSessionTimeout:output_type -> inputmethodservice.SetStylusHandwritingSessionTimeoutResponse
+	333, // 374: inputmethodservice.InputMethodServiceService.SetTheme:output_type -> inputmethodservice.SetThemeResponse
+	335, // 375: inputmethodservice.InputMethodServiceService.ShouldOfferSwitchingToNextInputMethod:output_type -> inputmethodservice.ShouldOfferSwitchingToNextInputMethodResponse
+	337, // 376: inputmethodservice.InputMethodServiceService.ShowStatusIcon:output_type -> inputmethodservice.ShowStatusIconResponse
+	339, // 377: inputmethodservice.InputMethodServiceService.ShowWindow:output_type -> inputmethodservice.ShowWindowResponse
+	341, // 378: inputmethodservice.InputMethodServiceService.SwitchInputMethod1:output_type -> inputmethodservice.SwitchInputMethod1Response
+	343, // 379: inputmethodservice.InputMethodServiceService.SwitchInputMethod2_1:output_type -> inputmethodservice.SwitchInputMethod2_1Response
+	345, // 380: inputmethodservice.InputMethodServiceService.SwitchToNextInputMethod:output_type -> inputmethodservice.SwitchToNextInputMethodResponse
+	347, // 381: inputmethodservice.InputMethodServiceService.SwitchToPreviousInputMethod:output_type -> inputmethodservice.SwitchToPreviousInputMethodResponse
+	349, // 382: inputmethodservice.InputMethodServiceService.UpdateFullscreenMode:output_type -> inputmethodservice.UpdateFullscreenModeResponse
+	351, // 383: inputmethodservice.InputMethodServiceService.UpdateInputViewShown:output_type -> inputmethodservice.UpdateInputViewShownResponse
+	353, // 384: inputmethodservice.InputMethodServiceService.GetStylusHandwritingIdleTimeoutMax:output_type -> inputmethodservice.GetStylusHandwritingIdleTimeoutMaxResponse
+	355, // 385: inputmethodservice.InputMethodServiceInputMethodImplService.AttachToken:output_type -> inputmethodservice.AttachTokenResponse
+	357, // 386: inputmethodservice.InputMethodServiceInputMethodImplService.BindInput:output_type -> inputmethodservice.BindInputResponse
+	359, // 387: inputmethodservice.InputMethodServiceInputMethodImplService.ChangeInputMethodSubtype:output_type -> inputmethodservice.ChangeInputMethodSubtypeResponse
+	361, // 388: inputmethodservice.InputMethodServiceInputMethodImplService.HideSoftInput:output_type -> inputmethodservice.HideSoftInputResponse
+	363, // 389: inputmethodservice.InputMethodServiceInputMethodImplService.RestartInput:output_type -> inputmethodservice.RestartInputResponse
+	365, // 390: inputmethodservice.InputMethodServiceInputMethodImplService.ShowSoftInput:output_type -> inputmethodservice.ShowSoftInputResponse
+	367, // 391: inputmethodservice.InputMethodServiceInputMethodImplService.StartInput:output_type -> inputmethodservice.StartInputResponse
+	369, // 392: inputmethodservice.InputMethodServiceInputMethodImplService.UnbindInput:output_type -> inputmethodservice.UnbindInputResponse
+	371, // 393: inputmethodservice.InputMethodServiceInputMethodSessionImplService.AppPrivateCommand:output_type -> inputmethodservice.AppPrivateCommandResponse
+	373, // 394: inputmethodservice.InputMethodServiceInputMethodSessionImplService.DisplayCompletions:output_type -> inputmethodservice.DisplayCompletionsResponse
+	375, // 395: inputmethodservice.InputMethodServiceInputMethodSessionImplService.FinishInput:output_type -> inputmethodservice.FinishInputResponse
+	377, // 396: inputmethodservice.InputMethodServiceInputMethodSessionImplService.ToggleSoftInput:output_type -> inputmethodservice.ToggleSoftInputResponse
+	379, // 397: inputmethodservice.InputMethodServiceInputMethodSessionImplService.UpdateCursor:output_type -> inputmethodservice.UpdateCursorResponse
+	381, // 398: inputmethodservice.InputMethodServiceInputMethodSessionImplService.UpdateCursorAnchorInfo:output_type -> inputmethodservice.UpdateCursorAnchorInfoResponse
+	383, // 399: inputmethodservice.InputMethodServiceInputMethodSessionImplService.UpdateExtractedText:output_type -> inputmethodservice.UpdateExtractedTextResponse
+	385, // 400: inputmethodservice.InputMethodServiceInputMethodSessionImplService.UpdateSelection:output_type -> inputmethodservice.UpdateSelectionResponse
+	387, // 401: inputmethodservice.InputMethodServiceInputMethodSessionImplService.ViewClicked:output_type -> inputmethodservice.ViewClickedResponse
+	201, // [201:402] is the sub-list for method output_type
+	0,   // [0:201] is the sub-list for method input_type
 	0,   // [0:0] is the sub-list for extension type_name
 	0,   // [0:0] is the sub-list for extension extendee
 	0,   // [0:0] is the sub-list for field type_name
@@ -18693,7 +18887,7 @@ func file_proto_inputmethodservice_inputmethodservice_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_inputmethodservice_inputmethodservice_proto_rawDesc), len(file_proto_inputmethodservice_inputmethodservice_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   384,
+			NumMessages:   388,
 			NumExtensions: 0,
 			NumServices:   11,
 		},

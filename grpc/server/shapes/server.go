@@ -15,146 +15,6 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// OvalShapeServer implements pb.OvalShapeServiceServer.
-type OvalShapeServer struct {
-	pb.UnimplementedOvalShapeServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *OvalShapeServer) NewOvalShape(_ context.Context, req *pb.NewOvalShapeRequest) (*pb.NewOvalShapeResponse, error) {
-	obj, err := jnipkg.NewOvalShape(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewOvalShapeResponse{Result: handle}, nil
-}
-
-func (s *OvalShapeServer) Clone0(_ context.Context, req *pb.Clone0Request) (*pb.Clone0Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.OvalShape{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Clone0()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.Clone0Response{Result: handle}, nil
-}
-
-func (s *OvalShapeServer) Draw(_ context.Context, req *pb.DrawRequest) (*pb.DrawResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.OvalShape{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Draw(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DrawResponse{}, nil
-}
-
-func (s *OvalShapeServer) GetOutline(_ context.Context, req *pb.GetOutlineRequest) (*pb.GetOutlineResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.OvalShape{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.GetOutline(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetOutlineResponse{}, nil
-}
-
-func (s *OvalShapeServer) Clone0_1(_ context.Context, req *pb.Clone0_1Request) (*pb.Clone0_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.OvalShape{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Clone0_1()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.Clone0_1Response{Result: handle}, nil
-}
-
-func (s *OvalShapeServer) Clone0_2(_ context.Context, req *pb.Clone0_2Request) (*pb.Clone0_2Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.OvalShape{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Clone0_2()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.Clone0_2Response{Result: handle}, nil
-}
-
-func (s *OvalShapeServer) Clone0_3(_ context.Context, req *pb.Clone0_3Request) (*pb.Clone0_3Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.OvalShape{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Clone0_3()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.Clone0_3Response{Result: handle}, nil
-}
-
 // RoundRectShapeServer implements pb.RoundRectShapeServiceServer.
 type RoundRectShapeServer struct {
 	pb.UnimplementedRoundRectShapeServiceServer
@@ -177,7 +37,7 @@ func (s *RoundRectShapeServer) NewRoundRectShape(_ context.Context, req *pb.NewR
 	return &pb.NewRoundRectShapeResponse{Result: handle}, nil
 }
 
-func (s *RoundRectShapeServer) Clone0(_ context.Context, req *pb.Clone0Request) (*pb.Clone0Response, error) {
+func (s *RoundRectShapeServer) Clone0(_ context.Context, req *pb.RoundRectShapeClone0Request) (*pb.Clone0Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -200,7 +60,7 @@ func (s *RoundRectShapeServer) Clone0(_ context.Context, req *pb.Clone0Request) 
 	return &pb.Clone0Response{Result: handle}, nil
 }
 
-func (s *RoundRectShapeServer) Draw(_ context.Context, req *pb.DrawRequest) (*pb.DrawResponse, error) {
+func (s *RoundRectShapeServer) Draw(_ context.Context, req *pb.RoundRectShapeDrawRequest) (*pb.DrawResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -213,7 +73,7 @@ func (s *RoundRectShapeServer) Draw(_ context.Context, req *pb.DrawRequest) (*pb
 	return &pb.DrawResponse{}, nil
 }
 
-func (s *RoundRectShapeServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
+func (s *RoundRectShapeServer) Equals(_ context.Context, req *pb.RoundRectShapeEqualsRequest) (*pb.EqualsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -227,7 +87,7 @@ func (s *RoundRectShapeServer) Equals(_ context.Context, req *pb.EqualsRequest) 
 	return &pb.EqualsResponse{Result: result}, nil
 }
 
-func (s *RoundRectShapeServer) GetOutline(_ context.Context, req *pb.GetOutlineRequest) (*pb.GetOutlineResponse, error) {
+func (s *RoundRectShapeServer) GetOutline(_ context.Context, req *pb.RoundRectShapeGetOutlineRequest) (*pb.GetOutlineResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -240,7 +100,7 @@ func (s *RoundRectShapeServer) GetOutline(_ context.Context, req *pb.GetOutlineR
 	return &pb.GetOutlineResponse{}, nil
 }
 
-func (s *RoundRectShapeServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
+func (s *RoundRectShapeServer) HashCode(_ context.Context, req *pb.RoundRectShapeHashCodeRequest) (*pb.HashCodeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -254,7 +114,7 @@ func (s *RoundRectShapeServer) HashCode(_ context.Context, req *pb.HashCodeReque
 	return &pb.HashCodeResponse{Result: result}, nil
 }
 
-func (s *RoundRectShapeServer) Clone0_1(_ context.Context, req *pb.Clone0_1Request) (*pb.Clone0_1Response, error) {
+func (s *RoundRectShapeServer) Clone0_1(_ context.Context, req *pb.RoundRectShapeClone0_1Request) (*pb.Clone0_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -323,138 +183,6 @@ func (s *RoundRectShapeServer) Clone0_3(_ context.Context, req *pb.Clone0_3Reque
 	return &pb.Clone0_3Response{Result: handle}, nil
 }
 
-// PathShapeServer implements pb.PathShapeServiceServer.
-type PathShapeServer struct {
-	pb.UnimplementedPathShapeServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *PathShapeServer) NewPathShape(_ context.Context, req *pb.NewPathShapeRequest) (*pb.NewPathShapeResponse, error) {
-	obj, err := jnipkg.NewPathShape(s.Ctx.VM, s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewPathShapeResponse{Result: handle}, nil
-}
-
-func (s *PathShapeServer) Clone0(_ context.Context, req *pb.Clone0Request) (*pb.Clone0Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PathShape{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Clone0()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.Clone0Response{Result: handle}, nil
-}
-
-func (s *PathShapeServer) Draw(_ context.Context, req *pb.DrawRequest) (*pb.DrawResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PathShape{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Draw(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DrawResponse{}, nil
-}
-
-func (s *PathShapeServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PathShape{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.EqualsResponse{Result: result}, nil
-}
-
-func (s *PathShapeServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PathShape{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.HashCode()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.HashCodeResponse{Result: result}, nil
-}
-
-func (s *PathShapeServer) Clone0_1(_ context.Context, req *pb.Clone0_1Request) (*pb.Clone0_1Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PathShape{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Clone0_1()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.Clone0_1Response{Result: handle}, nil
-}
-
-func (s *PathShapeServer) Clone0_2(_ context.Context, req *pb.Clone0_2Request) (*pb.Clone0_2Response, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PathShape{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Clone0_2()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.Clone0_2Response{Result: handle}, nil
-}
-
 // RectShapeServer implements pb.RectShapeServiceServer.
 type RectShapeServer struct {
 	pb.UnimplementedRectShapeServiceServer
@@ -477,7 +205,7 @@ func (s *RectShapeServer) NewRectShape(_ context.Context, req *pb.NewRectShapeRe
 	return &pb.NewRectShapeResponse{Result: handle}, nil
 }
 
-func (s *RectShapeServer) Clone0(_ context.Context, req *pb.Clone0Request) (*pb.Clone0Response, error) {
+func (s *RectShapeServer) Clone0(_ context.Context, req *pb.RectShapeClone0Request) (*pb.Clone0Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -500,7 +228,7 @@ func (s *RectShapeServer) Clone0(_ context.Context, req *pb.Clone0Request) (*pb.
 	return &pb.Clone0Response{Result: handle}, nil
 }
 
-func (s *RectShapeServer) Draw(_ context.Context, req *pb.DrawRequest) (*pb.DrawResponse, error) {
+func (s *RectShapeServer) Draw(_ context.Context, req *pb.RectShapeDrawRequest) (*pb.DrawResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -513,7 +241,7 @@ func (s *RectShapeServer) Draw(_ context.Context, req *pb.DrawRequest) (*pb.Draw
 	return &pb.DrawResponse{}, nil
 }
 
-func (s *RectShapeServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
+func (s *RectShapeServer) Equals(_ context.Context, req *pb.RectShapeEqualsRequest) (*pb.EqualsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -527,7 +255,7 @@ func (s *RectShapeServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.
 	return &pb.EqualsResponse{Result: result}, nil
 }
 
-func (s *RectShapeServer) GetOutline(_ context.Context, req *pb.GetOutlineRequest) (*pb.GetOutlineResponse, error) {
+func (s *RectShapeServer) GetOutline(_ context.Context, req *pb.RectShapeGetOutlineRequest) (*pb.GetOutlineResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -540,7 +268,7 @@ func (s *RectShapeServer) GetOutline(_ context.Context, req *pb.GetOutlineReques
 	return &pb.GetOutlineResponse{}, nil
 }
 
-func (s *RectShapeServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
+func (s *RectShapeServer) HashCode(_ context.Context, req *pb.RectShapeHashCodeRequest) (*pb.HashCodeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -554,7 +282,7 @@ func (s *RectShapeServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (
 	return &pb.HashCodeResponse{Result: result}, nil
 }
 
-func (s *RectShapeServer) Clone0_1(_ context.Context, req *pb.Clone0_1Request) (*pb.Clone0_1Response, error) {
+func (s *RectShapeServer) Clone0_1(_ context.Context, req *pb.RectShapeClone0_1Request) (*pb.Clone0_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -622,7 +350,7 @@ func (s *ArcShapeServer) NewArcShape(_ context.Context, req *pb.NewArcShapeReque
 	return &pb.NewArcShapeResponse{Result: handle}, nil
 }
 
-func (s *ArcShapeServer) Clone0(_ context.Context, req *pb.Clone0Request) (*pb.Clone0Response, error) {
+func (s *ArcShapeServer) Clone0(_ context.Context, req *pb.ArcShapeClone0Request) (*pb.Clone0Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -645,7 +373,7 @@ func (s *ArcShapeServer) Clone0(_ context.Context, req *pb.Clone0Request) (*pb.C
 	return &pb.Clone0Response{Result: handle}, nil
 }
 
-func (s *ArcShapeServer) Draw(_ context.Context, req *pb.DrawRequest) (*pb.DrawResponse, error) {
+func (s *ArcShapeServer) Draw(_ context.Context, req *pb.ArcShapeDrawRequest) (*pb.DrawResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -658,7 +386,7 @@ func (s *ArcShapeServer) Draw(_ context.Context, req *pb.DrawRequest) (*pb.DrawR
 	return &pb.DrawResponse{}, nil
 }
 
-func (s *ArcShapeServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.EqualsResponse, error) {
+func (s *ArcShapeServer) Equals(_ context.Context, req *pb.ArcShapeEqualsRequest) (*pb.EqualsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -672,7 +400,7 @@ func (s *ArcShapeServer) Equals(_ context.Context, req *pb.EqualsRequest) (*pb.E
 	return &pb.EqualsResponse{Result: result}, nil
 }
 
-func (s *ArcShapeServer) GetOutline(_ context.Context, req *pb.GetOutlineRequest) (*pb.GetOutlineResponse, error) {
+func (s *ArcShapeServer) GetOutline(_ context.Context, req *pb.ArcShapeGetOutlineRequest) (*pb.GetOutlineResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -713,7 +441,7 @@ func (s *ArcShapeServer) GetSweepAngle(_ context.Context, req *pb.GetSweepAngleR
 	return &pb.GetSweepAngleResponse{Result: result}, nil
 }
 
-func (s *ArcShapeServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
+func (s *ArcShapeServer) HashCode(_ context.Context, req *pb.ArcShapeHashCodeRequest) (*pb.HashCodeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -727,7 +455,7 @@ func (s *ArcShapeServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*
 	return &pb.HashCodeResponse{Result: result}, nil
 }
 
-func (s *ArcShapeServer) Clone0_1(_ context.Context, req *pb.Clone0_1Request) (*pb.Clone0_1Response, error) {
+func (s *ArcShapeServer) Clone0_1(_ context.Context, req *pb.ArcShapeClone0_1Request) (*pb.Clone0_1Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -794,4 +522,276 @@ func (s *ArcShapeServer) Clone0_3(_ context.Context, req *pb.Clone0_3Request) (*
 		}
 	}
 	return &pb.Clone0_3Response{Result: handle}, nil
+}
+
+// OvalShapeServer implements pb.OvalShapeServiceServer.
+type OvalShapeServer struct {
+	pb.UnimplementedOvalShapeServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *OvalShapeServer) NewOvalShape(_ context.Context, req *pb.NewOvalShapeRequest) (*pb.NewOvalShapeResponse, error) {
+	obj, err := jnipkg.NewOvalShape(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewOvalShapeResponse{Result: handle}, nil
+}
+
+func (s *OvalShapeServer) Clone0(_ context.Context, req *pb.OvalShapeClone0Request) (*pb.Clone0Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.OvalShape{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Clone0()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.Clone0Response{Result: handle}, nil
+}
+
+func (s *OvalShapeServer) Draw(_ context.Context, req *pb.OvalShapeDrawRequest) (*pb.DrawResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.OvalShape{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Draw(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DrawResponse{}, nil
+}
+
+func (s *OvalShapeServer) GetOutline(_ context.Context, req *pb.OvalShapeGetOutlineRequest) (*pb.GetOutlineResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.OvalShape{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.GetOutline(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetOutlineResponse{}, nil
+}
+
+func (s *OvalShapeServer) Clone0_1(_ context.Context, req *pb.OvalShapeClone0_1Request) (*pb.Clone0_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.OvalShape{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Clone0_1()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.Clone0_1Response{Result: handle}, nil
+}
+
+func (s *OvalShapeServer) Clone0_2(_ context.Context, req *pb.Clone0_2Request) (*pb.Clone0_2Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.OvalShape{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Clone0_2()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.Clone0_2Response{Result: handle}, nil
+}
+
+func (s *OvalShapeServer) Clone0_3(_ context.Context, req *pb.Clone0_3Request) (*pb.Clone0_3Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.OvalShape{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Clone0_3()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.Clone0_3Response{Result: handle}, nil
+}
+
+// PathShapeServer implements pb.PathShapeServiceServer.
+type PathShapeServer struct {
+	pb.UnimplementedPathShapeServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *PathShapeServer) NewPathShape(_ context.Context, req *pb.NewPathShapeRequest) (*pb.NewPathShapeResponse, error) {
+	obj, err := jnipkg.NewPathShape(s.Ctx.VM, s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewPathShapeResponse{Result: handle}, nil
+}
+
+func (s *PathShapeServer) Clone0(_ context.Context, req *pb.PathShapeClone0Request) (*pb.Clone0Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PathShape{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Clone0()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.Clone0Response{Result: handle}, nil
+}
+
+func (s *PathShapeServer) Draw(_ context.Context, req *pb.PathShapeDrawRequest) (*pb.DrawResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PathShape{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Draw(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DrawResponse{}, nil
+}
+
+func (s *PathShapeServer) Equals(_ context.Context, req *pb.PathShapeEqualsRequest) (*pb.EqualsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PathShape{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Equals(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *PathShapeServer) HashCode(_ context.Context, req *pb.PathShapeHashCodeRequest) (*pb.HashCodeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PathShape{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.HashCode()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.HashCodeResponse{Result: result}, nil
+}
+
+func (s *PathShapeServer) Clone0_1(_ context.Context, req *pb.PathShapeClone0_1Request) (*pb.Clone0_1Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PathShape{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Clone0_1()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.Clone0_1Response{Result: handle}, nil
+}
+
+func (s *PathShapeServer) Clone0_2(_ context.Context, req *pb.Clone0_2Request) (*pb.Clone0_2Response, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PathShape{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Clone0_2()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.Clone0_2Response{Result: handle}, nil
 }

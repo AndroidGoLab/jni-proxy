@@ -36,6 +36,25 @@ var recorderMediaRecorderNewMediaRecorderCmd = &cobra.Command{
 	},
 }
 
+var recorderMediaRecorderGetActiveMicrophonesCmd = &cobra.Command{
+	Use:   "get-active-microphones",
+	Short: "GetActiveMicrophones RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaRecorderServiceClient(grpcConn)
+		req := &pb.GetActiveMicrophonesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetActiveMicrophones(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var recorderMediaRecorderGetActiveRecordingConfigurationCmd = &cobra.Command{
 	Use:   "get-active-recording-configuration",
 	Short: "GetActiveRecordingConfiguration RPC",
@@ -143,6 +162,25 @@ var recorderMediaRecorderGetRoutedDeviceCmd = &cobra.Command{
 			req.Handle = v
 		}
 		resp, err := client.GetRoutedDevice(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var recorderMediaRecorderGetRoutedDevicesCmd = &cobra.Command{
+	Use:   "get-routed-devices",
+	Short: "GetRoutedDevices RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaRecorderServiceClient(grpcConn)
+		req := &pb.GetRoutedDevicesRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetRoutedDevices(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1251,6 +1289,8 @@ var recorderMediaRecorderOnInfoListenerOnInfoCmd = &cobra.Command{
 func init() {
 	recorderMediaRecorderNewMediaRecorderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	recorderMediaRecorderCmd.AddCommand(recorderMediaRecorderNewMediaRecorderCmd)
+	recorderMediaRecorderGetActiveMicrophonesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	recorderMediaRecorderCmd.AddCommand(recorderMediaRecorderGetActiveMicrophonesCmd)
 	recorderMediaRecorderGetActiveRecordingConfigurationCmd.Flags().Int64("handle", 0, "handle (int64)")
 	recorderMediaRecorderCmd.AddCommand(recorderMediaRecorderGetActiveRecordingConfigurationCmd)
 	recorderMediaRecorderGetLogSessionIdCmd.Flags().Int64("handle", 0, "handle (int64)")
@@ -1263,6 +1303,8 @@ func init() {
 	recorderMediaRecorderCmd.AddCommand(recorderMediaRecorderGetPreferredDeviceCmd)
 	recorderMediaRecorderGetRoutedDeviceCmd.Flags().Int64("handle", 0, "handle (int64)")
 	recorderMediaRecorderCmd.AddCommand(recorderMediaRecorderGetRoutedDeviceCmd)
+	recorderMediaRecorderGetRoutedDevicesCmd.Flags().Int64("handle", 0, "handle (int64)")
+	recorderMediaRecorderCmd.AddCommand(recorderMediaRecorderGetRoutedDevicesCmd)
 	recorderMediaRecorderGetSurfaceCmd.Flags().Int64("handle", 0, "handle (int64)")
 	recorderMediaRecorderCmd.AddCommand(recorderMediaRecorderGetSurfaceCmd)
 	recorderMediaRecorderIsPrivacySensitiveCmd.Flags().Int64("handle", 0, "handle (int64)")

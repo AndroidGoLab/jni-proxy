@@ -23,758 +23,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type GetAdSelectionDataIdRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAdSelectionDataIdRequest) Reset() {
-	*x = GetAdSelectionDataIdRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[0]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAdSelectionDataIdRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAdSelectionDataIdRequest) ProtoMessage() {}
-
-func (x *GetAdSelectionDataIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[0]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAdSelectionDataIdRequest.ProtoReflect.Descriptor instead.
-func (*GetAdSelectionDataIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{0}
-}
-
-type GetAdSelectionDataIdResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAdSelectionDataIdResponse) Reset() {
-	*x = GetAdSelectionDataIdResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAdSelectionDataIdResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAdSelectionDataIdResponse) ProtoMessage() {}
-
-func (x *GetAdSelectionDataIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAdSelectionDataIdResponse.ProtoReflect.Descriptor instead.
-func (*GetAdSelectionDataIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *GetAdSelectionDataIdResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetAdSelectionIdRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAdSelectionIdRequest) Reset() {
-	*x = GetAdSelectionIdRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[2]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAdSelectionIdRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAdSelectionIdRequest) ProtoMessage() {}
-
-func (x *GetAdSelectionIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[2]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAdSelectionIdRequest.ProtoReflect.Descriptor instead.
-func (*GetAdSelectionIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{2}
-}
-
-type GetAdSelectionIdResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAdSelectionIdResponse) Reset() {
-	*x = GetAdSelectionIdResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[3]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAdSelectionIdResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAdSelectionIdResponse) ProtoMessage() {}
-
-func (x *GetAdSelectionIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[3]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAdSelectionIdResponse.ProtoReflect.Descriptor instead.
-func (*GetAdSelectionIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{3}
-}
-
-func (x *GetAdSelectionIdResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetAdSelectionResultRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAdSelectionResultRequest) Reset() {
-	*x = GetAdSelectionResultRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[4]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAdSelectionResultRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAdSelectionResultRequest) ProtoMessage() {}
-
-func (x *GetAdSelectionResultRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[4]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAdSelectionResultRequest.ProtoReflect.Descriptor instead.
-func (*GetAdSelectionResultRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{4}
-}
-
-type GetAdSelectionResultResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAdSelectionResultResponse) Reset() {
-	*x = GetAdSelectionResultResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[5]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAdSelectionResultResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAdSelectionResultResponse) ProtoMessage() {}
-
-func (x *GetAdSelectionResultResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[5]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAdSelectionResultResponse.ProtoReflect.Descriptor instead.
-func (*GetAdSelectionResultResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{5}
-}
-
-func (x *GetAdSelectionResultResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetSellerRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSellerRequest) Reset() {
-	*x = GetSellerRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSellerRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSellerRequest) ProtoMessage() {}
-
-func (x *GetSellerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[6]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSellerRequest.ProtoReflect.Descriptor instead.
-func (*GetSellerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{6}
-}
-
-type GetSellerResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSellerResponse) Reset() {
-	*x = GetSellerResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[7]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSellerResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSellerResponse) ProtoMessage() {}
-
-func (x *GetSellerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[7]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSellerResponse.ProtoReflect.Descriptor instead.
-func (*GetSellerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{7}
-}
-
-func (x *GetSellerResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type BuildRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BuildRequest) Reset() {
-	*x = BuildRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[8]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BuildRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BuildRequest) ProtoMessage() {}
-
-func (x *BuildRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[8]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
-func (*BuildRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{8}
-}
-
-type BuildResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BuildResponse) Reset() {
-	*x = BuildResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[9]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BuildResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BuildResponse) ProtoMessage() {}
-
-func (x *BuildResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[9]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
-func (*BuildResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{9}
-}
-
-func (x *BuildResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetAdSelectionDataIdRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetAdSelectionDataIdRequest) Reset() {
-	*x = SetAdSelectionDataIdRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[10]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetAdSelectionDataIdRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetAdSelectionDataIdRequest) ProtoMessage() {}
-
-func (x *SetAdSelectionDataIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[10]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetAdSelectionDataIdRequest.ProtoReflect.Descriptor instead.
-func (*SetAdSelectionDataIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{10}
-}
-
-func (x *SetAdSelectionDataIdRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetAdSelectionDataIdResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetAdSelectionDataIdResponse) Reset() {
-	*x = SetAdSelectionDataIdResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[11]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetAdSelectionDataIdResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetAdSelectionDataIdResponse) ProtoMessage() {}
-
-func (x *SetAdSelectionDataIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[11]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetAdSelectionDataIdResponse.ProtoReflect.Descriptor instead.
-func (*SetAdSelectionDataIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{11}
-}
-
-func (x *SetAdSelectionDataIdResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetAdSelectionIdRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetAdSelectionIdRequest) Reset() {
-	*x = SetAdSelectionIdRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[12]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetAdSelectionIdRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetAdSelectionIdRequest) ProtoMessage() {}
-
-func (x *SetAdSelectionIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[12]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetAdSelectionIdRequest.ProtoReflect.Descriptor instead.
-func (*SetAdSelectionIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{12}
-}
-
-func (x *SetAdSelectionIdRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetAdSelectionIdResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetAdSelectionIdResponse) Reset() {
-	*x = SetAdSelectionIdResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[13]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetAdSelectionIdResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetAdSelectionIdResponse) ProtoMessage() {}
-
-func (x *SetAdSelectionIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[13]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetAdSelectionIdResponse.ProtoReflect.Descriptor instead.
-func (*SetAdSelectionIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{13}
-}
-
-func (x *SetAdSelectionIdResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetAdSelectionResultRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetAdSelectionResultRequest) Reset() {
-	*x = SetAdSelectionResultRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[14]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetAdSelectionResultRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetAdSelectionResultRequest) ProtoMessage() {}
-
-func (x *SetAdSelectionResultRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[14]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetAdSelectionResultRequest.ProtoReflect.Descriptor instead.
-func (*SetAdSelectionResultRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{14}
-}
-
-func (x *SetAdSelectionResultRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetAdSelectionResultResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetAdSelectionResultResponse) Reset() {
-	*x = SetAdSelectionResultResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[15]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetAdSelectionResultResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetAdSelectionResultResponse) ProtoMessage() {}
-
-func (x *SetAdSelectionResultResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[15]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetAdSelectionResultResponse.ProtoReflect.Descriptor instead.
-func (*SetAdSelectionResultResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{15}
-}
-
-func (x *SetAdSelectionResultResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetSellerRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetSellerRequest) Reset() {
-	*x = SetSellerRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[16]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetSellerRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetSellerRequest) ProtoMessage() {}
-
-func (x *SetSellerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[16]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetSellerRequest.ProtoReflect.Descriptor instead.
-func (*SetSellerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{16}
-}
-
-func (x *SetSellerRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetSellerResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetSellerResponse) Reset() {
-	*x = SetSellerResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[17]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetSellerResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetSellerResponse) ProtoMessage() {}
-
-func (x *SetSellerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[17]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetSellerResponse.ProtoReflect.Descriptor instead.
-func (*SetSellerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{17}
-}
-
-func (x *SetSellerResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
 type DescribeContentsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -783,7 +31,7 @@ type DescribeContentsRequest struct {
 
 func (x *DescribeContentsRequest) Reset() {
 	*x = DescribeContentsRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[18]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -795,7 +43,7 @@ func (x *DescribeContentsRequest) String() string {
 func (*DescribeContentsRequest) ProtoMessage() {}
 
 func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[18]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -808,7 +56,7 @@ func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
 func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{18}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{0}
 }
 
 type DescribeContentsResponse struct {
@@ -820,7 +68,7 @@ type DescribeContentsResponse struct {
 
 func (x *DescribeContentsResponse) Reset() {
 	*x = DescribeContentsResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[19]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -832,7 +80,7 @@ func (x *DescribeContentsResponse) String() string {
 func (*DescribeContentsResponse) ProtoMessage() {}
 
 func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[19]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -845,7 +93,7 @@ func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
 func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{19}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *DescribeContentsResponse) GetResult() int32 {
@@ -864,7 +112,7 @@ type EqualsRequest struct {
 
 func (x *EqualsRequest) Reset() {
 	*x = EqualsRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[20]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -876,7 +124,7 @@ func (x *EqualsRequest) String() string {
 func (*EqualsRequest) ProtoMessage() {}
 
 func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[20]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -889,7 +137,7 @@ func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
 func (*EqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{20}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *EqualsRequest) GetArg0() int64 {
@@ -908,7 +156,7 @@ type EqualsResponse struct {
 
 func (x *EqualsResponse) Reset() {
 	*x = EqualsResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[21]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -920,7 +168,7 @@ func (x *EqualsResponse) String() string {
 func (*EqualsResponse) ProtoMessage() {}
 
 func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[21]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -933,7 +181,7 @@ func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
 func (*EqualsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{21}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *EqualsResponse) GetResult() bool {
@@ -943,27 +191,27 @@ func (x *EqualsResponse) GetResult() bool {
 	return false
 }
 
-type GetMaximumPayloadSizeBytesRequest struct {
+type GetAdSelectionSignalsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetMaximumPayloadSizeBytesRequest) Reset() {
-	*x = GetMaximumPayloadSizeBytesRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[22]
+func (x *GetAdSelectionSignalsRequest) Reset() {
+	*x = GetAdSelectionSignalsRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetMaximumPayloadSizeBytesRequest) String() string {
+func (x *GetAdSelectionSignalsRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetMaximumPayloadSizeBytesRequest) ProtoMessage() {}
+func (*GetAdSelectionSignalsRequest) ProtoMessage() {}
 
-func (x *GetMaximumPayloadSizeBytesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[22]
+func (x *GetAdSelectionSignalsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -974,33 +222,33 @@ func (x *GetMaximumPayloadSizeBytesRequest) ProtoReflect() protoreflect.Message 
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetMaximumPayloadSizeBytesRequest.ProtoReflect.Descriptor instead.
-func (*GetMaximumPayloadSizeBytesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{22}
+// Deprecated: Use GetAdSelectionSignalsRequest.ProtoReflect.Descriptor instead.
+func (*GetAdSelectionSignalsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{4}
 }
 
-type GetMaximumPayloadSizeBytesResponse struct {
+type GetAdSelectionSignalsResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetMaximumPayloadSizeBytesResponse) Reset() {
-	*x = GetMaximumPayloadSizeBytesResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[23]
+func (x *GetAdSelectionSignalsResponse) Reset() {
+	*x = GetAdSelectionSignalsResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetMaximumPayloadSizeBytesResponse) String() string {
+func (x *GetAdSelectionSignalsResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetMaximumPayloadSizeBytesResponse) ProtoMessage() {}
+func (*GetAdSelectionSignalsResponse) ProtoMessage() {}
 
-func (x *GetMaximumPayloadSizeBytesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[23]
+func (x *GetAdSelectionSignalsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1011,12 +259,412 @@ func (x *GetMaximumPayloadSizeBytesResponse) ProtoReflect() protoreflect.Message
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetMaximumPayloadSizeBytesResponse.ProtoReflect.Descriptor instead.
-func (*GetMaximumPayloadSizeBytesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{23}
+// Deprecated: Use GetAdSelectionSignalsResponse.ProtoReflect.Descriptor instead.
+func (*GetAdSelectionSignalsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *GetMaximumPayloadSizeBytesResponse) GetResult() int32 {
+func (x *GetAdSelectionSignalsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCustomAudienceBuyersRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCustomAudienceBuyersRequest) Reset() {
+	*x = GetCustomAudienceBuyersRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCustomAudienceBuyersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCustomAudienceBuyersRequest) ProtoMessage() {}
+
+func (x *GetCustomAudienceBuyersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCustomAudienceBuyersRequest.ProtoReflect.Descriptor instead.
+func (*GetCustomAudienceBuyersRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{6}
+}
+
+type GetCustomAudienceBuyersResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCustomAudienceBuyersResponse) Reset() {
+	*x = GetCustomAudienceBuyersResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCustomAudienceBuyersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCustomAudienceBuyersResponse) ProtoMessage() {}
+
+func (x *GetCustomAudienceBuyersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCustomAudienceBuyersResponse.ProtoReflect.Descriptor instead.
+func (*GetCustomAudienceBuyersResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetCustomAudienceBuyersResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDecisionLogicUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDecisionLogicUriRequest) Reset() {
+	*x = GetDecisionLogicUriRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDecisionLogicUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDecisionLogicUriRequest) ProtoMessage() {}
+
+func (x *GetDecisionLogicUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDecisionLogicUriRequest.ProtoReflect.Descriptor instead.
+func (*GetDecisionLogicUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{8}
+}
+
+type GetDecisionLogicUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDecisionLogicUriResponse) Reset() {
+	*x = GetDecisionLogicUriResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDecisionLogicUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDecisionLogicUriResponse) ProtoMessage() {}
+
+func (x *GetDecisionLogicUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDecisionLogicUriResponse.ProtoReflect.Descriptor instead.
+func (*GetDecisionLogicUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetDecisionLogicUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSellerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSellerRequest) Reset() {
+	*x = GetSellerRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSellerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSellerRequest) ProtoMessage() {}
+
+func (x *GetSellerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSellerRequest.ProtoReflect.Descriptor instead.
+func (*GetSellerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{10}
+}
+
+type GetSellerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSellerResponse) Reset() {
+	*x = GetSellerResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSellerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSellerResponse) ProtoMessage() {}
+
+func (x *GetSellerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSellerResponse.ProtoReflect.Descriptor instead.
+func (*GetSellerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *GetSellerResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSellerSignalsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSellerSignalsRequest) Reset() {
+	*x = GetSellerSignalsRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSellerSignalsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSellerSignalsRequest) ProtoMessage() {}
+
+func (x *GetSellerSignalsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSellerSignalsRequest.ProtoReflect.Descriptor instead.
+func (*GetSellerSignalsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{12}
+}
+
+type GetSellerSignalsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSellerSignalsResponse) Reset() {
+	*x = GetSellerSignalsResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSellerSignalsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSellerSignalsResponse) ProtoMessage() {}
+
+func (x *GetSellerSignalsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSellerSignalsResponse.ProtoReflect.Descriptor instead.
+func (*GetSellerSignalsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *GetSellerSignalsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTrustedScoringSignalsUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTrustedScoringSignalsUriRequest) Reset() {
+	*x = GetTrustedScoringSignalsUriRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTrustedScoringSignalsUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTrustedScoringSignalsUriRequest) ProtoMessage() {}
+
+func (x *GetTrustedScoringSignalsUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTrustedScoringSignalsUriRequest.ProtoReflect.Descriptor instead.
+func (*GetTrustedScoringSignalsUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{14}
+}
+
+type GetTrustedScoringSignalsUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTrustedScoringSignalsUriResponse) Reset() {
+	*x = GetTrustedScoringSignalsUriResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTrustedScoringSignalsUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTrustedScoringSignalsUriResponse) ProtoMessage() {}
+
+func (x *GetTrustedScoringSignalsUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTrustedScoringSignalsUriResponse.ProtoReflect.Descriptor instead.
+func (*GetTrustedScoringSignalsUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GetTrustedScoringSignalsUriResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -1031,7 +679,7 @@ type HashCodeRequest struct {
 
 func (x *HashCodeRequest) Reset() {
 	*x = HashCodeRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[24]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1043,7 +691,7 @@ func (x *HashCodeRequest) String() string {
 func (*HashCodeRequest) ProtoMessage() {}
 
 func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[24]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1056,7 +704,7 @@ func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
 func (*HashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{24}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{16}
 }
 
 type HashCodeResponse struct {
@@ -1068,7 +716,7 @@ type HashCodeResponse struct {
 
 func (x *HashCodeResponse) Reset() {
 	*x = HashCodeResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[25]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1080,7 +728,7 @@ func (x *HashCodeResponse) String() string {
 func (*HashCodeResponse) ProtoMessage() {}
 
 func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[25]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1093,7 +741,7 @@ func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
 func (*HashCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{25}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *HashCodeResponse) GetResult() int32 {
@@ -1113,7 +761,7 @@ type WriteToParcelRequest struct {
 
 func (x *WriteToParcelRequest) Reset() {
 	*x = WriteToParcelRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[26]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1125,7 +773,7 @@ func (x *WriteToParcelRequest) String() string {
 func (*WriteToParcelRequest) ProtoMessage() {}
 
 func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[26]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1138,7 +786,7 @@ func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
 func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{26}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *WriteToParcelRequest) GetArg0() int64 {
@@ -1163,7 +811,7 @@ type WriteToParcelResponse struct {
 
 func (x *WriteToParcelResponse) Reset() {
 	*x = WriteToParcelResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[27]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1175,7 +823,7 @@ func (x *WriteToParcelResponse) String() string {
 func (*WriteToParcelResponse) ProtoMessage() {}
 
 func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[27]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1188,31 +836,30 @@ func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
 func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{27}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{19}
 }
 
-type SetMaximumPayloadSizeBytesRequest struct {
+type BuildRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetMaximumPayloadSizeBytesRequest) Reset() {
-	*x = SetMaximumPayloadSizeBytesRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[28]
+func (x *BuildRequest) Reset() {
+	*x = BuildRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetMaximumPayloadSizeBytesRequest) String() string {
+func (x *BuildRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetMaximumPayloadSizeBytesRequest) ProtoMessage() {}
+func (*BuildRequest) ProtoMessage() {}
 
-func (x *SetMaximumPayloadSizeBytesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[28]
+func (x *BuildRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1223,40 +870,33 @@ func (x *SetMaximumPayloadSizeBytesRequest) ProtoReflect() protoreflect.Message 
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetMaximumPayloadSizeBytesRequest.ProtoReflect.Descriptor instead.
-func (*SetMaximumPayloadSizeBytesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{28}
+// Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
+func (*BuildRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{20}
 }
 
-func (x *SetMaximumPayloadSizeBytesRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetMaximumPayloadSizeBytesResponse struct {
+type BuildResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetMaximumPayloadSizeBytesResponse) Reset() {
-	*x = SetMaximumPayloadSizeBytesResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[29]
+func (x *BuildResponse) Reset() {
+	*x = BuildResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetMaximumPayloadSizeBytesResponse) String() string {
+func (x *BuildResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetMaximumPayloadSizeBytesResponse) ProtoMessage() {}
+func (*BuildResponse) ProtoMessage() {}
 
-func (x *SetMaximumPayloadSizeBytesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[29]
+func (x *BuildResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1267,3260 +907,12 @@ func (x *SetMaximumPayloadSizeBytesResponse) ProtoReflect() protoreflect.Message
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetMaximumPayloadSizeBytesResponse.ProtoReflect.Descriptor instead.
-func (*SetMaximumPayloadSizeBytesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{29}
+// Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
+func (*BuildResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{21}
 }
 
-func (x *SetMaximumPayloadSizeBytesResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type NewRemoveAdSelectionFromOutcomesOverrideRequestRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewRemoveAdSelectionFromOutcomesOverrideRequestRequest) Reset() {
-	*x = NewRemoveAdSelectionFromOutcomesOverrideRequestRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[30]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewRemoveAdSelectionFromOutcomesOverrideRequestRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewRemoveAdSelectionFromOutcomesOverrideRequestRequest) ProtoMessage() {}
-
-func (x *NewRemoveAdSelectionFromOutcomesOverrideRequestRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[30]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewRemoveAdSelectionFromOutcomesOverrideRequestRequest.ProtoReflect.Descriptor instead.
-func (*NewRemoveAdSelectionFromOutcomesOverrideRequestRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{30}
-}
-
-func (x *NewRemoveAdSelectionFromOutcomesOverrideRequestRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type NewRemoveAdSelectionFromOutcomesOverrideRequestResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewRemoveAdSelectionFromOutcomesOverrideRequestResponse) Reset() {
-	*x = NewRemoveAdSelectionFromOutcomesOverrideRequestResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[31]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewRemoveAdSelectionFromOutcomesOverrideRequestResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewRemoveAdSelectionFromOutcomesOverrideRequestResponse) ProtoMessage() {}
-
-func (x *NewRemoveAdSelectionFromOutcomesOverrideRequestResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[31]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewRemoveAdSelectionFromOutcomesOverrideRequestResponse.ProtoReflect.Descriptor instead.
-func (*NewRemoveAdSelectionFromOutcomesOverrideRequestResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{31}
-}
-
-func (x *NewRemoveAdSelectionFromOutcomesOverrideRequestResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetAdSelectionFromOutcomesConfigRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAdSelectionFromOutcomesConfigRequest) Reset() {
-	*x = GetAdSelectionFromOutcomesConfigRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[32]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAdSelectionFromOutcomesConfigRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAdSelectionFromOutcomesConfigRequest) ProtoMessage() {}
-
-func (x *GetAdSelectionFromOutcomesConfigRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[32]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAdSelectionFromOutcomesConfigRequest.ProtoReflect.Descriptor instead.
-func (*GetAdSelectionFromOutcomesConfigRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{32}
-}
-
-func (x *GetAdSelectionFromOutcomesConfigRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetAdSelectionFromOutcomesConfigResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAdSelectionFromOutcomesConfigResponse) Reset() {
-	*x = GetAdSelectionFromOutcomesConfigResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[33]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAdSelectionFromOutcomesConfigResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAdSelectionFromOutcomesConfigResponse) ProtoMessage() {}
-
-func (x *GetAdSelectionFromOutcomesConfigResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[33]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAdSelectionFromOutcomesConfigResponse.ProtoReflect.Descriptor instead.
-func (*GetAdSelectionFromOutcomesConfigResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{33}
-}
-
-func (x *GetAdSelectionFromOutcomesConfigResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetAdEventTypeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAdEventTypeRequest) Reset() {
-	*x = GetAdEventTypeRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[34]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAdEventTypeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAdEventTypeRequest) ProtoMessage() {}
-
-func (x *GetAdEventTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[34]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAdEventTypeRequest.ProtoReflect.Descriptor instead.
-func (*GetAdEventTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{34}
-}
-
-type GetAdEventTypeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAdEventTypeResponse) Reset() {
-	*x = GetAdEventTypeResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[35]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAdEventTypeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAdEventTypeResponse) ProtoMessage() {}
-
-func (x *GetAdEventTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[35]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAdEventTypeResponse.ProtoReflect.Descriptor instead.
-func (*GetAdEventTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{35}
-}
-
-func (x *GetAdEventTypeResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetCallerAdTechRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCallerAdTechRequest) Reset() {
-	*x = GetCallerAdTechRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[36]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCallerAdTechRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCallerAdTechRequest) ProtoMessage() {}
-
-func (x *GetCallerAdTechRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[36]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCallerAdTechRequest.ProtoReflect.Descriptor instead.
-func (*GetCallerAdTechRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{36}
-}
-
-type GetCallerAdTechResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCallerAdTechResponse) Reset() {
-	*x = GetCallerAdTechResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[37]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCallerAdTechResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCallerAdTechResponse) ProtoMessage() {}
-
-func (x *GetCallerAdTechResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[37]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCallerAdTechResponse.ProtoReflect.Descriptor instead.
-func (*GetCallerAdTechResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{37}
-}
-
-func (x *GetCallerAdTechResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ToStringRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ToStringRequest) Reset() {
-	*x = ToStringRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[38]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ToStringRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ToStringRequest) ProtoMessage() {}
-
-func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[38]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
-func (*ToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{38}
-}
-
-type ToStringResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ToStringResponse) Reset() {
-	*x = ToStringResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[39]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ToStringResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ToStringResponse) ProtoMessage() {}
-
-func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[39]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
-func (*ToStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{39}
-}
-
-func (x *ToStringResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type SetAdEventTypeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetAdEventTypeRequest) Reset() {
-	*x = SetAdEventTypeRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[40]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetAdEventTypeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetAdEventTypeRequest) ProtoMessage() {}
-
-func (x *SetAdEventTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[40]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetAdEventTypeRequest.ProtoReflect.Descriptor instead.
-func (*SetAdEventTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{40}
-}
-
-func (x *SetAdEventTypeRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetAdEventTypeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetAdEventTypeResponse) Reset() {
-	*x = SetAdEventTypeResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[41]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetAdEventTypeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetAdEventTypeResponse) ProtoMessage() {}
-
-func (x *SetAdEventTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[41]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetAdEventTypeResponse.ProtoReflect.Descriptor instead.
-func (*SetAdEventTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{41}
-}
-
-func (x *SetAdEventTypeResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetCallerAdTechRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetCallerAdTechRequest) Reset() {
-	*x = SetCallerAdTechRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[42]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetCallerAdTechRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetCallerAdTechRequest) ProtoMessage() {}
-
-func (x *SetCallerAdTechRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[42]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetCallerAdTechRequest.ProtoReflect.Descriptor instead.
-func (*SetCallerAdTechRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{42}
-}
-
-func (x *SetCallerAdTechRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetCallerAdTechResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetCallerAdTechResponse) Reset() {
-	*x = SetCallerAdTechResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[43]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetCallerAdTechResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetCallerAdTechResponse) ProtoMessage() {}
-
-func (x *SetCallerAdTechResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[43]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetCallerAdTechResponse.ProtoReflect.Descriptor instead.
-func (*SetCallerAdTechResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{43}
-}
-
-func (x *SetCallerAdTechResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetBuyerRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetBuyerRequest) Reset() {
-	*x = GetBuyerRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[44]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetBuyerRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetBuyerRequest) ProtoMessage() {}
-
-func (x *GetBuyerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[44]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetBuyerRequest.ProtoReflect.Descriptor instead.
-func (*GetBuyerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{44}
-}
-
-type GetBuyerResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetBuyerResponse) Reset() {
-	*x = GetBuyerResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[45]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetBuyerResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetBuyerResponse) ProtoMessage() {}
-
-func (x *GetBuyerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[45]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetBuyerResponse.ProtoReflect.Descriptor instead.
-func (*GetBuyerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{45}
-}
-
-func (x *GetBuyerResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetTargetInputSizeBytesRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTargetInputSizeBytesRequest) Reset() {
-	*x = GetTargetInputSizeBytesRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[46]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTargetInputSizeBytesRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTargetInputSizeBytesRequest) ProtoMessage() {}
-
-func (x *GetTargetInputSizeBytesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[46]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTargetInputSizeBytesRequest.ProtoReflect.Descriptor instead.
-func (*GetTargetInputSizeBytesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{46}
-}
-
-type GetTargetInputSizeBytesResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTargetInputSizeBytesResponse) Reset() {
-	*x = GetTargetInputSizeBytesResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[47]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTargetInputSizeBytesResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTargetInputSizeBytesResponse) ProtoMessage() {}
-
-func (x *GetTargetInputSizeBytesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[47]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTargetInputSizeBytesResponse.ProtoReflect.Descriptor instead.
-func (*GetTargetInputSizeBytesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{47}
-}
-
-func (x *GetTargetInputSizeBytesResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetBuyerRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetBuyerRequest) Reset() {
-	*x = SetBuyerRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[48]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetBuyerRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetBuyerRequest) ProtoMessage() {}
-
-func (x *SetBuyerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[48]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetBuyerRequest.ProtoReflect.Descriptor instead.
-func (*SetBuyerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{48}
-}
-
-func (x *SetBuyerRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetBuyerResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetBuyerResponse) Reset() {
-	*x = SetBuyerResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[49]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetBuyerResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetBuyerResponse) ProtoMessage() {}
-
-func (x *SetBuyerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[49]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetBuyerResponse.ProtoReflect.Descriptor instead.
-func (*SetBuyerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{49}
-}
-
-func (x *SetBuyerResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetTargetInputSizeBytesRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetTargetInputSizeBytesRequest) Reset() {
-	*x = SetTargetInputSizeBytesRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[50]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetTargetInputSizeBytesRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetTargetInputSizeBytesRequest) ProtoMessage() {}
-
-func (x *SetTargetInputSizeBytesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[50]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetTargetInputSizeBytesRequest.ProtoReflect.Descriptor instead.
-func (*SetTargetInputSizeBytesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{50}
-}
-
-func (x *SetTargetInputSizeBytesRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetTargetInputSizeBytesResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetTargetInputSizeBytesResponse) Reset() {
-	*x = SetTargetInputSizeBytesResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[51]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetTargetInputSizeBytesResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetTargetInputSizeBytesResponse) ProtoMessage() {}
-
-func (x *SetTargetInputSizeBytesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[51]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetTargetInputSizeBytesResponse.ProtoReflect.Descriptor instead.
-func (*SetTargetInputSizeBytesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{51}
-}
-
-func (x *SetTargetInputSizeBytesResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetTestAdSelectionManagerRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTestAdSelectionManagerRequest) Reset() {
-	*x = GetTestAdSelectionManagerRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[52]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTestAdSelectionManagerRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTestAdSelectionManagerRequest) ProtoMessage() {}
-
-func (x *GetTestAdSelectionManagerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[52]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTestAdSelectionManagerRequest.ProtoReflect.Descriptor instead.
-func (*GetTestAdSelectionManagerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{52}
-}
-
-type GetTestAdSelectionManagerResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTestAdSelectionManagerResponse) Reset() {
-	*x = GetTestAdSelectionManagerResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[53]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTestAdSelectionManagerResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTestAdSelectionManagerResponse) ProtoMessage() {}
-
-func (x *GetTestAdSelectionManagerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[53]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTestAdSelectionManagerResponse.ProtoReflect.Descriptor instead.
-func (*GetTestAdSelectionManagerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{53}
-}
-
-func (x *GetTestAdSelectionManagerResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRequest) Reset() {
-	*x = GetRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[54]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRequest) ProtoMessage() {}
-
-func (x *GetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[54]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRequest.ProtoReflect.Descriptor instead.
-func (*GetRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{54}
-}
-
-func (x *GetRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetResponse) Reset() {
-	*x = GetResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[55]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetResponse) ProtoMessage() {}
-
-func (x *GetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[55]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetResponse.ProtoReflect.Descriptor instead.
-func (*GetResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{55}
-}
-
-func (x *GetResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetDataRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDataRequest) Reset() {
-	*x = GetDataRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[56]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDataRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDataRequest) ProtoMessage() {}
-
-func (x *GetDataRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[56]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDataRequest.ProtoReflect.Descriptor instead.
-func (*GetDataRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{56}
-}
-
-type GetDataResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDataResponse) Reset() {
-	*x = GetDataResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[57]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDataResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDataResponse) ProtoMessage() {}
-
-func (x *GetDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[57]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDataResponse.ProtoReflect.Descriptor instead.
-func (*GetDataResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{57}
-}
-
-func (x *GetDataResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetInputEventRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetInputEventRequest) Reset() {
-	*x = GetInputEventRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[58]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetInputEventRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetInputEventRequest) ProtoMessage() {}
-
-func (x *GetInputEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[58]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetInputEventRequest.ProtoReflect.Descriptor instead.
-func (*GetInputEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{58}
-}
-
-type GetInputEventResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetInputEventResponse) Reset() {
-	*x = GetInputEventResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[59]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetInputEventResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetInputEventResponse) ProtoMessage() {}
-
-func (x *GetInputEventResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[59]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetInputEventResponse.ProtoReflect.Descriptor instead.
-func (*GetInputEventResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{59}
-}
-
-func (x *GetInputEventResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetKeyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetKeyRequest) Reset() {
-	*x = GetKeyRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[60]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetKeyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetKeyRequest) ProtoMessage() {}
-
-func (x *GetKeyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[60]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetKeyRequest.ProtoReflect.Descriptor instead.
-func (*GetKeyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{60}
-}
-
-type GetKeyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetKeyResponse) Reset() {
-	*x = GetKeyResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[61]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetKeyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetKeyResponse) ProtoMessage() {}
-
-func (x *GetKeyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[61]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetKeyResponse.ProtoReflect.Descriptor instead.
-func (*GetKeyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{61}
-}
-
-func (x *GetKeyResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetReportingDestinationsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetReportingDestinationsRequest) Reset() {
-	*x = GetReportingDestinationsRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[62]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetReportingDestinationsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetReportingDestinationsRequest) ProtoMessage() {}
-
-func (x *GetReportingDestinationsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[62]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetReportingDestinationsRequest.ProtoReflect.Descriptor instead.
-func (*GetReportingDestinationsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{62}
-}
-
-type GetReportingDestinationsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetReportingDestinationsResponse) Reset() {
-	*x = GetReportingDestinationsResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[63]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetReportingDestinationsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetReportingDestinationsResponse) ProtoMessage() {}
-
-func (x *GetReportingDestinationsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[63]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetReportingDestinationsResponse.ProtoReflect.Descriptor instead.
-func (*GetReportingDestinationsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{63}
-}
-
-func (x *GetReportingDestinationsResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetDataRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetDataRequest) Reset() {
-	*x = SetDataRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[64]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetDataRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetDataRequest) ProtoMessage() {}
-
-func (x *SetDataRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[64]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetDataRequest.ProtoReflect.Descriptor instead.
-func (*SetDataRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{64}
-}
-
-func (x *SetDataRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type SetDataResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetDataResponse) Reset() {
-	*x = SetDataResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[65]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetDataResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetDataResponse) ProtoMessage() {}
-
-func (x *SetDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[65]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetDataResponse.ProtoReflect.Descriptor instead.
-func (*SetDataResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{65}
-}
-
-func (x *SetDataResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetInputEventRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetInputEventRequest) Reset() {
-	*x = SetInputEventRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[66]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetInputEventRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetInputEventRequest) ProtoMessage() {}
-
-func (x *SetInputEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[66]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetInputEventRequest.ProtoReflect.Descriptor instead.
-func (*SetInputEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{66}
-}
-
-func (x *SetInputEventRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetInputEventResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetInputEventResponse) Reset() {
-	*x = SetInputEventResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[67]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetInputEventResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetInputEventResponse) ProtoMessage() {}
-
-func (x *SetInputEventResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[67]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetInputEventResponse.ProtoReflect.Descriptor instead.
-func (*SetInputEventResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{67}
-}
-
-func (x *SetInputEventResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetKeyRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetKeyRequest) Reset() {
-	*x = SetKeyRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[68]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetKeyRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetKeyRequest) ProtoMessage() {}
-
-func (x *SetKeyRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[68]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetKeyRequest.ProtoReflect.Descriptor instead.
-func (*SetKeyRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{68}
-}
-
-func (x *SetKeyRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type SetKeyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetKeyResponse) Reset() {
-	*x = SetKeyResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[69]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetKeyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetKeyResponse) ProtoMessage() {}
-
-func (x *SetKeyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[69]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetKeyResponse.ProtoReflect.Descriptor instead.
-func (*SetKeyResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{69}
-}
-
-func (x *SetKeyResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetReportingDestinationsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetReportingDestinationsRequest) Reset() {
-	*x = SetReportingDestinationsRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[70]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetReportingDestinationsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetReportingDestinationsRequest) ProtoMessage() {}
-
-func (x *SetReportingDestinationsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[70]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetReportingDestinationsRequest.ProtoReflect.Descriptor instead.
-func (*SetReportingDestinationsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{70}
-}
-
-func (x *SetReportingDestinationsRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetReportingDestinationsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetReportingDestinationsResponse) Reset() {
-	*x = SetReportingDestinationsResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[71]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetReportingDestinationsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetReportingDestinationsResponse) ProtoMessage() {}
-
-func (x *SetReportingDestinationsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[71]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetReportingDestinationsResponse.ProtoReflect.Descriptor instead.
-func (*SetReportingDestinationsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{71}
-}
-
-func (x *SetReportingDestinationsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetDecisionLogicUriRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDecisionLogicUriRequest) Reset() {
-	*x = GetDecisionLogicUriRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[72]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDecisionLogicUriRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDecisionLogicUriRequest) ProtoMessage() {}
-
-func (x *GetDecisionLogicUriRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[72]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDecisionLogicUriRequest.ProtoReflect.Descriptor instead.
-func (*GetDecisionLogicUriRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{72}
-}
-
-type GetDecisionLogicUriResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDecisionLogicUriResponse) Reset() {
-	*x = GetDecisionLogicUriResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[73]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDecisionLogicUriResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDecisionLogicUriResponse) ProtoMessage() {}
-
-func (x *GetDecisionLogicUriResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[73]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDecisionLogicUriResponse.ProtoReflect.Descriptor instead.
-func (*GetDecisionLogicUriResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{73}
-}
-
-func (x *GetDecisionLogicUriResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetSignatureRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSignatureRequest) Reset() {
-	*x = GetSignatureRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[74]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSignatureRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSignatureRequest) ProtoMessage() {}
-
-func (x *GetSignatureRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[74]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSignatureRequest.ProtoReflect.Descriptor instead.
-func (*GetSignatureRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{74}
-}
-
-type GetSignatureResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSignatureResponse) Reset() {
-	*x = GetSignatureResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[75]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSignatureResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSignatureResponse) ProtoMessage() {}
-
-func (x *GetSignatureResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[75]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSignatureResponse.ProtoReflect.Descriptor instead.
-func (*GetSignatureResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{75}
-}
-
-func (x *GetSignatureResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetDecisionLogicUriRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetDecisionLogicUriRequest) Reset() {
-	*x = SetDecisionLogicUriRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[76]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetDecisionLogicUriRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetDecisionLogicUriRequest) ProtoMessage() {}
-
-func (x *SetDecisionLogicUriRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[76]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetDecisionLogicUriRequest.ProtoReflect.Descriptor instead.
-func (*SetDecisionLogicUriRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{76}
-}
-
-func (x *SetDecisionLogicUriRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetDecisionLogicUriResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetDecisionLogicUriResponse) Reset() {
-	*x = SetDecisionLogicUriResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[77]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetDecisionLogicUriResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetDecisionLogicUriResponse) ProtoMessage() {}
-
-func (x *SetDecisionLogicUriResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[77]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetDecisionLogicUriResponse.ProtoReflect.Descriptor instead.
-func (*SetDecisionLogicUriResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{77}
-}
-
-func (x *SetDecisionLogicUriResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetSignatureRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetSignatureRequest) Reset() {
-	*x = SetSignatureRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[78]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetSignatureRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetSignatureRequest) ProtoMessage() {}
-
-func (x *SetSignatureRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[78]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetSignatureRequest.ProtoReflect.Descriptor instead.
-func (*SetSignatureRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{78}
-}
-
-func (x *SetSignatureRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetSignatureResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetSignatureResponse) Reset() {
-	*x = SetSignatureResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[79]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetSignatureResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetSignatureResponse) ProtoMessage() {}
-
-func (x *SetSignatureResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[79]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetSignatureResponse.ProtoReflect.Descriptor instead.
-func (*SetSignatureResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{79}
-}
-
-func (x *SetSignatureResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetSelectionLogicUriRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSelectionLogicUriRequest) Reset() {
-	*x = GetSelectionLogicUriRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[80]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSelectionLogicUriRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSelectionLogicUriRequest) ProtoMessage() {}
-
-func (x *GetSelectionLogicUriRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[80]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSelectionLogicUriRequest.ProtoReflect.Descriptor instead.
-func (*GetSelectionLogicUriRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{80}
-}
-
-type GetSelectionLogicUriResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSelectionLogicUriResponse) Reset() {
-	*x = GetSelectionLogicUriResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[81]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSelectionLogicUriResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSelectionLogicUriResponse) ProtoMessage() {}
-
-func (x *GetSelectionLogicUriResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[81]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSelectionLogicUriResponse.ProtoReflect.Descriptor instead.
-func (*GetSelectionLogicUriResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{81}
-}
-
-func (x *GetSelectionLogicUriResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetSelectionSignalsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSelectionSignalsRequest) Reset() {
-	*x = GetSelectionSignalsRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[82]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSelectionSignalsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSelectionSignalsRequest) ProtoMessage() {}
-
-func (x *GetSelectionSignalsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[82]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSelectionSignalsRequest.ProtoReflect.Descriptor instead.
-func (*GetSelectionSignalsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{82}
-}
-
-type GetSelectionSignalsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSelectionSignalsResponse) Reset() {
-	*x = GetSelectionSignalsResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[83]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSelectionSignalsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSelectionSignalsResponse) ProtoMessage() {}
-
-func (x *GetSelectionSignalsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[83]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSelectionSignalsResponse.ProtoReflect.Descriptor instead.
-func (*GetSelectionSignalsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{83}
-}
-
-func (x *GetSelectionSignalsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetSelectionLogicUriRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetSelectionLogicUriRequest) Reset() {
-	*x = SetSelectionLogicUriRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[84]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetSelectionLogicUriRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetSelectionLogicUriRequest) ProtoMessage() {}
-
-func (x *SetSelectionLogicUriRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[84]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetSelectionLogicUriRequest.ProtoReflect.Descriptor instead.
-func (*SetSelectionLogicUriRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{84}
-}
-
-func (x *SetSelectionLogicUriRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetSelectionLogicUriResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetSelectionLogicUriResponse) Reset() {
-	*x = SetSelectionLogicUriResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[85]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetSelectionLogicUriResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetSelectionLogicUriResponse) ProtoMessage() {}
-
-func (x *SetSelectionLogicUriResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[85]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetSelectionLogicUriResponse.ProtoReflect.Descriptor instead.
-func (*SetSelectionLogicUriResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{85}
-}
-
-func (x *SetSelectionLogicUriResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetSelectionSignalsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetSelectionSignalsRequest) Reset() {
-	*x = SetSelectionSignalsRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[86]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetSelectionSignalsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetSelectionSignalsRequest) ProtoMessage() {}
-
-func (x *SetSelectionSignalsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[86]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetSelectionSignalsRequest.ProtoReflect.Descriptor instead.
-func (*SetSelectionSignalsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{86}
-}
-
-func (x *SetSelectionSignalsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetSelectionSignalsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetSelectionSignalsResponse) Reset() {
-	*x = SetSelectionSignalsResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[87]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetSelectionSignalsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetSelectionSignalsResponse) ProtoMessage() {}
-
-func (x *SetSelectionSignalsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[87]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetSelectionSignalsResponse.ProtoReflect.Descriptor instead.
-func (*SetSelectionSignalsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{87}
-}
-
-func (x *SetSelectionSignalsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type NewAddAdSelectionFromOutcomesOverrideRequestRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewAddAdSelectionFromOutcomesOverrideRequestRequest) Reset() {
-	*x = NewAddAdSelectionFromOutcomesOverrideRequestRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[88]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewAddAdSelectionFromOutcomesOverrideRequestRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewAddAdSelectionFromOutcomesOverrideRequestRequest) ProtoMessage() {}
-
-func (x *NewAddAdSelectionFromOutcomesOverrideRequestRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[88]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewAddAdSelectionFromOutcomesOverrideRequestRequest.ProtoReflect.Descriptor instead.
-func (*NewAddAdSelectionFromOutcomesOverrideRequestRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{88}
-}
-
-func (x *NewAddAdSelectionFromOutcomesOverrideRequestRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *NewAddAdSelectionFromOutcomesOverrideRequestRequest) GetArg1() string {
-	if x != nil {
-		return x.Arg1
-	}
-	return ""
-}
-
-func (x *NewAddAdSelectionFromOutcomesOverrideRequestRequest) GetArg2() int64 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type NewAddAdSelectionFromOutcomesOverrideRequestResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewAddAdSelectionFromOutcomesOverrideRequestResponse) Reset() {
-	*x = NewAddAdSelectionFromOutcomesOverrideRequestResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[89]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewAddAdSelectionFromOutcomesOverrideRequestResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewAddAdSelectionFromOutcomesOverrideRequestResponse) ProtoMessage() {}
-
-func (x *NewAddAdSelectionFromOutcomesOverrideRequestResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[89]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewAddAdSelectionFromOutcomesOverrideRequestResponse.ProtoReflect.Descriptor instead.
-func (*NewAddAdSelectionFromOutcomesOverrideRequestResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{89}
-}
-
-func (x *NewAddAdSelectionFromOutcomesOverrideRequestResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetOutcomeSelectionLogicJsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetOutcomeSelectionLogicJsRequest) Reset() {
-	*x = GetOutcomeSelectionLogicJsRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[90]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetOutcomeSelectionLogicJsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetOutcomeSelectionLogicJsRequest) ProtoMessage() {}
-
-func (x *GetOutcomeSelectionLogicJsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[90]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetOutcomeSelectionLogicJsRequest.ProtoReflect.Descriptor instead.
-func (*GetOutcomeSelectionLogicJsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{90}
-}
-
-func (x *GetOutcomeSelectionLogicJsRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetOutcomeSelectionLogicJsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetOutcomeSelectionLogicJsResponse) Reset() {
-	*x = GetOutcomeSelectionLogicJsResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[91]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetOutcomeSelectionLogicJsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetOutcomeSelectionLogicJsResponse) ProtoMessage() {}
-
-func (x *GetOutcomeSelectionLogicJsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[91]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetOutcomeSelectionLogicJsResponse.ProtoReflect.Descriptor instead.
-func (*GetOutcomeSelectionLogicJsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{91}
-}
-
-func (x *GetOutcomeSelectionLogicJsResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetOutcomeSelectionTrustedSignalsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetOutcomeSelectionTrustedSignalsRequest) Reset() {
-	*x = GetOutcomeSelectionTrustedSignalsRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[92]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetOutcomeSelectionTrustedSignalsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetOutcomeSelectionTrustedSignalsRequest) ProtoMessage() {}
-
-func (x *GetOutcomeSelectionTrustedSignalsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[92]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetOutcomeSelectionTrustedSignalsRequest.ProtoReflect.Descriptor instead.
-func (*GetOutcomeSelectionTrustedSignalsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{92}
-}
-
-func (x *GetOutcomeSelectionTrustedSignalsRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetOutcomeSelectionTrustedSignalsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetOutcomeSelectionTrustedSignalsResponse) Reset() {
-	*x = GetOutcomeSelectionTrustedSignalsResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[93]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetOutcomeSelectionTrustedSignalsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetOutcomeSelectionTrustedSignalsResponse) ProtoMessage() {}
-
-func (x *GetOutcomeSelectionTrustedSignalsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[93]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetOutcomeSelectionTrustedSignalsResponse.ProtoReflect.Descriptor instead.
-func (*GetOutcomeSelectionTrustedSignalsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{93}
-}
-
-func (x *GetOutcomeSelectionTrustedSignalsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type NewPerBuyerDecisionLogicRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewPerBuyerDecisionLogicRequest) Reset() {
-	*x = NewPerBuyerDecisionLogicRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[94]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewPerBuyerDecisionLogicRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewPerBuyerDecisionLogicRequest) ProtoMessage() {}
-
-func (x *NewPerBuyerDecisionLogicRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[94]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewPerBuyerDecisionLogicRequest.ProtoReflect.Descriptor instead.
-func (*NewPerBuyerDecisionLogicRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{94}
-}
-
-func (x *NewPerBuyerDecisionLogicRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type NewPerBuyerDecisionLogicResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewPerBuyerDecisionLogicResponse) Reset() {
-	*x = NewPerBuyerDecisionLogicResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[95]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewPerBuyerDecisionLogicResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewPerBuyerDecisionLogicResponse) ProtoMessage() {}
-
-func (x *NewPerBuyerDecisionLogicResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[95]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewPerBuyerDecisionLogicResponse.ProtoReflect.Descriptor instead.
-func (*NewPerBuyerDecisionLogicResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{95}
-}
-
-func (x *NewPerBuyerDecisionLogicResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type PerBuyerDecisionLogicDescribeContentsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PerBuyerDecisionLogicDescribeContentsRequest) Reset() {
-	*x = PerBuyerDecisionLogicDescribeContentsRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[96]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PerBuyerDecisionLogicDescribeContentsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PerBuyerDecisionLogicDescribeContentsRequest) ProtoMessage() {}
-
-func (x *PerBuyerDecisionLogicDescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[96]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PerBuyerDecisionLogicDescribeContentsRequest.ProtoReflect.Descriptor instead.
-func (*PerBuyerDecisionLogicDescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{96}
-}
-
-func (x *PerBuyerDecisionLogicDescribeContentsRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type PerBuyerDecisionLogicEqualsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PerBuyerDecisionLogicEqualsRequest) Reset() {
-	*x = PerBuyerDecisionLogicEqualsRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[97]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PerBuyerDecisionLogicEqualsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PerBuyerDecisionLogicEqualsRequest) ProtoMessage() {}
-
-func (x *PerBuyerDecisionLogicEqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[97]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PerBuyerDecisionLogicEqualsRequest.ProtoReflect.Descriptor instead.
-func (*PerBuyerDecisionLogicEqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{97}
-}
-
-func (x *PerBuyerDecisionLogicEqualsRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *PerBuyerDecisionLogicEqualsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type PerBuyerDecisionLogicHashCodeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PerBuyerDecisionLogicHashCodeRequest) Reset() {
-	*x = PerBuyerDecisionLogicHashCodeRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[98]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PerBuyerDecisionLogicHashCodeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PerBuyerDecisionLogicHashCodeRequest) ProtoMessage() {}
-
-func (x *PerBuyerDecisionLogicHashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[98]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PerBuyerDecisionLogicHashCodeRequest.ProtoReflect.Descriptor instead.
-func (*PerBuyerDecisionLogicHashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{98}
-}
-
-func (x *PerBuyerDecisionLogicHashCodeRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type PerBuyerDecisionLogicWriteToParcelRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PerBuyerDecisionLogicWriteToParcelRequest) Reset() {
-	*x = PerBuyerDecisionLogicWriteToParcelRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[99]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PerBuyerDecisionLogicWriteToParcelRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PerBuyerDecisionLogicWriteToParcelRequest) ProtoMessage() {}
-
-func (x *PerBuyerDecisionLogicWriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[99]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PerBuyerDecisionLogicWriteToParcelRequest.ProtoReflect.Descriptor instead.
-func (*PerBuyerDecisionLogicWriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{99}
-}
-
-func (x *PerBuyerDecisionLogicWriteToParcelRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *PerBuyerDecisionLogicWriteToParcelRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *PerBuyerDecisionLogicWriteToParcelRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type GetAdSelectionSignalsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAdSelectionSignalsRequest) Reset() {
-	*x = GetAdSelectionSignalsRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[100]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAdSelectionSignalsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAdSelectionSignalsRequest) ProtoMessage() {}
-
-func (x *GetAdSelectionSignalsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[100]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAdSelectionSignalsRequest.ProtoReflect.Descriptor instead.
-func (*GetAdSelectionSignalsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{100}
-}
-
-type GetAdSelectionSignalsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAdSelectionSignalsResponse) Reset() {
-	*x = GetAdSelectionSignalsResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[101]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAdSelectionSignalsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAdSelectionSignalsResponse) ProtoMessage() {}
-
-func (x *GetAdSelectionSignalsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[101]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAdSelectionSignalsResponse.ProtoReflect.Descriptor instead.
-func (*GetAdSelectionSignalsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{101}
-}
-
-func (x *GetAdSelectionSignalsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetSellerSignalsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSellerSignalsRequest) Reset() {
-	*x = GetSellerSignalsRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[102]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSellerSignalsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSellerSignalsRequest) ProtoMessage() {}
-
-func (x *GetSellerSignalsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[102]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSellerSignalsRequest.ProtoReflect.Descriptor instead.
-func (*GetSellerSignalsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{102}
-}
-
-type GetSellerSignalsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSellerSignalsResponse) Reset() {
-	*x = GetSellerSignalsResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[103]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSellerSignalsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSellerSignalsResponse) ProtoMessage() {}
-
-func (x *GetSellerSignalsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[103]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSellerSignalsResponse.ProtoReflect.Descriptor instead.
-func (*GetSellerSignalsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{103}
-}
-
-func (x *GetSellerSignalsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetTrustedScoringSignalsUriRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTrustedScoringSignalsUriRequest) Reset() {
-	*x = GetTrustedScoringSignalsUriRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[104]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTrustedScoringSignalsUriRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTrustedScoringSignalsUriRequest) ProtoMessage() {}
-
-func (x *GetTrustedScoringSignalsUriRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[104]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTrustedScoringSignalsUriRequest.ProtoReflect.Descriptor instead.
-func (*GetTrustedScoringSignalsUriRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{104}
-}
-
-type GetTrustedScoringSignalsUriResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTrustedScoringSignalsUriResponse) Reset() {
-	*x = GetTrustedScoringSignalsUriResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[105]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTrustedScoringSignalsUriResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTrustedScoringSignalsUriResponse) ProtoMessage() {}
-
-func (x *GetTrustedScoringSignalsUriResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[105]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTrustedScoringSignalsUriResponse.ProtoReflect.Descriptor instead.
-func (*GetTrustedScoringSignalsUriResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{105}
-}
-
-func (x *GetTrustedScoringSignalsUriResponse) GetResult() int64 {
+func (x *BuildResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -4536,7 +928,7 @@ type SetAdSelectionSignalsRequest struct {
 
 func (x *SetAdSelectionSignalsRequest) Reset() {
 	*x = SetAdSelectionSignalsRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[106]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4548,7 +940,7 @@ func (x *SetAdSelectionSignalsRequest) String() string {
 func (*SetAdSelectionSignalsRequest) ProtoMessage() {}
 
 func (x *SetAdSelectionSignalsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[106]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4561,7 +953,7 @@ func (x *SetAdSelectionSignalsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetAdSelectionSignalsRequest.ProtoReflect.Descriptor instead.
 func (*SetAdSelectionSignalsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{106}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *SetAdSelectionSignalsRequest) GetArg0() int64 {
@@ -4580,7 +972,7 @@ type SetAdSelectionSignalsResponse struct {
 
 func (x *SetAdSelectionSignalsResponse) Reset() {
 	*x = SetAdSelectionSignalsResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[107]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4592,7 +984,7 @@ func (x *SetAdSelectionSignalsResponse) String() string {
 func (*SetAdSelectionSignalsResponse) ProtoMessage() {}
 
 func (x *SetAdSelectionSignalsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[107]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4605,10 +997,186 @@ func (x *SetAdSelectionSignalsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetAdSelectionSignalsResponse.ProtoReflect.Descriptor instead.
 func (*SetAdSelectionSignalsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{107}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *SetAdSelectionSignalsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetDecisionLogicUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDecisionLogicUriRequest) Reset() {
+	*x = SetDecisionLogicUriRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDecisionLogicUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDecisionLogicUriRequest) ProtoMessage() {}
+
+func (x *SetDecisionLogicUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDecisionLogicUriRequest.ProtoReflect.Descriptor instead.
+func (*SetDecisionLogicUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *SetDecisionLogicUriRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetDecisionLogicUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDecisionLogicUriResponse) Reset() {
+	*x = SetDecisionLogicUriResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDecisionLogicUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDecisionLogicUriResponse) ProtoMessage() {}
+
+func (x *SetDecisionLogicUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDecisionLogicUriResponse.ProtoReflect.Descriptor instead.
+func (*SetDecisionLogicUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *SetDecisionLogicUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetSellerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSellerRequest) Reset() {
+	*x = SetSellerRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSellerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSellerRequest) ProtoMessage() {}
+
+func (x *SetSellerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSellerRequest.ProtoReflect.Descriptor instead.
+func (*SetSellerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *SetSellerRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetSellerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSellerResponse) Reset() {
+	*x = SetSellerResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSellerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSellerResponse) ProtoMessage() {}
+
+func (x *SetSellerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSellerResponse.ProtoReflect.Descriptor instead.
+func (*SetSellerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *SetSellerResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -4624,7 +1192,7 @@ type SetSellerSignalsRequest struct {
 
 func (x *SetSellerSignalsRequest) Reset() {
 	*x = SetSellerSignalsRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[108]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4636,7 +1204,7 @@ func (x *SetSellerSignalsRequest) String() string {
 func (*SetSellerSignalsRequest) ProtoMessage() {}
 
 func (x *SetSellerSignalsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[108]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4649,7 +1217,7 @@ func (x *SetSellerSignalsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetSellerSignalsRequest.ProtoReflect.Descriptor instead.
 func (*SetSellerSignalsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{108}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *SetSellerSignalsRequest) GetArg0() int64 {
@@ -4668,7 +1236,7 @@ type SetSellerSignalsResponse struct {
 
 func (x *SetSellerSignalsResponse) Reset() {
 	*x = SetSellerSignalsResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[109]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4680,7 +1248,7 @@ func (x *SetSellerSignalsResponse) String() string {
 func (*SetSellerSignalsResponse) ProtoMessage() {}
 
 func (x *SetSellerSignalsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[109]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4693,7 +1261,7 @@ func (x *SetSellerSignalsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetSellerSignalsResponse.ProtoReflect.Descriptor instead.
 func (*SetSellerSignalsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{109}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *SetSellerSignalsResponse) GetResult() int64 {
@@ -4712,7 +1280,7 @@ type SetTrustedScoringSignalsUriRequest struct {
 
 func (x *SetTrustedScoringSignalsUriRequest) Reset() {
 	*x = SetTrustedScoringSignalsUriRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[110]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4724,7 +1292,7 @@ func (x *SetTrustedScoringSignalsUriRequest) String() string {
 func (*SetTrustedScoringSignalsUriRequest) ProtoMessage() {}
 
 func (x *SetTrustedScoringSignalsUriRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[110]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4737,7 +1305,7 @@ func (x *SetTrustedScoringSignalsUriRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use SetTrustedScoringSignalsUriRequest.ProtoReflect.Descriptor instead.
 func (*SetTrustedScoringSignalsUriRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{110}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *SetTrustedScoringSignalsUriRequest) GetArg0() int64 {
@@ -4756,7 +1324,7 @@ type SetTrustedScoringSignalsUriResponse struct {
 
 func (x *SetTrustedScoringSignalsUriResponse) Reset() {
 	*x = SetTrustedScoringSignalsUriResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[111]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4768,7 +1336,7 @@ func (x *SetTrustedScoringSignalsUriResponse) String() string {
 func (*SetTrustedScoringSignalsUriResponse) ProtoMessage() {}
 
 func (x *SetTrustedScoringSignalsUriResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[111]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4781,10 +1349,850 @@ func (x *SetTrustedScoringSignalsUriResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use SetTrustedScoringSignalsUriResponse.ProtoReflect.Descriptor instead.
 func (*SetTrustedScoringSignalsUriResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{111}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *SetTrustedScoringSignalsUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetAdSelectionIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAdSelectionIdRequest) Reset() {
+	*x = GetAdSelectionIdRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAdSelectionIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAdSelectionIdRequest) ProtoMessage() {}
+
+func (x *GetAdSelectionIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAdSelectionIdRequest.ProtoReflect.Descriptor instead.
+func (*GetAdSelectionIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{32}
+}
+
+type GetAdSelectionIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAdSelectionIdResponse) Reset() {
+	*x = GetAdSelectionIdResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAdSelectionIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAdSelectionIdResponse) ProtoMessage() {}
+
+func (x *GetAdSelectionIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAdSelectionIdResponse.ProtoReflect.Descriptor instead.
+func (*GetAdSelectionIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *GetAdSelectionIdResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDataRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDataRequest) Reset() {
+	*x = GetDataRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDataRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDataRequest) ProtoMessage() {}
+
+func (x *GetDataRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDataRequest.ProtoReflect.Descriptor instead.
+func (*GetDataRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{34}
+}
+
+type GetDataResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDataResponse) Reset() {
+	*x = GetDataResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDataResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDataResponse) ProtoMessage() {}
+
+func (x *GetDataResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDataResponse.ProtoReflect.Descriptor instead.
+func (*GetDataResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *GetDataResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetInputEventRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInputEventRequest) Reset() {
+	*x = GetInputEventRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInputEventRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInputEventRequest) ProtoMessage() {}
+
+func (x *GetInputEventRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInputEventRequest.ProtoReflect.Descriptor instead.
+func (*GetInputEventRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{36}
+}
+
+type GetInputEventResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetInputEventResponse) Reset() {
+	*x = GetInputEventResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetInputEventResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetInputEventResponse) ProtoMessage() {}
+
+func (x *GetInputEventResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetInputEventResponse.ProtoReflect.Descriptor instead.
+func (*GetInputEventResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *GetInputEventResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetKeyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetKeyRequest) Reset() {
+	*x = GetKeyRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetKeyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetKeyRequest) ProtoMessage() {}
+
+func (x *GetKeyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetKeyRequest.ProtoReflect.Descriptor instead.
+func (*GetKeyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{38}
+}
+
+type GetKeyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetKeyResponse) Reset() {
+	*x = GetKeyResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetKeyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetKeyResponse) ProtoMessage() {}
+
+func (x *GetKeyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetKeyResponse.ProtoReflect.Descriptor instead.
+func (*GetKeyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *GetKeyResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetReportingDestinationsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetReportingDestinationsRequest) Reset() {
+	*x = GetReportingDestinationsRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetReportingDestinationsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetReportingDestinationsRequest) ProtoMessage() {}
+
+func (x *GetReportingDestinationsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetReportingDestinationsRequest.ProtoReflect.Descriptor instead.
+func (*GetReportingDestinationsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{40}
+}
+
+type GetReportingDestinationsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetReportingDestinationsResponse) Reset() {
+	*x = GetReportingDestinationsResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetReportingDestinationsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetReportingDestinationsResponse) ProtoMessage() {}
+
+func (x *GetReportingDestinationsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetReportingDestinationsResponse.ProtoReflect.Descriptor instead.
+func (*GetReportingDestinationsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *GetReportingDestinationsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetAdSelectionIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAdSelectionIdRequest) Reset() {
+	*x = SetAdSelectionIdRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAdSelectionIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAdSelectionIdRequest) ProtoMessage() {}
+
+func (x *SetAdSelectionIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAdSelectionIdRequest.ProtoReflect.Descriptor instead.
+func (*SetAdSelectionIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *SetAdSelectionIdRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetAdSelectionIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAdSelectionIdResponse) Reset() {
+	*x = SetAdSelectionIdResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAdSelectionIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAdSelectionIdResponse) ProtoMessage() {}
+
+func (x *SetAdSelectionIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAdSelectionIdResponse.ProtoReflect.Descriptor instead.
+func (*SetAdSelectionIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *SetAdSelectionIdResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetDataRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDataRequest) Reset() {
+	*x = SetDataRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDataRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDataRequest) ProtoMessage() {}
+
+func (x *SetDataRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDataRequest.ProtoReflect.Descriptor instead.
+func (*SetDataRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *SetDataRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetDataResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDataResponse) Reset() {
+	*x = SetDataResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDataResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDataResponse) ProtoMessage() {}
+
+func (x *SetDataResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDataResponse.ProtoReflect.Descriptor instead.
+func (*SetDataResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *SetDataResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetInputEventRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetInputEventRequest) Reset() {
+	*x = SetInputEventRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetInputEventRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetInputEventRequest) ProtoMessage() {}
+
+func (x *SetInputEventRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetInputEventRequest.ProtoReflect.Descriptor instead.
+func (*SetInputEventRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *SetInputEventRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetInputEventResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetInputEventResponse) Reset() {
+	*x = SetInputEventResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetInputEventResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetInputEventResponse) ProtoMessage() {}
+
+func (x *SetInputEventResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetInputEventResponse.ProtoReflect.Descriptor instead.
+func (*SetInputEventResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *SetInputEventResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetKeyRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetKeyRequest) Reset() {
+	*x = SetKeyRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetKeyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetKeyRequest) ProtoMessage() {}
+
+func (x *SetKeyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetKeyRequest.ProtoReflect.Descriptor instead.
+func (*SetKeyRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *SetKeyRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetKeyResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetKeyResponse) Reset() {
+	*x = SetKeyResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetKeyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetKeyResponse) ProtoMessage() {}
+
+func (x *SetKeyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetKeyResponse.ProtoReflect.Descriptor instead.
+func (*SetKeyResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *SetKeyResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetReportingDestinationsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetReportingDestinationsRequest) Reset() {
+	*x = SetReportingDestinationsRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetReportingDestinationsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetReportingDestinationsRequest) ProtoMessage() {}
+
+func (x *SetReportingDestinationsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetReportingDestinationsRequest.ProtoReflect.Descriptor instead.
+func (*SetReportingDestinationsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *SetReportingDestinationsRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetReportingDestinationsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetReportingDestinationsResponse) Reset() {
+	*x = SetReportingDestinationsResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetReportingDestinationsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetReportingDestinationsResponse) ProtoMessage() {}
+
+func (x *SetReportingDestinationsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetReportingDestinationsResponse.ProtoReflect.Descriptor instead.
+func (*SetReportingDestinationsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *SetReportingDestinationsResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -4802,7 +2210,7 @@ type NewAddAdSelectionOverrideRequestRequest struct {
 
 func (x *NewAddAdSelectionOverrideRequestRequest) Reset() {
 	*x = NewAddAdSelectionOverrideRequestRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[112]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4814,7 +2222,7 @@ func (x *NewAddAdSelectionOverrideRequestRequest) String() string {
 func (*NewAddAdSelectionOverrideRequestRequest) ProtoMessage() {}
 
 func (x *NewAddAdSelectionOverrideRequestRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[112]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4827,7 +2235,7 @@ func (x *NewAddAdSelectionOverrideRequestRequest) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use NewAddAdSelectionOverrideRequestRequest.ProtoReflect.Descriptor instead.
 func (*NewAddAdSelectionOverrideRequestRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{112}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *NewAddAdSelectionOverrideRequestRequest) GetArg0() int64 {
@@ -4860,7 +2268,7 @@ type NewAddAdSelectionOverrideRequestResponse struct {
 
 func (x *NewAddAdSelectionOverrideRequestResponse) Reset() {
 	*x = NewAddAdSelectionOverrideRequestResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[113]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4872,7 +2280,7 @@ func (x *NewAddAdSelectionOverrideRequestResponse) String() string {
 func (*NewAddAdSelectionOverrideRequestResponse) ProtoMessage() {}
 
 func (x *NewAddAdSelectionOverrideRequestResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[113]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4885,7 +2293,7 @@ func (x *NewAddAdSelectionOverrideRequestResponse) ProtoReflect() protoreflect.M
 
 // Deprecated: Use NewAddAdSelectionOverrideRequestResponse.ProtoReflect.Descriptor instead.
 func (*NewAddAdSelectionOverrideRequestResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{113}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *NewAddAdSelectionOverrideRequestResponse) GetResult() int64 {
@@ -4904,7 +2312,7 @@ type GetAdSelectionConfigRequest struct {
 
 func (x *GetAdSelectionConfigRequest) Reset() {
 	*x = GetAdSelectionConfigRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[114]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4916,7 +2324,7 @@ func (x *GetAdSelectionConfigRequest) String() string {
 func (*GetAdSelectionConfigRequest) ProtoMessage() {}
 
 func (x *GetAdSelectionConfigRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[114]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4929,7 +2337,7 @@ func (x *GetAdSelectionConfigRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAdSelectionConfigRequest.ProtoReflect.Descriptor instead.
 func (*GetAdSelectionConfigRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{114}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *GetAdSelectionConfigRequest) GetHandle() int64 {
@@ -4948,7 +2356,7 @@ type GetAdSelectionConfigResponse struct {
 
 func (x *GetAdSelectionConfigResponse) Reset() {
 	*x = GetAdSelectionConfigResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[115]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4960,7 +2368,7 @@ func (x *GetAdSelectionConfigResponse) String() string {
 func (*GetAdSelectionConfigResponse) ProtoMessage() {}
 
 func (x *GetAdSelectionConfigResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[115]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4973,7 +2381,7 @@ func (x *GetAdSelectionConfigResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAdSelectionConfigResponse.ProtoReflect.Descriptor instead.
 func (*GetAdSelectionConfigResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{115}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{55}
 }
 
 func (x *GetAdSelectionConfigResponse) GetResult() int64 {
@@ -4992,7 +2400,7 @@ type GetDecisionLogicJsRequest struct {
 
 func (x *GetDecisionLogicJsRequest) Reset() {
 	*x = GetDecisionLogicJsRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[116]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5004,7 +2412,7 @@ func (x *GetDecisionLogicJsRequest) String() string {
 func (*GetDecisionLogicJsRequest) ProtoMessage() {}
 
 func (x *GetDecisionLogicJsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[116]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5017,7 +2425,7 @@ func (x *GetDecisionLogicJsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDecisionLogicJsRequest.ProtoReflect.Descriptor instead.
 func (*GetDecisionLogicJsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{116}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *GetDecisionLogicJsRequest) GetHandle() int64 {
@@ -5036,7 +2444,7 @@ type GetDecisionLogicJsResponse struct {
 
 func (x *GetDecisionLogicJsResponse) Reset() {
 	*x = GetDecisionLogicJsResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[117]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5048,7 +2456,7 @@ func (x *GetDecisionLogicJsResponse) String() string {
 func (*GetDecisionLogicJsResponse) ProtoMessage() {}
 
 func (x *GetDecisionLogicJsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[117]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5061,7 +2469,7 @@ func (x *GetDecisionLogicJsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDecisionLogicJsResponse.ProtoReflect.Descriptor instead.
 func (*GetDecisionLogicJsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{117}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{57}
 }
 
 func (x *GetDecisionLogicJsResponse) GetResult() string {
@@ -5080,7 +2488,7 @@ type GetPerBuyerDecisionLogicRequest struct {
 
 func (x *GetPerBuyerDecisionLogicRequest) Reset() {
 	*x = GetPerBuyerDecisionLogicRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[118]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5092,7 +2500,7 @@ func (x *GetPerBuyerDecisionLogicRequest) String() string {
 func (*GetPerBuyerDecisionLogicRequest) ProtoMessage() {}
 
 func (x *GetPerBuyerDecisionLogicRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[118]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5105,7 +2513,7 @@ func (x *GetPerBuyerDecisionLogicRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPerBuyerDecisionLogicRequest.ProtoReflect.Descriptor instead.
 func (*GetPerBuyerDecisionLogicRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{118}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *GetPerBuyerDecisionLogicRequest) GetHandle() int64 {
@@ -5124,7 +2532,7 @@ type GetPerBuyerDecisionLogicResponse struct {
 
 func (x *GetPerBuyerDecisionLogicResponse) Reset() {
 	*x = GetPerBuyerDecisionLogicResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[119]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5136,7 +2544,7 @@ func (x *GetPerBuyerDecisionLogicResponse) String() string {
 func (*GetPerBuyerDecisionLogicResponse) ProtoMessage() {}
 
 func (x *GetPerBuyerDecisionLogicResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[119]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5149,7 +2557,7 @@ func (x *GetPerBuyerDecisionLogicResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPerBuyerDecisionLogicResponse.ProtoReflect.Descriptor instead.
 func (*GetPerBuyerDecisionLogicResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{119}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{59}
 }
 
 func (x *GetPerBuyerDecisionLogicResponse) GetResult() int64 {
@@ -5168,7 +2576,7 @@ type GetTrustedScoringSignalsRequest struct {
 
 func (x *GetTrustedScoringSignalsRequest) Reset() {
 	*x = GetTrustedScoringSignalsRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[120]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5180,7 +2588,7 @@ func (x *GetTrustedScoringSignalsRequest) String() string {
 func (*GetTrustedScoringSignalsRequest) ProtoMessage() {}
 
 func (x *GetTrustedScoringSignalsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[120]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5193,7 +2601,7 @@ func (x *GetTrustedScoringSignalsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTrustedScoringSignalsRequest.ProtoReflect.Descriptor instead.
 func (*GetTrustedScoringSignalsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{120}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *GetTrustedScoringSignalsRequest) GetHandle() int64 {
@@ -5212,7 +2620,7 @@ type GetTrustedScoringSignalsResponse struct {
 
 func (x *GetTrustedScoringSignalsResponse) Reset() {
 	*x = GetTrustedScoringSignalsResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[121]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5224,7 +2632,7 @@ func (x *GetTrustedScoringSignalsResponse) String() string {
 func (*GetTrustedScoringSignalsResponse) ProtoMessage() {}
 
 func (x *GetTrustedScoringSignalsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[121]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5237,7 +2645,7 @@ func (x *GetTrustedScoringSignalsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTrustedScoringSignalsResponse.ProtoReflect.Descriptor instead.
 func (*GetTrustedScoringSignalsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{121}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{61}
 }
 
 func (x *GetTrustedScoringSignalsResponse) GetResult() int64 {
@@ -5247,29 +2655,27 @@ func (x *GetTrustedScoringSignalsResponse) GetResult() int64 {
 	return 0
 }
 
-type NewAdWithBidRequest struct {
+type GetTestAdSelectionManagerRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          float64                `protobuf:"fixed64,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *NewAdWithBidRequest) Reset() {
-	*x = NewAdWithBidRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[122]
+func (x *GetTestAdSelectionManagerRequest) Reset() {
+	*x = GetTestAdSelectionManagerRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *NewAdWithBidRequest) String() string {
+func (x *GetTestAdSelectionManagerRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*NewAdWithBidRequest) ProtoMessage() {}
+func (*GetTestAdSelectionManagerRequest) ProtoMessage() {}
 
-func (x *NewAdWithBidRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[122]
+func (x *GetTestAdSelectionManagerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5280,47 +2686,33 @@ func (x *NewAdWithBidRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use NewAdWithBidRequest.ProtoReflect.Descriptor instead.
-func (*NewAdWithBidRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{122}
+// Deprecated: Use GetTestAdSelectionManagerRequest.ProtoReflect.Descriptor instead.
+func (*GetTestAdSelectionManagerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{62}
 }
 
-func (x *NewAdWithBidRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *NewAdWithBidRequest) GetArg1() float64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type NewAdWithBidResponse struct {
+type GetTestAdSelectionManagerResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *NewAdWithBidResponse) Reset() {
-	*x = NewAdWithBidResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[123]
+func (x *GetTestAdSelectionManagerResponse) Reset() {
+	*x = GetTestAdSelectionManagerResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *NewAdWithBidResponse) String() string {
+func (x *GetTestAdSelectionManagerResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*NewAdWithBidResponse) ProtoMessage() {}
+func (*GetTestAdSelectionManagerResponse) ProtoMessage() {}
 
-func (x *NewAdWithBidResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[123]
+func (x *GetTestAdSelectionManagerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5331,416 +2723,40 @@ func (x *NewAdWithBidResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use NewAdWithBidResponse.ProtoReflect.Descriptor instead.
-func (*NewAdWithBidResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{123}
+// Deprecated: Use GetTestAdSelectionManagerResponse.ProtoReflect.Descriptor instead.
+func (*GetTestAdSelectionManagerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{63}
 }
 
-func (x *NewAdWithBidResponse) GetResult() int64 {
+func (x *GetTestAdSelectionManagerResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type AdWithBidDescribeContentsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AdWithBidDescribeContentsRequest) Reset() {
-	*x = AdWithBidDescribeContentsRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[124]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AdWithBidDescribeContentsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AdWithBidDescribeContentsRequest) ProtoMessage() {}
-
-func (x *AdWithBidDescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[124]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AdWithBidDescribeContentsRequest.ProtoReflect.Descriptor instead.
-func (*AdWithBidDescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{124}
-}
-
-func (x *AdWithBidDescribeContentsRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type AdWithBidEqualsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AdWithBidEqualsRequest) Reset() {
-	*x = AdWithBidEqualsRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[125]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AdWithBidEqualsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AdWithBidEqualsRequest) ProtoMessage() {}
-
-func (x *AdWithBidEqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[125]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AdWithBidEqualsRequest.ProtoReflect.Descriptor instead.
-func (*AdWithBidEqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{125}
-}
-
-func (x *AdWithBidEqualsRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *AdWithBidEqualsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type GetAdDataRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAdDataRequest) Reset() {
-	*x = GetAdDataRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[126]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAdDataRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAdDataRequest) ProtoMessage() {}
-
-func (x *GetAdDataRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[126]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAdDataRequest.ProtoReflect.Descriptor instead.
-func (*GetAdDataRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{126}
-}
-
-func (x *GetAdDataRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetAdDataResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAdDataResponse) Reset() {
-	*x = GetAdDataResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[127]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAdDataResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAdDataResponse) ProtoMessage() {}
-
-func (x *GetAdDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[127]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAdDataResponse.ProtoReflect.Descriptor instead.
-func (*GetAdDataResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{127}
-}
-
-func (x *GetAdDataResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetBidRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetBidRequest) Reset() {
-	*x = GetBidRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[128]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetBidRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetBidRequest) ProtoMessage() {}
-
-func (x *GetBidRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[128]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetBidRequest.ProtoReflect.Descriptor instead.
-func (*GetBidRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{128}
-}
-
-func (x *GetBidRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetBidResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetBidResponse) Reset() {
-	*x = GetBidResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[129]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetBidResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetBidResponse) ProtoMessage() {}
-
-func (x *GetBidResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[129]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetBidResponse.ProtoReflect.Descriptor instead.
-func (*GetBidResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{129}
-}
-
-func (x *GetBidResponse) GetResult() float64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type AdWithBidHashCodeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AdWithBidHashCodeRequest) Reset() {
-	*x = AdWithBidHashCodeRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[130]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AdWithBidHashCodeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AdWithBidHashCodeRequest) ProtoMessage() {}
-
-func (x *AdWithBidHashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[130]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AdWithBidHashCodeRequest.ProtoReflect.Descriptor instead.
-func (*AdWithBidHashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{130}
-}
-
-func (x *AdWithBidHashCodeRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type AdWithBidWriteToParcelRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AdWithBidWriteToParcelRequest) Reset() {
-	*x = AdWithBidWriteToParcelRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[131]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AdWithBidWriteToParcelRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AdWithBidWriteToParcelRequest) ProtoMessage() {}
-
-func (x *AdWithBidWriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[131]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AdWithBidWriteToParcelRequest.ProtoReflect.Descriptor instead.
-func (*AdWithBidWriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{131}
-}
-
-func (x *AdWithBidWriteToParcelRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *AdWithBidWriteToParcelRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *AdWithBidWriteToParcelRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type NewRemoveAdSelectionOverrideRequestRequest struct {
+type GetRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *NewRemoveAdSelectionOverrideRequestRequest) Reset() {
-	*x = NewRemoveAdSelectionOverrideRequestRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[132]
+func (x *GetRequest) Reset() {
+	*x = GetRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *NewRemoveAdSelectionOverrideRequestRequest) String() string {
+func (x *GetRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*NewRemoveAdSelectionOverrideRequestRequest) ProtoMessage() {}
+func (*GetRequest) ProtoMessage() {}
 
-func (x *NewRemoveAdSelectionOverrideRequestRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[132]
+func (x *GetRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5751,40 +2767,40 @@ func (x *NewRemoveAdSelectionOverrideRequestRequest) ProtoReflect() protoreflect
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use NewRemoveAdSelectionOverrideRequestRequest.ProtoReflect.Descriptor instead.
-func (*NewRemoveAdSelectionOverrideRequestRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{132}
+// Deprecated: Use GetRequest.ProtoReflect.Descriptor instead.
+func (*GetRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{64}
 }
 
-func (x *NewRemoveAdSelectionOverrideRequestRequest) GetArg0() int64 {
+func (x *GetRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-type NewRemoveAdSelectionOverrideRequestResponse struct {
+type GetResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *NewRemoveAdSelectionOverrideRequestResponse) Reset() {
-	*x = NewRemoveAdSelectionOverrideRequestResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[133]
+func (x *GetResponse) Reset() {
+	*x = GetResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *NewRemoveAdSelectionOverrideRequestResponse) String() string {
+func (x *GetResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*NewRemoveAdSelectionOverrideRequestResponse) ProtoMessage() {}
+func (*GetResponse) ProtoMessage() {}
 
-func (x *NewRemoveAdSelectionOverrideRequestResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[133]
+func (x *GetResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5795,92 +2811,12 @@ func (x *NewRemoveAdSelectionOverrideRequestResponse) ProtoReflect() protoreflec
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use NewRemoveAdSelectionOverrideRequestResponse.ProtoReflect.Descriptor instead.
-func (*NewRemoveAdSelectionOverrideRequestResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{133}
+// Deprecated: Use GetResponse.ProtoReflect.Descriptor instead.
+func (*GetResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{65}
 }
 
-func (x *NewRemoveAdSelectionOverrideRequestResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetAdSelectionDataRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAdSelectionDataRequest) Reset() {
-	*x = GetAdSelectionDataRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[134]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAdSelectionDataRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAdSelectionDataRequest) ProtoMessage() {}
-
-func (x *GetAdSelectionDataRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[134]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAdSelectionDataRequest.ProtoReflect.Descriptor instead.
-func (*GetAdSelectionDataRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{134}
-}
-
-type GetAdSelectionDataResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAdSelectionDataResponse) Reset() {
-	*x = GetAdSelectionDataResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[135]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAdSelectionDataResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAdSelectionDataResponse) ProtoMessage() {}
-
-func (x *GetAdSelectionDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[135]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAdSelectionDataResponse.ProtoReflect.Descriptor instead.
-func (*GetAdSelectionDataResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{135}
-}
-
-func (x *GetAdSelectionDataResponse) GetResult() int64 {
+func (x *GetResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -5896,7 +2832,7 @@ type NewDecisionLogicRequest struct {
 
 func (x *NewDecisionLogicRequest) Reset() {
 	*x = NewDecisionLogicRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[136]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5908,7 +2844,7 @@ func (x *NewDecisionLogicRequest) String() string {
 func (*NewDecisionLogicRequest) ProtoMessage() {}
 
 func (x *NewDecisionLogicRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[136]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5921,7 +2857,7 @@ func (x *NewDecisionLogicRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewDecisionLogicRequest.ProtoReflect.Descriptor instead.
 func (*NewDecisionLogicRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{136}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{66}
 }
 
 func (x *NewDecisionLogicRequest) GetArg0() string {
@@ -5940,7 +2876,7 @@ type NewDecisionLogicResponse struct {
 
 func (x *NewDecisionLogicResponse) Reset() {
 	*x = NewDecisionLogicResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[137]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5952,7 +2888,7 @@ func (x *NewDecisionLogicResponse) String() string {
 func (*NewDecisionLogicResponse) ProtoMessage() {}
 
 func (x *NewDecisionLogicResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[137]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5965,7 +2901,7 @@ func (x *NewDecisionLogicResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewDecisionLogicResponse.ProtoReflect.Descriptor instead.
 func (*NewDecisionLogicResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{137}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{67}
 }
 
 func (x *NewDecisionLogicResponse) GetResult() int64 {
@@ -5984,7 +2920,7 @@ type DecisionLogicDescribeContentsRequest struct {
 
 func (x *DecisionLogicDescribeContentsRequest) Reset() {
 	*x = DecisionLogicDescribeContentsRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[138]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5996,7 +2932,7 @@ func (x *DecisionLogicDescribeContentsRequest) String() string {
 func (*DecisionLogicDescribeContentsRequest) ProtoMessage() {}
 
 func (x *DecisionLogicDescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[138]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6009,7 +2945,7 @@ func (x *DecisionLogicDescribeContentsRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use DecisionLogicDescribeContentsRequest.ProtoReflect.Descriptor instead.
 func (*DecisionLogicDescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{138}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{68}
 }
 
 func (x *DecisionLogicDescribeContentsRequest) GetHandle() int64 {
@@ -6029,7 +2965,7 @@ type DecisionLogicEqualsRequest struct {
 
 func (x *DecisionLogicEqualsRequest) Reset() {
 	*x = DecisionLogicEqualsRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[139]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6041,7 +2977,7 @@ func (x *DecisionLogicEqualsRequest) String() string {
 func (*DecisionLogicEqualsRequest) ProtoMessage() {}
 
 func (x *DecisionLogicEqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[139]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6054,7 +2990,7 @@ func (x *DecisionLogicEqualsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DecisionLogicEqualsRequest.ProtoReflect.Descriptor instead.
 func (*DecisionLogicEqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{139}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{69}
 }
 
 func (x *DecisionLogicEqualsRequest) GetHandle() int64 {
@@ -6080,7 +3016,7 @@ type GetLogicRequest struct {
 
 func (x *GetLogicRequest) Reset() {
 	*x = GetLogicRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[140]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6092,7 +3028,7 @@ func (x *GetLogicRequest) String() string {
 func (*GetLogicRequest) ProtoMessage() {}
 
 func (x *GetLogicRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[140]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6105,7 +3041,7 @@ func (x *GetLogicRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLogicRequest.ProtoReflect.Descriptor instead.
 func (*GetLogicRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{140}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{70}
 }
 
 func (x *GetLogicRequest) GetHandle() int64 {
@@ -6124,7 +3060,7 @@ type GetLogicResponse struct {
 
 func (x *GetLogicResponse) Reset() {
 	*x = GetLogicResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[141]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6136,7 +3072,7 @@ func (x *GetLogicResponse) String() string {
 func (*GetLogicResponse) ProtoMessage() {}
 
 func (x *GetLogicResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[141]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6149,7 +3085,7 @@ func (x *GetLogicResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLogicResponse.ProtoReflect.Descriptor instead.
 func (*GetLogicResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{141}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{71}
 }
 
 func (x *GetLogicResponse) GetResult() string {
@@ -6168,7 +3104,7 @@ type DecisionLogicHashCodeRequest struct {
 
 func (x *DecisionLogicHashCodeRequest) Reset() {
 	*x = DecisionLogicHashCodeRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[142]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6180,7 +3116,7 @@ func (x *DecisionLogicHashCodeRequest) String() string {
 func (*DecisionLogicHashCodeRequest) ProtoMessage() {}
 
 func (x *DecisionLogicHashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[142]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6193,7 +3129,7 @@ func (x *DecisionLogicHashCodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DecisionLogicHashCodeRequest.ProtoReflect.Descriptor instead.
 func (*DecisionLogicHashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{142}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{72}
 }
 
 func (x *DecisionLogicHashCodeRequest) GetHandle() int64 {
@@ -6203,28 +3139,28 @@ func (x *DecisionLogicHashCodeRequest) GetHandle() int64 {
 	return 0
 }
 
-type DecisionLogicToStringRequest struct {
+type ToStringRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *DecisionLogicToStringRequest) Reset() {
-	*x = DecisionLogicToStringRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[143]
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *DecisionLogicToStringRequest) String() string {
+func (x *ToStringRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*DecisionLogicToStringRequest) ProtoMessage() {}
+func (*ToStringRequest) ProtoMessage() {}
 
-func (x *DecisionLogicToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[143]
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6235,16 +3171,60 @@ func (x *DecisionLogicToStringRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use DecisionLogicToStringRequest.ProtoReflect.Descriptor instead.
-func (*DecisionLogicToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{143}
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{73}
 }
 
-func (x *DecisionLogicToStringRequest) GetHandle() int64 {
+func (x *ToStringRequest) GetHandle() int64 {
 	if x != nil {
 		return x.Handle
 	}
 	return 0
+}
+
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[74]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[74]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{74}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
 }
 
 type DecisionLogicWriteToParcelRequest struct {
@@ -6258,7 +3238,7 @@ type DecisionLogicWriteToParcelRequest struct {
 
 func (x *DecisionLogicWriteToParcelRequest) Reset() {
 	*x = DecisionLogicWriteToParcelRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[144]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[75]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6270,7 +3250,7 @@ func (x *DecisionLogicWriteToParcelRequest) String() string {
 func (*DecisionLogicWriteToParcelRequest) ProtoMessage() {}
 
 func (x *DecisionLogicWriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[144]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[75]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6283,7 +3263,7 @@ func (x *DecisionLogicWriteToParcelRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use DecisionLogicWriteToParcelRequest.ProtoReflect.Descriptor instead.
 func (*DecisionLogicWriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{144}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{75}
 }
 
 func (x *DecisionLogicWriteToParcelRequest) GetHandle() int64 {
@@ -6307,27 +3287,27 @@ func (x *DecisionLogicWriteToParcelRequest) GetArg1() int32 {
 	return 0
 }
 
-type GetCoordinatorOriginUriRequest struct {
+type GetAdvertisersRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetCoordinatorOriginUriRequest) Reset() {
-	*x = GetCoordinatorOriginUriRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[145]
+func (x *GetAdvertisersRequest) Reset() {
+	*x = GetAdvertisersRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[76]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetCoordinatorOriginUriRequest) String() string {
+func (x *GetAdvertisersRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetCoordinatorOriginUriRequest) ProtoMessage() {}
+func (*GetAdvertisersRequest) ProtoMessage() {}
 
-func (x *GetCoordinatorOriginUriRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[145]
+func (x *GetAdvertisersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[76]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6338,113 +3318,33 @@ func (x *GetCoordinatorOriginUriRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetCoordinatorOriginUriRequest.ProtoReflect.Descriptor instead.
-func (*GetCoordinatorOriginUriRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{145}
+// Deprecated: Use GetAdvertisersRequest.ProtoReflect.Descriptor instead.
+func (*GetAdvertisersRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{76}
 }
 
-type GetCoordinatorOriginUriResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetCoordinatorOriginUriResponse) Reset() {
-	*x = GetCoordinatorOriginUriResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[146]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetCoordinatorOriginUriResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetCoordinatorOriginUriResponse) ProtoMessage() {}
-
-func (x *GetCoordinatorOriginUriResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[146]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetCoordinatorOriginUriResponse.ProtoReflect.Descriptor instead.
-func (*GetCoordinatorOriginUriResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{146}
-}
-
-func (x *GetCoordinatorOriginUriResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetSellerConfigurationRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetSellerConfigurationRequest) Reset() {
-	*x = GetSellerConfigurationRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[147]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetSellerConfigurationRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetSellerConfigurationRequest) ProtoMessage() {}
-
-func (x *GetSellerConfigurationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[147]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetSellerConfigurationRequest.ProtoReflect.Descriptor instead.
-func (*GetSellerConfigurationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{147}
-}
-
-type GetSellerConfigurationResponse struct {
+type GetAdvertisersResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *GetSellerConfigurationResponse) Reset() {
-	*x = GetSellerConfigurationResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[148]
+func (x *GetAdvertisersResponse) Reset() {
+	*x = GetAdvertisersResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[77]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *GetSellerConfigurationResponse) String() string {
+func (x *GetAdvertisersResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*GetSellerConfigurationResponse) ProtoMessage() {}
+func (*GetAdvertisersResponse) ProtoMessage() {}
 
-func (x *GetSellerConfigurationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[148]
+func (x *GetAdvertisersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[77]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6455,40 +3355,316 @@ func (x *GetSellerConfigurationResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use GetSellerConfigurationResponse.ProtoReflect.Descriptor instead.
-func (*GetSellerConfigurationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{148}
+// Deprecated: Use GetAdvertisersResponse.ProtoReflect.Descriptor instead.
+func (*GetAdvertisersResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{77}
 }
 
-func (x *GetSellerConfigurationResponse) GetResult() int64 {
+func (x *GetAdvertisersResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type SetCoordinatorOriginUriRequest struct {
+type GetAdsWithBidRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAdsWithBidRequest) Reset() {
+	*x = GetAdsWithBidRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[78]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAdsWithBidRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAdsWithBidRequest) ProtoMessage() {}
+
+func (x *GetAdsWithBidRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[78]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAdsWithBidRequest.ProtoReflect.Descriptor instead.
+func (*GetAdsWithBidRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{78}
+}
+
+type GetAdsWithBidResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAdsWithBidResponse) Reset() {
+	*x = GetAdsWithBidResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAdsWithBidResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAdsWithBidResponse) ProtoMessage() {}
+
+func (x *GetAdsWithBidResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAdsWithBidResponse.ProtoReflect.Descriptor instead.
+func (*GetAdsWithBidResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{79}
+}
+
+func (x *GetAdsWithBidResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetBuyerRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBuyerRequest) Reset() {
+	*x = GetBuyerRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[80]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBuyerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBuyerRequest) ProtoMessage() {}
+
+func (x *GetBuyerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[80]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBuyerRequest.ProtoReflect.Descriptor instead.
+func (*GetBuyerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{80}
+}
+
+type GetBuyerResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBuyerResponse) Reset() {
+	*x = GetBuyerResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[81]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBuyerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBuyerResponse) ProtoMessage() {}
+
+func (x *GetBuyerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[81]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBuyerResponse.ProtoReflect.Descriptor instead.
+func (*GetBuyerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{81}
+}
+
+func (x *GetBuyerResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSignatureRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSignatureRequest) Reset() {
+	*x = GetSignatureRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[82]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSignatureRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSignatureRequest) ProtoMessage() {}
+
+func (x *GetSignatureRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[82]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSignatureRequest.ProtoReflect.Descriptor instead.
+func (*GetSignatureRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{82}
+}
+
+type GetSignatureResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSignatureResponse) Reset() {
+	*x = GetSignatureResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[83]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSignatureResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSignatureResponse) ProtoMessage() {}
+
+func (x *GetSignatureResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[83]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSignatureResponse.ProtoReflect.Descriptor instead.
+func (*GetSignatureResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{83}
+}
+
+func (x *GetSignatureResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SignedContextualAdsToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SignedContextualAdsToStringRequest) Reset() {
+	*x = SignedContextualAdsToStringRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[84]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SignedContextualAdsToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SignedContextualAdsToStringRequest) ProtoMessage() {}
+
+func (x *SignedContextualAdsToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[84]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SignedContextualAdsToStringRequest.ProtoReflect.Descriptor instead.
+func (*SignedContextualAdsToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{84}
+}
+
+type SetBuyerRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetCoordinatorOriginUriRequest) Reset() {
-	*x = SetCoordinatorOriginUriRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[149]
+func (x *SetBuyerRequest) Reset() {
+	*x = SetBuyerRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[85]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetCoordinatorOriginUriRequest) String() string {
+func (x *SetBuyerRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetCoordinatorOriginUriRequest) ProtoMessage() {}
+func (*SetBuyerRequest) ProtoMessage() {}
 
-func (x *SetCoordinatorOriginUriRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[149]
+func (x *SetBuyerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[85]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6499,40 +3675,40 @@ func (x *SetCoordinatorOriginUriRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetCoordinatorOriginUriRequest.ProtoReflect.Descriptor instead.
-func (*SetCoordinatorOriginUriRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{149}
+// Deprecated: Use SetBuyerRequest.ProtoReflect.Descriptor instead.
+func (*SetBuyerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{85}
 }
 
-func (x *SetCoordinatorOriginUriRequest) GetArg0() int64 {
+func (x *SetBuyerRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-type SetCoordinatorOriginUriResponse struct {
+type SetBuyerResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetCoordinatorOriginUriResponse) Reset() {
-	*x = SetCoordinatorOriginUriResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[150]
+func (x *SetBuyerResponse) Reset() {
+	*x = SetBuyerResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[86]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetCoordinatorOriginUriResponse) String() string {
+func (x *SetBuyerResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetCoordinatorOriginUriResponse) ProtoMessage() {}
+func (*SetBuyerResponse) ProtoMessage() {}
 
-func (x *SetCoordinatorOriginUriResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[150]
+func (x *SetBuyerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[86]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6543,40 +3719,40 @@ func (x *SetCoordinatorOriginUriResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetCoordinatorOriginUriResponse.ProtoReflect.Descriptor instead.
-func (*SetCoordinatorOriginUriResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{150}
+// Deprecated: Use SetBuyerResponse.ProtoReflect.Descriptor instead.
+func (*SetBuyerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{86}
 }
 
-func (x *SetCoordinatorOriginUriResponse) GetResult() int64 {
+func (x *SetBuyerResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
 	return 0
 }
 
-type SetSellerConfigurationRequest struct {
+type SetSignatureRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetSellerConfigurationRequest) Reset() {
-	*x = SetSellerConfigurationRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[151]
+func (x *SetSignatureRequest) Reset() {
+	*x = SetSignatureRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[87]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetSellerConfigurationRequest) String() string {
+func (x *SetSignatureRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetSellerConfigurationRequest) ProtoMessage() {}
+func (*SetSignatureRequest) ProtoMessage() {}
 
-func (x *SetSellerConfigurationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[151]
+func (x *SetSignatureRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[87]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6587,40 +3763,40 @@ func (x *SetSellerConfigurationRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetSellerConfigurationRequest.ProtoReflect.Descriptor instead.
-func (*SetSellerConfigurationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{151}
+// Deprecated: Use SetSignatureRequest.ProtoReflect.Descriptor instead.
+func (*SetSignatureRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{87}
 }
 
-func (x *SetSellerConfigurationRequest) GetArg0() int64 {
+func (x *SetSignatureRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-type SetSellerConfigurationResponse struct {
+type SetSignatureResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *SetSellerConfigurationResponse) Reset() {
-	*x = SetSellerConfigurationResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[152]
+func (x *SetSignatureResponse) Reset() {
+	*x = SetSignatureResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[88]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *SetSellerConfigurationResponse) String() string {
+func (x *SetSignatureResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*SetSellerConfigurationResponse) ProtoMessage() {}
+func (*SetSignatureResponse) ProtoMessage() {}
 
-func (x *SetSellerConfigurationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[152]
+func (x *SetSignatureResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[88]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6631,12 +3807,340 @@ func (x *SetSellerConfigurationResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use SetSellerConfigurationResponse.ProtoReflect.Descriptor instead.
-func (*SetSellerConfigurationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{152}
+// Deprecated: Use SetSignatureResponse.ProtoReflect.Descriptor instead.
+func (*SetSignatureResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{88}
 }
 
-func (x *SetSellerConfigurationResponse) GetResult() int64 {
+func (x *SetSignatureResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMaximumPayloadSizeBytesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaximumPayloadSizeBytesRequest) Reset() {
+	*x = GetMaximumPayloadSizeBytesRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[89]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaximumPayloadSizeBytesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaximumPayloadSizeBytesRequest) ProtoMessage() {}
+
+func (x *GetMaximumPayloadSizeBytesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[89]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaximumPayloadSizeBytesRequest.ProtoReflect.Descriptor instead.
+func (*GetMaximumPayloadSizeBytesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{89}
+}
+
+type GetMaximumPayloadSizeBytesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMaximumPayloadSizeBytesResponse) Reset() {
+	*x = GetMaximumPayloadSizeBytesResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[90]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMaximumPayloadSizeBytesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMaximumPayloadSizeBytesResponse) ProtoMessage() {}
+
+func (x *GetMaximumPayloadSizeBytesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[90]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMaximumPayloadSizeBytesResponse.ProtoReflect.Descriptor instead.
+func (*GetMaximumPayloadSizeBytesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{90}
+}
+
+func (x *GetMaximumPayloadSizeBytesResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPerBuyerConfigurationsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPerBuyerConfigurationsRequest) Reset() {
+	*x = GetPerBuyerConfigurationsRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[91]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPerBuyerConfigurationsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPerBuyerConfigurationsRequest) ProtoMessage() {}
+
+func (x *GetPerBuyerConfigurationsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[91]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPerBuyerConfigurationsRequest.ProtoReflect.Descriptor instead.
+func (*GetPerBuyerConfigurationsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{91}
+}
+
+type GetPerBuyerConfigurationsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPerBuyerConfigurationsResponse) Reset() {
+	*x = GetPerBuyerConfigurationsResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[92]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPerBuyerConfigurationsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPerBuyerConfigurationsResponse) ProtoMessage() {}
+
+func (x *GetPerBuyerConfigurationsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[92]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPerBuyerConfigurationsResponse.ProtoReflect.Descriptor instead.
+func (*GetPerBuyerConfigurationsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{92}
+}
+
+func (x *GetPerBuyerConfigurationsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetMaximumPayloadSizeBytesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMaximumPayloadSizeBytesRequest) Reset() {
+	*x = SetMaximumPayloadSizeBytesRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[93]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMaximumPayloadSizeBytesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMaximumPayloadSizeBytesRequest) ProtoMessage() {}
+
+func (x *SetMaximumPayloadSizeBytesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[93]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMaximumPayloadSizeBytesRequest.ProtoReflect.Descriptor instead.
+func (*SetMaximumPayloadSizeBytesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{93}
+}
+
+func (x *SetMaximumPayloadSizeBytesRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetMaximumPayloadSizeBytesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMaximumPayloadSizeBytesResponse) Reset() {
+	*x = SetMaximumPayloadSizeBytesResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[94]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMaximumPayloadSizeBytesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMaximumPayloadSizeBytesResponse) ProtoMessage() {}
+
+func (x *SetMaximumPayloadSizeBytesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[94]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMaximumPayloadSizeBytesResponse.ProtoReflect.Descriptor instead.
+func (*SetMaximumPayloadSizeBytesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{94}
+}
+
+func (x *SetMaximumPayloadSizeBytesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetComponentAdUrisRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetComponentAdUrisRequest) Reset() {
+	*x = GetComponentAdUrisRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[95]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetComponentAdUrisRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetComponentAdUrisRequest) ProtoMessage() {}
+
+func (x *GetComponentAdUrisRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[95]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetComponentAdUrisRequest.ProtoReflect.Descriptor instead.
+func (*GetComponentAdUrisRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{95}
+}
+
+type GetComponentAdUrisResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetComponentAdUrisResponse) Reset() {
+	*x = GetComponentAdUrisResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[96]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetComponentAdUrisResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetComponentAdUrisResponse) ProtoMessage() {}
+
+func (x *GetComponentAdUrisResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[96]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetComponentAdUrisResponse.ProtoReflect.Descriptor instead.
+func (*GetComponentAdUrisResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{96}
+}
+
+func (x *GetComponentAdUrisResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -6651,7 +4155,7 @@ type GetRenderUriRequest struct {
 
 func (x *GetRenderUriRequest) Reset() {
 	*x = GetRenderUriRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[153]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[97]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6663,7 +4167,7 @@ func (x *GetRenderUriRequest) String() string {
 func (*GetRenderUriRequest) ProtoMessage() {}
 
 func (x *GetRenderUriRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[153]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[97]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6676,7 +4180,7 @@ func (x *GetRenderUriRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRenderUriRequest.ProtoReflect.Descriptor instead.
 func (*GetRenderUriRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{153}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{97}
 }
 
 type GetRenderUriResponse struct {
@@ -6688,7 +4192,7 @@ type GetRenderUriResponse struct {
 
 func (x *GetRenderUriResponse) Reset() {
 	*x = GetRenderUriResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[154]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[98]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6700,7 +4204,7 @@ func (x *GetRenderUriResponse) String() string {
 func (*GetRenderUriResponse) ProtoMessage() {}
 
 func (x *GetRenderUriResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[154]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[98]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6713,7 +4217,7 @@ func (x *GetRenderUriResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRenderUriResponse.ProtoReflect.Descriptor instead.
 func (*GetRenderUriResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{154}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{98}
 }
 
 func (x *GetRenderUriResponse) GetResult() int64 {
@@ -6731,7 +4235,7 @@ type GetWinningSellerRequest struct {
 
 func (x *GetWinningSellerRequest) Reset() {
 	*x = GetWinningSellerRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[155]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[99]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6743,7 +4247,7 @@ func (x *GetWinningSellerRequest) String() string {
 func (*GetWinningSellerRequest) ProtoMessage() {}
 
 func (x *GetWinningSellerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[155]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[99]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6756,7 +4260,7 @@ func (x *GetWinningSellerRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetWinningSellerRequest.ProtoReflect.Descriptor instead.
 func (*GetWinningSellerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{155}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{99}
 }
 
 type GetWinningSellerResponse struct {
@@ -6768,7 +4272,7 @@ type GetWinningSellerResponse struct {
 
 func (x *GetWinningSellerResponse) Reset() {
 	*x = GetWinningSellerResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[156]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[100]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6780,7 +4284,7 @@ func (x *GetWinningSellerResponse) String() string {
 func (*GetWinningSellerResponse) ProtoMessage() {}
 
 func (x *GetWinningSellerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[156]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[100]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6793,7 +4297,7 @@ func (x *GetWinningSellerResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetWinningSellerResponse.ProtoReflect.Descriptor instead.
 func (*GetWinningSellerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{156}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{100}
 }
 
 func (x *GetWinningSellerResponse) GetResult() int64 {
@@ -6811,7 +4315,7 @@ type HasOutcomeRequest struct {
 
 func (x *HasOutcomeRequest) Reset() {
 	*x = HasOutcomeRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[157]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[101]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6823,7 +4327,7 @@ func (x *HasOutcomeRequest) String() string {
 func (*HasOutcomeRequest) ProtoMessage() {}
 
 func (x *HasOutcomeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[157]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[101]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6836,7 +4340,7 @@ func (x *HasOutcomeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HasOutcomeRequest.ProtoReflect.Descriptor instead.
 func (*HasOutcomeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{157}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{101}
 }
 
 type HasOutcomeResponse struct {
@@ -6848,7 +4352,7 @@ type HasOutcomeResponse struct {
 
 func (x *HasOutcomeResponse) Reset() {
 	*x = HasOutcomeResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[158]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[102]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6860,7 +4364,7 @@ func (x *HasOutcomeResponse) String() string {
 func (*HasOutcomeResponse) ProtoMessage() {}
 
 func (x *HasOutcomeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[158]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[102]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6873,7 +4377,7 @@ func (x *HasOutcomeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HasOutcomeResponse.ProtoReflect.Descriptor instead.
 func (*HasOutcomeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{158}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{102}
 }
 
 func (x *HasOutcomeResponse) GetResult() bool {
@@ -6892,7 +4396,7 @@ type SetRenderUriRequest struct {
 
 func (x *SetRenderUriRequest) Reset() {
 	*x = SetRenderUriRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[159]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[103]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6904,7 +4408,7 @@ func (x *SetRenderUriRequest) String() string {
 func (*SetRenderUriRequest) ProtoMessage() {}
 
 func (x *SetRenderUriRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[159]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[103]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6917,7 +4421,7 @@ func (x *SetRenderUriRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetRenderUriRequest.ProtoReflect.Descriptor instead.
 func (*SetRenderUriRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{159}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{103}
 }
 
 func (x *SetRenderUriRequest) GetArg0() int64 {
@@ -6936,7 +4440,7 @@ type SetRenderUriResponse struct {
 
 func (x *SetRenderUriResponse) Reset() {
 	*x = SetRenderUriResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[160]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[104]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6948,7 +4452,7 @@ func (x *SetRenderUriResponse) String() string {
 func (*SetRenderUriResponse) ProtoMessage() {}
 
 func (x *SetRenderUriResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[160]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[104]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6961,10 +4465,554 @@ func (x *SetRenderUriResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetRenderUriResponse.ProtoReflect.Descriptor instead.
 func (*SetRenderUriResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{160}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{104}
 }
 
 func (x *SetRenderUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTargetInputSizeBytesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTargetInputSizeBytesRequest) Reset() {
+	*x = GetTargetInputSizeBytesRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[105]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTargetInputSizeBytesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTargetInputSizeBytesRequest) ProtoMessage() {}
+
+func (x *GetTargetInputSizeBytesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[105]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTargetInputSizeBytesRequest.ProtoReflect.Descriptor instead.
+func (*GetTargetInputSizeBytesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{105}
+}
+
+type GetTargetInputSizeBytesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTargetInputSizeBytesResponse) Reset() {
+	*x = GetTargetInputSizeBytesResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[106]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTargetInputSizeBytesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTargetInputSizeBytesResponse) ProtoMessage() {}
+
+func (x *GetTargetInputSizeBytesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[106]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTargetInputSizeBytesResponse.ProtoReflect.Descriptor instead.
+func (*GetTargetInputSizeBytesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{106}
+}
+
+func (x *GetTargetInputSizeBytesResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetTargetInputSizeBytesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTargetInputSizeBytesRequest) Reset() {
+	*x = SetTargetInputSizeBytesRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[107]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTargetInputSizeBytesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTargetInputSizeBytesRequest) ProtoMessage() {}
+
+func (x *SetTargetInputSizeBytesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[107]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTargetInputSizeBytesRequest.ProtoReflect.Descriptor instead.
+func (*SetTargetInputSizeBytesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{107}
+}
+
+func (x *SetTargetInputSizeBytesRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetTargetInputSizeBytesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTargetInputSizeBytesResponse) Reset() {
+	*x = SetTargetInputSizeBytesResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[108]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTargetInputSizeBytesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTargetInputSizeBytesResponse) ProtoMessage() {}
+
+func (x *SetTargetInputSizeBytesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[108]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTargetInputSizeBytesResponse.ProtoReflect.Descriptor instead.
+func (*SetTargetInputSizeBytesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{108}
+}
+
+func (x *SetTargetInputSizeBytesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewPerBuyerDecisionLogicRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewPerBuyerDecisionLogicRequest) Reset() {
+	*x = NewPerBuyerDecisionLogicRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[109]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewPerBuyerDecisionLogicRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewPerBuyerDecisionLogicRequest) ProtoMessage() {}
+
+func (x *NewPerBuyerDecisionLogicRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[109]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewPerBuyerDecisionLogicRequest.ProtoReflect.Descriptor instead.
+func (*NewPerBuyerDecisionLogicRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{109}
+}
+
+func (x *NewPerBuyerDecisionLogicRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewPerBuyerDecisionLogicResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewPerBuyerDecisionLogicResponse) Reset() {
+	*x = NewPerBuyerDecisionLogicResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[110]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewPerBuyerDecisionLogicResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewPerBuyerDecisionLogicResponse) ProtoMessage() {}
+
+func (x *NewPerBuyerDecisionLogicResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[110]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewPerBuyerDecisionLogicResponse.ProtoReflect.Descriptor instead.
+func (*NewPerBuyerDecisionLogicResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{110}
+}
+
+func (x *NewPerBuyerDecisionLogicResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type PerBuyerDecisionLogicDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PerBuyerDecisionLogicDescribeContentsRequest) Reset() {
+	*x = PerBuyerDecisionLogicDescribeContentsRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[111]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PerBuyerDecisionLogicDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PerBuyerDecisionLogicDescribeContentsRequest) ProtoMessage() {}
+
+func (x *PerBuyerDecisionLogicDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[111]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PerBuyerDecisionLogicDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*PerBuyerDecisionLogicDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{111}
+}
+
+func (x *PerBuyerDecisionLogicDescribeContentsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type PerBuyerDecisionLogicEqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PerBuyerDecisionLogicEqualsRequest) Reset() {
+	*x = PerBuyerDecisionLogicEqualsRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[112]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PerBuyerDecisionLogicEqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PerBuyerDecisionLogicEqualsRequest) ProtoMessage() {}
+
+func (x *PerBuyerDecisionLogicEqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[112]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PerBuyerDecisionLogicEqualsRequest.ProtoReflect.Descriptor instead.
+func (*PerBuyerDecisionLogicEqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{112}
+}
+
+func (x *PerBuyerDecisionLogicEqualsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *PerBuyerDecisionLogicEqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type PerBuyerDecisionLogicHashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PerBuyerDecisionLogicHashCodeRequest) Reset() {
+	*x = PerBuyerDecisionLogicHashCodeRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[113]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PerBuyerDecisionLogicHashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PerBuyerDecisionLogicHashCodeRequest) ProtoMessage() {}
+
+func (x *PerBuyerDecisionLogicHashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[113]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PerBuyerDecisionLogicHashCodeRequest.ProtoReflect.Descriptor instead.
+func (*PerBuyerDecisionLogicHashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{113}
+}
+
+func (x *PerBuyerDecisionLogicHashCodeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type PerBuyerDecisionLogicWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PerBuyerDecisionLogicWriteToParcelRequest) Reset() {
+	*x = PerBuyerDecisionLogicWriteToParcelRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[114]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PerBuyerDecisionLogicWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PerBuyerDecisionLogicWriteToParcelRequest) ProtoMessage() {}
+
+func (x *PerBuyerDecisionLogicWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[114]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PerBuyerDecisionLogicWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*PerBuyerDecisionLogicWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{114}
+}
+
+func (x *PerBuyerDecisionLogicWriteToParcelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *PerBuyerDecisionLogicWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *PerBuyerDecisionLogicWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NewRemoveAdSelectionOverrideRequestRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewRemoveAdSelectionOverrideRequestRequest) Reset() {
+	*x = NewRemoveAdSelectionOverrideRequestRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[115]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewRemoveAdSelectionOverrideRequestRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewRemoveAdSelectionOverrideRequestRequest) ProtoMessage() {}
+
+func (x *NewRemoveAdSelectionOverrideRequestRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[115]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewRemoveAdSelectionOverrideRequestRequest.ProtoReflect.Descriptor instead.
+func (*NewRemoveAdSelectionOverrideRequestRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{115}
+}
+
+func (x *NewRemoveAdSelectionOverrideRequestRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewRemoveAdSelectionOverrideRequestResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewRemoveAdSelectionOverrideRequestResponse) Reset() {
+	*x = NewRemoveAdSelectionOverrideRequestResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[116]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewRemoveAdSelectionOverrideRequestResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewRemoveAdSelectionOverrideRequestResponse) ProtoMessage() {}
+
+func (x *NewRemoveAdSelectionOverrideRequestResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[116]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewRemoveAdSelectionOverrideRequestResponse.ProtoReflect.Descriptor instead.
+func (*NewRemoveAdSelectionOverrideRequestResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{116}
+}
+
+func (x *NewRemoveAdSelectionOverrideRequestResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -6980,7 +5028,7 @@ type NewReportImpressionRequestRequest struct {
 
 func (x *NewReportImpressionRequestRequest) Reset() {
 	*x = NewReportImpressionRequestRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[161]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[117]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6992,7 +5040,7 @@ func (x *NewReportImpressionRequestRequest) String() string {
 func (*NewReportImpressionRequestRequest) ProtoMessage() {}
 
 func (x *NewReportImpressionRequestRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[161]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[117]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7005,7 +5053,7 @@ func (x *NewReportImpressionRequestRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use NewReportImpressionRequestRequest.ProtoReflect.Descriptor instead.
 func (*NewReportImpressionRequestRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{161}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{117}
 }
 
 func (x *NewReportImpressionRequestRequest) GetArg0() int64 {
@@ -7024,7 +5072,7 @@ type NewReportImpressionRequestResponse struct {
 
 func (x *NewReportImpressionRequestResponse) Reset() {
 	*x = NewReportImpressionRequestResponse{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[162]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[118]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7036,7 +5084,7 @@ func (x *NewReportImpressionRequestResponse) String() string {
 func (*NewReportImpressionRequestResponse) ProtoMessage() {}
 
 func (x *NewReportImpressionRequestResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[162]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[118]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7049,7 +5097,7 @@ func (x *NewReportImpressionRequestResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use NewReportImpressionRequestResponse.ProtoReflect.Descriptor instead.
 func (*NewReportImpressionRequestResponse) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{162}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{118}
 }
 
 func (x *NewReportImpressionRequestResponse) GetResult() int64 {
@@ -7068,7 +5116,7 @@ type ReportImpressionRequestGetAdSelectionIdRequest struct {
 
 func (x *ReportImpressionRequestGetAdSelectionIdRequest) Reset() {
 	*x = ReportImpressionRequestGetAdSelectionIdRequest{}
-	mi := &file_proto_adselection_adselection_proto_msgTypes[163]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[119]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7080,7 +5128,7 @@ func (x *ReportImpressionRequestGetAdSelectionIdRequest) String() string {
 func (*ReportImpressionRequestGetAdSelectionIdRequest) ProtoMessage() {}
 
 func (x *ReportImpressionRequestGetAdSelectionIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_adselection_adselection_proto_msgTypes[163]
+	mi := &file_proto_adselection_adselection_proto_msgTypes[119]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7093,7 +5141,7 @@ func (x *ReportImpressionRequestGetAdSelectionIdRequest) ProtoReflect() protoref
 
 // Deprecated: Use ReportImpressionRequestGetAdSelectionIdRequest.ProtoReflect.Descriptor instead.
 func (*ReportImpressionRequestGetAdSelectionIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{163}
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{119}
 }
 
 func (x *ReportImpressionRequestGetAdSelectionIdRequest) GetHandle() int64 {
@@ -7103,109 +5151,2536 @@ func (x *ReportImpressionRequestGetAdSelectionIdRequest) GetHandle() int64 {
 	return 0
 }
 
+type NewAddAdSelectionFromOutcomesOverrideRequestRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int64                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewAddAdSelectionFromOutcomesOverrideRequestRequest) Reset() {
+	*x = NewAddAdSelectionFromOutcomesOverrideRequestRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[120]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewAddAdSelectionFromOutcomesOverrideRequestRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewAddAdSelectionFromOutcomesOverrideRequestRequest) ProtoMessage() {}
+
+func (x *NewAddAdSelectionFromOutcomesOverrideRequestRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[120]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewAddAdSelectionFromOutcomesOverrideRequestRequest.ProtoReflect.Descriptor instead.
+func (*NewAddAdSelectionFromOutcomesOverrideRequestRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{120}
+}
+
+func (x *NewAddAdSelectionFromOutcomesOverrideRequestRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewAddAdSelectionFromOutcomesOverrideRequestRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *NewAddAdSelectionFromOutcomesOverrideRequestRequest) GetArg2() int64 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type NewAddAdSelectionFromOutcomesOverrideRequestResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewAddAdSelectionFromOutcomesOverrideRequestResponse) Reset() {
+	*x = NewAddAdSelectionFromOutcomesOverrideRequestResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[121]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewAddAdSelectionFromOutcomesOverrideRequestResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewAddAdSelectionFromOutcomesOverrideRequestResponse) ProtoMessage() {}
+
+func (x *NewAddAdSelectionFromOutcomesOverrideRequestResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[121]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewAddAdSelectionFromOutcomesOverrideRequestResponse.ProtoReflect.Descriptor instead.
+func (*NewAddAdSelectionFromOutcomesOverrideRequestResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{121}
+}
+
+func (x *NewAddAdSelectionFromOutcomesOverrideRequestResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetAdSelectionFromOutcomesConfigRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAdSelectionFromOutcomesConfigRequest) Reset() {
+	*x = GetAdSelectionFromOutcomesConfigRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[122]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAdSelectionFromOutcomesConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAdSelectionFromOutcomesConfigRequest) ProtoMessage() {}
+
+func (x *GetAdSelectionFromOutcomesConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[122]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAdSelectionFromOutcomesConfigRequest.ProtoReflect.Descriptor instead.
+func (*GetAdSelectionFromOutcomesConfigRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{122}
+}
+
+func (x *GetAdSelectionFromOutcomesConfigRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetAdSelectionFromOutcomesConfigResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAdSelectionFromOutcomesConfigResponse) Reset() {
+	*x = GetAdSelectionFromOutcomesConfigResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[123]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAdSelectionFromOutcomesConfigResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAdSelectionFromOutcomesConfigResponse) ProtoMessage() {}
+
+func (x *GetAdSelectionFromOutcomesConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[123]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAdSelectionFromOutcomesConfigResponse.ProtoReflect.Descriptor instead.
+func (*GetAdSelectionFromOutcomesConfigResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{123}
+}
+
+func (x *GetAdSelectionFromOutcomesConfigResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetOutcomeSelectionLogicJsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOutcomeSelectionLogicJsRequest) Reset() {
+	*x = GetOutcomeSelectionLogicJsRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[124]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOutcomeSelectionLogicJsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOutcomeSelectionLogicJsRequest) ProtoMessage() {}
+
+func (x *GetOutcomeSelectionLogicJsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[124]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOutcomeSelectionLogicJsRequest.ProtoReflect.Descriptor instead.
+func (*GetOutcomeSelectionLogicJsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{124}
+}
+
+func (x *GetOutcomeSelectionLogicJsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetOutcomeSelectionLogicJsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOutcomeSelectionLogicJsResponse) Reset() {
+	*x = GetOutcomeSelectionLogicJsResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[125]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOutcomeSelectionLogicJsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOutcomeSelectionLogicJsResponse) ProtoMessage() {}
+
+func (x *GetOutcomeSelectionLogicJsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[125]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOutcomeSelectionLogicJsResponse.ProtoReflect.Descriptor instead.
+func (*GetOutcomeSelectionLogicJsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{125}
+}
+
+func (x *GetOutcomeSelectionLogicJsResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetOutcomeSelectionTrustedSignalsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOutcomeSelectionTrustedSignalsRequest) Reset() {
+	*x = GetOutcomeSelectionTrustedSignalsRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[126]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOutcomeSelectionTrustedSignalsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOutcomeSelectionTrustedSignalsRequest) ProtoMessage() {}
+
+func (x *GetOutcomeSelectionTrustedSignalsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[126]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOutcomeSelectionTrustedSignalsRequest.ProtoReflect.Descriptor instead.
+func (*GetOutcomeSelectionTrustedSignalsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{126}
+}
+
+func (x *GetOutcomeSelectionTrustedSignalsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetOutcomeSelectionTrustedSignalsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOutcomeSelectionTrustedSignalsResponse) Reset() {
+	*x = GetOutcomeSelectionTrustedSignalsResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[127]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOutcomeSelectionTrustedSignalsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOutcomeSelectionTrustedSignalsResponse) ProtoMessage() {}
+
+func (x *GetOutcomeSelectionTrustedSignalsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[127]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOutcomeSelectionTrustedSignalsResponse.ProtoReflect.Descriptor instead.
+func (*GetOutcomeSelectionTrustedSignalsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{127}
+}
+
+func (x *GetOutcomeSelectionTrustedSignalsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetAdSelectionDataRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAdSelectionDataRequest) Reset() {
+	*x = GetAdSelectionDataRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[128]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAdSelectionDataRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAdSelectionDataRequest) ProtoMessage() {}
+
+func (x *GetAdSelectionDataRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[128]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAdSelectionDataRequest.ProtoReflect.Descriptor instead.
+func (*GetAdSelectionDataRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{128}
+}
+
+type GetAdSelectionDataResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAdSelectionDataResponse) Reset() {
+	*x = GetAdSelectionDataResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[129]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAdSelectionDataResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAdSelectionDataResponse) ProtoMessage() {}
+
+func (x *GetAdSelectionDataResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[129]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAdSelectionDataResponse.ProtoReflect.Descriptor instead.
+func (*GetAdSelectionDataResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{129}
+}
+
+func (x *GetAdSelectionDataResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetAdSelectionDataIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAdSelectionDataIdRequest) Reset() {
+	*x = GetAdSelectionDataIdRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[130]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAdSelectionDataIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAdSelectionDataIdRequest) ProtoMessage() {}
+
+func (x *GetAdSelectionDataIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[130]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAdSelectionDataIdRequest.ProtoReflect.Descriptor instead.
+func (*GetAdSelectionDataIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{130}
+}
+
+type GetAdSelectionDataIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAdSelectionDataIdResponse) Reset() {
+	*x = GetAdSelectionDataIdResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[131]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAdSelectionDataIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAdSelectionDataIdResponse) ProtoMessage() {}
+
+func (x *GetAdSelectionDataIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[131]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAdSelectionDataIdResponse.ProtoReflect.Descriptor instead.
+func (*GetAdSelectionDataIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{131}
+}
+
+func (x *GetAdSelectionDataIdResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewRemoveAdSelectionFromOutcomesOverrideRequestRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewRemoveAdSelectionFromOutcomesOverrideRequestRequest) Reset() {
+	*x = NewRemoveAdSelectionFromOutcomesOverrideRequestRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[132]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewRemoveAdSelectionFromOutcomesOverrideRequestRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewRemoveAdSelectionFromOutcomesOverrideRequestRequest) ProtoMessage() {}
+
+func (x *NewRemoveAdSelectionFromOutcomesOverrideRequestRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[132]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewRemoveAdSelectionFromOutcomesOverrideRequestRequest.ProtoReflect.Descriptor instead.
+func (*NewRemoveAdSelectionFromOutcomesOverrideRequestRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{132}
+}
+
+func (x *NewRemoveAdSelectionFromOutcomesOverrideRequestRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type NewRemoveAdSelectionFromOutcomesOverrideRequestResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewRemoveAdSelectionFromOutcomesOverrideRequestResponse) Reset() {
+	*x = NewRemoveAdSelectionFromOutcomesOverrideRequestResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[133]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewRemoveAdSelectionFromOutcomesOverrideRequestResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewRemoveAdSelectionFromOutcomesOverrideRequestResponse) ProtoMessage() {}
+
+func (x *NewRemoveAdSelectionFromOutcomesOverrideRequestResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[133]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewRemoveAdSelectionFromOutcomesOverrideRequestResponse.ProtoReflect.Descriptor instead.
+func (*NewRemoveAdSelectionFromOutcomesOverrideRequestResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{133}
+}
+
+func (x *NewRemoveAdSelectionFromOutcomesOverrideRequestResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetAdSelectionResultRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAdSelectionResultRequest) Reset() {
+	*x = GetAdSelectionResultRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[134]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAdSelectionResultRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAdSelectionResultRequest) ProtoMessage() {}
+
+func (x *GetAdSelectionResultRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[134]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAdSelectionResultRequest.ProtoReflect.Descriptor instead.
+func (*GetAdSelectionResultRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{134}
+}
+
+type GetAdSelectionResultResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAdSelectionResultResponse) Reset() {
+	*x = GetAdSelectionResultResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[135]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAdSelectionResultResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAdSelectionResultResponse) ProtoMessage() {}
+
+func (x *GetAdSelectionResultResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[135]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAdSelectionResultResponse.ProtoReflect.Descriptor instead.
+func (*GetAdSelectionResultResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{135}
+}
+
+func (x *GetAdSelectionResultResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetAdSelectionDataIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAdSelectionDataIdRequest) Reset() {
+	*x = SetAdSelectionDataIdRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[136]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAdSelectionDataIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAdSelectionDataIdRequest) ProtoMessage() {}
+
+func (x *SetAdSelectionDataIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[136]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAdSelectionDataIdRequest.ProtoReflect.Descriptor instead.
+func (*SetAdSelectionDataIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{136}
+}
+
+func (x *SetAdSelectionDataIdRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetAdSelectionDataIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAdSelectionDataIdResponse) Reset() {
+	*x = SetAdSelectionDataIdResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[137]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAdSelectionDataIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAdSelectionDataIdResponse) ProtoMessage() {}
+
+func (x *SetAdSelectionDataIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[137]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAdSelectionDataIdResponse.ProtoReflect.Descriptor instead.
+func (*SetAdSelectionDataIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{137}
+}
+
+func (x *SetAdSelectionDataIdResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetAdSelectionResultRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAdSelectionResultRequest) Reset() {
+	*x = SetAdSelectionResultRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[138]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAdSelectionResultRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAdSelectionResultRequest) ProtoMessage() {}
+
+func (x *SetAdSelectionResultRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[138]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAdSelectionResultRequest.ProtoReflect.Descriptor instead.
+func (*SetAdSelectionResultRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{138}
+}
+
+func (x *SetAdSelectionResultRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetAdSelectionResultResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAdSelectionResultResponse) Reset() {
+	*x = SetAdSelectionResultResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[139]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAdSelectionResultResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAdSelectionResultResponse) ProtoMessage() {}
+
+func (x *SetAdSelectionResultResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[139]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAdSelectionResultResponse.ProtoReflect.Descriptor instead.
+func (*SetAdSelectionResultResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{139}
+}
+
+func (x *SetAdSelectionResultResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetAdSelectionIdsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAdSelectionIdsRequest) Reset() {
+	*x = GetAdSelectionIdsRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[140]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAdSelectionIdsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAdSelectionIdsRequest) ProtoMessage() {}
+
+func (x *GetAdSelectionIdsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[140]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAdSelectionIdsRequest.ProtoReflect.Descriptor instead.
+func (*GetAdSelectionIdsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{140}
+}
+
+type GetAdSelectionIdsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAdSelectionIdsResponse) Reset() {
+	*x = GetAdSelectionIdsResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[141]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAdSelectionIdsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAdSelectionIdsResponse) ProtoMessage() {}
+
+func (x *GetAdSelectionIdsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[141]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAdSelectionIdsResponse.ProtoReflect.Descriptor instead.
+func (*GetAdSelectionIdsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{141}
+}
+
+func (x *GetAdSelectionIdsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSelectionLogicUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSelectionLogicUriRequest) Reset() {
+	*x = GetSelectionLogicUriRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[142]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSelectionLogicUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSelectionLogicUriRequest) ProtoMessage() {}
+
+func (x *GetSelectionLogicUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[142]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSelectionLogicUriRequest.ProtoReflect.Descriptor instead.
+func (*GetSelectionLogicUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{142}
+}
+
+type GetSelectionLogicUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSelectionLogicUriResponse) Reset() {
+	*x = GetSelectionLogicUriResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[143]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSelectionLogicUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSelectionLogicUriResponse) ProtoMessage() {}
+
+func (x *GetSelectionLogicUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[143]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSelectionLogicUriResponse.ProtoReflect.Descriptor instead.
+func (*GetSelectionLogicUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{143}
+}
+
+func (x *GetSelectionLogicUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSelectionSignalsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSelectionSignalsRequest) Reset() {
+	*x = GetSelectionSignalsRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[144]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSelectionSignalsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSelectionSignalsRequest) ProtoMessage() {}
+
+func (x *GetSelectionSignalsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[144]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSelectionSignalsRequest.ProtoReflect.Descriptor instead.
+func (*GetSelectionSignalsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{144}
+}
+
+type GetSelectionSignalsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSelectionSignalsResponse) Reset() {
+	*x = GetSelectionSignalsResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[145]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSelectionSignalsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSelectionSignalsResponse) ProtoMessage() {}
+
+func (x *GetSelectionSignalsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[145]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSelectionSignalsResponse.ProtoReflect.Descriptor instead.
+func (*GetSelectionSignalsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{145}
+}
+
+func (x *GetSelectionSignalsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetSelectionLogicUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSelectionLogicUriRequest) Reset() {
+	*x = SetSelectionLogicUriRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[146]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSelectionLogicUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSelectionLogicUriRequest) ProtoMessage() {}
+
+func (x *SetSelectionLogicUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[146]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSelectionLogicUriRequest.ProtoReflect.Descriptor instead.
+func (*SetSelectionLogicUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{146}
+}
+
+func (x *SetSelectionLogicUriRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetSelectionLogicUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSelectionLogicUriResponse) Reset() {
+	*x = SetSelectionLogicUriResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[147]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSelectionLogicUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSelectionLogicUriResponse) ProtoMessage() {}
+
+func (x *SetSelectionLogicUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[147]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSelectionLogicUriResponse.ProtoReflect.Descriptor instead.
+func (*SetSelectionLogicUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{147}
+}
+
+func (x *SetSelectionLogicUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetSelectionSignalsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSelectionSignalsRequest) Reset() {
+	*x = SetSelectionSignalsRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[148]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSelectionSignalsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSelectionSignalsRequest) ProtoMessage() {}
+
+func (x *SetSelectionSignalsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[148]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSelectionSignalsRequest.ProtoReflect.Descriptor instead.
+func (*SetSelectionSignalsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{148}
+}
+
+func (x *SetSelectionSignalsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetSelectionSignalsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSelectionSignalsResponse) Reset() {
+	*x = SetSelectionSignalsResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[149]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSelectionSignalsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSelectionSignalsResponse) ProtoMessage() {}
+
+func (x *SetSelectionSignalsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[149]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSelectionSignalsResponse.ProtoReflect.Descriptor instead.
+func (*SetSelectionSignalsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{149}
+}
+
+func (x *SetSelectionSignalsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCoordinatorOriginUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCoordinatorOriginUriRequest) Reset() {
+	*x = GetCoordinatorOriginUriRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[150]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCoordinatorOriginUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCoordinatorOriginUriRequest) ProtoMessage() {}
+
+func (x *GetCoordinatorOriginUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[150]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCoordinatorOriginUriRequest.ProtoReflect.Descriptor instead.
+func (*GetCoordinatorOriginUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{150}
+}
+
+type GetCoordinatorOriginUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCoordinatorOriginUriResponse) Reset() {
+	*x = GetCoordinatorOriginUriResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[151]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCoordinatorOriginUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCoordinatorOriginUriResponse) ProtoMessage() {}
+
+func (x *GetCoordinatorOriginUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[151]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCoordinatorOriginUriResponse.ProtoReflect.Descriptor instead.
+func (*GetCoordinatorOriginUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{151}
+}
+
+func (x *GetCoordinatorOriginUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSellerConfigurationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSellerConfigurationRequest) Reset() {
+	*x = GetSellerConfigurationRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[152]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSellerConfigurationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSellerConfigurationRequest) ProtoMessage() {}
+
+func (x *GetSellerConfigurationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[152]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSellerConfigurationRequest.ProtoReflect.Descriptor instead.
+func (*GetSellerConfigurationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{152}
+}
+
+type GetSellerConfigurationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSellerConfigurationResponse) Reset() {
+	*x = GetSellerConfigurationResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[153]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSellerConfigurationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSellerConfigurationResponse) ProtoMessage() {}
+
+func (x *GetSellerConfigurationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[153]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSellerConfigurationResponse.ProtoReflect.Descriptor instead.
+func (*GetSellerConfigurationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{153}
+}
+
+func (x *GetSellerConfigurationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetCoordinatorOriginUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCoordinatorOriginUriRequest) Reset() {
+	*x = SetCoordinatorOriginUriRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[154]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCoordinatorOriginUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCoordinatorOriginUriRequest) ProtoMessage() {}
+
+func (x *SetCoordinatorOriginUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[154]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCoordinatorOriginUriRequest.ProtoReflect.Descriptor instead.
+func (*SetCoordinatorOriginUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{154}
+}
+
+func (x *SetCoordinatorOriginUriRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetCoordinatorOriginUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCoordinatorOriginUriResponse) Reset() {
+	*x = SetCoordinatorOriginUriResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[155]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCoordinatorOriginUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCoordinatorOriginUriResponse) ProtoMessage() {}
+
+func (x *SetCoordinatorOriginUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[155]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCoordinatorOriginUriResponse.ProtoReflect.Descriptor instead.
+func (*SetCoordinatorOriginUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{155}
+}
+
+func (x *SetCoordinatorOriginUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetSellerConfigurationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSellerConfigurationRequest) Reset() {
+	*x = SetSellerConfigurationRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[156]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSellerConfigurationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSellerConfigurationRequest) ProtoMessage() {}
+
+func (x *SetSellerConfigurationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[156]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSellerConfigurationRequest.ProtoReflect.Descriptor instead.
+func (*SetSellerConfigurationRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{156}
+}
+
+func (x *SetSellerConfigurationRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetSellerConfigurationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetSellerConfigurationResponse) Reset() {
+	*x = SetSellerConfigurationResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[157]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetSellerConfigurationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetSellerConfigurationResponse) ProtoMessage() {}
+
+func (x *SetSellerConfigurationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[157]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetSellerConfigurationResponse.ProtoReflect.Descriptor instead.
+func (*SetSellerConfigurationResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{157}
+}
+
+func (x *SetSellerConfigurationResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewAdWithBidRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          float64                `protobuf:"fixed64,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewAdWithBidRequest) Reset() {
+	*x = NewAdWithBidRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[158]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewAdWithBidRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewAdWithBidRequest) ProtoMessage() {}
+
+func (x *NewAdWithBidRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[158]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewAdWithBidRequest.ProtoReflect.Descriptor instead.
+func (*NewAdWithBidRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{158}
+}
+
+func (x *NewAdWithBidRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewAdWithBidRequest) GetArg1() float64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NewAdWithBidResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewAdWithBidResponse) Reset() {
+	*x = NewAdWithBidResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[159]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewAdWithBidResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewAdWithBidResponse) ProtoMessage() {}
+
+func (x *NewAdWithBidResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[159]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewAdWithBidResponse.ProtoReflect.Descriptor instead.
+func (*NewAdWithBidResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{159}
+}
+
+func (x *NewAdWithBidResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AdWithBidDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AdWithBidDescribeContentsRequest) Reset() {
+	*x = AdWithBidDescribeContentsRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[160]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AdWithBidDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AdWithBidDescribeContentsRequest) ProtoMessage() {}
+
+func (x *AdWithBidDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[160]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AdWithBidDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*AdWithBidDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{160}
+}
+
+func (x *AdWithBidDescribeContentsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type AdWithBidEqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AdWithBidEqualsRequest) Reset() {
+	*x = AdWithBidEqualsRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[161]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AdWithBidEqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AdWithBidEqualsRequest) ProtoMessage() {}
+
+func (x *AdWithBidEqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[161]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AdWithBidEqualsRequest.ProtoReflect.Descriptor instead.
+func (*AdWithBidEqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{161}
+}
+
+func (x *AdWithBidEqualsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *AdWithBidEqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetAdDataRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAdDataRequest) Reset() {
+	*x = GetAdDataRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[162]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAdDataRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAdDataRequest) ProtoMessage() {}
+
+func (x *GetAdDataRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[162]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAdDataRequest.ProtoReflect.Descriptor instead.
+func (*GetAdDataRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{162}
+}
+
+func (x *GetAdDataRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetAdDataResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAdDataResponse) Reset() {
+	*x = GetAdDataResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[163]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAdDataResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAdDataResponse) ProtoMessage() {}
+
+func (x *GetAdDataResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[163]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAdDataResponse.ProtoReflect.Descriptor instead.
+func (*GetAdDataResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{163}
+}
+
+func (x *GetAdDataResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetBidRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBidRequest) Reset() {
+	*x = GetBidRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[164]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBidRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBidRequest) ProtoMessage() {}
+
+func (x *GetBidRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[164]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBidRequest.ProtoReflect.Descriptor instead.
+func (*GetBidRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{164}
+}
+
+func (x *GetBidRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetBidResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        float64                `protobuf:"fixed64,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetBidResponse) Reset() {
+	*x = GetBidResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[165]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetBidResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetBidResponse) ProtoMessage() {}
+
+func (x *GetBidResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[165]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetBidResponse.ProtoReflect.Descriptor instead.
+func (*GetBidResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{165}
+}
+
+func (x *GetBidResponse) GetResult() float64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AdWithBidHashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AdWithBidHashCodeRequest) Reset() {
+	*x = AdWithBidHashCodeRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[166]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AdWithBidHashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AdWithBidHashCodeRequest) ProtoMessage() {}
+
+func (x *AdWithBidHashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[166]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AdWithBidHashCodeRequest.ProtoReflect.Descriptor instead.
+func (*AdWithBidHashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{166}
+}
+
+func (x *AdWithBidHashCodeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type AdWithBidWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AdWithBidWriteToParcelRequest) Reset() {
+	*x = AdWithBidWriteToParcelRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[167]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AdWithBidWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AdWithBidWriteToParcelRequest) ProtoMessage() {}
+
+func (x *AdWithBidWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[167]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AdWithBidWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*AdWithBidWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{167}
+}
+
+func (x *AdWithBidWriteToParcelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *AdWithBidWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *AdWithBidWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type GetAdEventTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAdEventTypeRequest) Reset() {
+	*x = GetAdEventTypeRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[168]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAdEventTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAdEventTypeRequest) ProtoMessage() {}
+
+func (x *GetAdEventTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[168]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAdEventTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetAdEventTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{168}
+}
+
+type GetAdEventTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAdEventTypeResponse) Reset() {
+	*x = GetAdEventTypeResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[169]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAdEventTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAdEventTypeResponse) ProtoMessage() {}
+
+func (x *GetAdEventTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[169]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAdEventTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetAdEventTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{169}
+}
+
+func (x *GetAdEventTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetCallerAdTechRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCallerAdTechRequest) Reset() {
+	*x = GetCallerAdTechRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[170]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCallerAdTechRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCallerAdTechRequest) ProtoMessage() {}
+
+func (x *GetCallerAdTechRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[170]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCallerAdTechRequest.ProtoReflect.Descriptor instead.
+func (*GetCallerAdTechRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{170}
+}
+
+type GetCallerAdTechResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetCallerAdTechResponse) Reset() {
+	*x = GetCallerAdTechResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[171]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetCallerAdTechResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetCallerAdTechResponse) ProtoMessage() {}
+
+func (x *GetCallerAdTechResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[171]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetCallerAdTechResponse.ProtoReflect.Descriptor instead.
+func (*GetCallerAdTechResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{171}
+}
+
+func (x *GetCallerAdTechResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type UpdateAdCounterHistogramRequestToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateAdCounterHistogramRequestToStringRequest) Reset() {
+	*x = UpdateAdCounterHistogramRequestToStringRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[172]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateAdCounterHistogramRequestToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateAdCounterHistogramRequestToStringRequest) ProtoMessage() {}
+
+func (x *UpdateAdCounterHistogramRequestToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[172]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateAdCounterHistogramRequestToStringRequest.ProtoReflect.Descriptor instead.
+func (*UpdateAdCounterHistogramRequestToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{172}
+}
+
+type SetAdEventTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAdEventTypeRequest) Reset() {
+	*x = SetAdEventTypeRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[173]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAdEventTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAdEventTypeRequest) ProtoMessage() {}
+
+func (x *SetAdEventTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[173]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAdEventTypeRequest.ProtoReflect.Descriptor instead.
+func (*SetAdEventTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{173}
+}
+
+func (x *SetAdEventTypeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetAdEventTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAdEventTypeResponse) Reset() {
+	*x = SetAdEventTypeResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[174]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAdEventTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAdEventTypeResponse) ProtoMessage() {}
+
+func (x *SetAdEventTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[174]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAdEventTypeResponse.ProtoReflect.Descriptor instead.
+func (*SetAdEventTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{174}
+}
+
+func (x *SetAdEventTypeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetCallerAdTechRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCallerAdTechRequest) Reset() {
+	*x = SetCallerAdTechRequest{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[175]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCallerAdTechRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCallerAdTechRequest) ProtoMessage() {}
+
+func (x *SetCallerAdTechRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[175]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCallerAdTechRequest.ProtoReflect.Descriptor instead.
+func (*SetCallerAdTechRequest) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{175}
+}
+
+func (x *SetCallerAdTechRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetCallerAdTechResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetCallerAdTechResponse) Reset() {
+	*x = SetCallerAdTechResponse{}
+	mi := &file_proto_adselection_adselection_proto_msgTypes[176]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetCallerAdTechResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetCallerAdTechResponse) ProtoMessage() {}
+
+func (x *SetCallerAdTechResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_adselection_adselection_proto_msgTypes[176]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetCallerAdTechResponse.ProtoReflect.Descriptor instead.
+func (*SetCallerAdTechResponse) Descriptor() ([]byte, []int) {
+	return file_proto_adselection_adselection_proto_rawDescGZIP(), []int{176}
+}
+
+func (x *SetCallerAdTechResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 var File_proto_adselection_adselection_proto protoreflect.FileDescriptor
 
 const file_proto_adselection_adselection_proto_rawDesc = "" +
 	"\n" +
-	"#proto/adselection/adselection.proto\x12\vadselection\"\x1d\n" +
-	"\x1bGetAdSelectionDataIdRequest\"6\n" +
-	"\x1cGetAdSelectionDataIdResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
-	"\x17GetAdSelectionIdRequest\"2\n" +
-	"\x18GetAdSelectionIdResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1d\n" +
-	"\x1bGetAdSelectionResultRequest\"6\n" +
-	"\x1cGetAdSelectionResultResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x12\n" +
-	"\x10GetSellerRequest\"+\n" +
-	"\x11GetSellerResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0e\n" +
-	"\fBuildRequest\"'\n" +
-	"\rBuildResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
-	"\x1bSetAdSelectionDataIdRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"6\n" +
-	"\x1cSetAdSelectionDataIdResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
-	"\x17SetAdSelectionIdRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"2\n" +
-	"\x18SetAdSelectionIdResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
-	"\x1bSetAdSelectionResultRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"6\n" +
-	"\x1cSetAdSelectionResultResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"&\n" +
-	"\x10SetSellerRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"+\n" +
-	"\x11SetSellerResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
+	"#proto/adselection/adselection.proto\x12\vadselection\"\x19\n" +
 	"\x17DescribeContentsRequest\"2\n" +
 	"\x18DescribeContentsResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"#\n" +
 	"\rEqualsRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
 	"\x0eEqualsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"#\n" +
-	"!GetMaximumPayloadSizeBytesRequest\"<\n" +
-	"\"GetMaximumPayloadSizeBytesResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x1e\n" +
+	"\x1cGetAdSelectionSignalsRequest\"7\n" +
+	"\x1dGetAdSelectionSignalsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\" \n" +
+	"\x1eGetCustomAudienceBuyersRequest\"9\n" +
+	"\x1fGetCustomAudienceBuyersResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1c\n" +
+	"\x1aGetDecisionLogicUriRequest\"5\n" +
+	"\x1bGetDecisionLogicUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x12\n" +
+	"\x10GetSellerRequest\"+\n" +
+	"\x11GetSellerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
+	"\x17GetSellerSignalsRequest\"2\n" +
+	"\x18GetSellerSignalsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
+	"\"GetTrustedScoringSignalsUriRequest\"=\n" +
+	"#GetTrustedScoringSignalsUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
 	"\x0fHashCodeRequest\"*\n" +
 	"\x10HashCodeResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\">\n" +
 	"\x14WriteToParcelRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
-	"\x15WriteToParcelResponse\"7\n" +
-	"!SetMaximumPayloadSizeBytesRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"<\n" +
-	"\"SetMaximumPayloadSizeBytesResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"L\n" +
-	"6NewRemoveAdSelectionFromOutcomesOverrideRequestRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"Q\n" +
-	"7NewRemoveAdSelectionFromOutcomesOverrideRequestResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"A\n" +
-	"'GetAdSelectionFromOutcomesConfigRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"B\n" +
-	"(GetAdSelectionFromOutcomesConfigResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x17\n" +
-	"\x15GetAdEventTypeRequest\"0\n" +
-	"\x16GetAdEventTypeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x18\n" +
-	"\x16GetCallerAdTechRequest\"1\n" +
-	"\x17GetCallerAdTechResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
-	"\x0fToStringRequest\"*\n" +
-	"\x10ToStringResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"+\n" +
-	"\x15SetAdEventTypeRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"0\n" +
-	"\x16SetAdEventTypeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
-	"\x16SetCallerAdTechRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"1\n" +
-	"\x17SetCallerAdTechResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
-	"\x0fGetBuyerRequest\"*\n" +
-	"\x10GetBuyerResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\" \n" +
-	"\x1eGetTargetInputSizeBytesRequest\"9\n" +
-	"\x1fGetTargetInputSizeBytesResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"%\n" +
-	"\x0fSetBuyerRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"*\n" +
-	"\x10SetBuyerResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"4\n" +
-	"\x1eSetTargetInputSizeBytesRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"9\n" +
-	"\x1fSetTargetInputSizeBytesResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\"\n" +
-	" GetTestAdSelectionManagerRequest\";\n" +
-	"!GetTestAdSelectionManagerResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\" \n" +
-	"\n" +
-	"GetRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"%\n" +
-	"\vGetResponse\x12\x16\n" +
+	"\x15WriteToParcelResponse\"\x0e\n" +
+	"\fBuildRequest\"'\n" +
+	"\rBuildResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x1cSetAdSelectionSignalsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"7\n" +
+	"\x1dSetAdSelectionSignalsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	"\x1aSetDecisionLogicUriRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"5\n" +
+	"\x1bSetDecisionLogicUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"&\n" +
+	"\x10SetSellerRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"+\n" +
+	"\x11SetSellerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
+	"\x17SetSellerSignalsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"2\n" +
+	"\x18SetSellerSignalsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"8\n" +
+	"\"SetTrustedScoringSignalsUriRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"=\n" +
+	"#SetTrustedScoringSignalsUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
+	"\x17GetAdSelectionIdRequest\"2\n" +
+	"\x18GetAdSelectionIdResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x10\n" +
 	"\x0eGetDataRequest\")\n" +
 	"\x0fGetDataResponse\x12\x16\n" +
@@ -7218,7 +7693,11 @@ const file_proto_adselection_adselection_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\tR\x06result\"!\n" +
 	"\x1fGetReportingDestinationsRequest\":\n" +
 	" GetReportingDestinationsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"$\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"-\n" +
+	"\x17SetAdSelectionIdRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"2\n" +
+	"\x18SetAdSelectionIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
 	"\x0eSetDataRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\")\n" +
 	"\x0fSetDataResponse\x12\x16\n" +
@@ -7234,84 +7713,6 @@ const file_proto_adselection_adselection_proto_rawDesc = "" +
 	"\x1fSetReportingDestinationsRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\":\n" +
 	" SetReportingDestinationsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1c\n" +
-	"\x1aGetDecisionLogicUriRequest\"5\n" +
-	"\x1bGetDecisionLogicUriResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
-	"\x13GetSignatureRequest\".\n" +
-	"\x14GetSignatureResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
-	"\x1aSetDecisionLogicUriRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"5\n" +
-	"\x1bSetDecisionLogicUriResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
-	"\x13SetSignatureRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\".\n" +
-	"\x14SetSignatureResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1d\n" +
-	"\x1bGetSelectionLogicUriRequest\"6\n" +
-	"\x1cGetSelectionLogicUriResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1c\n" +
-	"\x1aGetSelectionSignalsRequest\"5\n" +
-	"\x1bGetSelectionSignalsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
-	"\x1bSetSelectionLogicUriRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"6\n" +
-	"\x1cSetSelectionLogicUriResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
-	"\x1aSetSelectionSignalsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"5\n" +
-	"\x1bSetSelectionSignalsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"q\n" +
-	"3NewAddAdSelectionFromOutcomesOverrideRequestRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"N\n" +
-	"4NewAddAdSelectionFromOutcomesOverrideRequestResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\";\n" +
-	"!GetOutcomeSelectionLogicJsRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"<\n" +
-	"\"GetOutcomeSelectionLogicJsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"B\n" +
-	"(GetOutcomeSelectionTrustedSignalsRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"C\n" +
-	")GetOutcomeSelectionTrustedSignalsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
-	"\x1fNewPerBuyerDecisionLogicRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\":\n" +
-	" NewPerBuyerDecisionLogicResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"F\n" +
-	",PerBuyerDecisionLogicDescribeContentsRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"P\n" +
-	"\"PerBuyerDecisionLogicEqualsRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\">\n" +
-	"$PerBuyerDecisionLogicHashCodeRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"k\n" +
-	")PerBuyerDecisionLogicWriteToParcelRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x1e\n" +
-	"\x1cGetAdSelectionSignalsRequest\"7\n" +
-	"\x1dGetAdSelectionSignalsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
-	"\x17GetSellerSignalsRequest\"2\n" +
-	"\x18GetSellerSignalsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
-	"\"GetTrustedScoringSignalsUriRequest\"=\n" +
-	"#GetTrustedScoringSignalsUriResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
-	"\x1cSetAdSelectionSignalsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"7\n" +
-	"\x1dSetAdSelectionSignalsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
-	"\x17SetSellerSignalsRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"2\n" +
-	"\x18SetSellerSignalsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"8\n" +
-	"\"SetTrustedScoringSignalsUriRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"=\n" +
-	"#SetTrustedScoringSignalsUriResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"e\n" +
 	"'NewAddAdSelectionOverrideRequestRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
@@ -7334,6 +7735,186 @@ const file_proto_adselection_adselection_proto_rawDesc = "" +
 	"\x1fGetTrustedScoringSignalsRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\":\n" +
 	" GetTrustedScoringSignalsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\"\n" +
+	" GetTestAdSelectionManagerRequest\";\n" +
+	"!GetTestAdSelectionManagerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\" \n" +
+	"\n" +
+	"GetRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"%\n" +
+	"\vGetResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
+	"\x17NewDecisionLogicRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"2\n" +
+	"\x18NewDecisionLogicResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
+	"$DecisionLogicDescribeContentsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"H\n" +
+	"\x1aDecisionLogicEqualsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\")\n" +
+	"\x0fGetLogicRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10GetLogicResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"6\n" +
+	"\x1cDecisionLogicHashCodeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\")\n" +
+	"\x0fToStringRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"c\n" +
+	"!DecisionLogicWriteToParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15GetAdvertisersRequest\"0\n" +
+	"\x16GetAdvertisersResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
+	"\x14GetAdsWithBidRequest\"/\n" +
+	"\x15GetAdsWithBidResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
+	"\x0fGetBuyerRequest\"*\n" +
+	"\x10GetBuyerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
+	"\x13GetSignatureRequest\".\n" +
+	"\x14GetSignatureResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
+	"\"SignedContextualAdsToStringRequest\"%\n" +
+	"\x0fSetBuyerRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"*\n" +
+	"\x10SetBuyerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x13SetSignatureRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\".\n" +
+	"\x14SetSignatureResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
+	"!GetMaximumPayloadSizeBytesRequest\"<\n" +
+	"\"GetMaximumPayloadSizeBytesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\"\n" +
+	" GetPerBuyerConfigurationsRequest\";\n" +
+	"!GetPerBuyerConfigurationsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
+	"!SetMaximumPayloadSizeBytesRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"<\n" +
+	"\"SetMaximumPayloadSizeBytesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
+	"\x19GetComponentAdUrisRequest\"4\n" +
+	"\x1aGetComponentAdUrisResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
+	"\x13GetRenderUriRequest\".\n" +
+	"\x14GetRenderUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
+	"\x17GetWinningSellerRequest\"2\n" +
+	"\x18GetWinningSellerResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x13\n" +
+	"\x11HasOutcomeRequest\",\n" +
+	"\x12HasOutcomeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\")\n" +
+	"\x13SetRenderUriRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\".\n" +
+	"\x14SetRenderUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\" \n" +
+	"\x1eGetTargetInputSizeBytesRequest\"9\n" +
+	"\x1fGetTargetInputSizeBytesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"4\n" +
+	"\x1eSetTargetInputSizeBytesRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"9\n" +
+	"\x1fSetTargetInputSizeBytesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
+	"\x1fNewPerBuyerDecisionLogicRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\":\n" +
+	" NewPerBuyerDecisionLogicResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"F\n" +
+	",PerBuyerDecisionLogicDescribeContentsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"P\n" +
+	"\"PerBuyerDecisionLogicEqualsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\">\n" +
+	"$PerBuyerDecisionLogicHashCodeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"k\n" +
+	")PerBuyerDecisionLogicWriteToParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"@\n" +
+	"*NewRemoveAdSelectionOverrideRequestRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"E\n" +
+	"+NewRemoveAdSelectionOverrideRequestResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
+	"!NewReportImpressionRequestRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"<\n" +
+	"\"NewReportImpressionRequestResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"H\n" +
+	".ReportImpressionRequestGetAdSelectionIdRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"q\n" +
+	"3NewAddAdSelectionFromOutcomesOverrideRequestRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"N\n" +
+	"4NewAddAdSelectionFromOutcomesOverrideRequestResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"A\n" +
+	"'GetAdSelectionFromOutcomesConfigRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"B\n" +
+	"(GetAdSelectionFromOutcomesConfigResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\";\n" +
+	"!GetOutcomeSelectionLogicJsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"<\n" +
+	"\"GetOutcomeSelectionLogicJsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"B\n" +
+	"(GetOutcomeSelectionTrustedSignalsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"C\n" +
+	")GetOutcomeSelectionTrustedSignalsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
+	"\x19GetAdSelectionDataRequest\"4\n" +
+	"\x1aGetAdSelectionDataResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1d\n" +
+	"\x1bGetAdSelectionDataIdRequest\"6\n" +
+	"\x1cGetAdSelectionDataIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"L\n" +
+	"6NewRemoveAdSelectionFromOutcomesOverrideRequestRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"Q\n" +
+	"7NewRemoveAdSelectionFromOutcomesOverrideRequestResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1d\n" +
+	"\x1bGetAdSelectionResultRequest\"6\n" +
+	"\x1cGetAdSelectionResultResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x1bSetAdSelectionDataIdRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"6\n" +
+	"\x1cSetAdSelectionDataIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x1bSetAdSelectionResultRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"6\n" +
+	"\x1cSetAdSelectionResultResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1a\n" +
+	"\x18GetAdSelectionIdsRequest\"3\n" +
+	"\x19GetAdSelectionIdsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1d\n" +
+	"\x1bGetSelectionLogicUriRequest\"6\n" +
+	"\x1cGetSelectionLogicUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1c\n" +
+	"\x1aGetSelectionSignalsRequest\"5\n" +
+	"\x1bGetSelectionSignalsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x1bSetSelectionLogicUriRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"6\n" +
+	"\x1cSetSelectionLogicUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	"\x1aSetSelectionSignalsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"5\n" +
+	"\x1bSetSelectionSignalsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\" \n" +
+	"\x1eGetCoordinatorOriginUriRequest\"9\n" +
+	"\x1fGetCoordinatorOriginUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1f\n" +
+	"\x1dGetSellerConfigurationRequest\"8\n" +
+	"\x1eGetSellerConfigurationResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"4\n" +
+	"\x1eSetCoordinatorOriginUriRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"9\n" +
+	"\x1fSetCoordinatorOriginUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"3\n" +
+	"\x1dSetSellerConfigurationRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"8\n" +
+	"\x1eSetSellerConfigurationResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"=\n" +
 	"\x13NewAdWithBidRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
@@ -7358,174 +7939,27 @@ const file_proto_adselection_adselection_proto_rawDesc = "" +
 	"\x1dAdWithBidWriteToParcelRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
 	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"@\n" +
-	"*NewRemoveAdSelectionOverrideRequestRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"E\n" +
-	"+NewRemoveAdSelectionOverrideRequestResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
-	"\x19GetAdSelectionDataRequest\"4\n" +
-	"\x1aGetAdSelectionDataResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
-	"\x17NewDecisionLogicRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"2\n" +
-	"\x18NewDecisionLogicResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
-	"$DecisionLogicDescribeContentsRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"H\n" +
-	"\x1aDecisionLogicEqualsRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\")\n" +
-	"\x0fGetLogicRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
-	"\x10GetLogicResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"6\n" +
-	"\x1cDecisionLogicHashCodeRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"6\n" +
-	"\x1cDecisionLogicToStringRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"c\n" +
-	"!DecisionLogicWriteToParcelRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\" \n" +
-	"\x1eGetCoordinatorOriginUriRequest\"9\n" +
-	"\x1fGetCoordinatorOriginUriResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1f\n" +
-	"\x1dGetSellerConfigurationRequest\"8\n" +
-	"\x1eGetSellerConfigurationResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"4\n" +
-	"\x1eSetCoordinatorOriginUriRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"9\n" +
-	"\x1fSetCoordinatorOriginUriResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"3\n" +
-	"\x1dSetSellerConfigurationRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"8\n" +
-	"\x1eSetSellerConfigurationResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
-	"\x13GetRenderUriRequest\".\n" +
-	"\x14GetRenderUriResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x19\n" +
-	"\x17GetWinningSellerRequest\"2\n" +
-	"\x18GetWinningSellerResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x13\n" +
-	"\x11HasOutcomeRequest\",\n" +
-	"\x12HasOutcomeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\")\n" +
-	"\x13SetRenderUriRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\".\n" +
-	"\x14SetRenderUriResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
-	"!NewReportImpressionRequestRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"<\n" +
-	"\"NewReportImpressionRequestResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"H\n" +
-	".ReportImpressionRequestGetAdSelectionIdRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle2\xaf\x03\n" +
-	"&PersistAdSelectionResultRequestService\x12k\n" +
-	"\x14GetAdSelectionDataId\x12(.adselection.GetAdSelectionDataIdRequest\x1a).adselection.GetAdSelectionDataIdResponse\x12_\n" +
-	"\x10GetAdSelectionId\x12$.adselection.GetAdSelectionIdRequest\x1a%.adselection.GetAdSelectionIdResponse\x12k\n" +
-	"\x14GetAdSelectionResult\x12(.adselection.GetAdSelectionResultRequest\x1a).adselection.GetAdSelectionResultResponse\x12J\n" +
-	"\tGetSeller\x12\x1d.adselection.GetSellerRequest\x1a\x1e.adselection.GetSellerResponse2\xf6\x03\n" +
-	"-PersistAdSelectionResultRequestBuilderService\x12>\n" +
-	"\x05Build\x12\x19.adselection.BuildRequest\x1a\x1a.adselection.BuildResponse\x12k\n" +
-	"\x14SetAdSelectionDataId\x12(.adselection.SetAdSelectionDataIdRequest\x1a).adselection.SetAdSelectionDataIdResponse\x12_\n" +
-	"\x10SetAdSelectionId\x12$.adselection.SetAdSelectionIdRequest\x1a%.adselection.SetAdSelectionIdResponse\x12k\n" +
-	"\x14SetAdSelectionResult\x12(.adselection.SetAdSelectionResultRequest\x1a).adselection.SetAdSelectionResultResponse\x12J\n" +
-	"\tSetSeller\x12\x1d.adselection.SetSellerRequest\x1a\x1e.adselection.SetSellerResponse2\xe0\x03\n" +
-	"\x1aSellerConfigurationService\x12_\n" +
-	"\x10DescribeContents\x12$.adselection.DescribeContentsRequest\x1a%.adselection.DescribeContentsResponse\x12A\n" +
-	"\x06Equals\x12\x1a.adselection.EqualsRequest\x1a\x1b.adselection.EqualsResponse\x12}\n" +
-	"\x1aGetMaximumPayloadSizeBytes\x12..adselection.GetMaximumPayloadSizeBytesRequest\x1a/.adselection.GetMaximumPayloadSizeBytesResponse\x12G\n" +
-	"\bHashCode\x12\x1c.adselection.HashCodeRequest\x1a\x1d.adselection.HashCodeResponse\x12V\n" +
-	"\rWriteToParcel\x12!.adselection.WriteToParcelRequest\x1a\".adselection.WriteToParcelResponse2\xe2\x01\n" +
-	"!SellerConfigurationBuilderService\x12>\n" +
-	"\x05Build\x12\x19.adselection.BuildRequest\x1a\x1a.adselection.BuildResponse\x12}\n" +
-	"\x1aSetMaximumPayloadSizeBytes\x12..adselection.SetMaximumPayloadSizeBytesRequest\x1a/.adselection.SetMaximumPayloadSizeBytesResponse2\x86\x03\n" +
-	"3RemoveAdSelectionFromOutcomesOverrideRequestService\x12\xbc\x01\n" +
-	"/NewRemoveAdSelectionFromOutcomesOverrideRequest\x12C.adselection.NewRemoveAdSelectionFromOutcomesOverrideRequestRequest\x1aD.adselection.NewRemoveAdSelectionFromOutcomesOverrideRequestResponse\x12\x8f\x01\n" +
-	" GetAdSelectionFromOutcomesConfig\x124.adselection.GetAdSelectionFromOutcomesConfigRequest\x1a5.adselection.GetAdSelectionFromOutcomesConfigResponse2o\n" +
-	"-SetAppInstallAdvertisersRequestBuilderService\x12>\n" +
-	"\x05Build\x12\x19.adselection.BuildRequest\x1a\x1a.adselection.BuildResponse2\x97\x04\n" +
-	"&UpdateAdCounterHistogramRequestService\x12A\n" +
-	"\x06Equals\x12\x1a.adselection.EqualsRequest\x1a\x1b.adselection.EqualsResponse\x12Y\n" +
-	"\x0eGetAdEventType\x12\".adselection.GetAdEventTypeRequest\x1a#.adselection.GetAdEventTypeResponse\x12_\n" +
-	"\x10GetAdSelectionId\x12$.adselection.GetAdSelectionIdRequest\x1a%.adselection.GetAdSelectionIdResponse\x12\\\n" +
-	"\x0fGetCallerAdTech\x12#.adselection.GetCallerAdTechRequest\x1a$.adselection.GetCallerAdTechResponse\x12G\n" +
-	"\bHashCode\x12\x1c.adselection.HashCodeRequest\x1a\x1d.adselection.HashCodeResponse\x12G\n" +
-	"\bToString\x12\x1c.adselection.ToStringRequest\x1a\x1d.adselection.ToStringResponse2\x89\x03\n" +
-	"-UpdateAdCounterHistogramRequestBuilderService\x12>\n" +
-	"\x05Build\x12\x19.adselection.BuildRequest\x1a\x1a.adselection.BuildResponse\x12Y\n" +
-	"\x0eSetAdEventType\x12\".adselection.SetAdEventTypeRequest\x1a#.adselection.SetAdEventTypeResponse\x12_\n" +
-	"\x10SetAdSelectionId\x12$.adselection.SetAdSelectionIdRequest\x1a%.adselection.SetAdSelectionIdResponse\x12\\\n" +
-	"\x0fSetCallerAdTech\x12#.adselection.SetCallerAdTechRequest\x1a$.adselection.SetCallerAdTechResponse2\xa2\x04\n" +
-	"\x1cPerBuyerConfigurationService\x12_\n" +
-	"\x10DescribeContents\x12$.adselection.DescribeContentsRequest\x1a%.adselection.DescribeContentsResponse\x12A\n" +
-	"\x06Equals\x12\x1a.adselection.EqualsRequest\x1a\x1b.adselection.EqualsResponse\x12G\n" +
-	"\bGetBuyer\x12\x1c.adselection.GetBuyerRequest\x1a\x1d.adselection.GetBuyerResponse\x12t\n" +
-	"\x17GetTargetInputSizeBytes\x12+.adselection.GetTargetInputSizeBytesRequest\x1a,.adselection.GetTargetInputSizeBytesResponse\x12G\n" +
-	"\bHashCode\x12\x1c.adselection.HashCodeRequest\x1a\x1d.adselection.HashCodeResponse\x12V\n" +
-	"\rWriteToParcel\x12!.adselection.WriteToParcelRequest\x1a\".adselection.WriteToParcelResponse2\xa4\x02\n" +
-	"#PerBuyerConfigurationBuilderService\x12>\n" +
-	"\x05Build\x12\x19.adselection.BuildRequest\x1a\x1a.adselection.BuildResponse\x12G\n" +
-	"\bSetBuyer\x12\x1c.adselection.SetBuyerRequest\x1a\x1d.adselection.SetBuyerResponse\x12t\n" +
-	"\x17SetTargetInputSizeBytes\x12+.adselection.SetTargetInputSizeBytesRequest\x1a,.adselection.SetTargetInputSizeBytesResponse2\xd1\x01\n" +
-	"\x19AdSelectionManagerService\x12z\n" +
-	"\x19GetTestAdSelectionManager\x12-.adselection.GetTestAdSelectionManagerRequest\x1a..adselection.GetTestAdSelectionManagerResponse\x128\n" +
-	"\x03Get\x12\x17.adselection.GetRequest\x1a\x18.adselection.GetResponse2\xd6\x03\n" +
-	"\x19ReportEventRequestService\x12_\n" +
-	"\x10GetAdSelectionId\x12$.adselection.GetAdSelectionIdRequest\x1a%.adselection.GetAdSelectionIdResponse\x12D\n" +
-	"\aGetData\x12\x1b.adselection.GetDataRequest\x1a\x1c.adselection.GetDataResponse\x12V\n" +
-	"\rGetInputEvent\x12!.adselection.GetInputEventRequest\x1a\".adselection.GetInputEventResponse\x12A\n" +
-	"\x06GetKey\x12\x1a.adselection.GetKeyRequest\x1a\x1b.adselection.GetKeyResponse\x12w\n" +
-	"\x18GetReportingDestinations\x12,.adselection.GetReportingDestinationsRequest\x1a-.adselection.GetReportingDestinationsResponse2\x9d\x04\n" +
-	" ReportEventRequestBuilderService\x12>\n" +
-	"\x05Build\x12\x19.adselection.BuildRequest\x1a\x1a.adselection.BuildResponse\x12_\n" +
-	"\x10SetAdSelectionId\x12$.adselection.SetAdSelectionIdRequest\x1a%.adselection.SetAdSelectionIdResponse\x12D\n" +
-	"\aSetData\x12\x1b.adselection.SetDataRequest\x1a\x1c.adselection.SetDataResponse\x12V\n" +
-	"\rSetInputEvent\x12!.adselection.SetInputEventRequest\x1a\".adselection.SetInputEventResponse\x12A\n" +
-	"\x06SetKey\x12\x1a.adselection.SetKeyRequest\x1a\x1b.adselection.SetKeyResponse\x12w\n" +
-	"\x18SetReportingDestinations\x12,.adselection.SetReportingDestinationsRequest\x1a-.adselection.SetReportingDestinationsResponse2\xb2\x05\n" +
-	"\x1aSignedContextualAdsService\x12_\n" +
-	"\x10DescribeContents\x12$.adselection.DescribeContentsRequest\x1a%.adselection.DescribeContentsResponse\x12A\n" +
-	"\x06Equals\x12\x1a.adselection.EqualsRequest\x1a\x1b.adselection.EqualsResponse\x12G\n" +
-	"\bGetBuyer\x12\x1c.adselection.GetBuyerRequest\x1a\x1d.adselection.GetBuyerResponse\x12h\n" +
-	"\x13GetDecisionLogicUri\x12'.adselection.GetDecisionLogicUriRequest\x1a(.adselection.GetDecisionLogicUriResponse\x12S\n" +
-	"\fGetSignature\x12 .adselection.GetSignatureRequest\x1a!.adselection.GetSignatureResponse\x12G\n" +
-	"\bHashCode\x12\x1c.adselection.HashCodeRequest\x1a\x1d.adselection.HashCodeResponse\x12G\n" +
-	"\bToString\x12\x1c.adselection.ToStringRequest\x1a\x1d.adselection.ToStringResponse\x12V\n" +
-	"\rWriteToParcel\x12!.adselection.WriteToParcelRequest\x1a\".adselection.WriteToParcelResponse2\xeb\x02\n" +
-	"!SignedContextualAdsBuilderService\x12>\n" +
-	"\x05Build\x12\x19.adselection.BuildRequest\x1a\x1a.adselection.BuildResponse\x12G\n" +
-	"\bSetBuyer\x12\x1c.adselection.SetBuyerRequest\x1a\x1d.adselection.SetBuyerResponse\x12h\n" +
-	"\x13SetDecisionLogicUri\x12'.adselection.SetDecisionLogicUriRequest\x1a(.adselection.SetDecisionLogicUriResponse\x12S\n" +
-	"\fSetSignature\x12 .adselection.SetSignatureRequest\x1a!.adselection.SetSignatureResponse2\x8e\x05\n" +
-	"$AdSelectionFromOutcomesConfigService\x12_\n" +
-	"\x10DescribeContents\x12$.adselection.DescribeContentsRequest\x1a%.adselection.DescribeContentsResponse\x12A\n" +
-	"\x06Equals\x12\x1a.adselection.EqualsRequest\x1a\x1b.adselection.EqualsResponse\x12k\n" +
-	"\x14GetSelectionLogicUri\x12(.adselection.GetSelectionLogicUriRequest\x1a).adselection.GetSelectionLogicUriResponse\x12h\n" +
-	"\x13GetSelectionSignals\x12'.adselection.GetSelectionSignalsRequest\x1a(.adselection.GetSelectionSignalsResponse\x12J\n" +
-	"\tGetSeller\x12\x1d.adselection.GetSellerRequest\x1a\x1e.adselection.GetSellerResponse\x12G\n" +
-	"\bHashCode\x12\x1c.adselection.HashCodeRequest\x1a\x1d.adselection.HashCodeResponse\x12V\n" +
-	"\rWriteToParcel\x12!.adselection.WriteToParcelRequest\x1a\".adselection.WriteToParcelResponse2\x90\x03\n" +
-	"+AdSelectionFromOutcomesConfigBuilderService\x12>\n" +
-	"\x05Build\x12\x19.adselection.BuildRequest\x1a\x1a.adselection.BuildResponse\x12k\n" +
-	"\x14SetSelectionLogicUri\x12(.adselection.SetSelectionLogicUriRequest\x1a).adselection.SetSelectionLogicUriResponse\x12h\n" +
-	"\x13SetSelectionSignals\x12'.adselection.SetSelectionSignalsRequest\x1a(.adselection.SetSelectionSignalsResponse\x12J\n" +
-	"\tSetSeller\x12\x1d.adselection.SetSellerRequest\x1a\x1e.adselection.SetSellerResponse2\x8e\x05\n" +
-	"0AddAdSelectionFromOutcomesOverrideRequestService\x12\xb3\x01\n" +
-	",NewAddAdSelectionFromOutcomesOverrideRequest\x12@.adselection.NewAddAdSelectionFromOutcomesOverrideRequestRequest\x1aA.adselection.NewAddAdSelectionFromOutcomesOverrideRequestResponse\x12\x8f\x01\n" +
-	" GetAdSelectionFromOutcomesConfig\x124.adselection.GetAdSelectionFromOutcomesConfigRequest\x1a5.adselection.GetAdSelectionFromOutcomesConfigResponse\x12}\n" +
-	"\x1aGetOutcomeSelectionLogicJs\x12..adselection.GetOutcomeSelectionLogicJsRequest\x1a/.adselection.GetOutcomeSelectionLogicJsResponse\x12\x92\x01\n" +
-	"!GetOutcomeSelectionTrustedSignals\x125.adselection.GetOutcomeSelectionTrustedSignalsRequest\x1a6.adselection.GetOutcomeSelectionTrustedSignalsResponse2\xb0\x04\n" +
-	"\x1cPerBuyerDecisionLogicService\x12w\n" +
-	"\x18NewPerBuyerDecisionLogic\x12,.adselection.NewPerBuyerDecisionLogicRequest\x1a-.adselection.NewPerBuyerDecisionLogicResponse\x12t\n" +
-	"\x10DescribeContents\x129.adselection.PerBuyerDecisionLogicDescribeContentsRequest\x1a%.adselection.DescribeContentsResponse\x12V\n" +
-	"\x06Equals\x12/.adselection.PerBuyerDecisionLogicEqualsRequest\x1a\x1b.adselection.EqualsResponse\x12\\\n" +
-	"\bHashCode\x121.adselection.PerBuyerDecisionLogicHashCodeRequest\x1a\x1d.adselection.HashCodeResponse\x12k\n" +
-	"\rWriteToParcel\x126.adselection.PerBuyerDecisionLogicWriteToParcelRequest\x1a\".adselection.WriteToParcelResponse2\xe9\x06\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15GetAdEventTypeRequest\"0\n" +
+	"\x16GetAdEventTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x18\n" +
+	"\x16GetCallerAdTechRequest\"1\n" +
+	"\x17GetCallerAdTechResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"0\n" +
+	".UpdateAdCounterHistogramRequestToStringRequest\"+\n" +
+	"\x15SetAdEventTypeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"0\n" +
+	"\x16SetAdEventTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"\x16SetCallerAdTechRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"1\n" +
+	"\x17SetCallerAdTechResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\xdf\a\n" +
 	"\x18AdSelectionConfigService\x12_\n" +
 	"\x10DescribeContents\x12$.adselection.DescribeContentsRequest\x1a%.adselection.DescribeContentsResponse\x12A\n" +
 	"\x06Equals\x12\x1a.adselection.EqualsRequest\x1a\x1b.adselection.EqualsResponse\x12n\n" +
-	"\x15GetAdSelectionSignals\x12).adselection.GetAdSelectionSignalsRequest\x1a*.adselection.GetAdSelectionSignalsResponse\x12h\n" +
+	"\x15GetAdSelectionSignals\x12).adselection.GetAdSelectionSignalsRequest\x1a*.adselection.GetAdSelectionSignalsResponse\x12t\n" +
+	"\x17GetCustomAudienceBuyers\x12+.adselection.GetCustomAudienceBuyersRequest\x1a,.adselection.GetCustomAudienceBuyersResponse\x12h\n" +
 	"\x13GetDecisionLogicUri\x12'.adselection.GetDecisionLogicUriRequest\x1a(.adselection.GetDecisionLogicUriResponse\x12J\n" +
 	"\tGetSeller\x12\x1d.adselection.GetSellerRequest\x1a\x1e.adselection.GetSellerResponse\x12_\n" +
 	"\x10GetSellerSignals\x12$.adselection.GetSellerSignalsRequest\x1a%.adselection.GetSellerSignalsResponse\x12\x80\x01\n" +
@@ -7538,48 +7972,70 @@ const file_proto_adselection_adselection_proto_rawDesc = "" +
 	"\x13SetDecisionLogicUri\x12'.adselection.SetDecisionLogicUriRequest\x1a(.adselection.SetDecisionLogicUriResponse\x12J\n" +
 	"\tSetSeller\x12\x1d.adselection.SetSellerRequest\x1a\x1e.adselection.SetSellerResponse\x12_\n" +
 	"\x10SetSellerSignals\x12$.adselection.SetSellerSignalsRequest\x1a%.adselection.SetSellerSignalsResponse\x12\x80\x01\n" +
-	"\x1bSetTrustedScoringSignalsUri\x12/.adselection.SetTrustedScoringSignalsUriRequest\x1a0.adselection.SetTrustedScoringSignalsUriResponse2\xfe\x04\n" +
+	"\x1bSetTrustedScoringSignalsUri\x12/.adselection.SetTrustedScoringSignalsUriRequest\x1a0.adselection.SetTrustedScoringSignalsUriResponse2\xd6\x03\n" +
+	"\x19ReportEventRequestService\x12_\n" +
+	"\x10GetAdSelectionId\x12$.adselection.GetAdSelectionIdRequest\x1a%.adselection.GetAdSelectionIdResponse\x12D\n" +
+	"\aGetData\x12\x1b.adselection.GetDataRequest\x1a\x1c.adselection.GetDataResponse\x12V\n" +
+	"\rGetInputEvent\x12!.adselection.GetInputEventRequest\x1a\".adselection.GetInputEventResponse\x12A\n" +
+	"\x06GetKey\x12\x1a.adselection.GetKeyRequest\x1a\x1b.adselection.GetKeyResponse\x12w\n" +
+	"\x18GetReportingDestinations\x12,.adselection.GetReportingDestinationsRequest\x1a-.adselection.GetReportingDestinationsResponse2\x9d\x04\n" +
+	" ReportEventRequestBuilderService\x12>\n" +
+	"\x05Build\x12\x19.adselection.BuildRequest\x1a\x1a.adselection.BuildResponse\x12_\n" +
+	"\x10SetAdSelectionId\x12$.adselection.SetAdSelectionIdRequest\x1a%.adselection.SetAdSelectionIdResponse\x12D\n" +
+	"\aSetData\x12\x1b.adselection.SetDataRequest\x1a\x1c.adselection.SetDataResponse\x12V\n" +
+	"\rSetInputEvent\x12!.adselection.SetInputEventRequest\x1a\".adselection.SetInputEventResponse\x12A\n" +
+	"\x06SetKey\x12\x1a.adselection.SetKeyRequest\x1a\x1b.adselection.SetKeyResponse\x12w\n" +
+	"\x18SetReportingDestinations\x12,.adselection.SetReportingDestinationsRequest\x1a-.adselection.SetReportingDestinationsResponse2\xfe\x04\n" +
 	"$AddAdSelectionOverrideRequestService\x12\x8f\x01\n" +
 	" NewAddAdSelectionOverrideRequest\x124.adselection.NewAddAdSelectionOverrideRequestRequest\x1a5.adselection.NewAddAdSelectionOverrideRequestResponse\x12k\n" +
 	"\x14GetAdSelectionConfig\x12(.adselection.GetAdSelectionConfigRequest\x1a).adselection.GetAdSelectionConfigResponse\x12e\n" +
 	"\x12GetDecisionLogicJs\x12&.adselection.GetDecisionLogicJsRequest\x1a'.adselection.GetDecisionLogicJsResponse\x12w\n" +
 	"\x18GetPerBuyerDecisionLogic\x12,.adselection.GetPerBuyerDecisionLogicRequest\x1a-.adselection.GetPerBuyerDecisionLogicResponse\x12w\n" +
-	"\x18GetTrustedScoringSignals\x12,.adselection.GetTrustedScoringSignalsRequest\x1a-.adselection.GetTrustedScoringSignalsResponse2\xdf\x04\n" +
-	"\x10AdWithBidService\x12S\n" +
-	"\fNewAdWithBid\x12 .adselection.NewAdWithBidRequest\x1a!.adselection.NewAdWithBidResponse\x12h\n" +
-	"\x10DescribeContents\x12-.adselection.AdWithBidDescribeContentsRequest\x1a%.adselection.DescribeContentsResponse\x12J\n" +
-	"\x06Equals\x12#.adselection.AdWithBidEqualsRequest\x1a\x1b.adselection.EqualsResponse\x12J\n" +
-	"\tGetAdData\x12\x1d.adselection.GetAdDataRequest\x1a\x1e.adselection.GetAdDataResponse\x12A\n" +
-	"\x06GetBid\x12\x1a.adselection.GetBidRequest\x1a\x1b.adselection.GetBidResponse\x12P\n" +
-	"\bHashCode\x12%.adselection.AdWithBidHashCodeRequest\x1a\x1d.adselection.HashCodeResponse\x12_\n" +
-	"\rWriteToParcel\x12*.adselection.AdWithBidWriteToParcelRequest\x1a\".adselection.WriteToParcelResponse2\xb1\x02\n" +
-	"'RemoveAdSelectionOverrideRequestService\x12\x98\x01\n" +
-	"#NewRemoveAdSelectionOverrideRequest\x127.adselection.NewRemoveAdSelectionOverrideRequestRequest\x1a8.adselection.NewRemoveAdSelectionOverrideRequestResponse\x12k\n" +
-	"\x14GetAdSelectionConfig\x12(.adselection.GetAdSelectionConfigRequest\x1a).adselection.GetAdSelectionConfigResponse2\xd7\x02\n" +
-	" GetAdSelectionDataOutcomeService\x12e\n" +
-	"\x12GetAdSelectionData\x12&.adselection.GetAdSelectionDataRequest\x1a'.adselection.GetAdSelectionDataResponse\x12k\n" +
-	"\x14GetAdSelectionDataId\x12(.adselection.GetAdSelectionDataIdRequest\x1a).adselection.GetAdSelectionDataIdResponse\x12_\n" +
-	"\x10GetAdSelectionId\x12$.adselection.GetAdSelectionIdRequest\x1a%.adselection.GetAdSelectionIdResponse2\x8f\x05\n" +
+	"\x18GetTrustedScoringSignals\x12,.adselection.GetTrustedScoringSignalsRequest\x1a-.adselection.GetTrustedScoringSignalsResponse2\xd1\x01\n" +
+	"\x19AdSelectionManagerService\x12z\n" +
+	"\x19GetTestAdSelectionManager\x12-.adselection.GetTestAdSelectionManagerRequest\x1a..adselection.GetTestAdSelectionManagerResponse\x128\n" +
+	"\x03Get\x12\x17.adselection.GetRequest\x1a\x18.adselection.GetResponse2\x82\x05\n" +
 	"\x14DecisionLogicService\x12_\n" +
 	"\x10NewDecisionLogic\x12$.adselection.NewDecisionLogicRequest\x1a%.adselection.NewDecisionLogicResponse\x12l\n" +
 	"\x10DescribeContents\x121.adselection.DecisionLogicDescribeContentsRequest\x1a%.adselection.DescribeContentsResponse\x12N\n" +
 	"\x06Equals\x12'.adselection.DecisionLogicEqualsRequest\x1a\x1b.adselection.EqualsResponse\x12G\n" +
 	"\bGetLogic\x12\x1c.adselection.GetLogicRequest\x1a\x1d.adselection.GetLogicResponse\x12T\n" +
-	"\bHashCode\x12).adselection.DecisionLogicHashCodeRequest\x1a\x1d.adselection.HashCodeResponse\x12T\n" +
-	"\bToString\x12).adselection.DecisionLogicToStringRequest\x1a\x1d.adselection.ToStringResponse\x12c\n" +
-	"\rWriteToParcel\x12..adselection.DecisionLogicWriteToParcelRequest\x1a\".adselection.WriteToParcelResponse2\xd7\x02\n" +
-	" GetAdSelectionDataRequestService\x12t\n" +
-	"\x17GetCoordinatorOriginUri\x12+.adselection.GetCoordinatorOriginUriRequest\x1a,.adselection.GetCoordinatorOriginUriResponse\x12J\n" +
-	"\tGetSeller\x12\x1d.adselection.GetSellerRequest\x1a\x1e.adselection.GetSellerResponse\x12q\n" +
-	"\x16GetSellerConfiguration\x12*.adselection.GetSellerConfigurationRequest\x1a+.adselection.GetSellerConfigurationResponse2\x9e\x03\n" +
-	"'GetAdSelectionDataRequestBuilderService\x12>\n" +
-	"\x05Build\x12\x19.adselection.BuildRequest\x1a\x1a.adselection.BuildResponse\x12t\n" +
-	"\x17SetCoordinatorOriginUri\x12+.adselection.SetCoordinatorOriginUriRequest\x1a,.adselection.SetCoordinatorOriginUriResponse\x12J\n" +
-	"\tSetSeller\x12\x1d.adselection.SetSellerRequest\x1a\x1e.adselection.SetSellerResponse\x12q\n" +
-	"\x16SetSellerConfiguration\x12*.adselection.SetSellerConfigurationRequest\x1a+.adselection.SetSellerConfigurationResponse2\x8d\x04\n" +
+	"\bHashCode\x12).adselection.DecisionLogicHashCodeRequest\x1a\x1d.adselection.HashCodeResponse\x12G\n" +
+	"\bToString\x12\x1c.adselection.ToStringRequest\x1a\x1d.adselection.ToStringResponse\x12c\n" +
+	"\rWriteToParcel\x12..adselection.DecisionLogicWriteToParcelRequest\x1a\".adselection.WriteToParcelResponse2\x83\x01\n" +
+	"&SetAppInstallAdvertisersRequestService\x12Y\n" +
+	"\x0eGetAdvertisers\x12\".adselection.GetAdvertisersRequest\x1a#.adselection.GetAdvertisersResponse2o\n" +
+	"-SetAppInstallAdvertisersRequestBuilderService\x12>\n" +
+	"\x05Build\x12\x19.adselection.BuildRequest\x1a\x1a.adselection.BuildResponse2\x9d\x06\n" +
+	"\x1aSignedContextualAdsService\x12_\n" +
+	"\x10DescribeContents\x12$.adselection.DescribeContentsRequest\x1a%.adselection.DescribeContentsResponse\x12A\n" +
+	"\x06Equals\x12\x1a.adselection.EqualsRequest\x1a\x1b.adselection.EqualsResponse\x12V\n" +
+	"\rGetAdsWithBid\x12!.adselection.GetAdsWithBidRequest\x1a\".adselection.GetAdsWithBidResponse\x12G\n" +
+	"\bGetBuyer\x12\x1c.adselection.GetBuyerRequest\x1a\x1d.adselection.GetBuyerResponse\x12h\n" +
+	"\x13GetDecisionLogicUri\x12'.adselection.GetDecisionLogicUriRequest\x1a(.adselection.GetDecisionLogicUriResponse\x12S\n" +
+	"\fGetSignature\x12 .adselection.GetSignatureRequest\x1a!.adselection.GetSignatureResponse\x12G\n" +
+	"\bHashCode\x12\x1c.adselection.HashCodeRequest\x1a\x1d.adselection.HashCodeResponse\x12Z\n" +
+	"\bToString\x12/.adselection.SignedContextualAdsToStringRequest\x1a\x1d.adselection.ToStringResponse\x12V\n" +
+	"\rWriteToParcel\x12!.adselection.WriteToParcelRequest\x1a\".adselection.WriteToParcelResponse2\xeb\x02\n" +
+	"!SignedContextualAdsBuilderService\x12>\n" +
+	"\x05Build\x12\x19.adselection.BuildRequest\x1a\x1a.adselection.BuildResponse\x12G\n" +
+	"\bSetBuyer\x12\x1c.adselection.SetBuyerRequest\x1a\x1d.adselection.SetBuyerResponse\x12h\n" +
+	"\x13SetDecisionLogicUri\x12'.adselection.SetDecisionLogicUriRequest\x1a(.adselection.SetDecisionLogicUriResponse\x12S\n" +
+	"\fSetSignature\x12 .adselection.SetSignatureRequest\x1a!.adselection.SetSignatureResponse2\xdc\x04\n" +
+	"\x1aSellerConfigurationService\x12_\n" +
+	"\x10DescribeContents\x12$.adselection.DescribeContentsRequest\x1a%.adselection.DescribeContentsResponse\x12A\n" +
+	"\x06Equals\x12\x1a.adselection.EqualsRequest\x1a\x1b.adselection.EqualsResponse\x12}\n" +
+	"\x1aGetMaximumPayloadSizeBytes\x12..adselection.GetMaximumPayloadSizeBytesRequest\x1a/.adselection.GetMaximumPayloadSizeBytesResponse\x12z\n" +
+	"\x19GetPerBuyerConfigurations\x12-.adselection.GetPerBuyerConfigurationsRequest\x1a..adselection.GetPerBuyerConfigurationsResponse\x12G\n" +
+	"\bHashCode\x12\x1c.adselection.HashCodeRequest\x1a\x1d.adselection.HashCodeResponse\x12V\n" +
+	"\rWriteToParcel\x12!.adselection.WriteToParcelRequest\x1a\".adselection.WriteToParcelResponse2\xe2\x01\n" +
+	"!SellerConfigurationBuilderService\x12>\n" +
+	"\x05Build\x12\x19.adselection.BuildRequest\x1a\x1a.adselection.BuildResponse\x12}\n" +
+	"\x1aSetMaximumPayloadSizeBytes\x12..adselection.SetMaximumPayloadSizeBytesRequest\x1a/.adselection.SetMaximumPayloadSizeBytesResponse2\xf4\x04\n" +
 	"\x19AdSelectionOutcomeService\x12A\n" +
 	"\x06Equals\x12\x1a.adselection.EqualsRequest\x1a\x1b.adselection.EqualsResponse\x12_\n" +
-	"\x10GetAdSelectionId\x12$.adselection.GetAdSelectionIdRequest\x1a%.adselection.GetAdSelectionIdResponse\x12S\n" +
+	"\x10GetAdSelectionId\x12$.adselection.GetAdSelectionIdRequest\x1a%.adselection.GetAdSelectionIdResponse\x12e\n" +
+	"\x12GetComponentAdUris\x12&.adselection.GetComponentAdUrisRequest\x1a'.adselection.GetComponentAdUrisResponse\x12S\n" +
 	"\fGetRenderUri\x12 .adselection.GetRenderUriRequest\x1a!.adselection.GetRenderUriResponse\x12_\n" +
 	"\x10GetWinningSeller\x12$.adselection.GetWinningSellerRequest\x1a%.adselection.GetWinningSellerResponse\x12M\n" +
 	"\n" +
@@ -7588,11 +8044,97 @@ const file_proto_adselection_adselection_proto_rawDesc = "" +
 	" AdSelectionOutcomeBuilderService\x12>\n" +
 	"\x05Build\x12\x19.adselection.BuildRequest\x1a\x1a.adselection.BuildResponse\x12_\n" +
 	"\x10SetAdSelectionId\x12$.adselection.SetAdSelectionIdRequest\x1a%.adselection.SetAdSelectionIdResponse\x12S\n" +
-	"\fSetRenderUri\x12 .adselection.SetRenderUriRequest\x1a!.adselection.SetRenderUriResponse2\x84\x03\n" +
+	"\fSetRenderUri\x12 .adselection.SetRenderUriRequest\x1a!.adselection.SetRenderUriResponse2\xa2\x04\n" +
+	"\x1cPerBuyerConfigurationService\x12_\n" +
+	"\x10DescribeContents\x12$.adselection.DescribeContentsRequest\x1a%.adselection.DescribeContentsResponse\x12A\n" +
+	"\x06Equals\x12\x1a.adselection.EqualsRequest\x1a\x1b.adselection.EqualsResponse\x12G\n" +
+	"\bGetBuyer\x12\x1c.adselection.GetBuyerRequest\x1a\x1d.adselection.GetBuyerResponse\x12t\n" +
+	"\x17GetTargetInputSizeBytes\x12+.adselection.GetTargetInputSizeBytesRequest\x1a,.adselection.GetTargetInputSizeBytesResponse\x12G\n" +
+	"\bHashCode\x12\x1c.adselection.HashCodeRequest\x1a\x1d.adselection.HashCodeResponse\x12V\n" +
+	"\rWriteToParcel\x12!.adselection.WriteToParcelRequest\x1a\".adselection.WriteToParcelResponse2\xa4\x02\n" +
+	"#PerBuyerConfigurationBuilderService\x12>\n" +
+	"\x05Build\x12\x19.adselection.BuildRequest\x1a\x1a.adselection.BuildResponse\x12G\n" +
+	"\bSetBuyer\x12\x1c.adselection.SetBuyerRequest\x1a\x1d.adselection.SetBuyerResponse\x12t\n" +
+	"\x17SetTargetInputSizeBytes\x12+.adselection.SetTargetInputSizeBytesRequest\x1a,.adselection.SetTargetInputSizeBytesResponse2\xb0\x04\n" +
+	"\x1cPerBuyerDecisionLogicService\x12w\n" +
+	"\x18NewPerBuyerDecisionLogic\x12,.adselection.NewPerBuyerDecisionLogicRequest\x1a-.adselection.NewPerBuyerDecisionLogicResponse\x12t\n" +
+	"\x10DescribeContents\x129.adselection.PerBuyerDecisionLogicDescribeContentsRequest\x1a%.adselection.DescribeContentsResponse\x12V\n" +
+	"\x06Equals\x12/.adselection.PerBuyerDecisionLogicEqualsRequest\x1a\x1b.adselection.EqualsResponse\x12\\\n" +
+	"\bHashCode\x121.adselection.PerBuyerDecisionLogicHashCodeRequest\x1a\x1d.adselection.HashCodeResponse\x12k\n" +
+	"\rWriteToParcel\x126.adselection.PerBuyerDecisionLogicWriteToParcelRequest\x1a\".adselection.WriteToParcelResponse2\xb1\x02\n" +
+	"'RemoveAdSelectionOverrideRequestService\x12\x98\x01\n" +
+	"#NewRemoveAdSelectionOverrideRequest\x127.adselection.NewRemoveAdSelectionOverrideRequestRequest\x1a8.adselection.NewRemoveAdSelectionOverrideRequestResponse\x12k\n" +
+	"\x14GetAdSelectionConfig\x12(.adselection.GetAdSelectionConfigRequest\x1a).adselection.GetAdSelectionConfigResponse2\x84\x03\n" +
 	"\x1eReportImpressionRequestService\x12}\n" +
 	"\x1aNewReportImpressionRequest\x12..adselection.NewReportImpressionRequestRequest\x1a/.adselection.NewReportImpressionRequestResponse\x12k\n" +
 	"\x14GetAdSelectionConfig\x12(.adselection.GetAdSelectionConfigRequest\x1a).adselection.GetAdSelectionConfigResponse\x12v\n" +
-	"\x10GetAdSelectionId\x12;.adselection.ReportImpressionRequestGetAdSelectionIdRequest\x1a%.adselection.GetAdSelectionIdResponseB5Z3github.com/AndroidGoLab/jni-proxy/proto/adselectionb\x06proto3"
+	"\x10GetAdSelectionId\x12;.adselection.ReportImpressionRequestGetAdSelectionIdRequest\x1a%.adselection.GetAdSelectionIdResponse2\x8e\x05\n" +
+	"0AddAdSelectionFromOutcomesOverrideRequestService\x12\xb3\x01\n" +
+	",NewAddAdSelectionFromOutcomesOverrideRequest\x12@.adselection.NewAddAdSelectionFromOutcomesOverrideRequestRequest\x1aA.adselection.NewAddAdSelectionFromOutcomesOverrideRequestResponse\x12\x8f\x01\n" +
+	" GetAdSelectionFromOutcomesConfig\x124.adselection.GetAdSelectionFromOutcomesConfigRequest\x1a5.adselection.GetAdSelectionFromOutcomesConfigResponse\x12}\n" +
+	"\x1aGetOutcomeSelectionLogicJs\x12..adselection.GetOutcomeSelectionLogicJsRequest\x1a/.adselection.GetOutcomeSelectionLogicJsResponse\x12\x92\x01\n" +
+	"!GetOutcomeSelectionTrustedSignals\x125.adselection.GetOutcomeSelectionTrustedSignalsRequest\x1a6.adselection.GetOutcomeSelectionTrustedSignalsResponse2\xd7\x02\n" +
+	" GetAdSelectionDataOutcomeService\x12e\n" +
+	"\x12GetAdSelectionData\x12&.adselection.GetAdSelectionDataRequest\x1a'.adselection.GetAdSelectionDataResponse\x12k\n" +
+	"\x14GetAdSelectionDataId\x12(.adselection.GetAdSelectionDataIdRequest\x1a).adselection.GetAdSelectionDataIdResponse\x12_\n" +
+	"\x10GetAdSelectionId\x12$.adselection.GetAdSelectionIdRequest\x1a%.adselection.GetAdSelectionIdResponse2\x86\x03\n" +
+	"3RemoveAdSelectionFromOutcomesOverrideRequestService\x12\xbc\x01\n" +
+	"/NewRemoveAdSelectionFromOutcomesOverrideRequest\x12C.adselection.NewRemoveAdSelectionFromOutcomesOverrideRequestRequest\x1aD.adselection.NewRemoveAdSelectionFromOutcomesOverrideRequestResponse\x12\x8f\x01\n" +
+	" GetAdSelectionFromOutcomesConfig\x124.adselection.GetAdSelectionFromOutcomesConfigRequest\x1a5.adselection.GetAdSelectionFromOutcomesConfigResponse2\xaf\x03\n" +
+	"&PersistAdSelectionResultRequestService\x12k\n" +
+	"\x14GetAdSelectionDataId\x12(.adselection.GetAdSelectionDataIdRequest\x1a).adselection.GetAdSelectionDataIdResponse\x12_\n" +
+	"\x10GetAdSelectionId\x12$.adselection.GetAdSelectionIdRequest\x1a%.adselection.GetAdSelectionIdResponse\x12k\n" +
+	"\x14GetAdSelectionResult\x12(.adselection.GetAdSelectionResultRequest\x1a).adselection.GetAdSelectionResultResponse\x12J\n" +
+	"\tGetSeller\x12\x1d.adselection.GetSellerRequest\x1a\x1e.adselection.GetSellerResponse2\xf6\x03\n" +
+	"-PersistAdSelectionResultRequestBuilderService\x12>\n" +
+	"\x05Build\x12\x19.adselection.BuildRequest\x1a\x1a.adselection.BuildResponse\x12k\n" +
+	"\x14SetAdSelectionDataId\x12(.adselection.SetAdSelectionDataIdRequest\x1a).adselection.SetAdSelectionDataIdResponse\x12_\n" +
+	"\x10SetAdSelectionId\x12$.adselection.SetAdSelectionIdRequest\x1a%.adselection.SetAdSelectionIdResponse\x12k\n" +
+	"\x14SetAdSelectionResult\x12(.adselection.SetAdSelectionResultRequest\x1a).adselection.SetAdSelectionResultResponse\x12J\n" +
+	"\tSetSeller\x12\x1d.adselection.SetSellerRequest\x1a\x1e.adselection.SetSellerResponse2\xf2\x05\n" +
+	"$AdSelectionFromOutcomesConfigService\x12_\n" +
+	"\x10DescribeContents\x12$.adselection.DescribeContentsRequest\x1a%.adselection.DescribeContentsResponse\x12A\n" +
+	"\x06Equals\x12\x1a.adselection.EqualsRequest\x1a\x1b.adselection.EqualsResponse\x12b\n" +
+	"\x11GetAdSelectionIds\x12%.adselection.GetAdSelectionIdsRequest\x1a&.adselection.GetAdSelectionIdsResponse\x12k\n" +
+	"\x14GetSelectionLogicUri\x12(.adselection.GetSelectionLogicUriRequest\x1a).adselection.GetSelectionLogicUriResponse\x12h\n" +
+	"\x13GetSelectionSignals\x12'.adselection.GetSelectionSignalsRequest\x1a(.adselection.GetSelectionSignalsResponse\x12J\n" +
+	"\tGetSeller\x12\x1d.adselection.GetSellerRequest\x1a\x1e.adselection.GetSellerResponse\x12G\n" +
+	"\bHashCode\x12\x1c.adselection.HashCodeRequest\x1a\x1d.adselection.HashCodeResponse\x12V\n" +
+	"\rWriteToParcel\x12!.adselection.WriteToParcelRequest\x1a\".adselection.WriteToParcelResponse2\x90\x03\n" +
+	"+AdSelectionFromOutcomesConfigBuilderService\x12>\n" +
+	"\x05Build\x12\x19.adselection.BuildRequest\x1a\x1a.adselection.BuildResponse\x12k\n" +
+	"\x14SetSelectionLogicUri\x12(.adselection.SetSelectionLogicUriRequest\x1a).adselection.SetSelectionLogicUriResponse\x12h\n" +
+	"\x13SetSelectionSignals\x12'.adselection.SetSelectionSignalsRequest\x1a(.adselection.SetSelectionSignalsResponse\x12J\n" +
+	"\tSetSeller\x12\x1d.adselection.SetSellerRequest\x1a\x1e.adselection.SetSellerResponse2\xd7\x02\n" +
+	" GetAdSelectionDataRequestService\x12t\n" +
+	"\x17GetCoordinatorOriginUri\x12+.adselection.GetCoordinatorOriginUriRequest\x1a,.adselection.GetCoordinatorOriginUriResponse\x12J\n" +
+	"\tGetSeller\x12\x1d.adselection.GetSellerRequest\x1a\x1e.adselection.GetSellerResponse\x12q\n" +
+	"\x16GetSellerConfiguration\x12*.adselection.GetSellerConfigurationRequest\x1a+.adselection.GetSellerConfigurationResponse2\x9e\x03\n" +
+	"'GetAdSelectionDataRequestBuilderService\x12>\n" +
+	"\x05Build\x12\x19.adselection.BuildRequest\x1a\x1a.adselection.BuildResponse\x12t\n" +
+	"\x17SetCoordinatorOriginUri\x12+.adselection.SetCoordinatorOriginUriRequest\x1a,.adselection.SetCoordinatorOriginUriResponse\x12J\n" +
+	"\tSetSeller\x12\x1d.adselection.SetSellerRequest\x1a\x1e.adselection.SetSellerResponse\x12q\n" +
+	"\x16SetSellerConfiguration\x12*.adselection.SetSellerConfigurationRequest\x1a+.adselection.SetSellerConfigurationResponse2\xdf\x04\n" +
+	"\x10AdWithBidService\x12S\n" +
+	"\fNewAdWithBid\x12 .adselection.NewAdWithBidRequest\x1a!.adselection.NewAdWithBidResponse\x12h\n" +
+	"\x10DescribeContents\x12-.adselection.AdWithBidDescribeContentsRequest\x1a%.adselection.DescribeContentsResponse\x12J\n" +
+	"\x06Equals\x12#.adselection.AdWithBidEqualsRequest\x1a\x1b.adselection.EqualsResponse\x12J\n" +
+	"\tGetAdData\x12\x1d.adselection.GetAdDataRequest\x1a\x1e.adselection.GetAdDataResponse\x12A\n" +
+	"\x06GetBid\x12\x1a.adselection.GetBidRequest\x1a\x1b.adselection.GetBidResponse\x12P\n" +
+	"\bHashCode\x12%.adselection.AdWithBidHashCodeRequest\x1a\x1d.adselection.HashCodeResponse\x12_\n" +
+	"\rWriteToParcel\x12*.adselection.AdWithBidWriteToParcelRequest\x1a\".adselection.WriteToParcelResponse2\xb6\x04\n" +
+	"&UpdateAdCounterHistogramRequestService\x12A\n" +
+	"\x06Equals\x12\x1a.adselection.EqualsRequest\x1a\x1b.adselection.EqualsResponse\x12Y\n" +
+	"\x0eGetAdEventType\x12\".adselection.GetAdEventTypeRequest\x1a#.adselection.GetAdEventTypeResponse\x12_\n" +
+	"\x10GetAdSelectionId\x12$.adselection.GetAdSelectionIdRequest\x1a%.adselection.GetAdSelectionIdResponse\x12\\\n" +
+	"\x0fGetCallerAdTech\x12#.adselection.GetCallerAdTechRequest\x1a$.adselection.GetCallerAdTechResponse\x12G\n" +
+	"\bHashCode\x12\x1c.adselection.HashCodeRequest\x1a\x1d.adselection.HashCodeResponse\x12f\n" +
+	"\bToString\x12;.adselection.UpdateAdCounterHistogramRequestToStringRequest\x1a\x1d.adselection.ToStringResponse2\x89\x03\n" +
+	"-UpdateAdCounterHistogramRequestBuilderService\x12>\n" +
+	"\x05Build\x12\x19.adselection.BuildRequest\x1a\x1a.adselection.BuildResponse\x12Y\n" +
+	"\x0eSetAdEventType\x12\".adselection.SetAdEventTypeRequest\x1a#.adselection.SetAdEventTypeResponse\x12_\n" +
+	"\x10SetAdSelectionId\x12$.adselection.SetAdSelectionIdRequest\x1a%.adselection.SetAdSelectionIdResponse\x12\\\n" +
+	"\x0fSetCallerAdTech\x12#.adselection.SetCallerAdTechRequest\x1a$.adselection.SetCallerAdTechResponseB5Z3github.com/AndroidGoLab/jni-proxy/proto/adselectionb\x06proto3"
 
 var (
 	file_proto_adselection_adselection_proto_rawDescOnce sync.Once
@@ -7606,458 +8148,483 @@ func file_proto_adselection_adselection_proto_rawDescGZIP() []byte {
 	return file_proto_adselection_adselection_proto_rawDescData
 }
 
-var file_proto_adselection_adselection_proto_msgTypes = make([]protoimpl.MessageInfo, 164)
+var file_proto_adselection_adselection_proto_msgTypes = make([]protoimpl.MessageInfo, 177)
 var file_proto_adselection_adselection_proto_goTypes = []any{
-	(*GetAdSelectionDataIdRequest)(nil),                             // 0: adselection.GetAdSelectionDataIdRequest
-	(*GetAdSelectionDataIdResponse)(nil),                            // 1: adselection.GetAdSelectionDataIdResponse
-	(*GetAdSelectionIdRequest)(nil),                                 // 2: adselection.GetAdSelectionIdRequest
-	(*GetAdSelectionIdResponse)(nil),                                // 3: adselection.GetAdSelectionIdResponse
-	(*GetAdSelectionResultRequest)(nil),                             // 4: adselection.GetAdSelectionResultRequest
-	(*GetAdSelectionResultResponse)(nil),                            // 5: adselection.GetAdSelectionResultResponse
-	(*GetSellerRequest)(nil),                                        // 6: adselection.GetSellerRequest
-	(*GetSellerResponse)(nil),                                       // 7: adselection.GetSellerResponse
-	(*BuildRequest)(nil),                                            // 8: adselection.BuildRequest
-	(*BuildResponse)(nil),                                           // 9: adselection.BuildResponse
-	(*SetAdSelectionDataIdRequest)(nil),                             // 10: adselection.SetAdSelectionDataIdRequest
-	(*SetAdSelectionDataIdResponse)(nil),                            // 11: adselection.SetAdSelectionDataIdResponse
-	(*SetAdSelectionIdRequest)(nil),                                 // 12: adselection.SetAdSelectionIdRequest
-	(*SetAdSelectionIdResponse)(nil),                                // 13: adselection.SetAdSelectionIdResponse
-	(*SetAdSelectionResultRequest)(nil),                             // 14: adselection.SetAdSelectionResultRequest
-	(*SetAdSelectionResultResponse)(nil),                            // 15: adselection.SetAdSelectionResultResponse
-	(*SetSellerRequest)(nil),                                        // 16: adselection.SetSellerRequest
-	(*SetSellerResponse)(nil),                                       // 17: adselection.SetSellerResponse
-	(*DescribeContentsRequest)(nil),                                 // 18: adselection.DescribeContentsRequest
-	(*DescribeContentsResponse)(nil),                                // 19: adselection.DescribeContentsResponse
-	(*EqualsRequest)(nil),                                           // 20: adselection.EqualsRequest
-	(*EqualsResponse)(nil),                                          // 21: adselection.EqualsResponse
-	(*GetMaximumPayloadSizeBytesRequest)(nil),                       // 22: adselection.GetMaximumPayloadSizeBytesRequest
-	(*GetMaximumPayloadSizeBytesResponse)(nil),                      // 23: adselection.GetMaximumPayloadSizeBytesResponse
-	(*HashCodeRequest)(nil),                                         // 24: adselection.HashCodeRequest
-	(*HashCodeResponse)(nil),                                        // 25: adselection.HashCodeResponse
-	(*WriteToParcelRequest)(nil),                                    // 26: adselection.WriteToParcelRequest
-	(*WriteToParcelResponse)(nil),                                   // 27: adselection.WriteToParcelResponse
-	(*SetMaximumPayloadSizeBytesRequest)(nil),                       // 28: adselection.SetMaximumPayloadSizeBytesRequest
-	(*SetMaximumPayloadSizeBytesResponse)(nil),                      // 29: adselection.SetMaximumPayloadSizeBytesResponse
-	(*NewRemoveAdSelectionFromOutcomesOverrideRequestRequest)(nil),  // 30: adselection.NewRemoveAdSelectionFromOutcomesOverrideRequestRequest
-	(*NewRemoveAdSelectionFromOutcomesOverrideRequestResponse)(nil), // 31: adselection.NewRemoveAdSelectionFromOutcomesOverrideRequestResponse
-	(*GetAdSelectionFromOutcomesConfigRequest)(nil),                 // 32: adselection.GetAdSelectionFromOutcomesConfigRequest
-	(*GetAdSelectionFromOutcomesConfigResponse)(nil),                // 33: adselection.GetAdSelectionFromOutcomesConfigResponse
-	(*GetAdEventTypeRequest)(nil),                                   // 34: adselection.GetAdEventTypeRequest
-	(*GetAdEventTypeResponse)(nil),                                  // 35: adselection.GetAdEventTypeResponse
-	(*GetCallerAdTechRequest)(nil),                                  // 36: adselection.GetCallerAdTechRequest
-	(*GetCallerAdTechResponse)(nil),                                 // 37: adselection.GetCallerAdTechResponse
-	(*ToStringRequest)(nil),                                         // 38: adselection.ToStringRequest
-	(*ToStringResponse)(nil),                                        // 39: adselection.ToStringResponse
-	(*SetAdEventTypeRequest)(nil),                                   // 40: adselection.SetAdEventTypeRequest
-	(*SetAdEventTypeResponse)(nil),                                  // 41: adselection.SetAdEventTypeResponse
-	(*SetCallerAdTechRequest)(nil),                                  // 42: adselection.SetCallerAdTechRequest
-	(*SetCallerAdTechResponse)(nil),                                 // 43: adselection.SetCallerAdTechResponse
-	(*GetBuyerRequest)(nil),                                         // 44: adselection.GetBuyerRequest
-	(*GetBuyerResponse)(nil),                                        // 45: adselection.GetBuyerResponse
-	(*GetTargetInputSizeBytesRequest)(nil),                          // 46: adselection.GetTargetInputSizeBytesRequest
-	(*GetTargetInputSizeBytesResponse)(nil),                         // 47: adselection.GetTargetInputSizeBytesResponse
-	(*SetBuyerRequest)(nil),                                         // 48: adselection.SetBuyerRequest
-	(*SetBuyerResponse)(nil),                                        // 49: adselection.SetBuyerResponse
-	(*SetTargetInputSizeBytesRequest)(nil),                          // 50: adselection.SetTargetInputSizeBytesRequest
-	(*SetTargetInputSizeBytesResponse)(nil),                         // 51: adselection.SetTargetInputSizeBytesResponse
-	(*GetTestAdSelectionManagerRequest)(nil),                        // 52: adselection.GetTestAdSelectionManagerRequest
-	(*GetTestAdSelectionManagerResponse)(nil),                       // 53: adselection.GetTestAdSelectionManagerResponse
-	(*GetRequest)(nil),                                              // 54: adselection.GetRequest
-	(*GetResponse)(nil),                                             // 55: adselection.GetResponse
-	(*GetDataRequest)(nil),                                          // 56: adselection.GetDataRequest
-	(*GetDataResponse)(nil),                                         // 57: adselection.GetDataResponse
-	(*GetInputEventRequest)(nil),                                    // 58: adselection.GetInputEventRequest
-	(*GetInputEventResponse)(nil),                                   // 59: adselection.GetInputEventResponse
-	(*GetKeyRequest)(nil),                                           // 60: adselection.GetKeyRequest
-	(*GetKeyResponse)(nil),                                          // 61: adselection.GetKeyResponse
-	(*GetReportingDestinationsRequest)(nil),                         // 62: adselection.GetReportingDestinationsRequest
-	(*GetReportingDestinationsResponse)(nil),                        // 63: adselection.GetReportingDestinationsResponse
-	(*SetDataRequest)(nil),                                          // 64: adselection.SetDataRequest
-	(*SetDataResponse)(nil),                                         // 65: adselection.SetDataResponse
-	(*SetInputEventRequest)(nil),                                    // 66: adselection.SetInputEventRequest
-	(*SetInputEventResponse)(nil),                                   // 67: adselection.SetInputEventResponse
-	(*SetKeyRequest)(nil),                                           // 68: adselection.SetKeyRequest
-	(*SetKeyResponse)(nil),                                          // 69: adselection.SetKeyResponse
-	(*SetReportingDestinationsRequest)(nil),                         // 70: adselection.SetReportingDestinationsRequest
-	(*SetReportingDestinationsResponse)(nil),                        // 71: adselection.SetReportingDestinationsResponse
-	(*GetDecisionLogicUriRequest)(nil),                              // 72: adselection.GetDecisionLogicUriRequest
-	(*GetDecisionLogicUriResponse)(nil),                             // 73: adselection.GetDecisionLogicUriResponse
-	(*GetSignatureRequest)(nil),                                     // 74: adselection.GetSignatureRequest
-	(*GetSignatureResponse)(nil),                                    // 75: adselection.GetSignatureResponse
-	(*SetDecisionLogicUriRequest)(nil),                              // 76: adselection.SetDecisionLogicUriRequest
-	(*SetDecisionLogicUriResponse)(nil),                             // 77: adselection.SetDecisionLogicUriResponse
-	(*SetSignatureRequest)(nil),                                     // 78: adselection.SetSignatureRequest
-	(*SetSignatureResponse)(nil),                                    // 79: adselection.SetSignatureResponse
-	(*GetSelectionLogicUriRequest)(nil),                             // 80: adselection.GetSelectionLogicUriRequest
-	(*GetSelectionLogicUriResponse)(nil),                            // 81: adselection.GetSelectionLogicUriResponse
-	(*GetSelectionSignalsRequest)(nil),                              // 82: adselection.GetSelectionSignalsRequest
-	(*GetSelectionSignalsResponse)(nil),                             // 83: adselection.GetSelectionSignalsResponse
-	(*SetSelectionLogicUriRequest)(nil),                             // 84: adselection.SetSelectionLogicUriRequest
-	(*SetSelectionLogicUriResponse)(nil),                            // 85: adselection.SetSelectionLogicUriResponse
-	(*SetSelectionSignalsRequest)(nil),                              // 86: adselection.SetSelectionSignalsRequest
-	(*SetSelectionSignalsResponse)(nil),                             // 87: adselection.SetSelectionSignalsResponse
-	(*NewAddAdSelectionFromOutcomesOverrideRequestRequest)(nil),     // 88: adselection.NewAddAdSelectionFromOutcomesOverrideRequestRequest
-	(*NewAddAdSelectionFromOutcomesOverrideRequestResponse)(nil),    // 89: adselection.NewAddAdSelectionFromOutcomesOverrideRequestResponse
-	(*GetOutcomeSelectionLogicJsRequest)(nil),                       // 90: adselection.GetOutcomeSelectionLogicJsRequest
-	(*GetOutcomeSelectionLogicJsResponse)(nil),                      // 91: adselection.GetOutcomeSelectionLogicJsResponse
-	(*GetOutcomeSelectionTrustedSignalsRequest)(nil),                // 92: adselection.GetOutcomeSelectionTrustedSignalsRequest
-	(*GetOutcomeSelectionTrustedSignalsResponse)(nil),               // 93: adselection.GetOutcomeSelectionTrustedSignalsResponse
-	(*NewPerBuyerDecisionLogicRequest)(nil),                         // 94: adselection.NewPerBuyerDecisionLogicRequest
-	(*NewPerBuyerDecisionLogicResponse)(nil),                        // 95: adselection.NewPerBuyerDecisionLogicResponse
-	(*PerBuyerDecisionLogicDescribeContentsRequest)(nil),            // 96: adselection.PerBuyerDecisionLogicDescribeContentsRequest
-	(*PerBuyerDecisionLogicEqualsRequest)(nil),                      // 97: adselection.PerBuyerDecisionLogicEqualsRequest
-	(*PerBuyerDecisionLogicHashCodeRequest)(nil),                    // 98: adselection.PerBuyerDecisionLogicHashCodeRequest
-	(*PerBuyerDecisionLogicWriteToParcelRequest)(nil),               // 99: adselection.PerBuyerDecisionLogicWriteToParcelRequest
-	(*GetAdSelectionSignalsRequest)(nil),                            // 100: adselection.GetAdSelectionSignalsRequest
-	(*GetAdSelectionSignalsResponse)(nil),                           // 101: adselection.GetAdSelectionSignalsResponse
-	(*GetSellerSignalsRequest)(nil),                                 // 102: adselection.GetSellerSignalsRequest
-	(*GetSellerSignalsResponse)(nil),                                // 103: adselection.GetSellerSignalsResponse
-	(*GetTrustedScoringSignalsUriRequest)(nil),                      // 104: adselection.GetTrustedScoringSignalsUriRequest
-	(*GetTrustedScoringSignalsUriResponse)(nil),                     // 105: adselection.GetTrustedScoringSignalsUriResponse
-	(*SetAdSelectionSignalsRequest)(nil),                            // 106: adselection.SetAdSelectionSignalsRequest
-	(*SetAdSelectionSignalsResponse)(nil),                           // 107: adselection.SetAdSelectionSignalsResponse
-	(*SetSellerSignalsRequest)(nil),                                 // 108: adselection.SetSellerSignalsRequest
-	(*SetSellerSignalsResponse)(nil),                                // 109: adselection.SetSellerSignalsResponse
-	(*SetTrustedScoringSignalsUriRequest)(nil),                      // 110: adselection.SetTrustedScoringSignalsUriRequest
-	(*SetTrustedScoringSignalsUriResponse)(nil),                     // 111: adselection.SetTrustedScoringSignalsUriResponse
-	(*NewAddAdSelectionOverrideRequestRequest)(nil),                 // 112: adselection.NewAddAdSelectionOverrideRequestRequest
-	(*NewAddAdSelectionOverrideRequestResponse)(nil),                // 113: adselection.NewAddAdSelectionOverrideRequestResponse
-	(*GetAdSelectionConfigRequest)(nil),                             // 114: adselection.GetAdSelectionConfigRequest
-	(*GetAdSelectionConfigResponse)(nil),                            // 115: adselection.GetAdSelectionConfigResponse
-	(*GetDecisionLogicJsRequest)(nil),                               // 116: adselection.GetDecisionLogicJsRequest
-	(*GetDecisionLogicJsResponse)(nil),                              // 117: adselection.GetDecisionLogicJsResponse
-	(*GetPerBuyerDecisionLogicRequest)(nil),                         // 118: adselection.GetPerBuyerDecisionLogicRequest
-	(*GetPerBuyerDecisionLogicResponse)(nil),                        // 119: adselection.GetPerBuyerDecisionLogicResponse
-	(*GetTrustedScoringSignalsRequest)(nil),                         // 120: adselection.GetTrustedScoringSignalsRequest
-	(*GetTrustedScoringSignalsResponse)(nil),                        // 121: adselection.GetTrustedScoringSignalsResponse
-	(*NewAdWithBidRequest)(nil),                                     // 122: adselection.NewAdWithBidRequest
-	(*NewAdWithBidResponse)(nil),                                    // 123: adselection.NewAdWithBidResponse
-	(*AdWithBidDescribeContentsRequest)(nil),                        // 124: adselection.AdWithBidDescribeContentsRequest
-	(*AdWithBidEqualsRequest)(nil),                                  // 125: adselection.AdWithBidEqualsRequest
-	(*GetAdDataRequest)(nil),                                        // 126: adselection.GetAdDataRequest
-	(*GetAdDataResponse)(nil),                                       // 127: adselection.GetAdDataResponse
-	(*GetBidRequest)(nil),                                           // 128: adselection.GetBidRequest
-	(*GetBidResponse)(nil),                                          // 129: adselection.GetBidResponse
-	(*AdWithBidHashCodeRequest)(nil),                                // 130: adselection.AdWithBidHashCodeRequest
-	(*AdWithBidWriteToParcelRequest)(nil),                           // 131: adselection.AdWithBidWriteToParcelRequest
-	(*NewRemoveAdSelectionOverrideRequestRequest)(nil),              // 132: adselection.NewRemoveAdSelectionOverrideRequestRequest
-	(*NewRemoveAdSelectionOverrideRequestResponse)(nil),             // 133: adselection.NewRemoveAdSelectionOverrideRequestResponse
-	(*GetAdSelectionDataRequest)(nil),                               // 134: adselection.GetAdSelectionDataRequest
-	(*GetAdSelectionDataResponse)(nil),                              // 135: adselection.GetAdSelectionDataResponse
-	(*NewDecisionLogicRequest)(nil),                                 // 136: adselection.NewDecisionLogicRequest
-	(*NewDecisionLogicResponse)(nil),                                // 137: adselection.NewDecisionLogicResponse
-	(*DecisionLogicDescribeContentsRequest)(nil),                    // 138: adselection.DecisionLogicDescribeContentsRequest
-	(*DecisionLogicEqualsRequest)(nil),                              // 139: adselection.DecisionLogicEqualsRequest
-	(*GetLogicRequest)(nil),                                         // 140: adselection.GetLogicRequest
-	(*GetLogicResponse)(nil),                                        // 141: adselection.GetLogicResponse
-	(*DecisionLogicHashCodeRequest)(nil),                            // 142: adselection.DecisionLogicHashCodeRequest
-	(*DecisionLogicToStringRequest)(nil),                            // 143: adselection.DecisionLogicToStringRequest
-	(*DecisionLogicWriteToParcelRequest)(nil),                       // 144: adselection.DecisionLogicWriteToParcelRequest
-	(*GetCoordinatorOriginUriRequest)(nil),                          // 145: adselection.GetCoordinatorOriginUriRequest
-	(*GetCoordinatorOriginUriResponse)(nil),                         // 146: adselection.GetCoordinatorOriginUriResponse
-	(*GetSellerConfigurationRequest)(nil),                           // 147: adselection.GetSellerConfigurationRequest
-	(*GetSellerConfigurationResponse)(nil),                          // 148: adselection.GetSellerConfigurationResponse
-	(*SetCoordinatorOriginUriRequest)(nil),                          // 149: adselection.SetCoordinatorOriginUriRequest
-	(*SetCoordinatorOriginUriResponse)(nil),                         // 150: adselection.SetCoordinatorOriginUriResponse
-	(*SetSellerConfigurationRequest)(nil),                           // 151: adselection.SetSellerConfigurationRequest
-	(*SetSellerConfigurationResponse)(nil),                          // 152: adselection.SetSellerConfigurationResponse
-	(*GetRenderUriRequest)(nil),                                     // 153: adselection.GetRenderUriRequest
-	(*GetRenderUriResponse)(nil),                                    // 154: adselection.GetRenderUriResponse
-	(*GetWinningSellerRequest)(nil),                                 // 155: adselection.GetWinningSellerRequest
-	(*GetWinningSellerResponse)(nil),                                // 156: adselection.GetWinningSellerResponse
-	(*HasOutcomeRequest)(nil),                                       // 157: adselection.HasOutcomeRequest
-	(*HasOutcomeResponse)(nil),                                      // 158: adselection.HasOutcomeResponse
-	(*SetRenderUriRequest)(nil),                                     // 159: adselection.SetRenderUriRequest
-	(*SetRenderUriResponse)(nil),                                    // 160: adselection.SetRenderUriResponse
-	(*NewReportImpressionRequestRequest)(nil),                       // 161: adselection.NewReportImpressionRequestRequest
-	(*NewReportImpressionRequestResponse)(nil),                      // 162: adselection.NewReportImpressionRequestResponse
-	(*ReportImpressionRequestGetAdSelectionIdRequest)(nil),          // 163: adselection.ReportImpressionRequestGetAdSelectionIdRequest
+	(*DescribeContentsRequest)(nil),                                 // 0: adselection.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),                                // 1: adselection.DescribeContentsResponse
+	(*EqualsRequest)(nil),                                           // 2: adselection.EqualsRequest
+	(*EqualsResponse)(nil),                                          // 3: adselection.EqualsResponse
+	(*GetAdSelectionSignalsRequest)(nil),                            // 4: adselection.GetAdSelectionSignalsRequest
+	(*GetAdSelectionSignalsResponse)(nil),                           // 5: adselection.GetAdSelectionSignalsResponse
+	(*GetCustomAudienceBuyersRequest)(nil),                          // 6: adselection.GetCustomAudienceBuyersRequest
+	(*GetCustomAudienceBuyersResponse)(nil),                         // 7: adselection.GetCustomAudienceBuyersResponse
+	(*GetDecisionLogicUriRequest)(nil),                              // 8: adselection.GetDecisionLogicUriRequest
+	(*GetDecisionLogicUriResponse)(nil),                             // 9: adselection.GetDecisionLogicUriResponse
+	(*GetSellerRequest)(nil),                                        // 10: adselection.GetSellerRequest
+	(*GetSellerResponse)(nil),                                       // 11: adselection.GetSellerResponse
+	(*GetSellerSignalsRequest)(nil),                                 // 12: adselection.GetSellerSignalsRequest
+	(*GetSellerSignalsResponse)(nil),                                // 13: adselection.GetSellerSignalsResponse
+	(*GetTrustedScoringSignalsUriRequest)(nil),                      // 14: adselection.GetTrustedScoringSignalsUriRequest
+	(*GetTrustedScoringSignalsUriResponse)(nil),                     // 15: adselection.GetTrustedScoringSignalsUriResponse
+	(*HashCodeRequest)(nil),                                         // 16: adselection.HashCodeRequest
+	(*HashCodeResponse)(nil),                                        // 17: adselection.HashCodeResponse
+	(*WriteToParcelRequest)(nil),                                    // 18: adselection.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                                   // 19: adselection.WriteToParcelResponse
+	(*BuildRequest)(nil),                                            // 20: adselection.BuildRequest
+	(*BuildResponse)(nil),                                           // 21: adselection.BuildResponse
+	(*SetAdSelectionSignalsRequest)(nil),                            // 22: adselection.SetAdSelectionSignalsRequest
+	(*SetAdSelectionSignalsResponse)(nil),                           // 23: adselection.SetAdSelectionSignalsResponse
+	(*SetDecisionLogicUriRequest)(nil),                              // 24: adselection.SetDecisionLogicUriRequest
+	(*SetDecisionLogicUriResponse)(nil),                             // 25: adselection.SetDecisionLogicUriResponse
+	(*SetSellerRequest)(nil),                                        // 26: adselection.SetSellerRequest
+	(*SetSellerResponse)(nil),                                       // 27: adselection.SetSellerResponse
+	(*SetSellerSignalsRequest)(nil),                                 // 28: adselection.SetSellerSignalsRequest
+	(*SetSellerSignalsResponse)(nil),                                // 29: adselection.SetSellerSignalsResponse
+	(*SetTrustedScoringSignalsUriRequest)(nil),                      // 30: adselection.SetTrustedScoringSignalsUriRequest
+	(*SetTrustedScoringSignalsUriResponse)(nil),                     // 31: adselection.SetTrustedScoringSignalsUriResponse
+	(*GetAdSelectionIdRequest)(nil),                                 // 32: adselection.GetAdSelectionIdRequest
+	(*GetAdSelectionIdResponse)(nil),                                // 33: adselection.GetAdSelectionIdResponse
+	(*GetDataRequest)(nil),                                          // 34: adselection.GetDataRequest
+	(*GetDataResponse)(nil),                                         // 35: adselection.GetDataResponse
+	(*GetInputEventRequest)(nil),                                    // 36: adselection.GetInputEventRequest
+	(*GetInputEventResponse)(nil),                                   // 37: adselection.GetInputEventResponse
+	(*GetKeyRequest)(nil),                                           // 38: adselection.GetKeyRequest
+	(*GetKeyResponse)(nil),                                          // 39: adselection.GetKeyResponse
+	(*GetReportingDestinationsRequest)(nil),                         // 40: adselection.GetReportingDestinationsRequest
+	(*GetReportingDestinationsResponse)(nil),                        // 41: adselection.GetReportingDestinationsResponse
+	(*SetAdSelectionIdRequest)(nil),                                 // 42: adselection.SetAdSelectionIdRequest
+	(*SetAdSelectionIdResponse)(nil),                                // 43: adselection.SetAdSelectionIdResponse
+	(*SetDataRequest)(nil),                                          // 44: adselection.SetDataRequest
+	(*SetDataResponse)(nil),                                         // 45: adselection.SetDataResponse
+	(*SetInputEventRequest)(nil),                                    // 46: adselection.SetInputEventRequest
+	(*SetInputEventResponse)(nil),                                   // 47: adselection.SetInputEventResponse
+	(*SetKeyRequest)(nil),                                           // 48: adselection.SetKeyRequest
+	(*SetKeyResponse)(nil),                                          // 49: adselection.SetKeyResponse
+	(*SetReportingDestinationsRequest)(nil),                         // 50: adselection.SetReportingDestinationsRequest
+	(*SetReportingDestinationsResponse)(nil),                        // 51: adselection.SetReportingDestinationsResponse
+	(*NewAddAdSelectionOverrideRequestRequest)(nil),                 // 52: adselection.NewAddAdSelectionOverrideRequestRequest
+	(*NewAddAdSelectionOverrideRequestResponse)(nil),                // 53: adselection.NewAddAdSelectionOverrideRequestResponse
+	(*GetAdSelectionConfigRequest)(nil),                             // 54: adselection.GetAdSelectionConfigRequest
+	(*GetAdSelectionConfigResponse)(nil),                            // 55: adselection.GetAdSelectionConfigResponse
+	(*GetDecisionLogicJsRequest)(nil),                               // 56: adselection.GetDecisionLogicJsRequest
+	(*GetDecisionLogicJsResponse)(nil),                              // 57: adselection.GetDecisionLogicJsResponse
+	(*GetPerBuyerDecisionLogicRequest)(nil),                         // 58: adselection.GetPerBuyerDecisionLogicRequest
+	(*GetPerBuyerDecisionLogicResponse)(nil),                        // 59: adselection.GetPerBuyerDecisionLogicResponse
+	(*GetTrustedScoringSignalsRequest)(nil),                         // 60: adselection.GetTrustedScoringSignalsRequest
+	(*GetTrustedScoringSignalsResponse)(nil),                        // 61: adselection.GetTrustedScoringSignalsResponse
+	(*GetTestAdSelectionManagerRequest)(nil),                        // 62: adselection.GetTestAdSelectionManagerRequest
+	(*GetTestAdSelectionManagerResponse)(nil),                       // 63: adselection.GetTestAdSelectionManagerResponse
+	(*GetRequest)(nil),                                              // 64: adselection.GetRequest
+	(*GetResponse)(nil),                                             // 65: adselection.GetResponse
+	(*NewDecisionLogicRequest)(nil),                                 // 66: adselection.NewDecisionLogicRequest
+	(*NewDecisionLogicResponse)(nil),                                // 67: adselection.NewDecisionLogicResponse
+	(*DecisionLogicDescribeContentsRequest)(nil),                    // 68: adselection.DecisionLogicDescribeContentsRequest
+	(*DecisionLogicEqualsRequest)(nil),                              // 69: adselection.DecisionLogicEqualsRequest
+	(*GetLogicRequest)(nil),                                         // 70: adselection.GetLogicRequest
+	(*GetLogicResponse)(nil),                                        // 71: adselection.GetLogicResponse
+	(*DecisionLogicHashCodeRequest)(nil),                            // 72: adselection.DecisionLogicHashCodeRequest
+	(*ToStringRequest)(nil),                                         // 73: adselection.ToStringRequest
+	(*ToStringResponse)(nil),                                        // 74: adselection.ToStringResponse
+	(*DecisionLogicWriteToParcelRequest)(nil),                       // 75: adselection.DecisionLogicWriteToParcelRequest
+	(*GetAdvertisersRequest)(nil),                                   // 76: adselection.GetAdvertisersRequest
+	(*GetAdvertisersResponse)(nil),                                  // 77: adselection.GetAdvertisersResponse
+	(*GetAdsWithBidRequest)(nil),                                    // 78: adselection.GetAdsWithBidRequest
+	(*GetAdsWithBidResponse)(nil),                                   // 79: adselection.GetAdsWithBidResponse
+	(*GetBuyerRequest)(nil),                                         // 80: adselection.GetBuyerRequest
+	(*GetBuyerResponse)(nil),                                        // 81: adselection.GetBuyerResponse
+	(*GetSignatureRequest)(nil),                                     // 82: adselection.GetSignatureRequest
+	(*GetSignatureResponse)(nil),                                    // 83: adselection.GetSignatureResponse
+	(*SignedContextualAdsToStringRequest)(nil),                      // 84: adselection.SignedContextualAdsToStringRequest
+	(*SetBuyerRequest)(nil),                                         // 85: adselection.SetBuyerRequest
+	(*SetBuyerResponse)(nil),                                        // 86: adselection.SetBuyerResponse
+	(*SetSignatureRequest)(nil),                                     // 87: adselection.SetSignatureRequest
+	(*SetSignatureResponse)(nil),                                    // 88: adselection.SetSignatureResponse
+	(*GetMaximumPayloadSizeBytesRequest)(nil),                       // 89: adselection.GetMaximumPayloadSizeBytesRequest
+	(*GetMaximumPayloadSizeBytesResponse)(nil),                      // 90: adselection.GetMaximumPayloadSizeBytesResponse
+	(*GetPerBuyerConfigurationsRequest)(nil),                        // 91: adselection.GetPerBuyerConfigurationsRequest
+	(*GetPerBuyerConfigurationsResponse)(nil),                       // 92: adselection.GetPerBuyerConfigurationsResponse
+	(*SetMaximumPayloadSizeBytesRequest)(nil),                       // 93: adselection.SetMaximumPayloadSizeBytesRequest
+	(*SetMaximumPayloadSizeBytesResponse)(nil),                      // 94: adselection.SetMaximumPayloadSizeBytesResponse
+	(*GetComponentAdUrisRequest)(nil),                               // 95: adselection.GetComponentAdUrisRequest
+	(*GetComponentAdUrisResponse)(nil),                              // 96: adselection.GetComponentAdUrisResponse
+	(*GetRenderUriRequest)(nil),                                     // 97: adselection.GetRenderUriRequest
+	(*GetRenderUriResponse)(nil),                                    // 98: adselection.GetRenderUriResponse
+	(*GetWinningSellerRequest)(nil),                                 // 99: adselection.GetWinningSellerRequest
+	(*GetWinningSellerResponse)(nil),                                // 100: adselection.GetWinningSellerResponse
+	(*HasOutcomeRequest)(nil),                                       // 101: adselection.HasOutcomeRequest
+	(*HasOutcomeResponse)(nil),                                      // 102: adselection.HasOutcomeResponse
+	(*SetRenderUriRequest)(nil),                                     // 103: adselection.SetRenderUriRequest
+	(*SetRenderUriResponse)(nil),                                    // 104: adselection.SetRenderUriResponse
+	(*GetTargetInputSizeBytesRequest)(nil),                          // 105: adselection.GetTargetInputSizeBytesRequest
+	(*GetTargetInputSizeBytesResponse)(nil),                         // 106: adselection.GetTargetInputSizeBytesResponse
+	(*SetTargetInputSizeBytesRequest)(nil),                          // 107: adselection.SetTargetInputSizeBytesRequest
+	(*SetTargetInputSizeBytesResponse)(nil),                         // 108: adselection.SetTargetInputSizeBytesResponse
+	(*NewPerBuyerDecisionLogicRequest)(nil),                         // 109: adselection.NewPerBuyerDecisionLogicRequest
+	(*NewPerBuyerDecisionLogicResponse)(nil),                        // 110: adselection.NewPerBuyerDecisionLogicResponse
+	(*PerBuyerDecisionLogicDescribeContentsRequest)(nil),            // 111: adselection.PerBuyerDecisionLogicDescribeContentsRequest
+	(*PerBuyerDecisionLogicEqualsRequest)(nil),                      // 112: adselection.PerBuyerDecisionLogicEqualsRequest
+	(*PerBuyerDecisionLogicHashCodeRequest)(nil),                    // 113: adselection.PerBuyerDecisionLogicHashCodeRequest
+	(*PerBuyerDecisionLogicWriteToParcelRequest)(nil),               // 114: adselection.PerBuyerDecisionLogicWriteToParcelRequest
+	(*NewRemoveAdSelectionOverrideRequestRequest)(nil),              // 115: adselection.NewRemoveAdSelectionOverrideRequestRequest
+	(*NewRemoveAdSelectionOverrideRequestResponse)(nil),             // 116: adselection.NewRemoveAdSelectionOverrideRequestResponse
+	(*NewReportImpressionRequestRequest)(nil),                       // 117: adselection.NewReportImpressionRequestRequest
+	(*NewReportImpressionRequestResponse)(nil),                      // 118: adselection.NewReportImpressionRequestResponse
+	(*ReportImpressionRequestGetAdSelectionIdRequest)(nil),          // 119: adselection.ReportImpressionRequestGetAdSelectionIdRequest
+	(*NewAddAdSelectionFromOutcomesOverrideRequestRequest)(nil),     // 120: adselection.NewAddAdSelectionFromOutcomesOverrideRequestRequest
+	(*NewAddAdSelectionFromOutcomesOverrideRequestResponse)(nil),    // 121: adselection.NewAddAdSelectionFromOutcomesOverrideRequestResponse
+	(*GetAdSelectionFromOutcomesConfigRequest)(nil),                 // 122: adselection.GetAdSelectionFromOutcomesConfigRequest
+	(*GetAdSelectionFromOutcomesConfigResponse)(nil),                // 123: adselection.GetAdSelectionFromOutcomesConfigResponse
+	(*GetOutcomeSelectionLogicJsRequest)(nil),                       // 124: adselection.GetOutcomeSelectionLogicJsRequest
+	(*GetOutcomeSelectionLogicJsResponse)(nil),                      // 125: adselection.GetOutcomeSelectionLogicJsResponse
+	(*GetOutcomeSelectionTrustedSignalsRequest)(nil),                // 126: adselection.GetOutcomeSelectionTrustedSignalsRequest
+	(*GetOutcomeSelectionTrustedSignalsResponse)(nil),               // 127: adselection.GetOutcomeSelectionTrustedSignalsResponse
+	(*GetAdSelectionDataRequest)(nil),                               // 128: adselection.GetAdSelectionDataRequest
+	(*GetAdSelectionDataResponse)(nil),                              // 129: adselection.GetAdSelectionDataResponse
+	(*GetAdSelectionDataIdRequest)(nil),                             // 130: adselection.GetAdSelectionDataIdRequest
+	(*GetAdSelectionDataIdResponse)(nil),                            // 131: adselection.GetAdSelectionDataIdResponse
+	(*NewRemoveAdSelectionFromOutcomesOverrideRequestRequest)(nil),  // 132: adselection.NewRemoveAdSelectionFromOutcomesOverrideRequestRequest
+	(*NewRemoveAdSelectionFromOutcomesOverrideRequestResponse)(nil), // 133: adselection.NewRemoveAdSelectionFromOutcomesOverrideRequestResponse
+	(*GetAdSelectionResultRequest)(nil),                             // 134: adselection.GetAdSelectionResultRequest
+	(*GetAdSelectionResultResponse)(nil),                            // 135: adselection.GetAdSelectionResultResponse
+	(*SetAdSelectionDataIdRequest)(nil),                             // 136: adselection.SetAdSelectionDataIdRequest
+	(*SetAdSelectionDataIdResponse)(nil),                            // 137: adselection.SetAdSelectionDataIdResponse
+	(*SetAdSelectionResultRequest)(nil),                             // 138: adselection.SetAdSelectionResultRequest
+	(*SetAdSelectionResultResponse)(nil),                            // 139: adselection.SetAdSelectionResultResponse
+	(*GetAdSelectionIdsRequest)(nil),                                // 140: adselection.GetAdSelectionIdsRequest
+	(*GetAdSelectionIdsResponse)(nil),                               // 141: adselection.GetAdSelectionIdsResponse
+	(*GetSelectionLogicUriRequest)(nil),                             // 142: adselection.GetSelectionLogicUriRequest
+	(*GetSelectionLogicUriResponse)(nil),                            // 143: adselection.GetSelectionLogicUriResponse
+	(*GetSelectionSignalsRequest)(nil),                              // 144: adselection.GetSelectionSignalsRequest
+	(*GetSelectionSignalsResponse)(nil),                             // 145: adselection.GetSelectionSignalsResponse
+	(*SetSelectionLogicUriRequest)(nil),                             // 146: adselection.SetSelectionLogicUriRequest
+	(*SetSelectionLogicUriResponse)(nil),                            // 147: adselection.SetSelectionLogicUriResponse
+	(*SetSelectionSignalsRequest)(nil),                              // 148: adselection.SetSelectionSignalsRequest
+	(*SetSelectionSignalsResponse)(nil),                             // 149: adselection.SetSelectionSignalsResponse
+	(*GetCoordinatorOriginUriRequest)(nil),                          // 150: adselection.GetCoordinatorOriginUriRequest
+	(*GetCoordinatorOriginUriResponse)(nil),                         // 151: adselection.GetCoordinatorOriginUriResponse
+	(*GetSellerConfigurationRequest)(nil),                           // 152: adselection.GetSellerConfigurationRequest
+	(*GetSellerConfigurationResponse)(nil),                          // 153: adselection.GetSellerConfigurationResponse
+	(*SetCoordinatorOriginUriRequest)(nil),                          // 154: adselection.SetCoordinatorOriginUriRequest
+	(*SetCoordinatorOriginUriResponse)(nil),                         // 155: adselection.SetCoordinatorOriginUriResponse
+	(*SetSellerConfigurationRequest)(nil),                           // 156: adselection.SetSellerConfigurationRequest
+	(*SetSellerConfigurationResponse)(nil),                          // 157: adselection.SetSellerConfigurationResponse
+	(*NewAdWithBidRequest)(nil),                                     // 158: adselection.NewAdWithBidRequest
+	(*NewAdWithBidResponse)(nil),                                    // 159: adselection.NewAdWithBidResponse
+	(*AdWithBidDescribeContentsRequest)(nil),                        // 160: adselection.AdWithBidDescribeContentsRequest
+	(*AdWithBidEqualsRequest)(nil),                                  // 161: adselection.AdWithBidEqualsRequest
+	(*GetAdDataRequest)(nil),                                        // 162: adselection.GetAdDataRequest
+	(*GetAdDataResponse)(nil),                                       // 163: adselection.GetAdDataResponse
+	(*GetBidRequest)(nil),                                           // 164: adselection.GetBidRequest
+	(*GetBidResponse)(nil),                                          // 165: adselection.GetBidResponse
+	(*AdWithBidHashCodeRequest)(nil),                                // 166: adselection.AdWithBidHashCodeRequest
+	(*AdWithBidWriteToParcelRequest)(nil),                           // 167: adselection.AdWithBidWriteToParcelRequest
+	(*GetAdEventTypeRequest)(nil),                                   // 168: adselection.GetAdEventTypeRequest
+	(*GetAdEventTypeResponse)(nil),                                  // 169: adselection.GetAdEventTypeResponse
+	(*GetCallerAdTechRequest)(nil),                                  // 170: adselection.GetCallerAdTechRequest
+	(*GetCallerAdTechResponse)(nil),                                 // 171: adselection.GetCallerAdTechResponse
+	(*UpdateAdCounterHistogramRequestToStringRequest)(nil),          // 172: adselection.UpdateAdCounterHistogramRequestToStringRequest
+	(*SetAdEventTypeRequest)(nil),                                   // 173: adselection.SetAdEventTypeRequest
+	(*SetAdEventTypeResponse)(nil),                                  // 174: adselection.SetAdEventTypeResponse
+	(*SetCallerAdTechRequest)(nil),                                  // 175: adselection.SetCallerAdTechRequest
+	(*SetCallerAdTechResponse)(nil),                                 // 176: adselection.SetCallerAdTechResponse
 }
 var file_proto_adselection_adselection_proto_depIdxs = []int32{
-	0,   // 0: adselection.PersistAdSelectionResultRequestService.GetAdSelectionDataId:input_type -> adselection.GetAdSelectionDataIdRequest
-	2,   // 1: adselection.PersistAdSelectionResultRequestService.GetAdSelectionId:input_type -> adselection.GetAdSelectionIdRequest
-	4,   // 2: adselection.PersistAdSelectionResultRequestService.GetAdSelectionResult:input_type -> adselection.GetAdSelectionResultRequest
-	6,   // 3: adselection.PersistAdSelectionResultRequestService.GetSeller:input_type -> adselection.GetSellerRequest
-	8,   // 4: adselection.PersistAdSelectionResultRequestBuilderService.Build:input_type -> adselection.BuildRequest
-	10,  // 5: adselection.PersistAdSelectionResultRequestBuilderService.SetAdSelectionDataId:input_type -> adselection.SetAdSelectionDataIdRequest
-	12,  // 6: adselection.PersistAdSelectionResultRequestBuilderService.SetAdSelectionId:input_type -> adselection.SetAdSelectionIdRequest
-	14,  // 7: adselection.PersistAdSelectionResultRequestBuilderService.SetAdSelectionResult:input_type -> adselection.SetAdSelectionResultRequest
-	16,  // 8: adselection.PersistAdSelectionResultRequestBuilderService.SetSeller:input_type -> adselection.SetSellerRequest
-	18,  // 9: adselection.SellerConfigurationService.DescribeContents:input_type -> adselection.DescribeContentsRequest
-	20,  // 10: adselection.SellerConfigurationService.Equals:input_type -> adselection.EqualsRequest
-	22,  // 11: adselection.SellerConfigurationService.GetMaximumPayloadSizeBytes:input_type -> adselection.GetMaximumPayloadSizeBytesRequest
-	24,  // 12: adselection.SellerConfigurationService.HashCode:input_type -> adselection.HashCodeRequest
-	26,  // 13: adselection.SellerConfigurationService.WriteToParcel:input_type -> adselection.WriteToParcelRequest
-	8,   // 14: adselection.SellerConfigurationBuilderService.Build:input_type -> adselection.BuildRequest
-	28,  // 15: adselection.SellerConfigurationBuilderService.SetMaximumPayloadSizeBytes:input_type -> adselection.SetMaximumPayloadSizeBytesRequest
-	30,  // 16: adselection.RemoveAdSelectionFromOutcomesOverrideRequestService.NewRemoveAdSelectionFromOutcomesOverrideRequest:input_type -> adselection.NewRemoveAdSelectionFromOutcomesOverrideRequestRequest
-	32,  // 17: adselection.RemoveAdSelectionFromOutcomesOverrideRequestService.GetAdSelectionFromOutcomesConfig:input_type -> adselection.GetAdSelectionFromOutcomesConfigRequest
-	8,   // 18: adselection.SetAppInstallAdvertisersRequestBuilderService.Build:input_type -> adselection.BuildRequest
-	20,  // 19: adselection.UpdateAdCounterHistogramRequestService.Equals:input_type -> adselection.EqualsRequest
-	34,  // 20: adselection.UpdateAdCounterHistogramRequestService.GetAdEventType:input_type -> adselection.GetAdEventTypeRequest
-	2,   // 21: adselection.UpdateAdCounterHistogramRequestService.GetAdSelectionId:input_type -> adselection.GetAdSelectionIdRequest
-	36,  // 22: adselection.UpdateAdCounterHistogramRequestService.GetCallerAdTech:input_type -> adselection.GetCallerAdTechRequest
-	24,  // 23: adselection.UpdateAdCounterHistogramRequestService.HashCode:input_type -> adselection.HashCodeRequest
-	38,  // 24: adselection.UpdateAdCounterHistogramRequestService.ToString:input_type -> adselection.ToStringRequest
-	8,   // 25: adselection.UpdateAdCounterHistogramRequestBuilderService.Build:input_type -> adselection.BuildRequest
-	40,  // 26: adselection.UpdateAdCounterHistogramRequestBuilderService.SetAdEventType:input_type -> adselection.SetAdEventTypeRequest
-	12,  // 27: adselection.UpdateAdCounterHistogramRequestBuilderService.SetAdSelectionId:input_type -> adselection.SetAdSelectionIdRequest
-	42,  // 28: adselection.UpdateAdCounterHistogramRequestBuilderService.SetCallerAdTech:input_type -> adselection.SetCallerAdTechRequest
-	18,  // 29: adselection.PerBuyerConfigurationService.DescribeContents:input_type -> adselection.DescribeContentsRequest
-	20,  // 30: adselection.PerBuyerConfigurationService.Equals:input_type -> adselection.EqualsRequest
-	44,  // 31: adselection.PerBuyerConfigurationService.GetBuyer:input_type -> adselection.GetBuyerRequest
-	46,  // 32: adselection.PerBuyerConfigurationService.GetTargetInputSizeBytes:input_type -> adselection.GetTargetInputSizeBytesRequest
-	24,  // 33: adselection.PerBuyerConfigurationService.HashCode:input_type -> adselection.HashCodeRequest
-	26,  // 34: adselection.PerBuyerConfigurationService.WriteToParcel:input_type -> adselection.WriteToParcelRequest
-	8,   // 35: adselection.PerBuyerConfigurationBuilderService.Build:input_type -> adselection.BuildRequest
-	48,  // 36: adselection.PerBuyerConfigurationBuilderService.SetBuyer:input_type -> adselection.SetBuyerRequest
-	50,  // 37: adselection.PerBuyerConfigurationBuilderService.SetTargetInputSizeBytes:input_type -> adselection.SetTargetInputSizeBytesRequest
-	52,  // 38: adselection.AdSelectionManagerService.GetTestAdSelectionManager:input_type -> adselection.GetTestAdSelectionManagerRequest
-	54,  // 39: adselection.AdSelectionManagerService.Get:input_type -> adselection.GetRequest
-	2,   // 40: adselection.ReportEventRequestService.GetAdSelectionId:input_type -> adselection.GetAdSelectionIdRequest
-	56,  // 41: adselection.ReportEventRequestService.GetData:input_type -> adselection.GetDataRequest
-	58,  // 42: adselection.ReportEventRequestService.GetInputEvent:input_type -> adselection.GetInputEventRequest
-	60,  // 43: adselection.ReportEventRequestService.GetKey:input_type -> adselection.GetKeyRequest
-	62,  // 44: adselection.ReportEventRequestService.GetReportingDestinations:input_type -> adselection.GetReportingDestinationsRequest
-	8,   // 45: adselection.ReportEventRequestBuilderService.Build:input_type -> adselection.BuildRequest
-	12,  // 46: adselection.ReportEventRequestBuilderService.SetAdSelectionId:input_type -> adselection.SetAdSelectionIdRequest
-	64,  // 47: adselection.ReportEventRequestBuilderService.SetData:input_type -> adselection.SetDataRequest
-	66,  // 48: adselection.ReportEventRequestBuilderService.SetInputEvent:input_type -> adselection.SetInputEventRequest
-	68,  // 49: adselection.ReportEventRequestBuilderService.SetKey:input_type -> adselection.SetKeyRequest
-	70,  // 50: adselection.ReportEventRequestBuilderService.SetReportingDestinations:input_type -> adselection.SetReportingDestinationsRequest
-	18,  // 51: adselection.SignedContextualAdsService.DescribeContents:input_type -> adselection.DescribeContentsRequest
-	20,  // 52: adselection.SignedContextualAdsService.Equals:input_type -> adselection.EqualsRequest
-	44,  // 53: adselection.SignedContextualAdsService.GetBuyer:input_type -> adselection.GetBuyerRequest
-	72,  // 54: adselection.SignedContextualAdsService.GetDecisionLogicUri:input_type -> adselection.GetDecisionLogicUriRequest
-	74,  // 55: adselection.SignedContextualAdsService.GetSignature:input_type -> adselection.GetSignatureRequest
-	24,  // 56: adselection.SignedContextualAdsService.HashCode:input_type -> adselection.HashCodeRequest
-	38,  // 57: adselection.SignedContextualAdsService.ToString:input_type -> adselection.ToStringRequest
-	26,  // 58: adselection.SignedContextualAdsService.WriteToParcel:input_type -> adselection.WriteToParcelRequest
-	8,   // 59: adselection.SignedContextualAdsBuilderService.Build:input_type -> adselection.BuildRequest
-	48,  // 60: adselection.SignedContextualAdsBuilderService.SetBuyer:input_type -> adselection.SetBuyerRequest
-	76,  // 61: adselection.SignedContextualAdsBuilderService.SetDecisionLogicUri:input_type -> adselection.SetDecisionLogicUriRequest
-	78,  // 62: adselection.SignedContextualAdsBuilderService.SetSignature:input_type -> adselection.SetSignatureRequest
-	18,  // 63: adselection.AdSelectionFromOutcomesConfigService.DescribeContents:input_type -> adselection.DescribeContentsRequest
-	20,  // 64: adselection.AdSelectionFromOutcomesConfigService.Equals:input_type -> adselection.EqualsRequest
-	80,  // 65: adselection.AdSelectionFromOutcomesConfigService.GetSelectionLogicUri:input_type -> adselection.GetSelectionLogicUriRequest
-	82,  // 66: adselection.AdSelectionFromOutcomesConfigService.GetSelectionSignals:input_type -> adselection.GetSelectionSignalsRequest
-	6,   // 67: adselection.AdSelectionFromOutcomesConfigService.GetSeller:input_type -> adselection.GetSellerRequest
-	24,  // 68: adselection.AdSelectionFromOutcomesConfigService.HashCode:input_type -> adselection.HashCodeRequest
-	26,  // 69: adselection.AdSelectionFromOutcomesConfigService.WriteToParcel:input_type -> adselection.WriteToParcelRequest
-	8,   // 70: adselection.AdSelectionFromOutcomesConfigBuilderService.Build:input_type -> adselection.BuildRequest
-	84,  // 71: adselection.AdSelectionFromOutcomesConfigBuilderService.SetSelectionLogicUri:input_type -> adselection.SetSelectionLogicUriRequest
-	86,  // 72: adselection.AdSelectionFromOutcomesConfigBuilderService.SetSelectionSignals:input_type -> adselection.SetSelectionSignalsRequest
-	16,  // 73: adselection.AdSelectionFromOutcomesConfigBuilderService.SetSeller:input_type -> adselection.SetSellerRequest
-	88,  // 74: adselection.AddAdSelectionFromOutcomesOverrideRequestService.NewAddAdSelectionFromOutcomesOverrideRequest:input_type -> adselection.NewAddAdSelectionFromOutcomesOverrideRequestRequest
-	32,  // 75: adselection.AddAdSelectionFromOutcomesOverrideRequestService.GetAdSelectionFromOutcomesConfig:input_type -> adselection.GetAdSelectionFromOutcomesConfigRequest
-	90,  // 76: adselection.AddAdSelectionFromOutcomesOverrideRequestService.GetOutcomeSelectionLogicJs:input_type -> adselection.GetOutcomeSelectionLogicJsRequest
-	92,  // 77: adselection.AddAdSelectionFromOutcomesOverrideRequestService.GetOutcomeSelectionTrustedSignals:input_type -> adselection.GetOutcomeSelectionTrustedSignalsRequest
-	94,  // 78: adselection.PerBuyerDecisionLogicService.NewPerBuyerDecisionLogic:input_type -> adselection.NewPerBuyerDecisionLogicRequest
-	96,  // 79: adselection.PerBuyerDecisionLogicService.DescribeContents:input_type -> adselection.PerBuyerDecisionLogicDescribeContentsRequest
-	97,  // 80: adselection.PerBuyerDecisionLogicService.Equals:input_type -> adselection.PerBuyerDecisionLogicEqualsRequest
-	98,  // 81: adselection.PerBuyerDecisionLogicService.HashCode:input_type -> adselection.PerBuyerDecisionLogicHashCodeRequest
-	99,  // 82: adselection.PerBuyerDecisionLogicService.WriteToParcel:input_type -> adselection.PerBuyerDecisionLogicWriteToParcelRequest
-	18,  // 83: adselection.AdSelectionConfigService.DescribeContents:input_type -> adselection.DescribeContentsRequest
-	20,  // 84: adselection.AdSelectionConfigService.Equals:input_type -> adselection.EqualsRequest
-	100, // 85: adselection.AdSelectionConfigService.GetAdSelectionSignals:input_type -> adselection.GetAdSelectionSignalsRequest
-	72,  // 86: adselection.AdSelectionConfigService.GetDecisionLogicUri:input_type -> adselection.GetDecisionLogicUriRequest
-	6,   // 87: adselection.AdSelectionConfigService.GetSeller:input_type -> adselection.GetSellerRequest
-	102, // 88: adselection.AdSelectionConfigService.GetSellerSignals:input_type -> adselection.GetSellerSignalsRequest
-	104, // 89: adselection.AdSelectionConfigService.GetTrustedScoringSignalsUri:input_type -> adselection.GetTrustedScoringSignalsUriRequest
-	24,  // 90: adselection.AdSelectionConfigService.HashCode:input_type -> adselection.HashCodeRequest
-	26,  // 91: adselection.AdSelectionConfigService.WriteToParcel:input_type -> adselection.WriteToParcelRequest
-	8,   // 92: adselection.AdSelectionConfigBuilderService.Build:input_type -> adselection.BuildRequest
-	106, // 93: adselection.AdSelectionConfigBuilderService.SetAdSelectionSignals:input_type -> adselection.SetAdSelectionSignalsRequest
-	76,  // 94: adselection.AdSelectionConfigBuilderService.SetDecisionLogicUri:input_type -> adselection.SetDecisionLogicUriRequest
-	16,  // 95: adselection.AdSelectionConfigBuilderService.SetSeller:input_type -> adselection.SetSellerRequest
-	108, // 96: adselection.AdSelectionConfigBuilderService.SetSellerSignals:input_type -> adselection.SetSellerSignalsRequest
-	110, // 97: adselection.AdSelectionConfigBuilderService.SetTrustedScoringSignalsUri:input_type -> adselection.SetTrustedScoringSignalsUriRequest
-	112, // 98: adselection.AddAdSelectionOverrideRequestService.NewAddAdSelectionOverrideRequest:input_type -> adselection.NewAddAdSelectionOverrideRequestRequest
-	114, // 99: adselection.AddAdSelectionOverrideRequestService.GetAdSelectionConfig:input_type -> adselection.GetAdSelectionConfigRequest
-	116, // 100: adselection.AddAdSelectionOverrideRequestService.GetDecisionLogicJs:input_type -> adselection.GetDecisionLogicJsRequest
-	118, // 101: adselection.AddAdSelectionOverrideRequestService.GetPerBuyerDecisionLogic:input_type -> adselection.GetPerBuyerDecisionLogicRequest
-	120, // 102: adselection.AddAdSelectionOverrideRequestService.GetTrustedScoringSignals:input_type -> adselection.GetTrustedScoringSignalsRequest
-	122, // 103: adselection.AdWithBidService.NewAdWithBid:input_type -> adselection.NewAdWithBidRequest
-	124, // 104: adselection.AdWithBidService.DescribeContents:input_type -> adselection.AdWithBidDescribeContentsRequest
-	125, // 105: adselection.AdWithBidService.Equals:input_type -> adselection.AdWithBidEqualsRequest
-	126, // 106: adselection.AdWithBidService.GetAdData:input_type -> adselection.GetAdDataRequest
-	128, // 107: adselection.AdWithBidService.GetBid:input_type -> adselection.GetBidRequest
-	130, // 108: adselection.AdWithBidService.HashCode:input_type -> adselection.AdWithBidHashCodeRequest
-	131, // 109: adselection.AdWithBidService.WriteToParcel:input_type -> adselection.AdWithBidWriteToParcelRequest
-	132, // 110: adselection.RemoveAdSelectionOverrideRequestService.NewRemoveAdSelectionOverrideRequest:input_type -> adselection.NewRemoveAdSelectionOverrideRequestRequest
-	114, // 111: adselection.RemoveAdSelectionOverrideRequestService.GetAdSelectionConfig:input_type -> adselection.GetAdSelectionConfigRequest
-	134, // 112: adselection.GetAdSelectionDataOutcomeService.GetAdSelectionData:input_type -> adselection.GetAdSelectionDataRequest
-	0,   // 113: adselection.GetAdSelectionDataOutcomeService.GetAdSelectionDataId:input_type -> adselection.GetAdSelectionDataIdRequest
-	2,   // 114: adselection.GetAdSelectionDataOutcomeService.GetAdSelectionId:input_type -> adselection.GetAdSelectionIdRequest
-	136, // 115: adselection.DecisionLogicService.NewDecisionLogic:input_type -> adselection.NewDecisionLogicRequest
-	138, // 116: adselection.DecisionLogicService.DescribeContents:input_type -> adselection.DecisionLogicDescribeContentsRequest
-	139, // 117: adselection.DecisionLogicService.Equals:input_type -> adselection.DecisionLogicEqualsRequest
-	140, // 118: adselection.DecisionLogicService.GetLogic:input_type -> adselection.GetLogicRequest
-	142, // 119: adselection.DecisionLogicService.HashCode:input_type -> adselection.DecisionLogicHashCodeRequest
-	143, // 120: adselection.DecisionLogicService.ToString:input_type -> adselection.DecisionLogicToStringRequest
-	144, // 121: adselection.DecisionLogicService.WriteToParcel:input_type -> adselection.DecisionLogicWriteToParcelRequest
-	145, // 122: adselection.GetAdSelectionDataRequestService.GetCoordinatorOriginUri:input_type -> adselection.GetCoordinatorOriginUriRequest
-	6,   // 123: adselection.GetAdSelectionDataRequestService.GetSeller:input_type -> adselection.GetSellerRequest
-	147, // 124: adselection.GetAdSelectionDataRequestService.GetSellerConfiguration:input_type -> adselection.GetSellerConfigurationRequest
-	8,   // 125: adselection.GetAdSelectionDataRequestBuilderService.Build:input_type -> adselection.BuildRequest
-	149, // 126: adselection.GetAdSelectionDataRequestBuilderService.SetCoordinatorOriginUri:input_type -> adselection.SetCoordinatorOriginUriRequest
-	16,  // 127: adselection.GetAdSelectionDataRequestBuilderService.SetSeller:input_type -> adselection.SetSellerRequest
-	151, // 128: adselection.GetAdSelectionDataRequestBuilderService.SetSellerConfiguration:input_type -> adselection.SetSellerConfigurationRequest
-	20,  // 129: adselection.AdSelectionOutcomeService.Equals:input_type -> adselection.EqualsRequest
-	2,   // 130: adselection.AdSelectionOutcomeService.GetAdSelectionId:input_type -> adselection.GetAdSelectionIdRequest
-	153, // 131: adselection.AdSelectionOutcomeService.GetRenderUri:input_type -> adselection.GetRenderUriRequest
-	155, // 132: adselection.AdSelectionOutcomeService.GetWinningSeller:input_type -> adselection.GetWinningSellerRequest
-	157, // 133: adselection.AdSelectionOutcomeService.HasOutcome:input_type -> adselection.HasOutcomeRequest
-	24,  // 134: adselection.AdSelectionOutcomeService.HashCode:input_type -> adselection.HashCodeRequest
-	8,   // 135: adselection.AdSelectionOutcomeBuilderService.Build:input_type -> adselection.BuildRequest
-	12,  // 136: adselection.AdSelectionOutcomeBuilderService.SetAdSelectionId:input_type -> adselection.SetAdSelectionIdRequest
-	159, // 137: adselection.AdSelectionOutcomeBuilderService.SetRenderUri:input_type -> adselection.SetRenderUriRequest
-	161, // 138: adselection.ReportImpressionRequestService.NewReportImpressionRequest:input_type -> adselection.NewReportImpressionRequestRequest
-	114, // 139: adselection.ReportImpressionRequestService.GetAdSelectionConfig:input_type -> adselection.GetAdSelectionConfigRequest
-	163, // 140: adselection.ReportImpressionRequestService.GetAdSelectionId:input_type -> adselection.ReportImpressionRequestGetAdSelectionIdRequest
-	1,   // 141: adselection.PersistAdSelectionResultRequestService.GetAdSelectionDataId:output_type -> adselection.GetAdSelectionDataIdResponse
-	3,   // 142: adselection.PersistAdSelectionResultRequestService.GetAdSelectionId:output_type -> adselection.GetAdSelectionIdResponse
-	5,   // 143: adselection.PersistAdSelectionResultRequestService.GetAdSelectionResult:output_type -> adselection.GetAdSelectionResultResponse
-	7,   // 144: adselection.PersistAdSelectionResultRequestService.GetSeller:output_type -> adselection.GetSellerResponse
-	9,   // 145: adselection.PersistAdSelectionResultRequestBuilderService.Build:output_type -> adselection.BuildResponse
-	11,  // 146: adselection.PersistAdSelectionResultRequestBuilderService.SetAdSelectionDataId:output_type -> adselection.SetAdSelectionDataIdResponse
-	13,  // 147: adselection.PersistAdSelectionResultRequestBuilderService.SetAdSelectionId:output_type -> adselection.SetAdSelectionIdResponse
-	15,  // 148: adselection.PersistAdSelectionResultRequestBuilderService.SetAdSelectionResult:output_type -> adselection.SetAdSelectionResultResponse
-	17,  // 149: adselection.PersistAdSelectionResultRequestBuilderService.SetSeller:output_type -> adselection.SetSellerResponse
-	19,  // 150: adselection.SellerConfigurationService.DescribeContents:output_type -> adselection.DescribeContentsResponse
-	21,  // 151: adselection.SellerConfigurationService.Equals:output_type -> adselection.EqualsResponse
-	23,  // 152: adselection.SellerConfigurationService.GetMaximumPayloadSizeBytes:output_type -> adselection.GetMaximumPayloadSizeBytesResponse
-	25,  // 153: adselection.SellerConfigurationService.HashCode:output_type -> adselection.HashCodeResponse
-	27,  // 154: adselection.SellerConfigurationService.WriteToParcel:output_type -> adselection.WriteToParcelResponse
-	9,   // 155: adselection.SellerConfigurationBuilderService.Build:output_type -> adselection.BuildResponse
-	29,  // 156: adselection.SellerConfigurationBuilderService.SetMaximumPayloadSizeBytes:output_type -> adselection.SetMaximumPayloadSizeBytesResponse
-	31,  // 157: adselection.RemoveAdSelectionFromOutcomesOverrideRequestService.NewRemoveAdSelectionFromOutcomesOverrideRequest:output_type -> adselection.NewRemoveAdSelectionFromOutcomesOverrideRequestResponse
-	33,  // 158: adselection.RemoveAdSelectionFromOutcomesOverrideRequestService.GetAdSelectionFromOutcomesConfig:output_type -> adselection.GetAdSelectionFromOutcomesConfigResponse
-	9,   // 159: adselection.SetAppInstallAdvertisersRequestBuilderService.Build:output_type -> adselection.BuildResponse
-	21,  // 160: adselection.UpdateAdCounterHistogramRequestService.Equals:output_type -> adselection.EqualsResponse
-	35,  // 161: adselection.UpdateAdCounterHistogramRequestService.GetAdEventType:output_type -> adselection.GetAdEventTypeResponse
-	3,   // 162: adselection.UpdateAdCounterHistogramRequestService.GetAdSelectionId:output_type -> adselection.GetAdSelectionIdResponse
-	37,  // 163: adselection.UpdateAdCounterHistogramRequestService.GetCallerAdTech:output_type -> adselection.GetCallerAdTechResponse
-	25,  // 164: adselection.UpdateAdCounterHistogramRequestService.HashCode:output_type -> adselection.HashCodeResponse
-	39,  // 165: adselection.UpdateAdCounterHistogramRequestService.ToString:output_type -> adselection.ToStringResponse
-	9,   // 166: adselection.UpdateAdCounterHistogramRequestBuilderService.Build:output_type -> adselection.BuildResponse
-	41,  // 167: adselection.UpdateAdCounterHistogramRequestBuilderService.SetAdEventType:output_type -> adselection.SetAdEventTypeResponse
-	13,  // 168: adselection.UpdateAdCounterHistogramRequestBuilderService.SetAdSelectionId:output_type -> adselection.SetAdSelectionIdResponse
-	43,  // 169: adselection.UpdateAdCounterHistogramRequestBuilderService.SetCallerAdTech:output_type -> adselection.SetCallerAdTechResponse
-	19,  // 170: adselection.PerBuyerConfigurationService.DescribeContents:output_type -> adselection.DescribeContentsResponse
-	21,  // 171: adselection.PerBuyerConfigurationService.Equals:output_type -> adselection.EqualsResponse
-	45,  // 172: adselection.PerBuyerConfigurationService.GetBuyer:output_type -> adselection.GetBuyerResponse
-	47,  // 173: adselection.PerBuyerConfigurationService.GetTargetInputSizeBytes:output_type -> adselection.GetTargetInputSizeBytesResponse
-	25,  // 174: adselection.PerBuyerConfigurationService.HashCode:output_type -> adselection.HashCodeResponse
-	27,  // 175: adselection.PerBuyerConfigurationService.WriteToParcel:output_type -> adselection.WriteToParcelResponse
-	9,   // 176: adselection.PerBuyerConfigurationBuilderService.Build:output_type -> adselection.BuildResponse
-	49,  // 177: adselection.PerBuyerConfigurationBuilderService.SetBuyer:output_type -> adselection.SetBuyerResponse
-	51,  // 178: adselection.PerBuyerConfigurationBuilderService.SetTargetInputSizeBytes:output_type -> adselection.SetTargetInputSizeBytesResponse
-	53,  // 179: adselection.AdSelectionManagerService.GetTestAdSelectionManager:output_type -> adselection.GetTestAdSelectionManagerResponse
-	55,  // 180: adselection.AdSelectionManagerService.Get:output_type -> adselection.GetResponse
-	3,   // 181: adselection.ReportEventRequestService.GetAdSelectionId:output_type -> adselection.GetAdSelectionIdResponse
-	57,  // 182: adselection.ReportEventRequestService.GetData:output_type -> adselection.GetDataResponse
-	59,  // 183: adselection.ReportEventRequestService.GetInputEvent:output_type -> adselection.GetInputEventResponse
-	61,  // 184: adselection.ReportEventRequestService.GetKey:output_type -> adselection.GetKeyResponse
-	63,  // 185: adselection.ReportEventRequestService.GetReportingDestinations:output_type -> adselection.GetReportingDestinationsResponse
-	9,   // 186: adselection.ReportEventRequestBuilderService.Build:output_type -> adselection.BuildResponse
-	13,  // 187: adselection.ReportEventRequestBuilderService.SetAdSelectionId:output_type -> adselection.SetAdSelectionIdResponse
-	65,  // 188: adselection.ReportEventRequestBuilderService.SetData:output_type -> adselection.SetDataResponse
-	67,  // 189: adselection.ReportEventRequestBuilderService.SetInputEvent:output_type -> adselection.SetInputEventResponse
-	69,  // 190: adselection.ReportEventRequestBuilderService.SetKey:output_type -> adselection.SetKeyResponse
-	71,  // 191: adselection.ReportEventRequestBuilderService.SetReportingDestinations:output_type -> adselection.SetReportingDestinationsResponse
-	19,  // 192: adselection.SignedContextualAdsService.DescribeContents:output_type -> adselection.DescribeContentsResponse
-	21,  // 193: adselection.SignedContextualAdsService.Equals:output_type -> adselection.EqualsResponse
-	45,  // 194: adselection.SignedContextualAdsService.GetBuyer:output_type -> adselection.GetBuyerResponse
-	73,  // 195: adselection.SignedContextualAdsService.GetDecisionLogicUri:output_type -> adselection.GetDecisionLogicUriResponse
-	75,  // 196: adselection.SignedContextualAdsService.GetSignature:output_type -> adselection.GetSignatureResponse
-	25,  // 197: adselection.SignedContextualAdsService.HashCode:output_type -> adselection.HashCodeResponse
-	39,  // 198: adselection.SignedContextualAdsService.ToString:output_type -> adselection.ToStringResponse
-	27,  // 199: adselection.SignedContextualAdsService.WriteToParcel:output_type -> adselection.WriteToParcelResponse
-	9,   // 200: adselection.SignedContextualAdsBuilderService.Build:output_type -> adselection.BuildResponse
-	49,  // 201: adselection.SignedContextualAdsBuilderService.SetBuyer:output_type -> adselection.SetBuyerResponse
-	77,  // 202: adselection.SignedContextualAdsBuilderService.SetDecisionLogicUri:output_type -> adselection.SetDecisionLogicUriResponse
-	79,  // 203: adselection.SignedContextualAdsBuilderService.SetSignature:output_type -> adselection.SetSignatureResponse
-	19,  // 204: adselection.AdSelectionFromOutcomesConfigService.DescribeContents:output_type -> adselection.DescribeContentsResponse
-	21,  // 205: adselection.AdSelectionFromOutcomesConfigService.Equals:output_type -> adselection.EqualsResponse
-	81,  // 206: adselection.AdSelectionFromOutcomesConfigService.GetSelectionLogicUri:output_type -> adselection.GetSelectionLogicUriResponse
-	83,  // 207: adselection.AdSelectionFromOutcomesConfigService.GetSelectionSignals:output_type -> adselection.GetSelectionSignalsResponse
-	7,   // 208: adselection.AdSelectionFromOutcomesConfigService.GetSeller:output_type -> adselection.GetSellerResponse
-	25,  // 209: adselection.AdSelectionFromOutcomesConfigService.HashCode:output_type -> adselection.HashCodeResponse
-	27,  // 210: adselection.AdSelectionFromOutcomesConfigService.WriteToParcel:output_type -> adselection.WriteToParcelResponse
-	9,   // 211: adselection.AdSelectionFromOutcomesConfigBuilderService.Build:output_type -> adselection.BuildResponse
-	85,  // 212: adselection.AdSelectionFromOutcomesConfigBuilderService.SetSelectionLogicUri:output_type -> adselection.SetSelectionLogicUriResponse
-	87,  // 213: adselection.AdSelectionFromOutcomesConfigBuilderService.SetSelectionSignals:output_type -> adselection.SetSelectionSignalsResponse
-	17,  // 214: adselection.AdSelectionFromOutcomesConfigBuilderService.SetSeller:output_type -> adselection.SetSellerResponse
-	89,  // 215: adselection.AddAdSelectionFromOutcomesOverrideRequestService.NewAddAdSelectionFromOutcomesOverrideRequest:output_type -> adselection.NewAddAdSelectionFromOutcomesOverrideRequestResponse
-	33,  // 216: adselection.AddAdSelectionFromOutcomesOverrideRequestService.GetAdSelectionFromOutcomesConfig:output_type -> adselection.GetAdSelectionFromOutcomesConfigResponse
-	91,  // 217: adselection.AddAdSelectionFromOutcomesOverrideRequestService.GetOutcomeSelectionLogicJs:output_type -> adselection.GetOutcomeSelectionLogicJsResponse
-	93,  // 218: adselection.AddAdSelectionFromOutcomesOverrideRequestService.GetOutcomeSelectionTrustedSignals:output_type -> adselection.GetOutcomeSelectionTrustedSignalsResponse
-	95,  // 219: adselection.PerBuyerDecisionLogicService.NewPerBuyerDecisionLogic:output_type -> adselection.NewPerBuyerDecisionLogicResponse
-	19,  // 220: adselection.PerBuyerDecisionLogicService.DescribeContents:output_type -> adselection.DescribeContentsResponse
-	21,  // 221: adselection.PerBuyerDecisionLogicService.Equals:output_type -> adselection.EqualsResponse
-	25,  // 222: adselection.PerBuyerDecisionLogicService.HashCode:output_type -> adselection.HashCodeResponse
-	27,  // 223: adselection.PerBuyerDecisionLogicService.WriteToParcel:output_type -> adselection.WriteToParcelResponse
-	19,  // 224: adselection.AdSelectionConfigService.DescribeContents:output_type -> adselection.DescribeContentsResponse
-	21,  // 225: adselection.AdSelectionConfigService.Equals:output_type -> adselection.EqualsResponse
-	101, // 226: adselection.AdSelectionConfigService.GetAdSelectionSignals:output_type -> adselection.GetAdSelectionSignalsResponse
-	73,  // 227: adselection.AdSelectionConfigService.GetDecisionLogicUri:output_type -> adselection.GetDecisionLogicUriResponse
-	7,   // 228: adselection.AdSelectionConfigService.GetSeller:output_type -> adselection.GetSellerResponse
-	103, // 229: adselection.AdSelectionConfigService.GetSellerSignals:output_type -> adselection.GetSellerSignalsResponse
-	105, // 230: adselection.AdSelectionConfigService.GetTrustedScoringSignalsUri:output_type -> adselection.GetTrustedScoringSignalsUriResponse
-	25,  // 231: adselection.AdSelectionConfigService.HashCode:output_type -> adselection.HashCodeResponse
-	27,  // 232: adselection.AdSelectionConfigService.WriteToParcel:output_type -> adselection.WriteToParcelResponse
-	9,   // 233: adselection.AdSelectionConfigBuilderService.Build:output_type -> adselection.BuildResponse
-	107, // 234: adselection.AdSelectionConfigBuilderService.SetAdSelectionSignals:output_type -> adselection.SetAdSelectionSignalsResponse
-	77,  // 235: adselection.AdSelectionConfigBuilderService.SetDecisionLogicUri:output_type -> adselection.SetDecisionLogicUriResponse
-	17,  // 236: adselection.AdSelectionConfigBuilderService.SetSeller:output_type -> adselection.SetSellerResponse
-	109, // 237: adselection.AdSelectionConfigBuilderService.SetSellerSignals:output_type -> adselection.SetSellerSignalsResponse
-	111, // 238: adselection.AdSelectionConfigBuilderService.SetTrustedScoringSignalsUri:output_type -> adselection.SetTrustedScoringSignalsUriResponse
-	113, // 239: adselection.AddAdSelectionOverrideRequestService.NewAddAdSelectionOverrideRequest:output_type -> adselection.NewAddAdSelectionOverrideRequestResponse
-	115, // 240: adselection.AddAdSelectionOverrideRequestService.GetAdSelectionConfig:output_type -> adselection.GetAdSelectionConfigResponse
-	117, // 241: adselection.AddAdSelectionOverrideRequestService.GetDecisionLogicJs:output_type -> adselection.GetDecisionLogicJsResponse
-	119, // 242: adselection.AddAdSelectionOverrideRequestService.GetPerBuyerDecisionLogic:output_type -> adselection.GetPerBuyerDecisionLogicResponse
-	121, // 243: adselection.AddAdSelectionOverrideRequestService.GetTrustedScoringSignals:output_type -> adselection.GetTrustedScoringSignalsResponse
-	123, // 244: adselection.AdWithBidService.NewAdWithBid:output_type -> adselection.NewAdWithBidResponse
-	19,  // 245: adselection.AdWithBidService.DescribeContents:output_type -> adselection.DescribeContentsResponse
-	21,  // 246: adselection.AdWithBidService.Equals:output_type -> adselection.EqualsResponse
-	127, // 247: adselection.AdWithBidService.GetAdData:output_type -> adselection.GetAdDataResponse
-	129, // 248: adselection.AdWithBidService.GetBid:output_type -> adselection.GetBidResponse
-	25,  // 249: adselection.AdWithBidService.HashCode:output_type -> adselection.HashCodeResponse
-	27,  // 250: adselection.AdWithBidService.WriteToParcel:output_type -> adselection.WriteToParcelResponse
-	133, // 251: adselection.RemoveAdSelectionOverrideRequestService.NewRemoveAdSelectionOverrideRequest:output_type -> adselection.NewRemoveAdSelectionOverrideRequestResponse
-	115, // 252: adselection.RemoveAdSelectionOverrideRequestService.GetAdSelectionConfig:output_type -> adselection.GetAdSelectionConfigResponse
-	135, // 253: adselection.GetAdSelectionDataOutcomeService.GetAdSelectionData:output_type -> adselection.GetAdSelectionDataResponse
-	1,   // 254: adselection.GetAdSelectionDataOutcomeService.GetAdSelectionDataId:output_type -> adselection.GetAdSelectionDataIdResponse
-	3,   // 255: adselection.GetAdSelectionDataOutcomeService.GetAdSelectionId:output_type -> adselection.GetAdSelectionIdResponse
-	137, // 256: adselection.DecisionLogicService.NewDecisionLogic:output_type -> adselection.NewDecisionLogicResponse
-	19,  // 257: adselection.DecisionLogicService.DescribeContents:output_type -> adselection.DescribeContentsResponse
-	21,  // 258: adselection.DecisionLogicService.Equals:output_type -> adselection.EqualsResponse
-	141, // 259: adselection.DecisionLogicService.GetLogic:output_type -> adselection.GetLogicResponse
-	25,  // 260: adselection.DecisionLogicService.HashCode:output_type -> adselection.HashCodeResponse
-	39,  // 261: adselection.DecisionLogicService.ToString:output_type -> adselection.ToStringResponse
-	27,  // 262: adselection.DecisionLogicService.WriteToParcel:output_type -> adselection.WriteToParcelResponse
-	146, // 263: adselection.GetAdSelectionDataRequestService.GetCoordinatorOriginUri:output_type -> adselection.GetCoordinatorOriginUriResponse
-	7,   // 264: adselection.GetAdSelectionDataRequestService.GetSeller:output_type -> adselection.GetSellerResponse
-	148, // 265: adselection.GetAdSelectionDataRequestService.GetSellerConfiguration:output_type -> adselection.GetSellerConfigurationResponse
-	9,   // 266: adselection.GetAdSelectionDataRequestBuilderService.Build:output_type -> adselection.BuildResponse
-	150, // 267: adselection.GetAdSelectionDataRequestBuilderService.SetCoordinatorOriginUri:output_type -> adselection.SetCoordinatorOriginUriResponse
-	17,  // 268: adselection.GetAdSelectionDataRequestBuilderService.SetSeller:output_type -> adselection.SetSellerResponse
-	152, // 269: adselection.GetAdSelectionDataRequestBuilderService.SetSellerConfiguration:output_type -> adselection.SetSellerConfigurationResponse
-	21,  // 270: adselection.AdSelectionOutcomeService.Equals:output_type -> adselection.EqualsResponse
-	3,   // 271: adselection.AdSelectionOutcomeService.GetAdSelectionId:output_type -> adselection.GetAdSelectionIdResponse
-	154, // 272: adselection.AdSelectionOutcomeService.GetRenderUri:output_type -> adselection.GetRenderUriResponse
-	156, // 273: adselection.AdSelectionOutcomeService.GetWinningSeller:output_type -> adselection.GetWinningSellerResponse
-	158, // 274: adselection.AdSelectionOutcomeService.HasOutcome:output_type -> adselection.HasOutcomeResponse
-	25,  // 275: adselection.AdSelectionOutcomeService.HashCode:output_type -> adselection.HashCodeResponse
-	9,   // 276: adselection.AdSelectionOutcomeBuilderService.Build:output_type -> adselection.BuildResponse
-	13,  // 277: adselection.AdSelectionOutcomeBuilderService.SetAdSelectionId:output_type -> adselection.SetAdSelectionIdResponse
-	160, // 278: adselection.AdSelectionOutcomeBuilderService.SetRenderUri:output_type -> adselection.SetRenderUriResponse
-	162, // 279: adselection.ReportImpressionRequestService.NewReportImpressionRequest:output_type -> adselection.NewReportImpressionRequestResponse
-	115, // 280: adselection.ReportImpressionRequestService.GetAdSelectionConfig:output_type -> adselection.GetAdSelectionConfigResponse
-	3,   // 281: adselection.ReportImpressionRequestService.GetAdSelectionId:output_type -> adselection.GetAdSelectionIdResponse
-	141, // [141:282] is the sub-list for method output_type
-	0,   // [0:141] is the sub-list for method input_type
+	0,   // 0: adselection.AdSelectionConfigService.DescribeContents:input_type -> adselection.DescribeContentsRequest
+	2,   // 1: adselection.AdSelectionConfigService.Equals:input_type -> adselection.EqualsRequest
+	4,   // 2: adselection.AdSelectionConfigService.GetAdSelectionSignals:input_type -> adselection.GetAdSelectionSignalsRequest
+	6,   // 3: adselection.AdSelectionConfigService.GetCustomAudienceBuyers:input_type -> adselection.GetCustomAudienceBuyersRequest
+	8,   // 4: adselection.AdSelectionConfigService.GetDecisionLogicUri:input_type -> adselection.GetDecisionLogicUriRequest
+	10,  // 5: adselection.AdSelectionConfigService.GetSeller:input_type -> adselection.GetSellerRequest
+	12,  // 6: adselection.AdSelectionConfigService.GetSellerSignals:input_type -> adselection.GetSellerSignalsRequest
+	14,  // 7: adselection.AdSelectionConfigService.GetTrustedScoringSignalsUri:input_type -> adselection.GetTrustedScoringSignalsUriRequest
+	16,  // 8: adselection.AdSelectionConfigService.HashCode:input_type -> adselection.HashCodeRequest
+	18,  // 9: adselection.AdSelectionConfigService.WriteToParcel:input_type -> adselection.WriteToParcelRequest
+	20,  // 10: adselection.AdSelectionConfigBuilderService.Build:input_type -> adselection.BuildRequest
+	22,  // 11: adselection.AdSelectionConfigBuilderService.SetAdSelectionSignals:input_type -> adselection.SetAdSelectionSignalsRequest
+	24,  // 12: adselection.AdSelectionConfigBuilderService.SetDecisionLogicUri:input_type -> adselection.SetDecisionLogicUriRequest
+	26,  // 13: adselection.AdSelectionConfigBuilderService.SetSeller:input_type -> adselection.SetSellerRequest
+	28,  // 14: adselection.AdSelectionConfigBuilderService.SetSellerSignals:input_type -> adselection.SetSellerSignalsRequest
+	30,  // 15: adselection.AdSelectionConfigBuilderService.SetTrustedScoringSignalsUri:input_type -> adselection.SetTrustedScoringSignalsUriRequest
+	32,  // 16: adselection.ReportEventRequestService.GetAdSelectionId:input_type -> adselection.GetAdSelectionIdRequest
+	34,  // 17: adselection.ReportEventRequestService.GetData:input_type -> adselection.GetDataRequest
+	36,  // 18: adselection.ReportEventRequestService.GetInputEvent:input_type -> adselection.GetInputEventRequest
+	38,  // 19: adselection.ReportEventRequestService.GetKey:input_type -> adselection.GetKeyRequest
+	40,  // 20: adselection.ReportEventRequestService.GetReportingDestinations:input_type -> adselection.GetReportingDestinationsRequest
+	20,  // 21: adselection.ReportEventRequestBuilderService.Build:input_type -> adselection.BuildRequest
+	42,  // 22: adselection.ReportEventRequestBuilderService.SetAdSelectionId:input_type -> adselection.SetAdSelectionIdRequest
+	44,  // 23: adselection.ReportEventRequestBuilderService.SetData:input_type -> adselection.SetDataRequest
+	46,  // 24: adselection.ReportEventRequestBuilderService.SetInputEvent:input_type -> adselection.SetInputEventRequest
+	48,  // 25: adselection.ReportEventRequestBuilderService.SetKey:input_type -> adselection.SetKeyRequest
+	50,  // 26: adselection.ReportEventRequestBuilderService.SetReportingDestinations:input_type -> adselection.SetReportingDestinationsRequest
+	52,  // 27: adselection.AddAdSelectionOverrideRequestService.NewAddAdSelectionOverrideRequest:input_type -> adselection.NewAddAdSelectionOverrideRequestRequest
+	54,  // 28: adselection.AddAdSelectionOverrideRequestService.GetAdSelectionConfig:input_type -> adselection.GetAdSelectionConfigRequest
+	56,  // 29: adselection.AddAdSelectionOverrideRequestService.GetDecisionLogicJs:input_type -> adselection.GetDecisionLogicJsRequest
+	58,  // 30: adselection.AddAdSelectionOverrideRequestService.GetPerBuyerDecisionLogic:input_type -> adselection.GetPerBuyerDecisionLogicRequest
+	60,  // 31: adselection.AddAdSelectionOverrideRequestService.GetTrustedScoringSignals:input_type -> adselection.GetTrustedScoringSignalsRequest
+	62,  // 32: adselection.AdSelectionManagerService.GetTestAdSelectionManager:input_type -> adselection.GetTestAdSelectionManagerRequest
+	64,  // 33: adselection.AdSelectionManagerService.Get:input_type -> adselection.GetRequest
+	66,  // 34: adselection.DecisionLogicService.NewDecisionLogic:input_type -> adselection.NewDecisionLogicRequest
+	68,  // 35: adselection.DecisionLogicService.DescribeContents:input_type -> adselection.DecisionLogicDescribeContentsRequest
+	69,  // 36: adselection.DecisionLogicService.Equals:input_type -> adselection.DecisionLogicEqualsRequest
+	70,  // 37: adselection.DecisionLogicService.GetLogic:input_type -> adselection.GetLogicRequest
+	72,  // 38: adselection.DecisionLogicService.HashCode:input_type -> adselection.DecisionLogicHashCodeRequest
+	73,  // 39: adselection.DecisionLogicService.ToString:input_type -> adselection.ToStringRequest
+	75,  // 40: adselection.DecisionLogicService.WriteToParcel:input_type -> adselection.DecisionLogicWriteToParcelRequest
+	76,  // 41: adselection.SetAppInstallAdvertisersRequestService.GetAdvertisers:input_type -> adselection.GetAdvertisersRequest
+	20,  // 42: adselection.SetAppInstallAdvertisersRequestBuilderService.Build:input_type -> adselection.BuildRequest
+	0,   // 43: adselection.SignedContextualAdsService.DescribeContents:input_type -> adselection.DescribeContentsRequest
+	2,   // 44: adselection.SignedContextualAdsService.Equals:input_type -> adselection.EqualsRequest
+	78,  // 45: adselection.SignedContextualAdsService.GetAdsWithBid:input_type -> adselection.GetAdsWithBidRequest
+	80,  // 46: adselection.SignedContextualAdsService.GetBuyer:input_type -> adselection.GetBuyerRequest
+	8,   // 47: adselection.SignedContextualAdsService.GetDecisionLogicUri:input_type -> adselection.GetDecisionLogicUriRequest
+	82,  // 48: adselection.SignedContextualAdsService.GetSignature:input_type -> adselection.GetSignatureRequest
+	16,  // 49: adselection.SignedContextualAdsService.HashCode:input_type -> adselection.HashCodeRequest
+	84,  // 50: adselection.SignedContextualAdsService.ToString:input_type -> adselection.SignedContextualAdsToStringRequest
+	18,  // 51: adselection.SignedContextualAdsService.WriteToParcel:input_type -> adselection.WriteToParcelRequest
+	20,  // 52: adselection.SignedContextualAdsBuilderService.Build:input_type -> adselection.BuildRequest
+	85,  // 53: adselection.SignedContextualAdsBuilderService.SetBuyer:input_type -> adselection.SetBuyerRequest
+	24,  // 54: adselection.SignedContextualAdsBuilderService.SetDecisionLogicUri:input_type -> adselection.SetDecisionLogicUriRequest
+	87,  // 55: adselection.SignedContextualAdsBuilderService.SetSignature:input_type -> adselection.SetSignatureRequest
+	0,   // 56: adselection.SellerConfigurationService.DescribeContents:input_type -> adselection.DescribeContentsRequest
+	2,   // 57: adselection.SellerConfigurationService.Equals:input_type -> adselection.EqualsRequest
+	89,  // 58: adselection.SellerConfigurationService.GetMaximumPayloadSizeBytes:input_type -> adselection.GetMaximumPayloadSizeBytesRequest
+	91,  // 59: adselection.SellerConfigurationService.GetPerBuyerConfigurations:input_type -> adselection.GetPerBuyerConfigurationsRequest
+	16,  // 60: adselection.SellerConfigurationService.HashCode:input_type -> adselection.HashCodeRequest
+	18,  // 61: adselection.SellerConfigurationService.WriteToParcel:input_type -> adselection.WriteToParcelRequest
+	20,  // 62: adselection.SellerConfigurationBuilderService.Build:input_type -> adselection.BuildRequest
+	93,  // 63: adselection.SellerConfigurationBuilderService.SetMaximumPayloadSizeBytes:input_type -> adselection.SetMaximumPayloadSizeBytesRequest
+	2,   // 64: adselection.AdSelectionOutcomeService.Equals:input_type -> adselection.EqualsRequest
+	32,  // 65: adselection.AdSelectionOutcomeService.GetAdSelectionId:input_type -> adselection.GetAdSelectionIdRequest
+	95,  // 66: adselection.AdSelectionOutcomeService.GetComponentAdUris:input_type -> adselection.GetComponentAdUrisRequest
+	97,  // 67: adselection.AdSelectionOutcomeService.GetRenderUri:input_type -> adselection.GetRenderUriRequest
+	99,  // 68: adselection.AdSelectionOutcomeService.GetWinningSeller:input_type -> adselection.GetWinningSellerRequest
+	101, // 69: adselection.AdSelectionOutcomeService.HasOutcome:input_type -> adselection.HasOutcomeRequest
+	16,  // 70: adselection.AdSelectionOutcomeService.HashCode:input_type -> adselection.HashCodeRequest
+	20,  // 71: adselection.AdSelectionOutcomeBuilderService.Build:input_type -> adselection.BuildRequest
+	42,  // 72: adselection.AdSelectionOutcomeBuilderService.SetAdSelectionId:input_type -> adselection.SetAdSelectionIdRequest
+	103, // 73: adselection.AdSelectionOutcomeBuilderService.SetRenderUri:input_type -> adselection.SetRenderUriRequest
+	0,   // 74: adselection.PerBuyerConfigurationService.DescribeContents:input_type -> adselection.DescribeContentsRequest
+	2,   // 75: adselection.PerBuyerConfigurationService.Equals:input_type -> adselection.EqualsRequest
+	80,  // 76: adselection.PerBuyerConfigurationService.GetBuyer:input_type -> adselection.GetBuyerRequest
+	105, // 77: adselection.PerBuyerConfigurationService.GetTargetInputSizeBytes:input_type -> adselection.GetTargetInputSizeBytesRequest
+	16,  // 78: adselection.PerBuyerConfigurationService.HashCode:input_type -> adselection.HashCodeRequest
+	18,  // 79: adselection.PerBuyerConfigurationService.WriteToParcel:input_type -> adselection.WriteToParcelRequest
+	20,  // 80: adselection.PerBuyerConfigurationBuilderService.Build:input_type -> adselection.BuildRequest
+	85,  // 81: adselection.PerBuyerConfigurationBuilderService.SetBuyer:input_type -> adselection.SetBuyerRequest
+	107, // 82: adselection.PerBuyerConfigurationBuilderService.SetTargetInputSizeBytes:input_type -> adselection.SetTargetInputSizeBytesRequest
+	109, // 83: adselection.PerBuyerDecisionLogicService.NewPerBuyerDecisionLogic:input_type -> adselection.NewPerBuyerDecisionLogicRequest
+	111, // 84: adselection.PerBuyerDecisionLogicService.DescribeContents:input_type -> adselection.PerBuyerDecisionLogicDescribeContentsRequest
+	112, // 85: adselection.PerBuyerDecisionLogicService.Equals:input_type -> adselection.PerBuyerDecisionLogicEqualsRequest
+	113, // 86: adselection.PerBuyerDecisionLogicService.HashCode:input_type -> adselection.PerBuyerDecisionLogicHashCodeRequest
+	114, // 87: adselection.PerBuyerDecisionLogicService.WriteToParcel:input_type -> adselection.PerBuyerDecisionLogicWriteToParcelRequest
+	115, // 88: adselection.RemoveAdSelectionOverrideRequestService.NewRemoveAdSelectionOverrideRequest:input_type -> adselection.NewRemoveAdSelectionOverrideRequestRequest
+	54,  // 89: adselection.RemoveAdSelectionOverrideRequestService.GetAdSelectionConfig:input_type -> adselection.GetAdSelectionConfigRequest
+	117, // 90: adselection.ReportImpressionRequestService.NewReportImpressionRequest:input_type -> adselection.NewReportImpressionRequestRequest
+	54,  // 91: adselection.ReportImpressionRequestService.GetAdSelectionConfig:input_type -> adselection.GetAdSelectionConfigRequest
+	119, // 92: adselection.ReportImpressionRequestService.GetAdSelectionId:input_type -> adselection.ReportImpressionRequestGetAdSelectionIdRequest
+	120, // 93: adselection.AddAdSelectionFromOutcomesOverrideRequestService.NewAddAdSelectionFromOutcomesOverrideRequest:input_type -> adselection.NewAddAdSelectionFromOutcomesOverrideRequestRequest
+	122, // 94: adselection.AddAdSelectionFromOutcomesOverrideRequestService.GetAdSelectionFromOutcomesConfig:input_type -> adselection.GetAdSelectionFromOutcomesConfigRequest
+	124, // 95: adselection.AddAdSelectionFromOutcomesOverrideRequestService.GetOutcomeSelectionLogicJs:input_type -> adselection.GetOutcomeSelectionLogicJsRequest
+	126, // 96: adselection.AddAdSelectionFromOutcomesOverrideRequestService.GetOutcomeSelectionTrustedSignals:input_type -> adselection.GetOutcomeSelectionTrustedSignalsRequest
+	128, // 97: adselection.GetAdSelectionDataOutcomeService.GetAdSelectionData:input_type -> adselection.GetAdSelectionDataRequest
+	130, // 98: adselection.GetAdSelectionDataOutcomeService.GetAdSelectionDataId:input_type -> adselection.GetAdSelectionDataIdRequest
+	32,  // 99: adselection.GetAdSelectionDataOutcomeService.GetAdSelectionId:input_type -> adselection.GetAdSelectionIdRequest
+	132, // 100: adselection.RemoveAdSelectionFromOutcomesOverrideRequestService.NewRemoveAdSelectionFromOutcomesOverrideRequest:input_type -> adselection.NewRemoveAdSelectionFromOutcomesOverrideRequestRequest
+	122, // 101: adselection.RemoveAdSelectionFromOutcomesOverrideRequestService.GetAdSelectionFromOutcomesConfig:input_type -> adselection.GetAdSelectionFromOutcomesConfigRequest
+	130, // 102: adselection.PersistAdSelectionResultRequestService.GetAdSelectionDataId:input_type -> adselection.GetAdSelectionDataIdRequest
+	32,  // 103: adselection.PersistAdSelectionResultRequestService.GetAdSelectionId:input_type -> adselection.GetAdSelectionIdRequest
+	134, // 104: adselection.PersistAdSelectionResultRequestService.GetAdSelectionResult:input_type -> adselection.GetAdSelectionResultRequest
+	10,  // 105: adselection.PersistAdSelectionResultRequestService.GetSeller:input_type -> adselection.GetSellerRequest
+	20,  // 106: adselection.PersistAdSelectionResultRequestBuilderService.Build:input_type -> adselection.BuildRequest
+	136, // 107: adselection.PersistAdSelectionResultRequestBuilderService.SetAdSelectionDataId:input_type -> adselection.SetAdSelectionDataIdRequest
+	42,  // 108: adselection.PersistAdSelectionResultRequestBuilderService.SetAdSelectionId:input_type -> adselection.SetAdSelectionIdRequest
+	138, // 109: adselection.PersistAdSelectionResultRequestBuilderService.SetAdSelectionResult:input_type -> adselection.SetAdSelectionResultRequest
+	26,  // 110: adselection.PersistAdSelectionResultRequestBuilderService.SetSeller:input_type -> adselection.SetSellerRequest
+	0,   // 111: adselection.AdSelectionFromOutcomesConfigService.DescribeContents:input_type -> adselection.DescribeContentsRequest
+	2,   // 112: adselection.AdSelectionFromOutcomesConfigService.Equals:input_type -> adselection.EqualsRequest
+	140, // 113: adselection.AdSelectionFromOutcomesConfigService.GetAdSelectionIds:input_type -> adselection.GetAdSelectionIdsRequest
+	142, // 114: adselection.AdSelectionFromOutcomesConfigService.GetSelectionLogicUri:input_type -> adselection.GetSelectionLogicUriRequest
+	144, // 115: adselection.AdSelectionFromOutcomesConfigService.GetSelectionSignals:input_type -> adselection.GetSelectionSignalsRequest
+	10,  // 116: adselection.AdSelectionFromOutcomesConfigService.GetSeller:input_type -> adselection.GetSellerRequest
+	16,  // 117: adselection.AdSelectionFromOutcomesConfigService.HashCode:input_type -> adselection.HashCodeRequest
+	18,  // 118: adselection.AdSelectionFromOutcomesConfigService.WriteToParcel:input_type -> adselection.WriteToParcelRequest
+	20,  // 119: adselection.AdSelectionFromOutcomesConfigBuilderService.Build:input_type -> adselection.BuildRequest
+	146, // 120: adselection.AdSelectionFromOutcomesConfigBuilderService.SetSelectionLogicUri:input_type -> adselection.SetSelectionLogicUriRequest
+	148, // 121: adselection.AdSelectionFromOutcomesConfigBuilderService.SetSelectionSignals:input_type -> adselection.SetSelectionSignalsRequest
+	26,  // 122: adselection.AdSelectionFromOutcomesConfigBuilderService.SetSeller:input_type -> adselection.SetSellerRequest
+	150, // 123: adselection.GetAdSelectionDataRequestService.GetCoordinatorOriginUri:input_type -> adselection.GetCoordinatorOriginUriRequest
+	10,  // 124: adselection.GetAdSelectionDataRequestService.GetSeller:input_type -> adselection.GetSellerRequest
+	152, // 125: adselection.GetAdSelectionDataRequestService.GetSellerConfiguration:input_type -> adselection.GetSellerConfigurationRequest
+	20,  // 126: adselection.GetAdSelectionDataRequestBuilderService.Build:input_type -> adselection.BuildRequest
+	154, // 127: adselection.GetAdSelectionDataRequestBuilderService.SetCoordinatorOriginUri:input_type -> adselection.SetCoordinatorOriginUriRequest
+	26,  // 128: adselection.GetAdSelectionDataRequestBuilderService.SetSeller:input_type -> adselection.SetSellerRequest
+	156, // 129: adselection.GetAdSelectionDataRequestBuilderService.SetSellerConfiguration:input_type -> adselection.SetSellerConfigurationRequest
+	158, // 130: adselection.AdWithBidService.NewAdWithBid:input_type -> adselection.NewAdWithBidRequest
+	160, // 131: adselection.AdWithBidService.DescribeContents:input_type -> adselection.AdWithBidDescribeContentsRequest
+	161, // 132: adselection.AdWithBidService.Equals:input_type -> adselection.AdWithBidEqualsRequest
+	162, // 133: adselection.AdWithBidService.GetAdData:input_type -> adselection.GetAdDataRequest
+	164, // 134: adselection.AdWithBidService.GetBid:input_type -> adselection.GetBidRequest
+	166, // 135: adselection.AdWithBidService.HashCode:input_type -> adselection.AdWithBidHashCodeRequest
+	167, // 136: adselection.AdWithBidService.WriteToParcel:input_type -> adselection.AdWithBidWriteToParcelRequest
+	2,   // 137: adselection.UpdateAdCounterHistogramRequestService.Equals:input_type -> adselection.EqualsRequest
+	168, // 138: adselection.UpdateAdCounterHistogramRequestService.GetAdEventType:input_type -> adselection.GetAdEventTypeRequest
+	32,  // 139: adselection.UpdateAdCounterHistogramRequestService.GetAdSelectionId:input_type -> adselection.GetAdSelectionIdRequest
+	170, // 140: adselection.UpdateAdCounterHistogramRequestService.GetCallerAdTech:input_type -> adselection.GetCallerAdTechRequest
+	16,  // 141: adselection.UpdateAdCounterHistogramRequestService.HashCode:input_type -> adselection.HashCodeRequest
+	172, // 142: adselection.UpdateAdCounterHistogramRequestService.ToString:input_type -> adselection.UpdateAdCounterHistogramRequestToStringRequest
+	20,  // 143: adselection.UpdateAdCounterHistogramRequestBuilderService.Build:input_type -> adselection.BuildRequest
+	173, // 144: adselection.UpdateAdCounterHistogramRequestBuilderService.SetAdEventType:input_type -> adselection.SetAdEventTypeRequest
+	42,  // 145: adselection.UpdateAdCounterHistogramRequestBuilderService.SetAdSelectionId:input_type -> adselection.SetAdSelectionIdRequest
+	175, // 146: adselection.UpdateAdCounterHistogramRequestBuilderService.SetCallerAdTech:input_type -> adselection.SetCallerAdTechRequest
+	1,   // 147: adselection.AdSelectionConfigService.DescribeContents:output_type -> adselection.DescribeContentsResponse
+	3,   // 148: adselection.AdSelectionConfigService.Equals:output_type -> adselection.EqualsResponse
+	5,   // 149: adselection.AdSelectionConfigService.GetAdSelectionSignals:output_type -> adselection.GetAdSelectionSignalsResponse
+	7,   // 150: adselection.AdSelectionConfigService.GetCustomAudienceBuyers:output_type -> adselection.GetCustomAudienceBuyersResponse
+	9,   // 151: adselection.AdSelectionConfigService.GetDecisionLogicUri:output_type -> adselection.GetDecisionLogicUriResponse
+	11,  // 152: adselection.AdSelectionConfigService.GetSeller:output_type -> adselection.GetSellerResponse
+	13,  // 153: adselection.AdSelectionConfigService.GetSellerSignals:output_type -> adselection.GetSellerSignalsResponse
+	15,  // 154: adselection.AdSelectionConfigService.GetTrustedScoringSignalsUri:output_type -> adselection.GetTrustedScoringSignalsUriResponse
+	17,  // 155: adselection.AdSelectionConfigService.HashCode:output_type -> adselection.HashCodeResponse
+	19,  // 156: adselection.AdSelectionConfigService.WriteToParcel:output_type -> adselection.WriteToParcelResponse
+	21,  // 157: adselection.AdSelectionConfigBuilderService.Build:output_type -> adselection.BuildResponse
+	23,  // 158: adselection.AdSelectionConfigBuilderService.SetAdSelectionSignals:output_type -> adselection.SetAdSelectionSignalsResponse
+	25,  // 159: adselection.AdSelectionConfigBuilderService.SetDecisionLogicUri:output_type -> adselection.SetDecisionLogicUriResponse
+	27,  // 160: adselection.AdSelectionConfigBuilderService.SetSeller:output_type -> adselection.SetSellerResponse
+	29,  // 161: adselection.AdSelectionConfigBuilderService.SetSellerSignals:output_type -> adselection.SetSellerSignalsResponse
+	31,  // 162: adselection.AdSelectionConfigBuilderService.SetTrustedScoringSignalsUri:output_type -> adselection.SetTrustedScoringSignalsUriResponse
+	33,  // 163: adselection.ReportEventRequestService.GetAdSelectionId:output_type -> adselection.GetAdSelectionIdResponse
+	35,  // 164: adselection.ReportEventRequestService.GetData:output_type -> adselection.GetDataResponse
+	37,  // 165: adselection.ReportEventRequestService.GetInputEvent:output_type -> adselection.GetInputEventResponse
+	39,  // 166: adselection.ReportEventRequestService.GetKey:output_type -> adselection.GetKeyResponse
+	41,  // 167: adselection.ReportEventRequestService.GetReportingDestinations:output_type -> adselection.GetReportingDestinationsResponse
+	21,  // 168: adselection.ReportEventRequestBuilderService.Build:output_type -> adselection.BuildResponse
+	43,  // 169: adselection.ReportEventRequestBuilderService.SetAdSelectionId:output_type -> adselection.SetAdSelectionIdResponse
+	45,  // 170: adselection.ReportEventRequestBuilderService.SetData:output_type -> adselection.SetDataResponse
+	47,  // 171: adselection.ReportEventRequestBuilderService.SetInputEvent:output_type -> adselection.SetInputEventResponse
+	49,  // 172: adselection.ReportEventRequestBuilderService.SetKey:output_type -> adselection.SetKeyResponse
+	51,  // 173: adselection.ReportEventRequestBuilderService.SetReportingDestinations:output_type -> adselection.SetReportingDestinationsResponse
+	53,  // 174: adselection.AddAdSelectionOverrideRequestService.NewAddAdSelectionOverrideRequest:output_type -> adselection.NewAddAdSelectionOverrideRequestResponse
+	55,  // 175: adselection.AddAdSelectionOverrideRequestService.GetAdSelectionConfig:output_type -> adselection.GetAdSelectionConfigResponse
+	57,  // 176: adselection.AddAdSelectionOverrideRequestService.GetDecisionLogicJs:output_type -> adselection.GetDecisionLogicJsResponse
+	59,  // 177: adselection.AddAdSelectionOverrideRequestService.GetPerBuyerDecisionLogic:output_type -> adselection.GetPerBuyerDecisionLogicResponse
+	61,  // 178: adselection.AddAdSelectionOverrideRequestService.GetTrustedScoringSignals:output_type -> adselection.GetTrustedScoringSignalsResponse
+	63,  // 179: adselection.AdSelectionManagerService.GetTestAdSelectionManager:output_type -> adselection.GetTestAdSelectionManagerResponse
+	65,  // 180: adselection.AdSelectionManagerService.Get:output_type -> adselection.GetResponse
+	67,  // 181: adselection.DecisionLogicService.NewDecisionLogic:output_type -> adselection.NewDecisionLogicResponse
+	1,   // 182: adselection.DecisionLogicService.DescribeContents:output_type -> adselection.DescribeContentsResponse
+	3,   // 183: adselection.DecisionLogicService.Equals:output_type -> adselection.EqualsResponse
+	71,  // 184: adselection.DecisionLogicService.GetLogic:output_type -> adselection.GetLogicResponse
+	17,  // 185: adselection.DecisionLogicService.HashCode:output_type -> adselection.HashCodeResponse
+	74,  // 186: adselection.DecisionLogicService.ToString:output_type -> adselection.ToStringResponse
+	19,  // 187: adselection.DecisionLogicService.WriteToParcel:output_type -> adselection.WriteToParcelResponse
+	77,  // 188: adselection.SetAppInstallAdvertisersRequestService.GetAdvertisers:output_type -> adselection.GetAdvertisersResponse
+	21,  // 189: adselection.SetAppInstallAdvertisersRequestBuilderService.Build:output_type -> adselection.BuildResponse
+	1,   // 190: adselection.SignedContextualAdsService.DescribeContents:output_type -> adselection.DescribeContentsResponse
+	3,   // 191: adselection.SignedContextualAdsService.Equals:output_type -> adselection.EqualsResponse
+	79,  // 192: adselection.SignedContextualAdsService.GetAdsWithBid:output_type -> adselection.GetAdsWithBidResponse
+	81,  // 193: adselection.SignedContextualAdsService.GetBuyer:output_type -> adselection.GetBuyerResponse
+	9,   // 194: adselection.SignedContextualAdsService.GetDecisionLogicUri:output_type -> adselection.GetDecisionLogicUriResponse
+	83,  // 195: adselection.SignedContextualAdsService.GetSignature:output_type -> adselection.GetSignatureResponse
+	17,  // 196: adselection.SignedContextualAdsService.HashCode:output_type -> adselection.HashCodeResponse
+	74,  // 197: adselection.SignedContextualAdsService.ToString:output_type -> adselection.ToStringResponse
+	19,  // 198: adselection.SignedContextualAdsService.WriteToParcel:output_type -> adselection.WriteToParcelResponse
+	21,  // 199: adselection.SignedContextualAdsBuilderService.Build:output_type -> adselection.BuildResponse
+	86,  // 200: adselection.SignedContextualAdsBuilderService.SetBuyer:output_type -> adselection.SetBuyerResponse
+	25,  // 201: adselection.SignedContextualAdsBuilderService.SetDecisionLogicUri:output_type -> adselection.SetDecisionLogicUriResponse
+	88,  // 202: adselection.SignedContextualAdsBuilderService.SetSignature:output_type -> adselection.SetSignatureResponse
+	1,   // 203: adselection.SellerConfigurationService.DescribeContents:output_type -> adselection.DescribeContentsResponse
+	3,   // 204: adselection.SellerConfigurationService.Equals:output_type -> adselection.EqualsResponse
+	90,  // 205: adselection.SellerConfigurationService.GetMaximumPayloadSizeBytes:output_type -> adselection.GetMaximumPayloadSizeBytesResponse
+	92,  // 206: adselection.SellerConfigurationService.GetPerBuyerConfigurations:output_type -> adselection.GetPerBuyerConfigurationsResponse
+	17,  // 207: adselection.SellerConfigurationService.HashCode:output_type -> adselection.HashCodeResponse
+	19,  // 208: adselection.SellerConfigurationService.WriteToParcel:output_type -> adselection.WriteToParcelResponse
+	21,  // 209: adselection.SellerConfigurationBuilderService.Build:output_type -> adselection.BuildResponse
+	94,  // 210: adselection.SellerConfigurationBuilderService.SetMaximumPayloadSizeBytes:output_type -> adselection.SetMaximumPayloadSizeBytesResponse
+	3,   // 211: adselection.AdSelectionOutcomeService.Equals:output_type -> adselection.EqualsResponse
+	33,  // 212: adselection.AdSelectionOutcomeService.GetAdSelectionId:output_type -> adselection.GetAdSelectionIdResponse
+	96,  // 213: adselection.AdSelectionOutcomeService.GetComponentAdUris:output_type -> adselection.GetComponentAdUrisResponse
+	98,  // 214: adselection.AdSelectionOutcomeService.GetRenderUri:output_type -> adselection.GetRenderUriResponse
+	100, // 215: adselection.AdSelectionOutcomeService.GetWinningSeller:output_type -> adselection.GetWinningSellerResponse
+	102, // 216: adselection.AdSelectionOutcomeService.HasOutcome:output_type -> adselection.HasOutcomeResponse
+	17,  // 217: adselection.AdSelectionOutcomeService.HashCode:output_type -> adselection.HashCodeResponse
+	21,  // 218: adselection.AdSelectionOutcomeBuilderService.Build:output_type -> adselection.BuildResponse
+	43,  // 219: adselection.AdSelectionOutcomeBuilderService.SetAdSelectionId:output_type -> adselection.SetAdSelectionIdResponse
+	104, // 220: adselection.AdSelectionOutcomeBuilderService.SetRenderUri:output_type -> adselection.SetRenderUriResponse
+	1,   // 221: adselection.PerBuyerConfigurationService.DescribeContents:output_type -> adselection.DescribeContentsResponse
+	3,   // 222: adselection.PerBuyerConfigurationService.Equals:output_type -> adselection.EqualsResponse
+	81,  // 223: adselection.PerBuyerConfigurationService.GetBuyer:output_type -> adselection.GetBuyerResponse
+	106, // 224: adselection.PerBuyerConfigurationService.GetTargetInputSizeBytes:output_type -> adselection.GetTargetInputSizeBytesResponse
+	17,  // 225: adselection.PerBuyerConfigurationService.HashCode:output_type -> adselection.HashCodeResponse
+	19,  // 226: adselection.PerBuyerConfigurationService.WriteToParcel:output_type -> adselection.WriteToParcelResponse
+	21,  // 227: adselection.PerBuyerConfigurationBuilderService.Build:output_type -> adselection.BuildResponse
+	86,  // 228: adselection.PerBuyerConfigurationBuilderService.SetBuyer:output_type -> adselection.SetBuyerResponse
+	108, // 229: adselection.PerBuyerConfigurationBuilderService.SetTargetInputSizeBytes:output_type -> adselection.SetTargetInputSizeBytesResponse
+	110, // 230: adselection.PerBuyerDecisionLogicService.NewPerBuyerDecisionLogic:output_type -> adselection.NewPerBuyerDecisionLogicResponse
+	1,   // 231: adselection.PerBuyerDecisionLogicService.DescribeContents:output_type -> adselection.DescribeContentsResponse
+	3,   // 232: adselection.PerBuyerDecisionLogicService.Equals:output_type -> adselection.EqualsResponse
+	17,  // 233: adselection.PerBuyerDecisionLogicService.HashCode:output_type -> adselection.HashCodeResponse
+	19,  // 234: adselection.PerBuyerDecisionLogicService.WriteToParcel:output_type -> adselection.WriteToParcelResponse
+	116, // 235: adselection.RemoveAdSelectionOverrideRequestService.NewRemoveAdSelectionOverrideRequest:output_type -> adselection.NewRemoveAdSelectionOverrideRequestResponse
+	55,  // 236: adselection.RemoveAdSelectionOverrideRequestService.GetAdSelectionConfig:output_type -> adselection.GetAdSelectionConfigResponse
+	118, // 237: adselection.ReportImpressionRequestService.NewReportImpressionRequest:output_type -> adselection.NewReportImpressionRequestResponse
+	55,  // 238: adselection.ReportImpressionRequestService.GetAdSelectionConfig:output_type -> adselection.GetAdSelectionConfigResponse
+	33,  // 239: adselection.ReportImpressionRequestService.GetAdSelectionId:output_type -> adselection.GetAdSelectionIdResponse
+	121, // 240: adselection.AddAdSelectionFromOutcomesOverrideRequestService.NewAddAdSelectionFromOutcomesOverrideRequest:output_type -> adselection.NewAddAdSelectionFromOutcomesOverrideRequestResponse
+	123, // 241: adselection.AddAdSelectionFromOutcomesOverrideRequestService.GetAdSelectionFromOutcomesConfig:output_type -> adselection.GetAdSelectionFromOutcomesConfigResponse
+	125, // 242: adselection.AddAdSelectionFromOutcomesOverrideRequestService.GetOutcomeSelectionLogicJs:output_type -> adselection.GetOutcomeSelectionLogicJsResponse
+	127, // 243: adselection.AddAdSelectionFromOutcomesOverrideRequestService.GetOutcomeSelectionTrustedSignals:output_type -> adselection.GetOutcomeSelectionTrustedSignalsResponse
+	129, // 244: adselection.GetAdSelectionDataOutcomeService.GetAdSelectionData:output_type -> adselection.GetAdSelectionDataResponse
+	131, // 245: adselection.GetAdSelectionDataOutcomeService.GetAdSelectionDataId:output_type -> adselection.GetAdSelectionDataIdResponse
+	33,  // 246: adselection.GetAdSelectionDataOutcomeService.GetAdSelectionId:output_type -> adselection.GetAdSelectionIdResponse
+	133, // 247: adselection.RemoveAdSelectionFromOutcomesOverrideRequestService.NewRemoveAdSelectionFromOutcomesOverrideRequest:output_type -> adselection.NewRemoveAdSelectionFromOutcomesOverrideRequestResponse
+	123, // 248: adselection.RemoveAdSelectionFromOutcomesOverrideRequestService.GetAdSelectionFromOutcomesConfig:output_type -> adselection.GetAdSelectionFromOutcomesConfigResponse
+	131, // 249: adselection.PersistAdSelectionResultRequestService.GetAdSelectionDataId:output_type -> adselection.GetAdSelectionDataIdResponse
+	33,  // 250: adselection.PersistAdSelectionResultRequestService.GetAdSelectionId:output_type -> adselection.GetAdSelectionIdResponse
+	135, // 251: adselection.PersistAdSelectionResultRequestService.GetAdSelectionResult:output_type -> adselection.GetAdSelectionResultResponse
+	11,  // 252: adselection.PersistAdSelectionResultRequestService.GetSeller:output_type -> adselection.GetSellerResponse
+	21,  // 253: adselection.PersistAdSelectionResultRequestBuilderService.Build:output_type -> adselection.BuildResponse
+	137, // 254: adselection.PersistAdSelectionResultRequestBuilderService.SetAdSelectionDataId:output_type -> adselection.SetAdSelectionDataIdResponse
+	43,  // 255: adselection.PersistAdSelectionResultRequestBuilderService.SetAdSelectionId:output_type -> adselection.SetAdSelectionIdResponse
+	139, // 256: adselection.PersistAdSelectionResultRequestBuilderService.SetAdSelectionResult:output_type -> adselection.SetAdSelectionResultResponse
+	27,  // 257: adselection.PersistAdSelectionResultRequestBuilderService.SetSeller:output_type -> adselection.SetSellerResponse
+	1,   // 258: adselection.AdSelectionFromOutcomesConfigService.DescribeContents:output_type -> adselection.DescribeContentsResponse
+	3,   // 259: adselection.AdSelectionFromOutcomesConfigService.Equals:output_type -> adselection.EqualsResponse
+	141, // 260: adselection.AdSelectionFromOutcomesConfigService.GetAdSelectionIds:output_type -> adselection.GetAdSelectionIdsResponse
+	143, // 261: adselection.AdSelectionFromOutcomesConfigService.GetSelectionLogicUri:output_type -> adselection.GetSelectionLogicUriResponse
+	145, // 262: adselection.AdSelectionFromOutcomesConfigService.GetSelectionSignals:output_type -> adselection.GetSelectionSignalsResponse
+	11,  // 263: adselection.AdSelectionFromOutcomesConfigService.GetSeller:output_type -> adselection.GetSellerResponse
+	17,  // 264: adselection.AdSelectionFromOutcomesConfigService.HashCode:output_type -> adselection.HashCodeResponse
+	19,  // 265: adselection.AdSelectionFromOutcomesConfigService.WriteToParcel:output_type -> adselection.WriteToParcelResponse
+	21,  // 266: adselection.AdSelectionFromOutcomesConfigBuilderService.Build:output_type -> adselection.BuildResponse
+	147, // 267: adselection.AdSelectionFromOutcomesConfigBuilderService.SetSelectionLogicUri:output_type -> adselection.SetSelectionLogicUriResponse
+	149, // 268: adselection.AdSelectionFromOutcomesConfigBuilderService.SetSelectionSignals:output_type -> adselection.SetSelectionSignalsResponse
+	27,  // 269: adselection.AdSelectionFromOutcomesConfigBuilderService.SetSeller:output_type -> adselection.SetSellerResponse
+	151, // 270: adselection.GetAdSelectionDataRequestService.GetCoordinatorOriginUri:output_type -> adselection.GetCoordinatorOriginUriResponse
+	11,  // 271: adselection.GetAdSelectionDataRequestService.GetSeller:output_type -> adselection.GetSellerResponse
+	153, // 272: adselection.GetAdSelectionDataRequestService.GetSellerConfiguration:output_type -> adselection.GetSellerConfigurationResponse
+	21,  // 273: adselection.GetAdSelectionDataRequestBuilderService.Build:output_type -> adselection.BuildResponse
+	155, // 274: adselection.GetAdSelectionDataRequestBuilderService.SetCoordinatorOriginUri:output_type -> adselection.SetCoordinatorOriginUriResponse
+	27,  // 275: adselection.GetAdSelectionDataRequestBuilderService.SetSeller:output_type -> adselection.SetSellerResponse
+	157, // 276: adselection.GetAdSelectionDataRequestBuilderService.SetSellerConfiguration:output_type -> adselection.SetSellerConfigurationResponse
+	159, // 277: adselection.AdWithBidService.NewAdWithBid:output_type -> adselection.NewAdWithBidResponse
+	1,   // 278: adselection.AdWithBidService.DescribeContents:output_type -> adselection.DescribeContentsResponse
+	3,   // 279: adselection.AdWithBidService.Equals:output_type -> adselection.EqualsResponse
+	163, // 280: adselection.AdWithBidService.GetAdData:output_type -> adselection.GetAdDataResponse
+	165, // 281: adselection.AdWithBidService.GetBid:output_type -> adselection.GetBidResponse
+	17,  // 282: adselection.AdWithBidService.HashCode:output_type -> adselection.HashCodeResponse
+	19,  // 283: adselection.AdWithBidService.WriteToParcel:output_type -> adselection.WriteToParcelResponse
+	3,   // 284: adselection.UpdateAdCounterHistogramRequestService.Equals:output_type -> adselection.EqualsResponse
+	169, // 285: adselection.UpdateAdCounterHistogramRequestService.GetAdEventType:output_type -> adselection.GetAdEventTypeResponse
+	33,  // 286: adselection.UpdateAdCounterHistogramRequestService.GetAdSelectionId:output_type -> adselection.GetAdSelectionIdResponse
+	171, // 287: adselection.UpdateAdCounterHistogramRequestService.GetCallerAdTech:output_type -> adselection.GetCallerAdTechResponse
+	17,  // 288: adselection.UpdateAdCounterHistogramRequestService.HashCode:output_type -> adselection.HashCodeResponse
+	74,  // 289: adselection.UpdateAdCounterHistogramRequestService.ToString:output_type -> adselection.ToStringResponse
+	21,  // 290: adselection.UpdateAdCounterHistogramRequestBuilderService.Build:output_type -> adselection.BuildResponse
+	174, // 291: adselection.UpdateAdCounterHistogramRequestBuilderService.SetAdEventType:output_type -> adselection.SetAdEventTypeResponse
+	43,  // 292: adselection.UpdateAdCounterHistogramRequestBuilderService.SetAdSelectionId:output_type -> adselection.SetAdSelectionIdResponse
+	176, // 293: adselection.UpdateAdCounterHistogramRequestBuilderService.SetCallerAdTech:output_type -> adselection.SetCallerAdTechResponse
+	147, // [147:294] is the sub-list for method output_type
+	0,   // [0:147] is the sub-list for method input_type
 	0,   // [0:0] is the sub-list for extension type_name
 	0,   // [0:0] is the sub-list for extension extendee
 	0,   // [0:0] is the sub-list for field type_name
@@ -8074,9 +8641,9 @@ func file_proto_adselection_adselection_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_adselection_adselection_proto_rawDesc), len(file_proto_adselection_adselection_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   164,
+			NumMessages:   177,
 			NumExtensions: 0,
-			NumServices:   31,
+			NumServices:   32,
 		},
 		GoTypes:           file_proto_adselection_adselection_proto_goTypes,
 		DependencyIndexes: file_proto_adselection_adselection_proto_depIdxs,

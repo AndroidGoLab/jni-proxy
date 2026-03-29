@@ -77,6 +77,25 @@ var classificationFieldClassificationGetAutofillIdCmd = &cobra.Command{
 	},
 }
 
+var classificationFieldClassificationGetHintsCmd = &cobra.Command{
+	Use:   "get-hints",
+	Short: "GetHints RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldClassificationServiceClient(grpcConn)
+		req := &pb.GetHintsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetHints(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var classificationFieldClassificationToStringCmd = &cobra.Command{
 	Use:   "to-string",
 	Short: "ToString RPC",
@@ -129,6 +148,8 @@ func init() {
 	classificationFieldClassificationCmd.AddCommand(classificationFieldClassificationDescribeContentsCmd)
 	classificationFieldClassificationGetAutofillIdCmd.Flags().Int64("handle", 0, "handle (int64)")
 	classificationFieldClassificationCmd.AddCommand(classificationFieldClassificationGetAutofillIdCmd)
+	classificationFieldClassificationGetHintsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	classificationFieldClassificationCmd.AddCommand(classificationFieldClassificationGetHintsCmd)
 	classificationFieldClassificationToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
 	classificationFieldClassificationCmd.AddCommand(classificationFieldClassificationToStringCmd)
 	classificationFieldClassificationWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")

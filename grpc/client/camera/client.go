@@ -63,6 +63,15 @@ func (c *ManagerClient) GetCameraIdList(ctx context.Context) (int64, error) {
 	return resp.GetResult(), nil
 }
 
+// GetConcurrentCameraIds calls the GetConcurrentCameraIds RPC.
+func (c *ManagerClient) GetConcurrentCameraIds(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetConcurrentCameraIds(ctx, &pb.GetConcurrentCameraIdsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetTorchStrengthLevel calls the GetTorchStrengthLevel RPC.
 func (c *ManagerClient) GetTorchStrengthLevel(ctx context.Context, arg0 string) (int32, error) {
 	resp, err := c.svc.GetTorchStrengthLevel(ctx, &pb.GetTorchStrengthLevelRequest{

@@ -9,297 +9,6 @@ import (
 	"google.golang.org/grpc"
 )
 
-// DeleteMedicalResourcesRequestClient wraps the gRPC DeleteMedicalResourcesRequestService client.
-type DeleteMedicalResourcesRequestClient struct {
-	svc pb.DeleteMedicalResourcesRequestServiceClient
-}
-
-// NewDeleteMedicalResourcesRequestClient creates a new DeleteMedicalResourcesRequest client.
-func NewDeleteMedicalResourcesRequestClient(cc grpc.ClientConnInterface) *DeleteMedicalResourcesRequestClient {
-	return &DeleteMedicalResourcesRequestClient{
-		svc: pb.NewDeleteMedicalResourcesRequestServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *DeleteMedicalResourcesRequestClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *DeleteMedicalResourcesRequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *DeleteMedicalResourcesRequestClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *DeleteMedicalResourcesRequestClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *DeleteMedicalResourcesRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// DeleteMedicalResourcesRequestBuilderClient wraps the gRPC DeleteMedicalResourcesRequestBuilderService client.
-type DeleteMedicalResourcesRequestBuilderClient struct {
-	svc pb.DeleteMedicalResourcesRequestBuilderServiceClient
-}
-
-// NewDeleteMedicalResourcesRequestBuilderClient creates a new DeleteMedicalResourcesRequestBuilder client.
-func NewDeleteMedicalResourcesRequestBuilderClient(cc grpc.ClientConnInterface) *DeleteMedicalResourcesRequestBuilderClient {
-	return &DeleteMedicalResourcesRequestBuilderClient{
-		svc: pb.NewDeleteMedicalResourcesRequestBuilderServiceClient(cc),
-	}
-}
-
-// AddDataSourceId calls the AddDataSourceId RPC.
-func (c *DeleteMedicalResourcesRequestBuilderClient) AddDataSourceId(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.AddDataSourceId(ctx, &pb.AddDataSourceIdRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddMedicalResourceType calls the AddMedicalResourceType RPC.
-func (c *DeleteMedicalResourcesRequestBuilderClient) AddMedicalResourceType(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.AddMedicalResourceType(ctx, &pb.AddMedicalResourceTypeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Build calls the Build RPC.
-func (c *DeleteMedicalResourcesRequestBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearDataSourceIds calls the ClearDataSourceIds RPC.
-func (c *DeleteMedicalResourcesRequestBuilderClient) ClearDataSourceIds(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearDataSourceIds(ctx, &pb.ClearDataSourceIdsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearMedicalResourceTypes calls the ClearMedicalResourceTypes RPC.
-func (c *DeleteMedicalResourcesRequestBuilderClient) ClearMedicalResourceTypes(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearMedicalResourceTypes(ctx, &pb.ClearMedicalResourceTypesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// TimeInstantRangeFilterClient wraps the gRPC TimeInstantRangeFilterService client.
-type TimeInstantRangeFilterClient struct {
-	svc pb.TimeInstantRangeFilterServiceClient
-}
-
-// NewTimeInstantRangeFilterClient creates a new TimeInstantRangeFilter client.
-func NewTimeInstantRangeFilterClient(cc grpc.ClientConnInterface) *TimeInstantRangeFilterClient {
-	return &TimeInstantRangeFilterClient{
-		svc: pb.NewTimeInstantRangeFilterServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *TimeInstantRangeFilterClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetEndTime calls the GetEndTime RPC.
-func (c *TimeInstantRangeFilterClient) GetEndTime(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetEndTime(ctx, &pb.GetEndTimeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStartTime calls the GetStartTime RPC.
-func (c *TimeInstantRangeFilterClient) GetStartTime(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetStartTime(ctx, &pb.GetStartTimeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *TimeInstantRangeFilterClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsBounded calls the IsBounded RPC.
-func (c *TimeInstantRangeFilterClient) IsBounded(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsBounded(ctx, &pb.IsBoundedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// TimeInstantRangeFilterBuilderClient wraps the gRPC TimeInstantRangeFilterBuilderService client.
-type TimeInstantRangeFilterBuilderClient struct {
-	svc pb.TimeInstantRangeFilterBuilderServiceClient
-}
-
-// NewTimeInstantRangeFilterBuilderClient creates a new TimeInstantRangeFilterBuilder client.
-func NewTimeInstantRangeFilterBuilderClient(cc grpc.ClientConnInterface) *TimeInstantRangeFilterBuilderClient {
-	return &TimeInstantRangeFilterBuilderClient{
-		svc: pb.NewTimeInstantRangeFilterBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *TimeInstantRangeFilterBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetEndTime calls the SetEndTime RPC.
-func (c *TimeInstantRangeFilterBuilderClient) SetEndTime(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetEndTime(ctx, &pb.SetEndTimeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetStartTime calls the SetStartTime RPC.
-func (c *TimeInstantRangeFilterBuilderClient) SetStartTime(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetStartTime(ctx, &pb.SetStartTimeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AggregateRecordsRequestClient wraps the gRPC AggregateRecordsRequestService client.
-type AggregateRecordsRequestClient struct {
-	svc pb.AggregateRecordsRequestServiceClient
-}
-
-// NewAggregateRecordsRequestClient creates a new AggregateRecordsRequest client.
-func NewAggregateRecordsRequestClient(cc grpc.ClientConnInterface) *AggregateRecordsRequestClient {
-	return &AggregateRecordsRequestClient{
-		svc: pb.NewAggregateRecordsRequestServiceClient(cc),
-	}
-}
-
-// GetTimeRangeFilter calls the GetTimeRangeFilter RPC.
-func (c *AggregateRecordsRequestClient) GetTimeRangeFilter(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTimeRangeFilter(ctx, &pb.GetTimeRangeFilterRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ReadRecordsRequestUsingFiltersClient wraps the gRPC ReadRecordsRequestUsingFiltersService client.
-type ReadRecordsRequestUsingFiltersClient struct {
-	svc pb.ReadRecordsRequestUsingFiltersServiceClient
-}
-
-// NewReadRecordsRequestUsingFiltersClient creates a new ReadRecordsRequestUsingFilters client.
-func NewReadRecordsRequestUsingFiltersClient(cc grpc.ClientConnInterface) *ReadRecordsRequestUsingFiltersClient {
-	return &ReadRecordsRequestUsingFiltersClient{
-		svc: pb.NewReadRecordsRequestUsingFiltersServiceClient(cc),
-	}
-}
-
-// GetPageSize calls the GetPageSize RPC.
-func (c *ReadRecordsRequestUsingFiltersClient) GetPageSize(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetPageSize(ctx, &pb.GetPageSizeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPageToken calls the GetPageToken RPC.
-func (c *ReadRecordsRequestUsingFiltersClient) GetPageToken(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetPageToken(ctx, &pb.GetPageTokenRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTimeRangeFilter calls the GetTimeRangeFilter RPC.
-func (c *ReadRecordsRequestUsingFiltersClient) GetTimeRangeFilter(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTimeRangeFilter(ctx, &pb.GetTimeRangeFilterRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsAscending calls the IsAscending RPC.
-func (c *ReadRecordsRequestUsingFiltersClient) IsAscending(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsAscending(ctx, &pb.IsAscendingRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
 // ReadRecordsResponseClient wraps the gRPC ReadRecordsResponseService client.
 type ReadRecordsResponseClient struct {
 	svc pb.ReadRecordsResponseServiceClient
@@ -321,548 +30,9 @@ func (c *ReadRecordsResponseClient) GetNextPageToken(ctx context.Context) (int64
 	return resp.GetResult(), nil
 }
 
-// ReadMedicalResourcesInitialRequestClient wraps the gRPC ReadMedicalResourcesInitialRequestService client.
-type ReadMedicalResourcesInitialRequestClient struct {
-	svc pb.ReadMedicalResourcesInitialRequestServiceClient
-}
-
-// NewReadMedicalResourcesInitialRequestClient creates a new ReadMedicalResourcesInitialRequest client.
-func NewReadMedicalResourcesInitialRequestClient(cc grpc.ClientConnInterface) *ReadMedicalResourcesInitialRequestClient {
-	return &ReadMedicalResourcesInitialRequestClient{
-		svc: pb.NewReadMedicalResourcesInitialRequestServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *ReadMedicalResourcesInitialRequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMedicalResourceType calls the GetMedicalResourceType RPC.
-func (c *ReadMedicalResourcesInitialRequestClient) GetMedicalResourceType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMedicalResourceType(ctx, &pb.GetMedicalResourceTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *ReadMedicalResourcesInitialRequestClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *ReadMedicalResourcesInitialRequestClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// ReadMedicalResourcesInitialRequestBuilderClient wraps the gRPC ReadMedicalResourcesInitialRequestBuilderService client.
-type ReadMedicalResourcesInitialRequestBuilderClient struct {
-	svc pb.ReadMedicalResourcesInitialRequestBuilderServiceClient
-}
-
-// NewReadMedicalResourcesInitialRequestBuilderClient creates a new ReadMedicalResourcesInitialRequestBuilder client.
-func NewReadMedicalResourcesInitialRequestBuilderClient(cc grpc.ClientConnInterface) *ReadMedicalResourcesInitialRequestBuilderClient {
-	return &ReadMedicalResourcesInitialRequestBuilderClient{
-		svc: pb.NewReadMedicalResourcesInitialRequestBuilderServiceClient(cc),
-	}
-}
-
-// AddDataSourceId calls the AddDataSourceId RPC.
-func (c *ReadMedicalResourcesInitialRequestBuilderClient) AddDataSourceId(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.AddDataSourceId(ctx, &pb.AddDataSourceIdRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Build calls the Build RPC.
-func (c *ReadMedicalResourcesInitialRequestBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearDataSourceIds calls the ClearDataSourceIds RPC.
-func (c *ReadMedicalResourcesInitialRequestBuilderClient) ClearDataSourceIds(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearDataSourceIds(ctx, &pb.ClearDataSourceIdsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetMedicalResourceType calls the SetMedicalResourceType RPC.
-func (c *ReadMedicalResourcesInitialRequestBuilderClient) SetMedicalResourceType(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetMedicalResourceType(ctx, &pb.SetMedicalResourceTypeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPageSize calls the SetPageSize RPC.
-func (c *ReadMedicalResourcesInitialRequestBuilderClient) SetPageSize(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetPageSize(ctx, &pb.SetPageSizeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AggregateRecordsGroupedByPeriodResponseClient wraps the gRPC AggregateRecordsGroupedByPeriodResponseService client.
-type AggregateRecordsGroupedByPeriodResponseClient struct {
-	svc pb.AggregateRecordsGroupedByPeriodResponseServiceClient
-}
-
-// NewAggregateRecordsGroupedByPeriodResponseClient creates a new AggregateRecordsGroupedByPeriodResponse client.
-func NewAggregateRecordsGroupedByPeriodResponseClient(cc grpc.ClientConnInterface) *AggregateRecordsGroupedByPeriodResponseClient {
-	return &AggregateRecordsGroupedByPeriodResponseClient{
-		svc: pb.NewAggregateRecordsGroupedByPeriodResponseServiceClient(cc),
-	}
-}
-
-// GetEndTime calls the GetEndTime RPC.
-func (c *AggregateRecordsGroupedByPeriodResponseClient) GetEndTime(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetEndTime(ctx, &pb.GetEndTimeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStartTime calls the GetStartTime RPC.
-func (c *AggregateRecordsGroupedByPeriodResponseClient) GetStartTime(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetStartTime(ctx, &pb.GetStartTimeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateMedicalDataSourceRequestClient wraps the gRPC CreateMedicalDataSourceRequestService client.
-type CreateMedicalDataSourceRequestClient struct {
-	svc pb.CreateMedicalDataSourceRequestServiceClient
-}
-
-// NewCreateMedicalDataSourceRequestClient creates a new CreateMedicalDataSourceRequest client.
-func NewCreateMedicalDataSourceRequestClient(cc grpc.ClientConnInterface) *CreateMedicalDataSourceRequestClient {
-	return &CreateMedicalDataSourceRequestClient{
-		svc: pb.NewCreateMedicalDataSourceRequestServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *CreateMedicalDataSourceRequestClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *CreateMedicalDataSourceRequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDisplayName calls the GetDisplayName RPC.
-func (c *CreateMedicalDataSourceRequestClient) GetDisplayName(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetDisplayName(ctx, &pb.GetDisplayNameRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFhirBaseUri calls the GetFhirBaseUri RPC.
-func (c *CreateMedicalDataSourceRequestClient) GetFhirBaseUri(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetFhirBaseUri(ctx, &pb.GetFhirBaseUriRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFhirVersion calls the GetFhirVersion RPC.
-func (c *CreateMedicalDataSourceRequestClient) GetFhirVersion(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetFhirVersion(ctx, &pb.GetFhirVersionRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *CreateMedicalDataSourceRequestClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *CreateMedicalDataSourceRequestClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *CreateMedicalDataSourceRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// CreateMedicalDataSourceRequestBuilderClient wraps the gRPC CreateMedicalDataSourceRequestBuilderService client.
-type CreateMedicalDataSourceRequestBuilderClient struct {
-	svc pb.CreateMedicalDataSourceRequestBuilderServiceClient
-}
-
-// NewCreateMedicalDataSourceRequestBuilderClient creates a new CreateMedicalDataSourceRequestBuilder client.
-func NewCreateMedicalDataSourceRequestBuilderClient(cc grpc.ClientConnInterface) *CreateMedicalDataSourceRequestBuilderClient {
-	return &CreateMedicalDataSourceRequestBuilderClient{
-		svc: pb.NewCreateMedicalDataSourceRequestBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *CreateMedicalDataSourceRequestBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetDisplayName calls the SetDisplayName RPC.
-func (c *CreateMedicalDataSourceRequestBuilderClient) SetDisplayName(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetDisplayName(ctx, &pb.SetDisplayNameRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetFhirBaseUri calls the SetFhirBaseUri RPC.
-func (c *CreateMedicalDataSourceRequestBuilderClient) SetFhirBaseUri(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetFhirBaseUri(ctx, &pb.SetFhirBaseUriRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetFhirVersion calls the SetFhirVersion RPC.
-func (c *CreateMedicalDataSourceRequestBuilderClient) SetFhirVersion(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetFhirVersion(ctx, &pb.SetFhirVersionRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ReadMedicalResourcesRequestClient wraps the gRPC ReadMedicalResourcesRequestService client.
-type ReadMedicalResourcesRequestClient struct {
-	svc pb.ReadMedicalResourcesRequestServiceClient
-}
-
-// NewReadMedicalResourcesRequestClient creates a new ReadMedicalResourcesRequest client.
-func NewReadMedicalResourcesRequestClient(cc grpc.ClientConnInterface) *ReadMedicalResourcesRequestClient {
-	return &ReadMedicalResourcesRequestClient{
-		svc: pb.NewReadMedicalResourcesRequestServiceClient(cc),
-	}
-}
-
-// GetPageSize calls the GetPageSize RPC.
-func (c *ReadMedicalResourcesRequestClient) GetPageSize(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetPageSize(ctx, &pb.GetPageSizeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HealthConnectExceptionClient wraps the gRPC HealthConnectExceptionService client.
-type HealthConnectExceptionClient struct {
-	svc pb.HealthConnectExceptionServiceClient
-}
-
-// NewHealthConnectExceptionClient creates a new HealthConnectException client.
-func NewHealthConnectExceptionClient(cc grpc.ClientConnInterface) *HealthConnectExceptionClient {
-	return &HealthConnectExceptionClient{
-		svc: pb.NewHealthConnectExceptionServiceClient(cc),
-	}
-}
-
-// GetErrorCode calls the GetErrorCode RPC.
-func (c *HealthConnectExceptionClient) GetErrorCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetErrorCode(ctx, &pb.GetErrorCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ReadMedicalResourcesPageRequestClient wraps the gRPC ReadMedicalResourcesPageRequestService client.
-type ReadMedicalResourcesPageRequestClient struct {
-	svc pb.ReadMedicalResourcesPageRequestServiceClient
-}
-
-// NewReadMedicalResourcesPageRequestClient creates a new ReadMedicalResourcesPageRequest client.
-func NewReadMedicalResourcesPageRequestClient(cc grpc.ClientConnInterface) *ReadMedicalResourcesPageRequestClient {
-	return &ReadMedicalResourcesPageRequestClient{
-		svc: pb.NewReadMedicalResourcesPageRequestServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *ReadMedicalResourcesPageRequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPageToken calls the GetPageToken RPC.
-func (c *ReadMedicalResourcesPageRequestClient) GetPageToken(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetPageToken(ctx, &pb.GetPageTokenRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *ReadMedicalResourcesPageRequestClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *ReadMedicalResourcesPageRequestClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// ReadMedicalResourcesPageRequestBuilderClient wraps the gRPC ReadMedicalResourcesPageRequestBuilderService client.
-type ReadMedicalResourcesPageRequestBuilderClient struct {
-	svc pb.ReadMedicalResourcesPageRequestBuilderServiceClient
-}
-
-// NewReadMedicalResourcesPageRequestBuilderClient creates a new ReadMedicalResourcesPageRequestBuilder client.
-func NewReadMedicalResourcesPageRequestBuilderClient(cc grpc.ClientConnInterface) *ReadMedicalResourcesPageRequestBuilderClient {
-	return &ReadMedicalResourcesPageRequestBuilderClient{
-		svc: pb.NewReadMedicalResourcesPageRequestBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *ReadMedicalResourcesPageRequestBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPageSize calls the SetPageSize RPC.
-func (c *ReadMedicalResourcesPageRequestBuilderClient) SetPageSize(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetPageSize(ctx, &pb.SetPageSizeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPageToken calls the SetPageToken RPC.
-func (c *ReadMedicalResourcesPageRequestBuilderClient) SetPageToken(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetPageToken(ctx, &pb.SetPageTokenRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RecordIdFilterClient wraps the gRPC RecordIdFilterService client.
-type RecordIdFilterClient struct {
-	svc pb.RecordIdFilterServiceClient
-}
-
-// NewRecordIdFilterClient creates a new RecordIdFilter client.
-func NewRecordIdFilterClient(cc grpc.ClientConnInterface) *RecordIdFilterClient {
-	return &RecordIdFilterClient{
-		svc: pb.NewRecordIdFilterServiceClient(cc),
-	}
-}
-
-// GetClientRecordId calls the GetClientRecordId RPC.
-func (c *RecordIdFilterClient) GetClientRecordId(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetClientRecordId(ctx, &pb.GetClientRecordIdRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetId calls the GetId RPC.
-func (c *RecordIdFilterClient) GetId(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMedicalDataSourcesRequestClient wraps the gRPC GetMedicalDataSourcesRequestService client.
-type GetMedicalDataSourcesRequestClient struct {
-	svc pb.GetMedicalDataSourcesRequestServiceClient
-}
-
-// NewGetMedicalDataSourcesRequestClient creates a new GetMedicalDataSourcesRequest client.
-func NewGetMedicalDataSourcesRequestClient(cc grpc.ClientConnInterface) *GetMedicalDataSourcesRequestClient {
-	return &GetMedicalDataSourcesRequestClient{
-		svc: pb.NewGetMedicalDataSourcesRequestServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *GetMedicalDataSourcesRequestClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *GetMedicalDataSourcesRequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *GetMedicalDataSourcesRequestClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *GetMedicalDataSourcesRequestClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *GetMedicalDataSourcesRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// GetMedicalDataSourcesRequestBuilderClient wraps the gRPC GetMedicalDataSourcesRequestBuilderService client.
-type GetMedicalDataSourcesRequestBuilderClient struct {
-	svc pb.GetMedicalDataSourcesRequestBuilderServiceClient
-}
-
-// NewGetMedicalDataSourcesRequestBuilderClient creates a new GetMedicalDataSourcesRequestBuilder client.
-func NewGetMedicalDataSourcesRequestBuilderClient(cc grpc.ClientConnInterface) *GetMedicalDataSourcesRequestBuilderClient {
-	return &GetMedicalDataSourcesRequestBuilderClient{
-		svc: pb.NewGetMedicalDataSourcesRequestBuilderServiceClient(cc),
-	}
-}
-
-// AddPackageName calls the AddPackageName RPC.
-func (c *GetMedicalDataSourcesRequestBuilderClient) AddPackageName(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.AddPackageName(ctx, &pb.AddPackageNameRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Build calls the Build RPC.
-func (c *GetMedicalDataSourcesRequestBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearPackageNames calls the ClearPackageNames RPC.
-func (c *GetMedicalDataSourcesRequestBuilderClient) ClearPackageNames(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearPackageNames(ctx, &pb.ClearPackageNamesRequest{})
+// GetRecords calls the GetRecords RPC.
+func (c *ReadRecordsResponseClient) GetRecords(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRecords(ctx, &pb.GetRecordsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -971,125 +141,6 @@ func (c *LocalTimeRangeFilterBuilderClient) SetStartTime(ctx context.Context, ar
 	return resp.GetResult(), nil
 }
 
-// ReadMedicalResourcesResponseClient wraps the gRPC ReadMedicalResourcesResponseService client.
-type ReadMedicalResourcesResponseClient struct {
-	svc pb.ReadMedicalResourcesResponseServiceClient
-}
-
-// NewReadMedicalResourcesResponseClient creates a new ReadMedicalResourcesResponse client.
-func NewReadMedicalResourcesResponseClient(cc grpc.ClientConnInterface) *ReadMedicalResourcesResponseClient {
-	return &ReadMedicalResourcesResponseClient{
-		svc: pb.NewReadMedicalResourcesResponseServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *ReadMedicalResourcesResponseClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.ReadMedicalResourcesResponseDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *ReadMedicalResourcesResponseClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.ReadMedicalResourcesResponseEqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNextPageToken calls the GetNextPageToken RPC.
-func (c *ReadMedicalResourcesResponseClient) GetNextPageToken(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetNextPageToken(ctx, &pb.ReadMedicalResourcesResponseGetNextPageTokenRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRemainingCount calls the GetRemainingCount RPC.
-func (c *ReadMedicalResourcesResponseClient) GetRemainingCount(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetRemainingCount(ctx, &pb.GetRemainingCountRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *ReadMedicalResourcesResponseClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.ReadMedicalResourcesResponseHashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *ReadMedicalResourcesResponseClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ReadMedicalResourcesResponseToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *ReadMedicalResourcesResponseClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.ReadMedicalResourcesResponseWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// AggregateRecordsGroupedByDurationResponseClient wraps the gRPC AggregateRecordsGroupedByDurationResponseService client.
-type AggregateRecordsGroupedByDurationResponseClient struct {
-	svc pb.AggregateRecordsGroupedByDurationResponseServiceClient
-}
-
-// NewAggregateRecordsGroupedByDurationResponseClient creates a new AggregateRecordsGroupedByDurationResponse client.
-func NewAggregateRecordsGroupedByDurationResponseClient(cc grpc.ClientConnInterface) *AggregateRecordsGroupedByDurationResponseClient {
-	return &AggregateRecordsGroupedByDurationResponseClient{
-		svc: pb.NewAggregateRecordsGroupedByDurationResponseServiceClient(cc),
-	}
-}
-
-// GetEndTime calls the GetEndTime RPC.
-func (c *AggregateRecordsGroupedByDurationResponseClient) GetEndTime(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetEndTime(ctx, &pb.GetEndTimeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStartTime calls the GetStartTime RPC.
-func (c *AggregateRecordsGroupedByDurationResponseClient) GetStartTime(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetStartTime(ctx, &pb.GetStartTimeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // MedicalResourceIdClient wraps the gRPC MedicalResourceIdService client.
 type MedicalResourceIdClient struct {
 	svc pb.MedicalResourceIdServiceClient
@@ -1104,7 +155,7 @@ func NewMedicalResourceIdClient(cc grpc.ClientConnInterface) *MedicalResourceIdC
 
 // DescribeContents calls the DescribeContents RPC.
 func (c *MedicalResourceIdClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.MedicalResourceIdDescribeContentsRequest{
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -1171,7 +222,7 @@ func (c *MedicalResourceIdClient) HashCode(ctx context.Context, handle int64) (i
 
 // ToString calls the ToString RPC.
 func (c *MedicalResourceIdClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.MedicalResourceIdToStringRequest{
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -1182,7 +233,7 @@ func (c *MedicalResourceIdClient) ToString(ctx context.Context, handle int64) (s
 
 // WriteToParcel calls the WriteToParcel RPC.
 func (c *MedicalResourceIdClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.MedicalResourceIdWriteToParcelRequest{
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -1203,6 +254,742 @@ func (c *MedicalResourceIdClient) FromFhirReference(ctx context.Context, handle 
 	return resp.GetResult(), nil
 }
 
+// ReadMedicalResourcesPageRequestClient wraps the gRPC ReadMedicalResourcesPageRequestService client.
+type ReadMedicalResourcesPageRequestClient struct {
+	svc pb.ReadMedicalResourcesPageRequestServiceClient
+}
+
+// NewReadMedicalResourcesPageRequestClient creates a new ReadMedicalResourcesPageRequest client.
+func NewReadMedicalResourcesPageRequestClient(cc grpc.ClientConnInterface) *ReadMedicalResourcesPageRequestClient {
+	return &ReadMedicalResourcesPageRequestClient{
+		svc: pb.NewReadMedicalResourcesPageRequestServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *ReadMedicalResourcesPageRequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPageToken calls the GetPageToken RPC.
+func (c *ReadMedicalResourcesPageRequestClient) GetPageToken(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetPageToken(ctx, &pb.GetPageTokenRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ReadMedicalResourcesPageRequestClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ReadMedicalResourcesPageRequestClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ReadMedicalResourcesPageRequestToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReadMedicalResourcesPageRequestBuilderClient wraps the gRPC ReadMedicalResourcesPageRequestBuilderService client.
+type ReadMedicalResourcesPageRequestBuilderClient struct {
+	svc pb.ReadMedicalResourcesPageRequestBuilderServiceClient
+}
+
+// NewReadMedicalResourcesPageRequestBuilderClient creates a new ReadMedicalResourcesPageRequestBuilder client.
+func NewReadMedicalResourcesPageRequestBuilderClient(cc grpc.ClientConnInterface) *ReadMedicalResourcesPageRequestBuilderClient {
+	return &ReadMedicalResourcesPageRequestBuilderClient{
+		svc: pb.NewReadMedicalResourcesPageRequestBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *ReadMedicalResourcesPageRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPageSize calls the SetPageSize RPC.
+func (c *ReadMedicalResourcesPageRequestBuilderClient) SetPageSize(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetPageSize(ctx, &pb.SetPageSizeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPageToken calls the SetPageToken RPC.
+func (c *ReadMedicalResourcesPageRequestBuilderClient) SetPageToken(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetPageToken(ctx, &pb.SetPageTokenRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReadRecordsRequestClient wraps the gRPC ReadRecordsRequestService client.
+type ReadRecordsRequestClient struct {
+	svc pb.ReadRecordsRequestServiceClient
+}
+
+// NewReadRecordsRequestClient creates a new ReadRecordsRequest client.
+func NewReadRecordsRequestClient(cc grpc.ClientConnInterface) *ReadRecordsRequestClient {
+	return &ReadRecordsRequestClient{
+		svc: pb.NewReadRecordsRequestServiceClient(cc),
+	}
+}
+
+// GetRecordType calls the GetRecordType RPC.
+func (c *ReadRecordsRequestClient) GetRecordType(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRecordType(ctx, &pb.GetRecordTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReadRecordsRequestUsingFiltersClient wraps the gRPC ReadRecordsRequestUsingFiltersService client.
+type ReadRecordsRequestUsingFiltersClient struct {
+	svc pb.ReadRecordsRequestUsingFiltersServiceClient
+}
+
+// NewReadRecordsRequestUsingFiltersClient creates a new ReadRecordsRequestUsingFilters client.
+func NewReadRecordsRequestUsingFiltersClient(cc grpc.ClientConnInterface) *ReadRecordsRequestUsingFiltersClient {
+	return &ReadRecordsRequestUsingFiltersClient{
+		svc: pb.NewReadRecordsRequestUsingFiltersServiceClient(cc),
+	}
+}
+
+// GetDataOrigins calls the GetDataOrigins RPC.
+func (c *ReadRecordsRequestUsingFiltersClient) GetDataOrigins(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDataOrigins(ctx, &pb.GetDataOriginsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPageSize calls the GetPageSize RPC.
+func (c *ReadRecordsRequestUsingFiltersClient) GetPageSize(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPageSize(ctx, &pb.GetPageSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPageToken calls the GetPageToken RPC.
+func (c *ReadRecordsRequestUsingFiltersClient) GetPageToken(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPageToken(ctx, &pb.GetPageTokenRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimeRangeFilter calls the GetTimeRangeFilter RPC.
+func (c *ReadRecordsRequestUsingFiltersClient) GetTimeRangeFilter(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTimeRangeFilter(ctx, &pb.GetTimeRangeFilterRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAscending calls the IsAscending RPC.
+func (c *ReadRecordsRequestUsingFiltersClient) IsAscending(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsAscending(ctx, &pb.IsAscendingRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReadRecordsRequestUsingFiltersBuilderClient wraps the gRPC ReadRecordsRequestUsingFiltersBuilderService client.
+type ReadRecordsRequestUsingFiltersBuilderClient struct {
+	svc pb.ReadRecordsRequestUsingFiltersBuilderServiceClient
+}
+
+// NewReadRecordsRequestUsingFiltersBuilderClient creates a new ReadRecordsRequestUsingFiltersBuilder client.
+func NewReadRecordsRequestUsingFiltersBuilderClient(cc grpc.ClientConnInterface) *ReadRecordsRequestUsingFiltersBuilderClient {
+	return &ReadRecordsRequestUsingFiltersBuilderClient{
+		svc: pb.NewReadRecordsRequestUsingFiltersBuilderServiceClient(cc),
+	}
+}
+
+// AddDataOrigins calls the AddDataOrigins RPC.
+func (c *ReadRecordsRequestUsingFiltersBuilderClient) AddDataOrigins(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddDataOrigins(ctx, &pb.AddDataOriginsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *ReadRecordsRequestUsingFiltersBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAscending calls the SetAscending RPC.
+func (c *ReadRecordsRequestUsingFiltersBuilderClient) SetAscending(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetAscending(ctx, &pb.SetAscendingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPageSize calls the SetPageSize RPC.
+func (c *ReadRecordsRequestUsingFiltersBuilderClient) SetPageSize(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetPageSize(ctx, &pb.SetPageSizeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPageToken calls the SetPageToken RPC.
+func (c *ReadRecordsRequestUsingFiltersBuilderClient) SetPageToken(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetPageToken(ctx, &pb.ReadRecordsRequestUsingFiltersBuilderSetPageTokenRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTimeRangeFilter calls the SetTimeRangeFilter RPC.
+func (c *ReadRecordsRequestUsingFiltersBuilderClient) SetTimeRangeFilter(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetTimeRangeFilter(ctx, &pb.SetTimeRangeFilterRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AggregateRecordsGroupedByDurationResponseClient wraps the gRPC AggregateRecordsGroupedByDurationResponseService client.
+type AggregateRecordsGroupedByDurationResponseClient struct {
+	svc pb.AggregateRecordsGroupedByDurationResponseServiceClient
+}
+
+// NewAggregateRecordsGroupedByDurationResponseClient creates a new AggregateRecordsGroupedByDurationResponse client.
+func NewAggregateRecordsGroupedByDurationResponseClient(cc grpc.ClientConnInterface) *AggregateRecordsGroupedByDurationResponseClient {
+	return &AggregateRecordsGroupedByDurationResponseClient{
+		svc: pb.NewAggregateRecordsGroupedByDurationResponseServiceClient(cc),
+	}
+}
+
+// GetEndTime calls the GetEndTime RPC.
+func (c *AggregateRecordsGroupedByDurationResponseClient) GetEndTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEndTime(ctx, &pb.GetEndTimeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStartTime calls the GetStartTime RPC.
+func (c *AggregateRecordsGroupedByDurationResponseClient) GetStartTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetStartTime(ctx, &pb.GetStartTimeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HealthConnectExceptionClient wraps the gRPC HealthConnectExceptionService client.
+type HealthConnectExceptionClient struct {
+	svc pb.HealthConnectExceptionServiceClient
+}
+
+// NewHealthConnectExceptionClient creates a new HealthConnectException client.
+func NewHealthConnectExceptionClient(cc grpc.ClientConnInterface) *HealthConnectExceptionClient {
+	return &HealthConnectExceptionClient{
+		svc: pb.NewHealthConnectExceptionServiceClient(cc),
+	}
+}
+
+// GetErrorCode calls the GetErrorCode RPC.
+func (c *HealthConnectExceptionClient) GetErrorCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetErrorCode(ctx, &pb.GetErrorCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DeleteMedicalResourcesRequestClient wraps the gRPC DeleteMedicalResourcesRequestService client.
+type DeleteMedicalResourcesRequestClient struct {
+	svc pb.DeleteMedicalResourcesRequestServiceClient
+}
+
+// NewDeleteMedicalResourcesRequestClient creates a new DeleteMedicalResourcesRequest client.
+func NewDeleteMedicalResourcesRequestClient(cc grpc.ClientConnInterface) *DeleteMedicalResourcesRequestClient {
+	return &DeleteMedicalResourcesRequestClient{
+		svc: pb.NewDeleteMedicalResourcesRequestServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *DeleteMedicalResourcesRequestClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DeleteMedicalResourcesRequestDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *DeleteMedicalResourcesRequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDataSourceIds calls the GetDataSourceIds RPC.
+func (c *DeleteMedicalResourcesRequestClient) GetDataSourceIds(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDataSourceIds(ctx, &pb.GetDataSourceIdsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMedicalResourceTypes calls the GetMedicalResourceTypes RPC.
+func (c *DeleteMedicalResourcesRequestClient) GetMedicalResourceTypes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMedicalResourceTypes(ctx, &pb.GetMedicalResourceTypesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *DeleteMedicalResourcesRequestClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *DeleteMedicalResourcesRequestClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.DeleteMedicalResourcesRequestToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *DeleteMedicalResourcesRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.DeleteMedicalResourcesRequestWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// DeleteMedicalResourcesRequestBuilderClient wraps the gRPC DeleteMedicalResourcesRequestBuilderService client.
+type DeleteMedicalResourcesRequestBuilderClient struct {
+	svc pb.DeleteMedicalResourcesRequestBuilderServiceClient
+}
+
+// NewDeleteMedicalResourcesRequestBuilderClient creates a new DeleteMedicalResourcesRequestBuilder client.
+func NewDeleteMedicalResourcesRequestBuilderClient(cc grpc.ClientConnInterface) *DeleteMedicalResourcesRequestBuilderClient {
+	return &DeleteMedicalResourcesRequestBuilderClient{
+		svc: pb.NewDeleteMedicalResourcesRequestBuilderServiceClient(cc),
+	}
+}
+
+// AddDataSourceId calls the AddDataSourceId RPC.
+func (c *DeleteMedicalResourcesRequestBuilderClient) AddDataSourceId(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.AddDataSourceId(ctx, &pb.AddDataSourceIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddMedicalResourceType calls the AddMedicalResourceType RPC.
+func (c *DeleteMedicalResourcesRequestBuilderClient) AddMedicalResourceType(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.AddMedicalResourceType(ctx, &pb.AddMedicalResourceTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *DeleteMedicalResourcesRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearDataSourceIds calls the ClearDataSourceIds RPC.
+func (c *DeleteMedicalResourcesRequestBuilderClient) ClearDataSourceIds(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearDataSourceIds(ctx, &pb.ClearDataSourceIdsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearMedicalResourceTypes calls the ClearMedicalResourceTypes RPC.
+func (c *DeleteMedicalResourcesRequestBuilderClient) ClearMedicalResourceTypes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearMedicalResourceTypes(ctx, &pb.ClearMedicalResourceTypesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateMedicalDataSourceRequestClient wraps the gRPC CreateMedicalDataSourceRequestService client.
+type CreateMedicalDataSourceRequestClient struct {
+	svc pb.CreateMedicalDataSourceRequestServiceClient
+}
+
+// NewCreateMedicalDataSourceRequestClient creates a new CreateMedicalDataSourceRequest client.
+func NewCreateMedicalDataSourceRequestClient(cc grpc.ClientConnInterface) *CreateMedicalDataSourceRequestClient {
+	return &CreateMedicalDataSourceRequestClient{
+		svc: pb.NewCreateMedicalDataSourceRequestServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *CreateMedicalDataSourceRequestClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.CreateMedicalDataSourceRequestDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *CreateMedicalDataSourceRequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDisplayName calls the GetDisplayName RPC.
+func (c *CreateMedicalDataSourceRequestClient) GetDisplayName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetDisplayName(ctx, &pb.GetDisplayNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFhirBaseUri calls the GetFhirBaseUri RPC.
+func (c *CreateMedicalDataSourceRequestClient) GetFhirBaseUri(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFhirBaseUri(ctx, &pb.GetFhirBaseUriRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFhirVersion calls the GetFhirVersion RPC.
+func (c *CreateMedicalDataSourceRequestClient) GetFhirVersion(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFhirVersion(ctx, &pb.GetFhirVersionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *CreateMedicalDataSourceRequestClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *CreateMedicalDataSourceRequestClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.CreateMedicalDataSourceRequestToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *CreateMedicalDataSourceRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.CreateMedicalDataSourceRequestWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// CreateMedicalDataSourceRequestBuilderClient wraps the gRPC CreateMedicalDataSourceRequestBuilderService client.
+type CreateMedicalDataSourceRequestBuilderClient struct {
+	svc pb.CreateMedicalDataSourceRequestBuilderServiceClient
+}
+
+// NewCreateMedicalDataSourceRequestBuilderClient creates a new CreateMedicalDataSourceRequestBuilder client.
+func NewCreateMedicalDataSourceRequestBuilderClient(cc grpc.ClientConnInterface) *CreateMedicalDataSourceRequestBuilderClient {
+	return &CreateMedicalDataSourceRequestBuilderClient{
+		svc: pb.NewCreateMedicalDataSourceRequestBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *CreateMedicalDataSourceRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDisplayName calls the SetDisplayName RPC.
+func (c *CreateMedicalDataSourceRequestBuilderClient) SetDisplayName(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetDisplayName(ctx, &pb.SetDisplayNameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFhirBaseUri calls the SetFhirBaseUri RPC.
+func (c *CreateMedicalDataSourceRequestBuilderClient) SetFhirBaseUri(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetFhirBaseUri(ctx, &pb.SetFhirBaseUriRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFhirVersion calls the SetFhirVersion RPC.
+func (c *CreateMedicalDataSourceRequestBuilderClient) SetFhirVersion(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetFhirVersion(ctx, &pb.SetFhirVersionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AggregateRecordsGroupedByPeriodResponseClient wraps the gRPC AggregateRecordsGroupedByPeriodResponseService client.
+type AggregateRecordsGroupedByPeriodResponseClient struct {
+	svc pb.AggregateRecordsGroupedByPeriodResponseServiceClient
+}
+
+// NewAggregateRecordsGroupedByPeriodResponseClient creates a new AggregateRecordsGroupedByPeriodResponse client.
+func NewAggregateRecordsGroupedByPeriodResponseClient(cc grpc.ClientConnInterface) *AggregateRecordsGroupedByPeriodResponseClient {
+	return &AggregateRecordsGroupedByPeriodResponseClient{
+		svc: pb.NewAggregateRecordsGroupedByPeriodResponseServiceClient(cc),
+	}
+}
+
+// GetEndTime calls the GetEndTime RPC.
+func (c *AggregateRecordsGroupedByPeriodResponseClient) GetEndTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEndTime(ctx, &pb.GetEndTimeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStartTime calls the GetStartTime RPC.
+func (c *AggregateRecordsGroupedByPeriodResponseClient) GetStartTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetStartTime(ctx, &pb.GetStartTimeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// InsertRecordsResponseClient wraps the gRPC InsertRecordsResponseService client.
+type InsertRecordsResponseClient struct {
+	svc pb.InsertRecordsResponseServiceClient
+}
+
+// NewInsertRecordsResponseClient creates a new InsertRecordsResponse client.
+func NewInsertRecordsResponseClient(cc grpc.ClientConnInterface) *InsertRecordsResponseClient {
+	return &InsertRecordsResponseClient{
+		svc: pb.NewInsertRecordsResponseServiceClient(cc),
+	}
+}
+
+// GetRecords calls the GetRecords RPC.
+func (c *InsertRecordsResponseClient) GetRecords(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRecords(ctx, &pb.GetRecordsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMedicalDataSourcesRequestClient wraps the gRPC GetMedicalDataSourcesRequestService client.
+type GetMedicalDataSourcesRequestClient struct {
+	svc pb.GetMedicalDataSourcesRequestServiceClient
+}
+
+// NewGetMedicalDataSourcesRequestClient creates a new GetMedicalDataSourcesRequest client.
+func NewGetMedicalDataSourcesRequestClient(cc grpc.ClientConnInterface) *GetMedicalDataSourcesRequestClient {
+	return &GetMedicalDataSourcesRequestClient{
+		svc: pb.NewGetMedicalDataSourcesRequestServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *GetMedicalDataSourcesRequestClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.GetMedicalDataSourcesRequestDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *GetMedicalDataSourcesRequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageNames calls the GetPackageNames RPC.
+func (c *GetMedicalDataSourcesRequestClient) GetPackageNames(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPackageNames(ctx, &pb.GetPackageNamesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *GetMedicalDataSourcesRequestClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *GetMedicalDataSourcesRequestClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.GetMedicalDataSourcesRequestToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *GetMedicalDataSourcesRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.GetMedicalDataSourcesRequestWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GetMedicalDataSourcesRequestBuilderClient wraps the gRPC GetMedicalDataSourcesRequestBuilderService client.
+type GetMedicalDataSourcesRequestBuilderClient struct {
+	svc pb.GetMedicalDataSourcesRequestBuilderServiceClient
+}
+
+// NewGetMedicalDataSourcesRequestBuilderClient creates a new GetMedicalDataSourcesRequestBuilder client.
+func NewGetMedicalDataSourcesRequestBuilderClient(cc grpc.ClientConnInterface) *GetMedicalDataSourcesRequestBuilderClient {
+	return &GetMedicalDataSourcesRequestBuilderClient{
+		svc: pb.NewGetMedicalDataSourcesRequestBuilderServiceClient(cc),
+	}
+}
+
+// AddPackageName calls the AddPackageName RPC.
+func (c *GetMedicalDataSourcesRequestBuilderClient) AddPackageName(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.AddPackageName(ctx, &pb.AddPackageNameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *GetMedicalDataSourcesRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearPackageNames calls the ClearPackageNames RPC.
+func (c *GetMedicalDataSourcesRequestBuilderClient) ClearPackageNames(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearPackageNames(ctx, &pb.ClearPackageNamesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // UpsertMedicalResourceRequestClient wraps the gRPC UpsertMedicalResourceRequestService client.
 type UpsertMedicalResourceRequestClient struct {
 	svc pb.UpsertMedicalResourceRequestServiceClient
@@ -1217,7 +1004,7 @@ func NewUpsertMedicalResourceRequestClient(cc grpc.ClientConnInterface) *UpsertM
 
 // DescribeContents calls the DescribeContents RPC.
 func (c *UpsertMedicalResourceRequestClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	resp, err := c.svc.DescribeContents(ctx, &pb.UpsertMedicalResourceRequestDescribeContentsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -1273,7 +1060,7 @@ func (c *UpsertMedicalResourceRequestClient) HashCode(ctx context.Context) (int3
 
 // ToString calls the ToString RPC.
 func (c *UpsertMedicalResourceRequestClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	resp, err := c.svc.ToString(ctx, &pb.UpsertMedicalResourceRequestToStringRequest{})
 	if err != nil {
 		return "", err
 	}
@@ -1282,7 +1069,7 @@ func (c *UpsertMedicalResourceRequestClient) ToString(ctx context.Context) (stri
 
 // WriteToParcel calls the WriteToParcel RPC.
 func (c *UpsertMedicalResourceRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+	_, err := c.svc.WriteToParcel(ctx, &pb.UpsertMedicalResourceRequestWriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -1339,6 +1126,516 @@ func (c *UpsertMedicalResourceRequestBuilderClient) SetFhirVersion(ctx context.C
 	})
 	if err != nil {
 		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AggregateRecordsRequestClient wraps the gRPC AggregateRecordsRequestService client.
+type AggregateRecordsRequestClient struct {
+	svc pb.AggregateRecordsRequestServiceClient
+}
+
+// NewAggregateRecordsRequestClient creates a new AggregateRecordsRequest client.
+func NewAggregateRecordsRequestClient(cc grpc.ClientConnInterface) *AggregateRecordsRequestClient {
+	return &AggregateRecordsRequestClient{
+		svc: pb.NewAggregateRecordsRequestServiceClient(cc),
+	}
+}
+
+// GetAggregationTypes calls the GetAggregationTypes RPC.
+func (c *AggregateRecordsRequestClient) GetAggregationTypes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAggregationTypes(ctx, &pb.GetAggregationTypesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDataOriginsFilters calls the GetDataOriginsFilters RPC.
+func (c *AggregateRecordsRequestClient) GetDataOriginsFilters(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDataOriginsFilters(ctx, &pb.GetDataOriginsFiltersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimeRangeFilter calls the GetTimeRangeFilter RPC.
+func (c *AggregateRecordsRequestClient) GetTimeRangeFilter(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTimeRangeFilter(ctx, &pb.GetTimeRangeFilterRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AggregateRecordsRequestBuilderClient wraps the gRPC AggregateRecordsRequestBuilderService client.
+type AggregateRecordsRequestBuilderClient struct {
+	svc pb.AggregateRecordsRequestBuilderServiceClient
+}
+
+// NewAggregateRecordsRequestBuilderClient creates a new AggregateRecordsRequestBuilder client.
+func NewAggregateRecordsRequestBuilderClient(cc grpc.ClientConnInterface) *AggregateRecordsRequestBuilderClient {
+	return &AggregateRecordsRequestBuilderClient{
+		svc: pb.NewAggregateRecordsRequestBuilderServiceClient(cc),
+	}
+}
+
+// AddDataOriginsFilter calls the AddDataOriginsFilter RPC.
+func (c *AggregateRecordsRequestBuilderClient) AddDataOriginsFilter(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddDataOriginsFilter(ctx, &pb.AddDataOriginsFilterRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *AggregateRecordsRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TimeInstantRangeFilterClient wraps the gRPC TimeInstantRangeFilterService client.
+type TimeInstantRangeFilterClient struct {
+	svc pb.TimeInstantRangeFilterServiceClient
+}
+
+// NewTimeInstantRangeFilterClient creates a new TimeInstantRangeFilter client.
+func NewTimeInstantRangeFilterClient(cc grpc.ClientConnInterface) *TimeInstantRangeFilterClient {
+	return &TimeInstantRangeFilterClient{
+		svc: pb.NewTimeInstantRangeFilterServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *TimeInstantRangeFilterClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEndTime calls the GetEndTime RPC.
+func (c *TimeInstantRangeFilterClient) GetEndTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEndTime(ctx, &pb.GetEndTimeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStartTime calls the GetStartTime RPC.
+func (c *TimeInstantRangeFilterClient) GetStartTime(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetStartTime(ctx, &pb.GetStartTimeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *TimeInstantRangeFilterClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsBounded calls the IsBounded RPC.
+func (c *TimeInstantRangeFilterClient) IsBounded(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsBounded(ctx, &pb.IsBoundedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TimeInstantRangeFilterBuilderClient wraps the gRPC TimeInstantRangeFilterBuilderService client.
+type TimeInstantRangeFilterBuilderClient struct {
+	svc pb.TimeInstantRangeFilterBuilderServiceClient
+}
+
+// NewTimeInstantRangeFilterBuilderClient creates a new TimeInstantRangeFilterBuilder client.
+func NewTimeInstantRangeFilterBuilderClient(cc grpc.ClientConnInterface) *TimeInstantRangeFilterBuilderClient {
+	return &TimeInstantRangeFilterBuilderClient{
+		svc: pb.NewTimeInstantRangeFilterBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *TimeInstantRangeFilterBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEndTime calls the SetEndTime RPC.
+func (c *TimeInstantRangeFilterBuilderClient) SetEndTime(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetEndTime(ctx, &pb.SetEndTimeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetStartTime calls the SetStartTime RPC.
+func (c *TimeInstantRangeFilterBuilderClient) SetStartTime(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetStartTime(ctx, &pb.SetStartTimeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReadMedicalResourcesRequestClient wraps the gRPC ReadMedicalResourcesRequestService client.
+type ReadMedicalResourcesRequestClient struct {
+	svc pb.ReadMedicalResourcesRequestServiceClient
+}
+
+// NewReadMedicalResourcesRequestClient creates a new ReadMedicalResourcesRequest client.
+func NewReadMedicalResourcesRequestClient(cc grpc.ClientConnInterface) *ReadMedicalResourcesRequestClient {
+	return &ReadMedicalResourcesRequestClient{
+		svc: pb.NewReadMedicalResourcesRequestServiceClient(cc),
+	}
+}
+
+// GetPageSize calls the GetPageSize RPC.
+func (c *ReadMedicalResourcesRequestClient) GetPageSize(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetPageSize(ctx, &pb.GetPageSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReadMedicalResourcesInitialRequestClient wraps the gRPC ReadMedicalResourcesInitialRequestService client.
+type ReadMedicalResourcesInitialRequestClient struct {
+	svc pb.ReadMedicalResourcesInitialRequestServiceClient
+}
+
+// NewReadMedicalResourcesInitialRequestClient creates a new ReadMedicalResourcesInitialRequest client.
+func NewReadMedicalResourcesInitialRequestClient(cc grpc.ClientConnInterface) *ReadMedicalResourcesInitialRequestClient {
+	return &ReadMedicalResourcesInitialRequestClient{
+		svc: pb.NewReadMedicalResourcesInitialRequestServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *ReadMedicalResourcesInitialRequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDataSourceIds calls the GetDataSourceIds RPC.
+func (c *ReadMedicalResourcesInitialRequestClient) GetDataSourceIds(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDataSourceIds(ctx, &pb.GetDataSourceIdsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMedicalResourceType calls the GetMedicalResourceType RPC.
+func (c *ReadMedicalResourcesInitialRequestClient) GetMedicalResourceType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMedicalResourceType(ctx, &pb.GetMedicalResourceTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ReadMedicalResourcesInitialRequestClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ReadMedicalResourcesInitialRequestClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ReadMedicalResourcesInitialRequestToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReadMedicalResourcesInitialRequestBuilderClient wraps the gRPC ReadMedicalResourcesInitialRequestBuilderService client.
+type ReadMedicalResourcesInitialRequestBuilderClient struct {
+	svc pb.ReadMedicalResourcesInitialRequestBuilderServiceClient
+}
+
+// NewReadMedicalResourcesInitialRequestBuilderClient creates a new ReadMedicalResourcesInitialRequestBuilder client.
+func NewReadMedicalResourcesInitialRequestBuilderClient(cc grpc.ClientConnInterface) *ReadMedicalResourcesInitialRequestBuilderClient {
+	return &ReadMedicalResourcesInitialRequestBuilderClient{
+		svc: pb.NewReadMedicalResourcesInitialRequestBuilderServiceClient(cc),
+	}
+}
+
+// AddDataSourceId calls the AddDataSourceId RPC.
+func (c *ReadMedicalResourcesInitialRequestBuilderClient) AddDataSourceId(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.AddDataSourceId(ctx, &pb.AddDataSourceIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *ReadMedicalResourcesInitialRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearDataSourceIds calls the ClearDataSourceIds RPC.
+func (c *ReadMedicalResourcesInitialRequestBuilderClient) ClearDataSourceIds(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearDataSourceIds(ctx, &pb.ClearDataSourceIdsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMedicalResourceType calls the SetMedicalResourceType RPC.
+func (c *ReadMedicalResourcesInitialRequestBuilderClient) SetMedicalResourceType(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetMedicalResourceType(ctx, &pb.SetMedicalResourceTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPageSize calls the SetPageSize RPC.
+func (c *ReadMedicalResourcesInitialRequestBuilderClient) SetPageSize(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetPageSize(ctx, &pb.SetPageSizeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReadMedicalResourcesResponseClient wraps the gRPC ReadMedicalResourcesResponseService client.
+type ReadMedicalResourcesResponseClient struct {
+	svc pb.ReadMedicalResourcesResponseServiceClient
+}
+
+// NewReadMedicalResourcesResponseClient creates a new ReadMedicalResourcesResponse client.
+func NewReadMedicalResourcesResponseClient(cc grpc.ClientConnInterface) *ReadMedicalResourcesResponseClient {
+	return &ReadMedicalResourcesResponseClient{
+		svc: pb.NewReadMedicalResourcesResponseServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ReadMedicalResourcesResponseClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *ReadMedicalResourcesResponseClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.ReadMedicalResourcesResponseEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMedicalResources calls the GetMedicalResources RPC.
+func (c *ReadMedicalResourcesResponseClient) GetMedicalResources(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetMedicalResources(ctx, &pb.GetMedicalResourcesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNextPageToken calls the GetNextPageToken RPC.
+func (c *ReadMedicalResourcesResponseClient) GetNextPageToken(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetNextPageToken(ctx, &pb.ReadMedicalResourcesResponseGetNextPageTokenRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRemainingCount calls the GetRemainingCount RPC.
+func (c *ReadMedicalResourcesResponseClient) GetRemainingCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetRemainingCount(ctx, &pb.GetRemainingCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *ReadMedicalResourcesResponseClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.ReadMedicalResourcesResponseHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ReadMedicalResourcesResponseClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ReadMedicalResourcesResponseClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// ReadRecordsRequestUsingIdsClient wraps the gRPC ReadRecordsRequestUsingIdsService client.
+type ReadRecordsRequestUsingIdsClient struct {
+	svc pb.ReadRecordsRequestUsingIdsServiceClient
+}
+
+// NewReadRecordsRequestUsingIdsClient creates a new ReadRecordsRequestUsingIds client.
+func NewReadRecordsRequestUsingIdsClient(cc grpc.ClientConnInterface) *ReadRecordsRequestUsingIdsClient {
+	return &ReadRecordsRequestUsingIdsClient{
+		svc: pb.NewReadRecordsRequestUsingIdsServiceClient(cc),
+	}
+}
+
+// GetRecordIdFilters calls the GetRecordIdFilters RPC.
+func (c *ReadRecordsRequestUsingIdsClient) GetRecordIdFilters(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRecordIdFilters(ctx, &pb.GetRecordIdFiltersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReadRecordsRequestUsingIdsBuilderClient wraps the gRPC ReadRecordsRequestUsingIdsBuilderService client.
+type ReadRecordsRequestUsingIdsBuilderClient struct {
+	svc pb.ReadRecordsRequestUsingIdsBuilderServiceClient
+}
+
+// NewReadRecordsRequestUsingIdsBuilderClient creates a new ReadRecordsRequestUsingIdsBuilder client.
+func NewReadRecordsRequestUsingIdsBuilderClient(cc grpc.ClientConnInterface) *ReadRecordsRequestUsingIdsBuilderClient {
+	return &ReadRecordsRequestUsingIdsBuilderClient{
+		svc: pb.NewReadRecordsRequestUsingIdsBuilderServiceClient(cc),
+	}
+}
+
+// AddClientRecordId calls the AddClientRecordId RPC.
+func (c *ReadRecordsRequestUsingIdsBuilderClient) AddClientRecordId(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.AddClientRecordId(ctx, &pb.AddClientRecordIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddId calls the AddId RPC.
+func (c *ReadRecordsRequestUsingIdsBuilderClient) AddId(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.AddId(ctx, &pb.AddIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *ReadRecordsRequestUsingIdsBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RecordIdFilterClient wraps the gRPC RecordIdFilterService client.
+type RecordIdFilterClient struct {
+	svc pb.RecordIdFilterServiceClient
+}
+
+// NewRecordIdFilterClient creates a new RecordIdFilter client.
+func NewRecordIdFilterClient(cc grpc.ClientConnInterface) *RecordIdFilterClient {
+	return &RecordIdFilterClient{
+		svc: pb.NewRecordIdFilterServiceClient(cc),
+	}
+}
+
+// GetClientRecordId calls the GetClientRecordId RPC.
+func (c *RecordIdFilterClient) GetClientRecordId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetClientRecordId(ctx, &pb.GetClientRecordIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *RecordIdFilterClient) GetId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
+	if err != nil {
+		return "", err
 	}
 	return resp.GetResult(), nil
 }

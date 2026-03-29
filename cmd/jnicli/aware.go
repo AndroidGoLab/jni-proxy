@@ -12,109 +12,19 @@ var awareCmd = &cobra.Command{
 	Short: "aware service operations",
 }
 
-var awareIdentityChangedListenerCmd = &cobra.Command{
-	Use:   "identity-changed-listener",
-	Short: "IdentityChangedListenerService operations",
+var awareSubscribeConfigCmd = &cobra.Command{
+	Use:   "subscribe-config",
+	Short: "SubscribeConfigService operations",
 }
 
-var awareIdentityChangedListenerNewIdentityChangedListenerCmd = &cobra.Command{
-	Use:   "new-identity-changed-listener",
-	Short: "NewIdentityChangedListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIdentityChangedListenerServiceClient(grpcConn)
-		req := &pb.NewIdentityChangedListenerRequest{}
-		resp, err := client.NewIdentityChangedListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareIdentityChangedListenerOnClusterIdChangedCmd = &cobra.Command{
-	Use:   "on-cluster-id-changed",
-	Short: "OnClusterIdChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIdentityChangedListenerServiceClient(grpcConn)
-		req := &pb.OnClusterIdChangedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnClusterIdChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareIdentityChangedListenerOnIdentityChangedCmd = &cobra.Command{
-	Use:   "on-identity-changed",
-	Short: "OnIdentityChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIdentityChangedListenerServiceClient(grpcConn)
-		req := &pb.OnIdentityChangedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnIdentityChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareParcelablePeerHandleCmd = &cobra.Command{
-	Use:   "parcelable-peer-handle",
-	Short: "ParcelablePeerHandleService operations",
-}
-
-var awareParcelablePeerHandleNewParcelablePeerHandleCmd = &cobra.Command{
-	Use:   "new-parcelable-peer-handle",
-	Short: "NewParcelablePeerHandle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewParcelablePeerHandleServiceClient(grpcConn)
-		req := &pb.NewParcelablePeerHandleRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewParcelablePeerHandle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareParcelablePeerHandleDescribeContentsCmd = &cobra.Command{
+var awareSubscribeConfigDescribeContentsCmd = &cobra.Command{
 	Use:   "describe-contents",
 	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewParcelablePeerHandleServiceClient(grpcConn)
+		client := pb.NewSubscribeConfigServiceClient(grpcConn)
 		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
@@ -123,78 +33,13 @@ var awareParcelablePeerHandleDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var awareParcelablePeerHandleWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewParcelablePeerHandleServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareWifiAwareNetworkSpecifierCmd = &cobra.Command{
-	Use:   "wifi-aware-network-specifier",
-	Short: "WifiAwareNetworkSpecifierService operations",
-}
-
-var awareWifiAwareNetworkSpecifierCanBeSatisfiedByCmd = &cobra.Command{
-	Use:   "can-be-satisfied-by",
-	Short: "CanBeSatisfiedBy RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWifiAwareNetworkSpecifierServiceClient(grpcConn)
-		req := &pb.CanBeSatisfiedByRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CanBeSatisfiedBy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareWifiAwareNetworkSpecifierDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWifiAwareNetworkSpecifierServiceClient(grpcConn)
-		req := &pb.WifiAwareNetworkSpecifierDescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareWifiAwareNetworkSpecifierEqualsCmd = &cobra.Command{
+var awareSubscribeConfigEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWifiAwareNetworkSpecifierServiceClient(grpcConn)
+		client := pb.NewSubscribeConfigServiceClient(grpcConn)
 		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -207,15 +52,15 @@ var awareWifiAwareNetworkSpecifierEqualsCmd = &cobra.Command{
 	},
 }
 
-var awareWifiAwareNetworkSpecifierGetChannelFrequencyMhzCmd = &cobra.Command{
-	Use:   "get-channel-frequency-mhz",
-	Short: "GetChannelFrequencyMhz RPC",
+var awareSubscribeConfigGetInstantCommunicationBandCmd = &cobra.Command{
+	Use:   "get-instant-communication-band",
+	Short: "GetInstantCommunicationBand RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWifiAwareNetworkSpecifierServiceClient(grpcConn)
-		req := &pb.GetChannelFrequencyMhzRequest{}
-		resp, err := client.GetChannelFrequencyMhz(ctx, req)
+		client := pb.NewSubscribeConfigServiceClient(grpcConn)
+		req := &pb.GetInstantCommunicationBandRequest{}
+		resp, err := client.GetInstantCommunicationBand(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -223,15 +68,15 @@ var awareWifiAwareNetworkSpecifierGetChannelFrequencyMhzCmd = &cobra.Command{
 	},
 }
 
-var awareWifiAwareNetworkSpecifierGetWifiAwareDataPathSecurityConfigCmd = &cobra.Command{
-	Use:   "get-wifi-aware-data-path-security-config",
-	Short: "GetWifiAwareDataPathSecurityConfig RPC",
+var awareSubscribeConfigGetPairingConfigCmd = &cobra.Command{
+	Use:   "get-pairing-config",
+	Short: "GetPairingConfig RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWifiAwareNetworkSpecifierServiceClient(grpcConn)
-		req := &pb.GetWifiAwareDataPathSecurityConfigRequest{}
-		resp, err := client.GetWifiAwareDataPathSecurityConfig(ctx, req)
+		client := pb.NewSubscribeConfigServiceClient(grpcConn)
+		req := &pb.GetPairingConfigRequest{}
+		resp, err := client.GetPairingConfig(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -239,13 +84,13 @@ var awareWifiAwareNetworkSpecifierGetWifiAwareDataPathSecurityConfigCmd = &cobra
 	},
 }
 
-var awareWifiAwareNetworkSpecifierHashCodeCmd = &cobra.Command{
+var awareSubscribeConfigHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWifiAwareNetworkSpecifierServiceClient(grpcConn)
+		client := pb.NewSubscribeConfigServiceClient(grpcConn)
 		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
@@ -255,15 +100,15 @@ var awareWifiAwareNetworkSpecifierHashCodeCmd = &cobra.Command{
 	},
 }
 
-var awareWifiAwareNetworkSpecifierIsChannelRequiredCmd = &cobra.Command{
-	Use:   "is-channel-required",
-	Short: "IsChannelRequired RPC",
+var awareSubscribeConfigIsInstantCommunicationModeEnabledCmd = &cobra.Command{
+	Use:   "is-instant-communication-mode-enabled",
+	Short: "IsInstantCommunicationModeEnabled RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWifiAwareNetworkSpecifierServiceClient(grpcConn)
-		req := &pb.IsChannelRequiredRequest{}
-		resp, err := client.IsChannelRequired(ctx, req)
+		client := pb.NewSubscribeConfigServiceClient(grpcConn)
+		req := &pb.IsInstantCommunicationModeEnabledRequest{}
+		resp, err := client.IsInstantCommunicationModeEnabled(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -271,13 +116,13 @@ var awareWifiAwareNetworkSpecifierIsChannelRequiredCmd = &cobra.Command{
 	},
 }
 
-var awareWifiAwareNetworkSpecifierToStringCmd = &cobra.Command{
+var awareSubscribeConfigToStringCmd = &cobra.Command{
 	Use:   "to-string",
 	Short: "ToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWifiAwareNetworkSpecifierServiceClient(grpcConn)
+		client := pb.NewSubscribeConfigServiceClient(grpcConn)
 		req := &pb.ToStringRequest{}
 		resp, err := client.ToString(ctx, req)
 		if err != nil {
@@ -287,14 +132,14 @@ var awareWifiAwareNetworkSpecifierToStringCmd = &cobra.Command{
 	},
 }
 
-var awareWifiAwareNetworkSpecifierWriteToParcelCmd = &cobra.Command{
+var awareSubscribeConfigWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWifiAwareNetworkSpecifierServiceClient(grpcConn)
-		req := &pb.WifiAwareNetworkSpecifierWriteToParcelRequest{}
+		client := pb.NewSubscribeConfigServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -309,18 +154,18 @@ var awareWifiAwareNetworkSpecifierWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var awareWifiAwareNetworkSpecifierBuilderCmd = &cobra.Command{
-	Use:   "wifi-aware-network-specifier-builder",
-	Short: "WifiAwareNetworkSpecifierBuilderService operations",
+var awareSubscribeConfigBuilderCmd = &cobra.Command{
+	Use:   "subscribe-config-builder",
+	Short: "SubscribeConfigBuilderService operations",
 }
 
-var awareWifiAwareNetworkSpecifierBuilderBuildCmd = &cobra.Command{
+var awareSubscribeConfigBuilderBuildCmd = &cobra.Command{
 	Use:   "build",
 	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWifiAwareNetworkSpecifierBuilderServiceClient(grpcConn)
+		client := pb.NewSubscribeConfigBuilderServiceClient(grpcConn)
 		req := &pb.BuildRequest{}
 		resp, err := client.Build(ctx, req)
 		if err != nil {
@@ -330,21 +175,21 @@ var awareWifiAwareNetworkSpecifierBuilderBuildCmd = &cobra.Command{
 	},
 }
 
-var awareWifiAwareNetworkSpecifierBuilderSetChannelFrequencyMhzCmd = &cobra.Command{
-	Use:   "set-channel-frequency-mhz",
-	Short: "SetChannelFrequencyMhz RPC",
+var awareSubscribeConfigBuilderSetInstantCommunicationModeEnabledCmd = &cobra.Command{
+	Use:   "set-instant-communication-mode-enabled",
+	Short: "SetInstantCommunicationModeEnabled RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWifiAwareNetworkSpecifierBuilderServiceClient(grpcConn)
-		req := &pb.SetChannelFrequencyMhzRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+		client := pb.NewSubscribeConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetInstantCommunicationModeEnabledRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.SetChannelFrequencyMhz(ctx, req)
+		resp, err := client.SetInstantCommunicationModeEnabled(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -352,56 +197,18 @@ var awareWifiAwareNetworkSpecifierBuilderSetChannelFrequencyMhzCmd = &cobra.Comm
 	},
 }
 
-var awareWifiAwareNetworkSpecifierBuilderSetDataPathSecurityConfigCmd = &cobra.Command{
-	Use:   "set-data-path-security-config",
-	Short: "SetDataPathSecurityConfig RPC",
+var awareSubscribeConfigBuilderSetMaxDistanceMmCmd = &cobra.Command{
+	Use:   "set-max-distance-mm",
+	Short: "SetMaxDistanceMm RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWifiAwareNetworkSpecifierBuilderServiceClient(grpcConn)
-		req := &pb.SetDataPathSecurityConfigRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDataPathSecurityConfig(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareWifiAwareNetworkSpecifierBuilderSetPmkCmd = &cobra.Command{
-	Use:   "set-pmk",
-	Short: "SetPmk RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWifiAwareNetworkSpecifierBuilderServiceClient(grpcConn)
-		req := &pb.SetPmkRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPmk(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareWifiAwareNetworkSpecifierBuilderSetPortCmd = &cobra.Command{
-	Use:   "set-port",
-	Short: "SetPort RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWifiAwareNetworkSpecifierBuilderServiceClient(grpcConn)
-		req := &pb.SetPortRequest{}
+		client := pb.NewSubscribeConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetMaxDistanceMmRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetPort(ctx, req)
+		resp, err := client.SetMaxDistanceMm(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -409,18 +216,56 @@ var awareWifiAwareNetworkSpecifierBuilderSetPortCmd = &cobra.Command{
 	},
 }
 
-var awareWifiAwareNetworkSpecifierBuilderSetPskPassphraseCmd = &cobra.Command{
-	Use:   "set-psk-passphrase",
-	Short: "SetPskPassphrase RPC",
+var awareSubscribeConfigBuilderSetMinDistanceMmCmd = &cobra.Command{
+	Use:   "set-min-distance-mm",
+	Short: "SetMinDistanceMm RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWifiAwareNetworkSpecifierBuilderServiceClient(grpcConn)
-		req := &pb.SetPskPassphraseRequest{}
+		client := pb.NewSubscribeConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetMinDistanceMmRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMinDistanceMm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareSubscribeConfigBuilderSetPairingConfigCmd = &cobra.Command{
+	Use:   "set-pairing-config",
+	Short: "SetPairingConfig RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscribeConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetPairingConfigRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPairingConfig(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareSubscribeConfigBuilderSetServiceNameCmd = &cobra.Command{
+	Use:   "set-service-name",
+	Short: "SetServiceName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscribeConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetServiceNameRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetPskPassphrase(ctx, req)
+		resp, err := client.SetServiceName(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -428,18 +273,75 @@ var awareWifiAwareNetworkSpecifierBuilderSetPskPassphraseCmd = &cobra.Command{
 	},
 }
 
-var awareWifiAwareNetworkSpecifierBuilderSetTransportProtocolCmd = &cobra.Command{
-	Use:   "set-transport-protocol",
-	Short: "SetTransportProtocol RPC",
+var awareSubscribeConfigBuilderSetServiceSpecificInfoCmd = &cobra.Command{
+	Use:   "set-service-specific-info",
+	Short: "SetServiceSpecificInfo RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWifiAwareNetworkSpecifierBuilderServiceClient(grpcConn)
-		req := &pb.SetTransportProtocolRequest{}
+		client := pb.NewSubscribeConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetServiceSpecificInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetServiceSpecificInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareSubscribeConfigBuilderSetSubscribeTypeCmd = &cobra.Command{
+	Use:   "set-subscribe-type",
+	Short: "SetSubscribeType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscribeConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetSubscribeTypeRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetTransportProtocol(ctx, req)
+		resp, err := client.SetSubscribeType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareSubscribeConfigBuilderSetTerminateNotificationEnabledCmd = &cobra.Command{
+	Use:   "set-terminate-notification-enabled",
+	Short: "SetTerminateNotificationEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscribeConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetTerminateNotificationEnabledRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTerminateNotificationEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareSubscribeConfigBuilderSetTtlSecCmd = &cobra.Command{
+	Use:   "set-ttl-sec",
+	Short: "SetTtlSec RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscribeConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetTtlSecRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTtlSec(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -602,6 +504,1493 @@ var awareWifiAwareManagerSetOpportunisticModeEnabledCmd = &cobra.Command{
 	},
 }
 
+var awareDiscoverySessionCmd = &cobra.Command{
+	Use:   "discovery-session",
+	Short: "DiscoverySessionService operations",
+}
+
+var awareDiscoverySessionAcceptPairingRequestCmd = &cobra.Command{
+	Use:   "accept-pairing-request",
+	Short: "AcceptPairingRequest RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDiscoverySessionServiceClient(grpcConn)
+		req := &pb.AcceptPairingRequestRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetString("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.AcceptPairingRequest(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareDiscoverySessionCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDiscoverySessionServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareDiscoverySessionCreateNetworkSpecifierOpenCmd = &cobra.Command{
+	Use:   "create-network-specifier-open",
+	Short: "CreateNetworkSpecifierOpen RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDiscoverySessionServiceClient(grpcConn)
+		req := &pb.CreateNetworkSpecifierOpenRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreateNetworkSpecifierOpen(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareDiscoverySessionCreateNetworkSpecifierPassphraseCmd = &cobra.Command{
+	Use:   "create-network-specifier-passphrase",
+	Short: "CreateNetworkSpecifierPassphrase RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDiscoverySessionServiceClient(grpcConn)
+		req := &pb.CreateNetworkSpecifierPassphraseRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CreateNetworkSpecifierPassphrase(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareDiscoverySessionInitiateBootstrappingRequestCmd = &cobra.Command{
+	Use:   "initiate-bootstrapping-request",
+	Short: "InitiateBootstrappingRequest RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDiscoverySessionServiceClient(grpcConn)
+		req := &pb.InitiateBootstrappingRequestRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.InitiateBootstrappingRequest(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareDiscoverySessionInitiatePairingRequestCmd = &cobra.Command{
+	Use:   "initiate-pairing-request",
+	Short: "InitiatePairingRequest RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDiscoverySessionServiceClient(grpcConn)
+		req := &pb.InitiatePairingRequestRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetString("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.InitiatePairingRequest(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareDiscoverySessionRejectPairingRequestCmd = &cobra.Command{
+	Use:   "reject-pairing-request",
+	Short: "RejectPairingRequest RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDiscoverySessionServiceClient(grpcConn)
+		req := &pb.RejectPairingRequestRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.RejectPairingRequest(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareDiscoverySessionSendMessageCmd = &cobra.Command{
+	Use:   "send-message",
+	Short: "SendMessage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDiscoverySessionServiceClient(grpcConn)
+		req := &pb.SendMessageRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SendMessage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareWifiAwareNetworkSpecifierCmd = &cobra.Command{
+	Use:   "wifi-aware-network-specifier",
+	Short: "WifiAwareNetworkSpecifierService operations",
+}
+
+var awareWifiAwareNetworkSpecifierCanBeSatisfiedByCmd = &cobra.Command{
+	Use:   "can-be-satisfied-by",
+	Short: "CanBeSatisfiedBy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiAwareNetworkSpecifierServiceClient(grpcConn)
+		req := &pb.CanBeSatisfiedByRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CanBeSatisfiedBy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareWifiAwareNetworkSpecifierDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiAwareNetworkSpecifierServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareWifiAwareNetworkSpecifierEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiAwareNetworkSpecifierServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareWifiAwareNetworkSpecifierGetChannelFrequencyMhzCmd = &cobra.Command{
+	Use:   "get-channel-frequency-mhz",
+	Short: "GetChannelFrequencyMhz RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiAwareNetworkSpecifierServiceClient(grpcConn)
+		req := &pb.GetChannelFrequencyMhzRequest{}
+		resp, err := client.GetChannelFrequencyMhz(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareWifiAwareNetworkSpecifierGetWifiAwareDataPathSecurityConfigCmd = &cobra.Command{
+	Use:   "get-wifi-aware-data-path-security-config",
+	Short: "GetWifiAwareDataPathSecurityConfig RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiAwareNetworkSpecifierServiceClient(grpcConn)
+		req := &pb.GetWifiAwareDataPathSecurityConfigRequest{}
+		resp, err := client.GetWifiAwareDataPathSecurityConfig(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareWifiAwareNetworkSpecifierHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiAwareNetworkSpecifierServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareWifiAwareNetworkSpecifierIsChannelRequiredCmd = &cobra.Command{
+	Use:   "is-channel-required",
+	Short: "IsChannelRequired RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiAwareNetworkSpecifierServiceClient(grpcConn)
+		req := &pb.IsChannelRequiredRequest{}
+		resp, err := client.IsChannelRequired(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareWifiAwareNetworkSpecifierToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiAwareNetworkSpecifierServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareWifiAwareNetworkSpecifierWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiAwareNetworkSpecifierServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareWifiAwareNetworkSpecifierBuilderCmd = &cobra.Command{
+	Use:   "wifi-aware-network-specifier-builder",
+	Short: "WifiAwareNetworkSpecifierBuilderService operations",
+}
+
+var awareWifiAwareNetworkSpecifierBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiAwareNetworkSpecifierBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareWifiAwareNetworkSpecifierBuilderSetChannelFrequencyMhzCmd = &cobra.Command{
+	Use:   "set-channel-frequency-mhz",
+	Short: "SetChannelFrequencyMhz RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiAwareNetworkSpecifierBuilderServiceClient(grpcConn)
+		req := &pb.SetChannelFrequencyMhzRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetChannelFrequencyMhz(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareWifiAwareNetworkSpecifierBuilderSetDataPathSecurityConfigCmd = &cobra.Command{
+	Use:   "set-data-path-security-config",
+	Short: "SetDataPathSecurityConfig RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiAwareNetworkSpecifierBuilderServiceClient(grpcConn)
+		req := &pb.SetDataPathSecurityConfigRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDataPathSecurityConfig(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareWifiAwareNetworkSpecifierBuilderSetPmkCmd = &cobra.Command{
+	Use:   "set-pmk",
+	Short: "SetPmk RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiAwareNetworkSpecifierBuilderServiceClient(grpcConn)
+		req := &pb.SetPmkRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPmk(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareWifiAwareNetworkSpecifierBuilderSetPortCmd = &cobra.Command{
+	Use:   "set-port",
+	Short: "SetPort RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiAwareNetworkSpecifierBuilderServiceClient(grpcConn)
+		req := &pb.SetPortRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPort(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareWifiAwareNetworkSpecifierBuilderSetPskPassphraseCmd = &cobra.Command{
+	Use:   "set-psk-passphrase",
+	Short: "SetPskPassphrase RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiAwareNetworkSpecifierBuilderServiceClient(grpcConn)
+		req := &pb.SetPskPassphraseRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPskPassphrase(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareWifiAwareNetworkSpecifierBuilderSetTransportProtocolCmd = &cobra.Command{
+	Use:   "set-transport-protocol",
+	Short: "SetTransportProtocol RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiAwareNetworkSpecifierBuilderServiceClient(grpcConn)
+		req := &pb.SetTransportProtocolRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTransportProtocol(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awarePublishConfigCmd = &cobra.Command{
+	Use:   "publish-config",
+	Short: "PublishConfigService operations",
+}
+
+var awarePublishConfigDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPublishConfigServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awarePublishConfigEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPublishConfigServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awarePublishConfigGetInstantCommunicationBandCmd = &cobra.Command{
+	Use:   "get-instant-communication-band",
+	Short: "GetInstantCommunicationBand RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPublishConfigServiceClient(grpcConn)
+		req := &pb.GetInstantCommunicationBandRequest{}
+		resp, err := client.GetInstantCommunicationBand(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awarePublishConfigGetPairingConfigCmd = &cobra.Command{
+	Use:   "get-pairing-config",
+	Short: "GetPairingConfig RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPublishConfigServiceClient(grpcConn)
+		req := &pb.GetPairingConfigRequest{}
+		resp, err := client.GetPairingConfig(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awarePublishConfigGetSecurityConfigCmd = &cobra.Command{
+	Use:   "get-security-config",
+	Short: "GetSecurityConfig RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPublishConfigServiceClient(grpcConn)
+		req := &pb.GetSecurityConfigRequest{}
+		resp, err := client.GetSecurityConfig(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awarePublishConfigHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPublishConfigServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awarePublishConfigIsInstantCommunicationModeEnabledCmd = &cobra.Command{
+	Use:   "is-instant-communication-mode-enabled",
+	Short: "IsInstantCommunicationModeEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPublishConfigServiceClient(grpcConn)
+		req := &pb.IsInstantCommunicationModeEnabledRequest{}
+		resp, err := client.IsInstantCommunicationModeEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awarePublishConfigToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPublishConfigServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awarePublishConfigWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPublishConfigServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awarePublishConfigBuilderCmd = &cobra.Command{
+	Use:   "publish-config-builder",
+	Short: "PublishConfigBuilderService operations",
+}
+
+var awarePublishConfigBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPublishConfigBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awarePublishConfigBuilderSetDataPathSecurityConfigCmd = &cobra.Command{
+	Use:   "set-data-path-security-config",
+	Short: "SetDataPathSecurityConfig RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPublishConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetDataPathSecurityConfigRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDataPathSecurityConfig(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awarePublishConfigBuilderSetInstantCommunicationModeEnabledCmd = &cobra.Command{
+	Use:   "set-instant-communication-mode-enabled",
+	Short: "SetInstantCommunicationModeEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPublishConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetInstantCommunicationModeEnabledRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetInstantCommunicationModeEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awarePublishConfigBuilderSetPairingConfigCmd = &cobra.Command{
+	Use:   "set-pairing-config",
+	Short: "SetPairingConfig RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPublishConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetPairingConfigRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPairingConfig(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awarePublishConfigBuilderSetPublishTypeCmd = &cobra.Command{
+	Use:   "set-publish-type",
+	Short: "SetPublishType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPublishConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetPublishTypeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPublishType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awarePublishConfigBuilderSetRangingEnabledCmd = &cobra.Command{
+	Use:   "set-ranging-enabled",
+	Short: "SetRangingEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPublishConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetRangingEnabledRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRangingEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awarePublishConfigBuilderSetServiceNameCmd = &cobra.Command{
+	Use:   "set-service-name",
+	Short: "SetServiceName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPublishConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetServiceNameRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetServiceName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awarePublishConfigBuilderSetServiceSpecificInfoCmd = &cobra.Command{
+	Use:   "set-service-specific-info",
+	Short: "SetServiceSpecificInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPublishConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetServiceSpecificInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetServiceSpecificInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awarePublishConfigBuilderSetTerminateNotificationEnabledCmd = &cobra.Command{
+	Use:   "set-terminate-notification-enabled",
+	Short: "SetTerminateNotificationEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPublishConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetTerminateNotificationEnabledRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTerminateNotificationEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awarePublishConfigBuilderSetTtlSecCmd = &cobra.Command{
+	Use:   "set-ttl-sec",
+	Short: "SetTtlSec RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPublishConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetTtlSecRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTtlSec(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareIdentityChangedListenerCmd = &cobra.Command{
+	Use:   "identity-changed-listener",
+	Short: "IdentityChangedListenerService operations",
+}
+
+var awareIdentityChangedListenerNewIdentityChangedListenerCmd = &cobra.Command{
+	Use:   "new-identity-changed-listener",
+	Short: "NewIdentityChangedListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIdentityChangedListenerServiceClient(grpcConn)
+		req := &pb.NewIdentityChangedListenerRequest{}
+		resp, err := client.NewIdentityChangedListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareIdentityChangedListenerOnClusterIdChangedCmd = &cobra.Command{
+	Use:   "on-cluster-id-changed",
+	Short: "OnClusterIdChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIdentityChangedListenerServiceClient(grpcConn)
+		req := &pb.OnClusterIdChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnClusterIdChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareIdentityChangedListenerOnIdentityChangedCmd = &cobra.Command{
+	Use:   "on-identity-changed",
+	Short: "OnIdentityChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIdentityChangedListenerServiceClient(grpcConn)
+		req := &pb.OnIdentityChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnIdentityChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awarePeerHandleCmd = &cobra.Command{
+	Use:   "peer-handle",
+	Short: "PeerHandleService operations",
+}
+
+var awarePeerHandleEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPeerHandleServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awarePeerHandleHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPeerHandleServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareSubscribeDiscoverySessionCmd = &cobra.Command{
+	Use:   "subscribe-discovery-session",
+	Short: "SubscribeDiscoverySessionService operations",
+}
+
+var awareSubscribeDiscoverySessionUpdateSubscribeCmd = &cobra.Command{
+	Use:   "update-subscribe",
+	Short: "UpdateSubscribe RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSubscribeDiscoverySessionServiceClient(grpcConn)
+		req := &pb.UpdateSubscribeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UpdateSubscribe(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareWifiAwareDataPathSecurityConfigCmd = &cobra.Command{
+	Use:   "wifi-aware-data-path-security-config",
+	Short: "WifiAwareDataPathSecurityConfigService operations",
+}
+
+var awareWifiAwareDataPathSecurityConfigDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiAwareDataPathSecurityConfigServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareWifiAwareDataPathSecurityConfigEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiAwareDataPathSecurityConfigServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareWifiAwareDataPathSecurityConfigGetCipherSuiteCmd = &cobra.Command{
+	Use:   "get-cipher-suite",
+	Short: "GetCipherSuite RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiAwareDataPathSecurityConfigServiceClient(grpcConn)
+		req := &pb.GetCipherSuiteRequest{}
+		resp, err := client.GetCipherSuite(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareWifiAwareDataPathSecurityConfigGetPmkCmd = &cobra.Command{
+	Use:   "get-pmk",
+	Short: "GetPmk RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiAwareDataPathSecurityConfigServiceClient(grpcConn)
+		req := &pb.GetPmkRequest{}
+		resp, err := client.GetPmk(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareWifiAwareDataPathSecurityConfigGetPmkIdCmd = &cobra.Command{
+	Use:   "get-pmk-id",
+	Short: "GetPmkId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiAwareDataPathSecurityConfigServiceClient(grpcConn)
+		req := &pb.GetPmkIdRequest{}
+		resp, err := client.GetPmkId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareWifiAwareDataPathSecurityConfigGetPskPassphraseCmd = &cobra.Command{
+	Use:   "get-psk-passphrase",
+	Short: "GetPskPassphrase RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiAwareDataPathSecurityConfigServiceClient(grpcConn)
+		req := &pb.GetPskPassphraseRequest{}
+		resp, err := client.GetPskPassphrase(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareWifiAwareDataPathSecurityConfigHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiAwareDataPathSecurityConfigServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareWifiAwareDataPathSecurityConfigToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiAwareDataPathSecurityConfigServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareWifiAwareDataPathSecurityConfigWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiAwareDataPathSecurityConfigServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareWifiAwareDataPathSecurityConfigBuilderCmd = &cobra.Command{
+	Use:   "wifi-aware-data-path-security-config-builder",
+	Short: "WifiAwareDataPathSecurityConfigBuilderService operations",
+}
+
+var awareWifiAwareDataPathSecurityConfigBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiAwareDataPathSecurityConfigBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareWifiAwareDataPathSecurityConfigBuilderSetPmkCmd = &cobra.Command{
+	Use:   "set-pmk",
+	Short: "SetPmk RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiAwareDataPathSecurityConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetPmkRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPmk(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareWifiAwareDataPathSecurityConfigBuilderSetPmkIdCmd = &cobra.Command{
+	Use:   "set-pmk-id",
+	Short: "SetPmkId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiAwareDataPathSecurityConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetPmkIdRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPmkId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareWifiAwareDataPathSecurityConfigBuilderSetPskPassphraseCmd = &cobra.Command{
+	Use:   "set-psk-passphrase",
+	Short: "SetPskPassphrase RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiAwareDataPathSecurityConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetPskPassphraseRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPskPassphrase(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareParcelablePeerHandleCmd = &cobra.Command{
+	Use:   "parcelable-peer-handle",
+	Short: "ParcelablePeerHandleService operations",
+}
+
+var awareParcelablePeerHandleNewParcelablePeerHandleCmd = &cobra.Command{
+	Use:   "new-parcelable-peer-handle",
+	Short: "NewParcelablePeerHandle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewParcelablePeerHandleServiceClient(grpcConn)
+		req := &pb.NewParcelablePeerHandleRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewParcelablePeerHandle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareParcelablePeerHandleDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewParcelablePeerHandleServiceClient(grpcConn)
+		req := &pb.ParcelablePeerHandleDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareParcelablePeerHandleWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewParcelablePeerHandleServiceClient(grpcConn)
+		req := &pb.ParcelablePeerHandleWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareWifiAwareSessionCmd = &cobra.Command{
+	Use:   "wifi-aware-session",
+	Short: "WifiAwareSessionService operations",
+}
+
+var awareWifiAwareSessionCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiAwareSessionServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareWifiAwareSessionCreateNetworkSpecifierOpenCmd = &cobra.Command{
+	Use:   "create-network-specifier-open",
+	Short: "CreateNetworkSpecifierOpen RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiAwareSessionServiceClient(grpcConn)
+		req := &pb.WifiAwareSessionCreateNetworkSpecifierOpenRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CreateNetworkSpecifierOpen(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareWifiAwareSessionCreateNetworkSpecifierPassphraseCmd = &cobra.Command{
+	Use:   "create-network-specifier-passphrase",
+	Short: "CreateNetworkSpecifierPassphrase RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiAwareSessionServiceClient(grpcConn)
+		req := &pb.WifiAwareSessionCreateNetworkSpecifierPassphraseRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.CreateNetworkSpecifierPassphrase(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awarePublishDiscoverySessionCmd = &cobra.Command{
+	Use:   "publish-discovery-session",
+	Short: "PublishDiscoverySessionService operations",
+}
+
+var awarePublishDiscoverySessionUpdatePublishCmd = &cobra.Command{
+	Use:   "update-publish",
+	Short: "UpdatePublish RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPublishDiscoverySessionServiceClient(grpcConn)
+		req := &pb.UpdatePublishRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UpdatePublish(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareServiceDiscoveryInfoCmd = &cobra.Command{
+	Use:   "service-discovery-info",
+	Short: "ServiceDiscoveryInfoService operations",
+}
+
+var awareServiceDiscoveryInfoGetMatchFiltersCmd = &cobra.Command{
+	Use:   "get-match-filters",
+	Short: "GetMatchFilters RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceDiscoveryInfoServiceClient(grpcConn)
+		req := &pb.GetMatchFiltersRequest{}
+		resp, err := client.GetMatchFilters(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareServiceDiscoveryInfoGetPairedAliasCmd = &cobra.Command{
+	Use:   "get-paired-alias",
+	Short: "GetPairedAlias RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceDiscoveryInfoServiceClient(grpcConn)
+		req := &pb.GetPairedAliasRequest{}
+		resp, err := client.GetPairedAlias(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareServiceDiscoveryInfoGetPairingConfigCmd = &cobra.Command{
+	Use:   "get-pairing-config",
+	Short: "GetPairingConfig RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceDiscoveryInfoServiceClient(grpcConn)
+		req := &pb.GetPairingConfigRequest{}
+		resp, err := client.GetPairingConfig(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareServiceDiscoveryInfoGetPeerCipherSuiteCmd = &cobra.Command{
+	Use:   "get-peer-cipher-suite",
+	Short: "GetPeerCipherSuite RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceDiscoveryInfoServiceClient(grpcConn)
+		req := &pb.GetPeerCipherSuiteRequest{}
+		resp, err := client.GetPeerCipherSuite(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareServiceDiscoveryInfoGetPeerHandleCmd = &cobra.Command{
+	Use:   "get-peer-handle",
+	Short: "GetPeerHandle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceDiscoveryInfoServiceClient(grpcConn)
+		req := &pb.GetPeerHandleRequest{}
+		resp, err := client.GetPeerHandle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareServiceDiscoveryInfoGetScidCmd = &cobra.Command{
+	Use:   "get-scid",
+	Short: "GetScid RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceDiscoveryInfoServiceClient(grpcConn)
+		req := &pb.GetScidRequest{}
+		resp, err := client.GetScid(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareServiceDiscoveryInfoGetServiceSpecificInfoCmd = &cobra.Command{
+	Use:   "get-service-specific-info",
+	Short: "GetServiceSpecificInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewServiceDiscoveryInfoServiceClient(grpcConn)
+		req := &pb.GetServiceSpecificInfoRequest{}
+		resp, err := client.GetServiceSpecificInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var awareWifiAwareNetworkInfoCmd = &cobra.Command{
 	Use:   "wifi-aware-network-info",
 	Short: "WifiAwareNetworkInfoService operations",
@@ -614,7 +2003,7 @@ var awareWifiAwareNetworkInfoDescribeContentsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewWifiAwareNetworkInfoServiceClient(grpcConn)
-		req := &pb.WifiAwareNetworkInfoDescribeContentsRequest{}
+		req := &pb.DescribeContentsRequest{}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
@@ -635,6 +2024,22 @@ var awareWifiAwareNetworkInfoEqualsCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareWifiAwareNetworkInfoGetChannelInfoListCmd = &cobra.Command{
+	Use:   "get-channel-info-list",
+	Short: "GetChannelInfoList RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWifiAwareNetworkInfoServiceClient(grpcConn)
+		req := &pb.GetChannelInfoListRequest{}
+		resp, err := client.GetChannelInfoList(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -729,7 +2134,7 @@ var awareWifiAwareNetworkInfoWriteToParcelCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewWifiAwareNetworkInfoServiceClient(grpcConn)
-		req := &pb.WifiAwareNetworkInfoWriteToParcelRequest{}
+		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -744,20 +2149,29 @@ var awareWifiAwareNetworkInfoWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var awareAttachCallbackCmd = &cobra.Command{
-	Use:   "attach-callback",
-	Short: "AttachCallbackService operations",
+var awareResourcesCmd = &cobra.Command{
+	Use:   "resources",
+	Short: "ResourcesService operations",
 }
 
-var awareAttachCallbackNewAttachCallbackCmd = &cobra.Command{
-	Use:   "new-attach-callback",
-	Short: "NewAttachCallback RPC",
+var awareResourcesNewResourcesCmd = &cobra.Command{
+	Use:   "new-resources",
+	Short: "NewResources RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAttachCallbackServiceClient(grpcConn)
-		req := &pb.NewAttachCallbackRequest{}
-		resp, err := client.NewAttachCallback(ctx, req)
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.NewResourcesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewResources(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -765,18 +2179,18 @@ var awareAttachCallbackNewAttachCallbackCmd = &cobra.Command{
 	},
 }
 
-var awareAttachCallbackOnAttachFailedCmd = &cobra.Command{
-	Use:   "on-attach-failed",
-	Short: "OnAttachFailed RPC",
+var awareResourcesDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAttachCallbackServiceClient(grpcConn)
-		req := &pb.OnAttachFailedRequest{}
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.ResourcesDescribeContentsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.OnAttachFailed(ctx, req)
+		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -784,40 +2198,81 @@ var awareAttachCallbackOnAttachFailedCmd = &cobra.Command{
 	},
 }
 
-var awareAttachCallbackOnAttachedCmd = &cobra.Command{
-	Use:   "on-attached",
-	Short: "OnAttached RPC",
+var awareResourcesGetAvailableDataPathsCountCmd = &cobra.Command{
+	Use:   "get-available-data-paths-count",
+	Short: "GetAvailableDataPathsCount RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAttachCallbackServiceClient(grpcConn)
-		req := &pb.OnAttachedRequest{}
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetAvailableDataPathsCountRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetAvailableDataPathsCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareResourcesGetAvailablePublishSessionsCountCmd = &cobra.Command{
+	Use:   "get-available-publish-sessions-count",
+	Short: "GetAvailablePublishSessionsCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetAvailablePublishSessionsCountRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetAvailablePublishSessionsCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareResourcesGetAvailableSubscribeSessionsCountCmd = &cobra.Command{
+	Use:   "get-available-subscribe-sessions-count",
+	Short: "GetAvailableSubscribeSessionsCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.GetAvailableSubscribeSessionsCountRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetAvailableSubscribeSessionsCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awareResourcesWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewResourcesServiceClient(grpcConn)
+		req := &pb.ResourcesWriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.OnAttached(ctx, req)
-		if err != nil {
-			return err
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
 		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareAttachCallbackOnAwareSessionTerminatedCmd = &cobra.Command{
-	Use:   "on-aware-session-terminated",
-	Short: "OnAwareSessionTerminated RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAttachCallbackServiceClient(grpcConn)
-		req := &pb.OnAwareSessionTerminatedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.OnAwareSessionTerminated(ctx, req)
+		resp, err := client.WriteToParcel(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1254,23 +2709,20 @@ var awareDiscoverySessionCallbackOnSubscribeStartedCmd = &cobra.Command{
 	},
 }
 
-var awarePublishDiscoverySessionCmd = &cobra.Command{
-	Use:   "publish-discovery-session",
-	Short: "PublishDiscoverySessionService operations",
+var awareAttachCallbackCmd = &cobra.Command{
+	Use:   "attach-callback",
+	Short: "AttachCallbackService operations",
 }
 
-var awarePublishDiscoverySessionUpdatePublishCmd = &cobra.Command{
-	Use:   "update-publish",
-	Short: "UpdatePublish RPC",
+var awareAttachCallbackNewAttachCallbackCmd = &cobra.Command{
+	Use:   "new-attach-callback",
+	Short: "NewAttachCallback RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPublishDiscoverySessionServiceClient(grpcConn)
-		req := &pb.UpdatePublishRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UpdatePublish(ctx, req)
+		client := pb.NewAttachCallbackServiceClient(grpcConn)
+		req := &pb.NewAttachCallbackRequest{}
+		resp, err := client.NewAttachCallback(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1278,352 +2730,18 @@ var awarePublishDiscoverySessionUpdatePublishCmd = &cobra.Command{
 	},
 }
 
-var awareWifiAwareDataPathSecurityConfigCmd = &cobra.Command{
-	Use:   "wifi-aware-data-path-security-config",
-	Short: "WifiAwareDataPathSecurityConfigService operations",
-}
-
-var awareWifiAwareDataPathSecurityConfigDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
+var awareAttachCallbackOnAttachFailedCmd = &cobra.Command{
+	Use:   "on-attach-failed",
+	Short: "OnAttachFailed RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewWifiAwareDataPathSecurityConfigServiceClient(grpcConn)
-		req := &pb.WifiAwareDataPathSecurityConfigDescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareWifiAwareDataPathSecurityConfigEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWifiAwareDataPathSecurityConfigServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareWifiAwareDataPathSecurityConfigGetCipherSuiteCmd = &cobra.Command{
-	Use:   "get-cipher-suite",
-	Short: "GetCipherSuite RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWifiAwareDataPathSecurityConfigServiceClient(grpcConn)
-		req := &pb.GetCipherSuiteRequest{}
-		resp, err := client.GetCipherSuite(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareWifiAwareDataPathSecurityConfigGetPmkCmd = &cobra.Command{
-	Use:   "get-pmk",
-	Short: "GetPmk RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWifiAwareDataPathSecurityConfigServiceClient(grpcConn)
-		req := &pb.GetPmkRequest{}
-		resp, err := client.GetPmk(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareWifiAwareDataPathSecurityConfigGetPmkIdCmd = &cobra.Command{
-	Use:   "get-pmk-id",
-	Short: "GetPmkId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWifiAwareDataPathSecurityConfigServiceClient(grpcConn)
-		req := &pb.GetPmkIdRequest{}
-		resp, err := client.GetPmkId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareWifiAwareDataPathSecurityConfigGetPskPassphraseCmd = &cobra.Command{
-	Use:   "get-psk-passphrase",
-	Short: "GetPskPassphrase RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWifiAwareDataPathSecurityConfigServiceClient(grpcConn)
-		req := &pb.GetPskPassphraseRequest{}
-		resp, err := client.GetPskPassphrase(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareWifiAwareDataPathSecurityConfigHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWifiAwareDataPathSecurityConfigServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareWifiAwareDataPathSecurityConfigToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWifiAwareDataPathSecurityConfigServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareWifiAwareDataPathSecurityConfigWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWifiAwareDataPathSecurityConfigServiceClient(grpcConn)
-		req := &pb.WifiAwareDataPathSecurityConfigWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareWifiAwareDataPathSecurityConfigBuilderCmd = &cobra.Command{
-	Use:   "wifi-aware-data-path-security-config-builder",
-	Short: "WifiAwareDataPathSecurityConfigBuilderService operations",
-}
-
-var awareWifiAwareDataPathSecurityConfigBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWifiAwareDataPathSecurityConfigBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareWifiAwareDataPathSecurityConfigBuilderSetPmkCmd = &cobra.Command{
-	Use:   "set-pmk",
-	Short: "SetPmk RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWifiAwareDataPathSecurityConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetPmkRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPmk(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareWifiAwareDataPathSecurityConfigBuilderSetPmkIdCmd = &cobra.Command{
-	Use:   "set-pmk-id",
-	Short: "SetPmkId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWifiAwareDataPathSecurityConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetPmkIdRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPmkId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareWifiAwareDataPathSecurityConfigBuilderSetPskPassphraseCmd = &cobra.Command{
-	Use:   "set-psk-passphrase",
-	Short: "SetPskPassphrase RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWifiAwareDataPathSecurityConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetPskPassphraseRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPskPassphrase(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareWifiAwareSessionCmd = &cobra.Command{
-	Use:   "wifi-aware-session",
-	Short: "WifiAwareSessionService operations",
-}
-
-var awareWifiAwareSessionCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWifiAwareSessionServiceClient(grpcConn)
-		req := &pb.CloseRequest{}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareWifiAwareSessionCreateNetworkSpecifierOpenCmd = &cobra.Command{
-	Use:   "create-network-specifier-open",
-	Short: "CreateNetworkSpecifierOpen RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWifiAwareSessionServiceClient(grpcConn)
-		req := &pb.CreateNetworkSpecifierOpenRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.CreateNetworkSpecifierOpen(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareWifiAwareSessionCreateNetworkSpecifierPassphraseCmd = &cobra.Command{
-	Use:   "create-network-specifier-passphrase",
-	Short: "CreateNetworkSpecifierPassphrase RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWifiAwareSessionServiceClient(grpcConn)
-		req := &pb.CreateNetworkSpecifierPassphraseRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.CreateNetworkSpecifierPassphrase(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareResourcesCmd = &cobra.Command{
-	Use:   "resources",
-	Short: "ResourcesService operations",
-}
-
-var awareResourcesNewResourcesCmd = &cobra.Command{
-	Use:   "new-resources",
-	Short: "NewResources RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResourcesServiceClient(grpcConn)
-		req := &pb.NewResourcesRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.NewResources(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareResourcesDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResourcesServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
+		client := pb.NewAttachCallbackServiceClient(grpcConn)
+		req := &pb.OnAttachFailedRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		resp, err := client.DescribeContents(ctx, req)
+		resp, err := client.OnAttachFailed(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1631,81 +2749,21 @@ var awareResourcesDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var awareResourcesGetAvailableDataPathsCountCmd = &cobra.Command{
-	Use:   "get-available-data-paths-count",
-	Short: "GetAvailableDataPathsCount RPC",
+var awareAttachCallbackOnAttachedCmd = &cobra.Command{
+	Use:   "on-attached",
+	Short: "OnAttached RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewResourcesServiceClient(grpcConn)
-		req := &pb.GetAvailableDataPathsCountRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetAvailableDataPathsCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareResourcesGetAvailablePublishSessionsCountCmd = &cobra.Command{
-	Use:   "get-available-publish-sessions-count",
-	Short: "GetAvailablePublishSessionsCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResourcesServiceClient(grpcConn)
-		req := &pb.GetAvailablePublishSessionsCountRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetAvailablePublishSessionsCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareResourcesGetAvailableSubscribeSessionsCountCmd = &cobra.Command{
-	Use:   "get-available-subscribe-sessions-count",
-	Short: "GetAvailableSubscribeSessionsCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResourcesServiceClient(grpcConn)
-		req := &pb.GetAvailableSubscribeSessionsCountRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetAvailableSubscribeSessionsCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareResourcesWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewResourcesServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
+		client := pb.NewAttachCallbackServiceClient(grpcConn)
+		req := &pb.OnAttachedRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
+		resp, err := client.OnAttached(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1713,493 +2771,18 @@ var awareResourcesWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var awarePublishConfigCmd = &cobra.Command{
-	Use:   "publish-config",
-	Short: "PublishConfigService operations",
-}
-
-var awarePublishConfigDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
+var awareAttachCallbackOnAwareSessionTerminatedCmd = &cobra.Command{
+	Use:   "on-aware-session-terminated",
+	Short: "OnAwareSessionTerminated RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewPublishConfigServiceClient(grpcConn)
-		req := &pb.PublishConfigDescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
+		client := pb.NewAttachCallbackServiceClient(grpcConn)
+		req := &pb.OnAwareSessionTerminatedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
 		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePublishConfigEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPublishConfigServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePublishConfigGetInstantCommunicationBandCmd = &cobra.Command{
-	Use:   "get-instant-communication-band",
-	Short: "GetInstantCommunicationBand RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPublishConfigServiceClient(grpcConn)
-		req := &pb.GetInstantCommunicationBandRequest{}
-		resp, err := client.GetInstantCommunicationBand(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePublishConfigGetPairingConfigCmd = &cobra.Command{
-	Use:   "get-pairing-config",
-	Short: "GetPairingConfig RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPublishConfigServiceClient(grpcConn)
-		req := &pb.GetPairingConfigRequest{}
-		resp, err := client.GetPairingConfig(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePublishConfigGetSecurityConfigCmd = &cobra.Command{
-	Use:   "get-security-config",
-	Short: "GetSecurityConfig RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPublishConfigServiceClient(grpcConn)
-		req := &pb.GetSecurityConfigRequest{}
-		resp, err := client.GetSecurityConfig(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePublishConfigHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPublishConfigServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePublishConfigIsInstantCommunicationModeEnabledCmd = &cobra.Command{
-	Use:   "is-instant-communication-mode-enabled",
-	Short: "IsInstantCommunicationModeEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPublishConfigServiceClient(grpcConn)
-		req := &pb.IsInstantCommunicationModeEnabledRequest{}
-		resp, err := client.IsInstantCommunicationModeEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePublishConfigToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPublishConfigServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePublishConfigWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPublishConfigServiceClient(grpcConn)
-		req := &pb.PublishConfigWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePublishConfigBuilderCmd = &cobra.Command{
-	Use:   "publish-config-builder",
-	Short: "PublishConfigBuilderService operations",
-}
-
-var awarePublishConfigBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPublishConfigBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePublishConfigBuilderSetDataPathSecurityConfigCmd = &cobra.Command{
-	Use:   "set-data-path-security-config",
-	Short: "SetDataPathSecurityConfig RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPublishConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetDataPathSecurityConfigRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDataPathSecurityConfig(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePublishConfigBuilderSetInstantCommunicationModeEnabledCmd = &cobra.Command{
-	Use:   "set-instant-communication-mode-enabled",
-	Short: "SetInstantCommunicationModeEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPublishConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetInstantCommunicationModeEnabledRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetInstantCommunicationModeEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePublishConfigBuilderSetPairingConfigCmd = &cobra.Command{
-	Use:   "set-pairing-config",
-	Short: "SetPairingConfig RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPublishConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetPairingConfigRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPairingConfig(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePublishConfigBuilderSetPublishTypeCmd = &cobra.Command{
-	Use:   "set-publish-type",
-	Short: "SetPublishType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPublishConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetPublishTypeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPublishType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePublishConfigBuilderSetRangingEnabledCmd = &cobra.Command{
-	Use:   "set-ranging-enabled",
-	Short: "SetRangingEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPublishConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetRangingEnabledRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetRangingEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePublishConfigBuilderSetServiceNameCmd = &cobra.Command{
-	Use:   "set-service-name",
-	Short: "SetServiceName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPublishConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetServiceNameRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetServiceName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePublishConfigBuilderSetServiceSpecificInfoCmd = &cobra.Command{
-	Use:   "set-service-specific-info",
-	Short: "SetServiceSpecificInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPublishConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetServiceSpecificInfoRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetServiceSpecificInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePublishConfigBuilderSetTerminateNotificationEnabledCmd = &cobra.Command{
-	Use:   "set-terminate-notification-enabled",
-	Short: "SetTerminateNotificationEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPublishConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetTerminateNotificationEnabledRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTerminateNotificationEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePublishConfigBuilderSetTtlSecCmd = &cobra.Command{
-	Use:   "set-ttl-sec",
-	Short: "SetTtlSec RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPublishConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetTtlSecRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTtlSec(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePeerHandleCmd = &cobra.Command{
-	Use:   "peer-handle",
-	Short: "PeerHandleService operations",
-}
-
-var awarePeerHandleEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPeerHandleServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePeerHandleHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPeerHandleServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareServiceDiscoveryInfoCmd = &cobra.Command{
-	Use:   "service-discovery-info",
-	Short: "ServiceDiscoveryInfoService operations",
-}
-
-var awareServiceDiscoveryInfoGetPairedAliasCmd = &cobra.Command{
-	Use:   "get-paired-alias",
-	Short: "GetPairedAlias RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceDiscoveryInfoServiceClient(grpcConn)
-		req := &pb.GetPairedAliasRequest{}
-		resp, err := client.GetPairedAlias(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareServiceDiscoveryInfoGetPairingConfigCmd = &cobra.Command{
-	Use:   "get-pairing-config",
-	Short: "GetPairingConfig RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceDiscoveryInfoServiceClient(grpcConn)
-		req := &pb.GetPairingConfigRequest{}
-		resp, err := client.GetPairingConfig(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareServiceDiscoveryInfoGetPeerCipherSuiteCmd = &cobra.Command{
-	Use:   "get-peer-cipher-suite",
-	Short: "GetPeerCipherSuite RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceDiscoveryInfoServiceClient(grpcConn)
-		req := &pb.GetPeerCipherSuiteRequest{}
-		resp, err := client.GetPeerCipherSuite(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareServiceDiscoveryInfoGetPeerHandleCmd = &cobra.Command{
-	Use:   "get-peer-handle",
-	Short: "GetPeerHandle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceDiscoveryInfoServiceClient(grpcConn)
-		req := &pb.GetPeerHandleRequest{}
-		resp, err := client.GetPeerHandle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareServiceDiscoveryInfoGetScidCmd = &cobra.Command{
-	Use:   "get-scid",
-	Short: "GetScid RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceDiscoveryInfoServiceClient(grpcConn)
-		req := &pb.GetScidRequest{}
-		resp, err := client.GetScid(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareServiceDiscoveryInfoGetServiceSpecificInfoCmd = &cobra.Command{
-	Use:   "get-service-specific-info",
-	Short: "GetServiceSpecificInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewServiceDiscoveryInfoServiceClient(grpcConn)
-		req := &pb.GetServiceSpecificInfoRequest{}
-		resp, err := client.GetServiceSpecificInfo(ctx, req)
+		resp, err := client.OnAwareSessionTerminated(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2219,7 +2802,7 @@ var awareWifiAwareChannelInfoDescribeContentsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewWifiAwareChannelInfoServiceClient(grpcConn)
-		req := &pb.WifiAwareChannelInfoDescribeContentsRequest{}
+		req := &pb.DescribeContentsRequest{}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
@@ -2334,7 +2917,7 @@ var awareWifiAwareChannelInfoWriteToParcelCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewWifiAwareChannelInfoServiceClient(grpcConn)
-		req := &pb.WifiAwareChannelInfoWriteToParcelRequest{}
+		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -2342,280 +2925,6 @@ var awareWifiAwareChannelInfoWriteToParcelCmd = &cobra.Command{
 			req.Arg1 = v
 		}
 		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePairingConfigCmd = &cobra.Command{
-	Use:   "pairing-config",
-	Short: "PairingConfigService operations",
-}
-
-var awarePairingConfigDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPairingConfigServiceClient(grpcConn)
-		req := &pb.PairingConfigDescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePairingConfigEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPairingConfigServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePairingConfigGetBootstrappingMethodsCmd = &cobra.Command{
-	Use:   "get-bootstrapping-methods",
-	Short: "GetBootstrappingMethods RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPairingConfigServiceClient(grpcConn)
-		req := &pb.GetBootstrappingMethodsRequest{}
-		resp, err := client.GetBootstrappingMethods(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePairingConfigGetSupportedCipherSuitesCmd = &cobra.Command{
-	Use:   "get-supported-cipher-suites",
-	Short: "GetSupportedCipherSuites RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPairingConfigServiceClient(grpcConn)
-		req := &pb.GetSupportedCipherSuitesRequest{}
-		resp, err := client.GetSupportedCipherSuites(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePairingConfigHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPairingConfigServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePairingConfigIsPairingCacheEnabledCmd = &cobra.Command{
-	Use:   "is-pairing-cache-enabled",
-	Short: "IsPairingCacheEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPairingConfigServiceClient(grpcConn)
-		req := &pb.IsPairingCacheEnabledRequest{}
-		resp, err := client.IsPairingCacheEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePairingConfigIsPairingSetupEnabledCmd = &cobra.Command{
-	Use:   "is-pairing-setup-enabled",
-	Short: "IsPairingSetupEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPairingConfigServiceClient(grpcConn)
-		req := &pb.IsPairingSetupEnabledRequest{}
-		resp, err := client.IsPairingSetupEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePairingConfigIsPairingVerificationEnabledCmd = &cobra.Command{
-	Use:   "is-pairing-verification-enabled",
-	Short: "IsPairingVerificationEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPairingConfigServiceClient(grpcConn)
-		req := &pb.IsPairingVerificationEnabledRequest{}
-		resp, err := client.IsPairingVerificationEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePairingConfigWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPairingConfigServiceClient(grpcConn)
-		req := &pb.PairingConfigWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePairingConfigBuilderCmd = &cobra.Command{
-	Use:   "pairing-config-builder",
-	Short: "PairingConfigBuilderService operations",
-}
-
-var awarePairingConfigBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPairingConfigBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePairingConfigBuilderSetBootstrappingMethodsCmd = &cobra.Command{
-	Use:   "set-bootstrapping-methods",
-	Short: "SetBootstrappingMethods RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPairingConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetBootstrappingMethodsRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetBootstrappingMethods(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePairingConfigBuilderSetPairingCacheEnabledCmd = &cobra.Command{
-	Use:   "set-pairing-cache-enabled",
-	Short: "SetPairingCacheEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPairingConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetPairingCacheEnabledRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPairingCacheEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePairingConfigBuilderSetPairingSetupEnabledCmd = &cobra.Command{
-	Use:   "set-pairing-setup-enabled",
-	Short: "SetPairingSetupEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPairingConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetPairingSetupEnabledRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPairingSetupEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePairingConfigBuilderSetPairingVerificationEnabledCmd = &cobra.Command{
-	Use:   "set-pairing-verification-enabled",
-	Short: "SetPairingVerificationEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPairingConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetPairingVerificationEnabledRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPairingVerificationEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awarePairingConfigBuilderSetSupportedCipherSuitesCmd = &cobra.Command{
-	Use:   "set-supported-cipher-suites",
-	Short: "SetSupportedCipherSuites RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPairingConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetSupportedCipherSuitesRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSupportedCipherSuites(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2635,7 +2944,7 @@ var awareCharacteristicsDescribeContentsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewCharacteristicsServiceClient(grpcConn)
-		req := &pb.CharacteristicsDescribeContentsRequest{}
+		req := &pb.DescribeContentsRequest{}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
@@ -2843,7 +3152,7 @@ var awareCharacteristicsWriteToParcelCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewCharacteristicsServiceClient(grpcConn)
-		req := &pb.CharacteristicsWriteToParcelRequest{}
+		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -2858,233 +3167,19 @@ var awareCharacteristicsWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var awareSubscribeDiscoverySessionCmd = &cobra.Command{
-	Use:   "subscribe-discovery-session",
-	Short: "SubscribeDiscoverySessionService operations",
+var awarePairingConfigCmd = &cobra.Command{
+	Use:   "pairing-config",
+	Short: "PairingConfigService operations",
 }
 
-var awareSubscribeDiscoverySessionUpdateSubscribeCmd = &cobra.Command{
-	Use:   "update-subscribe",
-	Short: "UpdateSubscribe RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSubscribeDiscoverySessionServiceClient(grpcConn)
-		req := &pb.UpdateSubscribeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UpdateSubscribe(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareDiscoverySessionCmd = &cobra.Command{
-	Use:   "discovery-session",
-	Short: "DiscoverySessionService operations",
-}
-
-var awareDiscoverySessionAcceptPairingRequestCmd = &cobra.Command{
-	Use:   "accept-pairing-request",
-	Short: "AcceptPairingRequest RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDiscoverySessionServiceClient(grpcConn)
-		req := &pb.AcceptPairingRequestRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetString("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.AcceptPairingRequest(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareDiscoverySessionCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDiscoverySessionServiceClient(grpcConn)
-		req := &pb.CloseRequest{}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareDiscoverySessionCreateNetworkSpecifierOpenCmd = &cobra.Command{
-	Use:   "create-network-specifier-open",
-	Short: "CreateNetworkSpecifierOpen RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDiscoverySessionServiceClient(grpcConn)
-		req := &pb.DiscoverySessionCreateNetworkSpecifierOpenRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CreateNetworkSpecifierOpen(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareDiscoverySessionCreateNetworkSpecifierPassphraseCmd = &cobra.Command{
-	Use:   "create-network-specifier-passphrase",
-	Short: "CreateNetworkSpecifierPassphrase RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDiscoverySessionServiceClient(grpcConn)
-		req := &pb.DiscoverySessionCreateNetworkSpecifierPassphraseRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.CreateNetworkSpecifierPassphrase(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareDiscoverySessionInitiateBootstrappingRequestCmd = &cobra.Command{
-	Use:   "initiate-bootstrapping-request",
-	Short: "InitiateBootstrappingRequest RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDiscoverySessionServiceClient(grpcConn)
-		req := &pb.InitiateBootstrappingRequestRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.InitiateBootstrappingRequest(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareDiscoverySessionInitiatePairingRequestCmd = &cobra.Command{
-	Use:   "initiate-pairing-request",
-	Short: "InitiatePairingRequest RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDiscoverySessionServiceClient(grpcConn)
-		req := &pb.InitiatePairingRequestRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetString("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.InitiatePairingRequest(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareDiscoverySessionRejectPairingRequestCmd = &cobra.Command{
-	Use:   "reject-pairing-request",
-	Short: "RejectPairingRequest RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDiscoverySessionServiceClient(grpcConn)
-		req := &pb.RejectPairingRequestRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.RejectPairingRequest(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareDiscoverySessionSendMessageCmd = &cobra.Command{
-	Use:   "send-message",
-	Short: "SendMessage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDiscoverySessionServiceClient(grpcConn)
-		req := &pb.SendMessageRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.SendMessage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareSubscribeConfigCmd = &cobra.Command{
-	Use:   "subscribe-config",
-	Short: "SubscribeConfigService operations",
-}
-
-var awareSubscribeConfigDescribeContentsCmd = &cobra.Command{
+var awarePairingConfigDescribeContentsCmd = &cobra.Command{
 	Use:   "describe-contents",
 	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSubscribeConfigServiceClient(grpcConn)
-		req := &pb.SubscribeConfigDescribeContentsRequest{}
+		client := pb.NewPairingConfigServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
@@ -3093,13 +3188,13 @@ var awareSubscribeConfigDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var awareSubscribeConfigEqualsCmd = &cobra.Command{
+var awarePairingConfigEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSubscribeConfigServiceClient(grpcConn)
+		client := pb.NewPairingConfigServiceClient(grpcConn)
 		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -3112,15 +3207,15 @@ var awareSubscribeConfigEqualsCmd = &cobra.Command{
 	},
 }
 
-var awareSubscribeConfigGetInstantCommunicationBandCmd = &cobra.Command{
-	Use:   "get-instant-communication-band",
-	Short: "GetInstantCommunicationBand RPC",
+var awarePairingConfigGetBootstrappingMethodsCmd = &cobra.Command{
+	Use:   "get-bootstrapping-methods",
+	Short: "GetBootstrappingMethods RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSubscribeConfigServiceClient(grpcConn)
-		req := &pb.GetInstantCommunicationBandRequest{}
-		resp, err := client.GetInstantCommunicationBand(ctx, req)
+		client := pb.NewPairingConfigServiceClient(grpcConn)
+		req := &pb.GetBootstrappingMethodsRequest{}
+		resp, err := client.GetBootstrappingMethods(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3128,15 +3223,15 @@ var awareSubscribeConfigGetInstantCommunicationBandCmd = &cobra.Command{
 	},
 }
 
-var awareSubscribeConfigGetPairingConfigCmd = &cobra.Command{
-	Use:   "get-pairing-config",
-	Short: "GetPairingConfig RPC",
+var awarePairingConfigGetSupportedCipherSuitesCmd = &cobra.Command{
+	Use:   "get-supported-cipher-suites",
+	Short: "GetSupportedCipherSuites RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSubscribeConfigServiceClient(grpcConn)
-		req := &pb.GetPairingConfigRequest{}
-		resp, err := client.GetPairingConfig(ctx, req)
+		client := pb.NewPairingConfigServiceClient(grpcConn)
+		req := &pb.GetSupportedCipherSuitesRequest{}
+		resp, err := client.GetSupportedCipherSuites(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3144,13 +3239,13 @@ var awareSubscribeConfigGetPairingConfigCmd = &cobra.Command{
 	},
 }
 
-var awareSubscribeConfigHashCodeCmd = &cobra.Command{
+var awarePairingConfigHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSubscribeConfigServiceClient(grpcConn)
+		client := pb.NewPairingConfigServiceClient(grpcConn)
 		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
@@ -3160,15 +3255,15 @@ var awareSubscribeConfigHashCodeCmd = &cobra.Command{
 	},
 }
 
-var awareSubscribeConfigIsInstantCommunicationModeEnabledCmd = &cobra.Command{
-	Use:   "is-instant-communication-mode-enabled",
-	Short: "IsInstantCommunicationModeEnabled RPC",
+var awarePairingConfigIsPairingCacheEnabledCmd = &cobra.Command{
+	Use:   "is-pairing-cache-enabled",
+	Short: "IsPairingCacheEnabled RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSubscribeConfigServiceClient(grpcConn)
-		req := &pb.IsInstantCommunicationModeEnabledRequest{}
-		resp, err := client.IsInstantCommunicationModeEnabled(ctx, req)
+		client := pb.NewPairingConfigServiceClient(grpcConn)
+		req := &pb.IsPairingCacheEnabledRequest{}
+		resp, err := client.IsPairingCacheEnabled(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3176,15 +3271,15 @@ var awareSubscribeConfigIsInstantCommunicationModeEnabledCmd = &cobra.Command{
 	},
 }
 
-var awareSubscribeConfigToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
+var awarePairingConfigIsPairingSetupEnabledCmd = &cobra.Command{
+	Use:   "is-pairing-setup-enabled",
+	Short: "IsPairingSetupEnabled RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSubscribeConfigServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
+		client := pb.NewPairingConfigServiceClient(grpcConn)
+		req := &pb.IsPairingSetupEnabledRequest{}
+		resp, err := client.IsPairingSetupEnabled(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3192,14 +3287,30 @@ var awareSubscribeConfigToStringCmd = &cobra.Command{
 	},
 }
 
-var awareSubscribeConfigWriteToParcelCmd = &cobra.Command{
+var awarePairingConfigIsPairingVerificationEnabledCmd = &cobra.Command{
+	Use:   "is-pairing-verification-enabled",
+	Short: "IsPairingVerificationEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPairingConfigServiceClient(grpcConn)
+		req := &pb.IsPairingVerificationEnabledRequest{}
+		resp, err := client.IsPairingVerificationEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awarePairingConfigWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSubscribeConfigServiceClient(grpcConn)
-		req := &pb.SubscribeConfigWriteToParcelRequest{}
+		client := pb.NewPairingConfigServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -3214,18 +3325,18 @@ var awareSubscribeConfigWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var awareSubscribeConfigBuilderCmd = &cobra.Command{
-	Use:   "subscribe-config-builder",
-	Short: "SubscribeConfigBuilderService operations",
+var awarePairingConfigBuilderCmd = &cobra.Command{
+	Use:   "pairing-config-builder",
+	Short: "PairingConfigBuilderService operations",
 }
 
-var awareSubscribeConfigBuilderBuildCmd = &cobra.Command{
+var awarePairingConfigBuilderBuildCmd = &cobra.Command{
 	Use:   "build",
 	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSubscribeConfigBuilderServiceClient(grpcConn)
+		client := pb.NewPairingConfigBuilderServiceClient(grpcConn)
 		req := &pb.BuildRequest{}
 		resp, err := client.Build(ctx, req)
 		if err != nil {
@@ -3235,21 +3346,37 @@ var awareSubscribeConfigBuilderBuildCmd = &cobra.Command{
 	},
 }
 
-var awareSubscribeConfigBuilderSetInstantCommunicationModeEnabledCmd = &cobra.Command{
-	Use:   "set-instant-communication-mode-enabled",
-	Short: "SetInstantCommunicationModeEnabled RPC",
+var awarePairingConfigBuilderSetBootstrappingMethodsCmd = &cobra.Command{
+	Use:   "set-bootstrapping-methods",
+	Short: "SetBootstrappingMethods RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSubscribeConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetInstantCommunicationModeEnabledRequest{}
+		client := pb.NewPairingConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetBootstrappingMethodsRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetBootstrappingMethods(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awarePairingConfigBuilderSetPairingCacheEnabledCmd = &cobra.Command{
+	Use:   "set-pairing-cache-enabled",
+	Short: "SetPairingCacheEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPairingConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetPairingCacheEnabledRequest{}
 		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetInstantCommunicationModeEnabled(ctx, req)
+		resp, err := client.SetPairingCacheEnabled(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3257,132 +3384,18 @@ var awareSubscribeConfigBuilderSetInstantCommunicationModeEnabledCmd = &cobra.Co
 	},
 }
 
-var awareSubscribeConfigBuilderSetMaxDistanceMmCmd = &cobra.Command{
-	Use:   "set-max-distance-mm",
-	Short: "SetMaxDistanceMm RPC",
+var awarePairingConfigBuilderSetPairingSetupEnabledCmd = &cobra.Command{
+	Use:   "set-pairing-setup-enabled",
+	Short: "SetPairingSetupEnabled RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSubscribeConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetMaxDistanceMmRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetMaxDistanceMm(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareSubscribeConfigBuilderSetMinDistanceMmCmd = &cobra.Command{
-	Use:   "set-min-distance-mm",
-	Short: "SetMinDistanceMm RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSubscribeConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetMinDistanceMmRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetMinDistanceMm(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareSubscribeConfigBuilderSetPairingConfigCmd = &cobra.Command{
-	Use:   "set-pairing-config",
-	Short: "SetPairingConfig RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSubscribeConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetPairingConfigRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPairingConfig(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareSubscribeConfigBuilderSetServiceNameCmd = &cobra.Command{
-	Use:   "set-service-name",
-	Short: "SetServiceName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSubscribeConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetServiceNameRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetServiceName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareSubscribeConfigBuilderSetServiceSpecificInfoCmd = &cobra.Command{
-	Use:   "set-service-specific-info",
-	Short: "SetServiceSpecificInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSubscribeConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetServiceSpecificInfoRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetServiceSpecificInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareSubscribeConfigBuilderSetSubscribeTypeCmd = &cobra.Command{
-	Use:   "set-subscribe-type",
-	Short: "SetSubscribeType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSubscribeConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetSubscribeTypeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSubscribeType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var awareSubscribeConfigBuilderSetTerminateNotificationEnabledCmd = &cobra.Command{
-	Use:   "set-terminate-notification-enabled",
-	Short: "SetTerminateNotificationEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSubscribeConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetTerminateNotificationEnabledRequest{}
+		client := pb.NewPairingConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetPairingSetupEnabledRequest{}
 		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetTerminateNotificationEnabled(ctx, req)
+		resp, err := client.SetPairingSetupEnabled(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3390,18 +3403,37 @@ var awareSubscribeConfigBuilderSetTerminateNotificationEnabledCmd = &cobra.Comma
 	},
 }
 
-var awareSubscribeConfigBuilderSetTtlSecCmd = &cobra.Command{
-	Use:   "set-ttl-sec",
-	Short: "SetTtlSec RPC",
+var awarePairingConfigBuilderSetPairingVerificationEnabledCmd = &cobra.Command{
+	Use:   "set-pairing-verification-enabled",
+	Short: "SetPairingVerificationEnabled RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSubscribeConfigBuilderServiceClient(grpcConn)
-		req := &pb.SetTtlSecRequest{}
+		client := pb.NewPairingConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetPairingVerificationEnabledRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPairingVerificationEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var awarePairingConfigBuilderSetSupportedCipherSuitesCmd = &cobra.Command{
+	Use:   "set-supported-cipher-suites",
+	Short: "SetSupportedCipherSuites RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPairingConfigBuilderServiceClient(grpcConn)
+		req := &pb.SetSupportedCipherSuitesRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetTtlSec(ctx, req)
+		resp, err := client.SetSupportedCipherSuites(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3410,24 +3442,79 @@ var awareSubscribeConfigBuilderSetTtlSecCmd = &cobra.Command{
 }
 
 func init() {
-	awareIdentityChangedListenerCmd.AddCommand(awareIdentityChangedListenerNewIdentityChangedListenerCmd)
-	awareIdentityChangedListenerOnClusterIdChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	awareIdentityChangedListenerOnClusterIdChangedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	awareIdentityChangedListenerOnClusterIdChangedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	awareIdentityChangedListenerCmd.AddCommand(awareIdentityChangedListenerOnClusterIdChangedCmd)
-	awareIdentityChangedListenerOnIdentityChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	awareIdentityChangedListenerOnIdentityChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	awareIdentityChangedListenerCmd.AddCommand(awareIdentityChangedListenerOnIdentityChangedCmd)
-	awareCmd.AddCommand(awareIdentityChangedListenerCmd)
-	awareParcelablePeerHandleNewParcelablePeerHandleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	awareParcelablePeerHandleCmd.AddCommand(awareParcelablePeerHandleNewParcelablePeerHandleCmd)
-	awareParcelablePeerHandleDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	awareParcelablePeerHandleCmd.AddCommand(awareParcelablePeerHandleDescribeContentsCmd)
-	awareParcelablePeerHandleWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	awareParcelablePeerHandleWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	awareParcelablePeerHandleWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	awareParcelablePeerHandleCmd.AddCommand(awareParcelablePeerHandleWriteToParcelCmd)
-	awareCmd.AddCommand(awareParcelablePeerHandleCmd)
+	awareSubscribeConfigCmd.AddCommand(awareSubscribeConfigDescribeContentsCmd)
+	awareSubscribeConfigEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	awareSubscribeConfigCmd.AddCommand(awareSubscribeConfigEqualsCmd)
+	awareSubscribeConfigCmd.AddCommand(awareSubscribeConfigGetInstantCommunicationBandCmd)
+	awareSubscribeConfigCmd.AddCommand(awareSubscribeConfigGetPairingConfigCmd)
+	awareSubscribeConfigCmd.AddCommand(awareSubscribeConfigHashCodeCmd)
+	awareSubscribeConfigCmd.AddCommand(awareSubscribeConfigIsInstantCommunicationModeEnabledCmd)
+	awareSubscribeConfigCmd.AddCommand(awareSubscribeConfigToStringCmd)
+	awareSubscribeConfigWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	awareSubscribeConfigWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	awareSubscribeConfigCmd.AddCommand(awareSubscribeConfigWriteToParcelCmd)
+	awareCmd.AddCommand(awareSubscribeConfigCmd)
+	awareSubscribeConfigBuilderCmd.AddCommand(awareSubscribeConfigBuilderBuildCmd)
+	awareSubscribeConfigBuilderSetInstantCommunicationModeEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	awareSubscribeConfigBuilderSetInstantCommunicationModeEnabledCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	awareSubscribeConfigBuilderCmd.AddCommand(awareSubscribeConfigBuilderSetInstantCommunicationModeEnabledCmd)
+	awareSubscribeConfigBuilderSetMaxDistanceMmCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	awareSubscribeConfigBuilderCmd.AddCommand(awareSubscribeConfigBuilderSetMaxDistanceMmCmd)
+	awareSubscribeConfigBuilderSetMinDistanceMmCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	awareSubscribeConfigBuilderCmd.AddCommand(awareSubscribeConfigBuilderSetMinDistanceMmCmd)
+	awareSubscribeConfigBuilderSetPairingConfigCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	awareSubscribeConfigBuilderCmd.AddCommand(awareSubscribeConfigBuilderSetPairingConfigCmd)
+	awareSubscribeConfigBuilderSetServiceNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	awareSubscribeConfigBuilderCmd.AddCommand(awareSubscribeConfigBuilderSetServiceNameCmd)
+	awareSubscribeConfigBuilderSetServiceSpecificInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	awareSubscribeConfigBuilderCmd.AddCommand(awareSubscribeConfigBuilderSetServiceSpecificInfoCmd)
+	awareSubscribeConfigBuilderSetSubscribeTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	awareSubscribeConfigBuilderCmd.AddCommand(awareSubscribeConfigBuilderSetSubscribeTypeCmd)
+	awareSubscribeConfigBuilderSetTerminateNotificationEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	awareSubscribeConfigBuilderCmd.AddCommand(awareSubscribeConfigBuilderSetTerminateNotificationEnabledCmd)
+	awareSubscribeConfigBuilderSetTtlSecCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	awareSubscribeConfigBuilderCmd.AddCommand(awareSubscribeConfigBuilderSetTtlSecCmd)
+	awareCmd.AddCommand(awareSubscribeConfigBuilderCmd)
+	awareWifiAwareManagerCmd.AddCommand(awareWifiAwareManagerGetAvailableAwareResourcesCmd)
+	awareWifiAwareManagerCmd.AddCommand(awareWifiAwareManagerGetCharacteristicsCmd)
+	awareWifiAwareManagerCmd.AddCommand(awareWifiAwareManagerIsAvailableCmd)
+	awareWifiAwareManagerCmd.AddCommand(awareWifiAwareManagerIsDeviceAttachedCmd)
+	awareWifiAwareManagerCmd.AddCommand(awareWifiAwareManagerIsInstantCommunicationModeEnabledCmd)
+	awareWifiAwareManagerCmd.AddCommand(awareWifiAwareManagerIsSetChannelOnDataPathSupportedCmd)
+	awareWifiAwareManagerRemovePairedDeviceCmd.Flags().String("arg0", "", "arg0 (string)")
+	awareWifiAwareManagerCmd.AddCommand(awareWifiAwareManagerRemovePairedDeviceCmd)
+	awareWifiAwareManagerCmd.AddCommand(awareWifiAwareManagerResetPairedDevicesCmd)
+	awareWifiAwareManagerSetOpportunisticModeEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	awareWifiAwareManagerCmd.AddCommand(awareWifiAwareManagerSetOpportunisticModeEnabledCmd)
+	awareCmd.AddCommand(awareWifiAwareManagerCmd)
+	awareDiscoverySessionAcceptPairingRequestCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	awareDiscoverySessionAcceptPairingRequestCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	awareDiscoverySessionAcceptPairingRequestCmd.Flags().String("arg2", "", "arg2 (string)")
+	awareDiscoverySessionAcceptPairingRequestCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	awareDiscoverySessionAcceptPairingRequestCmd.Flags().String("arg4", "", "arg4 (string)")
+	awareDiscoverySessionCmd.AddCommand(awareDiscoverySessionAcceptPairingRequestCmd)
+	awareDiscoverySessionCmd.AddCommand(awareDiscoverySessionCloseCmd)
+	awareDiscoverySessionCreateNetworkSpecifierOpenCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	awareDiscoverySessionCmd.AddCommand(awareDiscoverySessionCreateNetworkSpecifierOpenCmd)
+	awareDiscoverySessionCreateNetworkSpecifierPassphraseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	awareDiscoverySessionCreateNetworkSpecifierPassphraseCmd.Flags().String("arg1", "", "arg1 (string)")
+	awareDiscoverySessionCmd.AddCommand(awareDiscoverySessionCreateNetworkSpecifierPassphraseCmd)
+	awareDiscoverySessionInitiateBootstrappingRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	awareDiscoverySessionInitiateBootstrappingRequestCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	awareDiscoverySessionCmd.AddCommand(awareDiscoverySessionInitiateBootstrappingRequestCmd)
+	awareDiscoverySessionInitiatePairingRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	awareDiscoverySessionInitiatePairingRequestCmd.Flags().String("arg1", "", "arg1 (string)")
+	awareDiscoverySessionInitiatePairingRequestCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	awareDiscoverySessionInitiatePairingRequestCmd.Flags().String("arg3", "", "arg3 (string)")
+	awareDiscoverySessionCmd.AddCommand(awareDiscoverySessionInitiatePairingRequestCmd)
+	awareDiscoverySessionRejectPairingRequestCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	awareDiscoverySessionRejectPairingRequestCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	awareDiscoverySessionCmd.AddCommand(awareDiscoverySessionRejectPairingRequestCmd)
+	awareDiscoverySessionSendMessageCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	awareDiscoverySessionSendMessageCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	awareDiscoverySessionSendMessageCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	awareDiscoverySessionCmd.AddCommand(awareDiscoverySessionSendMessageCmd)
+	awareCmd.AddCommand(awareDiscoverySessionCmd)
 	awareWifiAwareNetworkSpecifierCanBeSatisfiedByCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	awareWifiAwareNetworkSpecifierCmd.AddCommand(awareWifiAwareNetworkSpecifierCanBeSatisfiedByCmd)
 	awareWifiAwareNetworkSpecifierCmd.AddCommand(awareWifiAwareNetworkSpecifierDescribeContentsCmd)
@@ -3457,21 +3544,110 @@ func init() {
 	awareWifiAwareNetworkSpecifierBuilderSetTransportProtocolCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	awareWifiAwareNetworkSpecifierBuilderCmd.AddCommand(awareWifiAwareNetworkSpecifierBuilderSetTransportProtocolCmd)
 	awareCmd.AddCommand(awareWifiAwareNetworkSpecifierBuilderCmd)
-	awareWifiAwareManagerCmd.AddCommand(awareWifiAwareManagerGetAvailableAwareResourcesCmd)
-	awareWifiAwareManagerCmd.AddCommand(awareWifiAwareManagerGetCharacteristicsCmd)
-	awareWifiAwareManagerCmd.AddCommand(awareWifiAwareManagerIsAvailableCmd)
-	awareWifiAwareManagerCmd.AddCommand(awareWifiAwareManagerIsDeviceAttachedCmd)
-	awareWifiAwareManagerCmd.AddCommand(awareWifiAwareManagerIsInstantCommunicationModeEnabledCmd)
-	awareWifiAwareManagerCmd.AddCommand(awareWifiAwareManagerIsSetChannelOnDataPathSupportedCmd)
-	awareWifiAwareManagerRemovePairedDeviceCmd.Flags().String("arg0", "", "arg0 (string)")
-	awareWifiAwareManagerCmd.AddCommand(awareWifiAwareManagerRemovePairedDeviceCmd)
-	awareWifiAwareManagerCmd.AddCommand(awareWifiAwareManagerResetPairedDevicesCmd)
-	awareWifiAwareManagerSetOpportunisticModeEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	awareWifiAwareManagerCmd.AddCommand(awareWifiAwareManagerSetOpportunisticModeEnabledCmd)
-	awareCmd.AddCommand(awareWifiAwareManagerCmd)
+	awarePublishConfigCmd.AddCommand(awarePublishConfigDescribeContentsCmd)
+	awarePublishConfigEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	awarePublishConfigCmd.AddCommand(awarePublishConfigEqualsCmd)
+	awarePublishConfigCmd.AddCommand(awarePublishConfigGetInstantCommunicationBandCmd)
+	awarePublishConfigCmd.AddCommand(awarePublishConfigGetPairingConfigCmd)
+	awarePublishConfigCmd.AddCommand(awarePublishConfigGetSecurityConfigCmd)
+	awarePublishConfigCmd.AddCommand(awarePublishConfigHashCodeCmd)
+	awarePublishConfigCmd.AddCommand(awarePublishConfigIsInstantCommunicationModeEnabledCmd)
+	awarePublishConfigCmd.AddCommand(awarePublishConfigToStringCmd)
+	awarePublishConfigWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	awarePublishConfigWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	awarePublishConfigCmd.AddCommand(awarePublishConfigWriteToParcelCmd)
+	awareCmd.AddCommand(awarePublishConfigCmd)
+	awarePublishConfigBuilderCmd.AddCommand(awarePublishConfigBuilderBuildCmd)
+	awarePublishConfigBuilderSetDataPathSecurityConfigCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	awarePublishConfigBuilderCmd.AddCommand(awarePublishConfigBuilderSetDataPathSecurityConfigCmd)
+	awarePublishConfigBuilderSetInstantCommunicationModeEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	awarePublishConfigBuilderSetInstantCommunicationModeEnabledCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	awarePublishConfigBuilderCmd.AddCommand(awarePublishConfigBuilderSetInstantCommunicationModeEnabledCmd)
+	awarePublishConfigBuilderSetPairingConfigCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	awarePublishConfigBuilderCmd.AddCommand(awarePublishConfigBuilderSetPairingConfigCmd)
+	awarePublishConfigBuilderSetPublishTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	awarePublishConfigBuilderCmd.AddCommand(awarePublishConfigBuilderSetPublishTypeCmd)
+	awarePublishConfigBuilderSetRangingEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	awarePublishConfigBuilderCmd.AddCommand(awarePublishConfigBuilderSetRangingEnabledCmd)
+	awarePublishConfigBuilderSetServiceNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	awarePublishConfigBuilderCmd.AddCommand(awarePublishConfigBuilderSetServiceNameCmd)
+	awarePublishConfigBuilderSetServiceSpecificInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	awarePublishConfigBuilderCmd.AddCommand(awarePublishConfigBuilderSetServiceSpecificInfoCmd)
+	awarePublishConfigBuilderSetTerminateNotificationEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	awarePublishConfigBuilderCmd.AddCommand(awarePublishConfigBuilderSetTerminateNotificationEnabledCmd)
+	awarePublishConfigBuilderSetTtlSecCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	awarePublishConfigBuilderCmd.AddCommand(awarePublishConfigBuilderSetTtlSecCmd)
+	awareCmd.AddCommand(awarePublishConfigBuilderCmd)
+	awareIdentityChangedListenerCmd.AddCommand(awareIdentityChangedListenerNewIdentityChangedListenerCmd)
+	awareIdentityChangedListenerOnClusterIdChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	awareIdentityChangedListenerOnClusterIdChangedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	awareIdentityChangedListenerOnClusterIdChangedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	awareIdentityChangedListenerCmd.AddCommand(awareIdentityChangedListenerOnClusterIdChangedCmd)
+	awareIdentityChangedListenerOnIdentityChangedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	awareIdentityChangedListenerOnIdentityChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	awareIdentityChangedListenerCmd.AddCommand(awareIdentityChangedListenerOnIdentityChangedCmd)
+	awareCmd.AddCommand(awareIdentityChangedListenerCmd)
+	awarePeerHandleEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	awarePeerHandleCmd.AddCommand(awarePeerHandleEqualsCmd)
+	awarePeerHandleCmd.AddCommand(awarePeerHandleHashCodeCmd)
+	awareCmd.AddCommand(awarePeerHandleCmd)
+	awareSubscribeDiscoverySessionUpdateSubscribeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	awareSubscribeDiscoverySessionCmd.AddCommand(awareSubscribeDiscoverySessionUpdateSubscribeCmd)
+	awareCmd.AddCommand(awareSubscribeDiscoverySessionCmd)
+	awareWifiAwareDataPathSecurityConfigCmd.AddCommand(awareWifiAwareDataPathSecurityConfigDescribeContentsCmd)
+	awareWifiAwareDataPathSecurityConfigEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	awareWifiAwareDataPathSecurityConfigCmd.AddCommand(awareWifiAwareDataPathSecurityConfigEqualsCmd)
+	awareWifiAwareDataPathSecurityConfigCmd.AddCommand(awareWifiAwareDataPathSecurityConfigGetCipherSuiteCmd)
+	awareWifiAwareDataPathSecurityConfigCmd.AddCommand(awareWifiAwareDataPathSecurityConfigGetPmkCmd)
+	awareWifiAwareDataPathSecurityConfigCmd.AddCommand(awareWifiAwareDataPathSecurityConfigGetPmkIdCmd)
+	awareWifiAwareDataPathSecurityConfigCmd.AddCommand(awareWifiAwareDataPathSecurityConfigGetPskPassphraseCmd)
+	awareWifiAwareDataPathSecurityConfigCmd.AddCommand(awareWifiAwareDataPathSecurityConfigHashCodeCmd)
+	awareWifiAwareDataPathSecurityConfigCmd.AddCommand(awareWifiAwareDataPathSecurityConfigToStringCmd)
+	awareWifiAwareDataPathSecurityConfigWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	awareWifiAwareDataPathSecurityConfigWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	awareWifiAwareDataPathSecurityConfigCmd.AddCommand(awareWifiAwareDataPathSecurityConfigWriteToParcelCmd)
+	awareCmd.AddCommand(awareWifiAwareDataPathSecurityConfigCmd)
+	awareWifiAwareDataPathSecurityConfigBuilderCmd.AddCommand(awareWifiAwareDataPathSecurityConfigBuilderBuildCmd)
+	awareWifiAwareDataPathSecurityConfigBuilderSetPmkCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	awareWifiAwareDataPathSecurityConfigBuilderCmd.AddCommand(awareWifiAwareDataPathSecurityConfigBuilderSetPmkCmd)
+	awareWifiAwareDataPathSecurityConfigBuilderSetPmkIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	awareWifiAwareDataPathSecurityConfigBuilderCmd.AddCommand(awareWifiAwareDataPathSecurityConfigBuilderSetPmkIdCmd)
+	awareWifiAwareDataPathSecurityConfigBuilderSetPskPassphraseCmd.Flags().String("arg0", "", "arg0 (string)")
+	awareWifiAwareDataPathSecurityConfigBuilderCmd.AddCommand(awareWifiAwareDataPathSecurityConfigBuilderSetPskPassphraseCmd)
+	awareCmd.AddCommand(awareWifiAwareDataPathSecurityConfigBuilderCmd)
+	awareParcelablePeerHandleNewParcelablePeerHandleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	awareParcelablePeerHandleCmd.AddCommand(awareParcelablePeerHandleNewParcelablePeerHandleCmd)
+	awareParcelablePeerHandleDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	awareParcelablePeerHandleCmd.AddCommand(awareParcelablePeerHandleDescribeContentsCmd)
+	awareParcelablePeerHandleWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	awareParcelablePeerHandleWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	awareParcelablePeerHandleWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	awareParcelablePeerHandleCmd.AddCommand(awareParcelablePeerHandleWriteToParcelCmd)
+	awareCmd.AddCommand(awareParcelablePeerHandleCmd)
+	awareWifiAwareSessionCmd.AddCommand(awareWifiAwareSessionCloseCmd)
+	awareWifiAwareSessionCreateNetworkSpecifierOpenCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	awareWifiAwareSessionCreateNetworkSpecifierOpenCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	awareWifiAwareSessionCmd.AddCommand(awareWifiAwareSessionCreateNetworkSpecifierOpenCmd)
+	awareWifiAwareSessionCreateNetworkSpecifierPassphraseCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	awareWifiAwareSessionCreateNetworkSpecifierPassphraseCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	awareWifiAwareSessionCreateNetworkSpecifierPassphraseCmd.Flags().String("arg2", "", "arg2 (string)")
+	awareWifiAwareSessionCmd.AddCommand(awareWifiAwareSessionCreateNetworkSpecifierPassphraseCmd)
+	awareCmd.AddCommand(awareWifiAwareSessionCmd)
+	awarePublishDiscoverySessionUpdatePublishCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	awarePublishDiscoverySessionCmd.AddCommand(awarePublishDiscoverySessionUpdatePublishCmd)
+	awareCmd.AddCommand(awarePublishDiscoverySessionCmd)
+	awareServiceDiscoveryInfoCmd.AddCommand(awareServiceDiscoveryInfoGetMatchFiltersCmd)
+	awareServiceDiscoveryInfoCmd.AddCommand(awareServiceDiscoveryInfoGetPairedAliasCmd)
+	awareServiceDiscoveryInfoCmd.AddCommand(awareServiceDiscoveryInfoGetPairingConfigCmd)
+	awareServiceDiscoveryInfoCmd.AddCommand(awareServiceDiscoveryInfoGetPeerCipherSuiteCmd)
+	awareServiceDiscoveryInfoCmd.AddCommand(awareServiceDiscoveryInfoGetPeerHandleCmd)
+	awareServiceDiscoveryInfoCmd.AddCommand(awareServiceDiscoveryInfoGetScidCmd)
+	awareServiceDiscoveryInfoCmd.AddCommand(awareServiceDiscoveryInfoGetServiceSpecificInfoCmd)
+	awareCmd.AddCommand(awareServiceDiscoveryInfoCmd)
 	awareWifiAwareNetworkInfoCmd.AddCommand(awareWifiAwareNetworkInfoDescribeContentsCmd)
 	awareWifiAwareNetworkInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	awareWifiAwareNetworkInfoCmd.AddCommand(awareWifiAwareNetworkInfoEqualsCmd)
+	awareWifiAwareNetworkInfoCmd.AddCommand(awareWifiAwareNetworkInfoGetChannelInfoListCmd)
 	awareWifiAwareNetworkInfoCmd.AddCommand(awareWifiAwareNetworkInfoGetPeerIpv6AddrCmd)
 	awareWifiAwareNetworkInfoCmd.AddCommand(awareWifiAwareNetworkInfoGetPortCmd)
 	awareWifiAwareNetworkInfoCmd.AddCommand(awareWifiAwareNetworkInfoGetTransportProtocolCmd)
@@ -3481,15 +3657,23 @@ func init() {
 	awareWifiAwareNetworkInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	awareWifiAwareNetworkInfoCmd.AddCommand(awareWifiAwareNetworkInfoWriteToParcelCmd)
 	awareCmd.AddCommand(awareWifiAwareNetworkInfoCmd)
-	awareAttachCallbackCmd.AddCommand(awareAttachCallbackNewAttachCallbackCmd)
-	awareAttachCallbackOnAttachFailedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	awareAttachCallbackCmd.AddCommand(awareAttachCallbackOnAttachFailedCmd)
-	awareAttachCallbackOnAttachedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	awareAttachCallbackOnAttachedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	awareAttachCallbackCmd.AddCommand(awareAttachCallbackOnAttachedCmd)
-	awareAttachCallbackOnAwareSessionTerminatedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	awareAttachCallbackCmd.AddCommand(awareAttachCallbackOnAwareSessionTerminatedCmd)
-	awareCmd.AddCommand(awareAttachCallbackCmd)
+	awareResourcesNewResourcesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	awareResourcesNewResourcesCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	awareResourcesNewResourcesCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	awareResourcesCmd.AddCommand(awareResourcesNewResourcesCmd)
+	awareResourcesDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	awareResourcesCmd.AddCommand(awareResourcesDescribeContentsCmd)
+	awareResourcesGetAvailableDataPathsCountCmd.Flags().Int64("handle", 0, "handle (int64)")
+	awareResourcesCmd.AddCommand(awareResourcesGetAvailableDataPathsCountCmd)
+	awareResourcesGetAvailablePublishSessionsCountCmd.Flags().Int64("handle", 0, "handle (int64)")
+	awareResourcesCmd.AddCommand(awareResourcesGetAvailablePublishSessionsCountCmd)
+	awareResourcesGetAvailableSubscribeSessionsCountCmd.Flags().Int64("handle", 0, "handle (int64)")
+	awareResourcesCmd.AddCommand(awareResourcesGetAvailableSubscribeSessionsCountCmd)
+	awareResourcesWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	awareResourcesWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	awareResourcesWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	awareResourcesCmd.AddCommand(awareResourcesWriteToParcelCmd)
+	awareCmd.AddCommand(awareResourcesCmd)
 	awareDiscoverySessionCallbackCmd.AddCommand(awareDiscoverySessionCallbackNewDiscoverySessionCallbackCmd)
 	awareDiscoverySessionCallbackOnBootstrappingFailedCmd.Flags().Int64("handle", 0, "handle (int64)")
 	awareDiscoverySessionCallbackOnBootstrappingFailedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -3550,101 +3734,15 @@ func init() {
 	awareDiscoverySessionCallbackOnSubscribeStartedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	awareDiscoverySessionCallbackCmd.AddCommand(awareDiscoverySessionCallbackOnSubscribeStartedCmd)
 	awareCmd.AddCommand(awareDiscoverySessionCallbackCmd)
-	awarePublishDiscoverySessionUpdatePublishCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	awarePublishDiscoverySessionCmd.AddCommand(awarePublishDiscoverySessionUpdatePublishCmd)
-	awareCmd.AddCommand(awarePublishDiscoverySessionCmd)
-	awareWifiAwareDataPathSecurityConfigCmd.AddCommand(awareWifiAwareDataPathSecurityConfigDescribeContentsCmd)
-	awareWifiAwareDataPathSecurityConfigEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	awareWifiAwareDataPathSecurityConfigCmd.AddCommand(awareWifiAwareDataPathSecurityConfigEqualsCmd)
-	awareWifiAwareDataPathSecurityConfigCmd.AddCommand(awareWifiAwareDataPathSecurityConfigGetCipherSuiteCmd)
-	awareWifiAwareDataPathSecurityConfigCmd.AddCommand(awareWifiAwareDataPathSecurityConfigGetPmkCmd)
-	awareWifiAwareDataPathSecurityConfigCmd.AddCommand(awareWifiAwareDataPathSecurityConfigGetPmkIdCmd)
-	awareWifiAwareDataPathSecurityConfigCmd.AddCommand(awareWifiAwareDataPathSecurityConfigGetPskPassphraseCmd)
-	awareWifiAwareDataPathSecurityConfigCmd.AddCommand(awareWifiAwareDataPathSecurityConfigHashCodeCmd)
-	awareWifiAwareDataPathSecurityConfigCmd.AddCommand(awareWifiAwareDataPathSecurityConfigToStringCmd)
-	awareWifiAwareDataPathSecurityConfigWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	awareWifiAwareDataPathSecurityConfigWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	awareWifiAwareDataPathSecurityConfigCmd.AddCommand(awareWifiAwareDataPathSecurityConfigWriteToParcelCmd)
-	awareCmd.AddCommand(awareWifiAwareDataPathSecurityConfigCmd)
-	awareWifiAwareDataPathSecurityConfigBuilderCmd.AddCommand(awareWifiAwareDataPathSecurityConfigBuilderBuildCmd)
-	awareWifiAwareDataPathSecurityConfigBuilderSetPmkCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	awareWifiAwareDataPathSecurityConfigBuilderCmd.AddCommand(awareWifiAwareDataPathSecurityConfigBuilderSetPmkCmd)
-	awareWifiAwareDataPathSecurityConfigBuilderSetPmkIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	awareWifiAwareDataPathSecurityConfigBuilderCmd.AddCommand(awareWifiAwareDataPathSecurityConfigBuilderSetPmkIdCmd)
-	awareWifiAwareDataPathSecurityConfigBuilderSetPskPassphraseCmd.Flags().String("arg0", "", "arg0 (string)")
-	awareWifiAwareDataPathSecurityConfigBuilderCmd.AddCommand(awareWifiAwareDataPathSecurityConfigBuilderSetPskPassphraseCmd)
-	awareCmd.AddCommand(awareWifiAwareDataPathSecurityConfigBuilderCmd)
-	awareWifiAwareSessionCmd.AddCommand(awareWifiAwareSessionCloseCmd)
-	awareWifiAwareSessionCreateNetworkSpecifierOpenCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	awareWifiAwareSessionCreateNetworkSpecifierOpenCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	awareWifiAwareSessionCmd.AddCommand(awareWifiAwareSessionCreateNetworkSpecifierOpenCmd)
-	awareWifiAwareSessionCreateNetworkSpecifierPassphraseCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	awareWifiAwareSessionCreateNetworkSpecifierPassphraseCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	awareWifiAwareSessionCreateNetworkSpecifierPassphraseCmd.Flags().String("arg2", "", "arg2 (string)")
-	awareWifiAwareSessionCmd.AddCommand(awareWifiAwareSessionCreateNetworkSpecifierPassphraseCmd)
-	awareCmd.AddCommand(awareWifiAwareSessionCmd)
-	awareResourcesNewResourcesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	awareResourcesNewResourcesCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	awareResourcesNewResourcesCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	awareResourcesCmd.AddCommand(awareResourcesNewResourcesCmd)
-	awareResourcesDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	awareResourcesCmd.AddCommand(awareResourcesDescribeContentsCmd)
-	awareResourcesGetAvailableDataPathsCountCmd.Flags().Int64("handle", 0, "handle (int64)")
-	awareResourcesCmd.AddCommand(awareResourcesGetAvailableDataPathsCountCmd)
-	awareResourcesGetAvailablePublishSessionsCountCmd.Flags().Int64("handle", 0, "handle (int64)")
-	awareResourcesCmd.AddCommand(awareResourcesGetAvailablePublishSessionsCountCmd)
-	awareResourcesGetAvailableSubscribeSessionsCountCmd.Flags().Int64("handle", 0, "handle (int64)")
-	awareResourcesCmd.AddCommand(awareResourcesGetAvailableSubscribeSessionsCountCmd)
-	awareResourcesWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	awareResourcesWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	awareResourcesWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	awareResourcesCmd.AddCommand(awareResourcesWriteToParcelCmd)
-	awareCmd.AddCommand(awareResourcesCmd)
-	awarePublishConfigCmd.AddCommand(awarePublishConfigDescribeContentsCmd)
-	awarePublishConfigEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	awarePublishConfigCmd.AddCommand(awarePublishConfigEqualsCmd)
-	awarePublishConfigCmd.AddCommand(awarePublishConfigGetInstantCommunicationBandCmd)
-	awarePublishConfigCmd.AddCommand(awarePublishConfigGetPairingConfigCmd)
-	awarePublishConfigCmd.AddCommand(awarePublishConfigGetSecurityConfigCmd)
-	awarePublishConfigCmd.AddCommand(awarePublishConfigHashCodeCmd)
-	awarePublishConfigCmd.AddCommand(awarePublishConfigIsInstantCommunicationModeEnabledCmd)
-	awarePublishConfigCmd.AddCommand(awarePublishConfigToStringCmd)
-	awarePublishConfigWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	awarePublishConfigWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	awarePublishConfigCmd.AddCommand(awarePublishConfigWriteToParcelCmd)
-	awareCmd.AddCommand(awarePublishConfigCmd)
-	awarePublishConfigBuilderCmd.AddCommand(awarePublishConfigBuilderBuildCmd)
-	awarePublishConfigBuilderSetDataPathSecurityConfigCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	awarePublishConfigBuilderCmd.AddCommand(awarePublishConfigBuilderSetDataPathSecurityConfigCmd)
-	awarePublishConfigBuilderSetInstantCommunicationModeEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	awarePublishConfigBuilderSetInstantCommunicationModeEnabledCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	awarePublishConfigBuilderCmd.AddCommand(awarePublishConfigBuilderSetInstantCommunicationModeEnabledCmd)
-	awarePublishConfigBuilderSetPairingConfigCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	awarePublishConfigBuilderCmd.AddCommand(awarePublishConfigBuilderSetPairingConfigCmd)
-	awarePublishConfigBuilderSetPublishTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	awarePublishConfigBuilderCmd.AddCommand(awarePublishConfigBuilderSetPublishTypeCmd)
-	awarePublishConfigBuilderSetRangingEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	awarePublishConfigBuilderCmd.AddCommand(awarePublishConfigBuilderSetRangingEnabledCmd)
-	awarePublishConfigBuilderSetServiceNameCmd.Flags().String("arg0", "", "arg0 (string)")
-	awarePublishConfigBuilderCmd.AddCommand(awarePublishConfigBuilderSetServiceNameCmd)
-	awarePublishConfigBuilderSetServiceSpecificInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	awarePublishConfigBuilderCmd.AddCommand(awarePublishConfigBuilderSetServiceSpecificInfoCmd)
-	awarePublishConfigBuilderSetTerminateNotificationEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	awarePublishConfigBuilderCmd.AddCommand(awarePublishConfigBuilderSetTerminateNotificationEnabledCmd)
-	awarePublishConfigBuilderSetTtlSecCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	awarePublishConfigBuilderCmd.AddCommand(awarePublishConfigBuilderSetTtlSecCmd)
-	awareCmd.AddCommand(awarePublishConfigBuilderCmd)
-	awarePeerHandleEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	awarePeerHandleCmd.AddCommand(awarePeerHandleEqualsCmd)
-	awarePeerHandleCmd.AddCommand(awarePeerHandleHashCodeCmd)
-	awareCmd.AddCommand(awarePeerHandleCmd)
-	awareServiceDiscoveryInfoCmd.AddCommand(awareServiceDiscoveryInfoGetPairedAliasCmd)
-	awareServiceDiscoveryInfoCmd.AddCommand(awareServiceDiscoveryInfoGetPairingConfigCmd)
-	awareServiceDiscoveryInfoCmd.AddCommand(awareServiceDiscoveryInfoGetPeerCipherSuiteCmd)
-	awareServiceDiscoveryInfoCmd.AddCommand(awareServiceDiscoveryInfoGetPeerHandleCmd)
-	awareServiceDiscoveryInfoCmd.AddCommand(awareServiceDiscoveryInfoGetScidCmd)
-	awareServiceDiscoveryInfoCmd.AddCommand(awareServiceDiscoveryInfoGetServiceSpecificInfoCmd)
-	awareCmd.AddCommand(awareServiceDiscoveryInfoCmd)
+	awareAttachCallbackCmd.AddCommand(awareAttachCallbackNewAttachCallbackCmd)
+	awareAttachCallbackOnAttachFailedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	awareAttachCallbackCmd.AddCommand(awareAttachCallbackOnAttachFailedCmd)
+	awareAttachCallbackOnAttachedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	awareAttachCallbackOnAttachedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	awareAttachCallbackCmd.AddCommand(awareAttachCallbackOnAttachedCmd)
+	awareAttachCallbackOnAwareSessionTerminatedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	awareAttachCallbackCmd.AddCommand(awareAttachCallbackOnAwareSessionTerminatedCmd)
+	awareCmd.AddCommand(awareAttachCallbackCmd)
 	awareWifiAwareChannelInfoCmd.AddCommand(awareWifiAwareChannelInfoDescribeContentsCmd)
 	awareWifiAwareChannelInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	awareWifiAwareChannelInfoCmd.AddCommand(awareWifiAwareChannelInfoEqualsCmd)
@@ -3657,6 +3755,23 @@ func init() {
 	awareWifiAwareChannelInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	awareWifiAwareChannelInfoCmd.AddCommand(awareWifiAwareChannelInfoWriteToParcelCmd)
 	awareCmd.AddCommand(awareWifiAwareChannelInfoCmd)
+	awareCharacteristicsCmd.AddCommand(awareCharacteristicsDescribeContentsCmd)
+	awareCharacteristicsCmd.AddCommand(awareCharacteristicsGetMaxMatchFilterLengthCmd)
+	awareCharacteristicsCmd.AddCommand(awareCharacteristicsGetMaxServiceNameLengthCmd)
+	awareCharacteristicsCmd.AddCommand(awareCharacteristicsGetMaxServiceSpecificInfoLengthCmd)
+	awareCharacteristicsCmd.AddCommand(awareCharacteristicsGetNumberOfSupportedDataInterfacesCmd)
+	awareCharacteristicsCmd.AddCommand(awareCharacteristicsGetNumberOfSupportedDataPathsCmd)
+	awareCharacteristicsCmd.AddCommand(awareCharacteristicsGetNumberOfSupportedPublishSessionsCmd)
+	awareCharacteristicsCmd.AddCommand(awareCharacteristicsGetNumberOfSupportedSubscribeSessionsCmd)
+	awareCharacteristicsCmd.AddCommand(awareCharacteristicsGetSupportedCipherSuitesCmd)
+	awareCharacteristicsCmd.AddCommand(awareCharacteristicsGetSupportedPairingCipherSuitesCmd)
+	awareCharacteristicsCmd.AddCommand(awareCharacteristicsIsAwarePairingSupportedCmd)
+	awareCharacteristicsCmd.AddCommand(awareCharacteristicsIsInstantCommunicationModeSupportedCmd)
+	awareCharacteristicsCmd.AddCommand(awareCharacteristicsIsSuspensionSupportedCmd)
+	awareCharacteristicsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	awareCharacteristicsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	awareCharacteristicsCmd.AddCommand(awareCharacteristicsWriteToParcelCmd)
+	awareCmd.AddCommand(awareCharacteristicsCmd)
 	awarePairingConfigCmd.AddCommand(awarePairingConfigDescribeContentsCmd)
 	awarePairingConfigEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	awarePairingConfigCmd.AddCommand(awarePairingConfigEqualsCmd)
@@ -3682,86 +3797,5 @@ func init() {
 	awarePairingConfigBuilderSetSupportedCipherSuitesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	awarePairingConfigBuilderCmd.AddCommand(awarePairingConfigBuilderSetSupportedCipherSuitesCmd)
 	awareCmd.AddCommand(awarePairingConfigBuilderCmd)
-	awareCharacteristicsCmd.AddCommand(awareCharacteristicsDescribeContentsCmd)
-	awareCharacteristicsCmd.AddCommand(awareCharacteristicsGetMaxMatchFilterLengthCmd)
-	awareCharacteristicsCmd.AddCommand(awareCharacteristicsGetMaxServiceNameLengthCmd)
-	awareCharacteristicsCmd.AddCommand(awareCharacteristicsGetMaxServiceSpecificInfoLengthCmd)
-	awareCharacteristicsCmd.AddCommand(awareCharacteristicsGetNumberOfSupportedDataInterfacesCmd)
-	awareCharacteristicsCmd.AddCommand(awareCharacteristicsGetNumberOfSupportedDataPathsCmd)
-	awareCharacteristicsCmd.AddCommand(awareCharacteristicsGetNumberOfSupportedPublishSessionsCmd)
-	awareCharacteristicsCmd.AddCommand(awareCharacteristicsGetNumberOfSupportedSubscribeSessionsCmd)
-	awareCharacteristicsCmd.AddCommand(awareCharacteristicsGetSupportedCipherSuitesCmd)
-	awareCharacteristicsCmd.AddCommand(awareCharacteristicsGetSupportedPairingCipherSuitesCmd)
-	awareCharacteristicsCmd.AddCommand(awareCharacteristicsIsAwarePairingSupportedCmd)
-	awareCharacteristicsCmd.AddCommand(awareCharacteristicsIsInstantCommunicationModeSupportedCmd)
-	awareCharacteristicsCmd.AddCommand(awareCharacteristicsIsSuspensionSupportedCmd)
-	awareCharacteristicsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	awareCharacteristicsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	awareCharacteristicsCmd.AddCommand(awareCharacteristicsWriteToParcelCmd)
-	awareCmd.AddCommand(awareCharacteristicsCmd)
-	awareSubscribeDiscoverySessionUpdateSubscribeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	awareSubscribeDiscoverySessionCmd.AddCommand(awareSubscribeDiscoverySessionUpdateSubscribeCmd)
-	awareCmd.AddCommand(awareSubscribeDiscoverySessionCmd)
-	awareDiscoverySessionAcceptPairingRequestCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	awareDiscoverySessionAcceptPairingRequestCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	awareDiscoverySessionAcceptPairingRequestCmd.Flags().String("arg2", "", "arg2 (string)")
-	awareDiscoverySessionAcceptPairingRequestCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	awareDiscoverySessionAcceptPairingRequestCmd.Flags().String("arg4", "", "arg4 (string)")
-	awareDiscoverySessionCmd.AddCommand(awareDiscoverySessionAcceptPairingRequestCmd)
-	awareDiscoverySessionCmd.AddCommand(awareDiscoverySessionCloseCmd)
-	awareDiscoverySessionCreateNetworkSpecifierOpenCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	awareDiscoverySessionCmd.AddCommand(awareDiscoverySessionCreateNetworkSpecifierOpenCmd)
-	awareDiscoverySessionCreateNetworkSpecifierPassphraseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	awareDiscoverySessionCreateNetworkSpecifierPassphraseCmd.Flags().String("arg1", "", "arg1 (string)")
-	awareDiscoverySessionCmd.AddCommand(awareDiscoverySessionCreateNetworkSpecifierPassphraseCmd)
-	awareDiscoverySessionInitiateBootstrappingRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	awareDiscoverySessionInitiateBootstrappingRequestCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	awareDiscoverySessionCmd.AddCommand(awareDiscoverySessionInitiateBootstrappingRequestCmd)
-	awareDiscoverySessionInitiatePairingRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	awareDiscoverySessionInitiatePairingRequestCmd.Flags().String("arg1", "", "arg1 (string)")
-	awareDiscoverySessionInitiatePairingRequestCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	awareDiscoverySessionInitiatePairingRequestCmd.Flags().String("arg3", "", "arg3 (string)")
-	awareDiscoverySessionCmd.AddCommand(awareDiscoverySessionInitiatePairingRequestCmd)
-	awareDiscoverySessionRejectPairingRequestCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	awareDiscoverySessionRejectPairingRequestCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	awareDiscoverySessionCmd.AddCommand(awareDiscoverySessionRejectPairingRequestCmd)
-	awareDiscoverySessionSendMessageCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	awareDiscoverySessionSendMessageCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	awareDiscoverySessionSendMessageCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	awareDiscoverySessionCmd.AddCommand(awareDiscoverySessionSendMessageCmd)
-	awareCmd.AddCommand(awareDiscoverySessionCmd)
-	awareSubscribeConfigCmd.AddCommand(awareSubscribeConfigDescribeContentsCmd)
-	awareSubscribeConfigEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	awareSubscribeConfigCmd.AddCommand(awareSubscribeConfigEqualsCmd)
-	awareSubscribeConfigCmd.AddCommand(awareSubscribeConfigGetInstantCommunicationBandCmd)
-	awareSubscribeConfigCmd.AddCommand(awareSubscribeConfigGetPairingConfigCmd)
-	awareSubscribeConfigCmd.AddCommand(awareSubscribeConfigHashCodeCmd)
-	awareSubscribeConfigCmd.AddCommand(awareSubscribeConfigIsInstantCommunicationModeEnabledCmd)
-	awareSubscribeConfigCmd.AddCommand(awareSubscribeConfigToStringCmd)
-	awareSubscribeConfigWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	awareSubscribeConfigWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	awareSubscribeConfigCmd.AddCommand(awareSubscribeConfigWriteToParcelCmd)
-	awareCmd.AddCommand(awareSubscribeConfigCmd)
-	awareSubscribeConfigBuilderCmd.AddCommand(awareSubscribeConfigBuilderBuildCmd)
-	awareSubscribeConfigBuilderSetInstantCommunicationModeEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	awareSubscribeConfigBuilderSetInstantCommunicationModeEnabledCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	awareSubscribeConfigBuilderCmd.AddCommand(awareSubscribeConfigBuilderSetInstantCommunicationModeEnabledCmd)
-	awareSubscribeConfigBuilderSetMaxDistanceMmCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	awareSubscribeConfigBuilderCmd.AddCommand(awareSubscribeConfigBuilderSetMaxDistanceMmCmd)
-	awareSubscribeConfigBuilderSetMinDistanceMmCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	awareSubscribeConfigBuilderCmd.AddCommand(awareSubscribeConfigBuilderSetMinDistanceMmCmd)
-	awareSubscribeConfigBuilderSetPairingConfigCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	awareSubscribeConfigBuilderCmd.AddCommand(awareSubscribeConfigBuilderSetPairingConfigCmd)
-	awareSubscribeConfigBuilderSetServiceNameCmd.Flags().String("arg0", "", "arg0 (string)")
-	awareSubscribeConfigBuilderCmd.AddCommand(awareSubscribeConfigBuilderSetServiceNameCmd)
-	awareSubscribeConfigBuilderSetServiceSpecificInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	awareSubscribeConfigBuilderCmd.AddCommand(awareSubscribeConfigBuilderSetServiceSpecificInfoCmd)
-	awareSubscribeConfigBuilderSetSubscribeTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	awareSubscribeConfigBuilderCmd.AddCommand(awareSubscribeConfigBuilderSetSubscribeTypeCmd)
-	awareSubscribeConfigBuilderSetTerminateNotificationEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	awareSubscribeConfigBuilderCmd.AddCommand(awareSubscribeConfigBuilderSetTerminateNotificationEnabledCmd)
-	awareSubscribeConfigBuilderSetTtlSecCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	awareSubscribeConfigBuilderCmd.AddCommand(awareSubscribeConfigBuilderSetTtlSecCmd)
-	awareCmd.AddCommand(awareSubscribeConfigBuilderCmd)
 	rootCmd.AddCommand(awareCmd)
 }

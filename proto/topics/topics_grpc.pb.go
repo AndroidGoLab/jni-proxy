@@ -351,326 +351,6 @@ var EncryptedTopicService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	GetTopicsRequestService_GetAdsSdkName_FullMethodName           = "/topics.GetTopicsRequestService/GetAdsSdkName"
-	GetTopicsRequestService_ShouldRecordObservation_FullMethodName = "/topics.GetTopicsRequestService/ShouldRecordObservation"
-)
-
-// GetTopicsRequestServiceClient is the client API for GetTopicsRequestService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type GetTopicsRequestServiceClient interface {
-	GetAdsSdkName(ctx context.Context, in *GetAdsSdkNameRequest, opts ...grpc.CallOption) (*GetAdsSdkNameResponse, error)
-	ShouldRecordObservation(ctx context.Context, in *ShouldRecordObservationRequest, opts ...grpc.CallOption) (*ShouldRecordObservationResponse, error)
-}
-
-type getTopicsRequestServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewGetTopicsRequestServiceClient(cc grpc.ClientConnInterface) GetTopicsRequestServiceClient {
-	return &getTopicsRequestServiceClient{cc}
-}
-
-func (c *getTopicsRequestServiceClient) GetAdsSdkName(ctx context.Context, in *GetAdsSdkNameRequest, opts ...grpc.CallOption) (*GetAdsSdkNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAdsSdkNameResponse)
-	err := c.cc.Invoke(ctx, GetTopicsRequestService_GetAdsSdkName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *getTopicsRequestServiceClient) ShouldRecordObservation(ctx context.Context, in *ShouldRecordObservationRequest, opts ...grpc.CallOption) (*ShouldRecordObservationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ShouldRecordObservationResponse)
-	err := c.cc.Invoke(ctx, GetTopicsRequestService_ShouldRecordObservation_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// GetTopicsRequestServiceServer is the server API for GetTopicsRequestService service.
-// All implementations must embed UnimplementedGetTopicsRequestServiceServer
-// for forward compatibility.
-type GetTopicsRequestServiceServer interface {
-	GetAdsSdkName(context.Context, *GetAdsSdkNameRequest) (*GetAdsSdkNameResponse, error)
-	ShouldRecordObservation(context.Context, *ShouldRecordObservationRequest) (*ShouldRecordObservationResponse, error)
-	mustEmbedUnimplementedGetTopicsRequestServiceServer()
-}
-
-// UnimplementedGetTopicsRequestServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedGetTopicsRequestServiceServer struct{}
-
-func (UnimplementedGetTopicsRequestServiceServer) GetAdsSdkName(context.Context, *GetAdsSdkNameRequest) (*GetAdsSdkNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAdsSdkName not implemented")
-}
-func (UnimplementedGetTopicsRequestServiceServer) ShouldRecordObservation(context.Context, *ShouldRecordObservationRequest) (*ShouldRecordObservationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ShouldRecordObservation not implemented")
-}
-func (UnimplementedGetTopicsRequestServiceServer) mustEmbedUnimplementedGetTopicsRequestServiceServer() {
-}
-func (UnimplementedGetTopicsRequestServiceServer) testEmbeddedByValue() {}
-
-// UnsafeGetTopicsRequestServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to GetTopicsRequestServiceServer will
-// result in compilation errors.
-type UnsafeGetTopicsRequestServiceServer interface {
-	mustEmbedUnimplementedGetTopicsRequestServiceServer()
-}
-
-func RegisterGetTopicsRequestServiceServer(s grpc.ServiceRegistrar, srv GetTopicsRequestServiceServer) {
-	// If the following call panics, it indicates UnimplementedGetTopicsRequestServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&GetTopicsRequestService_ServiceDesc, srv)
-}
-
-func _GetTopicsRequestService_GetAdsSdkName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAdsSdkNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GetTopicsRequestServiceServer).GetAdsSdkName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GetTopicsRequestService_GetAdsSdkName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GetTopicsRequestServiceServer).GetAdsSdkName(ctx, req.(*GetAdsSdkNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GetTopicsRequestService_ShouldRecordObservation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ShouldRecordObservationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GetTopicsRequestServiceServer).ShouldRecordObservation(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GetTopicsRequestService_ShouldRecordObservation_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GetTopicsRequestServiceServer).ShouldRecordObservation(ctx, req.(*ShouldRecordObservationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// GetTopicsRequestService_ServiceDesc is the grpc.ServiceDesc for GetTopicsRequestService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var GetTopicsRequestService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "topics.GetTopicsRequestService",
-	HandlerType: (*GetTopicsRequestServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetAdsSdkName",
-			Handler:    _GetTopicsRequestService_GetAdsSdkName_Handler,
-		},
-		{
-			MethodName: "ShouldRecordObservation",
-			Handler:    _GetTopicsRequestService_ShouldRecordObservation_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/topics/topics.proto",
-}
-
-const (
-	GetTopicsRequestBuilderService_Build_FullMethodName                      = "/topics.GetTopicsRequestBuilderService/Build"
-	GetTopicsRequestBuilderService_SetAdsSdkName_FullMethodName              = "/topics.GetTopicsRequestBuilderService/SetAdsSdkName"
-	GetTopicsRequestBuilderService_SetShouldRecordObservation_FullMethodName = "/topics.GetTopicsRequestBuilderService/SetShouldRecordObservation"
-)
-
-// GetTopicsRequestBuilderServiceClient is the client API for GetTopicsRequestBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type GetTopicsRequestBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetAdsSdkName(ctx context.Context, in *SetAdsSdkNameRequest, opts ...grpc.CallOption) (*SetAdsSdkNameResponse, error)
-	SetShouldRecordObservation(ctx context.Context, in *SetShouldRecordObservationRequest, opts ...grpc.CallOption) (*SetShouldRecordObservationResponse, error)
-}
-
-type getTopicsRequestBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewGetTopicsRequestBuilderServiceClient(cc grpc.ClientConnInterface) GetTopicsRequestBuilderServiceClient {
-	return &getTopicsRequestBuilderServiceClient{cc}
-}
-
-func (c *getTopicsRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, GetTopicsRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *getTopicsRequestBuilderServiceClient) SetAdsSdkName(ctx context.Context, in *SetAdsSdkNameRequest, opts ...grpc.CallOption) (*SetAdsSdkNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetAdsSdkNameResponse)
-	err := c.cc.Invoke(ctx, GetTopicsRequestBuilderService_SetAdsSdkName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *getTopicsRequestBuilderServiceClient) SetShouldRecordObservation(ctx context.Context, in *SetShouldRecordObservationRequest, opts ...grpc.CallOption) (*SetShouldRecordObservationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetShouldRecordObservationResponse)
-	err := c.cc.Invoke(ctx, GetTopicsRequestBuilderService_SetShouldRecordObservation_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// GetTopicsRequestBuilderServiceServer is the server API for GetTopicsRequestBuilderService service.
-// All implementations must embed UnimplementedGetTopicsRequestBuilderServiceServer
-// for forward compatibility.
-type GetTopicsRequestBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetAdsSdkName(context.Context, *SetAdsSdkNameRequest) (*SetAdsSdkNameResponse, error)
-	SetShouldRecordObservation(context.Context, *SetShouldRecordObservationRequest) (*SetShouldRecordObservationResponse, error)
-	mustEmbedUnimplementedGetTopicsRequestBuilderServiceServer()
-}
-
-// UnimplementedGetTopicsRequestBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedGetTopicsRequestBuilderServiceServer struct{}
-
-func (UnimplementedGetTopicsRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedGetTopicsRequestBuilderServiceServer) SetAdsSdkName(context.Context, *SetAdsSdkNameRequest) (*SetAdsSdkNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetAdsSdkName not implemented")
-}
-func (UnimplementedGetTopicsRequestBuilderServiceServer) SetShouldRecordObservation(context.Context, *SetShouldRecordObservationRequest) (*SetShouldRecordObservationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetShouldRecordObservation not implemented")
-}
-func (UnimplementedGetTopicsRequestBuilderServiceServer) mustEmbedUnimplementedGetTopicsRequestBuilderServiceServer() {
-}
-func (UnimplementedGetTopicsRequestBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeGetTopicsRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to GetTopicsRequestBuilderServiceServer will
-// result in compilation errors.
-type UnsafeGetTopicsRequestBuilderServiceServer interface {
-	mustEmbedUnimplementedGetTopicsRequestBuilderServiceServer()
-}
-
-func RegisterGetTopicsRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv GetTopicsRequestBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedGetTopicsRequestBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&GetTopicsRequestBuilderService_ServiceDesc, srv)
-}
-
-func _GetTopicsRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GetTopicsRequestBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GetTopicsRequestBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GetTopicsRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GetTopicsRequestBuilderService_SetAdsSdkName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetAdsSdkNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GetTopicsRequestBuilderServiceServer).SetAdsSdkName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GetTopicsRequestBuilderService_SetAdsSdkName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GetTopicsRequestBuilderServiceServer).SetAdsSdkName(ctx, req.(*SetAdsSdkNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _GetTopicsRequestBuilderService_SetShouldRecordObservation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetShouldRecordObservationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GetTopicsRequestBuilderServiceServer).SetShouldRecordObservation(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GetTopicsRequestBuilderService_SetShouldRecordObservation_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GetTopicsRequestBuilderServiceServer).SetShouldRecordObservation(ctx, req.(*SetShouldRecordObservationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// GetTopicsRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for GetTopicsRequestBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var GetTopicsRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "topics.GetTopicsRequestBuilderService",
-	HandlerType: (*GetTopicsRequestBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _GetTopicsRequestBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetAdsSdkName",
-			Handler:    _GetTopicsRequestBuilderService_SetAdsSdkName_Handler,
-		},
-		{
-			MethodName: "SetShouldRecordObservation",
-			Handler:    _GetTopicsRequestBuilderService_SetShouldRecordObservation_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/topics/topics.proto",
-}
-
-const (
 	ManagerService_Get_FullMethodName = "/topics.ManagerService/Get"
 )
 
@@ -1103,8 +783,10 @@ var TopicService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	GetTopicsResponseService_Equals_FullMethodName   = "/topics.GetTopicsResponseService/Equals"
-	GetTopicsResponseService_HashCode_FullMethodName = "/topics.GetTopicsResponseService/HashCode"
+	GetTopicsResponseService_Equals_FullMethodName             = "/topics.GetTopicsResponseService/Equals"
+	GetTopicsResponseService_GetEncryptedTopics_FullMethodName = "/topics.GetTopicsResponseService/GetEncryptedTopics"
+	GetTopicsResponseService_GetTopics_FullMethodName          = "/topics.GetTopicsResponseService/GetTopics"
+	GetTopicsResponseService_HashCode_FullMethodName           = "/topics.GetTopicsResponseService/HashCode"
 )
 
 // GetTopicsResponseServiceClient is the client API for GetTopicsResponseService service.
@@ -1112,6 +794,8 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type GetTopicsResponseServiceClient interface {
 	Equals(ctx context.Context, in *GetTopicsResponseEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetEncryptedTopics(ctx context.Context, in *GetEncryptedTopicsRequest, opts ...grpc.CallOption) (*GetEncryptedTopicsResponse, error)
+	GetTopics(ctx context.Context, in *GetTopicsRequest, opts ...grpc.CallOption) (*GetTopicsResponse, error)
 	HashCode(ctx context.Context, in *GetTopicsResponseHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 }
 
@@ -1133,6 +817,26 @@ func (c *getTopicsResponseServiceClient) Equals(ctx context.Context, in *GetTopi
 	return out, nil
 }
 
+func (c *getTopicsResponseServiceClient) GetEncryptedTopics(ctx context.Context, in *GetEncryptedTopicsRequest, opts ...grpc.CallOption) (*GetEncryptedTopicsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEncryptedTopicsResponse)
+	err := c.cc.Invoke(ctx, GetTopicsResponseService_GetEncryptedTopics_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *getTopicsResponseServiceClient) GetTopics(ctx context.Context, in *GetTopicsRequest, opts ...grpc.CallOption) (*GetTopicsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTopicsResponse)
+	err := c.cc.Invoke(ctx, GetTopicsResponseService_GetTopics_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *getTopicsResponseServiceClient) HashCode(ctx context.Context, in *GetTopicsResponseHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
@@ -1148,6 +852,8 @@ func (c *getTopicsResponseServiceClient) HashCode(ctx context.Context, in *GetTo
 // for forward compatibility.
 type GetTopicsResponseServiceServer interface {
 	Equals(context.Context, *GetTopicsResponseEqualsRequest) (*EqualsResponse, error)
+	GetEncryptedTopics(context.Context, *GetEncryptedTopicsRequest) (*GetEncryptedTopicsResponse, error)
+	GetTopics(context.Context, *GetTopicsRequest) (*GetTopicsResponse, error)
 	HashCode(context.Context, *GetTopicsResponseHashCodeRequest) (*HashCodeResponse, error)
 	mustEmbedUnimplementedGetTopicsResponseServiceServer()
 }
@@ -1161,6 +867,12 @@ type UnimplementedGetTopicsResponseServiceServer struct{}
 
 func (UnimplementedGetTopicsResponseServiceServer) Equals(context.Context, *GetTopicsResponseEqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedGetTopicsResponseServiceServer) GetEncryptedTopics(context.Context, *GetEncryptedTopicsRequest) (*GetEncryptedTopicsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEncryptedTopics not implemented")
+}
+func (UnimplementedGetTopicsResponseServiceServer) GetTopics(context.Context, *GetTopicsRequest) (*GetTopicsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTopics not implemented")
 }
 func (UnimplementedGetTopicsResponseServiceServer) HashCode(context.Context, *GetTopicsResponseHashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
@@ -1205,6 +917,42 @@ func _GetTopicsResponseService_Equals_Handler(srv interface{}, ctx context.Conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _GetTopicsResponseService_GetEncryptedTopics_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEncryptedTopicsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GetTopicsResponseServiceServer).GetEncryptedTopics(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GetTopicsResponseService_GetEncryptedTopics_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GetTopicsResponseServiceServer).GetEncryptedTopics(ctx, req.(*GetEncryptedTopicsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GetTopicsResponseService_GetTopics_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTopicsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GetTopicsResponseServiceServer).GetTopics(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GetTopicsResponseService_GetTopics_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GetTopicsResponseServiceServer).GetTopics(ctx, req.(*GetTopicsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _GetTopicsResponseService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetTopicsResponseHashCodeRequest)
 	if err := dec(in); err != nil {
@@ -1233,6 +981,14 @@ var GetTopicsResponseService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Equals",
 			Handler:    _GetTopicsResponseService_Equals_Handler,
+		},
+		{
+			MethodName: "GetEncryptedTopics",
+			Handler:    _GetTopicsResponseService_GetEncryptedTopics_Handler,
+		},
+		{
+			MethodName: "GetTopics",
+			Handler:    _GetTopicsResponseService_GetTopics_Handler,
 		},
 		{
 			MethodName: "HashCode",
@@ -1340,6 +1096,326 @@ var GetTopicsResponseBuilderService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Build",
 			Handler:    _GetTopicsResponseBuilderService_Build_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/topics/topics.proto",
+}
+
+const (
+	GetTopicsRequestService_GetAdsSdkName_FullMethodName           = "/topics.GetTopicsRequestService/GetAdsSdkName"
+	GetTopicsRequestService_ShouldRecordObservation_FullMethodName = "/topics.GetTopicsRequestService/ShouldRecordObservation"
+)
+
+// GetTopicsRequestServiceClient is the client API for GetTopicsRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type GetTopicsRequestServiceClient interface {
+	GetAdsSdkName(ctx context.Context, in *GetAdsSdkNameRequest, opts ...grpc.CallOption) (*GetAdsSdkNameResponse, error)
+	ShouldRecordObservation(ctx context.Context, in *ShouldRecordObservationRequest, opts ...grpc.CallOption) (*ShouldRecordObservationResponse, error)
+}
+
+type getTopicsRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewGetTopicsRequestServiceClient(cc grpc.ClientConnInterface) GetTopicsRequestServiceClient {
+	return &getTopicsRequestServiceClient{cc}
+}
+
+func (c *getTopicsRequestServiceClient) GetAdsSdkName(ctx context.Context, in *GetAdsSdkNameRequest, opts ...grpc.CallOption) (*GetAdsSdkNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAdsSdkNameResponse)
+	err := c.cc.Invoke(ctx, GetTopicsRequestService_GetAdsSdkName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *getTopicsRequestServiceClient) ShouldRecordObservation(ctx context.Context, in *ShouldRecordObservationRequest, opts ...grpc.CallOption) (*ShouldRecordObservationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ShouldRecordObservationResponse)
+	err := c.cc.Invoke(ctx, GetTopicsRequestService_ShouldRecordObservation_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// GetTopicsRequestServiceServer is the server API for GetTopicsRequestService service.
+// All implementations must embed UnimplementedGetTopicsRequestServiceServer
+// for forward compatibility.
+type GetTopicsRequestServiceServer interface {
+	GetAdsSdkName(context.Context, *GetAdsSdkNameRequest) (*GetAdsSdkNameResponse, error)
+	ShouldRecordObservation(context.Context, *ShouldRecordObservationRequest) (*ShouldRecordObservationResponse, error)
+	mustEmbedUnimplementedGetTopicsRequestServiceServer()
+}
+
+// UnimplementedGetTopicsRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedGetTopicsRequestServiceServer struct{}
+
+func (UnimplementedGetTopicsRequestServiceServer) GetAdsSdkName(context.Context, *GetAdsSdkNameRequest) (*GetAdsSdkNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAdsSdkName not implemented")
+}
+func (UnimplementedGetTopicsRequestServiceServer) ShouldRecordObservation(context.Context, *ShouldRecordObservationRequest) (*ShouldRecordObservationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ShouldRecordObservation not implemented")
+}
+func (UnimplementedGetTopicsRequestServiceServer) mustEmbedUnimplementedGetTopicsRequestServiceServer() {
+}
+func (UnimplementedGetTopicsRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafeGetTopicsRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to GetTopicsRequestServiceServer will
+// result in compilation errors.
+type UnsafeGetTopicsRequestServiceServer interface {
+	mustEmbedUnimplementedGetTopicsRequestServiceServer()
+}
+
+func RegisterGetTopicsRequestServiceServer(s grpc.ServiceRegistrar, srv GetTopicsRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedGetTopicsRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&GetTopicsRequestService_ServiceDesc, srv)
+}
+
+func _GetTopicsRequestService_GetAdsSdkName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAdsSdkNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GetTopicsRequestServiceServer).GetAdsSdkName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GetTopicsRequestService_GetAdsSdkName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GetTopicsRequestServiceServer).GetAdsSdkName(ctx, req.(*GetAdsSdkNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GetTopicsRequestService_ShouldRecordObservation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ShouldRecordObservationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GetTopicsRequestServiceServer).ShouldRecordObservation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GetTopicsRequestService_ShouldRecordObservation_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GetTopicsRequestServiceServer).ShouldRecordObservation(ctx, req.(*ShouldRecordObservationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// GetTopicsRequestService_ServiceDesc is the grpc.ServiceDesc for GetTopicsRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var GetTopicsRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "topics.GetTopicsRequestService",
+	HandlerType: (*GetTopicsRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetAdsSdkName",
+			Handler:    _GetTopicsRequestService_GetAdsSdkName_Handler,
+		},
+		{
+			MethodName: "ShouldRecordObservation",
+			Handler:    _GetTopicsRequestService_ShouldRecordObservation_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/topics/topics.proto",
+}
+
+const (
+	GetTopicsRequestBuilderService_Build_FullMethodName                      = "/topics.GetTopicsRequestBuilderService/Build"
+	GetTopicsRequestBuilderService_SetAdsSdkName_FullMethodName              = "/topics.GetTopicsRequestBuilderService/SetAdsSdkName"
+	GetTopicsRequestBuilderService_SetShouldRecordObservation_FullMethodName = "/topics.GetTopicsRequestBuilderService/SetShouldRecordObservation"
+)
+
+// GetTopicsRequestBuilderServiceClient is the client API for GetTopicsRequestBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type GetTopicsRequestBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetAdsSdkName(ctx context.Context, in *SetAdsSdkNameRequest, opts ...grpc.CallOption) (*SetAdsSdkNameResponse, error)
+	SetShouldRecordObservation(ctx context.Context, in *SetShouldRecordObservationRequest, opts ...grpc.CallOption) (*SetShouldRecordObservationResponse, error)
+}
+
+type getTopicsRequestBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewGetTopicsRequestBuilderServiceClient(cc grpc.ClientConnInterface) GetTopicsRequestBuilderServiceClient {
+	return &getTopicsRequestBuilderServiceClient{cc}
+}
+
+func (c *getTopicsRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, GetTopicsRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *getTopicsRequestBuilderServiceClient) SetAdsSdkName(ctx context.Context, in *SetAdsSdkNameRequest, opts ...grpc.CallOption) (*SetAdsSdkNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAdsSdkNameResponse)
+	err := c.cc.Invoke(ctx, GetTopicsRequestBuilderService_SetAdsSdkName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *getTopicsRequestBuilderServiceClient) SetShouldRecordObservation(ctx context.Context, in *SetShouldRecordObservationRequest, opts ...grpc.CallOption) (*SetShouldRecordObservationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetShouldRecordObservationResponse)
+	err := c.cc.Invoke(ctx, GetTopicsRequestBuilderService_SetShouldRecordObservation_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// GetTopicsRequestBuilderServiceServer is the server API for GetTopicsRequestBuilderService service.
+// All implementations must embed UnimplementedGetTopicsRequestBuilderServiceServer
+// for forward compatibility.
+type GetTopicsRequestBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetAdsSdkName(context.Context, *SetAdsSdkNameRequest) (*SetAdsSdkNameResponse, error)
+	SetShouldRecordObservation(context.Context, *SetShouldRecordObservationRequest) (*SetShouldRecordObservationResponse, error)
+	mustEmbedUnimplementedGetTopicsRequestBuilderServiceServer()
+}
+
+// UnimplementedGetTopicsRequestBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedGetTopicsRequestBuilderServiceServer struct{}
+
+func (UnimplementedGetTopicsRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedGetTopicsRequestBuilderServiceServer) SetAdsSdkName(context.Context, *SetAdsSdkNameRequest) (*SetAdsSdkNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAdsSdkName not implemented")
+}
+func (UnimplementedGetTopicsRequestBuilderServiceServer) SetShouldRecordObservation(context.Context, *SetShouldRecordObservationRequest) (*SetShouldRecordObservationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetShouldRecordObservation not implemented")
+}
+func (UnimplementedGetTopicsRequestBuilderServiceServer) mustEmbedUnimplementedGetTopicsRequestBuilderServiceServer() {
+}
+func (UnimplementedGetTopicsRequestBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeGetTopicsRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to GetTopicsRequestBuilderServiceServer will
+// result in compilation errors.
+type UnsafeGetTopicsRequestBuilderServiceServer interface {
+	mustEmbedUnimplementedGetTopicsRequestBuilderServiceServer()
+}
+
+func RegisterGetTopicsRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv GetTopicsRequestBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedGetTopicsRequestBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&GetTopicsRequestBuilderService_ServiceDesc, srv)
+}
+
+func _GetTopicsRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GetTopicsRequestBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GetTopicsRequestBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GetTopicsRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GetTopicsRequestBuilderService_SetAdsSdkName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAdsSdkNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GetTopicsRequestBuilderServiceServer).SetAdsSdkName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GetTopicsRequestBuilderService_SetAdsSdkName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GetTopicsRequestBuilderServiceServer).SetAdsSdkName(ctx, req.(*SetAdsSdkNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GetTopicsRequestBuilderService_SetShouldRecordObservation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetShouldRecordObservationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GetTopicsRequestBuilderServiceServer).SetShouldRecordObservation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GetTopicsRequestBuilderService_SetShouldRecordObservation_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GetTopicsRequestBuilderServiceServer).SetShouldRecordObservation(ctx, req.(*SetShouldRecordObservationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// GetTopicsRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for GetTopicsRequestBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var GetTopicsRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "topics.GetTopicsRequestBuilderService",
+	HandlerType: (*GetTopicsRequestBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _GetTopicsRequestBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetAdsSdkName",
+			Handler:    _GetTopicsRequestBuilderService_SetAdsSdkName_Handler,
+		},
+		{
+			MethodName: "SetShouldRecordObservation",
+			Handler:    _GetTopicsRequestBuilderService_SetShouldRecordObservation_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

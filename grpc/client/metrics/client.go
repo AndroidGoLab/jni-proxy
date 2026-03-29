@@ -9,6 +9,53 @@ import (
 	"google.golang.org/grpc"
 )
 
+// RecordingSessionClient wraps the gRPC RecordingSessionService client.
+type RecordingSessionClient struct {
+	svc pb.RecordingSessionServiceClient
+}
+
+// NewRecordingSessionClient creates a new RecordingSession client.
+func NewRecordingSessionClient(cc grpc.ClientConnInterface) *RecordingSessionClient {
+	return &RecordingSessionClient{
+		svc: pb.NewRecordingSessionServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *RecordingSessionClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+	return err
+}
+
+// Equals calls the Equals RPC.
+func (c *RecordingSessionClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSessionId calls the GetSessionId RPC.
+func (c *RecordingSessionClient) GetSessionId(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSessionId(ctx, &pb.GetSessionIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *RecordingSessionClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // EditingEndedEventClient wraps the gRPC EditingEndedEventService client.
 type EditingEndedEventClient struct {
 	svc pb.EditingEndedEventServiceClient
@@ -71,6 +118,15 @@ func (c *EditingEndedEventClient) GetFinalProgressPercent(ctx context.Context) (
 // GetFinalState calls the GetFinalState RPC.
 func (c *EditingEndedEventClient) GetFinalState(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetFinalState(ctx, &pb.GetFinalStateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInputMediaItemInfos calls the GetInputMediaItemInfos RPC.
+func (c *EditingEndedEventClient) GetInputMediaItemInfos(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInputMediaItemInfos(ctx, &pb.GetInputMediaItemInfosRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -269,20 +325,20 @@ func (c *EditingEndedEventBuilderClient) SetTimeSinceCreatedMillis(ctx context.C
 	return resp.GetResult(), nil
 }
 
-// MediaItemInfoClient wraps the gRPC MediaItemInfoService client.
-type MediaItemInfoClient struct {
-	svc pb.MediaItemInfoServiceClient
+// PlaybackStateEventClient wraps the gRPC PlaybackStateEventService client.
+type PlaybackStateEventClient struct {
+	svc pb.PlaybackStateEventServiceClient
 }
 
-// NewMediaItemInfoClient creates a new MediaItemInfo client.
-func NewMediaItemInfoClient(cc grpc.ClientConnInterface) *MediaItemInfoClient {
-	return &MediaItemInfoClient{
-		svc: pb.NewMediaItemInfoServiceClient(cc),
+// NewPlaybackStateEventClient creates a new PlaybackStateEvent client.
+func NewPlaybackStateEventClient(cc grpc.ClientConnInterface) *PlaybackStateEventClient {
+	return &PlaybackStateEventClient{
+		svc: pb.NewPlaybackStateEventServiceClient(cc),
 	}
 }
 
 // DescribeContents calls the DescribeContents RPC.
-func (c *MediaItemInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+func (c *PlaybackStateEventClient) DescribeContents(ctx context.Context) (int32, error) {
 	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
 	if err != nil {
 		return 0, err
@@ -291,7 +347,7 @@ func (c *MediaItemInfoClient) DescribeContents(ctx context.Context) (int32, erro
 }
 
 // Equals calls the Equals RPC.
-func (c *MediaItemInfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+func (c *PlaybackStateEventClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
 	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
 	})
@@ -301,108 +357,27 @@ func (c *MediaItemInfoClient) Equals(ctx context.Context, arg0 int64) (bool, err
 	return resp.GetResult(), nil
 }
 
-// GetAudioChannelCount calls the GetAudioChannelCount RPC.
-func (c *MediaItemInfoClient) GetAudioChannelCount(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetAudioChannelCount(ctx, &pb.GetAudioChannelCountRequest{})
+// GetMetricsBundle calls the GetMetricsBundle RPC.
+func (c *PlaybackStateEventClient) GetMetricsBundle(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMetricsBundle(ctx, &pb.GetMetricsBundleRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetAudioSampleCount calls the GetAudioSampleCount RPC.
-func (c *MediaItemInfoClient) GetAudioSampleCount(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetAudioSampleCount(ctx, &pb.GetAudioSampleCountRequest{})
+// GetState calls the GetState RPC.
+func (c *PlaybackStateEventClient) GetState(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetState(ctx, &pb.GetStateRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetAudioSampleRateHz calls the GetAudioSampleRateHz RPC.
-func (c *MediaItemInfoClient) GetAudioSampleRateHz(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetAudioSampleRateHz(ctx, &pb.GetAudioSampleRateHzRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetClipDurationMillis calls the GetClipDurationMillis RPC.
-func (c *MediaItemInfoClient) GetClipDurationMillis(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetClipDurationMillis(ctx, &pb.GetClipDurationMillisRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetContainerMimeType calls the GetContainerMimeType RPC.
-func (c *MediaItemInfoClient) GetContainerMimeType(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetContainerMimeType(ctx, &pb.GetContainerMimeTypeRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDataTypes calls the GetDataTypes RPC.
-func (c *MediaItemInfoClient) GetDataTypes(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDataTypes(ctx, &pb.GetDataTypesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDurationMillis calls the GetDurationMillis RPC.
-func (c *MediaItemInfoClient) GetDurationMillis(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDurationMillis(ctx, &pb.GetDurationMillisRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSourceType calls the GetSourceType RPC.
-func (c *MediaItemInfoClient) GetSourceType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetSourceType(ctx, &pb.GetSourceTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetVideoDataSpace calls the GetVideoDataSpace RPC.
-func (c *MediaItemInfoClient) GetVideoDataSpace(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetVideoDataSpace(ctx, &pb.GetVideoDataSpaceRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetVideoFrameRate calls the GetVideoFrameRate RPC.
-func (c *MediaItemInfoClient) GetVideoFrameRate(ctx context.Context) (float32, error) {
-	resp, err := c.svc.GetVideoFrameRate(ctx, &pb.GetVideoFrameRateRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetVideoSampleCount calls the GetVideoSampleCount RPC.
-func (c *MediaItemInfoClient) GetVideoSampleCount(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetVideoSampleCount(ctx, &pb.GetVideoSampleCountRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetVideoSize calls the GetVideoSize RPC.
-func (c *MediaItemInfoClient) GetVideoSize(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetVideoSize(ctx, &pb.GetVideoSizeRequest{})
+// GetTimeSinceCreatedMillis calls the GetTimeSinceCreatedMillis RPC.
+func (c *PlaybackStateEventClient) GetTimeSinceCreatedMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTimeSinceCreatedMillis(ctx, &pb.GetTimeSinceCreatedMillisRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -410,7 +385,320 @@ func (c *MediaItemInfoClient) GetVideoSize(ctx context.Context) (int64, error) {
 }
 
 // HashCode calls the HashCode RPC.
-func (c *MediaItemInfoClient) HashCode(ctx context.Context) (int32, error) {
+func (c *PlaybackStateEventClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *PlaybackStateEventClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// PlaybackStateEventBuilderClient wraps the gRPC PlaybackStateEventBuilderService client.
+type PlaybackStateEventBuilderClient struct {
+	svc pb.PlaybackStateEventBuilderServiceClient
+}
+
+// NewPlaybackStateEventBuilderClient creates a new PlaybackStateEventBuilder client.
+func NewPlaybackStateEventBuilderClient(cc grpc.ClientConnInterface) *PlaybackStateEventBuilderClient {
+	return &PlaybackStateEventBuilderClient{
+		svc: pb.NewPlaybackStateEventBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *PlaybackStateEventBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMetricsBundle calls the SetMetricsBundle RPC.
+func (c *PlaybackStateEventBuilderClient) SetMetricsBundle(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetMetricsBundle(ctx, &pb.SetMetricsBundleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetState calls the SetState RPC.
+func (c *PlaybackStateEventBuilderClient) SetState(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetState(ctx, &pb.SetStateRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTimeSinceCreatedMillis calls the SetTimeSinceCreatedMillis RPC.
+func (c *PlaybackStateEventBuilderClient) SetTimeSinceCreatedMillis(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetTimeSinceCreatedMillis(ctx, &pb.SetTimeSinceCreatedMillisRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MediaMetricsManagerClient wraps the gRPC MediaMetricsManagerService client.
+type MediaMetricsManagerClient struct {
+	svc pb.MediaMetricsManagerServiceClient
+}
+
+// NewMediaMetricsManagerClient creates a new MediaMetricsManager client.
+func NewMediaMetricsManagerClient(cc grpc.ClientConnInterface) *MediaMetricsManagerClient {
+	return &MediaMetricsManagerClient{
+		svc: pb.NewMediaMetricsManagerServiceClient(cc),
+	}
+}
+
+// CreateBundleSession calls the CreateBundleSession RPC.
+func (c *MediaMetricsManagerClient) CreateBundleSession(ctx context.Context) (int64, error) {
+	resp, err := c.svc.CreateBundleSession(ctx, &pb.CreateBundleSessionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateEditingSession calls the CreateEditingSession RPC.
+func (c *MediaMetricsManagerClient) CreateEditingSession(ctx context.Context) (int64, error) {
+	resp, err := c.svc.CreateEditingSession(ctx, &pb.CreateEditingSessionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreatePlaybackSession calls the CreatePlaybackSession RPC.
+func (c *MediaMetricsManagerClient) CreatePlaybackSession(ctx context.Context) (int64, error) {
+	resp, err := c.svc.CreatePlaybackSession(ctx, &pb.CreatePlaybackSessionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateRecordingSession calls the CreateRecordingSession RPC.
+func (c *MediaMetricsManagerClient) CreateRecordingSession(ctx context.Context) (int64, error) {
+	resp, err := c.svc.CreateRecordingSession(ctx, &pb.CreateRecordingSessionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateTranscodingSession calls the CreateTranscodingSession RPC.
+func (c *MediaMetricsManagerClient) CreateTranscodingSession(ctx context.Context) (int64, error) {
+	resp, err := c.svc.CreateTranscodingSession(ctx, &pb.CreateTranscodingSessionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReleaseSessionId calls the ReleaseSessionId RPC.
+func (c *MediaMetricsManagerClient) ReleaseSessionId(ctx context.Context, arg0 string) error {
+	_, err := c.svc.ReleaseSessionId(ctx, &pb.ReleaseSessionIdRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// TrackChangeEventClient wraps the gRPC TrackChangeEventService client.
+type TrackChangeEventClient struct {
+	svc pb.TrackChangeEventServiceClient
+}
+
+// NewTrackChangeEventClient creates a new TrackChangeEvent client.
+func NewTrackChangeEventClient(cc grpc.ClientConnInterface) *TrackChangeEventClient {
+	return &TrackChangeEventClient{
+		svc: pb.NewTrackChangeEventServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *TrackChangeEventClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *TrackChangeEventClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAudioSampleRate calls the GetAudioSampleRate RPC.
+func (c *TrackChangeEventClient) GetAudioSampleRate(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetAudioSampleRate(ctx, &pb.GetAudioSampleRateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBitrate calls the GetBitrate RPC.
+func (c *TrackChangeEventClient) GetBitrate(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetBitrate(ctx, &pb.GetBitrateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChannelCount calls the GetChannelCount RPC.
+func (c *TrackChangeEventClient) GetChannelCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetChannelCount(ctx, &pb.GetChannelCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCodecName calls the GetCodecName RPC.
+func (c *TrackChangeEventClient) GetCodecName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetCodecName(ctx, &pb.GetCodecNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetContainerMimeType calls the GetContainerMimeType RPC.
+func (c *TrackChangeEventClient) GetContainerMimeType(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetContainerMimeType(ctx, &pb.GetContainerMimeTypeRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHeight calls the GetHeight RPC.
+func (c *TrackChangeEventClient) GetHeight(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetHeight(ctx, &pb.GetHeightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLanguage calls the GetLanguage RPC.
+func (c *TrackChangeEventClient) GetLanguage(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetLanguage(ctx, &pb.GetLanguageRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLanguageRegion calls the GetLanguageRegion RPC.
+func (c *TrackChangeEventClient) GetLanguageRegion(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetLanguageRegion(ctx, &pb.GetLanguageRegionRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMetricsBundle calls the GetMetricsBundle RPC.
+func (c *TrackChangeEventClient) GetMetricsBundle(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMetricsBundle(ctx, &pb.GetMetricsBundleRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSampleMimeType calls the GetSampleMimeType RPC.
+func (c *TrackChangeEventClient) GetSampleMimeType(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetSampleMimeType(ctx, &pb.GetSampleMimeTypeRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimeSinceCreatedMillis calls the GetTimeSinceCreatedMillis RPC.
+func (c *TrackChangeEventClient) GetTimeSinceCreatedMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTimeSinceCreatedMillis(ctx, &pb.GetTimeSinceCreatedMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTrackChangeReason calls the GetTrackChangeReason RPC.
+func (c *TrackChangeEventClient) GetTrackChangeReason(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetTrackChangeReason(ctx, &pb.GetTrackChangeReasonRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTrackState calls the GetTrackState RPC.
+func (c *TrackChangeEventClient) GetTrackState(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetTrackState(ctx, &pb.GetTrackStateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTrackType calls the GetTrackType RPC.
+func (c *TrackChangeEventClient) GetTrackType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetTrackType(ctx, &pb.GetTrackTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVideoFrameRate calls the GetVideoFrameRate RPC.
+func (c *TrackChangeEventClient) GetVideoFrameRate(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetVideoFrameRate(ctx, &pb.GetVideoFrameRateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWidth calls the GetWidth RPC.
+func (c *TrackChangeEventClient) GetWidth(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetWidth(ctx, &pb.GetWidthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *TrackChangeEventClient) HashCode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
@@ -419,7 +707,7 @@ func (c *MediaItemInfoClient) HashCode(ctx context.Context) (int32, error) {
 }
 
 // ToString calls the ToString RPC.
-func (c *MediaItemInfoClient) ToString(ctx context.Context) (string, error) {
+func (c *TrackChangeEventClient) ToString(ctx context.Context) (string, error) {
 	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
 	if err != nil {
 		return "", err
@@ -428,7 +716,7 @@ func (c *MediaItemInfoClient) ToString(ctx context.Context) (string, error) {
 }
 
 // WriteToParcel calls the WriteToParcel RPC.
-func (c *MediaItemInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+func (c *TrackChangeEventClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
 	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
@@ -436,53 +724,20 @@ func (c *MediaItemInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg
 	return err
 }
 
-// MediaItemInfoBuilderClient wraps the gRPC MediaItemInfoBuilderService client.
-type MediaItemInfoBuilderClient struct {
-	svc pb.MediaItemInfoBuilderServiceClient
+// TrackChangeEventBuilderClient wraps the gRPC TrackChangeEventBuilderService client.
+type TrackChangeEventBuilderClient struct {
+	svc pb.TrackChangeEventBuilderServiceClient
 }
 
-// NewMediaItemInfoBuilderClient creates a new MediaItemInfoBuilder client.
-func NewMediaItemInfoBuilderClient(cc grpc.ClientConnInterface) *MediaItemInfoBuilderClient {
-	return &MediaItemInfoBuilderClient{
-		svc: pb.NewMediaItemInfoBuilderServiceClient(cc),
+// NewTrackChangeEventBuilderClient creates a new TrackChangeEventBuilder client.
+func NewTrackChangeEventBuilderClient(cc grpc.ClientConnInterface) *TrackChangeEventBuilderClient {
+	return &TrackChangeEventBuilderClient{
+		svc: pb.NewTrackChangeEventBuilderServiceClient(cc),
 	}
-}
-
-// AddCodecName calls the AddCodecName RPC.
-func (c *MediaItemInfoBuilderClient) AddCodecName(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.AddCodecName(ctx, &pb.AddCodecNameRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddDataType calls the AddDataType RPC.
-func (c *MediaItemInfoBuilderClient) AddDataType(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddDataType(ctx, &pb.AddDataTypeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddSampleMimeType calls the AddSampleMimeType RPC.
-func (c *MediaItemInfoBuilderClient) AddSampleMimeType(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.AddSampleMimeType(ctx, &pb.AddSampleMimeTypeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
 }
 
 // Build calls the Build RPC.
-func (c *MediaItemInfoBuilderClient) Build(ctx context.Context) (int64, error) {
+func (c *TrackChangeEventBuilderClient) Build(ctx context.Context) (int64, error) {
 	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
 	if err != nil {
 		return 0, err
@@ -490,9 +745,9 @@ func (c *MediaItemInfoBuilderClient) Build(ctx context.Context) (int64, error) {
 	return resp.GetResult(), nil
 }
 
-// SetAudioChannelCount calls the SetAudioChannelCount RPC.
-func (c *MediaItemInfoBuilderClient) SetAudioChannelCount(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetAudioChannelCount(ctx, &pb.SetAudioChannelCountRequest{
+// SetAudioSampleRate calls the SetAudioSampleRate RPC.
+func (c *TrackChangeEventBuilderClient) SetAudioSampleRate(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetAudioSampleRate(ctx, &pb.SetAudioSampleRateRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -501,9 +756,9 @@ func (c *MediaItemInfoBuilderClient) SetAudioChannelCount(ctx context.Context, a
 	return resp.GetResult(), nil
 }
 
-// SetAudioSampleCount calls the SetAudioSampleCount RPC.
-func (c *MediaItemInfoBuilderClient) SetAudioSampleCount(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetAudioSampleCount(ctx, &pb.SetAudioSampleCountRequest{
+// SetBitrate calls the SetBitrate RPC.
+func (c *TrackChangeEventBuilderClient) SetBitrate(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetBitrate(ctx, &pb.SetBitrateRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -512,9 +767,9 @@ func (c *MediaItemInfoBuilderClient) SetAudioSampleCount(ctx context.Context, ar
 	return resp.GetResult(), nil
 }
 
-// SetAudioSampleRateHz calls the SetAudioSampleRateHz RPC.
-func (c *MediaItemInfoBuilderClient) SetAudioSampleRateHz(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetAudioSampleRateHz(ctx, &pb.SetAudioSampleRateHzRequest{
+// SetChannelCount calls the SetChannelCount RPC.
+func (c *TrackChangeEventBuilderClient) SetChannelCount(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetChannelCount(ctx, &pb.SetChannelCountRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -523,9 +778,9 @@ func (c *MediaItemInfoBuilderClient) SetAudioSampleRateHz(ctx context.Context, a
 	return resp.GetResult(), nil
 }
 
-// SetClipDurationMillis calls the SetClipDurationMillis RPC.
-func (c *MediaItemInfoBuilderClient) SetClipDurationMillis(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetClipDurationMillis(ctx, &pb.SetClipDurationMillisRequest{
+// SetCodecName calls the SetCodecName RPC.
+func (c *TrackChangeEventBuilderClient) SetCodecName(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetCodecName(ctx, &pb.SetCodecNameRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -535,7 +790,7 @@ func (c *MediaItemInfoBuilderClient) SetClipDurationMillis(ctx context.Context, 
 }
 
 // SetContainerMimeType calls the SetContainerMimeType RPC.
-func (c *MediaItemInfoBuilderClient) SetContainerMimeType(ctx context.Context, arg0 string) (int64, error) {
+func (c *TrackChangeEventBuilderClient) SetContainerMimeType(ctx context.Context, arg0 string) (int64, error) {
 	resp, err := c.svc.SetContainerMimeType(ctx, &pb.SetContainerMimeTypeRequest{
 		Arg0: arg0,
 	})
@@ -545,9 +800,9 @@ func (c *MediaItemInfoBuilderClient) SetContainerMimeType(ctx context.Context, a
 	return resp.GetResult(), nil
 }
 
-// SetDurationMillis calls the SetDurationMillis RPC.
-func (c *MediaItemInfoBuilderClient) SetDurationMillis(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetDurationMillis(ctx, &pb.SetDurationMillisRequest{
+// SetHeight calls the SetHeight RPC.
+func (c *TrackChangeEventBuilderClient) SetHeight(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetHeight(ctx, &pb.SetHeightRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -556,9 +811,9 @@ func (c *MediaItemInfoBuilderClient) SetDurationMillis(ctx context.Context, arg0
 	return resp.GetResult(), nil
 }
 
-// SetSourceType calls the SetSourceType RPC.
-func (c *MediaItemInfoBuilderClient) SetSourceType(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetSourceType(ctx, &pb.SetSourceTypeRequest{
+// SetLanguage calls the SetLanguage RPC.
+func (c *TrackChangeEventBuilderClient) SetLanguage(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetLanguage(ctx, &pb.SetLanguageRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -567,9 +822,64 @@ func (c *MediaItemInfoBuilderClient) SetSourceType(ctx context.Context, arg0 int
 	return resp.GetResult(), nil
 }
 
-// SetVideoDataSpace calls the SetVideoDataSpace RPC.
-func (c *MediaItemInfoBuilderClient) SetVideoDataSpace(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetVideoDataSpace(ctx, &pb.SetVideoDataSpaceRequest{
+// SetLanguageRegion calls the SetLanguageRegion RPC.
+func (c *TrackChangeEventBuilderClient) SetLanguageRegion(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetLanguageRegion(ctx, &pb.SetLanguageRegionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMetricsBundle calls the SetMetricsBundle RPC.
+func (c *TrackChangeEventBuilderClient) SetMetricsBundle(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetMetricsBundle(ctx, &pb.SetMetricsBundleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSampleMimeType calls the SetSampleMimeType RPC.
+func (c *TrackChangeEventBuilderClient) SetSampleMimeType(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetSampleMimeType(ctx, &pb.SetSampleMimeTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTimeSinceCreatedMillis calls the SetTimeSinceCreatedMillis RPC.
+func (c *TrackChangeEventBuilderClient) SetTimeSinceCreatedMillis(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetTimeSinceCreatedMillis(ctx, &pb.SetTimeSinceCreatedMillisRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTrackChangeReason calls the SetTrackChangeReason RPC.
+func (c *TrackChangeEventBuilderClient) SetTrackChangeReason(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetTrackChangeReason(ctx, &pb.SetTrackChangeReasonRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTrackState calls the SetTrackState RPC.
+func (c *TrackChangeEventBuilderClient) SetTrackState(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetTrackState(ctx, &pb.SetTrackStateRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -579,7 +889,7 @@ func (c *MediaItemInfoBuilderClient) SetVideoDataSpace(ctx context.Context, arg0
 }
 
 // SetVideoFrameRate calls the SetVideoFrameRate RPC.
-func (c *MediaItemInfoBuilderClient) SetVideoFrameRate(ctx context.Context, arg0 float32) (int64, error) {
+func (c *TrackChangeEventBuilderClient) SetVideoFrameRate(ctx context.Context, arg0 float32) (int64, error) {
 	resp, err := c.svc.SetVideoFrameRate(ctx, &pb.SetVideoFrameRateRequest{
 		Arg0: arg0,
 	})
@@ -589,20 +899,9 @@ func (c *MediaItemInfoBuilderClient) SetVideoFrameRate(ctx context.Context, arg0
 	return resp.GetResult(), nil
 }
 
-// SetVideoSampleCount calls the SetVideoSampleCount RPC.
-func (c *MediaItemInfoBuilderClient) SetVideoSampleCount(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetVideoSampleCount(ctx, &pb.SetVideoSampleCountRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetVideoSize calls the SetVideoSize RPC.
-func (c *MediaItemInfoBuilderClient) SetVideoSize(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetVideoSize(ctx, &pb.SetVideoSizeRequest{
+// SetWidth calls the SetWidth RPC.
+func (c *TrackChangeEventBuilderClient) SetWidth(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetWidth(ctx, &pb.SetWidthRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -1202,279 +1501,6 @@ func (c *PlaybackErrorEventBuilderClient) SetTimeSinceCreatedMillis(ctx context.
 	return resp.GetResult(), nil
 }
 
-// PlaybackStateEventClient wraps the gRPC PlaybackStateEventService client.
-type PlaybackStateEventClient struct {
-	svc pb.PlaybackStateEventServiceClient
-}
-
-// NewPlaybackStateEventClient creates a new PlaybackStateEvent client.
-func NewPlaybackStateEventClient(cc grpc.ClientConnInterface) *PlaybackStateEventClient {
-	return &PlaybackStateEventClient{
-		svc: pb.NewPlaybackStateEventServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *PlaybackStateEventClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *PlaybackStateEventClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMetricsBundle calls the GetMetricsBundle RPC.
-func (c *PlaybackStateEventClient) GetMetricsBundle(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetMetricsBundle(ctx, &pb.GetMetricsBundleRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetState calls the GetState RPC.
-func (c *PlaybackStateEventClient) GetState(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetState(ctx, &pb.GetStateRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTimeSinceCreatedMillis calls the GetTimeSinceCreatedMillis RPC.
-func (c *PlaybackStateEventClient) GetTimeSinceCreatedMillis(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTimeSinceCreatedMillis(ctx, &pb.GetTimeSinceCreatedMillisRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *PlaybackStateEventClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *PlaybackStateEventClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// PlaybackStateEventBuilderClient wraps the gRPC PlaybackStateEventBuilderService client.
-type PlaybackStateEventBuilderClient struct {
-	svc pb.PlaybackStateEventBuilderServiceClient
-}
-
-// NewPlaybackStateEventBuilderClient creates a new PlaybackStateEventBuilder client.
-func NewPlaybackStateEventBuilderClient(cc grpc.ClientConnInterface) *PlaybackStateEventBuilderClient {
-	return &PlaybackStateEventBuilderClient{
-		svc: pb.NewPlaybackStateEventBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *PlaybackStateEventBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetMetricsBundle calls the SetMetricsBundle RPC.
-func (c *PlaybackStateEventBuilderClient) SetMetricsBundle(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetMetricsBundle(ctx, &pb.SetMetricsBundleRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetState calls the SetState RPC.
-func (c *PlaybackStateEventBuilderClient) SetState(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetState(ctx, &pb.SetStateRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetTimeSinceCreatedMillis calls the SetTimeSinceCreatedMillis RPC.
-func (c *PlaybackStateEventBuilderClient) SetTimeSinceCreatedMillis(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetTimeSinceCreatedMillis(ctx, &pb.SetTimeSinceCreatedMillisRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PlaybackSessionClient wraps the gRPC PlaybackSessionService client.
-type PlaybackSessionClient struct {
-	svc pb.PlaybackSessionServiceClient
-}
-
-// NewPlaybackSessionClient creates a new PlaybackSession client.
-func NewPlaybackSessionClient(cc grpc.ClientConnInterface) *PlaybackSessionClient {
-	return &PlaybackSessionClient{
-		svc: pb.NewPlaybackSessionServiceClient(cc),
-	}
-}
-
-// Close calls the Close RPC.
-func (c *PlaybackSessionClient) Close(ctx context.Context) error {
-	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
-	return err
-}
-
-// Equals calls the Equals RPC.
-func (c *PlaybackSessionClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSessionId calls the GetSessionId RPC.
-func (c *PlaybackSessionClient) GetSessionId(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSessionId(ctx, &pb.GetSessionIdRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *PlaybackSessionClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ReportNetworkEvent calls the ReportNetworkEvent RPC.
-func (c *PlaybackSessionClient) ReportNetworkEvent(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.ReportNetworkEvent(ctx, &pb.ReportNetworkEventRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ReportPlaybackErrorEvent calls the ReportPlaybackErrorEvent RPC.
-func (c *PlaybackSessionClient) ReportPlaybackErrorEvent(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.ReportPlaybackErrorEvent(ctx, &pb.ReportPlaybackErrorEventRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ReportPlaybackMetrics calls the ReportPlaybackMetrics RPC.
-func (c *PlaybackSessionClient) ReportPlaybackMetrics(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.ReportPlaybackMetrics(ctx, &pb.ReportPlaybackMetricsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ReportPlaybackStateEvent calls the ReportPlaybackStateEvent RPC.
-func (c *PlaybackSessionClient) ReportPlaybackStateEvent(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.ReportPlaybackStateEvent(ctx, &pb.ReportPlaybackStateEventRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ReportTrackChangeEvent calls the ReportTrackChangeEvent RPC.
-func (c *PlaybackSessionClient) ReportTrackChangeEvent(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.ReportTrackChangeEvent(ctx, &pb.ReportTrackChangeEventRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// BundleSessionClient wraps the gRPC BundleSessionService client.
-type BundleSessionClient struct {
-	svc pb.BundleSessionServiceClient
-}
-
-// NewBundleSessionClient creates a new BundleSession client.
-func NewBundleSessionClient(cc grpc.ClientConnInterface) *BundleSessionClient {
-	return &BundleSessionClient{
-		svc: pb.NewBundleSessionServiceClient(cc),
-	}
-}
-
-// Close calls the Close RPC.
-func (c *BundleSessionClient) Close(ctx context.Context) error {
-	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
-	return err
-}
-
-// Equals calls the Equals RPC.
-func (c *BundleSessionClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSessionId calls the GetSessionId RPC.
-func (c *BundleSessionClient) GetSessionId(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSessionId(ctx, &pb.GetSessionIdRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *BundleSessionClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ReportBundleMetrics calls the ReportBundleMetrics RPC.
-func (c *BundleSessionClient) ReportBundleMetrics(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.ReportBundleMetrics(ctx, &pb.ReportBundleMetricsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
 // NetworkEventClient wraps the gRPC NetworkEventService client.
 type NetworkEventClient struct {
 	svc pb.NetworkEventServiceClient
@@ -1615,6 +1641,605 @@ func (c *NetworkEventBuilderClient) SetTimeSinceCreatedMillis(ctx context.Contex
 	return resp.GetResult(), nil
 }
 
+// TranscodingSessionClient wraps the gRPC TranscodingSessionService client.
+type TranscodingSessionClient struct {
+	svc pb.TranscodingSessionServiceClient
+}
+
+// NewTranscodingSessionClient creates a new TranscodingSession client.
+func NewTranscodingSessionClient(cc grpc.ClientConnInterface) *TranscodingSessionClient {
+	return &TranscodingSessionClient{
+		svc: pb.NewTranscodingSessionServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *TranscodingSessionClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+	return err
+}
+
+// Equals calls the Equals RPC.
+func (c *TranscodingSessionClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSessionId calls the GetSessionId RPC.
+func (c *TranscodingSessionClient) GetSessionId(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSessionId(ctx, &pb.GetSessionIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *TranscodingSessionClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LogSessionIdClient wraps the gRPC LogSessionIdService client.
+type LogSessionIdClient struct {
+	svc pb.LogSessionIdServiceClient
+}
+
+// NewLogSessionIdClient creates a new LogSessionId client.
+func NewLogSessionIdClient(cc grpc.ClientConnInterface) *LogSessionIdClient {
+	return &LogSessionIdClient{
+		svc: pb.NewLogSessionIdServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *LogSessionIdClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStringId calls the GetStringId RPC.
+func (c *LogSessionIdClient) GetStringId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetStringId(ctx, &pb.GetStringIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *LogSessionIdClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *LogSessionIdClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// MediaItemInfoClient wraps the gRPC MediaItemInfoService client.
+type MediaItemInfoClient struct {
+	svc pb.MediaItemInfoServiceClient
+}
+
+// NewMediaItemInfoClient creates a new MediaItemInfo client.
+func NewMediaItemInfoClient(cc grpc.ClientConnInterface) *MediaItemInfoClient {
+	return &MediaItemInfoClient{
+		svc: pb.NewMediaItemInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *MediaItemInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *MediaItemInfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAudioChannelCount calls the GetAudioChannelCount RPC.
+func (c *MediaItemInfoClient) GetAudioChannelCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetAudioChannelCount(ctx, &pb.GetAudioChannelCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAudioSampleCount calls the GetAudioSampleCount RPC.
+func (c *MediaItemInfoClient) GetAudioSampleCount(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAudioSampleCount(ctx, &pb.GetAudioSampleCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAudioSampleRateHz calls the GetAudioSampleRateHz RPC.
+func (c *MediaItemInfoClient) GetAudioSampleRateHz(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetAudioSampleRateHz(ctx, &pb.GetAudioSampleRateHzRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetClipDurationMillis calls the GetClipDurationMillis RPC.
+func (c *MediaItemInfoClient) GetClipDurationMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetClipDurationMillis(ctx, &pb.GetClipDurationMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCodecNames calls the GetCodecNames RPC.
+func (c *MediaItemInfoClient) GetCodecNames(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCodecNames(ctx, &pb.GetCodecNamesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetContainerMimeType calls the GetContainerMimeType RPC.
+func (c *MediaItemInfoClient) GetContainerMimeType(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetContainerMimeType(ctx, &pb.GetContainerMimeTypeRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDataTypes calls the GetDataTypes RPC.
+func (c *MediaItemInfoClient) GetDataTypes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDataTypes(ctx, &pb.GetDataTypesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDurationMillis calls the GetDurationMillis RPC.
+func (c *MediaItemInfoClient) GetDurationMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDurationMillis(ctx, &pb.GetDurationMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSampleMimeTypes calls the GetSampleMimeTypes RPC.
+func (c *MediaItemInfoClient) GetSampleMimeTypes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSampleMimeTypes(ctx, &pb.GetSampleMimeTypesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSourceType calls the GetSourceType RPC.
+func (c *MediaItemInfoClient) GetSourceType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSourceType(ctx, &pb.GetSourceTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVideoDataSpace calls the GetVideoDataSpace RPC.
+func (c *MediaItemInfoClient) GetVideoDataSpace(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVideoDataSpace(ctx, &pb.GetVideoDataSpaceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVideoFrameRate calls the GetVideoFrameRate RPC.
+func (c *MediaItemInfoClient) GetVideoFrameRate(ctx context.Context) (float32, error) {
+	resp, err := c.svc.GetVideoFrameRate(ctx, &pb.GetVideoFrameRateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVideoSampleCount calls the GetVideoSampleCount RPC.
+func (c *MediaItemInfoClient) GetVideoSampleCount(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetVideoSampleCount(ctx, &pb.GetVideoSampleCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVideoSize calls the GetVideoSize RPC.
+func (c *MediaItemInfoClient) GetVideoSize(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetVideoSize(ctx, &pb.GetVideoSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *MediaItemInfoClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *MediaItemInfoClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *MediaItemInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// MediaItemInfoBuilderClient wraps the gRPC MediaItemInfoBuilderService client.
+type MediaItemInfoBuilderClient struct {
+	svc pb.MediaItemInfoBuilderServiceClient
+}
+
+// NewMediaItemInfoBuilderClient creates a new MediaItemInfoBuilder client.
+func NewMediaItemInfoBuilderClient(cc grpc.ClientConnInterface) *MediaItemInfoBuilderClient {
+	return &MediaItemInfoBuilderClient{
+		svc: pb.NewMediaItemInfoBuilderServiceClient(cc),
+	}
+}
+
+// AddCodecName calls the AddCodecName RPC.
+func (c *MediaItemInfoBuilderClient) AddCodecName(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.AddCodecName(ctx, &pb.AddCodecNameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddDataType calls the AddDataType RPC.
+func (c *MediaItemInfoBuilderClient) AddDataType(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddDataType(ctx, &pb.AddDataTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddSampleMimeType calls the AddSampleMimeType RPC.
+func (c *MediaItemInfoBuilderClient) AddSampleMimeType(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.AddSampleMimeType(ctx, &pb.AddSampleMimeTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *MediaItemInfoBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAudioChannelCount calls the SetAudioChannelCount RPC.
+func (c *MediaItemInfoBuilderClient) SetAudioChannelCount(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetAudioChannelCount(ctx, &pb.SetAudioChannelCountRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAudioSampleCount calls the SetAudioSampleCount RPC.
+func (c *MediaItemInfoBuilderClient) SetAudioSampleCount(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetAudioSampleCount(ctx, &pb.SetAudioSampleCountRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAudioSampleRateHz calls the SetAudioSampleRateHz RPC.
+func (c *MediaItemInfoBuilderClient) SetAudioSampleRateHz(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetAudioSampleRateHz(ctx, &pb.SetAudioSampleRateHzRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetClipDurationMillis calls the SetClipDurationMillis RPC.
+func (c *MediaItemInfoBuilderClient) SetClipDurationMillis(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetClipDurationMillis(ctx, &pb.SetClipDurationMillisRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetContainerMimeType calls the SetContainerMimeType RPC.
+func (c *MediaItemInfoBuilderClient) SetContainerMimeType(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetContainerMimeType(ctx, &pb.SetContainerMimeTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetDurationMillis calls the SetDurationMillis RPC.
+func (c *MediaItemInfoBuilderClient) SetDurationMillis(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetDurationMillis(ctx, &pb.SetDurationMillisRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSourceType calls the SetSourceType RPC.
+func (c *MediaItemInfoBuilderClient) SetSourceType(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetSourceType(ctx, &pb.SetSourceTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetVideoDataSpace calls the SetVideoDataSpace RPC.
+func (c *MediaItemInfoBuilderClient) SetVideoDataSpace(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetVideoDataSpace(ctx, &pb.SetVideoDataSpaceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetVideoFrameRate calls the SetVideoFrameRate RPC.
+func (c *MediaItemInfoBuilderClient) SetVideoFrameRate(ctx context.Context, arg0 float32) (int64, error) {
+	resp, err := c.svc.SetVideoFrameRate(ctx, &pb.SetVideoFrameRateRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetVideoSampleCount calls the SetVideoSampleCount RPC.
+func (c *MediaItemInfoBuilderClient) SetVideoSampleCount(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetVideoSampleCount(ctx, &pb.SetVideoSampleCountRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetVideoSize calls the SetVideoSize RPC.
+func (c *MediaItemInfoBuilderClient) SetVideoSize(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetVideoSize(ctx, &pb.SetVideoSizeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BundleSessionClient wraps the gRPC BundleSessionService client.
+type BundleSessionClient struct {
+	svc pb.BundleSessionServiceClient
+}
+
+// NewBundleSessionClient creates a new BundleSession client.
+func NewBundleSessionClient(cc grpc.ClientConnInterface) *BundleSessionClient {
+	return &BundleSessionClient{
+		svc: pb.NewBundleSessionServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *BundleSessionClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+	return err
+}
+
+// Equals calls the Equals RPC.
+func (c *BundleSessionClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSessionId calls the GetSessionId RPC.
+func (c *BundleSessionClient) GetSessionId(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSessionId(ctx, &pb.GetSessionIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *BundleSessionClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReportBundleMetrics calls the ReportBundleMetrics RPC.
+func (c *BundleSessionClient) ReportBundleMetrics(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.ReportBundleMetrics(ctx, &pb.ReportBundleMetricsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// PlaybackSessionClient wraps the gRPC PlaybackSessionService client.
+type PlaybackSessionClient struct {
+	svc pb.PlaybackSessionServiceClient
+}
+
+// NewPlaybackSessionClient creates a new PlaybackSession client.
+func NewPlaybackSessionClient(cc grpc.ClientConnInterface) *PlaybackSessionClient {
+	return &PlaybackSessionClient{
+		svc: pb.NewPlaybackSessionServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *PlaybackSessionClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+	return err
+}
+
+// Equals calls the Equals RPC.
+func (c *PlaybackSessionClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSessionId calls the GetSessionId RPC.
+func (c *PlaybackSessionClient) GetSessionId(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSessionId(ctx, &pb.GetSessionIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *PlaybackSessionClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReportNetworkEvent calls the ReportNetworkEvent RPC.
+func (c *PlaybackSessionClient) ReportNetworkEvent(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.ReportNetworkEvent(ctx, &pb.ReportNetworkEventRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ReportPlaybackErrorEvent calls the ReportPlaybackErrorEvent RPC.
+func (c *PlaybackSessionClient) ReportPlaybackErrorEvent(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.ReportPlaybackErrorEvent(ctx, &pb.ReportPlaybackErrorEventRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ReportPlaybackMetrics calls the ReportPlaybackMetrics RPC.
+func (c *PlaybackSessionClient) ReportPlaybackMetrics(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.ReportPlaybackMetrics(ctx, &pb.ReportPlaybackMetricsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ReportPlaybackStateEvent calls the ReportPlaybackStateEvent RPC.
+func (c *PlaybackSessionClient) ReportPlaybackStateEvent(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.ReportPlaybackStateEvent(ctx, &pb.ReportPlaybackStateEventRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ReportTrackChangeEvent calls the ReportTrackChangeEvent RPC.
+func (c *PlaybackSessionClient) ReportTrackChangeEvent(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.ReportTrackChangeEvent(ctx, &pb.ReportTrackChangeEventRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
 // EditingSessionClient wraps the gRPC EditingSessionService client.
 type EditingSessionClient struct {
 	svc pb.EditingSessionServiceClient
@@ -1670,507 +2295,6 @@ func (c *EditingSessionClient) ReportEditingEndedEvent(ctx context.Context, arg0
 	return err
 }
 
-// TrackChangeEventClient wraps the gRPC TrackChangeEventService client.
-type TrackChangeEventClient struct {
-	svc pb.TrackChangeEventServiceClient
-}
-
-// NewTrackChangeEventClient creates a new TrackChangeEvent client.
-func NewTrackChangeEventClient(cc grpc.ClientConnInterface) *TrackChangeEventClient {
-	return &TrackChangeEventClient{
-		svc: pb.NewTrackChangeEventServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *TrackChangeEventClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *TrackChangeEventClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAudioSampleRate calls the GetAudioSampleRate RPC.
-func (c *TrackChangeEventClient) GetAudioSampleRate(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetAudioSampleRate(ctx, &pb.GetAudioSampleRateRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBitrate calls the GetBitrate RPC.
-func (c *TrackChangeEventClient) GetBitrate(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetBitrate(ctx, &pb.GetBitrateRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetChannelCount calls the GetChannelCount RPC.
-func (c *TrackChangeEventClient) GetChannelCount(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetChannelCount(ctx, &pb.GetChannelCountRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCodecName calls the GetCodecName RPC.
-func (c *TrackChangeEventClient) GetCodecName(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetCodecName(ctx, &pb.GetCodecNameRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetContainerMimeType calls the GetContainerMimeType RPC.
-func (c *TrackChangeEventClient) GetContainerMimeType(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetContainerMimeType(ctx, &pb.GetContainerMimeTypeRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetHeight calls the GetHeight RPC.
-func (c *TrackChangeEventClient) GetHeight(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetHeight(ctx, &pb.GetHeightRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLanguage calls the GetLanguage RPC.
-func (c *TrackChangeEventClient) GetLanguage(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetLanguage(ctx, &pb.GetLanguageRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLanguageRegion calls the GetLanguageRegion RPC.
-func (c *TrackChangeEventClient) GetLanguageRegion(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetLanguageRegion(ctx, &pb.GetLanguageRegionRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMetricsBundle calls the GetMetricsBundle RPC.
-func (c *TrackChangeEventClient) GetMetricsBundle(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetMetricsBundle(ctx, &pb.GetMetricsBundleRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSampleMimeType calls the GetSampleMimeType RPC.
-func (c *TrackChangeEventClient) GetSampleMimeType(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetSampleMimeType(ctx, &pb.GetSampleMimeTypeRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTimeSinceCreatedMillis calls the GetTimeSinceCreatedMillis RPC.
-func (c *TrackChangeEventClient) GetTimeSinceCreatedMillis(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTimeSinceCreatedMillis(ctx, &pb.GetTimeSinceCreatedMillisRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTrackChangeReason calls the GetTrackChangeReason RPC.
-func (c *TrackChangeEventClient) GetTrackChangeReason(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetTrackChangeReason(ctx, &pb.GetTrackChangeReasonRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTrackState calls the GetTrackState RPC.
-func (c *TrackChangeEventClient) GetTrackState(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetTrackState(ctx, &pb.GetTrackStateRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTrackType calls the GetTrackType RPC.
-func (c *TrackChangeEventClient) GetTrackType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetTrackType(ctx, &pb.GetTrackTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetVideoFrameRate calls the GetVideoFrameRate RPC.
-func (c *TrackChangeEventClient) GetVideoFrameRate(ctx context.Context) (float32, error) {
-	resp, err := c.svc.GetVideoFrameRate(ctx, &pb.GetVideoFrameRateRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWidth calls the GetWidth RPC.
-func (c *TrackChangeEventClient) GetWidth(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetWidth(ctx, &pb.GetWidthRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *TrackChangeEventClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *TrackChangeEventClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *TrackChangeEventClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// TrackChangeEventBuilderClient wraps the gRPC TrackChangeEventBuilderService client.
-type TrackChangeEventBuilderClient struct {
-	svc pb.TrackChangeEventBuilderServiceClient
-}
-
-// NewTrackChangeEventBuilderClient creates a new TrackChangeEventBuilder client.
-func NewTrackChangeEventBuilderClient(cc grpc.ClientConnInterface) *TrackChangeEventBuilderClient {
-	return &TrackChangeEventBuilderClient{
-		svc: pb.NewTrackChangeEventBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *TrackChangeEventBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetAudioSampleRate calls the SetAudioSampleRate RPC.
-func (c *TrackChangeEventBuilderClient) SetAudioSampleRate(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetAudioSampleRate(ctx, &pb.SetAudioSampleRateRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetBitrate calls the SetBitrate RPC.
-func (c *TrackChangeEventBuilderClient) SetBitrate(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetBitrate(ctx, &pb.SetBitrateRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetChannelCount calls the SetChannelCount RPC.
-func (c *TrackChangeEventBuilderClient) SetChannelCount(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetChannelCount(ctx, &pb.SetChannelCountRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetCodecName calls the SetCodecName RPC.
-func (c *TrackChangeEventBuilderClient) SetCodecName(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetCodecName(ctx, &pb.SetCodecNameRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetContainerMimeType calls the SetContainerMimeType RPC.
-func (c *TrackChangeEventBuilderClient) SetContainerMimeType(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetContainerMimeType(ctx, &pb.SetContainerMimeTypeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetHeight calls the SetHeight RPC.
-func (c *TrackChangeEventBuilderClient) SetHeight(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetHeight(ctx, &pb.SetHeightRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetLanguage calls the SetLanguage RPC.
-func (c *TrackChangeEventBuilderClient) SetLanguage(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetLanguage(ctx, &pb.SetLanguageRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetLanguageRegion calls the SetLanguageRegion RPC.
-func (c *TrackChangeEventBuilderClient) SetLanguageRegion(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetLanguageRegion(ctx, &pb.SetLanguageRegionRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetMetricsBundle calls the SetMetricsBundle RPC.
-func (c *TrackChangeEventBuilderClient) SetMetricsBundle(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetMetricsBundle(ctx, &pb.SetMetricsBundleRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetSampleMimeType calls the SetSampleMimeType RPC.
-func (c *TrackChangeEventBuilderClient) SetSampleMimeType(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetSampleMimeType(ctx, &pb.SetSampleMimeTypeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetTimeSinceCreatedMillis calls the SetTimeSinceCreatedMillis RPC.
-func (c *TrackChangeEventBuilderClient) SetTimeSinceCreatedMillis(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetTimeSinceCreatedMillis(ctx, &pb.SetTimeSinceCreatedMillisRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetTrackChangeReason calls the SetTrackChangeReason RPC.
-func (c *TrackChangeEventBuilderClient) SetTrackChangeReason(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetTrackChangeReason(ctx, &pb.SetTrackChangeReasonRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetTrackState calls the SetTrackState RPC.
-func (c *TrackChangeEventBuilderClient) SetTrackState(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetTrackState(ctx, &pb.SetTrackStateRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetVideoFrameRate calls the SetVideoFrameRate RPC.
-func (c *TrackChangeEventBuilderClient) SetVideoFrameRate(ctx context.Context, arg0 float32) (int64, error) {
-	resp, err := c.svc.SetVideoFrameRate(ctx, &pb.SetVideoFrameRateRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetWidth calls the SetWidth RPC.
-func (c *TrackChangeEventBuilderClient) SetWidth(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetWidth(ctx, &pb.SetWidthRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// TranscodingSessionClient wraps the gRPC TranscodingSessionService client.
-type TranscodingSessionClient struct {
-	svc pb.TranscodingSessionServiceClient
-}
-
-// NewTranscodingSessionClient creates a new TranscodingSession client.
-func NewTranscodingSessionClient(cc grpc.ClientConnInterface) *TranscodingSessionClient {
-	return &TranscodingSessionClient{
-		svc: pb.NewTranscodingSessionServiceClient(cc),
-	}
-}
-
-// Close calls the Close RPC.
-func (c *TranscodingSessionClient) Close(ctx context.Context) error {
-	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
-	return err
-}
-
-// Equals calls the Equals RPC.
-func (c *TranscodingSessionClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSessionId calls the GetSessionId RPC.
-func (c *TranscodingSessionClient) GetSessionId(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSessionId(ctx, &pb.GetSessionIdRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *TranscodingSessionClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MediaMetricsManagerClient wraps the gRPC MediaMetricsManagerService client.
-type MediaMetricsManagerClient struct {
-	svc pb.MediaMetricsManagerServiceClient
-}
-
-// NewMediaMetricsManagerClient creates a new MediaMetricsManager client.
-func NewMediaMetricsManagerClient(cc grpc.ClientConnInterface) *MediaMetricsManagerClient {
-	return &MediaMetricsManagerClient{
-		svc: pb.NewMediaMetricsManagerServiceClient(cc),
-	}
-}
-
-// CreateBundleSession calls the CreateBundleSession RPC.
-func (c *MediaMetricsManagerClient) CreateBundleSession(ctx context.Context) (int64, error) {
-	resp, err := c.svc.CreateBundleSession(ctx, &pb.CreateBundleSessionRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateEditingSession calls the CreateEditingSession RPC.
-func (c *MediaMetricsManagerClient) CreateEditingSession(ctx context.Context) (int64, error) {
-	resp, err := c.svc.CreateEditingSession(ctx, &pb.CreateEditingSessionRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreatePlaybackSession calls the CreatePlaybackSession RPC.
-func (c *MediaMetricsManagerClient) CreatePlaybackSession(ctx context.Context) (int64, error) {
-	resp, err := c.svc.CreatePlaybackSession(ctx, &pb.CreatePlaybackSessionRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateRecordingSession calls the CreateRecordingSession RPC.
-func (c *MediaMetricsManagerClient) CreateRecordingSession(ctx context.Context) (int64, error) {
-	resp, err := c.svc.CreateRecordingSession(ctx, &pb.CreateRecordingSessionRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateTranscodingSession calls the CreateTranscodingSession RPC.
-func (c *MediaMetricsManagerClient) CreateTranscodingSession(ctx context.Context) (int64, error) {
-	resp, err := c.svc.CreateTranscodingSession(ctx, &pb.CreateTranscodingSessionRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ReleaseSessionId calls the ReleaseSessionId RPC.
-func (c *MediaMetricsManagerClient) ReleaseSessionId(ctx context.Context, arg0 string) error {
-	_, err := c.svc.ReleaseSessionId(ctx, &pb.ReleaseSessionIdRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
 // EventClient wraps the gRPC EventService client.
 type EventClient struct {
 	svc pb.EventServiceClient
@@ -2197,103 +2321,6 @@ func (c *EventClient) GetTimeSinceCreatedMillis(ctx context.Context) (int64, err
 	resp, err := c.svc.GetTimeSinceCreatedMillis(ctx, &pb.GetTimeSinceCreatedMillisRequest{})
 	if err != nil {
 		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RecordingSessionClient wraps the gRPC RecordingSessionService client.
-type RecordingSessionClient struct {
-	svc pb.RecordingSessionServiceClient
-}
-
-// NewRecordingSessionClient creates a new RecordingSession client.
-func NewRecordingSessionClient(cc grpc.ClientConnInterface) *RecordingSessionClient {
-	return &RecordingSessionClient{
-		svc: pb.NewRecordingSessionServiceClient(cc),
-	}
-}
-
-// Close calls the Close RPC.
-func (c *RecordingSessionClient) Close(ctx context.Context) error {
-	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
-	return err
-}
-
-// Equals calls the Equals RPC.
-func (c *RecordingSessionClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSessionId calls the GetSessionId RPC.
-func (c *RecordingSessionClient) GetSessionId(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSessionId(ctx, &pb.GetSessionIdRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *RecordingSessionClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LogSessionIdClient wraps the gRPC LogSessionIdService client.
-type LogSessionIdClient struct {
-	svc pb.LogSessionIdServiceClient
-}
-
-// NewLogSessionIdClient creates a new LogSessionId client.
-func NewLogSessionIdClient(cc grpc.ClientConnInterface) *LogSessionIdClient {
-	return &LogSessionIdClient{
-		svc: pb.NewLogSessionIdServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *LogSessionIdClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStringId calls the GetStringId RPC.
-func (c *LogSessionIdClient) GetStringId(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetStringId(ctx, &pb.GetStringIdRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *LogSessionIdClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *LogSessionIdClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
 	}
 	return resp.GetResult(), nil
 }

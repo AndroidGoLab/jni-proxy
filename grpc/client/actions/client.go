@@ -9,74 +9,6 @@ import (
 	"google.golang.org/grpc"
 )
 
-// FloatActionClient wraps the gRPC FloatActionService client.
-type FloatActionClient struct {
-	svc pb.FloatActionServiceClient
-}
-
-// NewFloatActionClient creates a new FloatAction client.
-func NewFloatActionClient(cc grpc.ClientConnInterface) *FloatActionClient {
-	return &FloatActionClient{
-		svc: pb.NewFloatActionServiceClient(cc),
-	}
-}
-
-// GetActionType calls the GetActionType RPC.
-func (c *FloatActionClient) GetActionType(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetActionType(ctx, &pb.GetActionTypeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNewValue calls the GetNewValue RPC.
-func (c *FloatActionClient) GetNewValue(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetNewValue(ctx, &pb.GetNewValueRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ModeActionClient wraps the gRPC ModeActionService client.
-type ModeActionClient struct {
-	svc pb.ModeActionServiceClient
-}
-
-// NewModeActionClient creates a new ModeAction client.
-func NewModeActionClient(cc grpc.ClientConnInterface) *ModeActionClient {
-	return &ModeActionClient{
-		svc: pb.NewModeActionServiceClient(cc),
-	}
-}
-
-// GetActionType calls the GetActionType RPC.
-func (c *ModeActionClient) GetActionType(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetActionType(ctx, &pb.GetActionTypeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNewMode calls the GetNewMode RPC.
-func (c *ModeActionClient) GetNewMode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetNewMode(ctx, &pb.GetNewModeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // BooleanActionClient wraps the gRPC BooleanActionService client.
 type BooleanActionClient struct {
 	svc pb.BooleanActionServiceClient
@@ -107,29 +39,6 @@ func (c *BooleanActionClient) GetNewState(ctx context.Context, handle int64) (bo
 	})
 	if err != nil {
 		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CommandActionClient wraps the gRPC CommandActionService client.
-type CommandActionClient struct {
-	svc pb.CommandActionServiceClient
-}
-
-// NewCommandActionClient creates a new CommandAction client.
-func NewCommandActionClient(cc grpc.ClientConnInterface) *CommandActionClient {
-	return &CommandActionClient{
-		svc: pb.NewCommandActionServiceClient(cc),
-	}
-}
-
-// GetActionType calls the GetActionType RPC.
-func (c *CommandActionClient) GetActionType(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetActionType(ctx, &pb.GetActionTypeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -189,6 +98,97 @@ func (c *ControlActionClient) IsValidResponse(ctx context.Context, arg0 int32) (
 	})
 	if err != nil {
 		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FloatActionClient wraps the gRPC FloatActionService client.
+type FloatActionClient struct {
+	svc pb.FloatActionServiceClient
+}
+
+// NewFloatActionClient creates a new FloatAction client.
+func NewFloatActionClient(cc grpc.ClientConnInterface) *FloatActionClient {
+	return &FloatActionClient{
+		svc: pb.NewFloatActionServiceClient(cc),
+	}
+}
+
+// GetActionType calls the GetActionType RPC.
+func (c *FloatActionClient) GetActionType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetActionType(ctx, &pb.GetActionTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNewValue calls the GetNewValue RPC.
+func (c *FloatActionClient) GetNewValue(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetNewValue(ctx, &pb.GetNewValueRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CommandActionClient wraps the gRPC CommandActionService client.
+type CommandActionClient struct {
+	svc pb.CommandActionServiceClient
+}
+
+// NewCommandActionClient creates a new CommandAction client.
+func NewCommandActionClient(cc grpc.ClientConnInterface) *CommandActionClient {
+	return &CommandActionClient{
+		svc: pb.NewCommandActionServiceClient(cc),
+	}
+}
+
+// GetActionType calls the GetActionType RPC.
+func (c *CommandActionClient) GetActionType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetActionType(ctx, &pb.GetActionTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ModeActionClient wraps the gRPC ModeActionService client.
+type ModeActionClient struct {
+	svc pb.ModeActionServiceClient
+}
+
+// NewModeActionClient creates a new ModeAction client.
+func NewModeActionClient(cc grpc.ClientConnInterface) *ModeActionClient {
+	return &ModeActionClient{
+		svc: pb.NewModeActionServiceClient(cc),
+	}
+}
+
+// GetActionType calls the GetActionType RPC.
+func (c *ModeActionClient) GetActionType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetActionType(ctx, &pb.GetActionTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNewMode calls the GetNewMode RPC.
+func (c *ModeActionClient) GetNewMode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetNewMode(ctx, &pb.GetNewModeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }

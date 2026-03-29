@@ -21,178 +21,292 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	CharacterPickerDialogService_NewCharacterPickerDialog_FullMethodName = "/method.CharacterPickerDialogService/NewCharacterPickerDialog"
-	CharacterPickerDialogService_OnClick_FullMethodName                  = "/method.CharacterPickerDialogService/OnClick"
-	CharacterPickerDialogService_OnItemClick_FullMethodName              = "/method.CharacterPickerDialogService/OnItemClick"
+	QwertyKeyListenerService_NewQwertyKeyListener_FullMethodName       = "/method.QwertyKeyListenerService/NewQwertyKeyListener"
+	QwertyKeyListenerService_GetInputType_FullMethodName               = "/method.QwertyKeyListenerService/GetInputType"
+	QwertyKeyListenerService_OnKeyDown_FullMethodName                  = "/method.QwertyKeyListenerService/OnKeyDown"
+	QwertyKeyListenerService_GetInstance_FullMethodName                = "/method.QwertyKeyListenerService/GetInstance"
+	QwertyKeyListenerService_GetInstanceForFullKeyboard_FullMethodName = "/method.QwertyKeyListenerService/GetInstanceForFullKeyboard"
+	QwertyKeyListenerService_MarkAsReplaced_FullMethodName             = "/method.QwertyKeyListenerService/MarkAsReplaced"
 )
 
-// CharacterPickerDialogServiceClient is the client API for CharacterPickerDialogService service.
+// QwertyKeyListenerServiceClient is the client API for QwertyKeyListenerService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CharacterPickerDialogServiceClient interface {
-	NewCharacterPickerDialog(ctx context.Context, in *NewCharacterPickerDialogRequest, opts ...grpc.CallOption) (*NewCharacterPickerDialogResponse, error)
-	OnClick(ctx context.Context, in *OnClickRequest, opts ...grpc.CallOption) (*OnClickResponse, error)
-	OnItemClick(ctx context.Context, in *OnItemClickRequest, opts ...grpc.CallOption) (*OnItemClickResponse, error)
+type QwertyKeyListenerServiceClient interface {
+	NewQwertyKeyListener(ctx context.Context, in *NewQwertyKeyListenerRequest, opts ...grpc.CallOption) (*NewQwertyKeyListenerResponse, error)
+	GetInputType(ctx context.Context, in *GetInputTypeRequest, opts ...grpc.CallOption) (*GetInputTypeResponse, error)
+	OnKeyDown(ctx context.Context, in *OnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error)
+	GetInstance(ctx context.Context, in *GetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error)
+	GetInstanceForFullKeyboard(ctx context.Context, in *GetInstanceForFullKeyboardRequest, opts ...grpc.CallOption) (*GetInstanceForFullKeyboardResponse, error)
+	MarkAsReplaced(ctx context.Context, in *MarkAsReplacedRequest, opts ...grpc.CallOption) (*MarkAsReplacedResponse, error)
 }
 
-type characterPickerDialogServiceClient struct {
+type qwertyKeyListenerServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewCharacterPickerDialogServiceClient(cc grpc.ClientConnInterface) CharacterPickerDialogServiceClient {
-	return &characterPickerDialogServiceClient{cc}
+func NewQwertyKeyListenerServiceClient(cc grpc.ClientConnInterface) QwertyKeyListenerServiceClient {
+	return &qwertyKeyListenerServiceClient{cc}
 }
 
-func (c *characterPickerDialogServiceClient) NewCharacterPickerDialog(ctx context.Context, in *NewCharacterPickerDialogRequest, opts ...grpc.CallOption) (*NewCharacterPickerDialogResponse, error) {
+func (c *qwertyKeyListenerServiceClient) NewQwertyKeyListener(ctx context.Context, in *NewQwertyKeyListenerRequest, opts ...grpc.CallOption) (*NewQwertyKeyListenerResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewCharacterPickerDialogResponse)
-	err := c.cc.Invoke(ctx, CharacterPickerDialogService_NewCharacterPickerDialog_FullMethodName, in, out, cOpts...)
+	out := new(NewQwertyKeyListenerResponse)
+	err := c.cc.Invoke(ctx, QwertyKeyListenerService_NewQwertyKeyListener_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *characterPickerDialogServiceClient) OnClick(ctx context.Context, in *OnClickRequest, opts ...grpc.CallOption) (*OnClickResponse, error) {
+func (c *qwertyKeyListenerServiceClient) GetInputType(ctx context.Context, in *GetInputTypeRequest, opts ...grpc.CallOption) (*GetInputTypeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnClickResponse)
-	err := c.cc.Invoke(ctx, CharacterPickerDialogService_OnClick_FullMethodName, in, out, cOpts...)
+	out := new(GetInputTypeResponse)
+	err := c.cc.Invoke(ctx, QwertyKeyListenerService_GetInputType_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *characterPickerDialogServiceClient) OnItemClick(ctx context.Context, in *OnItemClickRequest, opts ...grpc.CallOption) (*OnItemClickResponse, error) {
+func (c *qwertyKeyListenerServiceClient) OnKeyDown(ctx context.Context, in *OnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnItemClickResponse)
-	err := c.cc.Invoke(ctx, CharacterPickerDialogService_OnItemClick_FullMethodName, in, out, cOpts...)
+	out := new(OnKeyDownResponse)
+	err := c.cc.Invoke(ctx, QwertyKeyListenerService_OnKeyDown_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// CharacterPickerDialogServiceServer is the server API for CharacterPickerDialogService service.
-// All implementations must embed UnimplementedCharacterPickerDialogServiceServer
+func (c *qwertyKeyListenerServiceClient) GetInstance(ctx context.Context, in *GetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInstanceResponse)
+	err := c.cc.Invoke(ctx, QwertyKeyListenerService_GetInstance_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *qwertyKeyListenerServiceClient) GetInstanceForFullKeyboard(ctx context.Context, in *GetInstanceForFullKeyboardRequest, opts ...grpc.CallOption) (*GetInstanceForFullKeyboardResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInstanceForFullKeyboardResponse)
+	err := c.cc.Invoke(ctx, QwertyKeyListenerService_GetInstanceForFullKeyboard_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *qwertyKeyListenerServiceClient) MarkAsReplaced(ctx context.Context, in *MarkAsReplacedRequest, opts ...grpc.CallOption) (*MarkAsReplacedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MarkAsReplacedResponse)
+	err := c.cc.Invoke(ctx, QwertyKeyListenerService_MarkAsReplaced_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// QwertyKeyListenerServiceServer is the server API for QwertyKeyListenerService service.
+// All implementations must embed UnimplementedQwertyKeyListenerServiceServer
 // for forward compatibility.
-type CharacterPickerDialogServiceServer interface {
-	NewCharacterPickerDialog(context.Context, *NewCharacterPickerDialogRequest) (*NewCharacterPickerDialogResponse, error)
-	OnClick(context.Context, *OnClickRequest) (*OnClickResponse, error)
-	OnItemClick(context.Context, *OnItemClickRequest) (*OnItemClickResponse, error)
-	mustEmbedUnimplementedCharacterPickerDialogServiceServer()
+type QwertyKeyListenerServiceServer interface {
+	NewQwertyKeyListener(context.Context, *NewQwertyKeyListenerRequest) (*NewQwertyKeyListenerResponse, error)
+	GetInputType(context.Context, *GetInputTypeRequest) (*GetInputTypeResponse, error)
+	OnKeyDown(context.Context, *OnKeyDownRequest) (*OnKeyDownResponse, error)
+	GetInstance(context.Context, *GetInstanceRequest) (*GetInstanceResponse, error)
+	GetInstanceForFullKeyboard(context.Context, *GetInstanceForFullKeyboardRequest) (*GetInstanceForFullKeyboardResponse, error)
+	MarkAsReplaced(context.Context, *MarkAsReplacedRequest) (*MarkAsReplacedResponse, error)
+	mustEmbedUnimplementedQwertyKeyListenerServiceServer()
 }
 
-// UnimplementedCharacterPickerDialogServiceServer must be embedded to have
+// UnimplementedQwertyKeyListenerServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedCharacterPickerDialogServiceServer struct{}
+type UnimplementedQwertyKeyListenerServiceServer struct{}
 
-func (UnimplementedCharacterPickerDialogServiceServer) NewCharacterPickerDialog(context.Context, *NewCharacterPickerDialogRequest) (*NewCharacterPickerDialogResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewCharacterPickerDialog not implemented")
+func (UnimplementedQwertyKeyListenerServiceServer) NewQwertyKeyListener(context.Context, *NewQwertyKeyListenerRequest) (*NewQwertyKeyListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewQwertyKeyListener not implemented")
 }
-func (UnimplementedCharacterPickerDialogServiceServer) OnClick(context.Context, *OnClickRequest) (*OnClickResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnClick not implemented")
+func (UnimplementedQwertyKeyListenerServiceServer) GetInputType(context.Context, *GetInputTypeRequest) (*GetInputTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInputType not implemented")
 }
-func (UnimplementedCharacterPickerDialogServiceServer) OnItemClick(context.Context, *OnItemClickRequest) (*OnItemClickResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnItemClick not implemented")
+func (UnimplementedQwertyKeyListenerServiceServer) OnKeyDown(context.Context, *OnKeyDownRequest) (*OnKeyDownResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnKeyDown not implemented")
 }
-func (UnimplementedCharacterPickerDialogServiceServer) mustEmbedUnimplementedCharacterPickerDialogServiceServer() {
+func (UnimplementedQwertyKeyListenerServiceServer) GetInstance(context.Context, *GetInstanceRequest) (*GetInstanceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInstance not implemented")
 }
-func (UnimplementedCharacterPickerDialogServiceServer) testEmbeddedByValue() {}
+func (UnimplementedQwertyKeyListenerServiceServer) GetInstanceForFullKeyboard(context.Context, *GetInstanceForFullKeyboardRequest) (*GetInstanceForFullKeyboardResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInstanceForFullKeyboard not implemented")
+}
+func (UnimplementedQwertyKeyListenerServiceServer) MarkAsReplaced(context.Context, *MarkAsReplacedRequest) (*MarkAsReplacedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method MarkAsReplaced not implemented")
+}
+func (UnimplementedQwertyKeyListenerServiceServer) mustEmbedUnimplementedQwertyKeyListenerServiceServer() {
+}
+func (UnimplementedQwertyKeyListenerServiceServer) testEmbeddedByValue() {}
 
-// UnsafeCharacterPickerDialogServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CharacterPickerDialogServiceServer will
+// UnsafeQwertyKeyListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to QwertyKeyListenerServiceServer will
 // result in compilation errors.
-type UnsafeCharacterPickerDialogServiceServer interface {
-	mustEmbedUnimplementedCharacterPickerDialogServiceServer()
+type UnsafeQwertyKeyListenerServiceServer interface {
+	mustEmbedUnimplementedQwertyKeyListenerServiceServer()
 }
 
-func RegisterCharacterPickerDialogServiceServer(s grpc.ServiceRegistrar, srv CharacterPickerDialogServiceServer) {
-	// If the following call panics, it indicates UnimplementedCharacterPickerDialogServiceServer was
+func RegisterQwertyKeyListenerServiceServer(s grpc.ServiceRegistrar, srv QwertyKeyListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedQwertyKeyListenerServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&CharacterPickerDialogService_ServiceDesc, srv)
+	s.RegisterService(&QwertyKeyListenerService_ServiceDesc, srv)
 }
 
-func _CharacterPickerDialogService_NewCharacterPickerDialog_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewCharacterPickerDialogRequest)
+func _QwertyKeyListenerService_NewQwertyKeyListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewQwertyKeyListenerRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CharacterPickerDialogServiceServer).NewCharacterPickerDialog(ctx, in)
+		return srv.(QwertyKeyListenerServiceServer).NewQwertyKeyListener(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CharacterPickerDialogService_NewCharacterPickerDialog_FullMethodName,
+		FullMethod: QwertyKeyListenerService_NewQwertyKeyListener_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CharacterPickerDialogServiceServer).NewCharacterPickerDialog(ctx, req.(*NewCharacterPickerDialogRequest))
+		return srv.(QwertyKeyListenerServiceServer).NewQwertyKeyListener(ctx, req.(*NewQwertyKeyListenerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CharacterPickerDialogService_OnClick_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnClickRequest)
+func _QwertyKeyListenerService_GetInputType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInputTypeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CharacterPickerDialogServiceServer).OnClick(ctx, in)
+		return srv.(QwertyKeyListenerServiceServer).GetInputType(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CharacterPickerDialogService_OnClick_FullMethodName,
+		FullMethod: QwertyKeyListenerService_GetInputType_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CharacterPickerDialogServiceServer).OnClick(ctx, req.(*OnClickRequest))
+		return srv.(QwertyKeyListenerServiceServer).GetInputType(ctx, req.(*GetInputTypeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CharacterPickerDialogService_OnItemClick_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnItemClickRequest)
+func _QwertyKeyListenerService_OnKeyDown_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnKeyDownRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CharacterPickerDialogServiceServer).OnItemClick(ctx, in)
+		return srv.(QwertyKeyListenerServiceServer).OnKeyDown(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CharacterPickerDialogService_OnItemClick_FullMethodName,
+		FullMethod: QwertyKeyListenerService_OnKeyDown_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CharacterPickerDialogServiceServer).OnItemClick(ctx, req.(*OnItemClickRequest))
+		return srv.(QwertyKeyListenerServiceServer).OnKeyDown(ctx, req.(*OnKeyDownRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// CharacterPickerDialogService_ServiceDesc is the grpc.ServiceDesc for CharacterPickerDialogService service.
+func _QwertyKeyListenerService_GetInstance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInstanceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QwertyKeyListenerServiceServer).GetInstance(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: QwertyKeyListenerService_GetInstance_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QwertyKeyListenerServiceServer).GetInstance(ctx, req.(*GetInstanceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _QwertyKeyListenerService_GetInstanceForFullKeyboard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInstanceForFullKeyboardRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QwertyKeyListenerServiceServer).GetInstanceForFullKeyboard(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: QwertyKeyListenerService_GetInstanceForFullKeyboard_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QwertyKeyListenerServiceServer).GetInstanceForFullKeyboard(ctx, req.(*GetInstanceForFullKeyboardRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _QwertyKeyListenerService_MarkAsReplaced_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MarkAsReplacedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QwertyKeyListenerServiceServer).MarkAsReplaced(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: QwertyKeyListenerService_MarkAsReplaced_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QwertyKeyListenerServiceServer).MarkAsReplaced(ctx, req.(*MarkAsReplacedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// QwertyKeyListenerService_ServiceDesc is the grpc.ServiceDesc for QwertyKeyListenerService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var CharacterPickerDialogService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "method.CharacterPickerDialogService",
-	HandlerType: (*CharacterPickerDialogServiceServer)(nil),
+var QwertyKeyListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "method.QwertyKeyListenerService",
+	HandlerType: (*QwertyKeyListenerServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewCharacterPickerDialog",
-			Handler:    _CharacterPickerDialogService_NewCharacterPickerDialog_Handler,
+			MethodName: "NewQwertyKeyListener",
+			Handler:    _QwertyKeyListenerService_NewQwertyKeyListener_Handler,
 		},
 		{
-			MethodName: "OnClick",
-			Handler:    _CharacterPickerDialogService_OnClick_Handler,
+			MethodName: "GetInputType",
+			Handler:    _QwertyKeyListenerService_GetInputType_Handler,
 		},
 		{
-			MethodName: "OnItemClick",
-			Handler:    _CharacterPickerDialogService_OnItemClick_Handler,
+			MethodName: "OnKeyDown",
+			Handler:    _QwertyKeyListenerService_OnKeyDown_Handler,
+		},
+		{
+			MethodName: "GetInstance",
+			Handler:    _QwertyKeyListenerService_GetInstance_Handler,
+		},
+		{
+			MethodName: "GetInstanceForFullKeyboard",
+			Handler:    _QwertyKeyListenerService_GetInstanceForFullKeyboard_Handler,
+		},
+		{
+			MethodName: "MarkAsReplaced",
+			Handler:    _QwertyKeyListenerService_MarkAsReplaced_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -200,140 +314,520 @@ var CharacterPickerDialogService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	NumberKeyListenerService_Filter_FullMethodName    = "/method.NumberKeyListenerService/Filter"
-	NumberKeyListenerService_OnKeyDown_FullMethodName = "/method.NumberKeyListenerService/OnKeyDown"
+	BaseMovementMethodService_NewBaseMovementMethod_FullMethodName = "/method.BaseMovementMethodService/NewBaseMovementMethod"
+	BaseMovementMethodService_CanSelectArbitrarily_FullMethodName  = "/method.BaseMovementMethodService/CanSelectArbitrarily"
+	BaseMovementMethodService_Initialize_FullMethodName            = "/method.BaseMovementMethodService/Initialize"
+	BaseMovementMethodService_NextParagraph_FullMethodName         = "/method.BaseMovementMethodService/NextParagraph"
+	BaseMovementMethodService_OnGenericMotionEvent_FullMethodName  = "/method.BaseMovementMethodService/OnGenericMotionEvent"
+	BaseMovementMethodService_OnKeyDown_FullMethodName             = "/method.BaseMovementMethodService/OnKeyDown"
+	BaseMovementMethodService_OnKeyOther_FullMethodName            = "/method.BaseMovementMethodService/OnKeyOther"
+	BaseMovementMethodService_OnKeyUp_FullMethodName               = "/method.BaseMovementMethodService/OnKeyUp"
+	BaseMovementMethodService_OnTakeFocus_FullMethodName           = "/method.BaseMovementMethodService/OnTakeFocus"
+	BaseMovementMethodService_OnTouchEvent_FullMethodName          = "/method.BaseMovementMethodService/OnTouchEvent"
+	BaseMovementMethodService_OnTrackballEvent_FullMethodName      = "/method.BaseMovementMethodService/OnTrackballEvent"
+	BaseMovementMethodService_PreviousParagraph_FullMethodName     = "/method.BaseMovementMethodService/PreviousParagraph"
 )
 
-// NumberKeyListenerServiceClient is the client API for NumberKeyListenerService service.
+// BaseMovementMethodServiceClient is the client API for BaseMovementMethodService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type NumberKeyListenerServiceClient interface {
-	Filter(ctx context.Context, in *FilterRequest, opts ...grpc.CallOption) (*FilterResponse, error)
+type BaseMovementMethodServiceClient interface {
+	NewBaseMovementMethod(ctx context.Context, in *NewBaseMovementMethodRequest, opts ...grpc.CallOption) (*NewBaseMovementMethodResponse, error)
+	CanSelectArbitrarily(ctx context.Context, in *CanSelectArbitrarilyRequest, opts ...grpc.CallOption) (*CanSelectArbitrarilyResponse, error)
+	Initialize(ctx context.Context, in *InitializeRequest, opts ...grpc.CallOption) (*InitializeResponse, error)
+	NextParagraph(ctx context.Context, in *NextParagraphRequest, opts ...grpc.CallOption) (*NextParagraphResponse, error)
+	OnGenericMotionEvent(ctx context.Context, in *OnGenericMotionEventRequest, opts ...grpc.CallOption) (*OnGenericMotionEventResponse, error)
 	OnKeyDown(ctx context.Context, in *OnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error)
+	OnKeyOther(ctx context.Context, in *OnKeyOtherRequest, opts ...grpc.CallOption) (*OnKeyOtherResponse, error)
+	OnKeyUp(ctx context.Context, in *OnKeyUpRequest, opts ...grpc.CallOption) (*OnKeyUpResponse, error)
+	OnTakeFocus(ctx context.Context, in *OnTakeFocusRequest, opts ...grpc.CallOption) (*OnTakeFocusResponse, error)
+	OnTouchEvent(ctx context.Context, in *OnTouchEventRequest, opts ...grpc.CallOption) (*OnTouchEventResponse, error)
+	OnTrackballEvent(ctx context.Context, in *OnTrackballEventRequest, opts ...grpc.CallOption) (*OnTrackballEventResponse, error)
+	PreviousParagraph(ctx context.Context, in *PreviousParagraphRequest, opts ...grpc.CallOption) (*PreviousParagraphResponse, error)
 }
 
-type numberKeyListenerServiceClient struct {
+type baseMovementMethodServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewNumberKeyListenerServiceClient(cc grpc.ClientConnInterface) NumberKeyListenerServiceClient {
-	return &numberKeyListenerServiceClient{cc}
+func NewBaseMovementMethodServiceClient(cc grpc.ClientConnInterface) BaseMovementMethodServiceClient {
+	return &baseMovementMethodServiceClient{cc}
 }
 
-func (c *numberKeyListenerServiceClient) Filter(ctx context.Context, in *FilterRequest, opts ...grpc.CallOption) (*FilterResponse, error) {
+func (c *baseMovementMethodServiceClient) NewBaseMovementMethod(ctx context.Context, in *NewBaseMovementMethodRequest, opts ...grpc.CallOption) (*NewBaseMovementMethodResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FilterResponse)
-	err := c.cc.Invoke(ctx, NumberKeyListenerService_Filter_FullMethodName, in, out, cOpts...)
+	out := new(NewBaseMovementMethodResponse)
+	err := c.cc.Invoke(ctx, BaseMovementMethodService_NewBaseMovementMethod_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *numberKeyListenerServiceClient) OnKeyDown(ctx context.Context, in *OnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error) {
+func (c *baseMovementMethodServiceClient) CanSelectArbitrarily(ctx context.Context, in *CanSelectArbitrarilyRequest, opts ...grpc.CallOption) (*CanSelectArbitrarilyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CanSelectArbitrarilyResponse)
+	err := c.cc.Invoke(ctx, BaseMovementMethodService_CanSelectArbitrarily_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *baseMovementMethodServiceClient) Initialize(ctx context.Context, in *InitializeRequest, opts ...grpc.CallOption) (*InitializeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(InitializeResponse)
+	err := c.cc.Invoke(ctx, BaseMovementMethodService_Initialize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *baseMovementMethodServiceClient) NextParagraph(ctx context.Context, in *NextParagraphRequest, opts ...grpc.CallOption) (*NextParagraphResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NextParagraphResponse)
+	err := c.cc.Invoke(ctx, BaseMovementMethodService_NextParagraph_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *baseMovementMethodServiceClient) OnGenericMotionEvent(ctx context.Context, in *OnGenericMotionEventRequest, opts ...grpc.CallOption) (*OnGenericMotionEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnGenericMotionEventResponse)
+	err := c.cc.Invoke(ctx, BaseMovementMethodService_OnGenericMotionEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *baseMovementMethodServiceClient) OnKeyDown(ctx context.Context, in *OnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(OnKeyDownResponse)
-	err := c.cc.Invoke(ctx, NumberKeyListenerService_OnKeyDown_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, BaseMovementMethodService_OnKeyDown_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// NumberKeyListenerServiceServer is the server API for NumberKeyListenerService service.
-// All implementations must embed UnimplementedNumberKeyListenerServiceServer
-// for forward compatibility.
-type NumberKeyListenerServiceServer interface {
-	Filter(context.Context, *FilterRequest) (*FilterResponse, error)
-	OnKeyDown(context.Context, *OnKeyDownRequest) (*OnKeyDownResponse, error)
-	mustEmbedUnimplementedNumberKeyListenerServiceServer()
+func (c *baseMovementMethodServiceClient) OnKeyOther(ctx context.Context, in *OnKeyOtherRequest, opts ...grpc.CallOption) (*OnKeyOtherResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnKeyOtherResponse)
+	err := c.cc.Invoke(ctx, BaseMovementMethodService_OnKeyOther_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
-// UnimplementedNumberKeyListenerServiceServer must be embedded to have
+func (c *baseMovementMethodServiceClient) OnKeyUp(ctx context.Context, in *OnKeyUpRequest, opts ...grpc.CallOption) (*OnKeyUpResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnKeyUpResponse)
+	err := c.cc.Invoke(ctx, BaseMovementMethodService_OnKeyUp_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *baseMovementMethodServiceClient) OnTakeFocus(ctx context.Context, in *OnTakeFocusRequest, opts ...grpc.CallOption) (*OnTakeFocusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTakeFocusResponse)
+	err := c.cc.Invoke(ctx, BaseMovementMethodService_OnTakeFocus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *baseMovementMethodServiceClient) OnTouchEvent(ctx context.Context, in *OnTouchEventRequest, opts ...grpc.CallOption) (*OnTouchEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTouchEventResponse)
+	err := c.cc.Invoke(ctx, BaseMovementMethodService_OnTouchEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *baseMovementMethodServiceClient) OnTrackballEvent(ctx context.Context, in *OnTrackballEventRequest, opts ...grpc.CallOption) (*OnTrackballEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTrackballEventResponse)
+	err := c.cc.Invoke(ctx, BaseMovementMethodService_OnTrackballEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *baseMovementMethodServiceClient) PreviousParagraph(ctx context.Context, in *PreviousParagraphRequest, opts ...grpc.CallOption) (*PreviousParagraphResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PreviousParagraphResponse)
+	err := c.cc.Invoke(ctx, BaseMovementMethodService_PreviousParagraph_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// BaseMovementMethodServiceServer is the server API for BaseMovementMethodService service.
+// All implementations must embed UnimplementedBaseMovementMethodServiceServer
+// for forward compatibility.
+type BaseMovementMethodServiceServer interface {
+	NewBaseMovementMethod(context.Context, *NewBaseMovementMethodRequest) (*NewBaseMovementMethodResponse, error)
+	CanSelectArbitrarily(context.Context, *CanSelectArbitrarilyRequest) (*CanSelectArbitrarilyResponse, error)
+	Initialize(context.Context, *InitializeRequest) (*InitializeResponse, error)
+	NextParagraph(context.Context, *NextParagraphRequest) (*NextParagraphResponse, error)
+	OnGenericMotionEvent(context.Context, *OnGenericMotionEventRequest) (*OnGenericMotionEventResponse, error)
+	OnKeyDown(context.Context, *OnKeyDownRequest) (*OnKeyDownResponse, error)
+	OnKeyOther(context.Context, *OnKeyOtherRequest) (*OnKeyOtherResponse, error)
+	OnKeyUp(context.Context, *OnKeyUpRequest) (*OnKeyUpResponse, error)
+	OnTakeFocus(context.Context, *OnTakeFocusRequest) (*OnTakeFocusResponse, error)
+	OnTouchEvent(context.Context, *OnTouchEventRequest) (*OnTouchEventResponse, error)
+	OnTrackballEvent(context.Context, *OnTrackballEventRequest) (*OnTrackballEventResponse, error)
+	PreviousParagraph(context.Context, *PreviousParagraphRequest) (*PreviousParagraphResponse, error)
+	mustEmbedUnimplementedBaseMovementMethodServiceServer()
+}
+
+// UnimplementedBaseMovementMethodServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedNumberKeyListenerServiceServer struct{}
+type UnimplementedBaseMovementMethodServiceServer struct{}
 
-func (UnimplementedNumberKeyListenerServiceServer) Filter(context.Context, *FilterRequest) (*FilterResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Filter not implemented")
+func (UnimplementedBaseMovementMethodServiceServer) NewBaseMovementMethod(context.Context, *NewBaseMovementMethodRequest) (*NewBaseMovementMethodResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewBaseMovementMethod not implemented")
 }
-func (UnimplementedNumberKeyListenerServiceServer) OnKeyDown(context.Context, *OnKeyDownRequest) (*OnKeyDownResponse, error) {
+func (UnimplementedBaseMovementMethodServiceServer) CanSelectArbitrarily(context.Context, *CanSelectArbitrarilyRequest) (*CanSelectArbitrarilyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CanSelectArbitrarily not implemented")
+}
+func (UnimplementedBaseMovementMethodServiceServer) Initialize(context.Context, *InitializeRequest) (*InitializeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Initialize not implemented")
+}
+func (UnimplementedBaseMovementMethodServiceServer) NextParagraph(context.Context, *NextParagraphRequest) (*NextParagraphResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NextParagraph not implemented")
+}
+func (UnimplementedBaseMovementMethodServiceServer) OnGenericMotionEvent(context.Context, *OnGenericMotionEventRequest) (*OnGenericMotionEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnGenericMotionEvent not implemented")
+}
+func (UnimplementedBaseMovementMethodServiceServer) OnKeyDown(context.Context, *OnKeyDownRequest) (*OnKeyDownResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method OnKeyDown not implemented")
 }
-func (UnimplementedNumberKeyListenerServiceServer) mustEmbedUnimplementedNumberKeyListenerServiceServer() {
+func (UnimplementedBaseMovementMethodServiceServer) OnKeyOther(context.Context, *OnKeyOtherRequest) (*OnKeyOtherResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnKeyOther not implemented")
 }
-func (UnimplementedNumberKeyListenerServiceServer) testEmbeddedByValue() {}
+func (UnimplementedBaseMovementMethodServiceServer) OnKeyUp(context.Context, *OnKeyUpRequest) (*OnKeyUpResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnKeyUp not implemented")
+}
+func (UnimplementedBaseMovementMethodServiceServer) OnTakeFocus(context.Context, *OnTakeFocusRequest) (*OnTakeFocusResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTakeFocus not implemented")
+}
+func (UnimplementedBaseMovementMethodServiceServer) OnTouchEvent(context.Context, *OnTouchEventRequest) (*OnTouchEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTouchEvent not implemented")
+}
+func (UnimplementedBaseMovementMethodServiceServer) OnTrackballEvent(context.Context, *OnTrackballEventRequest) (*OnTrackballEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTrackballEvent not implemented")
+}
+func (UnimplementedBaseMovementMethodServiceServer) PreviousParagraph(context.Context, *PreviousParagraphRequest) (*PreviousParagraphResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method PreviousParagraph not implemented")
+}
+func (UnimplementedBaseMovementMethodServiceServer) mustEmbedUnimplementedBaseMovementMethodServiceServer() {
+}
+func (UnimplementedBaseMovementMethodServiceServer) testEmbeddedByValue() {}
 
-// UnsafeNumberKeyListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to NumberKeyListenerServiceServer will
+// UnsafeBaseMovementMethodServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to BaseMovementMethodServiceServer will
 // result in compilation errors.
-type UnsafeNumberKeyListenerServiceServer interface {
-	mustEmbedUnimplementedNumberKeyListenerServiceServer()
+type UnsafeBaseMovementMethodServiceServer interface {
+	mustEmbedUnimplementedBaseMovementMethodServiceServer()
 }
 
-func RegisterNumberKeyListenerServiceServer(s grpc.ServiceRegistrar, srv NumberKeyListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedNumberKeyListenerServiceServer was
+func RegisterBaseMovementMethodServiceServer(s grpc.ServiceRegistrar, srv BaseMovementMethodServiceServer) {
+	// If the following call panics, it indicates UnimplementedBaseMovementMethodServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&NumberKeyListenerService_ServiceDesc, srv)
+	s.RegisterService(&BaseMovementMethodService_ServiceDesc, srv)
 }
 
-func _NumberKeyListenerService_Filter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FilterRequest)
+func _BaseMovementMethodService_NewBaseMovementMethod_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewBaseMovementMethodRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NumberKeyListenerServiceServer).Filter(ctx, in)
+		return srv.(BaseMovementMethodServiceServer).NewBaseMovementMethod(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NumberKeyListenerService_Filter_FullMethodName,
+		FullMethod: BaseMovementMethodService_NewBaseMovementMethod_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NumberKeyListenerServiceServer).Filter(ctx, req.(*FilterRequest))
+		return srv.(BaseMovementMethodServiceServer).NewBaseMovementMethod(ctx, req.(*NewBaseMovementMethodRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NumberKeyListenerService_OnKeyDown_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _BaseMovementMethodService_CanSelectArbitrarily_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CanSelectArbitrarilyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BaseMovementMethodServiceServer).CanSelectArbitrarily(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BaseMovementMethodService_CanSelectArbitrarily_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BaseMovementMethodServiceServer).CanSelectArbitrarily(ctx, req.(*CanSelectArbitrarilyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BaseMovementMethodService_Initialize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InitializeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BaseMovementMethodServiceServer).Initialize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BaseMovementMethodService_Initialize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BaseMovementMethodServiceServer).Initialize(ctx, req.(*InitializeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BaseMovementMethodService_NextParagraph_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NextParagraphRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BaseMovementMethodServiceServer).NextParagraph(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BaseMovementMethodService_NextParagraph_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BaseMovementMethodServiceServer).NextParagraph(ctx, req.(*NextParagraphRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BaseMovementMethodService_OnGenericMotionEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnGenericMotionEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BaseMovementMethodServiceServer).OnGenericMotionEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BaseMovementMethodService_OnGenericMotionEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BaseMovementMethodServiceServer).OnGenericMotionEvent(ctx, req.(*OnGenericMotionEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BaseMovementMethodService_OnKeyDown_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(OnKeyDownRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(NumberKeyListenerServiceServer).OnKeyDown(ctx, in)
+		return srv.(BaseMovementMethodServiceServer).OnKeyDown(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: NumberKeyListenerService_OnKeyDown_FullMethodName,
+		FullMethod: BaseMovementMethodService_OnKeyDown_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NumberKeyListenerServiceServer).OnKeyDown(ctx, req.(*OnKeyDownRequest))
+		return srv.(BaseMovementMethodServiceServer).OnKeyDown(ctx, req.(*OnKeyDownRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// NumberKeyListenerService_ServiceDesc is the grpc.ServiceDesc for NumberKeyListenerService service.
+func _BaseMovementMethodService_OnKeyOther_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnKeyOtherRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BaseMovementMethodServiceServer).OnKeyOther(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BaseMovementMethodService_OnKeyOther_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BaseMovementMethodServiceServer).OnKeyOther(ctx, req.(*OnKeyOtherRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BaseMovementMethodService_OnKeyUp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnKeyUpRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BaseMovementMethodServiceServer).OnKeyUp(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BaseMovementMethodService_OnKeyUp_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BaseMovementMethodServiceServer).OnKeyUp(ctx, req.(*OnKeyUpRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BaseMovementMethodService_OnTakeFocus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTakeFocusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BaseMovementMethodServiceServer).OnTakeFocus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BaseMovementMethodService_OnTakeFocus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BaseMovementMethodServiceServer).OnTakeFocus(ctx, req.(*OnTakeFocusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BaseMovementMethodService_OnTouchEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTouchEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BaseMovementMethodServiceServer).OnTouchEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BaseMovementMethodService_OnTouchEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BaseMovementMethodServiceServer).OnTouchEvent(ctx, req.(*OnTouchEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BaseMovementMethodService_OnTrackballEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTrackballEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BaseMovementMethodServiceServer).OnTrackballEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BaseMovementMethodService_OnTrackballEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BaseMovementMethodServiceServer).OnTrackballEvent(ctx, req.(*OnTrackballEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BaseMovementMethodService_PreviousParagraph_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PreviousParagraphRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BaseMovementMethodServiceServer).PreviousParagraph(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BaseMovementMethodService_PreviousParagraph_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BaseMovementMethodServiceServer).PreviousParagraph(ctx, req.(*PreviousParagraphRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// BaseMovementMethodService_ServiceDesc is the grpc.ServiceDesc for BaseMovementMethodService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var NumberKeyListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "method.NumberKeyListenerService",
-	HandlerType: (*NumberKeyListenerServiceServer)(nil),
+var BaseMovementMethodService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "method.BaseMovementMethodService",
+	HandlerType: (*BaseMovementMethodServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "Filter",
-			Handler:    _NumberKeyListenerService_Filter_Handler,
+			MethodName: "NewBaseMovementMethod",
+			Handler:    _BaseMovementMethodService_NewBaseMovementMethod_Handler,
+		},
+		{
+			MethodName: "CanSelectArbitrarily",
+			Handler:    _BaseMovementMethodService_CanSelectArbitrarily_Handler,
+		},
+		{
+			MethodName: "Initialize",
+			Handler:    _BaseMovementMethodService_Initialize_Handler,
+		},
+		{
+			MethodName: "NextParagraph",
+			Handler:    _BaseMovementMethodService_NextParagraph_Handler,
+		},
+		{
+			MethodName: "OnGenericMotionEvent",
+			Handler:    _BaseMovementMethodService_OnGenericMotionEvent_Handler,
 		},
 		{
 			MethodName: "OnKeyDown",
-			Handler:    _NumberKeyListenerService_OnKeyDown_Handler,
+			Handler:    _BaseMovementMethodService_OnKeyDown_Handler,
+		},
+		{
+			MethodName: "OnKeyOther",
+			Handler:    _BaseMovementMethodService_OnKeyOther_Handler,
+		},
+		{
+			MethodName: "OnKeyUp",
+			Handler:    _BaseMovementMethodService_OnKeyUp_Handler,
+		},
+		{
+			MethodName: "OnTakeFocus",
+			Handler:    _BaseMovementMethodService_OnTakeFocus_Handler,
+		},
+		{
+			MethodName: "OnTouchEvent",
+			Handler:    _BaseMovementMethodService_OnTouchEvent_Handler,
+		},
+		{
+			MethodName: "OnTrackballEvent",
+			Handler:    _BaseMovementMethodService_OnTrackballEvent_Handler,
+		},
+		{
+			MethodName: "PreviousParagraph",
+			Handler:    _BaseMovementMethodService_PreviousParagraph_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -350,7 +844,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type SingleLineTransformationMethodServiceClient interface {
 	NewSingleLineTransformationMethod(ctx context.Context, in *NewSingleLineTransformationMethodRequest, opts ...grpc.CallOption) (*NewSingleLineTransformationMethodResponse, error)
-	GetInstance(ctx context.Context, in *GetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error)
+	GetInstance(ctx context.Context, in *SingleLineTransformationMethodGetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error)
 }
 
 type singleLineTransformationMethodServiceClient struct {
@@ -371,7 +865,7 @@ func (c *singleLineTransformationMethodServiceClient) NewSingleLineTransformatio
 	return out, nil
 }
 
-func (c *singleLineTransformationMethodServiceClient) GetInstance(ctx context.Context, in *GetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error) {
+func (c *singleLineTransformationMethodServiceClient) GetInstance(ctx context.Context, in *SingleLineTransformationMethodGetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetInstanceResponse)
 	err := c.cc.Invoke(ctx, SingleLineTransformationMethodService_GetInstance_FullMethodName, in, out, cOpts...)
@@ -386,7 +880,7 @@ func (c *singleLineTransformationMethodServiceClient) GetInstance(ctx context.Co
 // for forward compatibility.
 type SingleLineTransformationMethodServiceServer interface {
 	NewSingleLineTransformationMethod(context.Context, *NewSingleLineTransformationMethodRequest) (*NewSingleLineTransformationMethodResponse, error)
-	GetInstance(context.Context, *GetInstanceRequest) (*GetInstanceResponse, error)
+	GetInstance(context.Context, *SingleLineTransformationMethodGetInstanceRequest) (*GetInstanceResponse, error)
 	mustEmbedUnimplementedSingleLineTransformationMethodServiceServer()
 }
 
@@ -400,7 +894,7 @@ type UnimplementedSingleLineTransformationMethodServiceServer struct{}
 func (UnimplementedSingleLineTransformationMethodServiceServer) NewSingleLineTransformationMethod(context.Context, *NewSingleLineTransformationMethodRequest) (*NewSingleLineTransformationMethodResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method NewSingleLineTransformationMethod not implemented")
 }
-func (UnimplementedSingleLineTransformationMethodServiceServer) GetInstance(context.Context, *GetInstanceRequest) (*GetInstanceResponse, error) {
+func (UnimplementedSingleLineTransformationMethodServiceServer) GetInstance(context.Context, *SingleLineTransformationMethodGetInstanceRequest) (*GetInstanceResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetInstance not implemented")
 }
 func (UnimplementedSingleLineTransformationMethodServiceServer) mustEmbedUnimplementedSingleLineTransformationMethodServiceServer() {
@@ -444,7 +938,7 @@ func _SingleLineTransformationMethodService_NewSingleLineTransformationMethod_Ha
 }
 
 func _SingleLineTransformationMethodService_GetInstance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInstanceRequest)
+	in := new(SingleLineTransformationMethodGetInstanceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -456,7 +950,7 @@ func _SingleLineTransformationMethodService_GetInstance_Handler(srv interface{},
 		FullMethod: SingleLineTransformationMethodService_GetInstance_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SingleLineTransformationMethodServiceServer).GetInstance(ctx, req.(*GetInstanceRequest))
+		return srv.(SingleLineTransformationMethodServiceServer).GetInstance(ctx, req.(*SingleLineTransformationMethodGetInstanceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -475,412 +969,6 @@ var SingleLineTransformationMethodService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetInstance",
 			Handler:    _SingleLineTransformationMethodService_GetInstance_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/method/method.proto",
-}
-
-const (
-	MovementMethodService_CanSelectArbitrarily_FullMethodName = "/method.MovementMethodService/CanSelectArbitrarily"
-	MovementMethodService_Initialize_FullMethodName           = "/method.MovementMethodService/Initialize"
-	MovementMethodService_OnGenericMotionEvent_FullMethodName = "/method.MovementMethodService/OnGenericMotionEvent"
-	MovementMethodService_OnKeyDown_FullMethodName            = "/method.MovementMethodService/OnKeyDown"
-	MovementMethodService_OnKeyOther_FullMethodName           = "/method.MovementMethodService/OnKeyOther"
-	MovementMethodService_OnKeyUp_FullMethodName              = "/method.MovementMethodService/OnKeyUp"
-	MovementMethodService_OnTakeFocus_FullMethodName          = "/method.MovementMethodService/OnTakeFocus"
-	MovementMethodService_OnTouchEvent_FullMethodName         = "/method.MovementMethodService/OnTouchEvent"
-	MovementMethodService_OnTrackballEvent_FullMethodName     = "/method.MovementMethodService/OnTrackballEvent"
-)
-
-// MovementMethodServiceClient is the client API for MovementMethodService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type MovementMethodServiceClient interface {
-	CanSelectArbitrarily(ctx context.Context, in *CanSelectArbitrarilyRequest, opts ...grpc.CallOption) (*CanSelectArbitrarilyResponse, error)
-	Initialize(ctx context.Context, in *InitializeRequest, opts ...grpc.CallOption) (*InitializeResponse, error)
-	OnGenericMotionEvent(ctx context.Context, in *OnGenericMotionEventRequest, opts ...grpc.CallOption) (*OnGenericMotionEventResponse, error)
-	OnKeyDown(ctx context.Context, in *OnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error)
-	OnKeyOther(ctx context.Context, in *OnKeyOtherRequest, opts ...grpc.CallOption) (*OnKeyOtherResponse, error)
-	OnKeyUp(ctx context.Context, in *OnKeyUpRequest, opts ...grpc.CallOption) (*OnKeyUpResponse, error)
-	OnTakeFocus(ctx context.Context, in *OnTakeFocusRequest, opts ...grpc.CallOption) (*OnTakeFocusResponse, error)
-	OnTouchEvent(ctx context.Context, in *OnTouchEventRequest, opts ...grpc.CallOption) (*OnTouchEventResponse, error)
-	OnTrackballEvent(ctx context.Context, in *OnTrackballEventRequest, opts ...grpc.CallOption) (*OnTrackballEventResponse, error)
-}
-
-type movementMethodServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewMovementMethodServiceClient(cc grpc.ClientConnInterface) MovementMethodServiceClient {
-	return &movementMethodServiceClient{cc}
-}
-
-func (c *movementMethodServiceClient) CanSelectArbitrarily(ctx context.Context, in *CanSelectArbitrarilyRequest, opts ...grpc.CallOption) (*CanSelectArbitrarilyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CanSelectArbitrarilyResponse)
-	err := c.cc.Invoke(ctx, MovementMethodService_CanSelectArbitrarily_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *movementMethodServiceClient) Initialize(ctx context.Context, in *InitializeRequest, opts ...grpc.CallOption) (*InitializeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(InitializeResponse)
-	err := c.cc.Invoke(ctx, MovementMethodService_Initialize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *movementMethodServiceClient) OnGenericMotionEvent(ctx context.Context, in *OnGenericMotionEventRequest, opts ...grpc.CallOption) (*OnGenericMotionEventResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnGenericMotionEventResponse)
-	err := c.cc.Invoke(ctx, MovementMethodService_OnGenericMotionEvent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *movementMethodServiceClient) OnKeyDown(ctx context.Context, in *OnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnKeyDownResponse)
-	err := c.cc.Invoke(ctx, MovementMethodService_OnKeyDown_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *movementMethodServiceClient) OnKeyOther(ctx context.Context, in *OnKeyOtherRequest, opts ...grpc.CallOption) (*OnKeyOtherResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnKeyOtherResponse)
-	err := c.cc.Invoke(ctx, MovementMethodService_OnKeyOther_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *movementMethodServiceClient) OnKeyUp(ctx context.Context, in *OnKeyUpRequest, opts ...grpc.CallOption) (*OnKeyUpResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnKeyUpResponse)
-	err := c.cc.Invoke(ctx, MovementMethodService_OnKeyUp_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *movementMethodServiceClient) OnTakeFocus(ctx context.Context, in *OnTakeFocusRequest, opts ...grpc.CallOption) (*OnTakeFocusResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnTakeFocusResponse)
-	err := c.cc.Invoke(ctx, MovementMethodService_OnTakeFocus_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *movementMethodServiceClient) OnTouchEvent(ctx context.Context, in *OnTouchEventRequest, opts ...grpc.CallOption) (*OnTouchEventResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnTouchEventResponse)
-	err := c.cc.Invoke(ctx, MovementMethodService_OnTouchEvent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *movementMethodServiceClient) OnTrackballEvent(ctx context.Context, in *OnTrackballEventRequest, opts ...grpc.CallOption) (*OnTrackballEventResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnTrackballEventResponse)
-	err := c.cc.Invoke(ctx, MovementMethodService_OnTrackballEvent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// MovementMethodServiceServer is the server API for MovementMethodService service.
-// All implementations must embed UnimplementedMovementMethodServiceServer
-// for forward compatibility.
-type MovementMethodServiceServer interface {
-	CanSelectArbitrarily(context.Context, *CanSelectArbitrarilyRequest) (*CanSelectArbitrarilyResponse, error)
-	Initialize(context.Context, *InitializeRequest) (*InitializeResponse, error)
-	OnGenericMotionEvent(context.Context, *OnGenericMotionEventRequest) (*OnGenericMotionEventResponse, error)
-	OnKeyDown(context.Context, *OnKeyDownRequest) (*OnKeyDownResponse, error)
-	OnKeyOther(context.Context, *OnKeyOtherRequest) (*OnKeyOtherResponse, error)
-	OnKeyUp(context.Context, *OnKeyUpRequest) (*OnKeyUpResponse, error)
-	OnTakeFocus(context.Context, *OnTakeFocusRequest) (*OnTakeFocusResponse, error)
-	OnTouchEvent(context.Context, *OnTouchEventRequest) (*OnTouchEventResponse, error)
-	OnTrackballEvent(context.Context, *OnTrackballEventRequest) (*OnTrackballEventResponse, error)
-	mustEmbedUnimplementedMovementMethodServiceServer()
-}
-
-// UnimplementedMovementMethodServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedMovementMethodServiceServer struct{}
-
-func (UnimplementedMovementMethodServiceServer) CanSelectArbitrarily(context.Context, *CanSelectArbitrarilyRequest) (*CanSelectArbitrarilyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CanSelectArbitrarily not implemented")
-}
-func (UnimplementedMovementMethodServiceServer) Initialize(context.Context, *InitializeRequest) (*InitializeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Initialize not implemented")
-}
-func (UnimplementedMovementMethodServiceServer) OnGenericMotionEvent(context.Context, *OnGenericMotionEventRequest) (*OnGenericMotionEventResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnGenericMotionEvent not implemented")
-}
-func (UnimplementedMovementMethodServiceServer) OnKeyDown(context.Context, *OnKeyDownRequest) (*OnKeyDownResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnKeyDown not implemented")
-}
-func (UnimplementedMovementMethodServiceServer) OnKeyOther(context.Context, *OnKeyOtherRequest) (*OnKeyOtherResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnKeyOther not implemented")
-}
-func (UnimplementedMovementMethodServiceServer) OnKeyUp(context.Context, *OnKeyUpRequest) (*OnKeyUpResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnKeyUp not implemented")
-}
-func (UnimplementedMovementMethodServiceServer) OnTakeFocus(context.Context, *OnTakeFocusRequest) (*OnTakeFocusResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnTakeFocus not implemented")
-}
-func (UnimplementedMovementMethodServiceServer) OnTouchEvent(context.Context, *OnTouchEventRequest) (*OnTouchEventResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnTouchEvent not implemented")
-}
-func (UnimplementedMovementMethodServiceServer) OnTrackballEvent(context.Context, *OnTrackballEventRequest) (*OnTrackballEventResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnTrackballEvent not implemented")
-}
-func (UnimplementedMovementMethodServiceServer) mustEmbedUnimplementedMovementMethodServiceServer() {}
-func (UnimplementedMovementMethodServiceServer) testEmbeddedByValue()                               {}
-
-// UnsafeMovementMethodServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to MovementMethodServiceServer will
-// result in compilation errors.
-type UnsafeMovementMethodServiceServer interface {
-	mustEmbedUnimplementedMovementMethodServiceServer()
-}
-
-func RegisterMovementMethodServiceServer(s grpc.ServiceRegistrar, srv MovementMethodServiceServer) {
-	// If the following call panics, it indicates UnimplementedMovementMethodServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&MovementMethodService_ServiceDesc, srv)
-}
-
-func _MovementMethodService_CanSelectArbitrarily_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CanSelectArbitrarilyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MovementMethodServiceServer).CanSelectArbitrarily(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MovementMethodService_CanSelectArbitrarily_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MovementMethodServiceServer).CanSelectArbitrarily(ctx, req.(*CanSelectArbitrarilyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MovementMethodService_Initialize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(InitializeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MovementMethodServiceServer).Initialize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MovementMethodService_Initialize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MovementMethodServiceServer).Initialize(ctx, req.(*InitializeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MovementMethodService_OnGenericMotionEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnGenericMotionEventRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MovementMethodServiceServer).OnGenericMotionEvent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MovementMethodService_OnGenericMotionEvent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MovementMethodServiceServer).OnGenericMotionEvent(ctx, req.(*OnGenericMotionEventRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MovementMethodService_OnKeyDown_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnKeyDownRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MovementMethodServiceServer).OnKeyDown(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MovementMethodService_OnKeyDown_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MovementMethodServiceServer).OnKeyDown(ctx, req.(*OnKeyDownRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MovementMethodService_OnKeyOther_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnKeyOtherRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MovementMethodServiceServer).OnKeyOther(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MovementMethodService_OnKeyOther_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MovementMethodServiceServer).OnKeyOther(ctx, req.(*OnKeyOtherRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MovementMethodService_OnKeyUp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnKeyUpRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MovementMethodServiceServer).OnKeyUp(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MovementMethodService_OnKeyUp_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MovementMethodServiceServer).OnKeyUp(ctx, req.(*OnKeyUpRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MovementMethodService_OnTakeFocus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnTakeFocusRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MovementMethodServiceServer).OnTakeFocus(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MovementMethodService_OnTakeFocus_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MovementMethodServiceServer).OnTakeFocus(ctx, req.(*OnTakeFocusRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MovementMethodService_OnTouchEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnTouchEventRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MovementMethodServiceServer).OnTouchEvent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MovementMethodService_OnTouchEvent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MovementMethodServiceServer).OnTouchEvent(ctx, req.(*OnTouchEventRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MovementMethodService_OnTrackballEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnTrackballEventRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MovementMethodServiceServer).OnTrackballEvent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MovementMethodService_OnTrackballEvent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MovementMethodServiceServer).OnTrackballEvent(ctx, req.(*OnTrackballEventRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// MovementMethodService_ServiceDesc is the grpc.ServiceDesc for MovementMethodService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var MovementMethodService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "method.MovementMethodService",
-	HandlerType: (*MovementMethodServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "CanSelectArbitrarily",
-			Handler:    _MovementMethodService_CanSelectArbitrarily_Handler,
-		},
-		{
-			MethodName: "Initialize",
-			Handler:    _MovementMethodService_Initialize_Handler,
-		},
-		{
-			MethodName: "OnGenericMotionEvent",
-			Handler:    _MovementMethodService_OnGenericMotionEvent_Handler,
-		},
-		{
-			MethodName: "OnKeyDown",
-			Handler:    _MovementMethodService_OnKeyDown_Handler,
-		},
-		{
-			MethodName: "OnKeyOther",
-			Handler:    _MovementMethodService_OnKeyOther_Handler,
-		},
-		{
-			MethodName: "OnKeyUp",
-			Handler:    _MovementMethodService_OnKeyUp_Handler,
-		},
-		{
-			MethodName: "OnTakeFocus",
-			Handler:    _MovementMethodService_OnTakeFocus_Handler,
-		},
-		{
-			MethodName: "OnTouchEvent",
-			Handler:    _MovementMethodService_OnTouchEvent_Handler,
-		},
-		{
-			MethodName: "OnTrackballEvent",
-			Handler:    _MovementMethodService_OnTrackballEvent_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1029,1969 +1117,6 @@ var ReplacementTransformationMethodService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	TouchService_GetInitialScrollX_FullMethodName = "/method.TouchService/GetInitialScrollX"
-	TouchService_GetInitialScrollY_FullMethodName = "/method.TouchService/GetInitialScrollY"
-	TouchService_OnTouchEvent_FullMethodName      = "/method.TouchService/OnTouchEvent"
-	TouchService_ScrollTo_FullMethodName          = "/method.TouchService/ScrollTo"
-)
-
-// TouchServiceClient is the client API for TouchService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TouchServiceClient interface {
-	GetInitialScrollX(ctx context.Context, in *GetInitialScrollXRequest, opts ...grpc.CallOption) (*GetInitialScrollXResponse, error)
-	GetInitialScrollY(ctx context.Context, in *GetInitialScrollYRequest, opts ...grpc.CallOption) (*GetInitialScrollYResponse, error)
-	OnTouchEvent(ctx context.Context, in *OnTouchEventRequest, opts ...grpc.CallOption) (*OnTouchEventResponse, error)
-	ScrollTo(ctx context.Context, in *ScrollToRequest, opts ...grpc.CallOption) (*ScrollToResponse, error)
-}
-
-type touchServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewTouchServiceClient(cc grpc.ClientConnInterface) TouchServiceClient {
-	return &touchServiceClient{cc}
-}
-
-func (c *touchServiceClient) GetInitialScrollX(ctx context.Context, in *GetInitialScrollXRequest, opts ...grpc.CallOption) (*GetInitialScrollXResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInitialScrollXResponse)
-	err := c.cc.Invoke(ctx, TouchService_GetInitialScrollX_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *touchServiceClient) GetInitialScrollY(ctx context.Context, in *GetInitialScrollYRequest, opts ...grpc.CallOption) (*GetInitialScrollYResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInitialScrollYResponse)
-	err := c.cc.Invoke(ctx, TouchService_GetInitialScrollY_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *touchServiceClient) OnTouchEvent(ctx context.Context, in *OnTouchEventRequest, opts ...grpc.CallOption) (*OnTouchEventResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnTouchEventResponse)
-	err := c.cc.Invoke(ctx, TouchService_OnTouchEvent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *touchServiceClient) ScrollTo(ctx context.Context, in *ScrollToRequest, opts ...grpc.CallOption) (*ScrollToResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ScrollToResponse)
-	err := c.cc.Invoke(ctx, TouchService_ScrollTo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// TouchServiceServer is the server API for TouchService service.
-// All implementations must embed UnimplementedTouchServiceServer
-// for forward compatibility.
-type TouchServiceServer interface {
-	GetInitialScrollX(context.Context, *GetInitialScrollXRequest) (*GetInitialScrollXResponse, error)
-	GetInitialScrollY(context.Context, *GetInitialScrollYRequest) (*GetInitialScrollYResponse, error)
-	OnTouchEvent(context.Context, *OnTouchEventRequest) (*OnTouchEventResponse, error)
-	ScrollTo(context.Context, *ScrollToRequest) (*ScrollToResponse, error)
-	mustEmbedUnimplementedTouchServiceServer()
-}
-
-// UnimplementedTouchServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedTouchServiceServer struct{}
-
-func (UnimplementedTouchServiceServer) GetInitialScrollX(context.Context, *GetInitialScrollXRequest) (*GetInitialScrollXResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInitialScrollX not implemented")
-}
-func (UnimplementedTouchServiceServer) GetInitialScrollY(context.Context, *GetInitialScrollYRequest) (*GetInitialScrollYResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInitialScrollY not implemented")
-}
-func (UnimplementedTouchServiceServer) OnTouchEvent(context.Context, *OnTouchEventRequest) (*OnTouchEventResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnTouchEvent not implemented")
-}
-func (UnimplementedTouchServiceServer) ScrollTo(context.Context, *ScrollToRequest) (*ScrollToResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ScrollTo not implemented")
-}
-func (UnimplementedTouchServiceServer) mustEmbedUnimplementedTouchServiceServer() {}
-func (UnimplementedTouchServiceServer) testEmbeddedByValue()                      {}
-
-// UnsafeTouchServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TouchServiceServer will
-// result in compilation errors.
-type UnsafeTouchServiceServer interface {
-	mustEmbedUnimplementedTouchServiceServer()
-}
-
-func RegisterTouchServiceServer(s grpc.ServiceRegistrar, srv TouchServiceServer) {
-	// If the following call panics, it indicates UnimplementedTouchServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&TouchService_ServiceDesc, srv)
-}
-
-func _TouchService_GetInitialScrollX_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInitialScrollXRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TouchServiceServer).GetInitialScrollX(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TouchService_GetInitialScrollX_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TouchServiceServer).GetInitialScrollX(ctx, req.(*GetInitialScrollXRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TouchService_GetInitialScrollY_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInitialScrollYRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TouchServiceServer).GetInitialScrollY(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TouchService_GetInitialScrollY_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TouchServiceServer).GetInitialScrollY(ctx, req.(*GetInitialScrollYRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TouchService_OnTouchEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnTouchEventRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TouchServiceServer).OnTouchEvent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TouchService_OnTouchEvent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TouchServiceServer).OnTouchEvent(ctx, req.(*OnTouchEventRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TouchService_ScrollTo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ScrollToRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TouchServiceServer).ScrollTo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TouchService_ScrollTo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TouchServiceServer).ScrollTo(ctx, req.(*ScrollToRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// TouchService_ServiceDesc is the grpc.ServiceDesc for TouchService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var TouchService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "method.TouchService",
-	HandlerType: (*TouchServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetInitialScrollX",
-			Handler:    _TouchService_GetInitialScrollX_Handler,
-		},
-		{
-			MethodName: "GetInitialScrollY",
-			Handler:    _TouchService_GetInitialScrollY_Handler,
-		},
-		{
-			MethodName: "OnTouchEvent",
-			Handler:    _TouchService_OnTouchEvent_Handler,
-		},
-		{
-			MethodName: "ScrollTo",
-			Handler:    _TouchService_ScrollTo_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/method/method.proto",
-}
-
-const (
-	ScrollingMovementMethodService_NewScrollingMovementMethod_FullMethodName = "/method.ScrollingMovementMethodService/NewScrollingMovementMethod"
-	ScrollingMovementMethodService_OnTakeFocus_FullMethodName                = "/method.ScrollingMovementMethodService/OnTakeFocus"
-	ScrollingMovementMethodService_OnTouchEvent_FullMethodName               = "/method.ScrollingMovementMethodService/OnTouchEvent"
-	ScrollingMovementMethodService_GetInstance_FullMethodName                = "/method.ScrollingMovementMethodService/GetInstance"
-)
-
-// ScrollingMovementMethodServiceClient is the client API for ScrollingMovementMethodService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ScrollingMovementMethodServiceClient interface {
-	NewScrollingMovementMethod(ctx context.Context, in *NewScrollingMovementMethodRequest, opts ...grpc.CallOption) (*NewScrollingMovementMethodResponse, error)
-	OnTakeFocus(ctx context.Context, in *ScrollingMovementMethodOnTakeFocusRequest, opts ...grpc.CallOption) (*OnTakeFocusResponse, error)
-	OnTouchEvent(ctx context.Context, in *ScrollingMovementMethodOnTouchEventRequest, opts ...grpc.CallOption) (*OnTouchEventResponse, error)
-	GetInstance(ctx context.Context, in *GetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error)
-}
-
-type scrollingMovementMethodServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewScrollingMovementMethodServiceClient(cc grpc.ClientConnInterface) ScrollingMovementMethodServiceClient {
-	return &scrollingMovementMethodServiceClient{cc}
-}
-
-func (c *scrollingMovementMethodServiceClient) NewScrollingMovementMethod(ctx context.Context, in *NewScrollingMovementMethodRequest, opts ...grpc.CallOption) (*NewScrollingMovementMethodResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewScrollingMovementMethodResponse)
-	err := c.cc.Invoke(ctx, ScrollingMovementMethodService_NewScrollingMovementMethod_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *scrollingMovementMethodServiceClient) OnTakeFocus(ctx context.Context, in *ScrollingMovementMethodOnTakeFocusRequest, opts ...grpc.CallOption) (*OnTakeFocusResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnTakeFocusResponse)
-	err := c.cc.Invoke(ctx, ScrollingMovementMethodService_OnTakeFocus_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *scrollingMovementMethodServiceClient) OnTouchEvent(ctx context.Context, in *ScrollingMovementMethodOnTouchEventRequest, opts ...grpc.CallOption) (*OnTouchEventResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnTouchEventResponse)
-	err := c.cc.Invoke(ctx, ScrollingMovementMethodService_OnTouchEvent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *scrollingMovementMethodServiceClient) GetInstance(ctx context.Context, in *GetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInstanceResponse)
-	err := c.cc.Invoke(ctx, ScrollingMovementMethodService_GetInstance_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ScrollingMovementMethodServiceServer is the server API for ScrollingMovementMethodService service.
-// All implementations must embed UnimplementedScrollingMovementMethodServiceServer
-// for forward compatibility.
-type ScrollingMovementMethodServiceServer interface {
-	NewScrollingMovementMethod(context.Context, *NewScrollingMovementMethodRequest) (*NewScrollingMovementMethodResponse, error)
-	OnTakeFocus(context.Context, *ScrollingMovementMethodOnTakeFocusRequest) (*OnTakeFocusResponse, error)
-	OnTouchEvent(context.Context, *ScrollingMovementMethodOnTouchEventRequest) (*OnTouchEventResponse, error)
-	GetInstance(context.Context, *GetInstanceRequest) (*GetInstanceResponse, error)
-	mustEmbedUnimplementedScrollingMovementMethodServiceServer()
-}
-
-// UnimplementedScrollingMovementMethodServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedScrollingMovementMethodServiceServer struct{}
-
-func (UnimplementedScrollingMovementMethodServiceServer) NewScrollingMovementMethod(context.Context, *NewScrollingMovementMethodRequest) (*NewScrollingMovementMethodResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewScrollingMovementMethod not implemented")
-}
-func (UnimplementedScrollingMovementMethodServiceServer) OnTakeFocus(context.Context, *ScrollingMovementMethodOnTakeFocusRequest) (*OnTakeFocusResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnTakeFocus not implemented")
-}
-func (UnimplementedScrollingMovementMethodServiceServer) OnTouchEvent(context.Context, *ScrollingMovementMethodOnTouchEventRequest) (*OnTouchEventResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnTouchEvent not implemented")
-}
-func (UnimplementedScrollingMovementMethodServiceServer) GetInstance(context.Context, *GetInstanceRequest) (*GetInstanceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInstance not implemented")
-}
-func (UnimplementedScrollingMovementMethodServiceServer) mustEmbedUnimplementedScrollingMovementMethodServiceServer() {
-}
-func (UnimplementedScrollingMovementMethodServiceServer) testEmbeddedByValue() {}
-
-// UnsafeScrollingMovementMethodServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ScrollingMovementMethodServiceServer will
-// result in compilation errors.
-type UnsafeScrollingMovementMethodServiceServer interface {
-	mustEmbedUnimplementedScrollingMovementMethodServiceServer()
-}
-
-func RegisterScrollingMovementMethodServiceServer(s grpc.ServiceRegistrar, srv ScrollingMovementMethodServiceServer) {
-	// If the following call panics, it indicates UnimplementedScrollingMovementMethodServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ScrollingMovementMethodService_ServiceDesc, srv)
-}
-
-func _ScrollingMovementMethodService_NewScrollingMovementMethod_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewScrollingMovementMethodRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScrollingMovementMethodServiceServer).NewScrollingMovementMethod(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScrollingMovementMethodService_NewScrollingMovementMethod_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScrollingMovementMethodServiceServer).NewScrollingMovementMethod(ctx, req.(*NewScrollingMovementMethodRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ScrollingMovementMethodService_OnTakeFocus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ScrollingMovementMethodOnTakeFocusRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScrollingMovementMethodServiceServer).OnTakeFocus(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScrollingMovementMethodService_OnTakeFocus_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScrollingMovementMethodServiceServer).OnTakeFocus(ctx, req.(*ScrollingMovementMethodOnTakeFocusRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ScrollingMovementMethodService_OnTouchEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ScrollingMovementMethodOnTouchEventRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScrollingMovementMethodServiceServer).OnTouchEvent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScrollingMovementMethodService_OnTouchEvent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScrollingMovementMethodServiceServer).OnTouchEvent(ctx, req.(*ScrollingMovementMethodOnTouchEventRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ScrollingMovementMethodService_GetInstance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInstanceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ScrollingMovementMethodServiceServer).GetInstance(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ScrollingMovementMethodService_GetInstance_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScrollingMovementMethodServiceServer).GetInstance(ctx, req.(*GetInstanceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ScrollingMovementMethodService_ServiceDesc is the grpc.ServiceDesc for ScrollingMovementMethodService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ScrollingMovementMethodService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "method.ScrollingMovementMethodService",
-	HandlerType: (*ScrollingMovementMethodServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewScrollingMovementMethod",
-			Handler:    _ScrollingMovementMethodService_NewScrollingMovementMethod_Handler,
-		},
-		{
-			MethodName: "OnTakeFocus",
-			Handler:    _ScrollingMovementMethodService_OnTakeFocus_Handler,
-		},
-		{
-			MethodName: "OnTouchEvent",
-			Handler:    _ScrollingMovementMethodService_OnTouchEvent_Handler,
-		},
-		{
-			MethodName: "GetInstance",
-			Handler:    _ScrollingMovementMethodService_GetInstance_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/method/method.proto",
-}
-
-const (
-	HideReturnsTransformationMethodService_NewHideReturnsTransformationMethod_FullMethodName = "/method.HideReturnsTransformationMethodService/NewHideReturnsTransformationMethod"
-	HideReturnsTransformationMethodService_GetInstance_FullMethodName                        = "/method.HideReturnsTransformationMethodService/GetInstance"
-)
-
-// HideReturnsTransformationMethodServiceClient is the client API for HideReturnsTransformationMethodService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type HideReturnsTransformationMethodServiceClient interface {
-	NewHideReturnsTransformationMethod(ctx context.Context, in *NewHideReturnsTransformationMethodRequest, opts ...grpc.CallOption) (*NewHideReturnsTransformationMethodResponse, error)
-	GetInstance(ctx context.Context, in *GetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error)
-}
-
-type hideReturnsTransformationMethodServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewHideReturnsTransformationMethodServiceClient(cc grpc.ClientConnInterface) HideReturnsTransformationMethodServiceClient {
-	return &hideReturnsTransformationMethodServiceClient{cc}
-}
-
-func (c *hideReturnsTransformationMethodServiceClient) NewHideReturnsTransformationMethod(ctx context.Context, in *NewHideReturnsTransformationMethodRequest, opts ...grpc.CallOption) (*NewHideReturnsTransformationMethodResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewHideReturnsTransformationMethodResponse)
-	err := c.cc.Invoke(ctx, HideReturnsTransformationMethodService_NewHideReturnsTransformationMethod_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *hideReturnsTransformationMethodServiceClient) GetInstance(ctx context.Context, in *GetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInstanceResponse)
-	err := c.cc.Invoke(ctx, HideReturnsTransformationMethodService_GetInstance_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// HideReturnsTransformationMethodServiceServer is the server API for HideReturnsTransformationMethodService service.
-// All implementations must embed UnimplementedHideReturnsTransformationMethodServiceServer
-// for forward compatibility.
-type HideReturnsTransformationMethodServiceServer interface {
-	NewHideReturnsTransformationMethod(context.Context, *NewHideReturnsTransformationMethodRequest) (*NewHideReturnsTransformationMethodResponse, error)
-	GetInstance(context.Context, *GetInstanceRequest) (*GetInstanceResponse, error)
-	mustEmbedUnimplementedHideReturnsTransformationMethodServiceServer()
-}
-
-// UnimplementedHideReturnsTransformationMethodServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedHideReturnsTransformationMethodServiceServer struct{}
-
-func (UnimplementedHideReturnsTransformationMethodServiceServer) NewHideReturnsTransformationMethod(context.Context, *NewHideReturnsTransformationMethodRequest) (*NewHideReturnsTransformationMethodResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewHideReturnsTransformationMethod not implemented")
-}
-func (UnimplementedHideReturnsTransformationMethodServiceServer) GetInstance(context.Context, *GetInstanceRequest) (*GetInstanceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInstance not implemented")
-}
-func (UnimplementedHideReturnsTransformationMethodServiceServer) mustEmbedUnimplementedHideReturnsTransformationMethodServiceServer() {
-}
-func (UnimplementedHideReturnsTransformationMethodServiceServer) testEmbeddedByValue() {}
-
-// UnsafeHideReturnsTransformationMethodServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to HideReturnsTransformationMethodServiceServer will
-// result in compilation errors.
-type UnsafeHideReturnsTransformationMethodServiceServer interface {
-	mustEmbedUnimplementedHideReturnsTransformationMethodServiceServer()
-}
-
-func RegisterHideReturnsTransformationMethodServiceServer(s grpc.ServiceRegistrar, srv HideReturnsTransformationMethodServiceServer) {
-	// If the following call panics, it indicates UnimplementedHideReturnsTransformationMethodServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&HideReturnsTransformationMethodService_ServiceDesc, srv)
-}
-
-func _HideReturnsTransformationMethodService_NewHideReturnsTransformationMethod_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewHideReturnsTransformationMethodRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HideReturnsTransformationMethodServiceServer).NewHideReturnsTransformationMethod(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: HideReturnsTransformationMethodService_NewHideReturnsTransformationMethod_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HideReturnsTransformationMethodServiceServer).NewHideReturnsTransformationMethod(ctx, req.(*NewHideReturnsTransformationMethodRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _HideReturnsTransformationMethodService_GetInstance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInstanceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(HideReturnsTransformationMethodServiceServer).GetInstance(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: HideReturnsTransformationMethodService_GetInstance_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HideReturnsTransformationMethodServiceServer).GetInstance(ctx, req.(*GetInstanceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// HideReturnsTransformationMethodService_ServiceDesc is the grpc.ServiceDesc for HideReturnsTransformationMethodService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var HideReturnsTransformationMethodService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "method.HideReturnsTransformationMethodService",
-	HandlerType: (*HideReturnsTransformationMethodServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewHideReturnsTransformationMethod",
-			Handler:    _HideReturnsTransformationMethodService_NewHideReturnsTransformationMethod_Handler,
-		},
-		{
-			MethodName: "GetInstance",
-			Handler:    _HideReturnsTransformationMethodService_GetInstance_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/method/method.proto",
-}
-
-const (
-	MultiTapKeyListenerService_NewMultiTapKeyListener_FullMethodName = "/method.MultiTapKeyListenerService/NewMultiTapKeyListener"
-	MultiTapKeyListenerService_GetInputType_FullMethodName           = "/method.MultiTapKeyListenerService/GetInputType"
-	MultiTapKeyListenerService_OnKeyDown_FullMethodName              = "/method.MultiTapKeyListenerService/OnKeyDown"
-	MultiTapKeyListenerService_OnSpanAdded_FullMethodName            = "/method.MultiTapKeyListenerService/OnSpanAdded"
-	MultiTapKeyListenerService_OnSpanChanged_FullMethodName          = "/method.MultiTapKeyListenerService/OnSpanChanged"
-	MultiTapKeyListenerService_OnSpanRemoved_FullMethodName          = "/method.MultiTapKeyListenerService/OnSpanRemoved"
-	MultiTapKeyListenerService_GetInstance_FullMethodName            = "/method.MultiTapKeyListenerService/GetInstance"
-)
-
-// MultiTapKeyListenerServiceClient is the client API for MultiTapKeyListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type MultiTapKeyListenerServiceClient interface {
-	NewMultiTapKeyListener(ctx context.Context, in *NewMultiTapKeyListenerRequest, opts ...grpc.CallOption) (*NewMultiTapKeyListenerResponse, error)
-	GetInputType(ctx context.Context, in *GetInputTypeRequest, opts ...grpc.CallOption) (*GetInputTypeResponse, error)
-	OnKeyDown(ctx context.Context, in *MultiTapKeyListenerOnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error)
-	OnSpanAdded(ctx context.Context, in *OnSpanAddedRequest, opts ...grpc.CallOption) (*OnSpanAddedResponse, error)
-	OnSpanChanged(ctx context.Context, in *OnSpanChangedRequest, opts ...grpc.CallOption) (*OnSpanChangedResponse, error)
-	OnSpanRemoved(ctx context.Context, in *OnSpanRemovedRequest, opts ...grpc.CallOption) (*OnSpanRemovedResponse, error)
-	GetInstance(ctx context.Context, in *MultiTapKeyListenerGetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error)
-}
-
-type multiTapKeyListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewMultiTapKeyListenerServiceClient(cc grpc.ClientConnInterface) MultiTapKeyListenerServiceClient {
-	return &multiTapKeyListenerServiceClient{cc}
-}
-
-func (c *multiTapKeyListenerServiceClient) NewMultiTapKeyListener(ctx context.Context, in *NewMultiTapKeyListenerRequest, opts ...grpc.CallOption) (*NewMultiTapKeyListenerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewMultiTapKeyListenerResponse)
-	err := c.cc.Invoke(ctx, MultiTapKeyListenerService_NewMultiTapKeyListener_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *multiTapKeyListenerServiceClient) GetInputType(ctx context.Context, in *GetInputTypeRequest, opts ...grpc.CallOption) (*GetInputTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInputTypeResponse)
-	err := c.cc.Invoke(ctx, MultiTapKeyListenerService_GetInputType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *multiTapKeyListenerServiceClient) OnKeyDown(ctx context.Context, in *MultiTapKeyListenerOnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnKeyDownResponse)
-	err := c.cc.Invoke(ctx, MultiTapKeyListenerService_OnKeyDown_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *multiTapKeyListenerServiceClient) OnSpanAdded(ctx context.Context, in *OnSpanAddedRequest, opts ...grpc.CallOption) (*OnSpanAddedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnSpanAddedResponse)
-	err := c.cc.Invoke(ctx, MultiTapKeyListenerService_OnSpanAdded_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *multiTapKeyListenerServiceClient) OnSpanChanged(ctx context.Context, in *OnSpanChangedRequest, opts ...grpc.CallOption) (*OnSpanChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnSpanChangedResponse)
-	err := c.cc.Invoke(ctx, MultiTapKeyListenerService_OnSpanChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *multiTapKeyListenerServiceClient) OnSpanRemoved(ctx context.Context, in *OnSpanRemovedRequest, opts ...grpc.CallOption) (*OnSpanRemovedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnSpanRemovedResponse)
-	err := c.cc.Invoke(ctx, MultiTapKeyListenerService_OnSpanRemoved_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *multiTapKeyListenerServiceClient) GetInstance(ctx context.Context, in *MultiTapKeyListenerGetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInstanceResponse)
-	err := c.cc.Invoke(ctx, MultiTapKeyListenerService_GetInstance_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// MultiTapKeyListenerServiceServer is the server API for MultiTapKeyListenerService service.
-// All implementations must embed UnimplementedMultiTapKeyListenerServiceServer
-// for forward compatibility.
-type MultiTapKeyListenerServiceServer interface {
-	NewMultiTapKeyListener(context.Context, *NewMultiTapKeyListenerRequest) (*NewMultiTapKeyListenerResponse, error)
-	GetInputType(context.Context, *GetInputTypeRequest) (*GetInputTypeResponse, error)
-	OnKeyDown(context.Context, *MultiTapKeyListenerOnKeyDownRequest) (*OnKeyDownResponse, error)
-	OnSpanAdded(context.Context, *OnSpanAddedRequest) (*OnSpanAddedResponse, error)
-	OnSpanChanged(context.Context, *OnSpanChangedRequest) (*OnSpanChangedResponse, error)
-	OnSpanRemoved(context.Context, *OnSpanRemovedRequest) (*OnSpanRemovedResponse, error)
-	GetInstance(context.Context, *MultiTapKeyListenerGetInstanceRequest) (*GetInstanceResponse, error)
-	mustEmbedUnimplementedMultiTapKeyListenerServiceServer()
-}
-
-// UnimplementedMultiTapKeyListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedMultiTapKeyListenerServiceServer struct{}
-
-func (UnimplementedMultiTapKeyListenerServiceServer) NewMultiTapKeyListener(context.Context, *NewMultiTapKeyListenerRequest) (*NewMultiTapKeyListenerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewMultiTapKeyListener not implemented")
-}
-func (UnimplementedMultiTapKeyListenerServiceServer) GetInputType(context.Context, *GetInputTypeRequest) (*GetInputTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInputType not implemented")
-}
-func (UnimplementedMultiTapKeyListenerServiceServer) OnKeyDown(context.Context, *MultiTapKeyListenerOnKeyDownRequest) (*OnKeyDownResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnKeyDown not implemented")
-}
-func (UnimplementedMultiTapKeyListenerServiceServer) OnSpanAdded(context.Context, *OnSpanAddedRequest) (*OnSpanAddedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnSpanAdded not implemented")
-}
-func (UnimplementedMultiTapKeyListenerServiceServer) OnSpanChanged(context.Context, *OnSpanChangedRequest) (*OnSpanChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnSpanChanged not implemented")
-}
-func (UnimplementedMultiTapKeyListenerServiceServer) OnSpanRemoved(context.Context, *OnSpanRemovedRequest) (*OnSpanRemovedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnSpanRemoved not implemented")
-}
-func (UnimplementedMultiTapKeyListenerServiceServer) GetInstance(context.Context, *MultiTapKeyListenerGetInstanceRequest) (*GetInstanceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInstance not implemented")
-}
-func (UnimplementedMultiTapKeyListenerServiceServer) mustEmbedUnimplementedMultiTapKeyListenerServiceServer() {
-}
-func (UnimplementedMultiTapKeyListenerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeMultiTapKeyListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to MultiTapKeyListenerServiceServer will
-// result in compilation errors.
-type UnsafeMultiTapKeyListenerServiceServer interface {
-	mustEmbedUnimplementedMultiTapKeyListenerServiceServer()
-}
-
-func RegisterMultiTapKeyListenerServiceServer(s grpc.ServiceRegistrar, srv MultiTapKeyListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedMultiTapKeyListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&MultiTapKeyListenerService_ServiceDesc, srv)
-}
-
-func _MultiTapKeyListenerService_NewMultiTapKeyListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewMultiTapKeyListenerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MultiTapKeyListenerServiceServer).NewMultiTapKeyListener(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MultiTapKeyListenerService_NewMultiTapKeyListener_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MultiTapKeyListenerServiceServer).NewMultiTapKeyListener(ctx, req.(*NewMultiTapKeyListenerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MultiTapKeyListenerService_GetInputType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInputTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MultiTapKeyListenerServiceServer).GetInputType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MultiTapKeyListenerService_GetInputType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MultiTapKeyListenerServiceServer).GetInputType(ctx, req.(*GetInputTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MultiTapKeyListenerService_OnKeyDown_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MultiTapKeyListenerOnKeyDownRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MultiTapKeyListenerServiceServer).OnKeyDown(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MultiTapKeyListenerService_OnKeyDown_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MultiTapKeyListenerServiceServer).OnKeyDown(ctx, req.(*MultiTapKeyListenerOnKeyDownRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MultiTapKeyListenerService_OnSpanAdded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnSpanAddedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MultiTapKeyListenerServiceServer).OnSpanAdded(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MultiTapKeyListenerService_OnSpanAdded_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MultiTapKeyListenerServiceServer).OnSpanAdded(ctx, req.(*OnSpanAddedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MultiTapKeyListenerService_OnSpanChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnSpanChangedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MultiTapKeyListenerServiceServer).OnSpanChanged(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MultiTapKeyListenerService_OnSpanChanged_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MultiTapKeyListenerServiceServer).OnSpanChanged(ctx, req.(*OnSpanChangedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MultiTapKeyListenerService_OnSpanRemoved_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnSpanRemovedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MultiTapKeyListenerServiceServer).OnSpanRemoved(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MultiTapKeyListenerService_OnSpanRemoved_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MultiTapKeyListenerServiceServer).OnSpanRemoved(ctx, req.(*OnSpanRemovedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MultiTapKeyListenerService_GetInstance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MultiTapKeyListenerGetInstanceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MultiTapKeyListenerServiceServer).GetInstance(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MultiTapKeyListenerService_GetInstance_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MultiTapKeyListenerServiceServer).GetInstance(ctx, req.(*MultiTapKeyListenerGetInstanceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// MultiTapKeyListenerService_ServiceDesc is the grpc.ServiceDesc for MultiTapKeyListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var MultiTapKeyListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "method.MultiTapKeyListenerService",
-	HandlerType: (*MultiTapKeyListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewMultiTapKeyListener",
-			Handler:    _MultiTapKeyListenerService_NewMultiTapKeyListener_Handler,
-		},
-		{
-			MethodName: "GetInputType",
-			Handler:    _MultiTapKeyListenerService_GetInputType_Handler,
-		},
-		{
-			MethodName: "OnKeyDown",
-			Handler:    _MultiTapKeyListenerService_OnKeyDown_Handler,
-		},
-		{
-			MethodName: "OnSpanAdded",
-			Handler:    _MultiTapKeyListenerService_OnSpanAdded_Handler,
-		},
-		{
-			MethodName: "OnSpanChanged",
-			Handler:    _MultiTapKeyListenerService_OnSpanChanged_Handler,
-		},
-		{
-			MethodName: "OnSpanRemoved",
-			Handler:    _MultiTapKeyListenerService_OnSpanRemoved_Handler,
-		},
-		{
-			MethodName: "GetInstance",
-			Handler:    _MultiTapKeyListenerService_GetInstance_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/method/method.proto",
-}
-
-const (
-	DigitsKeyListenerService_NewDigitsKeyListener_FullMethodName = "/method.DigitsKeyListenerService/NewDigitsKeyListener"
-	DigitsKeyListenerService_Filter_FullMethodName               = "/method.DigitsKeyListenerService/Filter"
-	DigitsKeyListenerService_GetInputType_FullMethodName         = "/method.DigitsKeyListenerService/GetInputType"
-	DigitsKeyListenerService_GetInstance0_FullMethodName         = "/method.DigitsKeyListenerService/GetInstance0"
-	DigitsKeyListenerService_GetInstance2_1_FullMethodName       = "/method.DigitsKeyListenerService/GetInstance2_1"
-	DigitsKeyListenerService_GetInstance1_2_FullMethodName       = "/method.DigitsKeyListenerService/GetInstance1_2"
-	DigitsKeyListenerService_GetInstance1_3_FullMethodName       = "/method.DigitsKeyListenerService/GetInstance1_3"
-	DigitsKeyListenerService_GetInstance3_4_FullMethodName       = "/method.DigitsKeyListenerService/GetInstance3_4"
-)
-
-// DigitsKeyListenerServiceClient is the client API for DigitsKeyListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DigitsKeyListenerServiceClient interface {
-	NewDigitsKeyListener(ctx context.Context, in *NewDigitsKeyListenerRequest, opts ...grpc.CallOption) (*NewDigitsKeyListenerResponse, error)
-	Filter(ctx context.Context, in *DigitsKeyListenerFilterRequest, opts ...grpc.CallOption) (*FilterResponse, error)
-	GetInputType(ctx context.Context, in *GetInputTypeRequest, opts ...grpc.CallOption) (*GetInputTypeResponse, error)
-	GetInstance0(ctx context.Context, in *GetInstance0Request, opts ...grpc.CallOption) (*GetInstance0Response, error)
-	GetInstance2_1(ctx context.Context, in *GetInstance2_1Request, opts ...grpc.CallOption) (*GetInstance2_1Response, error)
-	GetInstance1_2(ctx context.Context, in *GetInstance1_2Request, opts ...grpc.CallOption) (*GetInstance1_2Response, error)
-	GetInstance1_3(ctx context.Context, in *GetInstance1_3Request, opts ...grpc.CallOption) (*GetInstance1_3Response, error)
-	GetInstance3_4(ctx context.Context, in *GetInstance3_4Request, opts ...grpc.CallOption) (*GetInstance3_4Response, error)
-}
-
-type digitsKeyListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewDigitsKeyListenerServiceClient(cc grpc.ClientConnInterface) DigitsKeyListenerServiceClient {
-	return &digitsKeyListenerServiceClient{cc}
-}
-
-func (c *digitsKeyListenerServiceClient) NewDigitsKeyListener(ctx context.Context, in *NewDigitsKeyListenerRequest, opts ...grpc.CallOption) (*NewDigitsKeyListenerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewDigitsKeyListenerResponse)
-	err := c.cc.Invoke(ctx, DigitsKeyListenerService_NewDigitsKeyListener_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *digitsKeyListenerServiceClient) Filter(ctx context.Context, in *DigitsKeyListenerFilterRequest, opts ...grpc.CallOption) (*FilterResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FilterResponse)
-	err := c.cc.Invoke(ctx, DigitsKeyListenerService_Filter_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *digitsKeyListenerServiceClient) GetInputType(ctx context.Context, in *GetInputTypeRequest, opts ...grpc.CallOption) (*GetInputTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInputTypeResponse)
-	err := c.cc.Invoke(ctx, DigitsKeyListenerService_GetInputType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *digitsKeyListenerServiceClient) GetInstance0(ctx context.Context, in *GetInstance0Request, opts ...grpc.CallOption) (*GetInstance0Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInstance0Response)
-	err := c.cc.Invoke(ctx, DigitsKeyListenerService_GetInstance0_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *digitsKeyListenerServiceClient) GetInstance2_1(ctx context.Context, in *GetInstance2_1Request, opts ...grpc.CallOption) (*GetInstance2_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInstance2_1Response)
-	err := c.cc.Invoke(ctx, DigitsKeyListenerService_GetInstance2_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *digitsKeyListenerServiceClient) GetInstance1_2(ctx context.Context, in *GetInstance1_2Request, opts ...grpc.CallOption) (*GetInstance1_2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInstance1_2Response)
-	err := c.cc.Invoke(ctx, DigitsKeyListenerService_GetInstance1_2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *digitsKeyListenerServiceClient) GetInstance1_3(ctx context.Context, in *GetInstance1_3Request, opts ...grpc.CallOption) (*GetInstance1_3Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInstance1_3Response)
-	err := c.cc.Invoke(ctx, DigitsKeyListenerService_GetInstance1_3_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *digitsKeyListenerServiceClient) GetInstance3_4(ctx context.Context, in *GetInstance3_4Request, opts ...grpc.CallOption) (*GetInstance3_4Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInstance3_4Response)
-	err := c.cc.Invoke(ctx, DigitsKeyListenerService_GetInstance3_4_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DigitsKeyListenerServiceServer is the server API for DigitsKeyListenerService service.
-// All implementations must embed UnimplementedDigitsKeyListenerServiceServer
-// for forward compatibility.
-type DigitsKeyListenerServiceServer interface {
-	NewDigitsKeyListener(context.Context, *NewDigitsKeyListenerRequest) (*NewDigitsKeyListenerResponse, error)
-	Filter(context.Context, *DigitsKeyListenerFilterRequest) (*FilterResponse, error)
-	GetInputType(context.Context, *GetInputTypeRequest) (*GetInputTypeResponse, error)
-	GetInstance0(context.Context, *GetInstance0Request) (*GetInstance0Response, error)
-	GetInstance2_1(context.Context, *GetInstance2_1Request) (*GetInstance2_1Response, error)
-	GetInstance1_2(context.Context, *GetInstance1_2Request) (*GetInstance1_2Response, error)
-	GetInstance1_3(context.Context, *GetInstance1_3Request) (*GetInstance1_3Response, error)
-	GetInstance3_4(context.Context, *GetInstance3_4Request) (*GetInstance3_4Response, error)
-	mustEmbedUnimplementedDigitsKeyListenerServiceServer()
-}
-
-// UnimplementedDigitsKeyListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedDigitsKeyListenerServiceServer struct{}
-
-func (UnimplementedDigitsKeyListenerServiceServer) NewDigitsKeyListener(context.Context, *NewDigitsKeyListenerRequest) (*NewDigitsKeyListenerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewDigitsKeyListener not implemented")
-}
-func (UnimplementedDigitsKeyListenerServiceServer) Filter(context.Context, *DigitsKeyListenerFilterRequest) (*FilterResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Filter not implemented")
-}
-func (UnimplementedDigitsKeyListenerServiceServer) GetInputType(context.Context, *GetInputTypeRequest) (*GetInputTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInputType not implemented")
-}
-func (UnimplementedDigitsKeyListenerServiceServer) GetInstance0(context.Context, *GetInstance0Request) (*GetInstance0Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInstance0 not implemented")
-}
-func (UnimplementedDigitsKeyListenerServiceServer) GetInstance2_1(context.Context, *GetInstance2_1Request) (*GetInstance2_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInstance2_1 not implemented")
-}
-func (UnimplementedDigitsKeyListenerServiceServer) GetInstance1_2(context.Context, *GetInstance1_2Request) (*GetInstance1_2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInstance1_2 not implemented")
-}
-func (UnimplementedDigitsKeyListenerServiceServer) GetInstance1_3(context.Context, *GetInstance1_3Request) (*GetInstance1_3Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInstance1_3 not implemented")
-}
-func (UnimplementedDigitsKeyListenerServiceServer) GetInstance3_4(context.Context, *GetInstance3_4Request) (*GetInstance3_4Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInstance3_4 not implemented")
-}
-func (UnimplementedDigitsKeyListenerServiceServer) mustEmbedUnimplementedDigitsKeyListenerServiceServer() {
-}
-func (UnimplementedDigitsKeyListenerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeDigitsKeyListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DigitsKeyListenerServiceServer will
-// result in compilation errors.
-type UnsafeDigitsKeyListenerServiceServer interface {
-	mustEmbedUnimplementedDigitsKeyListenerServiceServer()
-}
-
-func RegisterDigitsKeyListenerServiceServer(s grpc.ServiceRegistrar, srv DigitsKeyListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedDigitsKeyListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&DigitsKeyListenerService_ServiceDesc, srv)
-}
-
-func _DigitsKeyListenerService_NewDigitsKeyListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewDigitsKeyListenerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DigitsKeyListenerServiceServer).NewDigitsKeyListener(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DigitsKeyListenerService_NewDigitsKeyListener_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DigitsKeyListenerServiceServer).NewDigitsKeyListener(ctx, req.(*NewDigitsKeyListenerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DigitsKeyListenerService_Filter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DigitsKeyListenerFilterRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DigitsKeyListenerServiceServer).Filter(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DigitsKeyListenerService_Filter_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DigitsKeyListenerServiceServer).Filter(ctx, req.(*DigitsKeyListenerFilterRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DigitsKeyListenerService_GetInputType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInputTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DigitsKeyListenerServiceServer).GetInputType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DigitsKeyListenerService_GetInputType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DigitsKeyListenerServiceServer).GetInputType(ctx, req.(*GetInputTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DigitsKeyListenerService_GetInstance0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInstance0Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DigitsKeyListenerServiceServer).GetInstance0(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DigitsKeyListenerService_GetInstance0_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DigitsKeyListenerServiceServer).GetInstance0(ctx, req.(*GetInstance0Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DigitsKeyListenerService_GetInstance2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInstance2_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DigitsKeyListenerServiceServer).GetInstance2_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DigitsKeyListenerService_GetInstance2_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DigitsKeyListenerServiceServer).GetInstance2_1(ctx, req.(*GetInstance2_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DigitsKeyListenerService_GetInstance1_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInstance1_2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DigitsKeyListenerServiceServer).GetInstance1_2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DigitsKeyListenerService_GetInstance1_2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DigitsKeyListenerServiceServer).GetInstance1_2(ctx, req.(*GetInstance1_2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DigitsKeyListenerService_GetInstance1_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInstance1_3Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DigitsKeyListenerServiceServer).GetInstance1_3(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DigitsKeyListenerService_GetInstance1_3_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DigitsKeyListenerServiceServer).GetInstance1_3(ctx, req.(*GetInstance1_3Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DigitsKeyListenerService_GetInstance3_4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInstance3_4Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DigitsKeyListenerServiceServer).GetInstance3_4(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DigitsKeyListenerService_GetInstance3_4_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DigitsKeyListenerServiceServer).GetInstance3_4(ctx, req.(*GetInstance3_4Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DigitsKeyListenerService_ServiceDesc is the grpc.ServiceDesc for DigitsKeyListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var DigitsKeyListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "method.DigitsKeyListenerService",
-	HandlerType: (*DigitsKeyListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewDigitsKeyListener",
-			Handler:    _DigitsKeyListenerService_NewDigitsKeyListener_Handler,
-		},
-		{
-			MethodName: "Filter",
-			Handler:    _DigitsKeyListenerService_Filter_Handler,
-		},
-		{
-			MethodName: "GetInputType",
-			Handler:    _DigitsKeyListenerService_GetInputType_Handler,
-		},
-		{
-			MethodName: "GetInstance0",
-			Handler:    _DigitsKeyListenerService_GetInstance0_Handler,
-		},
-		{
-			MethodName: "GetInstance2_1",
-			Handler:    _DigitsKeyListenerService_GetInstance2_1_Handler,
-		},
-		{
-			MethodName: "GetInstance1_2",
-			Handler:    _DigitsKeyListenerService_GetInstance1_2_Handler,
-		},
-		{
-			MethodName: "GetInstance1_3",
-			Handler:    _DigitsKeyListenerService_GetInstance1_3_Handler,
-		},
-		{
-			MethodName: "GetInstance3_4",
-			Handler:    _DigitsKeyListenerService_GetInstance3_4_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/method/method.proto",
-}
-
-const (
-	DialerKeyListenerService_NewDialerKeyListener_FullMethodName = "/method.DialerKeyListenerService/NewDialerKeyListener"
-	DialerKeyListenerService_GetInputType_FullMethodName         = "/method.DialerKeyListenerService/GetInputType"
-	DialerKeyListenerService_GetInstance_FullMethodName          = "/method.DialerKeyListenerService/GetInstance"
-)
-
-// DialerKeyListenerServiceClient is the client API for DialerKeyListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DialerKeyListenerServiceClient interface {
-	NewDialerKeyListener(ctx context.Context, in *NewDialerKeyListenerRequest, opts ...grpc.CallOption) (*NewDialerKeyListenerResponse, error)
-	GetInputType(ctx context.Context, in *GetInputTypeRequest, opts ...grpc.CallOption) (*GetInputTypeResponse, error)
-	GetInstance(ctx context.Context, in *GetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error)
-}
-
-type dialerKeyListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewDialerKeyListenerServiceClient(cc grpc.ClientConnInterface) DialerKeyListenerServiceClient {
-	return &dialerKeyListenerServiceClient{cc}
-}
-
-func (c *dialerKeyListenerServiceClient) NewDialerKeyListener(ctx context.Context, in *NewDialerKeyListenerRequest, opts ...grpc.CallOption) (*NewDialerKeyListenerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewDialerKeyListenerResponse)
-	err := c.cc.Invoke(ctx, DialerKeyListenerService_NewDialerKeyListener_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dialerKeyListenerServiceClient) GetInputType(ctx context.Context, in *GetInputTypeRequest, opts ...grpc.CallOption) (*GetInputTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInputTypeResponse)
-	err := c.cc.Invoke(ctx, DialerKeyListenerService_GetInputType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dialerKeyListenerServiceClient) GetInstance(ctx context.Context, in *GetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInstanceResponse)
-	err := c.cc.Invoke(ctx, DialerKeyListenerService_GetInstance_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DialerKeyListenerServiceServer is the server API for DialerKeyListenerService service.
-// All implementations must embed UnimplementedDialerKeyListenerServiceServer
-// for forward compatibility.
-type DialerKeyListenerServiceServer interface {
-	NewDialerKeyListener(context.Context, *NewDialerKeyListenerRequest) (*NewDialerKeyListenerResponse, error)
-	GetInputType(context.Context, *GetInputTypeRequest) (*GetInputTypeResponse, error)
-	GetInstance(context.Context, *GetInstanceRequest) (*GetInstanceResponse, error)
-	mustEmbedUnimplementedDialerKeyListenerServiceServer()
-}
-
-// UnimplementedDialerKeyListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedDialerKeyListenerServiceServer struct{}
-
-func (UnimplementedDialerKeyListenerServiceServer) NewDialerKeyListener(context.Context, *NewDialerKeyListenerRequest) (*NewDialerKeyListenerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewDialerKeyListener not implemented")
-}
-func (UnimplementedDialerKeyListenerServiceServer) GetInputType(context.Context, *GetInputTypeRequest) (*GetInputTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInputType not implemented")
-}
-func (UnimplementedDialerKeyListenerServiceServer) GetInstance(context.Context, *GetInstanceRequest) (*GetInstanceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInstance not implemented")
-}
-func (UnimplementedDialerKeyListenerServiceServer) mustEmbedUnimplementedDialerKeyListenerServiceServer() {
-}
-func (UnimplementedDialerKeyListenerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeDialerKeyListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DialerKeyListenerServiceServer will
-// result in compilation errors.
-type UnsafeDialerKeyListenerServiceServer interface {
-	mustEmbedUnimplementedDialerKeyListenerServiceServer()
-}
-
-func RegisterDialerKeyListenerServiceServer(s grpc.ServiceRegistrar, srv DialerKeyListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedDialerKeyListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&DialerKeyListenerService_ServiceDesc, srv)
-}
-
-func _DialerKeyListenerService_NewDialerKeyListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewDialerKeyListenerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DialerKeyListenerServiceServer).NewDialerKeyListener(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DialerKeyListenerService_NewDialerKeyListener_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DialerKeyListenerServiceServer).NewDialerKeyListener(ctx, req.(*NewDialerKeyListenerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DialerKeyListenerService_GetInputType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInputTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DialerKeyListenerServiceServer).GetInputType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DialerKeyListenerService_GetInputType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DialerKeyListenerServiceServer).GetInputType(ctx, req.(*GetInputTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DialerKeyListenerService_GetInstance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInstanceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DialerKeyListenerServiceServer).GetInstance(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DialerKeyListenerService_GetInstance_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DialerKeyListenerServiceServer).GetInstance(ctx, req.(*GetInstanceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DialerKeyListenerService_ServiceDesc is the grpc.ServiceDesc for DialerKeyListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var DialerKeyListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "method.DialerKeyListenerService",
-	HandlerType: (*DialerKeyListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewDialerKeyListener",
-			Handler:    _DialerKeyListenerService_NewDialerKeyListener_Handler,
-		},
-		{
-			MethodName: "GetInputType",
-			Handler:    _DialerKeyListenerService_GetInputType_Handler,
-		},
-		{
-			MethodName: "GetInstance",
-			Handler:    _DialerKeyListenerService_GetInstance_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/method/method.proto",
-}
-
-const (
-	TimeKeyListenerService_NewTimeKeyListener_FullMethodName = "/method.TimeKeyListenerService/NewTimeKeyListener"
-	TimeKeyListenerService_GetInputType_FullMethodName       = "/method.TimeKeyListenerService/GetInputType"
-	TimeKeyListenerService_GetInstance0_FullMethodName       = "/method.TimeKeyListenerService/GetInstance0"
-	TimeKeyListenerService_GetInstance1_1_FullMethodName     = "/method.TimeKeyListenerService/GetInstance1_1"
-)
-
-// TimeKeyListenerServiceClient is the client API for TimeKeyListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TimeKeyListenerServiceClient interface {
-	NewTimeKeyListener(ctx context.Context, in *NewTimeKeyListenerRequest, opts ...grpc.CallOption) (*NewTimeKeyListenerResponse, error)
-	GetInputType(ctx context.Context, in *GetInputTypeRequest, opts ...grpc.CallOption) (*GetInputTypeResponse, error)
-	GetInstance0(ctx context.Context, in *GetInstance0Request, opts ...grpc.CallOption) (*GetInstance0Response, error)
-	GetInstance1_1(ctx context.Context, in *GetInstance1_1Request, opts ...grpc.CallOption) (*GetInstance1_1Response, error)
-}
-
-type timeKeyListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewTimeKeyListenerServiceClient(cc grpc.ClientConnInterface) TimeKeyListenerServiceClient {
-	return &timeKeyListenerServiceClient{cc}
-}
-
-func (c *timeKeyListenerServiceClient) NewTimeKeyListener(ctx context.Context, in *NewTimeKeyListenerRequest, opts ...grpc.CallOption) (*NewTimeKeyListenerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewTimeKeyListenerResponse)
-	err := c.cc.Invoke(ctx, TimeKeyListenerService_NewTimeKeyListener_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *timeKeyListenerServiceClient) GetInputType(ctx context.Context, in *GetInputTypeRequest, opts ...grpc.CallOption) (*GetInputTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInputTypeResponse)
-	err := c.cc.Invoke(ctx, TimeKeyListenerService_GetInputType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *timeKeyListenerServiceClient) GetInstance0(ctx context.Context, in *GetInstance0Request, opts ...grpc.CallOption) (*GetInstance0Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInstance0Response)
-	err := c.cc.Invoke(ctx, TimeKeyListenerService_GetInstance0_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *timeKeyListenerServiceClient) GetInstance1_1(ctx context.Context, in *GetInstance1_1Request, opts ...grpc.CallOption) (*GetInstance1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInstance1_1Response)
-	err := c.cc.Invoke(ctx, TimeKeyListenerService_GetInstance1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// TimeKeyListenerServiceServer is the server API for TimeKeyListenerService service.
-// All implementations must embed UnimplementedTimeKeyListenerServiceServer
-// for forward compatibility.
-type TimeKeyListenerServiceServer interface {
-	NewTimeKeyListener(context.Context, *NewTimeKeyListenerRequest) (*NewTimeKeyListenerResponse, error)
-	GetInputType(context.Context, *GetInputTypeRequest) (*GetInputTypeResponse, error)
-	GetInstance0(context.Context, *GetInstance0Request) (*GetInstance0Response, error)
-	GetInstance1_1(context.Context, *GetInstance1_1Request) (*GetInstance1_1Response, error)
-	mustEmbedUnimplementedTimeKeyListenerServiceServer()
-}
-
-// UnimplementedTimeKeyListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedTimeKeyListenerServiceServer struct{}
-
-func (UnimplementedTimeKeyListenerServiceServer) NewTimeKeyListener(context.Context, *NewTimeKeyListenerRequest) (*NewTimeKeyListenerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewTimeKeyListener not implemented")
-}
-func (UnimplementedTimeKeyListenerServiceServer) GetInputType(context.Context, *GetInputTypeRequest) (*GetInputTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInputType not implemented")
-}
-func (UnimplementedTimeKeyListenerServiceServer) GetInstance0(context.Context, *GetInstance0Request) (*GetInstance0Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInstance0 not implemented")
-}
-func (UnimplementedTimeKeyListenerServiceServer) GetInstance1_1(context.Context, *GetInstance1_1Request) (*GetInstance1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInstance1_1 not implemented")
-}
-func (UnimplementedTimeKeyListenerServiceServer) mustEmbedUnimplementedTimeKeyListenerServiceServer() {
-}
-func (UnimplementedTimeKeyListenerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeTimeKeyListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TimeKeyListenerServiceServer will
-// result in compilation errors.
-type UnsafeTimeKeyListenerServiceServer interface {
-	mustEmbedUnimplementedTimeKeyListenerServiceServer()
-}
-
-func RegisterTimeKeyListenerServiceServer(s grpc.ServiceRegistrar, srv TimeKeyListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedTimeKeyListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&TimeKeyListenerService_ServiceDesc, srv)
-}
-
-func _TimeKeyListenerService_NewTimeKeyListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewTimeKeyListenerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TimeKeyListenerServiceServer).NewTimeKeyListener(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TimeKeyListenerService_NewTimeKeyListener_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TimeKeyListenerServiceServer).NewTimeKeyListener(ctx, req.(*NewTimeKeyListenerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TimeKeyListenerService_GetInputType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInputTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TimeKeyListenerServiceServer).GetInputType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TimeKeyListenerService_GetInputType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TimeKeyListenerServiceServer).GetInputType(ctx, req.(*GetInputTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TimeKeyListenerService_GetInstance0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInstance0Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TimeKeyListenerServiceServer).GetInstance0(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TimeKeyListenerService_GetInstance0_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TimeKeyListenerServiceServer).GetInstance0(ctx, req.(*GetInstance0Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TimeKeyListenerService_GetInstance1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInstance1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TimeKeyListenerServiceServer).GetInstance1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TimeKeyListenerService_GetInstance1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TimeKeyListenerServiceServer).GetInstance1_1(ctx, req.(*GetInstance1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// TimeKeyListenerService_ServiceDesc is the grpc.ServiceDesc for TimeKeyListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var TimeKeyListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "method.TimeKeyListenerService",
-	HandlerType: (*TimeKeyListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewTimeKeyListener",
-			Handler:    _TimeKeyListenerService_NewTimeKeyListener_Handler,
-		},
-		{
-			MethodName: "GetInputType",
-			Handler:    _TimeKeyListenerService_GetInputType_Handler,
-		},
-		{
-			MethodName: "GetInstance0",
-			Handler:    _TimeKeyListenerService_GetInstance0_Handler,
-		},
-		{
-			MethodName: "GetInstance1_1",
-			Handler:    _TimeKeyListenerService_GetInstance1_1_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/method/method.proto",
-}
-
-const (
-	QwertyKeyListenerService_NewQwertyKeyListener_FullMethodName       = "/method.QwertyKeyListenerService/NewQwertyKeyListener"
-	QwertyKeyListenerService_GetInputType_FullMethodName               = "/method.QwertyKeyListenerService/GetInputType"
-	QwertyKeyListenerService_OnKeyDown_FullMethodName                  = "/method.QwertyKeyListenerService/OnKeyDown"
-	QwertyKeyListenerService_GetInstance_FullMethodName                = "/method.QwertyKeyListenerService/GetInstance"
-	QwertyKeyListenerService_GetInstanceForFullKeyboard_FullMethodName = "/method.QwertyKeyListenerService/GetInstanceForFullKeyboard"
-	QwertyKeyListenerService_MarkAsReplaced_FullMethodName             = "/method.QwertyKeyListenerService/MarkAsReplaced"
-)
-
-// QwertyKeyListenerServiceClient is the client API for QwertyKeyListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type QwertyKeyListenerServiceClient interface {
-	NewQwertyKeyListener(ctx context.Context, in *NewQwertyKeyListenerRequest, opts ...grpc.CallOption) (*NewQwertyKeyListenerResponse, error)
-	GetInputType(ctx context.Context, in *GetInputTypeRequest, opts ...grpc.CallOption) (*GetInputTypeResponse, error)
-	OnKeyDown(ctx context.Context, in *QwertyKeyListenerOnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error)
-	GetInstance(ctx context.Context, in *QwertyKeyListenerGetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error)
-	GetInstanceForFullKeyboard(ctx context.Context, in *GetInstanceForFullKeyboardRequest, opts ...grpc.CallOption) (*GetInstanceForFullKeyboardResponse, error)
-	MarkAsReplaced(ctx context.Context, in *MarkAsReplacedRequest, opts ...grpc.CallOption) (*MarkAsReplacedResponse, error)
-}
-
-type qwertyKeyListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewQwertyKeyListenerServiceClient(cc grpc.ClientConnInterface) QwertyKeyListenerServiceClient {
-	return &qwertyKeyListenerServiceClient{cc}
-}
-
-func (c *qwertyKeyListenerServiceClient) NewQwertyKeyListener(ctx context.Context, in *NewQwertyKeyListenerRequest, opts ...grpc.CallOption) (*NewQwertyKeyListenerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewQwertyKeyListenerResponse)
-	err := c.cc.Invoke(ctx, QwertyKeyListenerService_NewQwertyKeyListener_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *qwertyKeyListenerServiceClient) GetInputType(ctx context.Context, in *GetInputTypeRequest, opts ...grpc.CallOption) (*GetInputTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInputTypeResponse)
-	err := c.cc.Invoke(ctx, QwertyKeyListenerService_GetInputType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *qwertyKeyListenerServiceClient) OnKeyDown(ctx context.Context, in *QwertyKeyListenerOnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnKeyDownResponse)
-	err := c.cc.Invoke(ctx, QwertyKeyListenerService_OnKeyDown_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *qwertyKeyListenerServiceClient) GetInstance(ctx context.Context, in *QwertyKeyListenerGetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInstanceResponse)
-	err := c.cc.Invoke(ctx, QwertyKeyListenerService_GetInstance_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *qwertyKeyListenerServiceClient) GetInstanceForFullKeyboard(ctx context.Context, in *GetInstanceForFullKeyboardRequest, opts ...grpc.CallOption) (*GetInstanceForFullKeyboardResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInstanceForFullKeyboardResponse)
-	err := c.cc.Invoke(ctx, QwertyKeyListenerService_GetInstanceForFullKeyboard_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *qwertyKeyListenerServiceClient) MarkAsReplaced(ctx context.Context, in *MarkAsReplacedRequest, opts ...grpc.CallOption) (*MarkAsReplacedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MarkAsReplacedResponse)
-	err := c.cc.Invoke(ctx, QwertyKeyListenerService_MarkAsReplaced_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// QwertyKeyListenerServiceServer is the server API for QwertyKeyListenerService service.
-// All implementations must embed UnimplementedQwertyKeyListenerServiceServer
-// for forward compatibility.
-type QwertyKeyListenerServiceServer interface {
-	NewQwertyKeyListener(context.Context, *NewQwertyKeyListenerRequest) (*NewQwertyKeyListenerResponse, error)
-	GetInputType(context.Context, *GetInputTypeRequest) (*GetInputTypeResponse, error)
-	OnKeyDown(context.Context, *QwertyKeyListenerOnKeyDownRequest) (*OnKeyDownResponse, error)
-	GetInstance(context.Context, *QwertyKeyListenerGetInstanceRequest) (*GetInstanceResponse, error)
-	GetInstanceForFullKeyboard(context.Context, *GetInstanceForFullKeyboardRequest) (*GetInstanceForFullKeyboardResponse, error)
-	MarkAsReplaced(context.Context, *MarkAsReplacedRequest) (*MarkAsReplacedResponse, error)
-	mustEmbedUnimplementedQwertyKeyListenerServiceServer()
-}
-
-// UnimplementedQwertyKeyListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedQwertyKeyListenerServiceServer struct{}
-
-func (UnimplementedQwertyKeyListenerServiceServer) NewQwertyKeyListener(context.Context, *NewQwertyKeyListenerRequest) (*NewQwertyKeyListenerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewQwertyKeyListener not implemented")
-}
-func (UnimplementedQwertyKeyListenerServiceServer) GetInputType(context.Context, *GetInputTypeRequest) (*GetInputTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInputType not implemented")
-}
-func (UnimplementedQwertyKeyListenerServiceServer) OnKeyDown(context.Context, *QwertyKeyListenerOnKeyDownRequest) (*OnKeyDownResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnKeyDown not implemented")
-}
-func (UnimplementedQwertyKeyListenerServiceServer) GetInstance(context.Context, *QwertyKeyListenerGetInstanceRequest) (*GetInstanceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInstance not implemented")
-}
-func (UnimplementedQwertyKeyListenerServiceServer) GetInstanceForFullKeyboard(context.Context, *GetInstanceForFullKeyboardRequest) (*GetInstanceForFullKeyboardResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInstanceForFullKeyboard not implemented")
-}
-func (UnimplementedQwertyKeyListenerServiceServer) MarkAsReplaced(context.Context, *MarkAsReplacedRequest) (*MarkAsReplacedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method MarkAsReplaced not implemented")
-}
-func (UnimplementedQwertyKeyListenerServiceServer) mustEmbedUnimplementedQwertyKeyListenerServiceServer() {
-}
-func (UnimplementedQwertyKeyListenerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeQwertyKeyListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to QwertyKeyListenerServiceServer will
-// result in compilation errors.
-type UnsafeQwertyKeyListenerServiceServer interface {
-	mustEmbedUnimplementedQwertyKeyListenerServiceServer()
-}
-
-func RegisterQwertyKeyListenerServiceServer(s grpc.ServiceRegistrar, srv QwertyKeyListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedQwertyKeyListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&QwertyKeyListenerService_ServiceDesc, srv)
-}
-
-func _QwertyKeyListenerService_NewQwertyKeyListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewQwertyKeyListenerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(QwertyKeyListenerServiceServer).NewQwertyKeyListener(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: QwertyKeyListenerService_NewQwertyKeyListener_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QwertyKeyListenerServiceServer).NewQwertyKeyListener(ctx, req.(*NewQwertyKeyListenerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _QwertyKeyListenerService_GetInputType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInputTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(QwertyKeyListenerServiceServer).GetInputType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: QwertyKeyListenerService_GetInputType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QwertyKeyListenerServiceServer).GetInputType(ctx, req.(*GetInputTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _QwertyKeyListenerService_OnKeyDown_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QwertyKeyListenerOnKeyDownRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(QwertyKeyListenerServiceServer).OnKeyDown(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: QwertyKeyListenerService_OnKeyDown_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QwertyKeyListenerServiceServer).OnKeyDown(ctx, req.(*QwertyKeyListenerOnKeyDownRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _QwertyKeyListenerService_GetInstance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(QwertyKeyListenerGetInstanceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(QwertyKeyListenerServiceServer).GetInstance(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: QwertyKeyListenerService_GetInstance_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QwertyKeyListenerServiceServer).GetInstance(ctx, req.(*QwertyKeyListenerGetInstanceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _QwertyKeyListenerService_GetInstanceForFullKeyboard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInstanceForFullKeyboardRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(QwertyKeyListenerServiceServer).GetInstanceForFullKeyboard(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: QwertyKeyListenerService_GetInstanceForFullKeyboard_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QwertyKeyListenerServiceServer).GetInstanceForFullKeyboard(ctx, req.(*GetInstanceForFullKeyboardRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _QwertyKeyListenerService_MarkAsReplaced_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MarkAsReplacedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(QwertyKeyListenerServiceServer).MarkAsReplaced(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: QwertyKeyListenerService_MarkAsReplaced_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QwertyKeyListenerServiceServer).MarkAsReplaced(ctx, req.(*MarkAsReplacedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// QwertyKeyListenerService_ServiceDesc is the grpc.ServiceDesc for QwertyKeyListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var QwertyKeyListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "method.QwertyKeyListenerService",
-	HandlerType: (*QwertyKeyListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewQwertyKeyListener",
-			Handler:    _QwertyKeyListenerService_NewQwertyKeyListener_Handler,
-		},
-		{
-			MethodName: "GetInputType",
-			Handler:    _QwertyKeyListenerService_GetInputType_Handler,
-		},
-		{
-			MethodName: "OnKeyDown",
-			Handler:    _QwertyKeyListenerService_OnKeyDown_Handler,
-		},
-		{
-			MethodName: "GetInstance",
-			Handler:    _QwertyKeyListenerService_GetInstance_Handler,
-		},
-		{
-			MethodName: "GetInstanceForFullKeyboard",
-			Handler:    _QwertyKeyListenerService_GetInstanceForFullKeyboard_Handler,
-		},
-		{
-			MethodName: "MarkAsReplaced",
-			Handler:    _QwertyKeyListenerService_MarkAsReplaced_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/method/method.proto",
-}
-
-const (
 	BaseKeyListenerService_Backspace_FullMethodName     = "/method.BaseKeyListenerService/Backspace"
 	BaseKeyListenerService_ForwardDelete_FullMethodName = "/method.BaseKeyListenerService/ForwardDelete"
 	BaseKeyListenerService_OnKeyDown_FullMethodName     = "/method.BaseKeyListenerService/OnKeyDown"
@@ -3004,8 +1129,8 @@ const (
 type BaseKeyListenerServiceClient interface {
 	Backspace(ctx context.Context, in *BackspaceRequest, opts ...grpc.CallOption) (*BackspaceResponse, error)
 	ForwardDelete(ctx context.Context, in *ForwardDeleteRequest, opts ...grpc.CallOption) (*ForwardDeleteResponse, error)
-	OnKeyDown(ctx context.Context, in *OnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error)
-	OnKeyOther(ctx context.Context, in *OnKeyOtherRequest, opts ...grpc.CallOption) (*OnKeyOtherResponse, error)
+	OnKeyDown(ctx context.Context, in *BaseKeyListenerOnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error)
+	OnKeyOther(ctx context.Context, in *BaseKeyListenerOnKeyOtherRequest, opts ...grpc.CallOption) (*OnKeyOtherResponse, error)
 }
 
 type baseKeyListenerServiceClient struct {
@@ -3036,7 +1161,7 @@ func (c *baseKeyListenerServiceClient) ForwardDelete(ctx context.Context, in *Fo
 	return out, nil
 }
 
-func (c *baseKeyListenerServiceClient) OnKeyDown(ctx context.Context, in *OnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error) {
+func (c *baseKeyListenerServiceClient) OnKeyDown(ctx context.Context, in *BaseKeyListenerOnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(OnKeyDownResponse)
 	err := c.cc.Invoke(ctx, BaseKeyListenerService_OnKeyDown_FullMethodName, in, out, cOpts...)
@@ -3046,7 +1171,7 @@ func (c *baseKeyListenerServiceClient) OnKeyDown(ctx context.Context, in *OnKeyD
 	return out, nil
 }
 
-func (c *baseKeyListenerServiceClient) OnKeyOther(ctx context.Context, in *OnKeyOtherRequest, opts ...grpc.CallOption) (*OnKeyOtherResponse, error) {
+func (c *baseKeyListenerServiceClient) OnKeyOther(ctx context.Context, in *BaseKeyListenerOnKeyOtherRequest, opts ...grpc.CallOption) (*OnKeyOtherResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(OnKeyOtherResponse)
 	err := c.cc.Invoke(ctx, BaseKeyListenerService_OnKeyOther_FullMethodName, in, out, cOpts...)
@@ -3062,8 +1187,8 @@ func (c *baseKeyListenerServiceClient) OnKeyOther(ctx context.Context, in *OnKey
 type BaseKeyListenerServiceServer interface {
 	Backspace(context.Context, *BackspaceRequest) (*BackspaceResponse, error)
 	ForwardDelete(context.Context, *ForwardDeleteRequest) (*ForwardDeleteResponse, error)
-	OnKeyDown(context.Context, *OnKeyDownRequest) (*OnKeyDownResponse, error)
-	OnKeyOther(context.Context, *OnKeyOtherRequest) (*OnKeyOtherResponse, error)
+	OnKeyDown(context.Context, *BaseKeyListenerOnKeyDownRequest) (*OnKeyDownResponse, error)
+	OnKeyOther(context.Context, *BaseKeyListenerOnKeyOtherRequest) (*OnKeyOtherResponse, error)
 	mustEmbedUnimplementedBaseKeyListenerServiceServer()
 }
 
@@ -3080,10 +1205,10 @@ func (UnimplementedBaseKeyListenerServiceServer) Backspace(context.Context, *Bac
 func (UnimplementedBaseKeyListenerServiceServer) ForwardDelete(context.Context, *ForwardDeleteRequest) (*ForwardDeleteResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ForwardDelete not implemented")
 }
-func (UnimplementedBaseKeyListenerServiceServer) OnKeyDown(context.Context, *OnKeyDownRequest) (*OnKeyDownResponse, error) {
+func (UnimplementedBaseKeyListenerServiceServer) OnKeyDown(context.Context, *BaseKeyListenerOnKeyDownRequest) (*OnKeyDownResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method OnKeyDown not implemented")
 }
-func (UnimplementedBaseKeyListenerServiceServer) OnKeyOther(context.Context, *OnKeyOtherRequest) (*OnKeyOtherResponse, error) {
+func (UnimplementedBaseKeyListenerServiceServer) OnKeyOther(context.Context, *BaseKeyListenerOnKeyOtherRequest) (*OnKeyOtherResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method OnKeyOther not implemented")
 }
 func (UnimplementedBaseKeyListenerServiceServer) mustEmbedUnimplementedBaseKeyListenerServiceServer() {
@@ -3145,7 +1270,7 @@ func _BaseKeyListenerService_ForwardDelete_Handler(srv interface{}, ctx context.
 }
 
 func _BaseKeyListenerService_OnKeyDown_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnKeyDownRequest)
+	in := new(BaseKeyListenerOnKeyDownRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -3157,13 +1282,13 @@ func _BaseKeyListenerService_OnKeyDown_Handler(srv interface{}, ctx context.Cont
 		FullMethod: BaseKeyListenerService_OnKeyDown_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BaseKeyListenerServiceServer).OnKeyDown(ctx, req.(*OnKeyDownRequest))
+		return srv.(BaseKeyListenerServiceServer).OnKeyDown(ctx, req.(*BaseKeyListenerOnKeyDownRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _BaseKeyListenerService_OnKeyOther_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnKeyOtherRequest)
+	in := new(BaseKeyListenerOnKeyOtherRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -3175,7 +1300,7 @@ func _BaseKeyListenerService_OnKeyOther_Handler(srv interface{}, ctx context.Con
 		FullMethod: BaseKeyListenerService_OnKeyOther_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BaseKeyListenerServiceServer).OnKeyOther(ctx, req.(*OnKeyOtherRequest))
+		return srv.(BaseKeyListenerServiceServer).OnKeyOther(ctx, req.(*BaseKeyListenerOnKeyOtherRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3202,6 +1327,147 @@ var BaseKeyListenerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "OnKeyOther",
 			Handler:    _BaseKeyListenerService_OnKeyOther_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/method/method.proto",
+}
+
+const (
+	TransformationMethodService_GetTransformation_FullMethodName = "/method.TransformationMethodService/GetTransformation"
+	TransformationMethodService_OnFocusChanged_FullMethodName    = "/method.TransformationMethodService/OnFocusChanged"
+)
+
+// TransformationMethodServiceClient is the client API for TransformationMethodService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TransformationMethodServiceClient interface {
+	GetTransformation(ctx context.Context, in *GetTransformationRequest, opts ...grpc.CallOption) (*GetTransformationResponse, error)
+	OnFocusChanged(ctx context.Context, in *OnFocusChangedRequest, opts ...grpc.CallOption) (*OnFocusChangedResponse, error)
+}
+
+type transformationMethodServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTransformationMethodServiceClient(cc grpc.ClientConnInterface) TransformationMethodServiceClient {
+	return &transformationMethodServiceClient{cc}
+}
+
+func (c *transformationMethodServiceClient) GetTransformation(ctx context.Context, in *GetTransformationRequest, opts ...grpc.CallOption) (*GetTransformationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTransformationResponse)
+	err := c.cc.Invoke(ctx, TransformationMethodService_GetTransformation_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *transformationMethodServiceClient) OnFocusChanged(ctx context.Context, in *OnFocusChangedRequest, opts ...grpc.CallOption) (*OnFocusChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnFocusChangedResponse)
+	err := c.cc.Invoke(ctx, TransformationMethodService_OnFocusChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TransformationMethodServiceServer is the server API for TransformationMethodService service.
+// All implementations must embed UnimplementedTransformationMethodServiceServer
+// for forward compatibility.
+type TransformationMethodServiceServer interface {
+	GetTransformation(context.Context, *GetTransformationRequest) (*GetTransformationResponse, error)
+	OnFocusChanged(context.Context, *OnFocusChangedRequest) (*OnFocusChangedResponse, error)
+	mustEmbedUnimplementedTransformationMethodServiceServer()
+}
+
+// UnimplementedTransformationMethodServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTransformationMethodServiceServer struct{}
+
+func (UnimplementedTransformationMethodServiceServer) GetTransformation(context.Context, *GetTransformationRequest) (*GetTransformationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTransformation not implemented")
+}
+func (UnimplementedTransformationMethodServiceServer) OnFocusChanged(context.Context, *OnFocusChangedRequest) (*OnFocusChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnFocusChanged not implemented")
+}
+func (UnimplementedTransformationMethodServiceServer) mustEmbedUnimplementedTransformationMethodServiceServer() {
+}
+func (UnimplementedTransformationMethodServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTransformationMethodServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TransformationMethodServiceServer will
+// result in compilation errors.
+type UnsafeTransformationMethodServiceServer interface {
+	mustEmbedUnimplementedTransformationMethodServiceServer()
+}
+
+func RegisterTransformationMethodServiceServer(s grpc.ServiceRegistrar, srv TransformationMethodServiceServer) {
+	// If the following call panics, it indicates UnimplementedTransformationMethodServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TransformationMethodService_ServiceDesc, srv)
+}
+
+func _TransformationMethodService_GetTransformation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTransformationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransformationMethodServiceServer).GetTransformation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TransformationMethodService_GetTransformation_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransformationMethodServiceServer).GetTransformation(ctx, req.(*GetTransformationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TransformationMethodService_OnFocusChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnFocusChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TransformationMethodServiceServer).OnFocusChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TransformationMethodService_OnFocusChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TransformationMethodServiceServer).OnFocusChanged(ctx, req.(*OnFocusChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TransformationMethodService_ServiceDesc is the grpc.ServiceDesc for TransformationMethodService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TransformationMethodService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "method.TransformationMethodService",
+	HandlerType: (*TransformationMethodServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetTransformation",
+			Handler:    _TransformationMethodService_GetTransformation_Handler,
+		},
+		{
+			MethodName: "OnFocusChanged",
+			Handler:    _TransformationMethodService_OnFocusChanged_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -3236,8 +1502,8 @@ const (
 type MetaKeyKeyListenerServiceClient interface {
 	ClearMetaKeyState3_1(ctx context.Context, in *ClearMetaKeyState3_1Request, opts ...grpc.CallOption) (*ClearMetaKeyState3_1Response, error)
 	ClearMetaKeyState2_2(ctx context.Context, in *ClearMetaKeyState2_2Request, opts ...grpc.CallOption) (*ClearMetaKeyState2_2Response, error)
-	OnKeyDown(ctx context.Context, in *OnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error)
-	OnKeyUp(ctx context.Context, in *OnKeyUpRequest, opts ...grpc.CallOption) (*OnKeyUpResponse, error)
+	OnKeyDown(ctx context.Context, in *MetaKeyKeyListenerOnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error)
+	OnKeyUp(ctx context.Context, in *MetaKeyKeyListenerOnKeyUpRequest, opts ...grpc.CallOption) (*OnKeyUpResponse, error)
 	AdjustMetaAfterKeypress1(ctx context.Context, in *AdjustMetaAfterKeypress1Request, opts ...grpc.CallOption) (*AdjustMetaAfterKeypress1Response, error)
 	AdjustMetaAfterKeypress1_1(ctx context.Context, in *AdjustMetaAfterKeypress1_1Request, opts ...grpc.CallOption) (*AdjustMetaAfterKeypress1_1Response, error)
 	ClearMetaKeyState2(ctx context.Context, in *ClearMetaKeyState2Request, opts ...grpc.CallOption) (*ClearMetaKeyState2Response, error)
@@ -3283,7 +1549,7 @@ func (c *metaKeyKeyListenerServiceClient) ClearMetaKeyState2_2(ctx context.Conte
 	return out, nil
 }
 
-func (c *metaKeyKeyListenerServiceClient) OnKeyDown(ctx context.Context, in *OnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error) {
+func (c *metaKeyKeyListenerServiceClient) OnKeyDown(ctx context.Context, in *MetaKeyKeyListenerOnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(OnKeyDownResponse)
 	err := c.cc.Invoke(ctx, MetaKeyKeyListenerService_OnKeyDown_FullMethodName, in, out, cOpts...)
@@ -3293,7 +1559,7 @@ func (c *metaKeyKeyListenerServiceClient) OnKeyDown(ctx context.Context, in *OnK
 	return out, nil
 }
 
-func (c *metaKeyKeyListenerServiceClient) OnKeyUp(ctx context.Context, in *OnKeyUpRequest, opts ...grpc.CallOption) (*OnKeyUpResponse, error) {
+func (c *metaKeyKeyListenerServiceClient) OnKeyUp(ctx context.Context, in *MetaKeyKeyListenerOnKeyUpRequest, opts ...grpc.CallOption) (*OnKeyUpResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(OnKeyUpResponse)
 	err := c.cc.Invoke(ctx, MetaKeyKeyListenerService_OnKeyUp_FullMethodName, in, out, cOpts...)
@@ -3459,8 +1725,8 @@ func (c *metaKeyKeyListenerServiceClient) ResetMetaState(ctx context.Context, in
 type MetaKeyKeyListenerServiceServer interface {
 	ClearMetaKeyState3_1(context.Context, *ClearMetaKeyState3_1Request) (*ClearMetaKeyState3_1Response, error)
 	ClearMetaKeyState2_2(context.Context, *ClearMetaKeyState2_2Request) (*ClearMetaKeyState2_2Response, error)
-	OnKeyDown(context.Context, *OnKeyDownRequest) (*OnKeyDownResponse, error)
-	OnKeyUp(context.Context, *OnKeyUpRequest) (*OnKeyUpResponse, error)
+	OnKeyDown(context.Context, *MetaKeyKeyListenerOnKeyDownRequest) (*OnKeyDownResponse, error)
+	OnKeyUp(context.Context, *MetaKeyKeyListenerOnKeyUpRequest) (*OnKeyUpResponse, error)
 	AdjustMetaAfterKeypress1(context.Context, *AdjustMetaAfterKeypress1Request) (*AdjustMetaAfterKeypress1Response, error)
 	AdjustMetaAfterKeypress1_1(context.Context, *AdjustMetaAfterKeypress1_1Request) (*AdjustMetaAfterKeypress1_1Response, error)
 	ClearMetaKeyState2(context.Context, *ClearMetaKeyState2Request) (*ClearMetaKeyState2Response, error)
@@ -3492,10 +1758,10 @@ func (UnimplementedMetaKeyKeyListenerServiceServer) ClearMetaKeyState3_1(context
 func (UnimplementedMetaKeyKeyListenerServiceServer) ClearMetaKeyState2_2(context.Context, *ClearMetaKeyState2_2Request) (*ClearMetaKeyState2_2Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method ClearMetaKeyState2_2 not implemented")
 }
-func (UnimplementedMetaKeyKeyListenerServiceServer) OnKeyDown(context.Context, *OnKeyDownRequest) (*OnKeyDownResponse, error) {
+func (UnimplementedMetaKeyKeyListenerServiceServer) OnKeyDown(context.Context, *MetaKeyKeyListenerOnKeyDownRequest) (*OnKeyDownResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method OnKeyDown not implemented")
 }
-func (UnimplementedMetaKeyKeyListenerServiceServer) OnKeyUp(context.Context, *OnKeyUpRequest) (*OnKeyUpResponse, error) {
+func (UnimplementedMetaKeyKeyListenerServiceServer) OnKeyUp(context.Context, *MetaKeyKeyListenerOnKeyUpRequest) (*OnKeyUpResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method OnKeyUp not implemented")
 }
 func (UnimplementedMetaKeyKeyListenerServiceServer) AdjustMetaAfterKeypress1(context.Context, *AdjustMetaAfterKeypress1Request) (*AdjustMetaAfterKeypress1Response, error) {
@@ -3602,7 +1868,7 @@ func _MetaKeyKeyListenerService_ClearMetaKeyState2_2_Handler(srv interface{}, ct
 }
 
 func _MetaKeyKeyListenerService_OnKeyDown_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnKeyDownRequest)
+	in := new(MetaKeyKeyListenerOnKeyDownRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -3614,13 +1880,13 @@ func _MetaKeyKeyListenerService_OnKeyDown_Handler(srv interface{}, ctx context.C
 		FullMethod: MetaKeyKeyListenerService_OnKeyDown_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MetaKeyKeyListenerServiceServer).OnKeyDown(ctx, req.(*OnKeyDownRequest))
+		return srv.(MetaKeyKeyListenerServiceServer).OnKeyDown(ctx, req.(*MetaKeyKeyListenerOnKeyDownRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _MetaKeyKeyListenerService_OnKeyUp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnKeyUpRequest)
+	in := new(MetaKeyKeyListenerOnKeyUpRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -3632,7 +1898,7 @@ func _MetaKeyKeyListenerService_OnKeyUp_Handler(srv interface{}, ctx context.Con
 		FullMethod: MetaKeyKeyListenerService_OnKeyUp_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MetaKeyKeyListenerServiceServer).OnKeyUp(ctx, req.(*OnKeyUpRequest))
+		return srv.(MetaKeyKeyListenerServiceServer).OnKeyUp(ctx, req.(*MetaKeyKeyListenerOnKeyUpRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3996,140 +2262,2330 @@ var MetaKeyKeyListenerService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	TransformationMethodService_GetTransformation_FullMethodName = "/method.TransformationMethodService/GetTransformation"
-	TransformationMethodService_OnFocusChanged_FullMethodName    = "/method.TransformationMethodService/OnFocusChanged"
+	PasswordTransformationMethodService_NewPasswordTransformationMethod_FullMethodName = "/method.PasswordTransformationMethodService/NewPasswordTransformationMethod"
+	PasswordTransformationMethodService_AfterTextChanged_FullMethodName                = "/method.PasswordTransformationMethodService/AfterTextChanged"
+	PasswordTransformationMethodService_BeforeTextChanged_FullMethodName               = "/method.PasswordTransformationMethodService/BeforeTextChanged"
+	PasswordTransformationMethodService_GetTransformation_FullMethodName               = "/method.PasswordTransformationMethodService/GetTransformation"
+	PasswordTransformationMethodService_OnFocusChanged_FullMethodName                  = "/method.PasswordTransformationMethodService/OnFocusChanged"
+	PasswordTransformationMethodService_OnTextChanged_FullMethodName                   = "/method.PasswordTransformationMethodService/OnTextChanged"
+	PasswordTransformationMethodService_GetInstance_FullMethodName                     = "/method.PasswordTransformationMethodService/GetInstance"
 )
 
-// TransformationMethodServiceClient is the client API for TransformationMethodService service.
+// PasswordTransformationMethodServiceClient is the client API for PasswordTransformationMethodService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TransformationMethodServiceClient interface {
-	GetTransformation(ctx context.Context, in *GetTransformationRequest, opts ...grpc.CallOption) (*GetTransformationResponse, error)
-	OnFocusChanged(ctx context.Context, in *OnFocusChangedRequest, opts ...grpc.CallOption) (*OnFocusChangedResponse, error)
+type PasswordTransformationMethodServiceClient interface {
+	NewPasswordTransformationMethod(ctx context.Context, in *NewPasswordTransformationMethodRequest, opts ...grpc.CallOption) (*NewPasswordTransformationMethodResponse, error)
+	AfterTextChanged(ctx context.Context, in *AfterTextChangedRequest, opts ...grpc.CallOption) (*AfterTextChangedResponse, error)
+	BeforeTextChanged(ctx context.Context, in *BeforeTextChangedRequest, opts ...grpc.CallOption) (*BeforeTextChangedResponse, error)
+	GetTransformation(ctx context.Context, in *PasswordTransformationMethodGetTransformationRequest, opts ...grpc.CallOption) (*GetTransformationResponse, error)
+	OnFocusChanged(ctx context.Context, in *PasswordTransformationMethodOnFocusChangedRequest, opts ...grpc.CallOption) (*OnFocusChangedResponse, error)
+	OnTextChanged(ctx context.Context, in *OnTextChangedRequest, opts ...grpc.CallOption) (*OnTextChangedResponse, error)
+	GetInstance(ctx context.Context, in *PasswordTransformationMethodGetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error)
 }
 
-type transformationMethodServiceClient struct {
+type passwordTransformationMethodServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewTransformationMethodServiceClient(cc grpc.ClientConnInterface) TransformationMethodServiceClient {
-	return &transformationMethodServiceClient{cc}
+func NewPasswordTransformationMethodServiceClient(cc grpc.ClientConnInterface) PasswordTransformationMethodServiceClient {
+	return &passwordTransformationMethodServiceClient{cc}
 }
 
-func (c *transformationMethodServiceClient) GetTransformation(ctx context.Context, in *GetTransformationRequest, opts ...grpc.CallOption) (*GetTransformationResponse, error) {
+func (c *passwordTransformationMethodServiceClient) NewPasswordTransformationMethod(ctx context.Context, in *NewPasswordTransformationMethodRequest, opts ...grpc.CallOption) (*NewPasswordTransformationMethodResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewPasswordTransformationMethodResponse)
+	err := c.cc.Invoke(ctx, PasswordTransformationMethodService_NewPasswordTransformationMethod_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *passwordTransformationMethodServiceClient) AfterTextChanged(ctx context.Context, in *AfterTextChangedRequest, opts ...grpc.CallOption) (*AfterTextChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AfterTextChangedResponse)
+	err := c.cc.Invoke(ctx, PasswordTransformationMethodService_AfterTextChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *passwordTransformationMethodServiceClient) BeforeTextChanged(ctx context.Context, in *BeforeTextChangedRequest, opts ...grpc.CallOption) (*BeforeTextChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BeforeTextChangedResponse)
+	err := c.cc.Invoke(ctx, PasswordTransformationMethodService_BeforeTextChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *passwordTransformationMethodServiceClient) GetTransformation(ctx context.Context, in *PasswordTransformationMethodGetTransformationRequest, opts ...grpc.CallOption) (*GetTransformationResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetTransformationResponse)
-	err := c.cc.Invoke(ctx, TransformationMethodService_GetTransformation_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, PasswordTransformationMethodService_GetTransformation_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *transformationMethodServiceClient) OnFocusChanged(ctx context.Context, in *OnFocusChangedRequest, opts ...grpc.CallOption) (*OnFocusChangedResponse, error) {
+func (c *passwordTransformationMethodServiceClient) OnFocusChanged(ctx context.Context, in *PasswordTransformationMethodOnFocusChangedRequest, opts ...grpc.CallOption) (*OnFocusChangedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(OnFocusChangedResponse)
-	err := c.cc.Invoke(ctx, TransformationMethodService_OnFocusChanged_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, PasswordTransformationMethodService_OnFocusChanged_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// TransformationMethodServiceServer is the server API for TransformationMethodService service.
-// All implementations must embed UnimplementedTransformationMethodServiceServer
-// for forward compatibility.
-type TransformationMethodServiceServer interface {
-	GetTransformation(context.Context, *GetTransformationRequest) (*GetTransformationResponse, error)
-	OnFocusChanged(context.Context, *OnFocusChangedRequest) (*OnFocusChangedResponse, error)
-	mustEmbedUnimplementedTransformationMethodServiceServer()
+func (c *passwordTransformationMethodServiceClient) OnTextChanged(ctx context.Context, in *OnTextChangedRequest, opts ...grpc.CallOption) (*OnTextChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTextChangedResponse)
+	err := c.cc.Invoke(ctx, PasswordTransformationMethodService_OnTextChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
-// UnimplementedTransformationMethodServiceServer must be embedded to have
+func (c *passwordTransformationMethodServiceClient) GetInstance(ctx context.Context, in *PasswordTransformationMethodGetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInstanceResponse)
+	err := c.cc.Invoke(ctx, PasswordTransformationMethodService_GetInstance_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PasswordTransformationMethodServiceServer is the server API for PasswordTransformationMethodService service.
+// All implementations must embed UnimplementedPasswordTransformationMethodServiceServer
+// for forward compatibility.
+type PasswordTransformationMethodServiceServer interface {
+	NewPasswordTransformationMethod(context.Context, *NewPasswordTransformationMethodRequest) (*NewPasswordTransformationMethodResponse, error)
+	AfterTextChanged(context.Context, *AfterTextChangedRequest) (*AfterTextChangedResponse, error)
+	BeforeTextChanged(context.Context, *BeforeTextChangedRequest) (*BeforeTextChangedResponse, error)
+	GetTransformation(context.Context, *PasswordTransformationMethodGetTransformationRequest) (*GetTransformationResponse, error)
+	OnFocusChanged(context.Context, *PasswordTransformationMethodOnFocusChangedRequest) (*OnFocusChangedResponse, error)
+	OnTextChanged(context.Context, *OnTextChangedRequest) (*OnTextChangedResponse, error)
+	GetInstance(context.Context, *PasswordTransformationMethodGetInstanceRequest) (*GetInstanceResponse, error)
+	mustEmbedUnimplementedPasswordTransformationMethodServiceServer()
+}
+
+// UnimplementedPasswordTransformationMethodServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedTransformationMethodServiceServer struct{}
+type UnimplementedPasswordTransformationMethodServiceServer struct{}
 
-func (UnimplementedTransformationMethodServiceServer) GetTransformation(context.Context, *GetTransformationRequest) (*GetTransformationResponse, error) {
+func (UnimplementedPasswordTransformationMethodServiceServer) NewPasswordTransformationMethod(context.Context, *NewPasswordTransformationMethodRequest) (*NewPasswordTransformationMethodResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewPasswordTransformationMethod not implemented")
+}
+func (UnimplementedPasswordTransformationMethodServiceServer) AfterTextChanged(context.Context, *AfterTextChangedRequest) (*AfterTextChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AfterTextChanged not implemented")
+}
+func (UnimplementedPasswordTransformationMethodServiceServer) BeforeTextChanged(context.Context, *BeforeTextChangedRequest) (*BeforeTextChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method BeforeTextChanged not implemented")
+}
+func (UnimplementedPasswordTransformationMethodServiceServer) GetTransformation(context.Context, *PasswordTransformationMethodGetTransformationRequest) (*GetTransformationResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetTransformation not implemented")
 }
-func (UnimplementedTransformationMethodServiceServer) OnFocusChanged(context.Context, *OnFocusChangedRequest) (*OnFocusChangedResponse, error) {
+func (UnimplementedPasswordTransformationMethodServiceServer) OnFocusChanged(context.Context, *PasswordTransformationMethodOnFocusChangedRequest) (*OnFocusChangedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method OnFocusChanged not implemented")
 }
-func (UnimplementedTransformationMethodServiceServer) mustEmbedUnimplementedTransformationMethodServiceServer() {
+func (UnimplementedPasswordTransformationMethodServiceServer) OnTextChanged(context.Context, *OnTextChangedRequest) (*OnTextChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTextChanged not implemented")
 }
-func (UnimplementedTransformationMethodServiceServer) testEmbeddedByValue() {}
+func (UnimplementedPasswordTransformationMethodServiceServer) GetInstance(context.Context, *PasswordTransformationMethodGetInstanceRequest) (*GetInstanceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInstance not implemented")
+}
+func (UnimplementedPasswordTransformationMethodServiceServer) mustEmbedUnimplementedPasswordTransformationMethodServiceServer() {
+}
+func (UnimplementedPasswordTransformationMethodServiceServer) testEmbeddedByValue() {}
 
-// UnsafeTransformationMethodServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TransformationMethodServiceServer will
+// UnsafePasswordTransformationMethodServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PasswordTransformationMethodServiceServer will
 // result in compilation errors.
-type UnsafeTransformationMethodServiceServer interface {
-	mustEmbedUnimplementedTransformationMethodServiceServer()
+type UnsafePasswordTransformationMethodServiceServer interface {
+	mustEmbedUnimplementedPasswordTransformationMethodServiceServer()
 }
 
-func RegisterTransformationMethodServiceServer(s grpc.ServiceRegistrar, srv TransformationMethodServiceServer) {
-	// If the following call panics, it indicates UnimplementedTransformationMethodServiceServer was
+func RegisterPasswordTransformationMethodServiceServer(s grpc.ServiceRegistrar, srv PasswordTransformationMethodServiceServer) {
+	// If the following call panics, it indicates UnimplementedPasswordTransformationMethodServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&TransformationMethodService_ServiceDesc, srv)
+	s.RegisterService(&PasswordTransformationMethodService_ServiceDesc, srv)
 }
 
-func _TransformationMethodService_GetTransformation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTransformationRequest)
+func _PasswordTransformationMethodService_NewPasswordTransformationMethod_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewPasswordTransformationMethodRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TransformationMethodServiceServer).GetTransformation(ctx, in)
+		return srv.(PasswordTransformationMethodServiceServer).NewPasswordTransformationMethod(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TransformationMethodService_GetTransformation_FullMethodName,
+		FullMethod: PasswordTransformationMethodService_NewPasswordTransformationMethod_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransformationMethodServiceServer).GetTransformation(ctx, req.(*GetTransformationRequest))
+		return srv.(PasswordTransformationMethodServiceServer).NewPasswordTransformationMethod(ctx, req.(*NewPasswordTransformationMethodRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TransformationMethodService_OnFocusChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnFocusChangedRequest)
+func _PasswordTransformationMethodService_AfterTextChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AfterTextChangedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TransformationMethodServiceServer).OnFocusChanged(ctx, in)
+		return srv.(PasswordTransformationMethodServiceServer).AfterTextChanged(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TransformationMethodService_OnFocusChanged_FullMethodName,
+		FullMethod: PasswordTransformationMethodService_AfterTextChanged_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TransformationMethodServiceServer).OnFocusChanged(ctx, req.(*OnFocusChangedRequest))
+		return srv.(PasswordTransformationMethodServiceServer).AfterTextChanged(ctx, req.(*AfterTextChangedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// TransformationMethodService_ServiceDesc is the grpc.ServiceDesc for TransformationMethodService service.
+func _PasswordTransformationMethodService_BeforeTextChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BeforeTextChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PasswordTransformationMethodServiceServer).BeforeTextChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PasswordTransformationMethodService_BeforeTextChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PasswordTransformationMethodServiceServer).BeforeTextChanged(ctx, req.(*BeforeTextChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PasswordTransformationMethodService_GetTransformation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PasswordTransformationMethodGetTransformationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PasswordTransformationMethodServiceServer).GetTransformation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PasswordTransformationMethodService_GetTransformation_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PasswordTransformationMethodServiceServer).GetTransformation(ctx, req.(*PasswordTransformationMethodGetTransformationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PasswordTransformationMethodService_OnFocusChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PasswordTransformationMethodOnFocusChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PasswordTransformationMethodServiceServer).OnFocusChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PasswordTransformationMethodService_OnFocusChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PasswordTransformationMethodServiceServer).OnFocusChanged(ctx, req.(*PasswordTransformationMethodOnFocusChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PasswordTransformationMethodService_OnTextChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTextChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PasswordTransformationMethodServiceServer).OnTextChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PasswordTransformationMethodService_OnTextChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PasswordTransformationMethodServiceServer).OnTextChanged(ctx, req.(*OnTextChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PasswordTransformationMethodService_GetInstance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PasswordTransformationMethodGetInstanceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PasswordTransformationMethodServiceServer).GetInstance(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PasswordTransformationMethodService_GetInstance_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PasswordTransformationMethodServiceServer).GetInstance(ctx, req.(*PasswordTransformationMethodGetInstanceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PasswordTransformationMethodService_ServiceDesc is the grpc.ServiceDesc for PasswordTransformationMethodService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var TransformationMethodService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "method.TransformationMethodService",
-	HandlerType: (*TransformationMethodServiceServer)(nil),
+var PasswordTransformationMethodService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "method.PasswordTransformationMethodService",
+	HandlerType: (*PasswordTransformationMethodServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
+			MethodName: "NewPasswordTransformationMethod",
+			Handler:    _PasswordTransformationMethodService_NewPasswordTransformationMethod_Handler,
+		},
+		{
+			MethodName: "AfterTextChanged",
+			Handler:    _PasswordTransformationMethodService_AfterTextChanged_Handler,
+		},
+		{
+			MethodName: "BeforeTextChanged",
+			Handler:    _PasswordTransformationMethodService_BeforeTextChanged_Handler,
+		},
+		{
 			MethodName: "GetTransformation",
-			Handler:    _TransformationMethodService_GetTransformation_Handler,
+			Handler:    _PasswordTransformationMethodService_GetTransformation_Handler,
 		},
 		{
 			MethodName: "OnFocusChanged",
-			Handler:    _TransformationMethodService_OnFocusChanged_Handler,
+			Handler:    _PasswordTransformationMethodService_OnFocusChanged_Handler,
+		},
+		{
+			MethodName: "OnTextChanged",
+			Handler:    _PasswordTransformationMethodService_OnTextChanged_Handler,
+		},
+		{
+			MethodName: "GetInstance",
+			Handler:    _PasswordTransformationMethodService_GetInstance_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/method/method.proto",
+}
+
+const (
+	ArrowKeyMovementMethodService_NewArrowKeyMovementMethod_FullMethodName = "/method.ArrowKeyMovementMethodService/NewArrowKeyMovementMethod"
+	ArrowKeyMovementMethodService_CanSelectArbitrarily_FullMethodName      = "/method.ArrowKeyMovementMethodService/CanSelectArbitrarily"
+	ArrowKeyMovementMethodService_Initialize_FullMethodName                = "/method.ArrowKeyMovementMethodService/Initialize"
+	ArrowKeyMovementMethodService_NextParagraph_FullMethodName             = "/method.ArrowKeyMovementMethodService/NextParagraph"
+	ArrowKeyMovementMethodService_OnTakeFocus_FullMethodName               = "/method.ArrowKeyMovementMethodService/OnTakeFocus"
+	ArrowKeyMovementMethodService_OnTouchEvent_FullMethodName              = "/method.ArrowKeyMovementMethodService/OnTouchEvent"
+	ArrowKeyMovementMethodService_PreviousParagraph_FullMethodName         = "/method.ArrowKeyMovementMethodService/PreviousParagraph"
+	ArrowKeyMovementMethodService_GetInstance_FullMethodName               = "/method.ArrowKeyMovementMethodService/GetInstance"
+)
+
+// ArrowKeyMovementMethodServiceClient is the client API for ArrowKeyMovementMethodService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ArrowKeyMovementMethodServiceClient interface {
+	NewArrowKeyMovementMethod(ctx context.Context, in *NewArrowKeyMovementMethodRequest, opts ...grpc.CallOption) (*NewArrowKeyMovementMethodResponse, error)
+	CanSelectArbitrarily(ctx context.Context, in *CanSelectArbitrarilyRequest, opts ...grpc.CallOption) (*CanSelectArbitrarilyResponse, error)
+	Initialize(ctx context.Context, in *InitializeRequest, opts ...grpc.CallOption) (*InitializeResponse, error)
+	NextParagraph(ctx context.Context, in *NextParagraphRequest, opts ...grpc.CallOption) (*NextParagraphResponse, error)
+	OnTakeFocus(ctx context.Context, in *OnTakeFocusRequest, opts ...grpc.CallOption) (*OnTakeFocusResponse, error)
+	OnTouchEvent(ctx context.Context, in *OnTouchEventRequest, opts ...grpc.CallOption) (*OnTouchEventResponse, error)
+	PreviousParagraph(ctx context.Context, in *PreviousParagraphRequest, opts ...grpc.CallOption) (*PreviousParagraphResponse, error)
+	GetInstance(ctx context.Context, in *ArrowKeyMovementMethodGetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error)
+}
+
+type arrowKeyMovementMethodServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewArrowKeyMovementMethodServiceClient(cc grpc.ClientConnInterface) ArrowKeyMovementMethodServiceClient {
+	return &arrowKeyMovementMethodServiceClient{cc}
+}
+
+func (c *arrowKeyMovementMethodServiceClient) NewArrowKeyMovementMethod(ctx context.Context, in *NewArrowKeyMovementMethodRequest, opts ...grpc.CallOption) (*NewArrowKeyMovementMethodResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewArrowKeyMovementMethodResponse)
+	err := c.cc.Invoke(ctx, ArrowKeyMovementMethodService_NewArrowKeyMovementMethod_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *arrowKeyMovementMethodServiceClient) CanSelectArbitrarily(ctx context.Context, in *CanSelectArbitrarilyRequest, opts ...grpc.CallOption) (*CanSelectArbitrarilyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CanSelectArbitrarilyResponse)
+	err := c.cc.Invoke(ctx, ArrowKeyMovementMethodService_CanSelectArbitrarily_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *arrowKeyMovementMethodServiceClient) Initialize(ctx context.Context, in *InitializeRequest, opts ...grpc.CallOption) (*InitializeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(InitializeResponse)
+	err := c.cc.Invoke(ctx, ArrowKeyMovementMethodService_Initialize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *arrowKeyMovementMethodServiceClient) NextParagraph(ctx context.Context, in *NextParagraphRequest, opts ...grpc.CallOption) (*NextParagraphResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NextParagraphResponse)
+	err := c.cc.Invoke(ctx, ArrowKeyMovementMethodService_NextParagraph_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *arrowKeyMovementMethodServiceClient) OnTakeFocus(ctx context.Context, in *OnTakeFocusRequest, opts ...grpc.CallOption) (*OnTakeFocusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTakeFocusResponse)
+	err := c.cc.Invoke(ctx, ArrowKeyMovementMethodService_OnTakeFocus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *arrowKeyMovementMethodServiceClient) OnTouchEvent(ctx context.Context, in *OnTouchEventRequest, opts ...grpc.CallOption) (*OnTouchEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTouchEventResponse)
+	err := c.cc.Invoke(ctx, ArrowKeyMovementMethodService_OnTouchEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *arrowKeyMovementMethodServiceClient) PreviousParagraph(ctx context.Context, in *PreviousParagraphRequest, opts ...grpc.CallOption) (*PreviousParagraphResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PreviousParagraphResponse)
+	err := c.cc.Invoke(ctx, ArrowKeyMovementMethodService_PreviousParagraph_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *arrowKeyMovementMethodServiceClient) GetInstance(ctx context.Context, in *ArrowKeyMovementMethodGetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInstanceResponse)
+	err := c.cc.Invoke(ctx, ArrowKeyMovementMethodService_GetInstance_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ArrowKeyMovementMethodServiceServer is the server API for ArrowKeyMovementMethodService service.
+// All implementations must embed UnimplementedArrowKeyMovementMethodServiceServer
+// for forward compatibility.
+type ArrowKeyMovementMethodServiceServer interface {
+	NewArrowKeyMovementMethod(context.Context, *NewArrowKeyMovementMethodRequest) (*NewArrowKeyMovementMethodResponse, error)
+	CanSelectArbitrarily(context.Context, *CanSelectArbitrarilyRequest) (*CanSelectArbitrarilyResponse, error)
+	Initialize(context.Context, *InitializeRequest) (*InitializeResponse, error)
+	NextParagraph(context.Context, *NextParagraphRequest) (*NextParagraphResponse, error)
+	OnTakeFocus(context.Context, *OnTakeFocusRequest) (*OnTakeFocusResponse, error)
+	OnTouchEvent(context.Context, *OnTouchEventRequest) (*OnTouchEventResponse, error)
+	PreviousParagraph(context.Context, *PreviousParagraphRequest) (*PreviousParagraphResponse, error)
+	GetInstance(context.Context, *ArrowKeyMovementMethodGetInstanceRequest) (*GetInstanceResponse, error)
+	mustEmbedUnimplementedArrowKeyMovementMethodServiceServer()
+}
+
+// UnimplementedArrowKeyMovementMethodServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedArrowKeyMovementMethodServiceServer struct{}
+
+func (UnimplementedArrowKeyMovementMethodServiceServer) NewArrowKeyMovementMethod(context.Context, *NewArrowKeyMovementMethodRequest) (*NewArrowKeyMovementMethodResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewArrowKeyMovementMethod not implemented")
+}
+func (UnimplementedArrowKeyMovementMethodServiceServer) CanSelectArbitrarily(context.Context, *CanSelectArbitrarilyRequest) (*CanSelectArbitrarilyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CanSelectArbitrarily not implemented")
+}
+func (UnimplementedArrowKeyMovementMethodServiceServer) Initialize(context.Context, *InitializeRequest) (*InitializeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Initialize not implemented")
+}
+func (UnimplementedArrowKeyMovementMethodServiceServer) NextParagraph(context.Context, *NextParagraphRequest) (*NextParagraphResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NextParagraph not implemented")
+}
+func (UnimplementedArrowKeyMovementMethodServiceServer) OnTakeFocus(context.Context, *OnTakeFocusRequest) (*OnTakeFocusResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTakeFocus not implemented")
+}
+func (UnimplementedArrowKeyMovementMethodServiceServer) OnTouchEvent(context.Context, *OnTouchEventRequest) (*OnTouchEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTouchEvent not implemented")
+}
+func (UnimplementedArrowKeyMovementMethodServiceServer) PreviousParagraph(context.Context, *PreviousParagraphRequest) (*PreviousParagraphResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method PreviousParagraph not implemented")
+}
+func (UnimplementedArrowKeyMovementMethodServiceServer) GetInstance(context.Context, *ArrowKeyMovementMethodGetInstanceRequest) (*GetInstanceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInstance not implemented")
+}
+func (UnimplementedArrowKeyMovementMethodServiceServer) mustEmbedUnimplementedArrowKeyMovementMethodServiceServer() {
+}
+func (UnimplementedArrowKeyMovementMethodServiceServer) testEmbeddedByValue() {}
+
+// UnsafeArrowKeyMovementMethodServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ArrowKeyMovementMethodServiceServer will
+// result in compilation errors.
+type UnsafeArrowKeyMovementMethodServiceServer interface {
+	mustEmbedUnimplementedArrowKeyMovementMethodServiceServer()
+}
+
+func RegisterArrowKeyMovementMethodServiceServer(s grpc.ServiceRegistrar, srv ArrowKeyMovementMethodServiceServer) {
+	// If the following call panics, it indicates UnimplementedArrowKeyMovementMethodServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ArrowKeyMovementMethodService_ServiceDesc, srv)
+}
+
+func _ArrowKeyMovementMethodService_NewArrowKeyMovementMethod_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewArrowKeyMovementMethodRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ArrowKeyMovementMethodServiceServer).NewArrowKeyMovementMethod(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ArrowKeyMovementMethodService_NewArrowKeyMovementMethod_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ArrowKeyMovementMethodServiceServer).NewArrowKeyMovementMethod(ctx, req.(*NewArrowKeyMovementMethodRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ArrowKeyMovementMethodService_CanSelectArbitrarily_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CanSelectArbitrarilyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ArrowKeyMovementMethodServiceServer).CanSelectArbitrarily(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ArrowKeyMovementMethodService_CanSelectArbitrarily_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ArrowKeyMovementMethodServiceServer).CanSelectArbitrarily(ctx, req.(*CanSelectArbitrarilyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ArrowKeyMovementMethodService_Initialize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InitializeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ArrowKeyMovementMethodServiceServer).Initialize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ArrowKeyMovementMethodService_Initialize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ArrowKeyMovementMethodServiceServer).Initialize(ctx, req.(*InitializeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ArrowKeyMovementMethodService_NextParagraph_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NextParagraphRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ArrowKeyMovementMethodServiceServer).NextParagraph(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ArrowKeyMovementMethodService_NextParagraph_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ArrowKeyMovementMethodServiceServer).NextParagraph(ctx, req.(*NextParagraphRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ArrowKeyMovementMethodService_OnTakeFocus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTakeFocusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ArrowKeyMovementMethodServiceServer).OnTakeFocus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ArrowKeyMovementMethodService_OnTakeFocus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ArrowKeyMovementMethodServiceServer).OnTakeFocus(ctx, req.(*OnTakeFocusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ArrowKeyMovementMethodService_OnTouchEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTouchEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ArrowKeyMovementMethodServiceServer).OnTouchEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ArrowKeyMovementMethodService_OnTouchEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ArrowKeyMovementMethodServiceServer).OnTouchEvent(ctx, req.(*OnTouchEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ArrowKeyMovementMethodService_PreviousParagraph_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PreviousParagraphRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ArrowKeyMovementMethodServiceServer).PreviousParagraph(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ArrowKeyMovementMethodService_PreviousParagraph_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ArrowKeyMovementMethodServiceServer).PreviousParagraph(ctx, req.(*PreviousParagraphRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ArrowKeyMovementMethodService_GetInstance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ArrowKeyMovementMethodGetInstanceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ArrowKeyMovementMethodServiceServer).GetInstance(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ArrowKeyMovementMethodService_GetInstance_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ArrowKeyMovementMethodServiceServer).GetInstance(ctx, req.(*ArrowKeyMovementMethodGetInstanceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ArrowKeyMovementMethodService_ServiceDesc is the grpc.ServiceDesc for ArrowKeyMovementMethodService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ArrowKeyMovementMethodService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "method.ArrowKeyMovementMethodService",
+	HandlerType: (*ArrowKeyMovementMethodServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewArrowKeyMovementMethod",
+			Handler:    _ArrowKeyMovementMethodService_NewArrowKeyMovementMethod_Handler,
+		},
+		{
+			MethodName: "CanSelectArbitrarily",
+			Handler:    _ArrowKeyMovementMethodService_CanSelectArbitrarily_Handler,
+		},
+		{
+			MethodName: "Initialize",
+			Handler:    _ArrowKeyMovementMethodService_Initialize_Handler,
+		},
+		{
+			MethodName: "NextParagraph",
+			Handler:    _ArrowKeyMovementMethodService_NextParagraph_Handler,
+		},
+		{
+			MethodName: "OnTakeFocus",
+			Handler:    _ArrowKeyMovementMethodService_OnTakeFocus_Handler,
+		},
+		{
+			MethodName: "OnTouchEvent",
+			Handler:    _ArrowKeyMovementMethodService_OnTouchEvent_Handler,
+		},
+		{
+			MethodName: "PreviousParagraph",
+			Handler:    _ArrowKeyMovementMethodService_PreviousParagraph_Handler,
+		},
+		{
+			MethodName: "GetInstance",
+			Handler:    _ArrowKeyMovementMethodService_GetInstance_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/method/method.proto",
+}
+
+const (
+	DateTimeKeyListenerService_NewDateTimeKeyListener_FullMethodName = "/method.DateTimeKeyListenerService/NewDateTimeKeyListener"
+	DateTimeKeyListenerService_GetInputType_FullMethodName           = "/method.DateTimeKeyListenerService/GetInputType"
+	DateTimeKeyListenerService_GetInstance0_FullMethodName           = "/method.DateTimeKeyListenerService/GetInstance0"
+	DateTimeKeyListenerService_GetInstance1_1_FullMethodName         = "/method.DateTimeKeyListenerService/GetInstance1_1"
+)
+
+// DateTimeKeyListenerServiceClient is the client API for DateTimeKeyListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DateTimeKeyListenerServiceClient interface {
+	NewDateTimeKeyListener(ctx context.Context, in *NewDateTimeKeyListenerRequest, opts ...grpc.CallOption) (*NewDateTimeKeyListenerResponse, error)
+	GetInputType(ctx context.Context, in *GetInputTypeRequest, opts ...grpc.CallOption) (*GetInputTypeResponse, error)
+	GetInstance0(ctx context.Context, in *GetInstance0Request, opts ...grpc.CallOption) (*GetInstance0Response, error)
+	GetInstance1_1(ctx context.Context, in *GetInstance1_1Request, opts ...grpc.CallOption) (*GetInstance1_1Response, error)
+}
+
+type dateTimeKeyListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDateTimeKeyListenerServiceClient(cc grpc.ClientConnInterface) DateTimeKeyListenerServiceClient {
+	return &dateTimeKeyListenerServiceClient{cc}
+}
+
+func (c *dateTimeKeyListenerServiceClient) NewDateTimeKeyListener(ctx context.Context, in *NewDateTimeKeyListenerRequest, opts ...grpc.CallOption) (*NewDateTimeKeyListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewDateTimeKeyListenerResponse)
+	err := c.cc.Invoke(ctx, DateTimeKeyListenerService_NewDateTimeKeyListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dateTimeKeyListenerServiceClient) GetInputType(ctx context.Context, in *GetInputTypeRequest, opts ...grpc.CallOption) (*GetInputTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInputTypeResponse)
+	err := c.cc.Invoke(ctx, DateTimeKeyListenerService_GetInputType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dateTimeKeyListenerServiceClient) GetInstance0(ctx context.Context, in *GetInstance0Request, opts ...grpc.CallOption) (*GetInstance0Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInstance0Response)
+	err := c.cc.Invoke(ctx, DateTimeKeyListenerService_GetInstance0_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dateTimeKeyListenerServiceClient) GetInstance1_1(ctx context.Context, in *GetInstance1_1Request, opts ...grpc.CallOption) (*GetInstance1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInstance1_1Response)
+	err := c.cc.Invoke(ctx, DateTimeKeyListenerService_GetInstance1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DateTimeKeyListenerServiceServer is the server API for DateTimeKeyListenerService service.
+// All implementations must embed UnimplementedDateTimeKeyListenerServiceServer
+// for forward compatibility.
+type DateTimeKeyListenerServiceServer interface {
+	NewDateTimeKeyListener(context.Context, *NewDateTimeKeyListenerRequest) (*NewDateTimeKeyListenerResponse, error)
+	GetInputType(context.Context, *GetInputTypeRequest) (*GetInputTypeResponse, error)
+	GetInstance0(context.Context, *GetInstance0Request) (*GetInstance0Response, error)
+	GetInstance1_1(context.Context, *GetInstance1_1Request) (*GetInstance1_1Response, error)
+	mustEmbedUnimplementedDateTimeKeyListenerServiceServer()
+}
+
+// UnimplementedDateTimeKeyListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDateTimeKeyListenerServiceServer struct{}
+
+func (UnimplementedDateTimeKeyListenerServiceServer) NewDateTimeKeyListener(context.Context, *NewDateTimeKeyListenerRequest) (*NewDateTimeKeyListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewDateTimeKeyListener not implemented")
+}
+func (UnimplementedDateTimeKeyListenerServiceServer) GetInputType(context.Context, *GetInputTypeRequest) (*GetInputTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInputType not implemented")
+}
+func (UnimplementedDateTimeKeyListenerServiceServer) GetInstance0(context.Context, *GetInstance0Request) (*GetInstance0Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInstance0 not implemented")
+}
+func (UnimplementedDateTimeKeyListenerServiceServer) GetInstance1_1(context.Context, *GetInstance1_1Request) (*GetInstance1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInstance1_1 not implemented")
+}
+func (UnimplementedDateTimeKeyListenerServiceServer) mustEmbedUnimplementedDateTimeKeyListenerServiceServer() {
+}
+func (UnimplementedDateTimeKeyListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeDateTimeKeyListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DateTimeKeyListenerServiceServer will
+// result in compilation errors.
+type UnsafeDateTimeKeyListenerServiceServer interface {
+	mustEmbedUnimplementedDateTimeKeyListenerServiceServer()
+}
+
+func RegisterDateTimeKeyListenerServiceServer(s grpc.ServiceRegistrar, srv DateTimeKeyListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedDateTimeKeyListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DateTimeKeyListenerService_ServiceDesc, srv)
+}
+
+func _DateTimeKeyListenerService_NewDateTimeKeyListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewDateTimeKeyListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DateTimeKeyListenerServiceServer).NewDateTimeKeyListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DateTimeKeyListenerService_NewDateTimeKeyListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DateTimeKeyListenerServiceServer).NewDateTimeKeyListener(ctx, req.(*NewDateTimeKeyListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DateTimeKeyListenerService_GetInputType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInputTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DateTimeKeyListenerServiceServer).GetInputType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DateTimeKeyListenerService_GetInputType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DateTimeKeyListenerServiceServer).GetInputType(ctx, req.(*GetInputTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DateTimeKeyListenerService_GetInstance0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInstance0Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DateTimeKeyListenerServiceServer).GetInstance0(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DateTimeKeyListenerService_GetInstance0_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DateTimeKeyListenerServiceServer).GetInstance0(ctx, req.(*GetInstance0Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DateTimeKeyListenerService_GetInstance1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInstance1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DateTimeKeyListenerServiceServer).GetInstance1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DateTimeKeyListenerService_GetInstance1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DateTimeKeyListenerServiceServer).GetInstance1_1(ctx, req.(*GetInstance1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DateTimeKeyListenerService_ServiceDesc is the grpc.ServiceDesc for DateTimeKeyListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DateTimeKeyListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "method.DateTimeKeyListenerService",
+	HandlerType: (*DateTimeKeyListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewDateTimeKeyListener",
+			Handler:    _DateTimeKeyListenerService_NewDateTimeKeyListener_Handler,
+		},
+		{
+			MethodName: "GetInputType",
+			Handler:    _DateTimeKeyListenerService_GetInputType_Handler,
+		},
+		{
+			MethodName: "GetInstance0",
+			Handler:    _DateTimeKeyListenerService_GetInstance0_Handler,
+		},
+		{
+			MethodName: "GetInstance1_1",
+			Handler:    _DateTimeKeyListenerService_GetInstance1_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/method/method.proto",
+}
+
+const (
+	ScrollingMovementMethodService_NewScrollingMovementMethod_FullMethodName = "/method.ScrollingMovementMethodService/NewScrollingMovementMethod"
+	ScrollingMovementMethodService_OnTakeFocus_FullMethodName                = "/method.ScrollingMovementMethodService/OnTakeFocus"
+	ScrollingMovementMethodService_OnTouchEvent_FullMethodName               = "/method.ScrollingMovementMethodService/OnTouchEvent"
+	ScrollingMovementMethodService_GetInstance_FullMethodName                = "/method.ScrollingMovementMethodService/GetInstance"
+)
+
+// ScrollingMovementMethodServiceClient is the client API for ScrollingMovementMethodService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ScrollingMovementMethodServiceClient interface {
+	NewScrollingMovementMethod(ctx context.Context, in *NewScrollingMovementMethodRequest, opts ...grpc.CallOption) (*NewScrollingMovementMethodResponse, error)
+	OnTakeFocus(ctx context.Context, in *OnTakeFocusRequest, opts ...grpc.CallOption) (*OnTakeFocusResponse, error)
+	OnTouchEvent(ctx context.Context, in *OnTouchEventRequest, opts ...grpc.CallOption) (*OnTouchEventResponse, error)
+	GetInstance(ctx context.Context, in *ScrollingMovementMethodGetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error)
+}
+
+type scrollingMovementMethodServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewScrollingMovementMethodServiceClient(cc grpc.ClientConnInterface) ScrollingMovementMethodServiceClient {
+	return &scrollingMovementMethodServiceClient{cc}
+}
+
+func (c *scrollingMovementMethodServiceClient) NewScrollingMovementMethod(ctx context.Context, in *NewScrollingMovementMethodRequest, opts ...grpc.CallOption) (*NewScrollingMovementMethodResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewScrollingMovementMethodResponse)
+	err := c.cc.Invoke(ctx, ScrollingMovementMethodService_NewScrollingMovementMethod_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *scrollingMovementMethodServiceClient) OnTakeFocus(ctx context.Context, in *OnTakeFocusRequest, opts ...grpc.CallOption) (*OnTakeFocusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTakeFocusResponse)
+	err := c.cc.Invoke(ctx, ScrollingMovementMethodService_OnTakeFocus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *scrollingMovementMethodServiceClient) OnTouchEvent(ctx context.Context, in *OnTouchEventRequest, opts ...grpc.CallOption) (*OnTouchEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTouchEventResponse)
+	err := c.cc.Invoke(ctx, ScrollingMovementMethodService_OnTouchEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *scrollingMovementMethodServiceClient) GetInstance(ctx context.Context, in *ScrollingMovementMethodGetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInstanceResponse)
+	err := c.cc.Invoke(ctx, ScrollingMovementMethodService_GetInstance_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ScrollingMovementMethodServiceServer is the server API for ScrollingMovementMethodService service.
+// All implementations must embed UnimplementedScrollingMovementMethodServiceServer
+// for forward compatibility.
+type ScrollingMovementMethodServiceServer interface {
+	NewScrollingMovementMethod(context.Context, *NewScrollingMovementMethodRequest) (*NewScrollingMovementMethodResponse, error)
+	OnTakeFocus(context.Context, *OnTakeFocusRequest) (*OnTakeFocusResponse, error)
+	OnTouchEvent(context.Context, *OnTouchEventRequest) (*OnTouchEventResponse, error)
+	GetInstance(context.Context, *ScrollingMovementMethodGetInstanceRequest) (*GetInstanceResponse, error)
+	mustEmbedUnimplementedScrollingMovementMethodServiceServer()
+}
+
+// UnimplementedScrollingMovementMethodServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedScrollingMovementMethodServiceServer struct{}
+
+func (UnimplementedScrollingMovementMethodServiceServer) NewScrollingMovementMethod(context.Context, *NewScrollingMovementMethodRequest) (*NewScrollingMovementMethodResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewScrollingMovementMethod not implemented")
+}
+func (UnimplementedScrollingMovementMethodServiceServer) OnTakeFocus(context.Context, *OnTakeFocusRequest) (*OnTakeFocusResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTakeFocus not implemented")
+}
+func (UnimplementedScrollingMovementMethodServiceServer) OnTouchEvent(context.Context, *OnTouchEventRequest) (*OnTouchEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTouchEvent not implemented")
+}
+func (UnimplementedScrollingMovementMethodServiceServer) GetInstance(context.Context, *ScrollingMovementMethodGetInstanceRequest) (*GetInstanceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInstance not implemented")
+}
+func (UnimplementedScrollingMovementMethodServiceServer) mustEmbedUnimplementedScrollingMovementMethodServiceServer() {
+}
+func (UnimplementedScrollingMovementMethodServiceServer) testEmbeddedByValue() {}
+
+// UnsafeScrollingMovementMethodServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ScrollingMovementMethodServiceServer will
+// result in compilation errors.
+type UnsafeScrollingMovementMethodServiceServer interface {
+	mustEmbedUnimplementedScrollingMovementMethodServiceServer()
+}
+
+func RegisterScrollingMovementMethodServiceServer(s grpc.ServiceRegistrar, srv ScrollingMovementMethodServiceServer) {
+	// If the following call panics, it indicates UnimplementedScrollingMovementMethodServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ScrollingMovementMethodService_ServiceDesc, srv)
+}
+
+func _ScrollingMovementMethodService_NewScrollingMovementMethod_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewScrollingMovementMethodRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScrollingMovementMethodServiceServer).NewScrollingMovementMethod(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScrollingMovementMethodService_NewScrollingMovementMethod_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScrollingMovementMethodServiceServer).NewScrollingMovementMethod(ctx, req.(*NewScrollingMovementMethodRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ScrollingMovementMethodService_OnTakeFocus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTakeFocusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScrollingMovementMethodServiceServer).OnTakeFocus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScrollingMovementMethodService_OnTakeFocus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScrollingMovementMethodServiceServer).OnTakeFocus(ctx, req.(*OnTakeFocusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ScrollingMovementMethodService_OnTouchEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnTouchEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScrollingMovementMethodServiceServer).OnTouchEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScrollingMovementMethodService_OnTouchEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScrollingMovementMethodServiceServer).OnTouchEvent(ctx, req.(*OnTouchEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ScrollingMovementMethodService_GetInstance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ScrollingMovementMethodGetInstanceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ScrollingMovementMethodServiceServer).GetInstance(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ScrollingMovementMethodService_GetInstance_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ScrollingMovementMethodServiceServer).GetInstance(ctx, req.(*ScrollingMovementMethodGetInstanceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ScrollingMovementMethodService_ServiceDesc is the grpc.ServiceDesc for ScrollingMovementMethodService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ScrollingMovementMethodService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "method.ScrollingMovementMethodService",
+	HandlerType: (*ScrollingMovementMethodServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewScrollingMovementMethod",
+			Handler:    _ScrollingMovementMethodService_NewScrollingMovementMethod_Handler,
+		},
+		{
+			MethodName: "OnTakeFocus",
+			Handler:    _ScrollingMovementMethodService_OnTakeFocus_Handler,
+		},
+		{
+			MethodName: "OnTouchEvent",
+			Handler:    _ScrollingMovementMethodService_OnTouchEvent_Handler,
+		},
+		{
+			MethodName: "GetInstance",
+			Handler:    _ScrollingMovementMethodService_GetInstance_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/method/method.proto",
+}
+
+const (
+	TimeKeyListenerService_NewTimeKeyListener_FullMethodName = "/method.TimeKeyListenerService/NewTimeKeyListener"
+	TimeKeyListenerService_GetInputType_FullMethodName       = "/method.TimeKeyListenerService/GetInputType"
+	TimeKeyListenerService_GetInstance0_FullMethodName       = "/method.TimeKeyListenerService/GetInstance0"
+	TimeKeyListenerService_GetInstance1_1_FullMethodName     = "/method.TimeKeyListenerService/GetInstance1_1"
+)
+
+// TimeKeyListenerServiceClient is the client API for TimeKeyListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TimeKeyListenerServiceClient interface {
+	NewTimeKeyListener(ctx context.Context, in *NewTimeKeyListenerRequest, opts ...grpc.CallOption) (*NewTimeKeyListenerResponse, error)
+	GetInputType(ctx context.Context, in *GetInputTypeRequest, opts ...grpc.CallOption) (*GetInputTypeResponse, error)
+	GetInstance0(ctx context.Context, in *GetInstance0Request, opts ...grpc.CallOption) (*GetInstance0Response, error)
+	GetInstance1_1(ctx context.Context, in *GetInstance1_1Request, opts ...grpc.CallOption) (*GetInstance1_1Response, error)
+}
+
+type timeKeyListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTimeKeyListenerServiceClient(cc grpc.ClientConnInterface) TimeKeyListenerServiceClient {
+	return &timeKeyListenerServiceClient{cc}
+}
+
+func (c *timeKeyListenerServiceClient) NewTimeKeyListener(ctx context.Context, in *NewTimeKeyListenerRequest, opts ...grpc.CallOption) (*NewTimeKeyListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewTimeKeyListenerResponse)
+	err := c.cc.Invoke(ctx, TimeKeyListenerService_NewTimeKeyListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *timeKeyListenerServiceClient) GetInputType(ctx context.Context, in *GetInputTypeRequest, opts ...grpc.CallOption) (*GetInputTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInputTypeResponse)
+	err := c.cc.Invoke(ctx, TimeKeyListenerService_GetInputType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *timeKeyListenerServiceClient) GetInstance0(ctx context.Context, in *GetInstance0Request, opts ...grpc.CallOption) (*GetInstance0Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInstance0Response)
+	err := c.cc.Invoke(ctx, TimeKeyListenerService_GetInstance0_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *timeKeyListenerServiceClient) GetInstance1_1(ctx context.Context, in *GetInstance1_1Request, opts ...grpc.CallOption) (*GetInstance1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInstance1_1Response)
+	err := c.cc.Invoke(ctx, TimeKeyListenerService_GetInstance1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TimeKeyListenerServiceServer is the server API for TimeKeyListenerService service.
+// All implementations must embed UnimplementedTimeKeyListenerServiceServer
+// for forward compatibility.
+type TimeKeyListenerServiceServer interface {
+	NewTimeKeyListener(context.Context, *NewTimeKeyListenerRequest) (*NewTimeKeyListenerResponse, error)
+	GetInputType(context.Context, *GetInputTypeRequest) (*GetInputTypeResponse, error)
+	GetInstance0(context.Context, *GetInstance0Request) (*GetInstance0Response, error)
+	GetInstance1_1(context.Context, *GetInstance1_1Request) (*GetInstance1_1Response, error)
+	mustEmbedUnimplementedTimeKeyListenerServiceServer()
+}
+
+// UnimplementedTimeKeyListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTimeKeyListenerServiceServer struct{}
+
+func (UnimplementedTimeKeyListenerServiceServer) NewTimeKeyListener(context.Context, *NewTimeKeyListenerRequest) (*NewTimeKeyListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewTimeKeyListener not implemented")
+}
+func (UnimplementedTimeKeyListenerServiceServer) GetInputType(context.Context, *GetInputTypeRequest) (*GetInputTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInputType not implemented")
+}
+func (UnimplementedTimeKeyListenerServiceServer) GetInstance0(context.Context, *GetInstance0Request) (*GetInstance0Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInstance0 not implemented")
+}
+func (UnimplementedTimeKeyListenerServiceServer) GetInstance1_1(context.Context, *GetInstance1_1Request) (*GetInstance1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInstance1_1 not implemented")
+}
+func (UnimplementedTimeKeyListenerServiceServer) mustEmbedUnimplementedTimeKeyListenerServiceServer() {
+}
+func (UnimplementedTimeKeyListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTimeKeyListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TimeKeyListenerServiceServer will
+// result in compilation errors.
+type UnsafeTimeKeyListenerServiceServer interface {
+	mustEmbedUnimplementedTimeKeyListenerServiceServer()
+}
+
+func RegisterTimeKeyListenerServiceServer(s grpc.ServiceRegistrar, srv TimeKeyListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedTimeKeyListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TimeKeyListenerService_ServiceDesc, srv)
+}
+
+func _TimeKeyListenerService_NewTimeKeyListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewTimeKeyListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimeKeyListenerServiceServer).NewTimeKeyListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimeKeyListenerService_NewTimeKeyListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimeKeyListenerServiceServer).NewTimeKeyListener(ctx, req.(*NewTimeKeyListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TimeKeyListenerService_GetInputType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInputTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimeKeyListenerServiceServer).GetInputType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimeKeyListenerService_GetInputType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimeKeyListenerServiceServer).GetInputType(ctx, req.(*GetInputTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TimeKeyListenerService_GetInstance0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInstance0Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimeKeyListenerServiceServer).GetInstance0(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimeKeyListenerService_GetInstance0_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimeKeyListenerServiceServer).GetInstance0(ctx, req.(*GetInstance0Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TimeKeyListenerService_GetInstance1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInstance1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TimeKeyListenerServiceServer).GetInstance1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TimeKeyListenerService_GetInstance1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TimeKeyListenerServiceServer).GetInstance1_1(ctx, req.(*GetInstance1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TimeKeyListenerService_ServiceDesc is the grpc.ServiceDesc for TimeKeyListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TimeKeyListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "method.TimeKeyListenerService",
+	HandlerType: (*TimeKeyListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewTimeKeyListener",
+			Handler:    _TimeKeyListenerService_NewTimeKeyListener_Handler,
+		},
+		{
+			MethodName: "GetInputType",
+			Handler:    _TimeKeyListenerService_GetInputType_Handler,
+		},
+		{
+			MethodName: "GetInstance0",
+			Handler:    _TimeKeyListenerService_GetInstance0_Handler,
+		},
+		{
+			MethodName: "GetInstance1_1",
+			Handler:    _TimeKeyListenerService_GetInstance1_1_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/method/method.proto",
+}
+
+const (
+	NumberKeyListenerService_Filter_FullMethodName    = "/method.NumberKeyListenerService/Filter"
+	NumberKeyListenerService_OnKeyDown_FullMethodName = "/method.NumberKeyListenerService/OnKeyDown"
+)
+
+// NumberKeyListenerServiceClient is the client API for NumberKeyListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type NumberKeyListenerServiceClient interface {
+	Filter(ctx context.Context, in *FilterRequest, opts ...grpc.CallOption) (*FilterResponse, error)
+	OnKeyDown(ctx context.Context, in *NumberKeyListenerOnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error)
+}
+
+type numberKeyListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewNumberKeyListenerServiceClient(cc grpc.ClientConnInterface) NumberKeyListenerServiceClient {
+	return &numberKeyListenerServiceClient{cc}
+}
+
+func (c *numberKeyListenerServiceClient) Filter(ctx context.Context, in *FilterRequest, opts ...grpc.CallOption) (*FilterResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FilterResponse)
+	err := c.cc.Invoke(ctx, NumberKeyListenerService_Filter_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *numberKeyListenerServiceClient) OnKeyDown(ctx context.Context, in *NumberKeyListenerOnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnKeyDownResponse)
+	err := c.cc.Invoke(ctx, NumberKeyListenerService_OnKeyDown_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// NumberKeyListenerServiceServer is the server API for NumberKeyListenerService service.
+// All implementations must embed UnimplementedNumberKeyListenerServiceServer
+// for forward compatibility.
+type NumberKeyListenerServiceServer interface {
+	Filter(context.Context, *FilterRequest) (*FilterResponse, error)
+	OnKeyDown(context.Context, *NumberKeyListenerOnKeyDownRequest) (*OnKeyDownResponse, error)
+	mustEmbedUnimplementedNumberKeyListenerServiceServer()
+}
+
+// UnimplementedNumberKeyListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedNumberKeyListenerServiceServer struct{}
+
+func (UnimplementedNumberKeyListenerServiceServer) Filter(context.Context, *FilterRequest) (*FilterResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Filter not implemented")
+}
+func (UnimplementedNumberKeyListenerServiceServer) OnKeyDown(context.Context, *NumberKeyListenerOnKeyDownRequest) (*OnKeyDownResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnKeyDown not implemented")
+}
+func (UnimplementedNumberKeyListenerServiceServer) mustEmbedUnimplementedNumberKeyListenerServiceServer() {
+}
+func (UnimplementedNumberKeyListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeNumberKeyListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to NumberKeyListenerServiceServer will
+// result in compilation errors.
+type UnsafeNumberKeyListenerServiceServer interface {
+	mustEmbedUnimplementedNumberKeyListenerServiceServer()
+}
+
+func RegisterNumberKeyListenerServiceServer(s grpc.ServiceRegistrar, srv NumberKeyListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedNumberKeyListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&NumberKeyListenerService_ServiceDesc, srv)
+}
+
+func _NumberKeyListenerService_Filter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NumberKeyListenerServiceServer).Filter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NumberKeyListenerService_Filter_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NumberKeyListenerServiceServer).Filter(ctx, req.(*FilterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NumberKeyListenerService_OnKeyDown_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NumberKeyListenerOnKeyDownRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NumberKeyListenerServiceServer).OnKeyDown(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NumberKeyListenerService_OnKeyDown_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NumberKeyListenerServiceServer).OnKeyDown(ctx, req.(*NumberKeyListenerOnKeyDownRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// NumberKeyListenerService_ServiceDesc is the grpc.ServiceDesc for NumberKeyListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var NumberKeyListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "method.NumberKeyListenerService",
+	HandlerType: (*NumberKeyListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Filter",
+			Handler:    _NumberKeyListenerService_Filter_Handler,
+		},
+		{
+			MethodName: "OnKeyDown",
+			Handler:    _NumberKeyListenerService_OnKeyDown_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/method/method.proto",
+}
+
+const (
+	MovementMethodService_CanSelectArbitrarily_FullMethodName = "/method.MovementMethodService/CanSelectArbitrarily"
+	MovementMethodService_Initialize_FullMethodName           = "/method.MovementMethodService/Initialize"
+	MovementMethodService_OnGenericMotionEvent_FullMethodName = "/method.MovementMethodService/OnGenericMotionEvent"
+	MovementMethodService_OnKeyDown_FullMethodName            = "/method.MovementMethodService/OnKeyDown"
+	MovementMethodService_OnKeyOther_FullMethodName           = "/method.MovementMethodService/OnKeyOther"
+	MovementMethodService_OnKeyUp_FullMethodName              = "/method.MovementMethodService/OnKeyUp"
+	MovementMethodService_OnTakeFocus_FullMethodName          = "/method.MovementMethodService/OnTakeFocus"
+	MovementMethodService_OnTouchEvent_FullMethodName         = "/method.MovementMethodService/OnTouchEvent"
+	MovementMethodService_OnTrackballEvent_FullMethodName     = "/method.MovementMethodService/OnTrackballEvent"
+)
+
+// MovementMethodServiceClient is the client API for MovementMethodService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type MovementMethodServiceClient interface {
+	CanSelectArbitrarily(ctx context.Context, in *MovementMethodCanSelectArbitrarilyRequest, opts ...grpc.CallOption) (*CanSelectArbitrarilyResponse, error)
+	Initialize(ctx context.Context, in *MovementMethodInitializeRequest, opts ...grpc.CallOption) (*InitializeResponse, error)
+	OnGenericMotionEvent(ctx context.Context, in *MovementMethodOnGenericMotionEventRequest, opts ...grpc.CallOption) (*OnGenericMotionEventResponse, error)
+	OnKeyDown(ctx context.Context, in *MovementMethodOnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error)
+	OnKeyOther(ctx context.Context, in *MovementMethodOnKeyOtherRequest, opts ...grpc.CallOption) (*OnKeyOtherResponse, error)
+	OnKeyUp(ctx context.Context, in *MovementMethodOnKeyUpRequest, opts ...grpc.CallOption) (*OnKeyUpResponse, error)
+	OnTakeFocus(ctx context.Context, in *MovementMethodOnTakeFocusRequest, opts ...grpc.CallOption) (*OnTakeFocusResponse, error)
+	OnTouchEvent(ctx context.Context, in *MovementMethodOnTouchEventRequest, opts ...grpc.CallOption) (*OnTouchEventResponse, error)
+	OnTrackballEvent(ctx context.Context, in *MovementMethodOnTrackballEventRequest, opts ...grpc.CallOption) (*OnTrackballEventResponse, error)
+}
+
+type movementMethodServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewMovementMethodServiceClient(cc grpc.ClientConnInterface) MovementMethodServiceClient {
+	return &movementMethodServiceClient{cc}
+}
+
+func (c *movementMethodServiceClient) CanSelectArbitrarily(ctx context.Context, in *MovementMethodCanSelectArbitrarilyRequest, opts ...grpc.CallOption) (*CanSelectArbitrarilyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CanSelectArbitrarilyResponse)
+	err := c.cc.Invoke(ctx, MovementMethodService_CanSelectArbitrarily_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *movementMethodServiceClient) Initialize(ctx context.Context, in *MovementMethodInitializeRequest, opts ...grpc.CallOption) (*InitializeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(InitializeResponse)
+	err := c.cc.Invoke(ctx, MovementMethodService_Initialize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *movementMethodServiceClient) OnGenericMotionEvent(ctx context.Context, in *MovementMethodOnGenericMotionEventRequest, opts ...grpc.CallOption) (*OnGenericMotionEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnGenericMotionEventResponse)
+	err := c.cc.Invoke(ctx, MovementMethodService_OnGenericMotionEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *movementMethodServiceClient) OnKeyDown(ctx context.Context, in *MovementMethodOnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnKeyDownResponse)
+	err := c.cc.Invoke(ctx, MovementMethodService_OnKeyDown_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *movementMethodServiceClient) OnKeyOther(ctx context.Context, in *MovementMethodOnKeyOtherRequest, opts ...grpc.CallOption) (*OnKeyOtherResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnKeyOtherResponse)
+	err := c.cc.Invoke(ctx, MovementMethodService_OnKeyOther_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *movementMethodServiceClient) OnKeyUp(ctx context.Context, in *MovementMethodOnKeyUpRequest, opts ...grpc.CallOption) (*OnKeyUpResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnKeyUpResponse)
+	err := c.cc.Invoke(ctx, MovementMethodService_OnKeyUp_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *movementMethodServiceClient) OnTakeFocus(ctx context.Context, in *MovementMethodOnTakeFocusRequest, opts ...grpc.CallOption) (*OnTakeFocusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTakeFocusResponse)
+	err := c.cc.Invoke(ctx, MovementMethodService_OnTakeFocus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *movementMethodServiceClient) OnTouchEvent(ctx context.Context, in *MovementMethodOnTouchEventRequest, opts ...grpc.CallOption) (*OnTouchEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTouchEventResponse)
+	err := c.cc.Invoke(ctx, MovementMethodService_OnTouchEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *movementMethodServiceClient) OnTrackballEvent(ctx context.Context, in *MovementMethodOnTrackballEventRequest, opts ...grpc.CallOption) (*OnTrackballEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTrackballEventResponse)
+	err := c.cc.Invoke(ctx, MovementMethodService_OnTrackballEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// MovementMethodServiceServer is the server API for MovementMethodService service.
+// All implementations must embed UnimplementedMovementMethodServiceServer
+// for forward compatibility.
+type MovementMethodServiceServer interface {
+	CanSelectArbitrarily(context.Context, *MovementMethodCanSelectArbitrarilyRequest) (*CanSelectArbitrarilyResponse, error)
+	Initialize(context.Context, *MovementMethodInitializeRequest) (*InitializeResponse, error)
+	OnGenericMotionEvent(context.Context, *MovementMethodOnGenericMotionEventRequest) (*OnGenericMotionEventResponse, error)
+	OnKeyDown(context.Context, *MovementMethodOnKeyDownRequest) (*OnKeyDownResponse, error)
+	OnKeyOther(context.Context, *MovementMethodOnKeyOtherRequest) (*OnKeyOtherResponse, error)
+	OnKeyUp(context.Context, *MovementMethodOnKeyUpRequest) (*OnKeyUpResponse, error)
+	OnTakeFocus(context.Context, *MovementMethodOnTakeFocusRequest) (*OnTakeFocusResponse, error)
+	OnTouchEvent(context.Context, *MovementMethodOnTouchEventRequest) (*OnTouchEventResponse, error)
+	OnTrackballEvent(context.Context, *MovementMethodOnTrackballEventRequest) (*OnTrackballEventResponse, error)
+	mustEmbedUnimplementedMovementMethodServiceServer()
+}
+
+// UnimplementedMovementMethodServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedMovementMethodServiceServer struct{}
+
+func (UnimplementedMovementMethodServiceServer) CanSelectArbitrarily(context.Context, *MovementMethodCanSelectArbitrarilyRequest) (*CanSelectArbitrarilyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CanSelectArbitrarily not implemented")
+}
+func (UnimplementedMovementMethodServiceServer) Initialize(context.Context, *MovementMethodInitializeRequest) (*InitializeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Initialize not implemented")
+}
+func (UnimplementedMovementMethodServiceServer) OnGenericMotionEvent(context.Context, *MovementMethodOnGenericMotionEventRequest) (*OnGenericMotionEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnGenericMotionEvent not implemented")
+}
+func (UnimplementedMovementMethodServiceServer) OnKeyDown(context.Context, *MovementMethodOnKeyDownRequest) (*OnKeyDownResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnKeyDown not implemented")
+}
+func (UnimplementedMovementMethodServiceServer) OnKeyOther(context.Context, *MovementMethodOnKeyOtherRequest) (*OnKeyOtherResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnKeyOther not implemented")
+}
+func (UnimplementedMovementMethodServiceServer) OnKeyUp(context.Context, *MovementMethodOnKeyUpRequest) (*OnKeyUpResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnKeyUp not implemented")
+}
+func (UnimplementedMovementMethodServiceServer) OnTakeFocus(context.Context, *MovementMethodOnTakeFocusRequest) (*OnTakeFocusResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTakeFocus not implemented")
+}
+func (UnimplementedMovementMethodServiceServer) OnTouchEvent(context.Context, *MovementMethodOnTouchEventRequest) (*OnTouchEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTouchEvent not implemented")
+}
+func (UnimplementedMovementMethodServiceServer) OnTrackballEvent(context.Context, *MovementMethodOnTrackballEventRequest) (*OnTrackballEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTrackballEvent not implemented")
+}
+func (UnimplementedMovementMethodServiceServer) mustEmbedUnimplementedMovementMethodServiceServer() {}
+func (UnimplementedMovementMethodServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeMovementMethodServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to MovementMethodServiceServer will
+// result in compilation errors.
+type UnsafeMovementMethodServiceServer interface {
+	mustEmbedUnimplementedMovementMethodServiceServer()
+}
+
+func RegisterMovementMethodServiceServer(s grpc.ServiceRegistrar, srv MovementMethodServiceServer) {
+	// If the following call panics, it indicates UnimplementedMovementMethodServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&MovementMethodService_ServiceDesc, srv)
+}
+
+func _MovementMethodService_CanSelectArbitrarily_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MovementMethodCanSelectArbitrarilyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MovementMethodServiceServer).CanSelectArbitrarily(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MovementMethodService_CanSelectArbitrarily_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MovementMethodServiceServer).CanSelectArbitrarily(ctx, req.(*MovementMethodCanSelectArbitrarilyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MovementMethodService_Initialize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MovementMethodInitializeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MovementMethodServiceServer).Initialize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MovementMethodService_Initialize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MovementMethodServiceServer).Initialize(ctx, req.(*MovementMethodInitializeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MovementMethodService_OnGenericMotionEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MovementMethodOnGenericMotionEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MovementMethodServiceServer).OnGenericMotionEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MovementMethodService_OnGenericMotionEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MovementMethodServiceServer).OnGenericMotionEvent(ctx, req.(*MovementMethodOnGenericMotionEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MovementMethodService_OnKeyDown_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MovementMethodOnKeyDownRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MovementMethodServiceServer).OnKeyDown(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MovementMethodService_OnKeyDown_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MovementMethodServiceServer).OnKeyDown(ctx, req.(*MovementMethodOnKeyDownRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MovementMethodService_OnKeyOther_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MovementMethodOnKeyOtherRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MovementMethodServiceServer).OnKeyOther(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MovementMethodService_OnKeyOther_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MovementMethodServiceServer).OnKeyOther(ctx, req.(*MovementMethodOnKeyOtherRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MovementMethodService_OnKeyUp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MovementMethodOnKeyUpRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MovementMethodServiceServer).OnKeyUp(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MovementMethodService_OnKeyUp_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MovementMethodServiceServer).OnKeyUp(ctx, req.(*MovementMethodOnKeyUpRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MovementMethodService_OnTakeFocus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MovementMethodOnTakeFocusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MovementMethodServiceServer).OnTakeFocus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MovementMethodService_OnTakeFocus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MovementMethodServiceServer).OnTakeFocus(ctx, req.(*MovementMethodOnTakeFocusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MovementMethodService_OnTouchEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MovementMethodOnTouchEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MovementMethodServiceServer).OnTouchEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MovementMethodService_OnTouchEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MovementMethodServiceServer).OnTouchEvent(ctx, req.(*MovementMethodOnTouchEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MovementMethodService_OnTrackballEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MovementMethodOnTrackballEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MovementMethodServiceServer).OnTrackballEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MovementMethodService_OnTrackballEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MovementMethodServiceServer).OnTrackballEvent(ctx, req.(*MovementMethodOnTrackballEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// MovementMethodService_ServiceDesc is the grpc.ServiceDesc for MovementMethodService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var MovementMethodService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "method.MovementMethodService",
+	HandlerType: (*MovementMethodServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CanSelectArbitrarily",
+			Handler:    _MovementMethodService_CanSelectArbitrarily_Handler,
+		},
+		{
+			MethodName: "Initialize",
+			Handler:    _MovementMethodService_Initialize_Handler,
+		},
+		{
+			MethodName: "OnGenericMotionEvent",
+			Handler:    _MovementMethodService_OnGenericMotionEvent_Handler,
+		},
+		{
+			MethodName: "OnKeyDown",
+			Handler:    _MovementMethodService_OnKeyDown_Handler,
+		},
+		{
+			MethodName: "OnKeyOther",
+			Handler:    _MovementMethodService_OnKeyOther_Handler,
+		},
+		{
+			MethodName: "OnKeyUp",
+			Handler:    _MovementMethodService_OnKeyUp_Handler,
+		},
+		{
+			MethodName: "OnTakeFocus",
+			Handler:    _MovementMethodService_OnTakeFocus_Handler,
+		},
+		{
+			MethodName: "OnTouchEvent",
+			Handler:    _MovementMethodService_OnTouchEvent_Handler,
+		},
+		{
+			MethodName: "OnTrackballEvent",
+			Handler:    _MovementMethodService_OnTrackballEvent_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/method/method.proto",
+}
+
+const (
+	KeyListenerService_ClearMetaKeyState_FullMethodName = "/method.KeyListenerService/ClearMetaKeyState"
+	KeyListenerService_GetInputType_FullMethodName      = "/method.KeyListenerService/GetInputType"
+	KeyListenerService_OnKeyDown_FullMethodName         = "/method.KeyListenerService/OnKeyDown"
+	KeyListenerService_OnKeyOther_FullMethodName        = "/method.KeyListenerService/OnKeyOther"
+	KeyListenerService_OnKeyUp_FullMethodName           = "/method.KeyListenerService/OnKeyUp"
+)
+
+// KeyListenerServiceClient is the client API for KeyListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type KeyListenerServiceClient interface {
+	ClearMetaKeyState(ctx context.Context, in *ClearMetaKeyStateRequest, opts ...grpc.CallOption) (*ClearMetaKeyStateResponse, error)
+	GetInputType(ctx context.Context, in *KeyListenerGetInputTypeRequest, opts ...grpc.CallOption) (*GetInputTypeResponse, error)
+	OnKeyDown(ctx context.Context, in *KeyListenerOnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error)
+	OnKeyOther(ctx context.Context, in *KeyListenerOnKeyOtherRequest, opts ...grpc.CallOption) (*OnKeyOtherResponse, error)
+	OnKeyUp(ctx context.Context, in *KeyListenerOnKeyUpRequest, opts ...grpc.CallOption) (*OnKeyUpResponse, error)
+}
+
+type keyListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewKeyListenerServiceClient(cc grpc.ClientConnInterface) KeyListenerServiceClient {
+	return &keyListenerServiceClient{cc}
+}
+
+func (c *keyListenerServiceClient) ClearMetaKeyState(ctx context.Context, in *ClearMetaKeyStateRequest, opts ...grpc.CallOption) (*ClearMetaKeyStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ClearMetaKeyStateResponse)
+	err := c.cc.Invoke(ctx, KeyListenerService_ClearMetaKeyState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyListenerServiceClient) GetInputType(ctx context.Context, in *KeyListenerGetInputTypeRequest, opts ...grpc.CallOption) (*GetInputTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInputTypeResponse)
+	err := c.cc.Invoke(ctx, KeyListenerService_GetInputType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyListenerServiceClient) OnKeyDown(ctx context.Context, in *KeyListenerOnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnKeyDownResponse)
+	err := c.cc.Invoke(ctx, KeyListenerService_OnKeyDown_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyListenerServiceClient) OnKeyOther(ctx context.Context, in *KeyListenerOnKeyOtherRequest, opts ...grpc.CallOption) (*OnKeyOtherResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnKeyOtherResponse)
+	err := c.cc.Invoke(ctx, KeyListenerService_OnKeyOther_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keyListenerServiceClient) OnKeyUp(ctx context.Context, in *KeyListenerOnKeyUpRequest, opts ...grpc.CallOption) (*OnKeyUpResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnKeyUpResponse)
+	err := c.cc.Invoke(ctx, KeyListenerService_OnKeyUp_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// KeyListenerServiceServer is the server API for KeyListenerService service.
+// All implementations must embed UnimplementedKeyListenerServiceServer
+// for forward compatibility.
+type KeyListenerServiceServer interface {
+	ClearMetaKeyState(context.Context, *ClearMetaKeyStateRequest) (*ClearMetaKeyStateResponse, error)
+	GetInputType(context.Context, *KeyListenerGetInputTypeRequest) (*GetInputTypeResponse, error)
+	OnKeyDown(context.Context, *KeyListenerOnKeyDownRequest) (*OnKeyDownResponse, error)
+	OnKeyOther(context.Context, *KeyListenerOnKeyOtherRequest) (*OnKeyOtherResponse, error)
+	OnKeyUp(context.Context, *KeyListenerOnKeyUpRequest) (*OnKeyUpResponse, error)
+	mustEmbedUnimplementedKeyListenerServiceServer()
+}
+
+// UnimplementedKeyListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedKeyListenerServiceServer struct{}
+
+func (UnimplementedKeyListenerServiceServer) ClearMetaKeyState(context.Context, *ClearMetaKeyStateRequest) (*ClearMetaKeyStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ClearMetaKeyState not implemented")
+}
+func (UnimplementedKeyListenerServiceServer) GetInputType(context.Context, *KeyListenerGetInputTypeRequest) (*GetInputTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInputType not implemented")
+}
+func (UnimplementedKeyListenerServiceServer) OnKeyDown(context.Context, *KeyListenerOnKeyDownRequest) (*OnKeyDownResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnKeyDown not implemented")
+}
+func (UnimplementedKeyListenerServiceServer) OnKeyOther(context.Context, *KeyListenerOnKeyOtherRequest) (*OnKeyOtherResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnKeyOther not implemented")
+}
+func (UnimplementedKeyListenerServiceServer) OnKeyUp(context.Context, *KeyListenerOnKeyUpRequest) (*OnKeyUpResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnKeyUp not implemented")
+}
+func (UnimplementedKeyListenerServiceServer) mustEmbedUnimplementedKeyListenerServiceServer() {}
+func (UnimplementedKeyListenerServiceServer) testEmbeddedByValue()                            {}
+
+// UnsafeKeyListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to KeyListenerServiceServer will
+// result in compilation errors.
+type UnsafeKeyListenerServiceServer interface {
+	mustEmbedUnimplementedKeyListenerServiceServer()
+}
+
+func RegisterKeyListenerServiceServer(s grpc.ServiceRegistrar, srv KeyListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedKeyListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&KeyListenerService_ServiceDesc, srv)
+}
+
+func _KeyListenerService_ClearMetaKeyState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClearMetaKeyStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyListenerServiceServer).ClearMetaKeyState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyListenerService_ClearMetaKeyState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyListenerServiceServer).ClearMetaKeyState(ctx, req.(*ClearMetaKeyStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyListenerService_GetInputType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KeyListenerGetInputTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyListenerServiceServer).GetInputType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyListenerService_GetInputType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyListenerServiceServer).GetInputType(ctx, req.(*KeyListenerGetInputTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyListenerService_OnKeyDown_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KeyListenerOnKeyDownRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyListenerServiceServer).OnKeyDown(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyListenerService_OnKeyDown_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyListenerServiceServer).OnKeyDown(ctx, req.(*KeyListenerOnKeyDownRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyListenerService_OnKeyOther_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KeyListenerOnKeyOtherRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyListenerServiceServer).OnKeyOther(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyListenerService_OnKeyOther_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyListenerServiceServer).OnKeyOther(ctx, req.(*KeyListenerOnKeyOtherRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeyListenerService_OnKeyUp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(KeyListenerOnKeyUpRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeyListenerServiceServer).OnKeyUp(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: KeyListenerService_OnKeyUp_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeyListenerServiceServer).OnKeyUp(ctx, req.(*KeyListenerOnKeyUpRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// KeyListenerService_ServiceDesc is the grpc.ServiceDesc for KeyListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var KeyListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "method.KeyListenerService",
+	HandlerType: (*KeyListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "ClearMetaKeyState",
+			Handler:    _KeyListenerService_ClearMetaKeyState_Handler,
+		},
+		{
+			MethodName: "GetInputType",
+			Handler:    _KeyListenerService_GetInputType_Handler,
+		},
+		{
+			MethodName: "OnKeyDown",
+			Handler:    _KeyListenerService_OnKeyDown_Handler,
+		},
+		{
+			MethodName: "OnKeyOther",
+			Handler:    _KeyListenerService_OnKeyOther_Handler,
+		},
+		{
+			MethodName: "OnKeyUp",
+			Handler:    _KeyListenerService_OnKeyUp_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/method/method.proto",
+}
+
+const (
+	CharacterPickerDialogService_NewCharacterPickerDialog_FullMethodName = "/method.CharacterPickerDialogService/NewCharacterPickerDialog"
+	CharacterPickerDialogService_OnClick_FullMethodName                  = "/method.CharacterPickerDialogService/OnClick"
+	CharacterPickerDialogService_OnItemClick_FullMethodName              = "/method.CharacterPickerDialogService/OnItemClick"
+)
+
+// CharacterPickerDialogServiceClient is the client API for CharacterPickerDialogService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CharacterPickerDialogServiceClient interface {
+	NewCharacterPickerDialog(ctx context.Context, in *NewCharacterPickerDialogRequest, opts ...grpc.CallOption) (*NewCharacterPickerDialogResponse, error)
+	OnClick(ctx context.Context, in *OnClickRequest, opts ...grpc.CallOption) (*OnClickResponse, error)
+	OnItemClick(ctx context.Context, in *OnItemClickRequest, opts ...grpc.CallOption) (*OnItemClickResponse, error)
+}
+
+type characterPickerDialogServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCharacterPickerDialogServiceClient(cc grpc.ClientConnInterface) CharacterPickerDialogServiceClient {
+	return &characterPickerDialogServiceClient{cc}
+}
+
+func (c *characterPickerDialogServiceClient) NewCharacterPickerDialog(ctx context.Context, in *NewCharacterPickerDialogRequest, opts ...grpc.CallOption) (*NewCharacterPickerDialogResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewCharacterPickerDialogResponse)
+	err := c.cc.Invoke(ctx, CharacterPickerDialogService_NewCharacterPickerDialog_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *characterPickerDialogServiceClient) OnClick(ctx context.Context, in *OnClickRequest, opts ...grpc.CallOption) (*OnClickResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnClickResponse)
+	err := c.cc.Invoke(ctx, CharacterPickerDialogService_OnClick_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *characterPickerDialogServiceClient) OnItemClick(ctx context.Context, in *OnItemClickRequest, opts ...grpc.CallOption) (*OnItemClickResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnItemClickResponse)
+	err := c.cc.Invoke(ctx, CharacterPickerDialogService_OnItemClick_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CharacterPickerDialogServiceServer is the server API for CharacterPickerDialogService service.
+// All implementations must embed UnimplementedCharacterPickerDialogServiceServer
+// for forward compatibility.
+type CharacterPickerDialogServiceServer interface {
+	NewCharacterPickerDialog(context.Context, *NewCharacterPickerDialogRequest) (*NewCharacterPickerDialogResponse, error)
+	OnClick(context.Context, *OnClickRequest) (*OnClickResponse, error)
+	OnItemClick(context.Context, *OnItemClickRequest) (*OnItemClickResponse, error)
+	mustEmbedUnimplementedCharacterPickerDialogServiceServer()
+}
+
+// UnimplementedCharacterPickerDialogServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCharacterPickerDialogServiceServer struct{}
+
+func (UnimplementedCharacterPickerDialogServiceServer) NewCharacterPickerDialog(context.Context, *NewCharacterPickerDialogRequest) (*NewCharacterPickerDialogResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewCharacterPickerDialog not implemented")
+}
+func (UnimplementedCharacterPickerDialogServiceServer) OnClick(context.Context, *OnClickRequest) (*OnClickResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnClick not implemented")
+}
+func (UnimplementedCharacterPickerDialogServiceServer) OnItemClick(context.Context, *OnItemClickRequest) (*OnItemClickResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnItemClick not implemented")
+}
+func (UnimplementedCharacterPickerDialogServiceServer) mustEmbedUnimplementedCharacterPickerDialogServiceServer() {
+}
+func (UnimplementedCharacterPickerDialogServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCharacterPickerDialogServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CharacterPickerDialogServiceServer will
+// result in compilation errors.
+type UnsafeCharacterPickerDialogServiceServer interface {
+	mustEmbedUnimplementedCharacterPickerDialogServiceServer()
+}
+
+func RegisterCharacterPickerDialogServiceServer(s grpc.ServiceRegistrar, srv CharacterPickerDialogServiceServer) {
+	// If the following call panics, it indicates UnimplementedCharacterPickerDialogServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CharacterPickerDialogService_ServiceDesc, srv)
+}
+
+func _CharacterPickerDialogService_NewCharacterPickerDialog_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewCharacterPickerDialogRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CharacterPickerDialogServiceServer).NewCharacterPickerDialog(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CharacterPickerDialogService_NewCharacterPickerDialog_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CharacterPickerDialogServiceServer).NewCharacterPickerDialog(ctx, req.(*NewCharacterPickerDialogRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CharacterPickerDialogService_OnClick_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnClickRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CharacterPickerDialogServiceServer).OnClick(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CharacterPickerDialogService_OnClick_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CharacterPickerDialogServiceServer).OnClick(ctx, req.(*OnClickRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CharacterPickerDialogService_OnItemClick_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnItemClickRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CharacterPickerDialogServiceServer).OnItemClick(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CharacterPickerDialogService_OnItemClick_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CharacterPickerDialogServiceServer).OnItemClick(ctx, req.(*OnItemClickRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CharacterPickerDialogService_ServiceDesc is the grpc.ServiceDesc for CharacterPickerDialogService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CharacterPickerDialogService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "method.CharacterPickerDialogService",
+	HandlerType: (*CharacterPickerDialogServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewCharacterPickerDialog",
+			Handler:    _CharacterPickerDialogService_NewCharacterPickerDialog_Handler,
+		},
+		{
+			MethodName: "OnClick",
+			Handler:    _CharacterPickerDialogService_OnClick_Handler,
+		},
+		{
+			MethodName: "OnItemClick",
+			Handler:    _CharacterPickerDialogService_OnItemClick_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -4158,16 +4614,16 @@ const (
 type TextKeyListenerServiceClient interface {
 	NewTextKeyListener(ctx context.Context, in *NewTextKeyListenerRequest, opts ...grpc.CallOption) (*NewTextKeyListenerResponse, error)
 	GetInputType(ctx context.Context, in *GetInputTypeRequest, opts ...grpc.CallOption) (*GetInputTypeResponse, error)
-	OnKeyDown(ctx context.Context, in *TextKeyListenerOnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error)
-	OnKeyOther(ctx context.Context, in *TextKeyListenerOnKeyOtherRequest, opts ...grpc.CallOption) (*OnKeyOtherResponse, error)
-	OnKeyUp(ctx context.Context, in *TextKeyListenerOnKeyUpRequest, opts ...grpc.CallOption) (*OnKeyUpResponse, error)
+	OnKeyDown(ctx context.Context, in *OnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error)
+	OnKeyOther(ctx context.Context, in *OnKeyOtherRequest, opts ...grpc.CallOption) (*OnKeyOtherResponse, error)
+	OnKeyUp(ctx context.Context, in *OnKeyUpRequest, opts ...grpc.CallOption) (*OnKeyUpResponse, error)
 	OnSpanAdded(ctx context.Context, in *OnSpanAddedRequest, opts ...grpc.CallOption) (*OnSpanAddedResponse, error)
 	OnSpanChanged(ctx context.Context, in *OnSpanChangedRequest, opts ...grpc.CallOption) (*OnSpanChangedResponse, error)
 	OnSpanRemoved(ctx context.Context, in *OnSpanRemovedRequest, opts ...grpc.CallOption) (*OnSpanRemovedResponse, error)
 	Release(ctx context.Context, in *ReleaseRequest, opts ...grpc.CallOption) (*ReleaseResponse, error)
 	Clear(ctx context.Context, in *ClearRequest, opts ...grpc.CallOption) (*ClearResponse, error)
 	GetInstance0(ctx context.Context, in *GetInstance0Request, opts ...grpc.CallOption) (*GetInstance0Response, error)
-	GetInstance2_1(ctx context.Context, in *TextKeyListenerGetInstance2_1Request, opts ...grpc.CallOption) (*GetInstance2_1Response, error)
+	GetInstance2_1(ctx context.Context, in *GetInstance2_1Request, opts ...grpc.CallOption) (*GetInstance2_1Response, error)
 	ShouldCap(ctx context.Context, in *ShouldCapRequest, opts ...grpc.CallOption) (*ShouldCapResponse, error)
 }
 
@@ -4199,7 +4655,7 @@ func (c *textKeyListenerServiceClient) GetInputType(ctx context.Context, in *Get
 	return out, nil
 }
 
-func (c *textKeyListenerServiceClient) OnKeyDown(ctx context.Context, in *TextKeyListenerOnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error) {
+func (c *textKeyListenerServiceClient) OnKeyDown(ctx context.Context, in *OnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(OnKeyDownResponse)
 	err := c.cc.Invoke(ctx, TextKeyListenerService_OnKeyDown_FullMethodName, in, out, cOpts...)
@@ -4209,7 +4665,7 @@ func (c *textKeyListenerServiceClient) OnKeyDown(ctx context.Context, in *TextKe
 	return out, nil
 }
 
-func (c *textKeyListenerServiceClient) OnKeyOther(ctx context.Context, in *TextKeyListenerOnKeyOtherRequest, opts ...grpc.CallOption) (*OnKeyOtherResponse, error) {
+func (c *textKeyListenerServiceClient) OnKeyOther(ctx context.Context, in *OnKeyOtherRequest, opts ...grpc.CallOption) (*OnKeyOtherResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(OnKeyOtherResponse)
 	err := c.cc.Invoke(ctx, TextKeyListenerService_OnKeyOther_FullMethodName, in, out, cOpts...)
@@ -4219,7 +4675,7 @@ func (c *textKeyListenerServiceClient) OnKeyOther(ctx context.Context, in *TextK
 	return out, nil
 }
 
-func (c *textKeyListenerServiceClient) OnKeyUp(ctx context.Context, in *TextKeyListenerOnKeyUpRequest, opts ...grpc.CallOption) (*OnKeyUpResponse, error) {
+func (c *textKeyListenerServiceClient) OnKeyUp(ctx context.Context, in *OnKeyUpRequest, opts ...grpc.CallOption) (*OnKeyUpResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(OnKeyUpResponse)
 	err := c.cc.Invoke(ctx, TextKeyListenerService_OnKeyUp_FullMethodName, in, out, cOpts...)
@@ -4289,7 +4745,7 @@ func (c *textKeyListenerServiceClient) GetInstance0(ctx context.Context, in *Get
 	return out, nil
 }
 
-func (c *textKeyListenerServiceClient) GetInstance2_1(ctx context.Context, in *TextKeyListenerGetInstance2_1Request, opts ...grpc.CallOption) (*GetInstance2_1Response, error) {
+func (c *textKeyListenerServiceClient) GetInstance2_1(ctx context.Context, in *GetInstance2_1Request, opts ...grpc.CallOption) (*GetInstance2_1Response, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetInstance2_1Response)
 	err := c.cc.Invoke(ctx, TextKeyListenerService_GetInstance2_1_FullMethodName, in, out, cOpts...)
@@ -4315,16 +4771,16 @@ func (c *textKeyListenerServiceClient) ShouldCap(ctx context.Context, in *Should
 type TextKeyListenerServiceServer interface {
 	NewTextKeyListener(context.Context, *NewTextKeyListenerRequest) (*NewTextKeyListenerResponse, error)
 	GetInputType(context.Context, *GetInputTypeRequest) (*GetInputTypeResponse, error)
-	OnKeyDown(context.Context, *TextKeyListenerOnKeyDownRequest) (*OnKeyDownResponse, error)
-	OnKeyOther(context.Context, *TextKeyListenerOnKeyOtherRequest) (*OnKeyOtherResponse, error)
-	OnKeyUp(context.Context, *TextKeyListenerOnKeyUpRequest) (*OnKeyUpResponse, error)
+	OnKeyDown(context.Context, *OnKeyDownRequest) (*OnKeyDownResponse, error)
+	OnKeyOther(context.Context, *OnKeyOtherRequest) (*OnKeyOtherResponse, error)
+	OnKeyUp(context.Context, *OnKeyUpRequest) (*OnKeyUpResponse, error)
 	OnSpanAdded(context.Context, *OnSpanAddedRequest) (*OnSpanAddedResponse, error)
 	OnSpanChanged(context.Context, *OnSpanChangedRequest) (*OnSpanChangedResponse, error)
 	OnSpanRemoved(context.Context, *OnSpanRemovedRequest) (*OnSpanRemovedResponse, error)
 	Release(context.Context, *ReleaseRequest) (*ReleaseResponse, error)
 	Clear(context.Context, *ClearRequest) (*ClearResponse, error)
 	GetInstance0(context.Context, *GetInstance0Request) (*GetInstance0Response, error)
-	GetInstance2_1(context.Context, *TextKeyListenerGetInstance2_1Request) (*GetInstance2_1Response, error)
+	GetInstance2_1(context.Context, *GetInstance2_1Request) (*GetInstance2_1Response, error)
 	ShouldCap(context.Context, *ShouldCapRequest) (*ShouldCapResponse, error)
 	mustEmbedUnimplementedTextKeyListenerServiceServer()
 }
@@ -4342,13 +4798,13 @@ func (UnimplementedTextKeyListenerServiceServer) NewTextKeyListener(context.Cont
 func (UnimplementedTextKeyListenerServiceServer) GetInputType(context.Context, *GetInputTypeRequest) (*GetInputTypeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetInputType not implemented")
 }
-func (UnimplementedTextKeyListenerServiceServer) OnKeyDown(context.Context, *TextKeyListenerOnKeyDownRequest) (*OnKeyDownResponse, error) {
+func (UnimplementedTextKeyListenerServiceServer) OnKeyDown(context.Context, *OnKeyDownRequest) (*OnKeyDownResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method OnKeyDown not implemented")
 }
-func (UnimplementedTextKeyListenerServiceServer) OnKeyOther(context.Context, *TextKeyListenerOnKeyOtherRequest) (*OnKeyOtherResponse, error) {
+func (UnimplementedTextKeyListenerServiceServer) OnKeyOther(context.Context, *OnKeyOtherRequest) (*OnKeyOtherResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method OnKeyOther not implemented")
 }
-func (UnimplementedTextKeyListenerServiceServer) OnKeyUp(context.Context, *TextKeyListenerOnKeyUpRequest) (*OnKeyUpResponse, error) {
+func (UnimplementedTextKeyListenerServiceServer) OnKeyUp(context.Context, *OnKeyUpRequest) (*OnKeyUpResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method OnKeyUp not implemented")
 }
 func (UnimplementedTextKeyListenerServiceServer) OnSpanAdded(context.Context, *OnSpanAddedRequest) (*OnSpanAddedResponse, error) {
@@ -4369,7 +4825,7 @@ func (UnimplementedTextKeyListenerServiceServer) Clear(context.Context, *ClearRe
 func (UnimplementedTextKeyListenerServiceServer) GetInstance0(context.Context, *GetInstance0Request) (*GetInstance0Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetInstance0 not implemented")
 }
-func (UnimplementedTextKeyListenerServiceServer) GetInstance2_1(context.Context, *TextKeyListenerGetInstance2_1Request) (*GetInstance2_1Response, error) {
+func (UnimplementedTextKeyListenerServiceServer) GetInstance2_1(context.Context, *GetInstance2_1Request) (*GetInstance2_1Response, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetInstance2_1 not implemented")
 }
 func (UnimplementedTextKeyListenerServiceServer) ShouldCap(context.Context, *ShouldCapRequest) (*ShouldCapResponse, error) {
@@ -4434,7 +4890,7 @@ func _TextKeyListenerService_GetInputType_Handler(srv interface{}, ctx context.C
 }
 
 func _TextKeyListenerService_OnKeyDown_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TextKeyListenerOnKeyDownRequest)
+	in := new(OnKeyDownRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -4446,13 +4902,13 @@ func _TextKeyListenerService_OnKeyDown_Handler(srv interface{}, ctx context.Cont
 		FullMethod: TextKeyListenerService_OnKeyDown_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TextKeyListenerServiceServer).OnKeyDown(ctx, req.(*TextKeyListenerOnKeyDownRequest))
+		return srv.(TextKeyListenerServiceServer).OnKeyDown(ctx, req.(*OnKeyDownRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TextKeyListenerService_OnKeyOther_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TextKeyListenerOnKeyOtherRequest)
+	in := new(OnKeyOtherRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -4464,13 +4920,13 @@ func _TextKeyListenerService_OnKeyOther_Handler(srv interface{}, ctx context.Con
 		FullMethod: TextKeyListenerService_OnKeyOther_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TextKeyListenerServiceServer).OnKeyOther(ctx, req.(*TextKeyListenerOnKeyOtherRequest))
+		return srv.(TextKeyListenerServiceServer).OnKeyOther(ctx, req.(*OnKeyOtherRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _TextKeyListenerService_OnKeyUp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TextKeyListenerOnKeyUpRequest)
+	in := new(OnKeyUpRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -4482,7 +4938,7 @@ func _TextKeyListenerService_OnKeyUp_Handler(srv interface{}, ctx context.Contex
 		FullMethod: TextKeyListenerService_OnKeyUp_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TextKeyListenerServiceServer).OnKeyUp(ctx, req.(*TextKeyListenerOnKeyUpRequest))
+		return srv.(TextKeyListenerServiceServer).OnKeyUp(ctx, req.(*OnKeyUpRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4596,7 +5052,7 @@ func _TextKeyListenerService_GetInstance0_Handler(srv interface{}, ctx context.C
 }
 
 func _TextKeyListenerService_GetInstance2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TextKeyListenerGetInstance2_1Request)
+	in := new(GetInstance2_1Request)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -4608,7 +5064,7 @@ func _TextKeyListenerService_GetInstance2_1_Handler(srv interface{}, ctx context
 		FullMethod: TextKeyListenerService_GetInstance2_1_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TextKeyListenerServiceServer).GetInstance2_1(ctx, req.(*TextKeyListenerGetInstance2_1Request))
+		return srv.(TextKeyListenerServiceServer).GetInstance2_1(ctx, req.(*GetInstance2_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4837,846 +5293,6 @@ var TextKeyListenerCapitalizeService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ArrowKeyMovementMethodService_NewArrowKeyMovementMethod_FullMethodName = "/method.ArrowKeyMovementMethodService/NewArrowKeyMovementMethod"
-	ArrowKeyMovementMethodService_CanSelectArbitrarily_FullMethodName      = "/method.ArrowKeyMovementMethodService/CanSelectArbitrarily"
-	ArrowKeyMovementMethodService_Initialize_FullMethodName                = "/method.ArrowKeyMovementMethodService/Initialize"
-	ArrowKeyMovementMethodService_NextParagraph_FullMethodName             = "/method.ArrowKeyMovementMethodService/NextParagraph"
-	ArrowKeyMovementMethodService_OnTakeFocus_FullMethodName               = "/method.ArrowKeyMovementMethodService/OnTakeFocus"
-	ArrowKeyMovementMethodService_OnTouchEvent_FullMethodName              = "/method.ArrowKeyMovementMethodService/OnTouchEvent"
-	ArrowKeyMovementMethodService_PreviousParagraph_FullMethodName         = "/method.ArrowKeyMovementMethodService/PreviousParagraph"
-	ArrowKeyMovementMethodService_GetInstance_FullMethodName               = "/method.ArrowKeyMovementMethodService/GetInstance"
-)
-
-// ArrowKeyMovementMethodServiceClient is the client API for ArrowKeyMovementMethodService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ArrowKeyMovementMethodServiceClient interface {
-	NewArrowKeyMovementMethod(ctx context.Context, in *NewArrowKeyMovementMethodRequest, opts ...grpc.CallOption) (*NewArrowKeyMovementMethodResponse, error)
-	CanSelectArbitrarily(ctx context.Context, in *ArrowKeyMovementMethodCanSelectArbitrarilyRequest, opts ...grpc.CallOption) (*CanSelectArbitrarilyResponse, error)
-	Initialize(ctx context.Context, in *ArrowKeyMovementMethodInitializeRequest, opts ...grpc.CallOption) (*InitializeResponse, error)
-	NextParagraph(ctx context.Context, in *NextParagraphRequest, opts ...grpc.CallOption) (*NextParagraphResponse, error)
-	OnTakeFocus(ctx context.Context, in *ArrowKeyMovementMethodOnTakeFocusRequest, opts ...grpc.CallOption) (*OnTakeFocusResponse, error)
-	OnTouchEvent(ctx context.Context, in *ArrowKeyMovementMethodOnTouchEventRequest, opts ...grpc.CallOption) (*OnTouchEventResponse, error)
-	PreviousParagraph(ctx context.Context, in *PreviousParagraphRequest, opts ...grpc.CallOption) (*PreviousParagraphResponse, error)
-	GetInstance(ctx context.Context, in *GetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error)
-}
-
-type arrowKeyMovementMethodServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewArrowKeyMovementMethodServiceClient(cc grpc.ClientConnInterface) ArrowKeyMovementMethodServiceClient {
-	return &arrowKeyMovementMethodServiceClient{cc}
-}
-
-func (c *arrowKeyMovementMethodServiceClient) NewArrowKeyMovementMethod(ctx context.Context, in *NewArrowKeyMovementMethodRequest, opts ...grpc.CallOption) (*NewArrowKeyMovementMethodResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewArrowKeyMovementMethodResponse)
-	err := c.cc.Invoke(ctx, ArrowKeyMovementMethodService_NewArrowKeyMovementMethod_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *arrowKeyMovementMethodServiceClient) CanSelectArbitrarily(ctx context.Context, in *ArrowKeyMovementMethodCanSelectArbitrarilyRequest, opts ...grpc.CallOption) (*CanSelectArbitrarilyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CanSelectArbitrarilyResponse)
-	err := c.cc.Invoke(ctx, ArrowKeyMovementMethodService_CanSelectArbitrarily_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *arrowKeyMovementMethodServiceClient) Initialize(ctx context.Context, in *ArrowKeyMovementMethodInitializeRequest, opts ...grpc.CallOption) (*InitializeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(InitializeResponse)
-	err := c.cc.Invoke(ctx, ArrowKeyMovementMethodService_Initialize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *arrowKeyMovementMethodServiceClient) NextParagraph(ctx context.Context, in *NextParagraphRequest, opts ...grpc.CallOption) (*NextParagraphResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NextParagraphResponse)
-	err := c.cc.Invoke(ctx, ArrowKeyMovementMethodService_NextParagraph_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *arrowKeyMovementMethodServiceClient) OnTakeFocus(ctx context.Context, in *ArrowKeyMovementMethodOnTakeFocusRequest, opts ...grpc.CallOption) (*OnTakeFocusResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnTakeFocusResponse)
-	err := c.cc.Invoke(ctx, ArrowKeyMovementMethodService_OnTakeFocus_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *arrowKeyMovementMethodServiceClient) OnTouchEvent(ctx context.Context, in *ArrowKeyMovementMethodOnTouchEventRequest, opts ...grpc.CallOption) (*OnTouchEventResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnTouchEventResponse)
-	err := c.cc.Invoke(ctx, ArrowKeyMovementMethodService_OnTouchEvent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *arrowKeyMovementMethodServiceClient) PreviousParagraph(ctx context.Context, in *PreviousParagraphRequest, opts ...grpc.CallOption) (*PreviousParagraphResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(PreviousParagraphResponse)
-	err := c.cc.Invoke(ctx, ArrowKeyMovementMethodService_PreviousParagraph_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *arrowKeyMovementMethodServiceClient) GetInstance(ctx context.Context, in *GetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInstanceResponse)
-	err := c.cc.Invoke(ctx, ArrowKeyMovementMethodService_GetInstance_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ArrowKeyMovementMethodServiceServer is the server API for ArrowKeyMovementMethodService service.
-// All implementations must embed UnimplementedArrowKeyMovementMethodServiceServer
-// for forward compatibility.
-type ArrowKeyMovementMethodServiceServer interface {
-	NewArrowKeyMovementMethod(context.Context, *NewArrowKeyMovementMethodRequest) (*NewArrowKeyMovementMethodResponse, error)
-	CanSelectArbitrarily(context.Context, *ArrowKeyMovementMethodCanSelectArbitrarilyRequest) (*CanSelectArbitrarilyResponse, error)
-	Initialize(context.Context, *ArrowKeyMovementMethodInitializeRequest) (*InitializeResponse, error)
-	NextParagraph(context.Context, *NextParagraphRequest) (*NextParagraphResponse, error)
-	OnTakeFocus(context.Context, *ArrowKeyMovementMethodOnTakeFocusRequest) (*OnTakeFocusResponse, error)
-	OnTouchEvent(context.Context, *ArrowKeyMovementMethodOnTouchEventRequest) (*OnTouchEventResponse, error)
-	PreviousParagraph(context.Context, *PreviousParagraphRequest) (*PreviousParagraphResponse, error)
-	GetInstance(context.Context, *GetInstanceRequest) (*GetInstanceResponse, error)
-	mustEmbedUnimplementedArrowKeyMovementMethodServiceServer()
-}
-
-// UnimplementedArrowKeyMovementMethodServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedArrowKeyMovementMethodServiceServer struct{}
-
-func (UnimplementedArrowKeyMovementMethodServiceServer) NewArrowKeyMovementMethod(context.Context, *NewArrowKeyMovementMethodRequest) (*NewArrowKeyMovementMethodResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewArrowKeyMovementMethod not implemented")
-}
-func (UnimplementedArrowKeyMovementMethodServiceServer) CanSelectArbitrarily(context.Context, *ArrowKeyMovementMethodCanSelectArbitrarilyRequest) (*CanSelectArbitrarilyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CanSelectArbitrarily not implemented")
-}
-func (UnimplementedArrowKeyMovementMethodServiceServer) Initialize(context.Context, *ArrowKeyMovementMethodInitializeRequest) (*InitializeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Initialize not implemented")
-}
-func (UnimplementedArrowKeyMovementMethodServiceServer) NextParagraph(context.Context, *NextParagraphRequest) (*NextParagraphResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NextParagraph not implemented")
-}
-func (UnimplementedArrowKeyMovementMethodServiceServer) OnTakeFocus(context.Context, *ArrowKeyMovementMethodOnTakeFocusRequest) (*OnTakeFocusResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnTakeFocus not implemented")
-}
-func (UnimplementedArrowKeyMovementMethodServiceServer) OnTouchEvent(context.Context, *ArrowKeyMovementMethodOnTouchEventRequest) (*OnTouchEventResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnTouchEvent not implemented")
-}
-func (UnimplementedArrowKeyMovementMethodServiceServer) PreviousParagraph(context.Context, *PreviousParagraphRequest) (*PreviousParagraphResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method PreviousParagraph not implemented")
-}
-func (UnimplementedArrowKeyMovementMethodServiceServer) GetInstance(context.Context, *GetInstanceRequest) (*GetInstanceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInstance not implemented")
-}
-func (UnimplementedArrowKeyMovementMethodServiceServer) mustEmbedUnimplementedArrowKeyMovementMethodServiceServer() {
-}
-func (UnimplementedArrowKeyMovementMethodServiceServer) testEmbeddedByValue() {}
-
-// UnsafeArrowKeyMovementMethodServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ArrowKeyMovementMethodServiceServer will
-// result in compilation errors.
-type UnsafeArrowKeyMovementMethodServiceServer interface {
-	mustEmbedUnimplementedArrowKeyMovementMethodServiceServer()
-}
-
-func RegisterArrowKeyMovementMethodServiceServer(s grpc.ServiceRegistrar, srv ArrowKeyMovementMethodServiceServer) {
-	// If the following call panics, it indicates UnimplementedArrowKeyMovementMethodServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ArrowKeyMovementMethodService_ServiceDesc, srv)
-}
-
-func _ArrowKeyMovementMethodService_NewArrowKeyMovementMethod_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewArrowKeyMovementMethodRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ArrowKeyMovementMethodServiceServer).NewArrowKeyMovementMethod(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ArrowKeyMovementMethodService_NewArrowKeyMovementMethod_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ArrowKeyMovementMethodServiceServer).NewArrowKeyMovementMethod(ctx, req.(*NewArrowKeyMovementMethodRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ArrowKeyMovementMethodService_CanSelectArbitrarily_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ArrowKeyMovementMethodCanSelectArbitrarilyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ArrowKeyMovementMethodServiceServer).CanSelectArbitrarily(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ArrowKeyMovementMethodService_CanSelectArbitrarily_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ArrowKeyMovementMethodServiceServer).CanSelectArbitrarily(ctx, req.(*ArrowKeyMovementMethodCanSelectArbitrarilyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ArrowKeyMovementMethodService_Initialize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ArrowKeyMovementMethodInitializeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ArrowKeyMovementMethodServiceServer).Initialize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ArrowKeyMovementMethodService_Initialize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ArrowKeyMovementMethodServiceServer).Initialize(ctx, req.(*ArrowKeyMovementMethodInitializeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ArrowKeyMovementMethodService_NextParagraph_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NextParagraphRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ArrowKeyMovementMethodServiceServer).NextParagraph(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ArrowKeyMovementMethodService_NextParagraph_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ArrowKeyMovementMethodServiceServer).NextParagraph(ctx, req.(*NextParagraphRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ArrowKeyMovementMethodService_OnTakeFocus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ArrowKeyMovementMethodOnTakeFocusRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ArrowKeyMovementMethodServiceServer).OnTakeFocus(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ArrowKeyMovementMethodService_OnTakeFocus_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ArrowKeyMovementMethodServiceServer).OnTakeFocus(ctx, req.(*ArrowKeyMovementMethodOnTakeFocusRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ArrowKeyMovementMethodService_OnTouchEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ArrowKeyMovementMethodOnTouchEventRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ArrowKeyMovementMethodServiceServer).OnTouchEvent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ArrowKeyMovementMethodService_OnTouchEvent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ArrowKeyMovementMethodServiceServer).OnTouchEvent(ctx, req.(*ArrowKeyMovementMethodOnTouchEventRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ArrowKeyMovementMethodService_PreviousParagraph_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PreviousParagraphRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ArrowKeyMovementMethodServiceServer).PreviousParagraph(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ArrowKeyMovementMethodService_PreviousParagraph_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ArrowKeyMovementMethodServiceServer).PreviousParagraph(ctx, req.(*PreviousParagraphRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ArrowKeyMovementMethodService_GetInstance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInstanceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ArrowKeyMovementMethodServiceServer).GetInstance(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ArrowKeyMovementMethodService_GetInstance_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ArrowKeyMovementMethodServiceServer).GetInstance(ctx, req.(*GetInstanceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ArrowKeyMovementMethodService_ServiceDesc is the grpc.ServiceDesc for ArrowKeyMovementMethodService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ArrowKeyMovementMethodService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "method.ArrowKeyMovementMethodService",
-	HandlerType: (*ArrowKeyMovementMethodServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewArrowKeyMovementMethod",
-			Handler:    _ArrowKeyMovementMethodService_NewArrowKeyMovementMethod_Handler,
-		},
-		{
-			MethodName: "CanSelectArbitrarily",
-			Handler:    _ArrowKeyMovementMethodService_CanSelectArbitrarily_Handler,
-		},
-		{
-			MethodName: "Initialize",
-			Handler:    _ArrowKeyMovementMethodService_Initialize_Handler,
-		},
-		{
-			MethodName: "NextParagraph",
-			Handler:    _ArrowKeyMovementMethodService_NextParagraph_Handler,
-		},
-		{
-			MethodName: "OnTakeFocus",
-			Handler:    _ArrowKeyMovementMethodService_OnTakeFocus_Handler,
-		},
-		{
-			MethodName: "OnTouchEvent",
-			Handler:    _ArrowKeyMovementMethodService_OnTouchEvent_Handler,
-		},
-		{
-			MethodName: "PreviousParagraph",
-			Handler:    _ArrowKeyMovementMethodService_PreviousParagraph_Handler,
-		},
-		{
-			MethodName: "GetInstance",
-			Handler:    _ArrowKeyMovementMethodService_GetInstance_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/method/method.proto",
-}
-
-const (
-	KeyListenerService_ClearMetaKeyState_FullMethodName = "/method.KeyListenerService/ClearMetaKeyState"
-	KeyListenerService_GetInputType_FullMethodName      = "/method.KeyListenerService/GetInputType"
-	KeyListenerService_OnKeyDown_FullMethodName         = "/method.KeyListenerService/OnKeyDown"
-	KeyListenerService_OnKeyOther_FullMethodName        = "/method.KeyListenerService/OnKeyOther"
-	KeyListenerService_OnKeyUp_FullMethodName           = "/method.KeyListenerService/OnKeyUp"
-)
-
-// KeyListenerServiceClient is the client API for KeyListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type KeyListenerServiceClient interface {
-	ClearMetaKeyState(ctx context.Context, in *ClearMetaKeyStateRequest, opts ...grpc.CallOption) (*ClearMetaKeyStateResponse, error)
-	GetInputType(ctx context.Context, in *KeyListenerGetInputTypeRequest, opts ...grpc.CallOption) (*GetInputTypeResponse, error)
-	OnKeyDown(ctx context.Context, in *OnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error)
-	OnKeyOther(ctx context.Context, in *OnKeyOtherRequest, opts ...grpc.CallOption) (*OnKeyOtherResponse, error)
-	OnKeyUp(ctx context.Context, in *OnKeyUpRequest, opts ...grpc.CallOption) (*OnKeyUpResponse, error)
-}
-
-type keyListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewKeyListenerServiceClient(cc grpc.ClientConnInterface) KeyListenerServiceClient {
-	return &keyListenerServiceClient{cc}
-}
-
-func (c *keyListenerServiceClient) ClearMetaKeyState(ctx context.Context, in *ClearMetaKeyStateRequest, opts ...grpc.CallOption) (*ClearMetaKeyStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ClearMetaKeyStateResponse)
-	err := c.cc.Invoke(ctx, KeyListenerService_ClearMetaKeyState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyListenerServiceClient) GetInputType(ctx context.Context, in *KeyListenerGetInputTypeRequest, opts ...grpc.CallOption) (*GetInputTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInputTypeResponse)
-	err := c.cc.Invoke(ctx, KeyListenerService_GetInputType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyListenerServiceClient) OnKeyDown(ctx context.Context, in *OnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnKeyDownResponse)
-	err := c.cc.Invoke(ctx, KeyListenerService_OnKeyDown_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyListenerServiceClient) OnKeyOther(ctx context.Context, in *OnKeyOtherRequest, opts ...grpc.CallOption) (*OnKeyOtherResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnKeyOtherResponse)
-	err := c.cc.Invoke(ctx, KeyListenerService_OnKeyOther_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *keyListenerServiceClient) OnKeyUp(ctx context.Context, in *OnKeyUpRequest, opts ...grpc.CallOption) (*OnKeyUpResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnKeyUpResponse)
-	err := c.cc.Invoke(ctx, KeyListenerService_OnKeyUp_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// KeyListenerServiceServer is the server API for KeyListenerService service.
-// All implementations must embed UnimplementedKeyListenerServiceServer
-// for forward compatibility.
-type KeyListenerServiceServer interface {
-	ClearMetaKeyState(context.Context, *ClearMetaKeyStateRequest) (*ClearMetaKeyStateResponse, error)
-	GetInputType(context.Context, *KeyListenerGetInputTypeRequest) (*GetInputTypeResponse, error)
-	OnKeyDown(context.Context, *OnKeyDownRequest) (*OnKeyDownResponse, error)
-	OnKeyOther(context.Context, *OnKeyOtherRequest) (*OnKeyOtherResponse, error)
-	OnKeyUp(context.Context, *OnKeyUpRequest) (*OnKeyUpResponse, error)
-	mustEmbedUnimplementedKeyListenerServiceServer()
-}
-
-// UnimplementedKeyListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedKeyListenerServiceServer struct{}
-
-func (UnimplementedKeyListenerServiceServer) ClearMetaKeyState(context.Context, *ClearMetaKeyStateRequest) (*ClearMetaKeyStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ClearMetaKeyState not implemented")
-}
-func (UnimplementedKeyListenerServiceServer) GetInputType(context.Context, *KeyListenerGetInputTypeRequest) (*GetInputTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInputType not implemented")
-}
-func (UnimplementedKeyListenerServiceServer) OnKeyDown(context.Context, *OnKeyDownRequest) (*OnKeyDownResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnKeyDown not implemented")
-}
-func (UnimplementedKeyListenerServiceServer) OnKeyOther(context.Context, *OnKeyOtherRequest) (*OnKeyOtherResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnKeyOther not implemented")
-}
-func (UnimplementedKeyListenerServiceServer) OnKeyUp(context.Context, *OnKeyUpRequest) (*OnKeyUpResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnKeyUp not implemented")
-}
-func (UnimplementedKeyListenerServiceServer) mustEmbedUnimplementedKeyListenerServiceServer() {}
-func (UnimplementedKeyListenerServiceServer) testEmbeddedByValue()                            {}
-
-// UnsafeKeyListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to KeyListenerServiceServer will
-// result in compilation errors.
-type UnsafeKeyListenerServiceServer interface {
-	mustEmbedUnimplementedKeyListenerServiceServer()
-}
-
-func RegisterKeyListenerServiceServer(s grpc.ServiceRegistrar, srv KeyListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedKeyListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&KeyListenerService_ServiceDesc, srv)
-}
-
-func _KeyListenerService_ClearMetaKeyState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClearMetaKeyStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyListenerServiceServer).ClearMetaKeyState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyListenerService_ClearMetaKeyState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyListenerServiceServer).ClearMetaKeyState(ctx, req.(*ClearMetaKeyStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyListenerService_GetInputType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(KeyListenerGetInputTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyListenerServiceServer).GetInputType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyListenerService_GetInputType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyListenerServiceServer).GetInputType(ctx, req.(*KeyListenerGetInputTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyListenerService_OnKeyDown_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnKeyDownRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyListenerServiceServer).OnKeyDown(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyListenerService_OnKeyDown_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyListenerServiceServer).OnKeyDown(ctx, req.(*OnKeyDownRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyListenerService_OnKeyOther_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnKeyOtherRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyListenerServiceServer).OnKeyOther(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyListenerService_OnKeyOther_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyListenerServiceServer).OnKeyOther(ctx, req.(*OnKeyOtherRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _KeyListenerService_OnKeyUp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnKeyUpRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(KeyListenerServiceServer).OnKeyUp(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: KeyListenerService_OnKeyUp_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(KeyListenerServiceServer).OnKeyUp(ctx, req.(*OnKeyUpRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// KeyListenerService_ServiceDesc is the grpc.ServiceDesc for KeyListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var KeyListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "method.KeyListenerService",
-	HandlerType: (*KeyListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "ClearMetaKeyState",
-			Handler:    _KeyListenerService_ClearMetaKeyState_Handler,
-		},
-		{
-			MethodName: "GetInputType",
-			Handler:    _KeyListenerService_GetInputType_Handler,
-		},
-		{
-			MethodName: "OnKeyDown",
-			Handler:    _KeyListenerService_OnKeyDown_Handler,
-		},
-		{
-			MethodName: "OnKeyOther",
-			Handler:    _KeyListenerService_OnKeyOther_Handler,
-		},
-		{
-			MethodName: "OnKeyUp",
-			Handler:    _KeyListenerService_OnKeyUp_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/method/method.proto",
-}
-
-const (
-	DateTimeKeyListenerService_NewDateTimeKeyListener_FullMethodName = "/method.DateTimeKeyListenerService/NewDateTimeKeyListener"
-	DateTimeKeyListenerService_GetInputType_FullMethodName           = "/method.DateTimeKeyListenerService/GetInputType"
-	DateTimeKeyListenerService_GetInstance0_FullMethodName           = "/method.DateTimeKeyListenerService/GetInstance0"
-	DateTimeKeyListenerService_GetInstance1_1_FullMethodName         = "/method.DateTimeKeyListenerService/GetInstance1_1"
-)
-
-// DateTimeKeyListenerServiceClient is the client API for DateTimeKeyListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DateTimeKeyListenerServiceClient interface {
-	NewDateTimeKeyListener(ctx context.Context, in *NewDateTimeKeyListenerRequest, opts ...grpc.CallOption) (*NewDateTimeKeyListenerResponse, error)
-	GetInputType(ctx context.Context, in *GetInputTypeRequest, opts ...grpc.CallOption) (*GetInputTypeResponse, error)
-	GetInstance0(ctx context.Context, in *GetInstance0Request, opts ...grpc.CallOption) (*GetInstance0Response, error)
-	GetInstance1_1(ctx context.Context, in *GetInstance1_1Request, opts ...grpc.CallOption) (*GetInstance1_1Response, error)
-}
-
-type dateTimeKeyListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewDateTimeKeyListenerServiceClient(cc grpc.ClientConnInterface) DateTimeKeyListenerServiceClient {
-	return &dateTimeKeyListenerServiceClient{cc}
-}
-
-func (c *dateTimeKeyListenerServiceClient) NewDateTimeKeyListener(ctx context.Context, in *NewDateTimeKeyListenerRequest, opts ...grpc.CallOption) (*NewDateTimeKeyListenerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewDateTimeKeyListenerResponse)
-	err := c.cc.Invoke(ctx, DateTimeKeyListenerService_NewDateTimeKeyListener_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dateTimeKeyListenerServiceClient) GetInputType(ctx context.Context, in *GetInputTypeRequest, opts ...grpc.CallOption) (*GetInputTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInputTypeResponse)
-	err := c.cc.Invoke(ctx, DateTimeKeyListenerService_GetInputType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dateTimeKeyListenerServiceClient) GetInstance0(ctx context.Context, in *GetInstance0Request, opts ...grpc.CallOption) (*GetInstance0Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInstance0Response)
-	err := c.cc.Invoke(ctx, DateTimeKeyListenerService_GetInstance0_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dateTimeKeyListenerServiceClient) GetInstance1_1(ctx context.Context, in *GetInstance1_1Request, opts ...grpc.CallOption) (*GetInstance1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInstance1_1Response)
-	err := c.cc.Invoke(ctx, DateTimeKeyListenerService_GetInstance1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DateTimeKeyListenerServiceServer is the server API for DateTimeKeyListenerService service.
-// All implementations must embed UnimplementedDateTimeKeyListenerServiceServer
-// for forward compatibility.
-type DateTimeKeyListenerServiceServer interface {
-	NewDateTimeKeyListener(context.Context, *NewDateTimeKeyListenerRequest) (*NewDateTimeKeyListenerResponse, error)
-	GetInputType(context.Context, *GetInputTypeRequest) (*GetInputTypeResponse, error)
-	GetInstance0(context.Context, *GetInstance0Request) (*GetInstance0Response, error)
-	GetInstance1_1(context.Context, *GetInstance1_1Request) (*GetInstance1_1Response, error)
-	mustEmbedUnimplementedDateTimeKeyListenerServiceServer()
-}
-
-// UnimplementedDateTimeKeyListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedDateTimeKeyListenerServiceServer struct{}
-
-func (UnimplementedDateTimeKeyListenerServiceServer) NewDateTimeKeyListener(context.Context, *NewDateTimeKeyListenerRequest) (*NewDateTimeKeyListenerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewDateTimeKeyListener not implemented")
-}
-func (UnimplementedDateTimeKeyListenerServiceServer) GetInputType(context.Context, *GetInputTypeRequest) (*GetInputTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInputType not implemented")
-}
-func (UnimplementedDateTimeKeyListenerServiceServer) GetInstance0(context.Context, *GetInstance0Request) (*GetInstance0Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInstance0 not implemented")
-}
-func (UnimplementedDateTimeKeyListenerServiceServer) GetInstance1_1(context.Context, *GetInstance1_1Request) (*GetInstance1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInstance1_1 not implemented")
-}
-func (UnimplementedDateTimeKeyListenerServiceServer) mustEmbedUnimplementedDateTimeKeyListenerServiceServer() {
-}
-func (UnimplementedDateTimeKeyListenerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeDateTimeKeyListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DateTimeKeyListenerServiceServer will
-// result in compilation errors.
-type UnsafeDateTimeKeyListenerServiceServer interface {
-	mustEmbedUnimplementedDateTimeKeyListenerServiceServer()
-}
-
-func RegisterDateTimeKeyListenerServiceServer(s grpc.ServiceRegistrar, srv DateTimeKeyListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedDateTimeKeyListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&DateTimeKeyListenerService_ServiceDesc, srv)
-}
-
-func _DateTimeKeyListenerService_NewDateTimeKeyListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewDateTimeKeyListenerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DateTimeKeyListenerServiceServer).NewDateTimeKeyListener(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DateTimeKeyListenerService_NewDateTimeKeyListener_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DateTimeKeyListenerServiceServer).NewDateTimeKeyListener(ctx, req.(*NewDateTimeKeyListenerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DateTimeKeyListenerService_GetInputType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInputTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DateTimeKeyListenerServiceServer).GetInputType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DateTimeKeyListenerService_GetInputType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DateTimeKeyListenerServiceServer).GetInputType(ctx, req.(*GetInputTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DateTimeKeyListenerService_GetInstance0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInstance0Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DateTimeKeyListenerServiceServer).GetInstance0(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DateTimeKeyListenerService_GetInstance0_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DateTimeKeyListenerServiceServer).GetInstance0(ctx, req.(*GetInstance0Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DateTimeKeyListenerService_GetInstance1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInstance1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DateTimeKeyListenerServiceServer).GetInstance1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DateTimeKeyListenerService_GetInstance1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DateTimeKeyListenerServiceServer).GetInstance1_1(ctx, req.(*GetInstance1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DateTimeKeyListenerService_ServiceDesc is the grpc.ServiceDesc for DateTimeKeyListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var DateTimeKeyListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "method.DateTimeKeyListenerService",
-	HandlerType: (*DateTimeKeyListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewDateTimeKeyListener",
-			Handler:    _DateTimeKeyListenerService_NewDateTimeKeyListener_Handler,
-		},
-		{
-			MethodName: "GetInputType",
-			Handler:    _DateTimeKeyListenerService_GetInputType_Handler,
-		},
-		{
-			MethodName: "GetInstance0",
-			Handler:    _DateTimeKeyListenerService_GetInstance0_Handler,
-		},
-		{
-			MethodName: "GetInstance1_1",
-			Handler:    _DateTimeKeyListenerService_GetInstance1_1_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/method/method.proto",
-}
-
-const (
 	DateKeyListenerService_NewDateKeyListener_FullMethodName = "/method.DateKeyListenerService/NewDateKeyListener"
 	DateKeyListenerService_GetInputType_FullMethodName       = "/method.DateKeyListenerService/GetInputType"
 	DateKeyListenerService_GetInstance0_FullMethodName       = "/method.DateKeyListenerService/GetInstance0"
@@ -5894,330 +5510,1094 @@ var DateKeyListenerService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	PasswordTransformationMethodService_NewPasswordTransformationMethod_FullMethodName = "/method.PasswordTransformationMethodService/NewPasswordTransformationMethod"
-	PasswordTransformationMethodService_AfterTextChanged_FullMethodName                = "/method.PasswordTransformationMethodService/AfterTextChanged"
-	PasswordTransformationMethodService_BeforeTextChanged_FullMethodName               = "/method.PasswordTransformationMethodService/BeforeTextChanged"
-	PasswordTransformationMethodService_GetTransformation_FullMethodName               = "/method.PasswordTransformationMethodService/GetTransformation"
-	PasswordTransformationMethodService_OnFocusChanged_FullMethodName                  = "/method.PasswordTransformationMethodService/OnFocusChanged"
-	PasswordTransformationMethodService_OnTextChanged_FullMethodName                   = "/method.PasswordTransformationMethodService/OnTextChanged"
-	PasswordTransformationMethodService_GetInstance_FullMethodName                     = "/method.PasswordTransformationMethodService/GetInstance"
+	DialerKeyListenerService_NewDialerKeyListener_FullMethodName = "/method.DialerKeyListenerService/NewDialerKeyListener"
+	DialerKeyListenerService_GetInputType_FullMethodName         = "/method.DialerKeyListenerService/GetInputType"
+	DialerKeyListenerService_GetInstance_FullMethodName          = "/method.DialerKeyListenerService/GetInstance"
 )
 
-// PasswordTransformationMethodServiceClient is the client API for PasswordTransformationMethodService service.
+// DialerKeyListenerServiceClient is the client API for DialerKeyListenerService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PasswordTransformationMethodServiceClient interface {
-	NewPasswordTransformationMethod(ctx context.Context, in *NewPasswordTransformationMethodRequest, opts ...grpc.CallOption) (*NewPasswordTransformationMethodResponse, error)
-	AfterTextChanged(ctx context.Context, in *AfterTextChangedRequest, opts ...grpc.CallOption) (*AfterTextChangedResponse, error)
-	BeforeTextChanged(ctx context.Context, in *BeforeTextChangedRequest, opts ...grpc.CallOption) (*BeforeTextChangedResponse, error)
-	GetTransformation(ctx context.Context, in *PasswordTransformationMethodGetTransformationRequest, opts ...grpc.CallOption) (*GetTransformationResponse, error)
-	OnFocusChanged(ctx context.Context, in *PasswordTransformationMethodOnFocusChangedRequest, opts ...grpc.CallOption) (*OnFocusChangedResponse, error)
-	OnTextChanged(ctx context.Context, in *OnTextChangedRequest, opts ...grpc.CallOption) (*OnTextChangedResponse, error)
-	GetInstance(ctx context.Context, in *GetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error)
+type DialerKeyListenerServiceClient interface {
+	NewDialerKeyListener(ctx context.Context, in *NewDialerKeyListenerRequest, opts ...grpc.CallOption) (*NewDialerKeyListenerResponse, error)
+	GetInputType(ctx context.Context, in *GetInputTypeRequest, opts ...grpc.CallOption) (*GetInputTypeResponse, error)
+	GetInstance(ctx context.Context, in *DialerKeyListenerGetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error)
 }
 
-type passwordTransformationMethodServiceClient struct {
+type dialerKeyListenerServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewPasswordTransformationMethodServiceClient(cc grpc.ClientConnInterface) PasswordTransformationMethodServiceClient {
-	return &passwordTransformationMethodServiceClient{cc}
+func NewDialerKeyListenerServiceClient(cc grpc.ClientConnInterface) DialerKeyListenerServiceClient {
+	return &dialerKeyListenerServiceClient{cc}
 }
 
-func (c *passwordTransformationMethodServiceClient) NewPasswordTransformationMethod(ctx context.Context, in *NewPasswordTransformationMethodRequest, opts ...grpc.CallOption) (*NewPasswordTransformationMethodResponse, error) {
+func (c *dialerKeyListenerServiceClient) NewDialerKeyListener(ctx context.Context, in *NewDialerKeyListenerRequest, opts ...grpc.CallOption) (*NewDialerKeyListenerResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewPasswordTransformationMethodResponse)
-	err := c.cc.Invoke(ctx, PasswordTransformationMethodService_NewPasswordTransformationMethod_FullMethodName, in, out, cOpts...)
+	out := new(NewDialerKeyListenerResponse)
+	err := c.cc.Invoke(ctx, DialerKeyListenerService_NewDialerKeyListener_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *passwordTransformationMethodServiceClient) AfterTextChanged(ctx context.Context, in *AfterTextChangedRequest, opts ...grpc.CallOption) (*AfterTextChangedResponse, error) {
+func (c *dialerKeyListenerServiceClient) GetInputType(ctx context.Context, in *GetInputTypeRequest, opts ...grpc.CallOption) (*GetInputTypeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AfterTextChangedResponse)
-	err := c.cc.Invoke(ctx, PasswordTransformationMethodService_AfterTextChanged_FullMethodName, in, out, cOpts...)
+	out := new(GetInputTypeResponse)
+	err := c.cc.Invoke(ctx, DialerKeyListenerService_GetInputType_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *passwordTransformationMethodServiceClient) BeforeTextChanged(ctx context.Context, in *BeforeTextChangedRequest, opts ...grpc.CallOption) (*BeforeTextChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BeforeTextChangedResponse)
-	err := c.cc.Invoke(ctx, PasswordTransformationMethodService_BeforeTextChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *passwordTransformationMethodServiceClient) GetTransformation(ctx context.Context, in *PasswordTransformationMethodGetTransformationRequest, opts ...grpc.CallOption) (*GetTransformationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTransformationResponse)
-	err := c.cc.Invoke(ctx, PasswordTransformationMethodService_GetTransformation_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *passwordTransformationMethodServiceClient) OnFocusChanged(ctx context.Context, in *PasswordTransformationMethodOnFocusChangedRequest, opts ...grpc.CallOption) (*OnFocusChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnFocusChangedResponse)
-	err := c.cc.Invoke(ctx, PasswordTransformationMethodService_OnFocusChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *passwordTransformationMethodServiceClient) OnTextChanged(ctx context.Context, in *OnTextChangedRequest, opts ...grpc.CallOption) (*OnTextChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnTextChangedResponse)
-	err := c.cc.Invoke(ctx, PasswordTransformationMethodService_OnTextChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *passwordTransformationMethodServiceClient) GetInstance(ctx context.Context, in *GetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error) {
+func (c *dialerKeyListenerServiceClient) GetInstance(ctx context.Context, in *DialerKeyListenerGetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetInstanceResponse)
-	err := c.cc.Invoke(ctx, PasswordTransformationMethodService_GetInstance_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DialerKeyListenerService_GetInstance_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// PasswordTransformationMethodServiceServer is the server API for PasswordTransformationMethodService service.
-// All implementations must embed UnimplementedPasswordTransformationMethodServiceServer
+// DialerKeyListenerServiceServer is the server API for DialerKeyListenerService service.
+// All implementations must embed UnimplementedDialerKeyListenerServiceServer
 // for forward compatibility.
-type PasswordTransformationMethodServiceServer interface {
-	NewPasswordTransformationMethod(context.Context, *NewPasswordTransformationMethodRequest) (*NewPasswordTransformationMethodResponse, error)
-	AfterTextChanged(context.Context, *AfterTextChangedRequest) (*AfterTextChangedResponse, error)
-	BeforeTextChanged(context.Context, *BeforeTextChangedRequest) (*BeforeTextChangedResponse, error)
-	GetTransformation(context.Context, *PasswordTransformationMethodGetTransformationRequest) (*GetTransformationResponse, error)
-	OnFocusChanged(context.Context, *PasswordTransformationMethodOnFocusChangedRequest) (*OnFocusChangedResponse, error)
-	OnTextChanged(context.Context, *OnTextChangedRequest) (*OnTextChangedResponse, error)
-	GetInstance(context.Context, *GetInstanceRequest) (*GetInstanceResponse, error)
-	mustEmbedUnimplementedPasswordTransformationMethodServiceServer()
+type DialerKeyListenerServiceServer interface {
+	NewDialerKeyListener(context.Context, *NewDialerKeyListenerRequest) (*NewDialerKeyListenerResponse, error)
+	GetInputType(context.Context, *GetInputTypeRequest) (*GetInputTypeResponse, error)
+	GetInstance(context.Context, *DialerKeyListenerGetInstanceRequest) (*GetInstanceResponse, error)
+	mustEmbedUnimplementedDialerKeyListenerServiceServer()
 }
 
-// UnimplementedPasswordTransformationMethodServiceServer must be embedded to have
+// UnimplementedDialerKeyListenerServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedPasswordTransformationMethodServiceServer struct{}
+type UnimplementedDialerKeyListenerServiceServer struct{}
 
-func (UnimplementedPasswordTransformationMethodServiceServer) NewPasswordTransformationMethod(context.Context, *NewPasswordTransformationMethodRequest) (*NewPasswordTransformationMethodResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewPasswordTransformationMethod not implemented")
+func (UnimplementedDialerKeyListenerServiceServer) NewDialerKeyListener(context.Context, *NewDialerKeyListenerRequest) (*NewDialerKeyListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewDialerKeyListener not implemented")
 }
-func (UnimplementedPasswordTransformationMethodServiceServer) AfterTextChanged(context.Context, *AfterTextChangedRequest) (*AfterTextChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AfterTextChanged not implemented")
+func (UnimplementedDialerKeyListenerServiceServer) GetInputType(context.Context, *GetInputTypeRequest) (*GetInputTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInputType not implemented")
 }
-func (UnimplementedPasswordTransformationMethodServiceServer) BeforeTextChanged(context.Context, *BeforeTextChangedRequest) (*BeforeTextChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method BeforeTextChanged not implemented")
-}
-func (UnimplementedPasswordTransformationMethodServiceServer) GetTransformation(context.Context, *PasswordTransformationMethodGetTransformationRequest) (*GetTransformationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTransformation not implemented")
-}
-func (UnimplementedPasswordTransformationMethodServiceServer) OnFocusChanged(context.Context, *PasswordTransformationMethodOnFocusChangedRequest) (*OnFocusChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnFocusChanged not implemented")
-}
-func (UnimplementedPasswordTransformationMethodServiceServer) OnTextChanged(context.Context, *OnTextChangedRequest) (*OnTextChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnTextChanged not implemented")
-}
-func (UnimplementedPasswordTransformationMethodServiceServer) GetInstance(context.Context, *GetInstanceRequest) (*GetInstanceResponse, error) {
+func (UnimplementedDialerKeyListenerServiceServer) GetInstance(context.Context, *DialerKeyListenerGetInstanceRequest) (*GetInstanceResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetInstance not implemented")
 }
-func (UnimplementedPasswordTransformationMethodServiceServer) mustEmbedUnimplementedPasswordTransformationMethodServiceServer() {
+func (UnimplementedDialerKeyListenerServiceServer) mustEmbedUnimplementedDialerKeyListenerServiceServer() {
 }
-func (UnimplementedPasswordTransformationMethodServiceServer) testEmbeddedByValue() {}
+func (UnimplementedDialerKeyListenerServiceServer) testEmbeddedByValue() {}
 
-// UnsafePasswordTransformationMethodServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PasswordTransformationMethodServiceServer will
+// UnsafeDialerKeyListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DialerKeyListenerServiceServer will
 // result in compilation errors.
-type UnsafePasswordTransformationMethodServiceServer interface {
-	mustEmbedUnimplementedPasswordTransformationMethodServiceServer()
+type UnsafeDialerKeyListenerServiceServer interface {
+	mustEmbedUnimplementedDialerKeyListenerServiceServer()
 }
 
-func RegisterPasswordTransformationMethodServiceServer(s grpc.ServiceRegistrar, srv PasswordTransformationMethodServiceServer) {
-	// If the following call panics, it indicates UnimplementedPasswordTransformationMethodServiceServer was
+func RegisterDialerKeyListenerServiceServer(s grpc.ServiceRegistrar, srv DialerKeyListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedDialerKeyListenerServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&PasswordTransformationMethodService_ServiceDesc, srv)
+	s.RegisterService(&DialerKeyListenerService_ServiceDesc, srv)
 }
 
-func _PasswordTransformationMethodService_NewPasswordTransformationMethod_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewPasswordTransformationMethodRequest)
+func _DialerKeyListenerService_NewDialerKeyListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewDialerKeyListenerRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PasswordTransformationMethodServiceServer).NewPasswordTransformationMethod(ctx, in)
+		return srv.(DialerKeyListenerServiceServer).NewDialerKeyListener(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PasswordTransformationMethodService_NewPasswordTransformationMethod_FullMethodName,
+		FullMethod: DialerKeyListenerService_NewDialerKeyListener_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PasswordTransformationMethodServiceServer).NewPasswordTransformationMethod(ctx, req.(*NewPasswordTransformationMethodRequest))
+		return srv.(DialerKeyListenerServiceServer).NewDialerKeyListener(ctx, req.(*NewDialerKeyListenerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PasswordTransformationMethodService_AfterTextChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AfterTextChangedRequest)
+func _DialerKeyListenerService_GetInputType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInputTypeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PasswordTransformationMethodServiceServer).AfterTextChanged(ctx, in)
+		return srv.(DialerKeyListenerServiceServer).GetInputType(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PasswordTransformationMethodService_AfterTextChanged_FullMethodName,
+		FullMethod: DialerKeyListenerService_GetInputType_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PasswordTransformationMethodServiceServer).AfterTextChanged(ctx, req.(*AfterTextChangedRequest))
+		return srv.(DialerKeyListenerServiceServer).GetInputType(ctx, req.(*GetInputTypeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PasswordTransformationMethodService_BeforeTextChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BeforeTextChangedRequest)
+func _DialerKeyListenerService_GetInstance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DialerKeyListenerGetInstanceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PasswordTransformationMethodServiceServer).BeforeTextChanged(ctx, in)
+		return srv.(DialerKeyListenerServiceServer).GetInstance(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PasswordTransformationMethodService_BeforeTextChanged_FullMethodName,
+		FullMethod: DialerKeyListenerService_GetInstance_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PasswordTransformationMethodServiceServer).BeforeTextChanged(ctx, req.(*BeforeTextChangedRequest))
+		return srv.(DialerKeyListenerServiceServer).GetInstance(ctx, req.(*DialerKeyListenerGetInstanceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PasswordTransformationMethodService_GetTransformation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PasswordTransformationMethodGetTransformationRequest)
+// DialerKeyListenerService_ServiceDesc is the grpc.ServiceDesc for DialerKeyListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DialerKeyListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "method.DialerKeyListenerService",
+	HandlerType: (*DialerKeyListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewDialerKeyListener",
+			Handler:    _DialerKeyListenerService_NewDialerKeyListener_Handler,
+		},
+		{
+			MethodName: "GetInputType",
+			Handler:    _DialerKeyListenerService_GetInputType_Handler,
+		},
+		{
+			MethodName: "GetInstance",
+			Handler:    _DialerKeyListenerService_GetInstance_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/method/method.proto",
+}
+
+const (
+	MultiTapKeyListenerService_NewMultiTapKeyListener_FullMethodName = "/method.MultiTapKeyListenerService/NewMultiTapKeyListener"
+	MultiTapKeyListenerService_GetInputType_FullMethodName           = "/method.MultiTapKeyListenerService/GetInputType"
+	MultiTapKeyListenerService_OnKeyDown_FullMethodName              = "/method.MultiTapKeyListenerService/OnKeyDown"
+	MultiTapKeyListenerService_OnSpanAdded_FullMethodName            = "/method.MultiTapKeyListenerService/OnSpanAdded"
+	MultiTapKeyListenerService_OnSpanChanged_FullMethodName          = "/method.MultiTapKeyListenerService/OnSpanChanged"
+	MultiTapKeyListenerService_OnSpanRemoved_FullMethodName          = "/method.MultiTapKeyListenerService/OnSpanRemoved"
+	MultiTapKeyListenerService_GetInstance_FullMethodName            = "/method.MultiTapKeyListenerService/GetInstance"
+)
+
+// MultiTapKeyListenerServiceClient is the client API for MultiTapKeyListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type MultiTapKeyListenerServiceClient interface {
+	NewMultiTapKeyListener(ctx context.Context, in *NewMultiTapKeyListenerRequest, opts ...grpc.CallOption) (*NewMultiTapKeyListenerResponse, error)
+	GetInputType(ctx context.Context, in *GetInputTypeRequest, opts ...grpc.CallOption) (*GetInputTypeResponse, error)
+	OnKeyDown(ctx context.Context, in *OnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error)
+	OnSpanAdded(ctx context.Context, in *OnSpanAddedRequest, opts ...grpc.CallOption) (*OnSpanAddedResponse, error)
+	OnSpanChanged(ctx context.Context, in *OnSpanChangedRequest, opts ...grpc.CallOption) (*OnSpanChangedResponse, error)
+	OnSpanRemoved(ctx context.Context, in *OnSpanRemovedRequest, opts ...grpc.CallOption) (*OnSpanRemovedResponse, error)
+	GetInstance(ctx context.Context, in *GetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error)
+}
+
+type multiTapKeyListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewMultiTapKeyListenerServiceClient(cc grpc.ClientConnInterface) MultiTapKeyListenerServiceClient {
+	return &multiTapKeyListenerServiceClient{cc}
+}
+
+func (c *multiTapKeyListenerServiceClient) NewMultiTapKeyListener(ctx context.Context, in *NewMultiTapKeyListenerRequest, opts ...grpc.CallOption) (*NewMultiTapKeyListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewMultiTapKeyListenerResponse)
+	err := c.cc.Invoke(ctx, MultiTapKeyListenerService_NewMultiTapKeyListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *multiTapKeyListenerServiceClient) GetInputType(ctx context.Context, in *GetInputTypeRequest, opts ...grpc.CallOption) (*GetInputTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInputTypeResponse)
+	err := c.cc.Invoke(ctx, MultiTapKeyListenerService_GetInputType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *multiTapKeyListenerServiceClient) OnKeyDown(ctx context.Context, in *OnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnKeyDownResponse)
+	err := c.cc.Invoke(ctx, MultiTapKeyListenerService_OnKeyDown_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *multiTapKeyListenerServiceClient) OnSpanAdded(ctx context.Context, in *OnSpanAddedRequest, opts ...grpc.CallOption) (*OnSpanAddedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSpanAddedResponse)
+	err := c.cc.Invoke(ctx, MultiTapKeyListenerService_OnSpanAdded_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *multiTapKeyListenerServiceClient) OnSpanChanged(ctx context.Context, in *OnSpanChangedRequest, opts ...grpc.CallOption) (*OnSpanChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSpanChangedResponse)
+	err := c.cc.Invoke(ctx, MultiTapKeyListenerService_OnSpanChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *multiTapKeyListenerServiceClient) OnSpanRemoved(ctx context.Context, in *OnSpanRemovedRequest, opts ...grpc.CallOption) (*OnSpanRemovedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSpanRemovedResponse)
+	err := c.cc.Invoke(ctx, MultiTapKeyListenerService_OnSpanRemoved_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *multiTapKeyListenerServiceClient) GetInstance(ctx context.Context, in *GetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInstanceResponse)
+	err := c.cc.Invoke(ctx, MultiTapKeyListenerService_GetInstance_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// MultiTapKeyListenerServiceServer is the server API for MultiTapKeyListenerService service.
+// All implementations must embed UnimplementedMultiTapKeyListenerServiceServer
+// for forward compatibility.
+type MultiTapKeyListenerServiceServer interface {
+	NewMultiTapKeyListener(context.Context, *NewMultiTapKeyListenerRequest) (*NewMultiTapKeyListenerResponse, error)
+	GetInputType(context.Context, *GetInputTypeRequest) (*GetInputTypeResponse, error)
+	OnKeyDown(context.Context, *OnKeyDownRequest) (*OnKeyDownResponse, error)
+	OnSpanAdded(context.Context, *OnSpanAddedRequest) (*OnSpanAddedResponse, error)
+	OnSpanChanged(context.Context, *OnSpanChangedRequest) (*OnSpanChangedResponse, error)
+	OnSpanRemoved(context.Context, *OnSpanRemovedRequest) (*OnSpanRemovedResponse, error)
+	GetInstance(context.Context, *GetInstanceRequest) (*GetInstanceResponse, error)
+	mustEmbedUnimplementedMultiTapKeyListenerServiceServer()
+}
+
+// UnimplementedMultiTapKeyListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedMultiTapKeyListenerServiceServer struct{}
+
+func (UnimplementedMultiTapKeyListenerServiceServer) NewMultiTapKeyListener(context.Context, *NewMultiTapKeyListenerRequest) (*NewMultiTapKeyListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewMultiTapKeyListener not implemented")
+}
+func (UnimplementedMultiTapKeyListenerServiceServer) GetInputType(context.Context, *GetInputTypeRequest) (*GetInputTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInputType not implemented")
+}
+func (UnimplementedMultiTapKeyListenerServiceServer) OnKeyDown(context.Context, *OnKeyDownRequest) (*OnKeyDownResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnKeyDown not implemented")
+}
+func (UnimplementedMultiTapKeyListenerServiceServer) OnSpanAdded(context.Context, *OnSpanAddedRequest) (*OnSpanAddedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSpanAdded not implemented")
+}
+func (UnimplementedMultiTapKeyListenerServiceServer) OnSpanChanged(context.Context, *OnSpanChangedRequest) (*OnSpanChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSpanChanged not implemented")
+}
+func (UnimplementedMultiTapKeyListenerServiceServer) OnSpanRemoved(context.Context, *OnSpanRemovedRequest) (*OnSpanRemovedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSpanRemoved not implemented")
+}
+func (UnimplementedMultiTapKeyListenerServiceServer) GetInstance(context.Context, *GetInstanceRequest) (*GetInstanceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInstance not implemented")
+}
+func (UnimplementedMultiTapKeyListenerServiceServer) mustEmbedUnimplementedMultiTapKeyListenerServiceServer() {
+}
+func (UnimplementedMultiTapKeyListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeMultiTapKeyListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to MultiTapKeyListenerServiceServer will
+// result in compilation errors.
+type UnsafeMultiTapKeyListenerServiceServer interface {
+	mustEmbedUnimplementedMultiTapKeyListenerServiceServer()
+}
+
+func RegisterMultiTapKeyListenerServiceServer(s grpc.ServiceRegistrar, srv MultiTapKeyListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedMultiTapKeyListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&MultiTapKeyListenerService_ServiceDesc, srv)
+}
+
+func _MultiTapKeyListenerService_NewMultiTapKeyListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewMultiTapKeyListenerRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PasswordTransformationMethodServiceServer).GetTransformation(ctx, in)
+		return srv.(MultiTapKeyListenerServiceServer).NewMultiTapKeyListener(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PasswordTransformationMethodService_GetTransformation_FullMethodName,
+		FullMethod: MultiTapKeyListenerService_NewMultiTapKeyListener_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PasswordTransformationMethodServiceServer).GetTransformation(ctx, req.(*PasswordTransformationMethodGetTransformationRequest))
+		return srv.(MultiTapKeyListenerServiceServer).NewMultiTapKeyListener(ctx, req.(*NewMultiTapKeyListenerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PasswordTransformationMethodService_OnFocusChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PasswordTransformationMethodOnFocusChangedRequest)
+func _MultiTapKeyListenerService_GetInputType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInputTypeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PasswordTransformationMethodServiceServer).OnFocusChanged(ctx, in)
+		return srv.(MultiTapKeyListenerServiceServer).GetInputType(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PasswordTransformationMethodService_OnFocusChanged_FullMethodName,
+		FullMethod: MultiTapKeyListenerService_GetInputType_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PasswordTransformationMethodServiceServer).OnFocusChanged(ctx, req.(*PasswordTransformationMethodOnFocusChangedRequest))
+		return srv.(MultiTapKeyListenerServiceServer).GetInputType(ctx, req.(*GetInputTypeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PasswordTransformationMethodService_OnTextChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnTextChangedRequest)
+func _MultiTapKeyListenerService_OnKeyDown_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnKeyDownRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PasswordTransformationMethodServiceServer).OnTextChanged(ctx, in)
+		return srv.(MultiTapKeyListenerServiceServer).OnKeyDown(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PasswordTransformationMethodService_OnTextChanged_FullMethodName,
+		FullMethod: MultiTapKeyListenerService_OnKeyDown_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PasswordTransformationMethodServiceServer).OnTextChanged(ctx, req.(*OnTextChangedRequest))
+		return srv.(MultiTapKeyListenerServiceServer).OnKeyDown(ctx, req.(*OnKeyDownRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PasswordTransformationMethodService_GetInstance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _MultiTapKeyListenerService_OnSpanAdded_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSpanAddedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MultiTapKeyListenerServiceServer).OnSpanAdded(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MultiTapKeyListenerService_OnSpanAdded_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MultiTapKeyListenerServiceServer).OnSpanAdded(ctx, req.(*OnSpanAddedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MultiTapKeyListenerService_OnSpanChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSpanChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MultiTapKeyListenerServiceServer).OnSpanChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MultiTapKeyListenerService_OnSpanChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MultiTapKeyListenerServiceServer).OnSpanChanged(ctx, req.(*OnSpanChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MultiTapKeyListenerService_OnSpanRemoved_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSpanRemovedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MultiTapKeyListenerServiceServer).OnSpanRemoved(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: MultiTapKeyListenerService_OnSpanRemoved_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MultiTapKeyListenerServiceServer).OnSpanRemoved(ctx, req.(*OnSpanRemovedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MultiTapKeyListenerService_GetInstance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetInstanceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PasswordTransformationMethodServiceServer).GetInstance(ctx, in)
+		return srv.(MultiTapKeyListenerServiceServer).GetInstance(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PasswordTransformationMethodService_GetInstance_FullMethodName,
+		FullMethod: MultiTapKeyListenerService_GetInstance_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PasswordTransformationMethodServiceServer).GetInstance(ctx, req.(*GetInstanceRequest))
+		return srv.(MultiTapKeyListenerServiceServer).GetInstance(ctx, req.(*GetInstanceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// PasswordTransformationMethodService_ServiceDesc is the grpc.ServiceDesc for PasswordTransformationMethodService service.
+// MultiTapKeyListenerService_ServiceDesc is the grpc.ServiceDesc for MultiTapKeyListenerService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var PasswordTransformationMethodService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "method.PasswordTransformationMethodService",
-	HandlerType: (*PasswordTransformationMethodServiceServer)(nil),
+var MultiTapKeyListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "method.MultiTapKeyListenerService",
+	HandlerType: (*MultiTapKeyListenerServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewPasswordTransformationMethod",
-			Handler:    _PasswordTransformationMethodService_NewPasswordTransformationMethod_Handler,
+			MethodName: "NewMultiTapKeyListener",
+			Handler:    _MultiTapKeyListenerService_NewMultiTapKeyListener_Handler,
 		},
 		{
-			MethodName: "AfterTextChanged",
-			Handler:    _PasswordTransformationMethodService_AfterTextChanged_Handler,
+			MethodName: "GetInputType",
+			Handler:    _MultiTapKeyListenerService_GetInputType_Handler,
 		},
 		{
-			MethodName: "BeforeTextChanged",
-			Handler:    _PasswordTransformationMethodService_BeforeTextChanged_Handler,
+			MethodName: "OnKeyDown",
+			Handler:    _MultiTapKeyListenerService_OnKeyDown_Handler,
 		},
 		{
-			MethodName: "GetTransformation",
-			Handler:    _PasswordTransformationMethodService_GetTransformation_Handler,
+			MethodName: "OnSpanAdded",
+			Handler:    _MultiTapKeyListenerService_OnSpanAdded_Handler,
 		},
 		{
-			MethodName: "OnFocusChanged",
-			Handler:    _PasswordTransformationMethodService_OnFocusChanged_Handler,
+			MethodName: "OnSpanChanged",
+			Handler:    _MultiTapKeyListenerService_OnSpanChanged_Handler,
 		},
 		{
-			MethodName: "OnTextChanged",
-			Handler:    _PasswordTransformationMethodService_OnTextChanged_Handler,
+			MethodName: "OnSpanRemoved",
+			Handler:    _MultiTapKeyListenerService_OnSpanRemoved_Handler,
 		},
 		{
 			MethodName: "GetInstance",
-			Handler:    _PasswordTransformationMethodService_GetInstance_Handler,
+			Handler:    _MultiTapKeyListenerService_GetInstance_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/method/method.proto",
+}
+
+const (
+	TouchService_GetInitialScrollX_FullMethodName = "/method.TouchService/GetInitialScrollX"
+	TouchService_GetInitialScrollY_FullMethodName = "/method.TouchService/GetInitialScrollY"
+	TouchService_OnTouchEvent_FullMethodName      = "/method.TouchService/OnTouchEvent"
+	TouchService_ScrollTo_FullMethodName          = "/method.TouchService/ScrollTo"
+)
+
+// TouchServiceClient is the client API for TouchService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TouchServiceClient interface {
+	GetInitialScrollX(ctx context.Context, in *GetInitialScrollXRequest, opts ...grpc.CallOption) (*GetInitialScrollXResponse, error)
+	GetInitialScrollY(ctx context.Context, in *GetInitialScrollYRequest, opts ...grpc.CallOption) (*GetInitialScrollYResponse, error)
+	OnTouchEvent(ctx context.Context, in *TouchOnTouchEventRequest, opts ...grpc.CallOption) (*OnTouchEventResponse, error)
+	ScrollTo(ctx context.Context, in *ScrollToRequest, opts ...grpc.CallOption) (*ScrollToResponse, error)
+}
+
+type touchServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTouchServiceClient(cc grpc.ClientConnInterface) TouchServiceClient {
+	return &touchServiceClient{cc}
+}
+
+func (c *touchServiceClient) GetInitialScrollX(ctx context.Context, in *GetInitialScrollXRequest, opts ...grpc.CallOption) (*GetInitialScrollXResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInitialScrollXResponse)
+	err := c.cc.Invoke(ctx, TouchService_GetInitialScrollX_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *touchServiceClient) GetInitialScrollY(ctx context.Context, in *GetInitialScrollYRequest, opts ...grpc.CallOption) (*GetInitialScrollYResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInitialScrollYResponse)
+	err := c.cc.Invoke(ctx, TouchService_GetInitialScrollY_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *touchServiceClient) OnTouchEvent(ctx context.Context, in *TouchOnTouchEventRequest, opts ...grpc.CallOption) (*OnTouchEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnTouchEventResponse)
+	err := c.cc.Invoke(ctx, TouchService_OnTouchEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *touchServiceClient) ScrollTo(ctx context.Context, in *ScrollToRequest, opts ...grpc.CallOption) (*ScrollToResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ScrollToResponse)
+	err := c.cc.Invoke(ctx, TouchService_ScrollTo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TouchServiceServer is the server API for TouchService service.
+// All implementations must embed UnimplementedTouchServiceServer
+// for forward compatibility.
+type TouchServiceServer interface {
+	GetInitialScrollX(context.Context, *GetInitialScrollXRequest) (*GetInitialScrollXResponse, error)
+	GetInitialScrollY(context.Context, *GetInitialScrollYRequest) (*GetInitialScrollYResponse, error)
+	OnTouchEvent(context.Context, *TouchOnTouchEventRequest) (*OnTouchEventResponse, error)
+	ScrollTo(context.Context, *ScrollToRequest) (*ScrollToResponse, error)
+	mustEmbedUnimplementedTouchServiceServer()
+}
+
+// UnimplementedTouchServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTouchServiceServer struct{}
+
+func (UnimplementedTouchServiceServer) GetInitialScrollX(context.Context, *GetInitialScrollXRequest) (*GetInitialScrollXResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInitialScrollX not implemented")
+}
+func (UnimplementedTouchServiceServer) GetInitialScrollY(context.Context, *GetInitialScrollYRequest) (*GetInitialScrollYResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInitialScrollY not implemented")
+}
+func (UnimplementedTouchServiceServer) OnTouchEvent(context.Context, *TouchOnTouchEventRequest) (*OnTouchEventResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnTouchEvent not implemented")
+}
+func (UnimplementedTouchServiceServer) ScrollTo(context.Context, *ScrollToRequest) (*ScrollToResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ScrollTo not implemented")
+}
+func (UnimplementedTouchServiceServer) mustEmbedUnimplementedTouchServiceServer() {}
+func (UnimplementedTouchServiceServer) testEmbeddedByValue()                      {}
+
+// UnsafeTouchServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TouchServiceServer will
+// result in compilation errors.
+type UnsafeTouchServiceServer interface {
+	mustEmbedUnimplementedTouchServiceServer()
+}
+
+func RegisterTouchServiceServer(s grpc.ServiceRegistrar, srv TouchServiceServer) {
+	// If the following call panics, it indicates UnimplementedTouchServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TouchService_ServiceDesc, srv)
+}
+
+func _TouchService_GetInitialScrollX_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInitialScrollXRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TouchServiceServer).GetInitialScrollX(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TouchService_GetInitialScrollX_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TouchServiceServer).GetInitialScrollX(ctx, req.(*GetInitialScrollXRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TouchService_GetInitialScrollY_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInitialScrollYRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TouchServiceServer).GetInitialScrollY(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TouchService_GetInitialScrollY_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TouchServiceServer).GetInitialScrollY(ctx, req.(*GetInitialScrollYRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TouchService_OnTouchEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TouchOnTouchEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TouchServiceServer).OnTouchEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TouchService_OnTouchEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TouchServiceServer).OnTouchEvent(ctx, req.(*TouchOnTouchEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TouchService_ScrollTo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ScrollToRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TouchServiceServer).ScrollTo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TouchService_ScrollTo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TouchServiceServer).ScrollTo(ctx, req.(*ScrollToRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TouchService_ServiceDesc is the grpc.ServiceDesc for TouchService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TouchService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "method.TouchService",
+	HandlerType: (*TouchServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetInitialScrollX",
+			Handler:    _TouchService_GetInitialScrollX_Handler,
+		},
+		{
+			MethodName: "GetInitialScrollY",
+			Handler:    _TouchService_GetInitialScrollY_Handler,
+		},
+		{
+			MethodName: "OnTouchEvent",
+			Handler:    _TouchService_OnTouchEvent_Handler,
+		},
+		{
+			MethodName: "ScrollTo",
+			Handler:    _TouchService_ScrollTo_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/method/method.proto",
+}
+
+const (
+	DigitsKeyListenerService_NewDigitsKeyListener_FullMethodName = "/method.DigitsKeyListenerService/NewDigitsKeyListener"
+	DigitsKeyListenerService_Filter_FullMethodName               = "/method.DigitsKeyListenerService/Filter"
+	DigitsKeyListenerService_GetInputType_FullMethodName         = "/method.DigitsKeyListenerService/GetInputType"
+	DigitsKeyListenerService_GetInstance0_FullMethodName         = "/method.DigitsKeyListenerService/GetInstance0"
+	DigitsKeyListenerService_GetInstance2_1_FullMethodName       = "/method.DigitsKeyListenerService/GetInstance2_1"
+	DigitsKeyListenerService_GetInstance1_2_FullMethodName       = "/method.DigitsKeyListenerService/GetInstance1_2"
+	DigitsKeyListenerService_GetInstance1_3_FullMethodName       = "/method.DigitsKeyListenerService/GetInstance1_3"
+	DigitsKeyListenerService_GetInstance3_4_FullMethodName       = "/method.DigitsKeyListenerService/GetInstance3_4"
+)
+
+// DigitsKeyListenerServiceClient is the client API for DigitsKeyListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DigitsKeyListenerServiceClient interface {
+	NewDigitsKeyListener(ctx context.Context, in *NewDigitsKeyListenerRequest, opts ...grpc.CallOption) (*NewDigitsKeyListenerResponse, error)
+	Filter(ctx context.Context, in *DigitsKeyListenerFilterRequest, opts ...grpc.CallOption) (*FilterResponse, error)
+	GetInputType(ctx context.Context, in *GetInputTypeRequest, opts ...grpc.CallOption) (*GetInputTypeResponse, error)
+	GetInstance0(ctx context.Context, in *GetInstance0Request, opts ...grpc.CallOption) (*GetInstance0Response, error)
+	GetInstance2_1(ctx context.Context, in *DigitsKeyListenerGetInstance2_1Request, opts ...grpc.CallOption) (*GetInstance2_1Response, error)
+	GetInstance1_2(ctx context.Context, in *GetInstance1_2Request, opts ...grpc.CallOption) (*GetInstance1_2Response, error)
+	GetInstance1_3(ctx context.Context, in *GetInstance1_3Request, opts ...grpc.CallOption) (*GetInstance1_3Response, error)
+	GetInstance3_4(ctx context.Context, in *GetInstance3_4Request, opts ...grpc.CallOption) (*GetInstance3_4Response, error)
+}
+
+type digitsKeyListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDigitsKeyListenerServiceClient(cc grpc.ClientConnInterface) DigitsKeyListenerServiceClient {
+	return &digitsKeyListenerServiceClient{cc}
+}
+
+func (c *digitsKeyListenerServiceClient) NewDigitsKeyListener(ctx context.Context, in *NewDigitsKeyListenerRequest, opts ...grpc.CallOption) (*NewDigitsKeyListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewDigitsKeyListenerResponse)
+	err := c.cc.Invoke(ctx, DigitsKeyListenerService_NewDigitsKeyListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *digitsKeyListenerServiceClient) Filter(ctx context.Context, in *DigitsKeyListenerFilterRequest, opts ...grpc.CallOption) (*FilterResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FilterResponse)
+	err := c.cc.Invoke(ctx, DigitsKeyListenerService_Filter_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *digitsKeyListenerServiceClient) GetInputType(ctx context.Context, in *GetInputTypeRequest, opts ...grpc.CallOption) (*GetInputTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInputTypeResponse)
+	err := c.cc.Invoke(ctx, DigitsKeyListenerService_GetInputType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *digitsKeyListenerServiceClient) GetInstance0(ctx context.Context, in *GetInstance0Request, opts ...grpc.CallOption) (*GetInstance0Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInstance0Response)
+	err := c.cc.Invoke(ctx, DigitsKeyListenerService_GetInstance0_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *digitsKeyListenerServiceClient) GetInstance2_1(ctx context.Context, in *DigitsKeyListenerGetInstance2_1Request, opts ...grpc.CallOption) (*GetInstance2_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInstance2_1Response)
+	err := c.cc.Invoke(ctx, DigitsKeyListenerService_GetInstance2_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *digitsKeyListenerServiceClient) GetInstance1_2(ctx context.Context, in *GetInstance1_2Request, opts ...grpc.CallOption) (*GetInstance1_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInstance1_2Response)
+	err := c.cc.Invoke(ctx, DigitsKeyListenerService_GetInstance1_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *digitsKeyListenerServiceClient) GetInstance1_3(ctx context.Context, in *GetInstance1_3Request, opts ...grpc.CallOption) (*GetInstance1_3Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInstance1_3Response)
+	err := c.cc.Invoke(ctx, DigitsKeyListenerService_GetInstance1_3_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *digitsKeyListenerServiceClient) GetInstance3_4(ctx context.Context, in *GetInstance3_4Request, opts ...grpc.CallOption) (*GetInstance3_4Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInstance3_4Response)
+	err := c.cc.Invoke(ctx, DigitsKeyListenerService_GetInstance3_4_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DigitsKeyListenerServiceServer is the server API for DigitsKeyListenerService service.
+// All implementations must embed UnimplementedDigitsKeyListenerServiceServer
+// for forward compatibility.
+type DigitsKeyListenerServiceServer interface {
+	NewDigitsKeyListener(context.Context, *NewDigitsKeyListenerRequest) (*NewDigitsKeyListenerResponse, error)
+	Filter(context.Context, *DigitsKeyListenerFilterRequest) (*FilterResponse, error)
+	GetInputType(context.Context, *GetInputTypeRequest) (*GetInputTypeResponse, error)
+	GetInstance0(context.Context, *GetInstance0Request) (*GetInstance0Response, error)
+	GetInstance2_1(context.Context, *DigitsKeyListenerGetInstance2_1Request) (*GetInstance2_1Response, error)
+	GetInstance1_2(context.Context, *GetInstance1_2Request) (*GetInstance1_2Response, error)
+	GetInstance1_3(context.Context, *GetInstance1_3Request) (*GetInstance1_3Response, error)
+	GetInstance3_4(context.Context, *GetInstance3_4Request) (*GetInstance3_4Response, error)
+	mustEmbedUnimplementedDigitsKeyListenerServiceServer()
+}
+
+// UnimplementedDigitsKeyListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDigitsKeyListenerServiceServer struct{}
+
+func (UnimplementedDigitsKeyListenerServiceServer) NewDigitsKeyListener(context.Context, *NewDigitsKeyListenerRequest) (*NewDigitsKeyListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewDigitsKeyListener not implemented")
+}
+func (UnimplementedDigitsKeyListenerServiceServer) Filter(context.Context, *DigitsKeyListenerFilterRequest) (*FilterResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Filter not implemented")
+}
+func (UnimplementedDigitsKeyListenerServiceServer) GetInputType(context.Context, *GetInputTypeRequest) (*GetInputTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInputType not implemented")
+}
+func (UnimplementedDigitsKeyListenerServiceServer) GetInstance0(context.Context, *GetInstance0Request) (*GetInstance0Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInstance0 not implemented")
+}
+func (UnimplementedDigitsKeyListenerServiceServer) GetInstance2_1(context.Context, *DigitsKeyListenerGetInstance2_1Request) (*GetInstance2_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInstance2_1 not implemented")
+}
+func (UnimplementedDigitsKeyListenerServiceServer) GetInstance1_2(context.Context, *GetInstance1_2Request) (*GetInstance1_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInstance1_2 not implemented")
+}
+func (UnimplementedDigitsKeyListenerServiceServer) GetInstance1_3(context.Context, *GetInstance1_3Request) (*GetInstance1_3Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInstance1_3 not implemented")
+}
+func (UnimplementedDigitsKeyListenerServiceServer) GetInstance3_4(context.Context, *GetInstance3_4Request) (*GetInstance3_4Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInstance3_4 not implemented")
+}
+func (UnimplementedDigitsKeyListenerServiceServer) mustEmbedUnimplementedDigitsKeyListenerServiceServer() {
+}
+func (UnimplementedDigitsKeyListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeDigitsKeyListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DigitsKeyListenerServiceServer will
+// result in compilation errors.
+type UnsafeDigitsKeyListenerServiceServer interface {
+	mustEmbedUnimplementedDigitsKeyListenerServiceServer()
+}
+
+func RegisterDigitsKeyListenerServiceServer(s grpc.ServiceRegistrar, srv DigitsKeyListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedDigitsKeyListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DigitsKeyListenerService_ServiceDesc, srv)
+}
+
+func _DigitsKeyListenerService_NewDigitsKeyListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewDigitsKeyListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DigitsKeyListenerServiceServer).NewDigitsKeyListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DigitsKeyListenerService_NewDigitsKeyListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DigitsKeyListenerServiceServer).NewDigitsKeyListener(ctx, req.(*NewDigitsKeyListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DigitsKeyListenerService_Filter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DigitsKeyListenerFilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DigitsKeyListenerServiceServer).Filter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DigitsKeyListenerService_Filter_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DigitsKeyListenerServiceServer).Filter(ctx, req.(*DigitsKeyListenerFilterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DigitsKeyListenerService_GetInputType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInputTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DigitsKeyListenerServiceServer).GetInputType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DigitsKeyListenerService_GetInputType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DigitsKeyListenerServiceServer).GetInputType(ctx, req.(*GetInputTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DigitsKeyListenerService_GetInstance0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInstance0Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DigitsKeyListenerServiceServer).GetInstance0(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DigitsKeyListenerService_GetInstance0_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DigitsKeyListenerServiceServer).GetInstance0(ctx, req.(*GetInstance0Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DigitsKeyListenerService_GetInstance2_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DigitsKeyListenerGetInstance2_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DigitsKeyListenerServiceServer).GetInstance2_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DigitsKeyListenerService_GetInstance2_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DigitsKeyListenerServiceServer).GetInstance2_1(ctx, req.(*DigitsKeyListenerGetInstance2_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DigitsKeyListenerService_GetInstance1_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInstance1_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DigitsKeyListenerServiceServer).GetInstance1_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DigitsKeyListenerService_GetInstance1_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DigitsKeyListenerServiceServer).GetInstance1_2(ctx, req.(*GetInstance1_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DigitsKeyListenerService_GetInstance1_3_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInstance1_3Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DigitsKeyListenerServiceServer).GetInstance1_3(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DigitsKeyListenerService_GetInstance1_3_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DigitsKeyListenerServiceServer).GetInstance1_3(ctx, req.(*GetInstance1_3Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DigitsKeyListenerService_GetInstance3_4_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInstance3_4Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DigitsKeyListenerServiceServer).GetInstance3_4(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DigitsKeyListenerService_GetInstance3_4_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DigitsKeyListenerServiceServer).GetInstance3_4(ctx, req.(*GetInstance3_4Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DigitsKeyListenerService_ServiceDesc is the grpc.ServiceDesc for DigitsKeyListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DigitsKeyListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "method.DigitsKeyListenerService",
+	HandlerType: (*DigitsKeyListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewDigitsKeyListener",
+			Handler:    _DigitsKeyListenerService_NewDigitsKeyListener_Handler,
+		},
+		{
+			MethodName: "Filter",
+			Handler:    _DigitsKeyListenerService_Filter_Handler,
+		},
+		{
+			MethodName: "GetInputType",
+			Handler:    _DigitsKeyListenerService_GetInputType_Handler,
+		},
+		{
+			MethodName: "GetInstance0",
+			Handler:    _DigitsKeyListenerService_GetInstance0_Handler,
+		},
+		{
+			MethodName: "GetInstance2_1",
+			Handler:    _DigitsKeyListenerService_GetInstance2_1_Handler,
+		},
+		{
+			MethodName: "GetInstance1_2",
+			Handler:    _DigitsKeyListenerService_GetInstance1_2_Handler,
+		},
+		{
+			MethodName: "GetInstance1_3",
+			Handler:    _DigitsKeyListenerService_GetInstance1_3_Handler,
+		},
+		{
+			MethodName: "GetInstance3_4",
+			Handler:    _DigitsKeyListenerService_GetInstance3_4_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -6238,11 +6618,11 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type LinkMovementMethodServiceClient interface {
 	NewLinkMovementMethod(ctx context.Context, in *NewLinkMovementMethodRequest, opts ...grpc.CallOption) (*NewLinkMovementMethodResponse, error)
-	CanSelectArbitrarily(ctx context.Context, in *LinkMovementMethodCanSelectArbitrarilyRequest, opts ...grpc.CallOption) (*CanSelectArbitrarilyResponse, error)
-	Initialize(ctx context.Context, in *LinkMovementMethodInitializeRequest, opts ...grpc.CallOption) (*InitializeResponse, error)
-	OnTakeFocus(ctx context.Context, in *LinkMovementMethodOnTakeFocusRequest, opts ...grpc.CallOption) (*OnTakeFocusResponse, error)
-	OnTouchEvent(ctx context.Context, in *LinkMovementMethodOnTouchEventRequest, opts ...grpc.CallOption) (*OnTouchEventResponse, error)
-	GetInstance(ctx context.Context, in *GetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error)
+	CanSelectArbitrarily(ctx context.Context, in *CanSelectArbitrarilyRequest, opts ...grpc.CallOption) (*CanSelectArbitrarilyResponse, error)
+	Initialize(ctx context.Context, in *InitializeRequest, opts ...grpc.CallOption) (*InitializeResponse, error)
+	OnTakeFocus(ctx context.Context, in *OnTakeFocusRequest, opts ...grpc.CallOption) (*OnTakeFocusResponse, error)
+	OnTouchEvent(ctx context.Context, in *OnTouchEventRequest, opts ...grpc.CallOption) (*OnTouchEventResponse, error)
+	GetInstance(ctx context.Context, in *LinkMovementMethodGetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error)
 }
 
 type linkMovementMethodServiceClient struct {
@@ -6263,7 +6643,7 @@ func (c *linkMovementMethodServiceClient) NewLinkMovementMethod(ctx context.Cont
 	return out, nil
 }
 
-func (c *linkMovementMethodServiceClient) CanSelectArbitrarily(ctx context.Context, in *LinkMovementMethodCanSelectArbitrarilyRequest, opts ...grpc.CallOption) (*CanSelectArbitrarilyResponse, error) {
+func (c *linkMovementMethodServiceClient) CanSelectArbitrarily(ctx context.Context, in *CanSelectArbitrarilyRequest, opts ...grpc.CallOption) (*CanSelectArbitrarilyResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CanSelectArbitrarilyResponse)
 	err := c.cc.Invoke(ctx, LinkMovementMethodService_CanSelectArbitrarily_FullMethodName, in, out, cOpts...)
@@ -6273,7 +6653,7 @@ func (c *linkMovementMethodServiceClient) CanSelectArbitrarily(ctx context.Conte
 	return out, nil
 }
 
-func (c *linkMovementMethodServiceClient) Initialize(ctx context.Context, in *LinkMovementMethodInitializeRequest, opts ...grpc.CallOption) (*InitializeResponse, error) {
+func (c *linkMovementMethodServiceClient) Initialize(ctx context.Context, in *InitializeRequest, opts ...grpc.CallOption) (*InitializeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(InitializeResponse)
 	err := c.cc.Invoke(ctx, LinkMovementMethodService_Initialize_FullMethodName, in, out, cOpts...)
@@ -6283,7 +6663,7 @@ func (c *linkMovementMethodServiceClient) Initialize(ctx context.Context, in *Li
 	return out, nil
 }
 
-func (c *linkMovementMethodServiceClient) OnTakeFocus(ctx context.Context, in *LinkMovementMethodOnTakeFocusRequest, opts ...grpc.CallOption) (*OnTakeFocusResponse, error) {
+func (c *linkMovementMethodServiceClient) OnTakeFocus(ctx context.Context, in *OnTakeFocusRequest, opts ...grpc.CallOption) (*OnTakeFocusResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(OnTakeFocusResponse)
 	err := c.cc.Invoke(ctx, LinkMovementMethodService_OnTakeFocus_FullMethodName, in, out, cOpts...)
@@ -6293,7 +6673,7 @@ func (c *linkMovementMethodServiceClient) OnTakeFocus(ctx context.Context, in *L
 	return out, nil
 }
 
-func (c *linkMovementMethodServiceClient) OnTouchEvent(ctx context.Context, in *LinkMovementMethodOnTouchEventRequest, opts ...grpc.CallOption) (*OnTouchEventResponse, error) {
+func (c *linkMovementMethodServiceClient) OnTouchEvent(ctx context.Context, in *OnTouchEventRequest, opts ...grpc.CallOption) (*OnTouchEventResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(OnTouchEventResponse)
 	err := c.cc.Invoke(ctx, LinkMovementMethodService_OnTouchEvent_FullMethodName, in, out, cOpts...)
@@ -6303,7 +6683,7 @@ func (c *linkMovementMethodServiceClient) OnTouchEvent(ctx context.Context, in *
 	return out, nil
 }
 
-func (c *linkMovementMethodServiceClient) GetInstance(ctx context.Context, in *GetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error) {
+func (c *linkMovementMethodServiceClient) GetInstance(ctx context.Context, in *LinkMovementMethodGetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetInstanceResponse)
 	err := c.cc.Invoke(ctx, LinkMovementMethodService_GetInstance_FullMethodName, in, out, cOpts...)
@@ -6318,11 +6698,11 @@ func (c *linkMovementMethodServiceClient) GetInstance(ctx context.Context, in *G
 // for forward compatibility.
 type LinkMovementMethodServiceServer interface {
 	NewLinkMovementMethod(context.Context, *NewLinkMovementMethodRequest) (*NewLinkMovementMethodResponse, error)
-	CanSelectArbitrarily(context.Context, *LinkMovementMethodCanSelectArbitrarilyRequest) (*CanSelectArbitrarilyResponse, error)
-	Initialize(context.Context, *LinkMovementMethodInitializeRequest) (*InitializeResponse, error)
-	OnTakeFocus(context.Context, *LinkMovementMethodOnTakeFocusRequest) (*OnTakeFocusResponse, error)
-	OnTouchEvent(context.Context, *LinkMovementMethodOnTouchEventRequest) (*OnTouchEventResponse, error)
-	GetInstance(context.Context, *GetInstanceRequest) (*GetInstanceResponse, error)
+	CanSelectArbitrarily(context.Context, *CanSelectArbitrarilyRequest) (*CanSelectArbitrarilyResponse, error)
+	Initialize(context.Context, *InitializeRequest) (*InitializeResponse, error)
+	OnTakeFocus(context.Context, *OnTakeFocusRequest) (*OnTakeFocusResponse, error)
+	OnTouchEvent(context.Context, *OnTouchEventRequest) (*OnTouchEventResponse, error)
+	GetInstance(context.Context, *LinkMovementMethodGetInstanceRequest) (*GetInstanceResponse, error)
 	mustEmbedUnimplementedLinkMovementMethodServiceServer()
 }
 
@@ -6336,19 +6716,19 @@ type UnimplementedLinkMovementMethodServiceServer struct{}
 func (UnimplementedLinkMovementMethodServiceServer) NewLinkMovementMethod(context.Context, *NewLinkMovementMethodRequest) (*NewLinkMovementMethodResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method NewLinkMovementMethod not implemented")
 }
-func (UnimplementedLinkMovementMethodServiceServer) CanSelectArbitrarily(context.Context, *LinkMovementMethodCanSelectArbitrarilyRequest) (*CanSelectArbitrarilyResponse, error) {
+func (UnimplementedLinkMovementMethodServiceServer) CanSelectArbitrarily(context.Context, *CanSelectArbitrarilyRequest) (*CanSelectArbitrarilyResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method CanSelectArbitrarily not implemented")
 }
-func (UnimplementedLinkMovementMethodServiceServer) Initialize(context.Context, *LinkMovementMethodInitializeRequest) (*InitializeResponse, error) {
+func (UnimplementedLinkMovementMethodServiceServer) Initialize(context.Context, *InitializeRequest) (*InitializeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Initialize not implemented")
 }
-func (UnimplementedLinkMovementMethodServiceServer) OnTakeFocus(context.Context, *LinkMovementMethodOnTakeFocusRequest) (*OnTakeFocusResponse, error) {
+func (UnimplementedLinkMovementMethodServiceServer) OnTakeFocus(context.Context, *OnTakeFocusRequest) (*OnTakeFocusResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method OnTakeFocus not implemented")
 }
-func (UnimplementedLinkMovementMethodServiceServer) OnTouchEvent(context.Context, *LinkMovementMethodOnTouchEventRequest) (*OnTouchEventResponse, error) {
+func (UnimplementedLinkMovementMethodServiceServer) OnTouchEvent(context.Context, *OnTouchEventRequest) (*OnTouchEventResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method OnTouchEvent not implemented")
 }
-func (UnimplementedLinkMovementMethodServiceServer) GetInstance(context.Context, *GetInstanceRequest) (*GetInstanceResponse, error) {
+func (UnimplementedLinkMovementMethodServiceServer) GetInstance(context.Context, *LinkMovementMethodGetInstanceRequest) (*GetInstanceResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetInstance not implemented")
 }
 func (UnimplementedLinkMovementMethodServiceServer) mustEmbedUnimplementedLinkMovementMethodServiceServer() {
@@ -6392,7 +6772,7 @@ func _LinkMovementMethodService_NewLinkMovementMethod_Handler(srv interface{}, c
 }
 
 func _LinkMovementMethodService_CanSelectArbitrarily_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LinkMovementMethodCanSelectArbitrarilyRequest)
+	in := new(CanSelectArbitrarilyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -6404,13 +6784,13 @@ func _LinkMovementMethodService_CanSelectArbitrarily_Handler(srv interface{}, ct
 		FullMethod: LinkMovementMethodService_CanSelectArbitrarily_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LinkMovementMethodServiceServer).CanSelectArbitrarily(ctx, req.(*LinkMovementMethodCanSelectArbitrarilyRequest))
+		return srv.(LinkMovementMethodServiceServer).CanSelectArbitrarily(ctx, req.(*CanSelectArbitrarilyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _LinkMovementMethodService_Initialize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LinkMovementMethodInitializeRequest)
+	in := new(InitializeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -6422,13 +6802,13 @@ func _LinkMovementMethodService_Initialize_Handler(srv interface{}, ctx context.
 		FullMethod: LinkMovementMethodService_Initialize_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LinkMovementMethodServiceServer).Initialize(ctx, req.(*LinkMovementMethodInitializeRequest))
+		return srv.(LinkMovementMethodServiceServer).Initialize(ctx, req.(*InitializeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _LinkMovementMethodService_OnTakeFocus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LinkMovementMethodOnTakeFocusRequest)
+	in := new(OnTakeFocusRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -6440,13 +6820,13 @@ func _LinkMovementMethodService_OnTakeFocus_Handler(srv interface{}, ctx context
 		FullMethod: LinkMovementMethodService_OnTakeFocus_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LinkMovementMethodServiceServer).OnTakeFocus(ctx, req.(*LinkMovementMethodOnTakeFocusRequest))
+		return srv.(LinkMovementMethodServiceServer).OnTakeFocus(ctx, req.(*OnTakeFocusRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _LinkMovementMethodService_OnTouchEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LinkMovementMethodOnTouchEventRequest)
+	in := new(OnTouchEventRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -6458,13 +6838,13 @@ func _LinkMovementMethodService_OnTouchEvent_Handler(srv interface{}, ctx contex
 		FullMethod: LinkMovementMethodService_OnTouchEvent_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LinkMovementMethodServiceServer).OnTouchEvent(ctx, req.(*LinkMovementMethodOnTouchEventRequest))
+		return srv.(LinkMovementMethodServiceServer).OnTouchEvent(ctx, req.(*OnTouchEventRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _LinkMovementMethodService_GetInstance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInstanceRequest)
+	in := new(LinkMovementMethodGetInstanceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -6476,7 +6856,7 @@ func _LinkMovementMethodService_GetInstance_Handler(srv interface{}, ctx context
 		FullMethod: LinkMovementMethodService_GetInstance_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LinkMovementMethodServiceServer).GetInstance(ctx, req.(*GetInstanceRequest))
+		return srv.(LinkMovementMethodServiceServer).GetInstance(ctx, req.(*LinkMovementMethodGetInstanceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -6518,520 +6898,140 @@ var LinkMovementMethodService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	BaseMovementMethodService_NewBaseMovementMethod_FullMethodName = "/method.BaseMovementMethodService/NewBaseMovementMethod"
-	BaseMovementMethodService_CanSelectArbitrarily_FullMethodName  = "/method.BaseMovementMethodService/CanSelectArbitrarily"
-	BaseMovementMethodService_Initialize_FullMethodName            = "/method.BaseMovementMethodService/Initialize"
-	BaseMovementMethodService_NextParagraph_FullMethodName         = "/method.BaseMovementMethodService/NextParagraph"
-	BaseMovementMethodService_OnGenericMotionEvent_FullMethodName  = "/method.BaseMovementMethodService/OnGenericMotionEvent"
-	BaseMovementMethodService_OnKeyDown_FullMethodName             = "/method.BaseMovementMethodService/OnKeyDown"
-	BaseMovementMethodService_OnKeyOther_FullMethodName            = "/method.BaseMovementMethodService/OnKeyOther"
-	BaseMovementMethodService_OnKeyUp_FullMethodName               = "/method.BaseMovementMethodService/OnKeyUp"
-	BaseMovementMethodService_OnTakeFocus_FullMethodName           = "/method.BaseMovementMethodService/OnTakeFocus"
-	BaseMovementMethodService_OnTouchEvent_FullMethodName          = "/method.BaseMovementMethodService/OnTouchEvent"
-	BaseMovementMethodService_OnTrackballEvent_FullMethodName      = "/method.BaseMovementMethodService/OnTrackballEvent"
-	BaseMovementMethodService_PreviousParagraph_FullMethodName     = "/method.BaseMovementMethodService/PreviousParagraph"
+	HideReturnsTransformationMethodService_NewHideReturnsTransformationMethod_FullMethodName = "/method.HideReturnsTransformationMethodService/NewHideReturnsTransformationMethod"
+	HideReturnsTransformationMethodService_GetInstance_FullMethodName                        = "/method.HideReturnsTransformationMethodService/GetInstance"
 )
 
-// BaseMovementMethodServiceClient is the client API for BaseMovementMethodService service.
+// HideReturnsTransformationMethodServiceClient is the client API for HideReturnsTransformationMethodService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type BaseMovementMethodServiceClient interface {
-	NewBaseMovementMethod(ctx context.Context, in *NewBaseMovementMethodRequest, opts ...grpc.CallOption) (*NewBaseMovementMethodResponse, error)
-	CanSelectArbitrarily(ctx context.Context, in *BaseMovementMethodCanSelectArbitrarilyRequest, opts ...grpc.CallOption) (*CanSelectArbitrarilyResponse, error)
-	Initialize(ctx context.Context, in *BaseMovementMethodInitializeRequest, opts ...grpc.CallOption) (*InitializeResponse, error)
-	NextParagraph(ctx context.Context, in *NextParagraphRequest, opts ...grpc.CallOption) (*NextParagraphResponse, error)
-	OnGenericMotionEvent(ctx context.Context, in *BaseMovementMethodOnGenericMotionEventRequest, opts ...grpc.CallOption) (*OnGenericMotionEventResponse, error)
-	OnKeyDown(ctx context.Context, in *BaseMovementMethodOnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error)
-	OnKeyOther(ctx context.Context, in *BaseMovementMethodOnKeyOtherRequest, opts ...grpc.CallOption) (*OnKeyOtherResponse, error)
-	OnKeyUp(ctx context.Context, in *BaseMovementMethodOnKeyUpRequest, opts ...grpc.CallOption) (*OnKeyUpResponse, error)
-	OnTakeFocus(ctx context.Context, in *BaseMovementMethodOnTakeFocusRequest, opts ...grpc.CallOption) (*OnTakeFocusResponse, error)
-	OnTouchEvent(ctx context.Context, in *BaseMovementMethodOnTouchEventRequest, opts ...grpc.CallOption) (*OnTouchEventResponse, error)
-	OnTrackballEvent(ctx context.Context, in *BaseMovementMethodOnTrackballEventRequest, opts ...grpc.CallOption) (*OnTrackballEventResponse, error)
-	PreviousParagraph(ctx context.Context, in *PreviousParagraphRequest, opts ...grpc.CallOption) (*PreviousParagraphResponse, error)
+type HideReturnsTransformationMethodServiceClient interface {
+	NewHideReturnsTransformationMethod(ctx context.Context, in *NewHideReturnsTransformationMethodRequest, opts ...grpc.CallOption) (*NewHideReturnsTransformationMethodResponse, error)
+	GetInstance(ctx context.Context, in *HideReturnsTransformationMethodGetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error)
 }
 
-type baseMovementMethodServiceClient struct {
+type hideReturnsTransformationMethodServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewBaseMovementMethodServiceClient(cc grpc.ClientConnInterface) BaseMovementMethodServiceClient {
-	return &baseMovementMethodServiceClient{cc}
+func NewHideReturnsTransformationMethodServiceClient(cc grpc.ClientConnInterface) HideReturnsTransformationMethodServiceClient {
+	return &hideReturnsTransformationMethodServiceClient{cc}
 }
 
-func (c *baseMovementMethodServiceClient) NewBaseMovementMethod(ctx context.Context, in *NewBaseMovementMethodRequest, opts ...grpc.CallOption) (*NewBaseMovementMethodResponse, error) {
+func (c *hideReturnsTransformationMethodServiceClient) NewHideReturnsTransformationMethod(ctx context.Context, in *NewHideReturnsTransformationMethodRequest, opts ...grpc.CallOption) (*NewHideReturnsTransformationMethodResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewBaseMovementMethodResponse)
-	err := c.cc.Invoke(ctx, BaseMovementMethodService_NewBaseMovementMethod_FullMethodName, in, out, cOpts...)
+	out := new(NewHideReturnsTransformationMethodResponse)
+	err := c.cc.Invoke(ctx, HideReturnsTransformationMethodService_NewHideReturnsTransformationMethod_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *baseMovementMethodServiceClient) CanSelectArbitrarily(ctx context.Context, in *BaseMovementMethodCanSelectArbitrarilyRequest, opts ...grpc.CallOption) (*CanSelectArbitrarilyResponse, error) {
+func (c *hideReturnsTransformationMethodServiceClient) GetInstance(ctx context.Context, in *HideReturnsTransformationMethodGetInstanceRequest, opts ...grpc.CallOption) (*GetInstanceResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CanSelectArbitrarilyResponse)
-	err := c.cc.Invoke(ctx, BaseMovementMethodService_CanSelectArbitrarily_FullMethodName, in, out, cOpts...)
+	out := new(GetInstanceResponse)
+	err := c.cc.Invoke(ctx, HideReturnsTransformationMethodService_GetInstance_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *baseMovementMethodServiceClient) Initialize(ctx context.Context, in *BaseMovementMethodInitializeRequest, opts ...grpc.CallOption) (*InitializeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(InitializeResponse)
-	err := c.cc.Invoke(ctx, BaseMovementMethodService_Initialize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *baseMovementMethodServiceClient) NextParagraph(ctx context.Context, in *NextParagraphRequest, opts ...grpc.CallOption) (*NextParagraphResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NextParagraphResponse)
-	err := c.cc.Invoke(ctx, BaseMovementMethodService_NextParagraph_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *baseMovementMethodServiceClient) OnGenericMotionEvent(ctx context.Context, in *BaseMovementMethodOnGenericMotionEventRequest, opts ...grpc.CallOption) (*OnGenericMotionEventResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnGenericMotionEventResponse)
-	err := c.cc.Invoke(ctx, BaseMovementMethodService_OnGenericMotionEvent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *baseMovementMethodServiceClient) OnKeyDown(ctx context.Context, in *BaseMovementMethodOnKeyDownRequest, opts ...grpc.CallOption) (*OnKeyDownResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnKeyDownResponse)
-	err := c.cc.Invoke(ctx, BaseMovementMethodService_OnKeyDown_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *baseMovementMethodServiceClient) OnKeyOther(ctx context.Context, in *BaseMovementMethodOnKeyOtherRequest, opts ...grpc.CallOption) (*OnKeyOtherResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnKeyOtherResponse)
-	err := c.cc.Invoke(ctx, BaseMovementMethodService_OnKeyOther_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *baseMovementMethodServiceClient) OnKeyUp(ctx context.Context, in *BaseMovementMethodOnKeyUpRequest, opts ...grpc.CallOption) (*OnKeyUpResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnKeyUpResponse)
-	err := c.cc.Invoke(ctx, BaseMovementMethodService_OnKeyUp_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *baseMovementMethodServiceClient) OnTakeFocus(ctx context.Context, in *BaseMovementMethodOnTakeFocusRequest, opts ...grpc.CallOption) (*OnTakeFocusResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnTakeFocusResponse)
-	err := c.cc.Invoke(ctx, BaseMovementMethodService_OnTakeFocus_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *baseMovementMethodServiceClient) OnTouchEvent(ctx context.Context, in *BaseMovementMethodOnTouchEventRequest, opts ...grpc.CallOption) (*OnTouchEventResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnTouchEventResponse)
-	err := c.cc.Invoke(ctx, BaseMovementMethodService_OnTouchEvent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *baseMovementMethodServiceClient) OnTrackballEvent(ctx context.Context, in *BaseMovementMethodOnTrackballEventRequest, opts ...grpc.CallOption) (*OnTrackballEventResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnTrackballEventResponse)
-	err := c.cc.Invoke(ctx, BaseMovementMethodService_OnTrackballEvent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *baseMovementMethodServiceClient) PreviousParagraph(ctx context.Context, in *PreviousParagraphRequest, opts ...grpc.CallOption) (*PreviousParagraphResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(PreviousParagraphResponse)
-	err := c.cc.Invoke(ctx, BaseMovementMethodService_PreviousParagraph_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// BaseMovementMethodServiceServer is the server API for BaseMovementMethodService service.
-// All implementations must embed UnimplementedBaseMovementMethodServiceServer
+// HideReturnsTransformationMethodServiceServer is the server API for HideReturnsTransformationMethodService service.
+// All implementations must embed UnimplementedHideReturnsTransformationMethodServiceServer
 // for forward compatibility.
-type BaseMovementMethodServiceServer interface {
-	NewBaseMovementMethod(context.Context, *NewBaseMovementMethodRequest) (*NewBaseMovementMethodResponse, error)
-	CanSelectArbitrarily(context.Context, *BaseMovementMethodCanSelectArbitrarilyRequest) (*CanSelectArbitrarilyResponse, error)
-	Initialize(context.Context, *BaseMovementMethodInitializeRequest) (*InitializeResponse, error)
-	NextParagraph(context.Context, *NextParagraphRequest) (*NextParagraphResponse, error)
-	OnGenericMotionEvent(context.Context, *BaseMovementMethodOnGenericMotionEventRequest) (*OnGenericMotionEventResponse, error)
-	OnKeyDown(context.Context, *BaseMovementMethodOnKeyDownRequest) (*OnKeyDownResponse, error)
-	OnKeyOther(context.Context, *BaseMovementMethodOnKeyOtherRequest) (*OnKeyOtherResponse, error)
-	OnKeyUp(context.Context, *BaseMovementMethodOnKeyUpRequest) (*OnKeyUpResponse, error)
-	OnTakeFocus(context.Context, *BaseMovementMethodOnTakeFocusRequest) (*OnTakeFocusResponse, error)
-	OnTouchEvent(context.Context, *BaseMovementMethodOnTouchEventRequest) (*OnTouchEventResponse, error)
-	OnTrackballEvent(context.Context, *BaseMovementMethodOnTrackballEventRequest) (*OnTrackballEventResponse, error)
-	PreviousParagraph(context.Context, *PreviousParagraphRequest) (*PreviousParagraphResponse, error)
-	mustEmbedUnimplementedBaseMovementMethodServiceServer()
+type HideReturnsTransformationMethodServiceServer interface {
+	NewHideReturnsTransformationMethod(context.Context, *NewHideReturnsTransformationMethodRequest) (*NewHideReturnsTransformationMethodResponse, error)
+	GetInstance(context.Context, *HideReturnsTransformationMethodGetInstanceRequest) (*GetInstanceResponse, error)
+	mustEmbedUnimplementedHideReturnsTransformationMethodServiceServer()
 }
 
-// UnimplementedBaseMovementMethodServiceServer must be embedded to have
+// UnimplementedHideReturnsTransformationMethodServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedBaseMovementMethodServiceServer struct{}
+type UnimplementedHideReturnsTransformationMethodServiceServer struct{}
 
-func (UnimplementedBaseMovementMethodServiceServer) NewBaseMovementMethod(context.Context, *NewBaseMovementMethodRequest) (*NewBaseMovementMethodResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewBaseMovementMethod not implemented")
+func (UnimplementedHideReturnsTransformationMethodServiceServer) NewHideReturnsTransformationMethod(context.Context, *NewHideReturnsTransformationMethodRequest) (*NewHideReturnsTransformationMethodResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewHideReturnsTransformationMethod not implemented")
 }
-func (UnimplementedBaseMovementMethodServiceServer) CanSelectArbitrarily(context.Context, *BaseMovementMethodCanSelectArbitrarilyRequest) (*CanSelectArbitrarilyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CanSelectArbitrarily not implemented")
+func (UnimplementedHideReturnsTransformationMethodServiceServer) GetInstance(context.Context, *HideReturnsTransformationMethodGetInstanceRequest) (*GetInstanceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInstance not implemented")
 }
-func (UnimplementedBaseMovementMethodServiceServer) Initialize(context.Context, *BaseMovementMethodInitializeRequest) (*InitializeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Initialize not implemented")
+func (UnimplementedHideReturnsTransformationMethodServiceServer) mustEmbedUnimplementedHideReturnsTransformationMethodServiceServer() {
 }
-func (UnimplementedBaseMovementMethodServiceServer) NextParagraph(context.Context, *NextParagraphRequest) (*NextParagraphResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NextParagraph not implemented")
-}
-func (UnimplementedBaseMovementMethodServiceServer) OnGenericMotionEvent(context.Context, *BaseMovementMethodOnGenericMotionEventRequest) (*OnGenericMotionEventResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnGenericMotionEvent not implemented")
-}
-func (UnimplementedBaseMovementMethodServiceServer) OnKeyDown(context.Context, *BaseMovementMethodOnKeyDownRequest) (*OnKeyDownResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnKeyDown not implemented")
-}
-func (UnimplementedBaseMovementMethodServiceServer) OnKeyOther(context.Context, *BaseMovementMethodOnKeyOtherRequest) (*OnKeyOtherResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnKeyOther not implemented")
-}
-func (UnimplementedBaseMovementMethodServiceServer) OnKeyUp(context.Context, *BaseMovementMethodOnKeyUpRequest) (*OnKeyUpResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnKeyUp not implemented")
-}
-func (UnimplementedBaseMovementMethodServiceServer) OnTakeFocus(context.Context, *BaseMovementMethodOnTakeFocusRequest) (*OnTakeFocusResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnTakeFocus not implemented")
-}
-func (UnimplementedBaseMovementMethodServiceServer) OnTouchEvent(context.Context, *BaseMovementMethodOnTouchEventRequest) (*OnTouchEventResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnTouchEvent not implemented")
-}
-func (UnimplementedBaseMovementMethodServiceServer) OnTrackballEvent(context.Context, *BaseMovementMethodOnTrackballEventRequest) (*OnTrackballEventResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnTrackballEvent not implemented")
-}
-func (UnimplementedBaseMovementMethodServiceServer) PreviousParagraph(context.Context, *PreviousParagraphRequest) (*PreviousParagraphResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method PreviousParagraph not implemented")
-}
-func (UnimplementedBaseMovementMethodServiceServer) mustEmbedUnimplementedBaseMovementMethodServiceServer() {
-}
-func (UnimplementedBaseMovementMethodServiceServer) testEmbeddedByValue() {}
+func (UnimplementedHideReturnsTransformationMethodServiceServer) testEmbeddedByValue() {}
 
-// UnsafeBaseMovementMethodServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to BaseMovementMethodServiceServer will
+// UnsafeHideReturnsTransformationMethodServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to HideReturnsTransformationMethodServiceServer will
 // result in compilation errors.
-type UnsafeBaseMovementMethodServiceServer interface {
-	mustEmbedUnimplementedBaseMovementMethodServiceServer()
+type UnsafeHideReturnsTransformationMethodServiceServer interface {
+	mustEmbedUnimplementedHideReturnsTransformationMethodServiceServer()
 }
 
-func RegisterBaseMovementMethodServiceServer(s grpc.ServiceRegistrar, srv BaseMovementMethodServiceServer) {
-	// If the following call panics, it indicates UnimplementedBaseMovementMethodServiceServer was
+func RegisterHideReturnsTransformationMethodServiceServer(s grpc.ServiceRegistrar, srv HideReturnsTransformationMethodServiceServer) {
+	// If the following call panics, it indicates UnimplementedHideReturnsTransformationMethodServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&BaseMovementMethodService_ServiceDesc, srv)
+	s.RegisterService(&HideReturnsTransformationMethodService_ServiceDesc, srv)
 }
 
-func _BaseMovementMethodService_NewBaseMovementMethod_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewBaseMovementMethodRequest)
+func _HideReturnsTransformationMethodService_NewHideReturnsTransformationMethod_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewHideReturnsTransformationMethodRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BaseMovementMethodServiceServer).NewBaseMovementMethod(ctx, in)
+		return srv.(HideReturnsTransformationMethodServiceServer).NewHideReturnsTransformationMethod(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BaseMovementMethodService_NewBaseMovementMethod_FullMethodName,
+		FullMethod: HideReturnsTransformationMethodService_NewHideReturnsTransformationMethod_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BaseMovementMethodServiceServer).NewBaseMovementMethod(ctx, req.(*NewBaseMovementMethodRequest))
+		return srv.(HideReturnsTransformationMethodServiceServer).NewHideReturnsTransformationMethod(ctx, req.(*NewHideReturnsTransformationMethodRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BaseMovementMethodService_CanSelectArbitrarily_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BaseMovementMethodCanSelectArbitrarilyRequest)
+func _HideReturnsTransformationMethodService_GetInstance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HideReturnsTransformationMethodGetInstanceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BaseMovementMethodServiceServer).CanSelectArbitrarily(ctx, in)
+		return srv.(HideReturnsTransformationMethodServiceServer).GetInstance(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BaseMovementMethodService_CanSelectArbitrarily_FullMethodName,
+		FullMethod: HideReturnsTransformationMethodService_GetInstance_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BaseMovementMethodServiceServer).CanSelectArbitrarily(ctx, req.(*BaseMovementMethodCanSelectArbitrarilyRequest))
+		return srv.(HideReturnsTransformationMethodServiceServer).GetInstance(ctx, req.(*HideReturnsTransformationMethodGetInstanceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BaseMovementMethodService_Initialize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BaseMovementMethodInitializeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BaseMovementMethodServiceServer).Initialize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BaseMovementMethodService_Initialize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BaseMovementMethodServiceServer).Initialize(ctx, req.(*BaseMovementMethodInitializeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BaseMovementMethodService_NextParagraph_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NextParagraphRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BaseMovementMethodServiceServer).NextParagraph(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BaseMovementMethodService_NextParagraph_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BaseMovementMethodServiceServer).NextParagraph(ctx, req.(*NextParagraphRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BaseMovementMethodService_OnGenericMotionEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BaseMovementMethodOnGenericMotionEventRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BaseMovementMethodServiceServer).OnGenericMotionEvent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BaseMovementMethodService_OnGenericMotionEvent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BaseMovementMethodServiceServer).OnGenericMotionEvent(ctx, req.(*BaseMovementMethodOnGenericMotionEventRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BaseMovementMethodService_OnKeyDown_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BaseMovementMethodOnKeyDownRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BaseMovementMethodServiceServer).OnKeyDown(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BaseMovementMethodService_OnKeyDown_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BaseMovementMethodServiceServer).OnKeyDown(ctx, req.(*BaseMovementMethodOnKeyDownRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BaseMovementMethodService_OnKeyOther_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BaseMovementMethodOnKeyOtherRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BaseMovementMethodServiceServer).OnKeyOther(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BaseMovementMethodService_OnKeyOther_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BaseMovementMethodServiceServer).OnKeyOther(ctx, req.(*BaseMovementMethodOnKeyOtherRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BaseMovementMethodService_OnKeyUp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BaseMovementMethodOnKeyUpRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BaseMovementMethodServiceServer).OnKeyUp(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BaseMovementMethodService_OnKeyUp_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BaseMovementMethodServiceServer).OnKeyUp(ctx, req.(*BaseMovementMethodOnKeyUpRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BaseMovementMethodService_OnTakeFocus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BaseMovementMethodOnTakeFocusRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BaseMovementMethodServiceServer).OnTakeFocus(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BaseMovementMethodService_OnTakeFocus_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BaseMovementMethodServiceServer).OnTakeFocus(ctx, req.(*BaseMovementMethodOnTakeFocusRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BaseMovementMethodService_OnTouchEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BaseMovementMethodOnTouchEventRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BaseMovementMethodServiceServer).OnTouchEvent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BaseMovementMethodService_OnTouchEvent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BaseMovementMethodServiceServer).OnTouchEvent(ctx, req.(*BaseMovementMethodOnTouchEventRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BaseMovementMethodService_OnTrackballEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BaseMovementMethodOnTrackballEventRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BaseMovementMethodServiceServer).OnTrackballEvent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BaseMovementMethodService_OnTrackballEvent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BaseMovementMethodServiceServer).OnTrackballEvent(ctx, req.(*BaseMovementMethodOnTrackballEventRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BaseMovementMethodService_PreviousParagraph_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PreviousParagraphRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BaseMovementMethodServiceServer).PreviousParagraph(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BaseMovementMethodService_PreviousParagraph_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BaseMovementMethodServiceServer).PreviousParagraph(ctx, req.(*PreviousParagraphRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// BaseMovementMethodService_ServiceDesc is the grpc.ServiceDesc for BaseMovementMethodService service.
+// HideReturnsTransformationMethodService_ServiceDesc is the grpc.ServiceDesc for HideReturnsTransformationMethodService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var BaseMovementMethodService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "method.BaseMovementMethodService",
-	HandlerType: (*BaseMovementMethodServiceServer)(nil),
+var HideReturnsTransformationMethodService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "method.HideReturnsTransformationMethodService",
+	HandlerType: (*HideReturnsTransformationMethodServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewBaseMovementMethod",
-			Handler:    _BaseMovementMethodService_NewBaseMovementMethod_Handler,
+			MethodName: "NewHideReturnsTransformationMethod",
+			Handler:    _HideReturnsTransformationMethodService_NewHideReturnsTransformationMethod_Handler,
 		},
 		{
-			MethodName: "CanSelectArbitrarily",
-			Handler:    _BaseMovementMethodService_CanSelectArbitrarily_Handler,
-		},
-		{
-			MethodName: "Initialize",
-			Handler:    _BaseMovementMethodService_Initialize_Handler,
-		},
-		{
-			MethodName: "NextParagraph",
-			Handler:    _BaseMovementMethodService_NextParagraph_Handler,
-		},
-		{
-			MethodName: "OnGenericMotionEvent",
-			Handler:    _BaseMovementMethodService_OnGenericMotionEvent_Handler,
-		},
-		{
-			MethodName: "OnKeyDown",
-			Handler:    _BaseMovementMethodService_OnKeyDown_Handler,
-		},
-		{
-			MethodName: "OnKeyOther",
-			Handler:    _BaseMovementMethodService_OnKeyOther_Handler,
-		},
-		{
-			MethodName: "OnKeyUp",
-			Handler:    _BaseMovementMethodService_OnKeyUp_Handler,
-		},
-		{
-			MethodName: "OnTakeFocus",
-			Handler:    _BaseMovementMethodService_OnTakeFocus_Handler,
-		},
-		{
-			MethodName: "OnTouchEvent",
-			Handler:    _BaseMovementMethodService_OnTouchEvent_Handler,
-		},
-		{
-			MethodName: "OnTrackballEvent",
-			Handler:    _BaseMovementMethodService_OnTrackballEvent_Handler,
-		},
-		{
-			MethodName: "PreviousParagraph",
-			Handler:    _BaseMovementMethodService_PreviousParagraph_Handler,
+			MethodName: "GetInstance",
+			Handler:    _HideReturnsTransformationMethodService_GetInstance_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

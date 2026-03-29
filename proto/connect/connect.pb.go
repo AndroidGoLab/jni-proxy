@@ -23,26 +23,26 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type DescribeContentsRequest struct {
+type GetNextPageTokenRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *DescribeContentsRequest) Reset() {
-	*x = DescribeContentsRequest{}
+func (x *GetNextPageTokenRequest) Reset() {
+	*x = GetNextPageTokenRequest{}
 	mi := &file_proto_connect_connect_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *DescribeContentsRequest) String() string {
+func (x *GetNextPageTokenRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*DescribeContentsRequest) ProtoMessage() {}
+func (*GetNextPageTokenRequest) ProtoMessage() {}
 
-func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
+func (x *GetNextPageTokenRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_connect_connect_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -54,32 +54,32 @@ func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
-func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetNextPageTokenRequest.ProtoReflect.Descriptor instead.
+func (*GetNextPageTokenRequest) Descriptor() ([]byte, []int) {
 	return file_proto_connect_connect_proto_rawDescGZIP(), []int{0}
 }
 
-type DescribeContentsResponse struct {
+type GetNextPageTokenResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *DescribeContentsResponse) Reset() {
-	*x = DescribeContentsResponse{}
+func (x *GetNextPageTokenResponse) Reset() {
+	*x = GetNextPageTokenResponse{}
 	mi := &file_proto_connect_connect_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *DescribeContentsResponse) String() string {
+func (x *GetNextPageTokenResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*DescribeContentsResponse) ProtoMessage() {}
+func (*GetNextPageTokenResponse) ProtoMessage() {}
 
-func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
+func (x *GetNextPageTokenResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_connect_connect_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -91,12 +91,92 @@ func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
-func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use GetNextPageTokenResponse.ProtoReflect.Descriptor instead.
+func (*GetNextPageTokenResponse) Descriptor() ([]byte, []int) {
 	return file_proto_connect_connect_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *DescribeContentsResponse) GetResult() int32 {
+func (x *GetNextPageTokenResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRecordsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRecordsRequest) Reset() {
+	*x = GetRecordsRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRecordsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRecordsRequest) ProtoMessage() {}
+
+func (x *GetRecordsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRecordsRequest.ProtoReflect.Descriptor instead.
+func (*GetRecordsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{2}
+}
+
+type GetRecordsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRecordsResponse) Reset() {
+	*x = GetRecordsResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRecordsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRecordsResponse) ProtoMessage() {}
+
+func (x *GetRecordsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRecordsResponse.ProtoReflect.Descriptor instead.
+func (*GetRecordsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetRecordsResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -112,7 +192,7 @@ type EqualsRequest struct {
 
 func (x *EqualsRequest) Reset() {
 	*x = EqualsRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[2]
+	mi := &file_proto_connect_connect_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -124,7 +204,7 @@ func (x *EqualsRequest) String() string {
 func (*EqualsRequest) ProtoMessage() {}
 
 func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[2]
+	mi := &file_proto_connect_connect_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -137,7 +217,7 @@ func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
 func (*EqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{2}
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *EqualsRequest) GetArg0() int64 {
@@ -156,7 +236,7 @@ type EqualsResponse struct {
 
 func (x *EqualsResponse) Reset() {
 	*x = EqualsResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[3]
+	mi := &file_proto_connect_connect_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -168,7 +248,7 @@ func (x *EqualsResponse) String() string {
 func (*EqualsResponse) ProtoMessage() {}
 
 func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[3]
+	mi := &file_proto_connect_connect_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -181,7 +261,7 @@ func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
 func (*EqualsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{3}
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *EqualsResponse) GetResult() bool {
@@ -189,6 +269,166 @@ func (x *EqualsResponse) GetResult() bool {
 		return x.Result
 	}
 	return false
+}
+
+type GetEndTimeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEndTimeRequest) Reset() {
+	*x = GetEndTimeRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEndTimeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEndTimeRequest) ProtoMessage() {}
+
+func (x *GetEndTimeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEndTimeRequest.ProtoReflect.Descriptor instead.
+func (*GetEndTimeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{6}
+}
+
+type GetEndTimeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetEndTimeResponse) Reset() {
+	*x = GetEndTimeResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetEndTimeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEndTimeResponse) ProtoMessage() {}
+
+func (x *GetEndTimeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEndTimeResponse.ProtoReflect.Descriptor instead.
+func (*GetEndTimeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetEndTimeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetStartTimeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStartTimeRequest) Reset() {
+	*x = GetStartTimeRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStartTimeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStartTimeRequest) ProtoMessage() {}
+
+func (x *GetStartTimeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStartTimeRequest.ProtoReflect.Descriptor instead.
+func (*GetStartTimeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{8}
+}
+
+type GetStartTimeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStartTimeResponse) Reset() {
+	*x = GetStartTimeResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStartTimeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStartTimeResponse) ProtoMessage() {}
+
+func (x *GetStartTimeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStartTimeResponse.ProtoReflect.Descriptor instead.
+func (*GetStartTimeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetStartTimeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
 }
 
 type HashCodeRequest struct {
@@ -199,7 +439,7 @@ type HashCodeRequest struct {
 
 func (x *HashCodeRequest) Reset() {
 	*x = HashCodeRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[4]
+	mi := &file_proto_connect_connect_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -211,7 +451,7 @@ func (x *HashCodeRequest) String() string {
 func (*HashCodeRequest) ProtoMessage() {}
 
 func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[4]
+	mi := &file_proto_connect_connect_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -224,7 +464,7 @@ func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
 func (*HashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{4}
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{10}
 }
 
 type HashCodeResponse struct {
@@ -236,7 +476,7 @@ type HashCodeResponse struct {
 
 func (x *HashCodeResponse) Reset() {
 	*x = HashCodeResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[5]
+	mi := &file_proto_connect_connect_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -248,7 +488,7 @@ func (x *HashCodeResponse) String() string {
 func (*HashCodeResponse) ProtoMessage() {}
 
 func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[5]
+	mi := &file_proto_connect_connect_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -261,7 +501,7 @@ func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
 func (*HashCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{5}
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *HashCodeResponse) GetResult() int32 {
@@ -271,283 +511,26 @@ func (x *HashCodeResponse) GetResult() int32 {
 	return 0
 }
 
-type ToStringRequest struct {
+type IsBoundedRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ToStringRequest) Reset() {
-	*x = ToStringRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ToStringRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ToStringRequest) ProtoMessage() {}
-
-func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[6]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
-func (*ToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{6}
-}
-
-type ToStringResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ToStringResponse) Reset() {
-	*x = ToStringResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[7]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ToStringResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ToStringResponse) ProtoMessage() {}
-
-func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[7]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
-func (*ToStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{7}
-}
-
-func (x *ToStringResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type WriteToParcelRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *WriteToParcelRequest) Reset() {
-	*x = WriteToParcelRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[8]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WriteToParcelRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WriteToParcelRequest) ProtoMessage() {}
-
-func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[8]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
-func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{8}
-}
-
-func (x *WriteToParcelRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *WriteToParcelRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type WriteToParcelResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *WriteToParcelResponse) Reset() {
-	*x = WriteToParcelResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[9]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WriteToParcelResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WriteToParcelResponse) ProtoMessage() {}
-
-func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[9]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
-func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{9}
-}
-
-type AddDataSourceIdRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddDataSourceIdRequest) Reset() {
-	*x = AddDataSourceIdRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[10]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddDataSourceIdRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddDataSourceIdRequest) ProtoMessage() {}
-
-func (x *AddDataSourceIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[10]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddDataSourceIdRequest.ProtoReflect.Descriptor instead.
-func (*AddDataSourceIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{10}
-}
-
-func (x *AddDataSourceIdRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type AddDataSourceIdResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddDataSourceIdResponse) Reset() {
-	*x = AddDataSourceIdResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[11]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddDataSourceIdResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddDataSourceIdResponse) ProtoMessage() {}
-
-func (x *AddDataSourceIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[11]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddDataSourceIdResponse.ProtoReflect.Descriptor instead.
-func (*AddDataSourceIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{11}
-}
-
-func (x *AddDataSourceIdResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type AddMedicalResourceTypeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddMedicalResourceTypeRequest) Reset() {
-	*x = AddMedicalResourceTypeRequest{}
+func (x *IsBoundedRequest) Reset() {
+	*x = IsBoundedRequest{}
 	mi := &file_proto_connect_connect_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *AddMedicalResourceTypeRequest) String() string {
+func (x *IsBoundedRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*AddMedicalResourceTypeRequest) ProtoMessage() {}
+func (*IsBoundedRequest) ProtoMessage() {}
 
-func (x *AddMedicalResourceTypeRequest) ProtoReflect() protoreflect.Message {
+func (x *IsBoundedRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_connect_connect_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -559,39 +542,32 @@ func (x *AddMedicalResourceTypeRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use AddMedicalResourceTypeRequest.ProtoReflect.Descriptor instead.
-func (*AddMedicalResourceTypeRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use IsBoundedRequest.ProtoReflect.Descriptor instead.
+func (*IsBoundedRequest) Descriptor() ([]byte, []int) {
 	return file_proto_connect_connect_proto_rawDescGZIP(), []int{12}
 }
 
-func (x *AddMedicalResourceTypeRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type AddMedicalResourceTypeResponse struct {
+type IsBoundedResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *AddMedicalResourceTypeResponse) Reset() {
-	*x = AddMedicalResourceTypeResponse{}
+func (x *IsBoundedResponse) Reset() {
+	*x = IsBoundedResponse{}
 	mi := &file_proto_connect_connect_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *AddMedicalResourceTypeResponse) String() string {
+func (x *IsBoundedResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*AddMedicalResourceTypeResponse) ProtoMessage() {}
+func (*IsBoundedResponse) ProtoMessage() {}
 
-func (x *AddMedicalResourceTypeResponse) ProtoReflect() protoreflect.Message {
+func (x *IsBoundedResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_connect_connect_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -603,16 +579,16 @@ func (x *AddMedicalResourceTypeResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use AddMedicalResourceTypeResponse.ProtoReflect.Descriptor instead.
-func (*AddMedicalResourceTypeResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use IsBoundedResponse.ProtoReflect.Descriptor instead.
+func (*IsBoundedResponse) Descriptor() ([]byte, []int) {
 	return file_proto_connect_connect_proto_rawDescGZIP(), []int{13}
 }
 
-func (x *AddMedicalResourceTypeResponse) GetResult() int64 {
+func (x *IsBoundedResponse) GetResult() bool {
 	if x != nil {
 		return x.Result
 	}
-	return 0
+	return false
 }
 
 type BuildRequest struct {
@@ -695,406 +671,6 @@ func (x *BuildResponse) GetResult() int64 {
 	return 0
 }
 
-type ClearDataSourceIdsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ClearDataSourceIdsRequest) Reset() {
-	*x = ClearDataSourceIdsRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[16]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ClearDataSourceIdsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ClearDataSourceIdsRequest) ProtoMessage() {}
-
-func (x *ClearDataSourceIdsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[16]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ClearDataSourceIdsRequest.ProtoReflect.Descriptor instead.
-func (*ClearDataSourceIdsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{16}
-}
-
-type ClearDataSourceIdsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ClearDataSourceIdsResponse) Reset() {
-	*x = ClearDataSourceIdsResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[17]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ClearDataSourceIdsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ClearDataSourceIdsResponse) ProtoMessage() {}
-
-func (x *ClearDataSourceIdsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[17]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ClearDataSourceIdsResponse.ProtoReflect.Descriptor instead.
-func (*ClearDataSourceIdsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{17}
-}
-
-func (x *ClearDataSourceIdsResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ClearMedicalResourceTypesRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ClearMedicalResourceTypesRequest) Reset() {
-	*x = ClearMedicalResourceTypesRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[18]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ClearMedicalResourceTypesRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ClearMedicalResourceTypesRequest) ProtoMessage() {}
-
-func (x *ClearMedicalResourceTypesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[18]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ClearMedicalResourceTypesRequest.ProtoReflect.Descriptor instead.
-func (*ClearMedicalResourceTypesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{18}
-}
-
-type ClearMedicalResourceTypesResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ClearMedicalResourceTypesResponse) Reset() {
-	*x = ClearMedicalResourceTypesResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[19]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ClearMedicalResourceTypesResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ClearMedicalResourceTypesResponse) ProtoMessage() {}
-
-func (x *ClearMedicalResourceTypesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[19]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ClearMedicalResourceTypesResponse.ProtoReflect.Descriptor instead.
-func (*ClearMedicalResourceTypesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{19}
-}
-
-func (x *ClearMedicalResourceTypesResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetEndTimeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetEndTimeRequest) Reset() {
-	*x = GetEndTimeRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[20]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetEndTimeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetEndTimeRequest) ProtoMessage() {}
-
-func (x *GetEndTimeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[20]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetEndTimeRequest.ProtoReflect.Descriptor instead.
-func (*GetEndTimeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{20}
-}
-
-type GetEndTimeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetEndTimeResponse) Reset() {
-	*x = GetEndTimeResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[21]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetEndTimeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetEndTimeResponse) ProtoMessage() {}
-
-func (x *GetEndTimeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[21]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetEndTimeResponse.ProtoReflect.Descriptor instead.
-func (*GetEndTimeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{21}
-}
-
-func (x *GetEndTimeResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetStartTimeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetStartTimeRequest) Reset() {
-	*x = GetStartTimeRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[22]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetStartTimeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetStartTimeRequest) ProtoMessage() {}
-
-func (x *GetStartTimeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[22]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetStartTimeRequest.ProtoReflect.Descriptor instead.
-func (*GetStartTimeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{22}
-}
-
-type GetStartTimeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetStartTimeResponse) Reset() {
-	*x = GetStartTimeResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[23]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetStartTimeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetStartTimeResponse) ProtoMessage() {}
-
-func (x *GetStartTimeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[23]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetStartTimeResponse.ProtoReflect.Descriptor instead.
-func (*GetStartTimeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{23}
-}
-
-func (x *GetStartTimeResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type IsBoundedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsBoundedRequest) Reset() {
-	*x = IsBoundedRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[24]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsBoundedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsBoundedRequest) ProtoMessage() {}
-
-func (x *IsBoundedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[24]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsBoundedRequest.ProtoReflect.Descriptor instead.
-func (*IsBoundedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{24}
-}
-
-type IsBoundedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsBoundedResponse) Reset() {
-	*x = IsBoundedResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[25]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsBoundedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsBoundedResponse) ProtoMessage() {}
-
-func (x *IsBoundedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[25]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsBoundedResponse.ProtoReflect.Descriptor instead.
-func (*IsBoundedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{25}
-}
-
-func (x *IsBoundedResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
 type SetEndTimeRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -1104,7 +680,7 @@ type SetEndTimeRequest struct {
 
 func (x *SetEndTimeRequest) Reset() {
 	*x = SetEndTimeRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[26]
+	mi := &file_proto_connect_connect_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1116,7 +692,7 @@ func (x *SetEndTimeRequest) String() string {
 func (*SetEndTimeRequest) ProtoMessage() {}
 
 func (x *SetEndTimeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[26]
+	mi := &file_proto_connect_connect_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1129,7 +705,7 @@ func (x *SetEndTimeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetEndTimeRequest.ProtoReflect.Descriptor instead.
 func (*SetEndTimeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{26}
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *SetEndTimeRequest) GetArg0() int64 {
@@ -1148,7 +724,7 @@ type SetEndTimeResponse struct {
 
 func (x *SetEndTimeResponse) Reset() {
 	*x = SetEndTimeResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[27]
+	mi := &file_proto_connect_connect_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1160,7 +736,7 @@ func (x *SetEndTimeResponse) String() string {
 func (*SetEndTimeResponse) ProtoMessage() {}
 
 func (x *SetEndTimeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[27]
+	mi := &file_proto_connect_connect_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1173,7 +749,7 @@ func (x *SetEndTimeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetEndTimeResponse.ProtoReflect.Descriptor instead.
 func (*SetEndTimeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{27}
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *SetEndTimeResponse) GetResult() int64 {
@@ -1192,7 +768,7 @@ type SetStartTimeRequest struct {
 
 func (x *SetStartTimeRequest) Reset() {
 	*x = SetStartTimeRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[28]
+	mi := &file_proto_connect_connect_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1204,7 +780,7 @@ func (x *SetStartTimeRequest) String() string {
 func (*SetStartTimeRequest) ProtoMessage() {}
 
 func (x *SetStartTimeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[28]
+	mi := &file_proto_connect_connect_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1217,7 +793,7 @@ func (x *SetStartTimeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetStartTimeRequest.ProtoReflect.Descriptor instead.
 func (*SetStartTimeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{28}
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *SetStartTimeRequest) GetArg0() int64 {
@@ -1236,7 +812,7 @@ type SetStartTimeResponse struct {
 
 func (x *SetStartTimeResponse) Reset() {
 	*x = SetStartTimeResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[29]
+	mi := &file_proto_connect_connect_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1248,7 +824,7 @@ func (x *SetStartTimeResponse) String() string {
 func (*SetStartTimeResponse) ProtoMessage() {}
 
 func (x *SetStartTimeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[29]
+	mi := &file_proto_connect_connect_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1261,2236 +837,12 @@ func (x *SetStartTimeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetStartTimeResponse.ProtoReflect.Descriptor instead.
 func (*SetStartTimeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{29}
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *SetStartTimeResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
-	}
-	return 0
-}
-
-type GetTimeRangeFilterRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTimeRangeFilterRequest) Reset() {
-	*x = GetTimeRangeFilterRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[30]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTimeRangeFilterRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTimeRangeFilterRequest) ProtoMessage() {}
-
-func (x *GetTimeRangeFilterRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[30]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTimeRangeFilterRequest.ProtoReflect.Descriptor instead.
-func (*GetTimeRangeFilterRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{30}
-}
-
-type GetTimeRangeFilterResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetTimeRangeFilterResponse) Reset() {
-	*x = GetTimeRangeFilterResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[31]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetTimeRangeFilterResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTimeRangeFilterResponse) ProtoMessage() {}
-
-func (x *GetTimeRangeFilterResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[31]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTimeRangeFilterResponse.ProtoReflect.Descriptor instead.
-func (*GetTimeRangeFilterResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{31}
-}
-
-func (x *GetTimeRangeFilterResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetPageSizeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPageSizeRequest) Reset() {
-	*x = GetPageSizeRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[32]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPageSizeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPageSizeRequest) ProtoMessage() {}
-
-func (x *GetPageSizeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[32]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPageSizeRequest.ProtoReflect.Descriptor instead.
-func (*GetPageSizeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{32}
-}
-
-type GetPageSizeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPageSizeResponse) Reset() {
-	*x = GetPageSizeResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[33]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPageSizeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPageSizeResponse) ProtoMessage() {}
-
-func (x *GetPageSizeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[33]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPageSizeResponse.ProtoReflect.Descriptor instead.
-func (*GetPageSizeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{33}
-}
-
-func (x *GetPageSizeResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetPageTokenRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPageTokenRequest) Reset() {
-	*x = GetPageTokenRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[34]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPageTokenRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPageTokenRequest) ProtoMessage() {}
-
-func (x *GetPageTokenRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[34]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPageTokenRequest.ProtoReflect.Descriptor instead.
-func (*GetPageTokenRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{34}
-}
-
-type GetPageTokenResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetPageTokenResponse) Reset() {
-	*x = GetPageTokenResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[35]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetPageTokenResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetPageTokenResponse) ProtoMessage() {}
-
-func (x *GetPageTokenResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[35]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetPageTokenResponse.ProtoReflect.Descriptor instead.
-func (*GetPageTokenResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{35}
-}
-
-func (x *GetPageTokenResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type IsAscendingRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsAscendingRequest) Reset() {
-	*x = IsAscendingRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[36]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsAscendingRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsAscendingRequest) ProtoMessage() {}
-
-func (x *IsAscendingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[36]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsAscendingRequest.ProtoReflect.Descriptor instead.
-func (*IsAscendingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{36}
-}
-
-type IsAscendingResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *IsAscendingResponse) Reset() {
-	*x = IsAscendingResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[37]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *IsAscendingResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*IsAscendingResponse) ProtoMessage() {}
-
-func (x *IsAscendingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[37]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use IsAscendingResponse.ProtoReflect.Descriptor instead.
-func (*IsAscendingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{37}
-}
-
-func (x *IsAscendingResponse) GetResult() bool {
-	if x != nil {
-		return x.Result
-	}
-	return false
-}
-
-type GetNextPageTokenRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetNextPageTokenRequest) Reset() {
-	*x = GetNextPageTokenRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[38]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetNextPageTokenRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetNextPageTokenRequest) ProtoMessage() {}
-
-func (x *GetNextPageTokenRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[38]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetNextPageTokenRequest.ProtoReflect.Descriptor instead.
-func (*GetNextPageTokenRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{38}
-}
-
-type GetNextPageTokenResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetNextPageTokenResponse) Reset() {
-	*x = GetNextPageTokenResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[39]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetNextPageTokenResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetNextPageTokenResponse) ProtoMessage() {}
-
-func (x *GetNextPageTokenResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[39]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetNextPageTokenResponse.ProtoReflect.Descriptor instead.
-func (*GetNextPageTokenResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{39}
-}
-
-func (x *GetNextPageTokenResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetMedicalResourceTypeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMedicalResourceTypeRequest) Reset() {
-	*x = GetMedicalResourceTypeRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[40]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMedicalResourceTypeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMedicalResourceTypeRequest) ProtoMessage() {}
-
-func (x *GetMedicalResourceTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[40]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMedicalResourceTypeRequest.ProtoReflect.Descriptor instead.
-func (*GetMedicalResourceTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{40}
-}
-
-type GetMedicalResourceTypeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetMedicalResourceTypeResponse) Reset() {
-	*x = GetMedicalResourceTypeResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[41]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetMedicalResourceTypeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetMedicalResourceTypeResponse) ProtoMessage() {}
-
-func (x *GetMedicalResourceTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[41]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetMedicalResourceTypeResponse.ProtoReflect.Descriptor instead.
-func (*GetMedicalResourceTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{41}
-}
-
-func (x *GetMedicalResourceTypeResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetMedicalResourceTypeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetMedicalResourceTypeRequest) Reset() {
-	*x = SetMedicalResourceTypeRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[42]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetMedicalResourceTypeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetMedicalResourceTypeRequest) ProtoMessage() {}
-
-func (x *SetMedicalResourceTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[42]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetMedicalResourceTypeRequest.ProtoReflect.Descriptor instead.
-func (*SetMedicalResourceTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{42}
-}
-
-func (x *SetMedicalResourceTypeRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetMedicalResourceTypeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetMedicalResourceTypeResponse) Reset() {
-	*x = SetMedicalResourceTypeResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[43]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetMedicalResourceTypeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetMedicalResourceTypeResponse) ProtoMessage() {}
-
-func (x *SetMedicalResourceTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[43]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetMedicalResourceTypeResponse.ProtoReflect.Descriptor instead.
-func (*SetMedicalResourceTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{43}
-}
-
-func (x *SetMedicalResourceTypeResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetPageSizeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPageSizeRequest) Reset() {
-	*x = SetPageSizeRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[44]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPageSizeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPageSizeRequest) ProtoMessage() {}
-
-func (x *SetPageSizeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[44]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPageSizeRequest.ProtoReflect.Descriptor instead.
-func (*SetPageSizeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{44}
-}
-
-func (x *SetPageSizeRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetPageSizeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPageSizeResponse) Reset() {
-	*x = SetPageSizeResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[45]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPageSizeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPageSizeResponse) ProtoMessage() {}
-
-func (x *SetPageSizeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[45]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPageSizeResponse.ProtoReflect.Descriptor instead.
-func (*SetPageSizeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{45}
-}
-
-func (x *SetPageSizeResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetDisplayNameRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDisplayNameRequest) Reset() {
-	*x = GetDisplayNameRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[46]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDisplayNameRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDisplayNameRequest) ProtoMessage() {}
-
-func (x *GetDisplayNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[46]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDisplayNameRequest.ProtoReflect.Descriptor instead.
-func (*GetDisplayNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{46}
-}
-
-type GetDisplayNameResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDisplayNameResponse) Reset() {
-	*x = GetDisplayNameResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[47]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDisplayNameResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDisplayNameResponse) ProtoMessage() {}
-
-func (x *GetDisplayNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[47]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDisplayNameResponse.ProtoReflect.Descriptor instead.
-func (*GetDisplayNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{47}
-}
-
-func (x *GetDisplayNameResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetFhirBaseUriRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetFhirBaseUriRequest) Reset() {
-	*x = GetFhirBaseUriRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[48]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetFhirBaseUriRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetFhirBaseUriRequest) ProtoMessage() {}
-
-func (x *GetFhirBaseUriRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[48]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetFhirBaseUriRequest.ProtoReflect.Descriptor instead.
-func (*GetFhirBaseUriRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{48}
-}
-
-type GetFhirBaseUriResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetFhirBaseUriResponse) Reset() {
-	*x = GetFhirBaseUriResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[49]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetFhirBaseUriResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetFhirBaseUriResponse) ProtoMessage() {}
-
-func (x *GetFhirBaseUriResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[49]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetFhirBaseUriResponse.ProtoReflect.Descriptor instead.
-func (*GetFhirBaseUriResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{49}
-}
-
-func (x *GetFhirBaseUriResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetFhirVersionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetFhirVersionRequest) Reset() {
-	*x = GetFhirVersionRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[50]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetFhirVersionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetFhirVersionRequest) ProtoMessage() {}
-
-func (x *GetFhirVersionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[50]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetFhirVersionRequest.ProtoReflect.Descriptor instead.
-func (*GetFhirVersionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{50}
-}
-
-type GetFhirVersionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetFhirVersionResponse) Reset() {
-	*x = GetFhirVersionResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[51]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetFhirVersionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetFhirVersionResponse) ProtoMessage() {}
-
-func (x *GetFhirVersionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[51]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetFhirVersionResponse.ProtoReflect.Descriptor instead.
-func (*GetFhirVersionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{51}
-}
-
-func (x *GetFhirVersionResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetDisplayNameRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetDisplayNameRequest) Reset() {
-	*x = SetDisplayNameRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[52]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetDisplayNameRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetDisplayNameRequest) ProtoMessage() {}
-
-func (x *SetDisplayNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[52]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetDisplayNameRequest.ProtoReflect.Descriptor instead.
-func (*SetDisplayNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{52}
-}
-
-func (x *SetDisplayNameRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type SetDisplayNameResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetDisplayNameResponse) Reset() {
-	*x = SetDisplayNameResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[53]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetDisplayNameResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetDisplayNameResponse) ProtoMessage() {}
-
-func (x *SetDisplayNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[53]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetDisplayNameResponse.ProtoReflect.Descriptor instead.
-func (*SetDisplayNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{53}
-}
-
-func (x *SetDisplayNameResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetFhirBaseUriRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetFhirBaseUriRequest) Reset() {
-	*x = SetFhirBaseUriRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[54]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetFhirBaseUriRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetFhirBaseUriRequest) ProtoMessage() {}
-
-func (x *SetFhirBaseUriRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[54]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetFhirBaseUriRequest.ProtoReflect.Descriptor instead.
-func (*SetFhirBaseUriRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{54}
-}
-
-func (x *SetFhirBaseUriRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetFhirBaseUriResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetFhirBaseUriResponse) Reset() {
-	*x = SetFhirBaseUriResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[55]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetFhirBaseUriResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetFhirBaseUriResponse) ProtoMessage() {}
-
-func (x *SetFhirBaseUriResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[55]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetFhirBaseUriResponse.ProtoReflect.Descriptor instead.
-func (*SetFhirBaseUriResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{55}
-}
-
-func (x *SetFhirBaseUriResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type SetFhirVersionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetFhirVersionRequest) Reset() {
-	*x = SetFhirVersionRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[56]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetFhirVersionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetFhirVersionRequest) ProtoMessage() {}
-
-func (x *SetFhirVersionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[56]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetFhirVersionRequest.ProtoReflect.Descriptor instead.
-func (*SetFhirVersionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{56}
-}
-
-func (x *SetFhirVersionRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type SetFhirVersionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetFhirVersionResponse) Reset() {
-	*x = SetFhirVersionResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[57]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetFhirVersionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetFhirVersionResponse) ProtoMessage() {}
-
-func (x *SetFhirVersionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[57]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetFhirVersionResponse.ProtoReflect.Descriptor instead.
-func (*SetFhirVersionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{57}
-}
-
-func (x *SetFhirVersionResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetErrorCodeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetErrorCodeRequest) Reset() {
-	*x = GetErrorCodeRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[58]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetErrorCodeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetErrorCodeRequest) ProtoMessage() {}
-
-func (x *GetErrorCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[58]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetErrorCodeRequest.ProtoReflect.Descriptor instead.
-func (*GetErrorCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{58}
-}
-
-type GetErrorCodeResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetErrorCodeResponse) Reset() {
-	*x = GetErrorCodeResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[59]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetErrorCodeResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetErrorCodeResponse) ProtoMessage() {}
-
-func (x *GetErrorCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[59]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetErrorCodeResponse.ProtoReflect.Descriptor instead.
-func (*GetErrorCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{59}
-}
-
-func (x *GetErrorCodeResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ReadMedicalResourcesPageRequestGetPageTokenResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ReadMedicalResourcesPageRequestGetPageTokenResponse) Reset() {
-	*x = ReadMedicalResourcesPageRequestGetPageTokenResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[60]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ReadMedicalResourcesPageRequestGetPageTokenResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ReadMedicalResourcesPageRequestGetPageTokenResponse) ProtoMessage() {}
-
-func (x *ReadMedicalResourcesPageRequestGetPageTokenResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[60]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ReadMedicalResourcesPageRequestGetPageTokenResponse.ProtoReflect.Descriptor instead.
-func (*ReadMedicalResourcesPageRequestGetPageTokenResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{60}
-}
-
-func (x *ReadMedicalResourcesPageRequestGetPageTokenResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type SetPageTokenRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPageTokenRequest) Reset() {
-	*x = SetPageTokenRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[61]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPageTokenRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPageTokenRequest) ProtoMessage() {}
-
-func (x *SetPageTokenRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[61]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPageTokenRequest.ProtoReflect.Descriptor instead.
-func (*SetPageTokenRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{61}
-}
-
-func (x *SetPageTokenRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type SetPageTokenResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SetPageTokenResponse) Reset() {
-	*x = SetPageTokenResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[62]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SetPageTokenResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SetPageTokenResponse) ProtoMessage() {}
-
-func (x *SetPageTokenResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[62]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SetPageTokenResponse.ProtoReflect.Descriptor instead.
-func (*SetPageTokenResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{62}
-}
-
-func (x *SetPageTokenResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type GetClientRecordIdRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetClientRecordIdRequest) Reset() {
-	*x = GetClientRecordIdRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[63]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetClientRecordIdRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetClientRecordIdRequest) ProtoMessage() {}
-
-func (x *GetClientRecordIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[63]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetClientRecordIdRequest.ProtoReflect.Descriptor instead.
-func (*GetClientRecordIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{63}
-}
-
-type GetClientRecordIdResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetClientRecordIdResponse) Reset() {
-	*x = GetClientRecordIdResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[64]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetClientRecordIdResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetClientRecordIdResponse) ProtoMessage() {}
-
-func (x *GetClientRecordIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[64]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetClientRecordIdResponse.ProtoReflect.Descriptor instead.
-func (*GetClientRecordIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{64}
-}
-
-func (x *GetClientRecordIdResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetIdRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetIdRequest) Reset() {
-	*x = GetIdRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[65]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetIdRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetIdRequest) ProtoMessage() {}
-
-func (x *GetIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[65]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetIdRequest.ProtoReflect.Descriptor instead.
-func (*GetIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{65}
-}
-
-type GetIdResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetIdResponse) Reset() {
-	*x = GetIdResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[66]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetIdResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetIdResponse) ProtoMessage() {}
-
-func (x *GetIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[66]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetIdResponse.ProtoReflect.Descriptor instead.
-func (*GetIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{66}
-}
-
-func (x *GetIdResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type AddPackageNameRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddPackageNameRequest) Reset() {
-	*x = AddPackageNameRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[67]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddPackageNameRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddPackageNameRequest) ProtoMessage() {}
-
-func (x *AddPackageNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[67]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddPackageNameRequest.ProtoReflect.Descriptor instead.
-func (*AddPackageNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{67}
-}
-
-func (x *AddPackageNameRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type AddPackageNameResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *AddPackageNameResponse) Reset() {
-	*x = AddPackageNameResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[68]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *AddPackageNameResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*AddPackageNameResponse) ProtoMessage() {}
-
-func (x *AddPackageNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[68]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use AddPackageNameResponse.ProtoReflect.Descriptor instead.
-func (*AddPackageNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{68}
-}
-
-func (x *AddPackageNameResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ClearPackageNamesRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ClearPackageNamesRequest) Reset() {
-	*x = ClearPackageNamesRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[69]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ClearPackageNamesRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ClearPackageNamesRequest) ProtoMessage() {}
-
-func (x *ClearPackageNamesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[69]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ClearPackageNamesRequest.ProtoReflect.Descriptor instead.
-func (*ClearPackageNamesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{69}
-}
-
-type ClearPackageNamesResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ClearPackageNamesResponse) Reset() {
-	*x = ClearPackageNamesResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[70]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ClearPackageNamesResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ClearPackageNamesResponse) ProtoMessage() {}
-
-func (x *ClearPackageNamesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[70]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ClearPackageNamesResponse.ProtoReflect.Descriptor instead.
-func (*ClearPackageNamesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{70}
-}
-
-func (x *ClearPackageNamesResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type NewReadMedicalResourcesResponseRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewReadMedicalResourcesResponseRequest) Reset() {
-	*x = NewReadMedicalResourcesResponseRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[71]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewReadMedicalResourcesResponseRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewReadMedicalResourcesResponseRequest) ProtoMessage() {}
-
-func (x *NewReadMedicalResourcesResponseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[71]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewReadMedicalResourcesResponseRequest.ProtoReflect.Descriptor instead.
-func (*NewReadMedicalResourcesResponseRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{71}
-}
-
-func (x *NewReadMedicalResourcesResponseRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *NewReadMedicalResourcesResponseRequest) GetArg1() string {
-	if x != nil {
-		return x.Arg1
-	}
-	return ""
-}
-
-func (x *NewReadMedicalResourcesResponseRequest) GetArg2() int32 {
-	if x != nil {
-		return x.Arg2
-	}
-	return 0
-}
-
-type NewReadMedicalResourcesResponseResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewReadMedicalResourcesResponseResponse) Reset() {
-	*x = NewReadMedicalResourcesResponseResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[72]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewReadMedicalResourcesResponseResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewReadMedicalResourcesResponseResponse) ProtoMessage() {}
-
-func (x *NewReadMedicalResourcesResponseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[72]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewReadMedicalResourcesResponseResponse.ProtoReflect.Descriptor instead.
-func (*NewReadMedicalResourcesResponseResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{72}
-}
-
-func (x *NewReadMedicalResourcesResponseResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ReadMedicalResourcesResponseDescribeContentsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ReadMedicalResourcesResponseDescribeContentsRequest) Reset() {
-	*x = ReadMedicalResourcesResponseDescribeContentsRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[73]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ReadMedicalResourcesResponseDescribeContentsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ReadMedicalResourcesResponseDescribeContentsRequest) ProtoMessage() {}
-
-func (x *ReadMedicalResourcesResponseDescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[73]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ReadMedicalResourcesResponseDescribeContentsRequest.ProtoReflect.Descriptor instead.
-func (*ReadMedicalResourcesResponseDescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{73}
-}
-
-func (x *ReadMedicalResourcesResponseDescribeContentsRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type ReadMedicalResourcesResponseEqualsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ReadMedicalResourcesResponseEqualsRequest) Reset() {
-	*x = ReadMedicalResourcesResponseEqualsRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[74]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ReadMedicalResourcesResponseEqualsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ReadMedicalResourcesResponseEqualsRequest) ProtoMessage() {}
-
-func (x *ReadMedicalResourcesResponseEqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[74]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ReadMedicalResourcesResponseEqualsRequest.ProtoReflect.Descriptor instead.
-func (*ReadMedicalResourcesResponseEqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{74}
-}
-
-func (x *ReadMedicalResourcesResponseEqualsRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *ReadMedicalResourcesResponseEqualsRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type ReadMedicalResourcesResponseGetNextPageTokenRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ReadMedicalResourcesResponseGetNextPageTokenRequest) Reset() {
-	*x = ReadMedicalResourcesResponseGetNextPageTokenRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[75]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ReadMedicalResourcesResponseGetNextPageTokenRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ReadMedicalResourcesResponseGetNextPageTokenRequest) ProtoMessage() {}
-
-func (x *ReadMedicalResourcesResponseGetNextPageTokenRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[75]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ReadMedicalResourcesResponseGetNextPageTokenRequest.ProtoReflect.Descriptor instead.
-func (*ReadMedicalResourcesResponseGetNextPageTokenRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{75}
-}
-
-func (x *ReadMedicalResourcesResponseGetNextPageTokenRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type ReadMedicalResourcesResponseGetNextPageTokenResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ReadMedicalResourcesResponseGetNextPageTokenResponse) Reset() {
-	*x = ReadMedicalResourcesResponseGetNextPageTokenResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[76]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ReadMedicalResourcesResponseGetNextPageTokenResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ReadMedicalResourcesResponseGetNextPageTokenResponse) ProtoMessage() {}
-
-func (x *ReadMedicalResourcesResponseGetNextPageTokenResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[76]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ReadMedicalResourcesResponseGetNextPageTokenResponse.ProtoReflect.Descriptor instead.
-func (*ReadMedicalResourcesResponseGetNextPageTokenResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{76}
-}
-
-func (x *ReadMedicalResourcesResponseGetNextPageTokenResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type GetRemainingCountRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRemainingCountRequest) Reset() {
-	*x = GetRemainingCountRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[77]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRemainingCountRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRemainingCountRequest) ProtoMessage() {}
-
-func (x *GetRemainingCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[77]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRemainingCountRequest.ProtoReflect.Descriptor instead.
-func (*GetRemainingCountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{77}
-}
-
-func (x *GetRemainingCountRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetRemainingCountResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRemainingCountResponse) Reset() {
-	*x = GetRemainingCountResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[78]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRemainingCountResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRemainingCountResponse) ProtoMessage() {}
-
-func (x *GetRemainingCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[78]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRemainingCountResponse.ProtoReflect.Descriptor instead.
-func (*GetRemainingCountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{78}
-}
-
-func (x *GetRemainingCountResponse) GetResult() int32 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type ReadMedicalResourcesResponseHashCodeRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ReadMedicalResourcesResponseHashCodeRequest) Reset() {
-	*x = ReadMedicalResourcesResponseHashCodeRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[79]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ReadMedicalResourcesResponseHashCodeRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ReadMedicalResourcesResponseHashCodeRequest) ProtoMessage() {}
-
-func (x *ReadMedicalResourcesResponseHashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[79]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ReadMedicalResourcesResponseHashCodeRequest.ProtoReflect.Descriptor instead.
-func (*ReadMedicalResourcesResponseHashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{79}
-}
-
-func (x *ReadMedicalResourcesResponseHashCodeRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type ReadMedicalResourcesResponseToStringRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ReadMedicalResourcesResponseToStringRequest) Reset() {
-	*x = ReadMedicalResourcesResponseToStringRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[80]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ReadMedicalResourcesResponseToStringRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ReadMedicalResourcesResponseToStringRequest) ProtoMessage() {}
-
-func (x *ReadMedicalResourcesResponseToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[80]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ReadMedicalResourcesResponseToStringRequest.ProtoReflect.Descriptor instead.
-func (*ReadMedicalResourcesResponseToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{80}
-}
-
-func (x *ReadMedicalResourcesResponseToStringRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type ReadMedicalResourcesResponseWriteToParcelRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ReadMedicalResourcesResponseWriteToParcelRequest) Reset() {
-	*x = ReadMedicalResourcesResponseWriteToParcelRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[81]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ReadMedicalResourcesResponseWriteToParcelRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ReadMedicalResourcesResponseWriteToParcelRequest) ProtoMessage() {}
-
-func (x *ReadMedicalResourcesResponseWriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[81]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ReadMedicalResourcesResponseWriteToParcelRequest.ProtoReflect.Descriptor instead.
-func (*ReadMedicalResourcesResponseWriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{81}
-}
-
-func (x *ReadMedicalResourcesResponseWriteToParcelRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *ReadMedicalResourcesResponseWriteToParcelRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *ReadMedicalResourcesResponseWriteToParcelRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
 	}
 	return 0
 }
@@ -3506,7 +858,7 @@ type NewMedicalResourceIdRequest struct {
 
 func (x *NewMedicalResourceIdRequest) Reset() {
 	*x = NewMedicalResourceIdRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[82]
+	mi := &file_proto_connect_connect_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3518,7 +870,7 @@ func (x *NewMedicalResourceIdRequest) String() string {
 func (*NewMedicalResourceIdRequest) ProtoMessage() {}
 
 func (x *NewMedicalResourceIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[82]
+	mi := &file_proto_connect_connect_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3531,7 +883,7 @@ func (x *NewMedicalResourceIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewMedicalResourceIdRequest.ProtoReflect.Descriptor instead.
 func (*NewMedicalResourceIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{82}
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *NewMedicalResourceIdRequest) GetArg0() string {
@@ -3564,7 +916,7 @@ type NewMedicalResourceIdResponse struct {
 
 func (x *NewMedicalResourceIdResponse) Reset() {
 	*x = NewMedicalResourceIdResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[83]
+	mi := &file_proto_connect_connect_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3576,7 +928,7 @@ func (x *NewMedicalResourceIdResponse) String() string {
 func (*NewMedicalResourceIdResponse) ProtoMessage() {}
 
 func (x *NewMedicalResourceIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[83]
+	mi := &file_proto_connect_connect_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3589,7 +941,7 @@ func (x *NewMedicalResourceIdResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewMedicalResourceIdResponse.ProtoReflect.Descriptor instead.
 func (*NewMedicalResourceIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{83}
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *NewMedicalResourceIdResponse) GetResult() int64 {
@@ -3599,28 +951,28 @@ func (x *NewMedicalResourceIdResponse) GetResult() int64 {
 	return 0
 }
 
-type MedicalResourceIdDescribeContentsRequest struct {
+type DescribeContentsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *MedicalResourceIdDescribeContentsRequest) Reset() {
-	*x = MedicalResourceIdDescribeContentsRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[84]
+func (x *DescribeContentsRequest) Reset() {
+	*x = DescribeContentsRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *MedicalResourceIdDescribeContentsRequest) String() string {
+func (x *DescribeContentsRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MedicalResourceIdDescribeContentsRequest) ProtoMessage() {}
+func (*DescribeContentsRequest) ProtoMessage() {}
 
-func (x *MedicalResourceIdDescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[84]
+func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3631,14 +983,58 @@ func (x *MedicalResourceIdDescribeContentsRequest) ProtoReflect() protoreflect.M
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use MedicalResourceIdDescribeContentsRequest.ProtoReflect.Descriptor instead.
-func (*MedicalResourceIdDescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{84}
+// Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{22}
 }
 
-func (x *MedicalResourceIdDescribeContentsRequest) GetHandle() int64 {
+func (x *DescribeContentsRequest) GetHandle() int64 {
 	if x != nil {
 		return x.Handle
+	}
+	return 0
+}
+
+type DescribeContentsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DescribeContentsResponse) Reset() {
+	*x = DescribeContentsResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DescribeContentsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DescribeContentsResponse) ProtoMessage() {}
+
+func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
+func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *DescribeContentsResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
 	}
 	return 0
 }
@@ -3653,7 +1049,7 @@ type MedicalResourceIdEqualsRequest struct {
 
 func (x *MedicalResourceIdEqualsRequest) Reset() {
 	*x = MedicalResourceIdEqualsRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[85]
+	mi := &file_proto_connect_connect_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3665,7 +1061,7 @@ func (x *MedicalResourceIdEqualsRequest) String() string {
 func (*MedicalResourceIdEqualsRequest) ProtoMessage() {}
 
 func (x *MedicalResourceIdEqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[85]
+	mi := &file_proto_connect_connect_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3678,7 +1074,7 @@ func (x *MedicalResourceIdEqualsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MedicalResourceIdEqualsRequest.ProtoReflect.Descriptor instead.
 func (*MedicalResourceIdEqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{85}
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *MedicalResourceIdEqualsRequest) GetHandle() int64 {
@@ -3704,7 +1100,7 @@ type GetDataSourceIdRequest struct {
 
 func (x *GetDataSourceIdRequest) Reset() {
 	*x = GetDataSourceIdRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[86]
+	mi := &file_proto_connect_connect_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3716,7 +1112,7 @@ func (x *GetDataSourceIdRequest) String() string {
 func (*GetDataSourceIdRequest) ProtoMessage() {}
 
 func (x *GetDataSourceIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[86]
+	mi := &file_proto_connect_connect_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3729,7 +1125,7 @@ func (x *GetDataSourceIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDataSourceIdRequest.ProtoReflect.Descriptor instead.
 func (*GetDataSourceIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{86}
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *GetDataSourceIdRequest) GetHandle() int64 {
@@ -3748,7 +1144,7 @@ type GetDataSourceIdResponse struct {
 
 func (x *GetDataSourceIdResponse) Reset() {
 	*x = GetDataSourceIdResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[87]
+	mi := &file_proto_connect_connect_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3760,7 +1156,7 @@ func (x *GetDataSourceIdResponse) String() string {
 func (*GetDataSourceIdResponse) ProtoMessage() {}
 
 func (x *GetDataSourceIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[87]
+	mi := &file_proto_connect_connect_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3773,7 +1169,7 @@ func (x *GetDataSourceIdResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDataSourceIdResponse.ProtoReflect.Descriptor instead.
 func (*GetDataSourceIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{87}
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *GetDataSourceIdResponse) GetResult() string {
@@ -3792,7 +1188,7 @@ type GetFhirResourceIdRequest struct {
 
 func (x *GetFhirResourceIdRequest) Reset() {
 	*x = GetFhirResourceIdRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[88]
+	mi := &file_proto_connect_connect_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3804,7 +1200,7 @@ func (x *GetFhirResourceIdRequest) String() string {
 func (*GetFhirResourceIdRequest) ProtoMessage() {}
 
 func (x *GetFhirResourceIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[88]
+	mi := &file_proto_connect_connect_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3817,7 +1213,7 @@ func (x *GetFhirResourceIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetFhirResourceIdRequest.ProtoReflect.Descriptor instead.
 func (*GetFhirResourceIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{88}
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *GetFhirResourceIdRequest) GetHandle() int64 {
@@ -3836,7 +1232,7 @@ type GetFhirResourceIdResponse struct {
 
 func (x *GetFhirResourceIdResponse) Reset() {
 	*x = GetFhirResourceIdResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[89]
+	mi := &file_proto_connect_connect_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3848,7 +1244,7 @@ func (x *GetFhirResourceIdResponse) String() string {
 func (*GetFhirResourceIdResponse) ProtoMessage() {}
 
 func (x *GetFhirResourceIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[89]
+	mi := &file_proto_connect_connect_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3861,7 +1257,7 @@ func (x *GetFhirResourceIdResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetFhirResourceIdResponse.ProtoReflect.Descriptor instead.
 func (*GetFhirResourceIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{89}
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *GetFhirResourceIdResponse) GetResult() string {
@@ -3880,7 +1276,7 @@ type GetFhirResourceTypeRequest struct {
 
 func (x *GetFhirResourceTypeRequest) Reset() {
 	*x = GetFhirResourceTypeRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[90]
+	mi := &file_proto_connect_connect_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3892,7 +1288,7 @@ func (x *GetFhirResourceTypeRequest) String() string {
 func (*GetFhirResourceTypeRequest) ProtoMessage() {}
 
 func (x *GetFhirResourceTypeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[90]
+	mi := &file_proto_connect_connect_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3905,7 +1301,7 @@ func (x *GetFhirResourceTypeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetFhirResourceTypeRequest.ProtoReflect.Descriptor instead.
 func (*GetFhirResourceTypeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{90}
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *GetFhirResourceTypeRequest) GetHandle() int64 {
@@ -3924,7 +1320,7 @@ type GetFhirResourceTypeResponse struct {
 
 func (x *GetFhirResourceTypeResponse) Reset() {
 	*x = GetFhirResourceTypeResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[91]
+	mi := &file_proto_connect_connect_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3936,7 +1332,7 @@ func (x *GetFhirResourceTypeResponse) String() string {
 func (*GetFhirResourceTypeResponse) ProtoMessage() {}
 
 func (x *GetFhirResourceTypeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[91]
+	mi := &file_proto_connect_connect_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3949,7 +1345,7 @@ func (x *GetFhirResourceTypeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetFhirResourceTypeResponse.ProtoReflect.Descriptor instead.
 func (*GetFhirResourceTypeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{91}
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *GetFhirResourceTypeResponse) GetResult() int32 {
@@ -3968,7 +1364,7 @@ type MedicalResourceIdHashCodeRequest struct {
 
 func (x *MedicalResourceIdHashCodeRequest) Reset() {
 	*x = MedicalResourceIdHashCodeRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[92]
+	mi := &file_proto_connect_connect_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3980,7 +1376,7 @@ func (x *MedicalResourceIdHashCodeRequest) String() string {
 func (*MedicalResourceIdHashCodeRequest) ProtoMessage() {}
 
 func (x *MedicalResourceIdHashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[92]
+	mi := &file_proto_connect_connect_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3993,7 +1389,7 @@ func (x *MedicalResourceIdHashCodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MedicalResourceIdHashCodeRequest.ProtoReflect.Descriptor instead.
 func (*MedicalResourceIdHashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{92}
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *MedicalResourceIdHashCodeRequest) GetHandle() int64 {
@@ -4003,28 +1399,28 @@ func (x *MedicalResourceIdHashCodeRequest) GetHandle() int64 {
 	return 0
 }
 
-type MedicalResourceIdToStringRequest struct {
+type ToStringRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *MedicalResourceIdToStringRequest) Reset() {
-	*x = MedicalResourceIdToStringRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[93]
+func (x *ToStringRequest) Reset() {
+	*x = ToStringRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *MedicalResourceIdToStringRequest) String() string {
+func (x *ToStringRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MedicalResourceIdToStringRequest) ProtoMessage() {}
+func (*ToStringRequest) ProtoMessage() {}
 
-func (x *MedicalResourceIdToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[93]
+func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4035,19 +1431,63 @@ func (x *MedicalResourceIdToStringRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use MedicalResourceIdToStringRequest.ProtoReflect.Descriptor instead.
-func (*MedicalResourceIdToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{93}
+// Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
+func (*ToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{32}
 }
 
-func (x *MedicalResourceIdToStringRequest) GetHandle() int64 {
+func (x *ToStringRequest) GetHandle() int64 {
 	if x != nil {
 		return x.Handle
 	}
 	return 0
 }
 
-type MedicalResourceIdWriteToParcelRequest struct {
+type ToStringResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ToStringResponse) Reset() {
+	*x = ToStringResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ToStringResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ToStringResponse) ProtoMessage() {}
+
+func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
+func (*ToStringResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *ToStringResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type WriteToParcelRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -4056,21 +1496,21 @@ type MedicalResourceIdWriteToParcelRequest struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *MedicalResourceIdWriteToParcelRequest) Reset() {
-	*x = MedicalResourceIdWriteToParcelRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[94]
+func (x *WriteToParcelRequest) Reset() {
+	*x = WriteToParcelRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *MedicalResourceIdWriteToParcelRequest) String() string {
+func (x *WriteToParcelRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MedicalResourceIdWriteToParcelRequest) ProtoMessage() {}
+func (*WriteToParcelRequest) ProtoMessage() {}
 
-func (x *MedicalResourceIdWriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[94]
+func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4081,30 +1521,66 @@ func (x *MedicalResourceIdWriteToParcelRequest) ProtoReflect() protoreflect.Mess
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use MedicalResourceIdWriteToParcelRequest.ProtoReflect.Descriptor instead.
-func (*MedicalResourceIdWriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{94}
+// Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{34}
 }
 
-func (x *MedicalResourceIdWriteToParcelRequest) GetHandle() int64 {
+func (x *WriteToParcelRequest) GetHandle() int64 {
 	if x != nil {
 		return x.Handle
 	}
 	return 0
 }
 
-func (x *MedicalResourceIdWriteToParcelRequest) GetArg0() int64 {
+func (x *WriteToParcelRequest) GetArg0() int64 {
 	if x != nil {
 		return x.Arg0
 	}
 	return 0
 }
 
-func (x *MedicalResourceIdWriteToParcelRequest) GetArg1() int32 {
+func (x *WriteToParcelRequest) GetArg1() int32 {
 	if x != nil {
 		return x.Arg1
 	}
 	return 0
+}
+
+type WriteToParcelResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WriteToParcelResponse) Reset() {
+	*x = WriteToParcelResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WriteToParcelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WriteToParcelResponse) ProtoMessage() {}
+
+func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
+func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{35}
 }
 
 type FromFhirReferenceRequest struct {
@@ -4118,7 +1594,7 @@ type FromFhirReferenceRequest struct {
 
 func (x *FromFhirReferenceRequest) Reset() {
 	*x = FromFhirReferenceRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[95]
+	mi := &file_proto_connect_connect_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4130,7 +1606,7 @@ func (x *FromFhirReferenceRequest) String() string {
 func (*FromFhirReferenceRequest) ProtoMessage() {}
 
 func (x *FromFhirReferenceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[95]
+	mi := &file_proto_connect_connect_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4143,7 +1619,7 @@ func (x *FromFhirReferenceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FromFhirReferenceRequest.ProtoReflect.Descriptor instead.
 func (*FromFhirReferenceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{95}
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *FromFhirReferenceRequest) GetHandle() int64 {
@@ -4176,7 +1652,7 @@ type FromFhirReferenceResponse struct {
 
 func (x *FromFhirReferenceResponse) Reset() {
 	*x = FromFhirReferenceResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[96]
+	mi := &file_proto_connect_connect_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4188,7 +1664,7 @@ func (x *FromFhirReferenceResponse) String() string {
 func (*FromFhirReferenceResponse) ProtoMessage() {}
 
 func (x *FromFhirReferenceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[96]
+	mi := &file_proto_connect_connect_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4201,7 +1677,7 @@ func (x *FromFhirReferenceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FromFhirReferenceResponse.ProtoReflect.Descriptor instead.
 func (*FromFhirReferenceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{96}
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *FromFhirReferenceResponse) GetResult() int64 {
@@ -4209,6 +1685,2786 @@ func (x *FromFhirReferenceResponse) GetResult() int64 {
 		return x.Result
 	}
 	return 0
+}
+
+type GetPageTokenRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPageTokenRequest) Reset() {
+	*x = GetPageTokenRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPageTokenRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPageTokenRequest) ProtoMessage() {}
+
+func (x *GetPageTokenRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPageTokenRequest.ProtoReflect.Descriptor instead.
+func (*GetPageTokenRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{38}
+}
+
+type GetPageTokenResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPageTokenResponse) Reset() {
+	*x = GetPageTokenResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPageTokenResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPageTokenResponse) ProtoMessage() {}
+
+func (x *GetPageTokenResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPageTokenResponse.ProtoReflect.Descriptor instead.
+func (*GetPageTokenResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *GetPageTokenResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type ReadMedicalResourcesPageRequestToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReadMedicalResourcesPageRequestToStringRequest) Reset() {
+	*x = ReadMedicalResourcesPageRequestToStringRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReadMedicalResourcesPageRequestToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReadMedicalResourcesPageRequestToStringRequest) ProtoMessage() {}
+
+func (x *ReadMedicalResourcesPageRequestToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReadMedicalResourcesPageRequestToStringRequest.ProtoReflect.Descriptor instead.
+func (*ReadMedicalResourcesPageRequestToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{40}
+}
+
+type SetPageSizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPageSizeRequest) Reset() {
+	*x = SetPageSizeRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPageSizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPageSizeRequest) ProtoMessage() {}
+
+func (x *SetPageSizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPageSizeRequest.ProtoReflect.Descriptor instead.
+func (*SetPageSizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *SetPageSizeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetPageSizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPageSizeResponse) Reset() {
+	*x = SetPageSizeResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPageSizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPageSizeResponse) ProtoMessage() {}
+
+func (x *SetPageSizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPageSizeResponse.ProtoReflect.Descriptor instead.
+func (*SetPageSizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *SetPageSizeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetPageTokenRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPageTokenRequest) Reset() {
+	*x = SetPageTokenRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPageTokenRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPageTokenRequest) ProtoMessage() {}
+
+func (x *SetPageTokenRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPageTokenRequest.ProtoReflect.Descriptor instead.
+func (*SetPageTokenRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *SetPageTokenRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetPageTokenResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetPageTokenResponse) Reset() {
+	*x = SetPageTokenResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetPageTokenResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetPageTokenResponse) ProtoMessage() {}
+
+func (x *SetPageTokenResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetPageTokenResponse.ProtoReflect.Descriptor instead.
+func (*SetPageTokenResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *SetPageTokenResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRecordTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRecordTypeRequest) Reset() {
+	*x = GetRecordTypeRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRecordTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRecordTypeRequest) ProtoMessage() {}
+
+func (x *GetRecordTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRecordTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetRecordTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{45}
+}
+
+type GetRecordTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRecordTypeResponse) Reset() {
+	*x = GetRecordTypeResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRecordTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRecordTypeResponse) ProtoMessage() {}
+
+func (x *GetRecordTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRecordTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetRecordTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *GetRecordTypeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDataOriginsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDataOriginsRequest) Reset() {
+	*x = GetDataOriginsRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDataOriginsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDataOriginsRequest) ProtoMessage() {}
+
+func (x *GetDataOriginsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDataOriginsRequest.ProtoReflect.Descriptor instead.
+func (*GetDataOriginsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{47}
+}
+
+type GetDataOriginsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDataOriginsResponse) Reset() {
+	*x = GetDataOriginsResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDataOriginsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDataOriginsResponse) ProtoMessage() {}
+
+func (x *GetDataOriginsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDataOriginsResponse.ProtoReflect.Descriptor instead.
+func (*GetDataOriginsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *GetDataOriginsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetPageSizeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPageSizeRequest) Reset() {
+	*x = GetPageSizeRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPageSizeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPageSizeRequest) ProtoMessage() {}
+
+func (x *GetPageSizeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPageSizeRequest.ProtoReflect.Descriptor instead.
+func (*GetPageSizeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{49}
+}
+
+type GetPageSizeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPageSizeResponse) Reset() {
+	*x = GetPageSizeResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPageSizeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPageSizeResponse) ProtoMessage() {}
+
+func (x *GetPageSizeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPageSizeResponse.ProtoReflect.Descriptor instead.
+func (*GetPageSizeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *GetPageSizeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ReadRecordsRequestUsingFiltersGetPageTokenResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReadRecordsRequestUsingFiltersGetPageTokenResponse) Reset() {
+	*x = ReadRecordsRequestUsingFiltersGetPageTokenResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReadRecordsRequestUsingFiltersGetPageTokenResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReadRecordsRequestUsingFiltersGetPageTokenResponse) ProtoMessage() {}
+
+func (x *ReadRecordsRequestUsingFiltersGetPageTokenResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReadRecordsRequestUsingFiltersGetPageTokenResponse.ProtoReflect.Descriptor instead.
+func (*ReadRecordsRequestUsingFiltersGetPageTokenResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *ReadRecordsRequestUsingFiltersGetPageTokenResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetTimeRangeFilterRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimeRangeFilterRequest) Reset() {
+	*x = GetTimeRangeFilterRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimeRangeFilterRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimeRangeFilterRequest) ProtoMessage() {}
+
+func (x *GetTimeRangeFilterRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimeRangeFilterRequest.ProtoReflect.Descriptor instead.
+func (*GetTimeRangeFilterRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{52}
+}
+
+type GetTimeRangeFilterResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTimeRangeFilterResponse) Reset() {
+	*x = GetTimeRangeFilterResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTimeRangeFilterResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimeRangeFilterResponse) ProtoMessage() {}
+
+func (x *GetTimeRangeFilterResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimeRangeFilterResponse.ProtoReflect.Descriptor instead.
+func (*GetTimeRangeFilterResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *GetTimeRangeFilterResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type IsAscendingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsAscendingRequest) Reset() {
+	*x = IsAscendingRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsAscendingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsAscendingRequest) ProtoMessage() {}
+
+func (x *IsAscendingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsAscendingRequest.ProtoReflect.Descriptor instead.
+func (*IsAscendingRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{54}
+}
+
+type IsAscendingResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        bool                   `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *IsAscendingResponse) Reset() {
+	*x = IsAscendingResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *IsAscendingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IsAscendingResponse) ProtoMessage() {}
+
+func (x *IsAscendingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IsAscendingResponse.ProtoReflect.Descriptor instead.
+func (*IsAscendingResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *IsAscendingResponse) GetResult() bool {
+	if x != nil {
+		return x.Result
+	}
+	return false
+}
+
+type AddDataOriginsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddDataOriginsRequest) Reset() {
+	*x = AddDataOriginsRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddDataOriginsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddDataOriginsRequest) ProtoMessage() {}
+
+func (x *AddDataOriginsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddDataOriginsRequest.ProtoReflect.Descriptor instead.
+func (*AddDataOriginsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{56}
+}
+
+func (x *AddDataOriginsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddDataOriginsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddDataOriginsResponse) Reset() {
+	*x = AddDataOriginsResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddDataOriginsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddDataOriginsResponse) ProtoMessage() {}
+
+func (x *AddDataOriginsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddDataOriginsResponse.ProtoReflect.Descriptor instead.
+func (*AddDataOriginsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{57}
+}
+
+func (x *AddDataOriginsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetAscendingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          bool                   `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAscendingRequest) Reset() {
+	*x = SetAscendingRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAscendingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAscendingRequest) ProtoMessage() {}
+
+func (x *SetAscendingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAscendingRequest.ProtoReflect.Descriptor instead.
+func (*SetAscendingRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{58}
+}
+
+func (x *SetAscendingRequest) GetArg0() bool {
+	if x != nil {
+		return x.Arg0
+	}
+	return false
+}
+
+type SetAscendingResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetAscendingResponse) Reset() {
+	*x = SetAscendingResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetAscendingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetAscendingResponse) ProtoMessage() {}
+
+func (x *SetAscendingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetAscendingResponse.ProtoReflect.Descriptor instead.
+func (*SetAscendingResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{59}
+}
+
+func (x *SetAscendingResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ReadRecordsRequestUsingFiltersBuilderSetPageTokenRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReadRecordsRequestUsingFiltersBuilderSetPageTokenRequest) Reset() {
+	*x = ReadRecordsRequestUsingFiltersBuilderSetPageTokenRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[60]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReadRecordsRequestUsingFiltersBuilderSetPageTokenRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReadRecordsRequestUsingFiltersBuilderSetPageTokenRequest) ProtoMessage() {}
+
+func (x *ReadRecordsRequestUsingFiltersBuilderSetPageTokenRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[60]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReadRecordsRequestUsingFiltersBuilderSetPageTokenRequest.ProtoReflect.Descriptor instead.
+func (*ReadRecordsRequestUsingFiltersBuilderSetPageTokenRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{60}
+}
+
+func (x *ReadRecordsRequestUsingFiltersBuilderSetPageTokenRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetTimeRangeFilterRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTimeRangeFilterRequest) Reset() {
+	*x = SetTimeRangeFilterRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[61]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTimeRangeFilterRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTimeRangeFilterRequest) ProtoMessage() {}
+
+func (x *SetTimeRangeFilterRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[61]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTimeRangeFilterRequest.ProtoReflect.Descriptor instead.
+func (*SetTimeRangeFilterRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{61}
+}
+
+func (x *SetTimeRangeFilterRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetTimeRangeFilterResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetTimeRangeFilterResponse) Reset() {
+	*x = SetTimeRangeFilterResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[62]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetTimeRangeFilterResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetTimeRangeFilterResponse) ProtoMessage() {}
+
+func (x *SetTimeRangeFilterResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[62]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetTimeRangeFilterResponse.ProtoReflect.Descriptor instead.
+func (*SetTimeRangeFilterResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{62}
+}
+
+func (x *SetTimeRangeFilterResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetErrorCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetErrorCodeRequest) Reset() {
+	*x = GetErrorCodeRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetErrorCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetErrorCodeRequest) ProtoMessage() {}
+
+func (x *GetErrorCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetErrorCodeRequest.ProtoReflect.Descriptor instead.
+func (*GetErrorCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{63}
+}
+
+type GetErrorCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetErrorCodeResponse) Reset() {
+	*x = GetErrorCodeResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[64]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetErrorCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetErrorCodeResponse) ProtoMessage() {}
+
+func (x *GetErrorCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[64]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetErrorCodeResponse.ProtoReflect.Descriptor instead.
+func (*GetErrorCodeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{64}
+}
+
+func (x *GetErrorCodeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DeleteMedicalResourcesRequestDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteMedicalResourcesRequestDescribeContentsRequest) Reset() {
+	*x = DeleteMedicalResourcesRequestDescribeContentsRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[65]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteMedicalResourcesRequestDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteMedicalResourcesRequestDescribeContentsRequest) ProtoMessage() {}
+
+func (x *DeleteMedicalResourcesRequestDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[65]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteMedicalResourcesRequestDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*DeleteMedicalResourcesRequestDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{65}
+}
+
+type GetDataSourceIdsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDataSourceIdsRequest) Reset() {
+	*x = GetDataSourceIdsRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[66]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDataSourceIdsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDataSourceIdsRequest) ProtoMessage() {}
+
+func (x *GetDataSourceIdsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[66]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDataSourceIdsRequest.ProtoReflect.Descriptor instead.
+func (*GetDataSourceIdsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{66}
+}
+
+type GetDataSourceIdsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDataSourceIdsResponse) Reset() {
+	*x = GetDataSourceIdsResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[67]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDataSourceIdsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDataSourceIdsResponse) ProtoMessage() {}
+
+func (x *GetDataSourceIdsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[67]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDataSourceIdsResponse.ProtoReflect.Descriptor instead.
+func (*GetDataSourceIdsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{67}
+}
+
+func (x *GetDataSourceIdsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMedicalResourceTypesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMedicalResourceTypesRequest) Reset() {
+	*x = GetMedicalResourceTypesRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMedicalResourceTypesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMedicalResourceTypesRequest) ProtoMessage() {}
+
+func (x *GetMedicalResourceTypesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMedicalResourceTypesRequest.ProtoReflect.Descriptor instead.
+func (*GetMedicalResourceTypesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{68}
+}
+
+type GetMedicalResourceTypesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMedicalResourceTypesResponse) Reset() {
+	*x = GetMedicalResourceTypesResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMedicalResourceTypesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMedicalResourceTypesResponse) ProtoMessage() {}
+
+func (x *GetMedicalResourceTypesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMedicalResourceTypesResponse.ProtoReflect.Descriptor instead.
+func (*GetMedicalResourceTypesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{69}
+}
+
+func (x *GetMedicalResourceTypesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type DeleteMedicalResourcesRequestToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteMedicalResourcesRequestToStringRequest) Reset() {
+	*x = DeleteMedicalResourcesRequestToStringRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[70]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteMedicalResourcesRequestToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteMedicalResourcesRequestToStringRequest) ProtoMessage() {}
+
+func (x *DeleteMedicalResourcesRequestToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[70]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteMedicalResourcesRequestToStringRequest.ProtoReflect.Descriptor instead.
+func (*DeleteMedicalResourcesRequestToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{70}
+}
+
+type DeleteMedicalResourcesRequestWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteMedicalResourcesRequestWriteToParcelRequest) Reset() {
+	*x = DeleteMedicalResourcesRequestWriteToParcelRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[71]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteMedicalResourcesRequestWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteMedicalResourcesRequestWriteToParcelRequest) ProtoMessage() {}
+
+func (x *DeleteMedicalResourcesRequestWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[71]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteMedicalResourcesRequestWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*DeleteMedicalResourcesRequestWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{71}
+}
+
+func (x *DeleteMedicalResourcesRequestWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *DeleteMedicalResourcesRequestWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type AddDataSourceIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddDataSourceIdRequest) Reset() {
+	*x = AddDataSourceIdRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[72]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddDataSourceIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddDataSourceIdRequest) ProtoMessage() {}
+
+func (x *AddDataSourceIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[72]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddDataSourceIdRequest.ProtoReflect.Descriptor instead.
+func (*AddDataSourceIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{72}
+}
+
+func (x *AddDataSourceIdRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type AddDataSourceIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddDataSourceIdResponse) Reset() {
+	*x = AddDataSourceIdResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[73]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddDataSourceIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddDataSourceIdResponse) ProtoMessage() {}
+
+func (x *AddDataSourceIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[73]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddDataSourceIdResponse.ProtoReflect.Descriptor instead.
+func (*AddDataSourceIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{73}
+}
+
+func (x *AddDataSourceIdResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddMedicalResourceTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddMedicalResourceTypeRequest) Reset() {
+	*x = AddMedicalResourceTypeRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[74]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddMedicalResourceTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddMedicalResourceTypeRequest) ProtoMessage() {}
+
+func (x *AddMedicalResourceTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[74]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddMedicalResourceTypeRequest.ProtoReflect.Descriptor instead.
+func (*AddMedicalResourceTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{74}
+}
+
+func (x *AddMedicalResourceTypeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddMedicalResourceTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddMedicalResourceTypeResponse) Reset() {
+	*x = AddMedicalResourceTypeResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[75]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddMedicalResourceTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddMedicalResourceTypeResponse) ProtoMessage() {}
+
+func (x *AddMedicalResourceTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[75]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddMedicalResourceTypeResponse.ProtoReflect.Descriptor instead.
+func (*AddMedicalResourceTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{75}
+}
+
+func (x *AddMedicalResourceTypeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearDataSourceIdsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearDataSourceIdsRequest) Reset() {
+	*x = ClearDataSourceIdsRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[76]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearDataSourceIdsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearDataSourceIdsRequest) ProtoMessage() {}
+
+func (x *ClearDataSourceIdsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[76]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearDataSourceIdsRequest.ProtoReflect.Descriptor instead.
+func (*ClearDataSourceIdsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{76}
+}
+
+type ClearDataSourceIdsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearDataSourceIdsResponse) Reset() {
+	*x = ClearDataSourceIdsResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[77]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearDataSourceIdsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearDataSourceIdsResponse) ProtoMessage() {}
+
+func (x *ClearDataSourceIdsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[77]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearDataSourceIdsResponse.ProtoReflect.Descriptor instead.
+func (*ClearDataSourceIdsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{77}
+}
+
+func (x *ClearDataSourceIdsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearMedicalResourceTypesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearMedicalResourceTypesRequest) Reset() {
+	*x = ClearMedicalResourceTypesRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[78]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearMedicalResourceTypesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearMedicalResourceTypesRequest) ProtoMessage() {}
+
+func (x *ClearMedicalResourceTypesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[78]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearMedicalResourceTypesRequest.ProtoReflect.Descriptor instead.
+func (*ClearMedicalResourceTypesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{78}
+}
+
+type ClearMedicalResourceTypesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearMedicalResourceTypesResponse) Reset() {
+	*x = ClearMedicalResourceTypesResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearMedicalResourceTypesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearMedicalResourceTypesResponse) ProtoMessage() {}
+
+func (x *ClearMedicalResourceTypesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearMedicalResourceTypesResponse.ProtoReflect.Descriptor instead.
+func (*ClearMedicalResourceTypesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{79}
+}
+
+func (x *ClearMedicalResourceTypesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CreateMedicalDataSourceRequestDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateMedicalDataSourceRequestDescribeContentsRequest) Reset() {
+	*x = CreateMedicalDataSourceRequestDescribeContentsRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[80]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateMedicalDataSourceRequestDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateMedicalDataSourceRequestDescribeContentsRequest) ProtoMessage() {}
+
+func (x *CreateMedicalDataSourceRequestDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[80]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateMedicalDataSourceRequestDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*CreateMedicalDataSourceRequestDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{80}
+}
+
+type GetDisplayNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDisplayNameRequest) Reset() {
+	*x = GetDisplayNameRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[81]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDisplayNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDisplayNameRequest) ProtoMessage() {}
+
+func (x *GetDisplayNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[81]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDisplayNameRequest.ProtoReflect.Descriptor instead.
+func (*GetDisplayNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{81}
+}
+
+type GetDisplayNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDisplayNameResponse) Reset() {
+	*x = GetDisplayNameResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[82]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDisplayNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDisplayNameResponse) ProtoMessage() {}
+
+func (x *GetDisplayNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[82]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDisplayNameResponse.ProtoReflect.Descriptor instead.
+func (*GetDisplayNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{82}
+}
+
+func (x *GetDisplayNameResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetFhirBaseUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFhirBaseUriRequest) Reset() {
+	*x = GetFhirBaseUriRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[83]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFhirBaseUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFhirBaseUriRequest) ProtoMessage() {}
+
+func (x *GetFhirBaseUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[83]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFhirBaseUriRequest.ProtoReflect.Descriptor instead.
+func (*GetFhirBaseUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{83}
+}
+
+type GetFhirBaseUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFhirBaseUriResponse) Reset() {
+	*x = GetFhirBaseUriResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[84]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFhirBaseUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFhirBaseUriResponse) ProtoMessage() {}
+
+func (x *GetFhirBaseUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[84]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFhirBaseUriResponse.ProtoReflect.Descriptor instead.
+func (*GetFhirBaseUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{84}
+}
+
+func (x *GetFhirBaseUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetFhirVersionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFhirVersionRequest) Reset() {
+	*x = GetFhirVersionRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[85]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFhirVersionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFhirVersionRequest) ProtoMessage() {}
+
+func (x *GetFhirVersionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[85]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFhirVersionRequest.ProtoReflect.Descriptor instead.
+func (*GetFhirVersionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{85}
+}
+
+type GetFhirVersionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetFhirVersionResponse) Reset() {
+	*x = GetFhirVersionResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[86]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetFhirVersionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetFhirVersionResponse) ProtoMessage() {}
+
+func (x *GetFhirVersionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[86]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetFhirVersionResponse.ProtoReflect.Descriptor instead.
+func (*GetFhirVersionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{86}
+}
+
+func (x *GetFhirVersionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type CreateMedicalDataSourceRequestToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateMedicalDataSourceRequestToStringRequest) Reset() {
+	*x = CreateMedicalDataSourceRequestToStringRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[87]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateMedicalDataSourceRequestToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateMedicalDataSourceRequestToStringRequest) ProtoMessage() {}
+
+func (x *CreateMedicalDataSourceRequestToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[87]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateMedicalDataSourceRequestToStringRequest.ProtoReflect.Descriptor instead.
+func (*CreateMedicalDataSourceRequestToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{87}
+}
+
+type CreateMedicalDataSourceRequestWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateMedicalDataSourceRequestWriteToParcelRequest) Reset() {
+	*x = CreateMedicalDataSourceRequestWriteToParcelRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[88]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateMedicalDataSourceRequestWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateMedicalDataSourceRequestWriteToParcelRequest) ProtoMessage() {}
+
+func (x *CreateMedicalDataSourceRequestWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[88]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateMedicalDataSourceRequestWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*CreateMedicalDataSourceRequestWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{88}
+}
+
+func (x *CreateMedicalDataSourceRequestWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *CreateMedicalDataSourceRequestWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SetDisplayNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDisplayNameRequest) Reset() {
+	*x = SetDisplayNameRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[89]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDisplayNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDisplayNameRequest) ProtoMessage() {}
+
+func (x *SetDisplayNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[89]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDisplayNameRequest.ProtoReflect.Descriptor instead.
+func (*SetDisplayNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{89}
+}
+
+func (x *SetDisplayNameRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type SetDisplayNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetDisplayNameResponse) Reset() {
+	*x = SetDisplayNameResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[90]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetDisplayNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetDisplayNameResponse) ProtoMessage() {}
+
+func (x *SetDisplayNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[90]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetDisplayNameResponse.ProtoReflect.Descriptor instead.
+func (*SetDisplayNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{90}
+}
+
+func (x *SetDisplayNameResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetFhirBaseUriRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetFhirBaseUriRequest) Reset() {
+	*x = SetFhirBaseUriRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[91]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetFhirBaseUriRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetFhirBaseUriRequest) ProtoMessage() {}
+
+func (x *SetFhirBaseUriRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[91]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetFhirBaseUriRequest.ProtoReflect.Descriptor instead.
+func (*SetFhirBaseUriRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{91}
+}
+
+func (x *SetFhirBaseUriRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetFhirBaseUriResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetFhirBaseUriResponse) Reset() {
+	*x = SetFhirBaseUriResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[92]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetFhirBaseUriResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetFhirBaseUriResponse) ProtoMessage() {}
+
+func (x *SetFhirBaseUriResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[92]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetFhirBaseUriResponse.ProtoReflect.Descriptor instead.
+func (*SetFhirBaseUriResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{92}
+}
+
+func (x *SetFhirBaseUriResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SetFhirVersionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetFhirVersionRequest) Reset() {
+	*x = SetFhirVersionRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[93]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetFhirVersionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetFhirVersionRequest) ProtoMessage() {}
+
+func (x *SetFhirVersionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[93]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetFhirVersionRequest.ProtoReflect.Descriptor instead.
+func (*SetFhirVersionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{93}
+}
+
+func (x *SetFhirVersionRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetFhirVersionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetFhirVersionResponse) Reset() {
+	*x = SetFhirVersionResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[94]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetFhirVersionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetFhirVersionResponse) ProtoMessage() {}
+
+func (x *SetFhirVersionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[94]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetFhirVersionResponse.ProtoReflect.Descriptor instead.
+func (*SetFhirVersionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{94}
+}
+
+func (x *SetFhirVersionResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMedicalDataSourcesRequestDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMedicalDataSourcesRequestDescribeContentsRequest) Reset() {
+	*x = GetMedicalDataSourcesRequestDescribeContentsRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[95]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMedicalDataSourcesRequestDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMedicalDataSourcesRequestDescribeContentsRequest) ProtoMessage() {}
+
+func (x *GetMedicalDataSourcesRequestDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[95]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMedicalDataSourcesRequestDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*GetMedicalDataSourcesRequestDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{95}
+}
+
+type GetPackageNamesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPackageNamesRequest) Reset() {
+	*x = GetPackageNamesRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[96]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPackageNamesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPackageNamesRequest) ProtoMessage() {}
+
+func (x *GetPackageNamesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[96]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPackageNamesRequest.ProtoReflect.Descriptor instead.
+func (*GetPackageNamesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{96}
+}
+
+type GetPackageNamesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetPackageNamesResponse) Reset() {
+	*x = GetPackageNamesResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[97]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetPackageNamesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPackageNamesResponse) ProtoMessage() {}
+
+func (x *GetPackageNamesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[97]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPackageNamesResponse.ProtoReflect.Descriptor instead.
+func (*GetPackageNamesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{97}
+}
+
+func (x *GetPackageNamesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMedicalDataSourcesRequestToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMedicalDataSourcesRequestToStringRequest) Reset() {
+	*x = GetMedicalDataSourcesRequestToStringRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[98]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMedicalDataSourcesRequestToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMedicalDataSourcesRequestToStringRequest) ProtoMessage() {}
+
+func (x *GetMedicalDataSourcesRequestToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[98]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMedicalDataSourcesRequestToStringRequest.ProtoReflect.Descriptor instead.
+func (*GetMedicalDataSourcesRequestToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{98}
+}
+
+type GetMedicalDataSourcesRequestWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMedicalDataSourcesRequestWriteToParcelRequest) Reset() {
+	*x = GetMedicalDataSourcesRequestWriteToParcelRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[99]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMedicalDataSourcesRequestWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMedicalDataSourcesRequestWriteToParcelRequest) ProtoMessage() {}
+
+func (x *GetMedicalDataSourcesRequestWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[99]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMedicalDataSourcesRequestWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*GetMedicalDataSourcesRequestWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{99}
+}
+
+func (x *GetMedicalDataSourcesRequestWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *GetMedicalDataSourcesRequestWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type AddPackageNameRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddPackageNameRequest) Reset() {
+	*x = AddPackageNameRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[100]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddPackageNameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddPackageNameRequest) ProtoMessage() {}
+
+func (x *AddPackageNameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[100]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddPackageNameRequest.ProtoReflect.Descriptor instead.
+func (*AddPackageNameRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{100}
+}
+
+func (x *AddPackageNameRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type AddPackageNameResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddPackageNameResponse) Reset() {
+	*x = AddPackageNameResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[101]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddPackageNameResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddPackageNameResponse) ProtoMessage() {}
+
+func (x *AddPackageNameResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[101]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddPackageNameResponse.ProtoReflect.Descriptor instead.
+func (*AddPackageNameResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{101}
+}
+
+func (x *AddPackageNameResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ClearPackageNamesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearPackageNamesRequest) Reset() {
+	*x = ClearPackageNamesRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[102]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearPackageNamesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearPackageNamesRequest) ProtoMessage() {}
+
+func (x *ClearPackageNamesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[102]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearPackageNamesRequest.ProtoReflect.Descriptor instead.
+func (*ClearPackageNamesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{102}
+}
+
+type ClearPackageNamesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClearPackageNamesResponse) Reset() {
+	*x = ClearPackageNamesResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[103]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClearPackageNamesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClearPackageNamesResponse) ProtoMessage() {}
+
+func (x *ClearPackageNamesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[103]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClearPackageNamesResponse.ProtoReflect.Descriptor instead.
+func (*ClearPackageNamesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{103}
+}
+
+func (x *ClearPackageNamesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type UpsertMedicalResourceRequestDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpsertMedicalResourceRequestDescribeContentsRequest) Reset() {
+	*x = UpsertMedicalResourceRequestDescribeContentsRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[104]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpsertMedicalResourceRequestDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpsertMedicalResourceRequestDescribeContentsRequest) ProtoMessage() {}
+
+func (x *UpsertMedicalResourceRequestDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[104]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpsertMedicalResourceRequestDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*UpsertMedicalResourceRequestDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{104}
 }
 
 type GetDataRequest struct {
@@ -4219,7 +4475,7 @@ type GetDataRequest struct {
 
 func (x *GetDataRequest) Reset() {
 	*x = GetDataRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[97]
+	mi := &file_proto_connect_connect_proto_msgTypes[105]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4231,7 +4487,7 @@ func (x *GetDataRequest) String() string {
 func (*GetDataRequest) ProtoMessage() {}
 
 func (x *GetDataRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[97]
+	mi := &file_proto_connect_connect_proto_msgTypes[105]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4244,7 +4500,7 @@ func (x *GetDataRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDataRequest.ProtoReflect.Descriptor instead.
 func (*GetDataRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{97}
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{105}
 }
 
 type GetDataResponse struct {
@@ -4256,7 +4512,7 @@ type GetDataResponse struct {
 
 func (x *GetDataResponse) Reset() {
 	*x = GetDataResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[98]
+	mi := &file_proto_connect_connect_proto_msgTypes[106]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4268,7 +4524,7 @@ func (x *GetDataResponse) String() string {
 func (*GetDataResponse) ProtoMessage() {}
 
 func (x *GetDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[98]
+	mi := &file_proto_connect_connect_proto_msgTypes[106]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4281,7 +4537,7 @@ func (x *GetDataResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDataResponse.ProtoReflect.Descriptor instead.
 func (*GetDataResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{98}
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{106}
 }
 
 func (x *GetDataResponse) GetResult() string {
@@ -4299,7 +4555,7 @@ type UpsertMedicalResourceRequestGetDataSourceIdRequest struct {
 
 func (x *UpsertMedicalResourceRequestGetDataSourceIdRequest) Reset() {
 	*x = UpsertMedicalResourceRequestGetDataSourceIdRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[99]
+	mi := &file_proto_connect_connect_proto_msgTypes[107]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4311,7 +4567,7 @@ func (x *UpsertMedicalResourceRequestGetDataSourceIdRequest) String() string {
 func (*UpsertMedicalResourceRequestGetDataSourceIdRequest) ProtoMessage() {}
 
 func (x *UpsertMedicalResourceRequestGetDataSourceIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[99]
+	mi := &file_proto_connect_connect_proto_msgTypes[107]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4324,7 +4580,95 @@ func (x *UpsertMedicalResourceRequestGetDataSourceIdRequest) ProtoReflect() prot
 
 // Deprecated: Use UpsertMedicalResourceRequestGetDataSourceIdRequest.ProtoReflect.Descriptor instead.
 func (*UpsertMedicalResourceRequestGetDataSourceIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{99}
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{107}
+}
+
+type UpsertMedicalResourceRequestToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpsertMedicalResourceRequestToStringRequest) Reset() {
+	*x = UpsertMedicalResourceRequestToStringRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[108]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpsertMedicalResourceRequestToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpsertMedicalResourceRequestToStringRequest) ProtoMessage() {}
+
+func (x *UpsertMedicalResourceRequestToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[108]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpsertMedicalResourceRequestToStringRequest.ProtoReflect.Descriptor instead.
+func (*UpsertMedicalResourceRequestToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{108}
+}
+
+type UpsertMedicalResourceRequestWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpsertMedicalResourceRequestWriteToParcelRequest) Reset() {
+	*x = UpsertMedicalResourceRequestWriteToParcelRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[109]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpsertMedicalResourceRequestWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpsertMedicalResourceRequestWriteToParcelRequest) ProtoMessage() {}
+
+func (x *UpsertMedicalResourceRequestWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[109]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpsertMedicalResourceRequestWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*UpsertMedicalResourceRequestWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{109}
+}
+
+func (x *UpsertMedicalResourceRequestWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *UpsertMedicalResourceRequestWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
 }
 
 type SetDataRequest struct {
@@ -4336,7 +4680,7 @@ type SetDataRequest struct {
 
 func (x *SetDataRequest) Reset() {
 	*x = SetDataRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[100]
+	mi := &file_proto_connect_connect_proto_msgTypes[110]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4348,7 +4692,7 @@ func (x *SetDataRequest) String() string {
 func (*SetDataRequest) ProtoMessage() {}
 
 func (x *SetDataRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[100]
+	mi := &file_proto_connect_connect_proto_msgTypes[110]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4361,7 +4705,7 @@ func (x *SetDataRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDataRequest.ProtoReflect.Descriptor instead.
 func (*SetDataRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{100}
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{110}
 }
 
 func (x *SetDataRequest) GetArg0() string {
@@ -4380,7 +4724,7 @@ type SetDataResponse struct {
 
 func (x *SetDataResponse) Reset() {
 	*x = SetDataResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[101]
+	mi := &file_proto_connect_connect_proto_msgTypes[111]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4392,7 +4736,7 @@ func (x *SetDataResponse) String() string {
 func (*SetDataResponse) ProtoMessage() {}
 
 func (x *SetDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[101]
+	mi := &file_proto_connect_connect_proto_msgTypes[111]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4405,7 +4749,7 @@ func (x *SetDataResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDataResponse.ProtoReflect.Descriptor instead.
 func (*SetDataResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{101}
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{111}
 }
 
 func (x *SetDataResponse) GetResult() int64 {
@@ -4424,7 +4768,7 @@ type SetDataSourceIdRequest struct {
 
 func (x *SetDataSourceIdRequest) Reset() {
 	*x = SetDataSourceIdRequest{}
-	mi := &file_proto_connect_connect_proto_msgTypes[102]
+	mi := &file_proto_connect_connect_proto_msgTypes[112]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4436,7 +4780,7 @@ func (x *SetDataSourceIdRequest) String() string {
 func (*SetDataSourceIdRequest) ProtoMessage() {}
 
 func (x *SetDataSourceIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[102]
+	mi := &file_proto_connect_connect_proto_msgTypes[112]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4449,7 +4793,7 @@ func (x *SetDataSourceIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDataSourceIdRequest.ProtoReflect.Descriptor instead.
 func (*SetDataSourceIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{102}
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{112}
 }
 
 func (x *SetDataSourceIdRequest) GetArg0() string {
@@ -4468,7 +4812,7 @@ type SetDataSourceIdResponse struct {
 
 func (x *SetDataSourceIdResponse) Reset() {
 	*x = SetDataSourceIdResponse{}
-	mi := &file_proto_connect_connect_proto_msgTypes[103]
+	mi := &file_proto_connect_connect_proto_msgTypes[113]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4480,7 +4824,7 @@ func (x *SetDataSourceIdResponse) String() string {
 func (*SetDataSourceIdResponse) ProtoMessage() {}
 
 func (x *SetDataSourceIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_connect_connect_proto_msgTypes[103]
+	mi := &file_proto_connect_connect_proto_msgTypes[113]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4493,7 +4837,7 @@ func (x *SetDataSourceIdResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDataSourceIdResponse.ProtoReflect.Descriptor instead.
 func (*SetDataSourceIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_connect_connect_proto_rawDescGZIP(), []int{103}
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{113}
 }
 
 func (x *SetDataSourceIdResponse) GetResult() int64 {
@@ -4503,54 +4847,1368 @@ func (x *SetDataSourceIdResponse) GetResult() int64 {
 	return 0
 }
 
+type GetAggregationTypesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAggregationTypesRequest) Reset() {
+	*x = GetAggregationTypesRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[114]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAggregationTypesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAggregationTypesRequest) ProtoMessage() {}
+
+func (x *GetAggregationTypesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[114]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAggregationTypesRequest.ProtoReflect.Descriptor instead.
+func (*GetAggregationTypesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{114}
+}
+
+type GetAggregationTypesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAggregationTypesResponse) Reset() {
+	*x = GetAggregationTypesResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[115]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAggregationTypesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAggregationTypesResponse) ProtoMessage() {}
+
+func (x *GetAggregationTypesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[115]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAggregationTypesResponse.ProtoReflect.Descriptor instead.
+func (*GetAggregationTypesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{115}
+}
+
+func (x *GetAggregationTypesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetDataOriginsFiltersRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDataOriginsFiltersRequest) Reset() {
+	*x = GetDataOriginsFiltersRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[116]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDataOriginsFiltersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDataOriginsFiltersRequest) ProtoMessage() {}
+
+func (x *GetDataOriginsFiltersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[116]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDataOriginsFiltersRequest.ProtoReflect.Descriptor instead.
+func (*GetDataOriginsFiltersRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{116}
+}
+
+type GetDataOriginsFiltersResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDataOriginsFiltersResponse) Reset() {
+	*x = GetDataOriginsFiltersResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[117]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDataOriginsFiltersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDataOriginsFiltersResponse) ProtoMessage() {}
+
+func (x *GetDataOriginsFiltersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[117]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDataOriginsFiltersResponse.ProtoReflect.Descriptor instead.
+func (*GetDataOriginsFiltersResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{117}
+}
+
+func (x *GetDataOriginsFiltersResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddDataOriginsFilterRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddDataOriginsFilterRequest) Reset() {
+	*x = AddDataOriginsFilterRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[118]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddDataOriginsFilterRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddDataOriginsFilterRequest) ProtoMessage() {}
+
+func (x *AddDataOriginsFilterRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[118]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddDataOriginsFilterRequest.ProtoReflect.Descriptor instead.
+func (*AddDataOriginsFilterRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{118}
+}
+
+func (x *AddDataOriginsFilterRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type AddDataOriginsFilterResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddDataOriginsFilterResponse) Reset() {
+	*x = AddDataOriginsFilterResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[119]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddDataOriginsFilterResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddDataOriginsFilterResponse) ProtoMessage() {}
+
+func (x *AddDataOriginsFilterResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[119]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddDataOriginsFilterResponse.ProtoReflect.Descriptor instead.
+func (*AddDataOriginsFilterResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{119}
+}
+
+func (x *AddDataOriginsFilterResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetMedicalResourceTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMedicalResourceTypeRequest) Reset() {
+	*x = GetMedicalResourceTypeRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[120]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMedicalResourceTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMedicalResourceTypeRequest) ProtoMessage() {}
+
+func (x *GetMedicalResourceTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[120]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMedicalResourceTypeRequest.ProtoReflect.Descriptor instead.
+func (*GetMedicalResourceTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{120}
+}
+
+type GetMedicalResourceTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMedicalResourceTypeResponse) Reset() {
+	*x = GetMedicalResourceTypeResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[121]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMedicalResourceTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMedicalResourceTypeResponse) ProtoMessage() {}
+
+func (x *GetMedicalResourceTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[121]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMedicalResourceTypeResponse.ProtoReflect.Descriptor instead.
+func (*GetMedicalResourceTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{121}
+}
+
+func (x *GetMedicalResourceTypeResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ReadMedicalResourcesInitialRequestToStringRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReadMedicalResourcesInitialRequestToStringRequest) Reset() {
+	*x = ReadMedicalResourcesInitialRequestToStringRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[122]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReadMedicalResourcesInitialRequestToStringRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReadMedicalResourcesInitialRequestToStringRequest) ProtoMessage() {}
+
+func (x *ReadMedicalResourcesInitialRequestToStringRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[122]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReadMedicalResourcesInitialRequestToStringRequest.ProtoReflect.Descriptor instead.
+func (*ReadMedicalResourcesInitialRequestToStringRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{122}
+}
+
+type SetMedicalResourceTypeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMedicalResourceTypeRequest) Reset() {
+	*x = SetMedicalResourceTypeRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[123]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMedicalResourceTypeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMedicalResourceTypeRequest) ProtoMessage() {}
+
+func (x *SetMedicalResourceTypeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[123]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMedicalResourceTypeRequest.ProtoReflect.Descriptor instead.
+func (*SetMedicalResourceTypeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{123}
+}
+
+func (x *SetMedicalResourceTypeRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type SetMedicalResourceTypeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMedicalResourceTypeResponse) Reset() {
+	*x = SetMedicalResourceTypeResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[124]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMedicalResourceTypeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMedicalResourceTypeResponse) ProtoMessage() {}
+
+func (x *SetMedicalResourceTypeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[124]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SetMedicalResourceTypeResponse.ProtoReflect.Descriptor instead.
+func (*SetMedicalResourceTypeResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{124}
+}
+
+func (x *SetMedicalResourceTypeResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type NewReadMedicalResourcesResponseRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          string                 `protobuf:"bytes,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg2          int32                  `protobuf:"varint,3,opt,name=arg2,proto3" json:"arg2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewReadMedicalResourcesResponseRequest) Reset() {
+	*x = NewReadMedicalResourcesResponseRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[125]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewReadMedicalResourcesResponseRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewReadMedicalResourcesResponseRequest) ProtoMessage() {}
+
+func (x *NewReadMedicalResourcesResponseRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[125]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewReadMedicalResourcesResponseRequest.ProtoReflect.Descriptor instead.
+func (*NewReadMedicalResourcesResponseRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{125}
+}
+
+func (x *NewReadMedicalResourcesResponseRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *NewReadMedicalResourcesResponseRequest) GetArg1() string {
+	if x != nil {
+		return x.Arg1
+	}
+	return ""
+}
+
+func (x *NewReadMedicalResourcesResponseRequest) GetArg2() int32 {
+	if x != nil {
+		return x.Arg2
+	}
+	return 0
+}
+
+type NewReadMedicalResourcesResponseResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewReadMedicalResourcesResponseResponse) Reset() {
+	*x = NewReadMedicalResourcesResponseResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[126]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewReadMedicalResourcesResponseResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewReadMedicalResourcesResponseResponse) ProtoMessage() {}
+
+func (x *NewReadMedicalResourcesResponseResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[126]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewReadMedicalResourcesResponseResponse.ProtoReflect.Descriptor instead.
+func (*NewReadMedicalResourcesResponseResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{126}
+}
+
+func (x *NewReadMedicalResourcesResponseResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ReadMedicalResourcesResponseEqualsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReadMedicalResourcesResponseEqualsRequest) Reset() {
+	*x = ReadMedicalResourcesResponseEqualsRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[127]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReadMedicalResourcesResponseEqualsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReadMedicalResourcesResponseEqualsRequest) ProtoMessage() {}
+
+func (x *ReadMedicalResourcesResponseEqualsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[127]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReadMedicalResourcesResponseEqualsRequest.ProtoReflect.Descriptor instead.
+func (*ReadMedicalResourcesResponseEqualsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{127}
+}
+
+func (x *ReadMedicalResourcesResponseEqualsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *ReadMedicalResourcesResponseEqualsRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetMedicalResourcesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMedicalResourcesRequest) Reset() {
+	*x = GetMedicalResourcesRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[128]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMedicalResourcesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMedicalResourcesRequest) ProtoMessage() {}
+
+func (x *GetMedicalResourcesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[128]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMedicalResourcesRequest.ProtoReflect.Descriptor instead.
+func (*GetMedicalResourcesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{128}
+}
+
+func (x *GetMedicalResourcesRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetMedicalResourcesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetMedicalResourcesResponse) Reset() {
+	*x = GetMedicalResourcesResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[129]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetMedicalResourcesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMedicalResourcesResponse) ProtoMessage() {}
+
+func (x *GetMedicalResourcesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[129]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMedicalResourcesResponse.ProtoReflect.Descriptor instead.
+func (*GetMedicalResourcesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{129}
+}
+
+func (x *GetMedicalResourcesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ReadMedicalResourcesResponseGetNextPageTokenRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReadMedicalResourcesResponseGetNextPageTokenRequest) Reset() {
+	*x = ReadMedicalResourcesResponseGetNextPageTokenRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[130]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReadMedicalResourcesResponseGetNextPageTokenRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReadMedicalResourcesResponseGetNextPageTokenRequest) ProtoMessage() {}
+
+func (x *ReadMedicalResourcesResponseGetNextPageTokenRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[130]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReadMedicalResourcesResponseGetNextPageTokenRequest.ProtoReflect.Descriptor instead.
+func (*ReadMedicalResourcesResponseGetNextPageTokenRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{130}
+}
+
+func (x *ReadMedicalResourcesResponseGetNextPageTokenRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type ReadMedicalResourcesResponseGetNextPageTokenResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReadMedicalResourcesResponseGetNextPageTokenResponse) Reset() {
+	*x = ReadMedicalResourcesResponseGetNextPageTokenResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[131]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReadMedicalResourcesResponseGetNextPageTokenResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReadMedicalResourcesResponseGetNextPageTokenResponse) ProtoMessage() {}
+
+func (x *ReadMedicalResourcesResponseGetNextPageTokenResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[131]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReadMedicalResourcesResponseGetNextPageTokenResponse.ProtoReflect.Descriptor instead.
+func (*ReadMedicalResourcesResponseGetNextPageTokenResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{131}
+}
+
+func (x *ReadMedicalResourcesResponseGetNextPageTokenResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetRemainingCountRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRemainingCountRequest) Reset() {
+	*x = GetRemainingCountRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[132]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRemainingCountRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRemainingCountRequest) ProtoMessage() {}
+
+func (x *GetRemainingCountRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[132]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRemainingCountRequest.ProtoReflect.Descriptor instead.
+func (*GetRemainingCountRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{132}
+}
+
+func (x *GetRemainingCountRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetRemainingCountResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int32                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRemainingCountResponse) Reset() {
+	*x = GetRemainingCountResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[133]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRemainingCountResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRemainingCountResponse) ProtoMessage() {}
+
+func (x *GetRemainingCountResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[133]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRemainingCountResponse.ProtoReflect.Descriptor instead.
+func (*GetRemainingCountResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{133}
+}
+
+func (x *GetRemainingCountResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type ReadMedicalResourcesResponseHashCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ReadMedicalResourcesResponseHashCodeRequest) Reset() {
+	*x = ReadMedicalResourcesResponseHashCodeRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[134]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReadMedicalResourcesResponseHashCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReadMedicalResourcesResponseHashCodeRequest) ProtoMessage() {}
+
+func (x *ReadMedicalResourcesResponseHashCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[134]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReadMedicalResourcesResponseHashCodeRequest.ProtoReflect.Descriptor instead.
+func (*ReadMedicalResourcesResponseHashCodeRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{134}
+}
+
+func (x *ReadMedicalResourcesResponseHashCodeRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetRecordIdFiltersRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRecordIdFiltersRequest) Reset() {
+	*x = GetRecordIdFiltersRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[135]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRecordIdFiltersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRecordIdFiltersRequest) ProtoMessage() {}
+
+func (x *GetRecordIdFiltersRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[135]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRecordIdFiltersRequest.ProtoReflect.Descriptor instead.
+func (*GetRecordIdFiltersRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{135}
+}
+
+type GetRecordIdFiltersResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRecordIdFiltersResponse) Reset() {
+	*x = GetRecordIdFiltersResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[136]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRecordIdFiltersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRecordIdFiltersResponse) ProtoMessage() {}
+
+func (x *GetRecordIdFiltersResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[136]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRecordIdFiltersResponse.ProtoReflect.Descriptor instead.
+func (*GetRecordIdFiltersResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{136}
+}
+
+func (x *GetRecordIdFiltersResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddClientRecordIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddClientRecordIdRequest) Reset() {
+	*x = AddClientRecordIdRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[137]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddClientRecordIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddClientRecordIdRequest) ProtoMessage() {}
+
+func (x *AddClientRecordIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[137]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddClientRecordIdRequest.ProtoReflect.Descriptor instead.
+func (*AddClientRecordIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{137}
+}
+
+func (x *AddClientRecordIdRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type AddClientRecordIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddClientRecordIdResponse) Reset() {
+	*x = AddClientRecordIdResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[138]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddClientRecordIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddClientRecordIdResponse) ProtoMessage() {}
+
+func (x *AddClientRecordIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[138]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddClientRecordIdResponse.ProtoReflect.Descriptor instead.
+func (*AddClientRecordIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{138}
+}
+
+func (x *AddClientRecordIdResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type AddIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddIdRequest) Reset() {
+	*x = AddIdRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[139]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddIdRequest) ProtoMessage() {}
+
+func (x *AddIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[139]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddIdRequest.ProtoReflect.Descriptor instead.
+func (*AddIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{139}
+}
+
+func (x *AddIdRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type AddIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddIdResponse) Reset() {
+	*x = AddIdResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[140]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddIdResponse) ProtoMessage() {}
+
+func (x *AddIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[140]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddIdResponse.ProtoReflect.Descriptor instead.
+func (*AddIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{140}
+}
+
+func (x *AddIdResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetClientRecordIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetClientRecordIdRequest) Reset() {
+	*x = GetClientRecordIdRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[141]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetClientRecordIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetClientRecordIdRequest) ProtoMessage() {}
+
+func (x *GetClientRecordIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[141]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetClientRecordIdRequest.ProtoReflect.Descriptor instead.
+func (*GetClientRecordIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{141}
+}
+
+type GetClientRecordIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetClientRecordIdResponse) Reset() {
+	*x = GetClientRecordIdResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[142]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetClientRecordIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetClientRecordIdResponse) ProtoMessage() {}
+
+func (x *GetClientRecordIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[142]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetClientRecordIdResponse.ProtoReflect.Descriptor instead.
+func (*GetClientRecordIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{142}
+}
+
+func (x *GetClientRecordIdResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetIdRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIdRequest) Reset() {
+	*x = GetIdRequest{}
+	mi := &file_proto_connect_connect_proto_msgTypes[143]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIdRequest) ProtoMessage() {}
+
+func (x *GetIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[143]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIdRequest.ProtoReflect.Descriptor instead.
+func (*GetIdRequest) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{143}
+}
+
+type GetIdResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetIdResponse) Reset() {
+	*x = GetIdResponse{}
+	mi := &file_proto_connect_connect_proto_msgTypes[144]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetIdResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetIdResponse) ProtoMessage() {}
+
+func (x *GetIdResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_connect_connect_proto_msgTypes[144]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetIdResponse.ProtoReflect.Descriptor instead.
+func (*GetIdResponse) Descriptor() ([]byte, []int) {
+	return file_proto_connect_connect_proto_rawDescGZIP(), []int{144}
+}
+
+func (x *GetIdResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
 var File_proto_connect_connect_proto protoreflect.FileDescriptor
 
 const file_proto_connect_connect_proto_rawDesc = "" +
 	"\n" +
 	"\x1bproto/connect/connect.proto\x12\aconnect\"\x19\n" +
-	"\x17DescribeContentsRequest\"2\n" +
-	"\x18DescribeContentsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"#\n" +
+	"\x17GetNextPageTokenRequest\"2\n" +
+	"\x18GetNextPageTokenResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x13\n" +
+	"\x11GetRecordsRequest\",\n" +
+	"\x12GetRecordsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"#\n" +
 	"\rEqualsRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"(\n" +
 	"\x0eEqualsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x11\n" +
-	"\x0fHashCodeRequest\"*\n" +
-	"\x10HashCodeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x11\n" +
-	"\x0fToStringRequest\"*\n" +
-	"\x10ToStringResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\">\n" +
-	"\x14WriteToParcelRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
-	"\x15WriteToParcelResponse\",\n" +
-	"\x16AddDataSourceIdRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"1\n" +
-	"\x17AddDataSourceIdResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"3\n" +
-	"\x1dAddMedicalResourceTypeRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"8\n" +
-	"\x1eAddMedicalResourceTypeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x0e\n" +
-	"\fBuildRequest\"'\n" +
-	"\rBuildResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
-	"\x19ClearDataSourceIdsRequest\"4\n" +
-	"\x1aClearDataSourceIdsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\"\n" +
-	" ClearMedicalResourceTypesRequest\";\n" +
-	"!ClearMedicalResourceTypesResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x13\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x13\n" +
 	"\x11GetEndTimeRequest\",\n" +
 	"\x12GetEndTimeResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
 	"\x13GetStartTimeRequest\".\n" +
 	"\x14GetStartTimeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x12\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
+	"\x0fHashCodeRequest\"*\n" +
+	"\x10HashCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x12\n" +
 	"\x10IsBoundedRequest\"+\n" +
 	"\x11IsBoundedResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"'\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"\x0e\n" +
+	"\fBuildRequest\"'\n" +
+	"\rBuildResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"'\n" +
 	"\x11SetEndTimeRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\",\n" +
 	"\x12SetEndTimeResponse\x12\x16\n" +
@@ -4558,111 +6216,17 @@ const file_proto_connect_connect_proto_rawDesc = "" +
 	"\x13SetStartTimeRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\".\n" +
 	"\x14SetStartTimeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
-	"\x19GetTimeRangeFilterRequest\"4\n" +
-	"\x1aGetTimeRangeFilterResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
-	"\x12GetPageSizeRequest\"-\n" +
-	"\x13GetPageSizeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"\x15\n" +
-	"\x13GetPageTokenRequest\".\n" +
-	"\x14GetPageTokenResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
-	"\x12IsAscendingRequest\"-\n" +
-	"\x13IsAscendingResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\bR\x06result\"\x19\n" +
-	"\x17GetNextPageTokenRequest\"2\n" +
-	"\x18GetNextPageTokenResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1f\n" +
-	"\x1dGetMedicalResourceTypeRequest\"8\n" +
-	"\x1eGetMedicalResourceTypeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"3\n" +
-	"\x1dSetMedicalResourceTypeRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"8\n" +
-	"\x1eSetMedicalResourceTypeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"(\n" +
-	"\x12SetPageSizeRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"-\n" +
-	"\x13SetPageSizeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x17\n" +
-	"\x15GetDisplayNameRequest\"0\n" +
-	"\x16GetDisplayNameResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x17\n" +
-	"\x15GetFhirBaseUriRequest\"0\n" +
-	"\x16GetFhirBaseUriResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x17\n" +
-	"\x15GetFhirVersionRequest\"0\n" +
-	"\x16GetFhirVersionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
-	"\x15SetDisplayNameRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"0\n" +
-	"\x16SetDisplayNameResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
-	"\x15SetFhirBaseUriRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"0\n" +
-	"\x16SetFhirBaseUriResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
-	"\x15SetFhirVersionRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"0\n" +
-	"\x16SetFhirVersionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
-	"\x13GetErrorCodeRequest\".\n" +
-	"\x14GetErrorCodeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"M\n" +
-	"3ReadMedicalResourcesPageRequestGetPageTokenResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\")\n" +
-	"\x13SetPageTokenRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\".\n" +
-	"\x14SetPageTokenResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1a\n" +
-	"\x18GetClientRecordIdRequest\"3\n" +
-	"\x19GetClientRecordIdResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x0e\n" +
-	"\fGetIdRequest\"'\n" +
-	"\rGetIdResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"+\n" +
-	"\x15AddPackageNameRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"0\n" +
-	"\x16AddPackageNameResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1a\n" +
-	"\x18ClearPackageNamesRequest\"3\n" +
-	"\x19ClearPackageNamesResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"d\n" +
-	"&NewReadMedicalResourcesResponseRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
-	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"A\n" +
-	"'NewReadMedicalResourcesResponseResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"M\n" +
-	"3ReadMedicalResourcesResponseDescribeContentsRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"W\n" +
-	")ReadMedicalResourcesResponseEqualsRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"M\n" +
-	"3ReadMedicalResourcesResponseGetNextPageTokenRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"N\n" +
-	"4ReadMedicalResourcesResponseGetNextPageTokenResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"2\n" +
-	"\x18GetRemainingCountRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"3\n" +
-	"\x19GetRemainingCountResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"E\n" +
-	"+ReadMedicalResourcesResponseHashCodeRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"E\n" +
-	"+ReadMedicalResourcesResponseToStringRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"r\n" +
-	"0ReadMedicalResourcesResponseWriteToParcelRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"Y\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"Y\n" +
 	"\x1bNewMedicalResourceIdRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
 	"\x04arg2\x18\x03 \x01(\tR\x04arg2\"6\n" +
 	"\x1cNewMedicalResourceIdResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"B\n" +
-	"(MedicalResourceIdDescribeContentsRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"L\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x17DescribeContentsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
+	"\x18DescribeContentsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"L\n" +
 	"\x1eMedicalResourceIdEqualsRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
 	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"0\n" +
@@ -4679,23 +6243,143 @@ const file_proto_connect_connect_proto_rawDesc = "" +
 	"\x1bGetFhirResourceTypeResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\":\n" +
 	" MedicalResourceIdHashCodeRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\":\n" +
-	" MedicalResourceIdToStringRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"g\n" +
-	"%MedicalResourceIdWriteToParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\")\n" +
+	"\x0fToStringRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10ToStringResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"V\n" +
+	"\x14WriteToParcelRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
 	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"Z\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse\"Z\n" +
 	"\x18FromFhirReferenceRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
 	"\x04arg0\x18\x02 \x01(\tR\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x03 \x01(\tR\x04arg1\"3\n" +
 	"\x19FromFhirReferenceResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"\x10\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
+	"\x13GetPageTokenRequest\".\n" +
+	"\x14GetPageTokenResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"0\n" +
+	".ReadMedicalResourcesPageRequestToStringRequest\"(\n" +
+	"\x12SetPageSizeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"-\n" +
+	"\x13SetPageSizeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x13SetPageTokenRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\".\n" +
+	"\x14SetPageTokenResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x16\n" +
+	"\x14GetRecordTypeRequest\"/\n" +
+	"\x15GetRecordTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x17\n" +
+	"\x15GetDataOriginsRequest\"0\n" +
+	"\x16GetDataOriginsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
+	"\x12GetPageSizeRequest\"-\n" +
+	"\x13GetPageSizeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"L\n" +
+	"2ReadRecordsRequestUsingFiltersGetPageTokenResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
+	"\x19GetTimeRangeFilterRequest\"4\n" +
+	"\x1aGetTimeRangeFilterResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x14\n" +
+	"\x12IsAscendingRequest\"-\n" +
+	"\x13IsAscendingResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\bR\x06result\"+\n" +
+	"\x15AddDataOriginsRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"0\n" +
+	"\x16AddDataOriginsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x13SetAscendingRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\bR\x04arg0\".\n" +
+	"\x14SetAscendingResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"N\n" +
+	"8ReadRecordsRequestUsingFiltersBuilderSetPageTokenRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"/\n" +
+	"\x19SetTimeRangeFilterRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"4\n" +
+	"\x1aSetTimeRangeFilterResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x15\n" +
+	"\x13GetErrorCodeRequest\".\n" +
+	"\x14GetErrorCodeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"6\n" +
+	"4DeleteMedicalResourcesRequestDescribeContentsRequest\"\x19\n" +
+	"\x17GetDataSourceIdsRequest\"2\n" +
+	"\x18GetDataSourceIdsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\" \n" +
+	"\x1eGetMedicalResourceTypesRequest\"9\n" +
+	"\x1fGetMedicalResourceTypesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	",DeleteMedicalResourcesRequestToStringRequest\"[\n" +
+	"1DeleteMedicalResourcesRequestWriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\",\n" +
+	"\x16AddDataSourceIdRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"1\n" +
+	"\x17AddDataSourceIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"3\n" +
+	"\x1dAddMedicalResourceTypeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"8\n" +
+	"\x1eAddMedicalResourceTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1b\n" +
+	"\x19ClearDataSourceIdsRequest\"4\n" +
+	"\x1aClearDataSourceIdsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\"\n" +
+	" ClearMedicalResourceTypesRequest\";\n" +
+	"!ClearMedicalResourceTypesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"7\n" +
+	"5CreateMedicalDataSourceRequestDescribeContentsRequest\"\x17\n" +
+	"\x15GetDisplayNameRequest\"0\n" +
+	"\x16GetDisplayNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x17\n" +
+	"\x15GetFhirBaseUriRequest\"0\n" +
+	"\x16GetFhirBaseUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x17\n" +
+	"\x15GetFhirVersionRequest\"0\n" +
+	"\x16GetFhirVersionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
+	"-CreateMedicalDataSourceRequestToStringRequest\"\\\n" +
+	"2CreateMedicalDataSourceRequestWriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"+\n" +
+	"\x15SetDisplayNameRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"0\n" +
+	"\x16SetDisplayNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x15SetFhirBaseUriRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"0\n" +
+	"\x16SetFhirBaseUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"+\n" +
+	"\x15SetFhirVersionRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"0\n" +
+	"\x16SetFhirVersionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
+	"3GetMedicalDataSourcesRequestDescribeContentsRequest\"\x18\n" +
+	"\x16GetPackageNamesRequest\"1\n" +
+	"\x17GetPackageNamesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"-\n" +
+	"+GetMedicalDataSourcesRequestToStringRequest\"Z\n" +
+	"0GetMedicalDataSourcesRequestWriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"+\n" +
+	"\x15AddPackageNameRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"0\n" +
+	"\x16AddPackageNameResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1a\n" +
+	"\x18ClearPackageNamesRequest\"3\n" +
+	"\x19ClearPackageNamesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
+	"3UpsertMedicalResourceRequestDescribeContentsRequest\"\x10\n" +
 	"\x0eGetDataRequest\")\n" +
 	"\x0fGetDataResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\tR\x06result\"4\n" +
-	"2UpsertMedicalResourceRequestGetDataSourceIdRequest\"$\n" +
+	"2UpsertMedicalResourceRequestGetDataSourceIdRequest\"-\n" +
+	"+UpsertMedicalResourceRequestToStringRequest\"Z\n" +
+	"0UpsertMedicalResourceRequestWriteToParcelRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"$\n" +
 	"\x0eSetDataRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\")\n" +
 	"\x0fSetDataResponse\x12\x16\n" +
@@ -4703,95 +6387,69 @@ const file_proto_connect_connect_proto_rawDesc = "" +
 	"\x16SetDataSourceIdRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"1\n" +
 	"\x17SetDataSourceIdResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result2\x8c\x03\n" +
-	"$DeleteMedicalResourcesRequestService\x12W\n" +
-	"\x10DescribeContents\x12 .connect.DescribeContentsRequest\x1a!.connect.DescribeContentsResponse\x129\n" +
-	"\x06Equals\x12\x16.connect.EqualsRequest\x1a\x17.connect.EqualsResponse\x12?\n" +
-	"\bHashCode\x12\x18.connect.HashCodeRequest\x1a\x19.connect.HashCodeResponse\x12?\n" +
-	"\bToString\x12\x18.connect.ToStringRequest\x1a\x19.connect.ToStringResponse\x12N\n" +
-	"\rWriteToParcel\x12\x1d.connect.WriteToParcelRequest\x1a\x1e.connect.WriteToParcelResponse2\xf9\x03\n" +
-	"+DeleteMedicalResourcesRequestBuilderService\x12T\n" +
-	"\x0fAddDataSourceId\x12\x1f.connect.AddDataSourceIdRequest\x1a .connect.AddDataSourceIdResponse\x12i\n" +
-	"\x16AddMedicalResourceType\x12&.connect.AddMedicalResourceTypeRequest\x1a'.connect.AddMedicalResourceTypeResponse\x126\n" +
-	"\x05Build\x12\x15.connect.BuildRequest\x1a\x16.connect.BuildResponse\x12]\n" +
-	"\x12ClearDataSourceIds\x12\".connect.ClearDataSourceIdsRequest\x1a#.connect.ClearDataSourceIdsResponse\x12r\n" +
-	"\x19ClearMedicalResourceTypes\x12).connect.ClearMedicalResourceTypesRequest\x1a*.connect.ClearMedicalResourceTypesResponse2\xf3\x02\n" +
-	"\x1dTimeInstantRangeFilterService\x129\n" +
-	"\x06Equals\x12\x16.connect.EqualsRequest\x1a\x17.connect.EqualsResponse\x12E\n" +
-	"\n" +
-	"GetEndTime\x12\x1a.connect.GetEndTimeRequest\x1a\x1b.connect.GetEndTimeResponse\x12K\n" +
-	"\fGetStartTime\x12\x1c.connect.GetStartTimeRequest\x1a\x1d.connect.GetStartTimeResponse\x12?\n" +
-	"\bHashCode\x12\x18.connect.HashCodeRequest\x1a\x19.connect.HashCodeResponse\x12B\n" +
-	"\tIsBounded\x12\x19.connect.IsBoundedRequest\x1a\x1a.connect.IsBoundedResponse2\xf2\x01\n" +
-	"$TimeInstantRangeFilterBuilderService\x126\n" +
-	"\x05Build\x12\x15.connect.BuildRequest\x1a\x16.connect.BuildResponse\x12E\n" +
-	"\n" +
-	"SetEndTime\x12\x1a.connect.SetEndTimeRequest\x1a\x1b.connect.SetEndTimeResponse\x12K\n" +
-	"\fSetStartTime\x12\x1c.connect.SetStartTimeRequest\x1a\x1d.connect.SetStartTimeResponse2\x7f\n" +
-	"\x1eAggregateRecordsRequestService\x12]\n" +
-	"\x12GetTimeRangeFilter\x12\".connect.GetTimeRangeFilterRequest\x1a#.connect.GetTimeRangeFilterResponse2\xe7\x02\n" +
-	"%ReadRecordsRequestUsingFiltersService\x12H\n" +
-	"\vGetPageSize\x12\x1b.connect.GetPageSizeRequest\x1a\x1c.connect.GetPageSizeResponse\x12K\n" +
-	"\fGetPageToken\x12\x1c.connect.GetPageTokenRequest\x1a\x1d.connect.GetPageTokenResponse\x12]\n" +
-	"\x12GetTimeRangeFilter\x12\".connect.GetTimeRangeFilterRequest\x1a#.connect.GetTimeRangeFilterResponse\x12H\n" +
-	"\vIsAscending\x12\x1b.connect.IsAscendingRequest\x1a\x1c.connect.IsAscendingResponse2u\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1c\n" +
+	"\x1aGetAggregationTypesRequest\"5\n" +
+	"\x1bGetAggregationTypesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1e\n" +
+	"\x1cGetDataOriginsFiltersRequest\"7\n" +
+	"\x1dGetDataOriginsFiltersResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x1bAddDataOriginsFilterRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"6\n" +
+	"\x1cAddDataOriginsFilterResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1f\n" +
+	"\x1dGetMedicalResourceTypeRequest\"8\n" +
+	"\x1eGetMedicalResourceTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"3\n" +
+	"1ReadMedicalResourcesInitialRequestToStringRequest\"3\n" +
+	"\x1dSetMedicalResourceTypeRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"8\n" +
+	"\x1eSetMedicalResourceTypeResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"d\n" +
+	"&NewReadMedicalResourcesResponseRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
+	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"A\n" +
+	"'NewReadMedicalResourcesResponseResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"W\n" +
+	")ReadMedicalResourcesResponseEqualsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"4\n" +
+	"\x1aGetMedicalResourcesRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"5\n" +
+	"\x1bGetMedicalResourcesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"M\n" +
+	"3ReadMedicalResourcesResponseGetNextPageTokenRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"N\n" +
+	"4ReadMedicalResourcesResponseGetNextPageTokenResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"2\n" +
+	"\x18GetRemainingCountRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"3\n" +
+	"\x19GetRemainingCountResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"E\n" +
+	"+ReadMedicalResourcesResponseHashCodeRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"\x1b\n" +
+	"\x19GetRecordIdFiltersRequest\"4\n" +
+	"\x1aGetRecordIdFiltersResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x18AddClientRecordIdRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"3\n" +
+	"\x19AddClientRecordIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\"\n" +
+	"\fAddIdRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"'\n" +
+	"\rAddIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1a\n" +
+	"\x18GetClientRecordIdRequest\"3\n" +
+	"\x19GetClientRecordIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x0e\n" +
+	"\fGetIdRequest\"'\n" +
+	"\rGetIdResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result2\xbc\x01\n" +
 	"\x1aReadRecordsResponseService\x12W\n" +
-	"\x10GetNextPageToken\x12 .connect.GetNextPageTokenRequest\x1a!.connect.GetNextPageTokenResponse2\xd3\x02\n" +
-	")ReadMedicalResourcesInitialRequestService\x129\n" +
-	"\x06Equals\x12\x16.connect.EqualsRequest\x1a\x17.connect.EqualsResponse\x12i\n" +
-	"\x16GetMedicalResourceType\x12&.connect.GetMedicalResourceTypeRequest\x1a'.connect.GetMedicalResourceTypeResponse\x12?\n" +
-	"\bHashCode\x12\x18.connect.HashCodeRequest\x1a\x19.connect.HashCodeResponse\x12?\n" +
-	"\bToString\x12\x18.connect.ToStringRequest\x1a\x19.connect.ToStringResponse2\xd4\x03\n" +
-	"0ReadMedicalResourcesInitialRequestBuilderService\x12T\n" +
-	"\x0fAddDataSourceId\x12\x1f.connect.AddDataSourceIdRequest\x1a .connect.AddDataSourceIdResponse\x126\n" +
-	"\x05Build\x12\x15.connect.BuildRequest\x1a\x16.connect.BuildResponse\x12]\n" +
-	"\x12ClearDataSourceIds\x12\".connect.ClearDataSourceIdsRequest\x1a#.connect.ClearDataSourceIdsResponse\x12i\n" +
-	"\x16SetMedicalResourceType\x12&.connect.SetMedicalResourceTypeRequest\x1a'.connect.SetMedicalResourceTypeResponse\x12H\n" +
-	"\vSetPageSize\x12\x1b.connect.SetPageSizeRequest\x1a\x1c.connect.SetPageSizeResponse2\xc4\x01\n" +
-	".AggregateRecordsGroupedByPeriodResponseService\x12E\n" +
+	"\x10GetNextPageToken\x12 .connect.GetNextPageTokenRequest\x1a!.connect.GetNextPageTokenResponse\x12E\n" +
 	"\n" +
-	"GetEndTime\x12\x1a.connect.GetEndTimeRequest\x1a\x1b.connect.GetEndTimeResponse\x12K\n" +
-	"\fGetStartTime\x12\x1c.connect.GetStartTimeRequest\x1a\x1d.connect.GetStartTimeResponse2\x86\x05\n" +
-	"%CreateMedicalDataSourceRequestService\x12W\n" +
-	"\x10DescribeContents\x12 .connect.DescribeContentsRequest\x1a!.connect.DescribeContentsResponse\x129\n" +
-	"\x06Equals\x12\x16.connect.EqualsRequest\x1a\x17.connect.EqualsResponse\x12Q\n" +
-	"\x0eGetDisplayName\x12\x1e.connect.GetDisplayNameRequest\x1a\x1f.connect.GetDisplayNameResponse\x12Q\n" +
-	"\x0eGetFhirBaseUri\x12\x1e.connect.GetFhirBaseUriRequest\x1a\x1f.connect.GetFhirBaseUriResponse\x12Q\n" +
-	"\x0eGetFhirVersion\x12\x1e.connect.GetFhirVersionRequest\x1a\x1f.connect.GetFhirVersionResponse\x12?\n" +
-	"\bHashCode\x12\x18.connect.HashCodeRequest\x1a\x19.connect.HashCodeResponse\x12?\n" +
-	"\bToString\x12\x18.connect.ToStringRequest\x1a\x19.connect.ToStringResponse\x12N\n" +
-	"\rWriteToParcel\x12\x1d.connect.WriteToParcelRequest\x1a\x1e.connect.WriteToParcelResponse2\xdf\x02\n" +
-	",CreateMedicalDataSourceRequestBuilderService\x126\n" +
-	"\x05Build\x12\x15.connect.BuildRequest\x1a\x16.connect.BuildResponse\x12Q\n" +
-	"\x0eSetDisplayName\x12\x1e.connect.SetDisplayNameRequest\x1a\x1f.connect.SetDisplayNameResponse\x12Q\n" +
-	"\x0eSetFhirBaseUri\x12\x1e.connect.SetFhirBaseUriRequest\x1a\x1f.connect.SetFhirBaseUriResponse\x12Q\n" +
-	"\x0eSetFhirVersion\x12\x1e.connect.SetFhirVersionRequest\x1a\x1f.connect.SetFhirVersionResponse2n\n" +
-	"\"ReadMedicalResourcesRequestService\x12H\n" +
-	"\vGetPageSize\x12\x1b.connect.GetPageSizeRequest\x1a\x1c.connect.GetPageSizeResponse2l\n" +
-	"\x1dHealthConnectExceptionService\x12K\n" +
-	"\fGetErrorCode\x12\x1c.connect.GetErrorCodeRequest\x1a\x1d.connect.GetErrorCodeResponse2\xd1\x02\n" +
-	"&ReadMedicalResourcesPageRequestService\x129\n" +
-	"\x06Equals\x12\x16.connect.EqualsRequest\x1a\x17.connect.EqualsResponse\x12j\n" +
-	"\fGetPageToken\x12\x1c.connect.GetPageTokenRequest\x1a<.connect.ReadMedicalResourcesPageRequestGetPageTokenResponse\x12?\n" +
-	"\bHashCode\x12\x18.connect.HashCodeRequest\x1a\x19.connect.HashCodeResponse\x12?\n" +
-	"\bToString\x12\x18.connect.ToStringRequest\x1a\x19.connect.ToStringResponse2\xfe\x01\n" +
-	"-ReadMedicalResourcesPageRequestBuilderService\x126\n" +
-	"\x05Build\x12\x15.connect.BuildRequest\x1a\x16.connect.BuildResponse\x12H\n" +
-	"\vSetPageSize\x12\x1b.connect.SetPageSizeRequest\x1a\x1c.connect.SetPageSizeResponse\x12K\n" +
-	"\fSetPageToken\x12\x1c.connect.SetPageTokenRequest\x1a\x1d.connect.SetPageTokenResponse2\xab\x01\n" +
-	"\x15RecordIdFilterService\x12Z\n" +
-	"\x11GetClientRecordId\x12!.connect.GetClientRecordIdRequest\x1a\".connect.GetClientRecordIdResponse\x126\n" +
-	"\x05GetId\x12\x15.connect.GetIdRequest\x1a\x16.connect.GetIdResponse2\x8b\x03\n" +
-	"#GetMedicalDataSourcesRequestService\x12W\n" +
-	"\x10DescribeContents\x12 .connect.DescribeContentsRequest\x1a!.connect.DescribeContentsResponse\x129\n" +
-	"\x06Equals\x12\x16.connect.EqualsRequest\x1a\x17.connect.EqualsResponse\x12?\n" +
-	"\bHashCode\x12\x18.connect.HashCodeRequest\x1a\x19.connect.HashCodeResponse\x12?\n" +
-	"\bToString\x12\x18.connect.ToStringRequest\x1a\x19.connect.ToStringResponse\x12N\n" +
-	"\rWriteToParcel\x12\x1d.connect.WriteToParcelRequest\x1a\x1e.connect.WriteToParcelResponse2\x93\x02\n" +
-	"*GetMedicalDataSourcesRequestBuilderService\x12Q\n" +
-	"\x0eAddPackageName\x12\x1e.connect.AddPackageNameRequest\x1a\x1f.connect.AddPackageNameResponse\x126\n" +
-	"\x05Build\x12\x15.connect.BuildRequest\x1a\x16.connect.BuildResponse\x12Z\n" +
-	"\x11ClearPackageNames\x12!.connect.ClearPackageNamesRequest\x1a\".connect.ClearPackageNamesResponse2\xf1\x02\n" +
+	"GetRecords\x12\x1a.connect.GetRecordsRequest\x1a\x1b.connect.GetRecordsResponse2\xf1\x02\n" +
 	"\x1bLocalTimeRangeFilterService\x129\n" +
 	"\x06Equals\x12\x16.connect.EqualsRequest\x1a\x17.connect.EqualsResponse\x12E\n" +
 	"\n" +
@@ -4803,45 +6461,160 @@ const file_proto_connect_connect_proto_rawDesc = "" +
 	"\x05Build\x12\x15.connect.BuildRequest\x1a\x16.connect.BuildResponse\x12E\n" +
 	"\n" +
 	"SetEndTime\x12\x1a.connect.SetEndTimeRequest\x1a\x1b.connect.SetEndTimeResponse\x12K\n" +
-	"\fSetStartTime\x12\x1c.connect.SetStartTimeRequest\x1a\x1d.connect.SetStartTimeResponse2\x8c\a\n" +
-	"#ReadMedicalResourcesResponseService\x12\x84\x01\n" +
-	"\x1fNewReadMedicalResourcesResponse\x12/.connect.NewReadMedicalResourcesResponseRequest\x1a0.connect.NewReadMedicalResourcesResponseResponse\x12s\n" +
-	"\x10DescribeContents\x12<.connect.ReadMedicalResourcesResponseDescribeContentsRequest\x1a!.connect.DescribeContentsResponse\x12U\n" +
-	"\x06Equals\x122.connect.ReadMedicalResourcesResponseEqualsRequest\x1a\x17.connect.EqualsResponse\x12\x8f\x01\n" +
-	"\x10GetNextPageToken\x12<.connect.ReadMedicalResourcesResponseGetNextPageTokenRequest\x1a=.connect.ReadMedicalResourcesResponseGetNextPageTokenResponse\x12Z\n" +
-	"\x11GetRemainingCount\x12!.connect.GetRemainingCountRequest\x1a\".connect.GetRemainingCountResponse\x12[\n" +
-	"\bHashCode\x124.connect.ReadMedicalResourcesResponseHashCodeRequest\x1a\x19.connect.HashCodeResponse\x12[\n" +
-	"\bToString\x124.connect.ReadMedicalResourcesResponseToStringRequest\x1a\x19.connect.ToStringResponse\x12j\n" +
-	"\rWriteToParcel\x129.connect.ReadMedicalResourcesResponseWriteToParcelRequest\x1a\x1e.connect.WriteToParcelResponse2\xc6\x01\n" +
-	"0AggregateRecordsGroupedByDurationResponseService\x12E\n" +
-	"\n" +
-	"GetEndTime\x12\x1a.connect.GetEndTimeRequest\x1a\x1b.connect.GetEndTimeResponse\x12K\n" +
-	"\fGetStartTime\x12\x1c.connect.GetStartTimeRequest\x1a\x1d.connect.GetStartTimeResponse2\xaa\a\n" +
+	"\fSetStartTime\x12\x1c.connect.SetStartTimeRequest\x1a\x1d.connect.SetStartTimeResponse2\xf7\x06\n" +
 	"\x18MedicalResourceIdService\x12c\n" +
-	"\x14NewMedicalResourceId\x12$.connect.NewMedicalResourceIdRequest\x1a%.connect.NewMedicalResourceIdResponse\x12h\n" +
-	"\x10DescribeContents\x121.connect.MedicalResourceIdDescribeContentsRequest\x1a!.connect.DescribeContentsResponse\x12J\n" +
+	"\x14NewMedicalResourceId\x12$.connect.NewMedicalResourceIdRequest\x1a%.connect.NewMedicalResourceIdResponse\x12W\n" +
+	"\x10DescribeContents\x12 .connect.DescribeContentsRequest\x1a!.connect.DescribeContentsResponse\x12J\n" +
 	"\x06Equals\x12'.connect.MedicalResourceIdEqualsRequest\x1a\x17.connect.EqualsResponse\x12T\n" +
 	"\x0fGetDataSourceId\x12\x1f.connect.GetDataSourceIdRequest\x1a .connect.GetDataSourceIdResponse\x12Z\n" +
 	"\x11GetFhirResourceId\x12!.connect.GetFhirResourceIdRequest\x1a\".connect.GetFhirResourceIdResponse\x12`\n" +
 	"\x13GetFhirResourceType\x12#.connect.GetFhirResourceTypeRequest\x1a$.connect.GetFhirResourceTypeResponse\x12P\n" +
-	"\bHashCode\x12).connect.MedicalResourceIdHashCodeRequest\x1a\x19.connect.HashCodeResponse\x12P\n" +
-	"\bToString\x12).connect.MedicalResourceIdToStringRequest\x1a\x19.connect.ToStringResponse\x12_\n" +
-	"\rWriteToParcel\x12..connect.MedicalResourceIdWriteToParcelRequest\x1a\x1e.connect.WriteToParcelResponse\x12Z\n" +
-	"\x11FromFhirReference\x12!.connect.FromFhirReferenceRequest\x1a\".connect.FromFhirReferenceResponse2\x8e\x05\n" +
-	"#UpsertMedicalResourceRequestService\x12W\n" +
-	"\x10DescribeContents\x12 .connect.DescribeContentsRequest\x1a!.connect.DescribeContentsResponse\x129\n" +
+	"\bHashCode\x12).connect.MedicalResourceIdHashCodeRequest\x1a\x19.connect.HashCodeResponse\x12?\n" +
+	"\bToString\x12\x18.connect.ToStringRequest\x1a\x19.connect.ToStringResponse\x12N\n" +
+	"\rWriteToParcel\x12\x1d.connect.WriteToParcelRequest\x1a\x1e.connect.WriteToParcelResponse\x12Z\n" +
+	"\x11FromFhirReference\x12!.connect.FromFhirReferenceRequest\x1a\".connect.FromFhirReferenceResponse2\xd1\x02\n" +
+	"&ReadMedicalResourcesPageRequestService\x129\n" +
+	"\x06Equals\x12\x16.connect.EqualsRequest\x1a\x17.connect.EqualsResponse\x12K\n" +
+	"\fGetPageToken\x12\x1c.connect.GetPageTokenRequest\x1a\x1d.connect.GetPageTokenResponse\x12?\n" +
+	"\bHashCode\x12\x18.connect.HashCodeRequest\x1a\x19.connect.HashCodeResponse\x12^\n" +
+	"\bToString\x127.connect.ReadMedicalResourcesPageRequestToStringRequest\x1a\x19.connect.ToStringResponse2\xfe\x01\n" +
+	"-ReadMedicalResourcesPageRequestBuilderService\x126\n" +
+	"\x05Build\x12\x15.connect.BuildRequest\x1a\x16.connect.BuildResponse\x12H\n" +
+	"\vSetPageSize\x12\x1b.connect.SetPageSizeRequest\x1a\x1c.connect.SetPageSizeResponse\x12K\n" +
+	"\fSetPageToken\x12\x1c.connect.SetPageTokenRequest\x1a\x1d.connect.SetPageTokenResponse2k\n" +
+	"\x19ReadRecordsRequestService\x12N\n" +
+	"\rGetRecordType\x12\x1d.connect.GetRecordTypeRequest\x1a\x1e.connect.GetRecordTypeResponse2\xd8\x03\n" +
+	"%ReadRecordsRequestUsingFiltersService\x12Q\n" +
+	"\x0eGetDataOrigins\x12\x1e.connect.GetDataOriginsRequest\x1a\x1f.connect.GetDataOriginsResponse\x12H\n" +
+	"\vGetPageSize\x12\x1b.connect.GetPageSizeRequest\x1a\x1c.connect.GetPageSizeResponse\x12i\n" +
+	"\fGetPageToken\x12\x1c.connect.GetPageTokenRequest\x1a;.connect.ReadRecordsRequestUsingFiltersGetPageTokenResponse\x12]\n" +
+	"\x12GetTimeRangeFilter\x12\".connect.GetTimeRangeFilterRequest\x1a#.connect.GetTimeRangeFilterResponse\x12H\n" +
+	"\vIsAscending\x12\x1b.connect.IsAscendingRequest\x1a\x1c.connect.IsAscendingResponse2\xa1\x04\n" +
+	",ReadRecordsRequestUsingFiltersBuilderService\x12Q\n" +
+	"\x0eAddDataOrigins\x12\x1e.connect.AddDataOriginsRequest\x1a\x1f.connect.AddDataOriginsResponse\x126\n" +
+	"\x05Build\x12\x15.connect.BuildRequest\x1a\x16.connect.BuildResponse\x12K\n" +
+	"\fSetAscending\x12\x1c.connect.SetAscendingRequest\x1a\x1d.connect.SetAscendingResponse\x12H\n" +
+	"\vSetPageSize\x12\x1b.connect.SetPageSizeRequest\x1a\x1c.connect.SetPageSizeResponse\x12p\n" +
+	"\fSetPageToken\x12A.connect.ReadRecordsRequestUsingFiltersBuilderSetPageTokenRequest\x1a\x1d.connect.SetPageTokenResponse\x12]\n" +
+	"\x12SetTimeRangeFilter\x12\".connect.SetTimeRangeFilterRequest\x1a#.connect.SetTimeRangeFilterResponse2\xc6\x01\n" +
+	"0AggregateRecordsGroupedByDurationResponseService\x12E\n" +
+	"\n" +
+	"GetEndTime\x12\x1a.connect.GetEndTimeRequest\x1a\x1b.connect.GetEndTimeResponse\x12K\n" +
+	"\fGetStartTime\x12\x1c.connect.GetStartTimeRequest\x1a\x1d.connect.GetStartTimeResponse2l\n" +
+	"\x1dHealthConnectExceptionService\x12K\n" +
+	"\fGetErrorCode\x12\x1c.connect.GetErrorCodeRequest\x1a\x1d.connect.GetErrorCodeResponse2\xaa\x05\n" +
+	"$DeleteMedicalResourcesRequestService\x12t\n" +
+	"\x10DescribeContents\x12=.connect.DeleteMedicalResourcesRequestDescribeContentsRequest\x1a!.connect.DescribeContentsResponse\x129\n" +
+	"\x06Equals\x12\x16.connect.EqualsRequest\x1a\x17.connect.EqualsResponse\x12W\n" +
+	"\x10GetDataSourceIds\x12 .connect.GetDataSourceIdsRequest\x1a!.connect.GetDataSourceIdsResponse\x12l\n" +
+	"\x17GetMedicalResourceTypes\x12'.connect.GetMedicalResourceTypesRequest\x1a(.connect.GetMedicalResourceTypesResponse\x12?\n" +
+	"\bHashCode\x12\x18.connect.HashCodeRequest\x1a\x19.connect.HashCodeResponse\x12\\\n" +
+	"\bToString\x125.connect.DeleteMedicalResourcesRequestToStringRequest\x1a\x19.connect.ToStringResponse\x12k\n" +
+	"\rWriteToParcel\x12:.connect.DeleteMedicalResourcesRequestWriteToParcelRequest\x1a\x1e.connect.WriteToParcelResponse2\xf9\x03\n" +
+	"+DeleteMedicalResourcesRequestBuilderService\x12T\n" +
+	"\x0fAddDataSourceId\x12\x1f.connect.AddDataSourceIdRequest\x1a .connect.AddDataSourceIdResponse\x12i\n" +
+	"\x16AddMedicalResourceType\x12&.connect.AddMedicalResourceTypeRequest\x1a'.connect.AddMedicalResourceTypeResponse\x126\n" +
+	"\x05Build\x12\x15.connect.BuildRequest\x1a\x16.connect.BuildResponse\x12]\n" +
+	"\x12ClearDataSourceIds\x12\".connect.ClearDataSourceIdsRequest\x1a#.connect.ClearDataSourceIdsResponse\x12r\n" +
+	"\x19ClearMedicalResourceTypes\x12).connect.ClearMedicalResourceTypesRequest\x1a*.connect.ClearMedicalResourceTypesResponse2\xe0\x05\n" +
+	"%CreateMedicalDataSourceRequestService\x12u\n" +
+	"\x10DescribeContents\x12>.connect.CreateMedicalDataSourceRequestDescribeContentsRequest\x1a!.connect.DescribeContentsResponse\x129\n" +
+	"\x06Equals\x12\x16.connect.EqualsRequest\x1a\x17.connect.EqualsResponse\x12Q\n" +
+	"\x0eGetDisplayName\x12\x1e.connect.GetDisplayNameRequest\x1a\x1f.connect.GetDisplayNameResponse\x12Q\n" +
+	"\x0eGetFhirBaseUri\x12\x1e.connect.GetFhirBaseUriRequest\x1a\x1f.connect.GetFhirBaseUriResponse\x12Q\n" +
+	"\x0eGetFhirVersion\x12\x1e.connect.GetFhirVersionRequest\x1a\x1f.connect.GetFhirVersionResponse\x12?\n" +
+	"\bHashCode\x12\x18.connect.HashCodeRequest\x1a\x19.connect.HashCodeResponse\x12]\n" +
+	"\bToString\x126.connect.CreateMedicalDataSourceRequestToStringRequest\x1a\x19.connect.ToStringResponse\x12l\n" +
+	"\rWriteToParcel\x12;.connect.CreateMedicalDataSourceRequestWriteToParcelRequest\x1a\x1e.connect.WriteToParcelResponse2\xdf\x02\n" +
+	",CreateMedicalDataSourceRequestBuilderService\x126\n" +
+	"\x05Build\x12\x15.connect.BuildRequest\x1a\x16.connect.BuildResponse\x12Q\n" +
+	"\x0eSetDisplayName\x12\x1e.connect.SetDisplayNameRequest\x1a\x1f.connect.SetDisplayNameResponse\x12Q\n" +
+	"\x0eSetFhirBaseUri\x12\x1e.connect.SetFhirBaseUriRequest\x1a\x1f.connect.SetFhirBaseUriResponse\x12Q\n" +
+	"\x0eSetFhirVersion\x12\x1e.connect.SetFhirVersionRequest\x1a\x1f.connect.SetFhirVersionResponse2\xc4\x01\n" +
+	".AggregateRecordsGroupedByPeriodResponseService\x12E\n" +
+	"\n" +
+	"GetEndTime\x12\x1a.connect.GetEndTimeRequest\x1a\x1b.connect.GetEndTimeResponse\x12K\n" +
+	"\fGetStartTime\x12\x1c.connect.GetStartTimeRequest\x1a\x1d.connect.GetStartTimeResponse2e\n" +
+	"\x1cInsertRecordsResponseService\x12E\n" +
+	"\n" +
+	"GetRecords\x12\x1a.connect.GetRecordsRequest\x1a\x1b.connect.GetRecordsResponse2\xb5\x04\n" +
+	"#GetMedicalDataSourcesRequestService\x12s\n" +
+	"\x10DescribeContents\x12<.connect.GetMedicalDataSourcesRequestDescribeContentsRequest\x1a!.connect.DescribeContentsResponse\x129\n" +
+	"\x06Equals\x12\x16.connect.EqualsRequest\x1a\x17.connect.EqualsResponse\x12T\n" +
+	"\x0fGetPackageNames\x12\x1f.connect.GetPackageNamesRequest\x1a .connect.GetPackageNamesResponse\x12?\n" +
+	"\bHashCode\x12\x18.connect.HashCodeRequest\x1a\x19.connect.HashCodeResponse\x12[\n" +
+	"\bToString\x124.connect.GetMedicalDataSourcesRequestToStringRequest\x1a\x19.connect.ToStringResponse\x12j\n" +
+	"\rWriteToParcel\x129.connect.GetMedicalDataSourcesRequestWriteToParcelRequest\x1a\x1e.connect.WriteToParcelResponse2\x93\x02\n" +
+	"*GetMedicalDataSourcesRequestBuilderService\x12Q\n" +
+	"\x0eAddPackageName\x12\x1e.connect.AddPackageNameRequest\x1a\x1f.connect.AddPackageNameResponse\x126\n" +
+	"\x05Build\x12\x15.connect.BuildRequest\x1a\x16.connect.BuildResponse\x12Z\n" +
+	"\x11ClearPackageNames\x12!.connect.ClearPackageNamesRequest\x1a\".connect.ClearPackageNamesResponse2\xe2\x05\n" +
+	"#UpsertMedicalResourceRequestService\x12s\n" +
+	"\x10DescribeContents\x12<.connect.UpsertMedicalResourceRequestDescribeContentsRequest\x1a!.connect.DescribeContentsResponse\x129\n" +
 	"\x06Equals\x12\x16.connect.EqualsRequest\x1a\x17.connect.EqualsResponse\x12<\n" +
 	"\aGetData\x12\x17.connect.GetDataRequest\x1a\x18.connect.GetDataResponse\x12p\n" +
 	"\x0fGetDataSourceId\x12;.connect.UpsertMedicalResourceRequestGetDataSourceIdRequest\x1a .connect.GetDataSourceIdResponse\x12Q\n" +
 	"\x0eGetFhirVersion\x12\x1e.connect.GetFhirVersionRequest\x1a\x1f.connect.GetFhirVersionResponse\x12?\n" +
-	"\bHashCode\x12\x18.connect.HashCodeRequest\x1a\x19.connect.HashCodeResponse\x12?\n" +
-	"\bToString\x12\x18.connect.ToStringRequest\x1a\x19.connect.ToStringResponse\x12N\n" +
-	"\rWriteToParcel\x12\x1d.connect.WriteToParcelRequest\x1a\x1e.connect.WriteToParcelResponse2\xcb\x02\n" +
+	"\bHashCode\x12\x18.connect.HashCodeRequest\x1a\x19.connect.HashCodeResponse\x12[\n" +
+	"\bToString\x124.connect.UpsertMedicalResourceRequestToStringRequest\x1a\x19.connect.ToStringResponse\x12j\n" +
+	"\rWriteToParcel\x129.connect.UpsertMedicalResourceRequestWriteToParcelRequest\x1a\x1e.connect.WriteToParcelResponse2\xcb\x02\n" +
 	"*UpsertMedicalResourceRequestBuilderService\x126\n" +
 	"\x05Build\x12\x15.connect.BuildRequest\x1a\x16.connect.BuildResponse\x12<\n" +
 	"\aSetData\x12\x17.connect.SetDataRequest\x1a\x18.connect.SetDataResponse\x12T\n" +
 	"\x0fSetDataSourceId\x12\x1f.connect.SetDataSourceIdRequest\x1a .connect.SetDataSourceIdResponse\x12Q\n" +
-	"\x0eSetFhirVersion\x12\x1e.connect.SetFhirVersionRequest\x1a\x1f.connect.SetFhirVersionResponseB1Z/github.com/AndroidGoLab/jni-proxy/proto/connectb\x06proto3"
+	"\x0eSetFhirVersion\x12\x1e.connect.SetFhirVersionRequest\x1a\x1f.connect.SetFhirVersionResponse2\xc9\x02\n" +
+	"\x1eAggregateRecordsRequestService\x12`\n" +
+	"\x13GetAggregationTypes\x12#.connect.GetAggregationTypesRequest\x1a$.connect.GetAggregationTypesResponse\x12f\n" +
+	"\x15GetDataOriginsFilters\x12%.connect.GetDataOriginsFiltersRequest\x1a&.connect.GetDataOriginsFiltersResponse\x12]\n" +
+	"\x12GetTimeRangeFilter\x12\".connect.GetTimeRangeFilterRequest\x1a#.connect.GetTimeRangeFilterResponse2\xc4\x01\n" +
+	"%AggregateRecordsRequestBuilderService\x12c\n" +
+	"\x14AddDataOriginsFilter\x12$.connect.AddDataOriginsFilterRequest\x1a%.connect.AddDataOriginsFilterResponse\x126\n" +
+	"\x05Build\x12\x15.connect.BuildRequest\x1a\x16.connect.BuildResponse2\xf3\x02\n" +
+	"\x1dTimeInstantRangeFilterService\x129\n" +
+	"\x06Equals\x12\x16.connect.EqualsRequest\x1a\x17.connect.EqualsResponse\x12E\n" +
+	"\n" +
+	"GetEndTime\x12\x1a.connect.GetEndTimeRequest\x1a\x1b.connect.GetEndTimeResponse\x12K\n" +
+	"\fGetStartTime\x12\x1c.connect.GetStartTimeRequest\x1a\x1d.connect.GetStartTimeResponse\x12?\n" +
+	"\bHashCode\x12\x18.connect.HashCodeRequest\x1a\x19.connect.HashCodeResponse\x12B\n" +
+	"\tIsBounded\x12\x19.connect.IsBoundedRequest\x1a\x1a.connect.IsBoundedResponse2\xf2\x01\n" +
+	"$TimeInstantRangeFilterBuilderService\x126\n" +
+	"\x05Build\x12\x15.connect.BuildRequest\x1a\x16.connect.BuildResponse\x12E\n" +
+	"\n" +
+	"SetEndTime\x12\x1a.connect.SetEndTimeRequest\x1a\x1b.connect.SetEndTimeResponse\x12K\n" +
+	"\fSetStartTime\x12\x1c.connect.SetStartTimeRequest\x1a\x1d.connect.SetStartTimeResponse2n\n" +
+	"\"ReadMedicalResourcesRequestService\x12H\n" +
+	"\vGetPageSize\x12\x1b.connect.GetPageSizeRequest\x1a\x1c.connect.GetPageSizeResponse2\xce\x03\n" +
+	")ReadMedicalResourcesInitialRequestService\x129\n" +
+	"\x06Equals\x12\x16.connect.EqualsRequest\x1a\x17.connect.EqualsResponse\x12W\n" +
+	"\x10GetDataSourceIds\x12 .connect.GetDataSourceIdsRequest\x1a!.connect.GetDataSourceIdsResponse\x12i\n" +
+	"\x16GetMedicalResourceType\x12&.connect.GetMedicalResourceTypeRequest\x1a'.connect.GetMedicalResourceTypeResponse\x12?\n" +
+	"\bHashCode\x12\x18.connect.HashCodeRequest\x1a\x19.connect.HashCodeResponse\x12a\n" +
+	"\bToString\x12:.connect.ReadMedicalResourcesInitialRequestToStringRequest\x1a\x19.connect.ToStringResponse2\xd4\x03\n" +
+	"0ReadMedicalResourcesInitialRequestBuilderService\x12T\n" +
+	"\x0fAddDataSourceId\x12\x1f.connect.AddDataSourceIdRequest\x1a .connect.AddDataSourceIdResponse\x126\n" +
+	"\x05Build\x12\x15.connect.BuildRequest\x1a\x16.connect.BuildResponse\x12]\n" +
+	"\x12ClearDataSourceIds\x12\".connect.ClearDataSourceIdsRequest\x1a#.connect.ClearDataSourceIdsResponse\x12i\n" +
+	"\x16SetMedicalResourceType\x12&.connect.SetMedicalResourceTypeRequest\x1a'.connect.SetMedicalResourceTypeResponse\x12H\n" +
+	"\vSetPageSize\x12\x1b.connect.SetPageSizeRequest\x1a\x1c.connect.SetPageSizeResponse2\x9a\a\n" +
+	"#ReadMedicalResourcesResponseService\x12\x84\x01\n" +
+	"\x1fNewReadMedicalResourcesResponse\x12/.connect.NewReadMedicalResourcesResponseRequest\x1a0.connect.NewReadMedicalResourcesResponseResponse\x12W\n" +
+	"\x10DescribeContents\x12 .connect.DescribeContentsRequest\x1a!.connect.DescribeContentsResponse\x12U\n" +
+	"\x06Equals\x122.connect.ReadMedicalResourcesResponseEqualsRequest\x1a\x17.connect.EqualsResponse\x12`\n" +
+	"\x13GetMedicalResources\x12#.connect.GetMedicalResourcesRequest\x1a$.connect.GetMedicalResourcesResponse\x12\x8f\x01\n" +
+	"\x10GetNextPageToken\x12<.connect.ReadMedicalResourcesResponseGetNextPageTokenRequest\x1a=.connect.ReadMedicalResourcesResponseGetNextPageTokenResponse\x12Z\n" +
+	"\x11GetRemainingCount\x12!.connect.GetRemainingCountRequest\x1a\".connect.GetRemainingCountResponse\x12[\n" +
+	"\bHashCode\x124.connect.ReadMedicalResourcesResponseHashCodeRequest\x1a\x19.connect.HashCodeResponse\x12?\n" +
+	"\bToString\x12\x18.connect.ToStringRequest\x1a\x19.connect.ToStringResponse\x12N\n" +
+	"\rWriteToParcel\x12\x1d.connect.WriteToParcelRequest\x1a\x1e.connect.WriteToParcelResponse2\x82\x01\n" +
+	"!ReadRecordsRequestUsingIdsService\x12]\n" +
+	"\x12GetRecordIdFilters\x12\".connect.GetRecordIdFiltersRequest\x1a#.connect.GetRecordIdFiltersResponse2\xf6\x01\n" +
+	"(ReadRecordsRequestUsingIdsBuilderService\x12Z\n" +
+	"\x11AddClientRecordId\x12!.connect.AddClientRecordIdRequest\x1a\".connect.AddClientRecordIdResponse\x126\n" +
+	"\x05AddId\x12\x15.connect.AddIdRequest\x1a\x16.connect.AddIdResponse\x126\n" +
+	"\x05Build\x12\x15.connect.BuildRequest\x1a\x16.connect.BuildResponse2\xab\x01\n" +
+	"\x15RecordIdFilterService\x12Z\n" +
+	"\x11GetClientRecordId\x12!.connect.GetClientRecordIdRequest\x1a\".connect.GetClientRecordIdResponse\x126\n" +
+	"\x05GetId\x12\x15.connect.GetIdRequest\x1a\x16.connect.GetIdResponseB1Z/github.com/AndroidGoLab/jni-proxy/proto/connectb\x06proto3"
 
 var (
 	file_proto_connect_connect_proto_rawDescOnce sync.Once
@@ -4855,328 +6628,415 @@ func file_proto_connect_connect_proto_rawDescGZIP() []byte {
 	return file_proto_connect_connect_proto_rawDescData
 }
 
-var file_proto_connect_connect_proto_msgTypes = make([]protoimpl.MessageInfo, 104)
+var file_proto_connect_connect_proto_msgTypes = make([]protoimpl.MessageInfo, 145)
 var file_proto_connect_connect_proto_goTypes = []any{
-	(*DescribeContentsRequest)(nil),                              // 0: connect.DescribeContentsRequest
-	(*DescribeContentsResponse)(nil),                             // 1: connect.DescribeContentsResponse
-	(*EqualsRequest)(nil),                                        // 2: connect.EqualsRequest
-	(*EqualsResponse)(nil),                                       // 3: connect.EqualsResponse
-	(*HashCodeRequest)(nil),                                      // 4: connect.HashCodeRequest
-	(*HashCodeResponse)(nil),                                     // 5: connect.HashCodeResponse
-	(*ToStringRequest)(nil),                                      // 6: connect.ToStringRequest
-	(*ToStringResponse)(nil),                                     // 7: connect.ToStringResponse
-	(*WriteToParcelRequest)(nil),                                 // 8: connect.WriteToParcelRequest
-	(*WriteToParcelResponse)(nil),                                // 9: connect.WriteToParcelResponse
-	(*AddDataSourceIdRequest)(nil),                               // 10: connect.AddDataSourceIdRequest
-	(*AddDataSourceIdResponse)(nil),                              // 11: connect.AddDataSourceIdResponse
-	(*AddMedicalResourceTypeRequest)(nil),                        // 12: connect.AddMedicalResourceTypeRequest
-	(*AddMedicalResourceTypeResponse)(nil),                       // 13: connect.AddMedicalResourceTypeResponse
-	(*BuildRequest)(nil),                                         // 14: connect.BuildRequest
-	(*BuildResponse)(nil),                                        // 15: connect.BuildResponse
-	(*ClearDataSourceIdsRequest)(nil),                            // 16: connect.ClearDataSourceIdsRequest
-	(*ClearDataSourceIdsResponse)(nil),                           // 17: connect.ClearDataSourceIdsResponse
-	(*ClearMedicalResourceTypesRequest)(nil),                     // 18: connect.ClearMedicalResourceTypesRequest
-	(*ClearMedicalResourceTypesResponse)(nil),                    // 19: connect.ClearMedicalResourceTypesResponse
-	(*GetEndTimeRequest)(nil),                                    // 20: connect.GetEndTimeRequest
-	(*GetEndTimeResponse)(nil),                                   // 21: connect.GetEndTimeResponse
-	(*GetStartTimeRequest)(nil),                                  // 22: connect.GetStartTimeRequest
-	(*GetStartTimeResponse)(nil),                                 // 23: connect.GetStartTimeResponse
-	(*IsBoundedRequest)(nil),                                     // 24: connect.IsBoundedRequest
-	(*IsBoundedResponse)(nil),                                    // 25: connect.IsBoundedResponse
-	(*SetEndTimeRequest)(nil),                                    // 26: connect.SetEndTimeRequest
-	(*SetEndTimeResponse)(nil),                                   // 27: connect.SetEndTimeResponse
-	(*SetStartTimeRequest)(nil),                                  // 28: connect.SetStartTimeRequest
-	(*SetStartTimeResponse)(nil),                                 // 29: connect.SetStartTimeResponse
-	(*GetTimeRangeFilterRequest)(nil),                            // 30: connect.GetTimeRangeFilterRequest
-	(*GetTimeRangeFilterResponse)(nil),                           // 31: connect.GetTimeRangeFilterResponse
-	(*GetPageSizeRequest)(nil),                                   // 32: connect.GetPageSizeRequest
-	(*GetPageSizeResponse)(nil),                                  // 33: connect.GetPageSizeResponse
-	(*GetPageTokenRequest)(nil),                                  // 34: connect.GetPageTokenRequest
-	(*GetPageTokenResponse)(nil),                                 // 35: connect.GetPageTokenResponse
-	(*IsAscendingRequest)(nil),                                   // 36: connect.IsAscendingRequest
-	(*IsAscendingResponse)(nil),                                  // 37: connect.IsAscendingResponse
-	(*GetNextPageTokenRequest)(nil),                              // 38: connect.GetNextPageTokenRequest
-	(*GetNextPageTokenResponse)(nil),                             // 39: connect.GetNextPageTokenResponse
-	(*GetMedicalResourceTypeRequest)(nil),                        // 40: connect.GetMedicalResourceTypeRequest
-	(*GetMedicalResourceTypeResponse)(nil),                       // 41: connect.GetMedicalResourceTypeResponse
-	(*SetMedicalResourceTypeRequest)(nil),                        // 42: connect.SetMedicalResourceTypeRequest
-	(*SetMedicalResourceTypeResponse)(nil),                       // 43: connect.SetMedicalResourceTypeResponse
-	(*SetPageSizeRequest)(nil),                                   // 44: connect.SetPageSizeRequest
-	(*SetPageSizeResponse)(nil),                                  // 45: connect.SetPageSizeResponse
-	(*GetDisplayNameRequest)(nil),                                // 46: connect.GetDisplayNameRequest
-	(*GetDisplayNameResponse)(nil),                               // 47: connect.GetDisplayNameResponse
-	(*GetFhirBaseUriRequest)(nil),                                // 48: connect.GetFhirBaseUriRequest
-	(*GetFhirBaseUriResponse)(nil),                               // 49: connect.GetFhirBaseUriResponse
-	(*GetFhirVersionRequest)(nil),                                // 50: connect.GetFhirVersionRequest
-	(*GetFhirVersionResponse)(nil),                               // 51: connect.GetFhirVersionResponse
-	(*SetDisplayNameRequest)(nil),                                // 52: connect.SetDisplayNameRequest
-	(*SetDisplayNameResponse)(nil),                               // 53: connect.SetDisplayNameResponse
-	(*SetFhirBaseUriRequest)(nil),                                // 54: connect.SetFhirBaseUriRequest
-	(*SetFhirBaseUriResponse)(nil),                               // 55: connect.SetFhirBaseUriResponse
-	(*SetFhirVersionRequest)(nil),                                // 56: connect.SetFhirVersionRequest
-	(*SetFhirVersionResponse)(nil),                               // 57: connect.SetFhirVersionResponse
-	(*GetErrorCodeRequest)(nil),                                  // 58: connect.GetErrorCodeRequest
-	(*GetErrorCodeResponse)(nil),                                 // 59: connect.GetErrorCodeResponse
-	(*ReadMedicalResourcesPageRequestGetPageTokenResponse)(nil),  // 60: connect.ReadMedicalResourcesPageRequestGetPageTokenResponse
-	(*SetPageTokenRequest)(nil),                                  // 61: connect.SetPageTokenRequest
-	(*SetPageTokenResponse)(nil),                                 // 62: connect.SetPageTokenResponse
-	(*GetClientRecordIdRequest)(nil),                             // 63: connect.GetClientRecordIdRequest
-	(*GetClientRecordIdResponse)(nil),                            // 64: connect.GetClientRecordIdResponse
-	(*GetIdRequest)(nil),                                         // 65: connect.GetIdRequest
-	(*GetIdResponse)(nil),                                        // 66: connect.GetIdResponse
-	(*AddPackageNameRequest)(nil),                                // 67: connect.AddPackageNameRequest
-	(*AddPackageNameResponse)(nil),                               // 68: connect.AddPackageNameResponse
-	(*ClearPackageNamesRequest)(nil),                             // 69: connect.ClearPackageNamesRequest
-	(*ClearPackageNamesResponse)(nil),                            // 70: connect.ClearPackageNamesResponse
-	(*NewReadMedicalResourcesResponseRequest)(nil),               // 71: connect.NewReadMedicalResourcesResponseRequest
-	(*NewReadMedicalResourcesResponseResponse)(nil),              // 72: connect.NewReadMedicalResourcesResponseResponse
-	(*ReadMedicalResourcesResponseDescribeContentsRequest)(nil),  // 73: connect.ReadMedicalResourcesResponseDescribeContentsRequest
-	(*ReadMedicalResourcesResponseEqualsRequest)(nil),            // 74: connect.ReadMedicalResourcesResponseEqualsRequest
-	(*ReadMedicalResourcesResponseGetNextPageTokenRequest)(nil),  // 75: connect.ReadMedicalResourcesResponseGetNextPageTokenRequest
-	(*ReadMedicalResourcesResponseGetNextPageTokenResponse)(nil), // 76: connect.ReadMedicalResourcesResponseGetNextPageTokenResponse
-	(*GetRemainingCountRequest)(nil),                             // 77: connect.GetRemainingCountRequest
-	(*GetRemainingCountResponse)(nil),                            // 78: connect.GetRemainingCountResponse
-	(*ReadMedicalResourcesResponseHashCodeRequest)(nil),          // 79: connect.ReadMedicalResourcesResponseHashCodeRequest
-	(*ReadMedicalResourcesResponseToStringRequest)(nil),          // 80: connect.ReadMedicalResourcesResponseToStringRequest
-	(*ReadMedicalResourcesResponseWriteToParcelRequest)(nil),     // 81: connect.ReadMedicalResourcesResponseWriteToParcelRequest
-	(*NewMedicalResourceIdRequest)(nil),                          // 82: connect.NewMedicalResourceIdRequest
-	(*NewMedicalResourceIdResponse)(nil),                         // 83: connect.NewMedicalResourceIdResponse
-	(*MedicalResourceIdDescribeContentsRequest)(nil),             // 84: connect.MedicalResourceIdDescribeContentsRequest
-	(*MedicalResourceIdEqualsRequest)(nil),                       // 85: connect.MedicalResourceIdEqualsRequest
-	(*GetDataSourceIdRequest)(nil),                               // 86: connect.GetDataSourceIdRequest
-	(*GetDataSourceIdResponse)(nil),                              // 87: connect.GetDataSourceIdResponse
-	(*GetFhirResourceIdRequest)(nil),                             // 88: connect.GetFhirResourceIdRequest
-	(*GetFhirResourceIdResponse)(nil),                            // 89: connect.GetFhirResourceIdResponse
-	(*GetFhirResourceTypeRequest)(nil),                           // 90: connect.GetFhirResourceTypeRequest
-	(*GetFhirResourceTypeResponse)(nil),                          // 91: connect.GetFhirResourceTypeResponse
-	(*MedicalResourceIdHashCodeRequest)(nil),                     // 92: connect.MedicalResourceIdHashCodeRequest
-	(*MedicalResourceIdToStringRequest)(nil),                     // 93: connect.MedicalResourceIdToStringRequest
-	(*MedicalResourceIdWriteToParcelRequest)(nil),                // 94: connect.MedicalResourceIdWriteToParcelRequest
-	(*FromFhirReferenceRequest)(nil),                             // 95: connect.FromFhirReferenceRequest
-	(*FromFhirReferenceResponse)(nil),                            // 96: connect.FromFhirReferenceResponse
-	(*GetDataRequest)(nil),                                       // 97: connect.GetDataRequest
-	(*GetDataResponse)(nil),                                      // 98: connect.GetDataResponse
-	(*UpsertMedicalResourceRequestGetDataSourceIdRequest)(nil),   // 99: connect.UpsertMedicalResourceRequestGetDataSourceIdRequest
-	(*SetDataRequest)(nil),                                       // 100: connect.SetDataRequest
-	(*SetDataResponse)(nil),                                      // 101: connect.SetDataResponse
-	(*SetDataSourceIdRequest)(nil),                               // 102: connect.SetDataSourceIdRequest
-	(*SetDataSourceIdResponse)(nil),                              // 103: connect.SetDataSourceIdResponse
+	(*GetNextPageTokenRequest)(nil),                                  // 0: connect.GetNextPageTokenRequest
+	(*GetNextPageTokenResponse)(nil),                                 // 1: connect.GetNextPageTokenResponse
+	(*GetRecordsRequest)(nil),                                        // 2: connect.GetRecordsRequest
+	(*GetRecordsResponse)(nil),                                       // 3: connect.GetRecordsResponse
+	(*EqualsRequest)(nil),                                            // 4: connect.EqualsRequest
+	(*EqualsResponse)(nil),                                           // 5: connect.EqualsResponse
+	(*GetEndTimeRequest)(nil),                                        // 6: connect.GetEndTimeRequest
+	(*GetEndTimeResponse)(nil),                                       // 7: connect.GetEndTimeResponse
+	(*GetStartTimeRequest)(nil),                                      // 8: connect.GetStartTimeRequest
+	(*GetStartTimeResponse)(nil),                                     // 9: connect.GetStartTimeResponse
+	(*HashCodeRequest)(nil),                                          // 10: connect.HashCodeRequest
+	(*HashCodeResponse)(nil),                                         // 11: connect.HashCodeResponse
+	(*IsBoundedRequest)(nil),                                         // 12: connect.IsBoundedRequest
+	(*IsBoundedResponse)(nil),                                        // 13: connect.IsBoundedResponse
+	(*BuildRequest)(nil),                                             // 14: connect.BuildRequest
+	(*BuildResponse)(nil),                                            // 15: connect.BuildResponse
+	(*SetEndTimeRequest)(nil),                                        // 16: connect.SetEndTimeRequest
+	(*SetEndTimeResponse)(nil),                                       // 17: connect.SetEndTimeResponse
+	(*SetStartTimeRequest)(nil),                                      // 18: connect.SetStartTimeRequest
+	(*SetStartTimeResponse)(nil),                                     // 19: connect.SetStartTimeResponse
+	(*NewMedicalResourceIdRequest)(nil),                              // 20: connect.NewMedicalResourceIdRequest
+	(*NewMedicalResourceIdResponse)(nil),                             // 21: connect.NewMedicalResourceIdResponse
+	(*DescribeContentsRequest)(nil),                                  // 22: connect.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),                                 // 23: connect.DescribeContentsResponse
+	(*MedicalResourceIdEqualsRequest)(nil),                           // 24: connect.MedicalResourceIdEqualsRequest
+	(*GetDataSourceIdRequest)(nil),                                   // 25: connect.GetDataSourceIdRequest
+	(*GetDataSourceIdResponse)(nil),                                  // 26: connect.GetDataSourceIdResponse
+	(*GetFhirResourceIdRequest)(nil),                                 // 27: connect.GetFhirResourceIdRequest
+	(*GetFhirResourceIdResponse)(nil),                                // 28: connect.GetFhirResourceIdResponse
+	(*GetFhirResourceTypeRequest)(nil),                               // 29: connect.GetFhirResourceTypeRequest
+	(*GetFhirResourceTypeResponse)(nil),                              // 30: connect.GetFhirResourceTypeResponse
+	(*MedicalResourceIdHashCodeRequest)(nil),                         // 31: connect.MedicalResourceIdHashCodeRequest
+	(*ToStringRequest)(nil),                                          // 32: connect.ToStringRequest
+	(*ToStringResponse)(nil),                                         // 33: connect.ToStringResponse
+	(*WriteToParcelRequest)(nil),                                     // 34: connect.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                                    // 35: connect.WriteToParcelResponse
+	(*FromFhirReferenceRequest)(nil),                                 // 36: connect.FromFhirReferenceRequest
+	(*FromFhirReferenceResponse)(nil),                                // 37: connect.FromFhirReferenceResponse
+	(*GetPageTokenRequest)(nil),                                      // 38: connect.GetPageTokenRequest
+	(*GetPageTokenResponse)(nil),                                     // 39: connect.GetPageTokenResponse
+	(*ReadMedicalResourcesPageRequestToStringRequest)(nil),           // 40: connect.ReadMedicalResourcesPageRequestToStringRequest
+	(*SetPageSizeRequest)(nil),                                       // 41: connect.SetPageSizeRequest
+	(*SetPageSizeResponse)(nil),                                      // 42: connect.SetPageSizeResponse
+	(*SetPageTokenRequest)(nil),                                      // 43: connect.SetPageTokenRequest
+	(*SetPageTokenResponse)(nil),                                     // 44: connect.SetPageTokenResponse
+	(*GetRecordTypeRequest)(nil),                                     // 45: connect.GetRecordTypeRequest
+	(*GetRecordTypeResponse)(nil),                                    // 46: connect.GetRecordTypeResponse
+	(*GetDataOriginsRequest)(nil),                                    // 47: connect.GetDataOriginsRequest
+	(*GetDataOriginsResponse)(nil),                                   // 48: connect.GetDataOriginsResponse
+	(*GetPageSizeRequest)(nil),                                       // 49: connect.GetPageSizeRequest
+	(*GetPageSizeResponse)(nil),                                      // 50: connect.GetPageSizeResponse
+	(*ReadRecordsRequestUsingFiltersGetPageTokenResponse)(nil),       // 51: connect.ReadRecordsRequestUsingFiltersGetPageTokenResponse
+	(*GetTimeRangeFilterRequest)(nil),                                // 52: connect.GetTimeRangeFilterRequest
+	(*GetTimeRangeFilterResponse)(nil),                               // 53: connect.GetTimeRangeFilterResponse
+	(*IsAscendingRequest)(nil),                                       // 54: connect.IsAscendingRequest
+	(*IsAscendingResponse)(nil),                                      // 55: connect.IsAscendingResponse
+	(*AddDataOriginsRequest)(nil),                                    // 56: connect.AddDataOriginsRequest
+	(*AddDataOriginsResponse)(nil),                                   // 57: connect.AddDataOriginsResponse
+	(*SetAscendingRequest)(nil),                                      // 58: connect.SetAscendingRequest
+	(*SetAscendingResponse)(nil),                                     // 59: connect.SetAscendingResponse
+	(*ReadRecordsRequestUsingFiltersBuilderSetPageTokenRequest)(nil), // 60: connect.ReadRecordsRequestUsingFiltersBuilderSetPageTokenRequest
+	(*SetTimeRangeFilterRequest)(nil),                                // 61: connect.SetTimeRangeFilterRequest
+	(*SetTimeRangeFilterResponse)(nil),                               // 62: connect.SetTimeRangeFilterResponse
+	(*GetErrorCodeRequest)(nil),                                      // 63: connect.GetErrorCodeRequest
+	(*GetErrorCodeResponse)(nil),                                     // 64: connect.GetErrorCodeResponse
+	(*DeleteMedicalResourcesRequestDescribeContentsRequest)(nil),     // 65: connect.DeleteMedicalResourcesRequestDescribeContentsRequest
+	(*GetDataSourceIdsRequest)(nil),                                  // 66: connect.GetDataSourceIdsRequest
+	(*GetDataSourceIdsResponse)(nil),                                 // 67: connect.GetDataSourceIdsResponse
+	(*GetMedicalResourceTypesRequest)(nil),                           // 68: connect.GetMedicalResourceTypesRequest
+	(*GetMedicalResourceTypesResponse)(nil),                          // 69: connect.GetMedicalResourceTypesResponse
+	(*DeleteMedicalResourcesRequestToStringRequest)(nil),             // 70: connect.DeleteMedicalResourcesRequestToStringRequest
+	(*DeleteMedicalResourcesRequestWriteToParcelRequest)(nil),        // 71: connect.DeleteMedicalResourcesRequestWriteToParcelRequest
+	(*AddDataSourceIdRequest)(nil),                                   // 72: connect.AddDataSourceIdRequest
+	(*AddDataSourceIdResponse)(nil),                                  // 73: connect.AddDataSourceIdResponse
+	(*AddMedicalResourceTypeRequest)(nil),                            // 74: connect.AddMedicalResourceTypeRequest
+	(*AddMedicalResourceTypeResponse)(nil),                           // 75: connect.AddMedicalResourceTypeResponse
+	(*ClearDataSourceIdsRequest)(nil),                                // 76: connect.ClearDataSourceIdsRequest
+	(*ClearDataSourceIdsResponse)(nil),                               // 77: connect.ClearDataSourceIdsResponse
+	(*ClearMedicalResourceTypesRequest)(nil),                         // 78: connect.ClearMedicalResourceTypesRequest
+	(*ClearMedicalResourceTypesResponse)(nil),                        // 79: connect.ClearMedicalResourceTypesResponse
+	(*CreateMedicalDataSourceRequestDescribeContentsRequest)(nil),    // 80: connect.CreateMedicalDataSourceRequestDescribeContentsRequest
+	(*GetDisplayNameRequest)(nil),                                    // 81: connect.GetDisplayNameRequest
+	(*GetDisplayNameResponse)(nil),                                   // 82: connect.GetDisplayNameResponse
+	(*GetFhirBaseUriRequest)(nil),                                    // 83: connect.GetFhirBaseUriRequest
+	(*GetFhirBaseUriResponse)(nil),                                   // 84: connect.GetFhirBaseUriResponse
+	(*GetFhirVersionRequest)(nil),                                    // 85: connect.GetFhirVersionRequest
+	(*GetFhirVersionResponse)(nil),                                   // 86: connect.GetFhirVersionResponse
+	(*CreateMedicalDataSourceRequestToStringRequest)(nil),            // 87: connect.CreateMedicalDataSourceRequestToStringRequest
+	(*CreateMedicalDataSourceRequestWriteToParcelRequest)(nil),       // 88: connect.CreateMedicalDataSourceRequestWriteToParcelRequest
+	(*SetDisplayNameRequest)(nil),                                    // 89: connect.SetDisplayNameRequest
+	(*SetDisplayNameResponse)(nil),                                   // 90: connect.SetDisplayNameResponse
+	(*SetFhirBaseUriRequest)(nil),                                    // 91: connect.SetFhirBaseUriRequest
+	(*SetFhirBaseUriResponse)(nil),                                   // 92: connect.SetFhirBaseUriResponse
+	(*SetFhirVersionRequest)(nil),                                    // 93: connect.SetFhirVersionRequest
+	(*SetFhirVersionResponse)(nil),                                   // 94: connect.SetFhirVersionResponse
+	(*GetMedicalDataSourcesRequestDescribeContentsRequest)(nil),      // 95: connect.GetMedicalDataSourcesRequestDescribeContentsRequest
+	(*GetPackageNamesRequest)(nil),                                   // 96: connect.GetPackageNamesRequest
+	(*GetPackageNamesResponse)(nil),                                  // 97: connect.GetPackageNamesResponse
+	(*GetMedicalDataSourcesRequestToStringRequest)(nil),              // 98: connect.GetMedicalDataSourcesRequestToStringRequest
+	(*GetMedicalDataSourcesRequestWriteToParcelRequest)(nil),         // 99: connect.GetMedicalDataSourcesRequestWriteToParcelRequest
+	(*AddPackageNameRequest)(nil),                                    // 100: connect.AddPackageNameRequest
+	(*AddPackageNameResponse)(nil),                                   // 101: connect.AddPackageNameResponse
+	(*ClearPackageNamesRequest)(nil),                                 // 102: connect.ClearPackageNamesRequest
+	(*ClearPackageNamesResponse)(nil),                                // 103: connect.ClearPackageNamesResponse
+	(*UpsertMedicalResourceRequestDescribeContentsRequest)(nil),      // 104: connect.UpsertMedicalResourceRequestDescribeContentsRequest
+	(*GetDataRequest)(nil),                                           // 105: connect.GetDataRequest
+	(*GetDataResponse)(nil),                                          // 106: connect.GetDataResponse
+	(*UpsertMedicalResourceRequestGetDataSourceIdRequest)(nil),       // 107: connect.UpsertMedicalResourceRequestGetDataSourceIdRequest
+	(*UpsertMedicalResourceRequestToStringRequest)(nil),              // 108: connect.UpsertMedicalResourceRequestToStringRequest
+	(*UpsertMedicalResourceRequestWriteToParcelRequest)(nil),         // 109: connect.UpsertMedicalResourceRequestWriteToParcelRequest
+	(*SetDataRequest)(nil),                                           // 110: connect.SetDataRequest
+	(*SetDataResponse)(nil),                                          // 111: connect.SetDataResponse
+	(*SetDataSourceIdRequest)(nil),                                   // 112: connect.SetDataSourceIdRequest
+	(*SetDataSourceIdResponse)(nil),                                  // 113: connect.SetDataSourceIdResponse
+	(*GetAggregationTypesRequest)(nil),                               // 114: connect.GetAggregationTypesRequest
+	(*GetAggregationTypesResponse)(nil),                              // 115: connect.GetAggregationTypesResponse
+	(*GetDataOriginsFiltersRequest)(nil),                             // 116: connect.GetDataOriginsFiltersRequest
+	(*GetDataOriginsFiltersResponse)(nil),                            // 117: connect.GetDataOriginsFiltersResponse
+	(*AddDataOriginsFilterRequest)(nil),                              // 118: connect.AddDataOriginsFilterRequest
+	(*AddDataOriginsFilterResponse)(nil),                             // 119: connect.AddDataOriginsFilterResponse
+	(*GetMedicalResourceTypeRequest)(nil),                            // 120: connect.GetMedicalResourceTypeRequest
+	(*GetMedicalResourceTypeResponse)(nil),                           // 121: connect.GetMedicalResourceTypeResponse
+	(*ReadMedicalResourcesInitialRequestToStringRequest)(nil),        // 122: connect.ReadMedicalResourcesInitialRequestToStringRequest
+	(*SetMedicalResourceTypeRequest)(nil),                            // 123: connect.SetMedicalResourceTypeRequest
+	(*SetMedicalResourceTypeResponse)(nil),                           // 124: connect.SetMedicalResourceTypeResponse
+	(*NewReadMedicalResourcesResponseRequest)(nil),                   // 125: connect.NewReadMedicalResourcesResponseRequest
+	(*NewReadMedicalResourcesResponseResponse)(nil),                  // 126: connect.NewReadMedicalResourcesResponseResponse
+	(*ReadMedicalResourcesResponseEqualsRequest)(nil),                // 127: connect.ReadMedicalResourcesResponseEqualsRequest
+	(*GetMedicalResourcesRequest)(nil),                               // 128: connect.GetMedicalResourcesRequest
+	(*GetMedicalResourcesResponse)(nil),                              // 129: connect.GetMedicalResourcesResponse
+	(*ReadMedicalResourcesResponseGetNextPageTokenRequest)(nil),      // 130: connect.ReadMedicalResourcesResponseGetNextPageTokenRequest
+	(*ReadMedicalResourcesResponseGetNextPageTokenResponse)(nil),     // 131: connect.ReadMedicalResourcesResponseGetNextPageTokenResponse
+	(*GetRemainingCountRequest)(nil),                                 // 132: connect.GetRemainingCountRequest
+	(*GetRemainingCountResponse)(nil),                                // 133: connect.GetRemainingCountResponse
+	(*ReadMedicalResourcesResponseHashCodeRequest)(nil),              // 134: connect.ReadMedicalResourcesResponseHashCodeRequest
+	(*GetRecordIdFiltersRequest)(nil),                                // 135: connect.GetRecordIdFiltersRequest
+	(*GetRecordIdFiltersResponse)(nil),                               // 136: connect.GetRecordIdFiltersResponse
+	(*AddClientRecordIdRequest)(nil),                                 // 137: connect.AddClientRecordIdRequest
+	(*AddClientRecordIdResponse)(nil),                                // 138: connect.AddClientRecordIdResponse
+	(*AddIdRequest)(nil),                                             // 139: connect.AddIdRequest
+	(*AddIdResponse)(nil),                                            // 140: connect.AddIdResponse
+	(*GetClientRecordIdRequest)(nil),                                 // 141: connect.GetClientRecordIdRequest
+	(*GetClientRecordIdResponse)(nil),                                // 142: connect.GetClientRecordIdResponse
+	(*GetIdRequest)(nil),                                             // 143: connect.GetIdRequest
+	(*GetIdResponse)(nil),                                            // 144: connect.GetIdResponse
 }
 var file_proto_connect_connect_proto_depIdxs = []int32{
-	0,   // 0: connect.DeleteMedicalResourcesRequestService.DescribeContents:input_type -> connect.DescribeContentsRequest
-	2,   // 1: connect.DeleteMedicalResourcesRequestService.Equals:input_type -> connect.EqualsRequest
-	4,   // 2: connect.DeleteMedicalResourcesRequestService.HashCode:input_type -> connect.HashCodeRequest
-	6,   // 3: connect.DeleteMedicalResourcesRequestService.ToString:input_type -> connect.ToStringRequest
-	8,   // 4: connect.DeleteMedicalResourcesRequestService.WriteToParcel:input_type -> connect.WriteToParcelRequest
-	10,  // 5: connect.DeleteMedicalResourcesRequestBuilderService.AddDataSourceId:input_type -> connect.AddDataSourceIdRequest
-	12,  // 6: connect.DeleteMedicalResourcesRequestBuilderService.AddMedicalResourceType:input_type -> connect.AddMedicalResourceTypeRequest
-	14,  // 7: connect.DeleteMedicalResourcesRequestBuilderService.Build:input_type -> connect.BuildRequest
-	16,  // 8: connect.DeleteMedicalResourcesRequestBuilderService.ClearDataSourceIds:input_type -> connect.ClearDataSourceIdsRequest
-	18,  // 9: connect.DeleteMedicalResourcesRequestBuilderService.ClearMedicalResourceTypes:input_type -> connect.ClearMedicalResourceTypesRequest
-	2,   // 10: connect.TimeInstantRangeFilterService.Equals:input_type -> connect.EqualsRequest
-	20,  // 11: connect.TimeInstantRangeFilterService.GetEndTime:input_type -> connect.GetEndTimeRequest
-	22,  // 12: connect.TimeInstantRangeFilterService.GetStartTime:input_type -> connect.GetStartTimeRequest
-	4,   // 13: connect.TimeInstantRangeFilterService.HashCode:input_type -> connect.HashCodeRequest
-	24,  // 14: connect.TimeInstantRangeFilterService.IsBounded:input_type -> connect.IsBoundedRequest
-	14,  // 15: connect.TimeInstantRangeFilterBuilderService.Build:input_type -> connect.BuildRequest
-	26,  // 16: connect.TimeInstantRangeFilterBuilderService.SetEndTime:input_type -> connect.SetEndTimeRequest
-	28,  // 17: connect.TimeInstantRangeFilterBuilderService.SetStartTime:input_type -> connect.SetStartTimeRequest
-	30,  // 18: connect.AggregateRecordsRequestService.GetTimeRangeFilter:input_type -> connect.GetTimeRangeFilterRequest
-	32,  // 19: connect.ReadRecordsRequestUsingFiltersService.GetPageSize:input_type -> connect.GetPageSizeRequest
-	34,  // 20: connect.ReadRecordsRequestUsingFiltersService.GetPageToken:input_type -> connect.GetPageTokenRequest
-	30,  // 21: connect.ReadRecordsRequestUsingFiltersService.GetTimeRangeFilter:input_type -> connect.GetTimeRangeFilterRequest
-	36,  // 22: connect.ReadRecordsRequestUsingFiltersService.IsAscending:input_type -> connect.IsAscendingRequest
-	38,  // 23: connect.ReadRecordsResponseService.GetNextPageToken:input_type -> connect.GetNextPageTokenRequest
-	2,   // 24: connect.ReadMedicalResourcesInitialRequestService.Equals:input_type -> connect.EqualsRequest
-	40,  // 25: connect.ReadMedicalResourcesInitialRequestService.GetMedicalResourceType:input_type -> connect.GetMedicalResourceTypeRequest
-	4,   // 26: connect.ReadMedicalResourcesInitialRequestService.HashCode:input_type -> connect.HashCodeRequest
-	6,   // 27: connect.ReadMedicalResourcesInitialRequestService.ToString:input_type -> connect.ToStringRequest
-	10,  // 28: connect.ReadMedicalResourcesInitialRequestBuilderService.AddDataSourceId:input_type -> connect.AddDataSourceIdRequest
-	14,  // 29: connect.ReadMedicalResourcesInitialRequestBuilderService.Build:input_type -> connect.BuildRequest
-	16,  // 30: connect.ReadMedicalResourcesInitialRequestBuilderService.ClearDataSourceIds:input_type -> connect.ClearDataSourceIdsRequest
-	42,  // 31: connect.ReadMedicalResourcesInitialRequestBuilderService.SetMedicalResourceType:input_type -> connect.SetMedicalResourceTypeRequest
-	44,  // 32: connect.ReadMedicalResourcesInitialRequestBuilderService.SetPageSize:input_type -> connect.SetPageSizeRequest
-	20,  // 33: connect.AggregateRecordsGroupedByPeriodResponseService.GetEndTime:input_type -> connect.GetEndTimeRequest
-	22,  // 34: connect.AggregateRecordsGroupedByPeriodResponseService.GetStartTime:input_type -> connect.GetStartTimeRequest
-	0,   // 35: connect.CreateMedicalDataSourceRequestService.DescribeContents:input_type -> connect.DescribeContentsRequest
-	2,   // 36: connect.CreateMedicalDataSourceRequestService.Equals:input_type -> connect.EqualsRequest
-	46,  // 37: connect.CreateMedicalDataSourceRequestService.GetDisplayName:input_type -> connect.GetDisplayNameRequest
-	48,  // 38: connect.CreateMedicalDataSourceRequestService.GetFhirBaseUri:input_type -> connect.GetFhirBaseUriRequest
-	50,  // 39: connect.CreateMedicalDataSourceRequestService.GetFhirVersion:input_type -> connect.GetFhirVersionRequest
-	4,   // 40: connect.CreateMedicalDataSourceRequestService.HashCode:input_type -> connect.HashCodeRequest
-	6,   // 41: connect.CreateMedicalDataSourceRequestService.ToString:input_type -> connect.ToStringRequest
-	8,   // 42: connect.CreateMedicalDataSourceRequestService.WriteToParcel:input_type -> connect.WriteToParcelRequest
-	14,  // 43: connect.CreateMedicalDataSourceRequestBuilderService.Build:input_type -> connect.BuildRequest
-	52,  // 44: connect.CreateMedicalDataSourceRequestBuilderService.SetDisplayName:input_type -> connect.SetDisplayNameRequest
-	54,  // 45: connect.CreateMedicalDataSourceRequestBuilderService.SetFhirBaseUri:input_type -> connect.SetFhirBaseUriRequest
-	56,  // 46: connect.CreateMedicalDataSourceRequestBuilderService.SetFhirVersion:input_type -> connect.SetFhirVersionRequest
-	32,  // 47: connect.ReadMedicalResourcesRequestService.GetPageSize:input_type -> connect.GetPageSizeRequest
-	58,  // 48: connect.HealthConnectExceptionService.GetErrorCode:input_type -> connect.GetErrorCodeRequest
-	2,   // 49: connect.ReadMedicalResourcesPageRequestService.Equals:input_type -> connect.EqualsRequest
-	34,  // 50: connect.ReadMedicalResourcesPageRequestService.GetPageToken:input_type -> connect.GetPageTokenRequest
-	4,   // 51: connect.ReadMedicalResourcesPageRequestService.HashCode:input_type -> connect.HashCodeRequest
-	6,   // 52: connect.ReadMedicalResourcesPageRequestService.ToString:input_type -> connect.ToStringRequest
-	14,  // 53: connect.ReadMedicalResourcesPageRequestBuilderService.Build:input_type -> connect.BuildRequest
-	44,  // 54: connect.ReadMedicalResourcesPageRequestBuilderService.SetPageSize:input_type -> connect.SetPageSizeRequest
-	61,  // 55: connect.ReadMedicalResourcesPageRequestBuilderService.SetPageToken:input_type -> connect.SetPageTokenRequest
-	63,  // 56: connect.RecordIdFilterService.GetClientRecordId:input_type -> connect.GetClientRecordIdRequest
-	65,  // 57: connect.RecordIdFilterService.GetId:input_type -> connect.GetIdRequest
-	0,   // 58: connect.GetMedicalDataSourcesRequestService.DescribeContents:input_type -> connect.DescribeContentsRequest
-	2,   // 59: connect.GetMedicalDataSourcesRequestService.Equals:input_type -> connect.EqualsRequest
-	4,   // 60: connect.GetMedicalDataSourcesRequestService.HashCode:input_type -> connect.HashCodeRequest
-	6,   // 61: connect.GetMedicalDataSourcesRequestService.ToString:input_type -> connect.ToStringRequest
-	8,   // 62: connect.GetMedicalDataSourcesRequestService.WriteToParcel:input_type -> connect.WriteToParcelRequest
-	67,  // 63: connect.GetMedicalDataSourcesRequestBuilderService.AddPackageName:input_type -> connect.AddPackageNameRequest
-	14,  // 64: connect.GetMedicalDataSourcesRequestBuilderService.Build:input_type -> connect.BuildRequest
-	69,  // 65: connect.GetMedicalDataSourcesRequestBuilderService.ClearPackageNames:input_type -> connect.ClearPackageNamesRequest
-	2,   // 66: connect.LocalTimeRangeFilterService.Equals:input_type -> connect.EqualsRequest
-	20,  // 67: connect.LocalTimeRangeFilterService.GetEndTime:input_type -> connect.GetEndTimeRequest
-	22,  // 68: connect.LocalTimeRangeFilterService.GetStartTime:input_type -> connect.GetStartTimeRequest
-	4,   // 69: connect.LocalTimeRangeFilterService.HashCode:input_type -> connect.HashCodeRequest
-	24,  // 70: connect.LocalTimeRangeFilterService.IsBounded:input_type -> connect.IsBoundedRequest
-	14,  // 71: connect.LocalTimeRangeFilterBuilderService.Build:input_type -> connect.BuildRequest
-	26,  // 72: connect.LocalTimeRangeFilterBuilderService.SetEndTime:input_type -> connect.SetEndTimeRequest
-	28,  // 73: connect.LocalTimeRangeFilterBuilderService.SetStartTime:input_type -> connect.SetStartTimeRequest
-	71,  // 74: connect.ReadMedicalResourcesResponseService.NewReadMedicalResourcesResponse:input_type -> connect.NewReadMedicalResourcesResponseRequest
-	73,  // 75: connect.ReadMedicalResourcesResponseService.DescribeContents:input_type -> connect.ReadMedicalResourcesResponseDescribeContentsRequest
-	74,  // 76: connect.ReadMedicalResourcesResponseService.Equals:input_type -> connect.ReadMedicalResourcesResponseEqualsRequest
-	75,  // 77: connect.ReadMedicalResourcesResponseService.GetNextPageToken:input_type -> connect.ReadMedicalResourcesResponseGetNextPageTokenRequest
-	77,  // 78: connect.ReadMedicalResourcesResponseService.GetRemainingCount:input_type -> connect.GetRemainingCountRequest
-	79,  // 79: connect.ReadMedicalResourcesResponseService.HashCode:input_type -> connect.ReadMedicalResourcesResponseHashCodeRequest
-	80,  // 80: connect.ReadMedicalResourcesResponseService.ToString:input_type -> connect.ReadMedicalResourcesResponseToStringRequest
-	81,  // 81: connect.ReadMedicalResourcesResponseService.WriteToParcel:input_type -> connect.ReadMedicalResourcesResponseWriteToParcelRequest
-	20,  // 82: connect.AggregateRecordsGroupedByDurationResponseService.GetEndTime:input_type -> connect.GetEndTimeRequest
-	22,  // 83: connect.AggregateRecordsGroupedByDurationResponseService.GetStartTime:input_type -> connect.GetStartTimeRequest
-	82,  // 84: connect.MedicalResourceIdService.NewMedicalResourceId:input_type -> connect.NewMedicalResourceIdRequest
-	84,  // 85: connect.MedicalResourceIdService.DescribeContents:input_type -> connect.MedicalResourceIdDescribeContentsRequest
-	85,  // 86: connect.MedicalResourceIdService.Equals:input_type -> connect.MedicalResourceIdEqualsRequest
-	86,  // 87: connect.MedicalResourceIdService.GetDataSourceId:input_type -> connect.GetDataSourceIdRequest
-	88,  // 88: connect.MedicalResourceIdService.GetFhirResourceId:input_type -> connect.GetFhirResourceIdRequest
-	90,  // 89: connect.MedicalResourceIdService.GetFhirResourceType:input_type -> connect.GetFhirResourceTypeRequest
-	92,  // 90: connect.MedicalResourceIdService.HashCode:input_type -> connect.MedicalResourceIdHashCodeRequest
-	93,  // 91: connect.MedicalResourceIdService.ToString:input_type -> connect.MedicalResourceIdToStringRequest
-	94,  // 92: connect.MedicalResourceIdService.WriteToParcel:input_type -> connect.MedicalResourceIdWriteToParcelRequest
-	95,  // 93: connect.MedicalResourceIdService.FromFhirReference:input_type -> connect.FromFhirReferenceRequest
-	0,   // 94: connect.UpsertMedicalResourceRequestService.DescribeContents:input_type -> connect.DescribeContentsRequest
-	2,   // 95: connect.UpsertMedicalResourceRequestService.Equals:input_type -> connect.EqualsRequest
-	97,  // 96: connect.UpsertMedicalResourceRequestService.GetData:input_type -> connect.GetDataRequest
-	99,  // 97: connect.UpsertMedicalResourceRequestService.GetDataSourceId:input_type -> connect.UpsertMedicalResourceRequestGetDataSourceIdRequest
-	50,  // 98: connect.UpsertMedicalResourceRequestService.GetFhirVersion:input_type -> connect.GetFhirVersionRequest
-	4,   // 99: connect.UpsertMedicalResourceRequestService.HashCode:input_type -> connect.HashCodeRequest
-	6,   // 100: connect.UpsertMedicalResourceRequestService.ToString:input_type -> connect.ToStringRequest
-	8,   // 101: connect.UpsertMedicalResourceRequestService.WriteToParcel:input_type -> connect.WriteToParcelRequest
-	14,  // 102: connect.UpsertMedicalResourceRequestBuilderService.Build:input_type -> connect.BuildRequest
-	100, // 103: connect.UpsertMedicalResourceRequestBuilderService.SetData:input_type -> connect.SetDataRequest
-	102, // 104: connect.UpsertMedicalResourceRequestBuilderService.SetDataSourceId:input_type -> connect.SetDataSourceIdRequest
-	56,  // 105: connect.UpsertMedicalResourceRequestBuilderService.SetFhirVersion:input_type -> connect.SetFhirVersionRequest
-	1,   // 106: connect.DeleteMedicalResourcesRequestService.DescribeContents:output_type -> connect.DescribeContentsResponse
-	3,   // 107: connect.DeleteMedicalResourcesRequestService.Equals:output_type -> connect.EqualsResponse
-	5,   // 108: connect.DeleteMedicalResourcesRequestService.HashCode:output_type -> connect.HashCodeResponse
-	7,   // 109: connect.DeleteMedicalResourcesRequestService.ToString:output_type -> connect.ToStringResponse
-	9,   // 110: connect.DeleteMedicalResourcesRequestService.WriteToParcel:output_type -> connect.WriteToParcelResponse
-	11,  // 111: connect.DeleteMedicalResourcesRequestBuilderService.AddDataSourceId:output_type -> connect.AddDataSourceIdResponse
-	13,  // 112: connect.DeleteMedicalResourcesRequestBuilderService.AddMedicalResourceType:output_type -> connect.AddMedicalResourceTypeResponse
-	15,  // 113: connect.DeleteMedicalResourcesRequestBuilderService.Build:output_type -> connect.BuildResponse
-	17,  // 114: connect.DeleteMedicalResourcesRequestBuilderService.ClearDataSourceIds:output_type -> connect.ClearDataSourceIdsResponse
-	19,  // 115: connect.DeleteMedicalResourcesRequestBuilderService.ClearMedicalResourceTypes:output_type -> connect.ClearMedicalResourceTypesResponse
-	3,   // 116: connect.TimeInstantRangeFilterService.Equals:output_type -> connect.EqualsResponse
-	21,  // 117: connect.TimeInstantRangeFilterService.GetEndTime:output_type -> connect.GetEndTimeResponse
-	23,  // 118: connect.TimeInstantRangeFilterService.GetStartTime:output_type -> connect.GetStartTimeResponse
-	5,   // 119: connect.TimeInstantRangeFilterService.HashCode:output_type -> connect.HashCodeResponse
-	25,  // 120: connect.TimeInstantRangeFilterService.IsBounded:output_type -> connect.IsBoundedResponse
-	15,  // 121: connect.TimeInstantRangeFilterBuilderService.Build:output_type -> connect.BuildResponse
-	27,  // 122: connect.TimeInstantRangeFilterBuilderService.SetEndTime:output_type -> connect.SetEndTimeResponse
-	29,  // 123: connect.TimeInstantRangeFilterBuilderService.SetStartTime:output_type -> connect.SetStartTimeResponse
-	31,  // 124: connect.AggregateRecordsRequestService.GetTimeRangeFilter:output_type -> connect.GetTimeRangeFilterResponse
-	33,  // 125: connect.ReadRecordsRequestUsingFiltersService.GetPageSize:output_type -> connect.GetPageSizeResponse
-	35,  // 126: connect.ReadRecordsRequestUsingFiltersService.GetPageToken:output_type -> connect.GetPageTokenResponse
-	31,  // 127: connect.ReadRecordsRequestUsingFiltersService.GetTimeRangeFilter:output_type -> connect.GetTimeRangeFilterResponse
-	37,  // 128: connect.ReadRecordsRequestUsingFiltersService.IsAscending:output_type -> connect.IsAscendingResponse
-	39,  // 129: connect.ReadRecordsResponseService.GetNextPageToken:output_type -> connect.GetNextPageTokenResponse
-	3,   // 130: connect.ReadMedicalResourcesInitialRequestService.Equals:output_type -> connect.EqualsResponse
-	41,  // 131: connect.ReadMedicalResourcesInitialRequestService.GetMedicalResourceType:output_type -> connect.GetMedicalResourceTypeResponse
-	5,   // 132: connect.ReadMedicalResourcesInitialRequestService.HashCode:output_type -> connect.HashCodeResponse
-	7,   // 133: connect.ReadMedicalResourcesInitialRequestService.ToString:output_type -> connect.ToStringResponse
-	11,  // 134: connect.ReadMedicalResourcesInitialRequestBuilderService.AddDataSourceId:output_type -> connect.AddDataSourceIdResponse
-	15,  // 135: connect.ReadMedicalResourcesInitialRequestBuilderService.Build:output_type -> connect.BuildResponse
-	17,  // 136: connect.ReadMedicalResourcesInitialRequestBuilderService.ClearDataSourceIds:output_type -> connect.ClearDataSourceIdsResponse
-	43,  // 137: connect.ReadMedicalResourcesInitialRequestBuilderService.SetMedicalResourceType:output_type -> connect.SetMedicalResourceTypeResponse
-	45,  // 138: connect.ReadMedicalResourcesInitialRequestBuilderService.SetPageSize:output_type -> connect.SetPageSizeResponse
-	21,  // 139: connect.AggregateRecordsGroupedByPeriodResponseService.GetEndTime:output_type -> connect.GetEndTimeResponse
-	23,  // 140: connect.AggregateRecordsGroupedByPeriodResponseService.GetStartTime:output_type -> connect.GetStartTimeResponse
-	1,   // 141: connect.CreateMedicalDataSourceRequestService.DescribeContents:output_type -> connect.DescribeContentsResponse
-	3,   // 142: connect.CreateMedicalDataSourceRequestService.Equals:output_type -> connect.EqualsResponse
-	47,  // 143: connect.CreateMedicalDataSourceRequestService.GetDisplayName:output_type -> connect.GetDisplayNameResponse
-	49,  // 144: connect.CreateMedicalDataSourceRequestService.GetFhirBaseUri:output_type -> connect.GetFhirBaseUriResponse
-	51,  // 145: connect.CreateMedicalDataSourceRequestService.GetFhirVersion:output_type -> connect.GetFhirVersionResponse
-	5,   // 146: connect.CreateMedicalDataSourceRequestService.HashCode:output_type -> connect.HashCodeResponse
-	7,   // 147: connect.CreateMedicalDataSourceRequestService.ToString:output_type -> connect.ToStringResponse
-	9,   // 148: connect.CreateMedicalDataSourceRequestService.WriteToParcel:output_type -> connect.WriteToParcelResponse
-	15,  // 149: connect.CreateMedicalDataSourceRequestBuilderService.Build:output_type -> connect.BuildResponse
-	53,  // 150: connect.CreateMedicalDataSourceRequestBuilderService.SetDisplayName:output_type -> connect.SetDisplayNameResponse
-	55,  // 151: connect.CreateMedicalDataSourceRequestBuilderService.SetFhirBaseUri:output_type -> connect.SetFhirBaseUriResponse
-	57,  // 152: connect.CreateMedicalDataSourceRequestBuilderService.SetFhirVersion:output_type -> connect.SetFhirVersionResponse
-	33,  // 153: connect.ReadMedicalResourcesRequestService.GetPageSize:output_type -> connect.GetPageSizeResponse
-	59,  // 154: connect.HealthConnectExceptionService.GetErrorCode:output_type -> connect.GetErrorCodeResponse
-	3,   // 155: connect.ReadMedicalResourcesPageRequestService.Equals:output_type -> connect.EqualsResponse
-	60,  // 156: connect.ReadMedicalResourcesPageRequestService.GetPageToken:output_type -> connect.ReadMedicalResourcesPageRequestGetPageTokenResponse
-	5,   // 157: connect.ReadMedicalResourcesPageRequestService.HashCode:output_type -> connect.HashCodeResponse
-	7,   // 158: connect.ReadMedicalResourcesPageRequestService.ToString:output_type -> connect.ToStringResponse
-	15,  // 159: connect.ReadMedicalResourcesPageRequestBuilderService.Build:output_type -> connect.BuildResponse
-	45,  // 160: connect.ReadMedicalResourcesPageRequestBuilderService.SetPageSize:output_type -> connect.SetPageSizeResponse
-	62,  // 161: connect.ReadMedicalResourcesPageRequestBuilderService.SetPageToken:output_type -> connect.SetPageTokenResponse
-	64,  // 162: connect.RecordIdFilterService.GetClientRecordId:output_type -> connect.GetClientRecordIdResponse
-	66,  // 163: connect.RecordIdFilterService.GetId:output_type -> connect.GetIdResponse
-	1,   // 164: connect.GetMedicalDataSourcesRequestService.DescribeContents:output_type -> connect.DescribeContentsResponse
-	3,   // 165: connect.GetMedicalDataSourcesRequestService.Equals:output_type -> connect.EqualsResponse
-	5,   // 166: connect.GetMedicalDataSourcesRequestService.HashCode:output_type -> connect.HashCodeResponse
-	7,   // 167: connect.GetMedicalDataSourcesRequestService.ToString:output_type -> connect.ToStringResponse
-	9,   // 168: connect.GetMedicalDataSourcesRequestService.WriteToParcel:output_type -> connect.WriteToParcelResponse
-	68,  // 169: connect.GetMedicalDataSourcesRequestBuilderService.AddPackageName:output_type -> connect.AddPackageNameResponse
-	15,  // 170: connect.GetMedicalDataSourcesRequestBuilderService.Build:output_type -> connect.BuildResponse
-	70,  // 171: connect.GetMedicalDataSourcesRequestBuilderService.ClearPackageNames:output_type -> connect.ClearPackageNamesResponse
-	3,   // 172: connect.LocalTimeRangeFilterService.Equals:output_type -> connect.EqualsResponse
-	21,  // 173: connect.LocalTimeRangeFilterService.GetEndTime:output_type -> connect.GetEndTimeResponse
-	23,  // 174: connect.LocalTimeRangeFilterService.GetStartTime:output_type -> connect.GetStartTimeResponse
-	5,   // 175: connect.LocalTimeRangeFilterService.HashCode:output_type -> connect.HashCodeResponse
-	25,  // 176: connect.LocalTimeRangeFilterService.IsBounded:output_type -> connect.IsBoundedResponse
-	15,  // 177: connect.LocalTimeRangeFilterBuilderService.Build:output_type -> connect.BuildResponse
-	27,  // 178: connect.LocalTimeRangeFilterBuilderService.SetEndTime:output_type -> connect.SetEndTimeResponse
-	29,  // 179: connect.LocalTimeRangeFilterBuilderService.SetStartTime:output_type -> connect.SetStartTimeResponse
-	72,  // 180: connect.ReadMedicalResourcesResponseService.NewReadMedicalResourcesResponse:output_type -> connect.NewReadMedicalResourcesResponseResponse
-	1,   // 181: connect.ReadMedicalResourcesResponseService.DescribeContents:output_type -> connect.DescribeContentsResponse
-	3,   // 182: connect.ReadMedicalResourcesResponseService.Equals:output_type -> connect.EqualsResponse
-	76,  // 183: connect.ReadMedicalResourcesResponseService.GetNextPageToken:output_type -> connect.ReadMedicalResourcesResponseGetNextPageTokenResponse
-	78,  // 184: connect.ReadMedicalResourcesResponseService.GetRemainingCount:output_type -> connect.GetRemainingCountResponse
-	5,   // 185: connect.ReadMedicalResourcesResponseService.HashCode:output_type -> connect.HashCodeResponse
-	7,   // 186: connect.ReadMedicalResourcesResponseService.ToString:output_type -> connect.ToStringResponse
-	9,   // 187: connect.ReadMedicalResourcesResponseService.WriteToParcel:output_type -> connect.WriteToParcelResponse
-	21,  // 188: connect.AggregateRecordsGroupedByDurationResponseService.GetEndTime:output_type -> connect.GetEndTimeResponse
-	23,  // 189: connect.AggregateRecordsGroupedByDurationResponseService.GetStartTime:output_type -> connect.GetStartTimeResponse
-	83,  // 190: connect.MedicalResourceIdService.NewMedicalResourceId:output_type -> connect.NewMedicalResourceIdResponse
-	1,   // 191: connect.MedicalResourceIdService.DescribeContents:output_type -> connect.DescribeContentsResponse
-	3,   // 192: connect.MedicalResourceIdService.Equals:output_type -> connect.EqualsResponse
-	87,  // 193: connect.MedicalResourceIdService.GetDataSourceId:output_type -> connect.GetDataSourceIdResponse
-	89,  // 194: connect.MedicalResourceIdService.GetFhirResourceId:output_type -> connect.GetFhirResourceIdResponse
-	91,  // 195: connect.MedicalResourceIdService.GetFhirResourceType:output_type -> connect.GetFhirResourceTypeResponse
-	5,   // 196: connect.MedicalResourceIdService.HashCode:output_type -> connect.HashCodeResponse
-	7,   // 197: connect.MedicalResourceIdService.ToString:output_type -> connect.ToStringResponse
-	9,   // 198: connect.MedicalResourceIdService.WriteToParcel:output_type -> connect.WriteToParcelResponse
-	96,  // 199: connect.MedicalResourceIdService.FromFhirReference:output_type -> connect.FromFhirReferenceResponse
-	1,   // 200: connect.UpsertMedicalResourceRequestService.DescribeContents:output_type -> connect.DescribeContentsResponse
-	3,   // 201: connect.UpsertMedicalResourceRequestService.Equals:output_type -> connect.EqualsResponse
-	98,  // 202: connect.UpsertMedicalResourceRequestService.GetData:output_type -> connect.GetDataResponse
-	87,  // 203: connect.UpsertMedicalResourceRequestService.GetDataSourceId:output_type -> connect.GetDataSourceIdResponse
-	51,  // 204: connect.UpsertMedicalResourceRequestService.GetFhirVersion:output_type -> connect.GetFhirVersionResponse
-	5,   // 205: connect.UpsertMedicalResourceRequestService.HashCode:output_type -> connect.HashCodeResponse
-	7,   // 206: connect.UpsertMedicalResourceRequestService.ToString:output_type -> connect.ToStringResponse
-	9,   // 207: connect.UpsertMedicalResourceRequestService.WriteToParcel:output_type -> connect.WriteToParcelResponse
-	15,  // 208: connect.UpsertMedicalResourceRequestBuilderService.Build:output_type -> connect.BuildResponse
-	101, // 209: connect.UpsertMedicalResourceRequestBuilderService.SetData:output_type -> connect.SetDataResponse
-	103, // 210: connect.UpsertMedicalResourceRequestBuilderService.SetDataSourceId:output_type -> connect.SetDataSourceIdResponse
-	57,  // 211: connect.UpsertMedicalResourceRequestBuilderService.SetFhirVersion:output_type -> connect.SetFhirVersionResponse
-	106, // [106:212] is the sub-list for method output_type
-	0,   // [0:106] is the sub-list for method input_type
+	0,   // 0: connect.ReadRecordsResponseService.GetNextPageToken:input_type -> connect.GetNextPageTokenRequest
+	2,   // 1: connect.ReadRecordsResponseService.GetRecords:input_type -> connect.GetRecordsRequest
+	4,   // 2: connect.LocalTimeRangeFilterService.Equals:input_type -> connect.EqualsRequest
+	6,   // 3: connect.LocalTimeRangeFilterService.GetEndTime:input_type -> connect.GetEndTimeRequest
+	8,   // 4: connect.LocalTimeRangeFilterService.GetStartTime:input_type -> connect.GetStartTimeRequest
+	10,  // 5: connect.LocalTimeRangeFilterService.HashCode:input_type -> connect.HashCodeRequest
+	12,  // 6: connect.LocalTimeRangeFilterService.IsBounded:input_type -> connect.IsBoundedRequest
+	14,  // 7: connect.LocalTimeRangeFilterBuilderService.Build:input_type -> connect.BuildRequest
+	16,  // 8: connect.LocalTimeRangeFilterBuilderService.SetEndTime:input_type -> connect.SetEndTimeRequest
+	18,  // 9: connect.LocalTimeRangeFilterBuilderService.SetStartTime:input_type -> connect.SetStartTimeRequest
+	20,  // 10: connect.MedicalResourceIdService.NewMedicalResourceId:input_type -> connect.NewMedicalResourceIdRequest
+	22,  // 11: connect.MedicalResourceIdService.DescribeContents:input_type -> connect.DescribeContentsRequest
+	24,  // 12: connect.MedicalResourceIdService.Equals:input_type -> connect.MedicalResourceIdEqualsRequest
+	25,  // 13: connect.MedicalResourceIdService.GetDataSourceId:input_type -> connect.GetDataSourceIdRequest
+	27,  // 14: connect.MedicalResourceIdService.GetFhirResourceId:input_type -> connect.GetFhirResourceIdRequest
+	29,  // 15: connect.MedicalResourceIdService.GetFhirResourceType:input_type -> connect.GetFhirResourceTypeRequest
+	31,  // 16: connect.MedicalResourceIdService.HashCode:input_type -> connect.MedicalResourceIdHashCodeRequest
+	32,  // 17: connect.MedicalResourceIdService.ToString:input_type -> connect.ToStringRequest
+	34,  // 18: connect.MedicalResourceIdService.WriteToParcel:input_type -> connect.WriteToParcelRequest
+	36,  // 19: connect.MedicalResourceIdService.FromFhirReference:input_type -> connect.FromFhirReferenceRequest
+	4,   // 20: connect.ReadMedicalResourcesPageRequestService.Equals:input_type -> connect.EqualsRequest
+	38,  // 21: connect.ReadMedicalResourcesPageRequestService.GetPageToken:input_type -> connect.GetPageTokenRequest
+	10,  // 22: connect.ReadMedicalResourcesPageRequestService.HashCode:input_type -> connect.HashCodeRequest
+	40,  // 23: connect.ReadMedicalResourcesPageRequestService.ToString:input_type -> connect.ReadMedicalResourcesPageRequestToStringRequest
+	14,  // 24: connect.ReadMedicalResourcesPageRequestBuilderService.Build:input_type -> connect.BuildRequest
+	41,  // 25: connect.ReadMedicalResourcesPageRequestBuilderService.SetPageSize:input_type -> connect.SetPageSizeRequest
+	43,  // 26: connect.ReadMedicalResourcesPageRequestBuilderService.SetPageToken:input_type -> connect.SetPageTokenRequest
+	45,  // 27: connect.ReadRecordsRequestService.GetRecordType:input_type -> connect.GetRecordTypeRequest
+	47,  // 28: connect.ReadRecordsRequestUsingFiltersService.GetDataOrigins:input_type -> connect.GetDataOriginsRequest
+	49,  // 29: connect.ReadRecordsRequestUsingFiltersService.GetPageSize:input_type -> connect.GetPageSizeRequest
+	38,  // 30: connect.ReadRecordsRequestUsingFiltersService.GetPageToken:input_type -> connect.GetPageTokenRequest
+	52,  // 31: connect.ReadRecordsRequestUsingFiltersService.GetTimeRangeFilter:input_type -> connect.GetTimeRangeFilterRequest
+	54,  // 32: connect.ReadRecordsRequestUsingFiltersService.IsAscending:input_type -> connect.IsAscendingRequest
+	56,  // 33: connect.ReadRecordsRequestUsingFiltersBuilderService.AddDataOrigins:input_type -> connect.AddDataOriginsRequest
+	14,  // 34: connect.ReadRecordsRequestUsingFiltersBuilderService.Build:input_type -> connect.BuildRequest
+	58,  // 35: connect.ReadRecordsRequestUsingFiltersBuilderService.SetAscending:input_type -> connect.SetAscendingRequest
+	41,  // 36: connect.ReadRecordsRequestUsingFiltersBuilderService.SetPageSize:input_type -> connect.SetPageSizeRequest
+	60,  // 37: connect.ReadRecordsRequestUsingFiltersBuilderService.SetPageToken:input_type -> connect.ReadRecordsRequestUsingFiltersBuilderSetPageTokenRequest
+	61,  // 38: connect.ReadRecordsRequestUsingFiltersBuilderService.SetTimeRangeFilter:input_type -> connect.SetTimeRangeFilterRequest
+	6,   // 39: connect.AggregateRecordsGroupedByDurationResponseService.GetEndTime:input_type -> connect.GetEndTimeRequest
+	8,   // 40: connect.AggregateRecordsGroupedByDurationResponseService.GetStartTime:input_type -> connect.GetStartTimeRequest
+	63,  // 41: connect.HealthConnectExceptionService.GetErrorCode:input_type -> connect.GetErrorCodeRequest
+	65,  // 42: connect.DeleteMedicalResourcesRequestService.DescribeContents:input_type -> connect.DeleteMedicalResourcesRequestDescribeContentsRequest
+	4,   // 43: connect.DeleteMedicalResourcesRequestService.Equals:input_type -> connect.EqualsRequest
+	66,  // 44: connect.DeleteMedicalResourcesRequestService.GetDataSourceIds:input_type -> connect.GetDataSourceIdsRequest
+	68,  // 45: connect.DeleteMedicalResourcesRequestService.GetMedicalResourceTypes:input_type -> connect.GetMedicalResourceTypesRequest
+	10,  // 46: connect.DeleteMedicalResourcesRequestService.HashCode:input_type -> connect.HashCodeRequest
+	70,  // 47: connect.DeleteMedicalResourcesRequestService.ToString:input_type -> connect.DeleteMedicalResourcesRequestToStringRequest
+	71,  // 48: connect.DeleteMedicalResourcesRequestService.WriteToParcel:input_type -> connect.DeleteMedicalResourcesRequestWriteToParcelRequest
+	72,  // 49: connect.DeleteMedicalResourcesRequestBuilderService.AddDataSourceId:input_type -> connect.AddDataSourceIdRequest
+	74,  // 50: connect.DeleteMedicalResourcesRequestBuilderService.AddMedicalResourceType:input_type -> connect.AddMedicalResourceTypeRequest
+	14,  // 51: connect.DeleteMedicalResourcesRequestBuilderService.Build:input_type -> connect.BuildRequest
+	76,  // 52: connect.DeleteMedicalResourcesRequestBuilderService.ClearDataSourceIds:input_type -> connect.ClearDataSourceIdsRequest
+	78,  // 53: connect.DeleteMedicalResourcesRequestBuilderService.ClearMedicalResourceTypes:input_type -> connect.ClearMedicalResourceTypesRequest
+	80,  // 54: connect.CreateMedicalDataSourceRequestService.DescribeContents:input_type -> connect.CreateMedicalDataSourceRequestDescribeContentsRequest
+	4,   // 55: connect.CreateMedicalDataSourceRequestService.Equals:input_type -> connect.EqualsRequest
+	81,  // 56: connect.CreateMedicalDataSourceRequestService.GetDisplayName:input_type -> connect.GetDisplayNameRequest
+	83,  // 57: connect.CreateMedicalDataSourceRequestService.GetFhirBaseUri:input_type -> connect.GetFhirBaseUriRequest
+	85,  // 58: connect.CreateMedicalDataSourceRequestService.GetFhirVersion:input_type -> connect.GetFhirVersionRequest
+	10,  // 59: connect.CreateMedicalDataSourceRequestService.HashCode:input_type -> connect.HashCodeRequest
+	87,  // 60: connect.CreateMedicalDataSourceRequestService.ToString:input_type -> connect.CreateMedicalDataSourceRequestToStringRequest
+	88,  // 61: connect.CreateMedicalDataSourceRequestService.WriteToParcel:input_type -> connect.CreateMedicalDataSourceRequestWriteToParcelRequest
+	14,  // 62: connect.CreateMedicalDataSourceRequestBuilderService.Build:input_type -> connect.BuildRequest
+	89,  // 63: connect.CreateMedicalDataSourceRequestBuilderService.SetDisplayName:input_type -> connect.SetDisplayNameRequest
+	91,  // 64: connect.CreateMedicalDataSourceRequestBuilderService.SetFhirBaseUri:input_type -> connect.SetFhirBaseUriRequest
+	93,  // 65: connect.CreateMedicalDataSourceRequestBuilderService.SetFhirVersion:input_type -> connect.SetFhirVersionRequest
+	6,   // 66: connect.AggregateRecordsGroupedByPeriodResponseService.GetEndTime:input_type -> connect.GetEndTimeRequest
+	8,   // 67: connect.AggregateRecordsGroupedByPeriodResponseService.GetStartTime:input_type -> connect.GetStartTimeRequest
+	2,   // 68: connect.InsertRecordsResponseService.GetRecords:input_type -> connect.GetRecordsRequest
+	95,  // 69: connect.GetMedicalDataSourcesRequestService.DescribeContents:input_type -> connect.GetMedicalDataSourcesRequestDescribeContentsRequest
+	4,   // 70: connect.GetMedicalDataSourcesRequestService.Equals:input_type -> connect.EqualsRequest
+	96,  // 71: connect.GetMedicalDataSourcesRequestService.GetPackageNames:input_type -> connect.GetPackageNamesRequest
+	10,  // 72: connect.GetMedicalDataSourcesRequestService.HashCode:input_type -> connect.HashCodeRequest
+	98,  // 73: connect.GetMedicalDataSourcesRequestService.ToString:input_type -> connect.GetMedicalDataSourcesRequestToStringRequest
+	99,  // 74: connect.GetMedicalDataSourcesRequestService.WriteToParcel:input_type -> connect.GetMedicalDataSourcesRequestWriteToParcelRequest
+	100, // 75: connect.GetMedicalDataSourcesRequestBuilderService.AddPackageName:input_type -> connect.AddPackageNameRequest
+	14,  // 76: connect.GetMedicalDataSourcesRequestBuilderService.Build:input_type -> connect.BuildRequest
+	102, // 77: connect.GetMedicalDataSourcesRequestBuilderService.ClearPackageNames:input_type -> connect.ClearPackageNamesRequest
+	104, // 78: connect.UpsertMedicalResourceRequestService.DescribeContents:input_type -> connect.UpsertMedicalResourceRequestDescribeContentsRequest
+	4,   // 79: connect.UpsertMedicalResourceRequestService.Equals:input_type -> connect.EqualsRequest
+	105, // 80: connect.UpsertMedicalResourceRequestService.GetData:input_type -> connect.GetDataRequest
+	107, // 81: connect.UpsertMedicalResourceRequestService.GetDataSourceId:input_type -> connect.UpsertMedicalResourceRequestGetDataSourceIdRequest
+	85,  // 82: connect.UpsertMedicalResourceRequestService.GetFhirVersion:input_type -> connect.GetFhirVersionRequest
+	10,  // 83: connect.UpsertMedicalResourceRequestService.HashCode:input_type -> connect.HashCodeRequest
+	108, // 84: connect.UpsertMedicalResourceRequestService.ToString:input_type -> connect.UpsertMedicalResourceRequestToStringRequest
+	109, // 85: connect.UpsertMedicalResourceRequestService.WriteToParcel:input_type -> connect.UpsertMedicalResourceRequestWriteToParcelRequest
+	14,  // 86: connect.UpsertMedicalResourceRequestBuilderService.Build:input_type -> connect.BuildRequest
+	110, // 87: connect.UpsertMedicalResourceRequestBuilderService.SetData:input_type -> connect.SetDataRequest
+	112, // 88: connect.UpsertMedicalResourceRequestBuilderService.SetDataSourceId:input_type -> connect.SetDataSourceIdRequest
+	93,  // 89: connect.UpsertMedicalResourceRequestBuilderService.SetFhirVersion:input_type -> connect.SetFhirVersionRequest
+	114, // 90: connect.AggregateRecordsRequestService.GetAggregationTypes:input_type -> connect.GetAggregationTypesRequest
+	116, // 91: connect.AggregateRecordsRequestService.GetDataOriginsFilters:input_type -> connect.GetDataOriginsFiltersRequest
+	52,  // 92: connect.AggregateRecordsRequestService.GetTimeRangeFilter:input_type -> connect.GetTimeRangeFilterRequest
+	118, // 93: connect.AggregateRecordsRequestBuilderService.AddDataOriginsFilter:input_type -> connect.AddDataOriginsFilterRequest
+	14,  // 94: connect.AggregateRecordsRequestBuilderService.Build:input_type -> connect.BuildRequest
+	4,   // 95: connect.TimeInstantRangeFilterService.Equals:input_type -> connect.EqualsRequest
+	6,   // 96: connect.TimeInstantRangeFilterService.GetEndTime:input_type -> connect.GetEndTimeRequest
+	8,   // 97: connect.TimeInstantRangeFilterService.GetStartTime:input_type -> connect.GetStartTimeRequest
+	10,  // 98: connect.TimeInstantRangeFilterService.HashCode:input_type -> connect.HashCodeRequest
+	12,  // 99: connect.TimeInstantRangeFilterService.IsBounded:input_type -> connect.IsBoundedRequest
+	14,  // 100: connect.TimeInstantRangeFilterBuilderService.Build:input_type -> connect.BuildRequest
+	16,  // 101: connect.TimeInstantRangeFilterBuilderService.SetEndTime:input_type -> connect.SetEndTimeRequest
+	18,  // 102: connect.TimeInstantRangeFilterBuilderService.SetStartTime:input_type -> connect.SetStartTimeRequest
+	49,  // 103: connect.ReadMedicalResourcesRequestService.GetPageSize:input_type -> connect.GetPageSizeRequest
+	4,   // 104: connect.ReadMedicalResourcesInitialRequestService.Equals:input_type -> connect.EqualsRequest
+	66,  // 105: connect.ReadMedicalResourcesInitialRequestService.GetDataSourceIds:input_type -> connect.GetDataSourceIdsRequest
+	120, // 106: connect.ReadMedicalResourcesInitialRequestService.GetMedicalResourceType:input_type -> connect.GetMedicalResourceTypeRequest
+	10,  // 107: connect.ReadMedicalResourcesInitialRequestService.HashCode:input_type -> connect.HashCodeRequest
+	122, // 108: connect.ReadMedicalResourcesInitialRequestService.ToString:input_type -> connect.ReadMedicalResourcesInitialRequestToStringRequest
+	72,  // 109: connect.ReadMedicalResourcesInitialRequestBuilderService.AddDataSourceId:input_type -> connect.AddDataSourceIdRequest
+	14,  // 110: connect.ReadMedicalResourcesInitialRequestBuilderService.Build:input_type -> connect.BuildRequest
+	76,  // 111: connect.ReadMedicalResourcesInitialRequestBuilderService.ClearDataSourceIds:input_type -> connect.ClearDataSourceIdsRequest
+	123, // 112: connect.ReadMedicalResourcesInitialRequestBuilderService.SetMedicalResourceType:input_type -> connect.SetMedicalResourceTypeRequest
+	41,  // 113: connect.ReadMedicalResourcesInitialRequestBuilderService.SetPageSize:input_type -> connect.SetPageSizeRequest
+	125, // 114: connect.ReadMedicalResourcesResponseService.NewReadMedicalResourcesResponse:input_type -> connect.NewReadMedicalResourcesResponseRequest
+	22,  // 115: connect.ReadMedicalResourcesResponseService.DescribeContents:input_type -> connect.DescribeContentsRequest
+	127, // 116: connect.ReadMedicalResourcesResponseService.Equals:input_type -> connect.ReadMedicalResourcesResponseEqualsRequest
+	128, // 117: connect.ReadMedicalResourcesResponseService.GetMedicalResources:input_type -> connect.GetMedicalResourcesRequest
+	130, // 118: connect.ReadMedicalResourcesResponseService.GetNextPageToken:input_type -> connect.ReadMedicalResourcesResponseGetNextPageTokenRequest
+	132, // 119: connect.ReadMedicalResourcesResponseService.GetRemainingCount:input_type -> connect.GetRemainingCountRequest
+	134, // 120: connect.ReadMedicalResourcesResponseService.HashCode:input_type -> connect.ReadMedicalResourcesResponseHashCodeRequest
+	32,  // 121: connect.ReadMedicalResourcesResponseService.ToString:input_type -> connect.ToStringRequest
+	34,  // 122: connect.ReadMedicalResourcesResponseService.WriteToParcel:input_type -> connect.WriteToParcelRequest
+	135, // 123: connect.ReadRecordsRequestUsingIdsService.GetRecordIdFilters:input_type -> connect.GetRecordIdFiltersRequest
+	137, // 124: connect.ReadRecordsRequestUsingIdsBuilderService.AddClientRecordId:input_type -> connect.AddClientRecordIdRequest
+	139, // 125: connect.ReadRecordsRequestUsingIdsBuilderService.AddId:input_type -> connect.AddIdRequest
+	14,  // 126: connect.ReadRecordsRequestUsingIdsBuilderService.Build:input_type -> connect.BuildRequest
+	141, // 127: connect.RecordIdFilterService.GetClientRecordId:input_type -> connect.GetClientRecordIdRequest
+	143, // 128: connect.RecordIdFilterService.GetId:input_type -> connect.GetIdRequest
+	1,   // 129: connect.ReadRecordsResponseService.GetNextPageToken:output_type -> connect.GetNextPageTokenResponse
+	3,   // 130: connect.ReadRecordsResponseService.GetRecords:output_type -> connect.GetRecordsResponse
+	5,   // 131: connect.LocalTimeRangeFilterService.Equals:output_type -> connect.EqualsResponse
+	7,   // 132: connect.LocalTimeRangeFilterService.GetEndTime:output_type -> connect.GetEndTimeResponse
+	9,   // 133: connect.LocalTimeRangeFilterService.GetStartTime:output_type -> connect.GetStartTimeResponse
+	11,  // 134: connect.LocalTimeRangeFilterService.HashCode:output_type -> connect.HashCodeResponse
+	13,  // 135: connect.LocalTimeRangeFilterService.IsBounded:output_type -> connect.IsBoundedResponse
+	15,  // 136: connect.LocalTimeRangeFilterBuilderService.Build:output_type -> connect.BuildResponse
+	17,  // 137: connect.LocalTimeRangeFilterBuilderService.SetEndTime:output_type -> connect.SetEndTimeResponse
+	19,  // 138: connect.LocalTimeRangeFilterBuilderService.SetStartTime:output_type -> connect.SetStartTimeResponse
+	21,  // 139: connect.MedicalResourceIdService.NewMedicalResourceId:output_type -> connect.NewMedicalResourceIdResponse
+	23,  // 140: connect.MedicalResourceIdService.DescribeContents:output_type -> connect.DescribeContentsResponse
+	5,   // 141: connect.MedicalResourceIdService.Equals:output_type -> connect.EqualsResponse
+	26,  // 142: connect.MedicalResourceIdService.GetDataSourceId:output_type -> connect.GetDataSourceIdResponse
+	28,  // 143: connect.MedicalResourceIdService.GetFhirResourceId:output_type -> connect.GetFhirResourceIdResponse
+	30,  // 144: connect.MedicalResourceIdService.GetFhirResourceType:output_type -> connect.GetFhirResourceTypeResponse
+	11,  // 145: connect.MedicalResourceIdService.HashCode:output_type -> connect.HashCodeResponse
+	33,  // 146: connect.MedicalResourceIdService.ToString:output_type -> connect.ToStringResponse
+	35,  // 147: connect.MedicalResourceIdService.WriteToParcel:output_type -> connect.WriteToParcelResponse
+	37,  // 148: connect.MedicalResourceIdService.FromFhirReference:output_type -> connect.FromFhirReferenceResponse
+	5,   // 149: connect.ReadMedicalResourcesPageRequestService.Equals:output_type -> connect.EqualsResponse
+	39,  // 150: connect.ReadMedicalResourcesPageRequestService.GetPageToken:output_type -> connect.GetPageTokenResponse
+	11,  // 151: connect.ReadMedicalResourcesPageRequestService.HashCode:output_type -> connect.HashCodeResponse
+	33,  // 152: connect.ReadMedicalResourcesPageRequestService.ToString:output_type -> connect.ToStringResponse
+	15,  // 153: connect.ReadMedicalResourcesPageRequestBuilderService.Build:output_type -> connect.BuildResponse
+	42,  // 154: connect.ReadMedicalResourcesPageRequestBuilderService.SetPageSize:output_type -> connect.SetPageSizeResponse
+	44,  // 155: connect.ReadMedicalResourcesPageRequestBuilderService.SetPageToken:output_type -> connect.SetPageTokenResponse
+	46,  // 156: connect.ReadRecordsRequestService.GetRecordType:output_type -> connect.GetRecordTypeResponse
+	48,  // 157: connect.ReadRecordsRequestUsingFiltersService.GetDataOrigins:output_type -> connect.GetDataOriginsResponse
+	50,  // 158: connect.ReadRecordsRequestUsingFiltersService.GetPageSize:output_type -> connect.GetPageSizeResponse
+	51,  // 159: connect.ReadRecordsRequestUsingFiltersService.GetPageToken:output_type -> connect.ReadRecordsRequestUsingFiltersGetPageTokenResponse
+	53,  // 160: connect.ReadRecordsRequestUsingFiltersService.GetTimeRangeFilter:output_type -> connect.GetTimeRangeFilterResponse
+	55,  // 161: connect.ReadRecordsRequestUsingFiltersService.IsAscending:output_type -> connect.IsAscendingResponse
+	57,  // 162: connect.ReadRecordsRequestUsingFiltersBuilderService.AddDataOrigins:output_type -> connect.AddDataOriginsResponse
+	15,  // 163: connect.ReadRecordsRequestUsingFiltersBuilderService.Build:output_type -> connect.BuildResponse
+	59,  // 164: connect.ReadRecordsRequestUsingFiltersBuilderService.SetAscending:output_type -> connect.SetAscendingResponse
+	42,  // 165: connect.ReadRecordsRequestUsingFiltersBuilderService.SetPageSize:output_type -> connect.SetPageSizeResponse
+	44,  // 166: connect.ReadRecordsRequestUsingFiltersBuilderService.SetPageToken:output_type -> connect.SetPageTokenResponse
+	62,  // 167: connect.ReadRecordsRequestUsingFiltersBuilderService.SetTimeRangeFilter:output_type -> connect.SetTimeRangeFilterResponse
+	7,   // 168: connect.AggregateRecordsGroupedByDurationResponseService.GetEndTime:output_type -> connect.GetEndTimeResponse
+	9,   // 169: connect.AggregateRecordsGroupedByDurationResponseService.GetStartTime:output_type -> connect.GetStartTimeResponse
+	64,  // 170: connect.HealthConnectExceptionService.GetErrorCode:output_type -> connect.GetErrorCodeResponse
+	23,  // 171: connect.DeleteMedicalResourcesRequestService.DescribeContents:output_type -> connect.DescribeContentsResponse
+	5,   // 172: connect.DeleteMedicalResourcesRequestService.Equals:output_type -> connect.EqualsResponse
+	67,  // 173: connect.DeleteMedicalResourcesRequestService.GetDataSourceIds:output_type -> connect.GetDataSourceIdsResponse
+	69,  // 174: connect.DeleteMedicalResourcesRequestService.GetMedicalResourceTypes:output_type -> connect.GetMedicalResourceTypesResponse
+	11,  // 175: connect.DeleteMedicalResourcesRequestService.HashCode:output_type -> connect.HashCodeResponse
+	33,  // 176: connect.DeleteMedicalResourcesRequestService.ToString:output_type -> connect.ToStringResponse
+	35,  // 177: connect.DeleteMedicalResourcesRequestService.WriteToParcel:output_type -> connect.WriteToParcelResponse
+	73,  // 178: connect.DeleteMedicalResourcesRequestBuilderService.AddDataSourceId:output_type -> connect.AddDataSourceIdResponse
+	75,  // 179: connect.DeleteMedicalResourcesRequestBuilderService.AddMedicalResourceType:output_type -> connect.AddMedicalResourceTypeResponse
+	15,  // 180: connect.DeleteMedicalResourcesRequestBuilderService.Build:output_type -> connect.BuildResponse
+	77,  // 181: connect.DeleteMedicalResourcesRequestBuilderService.ClearDataSourceIds:output_type -> connect.ClearDataSourceIdsResponse
+	79,  // 182: connect.DeleteMedicalResourcesRequestBuilderService.ClearMedicalResourceTypes:output_type -> connect.ClearMedicalResourceTypesResponse
+	23,  // 183: connect.CreateMedicalDataSourceRequestService.DescribeContents:output_type -> connect.DescribeContentsResponse
+	5,   // 184: connect.CreateMedicalDataSourceRequestService.Equals:output_type -> connect.EqualsResponse
+	82,  // 185: connect.CreateMedicalDataSourceRequestService.GetDisplayName:output_type -> connect.GetDisplayNameResponse
+	84,  // 186: connect.CreateMedicalDataSourceRequestService.GetFhirBaseUri:output_type -> connect.GetFhirBaseUriResponse
+	86,  // 187: connect.CreateMedicalDataSourceRequestService.GetFhirVersion:output_type -> connect.GetFhirVersionResponse
+	11,  // 188: connect.CreateMedicalDataSourceRequestService.HashCode:output_type -> connect.HashCodeResponse
+	33,  // 189: connect.CreateMedicalDataSourceRequestService.ToString:output_type -> connect.ToStringResponse
+	35,  // 190: connect.CreateMedicalDataSourceRequestService.WriteToParcel:output_type -> connect.WriteToParcelResponse
+	15,  // 191: connect.CreateMedicalDataSourceRequestBuilderService.Build:output_type -> connect.BuildResponse
+	90,  // 192: connect.CreateMedicalDataSourceRequestBuilderService.SetDisplayName:output_type -> connect.SetDisplayNameResponse
+	92,  // 193: connect.CreateMedicalDataSourceRequestBuilderService.SetFhirBaseUri:output_type -> connect.SetFhirBaseUriResponse
+	94,  // 194: connect.CreateMedicalDataSourceRequestBuilderService.SetFhirVersion:output_type -> connect.SetFhirVersionResponse
+	7,   // 195: connect.AggregateRecordsGroupedByPeriodResponseService.GetEndTime:output_type -> connect.GetEndTimeResponse
+	9,   // 196: connect.AggregateRecordsGroupedByPeriodResponseService.GetStartTime:output_type -> connect.GetStartTimeResponse
+	3,   // 197: connect.InsertRecordsResponseService.GetRecords:output_type -> connect.GetRecordsResponse
+	23,  // 198: connect.GetMedicalDataSourcesRequestService.DescribeContents:output_type -> connect.DescribeContentsResponse
+	5,   // 199: connect.GetMedicalDataSourcesRequestService.Equals:output_type -> connect.EqualsResponse
+	97,  // 200: connect.GetMedicalDataSourcesRequestService.GetPackageNames:output_type -> connect.GetPackageNamesResponse
+	11,  // 201: connect.GetMedicalDataSourcesRequestService.HashCode:output_type -> connect.HashCodeResponse
+	33,  // 202: connect.GetMedicalDataSourcesRequestService.ToString:output_type -> connect.ToStringResponse
+	35,  // 203: connect.GetMedicalDataSourcesRequestService.WriteToParcel:output_type -> connect.WriteToParcelResponse
+	101, // 204: connect.GetMedicalDataSourcesRequestBuilderService.AddPackageName:output_type -> connect.AddPackageNameResponse
+	15,  // 205: connect.GetMedicalDataSourcesRequestBuilderService.Build:output_type -> connect.BuildResponse
+	103, // 206: connect.GetMedicalDataSourcesRequestBuilderService.ClearPackageNames:output_type -> connect.ClearPackageNamesResponse
+	23,  // 207: connect.UpsertMedicalResourceRequestService.DescribeContents:output_type -> connect.DescribeContentsResponse
+	5,   // 208: connect.UpsertMedicalResourceRequestService.Equals:output_type -> connect.EqualsResponse
+	106, // 209: connect.UpsertMedicalResourceRequestService.GetData:output_type -> connect.GetDataResponse
+	26,  // 210: connect.UpsertMedicalResourceRequestService.GetDataSourceId:output_type -> connect.GetDataSourceIdResponse
+	86,  // 211: connect.UpsertMedicalResourceRequestService.GetFhirVersion:output_type -> connect.GetFhirVersionResponse
+	11,  // 212: connect.UpsertMedicalResourceRequestService.HashCode:output_type -> connect.HashCodeResponse
+	33,  // 213: connect.UpsertMedicalResourceRequestService.ToString:output_type -> connect.ToStringResponse
+	35,  // 214: connect.UpsertMedicalResourceRequestService.WriteToParcel:output_type -> connect.WriteToParcelResponse
+	15,  // 215: connect.UpsertMedicalResourceRequestBuilderService.Build:output_type -> connect.BuildResponse
+	111, // 216: connect.UpsertMedicalResourceRequestBuilderService.SetData:output_type -> connect.SetDataResponse
+	113, // 217: connect.UpsertMedicalResourceRequestBuilderService.SetDataSourceId:output_type -> connect.SetDataSourceIdResponse
+	94,  // 218: connect.UpsertMedicalResourceRequestBuilderService.SetFhirVersion:output_type -> connect.SetFhirVersionResponse
+	115, // 219: connect.AggregateRecordsRequestService.GetAggregationTypes:output_type -> connect.GetAggregationTypesResponse
+	117, // 220: connect.AggregateRecordsRequestService.GetDataOriginsFilters:output_type -> connect.GetDataOriginsFiltersResponse
+	53,  // 221: connect.AggregateRecordsRequestService.GetTimeRangeFilter:output_type -> connect.GetTimeRangeFilterResponse
+	119, // 222: connect.AggregateRecordsRequestBuilderService.AddDataOriginsFilter:output_type -> connect.AddDataOriginsFilterResponse
+	15,  // 223: connect.AggregateRecordsRequestBuilderService.Build:output_type -> connect.BuildResponse
+	5,   // 224: connect.TimeInstantRangeFilterService.Equals:output_type -> connect.EqualsResponse
+	7,   // 225: connect.TimeInstantRangeFilterService.GetEndTime:output_type -> connect.GetEndTimeResponse
+	9,   // 226: connect.TimeInstantRangeFilterService.GetStartTime:output_type -> connect.GetStartTimeResponse
+	11,  // 227: connect.TimeInstantRangeFilterService.HashCode:output_type -> connect.HashCodeResponse
+	13,  // 228: connect.TimeInstantRangeFilterService.IsBounded:output_type -> connect.IsBoundedResponse
+	15,  // 229: connect.TimeInstantRangeFilterBuilderService.Build:output_type -> connect.BuildResponse
+	17,  // 230: connect.TimeInstantRangeFilterBuilderService.SetEndTime:output_type -> connect.SetEndTimeResponse
+	19,  // 231: connect.TimeInstantRangeFilterBuilderService.SetStartTime:output_type -> connect.SetStartTimeResponse
+	50,  // 232: connect.ReadMedicalResourcesRequestService.GetPageSize:output_type -> connect.GetPageSizeResponse
+	5,   // 233: connect.ReadMedicalResourcesInitialRequestService.Equals:output_type -> connect.EqualsResponse
+	67,  // 234: connect.ReadMedicalResourcesInitialRequestService.GetDataSourceIds:output_type -> connect.GetDataSourceIdsResponse
+	121, // 235: connect.ReadMedicalResourcesInitialRequestService.GetMedicalResourceType:output_type -> connect.GetMedicalResourceTypeResponse
+	11,  // 236: connect.ReadMedicalResourcesInitialRequestService.HashCode:output_type -> connect.HashCodeResponse
+	33,  // 237: connect.ReadMedicalResourcesInitialRequestService.ToString:output_type -> connect.ToStringResponse
+	73,  // 238: connect.ReadMedicalResourcesInitialRequestBuilderService.AddDataSourceId:output_type -> connect.AddDataSourceIdResponse
+	15,  // 239: connect.ReadMedicalResourcesInitialRequestBuilderService.Build:output_type -> connect.BuildResponse
+	77,  // 240: connect.ReadMedicalResourcesInitialRequestBuilderService.ClearDataSourceIds:output_type -> connect.ClearDataSourceIdsResponse
+	124, // 241: connect.ReadMedicalResourcesInitialRequestBuilderService.SetMedicalResourceType:output_type -> connect.SetMedicalResourceTypeResponse
+	42,  // 242: connect.ReadMedicalResourcesInitialRequestBuilderService.SetPageSize:output_type -> connect.SetPageSizeResponse
+	126, // 243: connect.ReadMedicalResourcesResponseService.NewReadMedicalResourcesResponse:output_type -> connect.NewReadMedicalResourcesResponseResponse
+	23,  // 244: connect.ReadMedicalResourcesResponseService.DescribeContents:output_type -> connect.DescribeContentsResponse
+	5,   // 245: connect.ReadMedicalResourcesResponseService.Equals:output_type -> connect.EqualsResponse
+	129, // 246: connect.ReadMedicalResourcesResponseService.GetMedicalResources:output_type -> connect.GetMedicalResourcesResponse
+	131, // 247: connect.ReadMedicalResourcesResponseService.GetNextPageToken:output_type -> connect.ReadMedicalResourcesResponseGetNextPageTokenResponse
+	133, // 248: connect.ReadMedicalResourcesResponseService.GetRemainingCount:output_type -> connect.GetRemainingCountResponse
+	11,  // 249: connect.ReadMedicalResourcesResponseService.HashCode:output_type -> connect.HashCodeResponse
+	33,  // 250: connect.ReadMedicalResourcesResponseService.ToString:output_type -> connect.ToStringResponse
+	35,  // 251: connect.ReadMedicalResourcesResponseService.WriteToParcel:output_type -> connect.WriteToParcelResponse
+	136, // 252: connect.ReadRecordsRequestUsingIdsService.GetRecordIdFilters:output_type -> connect.GetRecordIdFiltersResponse
+	138, // 253: connect.ReadRecordsRequestUsingIdsBuilderService.AddClientRecordId:output_type -> connect.AddClientRecordIdResponse
+	140, // 254: connect.ReadRecordsRequestUsingIdsBuilderService.AddId:output_type -> connect.AddIdResponse
+	15,  // 255: connect.ReadRecordsRequestUsingIdsBuilderService.Build:output_type -> connect.BuildResponse
+	142, // 256: connect.RecordIdFilterService.GetClientRecordId:output_type -> connect.GetClientRecordIdResponse
+	144, // 257: connect.RecordIdFilterService.GetId:output_type -> connect.GetIdResponse
+	129, // [129:258] is the sub-list for method output_type
+	0,   // [0:129] is the sub-list for method input_type
 	0,   // [0:0] is the sub-list for extension type_name
 	0,   // [0:0] is the sub-list for extension extendee
 	0,   // [0:0] is the sub-list for field type_name
@@ -5193,9 +7053,9 @@ func file_proto_connect_connect_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_connect_connect_proto_rawDesc), len(file_proto_connect_connect_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   104,
+			NumMessages:   145,
 			NumExtensions: 0,
-			NumServices:   26,
+			NumServices:   32,
 		},
 		GoTypes:           file_proto_connect_connect_proto_goTypes,
 		DependencyIndexes: file_proto_connect_connect_proto_depIdxs,

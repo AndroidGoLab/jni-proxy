@@ -159,102 +159,6 @@ var topicsEncryptedTopicToStringCmd = &cobra.Command{
 	},
 }
 
-var topicsGetTopicsRequestCmd = &cobra.Command{
-	Use:   "get-topics-request",
-	Short: "GetTopicsRequestService operations",
-}
-
-var topicsGetTopicsRequestGetAdsSdkNameCmd = &cobra.Command{
-	Use:   "get-ads-sdk-name",
-	Short: "GetAdsSdkName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetTopicsRequestServiceClient(grpcConn)
-		req := &pb.GetAdsSdkNameRequest{}
-		resp, err := client.GetAdsSdkName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var topicsGetTopicsRequestShouldRecordObservationCmd = &cobra.Command{
-	Use:   "should-record-observation",
-	Short: "ShouldRecordObservation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetTopicsRequestServiceClient(grpcConn)
-		req := &pb.ShouldRecordObservationRequest{}
-		resp, err := client.ShouldRecordObservation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var topicsGetTopicsRequestBuilderCmd = &cobra.Command{
-	Use:   "get-topics-request-builder",
-	Short: "GetTopicsRequestBuilderService operations",
-}
-
-var topicsGetTopicsRequestBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetTopicsRequestBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var topicsGetTopicsRequestBuilderSetAdsSdkNameCmd = &cobra.Command{
-	Use:   "set-ads-sdk-name",
-	Short: "SetAdsSdkName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetTopicsRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetAdsSdkNameRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAdsSdkName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var topicsGetTopicsRequestBuilderSetShouldRecordObservationCmd = &cobra.Command{
-	Use:   "set-should-record-observation",
-	Short: "SetShouldRecordObservation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewGetTopicsRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetShouldRecordObservationRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetShouldRecordObservation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var topicsManagerCmd = &cobra.Command{
 	Use:   "manager",
 	Short: "ManagerService operations",
@@ -450,6 +354,38 @@ var topicsGetTopicsResponseEqualsCmd = &cobra.Command{
 	},
 }
 
+var topicsGetTopicsResponseGetEncryptedTopicsCmd = &cobra.Command{
+	Use:   "get-encrypted-topics",
+	Short: "GetEncryptedTopics RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetTopicsResponseServiceClient(grpcConn)
+		req := &pb.GetEncryptedTopicsRequest{}
+		resp, err := client.GetEncryptedTopics(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var topicsGetTopicsResponseGetTopicsCmd = &cobra.Command{
+	Use:   "get-topics",
+	Short: "GetTopics RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetTopicsResponseServiceClient(grpcConn)
+		req := &pb.GetTopicsRequest{}
+		resp, err := client.GetTopics(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var topicsGetTopicsResponseHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
@@ -487,6 +423,102 @@ var topicsGetTopicsResponseBuilderBuildCmd = &cobra.Command{
 	},
 }
 
+var topicsGetTopicsRequestCmd = &cobra.Command{
+	Use:   "get-topics-request",
+	Short: "GetTopicsRequestService operations",
+}
+
+var topicsGetTopicsRequestGetAdsSdkNameCmd = &cobra.Command{
+	Use:   "get-ads-sdk-name",
+	Short: "GetAdsSdkName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetTopicsRequestServiceClient(grpcConn)
+		req := &pb.GetAdsSdkNameRequest{}
+		resp, err := client.GetAdsSdkName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var topicsGetTopicsRequestShouldRecordObservationCmd = &cobra.Command{
+	Use:   "should-record-observation",
+	Short: "ShouldRecordObservation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetTopicsRequestServiceClient(grpcConn)
+		req := &pb.ShouldRecordObservationRequest{}
+		resp, err := client.ShouldRecordObservation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var topicsGetTopicsRequestBuilderCmd = &cobra.Command{
+	Use:   "get-topics-request-builder",
+	Short: "GetTopicsRequestBuilderService operations",
+}
+
+var topicsGetTopicsRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetTopicsRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var topicsGetTopicsRequestBuilderSetAdsSdkNameCmd = &cobra.Command{
+	Use:   "set-ads-sdk-name",
+	Short: "SetAdsSdkName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetTopicsRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetAdsSdkNameRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAdsSdkName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var topicsGetTopicsRequestBuilderSetShouldRecordObservationCmd = &cobra.Command{
+	Use:   "set-should-record-observation",
+	Short: "SetShouldRecordObservation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewGetTopicsRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetShouldRecordObservationRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetShouldRecordObservation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
 	topicsEncryptedTopicNewEncryptedTopicCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	topicsEncryptedTopicNewEncryptedTopicCmd.Flags().String("arg1", "", "arg1 (string)")
@@ -506,15 +538,6 @@ func init() {
 	topicsEncryptedTopicToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
 	topicsEncryptedTopicCmd.AddCommand(topicsEncryptedTopicToStringCmd)
 	topicsCmd.AddCommand(topicsEncryptedTopicCmd)
-	topicsGetTopicsRequestCmd.AddCommand(topicsGetTopicsRequestGetAdsSdkNameCmd)
-	topicsGetTopicsRequestCmd.AddCommand(topicsGetTopicsRequestShouldRecordObservationCmd)
-	topicsCmd.AddCommand(topicsGetTopicsRequestCmd)
-	topicsGetTopicsRequestBuilderCmd.AddCommand(topicsGetTopicsRequestBuilderBuildCmd)
-	topicsGetTopicsRequestBuilderSetAdsSdkNameCmd.Flags().String("arg0", "", "arg0 (string)")
-	topicsGetTopicsRequestBuilderCmd.AddCommand(topicsGetTopicsRequestBuilderSetAdsSdkNameCmd)
-	topicsGetTopicsRequestBuilderSetShouldRecordObservationCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	topicsGetTopicsRequestBuilderCmd.AddCommand(topicsGetTopicsRequestBuilderSetShouldRecordObservationCmd)
-	topicsCmd.AddCommand(topicsGetTopicsRequestBuilderCmd)
 	topicsManagerGetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	topicsManagerCmd.AddCommand(topicsManagerGetCmd)
 	topicsCmd.AddCommand(topicsManagerCmd)
@@ -538,9 +561,20 @@ func init() {
 	topicsCmd.AddCommand(topicsTopicCmd)
 	topicsGetTopicsResponseEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	topicsGetTopicsResponseCmd.AddCommand(topicsGetTopicsResponseEqualsCmd)
+	topicsGetTopicsResponseCmd.AddCommand(topicsGetTopicsResponseGetEncryptedTopicsCmd)
+	topicsGetTopicsResponseCmd.AddCommand(topicsGetTopicsResponseGetTopicsCmd)
 	topicsGetTopicsResponseCmd.AddCommand(topicsGetTopicsResponseHashCodeCmd)
 	topicsCmd.AddCommand(topicsGetTopicsResponseCmd)
 	topicsGetTopicsResponseBuilderCmd.AddCommand(topicsGetTopicsResponseBuilderBuildCmd)
 	topicsCmd.AddCommand(topicsGetTopicsResponseBuilderCmd)
+	topicsGetTopicsRequestCmd.AddCommand(topicsGetTopicsRequestGetAdsSdkNameCmd)
+	topicsGetTopicsRequestCmd.AddCommand(topicsGetTopicsRequestShouldRecordObservationCmd)
+	topicsCmd.AddCommand(topicsGetTopicsRequestCmd)
+	topicsGetTopicsRequestBuilderCmd.AddCommand(topicsGetTopicsRequestBuilderBuildCmd)
+	topicsGetTopicsRequestBuilderSetAdsSdkNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	topicsGetTopicsRequestBuilderCmd.AddCommand(topicsGetTopicsRequestBuilderSetAdsSdkNameCmd)
+	topicsGetTopicsRequestBuilderSetShouldRecordObservationCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	topicsGetTopicsRequestBuilderCmd.AddCommand(topicsGetTopicsRequestBuilderSetShouldRecordObservationCmd)
+	topicsCmd.AddCommand(topicsGetTopicsRequestBuilderCmd)
 	rootCmd.AddCommand(topicsCmd)
 }

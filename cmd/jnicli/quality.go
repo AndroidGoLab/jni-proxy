@@ -250,6 +250,423 @@ var qualityAmbientBacklightSettingsWriteToParcelCmd = &cobra.Command{
 	},
 }
 
+var qualityAmbientBacklightMetadataCmd = &cobra.Command{
+	Use:   "ambient-backlight-metadata",
+	Short: "AmbientBacklightMetadataService operations",
+}
+
+var qualityAmbientBacklightMetadataNewAmbientBacklightMetadataCmd = &cobra.Command{
+	Use:   "new-ambient-backlight-metadata",
+	Short: "NewAmbientBacklightMetadata RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAmbientBacklightMetadataServiceClient(grpcConn)
+		req := &pb.NewAmbientBacklightMetadataRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg6"); err == nil {
+			req.Arg6 = v
+		}
+		resp, err := client.NewAmbientBacklightMetadata(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var qualityAmbientBacklightMetadataDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAmbientBacklightMetadataServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var qualityAmbientBacklightMetadataGetColorFormatCmd = &cobra.Command{
+	Use:   "get-color-format",
+	Short: "GetColorFormat RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAmbientBacklightMetadataServiceClient(grpcConn)
+		req := &pb.GetColorFormatRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetColorFormat(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var qualityAmbientBacklightMetadataGetCompressionAlgorithmCmd = &cobra.Command{
+	Use:   "get-compression-algorithm",
+	Short: "GetCompressionAlgorithm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAmbientBacklightMetadataServiceClient(grpcConn)
+		req := &pb.GetCompressionAlgorithmRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCompressionAlgorithm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var qualityAmbientBacklightMetadataGetHorizontalZonesCountCmd = &cobra.Command{
+	Use:   "get-horizontal-zones-count",
+	Short: "GetHorizontalZonesCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAmbientBacklightMetadataServiceClient(grpcConn)
+		req := &pb.GetHorizontalZonesCountRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetHorizontalZonesCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var qualityAmbientBacklightMetadataGetPackageNameCmd = &cobra.Command{
+	Use:   "get-package-name",
+	Short: "GetPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAmbientBacklightMetadataServiceClient(grpcConn)
+		req := &pb.GetPackageNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var qualityAmbientBacklightMetadataGetSourceCmd = &cobra.Command{
+	Use:   "get-source",
+	Short: "GetSource RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAmbientBacklightMetadataServiceClient(grpcConn)
+		req := &pb.GetSourceRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSource(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var qualityAmbientBacklightMetadataGetVerticalZonesCountCmd = &cobra.Command{
+	Use:   "get-vertical-zones-count",
+	Short: "GetVerticalZonesCount RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAmbientBacklightMetadataServiceClient(grpcConn)
+		req := &pb.GetVerticalZonesCountRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetVerticalZonesCount(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var qualityAmbientBacklightMetadataGetZoneColorsCmd = &cobra.Command{
+	Use:   "get-zone-colors",
+	Short: "GetZoneColors RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAmbientBacklightMetadataServiceClient(grpcConn)
+		req := &pb.GetZoneColorsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetZoneColors(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var qualityAmbientBacklightMetadataToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAmbientBacklightMetadataServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var qualityAmbientBacklightMetadataWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAmbientBacklightMetadataServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var qualitySoundProfileCmd = &cobra.Command{
+	Use:   "sound-profile",
+	Short: "SoundProfileService operations",
+}
+
+var qualitySoundProfileDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSoundProfileServiceClient(grpcConn)
+		req := &pb.SoundProfileDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var qualitySoundProfileGetInputIdCmd = &cobra.Command{
+	Use:   "get-input-id",
+	Short: "GetInputId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSoundProfileServiceClient(grpcConn)
+		req := &pb.GetInputIdRequest{}
+		resp, err := client.GetInputId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var qualitySoundProfileGetNameCmd = &cobra.Command{
+	Use:   "get-name",
+	Short: "GetName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSoundProfileServiceClient(grpcConn)
+		req := &pb.GetNameRequest{}
+		resp, err := client.GetName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var qualitySoundProfileGetPackageNameCmd = &cobra.Command{
+	Use:   "get-package-name",
+	Short: "GetPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSoundProfileServiceClient(grpcConn)
+		req := &pb.SoundProfileGetPackageNameRequest{}
+		resp, err := client.GetPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var qualitySoundProfileGetParametersCmd = &cobra.Command{
+	Use:   "get-parameters",
+	Short: "GetParameters RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSoundProfileServiceClient(grpcConn)
+		req := &pb.GetParametersRequest{}
+		resp, err := client.GetParameters(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var qualitySoundProfileGetProfileIdCmd = &cobra.Command{
+	Use:   "get-profile-id",
+	Short: "GetProfileId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSoundProfileServiceClient(grpcConn)
+		req := &pb.GetProfileIdRequest{}
+		resp, err := client.GetProfileId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var qualitySoundProfileGetProfileTypeCmd = &cobra.Command{
+	Use:   "get-profile-type",
+	Short: "GetProfileType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSoundProfileServiceClient(grpcConn)
+		req := &pb.GetProfileTypeRequest{}
+		resp, err := client.GetProfileType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var qualitySoundProfileWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSoundProfileServiceClient(grpcConn)
+		req := &pb.SoundProfileWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var qualitySoundProfileBuilderCmd = &cobra.Command{
+	Use:   "sound-profile-builder",
+	Short: "SoundProfileBuilderService operations",
+}
+
+var qualitySoundProfileBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSoundProfileBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var qualitySoundProfileBuilderSetParametersCmd = &cobra.Command{
+	Use:   "set-parameters",
+	Short: "SetParameters RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSoundProfileBuilderServiceClient(grpcConn)
+		req := &pb.SetParametersRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetParameters(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var qualityAmbientBacklightEventCmd = &cobra.Command{
 	Use:   "ambient-backlight-event",
 	Short: "AmbientBacklightEventService operations",
@@ -419,6 +836,222 @@ var qualityAmbientBacklightEventWriteToParcelCmd = &cobra.Command{
 	},
 }
 
+var qualityParameterCapabilityCmd = &cobra.Command{
+	Use:   "parameter-capability",
+	Short: "ParameterCapabilityService operations",
+}
+
+var qualityParameterCapabilityDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewParameterCapabilityServiceClient(grpcConn)
+		req := &pb.ParameterCapabilityDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var qualityParameterCapabilityGetCapabilitiesCmd = &cobra.Command{
+	Use:   "get-capabilities",
+	Short: "GetCapabilities RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewParameterCapabilityServiceClient(grpcConn)
+		req := &pb.GetCapabilitiesRequest{}
+		resp, err := client.GetCapabilities(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var qualityParameterCapabilityGetParameterNameCmd = &cobra.Command{
+	Use:   "get-parameter-name",
+	Short: "GetParameterName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewParameterCapabilityServiceClient(grpcConn)
+		req := &pb.GetParameterNameRequest{}
+		resp, err := client.GetParameterName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var qualityParameterCapabilityGetParameterTypeCmd = &cobra.Command{
+	Use:   "get-parameter-type",
+	Short: "GetParameterType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewParameterCapabilityServiceClient(grpcConn)
+		req := &pb.GetParameterTypeRequest{}
+		resp, err := client.GetParameterType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var qualityParameterCapabilityIsSupportedCmd = &cobra.Command{
+	Use:   "is-supported",
+	Short: "IsSupported RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewParameterCapabilityServiceClient(grpcConn)
+		req := &pb.IsSupportedRequest{}
+		resp, err := client.IsSupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var qualityParameterCapabilityWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewParameterCapabilityServiceClient(grpcConn)
+		req := &pb.ParameterCapabilityWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var qualityActiveProcessingPictureCmd = &cobra.Command{
+	Use:   "active-processing-picture",
+	Short: "ActiveProcessingPictureService operations",
+}
+
+var qualityActiveProcessingPictureNewActiveProcessingPictureCmd = &cobra.Command{
+	Use:   "new-active-processing-picture",
+	Short: "NewActiveProcessingPicture RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActiveProcessingPictureServiceClient(grpcConn)
+		req := &pb.NewActiveProcessingPictureRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewActiveProcessingPicture(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var qualityActiveProcessingPictureDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActiveProcessingPictureServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var qualityActiveProcessingPictureGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActiveProcessingPictureServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var qualityActiveProcessingPictureGetProfileIdCmd = &cobra.Command{
+	Use:   "get-profile-id",
+	Short: "GetProfileId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActiveProcessingPictureServiceClient(grpcConn)
+		req := &pb.ActiveProcessingPictureGetProfileIdRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetProfileId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var qualityActiveProcessingPictureWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewActiveProcessingPictureServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var qualityPictureProfileCmd = &cobra.Command{
 	Use:   "picture-profile",
 	Short: "PictureProfileService operations",
@@ -479,7 +1112,7 @@ var qualityPictureProfileGetPackageNameCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewPictureProfileServiceClient(grpcConn)
-		req := &pb.GetPackageNameRequest{}
+		req := &pb.PictureProfileGetPackageNameRequest{}
 		resp, err := client.GetPackageName(ctx, req)
 		if err != nil {
 			return err
@@ -598,351 +1231,6 @@ var qualityPictureProfileBuilderSetParametersCmd = &cobra.Command{
 	},
 }
 
-var qualityParameterCapabilityCmd = &cobra.Command{
-	Use:   "parameter-capability",
-	Short: "ParameterCapabilityService operations",
-}
-
-var qualityParameterCapabilityDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewParameterCapabilityServiceClient(grpcConn)
-		req := &pb.ParameterCapabilityDescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var qualityParameterCapabilityGetCapabilitiesCmd = &cobra.Command{
-	Use:   "get-capabilities",
-	Short: "GetCapabilities RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewParameterCapabilityServiceClient(grpcConn)
-		req := &pb.GetCapabilitiesRequest{}
-		resp, err := client.GetCapabilities(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var qualityParameterCapabilityGetParameterNameCmd = &cobra.Command{
-	Use:   "get-parameter-name",
-	Short: "GetParameterName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewParameterCapabilityServiceClient(grpcConn)
-		req := &pb.GetParameterNameRequest{}
-		resp, err := client.GetParameterName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var qualityParameterCapabilityGetParameterTypeCmd = &cobra.Command{
-	Use:   "get-parameter-type",
-	Short: "GetParameterType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewParameterCapabilityServiceClient(grpcConn)
-		req := &pb.GetParameterTypeRequest{}
-		resp, err := client.GetParameterType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var qualityParameterCapabilityIsSupportedCmd = &cobra.Command{
-	Use:   "is-supported",
-	Short: "IsSupported RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewParameterCapabilityServiceClient(grpcConn)
-		req := &pb.IsSupportedRequest{}
-		resp, err := client.IsSupported(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var qualityParameterCapabilityWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewParameterCapabilityServiceClient(grpcConn)
-		req := &pb.ParameterCapabilityWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var qualityAmbientBacklightMetadataCmd = &cobra.Command{
-	Use:   "ambient-backlight-metadata",
-	Short: "AmbientBacklightMetadataService operations",
-}
-
-var qualityAmbientBacklightMetadataNewAmbientBacklightMetadataCmd = &cobra.Command{
-	Use:   "new-ambient-backlight-metadata",
-	Short: "NewAmbientBacklightMetadata RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAmbientBacklightMetadataServiceClient(grpcConn)
-		req := &pb.NewAmbientBacklightMetadataRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg6"); err == nil {
-			req.Arg6 = v
-		}
-		resp, err := client.NewAmbientBacklightMetadata(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var qualityAmbientBacklightMetadataDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAmbientBacklightMetadataServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var qualityAmbientBacklightMetadataGetColorFormatCmd = &cobra.Command{
-	Use:   "get-color-format",
-	Short: "GetColorFormat RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAmbientBacklightMetadataServiceClient(grpcConn)
-		req := &pb.GetColorFormatRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetColorFormat(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var qualityAmbientBacklightMetadataGetCompressionAlgorithmCmd = &cobra.Command{
-	Use:   "get-compression-algorithm",
-	Short: "GetCompressionAlgorithm RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAmbientBacklightMetadataServiceClient(grpcConn)
-		req := &pb.GetCompressionAlgorithmRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetCompressionAlgorithm(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var qualityAmbientBacklightMetadataGetHorizontalZonesCountCmd = &cobra.Command{
-	Use:   "get-horizontal-zones-count",
-	Short: "GetHorizontalZonesCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAmbientBacklightMetadataServiceClient(grpcConn)
-		req := &pb.GetHorizontalZonesCountRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetHorizontalZonesCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var qualityAmbientBacklightMetadataGetPackageNameCmd = &cobra.Command{
-	Use:   "get-package-name",
-	Short: "GetPackageName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAmbientBacklightMetadataServiceClient(grpcConn)
-		req := &pb.AmbientBacklightMetadataGetPackageNameRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetPackageName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var qualityAmbientBacklightMetadataGetSourceCmd = &cobra.Command{
-	Use:   "get-source",
-	Short: "GetSource RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAmbientBacklightMetadataServiceClient(grpcConn)
-		req := &pb.GetSourceRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSource(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var qualityAmbientBacklightMetadataGetVerticalZonesCountCmd = &cobra.Command{
-	Use:   "get-vertical-zones-count",
-	Short: "GetVerticalZonesCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAmbientBacklightMetadataServiceClient(grpcConn)
-		req := &pb.GetVerticalZonesCountRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetVerticalZonesCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var qualityAmbientBacklightMetadataGetZoneColorsCmd = &cobra.Command{
-	Use:   "get-zone-colors",
-	Short: "GetZoneColors RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAmbientBacklightMetadataServiceClient(grpcConn)
-		req := &pb.GetZoneColorsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetZoneColors(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var qualityAmbientBacklightMetadataToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAmbientBacklightMetadataServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var qualityAmbientBacklightMetadataWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAmbientBacklightMetadataServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var qualityMediaQualityManagerCmd = &cobra.Command{
 	Use:   "media-quality-manager",
 	Short: "MediaQualityManagerService operations",
@@ -979,6 +1267,44 @@ var qualityMediaQualityManagerCreateSoundProfileCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.CreateSoundProfile(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var qualityMediaQualityManagerGetAvailablePictureProfilesCmd = &cobra.Command{
+	Use:   "get-available-picture-profiles",
+	Short: "GetAvailablePictureProfiles RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaQualityManagerServiceClient(grpcConn)
+		req := &pb.GetAvailablePictureProfilesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetAvailablePictureProfiles(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var qualityMediaQualityManagerGetAvailableSoundProfilesCmd = &cobra.Command{
+	Use:   "get-available-sound-profiles",
+	Short: "GetAvailableSoundProfiles RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMediaQualityManagerServiceClient(grpcConn)
+		req := &pb.GetAvailableSoundProfilesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetAvailableSoundProfiles(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1612,294 +1938,6 @@ var qualityMediaQualityManagerSoundProfileCallbackOnSoundProfileUpdatedCmd = &co
 	},
 }
 
-var qualityActiveProcessingPictureCmd = &cobra.Command{
-	Use:   "active-processing-picture",
-	Short: "ActiveProcessingPictureService operations",
-}
-
-var qualityActiveProcessingPictureNewActiveProcessingPictureCmd = &cobra.Command{
-	Use:   "new-active-processing-picture",
-	Short: "NewActiveProcessingPicture RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActiveProcessingPictureServiceClient(grpcConn)
-		req := &pb.NewActiveProcessingPictureRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewActiveProcessingPicture(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var qualityActiveProcessingPictureDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActiveProcessingPictureServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var qualityActiveProcessingPictureGetIdCmd = &cobra.Command{
-	Use:   "get-id",
-	Short: "GetId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActiveProcessingPictureServiceClient(grpcConn)
-		req := &pb.GetIdRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var qualityActiveProcessingPictureGetProfileIdCmd = &cobra.Command{
-	Use:   "get-profile-id",
-	Short: "GetProfileId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActiveProcessingPictureServiceClient(grpcConn)
-		req := &pb.ActiveProcessingPictureGetProfileIdRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetProfileId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var qualityActiveProcessingPictureWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewActiveProcessingPictureServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var qualitySoundProfileCmd = &cobra.Command{
-	Use:   "sound-profile",
-	Short: "SoundProfileService operations",
-}
-
-var qualitySoundProfileDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSoundProfileServiceClient(grpcConn)
-		req := &pb.SoundProfileDescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var qualitySoundProfileGetInputIdCmd = &cobra.Command{
-	Use:   "get-input-id",
-	Short: "GetInputId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSoundProfileServiceClient(grpcConn)
-		req := &pb.GetInputIdRequest{}
-		resp, err := client.GetInputId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var qualitySoundProfileGetNameCmd = &cobra.Command{
-	Use:   "get-name",
-	Short: "GetName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSoundProfileServiceClient(grpcConn)
-		req := &pb.GetNameRequest{}
-		resp, err := client.GetName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var qualitySoundProfileGetPackageNameCmd = &cobra.Command{
-	Use:   "get-package-name",
-	Short: "GetPackageName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSoundProfileServiceClient(grpcConn)
-		req := &pb.GetPackageNameRequest{}
-		resp, err := client.GetPackageName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var qualitySoundProfileGetParametersCmd = &cobra.Command{
-	Use:   "get-parameters",
-	Short: "GetParameters RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSoundProfileServiceClient(grpcConn)
-		req := &pb.GetParametersRequest{}
-		resp, err := client.GetParameters(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var qualitySoundProfileGetProfileIdCmd = &cobra.Command{
-	Use:   "get-profile-id",
-	Short: "GetProfileId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSoundProfileServiceClient(grpcConn)
-		req := &pb.GetProfileIdRequest{}
-		resp, err := client.GetProfileId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var qualitySoundProfileGetProfileTypeCmd = &cobra.Command{
-	Use:   "get-profile-type",
-	Short: "GetProfileType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSoundProfileServiceClient(grpcConn)
-		req := &pb.GetProfileTypeRequest{}
-		resp, err := client.GetProfileType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var qualitySoundProfileWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSoundProfileServiceClient(grpcConn)
-		req := &pb.SoundProfileWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var qualitySoundProfileBuilderCmd = &cobra.Command{
-	Use:   "sound-profile-builder",
-	Short: "SoundProfileBuilderService operations",
-}
-
-var qualitySoundProfileBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSoundProfileBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var qualitySoundProfileBuilderSetParametersCmd = &cobra.Command{
-	Use:   "set-parameters",
-	Short: "SetParameters RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSoundProfileBuilderServiceClient(grpcConn)
-		req := &pb.SetParametersRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetParameters(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
 	qualityAmbientBacklightSettingsNewAmbientBacklightSettingsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	qualityAmbientBacklightSettingsNewAmbientBacklightSettingsCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
@@ -1932,51 +1970,6 @@ func init() {
 	qualityAmbientBacklightSettingsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	qualityAmbientBacklightSettingsCmd.AddCommand(qualityAmbientBacklightSettingsWriteToParcelCmd)
 	qualityCmd.AddCommand(qualityAmbientBacklightSettingsCmd)
-	qualityAmbientBacklightEventNewAmbientBacklightEventCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	qualityAmbientBacklightEventNewAmbientBacklightEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	qualityAmbientBacklightEventCmd.AddCommand(qualityAmbientBacklightEventNewAmbientBacklightEventCmd)
-	qualityAmbientBacklightEventDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	qualityAmbientBacklightEventCmd.AddCommand(qualityAmbientBacklightEventDescribeContentsCmd)
-	qualityAmbientBacklightEventEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	qualityAmbientBacklightEventEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	qualityAmbientBacklightEventCmd.AddCommand(qualityAmbientBacklightEventEqualsCmd)
-	qualityAmbientBacklightEventGetEventTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	qualityAmbientBacklightEventCmd.AddCommand(qualityAmbientBacklightEventGetEventTypeCmd)
-	qualityAmbientBacklightEventGetMetadataCmd.Flags().Int64("handle", 0, "handle (int64)")
-	qualityAmbientBacklightEventCmd.AddCommand(qualityAmbientBacklightEventGetMetadataCmd)
-	qualityAmbientBacklightEventHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	qualityAmbientBacklightEventCmd.AddCommand(qualityAmbientBacklightEventHashCodeCmd)
-	qualityAmbientBacklightEventToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	qualityAmbientBacklightEventCmd.AddCommand(qualityAmbientBacklightEventToStringCmd)
-	qualityAmbientBacklightEventWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	qualityAmbientBacklightEventWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	qualityAmbientBacklightEventWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	qualityAmbientBacklightEventCmd.AddCommand(qualityAmbientBacklightEventWriteToParcelCmd)
-	qualityCmd.AddCommand(qualityAmbientBacklightEventCmd)
-	qualityPictureProfileCmd.AddCommand(qualityPictureProfileDescribeContentsCmd)
-	qualityPictureProfileCmd.AddCommand(qualityPictureProfileGetInputIdCmd)
-	qualityPictureProfileCmd.AddCommand(qualityPictureProfileGetNameCmd)
-	qualityPictureProfileCmd.AddCommand(qualityPictureProfileGetPackageNameCmd)
-	qualityPictureProfileCmd.AddCommand(qualityPictureProfileGetParametersCmd)
-	qualityPictureProfileCmd.AddCommand(qualityPictureProfileGetProfileIdCmd)
-	qualityPictureProfileCmd.AddCommand(qualityPictureProfileGetProfileTypeCmd)
-	qualityPictureProfileWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	qualityPictureProfileWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	qualityPictureProfileCmd.AddCommand(qualityPictureProfileWriteToParcelCmd)
-	qualityCmd.AddCommand(qualityPictureProfileCmd)
-	qualityPictureProfileBuilderCmd.AddCommand(qualityPictureProfileBuilderBuildCmd)
-	qualityPictureProfileBuilderSetParametersCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	qualityPictureProfileBuilderCmd.AddCommand(qualityPictureProfileBuilderSetParametersCmd)
-	qualityCmd.AddCommand(qualityPictureProfileBuilderCmd)
-	qualityParameterCapabilityCmd.AddCommand(qualityParameterCapabilityDescribeContentsCmd)
-	qualityParameterCapabilityCmd.AddCommand(qualityParameterCapabilityGetCapabilitiesCmd)
-	qualityParameterCapabilityCmd.AddCommand(qualityParameterCapabilityGetParameterNameCmd)
-	qualityParameterCapabilityCmd.AddCommand(qualityParameterCapabilityGetParameterTypeCmd)
-	qualityParameterCapabilityCmd.AddCommand(qualityParameterCapabilityIsSupportedCmd)
-	qualityParameterCapabilityWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	qualityParameterCapabilityWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	qualityParameterCapabilityCmd.AddCommand(qualityParameterCapabilityWriteToParcelCmd)
-	qualityCmd.AddCommand(qualityParameterCapabilityCmd)
 	qualityAmbientBacklightMetadataNewAmbientBacklightMetadataCmd.Flags().String("arg0", "", "arg0 (string)")
 	qualityAmbientBacklightMetadataNewAmbientBacklightMetadataCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	qualityAmbientBacklightMetadataNewAmbientBacklightMetadataCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
@@ -2008,10 +2001,88 @@ func init() {
 	qualityAmbientBacklightMetadataWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	qualityAmbientBacklightMetadataCmd.AddCommand(qualityAmbientBacklightMetadataWriteToParcelCmd)
 	qualityCmd.AddCommand(qualityAmbientBacklightMetadataCmd)
+	qualitySoundProfileCmd.AddCommand(qualitySoundProfileDescribeContentsCmd)
+	qualitySoundProfileCmd.AddCommand(qualitySoundProfileGetInputIdCmd)
+	qualitySoundProfileCmd.AddCommand(qualitySoundProfileGetNameCmd)
+	qualitySoundProfileCmd.AddCommand(qualitySoundProfileGetPackageNameCmd)
+	qualitySoundProfileCmd.AddCommand(qualitySoundProfileGetParametersCmd)
+	qualitySoundProfileCmd.AddCommand(qualitySoundProfileGetProfileIdCmd)
+	qualitySoundProfileCmd.AddCommand(qualitySoundProfileGetProfileTypeCmd)
+	qualitySoundProfileWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	qualitySoundProfileWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	qualitySoundProfileCmd.AddCommand(qualitySoundProfileWriteToParcelCmd)
+	qualityCmd.AddCommand(qualitySoundProfileCmd)
+	qualitySoundProfileBuilderCmd.AddCommand(qualitySoundProfileBuilderBuildCmd)
+	qualitySoundProfileBuilderSetParametersCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	qualitySoundProfileBuilderCmd.AddCommand(qualitySoundProfileBuilderSetParametersCmd)
+	qualityCmd.AddCommand(qualitySoundProfileBuilderCmd)
+	qualityAmbientBacklightEventNewAmbientBacklightEventCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	qualityAmbientBacklightEventNewAmbientBacklightEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	qualityAmbientBacklightEventCmd.AddCommand(qualityAmbientBacklightEventNewAmbientBacklightEventCmd)
+	qualityAmbientBacklightEventDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	qualityAmbientBacklightEventCmd.AddCommand(qualityAmbientBacklightEventDescribeContentsCmd)
+	qualityAmbientBacklightEventEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	qualityAmbientBacklightEventEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	qualityAmbientBacklightEventCmd.AddCommand(qualityAmbientBacklightEventEqualsCmd)
+	qualityAmbientBacklightEventGetEventTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	qualityAmbientBacklightEventCmd.AddCommand(qualityAmbientBacklightEventGetEventTypeCmd)
+	qualityAmbientBacklightEventGetMetadataCmd.Flags().Int64("handle", 0, "handle (int64)")
+	qualityAmbientBacklightEventCmd.AddCommand(qualityAmbientBacklightEventGetMetadataCmd)
+	qualityAmbientBacklightEventHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	qualityAmbientBacklightEventCmd.AddCommand(qualityAmbientBacklightEventHashCodeCmd)
+	qualityAmbientBacklightEventToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	qualityAmbientBacklightEventCmd.AddCommand(qualityAmbientBacklightEventToStringCmd)
+	qualityAmbientBacklightEventWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	qualityAmbientBacklightEventWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	qualityAmbientBacklightEventWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	qualityAmbientBacklightEventCmd.AddCommand(qualityAmbientBacklightEventWriteToParcelCmd)
+	qualityCmd.AddCommand(qualityAmbientBacklightEventCmd)
+	qualityParameterCapabilityCmd.AddCommand(qualityParameterCapabilityDescribeContentsCmd)
+	qualityParameterCapabilityCmd.AddCommand(qualityParameterCapabilityGetCapabilitiesCmd)
+	qualityParameterCapabilityCmd.AddCommand(qualityParameterCapabilityGetParameterNameCmd)
+	qualityParameterCapabilityCmd.AddCommand(qualityParameterCapabilityGetParameterTypeCmd)
+	qualityParameterCapabilityCmd.AddCommand(qualityParameterCapabilityIsSupportedCmd)
+	qualityParameterCapabilityWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	qualityParameterCapabilityWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	qualityParameterCapabilityCmd.AddCommand(qualityParameterCapabilityWriteToParcelCmd)
+	qualityCmd.AddCommand(qualityParameterCapabilityCmd)
+	qualityActiveProcessingPictureNewActiveProcessingPictureCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	qualityActiveProcessingPictureNewActiveProcessingPictureCmd.Flags().String("arg1", "", "arg1 (string)")
+	qualityActiveProcessingPictureCmd.AddCommand(qualityActiveProcessingPictureNewActiveProcessingPictureCmd)
+	qualityActiveProcessingPictureDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	qualityActiveProcessingPictureCmd.AddCommand(qualityActiveProcessingPictureDescribeContentsCmd)
+	qualityActiveProcessingPictureGetIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	qualityActiveProcessingPictureCmd.AddCommand(qualityActiveProcessingPictureGetIdCmd)
+	qualityActiveProcessingPictureGetProfileIdCmd.Flags().Int64("handle", 0, "handle (int64)")
+	qualityActiveProcessingPictureCmd.AddCommand(qualityActiveProcessingPictureGetProfileIdCmd)
+	qualityActiveProcessingPictureWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	qualityActiveProcessingPictureWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	qualityActiveProcessingPictureWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	qualityActiveProcessingPictureCmd.AddCommand(qualityActiveProcessingPictureWriteToParcelCmd)
+	qualityCmd.AddCommand(qualityActiveProcessingPictureCmd)
+	qualityPictureProfileCmd.AddCommand(qualityPictureProfileDescribeContentsCmd)
+	qualityPictureProfileCmd.AddCommand(qualityPictureProfileGetInputIdCmd)
+	qualityPictureProfileCmd.AddCommand(qualityPictureProfileGetNameCmd)
+	qualityPictureProfileCmd.AddCommand(qualityPictureProfileGetPackageNameCmd)
+	qualityPictureProfileCmd.AddCommand(qualityPictureProfileGetParametersCmd)
+	qualityPictureProfileCmd.AddCommand(qualityPictureProfileGetProfileIdCmd)
+	qualityPictureProfileCmd.AddCommand(qualityPictureProfileGetProfileTypeCmd)
+	qualityPictureProfileWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	qualityPictureProfileWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	qualityPictureProfileCmd.AddCommand(qualityPictureProfileWriteToParcelCmd)
+	qualityCmd.AddCommand(qualityPictureProfileCmd)
+	qualityPictureProfileBuilderCmd.AddCommand(qualityPictureProfileBuilderBuildCmd)
+	qualityPictureProfileBuilderSetParametersCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	qualityPictureProfileBuilderCmd.AddCommand(qualityPictureProfileBuilderSetParametersCmd)
+	qualityCmd.AddCommand(qualityPictureProfileBuilderCmd)
 	qualityMediaQualityManagerCreatePictureProfileCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	qualityMediaQualityManagerCmd.AddCommand(qualityMediaQualityManagerCreatePictureProfileCmd)
 	qualityMediaQualityManagerCreateSoundProfileCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	qualityMediaQualityManagerCmd.AddCommand(qualityMediaQualityManagerCreateSoundProfileCmd)
+	qualityMediaQualityManagerGetAvailablePictureProfilesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	qualityMediaQualityManagerCmd.AddCommand(qualityMediaQualityManagerGetAvailablePictureProfilesCmd)
+	qualityMediaQualityManagerGetAvailableSoundProfilesCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	qualityMediaQualityManagerCmd.AddCommand(qualityMediaQualityManagerGetAvailableSoundProfilesCmd)
 	qualityMediaQualityManagerGetPictureProfileCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	qualityMediaQualityManagerGetPictureProfileCmd.Flags().String("arg1", "", "arg1 (string)")
 	qualityMediaQualityManagerGetPictureProfileCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
@@ -2089,34 +2160,5 @@ func init() {
 	qualityMediaQualityManagerSoundProfileCallbackOnSoundProfileUpdatedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	qualityMediaQualityManagerSoundProfileCallbackCmd.AddCommand(qualityMediaQualityManagerSoundProfileCallbackOnSoundProfileUpdatedCmd)
 	qualityCmd.AddCommand(qualityMediaQualityManagerSoundProfileCallbackCmd)
-	qualityActiveProcessingPictureNewActiveProcessingPictureCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	qualityActiveProcessingPictureNewActiveProcessingPictureCmd.Flags().String("arg1", "", "arg1 (string)")
-	qualityActiveProcessingPictureCmd.AddCommand(qualityActiveProcessingPictureNewActiveProcessingPictureCmd)
-	qualityActiveProcessingPictureDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	qualityActiveProcessingPictureCmd.AddCommand(qualityActiveProcessingPictureDescribeContentsCmd)
-	qualityActiveProcessingPictureGetIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	qualityActiveProcessingPictureCmd.AddCommand(qualityActiveProcessingPictureGetIdCmd)
-	qualityActiveProcessingPictureGetProfileIdCmd.Flags().Int64("handle", 0, "handle (int64)")
-	qualityActiveProcessingPictureCmd.AddCommand(qualityActiveProcessingPictureGetProfileIdCmd)
-	qualityActiveProcessingPictureWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	qualityActiveProcessingPictureWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	qualityActiveProcessingPictureWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	qualityActiveProcessingPictureCmd.AddCommand(qualityActiveProcessingPictureWriteToParcelCmd)
-	qualityCmd.AddCommand(qualityActiveProcessingPictureCmd)
-	qualitySoundProfileCmd.AddCommand(qualitySoundProfileDescribeContentsCmd)
-	qualitySoundProfileCmd.AddCommand(qualitySoundProfileGetInputIdCmd)
-	qualitySoundProfileCmd.AddCommand(qualitySoundProfileGetNameCmd)
-	qualitySoundProfileCmd.AddCommand(qualitySoundProfileGetPackageNameCmd)
-	qualitySoundProfileCmd.AddCommand(qualitySoundProfileGetParametersCmd)
-	qualitySoundProfileCmd.AddCommand(qualitySoundProfileGetProfileIdCmd)
-	qualitySoundProfileCmd.AddCommand(qualitySoundProfileGetProfileTypeCmd)
-	qualitySoundProfileWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	qualitySoundProfileWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	qualitySoundProfileCmd.AddCommand(qualitySoundProfileWriteToParcelCmd)
-	qualityCmd.AddCommand(qualitySoundProfileCmd)
-	qualitySoundProfileBuilderCmd.AddCommand(qualitySoundProfileBuilderBuildCmd)
-	qualitySoundProfileBuilderSetParametersCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	qualitySoundProfileBuilderCmd.AddCommand(qualitySoundProfileBuilderSetParametersCmd)
-	qualityCmd.AddCommand(qualitySoundProfileBuilderCmd)
 	rootCmd.AddCommand(qualityCmd)
 }

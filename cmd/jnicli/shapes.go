@@ -12,497 +12,6 @@ var shapesCmd = &cobra.Command{
 	Short: "shapes service operations",
 }
 
-var shapesOvalShapeCmd = &cobra.Command{
-	Use:   "oval-shape",
-	Short: "OvalShapeService operations",
-}
-
-var shapesOvalShapeNewOvalShapeCmd = &cobra.Command{
-	Use:   "new-oval-shape",
-	Short: "NewOvalShape RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOvalShapeServiceClient(grpcConn)
-		req := &pb.NewOvalShapeRequest{}
-		resp, err := client.NewOvalShape(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var shapesOvalShapeClone0Cmd = &cobra.Command{
-	Use:   "clone0",
-	Short: "Clone0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOvalShapeServiceClient(grpcConn)
-		req := &pb.Clone0Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Clone0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var shapesOvalShapeDrawCmd = &cobra.Command{
-	Use:   "draw",
-	Short: "Draw RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOvalShapeServiceClient(grpcConn)
-		req := &pb.DrawRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Draw(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var shapesOvalShapeGetOutlineCmd = &cobra.Command{
-	Use:   "get-outline",
-	Short: "GetOutline RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOvalShapeServiceClient(grpcConn)
-		req := &pb.GetOutlineRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetOutline(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var shapesOvalShapeClone0_1Cmd = &cobra.Command{
-	Use:   "clone0_1",
-	Short: "Clone0_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOvalShapeServiceClient(grpcConn)
-		req := &pb.Clone0_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Clone0_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var shapesOvalShapeClone0_2Cmd = &cobra.Command{
-	Use:   "clone0_2",
-	Short: "Clone0_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOvalShapeServiceClient(grpcConn)
-		req := &pb.Clone0_2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Clone0_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var shapesOvalShapeClone0_3Cmd = &cobra.Command{
-	Use:   "clone0_3",
-	Short: "Clone0_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOvalShapeServiceClient(grpcConn)
-		req := &pb.Clone0_3Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Clone0_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var shapesRoundRectShapeCmd = &cobra.Command{
-	Use:   "round-rect-shape",
-	Short: "RoundRectShapeService operations",
-}
-
-var shapesRoundRectShapeNewRoundRectShapeCmd = &cobra.Command{
-	Use:   "new-round-rect-shape",
-	Short: "NewRoundRectShape RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRoundRectShapeServiceClient(grpcConn)
-		req := &pb.NewRoundRectShapeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.NewRoundRectShape(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var shapesRoundRectShapeClone0Cmd = &cobra.Command{
-	Use:   "clone0",
-	Short: "Clone0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRoundRectShapeServiceClient(grpcConn)
-		req := &pb.Clone0Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Clone0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var shapesRoundRectShapeDrawCmd = &cobra.Command{
-	Use:   "draw",
-	Short: "Draw RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRoundRectShapeServiceClient(grpcConn)
-		req := &pb.DrawRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Draw(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var shapesRoundRectShapeEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRoundRectShapeServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var shapesRoundRectShapeGetOutlineCmd = &cobra.Command{
-	Use:   "get-outline",
-	Short: "GetOutline RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRoundRectShapeServiceClient(grpcConn)
-		req := &pb.GetOutlineRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetOutline(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var shapesRoundRectShapeHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRoundRectShapeServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var shapesRoundRectShapeClone0_1Cmd = &cobra.Command{
-	Use:   "clone0_1",
-	Short: "Clone0_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRoundRectShapeServiceClient(grpcConn)
-		req := &pb.Clone0_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Clone0_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var shapesRoundRectShapeClone0_2Cmd = &cobra.Command{
-	Use:   "clone0_2",
-	Short: "Clone0_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRoundRectShapeServiceClient(grpcConn)
-		req := &pb.Clone0_2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Clone0_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var shapesRoundRectShapeClone0_3Cmd = &cobra.Command{
-	Use:   "clone0_3",
-	Short: "Clone0_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRoundRectShapeServiceClient(grpcConn)
-		req := &pb.Clone0_3Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Clone0_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var shapesPathShapeCmd = &cobra.Command{
-	Use:   "path-shape",
-	Short: "PathShapeService operations",
-}
-
-var shapesPathShapeNewPathShapeCmd = &cobra.Command{
-	Use:   "new-path-shape",
-	Short: "NewPathShape RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPathShapeServiceClient(grpcConn)
-		req := &pb.NewPathShapeRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.NewPathShape(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var shapesPathShapeClone0Cmd = &cobra.Command{
-	Use:   "clone0",
-	Short: "Clone0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPathShapeServiceClient(grpcConn)
-		req := &pb.Clone0Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Clone0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var shapesPathShapeDrawCmd = &cobra.Command{
-	Use:   "draw",
-	Short: "Draw RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPathShapeServiceClient(grpcConn)
-		req := &pb.DrawRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Draw(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var shapesPathShapeEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPathShapeServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var shapesPathShapeHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPathShapeServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var shapesPathShapeClone0_1Cmd = &cobra.Command{
-	Use:   "clone0_1",
-	Short: "Clone0_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPathShapeServiceClient(grpcConn)
-		req := &pb.Clone0_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Clone0_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var shapesPathShapeClone0_2Cmd = &cobra.Command{
-	Use:   "clone0_2",
-	Short: "Clone0_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPathShapeServiceClient(grpcConn)
-		req := &pb.Clone0_2Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Clone0_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var shapesShapeCmd = &cobra.Command{
 	Use:   "shape",
 	Short: "ShapeService operations",
@@ -515,7 +24,7 @@ var shapesShapeClone0Cmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewShapeServiceClient(grpcConn)
-		req := &pb.ShapeClone0Request{}
+		req := &pb.Clone0Request{}
 		resp, err := client.Clone0(ctx, req)
 		if err != nil {
 			return err
@@ -531,7 +40,7 @@ var shapesShapeDrawCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewShapeServiceClient(grpcConn)
-		req := &pb.ShapeDrawRequest{}
+		req := &pb.DrawRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -553,7 +62,7 @@ var shapesShapeEqualsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewShapeServiceClient(grpcConn)
-		req := &pb.ShapeEqualsRequest{}
+		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -588,7 +97,7 @@ var shapesShapeGetOutlineCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewShapeServiceClient(grpcConn)
-		req := &pb.ShapeGetOutlineRequest{}
+		req := &pb.GetOutlineRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -639,7 +148,7 @@ var shapesShapeHashCodeCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewShapeServiceClient(grpcConn)
-		req := &pb.ShapeHashCodeRequest{}
+		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
 			return err
@@ -677,8 +186,202 @@ var shapesShapeClone0_1Cmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewShapeServiceClient(grpcConn)
-		req := &pb.ShapeClone0_1Request{}
+		req := &pb.Clone0_1Request{}
 		resp, err := client.Clone0_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var shapesRoundRectShapeCmd = &cobra.Command{
+	Use:   "round-rect-shape",
+	Short: "RoundRectShapeService operations",
+}
+
+var shapesRoundRectShapeNewRoundRectShapeCmd = &cobra.Command{
+	Use:   "new-round-rect-shape",
+	Short: "NewRoundRectShape RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRoundRectShapeServiceClient(grpcConn)
+		req := &pb.NewRoundRectShapeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewRoundRectShape(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var shapesRoundRectShapeClone0Cmd = &cobra.Command{
+	Use:   "clone0",
+	Short: "Clone0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRoundRectShapeServiceClient(grpcConn)
+		req := &pb.RoundRectShapeClone0Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Clone0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var shapesRoundRectShapeDrawCmd = &cobra.Command{
+	Use:   "draw",
+	Short: "Draw RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRoundRectShapeServiceClient(grpcConn)
+		req := &pb.RoundRectShapeDrawRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Draw(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var shapesRoundRectShapeEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRoundRectShapeServiceClient(grpcConn)
+		req := &pb.RoundRectShapeEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var shapesRoundRectShapeGetOutlineCmd = &cobra.Command{
+	Use:   "get-outline",
+	Short: "GetOutline RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRoundRectShapeServiceClient(grpcConn)
+		req := &pb.RoundRectShapeGetOutlineRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetOutline(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var shapesRoundRectShapeHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRoundRectShapeServiceClient(grpcConn)
+		req := &pb.RoundRectShapeHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var shapesRoundRectShapeClone0_1Cmd = &cobra.Command{
+	Use:   "clone0_1",
+	Short: "Clone0_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRoundRectShapeServiceClient(grpcConn)
+		req := &pb.RoundRectShapeClone0_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Clone0_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var shapesRoundRectShapeClone0_2Cmd = &cobra.Command{
+	Use:   "clone0_2",
+	Short: "Clone0_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRoundRectShapeServiceClient(grpcConn)
+		req := &pb.Clone0_2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Clone0_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var shapesRoundRectShapeClone0_3Cmd = &cobra.Command{
+	Use:   "clone0_3",
+	Short: "Clone0_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRoundRectShapeServiceClient(grpcConn)
+		req := &pb.Clone0_3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Clone0_3(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -714,7 +417,7 @@ var shapesRectShapeClone0Cmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewRectShapeServiceClient(grpcConn)
-		req := &pb.Clone0Request{}
+		req := &pb.RectShapeClone0Request{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -733,7 +436,7 @@ var shapesRectShapeDrawCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewRectShapeServiceClient(grpcConn)
-		req := &pb.DrawRequest{}
+		req := &pb.RectShapeDrawRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -758,7 +461,7 @@ var shapesRectShapeEqualsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewRectShapeServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
+		req := &pb.RectShapeEqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -780,7 +483,7 @@ var shapesRectShapeGetOutlineCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewRectShapeServiceClient(grpcConn)
-		req := &pb.GetOutlineRequest{}
+		req := &pb.RectShapeGetOutlineRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -802,7 +505,7 @@ var shapesRectShapeHashCodeCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewRectShapeServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
+		req := &pb.RectShapeHashCodeRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -821,7 +524,7 @@ var shapesRectShapeClone0_1Cmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewRectShapeServiceClient(grpcConn)
-		req := &pb.Clone0_1Request{}
+		req := &pb.RectShapeClone0_1Request{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -886,7 +589,7 @@ var shapesArcShapeClone0Cmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewArcShapeServiceClient(grpcConn)
-		req := &pb.Clone0Request{}
+		req := &pb.ArcShapeClone0Request{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -905,7 +608,7 @@ var shapesArcShapeDrawCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewArcShapeServiceClient(grpcConn)
-		req := &pb.DrawRequest{}
+		req := &pb.ArcShapeDrawRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -930,7 +633,7 @@ var shapesArcShapeEqualsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewArcShapeServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
+		req := &pb.ArcShapeEqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -952,7 +655,7 @@ var shapesArcShapeGetOutlineCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewArcShapeServiceClient(grpcConn)
-		req := &pb.GetOutlineRequest{}
+		req := &pb.ArcShapeGetOutlineRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -1012,7 +715,7 @@ var shapesArcShapeHashCodeCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewArcShapeServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
+		req := &pb.ArcShapeHashCodeRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -1031,7 +734,7 @@ var shapesArcShapeClone0_1Cmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewArcShapeServiceClient(grpcConn)
-		req := &pb.Clone0_1Request{}
+		req := &pb.ArcShapeClone0_1Request{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -1081,24 +784,321 @@ var shapesArcShapeClone0_3Cmd = &cobra.Command{
 	},
 }
 
+var shapesOvalShapeCmd = &cobra.Command{
+	Use:   "oval-shape",
+	Short: "OvalShapeService operations",
+}
+
+var shapesOvalShapeNewOvalShapeCmd = &cobra.Command{
+	Use:   "new-oval-shape",
+	Short: "NewOvalShape RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOvalShapeServiceClient(grpcConn)
+		req := &pb.NewOvalShapeRequest{}
+		resp, err := client.NewOvalShape(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var shapesOvalShapeClone0Cmd = &cobra.Command{
+	Use:   "clone0",
+	Short: "Clone0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOvalShapeServiceClient(grpcConn)
+		req := &pb.OvalShapeClone0Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Clone0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var shapesOvalShapeDrawCmd = &cobra.Command{
+	Use:   "draw",
+	Short: "Draw RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOvalShapeServiceClient(grpcConn)
+		req := &pb.OvalShapeDrawRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Draw(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var shapesOvalShapeGetOutlineCmd = &cobra.Command{
+	Use:   "get-outline",
+	Short: "GetOutline RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOvalShapeServiceClient(grpcConn)
+		req := &pb.OvalShapeGetOutlineRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetOutline(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var shapesOvalShapeClone0_1Cmd = &cobra.Command{
+	Use:   "clone0_1",
+	Short: "Clone0_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOvalShapeServiceClient(grpcConn)
+		req := &pb.OvalShapeClone0_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Clone0_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var shapesOvalShapeClone0_2Cmd = &cobra.Command{
+	Use:   "clone0_2",
+	Short: "Clone0_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOvalShapeServiceClient(grpcConn)
+		req := &pb.Clone0_2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Clone0_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var shapesOvalShapeClone0_3Cmd = &cobra.Command{
+	Use:   "clone0_3",
+	Short: "Clone0_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOvalShapeServiceClient(grpcConn)
+		req := &pb.Clone0_3Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Clone0_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var shapesPathShapeCmd = &cobra.Command{
+	Use:   "path-shape",
+	Short: "PathShapeService operations",
+}
+
+var shapesPathShapeNewPathShapeCmd = &cobra.Command{
+	Use:   "new-path-shape",
+	Short: "NewPathShape RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPathShapeServiceClient(grpcConn)
+		req := &pb.NewPathShapeRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetFloat32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewPathShape(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var shapesPathShapeClone0Cmd = &cobra.Command{
+	Use:   "clone0",
+	Short: "Clone0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPathShapeServiceClient(grpcConn)
+		req := &pb.PathShapeClone0Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Clone0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var shapesPathShapeDrawCmd = &cobra.Command{
+	Use:   "draw",
+	Short: "Draw RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPathShapeServiceClient(grpcConn)
+		req := &pb.PathShapeDrawRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Draw(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var shapesPathShapeEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPathShapeServiceClient(grpcConn)
+		req := &pb.PathShapeEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var shapesPathShapeHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPathShapeServiceClient(grpcConn)
+		req := &pb.PathShapeHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var shapesPathShapeClone0_1Cmd = &cobra.Command{
+	Use:   "clone0_1",
+	Short: "Clone0_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPathShapeServiceClient(grpcConn)
+		req := &pb.PathShapeClone0_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Clone0_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var shapesPathShapeClone0_2Cmd = &cobra.Command{
+	Use:   "clone0_2",
+	Short: "Clone0_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPathShapeServiceClient(grpcConn)
+		req := &pb.Clone0_2Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Clone0_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
-	shapesOvalShapeCmd.AddCommand(shapesOvalShapeNewOvalShapeCmd)
-	shapesOvalShapeClone0Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	shapesOvalShapeCmd.AddCommand(shapesOvalShapeClone0Cmd)
-	shapesOvalShapeDrawCmd.Flags().Int64("handle", 0, "handle (int64)")
-	shapesOvalShapeDrawCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	shapesOvalShapeDrawCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	shapesOvalShapeCmd.AddCommand(shapesOvalShapeDrawCmd)
-	shapesOvalShapeGetOutlineCmd.Flags().Int64("handle", 0, "handle (int64)")
-	shapesOvalShapeGetOutlineCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	shapesOvalShapeCmd.AddCommand(shapesOvalShapeGetOutlineCmd)
-	shapesOvalShapeClone0_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	shapesOvalShapeCmd.AddCommand(shapesOvalShapeClone0_1Cmd)
-	shapesOvalShapeClone0_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	shapesOvalShapeCmd.AddCommand(shapesOvalShapeClone0_2Cmd)
-	shapesOvalShapeClone0_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	shapesOvalShapeCmd.AddCommand(shapesOvalShapeClone0_3Cmd)
-	shapesCmd.AddCommand(shapesOvalShapeCmd)
+	shapesShapeCmd.AddCommand(shapesShapeClone0Cmd)
+	shapesShapeDrawCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	shapesShapeDrawCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	shapesShapeCmd.AddCommand(shapesShapeDrawCmd)
+	shapesShapeEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	shapesShapeCmd.AddCommand(shapesShapeEqualsCmd)
+	shapesShapeCmd.AddCommand(shapesShapeGetHeightCmd)
+	shapesShapeGetOutlineCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	shapesShapeCmd.AddCommand(shapesShapeGetOutlineCmd)
+	shapesShapeCmd.AddCommand(shapesShapeGetWidthCmd)
+	shapesShapeCmd.AddCommand(shapesShapeHasAlphaCmd)
+	shapesShapeCmd.AddCommand(shapesShapeHashCodeCmd)
+	shapesShapeResizeCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	shapesShapeResizeCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	shapesShapeCmd.AddCommand(shapesShapeResizeCmd)
+	shapesShapeCmd.AddCommand(shapesShapeClone0_1Cmd)
+	shapesCmd.AddCommand(shapesShapeCmd)
 	shapesRoundRectShapeNewRoundRectShapeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	shapesRoundRectShapeNewRoundRectShapeCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	shapesRoundRectShapeNewRoundRectShapeCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
@@ -1124,43 +1124,6 @@ func init() {
 	shapesRoundRectShapeClone0_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
 	shapesRoundRectShapeCmd.AddCommand(shapesRoundRectShapeClone0_3Cmd)
 	shapesCmd.AddCommand(shapesRoundRectShapeCmd)
-	shapesPathShapeNewPathShapeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	shapesPathShapeNewPathShapeCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	shapesPathShapeNewPathShapeCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
-	shapesPathShapeCmd.AddCommand(shapesPathShapeNewPathShapeCmd)
-	shapesPathShapeClone0Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	shapesPathShapeCmd.AddCommand(shapesPathShapeClone0Cmd)
-	shapesPathShapeDrawCmd.Flags().Int64("handle", 0, "handle (int64)")
-	shapesPathShapeDrawCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	shapesPathShapeDrawCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	shapesPathShapeCmd.AddCommand(shapesPathShapeDrawCmd)
-	shapesPathShapeEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	shapesPathShapeEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	shapesPathShapeCmd.AddCommand(shapesPathShapeEqualsCmd)
-	shapesPathShapeHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	shapesPathShapeCmd.AddCommand(shapesPathShapeHashCodeCmd)
-	shapesPathShapeClone0_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	shapesPathShapeCmd.AddCommand(shapesPathShapeClone0_1Cmd)
-	shapesPathShapeClone0_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
-	shapesPathShapeCmd.AddCommand(shapesPathShapeClone0_2Cmd)
-	shapesCmd.AddCommand(shapesPathShapeCmd)
-	shapesShapeCmd.AddCommand(shapesShapeClone0Cmd)
-	shapesShapeDrawCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	shapesShapeDrawCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	shapesShapeCmd.AddCommand(shapesShapeDrawCmd)
-	shapesShapeEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	shapesShapeCmd.AddCommand(shapesShapeEqualsCmd)
-	shapesShapeCmd.AddCommand(shapesShapeGetHeightCmd)
-	shapesShapeGetOutlineCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	shapesShapeCmd.AddCommand(shapesShapeGetOutlineCmd)
-	shapesShapeCmd.AddCommand(shapesShapeGetWidthCmd)
-	shapesShapeCmd.AddCommand(shapesShapeHasAlphaCmd)
-	shapesShapeCmd.AddCommand(shapesShapeHashCodeCmd)
-	shapesShapeResizeCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	shapesShapeResizeCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
-	shapesShapeCmd.AddCommand(shapesShapeResizeCmd)
-	shapesShapeCmd.AddCommand(shapesShapeClone0_1Cmd)
-	shapesCmd.AddCommand(shapesShapeCmd)
 	shapesRectShapeCmd.AddCommand(shapesRectShapeNewRectShapeCmd)
 	shapesRectShapeClone0Cmd.Flags().Int64("handle", 0, "handle (int64)")
 	shapesRectShapeCmd.AddCommand(shapesRectShapeClone0Cmd)
@@ -1209,5 +1172,42 @@ func init() {
 	shapesArcShapeClone0_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
 	shapesArcShapeCmd.AddCommand(shapesArcShapeClone0_3Cmd)
 	shapesCmd.AddCommand(shapesArcShapeCmd)
+	shapesOvalShapeCmd.AddCommand(shapesOvalShapeNewOvalShapeCmd)
+	shapesOvalShapeClone0Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	shapesOvalShapeCmd.AddCommand(shapesOvalShapeClone0Cmd)
+	shapesOvalShapeDrawCmd.Flags().Int64("handle", 0, "handle (int64)")
+	shapesOvalShapeDrawCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	shapesOvalShapeDrawCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	shapesOvalShapeCmd.AddCommand(shapesOvalShapeDrawCmd)
+	shapesOvalShapeGetOutlineCmd.Flags().Int64("handle", 0, "handle (int64)")
+	shapesOvalShapeGetOutlineCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	shapesOvalShapeCmd.AddCommand(shapesOvalShapeGetOutlineCmd)
+	shapesOvalShapeClone0_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	shapesOvalShapeCmd.AddCommand(shapesOvalShapeClone0_1Cmd)
+	shapesOvalShapeClone0_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	shapesOvalShapeCmd.AddCommand(shapesOvalShapeClone0_2Cmd)
+	shapesOvalShapeClone0_3Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	shapesOvalShapeCmd.AddCommand(shapesOvalShapeClone0_3Cmd)
+	shapesCmd.AddCommand(shapesOvalShapeCmd)
+	shapesPathShapeNewPathShapeCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	shapesPathShapeNewPathShapeCmd.Flags().Float32("arg1", 0, "arg1 (float32)")
+	shapesPathShapeNewPathShapeCmd.Flags().Float32("arg2", 0, "arg2 (float32)")
+	shapesPathShapeCmd.AddCommand(shapesPathShapeNewPathShapeCmd)
+	shapesPathShapeClone0Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	shapesPathShapeCmd.AddCommand(shapesPathShapeClone0Cmd)
+	shapesPathShapeDrawCmd.Flags().Int64("handle", 0, "handle (int64)")
+	shapesPathShapeDrawCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	shapesPathShapeDrawCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	shapesPathShapeCmd.AddCommand(shapesPathShapeDrawCmd)
+	shapesPathShapeEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	shapesPathShapeEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	shapesPathShapeCmd.AddCommand(shapesPathShapeEqualsCmd)
+	shapesPathShapeHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	shapesPathShapeCmd.AddCommand(shapesPathShapeHashCodeCmd)
+	shapesPathShapeClone0_1Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	shapesPathShapeCmd.AddCommand(shapesPathShapeClone0_1Cmd)
+	shapesPathShapeClone0_2Cmd.Flags().Int64("handle", 0, "handle (int64)")
+	shapesPathShapeCmd.AddCommand(shapesPathShapeClone0_2Cmd)
+	shapesCmd.AddCommand(shapesPathShapeCmd)
 	rootCmd.AddCommand(shapesCmd)
 }

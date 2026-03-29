@@ -186,195 +186,195 @@ import (
 // Client provides access to all Android API services over gRPC.
 type Client struct {
 	handles                                                 handlepb.HandleStoreServiceClient
-	AccessibilityCaptioningManager                          *accessibilityclient.CaptioningManagerClient
-	AccessibilityManager                                    *accessibilityclient.ManagerClient
 	AccessibilityWindowInfo                                 *accessibilityclient.WindowInfoClient
-	AccessibilityEvent                                      *accessibilityclient.EventClient
-	AccessibilityNodeInfo                                   *accessibilityclient.NodeInfoClient
 	AccessibilityRecord                                     *accessibilityclient.RecordClient
+	AccessibilityEvent                                      *accessibilityclient.EventClient
+	AccessibilityManager                                    *accessibilityclient.ManagerClient
+	AccessibilityCaptioningManager                          *accessibilityclient.CaptioningManagerClient
+	AccessibilityNodeInfo                                   *accessibilityclient.NodeInfoClient
 	AccessibilityserviceAccessibilityGestureEvent           *accessibilityserviceclient.AccessibilityGestureEventClient
-	AccessibilityserviceAccessibilityServiceInfo            *accessibilityserviceclient.AccessibilityServiceInfoClient
 	AccessibilityserviceInputMethod                         *accessibilityserviceclient.InputMethodClient
-	AccountsAccountManager                                  *accountsclient.AccountManagerClient
-	AccountsAccountAuthenticatorResponse                    *accountsclient.AccountAuthenticatorResponseClient
+	AccessibilityserviceAccessibilityServiceInfo            *accessibilityserviceclient.AccessibilityServiceInfoClient
 	AccountsAuthenticatorDescription                        *accountsclient.AuthenticatorDescriptionClient
-	AccountsAccountAuthenticatorActivity                    *accountsclient.AccountAuthenticatorActivityClient
+	AccountsAccountManager                                  *accountsclient.AccountManagerClient
 	AccountsAccount                                         *accountsclient.AccountClient
+	AccountsAccountAuthenticatorActivity                    *accountsclient.AccountAuthenticatorActivityClient
+	AccountsAccountAuthenticatorResponse                    *accountsclient.AccountAuthenticatorResponseClient
 	ActionsCommandAction                                    *actionsclient.CommandActionClient
+	ActionsModeAction                                       *actionsclient.ModeActionClient
 	ActionsBooleanAction                                    *actionsclient.BooleanActionClient
 	ActionsFloatAction                                      *actionsclient.FloatActionClient
-	ActionsModeAction                                       *actionsclient.ModeActionClient
 	AdTvAdServiceInfo                                       *adclient.TvAdServiceInfoClient
-	AdTvAdView                                              *adclient.TvAdViewClient
 	AdTvAdManager                                           *adclient.TvAdManagerClient
+	AdTvAdView                                              *adclient.TvAdViewClient
 	AdidAdId                                                *adidclient.AdIdClient
-	AdminDevicePolicyManager                                *adminclient.DevicePolicyManagerClient
-	AdminWifiSsidPolicy                                     *adminclient.WifiSsidPolicyClient
-	AdminPackagePolicy                                      *adminclient.PackagePolicyClient
-	AdminPolicyUpdateResult                                 *adminclient.PolicyUpdateResultClient
-	AdminDeviceAdminReceiver                                *adminclient.DeviceAdminReceiverClient
+	AdminFreezePeriod                                       *adminclient.FreezePeriodClient
+	AdminDeviceAdminService                                 *adminclient.DeviceAdminServiceClient
 	AdminManagedSubscriptionsPolicy                         *adminclient.ManagedSubscriptionsPolicyClient
 	AdminDeviceAdminInfo                                    *adminclient.DeviceAdminInfoClient
+	AdminPolicyUpdateResult                                 *adminclient.PolicyUpdateResultClient
+	AdminDevicePolicyManager                                *adminclient.DevicePolicyManagerClient
+	AdminDeviceAdminReceiver                                *adminclient.DeviceAdminReceiverClient
 	AdminDelegatedAdminReceiver                             *adminclient.DelegatedAdminReceiverClient
-	AdminDeviceAdminService                                 *adminclient.DeviceAdminServiceClient
-	AdminFreezePeriod                                       *adminclient.FreezePeriodClient
-	AdselectionAdWithBid                                    *adselectionclient.AdWithBidClient
+	AdminWifiSsidPolicy                                     *adminclient.WifiSsidPolicyClient
+	AdminPackagePolicy                                      *adminclient.PackagePolicyClient
 	AdselectionReportImpressionRequest                      *adselectionclient.ReportImpressionRequestClient
-	AdselectionDecisionLogic                                *adselectionclient.DecisionLogicClient
-	AdselectionRemoveAdSelectionOverrideRequest             *adselectionclient.RemoveAdSelectionOverrideRequestClient
 	AdselectionAddAdSelectionOverrideRequest                *adselectionclient.AddAdSelectionOverrideRequestClient
+	AdselectionDecisionLogic                                *adselectionclient.DecisionLogicClient
 	AdselectionPerBuyerDecisionLogic                        *adselectionclient.PerBuyerDecisionLogicClient
+	AdselectionRemoveAdSelectionOverrideRequest             *adselectionclient.RemoveAdSelectionOverrideRequestClient
 	AdselectionAddAdSelectionFromOutcomesOverrideRequest    *adselectionclient.AddAdSelectionFromOutcomesOverrideRequestClient
 	AdselectionRemoveAdSelectionFromOutcomesOverrideRequest *adselectionclient.RemoveAdSelectionFromOutcomesOverrideRequestClient
+	AdselectionAdWithBid                                    *adselectionclient.AdWithBidClient
 	AdvancedprotectionAdvancedProtectionManager             *advancedprotectionclient.AdvancedProtectionManagerClient
 	AlarmManager                                            *alarmclient.ManagerClient
 	AltitudeConverter                                       *altitudeclient.ConverterClient
-	AnimationAccelerateInterpolator                         *animationclient.AccelerateInterpolatorClient
+	AnimationTimeAnimator                                   *animationclient.TimeAnimatorClient
 	AnimationIntArrayEvaluator                              *animationclient.IntArrayEvaluatorClient
+	AnimationRectEvaluator                                  *animationclient.RectEvaluatorClient
+	AnimationStateListAnimator                              *animationclient.StateListAnimatorClient
+	AnimationGridLayoutAnimationController                  *animationclient.GridLayoutAnimationControllerClient
 	AnimationRotateAnimation                                *animationclient.RotateAnimationClient
 	AnimationCycleInterpolator                              *animationclient.CycleInterpolatorClient
-	AnimationAnticipateOvershootInterpolator                *animationclient.AnticipateOvershootInterpolatorClient
-	AnimationLayoutAnimationController                      *animationclient.LayoutAnimationControllerClient
-	AnimationGridLayoutAnimationController                  *animationclient.GridLayoutAnimationControllerClient
-	AnimationScaleAnimation                                 *animationclient.ScaleAnimationClient
-	AnimationLinearInterpolator                             *animationclient.LinearInterpolatorClient
-	AnimationPathInterpolator                               *animationclient.PathInterpolatorClient
-	AnimationUtils                                          *animationclient.UtilsClient
+	AnimationSet                                            *animationclient.SetClient
 	AnimationDecelerateInterpolator                         *animationclient.DecelerateInterpolatorClient
-	AnimationAccelerateDecelerateInterpolator               *animationclient.AccelerateDecelerateInterpolatorClient
-	AnimationAnimatorSet                                    *animationclient.AnimatorSetClient
-	AnimationObjectAnimator                                 *animationclient.ObjectAnimatorClient
-	AnimationLayoutTransition                               *animationclient.LayoutTransitionClient
-	AnimationArgbEvaluator                                  *animationclient.ArgbEvaluatorClient
+	AnimationTransformation                                 *animationclient.TransformationClient
+	AnimationOvershootInterpolator                          *animationclient.OvershootInterpolatorClient
+	AnimationUtils                                          *animationclient.UtilsClient
+	AnimationPathInterpolator                               *animationclient.PathInterpolatorClient
 	AnimationAlphaAnimation                                 *animationclient.AlphaAnimationClient
-	AnimationValueAnimator                                  *animationclient.ValueAnimatorClient
+	AnimationBounceInterpolator                             *animationclient.BounceInterpolatorClient
+	AnimationLinearInterpolator                             *animationclient.LinearInterpolatorClient
+	AnimationAnticipateOvershootInterpolator                *animationclient.AnticipateOvershootInterpolatorClient
+	AnimationAnticipateInterpolator                         *animationclient.AnticipateInterpolatorClient
+	AnimationScaleAnimation                                 *animationclient.ScaleAnimationClient
+	AnimationLayoutAnimationController                      *animationclient.LayoutAnimationControllerClient
+	AnimationAccelerateDecelerateInterpolator               *animationclient.AccelerateDecelerateInterpolatorClient
+	AnimationAccelerateInterpolator                         *animationclient.AccelerateInterpolatorClient
+	AnimationTranslateAnimation                             *animationclient.TranslateAnimationClient
+	AnimationAnimatorSet                                    *animationclient.AnimatorSetClient
 	AnimationFloatEvaluator                                 *animationclient.FloatEvaluatorClient
 	AnimationPointFEvaluator                                *animationclient.PointFEvaluatorClient
-	AnimationAnimatorInflater                               *animationclient.AnimatorInflaterClient
-	AnimationOvershootInterpolator                          *animationclient.OvershootInterpolatorClient
-	AnimationTranslateAnimation                             *animationclient.TranslateAnimationClient
-	AnimationSet                                            *animationclient.SetClient
-	AnimationAnticipateInterpolator                         *animationclient.AnticipateInterpolatorClient
-	AnimationBounceInterpolator                             *animationclient.BounceInterpolatorClient
-	AnimationTransformation                                 *animationclient.TransformationClient
-	AnimationIntEvaluator                                   *animationclient.IntEvaluatorClient
-	AnimationStateListAnimator                              *animationclient.StateListAnimatorClient
+	AnimationLayoutTransition                               *animationclient.LayoutTransitionClient
 	AnimationFloatArrayEvaluator                            *animationclient.FloatArrayEvaluatorClient
-	AnimationRectEvaluator                                  *animationclient.RectEvaluatorClient
-	AnimationTimeAnimator                                   *animationclient.TimeAnimatorClient
-	AppFragmentBreadCrumbs                                  *appclient.FragmentBreadCrumbsClient
-	AppGameState                                            *appclient.GameStateClient
-	AppMediaRouteActionProvider                             *appclient.MediaRouteActionProviderClient
-	AppListFragment                                         *appclient.ListFragmentClient
-	AppDatePickerDialog                                     *appclient.DatePickerDialogClient
-	AppListActivity                                         *appclient.ListActivityClient
-	AppMediaRouteButton                                     *appclient.MediaRouteButtonClient
-	AppNativeActivity                                       *appclient.NativeActivityClient
-	AppTabActivity                                          *appclient.TabActivityClient
-	AppNotificationChannelGroup                             *appclient.NotificationChannelGroupClient
-	AppWallpaperColors                                      *appclient.WallpaperColorsClient
-	AppCancellationSignal                                   *appclient.CancellationSignalClient
-	AppExpandableListActivity                               *appclient.ExpandableListActivityClient
-	AppInvalidForegroundServiceTypeException                *appclient.InvalidForegroundServiceTypeExceptionClient
-	AppSyncNotedAppOp                                       *appclient.SyncNotedAppOpClient
-	AppGrammaticalInflectionManager                         *appclient.GrammaticalInflectionManagerClient
-	AppComponentFactory                                     *appclient.ComponentFactoryClient
-	AppMissingForegroundServiceTypeException                *appclient.MissingForegroundServiceTypeExceptionClient
-	AppUiModeManager                                        *appclient.UiModeManagerClient
-	AppProgressDialog                                       *appclient.ProgressDialogClient
-	AppFragment                                             *appclient.FragmentClient
-	AppDialogFragment                                       *appclient.DialogFragmentClient
-	AppPresentation                                         *appclient.PresentationClient
-	AppStartForegroundCalledOnStoppedServiceException       *appclient.StartForegroundCalledOnStoppedServiceExceptionClient
-	AppInstrumentation                                      *appclient.InstrumentationClient
-	AppWallpaperInfo                                        *appclient.WallpaperInfoClient
-	AppAutomaticZenRule                                     *appclient.AutomaticZenRuleClient
-	AppLocalActivityManager                                 *appclient.LocalActivityManagerClient
+	AnimationAnimatorInflater                               *animationclient.AnimatorInflaterClient
+	AnimationIntEvaluator                                   *animationclient.IntEvaluatorClient
+	AnimationObjectAnimator                                 *animationclient.ObjectAnimatorClient
+	AnimationValueAnimator                                  *animationclient.ValueAnimatorClient
+	AnimationArgbEvaluator                                  *animationclient.ArgbEvaluatorClient
 	AppForegroundServiceStartNotAllowedException            *appclient.ForegroundServiceStartNotAllowedExceptionClient
-	AppDialog                                               *appclient.DialogClient
+	AppUiModeManager                                        *appclient.UiModeManagerClient
+	AppWallpaperManager                                     *appclient.WallpaperManagerClient
+	AppExpandableListActivity                               *appclient.ExpandableListActivityClient
+	AppStatusBarManager                                     *appclient.StatusBarManagerClient
+	AppComponentFactory                                     *appclient.ComponentFactoryClient
+	AppFragmentBreadCrumbs                                  *appclient.FragmentBreadCrumbsClient
+	AppRemoteAction                                         *appclient.RemoteActionClient
+	AppActivityGroup                                        *appclient.ActivityGroupClient
+	AppInvalidForegroundServiceTypeException                *appclient.InvalidForegroundServiceTypeExceptionClient
+	AppGameManager                                          *appclient.GameManagerClient
+	AppInstrumentation                                      *appclient.InstrumentationClient
+	AppMissingForegroundServiceTypeException                *appclient.MissingForegroundServiceTypeExceptionClient
+	AppCancellationSignal                                   *appclient.CancellationSignalClient
 	AppOpsManager                                           *appclient.OpsManagerClient
 	AppRecoverableSecurityException                         *appclient.RecoverableSecurityExceptionClient
-	AppSearchManager                                        *appclient.SearchManagerClient
-	AppRemoteAction                                         *appclient.RemoteActionClient
-	AppActivity                                             *appclient.ActivityClient
-	AppLocaleManager                                        *appclient.LocaleManagerClient
-	AppLocaleConfig                                         *appclient.LocaleConfigClient
-	AppIntent                                               *appclient.IntentClient
-	AppBackgroundServiceStartNotAllowedException            *appclient.BackgroundServiceStartNotAllowedExceptionClient
-	AppStatusBarManager                                     *appclient.StatusBarManagerClient
-	AppActivityManager                                      *appclient.ActivityManagerClient
-	AppAuthenticationRequiredException                      *appclient.AuthenticationRequiredExceptionClient
-	AppActivityGroup                                        *appclient.ActivityGroupClient
-	AppWallpaperManager                                     *appclient.WallpaperManagerClient
-	AppGameManager                                          *appclient.GameManagerClient
-	AppTimePickerDialog                                     *appclient.TimePickerDialogClient
 	AppBundle                                               *appclient.BundleClient
-	AppfunctionsAppFunctionException                        *appfunctionsclient.AppFunctionExceptionClient
+	AppMediaRouteButton                                     *appclient.MediaRouteButtonClient
+	AppDialogFragment                                       *appclient.DialogFragmentClient
+	AppLocalActivityManager                                 *appclient.LocalActivityManagerClient
+	AppNativeActivity                                       *appclient.NativeActivityClient
+	AppPresentation                                         *appclient.PresentationClient
+	AppGameState                                            *appclient.GameStateClient
+	AppActivity                                             *appclient.ActivityClient
+	AppAutomaticZenRule                                     *appclient.AutomaticZenRuleClient
+	AppDatePickerDialog                                     *appclient.DatePickerDialogClient
+	AppBackgroundServiceStartNotAllowedException            *appclient.BackgroundServiceStartNotAllowedExceptionClient
+	AppFragment                                             *appclient.FragmentClient
+	AppTimePickerDialog                                     *appclient.TimePickerDialogClient
+	AppDialog                                               *appclient.DialogClient
+	AppActivityManager                                      *appclient.ActivityManagerClient
+	AppLocaleManager                                        *appclient.LocaleManagerClient
+	AppAuthenticationRequiredException                      *appclient.AuthenticationRequiredExceptionClient
+	AppProgressDialog                                       *appclient.ProgressDialogClient
+	AppWallpaperColors                                      *appclient.WallpaperColorsClient
+	AppLocaleConfig                                         *appclient.LocaleConfigClient
+	AppStartForegroundCalledOnStoppedServiceException       *appclient.StartForegroundCalledOnStoppedServiceExceptionClient
+	AppIntent                                               *appclient.IntentClient
+	AppMediaRouteActionProvider                             *appclient.MediaRouteActionProviderClient
+	AppListActivity                                         *appclient.ListActivityClient
+	AppSearchManager                                        *appclient.SearchManagerClient
+	AppWallpaperInfo                                        *appclient.WallpaperInfoClient
+	AppSyncNotedAppOp                                       *appclient.SyncNotedAppOpClient
+	AppNotificationChannelGroup                             *appclient.NotificationChannelGroupClient
+	AppListFragment                                         *appclient.ListFragmentClient
+	AppTabActivity                                          *appclient.TabActivityClient
+	AppGrammaticalInflectionManager                         *appclient.GrammaticalInflectionManagerClient
 	AppfunctionsExecuteAppFunctionResponse                  *appfunctionsclient.ExecuteAppFunctionResponseClient
+	AppfunctionsAppFunctionException                        *appfunctionsclient.AppFunctionExceptionClient
 	AppsearchOpenBlobForReadResponse                        *appsearchclient.OpenBlobForReadResponseClient
-	AppsearchEmbeddingVector                                *appsearchclient.EmbeddingVectorClient
-	AppsearchPackageIdentifier                              *appsearchclient.PackageIdentifierClient
-	AppsearchCommitBlobResponse                             *appsearchclient.CommitBlobResponseClient
 	AppsearchOpenBlobForWriteResponse                       *appsearchclient.OpenBlobForWriteResponseClient
-	AppsearchRemoveBlobResponse                             *appsearchclient.RemoveBlobResponseClient
+	AppsearchEmbeddingVector                                *appsearchclient.EmbeddingVectorClient
 	AppsearchPropertyPath                                   *appsearchclient.PropertyPathClient
+	AppsearchPackageIdentifier                              *appsearchclient.PackageIdentifierClient
+	AppsearchRemoveBlobResponse                             *appsearchclient.RemoveBlobResponseClient
+	AppsearchCommitBlobResponse                             *appsearchclient.CommitBlobResponseClient
 	AppsetidAppSetId                                        *appsetidclient.AppSetIdClient
+	AppwidgetAppWidgetProviderInfo                          *appwidgetclient.AppWidgetProviderInfoClient
+	AppwidgetAppWidgetHost                                  *appwidgetclient.AppWidgetHostClient
 	AppwidgetAppWidgetHostView                              *appwidgetclient.AppWidgetHostViewClient
 	AppwidgetAppWidgetProvider                              *appwidgetclient.AppWidgetProviderClient
-	AppwidgetAppWidgetHost                                  *appwidgetclient.AppWidgetHostClient
 	AppwidgetAppWidgetManager                               *appwidgetclient.AppWidgetManagerClient
-	AppwidgetAppWidgetProviderInfo                          *appwidgetclient.AppWidgetProviderInfoClient
-	AssistContent                                           *assistclient.ContentClient
 	AssistStructure                                         *assistclient.StructureClient
-	AudiofxBassBoost                                        *audiofxclient.BassBoostClient
+	AssistContent                                           *assistclient.ContentClient
 	AudiofxPresetReverb                                     *audiofxclient.PresetReverbClient
-	AudiofxEqualizer                                        *audiofxclient.EqualizerClient
-	AudiofxLoudnessEnhancer                                 *audiofxclient.LoudnessEnhancerClient
-	AudiofxDynamicsProcessing                               *audiofxclient.DynamicsProcessingClient
 	AudiofxVirtualizer                                      *audiofxclient.VirtualizerClient
-	AudiofxEnvironmentalReverb                              *audiofxclient.EnvironmentalReverbClient
 	AudiofxVisualizer                                       *audiofxclient.VisualizerClient
+	AudiofxLoudnessEnhancer                                 *audiofxclient.LoudnessEnhancerClient
+	AudiofxBassBoost                                        *audiofxclient.BassBoostClient
+	AudiofxDynamicsProcessing                               *audiofxclient.DynamicsProcessingClient
+	AudiofxEqualizer                                        *audiofxclient.EqualizerClient
+	AudiofxEnvironmentalReverb                              *audiofxclient.EnvironmentalReverbClient
 	AudiomanagerAudioManager                                *audiomanagerclient.AudioManagerClient
 	AudiorecordAudioRecord                                  *audiorecordclient.AudioRecordClient
-	AutofillTextValueSanitizer                              *autofillclient.TextValueSanitizerClient
-	AutofillDateTransformation                              *autofillclient.DateTransformationClient
-	AutofillDateValueSanitizer                              *autofillclient.DateValueSanitizerClient
-	AutofillLuhnChecksumValidator                           *autofillclient.LuhnChecksumValidatorClient
-	AutofillSavedDatasetsInfo                               *autofillclient.SavedDatasetsInfoClient
 	AutofillInlinePresentation                              *autofillclient.InlinePresentationClient
+	AutofillTextValueSanitizer                              *autofillclient.TextValueSanitizerClient
 	AutofillRegexValidator                                  *autofillclient.RegexValidatorClient
+	AutofillDateValueSanitizer                              *autofillclient.DateValueSanitizerClient
+	AutofillSavedDatasetsInfo                               *autofillclient.SavedDatasetsInfoClient
+	AutofillDateTransformation                              *autofillclient.DateTransformationClient
+	AutofillLuhnChecksumValidator                           *autofillclient.LuhnChecksumValidatorClient
+	AwareDiscoverySessionCallback                           *awareclient.DiscoverySessionCallbackClient
 	AwareAttachCallback                                     *awareclient.AttachCallbackClient
-	AwareResources                                          *awareclient.ResourcesClient
-	AwareWifiAwareManager                                   *awareclient.WifiAwareManagerClient
 	AwareParcelablePeerHandle                               *awareclient.ParcelablePeerHandleClient
 	AwareIdentityChangedListener                            *awareclient.IdentityChangedListenerClient
-	AwareDiscoverySessionCallback                           *awareclient.DiscoverySessionCallbackClient
-	BackupSharedPreferencesBackupHelper                     *backupclient.SharedPreferencesBackupHelperClient
-	BackupManager                                           *backupclient.ManagerClient
+	AwareResources                                          *awareclient.ResourcesClient
+	AwareWifiAwareManager                                   *awareclient.WifiAwareManagerClient
 	BackupFileBackupHelper                                  *backupclient.FileBackupHelperClient
 	BackupAgentHelper                                       *backupclient.AgentHelperClient
+	BackupManager                                           *backupclient.ManagerClient
+	BackupSharedPreferencesBackupHelper                     *backupclient.SharedPreferencesBackupHelperClient
 	BatteryManager                                          *batteryclient.ManagerClient
 	BiometricManager                                        *biometricclient.ManagerClient
 	BiometricsPromptContentItemBulletedText                 *biometricsclient.PromptContentItemBulletedTextClient
 	BiometricsPromptContentItemPlainText                    *biometricsclient.PromptContentItemPlainTextClient
 	BlobStoreManager                                        *blobclient.StoreManagerClient
-	BluetoothGattCharacteristic                             *bluetoothclient.GattCharacteristicClient
-	BluetoothLeAudioCodecStatus                             *bluetoothclient.LeAudioCodecStatusClient
-	BluetoothHidDeviceAppQosSettings                        *bluetoothclient.HidDeviceAppQosSettingsClient
-	BluetoothManager                                        *bluetoothclient.ManagerClient
-	BluetoothSocketException                                *bluetoothclient.SocketExceptionClient
-	BluetoothHidDeviceAppSdpSettings                        *bluetoothclient.HidDeviceAppSdpSettingsClient
 	BluetoothGattDescriptor                                 *bluetoothclient.GattDescriptorClient
+	BluetoothLeAudioCodecStatus                             *bluetoothclient.LeAudioCodecStatusClient
+	BluetoothManager                                        *bluetoothclient.ManagerClient
+	BluetoothHidDeviceAppQosSettings                        *bluetoothclient.HidDeviceAppQosSettingsClient
+	BluetoothHidDeviceAppSdpSettings                        *bluetoothclient.HidDeviceAppSdpSettingsClient
 	BluetoothGattService                                    *bluetoothclient.GattServiceClient
+	BluetoothGattCharacteristic                             *bluetoothclient.GattCharacteristicClient
+	BluetoothSocketException                                *bluetoothclient.SocketExceptionClient
 	BrowseMediaBrowser                                      *browseclient.MediaBrowserClient
 	BuildBuild                                              *buildclient.BuildClient
 	CameraManager                                           *cameraclient.ManagerClient
-	Camera2CameraAccessException                            *camera2client.CameraAccessExceptionClient
 	Camera2DngCreator                                       *camera2client.DngCreatorClient
+	Camera2CameraAccessException                            *camera2client.CameraAccessExceptionClient
 	Camera2MultiResolutionImageReader                       *camera2client.MultiResolutionImageReaderClient
-	CarrierMessagePdu                                       *carrierclient.MessagePduClient
 	CarrierMessagingClientService                           *carrierclient.MessagingClientServiceClient
 	CarrierIdentifier                                       *carrierclient.IdentifierClient
+	CarrierMessagePdu                                       *carrierclient.MessagePduClient
 	CdmaCellLocation                                        *cdmaclient.CellLocationClient
 	ChooserTarget                                           *chooserclient.TargetClient
 	ClassificationFieldClassification                       *classificationclient.FieldClassificationClient
@@ -388,167 +388,167 @@ type Client struct {
 	ContentcaptureDataShareRequest                          *contentcaptureclient.DataShareRequestClient
 	ContentcaptureContentCaptureCondition                   *contentcaptureclient.ContentCaptureConditionClient
 	CredentialsCredentialManager                            *credentialsclient.CredentialManagerClient
-	CustomaudienceAddCustomAudienceOverrideRequest          *customaudienceclient.AddCustomAudienceOverrideRequestClient
 	CustomaudienceRemoveCustomAudienceOverrideRequest       *customaudienceclient.RemoveCustomAudienceOverrideRequestClient
+	CustomaudienceAddCustomAudienceOverrideRequest          *customaudienceclient.AddCustomAudienceOverrideRequestClient
 	DataNetworkSlicingConfig                                *dataclient.NetworkSlicingConfigClient
-	DatabaseDefaultDatabaseErrorHandler                     *databaseclient.DefaultDatabaseErrorHandlerClient
-	DatabaseCursorWrapper                                   *databaseclient.CursorWrapperClient
-	DatabaseDataSetObservable                               *databaseclient.DataSetObservableClient
+	DatabaseMergeCursor                                     *databaseclient.MergeCursorClient
 	DatabaseUtils                                           *databaseclient.UtilsClient
+	DatabaseMatrixCursor                                    *databaseclient.MatrixCursorClient
+	DatabaseCrossProcessCursorWrapper                       *databaseclient.CrossProcessCursorWrapperClient
+	DatabaseDefaultDatabaseErrorHandler                     *databaseclient.DefaultDatabaseErrorHandlerClient
 	DatabaseContentObservable                               *databaseclient.ContentObservableClient
 	DatabaseCursorWindow                                    *databaseclient.CursorWindowClient
 	DatabaseCursorJoiner                                    *databaseclient.CursorJoinerClient
-	DatabaseCrossProcessCursorWrapper                       *databaseclient.CrossProcessCursorWrapperClient
-	DatabaseMergeCursor                                     *databaseclient.MergeCursorClient
-	DatabaseMatrixCursor                                    *databaseclient.MatrixCursorClient
+	DatabaseCursorWrapper                                   *databaseclient.CursorWrapperClient
+	DatabaseDataSetObservable                               *databaseclient.DataSetObservableClient
 	DatatypesExerciseRoute                                  *datatypesclient.ExerciseRouteClient
-	DisplayManager                                          *displayclient.ManagerClient
 	DisplayWindowManager                                    *displayclient.WindowManagerClient
+	DisplayManager                                          *displayclient.ManagerClient
 	DisplayhashVerifiedDisplayHash                          *displayhashclient.VerifiedDisplayHashClient
 	DisplayhashDisplayHashManager                           *displayhashclient.DisplayHashManagerClient
 	DomainVerificationManager                               *domainclient.VerificationManagerClient
 	DownloadManager                                         *downloadclient.ManagerClient
-	DrawableAnimatedImageDrawable                           *drawableclient.AnimatedImageDrawableClient
-	DrawableNinePatchDrawable                               *drawableclient.NinePatchDrawableClient
 	DrawableAdaptiveIconDrawable                            *drawableclient.AdaptiveIconDrawableClient
 	DrawableRotateDrawable                                  *drawableclient.RotateDrawableClient
-	DrawableContainer                                       *drawableclient.ContainerClient
-	DrawableAnimationDrawable                               *drawableclient.AnimationDrawableClient
-	DrawableColorStateListDrawable                          *drawableclient.ColorStateListDrawableClient
-	DrawableAnimatedStateListDrawable                       *drawableclient.AnimatedStateListDrawableClient
 	DrawableShapeDrawable                                   *drawableclient.ShapeDrawableClient
-	DrawableClipDrawable                                    *drawableclient.ClipDrawableClient
-	DrawableVectorDrawable                                  *drawableclient.VectorDrawableClient
 	DrawablePictureDrawable                                 *drawableclient.PictureDrawableClient
+	DrawableLevelListDrawable                               *drawableclient.LevelListDrawableClient
+	DrawableLayerDrawable                                   *drawableclient.LayerDrawableClient
+	DrawableVectorDrawable                                  *drawableclient.VectorDrawableClient
+	DrawableContainer                                       *drawableclient.ContainerClient
+	DrawableAnimatedImageDrawable                           *drawableclient.AnimatedImageDrawableClient
+	DrawableAnimatedStateListDrawable                       *drawableclient.AnimatedStateListDrawableClient
+	DrawableAnimationDrawable                               *drawableclient.AnimationDrawableClient
+	DrawableNinePatchDrawable                               *drawableclient.NinePatchDrawableClient
+	DrawableColorStateListDrawable                          *drawableclient.ColorStateListDrawableClient
 	DrawableInsetDrawable                                   *drawableclient.InsetDrawableClient
-	DrawableStateListDrawable                               *drawableclient.StateListDrawableClient
+	DrawableScaleDrawable                                   *drawableclient.ScaleDrawableClient
+	DrawableRippleDrawable                                  *drawableclient.RippleDrawableClient
+	DrawableTransitionDrawable                              *drawableclient.TransitionDrawableClient
+	DrawableBitmapDrawable                                  *drawableclient.BitmapDrawableClient
 	DrawableGradientDrawable                                *drawableclient.GradientDrawableClient
 	DrawablePaintDrawable                                   *drawableclient.PaintDrawableClient
-	DrawableBitmapDrawable                                  *drawableclient.BitmapDrawableClient
-	DrawableTransitionDrawable                              *drawableclient.TransitionDrawableClient
-	DrawableLevelListDrawable                               *drawableclient.LevelListDrawableClient
-	DrawableRippleDrawable                                  *drawableclient.RippleDrawableClient
-	DrawableColorDrawable                                   *drawableclient.ColorDrawableClient
-	DrawableLayerDrawable                                   *drawableclient.LayerDrawableClient
-	DrawableScaleDrawable                                   *drawableclient.ScaleDrawableClient
+	DrawableClipDrawable                                    *drawableclient.ClipDrawableClient
 	DrawableAnimatedVectorDrawable                          *drawableclient.AnimatedVectorDrawableClient
+	DrawableStateListDrawable                               *drawableclient.StateListDrawableClient
+	DrawableColorDrawable                                   *drawableclient.ColorDrawableClient
 	DreamsDreamService                                      *dreamsclient.DreamServiceClient
-	DrmManagerClient                                        *drmclient.ManagerClientClient
-	DrmUtils                                                *drmclient.UtilsClient
-	DrmSupportInfo                                          *drmclient.SupportInfoClient
-	DrmInfo                                                 *drmclient.InfoClient
-	DrmInfoRequest                                          *drmclient.InfoRequestClient
 	DrmRights                                               *drmclient.RightsClient
+	DrmSupportInfo                                          *drmclient.SupportInfoClient
+	DrmInfoRequest                                          *drmclient.InfoRequestClient
+	DrmUtils                                                *drmclient.UtilsClient
+	DrmInfo                                                 *drmclient.InfoClient
+	DrmManagerClient                                        *drmclient.ManagerClientClient
 	EnvironmentEnvironment                                  *environmentclient.EnvironmentClient
 	EuiccManager                                            *euiccclient.ManagerClient
 	EuiccInfo                                               *euiccclient.InfoClient
 	ExceptionsInvalidSelectorsException                     *exceptionsclient.InvalidSelectorsExceptionClient
+	ExceptionsInvalidKeException                            *exceptionsclient.InvalidKeExceptionClient
+	ExceptionsIkeNetworkLostException                       *exceptionsclient.IkeNetworkLostExceptionClient
+	ExceptionsInvalidMajorVersionException                  *exceptionsclient.InvalidMajorVersionExceptionClient
 	ExceptionsIkeIOException                                *exceptionsclient.IkeIOExceptionClient
 	ExceptionsAppSearchException                            *exceptionsclient.AppSearchExceptionClient
-	ExceptionsIkeNetworkLostException                       *exceptionsclient.IkeNetworkLostExceptionClient
-	ExceptionsInvalidKeException                            *exceptionsclient.InvalidKeExceptionClient
-	ExceptionsInvalidMajorVersionException                  *exceptionsclient.InvalidMajorVersionExceptionClient
 	FingerprintManager                                      *fingerprintclient.ManagerClient
 	FlaggingAconfigStorageReadException                     *flaggingclient.AconfigStorageReadExceptionClient
 	FontsFontStyle                                          *fontsclient.FontStyleClient
 	FontsFontVariationAxis                                  *fontsclient.FontVariationAxisClient
 	FormatDateFormat                                        *formatclient.DateFormatClient
-	FormatTime                                              *formatclient.TimeClient
 	FormatDateUtils                                         *formatclient.DateUtilsClient
-	GestureGesture                                          *gestureclient.GestureClient
+	FormatTime                                              *formatclient.TimeClient
 	GestureStore                                            *gestureclient.StoreClient
+	GestureGesture                                          *gestureclient.GestureClient
 	GestureOverlayView                                      *gestureclient.OverlayViewClient
 	GestureStroke                                           *gestureclient.StrokeClient
 	GesturePoint                                            *gestureclient.PointClient
-	GraphicsPixelFormat                                     *graphicsclient.PixelFormatClient
-	GraphicsOutline                                         *graphicsclient.OutlineClient
-	GraphicsInterpolator                                    *graphicsclient.InterpolatorClient
-	GraphicsRegion                                          *graphicsclient.RegionClient
-	GraphicsBitmapShader                                    *graphicsclient.BitmapShaderClient
-	GraphicsMatrix44                                        *graphicsclient.Matrix44Client
-	GraphicsBlendModeColorFilter                            *graphicsclient.BlendModeColorFilterClient
-	GraphicsMatrix                                          *graphicsclient.MatrixClient
-	GraphicsPath                                            *graphicsclient.PathClient
 	GraphicsPointF                                          *graphicsclient.PointFClient
-	GraphicsColorMatrixColorFilter                          *graphicsclient.ColorMatrixColorFilterClient
-	GraphicsShader                                          *graphicsclient.ShaderClient
-	GraphicsNinePatch                                       *graphicsclient.NinePatchClient
-	GraphicsPoint                                           *graphicsclient.PointClient
-	GraphicsRect                                            *graphicsclient.RectClient
-	GraphicsHardwareRenderer                                *graphicsclient.HardwareRendererClient
-	GraphicsRegionIterator                                  *graphicsclient.RegionIteratorClient
-	GraphicsColorMatrix                                     *graphicsclient.ColorMatrixClient
-	GraphicsMesh                                            *graphicsclient.MeshClient
-	GraphicsPicture                                         *graphicsclient.PictureClient
-	GraphicsRuntimeColorFilter                              *graphicsclient.RuntimeColorFilterClient
-	GraphicsRectF                                           *graphicsclient.RectFClient
-	GraphicsGainmap                                         *graphicsclient.GainmapClient
-	GraphicsRuntimeXfermode                                 *graphicsclient.RuntimeXfermodeClient
-	GraphicsPorterDuffColorFilter                           *graphicsclient.PorterDuffColorFilterClient
-	GraphicsParcelableColorSpace                            *graphicsclient.ParcelableColorSpaceClient
-	GraphicsYuvImage                                        *graphicsclient.YuvImageClient
-	GraphicsImageFormat                                     *graphicsclient.ImageFormatClient
-	GraphicsSurfaceTexture                                  *graphicsclient.SurfaceTextureClient
-	GraphicsBitmapFactory                                   *graphicsclient.BitmapFactoryClient
-	GraphicsLightingColorFilter                             *graphicsclient.LightingColorFilterClient
-	GraphicsRenderNode                                      *graphicsclient.RenderNodeClient
-	GraphicsPathMeasure                                     *graphicsclient.PathMeasureClient
-	GraphicsRuntimeShader                                   *graphicsclient.RuntimeShaderClient
-	GraphicsCamera                                          *graphicsclient.CameraClient
 	GraphicsColor                                           *graphicsclient.ColorClient
+	GraphicsPath                                            *graphicsclient.PathClient
+	GraphicsPorterDuffColorFilter                           *graphicsclient.PorterDuffColorFilterClient
+	GraphicsRuntimeColorFilter                              *graphicsclient.RuntimeColorFilterClient
+	GraphicsHardwareRenderer                                *graphicsclient.HardwareRendererClient
+	GraphicsMatrix                                          *graphicsclient.MatrixClient
+	GraphicsBitmapFactory                                   *graphicsclient.BitmapFactoryClient
+	GraphicsNinePatch                                       *graphicsclient.NinePatchClient
+	GraphicsRegionIterator                                  *graphicsclient.RegionIteratorClient
+	GraphicsRenderNode                                      *graphicsclient.RenderNodeClient
+	GraphicsBitmapShader                                    *graphicsclient.BitmapShaderClient
+	GraphicsShader                                          *graphicsclient.ShaderClient
+	GraphicsRectF                                           *graphicsclient.RectFClient
+	GraphicsColorMatrix                                     *graphicsclient.ColorMatrixClient
+	GraphicsColorMatrixColorFilter                          *graphicsclient.ColorMatrixColorFilterClient
+	GraphicsSurfaceTexture                                  *graphicsclient.SurfaceTextureClient
+	GraphicsRegion                                          *graphicsclient.RegionClient
+	GraphicsRect                                            *graphicsclient.RectClient
+	GraphicsRuntimeShader                                   *graphicsclient.RuntimeShaderClient
+	GraphicsPoint                                           *graphicsclient.PointClient
+	GraphicsMatrix44                                        *graphicsclient.Matrix44Client
 	GraphicsHardwareBufferRenderer                          *graphicsclient.HardwareBufferRendererClient
-	GsmCellLocation                                         *gsmclient.CellLocationClient
+	GraphicsBlendModeColorFilter                            *graphicsclient.BlendModeColorFilterClient
+	GraphicsRuntimeXfermode                                 *graphicsclient.RuntimeXfermodeClient
+	GraphicsYuvImage                                        *graphicsclient.YuvImageClient
+	GraphicsInterpolator                                    *graphicsclient.InterpolatorClient
+	GraphicsOutline                                         *graphicsclient.OutlineClient
+	GraphicsGainmap                                         *graphicsclient.GainmapClient
+	GraphicsPixelFormat                                     *graphicsclient.PixelFormatClient
+	GraphicsPathMeasure                                     *graphicsclient.PathMeasureClient
+	GraphicsPicture                                         *graphicsclient.PictureClient
+	GraphicsCamera                                          *graphicsclient.CameraClient
+	GraphicsLightingColorFilter                             *graphicsclient.LightingColorFilterClient
+	GraphicsParcelableColorSpace                            *graphicsclient.ParcelableColorSpaceClient
+	GraphicsMesh                                            *graphicsclient.MeshClient
+	GraphicsImageFormat                                     *graphicsclient.ImageFormatClient
 	GsmSmsMessage                                           *gsmclient.SmsMessageClient
-	HardwareGeomagneticField                                *hardwareclient.GeomagneticFieldClient
-	HardwareSyncFence                                       *hardwareclient.SyncFenceClient
-	HardwareDisplayLuts                                     *hardwareclient.DisplayLutsClient
+	GsmCellLocation                                         *gsmclient.CellLocationClient
 	HardwareSensorManager                                   *hardwareclient.SensorManagerClient
+	HardwareSyncFence                                       *hardwareclient.SyncFenceClient
+	HardwareGeomagneticField                                *hardwareclient.GeomagneticFieldClient
+	HardwareDisplayLuts                                     *hardwareclient.DisplayLutsClient
 	HealthTimerStat                                         *healthclient.TimerStatClient
 	HealthSystemHealthManager                               *healthclient.SystemHealthManagerClient
 	Health_connectHealthConnectManager                      *health_connectclient.HealthConnectManagerClient
 	Hotspot2PasspointConfiguration                          *hotspot2client.PasspointConfigurationClient
 	HpkeXdhKeySpec                                          *hpkeclient.XdhKeySpecClient
-	HttpSslCertificate                                      *httpclient.SslCertificateClient
 	HttpX509TrustManagerExtensions                          *httpclient.X509TrustManagerExtensionsClient
 	HttpSslError                                            *httpclient.SslErrorClient
+	HttpSslCertificate                                      *httpclient.SslCertificateClient
 	IdentityAccessControlProfileId                          *identityclient.AccessControlProfileIdClient
-	IkeSession                                              *ikeclient.SessionClient
-	IkeRfc822AddrIdentification                             *ikeclient.Rfc822AddrIdentificationClient
-	IkeFqdnIdentification                                   *ikeclient.FqdnIdentificationClient
-	IkeDerAsn1DnIdentification                              *ikeclient.DerAsn1DnIdentificationClient
-	IkeTrafficSelector                                      *ikeclient.TrafficSelectorClient
-	IkeKeyIdIdentification                                  *ikeclient.KeyIdIdentificationClient
-	IkeSessionConnectionInfo                                *ikeclient.SessionConnectionInfoClient
 	IkeIpv4AddrIdentification                               *ikeclient.Ipv4AddrIdentificationClient
 	IkeTunnelConnectionParams                               *ikeclient.TunnelConnectionParamsClient
 	IkeIpv6AddrIdentification                               *ikeclient.Ipv6AddrIdentificationClient
+	IkeKeyIdIdentification                                  *ikeclient.KeyIdIdentificationClient
+	IkeSession                                              *ikeclient.SessionClient
+	IkeDerAsn1DnIdentification                              *ikeclient.DerAsn1DnIdentificationClient
+	IkeFqdnIdentification                                   *ikeclient.FqdnIdentificationClient
+	IkeTrafficSelector                                      *ikeclient.TrafficSelectorClient
+	IkeSessionConnectionInfo                                *ikeclient.SessionConnectionInfoClient
+	IkeRfc822AddrIdentification                             *ikeclient.Rfc822AddrIdentificationClient
 	ImsReasonInfo                                           *imsclient.ReasonInfoClient
 	InputManager                                            *inputclient.ManagerClient
-	InputmethodTextSnapshot                                 *inputmethodclient.TextSnapshotClient
-	InputmethodInputBinding                                 *inputmethodclient.InputBindingClient
-	InputmethodInputMethodManager                           *inputmethodclient.InputMethodManagerClient
-	InputmethodExtractedText                                *inputmethodclient.ExtractedTextClient
-	InputmethodInputConnectionWrapper                       *inputmethodclient.InputConnectionWrapperClient
-	InputmethodSurroundingText                              *inputmethodclient.SurroundingTextClient
-	InputmethodInputMethodSubtype                           *inputmethodclient.InputMethodSubtypeClient
-	InputmethodEditorInfo                                   *inputmethodclient.EditorInfoClient
-	InputmethodTextBoundsInfoResult                         *inputmethodclient.TextBoundsInfoResultClient
 	InputmethodCompletionInfo                               *inputmethodclient.CompletionInfoClient
 	InputmethodExtractedTextRequest                         *inputmethodclient.ExtractedTextRequestClient
 	InputmethodCursorAnchorInfo                             *inputmethodclient.CursorAnchorInfoClient
+	InputmethodInputConnectionWrapper                       *inputmethodclient.InputConnectionWrapperClient
+	InputmethodTextSnapshot                                 *inputmethodclient.TextSnapshotClient
 	InputmethodInputContentInfo                             *inputmethodclient.InputContentInfoClient
+	InputmethodInputMethodSubtype                           *inputmethodclient.InputMethodSubtypeClient
+	InputmethodTextBoundsInfoResult                         *inputmethodclient.TextBoundsInfoResultClient
+	InputmethodInputBinding                                 *inputmethodclient.InputBindingClient
+	InputmethodExtractedText                                *inputmethodclient.ExtractedTextClient
+	InputmethodEditorInfo                                   *inputmethodclient.EditorInfoClient
 	InputmethodBaseInputConnection                          *inputmethodclient.BaseInputConnectionClient
-	InputmethodInputMethodInfo                              *inputmethodclient.InputMethodInfoClient
+	InputmethodInputMethodManager                           *inputmethodclient.InputMethodManagerClient
 	InputmethodCorrectionInfo                               *inputmethodclient.CorrectionInfoClient
-	InputmethodserviceKeyboard                              *inputmethodserviceclient.KeyboardClient
+	InputmethodInputMethodInfo                              *inputmethodclient.InputMethodInfoClient
+	InputmethodSurroundingText                              *inputmethodclient.SurroundingTextClient
 	InputmethodserviceKeyboardView                          *inputmethodserviceclient.KeyboardViewClient
-	InputmethodserviceExtractEditText                       *inputmethodserviceclient.ExtractEditTextClient
 	InputmethodserviceInputMethodService                    *inputmethodserviceclient.InputMethodServiceClient
+	InputmethodserviceExtractEditText                       *inputmethodserviceclient.ExtractEditTextClient
+	InputmethodserviceKeyboard                              *inputmethodserviceclient.KeyboardClient
 	InspectorIntFlagMapping                                 *inspectorclient.IntFlagMappingClient
 	InteractiveTvInteractiveAppManager                      *interactiveclient.TvInteractiveAppManagerClient
-	InteractiveAppLinkInfo                                  *interactiveclient.AppLinkInfoClient
 	InteractiveTvInteractiveAppView                         *interactiveclient.TvInteractiveAppViewClient
 	InteractiveTvInteractiveAppServiceInfo                  *interactiveclient.TvInteractiveAppServiceInfoClient
+	InteractiveAppLinkInfo                                  *interactiveclient.AppLinkInfoClient
 	IrConsumerIrManager                                     *irclient.ConsumerIrManagerClient
 	JankRelativeFrameTimeHistogram                          *jankclient.RelativeFrameTimeHistogramClient
 	JankAppJankStats                                        *jankclient.AppJankStatsClient
@@ -556,263 +556,268 @@ type Client struct {
 	JobPendingJobReasonsInfo                                *jobclient.PendingJobReasonsInfoClient
 	JobScheduler                                            *jobclient.SchedulerClient
 	KeyguardManager                                         *keyguardclient.ManagerClient
-	KeystoreWrappedKeyEntry                                 *keystoreclient.WrappedKeyEntryClient
 	KeystoreBackendBusyException                            *keystoreclient.BackendBusyExceptionClient
+	KeystoreWrappedKeyEntry                                 *keystoreclient.WrappedKeyEntryClient
 	KeystoreKeyStoreManager                                 *keystoreclient.KeyStoreManagerClient
-	LeTransportDiscoveryData                                *leclient.TransportDiscoveryDataClient
 	LeScanResult                                            *leclient.ScanResultClient
+	LeTransportDiscoveryData                                *leclient.TransportDiscoveryDataClient
 	LeTransportBlock                                        *leclient.TransportBlockClient
 	LoaderResourcesLoader                                   *loaderclient.ResourcesLoaderClient
+	LocationGeocoder                                        *locationclient.GeocoderClient
 	LocationLocation                                        *locationclient.LocationClient
 	LocationCriteria                                        *locationclient.CriteriaClient
-	LocationGeocoder                                        *locationclient.GeocoderClient
-	LocationManager                                         *locationclient.ManagerClient
 	LocationAddress                                         *locationclient.AddressClient
+	LocationManager                                         *locationclient.ManagerClient
 	MathContext                                             *mathclient.ContextClient
 	MathBigDecimal                                          *mathclient.BigDecimalClient
-	MbmsDownloadSessionCallback                             *mbmsclient.DownloadSessionCallbackClient
-	MbmsStreamingSessionCallback                            *mbmsclient.StreamingSessionCallbackClient
-	MbmsDownloadProgressListener                            *mbmsclient.DownloadProgressListenerClient
-	MbmsDownloadStatusListener                              *mbmsclient.DownloadStatusListenerClient
-	MbmsDownloadReceiver                                    *mbmsclient.DownloadReceiverClient
 	MbmsStreamingServiceCallback                            *mbmsclient.StreamingServiceCallbackClient
-	MediaScannerConnection                                  *mediaclient.ScannerConnectionClient
-	MediaAsyncPlayer                                        *mediaclient.AsyncPlayerClient
-	MediaCodecList                                          *mediaclient.CodecListClient
-	MediaMuxer                                              *mediaclient.MuxerClient
-	MediaSyncParams                                         *mediaclient.SyncParamsClient
-	MediaRemoteController                                   *mediaclient.RemoteControllerClient
-	MediaExtractor                                          *mediaclient.ExtractorClient
-	MediaMetadataRetriever                                  *mediaclient.MetadataRetrieverClient
-	MediaAudioTrack                                         *mediaclient.AudioTrackClient
-	MediaSync                                               *mediaclient.SyncClient
-	MediaSession2Command                                    *mediaclient.Session2CommandClient
+	MbmsDownloadStatusListener                              *mbmsclient.DownloadStatusListenerClient
+	MbmsDownloadSessionCallback                             *mbmsclient.DownloadSessionCallbackClient
+	MbmsDownloadReceiver                                    *mbmsclient.DownloadReceiverClient
+	MbmsDownloadProgressListener                            *mbmsclient.DownloadProgressListenerClient
+	MbmsStreamingSessionCallback                            *mbmsclient.StreamingSessionCallbackClient
 	MediaDrm                                                *mediaclient.DrmClient
-	MediaPlaybackParams                                     *mediaclient.PlaybackParamsClient
-	MediaDescrambler                                        *mediaclient.DescramblerClient
-	MediaSubtitleData                                       *mediaclient.SubtitleDataClient
-	MediaSession2Token                                      *mediaclient.Session2TokenClient
-	MediaCrypto                                             *mediaclient.CryptoClient
+	MediaActionSound                                        *mediaclient.ActionSoundClient
+	MediaCommunicationManager                               *mediaclient.CommunicationManagerClient
 	MediaToneGenerator                                      *mediaclient.ToneGeneratorClient
+	MediaScannerConnection                                  *mediaclient.ScannerConnectionClient
+	MediaCrypto                                             *mediaclient.CryptoClient
+	MediaSubtitleData                                       *mediaclient.SubtitleDataClient
+	MediaAsyncPlayer                                        *mediaclient.AsyncPlayerClient
 	MediaRouter                                             *mediaclient.RouterClient
+	MediaDescrambler                                        *mediaclient.DescramblerClient
+	MediaRemoteController                                   *mediaclient.RemoteControllerClient
+	MediaMuxer                                              *mediaclient.MuxerClient
 	MediaRemoteControlClient                                *mediaclient.RemoteControlClientClient
 	MediaTimedMetaData                                      *mediaclient.TimedMetaDataClient
-	MediaActionSound                                        *mediaclient.ActionSoundClient
-	MediaCameraProfile                                      *mediaclient.CameraProfileClient
-	MediaCommunicationManager                               *mediaclient.CommunicationManagerClient
 	MediaCas                                                *mediaclient.CasClient
-	MediaSoundPool                                          *mediaclient.SoundPoolClient
-	MediaFaceDetector                                       *mediaclient.FaceDetectorClient
+	MediaSession2Token                                      *mediaclient.Session2TokenClient
+	MediaSyncParams                                         *mediaclient.SyncParamsClient
+	MediaPlaybackParams                                     *mediaclient.PlaybackParamsClient
+	MediaExtractor                                          *mediaclient.ExtractorClient
 	MediaCryptoException                                    *mediaclient.CryptoExceptionClient
-	MediaTimestamp                                          *mediaclient.TimestampClient
-	MediaThumbnailUtils                                     *mediaclient.ThumbnailUtilsClient
-	MediaAudioTimestamp                                     *mediaclient.AudioTimestampClient
 	MediaFormat                                             *mediaclient.FormatClient
-	MediaDrmException                                       *mediaclient.DrmExceptionClient
 	MediaExifInterface                                      *mediaclient.ExifInterfaceClient
+	MediaAudioTrack                                         *mediaclient.AudioTrackClient
+	MediaThumbnailUtils                                     *mediaclient.ThumbnailUtilsClient
+	MediaDrmException                                       *mediaclient.DrmExceptionClient
+	MediaTimestamp                                          *mediaclient.TimestampClient
+	MediaAudioTimestamp                                     *mediaclient.AudioTimestampClient
+	MediaSync                                               *mediaclient.SyncClient
+	MediaFaceDetector                                       *mediaclient.FaceDetectorClient
+	MediaCameraProfile                                      *mediaclient.CameraProfileClient
+	MediaSession2Command                                    *mediaclient.Session2CommandClient
+	MediaSoundPool                                          *mediaclient.SoundPoolClient
+	MediaMetadataRetriever                                  *mediaclient.MetadataRetrieverClient
+	MediaCodecList                                          *mediaclient.CodecListClient
 	MediastoreMediaStore                                    *mediastoreclient.MediaStoreClient
+	MethodTextKeyListener                                   *methodclient.TextKeyListenerClient
+	MethodLinkMovementMethod                                *methodclient.LinkMovementMethodClient
 	MethodQwertyKeyListener                                 *methodclient.QwertyKeyListenerClient
 	MethodBaseMovementMethod                                *methodclient.BaseMovementMethodClient
-	MethodLinkMovementMethod                                *methodclient.LinkMovementMethodClient
+	MethodSingleLineTransformationMethod                    *methodclient.SingleLineTransformationMethodClient
 	MethodPasswordTransformationMethod                      *methodclient.PasswordTransformationMethodClient
-	MethodDateKeyListener                                   *methodclient.DateKeyListenerClient
-	MethodDateTimeKeyListener                               *methodclient.DateTimeKeyListenerClient
 	MethodArrowKeyMovementMethod                            *methodclient.ArrowKeyMovementMethodClient
-	MethodTextKeyListener                                   *methodclient.TextKeyListenerClient
 	MethodTimeKeyListener                                   *methodclient.TimeKeyListenerClient
-	MethodDialerKeyListener                                 *methodclient.DialerKeyListenerClient
+	MethodHideReturnsTransformationMethod                   *methodclient.HideReturnsTransformationMethodClient
 	MethodDigitsKeyListener                                 *methodclient.DigitsKeyListenerClient
 	MethodMultiTapKeyListener                               *methodclient.MultiTapKeyListenerClient
-	MethodHideReturnsTransformationMethod                   *methodclient.HideReturnsTransformationMethodClient
+	MethodDialerKeyListener                                 *methodclient.DialerKeyListenerClient
+	MethodDateKeyListener                                   *methodclient.DateKeyListenerClient
+	MethodDateTimeKeyListener                               *methodclient.DateTimeKeyListenerClient
 	MethodScrollingMovementMethod                           *methodclient.ScrollingMovementMethodClient
-	MethodSingleLineTransformationMethod                    *methodclient.SingleLineTransformationMethodClient
 	MethodCharacterPickerDialog                             *methodclient.CharacterPickerDialogClient
 	MetricsMediaMetricsManager                              *metricsclient.MediaMetricsManagerClient
 	MidiManager                                             *midiclient.ManagerClient
-	ModelsListItem                                          *modelsclient.ListItemClient
 	ModelsPageMatchBounds                                   *modelsclient.PageMatchBoundsClient
+	ModelsListItem                                          *modelsclient.ListItemClient
 	MtpDevice                                               *mtpclient.DeviceClient
-	NetLinkProperties                                       *netclient.LinkPropertiesClient
-	NetLocalSocketAddress                                   *netclient.LocalSocketAddressClient
-	NetSSLCertificateSocketFactory                          *netclient.SSLCertificateSocketFactoryClient
-	NetConnectivityManager                                  *netclient.ConnectivityManagerClient
-	NetIpPrefix                                             *netclient.IpPrefixClient
-	NetUrlQuerySanitizer                                    *netclient.UrlQuerySanitizerClient
-	NetDhcpInfo                                             *netclient.DhcpInfoClient
-	NetVpnProfileState                                      *netclient.VpnProfileStateClient
-	NetIpSecAlgorithm                                       *netclient.IpSecAlgorithmClient
-	NetIpSecManager                                         *netclient.IpSecManagerClient
 	NetProxyInfo                                            *netclient.ProxyInfoClient
-	NetConnectivityDiagnosticsManager                       *netclient.ConnectivityDiagnosticsManagerClient
 	NetTetheringInterface                                   *netclient.TetheringInterfaceClient
-	NetTrafficStats                                         *netclient.TrafficStatsClient
 	NetTetheringManager                                     *netclient.TetheringManagerClient
-	NetLocalServerSocket                                    *netclient.LocalServerSocketClient
-	NetProxy                                                *netclient.ProxyClient
-	NetLocalSocket                                          *netclient.LocalSocketClient
-	NetCredentials                                          *netclient.CredentialsClient
 	NetEthernetNetworkSpecifier                             *netclient.EthernetNetworkSpecifierClient
+	NetLocalServerSocket                                    *netclient.LocalServerSocketClient
+	NetLocalSocket                                          *netclient.LocalSocketClient
+	NetIpPrefix                                             *netclient.IpPrefixClient
+	NetCredentials                                          *netclient.CredentialsClient
+	NetIpSecManager                                         *netclient.IpSecManagerClient
+	NetLocalSocketAddress                                   *netclient.LocalSocketAddressClient
+	NetUrlQuerySanitizer                                    *netclient.UrlQuerySanitizerClient
+	NetTrafficStats                                         *netclient.TrafficStatsClient
+	NetLinkProperties                                       *netclient.LinkPropertiesClient
+	NetConnectivityDiagnosticsManager                       *netclient.ConnectivityDiagnosticsManagerClient
+	NetVpnProfileState                                      *netclient.VpnProfileStateClient
+	NetDhcpInfo                                             *netclient.DhcpInfoClient
+	NetSSLCertificateSocketFactory                          *netclient.SSLCertificateSocketFactoryClient
+	NetIpSecAlgorithm                                       *netclient.IpSecAlgorithmClient
+	NetConnectivityManager                                  *netclient.ConnectivityManagerClient
+	NetProxy                                                *netclient.ProxyClient
 	NfcNdefRecord                                           *nfcclient.NdefRecordClient
+	NfcAntennaInfo                                          *nfcclient.AntennaInfoClient
 	NfcAvailableNfcAntenna                                  *nfcclient.AvailableNfcAntennaClient
 	NfcNdefMessage                                          *nfcclient.NdefMessageClient
 	NfcManager                                              *nfcclient.ManagerClient
-	NfcAntennaInfo                                          *nfcclient.AntennaInfoClient
 	NotificationManager                                     *notificationclient.ManagerClient
 	NsdManager                                              *nsdclient.ManagerClient
-	ObserverSchemaChangeInfo                                *observerclient.SchemaChangeInfoClient
 	ObserverDocumentChangeInfo                              *observerclient.DocumentChangeInfoClient
-	OmOverlayManager                                        *omclient.OverlayManagerClient
+	ObserverSchemaChangeInfo                                *observerclient.SchemaChangeInfoClient
 	OmFabricatedOverlay                                     *omclient.FabricatedOverlayClient
+	OmOverlayManager                                        *omclient.OverlayManagerClient
 	OmapiSEService                                          *omapiclient.SEServiceClient
-	OndevicepersonalizationTrainingExamplesInput            *ondevicepersonalizationclient.TrainingExamplesInputClient
-	OndevicepersonalizationIsolatedServiceException         *ondevicepersonalizationclient.IsolatedServiceExceptionClient
-	OndevicepersonalizationExecuteInput                     *ondevicepersonalizationclient.ExecuteInputClient
-	OndevicepersonalizationWebTriggerInput                  *ondevicepersonalizationclient.WebTriggerInputClient
-	OndevicepersonalizationRenderInput                      *ondevicepersonalizationclient.RenderInputClient
-	OndevicepersonalizationDownloadCompletedInput           *ondevicepersonalizationclient.DownloadCompletedInputClient
-	OndevicepersonalizationAppInfo                          *ondevicepersonalizationclient.AppInfoClient
-	OndevicepersonalizationEventInput                       *ondevicepersonalizationclient.EventInputClient
 	OndevicepersonalizationExecuteInIsolatedServiceResponse *ondevicepersonalizationclient.ExecuteInIsolatedServiceResponseClient
+	OndevicepersonalizationAppInfo                          *ondevicepersonalizationclient.AppInfoClient
+	OndevicepersonalizationIsolatedServiceException         *ondevicepersonalizationclient.IsolatedServiceExceptionClient
+	OndevicepersonalizationRenderInput                      *ondevicepersonalizationclient.RenderInputClient
+	OndevicepersonalizationTrainingExamplesInput            *ondevicepersonalizationclient.TrainingExamplesInputClient
+	OndevicepersonalizationWebTriggerInput                  *ondevicepersonalizationclient.WebTriggerInputClient
+	OndevicepersonalizationDownloadCompletedInput           *ondevicepersonalizationclient.DownloadCompletedInputClient
+	OndevicepersonalizationExecuteInput                     *ondevicepersonalizationclient.ExecuteInputClient
+	OndevicepersonalizationEventInput                       *ondevicepersonalizationclient.EventInputClient
 	OpenglETC1                                              *openglclient.ETC1Client
-	OpenglGLU                                               *openglclient.GLUClient
-	OpenglGLES10                                            *openglclient.GLES10Client
-	OpenglGLES30                                            *openglclient.GLES30Client
-	OpenglGLDebugHelper                                     *openglclient.GLDebugHelperClient
-	OpenglGLSurfaceView                                     *openglclient.GLSurfaceViewClient
-	OpenglGLES20                                            *openglclient.GLES20Client
 	OpenglVisibility                                        *openglclient.VisibilityClient
-	OpenglMatrix                                            *openglclient.MatrixClient
-	OpenglETC1Util                                          *openglclient.ETC1UtilClient
-	OpenglEGLExt                                            *openglclient.EGLExtClient
-	OpenglGLES10Ext                                         *openglclient.GLES10ExtClient
-	OpenglGLES11Ext                                         *openglclient.GLES11ExtClient
-	OpenglEGL14                                             *openglclient.EGL14Client
 	OpenglGLES11                                            *openglclient.GLES11Client
-	OsUserManager                                           *osclient.UserManagerClient
+	OpenglEGL14                                             *openglclient.EGL14Client
+	OpenglGLES10                                            *openglclient.GLES10Client
+	OpenglGLDebugHelper                                     *openglclient.GLDebugHelperClient
+	OpenglEGLExt                                            *openglclient.EGLExtClient
+	OpenglETC1Util                                          *openglclient.ETC1UtilClient
+	OpenglMatrix                                            *openglclient.MatrixClient
+	OpenglGLES20                                            *openglclient.GLES20Client
+	OpenglGLES10Ext                                         *openglclient.GLES10ExtClient
+	OpenglGLSurfaceView                                     *openglclient.GLSurfaceViewClient
+	OpenglGLU                                               *openglclient.GLUClient
+	OpenglGLES11Ext                                         *openglclient.GLES11ExtClient
+	OpenglGLES30                                            *openglclient.GLES30Client
+	OsBugreportManager                                      *osclient.BugreportManagerClient
 	OsProcess                                               *osclient.ProcessClient
-	OsUserHandle                                            *osclient.UserHandleClient
 	OsMessage                                               *osclient.MessageClient
 	OsHandler                                               *osclient.HandlerClient
+	OsRemoteException                                       *osclient.RemoteExceptionClient
+	OsUserHandle                                            *osclient.UserHandleClient
+	OsBinder                                                *osclient.BinderClient
+	OsMemoryFile                                            *osclient.MemoryFileClient
+	OsRemoteCallbackList                                    *osclient.RemoteCallbackListClient
+	OsMessenger                                             *osclient.MessengerClient
+	OsStatFs                                                *osclient.StatFsClient
+	OsHardwarePropertiesManager                             *osclient.HardwarePropertiesManagerClient
+	OsParcelUuid                                            *osclient.ParcelUuidClient
+	OsDropBoxManager                                        *osclient.DropBoxManagerClient
+	OsProfilingManager                                      *osclient.ProfilingManagerClient
+	OsWorkDuration                                          *osclient.WorkDurationClient
 	OsSecurityStateManager                                  *osclient.SecurityStateManagerClient
+	OsWorkSource                                            *osclient.WorkSourceClient
+	OsPatternMatcher                                        *osclient.PatternMatcherClient
+	OsResultReceiver                                        *osclient.ResultReceiverClient
+	OsUserManager                                           *osclient.UserManagerClient
+	OsHandlerThread                                         *osclient.HandlerThreadClient
+	OsLocaleList                                            *osclient.LocaleListClient
+	OsPerformanceHintManager                                *osclient.PerformanceHintManagerClient
+	OsPersistableBundle                                     *osclient.PersistableBundleClient
 	OsVibratorManager                                       *osclient.VibratorManagerClient
 	OsConditionVariable                                     *osclient.ConditionVariableClient
-	OsProfilingManager                                      *osclient.ProfilingManagerClient
-	OsRemoteCallbackList                                    *osclient.RemoteCallbackListClient
-	OsDropBoxManager                                        *osclient.DropBoxManagerClient
-	OsStatFs                                                *osclient.StatFsClient
-	OsMemoryFile                                            *osclient.MemoryFileClient
-	OsHandlerThread                                         *osclient.HandlerThreadClient
-	OsPerformanceHintManager                                *osclient.PerformanceHintManagerClient
-	OsWorkDuration                                          *osclient.WorkDurationClient
-	OsPatternMatcher                                        *osclient.PatternMatcherClient
-	OsMessenger                                             *osclient.MessengerClient
-	OsParcelUuid                                            *osclient.ParcelUuidClient
-	OsLocaleList                                            *osclient.LocaleListClient
-	OsBugreportManager                                      *osclient.BugreportManagerClient
-	OsPersistableBundle                                     *osclient.PersistableBundleClient
-	OsRemoteException                                       *osclient.RemoteExceptionClient
-	OsWorkSource                                            *osclient.WorkSourceClient
-	OsBinder                                                *osclient.BinderClient
-	OsResultReceiver                                        *osclient.ResultReceiverClient
-	OsHardwarePropertiesManager                             *osclient.HardwarePropertiesManagerClient
 	P2pWifiP2pManager                                       *p2pclient.WifiP2pManagerClient
-	ParamsSessionConfiguration                              *paramsclient.SessionConfigurationClient
-	ParamsRggbChannelVector                                 *paramsclient.RggbChannelVectorClient
-	ParamsOisSample                                         *paramsclient.OisSampleClient
-	ParamsDynamicRangeProfiles                              *paramsclient.DynamicRangeProfilesClient
 	ParamsMultiResolutionStreamInfo                         *paramsclient.MultiResolutionStreamInfoClient
-	ParamsExtensionSessionConfiguration                     *paramsclient.ExtensionSessionConfigurationClient
-	ParamsColorSpaceTransform                               *paramsclient.ColorSpaceTransformClient
-	ParamsInputConfiguration                                *paramsclient.InputConfigurationClient
+	ParamsDynamicRangeProfiles                              *paramsclient.DynamicRangeProfilesClient
+	ParamsSessionConfiguration                              *paramsclient.SessionConfigurationClient
 	ParamsOutputConfiguration                               *paramsclient.OutputConfigurationClient
-	ParamsLensIntrinsicsSample                              *paramsclient.LensIntrinsicsSampleClient
-	ParamsCapability                                        *paramsclient.CapabilityClient
-	ParamsBlackLevelPattern                                 *paramsclient.BlackLevelPatternClient
-	ParamsMeteringRectangle                                 *paramsclient.MeteringRectangleClient
+	ParamsColorSpaceTransform                               *paramsclient.ColorSpaceTransformClient
 	ParamsTonemapCurve                                      *paramsclient.TonemapCurveClient
-	PdfCanvas                                               *pdfclient.CanvasClient
-	PdfPaint                                                *pdfclient.PaintClient
+	ParamsBlackLevelPattern                                 *paramsclient.BlackLevelPatternClient
+	ParamsInputConfiguration                                *paramsclient.InputConfigurationClient
+	ParamsRggbChannelVector                                 *paramsclient.RggbChannelVectorClient
+	ParamsMeteringRectangle                                 *paramsclient.MeteringRectangleClient
+	ParamsCapability                                        *paramsclient.CapabilityClient
+	ParamsColorSpaceProfiles                                *paramsclient.ColorSpaceProfilesClient
+	ParamsLensIntrinsicsSample                              *paramsclient.LensIntrinsicsSampleClient
+	ParamsOisSample                                         *paramsclient.OisSampleClient
+	ParamsExtensionSessionConfiguration                     *paramsclient.ExtensionSessionConfigurationClient
+	PdfDocument                                             *pdfclient.DocumentClient
 	PdfPrintedPdfDocument                                   *pdfclient.PrintedPdfDocumentClient
+	PdfCanvas                                               *pdfclient.CanvasClient
+	PdfRendererPreV                                         *pdfclient.RendererPreVClient
+	PdfRenderer                                             *pdfclient.RendererClient
+	PdfParcelFileDescriptor                                 *pdfclient.ParcelFileDescriptorClient
+	PdfPaint                                                *pdfclient.PaintClient
 	PeopleManager                                           *peopleclient.ManagerClient
 	PersistentdataPersistentDataBlockManager                *persistentdataclient.PersistentDataBlockManagerClient
 	PlayerMediaPlayer                                       *playerclient.MediaPlayerClient
-	PmPackageStats                                          *pmclient.PackageStatsClient
-	PmPackageItemInfo                                       *pmclient.PackageItemInfoClient
-	PmChangedPackages                                       *pmclient.ChangedPackagesClient
-	PmPackageInfo                                           *pmclient.PackageInfoClient
-	PmArchivedPackageInfo                                   *pmclient.ArchivedPackageInfoClient
+	PmApplicationInfo                                       *pmclient.ApplicationInfoClient
+	PmPermissionInfo                                        *pmclient.PermissionInfoClient
+	PmArchivedActivityInfo                                  *pmclient.ArchivedActivityInfoClient
+	PmInstrumentationInfo                                   *pmclient.InstrumentationInfoClient
+	PmCrossProfileApps                                      *pmclient.CrossProfileAppsClient
 	PmFeatureInfo                                           *pmclient.FeatureInfoClient
+	PmChangedPackages                                       *pmclient.ChangedPackagesClient
+	PmFeatureGroupInfo                                      *pmclient.FeatureGroupInfoClient
+	PmServiceInfo                                           *pmclient.ServiceInfoClient
+	PmSigningInfo                                           *pmclient.SigningInfoClient
+	PmLabeledIntent                                         *pmclient.LabeledIntentClient
+	PmShortcutManager                                       *pmclient.ShortcutManagerClient
+	PmPathPermission                                        *pmclient.PathPermissionClient
+	PmPackageInfo                                           *pmclient.PackageInfoClient
+	PmPermissionGroupInfo                                   *pmclient.PermissionGroupInfoClient
 	PmVersionedPackage                                      *pmclient.VersionedPackageClient
+	PmChecksum                                              *pmclient.ChecksumClient
+	PmConfigurationInfo                                     *pmclient.ConfigurationInfoClient
+	PmComponentInfo                                         *pmclient.ComponentInfoClient
+	PmPackageItemInfo                                       *pmclient.PackageItemInfoClient
+	PmLauncherApps                                          *pmclient.LauncherAppsClient
+	PmPackageStats                                          *pmclient.PackageStatsClient
+	PmResolveInfo                                           *pmclient.ResolveInfoClient
+	PmSignature                                             *pmclient.SignatureClient
 	PmActivityInfo                                          *pmclient.ActivityInfoClient
 	PmProviderInfo                                          *pmclient.ProviderInfoClient
-	PmShortcutManager                                       *pmclient.ShortcutManagerClient
-	PmArchivedActivityInfo                                  *pmclient.ArchivedActivityInfoClient
-	PmApplicationInfo                                       *pmclient.ApplicationInfoClient
-	PmPermissionGroupInfo                                   *pmclient.PermissionGroupInfoClient
-	PmInstrumentationInfo                                   *pmclient.InstrumentationInfoClient
-	PmServiceInfo                                           *pmclient.ServiceInfoClient
-	PmPathPermission                                        *pmclient.PathPermissionClient
-	PmSigningInfo                                           *pmclient.SigningInfoClient
-	PmChecksum                                              *pmclient.ChecksumClient
-	PmLabeledIntent                                         *pmclient.LabeledIntentClient
-	PmSignature                                             *pmclient.SignatureClient
-	PmConfigurationInfo                                     *pmclient.ConfigurationInfoClient
-	PmCrossProfileApps                                      *pmclient.CrossProfileAppsClient
-	PmResolveInfo                                           *pmclient.ResolveInfoClient
-	PmFeatureGroupInfo                                      *pmclient.FeatureGroupInfoClient
-	PmLauncherApps                                          *pmclient.LauncherAppsClient
-	PmComponentInfo                                         *pmclient.ComponentInfoClient
-	PmPermissionInfo                                        *pmclient.PermissionInfoClient
+	PmArchivedPackageInfo                                   *pmclient.ArchivedPackageInfoClient
 	PowerManager                                            *powerclient.ManagerClient
 	PpsHomeSp                                               *ppsclient.HomeSpClient
 	PpsCredential                                           *ppsclient.CredentialClient
-	PreferenceSwitchPreference                              *preferenceclient.SwitchPreferenceClient
-	PreferenceMultiSelectListPreference                     *preferenceclient.MultiSelectListPreferenceClient
-	PreferenceEditTextPreference                            *preferenceclient.EditTextPreferenceClient
 	PreferenceListPreference                                *preferenceclient.ListPreferenceClient
+	PreferenceEditTextPreference                            *preferenceclient.EditTextPreferenceClient
+	PreferenceMultiSelectListPreference                     *preferenceclient.MultiSelectListPreferenceClient
 	PreferenceRingtonePreference                            *preferenceclient.RingtonePreferenceClient
 	PreferencePreference                                    *preferenceclient.PreferenceClient
+	PreferenceSwitchPreference                              *preferenceclient.SwitchPreferenceClient
 	PreferenceCategory                                      *preferenceclient.CategoryClient
 	PreferencesSettingsPreferenceServiceClient              *preferencesclient.SettingsPreferenceServiceClientClient
-	PrintPageRange                                          *printclient.PageRangeClient
 	PrintManager                                            *printclient.ManagerClient
+	PrintPageRange                                          *printclient.PageRangeClient
 	ProjectionMediaProjectionManager                        *projectionclient.MediaProjectionManagerClient
 	ProtoOutputStream                                       *protoclient.OutputStreamClient
-	ProviderBrowser                                         *providerclient.BrowserClient
-	ProviderFontRequest                                     *providerclient.FontRequestClient
 	ProviderSearchRecentSuggestions                         *providerclient.SearchRecentSuggestionsClient
-	QualityAmbientBacklightMetadata                         *qualityclient.AmbientBacklightMetadataClient
-	QualityMediaQualityManager                              *qualityclient.MediaQualityManagerClient
-	QualityActiveProcessingPicture                          *qualityclient.ActiveProcessingPictureClient
-	QualityAmbientBacklightSettings                         *qualityclient.AmbientBacklightSettingsClient
+	ProviderFontRequest                                     *providerclient.FontRequestClient
+	ProviderBrowser                                         *providerclient.BrowserClient
 	QualityAmbientBacklightEvent                            *qualityclient.AmbientBacklightEventClient
+	QualityAmbientBacklightMetadata                         *qualityclient.AmbientBacklightMetadataClient
+	QualityAmbientBacklightSettings                         *qualityclient.AmbientBacklightSettingsClient
+	QualityActiveProcessingPicture                          *qualityclient.ActiveProcessingPictureClient
+	QualityMediaQualityManager                              *qualityclient.MediaQualityManagerClient
+	QuickaccesswalletSelectWalletCardRequest                *quickaccesswalletclient.SelectWalletCardRequestClient
 	QuickaccesswalletGetWalletCardsResponse                 *quickaccesswalletclient.GetWalletCardsResponseClient
 	QuickaccesswalletGetWalletCardsRequest                  *quickaccesswalletclient.GetWalletCardsRequestClient
 	QuickaccesswalletWalletServiceEvent                     *quickaccesswalletclient.WalletServiceEventClient
 	QuickaccesswalletGetWalletCardsError                    *quickaccesswalletclient.GetWalletCardsErrorClient
-	QuickaccesswalletSelectWalletCardRequest                *quickaccesswalletclient.SelectWalletCardRequestClient
 	QuicksettingsTileService                                *quicksettingsclient.TileServiceClient
 	RecorderMediaRecorder                                   *recorderclient.MediaRecorderClient
-	RenderscriptMatrix3f                                    *renderscriptclient.Matrix3fClient
+	RenderscriptFieldPacker                                 *renderscriptclient.FieldPackerClient
 	RenderscriptMatrix2f                                    *renderscriptclient.Matrix2fClient
 	RenderscriptMatrix4f                                    *renderscriptclient.Matrix4fClient
-	RenderscriptFieldPacker                                 *renderscriptclient.FieldPackerClient
-	ResConfiguration                                        *resclient.ConfigurationClient
+	RenderscriptMatrix3f                                    *renderscriptclient.Matrix3fClient
 	ResAssetFileDescriptor                                  *resclient.AssetFileDescriptorClient
 	ResColorStateList                                       *resclient.ColorStateListClient
+	ResConfiguration                                        *resclient.ConfigurationClient
 	RingtoneManager                                         *ringtoneclient.ManagerClient
 	RoleManager                                             *roleclient.ManagerClient
 	RtpAudioStream                                          *rtpclient.AudioStreamClient
 	RtpAudioGroup                                           *rtpclient.AudioGroupClient
 	SatelliteManager                                        *satelliteclient.ManagerClient
 	SaxRootElement                                          *saxclient.RootElementClient
-	SdksandboxRequestSurfacePackageException                *sdksandboxclient.RequestSurfacePackageExceptionClient
 	SdksandboxSandboxedSdk                                  *sdksandboxclient.SandboxedSdkClient
+	SdksandboxRequestSurfacePackageException                *sdksandboxclient.RequestSurfacePackageExceptionClient
 	SdksandboxLoadSdkException                              *sdksandboxclient.LoadSdkExceptionClient
 	SdksandboxAppOwnedSdkSandboxInterface                   *sdksandboxclient.AppOwnedSdkSandboxInterfaceClient
-	SecurityFileIntegrityManager                            *securityclient.FileIntegrityManagerClient
-	SecurityKeyChain                                        *securityclient.KeyChainClient
 	SecurityAttestedKeyPair                                 *securityclient.AttestedKeyPairClient
+	SecurityKeyChain                                        *securityclient.KeyChainClient
+	SecurityFileIntegrityManager                            *securityclient.FileIntegrityManagerClient
 	SelectionPageSelection                                  *selectionclient.PageSelectionClient
 	SelectionBoundary                                       *selectionclient.BoundaryClient
 	SessionMediaSessionManager                              *sessionclient.MediaSessionManagerClient
@@ -820,1366 +825,1371 @@ type Client struct {
 	SessionMediaController                                  *sessionclient.MediaControllerClient
 	SettingsSettings                                        *settingsclient.SettingsClient
 	ShapesPathShape                                         *shapesclient.PathShapeClient
+	ShapesOvalShape                                         *shapesclient.OvalShapeClient
 	ShapesArcShape                                          *shapesclient.ArcShapeClient
 	ShapesRectShape                                         *shapesclient.RectShapeClient
 	ShapesRoundRectShape                                    *shapesclient.RoundRectShapeClient
-	ShapesOvalShape                                         *shapesclient.OvalShapeClient
 	SipAudioCall                                            *sipclient.AudioCallClient
-	SliceSpec                                               *sliceclient.SpecClient
 	SliceMetrics                                            *sliceclient.MetricsClient
+	SliceSpec                                               *sliceclient.SpecClient
+	SpeechTextToSpeech                                      *speechclient.TextToSpeechClient
 	SpeechAlternativeSpan                                   *speechclient.AlternativeSpanClient
 	SpeechAlternativeSpans                                  *speechclient.AlternativeSpansClient
-	SpeechTextToSpeech                                      *speechclient.TextToSpeechClient
-	SqliteSQLiteCursor                                      *sqliteclient.SQLiteCursorClient
 	SqliteSQLiteQueryBuilder                                *sqliteclient.SQLiteQueryBuilderClient
+	SqliteSQLiteCursor                                      *sqliteclient.SQLiteCursorClient
 	StorageManager                                          *storageclient.ManagerClient
 	StrictmodeUnsafeIntentLaunchViolation                   *strictmodeclient.UnsafeIntentLaunchViolationClient
-	StyleTextAppearanceSpan                                 *styleclient.TextAppearanceSpanClient
-	StyleSuggestionSpan                                     *styleclient.SuggestionSpanClient
-	StyleScaleXSpan                                         *styleclient.ScaleXSpanClient
-	StyleImageSpan                                          *styleclient.ImageSpanClient
-	StyleIconMarginSpan                                     *styleclient.IconMarginSpanClient
+	StyleNoWritingToolsSpan                                 *styleclient.NoWritingToolsSpanClient
+	StyleLineBreakConfigSpan                                *styleclient.LineBreakConfigSpanClient
+	StyleUnderlineSpan                                      *styleclient.UnderlineSpanClient
+	StyleEasyEditSpan                                       *styleclient.EasyEditSpanClient
+	StyleRelativeSizeSpan                                   *styleclient.RelativeSizeSpanClient
+	StyleTtsSpan                                            *styleclient.TtsSpanClient
+	StyleSpan                                               *styleclient.SpanClient
 	StyleLocaleSpan                                         *styleclient.LocaleSpanClient
 	StyleSuperscriptSpan                                    *styleclient.SuperscriptSpanClient
-	StyleTtsSpan                                            *styleclient.TtsSpanClient
-	StyleSuggestionRangeSpan                                *styleclient.SuggestionRangeSpanClient
-	StyleEasyEditSpan                                       *styleclient.EasyEditSpanClient
-	StyleMaskFilterSpan                                     *styleclient.MaskFilterSpanClient
-	StyleBackgroundColorSpan                                *styleclient.BackgroundColorSpanClient
-	StyleStrikethroughSpan                                  *styleclient.StrikethroughSpanClient
-	StyleURLSpan                                            *styleclient.URLSpanClient
-	StyleForegroundColorSpan                                *styleclient.ForegroundColorSpanClient
-	StyleSubscriptSpan                                      *styleclient.SubscriptSpanClient
 	StyleTypefaceSpan                                       *styleclient.TypefaceSpanClient
-	StyleLineBreakConfigSpan                                *styleclient.LineBreakConfigSpanClient
-	StyleSpan                                               *styleclient.SpanClient
-	StyleUnderlineSpan                                      *styleclient.UnderlineSpanClient
-	StyleAbsoluteSizeSpan                                   *styleclient.AbsoluteSizeSpanClient
-	StyleRelativeSizeSpan                                   *styleclient.RelativeSizeSpanClient
-	StyleQuoteSpan                                          *styleclient.QuoteSpanClient
-	StyleNoWritingToolsSpan                                 *styleclient.NoWritingToolsSpanClient
+	StyleIconMarginSpan                                     *styleclient.IconMarginSpanClient
+	StyleSuggestionSpan                                     *styleclient.SuggestionSpanClient
+	StyleScaleXSpan                                         *styleclient.ScaleXSpanClient
+	StyleTextAppearanceSpan                                 *styleclient.TextAppearanceSpanClient
+	StyleURLSpan                                            *styleclient.URLSpanClient
+	StyleMaskFilterSpan                                     *styleclient.MaskFilterSpanClient
+	StyleImageSpan                                          *styleclient.ImageSpanClient
 	StyleDrawableMarginSpan                                 *styleclient.DrawableMarginSpanClient
+	StyleSuggestionRangeSpan                                *styleclient.SuggestionRangeSpanClient
+	StyleSubscriptSpan                                      *styleclient.SubscriptSpanClient
+	StyleAbsoluteSizeSpan                                   *styleclient.AbsoluteSizeSpanClient
+	StyleQuoteSpan                                          *styleclient.QuoteSpanClient
+	StyleStrikethroughSpan                                  *styleclient.StrikethroughSpanClient
 	StyleBulletSpan                                         *styleclient.BulletSpanClient
-	SystemInt64Ref                                          *systemclient.Int64RefClient
+	StyleForegroundColorSpan                                *styleclient.ForegroundColorSpanClient
+	StyleBackgroundColorSpan                                *styleclient.BackgroundColorSpanClient
 	SystemStructUtsname                                     *systemclient.StructUtsnameClient
-	SystemStructTimespec                                    *systemclient.StructTimespecClient
+	SystemInt64Ref                                          *systemclient.Int64RefClient
 	SystemStructPollfd                                      *systemclient.StructPollfdClient
-	SystemVmSocketAddress                                   *systemclient.VmSocketAddressClient
-	SystemStructStat                                        *systemclient.StructStatClient
 	SystemErrnoException                                    *systemclient.ErrnoExceptionClient
+	SystemStructTimespec                                    *systemclient.StructTimespecClient
+	SystemVmSocketAddress                                   *systemclient.VmSocketAddressClient
 	SystemStructStatVfs                                     *systemclient.StructStatVfsClient
+	SystemStructStat                                        *systemclient.StructStatClient
+	TelecomCallAudioState                                   *telecomclient.CallAudioStateClient
+	TelecomGatewayInfo                                      *telecomclient.GatewayInfoClient
+	TelecomVideoProfile                                     *telecomclient.VideoProfileClient
 	TelecomPhoneAccountHandle                               *telecomclient.PhoneAccountHandleClient
 	TelecomStatusHints                                      *telecomclient.StatusHintsClient
-	TelecomGatewayInfo                                      *telecomclient.GatewayInfoClient
-	TelecomCallAudioState                                   *telecomclient.CallAudioStateClient
-	TelecomCallException                                    *telecomclient.CallExceptionClient
-	TelecomQueryLocationException                           *telecomclient.QueryLocationExceptionClient
-	TelecomVideoProfile                                     *telecomclient.VideoProfileClient
-	TelecomDisconnectCause                                  *telecomclient.DisconnectCauseClient
 	TelecomPhoneAccountSuggestion                           *telecomclient.PhoneAccountSuggestionClient
-	TelecomCallEndpoint                                     *telecomclient.CallEndpointClient
 	TelecomCallEndpointException                            *telecomclient.CallEndpointExceptionClient
-	TelecomManager                                          *telecomclient.ManagerClient
 	TelecomConnectionRequest                                *telecomclient.ConnectionRequestClient
-	TelephonyRadioAccessSpecifier                           *telephonyclient.RadioAccessSpecifierClient
-	TelephonyAvailableNetworkInfo                           *telephonyclient.AvailableNetworkInfoClient
-	TelephonyPhoneNumberUtils                               *telephonyclient.PhoneNumberUtilsClient
-	TelephonyServiceState                                   *telephonyclient.ServiceStateClient
-	TelephonyManager                                        *telephonyclient.ManagerClient
+	TelecomDisconnectCause                                  *telecomclient.DisconnectCauseClient
+	TelecomCallException                                    *telecomclient.CallExceptionClient
+	TelecomCallEndpoint                                     *telecomclient.CallEndpointClient
+	TelecomManager                                          *telecomclient.ManagerClient
+	TelecomQueryLocationException                           *telecomclient.QueryLocationExceptionClient
 	TelephonyNeighboringCellInfo                            *telephonyclient.NeighboringCellInfoClient
-	TelephonyPhoneNumberFormattingTextWatcher               *telephonyclient.PhoneNumberFormattingTextWatcherClient
-	TelephonyPhoneStateListener                             *telephonyclient.PhoneStateListenerClient
-	TelephonyNetworkScanRequest                             *telephonyclient.NetworkScanRequestClient
 	TelephonyCarrierConfigManager                           *telephonyclient.CarrierConfigManagerClient
+	TelephonyPhoneNumberFormattingTextWatcher               *telephonyclient.PhoneNumberFormattingTextWatcherClient
+	TelephonyServiceState                                   *telephonyclient.ServiceStateClient
+	TelephonyNetworkScanRequest                             *telephonyclient.NetworkScanRequestClient
+	TelephonyPhoneStateListener                             *telephonyclient.PhoneStateListenerClient
+	TelephonyManager                                        *telephonyclient.ManagerClient
 	TelephonySignalStrength                                 *telephonyclient.SignalStrengthClient
-	TemplatesRangeTemplate                                  *templatesclient.RangeTemplateClient
-	TemplatesControlButton                                  *templatesclient.ControlButtonClient
-	TemplatesTemperatureControlTemplate                     *templatesclient.TemperatureControlTemplateClient
-	TemplatesStatelessTemplate                              *templatesclient.StatelessTemplateClient
+	TelephonyRadioAccessSpecifier                           *telephonyclient.RadioAccessSpecifierClient
+	TelephonyPhoneNumberUtils                               *telephonyclient.PhoneNumberUtilsClient
+	TelephonyAvailableNetworkInfo                           *telephonyclient.AvailableNetworkInfoClient
 	TemplatesToggleTemplate                                 *templatesclient.ToggleTemplateClient
-	TemplatesToggleRangeTemplate                            *templatesclient.ToggleRangeTemplateClient
 	TemplatesThumbnailTemplate                              *templatesclient.ThumbnailTemplateClient
-	TextDecimalFormat                                       *textclient.DecimalFormatClient
-	TextUnicodeSet                                          *textclient.UnicodeSetClient
-	TextDateFormatSymbols                                   *textclient.DateFormatSymbolsClient
-	TextSelectFormat                                        *textclient.SelectFormatClient
-	TextNumberingSystem                                     *textclient.NumberingSystemClient
-	TextAlphabeticIndex                                     *textclient.AlphabeticIndexClient
-	TextBidiClassifier                                      *textclient.BidiClassifierClient
-	TextDecimalFormatSymbols                                *textclient.DecimalFormatSymbolsClient
-	TextConstrainedFieldPosition                            *textclient.ConstrainedFieldPositionClient
+	TemplatesStatelessTemplate                              *templatesclient.StatelessTemplateClient
+	TemplatesToggleRangeTemplate                            *templatesclient.ToggleRangeTemplateClient
+	TemplatesRangeTemplate                                  *templatesclient.RangeTemplateClient
+	TemplatesTemperatureControlTemplate                     *templatesclient.TemperatureControlTemplateClient
+	TemplatesControlButton                                  *templatesclient.ControlButtonClient
 	TextCurrencyPluralInfo                                  *textclient.CurrencyPluralInfoClient
-	TextSimpleDateFormat                                    *textclient.SimpleDateFormatClient
-	TextDateIntervalInfo                                    *textclient.DateIntervalInfoClient
-	TextSpannableStringBuilder                              *textclient.SpannableStringBuilderClient
-	TextAndroidCharacter                                    *textclient.AndroidCharacterClient
-	TextWordSegmentFinder                                   *textclient.WordSegmentFinderClient
-	TextSpannedString                                       *textclient.SpannedStringClient
-	TextGraphemeClusterSegmentFinder                        *textclient.GraphemeClusterSegmentFinderClient
-	TextStaticLayout                                        *textclient.StaticLayoutClient
-	TextSpannableString                                     *textclient.SpannableStringClient
-	TextBoringLayout                                        *textclient.BoringLayoutClient
-	TextPaint                                               *textclient.PaintClient
-	TextAnnotation                                          *textclient.AnnotationClient
-	TextDynamicLayout                                       *textclient.DynamicLayoutClient
-	TextCollationKey                                        *textclient.CollationKeyClient
-	TextBidi                                                *textclient.BidiClient
-	TextMessageFormat                                       *textclient.MessageFormatClient
-	TextRuleBasedCollator                                   *textclient.RuleBasedCollatorClient
-	TextUnicodeSetIterator                                  *textclient.UnicodeSetIteratorClient
-	TextPluralFormat                                        *textclient.PluralFormatClient
+	TextDecimalFormatSymbols                                *textclient.DecimalFormatSymbolsClient
+	TextUnicodeSet                                          *textclient.UnicodeSetClient
+	TextNumberingSystem                                     *textclient.NumberingSystemClient
+	TextUnicodeSetSpanner                                   *textclient.UnicodeSetSpannerClient
+	TextAlphabeticIndex                                     *textclient.AlphabeticIndexClient
 	TextStringPrepParseException                            *textclient.StringPrepParseExceptionClient
+	TextSimpleDateFormat                                    *textclient.SimpleDateFormatClient
+	TextBidiClassifier                                      *textclient.BidiClassifierClient
 	TextMessagePattern                                      *textclient.MessagePatternClient
 	TextStringSearch                                        *textclient.StringSearchClient
+	TextSelectFormat                                        *textclient.SelectFormatClient
+	TextCollationKey                                        *textclient.CollationKeyClient
+	TextRuleBasedCollator                                   *textclient.RuleBasedCollatorClient
+	TextDecimalFormat                                       *textclient.DecimalFormatClient
+	TextPluralFormat                                        *textclient.PluralFormatClient
+	TextDateFormatSymbols                                   *textclient.DateFormatSymbolsClient
+	TextMessageFormat                                       *textclient.MessageFormatClient
+	TextUnicodeSetIterator                                  *textclient.UnicodeSetIteratorClient
+	TextDateIntervalInfo                                    *textclient.DateIntervalInfoClient
 	TextEdits                                               *textclient.EditsClient
-	TextUnicodeSetSpanner                                   *textclient.UnicodeSetSpannerClient
+	TextBidi                                                *textclient.BidiClient
+	TextConstrainedFieldPosition                            *textclient.ConstrainedFieldPositionClient
+	TextBoringLayout                                        *textclient.BoringLayoutClient
+	TextDynamicLayout                                       *textclient.DynamicLayoutClient
+	TextAnnotation                                          *textclient.AnnotationClient
+	TextGraphemeClusterSegmentFinder                        *textclient.GraphemeClusterSegmentFinderClient
+	TextSpannableStringBuilder                              *textclient.SpannableStringBuilderClient
+	TextPaint                                               *textclient.PaintClient
+	TextWordSegmentFinder                                   *textclient.WordSegmentFinderClient
+	TextStaticLayout                                        *textclient.StaticLayoutClient
+	TextSpannedString                                       *textclient.SpannedStringClient
+	TextAndroidCharacter                                    *textclient.AndroidCharacterClient
+	TextSpannableString                                     *textclient.SpannableStringClient
 	TextclassifierTextClassificationManager                 *textclassifierclient.TextClassificationManagerClient
 	TextclassifierConversationActions                       *textclassifierclient.ConversationActionsClient
 	TextserviceSuggestionsInfo                              *textserviceclient.SuggestionsInfoClient
 	TextserviceTextServicesManager                          *textserviceclient.TextServicesManagerClient
 	TextserviceSentenceSuggestionsInfo                      *textserviceclient.SentenceSuggestionsInfoClient
-	TextserviceTextInfo                                     *textserviceclient.TextInfoClient
 	TextserviceSpellCheckerSubtype                          *textserviceclient.SpellCheckerSubtypeClient
+	TextserviceTextInfo                                     *textserviceclient.TextInfoClient
 	ToastToast                                              *toastclient.ToastClient
 	TopicsEncryptedTopic                                    *topicsclient.EncryptedTopicClient
 	TopicsTopic                                             *topicsclient.TopicClient
-	TransitionSidePropagation                               *transitionclient.SidePropagationClient
-	TransitionChangeTransform                               *transitionclient.ChangeTransformClient
-	TransitionPatternPathMotion                             *transitionclient.PatternPathMotionClient
-	TransitionSet                                           *transitionclient.SetClient
-	TransitionChangeClipBounds                              *transitionclient.ChangeClipBoundsClient
-	TransitionChangeScroll                                  *transitionclient.ChangeScrollClient
-	TransitionScene                                         *transitionclient.SceneClient
-	TransitionArcMotion                                     *transitionclient.ArcMotionClient
-	TransitionExplode                                       *transitionclient.ExplodeClient
-	TransitionSlide                                         *transitionclient.SlideClient
-	TransitionCircularPropagation                           *transitionclient.CircularPropagationClient
-	TransitionChangeBounds                                  *transitionclient.ChangeBoundsClient
-	TransitionManager                                       *transitionclient.ManagerClient
-	TransitionChangeImageTransform                          *transitionclient.ChangeImageTransformClient
-	TransitionFade                                          *transitionclient.FadeClient
 	TransitionValues                                        *transitionclient.ValuesClient
+	TransitionFade                                          *transitionclient.FadeClient
+	TransitionCircularPropagation                           *transitionclient.CircularPropagationClient
+	TransitionSidePropagation                               *transitionclient.SidePropagationClient
+	TransitionManager                                       *transitionclient.ManagerClient
+	TransitionScene                                         *transitionclient.SceneClient
+	TransitionChangeTransform                               *transitionclient.ChangeTransformClient
+	TransitionChangeScroll                                  *transitionclient.ChangeScrollClient
+	TransitionChangeBounds                                  *transitionclient.ChangeBoundsClient
+	TransitionArcMotion                                     *transitionclient.ArcMotionClient
+	TransitionChangeImageTransform                          *transitionclient.ChangeImageTransformClient
+	TransitionPatternPathMotion                             *transitionclient.PatternPathMotionClient
+	TransitionChangeClipBounds                              *transitionclient.ChangeClipBoundsClient
+	TransitionSet                                           *transitionclient.SetClient
+	TransitionSlide                                         *transitionclient.SlideClient
+	TransitionExplode                                       *transitionclient.ExplodeClient
 	TranslationSpec                                         *translationclient.SpecClient
-	TtsVoice                                                *ttsclient.VoiceClient
 	TtsSynthesisRequest                                     *ttsclient.SynthesisRequestClient
-	TvAdRequest                                             *tvclient.AdRequestClient
-	TvTableResponse                                         *tvclient.TableResponseClient
-	TvCommandRequest                                        *tvclient.CommandRequestClient
-	TvRecordingClient                                       *tvclient.RecordingClientClient
-	TvTimelineResponse                                      *tvclient.TimelineResponseClient
-	TvSignalingDataInfo                                     *tvclient.SignalingDataInfoClient
-	TvPesRequest                                            *tvclient.PesRequestClient
-	TvStreamEventResponse                                   *tvclient.StreamEventResponseClient
+	TtsVoice                                                *ttsclient.VoiceClient
+	TvSignalingDataRequest                                  *tvclient.SignalingDataRequestClient
+	TvAitInfo                                               *tvclient.AitInfoClient
 	TvDsmccResponse                                         *tvclient.DsmccResponseClient
-	TvPesResponse                                           *tvclient.PesResponseClient
-	TvRecordingInfo                                         *tvclient.RecordingInfoClient
-	TvSignalingDataResponse                                 *tvclient.SignalingDataResponseClient
-	TvStreamEventRequest                                    *tvclient.StreamEventRequestClient
+	TvRecordingClient                                       *tvclient.RecordingClientClient
 	TvTsResponse                                            *tvclient.TsResponseClient
 	TvCommandResponse                                       *tvclient.CommandResponseClient
-	TvInputManager                                          *tvclient.InputManagerClient
-	TvSignalingDataRequest                                  *tvclient.SignalingDataRequestClient
-	TvTableRequest                                          *tvclient.TableRequestClient
-	TvSectionRequest                                        *tvclient.SectionRequestClient
 	TvAdResponse                                            *tvclient.AdResponseClient
-	TvSectionResponse                                       *tvclient.SectionResponseClient
-	TvView                                                  *tvclient.ViewClient
-	TvAdBuffer                                              *tvclient.AdBufferClient
-	TvAitInfo                                               *tvclient.AitInfoClient
-	TvDsmccRequest                                          *tvclient.DsmccRequestClient
+	TvAdRequest                                             *tvclient.AdRequestClient
 	TvTsRequest                                             *tvclient.TsRequestClient
+	TvSectionRequest                                        *tvclient.SectionRequestClient
+	TvView                                                  *tvclient.ViewClient
+	TvCommandRequest                                        *tvclient.CommandRequestClient
+	TvStreamEventResponse                                   *tvclient.StreamEventResponseClient
 	TvTimelineRequest                                       *tvclient.TimelineRequestClient
-	UsageStats                                              *usageclient.StatsClient
+	TvPesResponse                                           *tvclient.PesResponseClient
+	TvSignalingDataInfo                                     *tvclient.SignalingDataInfoClient
+	TvTableResponse                                         *tvclient.TableResponseClient
+	TvTableRequest                                          *tvclient.TableRequestClient
+	TvStreamEventRequest                                    *tvclient.StreamEventRequestClient
+	TvInputManager                                          *tvclient.InputManagerClient
+	TvAdBuffer                                              *tvclient.AdBufferClient
+	TvSignalingDataResponse                                 *tvclient.SignalingDataResponseClient
+	TvPesRequest                                            *tvclient.PesRequestClient
+	TvRecordingInfo                                         *tvclient.RecordingInfoClient
+	TvTimelineResponse                                      *tvclient.TimelineResponseClient
+	TvSectionResponse                                       *tvclient.SectionResponseClient
+	TvDsmccRequest                                          *tvclient.DsmccRequestClient
 	UsageStorageStatsManager                                *usageclient.StorageStatsManagerClient
 	UsageConfigurationStats                                 *usageclient.ConfigurationStatsClient
-	UsageStatsManager                                       *usageclient.StatsManagerClient
 	UsageEventStats                                         *usageclient.EventStatsClient
 	UsageNetworkStatsManager                                *usageclient.NetworkStatsManagerClient
+	UsageStats                                              *usageclient.StatsClient
+	UsageStatsManager                                       *usageclient.StatsManagerClient
 	UsbManager                                              *usbclient.ManagerClient
 	UsbRequest                                              *usbclient.RequestClient
-	UtilArraySet                                            *utilclient.ArraySetClient
-	UtilCloseGuard                                          *utilclient.CloseGuardClient
-	UtilPrintStreamPrinter                                  *utilclient.PrintStreamPrinterClient
-	UtilArrayMap                                            *utilclient.ArrayMapClient
-	UtilLruCache                                            *utilclient.LruCacheClient
-	UtilRange                                               *utilclient.RangeClient
-	UtilSparseIntArray                                      *utilclient.SparseIntArrayClient
-	UtilRfc822Tokenizer                                     *utilclient.Rfc822TokenizerClient
-	UtilRfc822Token                                         *utilclient.Rfc822TokenClient
-	UtilMonthDisplayHelper                                  *utilclient.MonthDisplayHelperClient
-	UtilLinkify                                             *utilclient.LinkifyClient
-	UtilLogPrinter                                          *utilclient.LogPrinterClient
-	UtilSparseLongArray                                     *utilclient.SparseLongArrayClient
-	UtilStringBuilderPrinter                                *utilclient.StringBuilderPrinterClient
-	UtilBase64InputStream                                   *utilclient.Base64InputStreamClient
-	UtilTypedValue                                          *utilclient.TypedValueClient
-	UtilRational                                            *utilclient.RationalClient
-	UtilLongSparseArray                                     *utilclient.LongSparseArrayClient
-	UtilPrintWriterPrinter                                  *utilclient.PrintWriterPrinterClient
-	UtilJsonWriter                                          *utilclient.JsonWriterClient
 	UtilIslamicCalendar                                     *utilclient.IslamicCalendarClient
-	UtilEventLogTags                                        *utilclient.EventLogTagsClient
-	UtilSparseBooleanArray                                  *utilclient.SparseBooleanArrayClient
-	UtilHalf                                                *utilclient.HalfClient
-	UtilAtomicFile                                          *utilclient.AtomicFileClient
-	UtilSize                                                *utilclient.SizeClient
-	UtilPair                                                *utilclient.PairClient
-	UtilBuddhistCalendar                                    *utilclient.BuddhistCalendarClient
-	UtilHebrewCalendar                                      *utilclient.HebrewCalendarClient
 	UtilCurrencyAmount                                      *utilclient.CurrencyAmountClient
-	UtilIndianCalendar                                      *utilclient.IndianCalendarClient
-	UtilDateInterval                                        *utilclient.DateIntervalClient
-	UtilOutput                                              *utilclient.OutputClient
-	UtilULocale                                             *utilclient.ULocaleClient
+	UtilArrayMap                                            *utilclient.ArrayMapClient
+	UtilLongSparseArray                                     *utilclient.LongSparseArrayClient
+	UtilBase64InputStream                                   *utilclient.Base64InputStreamClient
+	UtilBase64OutputStream                                  *utilclient.Base64OutputStreamClient
 	UtilChineseCalendar                                     *utilclient.ChineseCalendarClient
-	UtilMeasure                                             *utilclient.MeasureClient
-	UtilEthiopicCalendar                                    *utilclient.EthiopicCalendarClient
+	UtilStringBuilderPrinter                                *utilclient.StringBuilderPrinterClient
 	UtilJapaneseCalendar                                    *utilclient.JapaneseCalendarClient
+	UtilHebrewCalendar                                      *utilclient.HebrewCalendarClient
+	UtilEthiopicCalendar                                    *utilclient.EthiopicCalendarClient
+	UtilSize                                                *utilclient.SizeClient
+	UtilMeasure                                             *utilclient.MeasureClient
+	UtilGregorianCalendar                                   *utilclient.GregorianCalendarClient
+	UtilULocale                                             *utilclient.ULocaleClient
+	UtilDateInterval                                        *utilclient.DateIntervalClient
 	UtilTaiwanCalendar                                      *utilclient.TaiwanCalendarClient
+	UtilLinkify                                             *utilclient.LinkifyClient
+	UtilRfc822Token                                         *utilclient.Rfc822TokenClient
+	UtilRfc822Tokenizer                                     *utilclient.Rfc822TokenizerClient
+	UtilSparseBooleanArray                                  *utilclient.SparseBooleanArrayClient
+	UtilAtomicFile                                          *utilclient.AtomicFileClient
+	UtilLruCache                                            *utilclient.LruCacheClient
+	UtilPair                                                *utilclient.PairClient
+	UtilJsonWriter                                          *utilclient.JsonWriterClient
+	UtilBuddhistCalendar                                    *utilclient.BuddhistCalendarClient
 	UtilCopticCalendar                                      *utilclient.CopticCalendarClient
 	UtilIllformedLocaleException                            *utilclient.IllformedLocaleExceptionClient
-	UtilGregorianCalendar                                   *utilclient.GregorianCalendarClient
+	UtilTypedValue                                          *utilclient.TypedValueClient
+	UtilCloseGuard                                          *utilclient.CloseGuardClient
+	UtilRange                                               *utilclient.RangeClient
+	UtilHalf                                                *utilclient.HalfClient
+	UtilLogPrinter                                          *utilclient.LogPrinterClient
+	UtilPrintWriterPrinter                                  *utilclient.PrintWriterPrinterClient
 	UtilTimingLogger                                        *utilclient.TimingLoggerClient
 	UtilJsonReader                                          *utilclient.JsonReaderClient
-	UtilSizeF                                               *utilclient.SizeFClient
-	UtilBase64OutputStream                                  *utilclient.Base64OutputStreamClient
+	UtilSparseLongArray                                     *utilclient.SparseLongArrayClient
+	UtilOutput                                              *utilclient.OutputClient
+	UtilIndianCalendar                                      *utilclient.IndianCalendarClient
+	UtilRational                                            *utilclient.RationalClient
+	UtilMonthDisplayHelper                                  *utilclient.MonthDisplayHelperClient
+	UtilPrintStreamPrinter                                  *utilclient.PrintStreamPrinterClient
+	UtilSparseIntArray                                      *utilclient.SparseIntArrayClient
+	UtilArraySet                                            *utilclient.ArraySetClient
 	UtilSparseArray                                         *utilclient.SparseArrayClient
+	UtilSizeF                                               *utilclient.SizeFClient
+	UtilEventLogTags                                        *utilclient.EventLogTagsClient
 	VibratorVibrator                                        *vibratorclient.VibratorClient
-	ViewSearchEvent                                         *viewclient.SearchEventClient
-	ViewSurfaceControlViewHost                              *viewclient.SurfaceControlViewHostClient
-	ViewWindowMetrics                                       *viewclient.WindowMetricsClient
-	ViewDisplayCutout                                       *viewclient.DisplayCutoutClient
-	ViewTouchDelegate                                       *viewclient.TouchDelegateClient
-	ViewKeyboardShortcutGroup                               *viewclient.KeyboardShortcutGroupClient
-	ViewGestureDetector                                     *viewclient.GestureDetectorClient
-	ViewMotionPredictor                                     *viewclient.MotionPredictorClient
-	ViewWindowInsets                                        *viewclient.WindowInsetsClient
-	ViewFrameMetrics                                        *viewclient.FrameMetricsClient
-	ViewLayoutInflater                                      *viewclient.LayoutInflaterClient
-	ViewScrollCaptureSession                                *viewclient.ScrollCaptureSessionClient
-	ViewMenuInflater                                        *viewclient.MenuInflaterClient
-	ViewKeyEvent                                            *viewclient.KeyEventClient
-	ViewRoundedCorner                                       *viewclient.RoundedCornerClient
-	ViewConfiguration                                       *viewclient.ConfigurationClient
-	ViewKeyboardShortcutInfo                                *viewclient.KeyboardShortcutInfoClient
-	ViewGravity                                             *viewclient.GravityClient
 	ViewDebug                                               *viewclient.DebugClient
-	ViewContextThemeWrapper                                 *viewclient.ContextThemeWrapperClient
-	ViewScrollCaptureTarget                                 *viewclient.ScrollCaptureTargetClient
-	ViewScaleGestureDetector                                *viewclient.ScaleGestureDetectorClient
-	ViewWindowInsetsAnimation                               *viewclient.WindowInsetsAnimationClient
+	ViewFrameMetrics                                        *viewclient.FrameMetricsClient
+	ViewGravity                                             *viewclient.GravityClient
+	ViewConfiguration                                       *viewclient.ConfigurationClient
+	ViewWindowMetrics                                       *viewclient.WindowMetricsClient
 	ViewTextureView                                         *viewclient.TextureViewClient
+	ViewSearchEvent                                         *viewclient.SearchEventClient
+	ViewKeyboardShortcutGroup                               *viewclient.KeyboardShortcutGroupClient
+	ViewMenuInflater                                        *viewclient.MenuInflaterClient
+	ViewScrollCaptureTarget                                 *viewclient.ScrollCaptureTargetClient
+	ViewWindowInsetsAnimation                               *viewclient.WindowInsetsAnimationClient
+	ViewRoundedCorner                                       *viewclient.RoundedCornerClient
+	ViewSurfaceControlViewHost                              *viewclient.SurfaceControlViewHostClient
+	ViewGestureDetector                                     *viewclient.GestureDetectorClient
+	ViewDisplayCutout                                       *viewclient.DisplayCutoutClient
+	ViewKeyboardShortcutInfo                                *viewclient.KeyboardShortcutInfoClient
+	ViewTouchDelegate                                       *viewclient.TouchDelegateClient
+	ViewScaleGestureDetector                                *viewclient.ScaleGestureDetectorClient
+	ViewKeyEvent                                            *viewclient.KeyEventClient
+	ViewLayoutInflater                                      *viewclient.LayoutInflaterClient
+	ViewContextThemeWrapper                                 *viewclient.ContextThemeWrapperClient
 	ViewStub                                                *viewclient.StubClient
+	ViewMotionPredictor                                     *viewclient.MotionPredictorClient
+	ViewScrollCaptureSession                                *viewclient.ScrollCaptureSessionClient
+	ViewWindowInsets                                        *viewclient.WindowInsetsClient
 	VirtualDeviceManager                                    *virtualclient.DeviceManagerClient
-	VoiceInteractionSession                                 *voiceclient.InteractionSessionClient
 	VoiceInteractionService                                 *voiceclient.InteractionServiceClient
+	VoiceInteractionSession                                 *voiceclient.InteractionSessionClient
 	VpnService                                              *vpnclient.ServiceClient
 	WallpaperInstance                                       *wallpaperclient.InstanceClient
+	WebkitConsoleMessage                                    *webkitclient.ConsoleMessageClient
+	WebkitWebView                                           *webkitclient.WebViewClient
+	WebkitServiceWorkerClient                               *webkitclient.ServiceWorkerClientClient
+	WebkitWebViewFragment                                   *webkitclient.WebViewFragmentClient
+	WebkitWebMessage                                        *webkitclient.WebMessageClient
 	WebkitWebResourceResponse                               *webkitclient.WebResourceResponseClient
 	WebkitDateSorter                                        *webkitclient.DateSorterClient
 	WebkitWebChromeClient                                   *webkitclient.WebChromeClientClient
-	WebkitWebViewClient                                     *webkitclient.WebViewClientClient
-	WebkitServiceWorkerClient                               *webkitclient.ServiceWorkerClientClient
 	WebkitURLUtil                                           *webkitclient.URLUtilClient
-	WebkitConsoleMessage                                    *webkitclient.ConsoleMessageClient
-	WebkitWebMessage                                        *webkitclient.WebMessageClient
-	WebkitWebView                                           *webkitclient.WebViewClient
-	WebkitWebViewFragment                                   *webkitclient.WebViewFragmentClient
-	WidgetRatingBar                                         *widgetclient.RatingBarClient
-	WidgetCheckBox                                          *widgetclient.CheckBoxClient
-	WidgetTextClock                                         *widgetclient.TextClockClient
-	WidgetScroller                                          *widgetclient.ScrollerClient
-	WidgetRemoteViews                                       *widgetclient.RemoteViewsClient
-	WidgetZoomControls                                      *widgetclient.ZoomControlsClient
-	WidgetTextSwitcher                                      *widgetclient.TextSwitcherClient
-	WidgetSimpleCursorAdapter                               *widgetclient.SimpleCursorAdapterClient
-	WidgetMultiAutoCompleteTextView                         *widgetclient.MultiAutoCompleteTextViewClient
-	WidgetImageButton                                       *widgetclient.ImageButtonClient
-	WidgetStackView                                         *widgetclient.StackViewClient
-	WidgetRelativeLayout                                    *widgetclient.RelativeLayoutClient
-	WidgetAlphabetIndexer                                   *widgetclient.AlphabetIndexerClient
-	WidgetFrameLayout                                       *widgetclient.FrameLayoutClient
-	WidgetGridLayout                                        *widgetclient.GridLayoutClient
-	WidgetScrollView                                        *widgetclient.ScrollViewClient
-	WidgetToolbar                                           *widgetclient.ToolbarClient
-	WidgetArrayAdapter                                      *widgetclient.ArrayAdapterClient
-	WidgetViewFlipper                                       *widgetclient.ViewFlipperClient
-	WidgetTableRow                                          *widgetclient.TableRowClient
-	WidgetGallery                                           *widgetclient.GalleryClient
-	WidgetMediaController                                   *widgetclient.MediaControllerClient
-	WidgetQuickContactBadge                                 *widgetclient.QuickContactBadgeClient
-	WidgetViewSwitcher                                      *widgetclient.ViewSwitcherClient
-	WidgetActionMenuView                                    *widgetclient.ActionMenuViewClient
-	WidgetExpandableListView                                *widgetclient.ExpandableListViewClient
-	WidgetListView                                          *widgetclient.ListViewClient
-	WidgetHeaderViewListAdapter                             *widgetclient.HeaderViewListAdapterClient
-	WidgetRadioGroup                                        *widgetclient.RadioGroupClient
-	WidgetDigitalClock                                      *widgetclient.DigitalClockClient
-	WidgetTwoLineListItem                                   *widgetclient.TwoLineListItemClient
-	WidgetTabHost                                           *widgetclient.TabHostClient
-	WidgetZoomButton                                        *widgetclient.ZoomButtonClient
-	WidgetProgressBar                                       *widgetclient.ProgressBarClient
-	WidgetOverScroller                                      *widgetclient.OverScrollerClient
-	WidgetTimePicker                                        *widgetclient.TimePickerClient
-	WidgetHorizontalScrollView                              *widgetclient.HorizontalScrollViewClient
-	WidgetDialerFilter                                      *widgetclient.DialerFilterClient
-	WidgetImageSwitcher                                     *widgetclient.ImageSwitcherClient
-	WidgetTableLayout                                       *widgetclient.TableLayoutClient
-	WidgetEdgeEffect                                        *widgetclient.EdgeEffectClient
-	WidgetImageView                                         *widgetclient.ImageViewClient
-	WidgetAnalogClock                                       *widgetclient.AnalogClockClient
-	WidgetAdapterViewFlipper                                *widgetclient.AdapterViewFlipperClient
-	WidgetRadioButton                                       *widgetclient.RadioButtonClient
-	WidgetNumberPicker                                      *widgetclient.NumberPickerClient
-	WidgetAbsoluteLayout                                    *widgetclient.AbsoluteLayoutClient
-	WidgetSpinner                                           *widgetclient.SpinnerClient
-	WidgetSlidingDrawer                                     *widgetclient.SlidingDrawerClient
-	WidgetTextView                                          *widgetclient.TextViewClient
-	WidgetMagnifier                                         *widgetclient.MagnifierClient
-	WidgetButton                                            *widgetclient.ButtonClient
-	WidgetSearchView                                        *widgetclient.SearchViewClient
-	WidgetShareActionProvider                               *widgetclient.ShareActionProviderClient
-	WidgetZoomButtonsController                             *widgetclient.ZoomButtonsControllerClient
-	WidgetGridView                                          *widgetclient.GridViewClient
-	WidgetDatePicker                                        *widgetclient.DatePickerClient
+	WebkitWebViewClient                                     *webkitclient.WebViewClientClient
 	WidgetSimpleExpandableListAdapter                       *widgetclient.SimpleExpandableListAdapterClient
-	WidgetSpace                                             *widgetclient.SpaceClient
-	WidgetTabWidget                                         *widgetclient.TabWidgetClient
-	WidgetToggleButton                                      *widgetclient.ToggleButtonClient
-	WidgetListPopupWindow                                   *widgetclient.ListPopupWindowClient
-	WidgetEditText                                          *widgetclient.EditTextClient
-	WidgetSwitch                                            *widgetclient.SwitchClient
-	WidgetAutoCompleteTextView                              *widgetclient.AutoCompleteTextViewClient
-	WidgetCalendarView                                      *widgetclient.CalendarViewClient
-	WidgetSimpleAdapter                                     *widgetclient.SimpleAdapterClient
-	WidgetVideoView                                         *widgetclient.VideoViewClient
-	WidgetViewAnimator                                      *widgetclient.ViewAnimatorClient
-	WidgetCheckedTextView                                   *widgetclient.CheckedTextViewClient
+	WidgetScroller                                          *widgetclient.ScrollerClient
+	WidgetTextView                                          *widgetclient.TextViewClient
+	WidgetOverScroller                                      *widgetclient.OverScrollerClient
+	WidgetViewFlipper                                       *widgetclient.ViewFlipperClient
 	WidgetLinearLayout                                      *widgetclient.LinearLayoutClient
+	WidgetZoomControls                                      *widgetclient.ZoomControlsClient
+	WidgetImageButton                                       *widgetclient.ImageButtonClient
+	WidgetSeekBar                                           *widgetclient.SeekBarClient
+	WidgetListView                                          *widgetclient.ListViewClient
+	WidgetToolbar                                           *widgetclient.ToolbarClient
 	WidgetPopupWindow                                       *widgetclient.PopupWindowClient
 	WidgetChronometer                                       *widgetclient.ChronometerClient
-	WidgetSeekBar                                           *widgetclient.SeekBarClient
+	WidgetRemoteViews                                       *widgetclient.RemoteViewsClient
+	WidgetSearchView                                        *widgetclient.SearchViewClient
+	WidgetQuickContactBadge                                 *widgetclient.QuickContactBadgeClient
+	WidgetZoomButtonsController                             *widgetclient.ZoomButtonsControllerClient
+	WidgetHorizontalScrollView                              *widgetclient.HorizontalScrollViewClient
+	WidgetSlidingDrawer                                     *widgetclient.SlidingDrawerClient
+	WidgetSwitch                                            *widgetclient.SwitchClient
+	WidgetCheckBox                                          *widgetclient.CheckBoxClient
+	WidgetCheckedTextView                                   *widgetclient.CheckedTextViewClient
+	WidgetImageSwitcher                                     *widgetclient.ImageSwitcherClient
+	WidgetGridLayout                                        *widgetclient.GridLayoutClient
+	WidgetTableRow                                          *widgetclient.TableRowClient
+	WidgetTwoLineListItem                                   *widgetclient.TwoLineListItemClient
+	WidgetActionMenuView                                    *widgetclient.ActionMenuViewClient
+	WidgetStackView                                         *widgetclient.StackViewClient
+	WidgetButton                                            *widgetclient.ButtonClient
+	WidgetFrameLayout                                       *widgetclient.FrameLayoutClient
+	WidgetTimePicker                                        *widgetclient.TimePickerClient
+	WidgetTabHost                                           *widgetclient.TabHostClient
+	WidgetTabWidget                                         *widgetclient.TabWidgetClient
+	WidgetGallery                                           *widgetclient.GalleryClient
+	WidgetNumberPicker                                      *widgetclient.NumberPickerClient
+	WidgetEdgeEffect                                        *widgetclient.EdgeEffectClient
+	WidgetAnalogClock                                       *widgetclient.AnalogClockClient
+	WidgetMultiAutoCompleteTextView                         *widgetclient.MultiAutoCompleteTextViewClient
+	WidgetSimpleAdapter                                     *widgetclient.SimpleAdapterClient
+	WidgetHeaderViewListAdapter                             *widgetclient.HeaderViewListAdapterClient
+	WidgetArrayAdapter                                      *widgetclient.ArrayAdapterClient
+	WidgetViewAnimator                                      *widgetclient.ViewAnimatorClient
+	WidgetDatePicker                                        *widgetclient.DatePickerClient
+	WidgetListPopupWindow                                   *widgetclient.ListPopupWindowClient
+	WidgetDialerFilter                                      *widgetclient.DialerFilterClient
+	WidgetProgressBar                                       *widgetclient.ProgressBarClient
+	WidgetDigitalClock                                      *widgetclient.DigitalClockClient
+	WidgetToggleButton                                      *widgetclient.ToggleButtonClient
+	WidgetTextClock                                         *widgetclient.TextClockClient
+	WidgetAlphabetIndexer                                   *widgetclient.AlphabetIndexerClient
+	WidgetTextSwitcher                                      *widgetclient.TextSwitcherClient
+	WidgetShareActionProvider                               *widgetclient.ShareActionProviderClient
+	WidgetVideoView                                         *widgetclient.VideoViewClient
+	WidgetAutoCompleteTextView                              *widgetclient.AutoCompleteTextViewClient
+	WidgetSimpleCursorAdapter                               *widgetclient.SimpleCursorAdapterClient
+	WidgetRadioGroup                                        *widgetclient.RadioGroupClient
+	WidgetCalendarView                                      *widgetclient.CalendarViewClient
+	WidgetEditText                                          *widgetclient.EditTextClient
+	WidgetExpandableListView                                *widgetclient.ExpandableListViewClient
+	WidgetRelativeLayout                                    *widgetclient.RelativeLayoutClient
+	WidgetImageView                                         *widgetclient.ImageViewClient
+	WidgetSpinner                                           *widgetclient.SpinnerClient
+	WidgetRadioButton                                       *widgetclient.RadioButtonClient
+	WidgetTableLayout                                       *widgetclient.TableLayoutClient
+	WidgetMagnifier                                         *widgetclient.MagnifierClient
+	WidgetSpace                                             *widgetclient.SpaceClient
+	WidgetRatingBar                                         *widgetclient.RatingBarClient
+	WidgetMediaController                                   *widgetclient.MediaControllerClient
+	WidgetViewSwitcher                                      *widgetclient.ViewSwitcherClient
 	WidgetPopupMenu                                         *widgetclient.PopupMenuClient
+	WidgetAbsoluteLayout                                    *widgetclient.AbsoluteLayoutClient
+	WidgetAdapterViewFlipper                                *widgetclient.AdapterViewFlipperClient
+	WidgetZoomButton                                        *widgetclient.ZoomButtonClient
+	WidgetScrollView                                        *widgetclient.ScrollViewClient
+	WidgetGridView                                          *widgetclient.GridViewClient
+	WifiScanResult                                          *wificlient.ScanResultClient
 	WifiManager                                             *wificlient.ManagerClient
 	WifiConfiguration                                       *wificlient.ConfigurationClient
 	WifiAvailableChannel                                    *wificlient.AvailableChannelClient
 	WifiMloLink                                             *wificlient.MloLinkClient
-	WifiScanResult                                          *wificlient.ScanResultClient
 	WifiWpsInfo                                             *wificlient.WpsInfoClient
 	WifiEnterpriseConfig                                    *wificlient.EnterpriseConfigClient
 	Wifi_p2pWifiP2pWfdInfo                                  *wifi_p2pclient.WifiP2pWfdInfoClient
 	Wifi_p2pWifiP2pPairingBootstrappingConfig               *wifi_p2pclient.WifiP2pPairingBootstrappingConfigClient
-	Wifi_p2pWifiP2pDirInfo                                  *wifi_p2pclient.WifiP2pDirInfoClient
-	Wifi_p2pWifiP2pDeviceList                               *wifi_p2pclient.WifiP2pDeviceListClient
-	Wifi_p2pWifiP2pInfo                                     *wifi_p2pclient.WifiP2pInfoClient
-	Wifi_p2pWifiP2pDevice                                   *wifi_p2pclient.WifiP2pDeviceClient
-	Wifi_p2pWifiP2pGroup                                    *wifi_p2pclient.WifiP2pGroupClient
-	Wifi_p2pWifiP2pManager                                  *wifi_p2pclient.WifiP2pManagerClient
 	Wifi_p2pWifiP2pConfig                                   *wifi_p2pclient.WifiP2pConfigClient
+	Wifi_p2pWifiP2pDeviceList                               *wifi_p2pclient.WifiP2pDeviceListClient
+	Wifi_p2pWifiP2pDevice                                   *wifi_p2pclient.WifiP2pDeviceClient
+	Wifi_p2pWifiP2pInfo                                     *wifi_p2pclient.WifiP2pInfoClient
+	Wifi_p2pWifiP2pGroup                                    *wifi_p2pclient.WifiP2pGroupClient
+	Wifi_p2pWifiP2pDirInfo                                  *wifi_p2pclient.WifiP2pDirInfoClient
+	Wifi_p2pWifiP2pManager                                  *wifi_p2pclient.WifiP2pManagerClient
 	Wifi_rttWifiRttManager                                  *wifi_rttclient.WifiRttManagerClient
-	WindowTrustedPresentationThresholds                     *windowclient.TrustedPresentationThresholdsClient
-	WindowSurfaceSyncGroup                                  *windowclient.SurfaceSyncGroupClient
 	WindowBackEvent                                         *windowclient.BackEventClient
+	WindowSurfaceSyncGroup                                  *windowclient.SurfaceSyncGroupClient
+	WindowTrustedPresentationThresholds                     *windowclient.TrustedPresentationThresholdsClient
 }
 
 // NewClient creates a composite client from a gRPC connection.
 func NewClient(cc grpc.ClientConnInterface) *Client {
 	return &Client{
 		handles:                                                 handlepb.NewHandleStoreServiceClient(cc),
-		AccessibilityCaptioningManager:                          accessibilityclient.NewCaptioningManagerClient(cc),
-		AccessibilityManager:                                    accessibilityclient.NewManagerClient(cc),
 		AccessibilityWindowInfo:                                 accessibilityclient.NewWindowInfoClient(cc),
-		AccessibilityEvent:                                      accessibilityclient.NewEventClient(cc),
-		AccessibilityNodeInfo:                                   accessibilityclient.NewNodeInfoClient(cc),
 		AccessibilityRecord:                                     accessibilityclient.NewRecordClient(cc),
+		AccessibilityEvent:                                      accessibilityclient.NewEventClient(cc),
+		AccessibilityManager:                                    accessibilityclient.NewManagerClient(cc),
+		AccessibilityCaptioningManager:                          accessibilityclient.NewCaptioningManagerClient(cc),
+		AccessibilityNodeInfo:                                   accessibilityclient.NewNodeInfoClient(cc),
 		AccessibilityserviceAccessibilityGestureEvent:           accessibilityserviceclient.NewAccessibilityGestureEventClient(cc),
-		AccessibilityserviceAccessibilityServiceInfo:            accessibilityserviceclient.NewAccessibilityServiceInfoClient(cc),
 		AccessibilityserviceInputMethod:                         accessibilityserviceclient.NewInputMethodClient(cc),
-		AccountsAccountManager:                                  accountsclient.NewAccountManagerClient(cc),
-		AccountsAccountAuthenticatorResponse:                    accountsclient.NewAccountAuthenticatorResponseClient(cc),
+		AccessibilityserviceAccessibilityServiceInfo:            accessibilityserviceclient.NewAccessibilityServiceInfoClient(cc),
 		AccountsAuthenticatorDescription:                        accountsclient.NewAuthenticatorDescriptionClient(cc),
-		AccountsAccountAuthenticatorActivity:                    accountsclient.NewAccountAuthenticatorActivityClient(cc),
+		AccountsAccountManager:                                  accountsclient.NewAccountManagerClient(cc),
 		AccountsAccount:                                         accountsclient.NewAccountClient(cc),
+		AccountsAccountAuthenticatorActivity:                    accountsclient.NewAccountAuthenticatorActivityClient(cc),
+		AccountsAccountAuthenticatorResponse:                    accountsclient.NewAccountAuthenticatorResponseClient(cc),
 		ActionsCommandAction:                                    actionsclient.NewCommandActionClient(cc),
+		ActionsModeAction:                                       actionsclient.NewModeActionClient(cc),
 		ActionsBooleanAction:                                    actionsclient.NewBooleanActionClient(cc),
 		ActionsFloatAction:                                      actionsclient.NewFloatActionClient(cc),
-		ActionsModeAction:                                       actionsclient.NewModeActionClient(cc),
 		AdTvAdServiceInfo:                                       adclient.NewTvAdServiceInfoClient(cc),
-		AdTvAdView:                                              adclient.NewTvAdViewClient(cc),
 		AdTvAdManager:                                           adclient.NewTvAdManagerClient(cc),
+		AdTvAdView:                                              adclient.NewTvAdViewClient(cc),
 		AdidAdId:                                                adidclient.NewAdIdClient(cc),
-		AdminDevicePolicyManager:                                adminclient.NewDevicePolicyManagerClient(cc),
-		AdminWifiSsidPolicy:                                     adminclient.NewWifiSsidPolicyClient(cc),
-		AdminPackagePolicy:                                      adminclient.NewPackagePolicyClient(cc),
-		AdminPolicyUpdateResult:                                 adminclient.NewPolicyUpdateResultClient(cc),
-		AdminDeviceAdminReceiver:                                adminclient.NewDeviceAdminReceiverClient(cc),
+		AdminFreezePeriod:                                       adminclient.NewFreezePeriodClient(cc),
+		AdminDeviceAdminService:                                 adminclient.NewDeviceAdminServiceClient(cc),
 		AdminManagedSubscriptionsPolicy:                         adminclient.NewManagedSubscriptionsPolicyClient(cc),
 		AdminDeviceAdminInfo:                                    adminclient.NewDeviceAdminInfoClient(cc),
+		AdminPolicyUpdateResult:                                 adminclient.NewPolicyUpdateResultClient(cc),
+		AdminDevicePolicyManager:                                adminclient.NewDevicePolicyManagerClient(cc),
+		AdminDeviceAdminReceiver:                                adminclient.NewDeviceAdminReceiverClient(cc),
 		AdminDelegatedAdminReceiver:                             adminclient.NewDelegatedAdminReceiverClient(cc),
-		AdminDeviceAdminService:                                 adminclient.NewDeviceAdminServiceClient(cc),
-		AdminFreezePeriod:                                       adminclient.NewFreezePeriodClient(cc),
-		AdselectionAdWithBid:                                    adselectionclient.NewAdWithBidClient(cc),
+		AdminWifiSsidPolicy:                                     adminclient.NewWifiSsidPolicyClient(cc),
+		AdminPackagePolicy:                                      adminclient.NewPackagePolicyClient(cc),
 		AdselectionReportImpressionRequest:                      adselectionclient.NewReportImpressionRequestClient(cc),
-		AdselectionDecisionLogic:                                adselectionclient.NewDecisionLogicClient(cc),
-		AdselectionRemoveAdSelectionOverrideRequest:             adselectionclient.NewRemoveAdSelectionOverrideRequestClient(cc),
 		AdselectionAddAdSelectionOverrideRequest:                adselectionclient.NewAddAdSelectionOverrideRequestClient(cc),
+		AdselectionDecisionLogic:                                adselectionclient.NewDecisionLogicClient(cc),
 		AdselectionPerBuyerDecisionLogic:                        adselectionclient.NewPerBuyerDecisionLogicClient(cc),
+		AdselectionRemoveAdSelectionOverrideRequest:             adselectionclient.NewRemoveAdSelectionOverrideRequestClient(cc),
 		AdselectionAddAdSelectionFromOutcomesOverrideRequest:    adselectionclient.NewAddAdSelectionFromOutcomesOverrideRequestClient(cc),
 		AdselectionRemoveAdSelectionFromOutcomesOverrideRequest: adselectionclient.NewRemoveAdSelectionFromOutcomesOverrideRequestClient(cc),
+		AdselectionAdWithBid:                                    adselectionclient.NewAdWithBidClient(cc),
 		AdvancedprotectionAdvancedProtectionManager:             advancedprotectionclient.NewAdvancedProtectionManagerClient(cc),
 		AlarmManager:                                            alarmclient.NewManagerClient(cc),
 		AltitudeConverter:                                       altitudeclient.NewConverterClient(cc),
-		AnimationAccelerateInterpolator:                         animationclient.NewAccelerateInterpolatorClient(cc),
+		AnimationTimeAnimator:                                   animationclient.NewTimeAnimatorClient(cc),
 		AnimationIntArrayEvaluator:                              animationclient.NewIntArrayEvaluatorClient(cc),
+		AnimationRectEvaluator:                                  animationclient.NewRectEvaluatorClient(cc),
+		AnimationStateListAnimator:                              animationclient.NewStateListAnimatorClient(cc),
+		AnimationGridLayoutAnimationController:                  animationclient.NewGridLayoutAnimationControllerClient(cc),
 		AnimationRotateAnimation:                                animationclient.NewRotateAnimationClient(cc),
 		AnimationCycleInterpolator:                              animationclient.NewCycleInterpolatorClient(cc),
-		AnimationAnticipateOvershootInterpolator:                animationclient.NewAnticipateOvershootInterpolatorClient(cc),
-		AnimationLayoutAnimationController:                      animationclient.NewLayoutAnimationControllerClient(cc),
-		AnimationGridLayoutAnimationController:                  animationclient.NewGridLayoutAnimationControllerClient(cc),
-		AnimationScaleAnimation:                                 animationclient.NewScaleAnimationClient(cc),
-		AnimationLinearInterpolator:                             animationclient.NewLinearInterpolatorClient(cc),
-		AnimationPathInterpolator:                               animationclient.NewPathInterpolatorClient(cc),
-		AnimationUtils:                                          animationclient.NewUtilsClient(cc),
+		AnimationSet:                                            animationclient.NewSetClient(cc),
 		AnimationDecelerateInterpolator:                         animationclient.NewDecelerateInterpolatorClient(cc),
-		AnimationAccelerateDecelerateInterpolator:               animationclient.NewAccelerateDecelerateInterpolatorClient(cc),
-		AnimationAnimatorSet:                                    animationclient.NewAnimatorSetClient(cc),
-		AnimationObjectAnimator:                                 animationclient.NewObjectAnimatorClient(cc),
-		AnimationLayoutTransition:                               animationclient.NewLayoutTransitionClient(cc),
-		AnimationArgbEvaluator:                                  animationclient.NewArgbEvaluatorClient(cc),
+		AnimationTransformation:                                 animationclient.NewTransformationClient(cc),
+		AnimationOvershootInterpolator:                          animationclient.NewOvershootInterpolatorClient(cc),
+		AnimationUtils:                                          animationclient.NewUtilsClient(cc),
+		AnimationPathInterpolator:                               animationclient.NewPathInterpolatorClient(cc),
 		AnimationAlphaAnimation:                                 animationclient.NewAlphaAnimationClient(cc),
-		AnimationValueAnimator:                                  animationclient.NewValueAnimatorClient(cc),
+		AnimationBounceInterpolator:                             animationclient.NewBounceInterpolatorClient(cc),
+		AnimationLinearInterpolator:                             animationclient.NewLinearInterpolatorClient(cc),
+		AnimationAnticipateOvershootInterpolator:                animationclient.NewAnticipateOvershootInterpolatorClient(cc),
+		AnimationAnticipateInterpolator:                         animationclient.NewAnticipateInterpolatorClient(cc),
+		AnimationScaleAnimation:                                 animationclient.NewScaleAnimationClient(cc),
+		AnimationLayoutAnimationController:                      animationclient.NewLayoutAnimationControllerClient(cc),
+		AnimationAccelerateDecelerateInterpolator:               animationclient.NewAccelerateDecelerateInterpolatorClient(cc),
+		AnimationAccelerateInterpolator:                         animationclient.NewAccelerateInterpolatorClient(cc),
+		AnimationTranslateAnimation:                             animationclient.NewTranslateAnimationClient(cc),
+		AnimationAnimatorSet:                                    animationclient.NewAnimatorSetClient(cc),
 		AnimationFloatEvaluator:                                 animationclient.NewFloatEvaluatorClient(cc),
 		AnimationPointFEvaluator:                                animationclient.NewPointFEvaluatorClient(cc),
-		AnimationAnimatorInflater:                               animationclient.NewAnimatorInflaterClient(cc),
-		AnimationOvershootInterpolator:                          animationclient.NewOvershootInterpolatorClient(cc),
-		AnimationTranslateAnimation:                             animationclient.NewTranslateAnimationClient(cc),
-		AnimationSet:                                            animationclient.NewSetClient(cc),
-		AnimationAnticipateInterpolator:                         animationclient.NewAnticipateInterpolatorClient(cc),
-		AnimationBounceInterpolator:                             animationclient.NewBounceInterpolatorClient(cc),
-		AnimationTransformation:                                 animationclient.NewTransformationClient(cc),
-		AnimationIntEvaluator:                                   animationclient.NewIntEvaluatorClient(cc),
-		AnimationStateListAnimator:                              animationclient.NewStateListAnimatorClient(cc),
+		AnimationLayoutTransition:                               animationclient.NewLayoutTransitionClient(cc),
 		AnimationFloatArrayEvaluator:                            animationclient.NewFloatArrayEvaluatorClient(cc),
-		AnimationRectEvaluator:                                  animationclient.NewRectEvaluatorClient(cc),
-		AnimationTimeAnimator:                                   animationclient.NewTimeAnimatorClient(cc),
-		AppFragmentBreadCrumbs:                                  appclient.NewFragmentBreadCrumbsClient(cc),
-		AppGameState:                                            appclient.NewGameStateClient(cc),
-		AppMediaRouteActionProvider:                             appclient.NewMediaRouteActionProviderClient(cc),
-		AppListFragment:                                         appclient.NewListFragmentClient(cc),
-		AppDatePickerDialog:                                     appclient.NewDatePickerDialogClient(cc),
-		AppListActivity:                                         appclient.NewListActivityClient(cc),
-		AppMediaRouteButton:                                     appclient.NewMediaRouteButtonClient(cc),
-		AppNativeActivity:                                       appclient.NewNativeActivityClient(cc),
-		AppTabActivity:                                          appclient.NewTabActivityClient(cc),
-		AppNotificationChannelGroup:                             appclient.NewNotificationChannelGroupClient(cc),
-		AppWallpaperColors:                                      appclient.NewWallpaperColorsClient(cc),
-		AppCancellationSignal:                                   appclient.NewCancellationSignalClient(cc),
-		AppExpandableListActivity:                               appclient.NewExpandableListActivityClient(cc),
-		AppInvalidForegroundServiceTypeException:                appclient.NewInvalidForegroundServiceTypeExceptionClient(cc),
-		AppSyncNotedAppOp:                                       appclient.NewSyncNotedAppOpClient(cc),
-		AppGrammaticalInflectionManager:                         appclient.NewGrammaticalInflectionManagerClient(cc),
-		AppComponentFactory:                                     appclient.NewComponentFactoryClient(cc),
-		AppMissingForegroundServiceTypeException:                appclient.NewMissingForegroundServiceTypeExceptionClient(cc),
-		AppUiModeManager:                                        appclient.NewUiModeManagerClient(cc),
-		AppProgressDialog:                                       appclient.NewProgressDialogClient(cc),
-		AppFragment:                                             appclient.NewFragmentClient(cc),
-		AppDialogFragment:                                       appclient.NewDialogFragmentClient(cc),
-		AppPresentation:                                         appclient.NewPresentationClient(cc),
-		AppStartForegroundCalledOnStoppedServiceException:       appclient.NewStartForegroundCalledOnStoppedServiceExceptionClient(cc),
-		AppInstrumentation:                                      appclient.NewInstrumentationClient(cc),
-		AppWallpaperInfo:                                        appclient.NewWallpaperInfoClient(cc),
-		AppAutomaticZenRule:                                     appclient.NewAutomaticZenRuleClient(cc),
-		AppLocalActivityManager:                                 appclient.NewLocalActivityManagerClient(cc),
+		AnimationAnimatorInflater:                               animationclient.NewAnimatorInflaterClient(cc),
+		AnimationIntEvaluator:                                   animationclient.NewIntEvaluatorClient(cc),
+		AnimationObjectAnimator:                                 animationclient.NewObjectAnimatorClient(cc),
+		AnimationValueAnimator:                                  animationclient.NewValueAnimatorClient(cc),
+		AnimationArgbEvaluator:                                  animationclient.NewArgbEvaluatorClient(cc),
 		AppForegroundServiceStartNotAllowedException:            appclient.NewForegroundServiceStartNotAllowedExceptionClient(cc),
-		AppDialog:                       appclient.NewDialogClient(cc),
-		AppOpsManager:                   appclient.NewOpsManagerClient(cc),
-		AppRecoverableSecurityException: appclient.NewRecoverableSecurityExceptionClient(cc),
-		AppSearchManager:                appclient.NewSearchManagerClient(cc),
-		AppRemoteAction:                 appclient.NewRemoteActionClient(cc),
-		AppActivity:                     appclient.NewActivityClient(cc),
-		AppLocaleManager:                appclient.NewLocaleManagerClient(cc),
-		AppLocaleConfig:                 appclient.NewLocaleConfigClient(cc),
-		AppIntent:                       appclient.NewIntentClient(cc),
-		AppBackgroundServiceStartNotAllowedException:      appclient.NewBackgroundServiceStartNotAllowedExceptionClient(cc),
-		AppStatusBarManager:                               appclient.NewStatusBarManagerClient(cc),
-		AppActivityManager:                                appclient.NewActivityManagerClient(cc),
-		AppAuthenticationRequiredException:                appclient.NewAuthenticationRequiredExceptionClient(cc),
-		AppActivityGroup:                                  appclient.NewActivityGroupClient(cc),
-		AppWallpaperManager:                               appclient.NewWallpaperManagerClient(cc),
-		AppGameManager:                                    appclient.NewGameManagerClient(cc),
-		AppTimePickerDialog:                               appclient.NewTimePickerDialogClient(cc),
-		AppBundle:                                         appclient.NewBundleClient(cc),
-		AppfunctionsAppFunctionException:                  appfunctionsclient.NewAppFunctionExceptionClient(cc),
-		AppfunctionsExecuteAppFunctionResponse:            appfunctionsclient.NewExecuteAppFunctionResponseClient(cc),
-		AppsearchOpenBlobForReadResponse:                  appsearchclient.NewOpenBlobForReadResponseClient(cc),
-		AppsearchEmbeddingVector:                          appsearchclient.NewEmbeddingVectorClient(cc),
-		AppsearchPackageIdentifier:                        appsearchclient.NewPackageIdentifierClient(cc),
-		AppsearchCommitBlobResponse:                       appsearchclient.NewCommitBlobResponseClient(cc),
-		AppsearchOpenBlobForWriteResponse:                 appsearchclient.NewOpenBlobForWriteResponseClient(cc),
-		AppsearchRemoveBlobResponse:                       appsearchclient.NewRemoveBlobResponseClient(cc),
-		AppsearchPropertyPath:                             appsearchclient.NewPropertyPathClient(cc),
-		AppsetidAppSetId:                                  appsetidclient.NewAppSetIdClient(cc),
-		AppwidgetAppWidgetHostView:                        appwidgetclient.NewAppWidgetHostViewClient(cc),
-		AppwidgetAppWidgetProvider:                        appwidgetclient.NewAppWidgetProviderClient(cc),
-		AppwidgetAppWidgetHost:                            appwidgetclient.NewAppWidgetHostClient(cc),
-		AppwidgetAppWidgetManager:                         appwidgetclient.NewAppWidgetManagerClient(cc),
-		AppwidgetAppWidgetProviderInfo:                    appwidgetclient.NewAppWidgetProviderInfoClient(cc),
-		AssistContent:                                     assistclient.NewContentClient(cc),
-		AssistStructure:                                   assistclient.NewStructureClient(cc),
-		AudiofxBassBoost:                                  audiofxclient.NewBassBoostClient(cc),
-		AudiofxPresetReverb:                               audiofxclient.NewPresetReverbClient(cc),
-		AudiofxEqualizer:                                  audiofxclient.NewEqualizerClient(cc),
-		AudiofxLoudnessEnhancer:                           audiofxclient.NewLoudnessEnhancerClient(cc),
-		AudiofxDynamicsProcessing:                         audiofxclient.NewDynamicsProcessingClient(cc),
-		AudiofxVirtualizer:                                audiofxclient.NewVirtualizerClient(cc),
-		AudiofxEnvironmentalReverb:                        audiofxclient.NewEnvironmentalReverbClient(cc),
-		AudiofxVisualizer:                                 audiofxclient.NewVisualizerClient(cc),
-		AudiomanagerAudioManager:                          audiomanagerclient.NewAudioManagerClient(cc),
-		AudiorecordAudioRecord:                            audiorecordclient.NewAudioRecordClient(cc),
-		AutofillTextValueSanitizer:                        autofillclient.NewTextValueSanitizerClient(cc),
-		AutofillDateTransformation:                        autofillclient.NewDateTransformationClient(cc),
-		AutofillDateValueSanitizer:                        autofillclient.NewDateValueSanitizerClient(cc),
-		AutofillLuhnChecksumValidator:                     autofillclient.NewLuhnChecksumValidatorClient(cc),
-		AutofillSavedDatasetsInfo:                         autofillclient.NewSavedDatasetsInfoClient(cc),
-		AutofillInlinePresentation:                        autofillclient.NewInlinePresentationClient(cc),
-		AutofillRegexValidator:                            autofillclient.NewRegexValidatorClient(cc),
-		AwareAttachCallback:                               awareclient.NewAttachCallbackClient(cc),
-		AwareResources:                                    awareclient.NewResourcesClient(cc),
-		AwareWifiAwareManager:                             awareclient.NewWifiAwareManagerClient(cc),
-		AwareParcelablePeerHandle:                         awareclient.NewParcelablePeerHandleClient(cc),
-		AwareIdentityChangedListener:                      awareclient.NewIdentityChangedListenerClient(cc),
-		AwareDiscoverySessionCallback:                     awareclient.NewDiscoverySessionCallbackClient(cc),
-		BackupSharedPreferencesBackupHelper:               backupclient.NewSharedPreferencesBackupHelperClient(cc),
-		BackupManager:                                     backupclient.NewManagerClient(cc),
-		BackupFileBackupHelper:                            backupclient.NewFileBackupHelperClient(cc),
-		BackupAgentHelper:                                 backupclient.NewAgentHelperClient(cc),
-		BatteryManager:                                    batteryclient.NewManagerClient(cc),
-		BiometricManager:                                  biometricclient.NewManagerClient(cc),
-		BiometricsPromptContentItemBulletedText:           biometricsclient.NewPromptContentItemBulletedTextClient(cc),
-		BiometricsPromptContentItemPlainText:              biometricsclient.NewPromptContentItemPlainTextClient(cc),
-		BlobStoreManager:                                  blobclient.NewStoreManagerClient(cc),
-		BluetoothGattCharacteristic:                       bluetoothclient.NewGattCharacteristicClient(cc),
-		BluetoothLeAudioCodecStatus:                       bluetoothclient.NewLeAudioCodecStatusClient(cc),
-		BluetoothHidDeviceAppQosSettings:                  bluetoothclient.NewHidDeviceAppQosSettingsClient(cc),
-		BluetoothManager:                                  bluetoothclient.NewManagerClient(cc),
-		BluetoothSocketException:                          bluetoothclient.NewSocketExceptionClient(cc),
-		BluetoothHidDeviceAppSdpSettings:                  bluetoothclient.NewHidDeviceAppSdpSettingsClient(cc),
-		BluetoothGattDescriptor:                           bluetoothclient.NewGattDescriptorClient(cc),
-		BluetoothGattService:                              bluetoothclient.NewGattServiceClient(cc),
-		BrowseMediaBrowser:                                browseclient.NewMediaBrowserClient(cc),
-		BuildBuild:                                        buildclient.NewBuildClient(cc),
-		CameraManager:                                     cameraclient.NewManagerClient(cc),
-		Camera2CameraAccessException:                      camera2client.NewCameraAccessExceptionClient(cc),
-		Camera2DngCreator:                                 camera2client.NewDngCreatorClient(cc),
-		Camera2MultiResolutionImageReader:                 camera2client.NewMultiResolutionImageReaderClient(cc),
-		CarrierMessagePdu:                                 carrierclient.NewMessagePduClient(cc),
-		CarrierMessagingClientService:                     carrierclient.NewMessagingClientServiceClient(cc),
-		CarrierIdentifier:                                 carrierclient.NewIdentifierClient(cc),
-		CdmaCellLocation:                                  cdmaclient.NewCellLocationClient(cc),
-		ChooserTarget:                                     chooserclient.NewTargetClient(cc),
-		ClassificationFieldClassification:                 classificationclient.NewFieldClassificationClient(cc),
-		ClipboardClipData:                                 clipboardclient.NewClipDataClient(cc),
-		ClipboardManager:                                  clipboardclient.NewManagerClient(cc),
-		CommonComponentAdData:                             commonclient.NewComponentAdDataClient(cc),
-		CompanionDevicePresenceEvent:                      companionclient.NewDevicePresenceEventClient(cc),
-		CompanionDeviceManager:                            companionclient.NewDeviceManagerClient(cc),
-		ContactsContract:                                  contactsclient.NewContractClient(cc),
-		ContentRestrictionsManager:                        contentclient.NewRestrictionsManagerClient(cc),
-		ContentcaptureDataShareRequest:                    contentcaptureclient.NewDataShareRequestClient(cc),
-		ContentcaptureContentCaptureCondition:             contentcaptureclient.NewContentCaptureConditionClient(cc),
-		CredentialsCredentialManager:                      credentialsclient.NewCredentialManagerClient(cc),
-		CustomaudienceAddCustomAudienceOverrideRequest:    customaudienceclient.NewAddCustomAudienceOverrideRequestClient(cc),
-		CustomaudienceRemoveCustomAudienceOverrideRequest: customaudienceclient.NewRemoveCustomAudienceOverrideRequestClient(cc),
-		DataNetworkSlicingConfig:                          dataclient.NewNetworkSlicingConfigClient(cc),
-		DatabaseDefaultDatabaseErrorHandler:               databaseclient.NewDefaultDatabaseErrorHandlerClient(cc),
-		DatabaseCursorWrapper:                             databaseclient.NewCursorWrapperClient(cc),
-		DatabaseDataSetObservable:                         databaseclient.NewDataSetObservableClient(cc),
-		DatabaseUtils:                                     databaseclient.NewUtilsClient(cc),
-		DatabaseContentObservable:                         databaseclient.NewContentObservableClient(cc),
-		DatabaseCursorWindow:                              databaseclient.NewCursorWindowClient(cc),
-		DatabaseCursorJoiner:                              databaseclient.NewCursorJoinerClient(cc),
-		DatabaseCrossProcessCursorWrapper:                 databaseclient.NewCrossProcessCursorWrapperClient(cc),
-		DatabaseMergeCursor:                               databaseclient.NewMergeCursorClient(cc),
-		DatabaseMatrixCursor:                              databaseclient.NewMatrixCursorClient(cc),
-		DatatypesExerciseRoute:                            datatypesclient.NewExerciseRouteClient(cc),
-		DisplayManager:                                    displayclient.NewManagerClient(cc),
-		DisplayWindowManager:                              displayclient.NewWindowManagerClient(cc),
-		DisplayhashVerifiedDisplayHash:                    displayhashclient.NewVerifiedDisplayHashClient(cc),
-		DisplayhashDisplayHashManager:                     displayhashclient.NewDisplayHashManagerClient(cc),
-		DomainVerificationManager:                         domainclient.NewVerificationManagerClient(cc),
-		DownloadManager:                                   downloadclient.NewManagerClient(cc),
-		DrawableAnimatedImageDrawable:                     drawableclient.NewAnimatedImageDrawableClient(cc),
-		DrawableNinePatchDrawable:                         drawableclient.NewNinePatchDrawableClient(cc),
-		DrawableAdaptiveIconDrawable:                      drawableclient.NewAdaptiveIconDrawableClient(cc),
-		DrawableRotateDrawable:                            drawableclient.NewRotateDrawableClient(cc),
-		DrawableContainer:                                 drawableclient.NewContainerClient(cc),
-		DrawableAnimationDrawable:                         drawableclient.NewAnimationDrawableClient(cc),
-		DrawableColorStateListDrawable:                    drawableclient.NewColorStateListDrawableClient(cc),
-		DrawableAnimatedStateListDrawable:                 drawableclient.NewAnimatedStateListDrawableClient(cc),
-		DrawableShapeDrawable:                             drawableclient.NewShapeDrawableClient(cc),
-		DrawableClipDrawable:                              drawableclient.NewClipDrawableClient(cc),
-		DrawableVectorDrawable:                            drawableclient.NewVectorDrawableClient(cc),
-		DrawablePictureDrawable:                           drawableclient.NewPictureDrawableClient(cc),
-		DrawableInsetDrawable:                             drawableclient.NewInsetDrawableClient(cc),
-		DrawableStateListDrawable:                         drawableclient.NewStateListDrawableClient(cc),
-		DrawableGradientDrawable:                          drawableclient.NewGradientDrawableClient(cc),
-		DrawablePaintDrawable:                             drawableclient.NewPaintDrawableClient(cc),
-		DrawableBitmapDrawable:                            drawableclient.NewBitmapDrawableClient(cc),
-		DrawableTransitionDrawable:                        drawableclient.NewTransitionDrawableClient(cc),
-		DrawableLevelListDrawable:                         drawableclient.NewLevelListDrawableClient(cc),
-		DrawableRippleDrawable:                            drawableclient.NewRippleDrawableClient(cc),
-		DrawableColorDrawable:                             drawableclient.NewColorDrawableClient(cc),
-		DrawableLayerDrawable:                             drawableclient.NewLayerDrawableClient(cc),
-		DrawableScaleDrawable:                             drawableclient.NewScaleDrawableClient(cc),
-		DrawableAnimatedVectorDrawable:                    drawableclient.NewAnimatedVectorDrawableClient(cc),
-		DreamsDreamService:                                dreamsclient.NewDreamServiceClient(cc),
-		DrmManagerClient:                                  drmclient.NewManagerClientClient(cc),
-		DrmUtils:                                          drmclient.NewUtilsClient(cc),
-		DrmSupportInfo:                                    drmclient.NewSupportInfoClient(cc),
-		DrmInfo:                                           drmclient.NewInfoClient(cc),
-		DrmInfoRequest:                                    drmclient.NewInfoRequestClient(cc),
-		DrmRights:                                         drmclient.NewRightsClient(cc),
-		EnvironmentEnvironment:                            environmentclient.NewEnvironmentClient(cc),
-		EuiccManager:                                      euiccclient.NewManagerClient(cc),
-		EuiccInfo:                                         euiccclient.NewInfoClient(cc),
-		ExceptionsInvalidSelectorsException:               exceptionsclient.NewInvalidSelectorsExceptionClient(cc),
-		ExceptionsIkeIOException:                          exceptionsclient.NewIkeIOExceptionClient(cc),
-		ExceptionsAppSearchException:                      exceptionsclient.NewAppSearchExceptionClient(cc),
-		ExceptionsIkeNetworkLostException:                 exceptionsclient.NewIkeNetworkLostExceptionClient(cc),
-		ExceptionsInvalidKeException:                      exceptionsclient.NewInvalidKeExceptionClient(cc),
-		ExceptionsInvalidMajorVersionException:            exceptionsclient.NewInvalidMajorVersionExceptionClient(cc),
-		FingerprintManager:                                fingerprintclient.NewManagerClient(cc),
-		FlaggingAconfigStorageReadException:               flaggingclient.NewAconfigStorageReadExceptionClient(cc),
-		FontsFontStyle:                                    fontsclient.NewFontStyleClient(cc),
-		FontsFontVariationAxis:                            fontsclient.NewFontVariationAxisClient(cc),
-		FormatDateFormat:                                  formatclient.NewDateFormatClient(cc),
-		FormatTime:                                        formatclient.NewTimeClient(cc),
-		FormatDateUtils:                                   formatclient.NewDateUtilsClient(cc),
-		GestureGesture:                                    gestureclient.NewGestureClient(cc),
-		GestureStore:                                      gestureclient.NewStoreClient(cc),
-		GestureOverlayView:                                gestureclient.NewOverlayViewClient(cc),
-		GestureStroke:                                     gestureclient.NewStrokeClient(cc),
-		GesturePoint:                                      gestureclient.NewPointClient(cc),
-		GraphicsPixelFormat:                               graphicsclient.NewPixelFormatClient(cc),
-		GraphicsOutline:                                   graphicsclient.NewOutlineClient(cc),
-		GraphicsInterpolator:                              graphicsclient.NewInterpolatorClient(cc),
-		GraphicsRegion:                                    graphicsclient.NewRegionClient(cc),
-		GraphicsBitmapShader:                              graphicsclient.NewBitmapShaderClient(cc),
-		GraphicsMatrix44:                                  graphicsclient.NewMatrix44Client(cc),
-		GraphicsBlendModeColorFilter:                      graphicsclient.NewBlendModeColorFilterClient(cc),
-		GraphicsMatrix:                                    graphicsclient.NewMatrixClient(cc),
-		GraphicsPath:                                      graphicsclient.NewPathClient(cc),
-		GraphicsPointF:                                    graphicsclient.NewPointFClient(cc),
-		GraphicsColorMatrixColorFilter:                    graphicsclient.NewColorMatrixColorFilterClient(cc),
-		GraphicsShader:                                    graphicsclient.NewShaderClient(cc),
-		GraphicsNinePatch:                                 graphicsclient.NewNinePatchClient(cc),
-		GraphicsPoint:                                     graphicsclient.NewPointClient(cc),
-		GraphicsRect:                                      graphicsclient.NewRectClient(cc),
-		GraphicsHardwareRenderer:                          graphicsclient.NewHardwareRendererClient(cc),
-		GraphicsRegionIterator:                            graphicsclient.NewRegionIteratorClient(cc),
-		GraphicsColorMatrix:                               graphicsclient.NewColorMatrixClient(cc),
-		GraphicsMesh:                                      graphicsclient.NewMeshClient(cc),
-		GraphicsPicture:                                   graphicsclient.NewPictureClient(cc),
-		GraphicsRuntimeColorFilter:                        graphicsclient.NewRuntimeColorFilterClient(cc),
-		GraphicsRectF:                                     graphicsclient.NewRectFClient(cc),
-		GraphicsGainmap:                                   graphicsclient.NewGainmapClient(cc),
-		GraphicsRuntimeXfermode:                           graphicsclient.NewRuntimeXfermodeClient(cc),
-		GraphicsPorterDuffColorFilter:                     graphicsclient.NewPorterDuffColorFilterClient(cc),
-		GraphicsParcelableColorSpace:                      graphicsclient.NewParcelableColorSpaceClient(cc),
-		GraphicsYuvImage:                                  graphicsclient.NewYuvImageClient(cc),
-		GraphicsImageFormat:                               graphicsclient.NewImageFormatClient(cc),
-		GraphicsSurfaceTexture:                            graphicsclient.NewSurfaceTextureClient(cc),
-		GraphicsBitmapFactory:                             graphicsclient.NewBitmapFactoryClient(cc),
-		GraphicsLightingColorFilter:                       graphicsclient.NewLightingColorFilterClient(cc),
-		GraphicsRenderNode:                                graphicsclient.NewRenderNodeClient(cc),
-		GraphicsPathMeasure:                               graphicsclient.NewPathMeasureClient(cc),
-		GraphicsRuntimeShader:                             graphicsclient.NewRuntimeShaderClient(cc),
-		GraphicsCamera:                                    graphicsclient.NewCameraClient(cc),
-		GraphicsColor:                                     graphicsclient.NewColorClient(cc),
-		GraphicsHardwareBufferRenderer:                    graphicsclient.NewHardwareBufferRendererClient(cc),
-		GsmCellLocation:                                   gsmclient.NewCellLocationClient(cc),
-		GsmSmsMessage:                                     gsmclient.NewSmsMessageClient(cc),
-		HardwareGeomagneticField:                          hardwareclient.NewGeomagneticFieldClient(cc),
-		HardwareSyncFence:                                 hardwareclient.NewSyncFenceClient(cc),
-		HardwareDisplayLuts:                               hardwareclient.NewDisplayLutsClient(cc),
-		HardwareSensorManager:                             hardwareclient.NewSensorManagerClient(cc),
-		HealthTimerStat:                                   healthclient.NewTimerStatClient(cc),
-		HealthSystemHealthManager:                         healthclient.NewSystemHealthManagerClient(cc),
-		Health_connectHealthConnectManager:                health_connectclient.NewHealthConnectManagerClient(cc),
-		Hotspot2PasspointConfiguration:                    hotspot2client.NewPasspointConfigurationClient(cc),
-		HpkeXdhKeySpec:                                    hpkeclient.NewXdhKeySpecClient(cc),
-		HttpSslCertificate:                                httpclient.NewSslCertificateClient(cc),
-		HttpX509TrustManagerExtensions:                    httpclient.NewX509TrustManagerExtensionsClient(cc),
-		HttpSslError:                                      httpclient.NewSslErrorClient(cc),
-		IdentityAccessControlProfileId:                    identityclient.NewAccessControlProfileIdClient(cc),
-		IkeSession:                                        ikeclient.NewSessionClient(cc),
-		IkeRfc822AddrIdentification:                       ikeclient.NewRfc822AddrIdentificationClient(cc),
-		IkeFqdnIdentification:                             ikeclient.NewFqdnIdentificationClient(cc),
-		IkeDerAsn1DnIdentification:                        ikeclient.NewDerAsn1DnIdentificationClient(cc),
-		IkeTrafficSelector:                                ikeclient.NewTrafficSelectorClient(cc),
-		IkeKeyIdIdentification:                            ikeclient.NewKeyIdIdentificationClient(cc),
-		IkeSessionConnectionInfo:                          ikeclient.NewSessionConnectionInfoClient(cc),
-		IkeIpv4AddrIdentification:                         ikeclient.NewIpv4AddrIdentificationClient(cc),
-		IkeTunnelConnectionParams:                         ikeclient.NewTunnelConnectionParamsClient(cc),
-		IkeIpv6AddrIdentification:                         ikeclient.NewIpv6AddrIdentificationClient(cc),
-		ImsReasonInfo:                                     imsclient.NewReasonInfoClient(cc),
-		InputManager:                                      inputclient.NewManagerClient(cc),
-		InputmethodTextSnapshot:                           inputmethodclient.NewTextSnapshotClient(cc),
-		InputmethodInputBinding:                           inputmethodclient.NewInputBindingClient(cc),
-		InputmethodInputMethodManager:                     inputmethodclient.NewInputMethodManagerClient(cc),
-		InputmethodExtractedText:                          inputmethodclient.NewExtractedTextClient(cc),
-		InputmethodInputConnectionWrapper:                 inputmethodclient.NewInputConnectionWrapperClient(cc),
-		InputmethodSurroundingText:                        inputmethodclient.NewSurroundingTextClient(cc),
-		InputmethodInputMethodSubtype:                     inputmethodclient.NewInputMethodSubtypeClient(cc),
-		InputmethodEditorInfo:                             inputmethodclient.NewEditorInfoClient(cc),
-		InputmethodTextBoundsInfoResult:                   inputmethodclient.NewTextBoundsInfoResultClient(cc),
-		InputmethodCompletionInfo:                         inputmethodclient.NewCompletionInfoClient(cc),
-		InputmethodExtractedTextRequest:                   inputmethodclient.NewExtractedTextRequestClient(cc),
-		InputmethodCursorAnchorInfo:                       inputmethodclient.NewCursorAnchorInfoClient(cc),
-		InputmethodInputContentInfo:                       inputmethodclient.NewInputContentInfoClient(cc),
-		InputmethodBaseInputConnection:                    inputmethodclient.NewBaseInputConnectionClient(cc),
-		InputmethodInputMethodInfo:                        inputmethodclient.NewInputMethodInfoClient(cc),
-		InputmethodCorrectionInfo:                         inputmethodclient.NewCorrectionInfoClient(cc),
-		InputmethodserviceKeyboard:                        inputmethodserviceclient.NewKeyboardClient(cc),
-		InputmethodserviceKeyboardView:                    inputmethodserviceclient.NewKeyboardViewClient(cc),
-		InputmethodserviceExtractEditText:                 inputmethodserviceclient.NewExtractEditTextClient(cc),
-		InputmethodserviceInputMethodService:              inputmethodserviceclient.NewInputMethodServiceClient(cc),
-		InspectorIntFlagMapping:                           inspectorclient.NewIntFlagMappingClient(cc),
-		InteractiveTvInteractiveAppManager:                interactiveclient.NewTvInteractiveAppManagerClient(cc),
-		InteractiveAppLinkInfo:                            interactiveclient.NewAppLinkInfoClient(cc),
-		InteractiveTvInteractiveAppView:                   interactiveclient.NewTvInteractiveAppViewClient(cc),
-		InteractiveTvInteractiveAppServiceInfo:            interactiveclient.NewTvInteractiveAppServiceInfoClient(cc),
-		IrConsumerIrManager:                               irclient.NewConsumerIrManagerClient(cc),
-		JankRelativeFrameTimeHistogram:                    jankclient.NewRelativeFrameTimeHistogramClient(cc),
-		JankAppJankStats:                                  jankclient.NewAppJankStatsClient(cc),
-		JobWorkItem:                                       jobclient.NewWorkItemClient(cc),
-		JobPendingJobReasonsInfo:                          jobclient.NewPendingJobReasonsInfoClient(cc),
-		JobScheduler:                                      jobclient.NewSchedulerClient(cc),
-		KeyguardManager:                                   keyguardclient.NewManagerClient(cc),
-		KeystoreWrappedKeyEntry:                           keystoreclient.NewWrappedKeyEntryClient(cc),
-		KeystoreBackendBusyException:                      keystoreclient.NewBackendBusyExceptionClient(cc),
-		KeystoreKeyStoreManager:                           keystoreclient.NewKeyStoreManagerClient(cc),
-		LeTransportDiscoveryData:                          leclient.NewTransportDiscoveryDataClient(cc),
-		LeScanResult:                                      leclient.NewScanResultClient(cc),
-		LeTransportBlock:                                  leclient.NewTransportBlockClient(cc),
-		LoaderResourcesLoader:                             loaderclient.NewResourcesLoaderClient(cc),
-		LocationLocation:                                  locationclient.NewLocationClient(cc),
-		LocationCriteria:                                  locationclient.NewCriteriaClient(cc),
-		LocationGeocoder:                                  locationclient.NewGeocoderClient(cc),
-		LocationManager:                                   locationclient.NewManagerClient(cc),
-		LocationAddress:                                   locationclient.NewAddressClient(cc),
-		MathContext:                                       mathclient.NewContextClient(cc),
-		MathBigDecimal:                                    mathclient.NewBigDecimalClient(cc),
-		MbmsDownloadSessionCallback:                       mbmsclient.NewDownloadSessionCallbackClient(cc),
-		MbmsStreamingSessionCallback:                      mbmsclient.NewStreamingSessionCallbackClient(cc),
-		MbmsDownloadProgressListener:                      mbmsclient.NewDownloadProgressListenerClient(cc),
-		MbmsDownloadStatusListener:                        mbmsclient.NewDownloadStatusListenerClient(cc),
-		MbmsDownloadReceiver:                              mbmsclient.NewDownloadReceiverClient(cc),
-		MbmsStreamingServiceCallback:                      mbmsclient.NewStreamingServiceCallbackClient(cc),
-		MediaScannerConnection:                            mediaclient.NewScannerConnectionClient(cc),
-		MediaAsyncPlayer:                                  mediaclient.NewAsyncPlayerClient(cc),
-		MediaCodecList:                                    mediaclient.NewCodecListClient(cc),
-		MediaMuxer:                                        mediaclient.NewMuxerClient(cc),
-		MediaSyncParams:                                   mediaclient.NewSyncParamsClient(cc),
-		MediaRemoteController:                             mediaclient.NewRemoteControllerClient(cc),
-		MediaExtractor:                                    mediaclient.NewExtractorClient(cc),
-		MediaMetadataRetriever:                            mediaclient.NewMetadataRetrieverClient(cc),
-		MediaAudioTrack:                                   mediaclient.NewAudioTrackClient(cc),
-		MediaSync:                                         mediaclient.NewSyncClient(cc),
-		MediaSession2Command:                              mediaclient.NewSession2CommandClient(cc),
-		MediaDrm:                                          mediaclient.NewDrmClient(cc),
-		MediaPlaybackParams:                               mediaclient.NewPlaybackParamsClient(cc),
-		MediaDescrambler:                                  mediaclient.NewDescramblerClient(cc),
-		MediaSubtitleData:                                 mediaclient.NewSubtitleDataClient(cc),
-		MediaSession2Token:                                mediaclient.NewSession2TokenClient(cc),
-		MediaCrypto:                                       mediaclient.NewCryptoClient(cc),
-		MediaToneGenerator:                                mediaclient.NewToneGeneratorClient(cc),
-		MediaRouter:                                       mediaclient.NewRouterClient(cc),
-		MediaRemoteControlClient:                          mediaclient.NewRemoteControlClientClient(cc),
-		MediaTimedMetaData:                                mediaclient.NewTimedMetaDataClient(cc),
-		MediaActionSound:                                  mediaclient.NewActionSoundClient(cc),
-		MediaCameraProfile:                                mediaclient.NewCameraProfileClient(cc),
-		MediaCommunicationManager:                         mediaclient.NewCommunicationManagerClient(cc),
-		MediaCas:                                          mediaclient.NewCasClient(cc),
-		MediaSoundPool:                                    mediaclient.NewSoundPoolClient(cc),
-		MediaFaceDetector:                                 mediaclient.NewFaceDetectorClient(cc),
-		MediaCryptoException:                              mediaclient.NewCryptoExceptionClient(cc),
-		MediaTimestamp:                                    mediaclient.NewTimestampClient(cc),
-		MediaThumbnailUtils:                               mediaclient.NewThumbnailUtilsClient(cc),
-		MediaAudioTimestamp:                               mediaclient.NewAudioTimestampClient(cc),
-		MediaFormat:                                       mediaclient.NewFormatClient(cc),
-		MediaDrmException:                                 mediaclient.NewDrmExceptionClient(cc),
-		MediaExifInterface:                                mediaclient.NewExifInterfaceClient(cc),
-		MediastoreMediaStore:                              mediastoreclient.NewMediaStoreClient(cc),
-		MethodQwertyKeyListener:                           methodclient.NewQwertyKeyListenerClient(cc),
-		MethodBaseMovementMethod:                          methodclient.NewBaseMovementMethodClient(cc),
-		MethodLinkMovementMethod:                          methodclient.NewLinkMovementMethodClient(cc),
-		MethodPasswordTransformationMethod:                methodclient.NewPasswordTransformationMethodClient(cc),
-		MethodDateKeyListener:                             methodclient.NewDateKeyListenerClient(cc),
-		MethodDateTimeKeyListener:                         methodclient.NewDateTimeKeyListenerClient(cc),
-		MethodArrowKeyMovementMethod:                      methodclient.NewArrowKeyMovementMethodClient(cc),
-		MethodTextKeyListener:                             methodclient.NewTextKeyListenerClient(cc),
-		MethodTimeKeyListener:                             methodclient.NewTimeKeyListenerClient(cc),
-		MethodDialerKeyListener:                           methodclient.NewDialerKeyListenerClient(cc),
-		MethodDigitsKeyListener:                           methodclient.NewDigitsKeyListenerClient(cc),
-		MethodMultiTapKeyListener:                         methodclient.NewMultiTapKeyListenerClient(cc),
-		MethodHideReturnsTransformationMethod:             methodclient.NewHideReturnsTransformationMethodClient(cc),
-		MethodScrollingMovementMethod:                     methodclient.NewScrollingMovementMethodClient(cc),
-		MethodSingleLineTransformationMethod:              methodclient.NewSingleLineTransformationMethodClient(cc),
-		MethodCharacterPickerDialog:                       methodclient.NewCharacterPickerDialogClient(cc),
-		MetricsMediaMetricsManager:                        metricsclient.NewMediaMetricsManagerClient(cc),
-		MidiManager:                                       midiclient.NewManagerClient(cc),
-		ModelsListItem:                                    modelsclient.NewListItemClient(cc),
-		ModelsPageMatchBounds:                             modelsclient.NewPageMatchBoundsClient(cc),
-		MtpDevice:                                         mtpclient.NewDeviceClient(cc),
-		NetLinkProperties:                                 netclient.NewLinkPropertiesClient(cc),
-		NetLocalSocketAddress:                             netclient.NewLocalSocketAddressClient(cc),
-		NetSSLCertificateSocketFactory:                    netclient.NewSSLCertificateSocketFactoryClient(cc),
-		NetConnectivityManager:                            netclient.NewConnectivityManagerClient(cc),
-		NetIpPrefix:                                       netclient.NewIpPrefixClient(cc),
-		NetUrlQuerySanitizer:                              netclient.NewUrlQuerySanitizerClient(cc),
-		NetDhcpInfo:                                       netclient.NewDhcpInfoClient(cc),
-		NetVpnProfileState:                                netclient.NewVpnProfileStateClient(cc),
-		NetIpSecAlgorithm:                                 netclient.NewIpSecAlgorithmClient(cc),
-		NetIpSecManager:                                   netclient.NewIpSecManagerClient(cc),
-		NetProxyInfo:                                      netclient.NewProxyInfoClient(cc),
-		NetConnectivityDiagnosticsManager:                 netclient.NewConnectivityDiagnosticsManagerClient(cc),
-		NetTetheringInterface:                             netclient.NewTetheringInterfaceClient(cc),
-		NetTrafficStats:                                   netclient.NewTrafficStatsClient(cc),
-		NetTetheringManager:                               netclient.NewTetheringManagerClient(cc),
-		NetLocalServerSocket:                              netclient.NewLocalServerSocketClient(cc),
-		NetProxy:                                          netclient.NewProxyClient(cc),
-		NetLocalSocket:                                    netclient.NewLocalSocketClient(cc),
-		NetCredentials:                                    netclient.NewCredentialsClient(cc),
-		NetEthernetNetworkSpecifier:                       netclient.NewEthernetNetworkSpecifierClient(cc),
-		NfcNdefRecord:                                     nfcclient.NewNdefRecordClient(cc),
-		NfcAvailableNfcAntenna:                            nfcclient.NewAvailableNfcAntennaClient(cc),
-		NfcNdefMessage:                                    nfcclient.NewNdefMessageClient(cc),
-		NfcManager:                                        nfcclient.NewManagerClient(cc),
-		NfcAntennaInfo:                                    nfcclient.NewAntennaInfoClient(cc),
-		NotificationManager:                               notificationclient.NewManagerClient(cc),
-		NsdManager:                                        nsdclient.NewManagerClient(cc),
-		ObserverSchemaChangeInfo:                          observerclient.NewSchemaChangeInfoClient(cc),
-		ObserverDocumentChangeInfo:                        observerclient.NewDocumentChangeInfoClient(cc),
-		OmOverlayManager:                                  omclient.NewOverlayManagerClient(cc),
-		OmFabricatedOverlay:                               omclient.NewFabricatedOverlayClient(cc),
-		OmapiSEService:                                    omapiclient.NewSEServiceClient(cc),
-		OndevicepersonalizationTrainingExamplesInput:      ondevicepersonalizationclient.NewTrainingExamplesInputClient(cc),
-		OndevicepersonalizationIsolatedServiceException:   ondevicepersonalizationclient.NewIsolatedServiceExceptionClient(cc),
-		OndevicepersonalizationExecuteInput:               ondevicepersonalizationclient.NewExecuteInputClient(cc),
-		OndevicepersonalizationWebTriggerInput:            ondevicepersonalizationclient.NewWebTriggerInputClient(cc),
-		OndevicepersonalizationRenderInput:                ondevicepersonalizationclient.NewRenderInputClient(cc),
-		OndevicepersonalizationDownloadCompletedInput:     ondevicepersonalizationclient.NewDownloadCompletedInputClient(cc),
-		OndevicepersonalizationAppInfo:                    ondevicepersonalizationclient.NewAppInfoClient(cc),
-		OndevicepersonalizationEventInput:                 ondevicepersonalizationclient.NewEventInputClient(cc),
+		AppUiModeManager:                                        appclient.NewUiModeManagerClient(cc),
+		AppWallpaperManager:                                     appclient.NewWallpaperManagerClient(cc),
+		AppExpandableListActivity:                               appclient.NewExpandableListActivityClient(cc),
+		AppStatusBarManager:                                     appclient.NewStatusBarManagerClient(cc),
+		AppComponentFactory:                                     appclient.NewComponentFactoryClient(cc),
+		AppFragmentBreadCrumbs:                                  appclient.NewFragmentBreadCrumbsClient(cc),
+		AppRemoteAction:                                         appclient.NewRemoteActionClient(cc),
+		AppActivityGroup:                                        appclient.NewActivityGroupClient(cc),
+		AppInvalidForegroundServiceTypeException:                appclient.NewInvalidForegroundServiceTypeExceptionClient(cc),
+		AppGameManager:                                          appclient.NewGameManagerClient(cc),
+		AppInstrumentation:                                      appclient.NewInstrumentationClient(cc),
+		AppMissingForegroundServiceTypeException:                appclient.NewMissingForegroundServiceTypeExceptionClient(cc),
+		AppCancellationSignal:                                   appclient.NewCancellationSignalClient(cc),
+		AppOpsManager:                                           appclient.NewOpsManagerClient(cc),
+		AppRecoverableSecurityException:                         appclient.NewRecoverableSecurityExceptionClient(cc),
+		AppBundle:                                               appclient.NewBundleClient(cc),
+		AppMediaRouteButton:                                     appclient.NewMediaRouteButtonClient(cc),
+		AppDialogFragment:                                       appclient.NewDialogFragmentClient(cc),
+		AppLocalActivityManager:                                 appclient.NewLocalActivityManagerClient(cc),
+		AppNativeActivity:                                       appclient.NewNativeActivityClient(cc),
+		AppPresentation:                                         appclient.NewPresentationClient(cc),
+		AppGameState:                                            appclient.NewGameStateClient(cc),
+		AppActivity:                                             appclient.NewActivityClient(cc),
+		AppAutomaticZenRule:                                     appclient.NewAutomaticZenRuleClient(cc),
+		AppDatePickerDialog:                                     appclient.NewDatePickerDialogClient(cc),
+		AppBackgroundServiceStartNotAllowedException:            appclient.NewBackgroundServiceStartNotAllowedExceptionClient(cc),
+		AppFragment:                                             appclient.NewFragmentClient(cc),
+		AppTimePickerDialog:                                     appclient.NewTimePickerDialogClient(cc),
+		AppDialog:                                               appclient.NewDialogClient(cc),
+		AppActivityManager:                                      appclient.NewActivityManagerClient(cc),
+		AppLocaleManager:                                        appclient.NewLocaleManagerClient(cc),
+		AppAuthenticationRequiredException:                      appclient.NewAuthenticationRequiredExceptionClient(cc),
+		AppProgressDialog:                                       appclient.NewProgressDialogClient(cc),
+		AppWallpaperColors:                                      appclient.NewWallpaperColorsClient(cc),
+		AppLocaleConfig:                                         appclient.NewLocaleConfigClient(cc),
+		AppStartForegroundCalledOnStoppedServiceException:       appclient.NewStartForegroundCalledOnStoppedServiceExceptionClient(cc),
+		AppIntent:                                               appclient.NewIntentClient(cc),
+		AppMediaRouteActionProvider:                             appclient.NewMediaRouteActionProviderClient(cc),
+		AppListActivity:                                         appclient.NewListActivityClient(cc),
+		AppSearchManager:                                        appclient.NewSearchManagerClient(cc),
+		AppWallpaperInfo:                                        appclient.NewWallpaperInfoClient(cc),
+		AppSyncNotedAppOp:                                       appclient.NewSyncNotedAppOpClient(cc),
+		AppNotificationChannelGroup:                             appclient.NewNotificationChannelGroupClient(cc),
+		AppListFragment:                                         appclient.NewListFragmentClient(cc),
+		AppTabActivity:                                          appclient.NewTabActivityClient(cc),
+		AppGrammaticalInflectionManager:                         appclient.NewGrammaticalInflectionManagerClient(cc),
+		AppfunctionsExecuteAppFunctionResponse:                  appfunctionsclient.NewExecuteAppFunctionResponseClient(cc),
+		AppfunctionsAppFunctionException:                        appfunctionsclient.NewAppFunctionExceptionClient(cc),
+		AppsearchOpenBlobForReadResponse:                        appsearchclient.NewOpenBlobForReadResponseClient(cc),
+		AppsearchOpenBlobForWriteResponse:                       appsearchclient.NewOpenBlobForWriteResponseClient(cc),
+		AppsearchEmbeddingVector:                                appsearchclient.NewEmbeddingVectorClient(cc),
+		AppsearchPropertyPath:                                   appsearchclient.NewPropertyPathClient(cc),
+		AppsearchPackageIdentifier:                              appsearchclient.NewPackageIdentifierClient(cc),
+		AppsearchRemoveBlobResponse:                             appsearchclient.NewRemoveBlobResponseClient(cc),
+		AppsearchCommitBlobResponse:                             appsearchclient.NewCommitBlobResponseClient(cc),
+		AppsetidAppSetId:                                        appsetidclient.NewAppSetIdClient(cc),
+		AppwidgetAppWidgetProviderInfo:                          appwidgetclient.NewAppWidgetProviderInfoClient(cc),
+		AppwidgetAppWidgetHost:                                  appwidgetclient.NewAppWidgetHostClient(cc),
+		AppwidgetAppWidgetHostView:                              appwidgetclient.NewAppWidgetHostViewClient(cc),
+		AppwidgetAppWidgetProvider:                              appwidgetclient.NewAppWidgetProviderClient(cc),
+		AppwidgetAppWidgetManager:                               appwidgetclient.NewAppWidgetManagerClient(cc),
+		AssistStructure:                                         assistclient.NewStructureClient(cc),
+		AssistContent:                                           assistclient.NewContentClient(cc),
+		AudiofxPresetReverb:                                     audiofxclient.NewPresetReverbClient(cc),
+		AudiofxVirtualizer:                                      audiofxclient.NewVirtualizerClient(cc),
+		AudiofxVisualizer:                                       audiofxclient.NewVisualizerClient(cc),
+		AudiofxLoudnessEnhancer:                                 audiofxclient.NewLoudnessEnhancerClient(cc),
+		AudiofxBassBoost:                                        audiofxclient.NewBassBoostClient(cc),
+		AudiofxDynamicsProcessing:                               audiofxclient.NewDynamicsProcessingClient(cc),
+		AudiofxEqualizer:                                        audiofxclient.NewEqualizerClient(cc),
+		AudiofxEnvironmentalReverb:                              audiofxclient.NewEnvironmentalReverbClient(cc),
+		AudiomanagerAudioManager:                                audiomanagerclient.NewAudioManagerClient(cc),
+		AudiorecordAudioRecord:                                  audiorecordclient.NewAudioRecordClient(cc),
+		AutofillInlinePresentation:                              autofillclient.NewInlinePresentationClient(cc),
+		AutofillTextValueSanitizer:                              autofillclient.NewTextValueSanitizerClient(cc),
+		AutofillRegexValidator:                                  autofillclient.NewRegexValidatorClient(cc),
+		AutofillDateValueSanitizer:                              autofillclient.NewDateValueSanitizerClient(cc),
+		AutofillSavedDatasetsInfo:                               autofillclient.NewSavedDatasetsInfoClient(cc),
+		AutofillDateTransformation:                              autofillclient.NewDateTransformationClient(cc),
+		AutofillLuhnChecksumValidator:                           autofillclient.NewLuhnChecksumValidatorClient(cc),
+		AwareDiscoverySessionCallback:                           awareclient.NewDiscoverySessionCallbackClient(cc),
+		AwareAttachCallback:                                     awareclient.NewAttachCallbackClient(cc),
+		AwareParcelablePeerHandle:                               awareclient.NewParcelablePeerHandleClient(cc),
+		AwareIdentityChangedListener:                            awareclient.NewIdentityChangedListenerClient(cc),
+		AwareResources:                                          awareclient.NewResourcesClient(cc),
+		AwareWifiAwareManager:                                   awareclient.NewWifiAwareManagerClient(cc),
+		BackupFileBackupHelper:                                  backupclient.NewFileBackupHelperClient(cc),
+		BackupAgentHelper:                                       backupclient.NewAgentHelperClient(cc),
+		BackupManager:                                           backupclient.NewManagerClient(cc),
+		BackupSharedPreferencesBackupHelper:                     backupclient.NewSharedPreferencesBackupHelperClient(cc),
+		BatteryManager:                                          batteryclient.NewManagerClient(cc),
+		BiometricManager:                                        biometricclient.NewManagerClient(cc),
+		BiometricsPromptContentItemBulletedText:                 biometricsclient.NewPromptContentItemBulletedTextClient(cc),
+		BiometricsPromptContentItemPlainText:                    biometricsclient.NewPromptContentItemPlainTextClient(cc),
+		BlobStoreManager:                                        blobclient.NewStoreManagerClient(cc),
+		BluetoothGattDescriptor:                                 bluetoothclient.NewGattDescriptorClient(cc),
+		BluetoothLeAudioCodecStatus:                             bluetoothclient.NewLeAudioCodecStatusClient(cc),
+		BluetoothManager:                                        bluetoothclient.NewManagerClient(cc),
+		BluetoothHidDeviceAppQosSettings:                        bluetoothclient.NewHidDeviceAppQosSettingsClient(cc),
+		BluetoothHidDeviceAppSdpSettings:                        bluetoothclient.NewHidDeviceAppSdpSettingsClient(cc),
+		BluetoothGattService:                                    bluetoothclient.NewGattServiceClient(cc),
+		BluetoothGattCharacteristic:                             bluetoothclient.NewGattCharacteristicClient(cc),
+		BluetoothSocketException:                                bluetoothclient.NewSocketExceptionClient(cc),
+		BrowseMediaBrowser:                                      browseclient.NewMediaBrowserClient(cc),
+		BuildBuild:                                              buildclient.NewBuildClient(cc),
+		CameraManager:                                           cameraclient.NewManagerClient(cc),
+		Camera2DngCreator:                                       camera2client.NewDngCreatorClient(cc),
+		Camera2CameraAccessException:                            camera2client.NewCameraAccessExceptionClient(cc),
+		Camera2MultiResolutionImageReader:                       camera2client.NewMultiResolutionImageReaderClient(cc),
+		CarrierMessagingClientService:                           carrierclient.NewMessagingClientServiceClient(cc),
+		CarrierIdentifier:                                       carrierclient.NewIdentifierClient(cc),
+		CarrierMessagePdu:                                       carrierclient.NewMessagePduClient(cc),
+		CdmaCellLocation:                                        cdmaclient.NewCellLocationClient(cc),
+		ChooserTarget:                                           chooserclient.NewTargetClient(cc),
+		ClassificationFieldClassification:                       classificationclient.NewFieldClassificationClient(cc),
+		ClipboardClipData:                                       clipboardclient.NewClipDataClient(cc),
+		ClipboardManager:                                        clipboardclient.NewManagerClient(cc),
+		CommonComponentAdData:                                   commonclient.NewComponentAdDataClient(cc),
+		CompanionDevicePresenceEvent:                            companionclient.NewDevicePresenceEventClient(cc),
+		CompanionDeviceManager:                                  companionclient.NewDeviceManagerClient(cc),
+		ContactsContract:                                        contactsclient.NewContractClient(cc),
+		ContentRestrictionsManager:                              contentclient.NewRestrictionsManagerClient(cc),
+		ContentcaptureDataShareRequest:                          contentcaptureclient.NewDataShareRequestClient(cc),
+		ContentcaptureContentCaptureCondition:                   contentcaptureclient.NewContentCaptureConditionClient(cc),
+		CredentialsCredentialManager:                            credentialsclient.NewCredentialManagerClient(cc),
+		CustomaudienceRemoveCustomAudienceOverrideRequest:       customaudienceclient.NewRemoveCustomAudienceOverrideRequestClient(cc),
+		CustomaudienceAddCustomAudienceOverrideRequest:          customaudienceclient.NewAddCustomAudienceOverrideRequestClient(cc),
+		DataNetworkSlicingConfig:                                dataclient.NewNetworkSlicingConfigClient(cc),
+		DatabaseMergeCursor:                                     databaseclient.NewMergeCursorClient(cc),
+		DatabaseUtils:                                           databaseclient.NewUtilsClient(cc),
+		DatabaseMatrixCursor:                                    databaseclient.NewMatrixCursorClient(cc),
+		DatabaseCrossProcessCursorWrapper:                       databaseclient.NewCrossProcessCursorWrapperClient(cc),
+		DatabaseDefaultDatabaseErrorHandler:                     databaseclient.NewDefaultDatabaseErrorHandlerClient(cc),
+		DatabaseContentObservable:                               databaseclient.NewContentObservableClient(cc),
+		DatabaseCursorWindow:                                    databaseclient.NewCursorWindowClient(cc),
+		DatabaseCursorJoiner:                                    databaseclient.NewCursorJoinerClient(cc),
+		DatabaseCursorWrapper:                                   databaseclient.NewCursorWrapperClient(cc),
+		DatabaseDataSetObservable:                               databaseclient.NewDataSetObservableClient(cc),
+		DatatypesExerciseRoute:                                  datatypesclient.NewExerciseRouteClient(cc),
+		DisplayWindowManager:                                    displayclient.NewWindowManagerClient(cc),
+		DisplayManager:                                          displayclient.NewManagerClient(cc),
+		DisplayhashVerifiedDisplayHash:                          displayhashclient.NewVerifiedDisplayHashClient(cc),
+		DisplayhashDisplayHashManager:                           displayhashclient.NewDisplayHashManagerClient(cc),
+		DomainVerificationManager:                               domainclient.NewVerificationManagerClient(cc),
+		DownloadManager:                                         downloadclient.NewManagerClient(cc),
+		DrawableAdaptiveIconDrawable:                            drawableclient.NewAdaptiveIconDrawableClient(cc),
+		DrawableRotateDrawable:                                  drawableclient.NewRotateDrawableClient(cc),
+		DrawableShapeDrawable:                                   drawableclient.NewShapeDrawableClient(cc),
+		DrawablePictureDrawable:                                 drawableclient.NewPictureDrawableClient(cc),
+		DrawableLevelListDrawable:                               drawableclient.NewLevelListDrawableClient(cc),
+		DrawableLayerDrawable:                                   drawableclient.NewLayerDrawableClient(cc),
+		DrawableVectorDrawable:                                  drawableclient.NewVectorDrawableClient(cc),
+		DrawableContainer:                                       drawableclient.NewContainerClient(cc),
+		DrawableAnimatedImageDrawable:                           drawableclient.NewAnimatedImageDrawableClient(cc),
+		DrawableAnimatedStateListDrawable:                       drawableclient.NewAnimatedStateListDrawableClient(cc),
+		DrawableAnimationDrawable:                               drawableclient.NewAnimationDrawableClient(cc),
+		DrawableNinePatchDrawable:                               drawableclient.NewNinePatchDrawableClient(cc),
+		DrawableColorStateListDrawable:                          drawableclient.NewColorStateListDrawableClient(cc),
+		DrawableInsetDrawable:                                   drawableclient.NewInsetDrawableClient(cc),
+		DrawableScaleDrawable:                                   drawableclient.NewScaleDrawableClient(cc),
+		DrawableRippleDrawable:                                  drawableclient.NewRippleDrawableClient(cc),
+		DrawableTransitionDrawable:                              drawableclient.NewTransitionDrawableClient(cc),
+		DrawableBitmapDrawable:                                  drawableclient.NewBitmapDrawableClient(cc),
+		DrawableGradientDrawable:                                drawableclient.NewGradientDrawableClient(cc),
+		DrawablePaintDrawable:                                   drawableclient.NewPaintDrawableClient(cc),
+		DrawableClipDrawable:                                    drawableclient.NewClipDrawableClient(cc),
+		DrawableAnimatedVectorDrawable:                          drawableclient.NewAnimatedVectorDrawableClient(cc),
+		DrawableStateListDrawable:                               drawableclient.NewStateListDrawableClient(cc),
+		DrawableColorDrawable:                                   drawableclient.NewColorDrawableClient(cc),
+		DreamsDreamService:                                      dreamsclient.NewDreamServiceClient(cc),
+		DrmRights:                                               drmclient.NewRightsClient(cc),
+		DrmSupportInfo:                                          drmclient.NewSupportInfoClient(cc),
+		DrmInfoRequest:                                          drmclient.NewInfoRequestClient(cc),
+		DrmUtils:                                                drmclient.NewUtilsClient(cc),
+		DrmInfo:                                                 drmclient.NewInfoClient(cc),
+		DrmManagerClient:                                        drmclient.NewManagerClientClient(cc),
+		EnvironmentEnvironment:                                  environmentclient.NewEnvironmentClient(cc),
+		EuiccManager:                                            euiccclient.NewManagerClient(cc),
+		EuiccInfo:                                               euiccclient.NewInfoClient(cc),
+		ExceptionsInvalidSelectorsException:                     exceptionsclient.NewInvalidSelectorsExceptionClient(cc),
+		ExceptionsInvalidKeException:                            exceptionsclient.NewInvalidKeExceptionClient(cc),
+		ExceptionsIkeNetworkLostException:                       exceptionsclient.NewIkeNetworkLostExceptionClient(cc),
+		ExceptionsInvalidMajorVersionException:                  exceptionsclient.NewInvalidMajorVersionExceptionClient(cc),
+		ExceptionsIkeIOException:                                exceptionsclient.NewIkeIOExceptionClient(cc),
+		ExceptionsAppSearchException:                            exceptionsclient.NewAppSearchExceptionClient(cc),
+		FingerprintManager:                                      fingerprintclient.NewManagerClient(cc),
+		FlaggingAconfigStorageReadException:                     flaggingclient.NewAconfigStorageReadExceptionClient(cc),
+		FontsFontStyle:                                          fontsclient.NewFontStyleClient(cc),
+		FontsFontVariationAxis:                                  fontsclient.NewFontVariationAxisClient(cc),
+		FormatDateFormat:                                        formatclient.NewDateFormatClient(cc),
+		FormatDateUtils:                                         formatclient.NewDateUtilsClient(cc),
+		FormatTime:                                              formatclient.NewTimeClient(cc),
+		GestureStore:                                            gestureclient.NewStoreClient(cc),
+		GestureGesture:                                          gestureclient.NewGestureClient(cc),
+		GestureOverlayView:                                      gestureclient.NewOverlayViewClient(cc),
+		GestureStroke:                                           gestureclient.NewStrokeClient(cc),
+		GesturePoint:                                            gestureclient.NewPointClient(cc),
+		GraphicsPointF:                                          graphicsclient.NewPointFClient(cc),
+		GraphicsColor:                                           graphicsclient.NewColorClient(cc),
+		GraphicsPath:                                            graphicsclient.NewPathClient(cc),
+		GraphicsPorterDuffColorFilter:                           graphicsclient.NewPorterDuffColorFilterClient(cc),
+		GraphicsRuntimeColorFilter:                              graphicsclient.NewRuntimeColorFilterClient(cc),
+		GraphicsHardwareRenderer:                                graphicsclient.NewHardwareRendererClient(cc),
+		GraphicsMatrix:                                          graphicsclient.NewMatrixClient(cc),
+		GraphicsBitmapFactory:                                   graphicsclient.NewBitmapFactoryClient(cc),
+		GraphicsNinePatch:                                       graphicsclient.NewNinePatchClient(cc),
+		GraphicsRegionIterator:                                  graphicsclient.NewRegionIteratorClient(cc),
+		GraphicsRenderNode:                                      graphicsclient.NewRenderNodeClient(cc),
+		GraphicsBitmapShader:                                    graphicsclient.NewBitmapShaderClient(cc),
+		GraphicsShader:                                          graphicsclient.NewShaderClient(cc),
+		GraphicsRectF:                                           graphicsclient.NewRectFClient(cc),
+		GraphicsColorMatrix:                                     graphicsclient.NewColorMatrixClient(cc),
+		GraphicsColorMatrixColorFilter:                          graphicsclient.NewColorMatrixColorFilterClient(cc),
+		GraphicsSurfaceTexture:                                  graphicsclient.NewSurfaceTextureClient(cc),
+		GraphicsRegion:                                          graphicsclient.NewRegionClient(cc),
+		GraphicsRect:                                            graphicsclient.NewRectClient(cc),
+		GraphicsRuntimeShader:                                   graphicsclient.NewRuntimeShaderClient(cc),
+		GraphicsPoint:                                           graphicsclient.NewPointClient(cc),
+		GraphicsMatrix44:                                        graphicsclient.NewMatrix44Client(cc),
+		GraphicsHardwareBufferRenderer:                          graphicsclient.NewHardwareBufferRendererClient(cc),
+		GraphicsBlendModeColorFilter:                            graphicsclient.NewBlendModeColorFilterClient(cc),
+		GraphicsRuntimeXfermode:                                 graphicsclient.NewRuntimeXfermodeClient(cc),
+		GraphicsYuvImage:                                        graphicsclient.NewYuvImageClient(cc),
+		GraphicsInterpolator:                                    graphicsclient.NewInterpolatorClient(cc),
+		GraphicsOutline:                                         graphicsclient.NewOutlineClient(cc),
+		GraphicsGainmap:                                         graphicsclient.NewGainmapClient(cc),
+		GraphicsPixelFormat:                                     graphicsclient.NewPixelFormatClient(cc),
+		GraphicsPathMeasure:                                     graphicsclient.NewPathMeasureClient(cc),
+		GraphicsPicture:                                         graphicsclient.NewPictureClient(cc),
+		GraphicsCamera:                                          graphicsclient.NewCameraClient(cc),
+		GraphicsLightingColorFilter:                             graphicsclient.NewLightingColorFilterClient(cc),
+		GraphicsParcelableColorSpace:                            graphicsclient.NewParcelableColorSpaceClient(cc),
+		GraphicsMesh:                                            graphicsclient.NewMeshClient(cc),
+		GraphicsImageFormat:                                     graphicsclient.NewImageFormatClient(cc),
+		GsmSmsMessage:                                           gsmclient.NewSmsMessageClient(cc),
+		GsmCellLocation:                                         gsmclient.NewCellLocationClient(cc),
+		HardwareSensorManager:                                   hardwareclient.NewSensorManagerClient(cc),
+		HardwareSyncFence:                                       hardwareclient.NewSyncFenceClient(cc),
+		HardwareGeomagneticField:                                hardwareclient.NewGeomagneticFieldClient(cc),
+		HardwareDisplayLuts:                                     hardwareclient.NewDisplayLutsClient(cc),
+		HealthTimerStat:                                         healthclient.NewTimerStatClient(cc),
+		HealthSystemHealthManager:                               healthclient.NewSystemHealthManagerClient(cc),
+		Health_connectHealthConnectManager:                      health_connectclient.NewHealthConnectManagerClient(cc),
+		Hotspot2PasspointConfiguration:                          hotspot2client.NewPasspointConfigurationClient(cc),
+		HpkeXdhKeySpec:                                          hpkeclient.NewXdhKeySpecClient(cc),
+		HttpX509TrustManagerExtensions:                          httpclient.NewX509TrustManagerExtensionsClient(cc),
+		HttpSslError:                                            httpclient.NewSslErrorClient(cc),
+		HttpSslCertificate:                                      httpclient.NewSslCertificateClient(cc),
+		IdentityAccessControlProfileId:                          identityclient.NewAccessControlProfileIdClient(cc),
+		IkeIpv4AddrIdentification:                               ikeclient.NewIpv4AddrIdentificationClient(cc),
+		IkeTunnelConnectionParams:                               ikeclient.NewTunnelConnectionParamsClient(cc),
+		IkeIpv6AddrIdentification:                               ikeclient.NewIpv6AddrIdentificationClient(cc),
+		IkeKeyIdIdentification:                                  ikeclient.NewKeyIdIdentificationClient(cc),
+		IkeSession:                                              ikeclient.NewSessionClient(cc),
+		IkeDerAsn1DnIdentification:                              ikeclient.NewDerAsn1DnIdentificationClient(cc),
+		IkeFqdnIdentification:                                   ikeclient.NewFqdnIdentificationClient(cc),
+		IkeTrafficSelector:                                      ikeclient.NewTrafficSelectorClient(cc),
+		IkeSessionConnectionInfo:                                ikeclient.NewSessionConnectionInfoClient(cc),
+		IkeRfc822AddrIdentification:                             ikeclient.NewRfc822AddrIdentificationClient(cc),
+		ImsReasonInfo:                                           imsclient.NewReasonInfoClient(cc),
+		InputManager:                                            inputclient.NewManagerClient(cc),
+		InputmethodCompletionInfo:                               inputmethodclient.NewCompletionInfoClient(cc),
+		InputmethodExtractedTextRequest:                         inputmethodclient.NewExtractedTextRequestClient(cc),
+		InputmethodCursorAnchorInfo:                             inputmethodclient.NewCursorAnchorInfoClient(cc),
+		InputmethodInputConnectionWrapper:                       inputmethodclient.NewInputConnectionWrapperClient(cc),
+		InputmethodTextSnapshot:                                 inputmethodclient.NewTextSnapshotClient(cc),
+		InputmethodInputContentInfo:                             inputmethodclient.NewInputContentInfoClient(cc),
+		InputmethodInputMethodSubtype:                           inputmethodclient.NewInputMethodSubtypeClient(cc),
+		InputmethodTextBoundsInfoResult:                         inputmethodclient.NewTextBoundsInfoResultClient(cc),
+		InputmethodInputBinding:                                 inputmethodclient.NewInputBindingClient(cc),
+		InputmethodExtractedText:                                inputmethodclient.NewExtractedTextClient(cc),
+		InputmethodEditorInfo:                                   inputmethodclient.NewEditorInfoClient(cc),
+		InputmethodBaseInputConnection:                          inputmethodclient.NewBaseInputConnectionClient(cc),
+		InputmethodInputMethodManager:                           inputmethodclient.NewInputMethodManagerClient(cc),
+		InputmethodCorrectionInfo:                               inputmethodclient.NewCorrectionInfoClient(cc),
+		InputmethodInputMethodInfo:                              inputmethodclient.NewInputMethodInfoClient(cc),
+		InputmethodSurroundingText:                              inputmethodclient.NewSurroundingTextClient(cc),
+		InputmethodserviceKeyboardView:                          inputmethodserviceclient.NewKeyboardViewClient(cc),
+		InputmethodserviceInputMethodService:                    inputmethodserviceclient.NewInputMethodServiceClient(cc),
+		InputmethodserviceExtractEditText:                       inputmethodserviceclient.NewExtractEditTextClient(cc),
+		InputmethodserviceKeyboard:                              inputmethodserviceclient.NewKeyboardClient(cc),
+		InspectorIntFlagMapping:                                 inspectorclient.NewIntFlagMappingClient(cc),
+		InteractiveTvInteractiveAppManager:                      interactiveclient.NewTvInteractiveAppManagerClient(cc),
+		InteractiveTvInteractiveAppView:                         interactiveclient.NewTvInteractiveAppViewClient(cc),
+		InteractiveTvInteractiveAppServiceInfo:                  interactiveclient.NewTvInteractiveAppServiceInfoClient(cc),
+		InteractiveAppLinkInfo:                                  interactiveclient.NewAppLinkInfoClient(cc),
+		IrConsumerIrManager:                                     irclient.NewConsumerIrManagerClient(cc),
+		JankRelativeFrameTimeHistogram:                          jankclient.NewRelativeFrameTimeHistogramClient(cc),
+		JankAppJankStats:                                        jankclient.NewAppJankStatsClient(cc),
+		JobWorkItem:                                             jobclient.NewWorkItemClient(cc),
+		JobPendingJobReasonsInfo:                                jobclient.NewPendingJobReasonsInfoClient(cc),
+		JobScheduler:                                            jobclient.NewSchedulerClient(cc),
+		KeyguardManager:                                         keyguardclient.NewManagerClient(cc),
+		KeystoreBackendBusyException:                            keystoreclient.NewBackendBusyExceptionClient(cc),
+		KeystoreWrappedKeyEntry:                                 keystoreclient.NewWrappedKeyEntryClient(cc),
+		KeystoreKeyStoreManager:                                 keystoreclient.NewKeyStoreManagerClient(cc),
+		LeScanResult:                                            leclient.NewScanResultClient(cc),
+		LeTransportDiscoveryData:                                leclient.NewTransportDiscoveryDataClient(cc),
+		LeTransportBlock:                                        leclient.NewTransportBlockClient(cc),
+		LoaderResourcesLoader:                                   loaderclient.NewResourcesLoaderClient(cc),
+		LocationGeocoder:                                        locationclient.NewGeocoderClient(cc),
+		LocationLocation:                                        locationclient.NewLocationClient(cc),
+		LocationCriteria:                                        locationclient.NewCriteriaClient(cc),
+		LocationAddress:                                         locationclient.NewAddressClient(cc),
+		LocationManager:                                         locationclient.NewManagerClient(cc),
+		MathContext:                                             mathclient.NewContextClient(cc),
+		MathBigDecimal:                                          mathclient.NewBigDecimalClient(cc),
+		MbmsStreamingServiceCallback:                            mbmsclient.NewStreamingServiceCallbackClient(cc),
+		MbmsDownloadStatusListener:                              mbmsclient.NewDownloadStatusListenerClient(cc),
+		MbmsDownloadSessionCallback:                             mbmsclient.NewDownloadSessionCallbackClient(cc),
+		MbmsDownloadReceiver:                                    mbmsclient.NewDownloadReceiverClient(cc),
+		MbmsDownloadProgressListener:                            mbmsclient.NewDownloadProgressListenerClient(cc),
+		MbmsStreamingSessionCallback:                            mbmsclient.NewStreamingSessionCallbackClient(cc),
+		MediaDrm:                                                mediaclient.NewDrmClient(cc),
+		MediaActionSound:                                        mediaclient.NewActionSoundClient(cc),
+		MediaCommunicationManager:                               mediaclient.NewCommunicationManagerClient(cc),
+		MediaToneGenerator:                                      mediaclient.NewToneGeneratorClient(cc),
+		MediaScannerConnection:                                  mediaclient.NewScannerConnectionClient(cc),
+		MediaCrypto:                                             mediaclient.NewCryptoClient(cc),
+		MediaSubtitleData:                                       mediaclient.NewSubtitleDataClient(cc),
+		MediaAsyncPlayer:                                        mediaclient.NewAsyncPlayerClient(cc),
+		MediaRouter:                                             mediaclient.NewRouterClient(cc),
+		MediaDescrambler:                                        mediaclient.NewDescramblerClient(cc),
+		MediaRemoteController:                                   mediaclient.NewRemoteControllerClient(cc),
+		MediaMuxer:                                              mediaclient.NewMuxerClient(cc),
+		MediaRemoteControlClient:                                mediaclient.NewRemoteControlClientClient(cc),
+		MediaTimedMetaData:                                      mediaclient.NewTimedMetaDataClient(cc),
+		MediaCas:                                                mediaclient.NewCasClient(cc),
+		MediaSession2Token:                                      mediaclient.NewSession2TokenClient(cc),
+		MediaSyncParams:                                         mediaclient.NewSyncParamsClient(cc),
+		MediaPlaybackParams:                                     mediaclient.NewPlaybackParamsClient(cc),
+		MediaExtractor:                                          mediaclient.NewExtractorClient(cc),
+		MediaCryptoException:                                    mediaclient.NewCryptoExceptionClient(cc),
+		MediaFormat:                                             mediaclient.NewFormatClient(cc),
+		MediaExifInterface:                                      mediaclient.NewExifInterfaceClient(cc),
+		MediaAudioTrack:                                         mediaclient.NewAudioTrackClient(cc),
+		MediaThumbnailUtils:                                     mediaclient.NewThumbnailUtilsClient(cc),
+		MediaDrmException:                                       mediaclient.NewDrmExceptionClient(cc),
+		MediaTimestamp:                                          mediaclient.NewTimestampClient(cc),
+		MediaAudioTimestamp:                                     mediaclient.NewAudioTimestampClient(cc),
+		MediaSync:                                               mediaclient.NewSyncClient(cc),
+		MediaFaceDetector:                                       mediaclient.NewFaceDetectorClient(cc),
+		MediaCameraProfile:                                      mediaclient.NewCameraProfileClient(cc),
+		MediaSession2Command:                                    mediaclient.NewSession2CommandClient(cc),
+		MediaSoundPool:                                          mediaclient.NewSoundPoolClient(cc),
+		MediaMetadataRetriever:                                  mediaclient.NewMetadataRetrieverClient(cc),
+		MediaCodecList:                                          mediaclient.NewCodecListClient(cc),
+		MediastoreMediaStore:                                    mediastoreclient.NewMediaStoreClient(cc),
+		MethodTextKeyListener:                                   methodclient.NewTextKeyListenerClient(cc),
+		MethodLinkMovementMethod:                                methodclient.NewLinkMovementMethodClient(cc),
+		MethodQwertyKeyListener:                                 methodclient.NewQwertyKeyListenerClient(cc),
+		MethodBaseMovementMethod:                                methodclient.NewBaseMovementMethodClient(cc),
+		MethodSingleLineTransformationMethod:                    methodclient.NewSingleLineTransformationMethodClient(cc),
+		MethodPasswordTransformationMethod:                      methodclient.NewPasswordTransformationMethodClient(cc),
+		MethodArrowKeyMovementMethod:                            methodclient.NewArrowKeyMovementMethodClient(cc),
+		MethodTimeKeyListener:                                   methodclient.NewTimeKeyListenerClient(cc),
+		MethodHideReturnsTransformationMethod:                   methodclient.NewHideReturnsTransformationMethodClient(cc),
+		MethodDigitsKeyListener:                                 methodclient.NewDigitsKeyListenerClient(cc),
+		MethodMultiTapKeyListener:                               methodclient.NewMultiTapKeyListenerClient(cc),
+		MethodDialerKeyListener:                                 methodclient.NewDialerKeyListenerClient(cc),
+		MethodDateKeyListener:                                   methodclient.NewDateKeyListenerClient(cc),
+		MethodDateTimeKeyListener:                               methodclient.NewDateTimeKeyListenerClient(cc),
+		MethodScrollingMovementMethod:                           methodclient.NewScrollingMovementMethodClient(cc),
+		MethodCharacterPickerDialog:                             methodclient.NewCharacterPickerDialogClient(cc),
+		MetricsMediaMetricsManager:                              metricsclient.NewMediaMetricsManagerClient(cc),
+		MidiManager:                                             midiclient.NewManagerClient(cc),
+		ModelsPageMatchBounds:                                   modelsclient.NewPageMatchBoundsClient(cc),
+		ModelsListItem:                                          modelsclient.NewListItemClient(cc),
+		MtpDevice:                                               mtpclient.NewDeviceClient(cc),
+		NetProxyInfo:                                            netclient.NewProxyInfoClient(cc),
+		NetTetheringInterface:                                   netclient.NewTetheringInterfaceClient(cc),
+		NetTetheringManager:                                     netclient.NewTetheringManagerClient(cc),
+		NetEthernetNetworkSpecifier:                             netclient.NewEthernetNetworkSpecifierClient(cc),
+		NetLocalServerSocket:                                    netclient.NewLocalServerSocketClient(cc),
+		NetLocalSocket:                                          netclient.NewLocalSocketClient(cc),
+		NetIpPrefix:                                             netclient.NewIpPrefixClient(cc),
+		NetCredentials:                                          netclient.NewCredentialsClient(cc),
+		NetIpSecManager:                                         netclient.NewIpSecManagerClient(cc),
+		NetLocalSocketAddress:                                   netclient.NewLocalSocketAddressClient(cc),
+		NetUrlQuerySanitizer:                                    netclient.NewUrlQuerySanitizerClient(cc),
+		NetTrafficStats:                                         netclient.NewTrafficStatsClient(cc),
+		NetLinkProperties:                                       netclient.NewLinkPropertiesClient(cc),
+		NetConnectivityDiagnosticsManager:                       netclient.NewConnectivityDiagnosticsManagerClient(cc),
+		NetVpnProfileState:                                      netclient.NewVpnProfileStateClient(cc),
+		NetDhcpInfo:                                             netclient.NewDhcpInfoClient(cc),
+		NetSSLCertificateSocketFactory:                          netclient.NewSSLCertificateSocketFactoryClient(cc),
+		NetIpSecAlgorithm:                                       netclient.NewIpSecAlgorithmClient(cc),
+		NetConnectivityManager:                                  netclient.NewConnectivityManagerClient(cc),
+		NetProxy:                                                netclient.NewProxyClient(cc),
+		NfcNdefRecord:                                           nfcclient.NewNdefRecordClient(cc),
+		NfcAntennaInfo:                                          nfcclient.NewAntennaInfoClient(cc),
+		NfcAvailableNfcAntenna:                                  nfcclient.NewAvailableNfcAntennaClient(cc),
+		NfcNdefMessage:                                          nfcclient.NewNdefMessageClient(cc),
+		NfcManager:                                              nfcclient.NewManagerClient(cc),
+		NotificationManager:                                     notificationclient.NewManagerClient(cc),
+		NsdManager:                                              nsdclient.NewManagerClient(cc),
+		ObserverDocumentChangeInfo:                              observerclient.NewDocumentChangeInfoClient(cc),
+		ObserverSchemaChangeInfo:                                observerclient.NewSchemaChangeInfoClient(cc),
+		OmFabricatedOverlay:                                     omclient.NewFabricatedOverlayClient(cc),
+		OmOverlayManager:                                        omclient.NewOverlayManagerClient(cc),
+		OmapiSEService:                                          omapiclient.NewSEServiceClient(cc),
 		OndevicepersonalizationExecuteInIsolatedServiceResponse: ondevicepersonalizationclient.NewExecuteInIsolatedServiceResponseClient(cc),
-		OpenglETC1:                               openglclient.NewETC1Client(cc),
-		OpenglGLU:                                openglclient.NewGLUClient(cc),
-		OpenglGLES10:                             openglclient.NewGLES10Client(cc),
-		OpenglGLES30:                             openglclient.NewGLES30Client(cc),
-		OpenglGLDebugHelper:                      openglclient.NewGLDebugHelperClient(cc),
-		OpenglGLSurfaceView:                      openglclient.NewGLSurfaceViewClient(cc),
-		OpenglGLES20:                             openglclient.NewGLES20Client(cc),
-		OpenglVisibility:                         openglclient.NewVisibilityClient(cc),
-		OpenglMatrix:                             openglclient.NewMatrixClient(cc),
-		OpenglETC1Util:                           openglclient.NewETC1UtilClient(cc),
-		OpenglEGLExt:                             openglclient.NewEGLExtClient(cc),
-		OpenglGLES10Ext:                          openglclient.NewGLES10ExtClient(cc),
-		OpenglGLES11Ext:                          openglclient.NewGLES11ExtClient(cc),
-		OpenglEGL14:                              openglclient.NewEGL14Client(cc),
-		OpenglGLES11:                             openglclient.NewGLES11Client(cc),
-		OsUserManager:                            osclient.NewUserManagerClient(cc),
-		OsProcess:                                osclient.NewProcessClient(cc),
-		OsUserHandle:                             osclient.NewUserHandleClient(cc),
-		OsMessage:                                osclient.NewMessageClient(cc),
-		OsHandler:                                osclient.NewHandlerClient(cc),
-		OsSecurityStateManager:                   osclient.NewSecurityStateManagerClient(cc),
-		OsVibratorManager:                        osclient.NewVibratorManagerClient(cc),
-		OsConditionVariable:                      osclient.NewConditionVariableClient(cc),
-		OsProfilingManager:                       osclient.NewProfilingManagerClient(cc),
-		OsRemoteCallbackList:                     osclient.NewRemoteCallbackListClient(cc),
-		OsDropBoxManager:                         osclient.NewDropBoxManagerClient(cc),
-		OsStatFs:                                 osclient.NewStatFsClient(cc),
-		OsMemoryFile:                             osclient.NewMemoryFileClient(cc),
-		OsHandlerThread:                          osclient.NewHandlerThreadClient(cc),
-		OsPerformanceHintManager:                 osclient.NewPerformanceHintManagerClient(cc),
-		OsWorkDuration:                           osclient.NewWorkDurationClient(cc),
-		OsPatternMatcher:                         osclient.NewPatternMatcherClient(cc),
-		OsMessenger:                              osclient.NewMessengerClient(cc),
-		OsParcelUuid:                             osclient.NewParcelUuidClient(cc),
-		OsLocaleList:                             osclient.NewLocaleListClient(cc),
-		OsBugreportManager:                       osclient.NewBugreportManagerClient(cc),
-		OsPersistableBundle:                      osclient.NewPersistableBundleClient(cc),
-		OsRemoteException:                        osclient.NewRemoteExceptionClient(cc),
-		OsWorkSource:                             osclient.NewWorkSourceClient(cc),
-		OsBinder:                                 osclient.NewBinderClient(cc),
-		OsResultReceiver:                         osclient.NewResultReceiverClient(cc),
-		OsHardwarePropertiesManager:              osclient.NewHardwarePropertiesManagerClient(cc),
-		P2pWifiP2pManager:                        p2pclient.NewWifiP2pManagerClient(cc),
-		ParamsSessionConfiguration:               paramsclient.NewSessionConfigurationClient(cc),
-		ParamsRggbChannelVector:                  paramsclient.NewRggbChannelVectorClient(cc),
-		ParamsOisSample:                          paramsclient.NewOisSampleClient(cc),
-		ParamsDynamicRangeProfiles:               paramsclient.NewDynamicRangeProfilesClient(cc),
-		ParamsMultiResolutionStreamInfo:          paramsclient.NewMultiResolutionStreamInfoClient(cc),
-		ParamsExtensionSessionConfiguration:      paramsclient.NewExtensionSessionConfigurationClient(cc),
-		ParamsColorSpaceTransform:                paramsclient.NewColorSpaceTransformClient(cc),
-		ParamsInputConfiguration:                 paramsclient.NewInputConfigurationClient(cc),
-		ParamsOutputConfiguration:                paramsclient.NewOutputConfigurationClient(cc),
-		ParamsLensIntrinsicsSample:               paramsclient.NewLensIntrinsicsSampleClient(cc),
-		ParamsCapability:                         paramsclient.NewCapabilityClient(cc),
-		ParamsBlackLevelPattern:                  paramsclient.NewBlackLevelPatternClient(cc),
-		ParamsMeteringRectangle:                  paramsclient.NewMeteringRectangleClient(cc),
-		ParamsTonemapCurve:                       paramsclient.NewTonemapCurveClient(cc),
-		PdfCanvas:                                pdfclient.NewCanvasClient(cc),
-		PdfPaint:                                 pdfclient.NewPaintClient(cc),
-		PdfPrintedPdfDocument:                    pdfclient.NewPrintedPdfDocumentClient(cc),
-		PeopleManager:                            peopleclient.NewManagerClient(cc),
-		PersistentdataPersistentDataBlockManager: persistentdataclient.NewPersistentDataBlockManagerClient(cc),
-		PlayerMediaPlayer:                        playerclient.NewMediaPlayerClient(cc),
-		PmPackageStats:                           pmclient.NewPackageStatsClient(cc),
-		PmPackageItemInfo:                        pmclient.NewPackageItemInfoClient(cc),
-		PmChangedPackages:                        pmclient.NewChangedPackagesClient(cc),
-		PmPackageInfo:                            pmclient.NewPackageInfoClient(cc),
-		PmArchivedPackageInfo:                    pmclient.NewArchivedPackageInfoClient(cc),
-		PmFeatureInfo:                            pmclient.NewFeatureInfoClient(cc),
-		PmVersionedPackage:                       pmclient.NewVersionedPackageClient(cc),
-		PmActivityInfo:                           pmclient.NewActivityInfoClient(cc),
-		PmProviderInfo:                           pmclient.NewProviderInfoClient(cc),
-		PmShortcutManager:                        pmclient.NewShortcutManagerClient(cc),
-		PmArchivedActivityInfo:                   pmclient.NewArchivedActivityInfoClient(cc),
-		PmApplicationInfo:                        pmclient.NewApplicationInfoClient(cc),
-		PmPermissionGroupInfo:                    pmclient.NewPermissionGroupInfoClient(cc),
-		PmInstrumentationInfo:                    pmclient.NewInstrumentationInfoClient(cc),
-		PmServiceInfo:                            pmclient.NewServiceInfoClient(cc),
-		PmPathPermission:                         pmclient.NewPathPermissionClient(cc),
-		PmSigningInfo:                            pmclient.NewSigningInfoClient(cc),
-		PmChecksum:                               pmclient.NewChecksumClient(cc),
-		PmLabeledIntent:                          pmclient.NewLabeledIntentClient(cc),
-		PmSignature:                              pmclient.NewSignatureClient(cc),
-		PmConfigurationInfo:                      pmclient.NewConfigurationInfoClient(cc),
-		PmCrossProfileApps:                       pmclient.NewCrossProfileAppsClient(cc),
-		PmResolveInfo:                            pmclient.NewResolveInfoClient(cc),
-		PmFeatureGroupInfo:                       pmclient.NewFeatureGroupInfoClient(cc),
-		PmLauncherApps:                           pmclient.NewLauncherAppsClient(cc),
-		PmComponentInfo:                          pmclient.NewComponentInfoClient(cc),
-		PmPermissionInfo:                         pmclient.NewPermissionInfoClient(cc),
-		PowerManager:                             powerclient.NewManagerClient(cc),
-		PpsHomeSp:                                ppsclient.NewHomeSpClient(cc),
-		PpsCredential:                            ppsclient.NewCredentialClient(cc),
-		PreferenceSwitchPreference:               preferenceclient.NewSwitchPreferenceClient(cc),
-		PreferenceMultiSelectListPreference:      preferenceclient.NewMultiSelectListPreferenceClient(cc),
-		PreferenceEditTextPreference:             preferenceclient.NewEditTextPreferenceClient(cc),
-		PreferenceListPreference:                 preferenceclient.NewListPreferenceClient(cc),
-		PreferenceRingtonePreference:             preferenceclient.NewRingtonePreferenceClient(cc),
-		PreferencePreference:                     preferenceclient.NewPreferenceClient(cc),
-		PreferenceCategory:                       preferenceclient.NewCategoryClient(cc),
-		PreferencesSettingsPreferenceServiceClient: preferencesclient.NewSettingsPreferenceServiceClientClient(cc),
-		PrintPageRange:                            printclient.NewPageRangeClient(cc),
-		PrintManager:                              printclient.NewManagerClient(cc),
-		ProjectionMediaProjectionManager:          projectionclient.NewMediaProjectionManagerClient(cc),
-		ProtoOutputStream:                         protoclient.NewOutputStreamClient(cc),
-		ProviderBrowser:                           providerclient.NewBrowserClient(cc),
-		ProviderFontRequest:                       providerclient.NewFontRequestClient(cc),
-		ProviderSearchRecentSuggestions:           providerclient.NewSearchRecentSuggestionsClient(cc),
-		QualityAmbientBacklightMetadata:           qualityclient.NewAmbientBacklightMetadataClient(cc),
-		QualityMediaQualityManager:                qualityclient.NewMediaQualityManagerClient(cc),
-		QualityActiveProcessingPicture:            qualityclient.NewActiveProcessingPictureClient(cc),
-		QualityAmbientBacklightSettings:           qualityclient.NewAmbientBacklightSettingsClient(cc),
-		QualityAmbientBacklightEvent:              qualityclient.NewAmbientBacklightEventClient(cc),
-		QuickaccesswalletGetWalletCardsResponse:   quickaccesswalletclient.NewGetWalletCardsResponseClient(cc),
-		QuickaccesswalletGetWalletCardsRequest:    quickaccesswalletclient.NewGetWalletCardsRequestClient(cc),
-		QuickaccesswalletWalletServiceEvent:       quickaccesswalletclient.NewWalletServiceEventClient(cc),
-		QuickaccesswalletGetWalletCardsError:      quickaccesswalletclient.NewGetWalletCardsErrorClient(cc),
-		QuickaccesswalletSelectWalletCardRequest:  quickaccesswalletclient.NewSelectWalletCardRequestClient(cc),
-		QuicksettingsTileService:                  quicksettingsclient.NewTileServiceClient(cc),
-		RecorderMediaRecorder:                     recorderclient.NewMediaRecorderClient(cc),
-		RenderscriptMatrix3f:                      renderscriptclient.NewMatrix3fClient(cc),
-		RenderscriptMatrix2f:                      renderscriptclient.NewMatrix2fClient(cc),
-		RenderscriptMatrix4f:                      renderscriptclient.NewMatrix4fClient(cc),
-		RenderscriptFieldPacker:                   renderscriptclient.NewFieldPackerClient(cc),
-		ResConfiguration:                          resclient.NewConfigurationClient(cc),
-		ResAssetFileDescriptor:                    resclient.NewAssetFileDescriptorClient(cc),
-		ResColorStateList:                         resclient.NewColorStateListClient(cc),
-		RingtoneManager:                           ringtoneclient.NewManagerClient(cc),
-		RoleManager:                               roleclient.NewManagerClient(cc),
-		RtpAudioStream:                            rtpclient.NewAudioStreamClient(cc),
-		RtpAudioGroup:                             rtpclient.NewAudioGroupClient(cc),
-		SatelliteManager:                          satelliteclient.NewManagerClient(cc),
-		SaxRootElement:                            saxclient.NewRootElementClient(cc),
-		SdksandboxRequestSurfacePackageException:  sdksandboxclient.NewRequestSurfacePackageExceptionClient(cc),
-		SdksandboxSandboxedSdk:                    sdksandboxclient.NewSandboxedSdkClient(cc),
-		SdksandboxLoadSdkException:                sdksandboxclient.NewLoadSdkExceptionClient(cc),
-		SdksandboxAppOwnedSdkSandboxInterface:     sdksandboxclient.NewAppOwnedSdkSandboxInterfaceClient(cc),
-		SecurityFileIntegrityManager:              securityclient.NewFileIntegrityManagerClient(cc),
-		SecurityKeyChain:                          securityclient.NewKeyChainClient(cc),
-		SecurityAttestedKeyPair:                   securityclient.NewAttestedKeyPairClient(cc),
-		SelectionPageSelection:                    selectionclient.NewPageSelectionClient(cc),
-		SelectionBoundary:                         selectionclient.NewBoundaryClient(cc),
-		SessionMediaSessionManager:                sessionclient.NewMediaSessionManagerClient(cc),
-		SessionMediaSession:                       sessionclient.NewMediaSessionClient(cc),
-		SessionMediaController:                    sessionclient.NewMediaControllerClient(cc),
-		SettingsSettings:                          settingsclient.NewSettingsClient(cc),
-		ShapesPathShape:                           shapesclient.NewPathShapeClient(cc),
-		ShapesArcShape:                            shapesclient.NewArcShapeClient(cc),
-		ShapesRectShape:                           shapesclient.NewRectShapeClient(cc),
-		ShapesRoundRectShape:                      shapesclient.NewRoundRectShapeClient(cc),
-		ShapesOvalShape:                           shapesclient.NewOvalShapeClient(cc),
-		SipAudioCall:                              sipclient.NewAudioCallClient(cc),
-		SliceSpec:                                 sliceclient.NewSpecClient(cc),
-		SliceMetrics:                              sliceclient.NewMetricsClient(cc),
-		SpeechAlternativeSpan:                     speechclient.NewAlternativeSpanClient(cc),
-		SpeechAlternativeSpans:                    speechclient.NewAlternativeSpansClient(cc),
-		SpeechTextToSpeech:                        speechclient.NewTextToSpeechClient(cc),
-		SqliteSQLiteCursor:                        sqliteclient.NewSQLiteCursorClient(cc),
-		SqliteSQLiteQueryBuilder:                  sqliteclient.NewSQLiteQueryBuilderClient(cc),
-		StorageManager:                            storageclient.NewManagerClient(cc),
-		StrictmodeUnsafeIntentLaunchViolation:     strictmodeclient.NewUnsafeIntentLaunchViolationClient(cc),
-		StyleTextAppearanceSpan:                   styleclient.NewTextAppearanceSpanClient(cc),
-		StyleSuggestionSpan:                       styleclient.NewSuggestionSpanClient(cc),
-		StyleScaleXSpan:                           styleclient.NewScaleXSpanClient(cc),
-		StyleImageSpan:                            styleclient.NewImageSpanClient(cc),
-		StyleIconMarginSpan:                       styleclient.NewIconMarginSpanClient(cc),
-		StyleLocaleSpan:                           styleclient.NewLocaleSpanClient(cc),
-		StyleSuperscriptSpan:                      styleclient.NewSuperscriptSpanClient(cc),
-		StyleTtsSpan:                              styleclient.NewTtsSpanClient(cc),
-		StyleSuggestionRangeSpan:                  styleclient.NewSuggestionRangeSpanClient(cc),
-		StyleEasyEditSpan:                         styleclient.NewEasyEditSpanClient(cc),
-		StyleMaskFilterSpan:                       styleclient.NewMaskFilterSpanClient(cc),
-		StyleBackgroundColorSpan:                  styleclient.NewBackgroundColorSpanClient(cc),
-		StyleStrikethroughSpan:                    styleclient.NewStrikethroughSpanClient(cc),
-		StyleURLSpan:                              styleclient.NewURLSpanClient(cc),
-		StyleForegroundColorSpan:                  styleclient.NewForegroundColorSpanClient(cc),
-		StyleSubscriptSpan:                        styleclient.NewSubscriptSpanClient(cc),
-		StyleTypefaceSpan:                         styleclient.NewTypefaceSpanClient(cc),
-		StyleLineBreakConfigSpan:                  styleclient.NewLineBreakConfigSpanClient(cc),
-		StyleSpan:                                 styleclient.NewSpanClient(cc),
-		StyleUnderlineSpan:                        styleclient.NewUnderlineSpanClient(cc),
-		StyleAbsoluteSizeSpan:                     styleclient.NewAbsoluteSizeSpanClient(cc),
-		StyleRelativeSizeSpan:                     styleclient.NewRelativeSizeSpanClient(cc),
-		StyleQuoteSpan:                            styleclient.NewQuoteSpanClient(cc),
-		StyleNoWritingToolsSpan:                   styleclient.NewNoWritingToolsSpanClient(cc),
-		StyleDrawableMarginSpan:                   styleclient.NewDrawableMarginSpanClient(cc),
-		StyleBulletSpan:                           styleclient.NewBulletSpanClient(cc),
-		SystemInt64Ref:                            systemclient.NewInt64RefClient(cc),
-		SystemStructUtsname:                       systemclient.NewStructUtsnameClient(cc),
-		SystemStructTimespec:                      systemclient.NewStructTimespecClient(cc),
-		SystemStructPollfd:                        systemclient.NewStructPollfdClient(cc),
-		SystemVmSocketAddress:                     systemclient.NewVmSocketAddressClient(cc),
-		SystemStructStat:                          systemclient.NewStructStatClient(cc),
-		SystemErrnoException:                      systemclient.NewErrnoExceptionClient(cc),
-		SystemStructStatVfs:                       systemclient.NewStructStatVfsClient(cc),
-		TelecomPhoneAccountHandle:                 telecomclient.NewPhoneAccountHandleClient(cc),
-		TelecomStatusHints:                        telecomclient.NewStatusHintsClient(cc),
-		TelecomGatewayInfo:                        telecomclient.NewGatewayInfoClient(cc),
-		TelecomCallAudioState:                     telecomclient.NewCallAudioStateClient(cc),
-		TelecomCallException:                      telecomclient.NewCallExceptionClient(cc),
-		TelecomQueryLocationException:             telecomclient.NewQueryLocationExceptionClient(cc),
-		TelecomVideoProfile:                       telecomclient.NewVideoProfileClient(cc),
-		TelecomDisconnectCause:                    telecomclient.NewDisconnectCauseClient(cc),
-		TelecomPhoneAccountSuggestion:             telecomclient.NewPhoneAccountSuggestionClient(cc),
-		TelecomCallEndpoint:                       telecomclient.NewCallEndpointClient(cc),
-		TelecomCallEndpointException:              telecomclient.NewCallEndpointExceptionClient(cc),
-		TelecomManager:                            telecomclient.NewManagerClient(cc),
-		TelecomConnectionRequest:                  telecomclient.NewConnectionRequestClient(cc),
-		TelephonyRadioAccessSpecifier:             telephonyclient.NewRadioAccessSpecifierClient(cc),
-		TelephonyAvailableNetworkInfo:             telephonyclient.NewAvailableNetworkInfoClient(cc),
-		TelephonyPhoneNumberUtils:                 telephonyclient.NewPhoneNumberUtilsClient(cc),
-		TelephonyServiceState:                     telephonyclient.NewServiceStateClient(cc),
-		TelephonyManager:                          telephonyclient.NewManagerClient(cc),
-		TelephonyNeighboringCellInfo:              telephonyclient.NewNeighboringCellInfoClient(cc),
-		TelephonyPhoneNumberFormattingTextWatcher: telephonyclient.NewPhoneNumberFormattingTextWatcherClient(cc),
-		TelephonyPhoneStateListener:               telephonyclient.NewPhoneStateListenerClient(cc),
-		TelephonyNetworkScanRequest:               telephonyclient.NewNetworkScanRequestClient(cc),
-		TelephonyCarrierConfigManager:             telephonyclient.NewCarrierConfigManagerClient(cc),
-		TelephonySignalStrength:                   telephonyclient.NewSignalStrengthClient(cc),
-		TemplatesRangeTemplate:                    templatesclient.NewRangeTemplateClient(cc),
-		TemplatesControlButton:                    templatesclient.NewControlButtonClient(cc),
-		TemplatesTemperatureControlTemplate:       templatesclient.NewTemperatureControlTemplateClient(cc),
-		TemplatesStatelessTemplate:                templatesclient.NewStatelessTemplateClient(cc),
-		TemplatesToggleTemplate:                   templatesclient.NewToggleTemplateClient(cc),
-		TemplatesToggleRangeTemplate:              templatesclient.NewToggleRangeTemplateClient(cc),
-		TemplatesThumbnailTemplate:                templatesclient.NewThumbnailTemplateClient(cc),
-		TextDecimalFormat:                         textclient.NewDecimalFormatClient(cc),
-		TextUnicodeSet:                            textclient.NewUnicodeSetClient(cc),
-		TextDateFormatSymbols:                     textclient.NewDateFormatSymbolsClient(cc),
-		TextSelectFormat:                          textclient.NewSelectFormatClient(cc),
-		TextNumberingSystem:                       textclient.NewNumberingSystemClient(cc),
-		TextAlphabeticIndex:                       textclient.NewAlphabeticIndexClient(cc),
-		TextBidiClassifier:                        textclient.NewBidiClassifierClient(cc),
-		TextDecimalFormatSymbols:                  textclient.NewDecimalFormatSymbolsClient(cc),
-		TextConstrainedFieldPosition:              textclient.NewConstrainedFieldPositionClient(cc),
-		TextCurrencyPluralInfo:                    textclient.NewCurrencyPluralInfoClient(cc),
-		TextSimpleDateFormat:                      textclient.NewSimpleDateFormatClient(cc),
-		TextDateIntervalInfo:                      textclient.NewDateIntervalInfoClient(cc),
-		TextSpannableStringBuilder:                textclient.NewSpannableStringBuilderClient(cc),
-		TextAndroidCharacter:                      textclient.NewAndroidCharacterClient(cc),
-		TextWordSegmentFinder:                     textclient.NewWordSegmentFinderClient(cc),
-		TextSpannedString:                         textclient.NewSpannedStringClient(cc),
-		TextGraphemeClusterSegmentFinder:          textclient.NewGraphemeClusterSegmentFinderClient(cc),
-		TextStaticLayout:                          textclient.NewStaticLayoutClient(cc),
-		TextSpannableString:                       textclient.NewSpannableStringClient(cc),
-		TextBoringLayout:                          textclient.NewBoringLayoutClient(cc),
-		TextPaint:                                 textclient.NewPaintClient(cc),
-		TextAnnotation:                            textclient.NewAnnotationClient(cc),
-		TextDynamicLayout:                         textclient.NewDynamicLayoutClient(cc),
-		TextCollationKey:                          textclient.NewCollationKeyClient(cc),
-		TextBidi:                                  textclient.NewBidiClient(cc),
-		TextMessageFormat:                         textclient.NewMessageFormatClient(cc),
-		TextRuleBasedCollator:                     textclient.NewRuleBasedCollatorClient(cc),
-		TextUnicodeSetIterator:                    textclient.NewUnicodeSetIteratorClient(cc),
-		TextPluralFormat:                          textclient.NewPluralFormatClient(cc),
-		TextStringPrepParseException:              textclient.NewStringPrepParseExceptionClient(cc),
-		TextMessagePattern:                        textclient.NewMessagePatternClient(cc),
-		TextStringSearch:                          textclient.NewStringSearchClient(cc),
-		TextEdits:                                 textclient.NewEditsClient(cc),
-		TextUnicodeSetSpanner:                     textclient.NewUnicodeSetSpannerClient(cc),
-		TextclassifierTextClassificationManager:   textclassifierclient.NewTextClassificationManagerClient(cc),
-		TextclassifierConversationActions:         textclassifierclient.NewConversationActionsClient(cc),
-		TextserviceSuggestionsInfo:                textserviceclient.NewSuggestionsInfoClient(cc),
-		TextserviceTextServicesManager:            textserviceclient.NewTextServicesManagerClient(cc),
-		TextserviceSentenceSuggestionsInfo:        textserviceclient.NewSentenceSuggestionsInfoClient(cc),
-		TextserviceTextInfo:                       textserviceclient.NewTextInfoClient(cc),
-		TextserviceSpellCheckerSubtype:            textserviceclient.NewSpellCheckerSubtypeClient(cc),
-		ToastToast:                                toastclient.NewToastClient(cc),
-		TopicsEncryptedTopic:                      topicsclient.NewEncryptedTopicClient(cc),
-		TopicsTopic:                               topicsclient.NewTopicClient(cc),
-		TransitionSidePropagation:                 transitionclient.NewSidePropagationClient(cc),
-		TransitionChangeTransform:                 transitionclient.NewChangeTransformClient(cc),
-		TransitionPatternPathMotion:               transitionclient.NewPatternPathMotionClient(cc),
-		TransitionSet:                             transitionclient.NewSetClient(cc),
-		TransitionChangeClipBounds:                transitionclient.NewChangeClipBoundsClient(cc),
-		TransitionChangeScroll:                    transitionclient.NewChangeScrollClient(cc),
-		TransitionScene:                           transitionclient.NewSceneClient(cc),
-		TransitionArcMotion:                       transitionclient.NewArcMotionClient(cc),
-		TransitionExplode:                         transitionclient.NewExplodeClient(cc),
-		TransitionSlide:                           transitionclient.NewSlideClient(cc),
-		TransitionCircularPropagation:             transitionclient.NewCircularPropagationClient(cc),
-		TransitionChangeBounds:                    transitionclient.NewChangeBoundsClient(cc),
-		TransitionManager:                         transitionclient.NewManagerClient(cc),
-		TransitionChangeImageTransform:            transitionclient.NewChangeImageTransformClient(cc),
-		TransitionFade:                            transitionclient.NewFadeClient(cc),
-		TransitionValues:                          transitionclient.NewValuesClient(cc),
-		TranslationSpec:                           translationclient.NewSpecClient(cc),
-		TtsVoice:                                  ttsclient.NewVoiceClient(cc),
-		TtsSynthesisRequest:                       ttsclient.NewSynthesisRequestClient(cc),
-		TvAdRequest:                               tvclient.NewAdRequestClient(cc),
-		TvTableResponse:                           tvclient.NewTableResponseClient(cc),
-		TvCommandRequest:                          tvclient.NewCommandRequestClient(cc),
-		TvRecordingClient:                         tvclient.NewRecordingClientClient(cc),
-		TvTimelineResponse:                        tvclient.NewTimelineResponseClient(cc),
-		TvSignalingDataInfo:                       tvclient.NewSignalingDataInfoClient(cc),
-		TvPesRequest:                              tvclient.NewPesRequestClient(cc),
-		TvStreamEventResponse:                     tvclient.NewStreamEventResponseClient(cc),
-		TvDsmccResponse:                           tvclient.NewDsmccResponseClient(cc),
-		TvPesResponse:                             tvclient.NewPesResponseClient(cc),
-		TvRecordingInfo:                           tvclient.NewRecordingInfoClient(cc),
-		TvSignalingDataResponse:                   tvclient.NewSignalingDataResponseClient(cc),
-		TvStreamEventRequest:                      tvclient.NewStreamEventRequestClient(cc),
-		TvTsResponse:                              tvclient.NewTsResponseClient(cc),
-		TvCommandResponse:                         tvclient.NewCommandResponseClient(cc),
-		TvInputManager:                            tvclient.NewInputManagerClient(cc),
-		TvSignalingDataRequest:                    tvclient.NewSignalingDataRequestClient(cc),
-		TvTableRequest:                            tvclient.NewTableRequestClient(cc),
-		TvSectionRequest:                          tvclient.NewSectionRequestClient(cc),
-		TvAdResponse:                              tvclient.NewAdResponseClient(cc),
-		TvSectionResponse:                         tvclient.NewSectionResponseClient(cc),
-		TvView:                                    tvclient.NewViewClient(cc),
-		TvAdBuffer:                                tvclient.NewAdBufferClient(cc),
-		TvAitInfo:                                 tvclient.NewAitInfoClient(cc),
-		TvDsmccRequest:                            tvclient.NewDsmccRequestClient(cc),
-		TvTsRequest:                               tvclient.NewTsRequestClient(cc),
-		TvTimelineRequest:                         tvclient.NewTimelineRequestClient(cc),
-		UsageStats:                                usageclient.NewStatsClient(cc),
-		UsageStorageStatsManager:                  usageclient.NewStorageStatsManagerClient(cc),
-		UsageConfigurationStats:                   usageclient.NewConfigurationStatsClient(cc),
-		UsageStatsManager:                         usageclient.NewStatsManagerClient(cc),
-		UsageEventStats:                           usageclient.NewEventStatsClient(cc),
-		UsageNetworkStatsManager:                  usageclient.NewNetworkStatsManagerClient(cc),
-		UsbManager:                                usbclient.NewManagerClient(cc),
-		UsbRequest:                                usbclient.NewRequestClient(cc),
-		UtilArraySet:                              utilclient.NewArraySetClient(cc),
-		UtilCloseGuard:                            utilclient.NewCloseGuardClient(cc),
-		UtilPrintStreamPrinter:                    utilclient.NewPrintStreamPrinterClient(cc),
-		UtilArrayMap:                              utilclient.NewArrayMapClient(cc),
-		UtilLruCache:                              utilclient.NewLruCacheClient(cc),
-		UtilRange:                                 utilclient.NewRangeClient(cc),
-		UtilSparseIntArray:                        utilclient.NewSparseIntArrayClient(cc),
-		UtilRfc822Tokenizer:                       utilclient.NewRfc822TokenizerClient(cc),
-		UtilRfc822Token:                           utilclient.NewRfc822TokenClient(cc),
-		UtilMonthDisplayHelper:                    utilclient.NewMonthDisplayHelperClient(cc),
-		UtilLinkify:                               utilclient.NewLinkifyClient(cc),
-		UtilLogPrinter:                            utilclient.NewLogPrinterClient(cc),
-		UtilSparseLongArray:                       utilclient.NewSparseLongArrayClient(cc),
-		UtilStringBuilderPrinter:                  utilclient.NewStringBuilderPrinterClient(cc),
-		UtilBase64InputStream:                     utilclient.NewBase64InputStreamClient(cc),
-		UtilTypedValue:                            utilclient.NewTypedValueClient(cc),
-		UtilRational:                              utilclient.NewRationalClient(cc),
-		UtilLongSparseArray:                       utilclient.NewLongSparseArrayClient(cc),
-		UtilPrintWriterPrinter:                    utilclient.NewPrintWriterPrinterClient(cc),
-		UtilJsonWriter:                            utilclient.NewJsonWriterClient(cc),
-		UtilIslamicCalendar:                       utilclient.NewIslamicCalendarClient(cc),
-		UtilEventLogTags:                          utilclient.NewEventLogTagsClient(cc),
-		UtilSparseBooleanArray:                    utilclient.NewSparseBooleanArrayClient(cc),
-		UtilHalf:                                  utilclient.NewHalfClient(cc),
-		UtilAtomicFile:                            utilclient.NewAtomicFileClient(cc),
-		UtilSize:                                  utilclient.NewSizeClient(cc),
-		UtilPair:                                  utilclient.NewPairClient(cc),
-		UtilBuddhistCalendar:                      utilclient.NewBuddhistCalendarClient(cc),
-		UtilHebrewCalendar:                        utilclient.NewHebrewCalendarClient(cc),
-		UtilCurrencyAmount:                        utilclient.NewCurrencyAmountClient(cc),
-		UtilIndianCalendar:                        utilclient.NewIndianCalendarClient(cc),
-		UtilDateInterval:                          utilclient.NewDateIntervalClient(cc),
-		UtilOutput:                                utilclient.NewOutputClient(cc),
-		UtilULocale:                               utilclient.NewULocaleClient(cc),
-		UtilChineseCalendar:                       utilclient.NewChineseCalendarClient(cc),
-		UtilMeasure:                               utilclient.NewMeasureClient(cc),
-		UtilEthiopicCalendar:                      utilclient.NewEthiopicCalendarClient(cc),
-		UtilJapaneseCalendar:                      utilclient.NewJapaneseCalendarClient(cc),
-		UtilTaiwanCalendar:                        utilclient.NewTaiwanCalendarClient(cc),
-		UtilCopticCalendar:                        utilclient.NewCopticCalendarClient(cc),
-		UtilIllformedLocaleException:              utilclient.NewIllformedLocaleExceptionClient(cc),
-		UtilGregorianCalendar:                     utilclient.NewGregorianCalendarClient(cc),
-		UtilTimingLogger:                          utilclient.NewTimingLoggerClient(cc),
-		UtilJsonReader:                            utilclient.NewJsonReaderClient(cc),
-		UtilSizeF:                                 utilclient.NewSizeFClient(cc),
-		UtilBase64OutputStream:                    utilclient.NewBase64OutputStreamClient(cc),
-		UtilSparseArray:                           utilclient.NewSparseArrayClient(cc),
-		VibratorVibrator:                          vibratorclient.NewVibratorClient(cc),
-		ViewSearchEvent:                           viewclient.NewSearchEventClient(cc),
-		ViewSurfaceControlViewHost:                viewclient.NewSurfaceControlViewHostClient(cc),
-		ViewWindowMetrics:                         viewclient.NewWindowMetricsClient(cc),
-		ViewDisplayCutout:                         viewclient.NewDisplayCutoutClient(cc),
-		ViewTouchDelegate:                         viewclient.NewTouchDelegateClient(cc),
-		ViewKeyboardShortcutGroup:                 viewclient.NewKeyboardShortcutGroupClient(cc),
-		ViewGestureDetector:                       viewclient.NewGestureDetectorClient(cc),
-		ViewMotionPredictor:                       viewclient.NewMotionPredictorClient(cc),
-		ViewWindowInsets:                          viewclient.NewWindowInsetsClient(cc),
-		ViewFrameMetrics:                          viewclient.NewFrameMetricsClient(cc),
-		ViewLayoutInflater:                        viewclient.NewLayoutInflaterClient(cc),
-		ViewScrollCaptureSession:                  viewclient.NewScrollCaptureSessionClient(cc),
-		ViewMenuInflater:                          viewclient.NewMenuInflaterClient(cc),
-		ViewKeyEvent:                              viewclient.NewKeyEventClient(cc),
-		ViewRoundedCorner:                         viewclient.NewRoundedCornerClient(cc),
-		ViewConfiguration:                         viewclient.NewConfigurationClient(cc),
-		ViewKeyboardShortcutInfo:                  viewclient.NewKeyboardShortcutInfoClient(cc),
-		ViewGravity:                               viewclient.NewGravityClient(cc),
-		ViewDebug:                                 viewclient.NewDebugClient(cc),
-		ViewContextThemeWrapper:                   viewclient.NewContextThemeWrapperClient(cc),
-		ViewScrollCaptureTarget:                   viewclient.NewScrollCaptureTargetClient(cc),
-		ViewScaleGestureDetector:                  viewclient.NewScaleGestureDetectorClient(cc),
-		ViewWindowInsetsAnimation:                 viewclient.NewWindowInsetsAnimationClient(cc),
-		ViewTextureView:                           viewclient.NewTextureViewClient(cc),
-		ViewStub:                                  viewclient.NewStubClient(cc),
-		VirtualDeviceManager:                      virtualclient.NewDeviceManagerClient(cc),
-		VoiceInteractionSession:                   voiceclient.NewInteractionSessionClient(cc),
-		VoiceInteractionService:                   voiceclient.NewInteractionServiceClient(cc),
-		VpnService:                                vpnclient.NewServiceClient(cc),
-		WallpaperInstance:                         wallpaperclient.NewInstanceClient(cc),
-		WebkitWebResourceResponse:                 webkitclient.NewWebResourceResponseClient(cc),
-		WebkitDateSorter:                          webkitclient.NewDateSorterClient(cc),
-		WebkitWebChromeClient:                     webkitclient.NewWebChromeClientClient(cc),
-		WebkitWebViewClient:                       webkitclient.NewWebViewClientClient(cc),
-		WebkitServiceWorkerClient:                 webkitclient.NewServiceWorkerClientClient(cc),
-		WebkitURLUtil:                             webkitclient.NewURLUtilClient(cc),
-		WebkitConsoleMessage:                      webkitclient.NewConsoleMessageClient(cc),
-		WebkitWebMessage:                          webkitclient.NewWebMessageClient(cc),
-		WebkitWebView:                             webkitclient.NewWebViewClient(cc),
-		WebkitWebViewFragment:                     webkitclient.NewWebViewFragmentClient(cc),
-		WidgetRatingBar:                           widgetclient.NewRatingBarClient(cc),
-		WidgetCheckBox:                            widgetclient.NewCheckBoxClient(cc),
-		WidgetTextClock:                           widgetclient.NewTextClockClient(cc),
-		WidgetScroller:                            widgetclient.NewScrollerClient(cc),
-		WidgetRemoteViews:                         widgetclient.NewRemoteViewsClient(cc),
-		WidgetZoomControls:                        widgetclient.NewZoomControlsClient(cc),
-		WidgetTextSwitcher:                        widgetclient.NewTextSwitcherClient(cc),
-		WidgetSimpleCursorAdapter:                 widgetclient.NewSimpleCursorAdapterClient(cc),
-		WidgetMultiAutoCompleteTextView:           widgetclient.NewMultiAutoCompleteTextViewClient(cc),
-		WidgetImageButton:                         widgetclient.NewImageButtonClient(cc),
-		WidgetStackView:                           widgetclient.NewStackViewClient(cc),
-		WidgetRelativeLayout:                      widgetclient.NewRelativeLayoutClient(cc),
-		WidgetAlphabetIndexer:                     widgetclient.NewAlphabetIndexerClient(cc),
-		WidgetFrameLayout:                         widgetclient.NewFrameLayoutClient(cc),
-		WidgetGridLayout:                          widgetclient.NewGridLayoutClient(cc),
-		WidgetScrollView:                          widgetclient.NewScrollViewClient(cc),
-		WidgetToolbar:                             widgetclient.NewToolbarClient(cc),
-		WidgetArrayAdapter:                        widgetclient.NewArrayAdapterClient(cc),
-		WidgetViewFlipper:                         widgetclient.NewViewFlipperClient(cc),
-		WidgetTableRow:                            widgetclient.NewTableRowClient(cc),
-		WidgetGallery:                             widgetclient.NewGalleryClient(cc),
-		WidgetMediaController:                     widgetclient.NewMediaControllerClient(cc),
-		WidgetQuickContactBadge:                   widgetclient.NewQuickContactBadgeClient(cc),
-		WidgetViewSwitcher:                        widgetclient.NewViewSwitcherClient(cc),
-		WidgetActionMenuView:                      widgetclient.NewActionMenuViewClient(cc),
-		WidgetExpandableListView:                  widgetclient.NewExpandableListViewClient(cc),
-		WidgetListView:                            widgetclient.NewListViewClient(cc),
-		WidgetHeaderViewListAdapter:               widgetclient.NewHeaderViewListAdapterClient(cc),
-		WidgetRadioGroup:                          widgetclient.NewRadioGroupClient(cc),
-		WidgetDigitalClock:                        widgetclient.NewDigitalClockClient(cc),
-		WidgetTwoLineListItem:                     widgetclient.NewTwoLineListItemClient(cc),
-		WidgetTabHost:                             widgetclient.NewTabHostClient(cc),
-		WidgetZoomButton:                          widgetclient.NewZoomButtonClient(cc),
-		WidgetProgressBar:                         widgetclient.NewProgressBarClient(cc),
-		WidgetOverScroller:                        widgetclient.NewOverScrollerClient(cc),
-		WidgetTimePicker:                          widgetclient.NewTimePickerClient(cc),
-		WidgetHorizontalScrollView:                widgetclient.NewHorizontalScrollViewClient(cc),
-		WidgetDialerFilter:                        widgetclient.NewDialerFilterClient(cc),
-		WidgetImageSwitcher:                       widgetclient.NewImageSwitcherClient(cc),
-		WidgetTableLayout:                         widgetclient.NewTableLayoutClient(cc),
-		WidgetEdgeEffect:                          widgetclient.NewEdgeEffectClient(cc),
-		WidgetImageView:                           widgetclient.NewImageViewClient(cc),
-		WidgetAnalogClock:                         widgetclient.NewAnalogClockClient(cc),
-		WidgetAdapterViewFlipper:                  widgetclient.NewAdapterViewFlipperClient(cc),
-		WidgetRadioButton:                         widgetclient.NewRadioButtonClient(cc),
-		WidgetNumberPicker:                        widgetclient.NewNumberPickerClient(cc),
-		WidgetAbsoluteLayout:                      widgetclient.NewAbsoluteLayoutClient(cc),
-		WidgetSpinner:                             widgetclient.NewSpinnerClient(cc),
-		WidgetSlidingDrawer:                       widgetclient.NewSlidingDrawerClient(cc),
-		WidgetTextView:                            widgetclient.NewTextViewClient(cc),
-		WidgetMagnifier:                           widgetclient.NewMagnifierClient(cc),
-		WidgetButton:                              widgetclient.NewButtonClient(cc),
-		WidgetSearchView:                          widgetclient.NewSearchViewClient(cc),
-		WidgetShareActionProvider:                 widgetclient.NewShareActionProviderClient(cc),
-		WidgetZoomButtonsController:               widgetclient.NewZoomButtonsControllerClient(cc),
-		WidgetGridView:                            widgetclient.NewGridViewClient(cc),
-		WidgetDatePicker:                          widgetclient.NewDatePickerClient(cc),
-		WidgetSimpleExpandableListAdapter:         widgetclient.NewSimpleExpandableListAdapterClient(cc),
-		WidgetSpace:                               widgetclient.NewSpaceClient(cc),
-		WidgetTabWidget:                           widgetclient.NewTabWidgetClient(cc),
-		WidgetToggleButton:                        widgetclient.NewToggleButtonClient(cc),
-		WidgetListPopupWindow:                     widgetclient.NewListPopupWindowClient(cc),
-		WidgetEditText:                            widgetclient.NewEditTextClient(cc),
-		WidgetSwitch:                              widgetclient.NewSwitchClient(cc),
-		WidgetAutoCompleteTextView:                widgetclient.NewAutoCompleteTextViewClient(cc),
-		WidgetCalendarView:                        widgetclient.NewCalendarViewClient(cc),
-		WidgetSimpleAdapter:                       widgetclient.NewSimpleAdapterClient(cc),
-		WidgetVideoView:                           widgetclient.NewVideoViewClient(cc),
-		WidgetViewAnimator:                        widgetclient.NewViewAnimatorClient(cc),
-		WidgetCheckedTextView:                     widgetclient.NewCheckedTextViewClient(cc),
-		WidgetLinearLayout:                        widgetclient.NewLinearLayoutClient(cc),
-		WidgetPopupWindow:                         widgetclient.NewPopupWindowClient(cc),
-		WidgetChronometer:                         widgetclient.NewChronometerClient(cc),
-		WidgetSeekBar:                             widgetclient.NewSeekBarClient(cc),
-		WidgetPopupMenu:                           widgetclient.NewPopupMenuClient(cc),
-		WifiManager:                               wificlient.NewManagerClient(cc),
-		WifiConfiguration:                         wificlient.NewConfigurationClient(cc),
-		WifiAvailableChannel:                      wificlient.NewAvailableChannelClient(cc),
-		WifiMloLink:                               wificlient.NewMloLinkClient(cc),
-		WifiScanResult:                            wificlient.NewScanResultClient(cc),
-		WifiWpsInfo:                               wificlient.NewWpsInfoClient(cc),
-		WifiEnterpriseConfig:                      wificlient.NewEnterpriseConfigClient(cc),
-		Wifi_p2pWifiP2pWfdInfo:                    wifi_p2pclient.NewWifiP2pWfdInfoClient(cc),
-		Wifi_p2pWifiP2pPairingBootstrappingConfig: wifi_p2pclient.NewWifiP2pPairingBootstrappingConfigClient(cc),
-		Wifi_p2pWifiP2pDirInfo:                    wifi_p2pclient.NewWifiP2pDirInfoClient(cc),
-		Wifi_p2pWifiP2pDeviceList:                 wifi_p2pclient.NewWifiP2pDeviceListClient(cc),
-		Wifi_p2pWifiP2pInfo:                       wifi_p2pclient.NewWifiP2pInfoClient(cc),
-		Wifi_p2pWifiP2pDevice:                     wifi_p2pclient.NewWifiP2pDeviceClient(cc),
-		Wifi_p2pWifiP2pGroup:                      wifi_p2pclient.NewWifiP2pGroupClient(cc),
-		Wifi_p2pWifiP2pManager:                    wifi_p2pclient.NewWifiP2pManagerClient(cc),
-		Wifi_p2pWifiP2pConfig:                     wifi_p2pclient.NewWifiP2pConfigClient(cc),
-		Wifi_rttWifiRttManager:                    wifi_rttclient.NewWifiRttManagerClient(cc),
-		WindowTrustedPresentationThresholds:       windowclient.NewTrustedPresentationThresholdsClient(cc),
-		WindowSurfaceSyncGroup:                    windowclient.NewSurfaceSyncGroupClient(cc),
-		WindowBackEvent:                           windowclient.NewBackEventClient(cc),
+		OndevicepersonalizationAppInfo:                          ondevicepersonalizationclient.NewAppInfoClient(cc),
+		OndevicepersonalizationIsolatedServiceException:         ondevicepersonalizationclient.NewIsolatedServiceExceptionClient(cc),
+		OndevicepersonalizationRenderInput:                      ondevicepersonalizationclient.NewRenderInputClient(cc),
+		OndevicepersonalizationTrainingExamplesInput:            ondevicepersonalizationclient.NewTrainingExamplesInputClient(cc),
+		OndevicepersonalizationWebTriggerInput:                  ondevicepersonalizationclient.NewWebTriggerInputClient(cc),
+		OndevicepersonalizationDownloadCompletedInput:           ondevicepersonalizationclient.NewDownloadCompletedInputClient(cc),
+		OndevicepersonalizationExecuteInput:                     ondevicepersonalizationclient.NewExecuteInputClient(cc),
+		OndevicepersonalizationEventInput:                       ondevicepersonalizationclient.NewEventInputClient(cc),
+		OpenglETC1:                                              openglclient.NewETC1Client(cc),
+		OpenglVisibility:                                        openglclient.NewVisibilityClient(cc),
+		OpenglGLES11:                                            openglclient.NewGLES11Client(cc),
+		OpenglEGL14:                                             openglclient.NewEGL14Client(cc),
+		OpenglGLES10:                                            openglclient.NewGLES10Client(cc),
+		OpenglGLDebugHelper:                                     openglclient.NewGLDebugHelperClient(cc),
+		OpenglEGLExt:                                            openglclient.NewEGLExtClient(cc),
+		OpenglETC1Util:                                          openglclient.NewETC1UtilClient(cc),
+		OpenglMatrix:                                            openglclient.NewMatrixClient(cc),
+		OpenglGLES20:                                            openglclient.NewGLES20Client(cc),
+		OpenglGLES10Ext:                                         openglclient.NewGLES10ExtClient(cc),
+		OpenglGLSurfaceView:                                     openglclient.NewGLSurfaceViewClient(cc),
+		OpenglGLU:                                               openglclient.NewGLUClient(cc),
+		OpenglGLES11Ext:                                         openglclient.NewGLES11ExtClient(cc),
+		OpenglGLES30:                                            openglclient.NewGLES30Client(cc),
+		OsBugreportManager:                                      osclient.NewBugreportManagerClient(cc),
+		OsProcess:                                               osclient.NewProcessClient(cc),
+		OsMessage:                                               osclient.NewMessageClient(cc),
+		OsHandler:                                               osclient.NewHandlerClient(cc),
+		OsRemoteException:                                       osclient.NewRemoteExceptionClient(cc),
+		OsUserHandle:                                            osclient.NewUserHandleClient(cc),
+		OsBinder:                                                osclient.NewBinderClient(cc),
+		OsMemoryFile:                                            osclient.NewMemoryFileClient(cc),
+		OsRemoteCallbackList:                                    osclient.NewRemoteCallbackListClient(cc),
+		OsMessenger:                                             osclient.NewMessengerClient(cc),
+		OsStatFs:                                                osclient.NewStatFsClient(cc),
+		OsHardwarePropertiesManager:                             osclient.NewHardwarePropertiesManagerClient(cc),
+		OsParcelUuid:                                            osclient.NewParcelUuidClient(cc),
+		OsDropBoxManager:                                        osclient.NewDropBoxManagerClient(cc),
+		OsProfilingManager:                                      osclient.NewProfilingManagerClient(cc),
+		OsWorkDuration:                                          osclient.NewWorkDurationClient(cc),
+		OsSecurityStateManager:                                  osclient.NewSecurityStateManagerClient(cc),
+		OsWorkSource:                                            osclient.NewWorkSourceClient(cc),
+		OsPatternMatcher:                                        osclient.NewPatternMatcherClient(cc),
+		OsResultReceiver:                                        osclient.NewResultReceiverClient(cc),
+		OsUserManager:                                           osclient.NewUserManagerClient(cc),
+		OsHandlerThread:                                         osclient.NewHandlerThreadClient(cc),
+		OsLocaleList:                                            osclient.NewLocaleListClient(cc),
+		OsPerformanceHintManager:                                osclient.NewPerformanceHintManagerClient(cc),
+		OsPersistableBundle:                                     osclient.NewPersistableBundleClient(cc),
+		OsVibratorManager:                                       osclient.NewVibratorManagerClient(cc),
+		OsConditionVariable:                                     osclient.NewConditionVariableClient(cc),
+		P2pWifiP2pManager:                                       p2pclient.NewWifiP2pManagerClient(cc),
+		ParamsMultiResolutionStreamInfo:                         paramsclient.NewMultiResolutionStreamInfoClient(cc),
+		ParamsDynamicRangeProfiles:                              paramsclient.NewDynamicRangeProfilesClient(cc),
+		ParamsSessionConfiguration:                              paramsclient.NewSessionConfigurationClient(cc),
+		ParamsOutputConfiguration:                               paramsclient.NewOutputConfigurationClient(cc),
+		ParamsColorSpaceTransform:                               paramsclient.NewColorSpaceTransformClient(cc),
+		ParamsTonemapCurve:                                      paramsclient.NewTonemapCurveClient(cc),
+		ParamsBlackLevelPattern:                                 paramsclient.NewBlackLevelPatternClient(cc),
+		ParamsInputConfiguration:                                paramsclient.NewInputConfigurationClient(cc),
+		ParamsRggbChannelVector:                                 paramsclient.NewRggbChannelVectorClient(cc),
+		ParamsMeteringRectangle:                                 paramsclient.NewMeteringRectangleClient(cc),
+		ParamsCapability:                                        paramsclient.NewCapabilityClient(cc),
+		ParamsColorSpaceProfiles:                                paramsclient.NewColorSpaceProfilesClient(cc),
+		ParamsLensIntrinsicsSample:                              paramsclient.NewLensIntrinsicsSampleClient(cc),
+		ParamsOisSample:                                         paramsclient.NewOisSampleClient(cc),
+		ParamsExtensionSessionConfiguration:                     paramsclient.NewExtensionSessionConfigurationClient(cc),
+		PdfDocument:                                             pdfclient.NewDocumentClient(cc),
+		PdfPrintedPdfDocument:                                   pdfclient.NewPrintedPdfDocumentClient(cc),
+		PdfCanvas:                                               pdfclient.NewCanvasClient(cc),
+		PdfRendererPreV:                                         pdfclient.NewRendererPreVClient(cc),
+		PdfRenderer:                                             pdfclient.NewRendererClient(cc),
+		PdfParcelFileDescriptor:                                 pdfclient.NewParcelFileDescriptorClient(cc),
+		PdfPaint:                                                pdfclient.NewPaintClient(cc),
+		PeopleManager:                                           peopleclient.NewManagerClient(cc),
+		PersistentdataPersistentDataBlockManager:                persistentdataclient.NewPersistentDataBlockManagerClient(cc),
+		PlayerMediaPlayer:                                       playerclient.NewMediaPlayerClient(cc),
+		PmApplicationInfo:                                       pmclient.NewApplicationInfoClient(cc),
+		PmPermissionInfo:                                        pmclient.NewPermissionInfoClient(cc),
+		PmArchivedActivityInfo:                                  pmclient.NewArchivedActivityInfoClient(cc),
+		PmInstrumentationInfo:                                   pmclient.NewInstrumentationInfoClient(cc),
+		PmCrossProfileApps:                                      pmclient.NewCrossProfileAppsClient(cc),
+		PmFeatureInfo:                                           pmclient.NewFeatureInfoClient(cc),
+		PmChangedPackages:                                       pmclient.NewChangedPackagesClient(cc),
+		PmFeatureGroupInfo:                                      pmclient.NewFeatureGroupInfoClient(cc),
+		PmServiceInfo:                                           pmclient.NewServiceInfoClient(cc),
+		PmSigningInfo:                                           pmclient.NewSigningInfoClient(cc),
+		PmLabeledIntent:                                         pmclient.NewLabeledIntentClient(cc),
+		PmShortcutManager:                                       pmclient.NewShortcutManagerClient(cc),
+		PmPathPermission:                                        pmclient.NewPathPermissionClient(cc),
+		PmPackageInfo:                                           pmclient.NewPackageInfoClient(cc),
+		PmPermissionGroupInfo:                                   pmclient.NewPermissionGroupInfoClient(cc),
+		PmVersionedPackage:                                      pmclient.NewVersionedPackageClient(cc),
+		PmChecksum:                                              pmclient.NewChecksumClient(cc),
+		PmConfigurationInfo:                                     pmclient.NewConfigurationInfoClient(cc),
+		PmComponentInfo:                                         pmclient.NewComponentInfoClient(cc),
+		PmPackageItemInfo:                                       pmclient.NewPackageItemInfoClient(cc),
+		PmLauncherApps:                                          pmclient.NewLauncherAppsClient(cc),
+		PmPackageStats:                                          pmclient.NewPackageStatsClient(cc),
+		PmResolveInfo:                                           pmclient.NewResolveInfoClient(cc),
+		PmSignature:                                             pmclient.NewSignatureClient(cc),
+		PmActivityInfo:                                          pmclient.NewActivityInfoClient(cc),
+		PmProviderInfo:                                          pmclient.NewProviderInfoClient(cc),
+		PmArchivedPackageInfo:                                   pmclient.NewArchivedPackageInfoClient(cc),
+		PowerManager:                                            powerclient.NewManagerClient(cc),
+		PpsHomeSp:                                               ppsclient.NewHomeSpClient(cc),
+		PpsCredential:                                           ppsclient.NewCredentialClient(cc),
+		PreferenceListPreference:                                preferenceclient.NewListPreferenceClient(cc),
+		PreferenceEditTextPreference:                            preferenceclient.NewEditTextPreferenceClient(cc),
+		PreferenceMultiSelectListPreference:                     preferenceclient.NewMultiSelectListPreferenceClient(cc),
+		PreferenceRingtonePreference:                            preferenceclient.NewRingtonePreferenceClient(cc),
+		PreferencePreference:                                    preferenceclient.NewPreferenceClient(cc),
+		PreferenceSwitchPreference:                              preferenceclient.NewSwitchPreferenceClient(cc),
+		PreferenceCategory:                                      preferenceclient.NewCategoryClient(cc),
+		PreferencesSettingsPreferenceServiceClient:              preferencesclient.NewSettingsPreferenceServiceClientClient(cc),
+		PrintManager:                                            printclient.NewManagerClient(cc),
+		PrintPageRange:                                          printclient.NewPageRangeClient(cc),
+		ProjectionMediaProjectionManager:                        projectionclient.NewMediaProjectionManagerClient(cc),
+		ProtoOutputStream:                                       protoclient.NewOutputStreamClient(cc),
+		ProviderSearchRecentSuggestions:                         providerclient.NewSearchRecentSuggestionsClient(cc),
+		ProviderFontRequest:                                     providerclient.NewFontRequestClient(cc),
+		ProviderBrowser:                                         providerclient.NewBrowserClient(cc),
+		QualityAmbientBacklightEvent:                            qualityclient.NewAmbientBacklightEventClient(cc),
+		QualityAmbientBacklightMetadata:                         qualityclient.NewAmbientBacklightMetadataClient(cc),
+		QualityAmbientBacklightSettings:                         qualityclient.NewAmbientBacklightSettingsClient(cc),
+		QualityActiveProcessingPicture:                          qualityclient.NewActiveProcessingPictureClient(cc),
+		QualityMediaQualityManager:                              qualityclient.NewMediaQualityManagerClient(cc),
+		QuickaccesswalletSelectWalletCardRequest:                quickaccesswalletclient.NewSelectWalletCardRequestClient(cc),
+		QuickaccesswalletGetWalletCardsResponse:                 quickaccesswalletclient.NewGetWalletCardsResponseClient(cc),
+		QuickaccesswalletGetWalletCardsRequest:                  quickaccesswalletclient.NewGetWalletCardsRequestClient(cc),
+		QuickaccesswalletWalletServiceEvent:                     quickaccesswalletclient.NewWalletServiceEventClient(cc),
+		QuickaccesswalletGetWalletCardsError:                    quickaccesswalletclient.NewGetWalletCardsErrorClient(cc),
+		QuicksettingsTileService:                                quicksettingsclient.NewTileServiceClient(cc),
+		RecorderMediaRecorder:                                   recorderclient.NewMediaRecorderClient(cc),
+		RenderscriptFieldPacker:                                 renderscriptclient.NewFieldPackerClient(cc),
+		RenderscriptMatrix2f:                                    renderscriptclient.NewMatrix2fClient(cc),
+		RenderscriptMatrix4f:                                    renderscriptclient.NewMatrix4fClient(cc),
+		RenderscriptMatrix3f:                                    renderscriptclient.NewMatrix3fClient(cc),
+		ResAssetFileDescriptor:                                  resclient.NewAssetFileDescriptorClient(cc),
+		ResColorStateList:                                       resclient.NewColorStateListClient(cc),
+		ResConfiguration:                                        resclient.NewConfigurationClient(cc),
+		RingtoneManager:                                         ringtoneclient.NewManagerClient(cc),
+		RoleManager:                                             roleclient.NewManagerClient(cc),
+		RtpAudioStream:                                          rtpclient.NewAudioStreamClient(cc),
+		RtpAudioGroup:                                           rtpclient.NewAudioGroupClient(cc),
+		SatelliteManager:                                        satelliteclient.NewManagerClient(cc),
+		SaxRootElement:                                          saxclient.NewRootElementClient(cc),
+		SdksandboxSandboxedSdk:                                  sdksandboxclient.NewSandboxedSdkClient(cc),
+		SdksandboxRequestSurfacePackageException:                sdksandboxclient.NewRequestSurfacePackageExceptionClient(cc),
+		SdksandboxLoadSdkException:                              sdksandboxclient.NewLoadSdkExceptionClient(cc),
+		SdksandboxAppOwnedSdkSandboxInterface:                   sdksandboxclient.NewAppOwnedSdkSandboxInterfaceClient(cc),
+		SecurityAttestedKeyPair:                                 securityclient.NewAttestedKeyPairClient(cc),
+		SecurityKeyChain:                                        securityclient.NewKeyChainClient(cc),
+		SecurityFileIntegrityManager:                            securityclient.NewFileIntegrityManagerClient(cc),
+		SelectionPageSelection:                                  selectionclient.NewPageSelectionClient(cc),
+		SelectionBoundary:                                       selectionclient.NewBoundaryClient(cc),
+		SessionMediaSessionManager:                              sessionclient.NewMediaSessionManagerClient(cc),
+		SessionMediaSession:                                     sessionclient.NewMediaSessionClient(cc),
+		SessionMediaController:                                  sessionclient.NewMediaControllerClient(cc),
+		SettingsSettings:                                        settingsclient.NewSettingsClient(cc),
+		ShapesPathShape:                                         shapesclient.NewPathShapeClient(cc),
+		ShapesOvalShape:                                         shapesclient.NewOvalShapeClient(cc),
+		ShapesArcShape:                                          shapesclient.NewArcShapeClient(cc),
+		ShapesRectShape:                                         shapesclient.NewRectShapeClient(cc),
+		ShapesRoundRectShape:                                    shapesclient.NewRoundRectShapeClient(cc),
+		SipAudioCall:                                            sipclient.NewAudioCallClient(cc),
+		SliceMetrics:                                            sliceclient.NewMetricsClient(cc),
+		SliceSpec:                                               sliceclient.NewSpecClient(cc),
+		SpeechTextToSpeech:                                      speechclient.NewTextToSpeechClient(cc),
+		SpeechAlternativeSpan:                                   speechclient.NewAlternativeSpanClient(cc),
+		SpeechAlternativeSpans:                                  speechclient.NewAlternativeSpansClient(cc),
+		SqliteSQLiteQueryBuilder:                                sqliteclient.NewSQLiteQueryBuilderClient(cc),
+		SqliteSQLiteCursor:                                      sqliteclient.NewSQLiteCursorClient(cc),
+		StorageManager:                                          storageclient.NewManagerClient(cc),
+		StrictmodeUnsafeIntentLaunchViolation:                   strictmodeclient.NewUnsafeIntentLaunchViolationClient(cc),
+		StyleNoWritingToolsSpan:                                 styleclient.NewNoWritingToolsSpanClient(cc),
+		StyleLineBreakConfigSpan:                                styleclient.NewLineBreakConfigSpanClient(cc),
+		StyleUnderlineSpan:                                      styleclient.NewUnderlineSpanClient(cc),
+		StyleEasyEditSpan:                                       styleclient.NewEasyEditSpanClient(cc),
+		StyleRelativeSizeSpan:                                   styleclient.NewRelativeSizeSpanClient(cc),
+		StyleTtsSpan:                                            styleclient.NewTtsSpanClient(cc),
+		StyleSpan:                                               styleclient.NewSpanClient(cc),
+		StyleLocaleSpan:                                         styleclient.NewLocaleSpanClient(cc),
+		StyleSuperscriptSpan:                                    styleclient.NewSuperscriptSpanClient(cc),
+		StyleTypefaceSpan:                                       styleclient.NewTypefaceSpanClient(cc),
+		StyleIconMarginSpan:                                     styleclient.NewIconMarginSpanClient(cc),
+		StyleSuggestionSpan:                                     styleclient.NewSuggestionSpanClient(cc),
+		StyleScaleXSpan:                                         styleclient.NewScaleXSpanClient(cc),
+		StyleTextAppearanceSpan:                                 styleclient.NewTextAppearanceSpanClient(cc),
+		StyleURLSpan:                                            styleclient.NewURLSpanClient(cc),
+		StyleMaskFilterSpan:                                     styleclient.NewMaskFilterSpanClient(cc),
+		StyleImageSpan:                                          styleclient.NewImageSpanClient(cc),
+		StyleDrawableMarginSpan:                                 styleclient.NewDrawableMarginSpanClient(cc),
+		StyleSuggestionRangeSpan:                                styleclient.NewSuggestionRangeSpanClient(cc),
+		StyleSubscriptSpan:                                      styleclient.NewSubscriptSpanClient(cc),
+		StyleAbsoluteSizeSpan:                                   styleclient.NewAbsoluteSizeSpanClient(cc),
+		StyleQuoteSpan:                                          styleclient.NewQuoteSpanClient(cc),
+		StyleStrikethroughSpan:                                  styleclient.NewStrikethroughSpanClient(cc),
+		StyleBulletSpan:                                         styleclient.NewBulletSpanClient(cc),
+		StyleForegroundColorSpan:                                styleclient.NewForegroundColorSpanClient(cc),
+		StyleBackgroundColorSpan:                                styleclient.NewBackgroundColorSpanClient(cc),
+		SystemStructUtsname:                                     systemclient.NewStructUtsnameClient(cc),
+		SystemInt64Ref:                                          systemclient.NewInt64RefClient(cc),
+		SystemStructPollfd:                                      systemclient.NewStructPollfdClient(cc),
+		SystemErrnoException:                                    systemclient.NewErrnoExceptionClient(cc),
+		SystemStructTimespec:                                    systemclient.NewStructTimespecClient(cc),
+		SystemVmSocketAddress:                                   systemclient.NewVmSocketAddressClient(cc),
+		SystemStructStatVfs:                                     systemclient.NewStructStatVfsClient(cc),
+		SystemStructStat:                                        systemclient.NewStructStatClient(cc),
+		TelecomCallAudioState:                                   telecomclient.NewCallAudioStateClient(cc),
+		TelecomGatewayInfo:                                      telecomclient.NewGatewayInfoClient(cc),
+		TelecomVideoProfile:                                     telecomclient.NewVideoProfileClient(cc),
+		TelecomPhoneAccountHandle:                               telecomclient.NewPhoneAccountHandleClient(cc),
+		TelecomStatusHints:                                      telecomclient.NewStatusHintsClient(cc),
+		TelecomPhoneAccountSuggestion:                           telecomclient.NewPhoneAccountSuggestionClient(cc),
+		TelecomCallEndpointException:                            telecomclient.NewCallEndpointExceptionClient(cc),
+		TelecomConnectionRequest:                                telecomclient.NewConnectionRequestClient(cc),
+		TelecomDisconnectCause:                                  telecomclient.NewDisconnectCauseClient(cc),
+		TelecomCallException:                                    telecomclient.NewCallExceptionClient(cc),
+		TelecomCallEndpoint:                                     telecomclient.NewCallEndpointClient(cc),
+		TelecomManager:                                          telecomclient.NewManagerClient(cc),
+		TelecomQueryLocationException:                           telecomclient.NewQueryLocationExceptionClient(cc),
+		TelephonyNeighboringCellInfo:                            telephonyclient.NewNeighboringCellInfoClient(cc),
+		TelephonyCarrierConfigManager:                           telephonyclient.NewCarrierConfigManagerClient(cc),
+		TelephonyPhoneNumberFormattingTextWatcher:               telephonyclient.NewPhoneNumberFormattingTextWatcherClient(cc),
+		TelephonyServiceState:                                   telephonyclient.NewServiceStateClient(cc),
+		TelephonyNetworkScanRequest:                             telephonyclient.NewNetworkScanRequestClient(cc),
+		TelephonyPhoneStateListener:                             telephonyclient.NewPhoneStateListenerClient(cc),
+		TelephonyManager:                                        telephonyclient.NewManagerClient(cc),
+		TelephonySignalStrength:                                 telephonyclient.NewSignalStrengthClient(cc),
+		TelephonyRadioAccessSpecifier:                           telephonyclient.NewRadioAccessSpecifierClient(cc),
+		TelephonyPhoneNumberUtils:                               telephonyclient.NewPhoneNumberUtilsClient(cc),
+		TelephonyAvailableNetworkInfo:                           telephonyclient.NewAvailableNetworkInfoClient(cc),
+		TemplatesToggleTemplate:                                 templatesclient.NewToggleTemplateClient(cc),
+		TemplatesThumbnailTemplate:                              templatesclient.NewThumbnailTemplateClient(cc),
+		TemplatesStatelessTemplate:                              templatesclient.NewStatelessTemplateClient(cc),
+		TemplatesToggleRangeTemplate:                            templatesclient.NewToggleRangeTemplateClient(cc),
+		TemplatesRangeTemplate:                                  templatesclient.NewRangeTemplateClient(cc),
+		TemplatesTemperatureControlTemplate:                     templatesclient.NewTemperatureControlTemplateClient(cc),
+		TemplatesControlButton:                                  templatesclient.NewControlButtonClient(cc),
+		TextCurrencyPluralInfo:                                  textclient.NewCurrencyPluralInfoClient(cc),
+		TextDecimalFormatSymbols:                                textclient.NewDecimalFormatSymbolsClient(cc),
+		TextUnicodeSet:                                          textclient.NewUnicodeSetClient(cc),
+		TextNumberingSystem:                                     textclient.NewNumberingSystemClient(cc),
+		TextUnicodeSetSpanner:                                   textclient.NewUnicodeSetSpannerClient(cc),
+		TextAlphabeticIndex:                                     textclient.NewAlphabeticIndexClient(cc),
+		TextStringPrepParseException:                            textclient.NewStringPrepParseExceptionClient(cc),
+		TextSimpleDateFormat:                                    textclient.NewSimpleDateFormatClient(cc),
+		TextBidiClassifier:                                      textclient.NewBidiClassifierClient(cc),
+		TextMessagePattern:                                      textclient.NewMessagePatternClient(cc),
+		TextStringSearch:                                        textclient.NewStringSearchClient(cc),
+		TextSelectFormat:                                        textclient.NewSelectFormatClient(cc),
+		TextCollationKey:                                        textclient.NewCollationKeyClient(cc),
+		TextRuleBasedCollator:                                   textclient.NewRuleBasedCollatorClient(cc),
+		TextDecimalFormat:                                       textclient.NewDecimalFormatClient(cc),
+		TextPluralFormat:                                        textclient.NewPluralFormatClient(cc),
+		TextDateFormatSymbols:                                   textclient.NewDateFormatSymbolsClient(cc),
+		TextMessageFormat:                                       textclient.NewMessageFormatClient(cc),
+		TextUnicodeSetIterator:                                  textclient.NewUnicodeSetIteratorClient(cc),
+		TextDateIntervalInfo:                                    textclient.NewDateIntervalInfoClient(cc),
+		TextEdits:                                               textclient.NewEditsClient(cc),
+		TextBidi:                                                textclient.NewBidiClient(cc),
+		TextConstrainedFieldPosition:                            textclient.NewConstrainedFieldPositionClient(cc),
+		TextBoringLayout:                                        textclient.NewBoringLayoutClient(cc),
+		TextDynamicLayout:                                       textclient.NewDynamicLayoutClient(cc),
+		TextAnnotation:                                          textclient.NewAnnotationClient(cc),
+		TextGraphemeClusterSegmentFinder:                        textclient.NewGraphemeClusterSegmentFinderClient(cc),
+		TextSpannableStringBuilder:                              textclient.NewSpannableStringBuilderClient(cc),
+		TextPaint:                                               textclient.NewPaintClient(cc),
+		TextWordSegmentFinder:                                   textclient.NewWordSegmentFinderClient(cc),
+		TextStaticLayout:                                        textclient.NewStaticLayoutClient(cc),
+		TextSpannedString:                                       textclient.NewSpannedStringClient(cc),
+		TextAndroidCharacter:                                    textclient.NewAndroidCharacterClient(cc),
+		TextSpannableString:                                     textclient.NewSpannableStringClient(cc),
+		TextclassifierTextClassificationManager:                 textclassifierclient.NewTextClassificationManagerClient(cc),
+		TextclassifierConversationActions:                       textclassifierclient.NewConversationActionsClient(cc),
+		TextserviceSuggestionsInfo:                              textserviceclient.NewSuggestionsInfoClient(cc),
+		TextserviceTextServicesManager:                          textserviceclient.NewTextServicesManagerClient(cc),
+		TextserviceSentenceSuggestionsInfo:                      textserviceclient.NewSentenceSuggestionsInfoClient(cc),
+		TextserviceSpellCheckerSubtype:                          textserviceclient.NewSpellCheckerSubtypeClient(cc),
+		TextserviceTextInfo:                                     textserviceclient.NewTextInfoClient(cc),
+		ToastToast:                                              toastclient.NewToastClient(cc),
+		TopicsEncryptedTopic:                                    topicsclient.NewEncryptedTopicClient(cc),
+		TopicsTopic:                                             topicsclient.NewTopicClient(cc),
+		TransitionValues:                                        transitionclient.NewValuesClient(cc),
+		TransitionFade:                                          transitionclient.NewFadeClient(cc),
+		TransitionCircularPropagation:                           transitionclient.NewCircularPropagationClient(cc),
+		TransitionSidePropagation:                               transitionclient.NewSidePropagationClient(cc),
+		TransitionManager:                                       transitionclient.NewManagerClient(cc),
+		TransitionScene:                                         transitionclient.NewSceneClient(cc),
+		TransitionChangeTransform:                               transitionclient.NewChangeTransformClient(cc),
+		TransitionChangeScroll:                                  transitionclient.NewChangeScrollClient(cc),
+		TransitionChangeBounds:                                  transitionclient.NewChangeBoundsClient(cc),
+		TransitionArcMotion:                                     transitionclient.NewArcMotionClient(cc),
+		TransitionChangeImageTransform:                          transitionclient.NewChangeImageTransformClient(cc),
+		TransitionPatternPathMotion:                             transitionclient.NewPatternPathMotionClient(cc),
+		TransitionChangeClipBounds:                              transitionclient.NewChangeClipBoundsClient(cc),
+		TransitionSet:                                           transitionclient.NewSetClient(cc),
+		TransitionSlide:                                         transitionclient.NewSlideClient(cc),
+		TransitionExplode:                                       transitionclient.NewExplodeClient(cc),
+		TranslationSpec:                                         translationclient.NewSpecClient(cc),
+		TtsSynthesisRequest:                                     ttsclient.NewSynthesisRequestClient(cc),
+		TtsVoice:                                                ttsclient.NewVoiceClient(cc),
+		TvSignalingDataRequest:                                  tvclient.NewSignalingDataRequestClient(cc),
+		TvAitInfo:                                               tvclient.NewAitInfoClient(cc),
+		TvDsmccResponse:                                         tvclient.NewDsmccResponseClient(cc),
+		TvRecordingClient:                                       tvclient.NewRecordingClientClient(cc),
+		TvTsResponse:                                            tvclient.NewTsResponseClient(cc),
+		TvCommandResponse:                                       tvclient.NewCommandResponseClient(cc),
+		TvAdResponse:                                            tvclient.NewAdResponseClient(cc),
+		TvAdRequest:                                             tvclient.NewAdRequestClient(cc),
+		TvTsRequest:                                             tvclient.NewTsRequestClient(cc),
+		TvSectionRequest:                                        tvclient.NewSectionRequestClient(cc),
+		TvView:                                                  tvclient.NewViewClient(cc),
+		TvCommandRequest:                                        tvclient.NewCommandRequestClient(cc),
+		TvStreamEventResponse:                                   tvclient.NewStreamEventResponseClient(cc),
+		TvTimelineRequest:                                       tvclient.NewTimelineRequestClient(cc),
+		TvPesResponse:                                           tvclient.NewPesResponseClient(cc),
+		TvSignalingDataInfo:                                     tvclient.NewSignalingDataInfoClient(cc),
+		TvTableResponse:                                         tvclient.NewTableResponseClient(cc),
+		TvTableRequest:                                          tvclient.NewTableRequestClient(cc),
+		TvStreamEventRequest:                                    tvclient.NewStreamEventRequestClient(cc),
+		TvInputManager:                                          tvclient.NewInputManagerClient(cc),
+		TvAdBuffer:                                              tvclient.NewAdBufferClient(cc),
+		TvSignalingDataResponse:                                 tvclient.NewSignalingDataResponseClient(cc),
+		TvPesRequest:                                            tvclient.NewPesRequestClient(cc),
+		TvRecordingInfo:                                         tvclient.NewRecordingInfoClient(cc),
+		TvTimelineResponse:                                      tvclient.NewTimelineResponseClient(cc),
+		TvSectionResponse:                                       tvclient.NewSectionResponseClient(cc),
+		TvDsmccRequest:                                          tvclient.NewDsmccRequestClient(cc),
+		UsageStorageStatsManager:                                usageclient.NewStorageStatsManagerClient(cc),
+		UsageConfigurationStats:                                 usageclient.NewConfigurationStatsClient(cc),
+		UsageEventStats:                                         usageclient.NewEventStatsClient(cc),
+		UsageNetworkStatsManager:                                usageclient.NewNetworkStatsManagerClient(cc),
+		UsageStats:                                              usageclient.NewStatsClient(cc),
+		UsageStatsManager:                                       usageclient.NewStatsManagerClient(cc),
+		UsbManager:                                              usbclient.NewManagerClient(cc),
+		UsbRequest:                                              usbclient.NewRequestClient(cc),
+		UtilIslamicCalendar:                                     utilclient.NewIslamicCalendarClient(cc),
+		UtilCurrencyAmount:                                      utilclient.NewCurrencyAmountClient(cc),
+		UtilArrayMap:                                            utilclient.NewArrayMapClient(cc),
+		UtilLongSparseArray:                                     utilclient.NewLongSparseArrayClient(cc),
+		UtilBase64InputStream:                                   utilclient.NewBase64InputStreamClient(cc),
+		UtilBase64OutputStream:                                  utilclient.NewBase64OutputStreamClient(cc),
+		UtilChineseCalendar:                                     utilclient.NewChineseCalendarClient(cc),
+		UtilStringBuilderPrinter:                                utilclient.NewStringBuilderPrinterClient(cc),
+		UtilJapaneseCalendar:                                    utilclient.NewJapaneseCalendarClient(cc),
+		UtilHebrewCalendar:                                      utilclient.NewHebrewCalendarClient(cc),
+		UtilEthiopicCalendar:                                    utilclient.NewEthiopicCalendarClient(cc),
+		UtilSize:                                                utilclient.NewSizeClient(cc),
+		UtilMeasure:                                             utilclient.NewMeasureClient(cc),
+		UtilGregorianCalendar:                                   utilclient.NewGregorianCalendarClient(cc),
+		UtilULocale:                                             utilclient.NewULocaleClient(cc),
+		UtilDateInterval:                                        utilclient.NewDateIntervalClient(cc),
+		UtilTaiwanCalendar:                                      utilclient.NewTaiwanCalendarClient(cc),
+		UtilLinkify:                                             utilclient.NewLinkifyClient(cc),
+		UtilRfc822Token:                                         utilclient.NewRfc822TokenClient(cc),
+		UtilRfc822Tokenizer:                                     utilclient.NewRfc822TokenizerClient(cc),
+		UtilSparseBooleanArray:                                  utilclient.NewSparseBooleanArrayClient(cc),
+		UtilAtomicFile:                                          utilclient.NewAtomicFileClient(cc),
+		UtilLruCache:                                            utilclient.NewLruCacheClient(cc),
+		UtilPair:                                                utilclient.NewPairClient(cc),
+		UtilJsonWriter:                                          utilclient.NewJsonWriterClient(cc),
+		UtilBuddhistCalendar:                                    utilclient.NewBuddhistCalendarClient(cc),
+		UtilCopticCalendar:                                      utilclient.NewCopticCalendarClient(cc),
+		UtilIllformedLocaleException:                            utilclient.NewIllformedLocaleExceptionClient(cc),
+		UtilTypedValue:                                          utilclient.NewTypedValueClient(cc),
+		UtilCloseGuard:                                          utilclient.NewCloseGuardClient(cc),
+		UtilRange:                                               utilclient.NewRangeClient(cc),
+		UtilHalf:                                                utilclient.NewHalfClient(cc),
+		UtilLogPrinter:                                          utilclient.NewLogPrinterClient(cc),
+		UtilPrintWriterPrinter:                                  utilclient.NewPrintWriterPrinterClient(cc),
+		UtilTimingLogger:                                        utilclient.NewTimingLoggerClient(cc),
+		UtilJsonReader:                                          utilclient.NewJsonReaderClient(cc),
+		UtilSparseLongArray:                                     utilclient.NewSparseLongArrayClient(cc),
+		UtilOutput:                                              utilclient.NewOutputClient(cc),
+		UtilIndianCalendar:                                      utilclient.NewIndianCalendarClient(cc),
+		UtilRational:                                            utilclient.NewRationalClient(cc),
+		UtilMonthDisplayHelper:                                  utilclient.NewMonthDisplayHelperClient(cc),
+		UtilPrintStreamPrinter:                                  utilclient.NewPrintStreamPrinterClient(cc),
+		UtilSparseIntArray:                                      utilclient.NewSparseIntArrayClient(cc),
+		UtilArraySet:                                            utilclient.NewArraySetClient(cc),
+		UtilSparseArray:                                         utilclient.NewSparseArrayClient(cc),
+		UtilSizeF:                                               utilclient.NewSizeFClient(cc),
+		UtilEventLogTags:                                        utilclient.NewEventLogTagsClient(cc),
+		VibratorVibrator:                                        vibratorclient.NewVibratorClient(cc),
+		ViewDebug:                                               viewclient.NewDebugClient(cc),
+		ViewFrameMetrics:                                        viewclient.NewFrameMetricsClient(cc),
+		ViewGravity:                                             viewclient.NewGravityClient(cc),
+		ViewConfiguration:                                       viewclient.NewConfigurationClient(cc),
+		ViewWindowMetrics:                                       viewclient.NewWindowMetricsClient(cc),
+		ViewTextureView:                                         viewclient.NewTextureViewClient(cc),
+		ViewSearchEvent:                                         viewclient.NewSearchEventClient(cc),
+		ViewKeyboardShortcutGroup:                               viewclient.NewKeyboardShortcutGroupClient(cc),
+		ViewMenuInflater:                                        viewclient.NewMenuInflaterClient(cc),
+		ViewScrollCaptureTarget:                                 viewclient.NewScrollCaptureTargetClient(cc),
+		ViewWindowInsetsAnimation:                               viewclient.NewWindowInsetsAnimationClient(cc),
+		ViewRoundedCorner:                                       viewclient.NewRoundedCornerClient(cc),
+		ViewSurfaceControlViewHost:                              viewclient.NewSurfaceControlViewHostClient(cc),
+		ViewGestureDetector:                                     viewclient.NewGestureDetectorClient(cc),
+		ViewDisplayCutout:                                       viewclient.NewDisplayCutoutClient(cc),
+		ViewKeyboardShortcutInfo:                                viewclient.NewKeyboardShortcutInfoClient(cc),
+		ViewTouchDelegate:                                       viewclient.NewTouchDelegateClient(cc),
+		ViewScaleGestureDetector:                                viewclient.NewScaleGestureDetectorClient(cc),
+		ViewKeyEvent:                                            viewclient.NewKeyEventClient(cc),
+		ViewLayoutInflater:                                      viewclient.NewLayoutInflaterClient(cc),
+		ViewContextThemeWrapper:                                 viewclient.NewContextThemeWrapperClient(cc),
+		ViewStub:                                                viewclient.NewStubClient(cc),
+		ViewMotionPredictor:                                     viewclient.NewMotionPredictorClient(cc),
+		ViewScrollCaptureSession:                                viewclient.NewScrollCaptureSessionClient(cc),
+		ViewWindowInsets:                                        viewclient.NewWindowInsetsClient(cc),
+		VirtualDeviceManager:                                    virtualclient.NewDeviceManagerClient(cc),
+		VoiceInteractionService:                                 voiceclient.NewInteractionServiceClient(cc),
+		VoiceInteractionSession:                                 voiceclient.NewInteractionSessionClient(cc),
+		VpnService:                                              vpnclient.NewServiceClient(cc),
+		WallpaperInstance:                                       wallpaperclient.NewInstanceClient(cc),
+		WebkitConsoleMessage:                                    webkitclient.NewConsoleMessageClient(cc),
+		WebkitWebView:                                           webkitclient.NewWebViewClient(cc),
+		WebkitServiceWorkerClient:                               webkitclient.NewServiceWorkerClientClient(cc),
+		WebkitWebViewFragment:                                   webkitclient.NewWebViewFragmentClient(cc),
+		WebkitWebMessage:                                        webkitclient.NewWebMessageClient(cc),
+		WebkitWebResourceResponse:                               webkitclient.NewWebResourceResponseClient(cc),
+		WebkitDateSorter:                                        webkitclient.NewDateSorterClient(cc),
+		WebkitWebChromeClient:                                   webkitclient.NewWebChromeClientClient(cc),
+		WebkitURLUtil:                                           webkitclient.NewURLUtilClient(cc),
+		WebkitWebViewClient:                                     webkitclient.NewWebViewClientClient(cc),
+		WidgetSimpleExpandableListAdapter:                       widgetclient.NewSimpleExpandableListAdapterClient(cc),
+		WidgetScroller:                                          widgetclient.NewScrollerClient(cc),
+		WidgetTextView:                                          widgetclient.NewTextViewClient(cc),
+		WidgetOverScroller:                                      widgetclient.NewOverScrollerClient(cc),
+		WidgetViewFlipper:                                       widgetclient.NewViewFlipperClient(cc),
+		WidgetLinearLayout:                                      widgetclient.NewLinearLayoutClient(cc),
+		WidgetZoomControls:                                      widgetclient.NewZoomControlsClient(cc),
+		WidgetImageButton:                                       widgetclient.NewImageButtonClient(cc),
+		WidgetSeekBar:                                           widgetclient.NewSeekBarClient(cc),
+		WidgetListView:                                          widgetclient.NewListViewClient(cc),
+		WidgetToolbar:                                           widgetclient.NewToolbarClient(cc),
+		WidgetPopupWindow:                                       widgetclient.NewPopupWindowClient(cc),
+		WidgetChronometer:                                       widgetclient.NewChronometerClient(cc),
+		WidgetRemoteViews:                                       widgetclient.NewRemoteViewsClient(cc),
+		WidgetSearchView:                                        widgetclient.NewSearchViewClient(cc),
+		WidgetQuickContactBadge:                                 widgetclient.NewQuickContactBadgeClient(cc),
+		WidgetZoomButtonsController:                             widgetclient.NewZoomButtonsControllerClient(cc),
+		WidgetHorizontalScrollView:                              widgetclient.NewHorizontalScrollViewClient(cc),
+		WidgetSlidingDrawer:                                     widgetclient.NewSlidingDrawerClient(cc),
+		WidgetSwitch:                                            widgetclient.NewSwitchClient(cc),
+		WidgetCheckBox:                                          widgetclient.NewCheckBoxClient(cc),
+		WidgetCheckedTextView:                                   widgetclient.NewCheckedTextViewClient(cc),
+		WidgetImageSwitcher:                                     widgetclient.NewImageSwitcherClient(cc),
+		WidgetGridLayout:                                        widgetclient.NewGridLayoutClient(cc),
+		WidgetTableRow:                                          widgetclient.NewTableRowClient(cc),
+		WidgetTwoLineListItem:                                   widgetclient.NewTwoLineListItemClient(cc),
+		WidgetActionMenuView:                                    widgetclient.NewActionMenuViewClient(cc),
+		WidgetStackView:                                         widgetclient.NewStackViewClient(cc),
+		WidgetButton:                                            widgetclient.NewButtonClient(cc),
+		WidgetFrameLayout:                                       widgetclient.NewFrameLayoutClient(cc),
+		WidgetTimePicker:                                        widgetclient.NewTimePickerClient(cc),
+		WidgetTabHost:                                           widgetclient.NewTabHostClient(cc),
+		WidgetTabWidget:                                         widgetclient.NewTabWidgetClient(cc),
+		WidgetGallery:                                           widgetclient.NewGalleryClient(cc),
+		WidgetNumberPicker:                                      widgetclient.NewNumberPickerClient(cc),
+		WidgetEdgeEffect:                                        widgetclient.NewEdgeEffectClient(cc),
+		WidgetAnalogClock:                                       widgetclient.NewAnalogClockClient(cc),
+		WidgetMultiAutoCompleteTextView:                         widgetclient.NewMultiAutoCompleteTextViewClient(cc),
+		WidgetSimpleAdapter:                                     widgetclient.NewSimpleAdapterClient(cc),
+		WidgetHeaderViewListAdapter:                             widgetclient.NewHeaderViewListAdapterClient(cc),
+		WidgetArrayAdapter:                                      widgetclient.NewArrayAdapterClient(cc),
+		WidgetViewAnimator:                                      widgetclient.NewViewAnimatorClient(cc),
+		WidgetDatePicker:                                        widgetclient.NewDatePickerClient(cc),
+		WidgetListPopupWindow:                                   widgetclient.NewListPopupWindowClient(cc),
+		WidgetDialerFilter:                                      widgetclient.NewDialerFilterClient(cc),
+		WidgetProgressBar:                                       widgetclient.NewProgressBarClient(cc),
+		WidgetDigitalClock:                                      widgetclient.NewDigitalClockClient(cc),
+		WidgetToggleButton:                                      widgetclient.NewToggleButtonClient(cc),
+		WidgetTextClock:                                         widgetclient.NewTextClockClient(cc),
+		WidgetAlphabetIndexer:                                   widgetclient.NewAlphabetIndexerClient(cc),
+		WidgetTextSwitcher:                                      widgetclient.NewTextSwitcherClient(cc),
+		WidgetShareActionProvider:                               widgetclient.NewShareActionProviderClient(cc),
+		WidgetVideoView:                                         widgetclient.NewVideoViewClient(cc),
+		WidgetAutoCompleteTextView:                              widgetclient.NewAutoCompleteTextViewClient(cc),
+		WidgetSimpleCursorAdapter:                               widgetclient.NewSimpleCursorAdapterClient(cc),
+		WidgetRadioGroup:                                        widgetclient.NewRadioGroupClient(cc),
+		WidgetCalendarView:                                      widgetclient.NewCalendarViewClient(cc),
+		WidgetEditText:                                          widgetclient.NewEditTextClient(cc),
+		WidgetExpandableListView:                                widgetclient.NewExpandableListViewClient(cc),
+		WidgetRelativeLayout:                                    widgetclient.NewRelativeLayoutClient(cc),
+		WidgetImageView:                                         widgetclient.NewImageViewClient(cc),
+		WidgetSpinner:                                           widgetclient.NewSpinnerClient(cc),
+		WidgetRadioButton:                                       widgetclient.NewRadioButtonClient(cc),
+		WidgetTableLayout:                                       widgetclient.NewTableLayoutClient(cc),
+		WidgetMagnifier:                                         widgetclient.NewMagnifierClient(cc),
+		WidgetSpace:                                             widgetclient.NewSpaceClient(cc),
+		WidgetRatingBar:                                         widgetclient.NewRatingBarClient(cc),
+		WidgetMediaController:                                   widgetclient.NewMediaControllerClient(cc),
+		WidgetViewSwitcher:                                      widgetclient.NewViewSwitcherClient(cc),
+		WidgetPopupMenu:                                         widgetclient.NewPopupMenuClient(cc),
+		WidgetAbsoluteLayout:                                    widgetclient.NewAbsoluteLayoutClient(cc),
+		WidgetAdapterViewFlipper:                                widgetclient.NewAdapterViewFlipperClient(cc),
+		WidgetZoomButton:                                        widgetclient.NewZoomButtonClient(cc),
+		WidgetScrollView:                                        widgetclient.NewScrollViewClient(cc),
+		WidgetGridView:                                          widgetclient.NewGridViewClient(cc),
+		WifiScanResult:                                          wificlient.NewScanResultClient(cc),
+		WifiManager:                                             wificlient.NewManagerClient(cc),
+		WifiConfiguration:                                       wificlient.NewConfigurationClient(cc),
+		WifiAvailableChannel:                                    wificlient.NewAvailableChannelClient(cc),
+		WifiMloLink:                                             wificlient.NewMloLinkClient(cc),
+		WifiWpsInfo:                                             wificlient.NewWpsInfoClient(cc),
+		WifiEnterpriseConfig:                                    wificlient.NewEnterpriseConfigClient(cc),
+		Wifi_p2pWifiP2pWfdInfo:                                  wifi_p2pclient.NewWifiP2pWfdInfoClient(cc),
+		Wifi_p2pWifiP2pPairingBootstrappingConfig:               wifi_p2pclient.NewWifiP2pPairingBootstrappingConfigClient(cc),
+		Wifi_p2pWifiP2pConfig:                                   wifi_p2pclient.NewWifiP2pConfigClient(cc),
+		Wifi_p2pWifiP2pDeviceList:                               wifi_p2pclient.NewWifiP2pDeviceListClient(cc),
+		Wifi_p2pWifiP2pDevice:                                   wifi_p2pclient.NewWifiP2pDeviceClient(cc),
+		Wifi_p2pWifiP2pInfo:                                     wifi_p2pclient.NewWifiP2pInfoClient(cc),
+		Wifi_p2pWifiP2pGroup:                                    wifi_p2pclient.NewWifiP2pGroupClient(cc),
+		Wifi_p2pWifiP2pDirInfo:                                  wifi_p2pclient.NewWifiP2pDirInfoClient(cc),
+		Wifi_p2pWifiP2pManager:                                  wifi_p2pclient.NewWifiP2pManagerClient(cc),
+		Wifi_rttWifiRttManager:                                  wifi_rttclient.NewWifiRttManagerClient(cc),
+		WindowBackEvent:                                         windowclient.NewBackEventClient(cc),
+		WindowSurfaceSyncGroup:                                  windowclient.NewSurfaceSyncGroupClient(cc),
+		WindowTrustedPresentationThresholds:                     windowclient.NewTrustedPresentationThresholdsClient(cc),
 	}
 }
 

@@ -607,329 +607,292 @@ var KeyedFrequencyCapBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	AdFiltersService_DescribeContents_FullMethodName       = "/common.AdFiltersService/DescribeContents"
-	AdFiltersService_Equals_FullMethodName                 = "/common.AdFiltersService/Equals"
-	AdFiltersService_GetAppInstallFilters_FullMethodName   = "/common.AdFiltersService/GetAppInstallFilters"
-	AdFiltersService_GetFrequencyCapFilters_FullMethodName = "/common.AdFiltersService/GetFrequencyCapFilters"
-	AdFiltersService_HashCode_FullMethodName               = "/common.AdFiltersService/HashCode"
-	AdFiltersService_ToString_FullMethodName               = "/common.AdFiltersService/ToString"
-	AdFiltersService_WriteToParcel_FullMethodName          = "/common.AdFiltersService/WriteToParcel"
+	AdSelectionSignalsService_DescribeContents_FullMethodName = "/common.AdSelectionSignalsService/DescribeContents"
+	AdSelectionSignalsService_Equals_FullMethodName           = "/common.AdSelectionSignalsService/Equals"
+	AdSelectionSignalsService_HashCode_FullMethodName         = "/common.AdSelectionSignalsService/HashCode"
+	AdSelectionSignalsService_ToString_FullMethodName         = "/common.AdSelectionSignalsService/ToString"
+	AdSelectionSignalsService_WriteToParcel_FullMethodName    = "/common.AdSelectionSignalsService/WriteToParcel"
+	AdSelectionSignalsService_FromString_FullMethodName       = "/common.AdSelectionSignalsService/FromString"
 )
 
-// AdFiltersServiceClient is the client API for AdFiltersService service.
+// AdSelectionSignalsServiceClient is the client API for AdSelectionSignalsService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AdFiltersServiceClient interface {
+type AdSelectionSignalsServiceClient interface {
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetAppInstallFilters(ctx context.Context, in *GetAppInstallFiltersRequest, opts ...grpc.CallOption) (*GetAppInstallFiltersResponse, error)
-	GetFrequencyCapFilters(ctx context.Context, in *GetFrequencyCapFiltersRequest, opts ...grpc.CallOption) (*GetFrequencyCapFiltersResponse, error)
 	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
 	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	FromString(ctx context.Context, in *FromStringRequest, opts ...grpc.CallOption) (*FromStringResponse, error)
 }
 
-type adFiltersServiceClient struct {
+type adSelectionSignalsServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewAdFiltersServiceClient(cc grpc.ClientConnInterface) AdFiltersServiceClient {
-	return &adFiltersServiceClient{cc}
+func NewAdSelectionSignalsServiceClient(cc grpc.ClientConnInterface) AdSelectionSignalsServiceClient {
+	return &adSelectionSignalsServiceClient{cc}
 }
 
-func (c *adFiltersServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *adSelectionSignalsServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, AdFiltersService_DescribeContents_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, AdSelectionSignalsService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adFiltersServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *adSelectionSignalsServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, AdFiltersService_Equals_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, AdSelectionSignalsService_Equals_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adFiltersServiceClient) GetAppInstallFilters(ctx context.Context, in *GetAppInstallFiltersRequest, opts ...grpc.CallOption) (*GetAppInstallFiltersResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAppInstallFiltersResponse)
-	err := c.cc.Invoke(ctx, AdFiltersService_GetAppInstallFilters_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *adFiltersServiceClient) GetFrequencyCapFilters(ctx context.Context, in *GetFrequencyCapFiltersRequest, opts ...grpc.CallOption) (*GetFrequencyCapFiltersResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFrequencyCapFiltersResponse)
-	err := c.cc.Invoke(ctx, AdFiltersService_GetFrequencyCapFilters_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *adFiltersServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *adSelectionSignalsServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, AdFiltersService_HashCode_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, AdSelectionSignalsService_HashCode_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adFiltersServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+func (c *adSelectionSignalsServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, AdFiltersService_ToString_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, AdSelectionSignalsService_ToString_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adFiltersServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *adSelectionSignalsServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, AdFiltersService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, AdSelectionSignalsService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// AdFiltersServiceServer is the server API for AdFiltersService service.
-// All implementations must embed UnimplementedAdFiltersServiceServer
+func (c *adSelectionSignalsServiceClient) FromString(ctx context.Context, in *FromStringRequest, opts ...grpc.CallOption) (*FromStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FromStringResponse)
+	err := c.cc.Invoke(ctx, AdSelectionSignalsService_FromString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AdSelectionSignalsServiceServer is the server API for AdSelectionSignalsService service.
+// All implementations must embed UnimplementedAdSelectionSignalsServiceServer
 // for forward compatibility.
-type AdFiltersServiceServer interface {
+type AdSelectionSignalsServiceServer interface {
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
 	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetAppInstallFilters(context.Context, *GetAppInstallFiltersRequest) (*GetAppInstallFiltersResponse, error)
-	GetFrequencyCapFilters(context.Context, *GetFrequencyCapFiltersRequest) (*GetFrequencyCapFiltersResponse, error)
 	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
 	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
 	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedAdFiltersServiceServer()
+	FromString(context.Context, *FromStringRequest) (*FromStringResponse, error)
+	mustEmbedUnimplementedAdSelectionSignalsServiceServer()
 }
 
-// UnimplementedAdFiltersServiceServer must be embedded to have
+// UnimplementedAdSelectionSignalsServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedAdFiltersServiceServer struct{}
+type UnimplementedAdSelectionSignalsServiceServer struct{}
 
-func (UnimplementedAdFiltersServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedAdSelectionSignalsServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedAdFiltersServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedAdSelectionSignalsServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedAdFiltersServiceServer) GetAppInstallFilters(context.Context, *GetAppInstallFiltersRequest) (*GetAppInstallFiltersResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAppInstallFilters not implemented")
-}
-func (UnimplementedAdFiltersServiceServer) GetFrequencyCapFilters(context.Context, *GetFrequencyCapFiltersRequest) (*GetFrequencyCapFiltersResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFrequencyCapFilters not implemented")
-}
-func (UnimplementedAdFiltersServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedAdSelectionSignalsServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
-func (UnimplementedAdFiltersServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+func (UnimplementedAdSelectionSignalsServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedAdFiltersServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedAdSelectionSignalsServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedAdFiltersServiceServer) mustEmbedUnimplementedAdFiltersServiceServer() {}
-func (UnimplementedAdFiltersServiceServer) testEmbeddedByValue()                          {}
+func (UnimplementedAdSelectionSignalsServiceServer) FromString(context.Context, *FromStringRequest) (*FromStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FromString not implemented")
+}
+func (UnimplementedAdSelectionSignalsServiceServer) mustEmbedUnimplementedAdSelectionSignalsServiceServer() {
+}
+func (UnimplementedAdSelectionSignalsServiceServer) testEmbeddedByValue() {}
 
-// UnsafeAdFiltersServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AdFiltersServiceServer will
+// UnsafeAdSelectionSignalsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AdSelectionSignalsServiceServer will
 // result in compilation errors.
-type UnsafeAdFiltersServiceServer interface {
-	mustEmbedUnimplementedAdFiltersServiceServer()
+type UnsafeAdSelectionSignalsServiceServer interface {
+	mustEmbedUnimplementedAdSelectionSignalsServiceServer()
 }
 
-func RegisterAdFiltersServiceServer(s grpc.ServiceRegistrar, srv AdFiltersServiceServer) {
-	// If the following call panics, it indicates UnimplementedAdFiltersServiceServer was
+func RegisterAdSelectionSignalsServiceServer(s grpc.ServiceRegistrar, srv AdSelectionSignalsServiceServer) {
+	// If the following call panics, it indicates UnimplementedAdSelectionSignalsServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&AdFiltersService_ServiceDesc, srv)
+	s.RegisterService(&AdSelectionSignalsService_ServiceDesc, srv)
 }
 
-func _AdFiltersService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AdSelectionSignalsService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdFiltersServiceServer).DescribeContents(ctx, in)
+		return srv.(AdSelectionSignalsServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AdFiltersService_DescribeContents_FullMethodName,
+		FullMethod: AdSelectionSignalsService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdFiltersServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(AdSelectionSignalsServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdFiltersService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AdSelectionSignalsService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(EqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdFiltersServiceServer).Equals(ctx, in)
+		return srv.(AdSelectionSignalsServiceServer).Equals(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AdFiltersService_Equals_FullMethodName,
+		FullMethod: AdSelectionSignalsService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdFiltersServiceServer).Equals(ctx, req.(*EqualsRequest))
+		return srv.(AdSelectionSignalsServiceServer).Equals(ctx, req.(*EqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdFiltersService_GetAppInstallFilters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAppInstallFiltersRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdFiltersServiceServer).GetAppInstallFilters(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdFiltersService_GetAppInstallFilters_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdFiltersServiceServer).GetAppInstallFilters(ctx, req.(*GetAppInstallFiltersRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AdFiltersService_GetFrequencyCapFilters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFrequencyCapFiltersRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdFiltersServiceServer).GetFrequencyCapFilters(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdFiltersService_GetFrequencyCapFilters_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdFiltersServiceServer).GetFrequencyCapFilters(ctx, req.(*GetFrequencyCapFiltersRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AdFiltersService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AdSelectionSignalsService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(HashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdFiltersServiceServer).HashCode(ctx, in)
+		return srv.(AdSelectionSignalsServiceServer).HashCode(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AdFiltersService_HashCode_FullMethodName,
+		FullMethod: AdSelectionSignalsService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdFiltersServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+		return srv.(AdSelectionSignalsServiceServer).HashCode(ctx, req.(*HashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdFiltersService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AdSelectionSignalsService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdFiltersServiceServer).ToString(ctx, in)
+		return srv.(AdSelectionSignalsServiceServer).ToString(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AdFiltersService_ToString_FullMethodName,
+		FullMethod: AdSelectionSignalsService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdFiltersServiceServer).ToString(ctx, req.(*ToStringRequest))
+		return srv.(AdSelectionSignalsServiceServer).ToString(ctx, req.(*ToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdFiltersService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AdSelectionSignalsService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdFiltersServiceServer).WriteToParcel(ctx, in)
+		return srv.(AdSelectionSignalsServiceServer).WriteToParcel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AdFiltersService_WriteToParcel_FullMethodName,
+		FullMethod: AdSelectionSignalsService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdFiltersServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(AdSelectionSignalsServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// AdFiltersService_ServiceDesc is the grpc.ServiceDesc for AdFiltersService service.
+func _AdSelectionSignalsService_FromString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FromStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdSelectionSignalsServiceServer).FromString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdSelectionSignalsService_FromString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdSelectionSignalsServiceServer).FromString(ctx, req.(*FromStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AdSelectionSignalsService_ServiceDesc is the grpc.ServiceDesc for AdSelectionSignalsService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var AdFiltersService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "common.AdFiltersService",
-	HandlerType: (*AdFiltersServiceServer)(nil),
+var AdSelectionSignalsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "common.AdSelectionSignalsService",
+	HandlerType: (*AdSelectionSignalsServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "DescribeContents",
-			Handler:    _AdFiltersService_DescribeContents_Handler,
+			Handler:    _AdSelectionSignalsService_DescribeContents_Handler,
 		},
 		{
 			MethodName: "Equals",
-			Handler:    _AdFiltersService_Equals_Handler,
-		},
-		{
-			MethodName: "GetAppInstallFilters",
-			Handler:    _AdFiltersService_GetAppInstallFilters_Handler,
-		},
-		{
-			MethodName: "GetFrequencyCapFilters",
-			Handler:    _AdFiltersService_GetFrequencyCapFilters_Handler,
+			Handler:    _AdSelectionSignalsService_Equals_Handler,
 		},
 		{
 			MethodName: "HashCode",
-			Handler:    _AdFiltersService_HashCode_Handler,
+			Handler:    _AdSelectionSignalsService_HashCode_Handler,
 		},
 		{
 			MethodName: "ToString",
-			Handler:    _AdFiltersService_ToString_Handler,
+			Handler:    _AdSelectionSignalsService_ToString_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _AdFiltersService_WriteToParcel_Handler,
+			Handler:    _AdSelectionSignalsService_WriteToParcel_Handler,
+		},
+		{
+			MethodName: "FromString",
+			Handler:    _AdSelectionSignalsService_FromString_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -937,178 +900,509 @@ var AdFiltersService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	AdFiltersBuilderService_Build_FullMethodName                  = "/common.AdFiltersBuilderService/Build"
-	AdFiltersBuilderService_SetAppInstallFilters_FullMethodName   = "/common.AdFiltersBuilderService/SetAppInstallFilters"
-	AdFiltersBuilderService_SetFrequencyCapFilters_FullMethodName = "/common.AdFiltersBuilderService/SetFrequencyCapFilters"
+	FrequencyCapFiltersService_DescribeContents_FullMethodName                         = "/common.FrequencyCapFiltersService/DescribeContents"
+	FrequencyCapFiltersService_Equals_FullMethodName                                   = "/common.FrequencyCapFiltersService/Equals"
+	FrequencyCapFiltersService_GetKeyedFrequencyCapsForClickEvents_FullMethodName      = "/common.FrequencyCapFiltersService/GetKeyedFrequencyCapsForClickEvents"
+	FrequencyCapFiltersService_GetKeyedFrequencyCapsForImpressionEvents_FullMethodName = "/common.FrequencyCapFiltersService/GetKeyedFrequencyCapsForImpressionEvents"
+	FrequencyCapFiltersService_GetKeyedFrequencyCapsForViewEvents_FullMethodName       = "/common.FrequencyCapFiltersService/GetKeyedFrequencyCapsForViewEvents"
+	FrequencyCapFiltersService_GetKeyedFrequencyCapsForWinEvents_FullMethodName        = "/common.FrequencyCapFiltersService/GetKeyedFrequencyCapsForWinEvents"
+	FrequencyCapFiltersService_HashCode_FullMethodName                                 = "/common.FrequencyCapFiltersService/HashCode"
+	FrequencyCapFiltersService_ToString_FullMethodName                                 = "/common.FrequencyCapFiltersService/ToString"
+	FrequencyCapFiltersService_WriteToParcel_FullMethodName                            = "/common.FrequencyCapFiltersService/WriteToParcel"
 )
 
-// AdFiltersBuilderServiceClient is the client API for AdFiltersBuilderService service.
+// FrequencyCapFiltersServiceClient is the client API for FrequencyCapFiltersService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AdFiltersBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetAppInstallFilters(ctx context.Context, in *SetAppInstallFiltersRequest, opts ...grpc.CallOption) (*SetAppInstallFiltersResponse, error)
-	SetFrequencyCapFilters(ctx context.Context, in *SetFrequencyCapFiltersRequest, opts ...grpc.CallOption) (*SetFrequencyCapFiltersResponse, error)
+type FrequencyCapFiltersServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetKeyedFrequencyCapsForClickEvents(ctx context.Context, in *GetKeyedFrequencyCapsForClickEventsRequest, opts ...grpc.CallOption) (*GetKeyedFrequencyCapsForClickEventsResponse, error)
+	GetKeyedFrequencyCapsForImpressionEvents(ctx context.Context, in *GetKeyedFrequencyCapsForImpressionEventsRequest, opts ...grpc.CallOption) (*GetKeyedFrequencyCapsForImpressionEventsResponse, error)
+	GetKeyedFrequencyCapsForViewEvents(ctx context.Context, in *GetKeyedFrequencyCapsForViewEventsRequest, opts ...grpc.CallOption) (*GetKeyedFrequencyCapsForViewEventsResponse, error)
+	GetKeyedFrequencyCapsForWinEvents(ctx context.Context, in *GetKeyedFrequencyCapsForWinEventsRequest, opts ...grpc.CallOption) (*GetKeyedFrequencyCapsForWinEventsResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type adFiltersBuilderServiceClient struct {
+type frequencyCapFiltersServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewAdFiltersBuilderServiceClient(cc grpc.ClientConnInterface) AdFiltersBuilderServiceClient {
-	return &adFiltersBuilderServiceClient{cc}
+func NewFrequencyCapFiltersServiceClient(cc grpc.ClientConnInterface) FrequencyCapFiltersServiceClient {
+	return &frequencyCapFiltersServiceClient{cc}
 }
 
-func (c *adFiltersBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+func (c *frequencyCapFiltersServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, AdFiltersBuilderService_Build_FullMethodName, in, out, cOpts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, FrequencyCapFiltersService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adFiltersBuilderServiceClient) SetAppInstallFilters(ctx context.Context, in *SetAppInstallFiltersRequest, opts ...grpc.CallOption) (*SetAppInstallFiltersResponse, error) {
+func (c *frequencyCapFiltersServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetAppInstallFiltersResponse)
-	err := c.cc.Invoke(ctx, AdFiltersBuilderService_SetAppInstallFilters_FullMethodName, in, out, cOpts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, FrequencyCapFiltersService_Equals_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adFiltersBuilderServiceClient) SetFrequencyCapFilters(ctx context.Context, in *SetFrequencyCapFiltersRequest, opts ...grpc.CallOption) (*SetFrequencyCapFiltersResponse, error) {
+func (c *frequencyCapFiltersServiceClient) GetKeyedFrequencyCapsForClickEvents(ctx context.Context, in *GetKeyedFrequencyCapsForClickEventsRequest, opts ...grpc.CallOption) (*GetKeyedFrequencyCapsForClickEventsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetFrequencyCapFiltersResponse)
-	err := c.cc.Invoke(ctx, AdFiltersBuilderService_SetFrequencyCapFilters_FullMethodName, in, out, cOpts...)
+	out := new(GetKeyedFrequencyCapsForClickEventsResponse)
+	err := c.cc.Invoke(ctx, FrequencyCapFiltersService_GetKeyedFrequencyCapsForClickEvents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// AdFiltersBuilderServiceServer is the server API for AdFiltersBuilderService service.
-// All implementations must embed UnimplementedAdFiltersBuilderServiceServer
+func (c *frequencyCapFiltersServiceClient) GetKeyedFrequencyCapsForImpressionEvents(ctx context.Context, in *GetKeyedFrequencyCapsForImpressionEventsRequest, opts ...grpc.CallOption) (*GetKeyedFrequencyCapsForImpressionEventsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetKeyedFrequencyCapsForImpressionEventsResponse)
+	err := c.cc.Invoke(ctx, FrequencyCapFiltersService_GetKeyedFrequencyCapsForImpressionEvents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *frequencyCapFiltersServiceClient) GetKeyedFrequencyCapsForViewEvents(ctx context.Context, in *GetKeyedFrequencyCapsForViewEventsRequest, opts ...grpc.CallOption) (*GetKeyedFrequencyCapsForViewEventsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetKeyedFrequencyCapsForViewEventsResponse)
+	err := c.cc.Invoke(ctx, FrequencyCapFiltersService_GetKeyedFrequencyCapsForViewEvents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *frequencyCapFiltersServiceClient) GetKeyedFrequencyCapsForWinEvents(ctx context.Context, in *GetKeyedFrequencyCapsForWinEventsRequest, opts ...grpc.CallOption) (*GetKeyedFrequencyCapsForWinEventsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetKeyedFrequencyCapsForWinEventsResponse)
+	err := c.cc.Invoke(ctx, FrequencyCapFiltersService_GetKeyedFrequencyCapsForWinEvents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *frequencyCapFiltersServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, FrequencyCapFiltersService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *frequencyCapFiltersServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, FrequencyCapFiltersService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *frequencyCapFiltersServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, FrequencyCapFiltersService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// FrequencyCapFiltersServiceServer is the server API for FrequencyCapFiltersService service.
+// All implementations must embed UnimplementedFrequencyCapFiltersServiceServer
 // for forward compatibility.
-type AdFiltersBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetAppInstallFilters(context.Context, *SetAppInstallFiltersRequest) (*SetAppInstallFiltersResponse, error)
-	SetFrequencyCapFilters(context.Context, *SetFrequencyCapFiltersRequest) (*SetFrequencyCapFiltersResponse, error)
-	mustEmbedUnimplementedAdFiltersBuilderServiceServer()
+type FrequencyCapFiltersServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetKeyedFrequencyCapsForClickEvents(context.Context, *GetKeyedFrequencyCapsForClickEventsRequest) (*GetKeyedFrequencyCapsForClickEventsResponse, error)
+	GetKeyedFrequencyCapsForImpressionEvents(context.Context, *GetKeyedFrequencyCapsForImpressionEventsRequest) (*GetKeyedFrequencyCapsForImpressionEventsResponse, error)
+	GetKeyedFrequencyCapsForViewEvents(context.Context, *GetKeyedFrequencyCapsForViewEventsRequest) (*GetKeyedFrequencyCapsForViewEventsResponse, error)
+	GetKeyedFrequencyCapsForWinEvents(context.Context, *GetKeyedFrequencyCapsForWinEventsRequest) (*GetKeyedFrequencyCapsForWinEventsResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedFrequencyCapFiltersServiceServer()
 }
 
-// UnimplementedAdFiltersBuilderServiceServer must be embedded to have
+// UnimplementedFrequencyCapFiltersServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedAdFiltersBuilderServiceServer struct{}
+type UnimplementedFrequencyCapFiltersServiceServer struct{}
 
-func (UnimplementedAdFiltersBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+func (UnimplementedFrequencyCapFiltersServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedAdFiltersBuilderServiceServer) SetAppInstallFilters(context.Context, *SetAppInstallFiltersRequest) (*SetAppInstallFiltersResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetAppInstallFilters not implemented")
+func (UnimplementedFrequencyCapFiltersServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedAdFiltersBuilderServiceServer) SetFrequencyCapFilters(context.Context, *SetFrequencyCapFiltersRequest) (*SetFrequencyCapFiltersResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetFrequencyCapFilters not implemented")
+func (UnimplementedFrequencyCapFiltersServiceServer) GetKeyedFrequencyCapsForClickEvents(context.Context, *GetKeyedFrequencyCapsForClickEventsRequest) (*GetKeyedFrequencyCapsForClickEventsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetKeyedFrequencyCapsForClickEvents not implemented")
 }
-func (UnimplementedAdFiltersBuilderServiceServer) mustEmbedUnimplementedAdFiltersBuilderServiceServer() {
+func (UnimplementedFrequencyCapFiltersServiceServer) GetKeyedFrequencyCapsForImpressionEvents(context.Context, *GetKeyedFrequencyCapsForImpressionEventsRequest) (*GetKeyedFrequencyCapsForImpressionEventsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetKeyedFrequencyCapsForImpressionEvents not implemented")
 }
-func (UnimplementedAdFiltersBuilderServiceServer) testEmbeddedByValue() {}
+func (UnimplementedFrequencyCapFiltersServiceServer) GetKeyedFrequencyCapsForViewEvents(context.Context, *GetKeyedFrequencyCapsForViewEventsRequest) (*GetKeyedFrequencyCapsForViewEventsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetKeyedFrequencyCapsForViewEvents not implemented")
+}
+func (UnimplementedFrequencyCapFiltersServiceServer) GetKeyedFrequencyCapsForWinEvents(context.Context, *GetKeyedFrequencyCapsForWinEventsRequest) (*GetKeyedFrequencyCapsForWinEventsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetKeyedFrequencyCapsForWinEvents not implemented")
+}
+func (UnimplementedFrequencyCapFiltersServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedFrequencyCapFiltersServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedFrequencyCapFiltersServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedFrequencyCapFiltersServiceServer) mustEmbedUnimplementedFrequencyCapFiltersServiceServer() {
+}
+func (UnimplementedFrequencyCapFiltersServiceServer) testEmbeddedByValue() {}
 
-// UnsafeAdFiltersBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AdFiltersBuilderServiceServer will
+// UnsafeFrequencyCapFiltersServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to FrequencyCapFiltersServiceServer will
 // result in compilation errors.
-type UnsafeAdFiltersBuilderServiceServer interface {
-	mustEmbedUnimplementedAdFiltersBuilderServiceServer()
+type UnsafeFrequencyCapFiltersServiceServer interface {
+	mustEmbedUnimplementedFrequencyCapFiltersServiceServer()
 }
 
-func RegisterAdFiltersBuilderServiceServer(s grpc.ServiceRegistrar, srv AdFiltersBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedAdFiltersBuilderServiceServer was
+func RegisterFrequencyCapFiltersServiceServer(s grpc.ServiceRegistrar, srv FrequencyCapFiltersServiceServer) {
+	// If the following call panics, it indicates UnimplementedFrequencyCapFiltersServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&AdFiltersBuilderService_ServiceDesc, srv)
+	s.RegisterService(&FrequencyCapFiltersService_ServiceDesc, srv)
 }
 
-func _AdFiltersBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _FrequencyCapFiltersService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FrequencyCapFiltersServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FrequencyCapFiltersService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FrequencyCapFiltersServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FrequencyCapFiltersService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FrequencyCapFiltersServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FrequencyCapFiltersService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FrequencyCapFiltersServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FrequencyCapFiltersService_GetKeyedFrequencyCapsForClickEvents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetKeyedFrequencyCapsForClickEventsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FrequencyCapFiltersServiceServer).GetKeyedFrequencyCapsForClickEvents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FrequencyCapFiltersService_GetKeyedFrequencyCapsForClickEvents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FrequencyCapFiltersServiceServer).GetKeyedFrequencyCapsForClickEvents(ctx, req.(*GetKeyedFrequencyCapsForClickEventsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FrequencyCapFiltersService_GetKeyedFrequencyCapsForImpressionEvents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetKeyedFrequencyCapsForImpressionEventsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FrequencyCapFiltersServiceServer).GetKeyedFrequencyCapsForImpressionEvents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FrequencyCapFiltersService_GetKeyedFrequencyCapsForImpressionEvents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FrequencyCapFiltersServiceServer).GetKeyedFrequencyCapsForImpressionEvents(ctx, req.(*GetKeyedFrequencyCapsForImpressionEventsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FrequencyCapFiltersService_GetKeyedFrequencyCapsForViewEvents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetKeyedFrequencyCapsForViewEventsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FrequencyCapFiltersServiceServer).GetKeyedFrequencyCapsForViewEvents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FrequencyCapFiltersService_GetKeyedFrequencyCapsForViewEvents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FrequencyCapFiltersServiceServer).GetKeyedFrequencyCapsForViewEvents(ctx, req.(*GetKeyedFrequencyCapsForViewEventsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FrequencyCapFiltersService_GetKeyedFrequencyCapsForWinEvents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetKeyedFrequencyCapsForWinEventsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FrequencyCapFiltersServiceServer).GetKeyedFrequencyCapsForWinEvents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FrequencyCapFiltersService_GetKeyedFrequencyCapsForWinEvents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FrequencyCapFiltersServiceServer).GetKeyedFrequencyCapsForWinEvents(ctx, req.(*GetKeyedFrequencyCapsForWinEventsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FrequencyCapFiltersService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FrequencyCapFiltersServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FrequencyCapFiltersService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FrequencyCapFiltersServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FrequencyCapFiltersService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FrequencyCapFiltersServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FrequencyCapFiltersService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FrequencyCapFiltersServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FrequencyCapFiltersService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FrequencyCapFiltersServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: FrequencyCapFiltersService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FrequencyCapFiltersServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// FrequencyCapFiltersService_ServiceDesc is the grpc.ServiceDesc for FrequencyCapFiltersService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var FrequencyCapFiltersService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "common.FrequencyCapFiltersService",
+	HandlerType: (*FrequencyCapFiltersServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _FrequencyCapFiltersService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _FrequencyCapFiltersService_Equals_Handler,
+		},
+		{
+			MethodName: "GetKeyedFrequencyCapsForClickEvents",
+			Handler:    _FrequencyCapFiltersService_GetKeyedFrequencyCapsForClickEvents_Handler,
+		},
+		{
+			MethodName: "GetKeyedFrequencyCapsForImpressionEvents",
+			Handler:    _FrequencyCapFiltersService_GetKeyedFrequencyCapsForImpressionEvents_Handler,
+		},
+		{
+			MethodName: "GetKeyedFrequencyCapsForViewEvents",
+			Handler:    _FrequencyCapFiltersService_GetKeyedFrequencyCapsForViewEvents_Handler,
+		},
+		{
+			MethodName: "GetKeyedFrequencyCapsForWinEvents",
+			Handler:    _FrequencyCapFiltersService_GetKeyedFrequencyCapsForWinEvents_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _FrequencyCapFiltersService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _FrequencyCapFiltersService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _FrequencyCapFiltersService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/common/common.proto",
+}
+
+const (
+	FrequencyCapFiltersBuilderService_Build_FullMethodName = "/common.FrequencyCapFiltersBuilderService/Build"
+)
+
+// FrequencyCapFiltersBuilderServiceClient is the client API for FrequencyCapFiltersBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type FrequencyCapFiltersBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+}
+
+type frequencyCapFiltersBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewFrequencyCapFiltersBuilderServiceClient(cc grpc.ClientConnInterface) FrequencyCapFiltersBuilderServiceClient {
+	return &frequencyCapFiltersBuilderServiceClient{cc}
+}
+
+func (c *frequencyCapFiltersBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, FrequencyCapFiltersBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// FrequencyCapFiltersBuilderServiceServer is the server API for FrequencyCapFiltersBuilderService service.
+// All implementations must embed UnimplementedFrequencyCapFiltersBuilderServiceServer
+// for forward compatibility.
+type FrequencyCapFiltersBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	mustEmbedUnimplementedFrequencyCapFiltersBuilderServiceServer()
+}
+
+// UnimplementedFrequencyCapFiltersBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedFrequencyCapFiltersBuilderServiceServer struct{}
+
+func (UnimplementedFrequencyCapFiltersBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedFrequencyCapFiltersBuilderServiceServer) mustEmbedUnimplementedFrequencyCapFiltersBuilderServiceServer() {
+}
+func (UnimplementedFrequencyCapFiltersBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeFrequencyCapFiltersBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to FrequencyCapFiltersBuilderServiceServer will
+// result in compilation errors.
+type UnsafeFrequencyCapFiltersBuilderServiceServer interface {
+	mustEmbedUnimplementedFrequencyCapFiltersBuilderServiceServer()
+}
+
+func RegisterFrequencyCapFiltersBuilderServiceServer(s grpc.ServiceRegistrar, srv FrequencyCapFiltersBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedFrequencyCapFiltersBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&FrequencyCapFiltersBuilderService_ServiceDesc, srv)
+}
+
+func _FrequencyCapFiltersBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(BuildRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdFiltersBuilderServiceServer).Build(ctx, in)
+		return srv.(FrequencyCapFiltersBuilderServiceServer).Build(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AdFiltersBuilderService_Build_FullMethodName,
+		FullMethod: FrequencyCapFiltersBuilderService_Build_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdFiltersBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+		return srv.(FrequencyCapFiltersBuilderServiceServer).Build(ctx, req.(*BuildRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdFiltersBuilderService_SetAppInstallFilters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetAppInstallFiltersRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdFiltersBuilderServiceServer).SetAppInstallFilters(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdFiltersBuilderService_SetAppInstallFilters_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdFiltersBuilderServiceServer).SetAppInstallFilters(ctx, req.(*SetAppInstallFiltersRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AdFiltersBuilderService_SetFrequencyCapFilters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetFrequencyCapFiltersRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdFiltersBuilderServiceServer).SetFrequencyCapFilters(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdFiltersBuilderService_SetFrequencyCapFilters_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdFiltersBuilderServiceServer).SetFrequencyCapFilters(ctx, req.(*SetFrequencyCapFiltersRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AdFiltersBuilderService_ServiceDesc is the grpc.ServiceDesc for AdFiltersBuilderService service.
+// FrequencyCapFiltersBuilderService_ServiceDesc is the grpc.ServiceDesc for FrequencyCapFiltersBuilderService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var AdFiltersBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "common.AdFiltersBuilderService",
-	HandlerType: (*AdFiltersBuilderServiceServer)(nil),
+var FrequencyCapFiltersBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "common.FrequencyCapFiltersBuilderService",
+	HandlerType: (*FrequencyCapFiltersBuilderServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Build",
-			Handler:    _AdFiltersBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetAppInstallFilters",
-			Handler:    _AdFiltersBuilderService_SetAppInstallFilters_Handler,
-		},
-		{
-			MethodName: "SetFrequencyCapFilters",
-			Handler:    _AdFiltersBuilderService_SetFrequencyCapFilters_Handler,
+			Handler:    _FrequencyCapFiltersBuilderService_Build_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1778,724 +2072,9 @@ var AdTechIdentifierService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	AppInstallFiltersService_DescribeContents_FullMethodName = "/common.AppInstallFiltersService/DescribeContents"
-	AppInstallFiltersService_Equals_FullMethodName           = "/common.AppInstallFiltersService/Equals"
-	AppInstallFiltersService_HashCode_FullMethodName         = "/common.AppInstallFiltersService/HashCode"
-	AppInstallFiltersService_ToString_FullMethodName         = "/common.AppInstallFiltersService/ToString"
-	AppInstallFiltersService_WriteToParcel_FullMethodName    = "/common.AppInstallFiltersService/WriteToParcel"
-)
-
-// AppInstallFiltersServiceClient is the client API for AppInstallFiltersService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AppInstallFiltersServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type appInstallFiltersServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAppInstallFiltersServiceClient(cc grpc.ClientConnInterface) AppInstallFiltersServiceClient {
-	return &appInstallFiltersServiceClient{cc}
-}
-
-func (c *appInstallFiltersServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, AppInstallFiltersService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appInstallFiltersServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, AppInstallFiltersService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appInstallFiltersServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, AppInstallFiltersService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appInstallFiltersServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, AppInstallFiltersService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appInstallFiltersServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, AppInstallFiltersService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AppInstallFiltersServiceServer is the server API for AppInstallFiltersService service.
-// All implementations must embed UnimplementedAppInstallFiltersServiceServer
-// for forward compatibility.
-type AppInstallFiltersServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedAppInstallFiltersServiceServer()
-}
-
-// UnimplementedAppInstallFiltersServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAppInstallFiltersServiceServer struct{}
-
-func (UnimplementedAppInstallFiltersServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedAppInstallFiltersServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedAppInstallFiltersServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedAppInstallFiltersServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedAppInstallFiltersServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedAppInstallFiltersServiceServer) mustEmbedUnimplementedAppInstallFiltersServiceServer() {
-}
-func (UnimplementedAppInstallFiltersServiceServer) testEmbeddedByValue() {}
-
-// UnsafeAppInstallFiltersServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AppInstallFiltersServiceServer will
-// result in compilation errors.
-type UnsafeAppInstallFiltersServiceServer interface {
-	mustEmbedUnimplementedAppInstallFiltersServiceServer()
-}
-
-func RegisterAppInstallFiltersServiceServer(s grpc.ServiceRegistrar, srv AppInstallFiltersServiceServer) {
-	// If the following call panics, it indicates UnimplementedAppInstallFiltersServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AppInstallFiltersService_ServiceDesc, srv)
-}
-
-func _AppInstallFiltersService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppInstallFiltersServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppInstallFiltersService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppInstallFiltersServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppInstallFiltersService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppInstallFiltersServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppInstallFiltersService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppInstallFiltersServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppInstallFiltersService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppInstallFiltersServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppInstallFiltersService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppInstallFiltersServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppInstallFiltersService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppInstallFiltersServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppInstallFiltersService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppInstallFiltersServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppInstallFiltersService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppInstallFiltersServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppInstallFiltersService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppInstallFiltersServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AppInstallFiltersService_ServiceDesc is the grpc.ServiceDesc for AppInstallFiltersService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AppInstallFiltersService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "common.AppInstallFiltersService",
-	HandlerType: (*AppInstallFiltersServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _AppInstallFiltersService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _AppInstallFiltersService_Equals_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _AppInstallFiltersService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _AppInstallFiltersService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _AppInstallFiltersService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/common/common.proto",
-}
-
-const (
-	AppInstallFiltersBuilderService_Build_FullMethodName = "/common.AppInstallFiltersBuilderService/Build"
-)
-
-// AppInstallFiltersBuilderServiceClient is the client API for AppInstallFiltersBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AppInstallFiltersBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-}
-
-type appInstallFiltersBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAppInstallFiltersBuilderServiceClient(cc grpc.ClientConnInterface) AppInstallFiltersBuilderServiceClient {
-	return &appInstallFiltersBuilderServiceClient{cc}
-}
-
-func (c *appInstallFiltersBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, AppInstallFiltersBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AppInstallFiltersBuilderServiceServer is the server API for AppInstallFiltersBuilderService service.
-// All implementations must embed UnimplementedAppInstallFiltersBuilderServiceServer
-// for forward compatibility.
-type AppInstallFiltersBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	mustEmbedUnimplementedAppInstallFiltersBuilderServiceServer()
-}
-
-// UnimplementedAppInstallFiltersBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAppInstallFiltersBuilderServiceServer struct{}
-
-func (UnimplementedAppInstallFiltersBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedAppInstallFiltersBuilderServiceServer) mustEmbedUnimplementedAppInstallFiltersBuilderServiceServer() {
-}
-func (UnimplementedAppInstallFiltersBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeAppInstallFiltersBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AppInstallFiltersBuilderServiceServer will
-// result in compilation errors.
-type UnsafeAppInstallFiltersBuilderServiceServer interface {
-	mustEmbedUnimplementedAppInstallFiltersBuilderServiceServer()
-}
-
-func RegisterAppInstallFiltersBuilderServiceServer(s grpc.ServiceRegistrar, srv AppInstallFiltersBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedAppInstallFiltersBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AppInstallFiltersBuilderService_ServiceDesc, srv)
-}
-
-func _AppInstallFiltersBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppInstallFiltersBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppInstallFiltersBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppInstallFiltersBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AppInstallFiltersBuilderService_ServiceDesc is the grpc.ServiceDesc for AppInstallFiltersBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AppInstallFiltersBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "common.AppInstallFiltersBuilderService",
-	HandlerType: (*AppInstallFiltersBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _AppInstallFiltersBuilderService_Build_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/common/common.proto",
-}
-
-const (
-	FrequencyCapFiltersService_DescribeContents_FullMethodName = "/common.FrequencyCapFiltersService/DescribeContents"
-	FrequencyCapFiltersService_Equals_FullMethodName           = "/common.FrequencyCapFiltersService/Equals"
-	FrequencyCapFiltersService_HashCode_FullMethodName         = "/common.FrequencyCapFiltersService/HashCode"
-	FrequencyCapFiltersService_ToString_FullMethodName         = "/common.FrequencyCapFiltersService/ToString"
-	FrequencyCapFiltersService_WriteToParcel_FullMethodName    = "/common.FrequencyCapFiltersService/WriteToParcel"
-)
-
-// FrequencyCapFiltersServiceClient is the client API for FrequencyCapFiltersService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type FrequencyCapFiltersServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type frequencyCapFiltersServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewFrequencyCapFiltersServiceClient(cc grpc.ClientConnInterface) FrequencyCapFiltersServiceClient {
-	return &frequencyCapFiltersServiceClient{cc}
-}
-
-func (c *frequencyCapFiltersServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, FrequencyCapFiltersService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *frequencyCapFiltersServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, FrequencyCapFiltersService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *frequencyCapFiltersServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, FrequencyCapFiltersService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *frequencyCapFiltersServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, FrequencyCapFiltersService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *frequencyCapFiltersServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, FrequencyCapFiltersService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// FrequencyCapFiltersServiceServer is the server API for FrequencyCapFiltersService service.
-// All implementations must embed UnimplementedFrequencyCapFiltersServiceServer
-// for forward compatibility.
-type FrequencyCapFiltersServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedFrequencyCapFiltersServiceServer()
-}
-
-// UnimplementedFrequencyCapFiltersServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedFrequencyCapFiltersServiceServer struct{}
-
-func (UnimplementedFrequencyCapFiltersServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedFrequencyCapFiltersServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedFrequencyCapFiltersServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedFrequencyCapFiltersServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedFrequencyCapFiltersServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedFrequencyCapFiltersServiceServer) mustEmbedUnimplementedFrequencyCapFiltersServiceServer() {
-}
-func (UnimplementedFrequencyCapFiltersServiceServer) testEmbeddedByValue() {}
-
-// UnsafeFrequencyCapFiltersServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to FrequencyCapFiltersServiceServer will
-// result in compilation errors.
-type UnsafeFrequencyCapFiltersServiceServer interface {
-	mustEmbedUnimplementedFrequencyCapFiltersServiceServer()
-}
-
-func RegisterFrequencyCapFiltersServiceServer(s grpc.ServiceRegistrar, srv FrequencyCapFiltersServiceServer) {
-	// If the following call panics, it indicates UnimplementedFrequencyCapFiltersServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&FrequencyCapFiltersService_ServiceDesc, srv)
-}
-
-func _FrequencyCapFiltersService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FrequencyCapFiltersServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FrequencyCapFiltersService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FrequencyCapFiltersServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FrequencyCapFiltersService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FrequencyCapFiltersServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FrequencyCapFiltersService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FrequencyCapFiltersServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FrequencyCapFiltersService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FrequencyCapFiltersServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FrequencyCapFiltersService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FrequencyCapFiltersServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FrequencyCapFiltersService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FrequencyCapFiltersServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FrequencyCapFiltersService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FrequencyCapFiltersServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _FrequencyCapFiltersService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FrequencyCapFiltersServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FrequencyCapFiltersService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FrequencyCapFiltersServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// FrequencyCapFiltersService_ServiceDesc is the grpc.ServiceDesc for FrequencyCapFiltersService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var FrequencyCapFiltersService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "common.FrequencyCapFiltersService",
-	HandlerType: (*FrequencyCapFiltersServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _FrequencyCapFiltersService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _FrequencyCapFiltersService_Equals_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _FrequencyCapFiltersService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _FrequencyCapFiltersService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _FrequencyCapFiltersService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/common/common.proto",
-}
-
-const (
-	FrequencyCapFiltersBuilderService_Build_FullMethodName = "/common.FrequencyCapFiltersBuilderService/Build"
-)
-
-// FrequencyCapFiltersBuilderServiceClient is the client API for FrequencyCapFiltersBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type FrequencyCapFiltersBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-}
-
-type frequencyCapFiltersBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewFrequencyCapFiltersBuilderServiceClient(cc grpc.ClientConnInterface) FrequencyCapFiltersBuilderServiceClient {
-	return &frequencyCapFiltersBuilderServiceClient{cc}
-}
-
-func (c *frequencyCapFiltersBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, FrequencyCapFiltersBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// FrequencyCapFiltersBuilderServiceServer is the server API for FrequencyCapFiltersBuilderService service.
-// All implementations must embed UnimplementedFrequencyCapFiltersBuilderServiceServer
-// for forward compatibility.
-type FrequencyCapFiltersBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	mustEmbedUnimplementedFrequencyCapFiltersBuilderServiceServer()
-}
-
-// UnimplementedFrequencyCapFiltersBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedFrequencyCapFiltersBuilderServiceServer struct{}
-
-func (UnimplementedFrequencyCapFiltersBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedFrequencyCapFiltersBuilderServiceServer) mustEmbedUnimplementedFrequencyCapFiltersBuilderServiceServer() {
-}
-func (UnimplementedFrequencyCapFiltersBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeFrequencyCapFiltersBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to FrequencyCapFiltersBuilderServiceServer will
-// result in compilation errors.
-type UnsafeFrequencyCapFiltersBuilderServiceServer interface {
-	mustEmbedUnimplementedFrequencyCapFiltersBuilderServiceServer()
-}
-
-func RegisterFrequencyCapFiltersBuilderServiceServer(s grpc.ServiceRegistrar, srv FrequencyCapFiltersBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedFrequencyCapFiltersBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&FrequencyCapFiltersBuilderService_ServiceDesc, srv)
-}
-
-func _FrequencyCapFiltersBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(FrequencyCapFiltersBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: FrequencyCapFiltersBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FrequencyCapFiltersBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// FrequencyCapFiltersBuilderService_ServiceDesc is the grpc.ServiceDesc for FrequencyCapFiltersBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var FrequencyCapFiltersBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "common.FrequencyCapFiltersBuilderService",
-	HandlerType: (*FrequencyCapFiltersBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _FrequencyCapFiltersBuilderService_Build_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/common/common.proto",
-}
-
-const (
 	AdDataService_DescribeContents_FullMethodName = "/common.AdDataService/DescribeContents"
 	AdDataService_Equals_FullMethodName           = "/common.AdDataService/Equals"
+	AdDataService_GetAdCounterKeys_FullMethodName = "/common.AdDataService/GetAdCounterKeys"
 	AdDataService_GetAdFilters_FullMethodName     = "/common.AdDataService/GetAdFilters"
 	AdDataService_GetAdRenderId_FullMethodName    = "/common.AdDataService/GetAdRenderId"
 	AdDataService_GetMetadata_FullMethodName      = "/common.AdDataService/GetMetadata"
@@ -2511,6 +2090,7 @@ const (
 type AdDataServiceClient interface {
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetAdCounterKeys(ctx context.Context, in *GetAdCounterKeysRequest, opts ...grpc.CallOption) (*GetAdCounterKeysResponse, error)
 	GetAdFilters(ctx context.Context, in *GetAdFiltersRequest, opts ...grpc.CallOption) (*GetAdFiltersResponse, error)
 	GetAdRenderId(ctx context.Context, in *AdDataGetAdRenderIdRequest, opts ...grpc.CallOption) (*GetAdRenderIdResponse, error)
 	GetMetadata(ctx context.Context, in *GetMetadataRequest, opts ...grpc.CallOption) (*GetMetadataResponse, error)
@@ -2542,6 +2122,16 @@ func (c *adDataServiceClient) Equals(ctx context.Context, in *EqualsRequest, opt
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
 	err := c.cc.Invoke(ctx, AdDataService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adDataServiceClient) GetAdCounterKeys(ctx context.Context, in *GetAdCounterKeysRequest, opts ...grpc.CallOption) (*GetAdCounterKeysResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAdCounterKeysResponse)
+	err := c.cc.Invoke(ctx, AdDataService_GetAdCounterKeys_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -2624,6 +2214,7 @@ func (c *adDataServiceClient) WriteToParcel(ctx context.Context, in *WriteToParc
 type AdDataServiceServer interface {
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
 	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetAdCounterKeys(context.Context, *GetAdCounterKeysRequest) (*GetAdCounterKeysResponse, error)
 	GetAdFilters(context.Context, *GetAdFiltersRequest) (*GetAdFiltersResponse, error)
 	GetAdRenderId(context.Context, *AdDataGetAdRenderIdRequest) (*GetAdRenderIdResponse, error)
 	GetMetadata(context.Context, *GetMetadataRequest) (*GetMetadataResponse, error)
@@ -2646,6 +2237,9 @@ func (UnimplementedAdDataServiceServer) DescribeContents(context.Context, *Descr
 }
 func (UnimplementedAdDataServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedAdDataServiceServer) GetAdCounterKeys(context.Context, *GetAdCounterKeysRequest) (*GetAdCounterKeysResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAdCounterKeys not implemented")
 }
 func (UnimplementedAdDataServiceServer) GetAdFilters(context.Context, *GetAdFiltersRequest) (*GetAdFiltersResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetAdFilters not implemented")
@@ -2721,6 +2315,24 @@ func _AdDataService_Equals_Handler(srv interface{}, ctx context.Context, dec fun
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(AdDataServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdDataService_GetAdCounterKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAdCounterKeysRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdDataServiceServer).GetAdCounterKeys(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdDataService_GetAdCounterKeys_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdDataServiceServer).GetAdCounterKeys(ctx, req.(*GetAdCounterKeysRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2865,6 +2477,10 @@ var AdDataService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Equals",
 			Handler:    _AdDataService_Equals_Handler,
+		},
+		{
+			MethodName: "GetAdCounterKeys",
+			Handler:    _AdDataService_GetAdCounterKeys_Handler,
 		},
 		{
 			MethodName: "GetAdFilters",
@@ -3154,292 +2770,904 @@ var AdDataBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	AdSelectionSignalsService_DescribeContents_FullMethodName = "/common.AdSelectionSignalsService/DescribeContents"
-	AdSelectionSignalsService_Equals_FullMethodName           = "/common.AdSelectionSignalsService/Equals"
-	AdSelectionSignalsService_HashCode_FullMethodName         = "/common.AdSelectionSignalsService/HashCode"
-	AdSelectionSignalsService_ToString_FullMethodName         = "/common.AdSelectionSignalsService/ToString"
-	AdSelectionSignalsService_WriteToParcel_FullMethodName    = "/common.AdSelectionSignalsService/WriteToParcel"
-	AdSelectionSignalsService_FromString_FullMethodName       = "/common.AdSelectionSignalsService/FromString"
+	AdFiltersService_DescribeContents_FullMethodName       = "/common.AdFiltersService/DescribeContents"
+	AdFiltersService_Equals_FullMethodName                 = "/common.AdFiltersService/Equals"
+	AdFiltersService_GetAppInstallFilters_FullMethodName   = "/common.AdFiltersService/GetAppInstallFilters"
+	AdFiltersService_GetFrequencyCapFilters_FullMethodName = "/common.AdFiltersService/GetFrequencyCapFilters"
+	AdFiltersService_HashCode_FullMethodName               = "/common.AdFiltersService/HashCode"
+	AdFiltersService_ToString_FullMethodName               = "/common.AdFiltersService/ToString"
+	AdFiltersService_WriteToParcel_FullMethodName          = "/common.AdFiltersService/WriteToParcel"
 )
 
-// AdSelectionSignalsServiceClient is the client API for AdSelectionSignalsService service.
+// AdFiltersServiceClient is the client API for AdFiltersService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AdSelectionSignalsServiceClient interface {
+type AdFiltersServiceClient interface {
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetAppInstallFilters(ctx context.Context, in *GetAppInstallFiltersRequest, opts ...grpc.CallOption) (*GetAppInstallFiltersResponse, error)
+	GetFrequencyCapFilters(ctx context.Context, in *GetFrequencyCapFiltersRequest, opts ...grpc.CallOption) (*GetFrequencyCapFiltersResponse, error)
 	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
 	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-	FromString(ctx context.Context, in *FromStringRequest, opts ...grpc.CallOption) (*FromStringResponse, error)
 }
 
-type adSelectionSignalsServiceClient struct {
+type adFiltersServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewAdSelectionSignalsServiceClient(cc grpc.ClientConnInterface) AdSelectionSignalsServiceClient {
-	return &adSelectionSignalsServiceClient{cc}
+func NewAdFiltersServiceClient(cc grpc.ClientConnInterface) AdFiltersServiceClient {
+	return &adFiltersServiceClient{cc}
 }
 
-func (c *adSelectionSignalsServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *adFiltersServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, AdSelectionSignalsService_DescribeContents_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, AdFiltersService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adSelectionSignalsServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *adFiltersServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, AdSelectionSignalsService_Equals_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, AdFiltersService_Equals_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adSelectionSignalsServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *adFiltersServiceClient) GetAppInstallFilters(ctx context.Context, in *GetAppInstallFiltersRequest, opts ...grpc.CallOption) (*GetAppInstallFiltersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAppInstallFiltersResponse)
+	err := c.cc.Invoke(ctx, AdFiltersService_GetAppInstallFilters_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adFiltersServiceClient) GetFrequencyCapFilters(ctx context.Context, in *GetFrequencyCapFiltersRequest, opts ...grpc.CallOption) (*GetFrequencyCapFiltersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFrequencyCapFiltersResponse)
+	err := c.cc.Invoke(ctx, AdFiltersService_GetFrequencyCapFilters_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adFiltersServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, AdSelectionSignalsService_HashCode_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, AdFiltersService_HashCode_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adSelectionSignalsServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+func (c *adFiltersServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, AdSelectionSignalsService_ToString_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, AdFiltersService_ToString_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adSelectionSignalsServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *adFiltersServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, AdSelectionSignalsService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, AdFiltersService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adSelectionSignalsServiceClient) FromString(ctx context.Context, in *FromStringRequest, opts ...grpc.CallOption) (*FromStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FromStringResponse)
-	err := c.cc.Invoke(ctx, AdSelectionSignalsService_FromString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AdSelectionSignalsServiceServer is the server API for AdSelectionSignalsService service.
-// All implementations must embed UnimplementedAdSelectionSignalsServiceServer
+// AdFiltersServiceServer is the server API for AdFiltersService service.
+// All implementations must embed UnimplementedAdFiltersServiceServer
 // for forward compatibility.
-type AdSelectionSignalsServiceServer interface {
+type AdFiltersServiceServer interface {
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
 	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetAppInstallFilters(context.Context, *GetAppInstallFiltersRequest) (*GetAppInstallFiltersResponse, error)
+	GetFrequencyCapFilters(context.Context, *GetFrequencyCapFiltersRequest) (*GetFrequencyCapFiltersResponse, error)
 	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
 	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
 	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	FromString(context.Context, *FromStringRequest) (*FromStringResponse, error)
-	mustEmbedUnimplementedAdSelectionSignalsServiceServer()
+	mustEmbedUnimplementedAdFiltersServiceServer()
 }
 
-// UnimplementedAdSelectionSignalsServiceServer must be embedded to have
+// UnimplementedAdFiltersServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedAdSelectionSignalsServiceServer struct{}
+type UnimplementedAdFiltersServiceServer struct{}
 
-func (UnimplementedAdSelectionSignalsServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedAdFiltersServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedAdSelectionSignalsServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedAdFiltersServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedAdSelectionSignalsServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedAdFiltersServiceServer) GetAppInstallFilters(context.Context, *GetAppInstallFiltersRequest) (*GetAppInstallFiltersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAppInstallFilters not implemented")
+}
+func (UnimplementedAdFiltersServiceServer) GetFrequencyCapFilters(context.Context, *GetFrequencyCapFiltersRequest) (*GetFrequencyCapFiltersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFrequencyCapFilters not implemented")
+}
+func (UnimplementedAdFiltersServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
-func (UnimplementedAdSelectionSignalsServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+func (UnimplementedAdFiltersServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedAdSelectionSignalsServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedAdFiltersServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedAdSelectionSignalsServiceServer) FromString(context.Context, *FromStringRequest) (*FromStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method FromString not implemented")
-}
-func (UnimplementedAdSelectionSignalsServiceServer) mustEmbedUnimplementedAdSelectionSignalsServiceServer() {
-}
-func (UnimplementedAdSelectionSignalsServiceServer) testEmbeddedByValue() {}
+func (UnimplementedAdFiltersServiceServer) mustEmbedUnimplementedAdFiltersServiceServer() {}
+func (UnimplementedAdFiltersServiceServer) testEmbeddedByValue()                          {}
 
-// UnsafeAdSelectionSignalsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AdSelectionSignalsServiceServer will
+// UnsafeAdFiltersServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AdFiltersServiceServer will
 // result in compilation errors.
-type UnsafeAdSelectionSignalsServiceServer interface {
-	mustEmbedUnimplementedAdSelectionSignalsServiceServer()
+type UnsafeAdFiltersServiceServer interface {
+	mustEmbedUnimplementedAdFiltersServiceServer()
 }
 
-func RegisterAdSelectionSignalsServiceServer(s grpc.ServiceRegistrar, srv AdSelectionSignalsServiceServer) {
-	// If the following call panics, it indicates UnimplementedAdSelectionSignalsServiceServer was
+func RegisterAdFiltersServiceServer(s grpc.ServiceRegistrar, srv AdFiltersServiceServer) {
+	// If the following call panics, it indicates UnimplementedAdFiltersServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&AdSelectionSignalsService_ServiceDesc, srv)
+	s.RegisterService(&AdFiltersService_ServiceDesc, srv)
 }
 
-func _AdSelectionSignalsService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AdFiltersService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdSelectionSignalsServiceServer).DescribeContents(ctx, in)
+		return srv.(AdFiltersServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AdSelectionSignalsService_DescribeContents_FullMethodName,
+		FullMethod: AdFiltersService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionSignalsServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(AdFiltersServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdSelectionSignalsService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AdFiltersService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(EqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdSelectionSignalsServiceServer).Equals(ctx, in)
+		return srv.(AdFiltersServiceServer).Equals(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AdSelectionSignalsService_Equals_FullMethodName,
+		FullMethod: AdFiltersService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionSignalsServiceServer).Equals(ctx, req.(*EqualsRequest))
+		return srv.(AdFiltersServiceServer).Equals(ctx, req.(*EqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdSelectionSignalsService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AdFiltersService_GetAppInstallFilters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAppInstallFiltersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdFiltersServiceServer).GetAppInstallFilters(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdFiltersService_GetAppInstallFilters_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdFiltersServiceServer).GetAppInstallFilters(ctx, req.(*GetAppInstallFiltersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdFiltersService_GetFrequencyCapFilters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFrequencyCapFiltersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdFiltersServiceServer).GetFrequencyCapFilters(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdFiltersService_GetFrequencyCapFilters_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdFiltersServiceServer).GetFrequencyCapFilters(ctx, req.(*GetFrequencyCapFiltersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdFiltersService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(HashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdSelectionSignalsServiceServer).HashCode(ctx, in)
+		return srv.(AdFiltersServiceServer).HashCode(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AdSelectionSignalsService_HashCode_FullMethodName,
+		FullMethod: AdFiltersService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionSignalsServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+		return srv.(AdFiltersServiceServer).HashCode(ctx, req.(*HashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdSelectionSignalsService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AdFiltersService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdSelectionSignalsServiceServer).ToString(ctx, in)
+		return srv.(AdFiltersServiceServer).ToString(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AdSelectionSignalsService_ToString_FullMethodName,
+		FullMethod: AdFiltersService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionSignalsServiceServer).ToString(ctx, req.(*ToStringRequest))
+		return srv.(AdFiltersServiceServer).ToString(ctx, req.(*ToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdSelectionSignalsService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AdFiltersService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdSelectionSignalsServiceServer).WriteToParcel(ctx, in)
+		return srv.(AdFiltersServiceServer).WriteToParcel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AdSelectionSignalsService_WriteToParcel_FullMethodName,
+		FullMethod: AdFiltersService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionSignalsServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(AdFiltersServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdSelectionSignalsService_FromString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FromStringRequest)
+// AdFiltersService_ServiceDesc is the grpc.ServiceDesc for AdFiltersService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AdFiltersService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "common.AdFiltersService",
+	HandlerType: (*AdFiltersServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _AdFiltersService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _AdFiltersService_Equals_Handler,
+		},
+		{
+			MethodName: "GetAppInstallFilters",
+			Handler:    _AdFiltersService_GetAppInstallFilters_Handler,
+		},
+		{
+			MethodName: "GetFrequencyCapFilters",
+			Handler:    _AdFiltersService_GetFrequencyCapFilters_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _AdFiltersService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _AdFiltersService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _AdFiltersService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/common/common.proto",
+}
+
+const (
+	AdFiltersBuilderService_Build_FullMethodName                  = "/common.AdFiltersBuilderService/Build"
+	AdFiltersBuilderService_SetAppInstallFilters_FullMethodName   = "/common.AdFiltersBuilderService/SetAppInstallFilters"
+	AdFiltersBuilderService_SetFrequencyCapFilters_FullMethodName = "/common.AdFiltersBuilderService/SetFrequencyCapFilters"
+)
+
+// AdFiltersBuilderServiceClient is the client API for AdFiltersBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AdFiltersBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetAppInstallFilters(ctx context.Context, in *SetAppInstallFiltersRequest, opts ...grpc.CallOption) (*SetAppInstallFiltersResponse, error)
+	SetFrequencyCapFilters(ctx context.Context, in *SetFrequencyCapFiltersRequest, opts ...grpc.CallOption) (*SetFrequencyCapFiltersResponse, error)
+}
+
+type adFiltersBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAdFiltersBuilderServiceClient(cc grpc.ClientConnInterface) AdFiltersBuilderServiceClient {
+	return &adFiltersBuilderServiceClient{cc}
+}
+
+func (c *adFiltersBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, AdFiltersBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adFiltersBuilderServiceClient) SetAppInstallFilters(ctx context.Context, in *SetAppInstallFiltersRequest, opts ...grpc.CallOption) (*SetAppInstallFiltersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAppInstallFiltersResponse)
+	err := c.cc.Invoke(ctx, AdFiltersBuilderService_SetAppInstallFilters_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adFiltersBuilderServiceClient) SetFrequencyCapFilters(ctx context.Context, in *SetFrequencyCapFiltersRequest, opts ...grpc.CallOption) (*SetFrequencyCapFiltersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetFrequencyCapFiltersResponse)
+	err := c.cc.Invoke(ctx, AdFiltersBuilderService_SetFrequencyCapFilters_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AdFiltersBuilderServiceServer is the server API for AdFiltersBuilderService service.
+// All implementations must embed UnimplementedAdFiltersBuilderServiceServer
+// for forward compatibility.
+type AdFiltersBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetAppInstallFilters(context.Context, *SetAppInstallFiltersRequest) (*SetAppInstallFiltersResponse, error)
+	SetFrequencyCapFilters(context.Context, *SetFrequencyCapFiltersRequest) (*SetFrequencyCapFiltersResponse, error)
+	mustEmbedUnimplementedAdFiltersBuilderServiceServer()
+}
+
+// UnimplementedAdFiltersBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAdFiltersBuilderServiceServer struct{}
+
+func (UnimplementedAdFiltersBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedAdFiltersBuilderServiceServer) SetAppInstallFilters(context.Context, *SetAppInstallFiltersRequest) (*SetAppInstallFiltersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAppInstallFilters not implemented")
+}
+func (UnimplementedAdFiltersBuilderServiceServer) SetFrequencyCapFilters(context.Context, *SetFrequencyCapFiltersRequest) (*SetFrequencyCapFiltersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetFrequencyCapFilters not implemented")
+}
+func (UnimplementedAdFiltersBuilderServiceServer) mustEmbedUnimplementedAdFiltersBuilderServiceServer() {
+}
+func (UnimplementedAdFiltersBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAdFiltersBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AdFiltersBuilderServiceServer will
+// result in compilation errors.
+type UnsafeAdFiltersBuilderServiceServer interface {
+	mustEmbedUnimplementedAdFiltersBuilderServiceServer()
+}
+
+func RegisterAdFiltersBuilderServiceServer(s grpc.ServiceRegistrar, srv AdFiltersBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedAdFiltersBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AdFiltersBuilderService_ServiceDesc, srv)
+}
+
+func _AdFiltersBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdSelectionSignalsServiceServer).FromString(ctx, in)
+		return srv.(AdFiltersBuilderServiceServer).Build(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AdSelectionSignalsService_FromString_FullMethodName,
+		FullMethod: AdFiltersBuilderService_Build_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionSignalsServiceServer).FromString(ctx, req.(*FromStringRequest))
+		return srv.(AdFiltersBuilderServiceServer).Build(ctx, req.(*BuildRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// AdSelectionSignalsService_ServiceDesc is the grpc.ServiceDesc for AdSelectionSignalsService service.
+func _AdFiltersBuilderService_SetAppInstallFilters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAppInstallFiltersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdFiltersBuilderServiceServer).SetAppInstallFilters(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdFiltersBuilderService_SetAppInstallFilters_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdFiltersBuilderServiceServer).SetAppInstallFilters(ctx, req.(*SetAppInstallFiltersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdFiltersBuilderService_SetFrequencyCapFilters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetFrequencyCapFiltersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdFiltersBuilderServiceServer).SetFrequencyCapFilters(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdFiltersBuilderService_SetFrequencyCapFilters_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdFiltersBuilderServiceServer).SetFrequencyCapFilters(ctx, req.(*SetFrequencyCapFiltersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AdFiltersBuilderService_ServiceDesc is the grpc.ServiceDesc for AdFiltersBuilderService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var AdSelectionSignalsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "common.AdSelectionSignalsService",
-	HandlerType: (*AdSelectionSignalsServiceServer)(nil),
+var AdFiltersBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "common.AdFiltersBuilderService",
+	HandlerType: (*AdFiltersBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _AdFiltersBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetAppInstallFilters",
+			Handler:    _AdFiltersBuilderService_SetAppInstallFilters_Handler,
+		},
+		{
+			MethodName: "SetFrequencyCapFilters",
+			Handler:    _AdFiltersBuilderService_SetFrequencyCapFilters_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/common/common.proto",
+}
+
+const (
+	AppInstallFiltersService_DescribeContents_FullMethodName = "/common.AppInstallFiltersService/DescribeContents"
+	AppInstallFiltersService_Equals_FullMethodName           = "/common.AppInstallFiltersService/Equals"
+	AppInstallFiltersService_GetPackageNames_FullMethodName  = "/common.AppInstallFiltersService/GetPackageNames"
+	AppInstallFiltersService_HashCode_FullMethodName         = "/common.AppInstallFiltersService/HashCode"
+	AppInstallFiltersService_ToString_FullMethodName         = "/common.AppInstallFiltersService/ToString"
+	AppInstallFiltersService_WriteToParcel_FullMethodName    = "/common.AppInstallFiltersService/WriteToParcel"
+)
+
+// AppInstallFiltersServiceClient is the client API for AppInstallFiltersService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AppInstallFiltersServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetPackageNames(ctx context.Context, in *GetPackageNamesRequest, opts ...grpc.CallOption) (*GetPackageNamesResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type appInstallFiltersServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAppInstallFiltersServiceClient(cc grpc.ClientConnInterface) AppInstallFiltersServiceClient {
+	return &appInstallFiltersServiceClient{cc}
+}
+
+func (c *appInstallFiltersServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, AppInstallFiltersService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appInstallFiltersServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, AppInstallFiltersService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appInstallFiltersServiceClient) GetPackageNames(ctx context.Context, in *GetPackageNamesRequest, opts ...grpc.CallOption) (*GetPackageNamesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPackageNamesResponse)
+	err := c.cc.Invoke(ctx, AppInstallFiltersService_GetPackageNames_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appInstallFiltersServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, AppInstallFiltersService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appInstallFiltersServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, AppInstallFiltersService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appInstallFiltersServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, AppInstallFiltersService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AppInstallFiltersServiceServer is the server API for AppInstallFiltersService service.
+// All implementations must embed UnimplementedAppInstallFiltersServiceServer
+// for forward compatibility.
+type AppInstallFiltersServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetPackageNames(context.Context, *GetPackageNamesRequest) (*GetPackageNamesResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedAppInstallFiltersServiceServer()
+}
+
+// UnimplementedAppInstallFiltersServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAppInstallFiltersServiceServer struct{}
+
+func (UnimplementedAppInstallFiltersServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedAppInstallFiltersServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedAppInstallFiltersServiceServer) GetPackageNames(context.Context, *GetPackageNamesRequest) (*GetPackageNamesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPackageNames not implemented")
+}
+func (UnimplementedAppInstallFiltersServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedAppInstallFiltersServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedAppInstallFiltersServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedAppInstallFiltersServiceServer) mustEmbedUnimplementedAppInstallFiltersServiceServer() {
+}
+func (UnimplementedAppInstallFiltersServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAppInstallFiltersServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AppInstallFiltersServiceServer will
+// result in compilation errors.
+type UnsafeAppInstallFiltersServiceServer interface {
+	mustEmbedUnimplementedAppInstallFiltersServiceServer()
+}
+
+func RegisterAppInstallFiltersServiceServer(s grpc.ServiceRegistrar, srv AppInstallFiltersServiceServer) {
+	// If the following call panics, it indicates UnimplementedAppInstallFiltersServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AppInstallFiltersService_ServiceDesc, srv)
+}
+
+func _AppInstallFiltersService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppInstallFiltersServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppInstallFiltersService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppInstallFiltersServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppInstallFiltersService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppInstallFiltersServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppInstallFiltersService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppInstallFiltersServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppInstallFiltersService_GetPackageNames_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPackageNamesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppInstallFiltersServiceServer).GetPackageNames(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppInstallFiltersService_GetPackageNames_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppInstallFiltersServiceServer).GetPackageNames(ctx, req.(*GetPackageNamesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppInstallFiltersService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppInstallFiltersServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppInstallFiltersService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppInstallFiltersServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppInstallFiltersService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppInstallFiltersServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppInstallFiltersService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppInstallFiltersServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppInstallFiltersService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppInstallFiltersServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppInstallFiltersService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppInstallFiltersServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AppInstallFiltersService_ServiceDesc is the grpc.ServiceDesc for AppInstallFiltersService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AppInstallFiltersService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "common.AppInstallFiltersService",
+	HandlerType: (*AppInstallFiltersServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "DescribeContents",
-			Handler:    _AdSelectionSignalsService_DescribeContents_Handler,
+			Handler:    _AppInstallFiltersService_DescribeContents_Handler,
 		},
 		{
 			MethodName: "Equals",
-			Handler:    _AdSelectionSignalsService_Equals_Handler,
+			Handler:    _AppInstallFiltersService_Equals_Handler,
+		},
+		{
+			MethodName: "GetPackageNames",
+			Handler:    _AppInstallFiltersService_GetPackageNames_Handler,
 		},
 		{
 			MethodName: "HashCode",
-			Handler:    _AdSelectionSignalsService_HashCode_Handler,
+			Handler:    _AppInstallFiltersService_HashCode_Handler,
 		},
 		{
 			MethodName: "ToString",
-			Handler:    _AdSelectionSignalsService_ToString_Handler,
+			Handler:    _AppInstallFiltersService_ToString_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _AdSelectionSignalsService_WriteToParcel_Handler,
+			Handler:    _AppInstallFiltersService_WriteToParcel_Handler,
 		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/common/common.proto",
+}
+
+const (
+	AppInstallFiltersBuilderService_Build_FullMethodName = "/common.AppInstallFiltersBuilderService/Build"
+)
+
+// AppInstallFiltersBuilderServiceClient is the client API for AppInstallFiltersBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AppInstallFiltersBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+}
+
+type appInstallFiltersBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAppInstallFiltersBuilderServiceClient(cc grpc.ClientConnInterface) AppInstallFiltersBuilderServiceClient {
+	return &appInstallFiltersBuilderServiceClient{cc}
+}
+
+func (c *appInstallFiltersBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, AppInstallFiltersBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AppInstallFiltersBuilderServiceServer is the server API for AppInstallFiltersBuilderService service.
+// All implementations must embed UnimplementedAppInstallFiltersBuilderServiceServer
+// for forward compatibility.
+type AppInstallFiltersBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	mustEmbedUnimplementedAppInstallFiltersBuilderServiceServer()
+}
+
+// UnimplementedAppInstallFiltersBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAppInstallFiltersBuilderServiceServer struct{}
+
+func (UnimplementedAppInstallFiltersBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedAppInstallFiltersBuilderServiceServer) mustEmbedUnimplementedAppInstallFiltersBuilderServiceServer() {
+}
+func (UnimplementedAppInstallFiltersBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAppInstallFiltersBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AppInstallFiltersBuilderServiceServer will
+// result in compilation errors.
+type UnsafeAppInstallFiltersBuilderServiceServer interface {
+	mustEmbedUnimplementedAppInstallFiltersBuilderServiceServer()
+}
+
+func RegisterAppInstallFiltersBuilderServiceServer(s grpc.ServiceRegistrar, srv AppInstallFiltersBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedAppInstallFiltersBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AppInstallFiltersBuilderService_ServiceDesc, srv)
+}
+
+func _AppInstallFiltersBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppInstallFiltersBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppInstallFiltersBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppInstallFiltersBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AppInstallFiltersBuilderService_ServiceDesc is the grpc.ServiceDesc for AppInstallFiltersBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AppInstallFiltersBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "common.AppInstallFiltersBuilderService",
+	HandlerType: (*AppInstallFiltersBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "FromString",
-			Handler:    _AdSelectionSignalsService_FromString_Handler,
+			MethodName: "Build",
+			Handler:    _AppInstallFiltersBuilderService_Build_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

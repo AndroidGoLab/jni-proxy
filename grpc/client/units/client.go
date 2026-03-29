@@ -9,6 +9,172 @@ import (
 	"google.golang.org/grpc"
 )
 
+// LengthClient wraps the gRPC LengthService client.
+type LengthClient struct {
+	svc pb.LengthServiceClient
+}
+
+// NewLengthClient creates a new Length client.
+func NewLengthClient(cc grpc.ClientConnInterface) *LengthClient {
+	return &LengthClient{
+		svc: pb.NewLengthServiceClient(cc),
+	}
+}
+
+// CompareTo1 calls the CompareTo1 RPC.
+func (c *LengthClient) CompareTo1(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.CompareTo1(ctx, &pb.CompareTo1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *LengthClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInMeters calls the GetInMeters RPC.
+func (c *LengthClient) GetInMeters(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetInMeters(ctx, &pb.GetInMetersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *LengthClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *LengthClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// CompareTo1_1 calls the CompareTo1_1 RPC.
+func (c *LengthClient) CompareTo1_1(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.CompareTo1_1(ctx, &pb.CompareTo1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FromMeters calls the FromMeters RPC.
+func (c *LengthClient) FromMeters(ctx context.Context, arg0 float64) (int64, error) {
+	resp, err := c.svc.FromMeters(ctx, &pb.FromMetersRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PowerClient wraps the gRPC PowerService client.
+type PowerClient struct {
+	svc pb.PowerServiceClient
+}
+
+// NewPowerClient creates a new Power client.
+func NewPowerClient(cc grpc.ClientConnInterface) *PowerClient {
+	return &PowerClient{
+		svc: pb.NewPowerServiceClient(cc),
+	}
+}
+
+// CompareTo1 calls the CompareTo1 RPC.
+func (c *PowerClient) CompareTo1(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.CompareTo1(ctx, &pb.CompareTo1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *PowerClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInWatts calls the GetInWatts RPC.
+func (c *PowerClient) GetInWatts(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetInWatts(ctx, &pb.GetInWattsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *PowerClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *PowerClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// CompareTo1_1 calls the CompareTo1_1 RPC.
+func (c *PowerClient) CompareTo1_1(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.CompareTo1_1(ctx, &pb.CompareTo1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FromWatts calls the FromWatts RPC.
+func (c *PowerClient) FromWatts(ctx context.Context, arg0 float64) (int64, error) {
+	resp, err := c.svc.FromWatts(ctx, &pb.FromWattsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // BloodGlucoseClient wraps the gRPC BloodGlucoseService client.
 type BloodGlucoseClient struct {
 	svc pb.BloodGlucoseServiceClient
@@ -167,338 +333,6 @@ func (c *VolumeClient) CompareTo1_1(ctx context.Context, arg0 int64) (int32, err
 // FromLiters calls the FromLiters RPC.
 func (c *VolumeClient) FromLiters(ctx context.Context, arg0 float64) (int64, error) {
 	resp, err := c.svc.FromLiters(ctx, &pb.FromLitersRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// TemperatureDeltaClient wraps the gRPC TemperatureDeltaService client.
-type TemperatureDeltaClient struct {
-	svc pb.TemperatureDeltaServiceClient
-}
-
-// NewTemperatureDeltaClient creates a new TemperatureDelta client.
-func NewTemperatureDeltaClient(cc grpc.ClientConnInterface) *TemperatureDeltaClient {
-	return &TemperatureDeltaClient{
-		svc: pb.NewTemperatureDeltaServiceClient(cc),
-	}
-}
-
-// CompareTo1 calls the CompareTo1 RPC.
-func (c *TemperatureDeltaClient) CompareTo1(ctx context.Context, arg0 int64) (int32, error) {
-	resp, err := c.svc.CompareTo1(ctx, &pb.CompareTo1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *TemperatureDeltaClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInCelsius calls the GetInCelsius RPC.
-func (c *TemperatureDeltaClient) GetInCelsius(ctx context.Context) (float64, error) {
-	resp, err := c.svc.GetInCelsius(ctx, &pb.GetInCelsiusRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *TemperatureDeltaClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *TemperatureDeltaClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// CompareTo1_1 calls the CompareTo1_1 RPC.
-func (c *TemperatureDeltaClient) CompareTo1_1(ctx context.Context, arg0 int64) (int32, error) {
-	resp, err := c.svc.CompareTo1_1(ctx, &pb.CompareTo1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FromCelsius calls the FromCelsius RPC.
-func (c *TemperatureDeltaClient) FromCelsius(ctx context.Context, arg0 float64) (int64, error) {
-	resp, err := c.svc.FromCelsius(ctx, &pb.FromCelsiusRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PowerClient wraps the gRPC PowerService client.
-type PowerClient struct {
-	svc pb.PowerServiceClient
-}
-
-// NewPowerClient creates a new Power client.
-func NewPowerClient(cc grpc.ClientConnInterface) *PowerClient {
-	return &PowerClient{
-		svc: pb.NewPowerServiceClient(cc),
-	}
-}
-
-// CompareTo1 calls the CompareTo1 RPC.
-func (c *PowerClient) CompareTo1(ctx context.Context, arg0 int64) (int32, error) {
-	resp, err := c.svc.CompareTo1(ctx, &pb.CompareTo1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *PowerClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInWatts calls the GetInWatts RPC.
-func (c *PowerClient) GetInWatts(ctx context.Context) (float64, error) {
-	resp, err := c.svc.GetInWatts(ctx, &pb.GetInWattsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *PowerClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *PowerClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// CompareTo1_1 calls the CompareTo1_1 RPC.
-func (c *PowerClient) CompareTo1_1(ctx context.Context, arg0 int64) (int32, error) {
-	resp, err := c.svc.CompareTo1_1(ctx, &pb.CompareTo1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FromWatts calls the FromWatts RPC.
-func (c *PowerClient) FromWatts(ctx context.Context, arg0 float64) (int64, error) {
-	resp, err := c.svc.FromWatts(ctx, &pb.FromWattsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LengthClient wraps the gRPC LengthService client.
-type LengthClient struct {
-	svc pb.LengthServiceClient
-}
-
-// NewLengthClient creates a new Length client.
-func NewLengthClient(cc grpc.ClientConnInterface) *LengthClient {
-	return &LengthClient{
-		svc: pb.NewLengthServiceClient(cc),
-	}
-}
-
-// CompareTo1 calls the CompareTo1 RPC.
-func (c *LengthClient) CompareTo1(ctx context.Context, arg0 int64) (int32, error) {
-	resp, err := c.svc.CompareTo1(ctx, &pb.CompareTo1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *LengthClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInMeters calls the GetInMeters RPC.
-func (c *LengthClient) GetInMeters(ctx context.Context) (float64, error) {
-	resp, err := c.svc.GetInMeters(ctx, &pb.GetInMetersRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *LengthClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *LengthClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// CompareTo1_1 calls the CompareTo1_1 RPC.
-func (c *LengthClient) CompareTo1_1(ctx context.Context, arg0 int64) (int32, error) {
-	resp, err := c.svc.CompareTo1_1(ctx, &pb.CompareTo1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FromMeters calls the FromMeters RPC.
-func (c *LengthClient) FromMeters(ctx context.Context, arg0 float64) (int64, error) {
-	resp, err := c.svc.FromMeters(ctx, &pb.FromMetersRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PercentageClient wraps the gRPC PercentageService client.
-type PercentageClient struct {
-	svc pb.PercentageServiceClient
-}
-
-// NewPercentageClient creates a new Percentage client.
-func NewPercentageClient(cc grpc.ClientConnInterface) *PercentageClient {
-	return &PercentageClient{
-		svc: pb.NewPercentageServiceClient(cc),
-	}
-}
-
-// CompareTo1 calls the CompareTo1 RPC.
-func (c *PercentageClient) CompareTo1(ctx context.Context, arg0 int64) (int32, error) {
-	resp, err := c.svc.CompareTo1(ctx, &pb.CompareTo1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *PercentageClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetValue calls the GetValue RPC.
-func (c *PercentageClient) GetValue(ctx context.Context) (float64, error) {
-	resp, err := c.svc.GetValue(ctx, &pb.GetValueRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *PercentageClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *PercentageClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// CompareTo1_1 calls the CompareTo1_1 RPC.
-func (c *PercentageClient) CompareTo1_1(ctx context.Context, arg0 int64) (int32, error) {
-	resp, err := c.svc.CompareTo1_1(ctx, &pb.CompareTo1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FromValue calls the FromValue RPC.
-func (c *PercentageClient) FromValue(ctx context.Context, arg0 float64) (int64, error) {
-	resp, err := c.svc.FromValue(ctx, &pb.FromValueRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -756,6 +590,89 @@ func (c *VelocityClient) FromMetersPerSecond(ctx context.Context, arg0 float64) 
 	return resp.GetResult(), nil
 }
 
+// TemperatureDeltaClient wraps the gRPC TemperatureDeltaService client.
+type TemperatureDeltaClient struct {
+	svc pb.TemperatureDeltaServiceClient
+}
+
+// NewTemperatureDeltaClient creates a new TemperatureDelta client.
+func NewTemperatureDeltaClient(cc grpc.ClientConnInterface) *TemperatureDeltaClient {
+	return &TemperatureDeltaClient{
+		svc: pb.NewTemperatureDeltaServiceClient(cc),
+	}
+}
+
+// CompareTo1 calls the CompareTo1 RPC.
+func (c *TemperatureDeltaClient) CompareTo1(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.CompareTo1(ctx, &pb.CompareTo1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *TemperatureDeltaClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInCelsius calls the GetInCelsius RPC.
+func (c *TemperatureDeltaClient) GetInCelsius(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetInCelsius(ctx, &pb.GetInCelsiusRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *TemperatureDeltaClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *TemperatureDeltaClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// CompareTo1_1 calls the CompareTo1_1 RPC.
+func (c *TemperatureDeltaClient) CompareTo1_1(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.CompareTo1_1(ctx, &pb.CompareTo1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FromCelsius calls the FromCelsius RPC.
+func (c *TemperatureDeltaClient) FromCelsius(ctx context.Context, arg0 float64) (int64, error) {
+	resp, err := c.svc.FromCelsius(ctx, &pb.FromCelsiusRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // MassClient wraps the gRPC MassService client.
 type MassClient struct {
 	svc pb.MassServiceClient
@@ -914,6 +831,89 @@ func (c *EnergyClient) CompareTo1_1(ctx context.Context, arg0 int64) (int32, err
 // FromCalories calls the FromCalories RPC.
 func (c *EnergyClient) FromCalories(ctx context.Context, arg0 float64) (int64, error) {
 	resp, err := c.svc.FromCalories(ctx, &pb.FromCaloriesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PercentageClient wraps the gRPC PercentageService client.
+type PercentageClient struct {
+	svc pb.PercentageServiceClient
+}
+
+// NewPercentageClient creates a new Percentage client.
+func NewPercentageClient(cc grpc.ClientConnInterface) *PercentageClient {
+	return &PercentageClient{
+		svc: pb.NewPercentageServiceClient(cc),
+	}
+}
+
+// CompareTo1 calls the CompareTo1 RPC.
+func (c *PercentageClient) CompareTo1(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.CompareTo1(ctx, &pb.CompareTo1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *PercentageClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetValue calls the GetValue RPC.
+func (c *PercentageClient) GetValue(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetValue(ctx, &pb.GetValueRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *PercentageClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *PercentageClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// CompareTo1_1 calls the CompareTo1_1 RPC.
+func (c *PercentageClient) CompareTo1_1(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.CompareTo1_1(ctx, &pb.CompareTo1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FromValue calls the FromValue RPC.
+func (c *PercentageClient) FromValue(ctx context.Context, arg0 float64) (int64, error) {
+	resp, err := c.svc.FromValue(ctx, &pb.FromValueRequest{
 		Arg0: arg0,
 	})
 	if err != nil {

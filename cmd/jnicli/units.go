@@ -12,6 +12,264 @@ var unitsCmd = &cobra.Command{
 	Short: "units service operations",
 }
 
+var unitsLengthCmd = &cobra.Command{
+	Use:   "length",
+	Short: "LengthService operations",
+}
+
+var unitsLengthCompareTo1Cmd = &cobra.Command{
+	Use:   "compare-to1",
+	Short: "CompareTo1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLengthServiceClient(grpcConn)
+		req := &pb.CompareTo1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CompareTo1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var unitsLengthEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLengthServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var unitsLengthGetInMetersCmd = &cobra.Command{
+	Use:   "get-in-meters",
+	Short: "GetInMeters RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLengthServiceClient(grpcConn)
+		req := &pb.GetInMetersRequest{}
+		resp, err := client.GetInMeters(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var unitsLengthHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLengthServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var unitsLengthToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLengthServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var unitsLengthCompareTo1_1Cmd = &cobra.Command{
+	Use:   "compare-to1_1",
+	Short: "CompareTo1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLengthServiceClient(grpcConn)
+		req := &pb.CompareTo1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CompareTo1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var unitsLengthFromMetersCmd = &cobra.Command{
+	Use:   "from-meters",
+	Short: "FromMeters RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLengthServiceClient(grpcConn)
+		req := &pb.FromMetersRequest{}
+		if v, err := cmd.Flags().GetFloat64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.FromMeters(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var unitsPowerCmd = &cobra.Command{
+	Use:   "power",
+	Short: "PowerService operations",
+}
+
+var unitsPowerCompareTo1Cmd = &cobra.Command{
+	Use:   "compare-to1",
+	Short: "CompareTo1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPowerServiceClient(grpcConn)
+		req := &pb.CompareTo1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CompareTo1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var unitsPowerEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPowerServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var unitsPowerGetInWattsCmd = &cobra.Command{
+	Use:   "get-in-watts",
+	Short: "GetInWatts RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPowerServiceClient(grpcConn)
+		req := &pb.GetInWattsRequest{}
+		resp, err := client.GetInWatts(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var unitsPowerHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPowerServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var unitsPowerToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPowerServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var unitsPowerCompareTo1_1Cmd = &cobra.Command{
+	Use:   "compare-to1_1",
+	Short: "CompareTo1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPowerServiceClient(grpcConn)
+		req := &pb.CompareTo1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CompareTo1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var unitsPowerFromWattsCmd = &cobra.Command{
+	Use:   "from-watts",
+	Short: "FromWatts RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPowerServiceClient(grpcConn)
+		req := &pb.FromWattsRequest{}
+		if v, err := cmd.Flags().GetFloat64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.FromWatts(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var unitsBloodGlucoseCmd = &cobra.Command{
 	Use:   "blood-glucose",
 	Short: "BloodGlucoseService operations",
@@ -263,522 +521,6 @@ var unitsVolumeFromLitersCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.FromLiters(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var unitsTemperatureDeltaCmd = &cobra.Command{
-	Use:   "temperature-delta",
-	Short: "TemperatureDeltaService operations",
-}
-
-var unitsTemperatureDeltaCompareTo1Cmd = &cobra.Command{
-	Use:   "compare-to1",
-	Short: "CompareTo1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTemperatureDeltaServiceClient(grpcConn)
-		req := &pb.CompareTo1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CompareTo1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var unitsTemperatureDeltaEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTemperatureDeltaServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var unitsTemperatureDeltaGetInCelsiusCmd = &cobra.Command{
-	Use:   "get-in-celsius",
-	Short: "GetInCelsius RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTemperatureDeltaServiceClient(grpcConn)
-		req := &pb.GetInCelsiusRequest{}
-		resp, err := client.GetInCelsius(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var unitsTemperatureDeltaHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTemperatureDeltaServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var unitsTemperatureDeltaToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTemperatureDeltaServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var unitsTemperatureDeltaCompareTo1_1Cmd = &cobra.Command{
-	Use:   "compare-to1_1",
-	Short: "CompareTo1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTemperatureDeltaServiceClient(grpcConn)
-		req := &pb.CompareTo1_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CompareTo1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var unitsTemperatureDeltaFromCelsiusCmd = &cobra.Command{
-	Use:   "from-celsius",
-	Short: "FromCelsius RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTemperatureDeltaServiceClient(grpcConn)
-		req := &pb.FromCelsiusRequest{}
-		if v, err := cmd.Flags().GetFloat64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.FromCelsius(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var unitsPowerCmd = &cobra.Command{
-	Use:   "power",
-	Short: "PowerService operations",
-}
-
-var unitsPowerCompareTo1Cmd = &cobra.Command{
-	Use:   "compare-to1",
-	Short: "CompareTo1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPowerServiceClient(grpcConn)
-		req := &pb.CompareTo1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CompareTo1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var unitsPowerEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPowerServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var unitsPowerGetInWattsCmd = &cobra.Command{
-	Use:   "get-in-watts",
-	Short: "GetInWatts RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPowerServiceClient(grpcConn)
-		req := &pb.GetInWattsRequest{}
-		resp, err := client.GetInWatts(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var unitsPowerHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPowerServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var unitsPowerToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPowerServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var unitsPowerCompareTo1_1Cmd = &cobra.Command{
-	Use:   "compare-to1_1",
-	Short: "CompareTo1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPowerServiceClient(grpcConn)
-		req := &pb.CompareTo1_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CompareTo1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var unitsPowerFromWattsCmd = &cobra.Command{
-	Use:   "from-watts",
-	Short: "FromWatts RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPowerServiceClient(grpcConn)
-		req := &pb.FromWattsRequest{}
-		if v, err := cmd.Flags().GetFloat64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.FromWatts(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var unitsLengthCmd = &cobra.Command{
-	Use:   "length",
-	Short: "LengthService operations",
-}
-
-var unitsLengthCompareTo1Cmd = &cobra.Command{
-	Use:   "compare-to1",
-	Short: "CompareTo1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLengthServiceClient(grpcConn)
-		req := &pb.CompareTo1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CompareTo1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var unitsLengthEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLengthServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var unitsLengthGetInMetersCmd = &cobra.Command{
-	Use:   "get-in-meters",
-	Short: "GetInMeters RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLengthServiceClient(grpcConn)
-		req := &pb.GetInMetersRequest{}
-		resp, err := client.GetInMeters(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var unitsLengthHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLengthServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var unitsLengthToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLengthServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var unitsLengthCompareTo1_1Cmd = &cobra.Command{
-	Use:   "compare-to1_1",
-	Short: "CompareTo1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLengthServiceClient(grpcConn)
-		req := &pb.CompareTo1_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CompareTo1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var unitsLengthFromMetersCmd = &cobra.Command{
-	Use:   "from-meters",
-	Short: "FromMeters RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLengthServiceClient(grpcConn)
-		req := &pb.FromMetersRequest{}
-		if v, err := cmd.Flags().GetFloat64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.FromMeters(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var unitsPercentageCmd = &cobra.Command{
-	Use:   "percentage",
-	Short: "PercentageService operations",
-}
-
-var unitsPercentageCompareTo1Cmd = &cobra.Command{
-	Use:   "compare-to1",
-	Short: "CompareTo1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPercentageServiceClient(grpcConn)
-		req := &pb.CompareTo1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CompareTo1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var unitsPercentageEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPercentageServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var unitsPercentageGetValueCmd = &cobra.Command{
-	Use:   "get-value",
-	Short: "GetValue RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPercentageServiceClient(grpcConn)
-		req := &pb.GetValueRequest{}
-		resp, err := client.GetValue(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var unitsPercentageHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPercentageServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var unitsPercentageToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPercentageServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var unitsPercentageCompareTo1_1Cmd = &cobra.Command{
-	Use:   "compare-to1_1",
-	Short: "CompareTo1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPercentageServiceClient(grpcConn)
-		req := &pb.CompareTo1_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CompareTo1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var unitsPercentageFromValueCmd = &cobra.Command{
-	Use:   "from-value",
-	Short: "FromValue RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPercentageServiceClient(grpcConn)
-		req := &pb.FromValueRequest{}
-		if v, err := cmd.Flags().GetFloat64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.FromValue(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1173,6 +915,135 @@ var unitsVelocityFromMetersPerSecondCmd = &cobra.Command{
 	},
 }
 
+var unitsTemperatureDeltaCmd = &cobra.Command{
+	Use:   "temperature-delta",
+	Short: "TemperatureDeltaService operations",
+}
+
+var unitsTemperatureDeltaCompareTo1Cmd = &cobra.Command{
+	Use:   "compare-to1",
+	Short: "CompareTo1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTemperatureDeltaServiceClient(grpcConn)
+		req := &pb.CompareTo1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CompareTo1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var unitsTemperatureDeltaEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTemperatureDeltaServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var unitsTemperatureDeltaGetInCelsiusCmd = &cobra.Command{
+	Use:   "get-in-celsius",
+	Short: "GetInCelsius RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTemperatureDeltaServiceClient(grpcConn)
+		req := &pb.GetInCelsiusRequest{}
+		resp, err := client.GetInCelsius(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var unitsTemperatureDeltaHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTemperatureDeltaServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var unitsTemperatureDeltaToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTemperatureDeltaServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var unitsTemperatureDeltaCompareTo1_1Cmd = &cobra.Command{
+	Use:   "compare-to1_1",
+	Short: "CompareTo1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTemperatureDeltaServiceClient(grpcConn)
+		req := &pb.CompareTo1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CompareTo1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var unitsTemperatureDeltaFromCelsiusCmd = &cobra.Command{
+	Use:   "from-celsius",
+	Short: "FromCelsius RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTemperatureDeltaServiceClient(grpcConn)
+		req := &pb.FromCelsiusRequest{}
+		if v, err := cmd.Flags().GetFloat64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.FromCelsius(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var unitsMassCmd = &cobra.Command{
 	Use:   "mass",
 	Short: "MassService operations",
@@ -1431,7 +1302,160 @@ var unitsEnergyFromCaloriesCmd = &cobra.Command{
 	},
 }
 
+var unitsPercentageCmd = &cobra.Command{
+	Use:   "percentage",
+	Short: "PercentageService operations",
+}
+
+var unitsPercentageCompareTo1Cmd = &cobra.Command{
+	Use:   "compare-to1",
+	Short: "CompareTo1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPercentageServiceClient(grpcConn)
+		req := &pb.CompareTo1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CompareTo1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var unitsPercentageEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPercentageServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var unitsPercentageGetValueCmd = &cobra.Command{
+	Use:   "get-value",
+	Short: "GetValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPercentageServiceClient(grpcConn)
+		req := &pb.GetValueRequest{}
+		resp, err := client.GetValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var unitsPercentageHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPercentageServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var unitsPercentageToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPercentageServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var unitsPercentageCompareTo1_1Cmd = &cobra.Command{
+	Use:   "compare-to1_1",
+	Short: "CompareTo1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPercentageServiceClient(grpcConn)
+		req := &pb.CompareTo1_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CompareTo1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var unitsPercentageFromValueCmd = &cobra.Command{
+	Use:   "from-value",
+	Short: "FromValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPercentageServiceClient(grpcConn)
+		req := &pb.FromValueRequest{}
+		if v, err := cmd.Flags().GetFloat64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.FromValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
+	unitsLengthCompareTo1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	unitsLengthCmd.AddCommand(unitsLengthCompareTo1Cmd)
+	unitsLengthEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	unitsLengthCmd.AddCommand(unitsLengthEqualsCmd)
+	unitsLengthCmd.AddCommand(unitsLengthGetInMetersCmd)
+	unitsLengthCmd.AddCommand(unitsLengthHashCodeCmd)
+	unitsLengthCmd.AddCommand(unitsLengthToStringCmd)
+	unitsLengthCompareTo1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	unitsLengthCmd.AddCommand(unitsLengthCompareTo1_1Cmd)
+	unitsLengthFromMetersCmd.Flags().Float64("arg0", 0, "arg0 (float64)")
+	unitsLengthCmd.AddCommand(unitsLengthFromMetersCmd)
+	unitsCmd.AddCommand(unitsLengthCmd)
+	unitsPowerCompareTo1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	unitsPowerCmd.AddCommand(unitsPowerCompareTo1Cmd)
+	unitsPowerEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	unitsPowerCmd.AddCommand(unitsPowerEqualsCmd)
+	unitsPowerCmd.AddCommand(unitsPowerGetInWattsCmd)
+	unitsPowerCmd.AddCommand(unitsPowerHashCodeCmd)
+	unitsPowerCmd.AddCommand(unitsPowerToStringCmd)
+	unitsPowerCompareTo1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	unitsPowerCmd.AddCommand(unitsPowerCompareTo1_1Cmd)
+	unitsPowerFromWattsCmd.Flags().Float64("arg0", 0, "arg0 (float64)")
+	unitsPowerCmd.AddCommand(unitsPowerFromWattsCmd)
+	unitsCmd.AddCommand(unitsPowerCmd)
 	unitsBloodGlucoseCompareTo1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	unitsBloodGlucoseCmd.AddCommand(unitsBloodGlucoseCompareTo1Cmd)
 	unitsBloodGlucoseEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -1456,54 +1480,6 @@ func init() {
 	unitsVolumeFromLitersCmd.Flags().Float64("arg0", 0, "arg0 (float64)")
 	unitsVolumeCmd.AddCommand(unitsVolumeFromLitersCmd)
 	unitsCmd.AddCommand(unitsVolumeCmd)
-	unitsTemperatureDeltaCompareTo1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	unitsTemperatureDeltaCmd.AddCommand(unitsTemperatureDeltaCompareTo1Cmd)
-	unitsTemperatureDeltaEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	unitsTemperatureDeltaCmd.AddCommand(unitsTemperatureDeltaEqualsCmd)
-	unitsTemperatureDeltaCmd.AddCommand(unitsTemperatureDeltaGetInCelsiusCmd)
-	unitsTemperatureDeltaCmd.AddCommand(unitsTemperatureDeltaHashCodeCmd)
-	unitsTemperatureDeltaCmd.AddCommand(unitsTemperatureDeltaToStringCmd)
-	unitsTemperatureDeltaCompareTo1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	unitsTemperatureDeltaCmd.AddCommand(unitsTemperatureDeltaCompareTo1_1Cmd)
-	unitsTemperatureDeltaFromCelsiusCmd.Flags().Float64("arg0", 0, "arg0 (float64)")
-	unitsTemperatureDeltaCmd.AddCommand(unitsTemperatureDeltaFromCelsiusCmd)
-	unitsCmd.AddCommand(unitsTemperatureDeltaCmd)
-	unitsPowerCompareTo1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	unitsPowerCmd.AddCommand(unitsPowerCompareTo1Cmd)
-	unitsPowerEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	unitsPowerCmd.AddCommand(unitsPowerEqualsCmd)
-	unitsPowerCmd.AddCommand(unitsPowerGetInWattsCmd)
-	unitsPowerCmd.AddCommand(unitsPowerHashCodeCmd)
-	unitsPowerCmd.AddCommand(unitsPowerToStringCmd)
-	unitsPowerCompareTo1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	unitsPowerCmd.AddCommand(unitsPowerCompareTo1_1Cmd)
-	unitsPowerFromWattsCmd.Flags().Float64("arg0", 0, "arg0 (float64)")
-	unitsPowerCmd.AddCommand(unitsPowerFromWattsCmd)
-	unitsCmd.AddCommand(unitsPowerCmd)
-	unitsLengthCompareTo1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	unitsLengthCmd.AddCommand(unitsLengthCompareTo1Cmd)
-	unitsLengthEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	unitsLengthCmd.AddCommand(unitsLengthEqualsCmd)
-	unitsLengthCmd.AddCommand(unitsLengthGetInMetersCmd)
-	unitsLengthCmd.AddCommand(unitsLengthHashCodeCmd)
-	unitsLengthCmd.AddCommand(unitsLengthToStringCmd)
-	unitsLengthCompareTo1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	unitsLengthCmd.AddCommand(unitsLengthCompareTo1_1Cmd)
-	unitsLengthFromMetersCmd.Flags().Float64("arg0", 0, "arg0 (float64)")
-	unitsLengthCmd.AddCommand(unitsLengthFromMetersCmd)
-	unitsCmd.AddCommand(unitsLengthCmd)
-	unitsPercentageCompareTo1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	unitsPercentageCmd.AddCommand(unitsPercentageCompareTo1Cmd)
-	unitsPercentageEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	unitsPercentageCmd.AddCommand(unitsPercentageEqualsCmd)
-	unitsPercentageCmd.AddCommand(unitsPercentageGetValueCmd)
-	unitsPercentageCmd.AddCommand(unitsPercentageHashCodeCmd)
-	unitsPercentageCmd.AddCommand(unitsPercentageToStringCmd)
-	unitsPercentageCompareTo1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	unitsPercentageCmd.AddCommand(unitsPercentageCompareTo1_1Cmd)
-	unitsPercentageFromValueCmd.Flags().Float64("arg0", 0, "arg0 (float64)")
-	unitsPercentageCmd.AddCommand(unitsPercentageFromValueCmd)
-	unitsCmd.AddCommand(unitsPercentageCmd)
 	unitsTemperatureCompareTo1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	unitsTemperatureCmd.AddCommand(unitsTemperatureCompareTo1Cmd)
 	unitsTemperatureEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -1540,6 +1516,18 @@ func init() {
 	unitsVelocityFromMetersPerSecondCmd.Flags().Float64("arg0", 0, "arg0 (float64)")
 	unitsVelocityCmd.AddCommand(unitsVelocityFromMetersPerSecondCmd)
 	unitsCmd.AddCommand(unitsVelocityCmd)
+	unitsTemperatureDeltaCompareTo1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	unitsTemperatureDeltaCmd.AddCommand(unitsTemperatureDeltaCompareTo1Cmd)
+	unitsTemperatureDeltaEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	unitsTemperatureDeltaCmd.AddCommand(unitsTemperatureDeltaEqualsCmd)
+	unitsTemperatureDeltaCmd.AddCommand(unitsTemperatureDeltaGetInCelsiusCmd)
+	unitsTemperatureDeltaCmd.AddCommand(unitsTemperatureDeltaHashCodeCmd)
+	unitsTemperatureDeltaCmd.AddCommand(unitsTemperatureDeltaToStringCmd)
+	unitsTemperatureDeltaCompareTo1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	unitsTemperatureDeltaCmd.AddCommand(unitsTemperatureDeltaCompareTo1_1Cmd)
+	unitsTemperatureDeltaFromCelsiusCmd.Flags().Float64("arg0", 0, "arg0 (float64)")
+	unitsTemperatureDeltaCmd.AddCommand(unitsTemperatureDeltaFromCelsiusCmd)
+	unitsCmd.AddCommand(unitsTemperatureDeltaCmd)
 	unitsMassCompareTo1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	unitsMassCmd.AddCommand(unitsMassCompareTo1Cmd)
 	unitsMassEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -1564,5 +1552,17 @@ func init() {
 	unitsEnergyFromCaloriesCmd.Flags().Float64("arg0", 0, "arg0 (float64)")
 	unitsEnergyCmd.AddCommand(unitsEnergyFromCaloriesCmd)
 	unitsCmd.AddCommand(unitsEnergyCmd)
+	unitsPercentageCompareTo1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	unitsPercentageCmd.AddCommand(unitsPercentageCompareTo1Cmd)
+	unitsPercentageEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	unitsPercentageCmd.AddCommand(unitsPercentageEqualsCmd)
+	unitsPercentageCmd.AddCommand(unitsPercentageGetValueCmd)
+	unitsPercentageCmd.AddCommand(unitsPercentageHashCodeCmd)
+	unitsPercentageCmd.AddCommand(unitsPercentageToStringCmd)
+	unitsPercentageCompareTo1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	unitsPercentageCmd.AddCommand(unitsPercentageCompareTo1_1Cmd)
+	unitsPercentageFromValueCmd.Flags().Float64("arg0", 0, "arg0 (float64)")
+	unitsPercentageCmd.AddCommand(unitsPercentageFromValueCmd)
+	unitsCmd.AddCommand(unitsPercentageCmd)
 	rootCmd.AddCommand(unitsCmd)
 }

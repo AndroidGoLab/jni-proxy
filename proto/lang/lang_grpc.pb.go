@@ -21,109 +21,6 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	UCharacterDirectionService_ToString_FullMethodName = "/lang.UCharacterDirectionService/ToString"
-)
-
-// UCharacterDirectionServiceClient is the client API for UCharacterDirectionService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type UCharacterDirectionServiceClient interface {
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type uCharacterDirectionServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewUCharacterDirectionServiceClient(cc grpc.ClientConnInterface) UCharacterDirectionServiceClient {
-	return &uCharacterDirectionServiceClient{cc}
-}
-
-func (c *uCharacterDirectionServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, UCharacterDirectionService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// UCharacterDirectionServiceServer is the server API for UCharacterDirectionService service.
-// All implementations must embed UnimplementedUCharacterDirectionServiceServer
-// for forward compatibility.
-type UCharacterDirectionServiceServer interface {
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedUCharacterDirectionServiceServer()
-}
-
-// UnimplementedUCharacterDirectionServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedUCharacterDirectionServiceServer struct{}
-
-func (UnimplementedUCharacterDirectionServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedUCharacterDirectionServiceServer) mustEmbedUnimplementedUCharacterDirectionServiceServer() {
-}
-func (UnimplementedUCharacterDirectionServiceServer) testEmbeddedByValue() {}
-
-// UnsafeUCharacterDirectionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to UCharacterDirectionServiceServer will
-// result in compilation errors.
-type UnsafeUCharacterDirectionServiceServer interface {
-	mustEmbedUnimplementedUCharacterDirectionServiceServer()
-}
-
-func RegisterUCharacterDirectionServiceServer(s grpc.ServiceRegistrar, srv UCharacterDirectionServiceServer) {
-	// If the following call panics, it indicates UnimplementedUCharacterDirectionServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&UCharacterDirectionService_ServiceDesc, srv)
-}
-
-func _UCharacterDirectionService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UCharacterDirectionServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UCharacterDirectionService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UCharacterDirectionServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// UCharacterDirectionService_ServiceDesc is the grpc.ServiceDesc for UCharacterDirectionService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var UCharacterDirectionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "lang.UCharacterDirectionService",
-	HandlerType: (*UCharacterDirectionServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "ToString",
-			Handler:    _UCharacterDirectionService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/lang/lang.proto",
-}
-
-const (
 	UCharacterCategoryService_ToString_FullMethodName = "/lang.UCharacterCategoryService/ToString"
 )
 
@@ -220,6 +117,846 @@ var UCharacterCategoryService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ToString",
 			Handler:    _UCharacterCategoryService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/lang/lang.proto",
+}
+
+const (
+	UScriptService_BreaksBetweenLetters_FullMethodName = "/lang.UScriptService/BreaksBetweenLetters"
+	UScriptService_GetCode1_FullMethodName             = "/lang.UScriptService/GetCode1"
+	UScriptService_GetCode1_1_FullMethodName           = "/lang.UScriptService/GetCode1_1"
+	UScriptService_GetCode1_2_FullMethodName           = "/lang.UScriptService/GetCode1_2"
+	UScriptService_GetCodeFromName_FullMethodName      = "/lang.UScriptService/GetCodeFromName"
+	UScriptService_GetName_FullMethodName              = "/lang.UScriptService/GetName"
+	UScriptService_GetSampleString_FullMethodName      = "/lang.UScriptService/GetSampleString"
+	UScriptService_GetScript_FullMethodName            = "/lang.UScriptService/GetScript"
+	UScriptService_GetScriptExtensions_FullMethodName  = "/lang.UScriptService/GetScriptExtensions"
+	UScriptService_GetShortName_FullMethodName         = "/lang.UScriptService/GetShortName"
+	UScriptService_GetUsage_FullMethodName             = "/lang.UScriptService/GetUsage"
+	UScriptService_HasScript_FullMethodName            = "/lang.UScriptService/HasScript"
+	UScriptService_IsCased_FullMethodName              = "/lang.UScriptService/IsCased"
+	UScriptService_IsRightToLeft_FullMethodName        = "/lang.UScriptService/IsRightToLeft"
+)
+
+// UScriptServiceClient is the client API for UScriptService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type UScriptServiceClient interface {
+	BreaksBetweenLetters(ctx context.Context, in *BreaksBetweenLettersRequest, opts ...grpc.CallOption) (*BreaksBetweenLettersResponse, error)
+	GetCode1(ctx context.Context, in *GetCode1Request, opts ...grpc.CallOption) (*GetCode1Response, error)
+	GetCode1_1(ctx context.Context, in *GetCode1_1Request, opts ...grpc.CallOption) (*GetCode1_1Response, error)
+	GetCode1_2(ctx context.Context, in *GetCode1_2Request, opts ...grpc.CallOption) (*GetCode1_2Response, error)
+	GetCodeFromName(ctx context.Context, in *GetCodeFromNameRequest, opts ...grpc.CallOption) (*GetCodeFromNameResponse, error)
+	GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error)
+	GetSampleString(ctx context.Context, in *GetSampleStringRequest, opts ...grpc.CallOption) (*GetSampleStringResponse, error)
+	GetScript(ctx context.Context, in *GetScriptRequest, opts ...grpc.CallOption) (*GetScriptResponse, error)
+	GetScriptExtensions(ctx context.Context, in *GetScriptExtensionsRequest, opts ...grpc.CallOption) (*GetScriptExtensionsResponse, error)
+	GetShortName(ctx context.Context, in *GetShortNameRequest, opts ...grpc.CallOption) (*GetShortNameResponse, error)
+	GetUsage(ctx context.Context, in *GetUsageRequest, opts ...grpc.CallOption) (*GetUsageResponse, error)
+	HasScript(ctx context.Context, in *HasScriptRequest, opts ...grpc.CallOption) (*HasScriptResponse, error)
+	IsCased(ctx context.Context, in *IsCasedRequest, opts ...grpc.CallOption) (*IsCasedResponse, error)
+	IsRightToLeft(ctx context.Context, in *IsRightToLeftRequest, opts ...grpc.CallOption) (*IsRightToLeftResponse, error)
+}
+
+type uScriptServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewUScriptServiceClient(cc grpc.ClientConnInterface) UScriptServiceClient {
+	return &uScriptServiceClient{cc}
+}
+
+func (c *uScriptServiceClient) BreaksBetweenLetters(ctx context.Context, in *BreaksBetweenLettersRequest, opts ...grpc.CallOption) (*BreaksBetweenLettersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BreaksBetweenLettersResponse)
+	err := c.cc.Invoke(ctx, UScriptService_BreaksBetweenLetters_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uScriptServiceClient) GetCode1(ctx context.Context, in *GetCode1Request, opts ...grpc.CallOption) (*GetCode1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCode1Response)
+	err := c.cc.Invoke(ctx, UScriptService_GetCode1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uScriptServiceClient) GetCode1_1(ctx context.Context, in *GetCode1_1Request, opts ...grpc.CallOption) (*GetCode1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCode1_1Response)
+	err := c.cc.Invoke(ctx, UScriptService_GetCode1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uScriptServiceClient) GetCode1_2(ctx context.Context, in *GetCode1_2Request, opts ...grpc.CallOption) (*GetCode1_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCode1_2Response)
+	err := c.cc.Invoke(ctx, UScriptService_GetCode1_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uScriptServiceClient) GetCodeFromName(ctx context.Context, in *GetCodeFromNameRequest, opts ...grpc.CallOption) (*GetCodeFromNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCodeFromNameResponse)
+	err := c.cc.Invoke(ctx, UScriptService_GetCodeFromName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uScriptServiceClient) GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNameResponse)
+	err := c.cc.Invoke(ctx, UScriptService_GetName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uScriptServiceClient) GetSampleString(ctx context.Context, in *GetSampleStringRequest, opts ...grpc.CallOption) (*GetSampleStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSampleStringResponse)
+	err := c.cc.Invoke(ctx, UScriptService_GetSampleString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uScriptServiceClient) GetScript(ctx context.Context, in *GetScriptRequest, opts ...grpc.CallOption) (*GetScriptResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetScriptResponse)
+	err := c.cc.Invoke(ctx, UScriptService_GetScript_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uScriptServiceClient) GetScriptExtensions(ctx context.Context, in *GetScriptExtensionsRequest, opts ...grpc.CallOption) (*GetScriptExtensionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetScriptExtensionsResponse)
+	err := c.cc.Invoke(ctx, UScriptService_GetScriptExtensions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uScriptServiceClient) GetShortName(ctx context.Context, in *GetShortNameRequest, opts ...grpc.CallOption) (*GetShortNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetShortNameResponse)
+	err := c.cc.Invoke(ctx, UScriptService_GetShortName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uScriptServiceClient) GetUsage(ctx context.Context, in *GetUsageRequest, opts ...grpc.CallOption) (*GetUsageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUsageResponse)
+	err := c.cc.Invoke(ctx, UScriptService_GetUsage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uScriptServiceClient) HasScript(ctx context.Context, in *HasScriptRequest, opts ...grpc.CallOption) (*HasScriptResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HasScriptResponse)
+	err := c.cc.Invoke(ctx, UScriptService_HasScript_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uScriptServiceClient) IsCased(ctx context.Context, in *IsCasedRequest, opts ...grpc.CallOption) (*IsCasedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsCasedResponse)
+	err := c.cc.Invoke(ctx, UScriptService_IsCased_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uScriptServiceClient) IsRightToLeft(ctx context.Context, in *IsRightToLeftRequest, opts ...grpc.CallOption) (*IsRightToLeftResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsRightToLeftResponse)
+	err := c.cc.Invoke(ctx, UScriptService_IsRightToLeft_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// UScriptServiceServer is the server API for UScriptService service.
+// All implementations must embed UnimplementedUScriptServiceServer
+// for forward compatibility.
+type UScriptServiceServer interface {
+	BreaksBetweenLetters(context.Context, *BreaksBetweenLettersRequest) (*BreaksBetweenLettersResponse, error)
+	GetCode1(context.Context, *GetCode1Request) (*GetCode1Response, error)
+	GetCode1_1(context.Context, *GetCode1_1Request) (*GetCode1_1Response, error)
+	GetCode1_2(context.Context, *GetCode1_2Request) (*GetCode1_2Response, error)
+	GetCodeFromName(context.Context, *GetCodeFromNameRequest) (*GetCodeFromNameResponse, error)
+	GetName(context.Context, *GetNameRequest) (*GetNameResponse, error)
+	GetSampleString(context.Context, *GetSampleStringRequest) (*GetSampleStringResponse, error)
+	GetScript(context.Context, *GetScriptRequest) (*GetScriptResponse, error)
+	GetScriptExtensions(context.Context, *GetScriptExtensionsRequest) (*GetScriptExtensionsResponse, error)
+	GetShortName(context.Context, *GetShortNameRequest) (*GetShortNameResponse, error)
+	GetUsage(context.Context, *GetUsageRequest) (*GetUsageResponse, error)
+	HasScript(context.Context, *HasScriptRequest) (*HasScriptResponse, error)
+	IsCased(context.Context, *IsCasedRequest) (*IsCasedResponse, error)
+	IsRightToLeft(context.Context, *IsRightToLeftRequest) (*IsRightToLeftResponse, error)
+	mustEmbedUnimplementedUScriptServiceServer()
+}
+
+// UnimplementedUScriptServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedUScriptServiceServer struct{}
+
+func (UnimplementedUScriptServiceServer) BreaksBetweenLetters(context.Context, *BreaksBetweenLettersRequest) (*BreaksBetweenLettersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method BreaksBetweenLetters not implemented")
+}
+func (UnimplementedUScriptServiceServer) GetCode1(context.Context, *GetCode1Request) (*GetCode1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCode1 not implemented")
+}
+func (UnimplementedUScriptServiceServer) GetCode1_1(context.Context, *GetCode1_1Request) (*GetCode1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCode1_1 not implemented")
+}
+func (UnimplementedUScriptServiceServer) GetCode1_2(context.Context, *GetCode1_2Request) (*GetCode1_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCode1_2 not implemented")
+}
+func (UnimplementedUScriptServiceServer) GetCodeFromName(context.Context, *GetCodeFromNameRequest) (*GetCodeFromNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCodeFromName not implemented")
+}
+func (UnimplementedUScriptServiceServer) GetName(context.Context, *GetNameRequest) (*GetNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetName not implemented")
+}
+func (UnimplementedUScriptServiceServer) GetSampleString(context.Context, *GetSampleStringRequest) (*GetSampleStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSampleString not implemented")
+}
+func (UnimplementedUScriptServiceServer) GetScript(context.Context, *GetScriptRequest) (*GetScriptResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetScript not implemented")
+}
+func (UnimplementedUScriptServiceServer) GetScriptExtensions(context.Context, *GetScriptExtensionsRequest) (*GetScriptExtensionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetScriptExtensions not implemented")
+}
+func (UnimplementedUScriptServiceServer) GetShortName(context.Context, *GetShortNameRequest) (*GetShortNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetShortName not implemented")
+}
+func (UnimplementedUScriptServiceServer) GetUsage(context.Context, *GetUsageRequest) (*GetUsageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUsage not implemented")
+}
+func (UnimplementedUScriptServiceServer) HasScript(context.Context, *HasScriptRequest) (*HasScriptResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasScript not implemented")
+}
+func (UnimplementedUScriptServiceServer) IsCased(context.Context, *IsCasedRequest) (*IsCasedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsCased not implemented")
+}
+func (UnimplementedUScriptServiceServer) IsRightToLeft(context.Context, *IsRightToLeftRequest) (*IsRightToLeftResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsRightToLeft not implemented")
+}
+func (UnimplementedUScriptServiceServer) mustEmbedUnimplementedUScriptServiceServer() {}
+func (UnimplementedUScriptServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeUScriptServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to UScriptServiceServer will
+// result in compilation errors.
+type UnsafeUScriptServiceServer interface {
+	mustEmbedUnimplementedUScriptServiceServer()
+}
+
+func RegisterUScriptServiceServer(s grpc.ServiceRegistrar, srv UScriptServiceServer) {
+	// If the following call panics, it indicates UnimplementedUScriptServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&UScriptService_ServiceDesc, srv)
+}
+
+func _UScriptService_BreaksBetweenLetters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BreaksBetweenLettersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UScriptServiceServer).BreaksBetweenLetters(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UScriptService_BreaksBetweenLetters_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UScriptServiceServer).BreaksBetweenLetters(ctx, req.(*BreaksBetweenLettersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UScriptService_GetCode1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCode1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UScriptServiceServer).GetCode1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UScriptService_GetCode1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UScriptServiceServer).GetCode1(ctx, req.(*GetCode1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UScriptService_GetCode1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCode1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UScriptServiceServer).GetCode1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UScriptService_GetCode1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UScriptServiceServer).GetCode1_1(ctx, req.(*GetCode1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UScriptService_GetCode1_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCode1_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UScriptServiceServer).GetCode1_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UScriptService_GetCode1_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UScriptServiceServer).GetCode1_2(ctx, req.(*GetCode1_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UScriptService_GetCodeFromName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCodeFromNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UScriptServiceServer).GetCodeFromName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UScriptService_GetCodeFromName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UScriptServiceServer).GetCodeFromName(ctx, req.(*GetCodeFromNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UScriptService_GetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UScriptServiceServer).GetName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UScriptService_GetName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UScriptServiceServer).GetName(ctx, req.(*GetNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UScriptService_GetSampleString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSampleStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UScriptServiceServer).GetSampleString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UScriptService_GetSampleString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UScriptServiceServer).GetSampleString(ctx, req.(*GetSampleStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UScriptService_GetScript_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetScriptRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UScriptServiceServer).GetScript(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UScriptService_GetScript_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UScriptServiceServer).GetScript(ctx, req.(*GetScriptRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UScriptService_GetScriptExtensions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetScriptExtensionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UScriptServiceServer).GetScriptExtensions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UScriptService_GetScriptExtensions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UScriptServiceServer).GetScriptExtensions(ctx, req.(*GetScriptExtensionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UScriptService_GetShortName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetShortNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UScriptServiceServer).GetShortName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UScriptService_GetShortName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UScriptServiceServer).GetShortName(ctx, req.(*GetShortNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UScriptService_GetUsage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUsageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UScriptServiceServer).GetUsage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UScriptService_GetUsage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UScriptServiceServer).GetUsage(ctx, req.(*GetUsageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UScriptService_HasScript_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasScriptRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UScriptServiceServer).HasScript(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UScriptService_HasScript_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UScriptServiceServer).HasScript(ctx, req.(*HasScriptRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UScriptService_IsCased_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsCasedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UScriptServiceServer).IsCased(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UScriptService_IsCased_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UScriptServiceServer).IsCased(ctx, req.(*IsCasedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UScriptService_IsRightToLeft_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsRightToLeftRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UScriptServiceServer).IsRightToLeft(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UScriptService_IsRightToLeft_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UScriptServiceServer).IsRightToLeft(ctx, req.(*IsRightToLeftRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// UScriptService_ServiceDesc is the grpc.ServiceDesc for UScriptService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var UScriptService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "lang.UScriptService",
+	HandlerType: (*UScriptServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "BreaksBetweenLetters",
+			Handler:    _UScriptService_BreaksBetweenLetters_Handler,
+		},
+		{
+			MethodName: "GetCode1",
+			Handler:    _UScriptService_GetCode1_Handler,
+		},
+		{
+			MethodName: "GetCode1_1",
+			Handler:    _UScriptService_GetCode1_1_Handler,
+		},
+		{
+			MethodName: "GetCode1_2",
+			Handler:    _UScriptService_GetCode1_2_Handler,
+		},
+		{
+			MethodName: "GetCodeFromName",
+			Handler:    _UScriptService_GetCodeFromName_Handler,
+		},
+		{
+			MethodName: "GetName",
+			Handler:    _UScriptService_GetName_Handler,
+		},
+		{
+			MethodName: "GetSampleString",
+			Handler:    _UScriptService_GetSampleString_Handler,
+		},
+		{
+			MethodName: "GetScript",
+			Handler:    _UScriptService_GetScript_Handler,
+		},
+		{
+			MethodName: "GetScriptExtensions",
+			Handler:    _UScriptService_GetScriptExtensions_Handler,
+		},
+		{
+			MethodName: "GetShortName",
+			Handler:    _UScriptService_GetShortName_Handler,
+		},
+		{
+			MethodName: "GetUsage",
+			Handler:    _UScriptService_GetUsage_Handler,
+		},
+		{
+			MethodName: "HasScript",
+			Handler:    _UScriptService_HasScript_Handler,
+		},
+		{
+			MethodName: "IsCased",
+			Handler:    _UScriptService_IsCased_Handler,
+		},
+		{
+			MethodName: "IsRightToLeft",
+			Handler:    _UScriptService_IsRightToLeft_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/lang/lang.proto",
+}
+
+const (
+	UScriptScriptUsageService_Values_FullMethodName  = "/lang.UScriptScriptUsageService/Values"
+	UScriptScriptUsageService_ValueOf_FullMethodName = "/lang.UScriptScriptUsageService/ValueOf"
+)
+
+// UScriptScriptUsageServiceClient is the client API for UScriptScriptUsageService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type UScriptScriptUsageServiceClient interface {
+	Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error)
+	ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error)
+}
+
+type uScriptScriptUsageServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewUScriptScriptUsageServiceClient(cc grpc.ClientConnInterface) UScriptScriptUsageServiceClient {
+	return &uScriptScriptUsageServiceClient{cc}
+}
+
+func (c *uScriptScriptUsageServiceClient) Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ValuesResponse)
+	err := c.cc.Invoke(ctx, UScriptScriptUsageService_Values_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uScriptScriptUsageServiceClient) ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ValueOfResponse)
+	err := c.cc.Invoke(ctx, UScriptScriptUsageService_ValueOf_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// UScriptScriptUsageServiceServer is the server API for UScriptScriptUsageService service.
+// All implementations must embed UnimplementedUScriptScriptUsageServiceServer
+// for forward compatibility.
+type UScriptScriptUsageServiceServer interface {
+	Values(context.Context, *ValuesRequest) (*ValuesResponse, error)
+	ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error)
+	mustEmbedUnimplementedUScriptScriptUsageServiceServer()
+}
+
+// UnimplementedUScriptScriptUsageServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedUScriptScriptUsageServiceServer struct{}
+
+func (UnimplementedUScriptScriptUsageServiceServer) Values(context.Context, *ValuesRequest) (*ValuesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Values not implemented")
+}
+func (UnimplementedUScriptScriptUsageServiceServer) ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ValueOf not implemented")
+}
+func (UnimplementedUScriptScriptUsageServiceServer) mustEmbedUnimplementedUScriptScriptUsageServiceServer() {
+}
+func (UnimplementedUScriptScriptUsageServiceServer) testEmbeddedByValue() {}
+
+// UnsafeUScriptScriptUsageServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to UScriptScriptUsageServiceServer will
+// result in compilation errors.
+type UnsafeUScriptScriptUsageServiceServer interface {
+	mustEmbedUnimplementedUScriptScriptUsageServiceServer()
+}
+
+func RegisterUScriptScriptUsageServiceServer(s grpc.ServiceRegistrar, srv UScriptScriptUsageServiceServer) {
+	// If the following call panics, it indicates UnimplementedUScriptScriptUsageServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&UScriptScriptUsageService_ServiceDesc, srv)
+}
+
+func _UScriptScriptUsageService_Values_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ValuesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UScriptScriptUsageServiceServer).Values(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UScriptScriptUsageService_Values_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UScriptScriptUsageServiceServer).Values(ctx, req.(*ValuesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UScriptScriptUsageService_ValueOf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ValueOfRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UScriptScriptUsageServiceServer).ValueOf(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UScriptScriptUsageService_ValueOf_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UScriptScriptUsageServiceServer).ValueOf(ctx, req.(*ValueOfRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// UScriptScriptUsageService_ServiceDesc is the grpc.ServiceDesc for UScriptScriptUsageService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var UScriptScriptUsageService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "lang.UScriptScriptUsageService",
+	HandlerType: (*UScriptScriptUsageServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Values",
+			Handler:    _UScriptScriptUsageService_Values_Handler,
+		},
+		{
+			MethodName: "ValueOf",
+			Handler:    _UScriptScriptUsageService_ValueOf_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/lang/lang.proto",
+}
+
+const (
+	UCharacterDirectionService_ToString_FullMethodName = "/lang.UCharacterDirectionService/ToString"
+)
+
+// UCharacterDirectionServiceClient is the client API for UCharacterDirectionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type UCharacterDirectionServiceClient interface {
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type uCharacterDirectionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewUCharacterDirectionServiceClient(cc grpc.ClientConnInterface) UCharacterDirectionServiceClient {
+	return &uCharacterDirectionServiceClient{cc}
+}
+
+func (c *uCharacterDirectionServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, UCharacterDirectionService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// UCharacterDirectionServiceServer is the server API for UCharacterDirectionService service.
+// All implementations must embed UnimplementedUCharacterDirectionServiceServer
+// for forward compatibility.
+type UCharacterDirectionServiceServer interface {
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedUCharacterDirectionServiceServer()
+}
+
+// UnimplementedUCharacterDirectionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedUCharacterDirectionServiceServer struct{}
+
+func (UnimplementedUCharacterDirectionServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedUCharacterDirectionServiceServer) mustEmbedUnimplementedUCharacterDirectionServiceServer() {
+}
+func (UnimplementedUCharacterDirectionServiceServer) testEmbeddedByValue() {}
+
+// UnsafeUCharacterDirectionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to UCharacterDirectionServiceServer will
+// result in compilation errors.
+type UnsafeUCharacterDirectionServiceServer interface {
+	mustEmbedUnimplementedUCharacterDirectionServiceServer()
+}
+
+func RegisterUCharacterDirectionServiceServer(s grpc.ServiceRegistrar, srv UCharacterDirectionServiceServer) {
+	// If the following call panics, it indicates UnimplementedUCharacterDirectionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&UCharacterDirectionService_ServiceDesc, srv)
+}
+
+func _UCharacterDirectionService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UCharacterDirectionServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UCharacterDirectionService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UCharacterDirectionServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// UCharacterDirectionService_ServiceDesc is the grpc.ServiceDesc for UCharacterDirectionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var UCharacterDirectionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "lang.UCharacterDirectionService",
+	HandlerType: (*UCharacterDirectionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "ToString",
+			Handler:    _UCharacterDirectionService_ToString_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -4453,743 +5190,6 @@ var UCharacterUnicodeBlockService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Of",
 			Handler:    _UCharacterUnicodeBlockService_Of_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/lang/lang.proto",
-}
-
-const (
-	UScriptService_BreaksBetweenLetters_FullMethodName = "/lang.UScriptService/BreaksBetweenLetters"
-	UScriptService_GetCode1_FullMethodName             = "/lang.UScriptService/GetCode1"
-	UScriptService_GetCode1_1_FullMethodName           = "/lang.UScriptService/GetCode1_1"
-	UScriptService_GetCode1_2_FullMethodName           = "/lang.UScriptService/GetCode1_2"
-	UScriptService_GetCodeFromName_FullMethodName      = "/lang.UScriptService/GetCodeFromName"
-	UScriptService_GetName_FullMethodName              = "/lang.UScriptService/GetName"
-	UScriptService_GetSampleString_FullMethodName      = "/lang.UScriptService/GetSampleString"
-	UScriptService_GetScript_FullMethodName            = "/lang.UScriptService/GetScript"
-	UScriptService_GetScriptExtensions_FullMethodName  = "/lang.UScriptService/GetScriptExtensions"
-	UScriptService_GetShortName_FullMethodName         = "/lang.UScriptService/GetShortName"
-	UScriptService_GetUsage_FullMethodName             = "/lang.UScriptService/GetUsage"
-	UScriptService_HasScript_FullMethodName            = "/lang.UScriptService/HasScript"
-	UScriptService_IsCased_FullMethodName              = "/lang.UScriptService/IsCased"
-	UScriptService_IsRightToLeft_FullMethodName        = "/lang.UScriptService/IsRightToLeft"
-)
-
-// UScriptServiceClient is the client API for UScriptService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type UScriptServiceClient interface {
-	BreaksBetweenLetters(ctx context.Context, in *BreaksBetweenLettersRequest, opts ...grpc.CallOption) (*BreaksBetweenLettersResponse, error)
-	GetCode1(ctx context.Context, in *GetCode1Request, opts ...grpc.CallOption) (*GetCode1Response, error)
-	GetCode1_1(ctx context.Context, in *GetCode1_1Request, opts ...grpc.CallOption) (*GetCode1_1Response, error)
-	GetCode1_2(ctx context.Context, in *GetCode1_2Request, opts ...grpc.CallOption) (*GetCode1_2Response, error)
-	GetCodeFromName(ctx context.Context, in *GetCodeFromNameRequest, opts ...grpc.CallOption) (*GetCodeFromNameResponse, error)
-	GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error)
-	GetSampleString(ctx context.Context, in *GetSampleStringRequest, opts ...grpc.CallOption) (*GetSampleStringResponse, error)
-	GetScript(ctx context.Context, in *GetScriptRequest, opts ...grpc.CallOption) (*GetScriptResponse, error)
-	GetScriptExtensions(ctx context.Context, in *GetScriptExtensionsRequest, opts ...grpc.CallOption) (*GetScriptExtensionsResponse, error)
-	GetShortName(ctx context.Context, in *GetShortNameRequest, opts ...grpc.CallOption) (*GetShortNameResponse, error)
-	GetUsage(ctx context.Context, in *GetUsageRequest, opts ...grpc.CallOption) (*GetUsageResponse, error)
-	HasScript(ctx context.Context, in *HasScriptRequest, opts ...grpc.CallOption) (*HasScriptResponse, error)
-	IsCased(ctx context.Context, in *IsCasedRequest, opts ...grpc.CallOption) (*IsCasedResponse, error)
-	IsRightToLeft(ctx context.Context, in *IsRightToLeftRequest, opts ...grpc.CallOption) (*IsRightToLeftResponse, error)
-}
-
-type uScriptServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewUScriptServiceClient(cc grpc.ClientConnInterface) UScriptServiceClient {
-	return &uScriptServiceClient{cc}
-}
-
-func (c *uScriptServiceClient) BreaksBetweenLetters(ctx context.Context, in *BreaksBetweenLettersRequest, opts ...grpc.CallOption) (*BreaksBetweenLettersResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BreaksBetweenLettersResponse)
-	err := c.cc.Invoke(ctx, UScriptService_BreaksBetweenLetters_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *uScriptServiceClient) GetCode1(ctx context.Context, in *GetCode1Request, opts ...grpc.CallOption) (*GetCode1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCode1Response)
-	err := c.cc.Invoke(ctx, UScriptService_GetCode1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *uScriptServiceClient) GetCode1_1(ctx context.Context, in *GetCode1_1Request, opts ...grpc.CallOption) (*GetCode1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCode1_1Response)
-	err := c.cc.Invoke(ctx, UScriptService_GetCode1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *uScriptServiceClient) GetCode1_2(ctx context.Context, in *GetCode1_2Request, opts ...grpc.CallOption) (*GetCode1_2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCode1_2Response)
-	err := c.cc.Invoke(ctx, UScriptService_GetCode1_2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *uScriptServiceClient) GetCodeFromName(ctx context.Context, in *GetCodeFromNameRequest, opts ...grpc.CallOption) (*GetCodeFromNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCodeFromNameResponse)
-	err := c.cc.Invoke(ctx, UScriptService_GetCodeFromName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *uScriptServiceClient) GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNameResponse)
-	err := c.cc.Invoke(ctx, UScriptService_GetName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *uScriptServiceClient) GetSampleString(ctx context.Context, in *GetSampleStringRequest, opts ...grpc.CallOption) (*GetSampleStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSampleStringResponse)
-	err := c.cc.Invoke(ctx, UScriptService_GetSampleString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *uScriptServiceClient) GetScript(ctx context.Context, in *GetScriptRequest, opts ...grpc.CallOption) (*GetScriptResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetScriptResponse)
-	err := c.cc.Invoke(ctx, UScriptService_GetScript_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *uScriptServiceClient) GetScriptExtensions(ctx context.Context, in *GetScriptExtensionsRequest, opts ...grpc.CallOption) (*GetScriptExtensionsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetScriptExtensionsResponse)
-	err := c.cc.Invoke(ctx, UScriptService_GetScriptExtensions_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *uScriptServiceClient) GetShortName(ctx context.Context, in *GetShortNameRequest, opts ...grpc.CallOption) (*GetShortNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetShortNameResponse)
-	err := c.cc.Invoke(ctx, UScriptService_GetShortName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *uScriptServiceClient) GetUsage(ctx context.Context, in *GetUsageRequest, opts ...grpc.CallOption) (*GetUsageResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUsageResponse)
-	err := c.cc.Invoke(ctx, UScriptService_GetUsage_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *uScriptServiceClient) HasScript(ctx context.Context, in *HasScriptRequest, opts ...grpc.CallOption) (*HasScriptResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HasScriptResponse)
-	err := c.cc.Invoke(ctx, UScriptService_HasScript_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *uScriptServiceClient) IsCased(ctx context.Context, in *IsCasedRequest, opts ...grpc.CallOption) (*IsCasedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsCasedResponse)
-	err := c.cc.Invoke(ctx, UScriptService_IsCased_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *uScriptServiceClient) IsRightToLeft(ctx context.Context, in *IsRightToLeftRequest, opts ...grpc.CallOption) (*IsRightToLeftResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsRightToLeftResponse)
-	err := c.cc.Invoke(ctx, UScriptService_IsRightToLeft_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// UScriptServiceServer is the server API for UScriptService service.
-// All implementations must embed UnimplementedUScriptServiceServer
-// for forward compatibility.
-type UScriptServiceServer interface {
-	BreaksBetweenLetters(context.Context, *BreaksBetweenLettersRequest) (*BreaksBetweenLettersResponse, error)
-	GetCode1(context.Context, *GetCode1Request) (*GetCode1Response, error)
-	GetCode1_1(context.Context, *GetCode1_1Request) (*GetCode1_1Response, error)
-	GetCode1_2(context.Context, *GetCode1_2Request) (*GetCode1_2Response, error)
-	GetCodeFromName(context.Context, *GetCodeFromNameRequest) (*GetCodeFromNameResponse, error)
-	GetName(context.Context, *GetNameRequest) (*GetNameResponse, error)
-	GetSampleString(context.Context, *GetSampleStringRequest) (*GetSampleStringResponse, error)
-	GetScript(context.Context, *GetScriptRequest) (*GetScriptResponse, error)
-	GetScriptExtensions(context.Context, *GetScriptExtensionsRequest) (*GetScriptExtensionsResponse, error)
-	GetShortName(context.Context, *GetShortNameRequest) (*GetShortNameResponse, error)
-	GetUsage(context.Context, *GetUsageRequest) (*GetUsageResponse, error)
-	HasScript(context.Context, *HasScriptRequest) (*HasScriptResponse, error)
-	IsCased(context.Context, *IsCasedRequest) (*IsCasedResponse, error)
-	IsRightToLeft(context.Context, *IsRightToLeftRequest) (*IsRightToLeftResponse, error)
-	mustEmbedUnimplementedUScriptServiceServer()
-}
-
-// UnimplementedUScriptServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedUScriptServiceServer struct{}
-
-func (UnimplementedUScriptServiceServer) BreaksBetweenLetters(context.Context, *BreaksBetweenLettersRequest) (*BreaksBetweenLettersResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method BreaksBetweenLetters not implemented")
-}
-func (UnimplementedUScriptServiceServer) GetCode1(context.Context, *GetCode1Request) (*GetCode1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCode1 not implemented")
-}
-func (UnimplementedUScriptServiceServer) GetCode1_1(context.Context, *GetCode1_1Request) (*GetCode1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCode1_1 not implemented")
-}
-func (UnimplementedUScriptServiceServer) GetCode1_2(context.Context, *GetCode1_2Request) (*GetCode1_2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCode1_2 not implemented")
-}
-func (UnimplementedUScriptServiceServer) GetCodeFromName(context.Context, *GetCodeFromNameRequest) (*GetCodeFromNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCodeFromName not implemented")
-}
-func (UnimplementedUScriptServiceServer) GetName(context.Context, *GetNameRequest) (*GetNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetName not implemented")
-}
-func (UnimplementedUScriptServiceServer) GetSampleString(context.Context, *GetSampleStringRequest) (*GetSampleStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSampleString not implemented")
-}
-func (UnimplementedUScriptServiceServer) GetScript(context.Context, *GetScriptRequest) (*GetScriptResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetScript not implemented")
-}
-func (UnimplementedUScriptServiceServer) GetScriptExtensions(context.Context, *GetScriptExtensionsRequest) (*GetScriptExtensionsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetScriptExtensions not implemented")
-}
-func (UnimplementedUScriptServiceServer) GetShortName(context.Context, *GetShortNameRequest) (*GetShortNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetShortName not implemented")
-}
-func (UnimplementedUScriptServiceServer) GetUsage(context.Context, *GetUsageRequest) (*GetUsageResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetUsage not implemented")
-}
-func (UnimplementedUScriptServiceServer) HasScript(context.Context, *HasScriptRequest) (*HasScriptResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HasScript not implemented")
-}
-func (UnimplementedUScriptServiceServer) IsCased(context.Context, *IsCasedRequest) (*IsCasedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsCased not implemented")
-}
-func (UnimplementedUScriptServiceServer) IsRightToLeft(context.Context, *IsRightToLeftRequest) (*IsRightToLeftResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsRightToLeft not implemented")
-}
-func (UnimplementedUScriptServiceServer) mustEmbedUnimplementedUScriptServiceServer() {}
-func (UnimplementedUScriptServiceServer) testEmbeddedByValue()                        {}
-
-// UnsafeUScriptServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to UScriptServiceServer will
-// result in compilation errors.
-type UnsafeUScriptServiceServer interface {
-	mustEmbedUnimplementedUScriptServiceServer()
-}
-
-func RegisterUScriptServiceServer(s grpc.ServiceRegistrar, srv UScriptServiceServer) {
-	// If the following call panics, it indicates UnimplementedUScriptServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&UScriptService_ServiceDesc, srv)
-}
-
-func _UScriptService_BreaksBetweenLetters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BreaksBetweenLettersRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UScriptServiceServer).BreaksBetweenLetters(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UScriptService_BreaksBetweenLetters_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UScriptServiceServer).BreaksBetweenLetters(ctx, req.(*BreaksBetweenLettersRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UScriptService_GetCode1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCode1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UScriptServiceServer).GetCode1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UScriptService_GetCode1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UScriptServiceServer).GetCode1(ctx, req.(*GetCode1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UScriptService_GetCode1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCode1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UScriptServiceServer).GetCode1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UScriptService_GetCode1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UScriptServiceServer).GetCode1_1(ctx, req.(*GetCode1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UScriptService_GetCode1_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCode1_2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UScriptServiceServer).GetCode1_2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UScriptService_GetCode1_2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UScriptServiceServer).GetCode1_2(ctx, req.(*GetCode1_2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UScriptService_GetCodeFromName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCodeFromNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UScriptServiceServer).GetCodeFromName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UScriptService_GetCodeFromName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UScriptServiceServer).GetCodeFromName(ctx, req.(*GetCodeFromNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UScriptService_GetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UScriptServiceServer).GetName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UScriptService_GetName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UScriptServiceServer).GetName(ctx, req.(*GetNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UScriptService_GetSampleString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSampleStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UScriptServiceServer).GetSampleString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UScriptService_GetSampleString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UScriptServiceServer).GetSampleString(ctx, req.(*GetSampleStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UScriptService_GetScript_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetScriptRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UScriptServiceServer).GetScript(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UScriptService_GetScript_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UScriptServiceServer).GetScript(ctx, req.(*GetScriptRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UScriptService_GetScriptExtensions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetScriptExtensionsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UScriptServiceServer).GetScriptExtensions(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UScriptService_GetScriptExtensions_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UScriptServiceServer).GetScriptExtensions(ctx, req.(*GetScriptExtensionsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UScriptService_GetShortName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetShortNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UScriptServiceServer).GetShortName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UScriptService_GetShortName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UScriptServiceServer).GetShortName(ctx, req.(*GetShortNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UScriptService_GetUsage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUsageRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UScriptServiceServer).GetUsage(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UScriptService_GetUsage_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UScriptServiceServer).GetUsage(ctx, req.(*GetUsageRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UScriptService_HasScript_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HasScriptRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UScriptServiceServer).HasScript(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UScriptService_HasScript_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UScriptServiceServer).HasScript(ctx, req.(*HasScriptRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UScriptService_IsCased_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsCasedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UScriptServiceServer).IsCased(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UScriptService_IsCased_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UScriptServiceServer).IsCased(ctx, req.(*IsCasedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UScriptService_IsRightToLeft_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsRightToLeftRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UScriptServiceServer).IsRightToLeft(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UScriptService_IsRightToLeft_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UScriptServiceServer).IsRightToLeft(ctx, req.(*IsRightToLeftRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// UScriptService_ServiceDesc is the grpc.ServiceDesc for UScriptService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var UScriptService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "lang.UScriptService",
-	HandlerType: (*UScriptServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "BreaksBetweenLetters",
-			Handler:    _UScriptService_BreaksBetweenLetters_Handler,
-		},
-		{
-			MethodName: "GetCode1",
-			Handler:    _UScriptService_GetCode1_Handler,
-		},
-		{
-			MethodName: "GetCode1_1",
-			Handler:    _UScriptService_GetCode1_1_Handler,
-		},
-		{
-			MethodName: "GetCode1_2",
-			Handler:    _UScriptService_GetCode1_2_Handler,
-		},
-		{
-			MethodName: "GetCodeFromName",
-			Handler:    _UScriptService_GetCodeFromName_Handler,
-		},
-		{
-			MethodName: "GetName",
-			Handler:    _UScriptService_GetName_Handler,
-		},
-		{
-			MethodName: "GetSampleString",
-			Handler:    _UScriptService_GetSampleString_Handler,
-		},
-		{
-			MethodName: "GetScript",
-			Handler:    _UScriptService_GetScript_Handler,
-		},
-		{
-			MethodName: "GetScriptExtensions",
-			Handler:    _UScriptService_GetScriptExtensions_Handler,
-		},
-		{
-			MethodName: "GetShortName",
-			Handler:    _UScriptService_GetShortName_Handler,
-		},
-		{
-			MethodName: "GetUsage",
-			Handler:    _UScriptService_GetUsage_Handler,
-		},
-		{
-			MethodName: "HasScript",
-			Handler:    _UScriptService_HasScript_Handler,
-		},
-		{
-			MethodName: "IsCased",
-			Handler:    _UScriptService_IsCased_Handler,
-		},
-		{
-			MethodName: "IsRightToLeft",
-			Handler:    _UScriptService_IsRightToLeft_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/lang/lang.proto",
-}
-
-const (
-	UScriptScriptUsageService_Values_FullMethodName  = "/lang.UScriptScriptUsageService/Values"
-	UScriptScriptUsageService_ValueOf_FullMethodName = "/lang.UScriptScriptUsageService/ValueOf"
-)
-
-// UScriptScriptUsageServiceClient is the client API for UScriptScriptUsageService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type UScriptScriptUsageServiceClient interface {
-	Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error)
-	ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error)
-}
-
-type uScriptScriptUsageServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewUScriptScriptUsageServiceClient(cc grpc.ClientConnInterface) UScriptScriptUsageServiceClient {
-	return &uScriptScriptUsageServiceClient{cc}
-}
-
-func (c *uScriptScriptUsageServiceClient) Values(ctx context.Context, in *ValuesRequest, opts ...grpc.CallOption) (*ValuesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ValuesResponse)
-	err := c.cc.Invoke(ctx, UScriptScriptUsageService_Values_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *uScriptScriptUsageServiceClient) ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ValueOfResponse)
-	err := c.cc.Invoke(ctx, UScriptScriptUsageService_ValueOf_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// UScriptScriptUsageServiceServer is the server API for UScriptScriptUsageService service.
-// All implementations must embed UnimplementedUScriptScriptUsageServiceServer
-// for forward compatibility.
-type UScriptScriptUsageServiceServer interface {
-	Values(context.Context, *ValuesRequest) (*ValuesResponse, error)
-	ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error)
-	mustEmbedUnimplementedUScriptScriptUsageServiceServer()
-}
-
-// UnimplementedUScriptScriptUsageServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedUScriptScriptUsageServiceServer struct{}
-
-func (UnimplementedUScriptScriptUsageServiceServer) Values(context.Context, *ValuesRequest) (*ValuesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Values not implemented")
-}
-func (UnimplementedUScriptScriptUsageServiceServer) ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ValueOf not implemented")
-}
-func (UnimplementedUScriptScriptUsageServiceServer) mustEmbedUnimplementedUScriptScriptUsageServiceServer() {
-}
-func (UnimplementedUScriptScriptUsageServiceServer) testEmbeddedByValue() {}
-
-// UnsafeUScriptScriptUsageServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to UScriptScriptUsageServiceServer will
-// result in compilation errors.
-type UnsafeUScriptScriptUsageServiceServer interface {
-	mustEmbedUnimplementedUScriptScriptUsageServiceServer()
-}
-
-func RegisterUScriptScriptUsageServiceServer(s grpc.ServiceRegistrar, srv UScriptScriptUsageServiceServer) {
-	// If the following call panics, it indicates UnimplementedUScriptScriptUsageServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&UScriptScriptUsageService_ServiceDesc, srv)
-}
-
-func _UScriptScriptUsageService_Values_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ValuesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UScriptScriptUsageServiceServer).Values(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UScriptScriptUsageService_Values_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UScriptScriptUsageServiceServer).Values(ctx, req.(*ValuesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UScriptScriptUsageService_ValueOf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ValueOfRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UScriptScriptUsageServiceServer).ValueOf(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UScriptScriptUsageService_ValueOf_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UScriptScriptUsageServiceServer).ValueOf(ctx, req.(*ValueOfRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// UScriptScriptUsageService_ServiceDesc is the grpc.ServiceDesc for UScriptScriptUsageService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var UScriptScriptUsageService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "lang.UScriptScriptUsageService",
-	HandlerType: (*UScriptScriptUsageServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Values",
-			Handler:    _UScriptScriptUsageService_Values_Handler,
-		},
-		{
-			MethodName: "ValueOf",
-			Handler:    _UScriptScriptUsageService_ValueOf_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

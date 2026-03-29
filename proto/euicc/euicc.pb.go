@@ -695,6 +695,286 @@ func (x *SetEncodedActivationCodeResponse) GetResult() int64 {
 	return 0
 }
 
+type NewInfoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewInfoRequest) Reset() {
+	*x = NewInfoRequest{}
+	mi := &file_proto_euicc_euicc_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewInfoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewInfoRequest) ProtoMessage() {}
+
+func (x *NewInfoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_euicc_euicc_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewInfoRequest.ProtoReflect.Descriptor instead.
+func (*NewInfoRequest) Descriptor() ([]byte, []int) {
+	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *NewInfoRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type NewInfoResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewInfoResponse) Reset() {
+	*x = NewInfoResponse{}
+	mi := &file_proto_euicc_euicc_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewInfoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewInfoResponse) ProtoMessage() {}
+
+func (x *NewInfoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_euicc_euicc_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewInfoResponse.ProtoReflect.Descriptor instead.
+func (*NewInfoResponse) Descriptor() ([]byte, []int) {
+	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *NewInfoResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type InfoDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InfoDescribeContentsRequest) Reset() {
+	*x = InfoDescribeContentsRequest{}
+	mi := &file_proto_euicc_euicc_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InfoDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InfoDescribeContentsRequest) ProtoMessage() {}
+
+func (x *InfoDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_euicc_euicc_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InfoDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*InfoDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *InfoDescribeContentsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetOsVersionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOsVersionRequest) Reset() {
+	*x = GetOsVersionRequest{}
+	mi := &file_proto_euicc_euicc_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOsVersionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOsVersionRequest) ProtoMessage() {}
+
+func (x *GetOsVersionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_euicc_euicc_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOsVersionRequest.ProtoReflect.Descriptor instead.
+func (*GetOsVersionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *GetOsVersionRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetOsVersionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOsVersionResponse) Reset() {
+	*x = GetOsVersionResponse{}
+	mi := &file_proto_euicc_euicc_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOsVersionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOsVersionResponse) ProtoMessage() {}
+
+func (x *GetOsVersionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_euicc_euicc_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOsVersionResponse.ProtoReflect.Descriptor instead.
+func (*GetOsVersionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *GetOsVersionResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type InfoWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *InfoWriteToParcelRequest) Reset() {
+	*x = InfoWriteToParcelRequest{}
+	mi := &file_proto_euicc_euicc_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *InfoWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InfoWriteToParcelRequest) ProtoMessage() {}
+
+func (x *InfoWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_euicc_euicc_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InfoWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*InfoWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *InfoWriteToParcelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *InfoWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *InfoWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
 type CreateForCardIdRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -704,7 +984,7 @@ type CreateForCardIdRequest struct {
 
 func (x *CreateForCardIdRequest) Reset() {
 	*x = CreateForCardIdRequest{}
-	mi := &file_proto_euicc_euicc_proto_msgTypes[16]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -716,7 +996,7 @@ func (x *CreateForCardIdRequest) String() string {
 func (*CreateForCardIdRequest) ProtoMessage() {}
 
 func (x *CreateForCardIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_euicc_euicc_proto_msgTypes[16]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -729,7 +1009,7 @@ func (x *CreateForCardIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateForCardIdRequest.ProtoReflect.Descriptor instead.
 func (*CreateForCardIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{16}
+	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *CreateForCardIdRequest) GetArg0() int32 {
@@ -748,7 +1028,7 @@ type CreateForCardIdResponse struct {
 
 func (x *CreateForCardIdResponse) Reset() {
 	*x = CreateForCardIdResponse{}
-	mi := &file_proto_euicc_euicc_proto_msgTypes[17]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -760,7 +1040,7 @@ func (x *CreateForCardIdResponse) String() string {
 func (*CreateForCardIdResponse) ProtoMessage() {}
 
 func (x *CreateForCardIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_euicc_euicc_proto_msgTypes[17]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -773,7 +1053,7 @@ func (x *CreateForCardIdResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateForCardIdResponse.ProtoReflect.Descriptor instead.
 func (*CreateForCardIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{17}
+	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *CreateForCardIdResponse) GetResult() int64 {
@@ -793,7 +1073,7 @@ type DeleteSubscriptionRequest struct {
 
 func (x *DeleteSubscriptionRequest) Reset() {
 	*x = DeleteSubscriptionRequest{}
-	mi := &file_proto_euicc_euicc_proto_msgTypes[18]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -805,7 +1085,7 @@ func (x *DeleteSubscriptionRequest) String() string {
 func (*DeleteSubscriptionRequest) ProtoMessage() {}
 
 func (x *DeleteSubscriptionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_euicc_euicc_proto_msgTypes[18]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -818,7 +1098,7 @@ func (x *DeleteSubscriptionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteSubscriptionRequest.ProtoReflect.Descriptor instead.
 func (*DeleteSubscriptionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{18}
+	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *DeleteSubscriptionRequest) GetArg0() int32 {
@@ -843,7 +1123,7 @@ type DeleteSubscriptionResponse struct {
 
 func (x *DeleteSubscriptionResponse) Reset() {
 	*x = DeleteSubscriptionResponse{}
-	mi := &file_proto_euicc_euicc_proto_msgTypes[19]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -855,7 +1135,7 @@ func (x *DeleteSubscriptionResponse) String() string {
 func (*DeleteSubscriptionResponse) ProtoMessage() {}
 
 func (x *DeleteSubscriptionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_euicc_euicc_proto_msgTypes[19]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -868,7 +1148,7 @@ func (x *DeleteSubscriptionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteSubscriptionResponse.ProtoReflect.Descriptor instead.
 func (*DeleteSubscriptionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{19}
+	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{25}
 }
 
 type DownloadSubscriptionRequest struct {
@@ -882,7 +1162,7 @@ type DownloadSubscriptionRequest struct {
 
 func (x *DownloadSubscriptionRequest) Reset() {
 	*x = DownloadSubscriptionRequest{}
-	mi := &file_proto_euicc_euicc_proto_msgTypes[20]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -894,7 +1174,7 @@ func (x *DownloadSubscriptionRequest) String() string {
 func (*DownloadSubscriptionRequest) ProtoMessage() {}
 
 func (x *DownloadSubscriptionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_euicc_euicc_proto_msgTypes[20]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -907,7 +1187,7 @@ func (x *DownloadSubscriptionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DownloadSubscriptionRequest.ProtoReflect.Descriptor instead.
 func (*DownloadSubscriptionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{20}
+	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *DownloadSubscriptionRequest) GetArg0() int64 {
@@ -939,7 +1219,7 @@ type DownloadSubscriptionResponse struct {
 
 func (x *DownloadSubscriptionResponse) Reset() {
 	*x = DownloadSubscriptionResponse{}
-	mi := &file_proto_euicc_euicc_proto_msgTypes[21]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -951,7 +1231,7 @@ func (x *DownloadSubscriptionResponse) String() string {
 func (*DownloadSubscriptionResponse) ProtoMessage() {}
 
 func (x *DownloadSubscriptionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_euicc_euicc_proto_msgTypes[21]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -964,7 +1244,7 @@ func (x *DownloadSubscriptionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DownloadSubscriptionResponse.ProtoReflect.Descriptor instead.
 func (*DownloadSubscriptionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{21}
+	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{27}
 }
 
 type GetAvailableMemoryInBytesRequest struct {
@@ -975,7 +1255,7 @@ type GetAvailableMemoryInBytesRequest struct {
 
 func (x *GetAvailableMemoryInBytesRequest) Reset() {
 	*x = GetAvailableMemoryInBytesRequest{}
-	mi := &file_proto_euicc_euicc_proto_msgTypes[22]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -987,7 +1267,7 @@ func (x *GetAvailableMemoryInBytesRequest) String() string {
 func (*GetAvailableMemoryInBytesRequest) ProtoMessage() {}
 
 func (x *GetAvailableMemoryInBytesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_euicc_euicc_proto_msgTypes[22]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1000,7 +1280,7 @@ func (x *GetAvailableMemoryInBytesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAvailableMemoryInBytesRequest.ProtoReflect.Descriptor instead.
 func (*GetAvailableMemoryInBytesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{22}
+	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{28}
 }
 
 type GetAvailableMemoryInBytesResponse struct {
@@ -1012,7 +1292,7 @@ type GetAvailableMemoryInBytesResponse struct {
 
 func (x *GetAvailableMemoryInBytesResponse) Reset() {
 	*x = GetAvailableMemoryInBytesResponse{}
-	mi := &file_proto_euicc_euicc_proto_msgTypes[23]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1024,7 +1304,7 @@ func (x *GetAvailableMemoryInBytesResponse) String() string {
 func (*GetAvailableMemoryInBytesResponse) ProtoMessage() {}
 
 func (x *GetAvailableMemoryInBytesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_euicc_euicc_proto_msgTypes[23]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1037,7 +1317,7 @@ func (x *GetAvailableMemoryInBytesResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use GetAvailableMemoryInBytesResponse.ProtoReflect.Descriptor instead.
 func (*GetAvailableMemoryInBytesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{23}
+	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *GetAvailableMemoryInBytesResponse) GetResult() int64 {
@@ -1055,7 +1335,7 @@ type GetEidRequest struct {
 
 func (x *GetEidRequest) Reset() {
 	*x = GetEidRequest{}
-	mi := &file_proto_euicc_euicc_proto_msgTypes[24]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1067,7 +1347,7 @@ func (x *GetEidRequest) String() string {
 func (*GetEidRequest) ProtoMessage() {}
 
 func (x *GetEidRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_euicc_euicc_proto_msgTypes[24]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1080,7 +1360,7 @@ func (x *GetEidRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetEidRequest.ProtoReflect.Descriptor instead.
 func (*GetEidRequest) Descriptor() ([]byte, []int) {
-	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{24}
+	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{30}
 }
 
 type GetEidResponse struct {
@@ -1092,7 +1372,7 @@ type GetEidResponse struct {
 
 func (x *GetEidResponse) Reset() {
 	*x = GetEidResponse{}
-	mi := &file_proto_euicc_euicc_proto_msgTypes[25]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1104,7 +1384,7 @@ func (x *GetEidResponse) String() string {
 func (*GetEidResponse) ProtoMessage() {}
 
 func (x *GetEidResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_euicc_euicc_proto_msgTypes[25]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1117,7 +1397,7 @@ func (x *GetEidResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetEidResponse.ProtoReflect.Descriptor instead.
 func (*GetEidResponse) Descriptor() ([]byte, []int) {
-	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{25}
+	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *GetEidResponse) GetResult() string {
@@ -1135,7 +1415,7 @@ type GetEuiccInfoRequest struct {
 
 func (x *GetEuiccInfoRequest) Reset() {
 	*x = GetEuiccInfoRequest{}
-	mi := &file_proto_euicc_euicc_proto_msgTypes[26]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1147,7 +1427,7 @@ func (x *GetEuiccInfoRequest) String() string {
 func (*GetEuiccInfoRequest) ProtoMessage() {}
 
 func (x *GetEuiccInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_euicc_euicc_proto_msgTypes[26]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1160,7 +1440,7 @@ func (x *GetEuiccInfoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetEuiccInfoRequest.ProtoReflect.Descriptor instead.
 func (*GetEuiccInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{26}
+	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{32}
 }
 
 type GetEuiccInfoResponse struct {
@@ -1172,7 +1452,7 @@ type GetEuiccInfoResponse struct {
 
 func (x *GetEuiccInfoResponse) Reset() {
 	*x = GetEuiccInfoResponse{}
-	mi := &file_proto_euicc_euicc_proto_msgTypes[27]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1184,7 +1464,7 @@ func (x *GetEuiccInfoResponse) String() string {
 func (*GetEuiccInfoResponse) ProtoMessage() {}
 
 func (x *GetEuiccInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_euicc_euicc_proto_msgTypes[27]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1197,7 +1477,7 @@ func (x *GetEuiccInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetEuiccInfoResponse.ProtoReflect.Descriptor instead.
 func (*GetEuiccInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{27}
+	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *GetEuiccInfoResponse) GetResult() int64 {
@@ -1215,7 +1495,7 @@ type IsEnabledRequest struct {
 
 func (x *IsEnabledRequest) Reset() {
 	*x = IsEnabledRequest{}
-	mi := &file_proto_euicc_euicc_proto_msgTypes[28]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1227,7 +1507,7 @@ func (x *IsEnabledRequest) String() string {
 func (*IsEnabledRequest) ProtoMessage() {}
 
 func (x *IsEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_euicc_euicc_proto_msgTypes[28]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1240,7 +1520,7 @@ func (x *IsEnabledRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsEnabledRequest.ProtoReflect.Descriptor instead.
 func (*IsEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{28}
+	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{34}
 }
 
 type IsEnabledResponse struct {
@@ -1252,7 +1532,7 @@ type IsEnabledResponse struct {
 
 func (x *IsEnabledResponse) Reset() {
 	*x = IsEnabledResponse{}
-	mi := &file_proto_euicc_euicc_proto_msgTypes[29]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1264,7 +1544,7 @@ func (x *IsEnabledResponse) String() string {
 func (*IsEnabledResponse) ProtoMessage() {}
 
 func (x *IsEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_euicc_euicc_proto_msgTypes[29]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1277,7 +1557,7 @@ func (x *IsEnabledResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsEnabledResponse.ProtoReflect.Descriptor instead.
 func (*IsEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{29}
+	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *IsEnabledResponse) GetResult() bool {
@@ -1296,7 +1576,7 @@ type IsSimPortAvailableRequest struct {
 
 func (x *IsSimPortAvailableRequest) Reset() {
 	*x = IsSimPortAvailableRequest{}
-	mi := &file_proto_euicc_euicc_proto_msgTypes[30]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1308,7 +1588,7 @@ func (x *IsSimPortAvailableRequest) String() string {
 func (*IsSimPortAvailableRequest) ProtoMessage() {}
 
 func (x *IsSimPortAvailableRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_euicc_euicc_proto_msgTypes[30]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1321,7 +1601,7 @@ func (x *IsSimPortAvailableRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsSimPortAvailableRequest.ProtoReflect.Descriptor instead.
 func (*IsSimPortAvailableRequest) Descriptor() ([]byte, []int) {
-	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{30}
+	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *IsSimPortAvailableRequest) GetArg0() int32 {
@@ -1340,7 +1620,7 @@ type IsSimPortAvailableResponse struct {
 
 func (x *IsSimPortAvailableResponse) Reset() {
 	*x = IsSimPortAvailableResponse{}
-	mi := &file_proto_euicc_euicc_proto_msgTypes[31]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1352,7 +1632,7 @@ func (x *IsSimPortAvailableResponse) String() string {
 func (*IsSimPortAvailableResponse) ProtoMessage() {}
 
 func (x *IsSimPortAvailableResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_euicc_euicc_proto_msgTypes[31]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1365,7 +1645,7 @@ func (x *IsSimPortAvailableResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsSimPortAvailableResponse.ProtoReflect.Descriptor instead.
 func (*IsSimPortAvailableResponse) Descriptor() ([]byte, []int) {
-	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{31}
+	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *IsSimPortAvailableResponse) GetResult() bool {
@@ -1387,7 +1667,7 @@ type StartResolutionActivityRequest struct {
 
 func (x *StartResolutionActivityRequest) Reset() {
 	*x = StartResolutionActivityRequest{}
-	mi := &file_proto_euicc_euicc_proto_msgTypes[32]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1399,7 +1679,7 @@ func (x *StartResolutionActivityRequest) String() string {
 func (*StartResolutionActivityRequest) ProtoMessage() {}
 
 func (x *StartResolutionActivityRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_euicc_euicc_proto_msgTypes[32]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1412,7 +1692,7 @@ func (x *StartResolutionActivityRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartResolutionActivityRequest.ProtoReflect.Descriptor instead.
 func (*StartResolutionActivityRequest) Descriptor() ([]byte, []int) {
-	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{32}
+	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *StartResolutionActivityRequest) GetArg0() int64 {
@@ -1451,7 +1731,7 @@ type StartResolutionActivityResponse struct {
 
 func (x *StartResolutionActivityResponse) Reset() {
 	*x = StartResolutionActivityResponse{}
-	mi := &file_proto_euicc_euicc_proto_msgTypes[33]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1463,7 +1743,7 @@ func (x *StartResolutionActivityResponse) String() string {
 func (*StartResolutionActivityResponse) ProtoMessage() {}
 
 func (x *StartResolutionActivityResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_euicc_euicc_proto_msgTypes[33]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1476,7 +1756,7 @@ func (x *StartResolutionActivityResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartResolutionActivityResponse.ProtoReflect.Descriptor instead.
 func (*StartResolutionActivityResponse) Descriptor() ([]byte, []int) {
-	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{33}
+	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{39}
 }
 
 type SwitchToSubscription2Request struct {
@@ -1489,7 +1769,7 @@ type SwitchToSubscription2Request struct {
 
 func (x *SwitchToSubscription2Request) Reset() {
 	*x = SwitchToSubscription2Request{}
-	mi := &file_proto_euicc_euicc_proto_msgTypes[34]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1501,7 +1781,7 @@ func (x *SwitchToSubscription2Request) String() string {
 func (*SwitchToSubscription2Request) ProtoMessage() {}
 
 func (x *SwitchToSubscription2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_euicc_euicc_proto_msgTypes[34]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1514,7 +1794,7 @@ func (x *SwitchToSubscription2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SwitchToSubscription2Request.ProtoReflect.Descriptor instead.
 func (*SwitchToSubscription2Request) Descriptor() ([]byte, []int) {
-	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{34}
+	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *SwitchToSubscription2Request) GetArg0() int32 {
@@ -1539,7 +1819,7 @@ type SwitchToSubscription2Response struct {
 
 func (x *SwitchToSubscription2Response) Reset() {
 	*x = SwitchToSubscription2Response{}
-	mi := &file_proto_euicc_euicc_proto_msgTypes[35]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1551,7 +1831,7 @@ func (x *SwitchToSubscription2Response) String() string {
 func (*SwitchToSubscription2Response) ProtoMessage() {}
 
 func (x *SwitchToSubscription2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_euicc_euicc_proto_msgTypes[35]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1564,7 +1844,7 @@ func (x *SwitchToSubscription2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SwitchToSubscription2Response.ProtoReflect.Descriptor instead.
 func (*SwitchToSubscription2Response) Descriptor() ([]byte, []int) {
-	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{35}
+	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{41}
 }
 
 type SwitchToSubscription3_1Request struct {
@@ -1578,7 +1858,7 @@ type SwitchToSubscription3_1Request struct {
 
 func (x *SwitchToSubscription3_1Request) Reset() {
 	*x = SwitchToSubscription3_1Request{}
-	mi := &file_proto_euicc_euicc_proto_msgTypes[36]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1590,7 +1870,7 @@ func (x *SwitchToSubscription3_1Request) String() string {
 func (*SwitchToSubscription3_1Request) ProtoMessage() {}
 
 func (x *SwitchToSubscription3_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_euicc_euicc_proto_msgTypes[36]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1603,7 +1883,7 @@ func (x *SwitchToSubscription3_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SwitchToSubscription3_1Request.ProtoReflect.Descriptor instead.
 func (*SwitchToSubscription3_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{36}
+	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *SwitchToSubscription3_1Request) GetArg0() int32 {
@@ -1635,7 +1915,7 @@ type SwitchToSubscription3_1Response struct {
 
 func (x *SwitchToSubscription3_1Response) Reset() {
 	*x = SwitchToSubscription3_1Response{}
-	mi := &file_proto_euicc_euicc_proto_msgTypes[37]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1647,7 +1927,7 @@ func (x *SwitchToSubscription3_1Response) String() string {
 func (*SwitchToSubscription3_1Response) ProtoMessage() {}
 
 func (x *SwitchToSubscription3_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_euicc_euicc_proto_msgTypes[37]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1660,7 +1940,7 @@ func (x *SwitchToSubscription3_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SwitchToSubscription3_1Response.ProtoReflect.Descriptor instead.
 func (*SwitchToSubscription3_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{37}
+	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{43}
 }
 
 type UpdateSubscriptionNicknameRequest struct {
@@ -1674,7 +1954,7 @@ type UpdateSubscriptionNicknameRequest struct {
 
 func (x *UpdateSubscriptionNicknameRequest) Reset() {
 	*x = UpdateSubscriptionNicknameRequest{}
-	mi := &file_proto_euicc_euicc_proto_msgTypes[38]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1686,7 +1966,7 @@ func (x *UpdateSubscriptionNicknameRequest) String() string {
 func (*UpdateSubscriptionNicknameRequest) ProtoMessage() {}
 
 func (x *UpdateSubscriptionNicknameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_euicc_euicc_proto_msgTypes[38]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1699,7 +1979,7 @@ func (x *UpdateSubscriptionNicknameRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use UpdateSubscriptionNicknameRequest.ProtoReflect.Descriptor instead.
 func (*UpdateSubscriptionNicknameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{38}
+	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *UpdateSubscriptionNicknameRequest) GetArg0() int32 {
@@ -1731,7 +2011,7 @@ type UpdateSubscriptionNicknameResponse struct {
 
 func (x *UpdateSubscriptionNicknameResponse) Reset() {
 	*x = UpdateSubscriptionNicknameResponse{}
-	mi := &file_proto_euicc_euicc_proto_msgTypes[39]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1743,7 +2023,7 @@ func (x *UpdateSubscriptionNicknameResponse) String() string {
 func (*UpdateSubscriptionNicknameResponse) ProtoMessage() {}
 
 func (x *UpdateSubscriptionNicknameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_euicc_euicc_proto_msgTypes[39]
+	mi := &file_proto_euicc_euicc_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1756,287 +2036,7 @@ func (x *UpdateSubscriptionNicknameResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use UpdateSubscriptionNicknameResponse.ProtoReflect.Descriptor instead.
 func (*UpdateSubscriptionNicknameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{39}
-}
-
-type NewInfoRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewInfoRequest) Reset() {
-	*x = NewInfoRequest{}
-	mi := &file_proto_euicc_euicc_proto_msgTypes[40]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewInfoRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewInfoRequest) ProtoMessage() {}
-
-func (x *NewInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_euicc_euicc_proto_msgTypes[40]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewInfoRequest.ProtoReflect.Descriptor instead.
-func (*NewInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{40}
-}
-
-func (x *NewInfoRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type NewInfoResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewInfoResponse) Reset() {
-	*x = NewInfoResponse{}
-	mi := &file_proto_euicc_euicc_proto_msgTypes[41]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewInfoResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewInfoResponse) ProtoMessage() {}
-
-func (x *NewInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_euicc_euicc_proto_msgTypes[41]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewInfoResponse.ProtoReflect.Descriptor instead.
-func (*NewInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{41}
-}
-
-func (x *NewInfoResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type InfoDescribeContentsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *InfoDescribeContentsRequest) Reset() {
-	*x = InfoDescribeContentsRequest{}
-	mi := &file_proto_euicc_euicc_proto_msgTypes[42]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *InfoDescribeContentsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*InfoDescribeContentsRequest) ProtoMessage() {}
-
-func (x *InfoDescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_euicc_euicc_proto_msgTypes[42]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use InfoDescribeContentsRequest.ProtoReflect.Descriptor instead.
-func (*InfoDescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{42}
-}
-
-func (x *InfoDescribeContentsRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetOsVersionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetOsVersionRequest) Reset() {
-	*x = GetOsVersionRequest{}
-	mi := &file_proto_euicc_euicc_proto_msgTypes[43]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetOsVersionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetOsVersionRequest) ProtoMessage() {}
-
-func (x *GetOsVersionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_euicc_euicc_proto_msgTypes[43]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetOsVersionRequest.ProtoReflect.Descriptor instead.
-func (*GetOsVersionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{43}
-}
-
-func (x *GetOsVersionRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-type GetOsVersionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetOsVersionResponse) Reset() {
-	*x = GetOsVersionResponse{}
-	mi := &file_proto_euicc_euicc_proto_msgTypes[44]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetOsVersionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetOsVersionResponse) ProtoMessage() {}
-
-func (x *GetOsVersionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_euicc_euicc_proto_msgTypes[44]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetOsVersionResponse.ProtoReflect.Descriptor instead.
-func (*GetOsVersionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{44}
-}
-
-func (x *GetOsVersionResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type InfoWriteToParcelRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *InfoWriteToParcelRequest) Reset() {
-	*x = InfoWriteToParcelRequest{}
-	mi := &file_proto_euicc_euicc_proto_msgTypes[45]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *InfoWriteToParcelRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*InfoWriteToParcelRequest) ProtoMessage() {}
-
-func (x *InfoWriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_euicc_euicc_proto_msgTypes[45]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use InfoWriteToParcelRequest.ProtoReflect.Descriptor instead.
-func (*InfoWriteToParcelRequest) Descriptor() ([]byte, []int) {
 	return file_proto_euicc_euicc_proto_rawDescGZIP(), []int{45}
-}
-
-func (x *InfoWriteToParcelRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
-}
-
-func (x *InfoWriteToParcelRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *InfoWriteToParcelRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
 }
 
 var File_proto_euicc_euicc_proto protoreflect.FileDescriptor
@@ -2071,7 +2071,21 @@ const file_proto_euicc_euicc_proto_rawDesc = "" +
 	"\x1fSetEncodedActivationCodeRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\":\n" +
 	" SetEncodedActivationCodeResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\",\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"$\n" +
+	"\x0eNewInfoRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\")\n" +
+	"\x0fNewInfoResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
+	"\x1bInfoDescribeContentsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
+	"\x13GetOsVersionRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\".\n" +
+	"\x14GetOsVersionResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"Z\n" +
+	"\x18InfoWriteToParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\",\n" +
 	"\x16CreateForCardIdRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"1\n" +
 	"\x17CreateForCardIdResponse\x12\x16\n" +
@@ -2120,21 +2134,7 @@ const file_proto_euicc_euicc_proto_rawDesc = "" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
 	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"$\n" +
-	"\"UpdateSubscriptionNicknameResponse\"$\n" +
-	"\x0eNewInfoRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\")\n" +
-	"\x0fNewInfoResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
-	"\x1bInfoDescribeContentsRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"-\n" +
-	"\x13GetOsVersionRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\".\n" +
-	"\x14GetOsVersionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"Z\n" +
-	"\x18InfoWriteToParcelRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x05R\x04arg12\xe5\x03\n" +
+	"\"UpdateSubscriptionNicknameResponse2\xe5\x03\n" +
 	"\x1fDownloadableSubscriptionService\x12S\n" +
 	"\x10DescribeContents\x12\x1e.euicc.DescribeContentsRequest\x1a\x1f.euicc.DescribeContentsResponse\x12\\\n" +
 	"\x13GetConfirmationCode\x12!.euicc.GetConfirmationCodeRequest\x1a\".euicc.GetConfirmationCodeResponse\x12k\n" +
@@ -2144,7 +2144,12 @@ const file_proto_euicc_euicc_proto_rawDesc = "" +
 	"&DownloadableSubscriptionBuilderService\x122\n" +
 	"\x05Build\x12\x13.euicc.BuildRequest\x1a\x14.euicc.BuildResponse\x12\\\n" +
 	"\x13SetConfirmationCode\x12!.euicc.SetConfirmationCodeRequest\x1a\".euicc.SetConfirmationCodeResponse\x12k\n" +
-	"\x18SetEncodedActivationCode\x12&.euicc.SetEncodedActivationCodeRequest\x1a'.euicc.SetEncodedActivationCodeResponse2\xd4\b\n" +
+	"\x18SetEncodedActivationCode\x12&.euicc.SetEncodedActivationCodeRequest\x1a'.euicc.SetEncodedActivationCodeResponse2\xb9\x02\n" +
+	"\vInfoService\x128\n" +
+	"\aNewInfo\x12\x15.euicc.NewInfoRequest\x1a\x16.euicc.NewInfoResponse\x12W\n" +
+	"\x10DescribeContents\x12\".euicc.InfoDescribeContentsRequest\x1a\x1f.euicc.DescribeContentsResponse\x12G\n" +
+	"\fGetOsVersion\x12\x1a.euicc.GetOsVersionRequest\x1a\x1b.euicc.GetOsVersionResponse\x12N\n" +
+	"\rWriteToParcel\x12\x1f.euicc.InfoWriteToParcelRequest\x1a\x1c.euicc.WriteToParcelResponse2\xd4\b\n" +
 	"\x0eManagerService\x12P\n" +
 	"\x0fCreateForCardId\x12\x1d.euicc.CreateForCardIdRequest\x1a\x1e.euicc.CreateForCardIdResponse\x12Y\n" +
 	"\x12DeleteSubscription\x12 .euicc.DeleteSubscriptionRequest\x1a!.euicc.DeleteSubscriptionResponse\x12_\n" +
@@ -2157,12 +2162,7 @@ const file_proto_euicc_euicc_proto_rawDesc = "" +
 	"\x17StartResolutionActivity\x12%.euicc.StartResolutionActivityRequest\x1a&.euicc.StartResolutionActivityResponse\x12b\n" +
 	"\x15SwitchToSubscription2\x12#.euicc.SwitchToSubscription2Request\x1a$.euicc.SwitchToSubscription2Response\x12h\n" +
 	"\x17SwitchToSubscription3_1\x12%.euicc.SwitchToSubscription3_1Request\x1a&.euicc.SwitchToSubscription3_1Response\x12q\n" +
-	"\x1aUpdateSubscriptionNickname\x12(.euicc.UpdateSubscriptionNicknameRequest\x1a).euicc.UpdateSubscriptionNicknameResponse2\xb9\x02\n" +
-	"\vInfoService\x128\n" +
-	"\aNewInfo\x12\x15.euicc.NewInfoRequest\x1a\x16.euicc.NewInfoResponse\x12W\n" +
-	"\x10DescribeContents\x12\".euicc.InfoDescribeContentsRequest\x1a\x1f.euicc.DescribeContentsResponse\x12G\n" +
-	"\fGetOsVersion\x12\x1a.euicc.GetOsVersionRequest\x1a\x1b.euicc.GetOsVersionResponse\x12N\n" +
-	"\rWriteToParcel\x12\x1f.euicc.InfoWriteToParcelRequest\x1a\x1c.euicc.WriteToParcelResponseB/Z-github.com/AndroidGoLab/jni-proxy/proto/euiccb\x06proto3"
+	"\x1aUpdateSubscriptionNickname\x12(.euicc.UpdateSubscriptionNicknameRequest\x1a).euicc.UpdateSubscriptionNicknameResponseB/Z-github.com/AndroidGoLab/jni-proxy/proto/euiccb\x06proto3"
 
 var (
 	file_proto_euicc_euicc_proto_rawDescOnce sync.Once
@@ -2194,36 +2194,36 @@ var file_proto_euicc_euicc_proto_goTypes = []any{
 	(*SetConfirmationCodeResponse)(nil),        // 13: euicc.SetConfirmationCodeResponse
 	(*SetEncodedActivationCodeRequest)(nil),    // 14: euicc.SetEncodedActivationCodeRequest
 	(*SetEncodedActivationCodeResponse)(nil),   // 15: euicc.SetEncodedActivationCodeResponse
-	(*CreateForCardIdRequest)(nil),             // 16: euicc.CreateForCardIdRequest
-	(*CreateForCardIdResponse)(nil),            // 17: euicc.CreateForCardIdResponse
-	(*DeleteSubscriptionRequest)(nil),          // 18: euicc.DeleteSubscriptionRequest
-	(*DeleteSubscriptionResponse)(nil),         // 19: euicc.DeleteSubscriptionResponse
-	(*DownloadSubscriptionRequest)(nil),        // 20: euicc.DownloadSubscriptionRequest
-	(*DownloadSubscriptionResponse)(nil),       // 21: euicc.DownloadSubscriptionResponse
-	(*GetAvailableMemoryInBytesRequest)(nil),   // 22: euicc.GetAvailableMemoryInBytesRequest
-	(*GetAvailableMemoryInBytesResponse)(nil),  // 23: euicc.GetAvailableMemoryInBytesResponse
-	(*GetEidRequest)(nil),                      // 24: euicc.GetEidRequest
-	(*GetEidResponse)(nil),                     // 25: euicc.GetEidResponse
-	(*GetEuiccInfoRequest)(nil),                // 26: euicc.GetEuiccInfoRequest
-	(*GetEuiccInfoResponse)(nil),               // 27: euicc.GetEuiccInfoResponse
-	(*IsEnabledRequest)(nil),                   // 28: euicc.IsEnabledRequest
-	(*IsEnabledResponse)(nil),                  // 29: euicc.IsEnabledResponse
-	(*IsSimPortAvailableRequest)(nil),          // 30: euicc.IsSimPortAvailableRequest
-	(*IsSimPortAvailableResponse)(nil),         // 31: euicc.IsSimPortAvailableResponse
-	(*StartResolutionActivityRequest)(nil),     // 32: euicc.StartResolutionActivityRequest
-	(*StartResolutionActivityResponse)(nil),    // 33: euicc.StartResolutionActivityResponse
-	(*SwitchToSubscription2Request)(nil),       // 34: euicc.SwitchToSubscription2Request
-	(*SwitchToSubscription2Response)(nil),      // 35: euicc.SwitchToSubscription2Response
-	(*SwitchToSubscription3_1Request)(nil),     // 36: euicc.SwitchToSubscription3_1Request
-	(*SwitchToSubscription3_1Response)(nil),    // 37: euicc.SwitchToSubscription3_1Response
-	(*UpdateSubscriptionNicknameRequest)(nil),  // 38: euicc.UpdateSubscriptionNicknameRequest
-	(*UpdateSubscriptionNicknameResponse)(nil), // 39: euicc.UpdateSubscriptionNicknameResponse
-	(*NewInfoRequest)(nil),                     // 40: euicc.NewInfoRequest
-	(*NewInfoResponse)(nil),                    // 41: euicc.NewInfoResponse
-	(*InfoDescribeContentsRequest)(nil),        // 42: euicc.InfoDescribeContentsRequest
-	(*GetOsVersionRequest)(nil),                // 43: euicc.GetOsVersionRequest
-	(*GetOsVersionResponse)(nil),               // 44: euicc.GetOsVersionResponse
-	(*InfoWriteToParcelRequest)(nil),           // 45: euicc.InfoWriteToParcelRequest
+	(*NewInfoRequest)(nil),                     // 16: euicc.NewInfoRequest
+	(*NewInfoResponse)(nil),                    // 17: euicc.NewInfoResponse
+	(*InfoDescribeContentsRequest)(nil),        // 18: euicc.InfoDescribeContentsRequest
+	(*GetOsVersionRequest)(nil),                // 19: euicc.GetOsVersionRequest
+	(*GetOsVersionResponse)(nil),               // 20: euicc.GetOsVersionResponse
+	(*InfoWriteToParcelRequest)(nil),           // 21: euicc.InfoWriteToParcelRequest
+	(*CreateForCardIdRequest)(nil),             // 22: euicc.CreateForCardIdRequest
+	(*CreateForCardIdResponse)(nil),            // 23: euicc.CreateForCardIdResponse
+	(*DeleteSubscriptionRequest)(nil),          // 24: euicc.DeleteSubscriptionRequest
+	(*DeleteSubscriptionResponse)(nil),         // 25: euicc.DeleteSubscriptionResponse
+	(*DownloadSubscriptionRequest)(nil),        // 26: euicc.DownloadSubscriptionRequest
+	(*DownloadSubscriptionResponse)(nil),       // 27: euicc.DownloadSubscriptionResponse
+	(*GetAvailableMemoryInBytesRequest)(nil),   // 28: euicc.GetAvailableMemoryInBytesRequest
+	(*GetAvailableMemoryInBytesResponse)(nil),  // 29: euicc.GetAvailableMemoryInBytesResponse
+	(*GetEidRequest)(nil),                      // 30: euicc.GetEidRequest
+	(*GetEidResponse)(nil),                     // 31: euicc.GetEidResponse
+	(*GetEuiccInfoRequest)(nil),                // 32: euicc.GetEuiccInfoRequest
+	(*GetEuiccInfoResponse)(nil),               // 33: euicc.GetEuiccInfoResponse
+	(*IsEnabledRequest)(nil),                   // 34: euicc.IsEnabledRequest
+	(*IsEnabledResponse)(nil),                  // 35: euicc.IsEnabledResponse
+	(*IsSimPortAvailableRequest)(nil),          // 36: euicc.IsSimPortAvailableRequest
+	(*IsSimPortAvailableResponse)(nil),         // 37: euicc.IsSimPortAvailableResponse
+	(*StartResolutionActivityRequest)(nil),     // 38: euicc.StartResolutionActivityRequest
+	(*StartResolutionActivityResponse)(nil),    // 39: euicc.StartResolutionActivityResponse
+	(*SwitchToSubscription2Request)(nil),       // 40: euicc.SwitchToSubscription2Request
+	(*SwitchToSubscription2Response)(nil),      // 41: euicc.SwitchToSubscription2Response
+	(*SwitchToSubscription3_1Request)(nil),     // 42: euicc.SwitchToSubscription3_1Request
+	(*SwitchToSubscription3_1Response)(nil),    // 43: euicc.SwitchToSubscription3_1Response
+	(*UpdateSubscriptionNicknameRequest)(nil),  // 44: euicc.UpdateSubscriptionNicknameRequest
+	(*UpdateSubscriptionNicknameResponse)(nil), // 45: euicc.UpdateSubscriptionNicknameResponse
 }
 var file_proto_euicc_euicc_proto_depIdxs = []int32{
 	0,  // 0: euicc.DownloadableSubscriptionService.DescribeContents:input_type -> euicc.DescribeContentsRequest
@@ -2234,22 +2234,22 @@ var file_proto_euicc_euicc_proto_depIdxs = []int32{
 	10, // 5: euicc.DownloadableSubscriptionBuilderService.Build:input_type -> euicc.BuildRequest
 	12, // 6: euicc.DownloadableSubscriptionBuilderService.SetConfirmationCode:input_type -> euicc.SetConfirmationCodeRequest
 	14, // 7: euicc.DownloadableSubscriptionBuilderService.SetEncodedActivationCode:input_type -> euicc.SetEncodedActivationCodeRequest
-	16, // 8: euicc.ManagerService.CreateForCardId:input_type -> euicc.CreateForCardIdRequest
-	18, // 9: euicc.ManagerService.DeleteSubscription:input_type -> euicc.DeleteSubscriptionRequest
-	20, // 10: euicc.ManagerService.DownloadSubscription:input_type -> euicc.DownloadSubscriptionRequest
-	22, // 11: euicc.ManagerService.GetAvailableMemoryInBytes:input_type -> euicc.GetAvailableMemoryInBytesRequest
-	24, // 12: euicc.ManagerService.GetEid:input_type -> euicc.GetEidRequest
-	26, // 13: euicc.ManagerService.GetEuiccInfo:input_type -> euicc.GetEuiccInfoRequest
-	28, // 14: euicc.ManagerService.IsEnabled:input_type -> euicc.IsEnabledRequest
-	30, // 15: euicc.ManagerService.IsSimPortAvailable:input_type -> euicc.IsSimPortAvailableRequest
-	32, // 16: euicc.ManagerService.StartResolutionActivity:input_type -> euicc.StartResolutionActivityRequest
-	34, // 17: euicc.ManagerService.SwitchToSubscription2:input_type -> euicc.SwitchToSubscription2Request
-	36, // 18: euicc.ManagerService.SwitchToSubscription3_1:input_type -> euicc.SwitchToSubscription3_1Request
-	38, // 19: euicc.ManagerService.UpdateSubscriptionNickname:input_type -> euicc.UpdateSubscriptionNicknameRequest
-	40, // 20: euicc.InfoService.NewInfo:input_type -> euicc.NewInfoRequest
-	42, // 21: euicc.InfoService.DescribeContents:input_type -> euicc.InfoDescribeContentsRequest
-	43, // 22: euicc.InfoService.GetOsVersion:input_type -> euicc.GetOsVersionRequest
-	45, // 23: euicc.InfoService.WriteToParcel:input_type -> euicc.InfoWriteToParcelRequest
+	16, // 8: euicc.InfoService.NewInfo:input_type -> euicc.NewInfoRequest
+	18, // 9: euicc.InfoService.DescribeContents:input_type -> euicc.InfoDescribeContentsRequest
+	19, // 10: euicc.InfoService.GetOsVersion:input_type -> euicc.GetOsVersionRequest
+	21, // 11: euicc.InfoService.WriteToParcel:input_type -> euicc.InfoWriteToParcelRequest
+	22, // 12: euicc.ManagerService.CreateForCardId:input_type -> euicc.CreateForCardIdRequest
+	24, // 13: euicc.ManagerService.DeleteSubscription:input_type -> euicc.DeleteSubscriptionRequest
+	26, // 14: euicc.ManagerService.DownloadSubscription:input_type -> euicc.DownloadSubscriptionRequest
+	28, // 15: euicc.ManagerService.GetAvailableMemoryInBytes:input_type -> euicc.GetAvailableMemoryInBytesRequest
+	30, // 16: euicc.ManagerService.GetEid:input_type -> euicc.GetEidRequest
+	32, // 17: euicc.ManagerService.GetEuiccInfo:input_type -> euicc.GetEuiccInfoRequest
+	34, // 18: euicc.ManagerService.IsEnabled:input_type -> euicc.IsEnabledRequest
+	36, // 19: euicc.ManagerService.IsSimPortAvailable:input_type -> euicc.IsSimPortAvailableRequest
+	38, // 20: euicc.ManagerService.StartResolutionActivity:input_type -> euicc.StartResolutionActivityRequest
+	40, // 21: euicc.ManagerService.SwitchToSubscription2:input_type -> euicc.SwitchToSubscription2Request
+	42, // 22: euicc.ManagerService.SwitchToSubscription3_1:input_type -> euicc.SwitchToSubscription3_1Request
+	44, // 23: euicc.ManagerService.UpdateSubscriptionNickname:input_type -> euicc.UpdateSubscriptionNicknameRequest
 	1,  // 24: euicc.DownloadableSubscriptionService.DescribeContents:output_type -> euicc.DescribeContentsResponse
 	3,  // 25: euicc.DownloadableSubscriptionService.GetConfirmationCode:output_type -> euicc.GetConfirmationCodeResponse
 	5,  // 26: euicc.DownloadableSubscriptionService.GetEncodedActivationCode:output_type -> euicc.GetEncodedActivationCodeResponse
@@ -2258,22 +2258,22 @@ var file_proto_euicc_euicc_proto_depIdxs = []int32{
 	11, // 29: euicc.DownloadableSubscriptionBuilderService.Build:output_type -> euicc.BuildResponse
 	13, // 30: euicc.DownloadableSubscriptionBuilderService.SetConfirmationCode:output_type -> euicc.SetConfirmationCodeResponse
 	15, // 31: euicc.DownloadableSubscriptionBuilderService.SetEncodedActivationCode:output_type -> euicc.SetEncodedActivationCodeResponse
-	17, // 32: euicc.ManagerService.CreateForCardId:output_type -> euicc.CreateForCardIdResponse
-	19, // 33: euicc.ManagerService.DeleteSubscription:output_type -> euicc.DeleteSubscriptionResponse
-	21, // 34: euicc.ManagerService.DownloadSubscription:output_type -> euicc.DownloadSubscriptionResponse
-	23, // 35: euicc.ManagerService.GetAvailableMemoryInBytes:output_type -> euicc.GetAvailableMemoryInBytesResponse
-	25, // 36: euicc.ManagerService.GetEid:output_type -> euicc.GetEidResponse
-	27, // 37: euicc.ManagerService.GetEuiccInfo:output_type -> euicc.GetEuiccInfoResponse
-	29, // 38: euicc.ManagerService.IsEnabled:output_type -> euicc.IsEnabledResponse
-	31, // 39: euicc.ManagerService.IsSimPortAvailable:output_type -> euicc.IsSimPortAvailableResponse
-	33, // 40: euicc.ManagerService.StartResolutionActivity:output_type -> euicc.StartResolutionActivityResponse
-	35, // 41: euicc.ManagerService.SwitchToSubscription2:output_type -> euicc.SwitchToSubscription2Response
-	37, // 42: euicc.ManagerService.SwitchToSubscription3_1:output_type -> euicc.SwitchToSubscription3_1Response
-	39, // 43: euicc.ManagerService.UpdateSubscriptionNickname:output_type -> euicc.UpdateSubscriptionNicknameResponse
-	41, // 44: euicc.InfoService.NewInfo:output_type -> euicc.NewInfoResponse
-	1,  // 45: euicc.InfoService.DescribeContents:output_type -> euicc.DescribeContentsResponse
-	44, // 46: euicc.InfoService.GetOsVersion:output_type -> euicc.GetOsVersionResponse
-	7,  // 47: euicc.InfoService.WriteToParcel:output_type -> euicc.WriteToParcelResponse
+	17, // 32: euicc.InfoService.NewInfo:output_type -> euicc.NewInfoResponse
+	1,  // 33: euicc.InfoService.DescribeContents:output_type -> euicc.DescribeContentsResponse
+	20, // 34: euicc.InfoService.GetOsVersion:output_type -> euicc.GetOsVersionResponse
+	7,  // 35: euicc.InfoService.WriteToParcel:output_type -> euicc.WriteToParcelResponse
+	23, // 36: euicc.ManagerService.CreateForCardId:output_type -> euicc.CreateForCardIdResponse
+	25, // 37: euicc.ManagerService.DeleteSubscription:output_type -> euicc.DeleteSubscriptionResponse
+	27, // 38: euicc.ManagerService.DownloadSubscription:output_type -> euicc.DownloadSubscriptionResponse
+	29, // 39: euicc.ManagerService.GetAvailableMemoryInBytes:output_type -> euicc.GetAvailableMemoryInBytesResponse
+	31, // 40: euicc.ManagerService.GetEid:output_type -> euicc.GetEidResponse
+	33, // 41: euicc.ManagerService.GetEuiccInfo:output_type -> euicc.GetEuiccInfoResponse
+	35, // 42: euicc.ManagerService.IsEnabled:output_type -> euicc.IsEnabledResponse
+	37, // 43: euicc.ManagerService.IsSimPortAvailable:output_type -> euicc.IsSimPortAvailableResponse
+	39, // 44: euicc.ManagerService.StartResolutionActivity:output_type -> euicc.StartResolutionActivityResponse
+	41, // 45: euicc.ManagerService.SwitchToSubscription2:output_type -> euicc.SwitchToSubscription2Response
+	43, // 46: euicc.ManagerService.SwitchToSubscription3_1:output_type -> euicc.SwitchToSubscription3_1Response
+	45, // 47: euicc.ManagerService.UpdateSubscriptionNickname:output_type -> euicc.UpdateSubscriptionNicknameResponse
 	24, // [24:48] is the sub-list for method output_type
 	0,  // [0:24] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name

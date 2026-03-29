@@ -21,363 +21,6 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	DeviceHandleService_DescribeContents_FullMethodName   = "/oob.DeviceHandleService/DescribeContents"
-	DeviceHandleService_GetRangingDevice_FullMethodName   = "/oob.DeviceHandleService/GetRangingDevice"
-	DeviceHandleService_GetTransportHandle_FullMethodName = "/oob.DeviceHandleService/GetTransportHandle"
-	DeviceHandleService_ToString_FullMethodName           = "/oob.DeviceHandleService/ToString"
-	DeviceHandleService_WriteToParcel_FullMethodName      = "/oob.DeviceHandleService/WriteToParcel"
-)
-
-// DeviceHandleServiceClient is the client API for DeviceHandleService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DeviceHandleServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetRangingDevice(ctx context.Context, in *GetRangingDeviceRequest, opts ...grpc.CallOption) (*GetRangingDeviceResponse, error)
-	GetTransportHandle(ctx context.Context, in *GetTransportHandleRequest, opts ...grpc.CallOption) (*GetTransportHandleResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type deviceHandleServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewDeviceHandleServiceClient(cc grpc.ClientConnInterface) DeviceHandleServiceClient {
-	return &deviceHandleServiceClient{cc}
-}
-
-func (c *deviceHandleServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, DeviceHandleService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceHandleServiceClient) GetRangingDevice(ctx context.Context, in *GetRangingDeviceRequest, opts ...grpc.CallOption) (*GetRangingDeviceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRangingDeviceResponse)
-	err := c.cc.Invoke(ctx, DeviceHandleService_GetRangingDevice_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceHandleServiceClient) GetTransportHandle(ctx context.Context, in *GetTransportHandleRequest, opts ...grpc.CallOption) (*GetTransportHandleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTransportHandleResponse)
-	err := c.cc.Invoke(ctx, DeviceHandleService_GetTransportHandle_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceHandleServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, DeviceHandleService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *deviceHandleServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, DeviceHandleService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DeviceHandleServiceServer is the server API for DeviceHandleService service.
-// All implementations must embed UnimplementedDeviceHandleServiceServer
-// for forward compatibility.
-type DeviceHandleServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetRangingDevice(context.Context, *GetRangingDeviceRequest) (*GetRangingDeviceResponse, error)
-	GetTransportHandle(context.Context, *GetTransportHandleRequest) (*GetTransportHandleResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedDeviceHandleServiceServer()
-}
-
-// UnimplementedDeviceHandleServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedDeviceHandleServiceServer struct{}
-
-func (UnimplementedDeviceHandleServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedDeviceHandleServiceServer) GetRangingDevice(context.Context, *GetRangingDeviceRequest) (*GetRangingDeviceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRangingDevice not implemented")
-}
-func (UnimplementedDeviceHandleServiceServer) GetTransportHandle(context.Context, *GetTransportHandleRequest) (*GetTransportHandleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTransportHandle not implemented")
-}
-func (UnimplementedDeviceHandleServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedDeviceHandleServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedDeviceHandleServiceServer) mustEmbedUnimplementedDeviceHandleServiceServer() {}
-func (UnimplementedDeviceHandleServiceServer) testEmbeddedByValue()                             {}
-
-// UnsafeDeviceHandleServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DeviceHandleServiceServer will
-// result in compilation errors.
-type UnsafeDeviceHandleServiceServer interface {
-	mustEmbedUnimplementedDeviceHandleServiceServer()
-}
-
-func RegisterDeviceHandleServiceServer(s grpc.ServiceRegistrar, srv DeviceHandleServiceServer) {
-	// If the following call panics, it indicates UnimplementedDeviceHandleServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&DeviceHandleService_ServiceDesc, srv)
-}
-
-func _DeviceHandleService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceHandleServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceHandleService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceHandleServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceHandleService_GetRangingDevice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRangingDeviceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceHandleServiceServer).GetRangingDevice(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceHandleService_GetRangingDevice_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceHandleServiceServer).GetRangingDevice(ctx, req.(*GetRangingDeviceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceHandleService_GetTransportHandle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTransportHandleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceHandleServiceServer).GetTransportHandle(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceHandleService_GetTransportHandle_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceHandleServiceServer).GetTransportHandle(ctx, req.(*GetTransportHandleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceHandleService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceHandleServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceHandleService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceHandleServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DeviceHandleService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceHandleServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceHandleService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceHandleServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DeviceHandleService_ServiceDesc is the grpc.ServiceDesc for DeviceHandleService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var DeviceHandleService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "oob.DeviceHandleService",
-	HandlerType: (*DeviceHandleServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _DeviceHandleService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetRangingDevice",
-			Handler:    _DeviceHandleService_GetRangingDevice_Handler,
-		},
-		{
-			MethodName: "GetTransportHandle",
-			Handler:    _DeviceHandleService_GetTransportHandle_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _DeviceHandleService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _DeviceHandleService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/oob/oob.proto",
-}
-
-const (
-	DeviceHandleBuilderService_Build_FullMethodName = "/oob.DeviceHandleBuilderService/Build"
-)
-
-// DeviceHandleBuilderServiceClient is the client API for DeviceHandleBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DeviceHandleBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-}
-
-type deviceHandleBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewDeviceHandleBuilderServiceClient(cc grpc.ClientConnInterface) DeviceHandleBuilderServiceClient {
-	return &deviceHandleBuilderServiceClient{cc}
-}
-
-func (c *deviceHandleBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, DeviceHandleBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DeviceHandleBuilderServiceServer is the server API for DeviceHandleBuilderService service.
-// All implementations must embed UnimplementedDeviceHandleBuilderServiceServer
-// for forward compatibility.
-type DeviceHandleBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	mustEmbedUnimplementedDeviceHandleBuilderServiceServer()
-}
-
-// UnimplementedDeviceHandleBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedDeviceHandleBuilderServiceServer struct{}
-
-func (UnimplementedDeviceHandleBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedDeviceHandleBuilderServiceServer) mustEmbedUnimplementedDeviceHandleBuilderServiceServer() {
-}
-func (UnimplementedDeviceHandleBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeDeviceHandleBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DeviceHandleBuilderServiceServer will
-// result in compilation errors.
-type UnsafeDeviceHandleBuilderServiceServer interface {
-	mustEmbedUnimplementedDeviceHandleBuilderServiceServer()
-}
-
-func RegisterDeviceHandleBuilderServiceServer(s grpc.ServiceRegistrar, srv DeviceHandleBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedDeviceHandleBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&DeviceHandleBuilderService_ServiceDesc, srv)
-}
-
-func _DeviceHandleBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DeviceHandleBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DeviceHandleBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DeviceHandleBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DeviceHandleBuilderService_ServiceDesc is the grpc.ServiceDesc for DeviceHandleBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var DeviceHandleBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "oob.DeviceHandleBuilderService",
-	HandlerType: (*DeviceHandleBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _DeviceHandleBuilderService_Build_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/oob/oob.proto",
-}
-
-const (
 	TransportHandleService_RegisterReceiveCallback_FullMethodName = "/oob.TransportHandleService/RegisterReceiveCallback"
 	TransportHandleService_SendData_FullMethodName                = "/oob.TransportHandleService/SendData"
 )
@@ -774,8 +417,330 @@ var TransportHandleReceiveCallbackService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	ResponderRangingConfigService_DescribeContents_FullMethodName = "/oob.ResponderRangingConfigService/DescribeContents"
+	ResponderRangingConfigService_GetDeviceHandle_FullMethodName  = "/oob.ResponderRangingConfigService/GetDeviceHandle"
+	ResponderRangingConfigService_ToString_FullMethodName         = "/oob.ResponderRangingConfigService/ToString"
+	ResponderRangingConfigService_WriteToParcel_FullMethodName    = "/oob.ResponderRangingConfigService/WriteToParcel"
+)
+
+// ResponderRangingConfigServiceClient is the client API for ResponderRangingConfigService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ResponderRangingConfigServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetDeviceHandle(ctx context.Context, in *GetDeviceHandleRequest, opts ...grpc.CallOption) (*GetDeviceHandleResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type responderRangingConfigServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewResponderRangingConfigServiceClient(cc grpc.ClientConnInterface) ResponderRangingConfigServiceClient {
+	return &responderRangingConfigServiceClient{cc}
+}
+
+func (c *responderRangingConfigServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ResponderRangingConfigService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderRangingConfigServiceClient) GetDeviceHandle(ctx context.Context, in *GetDeviceHandleRequest, opts ...grpc.CallOption) (*GetDeviceHandleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDeviceHandleResponse)
+	err := c.cc.Invoke(ctx, ResponderRangingConfigService_GetDeviceHandle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderRangingConfigServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, ResponderRangingConfigService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responderRangingConfigServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ResponderRangingConfigService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ResponderRangingConfigServiceServer is the server API for ResponderRangingConfigService service.
+// All implementations must embed UnimplementedResponderRangingConfigServiceServer
+// for forward compatibility.
+type ResponderRangingConfigServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetDeviceHandle(context.Context, *GetDeviceHandleRequest) (*GetDeviceHandleResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedResponderRangingConfigServiceServer()
+}
+
+// UnimplementedResponderRangingConfigServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedResponderRangingConfigServiceServer struct{}
+
+func (UnimplementedResponderRangingConfigServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedResponderRangingConfigServiceServer) GetDeviceHandle(context.Context, *GetDeviceHandleRequest) (*GetDeviceHandleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDeviceHandle not implemented")
+}
+func (UnimplementedResponderRangingConfigServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedResponderRangingConfigServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedResponderRangingConfigServiceServer) mustEmbedUnimplementedResponderRangingConfigServiceServer() {
+}
+func (UnimplementedResponderRangingConfigServiceServer) testEmbeddedByValue() {}
+
+// UnsafeResponderRangingConfigServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ResponderRangingConfigServiceServer will
+// result in compilation errors.
+type UnsafeResponderRangingConfigServiceServer interface {
+	mustEmbedUnimplementedResponderRangingConfigServiceServer()
+}
+
+func RegisterResponderRangingConfigServiceServer(s grpc.ServiceRegistrar, srv ResponderRangingConfigServiceServer) {
+	// If the following call panics, it indicates UnimplementedResponderRangingConfigServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ResponderRangingConfigService_ServiceDesc, srv)
+}
+
+func _ResponderRangingConfigService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderRangingConfigServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderRangingConfigService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderRangingConfigServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderRangingConfigService_GetDeviceHandle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDeviceHandleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderRangingConfigServiceServer).GetDeviceHandle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderRangingConfigService_GetDeviceHandle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderRangingConfigServiceServer).GetDeviceHandle(ctx, req.(*GetDeviceHandleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderRangingConfigService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderRangingConfigServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderRangingConfigService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderRangingConfigServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponderRangingConfigService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderRangingConfigServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderRangingConfigService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderRangingConfigServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ResponderRangingConfigService_ServiceDesc is the grpc.ServiceDesc for ResponderRangingConfigService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ResponderRangingConfigService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "oob.ResponderRangingConfigService",
+	HandlerType: (*ResponderRangingConfigServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _ResponderRangingConfigService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetDeviceHandle",
+			Handler:    _ResponderRangingConfigService_GetDeviceHandle_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _ResponderRangingConfigService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _ResponderRangingConfigService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/oob/oob.proto",
+}
+
+const (
+	ResponderRangingConfigBuilderService_Build_FullMethodName = "/oob.ResponderRangingConfigBuilderService/Build"
+)
+
+// ResponderRangingConfigBuilderServiceClient is the client API for ResponderRangingConfigBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ResponderRangingConfigBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+}
+
+type responderRangingConfigBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewResponderRangingConfigBuilderServiceClient(cc grpc.ClientConnInterface) ResponderRangingConfigBuilderServiceClient {
+	return &responderRangingConfigBuilderServiceClient{cc}
+}
+
+func (c *responderRangingConfigBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, ResponderRangingConfigBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ResponderRangingConfigBuilderServiceServer is the server API for ResponderRangingConfigBuilderService service.
+// All implementations must embed UnimplementedResponderRangingConfigBuilderServiceServer
+// for forward compatibility.
+type ResponderRangingConfigBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	mustEmbedUnimplementedResponderRangingConfigBuilderServiceServer()
+}
+
+// UnimplementedResponderRangingConfigBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedResponderRangingConfigBuilderServiceServer struct{}
+
+func (UnimplementedResponderRangingConfigBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedResponderRangingConfigBuilderServiceServer) mustEmbedUnimplementedResponderRangingConfigBuilderServiceServer() {
+}
+func (UnimplementedResponderRangingConfigBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeResponderRangingConfigBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ResponderRangingConfigBuilderServiceServer will
+// result in compilation errors.
+type UnsafeResponderRangingConfigBuilderServiceServer interface {
+	mustEmbedUnimplementedResponderRangingConfigBuilderServiceServer()
+}
+
+func RegisterResponderRangingConfigBuilderServiceServer(s grpc.ServiceRegistrar, srv ResponderRangingConfigBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedResponderRangingConfigBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ResponderRangingConfigBuilderService_ServiceDesc, srv)
+}
+
+func _ResponderRangingConfigBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponderRangingConfigBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponderRangingConfigBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponderRangingConfigBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ResponderRangingConfigBuilderService_ServiceDesc is the grpc.ServiceDesc for ResponderRangingConfigBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ResponderRangingConfigBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "oob.ResponderRangingConfigBuilderService",
+	HandlerType: (*ResponderRangingConfigBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _ResponderRangingConfigBuilderService_Build_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/oob/oob.proto",
+}
+
+const (
 	InitiatorRangingConfigService_DescribeContents_FullMethodName          = "/oob.InitiatorRangingConfigService/DescribeContents"
+	InitiatorRangingConfigService_GetDeviceHandles_FullMethodName          = "/oob.InitiatorRangingConfigService/GetDeviceHandles"
 	InitiatorRangingConfigService_GetFastestRangingInterval_FullMethodName = "/oob.InitiatorRangingConfigService/GetFastestRangingInterval"
+	InitiatorRangingConfigService_GetRangingIntervalRange_FullMethodName   = "/oob.InitiatorRangingConfigService/GetRangingIntervalRange"
 	InitiatorRangingConfigService_GetRangingMode_FullMethodName            = "/oob.InitiatorRangingConfigService/GetRangingMode"
 	InitiatorRangingConfigService_GetSecurityLevel_FullMethodName          = "/oob.InitiatorRangingConfigService/GetSecurityLevel"
 	InitiatorRangingConfigService_GetSlowestRangingInterval_FullMethodName = "/oob.InitiatorRangingConfigService/GetSlowestRangingInterval"
@@ -788,7 +753,9 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type InitiatorRangingConfigServiceClient interface {
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetDeviceHandles(ctx context.Context, in *GetDeviceHandlesRequest, opts ...grpc.CallOption) (*GetDeviceHandlesResponse, error)
 	GetFastestRangingInterval(ctx context.Context, in *GetFastestRangingIntervalRequest, opts ...grpc.CallOption) (*GetFastestRangingIntervalResponse, error)
+	GetRangingIntervalRange(ctx context.Context, in *GetRangingIntervalRangeRequest, opts ...grpc.CallOption) (*GetRangingIntervalRangeResponse, error)
 	GetRangingMode(ctx context.Context, in *GetRangingModeRequest, opts ...grpc.CallOption) (*GetRangingModeResponse, error)
 	GetSecurityLevel(ctx context.Context, in *GetSecurityLevelRequest, opts ...grpc.CallOption) (*GetSecurityLevelResponse, error)
 	GetSlowestRangingInterval(ctx context.Context, in *GetSlowestRangingIntervalRequest, opts ...grpc.CallOption) (*GetSlowestRangingIntervalResponse, error)
@@ -814,10 +781,30 @@ func (c *initiatorRangingConfigServiceClient) DescribeContents(ctx context.Conte
 	return out, nil
 }
 
+func (c *initiatorRangingConfigServiceClient) GetDeviceHandles(ctx context.Context, in *GetDeviceHandlesRequest, opts ...grpc.CallOption) (*GetDeviceHandlesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDeviceHandlesResponse)
+	err := c.cc.Invoke(ctx, InitiatorRangingConfigService_GetDeviceHandles_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *initiatorRangingConfigServiceClient) GetFastestRangingInterval(ctx context.Context, in *GetFastestRangingIntervalRequest, opts ...grpc.CallOption) (*GetFastestRangingIntervalResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetFastestRangingIntervalResponse)
 	err := c.cc.Invoke(ctx, InitiatorRangingConfigService_GetFastestRangingInterval_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *initiatorRangingConfigServiceClient) GetRangingIntervalRange(ctx context.Context, in *GetRangingIntervalRangeRequest, opts ...grpc.CallOption) (*GetRangingIntervalRangeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRangingIntervalRangeResponse)
+	err := c.cc.Invoke(ctx, InitiatorRangingConfigService_GetRangingIntervalRange_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -879,7 +866,9 @@ func (c *initiatorRangingConfigServiceClient) WriteToParcel(ctx context.Context,
 // for forward compatibility.
 type InitiatorRangingConfigServiceServer interface {
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetDeviceHandles(context.Context, *GetDeviceHandlesRequest) (*GetDeviceHandlesResponse, error)
 	GetFastestRangingInterval(context.Context, *GetFastestRangingIntervalRequest) (*GetFastestRangingIntervalResponse, error)
+	GetRangingIntervalRange(context.Context, *GetRangingIntervalRangeRequest) (*GetRangingIntervalRangeResponse, error)
 	GetRangingMode(context.Context, *GetRangingModeRequest) (*GetRangingModeResponse, error)
 	GetSecurityLevel(context.Context, *GetSecurityLevelRequest) (*GetSecurityLevelResponse, error)
 	GetSlowestRangingInterval(context.Context, *GetSlowestRangingIntervalRequest) (*GetSlowestRangingIntervalResponse, error)
@@ -898,8 +887,14 @@ type UnimplementedInitiatorRangingConfigServiceServer struct{}
 func (UnimplementedInitiatorRangingConfigServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
+func (UnimplementedInitiatorRangingConfigServiceServer) GetDeviceHandles(context.Context, *GetDeviceHandlesRequest) (*GetDeviceHandlesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDeviceHandles not implemented")
+}
 func (UnimplementedInitiatorRangingConfigServiceServer) GetFastestRangingInterval(context.Context, *GetFastestRangingIntervalRequest) (*GetFastestRangingIntervalResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetFastestRangingInterval not implemented")
+}
+func (UnimplementedInitiatorRangingConfigServiceServer) GetRangingIntervalRange(context.Context, *GetRangingIntervalRangeRequest) (*GetRangingIntervalRangeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRangingIntervalRange not implemented")
 }
 func (UnimplementedInitiatorRangingConfigServiceServer) GetRangingMode(context.Context, *GetRangingModeRequest) (*GetRangingModeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetRangingMode not implemented")
@@ -956,6 +951,24 @@ func _InitiatorRangingConfigService_DescribeContents_Handler(srv interface{}, ct
 	return interceptor(ctx, in, info, handler)
 }
 
+func _InitiatorRangingConfigService_GetDeviceHandles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDeviceHandlesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InitiatorRangingConfigServiceServer).GetDeviceHandles(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InitiatorRangingConfigService_GetDeviceHandles_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InitiatorRangingConfigServiceServer).GetDeviceHandles(ctx, req.(*GetDeviceHandlesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _InitiatorRangingConfigService_GetFastestRangingInterval_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetFastestRangingIntervalRequest)
 	if err := dec(in); err != nil {
@@ -970,6 +983,24 @@ func _InitiatorRangingConfigService_GetFastestRangingInterval_Handler(srv interf
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(InitiatorRangingConfigServiceServer).GetFastestRangingInterval(ctx, req.(*GetFastestRangingIntervalRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InitiatorRangingConfigService_GetRangingIntervalRange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRangingIntervalRangeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InitiatorRangingConfigServiceServer).GetRangingIntervalRange(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InitiatorRangingConfigService_GetRangingIntervalRange_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InitiatorRangingConfigServiceServer).GetRangingIntervalRange(ctx, req.(*GetRangingIntervalRangeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1076,8 +1107,16 @@ var InitiatorRangingConfigService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _InitiatorRangingConfigService_DescribeContents_Handler,
 		},
 		{
+			MethodName: "GetDeviceHandles",
+			Handler:    _InitiatorRangingConfigService_GetDeviceHandles_Handler,
+		},
+		{
 			MethodName: "GetFastestRangingInterval",
 			Handler:    _InitiatorRangingConfigService_GetFastestRangingInterval_Handler,
+		},
+		{
+			MethodName: "GetRangingIntervalRange",
+			Handler:    _InitiatorRangingConfigService_GetRangingIntervalRange_Handler,
 		},
 		{
 			MethodName: "GetRangingMode",
@@ -1398,216 +1437,253 @@ var InitiatorRangingConfigBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ResponderRangingConfigService_DescribeContents_FullMethodName = "/oob.ResponderRangingConfigService/DescribeContents"
-	ResponderRangingConfigService_GetDeviceHandle_FullMethodName  = "/oob.ResponderRangingConfigService/GetDeviceHandle"
-	ResponderRangingConfigService_ToString_FullMethodName         = "/oob.ResponderRangingConfigService/ToString"
-	ResponderRangingConfigService_WriteToParcel_FullMethodName    = "/oob.ResponderRangingConfigService/WriteToParcel"
+	DeviceHandleService_DescribeContents_FullMethodName   = "/oob.DeviceHandleService/DescribeContents"
+	DeviceHandleService_GetRangingDevice_FullMethodName   = "/oob.DeviceHandleService/GetRangingDevice"
+	DeviceHandleService_GetTransportHandle_FullMethodName = "/oob.DeviceHandleService/GetTransportHandle"
+	DeviceHandleService_ToString_FullMethodName           = "/oob.DeviceHandleService/ToString"
+	DeviceHandleService_WriteToParcel_FullMethodName      = "/oob.DeviceHandleService/WriteToParcel"
 )
 
-// ResponderRangingConfigServiceClient is the client API for ResponderRangingConfigService service.
+// DeviceHandleServiceClient is the client API for DeviceHandleService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ResponderRangingConfigServiceClient interface {
+type DeviceHandleServiceClient interface {
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetDeviceHandle(ctx context.Context, in *GetDeviceHandleRequest, opts ...grpc.CallOption) (*GetDeviceHandleResponse, error)
+	GetRangingDevice(ctx context.Context, in *GetRangingDeviceRequest, opts ...grpc.CallOption) (*GetRangingDeviceResponse, error)
+	GetTransportHandle(ctx context.Context, in *GetTransportHandleRequest, opts ...grpc.CallOption) (*GetTransportHandleResponse, error)
 	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
 	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type responderRangingConfigServiceClient struct {
+type deviceHandleServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewResponderRangingConfigServiceClient(cc grpc.ClientConnInterface) ResponderRangingConfigServiceClient {
-	return &responderRangingConfigServiceClient{cc}
+func NewDeviceHandleServiceClient(cc grpc.ClientConnInterface) DeviceHandleServiceClient {
+	return &deviceHandleServiceClient{cc}
 }
 
-func (c *responderRangingConfigServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *deviceHandleServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, ResponderRangingConfigService_DescribeContents_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceHandleService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *responderRangingConfigServiceClient) GetDeviceHandle(ctx context.Context, in *GetDeviceHandleRequest, opts ...grpc.CallOption) (*GetDeviceHandleResponse, error) {
+func (c *deviceHandleServiceClient) GetRangingDevice(ctx context.Context, in *GetRangingDeviceRequest, opts ...grpc.CallOption) (*GetRangingDeviceResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDeviceHandleResponse)
-	err := c.cc.Invoke(ctx, ResponderRangingConfigService_GetDeviceHandle_FullMethodName, in, out, cOpts...)
+	out := new(GetRangingDeviceResponse)
+	err := c.cc.Invoke(ctx, DeviceHandleService_GetRangingDevice_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *responderRangingConfigServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+func (c *deviceHandleServiceClient) GetTransportHandle(ctx context.Context, in *GetTransportHandleRequest, opts ...grpc.CallOption) (*GetTransportHandleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTransportHandleResponse)
+	err := c.cc.Invoke(ctx, DeviceHandleService_GetTransportHandle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *deviceHandleServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, ResponderRangingConfigService_ToString_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceHandleService_ToString_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *responderRangingConfigServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *deviceHandleServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, ResponderRangingConfigService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceHandleService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// ResponderRangingConfigServiceServer is the server API for ResponderRangingConfigService service.
-// All implementations must embed UnimplementedResponderRangingConfigServiceServer
+// DeviceHandleServiceServer is the server API for DeviceHandleService service.
+// All implementations must embed UnimplementedDeviceHandleServiceServer
 // for forward compatibility.
-type ResponderRangingConfigServiceServer interface {
+type DeviceHandleServiceServer interface {
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetDeviceHandle(context.Context, *GetDeviceHandleRequest) (*GetDeviceHandleResponse, error)
+	GetRangingDevice(context.Context, *GetRangingDeviceRequest) (*GetRangingDeviceResponse, error)
+	GetTransportHandle(context.Context, *GetTransportHandleRequest) (*GetTransportHandleResponse, error)
 	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
 	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedResponderRangingConfigServiceServer()
+	mustEmbedUnimplementedDeviceHandleServiceServer()
 }
 
-// UnimplementedResponderRangingConfigServiceServer must be embedded to have
+// UnimplementedDeviceHandleServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedResponderRangingConfigServiceServer struct{}
+type UnimplementedDeviceHandleServiceServer struct{}
 
-func (UnimplementedResponderRangingConfigServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedDeviceHandleServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedResponderRangingConfigServiceServer) GetDeviceHandle(context.Context, *GetDeviceHandleRequest) (*GetDeviceHandleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDeviceHandle not implemented")
+func (UnimplementedDeviceHandleServiceServer) GetRangingDevice(context.Context, *GetRangingDeviceRequest) (*GetRangingDeviceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRangingDevice not implemented")
 }
-func (UnimplementedResponderRangingConfigServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+func (UnimplementedDeviceHandleServiceServer) GetTransportHandle(context.Context, *GetTransportHandleRequest) (*GetTransportHandleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTransportHandle not implemented")
+}
+func (UnimplementedDeviceHandleServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedResponderRangingConfigServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedDeviceHandleServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedResponderRangingConfigServiceServer) mustEmbedUnimplementedResponderRangingConfigServiceServer() {
-}
-func (UnimplementedResponderRangingConfigServiceServer) testEmbeddedByValue() {}
+func (UnimplementedDeviceHandleServiceServer) mustEmbedUnimplementedDeviceHandleServiceServer() {}
+func (UnimplementedDeviceHandleServiceServer) testEmbeddedByValue()                             {}
 
-// UnsafeResponderRangingConfigServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ResponderRangingConfigServiceServer will
+// UnsafeDeviceHandleServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DeviceHandleServiceServer will
 // result in compilation errors.
-type UnsafeResponderRangingConfigServiceServer interface {
-	mustEmbedUnimplementedResponderRangingConfigServiceServer()
+type UnsafeDeviceHandleServiceServer interface {
+	mustEmbedUnimplementedDeviceHandleServiceServer()
 }
 
-func RegisterResponderRangingConfigServiceServer(s grpc.ServiceRegistrar, srv ResponderRangingConfigServiceServer) {
-	// If the following call panics, it indicates UnimplementedResponderRangingConfigServiceServer was
+func RegisterDeviceHandleServiceServer(s grpc.ServiceRegistrar, srv DeviceHandleServiceServer) {
+	// If the following call panics, it indicates UnimplementedDeviceHandleServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&ResponderRangingConfigService_ServiceDesc, srv)
+	s.RegisterService(&DeviceHandleService_ServiceDesc, srv)
 }
 
-func _ResponderRangingConfigService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceHandleService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ResponderRangingConfigServiceServer).DescribeContents(ctx, in)
+		return srv.(DeviceHandleServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ResponderRangingConfigService_DescribeContents_FullMethodName,
+		FullMethod: DeviceHandleService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderRangingConfigServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(DeviceHandleServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ResponderRangingConfigService_GetDeviceHandle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDeviceHandleRequest)
+func _DeviceHandleService_GetRangingDevice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRangingDeviceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ResponderRangingConfigServiceServer).GetDeviceHandle(ctx, in)
+		return srv.(DeviceHandleServiceServer).GetRangingDevice(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ResponderRangingConfigService_GetDeviceHandle_FullMethodName,
+		FullMethod: DeviceHandleService_GetRangingDevice_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderRangingConfigServiceServer).GetDeviceHandle(ctx, req.(*GetDeviceHandleRequest))
+		return srv.(DeviceHandleServiceServer).GetRangingDevice(ctx, req.(*GetRangingDeviceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ResponderRangingConfigService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceHandleService_GetTransportHandle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTransportHandleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DeviceHandleServiceServer).GetTransportHandle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DeviceHandleService_GetTransportHandle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DeviceHandleServiceServer).GetTransportHandle(ctx, req.(*GetTransportHandleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DeviceHandleService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ResponderRangingConfigServiceServer).ToString(ctx, in)
+		return srv.(DeviceHandleServiceServer).ToString(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ResponderRangingConfigService_ToString_FullMethodName,
+		FullMethod: DeviceHandleService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderRangingConfigServiceServer).ToString(ctx, req.(*ToStringRequest))
+		return srv.(DeviceHandleServiceServer).ToString(ctx, req.(*ToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ResponderRangingConfigService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceHandleService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ResponderRangingConfigServiceServer).WriteToParcel(ctx, in)
+		return srv.(DeviceHandleServiceServer).WriteToParcel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ResponderRangingConfigService_WriteToParcel_FullMethodName,
+		FullMethod: DeviceHandleService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderRangingConfigServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(DeviceHandleServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// ResponderRangingConfigService_ServiceDesc is the grpc.ServiceDesc for ResponderRangingConfigService service.
+// DeviceHandleService_ServiceDesc is the grpc.ServiceDesc for DeviceHandleService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var ResponderRangingConfigService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "oob.ResponderRangingConfigService",
-	HandlerType: (*ResponderRangingConfigServiceServer)(nil),
+var DeviceHandleService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "oob.DeviceHandleService",
+	HandlerType: (*DeviceHandleServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "DescribeContents",
-			Handler:    _ResponderRangingConfigService_DescribeContents_Handler,
+			Handler:    _DeviceHandleService_DescribeContents_Handler,
 		},
 		{
-			MethodName: "GetDeviceHandle",
-			Handler:    _ResponderRangingConfigService_GetDeviceHandle_Handler,
+			MethodName: "GetRangingDevice",
+			Handler:    _DeviceHandleService_GetRangingDevice_Handler,
+		},
+		{
+			MethodName: "GetTransportHandle",
+			Handler:    _DeviceHandleService_GetTransportHandle_Handler,
 		},
 		{
 			MethodName: "ToString",
-			Handler:    _ResponderRangingConfigService_ToString_Handler,
+			Handler:    _DeviceHandleService_ToString_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _ResponderRangingConfigService_WriteToParcel_Handler,
+			Handler:    _DeviceHandleService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1615,102 +1691,102 @@ var ResponderRangingConfigService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ResponderRangingConfigBuilderService_Build_FullMethodName = "/oob.ResponderRangingConfigBuilderService/Build"
+	DeviceHandleBuilderService_Build_FullMethodName = "/oob.DeviceHandleBuilderService/Build"
 )
 
-// ResponderRangingConfigBuilderServiceClient is the client API for ResponderRangingConfigBuilderService service.
+// DeviceHandleBuilderServiceClient is the client API for DeviceHandleBuilderService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ResponderRangingConfigBuilderServiceClient interface {
+type DeviceHandleBuilderServiceClient interface {
 	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
 }
 
-type responderRangingConfigBuilderServiceClient struct {
+type deviceHandleBuilderServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewResponderRangingConfigBuilderServiceClient(cc grpc.ClientConnInterface) ResponderRangingConfigBuilderServiceClient {
-	return &responderRangingConfigBuilderServiceClient{cc}
+func NewDeviceHandleBuilderServiceClient(cc grpc.ClientConnInterface) DeviceHandleBuilderServiceClient {
+	return &deviceHandleBuilderServiceClient{cc}
 }
 
-func (c *responderRangingConfigBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+func (c *deviceHandleBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, ResponderRangingConfigBuilderService_Build_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, DeviceHandleBuilderService_Build_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// ResponderRangingConfigBuilderServiceServer is the server API for ResponderRangingConfigBuilderService service.
-// All implementations must embed UnimplementedResponderRangingConfigBuilderServiceServer
+// DeviceHandleBuilderServiceServer is the server API for DeviceHandleBuilderService service.
+// All implementations must embed UnimplementedDeviceHandleBuilderServiceServer
 // for forward compatibility.
-type ResponderRangingConfigBuilderServiceServer interface {
+type DeviceHandleBuilderServiceServer interface {
 	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	mustEmbedUnimplementedResponderRangingConfigBuilderServiceServer()
+	mustEmbedUnimplementedDeviceHandleBuilderServiceServer()
 }
 
-// UnimplementedResponderRangingConfigBuilderServiceServer must be embedded to have
+// UnimplementedDeviceHandleBuilderServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedResponderRangingConfigBuilderServiceServer struct{}
+type UnimplementedDeviceHandleBuilderServiceServer struct{}
 
-func (UnimplementedResponderRangingConfigBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+func (UnimplementedDeviceHandleBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
 }
-func (UnimplementedResponderRangingConfigBuilderServiceServer) mustEmbedUnimplementedResponderRangingConfigBuilderServiceServer() {
+func (UnimplementedDeviceHandleBuilderServiceServer) mustEmbedUnimplementedDeviceHandleBuilderServiceServer() {
 }
-func (UnimplementedResponderRangingConfigBuilderServiceServer) testEmbeddedByValue() {}
+func (UnimplementedDeviceHandleBuilderServiceServer) testEmbeddedByValue() {}
 
-// UnsafeResponderRangingConfigBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ResponderRangingConfigBuilderServiceServer will
+// UnsafeDeviceHandleBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DeviceHandleBuilderServiceServer will
 // result in compilation errors.
-type UnsafeResponderRangingConfigBuilderServiceServer interface {
-	mustEmbedUnimplementedResponderRangingConfigBuilderServiceServer()
+type UnsafeDeviceHandleBuilderServiceServer interface {
+	mustEmbedUnimplementedDeviceHandleBuilderServiceServer()
 }
 
-func RegisterResponderRangingConfigBuilderServiceServer(s grpc.ServiceRegistrar, srv ResponderRangingConfigBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedResponderRangingConfigBuilderServiceServer was
+func RegisterDeviceHandleBuilderServiceServer(s grpc.ServiceRegistrar, srv DeviceHandleBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedDeviceHandleBuilderServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&ResponderRangingConfigBuilderService_ServiceDesc, srv)
+	s.RegisterService(&DeviceHandleBuilderService_ServiceDesc, srv)
 }
 
-func _ResponderRangingConfigBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _DeviceHandleBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(BuildRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ResponderRangingConfigBuilderServiceServer).Build(ctx, in)
+		return srv.(DeviceHandleBuilderServiceServer).Build(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ResponderRangingConfigBuilderService_Build_FullMethodName,
+		FullMethod: DeviceHandleBuilderService_Build_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponderRangingConfigBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+		return srv.(DeviceHandleBuilderServiceServer).Build(ctx, req.(*BuildRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// ResponderRangingConfigBuilderService_ServiceDesc is the grpc.ServiceDesc for ResponderRangingConfigBuilderService service.
+// DeviceHandleBuilderService_ServiceDesc is the grpc.ServiceDesc for DeviceHandleBuilderService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var ResponderRangingConfigBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "oob.ResponderRangingConfigBuilderService",
-	HandlerType: (*ResponderRangingConfigBuilderServiceServer)(nil),
+var DeviceHandleBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "oob.DeviceHandleBuilderService",
+	HandlerType: (*DeviceHandleBuilderServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Build",
-			Handler:    _ResponderRangingConfigBuilderService_Build_Handler,
+			Handler:    _DeviceHandleBuilderService_Build_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -23,104 +23,15 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type NewPromptContentItemPlainTextRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewPromptContentItemPlainTextRequest) Reset() {
-	*x = NewPromptContentItemPlainTextRequest{}
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[0]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewPromptContentItemPlainTextRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewPromptContentItemPlainTextRequest) ProtoMessage() {}
-
-func (x *NewPromptContentItemPlainTextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[0]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewPromptContentItemPlainTextRequest.ProtoReflect.Descriptor instead.
-func (*NewPromptContentItemPlainTextRequest) Descriptor() ([]byte, []int) {
-	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *NewPromptContentItemPlainTextRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type NewPromptContentItemPlainTextResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *NewPromptContentItemPlainTextResponse) Reset() {
-	*x = NewPromptContentItemPlainTextResponse{}
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *NewPromptContentItemPlainTextResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*NewPromptContentItemPlainTextResponse) ProtoMessage() {}
-
-func (x *NewPromptContentItemPlainTextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use NewPromptContentItemPlainTextResponse.ProtoReflect.Descriptor instead.
-func (*NewPromptContentItemPlainTextResponse) Descriptor() ([]byte, []int) {
-	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *NewPromptContentItemPlainTextResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
 type DescribeContentsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *DescribeContentsRequest) Reset() {
 	*x = DescribeContentsRequest{}
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[2]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -132,7 +43,7 @@ func (x *DescribeContentsRequest) String() string {
 func (*DescribeContentsRequest) ProtoMessage() {}
 
 func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[2]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -145,14 +56,7 @@ func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
 func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *DescribeContentsRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
+	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{0}
 }
 
 type DescribeContentsResponse struct {
@@ -164,7 +68,7 @@ type DescribeContentsResponse struct {
 
 func (x *DescribeContentsResponse) Reset() {
 	*x = DescribeContentsResponse{}
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[3]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -176,7 +80,7 @@ func (x *DescribeContentsResponse) String() string {
 func (*DescribeContentsResponse) ProtoMessage() {}
 
 func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[3]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -189,7 +93,7 @@ func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
 func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{3}
+	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *DescribeContentsResponse) GetResult() int32 {
@@ -199,18 +103,177 @@ func (x *DescribeContentsResponse) GetResult() int32 {
 	return 0
 }
 
+type GetDescriptionRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDescriptionRequest) Reset() {
+	*x = GetDescriptionRequest{}
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDescriptionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDescriptionRequest) ProtoMessage() {}
+
+func (x *GetDescriptionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDescriptionRequest.ProtoReflect.Descriptor instead.
+func (*GetDescriptionRequest) Descriptor() ([]byte, []int) {
+	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{2}
+}
+
+type GetDescriptionResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetDescriptionResponse) Reset() {
+	*x = GetDescriptionResponse{}
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetDescriptionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetDescriptionResponse) ProtoMessage() {}
+
+func (x *GetDescriptionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetDescriptionResponse.ProtoReflect.Descriptor instead.
+func (*GetDescriptionResponse) Descriptor() ([]byte, []int) {
+	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetDescriptionResponse) GetResult() string {
+	if x != nil {
+		return x.Result
+	}
+	return ""
+}
+
+type GetListItemsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetListItemsRequest) Reset() {
+	*x = GetListItemsRequest{}
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetListItemsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetListItemsRequest) ProtoMessage() {}
+
+func (x *GetListItemsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetListItemsRequest.ProtoReflect.Descriptor instead.
+func (*GetListItemsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{4}
+}
+
+type GetListItemsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetListItemsResponse) Reset() {
+	*x = GetListItemsResponse{}
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetListItemsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetListItemsResponse) ProtoMessage() {}
+
+func (x *GetListItemsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetListItemsResponse.ProtoReflect.Descriptor instead.
+func (*GetListItemsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetListItemsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 type WriteToParcelRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
-	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *WriteToParcelRequest) Reset() {
 	*x = WriteToParcelRequest{}
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[4]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -222,7 +285,7 @@ func (x *WriteToParcelRequest) String() string {
 func (*WriteToParcelRequest) ProtoMessage() {}
 
 func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[4]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -235,14 +298,7 @@ func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
 func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *WriteToParcelRequest) GetHandle() int64 {
-	if x != nil {
-		return x.Handle
-	}
-	return 0
+	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *WriteToParcelRequest) GetArg0() int64 {
@@ -267,7 +323,7 @@ type WriteToParcelResponse struct {
 
 func (x *WriteToParcelResponse) Reset() {
 	*x = WriteToParcelResponse{}
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[5]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -279,7 +335,7 @@ func (x *WriteToParcelResponse) String() string {
 func (*WriteToParcelResponse) ProtoMessage() {}
 
 func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[5]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -292,175 +348,7 @@ func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
 func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{5}
-}
-
-type PromptVerticalListContentViewDescribeContentsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PromptVerticalListContentViewDescribeContentsRequest) Reset() {
-	*x = PromptVerticalListContentViewDescribeContentsRequest{}
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PromptVerticalListContentViewDescribeContentsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PromptVerticalListContentViewDescribeContentsRequest) ProtoMessage() {}
-
-func (x *PromptVerticalListContentViewDescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[6]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PromptVerticalListContentViewDescribeContentsRequest.ProtoReflect.Descriptor instead.
-func (*PromptVerticalListContentViewDescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{6}
-}
-
-type GetDescriptionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDescriptionRequest) Reset() {
-	*x = GetDescriptionRequest{}
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[7]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDescriptionRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDescriptionRequest) ProtoMessage() {}
-
-func (x *GetDescriptionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[7]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDescriptionRequest.ProtoReflect.Descriptor instead.
-func (*GetDescriptionRequest) Descriptor() ([]byte, []int) {
 	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{7}
-}
-
-type GetDescriptionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        string                 `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetDescriptionResponse) Reset() {
-	*x = GetDescriptionResponse{}
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[8]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetDescriptionResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetDescriptionResponse) ProtoMessage() {}
-
-func (x *GetDescriptionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[8]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetDescriptionResponse.ProtoReflect.Descriptor instead.
-func (*GetDescriptionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{8}
-}
-
-func (x *GetDescriptionResponse) GetResult() string {
-	if x != nil {
-		return x.Result
-	}
-	return ""
-}
-
-type PromptVerticalListContentViewWriteToParcelRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PromptVerticalListContentViewWriteToParcelRequest) Reset() {
-	*x = PromptVerticalListContentViewWriteToParcelRequest{}
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[9]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PromptVerticalListContentViewWriteToParcelRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PromptVerticalListContentViewWriteToParcelRequest) ProtoMessage() {}
-
-func (x *PromptVerticalListContentViewWriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[9]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PromptVerticalListContentViewWriteToParcelRequest.ProtoReflect.Descriptor instead.
-func (*PromptVerticalListContentViewWriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{9}
-}
-
-func (x *PromptVerticalListContentViewWriteToParcelRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *PromptVerticalListContentViewWriteToParcelRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
 }
 
 type GetMaxEachItemCharacterNumberRequest struct {
@@ -471,7 +359,7 @@ type GetMaxEachItemCharacterNumberRequest struct {
 
 func (x *GetMaxEachItemCharacterNumberRequest) Reset() {
 	*x = GetMaxEachItemCharacterNumberRequest{}
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[10]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -483,7 +371,7 @@ func (x *GetMaxEachItemCharacterNumberRequest) String() string {
 func (*GetMaxEachItemCharacterNumberRequest) ProtoMessage() {}
 
 func (x *GetMaxEachItemCharacterNumberRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[10]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -496,7 +384,7 @@ func (x *GetMaxEachItemCharacterNumberRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use GetMaxEachItemCharacterNumberRequest.ProtoReflect.Descriptor instead.
 func (*GetMaxEachItemCharacterNumberRequest) Descriptor() ([]byte, []int) {
-	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{10}
+	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{8}
 }
 
 type GetMaxEachItemCharacterNumberResponse struct {
@@ -508,7 +396,7 @@ type GetMaxEachItemCharacterNumberResponse struct {
 
 func (x *GetMaxEachItemCharacterNumberResponse) Reset() {
 	*x = GetMaxEachItemCharacterNumberResponse{}
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[11]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -520,7 +408,7 @@ func (x *GetMaxEachItemCharacterNumberResponse) String() string {
 func (*GetMaxEachItemCharacterNumberResponse) ProtoMessage() {}
 
 func (x *GetMaxEachItemCharacterNumberResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[11]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -533,7 +421,7 @@ func (x *GetMaxEachItemCharacterNumberResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use GetMaxEachItemCharacterNumberResponse.ProtoReflect.Descriptor instead.
 func (*GetMaxEachItemCharacterNumberResponse) Descriptor() ([]byte, []int) {
-	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{11}
+	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *GetMaxEachItemCharacterNumberResponse) GetResult() int32 {
@@ -551,7 +439,7 @@ type GetMaxItemCountRequest struct {
 
 func (x *GetMaxItemCountRequest) Reset() {
 	*x = GetMaxItemCountRequest{}
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[12]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -563,7 +451,7 @@ func (x *GetMaxItemCountRequest) String() string {
 func (*GetMaxItemCountRequest) ProtoMessage() {}
 
 func (x *GetMaxItemCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[12]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -576,7 +464,7 @@ func (x *GetMaxItemCountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMaxItemCountRequest.ProtoReflect.Descriptor instead.
 func (*GetMaxItemCountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{12}
+	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{10}
 }
 
 type GetMaxItemCountResponse struct {
@@ -588,7 +476,7 @@ type GetMaxItemCountResponse struct {
 
 func (x *GetMaxItemCountResponse) Reset() {
 	*x = GetMaxItemCountResponse{}
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[13]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -600,7 +488,7 @@ func (x *GetMaxItemCountResponse) String() string {
 func (*GetMaxItemCountResponse) ProtoMessage() {}
 
 func (x *GetMaxItemCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[13]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -613,7 +501,7 @@ func (x *GetMaxItemCountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMaxItemCountResponse.ProtoReflect.Descriptor instead.
 func (*GetMaxItemCountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{13}
+	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *GetMaxItemCountResponse) GetResult() int32 {
@@ -632,7 +520,7 @@ type AddListItem1Request struct {
 
 func (x *AddListItem1Request) Reset() {
 	*x = AddListItem1Request{}
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[14]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -644,7 +532,7 @@ func (x *AddListItem1Request) String() string {
 func (*AddListItem1Request) ProtoMessage() {}
 
 func (x *AddListItem1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[14]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -657,7 +545,7 @@ func (x *AddListItem1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddListItem1Request.ProtoReflect.Descriptor instead.
 func (*AddListItem1Request) Descriptor() ([]byte, []int) {
-	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{14}
+	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *AddListItem1Request) GetArg0() int64 {
@@ -676,7 +564,7 @@ type AddListItem1Response struct {
 
 func (x *AddListItem1Response) Reset() {
 	*x = AddListItem1Response{}
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[15]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -688,7 +576,7 @@ func (x *AddListItem1Response) String() string {
 func (*AddListItem1Response) ProtoMessage() {}
 
 func (x *AddListItem1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[15]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -701,7 +589,7 @@ func (x *AddListItem1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddListItem1Response.ProtoReflect.Descriptor instead.
 func (*AddListItem1Response) Descriptor() ([]byte, []int) {
-	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{15}
+	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *AddListItem1Response) GetResult() int64 {
@@ -721,7 +609,7 @@ type AddListItem2_1Request struct {
 
 func (x *AddListItem2_1Request) Reset() {
 	*x = AddListItem2_1Request{}
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[16]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -733,7 +621,7 @@ func (x *AddListItem2_1Request) String() string {
 func (*AddListItem2_1Request) ProtoMessage() {}
 
 func (x *AddListItem2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[16]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -746,7 +634,7 @@ func (x *AddListItem2_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddListItem2_1Request.ProtoReflect.Descriptor instead.
 func (*AddListItem2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{16}
+	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *AddListItem2_1Request) GetArg0() int64 {
@@ -772,7 +660,7 @@ type AddListItem2_1Response struct {
 
 func (x *AddListItem2_1Response) Reset() {
 	*x = AddListItem2_1Response{}
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[17]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -784,7 +672,7 @@ func (x *AddListItem2_1Response) String() string {
 func (*AddListItem2_1Response) ProtoMessage() {}
 
 func (x *AddListItem2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[17]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -797,7 +685,7 @@ func (x *AddListItem2_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddListItem2_1Response.ProtoReflect.Descriptor instead.
 func (*AddListItem2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{17}
+	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *AddListItem2_1Response) GetResult() int64 {
@@ -815,7 +703,7 @@ type BuildRequest struct {
 
 func (x *BuildRequest) Reset() {
 	*x = BuildRequest{}
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[18]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -827,7 +715,7 @@ func (x *BuildRequest) String() string {
 func (*BuildRequest) ProtoMessage() {}
 
 func (x *BuildRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[18]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -840,7 +728,7 @@ func (x *BuildRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
 func (*BuildRequest) Descriptor() ([]byte, []int) {
-	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{18}
+	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{16}
 }
 
 type BuildResponse struct {
@@ -852,7 +740,7 @@ type BuildResponse struct {
 
 func (x *BuildResponse) Reset() {
 	*x = BuildResponse{}
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[19]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -864,7 +752,7 @@ func (x *BuildResponse) String() string {
 func (*BuildResponse) ProtoMessage() {}
 
 func (x *BuildResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[19]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -877,7 +765,7 @@ func (x *BuildResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
 func (*BuildResponse) Descriptor() ([]byte, []int) {
-	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{19}
+	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *BuildResponse) GetResult() int64 {
@@ -896,7 +784,7 @@ type SetDescriptionRequest struct {
 
 func (x *SetDescriptionRequest) Reset() {
 	*x = SetDescriptionRequest{}
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[20]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -908,7 +796,7 @@ func (x *SetDescriptionRequest) String() string {
 func (*SetDescriptionRequest) ProtoMessage() {}
 
 func (x *SetDescriptionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[20]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -921,7 +809,7 @@ func (x *SetDescriptionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDescriptionRequest.ProtoReflect.Descriptor instead.
 func (*SetDescriptionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{20}
+	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *SetDescriptionRequest) GetArg0() string {
@@ -940,7 +828,7 @@ type SetDescriptionResponse struct {
 
 func (x *SetDescriptionResponse) Reset() {
 	*x = SetDescriptionResponse{}
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[21]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -952,7 +840,7 @@ func (x *SetDescriptionResponse) String() string {
 func (*SetDescriptionResponse) ProtoMessage() {}
 
 func (x *SetDescriptionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[21]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -965,7 +853,7 @@ func (x *SetDescriptionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetDescriptionResponse.ProtoReflect.Descriptor instead.
 func (*SetDescriptionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{21}
+	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *SetDescriptionResponse) GetResult() int64 {
@@ -984,7 +872,7 @@ type NewPromptContentItemBulletedTextRequest struct {
 
 func (x *NewPromptContentItemBulletedTextRequest) Reset() {
 	*x = NewPromptContentItemBulletedTextRequest{}
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[22]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -996,7 +884,7 @@ func (x *NewPromptContentItemBulletedTextRequest) String() string {
 func (*NewPromptContentItemBulletedTextRequest) ProtoMessage() {}
 
 func (x *NewPromptContentItemBulletedTextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[22]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1009,7 +897,7 @@ func (x *NewPromptContentItemBulletedTextRequest) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use NewPromptContentItemBulletedTextRequest.ProtoReflect.Descriptor instead.
 func (*NewPromptContentItemBulletedTextRequest) Descriptor() ([]byte, []int) {
-	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{22}
+	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *NewPromptContentItemBulletedTextRequest) GetArg0() string {
@@ -1028,7 +916,7 @@ type NewPromptContentItemBulletedTextResponse struct {
 
 func (x *NewPromptContentItemBulletedTextResponse) Reset() {
 	*x = NewPromptContentItemBulletedTextResponse{}
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[23]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1040,7 +928,7 @@ func (x *NewPromptContentItemBulletedTextResponse) String() string {
 func (*NewPromptContentItemBulletedTextResponse) ProtoMessage() {}
 
 func (x *NewPromptContentItemBulletedTextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[23]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1053,7 +941,7 @@ func (x *NewPromptContentItemBulletedTextResponse) ProtoReflect() protoreflect.M
 
 // Deprecated: Use NewPromptContentItemBulletedTextResponse.ProtoReflect.Descriptor instead.
 func (*NewPromptContentItemBulletedTextResponse) Descriptor() ([]byte, []int) {
-	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{23}
+	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *NewPromptContentItemBulletedTextResponse) GetResult() int64 {
@@ -1063,26 +951,131 @@ func (x *NewPromptContentItemBulletedTextResponse) GetResult() int64 {
 	return 0
 }
 
-type PromptContentViewWithMoreOptionsButtonDescribeContentsRequest struct {
+type PromptContentItemBulletedTextDescribeContentsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *PromptContentViewWithMoreOptionsButtonDescribeContentsRequest) Reset() {
-	*x = PromptContentViewWithMoreOptionsButtonDescribeContentsRequest{}
+func (x *PromptContentItemBulletedTextDescribeContentsRequest) Reset() {
+	*x = PromptContentItemBulletedTextDescribeContentsRequest{}
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PromptContentItemBulletedTextDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PromptContentItemBulletedTextDescribeContentsRequest) ProtoMessage() {}
+
+func (x *PromptContentItemBulletedTextDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PromptContentItemBulletedTextDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*PromptContentItemBulletedTextDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *PromptContentItemBulletedTextDescribeContentsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type PromptContentItemBulletedTextWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PromptContentItemBulletedTextWriteToParcelRequest) Reset() {
+	*x = PromptContentItemBulletedTextWriteToParcelRequest{}
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PromptContentItemBulletedTextWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PromptContentItemBulletedTextWriteToParcelRequest) ProtoMessage() {}
+
+func (x *PromptContentItemBulletedTextWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PromptContentItemBulletedTextWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*PromptContentItemBulletedTextWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *PromptContentItemBulletedTextWriteToParcelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *PromptContentItemBulletedTextWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *PromptContentItemBulletedTextWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type NewPromptContentItemPlainTextRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewPromptContentItemPlainTextRequest) Reset() {
+	*x = NewPromptContentItemPlainTextRequest{}
 	mi := &file_proto_biometrics_biometrics_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *PromptContentViewWithMoreOptionsButtonDescribeContentsRequest) String() string {
+func (x *NewPromptContentItemPlainTextRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*PromptContentViewWithMoreOptionsButtonDescribeContentsRequest) ProtoMessage() {}
+func (*NewPromptContentItemPlainTextRequest) ProtoMessage() {}
 
-func (x *PromptContentViewWithMoreOptionsButtonDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+func (x *NewPromptContentItemPlainTextRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_proto_biometrics_biometrics_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1094,9 +1087,164 @@ func (x *PromptContentViewWithMoreOptionsButtonDescribeContentsRequest) ProtoRef
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use PromptContentViewWithMoreOptionsButtonDescribeContentsRequest.ProtoReflect.Descriptor instead.
-func (*PromptContentViewWithMoreOptionsButtonDescribeContentsRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use NewPromptContentItemPlainTextRequest.ProtoReflect.Descriptor instead.
+func (*NewPromptContentItemPlainTextRequest) Descriptor() ([]byte, []int) {
 	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *NewPromptContentItemPlainTextRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type NewPromptContentItemPlainTextResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewPromptContentItemPlainTextResponse) Reset() {
+	*x = NewPromptContentItemPlainTextResponse{}
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewPromptContentItemPlainTextResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewPromptContentItemPlainTextResponse) ProtoMessage() {}
+
+func (x *NewPromptContentItemPlainTextResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewPromptContentItemPlainTextResponse.ProtoReflect.Descriptor instead.
+func (*NewPromptContentItemPlainTextResponse) Descriptor() ([]byte, []int) {
+	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *NewPromptContentItemPlainTextResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type PromptContentItemPlainTextDescribeContentsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PromptContentItemPlainTextDescribeContentsRequest) Reset() {
+	*x = PromptContentItemPlainTextDescribeContentsRequest{}
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PromptContentItemPlainTextDescribeContentsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PromptContentItemPlainTextDescribeContentsRequest) ProtoMessage() {}
+
+func (x *PromptContentItemPlainTextDescribeContentsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PromptContentItemPlainTextDescribeContentsRequest.ProtoReflect.Descriptor instead.
+func (*PromptContentItemPlainTextDescribeContentsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *PromptContentItemPlainTextDescribeContentsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type PromptContentItemPlainTextWriteToParcelRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int32                  `protobuf:"varint,3,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PromptContentItemPlainTextWriteToParcelRequest) Reset() {
+	*x = PromptContentItemPlainTextWriteToParcelRequest{}
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PromptContentItemPlainTextWriteToParcelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PromptContentItemPlainTextWriteToParcelRequest) ProtoMessage() {}
+
+func (x *PromptContentItemPlainTextWriteToParcelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PromptContentItemPlainTextWriteToParcelRequest.ProtoReflect.Descriptor instead.
+func (*PromptContentItemPlainTextWriteToParcelRequest) Descriptor() ([]byte, []int) {
+	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *PromptContentItemPlainTextWriteToParcelRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *PromptContentItemPlainTextWriteToParcelRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *PromptContentItemPlainTextWriteToParcelRequest) GetArg1() int32 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
 }
 
 type GetMoreOptionsButtonListenerRequest struct {
@@ -1107,7 +1255,7 @@ type GetMoreOptionsButtonListenerRequest struct {
 
 func (x *GetMoreOptionsButtonListenerRequest) Reset() {
 	*x = GetMoreOptionsButtonListenerRequest{}
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[25]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1119,7 +1267,7 @@ func (x *GetMoreOptionsButtonListenerRequest) String() string {
 func (*GetMoreOptionsButtonListenerRequest) ProtoMessage() {}
 
 func (x *GetMoreOptionsButtonListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[25]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1132,7 +1280,7 @@ func (x *GetMoreOptionsButtonListenerRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use GetMoreOptionsButtonListenerRequest.ProtoReflect.Descriptor instead.
 func (*GetMoreOptionsButtonListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{25}
+	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{28}
 }
 
 type GetMoreOptionsButtonListenerResponse struct {
@@ -1144,7 +1292,7 @@ type GetMoreOptionsButtonListenerResponse struct {
 
 func (x *GetMoreOptionsButtonListenerResponse) Reset() {
 	*x = GetMoreOptionsButtonListenerResponse{}
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[26]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1156,7 +1304,7 @@ func (x *GetMoreOptionsButtonListenerResponse) String() string {
 func (*GetMoreOptionsButtonListenerResponse) ProtoMessage() {}
 
 func (x *GetMoreOptionsButtonListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[26]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1169,64 +1317,12 @@ func (x *GetMoreOptionsButtonListenerResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use GetMoreOptionsButtonListenerResponse.ProtoReflect.Descriptor instead.
 func (*GetMoreOptionsButtonListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{26}
+	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *GetMoreOptionsButtonListenerResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
-	}
-	return 0
-}
-
-type PromptContentViewWithMoreOptionsButtonWriteToParcelRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int32                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *PromptContentViewWithMoreOptionsButtonWriteToParcelRequest) Reset() {
-	*x = PromptContentViewWithMoreOptionsButtonWriteToParcelRequest{}
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[27]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *PromptContentViewWithMoreOptionsButtonWriteToParcelRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PromptContentViewWithMoreOptionsButtonWriteToParcelRequest) ProtoMessage() {}
-
-func (x *PromptContentViewWithMoreOptionsButtonWriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[27]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PromptContentViewWithMoreOptionsButtonWriteToParcelRequest.ProtoReflect.Descriptor instead.
-func (*PromptContentViewWithMoreOptionsButtonWriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{27}
-}
-
-func (x *PromptContentViewWithMoreOptionsButtonWriteToParcelRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *PromptContentViewWithMoreOptionsButtonWriteToParcelRequest) GetArg1() int32 {
-	if x != nil {
-		return x.Arg1
 	}
 	return 0
 }
@@ -1241,7 +1337,7 @@ type SetMoreOptionsButtonListenerRequest struct {
 
 func (x *SetMoreOptionsButtonListenerRequest) Reset() {
 	*x = SetMoreOptionsButtonListenerRequest{}
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[28]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1253,7 +1349,7 @@ func (x *SetMoreOptionsButtonListenerRequest) String() string {
 func (*SetMoreOptionsButtonListenerRequest) ProtoMessage() {}
 
 func (x *SetMoreOptionsButtonListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[28]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1266,7 +1362,7 @@ func (x *SetMoreOptionsButtonListenerRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use SetMoreOptionsButtonListenerRequest.ProtoReflect.Descriptor instead.
 func (*SetMoreOptionsButtonListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{28}
+	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *SetMoreOptionsButtonListenerRequest) GetArg0() int64 {
@@ -1292,7 +1388,7 @@ type SetMoreOptionsButtonListenerResponse struct {
 
 func (x *SetMoreOptionsButtonListenerResponse) Reset() {
 	*x = SetMoreOptionsButtonListenerResponse{}
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[29]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1304,7 +1400,7 @@ func (x *SetMoreOptionsButtonListenerResponse) String() string {
 func (*SetMoreOptionsButtonListenerResponse) ProtoMessage() {}
 
 func (x *SetMoreOptionsButtonListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_biometrics_biometrics_proto_msgTypes[29]
+	mi := &file_proto_biometrics_biometrics_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1317,7 +1413,7 @@ func (x *SetMoreOptionsButtonListenerResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use SetMoreOptionsButtonListenerResponse.ProtoReflect.Descriptor instead.
 func (*SetMoreOptionsButtonListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{29}
+	return file_proto_biometrics_biometrics_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *SetMoreOptionsButtonListenerResponse) GetResult() int64 {
@@ -1332,27 +1428,20 @@ var File_proto_biometrics_biometrics_proto protoreflect.FileDescriptor
 const file_proto_biometrics_biometrics_proto_rawDesc = "" +
 	"\n" +
 	"!proto/biometrics/biometrics.proto\x12\n" +
-	"biometrics\":\n" +
-	"$NewPromptContentItemPlainTextRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"?\n" +
-	"%NewPromptContentItemPlainTextResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
-	"\x17DescribeContentsRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
+	"biometrics\"\x19\n" +
+	"\x17DescribeContentsRequest\"2\n" +
 	"\x18DescribeContentsResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"V\n" +
-	"\x14WriteToParcelRequest\x12\x16\n" +
-	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
-	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x17\n" +
-	"\x15WriteToParcelResponse\"6\n" +
-	"4PromptVerticalListContentViewDescribeContentsRequest\"\x17\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"\x17\n" +
 	"\x15GetDescriptionRequest\"0\n" +
 	"\x16GetDescriptionResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"[\n" +
-	"1PromptVerticalListContentViewWriteToParcelRequest\x12\x12\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"\x15\n" +
+	"\x13GetListItemsRequest\".\n" +
+	"\x14GetListItemsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\">\n" +
+	"\x14WriteToParcelRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"&\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"\x17\n" +
+	"\x15WriteToParcelResponse\"&\n" +
 	"$GetMaxEachItemCharacterNumberRequest\"?\n" +
 	"%GetMaxEachItemCharacterNumberResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x05R\x06result\"\x18\n" +
@@ -1378,43 +1467,56 @@ const file_proto_biometrics_biometrics_proto_rawDesc = "" +
 	"'NewPromptContentItemBulletedTextRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"B\n" +
 	"(NewPromptContentItemBulletedTextResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"?\n" +
-	"=PromptContentViewWithMoreOptionsButtonDescribeContentsRequest\"%\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"N\n" +
+	"4PromptContentItemBulletedTextDescribeContentsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"s\n" +
+	"1PromptContentItemBulletedTextWriteToParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\":\n" +
+	"$NewPromptContentItemPlainTextRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"?\n" +
+	"%NewPromptContentItemPlainTextResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"K\n" +
+	"1PromptContentItemPlainTextDescribeContentsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"p\n" +
+	".PromptContentItemPlainTextWriteToParcelRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"%\n" +
 	"#GetMoreOptionsButtonListenerRequest\">\n" +
 	"$GetMoreOptionsButtonListenerResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"d\n" +
-	":PromptContentViewWithMoreOptionsButtonWriteToParcelRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"M\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"M\n" +
 	"#SetMoreOptionsButtonListenerRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\">\n" +
 	"$SetMoreOptionsButtonListenerResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result2\xdf\x02\n" +
-	"!PromptContentItemPlainTextService\x12\x84\x01\n" +
-	"\x1dNewPromptContentItemPlainText\x120.biometrics.NewPromptContentItemPlainTextRequest\x1a1.biometrics.NewPromptContentItemPlainTextResponse\x12]\n" +
-	"\x10DescribeContents\x12#.biometrics.DescribeContentsRequest\x1a$.biometrics.DescribeContentsResponse\x12T\n" +
-	"\rWriteToParcel\x12 .biometrics.WriteToParcelRequest\x1a!.biometrics.WriteToParcelResponse2\xd1\x04\n" +
-	"$PromptVerticalListContentViewService\x12z\n" +
-	"\x10DescribeContents\x12@.biometrics.PromptVerticalListContentViewDescribeContentsRequest\x1a$.biometrics.DescribeContentsResponse\x12W\n" +
-	"\x0eGetDescription\x12!.biometrics.GetDescriptionRequest\x1a\".biometrics.GetDescriptionResponse\x12q\n" +
-	"\rWriteToParcel\x12=.biometrics.PromptVerticalListContentViewWriteToParcelRequest\x1a!.biometrics.WriteToParcelResponse\x12\x84\x01\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\xea\x04\n" +
+	"$PromptVerticalListContentViewService\x12]\n" +
+	"\x10DescribeContents\x12#.biometrics.DescribeContentsRequest\x1a$.biometrics.DescribeContentsResponse\x12W\n" +
+	"\x0eGetDescription\x12!.biometrics.GetDescriptionRequest\x1a\".biometrics.GetDescriptionResponse\x12Q\n" +
+	"\fGetListItems\x12\x1f.biometrics.GetListItemsRequest\x1a .biometrics.GetListItemsResponse\x12T\n" +
+	"\rWriteToParcel\x12 .biometrics.WriteToParcelRequest\x1a!.biometrics.WriteToParcelResponse\x12\x84\x01\n" +
 	"\x1dGetMaxEachItemCharacterNumber\x120.biometrics.GetMaxEachItemCharacterNumberRequest\x1a1.biometrics.GetMaxEachItemCharacterNumberResponse\x12Z\n" +
 	"\x0fGetMaxItemCount\x12\".biometrics.GetMaxItemCountRequest\x1a#.biometrics.GetMaxItemCountResponse2\xf0\x02\n" +
 	"+PromptVerticalListContentViewBuilderService\x12Q\n" +
 	"\fAddListItem1\x12\x1f.biometrics.AddListItem1Request\x1a .biometrics.AddListItem1Response\x12W\n" +
 	"\x0eAddListItem2_1\x12!.biometrics.AddListItem2_1Request\x1a\".biometrics.AddListItem2_1Response\x12<\n" +
 	"\x05Build\x12\x18.biometrics.BuildRequest\x1a\x19.biometrics.BuildResponse\x12W\n" +
-	"\x0eSetDescription\x12!.biometrics.SetDescriptionRequest\x1a\".biometrics.SetDescriptionResponse2\xeb\x02\n" +
+	"\x0eSetDescription\x12!.biometrics.SetDescriptionRequest\x1a\".biometrics.SetDescriptionResponse2\xa5\x03\n" +
 	"$PromptContentItemBulletedTextService\x12\x8d\x01\n" +
-	" NewPromptContentItemBulletedText\x123.biometrics.NewPromptContentItemBulletedTextRequest\x1a4.biometrics.NewPromptContentItemBulletedTextResponse\x12]\n" +
-	"\x10DescribeContents\x12#.biometrics.DescribeContentsRequest\x1a$.biometrics.DescribeContentsResponse\x12T\n" +
-	"\rWriteToParcel\x12 .biometrics.WriteToParcelRequest\x1a!.biometrics.WriteToParcelResponse2\x8e\x04\n" +
-	"-PromptContentViewWithMoreOptionsButtonService\x12\x83\x01\n" +
-	"\x10DescribeContents\x12I.biometrics.PromptContentViewWithMoreOptionsButtonDescribeContentsRequest\x1a$.biometrics.DescribeContentsResponse\x12W\n" +
+	" NewPromptContentItemBulletedText\x123.biometrics.NewPromptContentItemBulletedTextRequest\x1a4.biometrics.NewPromptContentItemBulletedTextResponse\x12z\n" +
+	"\x10DescribeContents\x12@.biometrics.PromptContentItemBulletedTextDescribeContentsRequest\x1a$.biometrics.DescribeContentsResponse\x12q\n" +
+	"\rWriteToParcel\x12=.biometrics.PromptContentItemBulletedTextWriteToParcelRequest\x1a!.biometrics.WriteToParcelResponse2\x93\x03\n" +
+	"!PromptContentItemPlainTextService\x12\x84\x01\n" +
+	"\x1dNewPromptContentItemPlainText\x120.biometrics.NewPromptContentItemPlainTextRequest\x1a1.biometrics.NewPromptContentItemPlainTextResponse\x12w\n" +
+	"\x10DescribeContents\x12=.biometrics.PromptContentItemPlainTextDescribeContentsRequest\x1a$.biometrics.DescribeContentsResponse\x12n\n" +
+	"\rWriteToParcel\x12:.biometrics.PromptContentItemPlainTextWriteToParcelRequest\x1a!.biometrics.WriteToParcelResponse2\xc1\x03\n" +
+	"-PromptContentViewWithMoreOptionsButtonService\x12]\n" +
+	"\x10DescribeContents\x12#.biometrics.DescribeContentsRequest\x1a$.biometrics.DescribeContentsResponse\x12W\n" +
 	"\x0eGetDescription\x12!.biometrics.GetDescriptionRequest\x1a\".biometrics.GetDescriptionResponse\x12\x81\x01\n" +
-	"\x1cGetMoreOptionsButtonListener\x12/.biometrics.GetMoreOptionsButtonListenerRequest\x1a0.biometrics.GetMoreOptionsButtonListenerResponse\x12z\n" +
-	"\rWriteToParcel\x12F.biometrics.PromptContentViewWithMoreOptionsButtonWriteToParcelRequest\x1a!.biometrics.WriteToParcelResponse2\xd1\x02\n" +
+	"\x1cGetMoreOptionsButtonListener\x12/.biometrics.GetMoreOptionsButtonListenerRequest\x1a0.biometrics.GetMoreOptionsButtonListenerResponse\x12T\n" +
+	"\rWriteToParcel\x12 .biometrics.WriteToParcelRequest\x1a!.biometrics.WriteToParcelResponse2\xd1\x02\n" +
 	"4PromptContentViewWithMoreOptionsButtonBuilderService\x12<\n" +
 	"\x05Build\x12\x18.biometrics.BuildRequest\x1a\x19.biometrics.BuildResponse\x12W\n" +
 	"\x0eSetDescription\x12!.biometrics.SetDescriptionRequest\x1a\".biometrics.SetDescriptionResponse\x12\x81\x01\n" +
@@ -1432,86 +1534,90 @@ func file_proto_biometrics_biometrics_proto_rawDescGZIP() []byte {
 	return file_proto_biometrics_biometrics_proto_rawDescData
 }
 
-var file_proto_biometrics_biometrics_proto_msgTypes = make([]protoimpl.MessageInfo, 30)
+var file_proto_biometrics_biometrics_proto_msgTypes = make([]protoimpl.MessageInfo, 32)
 var file_proto_biometrics_biometrics_proto_goTypes = []any{
-	(*NewPromptContentItemPlainTextRequest)(nil),                          // 0: biometrics.NewPromptContentItemPlainTextRequest
-	(*NewPromptContentItemPlainTextResponse)(nil),                         // 1: biometrics.NewPromptContentItemPlainTextResponse
-	(*DescribeContentsRequest)(nil),                                       // 2: biometrics.DescribeContentsRequest
-	(*DescribeContentsResponse)(nil),                                      // 3: biometrics.DescribeContentsResponse
-	(*WriteToParcelRequest)(nil),                                          // 4: biometrics.WriteToParcelRequest
-	(*WriteToParcelResponse)(nil),                                         // 5: biometrics.WriteToParcelResponse
-	(*PromptVerticalListContentViewDescribeContentsRequest)(nil),          // 6: biometrics.PromptVerticalListContentViewDescribeContentsRequest
-	(*GetDescriptionRequest)(nil),                                         // 7: biometrics.GetDescriptionRequest
-	(*GetDescriptionResponse)(nil),                                        // 8: biometrics.GetDescriptionResponse
-	(*PromptVerticalListContentViewWriteToParcelRequest)(nil),             // 9: biometrics.PromptVerticalListContentViewWriteToParcelRequest
-	(*GetMaxEachItemCharacterNumberRequest)(nil),                          // 10: biometrics.GetMaxEachItemCharacterNumberRequest
-	(*GetMaxEachItemCharacterNumberResponse)(nil),                         // 11: biometrics.GetMaxEachItemCharacterNumberResponse
-	(*GetMaxItemCountRequest)(nil),                                        // 12: biometrics.GetMaxItemCountRequest
-	(*GetMaxItemCountResponse)(nil),                                       // 13: biometrics.GetMaxItemCountResponse
-	(*AddListItem1Request)(nil),                                           // 14: biometrics.AddListItem1Request
-	(*AddListItem1Response)(nil),                                          // 15: biometrics.AddListItem1Response
-	(*AddListItem2_1Request)(nil),                                         // 16: biometrics.AddListItem2_1Request
-	(*AddListItem2_1Response)(nil),                                        // 17: biometrics.AddListItem2_1Response
-	(*BuildRequest)(nil),                                                  // 18: biometrics.BuildRequest
-	(*BuildResponse)(nil),                                                 // 19: biometrics.BuildResponse
-	(*SetDescriptionRequest)(nil),                                         // 20: biometrics.SetDescriptionRequest
-	(*SetDescriptionResponse)(nil),                                        // 21: biometrics.SetDescriptionResponse
-	(*NewPromptContentItemBulletedTextRequest)(nil),                       // 22: biometrics.NewPromptContentItemBulletedTextRequest
-	(*NewPromptContentItemBulletedTextResponse)(nil),                      // 23: biometrics.NewPromptContentItemBulletedTextResponse
-	(*PromptContentViewWithMoreOptionsButtonDescribeContentsRequest)(nil), // 24: biometrics.PromptContentViewWithMoreOptionsButtonDescribeContentsRequest
-	(*GetMoreOptionsButtonListenerRequest)(nil),                           // 25: biometrics.GetMoreOptionsButtonListenerRequest
-	(*GetMoreOptionsButtonListenerResponse)(nil),                          // 26: biometrics.GetMoreOptionsButtonListenerResponse
-	(*PromptContentViewWithMoreOptionsButtonWriteToParcelRequest)(nil),    // 27: biometrics.PromptContentViewWithMoreOptionsButtonWriteToParcelRequest
-	(*SetMoreOptionsButtonListenerRequest)(nil),                           // 28: biometrics.SetMoreOptionsButtonListenerRequest
-	(*SetMoreOptionsButtonListenerResponse)(nil),                          // 29: biometrics.SetMoreOptionsButtonListenerResponse
+	(*DescribeContentsRequest)(nil),                              // 0: biometrics.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),                             // 1: biometrics.DescribeContentsResponse
+	(*GetDescriptionRequest)(nil),                                // 2: biometrics.GetDescriptionRequest
+	(*GetDescriptionResponse)(nil),                               // 3: biometrics.GetDescriptionResponse
+	(*GetListItemsRequest)(nil),                                  // 4: biometrics.GetListItemsRequest
+	(*GetListItemsResponse)(nil),                                 // 5: biometrics.GetListItemsResponse
+	(*WriteToParcelRequest)(nil),                                 // 6: biometrics.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                                // 7: biometrics.WriteToParcelResponse
+	(*GetMaxEachItemCharacterNumberRequest)(nil),                 // 8: biometrics.GetMaxEachItemCharacterNumberRequest
+	(*GetMaxEachItemCharacterNumberResponse)(nil),                // 9: biometrics.GetMaxEachItemCharacterNumberResponse
+	(*GetMaxItemCountRequest)(nil),                               // 10: biometrics.GetMaxItemCountRequest
+	(*GetMaxItemCountResponse)(nil),                              // 11: biometrics.GetMaxItemCountResponse
+	(*AddListItem1Request)(nil),                                  // 12: biometrics.AddListItem1Request
+	(*AddListItem1Response)(nil),                                 // 13: biometrics.AddListItem1Response
+	(*AddListItem2_1Request)(nil),                                // 14: biometrics.AddListItem2_1Request
+	(*AddListItem2_1Response)(nil),                               // 15: biometrics.AddListItem2_1Response
+	(*BuildRequest)(nil),                                         // 16: biometrics.BuildRequest
+	(*BuildResponse)(nil),                                        // 17: biometrics.BuildResponse
+	(*SetDescriptionRequest)(nil),                                // 18: biometrics.SetDescriptionRequest
+	(*SetDescriptionResponse)(nil),                               // 19: biometrics.SetDescriptionResponse
+	(*NewPromptContentItemBulletedTextRequest)(nil),              // 20: biometrics.NewPromptContentItemBulletedTextRequest
+	(*NewPromptContentItemBulletedTextResponse)(nil),             // 21: biometrics.NewPromptContentItemBulletedTextResponse
+	(*PromptContentItemBulletedTextDescribeContentsRequest)(nil), // 22: biometrics.PromptContentItemBulletedTextDescribeContentsRequest
+	(*PromptContentItemBulletedTextWriteToParcelRequest)(nil),    // 23: biometrics.PromptContentItemBulletedTextWriteToParcelRequest
+	(*NewPromptContentItemPlainTextRequest)(nil),                 // 24: biometrics.NewPromptContentItemPlainTextRequest
+	(*NewPromptContentItemPlainTextResponse)(nil),                // 25: biometrics.NewPromptContentItemPlainTextResponse
+	(*PromptContentItemPlainTextDescribeContentsRequest)(nil),    // 26: biometrics.PromptContentItemPlainTextDescribeContentsRequest
+	(*PromptContentItemPlainTextWriteToParcelRequest)(nil),       // 27: biometrics.PromptContentItemPlainTextWriteToParcelRequest
+	(*GetMoreOptionsButtonListenerRequest)(nil),                  // 28: biometrics.GetMoreOptionsButtonListenerRequest
+	(*GetMoreOptionsButtonListenerResponse)(nil),                 // 29: biometrics.GetMoreOptionsButtonListenerResponse
+	(*SetMoreOptionsButtonListenerRequest)(nil),                  // 30: biometrics.SetMoreOptionsButtonListenerRequest
+	(*SetMoreOptionsButtonListenerResponse)(nil),                 // 31: biometrics.SetMoreOptionsButtonListenerResponse
 }
 var file_proto_biometrics_biometrics_proto_depIdxs = []int32{
-	0,  // 0: biometrics.PromptContentItemPlainTextService.NewPromptContentItemPlainText:input_type -> biometrics.NewPromptContentItemPlainTextRequest
-	2,  // 1: biometrics.PromptContentItemPlainTextService.DescribeContents:input_type -> biometrics.DescribeContentsRequest
-	4,  // 2: biometrics.PromptContentItemPlainTextService.WriteToParcel:input_type -> biometrics.WriteToParcelRequest
-	6,  // 3: biometrics.PromptVerticalListContentViewService.DescribeContents:input_type -> biometrics.PromptVerticalListContentViewDescribeContentsRequest
-	7,  // 4: biometrics.PromptVerticalListContentViewService.GetDescription:input_type -> biometrics.GetDescriptionRequest
-	9,  // 5: biometrics.PromptVerticalListContentViewService.WriteToParcel:input_type -> biometrics.PromptVerticalListContentViewWriteToParcelRequest
-	10, // 6: biometrics.PromptVerticalListContentViewService.GetMaxEachItemCharacterNumber:input_type -> biometrics.GetMaxEachItemCharacterNumberRequest
-	12, // 7: biometrics.PromptVerticalListContentViewService.GetMaxItemCount:input_type -> biometrics.GetMaxItemCountRequest
-	14, // 8: biometrics.PromptVerticalListContentViewBuilderService.AddListItem1:input_type -> biometrics.AddListItem1Request
-	16, // 9: biometrics.PromptVerticalListContentViewBuilderService.AddListItem2_1:input_type -> biometrics.AddListItem2_1Request
-	18, // 10: biometrics.PromptVerticalListContentViewBuilderService.Build:input_type -> biometrics.BuildRequest
-	20, // 11: biometrics.PromptVerticalListContentViewBuilderService.SetDescription:input_type -> biometrics.SetDescriptionRequest
-	22, // 12: biometrics.PromptContentItemBulletedTextService.NewPromptContentItemBulletedText:input_type -> biometrics.NewPromptContentItemBulletedTextRequest
-	2,  // 13: biometrics.PromptContentItemBulletedTextService.DescribeContents:input_type -> biometrics.DescribeContentsRequest
-	4,  // 14: biometrics.PromptContentItemBulletedTextService.WriteToParcel:input_type -> biometrics.WriteToParcelRequest
-	24, // 15: biometrics.PromptContentViewWithMoreOptionsButtonService.DescribeContents:input_type -> biometrics.PromptContentViewWithMoreOptionsButtonDescribeContentsRequest
-	7,  // 16: biometrics.PromptContentViewWithMoreOptionsButtonService.GetDescription:input_type -> biometrics.GetDescriptionRequest
-	25, // 17: biometrics.PromptContentViewWithMoreOptionsButtonService.GetMoreOptionsButtonListener:input_type -> biometrics.GetMoreOptionsButtonListenerRequest
-	27, // 18: biometrics.PromptContentViewWithMoreOptionsButtonService.WriteToParcel:input_type -> biometrics.PromptContentViewWithMoreOptionsButtonWriteToParcelRequest
-	18, // 19: biometrics.PromptContentViewWithMoreOptionsButtonBuilderService.Build:input_type -> biometrics.BuildRequest
-	20, // 20: biometrics.PromptContentViewWithMoreOptionsButtonBuilderService.SetDescription:input_type -> biometrics.SetDescriptionRequest
-	28, // 21: biometrics.PromptContentViewWithMoreOptionsButtonBuilderService.SetMoreOptionsButtonListener:input_type -> biometrics.SetMoreOptionsButtonListenerRequest
-	1,  // 22: biometrics.PromptContentItemPlainTextService.NewPromptContentItemPlainText:output_type -> biometrics.NewPromptContentItemPlainTextResponse
-	3,  // 23: biometrics.PromptContentItemPlainTextService.DescribeContents:output_type -> biometrics.DescribeContentsResponse
-	5,  // 24: biometrics.PromptContentItemPlainTextService.WriteToParcel:output_type -> biometrics.WriteToParcelResponse
-	3,  // 25: biometrics.PromptVerticalListContentViewService.DescribeContents:output_type -> biometrics.DescribeContentsResponse
-	8,  // 26: biometrics.PromptVerticalListContentViewService.GetDescription:output_type -> biometrics.GetDescriptionResponse
-	5,  // 27: biometrics.PromptVerticalListContentViewService.WriteToParcel:output_type -> biometrics.WriteToParcelResponse
-	11, // 28: biometrics.PromptVerticalListContentViewService.GetMaxEachItemCharacterNumber:output_type -> biometrics.GetMaxEachItemCharacterNumberResponse
-	13, // 29: biometrics.PromptVerticalListContentViewService.GetMaxItemCount:output_type -> biometrics.GetMaxItemCountResponse
-	15, // 30: biometrics.PromptVerticalListContentViewBuilderService.AddListItem1:output_type -> biometrics.AddListItem1Response
-	17, // 31: biometrics.PromptVerticalListContentViewBuilderService.AddListItem2_1:output_type -> biometrics.AddListItem2_1Response
-	19, // 32: biometrics.PromptVerticalListContentViewBuilderService.Build:output_type -> biometrics.BuildResponse
-	21, // 33: biometrics.PromptVerticalListContentViewBuilderService.SetDescription:output_type -> biometrics.SetDescriptionResponse
-	23, // 34: biometrics.PromptContentItemBulletedTextService.NewPromptContentItemBulletedText:output_type -> biometrics.NewPromptContentItemBulletedTextResponse
-	3,  // 35: biometrics.PromptContentItemBulletedTextService.DescribeContents:output_type -> biometrics.DescribeContentsResponse
-	5,  // 36: biometrics.PromptContentItemBulletedTextService.WriteToParcel:output_type -> biometrics.WriteToParcelResponse
-	3,  // 37: biometrics.PromptContentViewWithMoreOptionsButtonService.DescribeContents:output_type -> biometrics.DescribeContentsResponse
-	8,  // 38: biometrics.PromptContentViewWithMoreOptionsButtonService.GetDescription:output_type -> biometrics.GetDescriptionResponse
-	26, // 39: biometrics.PromptContentViewWithMoreOptionsButtonService.GetMoreOptionsButtonListener:output_type -> biometrics.GetMoreOptionsButtonListenerResponse
-	5,  // 40: biometrics.PromptContentViewWithMoreOptionsButtonService.WriteToParcel:output_type -> biometrics.WriteToParcelResponse
-	19, // 41: biometrics.PromptContentViewWithMoreOptionsButtonBuilderService.Build:output_type -> biometrics.BuildResponse
-	21, // 42: biometrics.PromptContentViewWithMoreOptionsButtonBuilderService.SetDescription:output_type -> biometrics.SetDescriptionResponse
-	29, // 43: biometrics.PromptContentViewWithMoreOptionsButtonBuilderService.SetMoreOptionsButtonListener:output_type -> biometrics.SetMoreOptionsButtonListenerResponse
-	22, // [22:44] is the sub-list for method output_type
-	0,  // [0:22] is the sub-list for method input_type
+	0,  // 0: biometrics.PromptVerticalListContentViewService.DescribeContents:input_type -> biometrics.DescribeContentsRequest
+	2,  // 1: biometrics.PromptVerticalListContentViewService.GetDescription:input_type -> biometrics.GetDescriptionRequest
+	4,  // 2: biometrics.PromptVerticalListContentViewService.GetListItems:input_type -> biometrics.GetListItemsRequest
+	6,  // 3: biometrics.PromptVerticalListContentViewService.WriteToParcel:input_type -> biometrics.WriteToParcelRequest
+	8,  // 4: biometrics.PromptVerticalListContentViewService.GetMaxEachItemCharacterNumber:input_type -> biometrics.GetMaxEachItemCharacterNumberRequest
+	10, // 5: biometrics.PromptVerticalListContentViewService.GetMaxItemCount:input_type -> biometrics.GetMaxItemCountRequest
+	12, // 6: biometrics.PromptVerticalListContentViewBuilderService.AddListItem1:input_type -> biometrics.AddListItem1Request
+	14, // 7: biometrics.PromptVerticalListContentViewBuilderService.AddListItem2_1:input_type -> biometrics.AddListItem2_1Request
+	16, // 8: biometrics.PromptVerticalListContentViewBuilderService.Build:input_type -> biometrics.BuildRequest
+	18, // 9: biometrics.PromptVerticalListContentViewBuilderService.SetDescription:input_type -> biometrics.SetDescriptionRequest
+	20, // 10: biometrics.PromptContentItemBulletedTextService.NewPromptContentItemBulletedText:input_type -> biometrics.NewPromptContentItemBulletedTextRequest
+	22, // 11: biometrics.PromptContentItemBulletedTextService.DescribeContents:input_type -> biometrics.PromptContentItemBulletedTextDescribeContentsRequest
+	23, // 12: biometrics.PromptContentItemBulletedTextService.WriteToParcel:input_type -> biometrics.PromptContentItemBulletedTextWriteToParcelRequest
+	24, // 13: biometrics.PromptContentItemPlainTextService.NewPromptContentItemPlainText:input_type -> biometrics.NewPromptContentItemPlainTextRequest
+	26, // 14: biometrics.PromptContentItemPlainTextService.DescribeContents:input_type -> biometrics.PromptContentItemPlainTextDescribeContentsRequest
+	27, // 15: biometrics.PromptContentItemPlainTextService.WriteToParcel:input_type -> biometrics.PromptContentItemPlainTextWriteToParcelRequest
+	0,  // 16: biometrics.PromptContentViewWithMoreOptionsButtonService.DescribeContents:input_type -> biometrics.DescribeContentsRequest
+	2,  // 17: biometrics.PromptContentViewWithMoreOptionsButtonService.GetDescription:input_type -> biometrics.GetDescriptionRequest
+	28, // 18: biometrics.PromptContentViewWithMoreOptionsButtonService.GetMoreOptionsButtonListener:input_type -> biometrics.GetMoreOptionsButtonListenerRequest
+	6,  // 19: biometrics.PromptContentViewWithMoreOptionsButtonService.WriteToParcel:input_type -> biometrics.WriteToParcelRequest
+	16, // 20: biometrics.PromptContentViewWithMoreOptionsButtonBuilderService.Build:input_type -> biometrics.BuildRequest
+	18, // 21: biometrics.PromptContentViewWithMoreOptionsButtonBuilderService.SetDescription:input_type -> biometrics.SetDescriptionRequest
+	30, // 22: biometrics.PromptContentViewWithMoreOptionsButtonBuilderService.SetMoreOptionsButtonListener:input_type -> biometrics.SetMoreOptionsButtonListenerRequest
+	1,  // 23: biometrics.PromptVerticalListContentViewService.DescribeContents:output_type -> biometrics.DescribeContentsResponse
+	3,  // 24: biometrics.PromptVerticalListContentViewService.GetDescription:output_type -> biometrics.GetDescriptionResponse
+	5,  // 25: biometrics.PromptVerticalListContentViewService.GetListItems:output_type -> biometrics.GetListItemsResponse
+	7,  // 26: biometrics.PromptVerticalListContentViewService.WriteToParcel:output_type -> biometrics.WriteToParcelResponse
+	9,  // 27: biometrics.PromptVerticalListContentViewService.GetMaxEachItemCharacterNumber:output_type -> biometrics.GetMaxEachItemCharacterNumberResponse
+	11, // 28: biometrics.PromptVerticalListContentViewService.GetMaxItemCount:output_type -> biometrics.GetMaxItemCountResponse
+	13, // 29: biometrics.PromptVerticalListContentViewBuilderService.AddListItem1:output_type -> biometrics.AddListItem1Response
+	15, // 30: biometrics.PromptVerticalListContentViewBuilderService.AddListItem2_1:output_type -> biometrics.AddListItem2_1Response
+	17, // 31: biometrics.PromptVerticalListContentViewBuilderService.Build:output_type -> biometrics.BuildResponse
+	19, // 32: biometrics.PromptVerticalListContentViewBuilderService.SetDescription:output_type -> biometrics.SetDescriptionResponse
+	21, // 33: biometrics.PromptContentItemBulletedTextService.NewPromptContentItemBulletedText:output_type -> biometrics.NewPromptContentItemBulletedTextResponse
+	1,  // 34: biometrics.PromptContentItemBulletedTextService.DescribeContents:output_type -> biometrics.DescribeContentsResponse
+	7,  // 35: biometrics.PromptContentItemBulletedTextService.WriteToParcel:output_type -> biometrics.WriteToParcelResponse
+	25, // 36: biometrics.PromptContentItemPlainTextService.NewPromptContentItemPlainText:output_type -> biometrics.NewPromptContentItemPlainTextResponse
+	1,  // 37: biometrics.PromptContentItemPlainTextService.DescribeContents:output_type -> biometrics.DescribeContentsResponse
+	7,  // 38: biometrics.PromptContentItemPlainTextService.WriteToParcel:output_type -> biometrics.WriteToParcelResponse
+	1,  // 39: biometrics.PromptContentViewWithMoreOptionsButtonService.DescribeContents:output_type -> biometrics.DescribeContentsResponse
+	3,  // 40: biometrics.PromptContentViewWithMoreOptionsButtonService.GetDescription:output_type -> biometrics.GetDescriptionResponse
+	29, // 41: biometrics.PromptContentViewWithMoreOptionsButtonService.GetMoreOptionsButtonListener:output_type -> biometrics.GetMoreOptionsButtonListenerResponse
+	7,  // 42: biometrics.PromptContentViewWithMoreOptionsButtonService.WriteToParcel:output_type -> biometrics.WriteToParcelResponse
+	17, // 43: biometrics.PromptContentViewWithMoreOptionsButtonBuilderService.Build:output_type -> biometrics.BuildResponse
+	19, // 44: biometrics.PromptContentViewWithMoreOptionsButtonBuilderService.SetDescription:output_type -> biometrics.SetDescriptionResponse
+	31, // 45: biometrics.PromptContentViewWithMoreOptionsButtonBuilderService.SetMoreOptionsButtonListener:output_type -> biometrics.SetMoreOptionsButtonListenerResponse
+	23, // [23:46] is the sub-list for method output_type
+	0,  // [0:23] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -1528,7 +1634,7 @@ func file_proto_biometrics_biometrics_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_biometrics_biometrics_proto_rawDesc), len(file_proto_biometrics_biometrics_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   30,
+			NumMessages:   32,
 			NumExtensions: 0,
 			NumServices:   6,
 		},

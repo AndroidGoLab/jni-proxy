@@ -9,6 +9,4100 @@ import (
 	"google.golang.org/grpc"
 )
 
+// LevelListDrawableClient wraps the gRPC LevelListDrawableService client.
+type LevelListDrawableClient struct {
+	svc pb.LevelListDrawableServiceClient
+}
+
+// NewLevelListDrawableClient creates a new LevelListDrawable client.
+func NewLevelListDrawableClient(cc grpc.ClientConnInterface) *LevelListDrawableClient {
+	return &LevelListDrawableClient{
+		svc: pb.NewLevelListDrawableServiceClient(cc),
+	}
+}
+
+// AddLevel calls the AddLevel RPC.
+func (c *LevelListDrawableClient) AddLevel(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.AddLevel(ctx, &pb.AddLevelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// Inflate calls the Inflate RPC.
+func (c *LevelListDrawableClient) Inflate(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.Inflate(ctx, &pb.InflateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// Mutate calls the Mutate RPC.
+func (c *LevelListDrawableClient) Mutate(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Mutate(ctx, &pb.MutateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LayerDrawableClient wraps the gRPC LayerDrawableService client.
+type LayerDrawableClient struct {
+	svc pb.LayerDrawableServiceClient
+}
+
+// NewLayerDrawableClient creates a new LayerDrawable client.
+func NewLayerDrawableClient(cc grpc.ClientConnInterface) *LayerDrawableClient {
+	return &LayerDrawableClient{
+		svc: pb.NewLayerDrawableServiceClient(cc),
+	}
+}
+
+// AddLayer calls the AddLayer RPC.
+func (c *LayerDrawableClient) AddLayer(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+	resp, err := c.svc.AddLayer(ctx, &pb.AddLayerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ApplyTheme calls the ApplyTheme RPC.
+func (c *LayerDrawableClient) ApplyTheme(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.ApplyTheme(ctx, &pb.ApplyThemeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// CanApplyTheme calls the CanApplyTheme RPC.
+func (c *LayerDrawableClient) CanApplyTheme(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.CanApplyTheme(ctx, &pb.CanApplyThemeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Draw calls the Draw RPC.
+func (c *LayerDrawableClient) Draw(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// FindDrawableByLayerId calls the FindDrawableByLayerId RPC.
+func (c *LayerDrawableClient) FindDrawableByLayerId(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.FindDrawableByLayerId(ctx, &pb.FindDrawableByLayerIdRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FindIndexByLayerId calls the FindIndexByLayerId RPC.
+func (c *LayerDrawableClient) FindIndexByLayerId(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.FindIndexByLayerId(ctx, &pb.FindIndexByLayerIdRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAlpha calls the GetAlpha RPC.
+func (c *LayerDrawableClient) GetAlpha(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetAlpha(ctx, &pb.GetAlphaRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBottomPadding calls the GetBottomPadding RPC.
+func (c *LayerDrawableClient) GetBottomPadding(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetBottomPadding(ctx, &pb.GetBottomPaddingRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChangingConfigurations calls the GetChangingConfigurations RPC.
+func (c *LayerDrawableClient) GetChangingConfigurations(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetChangingConfigurations(ctx, &pb.GetChangingConfigurationsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConstantState calls the GetConstantState RPC.
+func (c *LayerDrawableClient) GetConstantState(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetConstantState(ctx, &pb.GetConstantStateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDrawable calls the GetDrawable RPC.
+func (c *LayerDrawableClient) GetDrawable(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetDrawable(ctx, &pb.GetDrawableRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEndPadding calls the GetEndPadding RPC.
+func (c *LayerDrawableClient) GetEndPadding(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetEndPadding(ctx, &pb.GetEndPaddingRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHotspotBounds calls the GetHotspotBounds RPC.
+func (c *LayerDrawableClient) GetHotspotBounds(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.GetHotspotBounds(ctx, &pb.GetHotspotBoundsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GetId calls the GetId RPC.
+func (c *LayerDrawableClient) GetId(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIntrinsicHeight calls the GetIntrinsicHeight RPC.
+func (c *LayerDrawableClient) GetIntrinsicHeight(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetIntrinsicHeight(ctx, &pb.GetIntrinsicHeightRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIntrinsicWidth calls the GetIntrinsicWidth RPC.
+func (c *LayerDrawableClient) GetIntrinsicWidth(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetIntrinsicWidth(ctx, &pb.GetIntrinsicWidthRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLayerGravity calls the GetLayerGravity RPC.
+func (c *LayerDrawableClient) GetLayerGravity(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetLayerGravity(ctx, &pb.GetLayerGravityRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLayerHeight calls the GetLayerHeight RPC.
+func (c *LayerDrawableClient) GetLayerHeight(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetLayerHeight(ctx, &pb.GetLayerHeightRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLayerInsetBottom calls the GetLayerInsetBottom RPC.
+func (c *LayerDrawableClient) GetLayerInsetBottom(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetLayerInsetBottom(ctx, &pb.GetLayerInsetBottomRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLayerInsetEnd calls the GetLayerInsetEnd RPC.
+func (c *LayerDrawableClient) GetLayerInsetEnd(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetLayerInsetEnd(ctx, &pb.GetLayerInsetEndRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLayerInsetLeft calls the GetLayerInsetLeft RPC.
+func (c *LayerDrawableClient) GetLayerInsetLeft(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetLayerInsetLeft(ctx, &pb.GetLayerInsetLeftRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLayerInsetRight calls the GetLayerInsetRight RPC.
+func (c *LayerDrawableClient) GetLayerInsetRight(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetLayerInsetRight(ctx, &pb.GetLayerInsetRightRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLayerInsetStart calls the GetLayerInsetStart RPC.
+func (c *LayerDrawableClient) GetLayerInsetStart(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetLayerInsetStart(ctx, &pb.GetLayerInsetStartRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLayerInsetTop calls the GetLayerInsetTop RPC.
+func (c *LayerDrawableClient) GetLayerInsetTop(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetLayerInsetTop(ctx, &pb.GetLayerInsetTopRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLayerWidth calls the GetLayerWidth RPC.
+func (c *LayerDrawableClient) GetLayerWidth(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetLayerWidth(ctx, &pb.GetLayerWidthRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLeftPadding calls the GetLeftPadding RPC.
+func (c *LayerDrawableClient) GetLeftPadding(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetLeftPadding(ctx, &pb.GetLeftPaddingRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNumberOfLayers calls the GetNumberOfLayers RPC.
+func (c *LayerDrawableClient) GetNumberOfLayers(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetNumberOfLayers(ctx, &pb.GetNumberOfLayersRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOpacity calls the GetOpacity RPC.
+func (c *LayerDrawableClient) GetOpacity(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetOpacity(ctx, &pb.GetOpacityRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutline calls the GetOutline RPC.
+func (c *LayerDrawableClient) GetOutline(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.GetOutline(ctx, &pb.GetOutlineRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GetPadding calls the GetPadding RPC.
+func (c *LayerDrawableClient) GetPadding(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.GetPadding(ctx, &pb.GetPaddingRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPaddingMode calls the GetPaddingMode RPC.
+func (c *LayerDrawableClient) GetPaddingMode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetPaddingMode(ctx, &pb.GetPaddingModeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRightPadding calls the GetRightPadding RPC.
+func (c *LayerDrawableClient) GetRightPadding(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetRightPadding(ctx, &pb.GetRightPaddingRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStartPadding calls the GetStartPadding RPC.
+func (c *LayerDrawableClient) GetStartPadding(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetStartPadding(ctx, &pb.GetStartPaddingRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTopPadding calls the GetTopPadding RPC.
+func (c *LayerDrawableClient) GetTopPadding(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetTopPadding(ctx, &pb.GetTopPaddingRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasFocusStateSpecified calls the HasFocusStateSpecified RPC.
+func (c *LayerDrawableClient) HasFocusStateSpecified(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasFocusStateSpecified(ctx, &pb.HasFocusStateSpecifiedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Inflate calls the Inflate RPC.
+func (c *LayerDrawableClient) Inflate(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.Inflate(ctx, &pb.InflateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// InvalidateDrawable calls the InvalidateDrawable RPC.
+func (c *LayerDrawableClient) InvalidateDrawable(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.InvalidateDrawable(ctx, &pb.InvalidateDrawableRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// IsAutoMirrored calls the IsAutoMirrored RPC.
+func (c *LayerDrawableClient) IsAutoMirrored(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsAutoMirrored(ctx, &pb.IsAutoMirroredRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsProjected calls the IsProjected RPC.
+func (c *LayerDrawableClient) IsProjected(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsProjected(ctx, &pb.IsProjectedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsStateful calls the IsStateful RPC.
+func (c *LayerDrawableClient) IsStateful(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsStateful(ctx, &pb.IsStatefulRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// JumpToCurrentState calls the JumpToCurrentState RPC.
+func (c *LayerDrawableClient) JumpToCurrentState(ctx context.Context, handle int64) error {
+	_, err := c.svc.JumpToCurrentState(ctx, &pb.JumpToCurrentStateRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// Mutate calls the Mutate RPC.
+func (c *LayerDrawableClient) Mutate(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Mutate(ctx, &pb.MutateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnLayoutDirectionChanged calls the OnLayoutDirectionChanged RPC.
+func (c *LayerDrawableClient) OnLayoutDirectionChanged(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.OnLayoutDirectionChanged(ctx, &pb.OnLayoutDirectionChangedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ScheduleDrawable calls the ScheduleDrawable RPC.
+func (c *LayerDrawableClient) ScheduleDrawable(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.ScheduleDrawable(ctx, &pb.ScheduleDrawableRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// SetAlpha calls the SetAlpha RPC.
+func (c *LayerDrawableClient) SetAlpha(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetAlpha(ctx, &pb.SetAlphaRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetAutoMirrored calls the SetAutoMirrored RPC.
+func (c *LayerDrawableClient) SetAutoMirrored(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetAutoMirrored(ctx, &pb.SetAutoMirroredRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetColorFilter calls the SetColorFilter RPC.
+func (c *LayerDrawableClient) SetColorFilter(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetColorFilter(ctx, &pb.SetColorFilterRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetDither calls the SetDither RPC.
+func (c *LayerDrawableClient) SetDither(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetDither(ctx, &pb.SetDitherRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetDrawable calls the SetDrawable RPC.
+func (c *LayerDrawableClient) SetDrawable(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.SetDrawable(ctx, &pb.SetDrawableRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetDrawableByLayerId calls the SetDrawableByLayerId RPC.
+func (c *LayerDrawableClient) SetDrawableByLayerId(ctx context.Context, handle int64, arg0 int32, arg1 int64) (bool, error) {
+	resp, err := c.svc.SetDrawableByLayerId(ctx, &pb.SetDrawableByLayerIdRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetHotspot calls the SetHotspot RPC.
+func (c *LayerDrawableClient) SetHotspot(ctx context.Context, handle int64, arg0 float32, arg1 float32) error {
+	_, err := c.svc.SetHotspot(ctx, &pb.SetHotspotRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetHotspotBounds calls the SetHotspotBounds RPC.
+func (c *LayerDrawableClient) SetHotspotBounds(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.SetHotspotBounds(ctx, &pb.SetHotspotBoundsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// SetId calls the SetId RPC.
+func (c *LayerDrawableClient) SetId(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.SetId(ctx, &pb.SetIdRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetLayerGravity calls the SetLayerGravity RPC.
+func (c *LayerDrawableClient) SetLayerGravity(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.SetLayerGravity(ctx, &pb.SetLayerGravityRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetLayerHeight calls the SetLayerHeight RPC.
+func (c *LayerDrawableClient) SetLayerHeight(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.SetLayerHeight(ctx, &pb.SetLayerHeightRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetLayerInset calls the SetLayerInset RPC.
+func (c *LayerDrawableClient) SetLayerInset(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
+	_, err := c.svc.SetLayerInset(ctx, &pb.SetLayerInsetRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	return err
+}
+
+// SetLayerInsetBottom calls the SetLayerInsetBottom RPC.
+func (c *LayerDrawableClient) SetLayerInsetBottom(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.SetLayerInsetBottom(ctx, &pb.SetLayerInsetBottomRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetLayerInsetEnd calls the SetLayerInsetEnd RPC.
+func (c *LayerDrawableClient) SetLayerInsetEnd(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.SetLayerInsetEnd(ctx, &pb.SetLayerInsetEndRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetLayerInsetLeft calls the SetLayerInsetLeft RPC.
+func (c *LayerDrawableClient) SetLayerInsetLeft(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.SetLayerInsetLeft(ctx, &pb.SetLayerInsetLeftRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetLayerInsetRelative calls the SetLayerInsetRelative RPC.
+func (c *LayerDrawableClient) SetLayerInsetRelative(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
+	_, err := c.svc.SetLayerInsetRelative(ctx, &pb.SetLayerInsetRelativeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	return err
+}
+
+// SetLayerInsetRight calls the SetLayerInsetRight RPC.
+func (c *LayerDrawableClient) SetLayerInsetRight(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.SetLayerInsetRight(ctx, &pb.SetLayerInsetRightRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetLayerInsetStart calls the SetLayerInsetStart RPC.
+func (c *LayerDrawableClient) SetLayerInsetStart(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.SetLayerInsetStart(ctx, &pb.SetLayerInsetStartRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetLayerInsetTop calls the SetLayerInsetTop RPC.
+func (c *LayerDrawableClient) SetLayerInsetTop(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.SetLayerInsetTop(ctx, &pb.SetLayerInsetTopRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetLayerSize calls the SetLayerSize RPC.
+func (c *LayerDrawableClient) SetLayerSize(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.SetLayerSize(ctx, &pb.SetLayerSizeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// SetLayerWidth calls the SetLayerWidth RPC.
+func (c *LayerDrawableClient) SetLayerWidth(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.SetLayerWidth(ctx, &pb.SetLayerWidthRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetOpacity calls the SetOpacity RPC.
+func (c *LayerDrawableClient) SetOpacity(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetOpacity(ctx, &pb.SetOpacityRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPadding calls the SetPadding RPC.
+func (c *LayerDrawableClient) SetPadding(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.SetPadding(ctx, &pb.SetPaddingRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// SetPaddingMode calls the SetPaddingMode RPC.
+func (c *LayerDrawableClient) SetPaddingMode(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetPaddingMode(ctx, &pb.SetPaddingModeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPaddingRelative calls the SetPaddingRelative RPC.
+func (c *LayerDrawableClient) SetPaddingRelative(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.SetPaddingRelative(ctx, &pb.SetPaddingRelativeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// SetTintBlendMode calls the SetTintBlendMode RPC.
+func (c *LayerDrawableClient) SetTintBlendMode(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetTintBlendMode(ctx, &pb.SetTintBlendModeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTintList calls the SetTintList RPC.
+func (c *LayerDrawableClient) SetTintList(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetTintList(ctx, &pb.SetTintListRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetVisible calls the SetVisible RPC.
+func (c *LayerDrawableClient) SetVisible(ctx context.Context, handle int64, arg0 bool, arg1 bool) (bool, error) {
+	resp, err := c.svc.SetVisible(ctx, &pb.SetVisibleRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// UnscheduleDrawable calls the UnscheduleDrawable RPC.
+func (c *LayerDrawableClient) UnscheduleDrawable(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.UnscheduleDrawable(ctx, &pb.UnscheduleDrawableRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// VectorDrawableClient wraps the gRPC VectorDrawableService client.
+type VectorDrawableClient struct {
+	svc pb.VectorDrawableServiceClient
+}
+
+// NewVectorDrawableClient creates a new VectorDrawable client.
+func NewVectorDrawableClient(cc grpc.ClientConnInterface) *VectorDrawableClient {
+	return &VectorDrawableClient{
+		svc: pb.NewVectorDrawableServiceClient(cc),
+	}
+}
+
+// ApplyTheme calls the ApplyTheme RPC.
+func (c *VectorDrawableClient) ApplyTheme(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.ApplyTheme(ctx, &pb.ApplyThemeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// CanApplyTheme calls the CanApplyTheme RPC.
+func (c *VectorDrawableClient) CanApplyTheme(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.CanApplyTheme(ctx, &pb.CanApplyThemeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Draw calls the Draw RPC.
+func (c *VectorDrawableClient) Draw(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GetAlpha calls the GetAlpha RPC.
+func (c *VectorDrawableClient) GetAlpha(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetAlpha(ctx, &pb.GetAlphaRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChangingConfigurations calls the GetChangingConfigurations RPC.
+func (c *VectorDrawableClient) GetChangingConfigurations(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetChangingConfigurations(ctx, &pb.GetChangingConfigurationsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColorFilter calls the GetColorFilter RPC.
+func (c *VectorDrawableClient) GetColorFilter(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetColorFilter(ctx, &pb.GetColorFilterRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConstantState calls the GetConstantState RPC.
+func (c *VectorDrawableClient) GetConstantState(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetConstantState(ctx, &pb.GetConstantStateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIntrinsicHeight calls the GetIntrinsicHeight RPC.
+func (c *VectorDrawableClient) GetIntrinsicHeight(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetIntrinsicHeight(ctx, &pb.GetIntrinsicHeightRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIntrinsicWidth calls the GetIntrinsicWidth RPC.
+func (c *VectorDrawableClient) GetIntrinsicWidth(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetIntrinsicWidth(ctx, &pb.GetIntrinsicWidthRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOpacity calls the GetOpacity RPC.
+func (c *VectorDrawableClient) GetOpacity(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetOpacity(ctx, &pb.GetOpacityRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOpticalInsets calls the GetOpticalInsets RPC.
+func (c *VectorDrawableClient) GetOpticalInsets(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetOpticalInsets(ctx, &pb.GetOpticalInsetsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasFocusStateSpecified calls the HasFocusStateSpecified RPC.
+func (c *VectorDrawableClient) HasFocusStateSpecified(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasFocusStateSpecified(ctx, &pb.HasFocusStateSpecifiedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Inflate calls the Inflate RPC.
+func (c *VectorDrawableClient) Inflate(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.Inflate(ctx, &pb.InflateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// IsAutoMirrored calls the IsAutoMirrored RPC.
+func (c *VectorDrawableClient) IsAutoMirrored(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsAutoMirrored(ctx, &pb.IsAutoMirroredRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsStateful calls the IsStateful RPC.
+func (c *VectorDrawableClient) IsStateful(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsStateful(ctx, &pb.IsStatefulRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Mutate calls the Mutate RPC.
+func (c *VectorDrawableClient) Mutate(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Mutate(ctx, &pb.MutateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAlpha calls the SetAlpha RPC.
+func (c *VectorDrawableClient) SetAlpha(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetAlpha(ctx, &pb.SetAlphaRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetAutoMirrored calls the SetAutoMirrored RPC.
+func (c *VectorDrawableClient) SetAutoMirrored(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetAutoMirrored(ctx, &pb.SetAutoMirroredRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetColorFilter calls the SetColorFilter RPC.
+func (c *VectorDrawableClient) SetColorFilter(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetColorFilter(ctx, &pb.SetColorFilterRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTintBlendMode calls the SetTintBlendMode RPC.
+func (c *VectorDrawableClient) SetTintBlendMode(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetTintBlendMode(ctx, &pb.SetTintBlendModeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTintList calls the SetTintList RPC.
+func (c *VectorDrawableClient) SetTintList(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetTintList(ctx, &pb.SetTintListRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ContainerClient wraps the gRPC ContainerService client.
+type ContainerClient struct {
+	svc pb.ContainerServiceClient
+}
+
+// NewContainerClient creates a new Container client.
+func NewContainerClient(cc grpc.ClientConnInterface) *ContainerClient {
+	return &ContainerClient{
+		svc: pb.NewContainerServiceClient(cc),
+	}
+}
+
+// ApplyTheme calls the ApplyTheme RPC.
+func (c *ContainerClient) ApplyTheme(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.ApplyTheme(ctx, &pb.ApplyThemeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// CanApplyTheme calls the CanApplyTheme RPC.
+func (c *ContainerClient) CanApplyTheme(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.CanApplyTheme(ctx, &pb.CanApplyThemeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Draw calls the Draw RPC.
+func (c *ContainerClient) Draw(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GetAlpha calls the GetAlpha RPC.
+func (c *ContainerClient) GetAlpha(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetAlpha(ctx, &pb.GetAlphaRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChangingConfigurations calls the GetChangingConfigurations RPC.
+func (c *ContainerClient) GetChangingConfigurations(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetChangingConfigurations(ctx, &pb.GetChangingConfigurationsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConstantState calls the GetConstantState RPC.
+func (c *ContainerClient) GetConstantState(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetConstantState(ctx, &pb.GetConstantStateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCurrent calls the GetCurrent RPC.
+func (c *ContainerClient) GetCurrent(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetCurrent(ctx, &pb.GetCurrentRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHotspotBounds calls the GetHotspotBounds RPC.
+func (c *ContainerClient) GetHotspotBounds(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.GetHotspotBounds(ctx, &pb.GetHotspotBoundsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GetIntrinsicHeight calls the GetIntrinsicHeight RPC.
+func (c *ContainerClient) GetIntrinsicHeight(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetIntrinsicHeight(ctx, &pb.GetIntrinsicHeightRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIntrinsicWidth calls the GetIntrinsicWidth RPC.
+func (c *ContainerClient) GetIntrinsicWidth(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetIntrinsicWidth(ctx, &pb.GetIntrinsicWidthRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinimumHeight calls the GetMinimumHeight RPC.
+func (c *ContainerClient) GetMinimumHeight(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetMinimumHeight(ctx, &pb.GetMinimumHeightRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinimumWidth calls the GetMinimumWidth RPC.
+func (c *ContainerClient) GetMinimumWidth(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetMinimumWidth(ctx, &pb.GetMinimumWidthRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOpacity calls the GetOpacity RPC.
+func (c *ContainerClient) GetOpacity(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetOpacity(ctx, &pb.GetOpacityRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOpticalInsets calls the GetOpticalInsets RPC.
+func (c *ContainerClient) GetOpticalInsets(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetOpticalInsets(ctx, &pb.GetOpticalInsetsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutline calls the GetOutline RPC.
+func (c *ContainerClient) GetOutline(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.GetOutline(ctx, &pb.GetOutlineRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GetPadding calls the GetPadding RPC.
+func (c *ContainerClient) GetPadding(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.GetPadding(ctx, &pb.GetPaddingRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasFocusStateSpecified calls the HasFocusStateSpecified RPC.
+func (c *ContainerClient) HasFocusStateSpecified(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasFocusStateSpecified(ctx, &pb.HasFocusStateSpecifiedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// InvalidateDrawable calls the InvalidateDrawable RPC.
+func (c *ContainerClient) InvalidateDrawable(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.InvalidateDrawable(ctx, &pb.InvalidateDrawableRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// IsAutoMirrored calls the IsAutoMirrored RPC.
+func (c *ContainerClient) IsAutoMirrored(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsAutoMirrored(ctx, &pb.IsAutoMirroredRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsStateful calls the IsStateful RPC.
+func (c *ContainerClient) IsStateful(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsStateful(ctx, &pb.IsStatefulRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// JumpToCurrentState calls the JumpToCurrentState RPC.
+func (c *ContainerClient) JumpToCurrentState(ctx context.Context, handle int64) error {
+	_, err := c.svc.JumpToCurrentState(ctx, &pb.JumpToCurrentStateRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// Mutate calls the Mutate RPC.
+func (c *ContainerClient) Mutate(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Mutate(ctx, &pb.MutateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnLayoutDirectionChanged calls the OnLayoutDirectionChanged RPC.
+func (c *ContainerClient) OnLayoutDirectionChanged(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.OnLayoutDirectionChanged(ctx, &pb.OnLayoutDirectionChangedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ScheduleDrawable calls the ScheduleDrawable RPC.
+func (c *ContainerClient) ScheduleDrawable(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.ScheduleDrawable(ctx, &pb.ScheduleDrawableRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// SelectDrawable calls the SelectDrawable RPC.
+func (c *ContainerClient) SelectDrawable(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.SelectDrawable(ctx, &pb.SelectDrawableRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAlpha calls the SetAlpha RPC.
+func (c *ContainerClient) SetAlpha(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetAlpha(ctx, &pb.SetAlphaRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetAutoMirrored calls the SetAutoMirrored RPC.
+func (c *ContainerClient) SetAutoMirrored(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetAutoMirrored(ctx, &pb.SetAutoMirroredRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetColorFilter calls the SetColorFilter RPC.
+func (c *ContainerClient) SetColorFilter(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetColorFilter(ctx, &pb.SetColorFilterRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetDither calls the SetDither RPC.
+func (c *ContainerClient) SetDither(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetDither(ctx, &pb.SetDitherRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetEnterFadeDuration calls the SetEnterFadeDuration RPC.
+func (c *ContainerClient) SetEnterFadeDuration(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetEnterFadeDuration(ctx, &pb.SetEnterFadeDurationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetExitFadeDuration calls the SetExitFadeDuration RPC.
+func (c *ContainerClient) SetExitFadeDuration(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetExitFadeDuration(ctx, &pb.SetExitFadeDurationRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetHotspot calls the SetHotspot RPC.
+func (c *ContainerClient) SetHotspot(ctx context.Context, handle int64, arg0 float32, arg1 float32) error {
+	_, err := c.svc.SetHotspot(ctx, &pb.SetHotspotRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetHotspotBounds calls the SetHotspotBounds RPC.
+func (c *ContainerClient) SetHotspotBounds(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.SetHotspotBounds(ctx, &pb.SetHotspotBoundsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// SetTintBlendMode calls the SetTintBlendMode RPC.
+func (c *ContainerClient) SetTintBlendMode(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetTintBlendMode(ctx, &pb.SetTintBlendModeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTintList calls the SetTintList RPC.
+func (c *ContainerClient) SetTintList(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetTintList(ctx, &pb.SetTintListRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetVisible calls the SetVisible RPC.
+func (c *ContainerClient) SetVisible(ctx context.Context, handle int64, arg0 bool, arg1 bool) (bool, error) {
+	resp, err := c.svc.SetVisible(ctx, &pb.SetVisibleRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// UnscheduleDrawable calls the UnscheduleDrawable RPC.
+func (c *ContainerClient) UnscheduleDrawable(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.UnscheduleDrawable(ctx, &pb.UnscheduleDrawableRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// ContainerDrawableContainerStateClient wraps the gRPC ContainerDrawableContainerStateService client.
+type ContainerDrawableContainerStateClient struct {
+	svc pb.ContainerDrawableContainerStateServiceClient
+}
+
+// NewContainerDrawableContainerStateClient creates a new ContainerDrawableContainerState client.
+func NewContainerDrawableContainerStateClient(cc grpc.ClientConnInterface) *ContainerDrawableContainerStateClient {
+	return &ContainerDrawableContainerStateClient{
+		svc: pb.NewContainerDrawableContainerStateServiceClient(cc),
+	}
+}
+
+// AddChild calls the AddChild RPC.
+func (c *ContainerDrawableContainerStateClient) AddChild(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.AddChild(ctx, &pb.AddChildRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CanApplyTheme calls the CanApplyTheme RPC.
+func (c *ContainerDrawableContainerStateClient) CanApplyTheme(ctx context.Context) (bool, error) {
+	resp, err := c.svc.CanApplyTheme(ctx, &pb.ContainerDrawableContainerStateCanApplyThemeRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChangingConfigurations calls the GetChangingConfigurations RPC.
+func (c *ContainerDrawableContainerStateClient) GetChangingConfigurations(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetChangingConfigurations(ctx, &pb.ContainerDrawableContainerStateGetChangingConfigurationsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChild calls the GetChild RPC.
+func (c *ContainerDrawableContainerStateClient) GetChild(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetChild(ctx, &pb.GetChildRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChildCount calls the GetChildCount RPC.
+func (c *ContainerDrawableContainerStateClient) GetChildCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetChildCount(ctx, &pb.GetChildCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChildren calls the GetChildren RPC.
+func (c *ContainerDrawableContainerStateClient) GetChildren(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetChildren(ctx, &pb.GetChildrenRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConstantHeight calls the GetConstantHeight RPC.
+func (c *ContainerDrawableContainerStateClient) GetConstantHeight(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetConstantHeight(ctx, &pb.GetConstantHeightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConstantMinimumHeight calls the GetConstantMinimumHeight RPC.
+func (c *ContainerDrawableContainerStateClient) GetConstantMinimumHeight(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetConstantMinimumHeight(ctx, &pb.GetConstantMinimumHeightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConstantMinimumWidth calls the GetConstantMinimumWidth RPC.
+func (c *ContainerDrawableContainerStateClient) GetConstantMinimumWidth(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetConstantMinimumWidth(ctx, &pb.GetConstantMinimumWidthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConstantPadding calls the GetConstantPadding RPC.
+func (c *ContainerDrawableContainerStateClient) GetConstantPadding(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetConstantPadding(ctx, &pb.GetConstantPaddingRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConstantWidth calls the GetConstantWidth RPC.
+func (c *ContainerDrawableContainerStateClient) GetConstantWidth(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetConstantWidth(ctx, &pb.GetConstantWidthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEnterFadeDuration calls the GetEnterFadeDuration RPC.
+func (c *ContainerDrawableContainerStateClient) GetEnterFadeDuration(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetEnterFadeDuration(ctx, &pb.GetEnterFadeDurationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExitFadeDuration calls the GetExitFadeDuration RPC.
+func (c *ContainerDrawableContainerStateClient) GetExitFadeDuration(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetExitFadeDuration(ctx, &pb.GetExitFadeDurationRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOpacity calls the GetOpacity RPC.
+func (c *ContainerDrawableContainerStateClient) GetOpacity(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetOpacity(ctx, &pb.ContainerDrawableContainerStateGetOpacityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GrowArray calls the GrowArray RPC.
+func (c *ContainerDrawableContainerStateClient) GrowArray(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.GrowArray(ctx, &pb.GrowArrayRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// IsConstantSize calls the IsConstantSize RPC.
+func (c *ContainerDrawableContainerStateClient) IsConstantSize(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsConstantSize(ctx, &pb.IsConstantSizeRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsStateful calls the IsStateful RPC.
+func (c *ContainerDrawableContainerStateClient) IsStateful(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsStateful(ctx, &pb.ContainerDrawableContainerStateIsStatefulRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetConstantSize calls the SetConstantSize RPC.
+func (c *ContainerDrawableContainerStateClient) SetConstantSize(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetConstantSize(ctx, &pb.SetConstantSizeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetEnterFadeDuration calls the SetEnterFadeDuration RPC.
+func (c *ContainerDrawableContainerStateClient) SetEnterFadeDuration(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetEnterFadeDuration(ctx, &pb.ContainerDrawableContainerStateSetEnterFadeDurationRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetExitFadeDuration calls the SetExitFadeDuration RPC.
+func (c *ContainerDrawableContainerStateClient) SetExitFadeDuration(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetExitFadeDuration(ctx, &pb.ContainerDrawableContainerStateSetExitFadeDurationRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetVariablePadding calls the SetVariablePadding RPC.
+func (c *ContainerDrawableContainerStateClient) SetVariablePadding(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetVariablePadding(ctx, &pb.SetVariablePaddingRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// StateListDrawableClient wraps the gRPC StateListDrawableService client.
+type StateListDrawableClient struct {
+	svc pb.StateListDrawableServiceClient
+}
+
+// NewStateListDrawableClient creates a new StateListDrawable client.
+func NewStateListDrawableClient(cc grpc.ClientConnInterface) *StateListDrawableClient {
+	return &StateListDrawableClient{
+		svc: pb.NewStateListDrawableServiceClient(cc),
+	}
+}
+
+// AddState calls the AddState RPC.
+func (c *StateListDrawableClient) AddState(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.AddState(ctx, &pb.AddStateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// ApplyTheme calls the ApplyTheme RPC.
+func (c *StateListDrawableClient) ApplyTheme(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.ApplyTheme(ctx, &pb.ApplyThemeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// FindStateDrawableIndex calls the FindStateDrawableIndex RPC.
+func (c *StateListDrawableClient) FindStateDrawableIndex(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+	resp, err := c.svc.FindStateDrawableIndex(ctx, &pb.FindStateDrawableIndexRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStateCount calls the GetStateCount RPC.
+func (c *StateListDrawableClient) GetStateCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetStateCount(ctx, &pb.GetStateCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStateDrawable calls the GetStateDrawable RPC.
+func (c *StateListDrawableClient) GetStateDrawable(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetStateDrawable(ctx, &pb.GetStateDrawableRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStateSet calls the GetStateSet RPC.
+func (c *StateListDrawableClient) GetStateSet(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetStateSet(ctx, &pb.GetStateSetRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasFocusStateSpecified calls the HasFocusStateSpecified RPC.
+func (c *StateListDrawableClient) HasFocusStateSpecified(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasFocusStateSpecified(ctx, &pb.HasFocusStateSpecifiedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Inflate calls the Inflate RPC.
+func (c *StateListDrawableClient) Inflate(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.Inflate(ctx, &pb.InflateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// IsStateful calls the IsStateful RPC.
+func (c *StateListDrawableClient) IsStateful(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsStateful(ctx, &pb.IsStatefulRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Mutate calls the Mutate RPC.
+func (c *StateListDrawableClient) Mutate(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Mutate(ctx, &pb.MutateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IconClient wraps the gRPC IconService client.
+type IconClient struct {
+	svc pb.IconServiceClient
+}
+
+// NewIconClient creates a new Icon client.
+func NewIconClient(cc grpc.ClientConnInterface) *IconClient {
+	return &IconClient{
+		svc: pb.NewIconServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *IconClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResId calls the GetResId RPC.
+func (c *IconClient) GetResId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetResId(ctx, &pb.GetResIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResPackage calls the GetResPackage RPC.
+func (c *IconClient) GetResPackage(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetResPackage(ctx, &pb.GetResPackageRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetType calls the GetType RPC.
+func (c *IconClient) GetType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUri calls the GetUri RPC.
+func (c *IconClient) GetUri(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUri(ctx, &pb.GetUriRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadDrawable calls the LoadDrawable RPC.
+func (c *IconClient) LoadDrawable(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.LoadDrawable(ctx, &pb.LoadDrawableRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadDrawableAsync calls the LoadDrawableAsync RPC.
+func (c *IconClient) LoadDrawableAsync(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.LoadDrawableAsync(ctx, &pb.LoadDrawableAsyncRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetTint calls the SetTint RPC.
+func (c *IconClient) SetTint(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetTint(ctx, &pb.SetTintRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTintBlendMode calls the SetTintBlendMode RPC.
+func (c *IconClient) SetTintBlendMode(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetTintBlendMode(ctx, &pb.IconSetTintBlendModeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTintList calls the SetTintList RPC.
+func (c *IconClient) SetTintList(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetTintList(ctx, &pb.IconSetTintListRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTintMode calls the SetTintMode RPC.
+func (c *IconClient) SetTintMode(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetTintMode(ctx, &pb.SetTintModeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *IconClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *IconClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// CreateWithAdaptiveBitmap calls the CreateWithAdaptiveBitmap RPC.
+func (c *IconClient) CreateWithAdaptiveBitmap(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.CreateWithAdaptiveBitmap(ctx, &pb.CreateWithAdaptiveBitmapRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateWithAdaptiveBitmapContentUri1 calls the CreateWithAdaptiveBitmapContentUri1 RPC.
+func (c *IconClient) CreateWithAdaptiveBitmapContentUri1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.CreateWithAdaptiveBitmapContentUri1(ctx, &pb.CreateWithAdaptiveBitmapContentUri1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateWithAdaptiveBitmapContentUri1_1 calls the CreateWithAdaptiveBitmapContentUri1_1 RPC.
+func (c *IconClient) CreateWithAdaptiveBitmapContentUri1_1(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.CreateWithAdaptiveBitmapContentUri1_1(ctx, &pb.CreateWithAdaptiveBitmapContentUri1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateWithBitmap calls the CreateWithBitmap RPC.
+func (c *IconClient) CreateWithBitmap(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.CreateWithBitmap(ctx, &pb.CreateWithBitmapRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateWithContentUri1 calls the CreateWithContentUri1 RPC.
+func (c *IconClient) CreateWithContentUri1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.CreateWithContentUri1(ctx, &pb.CreateWithContentUri1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateWithContentUri1_1 calls the CreateWithContentUri1_1 RPC.
+func (c *IconClient) CreateWithContentUri1_1(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.CreateWithContentUri1_1(ctx, &pb.CreateWithContentUri1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateWithData calls the CreateWithData RPC.
+func (c *IconClient) CreateWithData(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) (int64, error) {
+	resp, err := c.svc.CreateWithData(ctx, &pb.CreateWithDataRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateWithFilePath calls the CreateWithFilePath RPC.
+func (c *IconClient) CreateWithFilePath(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.CreateWithFilePath(ctx, &pb.CreateWithFilePathRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateWithResource2 calls the CreateWithResource2 RPC.
+func (c *IconClient) CreateWithResource2(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
+	resp, err := c.svc.CreateWithResource2(ctx, &pb.CreateWithResource2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateWithResource2_1 calls the CreateWithResource2_1 RPC.
+func (c *IconClient) CreateWithResource2_1(ctx context.Context, arg0 string, arg1 int32) (int64, error) {
+	resp, err := c.svc.CreateWithResource2_1(ctx, &pb.CreateWithResource2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IconOnDrawableLoadedListenerClient wraps the gRPC IconOnDrawableLoadedListenerService client.
+type IconOnDrawableLoadedListenerClient struct {
+	svc pb.IconOnDrawableLoadedListenerServiceClient
+}
+
+// NewIconOnDrawableLoadedListenerClient creates a new IconOnDrawableLoadedListener client.
+func NewIconOnDrawableLoadedListenerClient(cc grpc.ClientConnInterface) *IconOnDrawableLoadedListenerClient {
+	return &IconOnDrawableLoadedListenerClient{
+		svc: pb.NewIconOnDrawableLoadedListenerServiceClient(cc),
+	}
+}
+
+// OnDrawableLoaded calls the OnDrawableLoaded RPC.
+func (c *IconOnDrawableLoadedListenerClient) OnDrawableLoaded(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnDrawableLoaded(ctx, &pb.OnDrawableLoadedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ShapeDrawableClient wraps the gRPC ShapeDrawableService client.
+type ShapeDrawableClient struct {
+	svc pb.ShapeDrawableServiceClient
+}
+
+// NewShapeDrawableClient creates a new ShapeDrawable client.
+func NewShapeDrawableClient(cc grpc.ClientConnInterface) *ShapeDrawableClient {
+	return &ShapeDrawableClient{
+		svc: pb.NewShapeDrawableServiceClient(cc),
+	}
+}
+
+// ApplyTheme calls the ApplyTheme RPC.
+func (c *ShapeDrawableClient) ApplyTheme(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.ApplyTheme(ctx, &pb.ApplyThemeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Draw calls the Draw RPC.
+func (c *ShapeDrawableClient) Draw(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GetAlpha calls the GetAlpha RPC.
+func (c *ShapeDrawableClient) GetAlpha(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetAlpha(ctx, &pb.GetAlphaRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChangingConfigurations calls the GetChangingConfigurations RPC.
+func (c *ShapeDrawableClient) GetChangingConfigurations(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetChangingConfigurations(ctx, &pb.GetChangingConfigurationsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConstantState calls the GetConstantState RPC.
+func (c *ShapeDrawableClient) GetConstantState(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetConstantState(ctx, &pb.GetConstantStateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIntrinsicHeight calls the GetIntrinsicHeight RPC.
+func (c *ShapeDrawableClient) GetIntrinsicHeight(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetIntrinsicHeight(ctx, &pb.GetIntrinsicHeightRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIntrinsicWidth calls the GetIntrinsicWidth RPC.
+func (c *ShapeDrawableClient) GetIntrinsicWidth(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetIntrinsicWidth(ctx, &pb.GetIntrinsicWidthRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOpacity calls the GetOpacity RPC.
+func (c *ShapeDrawableClient) GetOpacity(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetOpacity(ctx, &pb.GetOpacityRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutline calls the GetOutline RPC.
+func (c *ShapeDrawableClient) GetOutline(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.GetOutline(ctx, &pb.GetOutlineRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GetPadding calls the GetPadding RPC.
+func (c *ShapeDrawableClient) GetPadding(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.GetPadding(ctx, &pb.GetPaddingRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPaint calls the GetPaint RPC.
+func (c *ShapeDrawableClient) GetPaint(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetPaint(ctx, &pb.GetPaintRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetShaderFactory calls the GetShaderFactory RPC.
+func (c *ShapeDrawableClient) GetShaderFactory(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetShaderFactory(ctx, &pb.GetShaderFactoryRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetShape calls the GetShape RPC.
+func (c *ShapeDrawableClient) GetShape(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetShape(ctx, &pb.GetShapeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasFocusStateSpecified calls the HasFocusStateSpecified RPC.
+func (c *ShapeDrawableClient) HasFocusStateSpecified(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasFocusStateSpecified(ctx, &pb.HasFocusStateSpecifiedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Inflate calls the Inflate RPC.
+func (c *ShapeDrawableClient) Inflate(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.Inflate(ctx, &pb.InflateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// IsStateful calls the IsStateful RPC.
+func (c *ShapeDrawableClient) IsStateful(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsStateful(ctx, &pb.IsStatefulRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Mutate calls the Mutate RPC.
+func (c *ShapeDrawableClient) Mutate(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Mutate(ctx, &pb.MutateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAlpha calls the SetAlpha RPC.
+func (c *ShapeDrawableClient) SetAlpha(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetAlpha(ctx, &pb.SetAlphaRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetColorFilter calls the SetColorFilter RPC.
+func (c *ShapeDrawableClient) SetColorFilter(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetColorFilter(ctx, &pb.SetColorFilterRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetDither calls the SetDither RPC.
+func (c *ShapeDrawableClient) SetDither(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetDither(ctx, &pb.SetDitherRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetIntrinsicHeight calls the SetIntrinsicHeight RPC.
+func (c *ShapeDrawableClient) SetIntrinsicHeight(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetIntrinsicHeight(ctx, &pb.SetIntrinsicHeightRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetIntrinsicWidth calls the SetIntrinsicWidth RPC.
+func (c *ShapeDrawableClient) SetIntrinsicWidth(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetIntrinsicWidth(ctx, &pb.SetIntrinsicWidthRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPadding1 calls the SetPadding1 RPC.
+func (c *ShapeDrawableClient) SetPadding1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetPadding1(ctx, &pb.SetPadding1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPadding4_1 calls the SetPadding4_1 RPC.
+func (c *ShapeDrawableClient) SetPadding4_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.SetPadding4_1(ctx, &pb.SetPadding4_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// SetShaderFactory calls the SetShaderFactory RPC.
+func (c *ShapeDrawableClient) SetShaderFactory(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetShaderFactory(ctx, &pb.SetShaderFactoryRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetShape calls the SetShape RPC.
+func (c *ShapeDrawableClient) SetShape(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetShape(ctx, &pb.SetShapeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTintBlendMode calls the SetTintBlendMode RPC.
+func (c *ShapeDrawableClient) SetTintBlendMode(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetTintBlendMode(ctx, &pb.SetTintBlendModeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTintList calls the SetTintList RPC.
+func (c *ShapeDrawableClient) SetTintList(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetTintList(ctx, &pb.SetTintListRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ShapeDrawableShaderFactoryClient wraps the gRPC ShapeDrawableShaderFactoryService client.
+type ShapeDrawableShaderFactoryClient struct {
+	svc pb.ShapeDrawableShaderFactoryServiceClient
+}
+
+// NewShapeDrawableShaderFactoryClient creates a new ShapeDrawableShaderFactory client.
+func NewShapeDrawableShaderFactoryClient(cc grpc.ClientConnInterface) *ShapeDrawableShaderFactoryClient {
+	return &ShapeDrawableShaderFactoryClient{
+		svc: pb.NewShapeDrawableShaderFactoryServiceClient(cc),
+	}
+}
+
+// Resize calls the Resize RPC.
+func (c *ShapeDrawableShaderFactoryClient) Resize(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
+	resp, err := c.svc.Resize(ctx, &pb.ResizeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ColorStateListDrawableClient wraps the gRPC ColorStateListDrawableService client.
+type ColorStateListDrawableClient struct {
+	svc pb.ColorStateListDrawableServiceClient
+}
+
+// NewColorStateListDrawableClient creates a new ColorStateListDrawable client.
+func NewColorStateListDrawableClient(cc grpc.ClientConnInterface) *ColorStateListDrawableClient {
+	return &ColorStateListDrawableClient{
+		svc: pb.NewColorStateListDrawableServiceClient(cc),
+	}
+}
+
+// ApplyTheme calls the ApplyTheme RPC.
+func (c *ColorStateListDrawableClient) ApplyTheme(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.ApplyTheme(ctx, &pb.ApplyThemeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// CanApplyTheme calls the CanApplyTheme RPC.
+func (c *ColorStateListDrawableClient) CanApplyTheme(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.CanApplyTheme(ctx, &pb.CanApplyThemeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearAlpha calls the ClearAlpha RPC.
+func (c *ColorStateListDrawableClient) ClearAlpha(ctx context.Context, handle int64) error {
+	_, err := c.svc.ClearAlpha(ctx, &pb.ClearAlphaRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// Draw calls the Draw RPC.
+func (c *ColorStateListDrawableClient) Draw(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GetAlpha calls the GetAlpha RPC.
+func (c *ColorStateListDrawableClient) GetAlpha(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetAlpha(ctx, &pb.GetAlphaRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChangingConfigurations calls the GetChangingConfigurations RPC.
+func (c *ColorStateListDrawableClient) GetChangingConfigurations(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetChangingConfigurations(ctx, &pb.GetChangingConfigurationsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColorFilter calls the GetColorFilter RPC.
+func (c *ColorStateListDrawableClient) GetColorFilter(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetColorFilter(ctx, &pb.GetColorFilterRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColorStateList calls the GetColorStateList RPC.
+func (c *ColorStateListDrawableClient) GetColorStateList(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetColorStateList(ctx, &pb.GetColorStateListRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConstantState calls the GetConstantState RPC.
+func (c *ColorStateListDrawableClient) GetConstantState(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetConstantState(ctx, &pb.GetConstantStateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCurrent calls the GetCurrent RPC.
+func (c *ColorStateListDrawableClient) GetCurrent(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetCurrent(ctx, &pb.GetCurrentRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOpacity calls the GetOpacity RPC.
+func (c *ColorStateListDrawableClient) GetOpacity(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetOpacity(ctx, &pb.GetOpacityRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasFocusStateSpecified calls the HasFocusStateSpecified RPC.
+func (c *ColorStateListDrawableClient) HasFocusStateSpecified(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasFocusStateSpecified(ctx, &pb.HasFocusStateSpecifiedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// InvalidateDrawable calls the InvalidateDrawable RPC.
+func (c *ColorStateListDrawableClient) InvalidateDrawable(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.InvalidateDrawable(ctx, &pb.InvalidateDrawableRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// IsStateful calls the IsStateful RPC.
+func (c *ColorStateListDrawableClient) IsStateful(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsStateful(ctx, &pb.IsStatefulRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Mutate calls the Mutate RPC.
+func (c *ColorStateListDrawableClient) Mutate(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Mutate(ctx, &pb.MutateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ScheduleDrawable calls the ScheduleDrawable RPC.
+func (c *ColorStateListDrawableClient) ScheduleDrawable(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.ScheduleDrawable(ctx, &pb.ScheduleDrawableRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// SetAlpha calls the SetAlpha RPC.
+func (c *ColorStateListDrawableClient) SetAlpha(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetAlpha(ctx, &pb.SetAlphaRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetColorFilter calls the SetColorFilter RPC.
+func (c *ColorStateListDrawableClient) SetColorFilter(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetColorFilter(ctx, &pb.SetColorFilterRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetColorStateList calls the SetColorStateList RPC.
+func (c *ColorStateListDrawableClient) SetColorStateList(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetColorStateList(ctx, &pb.SetColorStateListRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTintBlendMode calls the SetTintBlendMode RPC.
+func (c *ColorStateListDrawableClient) SetTintBlendMode(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetTintBlendMode(ctx, &pb.SetTintBlendModeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTintList calls the SetTintList RPC.
+func (c *ColorStateListDrawableClient) SetTintList(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetTintList(ctx, &pb.SetTintListRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// UnscheduleDrawable calls the UnscheduleDrawable RPC.
+func (c *ColorStateListDrawableClient) UnscheduleDrawable(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.UnscheduleDrawable(ctx, &pb.UnscheduleDrawableRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// PictureDrawableClient wraps the gRPC PictureDrawableService client.
+type PictureDrawableClient struct {
+	svc pb.PictureDrawableServiceClient
+}
+
+// NewPictureDrawableClient creates a new PictureDrawable client.
+func NewPictureDrawableClient(cc grpc.ClientConnInterface) *PictureDrawableClient {
+	return &PictureDrawableClient{
+		svc: pb.NewPictureDrawableServiceClient(cc),
+	}
+}
+
+// Draw calls the Draw RPC.
+func (c *PictureDrawableClient) Draw(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GetIntrinsicHeight calls the GetIntrinsicHeight RPC.
+func (c *PictureDrawableClient) GetIntrinsicHeight(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetIntrinsicHeight(ctx, &pb.GetIntrinsicHeightRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIntrinsicWidth calls the GetIntrinsicWidth RPC.
+func (c *PictureDrawableClient) GetIntrinsicWidth(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetIntrinsicWidth(ctx, &pb.GetIntrinsicWidthRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOpacity calls the GetOpacity RPC.
+func (c *PictureDrawableClient) GetOpacity(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetOpacity(ctx, &pb.GetOpacityRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPicture calls the GetPicture RPC.
+func (c *PictureDrawableClient) GetPicture(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetPicture(ctx, &pb.GetPictureRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAlpha calls the SetAlpha RPC.
+func (c *PictureDrawableClient) SetAlpha(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetAlpha(ctx, &pb.SetAlphaRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetColorFilter calls the SetColorFilter RPC.
+func (c *PictureDrawableClient) SetColorFilter(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetColorFilter(ctx, &pb.SetColorFilterRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPicture calls the SetPicture RPC.
+func (c *PictureDrawableClient) SetPicture(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetPicture(ctx, &pb.SetPictureRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// DrawableClient wraps the gRPC DrawableService client.
+type DrawableClient struct {
+	svc pb.DrawableServiceClient
+}
+
+// NewDrawableClient creates a new Drawable client.
+func NewDrawableClient(cc grpc.ClientConnInterface) *DrawableClient {
+	return &DrawableClient{
+		svc: pb.NewDrawableServiceClient(cc),
+	}
+}
+
+// ApplyTheme calls the ApplyTheme RPC.
+func (c *DrawableClient) ApplyTheme(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.ApplyTheme(ctx, &pb.DrawableApplyThemeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CanApplyTheme calls the CanApplyTheme RPC.
+func (c *DrawableClient) CanApplyTheme(ctx context.Context) (bool, error) {
+	resp, err := c.svc.CanApplyTheme(ctx, &pb.DrawableCanApplyThemeRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearColorFilter calls the ClearColorFilter RPC.
+func (c *DrawableClient) ClearColorFilter(ctx context.Context) error {
+	_, err := c.svc.ClearColorFilter(ctx, &pb.ClearColorFilterRequest{})
+	return err
+}
+
+// CopyBounds0 calls the CopyBounds0 RPC.
+func (c *DrawableClient) CopyBounds0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.CopyBounds0(ctx, &pb.CopyBounds0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CopyBounds1_1 calls the CopyBounds1_1 RPC.
+func (c *DrawableClient) CopyBounds1_1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CopyBounds1_1(ctx, &pb.CopyBounds1_1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Draw calls the Draw RPC.
+func (c *DrawableClient) Draw(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.Draw(ctx, &pb.DrawableDrawRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetAlpha calls the GetAlpha RPC.
+func (c *DrawableClient) GetAlpha(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetAlpha(ctx, &pb.DrawableGetAlphaRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBounds calls the GetBounds RPC.
+func (c *DrawableClient) GetBounds(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBounds(ctx, &pb.GetBoundsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCallback calls the GetCallback RPC.
+func (c *DrawableClient) GetCallback(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCallback(ctx, &pb.GetCallbackRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChangingConfigurations calls the GetChangingConfigurations RPC.
+func (c *DrawableClient) GetChangingConfigurations(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetChangingConfigurations(ctx, &pb.DrawableGetChangingConfigurationsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColorFilter calls the GetColorFilter RPC.
+func (c *DrawableClient) GetColorFilter(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetColorFilter(ctx, &pb.DrawableGetColorFilterRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConstantState calls the GetConstantState RPC.
+func (c *DrawableClient) GetConstantState(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetConstantState(ctx, &pb.DrawableGetConstantStateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCurrent calls the GetCurrent RPC.
+func (c *DrawableClient) GetCurrent(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCurrent(ctx, &pb.DrawableGetCurrentRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDirtyBounds calls the GetDirtyBounds RPC.
+func (c *DrawableClient) GetDirtyBounds(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDirtyBounds(ctx, &pb.GetDirtyBoundsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHotspotBounds calls the GetHotspotBounds RPC.
+func (c *DrawableClient) GetHotspotBounds(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.GetHotspotBounds(ctx, &pb.DrawableGetHotspotBoundsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetIntrinsicHeight calls the GetIntrinsicHeight RPC.
+func (c *DrawableClient) GetIntrinsicHeight(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetIntrinsicHeight(ctx, &pb.DrawableGetIntrinsicHeightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIntrinsicWidth calls the GetIntrinsicWidth RPC.
+func (c *DrawableClient) GetIntrinsicWidth(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetIntrinsicWidth(ctx, &pb.DrawableGetIntrinsicWidthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLayoutDirection calls the GetLayoutDirection RPC.
+func (c *DrawableClient) GetLayoutDirection(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLayoutDirection(ctx, &pb.GetLayoutDirectionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLevel calls the GetLevel RPC.
+func (c *DrawableClient) GetLevel(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLevel(ctx, &pb.GetLevelRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinimumHeight calls the GetMinimumHeight RPC.
+func (c *DrawableClient) GetMinimumHeight(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMinimumHeight(ctx, &pb.DrawableGetMinimumHeightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinimumWidth calls the GetMinimumWidth RPC.
+func (c *DrawableClient) GetMinimumWidth(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMinimumWidth(ctx, &pb.DrawableGetMinimumWidthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOpacity calls the GetOpacity RPC.
+func (c *DrawableClient) GetOpacity(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetOpacity(ctx, &pb.DrawableGetOpacityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOpticalInsets calls the GetOpticalInsets RPC.
+func (c *DrawableClient) GetOpticalInsets(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOpticalInsets(ctx, &pb.DrawableGetOpticalInsetsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutline calls the GetOutline RPC.
+func (c *DrawableClient) GetOutline(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.GetOutline(ctx, &pb.DrawableGetOutlineRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetPadding calls the GetPadding RPC.
+func (c *DrawableClient) GetPadding(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.GetPadding(ctx, &pb.DrawableGetPaddingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetState calls the GetState RPC.
+func (c *DrawableClient) GetState(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetState(ctx, &pb.GetStateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTransparentRegion calls the GetTransparentRegion RPC.
+func (c *DrawableClient) GetTransparentRegion(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTransparentRegion(ctx, &pb.GetTransparentRegionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasFocusStateSpecified calls the HasFocusStateSpecified RPC.
+func (c *DrawableClient) HasFocusStateSpecified(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasFocusStateSpecified(ctx, &pb.DrawableHasFocusStateSpecifiedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Inflate3 calls the Inflate3 RPC.
+func (c *DrawableClient) Inflate3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.Inflate3(ctx, &pb.Inflate3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// Inflate4_1 calls the Inflate4_1 RPC.
+func (c *DrawableClient) Inflate4_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.Inflate4_1(ctx, &pb.Inflate4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// InvalidateSelf calls the InvalidateSelf RPC.
+func (c *DrawableClient) InvalidateSelf(ctx context.Context) error {
+	_, err := c.svc.InvalidateSelf(ctx, &pb.InvalidateSelfRequest{})
+	return err
+}
+
+// IsAutoMirrored calls the IsAutoMirrored RPC.
+func (c *DrawableClient) IsAutoMirrored(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsAutoMirrored(ctx, &pb.DrawableIsAutoMirroredRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFilterBitmap calls the IsFilterBitmap RPC.
+func (c *DrawableClient) IsFilterBitmap(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsFilterBitmap(ctx, &pb.IsFilterBitmapRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsProjected calls the IsProjected RPC.
+func (c *DrawableClient) IsProjected(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsProjected(ctx, &pb.DrawableIsProjectedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsStateful calls the IsStateful RPC.
+func (c *DrawableClient) IsStateful(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsStateful(ctx, &pb.DrawableIsStatefulRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsVisible calls the IsVisible RPC.
+func (c *DrawableClient) IsVisible(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsVisible(ctx, &pb.IsVisibleRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// JumpToCurrentState calls the JumpToCurrentState RPC.
+func (c *DrawableClient) JumpToCurrentState(ctx context.Context) error {
+	_, err := c.svc.JumpToCurrentState(ctx, &pb.DrawableJumpToCurrentStateRequest{})
+	return err
+}
+
+// Mutate calls the Mutate RPC.
+func (c *DrawableClient) Mutate(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Mutate(ctx, &pb.DrawableMutateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnLayoutDirectionChanged calls the OnLayoutDirectionChanged RPC.
+func (c *DrawableClient) OnLayoutDirectionChanged(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.OnLayoutDirectionChanged(ctx, &pb.DrawableOnLayoutDirectionChangedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ScheduleSelf calls the ScheduleSelf RPC.
+func (c *DrawableClient) ScheduleSelf(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.ScheduleSelf(ctx, &pb.ScheduleSelfRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetAlpha calls the SetAlpha RPC.
+func (c *DrawableClient) SetAlpha(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetAlpha(ctx, &pb.DrawableSetAlphaRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetAutoMirrored calls the SetAutoMirrored RPC.
+func (c *DrawableClient) SetAutoMirrored(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetAutoMirrored(ctx, &pb.DrawableSetAutoMirroredRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetBounds1 calls the SetBounds1 RPC.
+func (c *DrawableClient) SetBounds1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetBounds1(ctx, &pb.SetBounds1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetBounds4_1 calls the SetBounds4_1 RPC.
+func (c *DrawableClient) SetBounds4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.SetBounds4_1(ctx, &pb.SetBounds4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// SetCallback calls the SetCallback RPC.
+func (c *DrawableClient) SetCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetCallback(ctx, &pb.SetCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetChangingConfigurations calls the SetChangingConfigurations RPC.
+func (c *DrawableClient) SetChangingConfigurations(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetChangingConfigurations(ctx, &pb.SetChangingConfigurationsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetColorFilter1 calls the SetColorFilter1 RPC.
+func (c *DrawableClient) SetColorFilter1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetColorFilter1(ctx, &pb.SetColorFilter1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetColorFilter2_1 calls the SetColorFilter2_1 RPC.
+func (c *DrawableClient) SetColorFilter2_1(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.SetColorFilter2_1(ctx, &pb.SetColorFilter2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetDither calls the SetDither RPC.
+func (c *DrawableClient) SetDither(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetDither(ctx, &pb.DrawableSetDitherRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetFilterBitmap calls the SetFilterBitmap RPC.
+func (c *DrawableClient) SetFilterBitmap(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetFilterBitmap(ctx, &pb.SetFilterBitmapRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetHotspot calls the SetHotspot RPC.
+func (c *DrawableClient) SetHotspot(ctx context.Context, arg0 float32, arg1 float32) error {
+	_, err := c.svc.SetHotspot(ctx, &pb.DrawableSetHotspotRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetHotspotBounds calls the SetHotspotBounds RPC.
+func (c *DrawableClient) SetHotspotBounds(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.SetHotspotBounds(ctx, &pb.DrawableSetHotspotBoundsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// SetLayoutDirection calls the SetLayoutDirection RPC.
+func (c *DrawableClient) SetLayoutDirection(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.SetLayoutDirection(ctx, &pb.SetLayoutDirectionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLevel calls the SetLevel RPC.
+func (c *DrawableClient) SetLevel(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.SetLevel(ctx, &pb.SetLevelRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetState calls the SetState RPC.
+func (c *DrawableClient) SetState(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.SetState(ctx, &pb.SetStateRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTint calls the SetTint RPC.
+func (c *DrawableClient) SetTint(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetTint(ctx, &pb.SetTintRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetTintBlendMode calls the SetTintBlendMode RPC.
+func (c *DrawableClient) SetTintBlendMode(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetTintBlendMode(ctx, &pb.DrawableSetTintBlendModeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetTintList calls the SetTintList RPC.
+func (c *DrawableClient) SetTintList(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetTintList(ctx, &pb.DrawableSetTintListRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetTintMode calls the SetTintMode RPC.
+func (c *DrawableClient) SetTintMode(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetTintMode(ctx, &pb.SetTintModeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetVisible calls the SetVisible RPC.
+func (c *DrawableClient) SetVisible(ctx context.Context, arg0 bool, arg1 bool) (bool, error) {
+	resp, err := c.svc.SetVisible(ctx, &pb.DrawableSetVisibleRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// UnscheduleSelf calls the UnscheduleSelf RPC.
+func (c *DrawableClient) UnscheduleSelf(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UnscheduleSelf(ctx, &pb.UnscheduleSelfRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CreateFromPath calls the CreateFromPath RPC.
+func (c *DrawableClient) CreateFromPath(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.CreateFromPath(ctx, &pb.CreateFromPathRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateFromResourceStream4 calls the CreateFromResourceStream4 RPC.
+func (c *DrawableClient) CreateFromResourceStream4(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 string) (int64, error) {
+	resp, err := c.svc.CreateFromResourceStream4(ctx, &pb.CreateFromResourceStream4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateFromResourceStream5_1 calls the CreateFromResourceStream5_1 RPC.
+func (c *DrawableClient) CreateFromResourceStream5_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 string, arg4 int64) (int64, error) {
+	resp, err := c.svc.CreateFromResourceStream5_1(ctx, &pb.CreateFromResourceStream5_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateFromStream calls the CreateFromStream RPC.
+func (c *DrawableClient) CreateFromStream(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
+	resp, err := c.svc.CreateFromStream(ctx, &pb.CreateFromStreamRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateFromXml2 calls the CreateFromXml2 RPC.
+func (c *DrawableClient) CreateFromXml2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.CreateFromXml2(ctx, &pb.CreateFromXml2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateFromXml3_1 calls the CreateFromXml3_1 RPC.
+func (c *DrawableClient) CreateFromXml3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.CreateFromXml3_1(ctx, &pb.CreateFromXml3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateFromXmlInner3 calls the CreateFromXmlInner3 RPC.
+func (c *DrawableClient) CreateFromXmlInner3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.CreateFromXmlInner3(ctx, &pb.CreateFromXmlInner3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateFromXmlInner4_1 calls the CreateFromXmlInner4_1 RPC.
+func (c *DrawableClient) CreateFromXmlInner4_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.CreateFromXmlInner4_1(ctx, &pb.CreateFromXmlInner4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ResolveOpacity calls the ResolveOpacity RPC.
+func (c *DrawableClient) ResolveOpacity(ctx context.Context, arg0 int32, arg1 int32) (int32, error) {
+	resp, err := c.svc.ResolveOpacity(ctx, &pb.ResolveOpacityRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CallbackClient wraps the gRPC CallbackService client.
+type CallbackClient struct {
+	svc pb.CallbackServiceClient
+}
+
+// NewCallbackClient creates a new Callback client.
+func NewCallbackClient(cc grpc.ClientConnInterface) *CallbackClient {
+	return &CallbackClient{
+		svc: pb.NewCallbackServiceClient(cc),
+	}
+}
+
+// InvalidateDrawable calls the InvalidateDrawable RPC.
+func (c *CallbackClient) InvalidateDrawable(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.InvalidateDrawable(ctx, &pb.CallbackInvalidateDrawableRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ScheduleDrawable calls the ScheduleDrawable RPC.
+func (c *CallbackClient) ScheduleDrawable(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.ScheduleDrawable(ctx, &pb.CallbackScheduleDrawableRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// UnscheduleDrawable calls the UnscheduleDrawable RPC.
+func (c *CallbackClient) UnscheduleDrawable(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.UnscheduleDrawable(ctx, &pb.CallbackUnscheduleDrawableRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ConstantStateClient wraps the gRPC ConstantStateService client.
+type ConstantStateClient struct {
+	svc pb.ConstantStateServiceClient
+}
+
+// NewConstantStateClient creates a new ConstantState client.
+func NewConstantStateClient(cc grpc.ClientConnInterface) *ConstantStateClient {
+	return &ConstantStateClient{
+		svc: pb.NewConstantStateServiceClient(cc),
+	}
+}
+
+// CanApplyTheme calls the CanApplyTheme RPC.
+func (c *ConstantStateClient) CanApplyTheme(ctx context.Context) (bool, error) {
+	resp, err := c.svc.CanApplyTheme(ctx, &pb.ConstantStateCanApplyThemeRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChangingConfigurations calls the GetChangingConfigurations RPC.
+func (c *ConstantStateClient) GetChangingConfigurations(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetChangingConfigurations(ctx, &pb.ConstantStateGetChangingConfigurationsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NewDrawable0 calls the NewDrawable0 RPC.
+func (c *ConstantStateClient) NewDrawable0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.NewDrawable0(ctx, &pb.NewDrawable0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NewDrawable1_1 calls the NewDrawable1_1 RPC.
+func (c *ConstantStateClient) NewDrawable1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.NewDrawable1_1(ctx, &pb.NewDrawable1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// NewDrawable2_2 calls the NewDrawable2_2 RPC.
+func (c *ConstantStateClient) NewDrawable2_2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.NewDrawable2_2(ctx, &pb.NewDrawable2_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AdaptiveIconDrawableClient wraps the gRPC AdaptiveIconDrawableService client.
+type AdaptiveIconDrawableClient struct {
+	svc pb.AdaptiveIconDrawableServiceClient
+}
+
+// NewAdaptiveIconDrawableClient creates a new AdaptiveIconDrawable client.
+func NewAdaptiveIconDrawableClient(cc grpc.ClientConnInterface) *AdaptiveIconDrawableClient {
+	return &AdaptiveIconDrawableClient{
+		svc: pb.NewAdaptiveIconDrawableServiceClient(cc),
+	}
+}
+
+// ApplyTheme calls the ApplyTheme RPC.
+func (c *AdaptiveIconDrawableClient) ApplyTheme(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.ApplyTheme(ctx, &pb.ApplyThemeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// CanApplyTheme calls the CanApplyTheme RPC.
+func (c *AdaptiveIconDrawableClient) CanApplyTheme(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.CanApplyTheme(ctx, &pb.CanApplyThemeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Draw calls the Draw RPC.
+func (c *AdaptiveIconDrawableClient) Draw(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GetAlpha calls the GetAlpha RPC.
+func (c *AdaptiveIconDrawableClient) GetAlpha(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetAlpha(ctx, &pb.GetAlphaRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBackground calls the GetBackground RPC.
+func (c *AdaptiveIconDrawableClient) GetBackground(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetBackground(ctx, &pb.GetBackgroundRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChangingConfigurations calls the GetChangingConfigurations RPC.
+func (c *AdaptiveIconDrawableClient) GetChangingConfigurations(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetChangingConfigurations(ctx, &pb.GetChangingConfigurationsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConstantState calls the GetConstantState RPC.
+func (c *AdaptiveIconDrawableClient) GetConstantState(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetConstantState(ctx, &pb.GetConstantStateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetForeground calls the GetForeground RPC.
+func (c *AdaptiveIconDrawableClient) GetForeground(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetForeground(ctx, &pb.GetForegroundRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHotspotBounds calls the GetHotspotBounds RPC.
+func (c *AdaptiveIconDrawableClient) GetHotspotBounds(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.GetHotspotBounds(ctx, &pb.GetHotspotBoundsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GetIconMask calls the GetIconMask RPC.
+func (c *AdaptiveIconDrawableClient) GetIconMask(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetIconMask(ctx, &pb.GetIconMaskRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIntrinsicHeight calls the GetIntrinsicHeight RPC.
+func (c *AdaptiveIconDrawableClient) GetIntrinsicHeight(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetIntrinsicHeight(ctx, &pb.GetIntrinsicHeightRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIntrinsicWidth calls the GetIntrinsicWidth RPC.
+func (c *AdaptiveIconDrawableClient) GetIntrinsicWidth(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetIntrinsicWidth(ctx, &pb.GetIntrinsicWidthRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMonochrome calls the GetMonochrome RPC.
+func (c *AdaptiveIconDrawableClient) GetMonochrome(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetMonochrome(ctx, &pb.GetMonochromeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOpacity calls the GetOpacity RPC.
+func (c *AdaptiveIconDrawableClient) GetOpacity(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetOpacity(ctx, &pb.GetOpacityRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutline calls the GetOutline RPC.
+func (c *AdaptiveIconDrawableClient) GetOutline(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.GetOutline(ctx, &pb.GetOutlineRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GetTransparentRegion calls the GetTransparentRegion RPC.
+func (c *AdaptiveIconDrawableClient) GetTransparentRegion(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTransparentRegion(ctx, &pb.AdaptiveIconDrawableGetTransparentRegionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasFocusStateSpecified calls the HasFocusStateSpecified RPC.
+func (c *AdaptiveIconDrawableClient) HasFocusStateSpecified(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasFocusStateSpecified(ctx, &pb.HasFocusStateSpecifiedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Inflate calls the Inflate RPC.
+func (c *AdaptiveIconDrawableClient) Inflate(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.Inflate(ctx, &pb.InflateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// InvalidateDrawable calls the InvalidateDrawable RPC.
+func (c *AdaptiveIconDrawableClient) InvalidateDrawable(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.InvalidateDrawable(ctx, &pb.InvalidateDrawableRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// InvalidateSelf calls the InvalidateSelf RPC.
+func (c *AdaptiveIconDrawableClient) InvalidateSelf(ctx context.Context, handle int64) error {
+	_, err := c.svc.InvalidateSelf(ctx, &pb.AdaptiveIconDrawableInvalidateSelfRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// IsAutoMirrored calls the IsAutoMirrored RPC.
+func (c *AdaptiveIconDrawableClient) IsAutoMirrored(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsAutoMirrored(ctx, &pb.IsAutoMirroredRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsProjected calls the IsProjected RPC.
+func (c *AdaptiveIconDrawableClient) IsProjected(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsProjected(ctx, &pb.IsProjectedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsStateful calls the IsStateful RPC.
+func (c *AdaptiveIconDrawableClient) IsStateful(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsStateful(ctx, &pb.IsStatefulRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// JumpToCurrentState calls the JumpToCurrentState RPC.
+func (c *AdaptiveIconDrawableClient) JumpToCurrentState(ctx context.Context, handle int64) error {
+	_, err := c.svc.JumpToCurrentState(ctx, &pb.JumpToCurrentStateRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// Mutate calls the Mutate RPC.
+func (c *AdaptiveIconDrawableClient) Mutate(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Mutate(ctx, &pb.MutateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ScheduleDrawable calls the ScheduleDrawable RPC.
+func (c *AdaptiveIconDrawableClient) ScheduleDrawable(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.ScheduleDrawable(ctx, &pb.ScheduleDrawableRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// SetAlpha calls the SetAlpha RPC.
+func (c *AdaptiveIconDrawableClient) SetAlpha(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetAlpha(ctx, &pb.SetAlphaRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetAutoMirrored calls the SetAutoMirrored RPC.
+func (c *AdaptiveIconDrawableClient) SetAutoMirrored(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetAutoMirrored(ctx, &pb.SetAutoMirroredRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetColorFilter calls the SetColorFilter RPC.
+func (c *AdaptiveIconDrawableClient) SetColorFilter(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetColorFilter(ctx, &pb.SetColorFilterRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetDither calls the SetDither RPC.
+func (c *AdaptiveIconDrawableClient) SetDither(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetDither(ctx, &pb.SetDitherRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetHotspot calls the SetHotspot RPC.
+func (c *AdaptiveIconDrawableClient) SetHotspot(ctx context.Context, handle int64, arg0 float32, arg1 float32) error {
+	_, err := c.svc.SetHotspot(ctx, &pb.SetHotspotRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetHotspotBounds calls the SetHotspotBounds RPC.
+func (c *AdaptiveIconDrawableClient) SetHotspotBounds(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.SetHotspotBounds(ctx, &pb.SetHotspotBoundsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// SetOpacity calls the SetOpacity RPC.
+func (c *AdaptiveIconDrawableClient) SetOpacity(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetOpacity(ctx, &pb.SetOpacityRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTintBlendMode calls the SetTintBlendMode RPC.
+func (c *AdaptiveIconDrawableClient) SetTintBlendMode(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetTintBlendMode(ctx, &pb.SetTintBlendModeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTintList calls the SetTintList RPC.
+func (c *AdaptiveIconDrawableClient) SetTintList(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetTintList(ctx, &pb.SetTintListRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetVisible calls the SetVisible RPC.
+func (c *AdaptiveIconDrawableClient) SetVisible(ctx context.Context, handle int64, arg0 bool, arg1 bool) (bool, error) {
+	resp, err := c.svc.SetVisible(ctx, &pb.SetVisibleRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// UnscheduleDrawable calls the UnscheduleDrawable RPC.
+func (c *AdaptiveIconDrawableClient) UnscheduleDrawable(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.UnscheduleDrawable(ctx, &pb.UnscheduleDrawableRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GetExtraInsetFraction calls the GetExtraInsetFraction RPC.
+func (c *AdaptiveIconDrawableClient) GetExtraInsetFraction(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetExtraInsetFraction(ctx, &pb.GetExtraInsetFractionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ColorDrawableClient wraps the gRPC ColorDrawableService client.
+type ColorDrawableClient struct {
+	svc pb.ColorDrawableServiceClient
+}
+
+// NewColorDrawableClient creates a new ColorDrawable client.
+func NewColorDrawableClient(cc grpc.ClientConnInterface) *ColorDrawableClient {
+	return &ColorDrawableClient{
+		svc: pb.NewColorDrawableServiceClient(cc),
+	}
+}
+
+// ApplyTheme calls the ApplyTheme RPC.
+func (c *ColorDrawableClient) ApplyTheme(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.ApplyTheme(ctx, &pb.ApplyThemeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// CanApplyTheme calls the CanApplyTheme RPC.
+func (c *ColorDrawableClient) CanApplyTheme(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.CanApplyTheme(ctx, &pb.CanApplyThemeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Draw calls the Draw RPC.
+func (c *ColorDrawableClient) Draw(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GetAlpha calls the GetAlpha RPC.
+func (c *ColorDrawableClient) GetAlpha(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetAlpha(ctx, &pb.GetAlphaRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChangingConfigurations calls the GetChangingConfigurations RPC.
+func (c *ColorDrawableClient) GetChangingConfigurations(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetChangingConfigurations(ctx, &pb.GetChangingConfigurationsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColor calls the GetColor RPC.
+func (c *ColorDrawableClient) GetColor(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetColor(ctx, &pb.GetColorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColorFilter calls the GetColorFilter RPC.
+func (c *ColorDrawableClient) GetColorFilter(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetColorFilter(ctx, &pb.GetColorFilterRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConstantState calls the GetConstantState RPC.
+func (c *ColorDrawableClient) GetConstantState(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetConstantState(ctx, &pb.GetConstantStateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOpacity calls the GetOpacity RPC.
+func (c *ColorDrawableClient) GetOpacity(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetOpacity(ctx, &pb.GetOpacityRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutline calls the GetOutline RPC.
+func (c *ColorDrawableClient) GetOutline(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.GetOutline(ctx, &pb.GetOutlineRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// HasFocusStateSpecified calls the HasFocusStateSpecified RPC.
+func (c *ColorDrawableClient) HasFocusStateSpecified(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasFocusStateSpecified(ctx, &pb.HasFocusStateSpecifiedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Inflate calls the Inflate RPC.
+func (c *ColorDrawableClient) Inflate(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.Inflate(ctx, &pb.InflateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// IsStateful calls the IsStateful RPC.
+func (c *ColorDrawableClient) IsStateful(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsStateful(ctx, &pb.IsStatefulRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Mutate calls the Mutate RPC.
+func (c *ColorDrawableClient) Mutate(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Mutate(ctx, &pb.MutateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAlpha calls the SetAlpha RPC.
+func (c *ColorDrawableClient) SetAlpha(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetAlpha(ctx, &pb.SetAlphaRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetColor calls the SetColor RPC.
+func (c *ColorDrawableClient) SetColor(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetColor(ctx, &pb.SetColorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetColorFilter calls the SetColorFilter RPC.
+func (c *ColorDrawableClient) SetColorFilter(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetColorFilter(ctx, &pb.SetColorFilterRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTintBlendMode calls the SetTintBlendMode RPC.
+func (c *ColorDrawableClient) SetTintBlendMode(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetTintBlendMode(ctx, &pb.SetTintBlendModeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTintList calls the SetTintList RPC.
+func (c *ColorDrawableClient) SetTintList(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetTintList(ctx, &pb.SetTintListRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
 // AnimatedVectorDrawableClient wraps the gRPC AnimatedVectorDrawableService client.
 type AnimatedVectorDrawableClient struct {
 	svc pb.AnimatedVectorDrawableServiceClient
@@ -328,319 +4422,20 @@ func (c *AnimatedVectorDrawableClient) UnregisterAnimationCallback(ctx context.C
 	return resp.GetResult(), nil
 }
 
-// WrapperClient wraps the gRPC WrapperService client.
-type WrapperClient struct {
-	svc pb.WrapperServiceClient
+// ClipDrawableClient wraps the gRPC ClipDrawableService client.
+type ClipDrawableClient struct {
+	svc pb.ClipDrawableServiceClient
 }
 
-// NewWrapperClient creates a new Wrapper client.
-func NewWrapperClient(cc grpc.ClientConnInterface) *WrapperClient {
-	return &WrapperClient{
-		svc: pb.NewWrapperServiceClient(cc),
+// NewClipDrawableClient creates a new ClipDrawable client.
+func NewClipDrawableClient(cc grpc.ClientConnInterface) *ClipDrawableClient {
+	return &ClipDrawableClient{
+		svc: pb.NewClipDrawableServiceClient(cc),
 	}
 }
 
 // ApplyTheme calls the ApplyTheme RPC.
-func (c *WrapperClient) ApplyTheme(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.ApplyTheme(ctx, &pb.WrapperApplyThemeRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CanApplyTheme calls the CanApplyTheme RPC.
-func (c *WrapperClient) CanApplyTheme(ctx context.Context) (bool, error) {
-	resp, err := c.svc.CanApplyTheme(ctx, &pb.WrapperCanApplyThemeRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Draw calls the Draw RPC.
-func (c *WrapperClient) Draw(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.Draw(ctx, &pb.WrapperDrawRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// GetAlpha calls the GetAlpha RPC.
-func (c *WrapperClient) GetAlpha(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetAlpha(ctx, &pb.WrapperGetAlphaRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetChangingConfigurations calls the GetChangingConfigurations RPC.
-func (c *WrapperClient) GetChangingConfigurations(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetChangingConfigurations(ctx, &pb.WrapperGetChangingConfigurationsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetColorFilter calls the GetColorFilter RPC.
-func (c *WrapperClient) GetColorFilter(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetColorFilter(ctx, &pb.WrapperGetColorFilterRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetConstantState calls the GetConstantState RPC.
-func (c *WrapperClient) GetConstantState(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetConstantState(ctx, &pb.WrapperGetConstantStateRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDrawable calls the GetDrawable RPC.
-func (c *WrapperClient) GetDrawable(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDrawable(ctx, &pb.GetDrawableRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetHotspotBounds calls the GetHotspotBounds RPC.
-func (c *WrapperClient) GetHotspotBounds(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.GetHotspotBounds(ctx, &pb.GetHotspotBoundsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// GetIntrinsicHeight calls the GetIntrinsicHeight RPC.
-func (c *WrapperClient) GetIntrinsicHeight(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetIntrinsicHeight(ctx, &pb.WrapperGetIntrinsicHeightRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIntrinsicWidth calls the GetIntrinsicWidth RPC.
-func (c *WrapperClient) GetIntrinsicWidth(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetIntrinsicWidth(ctx, &pb.WrapperGetIntrinsicWidthRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOpacity calls the GetOpacity RPC.
-func (c *WrapperClient) GetOpacity(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetOpacity(ctx, &pb.WrapperGetOpacityRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOpticalInsets calls the GetOpticalInsets RPC.
-func (c *WrapperClient) GetOpticalInsets(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetOpticalInsets(ctx, &pb.WrapperGetOpticalInsetsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOutline calls the GetOutline RPC.
-func (c *WrapperClient) GetOutline(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.GetOutline(ctx, &pb.WrapperGetOutlineRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// GetPadding calls the GetPadding RPC.
-func (c *WrapperClient) GetPadding(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.GetPadding(ctx, &pb.GetPaddingRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasFocusStateSpecified calls the HasFocusStateSpecified RPC.
-func (c *WrapperClient) HasFocusStateSpecified(ctx context.Context) (bool, error) {
-	resp, err := c.svc.HasFocusStateSpecified(ctx, &pb.HasFocusStateSpecifiedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Inflate calls the Inflate RPC.
-func (c *WrapperClient) Inflate(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
-	_, err := c.svc.Inflate(ctx, &pb.WrapperInflateRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// InvalidateDrawable calls the InvalidateDrawable RPC.
-func (c *WrapperClient) InvalidateDrawable(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.InvalidateDrawable(ctx, &pb.InvalidateDrawableRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// IsStateful calls the IsStateful RPC.
-func (c *WrapperClient) IsStateful(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsStateful(ctx, &pb.WrapperIsStatefulRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// JumpToCurrentState calls the JumpToCurrentState RPC.
-func (c *WrapperClient) JumpToCurrentState(ctx context.Context) error {
-	_, err := c.svc.JumpToCurrentState(ctx, &pb.JumpToCurrentStateRequest{})
-	return err
-}
-
-// Mutate calls the Mutate RPC.
-func (c *WrapperClient) Mutate(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Mutate(ctx, &pb.WrapperMutateRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnLayoutDirectionChanged calls the OnLayoutDirectionChanged RPC.
-func (c *WrapperClient) OnLayoutDirectionChanged(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.OnLayoutDirectionChanged(ctx, &pb.WrapperOnLayoutDirectionChangedRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ScheduleDrawable calls the ScheduleDrawable RPC.
-func (c *WrapperClient) ScheduleDrawable(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.ScheduleDrawable(ctx, &pb.ScheduleDrawableRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// SetAlpha calls the SetAlpha RPC.
-func (c *WrapperClient) SetAlpha(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetAlpha(ctx, &pb.WrapperSetAlphaRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetColorFilter calls the SetColorFilter RPC.
-func (c *WrapperClient) SetColorFilter(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetColorFilter(ctx, &pb.WrapperSetColorFilterRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetDrawable calls the SetDrawable RPC.
-func (c *WrapperClient) SetDrawable(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetDrawable(ctx, &pb.SetDrawableRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetHotspot calls the SetHotspot RPC.
-func (c *WrapperClient) SetHotspot(ctx context.Context, arg0 float32, arg1 float32) error {
-	_, err := c.svc.SetHotspot(ctx, &pb.WrapperSetHotspotRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// SetHotspotBounds calls the SetHotspotBounds RPC.
-func (c *WrapperClient) SetHotspotBounds(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.SetHotspotBounds(ctx, &pb.WrapperSetHotspotBoundsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// SetTintBlendMode calls the SetTintBlendMode RPC.
-func (c *WrapperClient) SetTintBlendMode(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetTintBlendMode(ctx, &pb.WrapperSetTintBlendModeRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetTintList calls the SetTintList RPC.
-func (c *WrapperClient) SetTintList(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetTintList(ctx, &pb.WrapperSetTintListRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetVisible calls the SetVisible RPC.
-func (c *WrapperClient) SetVisible(ctx context.Context, arg0 bool, arg1 bool) (bool, error) {
-	resp, err := c.svc.SetVisible(ctx, &pb.WrapperSetVisibleRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// UnscheduleDrawable calls the UnscheduleDrawable RPC.
-func (c *WrapperClient) UnscheduleDrawable(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.UnscheduleDrawable(ctx, &pb.UnscheduleDrawableRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ScaleDrawableClient wraps the gRPC ScaleDrawableService client.
-type ScaleDrawableClient struct {
-	svc pb.ScaleDrawableServiceClient
-}
-
-// NewScaleDrawableClient creates a new ScaleDrawable client.
-func NewScaleDrawableClient(cc grpc.ClientConnInterface) *ScaleDrawableClient {
-	return &ScaleDrawableClient{
-		svc: pb.NewScaleDrawableServiceClient(cc),
-	}
-}
-
-// ApplyTheme calls the ApplyTheme RPC.
-func (c *ScaleDrawableClient) ApplyTheme(ctx context.Context, handle int64, arg0 int64) error {
+func (c *ClipDrawableClient) ApplyTheme(ctx context.Context, handle int64, arg0 int64) error {
 	_, err := c.svc.ApplyTheme(ctx, &pb.ApplyThemeRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -649,7 +4444,7 @@ func (c *ScaleDrawableClient) ApplyTheme(ctx context.Context, handle int64, arg0
 }
 
 // Draw calls the Draw RPC.
-func (c *ScaleDrawableClient) Draw(ctx context.Context, handle int64, arg0 int64) error {
+func (c *ClipDrawableClient) Draw(ctx context.Context, handle int64, arg0 int64) error {
 	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -658,7 +4453,7 @@ func (c *ScaleDrawableClient) Draw(ctx context.Context, handle int64, arg0 int64
 }
 
 // GetOpacity calls the GetOpacity RPC.
-func (c *ScaleDrawableClient) GetOpacity(ctx context.Context, handle int64) (int32, error) {
+func (c *ClipDrawableClient) GetOpacity(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.GetOpacity(ctx, &pb.GetOpacityRequest{
 		Handle: handle,
 	})
@@ -669,7 +4464,7 @@ func (c *ScaleDrawableClient) GetOpacity(ctx context.Context, handle int64) (int
 }
 
 // Inflate calls the Inflate RPC.
-func (c *ScaleDrawableClient) Inflate(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+func (c *ClipDrawableClient) Inflate(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
 	_, err := c.svc.Inflate(ctx, &pb.InflateRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -680,436 +4475,30 @@ func (c *ScaleDrawableClient) Inflate(ctx context.Context, handle int64, arg0 in
 	return err
 }
 
-// BitmapDrawableClient wraps the gRPC BitmapDrawableService client.
-type BitmapDrawableClient struct {
-	svc pb.BitmapDrawableServiceClient
+// PaintDrawableClient wraps the gRPC PaintDrawableService client.
+type PaintDrawableClient struct {
+	svc pb.PaintDrawableServiceClient
 }
 
-// NewBitmapDrawableClient creates a new BitmapDrawable client.
-func NewBitmapDrawableClient(cc grpc.ClientConnInterface) *BitmapDrawableClient {
-	return &BitmapDrawableClient{
-		svc: pb.NewBitmapDrawableServiceClient(cc),
+// NewPaintDrawableClient creates a new PaintDrawable client.
+func NewPaintDrawableClient(cc grpc.ClientConnInterface) *PaintDrawableClient {
+	return &PaintDrawableClient{
+		svc: pb.NewPaintDrawableServiceClient(cc),
 	}
 }
 
-// ApplyTheme calls the ApplyTheme RPC.
-func (c *BitmapDrawableClient) ApplyTheme(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.ApplyTheme(ctx, &pb.ApplyThemeRequest{
+// SetCornerRadii calls the SetCornerRadii RPC.
+func (c *PaintDrawableClient) SetCornerRadii(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetCornerRadii(ctx, &pb.SetCornerRadiiRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
 	return err
 }
 
-// CanApplyTheme calls the CanApplyTheme RPC.
-func (c *BitmapDrawableClient) CanApplyTheme(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.CanApplyTheme(ctx, &pb.CanApplyThemeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Draw calls the Draw RPC.
-func (c *BitmapDrawableClient) Draw(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GetAlpha calls the GetAlpha RPC.
-func (c *BitmapDrawableClient) GetAlpha(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetAlpha(ctx, &pb.GetAlphaRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBitmap calls the GetBitmap RPC.
-func (c *BitmapDrawableClient) GetBitmap(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetBitmap(ctx, &pb.GetBitmapRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetChangingConfigurations calls the GetChangingConfigurations RPC.
-func (c *BitmapDrawableClient) GetChangingConfigurations(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetChangingConfigurations(ctx, &pb.GetChangingConfigurationsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetColorFilter calls the GetColorFilter RPC.
-func (c *BitmapDrawableClient) GetColorFilter(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetColorFilter(ctx, &pb.GetColorFilterRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetConstantState calls the GetConstantState RPC.
-func (c *BitmapDrawableClient) GetConstantState(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetConstantState(ctx, &pb.GetConstantStateRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetGravity calls the GetGravity RPC.
-func (c *BitmapDrawableClient) GetGravity(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetGravity(ctx, &pb.GetGravityRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIntrinsicHeight calls the GetIntrinsicHeight RPC.
-func (c *BitmapDrawableClient) GetIntrinsicHeight(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetIntrinsicHeight(ctx, &pb.GetIntrinsicHeightRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIntrinsicWidth calls the GetIntrinsicWidth RPC.
-func (c *BitmapDrawableClient) GetIntrinsicWidth(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetIntrinsicWidth(ctx, &pb.GetIntrinsicWidthRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOpacity calls the GetOpacity RPC.
-func (c *BitmapDrawableClient) GetOpacity(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetOpacity(ctx, &pb.GetOpacityRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOpticalInsets calls the GetOpticalInsets RPC.
-func (c *BitmapDrawableClient) GetOpticalInsets(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetOpticalInsets(ctx, &pb.GetOpticalInsetsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOutline calls the GetOutline RPC.
-func (c *BitmapDrawableClient) GetOutline(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.GetOutline(ctx, &pb.GetOutlineRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GetPaint calls the GetPaint RPC.
-func (c *BitmapDrawableClient) GetPaint(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetPaint(ctx, &pb.GetPaintRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTileModeX calls the GetTileModeX RPC.
-func (c *BitmapDrawableClient) GetTileModeX(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetTileModeX(ctx, &pb.GetTileModeXRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTileModeY calls the GetTileModeY RPC.
-func (c *BitmapDrawableClient) GetTileModeY(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetTileModeY(ctx, &pb.GetTileModeYRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasAntiAlias calls the HasAntiAlias RPC.
-func (c *BitmapDrawableClient) HasAntiAlias(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.HasAntiAlias(ctx, &pb.HasAntiAliasRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasFocusStateSpecified calls the HasFocusStateSpecified RPC.
-func (c *BitmapDrawableClient) HasFocusStateSpecified(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.HasFocusStateSpecified(ctx, &pb.BitmapDrawableHasFocusStateSpecifiedRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasMipMap calls the HasMipMap RPC.
-func (c *BitmapDrawableClient) HasMipMap(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.HasMipMap(ctx, &pb.HasMipMapRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Inflate calls the Inflate RPC.
-func (c *BitmapDrawableClient) Inflate(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
-	_, err := c.svc.Inflate(ctx, &pb.InflateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// IsAutoMirrored calls the IsAutoMirrored RPC.
-func (c *BitmapDrawableClient) IsAutoMirrored(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsAutoMirrored(ctx, &pb.IsAutoMirroredRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsFilterBitmap calls the IsFilterBitmap RPC.
-func (c *BitmapDrawableClient) IsFilterBitmap(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsFilterBitmap(ctx, &pb.IsFilterBitmapRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsStateful calls the IsStateful RPC.
-func (c *BitmapDrawableClient) IsStateful(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsStateful(ctx, &pb.IsStatefulRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Mutate calls the Mutate RPC.
-func (c *BitmapDrawableClient) Mutate(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Mutate(ctx, &pb.MutateRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetAlpha calls the SetAlpha RPC.
-func (c *BitmapDrawableClient) SetAlpha(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetAlpha(ctx, &pb.SetAlphaRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetAntiAlias calls the SetAntiAlias RPC.
-func (c *BitmapDrawableClient) SetAntiAlias(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetAntiAlias(ctx, &pb.SetAntiAliasRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetAutoMirrored calls the SetAutoMirrored RPC.
-func (c *BitmapDrawableClient) SetAutoMirrored(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetAutoMirrored(ctx, &pb.SetAutoMirroredRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetBitmap calls the SetBitmap RPC.
-func (c *BitmapDrawableClient) SetBitmap(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetBitmap(ctx, &pb.SetBitmapRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetColorFilter calls the SetColorFilter RPC.
-func (c *BitmapDrawableClient) SetColorFilter(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetColorFilter(ctx, &pb.SetColorFilterRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetDither calls the SetDither RPC.
-func (c *BitmapDrawableClient) SetDither(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetDither(ctx, &pb.SetDitherRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetFilterBitmap calls the SetFilterBitmap RPC.
-func (c *BitmapDrawableClient) SetFilterBitmap(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetFilterBitmap(ctx, &pb.SetFilterBitmapRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetGravity calls the SetGravity RPC.
-func (c *BitmapDrawableClient) SetGravity(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetGravity(ctx, &pb.SetGravityRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetMipMap calls the SetMipMap RPC.
-func (c *BitmapDrawableClient) SetMipMap(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetMipMap(ctx, &pb.SetMipMapRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTargetDensity1 calls the SetTargetDensity1 RPC.
-func (c *BitmapDrawableClient) SetTargetDensity1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetTargetDensity1(ctx, &pb.SetTargetDensity1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTargetDensity1_1 calls the SetTargetDensity1_1 RPC.
-func (c *BitmapDrawableClient) SetTargetDensity1_1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetTargetDensity1_1(ctx, &pb.SetTargetDensity1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTargetDensity1_2 calls the SetTargetDensity1_2 RPC.
-func (c *BitmapDrawableClient) SetTargetDensity1_2(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetTargetDensity1_2(ctx, &pb.SetTargetDensity1_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTileModeX calls the SetTileModeX RPC.
-func (c *BitmapDrawableClient) SetTileModeX(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetTileModeX(ctx, &pb.SetTileModeXRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTileModeXY calls the SetTileModeXY RPC.
-func (c *BitmapDrawableClient) SetTileModeXY(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.SetTileModeXY(ctx, &pb.SetTileModeXYRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetTileModeY calls the SetTileModeY RPC.
-func (c *BitmapDrawableClient) SetTileModeY(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetTileModeY(ctx, &pb.SetTileModeYRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTintBlendMode calls the SetTintBlendMode RPC.
-func (c *BitmapDrawableClient) SetTintBlendMode(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetTintBlendMode(ctx, &pb.SetTintBlendModeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTintList calls the SetTintList RPC.
-func (c *BitmapDrawableClient) SetTintList(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetTintList(ctx, &pb.SetTintListRequest{
+// SetCornerRadius calls the SetCornerRadius RPC.
+func (c *PaintDrawableClient) SetCornerRadius(ctx context.Context, handle int64, arg0 float32) error {
+	_, err := c.svc.SetCornerRadius(ctx, &pb.SetCornerRadiusRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -1377,7 +4766,7 @@ func (c *GradientDrawableClient) GetOutline(ctx context.Context, handle int64, a
 
 // GetPadding calls the GetPadding RPC.
 func (c *GradientDrawableClient) GetPadding(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.GetPadding(ctx, &pb.GradientDrawableGetPaddingRequest{
+	resp, err := c.svc.GetPadding(ctx, &pb.GetPaddingRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -1433,7 +4822,7 @@ func (c *GradientDrawableClient) GetUseLevel(ctx context.Context, handle int64) 
 
 // HasFocusStateSpecified calls the HasFocusStateSpecified RPC.
 func (c *GradientDrawableClient) HasFocusStateSpecified(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.HasFocusStateSpecified(ctx, &pb.GradientDrawableHasFocusStateSpecifiedRequest{
+	resp, err := c.svc.HasFocusStateSpecified(ctx, &pb.HasFocusStateSpecifiedRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -1627,7 +5016,7 @@ func (c *GradientDrawableClient) SetPadding(ctx context.Context, handle int64, a
 
 // SetShape calls the SetShape RPC.
 func (c *GradientDrawableClient) SetShape(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetShape(ctx, &pb.SetShapeRequest{
+	_, err := c.svc.SetShape(ctx, &pb.GradientDrawableSetShapeRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -1765,30 +5154,85 @@ func (c *GradientDrawableOrientationClient) ValueOf(ctx context.Context, arg0 st
 	return resp.GetResult(), nil
 }
 
-// StateListDrawableClient wraps the gRPC StateListDrawableService client.
-type StateListDrawableClient struct {
-	svc pb.StateListDrawableServiceClient
+// Animatable2Client wraps the gRPC Animatable2Service client.
+type Animatable2Client struct {
+	svc pb.Animatable2ServiceClient
 }
 
-// NewStateListDrawableClient creates a new StateListDrawable client.
-func NewStateListDrawableClient(cc grpc.ClientConnInterface) *StateListDrawableClient {
-	return &StateListDrawableClient{
-		svc: pb.NewStateListDrawableServiceClient(cc),
+// NewAnimatable2Client creates a new Animatable2 client.
+func NewAnimatable2Client(cc grpc.ClientConnInterface) *Animatable2Client {
+	return &Animatable2Client{
+		svc: pb.NewAnimatable2ServiceClient(cc),
 	}
 }
 
-// AddState calls the AddState RPC.
-func (c *StateListDrawableClient) AddState(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.AddState(ctx, &pb.AddStateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
+// ClearAnimationCallbacks calls the ClearAnimationCallbacks RPC.
+func (c *Animatable2Client) ClearAnimationCallbacks(ctx context.Context) error {
+	_, err := c.svc.ClearAnimationCallbacks(ctx, &pb.Animatable2ClearAnimationCallbacksRequest{})
+	return err
+}
+
+// RegisterAnimationCallback calls the RegisterAnimationCallback RPC.
+func (c *Animatable2Client) RegisterAnimationCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RegisterAnimationCallback(ctx, &pb.Animatable2RegisterAnimationCallbackRequest{
+		Arg0: arg0,
 	})
 	return err
 }
 
+// UnregisterAnimationCallback calls the UnregisterAnimationCallback RPC.
+func (c *Animatable2Client) UnregisterAnimationCallback(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.UnregisterAnimationCallback(ctx, &pb.Animatable2UnregisterAnimationCallbackRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Animatable2AnimationCallbackClient wraps the gRPC Animatable2AnimationCallbackService client.
+type Animatable2AnimationCallbackClient struct {
+	svc pb.Animatable2AnimationCallbackServiceClient
+}
+
+// NewAnimatable2AnimationCallbackClient creates a new Animatable2AnimationCallback client.
+func NewAnimatable2AnimationCallbackClient(cc grpc.ClientConnInterface) *Animatable2AnimationCallbackClient {
+	return &Animatable2AnimationCallbackClient{
+		svc: pb.NewAnimatable2AnimationCallbackServiceClient(cc),
+	}
+}
+
+// OnAnimationEnd calls the OnAnimationEnd RPC.
+func (c *Animatable2AnimationCallbackClient) OnAnimationEnd(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnAnimationEnd(ctx, &pb.OnAnimationEndRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnAnimationStart calls the OnAnimationStart RPC.
+func (c *Animatable2AnimationCallbackClient) OnAnimationStart(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnAnimationStart(ctx, &pb.OnAnimationStartRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// BitmapDrawableClient wraps the gRPC BitmapDrawableService client.
+type BitmapDrawableClient struct {
+	svc pb.BitmapDrawableServiceClient
+}
+
+// NewBitmapDrawableClient creates a new BitmapDrawable client.
+func NewBitmapDrawableClient(cc grpc.ClientConnInterface) *BitmapDrawableClient {
+	return &BitmapDrawableClient{
+		svc: pb.NewBitmapDrawableServiceClient(cc),
+	}
+}
+
 // ApplyTheme calls the ApplyTheme RPC.
-func (c *StateListDrawableClient) ApplyTheme(ctx context.Context, handle int64, arg0 int64) error {
+func (c *BitmapDrawableClient) ApplyTheme(ctx context.Context, handle int64, arg0 int64) error {
 	_, err := c.svc.ApplyTheme(ctx, &pb.ApplyThemeRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -1796,120 +5240,19 @@ func (c *StateListDrawableClient) ApplyTheme(ctx context.Context, handle int64, 
 	return err
 }
 
-// FindStateDrawableIndex calls the FindStateDrawableIndex RPC.
-func (c *StateListDrawableClient) FindStateDrawableIndex(ctx context.Context, handle int64, arg0 int64) (int32, error) {
-	resp, err := c.svc.FindStateDrawableIndex(ctx, &pb.FindStateDrawableIndexRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStateCount calls the GetStateCount RPC.
-func (c *StateListDrawableClient) GetStateCount(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetStateCount(ctx, &pb.GetStateCountRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStateDrawable calls the GetStateDrawable RPC.
-func (c *StateListDrawableClient) GetStateDrawable(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetStateDrawable(ctx, &pb.GetStateDrawableRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStateSet calls the GetStateSet RPC.
-func (c *StateListDrawableClient) GetStateSet(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetStateSet(ctx, &pb.GetStateSetRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasFocusStateSpecified calls the HasFocusStateSpecified RPC.
-func (c *StateListDrawableClient) HasFocusStateSpecified(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.HasFocusStateSpecified(ctx, &pb.StateListDrawableHasFocusStateSpecifiedRequest{
+// CanApplyTheme calls the CanApplyTheme RPC.
+func (c *BitmapDrawableClient) CanApplyTheme(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.CanApplyTheme(ctx, &pb.CanApplyThemeRequest{
 		Handle: handle,
 	})
 	if err != nil {
 		return false, err
 	}
 	return resp.GetResult(), nil
-}
-
-// Inflate calls the Inflate RPC.
-func (c *StateListDrawableClient) Inflate(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
-	_, err := c.svc.Inflate(ctx, &pb.InflateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// IsStateful calls the IsStateful RPC.
-func (c *StateListDrawableClient) IsStateful(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsStateful(ctx, &pb.IsStatefulRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Mutate calls the Mutate RPC.
-func (c *StateListDrawableClient) Mutate(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Mutate(ctx, &pb.MutateRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AnimatedImageDrawableClient wraps the gRPC AnimatedImageDrawableService client.
-type AnimatedImageDrawableClient struct {
-	svc pb.AnimatedImageDrawableServiceClient
-}
-
-// NewAnimatedImageDrawableClient creates a new AnimatedImageDrawable client.
-func NewAnimatedImageDrawableClient(cc grpc.ClientConnInterface) *AnimatedImageDrawableClient {
-	return &AnimatedImageDrawableClient{
-		svc: pb.NewAnimatedImageDrawableServiceClient(cc),
-	}
-}
-
-// ClearAnimationCallbacks calls the ClearAnimationCallbacks RPC.
-func (c *AnimatedImageDrawableClient) ClearAnimationCallbacks(ctx context.Context, handle int64) error {
-	_, err := c.svc.ClearAnimationCallbacks(ctx, &pb.ClearAnimationCallbacksRequest{
-		Handle: handle,
-	})
-	return err
 }
 
 // Draw calls the Draw RPC.
-func (c *AnimatedImageDrawableClient) Draw(ctx context.Context, handle int64, arg0 int64) error {
+func (c *BitmapDrawableClient) Draw(ctx context.Context, handle int64, arg0 int64) error {
 	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -1918,7 +5261,7 @@ func (c *AnimatedImageDrawableClient) Draw(ctx context.Context, handle int64, ar
 }
 
 // GetAlpha calls the GetAlpha RPC.
-func (c *AnimatedImageDrawableClient) GetAlpha(ctx context.Context, handle int64) (int32, error) {
+func (c *BitmapDrawableClient) GetAlpha(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.GetAlpha(ctx, &pb.GetAlphaRequest{
 		Handle: handle,
 	})
@@ -1928,8 +5271,30 @@ func (c *AnimatedImageDrawableClient) GetAlpha(ctx context.Context, handle int64
 	return resp.GetResult(), nil
 }
 
+// GetBitmap calls the GetBitmap RPC.
+func (c *BitmapDrawableClient) GetBitmap(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetBitmap(ctx, &pb.GetBitmapRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChangingConfigurations calls the GetChangingConfigurations RPC.
+func (c *BitmapDrawableClient) GetChangingConfigurations(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetChangingConfigurations(ctx, &pb.GetChangingConfigurationsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetColorFilter calls the GetColorFilter RPC.
-func (c *AnimatedImageDrawableClient) GetColorFilter(ctx context.Context, handle int64) (int64, error) {
+func (c *BitmapDrawableClient) GetColorFilter(ctx context.Context, handle int64) (int64, error) {
 	resp, err := c.svc.GetColorFilter(ctx, &pb.GetColorFilterRequest{
 		Handle: handle,
 	})
@@ -1939,8 +5304,30 @@ func (c *AnimatedImageDrawableClient) GetColorFilter(ctx context.Context, handle
 	return resp.GetResult(), nil
 }
 
+// GetConstantState calls the GetConstantState RPC.
+func (c *BitmapDrawableClient) GetConstantState(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetConstantState(ctx, &pb.GetConstantStateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGravity calls the GetGravity RPC.
+func (c *BitmapDrawableClient) GetGravity(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetGravity(ctx, &pb.GetGravityRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetIntrinsicHeight calls the GetIntrinsicHeight RPC.
-func (c *AnimatedImageDrawableClient) GetIntrinsicHeight(ctx context.Context, handle int64) (int32, error) {
+func (c *BitmapDrawableClient) GetIntrinsicHeight(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.GetIntrinsicHeight(ctx, &pb.GetIntrinsicHeightRequest{
 		Handle: handle,
 	})
@@ -1951,7 +5338,7 @@ func (c *AnimatedImageDrawableClient) GetIntrinsicHeight(ctx context.Context, ha
 }
 
 // GetIntrinsicWidth calls the GetIntrinsicWidth RPC.
-func (c *AnimatedImageDrawableClient) GetIntrinsicWidth(ctx context.Context, handle int64) (int32, error) {
+func (c *BitmapDrawableClient) GetIntrinsicWidth(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.GetIntrinsicWidth(ctx, &pb.GetIntrinsicWidthRequest{
 		Handle: handle,
 	})
@@ -1962,7 +5349,7 @@ func (c *AnimatedImageDrawableClient) GetIntrinsicWidth(ctx context.Context, han
 }
 
 // GetOpacity calls the GetOpacity RPC.
-func (c *AnimatedImageDrawableClient) GetOpacity(ctx context.Context, handle int64) (int32, error) {
+func (c *BitmapDrawableClient) GetOpacity(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.GetOpacity(ctx, &pb.GetOpacityRequest{
 		Handle: handle,
 	})
@@ -1972,9 +5359,9 @@ func (c *AnimatedImageDrawableClient) GetOpacity(ctx context.Context, handle int
 	return resp.GetResult(), nil
 }
 
-// GetRepeatCount calls the GetRepeatCount RPC.
-func (c *AnimatedImageDrawableClient) GetRepeatCount(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetRepeatCount(ctx, &pb.GetRepeatCountRequest{
+// GetOpticalInsets calls the GetOpticalInsets RPC.
+func (c *BitmapDrawableClient) GetOpticalInsets(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetOpticalInsets(ctx, &pb.GetOpticalInsetsRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -1983,8 +5370,83 @@ func (c *AnimatedImageDrawableClient) GetRepeatCount(ctx context.Context, handle
 	return resp.GetResult(), nil
 }
 
+// GetOutline calls the GetOutline RPC.
+func (c *BitmapDrawableClient) GetOutline(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.GetOutline(ctx, &pb.GetOutlineRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GetPaint calls the GetPaint RPC.
+func (c *BitmapDrawableClient) GetPaint(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetPaint(ctx, &pb.GetPaintRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTileModeX calls the GetTileModeX RPC.
+func (c *BitmapDrawableClient) GetTileModeX(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTileModeX(ctx, &pb.GetTileModeXRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTileModeY calls the GetTileModeY RPC.
+func (c *BitmapDrawableClient) GetTileModeY(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTileModeY(ctx, &pb.GetTileModeYRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasAntiAlias calls the HasAntiAlias RPC.
+func (c *BitmapDrawableClient) HasAntiAlias(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasAntiAlias(ctx, &pb.HasAntiAliasRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasFocusStateSpecified calls the HasFocusStateSpecified RPC.
+func (c *BitmapDrawableClient) HasFocusStateSpecified(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasFocusStateSpecified(ctx, &pb.HasFocusStateSpecifiedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasMipMap calls the HasMipMap RPC.
+func (c *BitmapDrawableClient) HasMipMap(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasMipMap(ctx, &pb.HasMipMapRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
 // Inflate calls the Inflate RPC.
-func (c *AnimatedImageDrawableClient) Inflate(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+func (c *BitmapDrawableClient) Inflate(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
 	_, err := c.svc.Inflate(ctx, &pb.InflateRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -1996,7 +5458,7 @@ func (c *AnimatedImageDrawableClient) Inflate(ctx context.Context, handle int64,
 }
 
 // IsAutoMirrored calls the IsAutoMirrored RPC.
-func (c *AnimatedImageDrawableClient) IsAutoMirrored(ctx context.Context, handle int64) (bool, error) {
+func (c *BitmapDrawableClient) IsAutoMirrored(ctx context.Context, handle int64) (bool, error) {
 	resp, err := c.svc.IsAutoMirrored(ctx, &pb.IsAutoMirroredRequest{
 		Handle: handle,
 	})
@@ -2007,560 +5469,8 @@ func (c *AnimatedImageDrawableClient) IsAutoMirrored(ctx context.Context, handle
 }
 
 // IsFilterBitmap calls the IsFilterBitmap RPC.
-func (c *AnimatedImageDrawableClient) IsFilterBitmap(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsFilterBitmap(ctx, &pb.IsFilterBitmapRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsRunning calls the IsRunning RPC.
-func (c *AnimatedImageDrawableClient) IsRunning(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsRunning(ctx, &pb.IsRunningRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnLayoutDirectionChanged calls the OnLayoutDirectionChanged RPC.
-func (c *AnimatedImageDrawableClient) OnLayoutDirectionChanged(ctx context.Context, handle int64, arg0 int32) (bool, error) {
-	resp, err := c.svc.OnLayoutDirectionChanged(ctx, &pb.OnLayoutDirectionChangedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RegisterAnimationCallback calls the RegisterAnimationCallback RPC.
-func (c *AnimatedImageDrawableClient) RegisterAnimationCallback(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.RegisterAnimationCallback(ctx, &pb.RegisterAnimationCallbackRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetAlpha calls the SetAlpha RPC.
-func (c *AnimatedImageDrawableClient) SetAlpha(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetAlpha(ctx, &pb.SetAlphaRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetAutoMirrored calls the SetAutoMirrored RPC.
-func (c *AnimatedImageDrawableClient) SetAutoMirrored(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetAutoMirrored(ctx, &pb.SetAutoMirroredRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetColorFilter calls the SetColorFilter RPC.
-func (c *AnimatedImageDrawableClient) SetColorFilter(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetColorFilter(ctx, &pb.SetColorFilterRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetFilterBitmap calls the SetFilterBitmap RPC.
-func (c *AnimatedImageDrawableClient) SetFilterBitmap(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetFilterBitmap(ctx, &pb.SetFilterBitmapRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetRepeatCount calls the SetRepeatCount RPC.
-func (c *AnimatedImageDrawableClient) SetRepeatCount(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetRepeatCount(ctx, &pb.SetRepeatCountRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// Start calls the Start RPC.
-func (c *AnimatedImageDrawableClient) Start(ctx context.Context, handle int64) error {
-	_, err := c.svc.Start(ctx, &pb.StartRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// Stop calls the Stop RPC.
-func (c *AnimatedImageDrawableClient) Stop(ctx context.Context, handle int64) error {
-	_, err := c.svc.Stop(ctx, &pb.StopRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// UnregisterAnimationCallback calls the UnregisterAnimationCallback RPC.
-func (c *AnimatedImageDrawableClient) UnregisterAnimationCallback(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.UnregisterAnimationCallback(ctx, &pb.UnregisterAnimationCallbackRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LayerDrawableClient wraps the gRPC LayerDrawableService client.
-type LayerDrawableClient struct {
-	svc pb.LayerDrawableServiceClient
-}
-
-// NewLayerDrawableClient creates a new LayerDrawable client.
-func NewLayerDrawableClient(cc grpc.ClientConnInterface) *LayerDrawableClient {
-	return &LayerDrawableClient{
-		svc: pb.NewLayerDrawableServiceClient(cc),
-	}
-}
-
-// AddLayer calls the AddLayer RPC.
-func (c *LayerDrawableClient) AddLayer(ctx context.Context, handle int64, arg0 int64) (int32, error) {
-	resp, err := c.svc.AddLayer(ctx, &pb.AddLayerRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ApplyTheme calls the ApplyTheme RPC.
-func (c *LayerDrawableClient) ApplyTheme(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.ApplyTheme(ctx, &pb.ApplyThemeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// CanApplyTheme calls the CanApplyTheme RPC.
-func (c *LayerDrawableClient) CanApplyTheme(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.CanApplyTheme(ctx, &pb.CanApplyThemeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Draw calls the Draw RPC.
-func (c *LayerDrawableClient) Draw(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// FindDrawableByLayerId calls the FindDrawableByLayerId RPC.
-func (c *LayerDrawableClient) FindDrawableByLayerId(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.FindDrawableByLayerId(ctx, &pb.FindDrawableByLayerIdRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FindIndexByLayerId calls the FindIndexByLayerId RPC.
-func (c *LayerDrawableClient) FindIndexByLayerId(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.FindIndexByLayerId(ctx, &pb.FindIndexByLayerIdRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAlpha calls the GetAlpha RPC.
-func (c *LayerDrawableClient) GetAlpha(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetAlpha(ctx, &pb.GetAlphaRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBottomPadding calls the GetBottomPadding RPC.
-func (c *LayerDrawableClient) GetBottomPadding(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetBottomPadding(ctx, &pb.GetBottomPaddingRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetChangingConfigurations calls the GetChangingConfigurations RPC.
-func (c *LayerDrawableClient) GetChangingConfigurations(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetChangingConfigurations(ctx, &pb.GetChangingConfigurationsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetConstantState calls the GetConstantState RPC.
-func (c *LayerDrawableClient) GetConstantState(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetConstantState(ctx, &pb.GetConstantStateRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDrawable calls the GetDrawable RPC.
-func (c *LayerDrawableClient) GetDrawable(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetDrawable(ctx, &pb.LayerDrawableGetDrawableRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetEndPadding calls the GetEndPadding RPC.
-func (c *LayerDrawableClient) GetEndPadding(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetEndPadding(ctx, &pb.GetEndPaddingRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetHotspotBounds calls the GetHotspotBounds RPC.
-func (c *LayerDrawableClient) GetHotspotBounds(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.GetHotspotBounds(ctx, &pb.LayerDrawableGetHotspotBoundsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GetId calls the GetId RPC.
-func (c *LayerDrawableClient) GetId(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIntrinsicHeight calls the GetIntrinsicHeight RPC.
-func (c *LayerDrawableClient) GetIntrinsicHeight(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetIntrinsicHeight(ctx, &pb.GetIntrinsicHeightRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIntrinsicWidth calls the GetIntrinsicWidth RPC.
-func (c *LayerDrawableClient) GetIntrinsicWidth(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetIntrinsicWidth(ctx, &pb.GetIntrinsicWidthRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLayerGravity calls the GetLayerGravity RPC.
-func (c *LayerDrawableClient) GetLayerGravity(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetLayerGravity(ctx, &pb.GetLayerGravityRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLayerHeight calls the GetLayerHeight RPC.
-func (c *LayerDrawableClient) GetLayerHeight(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetLayerHeight(ctx, &pb.GetLayerHeightRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLayerInsetBottom calls the GetLayerInsetBottom RPC.
-func (c *LayerDrawableClient) GetLayerInsetBottom(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetLayerInsetBottom(ctx, &pb.GetLayerInsetBottomRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLayerInsetEnd calls the GetLayerInsetEnd RPC.
-func (c *LayerDrawableClient) GetLayerInsetEnd(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetLayerInsetEnd(ctx, &pb.GetLayerInsetEndRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLayerInsetLeft calls the GetLayerInsetLeft RPC.
-func (c *LayerDrawableClient) GetLayerInsetLeft(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetLayerInsetLeft(ctx, &pb.GetLayerInsetLeftRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLayerInsetRight calls the GetLayerInsetRight RPC.
-func (c *LayerDrawableClient) GetLayerInsetRight(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetLayerInsetRight(ctx, &pb.GetLayerInsetRightRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLayerInsetStart calls the GetLayerInsetStart RPC.
-func (c *LayerDrawableClient) GetLayerInsetStart(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetLayerInsetStart(ctx, &pb.GetLayerInsetStartRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLayerInsetTop calls the GetLayerInsetTop RPC.
-func (c *LayerDrawableClient) GetLayerInsetTop(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetLayerInsetTop(ctx, &pb.GetLayerInsetTopRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLayerWidth calls the GetLayerWidth RPC.
-func (c *LayerDrawableClient) GetLayerWidth(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetLayerWidth(ctx, &pb.GetLayerWidthRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLeftPadding calls the GetLeftPadding RPC.
-func (c *LayerDrawableClient) GetLeftPadding(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetLeftPadding(ctx, &pb.GetLeftPaddingRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNumberOfLayers calls the GetNumberOfLayers RPC.
-func (c *LayerDrawableClient) GetNumberOfLayers(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetNumberOfLayers(ctx, &pb.GetNumberOfLayersRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOpacity calls the GetOpacity RPC.
-func (c *LayerDrawableClient) GetOpacity(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetOpacity(ctx, &pb.GetOpacityRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOutline calls the GetOutline RPC.
-func (c *LayerDrawableClient) GetOutline(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.GetOutline(ctx, &pb.GetOutlineRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GetPadding calls the GetPadding RPC.
-func (c *LayerDrawableClient) GetPadding(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.GetPadding(ctx, &pb.LayerDrawableGetPaddingRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPaddingMode calls the GetPaddingMode RPC.
-func (c *LayerDrawableClient) GetPaddingMode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetPaddingMode(ctx, &pb.GetPaddingModeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRightPadding calls the GetRightPadding RPC.
-func (c *LayerDrawableClient) GetRightPadding(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetRightPadding(ctx, &pb.GetRightPaddingRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStartPadding calls the GetStartPadding RPC.
-func (c *LayerDrawableClient) GetStartPadding(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetStartPadding(ctx, &pb.GetStartPaddingRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTopPadding calls the GetTopPadding RPC.
-func (c *LayerDrawableClient) GetTopPadding(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetTopPadding(ctx, &pb.GetTopPaddingRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasFocusStateSpecified calls the HasFocusStateSpecified RPC.
-func (c *LayerDrawableClient) HasFocusStateSpecified(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.HasFocusStateSpecified(ctx, &pb.LayerDrawableHasFocusStateSpecifiedRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Inflate calls the Inflate RPC.
-func (c *LayerDrawableClient) Inflate(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
-	_, err := c.svc.Inflate(ctx, &pb.InflateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// InvalidateDrawable calls the InvalidateDrawable RPC.
-func (c *LayerDrawableClient) InvalidateDrawable(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.InvalidateDrawable(ctx, &pb.LayerDrawableInvalidateDrawableRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// IsAutoMirrored calls the IsAutoMirrored RPC.
-func (c *LayerDrawableClient) IsAutoMirrored(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsAutoMirrored(ctx, &pb.IsAutoMirroredRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsProjected calls the IsProjected RPC.
-func (c *LayerDrawableClient) IsProjected(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsProjected(ctx, &pb.IsProjectedRequest{
+func (c *BitmapDrawableClient) IsFilterBitmap(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsFilterBitmap(ctx, &pb.BitmapDrawableIsFilterBitmapRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -2570,7 +5480,7 @@ func (c *LayerDrawableClient) IsProjected(ctx context.Context, handle int64) (bo
 }
 
 // IsStateful calls the IsStateful RPC.
-func (c *LayerDrawableClient) IsStateful(ctx context.Context, handle int64) (bool, error) {
+func (c *BitmapDrawableClient) IsStateful(ctx context.Context, handle int64) (bool, error) {
 	resp, err := c.svc.IsStateful(ctx, &pb.IsStatefulRequest{
 		Handle: handle,
 	})
@@ -2580,16 +5490,8 @@ func (c *LayerDrawableClient) IsStateful(ctx context.Context, handle int64) (boo
 	return resp.GetResult(), nil
 }
 
-// JumpToCurrentState calls the JumpToCurrentState RPC.
-func (c *LayerDrawableClient) JumpToCurrentState(ctx context.Context, handle int64) error {
-	_, err := c.svc.JumpToCurrentState(ctx, &pb.LayerDrawableJumpToCurrentStateRequest{
-		Handle: handle,
-	})
-	return err
-}
-
 // Mutate calls the Mutate RPC.
-func (c *LayerDrawableClient) Mutate(ctx context.Context, handle int64) (int64, error) {
+func (c *BitmapDrawableClient) Mutate(ctx context.Context, handle int64) (int64, error) {
 	resp, err := c.svc.Mutate(ctx, &pb.MutateRequest{
 		Handle: handle,
 	})
@@ -2599,31 +5501,8 @@ func (c *LayerDrawableClient) Mutate(ctx context.Context, handle int64) (int64, 
 	return resp.GetResult(), nil
 }
 
-// OnLayoutDirectionChanged calls the OnLayoutDirectionChanged RPC.
-func (c *LayerDrawableClient) OnLayoutDirectionChanged(ctx context.Context, handle int64, arg0 int32) (bool, error) {
-	resp, err := c.svc.OnLayoutDirectionChanged(ctx, &pb.OnLayoutDirectionChangedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ScheduleDrawable calls the ScheduleDrawable RPC.
-func (c *LayerDrawableClient) ScheduleDrawable(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.ScheduleDrawable(ctx, &pb.LayerDrawableScheduleDrawableRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
 // SetAlpha calls the SetAlpha RPC.
-func (c *LayerDrawableClient) SetAlpha(ctx context.Context, handle int64, arg0 int32) error {
+func (c *BitmapDrawableClient) SetAlpha(ctx context.Context, handle int64, arg0 int32) error {
 	_, err := c.svc.SetAlpha(ctx, &pb.SetAlphaRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -2631,8 +5510,17 @@ func (c *LayerDrawableClient) SetAlpha(ctx context.Context, handle int64, arg0 i
 	return err
 }
 
+// SetAntiAlias calls the SetAntiAlias RPC.
+func (c *BitmapDrawableClient) SetAntiAlias(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetAntiAlias(ctx, &pb.SetAntiAliasRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
 // SetAutoMirrored calls the SetAutoMirrored RPC.
-func (c *LayerDrawableClient) SetAutoMirrored(ctx context.Context, handle int64, arg0 bool) error {
+func (c *BitmapDrawableClient) SetAutoMirrored(ctx context.Context, handle int64, arg0 bool) error {
 	_, err := c.svc.SetAutoMirrored(ctx, &pb.SetAutoMirroredRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -2640,8 +5528,17 @@ func (c *LayerDrawableClient) SetAutoMirrored(ctx context.Context, handle int64,
 	return err
 }
 
+// SetBitmap calls the SetBitmap RPC.
+func (c *BitmapDrawableClient) SetBitmap(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetBitmap(ctx, &pb.SetBitmapRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
 // SetColorFilter calls the SetColorFilter RPC.
-func (c *LayerDrawableClient) SetColorFilter(ctx context.Context, handle int64, arg0 int64) error {
+func (c *BitmapDrawableClient) SetColorFilter(ctx context.Context, handle int64, arg0 int64) error {
 	_, err := c.svc.SetColorFilter(ctx, &pb.SetColorFilterRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -2650,7 +5547,7 @@ func (c *LayerDrawableClient) SetColorFilter(ctx context.Context, handle int64, 
 }
 
 // SetDither calls the SetDither RPC.
-func (c *LayerDrawableClient) SetDither(ctx context.Context, handle int64, arg0 bool) error {
+func (c *BitmapDrawableClient) SetDither(ctx context.Context, handle int64, arg0 bool) error {
 	_, err := c.svc.SetDither(ctx, &pb.SetDitherRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -2658,9 +5555,72 @@ func (c *LayerDrawableClient) SetDither(ctx context.Context, handle int64, arg0 
 	return err
 }
 
-// SetDrawable calls the SetDrawable RPC.
-func (c *LayerDrawableClient) SetDrawable(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.SetDrawable(ctx, &pb.LayerDrawableSetDrawableRequest{
+// SetFilterBitmap calls the SetFilterBitmap RPC.
+func (c *BitmapDrawableClient) SetFilterBitmap(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetFilterBitmap(ctx, &pb.BitmapDrawableSetFilterBitmapRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetGravity calls the SetGravity RPC.
+func (c *BitmapDrawableClient) SetGravity(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetGravity(ctx, &pb.SetGravityRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetMipMap calls the SetMipMap RPC.
+func (c *BitmapDrawableClient) SetMipMap(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetMipMap(ctx, &pb.SetMipMapRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTargetDensity1 calls the SetTargetDensity1 RPC.
+func (c *BitmapDrawableClient) SetTargetDensity1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetTargetDensity1(ctx, &pb.SetTargetDensity1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTargetDensity1_1 calls the SetTargetDensity1_1 RPC.
+func (c *BitmapDrawableClient) SetTargetDensity1_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetTargetDensity1_1(ctx, &pb.SetTargetDensity1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTargetDensity1_2 calls the SetTargetDensity1_2 RPC.
+func (c *BitmapDrawableClient) SetTargetDensity1_2(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetTargetDensity1_2(ctx, &pb.SetTargetDensity1_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTileModeX calls the SetTileModeX RPC.
+func (c *BitmapDrawableClient) SetTileModeX(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetTileModeX(ctx, &pb.SetTileModeXRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTileModeXY calls the SetTileModeXY RPC.
+func (c *BitmapDrawableClient) SetTileModeXY(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.SetTileModeXY(ctx, &pb.SetTileModeXYRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -2668,222 +5628,17 @@ func (c *LayerDrawableClient) SetDrawable(ctx context.Context, handle int64, arg
 	return err
 }
 
-// SetDrawableByLayerId calls the SetDrawableByLayerId RPC.
-func (c *LayerDrawableClient) SetDrawableByLayerId(ctx context.Context, handle int64, arg0 int32, arg1 int64) (bool, error) {
-	resp, err := c.svc.SetDrawableByLayerId(ctx, &pb.SetDrawableByLayerIdRequest{
+// SetTileModeY calls the SetTileModeY RPC.
+func (c *BitmapDrawableClient) SetTileModeY(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetTileModeY(ctx, &pb.SetTileModeYRequest{
 		Handle: handle,
 		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetHotspot calls the SetHotspot RPC.
-func (c *LayerDrawableClient) SetHotspot(ctx context.Context, handle int64, arg0 float32, arg1 float32) error {
-	_, err := c.svc.SetHotspot(ctx, &pb.SetHotspotRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetHotspotBounds calls the SetHotspotBounds RPC.
-func (c *LayerDrawableClient) SetHotspotBounds(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.SetHotspotBounds(ctx, &pb.SetHotspotBoundsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// SetId calls the SetId RPC.
-func (c *LayerDrawableClient) SetId(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.SetId(ctx, &pb.SetIdRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetLayerGravity calls the SetLayerGravity RPC.
-func (c *LayerDrawableClient) SetLayerGravity(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.SetLayerGravity(ctx, &pb.SetLayerGravityRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetLayerHeight calls the SetLayerHeight RPC.
-func (c *LayerDrawableClient) SetLayerHeight(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.SetLayerHeight(ctx, &pb.SetLayerHeightRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetLayerInset calls the SetLayerInset RPC.
-func (c *LayerDrawableClient) SetLayerInset(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
-	_, err := c.svc.SetLayerInset(ctx, &pb.SetLayerInsetRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-	})
-	return err
-}
-
-// SetLayerInsetBottom calls the SetLayerInsetBottom RPC.
-func (c *LayerDrawableClient) SetLayerInsetBottom(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.SetLayerInsetBottom(ctx, &pb.SetLayerInsetBottomRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetLayerInsetEnd calls the SetLayerInsetEnd RPC.
-func (c *LayerDrawableClient) SetLayerInsetEnd(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.SetLayerInsetEnd(ctx, &pb.SetLayerInsetEndRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetLayerInsetLeft calls the SetLayerInsetLeft RPC.
-func (c *LayerDrawableClient) SetLayerInsetLeft(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.SetLayerInsetLeft(ctx, &pb.SetLayerInsetLeftRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetLayerInsetRelative calls the SetLayerInsetRelative RPC.
-func (c *LayerDrawableClient) SetLayerInsetRelative(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
-	_, err := c.svc.SetLayerInsetRelative(ctx, &pb.SetLayerInsetRelativeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-	})
-	return err
-}
-
-// SetLayerInsetRight calls the SetLayerInsetRight RPC.
-func (c *LayerDrawableClient) SetLayerInsetRight(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.SetLayerInsetRight(ctx, &pb.SetLayerInsetRightRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetLayerInsetStart calls the SetLayerInsetStart RPC.
-func (c *LayerDrawableClient) SetLayerInsetStart(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.SetLayerInsetStart(ctx, &pb.SetLayerInsetStartRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetLayerInsetTop calls the SetLayerInsetTop RPC.
-func (c *LayerDrawableClient) SetLayerInsetTop(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.SetLayerInsetTop(ctx, &pb.SetLayerInsetTopRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetLayerSize calls the SetLayerSize RPC.
-func (c *LayerDrawableClient) SetLayerSize(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.SetLayerSize(ctx, &pb.SetLayerSizeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// SetLayerWidth calls the SetLayerWidth RPC.
-func (c *LayerDrawableClient) SetLayerWidth(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.SetLayerWidth(ctx, &pb.SetLayerWidthRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetOpacity calls the SetOpacity RPC.
-func (c *LayerDrawableClient) SetOpacity(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetOpacity(ctx, &pb.SetOpacityRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetPadding calls the SetPadding RPC.
-func (c *LayerDrawableClient) SetPadding(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.SetPadding(ctx, &pb.SetPaddingRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// SetPaddingMode calls the SetPaddingMode RPC.
-func (c *LayerDrawableClient) SetPaddingMode(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetPaddingMode(ctx, &pb.SetPaddingModeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetPaddingRelative calls the SetPaddingRelative RPC.
-func (c *LayerDrawableClient) SetPaddingRelative(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.SetPaddingRelative(ctx, &pb.SetPaddingRelativeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
 	})
 	return err
 }
 
 // SetTintBlendMode calls the SetTintBlendMode RPC.
-func (c *LayerDrawableClient) SetTintBlendMode(ctx context.Context, handle int64, arg0 int64) error {
+func (c *BitmapDrawableClient) SetTintBlendMode(ctx context.Context, handle int64, arg0 int64) error {
 	_, err := c.svc.SetTintBlendMode(ctx, &pb.SetTintBlendModeRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -2892,7 +5647,7 @@ func (c *LayerDrawableClient) SetTintBlendMode(ctx context.Context, handle int64
 }
 
 // SetTintList calls the SetTintList RPC.
-func (c *LayerDrawableClient) SetTintList(ctx context.Context, handle int64, arg0 int64) error {
+func (c *BitmapDrawableClient) SetTintList(ctx context.Context, handle int64, arg0 int64) error {
 	_, err := c.svc.SetTintList(ctx, &pb.SetTintListRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -2900,12 +5655,356 @@ func (c *LayerDrawableClient) SetTintList(ctx context.Context, handle int64, arg
 	return err
 }
 
-// SetVisible calls the SetVisible RPC.
-func (c *LayerDrawableClient) SetVisible(ctx context.Context, handle int64, arg0 bool, arg1 bool) (bool, error) {
-	resp, err := c.svc.SetVisible(ctx, &pb.SetVisibleRequest{
+// TransitionDrawableClient wraps the gRPC TransitionDrawableService client.
+type TransitionDrawableClient struct {
+	svc pb.TransitionDrawableServiceClient
+}
+
+// NewTransitionDrawableClient creates a new TransitionDrawable client.
+func NewTransitionDrawableClient(cc grpc.ClientConnInterface) *TransitionDrawableClient {
+	return &TransitionDrawableClient{
+		svc: pb.NewTransitionDrawableServiceClient(cc),
+	}
+}
+
+// Draw calls the Draw RPC.
+func (c *TransitionDrawableClient) Draw(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
 		Handle: handle,
 		Arg0:   arg0,
-		Arg1:   arg1,
+	})
+	return err
+}
+
+// IsCrossFadeEnabled calls the IsCrossFadeEnabled RPC.
+func (c *TransitionDrawableClient) IsCrossFadeEnabled(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsCrossFadeEnabled(ctx, &pb.IsCrossFadeEnabledRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ResetTransition calls the ResetTransition RPC.
+func (c *TransitionDrawableClient) ResetTransition(ctx context.Context, handle int64) error {
+	_, err := c.svc.ResetTransition(ctx, &pb.ResetTransitionRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// ReverseTransition calls the ReverseTransition RPC.
+func (c *TransitionDrawableClient) ReverseTransition(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.ReverseTransition(ctx, &pb.ReverseTransitionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetCrossFadeEnabled calls the SetCrossFadeEnabled RPC.
+func (c *TransitionDrawableClient) SetCrossFadeEnabled(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetCrossFadeEnabled(ctx, &pb.SetCrossFadeEnabledRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// StartTransition calls the StartTransition RPC.
+func (c *TransitionDrawableClient) StartTransition(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.StartTransition(ctx, &pb.StartTransitionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// WrapperClient wraps the gRPC WrapperService client.
+type WrapperClient struct {
+	svc pb.WrapperServiceClient
+}
+
+// NewWrapperClient creates a new Wrapper client.
+func NewWrapperClient(cc grpc.ClientConnInterface) *WrapperClient {
+	return &WrapperClient{
+		svc: pb.NewWrapperServiceClient(cc),
+	}
+}
+
+// ApplyTheme calls the ApplyTheme RPC.
+func (c *WrapperClient) ApplyTheme(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.ApplyTheme(ctx, &pb.WrapperApplyThemeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CanApplyTheme calls the CanApplyTheme RPC.
+func (c *WrapperClient) CanApplyTheme(ctx context.Context) (bool, error) {
+	resp, err := c.svc.CanApplyTheme(ctx, &pb.WrapperCanApplyThemeRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Draw calls the Draw RPC.
+func (c *WrapperClient) Draw(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.Draw(ctx, &pb.WrapperDrawRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetAlpha calls the GetAlpha RPC.
+func (c *WrapperClient) GetAlpha(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetAlpha(ctx, &pb.WrapperGetAlphaRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChangingConfigurations calls the GetChangingConfigurations RPC.
+func (c *WrapperClient) GetChangingConfigurations(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetChangingConfigurations(ctx, &pb.WrapperGetChangingConfigurationsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColorFilter calls the GetColorFilter RPC.
+func (c *WrapperClient) GetColorFilter(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetColorFilter(ctx, &pb.WrapperGetColorFilterRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConstantState calls the GetConstantState RPC.
+func (c *WrapperClient) GetConstantState(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetConstantState(ctx, &pb.WrapperGetConstantStateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDrawable calls the GetDrawable RPC.
+func (c *WrapperClient) GetDrawable(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDrawable(ctx, &pb.WrapperGetDrawableRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHotspotBounds calls the GetHotspotBounds RPC.
+func (c *WrapperClient) GetHotspotBounds(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.GetHotspotBounds(ctx, &pb.WrapperGetHotspotBoundsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetIntrinsicHeight calls the GetIntrinsicHeight RPC.
+func (c *WrapperClient) GetIntrinsicHeight(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetIntrinsicHeight(ctx, &pb.WrapperGetIntrinsicHeightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIntrinsicWidth calls the GetIntrinsicWidth RPC.
+func (c *WrapperClient) GetIntrinsicWidth(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetIntrinsicWidth(ctx, &pb.WrapperGetIntrinsicWidthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOpacity calls the GetOpacity RPC.
+func (c *WrapperClient) GetOpacity(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetOpacity(ctx, &pb.WrapperGetOpacityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOpticalInsets calls the GetOpticalInsets RPC.
+func (c *WrapperClient) GetOpticalInsets(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetOpticalInsets(ctx, &pb.WrapperGetOpticalInsetsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutline calls the GetOutline RPC.
+func (c *WrapperClient) GetOutline(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.GetOutline(ctx, &pb.WrapperGetOutlineRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetPadding calls the GetPadding RPC.
+func (c *WrapperClient) GetPadding(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.GetPadding(ctx, &pb.WrapperGetPaddingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasFocusStateSpecified calls the HasFocusStateSpecified RPC.
+func (c *WrapperClient) HasFocusStateSpecified(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasFocusStateSpecified(ctx, &pb.WrapperHasFocusStateSpecifiedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Inflate calls the Inflate RPC.
+func (c *WrapperClient) Inflate(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.Inflate(ctx, &pb.WrapperInflateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// InvalidateDrawable calls the InvalidateDrawable RPC.
+func (c *WrapperClient) InvalidateDrawable(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.InvalidateDrawable(ctx, &pb.WrapperInvalidateDrawableRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// IsStateful calls the IsStateful RPC.
+func (c *WrapperClient) IsStateful(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsStateful(ctx, &pb.WrapperIsStatefulRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// JumpToCurrentState calls the JumpToCurrentState RPC.
+func (c *WrapperClient) JumpToCurrentState(ctx context.Context) error {
+	_, err := c.svc.JumpToCurrentState(ctx, &pb.WrapperJumpToCurrentStateRequest{})
+	return err
+}
+
+// Mutate calls the Mutate RPC.
+func (c *WrapperClient) Mutate(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Mutate(ctx, &pb.WrapperMutateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnLayoutDirectionChanged calls the OnLayoutDirectionChanged RPC.
+func (c *WrapperClient) OnLayoutDirectionChanged(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.OnLayoutDirectionChanged(ctx, &pb.WrapperOnLayoutDirectionChangedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ScheduleDrawable calls the ScheduleDrawable RPC.
+func (c *WrapperClient) ScheduleDrawable(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.ScheduleDrawable(ctx, &pb.WrapperScheduleDrawableRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// SetAlpha calls the SetAlpha RPC.
+func (c *WrapperClient) SetAlpha(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetAlpha(ctx, &pb.WrapperSetAlphaRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetColorFilter calls the SetColorFilter RPC.
+func (c *WrapperClient) SetColorFilter(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetColorFilter(ctx, &pb.WrapperSetColorFilterRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetDrawable calls the SetDrawable RPC.
+func (c *WrapperClient) SetDrawable(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetDrawable(ctx, &pb.WrapperSetDrawableRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetHotspot calls the SetHotspot RPC.
+func (c *WrapperClient) SetHotspot(ctx context.Context, arg0 float32, arg1 float32) error {
+	_, err := c.svc.SetHotspot(ctx, &pb.WrapperSetHotspotRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetHotspotBounds calls the SetHotspotBounds RPC.
+func (c *WrapperClient) SetHotspotBounds(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.SetHotspotBounds(ctx, &pb.WrapperSetHotspotBoundsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// SetTintBlendMode calls the SetTintBlendMode RPC.
+func (c *WrapperClient) SetTintBlendMode(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetTintBlendMode(ctx, &pb.WrapperSetTintBlendModeRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetTintList calls the SetTintList RPC.
+func (c *WrapperClient) SetTintList(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetTintList(ctx, &pb.WrapperSetTintListRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetVisible calls the SetVisible RPC.
+func (c *WrapperClient) SetVisible(ctx context.Context, arg0 bool, arg1 bool) (bool, error) {
+	resp, err := c.svc.SetVisible(ctx, &pb.WrapperSetVisibleRequest{
+		Arg0: arg0,
+		Arg1: arg1,
 	})
 	if err != nil {
 		return false, err
@@ -2914,217 +6013,10 @@ func (c *LayerDrawableClient) SetVisible(ctx context.Context, handle int64, arg0
 }
 
 // UnscheduleDrawable calls the UnscheduleDrawable RPC.
-func (c *LayerDrawableClient) UnscheduleDrawable(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.UnscheduleDrawable(ctx, &pb.LayerDrawableUnscheduleDrawableRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// ColorDrawableClient wraps the gRPC ColorDrawableService client.
-type ColorDrawableClient struct {
-	svc pb.ColorDrawableServiceClient
-}
-
-// NewColorDrawableClient creates a new ColorDrawable client.
-func NewColorDrawableClient(cc grpc.ClientConnInterface) *ColorDrawableClient {
-	return &ColorDrawableClient{
-		svc: pb.NewColorDrawableServiceClient(cc),
-	}
-}
-
-// ApplyTheme calls the ApplyTheme RPC.
-func (c *ColorDrawableClient) ApplyTheme(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.ApplyTheme(ctx, &pb.ApplyThemeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// CanApplyTheme calls the CanApplyTheme RPC.
-func (c *ColorDrawableClient) CanApplyTheme(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.CanApplyTheme(ctx, &pb.CanApplyThemeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Draw calls the Draw RPC.
-func (c *ColorDrawableClient) Draw(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GetAlpha calls the GetAlpha RPC.
-func (c *ColorDrawableClient) GetAlpha(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetAlpha(ctx, &pb.GetAlphaRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetChangingConfigurations calls the GetChangingConfigurations RPC.
-func (c *ColorDrawableClient) GetChangingConfigurations(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetChangingConfigurations(ctx, &pb.GetChangingConfigurationsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetColor calls the GetColor RPC.
-func (c *ColorDrawableClient) GetColor(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetColor(ctx, &pb.GetColorRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetColorFilter calls the GetColorFilter RPC.
-func (c *ColorDrawableClient) GetColorFilter(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetColorFilter(ctx, &pb.GetColorFilterRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetConstantState calls the GetConstantState RPC.
-func (c *ColorDrawableClient) GetConstantState(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetConstantState(ctx, &pb.GetConstantStateRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOpacity calls the GetOpacity RPC.
-func (c *ColorDrawableClient) GetOpacity(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetOpacity(ctx, &pb.GetOpacityRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOutline calls the GetOutline RPC.
-func (c *ColorDrawableClient) GetOutline(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.GetOutline(ctx, &pb.GetOutlineRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// HasFocusStateSpecified calls the HasFocusStateSpecified RPC.
-func (c *ColorDrawableClient) HasFocusStateSpecified(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.HasFocusStateSpecified(ctx, &pb.ColorDrawableHasFocusStateSpecifiedRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Inflate calls the Inflate RPC.
-func (c *ColorDrawableClient) Inflate(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
-	_, err := c.svc.Inflate(ctx, &pb.InflateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// IsStateful calls the IsStateful RPC.
-func (c *ColorDrawableClient) IsStateful(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsStateful(ctx, &pb.IsStatefulRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Mutate calls the Mutate RPC.
-func (c *ColorDrawableClient) Mutate(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Mutate(ctx, &pb.MutateRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetAlpha calls the SetAlpha RPC.
-func (c *ColorDrawableClient) SetAlpha(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetAlpha(ctx, &pb.SetAlphaRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetColor calls the SetColor RPC.
-func (c *ColorDrawableClient) SetColor(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetColor(ctx, &pb.SetColorRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetColorFilter calls the SetColorFilter RPC.
-func (c *ColorDrawableClient) SetColorFilter(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetColorFilter(ctx, &pb.SetColorFilterRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTintBlendMode calls the SetTintBlendMode RPC.
-func (c *ColorDrawableClient) SetTintBlendMode(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetTintBlendMode(ctx, &pb.SetTintBlendModeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTintList calls the SetTintList RPC.
-func (c *ColorDrawableClient) SetTintList(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetTintList(ctx, &pb.SetTintListRequest{
-		Handle: handle,
-		Arg0:   arg0,
+func (c *WrapperClient) UnscheduleDrawable(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.UnscheduleDrawable(ctx, &pb.WrapperUnscheduleDrawableRequest{
+		Arg0: arg0,
+		Arg1: arg1,
 	})
 	return err
 }
@@ -3183,7 +6075,7 @@ func (c *RippleDrawableClient) GetConstantState(ctx context.Context, handle int6
 
 // GetDirtyBounds calls the GetDirtyBounds RPC.
 func (c *RippleDrawableClient) GetDirtyBounds(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetDirtyBounds(ctx, &pb.GetDirtyBoundsRequest{
+	resp, err := c.svc.GetDirtyBounds(ctx, &pb.RippleDrawableGetDirtyBoundsRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -3205,7 +6097,7 @@ func (c *RippleDrawableClient) GetEffectColor(ctx context.Context, handle int64)
 
 // GetHotspotBounds calls the GetHotspotBounds RPC.
 func (c *RippleDrawableClient) GetHotspotBounds(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.GetHotspotBounds(ctx, &pb.RippleDrawableGetHotspotBoundsRequest{
+	_, err := c.svc.GetHotspotBounds(ctx, &pb.GetHotspotBoundsRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -3245,7 +6137,7 @@ func (c *RippleDrawableClient) GetRadius(ctx context.Context, handle int64) (int
 
 // HasFocusStateSpecified calls the HasFocusStateSpecified RPC.
 func (c *RippleDrawableClient) HasFocusStateSpecified(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.HasFocusStateSpecified(ctx, &pb.RippleDrawableHasFocusStateSpecifiedRequest{
+	resp, err := c.svc.HasFocusStateSpecified(ctx, &pb.HasFocusStateSpecifiedRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -3268,7 +6160,7 @@ func (c *RippleDrawableClient) Inflate(ctx context.Context, handle int64, arg0 i
 
 // InvalidateSelf calls the InvalidateSelf RPC.
 func (c *RippleDrawableClient) InvalidateSelf(ctx context.Context, handle int64) error {
-	_, err := c.svc.InvalidateSelf(ctx, &pb.InvalidateSelfRequest{
+	_, err := c.svc.InvalidateSelf(ctx, &pb.RippleDrawableInvalidateSelfRequest{
 		Handle: handle,
 	})
 	return err
@@ -3298,7 +6190,7 @@ func (c *RippleDrawableClient) IsStateful(ctx context.Context, handle int64) (bo
 
 // JumpToCurrentState calls the JumpToCurrentState RPC.
 func (c *RippleDrawableClient) JumpToCurrentState(ctx context.Context, handle int64) error {
-	_, err := c.svc.JumpToCurrentState(ctx, &pb.RippleDrawableJumpToCurrentStateRequest{
+	_, err := c.svc.JumpToCurrentState(ctx, &pb.JumpToCurrentStateRequest{
 		Handle: handle,
 	})
 	return err
@@ -3399,133 +6291,20 @@ func (c *RippleDrawableClient) SetVisible(ctx context.Context, handle int64, arg
 	return resp.GetResult(), nil
 }
 
-// LevelListDrawableClient wraps the gRPC LevelListDrawableService client.
-type LevelListDrawableClient struct {
-	svc pb.LevelListDrawableServiceClient
+// ScaleDrawableClient wraps the gRPC ScaleDrawableService client.
+type ScaleDrawableClient struct {
+	svc pb.ScaleDrawableServiceClient
 }
 
-// NewLevelListDrawableClient creates a new LevelListDrawable client.
-func NewLevelListDrawableClient(cc grpc.ClientConnInterface) *LevelListDrawableClient {
-	return &LevelListDrawableClient{
-		svc: pb.NewLevelListDrawableServiceClient(cc),
-	}
-}
-
-// AddLevel calls the AddLevel RPC.
-func (c *LevelListDrawableClient) AddLevel(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.AddLevel(ctx, &pb.AddLevelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// Inflate calls the Inflate RPC.
-func (c *LevelListDrawableClient) Inflate(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
-	_, err := c.svc.Inflate(ctx, &pb.InflateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// Mutate calls the Mutate RPC.
-func (c *LevelListDrawableClient) Mutate(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Mutate(ctx, &pb.MutateRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// TransitionDrawableClient wraps the gRPC TransitionDrawableService client.
-type TransitionDrawableClient struct {
-	svc pb.TransitionDrawableServiceClient
-}
-
-// NewTransitionDrawableClient creates a new TransitionDrawable client.
-func NewTransitionDrawableClient(cc grpc.ClientConnInterface) *TransitionDrawableClient {
-	return &TransitionDrawableClient{
-		svc: pb.NewTransitionDrawableServiceClient(cc),
-	}
-}
-
-// Draw calls the Draw RPC.
-func (c *TransitionDrawableClient) Draw(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// IsCrossFadeEnabled calls the IsCrossFadeEnabled RPC.
-func (c *TransitionDrawableClient) IsCrossFadeEnabled(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsCrossFadeEnabled(ctx, &pb.IsCrossFadeEnabledRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ResetTransition calls the ResetTransition RPC.
-func (c *TransitionDrawableClient) ResetTransition(ctx context.Context, handle int64) error {
-	_, err := c.svc.ResetTransition(ctx, &pb.ResetTransitionRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// ReverseTransition calls the ReverseTransition RPC.
-func (c *TransitionDrawableClient) ReverseTransition(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.ReverseTransition(ctx, &pb.ReverseTransitionRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetCrossFadeEnabled calls the SetCrossFadeEnabled RPC.
-func (c *TransitionDrawableClient) SetCrossFadeEnabled(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetCrossFadeEnabled(ctx, &pb.SetCrossFadeEnabledRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// StartTransition calls the StartTransition RPC.
-func (c *TransitionDrawableClient) StartTransition(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.StartTransition(ctx, &pb.StartTransitionRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// NinePatchDrawableClient wraps the gRPC NinePatchDrawableService client.
-type NinePatchDrawableClient struct {
-	svc pb.NinePatchDrawableServiceClient
-}
-
-// NewNinePatchDrawableClient creates a new NinePatchDrawable client.
-func NewNinePatchDrawableClient(cc grpc.ClientConnInterface) *NinePatchDrawableClient {
-	return &NinePatchDrawableClient{
-		svc: pb.NewNinePatchDrawableServiceClient(cc),
+// NewScaleDrawableClient creates a new ScaleDrawable client.
+func NewScaleDrawableClient(cc grpc.ClientConnInterface) *ScaleDrawableClient {
+	return &ScaleDrawableClient{
+		svc: pb.NewScaleDrawableServiceClient(cc),
 	}
 }
 
 // ApplyTheme calls the ApplyTheme RPC.
-func (c *NinePatchDrawableClient) ApplyTheme(ctx context.Context, handle int64, arg0 int64) error {
+func (c *ScaleDrawableClient) ApplyTheme(ctx context.Context, handle int64, arg0 int64) error {
 	_, err := c.svc.ApplyTheme(ctx, &pb.ApplyThemeRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -3533,19 +6312,8 @@ func (c *NinePatchDrawableClient) ApplyTheme(ctx context.Context, handle int64, 
 	return err
 }
 
-// CanApplyTheme calls the CanApplyTheme RPC.
-func (c *NinePatchDrawableClient) CanApplyTheme(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.CanApplyTheme(ctx, &pb.CanApplyThemeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
 // Draw calls the Draw RPC.
-func (c *NinePatchDrawableClient) Draw(ctx context.Context, handle int64, arg0 int64) error {
+func (c *ScaleDrawableClient) Draw(ctx context.Context, handle int64, arg0 int64) error {
 	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -3553,63 +6321,8 @@ func (c *NinePatchDrawableClient) Draw(ctx context.Context, handle int64, arg0 i
 	return err
 }
 
-// GetAlpha calls the GetAlpha RPC.
-func (c *NinePatchDrawableClient) GetAlpha(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetAlpha(ctx, &pb.GetAlphaRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetChangingConfigurations calls the GetChangingConfigurations RPC.
-func (c *NinePatchDrawableClient) GetChangingConfigurations(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetChangingConfigurations(ctx, &pb.GetChangingConfigurationsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetConstantState calls the GetConstantState RPC.
-func (c *NinePatchDrawableClient) GetConstantState(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetConstantState(ctx, &pb.GetConstantStateRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIntrinsicHeight calls the GetIntrinsicHeight RPC.
-func (c *NinePatchDrawableClient) GetIntrinsicHeight(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetIntrinsicHeight(ctx, &pb.GetIntrinsicHeightRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIntrinsicWidth calls the GetIntrinsicWidth RPC.
-func (c *NinePatchDrawableClient) GetIntrinsicWidth(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetIntrinsicWidth(ctx, &pb.GetIntrinsicWidthRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetOpacity calls the GetOpacity RPC.
-func (c *NinePatchDrawableClient) GetOpacity(ctx context.Context, handle int64) (int32, error) {
+func (c *ScaleDrawableClient) GetOpacity(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.GetOpacity(ctx, &pb.GetOpacityRequest{
 		Handle: handle,
 	})
@@ -3619,73 +6332,8 @@ func (c *NinePatchDrawableClient) GetOpacity(ctx context.Context, handle int64) 
 	return resp.GetResult(), nil
 }
 
-// GetOpticalInsets calls the GetOpticalInsets RPC.
-func (c *NinePatchDrawableClient) GetOpticalInsets(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetOpticalInsets(ctx, &pb.GetOpticalInsetsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOutline calls the GetOutline RPC.
-func (c *NinePatchDrawableClient) GetOutline(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.GetOutline(ctx, &pb.GetOutlineRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GetPadding calls the GetPadding RPC.
-func (c *NinePatchDrawableClient) GetPadding(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.GetPadding(ctx, &pb.NinePatchDrawableGetPaddingRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPaint calls the GetPaint RPC.
-func (c *NinePatchDrawableClient) GetPaint(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetPaint(ctx, &pb.GetPaintRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTransparentRegion calls the GetTransparentRegion RPC.
-func (c *NinePatchDrawableClient) GetTransparentRegion(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetTransparentRegion(ctx, &pb.GetTransparentRegionRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasFocusStateSpecified calls the HasFocusStateSpecified RPC.
-func (c *NinePatchDrawableClient) HasFocusStateSpecified(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.HasFocusStateSpecified(ctx, &pb.NinePatchDrawableHasFocusStateSpecifiedRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
 // Inflate calls the Inflate RPC.
-func (c *NinePatchDrawableClient) Inflate(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+func (c *ScaleDrawableClient) Inflate(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
 	_, err := c.svc.Inflate(ctx, &pb.InflateRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -3694,762 +6342,6 @@ func (c *NinePatchDrawableClient) Inflate(ctx context.Context, handle int64, arg
 		Arg3:   arg3,
 	})
 	return err
-}
-
-// IsAutoMirrored calls the IsAutoMirrored RPC.
-func (c *NinePatchDrawableClient) IsAutoMirrored(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsAutoMirrored(ctx, &pb.IsAutoMirroredRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsFilterBitmap calls the IsFilterBitmap RPC.
-func (c *NinePatchDrawableClient) IsFilterBitmap(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsFilterBitmap(ctx, &pb.IsFilterBitmapRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsStateful calls the IsStateful RPC.
-func (c *NinePatchDrawableClient) IsStateful(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsStateful(ctx, &pb.IsStatefulRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Mutate calls the Mutate RPC.
-func (c *NinePatchDrawableClient) Mutate(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Mutate(ctx, &pb.MutateRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetAlpha calls the SetAlpha RPC.
-func (c *NinePatchDrawableClient) SetAlpha(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetAlpha(ctx, &pb.SetAlphaRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetAutoMirrored calls the SetAutoMirrored RPC.
-func (c *NinePatchDrawableClient) SetAutoMirrored(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetAutoMirrored(ctx, &pb.SetAutoMirroredRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetColorFilter calls the SetColorFilter RPC.
-func (c *NinePatchDrawableClient) SetColorFilter(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetColorFilter(ctx, &pb.SetColorFilterRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetDither calls the SetDither RPC.
-func (c *NinePatchDrawableClient) SetDither(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetDither(ctx, &pb.SetDitherRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetFilterBitmap calls the SetFilterBitmap RPC.
-func (c *NinePatchDrawableClient) SetFilterBitmap(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetFilterBitmap(ctx, &pb.SetFilterBitmapRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTargetDensity1 calls the SetTargetDensity1 RPC.
-func (c *NinePatchDrawableClient) SetTargetDensity1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetTargetDensity1(ctx, &pb.SetTargetDensity1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTargetDensity1_1 calls the SetTargetDensity1_1 RPC.
-func (c *NinePatchDrawableClient) SetTargetDensity1_1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetTargetDensity1_1(ctx, &pb.SetTargetDensity1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTargetDensity1_2 calls the SetTargetDensity1_2 RPC.
-func (c *NinePatchDrawableClient) SetTargetDensity1_2(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetTargetDensity1_2(ctx, &pb.SetTargetDensity1_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTintBlendMode calls the SetTintBlendMode RPC.
-func (c *NinePatchDrawableClient) SetTintBlendMode(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetTintBlendMode(ctx, &pb.SetTintBlendModeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTintList calls the SetTintList RPC.
-func (c *NinePatchDrawableClient) SetTintList(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetTintList(ctx, &pb.SetTintListRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// InsetDrawableClient wraps the gRPC InsetDrawableService client.
-type InsetDrawableClient struct {
-	svc pb.InsetDrawableServiceClient
-}
-
-// NewInsetDrawableClient creates a new InsetDrawable client.
-func NewInsetDrawableClient(cc grpc.ClientConnInterface) *InsetDrawableClient {
-	return &InsetDrawableClient{
-		svc: pb.NewInsetDrawableServiceClient(cc),
-	}
-}
-
-// ApplyTheme calls the ApplyTheme RPC.
-func (c *InsetDrawableClient) ApplyTheme(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.ApplyTheme(ctx, &pb.ApplyThemeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GetIntrinsicHeight calls the GetIntrinsicHeight RPC.
-func (c *InsetDrawableClient) GetIntrinsicHeight(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetIntrinsicHeight(ctx, &pb.GetIntrinsicHeightRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIntrinsicWidth calls the GetIntrinsicWidth RPC.
-func (c *InsetDrawableClient) GetIntrinsicWidth(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetIntrinsicWidth(ctx, &pb.GetIntrinsicWidthRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOpacity calls the GetOpacity RPC.
-func (c *InsetDrawableClient) GetOpacity(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetOpacity(ctx, &pb.GetOpacityRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOpticalInsets calls the GetOpticalInsets RPC.
-func (c *InsetDrawableClient) GetOpticalInsets(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetOpticalInsets(ctx, &pb.GetOpticalInsetsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOutline calls the GetOutline RPC.
-func (c *InsetDrawableClient) GetOutline(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.GetOutline(ctx, &pb.GetOutlineRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GetPadding calls the GetPadding RPC.
-func (c *InsetDrawableClient) GetPadding(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.GetPadding(ctx, &pb.InsetDrawableGetPaddingRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Inflate calls the Inflate RPC.
-func (c *InsetDrawableClient) Inflate(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
-	_, err := c.svc.Inflate(ctx, &pb.InflateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// PictureDrawableClient wraps the gRPC PictureDrawableService client.
-type PictureDrawableClient struct {
-	svc pb.PictureDrawableServiceClient
-}
-
-// NewPictureDrawableClient creates a new PictureDrawable client.
-func NewPictureDrawableClient(cc grpc.ClientConnInterface) *PictureDrawableClient {
-	return &PictureDrawableClient{
-		svc: pb.NewPictureDrawableServiceClient(cc),
-	}
-}
-
-// Draw calls the Draw RPC.
-func (c *PictureDrawableClient) Draw(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GetIntrinsicHeight calls the GetIntrinsicHeight RPC.
-func (c *PictureDrawableClient) GetIntrinsicHeight(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetIntrinsicHeight(ctx, &pb.GetIntrinsicHeightRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIntrinsicWidth calls the GetIntrinsicWidth RPC.
-func (c *PictureDrawableClient) GetIntrinsicWidth(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetIntrinsicWidth(ctx, &pb.GetIntrinsicWidthRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOpacity calls the GetOpacity RPC.
-func (c *PictureDrawableClient) GetOpacity(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetOpacity(ctx, &pb.GetOpacityRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPicture calls the GetPicture RPC.
-func (c *PictureDrawableClient) GetPicture(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetPicture(ctx, &pb.GetPictureRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetAlpha calls the SetAlpha RPC.
-func (c *PictureDrawableClient) SetAlpha(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetAlpha(ctx, &pb.SetAlphaRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetColorFilter calls the SetColorFilter RPC.
-func (c *PictureDrawableClient) SetColorFilter(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetColorFilter(ctx, &pb.SetColorFilterRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetPicture calls the SetPicture RPC.
-func (c *PictureDrawableClient) SetPicture(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetPicture(ctx, &pb.SetPictureRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// PaintDrawableClient wraps the gRPC PaintDrawableService client.
-type PaintDrawableClient struct {
-	svc pb.PaintDrawableServiceClient
-}
-
-// NewPaintDrawableClient creates a new PaintDrawable client.
-func NewPaintDrawableClient(cc grpc.ClientConnInterface) *PaintDrawableClient {
-	return &PaintDrawableClient{
-		svc: pb.NewPaintDrawableServiceClient(cc),
-	}
-}
-
-// SetCornerRadii calls the SetCornerRadii RPC.
-func (c *PaintDrawableClient) SetCornerRadii(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetCornerRadii(ctx, &pb.SetCornerRadiiRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetCornerRadius calls the SetCornerRadius RPC.
-func (c *PaintDrawableClient) SetCornerRadius(ctx context.Context, handle int64, arg0 float32) error {
-	_, err := c.svc.SetCornerRadius(ctx, &pb.SetCornerRadiusRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AdaptiveIconDrawableClient wraps the gRPC AdaptiveIconDrawableService client.
-type AdaptiveIconDrawableClient struct {
-	svc pb.AdaptiveIconDrawableServiceClient
-}
-
-// NewAdaptiveIconDrawableClient creates a new AdaptiveIconDrawable client.
-func NewAdaptiveIconDrawableClient(cc grpc.ClientConnInterface) *AdaptiveIconDrawableClient {
-	return &AdaptiveIconDrawableClient{
-		svc: pb.NewAdaptiveIconDrawableServiceClient(cc),
-	}
-}
-
-// ApplyTheme calls the ApplyTheme RPC.
-func (c *AdaptiveIconDrawableClient) ApplyTheme(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.ApplyTheme(ctx, &pb.ApplyThemeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// CanApplyTheme calls the CanApplyTheme RPC.
-func (c *AdaptiveIconDrawableClient) CanApplyTheme(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.CanApplyTheme(ctx, &pb.CanApplyThemeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Draw calls the Draw RPC.
-func (c *AdaptiveIconDrawableClient) Draw(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GetAlpha calls the GetAlpha RPC.
-func (c *AdaptiveIconDrawableClient) GetAlpha(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetAlpha(ctx, &pb.GetAlphaRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBackground calls the GetBackground RPC.
-func (c *AdaptiveIconDrawableClient) GetBackground(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetBackground(ctx, &pb.GetBackgroundRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetChangingConfigurations calls the GetChangingConfigurations RPC.
-func (c *AdaptiveIconDrawableClient) GetChangingConfigurations(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetChangingConfigurations(ctx, &pb.GetChangingConfigurationsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetConstantState calls the GetConstantState RPC.
-func (c *AdaptiveIconDrawableClient) GetConstantState(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetConstantState(ctx, &pb.GetConstantStateRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetForeground calls the GetForeground RPC.
-func (c *AdaptiveIconDrawableClient) GetForeground(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetForeground(ctx, &pb.GetForegroundRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetHotspotBounds calls the GetHotspotBounds RPC.
-func (c *AdaptiveIconDrawableClient) GetHotspotBounds(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.GetHotspotBounds(ctx, &pb.AdaptiveIconDrawableGetHotspotBoundsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GetIconMask calls the GetIconMask RPC.
-func (c *AdaptiveIconDrawableClient) GetIconMask(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetIconMask(ctx, &pb.GetIconMaskRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIntrinsicHeight calls the GetIntrinsicHeight RPC.
-func (c *AdaptiveIconDrawableClient) GetIntrinsicHeight(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetIntrinsicHeight(ctx, &pb.GetIntrinsicHeightRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIntrinsicWidth calls the GetIntrinsicWidth RPC.
-func (c *AdaptiveIconDrawableClient) GetIntrinsicWidth(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetIntrinsicWidth(ctx, &pb.GetIntrinsicWidthRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMonochrome calls the GetMonochrome RPC.
-func (c *AdaptiveIconDrawableClient) GetMonochrome(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetMonochrome(ctx, &pb.GetMonochromeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOpacity calls the GetOpacity RPC.
-func (c *AdaptiveIconDrawableClient) GetOpacity(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetOpacity(ctx, &pb.GetOpacityRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOutline calls the GetOutline RPC.
-func (c *AdaptiveIconDrawableClient) GetOutline(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.GetOutline(ctx, &pb.GetOutlineRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GetTransparentRegion calls the GetTransparentRegion RPC.
-func (c *AdaptiveIconDrawableClient) GetTransparentRegion(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetTransparentRegion(ctx, &pb.GetTransparentRegionRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasFocusStateSpecified calls the HasFocusStateSpecified RPC.
-func (c *AdaptiveIconDrawableClient) HasFocusStateSpecified(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.HasFocusStateSpecified(ctx, &pb.AdaptiveIconDrawableHasFocusStateSpecifiedRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Inflate calls the Inflate RPC.
-func (c *AdaptiveIconDrawableClient) Inflate(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
-	_, err := c.svc.Inflate(ctx, &pb.InflateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// InvalidateDrawable calls the InvalidateDrawable RPC.
-func (c *AdaptiveIconDrawableClient) InvalidateDrawable(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.InvalidateDrawable(ctx, &pb.AdaptiveIconDrawableInvalidateDrawableRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// InvalidateSelf calls the InvalidateSelf RPC.
-func (c *AdaptiveIconDrawableClient) InvalidateSelf(ctx context.Context, handle int64) error {
-	_, err := c.svc.InvalidateSelf(ctx, &pb.InvalidateSelfRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// IsAutoMirrored calls the IsAutoMirrored RPC.
-func (c *AdaptiveIconDrawableClient) IsAutoMirrored(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsAutoMirrored(ctx, &pb.IsAutoMirroredRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsProjected calls the IsProjected RPC.
-func (c *AdaptiveIconDrawableClient) IsProjected(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsProjected(ctx, &pb.IsProjectedRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsStateful calls the IsStateful RPC.
-func (c *AdaptiveIconDrawableClient) IsStateful(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsStateful(ctx, &pb.IsStatefulRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// JumpToCurrentState calls the JumpToCurrentState RPC.
-func (c *AdaptiveIconDrawableClient) JumpToCurrentState(ctx context.Context, handle int64) error {
-	_, err := c.svc.JumpToCurrentState(ctx, &pb.AdaptiveIconDrawableJumpToCurrentStateRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// Mutate calls the Mutate RPC.
-func (c *AdaptiveIconDrawableClient) Mutate(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Mutate(ctx, &pb.MutateRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ScheduleDrawable calls the ScheduleDrawable RPC.
-func (c *AdaptiveIconDrawableClient) ScheduleDrawable(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.ScheduleDrawable(ctx, &pb.AdaptiveIconDrawableScheduleDrawableRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// SetAlpha calls the SetAlpha RPC.
-func (c *AdaptiveIconDrawableClient) SetAlpha(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetAlpha(ctx, &pb.SetAlphaRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetAutoMirrored calls the SetAutoMirrored RPC.
-func (c *AdaptiveIconDrawableClient) SetAutoMirrored(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetAutoMirrored(ctx, &pb.SetAutoMirroredRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetColorFilter calls the SetColorFilter RPC.
-func (c *AdaptiveIconDrawableClient) SetColorFilter(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetColorFilter(ctx, &pb.SetColorFilterRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetDither calls the SetDither RPC.
-func (c *AdaptiveIconDrawableClient) SetDither(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetDither(ctx, &pb.SetDitherRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetHotspot calls the SetHotspot RPC.
-func (c *AdaptiveIconDrawableClient) SetHotspot(ctx context.Context, handle int64, arg0 float32, arg1 float32) error {
-	_, err := c.svc.SetHotspot(ctx, &pb.SetHotspotRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetHotspotBounds calls the SetHotspotBounds RPC.
-func (c *AdaptiveIconDrawableClient) SetHotspotBounds(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.SetHotspotBounds(ctx, &pb.SetHotspotBoundsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// SetOpacity calls the SetOpacity RPC.
-func (c *AdaptiveIconDrawableClient) SetOpacity(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetOpacity(ctx, &pb.SetOpacityRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTintBlendMode calls the SetTintBlendMode RPC.
-func (c *AdaptiveIconDrawableClient) SetTintBlendMode(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetTintBlendMode(ctx, &pb.SetTintBlendModeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTintList calls the SetTintList RPC.
-func (c *AdaptiveIconDrawableClient) SetTintList(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetTintList(ctx, &pb.SetTintListRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetVisible calls the SetVisible RPC.
-func (c *AdaptiveIconDrawableClient) SetVisible(ctx context.Context, handle int64, arg0 bool, arg1 bool) (bool, error) {
-	resp, err := c.svc.SetVisible(ctx, &pb.SetVisibleRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// UnscheduleDrawable calls the UnscheduleDrawable RPC.
-func (c *AdaptiveIconDrawableClient) UnscheduleDrawable(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.UnscheduleDrawable(ctx, &pb.AdaptiveIconDrawableUnscheduleDrawableRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GetExtraInsetFraction calls the GetExtraInsetFraction RPC.
-func (c *AdaptiveIconDrawableClient) GetExtraInsetFraction(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetExtraInsetFraction(ctx, &pb.GetExtraInsetFractionRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
 }
 
 // RotateDrawableClient wraps the gRPC RotateDrawableService client.
@@ -4614,20 +6506,20 @@ func (c *RotateDrawableClient) SetToDegrees(ctx context.Context, handle int64, a
 	return err
 }
 
-// ContainerClient wraps the gRPC ContainerService client.
-type ContainerClient struct {
-	svc pb.ContainerServiceClient
+// InsetDrawableClient wraps the gRPC InsetDrawableService client.
+type InsetDrawableClient struct {
+	svc pb.InsetDrawableServiceClient
 }
 
-// NewContainerClient creates a new Container client.
-func NewContainerClient(cc grpc.ClientConnInterface) *ContainerClient {
-	return &ContainerClient{
-		svc: pb.NewContainerServiceClient(cc),
+// NewInsetDrawableClient creates a new InsetDrawable client.
+func NewInsetDrawableClient(cc grpc.ClientConnInterface) *InsetDrawableClient {
+	return &InsetDrawableClient{
+		svc: pb.NewInsetDrawableServiceClient(cc),
 	}
 }
 
 // ApplyTheme calls the ApplyTheme RPC.
-func (c *ContainerClient) ApplyTheme(ctx context.Context, handle int64, arg0 int64) error {
+func (c *InsetDrawableClient) ApplyTheme(ctx context.Context, handle int64, arg0 int64) error {
 	_, err := c.svc.ApplyTheme(ctx, &pb.ApplyThemeRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -4635,81 +6527,8 @@ func (c *ContainerClient) ApplyTheme(ctx context.Context, handle int64, arg0 int
 	return err
 }
 
-// CanApplyTheme calls the CanApplyTheme RPC.
-func (c *ContainerClient) CanApplyTheme(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.CanApplyTheme(ctx, &pb.CanApplyThemeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Draw calls the Draw RPC.
-func (c *ContainerClient) Draw(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GetAlpha calls the GetAlpha RPC.
-func (c *ContainerClient) GetAlpha(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetAlpha(ctx, &pb.GetAlphaRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetChangingConfigurations calls the GetChangingConfigurations RPC.
-func (c *ContainerClient) GetChangingConfigurations(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetChangingConfigurations(ctx, &pb.GetChangingConfigurationsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetConstantState calls the GetConstantState RPC.
-func (c *ContainerClient) GetConstantState(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetConstantState(ctx, &pb.GetConstantStateRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCurrent calls the GetCurrent RPC.
-func (c *ContainerClient) GetCurrent(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetCurrent(ctx, &pb.GetCurrentRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetHotspotBounds calls the GetHotspotBounds RPC.
-func (c *ContainerClient) GetHotspotBounds(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.GetHotspotBounds(ctx, &pb.ContainerGetHotspotBoundsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
 // GetIntrinsicHeight calls the GetIntrinsicHeight RPC.
-func (c *ContainerClient) GetIntrinsicHeight(ctx context.Context, handle int64) (int32, error) {
+func (c *InsetDrawableClient) GetIntrinsicHeight(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.GetIntrinsicHeight(ctx, &pb.GetIntrinsicHeightRequest{
 		Handle: handle,
 	})
@@ -4720,7 +6539,7 @@ func (c *ContainerClient) GetIntrinsicHeight(ctx context.Context, handle int64) 
 }
 
 // GetIntrinsicWidth calls the GetIntrinsicWidth RPC.
-func (c *ContainerClient) GetIntrinsicWidth(ctx context.Context, handle int64) (int32, error) {
+func (c *InsetDrawableClient) GetIntrinsicWidth(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.GetIntrinsicWidth(ctx, &pb.GetIntrinsicWidthRequest{
 		Handle: handle,
 	})
@@ -4730,30 +6549,8 @@ func (c *ContainerClient) GetIntrinsicWidth(ctx context.Context, handle int64) (
 	return resp.GetResult(), nil
 }
 
-// GetMinimumHeight calls the GetMinimumHeight RPC.
-func (c *ContainerClient) GetMinimumHeight(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetMinimumHeight(ctx, &pb.GetMinimumHeightRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMinimumWidth calls the GetMinimumWidth RPC.
-func (c *ContainerClient) GetMinimumWidth(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetMinimumWidth(ctx, &pb.GetMinimumWidthRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetOpacity calls the GetOpacity RPC.
-func (c *ContainerClient) GetOpacity(ctx context.Context, handle int64) (int32, error) {
+func (c *InsetDrawableClient) GetOpacity(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.GetOpacity(ctx, &pb.GetOpacityRequest{
 		Handle: handle,
 	})
@@ -4764,7 +6561,7 @@ func (c *ContainerClient) GetOpacity(ctx context.Context, handle int64) (int32, 
 }
 
 // GetOpticalInsets calls the GetOpticalInsets RPC.
-func (c *ContainerClient) GetOpticalInsets(ctx context.Context, handle int64) (int64, error) {
+func (c *InsetDrawableClient) GetOpticalInsets(ctx context.Context, handle int64) (int64, error) {
 	resp, err := c.svc.GetOpticalInsets(ctx, &pb.GetOpticalInsetsRequest{
 		Handle: handle,
 	})
@@ -4775,7 +6572,7 @@ func (c *ContainerClient) GetOpticalInsets(ctx context.Context, handle int64) (i
 }
 
 // GetOutline calls the GetOutline RPC.
-func (c *ContainerClient) GetOutline(ctx context.Context, handle int64, arg0 int64) error {
+func (c *InsetDrawableClient) GetOutline(ctx context.Context, handle int64, arg0 int64) error {
 	_, err := c.svc.GetOutline(ctx, &pb.GetOutlineRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -4784,8 +6581,8 @@ func (c *ContainerClient) GetOutline(ctx context.Context, handle int64, arg0 int
 }
 
 // GetPadding calls the GetPadding RPC.
-func (c *ContainerClient) GetPadding(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.GetPadding(ctx, &pb.ContainerGetPaddingRequest{
+func (c *InsetDrawableClient) GetPadding(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.GetPadding(ctx, &pb.GetPaddingRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -4795,169 +6592,9 @@ func (c *ContainerClient) GetPadding(ctx context.Context, handle int64, arg0 int
 	return resp.GetResult(), nil
 }
 
-// HasFocusStateSpecified calls the HasFocusStateSpecified RPC.
-func (c *ContainerClient) HasFocusStateSpecified(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.HasFocusStateSpecified(ctx, &pb.ContainerHasFocusStateSpecifiedRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// InvalidateDrawable calls the InvalidateDrawable RPC.
-func (c *ContainerClient) InvalidateDrawable(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.InvalidateDrawable(ctx, &pb.ContainerInvalidateDrawableRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// IsAutoMirrored calls the IsAutoMirrored RPC.
-func (c *ContainerClient) IsAutoMirrored(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsAutoMirrored(ctx, &pb.IsAutoMirroredRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsStateful calls the IsStateful RPC.
-func (c *ContainerClient) IsStateful(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsStateful(ctx, &pb.IsStatefulRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// JumpToCurrentState calls the JumpToCurrentState RPC.
-func (c *ContainerClient) JumpToCurrentState(ctx context.Context, handle int64) error {
-	_, err := c.svc.JumpToCurrentState(ctx, &pb.ContainerJumpToCurrentStateRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// Mutate calls the Mutate RPC.
-func (c *ContainerClient) Mutate(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Mutate(ctx, &pb.MutateRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnLayoutDirectionChanged calls the OnLayoutDirectionChanged RPC.
-func (c *ContainerClient) OnLayoutDirectionChanged(ctx context.Context, handle int64, arg0 int32) (bool, error) {
-	resp, err := c.svc.OnLayoutDirectionChanged(ctx, &pb.OnLayoutDirectionChangedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ScheduleDrawable calls the ScheduleDrawable RPC.
-func (c *ContainerClient) ScheduleDrawable(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.ScheduleDrawable(ctx, &pb.ContainerScheduleDrawableRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// SelectDrawable calls the SelectDrawable RPC.
-func (c *ContainerClient) SelectDrawable(ctx context.Context, handle int64, arg0 int32) (bool, error) {
-	resp, err := c.svc.SelectDrawable(ctx, &pb.SelectDrawableRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetAlpha calls the SetAlpha RPC.
-func (c *ContainerClient) SetAlpha(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetAlpha(ctx, &pb.SetAlphaRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetAutoMirrored calls the SetAutoMirrored RPC.
-func (c *ContainerClient) SetAutoMirrored(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetAutoMirrored(ctx, &pb.SetAutoMirroredRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetColorFilter calls the SetColorFilter RPC.
-func (c *ContainerClient) SetColorFilter(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetColorFilter(ctx, &pb.SetColorFilterRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetDither calls the SetDither RPC.
-func (c *ContainerClient) SetDither(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetDither(ctx, &pb.SetDitherRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetEnterFadeDuration calls the SetEnterFadeDuration RPC.
-func (c *ContainerClient) SetEnterFadeDuration(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetEnterFadeDuration(ctx, &pb.SetEnterFadeDurationRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetExitFadeDuration calls the SetExitFadeDuration RPC.
-func (c *ContainerClient) SetExitFadeDuration(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetExitFadeDuration(ctx, &pb.SetExitFadeDurationRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetHotspot calls the SetHotspot RPC.
-func (c *ContainerClient) SetHotspot(ctx context.Context, handle int64, arg0 float32, arg1 float32) error {
-	_, err := c.svc.SetHotspot(ctx, &pb.SetHotspotRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetHotspotBounds calls the SetHotspotBounds RPC.
-func (c *ContainerClient) SetHotspotBounds(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.SetHotspotBounds(ctx, &pb.SetHotspotBoundsRequest{
+// Inflate calls the Inflate RPC.
+func (c *InsetDrawableClient) Inflate(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.Inflate(ctx, &pb.InflateRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -4967,8 +6604,308 @@ func (c *ContainerClient) SetHotspotBounds(ctx context.Context, handle int64, ar
 	return err
 }
 
+// NinePatchDrawableClient wraps the gRPC NinePatchDrawableService client.
+type NinePatchDrawableClient struct {
+	svc pb.NinePatchDrawableServiceClient
+}
+
+// NewNinePatchDrawableClient creates a new NinePatchDrawable client.
+func NewNinePatchDrawableClient(cc grpc.ClientConnInterface) *NinePatchDrawableClient {
+	return &NinePatchDrawableClient{
+		svc: pb.NewNinePatchDrawableServiceClient(cc),
+	}
+}
+
+// ApplyTheme calls the ApplyTheme RPC.
+func (c *NinePatchDrawableClient) ApplyTheme(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.ApplyTheme(ctx, &pb.ApplyThemeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// CanApplyTheme calls the CanApplyTheme RPC.
+func (c *NinePatchDrawableClient) CanApplyTheme(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.CanApplyTheme(ctx, &pb.CanApplyThemeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Draw calls the Draw RPC.
+func (c *NinePatchDrawableClient) Draw(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GetAlpha calls the GetAlpha RPC.
+func (c *NinePatchDrawableClient) GetAlpha(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetAlpha(ctx, &pb.GetAlphaRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChangingConfigurations calls the GetChangingConfigurations RPC.
+func (c *NinePatchDrawableClient) GetChangingConfigurations(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetChangingConfigurations(ctx, &pb.GetChangingConfigurationsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetConstantState calls the GetConstantState RPC.
+func (c *NinePatchDrawableClient) GetConstantState(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetConstantState(ctx, &pb.GetConstantStateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIntrinsicHeight calls the GetIntrinsicHeight RPC.
+func (c *NinePatchDrawableClient) GetIntrinsicHeight(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetIntrinsicHeight(ctx, &pb.GetIntrinsicHeightRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIntrinsicWidth calls the GetIntrinsicWidth RPC.
+func (c *NinePatchDrawableClient) GetIntrinsicWidth(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetIntrinsicWidth(ctx, &pb.GetIntrinsicWidthRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOpacity calls the GetOpacity RPC.
+func (c *NinePatchDrawableClient) GetOpacity(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetOpacity(ctx, &pb.GetOpacityRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOpticalInsets calls the GetOpticalInsets RPC.
+func (c *NinePatchDrawableClient) GetOpticalInsets(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetOpticalInsets(ctx, &pb.GetOpticalInsetsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetOutline calls the GetOutline RPC.
+func (c *NinePatchDrawableClient) GetOutline(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.GetOutline(ctx, &pb.GetOutlineRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GetPadding calls the GetPadding RPC.
+func (c *NinePatchDrawableClient) GetPadding(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.GetPadding(ctx, &pb.GetPaddingRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPaint calls the GetPaint RPC.
+func (c *NinePatchDrawableClient) GetPaint(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetPaint(ctx, &pb.GetPaintRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTransparentRegion calls the GetTransparentRegion RPC.
+func (c *NinePatchDrawableClient) GetTransparentRegion(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTransparentRegion(ctx, &pb.NinePatchDrawableGetTransparentRegionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasFocusStateSpecified calls the HasFocusStateSpecified RPC.
+func (c *NinePatchDrawableClient) HasFocusStateSpecified(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.HasFocusStateSpecified(ctx, &pb.HasFocusStateSpecifiedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Inflate calls the Inflate RPC.
+func (c *NinePatchDrawableClient) Inflate(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.Inflate(ctx, &pb.InflateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// IsAutoMirrored calls the IsAutoMirrored RPC.
+func (c *NinePatchDrawableClient) IsAutoMirrored(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsAutoMirrored(ctx, &pb.IsAutoMirroredRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsFilterBitmap calls the IsFilterBitmap RPC.
+func (c *NinePatchDrawableClient) IsFilterBitmap(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsFilterBitmap(ctx, &pb.NinePatchDrawableIsFilterBitmapRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsStateful calls the IsStateful RPC.
+func (c *NinePatchDrawableClient) IsStateful(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsStateful(ctx, &pb.IsStatefulRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Mutate calls the Mutate RPC.
+func (c *NinePatchDrawableClient) Mutate(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Mutate(ctx, &pb.MutateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAlpha calls the SetAlpha RPC.
+func (c *NinePatchDrawableClient) SetAlpha(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetAlpha(ctx, &pb.SetAlphaRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetAutoMirrored calls the SetAutoMirrored RPC.
+func (c *NinePatchDrawableClient) SetAutoMirrored(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetAutoMirrored(ctx, &pb.SetAutoMirroredRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetColorFilter calls the SetColorFilter RPC.
+func (c *NinePatchDrawableClient) SetColorFilter(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetColorFilter(ctx, &pb.SetColorFilterRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetDither calls the SetDither RPC.
+func (c *NinePatchDrawableClient) SetDither(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetDither(ctx, &pb.SetDitherRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetFilterBitmap calls the SetFilterBitmap RPC.
+func (c *NinePatchDrawableClient) SetFilterBitmap(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetFilterBitmap(ctx, &pb.NinePatchDrawableSetFilterBitmapRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTargetDensity1 calls the SetTargetDensity1 RPC.
+func (c *NinePatchDrawableClient) SetTargetDensity1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetTargetDensity1(ctx, &pb.SetTargetDensity1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTargetDensity1_1 calls the SetTargetDensity1_1 RPC.
+func (c *NinePatchDrawableClient) SetTargetDensity1_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetTargetDensity1_1(ctx, &pb.SetTargetDensity1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetTargetDensity1_2 calls the SetTargetDensity1_2 RPC.
+func (c *NinePatchDrawableClient) SetTargetDensity1_2(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetTargetDensity1_2(ctx, &pb.SetTargetDensity1_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
 // SetTintBlendMode calls the SetTintBlendMode RPC.
-func (c *ContainerClient) SetTintBlendMode(ctx context.Context, handle int64, arg0 int64) error {
+func (c *NinePatchDrawableClient) SetTintBlendMode(ctx context.Context, handle int64, arg0 int64) error {
 	_, err := c.svc.SetTintBlendMode(ctx, &pb.SetTintBlendModeRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -4977,234 +6914,10 @@ func (c *ContainerClient) SetTintBlendMode(ctx context.Context, handle int64, ar
 }
 
 // SetTintList calls the SetTintList RPC.
-func (c *ContainerClient) SetTintList(ctx context.Context, handle int64, arg0 int64) error {
+func (c *NinePatchDrawableClient) SetTintList(ctx context.Context, handle int64, arg0 int64) error {
 	_, err := c.svc.SetTintList(ctx, &pb.SetTintListRequest{
 		Handle: handle,
 		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetVisible calls the SetVisible RPC.
-func (c *ContainerClient) SetVisible(ctx context.Context, handle int64, arg0 bool, arg1 bool) (bool, error) {
-	resp, err := c.svc.SetVisible(ctx, &pb.SetVisibleRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// UnscheduleDrawable calls the UnscheduleDrawable RPC.
-func (c *ContainerClient) UnscheduleDrawable(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.UnscheduleDrawable(ctx, &pb.ContainerUnscheduleDrawableRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// ContainerDrawableContainerStateClient wraps the gRPC ContainerDrawableContainerStateService client.
-type ContainerDrawableContainerStateClient struct {
-	svc pb.ContainerDrawableContainerStateServiceClient
-}
-
-// NewContainerDrawableContainerStateClient creates a new ContainerDrawableContainerState client.
-func NewContainerDrawableContainerStateClient(cc grpc.ClientConnInterface) *ContainerDrawableContainerStateClient {
-	return &ContainerDrawableContainerStateClient{
-		svc: pb.NewContainerDrawableContainerStateServiceClient(cc),
-	}
-}
-
-// AddChild calls the AddChild RPC.
-func (c *ContainerDrawableContainerStateClient) AddChild(ctx context.Context, arg0 int64) (int32, error) {
-	resp, err := c.svc.AddChild(ctx, &pb.AddChildRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CanApplyTheme calls the CanApplyTheme RPC.
-func (c *ContainerDrawableContainerStateClient) CanApplyTheme(ctx context.Context) (bool, error) {
-	resp, err := c.svc.CanApplyTheme(ctx, &pb.ContainerDrawableContainerStateCanApplyThemeRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetChangingConfigurations calls the GetChangingConfigurations RPC.
-func (c *ContainerDrawableContainerStateClient) GetChangingConfigurations(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetChangingConfigurations(ctx, &pb.ContainerDrawableContainerStateGetChangingConfigurationsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetChild calls the GetChild RPC.
-func (c *ContainerDrawableContainerStateClient) GetChild(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetChild(ctx, &pb.GetChildRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetChildCount calls the GetChildCount RPC.
-func (c *ContainerDrawableContainerStateClient) GetChildCount(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetChildCount(ctx, &pb.GetChildCountRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetChildren calls the GetChildren RPC.
-func (c *ContainerDrawableContainerStateClient) GetChildren(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetChildren(ctx, &pb.GetChildrenRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetConstantHeight calls the GetConstantHeight RPC.
-func (c *ContainerDrawableContainerStateClient) GetConstantHeight(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetConstantHeight(ctx, &pb.GetConstantHeightRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetConstantMinimumHeight calls the GetConstantMinimumHeight RPC.
-func (c *ContainerDrawableContainerStateClient) GetConstantMinimumHeight(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetConstantMinimumHeight(ctx, &pb.GetConstantMinimumHeightRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetConstantMinimumWidth calls the GetConstantMinimumWidth RPC.
-func (c *ContainerDrawableContainerStateClient) GetConstantMinimumWidth(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetConstantMinimumWidth(ctx, &pb.GetConstantMinimumWidthRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetConstantPadding calls the GetConstantPadding RPC.
-func (c *ContainerDrawableContainerStateClient) GetConstantPadding(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetConstantPadding(ctx, &pb.GetConstantPaddingRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetConstantWidth calls the GetConstantWidth RPC.
-func (c *ContainerDrawableContainerStateClient) GetConstantWidth(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetConstantWidth(ctx, &pb.GetConstantWidthRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetEnterFadeDuration calls the GetEnterFadeDuration RPC.
-func (c *ContainerDrawableContainerStateClient) GetEnterFadeDuration(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetEnterFadeDuration(ctx, &pb.GetEnterFadeDurationRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetExitFadeDuration calls the GetExitFadeDuration RPC.
-func (c *ContainerDrawableContainerStateClient) GetExitFadeDuration(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetExitFadeDuration(ctx, &pb.GetExitFadeDurationRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOpacity calls the GetOpacity RPC.
-func (c *ContainerDrawableContainerStateClient) GetOpacity(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetOpacity(ctx, &pb.ContainerDrawableContainerStateGetOpacityRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GrowArray calls the GrowArray RPC.
-func (c *ContainerDrawableContainerStateClient) GrowArray(ctx context.Context, arg0 int32, arg1 int32) error {
-	_, err := c.svc.GrowArray(ctx, &pb.GrowArrayRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// IsConstantSize calls the IsConstantSize RPC.
-func (c *ContainerDrawableContainerStateClient) IsConstantSize(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsConstantSize(ctx, &pb.IsConstantSizeRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsStateful calls the IsStateful RPC.
-func (c *ContainerDrawableContainerStateClient) IsStateful(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsStateful(ctx, &pb.ContainerDrawableContainerStateIsStatefulRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetConstantSize calls the SetConstantSize RPC.
-func (c *ContainerDrawableContainerStateClient) SetConstantSize(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetConstantSize(ctx, &pb.SetConstantSizeRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetEnterFadeDuration calls the SetEnterFadeDuration RPC.
-func (c *ContainerDrawableContainerStateClient) SetEnterFadeDuration(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetEnterFadeDuration(ctx, &pb.ContainerDrawableContainerStateSetEnterFadeDurationRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetExitFadeDuration calls the SetExitFadeDuration RPC.
-func (c *ContainerDrawableContainerStateClient) SetExitFadeDuration(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetExitFadeDuration(ctx, &pb.ContainerDrawableContainerStateSetExitFadeDurationRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetVariablePadding calls the SetVariablePadding RPC.
-func (c *ContainerDrawableContainerStateClient) SetVariablePadding(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetVariablePadding(ctx, &pb.SetVariablePaddingRequest{
-		Arg0: arg0,
 	})
 	return err
 }
@@ -5359,1048 +7072,10 @@ func (c *AnimationDrawableClient) Stop(ctx context.Context, handle int64) error 
 
 // UnscheduleSelf calls the UnscheduleSelf RPC.
 func (c *AnimationDrawableClient) UnscheduleSelf(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.UnscheduleSelf(ctx, &pb.UnscheduleSelfRequest{
+	_, err := c.svc.UnscheduleSelf(ctx, &pb.AnimationDrawableUnscheduleSelfRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
-	return err
-}
-
-// ColorStateListDrawableClient wraps the gRPC ColorStateListDrawableService client.
-type ColorStateListDrawableClient struct {
-	svc pb.ColorStateListDrawableServiceClient
-}
-
-// NewColorStateListDrawableClient creates a new ColorStateListDrawable client.
-func NewColorStateListDrawableClient(cc grpc.ClientConnInterface) *ColorStateListDrawableClient {
-	return &ColorStateListDrawableClient{
-		svc: pb.NewColorStateListDrawableServiceClient(cc),
-	}
-}
-
-// ApplyTheme calls the ApplyTheme RPC.
-func (c *ColorStateListDrawableClient) ApplyTheme(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.ApplyTheme(ctx, &pb.ApplyThemeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// CanApplyTheme calls the CanApplyTheme RPC.
-func (c *ColorStateListDrawableClient) CanApplyTheme(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.CanApplyTheme(ctx, &pb.CanApplyThemeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearAlpha calls the ClearAlpha RPC.
-func (c *ColorStateListDrawableClient) ClearAlpha(ctx context.Context, handle int64) error {
-	_, err := c.svc.ClearAlpha(ctx, &pb.ClearAlphaRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// Draw calls the Draw RPC.
-func (c *ColorStateListDrawableClient) Draw(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GetAlpha calls the GetAlpha RPC.
-func (c *ColorStateListDrawableClient) GetAlpha(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetAlpha(ctx, &pb.GetAlphaRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetChangingConfigurations calls the GetChangingConfigurations RPC.
-func (c *ColorStateListDrawableClient) GetChangingConfigurations(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetChangingConfigurations(ctx, &pb.GetChangingConfigurationsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetColorFilter calls the GetColorFilter RPC.
-func (c *ColorStateListDrawableClient) GetColorFilter(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetColorFilter(ctx, &pb.GetColorFilterRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetColorStateList calls the GetColorStateList RPC.
-func (c *ColorStateListDrawableClient) GetColorStateList(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetColorStateList(ctx, &pb.GetColorStateListRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetConstantState calls the GetConstantState RPC.
-func (c *ColorStateListDrawableClient) GetConstantState(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetConstantState(ctx, &pb.GetConstantStateRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCurrent calls the GetCurrent RPC.
-func (c *ColorStateListDrawableClient) GetCurrent(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetCurrent(ctx, &pb.GetCurrentRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOpacity calls the GetOpacity RPC.
-func (c *ColorStateListDrawableClient) GetOpacity(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetOpacity(ctx, &pb.GetOpacityRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasFocusStateSpecified calls the HasFocusStateSpecified RPC.
-func (c *ColorStateListDrawableClient) HasFocusStateSpecified(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.HasFocusStateSpecified(ctx, &pb.ColorStateListDrawableHasFocusStateSpecifiedRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// InvalidateDrawable calls the InvalidateDrawable RPC.
-func (c *ColorStateListDrawableClient) InvalidateDrawable(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.InvalidateDrawable(ctx, &pb.ColorStateListDrawableInvalidateDrawableRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// IsStateful calls the IsStateful RPC.
-func (c *ColorStateListDrawableClient) IsStateful(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsStateful(ctx, &pb.IsStatefulRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Mutate calls the Mutate RPC.
-func (c *ColorStateListDrawableClient) Mutate(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Mutate(ctx, &pb.MutateRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ScheduleDrawable calls the ScheduleDrawable RPC.
-func (c *ColorStateListDrawableClient) ScheduleDrawable(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.ScheduleDrawable(ctx, &pb.ColorStateListDrawableScheduleDrawableRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// SetAlpha calls the SetAlpha RPC.
-func (c *ColorStateListDrawableClient) SetAlpha(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetAlpha(ctx, &pb.SetAlphaRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetColorFilter calls the SetColorFilter RPC.
-func (c *ColorStateListDrawableClient) SetColorFilter(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetColorFilter(ctx, &pb.SetColorFilterRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetColorStateList calls the SetColorStateList RPC.
-func (c *ColorStateListDrawableClient) SetColorStateList(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetColorStateList(ctx, &pb.SetColorStateListRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTintBlendMode calls the SetTintBlendMode RPC.
-func (c *ColorStateListDrawableClient) SetTintBlendMode(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetTintBlendMode(ctx, &pb.SetTintBlendModeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTintList calls the SetTintList RPC.
-func (c *ColorStateListDrawableClient) SetTintList(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetTintList(ctx, &pb.SetTintListRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// UnscheduleDrawable calls the UnscheduleDrawable RPC.
-func (c *ColorStateListDrawableClient) UnscheduleDrawable(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.UnscheduleDrawable(ctx, &pb.ColorStateListDrawableUnscheduleDrawableRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// DrawableClient wraps the gRPC DrawableService client.
-type DrawableClient struct {
-	svc pb.DrawableServiceClient
-}
-
-// NewDrawableClient creates a new Drawable client.
-func NewDrawableClient(cc grpc.ClientConnInterface) *DrawableClient {
-	return &DrawableClient{
-		svc: pb.NewDrawableServiceClient(cc),
-	}
-}
-
-// ApplyTheme calls the ApplyTheme RPC.
-func (c *DrawableClient) ApplyTheme(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.ApplyTheme(ctx, &pb.DrawableApplyThemeRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CanApplyTheme calls the CanApplyTheme RPC.
-func (c *DrawableClient) CanApplyTheme(ctx context.Context) (bool, error) {
-	resp, err := c.svc.CanApplyTheme(ctx, &pb.DrawableCanApplyThemeRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearColorFilter calls the ClearColorFilter RPC.
-func (c *DrawableClient) ClearColorFilter(ctx context.Context) error {
-	_, err := c.svc.ClearColorFilter(ctx, &pb.ClearColorFilterRequest{})
-	return err
-}
-
-// CopyBounds0 calls the CopyBounds0 RPC.
-func (c *DrawableClient) CopyBounds0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.CopyBounds0(ctx, &pb.CopyBounds0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CopyBounds1_1 calls the CopyBounds1_1 RPC.
-func (c *DrawableClient) CopyBounds1_1(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.CopyBounds1_1(ctx, &pb.CopyBounds1_1Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// Draw calls the Draw RPC.
-func (c *DrawableClient) Draw(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.Draw(ctx, &pb.DrawableDrawRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// GetAlpha calls the GetAlpha RPC.
-func (c *DrawableClient) GetAlpha(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetAlpha(ctx, &pb.DrawableGetAlphaRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBounds calls the GetBounds RPC.
-func (c *DrawableClient) GetBounds(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetBounds(ctx, &pb.GetBoundsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCallback calls the GetCallback RPC.
-func (c *DrawableClient) GetCallback(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetCallback(ctx, &pb.GetCallbackRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetChangingConfigurations calls the GetChangingConfigurations RPC.
-func (c *DrawableClient) GetChangingConfigurations(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetChangingConfigurations(ctx, &pb.DrawableGetChangingConfigurationsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetColorFilter calls the GetColorFilter RPC.
-func (c *DrawableClient) GetColorFilter(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetColorFilter(ctx, &pb.DrawableGetColorFilterRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetConstantState calls the GetConstantState RPC.
-func (c *DrawableClient) GetConstantState(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetConstantState(ctx, &pb.DrawableGetConstantStateRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCurrent calls the GetCurrent RPC.
-func (c *DrawableClient) GetCurrent(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetCurrent(ctx, &pb.DrawableGetCurrentRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDirtyBounds calls the GetDirtyBounds RPC.
-func (c *DrawableClient) GetDirtyBounds(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDirtyBounds(ctx, &pb.DrawableGetDirtyBoundsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetHotspotBounds calls the GetHotspotBounds RPC.
-func (c *DrawableClient) GetHotspotBounds(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.GetHotspotBounds(ctx, &pb.GetHotspotBoundsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// GetIntrinsicHeight calls the GetIntrinsicHeight RPC.
-func (c *DrawableClient) GetIntrinsicHeight(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetIntrinsicHeight(ctx, &pb.DrawableGetIntrinsicHeightRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIntrinsicWidth calls the GetIntrinsicWidth RPC.
-func (c *DrawableClient) GetIntrinsicWidth(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetIntrinsicWidth(ctx, &pb.DrawableGetIntrinsicWidthRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLayoutDirection calls the GetLayoutDirection RPC.
-func (c *DrawableClient) GetLayoutDirection(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetLayoutDirection(ctx, &pb.GetLayoutDirectionRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLevel calls the GetLevel RPC.
-func (c *DrawableClient) GetLevel(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetLevel(ctx, &pb.GetLevelRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMinimumHeight calls the GetMinimumHeight RPC.
-func (c *DrawableClient) GetMinimumHeight(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMinimumHeight(ctx, &pb.DrawableGetMinimumHeightRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMinimumWidth calls the GetMinimumWidth RPC.
-func (c *DrawableClient) GetMinimumWidth(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMinimumWidth(ctx, &pb.DrawableGetMinimumWidthRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOpacity calls the GetOpacity RPC.
-func (c *DrawableClient) GetOpacity(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetOpacity(ctx, &pb.DrawableGetOpacityRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOpticalInsets calls the GetOpticalInsets RPC.
-func (c *DrawableClient) GetOpticalInsets(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetOpticalInsets(ctx, &pb.DrawableGetOpticalInsetsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOutline calls the GetOutline RPC.
-func (c *DrawableClient) GetOutline(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.GetOutline(ctx, &pb.DrawableGetOutlineRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// GetPadding calls the GetPadding RPC.
-func (c *DrawableClient) GetPadding(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.GetPadding(ctx, &pb.GetPaddingRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetState calls the GetState RPC.
-func (c *DrawableClient) GetState(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetState(ctx, &pb.GetStateRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTransparentRegion calls the GetTransparentRegion RPC.
-func (c *DrawableClient) GetTransparentRegion(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTransparentRegion(ctx, &pb.DrawableGetTransparentRegionRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasFocusStateSpecified calls the HasFocusStateSpecified RPC.
-func (c *DrawableClient) HasFocusStateSpecified(ctx context.Context) (bool, error) {
-	resp, err := c.svc.HasFocusStateSpecified(ctx, &pb.HasFocusStateSpecifiedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Inflate3 calls the Inflate3 RPC.
-func (c *DrawableClient) Inflate3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.Inflate3(ctx, &pb.Inflate3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// Inflate4_1 calls the Inflate4_1 RPC.
-func (c *DrawableClient) Inflate4_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
-	_, err := c.svc.Inflate4_1(ctx, &pb.Inflate4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// InvalidateSelf calls the InvalidateSelf RPC.
-func (c *DrawableClient) InvalidateSelf(ctx context.Context) error {
-	_, err := c.svc.InvalidateSelf(ctx, &pb.DrawableInvalidateSelfRequest{})
-	return err
-}
-
-// IsAutoMirrored calls the IsAutoMirrored RPC.
-func (c *DrawableClient) IsAutoMirrored(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsAutoMirrored(ctx, &pb.DrawableIsAutoMirroredRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsFilterBitmap calls the IsFilterBitmap RPC.
-func (c *DrawableClient) IsFilterBitmap(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsFilterBitmap(ctx, &pb.DrawableIsFilterBitmapRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsProjected calls the IsProjected RPC.
-func (c *DrawableClient) IsProjected(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsProjected(ctx, &pb.DrawableIsProjectedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsStateful calls the IsStateful RPC.
-func (c *DrawableClient) IsStateful(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsStateful(ctx, &pb.DrawableIsStatefulRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsVisible calls the IsVisible RPC.
-func (c *DrawableClient) IsVisible(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsVisible(ctx, &pb.IsVisibleRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// JumpToCurrentState calls the JumpToCurrentState RPC.
-func (c *DrawableClient) JumpToCurrentState(ctx context.Context) error {
-	_, err := c.svc.JumpToCurrentState(ctx, &pb.JumpToCurrentStateRequest{})
-	return err
-}
-
-// Mutate calls the Mutate RPC.
-func (c *DrawableClient) Mutate(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Mutate(ctx, &pb.DrawableMutateRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnLayoutDirectionChanged calls the OnLayoutDirectionChanged RPC.
-func (c *DrawableClient) OnLayoutDirectionChanged(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.OnLayoutDirectionChanged(ctx, &pb.DrawableOnLayoutDirectionChangedRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ScheduleSelf calls the ScheduleSelf RPC.
-func (c *DrawableClient) ScheduleSelf(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.ScheduleSelf(ctx, &pb.ScheduleSelfRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// SetAlpha calls the SetAlpha RPC.
-func (c *DrawableClient) SetAlpha(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetAlpha(ctx, &pb.DrawableSetAlphaRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetAutoMirrored calls the SetAutoMirrored RPC.
-func (c *DrawableClient) SetAutoMirrored(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetAutoMirrored(ctx, &pb.DrawableSetAutoMirroredRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetBounds1 calls the SetBounds1 RPC.
-func (c *DrawableClient) SetBounds1(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetBounds1(ctx, &pb.SetBounds1Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetBounds4_1 calls the SetBounds4_1 RPC.
-func (c *DrawableClient) SetBounds4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.SetBounds4_1(ctx, &pb.SetBounds4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// SetCallback calls the SetCallback RPC.
-func (c *DrawableClient) SetCallback(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetCallback(ctx, &pb.SetCallbackRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetChangingConfigurations calls the SetChangingConfigurations RPC.
-func (c *DrawableClient) SetChangingConfigurations(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetChangingConfigurations(ctx, &pb.SetChangingConfigurationsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetColorFilter1 calls the SetColorFilter1 RPC.
-func (c *DrawableClient) SetColorFilter1(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetColorFilter1(ctx, &pb.SetColorFilter1Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetColorFilter2_1 calls the SetColorFilter2_1 RPC.
-func (c *DrawableClient) SetColorFilter2_1(ctx context.Context, arg0 int32, arg1 int64) error {
-	_, err := c.svc.SetColorFilter2_1(ctx, &pb.SetColorFilter2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// SetDither calls the SetDither RPC.
-func (c *DrawableClient) SetDither(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetDither(ctx, &pb.DrawableSetDitherRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetFilterBitmap calls the SetFilterBitmap RPC.
-func (c *DrawableClient) SetFilterBitmap(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetFilterBitmap(ctx, &pb.DrawableSetFilterBitmapRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetHotspot calls the SetHotspot RPC.
-func (c *DrawableClient) SetHotspot(ctx context.Context, arg0 float32, arg1 float32) error {
-	_, err := c.svc.SetHotspot(ctx, &pb.DrawableSetHotspotRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// SetHotspotBounds calls the SetHotspotBounds RPC.
-func (c *DrawableClient) SetHotspotBounds(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.SetHotspotBounds(ctx, &pb.DrawableSetHotspotBoundsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// SetLayoutDirection calls the SetLayoutDirection RPC.
-func (c *DrawableClient) SetLayoutDirection(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.SetLayoutDirection(ctx, &pb.SetLayoutDirectionRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetLevel calls the SetLevel RPC.
-func (c *DrawableClient) SetLevel(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.SetLevel(ctx, &pb.SetLevelRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetState calls the SetState RPC.
-func (c *DrawableClient) SetState(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.SetState(ctx, &pb.SetStateRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetTint calls the SetTint RPC.
-func (c *DrawableClient) SetTint(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetTint(ctx, &pb.SetTintRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetTintBlendMode calls the SetTintBlendMode RPC.
-func (c *DrawableClient) SetTintBlendMode(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetTintBlendMode(ctx, &pb.DrawableSetTintBlendModeRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetTintList calls the SetTintList RPC.
-func (c *DrawableClient) SetTintList(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetTintList(ctx, &pb.DrawableSetTintListRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetTintMode calls the SetTintMode RPC.
-func (c *DrawableClient) SetTintMode(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetTintMode(ctx, &pb.SetTintModeRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetVisible calls the SetVisible RPC.
-func (c *DrawableClient) SetVisible(ctx context.Context, arg0 bool, arg1 bool) (bool, error) {
-	resp, err := c.svc.SetVisible(ctx, &pb.DrawableSetVisibleRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// UnscheduleSelf calls the UnscheduleSelf RPC.
-func (c *DrawableClient) UnscheduleSelf(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.UnscheduleSelf(ctx, &pb.DrawableUnscheduleSelfRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CreateFromPath calls the CreateFromPath RPC.
-func (c *DrawableClient) CreateFromPath(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.CreateFromPath(ctx, &pb.CreateFromPathRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateFromResourceStream4 calls the CreateFromResourceStream4 RPC.
-func (c *DrawableClient) CreateFromResourceStream4(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 string) (int64, error) {
-	resp, err := c.svc.CreateFromResourceStream4(ctx, &pb.CreateFromResourceStream4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateFromResourceStream5_1 calls the CreateFromResourceStream5_1 RPC.
-func (c *DrawableClient) CreateFromResourceStream5_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 string, arg4 int64) (int64, error) {
-	resp, err := c.svc.CreateFromResourceStream5_1(ctx, &pb.CreateFromResourceStream5_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateFromStream calls the CreateFromStream RPC.
-func (c *DrawableClient) CreateFromStream(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
-	resp, err := c.svc.CreateFromStream(ctx, &pb.CreateFromStreamRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateFromXml2 calls the CreateFromXml2 RPC.
-func (c *DrawableClient) CreateFromXml2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.CreateFromXml2(ctx, &pb.CreateFromXml2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateFromXml3_1 calls the CreateFromXml3_1 RPC.
-func (c *DrawableClient) CreateFromXml3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.CreateFromXml3_1(ctx, &pb.CreateFromXml3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateFromXmlInner3 calls the CreateFromXmlInner3 RPC.
-func (c *DrawableClient) CreateFromXmlInner3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.CreateFromXmlInner3(ctx, &pb.CreateFromXmlInner3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateFromXmlInner4_1 calls the CreateFromXmlInner4_1 RPC.
-func (c *DrawableClient) CreateFromXmlInner4_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
-	resp, err := c.svc.CreateFromXmlInner4_1(ctx, &pb.CreateFromXmlInner4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ResolveOpacity calls the ResolveOpacity RPC.
-func (c *DrawableClient) ResolveOpacity(ctx context.Context, arg0 int32, arg1 int32) (int32, error) {
-	resp, err := c.svc.ResolveOpacity(ctx, &pb.ResolveOpacityRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CallbackClient wraps the gRPC CallbackService client.
-type CallbackClient struct {
-	svc pb.CallbackServiceClient
-}
-
-// NewCallbackClient creates a new Callback client.
-func NewCallbackClient(cc grpc.ClientConnInterface) *CallbackClient {
-	return &CallbackClient{
-		svc: pb.NewCallbackServiceClient(cc),
-	}
-}
-
-// InvalidateDrawable calls the InvalidateDrawable RPC.
-func (c *CallbackClient) InvalidateDrawable(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.InvalidateDrawable(ctx, &pb.InvalidateDrawableRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ScheduleDrawable calls the ScheduleDrawable RPC.
-func (c *CallbackClient) ScheduleDrawable(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.ScheduleDrawable(ctx, &pb.ScheduleDrawableRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// UnscheduleDrawable calls the UnscheduleDrawable RPC.
-func (c *CallbackClient) UnscheduleDrawable(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.UnscheduleDrawable(ctx, &pb.UnscheduleDrawableRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ConstantStateClient wraps the gRPC ConstantStateService client.
-type ConstantStateClient struct {
-	svc pb.ConstantStateServiceClient
-}
-
-// NewConstantStateClient creates a new ConstantState client.
-func NewConstantStateClient(cc grpc.ClientConnInterface) *ConstantStateClient {
-	return &ConstantStateClient{
-		svc: pb.NewConstantStateServiceClient(cc),
-	}
-}
-
-// CanApplyTheme calls the CanApplyTheme RPC.
-func (c *ConstantStateClient) CanApplyTheme(ctx context.Context) (bool, error) {
-	resp, err := c.svc.CanApplyTheme(ctx, &pb.ConstantStateCanApplyThemeRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetChangingConfigurations calls the GetChangingConfigurations RPC.
-func (c *ConstantStateClient) GetChangingConfigurations(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetChangingConfigurations(ctx, &pb.ConstantStateGetChangingConfigurationsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NewDrawable0 calls the NewDrawable0 RPC.
-func (c *ConstantStateClient) NewDrawable0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.NewDrawable0(ctx, &pb.NewDrawable0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NewDrawable1_1 calls the NewDrawable1_1 RPC.
-func (c *ConstantStateClient) NewDrawable1_1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.NewDrawable1_1(ctx, &pb.NewDrawable1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// NewDrawable2_2 calls the NewDrawable2_2 RPC.
-func (c *ConstantStateClient) NewDrawable2_2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.NewDrawable2_2(ctx, &pb.NewDrawable2_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AnimatableClient wraps the gRPC AnimatableService client.
-type AnimatableClient struct {
-	svc pb.AnimatableServiceClient
-}
-
-// NewAnimatableClient creates a new Animatable client.
-func NewAnimatableClient(cc grpc.ClientConnInterface) *AnimatableClient {
-	return &AnimatableClient{
-		svc: pb.NewAnimatableServiceClient(cc),
-	}
-}
-
-// IsRunning calls the IsRunning RPC.
-func (c *AnimatableClient) IsRunning(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsRunning(ctx, &pb.AnimatableIsRunningRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Start calls the Start RPC.
-func (c *AnimatableClient) Start(ctx context.Context) error {
-	_, err := c.svc.Start(ctx, &pb.AnimatableStartRequest{})
-	return err
-}
-
-// Stop calls the Stop RPC.
-func (c *AnimatableClient) Stop(ctx context.Context) error {
-	_, err := c.svc.Stop(ctx, &pb.AnimatableStopRequest{})
 	return err
 }
 
@@ -6461,7 +7136,7 @@ func (c *AnimatedStateListDrawableClient) IsStateful(ctx context.Context, handle
 
 // JumpToCurrentState calls the JumpToCurrentState RPC.
 func (c *AnimatedStateListDrawableClient) JumpToCurrentState(ctx context.Context, handle int64) error {
-	_, err := c.svc.JumpToCurrentState(ctx, &pb.AnimatedStateListDrawableJumpToCurrentStateRequest{
+	_, err := c.svc.JumpToCurrentState(ctx, &pb.JumpToCurrentStateRequest{
 		Handle: handle,
 	})
 	return err
@@ -6491,752 +7166,28 @@ func (c *AnimatedStateListDrawableClient) SetVisible(ctx context.Context, handle
 	return resp.GetResult(), nil
 }
 
-// ShapeDrawableClient wraps the gRPC ShapeDrawableService client.
-type ShapeDrawableClient struct {
-	svc pb.ShapeDrawableServiceClient
-}
-
-// NewShapeDrawableClient creates a new ShapeDrawable client.
-func NewShapeDrawableClient(cc grpc.ClientConnInterface) *ShapeDrawableClient {
-	return &ShapeDrawableClient{
-		svc: pb.NewShapeDrawableServiceClient(cc),
-	}
-}
-
-// ApplyTheme calls the ApplyTheme RPC.
-func (c *ShapeDrawableClient) ApplyTheme(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.ApplyTheme(ctx, &pb.ApplyThemeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// Draw calls the Draw RPC.
-func (c *ShapeDrawableClient) Draw(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GetAlpha calls the GetAlpha RPC.
-func (c *ShapeDrawableClient) GetAlpha(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetAlpha(ctx, &pb.GetAlphaRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetChangingConfigurations calls the GetChangingConfigurations RPC.
-func (c *ShapeDrawableClient) GetChangingConfigurations(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetChangingConfigurations(ctx, &pb.GetChangingConfigurationsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetConstantState calls the GetConstantState RPC.
-func (c *ShapeDrawableClient) GetConstantState(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetConstantState(ctx, &pb.GetConstantStateRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIntrinsicHeight calls the GetIntrinsicHeight RPC.
-func (c *ShapeDrawableClient) GetIntrinsicHeight(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetIntrinsicHeight(ctx, &pb.GetIntrinsicHeightRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetIntrinsicWidth calls the GetIntrinsicWidth RPC.
-func (c *ShapeDrawableClient) GetIntrinsicWidth(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetIntrinsicWidth(ctx, &pb.GetIntrinsicWidthRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOpacity calls the GetOpacity RPC.
-func (c *ShapeDrawableClient) GetOpacity(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetOpacity(ctx, &pb.GetOpacityRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetOutline calls the GetOutline RPC.
-func (c *ShapeDrawableClient) GetOutline(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.GetOutline(ctx, &pb.GetOutlineRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GetPadding calls the GetPadding RPC.
-func (c *ShapeDrawableClient) GetPadding(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.GetPadding(ctx, &pb.ShapeDrawableGetPaddingRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPaint calls the GetPaint RPC.
-func (c *ShapeDrawableClient) GetPaint(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetPaint(ctx, &pb.GetPaintRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetShaderFactory calls the GetShaderFactory RPC.
-func (c *ShapeDrawableClient) GetShaderFactory(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetShaderFactory(ctx, &pb.GetShaderFactoryRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetShape calls the GetShape RPC.
-func (c *ShapeDrawableClient) GetShape(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetShape(ctx, &pb.GetShapeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasFocusStateSpecified calls the HasFocusStateSpecified RPC.
-func (c *ShapeDrawableClient) HasFocusStateSpecified(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.HasFocusStateSpecified(ctx, &pb.ShapeDrawableHasFocusStateSpecifiedRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Inflate calls the Inflate RPC.
-func (c *ShapeDrawableClient) Inflate(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
-	_, err := c.svc.Inflate(ctx, &pb.InflateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// IsStateful calls the IsStateful RPC.
-func (c *ShapeDrawableClient) IsStateful(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsStateful(ctx, &pb.IsStatefulRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Mutate calls the Mutate RPC.
-func (c *ShapeDrawableClient) Mutate(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Mutate(ctx, &pb.MutateRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetAlpha calls the SetAlpha RPC.
-func (c *ShapeDrawableClient) SetAlpha(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetAlpha(ctx, &pb.SetAlphaRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetColorFilter calls the SetColorFilter RPC.
-func (c *ShapeDrawableClient) SetColorFilter(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetColorFilter(ctx, &pb.SetColorFilterRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetDither calls the SetDither RPC.
-func (c *ShapeDrawableClient) SetDither(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetDither(ctx, &pb.SetDitherRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetIntrinsicHeight calls the SetIntrinsicHeight RPC.
-func (c *ShapeDrawableClient) SetIntrinsicHeight(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetIntrinsicHeight(ctx, &pb.SetIntrinsicHeightRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetIntrinsicWidth calls the SetIntrinsicWidth RPC.
-func (c *ShapeDrawableClient) SetIntrinsicWidth(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetIntrinsicWidth(ctx, &pb.SetIntrinsicWidthRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetPadding1 calls the SetPadding1 RPC.
-func (c *ShapeDrawableClient) SetPadding1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetPadding1(ctx, &pb.SetPadding1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetPadding4_1 calls the SetPadding4_1 RPC.
-func (c *ShapeDrawableClient) SetPadding4_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.SetPadding4_1(ctx, &pb.SetPadding4_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// SetShaderFactory calls the SetShaderFactory RPC.
-func (c *ShapeDrawableClient) SetShaderFactory(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetShaderFactory(ctx, &pb.SetShaderFactoryRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetShape calls the SetShape RPC.
-func (c *ShapeDrawableClient) SetShape(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetShape(ctx, &pb.ShapeDrawableSetShapeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTintBlendMode calls the SetTintBlendMode RPC.
-func (c *ShapeDrawableClient) SetTintBlendMode(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetTintBlendMode(ctx, &pb.SetTintBlendModeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetTintList calls the SetTintList RPC.
-func (c *ShapeDrawableClient) SetTintList(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetTintList(ctx, &pb.SetTintListRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// ShapeDrawableShaderFactoryClient wraps the gRPC ShapeDrawableShaderFactoryService client.
-type ShapeDrawableShaderFactoryClient struct {
-	svc pb.ShapeDrawableShaderFactoryServiceClient
-}
-
-// NewShapeDrawableShaderFactoryClient creates a new ShapeDrawableShaderFactory client.
-func NewShapeDrawableShaderFactoryClient(cc grpc.ClientConnInterface) *ShapeDrawableShaderFactoryClient {
-	return &ShapeDrawableShaderFactoryClient{
-		svc: pb.NewShapeDrawableShaderFactoryServiceClient(cc),
-	}
-}
-
-// Resize calls the Resize RPC.
-func (c *ShapeDrawableShaderFactoryClient) Resize(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.Resize(ctx, &pb.ResizeRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClipDrawableClient wraps the gRPC ClipDrawableService client.
-type ClipDrawableClient struct {
-	svc pb.ClipDrawableServiceClient
-}
-
-// NewClipDrawableClient creates a new ClipDrawable client.
-func NewClipDrawableClient(cc grpc.ClientConnInterface) *ClipDrawableClient {
-	return &ClipDrawableClient{
-		svc: pb.NewClipDrawableServiceClient(cc),
-	}
-}
-
-// ApplyTheme calls the ApplyTheme RPC.
-func (c *ClipDrawableClient) ApplyTheme(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.ApplyTheme(ctx, &pb.ApplyThemeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// Draw calls the Draw RPC.
-func (c *ClipDrawableClient) Draw(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GetOpacity calls the GetOpacity RPC.
-func (c *ClipDrawableClient) GetOpacity(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetOpacity(ctx, &pb.GetOpacityRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Inflate calls the Inflate RPC.
-func (c *ClipDrawableClient) Inflate(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
-	_, err := c.svc.Inflate(ctx, &pb.InflateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// IconClient wraps the gRPC IconService client.
-type IconClient struct {
-	svc pb.IconServiceClient
-}
-
-// NewIconClient creates a new Icon client.
-func NewIconClient(cc grpc.ClientConnInterface) *IconClient {
-	return &IconClient{
-		svc: pb.NewIconServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *IconClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetResId calls the GetResId RPC.
-func (c *IconClient) GetResId(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetResId(ctx, &pb.GetResIdRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetResPackage calls the GetResPackage RPC.
-func (c *IconClient) GetResPackage(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetResPackage(ctx, &pb.GetResPackageRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetType calls the GetType RPC.
-func (c *IconClient) GetType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUri calls the GetUri RPC.
-func (c *IconClient) GetUri(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetUri(ctx, &pb.GetUriRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LoadDrawable calls the LoadDrawable RPC.
-func (c *IconClient) LoadDrawable(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.LoadDrawable(ctx, &pb.LoadDrawableRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LoadDrawableAsync calls the LoadDrawableAsync RPC.
-func (c *IconClient) LoadDrawableAsync(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.LoadDrawableAsync(ctx, &pb.LoadDrawableAsyncRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// SetTint calls the SetTint RPC.
-func (c *IconClient) SetTint(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetTint(ctx, &pb.SetTintRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetTintBlendMode calls the SetTintBlendMode RPC.
-func (c *IconClient) SetTintBlendMode(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetTintBlendMode(ctx, &pb.IconSetTintBlendModeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetTintList calls the SetTintList RPC.
-func (c *IconClient) SetTintList(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetTintList(ctx, &pb.IconSetTintListRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetTintMode calls the SetTintMode RPC.
-func (c *IconClient) SetTintMode(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetTintMode(ctx, &pb.SetTintModeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *IconClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *IconClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// CreateWithAdaptiveBitmap calls the CreateWithAdaptiveBitmap RPC.
-func (c *IconClient) CreateWithAdaptiveBitmap(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.CreateWithAdaptiveBitmap(ctx, &pb.CreateWithAdaptiveBitmapRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateWithAdaptiveBitmapContentUri1 calls the CreateWithAdaptiveBitmapContentUri1 RPC.
-func (c *IconClient) CreateWithAdaptiveBitmapContentUri1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.CreateWithAdaptiveBitmapContentUri1(ctx, &pb.CreateWithAdaptiveBitmapContentUri1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateWithAdaptiveBitmapContentUri1_1 calls the CreateWithAdaptiveBitmapContentUri1_1 RPC.
-func (c *IconClient) CreateWithAdaptiveBitmapContentUri1_1(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.CreateWithAdaptiveBitmapContentUri1_1(ctx, &pb.CreateWithAdaptiveBitmapContentUri1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateWithBitmap calls the CreateWithBitmap RPC.
-func (c *IconClient) CreateWithBitmap(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.CreateWithBitmap(ctx, &pb.CreateWithBitmapRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateWithContentUri1 calls the CreateWithContentUri1 RPC.
-func (c *IconClient) CreateWithContentUri1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.CreateWithContentUri1(ctx, &pb.CreateWithContentUri1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateWithContentUri1_1 calls the CreateWithContentUri1_1 RPC.
-func (c *IconClient) CreateWithContentUri1_1(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.CreateWithContentUri1_1(ctx, &pb.CreateWithContentUri1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateWithData calls the CreateWithData RPC.
-func (c *IconClient) CreateWithData(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) (int64, error) {
-	resp, err := c.svc.CreateWithData(ctx, &pb.CreateWithDataRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateWithFilePath calls the CreateWithFilePath RPC.
-func (c *IconClient) CreateWithFilePath(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.CreateWithFilePath(ctx, &pb.CreateWithFilePathRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateWithResource2 calls the CreateWithResource2 RPC.
-func (c *IconClient) CreateWithResource2(ctx context.Context, arg0 int64, arg1 int32) (int64, error) {
-	resp, err := c.svc.CreateWithResource2(ctx, &pb.CreateWithResource2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateWithResource2_1 calls the CreateWithResource2_1 RPC.
-func (c *IconClient) CreateWithResource2_1(ctx context.Context, arg0 string, arg1 int32) (int64, error) {
-	resp, err := c.svc.CreateWithResource2_1(ctx, &pb.CreateWithResource2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IconOnDrawableLoadedListenerClient wraps the gRPC IconOnDrawableLoadedListenerService client.
-type IconOnDrawableLoadedListenerClient struct {
-	svc pb.IconOnDrawableLoadedListenerServiceClient
-}
-
-// NewIconOnDrawableLoadedListenerClient creates a new IconOnDrawableLoadedListener client.
-func NewIconOnDrawableLoadedListenerClient(cc grpc.ClientConnInterface) *IconOnDrawableLoadedListenerClient {
-	return &IconOnDrawableLoadedListenerClient{
-		svc: pb.NewIconOnDrawableLoadedListenerServiceClient(cc),
-	}
-}
-
-// OnDrawableLoaded calls the OnDrawableLoaded RPC.
-func (c *IconOnDrawableLoadedListenerClient) OnDrawableLoaded(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnDrawableLoaded(ctx, &pb.OnDrawableLoadedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// Animatable2Client wraps the gRPC Animatable2Service client.
-type Animatable2Client struct {
-	svc pb.Animatable2ServiceClient
-}
-
-// NewAnimatable2Client creates a new Animatable2 client.
-func NewAnimatable2Client(cc grpc.ClientConnInterface) *Animatable2Client {
-	return &Animatable2Client{
-		svc: pb.NewAnimatable2ServiceClient(cc),
+// AnimatedImageDrawableClient wraps the gRPC AnimatedImageDrawableService client.
+type AnimatedImageDrawableClient struct {
+	svc pb.AnimatedImageDrawableServiceClient
+}
+
+// NewAnimatedImageDrawableClient creates a new AnimatedImageDrawable client.
+func NewAnimatedImageDrawableClient(cc grpc.ClientConnInterface) *AnimatedImageDrawableClient {
+	return &AnimatedImageDrawableClient{
+		svc: pb.NewAnimatedImageDrawableServiceClient(cc),
 	}
 }
 
 // ClearAnimationCallbacks calls the ClearAnimationCallbacks RPC.
-func (c *Animatable2Client) ClearAnimationCallbacks(ctx context.Context) error {
-	_, err := c.svc.ClearAnimationCallbacks(ctx, &pb.Animatable2ClearAnimationCallbacksRequest{})
-	return err
-}
-
-// RegisterAnimationCallback calls the RegisterAnimationCallback RPC.
-func (c *Animatable2Client) RegisterAnimationCallback(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.RegisterAnimationCallback(ctx, &pb.Animatable2RegisterAnimationCallbackRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// UnregisterAnimationCallback calls the UnregisterAnimationCallback RPC.
-func (c *Animatable2Client) UnregisterAnimationCallback(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.UnregisterAnimationCallback(ctx, &pb.Animatable2UnregisterAnimationCallbackRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Animatable2AnimationCallbackClient wraps the gRPC Animatable2AnimationCallbackService client.
-type Animatable2AnimationCallbackClient struct {
-	svc pb.Animatable2AnimationCallbackServiceClient
-}
-
-// NewAnimatable2AnimationCallbackClient creates a new Animatable2AnimationCallback client.
-func NewAnimatable2AnimationCallbackClient(cc grpc.ClientConnInterface) *Animatable2AnimationCallbackClient {
-	return &Animatable2AnimationCallbackClient{
-		svc: pb.NewAnimatable2AnimationCallbackServiceClient(cc),
-	}
-}
-
-// OnAnimationEnd calls the OnAnimationEnd RPC.
-func (c *Animatable2AnimationCallbackClient) OnAnimationEnd(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnAnimationEnd(ctx, &pb.OnAnimationEndRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnAnimationStart calls the OnAnimationStart RPC.
-func (c *Animatable2AnimationCallbackClient) OnAnimationStart(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnAnimationStart(ctx, &pb.OnAnimationStartRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// VectorDrawableClient wraps the gRPC VectorDrawableService client.
-type VectorDrawableClient struct {
-	svc pb.VectorDrawableServiceClient
-}
-
-// NewVectorDrawableClient creates a new VectorDrawable client.
-func NewVectorDrawableClient(cc grpc.ClientConnInterface) *VectorDrawableClient {
-	return &VectorDrawableClient{
-		svc: pb.NewVectorDrawableServiceClient(cc),
-	}
-}
-
-// ApplyTheme calls the ApplyTheme RPC.
-func (c *VectorDrawableClient) ApplyTheme(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.ApplyTheme(ctx, &pb.ApplyThemeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// CanApplyTheme calls the CanApplyTheme RPC.
-func (c *VectorDrawableClient) CanApplyTheme(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.CanApplyTheme(ctx, &pb.CanApplyThemeRequest{
+func (c *AnimatedImageDrawableClient) ClearAnimationCallbacks(ctx context.Context, handle int64) error {
+	_, err := c.svc.ClearAnimationCallbacks(ctx, &pb.ClearAnimationCallbacksRequest{
 		Handle: handle,
 	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
+	return err
 }
 
 // Draw calls the Draw RPC.
-func (c *VectorDrawableClient) Draw(ctx context.Context, handle int64, arg0 int64) error {
+func (c *AnimatedImageDrawableClient) Draw(ctx context.Context, handle int64, arg0 int64) error {
 	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -7245,19 +7196,8 @@ func (c *VectorDrawableClient) Draw(ctx context.Context, handle int64, arg0 int6
 }
 
 // GetAlpha calls the GetAlpha RPC.
-func (c *VectorDrawableClient) GetAlpha(ctx context.Context, handle int64) (int32, error) {
+func (c *AnimatedImageDrawableClient) GetAlpha(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.GetAlpha(ctx, &pb.GetAlphaRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetChangingConfigurations calls the GetChangingConfigurations RPC.
-func (c *VectorDrawableClient) GetChangingConfigurations(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetChangingConfigurations(ctx, &pb.GetChangingConfigurationsRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -7267,7 +7207,7 @@ func (c *VectorDrawableClient) GetChangingConfigurations(ctx context.Context, ha
 }
 
 // GetColorFilter calls the GetColorFilter RPC.
-func (c *VectorDrawableClient) GetColorFilter(ctx context.Context, handle int64) (int64, error) {
+func (c *AnimatedImageDrawableClient) GetColorFilter(ctx context.Context, handle int64) (int64, error) {
 	resp, err := c.svc.GetColorFilter(ctx, &pb.GetColorFilterRequest{
 		Handle: handle,
 	})
@@ -7277,19 +7217,8 @@ func (c *VectorDrawableClient) GetColorFilter(ctx context.Context, handle int64)
 	return resp.GetResult(), nil
 }
 
-// GetConstantState calls the GetConstantState RPC.
-func (c *VectorDrawableClient) GetConstantState(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetConstantState(ctx, &pb.GetConstantStateRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetIntrinsicHeight calls the GetIntrinsicHeight RPC.
-func (c *VectorDrawableClient) GetIntrinsicHeight(ctx context.Context, handle int64) (int32, error) {
+func (c *AnimatedImageDrawableClient) GetIntrinsicHeight(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.GetIntrinsicHeight(ctx, &pb.GetIntrinsicHeightRequest{
 		Handle: handle,
 	})
@@ -7300,7 +7229,7 @@ func (c *VectorDrawableClient) GetIntrinsicHeight(ctx context.Context, handle in
 }
 
 // GetIntrinsicWidth calls the GetIntrinsicWidth RPC.
-func (c *VectorDrawableClient) GetIntrinsicWidth(ctx context.Context, handle int64) (int32, error) {
+func (c *AnimatedImageDrawableClient) GetIntrinsicWidth(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.GetIntrinsicWidth(ctx, &pb.GetIntrinsicWidthRequest{
 		Handle: handle,
 	})
@@ -7311,7 +7240,7 @@ func (c *VectorDrawableClient) GetIntrinsicWidth(ctx context.Context, handle int
 }
 
 // GetOpacity calls the GetOpacity RPC.
-func (c *VectorDrawableClient) GetOpacity(ctx context.Context, handle int64) (int32, error) {
+func (c *AnimatedImageDrawableClient) GetOpacity(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.GetOpacity(ctx, &pb.GetOpacityRequest{
 		Handle: handle,
 	})
@@ -7321,9 +7250,9 @@ func (c *VectorDrawableClient) GetOpacity(ctx context.Context, handle int64) (in
 	return resp.GetResult(), nil
 }
 
-// GetOpticalInsets calls the GetOpticalInsets RPC.
-func (c *VectorDrawableClient) GetOpticalInsets(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetOpticalInsets(ctx, &pb.GetOpticalInsetsRequest{
+// GetRepeatCount calls the GetRepeatCount RPC.
+func (c *AnimatedImageDrawableClient) GetRepeatCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetRepeatCount(ctx, &pb.GetRepeatCountRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -7332,19 +7261,8 @@ func (c *VectorDrawableClient) GetOpticalInsets(ctx context.Context, handle int6
 	return resp.GetResult(), nil
 }
 
-// HasFocusStateSpecified calls the HasFocusStateSpecified RPC.
-func (c *VectorDrawableClient) HasFocusStateSpecified(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.HasFocusStateSpecified(ctx, &pb.VectorDrawableHasFocusStateSpecifiedRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
 // Inflate calls the Inflate RPC.
-func (c *VectorDrawableClient) Inflate(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
+func (c *AnimatedImageDrawableClient) Inflate(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) error {
 	_, err := c.svc.Inflate(ctx, &pb.InflateRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -7356,7 +7274,7 @@ func (c *VectorDrawableClient) Inflate(ctx context.Context, handle int64, arg0 i
 }
 
 // IsAutoMirrored calls the IsAutoMirrored RPC.
-func (c *VectorDrawableClient) IsAutoMirrored(ctx context.Context, handle int64) (bool, error) {
+func (c *AnimatedImageDrawableClient) IsAutoMirrored(ctx context.Context, handle int64) (bool, error) {
 	resp, err := c.svc.IsAutoMirrored(ctx, &pb.IsAutoMirroredRequest{
 		Handle: handle,
 	})
@@ -7366,9 +7284,9 @@ func (c *VectorDrawableClient) IsAutoMirrored(ctx context.Context, handle int64)
 	return resp.GetResult(), nil
 }
 
-// IsStateful calls the IsStateful RPC.
-func (c *VectorDrawableClient) IsStateful(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsStateful(ctx, &pb.IsStatefulRequest{
+// IsFilterBitmap calls the IsFilterBitmap RPC.
+func (c *AnimatedImageDrawableClient) IsFilterBitmap(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsFilterBitmap(ctx, &pb.AnimatedImageDrawableIsFilterBitmapRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -7377,19 +7295,40 @@ func (c *VectorDrawableClient) IsStateful(ctx context.Context, handle int64) (bo
 	return resp.GetResult(), nil
 }
 
-// Mutate calls the Mutate RPC.
-func (c *VectorDrawableClient) Mutate(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.Mutate(ctx, &pb.MutateRequest{
+// IsRunning calls the IsRunning RPC.
+func (c *AnimatedImageDrawableClient) IsRunning(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsRunning(ctx, &pb.IsRunningRequest{
 		Handle: handle,
 	})
 	if err != nil {
-		return 0, err
+		return false, err
 	}
 	return resp.GetResult(), nil
 }
 
+// OnLayoutDirectionChanged calls the OnLayoutDirectionChanged RPC.
+func (c *AnimatedImageDrawableClient) OnLayoutDirectionChanged(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.OnLayoutDirectionChanged(ctx, &pb.OnLayoutDirectionChangedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RegisterAnimationCallback calls the RegisterAnimationCallback RPC.
+func (c *AnimatedImageDrawableClient) RegisterAnimationCallback(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.RegisterAnimationCallback(ctx, &pb.RegisterAnimationCallbackRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
 // SetAlpha calls the SetAlpha RPC.
-func (c *VectorDrawableClient) SetAlpha(ctx context.Context, handle int64, arg0 int32) error {
+func (c *AnimatedImageDrawableClient) SetAlpha(ctx context.Context, handle int64, arg0 int32) error {
 	_, err := c.svc.SetAlpha(ctx, &pb.SetAlphaRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -7398,7 +7337,7 @@ func (c *VectorDrawableClient) SetAlpha(ctx context.Context, handle int64, arg0 
 }
 
 // SetAutoMirrored calls the SetAutoMirrored RPC.
-func (c *VectorDrawableClient) SetAutoMirrored(ctx context.Context, handle int64, arg0 bool) error {
+func (c *AnimatedImageDrawableClient) SetAutoMirrored(ctx context.Context, handle int64, arg0 bool) error {
 	_, err := c.svc.SetAutoMirrored(ctx, &pb.SetAutoMirroredRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -7407,7 +7346,7 @@ func (c *VectorDrawableClient) SetAutoMirrored(ctx context.Context, handle int64
 }
 
 // SetColorFilter calls the SetColorFilter RPC.
-func (c *VectorDrawableClient) SetColorFilter(ctx context.Context, handle int64, arg0 int64) error {
+func (c *AnimatedImageDrawableClient) SetColorFilter(ctx context.Context, handle int64, arg0 int64) error {
 	_, err := c.svc.SetColorFilter(ctx, &pb.SetColorFilterRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -7415,20 +7354,81 @@ func (c *VectorDrawableClient) SetColorFilter(ctx context.Context, handle int64,
 	return err
 }
 
-// SetTintBlendMode calls the SetTintBlendMode RPC.
-func (c *VectorDrawableClient) SetTintBlendMode(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetTintBlendMode(ctx, &pb.SetTintBlendModeRequest{
+// SetFilterBitmap calls the SetFilterBitmap RPC.
+func (c *AnimatedImageDrawableClient) SetFilterBitmap(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetFilterBitmap(ctx, &pb.AnimatedImageDrawableSetFilterBitmapRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
 	return err
 }
 
-// SetTintList calls the SetTintList RPC.
-func (c *VectorDrawableClient) SetTintList(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetTintList(ctx, &pb.SetTintListRequest{
+// SetRepeatCount calls the SetRepeatCount RPC.
+func (c *AnimatedImageDrawableClient) SetRepeatCount(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetRepeatCount(ctx, &pb.SetRepeatCountRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
+	return err
+}
+
+// Start calls the Start RPC.
+func (c *AnimatedImageDrawableClient) Start(ctx context.Context, handle int64) error {
+	_, err := c.svc.Start(ctx, &pb.StartRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// Stop calls the Stop RPC.
+func (c *AnimatedImageDrawableClient) Stop(ctx context.Context, handle int64) error {
+	_, err := c.svc.Stop(ctx, &pb.StopRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// UnregisterAnimationCallback calls the UnregisterAnimationCallback RPC.
+func (c *AnimatedImageDrawableClient) UnregisterAnimationCallback(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.UnregisterAnimationCallback(ctx, &pb.UnregisterAnimationCallbackRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AnimatableClient wraps the gRPC AnimatableService client.
+type AnimatableClient struct {
+	svc pb.AnimatableServiceClient
+}
+
+// NewAnimatableClient creates a new Animatable client.
+func NewAnimatableClient(cc grpc.ClientConnInterface) *AnimatableClient {
+	return &AnimatableClient{
+		svc: pb.NewAnimatableServiceClient(cc),
+	}
+}
+
+// IsRunning calls the IsRunning RPC.
+func (c *AnimatableClient) IsRunning(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsRunning(ctx, &pb.AnimatableIsRunningRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Start calls the Start RPC.
+func (c *AnimatableClient) Start(ctx context.Context) error {
+	_, err := c.svc.Start(ctx, &pb.AnimatableStartRequest{})
+	return err
+}
+
+// Stop calls the Stop RPC.
+func (c *AnimatableClient) Stop(ctx context.Context) error {
+	_, err := c.svc.Stop(ctx, &pb.AnimatableStopRequest{})
 	return err
 }

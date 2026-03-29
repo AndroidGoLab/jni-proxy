@@ -12,30 +12,6 @@ var langCmd = &cobra.Command{
 	Short: "lang service operations",
 }
 
-var langUCharacterDirectionCmd = &cobra.Command{
-	Use:   "u-character-direction",
-	Short: "UCharacterDirectionService operations",
-}
-
-var langUCharacterDirectionToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUCharacterDirectionServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var langUCharacterCategoryCmd = &cobra.Command{
 	Use:   "u-character-category",
 	Short: "UCharacterCategoryService operations",
@@ -48,6 +24,347 @@ var langUCharacterCategoryToStringCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewUCharacterCategoryServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var langUScriptCmd = &cobra.Command{
+	Use:   "u-script",
+	Short: "UScriptService operations",
+}
+
+var langUScriptBreaksBetweenLettersCmd = &cobra.Command{
+	Use:   "breaks-between-letters",
+	Short: "BreaksBetweenLetters RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUScriptServiceClient(grpcConn)
+		req := &pb.BreaksBetweenLettersRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.BreaksBetweenLetters(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var langUScriptGetCode1Cmd = &cobra.Command{
+	Use:   "get-code1",
+	Short: "GetCode1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUScriptServiceClient(grpcConn)
+		req := &pb.GetCode1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetCode1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var langUScriptGetCode1_1Cmd = &cobra.Command{
+	Use:   "get-code1_1",
+	Short: "GetCode1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUScriptServiceClient(grpcConn)
+		req := &pb.GetCode1_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetCode1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var langUScriptGetCode1_2Cmd = &cobra.Command{
+	Use:   "get-code1_2",
+	Short: "GetCode1_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUScriptServiceClient(grpcConn)
+		req := &pb.GetCode1_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetCode1_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var langUScriptGetCodeFromNameCmd = &cobra.Command{
+	Use:   "get-code-from-name",
+	Short: "GetCodeFromName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUScriptServiceClient(grpcConn)
+		req := &pb.GetCodeFromNameRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetCodeFromName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var langUScriptGetNameCmd = &cobra.Command{
+	Use:   "get-name",
+	Short: "GetName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUScriptServiceClient(grpcConn)
+		req := &pb.GetNameRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var langUScriptGetSampleStringCmd = &cobra.Command{
+	Use:   "get-sample-string",
+	Short: "GetSampleString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUScriptServiceClient(grpcConn)
+		req := &pb.GetSampleStringRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetSampleString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var langUScriptGetScriptCmd = &cobra.Command{
+	Use:   "get-script",
+	Short: "GetScript RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUScriptServiceClient(grpcConn)
+		req := &pb.GetScriptRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetScript(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var langUScriptGetScriptExtensionsCmd = &cobra.Command{
+	Use:   "get-script-extensions",
+	Short: "GetScriptExtensions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUScriptServiceClient(grpcConn)
+		req := &pb.GetScriptExtensionsRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetScriptExtensions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var langUScriptGetShortNameCmd = &cobra.Command{
+	Use:   "get-short-name",
+	Short: "GetShortName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUScriptServiceClient(grpcConn)
+		req := &pb.GetShortNameRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetShortName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var langUScriptGetUsageCmd = &cobra.Command{
+	Use:   "get-usage",
+	Short: "GetUsage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUScriptServiceClient(grpcConn)
+		req := &pb.GetUsageRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetUsage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var langUScriptHasScriptCmd = &cobra.Command{
+	Use:   "has-script",
+	Short: "HasScript RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUScriptServiceClient(grpcConn)
+		req := &pb.HasScriptRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.HasScript(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var langUScriptIsCasedCmd = &cobra.Command{
+	Use:   "is-cased",
+	Short: "IsCased RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUScriptServiceClient(grpcConn)
+		req := &pb.IsCasedRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsCased(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var langUScriptIsRightToLeftCmd = &cobra.Command{
+	Use:   "is-right-to-left",
+	Short: "IsRightToLeft RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUScriptServiceClient(grpcConn)
+		req := &pb.IsRightToLeftRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsRightToLeft(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var langUScriptScriptUsageCmd = &cobra.Command{
+	Use:   "u-script-script-usage",
+	Short: "UScriptScriptUsageService operations",
+}
+
+var langUScriptScriptUsageValuesCmd = &cobra.Command{
+	Use:   "values",
+	Short: "Values RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUScriptScriptUsageServiceClient(grpcConn)
+		req := &pb.ValuesRequest{}
+		resp, err := client.Values(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var langUScriptScriptUsageValueOfCmd = &cobra.Command{
+	Use:   "value-of",
+	Short: "ValueOf RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUScriptScriptUsageServiceClient(grpcConn)
+		req := &pb.ValueOfRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ValueOf(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var langUCharacterDirectionCmd = &cobra.Command{
+	Use:   "u-character-direction",
+	Short: "UCharacterDirectionService operations",
+}
+
+var langUCharacterDirectionToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewUCharacterDirectionServiceClient(grpcConn)
 		req := &pb.ToStringRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
@@ -2272,330 +2589,48 @@ var langUCharacterUnicodeBlockOfCmd = &cobra.Command{
 	},
 }
 
-var langUScriptCmd = &cobra.Command{
-	Use:   "u-script",
-	Short: "UScriptService operations",
-}
-
-var langUScriptBreaksBetweenLettersCmd = &cobra.Command{
-	Use:   "breaks-between-letters",
-	Short: "BreaksBetweenLetters RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUScriptServiceClient(grpcConn)
-		req := &pb.BreaksBetweenLettersRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.BreaksBetweenLetters(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var langUScriptGetCode1Cmd = &cobra.Command{
-	Use:   "get-code1",
-	Short: "GetCode1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUScriptServiceClient(grpcConn)
-		req := &pb.GetCode1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetCode1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var langUScriptGetCode1_1Cmd = &cobra.Command{
-	Use:   "get-code1_1",
-	Short: "GetCode1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUScriptServiceClient(grpcConn)
-		req := &pb.GetCode1_1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetCode1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var langUScriptGetCode1_2Cmd = &cobra.Command{
-	Use:   "get-code1_2",
-	Short: "GetCode1_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUScriptServiceClient(grpcConn)
-		req := &pb.GetCode1_2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetCode1_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var langUScriptGetCodeFromNameCmd = &cobra.Command{
-	Use:   "get-code-from-name",
-	Short: "GetCodeFromName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUScriptServiceClient(grpcConn)
-		req := &pb.GetCodeFromNameRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetCodeFromName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var langUScriptGetNameCmd = &cobra.Command{
-	Use:   "get-name",
-	Short: "GetName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUScriptServiceClient(grpcConn)
-		req := &pb.GetNameRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var langUScriptGetSampleStringCmd = &cobra.Command{
-	Use:   "get-sample-string",
-	Short: "GetSampleString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUScriptServiceClient(grpcConn)
-		req := &pb.GetSampleStringRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetSampleString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var langUScriptGetScriptCmd = &cobra.Command{
-	Use:   "get-script",
-	Short: "GetScript RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUScriptServiceClient(grpcConn)
-		req := &pb.GetScriptRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetScript(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var langUScriptGetScriptExtensionsCmd = &cobra.Command{
-	Use:   "get-script-extensions",
-	Short: "GetScriptExtensions RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUScriptServiceClient(grpcConn)
-		req := &pb.GetScriptExtensionsRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetScriptExtensions(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var langUScriptGetShortNameCmd = &cobra.Command{
-	Use:   "get-short-name",
-	Short: "GetShortName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUScriptServiceClient(grpcConn)
-		req := &pb.GetShortNameRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetShortName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var langUScriptGetUsageCmd = &cobra.Command{
-	Use:   "get-usage",
-	Short: "GetUsage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUScriptServiceClient(grpcConn)
-		req := &pb.GetUsageRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetUsage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var langUScriptHasScriptCmd = &cobra.Command{
-	Use:   "has-script",
-	Short: "HasScript RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUScriptServiceClient(grpcConn)
-		req := &pb.HasScriptRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.HasScript(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var langUScriptIsCasedCmd = &cobra.Command{
-	Use:   "is-cased",
-	Short: "IsCased RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUScriptServiceClient(grpcConn)
-		req := &pb.IsCasedRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsCased(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var langUScriptIsRightToLeftCmd = &cobra.Command{
-	Use:   "is-right-to-left",
-	Short: "IsRightToLeft RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUScriptServiceClient(grpcConn)
-		req := &pb.IsRightToLeftRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsRightToLeft(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var langUScriptScriptUsageCmd = &cobra.Command{
-	Use:   "u-script-script-usage",
-	Short: "UScriptScriptUsageService operations",
-}
-
-var langUScriptScriptUsageValuesCmd = &cobra.Command{
-	Use:   "values",
-	Short: "Values RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUScriptScriptUsageServiceClient(grpcConn)
-		req := &pb.ValuesRequest{}
-		resp, err := client.Values(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var langUScriptScriptUsageValueOfCmd = &cobra.Command{
-	Use:   "value-of",
-	Short: "ValueOf RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewUScriptScriptUsageServiceClient(grpcConn)
-		req := &pb.ValueOfRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ValueOf(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
-	langUCharacterDirectionToStringCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	langUCharacterDirectionCmd.AddCommand(langUCharacterDirectionToStringCmd)
-	langCmd.AddCommand(langUCharacterDirectionCmd)
 	langUCharacterCategoryToStringCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	langUCharacterCategoryCmd.AddCommand(langUCharacterCategoryToStringCmd)
 	langCmd.AddCommand(langUCharacterCategoryCmd)
+	langUScriptBreaksBetweenLettersCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	langUScriptCmd.AddCommand(langUScriptBreaksBetweenLettersCmd)
+	langUScriptGetCode1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	langUScriptCmd.AddCommand(langUScriptGetCode1Cmd)
+	langUScriptGetCode1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	langUScriptCmd.AddCommand(langUScriptGetCode1_1Cmd)
+	langUScriptGetCode1_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	langUScriptCmd.AddCommand(langUScriptGetCode1_2Cmd)
+	langUScriptGetCodeFromNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	langUScriptCmd.AddCommand(langUScriptGetCodeFromNameCmd)
+	langUScriptGetNameCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	langUScriptCmd.AddCommand(langUScriptGetNameCmd)
+	langUScriptGetSampleStringCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	langUScriptCmd.AddCommand(langUScriptGetSampleStringCmd)
+	langUScriptGetScriptCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	langUScriptCmd.AddCommand(langUScriptGetScriptCmd)
+	langUScriptGetScriptExtensionsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	langUScriptGetScriptExtensionsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	langUScriptCmd.AddCommand(langUScriptGetScriptExtensionsCmd)
+	langUScriptGetShortNameCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	langUScriptCmd.AddCommand(langUScriptGetShortNameCmd)
+	langUScriptGetUsageCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	langUScriptCmd.AddCommand(langUScriptGetUsageCmd)
+	langUScriptHasScriptCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	langUScriptHasScriptCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	langUScriptCmd.AddCommand(langUScriptHasScriptCmd)
+	langUScriptIsCasedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	langUScriptCmd.AddCommand(langUScriptIsCasedCmd)
+	langUScriptIsRightToLeftCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	langUScriptCmd.AddCommand(langUScriptIsRightToLeftCmd)
+	langCmd.AddCommand(langUScriptCmd)
+	langUScriptScriptUsageCmd.AddCommand(langUScriptScriptUsageValuesCmd)
+	langUScriptScriptUsageValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
+	langUScriptScriptUsageCmd.AddCommand(langUScriptScriptUsageValueOfCmd)
+	langCmd.AddCommand(langUScriptScriptUsageCmd)
+	langUCharacterDirectionToStringCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	langUCharacterDirectionCmd.AddCommand(langUCharacterDirectionToStringCmd)
+	langCmd.AddCommand(langUCharacterDirectionCmd)
 	langUCharacterCharCountCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	langUCharacterCmd.AddCommand(langUCharacterCharCountCmd)
 	langUCharacterCodePointAt2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -2864,40 +2899,5 @@ func init() {
 	langUCharacterUnicodeBlockOfCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	langUCharacterUnicodeBlockCmd.AddCommand(langUCharacterUnicodeBlockOfCmd)
 	langCmd.AddCommand(langUCharacterUnicodeBlockCmd)
-	langUScriptBreaksBetweenLettersCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	langUScriptCmd.AddCommand(langUScriptBreaksBetweenLettersCmd)
-	langUScriptGetCode1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	langUScriptCmd.AddCommand(langUScriptGetCode1Cmd)
-	langUScriptGetCode1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	langUScriptCmd.AddCommand(langUScriptGetCode1_1Cmd)
-	langUScriptGetCode1_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	langUScriptCmd.AddCommand(langUScriptGetCode1_2Cmd)
-	langUScriptGetCodeFromNameCmd.Flags().String("arg0", "", "arg0 (string)")
-	langUScriptCmd.AddCommand(langUScriptGetCodeFromNameCmd)
-	langUScriptGetNameCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	langUScriptCmd.AddCommand(langUScriptGetNameCmd)
-	langUScriptGetSampleStringCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	langUScriptCmd.AddCommand(langUScriptGetSampleStringCmd)
-	langUScriptGetScriptCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	langUScriptCmd.AddCommand(langUScriptGetScriptCmd)
-	langUScriptGetScriptExtensionsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	langUScriptGetScriptExtensionsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	langUScriptCmd.AddCommand(langUScriptGetScriptExtensionsCmd)
-	langUScriptGetShortNameCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	langUScriptCmd.AddCommand(langUScriptGetShortNameCmd)
-	langUScriptGetUsageCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	langUScriptCmd.AddCommand(langUScriptGetUsageCmd)
-	langUScriptHasScriptCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	langUScriptHasScriptCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	langUScriptCmd.AddCommand(langUScriptHasScriptCmd)
-	langUScriptIsCasedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	langUScriptCmd.AddCommand(langUScriptIsCasedCmd)
-	langUScriptIsRightToLeftCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	langUScriptCmd.AddCommand(langUScriptIsRightToLeftCmd)
-	langCmd.AddCommand(langUScriptCmd)
-	langUScriptScriptUsageCmd.AddCommand(langUScriptScriptUsageValuesCmd)
-	langUScriptScriptUsageValueOfCmd.Flags().String("arg0", "", "arg0 (string)")
-	langUScriptScriptUsageCmd.AddCommand(langUScriptScriptUsageValueOfCmd)
-	langCmd.AddCommand(langUScriptScriptUsageCmd)
 	rootCmd.AddCommand(langCmd)
 }

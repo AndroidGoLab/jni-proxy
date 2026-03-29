@@ -21,216 +21,444 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	PersistAdSelectionResultRequestService_GetAdSelectionDataId_FullMethodName = "/adselection.PersistAdSelectionResultRequestService/GetAdSelectionDataId"
-	PersistAdSelectionResultRequestService_GetAdSelectionId_FullMethodName     = "/adselection.PersistAdSelectionResultRequestService/GetAdSelectionId"
-	PersistAdSelectionResultRequestService_GetAdSelectionResult_FullMethodName = "/adselection.PersistAdSelectionResultRequestService/GetAdSelectionResult"
-	PersistAdSelectionResultRequestService_GetSeller_FullMethodName            = "/adselection.PersistAdSelectionResultRequestService/GetSeller"
+	AdSelectionConfigService_DescribeContents_FullMethodName            = "/adselection.AdSelectionConfigService/DescribeContents"
+	AdSelectionConfigService_Equals_FullMethodName                      = "/adselection.AdSelectionConfigService/Equals"
+	AdSelectionConfigService_GetAdSelectionSignals_FullMethodName       = "/adselection.AdSelectionConfigService/GetAdSelectionSignals"
+	AdSelectionConfigService_GetCustomAudienceBuyers_FullMethodName     = "/adselection.AdSelectionConfigService/GetCustomAudienceBuyers"
+	AdSelectionConfigService_GetDecisionLogicUri_FullMethodName         = "/adselection.AdSelectionConfigService/GetDecisionLogicUri"
+	AdSelectionConfigService_GetSeller_FullMethodName                   = "/adselection.AdSelectionConfigService/GetSeller"
+	AdSelectionConfigService_GetSellerSignals_FullMethodName            = "/adselection.AdSelectionConfigService/GetSellerSignals"
+	AdSelectionConfigService_GetTrustedScoringSignalsUri_FullMethodName = "/adselection.AdSelectionConfigService/GetTrustedScoringSignalsUri"
+	AdSelectionConfigService_HashCode_FullMethodName                    = "/adselection.AdSelectionConfigService/HashCode"
+	AdSelectionConfigService_WriteToParcel_FullMethodName               = "/adselection.AdSelectionConfigService/WriteToParcel"
 )
 
-// PersistAdSelectionResultRequestServiceClient is the client API for PersistAdSelectionResultRequestService service.
+// AdSelectionConfigServiceClient is the client API for AdSelectionConfigService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PersistAdSelectionResultRequestServiceClient interface {
-	GetAdSelectionDataId(ctx context.Context, in *GetAdSelectionDataIdRequest, opts ...grpc.CallOption) (*GetAdSelectionDataIdResponse, error)
-	GetAdSelectionId(ctx context.Context, in *GetAdSelectionIdRequest, opts ...grpc.CallOption) (*GetAdSelectionIdResponse, error)
-	GetAdSelectionResult(ctx context.Context, in *GetAdSelectionResultRequest, opts ...grpc.CallOption) (*GetAdSelectionResultResponse, error)
+type AdSelectionConfigServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetAdSelectionSignals(ctx context.Context, in *GetAdSelectionSignalsRequest, opts ...grpc.CallOption) (*GetAdSelectionSignalsResponse, error)
+	GetCustomAudienceBuyers(ctx context.Context, in *GetCustomAudienceBuyersRequest, opts ...grpc.CallOption) (*GetCustomAudienceBuyersResponse, error)
+	GetDecisionLogicUri(ctx context.Context, in *GetDecisionLogicUriRequest, opts ...grpc.CallOption) (*GetDecisionLogicUriResponse, error)
 	GetSeller(ctx context.Context, in *GetSellerRequest, opts ...grpc.CallOption) (*GetSellerResponse, error)
+	GetSellerSignals(ctx context.Context, in *GetSellerSignalsRequest, opts ...grpc.CallOption) (*GetSellerSignalsResponse, error)
+	GetTrustedScoringSignalsUri(ctx context.Context, in *GetTrustedScoringSignalsUriRequest, opts ...grpc.CallOption) (*GetTrustedScoringSignalsUriResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type persistAdSelectionResultRequestServiceClient struct {
+type adSelectionConfigServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewPersistAdSelectionResultRequestServiceClient(cc grpc.ClientConnInterface) PersistAdSelectionResultRequestServiceClient {
-	return &persistAdSelectionResultRequestServiceClient{cc}
+func NewAdSelectionConfigServiceClient(cc grpc.ClientConnInterface) AdSelectionConfigServiceClient {
+	return &adSelectionConfigServiceClient{cc}
 }
 
-func (c *persistAdSelectionResultRequestServiceClient) GetAdSelectionDataId(ctx context.Context, in *GetAdSelectionDataIdRequest, opts ...grpc.CallOption) (*GetAdSelectionDataIdResponse, error) {
+func (c *adSelectionConfigServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAdSelectionDataIdResponse)
-	err := c.cc.Invoke(ctx, PersistAdSelectionResultRequestService_GetAdSelectionDataId_FullMethodName, in, out, cOpts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, AdSelectionConfigService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *persistAdSelectionResultRequestServiceClient) GetAdSelectionId(ctx context.Context, in *GetAdSelectionIdRequest, opts ...grpc.CallOption) (*GetAdSelectionIdResponse, error) {
+func (c *adSelectionConfigServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAdSelectionIdResponse)
-	err := c.cc.Invoke(ctx, PersistAdSelectionResultRequestService_GetAdSelectionId_FullMethodName, in, out, cOpts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, AdSelectionConfigService_Equals_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *persistAdSelectionResultRequestServiceClient) GetAdSelectionResult(ctx context.Context, in *GetAdSelectionResultRequest, opts ...grpc.CallOption) (*GetAdSelectionResultResponse, error) {
+func (c *adSelectionConfigServiceClient) GetAdSelectionSignals(ctx context.Context, in *GetAdSelectionSignalsRequest, opts ...grpc.CallOption) (*GetAdSelectionSignalsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAdSelectionResultResponse)
-	err := c.cc.Invoke(ctx, PersistAdSelectionResultRequestService_GetAdSelectionResult_FullMethodName, in, out, cOpts...)
+	out := new(GetAdSelectionSignalsResponse)
+	err := c.cc.Invoke(ctx, AdSelectionConfigService_GetAdSelectionSignals_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *persistAdSelectionResultRequestServiceClient) GetSeller(ctx context.Context, in *GetSellerRequest, opts ...grpc.CallOption) (*GetSellerResponse, error) {
+func (c *adSelectionConfigServiceClient) GetCustomAudienceBuyers(ctx context.Context, in *GetCustomAudienceBuyersRequest, opts ...grpc.CallOption) (*GetCustomAudienceBuyersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCustomAudienceBuyersResponse)
+	err := c.cc.Invoke(ctx, AdSelectionConfigService_GetCustomAudienceBuyers_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adSelectionConfigServiceClient) GetDecisionLogicUri(ctx context.Context, in *GetDecisionLogicUriRequest, opts ...grpc.CallOption) (*GetDecisionLogicUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDecisionLogicUriResponse)
+	err := c.cc.Invoke(ctx, AdSelectionConfigService_GetDecisionLogicUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adSelectionConfigServiceClient) GetSeller(ctx context.Context, in *GetSellerRequest, opts ...grpc.CallOption) (*GetSellerResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetSellerResponse)
-	err := c.cc.Invoke(ctx, PersistAdSelectionResultRequestService_GetSeller_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, AdSelectionConfigService_GetSeller_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// PersistAdSelectionResultRequestServiceServer is the server API for PersistAdSelectionResultRequestService service.
-// All implementations must embed UnimplementedPersistAdSelectionResultRequestServiceServer
-// for forward compatibility.
-type PersistAdSelectionResultRequestServiceServer interface {
-	GetAdSelectionDataId(context.Context, *GetAdSelectionDataIdRequest) (*GetAdSelectionDataIdResponse, error)
-	GetAdSelectionId(context.Context, *GetAdSelectionIdRequest) (*GetAdSelectionIdResponse, error)
-	GetAdSelectionResult(context.Context, *GetAdSelectionResultRequest) (*GetAdSelectionResultResponse, error)
-	GetSeller(context.Context, *GetSellerRequest) (*GetSellerResponse, error)
-	mustEmbedUnimplementedPersistAdSelectionResultRequestServiceServer()
+func (c *adSelectionConfigServiceClient) GetSellerSignals(ctx context.Context, in *GetSellerSignalsRequest, opts ...grpc.CallOption) (*GetSellerSignalsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSellerSignalsResponse)
+	err := c.cc.Invoke(ctx, AdSelectionConfigService_GetSellerSignals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
-// UnimplementedPersistAdSelectionResultRequestServiceServer must be embedded to have
+func (c *adSelectionConfigServiceClient) GetTrustedScoringSignalsUri(ctx context.Context, in *GetTrustedScoringSignalsUriRequest, opts ...grpc.CallOption) (*GetTrustedScoringSignalsUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTrustedScoringSignalsUriResponse)
+	err := c.cc.Invoke(ctx, AdSelectionConfigService_GetTrustedScoringSignalsUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adSelectionConfigServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, AdSelectionConfigService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adSelectionConfigServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, AdSelectionConfigService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AdSelectionConfigServiceServer is the server API for AdSelectionConfigService service.
+// All implementations must embed UnimplementedAdSelectionConfigServiceServer
+// for forward compatibility.
+type AdSelectionConfigServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetAdSelectionSignals(context.Context, *GetAdSelectionSignalsRequest) (*GetAdSelectionSignalsResponse, error)
+	GetCustomAudienceBuyers(context.Context, *GetCustomAudienceBuyersRequest) (*GetCustomAudienceBuyersResponse, error)
+	GetDecisionLogicUri(context.Context, *GetDecisionLogicUriRequest) (*GetDecisionLogicUriResponse, error)
+	GetSeller(context.Context, *GetSellerRequest) (*GetSellerResponse, error)
+	GetSellerSignals(context.Context, *GetSellerSignalsRequest) (*GetSellerSignalsResponse, error)
+	GetTrustedScoringSignalsUri(context.Context, *GetTrustedScoringSignalsUriRequest) (*GetTrustedScoringSignalsUriResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedAdSelectionConfigServiceServer()
+}
+
+// UnimplementedAdSelectionConfigServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedPersistAdSelectionResultRequestServiceServer struct{}
+type UnimplementedAdSelectionConfigServiceServer struct{}
 
-func (UnimplementedPersistAdSelectionResultRequestServiceServer) GetAdSelectionDataId(context.Context, *GetAdSelectionDataIdRequest) (*GetAdSelectionDataIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAdSelectionDataId not implemented")
+func (UnimplementedAdSelectionConfigServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedPersistAdSelectionResultRequestServiceServer) GetAdSelectionId(context.Context, *GetAdSelectionIdRequest) (*GetAdSelectionIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAdSelectionId not implemented")
+func (UnimplementedAdSelectionConfigServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedPersistAdSelectionResultRequestServiceServer) GetAdSelectionResult(context.Context, *GetAdSelectionResultRequest) (*GetAdSelectionResultResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAdSelectionResult not implemented")
+func (UnimplementedAdSelectionConfigServiceServer) GetAdSelectionSignals(context.Context, *GetAdSelectionSignalsRequest) (*GetAdSelectionSignalsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAdSelectionSignals not implemented")
 }
-func (UnimplementedPersistAdSelectionResultRequestServiceServer) GetSeller(context.Context, *GetSellerRequest) (*GetSellerResponse, error) {
+func (UnimplementedAdSelectionConfigServiceServer) GetCustomAudienceBuyers(context.Context, *GetCustomAudienceBuyersRequest) (*GetCustomAudienceBuyersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCustomAudienceBuyers not implemented")
+}
+func (UnimplementedAdSelectionConfigServiceServer) GetDecisionLogicUri(context.Context, *GetDecisionLogicUriRequest) (*GetDecisionLogicUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDecisionLogicUri not implemented")
+}
+func (UnimplementedAdSelectionConfigServiceServer) GetSeller(context.Context, *GetSellerRequest) (*GetSellerResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSeller not implemented")
 }
-func (UnimplementedPersistAdSelectionResultRequestServiceServer) mustEmbedUnimplementedPersistAdSelectionResultRequestServiceServer() {
+func (UnimplementedAdSelectionConfigServiceServer) GetSellerSignals(context.Context, *GetSellerSignalsRequest) (*GetSellerSignalsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSellerSignals not implemented")
 }
-func (UnimplementedPersistAdSelectionResultRequestServiceServer) testEmbeddedByValue() {}
+func (UnimplementedAdSelectionConfigServiceServer) GetTrustedScoringSignalsUri(context.Context, *GetTrustedScoringSignalsUriRequest) (*GetTrustedScoringSignalsUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTrustedScoringSignalsUri not implemented")
+}
+func (UnimplementedAdSelectionConfigServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedAdSelectionConfigServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedAdSelectionConfigServiceServer) mustEmbedUnimplementedAdSelectionConfigServiceServer() {
+}
+func (UnimplementedAdSelectionConfigServiceServer) testEmbeddedByValue() {}
 
-// UnsafePersistAdSelectionResultRequestServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PersistAdSelectionResultRequestServiceServer will
+// UnsafeAdSelectionConfigServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AdSelectionConfigServiceServer will
 // result in compilation errors.
-type UnsafePersistAdSelectionResultRequestServiceServer interface {
-	mustEmbedUnimplementedPersistAdSelectionResultRequestServiceServer()
+type UnsafeAdSelectionConfigServiceServer interface {
+	mustEmbedUnimplementedAdSelectionConfigServiceServer()
 }
 
-func RegisterPersistAdSelectionResultRequestServiceServer(s grpc.ServiceRegistrar, srv PersistAdSelectionResultRequestServiceServer) {
-	// If the following call panics, it indicates UnimplementedPersistAdSelectionResultRequestServiceServer was
+func RegisterAdSelectionConfigServiceServer(s grpc.ServiceRegistrar, srv AdSelectionConfigServiceServer) {
+	// If the following call panics, it indicates UnimplementedAdSelectionConfigServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&PersistAdSelectionResultRequestService_ServiceDesc, srv)
+	s.RegisterService(&AdSelectionConfigService_ServiceDesc, srv)
 }
 
-func _PersistAdSelectionResultRequestService_GetAdSelectionDataId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAdSelectionDataIdRequest)
+func _AdSelectionConfigService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PersistAdSelectionResultRequestServiceServer).GetAdSelectionDataId(ctx, in)
+		return srv.(AdSelectionConfigServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PersistAdSelectionResultRequestService_GetAdSelectionDataId_FullMethodName,
+		FullMethod: AdSelectionConfigService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PersistAdSelectionResultRequestServiceServer).GetAdSelectionDataId(ctx, req.(*GetAdSelectionDataIdRequest))
+		return srv.(AdSelectionConfigServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PersistAdSelectionResultRequestService_GetAdSelectionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAdSelectionIdRequest)
+func _AdSelectionConfigService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PersistAdSelectionResultRequestServiceServer).GetAdSelectionId(ctx, in)
+		return srv.(AdSelectionConfigServiceServer).Equals(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PersistAdSelectionResultRequestService_GetAdSelectionId_FullMethodName,
+		FullMethod: AdSelectionConfigService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PersistAdSelectionResultRequestServiceServer).GetAdSelectionId(ctx, req.(*GetAdSelectionIdRequest))
+		return srv.(AdSelectionConfigServiceServer).Equals(ctx, req.(*EqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PersistAdSelectionResultRequestService_GetAdSelectionResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAdSelectionResultRequest)
+func _AdSelectionConfigService_GetAdSelectionSignals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAdSelectionSignalsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PersistAdSelectionResultRequestServiceServer).GetAdSelectionResult(ctx, in)
+		return srv.(AdSelectionConfigServiceServer).GetAdSelectionSignals(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PersistAdSelectionResultRequestService_GetAdSelectionResult_FullMethodName,
+		FullMethod: AdSelectionConfigService_GetAdSelectionSignals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PersistAdSelectionResultRequestServiceServer).GetAdSelectionResult(ctx, req.(*GetAdSelectionResultRequest))
+		return srv.(AdSelectionConfigServiceServer).GetAdSelectionSignals(ctx, req.(*GetAdSelectionSignalsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PersistAdSelectionResultRequestService_GetSeller_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AdSelectionConfigService_GetCustomAudienceBuyers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCustomAudienceBuyersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdSelectionConfigServiceServer).GetCustomAudienceBuyers(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdSelectionConfigService_GetCustomAudienceBuyers_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdSelectionConfigServiceServer).GetCustomAudienceBuyers(ctx, req.(*GetCustomAudienceBuyersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdSelectionConfigService_GetDecisionLogicUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDecisionLogicUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdSelectionConfigServiceServer).GetDecisionLogicUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdSelectionConfigService_GetDecisionLogicUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdSelectionConfigServiceServer).GetDecisionLogicUri(ctx, req.(*GetDecisionLogicUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdSelectionConfigService_GetSeller_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetSellerRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PersistAdSelectionResultRequestServiceServer).GetSeller(ctx, in)
+		return srv.(AdSelectionConfigServiceServer).GetSeller(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PersistAdSelectionResultRequestService_GetSeller_FullMethodName,
+		FullMethod: AdSelectionConfigService_GetSeller_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PersistAdSelectionResultRequestServiceServer).GetSeller(ctx, req.(*GetSellerRequest))
+		return srv.(AdSelectionConfigServiceServer).GetSeller(ctx, req.(*GetSellerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// PersistAdSelectionResultRequestService_ServiceDesc is the grpc.ServiceDesc for PersistAdSelectionResultRequestService service.
+func _AdSelectionConfigService_GetSellerSignals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSellerSignalsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdSelectionConfigServiceServer).GetSellerSignals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdSelectionConfigService_GetSellerSignals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdSelectionConfigServiceServer).GetSellerSignals(ctx, req.(*GetSellerSignalsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdSelectionConfigService_GetTrustedScoringSignalsUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTrustedScoringSignalsUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdSelectionConfigServiceServer).GetTrustedScoringSignalsUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdSelectionConfigService_GetTrustedScoringSignalsUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdSelectionConfigServiceServer).GetTrustedScoringSignalsUri(ctx, req.(*GetTrustedScoringSignalsUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdSelectionConfigService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdSelectionConfigServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdSelectionConfigService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdSelectionConfigServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdSelectionConfigService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdSelectionConfigServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdSelectionConfigService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdSelectionConfigServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AdSelectionConfigService_ServiceDesc is the grpc.ServiceDesc for AdSelectionConfigService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var PersistAdSelectionResultRequestService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "adselection.PersistAdSelectionResultRequestService",
-	HandlerType: (*PersistAdSelectionResultRequestServiceServer)(nil),
+var AdSelectionConfigService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "adselection.AdSelectionConfigService",
+	HandlerType: (*AdSelectionConfigServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "GetAdSelectionDataId",
-			Handler:    _PersistAdSelectionResultRequestService_GetAdSelectionDataId_Handler,
+			MethodName: "DescribeContents",
+			Handler:    _AdSelectionConfigService_DescribeContents_Handler,
 		},
 		{
-			MethodName: "GetAdSelectionId",
-			Handler:    _PersistAdSelectionResultRequestService_GetAdSelectionId_Handler,
+			MethodName: "Equals",
+			Handler:    _AdSelectionConfigService_Equals_Handler,
 		},
 		{
-			MethodName: "GetAdSelectionResult",
-			Handler:    _PersistAdSelectionResultRequestService_GetAdSelectionResult_Handler,
+			MethodName: "GetAdSelectionSignals",
+			Handler:    _AdSelectionConfigService_GetAdSelectionSignals_Handler,
+		},
+		{
+			MethodName: "GetCustomAudienceBuyers",
+			Handler:    _AdSelectionConfigService_GetCustomAudienceBuyers_Handler,
+		},
+		{
+			MethodName: "GetDecisionLogicUri",
+			Handler:    _AdSelectionConfigService_GetDecisionLogicUri_Handler,
 		},
 		{
 			MethodName: "GetSeller",
-			Handler:    _PersistAdSelectionResultRequestService_GetSeller_Handler,
+			Handler:    _AdSelectionConfigService_GetSeller_Handler,
+		},
+		{
+			MethodName: "GetSellerSignals",
+			Handler:    _AdSelectionConfigService_GetSellerSignals_Handler,
+		},
+		{
+			MethodName: "GetTrustedScoringSignalsUri",
+			Handler:    _AdSelectionConfigService_GetTrustedScoringSignalsUri_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _AdSelectionConfigService_HashCode_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _AdSelectionConfigService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -238,2017 +466,292 @@ var PersistAdSelectionResultRequestService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	PersistAdSelectionResultRequestBuilderService_Build_FullMethodName                = "/adselection.PersistAdSelectionResultRequestBuilderService/Build"
-	PersistAdSelectionResultRequestBuilderService_SetAdSelectionDataId_FullMethodName = "/adselection.PersistAdSelectionResultRequestBuilderService/SetAdSelectionDataId"
-	PersistAdSelectionResultRequestBuilderService_SetAdSelectionId_FullMethodName     = "/adselection.PersistAdSelectionResultRequestBuilderService/SetAdSelectionId"
-	PersistAdSelectionResultRequestBuilderService_SetAdSelectionResult_FullMethodName = "/adselection.PersistAdSelectionResultRequestBuilderService/SetAdSelectionResult"
-	PersistAdSelectionResultRequestBuilderService_SetSeller_FullMethodName            = "/adselection.PersistAdSelectionResultRequestBuilderService/SetSeller"
+	AdSelectionConfigBuilderService_Build_FullMethodName                       = "/adselection.AdSelectionConfigBuilderService/Build"
+	AdSelectionConfigBuilderService_SetAdSelectionSignals_FullMethodName       = "/adselection.AdSelectionConfigBuilderService/SetAdSelectionSignals"
+	AdSelectionConfigBuilderService_SetDecisionLogicUri_FullMethodName         = "/adselection.AdSelectionConfigBuilderService/SetDecisionLogicUri"
+	AdSelectionConfigBuilderService_SetSeller_FullMethodName                   = "/adselection.AdSelectionConfigBuilderService/SetSeller"
+	AdSelectionConfigBuilderService_SetSellerSignals_FullMethodName            = "/adselection.AdSelectionConfigBuilderService/SetSellerSignals"
+	AdSelectionConfigBuilderService_SetTrustedScoringSignalsUri_FullMethodName = "/adselection.AdSelectionConfigBuilderService/SetTrustedScoringSignalsUri"
 )
 
-// PersistAdSelectionResultRequestBuilderServiceClient is the client API for PersistAdSelectionResultRequestBuilderService service.
+// AdSelectionConfigBuilderServiceClient is the client API for AdSelectionConfigBuilderService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PersistAdSelectionResultRequestBuilderServiceClient interface {
+type AdSelectionConfigBuilderServiceClient interface {
 	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetAdSelectionDataId(ctx context.Context, in *SetAdSelectionDataIdRequest, opts ...grpc.CallOption) (*SetAdSelectionDataIdResponse, error)
-	SetAdSelectionId(ctx context.Context, in *SetAdSelectionIdRequest, opts ...grpc.CallOption) (*SetAdSelectionIdResponse, error)
-	SetAdSelectionResult(ctx context.Context, in *SetAdSelectionResultRequest, opts ...grpc.CallOption) (*SetAdSelectionResultResponse, error)
+	SetAdSelectionSignals(ctx context.Context, in *SetAdSelectionSignalsRequest, opts ...grpc.CallOption) (*SetAdSelectionSignalsResponse, error)
+	SetDecisionLogicUri(ctx context.Context, in *SetDecisionLogicUriRequest, opts ...grpc.CallOption) (*SetDecisionLogicUriResponse, error)
 	SetSeller(ctx context.Context, in *SetSellerRequest, opts ...grpc.CallOption) (*SetSellerResponse, error)
+	SetSellerSignals(ctx context.Context, in *SetSellerSignalsRequest, opts ...grpc.CallOption) (*SetSellerSignalsResponse, error)
+	SetTrustedScoringSignalsUri(ctx context.Context, in *SetTrustedScoringSignalsUriRequest, opts ...grpc.CallOption) (*SetTrustedScoringSignalsUriResponse, error)
 }
 
-type persistAdSelectionResultRequestBuilderServiceClient struct {
+type adSelectionConfigBuilderServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewPersistAdSelectionResultRequestBuilderServiceClient(cc grpc.ClientConnInterface) PersistAdSelectionResultRequestBuilderServiceClient {
-	return &persistAdSelectionResultRequestBuilderServiceClient{cc}
+func NewAdSelectionConfigBuilderServiceClient(cc grpc.ClientConnInterface) AdSelectionConfigBuilderServiceClient {
+	return &adSelectionConfigBuilderServiceClient{cc}
 }
 
-func (c *persistAdSelectionResultRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+func (c *adSelectionConfigBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, PersistAdSelectionResultRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, AdSelectionConfigBuilderService_Build_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *persistAdSelectionResultRequestBuilderServiceClient) SetAdSelectionDataId(ctx context.Context, in *SetAdSelectionDataIdRequest, opts ...grpc.CallOption) (*SetAdSelectionDataIdResponse, error) {
+func (c *adSelectionConfigBuilderServiceClient) SetAdSelectionSignals(ctx context.Context, in *SetAdSelectionSignalsRequest, opts ...grpc.CallOption) (*SetAdSelectionSignalsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetAdSelectionDataIdResponse)
-	err := c.cc.Invoke(ctx, PersistAdSelectionResultRequestBuilderService_SetAdSelectionDataId_FullMethodName, in, out, cOpts...)
+	out := new(SetAdSelectionSignalsResponse)
+	err := c.cc.Invoke(ctx, AdSelectionConfigBuilderService_SetAdSelectionSignals_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *persistAdSelectionResultRequestBuilderServiceClient) SetAdSelectionId(ctx context.Context, in *SetAdSelectionIdRequest, opts ...grpc.CallOption) (*SetAdSelectionIdResponse, error) {
+func (c *adSelectionConfigBuilderServiceClient) SetDecisionLogicUri(ctx context.Context, in *SetDecisionLogicUriRequest, opts ...grpc.CallOption) (*SetDecisionLogicUriResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetAdSelectionIdResponse)
-	err := c.cc.Invoke(ctx, PersistAdSelectionResultRequestBuilderService_SetAdSelectionId_FullMethodName, in, out, cOpts...)
+	out := new(SetDecisionLogicUriResponse)
+	err := c.cc.Invoke(ctx, AdSelectionConfigBuilderService_SetDecisionLogicUri_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *persistAdSelectionResultRequestBuilderServiceClient) SetAdSelectionResult(ctx context.Context, in *SetAdSelectionResultRequest, opts ...grpc.CallOption) (*SetAdSelectionResultResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetAdSelectionResultResponse)
-	err := c.cc.Invoke(ctx, PersistAdSelectionResultRequestBuilderService_SetAdSelectionResult_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *persistAdSelectionResultRequestBuilderServiceClient) SetSeller(ctx context.Context, in *SetSellerRequest, opts ...grpc.CallOption) (*SetSellerResponse, error) {
+func (c *adSelectionConfigBuilderServiceClient) SetSeller(ctx context.Context, in *SetSellerRequest, opts ...grpc.CallOption) (*SetSellerResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetSellerResponse)
-	err := c.cc.Invoke(ctx, PersistAdSelectionResultRequestBuilderService_SetSeller_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, AdSelectionConfigBuilderService_SetSeller_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// PersistAdSelectionResultRequestBuilderServiceServer is the server API for PersistAdSelectionResultRequestBuilderService service.
-// All implementations must embed UnimplementedPersistAdSelectionResultRequestBuilderServiceServer
-// for forward compatibility.
-type PersistAdSelectionResultRequestBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetAdSelectionDataId(context.Context, *SetAdSelectionDataIdRequest) (*SetAdSelectionDataIdResponse, error)
-	SetAdSelectionId(context.Context, *SetAdSelectionIdRequest) (*SetAdSelectionIdResponse, error)
-	SetAdSelectionResult(context.Context, *SetAdSelectionResultRequest) (*SetAdSelectionResultResponse, error)
-	SetSeller(context.Context, *SetSellerRequest) (*SetSellerResponse, error)
-	mustEmbedUnimplementedPersistAdSelectionResultRequestBuilderServiceServer()
+func (c *adSelectionConfigBuilderServiceClient) SetSellerSignals(ctx context.Context, in *SetSellerSignalsRequest, opts ...grpc.CallOption) (*SetSellerSignalsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSellerSignalsResponse)
+	err := c.cc.Invoke(ctx, AdSelectionConfigBuilderService_SetSellerSignals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
-// UnimplementedPersistAdSelectionResultRequestBuilderServiceServer must be embedded to have
+func (c *adSelectionConfigBuilderServiceClient) SetTrustedScoringSignalsUri(ctx context.Context, in *SetTrustedScoringSignalsUriRequest, opts ...grpc.CallOption) (*SetTrustedScoringSignalsUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTrustedScoringSignalsUriResponse)
+	err := c.cc.Invoke(ctx, AdSelectionConfigBuilderService_SetTrustedScoringSignalsUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AdSelectionConfigBuilderServiceServer is the server API for AdSelectionConfigBuilderService service.
+// All implementations must embed UnimplementedAdSelectionConfigBuilderServiceServer
+// for forward compatibility.
+type AdSelectionConfigBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetAdSelectionSignals(context.Context, *SetAdSelectionSignalsRequest) (*SetAdSelectionSignalsResponse, error)
+	SetDecisionLogicUri(context.Context, *SetDecisionLogicUriRequest) (*SetDecisionLogicUriResponse, error)
+	SetSeller(context.Context, *SetSellerRequest) (*SetSellerResponse, error)
+	SetSellerSignals(context.Context, *SetSellerSignalsRequest) (*SetSellerSignalsResponse, error)
+	SetTrustedScoringSignalsUri(context.Context, *SetTrustedScoringSignalsUriRequest) (*SetTrustedScoringSignalsUriResponse, error)
+	mustEmbedUnimplementedAdSelectionConfigBuilderServiceServer()
+}
+
+// UnimplementedAdSelectionConfigBuilderServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedPersistAdSelectionResultRequestBuilderServiceServer struct{}
+type UnimplementedAdSelectionConfigBuilderServiceServer struct{}
 
-func (UnimplementedPersistAdSelectionResultRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+func (UnimplementedAdSelectionConfigBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
 }
-func (UnimplementedPersistAdSelectionResultRequestBuilderServiceServer) SetAdSelectionDataId(context.Context, *SetAdSelectionDataIdRequest) (*SetAdSelectionDataIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetAdSelectionDataId not implemented")
+func (UnimplementedAdSelectionConfigBuilderServiceServer) SetAdSelectionSignals(context.Context, *SetAdSelectionSignalsRequest) (*SetAdSelectionSignalsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAdSelectionSignals not implemented")
 }
-func (UnimplementedPersistAdSelectionResultRequestBuilderServiceServer) SetAdSelectionId(context.Context, *SetAdSelectionIdRequest) (*SetAdSelectionIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetAdSelectionId not implemented")
+func (UnimplementedAdSelectionConfigBuilderServiceServer) SetDecisionLogicUri(context.Context, *SetDecisionLogicUriRequest) (*SetDecisionLogicUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDecisionLogicUri not implemented")
 }
-func (UnimplementedPersistAdSelectionResultRequestBuilderServiceServer) SetAdSelectionResult(context.Context, *SetAdSelectionResultRequest) (*SetAdSelectionResultResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetAdSelectionResult not implemented")
-}
-func (UnimplementedPersistAdSelectionResultRequestBuilderServiceServer) SetSeller(context.Context, *SetSellerRequest) (*SetSellerResponse, error) {
+func (UnimplementedAdSelectionConfigBuilderServiceServer) SetSeller(context.Context, *SetSellerRequest) (*SetSellerResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetSeller not implemented")
 }
-func (UnimplementedPersistAdSelectionResultRequestBuilderServiceServer) mustEmbedUnimplementedPersistAdSelectionResultRequestBuilderServiceServer() {
+func (UnimplementedAdSelectionConfigBuilderServiceServer) SetSellerSignals(context.Context, *SetSellerSignalsRequest) (*SetSellerSignalsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSellerSignals not implemented")
 }
-func (UnimplementedPersistAdSelectionResultRequestBuilderServiceServer) testEmbeddedByValue() {}
+func (UnimplementedAdSelectionConfigBuilderServiceServer) SetTrustedScoringSignalsUri(context.Context, *SetTrustedScoringSignalsUriRequest) (*SetTrustedScoringSignalsUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTrustedScoringSignalsUri not implemented")
+}
+func (UnimplementedAdSelectionConfigBuilderServiceServer) mustEmbedUnimplementedAdSelectionConfigBuilderServiceServer() {
+}
+func (UnimplementedAdSelectionConfigBuilderServiceServer) testEmbeddedByValue() {}
 
-// UnsafePersistAdSelectionResultRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PersistAdSelectionResultRequestBuilderServiceServer will
+// UnsafeAdSelectionConfigBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AdSelectionConfigBuilderServiceServer will
 // result in compilation errors.
-type UnsafePersistAdSelectionResultRequestBuilderServiceServer interface {
-	mustEmbedUnimplementedPersistAdSelectionResultRequestBuilderServiceServer()
+type UnsafeAdSelectionConfigBuilderServiceServer interface {
+	mustEmbedUnimplementedAdSelectionConfigBuilderServiceServer()
 }
 
-func RegisterPersistAdSelectionResultRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv PersistAdSelectionResultRequestBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedPersistAdSelectionResultRequestBuilderServiceServer was
+func RegisterAdSelectionConfigBuilderServiceServer(s grpc.ServiceRegistrar, srv AdSelectionConfigBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedAdSelectionConfigBuilderServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&PersistAdSelectionResultRequestBuilderService_ServiceDesc, srv)
+	s.RegisterService(&AdSelectionConfigBuilderService_ServiceDesc, srv)
 }
 
-func _PersistAdSelectionResultRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AdSelectionConfigBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(BuildRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PersistAdSelectionResultRequestBuilderServiceServer).Build(ctx, in)
+		return srv.(AdSelectionConfigBuilderServiceServer).Build(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PersistAdSelectionResultRequestBuilderService_Build_FullMethodName,
+		FullMethod: AdSelectionConfigBuilderService_Build_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PersistAdSelectionResultRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+		return srv.(AdSelectionConfigBuilderServiceServer).Build(ctx, req.(*BuildRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PersistAdSelectionResultRequestBuilderService_SetAdSelectionDataId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetAdSelectionDataIdRequest)
+func _AdSelectionConfigBuilderService_SetAdSelectionSignals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAdSelectionSignalsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PersistAdSelectionResultRequestBuilderServiceServer).SetAdSelectionDataId(ctx, in)
+		return srv.(AdSelectionConfigBuilderServiceServer).SetAdSelectionSignals(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PersistAdSelectionResultRequestBuilderService_SetAdSelectionDataId_FullMethodName,
+		FullMethod: AdSelectionConfigBuilderService_SetAdSelectionSignals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PersistAdSelectionResultRequestBuilderServiceServer).SetAdSelectionDataId(ctx, req.(*SetAdSelectionDataIdRequest))
+		return srv.(AdSelectionConfigBuilderServiceServer).SetAdSelectionSignals(ctx, req.(*SetAdSelectionSignalsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PersistAdSelectionResultRequestBuilderService_SetAdSelectionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetAdSelectionIdRequest)
+func _AdSelectionConfigBuilderService_SetDecisionLogicUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDecisionLogicUriRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PersistAdSelectionResultRequestBuilderServiceServer).SetAdSelectionId(ctx, in)
+		return srv.(AdSelectionConfigBuilderServiceServer).SetDecisionLogicUri(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PersistAdSelectionResultRequestBuilderService_SetAdSelectionId_FullMethodName,
+		FullMethod: AdSelectionConfigBuilderService_SetDecisionLogicUri_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PersistAdSelectionResultRequestBuilderServiceServer).SetAdSelectionId(ctx, req.(*SetAdSelectionIdRequest))
+		return srv.(AdSelectionConfigBuilderServiceServer).SetDecisionLogicUri(ctx, req.(*SetDecisionLogicUriRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PersistAdSelectionResultRequestBuilderService_SetAdSelectionResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetAdSelectionResultRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PersistAdSelectionResultRequestBuilderServiceServer).SetAdSelectionResult(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PersistAdSelectionResultRequestBuilderService_SetAdSelectionResult_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PersistAdSelectionResultRequestBuilderServiceServer).SetAdSelectionResult(ctx, req.(*SetAdSelectionResultRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PersistAdSelectionResultRequestBuilderService_SetSeller_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AdSelectionConfigBuilderService_SetSeller_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SetSellerRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PersistAdSelectionResultRequestBuilderServiceServer).SetSeller(ctx, in)
+		return srv.(AdSelectionConfigBuilderServiceServer).SetSeller(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PersistAdSelectionResultRequestBuilderService_SetSeller_FullMethodName,
+		FullMethod: AdSelectionConfigBuilderService_SetSeller_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PersistAdSelectionResultRequestBuilderServiceServer).SetSeller(ctx, req.(*SetSellerRequest))
+		return srv.(AdSelectionConfigBuilderServiceServer).SetSeller(ctx, req.(*SetSellerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// PersistAdSelectionResultRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for PersistAdSelectionResultRequestBuilderService service.
+func _AdSelectionConfigBuilderService_SetSellerSignals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSellerSignalsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdSelectionConfigBuilderServiceServer).SetSellerSignals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdSelectionConfigBuilderService_SetSellerSignals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdSelectionConfigBuilderServiceServer).SetSellerSignals(ctx, req.(*SetSellerSignalsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdSelectionConfigBuilderService_SetTrustedScoringSignalsUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTrustedScoringSignalsUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdSelectionConfigBuilderServiceServer).SetTrustedScoringSignalsUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdSelectionConfigBuilderService_SetTrustedScoringSignalsUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdSelectionConfigBuilderServiceServer).SetTrustedScoringSignalsUri(ctx, req.(*SetTrustedScoringSignalsUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AdSelectionConfigBuilderService_ServiceDesc is the grpc.ServiceDesc for AdSelectionConfigBuilderService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var PersistAdSelectionResultRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "adselection.PersistAdSelectionResultRequestBuilderService",
-	HandlerType: (*PersistAdSelectionResultRequestBuilderServiceServer)(nil),
+var AdSelectionConfigBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "adselection.AdSelectionConfigBuilderService",
+	HandlerType: (*AdSelectionConfigBuilderServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Build",
-			Handler:    _PersistAdSelectionResultRequestBuilderService_Build_Handler,
+			Handler:    _AdSelectionConfigBuilderService_Build_Handler,
 		},
 		{
-			MethodName: "SetAdSelectionDataId",
-			Handler:    _PersistAdSelectionResultRequestBuilderService_SetAdSelectionDataId_Handler,
+			MethodName: "SetAdSelectionSignals",
+			Handler:    _AdSelectionConfigBuilderService_SetAdSelectionSignals_Handler,
 		},
 		{
-			MethodName: "SetAdSelectionId",
-			Handler:    _PersistAdSelectionResultRequestBuilderService_SetAdSelectionId_Handler,
-		},
-		{
-			MethodName: "SetAdSelectionResult",
-			Handler:    _PersistAdSelectionResultRequestBuilderService_SetAdSelectionResult_Handler,
+			MethodName: "SetDecisionLogicUri",
+			Handler:    _AdSelectionConfigBuilderService_SetDecisionLogicUri_Handler,
 		},
 		{
 			MethodName: "SetSeller",
-			Handler:    _PersistAdSelectionResultRequestBuilderService_SetSeller_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/adselection/adselection.proto",
-}
-
-const (
-	SellerConfigurationService_DescribeContents_FullMethodName           = "/adselection.SellerConfigurationService/DescribeContents"
-	SellerConfigurationService_Equals_FullMethodName                     = "/adselection.SellerConfigurationService/Equals"
-	SellerConfigurationService_GetMaximumPayloadSizeBytes_FullMethodName = "/adselection.SellerConfigurationService/GetMaximumPayloadSizeBytes"
-	SellerConfigurationService_HashCode_FullMethodName                   = "/adselection.SellerConfigurationService/HashCode"
-	SellerConfigurationService_WriteToParcel_FullMethodName              = "/adselection.SellerConfigurationService/WriteToParcel"
-)
-
-// SellerConfigurationServiceClient is the client API for SellerConfigurationService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SellerConfigurationServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetMaximumPayloadSizeBytes(ctx context.Context, in *GetMaximumPayloadSizeBytesRequest, opts ...grpc.CallOption) (*GetMaximumPayloadSizeBytesResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type sellerConfigurationServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSellerConfigurationServiceClient(cc grpc.ClientConnInterface) SellerConfigurationServiceClient {
-	return &sellerConfigurationServiceClient{cc}
-}
-
-func (c *sellerConfigurationServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, SellerConfigurationService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sellerConfigurationServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, SellerConfigurationService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sellerConfigurationServiceClient) GetMaximumPayloadSizeBytes(ctx context.Context, in *GetMaximumPayloadSizeBytesRequest, opts ...grpc.CallOption) (*GetMaximumPayloadSizeBytesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMaximumPayloadSizeBytesResponse)
-	err := c.cc.Invoke(ctx, SellerConfigurationService_GetMaximumPayloadSizeBytes_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sellerConfigurationServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, SellerConfigurationService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sellerConfigurationServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, SellerConfigurationService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SellerConfigurationServiceServer is the server API for SellerConfigurationService service.
-// All implementations must embed UnimplementedSellerConfigurationServiceServer
-// for forward compatibility.
-type SellerConfigurationServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetMaximumPayloadSizeBytes(context.Context, *GetMaximumPayloadSizeBytesRequest) (*GetMaximumPayloadSizeBytesResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedSellerConfigurationServiceServer()
-}
-
-// UnimplementedSellerConfigurationServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSellerConfigurationServiceServer struct{}
-
-func (UnimplementedSellerConfigurationServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedSellerConfigurationServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedSellerConfigurationServiceServer) GetMaximumPayloadSizeBytes(context.Context, *GetMaximumPayloadSizeBytesRequest) (*GetMaximumPayloadSizeBytesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMaximumPayloadSizeBytes not implemented")
-}
-func (UnimplementedSellerConfigurationServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedSellerConfigurationServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedSellerConfigurationServiceServer) mustEmbedUnimplementedSellerConfigurationServiceServer() {
-}
-func (UnimplementedSellerConfigurationServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSellerConfigurationServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SellerConfigurationServiceServer will
-// result in compilation errors.
-type UnsafeSellerConfigurationServiceServer interface {
-	mustEmbedUnimplementedSellerConfigurationServiceServer()
-}
-
-func RegisterSellerConfigurationServiceServer(s grpc.ServiceRegistrar, srv SellerConfigurationServiceServer) {
-	// If the following call panics, it indicates UnimplementedSellerConfigurationServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SellerConfigurationService_ServiceDesc, srv)
-}
-
-func _SellerConfigurationService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SellerConfigurationServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SellerConfigurationService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SellerConfigurationServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SellerConfigurationService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SellerConfigurationServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SellerConfigurationService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SellerConfigurationServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SellerConfigurationService_GetMaximumPayloadSizeBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMaximumPayloadSizeBytesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SellerConfigurationServiceServer).GetMaximumPayloadSizeBytes(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SellerConfigurationService_GetMaximumPayloadSizeBytes_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SellerConfigurationServiceServer).GetMaximumPayloadSizeBytes(ctx, req.(*GetMaximumPayloadSizeBytesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SellerConfigurationService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SellerConfigurationServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SellerConfigurationService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SellerConfigurationServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SellerConfigurationService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SellerConfigurationServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SellerConfigurationService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SellerConfigurationServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SellerConfigurationService_ServiceDesc is the grpc.ServiceDesc for SellerConfigurationService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SellerConfigurationService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "adselection.SellerConfigurationService",
-	HandlerType: (*SellerConfigurationServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _SellerConfigurationService_DescribeContents_Handler,
+			Handler:    _AdSelectionConfigBuilderService_SetSeller_Handler,
 		},
 		{
-			MethodName: "Equals",
-			Handler:    _SellerConfigurationService_Equals_Handler,
+			MethodName: "SetSellerSignals",
+			Handler:    _AdSelectionConfigBuilderService_SetSellerSignals_Handler,
 		},
 		{
-			MethodName: "GetMaximumPayloadSizeBytes",
-			Handler:    _SellerConfigurationService_GetMaximumPayloadSizeBytes_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _SellerConfigurationService_HashCode_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _SellerConfigurationService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/adselection/adselection.proto",
-}
-
-const (
-	SellerConfigurationBuilderService_Build_FullMethodName                      = "/adselection.SellerConfigurationBuilderService/Build"
-	SellerConfigurationBuilderService_SetMaximumPayloadSizeBytes_FullMethodName = "/adselection.SellerConfigurationBuilderService/SetMaximumPayloadSizeBytes"
-)
-
-// SellerConfigurationBuilderServiceClient is the client API for SellerConfigurationBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SellerConfigurationBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetMaximumPayloadSizeBytes(ctx context.Context, in *SetMaximumPayloadSizeBytesRequest, opts ...grpc.CallOption) (*SetMaximumPayloadSizeBytesResponse, error)
-}
-
-type sellerConfigurationBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSellerConfigurationBuilderServiceClient(cc grpc.ClientConnInterface) SellerConfigurationBuilderServiceClient {
-	return &sellerConfigurationBuilderServiceClient{cc}
-}
-
-func (c *sellerConfigurationBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, SellerConfigurationBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sellerConfigurationBuilderServiceClient) SetMaximumPayloadSizeBytes(ctx context.Context, in *SetMaximumPayloadSizeBytesRequest, opts ...grpc.CallOption) (*SetMaximumPayloadSizeBytesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetMaximumPayloadSizeBytesResponse)
-	err := c.cc.Invoke(ctx, SellerConfigurationBuilderService_SetMaximumPayloadSizeBytes_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SellerConfigurationBuilderServiceServer is the server API for SellerConfigurationBuilderService service.
-// All implementations must embed UnimplementedSellerConfigurationBuilderServiceServer
-// for forward compatibility.
-type SellerConfigurationBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetMaximumPayloadSizeBytes(context.Context, *SetMaximumPayloadSizeBytesRequest) (*SetMaximumPayloadSizeBytesResponse, error)
-	mustEmbedUnimplementedSellerConfigurationBuilderServiceServer()
-}
-
-// UnimplementedSellerConfigurationBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSellerConfigurationBuilderServiceServer struct{}
-
-func (UnimplementedSellerConfigurationBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedSellerConfigurationBuilderServiceServer) SetMaximumPayloadSizeBytes(context.Context, *SetMaximumPayloadSizeBytesRequest) (*SetMaximumPayloadSizeBytesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetMaximumPayloadSizeBytes not implemented")
-}
-func (UnimplementedSellerConfigurationBuilderServiceServer) mustEmbedUnimplementedSellerConfigurationBuilderServiceServer() {
-}
-func (UnimplementedSellerConfigurationBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSellerConfigurationBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SellerConfigurationBuilderServiceServer will
-// result in compilation errors.
-type UnsafeSellerConfigurationBuilderServiceServer interface {
-	mustEmbedUnimplementedSellerConfigurationBuilderServiceServer()
-}
-
-func RegisterSellerConfigurationBuilderServiceServer(s grpc.ServiceRegistrar, srv SellerConfigurationBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedSellerConfigurationBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SellerConfigurationBuilderService_ServiceDesc, srv)
-}
-
-func _SellerConfigurationBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SellerConfigurationBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SellerConfigurationBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SellerConfigurationBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SellerConfigurationBuilderService_SetMaximumPayloadSizeBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetMaximumPayloadSizeBytesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SellerConfigurationBuilderServiceServer).SetMaximumPayloadSizeBytes(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SellerConfigurationBuilderService_SetMaximumPayloadSizeBytes_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SellerConfigurationBuilderServiceServer).SetMaximumPayloadSizeBytes(ctx, req.(*SetMaximumPayloadSizeBytesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SellerConfigurationBuilderService_ServiceDesc is the grpc.ServiceDesc for SellerConfigurationBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SellerConfigurationBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "adselection.SellerConfigurationBuilderService",
-	HandlerType: (*SellerConfigurationBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _SellerConfigurationBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetMaximumPayloadSizeBytes",
-			Handler:    _SellerConfigurationBuilderService_SetMaximumPayloadSizeBytes_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/adselection/adselection.proto",
-}
-
-const (
-	RemoveAdSelectionFromOutcomesOverrideRequestService_NewRemoveAdSelectionFromOutcomesOverrideRequest_FullMethodName = "/adselection.RemoveAdSelectionFromOutcomesOverrideRequestService/NewRemoveAdSelectionFromOutcomesOverrideRequest"
-	RemoveAdSelectionFromOutcomesOverrideRequestService_GetAdSelectionFromOutcomesConfig_FullMethodName                = "/adselection.RemoveAdSelectionFromOutcomesOverrideRequestService/GetAdSelectionFromOutcomesConfig"
-)
-
-// RemoveAdSelectionFromOutcomesOverrideRequestServiceClient is the client API for RemoveAdSelectionFromOutcomesOverrideRequestService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RemoveAdSelectionFromOutcomesOverrideRequestServiceClient interface {
-	NewRemoveAdSelectionFromOutcomesOverrideRequest(ctx context.Context, in *NewRemoveAdSelectionFromOutcomesOverrideRequestRequest, opts ...grpc.CallOption) (*NewRemoveAdSelectionFromOutcomesOverrideRequestResponse, error)
-	GetAdSelectionFromOutcomesConfig(ctx context.Context, in *GetAdSelectionFromOutcomesConfigRequest, opts ...grpc.CallOption) (*GetAdSelectionFromOutcomesConfigResponse, error)
-}
-
-type removeAdSelectionFromOutcomesOverrideRequestServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewRemoveAdSelectionFromOutcomesOverrideRequestServiceClient(cc grpc.ClientConnInterface) RemoveAdSelectionFromOutcomesOverrideRequestServiceClient {
-	return &removeAdSelectionFromOutcomesOverrideRequestServiceClient{cc}
-}
-
-func (c *removeAdSelectionFromOutcomesOverrideRequestServiceClient) NewRemoveAdSelectionFromOutcomesOverrideRequest(ctx context.Context, in *NewRemoveAdSelectionFromOutcomesOverrideRequestRequest, opts ...grpc.CallOption) (*NewRemoveAdSelectionFromOutcomesOverrideRequestResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewRemoveAdSelectionFromOutcomesOverrideRequestResponse)
-	err := c.cc.Invoke(ctx, RemoveAdSelectionFromOutcomesOverrideRequestService_NewRemoveAdSelectionFromOutcomesOverrideRequest_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *removeAdSelectionFromOutcomesOverrideRequestServiceClient) GetAdSelectionFromOutcomesConfig(ctx context.Context, in *GetAdSelectionFromOutcomesConfigRequest, opts ...grpc.CallOption) (*GetAdSelectionFromOutcomesConfigResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAdSelectionFromOutcomesConfigResponse)
-	err := c.cc.Invoke(ctx, RemoveAdSelectionFromOutcomesOverrideRequestService_GetAdSelectionFromOutcomesConfig_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// RemoveAdSelectionFromOutcomesOverrideRequestServiceServer is the server API for RemoveAdSelectionFromOutcomesOverrideRequestService service.
-// All implementations must embed UnimplementedRemoveAdSelectionFromOutcomesOverrideRequestServiceServer
-// for forward compatibility.
-type RemoveAdSelectionFromOutcomesOverrideRequestServiceServer interface {
-	NewRemoveAdSelectionFromOutcomesOverrideRequest(context.Context, *NewRemoveAdSelectionFromOutcomesOverrideRequestRequest) (*NewRemoveAdSelectionFromOutcomesOverrideRequestResponse, error)
-	GetAdSelectionFromOutcomesConfig(context.Context, *GetAdSelectionFromOutcomesConfigRequest) (*GetAdSelectionFromOutcomesConfigResponse, error)
-	mustEmbedUnimplementedRemoveAdSelectionFromOutcomesOverrideRequestServiceServer()
-}
-
-// UnimplementedRemoveAdSelectionFromOutcomesOverrideRequestServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedRemoveAdSelectionFromOutcomesOverrideRequestServiceServer struct{}
-
-func (UnimplementedRemoveAdSelectionFromOutcomesOverrideRequestServiceServer) NewRemoveAdSelectionFromOutcomesOverrideRequest(context.Context, *NewRemoveAdSelectionFromOutcomesOverrideRequestRequest) (*NewRemoveAdSelectionFromOutcomesOverrideRequestResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewRemoveAdSelectionFromOutcomesOverrideRequest not implemented")
-}
-func (UnimplementedRemoveAdSelectionFromOutcomesOverrideRequestServiceServer) GetAdSelectionFromOutcomesConfig(context.Context, *GetAdSelectionFromOutcomesConfigRequest) (*GetAdSelectionFromOutcomesConfigResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAdSelectionFromOutcomesConfig not implemented")
-}
-func (UnimplementedRemoveAdSelectionFromOutcomesOverrideRequestServiceServer) mustEmbedUnimplementedRemoveAdSelectionFromOutcomesOverrideRequestServiceServer() {
-}
-func (UnimplementedRemoveAdSelectionFromOutcomesOverrideRequestServiceServer) testEmbeddedByValue() {}
-
-// UnsafeRemoveAdSelectionFromOutcomesOverrideRequestServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RemoveAdSelectionFromOutcomesOverrideRequestServiceServer will
-// result in compilation errors.
-type UnsafeRemoveAdSelectionFromOutcomesOverrideRequestServiceServer interface {
-	mustEmbedUnimplementedRemoveAdSelectionFromOutcomesOverrideRequestServiceServer()
-}
-
-func RegisterRemoveAdSelectionFromOutcomesOverrideRequestServiceServer(s grpc.ServiceRegistrar, srv RemoveAdSelectionFromOutcomesOverrideRequestServiceServer) {
-	// If the following call panics, it indicates UnimplementedRemoveAdSelectionFromOutcomesOverrideRequestServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&RemoveAdSelectionFromOutcomesOverrideRequestService_ServiceDesc, srv)
-}
-
-func _RemoveAdSelectionFromOutcomesOverrideRequestService_NewRemoveAdSelectionFromOutcomesOverrideRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewRemoveAdSelectionFromOutcomesOverrideRequestRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RemoveAdSelectionFromOutcomesOverrideRequestServiceServer).NewRemoveAdSelectionFromOutcomesOverrideRequest(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RemoveAdSelectionFromOutcomesOverrideRequestService_NewRemoveAdSelectionFromOutcomesOverrideRequest_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RemoveAdSelectionFromOutcomesOverrideRequestServiceServer).NewRemoveAdSelectionFromOutcomesOverrideRequest(ctx, req.(*NewRemoveAdSelectionFromOutcomesOverrideRequestRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RemoveAdSelectionFromOutcomesOverrideRequestService_GetAdSelectionFromOutcomesConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAdSelectionFromOutcomesConfigRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RemoveAdSelectionFromOutcomesOverrideRequestServiceServer).GetAdSelectionFromOutcomesConfig(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RemoveAdSelectionFromOutcomesOverrideRequestService_GetAdSelectionFromOutcomesConfig_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RemoveAdSelectionFromOutcomesOverrideRequestServiceServer).GetAdSelectionFromOutcomesConfig(ctx, req.(*GetAdSelectionFromOutcomesConfigRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// RemoveAdSelectionFromOutcomesOverrideRequestService_ServiceDesc is the grpc.ServiceDesc for RemoveAdSelectionFromOutcomesOverrideRequestService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var RemoveAdSelectionFromOutcomesOverrideRequestService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "adselection.RemoveAdSelectionFromOutcomesOverrideRequestService",
-	HandlerType: (*RemoveAdSelectionFromOutcomesOverrideRequestServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewRemoveAdSelectionFromOutcomesOverrideRequest",
-			Handler:    _RemoveAdSelectionFromOutcomesOverrideRequestService_NewRemoveAdSelectionFromOutcomesOverrideRequest_Handler,
-		},
-		{
-			MethodName: "GetAdSelectionFromOutcomesConfig",
-			Handler:    _RemoveAdSelectionFromOutcomesOverrideRequestService_GetAdSelectionFromOutcomesConfig_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/adselection/adselection.proto",
-}
-
-const (
-	SetAppInstallAdvertisersRequestBuilderService_Build_FullMethodName = "/adselection.SetAppInstallAdvertisersRequestBuilderService/Build"
-)
-
-// SetAppInstallAdvertisersRequestBuilderServiceClient is the client API for SetAppInstallAdvertisersRequestBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SetAppInstallAdvertisersRequestBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-}
-
-type setAppInstallAdvertisersRequestBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSetAppInstallAdvertisersRequestBuilderServiceClient(cc grpc.ClientConnInterface) SetAppInstallAdvertisersRequestBuilderServiceClient {
-	return &setAppInstallAdvertisersRequestBuilderServiceClient{cc}
-}
-
-func (c *setAppInstallAdvertisersRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, SetAppInstallAdvertisersRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SetAppInstallAdvertisersRequestBuilderServiceServer is the server API for SetAppInstallAdvertisersRequestBuilderService service.
-// All implementations must embed UnimplementedSetAppInstallAdvertisersRequestBuilderServiceServer
-// for forward compatibility.
-type SetAppInstallAdvertisersRequestBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	mustEmbedUnimplementedSetAppInstallAdvertisersRequestBuilderServiceServer()
-}
-
-// UnimplementedSetAppInstallAdvertisersRequestBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSetAppInstallAdvertisersRequestBuilderServiceServer struct{}
-
-func (UnimplementedSetAppInstallAdvertisersRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedSetAppInstallAdvertisersRequestBuilderServiceServer) mustEmbedUnimplementedSetAppInstallAdvertisersRequestBuilderServiceServer() {
-}
-func (UnimplementedSetAppInstallAdvertisersRequestBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSetAppInstallAdvertisersRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SetAppInstallAdvertisersRequestBuilderServiceServer will
-// result in compilation errors.
-type UnsafeSetAppInstallAdvertisersRequestBuilderServiceServer interface {
-	mustEmbedUnimplementedSetAppInstallAdvertisersRequestBuilderServiceServer()
-}
-
-func RegisterSetAppInstallAdvertisersRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv SetAppInstallAdvertisersRequestBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedSetAppInstallAdvertisersRequestBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SetAppInstallAdvertisersRequestBuilderService_ServiceDesc, srv)
-}
-
-func _SetAppInstallAdvertisersRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SetAppInstallAdvertisersRequestBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SetAppInstallAdvertisersRequestBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SetAppInstallAdvertisersRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SetAppInstallAdvertisersRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for SetAppInstallAdvertisersRequestBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SetAppInstallAdvertisersRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "adselection.SetAppInstallAdvertisersRequestBuilderService",
-	HandlerType: (*SetAppInstallAdvertisersRequestBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _SetAppInstallAdvertisersRequestBuilderService_Build_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/adselection/adselection.proto",
-}
-
-const (
-	UpdateAdCounterHistogramRequestService_Equals_FullMethodName           = "/adselection.UpdateAdCounterHistogramRequestService/Equals"
-	UpdateAdCounterHistogramRequestService_GetAdEventType_FullMethodName   = "/adselection.UpdateAdCounterHistogramRequestService/GetAdEventType"
-	UpdateAdCounterHistogramRequestService_GetAdSelectionId_FullMethodName = "/adselection.UpdateAdCounterHistogramRequestService/GetAdSelectionId"
-	UpdateAdCounterHistogramRequestService_GetCallerAdTech_FullMethodName  = "/adselection.UpdateAdCounterHistogramRequestService/GetCallerAdTech"
-	UpdateAdCounterHistogramRequestService_HashCode_FullMethodName         = "/adselection.UpdateAdCounterHistogramRequestService/HashCode"
-	UpdateAdCounterHistogramRequestService_ToString_FullMethodName         = "/adselection.UpdateAdCounterHistogramRequestService/ToString"
-)
-
-// UpdateAdCounterHistogramRequestServiceClient is the client API for UpdateAdCounterHistogramRequestService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type UpdateAdCounterHistogramRequestServiceClient interface {
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetAdEventType(ctx context.Context, in *GetAdEventTypeRequest, opts ...grpc.CallOption) (*GetAdEventTypeResponse, error)
-	GetAdSelectionId(ctx context.Context, in *GetAdSelectionIdRequest, opts ...grpc.CallOption) (*GetAdSelectionIdResponse, error)
-	GetCallerAdTech(ctx context.Context, in *GetCallerAdTechRequest, opts ...grpc.CallOption) (*GetCallerAdTechResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type updateAdCounterHistogramRequestServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewUpdateAdCounterHistogramRequestServiceClient(cc grpc.ClientConnInterface) UpdateAdCounterHistogramRequestServiceClient {
-	return &updateAdCounterHistogramRequestServiceClient{cc}
-}
-
-func (c *updateAdCounterHistogramRequestServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, UpdateAdCounterHistogramRequestService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *updateAdCounterHistogramRequestServiceClient) GetAdEventType(ctx context.Context, in *GetAdEventTypeRequest, opts ...grpc.CallOption) (*GetAdEventTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAdEventTypeResponse)
-	err := c.cc.Invoke(ctx, UpdateAdCounterHistogramRequestService_GetAdEventType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *updateAdCounterHistogramRequestServiceClient) GetAdSelectionId(ctx context.Context, in *GetAdSelectionIdRequest, opts ...grpc.CallOption) (*GetAdSelectionIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAdSelectionIdResponse)
-	err := c.cc.Invoke(ctx, UpdateAdCounterHistogramRequestService_GetAdSelectionId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *updateAdCounterHistogramRequestServiceClient) GetCallerAdTech(ctx context.Context, in *GetCallerAdTechRequest, opts ...grpc.CallOption) (*GetCallerAdTechResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCallerAdTechResponse)
-	err := c.cc.Invoke(ctx, UpdateAdCounterHistogramRequestService_GetCallerAdTech_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *updateAdCounterHistogramRequestServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, UpdateAdCounterHistogramRequestService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *updateAdCounterHistogramRequestServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, UpdateAdCounterHistogramRequestService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// UpdateAdCounterHistogramRequestServiceServer is the server API for UpdateAdCounterHistogramRequestService service.
-// All implementations must embed UnimplementedUpdateAdCounterHistogramRequestServiceServer
-// for forward compatibility.
-type UpdateAdCounterHistogramRequestServiceServer interface {
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetAdEventType(context.Context, *GetAdEventTypeRequest) (*GetAdEventTypeResponse, error)
-	GetAdSelectionId(context.Context, *GetAdSelectionIdRequest) (*GetAdSelectionIdResponse, error)
-	GetCallerAdTech(context.Context, *GetCallerAdTechRequest) (*GetCallerAdTechResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedUpdateAdCounterHistogramRequestServiceServer()
-}
-
-// UnimplementedUpdateAdCounterHistogramRequestServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedUpdateAdCounterHistogramRequestServiceServer struct{}
-
-func (UnimplementedUpdateAdCounterHistogramRequestServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedUpdateAdCounterHistogramRequestServiceServer) GetAdEventType(context.Context, *GetAdEventTypeRequest) (*GetAdEventTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAdEventType not implemented")
-}
-func (UnimplementedUpdateAdCounterHistogramRequestServiceServer) GetAdSelectionId(context.Context, *GetAdSelectionIdRequest) (*GetAdSelectionIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAdSelectionId not implemented")
-}
-func (UnimplementedUpdateAdCounterHistogramRequestServiceServer) GetCallerAdTech(context.Context, *GetCallerAdTechRequest) (*GetCallerAdTechResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCallerAdTech not implemented")
-}
-func (UnimplementedUpdateAdCounterHistogramRequestServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedUpdateAdCounterHistogramRequestServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedUpdateAdCounterHistogramRequestServiceServer) mustEmbedUnimplementedUpdateAdCounterHistogramRequestServiceServer() {
-}
-func (UnimplementedUpdateAdCounterHistogramRequestServiceServer) testEmbeddedByValue() {}
-
-// UnsafeUpdateAdCounterHistogramRequestServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to UpdateAdCounterHistogramRequestServiceServer will
-// result in compilation errors.
-type UnsafeUpdateAdCounterHistogramRequestServiceServer interface {
-	mustEmbedUnimplementedUpdateAdCounterHistogramRequestServiceServer()
-}
-
-func RegisterUpdateAdCounterHistogramRequestServiceServer(s grpc.ServiceRegistrar, srv UpdateAdCounterHistogramRequestServiceServer) {
-	// If the following call panics, it indicates UnimplementedUpdateAdCounterHistogramRequestServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&UpdateAdCounterHistogramRequestService_ServiceDesc, srv)
-}
-
-func _UpdateAdCounterHistogramRequestService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UpdateAdCounterHistogramRequestServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UpdateAdCounterHistogramRequestService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UpdateAdCounterHistogramRequestServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UpdateAdCounterHistogramRequestService_GetAdEventType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAdEventTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UpdateAdCounterHistogramRequestServiceServer).GetAdEventType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UpdateAdCounterHistogramRequestService_GetAdEventType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UpdateAdCounterHistogramRequestServiceServer).GetAdEventType(ctx, req.(*GetAdEventTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UpdateAdCounterHistogramRequestService_GetAdSelectionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAdSelectionIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UpdateAdCounterHistogramRequestServiceServer).GetAdSelectionId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UpdateAdCounterHistogramRequestService_GetAdSelectionId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UpdateAdCounterHistogramRequestServiceServer).GetAdSelectionId(ctx, req.(*GetAdSelectionIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UpdateAdCounterHistogramRequestService_GetCallerAdTech_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCallerAdTechRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UpdateAdCounterHistogramRequestServiceServer).GetCallerAdTech(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UpdateAdCounterHistogramRequestService_GetCallerAdTech_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UpdateAdCounterHistogramRequestServiceServer).GetCallerAdTech(ctx, req.(*GetCallerAdTechRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UpdateAdCounterHistogramRequestService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UpdateAdCounterHistogramRequestServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UpdateAdCounterHistogramRequestService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UpdateAdCounterHistogramRequestServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UpdateAdCounterHistogramRequestService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UpdateAdCounterHistogramRequestServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UpdateAdCounterHistogramRequestService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UpdateAdCounterHistogramRequestServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// UpdateAdCounterHistogramRequestService_ServiceDesc is the grpc.ServiceDesc for UpdateAdCounterHistogramRequestService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var UpdateAdCounterHistogramRequestService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "adselection.UpdateAdCounterHistogramRequestService",
-	HandlerType: (*UpdateAdCounterHistogramRequestServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Equals",
-			Handler:    _UpdateAdCounterHistogramRequestService_Equals_Handler,
-		},
-		{
-			MethodName: "GetAdEventType",
-			Handler:    _UpdateAdCounterHistogramRequestService_GetAdEventType_Handler,
-		},
-		{
-			MethodName: "GetAdSelectionId",
-			Handler:    _UpdateAdCounterHistogramRequestService_GetAdSelectionId_Handler,
-		},
-		{
-			MethodName: "GetCallerAdTech",
-			Handler:    _UpdateAdCounterHistogramRequestService_GetCallerAdTech_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _UpdateAdCounterHistogramRequestService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _UpdateAdCounterHistogramRequestService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/adselection/adselection.proto",
-}
-
-const (
-	UpdateAdCounterHistogramRequestBuilderService_Build_FullMethodName            = "/adselection.UpdateAdCounterHistogramRequestBuilderService/Build"
-	UpdateAdCounterHistogramRequestBuilderService_SetAdEventType_FullMethodName   = "/adselection.UpdateAdCounterHistogramRequestBuilderService/SetAdEventType"
-	UpdateAdCounterHistogramRequestBuilderService_SetAdSelectionId_FullMethodName = "/adselection.UpdateAdCounterHistogramRequestBuilderService/SetAdSelectionId"
-	UpdateAdCounterHistogramRequestBuilderService_SetCallerAdTech_FullMethodName  = "/adselection.UpdateAdCounterHistogramRequestBuilderService/SetCallerAdTech"
-)
-
-// UpdateAdCounterHistogramRequestBuilderServiceClient is the client API for UpdateAdCounterHistogramRequestBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type UpdateAdCounterHistogramRequestBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetAdEventType(ctx context.Context, in *SetAdEventTypeRequest, opts ...grpc.CallOption) (*SetAdEventTypeResponse, error)
-	SetAdSelectionId(ctx context.Context, in *SetAdSelectionIdRequest, opts ...grpc.CallOption) (*SetAdSelectionIdResponse, error)
-	SetCallerAdTech(ctx context.Context, in *SetCallerAdTechRequest, opts ...grpc.CallOption) (*SetCallerAdTechResponse, error)
-}
-
-type updateAdCounterHistogramRequestBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewUpdateAdCounterHistogramRequestBuilderServiceClient(cc grpc.ClientConnInterface) UpdateAdCounterHistogramRequestBuilderServiceClient {
-	return &updateAdCounterHistogramRequestBuilderServiceClient{cc}
-}
-
-func (c *updateAdCounterHistogramRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, UpdateAdCounterHistogramRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *updateAdCounterHistogramRequestBuilderServiceClient) SetAdEventType(ctx context.Context, in *SetAdEventTypeRequest, opts ...grpc.CallOption) (*SetAdEventTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetAdEventTypeResponse)
-	err := c.cc.Invoke(ctx, UpdateAdCounterHistogramRequestBuilderService_SetAdEventType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *updateAdCounterHistogramRequestBuilderServiceClient) SetAdSelectionId(ctx context.Context, in *SetAdSelectionIdRequest, opts ...grpc.CallOption) (*SetAdSelectionIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetAdSelectionIdResponse)
-	err := c.cc.Invoke(ctx, UpdateAdCounterHistogramRequestBuilderService_SetAdSelectionId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *updateAdCounterHistogramRequestBuilderServiceClient) SetCallerAdTech(ctx context.Context, in *SetCallerAdTechRequest, opts ...grpc.CallOption) (*SetCallerAdTechResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetCallerAdTechResponse)
-	err := c.cc.Invoke(ctx, UpdateAdCounterHistogramRequestBuilderService_SetCallerAdTech_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// UpdateAdCounterHistogramRequestBuilderServiceServer is the server API for UpdateAdCounterHistogramRequestBuilderService service.
-// All implementations must embed UnimplementedUpdateAdCounterHistogramRequestBuilderServiceServer
-// for forward compatibility.
-type UpdateAdCounterHistogramRequestBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetAdEventType(context.Context, *SetAdEventTypeRequest) (*SetAdEventTypeResponse, error)
-	SetAdSelectionId(context.Context, *SetAdSelectionIdRequest) (*SetAdSelectionIdResponse, error)
-	SetCallerAdTech(context.Context, *SetCallerAdTechRequest) (*SetCallerAdTechResponse, error)
-	mustEmbedUnimplementedUpdateAdCounterHistogramRequestBuilderServiceServer()
-}
-
-// UnimplementedUpdateAdCounterHistogramRequestBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedUpdateAdCounterHistogramRequestBuilderServiceServer struct{}
-
-func (UnimplementedUpdateAdCounterHistogramRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedUpdateAdCounterHistogramRequestBuilderServiceServer) SetAdEventType(context.Context, *SetAdEventTypeRequest) (*SetAdEventTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetAdEventType not implemented")
-}
-func (UnimplementedUpdateAdCounterHistogramRequestBuilderServiceServer) SetAdSelectionId(context.Context, *SetAdSelectionIdRequest) (*SetAdSelectionIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetAdSelectionId not implemented")
-}
-func (UnimplementedUpdateAdCounterHistogramRequestBuilderServiceServer) SetCallerAdTech(context.Context, *SetCallerAdTechRequest) (*SetCallerAdTechResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetCallerAdTech not implemented")
-}
-func (UnimplementedUpdateAdCounterHistogramRequestBuilderServiceServer) mustEmbedUnimplementedUpdateAdCounterHistogramRequestBuilderServiceServer() {
-}
-func (UnimplementedUpdateAdCounterHistogramRequestBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeUpdateAdCounterHistogramRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to UpdateAdCounterHistogramRequestBuilderServiceServer will
-// result in compilation errors.
-type UnsafeUpdateAdCounterHistogramRequestBuilderServiceServer interface {
-	mustEmbedUnimplementedUpdateAdCounterHistogramRequestBuilderServiceServer()
-}
-
-func RegisterUpdateAdCounterHistogramRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv UpdateAdCounterHistogramRequestBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedUpdateAdCounterHistogramRequestBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&UpdateAdCounterHistogramRequestBuilderService_ServiceDesc, srv)
-}
-
-func _UpdateAdCounterHistogramRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UpdateAdCounterHistogramRequestBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UpdateAdCounterHistogramRequestBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UpdateAdCounterHistogramRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UpdateAdCounterHistogramRequestBuilderService_SetAdEventType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetAdEventTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UpdateAdCounterHistogramRequestBuilderServiceServer).SetAdEventType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UpdateAdCounterHistogramRequestBuilderService_SetAdEventType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UpdateAdCounterHistogramRequestBuilderServiceServer).SetAdEventType(ctx, req.(*SetAdEventTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UpdateAdCounterHistogramRequestBuilderService_SetAdSelectionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetAdSelectionIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UpdateAdCounterHistogramRequestBuilderServiceServer).SetAdSelectionId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UpdateAdCounterHistogramRequestBuilderService_SetAdSelectionId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UpdateAdCounterHistogramRequestBuilderServiceServer).SetAdSelectionId(ctx, req.(*SetAdSelectionIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UpdateAdCounterHistogramRequestBuilderService_SetCallerAdTech_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetCallerAdTechRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UpdateAdCounterHistogramRequestBuilderServiceServer).SetCallerAdTech(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UpdateAdCounterHistogramRequestBuilderService_SetCallerAdTech_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UpdateAdCounterHistogramRequestBuilderServiceServer).SetCallerAdTech(ctx, req.(*SetCallerAdTechRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// UpdateAdCounterHistogramRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for UpdateAdCounterHistogramRequestBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var UpdateAdCounterHistogramRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "adselection.UpdateAdCounterHistogramRequestBuilderService",
-	HandlerType: (*UpdateAdCounterHistogramRequestBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _UpdateAdCounterHistogramRequestBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetAdEventType",
-			Handler:    _UpdateAdCounterHistogramRequestBuilderService_SetAdEventType_Handler,
-		},
-		{
-			MethodName: "SetAdSelectionId",
-			Handler:    _UpdateAdCounterHistogramRequestBuilderService_SetAdSelectionId_Handler,
-		},
-		{
-			MethodName: "SetCallerAdTech",
-			Handler:    _UpdateAdCounterHistogramRequestBuilderService_SetCallerAdTech_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/adselection/adselection.proto",
-}
-
-const (
-	PerBuyerConfigurationService_DescribeContents_FullMethodName        = "/adselection.PerBuyerConfigurationService/DescribeContents"
-	PerBuyerConfigurationService_Equals_FullMethodName                  = "/adselection.PerBuyerConfigurationService/Equals"
-	PerBuyerConfigurationService_GetBuyer_FullMethodName                = "/adselection.PerBuyerConfigurationService/GetBuyer"
-	PerBuyerConfigurationService_GetTargetInputSizeBytes_FullMethodName = "/adselection.PerBuyerConfigurationService/GetTargetInputSizeBytes"
-	PerBuyerConfigurationService_HashCode_FullMethodName                = "/adselection.PerBuyerConfigurationService/HashCode"
-	PerBuyerConfigurationService_WriteToParcel_FullMethodName           = "/adselection.PerBuyerConfigurationService/WriteToParcel"
-)
-
-// PerBuyerConfigurationServiceClient is the client API for PerBuyerConfigurationService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PerBuyerConfigurationServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetBuyer(ctx context.Context, in *GetBuyerRequest, opts ...grpc.CallOption) (*GetBuyerResponse, error)
-	GetTargetInputSizeBytes(ctx context.Context, in *GetTargetInputSizeBytesRequest, opts ...grpc.CallOption) (*GetTargetInputSizeBytesResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type perBuyerConfigurationServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPerBuyerConfigurationServiceClient(cc grpc.ClientConnInterface) PerBuyerConfigurationServiceClient {
-	return &perBuyerConfigurationServiceClient{cc}
-}
-
-func (c *perBuyerConfigurationServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, PerBuyerConfigurationService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *perBuyerConfigurationServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, PerBuyerConfigurationService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *perBuyerConfigurationServiceClient) GetBuyer(ctx context.Context, in *GetBuyerRequest, opts ...grpc.CallOption) (*GetBuyerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetBuyerResponse)
-	err := c.cc.Invoke(ctx, PerBuyerConfigurationService_GetBuyer_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *perBuyerConfigurationServiceClient) GetTargetInputSizeBytes(ctx context.Context, in *GetTargetInputSizeBytesRequest, opts ...grpc.CallOption) (*GetTargetInputSizeBytesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTargetInputSizeBytesResponse)
-	err := c.cc.Invoke(ctx, PerBuyerConfigurationService_GetTargetInputSizeBytes_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *perBuyerConfigurationServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, PerBuyerConfigurationService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *perBuyerConfigurationServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, PerBuyerConfigurationService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PerBuyerConfigurationServiceServer is the server API for PerBuyerConfigurationService service.
-// All implementations must embed UnimplementedPerBuyerConfigurationServiceServer
-// for forward compatibility.
-type PerBuyerConfigurationServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetBuyer(context.Context, *GetBuyerRequest) (*GetBuyerResponse, error)
-	GetTargetInputSizeBytes(context.Context, *GetTargetInputSizeBytesRequest) (*GetTargetInputSizeBytesResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedPerBuyerConfigurationServiceServer()
-}
-
-// UnimplementedPerBuyerConfigurationServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPerBuyerConfigurationServiceServer struct{}
-
-func (UnimplementedPerBuyerConfigurationServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedPerBuyerConfigurationServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedPerBuyerConfigurationServiceServer) GetBuyer(context.Context, *GetBuyerRequest) (*GetBuyerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetBuyer not implemented")
-}
-func (UnimplementedPerBuyerConfigurationServiceServer) GetTargetInputSizeBytes(context.Context, *GetTargetInputSizeBytesRequest) (*GetTargetInputSizeBytesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTargetInputSizeBytes not implemented")
-}
-func (UnimplementedPerBuyerConfigurationServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedPerBuyerConfigurationServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedPerBuyerConfigurationServiceServer) mustEmbedUnimplementedPerBuyerConfigurationServiceServer() {
-}
-func (UnimplementedPerBuyerConfigurationServiceServer) testEmbeddedByValue() {}
-
-// UnsafePerBuyerConfigurationServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PerBuyerConfigurationServiceServer will
-// result in compilation errors.
-type UnsafePerBuyerConfigurationServiceServer interface {
-	mustEmbedUnimplementedPerBuyerConfigurationServiceServer()
-}
-
-func RegisterPerBuyerConfigurationServiceServer(s grpc.ServiceRegistrar, srv PerBuyerConfigurationServiceServer) {
-	// If the following call panics, it indicates UnimplementedPerBuyerConfigurationServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PerBuyerConfigurationService_ServiceDesc, srv)
-}
-
-func _PerBuyerConfigurationService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PerBuyerConfigurationServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PerBuyerConfigurationService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PerBuyerConfigurationServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PerBuyerConfigurationService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PerBuyerConfigurationServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PerBuyerConfigurationService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PerBuyerConfigurationServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PerBuyerConfigurationService_GetBuyer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetBuyerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PerBuyerConfigurationServiceServer).GetBuyer(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PerBuyerConfigurationService_GetBuyer_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PerBuyerConfigurationServiceServer).GetBuyer(ctx, req.(*GetBuyerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PerBuyerConfigurationService_GetTargetInputSizeBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTargetInputSizeBytesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PerBuyerConfigurationServiceServer).GetTargetInputSizeBytes(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PerBuyerConfigurationService_GetTargetInputSizeBytes_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PerBuyerConfigurationServiceServer).GetTargetInputSizeBytes(ctx, req.(*GetTargetInputSizeBytesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PerBuyerConfigurationService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PerBuyerConfigurationServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PerBuyerConfigurationService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PerBuyerConfigurationServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PerBuyerConfigurationService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PerBuyerConfigurationServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PerBuyerConfigurationService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PerBuyerConfigurationServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PerBuyerConfigurationService_ServiceDesc is the grpc.ServiceDesc for PerBuyerConfigurationService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PerBuyerConfigurationService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "adselection.PerBuyerConfigurationService",
-	HandlerType: (*PerBuyerConfigurationServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _PerBuyerConfigurationService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _PerBuyerConfigurationService_Equals_Handler,
-		},
-		{
-			MethodName: "GetBuyer",
-			Handler:    _PerBuyerConfigurationService_GetBuyer_Handler,
-		},
-		{
-			MethodName: "GetTargetInputSizeBytes",
-			Handler:    _PerBuyerConfigurationService_GetTargetInputSizeBytes_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _PerBuyerConfigurationService_HashCode_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _PerBuyerConfigurationService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/adselection/adselection.proto",
-}
-
-const (
-	PerBuyerConfigurationBuilderService_Build_FullMethodName                   = "/adselection.PerBuyerConfigurationBuilderService/Build"
-	PerBuyerConfigurationBuilderService_SetBuyer_FullMethodName                = "/adselection.PerBuyerConfigurationBuilderService/SetBuyer"
-	PerBuyerConfigurationBuilderService_SetTargetInputSizeBytes_FullMethodName = "/adselection.PerBuyerConfigurationBuilderService/SetTargetInputSizeBytes"
-)
-
-// PerBuyerConfigurationBuilderServiceClient is the client API for PerBuyerConfigurationBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PerBuyerConfigurationBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetBuyer(ctx context.Context, in *SetBuyerRequest, opts ...grpc.CallOption) (*SetBuyerResponse, error)
-	SetTargetInputSizeBytes(ctx context.Context, in *SetTargetInputSizeBytesRequest, opts ...grpc.CallOption) (*SetTargetInputSizeBytesResponse, error)
-}
-
-type perBuyerConfigurationBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPerBuyerConfigurationBuilderServiceClient(cc grpc.ClientConnInterface) PerBuyerConfigurationBuilderServiceClient {
-	return &perBuyerConfigurationBuilderServiceClient{cc}
-}
-
-func (c *perBuyerConfigurationBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, PerBuyerConfigurationBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *perBuyerConfigurationBuilderServiceClient) SetBuyer(ctx context.Context, in *SetBuyerRequest, opts ...grpc.CallOption) (*SetBuyerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetBuyerResponse)
-	err := c.cc.Invoke(ctx, PerBuyerConfigurationBuilderService_SetBuyer_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *perBuyerConfigurationBuilderServiceClient) SetTargetInputSizeBytes(ctx context.Context, in *SetTargetInputSizeBytesRequest, opts ...grpc.CallOption) (*SetTargetInputSizeBytesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetTargetInputSizeBytesResponse)
-	err := c.cc.Invoke(ctx, PerBuyerConfigurationBuilderService_SetTargetInputSizeBytes_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PerBuyerConfigurationBuilderServiceServer is the server API for PerBuyerConfigurationBuilderService service.
-// All implementations must embed UnimplementedPerBuyerConfigurationBuilderServiceServer
-// for forward compatibility.
-type PerBuyerConfigurationBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetBuyer(context.Context, *SetBuyerRequest) (*SetBuyerResponse, error)
-	SetTargetInputSizeBytes(context.Context, *SetTargetInputSizeBytesRequest) (*SetTargetInputSizeBytesResponse, error)
-	mustEmbedUnimplementedPerBuyerConfigurationBuilderServiceServer()
-}
-
-// UnimplementedPerBuyerConfigurationBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPerBuyerConfigurationBuilderServiceServer struct{}
-
-func (UnimplementedPerBuyerConfigurationBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedPerBuyerConfigurationBuilderServiceServer) SetBuyer(context.Context, *SetBuyerRequest) (*SetBuyerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetBuyer not implemented")
-}
-func (UnimplementedPerBuyerConfigurationBuilderServiceServer) SetTargetInputSizeBytes(context.Context, *SetTargetInputSizeBytesRequest) (*SetTargetInputSizeBytesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetTargetInputSizeBytes not implemented")
-}
-func (UnimplementedPerBuyerConfigurationBuilderServiceServer) mustEmbedUnimplementedPerBuyerConfigurationBuilderServiceServer() {
-}
-func (UnimplementedPerBuyerConfigurationBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafePerBuyerConfigurationBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PerBuyerConfigurationBuilderServiceServer will
-// result in compilation errors.
-type UnsafePerBuyerConfigurationBuilderServiceServer interface {
-	mustEmbedUnimplementedPerBuyerConfigurationBuilderServiceServer()
-}
-
-func RegisterPerBuyerConfigurationBuilderServiceServer(s grpc.ServiceRegistrar, srv PerBuyerConfigurationBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedPerBuyerConfigurationBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PerBuyerConfigurationBuilderService_ServiceDesc, srv)
-}
-
-func _PerBuyerConfigurationBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PerBuyerConfigurationBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PerBuyerConfigurationBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PerBuyerConfigurationBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PerBuyerConfigurationBuilderService_SetBuyer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetBuyerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PerBuyerConfigurationBuilderServiceServer).SetBuyer(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PerBuyerConfigurationBuilderService_SetBuyer_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PerBuyerConfigurationBuilderServiceServer).SetBuyer(ctx, req.(*SetBuyerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PerBuyerConfigurationBuilderService_SetTargetInputSizeBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetTargetInputSizeBytesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PerBuyerConfigurationBuilderServiceServer).SetTargetInputSizeBytes(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PerBuyerConfigurationBuilderService_SetTargetInputSizeBytes_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PerBuyerConfigurationBuilderServiceServer).SetTargetInputSizeBytes(ctx, req.(*SetTargetInputSizeBytesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PerBuyerConfigurationBuilderService_ServiceDesc is the grpc.ServiceDesc for PerBuyerConfigurationBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PerBuyerConfigurationBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "adselection.PerBuyerConfigurationBuilderService",
-	HandlerType: (*PerBuyerConfigurationBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _PerBuyerConfigurationBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetBuyer",
-			Handler:    _PerBuyerConfigurationBuilderService_SetBuyer_Handler,
-		},
-		{
-			MethodName: "SetTargetInputSizeBytes",
-			Handler:    _PerBuyerConfigurationBuilderService_SetTargetInputSizeBytes_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/adselection/adselection.proto",
-}
-
-const (
-	AdSelectionManagerService_GetTestAdSelectionManager_FullMethodName = "/adselection.AdSelectionManagerService/GetTestAdSelectionManager"
-	AdSelectionManagerService_Get_FullMethodName                       = "/adselection.AdSelectionManagerService/Get"
-)
-
-// AdSelectionManagerServiceClient is the client API for AdSelectionManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AdSelectionManagerServiceClient interface {
-	GetTestAdSelectionManager(ctx context.Context, in *GetTestAdSelectionManagerRequest, opts ...grpc.CallOption) (*GetTestAdSelectionManagerResponse, error)
-	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
-}
-
-type adSelectionManagerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAdSelectionManagerServiceClient(cc grpc.ClientConnInterface) AdSelectionManagerServiceClient {
-	return &adSelectionManagerServiceClient{cc}
-}
-
-func (c *adSelectionManagerServiceClient) GetTestAdSelectionManager(ctx context.Context, in *GetTestAdSelectionManagerRequest, opts ...grpc.CallOption) (*GetTestAdSelectionManagerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTestAdSelectionManagerResponse)
-	err := c.cc.Invoke(ctx, AdSelectionManagerService_GetTestAdSelectionManager_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *adSelectionManagerServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetResponse)
-	err := c.cc.Invoke(ctx, AdSelectionManagerService_Get_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AdSelectionManagerServiceServer is the server API for AdSelectionManagerService service.
-// All implementations must embed UnimplementedAdSelectionManagerServiceServer
-// for forward compatibility.
-type AdSelectionManagerServiceServer interface {
-	GetTestAdSelectionManager(context.Context, *GetTestAdSelectionManagerRequest) (*GetTestAdSelectionManagerResponse, error)
-	Get(context.Context, *GetRequest) (*GetResponse, error)
-	mustEmbedUnimplementedAdSelectionManagerServiceServer()
-}
-
-// UnimplementedAdSelectionManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAdSelectionManagerServiceServer struct{}
-
-func (UnimplementedAdSelectionManagerServiceServer) GetTestAdSelectionManager(context.Context, *GetTestAdSelectionManagerRequest) (*GetTestAdSelectionManagerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTestAdSelectionManager not implemented")
-}
-func (UnimplementedAdSelectionManagerServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Get not implemented")
-}
-func (UnimplementedAdSelectionManagerServiceServer) mustEmbedUnimplementedAdSelectionManagerServiceServer() {
-}
-func (UnimplementedAdSelectionManagerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeAdSelectionManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AdSelectionManagerServiceServer will
-// result in compilation errors.
-type UnsafeAdSelectionManagerServiceServer interface {
-	mustEmbedUnimplementedAdSelectionManagerServiceServer()
-}
-
-func RegisterAdSelectionManagerServiceServer(s grpc.ServiceRegistrar, srv AdSelectionManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedAdSelectionManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AdSelectionManagerService_ServiceDesc, srv)
-}
-
-func _AdSelectionManagerService_GetTestAdSelectionManager_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTestAdSelectionManagerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdSelectionManagerServiceServer).GetTestAdSelectionManager(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdSelectionManagerService_GetTestAdSelectionManager_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionManagerServiceServer).GetTestAdSelectionManager(ctx, req.(*GetTestAdSelectionManagerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AdSelectionManagerService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdSelectionManagerServiceServer).Get(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdSelectionManagerService_Get_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionManagerServiceServer).Get(ctx, req.(*GetRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AdSelectionManagerService_ServiceDesc is the grpc.ServiceDesc for AdSelectionManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AdSelectionManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "adselection.AdSelectionManagerService",
-	HandlerType: (*AdSelectionManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetTestAdSelectionManager",
-			Handler:    _AdSelectionManagerService_GetTestAdSelectionManager_Handler,
-		},
-		{
-			MethodName: "Get",
-			Handler:    _AdSelectionManagerService_Get_Handler,
+			MethodName: "SetTrustedScoringSignalsUri",
+			Handler:    _AdSelectionConfigBuilderService_SetTrustedScoringSignalsUri_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -2804,8 +1307,941 @@ var ReportEventRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	AddAdSelectionOverrideRequestService_NewAddAdSelectionOverrideRequest_FullMethodName = "/adselection.AddAdSelectionOverrideRequestService/NewAddAdSelectionOverrideRequest"
+	AddAdSelectionOverrideRequestService_GetAdSelectionConfig_FullMethodName             = "/adselection.AddAdSelectionOverrideRequestService/GetAdSelectionConfig"
+	AddAdSelectionOverrideRequestService_GetDecisionLogicJs_FullMethodName               = "/adselection.AddAdSelectionOverrideRequestService/GetDecisionLogicJs"
+	AddAdSelectionOverrideRequestService_GetPerBuyerDecisionLogic_FullMethodName         = "/adselection.AddAdSelectionOverrideRequestService/GetPerBuyerDecisionLogic"
+	AddAdSelectionOverrideRequestService_GetTrustedScoringSignals_FullMethodName         = "/adselection.AddAdSelectionOverrideRequestService/GetTrustedScoringSignals"
+)
+
+// AddAdSelectionOverrideRequestServiceClient is the client API for AddAdSelectionOverrideRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AddAdSelectionOverrideRequestServiceClient interface {
+	NewAddAdSelectionOverrideRequest(ctx context.Context, in *NewAddAdSelectionOverrideRequestRequest, opts ...grpc.CallOption) (*NewAddAdSelectionOverrideRequestResponse, error)
+	GetAdSelectionConfig(ctx context.Context, in *GetAdSelectionConfigRequest, opts ...grpc.CallOption) (*GetAdSelectionConfigResponse, error)
+	GetDecisionLogicJs(ctx context.Context, in *GetDecisionLogicJsRequest, opts ...grpc.CallOption) (*GetDecisionLogicJsResponse, error)
+	GetPerBuyerDecisionLogic(ctx context.Context, in *GetPerBuyerDecisionLogicRequest, opts ...grpc.CallOption) (*GetPerBuyerDecisionLogicResponse, error)
+	GetTrustedScoringSignals(ctx context.Context, in *GetTrustedScoringSignalsRequest, opts ...grpc.CallOption) (*GetTrustedScoringSignalsResponse, error)
+}
+
+type addAdSelectionOverrideRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAddAdSelectionOverrideRequestServiceClient(cc grpc.ClientConnInterface) AddAdSelectionOverrideRequestServiceClient {
+	return &addAdSelectionOverrideRequestServiceClient{cc}
+}
+
+func (c *addAdSelectionOverrideRequestServiceClient) NewAddAdSelectionOverrideRequest(ctx context.Context, in *NewAddAdSelectionOverrideRequestRequest, opts ...grpc.CallOption) (*NewAddAdSelectionOverrideRequestResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewAddAdSelectionOverrideRequestResponse)
+	err := c.cc.Invoke(ctx, AddAdSelectionOverrideRequestService_NewAddAdSelectionOverrideRequest_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *addAdSelectionOverrideRequestServiceClient) GetAdSelectionConfig(ctx context.Context, in *GetAdSelectionConfigRequest, opts ...grpc.CallOption) (*GetAdSelectionConfigResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAdSelectionConfigResponse)
+	err := c.cc.Invoke(ctx, AddAdSelectionOverrideRequestService_GetAdSelectionConfig_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *addAdSelectionOverrideRequestServiceClient) GetDecisionLogicJs(ctx context.Context, in *GetDecisionLogicJsRequest, opts ...grpc.CallOption) (*GetDecisionLogicJsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDecisionLogicJsResponse)
+	err := c.cc.Invoke(ctx, AddAdSelectionOverrideRequestService_GetDecisionLogicJs_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *addAdSelectionOverrideRequestServiceClient) GetPerBuyerDecisionLogic(ctx context.Context, in *GetPerBuyerDecisionLogicRequest, opts ...grpc.CallOption) (*GetPerBuyerDecisionLogicResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPerBuyerDecisionLogicResponse)
+	err := c.cc.Invoke(ctx, AddAdSelectionOverrideRequestService_GetPerBuyerDecisionLogic_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *addAdSelectionOverrideRequestServiceClient) GetTrustedScoringSignals(ctx context.Context, in *GetTrustedScoringSignalsRequest, opts ...grpc.CallOption) (*GetTrustedScoringSignalsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTrustedScoringSignalsResponse)
+	err := c.cc.Invoke(ctx, AddAdSelectionOverrideRequestService_GetTrustedScoringSignals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AddAdSelectionOverrideRequestServiceServer is the server API for AddAdSelectionOverrideRequestService service.
+// All implementations must embed UnimplementedAddAdSelectionOverrideRequestServiceServer
+// for forward compatibility.
+type AddAdSelectionOverrideRequestServiceServer interface {
+	NewAddAdSelectionOverrideRequest(context.Context, *NewAddAdSelectionOverrideRequestRequest) (*NewAddAdSelectionOverrideRequestResponse, error)
+	GetAdSelectionConfig(context.Context, *GetAdSelectionConfigRequest) (*GetAdSelectionConfigResponse, error)
+	GetDecisionLogicJs(context.Context, *GetDecisionLogicJsRequest) (*GetDecisionLogicJsResponse, error)
+	GetPerBuyerDecisionLogic(context.Context, *GetPerBuyerDecisionLogicRequest) (*GetPerBuyerDecisionLogicResponse, error)
+	GetTrustedScoringSignals(context.Context, *GetTrustedScoringSignalsRequest) (*GetTrustedScoringSignalsResponse, error)
+	mustEmbedUnimplementedAddAdSelectionOverrideRequestServiceServer()
+}
+
+// UnimplementedAddAdSelectionOverrideRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAddAdSelectionOverrideRequestServiceServer struct{}
+
+func (UnimplementedAddAdSelectionOverrideRequestServiceServer) NewAddAdSelectionOverrideRequest(context.Context, *NewAddAdSelectionOverrideRequestRequest) (*NewAddAdSelectionOverrideRequestResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewAddAdSelectionOverrideRequest not implemented")
+}
+func (UnimplementedAddAdSelectionOverrideRequestServiceServer) GetAdSelectionConfig(context.Context, *GetAdSelectionConfigRequest) (*GetAdSelectionConfigResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAdSelectionConfig not implemented")
+}
+func (UnimplementedAddAdSelectionOverrideRequestServiceServer) GetDecisionLogicJs(context.Context, *GetDecisionLogicJsRequest) (*GetDecisionLogicJsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDecisionLogicJs not implemented")
+}
+func (UnimplementedAddAdSelectionOverrideRequestServiceServer) GetPerBuyerDecisionLogic(context.Context, *GetPerBuyerDecisionLogicRequest) (*GetPerBuyerDecisionLogicResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPerBuyerDecisionLogic not implemented")
+}
+func (UnimplementedAddAdSelectionOverrideRequestServiceServer) GetTrustedScoringSignals(context.Context, *GetTrustedScoringSignalsRequest) (*GetTrustedScoringSignalsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTrustedScoringSignals not implemented")
+}
+func (UnimplementedAddAdSelectionOverrideRequestServiceServer) mustEmbedUnimplementedAddAdSelectionOverrideRequestServiceServer() {
+}
+func (UnimplementedAddAdSelectionOverrideRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAddAdSelectionOverrideRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AddAdSelectionOverrideRequestServiceServer will
+// result in compilation errors.
+type UnsafeAddAdSelectionOverrideRequestServiceServer interface {
+	mustEmbedUnimplementedAddAdSelectionOverrideRequestServiceServer()
+}
+
+func RegisterAddAdSelectionOverrideRequestServiceServer(s grpc.ServiceRegistrar, srv AddAdSelectionOverrideRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedAddAdSelectionOverrideRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AddAdSelectionOverrideRequestService_ServiceDesc, srv)
+}
+
+func _AddAdSelectionOverrideRequestService_NewAddAdSelectionOverrideRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewAddAdSelectionOverrideRequestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AddAdSelectionOverrideRequestServiceServer).NewAddAdSelectionOverrideRequest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AddAdSelectionOverrideRequestService_NewAddAdSelectionOverrideRequest_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AddAdSelectionOverrideRequestServiceServer).NewAddAdSelectionOverrideRequest(ctx, req.(*NewAddAdSelectionOverrideRequestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AddAdSelectionOverrideRequestService_GetAdSelectionConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAdSelectionConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AddAdSelectionOverrideRequestServiceServer).GetAdSelectionConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AddAdSelectionOverrideRequestService_GetAdSelectionConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AddAdSelectionOverrideRequestServiceServer).GetAdSelectionConfig(ctx, req.(*GetAdSelectionConfigRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AddAdSelectionOverrideRequestService_GetDecisionLogicJs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDecisionLogicJsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AddAdSelectionOverrideRequestServiceServer).GetDecisionLogicJs(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AddAdSelectionOverrideRequestService_GetDecisionLogicJs_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AddAdSelectionOverrideRequestServiceServer).GetDecisionLogicJs(ctx, req.(*GetDecisionLogicJsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AddAdSelectionOverrideRequestService_GetPerBuyerDecisionLogic_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPerBuyerDecisionLogicRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AddAdSelectionOverrideRequestServiceServer).GetPerBuyerDecisionLogic(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AddAdSelectionOverrideRequestService_GetPerBuyerDecisionLogic_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AddAdSelectionOverrideRequestServiceServer).GetPerBuyerDecisionLogic(ctx, req.(*GetPerBuyerDecisionLogicRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AddAdSelectionOverrideRequestService_GetTrustedScoringSignals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTrustedScoringSignalsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AddAdSelectionOverrideRequestServiceServer).GetTrustedScoringSignals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AddAdSelectionOverrideRequestService_GetTrustedScoringSignals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AddAdSelectionOverrideRequestServiceServer).GetTrustedScoringSignals(ctx, req.(*GetTrustedScoringSignalsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AddAdSelectionOverrideRequestService_ServiceDesc is the grpc.ServiceDesc for AddAdSelectionOverrideRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AddAdSelectionOverrideRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "adselection.AddAdSelectionOverrideRequestService",
+	HandlerType: (*AddAdSelectionOverrideRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewAddAdSelectionOverrideRequest",
+			Handler:    _AddAdSelectionOverrideRequestService_NewAddAdSelectionOverrideRequest_Handler,
+		},
+		{
+			MethodName: "GetAdSelectionConfig",
+			Handler:    _AddAdSelectionOverrideRequestService_GetAdSelectionConfig_Handler,
+		},
+		{
+			MethodName: "GetDecisionLogicJs",
+			Handler:    _AddAdSelectionOverrideRequestService_GetDecisionLogicJs_Handler,
+		},
+		{
+			MethodName: "GetPerBuyerDecisionLogic",
+			Handler:    _AddAdSelectionOverrideRequestService_GetPerBuyerDecisionLogic_Handler,
+		},
+		{
+			MethodName: "GetTrustedScoringSignals",
+			Handler:    _AddAdSelectionOverrideRequestService_GetTrustedScoringSignals_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/adselection/adselection.proto",
+}
+
+const (
+	AdSelectionManagerService_GetTestAdSelectionManager_FullMethodName = "/adselection.AdSelectionManagerService/GetTestAdSelectionManager"
+	AdSelectionManagerService_Get_FullMethodName                       = "/adselection.AdSelectionManagerService/Get"
+)
+
+// AdSelectionManagerServiceClient is the client API for AdSelectionManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AdSelectionManagerServiceClient interface {
+	GetTestAdSelectionManager(ctx context.Context, in *GetTestAdSelectionManagerRequest, opts ...grpc.CallOption) (*GetTestAdSelectionManagerResponse, error)
+	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
+}
+
+type adSelectionManagerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAdSelectionManagerServiceClient(cc grpc.ClientConnInterface) AdSelectionManagerServiceClient {
+	return &adSelectionManagerServiceClient{cc}
+}
+
+func (c *adSelectionManagerServiceClient) GetTestAdSelectionManager(ctx context.Context, in *GetTestAdSelectionManagerRequest, opts ...grpc.CallOption) (*GetTestAdSelectionManagerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTestAdSelectionManagerResponse)
+	err := c.cc.Invoke(ctx, AdSelectionManagerService_GetTestAdSelectionManager_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adSelectionManagerServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetResponse)
+	err := c.cc.Invoke(ctx, AdSelectionManagerService_Get_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AdSelectionManagerServiceServer is the server API for AdSelectionManagerService service.
+// All implementations must embed UnimplementedAdSelectionManagerServiceServer
+// for forward compatibility.
+type AdSelectionManagerServiceServer interface {
+	GetTestAdSelectionManager(context.Context, *GetTestAdSelectionManagerRequest) (*GetTestAdSelectionManagerResponse, error)
+	Get(context.Context, *GetRequest) (*GetResponse, error)
+	mustEmbedUnimplementedAdSelectionManagerServiceServer()
+}
+
+// UnimplementedAdSelectionManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAdSelectionManagerServiceServer struct{}
+
+func (UnimplementedAdSelectionManagerServiceServer) GetTestAdSelectionManager(context.Context, *GetTestAdSelectionManagerRequest) (*GetTestAdSelectionManagerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTestAdSelectionManager not implemented")
+}
+func (UnimplementedAdSelectionManagerServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Get not implemented")
+}
+func (UnimplementedAdSelectionManagerServiceServer) mustEmbedUnimplementedAdSelectionManagerServiceServer() {
+}
+func (UnimplementedAdSelectionManagerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAdSelectionManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AdSelectionManagerServiceServer will
+// result in compilation errors.
+type UnsafeAdSelectionManagerServiceServer interface {
+	mustEmbedUnimplementedAdSelectionManagerServiceServer()
+}
+
+func RegisterAdSelectionManagerServiceServer(s grpc.ServiceRegistrar, srv AdSelectionManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedAdSelectionManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AdSelectionManagerService_ServiceDesc, srv)
+}
+
+func _AdSelectionManagerService_GetTestAdSelectionManager_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTestAdSelectionManagerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdSelectionManagerServiceServer).GetTestAdSelectionManager(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdSelectionManagerService_GetTestAdSelectionManager_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdSelectionManagerServiceServer).GetTestAdSelectionManager(ctx, req.(*GetTestAdSelectionManagerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdSelectionManagerService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdSelectionManagerServiceServer).Get(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdSelectionManagerService_Get_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdSelectionManagerServiceServer).Get(ctx, req.(*GetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AdSelectionManagerService_ServiceDesc is the grpc.ServiceDesc for AdSelectionManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AdSelectionManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "adselection.AdSelectionManagerService",
+	HandlerType: (*AdSelectionManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetTestAdSelectionManager",
+			Handler:    _AdSelectionManagerService_GetTestAdSelectionManager_Handler,
+		},
+		{
+			MethodName: "Get",
+			Handler:    _AdSelectionManagerService_Get_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/adselection/adselection.proto",
+}
+
+const (
+	DecisionLogicService_NewDecisionLogic_FullMethodName = "/adselection.DecisionLogicService/NewDecisionLogic"
+	DecisionLogicService_DescribeContents_FullMethodName = "/adselection.DecisionLogicService/DescribeContents"
+	DecisionLogicService_Equals_FullMethodName           = "/adselection.DecisionLogicService/Equals"
+	DecisionLogicService_GetLogic_FullMethodName         = "/adselection.DecisionLogicService/GetLogic"
+	DecisionLogicService_HashCode_FullMethodName         = "/adselection.DecisionLogicService/HashCode"
+	DecisionLogicService_ToString_FullMethodName         = "/adselection.DecisionLogicService/ToString"
+	DecisionLogicService_WriteToParcel_FullMethodName    = "/adselection.DecisionLogicService/WriteToParcel"
+)
+
+// DecisionLogicServiceClient is the client API for DecisionLogicService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DecisionLogicServiceClient interface {
+	NewDecisionLogic(ctx context.Context, in *NewDecisionLogicRequest, opts ...grpc.CallOption) (*NewDecisionLogicResponse, error)
+	DescribeContents(ctx context.Context, in *DecisionLogicDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *DecisionLogicEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetLogic(ctx context.Context, in *GetLogicRequest, opts ...grpc.CallOption) (*GetLogicResponse, error)
+	HashCode(ctx context.Context, in *DecisionLogicHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *DecisionLogicWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type decisionLogicServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDecisionLogicServiceClient(cc grpc.ClientConnInterface) DecisionLogicServiceClient {
+	return &decisionLogicServiceClient{cc}
+}
+
+func (c *decisionLogicServiceClient) NewDecisionLogic(ctx context.Context, in *NewDecisionLogicRequest, opts ...grpc.CallOption) (*NewDecisionLogicResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewDecisionLogicResponse)
+	err := c.cc.Invoke(ctx, DecisionLogicService_NewDecisionLogic_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *decisionLogicServiceClient) DescribeContents(ctx context.Context, in *DecisionLogicDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, DecisionLogicService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *decisionLogicServiceClient) Equals(ctx context.Context, in *DecisionLogicEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, DecisionLogicService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *decisionLogicServiceClient) GetLogic(ctx context.Context, in *GetLogicRequest, opts ...grpc.CallOption) (*GetLogicResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLogicResponse)
+	err := c.cc.Invoke(ctx, DecisionLogicService_GetLogic_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *decisionLogicServiceClient) HashCode(ctx context.Context, in *DecisionLogicHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, DecisionLogicService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *decisionLogicServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, DecisionLogicService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *decisionLogicServiceClient) WriteToParcel(ctx context.Context, in *DecisionLogicWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, DecisionLogicService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DecisionLogicServiceServer is the server API for DecisionLogicService service.
+// All implementations must embed UnimplementedDecisionLogicServiceServer
+// for forward compatibility.
+type DecisionLogicServiceServer interface {
+	NewDecisionLogic(context.Context, *NewDecisionLogicRequest) (*NewDecisionLogicResponse, error)
+	DescribeContents(context.Context, *DecisionLogicDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *DecisionLogicEqualsRequest) (*EqualsResponse, error)
+	GetLogic(context.Context, *GetLogicRequest) (*GetLogicResponse, error)
+	HashCode(context.Context, *DecisionLogicHashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *DecisionLogicWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedDecisionLogicServiceServer()
+}
+
+// UnimplementedDecisionLogicServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDecisionLogicServiceServer struct{}
+
+func (UnimplementedDecisionLogicServiceServer) NewDecisionLogic(context.Context, *NewDecisionLogicRequest) (*NewDecisionLogicResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewDecisionLogic not implemented")
+}
+func (UnimplementedDecisionLogicServiceServer) DescribeContents(context.Context, *DecisionLogicDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedDecisionLogicServiceServer) Equals(context.Context, *DecisionLogicEqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedDecisionLogicServiceServer) GetLogic(context.Context, *GetLogicRequest) (*GetLogicResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLogic not implemented")
+}
+func (UnimplementedDecisionLogicServiceServer) HashCode(context.Context, *DecisionLogicHashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedDecisionLogicServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedDecisionLogicServiceServer) WriteToParcel(context.Context, *DecisionLogicWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedDecisionLogicServiceServer) mustEmbedUnimplementedDecisionLogicServiceServer() {}
+func (UnimplementedDecisionLogicServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafeDecisionLogicServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DecisionLogicServiceServer will
+// result in compilation errors.
+type UnsafeDecisionLogicServiceServer interface {
+	mustEmbedUnimplementedDecisionLogicServiceServer()
+}
+
+func RegisterDecisionLogicServiceServer(s grpc.ServiceRegistrar, srv DecisionLogicServiceServer) {
+	// If the following call panics, it indicates UnimplementedDecisionLogicServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DecisionLogicService_ServiceDesc, srv)
+}
+
+func _DecisionLogicService_NewDecisionLogic_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewDecisionLogicRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DecisionLogicServiceServer).NewDecisionLogic(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DecisionLogicService_NewDecisionLogic_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DecisionLogicServiceServer).NewDecisionLogic(ctx, req.(*NewDecisionLogicRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DecisionLogicService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DecisionLogicDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DecisionLogicServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DecisionLogicService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DecisionLogicServiceServer).DescribeContents(ctx, req.(*DecisionLogicDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DecisionLogicService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DecisionLogicEqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DecisionLogicServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DecisionLogicService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DecisionLogicServiceServer).Equals(ctx, req.(*DecisionLogicEqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DecisionLogicService_GetLogic_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLogicRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DecisionLogicServiceServer).GetLogic(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DecisionLogicService_GetLogic_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DecisionLogicServiceServer).GetLogic(ctx, req.(*GetLogicRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DecisionLogicService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DecisionLogicHashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DecisionLogicServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DecisionLogicService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DecisionLogicServiceServer).HashCode(ctx, req.(*DecisionLogicHashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DecisionLogicService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DecisionLogicServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DecisionLogicService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DecisionLogicServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DecisionLogicService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DecisionLogicWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DecisionLogicServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DecisionLogicService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DecisionLogicServiceServer).WriteToParcel(ctx, req.(*DecisionLogicWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DecisionLogicService_ServiceDesc is the grpc.ServiceDesc for DecisionLogicService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DecisionLogicService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "adselection.DecisionLogicService",
+	HandlerType: (*DecisionLogicServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewDecisionLogic",
+			Handler:    _DecisionLogicService_NewDecisionLogic_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _DecisionLogicService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _DecisionLogicService_Equals_Handler,
+		},
+		{
+			MethodName: "GetLogic",
+			Handler:    _DecisionLogicService_GetLogic_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _DecisionLogicService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _DecisionLogicService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _DecisionLogicService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/adselection/adselection.proto",
+}
+
+const (
+	SetAppInstallAdvertisersRequestService_GetAdvertisers_FullMethodName = "/adselection.SetAppInstallAdvertisersRequestService/GetAdvertisers"
+)
+
+// SetAppInstallAdvertisersRequestServiceClient is the client API for SetAppInstallAdvertisersRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SetAppInstallAdvertisersRequestServiceClient interface {
+	GetAdvertisers(ctx context.Context, in *GetAdvertisersRequest, opts ...grpc.CallOption) (*GetAdvertisersResponse, error)
+}
+
+type setAppInstallAdvertisersRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSetAppInstallAdvertisersRequestServiceClient(cc grpc.ClientConnInterface) SetAppInstallAdvertisersRequestServiceClient {
+	return &setAppInstallAdvertisersRequestServiceClient{cc}
+}
+
+func (c *setAppInstallAdvertisersRequestServiceClient) GetAdvertisers(ctx context.Context, in *GetAdvertisersRequest, opts ...grpc.CallOption) (*GetAdvertisersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAdvertisersResponse)
+	err := c.cc.Invoke(ctx, SetAppInstallAdvertisersRequestService_GetAdvertisers_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SetAppInstallAdvertisersRequestServiceServer is the server API for SetAppInstallAdvertisersRequestService service.
+// All implementations must embed UnimplementedSetAppInstallAdvertisersRequestServiceServer
+// for forward compatibility.
+type SetAppInstallAdvertisersRequestServiceServer interface {
+	GetAdvertisers(context.Context, *GetAdvertisersRequest) (*GetAdvertisersResponse, error)
+	mustEmbedUnimplementedSetAppInstallAdvertisersRequestServiceServer()
+}
+
+// UnimplementedSetAppInstallAdvertisersRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSetAppInstallAdvertisersRequestServiceServer struct{}
+
+func (UnimplementedSetAppInstallAdvertisersRequestServiceServer) GetAdvertisers(context.Context, *GetAdvertisersRequest) (*GetAdvertisersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAdvertisers not implemented")
+}
+func (UnimplementedSetAppInstallAdvertisersRequestServiceServer) mustEmbedUnimplementedSetAppInstallAdvertisersRequestServiceServer() {
+}
+func (UnimplementedSetAppInstallAdvertisersRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSetAppInstallAdvertisersRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SetAppInstallAdvertisersRequestServiceServer will
+// result in compilation errors.
+type UnsafeSetAppInstallAdvertisersRequestServiceServer interface {
+	mustEmbedUnimplementedSetAppInstallAdvertisersRequestServiceServer()
+}
+
+func RegisterSetAppInstallAdvertisersRequestServiceServer(s grpc.ServiceRegistrar, srv SetAppInstallAdvertisersRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedSetAppInstallAdvertisersRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SetAppInstallAdvertisersRequestService_ServiceDesc, srv)
+}
+
+func _SetAppInstallAdvertisersRequestService_GetAdvertisers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAdvertisersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetAppInstallAdvertisersRequestServiceServer).GetAdvertisers(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetAppInstallAdvertisersRequestService_GetAdvertisers_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetAppInstallAdvertisersRequestServiceServer).GetAdvertisers(ctx, req.(*GetAdvertisersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SetAppInstallAdvertisersRequestService_ServiceDesc is the grpc.ServiceDesc for SetAppInstallAdvertisersRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SetAppInstallAdvertisersRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "adselection.SetAppInstallAdvertisersRequestService",
+	HandlerType: (*SetAppInstallAdvertisersRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetAdvertisers",
+			Handler:    _SetAppInstallAdvertisersRequestService_GetAdvertisers_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/adselection/adselection.proto",
+}
+
+const (
+	SetAppInstallAdvertisersRequestBuilderService_Build_FullMethodName = "/adselection.SetAppInstallAdvertisersRequestBuilderService/Build"
+)
+
+// SetAppInstallAdvertisersRequestBuilderServiceClient is the client API for SetAppInstallAdvertisersRequestBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SetAppInstallAdvertisersRequestBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+}
+
+type setAppInstallAdvertisersRequestBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSetAppInstallAdvertisersRequestBuilderServiceClient(cc grpc.ClientConnInterface) SetAppInstallAdvertisersRequestBuilderServiceClient {
+	return &setAppInstallAdvertisersRequestBuilderServiceClient{cc}
+}
+
+func (c *setAppInstallAdvertisersRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, SetAppInstallAdvertisersRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SetAppInstallAdvertisersRequestBuilderServiceServer is the server API for SetAppInstallAdvertisersRequestBuilderService service.
+// All implementations must embed UnimplementedSetAppInstallAdvertisersRequestBuilderServiceServer
+// for forward compatibility.
+type SetAppInstallAdvertisersRequestBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	mustEmbedUnimplementedSetAppInstallAdvertisersRequestBuilderServiceServer()
+}
+
+// UnimplementedSetAppInstallAdvertisersRequestBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSetAppInstallAdvertisersRequestBuilderServiceServer struct{}
+
+func (UnimplementedSetAppInstallAdvertisersRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedSetAppInstallAdvertisersRequestBuilderServiceServer) mustEmbedUnimplementedSetAppInstallAdvertisersRequestBuilderServiceServer() {
+}
+func (UnimplementedSetAppInstallAdvertisersRequestBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSetAppInstallAdvertisersRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SetAppInstallAdvertisersRequestBuilderServiceServer will
+// result in compilation errors.
+type UnsafeSetAppInstallAdvertisersRequestBuilderServiceServer interface {
+	mustEmbedUnimplementedSetAppInstallAdvertisersRequestBuilderServiceServer()
+}
+
+func RegisterSetAppInstallAdvertisersRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv SetAppInstallAdvertisersRequestBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedSetAppInstallAdvertisersRequestBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SetAppInstallAdvertisersRequestBuilderService_ServiceDesc, srv)
+}
+
+func _SetAppInstallAdvertisersRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SetAppInstallAdvertisersRequestBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SetAppInstallAdvertisersRequestBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SetAppInstallAdvertisersRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SetAppInstallAdvertisersRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for SetAppInstallAdvertisersRequestBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SetAppInstallAdvertisersRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "adselection.SetAppInstallAdvertisersRequestBuilderService",
+	HandlerType: (*SetAppInstallAdvertisersRequestBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _SetAppInstallAdvertisersRequestBuilderService_Build_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/adselection/adselection.proto",
+}
+
+const (
 	SignedContextualAdsService_DescribeContents_FullMethodName    = "/adselection.SignedContextualAdsService/DescribeContents"
 	SignedContextualAdsService_Equals_FullMethodName              = "/adselection.SignedContextualAdsService/Equals"
+	SignedContextualAdsService_GetAdsWithBid_FullMethodName       = "/adselection.SignedContextualAdsService/GetAdsWithBid"
 	SignedContextualAdsService_GetBuyer_FullMethodName            = "/adselection.SignedContextualAdsService/GetBuyer"
 	SignedContextualAdsService_GetDecisionLogicUri_FullMethodName = "/adselection.SignedContextualAdsService/GetDecisionLogicUri"
 	SignedContextualAdsService_GetSignature_FullMethodName        = "/adselection.SignedContextualAdsService/GetSignature"
@@ -2820,11 +2256,12 @@ const (
 type SignedContextualAdsServiceClient interface {
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetAdsWithBid(ctx context.Context, in *GetAdsWithBidRequest, opts ...grpc.CallOption) (*GetAdsWithBidResponse, error)
 	GetBuyer(ctx context.Context, in *GetBuyerRequest, opts ...grpc.CallOption) (*GetBuyerResponse, error)
 	GetDecisionLogicUri(ctx context.Context, in *GetDecisionLogicUriRequest, opts ...grpc.CallOption) (*GetDecisionLogicUriResponse, error)
 	GetSignature(ctx context.Context, in *GetSignatureRequest, opts ...grpc.CallOption) (*GetSignatureResponse, error)
 	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	ToString(ctx context.Context, in *SignedContextualAdsToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
 	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
@@ -2850,6 +2287,16 @@ func (c *signedContextualAdsServiceClient) Equals(ctx context.Context, in *Equal
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
 	err := c.cc.Invoke(ctx, SignedContextualAdsService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *signedContextualAdsServiceClient) GetAdsWithBid(ctx context.Context, in *GetAdsWithBidRequest, opts ...grpc.CallOption) (*GetAdsWithBidResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAdsWithBidResponse)
+	err := c.cc.Invoke(ctx, SignedContextualAdsService_GetAdsWithBid_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -2896,7 +2343,7 @@ func (c *signedContextualAdsServiceClient) HashCode(ctx context.Context, in *Has
 	return out, nil
 }
 
-func (c *signedContextualAdsServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+func (c *signedContextualAdsServiceClient) ToString(ctx context.Context, in *SignedContextualAdsToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ToStringResponse)
 	err := c.cc.Invoke(ctx, SignedContextualAdsService_ToString_FullMethodName, in, out, cOpts...)
@@ -2922,11 +2369,12 @@ func (c *signedContextualAdsServiceClient) WriteToParcel(ctx context.Context, in
 type SignedContextualAdsServiceServer interface {
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
 	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetAdsWithBid(context.Context, *GetAdsWithBidRequest) (*GetAdsWithBidResponse, error)
 	GetBuyer(context.Context, *GetBuyerRequest) (*GetBuyerResponse, error)
 	GetDecisionLogicUri(context.Context, *GetDecisionLogicUriRequest) (*GetDecisionLogicUriResponse, error)
 	GetSignature(context.Context, *GetSignatureRequest) (*GetSignatureResponse, error)
 	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	ToString(context.Context, *SignedContextualAdsToStringRequest) (*ToStringResponse, error)
 	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
 	mustEmbedUnimplementedSignedContextualAdsServiceServer()
 }
@@ -2944,6 +2392,9 @@ func (UnimplementedSignedContextualAdsServiceServer) DescribeContents(context.Co
 func (UnimplementedSignedContextualAdsServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
+func (UnimplementedSignedContextualAdsServiceServer) GetAdsWithBid(context.Context, *GetAdsWithBidRequest) (*GetAdsWithBidResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAdsWithBid not implemented")
+}
 func (UnimplementedSignedContextualAdsServiceServer) GetBuyer(context.Context, *GetBuyerRequest) (*GetBuyerResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetBuyer not implemented")
 }
@@ -2956,7 +2407,7 @@ func (UnimplementedSignedContextualAdsServiceServer) GetSignature(context.Contex
 func (UnimplementedSignedContextualAdsServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
-func (UnimplementedSignedContextualAdsServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+func (UnimplementedSignedContextualAdsServiceServer) ToString(context.Context, *SignedContextualAdsToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
 func (UnimplementedSignedContextualAdsServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
@@ -3016,6 +2467,24 @@ func _SignedContextualAdsService_Equals_Handler(srv interface{}, ctx context.Con
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SignedContextualAdsServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SignedContextualAdsService_GetAdsWithBid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAdsWithBidRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SignedContextualAdsServiceServer).GetAdsWithBid(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SignedContextualAdsService_GetAdsWithBid_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SignedContextualAdsServiceServer).GetAdsWithBid(ctx, req.(*GetAdsWithBidRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3093,7 +2562,7 @@ func _SignedContextualAdsService_HashCode_Handler(srv interface{}, ctx context.C
 }
 
 func _SignedContextualAdsService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
+	in := new(SignedContextualAdsToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -3105,7 +2574,7 @@ func _SignedContextualAdsService_ToString_Handler(srv interface{}, ctx context.C
 		FullMethod: SignedContextualAdsService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SignedContextualAdsServiceServer).ToString(ctx, req.(*ToStringRequest))
+		return srv.(SignedContextualAdsServiceServer).ToString(ctx, req.(*SignedContextualAdsToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3142,6 +2611,10 @@ var SignedContextualAdsService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Equals",
 			Handler:    _SignedContextualAdsService_Equals_Handler,
+		},
+		{
+			MethodName: "GetAdsWithBid",
+			Handler:    _SignedContextualAdsService_GetAdsWithBid_Handler,
 		},
 		{
 			MethodName: "GetBuyer",
@@ -3390,330 +2863,292 @@ var SignedContextualAdsBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	AdSelectionFromOutcomesConfigService_DescribeContents_FullMethodName     = "/adselection.AdSelectionFromOutcomesConfigService/DescribeContents"
-	AdSelectionFromOutcomesConfigService_Equals_FullMethodName               = "/adselection.AdSelectionFromOutcomesConfigService/Equals"
-	AdSelectionFromOutcomesConfigService_GetSelectionLogicUri_FullMethodName = "/adselection.AdSelectionFromOutcomesConfigService/GetSelectionLogicUri"
-	AdSelectionFromOutcomesConfigService_GetSelectionSignals_FullMethodName  = "/adselection.AdSelectionFromOutcomesConfigService/GetSelectionSignals"
-	AdSelectionFromOutcomesConfigService_GetSeller_FullMethodName            = "/adselection.AdSelectionFromOutcomesConfigService/GetSeller"
-	AdSelectionFromOutcomesConfigService_HashCode_FullMethodName             = "/adselection.AdSelectionFromOutcomesConfigService/HashCode"
-	AdSelectionFromOutcomesConfigService_WriteToParcel_FullMethodName        = "/adselection.AdSelectionFromOutcomesConfigService/WriteToParcel"
+	SellerConfigurationService_DescribeContents_FullMethodName           = "/adselection.SellerConfigurationService/DescribeContents"
+	SellerConfigurationService_Equals_FullMethodName                     = "/adselection.SellerConfigurationService/Equals"
+	SellerConfigurationService_GetMaximumPayloadSizeBytes_FullMethodName = "/adselection.SellerConfigurationService/GetMaximumPayloadSizeBytes"
+	SellerConfigurationService_GetPerBuyerConfigurations_FullMethodName  = "/adselection.SellerConfigurationService/GetPerBuyerConfigurations"
+	SellerConfigurationService_HashCode_FullMethodName                   = "/adselection.SellerConfigurationService/HashCode"
+	SellerConfigurationService_WriteToParcel_FullMethodName              = "/adselection.SellerConfigurationService/WriteToParcel"
 )
 
-// AdSelectionFromOutcomesConfigServiceClient is the client API for AdSelectionFromOutcomesConfigService service.
+// SellerConfigurationServiceClient is the client API for SellerConfigurationService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AdSelectionFromOutcomesConfigServiceClient interface {
+type SellerConfigurationServiceClient interface {
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetSelectionLogicUri(ctx context.Context, in *GetSelectionLogicUriRequest, opts ...grpc.CallOption) (*GetSelectionLogicUriResponse, error)
-	GetSelectionSignals(ctx context.Context, in *GetSelectionSignalsRequest, opts ...grpc.CallOption) (*GetSelectionSignalsResponse, error)
-	GetSeller(ctx context.Context, in *GetSellerRequest, opts ...grpc.CallOption) (*GetSellerResponse, error)
+	GetMaximumPayloadSizeBytes(ctx context.Context, in *GetMaximumPayloadSizeBytesRequest, opts ...grpc.CallOption) (*GetMaximumPayloadSizeBytesResponse, error)
+	GetPerBuyerConfigurations(ctx context.Context, in *GetPerBuyerConfigurationsRequest, opts ...grpc.CallOption) (*GetPerBuyerConfigurationsResponse, error)
 	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type adSelectionFromOutcomesConfigServiceClient struct {
+type sellerConfigurationServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewAdSelectionFromOutcomesConfigServiceClient(cc grpc.ClientConnInterface) AdSelectionFromOutcomesConfigServiceClient {
-	return &adSelectionFromOutcomesConfigServiceClient{cc}
+func NewSellerConfigurationServiceClient(cc grpc.ClientConnInterface) SellerConfigurationServiceClient {
+	return &sellerConfigurationServiceClient{cc}
 }
 
-func (c *adSelectionFromOutcomesConfigServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *sellerConfigurationServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, AdSelectionFromOutcomesConfigService_DescribeContents_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, SellerConfigurationService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adSelectionFromOutcomesConfigServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *sellerConfigurationServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, AdSelectionFromOutcomesConfigService_Equals_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, SellerConfigurationService_Equals_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adSelectionFromOutcomesConfigServiceClient) GetSelectionLogicUri(ctx context.Context, in *GetSelectionLogicUriRequest, opts ...grpc.CallOption) (*GetSelectionLogicUriResponse, error) {
+func (c *sellerConfigurationServiceClient) GetMaximumPayloadSizeBytes(ctx context.Context, in *GetMaximumPayloadSizeBytesRequest, opts ...grpc.CallOption) (*GetMaximumPayloadSizeBytesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSelectionLogicUriResponse)
-	err := c.cc.Invoke(ctx, AdSelectionFromOutcomesConfigService_GetSelectionLogicUri_FullMethodName, in, out, cOpts...)
+	out := new(GetMaximumPayloadSizeBytesResponse)
+	err := c.cc.Invoke(ctx, SellerConfigurationService_GetMaximumPayloadSizeBytes_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adSelectionFromOutcomesConfigServiceClient) GetSelectionSignals(ctx context.Context, in *GetSelectionSignalsRequest, opts ...grpc.CallOption) (*GetSelectionSignalsResponse, error) {
+func (c *sellerConfigurationServiceClient) GetPerBuyerConfigurations(ctx context.Context, in *GetPerBuyerConfigurationsRequest, opts ...grpc.CallOption) (*GetPerBuyerConfigurationsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSelectionSignalsResponse)
-	err := c.cc.Invoke(ctx, AdSelectionFromOutcomesConfigService_GetSelectionSignals_FullMethodName, in, out, cOpts...)
+	out := new(GetPerBuyerConfigurationsResponse)
+	err := c.cc.Invoke(ctx, SellerConfigurationService_GetPerBuyerConfigurations_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adSelectionFromOutcomesConfigServiceClient) GetSeller(ctx context.Context, in *GetSellerRequest, opts ...grpc.CallOption) (*GetSellerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSellerResponse)
-	err := c.cc.Invoke(ctx, AdSelectionFromOutcomesConfigService_GetSeller_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *adSelectionFromOutcomesConfigServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *sellerConfigurationServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, AdSelectionFromOutcomesConfigService_HashCode_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, SellerConfigurationService_HashCode_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adSelectionFromOutcomesConfigServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *sellerConfigurationServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, AdSelectionFromOutcomesConfigService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, SellerConfigurationService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// AdSelectionFromOutcomesConfigServiceServer is the server API for AdSelectionFromOutcomesConfigService service.
-// All implementations must embed UnimplementedAdSelectionFromOutcomesConfigServiceServer
+// SellerConfigurationServiceServer is the server API for SellerConfigurationService service.
+// All implementations must embed UnimplementedSellerConfigurationServiceServer
 // for forward compatibility.
-type AdSelectionFromOutcomesConfigServiceServer interface {
+type SellerConfigurationServiceServer interface {
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
 	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetSelectionLogicUri(context.Context, *GetSelectionLogicUriRequest) (*GetSelectionLogicUriResponse, error)
-	GetSelectionSignals(context.Context, *GetSelectionSignalsRequest) (*GetSelectionSignalsResponse, error)
-	GetSeller(context.Context, *GetSellerRequest) (*GetSellerResponse, error)
+	GetMaximumPayloadSizeBytes(context.Context, *GetMaximumPayloadSizeBytesRequest) (*GetMaximumPayloadSizeBytesResponse, error)
+	GetPerBuyerConfigurations(context.Context, *GetPerBuyerConfigurationsRequest) (*GetPerBuyerConfigurationsResponse, error)
 	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
 	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedAdSelectionFromOutcomesConfigServiceServer()
+	mustEmbedUnimplementedSellerConfigurationServiceServer()
 }
 
-// UnimplementedAdSelectionFromOutcomesConfigServiceServer must be embedded to have
+// UnimplementedSellerConfigurationServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedAdSelectionFromOutcomesConfigServiceServer struct{}
+type UnimplementedSellerConfigurationServiceServer struct{}
 
-func (UnimplementedAdSelectionFromOutcomesConfigServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedSellerConfigurationServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedAdSelectionFromOutcomesConfigServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedSellerConfigurationServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedAdSelectionFromOutcomesConfigServiceServer) GetSelectionLogicUri(context.Context, *GetSelectionLogicUriRequest) (*GetSelectionLogicUriResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSelectionLogicUri not implemented")
+func (UnimplementedSellerConfigurationServiceServer) GetMaximumPayloadSizeBytes(context.Context, *GetMaximumPayloadSizeBytesRequest) (*GetMaximumPayloadSizeBytesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaximumPayloadSizeBytes not implemented")
 }
-func (UnimplementedAdSelectionFromOutcomesConfigServiceServer) GetSelectionSignals(context.Context, *GetSelectionSignalsRequest) (*GetSelectionSignalsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSelectionSignals not implemented")
+func (UnimplementedSellerConfigurationServiceServer) GetPerBuyerConfigurations(context.Context, *GetPerBuyerConfigurationsRequest) (*GetPerBuyerConfigurationsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPerBuyerConfigurations not implemented")
 }
-func (UnimplementedAdSelectionFromOutcomesConfigServiceServer) GetSeller(context.Context, *GetSellerRequest) (*GetSellerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSeller not implemented")
-}
-func (UnimplementedAdSelectionFromOutcomesConfigServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedSellerConfigurationServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
-func (UnimplementedAdSelectionFromOutcomesConfigServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedSellerConfigurationServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedAdSelectionFromOutcomesConfigServiceServer) mustEmbedUnimplementedAdSelectionFromOutcomesConfigServiceServer() {
+func (UnimplementedSellerConfigurationServiceServer) mustEmbedUnimplementedSellerConfigurationServiceServer() {
 }
-func (UnimplementedAdSelectionFromOutcomesConfigServiceServer) testEmbeddedByValue() {}
+func (UnimplementedSellerConfigurationServiceServer) testEmbeddedByValue() {}
 
-// UnsafeAdSelectionFromOutcomesConfigServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AdSelectionFromOutcomesConfigServiceServer will
+// UnsafeSellerConfigurationServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SellerConfigurationServiceServer will
 // result in compilation errors.
-type UnsafeAdSelectionFromOutcomesConfigServiceServer interface {
-	mustEmbedUnimplementedAdSelectionFromOutcomesConfigServiceServer()
+type UnsafeSellerConfigurationServiceServer interface {
+	mustEmbedUnimplementedSellerConfigurationServiceServer()
 }
 
-func RegisterAdSelectionFromOutcomesConfigServiceServer(s grpc.ServiceRegistrar, srv AdSelectionFromOutcomesConfigServiceServer) {
-	// If the following call panics, it indicates UnimplementedAdSelectionFromOutcomesConfigServiceServer was
+func RegisterSellerConfigurationServiceServer(s grpc.ServiceRegistrar, srv SellerConfigurationServiceServer) {
+	// If the following call panics, it indicates UnimplementedSellerConfigurationServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&AdSelectionFromOutcomesConfigService_ServiceDesc, srv)
+	s.RegisterService(&SellerConfigurationService_ServiceDesc, srv)
 }
 
-func _AdSelectionFromOutcomesConfigService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SellerConfigurationService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdSelectionFromOutcomesConfigServiceServer).DescribeContents(ctx, in)
+		return srv.(SellerConfigurationServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AdSelectionFromOutcomesConfigService_DescribeContents_FullMethodName,
+		FullMethod: SellerConfigurationService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionFromOutcomesConfigServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(SellerConfigurationServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdSelectionFromOutcomesConfigService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SellerConfigurationService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(EqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdSelectionFromOutcomesConfigServiceServer).Equals(ctx, in)
+		return srv.(SellerConfigurationServiceServer).Equals(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AdSelectionFromOutcomesConfigService_Equals_FullMethodName,
+		FullMethod: SellerConfigurationService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionFromOutcomesConfigServiceServer).Equals(ctx, req.(*EqualsRequest))
+		return srv.(SellerConfigurationServiceServer).Equals(ctx, req.(*EqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdSelectionFromOutcomesConfigService_GetSelectionLogicUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSelectionLogicUriRequest)
+func _SellerConfigurationService_GetMaximumPayloadSizeBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaximumPayloadSizeBytesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdSelectionFromOutcomesConfigServiceServer).GetSelectionLogicUri(ctx, in)
+		return srv.(SellerConfigurationServiceServer).GetMaximumPayloadSizeBytes(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AdSelectionFromOutcomesConfigService_GetSelectionLogicUri_FullMethodName,
+		FullMethod: SellerConfigurationService_GetMaximumPayloadSizeBytes_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionFromOutcomesConfigServiceServer).GetSelectionLogicUri(ctx, req.(*GetSelectionLogicUriRequest))
+		return srv.(SellerConfigurationServiceServer).GetMaximumPayloadSizeBytes(ctx, req.(*GetMaximumPayloadSizeBytesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdSelectionFromOutcomesConfigService_GetSelectionSignals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSelectionSignalsRequest)
+func _SellerConfigurationService_GetPerBuyerConfigurations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPerBuyerConfigurationsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdSelectionFromOutcomesConfigServiceServer).GetSelectionSignals(ctx, in)
+		return srv.(SellerConfigurationServiceServer).GetPerBuyerConfigurations(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AdSelectionFromOutcomesConfigService_GetSelectionSignals_FullMethodName,
+		FullMethod: SellerConfigurationService_GetPerBuyerConfigurations_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionFromOutcomesConfigServiceServer).GetSelectionSignals(ctx, req.(*GetSelectionSignalsRequest))
+		return srv.(SellerConfigurationServiceServer).GetPerBuyerConfigurations(ctx, req.(*GetPerBuyerConfigurationsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdSelectionFromOutcomesConfigService_GetSeller_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSellerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdSelectionFromOutcomesConfigServiceServer).GetSeller(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdSelectionFromOutcomesConfigService_GetSeller_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionFromOutcomesConfigServiceServer).GetSeller(ctx, req.(*GetSellerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AdSelectionFromOutcomesConfigService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SellerConfigurationService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(HashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdSelectionFromOutcomesConfigServiceServer).HashCode(ctx, in)
+		return srv.(SellerConfigurationServiceServer).HashCode(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AdSelectionFromOutcomesConfigService_HashCode_FullMethodName,
+		FullMethod: SellerConfigurationService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionFromOutcomesConfigServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+		return srv.(SellerConfigurationServiceServer).HashCode(ctx, req.(*HashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdSelectionFromOutcomesConfigService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SellerConfigurationService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdSelectionFromOutcomesConfigServiceServer).WriteToParcel(ctx, in)
+		return srv.(SellerConfigurationServiceServer).WriteToParcel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AdSelectionFromOutcomesConfigService_WriteToParcel_FullMethodName,
+		FullMethod: SellerConfigurationService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionFromOutcomesConfigServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(SellerConfigurationServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// AdSelectionFromOutcomesConfigService_ServiceDesc is the grpc.ServiceDesc for AdSelectionFromOutcomesConfigService service.
+// SellerConfigurationService_ServiceDesc is the grpc.ServiceDesc for SellerConfigurationService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var AdSelectionFromOutcomesConfigService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "adselection.AdSelectionFromOutcomesConfigService",
-	HandlerType: (*AdSelectionFromOutcomesConfigServiceServer)(nil),
+var SellerConfigurationService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "adselection.SellerConfigurationService",
+	HandlerType: (*SellerConfigurationServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "DescribeContents",
-			Handler:    _AdSelectionFromOutcomesConfigService_DescribeContents_Handler,
+			Handler:    _SellerConfigurationService_DescribeContents_Handler,
 		},
 		{
 			MethodName: "Equals",
-			Handler:    _AdSelectionFromOutcomesConfigService_Equals_Handler,
+			Handler:    _SellerConfigurationService_Equals_Handler,
 		},
 		{
-			MethodName: "GetSelectionLogicUri",
-			Handler:    _AdSelectionFromOutcomesConfigService_GetSelectionLogicUri_Handler,
+			MethodName: "GetMaximumPayloadSizeBytes",
+			Handler:    _SellerConfigurationService_GetMaximumPayloadSizeBytes_Handler,
 		},
 		{
-			MethodName: "GetSelectionSignals",
-			Handler:    _AdSelectionFromOutcomesConfigService_GetSelectionSignals_Handler,
-		},
-		{
-			MethodName: "GetSeller",
-			Handler:    _AdSelectionFromOutcomesConfigService_GetSeller_Handler,
+			MethodName: "GetPerBuyerConfigurations",
+			Handler:    _SellerConfigurationService_GetPerBuyerConfigurations_Handler,
 		},
 		{
 			MethodName: "HashCode",
-			Handler:    _AdSelectionFromOutcomesConfigService_HashCode_Handler,
+			Handler:    _SellerConfigurationService_HashCode_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _AdSelectionFromOutcomesConfigService_WriteToParcel_Handler,
+			Handler:    _SellerConfigurationService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -3721,216 +3156,140 @@ var AdSelectionFromOutcomesConfigService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	AdSelectionFromOutcomesConfigBuilderService_Build_FullMethodName                = "/adselection.AdSelectionFromOutcomesConfigBuilderService/Build"
-	AdSelectionFromOutcomesConfigBuilderService_SetSelectionLogicUri_FullMethodName = "/adselection.AdSelectionFromOutcomesConfigBuilderService/SetSelectionLogicUri"
-	AdSelectionFromOutcomesConfigBuilderService_SetSelectionSignals_FullMethodName  = "/adselection.AdSelectionFromOutcomesConfigBuilderService/SetSelectionSignals"
-	AdSelectionFromOutcomesConfigBuilderService_SetSeller_FullMethodName            = "/adselection.AdSelectionFromOutcomesConfigBuilderService/SetSeller"
+	SellerConfigurationBuilderService_Build_FullMethodName                      = "/adselection.SellerConfigurationBuilderService/Build"
+	SellerConfigurationBuilderService_SetMaximumPayloadSizeBytes_FullMethodName = "/adselection.SellerConfigurationBuilderService/SetMaximumPayloadSizeBytes"
 )
 
-// AdSelectionFromOutcomesConfigBuilderServiceClient is the client API for AdSelectionFromOutcomesConfigBuilderService service.
+// SellerConfigurationBuilderServiceClient is the client API for SellerConfigurationBuilderService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AdSelectionFromOutcomesConfigBuilderServiceClient interface {
+type SellerConfigurationBuilderServiceClient interface {
 	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetSelectionLogicUri(ctx context.Context, in *SetSelectionLogicUriRequest, opts ...grpc.CallOption) (*SetSelectionLogicUriResponse, error)
-	SetSelectionSignals(ctx context.Context, in *SetSelectionSignalsRequest, opts ...grpc.CallOption) (*SetSelectionSignalsResponse, error)
-	SetSeller(ctx context.Context, in *SetSellerRequest, opts ...grpc.CallOption) (*SetSellerResponse, error)
+	SetMaximumPayloadSizeBytes(ctx context.Context, in *SetMaximumPayloadSizeBytesRequest, opts ...grpc.CallOption) (*SetMaximumPayloadSizeBytesResponse, error)
 }
 
-type adSelectionFromOutcomesConfigBuilderServiceClient struct {
+type sellerConfigurationBuilderServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewAdSelectionFromOutcomesConfigBuilderServiceClient(cc grpc.ClientConnInterface) AdSelectionFromOutcomesConfigBuilderServiceClient {
-	return &adSelectionFromOutcomesConfigBuilderServiceClient{cc}
+func NewSellerConfigurationBuilderServiceClient(cc grpc.ClientConnInterface) SellerConfigurationBuilderServiceClient {
+	return &sellerConfigurationBuilderServiceClient{cc}
 }
 
-func (c *adSelectionFromOutcomesConfigBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+func (c *sellerConfigurationBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, AdSelectionFromOutcomesConfigBuilderService_Build_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, SellerConfigurationBuilderService_Build_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adSelectionFromOutcomesConfigBuilderServiceClient) SetSelectionLogicUri(ctx context.Context, in *SetSelectionLogicUriRequest, opts ...grpc.CallOption) (*SetSelectionLogicUriResponse, error) {
+func (c *sellerConfigurationBuilderServiceClient) SetMaximumPayloadSizeBytes(ctx context.Context, in *SetMaximumPayloadSizeBytesRequest, opts ...grpc.CallOption) (*SetMaximumPayloadSizeBytesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetSelectionLogicUriResponse)
-	err := c.cc.Invoke(ctx, AdSelectionFromOutcomesConfigBuilderService_SetSelectionLogicUri_FullMethodName, in, out, cOpts...)
+	out := new(SetMaximumPayloadSizeBytesResponse)
+	err := c.cc.Invoke(ctx, SellerConfigurationBuilderService_SetMaximumPayloadSizeBytes_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adSelectionFromOutcomesConfigBuilderServiceClient) SetSelectionSignals(ctx context.Context, in *SetSelectionSignalsRequest, opts ...grpc.CallOption) (*SetSelectionSignalsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetSelectionSignalsResponse)
-	err := c.cc.Invoke(ctx, AdSelectionFromOutcomesConfigBuilderService_SetSelectionSignals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *adSelectionFromOutcomesConfigBuilderServiceClient) SetSeller(ctx context.Context, in *SetSellerRequest, opts ...grpc.CallOption) (*SetSellerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetSellerResponse)
-	err := c.cc.Invoke(ctx, AdSelectionFromOutcomesConfigBuilderService_SetSeller_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AdSelectionFromOutcomesConfigBuilderServiceServer is the server API for AdSelectionFromOutcomesConfigBuilderService service.
-// All implementations must embed UnimplementedAdSelectionFromOutcomesConfigBuilderServiceServer
+// SellerConfigurationBuilderServiceServer is the server API for SellerConfigurationBuilderService service.
+// All implementations must embed UnimplementedSellerConfigurationBuilderServiceServer
 // for forward compatibility.
-type AdSelectionFromOutcomesConfigBuilderServiceServer interface {
+type SellerConfigurationBuilderServiceServer interface {
 	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetSelectionLogicUri(context.Context, *SetSelectionLogicUriRequest) (*SetSelectionLogicUriResponse, error)
-	SetSelectionSignals(context.Context, *SetSelectionSignalsRequest) (*SetSelectionSignalsResponse, error)
-	SetSeller(context.Context, *SetSellerRequest) (*SetSellerResponse, error)
-	mustEmbedUnimplementedAdSelectionFromOutcomesConfigBuilderServiceServer()
+	SetMaximumPayloadSizeBytes(context.Context, *SetMaximumPayloadSizeBytesRequest) (*SetMaximumPayloadSizeBytesResponse, error)
+	mustEmbedUnimplementedSellerConfigurationBuilderServiceServer()
 }
 
-// UnimplementedAdSelectionFromOutcomesConfigBuilderServiceServer must be embedded to have
+// UnimplementedSellerConfigurationBuilderServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedAdSelectionFromOutcomesConfigBuilderServiceServer struct{}
+type UnimplementedSellerConfigurationBuilderServiceServer struct{}
 
-func (UnimplementedAdSelectionFromOutcomesConfigBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+func (UnimplementedSellerConfigurationBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
 }
-func (UnimplementedAdSelectionFromOutcomesConfigBuilderServiceServer) SetSelectionLogicUri(context.Context, *SetSelectionLogicUriRequest) (*SetSelectionLogicUriResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetSelectionLogicUri not implemented")
+func (UnimplementedSellerConfigurationBuilderServiceServer) SetMaximumPayloadSizeBytes(context.Context, *SetMaximumPayloadSizeBytesRequest) (*SetMaximumPayloadSizeBytesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetMaximumPayloadSizeBytes not implemented")
 }
-func (UnimplementedAdSelectionFromOutcomesConfigBuilderServiceServer) SetSelectionSignals(context.Context, *SetSelectionSignalsRequest) (*SetSelectionSignalsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetSelectionSignals not implemented")
+func (UnimplementedSellerConfigurationBuilderServiceServer) mustEmbedUnimplementedSellerConfigurationBuilderServiceServer() {
 }
-func (UnimplementedAdSelectionFromOutcomesConfigBuilderServiceServer) SetSeller(context.Context, *SetSellerRequest) (*SetSellerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetSeller not implemented")
-}
-func (UnimplementedAdSelectionFromOutcomesConfigBuilderServiceServer) mustEmbedUnimplementedAdSelectionFromOutcomesConfigBuilderServiceServer() {
-}
-func (UnimplementedAdSelectionFromOutcomesConfigBuilderServiceServer) testEmbeddedByValue() {}
+func (UnimplementedSellerConfigurationBuilderServiceServer) testEmbeddedByValue() {}
 
-// UnsafeAdSelectionFromOutcomesConfigBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AdSelectionFromOutcomesConfigBuilderServiceServer will
+// UnsafeSellerConfigurationBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SellerConfigurationBuilderServiceServer will
 // result in compilation errors.
-type UnsafeAdSelectionFromOutcomesConfigBuilderServiceServer interface {
-	mustEmbedUnimplementedAdSelectionFromOutcomesConfigBuilderServiceServer()
+type UnsafeSellerConfigurationBuilderServiceServer interface {
+	mustEmbedUnimplementedSellerConfigurationBuilderServiceServer()
 }
 
-func RegisterAdSelectionFromOutcomesConfigBuilderServiceServer(s grpc.ServiceRegistrar, srv AdSelectionFromOutcomesConfigBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedAdSelectionFromOutcomesConfigBuilderServiceServer was
+func RegisterSellerConfigurationBuilderServiceServer(s grpc.ServiceRegistrar, srv SellerConfigurationBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedSellerConfigurationBuilderServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&AdSelectionFromOutcomesConfigBuilderService_ServiceDesc, srv)
+	s.RegisterService(&SellerConfigurationBuilderService_ServiceDesc, srv)
 }
 
-func _AdSelectionFromOutcomesConfigBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _SellerConfigurationBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(BuildRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdSelectionFromOutcomesConfigBuilderServiceServer).Build(ctx, in)
+		return srv.(SellerConfigurationBuilderServiceServer).Build(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AdSelectionFromOutcomesConfigBuilderService_Build_FullMethodName,
+		FullMethod: SellerConfigurationBuilderService_Build_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionFromOutcomesConfigBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+		return srv.(SellerConfigurationBuilderServiceServer).Build(ctx, req.(*BuildRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdSelectionFromOutcomesConfigBuilderService_SetSelectionLogicUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetSelectionLogicUriRequest)
+func _SellerConfigurationBuilderService_SetMaximumPayloadSizeBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetMaximumPayloadSizeBytesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdSelectionFromOutcomesConfigBuilderServiceServer).SetSelectionLogicUri(ctx, in)
+		return srv.(SellerConfigurationBuilderServiceServer).SetMaximumPayloadSizeBytes(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AdSelectionFromOutcomesConfigBuilderService_SetSelectionLogicUri_FullMethodName,
+		FullMethod: SellerConfigurationBuilderService_SetMaximumPayloadSizeBytes_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionFromOutcomesConfigBuilderServiceServer).SetSelectionLogicUri(ctx, req.(*SetSelectionLogicUriRequest))
+		return srv.(SellerConfigurationBuilderServiceServer).SetMaximumPayloadSizeBytes(ctx, req.(*SetMaximumPayloadSizeBytesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdSelectionFromOutcomesConfigBuilderService_SetSelectionSignals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetSelectionSignalsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdSelectionFromOutcomesConfigBuilderServiceServer).SetSelectionSignals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdSelectionFromOutcomesConfigBuilderService_SetSelectionSignals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionFromOutcomesConfigBuilderServiceServer).SetSelectionSignals(ctx, req.(*SetSelectionSignalsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AdSelectionFromOutcomesConfigBuilderService_SetSeller_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetSellerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdSelectionFromOutcomesConfigBuilderServiceServer).SetSeller(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdSelectionFromOutcomesConfigBuilderService_SetSeller_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionFromOutcomesConfigBuilderServiceServer).SetSeller(ctx, req.(*SetSellerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AdSelectionFromOutcomesConfigBuilderService_ServiceDesc is the grpc.ServiceDesc for AdSelectionFromOutcomesConfigBuilderService service.
+// SellerConfigurationBuilderService_ServiceDesc is the grpc.ServiceDesc for SellerConfigurationBuilderService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var AdSelectionFromOutcomesConfigBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "adselection.AdSelectionFromOutcomesConfigBuilderService",
-	HandlerType: (*AdSelectionFromOutcomesConfigBuilderServiceServer)(nil),
+var SellerConfigurationBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "adselection.SellerConfigurationBuilderService",
+	HandlerType: (*SellerConfigurationBuilderServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Build",
-			Handler:    _AdSelectionFromOutcomesConfigBuilderService_Build_Handler,
+			Handler:    _SellerConfigurationBuilderService_Build_Handler,
 		},
 		{
-			MethodName: "SetSelectionLogicUri",
-			Handler:    _AdSelectionFromOutcomesConfigBuilderService_SetSelectionLogicUri_Handler,
-		},
-		{
-			MethodName: "SetSelectionSignals",
-			Handler:    _AdSelectionFromOutcomesConfigBuilderService_SetSelectionSignals_Handler,
-		},
-		{
-			MethodName: "SetSeller",
-			Handler:    _AdSelectionFromOutcomesConfigBuilderService_SetSeller_Handler,
+			MethodName: "SetMaximumPayloadSizeBytes",
+			Handler:    _SellerConfigurationBuilderService_SetMaximumPayloadSizeBytes_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -3938,216 +3297,981 @@ var AdSelectionFromOutcomesConfigBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	AddAdSelectionFromOutcomesOverrideRequestService_NewAddAdSelectionFromOutcomesOverrideRequest_FullMethodName = "/adselection.AddAdSelectionFromOutcomesOverrideRequestService/NewAddAdSelectionFromOutcomesOverrideRequest"
-	AddAdSelectionFromOutcomesOverrideRequestService_GetAdSelectionFromOutcomesConfig_FullMethodName             = "/adselection.AddAdSelectionFromOutcomesOverrideRequestService/GetAdSelectionFromOutcomesConfig"
-	AddAdSelectionFromOutcomesOverrideRequestService_GetOutcomeSelectionLogicJs_FullMethodName                   = "/adselection.AddAdSelectionFromOutcomesOverrideRequestService/GetOutcomeSelectionLogicJs"
-	AddAdSelectionFromOutcomesOverrideRequestService_GetOutcomeSelectionTrustedSignals_FullMethodName            = "/adselection.AddAdSelectionFromOutcomesOverrideRequestService/GetOutcomeSelectionTrustedSignals"
+	AdSelectionOutcomeService_Equals_FullMethodName             = "/adselection.AdSelectionOutcomeService/Equals"
+	AdSelectionOutcomeService_GetAdSelectionId_FullMethodName   = "/adselection.AdSelectionOutcomeService/GetAdSelectionId"
+	AdSelectionOutcomeService_GetComponentAdUris_FullMethodName = "/adselection.AdSelectionOutcomeService/GetComponentAdUris"
+	AdSelectionOutcomeService_GetRenderUri_FullMethodName       = "/adselection.AdSelectionOutcomeService/GetRenderUri"
+	AdSelectionOutcomeService_GetWinningSeller_FullMethodName   = "/adselection.AdSelectionOutcomeService/GetWinningSeller"
+	AdSelectionOutcomeService_HasOutcome_FullMethodName         = "/adselection.AdSelectionOutcomeService/HasOutcome"
+	AdSelectionOutcomeService_HashCode_FullMethodName           = "/adselection.AdSelectionOutcomeService/HashCode"
 )
 
-// AddAdSelectionFromOutcomesOverrideRequestServiceClient is the client API for AddAdSelectionFromOutcomesOverrideRequestService service.
+// AdSelectionOutcomeServiceClient is the client API for AdSelectionOutcomeService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AddAdSelectionFromOutcomesOverrideRequestServiceClient interface {
-	NewAddAdSelectionFromOutcomesOverrideRequest(ctx context.Context, in *NewAddAdSelectionFromOutcomesOverrideRequestRequest, opts ...grpc.CallOption) (*NewAddAdSelectionFromOutcomesOverrideRequestResponse, error)
-	GetAdSelectionFromOutcomesConfig(ctx context.Context, in *GetAdSelectionFromOutcomesConfigRequest, opts ...grpc.CallOption) (*GetAdSelectionFromOutcomesConfigResponse, error)
-	GetOutcomeSelectionLogicJs(ctx context.Context, in *GetOutcomeSelectionLogicJsRequest, opts ...grpc.CallOption) (*GetOutcomeSelectionLogicJsResponse, error)
-	GetOutcomeSelectionTrustedSignals(ctx context.Context, in *GetOutcomeSelectionTrustedSignalsRequest, opts ...grpc.CallOption) (*GetOutcomeSelectionTrustedSignalsResponse, error)
+type AdSelectionOutcomeServiceClient interface {
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetAdSelectionId(ctx context.Context, in *GetAdSelectionIdRequest, opts ...grpc.CallOption) (*GetAdSelectionIdResponse, error)
+	GetComponentAdUris(ctx context.Context, in *GetComponentAdUrisRequest, opts ...grpc.CallOption) (*GetComponentAdUrisResponse, error)
+	GetRenderUri(ctx context.Context, in *GetRenderUriRequest, opts ...grpc.CallOption) (*GetRenderUriResponse, error)
+	GetWinningSeller(ctx context.Context, in *GetWinningSellerRequest, opts ...grpc.CallOption) (*GetWinningSellerResponse, error)
+	HasOutcome(ctx context.Context, in *HasOutcomeRequest, opts ...grpc.CallOption) (*HasOutcomeResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 }
 
-type addAdSelectionFromOutcomesOverrideRequestServiceClient struct {
+type adSelectionOutcomeServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewAddAdSelectionFromOutcomesOverrideRequestServiceClient(cc grpc.ClientConnInterface) AddAdSelectionFromOutcomesOverrideRequestServiceClient {
-	return &addAdSelectionFromOutcomesOverrideRequestServiceClient{cc}
+func NewAdSelectionOutcomeServiceClient(cc grpc.ClientConnInterface) AdSelectionOutcomeServiceClient {
+	return &adSelectionOutcomeServiceClient{cc}
 }
 
-func (c *addAdSelectionFromOutcomesOverrideRequestServiceClient) NewAddAdSelectionFromOutcomesOverrideRequest(ctx context.Context, in *NewAddAdSelectionFromOutcomesOverrideRequestRequest, opts ...grpc.CallOption) (*NewAddAdSelectionFromOutcomesOverrideRequestResponse, error) {
+func (c *adSelectionOutcomeServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewAddAdSelectionFromOutcomesOverrideRequestResponse)
-	err := c.cc.Invoke(ctx, AddAdSelectionFromOutcomesOverrideRequestService_NewAddAdSelectionFromOutcomesOverrideRequest_FullMethodName, in, out, cOpts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, AdSelectionOutcomeService_Equals_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *addAdSelectionFromOutcomesOverrideRequestServiceClient) GetAdSelectionFromOutcomesConfig(ctx context.Context, in *GetAdSelectionFromOutcomesConfigRequest, opts ...grpc.CallOption) (*GetAdSelectionFromOutcomesConfigResponse, error) {
+func (c *adSelectionOutcomeServiceClient) GetAdSelectionId(ctx context.Context, in *GetAdSelectionIdRequest, opts ...grpc.CallOption) (*GetAdSelectionIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAdSelectionFromOutcomesConfigResponse)
-	err := c.cc.Invoke(ctx, AddAdSelectionFromOutcomesOverrideRequestService_GetAdSelectionFromOutcomesConfig_FullMethodName, in, out, cOpts...)
+	out := new(GetAdSelectionIdResponse)
+	err := c.cc.Invoke(ctx, AdSelectionOutcomeService_GetAdSelectionId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *addAdSelectionFromOutcomesOverrideRequestServiceClient) GetOutcomeSelectionLogicJs(ctx context.Context, in *GetOutcomeSelectionLogicJsRequest, opts ...grpc.CallOption) (*GetOutcomeSelectionLogicJsResponse, error) {
+func (c *adSelectionOutcomeServiceClient) GetComponentAdUris(ctx context.Context, in *GetComponentAdUrisRequest, opts ...grpc.CallOption) (*GetComponentAdUrisResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetOutcomeSelectionLogicJsResponse)
-	err := c.cc.Invoke(ctx, AddAdSelectionFromOutcomesOverrideRequestService_GetOutcomeSelectionLogicJs_FullMethodName, in, out, cOpts...)
+	out := new(GetComponentAdUrisResponse)
+	err := c.cc.Invoke(ctx, AdSelectionOutcomeService_GetComponentAdUris_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *addAdSelectionFromOutcomesOverrideRequestServiceClient) GetOutcomeSelectionTrustedSignals(ctx context.Context, in *GetOutcomeSelectionTrustedSignalsRequest, opts ...grpc.CallOption) (*GetOutcomeSelectionTrustedSignalsResponse, error) {
+func (c *adSelectionOutcomeServiceClient) GetRenderUri(ctx context.Context, in *GetRenderUriRequest, opts ...grpc.CallOption) (*GetRenderUriResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetOutcomeSelectionTrustedSignalsResponse)
-	err := c.cc.Invoke(ctx, AddAdSelectionFromOutcomesOverrideRequestService_GetOutcomeSelectionTrustedSignals_FullMethodName, in, out, cOpts...)
+	out := new(GetRenderUriResponse)
+	err := c.cc.Invoke(ctx, AdSelectionOutcomeService_GetRenderUri_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// AddAdSelectionFromOutcomesOverrideRequestServiceServer is the server API for AddAdSelectionFromOutcomesOverrideRequestService service.
-// All implementations must embed UnimplementedAddAdSelectionFromOutcomesOverrideRequestServiceServer
+func (c *adSelectionOutcomeServiceClient) GetWinningSeller(ctx context.Context, in *GetWinningSellerRequest, opts ...grpc.CallOption) (*GetWinningSellerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWinningSellerResponse)
+	err := c.cc.Invoke(ctx, AdSelectionOutcomeService_GetWinningSeller_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adSelectionOutcomeServiceClient) HasOutcome(ctx context.Context, in *HasOutcomeRequest, opts ...grpc.CallOption) (*HasOutcomeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HasOutcomeResponse)
+	err := c.cc.Invoke(ctx, AdSelectionOutcomeService_HasOutcome_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adSelectionOutcomeServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, AdSelectionOutcomeService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AdSelectionOutcomeServiceServer is the server API for AdSelectionOutcomeService service.
+// All implementations must embed UnimplementedAdSelectionOutcomeServiceServer
 // for forward compatibility.
-type AddAdSelectionFromOutcomesOverrideRequestServiceServer interface {
-	NewAddAdSelectionFromOutcomesOverrideRequest(context.Context, *NewAddAdSelectionFromOutcomesOverrideRequestRequest) (*NewAddAdSelectionFromOutcomesOverrideRequestResponse, error)
-	GetAdSelectionFromOutcomesConfig(context.Context, *GetAdSelectionFromOutcomesConfigRequest) (*GetAdSelectionFromOutcomesConfigResponse, error)
-	GetOutcomeSelectionLogicJs(context.Context, *GetOutcomeSelectionLogicJsRequest) (*GetOutcomeSelectionLogicJsResponse, error)
-	GetOutcomeSelectionTrustedSignals(context.Context, *GetOutcomeSelectionTrustedSignalsRequest) (*GetOutcomeSelectionTrustedSignalsResponse, error)
-	mustEmbedUnimplementedAddAdSelectionFromOutcomesOverrideRequestServiceServer()
+type AdSelectionOutcomeServiceServer interface {
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetAdSelectionId(context.Context, *GetAdSelectionIdRequest) (*GetAdSelectionIdResponse, error)
+	GetComponentAdUris(context.Context, *GetComponentAdUrisRequest) (*GetComponentAdUrisResponse, error)
+	GetRenderUri(context.Context, *GetRenderUriRequest) (*GetRenderUriResponse, error)
+	GetWinningSeller(context.Context, *GetWinningSellerRequest) (*GetWinningSellerResponse, error)
+	HasOutcome(context.Context, *HasOutcomeRequest) (*HasOutcomeResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	mustEmbedUnimplementedAdSelectionOutcomeServiceServer()
 }
 
-// UnimplementedAddAdSelectionFromOutcomesOverrideRequestServiceServer must be embedded to have
+// UnimplementedAdSelectionOutcomeServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedAddAdSelectionFromOutcomesOverrideRequestServiceServer struct{}
+type UnimplementedAdSelectionOutcomeServiceServer struct{}
 
-func (UnimplementedAddAdSelectionFromOutcomesOverrideRequestServiceServer) NewAddAdSelectionFromOutcomesOverrideRequest(context.Context, *NewAddAdSelectionFromOutcomesOverrideRequestRequest) (*NewAddAdSelectionFromOutcomesOverrideRequestResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewAddAdSelectionFromOutcomesOverrideRequest not implemented")
+func (UnimplementedAdSelectionOutcomeServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedAddAdSelectionFromOutcomesOverrideRequestServiceServer) GetAdSelectionFromOutcomesConfig(context.Context, *GetAdSelectionFromOutcomesConfigRequest) (*GetAdSelectionFromOutcomesConfigResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAdSelectionFromOutcomesConfig not implemented")
+func (UnimplementedAdSelectionOutcomeServiceServer) GetAdSelectionId(context.Context, *GetAdSelectionIdRequest) (*GetAdSelectionIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAdSelectionId not implemented")
 }
-func (UnimplementedAddAdSelectionFromOutcomesOverrideRequestServiceServer) GetOutcomeSelectionLogicJs(context.Context, *GetOutcomeSelectionLogicJsRequest) (*GetOutcomeSelectionLogicJsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetOutcomeSelectionLogicJs not implemented")
+func (UnimplementedAdSelectionOutcomeServiceServer) GetComponentAdUris(context.Context, *GetComponentAdUrisRequest) (*GetComponentAdUrisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetComponentAdUris not implemented")
 }
-func (UnimplementedAddAdSelectionFromOutcomesOverrideRequestServiceServer) GetOutcomeSelectionTrustedSignals(context.Context, *GetOutcomeSelectionTrustedSignalsRequest) (*GetOutcomeSelectionTrustedSignalsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetOutcomeSelectionTrustedSignals not implemented")
+func (UnimplementedAdSelectionOutcomeServiceServer) GetRenderUri(context.Context, *GetRenderUriRequest) (*GetRenderUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRenderUri not implemented")
 }
-func (UnimplementedAddAdSelectionFromOutcomesOverrideRequestServiceServer) mustEmbedUnimplementedAddAdSelectionFromOutcomesOverrideRequestServiceServer() {
+func (UnimplementedAdSelectionOutcomeServiceServer) GetWinningSeller(context.Context, *GetWinningSellerRequest) (*GetWinningSellerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWinningSeller not implemented")
 }
-func (UnimplementedAddAdSelectionFromOutcomesOverrideRequestServiceServer) testEmbeddedByValue() {}
+func (UnimplementedAdSelectionOutcomeServiceServer) HasOutcome(context.Context, *HasOutcomeRequest) (*HasOutcomeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasOutcome not implemented")
+}
+func (UnimplementedAdSelectionOutcomeServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedAdSelectionOutcomeServiceServer) mustEmbedUnimplementedAdSelectionOutcomeServiceServer() {
+}
+func (UnimplementedAdSelectionOutcomeServiceServer) testEmbeddedByValue() {}
 
-// UnsafeAddAdSelectionFromOutcomesOverrideRequestServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AddAdSelectionFromOutcomesOverrideRequestServiceServer will
+// UnsafeAdSelectionOutcomeServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AdSelectionOutcomeServiceServer will
 // result in compilation errors.
-type UnsafeAddAdSelectionFromOutcomesOverrideRequestServiceServer interface {
-	mustEmbedUnimplementedAddAdSelectionFromOutcomesOverrideRequestServiceServer()
+type UnsafeAdSelectionOutcomeServiceServer interface {
+	mustEmbedUnimplementedAdSelectionOutcomeServiceServer()
 }
 
-func RegisterAddAdSelectionFromOutcomesOverrideRequestServiceServer(s grpc.ServiceRegistrar, srv AddAdSelectionFromOutcomesOverrideRequestServiceServer) {
-	// If the following call panics, it indicates UnimplementedAddAdSelectionFromOutcomesOverrideRequestServiceServer was
+func RegisterAdSelectionOutcomeServiceServer(s grpc.ServiceRegistrar, srv AdSelectionOutcomeServiceServer) {
+	// If the following call panics, it indicates UnimplementedAdSelectionOutcomeServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&AddAdSelectionFromOutcomesOverrideRequestService_ServiceDesc, srv)
+	s.RegisterService(&AdSelectionOutcomeService_ServiceDesc, srv)
 }
 
-func _AddAdSelectionFromOutcomesOverrideRequestService_NewAddAdSelectionFromOutcomesOverrideRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewAddAdSelectionFromOutcomesOverrideRequestRequest)
+func _AdSelectionOutcomeService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AddAdSelectionFromOutcomesOverrideRequestServiceServer).NewAddAdSelectionFromOutcomesOverrideRequest(ctx, in)
+		return srv.(AdSelectionOutcomeServiceServer).Equals(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AddAdSelectionFromOutcomesOverrideRequestService_NewAddAdSelectionFromOutcomesOverrideRequest_FullMethodName,
+		FullMethod: AdSelectionOutcomeService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AddAdSelectionFromOutcomesOverrideRequestServiceServer).NewAddAdSelectionFromOutcomesOverrideRequest(ctx, req.(*NewAddAdSelectionFromOutcomesOverrideRequestRequest))
+		return srv.(AdSelectionOutcomeServiceServer).Equals(ctx, req.(*EqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AddAdSelectionFromOutcomesOverrideRequestService_GetAdSelectionFromOutcomesConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAdSelectionFromOutcomesConfigRequest)
+func _AdSelectionOutcomeService_GetAdSelectionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAdSelectionIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AddAdSelectionFromOutcomesOverrideRequestServiceServer).GetAdSelectionFromOutcomesConfig(ctx, in)
+		return srv.(AdSelectionOutcomeServiceServer).GetAdSelectionId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AddAdSelectionFromOutcomesOverrideRequestService_GetAdSelectionFromOutcomesConfig_FullMethodName,
+		FullMethod: AdSelectionOutcomeService_GetAdSelectionId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AddAdSelectionFromOutcomesOverrideRequestServiceServer).GetAdSelectionFromOutcomesConfig(ctx, req.(*GetAdSelectionFromOutcomesConfigRequest))
+		return srv.(AdSelectionOutcomeServiceServer).GetAdSelectionId(ctx, req.(*GetAdSelectionIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AddAdSelectionFromOutcomesOverrideRequestService_GetOutcomeSelectionLogicJs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetOutcomeSelectionLogicJsRequest)
+func _AdSelectionOutcomeService_GetComponentAdUris_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetComponentAdUrisRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AddAdSelectionFromOutcomesOverrideRequestServiceServer).GetOutcomeSelectionLogicJs(ctx, in)
+		return srv.(AdSelectionOutcomeServiceServer).GetComponentAdUris(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AddAdSelectionFromOutcomesOverrideRequestService_GetOutcomeSelectionLogicJs_FullMethodName,
+		FullMethod: AdSelectionOutcomeService_GetComponentAdUris_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AddAdSelectionFromOutcomesOverrideRequestServiceServer).GetOutcomeSelectionLogicJs(ctx, req.(*GetOutcomeSelectionLogicJsRequest))
+		return srv.(AdSelectionOutcomeServiceServer).GetComponentAdUris(ctx, req.(*GetComponentAdUrisRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AddAdSelectionFromOutcomesOverrideRequestService_GetOutcomeSelectionTrustedSignals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetOutcomeSelectionTrustedSignalsRequest)
+func _AdSelectionOutcomeService_GetRenderUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRenderUriRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AddAdSelectionFromOutcomesOverrideRequestServiceServer).GetOutcomeSelectionTrustedSignals(ctx, in)
+		return srv.(AdSelectionOutcomeServiceServer).GetRenderUri(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AddAdSelectionFromOutcomesOverrideRequestService_GetOutcomeSelectionTrustedSignals_FullMethodName,
+		FullMethod: AdSelectionOutcomeService_GetRenderUri_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AddAdSelectionFromOutcomesOverrideRequestServiceServer).GetOutcomeSelectionTrustedSignals(ctx, req.(*GetOutcomeSelectionTrustedSignalsRequest))
+		return srv.(AdSelectionOutcomeServiceServer).GetRenderUri(ctx, req.(*GetRenderUriRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// AddAdSelectionFromOutcomesOverrideRequestService_ServiceDesc is the grpc.ServiceDesc for AddAdSelectionFromOutcomesOverrideRequestService service.
+func _AdSelectionOutcomeService_GetWinningSeller_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWinningSellerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdSelectionOutcomeServiceServer).GetWinningSeller(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdSelectionOutcomeService_GetWinningSeller_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdSelectionOutcomeServiceServer).GetWinningSeller(ctx, req.(*GetWinningSellerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdSelectionOutcomeService_HasOutcome_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasOutcomeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdSelectionOutcomeServiceServer).HasOutcome(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdSelectionOutcomeService_HasOutcome_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdSelectionOutcomeServiceServer).HasOutcome(ctx, req.(*HasOutcomeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdSelectionOutcomeService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdSelectionOutcomeServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdSelectionOutcomeService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdSelectionOutcomeServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AdSelectionOutcomeService_ServiceDesc is the grpc.ServiceDesc for AdSelectionOutcomeService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var AddAdSelectionFromOutcomesOverrideRequestService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "adselection.AddAdSelectionFromOutcomesOverrideRequestService",
-	HandlerType: (*AddAdSelectionFromOutcomesOverrideRequestServiceServer)(nil),
+var AdSelectionOutcomeService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "adselection.AdSelectionOutcomeService",
+	HandlerType: (*AdSelectionOutcomeServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewAddAdSelectionFromOutcomesOverrideRequest",
-			Handler:    _AddAdSelectionFromOutcomesOverrideRequestService_NewAddAdSelectionFromOutcomesOverrideRequest_Handler,
+			MethodName: "Equals",
+			Handler:    _AdSelectionOutcomeService_Equals_Handler,
 		},
 		{
-			MethodName: "GetAdSelectionFromOutcomesConfig",
-			Handler:    _AddAdSelectionFromOutcomesOverrideRequestService_GetAdSelectionFromOutcomesConfig_Handler,
+			MethodName: "GetAdSelectionId",
+			Handler:    _AdSelectionOutcomeService_GetAdSelectionId_Handler,
 		},
 		{
-			MethodName: "GetOutcomeSelectionLogicJs",
-			Handler:    _AddAdSelectionFromOutcomesOverrideRequestService_GetOutcomeSelectionLogicJs_Handler,
+			MethodName: "GetComponentAdUris",
+			Handler:    _AdSelectionOutcomeService_GetComponentAdUris_Handler,
 		},
 		{
-			MethodName: "GetOutcomeSelectionTrustedSignals",
-			Handler:    _AddAdSelectionFromOutcomesOverrideRequestService_GetOutcomeSelectionTrustedSignals_Handler,
+			MethodName: "GetRenderUri",
+			Handler:    _AdSelectionOutcomeService_GetRenderUri_Handler,
+		},
+		{
+			MethodName: "GetWinningSeller",
+			Handler:    _AdSelectionOutcomeService_GetWinningSeller_Handler,
+		},
+		{
+			MethodName: "HasOutcome",
+			Handler:    _AdSelectionOutcomeService_HasOutcome_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _AdSelectionOutcomeService_HashCode_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/adselection/adselection.proto",
+}
+
+const (
+	AdSelectionOutcomeBuilderService_Build_FullMethodName            = "/adselection.AdSelectionOutcomeBuilderService/Build"
+	AdSelectionOutcomeBuilderService_SetAdSelectionId_FullMethodName = "/adselection.AdSelectionOutcomeBuilderService/SetAdSelectionId"
+	AdSelectionOutcomeBuilderService_SetRenderUri_FullMethodName     = "/adselection.AdSelectionOutcomeBuilderService/SetRenderUri"
+)
+
+// AdSelectionOutcomeBuilderServiceClient is the client API for AdSelectionOutcomeBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AdSelectionOutcomeBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetAdSelectionId(ctx context.Context, in *SetAdSelectionIdRequest, opts ...grpc.CallOption) (*SetAdSelectionIdResponse, error)
+	SetRenderUri(ctx context.Context, in *SetRenderUriRequest, opts ...grpc.CallOption) (*SetRenderUriResponse, error)
+}
+
+type adSelectionOutcomeBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAdSelectionOutcomeBuilderServiceClient(cc grpc.ClientConnInterface) AdSelectionOutcomeBuilderServiceClient {
+	return &adSelectionOutcomeBuilderServiceClient{cc}
+}
+
+func (c *adSelectionOutcomeBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, AdSelectionOutcomeBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adSelectionOutcomeBuilderServiceClient) SetAdSelectionId(ctx context.Context, in *SetAdSelectionIdRequest, opts ...grpc.CallOption) (*SetAdSelectionIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAdSelectionIdResponse)
+	err := c.cc.Invoke(ctx, AdSelectionOutcomeBuilderService_SetAdSelectionId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adSelectionOutcomeBuilderServiceClient) SetRenderUri(ctx context.Context, in *SetRenderUriRequest, opts ...grpc.CallOption) (*SetRenderUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetRenderUriResponse)
+	err := c.cc.Invoke(ctx, AdSelectionOutcomeBuilderService_SetRenderUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AdSelectionOutcomeBuilderServiceServer is the server API for AdSelectionOutcomeBuilderService service.
+// All implementations must embed UnimplementedAdSelectionOutcomeBuilderServiceServer
+// for forward compatibility.
+type AdSelectionOutcomeBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetAdSelectionId(context.Context, *SetAdSelectionIdRequest) (*SetAdSelectionIdResponse, error)
+	SetRenderUri(context.Context, *SetRenderUriRequest) (*SetRenderUriResponse, error)
+	mustEmbedUnimplementedAdSelectionOutcomeBuilderServiceServer()
+}
+
+// UnimplementedAdSelectionOutcomeBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAdSelectionOutcomeBuilderServiceServer struct{}
+
+func (UnimplementedAdSelectionOutcomeBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedAdSelectionOutcomeBuilderServiceServer) SetAdSelectionId(context.Context, *SetAdSelectionIdRequest) (*SetAdSelectionIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAdSelectionId not implemented")
+}
+func (UnimplementedAdSelectionOutcomeBuilderServiceServer) SetRenderUri(context.Context, *SetRenderUriRequest) (*SetRenderUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetRenderUri not implemented")
+}
+func (UnimplementedAdSelectionOutcomeBuilderServiceServer) mustEmbedUnimplementedAdSelectionOutcomeBuilderServiceServer() {
+}
+func (UnimplementedAdSelectionOutcomeBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAdSelectionOutcomeBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AdSelectionOutcomeBuilderServiceServer will
+// result in compilation errors.
+type UnsafeAdSelectionOutcomeBuilderServiceServer interface {
+	mustEmbedUnimplementedAdSelectionOutcomeBuilderServiceServer()
+}
+
+func RegisterAdSelectionOutcomeBuilderServiceServer(s grpc.ServiceRegistrar, srv AdSelectionOutcomeBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedAdSelectionOutcomeBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AdSelectionOutcomeBuilderService_ServiceDesc, srv)
+}
+
+func _AdSelectionOutcomeBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdSelectionOutcomeBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdSelectionOutcomeBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdSelectionOutcomeBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdSelectionOutcomeBuilderService_SetAdSelectionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAdSelectionIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdSelectionOutcomeBuilderServiceServer).SetAdSelectionId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdSelectionOutcomeBuilderService_SetAdSelectionId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdSelectionOutcomeBuilderServiceServer).SetAdSelectionId(ctx, req.(*SetAdSelectionIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdSelectionOutcomeBuilderService_SetRenderUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetRenderUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdSelectionOutcomeBuilderServiceServer).SetRenderUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdSelectionOutcomeBuilderService_SetRenderUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdSelectionOutcomeBuilderServiceServer).SetRenderUri(ctx, req.(*SetRenderUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AdSelectionOutcomeBuilderService_ServiceDesc is the grpc.ServiceDesc for AdSelectionOutcomeBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AdSelectionOutcomeBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "adselection.AdSelectionOutcomeBuilderService",
+	HandlerType: (*AdSelectionOutcomeBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _AdSelectionOutcomeBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetAdSelectionId",
+			Handler:    _AdSelectionOutcomeBuilderService_SetAdSelectionId_Handler,
+		},
+		{
+			MethodName: "SetRenderUri",
+			Handler:    _AdSelectionOutcomeBuilderService_SetRenderUri_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/adselection/adselection.proto",
+}
+
+const (
+	PerBuyerConfigurationService_DescribeContents_FullMethodName        = "/adselection.PerBuyerConfigurationService/DescribeContents"
+	PerBuyerConfigurationService_Equals_FullMethodName                  = "/adselection.PerBuyerConfigurationService/Equals"
+	PerBuyerConfigurationService_GetBuyer_FullMethodName                = "/adselection.PerBuyerConfigurationService/GetBuyer"
+	PerBuyerConfigurationService_GetTargetInputSizeBytes_FullMethodName = "/adselection.PerBuyerConfigurationService/GetTargetInputSizeBytes"
+	PerBuyerConfigurationService_HashCode_FullMethodName                = "/adselection.PerBuyerConfigurationService/HashCode"
+	PerBuyerConfigurationService_WriteToParcel_FullMethodName           = "/adselection.PerBuyerConfigurationService/WriteToParcel"
+)
+
+// PerBuyerConfigurationServiceClient is the client API for PerBuyerConfigurationService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PerBuyerConfigurationServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetBuyer(ctx context.Context, in *GetBuyerRequest, opts ...grpc.CallOption) (*GetBuyerResponse, error)
+	GetTargetInputSizeBytes(ctx context.Context, in *GetTargetInputSizeBytesRequest, opts ...grpc.CallOption) (*GetTargetInputSizeBytesResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type perBuyerConfigurationServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPerBuyerConfigurationServiceClient(cc grpc.ClientConnInterface) PerBuyerConfigurationServiceClient {
+	return &perBuyerConfigurationServiceClient{cc}
+}
+
+func (c *perBuyerConfigurationServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, PerBuyerConfigurationService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *perBuyerConfigurationServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, PerBuyerConfigurationService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *perBuyerConfigurationServiceClient) GetBuyer(ctx context.Context, in *GetBuyerRequest, opts ...grpc.CallOption) (*GetBuyerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBuyerResponse)
+	err := c.cc.Invoke(ctx, PerBuyerConfigurationService_GetBuyer_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *perBuyerConfigurationServiceClient) GetTargetInputSizeBytes(ctx context.Context, in *GetTargetInputSizeBytesRequest, opts ...grpc.CallOption) (*GetTargetInputSizeBytesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTargetInputSizeBytesResponse)
+	err := c.cc.Invoke(ctx, PerBuyerConfigurationService_GetTargetInputSizeBytes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *perBuyerConfigurationServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, PerBuyerConfigurationService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *perBuyerConfigurationServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, PerBuyerConfigurationService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PerBuyerConfigurationServiceServer is the server API for PerBuyerConfigurationService service.
+// All implementations must embed UnimplementedPerBuyerConfigurationServiceServer
+// for forward compatibility.
+type PerBuyerConfigurationServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetBuyer(context.Context, *GetBuyerRequest) (*GetBuyerResponse, error)
+	GetTargetInputSizeBytes(context.Context, *GetTargetInputSizeBytesRequest) (*GetTargetInputSizeBytesResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedPerBuyerConfigurationServiceServer()
+}
+
+// UnimplementedPerBuyerConfigurationServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPerBuyerConfigurationServiceServer struct{}
+
+func (UnimplementedPerBuyerConfigurationServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedPerBuyerConfigurationServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedPerBuyerConfigurationServiceServer) GetBuyer(context.Context, *GetBuyerRequest) (*GetBuyerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBuyer not implemented")
+}
+func (UnimplementedPerBuyerConfigurationServiceServer) GetTargetInputSizeBytes(context.Context, *GetTargetInputSizeBytesRequest) (*GetTargetInputSizeBytesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTargetInputSizeBytes not implemented")
+}
+func (UnimplementedPerBuyerConfigurationServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedPerBuyerConfigurationServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedPerBuyerConfigurationServiceServer) mustEmbedUnimplementedPerBuyerConfigurationServiceServer() {
+}
+func (UnimplementedPerBuyerConfigurationServiceServer) testEmbeddedByValue() {}
+
+// UnsafePerBuyerConfigurationServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PerBuyerConfigurationServiceServer will
+// result in compilation errors.
+type UnsafePerBuyerConfigurationServiceServer interface {
+	mustEmbedUnimplementedPerBuyerConfigurationServiceServer()
+}
+
+func RegisterPerBuyerConfigurationServiceServer(s grpc.ServiceRegistrar, srv PerBuyerConfigurationServiceServer) {
+	// If the following call panics, it indicates UnimplementedPerBuyerConfigurationServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PerBuyerConfigurationService_ServiceDesc, srv)
+}
+
+func _PerBuyerConfigurationService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PerBuyerConfigurationServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PerBuyerConfigurationService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PerBuyerConfigurationServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PerBuyerConfigurationService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PerBuyerConfigurationServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PerBuyerConfigurationService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PerBuyerConfigurationServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PerBuyerConfigurationService_GetBuyer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBuyerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PerBuyerConfigurationServiceServer).GetBuyer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PerBuyerConfigurationService_GetBuyer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PerBuyerConfigurationServiceServer).GetBuyer(ctx, req.(*GetBuyerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PerBuyerConfigurationService_GetTargetInputSizeBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTargetInputSizeBytesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PerBuyerConfigurationServiceServer).GetTargetInputSizeBytes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PerBuyerConfigurationService_GetTargetInputSizeBytes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PerBuyerConfigurationServiceServer).GetTargetInputSizeBytes(ctx, req.(*GetTargetInputSizeBytesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PerBuyerConfigurationService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PerBuyerConfigurationServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PerBuyerConfigurationService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PerBuyerConfigurationServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PerBuyerConfigurationService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PerBuyerConfigurationServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PerBuyerConfigurationService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PerBuyerConfigurationServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PerBuyerConfigurationService_ServiceDesc is the grpc.ServiceDesc for PerBuyerConfigurationService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PerBuyerConfigurationService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "adselection.PerBuyerConfigurationService",
+	HandlerType: (*PerBuyerConfigurationServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _PerBuyerConfigurationService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _PerBuyerConfigurationService_Equals_Handler,
+		},
+		{
+			MethodName: "GetBuyer",
+			Handler:    _PerBuyerConfigurationService_GetBuyer_Handler,
+		},
+		{
+			MethodName: "GetTargetInputSizeBytes",
+			Handler:    _PerBuyerConfigurationService_GetTargetInputSizeBytes_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _PerBuyerConfigurationService_HashCode_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _PerBuyerConfigurationService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/adselection/adselection.proto",
+}
+
+const (
+	PerBuyerConfigurationBuilderService_Build_FullMethodName                   = "/adselection.PerBuyerConfigurationBuilderService/Build"
+	PerBuyerConfigurationBuilderService_SetBuyer_FullMethodName                = "/adselection.PerBuyerConfigurationBuilderService/SetBuyer"
+	PerBuyerConfigurationBuilderService_SetTargetInputSizeBytes_FullMethodName = "/adselection.PerBuyerConfigurationBuilderService/SetTargetInputSizeBytes"
+)
+
+// PerBuyerConfigurationBuilderServiceClient is the client API for PerBuyerConfigurationBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PerBuyerConfigurationBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetBuyer(ctx context.Context, in *SetBuyerRequest, opts ...grpc.CallOption) (*SetBuyerResponse, error)
+	SetTargetInputSizeBytes(ctx context.Context, in *SetTargetInputSizeBytesRequest, opts ...grpc.CallOption) (*SetTargetInputSizeBytesResponse, error)
+}
+
+type perBuyerConfigurationBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPerBuyerConfigurationBuilderServiceClient(cc grpc.ClientConnInterface) PerBuyerConfigurationBuilderServiceClient {
+	return &perBuyerConfigurationBuilderServiceClient{cc}
+}
+
+func (c *perBuyerConfigurationBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, PerBuyerConfigurationBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *perBuyerConfigurationBuilderServiceClient) SetBuyer(ctx context.Context, in *SetBuyerRequest, opts ...grpc.CallOption) (*SetBuyerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetBuyerResponse)
+	err := c.cc.Invoke(ctx, PerBuyerConfigurationBuilderService_SetBuyer_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *perBuyerConfigurationBuilderServiceClient) SetTargetInputSizeBytes(ctx context.Context, in *SetTargetInputSizeBytesRequest, opts ...grpc.CallOption) (*SetTargetInputSizeBytesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTargetInputSizeBytesResponse)
+	err := c.cc.Invoke(ctx, PerBuyerConfigurationBuilderService_SetTargetInputSizeBytes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PerBuyerConfigurationBuilderServiceServer is the server API for PerBuyerConfigurationBuilderService service.
+// All implementations must embed UnimplementedPerBuyerConfigurationBuilderServiceServer
+// for forward compatibility.
+type PerBuyerConfigurationBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetBuyer(context.Context, *SetBuyerRequest) (*SetBuyerResponse, error)
+	SetTargetInputSizeBytes(context.Context, *SetTargetInputSizeBytesRequest) (*SetTargetInputSizeBytesResponse, error)
+	mustEmbedUnimplementedPerBuyerConfigurationBuilderServiceServer()
+}
+
+// UnimplementedPerBuyerConfigurationBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPerBuyerConfigurationBuilderServiceServer struct{}
+
+func (UnimplementedPerBuyerConfigurationBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedPerBuyerConfigurationBuilderServiceServer) SetBuyer(context.Context, *SetBuyerRequest) (*SetBuyerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetBuyer not implemented")
+}
+func (UnimplementedPerBuyerConfigurationBuilderServiceServer) SetTargetInputSizeBytes(context.Context, *SetTargetInputSizeBytesRequest) (*SetTargetInputSizeBytesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTargetInputSizeBytes not implemented")
+}
+func (UnimplementedPerBuyerConfigurationBuilderServiceServer) mustEmbedUnimplementedPerBuyerConfigurationBuilderServiceServer() {
+}
+func (UnimplementedPerBuyerConfigurationBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafePerBuyerConfigurationBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PerBuyerConfigurationBuilderServiceServer will
+// result in compilation errors.
+type UnsafePerBuyerConfigurationBuilderServiceServer interface {
+	mustEmbedUnimplementedPerBuyerConfigurationBuilderServiceServer()
+}
+
+func RegisterPerBuyerConfigurationBuilderServiceServer(s grpc.ServiceRegistrar, srv PerBuyerConfigurationBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedPerBuyerConfigurationBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PerBuyerConfigurationBuilderService_ServiceDesc, srv)
+}
+
+func _PerBuyerConfigurationBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PerBuyerConfigurationBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PerBuyerConfigurationBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PerBuyerConfigurationBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PerBuyerConfigurationBuilderService_SetBuyer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetBuyerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PerBuyerConfigurationBuilderServiceServer).SetBuyer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PerBuyerConfigurationBuilderService_SetBuyer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PerBuyerConfigurationBuilderServiceServer).SetBuyer(ctx, req.(*SetBuyerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PerBuyerConfigurationBuilderService_SetTargetInputSizeBytes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTargetInputSizeBytesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PerBuyerConfigurationBuilderServiceServer).SetTargetInputSizeBytes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PerBuyerConfigurationBuilderService_SetTargetInputSizeBytes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PerBuyerConfigurationBuilderServiceServer).SetTargetInputSizeBytes(ctx, req.(*SetTargetInputSizeBytesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PerBuyerConfigurationBuilderService_ServiceDesc is the grpc.ServiceDesc for PerBuyerConfigurationBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PerBuyerConfigurationBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "adselection.PerBuyerConfigurationBuilderService",
+	HandlerType: (*PerBuyerConfigurationBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _PerBuyerConfigurationBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetBuyer",
+			Handler:    _PerBuyerConfigurationBuilderService_SetBuyer_Handler,
+		},
+		{
+			MethodName: "SetTargetInputSizeBytes",
+			Handler:    _PerBuyerConfigurationBuilderService_SetTargetInputSizeBytes_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -4410,1291 +4534,6 @@ var PerBuyerDecisionLogicService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	AdSelectionConfigService_DescribeContents_FullMethodName            = "/adselection.AdSelectionConfigService/DescribeContents"
-	AdSelectionConfigService_Equals_FullMethodName                      = "/adselection.AdSelectionConfigService/Equals"
-	AdSelectionConfigService_GetAdSelectionSignals_FullMethodName       = "/adselection.AdSelectionConfigService/GetAdSelectionSignals"
-	AdSelectionConfigService_GetDecisionLogicUri_FullMethodName         = "/adselection.AdSelectionConfigService/GetDecisionLogicUri"
-	AdSelectionConfigService_GetSeller_FullMethodName                   = "/adselection.AdSelectionConfigService/GetSeller"
-	AdSelectionConfigService_GetSellerSignals_FullMethodName            = "/adselection.AdSelectionConfigService/GetSellerSignals"
-	AdSelectionConfigService_GetTrustedScoringSignalsUri_FullMethodName = "/adselection.AdSelectionConfigService/GetTrustedScoringSignalsUri"
-	AdSelectionConfigService_HashCode_FullMethodName                    = "/adselection.AdSelectionConfigService/HashCode"
-	AdSelectionConfigService_WriteToParcel_FullMethodName               = "/adselection.AdSelectionConfigService/WriteToParcel"
-)
-
-// AdSelectionConfigServiceClient is the client API for AdSelectionConfigService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AdSelectionConfigServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetAdSelectionSignals(ctx context.Context, in *GetAdSelectionSignalsRequest, opts ...grpc.CallOption) (*GetAdSelectionSignalsResponse, error)
-	GetDecisionLogicUri(ctx context.Context, in *GetDecisionLogicUriRequest, opts ...grpc.CallOption) (*GetDecisionLogicUriResponse, error)
-	GetSeller(ctx context.Context, in *GetSellerRequest, opts ...grpc.CallOption) (*GetSellerResponse, error)
-	GetSellerSignals(ctx context.Context, in *GetSellerSignalsRequest, opts ...grpc.CallOption) (*GetSellerSignalsResponse, error)
-	GetTrustedScoringSignalsUri(ctx context.Context, in *GetTrustedScoringSignalsUriRequest, opts ...grpc.CallOption) (*GetTrustedScoringSignalsUriResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type adSelectionConfigServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAdSelectionConfigServiceClient(cc grpc.ClientConnInterface) AdSelectionConfigServiceClient {
-	return &adSelectionConfigServiceClient{cc}
-}
-
-func (c *adSelectionConfigServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, AdSelectionConfigService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *adSelectionConfigServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, AdSelectionConfigService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *adSelectionConfigServiceClient) GetAdSelectionSignals(ctx context.Context, in *GetAdSelectionSignalsRequest, opts ...grpc.CallOption) (*GetAdSelectionSignalsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAdSelectionSignalsResponse)
-	err := c.cc.Invoke(ctx, AdSelectionConfigService_GetAdSelectionSignals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *adSelectionConfigServiceClient) GetDecisionLogicUri(ctx context.Context, in *GetDecisionLogicUriRequest, opts ...grpc.CallOption) (*GetDecisionLogicUriResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDecisionLogicUriResponse)
-	err := c.cc.Invoke(ctx, AdSelectionConfigService_GetDecisionLogicUri_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *adSelectionConfigServiceClient) GetSeller(ctx context.Context, in *GetSellerRequest, opts ...grpc.CallOption) (*GetSellerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSellerResponse)
-	err := c.cc.Invoke(ctx, AdSelectionConfigService_GetSeller_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *adSelectionConfigServiceClient) GetSellerSignals(ctx context.Context, in *GetSellerSignalsRequest, opts ...grpc.CallOption) (*GetSellerSignalsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSellerSignalsResponse)
-	err := c.cc.Invoke(ctx, AdSelectionConfigService_GetSellerSignals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *adSelectionConfigServiceClient) GetTrustedScoringSignalsUri(ctx context.Context, in *GetTrustedScoringSignalsUriRequest, opts ...grpc.CallOption) (*GetTrustedScoringSignalsUriResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTrustedScoringSignalsUriResponse)
-	err := c.cc.Invoke(ctx, AdSelectionConfigService_GetTrustedScoringSignalsUri_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *adSelectionConfigServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, AdSelectionConfigService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *adSelectionConfigServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, AdSelectionConfigService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AdSelectionConfigServiceServer is the server API for AdSelectionConfigService service.
-// All implementations must embed UnimplementedAdSelectionConfigServiceServer
-// for forward compatibility.
-type AdSelectionConfigServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetAdSelectionSignals(context.Context, *GetAdSelectionSignalsRequest) (*GetAdSelectionSignalsResponse, error)
-	GetDecisionLogicUri(context.Context, *GetDecisionLogicUriRequest) (*GetDecisionLogicUriResponse, error)
-	GetSeller(context.Context, *GetSellerRequest) (*GetSellerResponse, error)
-	GetSellerSignals(context.Context, *GetSellerSignalsRequest) (*GetSellerSignalsResponse, error)
-	GetTrustedScoringSignalsUri(context.Context, *GetTrustedScoringSignalsUriRequest) (*GetTrustedScoringSignalsUriResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedAdSelectionConfigServiceServer()
-}
-
-// UnimplementedAdSelectionConfigServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAdSelectionConfigServiceServer struct{}
-
-func (UnimplementedAdSelectionConfigServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedAdSelectionConfigServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedAdSelectionConfigServiceServer) GetAdSelectionSignals(context.Context, *GetAdSelectionSignalsRequest) (*GetAdSelectionSignalsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAdSelectionSignals not implemented")
-}
-func (UnimplementedAdSelectionConfigServiceServer) GetDecisionLogicUri(context.Context, *GetDecisionLogicUriRequest) (*GetDecisionLogicUriResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDecisionLogicUri not implemented")
-}
-func (UnimplementedAdSelectionConfigServiceServer) GetSeller(context.Context, *GetSellerRequest) (*GetSellerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSeller not implemented")
-}
-func (UnimplementedAdSelectionConfigServiceServer) GetSellerSignals(context.Context, *GetSellerSignalsRequest) (*GetSellerSignalsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSellerSignals not implemented")
-}
-func (UnimplementedAdSelectionConfigServiceServer) GetTrustedScoringSignalsUri(context.Context, *GetTrustedScoringSignalsUriRequest) (*GetTrustedScoringSignalsUriResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTrustedScoringSignalsUri not implemented")
-}
-func (UnimplementedAdSelectionConfigServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedAdSelectionConfigServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedAdSelectionConfigServiceServer) mustEmbedUnimplementedAdSelectionConfigServiceServer() {
-}
-func (UnimplementedAdSelectionConfigServiceServer) testEmbeddedByValue() {}
-
-// UnsafeAdSelectionConfigServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AdSelectionConfigServiceServer will
-// result in compilation errors.
-type UnsafeAdSelectionConfigServiceServer interface {
-	mustEmbedUnimplementedAdSelectionConfigServiceServer()
-}
-
-func RegisterAdSelectionConfigServiceServer(s grpc.ServiceRegistrar, srv AdSelectionConfigServiceServer) {
-	// If the following call panics, it indicates UnimplementedAdSelectionConfigServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AdSelectionConfigService_ServiceDesc, srv)
-}
-
-func _AdSelectionConfigService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdSelectionConfigServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdSelectionConfigService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionConfigServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AdSelectionConfigService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdSelectionConfigServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdSelectionConfigService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionConfigServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AdSelectionConfigService_GetAdSelectionSignals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAdSelectionSignalsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdSelectionConfigServiceServer).GetAdSelectionSignals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdSelectionConfigService_GetAdSelectionSignals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionConfigServiceServer).GetAdSelectionSignals(ctx, req.(*GetAdSelectionSignalsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AdSelectionConfigService_GetDecisionLogicUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDecisionLogicUriRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdSelectionConfigServiceServer).GetDecisionLogicUri(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdSelectionConfigService_GetDecisionLogicUri_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionConfigServiceServer).GetDecisionLogicUri(ctx, req.(*GetDecisionLogicUriRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AdSelectionConfigService_GetSeller_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSellerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdSelectionConfigServiceServer).GetSeller(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdSelectionConfigService_GetSeller_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionConfigServiceServer).GetSeller(ctx, req.(*GetSellerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AdSelectionConfigService_GetSellerSignals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSellerSignalsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdSelectionConfigServiceServer).GetSellerSignals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdSelectionConfigService_GetSellerSignals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionConfigServiceServer).GetSellerSignals(ctx, req.(*GetSellerSignalsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AdSelectionConfigService_GetTrustedScoringSignalsUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTrustedScoringSignalsUriRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdSelectionConfigServiceServer).GetTrustedScoringSignalsUri(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdSelectionConfigService_GetTrustedScoringSignalsUri_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionConfigServiceServer).GetTrustedScoringSignalsUri(ctx, req.(*GetTrustedScoringSignalsUriRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AdSelectionConfigService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdSelectionConfigServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdSelectionConfigService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionConfigServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AdSelectionConfigService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdSelectionConfigServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdSelectionConfigService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionConfigServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AdSelectionConfigService_ServiceDesc is the grpc.ServiceDesc for AdSelectionConfigService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AdSelectionConfigService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "adselection.AdSelectionConfigService",
-	HandlerType: (*AdSelectionConfigServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _AdSelectionConfigService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _AdSelectionConfigService_Equals_Handler,
-		},
-		{
-			MethodName: "GetAdSelectionSignals",
-			Handler:    _AdSelectionConfigService_GetAdSelectionSignals_Handler,
-		},
-		{
-			MethodName: "GetDecisionLogicUri",
-			Handler:    _AdSelectionConfigService_GetDecisionLogicUri_Handler,
-		},
-		{
-			MethodName: "GetSeller",
-			Handler:    _AdSelectionConfigService_GetSeller_Handler,
-		},
-		{
-			MethodName: "GetSellerSignals",
-			Handler:    _AdSelectionConfigService_GetSellerSignals_Handler,
-		},
-		{
-			MethodName: "GetTrustedScoringSignalsUri",
-			Handler:    _AdSelectionConfigService_GetTrustedScoringSignalsUri_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _AdSelectionConfigService_HashCode_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _AdSelectionConfigService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/adselection/adselection.proto",
-}
-
-const (
-	AdSelectionConfigBuilderService_Build_FullMethodName                       = "/adselection.AdSelectionConfigBuilderService/Build"
-	AdSelectionConfigBuilderService_SetAdSelectionSignals_FullMethodName       = "/adselection.AdSelectionConfigBuilderService/SetAdSelectionSignals"
-	AdSelectionConfigBuilderService_SetDecisionLogicUri_FullMethodName         = "/adselection.AdSelectionConfigBuilderService/SetDecisionLogicUri"
-	AdSelectionConfigBuilderService_SetSeller_FullMethodName                   = "/adselection.AdSelectionConfigBuilderService/SetSeller"
-	AdSelectionConfigBuilderService_SetSellerSignals_FullMethodName            = "/adselection.AdSelectionConfigBuilderService/SetSellerSignals"
-	AdSelectionConfigBuilderService_SetTrustedScoringSignalsUri_FullMethodName = "/adselection.AdSelectionConfigBuilderService/SetTrustedScoringSignalsUri"
-)
-
-// AdSelectionConfigBuilderServiceClient is the client API for AdSelectionConfigBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AdSelectionConfigBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetAdSelectionSignals(ctx context.Context, in *SetAdSelectionSignalsRequest, opts ...grpc.CallOption) (*SetAdSelectionSignalsResponse, error)
-	SetDecisionLogicUri(ctx context.Context, in *SetDecisionLogicUriRequest, opts ...grpc.CallOption) (*SetDecisionLogicUriResponse, error)
-	SetSeller(ctx context.Context, in *SetSellerRequest, opts ...grpc.CallOption) (*SetSellerResponse, error)
-	SetSellerSignals(ctx context.Context, in *SetSellerSignalsRequest, opts ...grpc.CallOption) (*SetSellerSignalsResponse, error)
-	SetTrustedScoringSignalsUri(ctx context.Context, in *SetTrustedScoringSignalsUriRequest, opts ...grpc.CallOption) (*SetTrustedScoringSignalsUriResponse, error)
-}
-
-type adSelectionConfigBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAdSelectionConfigBuilderServiceClient(cc grpc.ClientConnInterface) AdSelectionConfigBuilderServiceClient {
-	return &adSelectionConfigBuilderServiceClient{cc}
-}
-
-func (c *adSelectionConfigBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, AdSelectionConfigBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *adSelectionConfigBuilderServiceClient) SetAdSelectionSignals(ctx context.Context, in *SetAdSelectionSignalsRequest, opts ...grpc.CallOption) (*SetAdSelectionSignalsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetAdSelectionSignalsResponse)
-	err := c.cc.Invoke(ctx, AdSelectionConfigBuilderService_SetAdSelectionSignals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *adSelectionConfigBuilderServiceClient) SetDecisionLogicUri(ctx context.Context, in *SetDecisionLogicUriRequest, opts ...grpc.CallOption) (*SetDecisionLogicUriResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetDecisionLogicUriResponse)
-	err := c.cc.Invoke(ctx, AdSelectionConfigBuilderService_SetDecisionLogicUri_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *adSelectionConfigBuilderServiceClient) SetSeller(ctx context.Context, in *SetSellerRequest, opts ...grpc.CallOption) (*SetSellerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetSellerResponse)
-	err := c.cc.Invoke(ctx, AdSelectionConfigBuilderService_SetSeller_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *adSelectionConfigBuilderServiceClient) SetSellerSignals(ctx context.Context, in *SetSellerSignalsRequest, opts ...grpc.CallOption) (*SetSellerSignalsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetSellerSignalsResponse)
-	err := c.cc.Invoke(ctx, AdSelectionConfigBuilderService_SetSellerSignals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *adSelectionConfigBuilderServiceClient) SetTrustedScoringSignalsUri(ctx context.Context, in *SetTrustedScoringSignalsUriRequest, opts ...grpc.CallOption) (*SetTrustedScoringSignalsUriResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetTrustedScoringSignalsUriResponse)
-	err := c.cc.Invoke(ctx, AdSelectionConfigBuilderService_SetTrustedScoringSignalsUri_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AdSelectionConfigBuilderServiceServer is the server API for AdSelectionConfigBuilderService service.
-// All implementations must embed UnimplementedAdSelectionConfigBuilderServiceServer
-// for forward compatibility.
-type AdSelectionConfigBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetAdSelectionSignals(context.Context, *SetAdSelectionSignalsRequest) (*SetAdSelectionSignalsResponse, error)
-	SetDecisionLogicUri(context.Context, *SetDecisionLogicUriRequest) (*SetDecisionLogicUriResponse, error)
-	SetSeller(context.Context, *SetSellerRequest) (*SetSellerResponse, error)
-	SetSellerSignals(context.Context, *SetSellerSignalsRequest) (*SetSellerSignalsResponse, error)
-	SetTrustedScoringSignalsUri(context.Context, *SetTrustedScoringSignalsUriRequest) (*SetTrustedScoringSignalsUriResponse, error)
-	mustEmbedUnimplementedAdSelectionConfigBuilderServiceServer()
-}
-
-// UnimplementedAdSelectionConfigBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAdSelectionConfigBuilderServiceServer struct{}
-
-func (UnimplementedAdSelectionConfigBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedAdSelectionConfigBuilderServiceServer) SetAdSelectionSignals(context.Context, *SetAdSelectionSignalsRequest) (*SetAdSelectionSignalsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetAdSelectionSignals not implemented")
-}
-func (UnimplementedAdSelectionConfigBuilderServiceServer) SetDecisionLogicUri(context.Context, *SetDecisionLogicUriRequest) (*SetDecisionLogicUriResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetDecisionLogicUri not implemented")
-}
-func (UnimplementedAdSelectionConfigBuilderServiceServer) SetSeller(context.Context, *SetSellerRequest) (*SetSellerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetSeller not implemented")
-}
-func (UnimplementedAdSelectionConfigBuilderServiceServer) SetSellerSignals(context.Context, *SetSellerSignalsRequest) (*SetSellerSignalsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetSellerSignals not implemented")
-}
-func (UnimplementedAdSelectionConfigBuilderServiceServer) SetTrustedScoringSignalsUri(context.Context, *SetTrustedScoringSignalsUriRequest) (*SetTrustedScoringSignalsUriResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetTrustedScoringSignalsUri not implemented")
-}
-func (UnimplementedAdSelectionConfigBuilderServiceServer) mustEmbedUnimplementedAdSelectionConfigBuilderServiceServer() {
-}
-func (UnimplementedAdSelectionConfigBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeAdSelectionConfigBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AdSelectionConfigBuilderServiceServer will
-// result in compilation errors.
-type UnsafeAdSelectionConfigBuilderServiceServer interface {
-	mustEmbedUnimplementedAdSelectionConfigBuilderServiceServer()
-}
-
-func RegisterAdSelectionConfigBuilderServiceServer(s grpc.ServiceRegistrar, srv AdSelectionConfigBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedAdSelectionConfigBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AdSelectionConfigBuilderService_ServiceDesc, srv)
-}
-
-func _AdSelectionConfigBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdSelectionConfigBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdSelectionConfigBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionConfigBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AdSelectionConfigBuilderService_SetAdSelectionSignals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetAdSelectionSignalsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdSelectionConfigBuilderServiceServer).SetAdSelectionSignals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdSelectionConfigBuilderService_SetAdSelectionSignals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionConfigBuilderServiceServer).SetAdSelectionSignals(ctx, req.(*SetAdSelectionSignalsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AdSelectionConfigBuilderService_SetDecisionLogicUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetDecisionLogicUriRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdSelectionConfigBuilderServiceServer).SetDecisionLogicUri(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdSelectionConfigBuilderService_SetDecisionLogicUri_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionConfigBuilderServiceServer).SetDecisionLogicUri(ctx, req.(*SetDecisionLogicUriRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AdSelectionConfigBuilderService_SetSeller_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetSellerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdSelectionConfigBuilderServiceServer).SetSeller(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdSelectionConfigBuilderService_SetSeller_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionConfigBuilderServiceServer).SetSeller(ctx, req.(*SetSellerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AdSelectionConfigBuilderService_SetSellerSignals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetSellerSignalsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdSelectionConfigBuilderServiceServer).SetSellerSignals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdSelectionConfigBuilderService_SetSellerSignals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionConfigBuilderServiceServer).SetSellerSignals(ctx, req.(*SetSellerSignalsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AdSelectionConfigBuilderService_SetTrustedScoringSignalsUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetTrustedScoringSignalsUriRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdSelectionConfigBuilderServiceServer).SetTrustedScoringSignalsUri(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdSelectionConfigBuilderService_SetTrustedScoringSignalsUri_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionConfigBuilderServiceServer).SetTrustedScoringSignalsUri(ctx, req.(*SetTrustedScoringSignalsUriRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AdSelectionConfigBuilderService_ServiceDesc is the grpc.ServiceDesc for AdSelectionConfigBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AdSelectionConfigBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "adselection.AdSelectionConfigBuilderService",
-	HandlerType: (*AdSelectionConfigBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _AdSelectionConfigBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetAdSelectionSignals",
-			Handler:    _AdSelectionConfigBuilderService_SetAdSelectionSignals_Handler,
-		},
-		{
-			MethodName: "SetDecisionLogicUri",
-			Handler:    _AdSelectionConfigBuilderService_SetDecisionLogicUri_Handler,
-		},
-		{
-			MethodName: "SetSeller",
-			Handler:    _AdSelectionConfigBuilderService_SetSeller_Handler,
-		},
-		{
-			MethodName: "SetSellerSignals",
-			Handler:    _AdSelectionConfigBuilderService_SetSellerSignals_Handler,
-		},
-		{
-			MethodName: "SetTrustedScoringSignalsUri",
-			Handler:    _AdSelectionConfigBuilderService_SetTrustedScoringSignalsUri_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/adselection/adselection.proto",
-}
-
-const (
-	AddAdSelectionOverrideRequestService_NewAddAdSelectionOverrideRequest_FullMethodName = "/adselection.AddAdSelectionOverrideRequestService/NewAddAdSelectionOverrideRequest"
-	AddAdSelectionOverrideRequestService_GetAdSelectionConfig_FullMethodName             = "/adselection.AddAdSelectionOverrideRequestService/GetAdSelectionConfig"
-	AddAdSelectionOverrideRequestService_GetDecisionLogicJs_FullMethodName               = "/adselection.AddAdSelectionOverrideRequestService/GetDecisionLogicJs"
-	AddAdSelectionOverrideRequestService_GetPerBuyerDecisionLogic_FullMethodName         = "/adselection.AddAdSelectionOverrideRequestService/GetPerBuyerDecisionLogic"
-	AddAdSelectionOverrideRequestService_GetTrustedScoringSignals_FullMethodName         = "/adselection.AddAdSelectionOverrideRequestService/GetTrustedScoringSignals"
-)
-
-// AddAdSelectionOverrideRequestServiceClient is the client API for AddAdSelectionOverrideRequestService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AddAdSelectionOverrideRequestServiceClient interface {
-	NewAddAdSelectionOverrideRequest(ctx context.Context, in *NewAddAdSelectionOverrideRequestRequest, opts ...grpc.CallOption) (*NewAddAdSelectionOverrideRequestResponse, error)
-	GetAdSelectionConfig(ctx context.Context, in *GetAdSelectionConfigRequest, opts ...grpc.CallOption) (*GetAdSelectionConfigResponse, error)
-	GetDecisionLogicJs(ctx context.Context, in *GetDecisionLogicJsRequest, opts ...grpc.CallOption) (*GetDecisionLogicJsResponse, error)
-	GetPerBuyerDecisionLogic(ctx context.Context, in *GetPerBuyerDecisionLogicRequest, opts ...grpc.CallOption) (*GetPerBuyerDecisionLogicResponse, error)
-	GetTrustedScoringSignals(ctx context.Context, in *GetTrustedScoringSignalsRequest, opts ...grpc.CallOption) (*GetTrustedScoringSignalsResponse, error)
-}
-
-type addAdSelectionOverrideRequestServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAddAdSelectionOverrideRequestServiceClient(cc grpc.ClientConnInterface) AddAdSelectionOverrideRequestServiceClient {
-	return &addAdSelectionOverrideRequestServiceClient{cc}
-}
-
-func (c *addAdSelectionOverrideRequestServiceClient) NewAddAdSelectionOverrideRequest(ctx context.Context, in *NewAddAdSelectionOverrideRequestRequest, opts ...grpc.CallOption) (*NewAddAdSelectionOverrideRequestResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewAddAdSelectionOverrideRequestResponse)
-	err := c.cc.Invoke(ctx, AddAdSelectionOverrideRequestService_NewAddAdSelectionOverrideRequest_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *addAdSelectionOverrideRequestServiceClient) GetAdSelectionConfig(ctx context.Context, in *GetAdSelectionConfigRequest, opts ...grpc.CallOption) (*GetAdSelectionConfigResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAdSelectionConfigResponse)
-	err := c.cc.Invoke(ctx, AddAdSelectionOverrideRequestService_GetAdSelectionConfig_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *addAdSelectionOverrideRequestServiceClient) GetDecisionLogicJs(ctx context.Context, in *GetDecisionLogicJsRequest, opts ...grpc.CallOption) (*GetDecisionLogicJsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDecisionLogicJsResponse)
-	err := c.cc.Invoke(ctx, AddAdSelectionOverrideRequestService_GetDecisionLogicJs_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *addAdSelectionOverrideRequestServiceClient) GetPerBuyerDecisionLogic(ctx context.Context, in *GetPerBuyerDecisionLogicRequest, opts ...grpc.CallOption) (*GetPerBuyerDecisionLogicResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPerBuyerDecisionLogicResponse)
-	err := c.cc.Invoke(ctx, AddAdSelectionOverrideRequestService_GetPerBuyerDecisionLogic_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *addAdSelectionOverrideRequestServiceClient) GetTrustedScoringSignals(ctx context.Context, in *GetTrustedScoringSignalsRequest, opts ...grpc.CallOption) (*GetTrustedScoringSignalsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTrustedScoringSignalsResponse)
-	err := c.cc.Invoke(ctx, AddAdSelectionOverrideRequestService_GetTrustedScoringSignals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AddAdSelectionOverrideRequestServiceServer is the server API for AddAdSelectionOverrideRequestService service.
-// All implementations must embed UnimplementedAddAdSelectionOverrideRequestServiceServer
-// for forward compatibility.
-type AddAdSelectionOverrideRequestServiceServer interface {
-	NewAddAdSelectionOverrideRequest(context.Context, *NewAddAdSelectionOverrideRequestRequest) (*NewAddAdSelectionOverrideRequestResponse, error)
-	GetAdSelectionConfig(context.Context, *GetAdSelectionConfigRequest) (*GetAdSelectionConfigResponse, error)
-	GetDecisionLogicJs(context.Context, *GetDecisionLogicJsRequest) (*GetDecisionLogicJsResponse, error)
-	GetPerBuyerDecisionLogic(context.Context, *GetPerBuyerDecisionLogicRequest) (*GetPerBuyerDecisionLogicResponse, error)
-	GetTrustedScoringSignals(context.Context, *GetTrustedScoringSignalsRequest) (*GetTrustedScoringSignalsResponse, error)
-	mustEmbedUnimplementedAddAdSelectionOverrideRequestServiceServer()
-}
-
-// UnimplementedAddAdSelectionOverrideRequestServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAddAdSelectionOverrideRequestServiceServer struct{}
-
-func (UnimplementedAddAdSelectionOverrideRequestServiceServer) NewAddAdSelectionOverrideRequest(context.Context, *NewAddAdSelectionOverrideRequestRequest) (*NewAddAdSelectionOverrideRequestResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewAddAdSelectionOverrideRequest not implemented")
-}
-func (UnimplementedAddAdSelectionOverrideRequestServiceServer) GetAdSelectionConfig(context.Context, *GetAdSelectionConfigRequest) (*GetAdSelectionConfigResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAdSelectionConfig not implemented")
-}
-func (UnimplementedAddAdSelectionOverrideRequestServiceServer) GetDecisionLogicJs(context.Context, *GetDecisionLogicJsRequest) (*GetDecisionLogicJsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDecisionLogicJs not implemented")
-}
-func (UnimplementedAddAdSelectionOverrideRequestServiceServer) GetPerBuyerDecisionLogic(context.Context, *GetPerBuyerDecisionLogicRequest) (*GetPerBuyerDecisionLogicResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPerBuyerDecisionLogic not implemented")
-}
-func (UnimplementedAddAdSelectionOverrideRequestServiceServer) GetTrustedScoringSignals(context.Context, *GetTrustedScoringSignalsRequest) (*GetTrustedScoringSignalsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTrustedScoringSignals not implemented")
-}
-func (UnimplementedAddAdSelectionOverrideRequestServiceServer) mustEmbedUnimplementedAddAdSelectionOverrideRequestServiceServer() {
-}
-func (UnimplementedAddAdSelectionOverrideRequestServiceServer) testEmbeddedByValue() {}
-
-// UnsafeAddAdSelectionOverrideRequestServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AddAdSelectionOverrideRequestServiceServer will
-// result in compilation errors.
-type UnsafeAddAdSelectionOverrideRequestServiceServer interface {
-	mustEmbedUnimplementedAddAdSelectionOverrideRequestServiceServer()
-}
-
-func RegisterAddAdSelectionOverrideRequestServiceServer(s grpc.ServiceRegistrar, srv AddAdSelectionOverrideRequestServiceServer) {
-	// If the following call panics, it indicates UnimplementedAddAdSelectionOverrideRequestServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AddAdSelectionOverrideRequestService_ServiceDesc, srv)
-}
-
-func _AddAdSelectionOverrideRequestService_NewAddAdSelectionOverrideRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewAddAdSelectionOverrideRequestRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AddAdSelectionOverrideRequestServiceServer).NewAddAdSelectionOverrideRequest(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AddAdSelectionOverrideRequestService_NewAddAdSelectionOverrideRequest_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AddAdSelectionOverrideRequestServiceServer).NewAddAdSelectionOverrideRequest(ctx, req.(*NewAddAdSelectionOverrideRequestRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AddAdSelectionOverrideRequestService_GetAdSelectionConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAdSelectionConfigRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AddAdSelectionOverrideRequestServiceServer).GetAdSelectionConfig(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AddAdSelectionOverrideRequestService_GetAdSelectionConfig_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AddAdSelectionOverrideRequestServiceServer).GetAdSelectionConfig(ctx, req.(*GetAdSelectionConfigRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AddAdSelectionOverrideRequestService_GetDecisionLogicJs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDecisionLogicJsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AddAdSelectionOverrideRequestServiceServer).GetDecisionLogicJs(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AddAdSelectionOverrideRequestService_GetDecisionLogicJs_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AddAdSelectionOverrideRequestServiceServer).GetDecisionLogicJs(ctx, req.(*GetDecisionLogicJsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AddAdSelectionOverrideRequestService_GetPerBuyerDecisionLogic_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPerBuyerDecisionLogicRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AddAdSelectionOverrideRequestServiceServer).GetPerBuyerDecisionLogic(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AddAdSelectionOverrideRequestService_GetPerBuyerDecisionLogic_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AddAdSelectionOverrideRequestServiceServer).GetPerBuyerDecisionLogic(ctx, req.(*GetPerBuyerDecisionLogicRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AddAdSelectionOverrideRequestService_GetTrustedScoringSignals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTrustedScoringSignalsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AddAdSelectionOverrideRequestServiceServer).GetTrustedScoringSignals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AddAdSelectionOverrideRequestService_GetTrustedScoringSignals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AddAdSelectionOverrideRequestServiceServer).GetTrustedScoringSignals(ctx, req.(*GetTrustedScoringSignalsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AddAdSelectionOverrideRequestService_ServiceDesc is the grpc.ServiceDesc for AddAdSelectionOverrideRequestService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AddAdSelectionOverrideRequestService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "adselection.AddAdSelectionOverrideRequestService",
-	HandlerType: (*AddAdSelectionOverrideRequestServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewAddAdSelectionOverrideRequest",
-			Handler:    _AddAdSelectionOverrideRequestService_NewAddAdSelectionOverrideRequest_Handler,
-		},
-		{
-			MethodName: "GetAdSelectionConfig",
-			Handler:    _AddAdSelectionOverrideRequestService_GetAdSelectionConfig_Handler,
-		},
-		{
-			MethodName: "GetDecisionLogicJs",
-			Handler:    _AddAdSelectionOverrideRequestService_GetDecisionLogicJs_Handler,
-		},
-		{
-			MethodName: "GetPerBuyerDecisionLogic",
-			Handler:    _AddAdSelectionOverrideRequestService_GetPerBuyerDecisionLogic_Handler,
-		},
-		{
-			MethodName: "GetTrustedScoringSignals",
-			Handler:    _AddAdSelectionOverrideRequestService_GetTrustedScoringSignals_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/adselection/adselection.proto",
-}
-
-const (
-	AdWithBidService_NewAdWithBid_FullMethodName     = "/adselection.AdWithBidService/NewAdWithBid"
-	AdWithBidService_DescribeContents_FullMethodName = "/adselection.AdWithBidService/DescribeContents"
-	AdWithBidService_Equals_FullMethodName           = "/adselection.AdWithBidService/Equals"
-	AdWithBidService_GetAdData_FullMethodName        = "/adselection.AdWithBidService/GetAdData"
-	AdWithBidService_GetBid_FullMethodName           = "/adselection.AdWithBidService/GetBid"
-	AdWithBidService_HashCode_FullMethodName         = "/adselection.AdWithBidService/HashCode"
-	AdWithBidService_WriteToParcel_FullMethodName    = "/adselection.AdWithBidService/WriteToParcel"
-)
-
-// AdWithBidServiceClient is the client API for AdWithBidService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AdWithBidServiceClient interface {
-	NewAdWithBid(ctx context.Context, in *NewAdWithBidRequest, opts ...grpc.CallOption) (*NewAdWithBidResponse, error)
-	DescribeContents(ctx context.Context, in *AdWithBidDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *AdWithBidEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetAdData(ctx context.Context, in *GetAdDataRequest, opts ...grpc.CallOption) (*GetAdDataResponse, error)
-	GetBid(ctx context.Context, in *GetBidRequest, opts ...grpc.CallOption) (*GetBidResponse, error)
-	HashCode(ctx context.Context, in *AdWithBidHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	WriteToParcel(ctx context.Context, in *AdWithBidWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type adWithBidServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAdWithBidServiceClient(cc grpc.ClientConnInterface) AdWithBidServiceClient {
-	return &adWithBidServiceClient{cc}
-}
-
-func (c *adWithBidServiceClient) NewAdWithBid(ctx context.Context, in *NewAdWithBidRequest, opts ...grpc.CallOption) (*NewAdWithBidResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewAdWithBidResponse)
-	err := c.cc.Invoke(ctx, AdWithBidService_NewAdWithBid_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *adWithBidServiceClient) DescribeContents(ctx context.Context, in *AdWithBidDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, AdWithBidService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *adWithBidServiceClient) Equals(ctx context.Context, in *AdWithBidEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, AdWithBidService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *adWithBidServiceClient) GetAdData(ctx context.Context, in *GetAdDataRequest, opts ...grpc.CallOption) (*GetAdDataResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAdDataResponse)
-	err := c.cc.Invoke(ctx, AdWithBidService_GetAdData_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *adWithBidServiceClient) GetBid(ctx context.Context, in *GetBidRequest, opts ...grpc.CallOption) (*GetBidResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetBidResponse)
-	err := c.cc.Invoke(ctx, AdWithBidService_GetBid_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *adWithBidServiceClient) HashCode(ctx context.Context, in *AdWithBidHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, AdWithBidService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *adWithBidServiceClient) WriteToParcel(ctx context.Context, in *AdWithBidWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, AdWithBidService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AdWithBidServiceServer is the server API for AdWithBidService service.
-// All implementations must embed UnimplementedAdWithBidServiceServer
-// for forward compatibility.
-type AdWithBidServiceServer interface {
-	NewAdWithBid(context.Context, *NewAdWithBidRequest) (*NewAdWithBidResponse, error)
-	DescribeContents(context.Context, *AdWithBidDescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *AdWithBidEqualsRequest) (*EqualsResponse, error)
-	GetAdData(context.Context, *GetAdDataRequest) (*GetAdDataResponse, error)
-	GetBid(context.Context, *GetBidRequest) (*GetBidResponse, error)
-	HashCode(context.Context, *AdWithBidHashCodeRequest) (*HashCodeResponse, error)
-	WriteToParcel(context.Context, *AdWithBidWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedAdWithBidServiceServer()
-}
-
-// UnimplementedAdWithBidServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAdWithBidServiceServer struct{}
-
-func (UnimplementedAdWithBidServiceServer) NewAdWithBid(context.Context, *NewAdWithBidRequest) (*NewAdWithBidResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewAdWithBid not implemented")
-}
-func (UnimplementedAdWithBidServiceServer) DescribeContents(context.Context, *AdWithBidDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedAdWithBidServiceServer) Equals(context.Context, *AdWithBidEqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedAdWithBidServiceServer) GetAdData(context.Context, *GetAdDataRequest) (*GetAdDataResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAdData not implemented")
-}
-func (UnimplementedAdWithBidServiceServer) GetBid(context.Context, *GetBidRequest) (*GetBidResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetBid not implemented")
-}
-func (UnimplementedAdWithBidServiceServer) HashCode(context.Context, *AdWithBidHashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedAdWithBidServiceServer) WriteToParcel(context.Context, *AdWithBidWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedAdWithBidServiceServer) mustEmbedUnimplementedAdWithBidServiceServer() {}
-func (UnimplementedAdWithBidServiceServer) testEmbeddedByValue()                          {}
-
-// UnsafeAdWithBidServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AdWithBidServiceServer will
-// result in compilation errors.
-type UnsafeAdWithBidServiceServer interface {
-	mustEmbedUnimplementedAdWithBidServiceServer()
-}
-
-func RegisterAdWithBidServiceServer(s grpc.ServiceRegistrar, srv AdWithBidServiceServer) {
-	// If the following call panics, it indicates UnimplementedAdWithBidServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AdWithBidService_ServiceDesc, srv)
-}
-
-func _AdWithBidService_NewAdWithBid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewAdWithBidRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdWithBidServiceServer).NewAdWithBid(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdWithBidService_NewAdWithBid_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdWithBidServiceServer).NewAdWithBid(ctx, req.(*NewAdWithBidRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AdWithBidService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AdWithBidDescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdWithBidServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdWithBidService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdWithBidServiceServer).DescribeContents(ctx, req.(*AdWithBidDescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AdWithBidService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AdWithBidEqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdWithBidServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdWithBidService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdWithBidServiceServer).Equals(ctx, req.(*AdWithBidEqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AdWithBidService_GetAdData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAdDataRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdWithBidServiceServer).GetAdData(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdWithBidService_GetAdData_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdWithBidServiceServer).GetAdData(ctx, req.(*GetAdDataRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AdWithBidService_GetBid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetBidRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdWithBidServiceServer).GetBid(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdWithBidService_GetBid_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdWithBidServiceServer).GetBid(ctx, req.(*GetBidRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AdWithBidService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AdWithBidHashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdWithBidServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdWithBidService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdWithBidServiceServer).HashCode(ctx, req.(*AdWithBidHashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AdWithBidService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AdWithBidWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdWithBidServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdWithBidService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdWithBidServiceServer).WriteToParcel(ctx, req.(*AdWithBidWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AdWithBidService_ServiceDesc is the grpc.ServiceDesc for AdWithBidService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AdWithBidService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "adselection.AdWithBidService",
-	HandlerType: (*AdWithBidServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewAdWithBid",
-			Handler:    _AdWithBidService_NewAdWithBid_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _AdWithBidService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _AdWithBidService_Equals_Handler,
-		},
-		{
-			MethodName: "GetAdData",
-			Handler:    _AdWithBidService_GetAdData_Handler,
-		},
-		{
-			MethodName: "GetBid",
-			Handler:    _AdWithBidService_GetBid_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _AdWithBidService_HashCode_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _AdWithBidService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/adselection/adselection.proto",
-}
-
-const (
 	RemoveAdSelectionOverrideRequestService_NewRemoveAdSelectionOverrideRequest_FullMethodName = "/adselection.RemoveAdSelectionOverrideRequestService/NewRemoveAdSelectionOverrideRequest"
 	RemoveAdSelectionOverrideRequestService_GetAdSelectionConfig_FullMethodName                = "/adselection.RemoveAdSelectionOverrideRequestService/GetAdSelectionConfig"
 )
@@ -5829,6 +4668,402 @@ var RemoveAdSelectionOverrideRequestService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetAdSelectionConfig",
 			Handler:    _RemoveAdSelectionOverrideRequestService_GetAdSelectionConfig_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/adselection/adselection.proto",
+}
+
+const (
+	ReportImpressionRequestService_NewReportImpressionRequest_FullMethodName = "/adselection.ReportImpressionRequestService/NewReportImpressionRequest"
+	ReportImpressionRequestService_GetAdSelectionConfig_FullMethodName       = "/adselection.ReportImpressionRequestService/GetAdSelectionConfig"
+	ReportImpressionRequestService_GetAdSelectionId_FullMethodName           = "/adselection.ReportImpressionRequestService/GetAdSelectionId"
+)
+
+// ReportImpressionRequestServiceClient is the client API for ReportImpressionRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ReportImpressionRequestServiceClient interface {
+	NewReportImpressionRequest(ctx context.Context, in *NewReportImpressionRequestRequest, opts ...grpc.CallOption) (*NewReportImpressionRequestResponse, error)
+	GetAdSelectionConfig(ctx context.Context, in *GetAdSelectionConfigRequest, opts ...grpc.CallOption) (*GetAdSelectionConfigResponse, error)
+	GetAdSelectionId(ctx context.Context, in *ReportImpressionRequestGetAdSelectionIdRequest, opts ...grpc.CallOption) (*GetAdSelectionIdResponse, error)
+}
+
+type reportImpressionRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewReportImpressionRequestServiceClient(cc grpc.ClientConnInterface) ReportImpressionRequestServiceClient {
+	return &reportImpressionRequestServiceClient{cc}
+}
+
+func (c *reportImpressionRequestServiceClient) NewReportImpressionRequest(ctx context.Context, in *NewReportImpressionRequestRequest, opts ...grpc.CallOption) (*NewReportImpressionRequestResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewReportImpressionRequestResponse)
+	err := c.cc.Invoke(ctx, ReportImpressionRequestService_NewReportImpressionRequest_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *reportImpressionRequestServiceClient) GetAdSelectionConfig(ctx context.Context, in *GetAdSelectionConfigRequest, opts ...grpc.CallOption) (*GetAdSelectionConfigResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAdSelectionConfigResponse)
+	err := c.cc.Invoke(ctx, ReportImpressionRequestService_GetAdSelectionConfig_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *reportImpressionRequestServiceClient) GetAdSelectionId(ctx context.Context, in *ReportImpressionRequestGetAdSelectionIdRequest, opts ...grpc.CallOption) (*GetAdSelectionIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAdSelectionIdResponse)
+	err := c.cc.Invoke(ctx, ReportImpressionRequestService_GetAdSelectionId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ReportImpressionRequestServiceServer is the server API for ReportImpressionRequestService service.
+// All implementations must embed UnimplementedReportImpressionRequestServiceServer
+// for forward compatibility.
+type ReportImpressionRequestServiceServer interface {
+	NewReportImpressionRequest(context.Context, *NewReportImpressionRequestRequest) (*NewReportImpressionRequestResponse, error)
+	GetAdSelectionConfig(context.Context, *GetAdSelectionConfigRequest) (*GetAdSelectionConfigResponse, error)
+	GetAdSelectionId(context.Context, *ReportImpressionRequestGetAdSelectionIdRequest) (*GetAdSelectionIdResponse, error)
+	mustEmbedUnimplementedReportImpressionRequestServiceServer()
+}
+
+// UnimplementedReportImpressionRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedReportImpressionRequestServiceServer struct{}
+
+func (UnimplementedReportImpressionRequestServiceServer) NewReportImpressionRequest(context.Context, *NewReportImpressionRequestRequest) (*NewReportImpressionRequestResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewReportImpressionRequest not implemented")
+}
+func (UnimplementedReportImpressionRequestServiceServer) GetAdSelectionConfig(context.Context, *GetAdSelectionConfigRequest) (*GetAdSelectionConfigResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAdSelectionConfig not implemented")
+}
+func (UnimplementedReportImpressionRequestServiceServer) GetAdSelectionId(context.Context, *ReportImpressionRequestGetAdSelectionIdRequest) (*GetAdSelectionIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAdSelectionId not implemented")
+}
+func (UnimplementedReportImpressionRequestServiceServer) mustEmbedUnimplementedReportImpressionRequestServiceServer() {
+}
+func (UnimplementedReportImpressionRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafeReportImpressionRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ReportImpressionRequestServiceServer will
+// result in compilation errors.
+type UnsafeReportImpressionRequestServiceServer interface {
+	mustEmbedUnimplementedReportImpressionRequestServiceServer()
+}
+
+func RegisterReportImpressionRequestServiceServer(s grpc.ServiceRegistrar, srv ReportImpressionRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedReportImpressionRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ReportImpressionRequestService_ServiceDesc, srv)
+}
+
+func _ReportImpressionRequestService_NewReportImpressionRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewReportImpressionRequestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReportImpressionRequestServiceServer).NewReportImpressionRequest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReportImpressionRequestService_NewReportImpressionRequest_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReportImpressionRequestServiceServer).NewReportImpressionRequest(ctx, req.(*NewReportImpressionRequestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReportImpressionRequestService_GetAdSelectionConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAdSelectionConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReportImpressionRequestServiceServer).GetAdSelectionConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReportImpressionRequestService_GetAdSelectionConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReportImpressionRequestServiceServer).GetAdSelectionConfig(ctx, req.(*GetAdSelectionConfigRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ReportImpressionRequestService_GetAdSelectionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReportImpressionRequestGetAdSelectionIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ReportImpressionRequestServiceServer).GetAdSelectionId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ReportImpressionRequestService_GetAdSelectionId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ReportImpressionRequestServiceServer).GetAdSelectionId(ctx, req.(*ReportImpressionRequestGetAdSelectionIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ReportImpressionRequestService_ServiceDesc is the grpc.ServiceDesc for ReportImpressionRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ReportImpressionRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "adselection.ReportImpressionRequestService",
+	HandlerType: (*ReportImpressionRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewReportImpressionRequest",
+			Handler:    _ReportImpressionRequestService_NewReportImpressionRequest_Handler,
+		},
+		{
+			MethodName: "GetAdSelectionConfig",
+			Handler:    _ReportImpressionRequestService_GetAdSelectionConfig_Handler,
+		},
+		{
+			MethodName: "GetAdSelectionId",
+			Handler:    _ReportImpressionRequestService_GetAdSelectionId_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/adselection/adselection.proto",
+}
+
+const (
+	AddAdSelectionFromOutcomesOverrideRequestService_NewAddAdSelectionFromOutcomesOverrideRequest_FullMethodName = "/adselection.AddAdSelectionFromOutcomesOverrideRequestService/NewAddAdSelectionFromOutcomesOverrideRequest"
+	AddAdSelectionFromOutcomesOverrideRequestService_GetAdSelectionFromOutcomesConfig_FullMethodName             = "/adselection.AddAdSelectionFromOutcomesOverrideRequestService/GetAdSelectionFromOutcomesConfig"
+	AddAdSelectionFromOutcomesOverrideRequestService_GetOutcomeSelectionLogicJs_FullMethodName                   = "/adselection.AddAdSelectionFromOutcomesOverrideRequestService/GetOutcomeSelectionLogicJs"
+	AddAdSelectionFromOutcomesOverrideRequestService_GetOutcomeSelectionTrustedSignals_FullMethodName            = "/adselection.AddAdSelectionFromOutcomesOverrideRequestService/GetOutcomeSelectionTrustedSignals"
+)
+
+// AddAdSelectionFromOutcomesOverrideRequestServiceClient is the client API for AddAdSelectionFromOutcomesOverrideRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AddAdSelectionFromOutcomesOverrideRequestServiceClient interface {
+	NewAddAdSelectionFromOutcomesOverrideRequest(ctx context.Context, in *NewAddAdSelectionFromOutcomesOverrideRequestRequest, opts ...grpc.CallOption) (*NewAddAdSelectionFromOutcomesOverrideRequestResponse, error)
+	GetAdSelectionFromOutcomesConfig(ctx context.Context, in *GetAdSelectionFromOutcomesConfigRequest, opts ...grpc.CallOption) (*GetAdSelectionFromOutcomesConfigResponse, error)
+	GetOutcomeSelectionLogicJs(ctx context.Context, in *GetOutcomeSelectionLogicJsRequest, opts ...grpc.CallOption) (*GetOutcomeSelectionLogicJsResponse, error)
+	GetOutcomeSelectionTrustedSignals(ctx context.Context, in *GetOutcomeSelectionTrustedSignalsRequest, opts ...grpc.CallOption) (*GetOutcomeSelectionTrustedSignalsResponse, error)
+}
+
+type addAdSelectionFromOutcomesOverrideRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAddAdSelectionFromOutcomesOverrideRequestServiceClient(cc grpc.ClientConnInterface) AddAdSelectionFromOutcomesOverrideRequestServiceClient {
+	return &addAdSelectionFromOutcomesOverrideRequestServiceClient{cc}
+}
+
+func (c *addAdSelectionFromOutcomesOverrideRequestServiceClient) NewAddAdSelectionFromOutcomesOverrideRequest(ctx context.Context, in *NewAddAdSelectionFromOutcomesOverrideRequestRequest, opts ...grpc.CallOption) (*NewAddAdSelectionFromOutcomesOverrideRequestResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewAddAdSelectionFromOutcomesOverrideRequestResponse)
+	err := c.cc.Invoke(ctx, AddAdSelectionFromOutcomesOverrideRequestService_NewAddAdSelectionFromOutcomesOverrideRequest_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *addAdSelectionFromOutcomesOverrideRequestServiceClient) GetAdSelectionFromOutcomesConfig(ctx context.Context, in *GetAdSelectionFromOutcomesConfigRequest, opts ...grpc.CallOption) (*GetAdSelectionFromOutcomesConfigResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAdSelectionFromOutcomesConfigResponse)
+	err := c.cc.Invoke(ctx, AddAdSelectionFromOutcomesOverrideRequestService_GetAdSelectionFromOutcomesConfig_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *addAdSelectionFromOutcomesOverrideRequestServiceClient) GetOutcomeSelectionLogicJs(ctx context.Context, in *GetOutcomeSelectionLogicJsRequest, opts ...grpc.CallOption) (*GetOutcomeSelectionLogicJsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOutcomeSelectionLogicJsResponse)
+	err := c.cc.Invoke(ctx, AddAdSelectionFromOutcomesOverrideRequestService_GetOutcomeSelectionLogicJs_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *addAdSelectionFromOutcomesOverrideRequestServiceClient) GetOutcomeSelectionTrustedSignals(ctx context.Context, in *GetOutcomeSelectionTrustedSignalsRequest, opts ...grpc.CallOption) (*GetOutcomeSelectionTrustedSignalsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOutcomeSelectionTrustedSignalsResponse)
+	err := c.cc.Invoke(ctx, AddAdSelectionFromOutcomesOverrideRequestService_GetOutcomeSelectionTrustedSignals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AddAdSelectionFromOutcomesOverrideRequestServiceServer is the server API for AddAdSelectionFromOutcomesOverrideRequestService service.
+// All implementations must embed UnimplementedAddAdSelectionFromOutcomesOverrideRequestServiceServer
+// for forward compatibility.
+type AddAdSelectionFromOutcomesOverrideRequestServiceServer interface {
+	NewAddAdSelectionFromOutcomesOverrideRequest(context.Context, *NewAddAdSelectionFromOutcomesOverrideRequestRequest) (*NewAddAdSelectionFromOutcomesOverrideRequestResponse, error)
+	GetAdSelectionFromOutcomesConfig(context.Context, *GetAdSelectionFromOutcomesConfigRequest) (*GetAdSelectionFromOutcomesConfigResponse, error)
+	GetOutcomeSelectionLogicJs(context.Context, *GetOutcomeSelectionLogicJsRequest) (*GetOutcomeSelectionLogicJsResponse, error)
+	GetOutcomeSelectionTrustedSignals(context.Context, *GetOutcomeSelectionTrustedSignalsRequest) (*GetOutcomeSelectionTrustedSignalsResponse, error)
+	mustEmbedUnimplementedAddAdSelectionFromOutcomesOverrideRequestServiceServer()
+}
+
+// UnimplementedAddAdSelectionFromOutcomesOverrideRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAddAdSelectionFromOutcomesOverrideRequestServiceServer struct{}
+
+func (UnimplementedAddAdSelectionFromOutcomesOverrideRequestServiceServer) NewAddAdSelectionFromOutcomesOverrideRequest(context.Context, *NewAddAdSelectionFromOutcomesOverrideRequestRequest) (*NewAddAdSelectionFromOutcomesOverrideRequestResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewAddAdSelectionFromOutcomesOverrideRequest not implemented")
+}
+func (UnimplementedAddAdSelectionFromOutcomesOverrideRequestServiceServer) GetAdSelectionFromOutcomesConfig(context.Context, *GetAdSelectionFromOutcomesConfigRequest) (*GetAdSelectionFromOutcomesConfigResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAdSelectionFromOutcomesConfig not implemented")
+}
+func (UnimplementedAddAdSelectionFromOutcomesOverrideRequestServiceServer) GetOutcomeSelectionLogicJs(context.Context, *GetOutcomeSelectionLogicJsRequest) (*GetOutcomeSelectionLogicJsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOutcomeSelectionLogicJs not implemented")
+}
+func (UnimplementedAddAdSelectionFromOutcomesOverrideRequestServiceServer) GetOutcomeSelectionTrustedSignals(context.Context, *GetOutcomeSelectionTrustedSignalsRequest) (*GetOutcomeSelectionTrustedSignalsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOutcomeSelectionTrustedSignals not implemented")
+}
+func (UnimplementedAddAdSelectionFromOutcomesOverrideRequestServiceServer) mustEmbedUnimplementedAddAdSelectionFromOutcomesOverrideRequestServiceServer() {
+}
+func (UnimplementedAddAdSelectionFromOutcomesOverrideRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAddAdSelectionFromOutcomesOverrideRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AddAdSelectionFromOutcomesOverrideRequestServiceServer will
+// result in compilation errors.
+type UnsafeAddAdSelectionFromOutcomesOverrideRequestServiceServer interface {
+	mustEmbedUnimplementedAddAdSelectionFromOutcomesOverrideRequestServiceServer()
+}
+
+func RegisterAddAdSelectionFromOutcomesOverrideRequestServiceServer(s grpc.ServiceRegistrar, srv AddAdSelectionFromOutcomesOverrideRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedAddAdSelectionFromOutcomesOverrideRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AddAdSelectionFromOutcomesOverrideRequestService_ServiceDesc, srv)
+}
+
+func _AddAdSelectionFromOutcomesOverrideRequestService_NewAddAdSelectionFromOutcomesOverrideRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewAddAdSelectionFromOutcomesOverrideRequestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AddAdSelectionFromOutcomesOverrideRequestServiceServer).NewAddAdSelectionFromOutcomesOverrideRequest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AddAdSelectionFromOutcomesOverrideRequestService_NewAddAdSelectionFromOutcomesOverrideRequest_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AddAdSelectionFromOutcomesOverrideRequestServiceServer).NewAddAdSelectionFromOutcomesOverrideRequest(ctx, req.(*NewAddAdSelectionFromOutcomesOverrideRequestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AddAdSelectionFromOutcomesOverrideRequestService_GetAdSelectionFromOutcomesConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAdSelectionFromOutcomesConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AddAdSelectionFromOutcomesOverrideRequestServiceServer).GetAdSelectionFromOutcomesConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AddAdSelectionFromOutcomesOverrideRequestService_GetAdSelectionFromOutcomesConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AddAdSelectionFromOutcomesOverrideRequestServiceServer).GetAdSelectionFromOutcomesConfig(ctx, req.(*GetAdSelectionFromOutcomesConfigRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AddAdSelectionFromOutcomesOverrideRequestService_GetOutcomeSelectionLogicJs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOutcomeSelectionLogicJsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AddAdSelectionFromOutcomesOverrideRequestServiceServer).GetOutcomeSelectionLogicJs(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AddAdSelectionFromOutcomesOverrideRequestService_GetOutcomeSelectionLogicJs_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AddAdSelectionFromOutcomesOverrideRequestServiceServer).GetOutcomeSelectionLogicJs(ctx, req.(*GetOutcomeSelectionLogicJsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AddAdSelectionFromOutcomesOverrideRequestService_GetOutcomeSelectionTrustedSignals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOutcomeSelectionTrustedSignalsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AddAdSelectionFromOutcomesOverrideRequestServiceServer).GetOutcomeSelectionTrustedSignals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AddAdSelectionFromOutcomesOverrideRequestService_GetOutcomeSelectionTrustedSignals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AddAdSelectionFromOutcomesOverrideRequestServiceServer).GetOutcomeSelectionTrustedSignals(ctx, req.(*GetOutcomeSelectionTrustedSignalsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AddAdSelectionFromOutcomesOverrideRequestService_ServiceDesc is the grpc.ServiceDesc for AddAdSelectionFromOutcomesOverrideRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AddAdSelectionFromOutcomesOverrideRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "adselection.AddAdSelectionFromOutcomesOverrideRequestService",
+	HandlerType: (*AddAdSelectionFromOutcomesOverrideRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewAddAdSelectionFromOutcomesOverrideRequest",
+			Handler:    _AddAdSelectionFromOutcomesOverrideRequestService_NewAddAdSelectionFromOutcomesOverrideRequest_Handler,
+		},
+		{
+			MethodName: "GetAdSelectionFromOutcomesConfig",
+			Handler:    _AddAdSelectionFromOutcomesOverrideRequestService_GetAdSelectionFromOutcomesConfig_Handler,
+		},
+		{
+			MethodName: "GetOutcomeSelectionLogicJs",
+			Handler:    _AddAdSelectionFromOutcomesOverrideRequestService_GetOutcomeSelectionLogicJs_Handler,
+		},
+		{
+			MethodName: "GetOutcomeSelectionTrustedSignals",
+			Handler:    _AddAdSelectionFromOutcomesOverrideRequestService_GetOutcomeSelectionTrustedSignals_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -6015,329 +5250,1198 @@ var GetAdSelectionDataOutcomeService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	DecisionLogicService_NewDecisionLogic_FullMethodName = "/adselection.DecisionLogicService/NewDecisionLogic"
-	DecisionLogicService_DescribeContents_FullMethodName = "/adselection.DecisionLogicService/DescribeContents"
-	DecisionLogicService_Equals_FullMethodName           = "/adselection.DecisionLogicService/Equals"
-	DecisionLogicService_GetLogic_FullMethodName         = "/adselection.DecisionLogicService/GetLogic"
-	DecisionLogicService_HashCode_FullMethodName         = "/adselection.DecisionLogicService/HashCode"
-	DecisionLogicService_ToString_FullMethodName         = "/adselection.DecisionLogicService/ToString"
-	DecisionLogicService_WriteToParcel_FullMethodName    = "/adselection.DecisionLogicService/WriteToParcel"
+	RemoveAdSelectionFromOutcomesOverrideRequestService_NewRemoveAdSelectionFromOutcomesOverrideRequest_FullMethodName = "/adselection.RemoveAdSelectionFromOutcomesOverrideRequestService/NewRemoveAdSelectionFromOutcomesOverrideRequest"
+	RemoveAdSelectionFromOutcomesOverrideRequestService_GetAdSelectionFromOutcomesConfig_FullMethodName                = "/adselection.RemoveAdSelectionFromOutcomesOverrideRequestService/GetAdSelectionFromOutcomesConfig"
 )
 
-// DecisionLogicServiceClient is the client API for DecisionLogicService service.
+// RemoveAdSelectionFromOutcomesOverrideRequestServiceClient is the client API for RemoveAdSelectionFromOutcomesOverrideRequestService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DecisionLogicServiceClient interface {
-	NewDecisionLogic(ctx context.Context, in *NewDecisionLogicRequest, opts ...grpc.CallOption) (*NewDecisionLogicResponse, error)
-	DescribeContents(ctx context.Context, in *DecisionLogicDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *DecisionLogicEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetLogic(ctx context.Context, in *GetLogicRequest, opts ...grpc.CallOption) (*GetLogicResponse, error)
-	HashCode(ctx context.Context, in *DecisionLogicHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *DecisionLogicToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *DecisionLogicWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+type RemoveAdSelectionFromOutcomesOverrideRequestServiceClient interface {
+	NewRemoveAdSelectionFromOutcomesOverrideRequest(ctx context.Context, in *NewRemoveAdSelectionFromOutcomesOverrideRequestRequest, opts ...grpc.CallOption) (*NewRemoveAdSelectionFromOutcomesOverrideRequestResponse, error)
+	GetAdSelectionFromOutcomesConfig(ctx context.Context, in *GetAdSelectionFromOutcomesConfigRequest, opts ...grpc.CallOption) (*GetAdSelectionFromOutcomesConfigResponse, error)
 }
 
-type decisionLogicServiceClient struct {
+type removeAdSelectionFromOutcomesOverrideRequestServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewDecisionLogicServiceClient(cc grpc.ClientConnInterface) DecisionLogicServiceClient {
-	return &decisionLogicServiceClient{cc}
+func NewRemoveAdSelectionFromOutcomesOverrideRequestServiceClient(cc grpc.ClientConnInterface) RemoveAdSelectionFromOutcomesOverrideRequestServiceClient {
+	return &removeAdSelectionFromOutcomesOverrideRequestServiceClient{cc}
 }
 
-func (c *decisionLogicServiceClient) NewDecisionLogic(ctx context.Context, in *NewDecisionLogicRequest, opts ...grpc.CallOption) (*NewDecisionLogicResponse, error) {
+func (c *removeAdSelectionFromOutcomesOverrideRequestServiceClient) NewRemoveAdSelectionFromOutcomesOverrideRequest(ctx context.Context, in *NewRemoveAdSelectionFromOutcomesOverrideRequestRequest, opts ...grpc.CallOption) (*NewRemoveAdSelectionFromOutcomesOverrideRequestResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewDecisionLogicResponse)
-	err := c.cc.Invoke(ctx, DecisionLogicService_NewDecisionLogic_FullMethodName, in, out, cOpts...)
+	out := new(NewRemoveAdSelectionFromOutcomesOverrideRequestResponse)
+	err := c.cc.Invoke(ctx, RemoveAdSelectionFromOutcomesOverrideRequestService_NewRemoveAdSelectionFromOutcomesOverrideRequest_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *decisionLogicServiceClient) DescribeContents(ctx context.Context, in *DecisionLogicDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *removeAdSelectionFromOutcomesOverrideRequestServiceClient) GetAdSelectionFromOutcomesConfig(ctx context.Context, in *GetAdSelectionFromOutcomesConfigRequest, opts ...grpc.CallOption) (*GetAdSelectionFromOutcomesConfigResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, DecisionLogicService_DescribeContents_FullMethodName, in, out, cOpts...)
+	out := new(GetAdSelectionFromOutcomesConfigResponse)
+	err := c.cc.Invoke(ctx, RemoveAdSelectionFromOutcomesOverrideRequestService_GetAdSelectionFromOutcomesConfig_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *decisionLogicServiceClient) Equals(ctx context.Context, in *DecisionLogicEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, DecisionLogicService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *decisionLogicServiceClient) GetLogic(ctx context.Context, in *GetLogicRequest, opts ...grpc.CallOption) (*GetLogicResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLogicResponse)
-	err := c.cc.Invoke(ctx, DecisionLogicService_GetLogic_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *decisionLogicServiceClient) HashCode(ctx context.Context, in *DecisionLogicHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, DecisionLogicService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *decisionLogicServiceClient) ToString(ctx context.Context, in *DecisionLogicToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, DecisionLogicService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *decisionLogicServiceClient) WriteToParcel(ctx context.Context, in *DecisionLogicWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, DecisionLogicService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DecisionLogicServiceServer is the server API for DecisionLogicService service.
-// All implementations must embed UnimplementedDecisionLogicServiceServer
+// RemoveAdSelectionFromOutcomesOverrideRequestServiceServer is the server API for RemoveAdSelectionFromOutcomesOverrideRequestService service.
+// All implementations must embed UnimplementedRemoveAdSelectionFromOutcomesOverrideRequestServiceServer
 // for forward compatibility.
-type DecisionLogicServiceServer interface {
-	NewDecisionLogic(context.Context, *NewDecisionLogicRequest) (*NewDecisionLogicResponse, error)
-	DescribeContents(context.Context, *DecisionLogicDescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *DecisionLogicEqualsRequest) (*EqualsResponse, error)
-	GetLogic(context.Context, *GetLogicRequest) (*GetLogicResponse, error)
-	HashCode(context.Context, *DecisionLogicHashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *DecisionLogicToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *DecisionLogicWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedDecisionLogicServiceServer()
+type RemoveAdSelectionFromOutcomesOverrideRequestServiceServer interface {
+	NewRemoveAdSelectionFromOutcomesOverrideRequest(context.Context, *NewRemoveAdSelectionFromOutcomesOverrideRequestRequest) (*NewRemoveAdSelectionFromOutcomesOverrideRequestResponse, error)
+	GetAdSelectionFromOutcomesConfig(context.Context, *GetAdSelectionFromOutcomesConfigRequest) (*GetAdSelectionFromOutcomesConfigResponse, error)
+	mustEmbedUnimplementedRemoveAdSelectionFromOutcomesOverrideRequestServiceServer()
 }
 
-// UnimplementedDecisionLogicServiceServer must be embedded to have
+// UnimplementedRemoveAdSelectionFromOutcomesOverrideRequestServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedDecisionLogicServiceServer struct{}
+type UnimplementedRemoveAdSelectionFromOutcomesOverrideRequestServiceServer struct{}
 
-func (UnimplementedDecisionLogicServiceServer) NewDecisionLogic(context.Context, *NewDecisionLogicRequest) (*NewDecisionLogicResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewDecisionLogic not implemented")
+func (UnimplementedRemoveAdSelectionFromOutcomesOverrideRequestServiceServer) NewRemoveAdSelectionFromOutcomesOverrideRequest(context.Context, *NewRemoveAdSelectionFromOutcomesOverrideRequestRequest) (*NewRemoveAdSelectionFromOutcomesOverrideRequestResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewRemoveAdSelectionFromOutcomesOverrideRequest not implemented")
 }
-func (UnimplementedDecisionLogicServiceServer) DescribeContents(context.Context, *DecisionLogicDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+func (UnimplementedRemoveAdSelectionFromOutcomesOverrideRequestServiceServer) GetAdSelectionFromOutcomesConfig(context.Context, *GetAdSelectionFromOutcomesConfigRequest) (*GetAdSelectionFromOutcomesConfigResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAdSelectionFromOutcomesConfig not implemented")
 }
-func (UnimplementedDecisionLogicServiceServer) Equals(context.Context, *DecisionLogicEqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+func (UnimplementedRemoveAdSelectionFromOutcomesOverrideRequestServiceServer) mustEmbedUnimplementedRemoveAdSelectionFromOutcomesOverrideRequestServiceServer() {
 }
-func (UnimplementedDecisionLogicServiceServer) GetLogic(context.Context, *GetLogicRequest) (*GetLogicResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLogic not implemented")
-}
-func (UnimplementedDecisionLogicServiceServer) HashCode(context.Context, *DecisionLogicHashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedDecisionLogicServiceServer) ToString(context.Context, *DecisionLogicToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedDecisionLogicServiceServer) WriteToParcel(context.Context, *DecisionLogicWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedDecisionLogicServiceServer) mustEmbedUnimplementedDecisionLogicServiceServer() {}
-func (UnimplementedDecisionLogicServiceServer) testEmbeddedByValue()                              {}
+func (UnimplementedRemoveAdSelectionFromOutcomesOverrideRequestServiceServer) testEmbeddedByValue() {}
 
-// UnsafeDecisionLogicServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DecisionLogicServiceServer will
+// UnsafeRemoveAdSelectionFromOutcomesOverrideRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RemoveAdSelectionFromOutcomesOverrideRequestServiceServer will
 // result in compilation errors.
-type UnsafeDecisionLogicServiceServer interface {
-	mustEmbedUnimplementedDecisionLogicServiceServer()
+type UnsafeRemoveAdSelectionFromOutcomesOverrideRequestServiceServer interface {
+	mustEmbedUnimplementedRemoveAdSelectionFromOutcomesOverrideRequestServiceServer()
 }
 
-func RegisterDecisionLogicServiceServer(s grpc.ServiceRegistrar, srv DecisionLogicServiceServer) {
-	// If the following call panics, it indicates UnimplementedDecisionLogicServiceServer was
+func RegisterRemoveAdSelectionFromOutcomesOverrideRequestServiceServer(s grpc.ServiceRegistrar, srv RemoveAdSelectionFromOutcomesOverrideRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedRemoveAdSelectionFromOutcomesOverrideRequestServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&DecisionLogicService_ServiceDesc, srv)
+	s.RegisterService(&RemoveAdSelectionFromOutcomesOverrideRequestService_ServiceDesc, srv)
 }
 
-func _DecisionLogicService_NewDecisionLogic_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewDecisionLogicRequest)
+func _RemoveAdSelectionFromOutcomesOverrideRequestService_NewRemoveAdSelectionFromOutcomesOverrideRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewRemoveAdSelectionFromOutcomesOverrideRequestRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DecisionLogicServiceServer).NewDecisionLogic(ctx, in)
+		return srv.(RemoveAdSelectionFromOutcomesOverrideRequestServiceServer).NewRemoveAdSelectionFromOutcomesOverrideRequest(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DecisionLogicService_NewDecisionLogic_FullMethodName,
+		FullMethod: RemoveAdSelectionFromOutcomesOverrideRequestService_NewRemoveAdSelectionFromOutcomesOverrideRequest_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DecisionLogicServiceServer).NewDecisionLogic(ctx, req.(*NewDecisionLogicRequest))
+		return srv.(RemoveAdSelectionFromOutcomesOverrideRequestServiceServer).NewRemoveAdSelectionFromOutcomesOverrideRequest(ctx, req.(*NewRemoveAdSelectionFromOutcomesOverrideRequestRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DecisionLogicService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DecisionLogicDescribeContentsRequest)
+func _RemoveAdSelectionFromOutcomesOverrideRequestService_GetAdSelectionFromOutcomesConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAdSelectionFromOutcomesConfigRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DecisionLogicServiceServer).DescribeContents(ctx, in)
+		return srv.(RemoveAdSelectionFromOutcomesOverrideRequestServiceServer).GetAdSelectionFromOutcomesConfig(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DecisionLogicService_DescribeContents_FullMethodName,
+		FullMethod: RemoveAdSelectionFromOutcomesOverrideRequestService_GetAdSelectionFromOutcomesConfig_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DecisionLogicServiceServer).DescribeContents(ctx, req.(*DecisionLogicDescribeContentsRequest))
+		return srv.(RemoveAdSelectionFromOutcomesOverrideRequestServiceServer).GetAdSelectionFromOutcomesConfig(ctx, req.(*GetAdSelectionFromOutcomesConfigRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DecisionLogicService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DecisionLogicEqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DecisionLogicServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DecisionLogicService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DecisionLogicServiceServer).Equals(ctx, req.(*DecisionLogicEqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DecisionLogicService_GetLogic_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLogicRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DecisionLogicServiceServer).GetLogic(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DecisionLogicService_GetLogic_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DecisionLogicServiceServer).GetLogic(ctx, req.(*GetLogicRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DecisionLogicService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DecisionLogicHashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DecisionLogicServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DecisionLogicService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DecisionLogicServiceServer).HashCode(ctx, req.(*DecisionLogicHashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DecisionLogicService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DecisionLogicToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DecisionLogicServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DecisionLogicService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DecisionLogicServiceServer).ToString(ctx, req.(*DecisionLogicToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DecisionLogicService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DecisionLogicWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DecisionLogicServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DecisionLogicService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DecisionLogicServiceServer).WriteToParcel(ctx, req.(*DecisionLogicWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DecisionLogicService_ServiceDesc is the grpc.ServiceDesc for DecisionLogicService service.
+// RemoveAdSelectionFromOutcomesOverrideRequestService_ServiceDesc is the grpc.ServiceDesc for RemoveAdSelectionFromOutcomesOverrideRequestService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var DecisionLogicService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "adselection.DecisionLogicService",
-	HandlerType: (*DecisionLogicServiceServer)(nil),
+var RemoveAdSelectionFromOutcomesOverrideRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "adselection.RemoveAdSelectionFromOutcomesOverrideRequestService",
+	HandlerType: (*RemoveAdSelectionFromOutcomesOverrideRequestServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewDecisionLogic",
-			Handler:    _DecisionLogicService_NewDecisionLogic_Handler,
+			MethodName: "NewRemoveAdSelectionFromOutcomesOverrideRequest",
+			Handler:    _RemoveAdSelectionFromOutcomesOverrideRequestService_NewRemoveAdSelectionFromOutcomesOverrideRequest_Handler,
 		},
 		{
+			MethodName: "GetAdSelectionFromOutcomesConfig",
+			Handler:    _RemoveAdSelectionFromOutcomesOverrideRequestService_GetAdSelectionFromOutcomesConfig_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/adselection/adselection.proto",
+}
+
+const (
+	PersistAdSelectionResultRequestService_GetAdSelectionDataId_FullMethodName = "/adselection.PersistAdSelectionResultRequestService/GetAdSelectionDataId"
+	PersistAdSelectionResultRequestService_GetAdSelectionId_FullMethodName     = "/adselection.PersistAdSelectionResultRequestService/GetAdSelectionId"
+	PersistAdSelectionResultRequestService_GetAdSelectionResult_FullMethodName = "/adselection.PersistAdSelectionResultRequestService/GetAdSelectionResult"
+	PersistAdSelectionResultRequestService_GetSeller_FullMethodName            = "/adselection.PersistAdSelectionResultRequestService/GetSeller"
+)
+
+// PersistAdSelectionResultRequestServiceClient is the client API for PersistAdSelectionResultRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PersistAdSelectionResultRequestServiceClient interface {
+	GetAdSelectionDataId(ctx context.Context, in *GetAdSelectionDataIdRequest, opts ...grpc.CallOption) (*GetAdSelectionDataIdResponse, error)
+	GetAdSelectionId(ctx context.Context, in *GetAdSelectionIdRequest, opts ...grpc.CallOption) (*GetAdSelectionIdResponse, error)
+	GetAdSelectionResult(ctx context.Context, in *GetAdSelectionResultRequest, opts ...grpc.CallOption) (*GetAdSelectionResultResponse, error)
+	GetSeller(ctx context.Context, in *GetSellerRequest, opts ...grpc.CallOption) (*GetSellerResponse, error)
+}
+
+type persistAdSelectionResultRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPersistAdSelectionResultRequestServiceClient(cc grpc.ClientConnInterface) PersistAdSelectionResultRequestServiceClient {
+	return &persistAdSelectionResultRequestServiceClient{cc}
+}
+
+func (c *persistAdSelectionResultRequestServiceClient) GetAdSelectionDataId(ctx context.Context, in *GetAdSelectionDataIdRequest, opts ...grpc.CallOption) (*GetAdSelectionDataIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAdSelectionDataIdResponse)
+	err := c.cc.Invoke(ctx, PersistAdSelectionResultRequestService_GetAdSelectionDataId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *persistAdSelectionResultRequestServiceClient) GetAdSelectionId(ctx context.Context, in *GetAdSelectionIdRequest, opts ...grpc.CallOption) (*GetAdSelectionIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAdSelectionIdResponse)
+	err := c.cc.Invoke(ctx, PersistAdSelectionResultRequestService_GetAdSelectionId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *persistAdSelectionResultRequestServiceClient) GetAdSelectionResult(ctx context.Context, in *GetAdSelectionResultRequest, opts ...grpc.CallOption) (*GetAdSelectionResultResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAdSelectionResultResponse)
+	err := c.cc.Invoke(ctx, PersistAdSelectionResultRequestService_GetAdSelectionResult_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *persistAdSelectionResultRequestServiceClient) GetSeller(ctx context.Context, in *GetSellerRequest, opts ...grpc.CallOption) (*GetSellerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSellerResponse)
+	err := c.cc.Invoke(ctx, PersistAdSelectionResultRequestService_GetSeller_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PersistAdSelectionResultRequestServiceServer is the server API for PersistAdSelectionResultRequestService service.
+// All implementations must embed UnimplementedPersistAdSelectionResultRequestServiceServer
+// for forward compatibility.
+type PersistAdSelectionResultRequestServiceServer interface {
+	GetAdSelectionDataId(context.Context, *GetAdSelectionDataIdRequest) (*GetAdSelectionDataIdResponse, error)
+	GetAdSelectionId(context.Context, *GetAdSelectionIdRequest) (*GetAdSelectionIdResponse, error)
+	GetAdSelectionResult(context.Context, *GetAdSelectionResultRequest) (*GetAdSelectionResultResponse, error)
+	GetSeller(context.Context, *GetSellerRequest) (*GetSellerResponse, error)
+	mustEmbedUnimplementedPersistAdSelectionResultRequestServiceServer()
+}
+
+// UnimplementedPersistAdSelectionResultRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPersistAdSelectionResultRequestServiceServer struct{}
+
+func (UnimplementedPersistAdSelectionResultRequestServiceServer) GetAdSelectionDataId(context.Context, *GetAdSelectionDataIdRequest) (*GetAdSelectionDataIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAdSelectionDataId not implemented")
+}
+func (UnimplementedPersistAdSelectionResultRequestServiceServer) GetAdSelectionId(context.Context, *GetAdSelectionIdRequest) (*GetAdSelectionIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAdSelectionId not implemented")
+}
+func (UnimplementedPersistAdSelectionResultRequestServiceServer) GetAdSelectionResult(context.Context, *GetAdSelectionResultRequest) (*GetAdSelectionResultResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAdSelectionResult not implemented")
+}
+func (UnimplementedPersistAdSelectionResultRequestServiceServer) GetSeller(context.Context, *GetSellerRequest) (*GetSellerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSeller not implemented")
+}
+func (UnimplementedPersistAdSelectionResultRequestServiceServer) mustEmbedUnimplementedPersistAdSelectionResultRequestServiceServer() {
+}
+func (UnimplementedPersistAdSelectionResultRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafePersistAdSelectionResultRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PersistAdSelectionResultRequestServiceServer will
+// result in compilation errors.
+type UnsafePersistAdSelectionResultRequestServiceServer interface {
+	mustEmbedUnimplementedPersistAdSelectionResultRequestServiceServer()
+}
+
+func RegisterPersistAdSelectionResultRequestServiceServer(s grpc.ServiceRegistrar, srv PersistAdSelectionResultRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedPersistAdSelectionResultRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PersistAdSelectionResultRequestService_ServiceDesc, srv)
+}
+
+func _PersistAdSelectionResultRequestService_GetAdSelectionDataId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAdSelectionDataIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PersistAdSelectionResultRequestServiceServer).GetAdSelectionDataId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PersistAdSelectionResultRequestService_GetAdSelectionDataId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PersistAdSelectionResultRequestServiceServer).GetAdSelectionDataId(ctx, req.(*GetAdSelectionDataIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PersistAdSelectionResultRequestService_GetAdSelectionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAdSelectionIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PersistAdSelectionResultRequestServiceServer).GetAdSelectionId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PersistAdSelectionResultRequestService_GetAdSelectionId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PersistAdSelectionResultRequestServiceServer).GetAdSelectionId(ctx, req.(*GetAdSelectionIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PersistAdSelectionResultRequestService_GetAdSelectionResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAdSelectionResultRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PersistAdSelectionResultRequestServiceServer).GetAdSelectionResult(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PersistAdSelectionResultRequestService_GetAdSelectionResult_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PersistAdSelectionResultRequestServiceServer).GetAdSelectionResult(ctx, req.(*GetAdSelectionResultRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PersistAdSelectionResultRequestService_GetSeller_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSellerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PersistAdSelectionResultRequestServiceServer).GetSeller(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PersistAdSelectionResultRequestService_GetSeller_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PersistAdSelectionResultRequestServiceServer).GetSeller(ctx, req.(*GetSellerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PersistAdSelectionResultRequestService_ServiceDesc is the grpc.ServiceDesc for PersistAdSelectionResultRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PersistAdSelectionResultRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "adselection.PersistAdSelectionResultRequestService",
+	HandlerType: (*PersistAdSelectionResultRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetAdSelectionDataId",
+			Handler:    _PersistAdSelectionResultRequestService_GetAdSelectionDataId_Handler,
+		},
+		{
+			MethodName: "GetAdSelectionId",
+			Handler:    _PersistAdSelectionResultRequestService_GetAdSelectionId_Handler,
+		},
+		{
+			MethodName: "GetAdSelectionResult",
+			Handler:    _PersistAdSelectionResultRequestService_GetAdSelectionResult_Handler,
+		},
+		{
+			MethodName: "GetSeller",
+			Handler:    _PersistAdSelectionResultRequestService_GetSeller_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/adselection/adselection.proto",
+}
+
+const (
+	PersistAdSelectionResultRequestBuilderService_Build_FullMethodName                = "/adselection.PersistAdSelectionResultRequestBuilderService/Build"
+	PersistAdSelectionResultRequestBuilderService_SetAdSelectionDataId_FullMethodName = "/adselection.PersistAdSelectionResultRequestBuilderService/SetAdSelectionDataId"
+	PersistAdSelectionResultRequestBuilderService_SetAdSelectionId_FullMethodName     = "/adselection.PersistAdSelectionResultRequestBuilderService/SetAdSelectionId"
+	PersistAdSelectionResultRequestBuilderService_SetAdSelectionResult_FullMethodName = "/adselection.PersistAdSelectionResultRequestBuilderService/SetAdSelectionResult"
+	PersistAdSelectionResultRequestBuilderService_SetSeller_FullMethodName            = "/adselection.PersistAdSelectionResultRequestBuilderService/SetSeller"
+)
+
+// PersistAdSelectionResultRequestBuilderServiceClient is the client API for PersistAdSelectionResultRequestBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PersistAdSelectionResultRequestBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetAdSelectionDataId(ctx context.Context, in *SetAdSelectionDataIdRequest, opts ...grpc.CallOption) (*SetAdSelectionDataIdResponse, error)
+	SetAdSelectionId(ctx context.Context, in *SetAdSelectionIdRequest, opts ...grpc.CallOption) (*SetAdSelectionIdResponse, error)
+	SetAdSelectionResult(ctx context.Context, in *SetAdSelectionResultRequest, opts ...grpc.CallOption) (*SetAdSelectionResultResponse, error)
+	SetSeller(ctx context.Context, in *SetSellerRequest, opts ...grpc.CallOption) (*SetSellerResponse, error)
+}
+
+type persistAdSelectionResultRequestBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPersistAdSelectionResultRequestBuilderServiceClient(cc grpc.ClientConnInterface) PersistAdSelectionResultRequestBuilderServiceClient {
+	return &persistAdSelectionResultRequestBuilderServiceClient{cc}
+}
+
+func (c *persistAdSelectionResultRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, PersistAdSelectionResultRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *persistAdSelectionResultRequestBuilderServiceClient) SetAdSelectionDataId(ctx context.Context, in *SetAdSelectionDataIdRequest, opts ...grpc.CallOption) (*SetAdSelectionDataIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAdSelectionDataIdResponse)
+	err := c.cc.Invoke(ctx, PersistAdSelectionResultRequestBuilderService_SetAdSelectionDataId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *persistAdSelectionResultRequestBuilderServiceClient) SetAdSelectionId(ctx context.Context, in *SetAdSelectionIdRequest, opts ...grpc.CallOption) (*SetAdSelectionIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAdSelectionIdResponse)
+	err := c.cc.Invoke(ctx, PersistAdSelectionResultRequestBuilderService_SetAdSelectionId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *persistAdSelectionResultRequestBuilderServiceClient) SetAdSelectionResult(ctx context.Context, in *SetAdSelectionResultRequest, opts ...grpc.CallOption) (*SetAdSelectionResultResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAdSelectionResultResponse)
+	err := c.cc.Invoke(ctx, PersistAdSelectionResultRequestBuilderService_SetAdSelectionResult_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *persistAdSelectionResultRequestBuilderServiceClient) SetSeller(ctx context.Context, in *SetSellerRequest, opts ...grpc.CallOption) (*SetSellerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSellerResponse)
+	err := c.cc.Invoke(ctx, PersistAdSelectionResultRequestBuilderService_SetSeller_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PersistAdSelectionResultRequestBuilderServiceServer is the server API for PersistAdSelectionResultRequestBuilderService service.
+// All implementations must embed UnimplementedPersistAdSelectionResultRequestBuilderServiceServer
+// for forward compatibility.
+type PersistAdSelectionResultRequestBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetAdSelectionDataId(context.Context, *SetAdSelectionDataIdRequest) (*SetAdSelectionDataIdResponse, error)
+	SetAdSelectionId(context.Context, *SetAdSelectionIdRequest) (*SetAdSelectionIdResponse, error)
+	SetAdSelectionResult(context.Context, *SetAdSelectionResultRequest) (*SetAdSelectionResultResponse, error)
+	SetSeller(context.Context, *SetSellerRequest) (*SetSellerResponse, error)
+	mustEmbedUnimplementedPersistAdSelectionResultRequestBuilderServiceServer()
+}
+
+// UnimplementedPersistAdSelectionResultRequestBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPersistAdSelectionResultRequestBuilderServiceServer struct{}
+
+func (UnimplementedPersistAdSelectionResultRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedPersistAdSelectionResultRequestBuilderServiceServer) SetAdSelectionDataId(context.Context, *SetAdSelectionDataIdRequest) (*SetAdSelectionDataIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAdSelectionDataId not implemented")
+}
+func (UnimplementedPersistAdSelectionResultRequestBuilderServiceServer) SetAdSelectionId(context.Context, *SetAdSelectionIdRequest) (*SetAdSelectionIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAdSelectionId not implemented")
+}
+func (UnimplementedPersistAdSelectionResultRequestBuilderServiceServer) SetAdSelectionResult(context.Context, *SetAdSelectionResultRequest) (*SetAdSelectionResultResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAdSelectionResult not implemented")
+}
+func (UnimplementedPersistAdSelectionResultRequestBuilderServiceServer) SetSeller(context.Context, *SetSellerRequest) (*SetSellerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSeller not implemented")
+}
+func (UnimplementedPersistAdSelectionResultRequestBuilderServiceServer) mustEmbedUnimplementedPersistAdSelectionResultRequestBuilderServiceServer() {
+}
+func (UnimplementedPersistAdSelectionResultRequestBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafePersistAdSelectionResultRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PersistAdSelectionResultRequestBuilderServiceServer will
+// result in compilation errors.
+type UnsafePersistAdSelectionResultRequestBuilderServiceServer interface {
+	mustEmbedUnimplementedPersistAdSelectionResultRequestBuilderServiceServer()
+}
+
+func RegisterPersistAdSelectionResultRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv PersistAdSelectionResultRequestBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedPersistAdSelectionResultRequestBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PersistAdSelectionResultRequestBuilderService_ServiceDesc, srv)
+}
+
+func _PersistAdSelectionResultRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PersistAdSelectionResultRequestBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PersistAdSelectionResultRequestBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PersistAdSelectionResultRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PersistAdSelectionResultRequestBuilderService_SetAdSelectionDataId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAdSelectionDataIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PersistAdSelectionResultRequestBuilderServiceServer).SetAdSelectionDataId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PersistAdSelectionResultRequestBuilderService_SetAdSelectionDataId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PersistAdSelectionResultRequestBuilderServiceServer).SetAdSelectionDataId(ctx, req.(*SetAdSelectionDataIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PersistAdSelectionResultRequestBuilderService_SetAdSelectionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAdSelectionIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PersistAdSelectionResultRequestBuilderServiceServer).SetAdSelectionId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PersistAdSelectionResultRequestBuilderService_SetAdSelectionId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PersistAdSelectionResultRequestBuilderServiceServer).SetAdSelectionId(ctx, req.(*SetAdSelectionIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PersistAdSelectionResultRequestBuilderService_SetAdSelectionResult_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAdSelectionResultRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PersistAdSelectionResultRequestBuilderServiceServer).SetAdSelectionResult(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PersistAdSelectionResultRequestBuilderService_SetAdSelectionResult_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PersistAdSelectionResultRequestBuilderServiceServer).SetAdSelectionResult(ctx, req.(*SetAdSelectionResultRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PersistAdSelectionResultRequestBuilderService_SetSeller_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSellerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PersistAdSelectionResultRequestBuilderServiceServer).SetSeller(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PersistAdSelectionResultRequestBuilderService_SetSeller_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PersistAdSelectionResultRequestBuilderServiceServer).SetSeller(ctx, req.(*SetSellerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PersistAdSelectionResultRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for PersistAdSelectionResultRequestBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PersistAdSelectionResultRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "adselection.PersistAdSelectionResultRequestBuilderService",
+	HandlerType: (*PersistAdSelectionResultRequestBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _PersistAdSelectionResultRequestBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetAdSelectionDataId",
+			Handler:    _PersistAdSelectionResultRequestBuilderService_SetAdSelectionDataId_Handler,
+		},
+		{
+			MethodName: "SetAdSelectionId",
+			Handler:    _PersistAdSelectionResultRequestBuilderService_SetAdSelectionId_Handler,
+		},
+		{
+			MethodName: "SetAdSelectionResult",
+			Handler:    _PersistAdSelectionResultRequestBuilderService_SetAdSelectionResult_Handler,
+		},
+		{
+			MethodName: "SetSeller",
+			Handler:    _PersistAdSelectionResultRequestBuilderService_SetSeller_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/adselection/adselection.proto",
+}
+
+const (
+	AdSelectionFromOutcomesConfigService_DescribeContents_FullMethodName     = "/adselection.AdSelectionFromOutcomesConfigService/DescribeContents"
+	AdSelectionFromOutcomesConfigService_Equals_FullMethodName               = "/adselection.AdSelectionFromOutcomesConfigService/Equals"
+	AdSelectionFromOutcomesConfigService_GetAdSelectionIds_FullMethodName    = "/adselection.AdSelectionFromOutcomesConfigService/GetAdSelectionIds"
+	AdSelectionFromOutcomesConfigService_GetSelectionLogicUri_FullMethodName = "/adselection.AdSelectionFromOutcomesConfigService/GetSelectionLogicUri"
+	AdSelectionFromOutcomesConfigService_GetSelectionSignals_FullMethodName  = "/adselection.AdSelectionFromOutcomesConfigService/GetSelectionSignals"
+	AdSelectionFromOutcomesConfigService_GetSeller_FullMethodName            = "/adselection.AdSelectionFromOutcomesConfigService/GetSeller"
+	AdSelectionFromOutcomesConfigService_HashCode_FullMethodName             = "/adselection.AdSelectionFromOutcomesConfigService/HashCode"
+	AdSelectionFromOutcomesConfigService_WriteToParcel_FullMethodName        = "/adselection.AdSelectionFromOutcomesConfigService/WriteToParcel"
+)
+
+// AdSelectionFromOutcomesConfigServiceClient is the client API for AdSelectionFromOutcomesConfigService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AdSelectionFromOutcomesConfigServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetAdSelectionIds(ctx context.Context, in *GetAdSelectionIdsRequest, opts ...grpc.CallOption) (*GetAdSelectionIdsResponse, error)
+	GetSelectionLogicUri(ctx context.Context, in *GetSelectionLogicUriRequest, opts ...grpc.CallOption) (*GetSelectionLogicUriResponse, error)
+	GetSelectionSignals(ctx context.Context, in *GetSelectionSignalsRequest, opts ...grpc.CallOption) (*GetSelectionSignalsResponse, error)
+	GetSeller(ctx context.Context, in *GetSellerRequest, opts ...grpc.CallOption) (*GetSellerResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type adSelectionFromOutcomesConfigServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAdSelectionFromOutcomesConfigServiceClient(cc grpc.ClientConnInterface) AdSelectionFromOutcomesConfigServiceClient {
+	return &adSelectionFromOutcomesConfigServiceClient{cc}
+}
+
+func (c *adSelectionFromOutcomesConfigServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, AdSelectionFromOutcomesConfigService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adSelectionFromOutcomesConfigServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, AdSelectionFromOutcomesConfigService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adSelectionFromOutcomesConfigServiceClient) GetAdSelectionIds(ctx context.Context, in *GetAdSelectionIdsRequest, opts ...grpc.CallOption) (*GetAdSelectionIdsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAdSelectionIdsResponse)
+	err := c.cc.Invoke(ctx, AdSelectionFromOutcomesConfigService_GetAdSelectionIds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adSelectionFromOutcomesConfigServiceClient) GetSelectionLogicUri(ctx context.Context, in *GetSelectionLogicUriRequest, opts ...grpc.CallOption) (*GetSelectionLogicUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSelectionLogicUriResponse)
+	err := c.cc.Invoke(ctx, AdSelectionFromOutcomesConfigService_GetSelectionLogicUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adSelectionFromOutcomesConfigServiceClient) GetSelectionSignals(ctx context.Context, in *GetSelectionSignalsRequest, opts ...grpc.CallOption) (*GetSelectionSignalsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSelectionSignalsResponse)
+	err := c.cc.Invoke(ctx, AdSelectionFromOutcomesConfigService_GetSelectionSignals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adSelectionFromOutcomesConfigServiceClient) GetSeller(ctx context.Context, in *GetSellerRequest, opts ...grpc.CallOption) (*GetSellerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSellerResponse)
+	err := c.cc.Invoke(ctx, AdSelectionFromOutcomesConfigService_GetSeller_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adSelectionFromOutcomesConfigServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, AdSelectionFromOutcomesConfigService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adSelectionFromOutcomesConfigServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, AdSelectionFromOutcomesConfigService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AdSelectionFromOutcomesConfigServiceServer is the server API for AdSelectionFromOutcomesConfigService service.
+// All implementations must embed UnimplementedAdSelectionFromOutcomesConfigServiceServer
+// for forward compatibility.
+type AdSelectionFromOutcomesConfigServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetAdSelectionIds(context.Context, *GetAdSelectionIdsRequest) (*GetAdSelectionIdsResponse, error)
+	GetSelectionLogicUri(context.Context, *GetSelectionLogicUriRequest) (*GetSelectionLogicUriResponse, error)
+	GetSelectionSignals(context.Context, *GetSelectionSignalsRequest) (*GetSelectionSignalsResponse, error)
+	GetSeller(context.Context, *GetSellerRequest) (*GetSellerResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedAdSelectionFromOutcomesConfigServiceServer()
+}
+
+// UnimplementedAdSelectionFromOutcomesConfigServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAdSelectionFromOutcomesConfigServiceServer struct{}
+
+func (UnimplementedAdSelectionFromOutcomesConfigServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedAdSelectionFromOutcomesConfigServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedAdSelectionFromOutcomesConfigServiceServer) GetAdSelectionIds(context.Context, *GetAdSelectionIdsRequest) (*GetAdSelectionIdsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAdSelectionIds not implemented")
+}
+func (UnimplementedAdSelectionFromOutcomesConfigServiceServer) GetSelectionLogicUri(context.Context, *GetSelectionLogicUriRequest) (*GetSelectionLogicUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSelectionLogicUri not implemented")
+}
+func (UnimplementedAdSelectionFromOutcomesConfigServiceServer) GetSelectionSignals(context.Context, *GetSelectionSignalsRequest) (*GetSelectionSignalsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSelectionSignals not implemented")
+}
+func (UnimplementedAdSelectionFromOutcomesConfigServiceServer) GetSeller(context.Context, *GetSellerRequest) (*GetSellerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSeller not implemented")
+}
+func (UnimplementedAdSelectionFromOutcomesConfigServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedAdSelectionFromOutcomesConfigServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedAdSelectionFromOutcomesConfigServiceServer) mustEmbedUnimplementedAdSelectionFromOutcomesConfigServiceServer() {
+}
+func (UnimplementedAdSelectionFromOutcomesConfigServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAdSelectionFromOutcomesConfigServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AdSelectionFromOutcomesConfigServiceServer will
+// result in compilation errors.
+type UnsafeAdSelectionFromOutcomesConfigServiceServer interface {
+	mustEmbedUnimplementedAdSelectionFromOutcomesConfigServiceServer()
+}
+
+func RegisterAdSelectionFromOutcomesConfigServiceServer(s grpc.ServiceRegistrar, srv AdSelectionFromOutcomesConfigServiceServer) {
+	// If the following call panics, it indicates UnimplementedAdSelectionFromOutcomesConfigServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AdSelectionFromOutcomesConfigService_ServiceDesc, srv)
+}
+
+func _AdSelectionFromOutcomesConfigService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdSelectionFromOutcomesConfigServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdSelectionFromOutcomesConfigService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdSelectionFromOutcomesConfigServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdSelectionFromOutcomesConfigService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdSelectionFromOutcomesConfigServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdSelectionFromOutcomesConfigService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdSelectionFromOutcomesConfigServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdSelectionFromOutcomesConfigService_GetAdSelectionIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAdSelectionIdsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdSelectionFromOutcomesConfigServiceServer).GetAdSelectionIds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdSelectionFromOutcomesConfigService_GetAdSelectionIds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdSelectionFromOutcomesConfigServiceServer).GetAdSelectionIds(ctx, req.(*GetAdSelectionIdsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdSelectionFromOutcomesConfigService_GetSelectionLogicUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSelectionLogicUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdSelectionFromOutcomesConfigServiceServer).GetSelectionLogicUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdSelectionFromOutcomesConfigService_GetSelectionLogicUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdSelectionFromOutcomesConfigServiceServer).GetSelectionLogicUri(ctx, req.(*GetSelectionLogicUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdSelectionFromOutcomesConfigService_GetSelectionSignals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSelectionSignalsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdSelectionFromOutcomesConfigServiceServer).GetSelectionSignals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdSelectionFromOutcomesConfigService_GetSelectionSignals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdSelectionFromOutcomesConfigServiceServer).GetSelectionSignals(ctx, req.(*GetSelectionSignalsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdSelectionFromOutcomesConfigService_GetSeller_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSellerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdSelectionFromOutcomesConfigServiceServer).GetSeller(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdSelectionFromOutcomesConfigService_GetSeller_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdSelectionFromOutcomesConfigServiceServer).GetSeller(ctx, req.(*GetSellerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdSelectionFromOutcomesConfigService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdSelectionFromOutcomesConfigServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdSelectionFromOutcomesConfigService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdSelectionFromOutcomesConfigServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdSelectionFromOutcomesConfigService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdSelectionFromOutcomesConfigServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdSelectionFromOutcomesConfigService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdSelectionFromOutcomesConfigServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AdSelectionFromOutcomesConfigService_ServiceDesc is the grpc.ServiceDesc for AdSelectionFromOutcomesConfigService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AdSelectionFromOutcomesConfigService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "adselection.AdSelectionFromOutcomesConfigService",
+	HandlerType: (*AdSelectionFromOutcomesConfigServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
 			MethodName: "DescribeContents",
-			Handler:    _DecisionLogicService_DescribeContents_Handler,
+			Handler:    _AdSelectionFromOutcomesConfigService_DescribeContents_Handler,
 		},
 		{
 			MethodName: "Equals",
-			Handler:    _DecisionLogicService_Equals_Handler,
+			Handler:    _AdSelectionFromOutcomesConfigService_Equals_Handler,
 		},
 		{
-			MethodName: "GetLogic",
-			Handler:    _DecisionLogicService_GetLogic_Handler,
+			MethodName: "GetAdSelectionIds",
+			Handler:    _AdSelectionFromOutcomesConfigService_GetAdSelectionIds_Handler,
+		},
+		{
+			MethodName: "GetSelectionLogicUri",
+			Handler:    _AdSelectionFromOutcomesConfigService_GetSelectionLogicUri_Handler,
+		},
+		{
+			MethodName: "GetSelectionSignals",
+			Handler:    _AdSelectionFromOutcomesConfigService_GetSelectionSignals_Handler,
+		},
+		{
+			MethodName: "GetSeller",
+			Handler:    _AdSelectionFromOutcomesConfigService_GetSeller_Handler,
 		},
 		{
 			MethodName: "HashCode",
-			Handler:    _DecisionLogicService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _DecisionLogicService_ToString_Handler,
+			Handler:    _AdSelectionFromOutcomesConfigService_HashCode_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _DecisionLogicService_WriteToParcel_Handler,
+			Handler:    _AdSelectionFromOutcomesConfigService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/adselection/adselection.proto",
+}
+
+const (
+	AdSelectionFromOutcomesConfigBuilderService_Build_FullMethodName                = "/adselection.AdSelectionFromOutcomesConfigBuilderService/Build"
+	AdSelectionFromOutcomesConfigBuilderService_SetSelectionLogicUri_FullMethodName = "/adselection.AdSelectionFromOutcomesConfigBuilderService/SetSelectionLogicUri"
+	AdSelectionFromOutcomesConfigBuilderService_SetSelectionSignals_FullMethodName  = "/adselection.AdSelectionFromOutcomesConfigBuilderService/SetSelectionSignals"
+	AdSelectionFromOutcomesConfigBuilderService_SetSeller_FullMethodName            = "/adselection.AdSelectionFromOutcomesConfigBuilderService/SetSeller"
+)
+
+// AdSelectionFromOutcomesConfigBuilderServiceClient is the client API for AdSelectionFromOutcomesConfigBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AdSelectionFromOutcomesConfigBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetSelectionLogicUri(ctx context.Context, in *SetSelectionLogicUriRequest, opts ...grpc.CallOption) (*SetSelectionLogicUriResponse, error)
+	SetSelectionSignals(ctx context.Context, in *SetSelectionSignalsRequest, opts ...grpc.CallOption) (*SetSelectionSignalsResponse, error)
+	SetSeller(ctx context.Context, in *SetSellerRequest, opts ...grpc.CallOption) (*SetSellerResponse, error)
+}
+
+type adSelectionFromOutcomesConfigBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAdSelectionFromOutcomesConfigBuilderServiceClient(cc grpc.ClientConnInterface) AdSelectionFromOutcomesConfigBuilderServiceClient {
+	return &adSelectionFromOutcomesConfigBuilderServiceClient{cc}
+}
+
+func (c *adSelectionFromOutcomesConfigBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, AdSelectionFromOutcomesConfigBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adSelectionFromOutcomesConfigBuilderServiceClient) SetSelectionLogicUri(ctx context.Context, in *SetSelectionLogicUriRequest, opts ...grpc.CallOption) (*SetSelectionLogicUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSelectionLogicUriResponse)
+	err := c.cc.Invoke(ctx, AdSelectionFromOutcomesConfigBuilderService_SetSelectionLogicUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adSelectionFromOutcomesConfigBuilderServiceClient) SetSelectionSignals(ctx context.Context, in *SetSelectionSignalsRequest, opts ...grpc.CallOption) (*SetSelectionSignalsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSelectionSignalsResponse)
+	err := c.cc.Invoke(ctx, AdSelectionFromOutcomesConfigBuilderService_SetSelectionSignals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adSelectionFromOutcomesConfigBuilderServiceClient) SetSeller(ctx context.Context, in *SetSellerRequest, opts ...grpc.CallOption) (*SetSellerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSellerResponse)
+	err := c.cc.Invoke(ctx, AdSelectionFromOutcomesConfigBuilderService_SetSeller_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AdSelectionFromOutcomesConfigBuilderServiceServer is the server API for AdSelectionFromOutcomesConfigBuilderService service.
+// All implementations must embed UnimplementedAdSelectionFromOutcomesConfigBuilderServiceServer
+// for forward compatibility.
+type AdSelectionFromOutcomesConfigBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetSelectionLogicUri(context.Context, *SetSelectionLogicUriRequest) (*SetSelectionLogicUriResponse, error)
+	SetSelectionSignals(context.Context, *SetSelectionSignalsRequest) (*SetSelectionSignalsResponse, error)
+	SetSeller(context.Context, *SetSellerRequest) (*SetSellerResponse, error)
+	mustEmbedUnimplementedAdSelectionFromOutcomesConfigBuilderServiceServer()
+}
+
+// UnimplementedAdSelectionFromOutcomesConfigBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAdSelectionFromOutcomesConfigBuilderServiceServer struct{}
+
+func (UnimplementedAdSelectionFromOutcomesConfigBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedAdSelectionFromOutcomesConfigBuilderServiceServer) SetSelectionLogicUri(context.Context, *SetSelectionLogicUriRequest) (*SetSelectionLogicUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSelectionLogicUri not implemented")
+}
+func (UnimplementedAdSelectionFromOutcomesConfigBuilderServiceServer) SetSelectionSignals(context.Context, *SetSelectionSignalsRequest) (*SetSelectionSignalsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSelectionSignals not implemented")
+}
+func (UnimplementedAdSelectionFromOutcomesConfigBuilderServiceServer) SetSeller(context.Context, *SetSellerRequest) (*SetSellerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSeller not implemented")
+}
+func (UnimplementedAdSelectionFromOutcomesConfigBuilderServiceServer) mustEmbedUnimplementedAdSelectionFromOutcomesConfigBuilderServiceServer() {
+}
+func (UnimplementedAdSelectionFromOutcomesConfigBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAdSelectionFromOutcomesConfigBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AdSelectionFromOutcomesConfigBuilderServiceServer will
+// result in compilation errors.
+type UnsafeAdSelectionFromOutcomesConfigBuilderServiceServer interface {
+	mustEmbedUnimplementedAdSelectionFromOutcomesConfigBuilderServiceServer()
+}
+
+func RegisterAdSelectionFromOutcomesConfigBuilderServiceServer(s grpc.ServiceRegistrar, srv AdSelectionFromOutcomesConfigBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedAdSelectionFromOutcomesConfigBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AdSelectionFromOutcomesConfigBuilderService_ServiceDesc, srv)
+}
+
+func _AdSelectionFromOutcomesConfigBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdSelectionFromOutcomesConfigBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdSelectionFromOutcomesConfigBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdSelectionFromOutcomesConfigBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdSelectionFromOutcomesConfigBuilderService_SetSelectionLogicUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSelectionLogicUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdSelectionFromOutcomesConfigBuilderServiceServer).SetSelectionLogicUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdSelectionFromOutcomesConfigBuilderService_SetSelectionLogicUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdSelectionFromOutcomesConfigBuilderServiceServer).SetSelectionLogicUri(ctx, req.(*SetSelectionLogicUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdSelectionFromOutcomesConfigBuilderService_SetSelectionSignals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSelectionSignalsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdSelectionFromOutcomesConfigBuilderServiceServer).SetSelectionSignals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdSelectionFromOutcomesConfigBuilderService_SetSelectionSignals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdSelectionFromOutcomesConfigBuilderServiceServer).SetSelectionSignals(ctx, req.(*SetSelectionSignalsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdSelectionFromOutcomesConfigBuilderService_SetSeller_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSellerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdSelectionFromOutcomesConfigBuilderServiceServer).SetSeller(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdSelectionFromOutcomesConfigBuilderService_SetSeller_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdSelectionFromOutcomesConfigBuilderServiceServer).SetSeller(ctx, req.(*SetSellerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AdSelectionFromOutcomesConfigBuilderService_ServiceDesc is the grpc.ServiceDesc for AdSelectionFromOutcomesConfigBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AdSelectionFromOutcomesConfigBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "adselection.AdSelectionFromOutcomesConfigBuilderService",
+	HandlerType: (*AdSelectionFromOutcomesConfigBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _AdSelectionFromOutcomesConfigBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetSelectionLogicUri",
+			Handler:    _AdSelectionFromOutcomesConfigBuilderService_SetSelectionLogicUri_Handler,
+		},
+		{
+			MethodName: "SetSelectionSignals",
+			Handler:    _AdSelectionFromOutcomesConfigBuilderService_SetSelectionSignals_Handler,
+		},
+		{
+			MethodName: "SetSeller",
+			Handler:    _AdSelectionFromOutcomesConfigBuilderService_SetSeller_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -6741,292 +6845,622 @@ var GetAdSelectionDataRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	AdSelectionOutcomeService_Equals_FullMethodName           = "/adselection.AdSelectionOutcomeService/Equals"
-	AdSelectionOutcomeService_GetAdSelectionId_FullMethodName = "/adselection.AdSelectionOutcomeService/GetAdSelectionId"
-	AdSelectionOutcomeService_GetRenderUri_FullMethodName     = "/adselection.AdSelectionOutcomeService/GetRenderUri"
-	AdSelectionOutcomeService_GetWinningSeller_FullMethodName = "/adselection.AdSelectionOutcomeService/GetWinningSeller"
-	AdSelectionOutcomeService_HasOutcome_FullMethodName       = "/adselection.AdSelectionOutcomeService/HasOutcome"
-	AdSelectionOutcomeService_HashCode_FullMethodName         = "/adselection.AdSelectionOutcomeService/HashCode"
+	AdWithBidService_NewAdWithBid_FullMethodName     = "/adselection.AdWithBidService/NewAdWithBid"
+	AdWithBidService_DescribeContents_FullMethodName = "/adselection.AdWithBidService/DescribeContents"
+	AdWithBidService_Equals_FullMethodName           = "/adselection.AdWithBidService/Equals"
+	AdWithBidService_GetAdData_FullMethodName        = "/adselection.AdWithBidService/GetAdData"
+	AdWithBidService_GetBid_FullMethodName           = "/adselection.AdWithBidService/GetBid"
+	AdWithBidService_HashCode_FullMethodName         = "/adselection.AdWithBidService/HashCode"
+	AdWithBidService_WriteToParcel_FullMethodName    = "/adselection.AdWithBidService/WriteToParcel"
 )
 
-// AdSelectionOutcomeServiceClient is the client API for AdSelectionOutcomeService service.
+// AdWithBidServiceClient is the client API for AdWithBidService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AdSelectionOutcomeServiceClient interface {
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetAdSelectionId(ctx context.Context, in *GetAdSelectionIdRequest, opts ...grpc.CallOption) (*GetAdSelectionIdResponse, error)
-	GetRenderUri(ctx context.Context, in *GetRenderUriRequest, opts ...grpc.CallOption) (*GetRenderUriResponse, error)
-	GetWinningSeller(ctx context.Context, in *GetWinningSellerRequest, opts ...grpc.CallOption) (*GetWinningSellerResponse, error)
-	HasOutcome(ctx context.Context, in *HasOutcomeRequest, opts ...grpc.CallOption) (*HasOutcomeResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+type AdWithBidServiceClient interface {
+	NewAdWithBid(ctx context.Context, in *NewAdWithBidRequest, opts ...grpc.CallOption) (*NewAdWithBidResponse, error)
+	DescribeContents(ctx context.Context, in *AdWithBidDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *AdWithBidEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetAdData(ctx context.Context, in *GetAdDataRequest, opts ...grpc.CallOption) (*GetAdDataResponse, error)
+	GetBid(ctx context.Context, in *GetBidRequest, opts ...grpc.CallOption) (*GetBidResponse, error)
+	HashCode(ctx context.Context, in *AdWithBidHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	WriteToParcel(ctx context.Context, in *AdWithBidWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type adSelectionOutcomeServiceClient struct {
+type adWithBidServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewAdSelectionOutcomeServiceClient(cc grpc.ClientConnInterface) AdSelectionOutcomeServiceClient {
-	return &adSelectionOutcomeServiceClient{cc}
+func NewAdWithBidServiceClient(cc grpc.ClientConnInterface) AdWithBidServiceClient {
+	return &adWithBidServiceClient{cc}
 }
 
-func (c *adSelectionOutcomeServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+func (c *adWithBidServiceClient) NewAdWithBid(ctx context.Context, in *NewAdWithBidRequest, opts ...grpc.CallOption) (*NewAdWithBidResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewAdWithBidResponse)
+	err := c.cc.Invoke(ctx, AdWithBidService_NewAdWithBid_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adWithBidServiceClient) DescribeContents(ctx context.Context, in *AdWithBidDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, AdWithBidService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adWithBidServiceClient) Equals(ctx context.Context, in *AdWithBidEqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, AdSelectionOutcomeService_Equals_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, AdWithBidService_Equals_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adSelectionOutcomeServiceClient) GetAdSelectionId(ctx context.Context, in *GetAdSelectionIdRequest, opts ...grpc.CallOption) (*GetAdSelectionIdResponse, error) {
+func (c *adWithBidServiceClient) GetAdData(ctx context.Context, in *GetAdDataRequest, opts ...grpc.CallOption) (*GetAdDataResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAdSelectionIdResponse)
-	err := c.cc.Invoke(ctx, AdSelectionOutcomeService_GetAdSelectionId_FullMethodName, in, out, cOpts...)
+	out := new(GetAdDataResponse)
+	err := c.cc.Invoke(ctx, AdWithBidService_GetAdData_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adSelectionOutcomeServiceClient) GetRenderUri(ctx context.Context, in *GetRenderUriRequest, opts ...grpc.CallOption) (*GetRenderUriResponse, error) {
+func (c *adWithBidServiceClient) GetBid(ctx context.Context, in *GetBidRequest, opts ...grpc.CallOption) (*GetBidResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRenderUriResponse)
-	err := c.cc.Invoke(ctx, AdSelectionOutcomeService_GetRenderUri_FullMethodName, in, out, cOpts...)
+	out := new(GetBidResponse)
+	err := c.cc.Invoke(ctx, AdWithBidService_GetBid_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adSelectionOutcomeServiceClient) GetWinningSeller(ctx context.Context, in *GetWinningSellerRequest, opts ...grpc.CallOption) (*GetWinningSellerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetWinningSellerResponse)
-	err := c.cc.Invoke(ctx, AdSelectionOutcomeService_GetWinningSeller_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *adSelectionOutcomeServiceClient) HasOutcome(ctx context.Context, in *HasOutcomeRequest, opts ...grpc.CallOption) (*HasOutcomeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HasOutcomeResponse)
-	err := c.cc.Invoke(ctx, AdSelectionOutcomeService_HasOutcome_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *adSelectionOutcomeServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+func (c *adWithBidServiceClient) HashCode(ctx context.Context, in *AdWithBidHashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, AdSelectionOutcomeService_HashCode_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, AdWithBidService_HashCode_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// AdSelectionOutcomeServiceServer is the server API for AdSelectionOutcomeService service.
-// All implementations must embed UnimplementedAdSelectionOutcomeServiceServer
-// for forward compatibility.
-type AdSelectionOutcomeServiceServer interface {
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetAdSelectionId(context.Context, *GetAdSelectionIdRequest) (*GetAdSelectionIdResponse, error)
-	GetRenderUri(context.Context, *GetRenderUriRequest) (*GetRenderUriResponse, error)
-	GetWinningSeller(context.Context, *GetWinningSellerRequest) (*GetWinningSellerResponse, error)
-	HasOutcome(context.Context, *HasOutcomeRequest) (*HasOutcomeResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	mustEmbedUnimplementedAdSelectionOutcomeServiceServer()
+func (c *adWithBidServiceClient) WriteToParcel(ctx context.Context, in *AdWithBidWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, AdWithBidService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
-// UnimplementedAdSelectionOutcomeServiceServer must be embedded to have
+// AdWithBidServiceServer is the server API for AdWithBidService service.
+// All implementations must embed UnimplementedAdWithBidServiceServer
+// for forward compatibility.
+type AdWithBidServiceServer interface {
+	NewAdWithBid(context.Context, *NewAdWithBidRequest) (*NewAdWithBidResponse, error)
+	DescribeContents(context.Context, *AdWithBidDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *AdWithBidEqualsRequest) (*EqualsResponse, error)
+	GetAdData(context.Context, *GetAdDataRequest) (*GetAdDataResponse, error)
+	GetBid(context.Context, *GetBidRequest) (*GetBidResponse, error)
+	HashCode(context.Context, *AdWithBidHashCodeRequest) (*HashCodeResponse, error)
+	WriteToParcel(context.Context, *AdWithBidWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedAdWithBidServiceServer()
+}
+
+// UnimplementedAdWithBidServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedAdSelectionOutcomeServiceServer struct{}
+type UnimplementedAdWithBidServiceServer struct{}
 
-func (UnimplementedAdSelectionOutcomeServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+func (UnimplementedAdWithBidServiceServer) NewAdWithBid(context.Context, *NewAdWithBidRequest) (*NewAdWithBidResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewAdWithBid not implemented")
+}
+func (UnimplementedAdWithBidServiceServer) DescribeContents(context.Context, *AdWithBidDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedAdWithBidServiceServer) Equals(context.Context, *AdWithBidEqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedAdSelectionOutcomeServiceServer) GetAdSelectionId(context.Context, *GetAdSelectionIdRequest) (*GetAdSelectionIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAdSelectionId not implemented")
+func (UnimplementedAdWithBidServiceServer) GetAdData(context.Context, *GetAdDataRequest) (*GetAdDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAdData not implemented")
 }
-func (UnimplementedAdSelectionOutcomeServiceServer) GetRenderUri(context.Context, *GetRenderUriRequest) (*GetRenderUriResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRenderUri not implemented")
+func (UnimplementedAdWithBidServiceServer) GetBid(context.Context, *GetBidRequest) (*GetBidResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBid not implemented")
 }
-func (UnimplementedAdSelectionOutcomeServiceServer) GetWinningSeller(context.Context, *GetWinningSellerRequest) (*GetWinningSellerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetWinningSeller not implemented")
-}
-func (UnimplementedAdSelectionOutcomeServiceServer) HasOutcome(context.Context, *HasOutcomeRequest) (*HasOutcomeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HasOutcome not implemented")
-}
-func (UnimplementedAdSelectionOutcomeServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+func (UnimplementedAdWithBidServiceServer) HashCode(context.Context, *AdWithBidHashCodeRequest) (*HashCodeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
 }
-func (UnimplementedAdSelectionOutcomeServiceServer) mustEmbedUnimplementedAdSelectionOutcomeServiceServer() {
+func (UnimplementedAdWithBidServiceServer) WriteToParcel(context.Context, *AdWithBidWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedAdSelectionOutcomeServiceServer) testEmbeddedByValue() {}
+func (UnimplementedAdWithBidServiceServer) mustEmbedUnimplementedAdWithBidServiceServer() {}
+func (UnimplementedAdWithBidServiceServer) testEmbeddedByValue()                          {}
 
-// UnsafeAdSelectionOutcomeServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AdSelectionOutcomeServiceServer will
+// UnsafeAdWithBidServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AdWithBidServiceServer will
 // result in compilation errors.
-type UnsafeAdSelectionOutcomeServiceServer interface {
-	mustEmbedUnimplementedAdSelectionOutcomeServiceServer()
+type UnsafeAdWithBidServiceServer interface {
+	mustEmbedUnimplementedAdWithBidServiceServer()
 }
 
-func RegisterAdSelectionOutcomeServiceServer(s grpc.ServiceRegistrar, srv AdSelectionOutcomeServiceServer) {
-	// If the following call panics, it indicates UnimplementedAdSelectionOutcomeServiceServer was
+func RegisterAdWithBidServiceServer(s grpc.ServiceRegistrar, srv AdWithBidServiceServer) {
+	// If the following call panics, it indicates UnimplementedAdWithBidServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&AdSelectionOutcomeService_ServiceDesc, srv)
+	s.RegisterService(&AdWithBidService_ServiceDesc, srv)
 }
 
-func _AdSelectionOutcomeService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AdWithBidService_NewAdWithBid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewAdWithBidRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdWithBidServiceServer).NewAdWithBid(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdWithBidService_NewAdWithBid_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdWithBidServiceServer).NewAdWithBid(ctx, req.(*NewAdWithBidRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdWithBidService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AdWithBidDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdWithBidServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdWithBidService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdWithBidServiceServer).DescribeContents(ctx, req.(*AdWithBidDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdWithBidService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AdWithBidEqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdWithBidServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdWithBidService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdWithBidServiceServer).Equals(ctx, req.(*AdWithBidEqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdWithBidService_GetAdData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAdDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdWithBidServiceServer).GetAdData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdWithBidService_GetAdData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdWithBidServiceServer).GetAdData(ctx, req.(*GetAdDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdWithBidService_GetBid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBidRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdWithBidServiceServer).GetBid(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdWithBidService_GetBid_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdWithBidServiceServer).GetBid(ctx, req.(*GetBidRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdWithBidService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AdWithBidHashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdWithBidServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdWithBidService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdWithBidServiceServer).HashCode(ctx, req.(*AdWithBidHashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdWithBidService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AdWithBidWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdWithBidServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdWithBidService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdWithBidServiceServer).WriteToParcel(ctx, req.(*AdWithBidWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AdWithBidService_ServiceDesc is the grpc.ServiceDesc for AdWithBidService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AdWithBidService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "adselection.AdWithBidService",
+	HandlerType: (*AdWithBidServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewAdWithBid",
+			Handler:    _AdWithBidService_NewAdWithBid_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _AdWithBidService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _AdWithBidService_Equals_Handler,
+		},
+		{
+			MethodName: "GetAdData",
+			Handler:    _AdWithBidService_GetAdData_Handler,
+		},
+		{
+			MethodName: "GetBid",
+			Handler:    _AdWithBidService_GetBid_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _AdWithBidService_HashCode_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _AdWithBidService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/adselection/adselection.proto",
+}
+
+const (
+	UpdateAdCounterHistogramRequestService_Equals_FullMethodName           = "/adselection.UpdateAdCounterHistogramRequestService/Equals"
+	UpdateAdCounterHistogramRequestService_GetAdEventType_FullMethodName   = "/adselection.UpdateAdCounterHistogramRequestService/GetAdEventType"
+	UpdateAdCounterHistogramRequestService_GetAdSelectionId_FullMethodName = "/adselection.UpdateAdCounterHistogramRequestService/GetAdSelectionId"
+	UpdateAdCounterHistogramRequestService_GetCallerAdTech_FullMethodName  = "/adselection.UpdateAdCounterHistogramRequestService/GetCallerAdTech"
+	UpdateAdCounterHistogramRequestService_HashCode_FullMethodName         = "/adselection.UpdateAdCounterHistogramRequestService/HashCode"
+	UpdateAdCounterHistogramRequestService_ToString_FullMethodName         = "/adselection.UpdateAdCounterHistogramRequestService/ToString"
+)
+
+// UpdateAdCounterHistogramRequestServiceClient is the client API for UpdateAdCounterHistogramRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type UpdateAdCounterHistogramRequestServiceClient interface {
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetAdEventType(ctx context.Context, in *GetAdEventTypeRequest, opts ...grpc.CallOption) (*GetAdEventTypeResponse, error)
+	GetAdSelectionId(ctx context.Context, in *GetAdSelectionIdRequest, opts ...grpc.CallOption) (*GetAdSelectionIdResponse, error)
+	GetCallerAdTech(ctx context.Context, in *GetCallerAdTechRequest, opts ...grpc.CallOption) (*GetCallerAdTechResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *UpdateAdCounterHistogramRequestToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type updateAdCounterHistogramRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewUpdateAdCounterHistogramRequestServiceClient(cc grpc.ClientConnInterface) UpdateAdCounterHistogramRequestServiceClient {
+	return &updateAdCounterHistogramRequestServiceClient{cc}
+}
+
+func (c *updateAdCounterHistogramRequestServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, UpdateAdCounterHistogramRequestService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *updateAdCounterHistogramRequestServiceClient) GetAdEventType(ctx context.Context, in *GetAdEventTypeRequest, opts ...grpc.CallOption) (*GetAdEventTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAdEventTypeResponse)
+	err := c.cc.Invoke(ctx, UpdateAdCounterHistogramRequestService_GetAdEventType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *updateAdCounterHistogramRequestServiceClient) GetAdSelectionId(ctx context.Context, in *GetAdSelectionIdRequest, opts ...grpc.CallOption) (*GetAdSelectionIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAdSelectionIdResponse)
+	err := c.cc.Invoke(ctx, UpdateAdCounterHistogramRequestService_GetAdSelectionId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *updateAdCounterHistogramRequestServiceClient) GetCallerAdTech(ctx context.Context, in *GetCallerAdTechRequest, opts ...grpc.CallOption) (*GetCallerAdTechResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCallerAdTechResponse)
+	err := c.cc.Invoke(ctx, UpdateAdCounterHistogramRequestService_GetCallerAdTech_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *updateAdCounterHistogramRequestServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, UpdateAdCounterHistogramRequestService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *updateAdCounterHistogramRequestServiceClient) ToString(ctx context.Context, in *UpdateAdCounterHistogramRequestToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, UpdateAdCounterHistogramRequestService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// UpdateAdCounterHistogramRequestServiceServer is the server API for UpdateAdCounterHistogramRequestService service.
+// All implementations must embed UnimplementedUpdateAdCounterHistogramRequestServiceServer
+// for forward compatibility.
+type UpdateAdCounterHistogramRequestServiceServer interface {
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetAdEventType(context.Context, *GetAdEventTypeRequest) (*GetAdEventTypeResponse, error)
+	GetAdSelectionId(context.Context, *GetAdSelectionIdRequest) (*GetAdSelectionIdResponse, error)
+	GetCallerAdTech(context.Context, *GetCallerAdTechRequest) (*GetCallerAdTechResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *UpdateAdCounterHistogramRequestToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedUpdateAdCounterHistogramRequestServiceServer()
+}
+
+// UnimplementedUpdateAdCounterHistogramRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedUpdateAdCounterHistogramRequestServiceServer struct{}
+
+func (UnimplementedUpdateAdCounterHistogramRequestServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedUpdateAdCounterHistogramRequestServiceServer) GetAdEventType(context.Context, *GetAdEventTypeRequest) (*GetAdEventTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAdEventType not implemented")
+}
+func (UnimplementedUpdateAdCounterHistogramRequestServiceServer) GetAdSelectionId(context.Context, *GetAdSelectionIdRequest) (*GetAdSelectionIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAdSelectionId not implemented")
+}
+func (UnimplementedUpdateAdCounterHistogramRequestServiceServer) GetCallerAdTech(context.Context, *GetCallerAdTechRequest) (*GetCallerAdTechResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCallerAdTech not implemented")
+}
+func (UnimplementedUpdateAdCounterHistogramRequestServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedUpdateAdCounterHistogramRequestServiceServer) ToString(context.Context, *UpdateAdCounterHistogramRequestToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedUpdateAdCounterHistogramRequestServiceServer) mustEmbedUnimplementedUpdateAdCounterHistogramRequestServiceServer() {
+}
+func (UnimplementedUpdateAdCounterHistogramRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafeUpdateAdCounterHistogramRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to UpdateAdCounterHistogramRequestServiceServer will
+// result in compilation errors.
+type UnsafeUpdateAdCounterHistogramRequestServiceServer interface {
+	mustEmbedUnimplementedUpdateAdCounterHistogramRequestServiceServer()
+}
+
+func RegisterUpdateAdCounterHistogramRequestServiceServer(s grpc.ServiceRegistrar, srv UpdateAdCounterHistogramRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedUpdateAdCounterHistogramRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&UpdateAdCounterHistogramRequestService_ServiceDesc, srv)
+}
+
+func _UpdateAdCounterHistogramRequestService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(EqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdSelectionOutcomeServiceServer).Equals(ctx, in)
+		return srv.(UpdateAdCounterHistogramRequestServiceServer).Equals(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AdSelectionOutcomeService_Equals_FullMethodName,
+		FullMethod: UpdateAdCounterHistogramRequestService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionOutcomeServiceServer).Equals(ctx, req.(*EqualsRequest))
+		return srv.(UpdateAdCounterHistogramRequestServiceServer).Equals(ctx, req.(*EqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdSelectionOutcomeService_GetAdSelectionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _UpdateAdCounterHistogramRequestService_GetAdEventType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAdEventTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UpdateAdCounterHistogramRequestServiceServer).GetAdEventType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UpdateAdCounterHistogramRequestService_GetAdEventType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UpdateAdCounterHistogramRequestServiceServer).GetAdEventType(ctx, req.(*GetAdEventTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UpdateAdCounterHistogramRequestService_GetAdSelectionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetAdSelectionIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdSelectionOutcomeServiceServer).GetAdSelectionId(ctx, in)
+		return srv.(UpdateAdCounterHistogramRequestServiceServer).GetAdSelectionId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AdSelectionOutcomeService_GetAdSelectionId_FullMethodName,
+		FullMethod: UpdateAdCounterHistogramRequestService_GetAdSelectionId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionOutcomeServiceServer).GetAdSelectionId(ctx, req.(*GetAdSelectionIdRequest))
+		return srv.(UpdateAdCounterHistogramRequestServiceServer).GetAdSelectionId(ctx, req.(*GetAdSelectionIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdSelectionOutcomeService_GetRenderUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRenderUriRequest)
+func _UpdateAdCounterHistogramRequestService_GetCallerAdTech_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCallerAdTechRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdSelectionOutcomeServiceServer).GetRenderUri(ctx, in)
+		return srv.(UpdateAdCounterHistogramRequestServiceServer).GetCallerAdTech(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AdSelectionOutcomeService_GetRenderUri_FullMethodName,
+		FullMethod: UpdateAdCounterHistogramRequestService_GetCallerAdTech_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionOutcomeServiceServer).GetRenderUri(ctx, req.(*GetRenderUriRequest))
+		return srv.(UpdateAdCounterHistogramRequestServiceServer).GetCallerAdTech(ctx, req.(*GetCallerAdTechRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdSelectionOutcomeService_GetWinningSeller_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWinningSellerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdSelectionOutcomeServiceServer).GetWinningSeller(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdSelectionOutcomeService_GetWinningSeller_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionOutcomeServiceServer).GetWinningSeller(ctx, req.(*GetWinningSellerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AdSelectionOutcomeService_HasOutcome_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HasOutcomeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdSelectionOutcomeServiceServer).HasOutcome(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AdSelectionOutcomeService_HasOutcome_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionOutcomeServiceServer).HasOutcome(ctx, req.(*HasOutcomeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AdSelectionOutcomeService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _UpdateAdCounterHistogramRequestService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(HashCodeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdSelectionOutcomeServiceServer).HashCode(ctx, in)
+		return srv.(UpdateAdCounterHistogramRequestServiceServer).HashCode(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AdSelectionOutcomeService_HashCode_FullMethodName,
+		FullMethod: UpdateAdCounterHistogramRequestService_HashCode_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionOutcomeServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+		return srv.(UpdateAdCounterHistogramRequestServiceServer).HashCode(ctx, req.(*HashCodeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// AdSelectionOutcomeService_ServiceDesc is the grpc.ServiceDesc for AdSelectionOutcomeService service.
+func _UpdateAdCounterHistogramRequestService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateAdCounterHistogramRequestToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UpdateAdCounterHistogramRequestServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UpdateAdCounterHistogramRequestService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UpdateAdCounterHistogramRequestServiceServer).ToString(ctx, req.(*UpdateAdCounterHistogramRequestToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// UpdateAdCounterHistogramRequestService_ServiceDesc is the grpc.ServiceDesc for UpdateAdCounterHistogramRequestService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var AdSelectionOutcomeService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "adselection.AdSelectionOutcomeService",
-	HandlerType: (*AdSelectionOutcomeServiceServer)(nil),
+var UpdateAdCounterHistogramRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "adselection.UpdateAdCounterHistogramRequestService",
+	HandlerType: (*UpdateAdCounterHistogramRequestServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Equals",
-			Handler:    _AdSelectionOutcomeService_Equals_Handler,
+			Handler:    _UpdateAdCounterHistogramRequestService_Equals_Handler,
+		},
+		{
+			MethodName: "GetAdEventType",
+			Handler:    _UpdateAdCounterHistogramRequestService_GetAdEventType_Handler,
 		},
 		{
 			MethodName: "GetAdSelectionId",
-			Handler:    _AdSelectionOutcomeService_GetAdSelectionId_Handler,
+			Handler:    _UpdateAdCounterHistogramRequestService_GetAdSelectionId_Handler,
 		},
 		{
-			MethodName: "GetRenderUri",
-			Handler:    _AdSelectionOutcomeService_GetRenderUri_Handler,
-		},
-		{
-			MethodName: "GetWinningSeller",
-			Handler:    _AdSelectionOutcomeService_GetWinningSeller_Handler,
-		},
-		{
-			MethodName: "HasOutcome",
-			Handler:    _AdSelectionOutcomeService_HasOutcome_Handler,
+			MethodName: "GetCallerAdTech",
+			Handler:    _UpdateAdCounterHistogramRequestService_GetCallerAdTech_Handler,
 		},
 		{
 			MethodName: "HashCode",
-			Handler:    _AdSelectionOutcomeService_HashCode_Handler,
+			Handler:    _UpdateAdCounterHistogramRequestService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _UpdateAdCounterHistogramRequestService_ToString_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -7034,357 +7468,216 @@ var AdSelectionOutcomeService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	AdSelectionOutcomeBuilderService_Build_FullMethodName            = "/adselection.AdSelectionOutcomeBuilderService/Build"
-	AdSelectionOutcomeBuilderService_SetAdSelectionId_FullMethodName = "/adselection.AdSelectionOutcomeBuilderService/SetAdSelectionId"
-	AdSelectionOutcomeBuilderService_SetRenderUri_FullMethodName     = "/adselection.AdSelectionOutcomeBuilderService/SetRenderUri"
+	UpdateAdCounterHistogramRequestBuilderService_Build_FullMethodName            = "/adselection.UpdateAdCounterHistogramRequestBuilderService/Build"
+	UpdateAdCounterHistogramRequestBuilderService_SetAdEventType_FullMethodName   = "/adselection.UpdateAdCounterHistogramRequestBuilderService/SetAdEventType"
+	UpdateAdCounterHistogramRequestBuilderService_SetAdSelectionId_FullMethodName = "/adselection.UpdateAdCounterHistogramRequestBuilderService/SetAdSelectionId"
+	UpdateAdCounterHistogramRequestBuilderService_SetCallerAdTech_FullMethodName  = "/adselection.UpdateAdCounterHistogramRequestBuilderService/SetCallerAdTech"
 )
 
-// AdSelectionOutcomeBuilderServiceClient is the client API for AdSelectionOutcomeBuilderService service.
+// UpdateAdCounterHistogramRequestBuilderServiceClient is the client API for UpdateAdCounterHistogramRequestBuilderService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AdSelectionOutcomeBuilderServiceClient interface {
+type UpdateAdCounterHistogramRequestBuilderServiceClient interface {
 	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetAdEventType(ctx context.Context, in *SetAdEventTypeRequest, opts ...grpc.CallOption) (*SetAdEventTypeResponse, error)
 	SetAdSelectionId(ctx context.Context, in *SetAdSelectionIdRequest, opts ...grpc.CallOption) (*SetAdSelectionIdResponse, error)
-	SetRenderUri(ctx context.Context, in *SetRenderUriRequest, opts ...grpc.CallOption) (*SetRenderUriResponse, error)
+	SetCallerAdTech(ctx context.Context, in *SetCallerAdTechRequest, opts ...grpc.CallOption) (*SetCallerAdTechResponse, error)
 }
 
-type adSelectionOutcomeBuilderServiceClient struct {
+type updateAdCounterHistogramRequestBuilderServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewAdSelectionOutcomeBuilderServiceClient(cc grpc.ClientConnInterface) AdSelectionOutcomeBuilderServiceClient {
-	return &adSelectionOutcomeBuilderServiceClient{cc}
+func NewUpdateAdCounterHistogramRequestBuilderServiceClient(cc grpc.ClientConnInterface) UpdateAdCounterHistogramRequestBuilderServiceClient {
+	return &updateAdCounterHistogramRequestBuilderServiceClient{cc}
 }
 
-func (c *adSelectionOutcomeBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+func (c *updateAdCounterHistogramRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, AdSelectionOutcomeBuilderService_Build_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, UpdateAdCounterHistogramRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adSelectionOutcomeBuilderServiceClient) SetAdSelectionId(ctx context.Context, in *SetAdSelectionIdRequest, opts ...grpc.CallOption) (*SetAdSelectionIdResponse, error) {
+func (c *updateAdCounterHistogramRequestBuilderServiceClient) SetAdEventType(ctx context.Context, in *SetAdEventTypeRequest, opts ...grpc.CallOption) (*SetAdEventTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAdEventTypeResponse)
+	err := c.cc.Invoke(ctx, UpdateAdCounterHistogramRequestBuilderService_SetAdEventType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *updateAdCounterHistogramRequestBuilderServiceClient) SetAdSelectionId(ctx context.Context, in *SetAdSelectionIdRequest, opts ...grpc.CallOption) (*SetAdSelectionIdResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetAdSelectionIdResponse)
-	err := c.cc.Invoke(ctx, AdSelectionOutcomeBuilderService_SetAdSelectionId_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, UpdateAdCounterHistogramRequestBuilderService_SetAdSelectionId_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adSelectionOutcomeBuilderServiceClient) SetRenderUri(ctx context.Context, in *SetRenderUriRequest, opts ...grpc.CallOption) (*SetRenderUriResponse, error) {
+func (c *updateAdCounterHistogramRequestBuilderServiceClient) SetCallerAdTech(ctx context.Context, in *SetCallerAdTechRequest, opts ...grpc.CallOption) (*SetCallerAdTechResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetRenderUriResponse)
-	err := c.cc.Invoke(ctx, AdSelectionOutcomeBuilderService_SetRenderUri_FullMethodName, in, out, cOpts...)
+	out := new(SetCallerAdTechResponse)
+	err := c.cc.Invoke(ctx, UpdateAdCounterHistogramRequestBuilderService_SetCallerAdTech_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// AdSelectionOutcomeBuilderServiceServer is the server API for AdSelectionOutcomeBuilderService service.
-// All implementations must embed UnimplementedAdSelectionOutcomeBuilderServiceServer
+// UpdateAdCounterHistogramRequestBuilderServiceServer is the server API for UpdateAdCounterHistogramRequestBuilderService service.
+// All implementations must embed UnimplementedUpdateAdCounterHistogramRequestBuilderServiceServer
 // for forward compatibility.
-type AdSelectionOutcomeBuilderServiceServer interface {
+type UpdateAdCounterHistogramRequestBuilderServiceServer interface {
 	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetAdEventType(context.Context, *SetAdEventTypeRequest) (*SetAdEventTypeResponse, error)
 	SetAdSelectionId(context.Context, *SetAdSelectionIdRequest) (*SetAdSelectionIdResponse, error)
-	SetRenderUri(context.Context, *SetRenderUriRequest) (*SetRenderUriResponse, error)
-	mustEmbedUnimplementedAdSelectionOutcomeBuilderServiceServer()
+	SetCallerAdTech(context.Context, *SetCallerAdTechRequest) (*SetCallerAdTechResponse, error)
+	mustEmbedUnimplementedUpdateAdCounterHistogramRequestBuilderServiceServer()
 }
 
-// UnimplementedAdSelectionOutcomeBuilderServiceServer must be embedded to have
+// UnimplementedUpdateAdCounterHistogramRequestBuilderServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedAdSelectionOutcomeBuilderServiceServer struct{}
+type UnimplementedUpdateAdCounterHistogramRequestBuilderServiceServer struct{}
 
-func (UnimplementedAdSelectionOutcomeBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+func (UnimplementedUpdateAdCounterHistogramRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
 }
-func (UnimplementedAdSelectionOutcomeBuilderServiceServer) SetAdSelectionId(context.Context, *SetAdSelectionIdRequest) (*SetAdSelectionIdResponse, error) {
+func (UnimplementedUpdateAdCounterHistogramRequestBuilderServiceServer) SetAdEventType(context.Context, *SetAdEventTypeRequest) (*SetAdEventTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAdEventType not implemented")
+}
+func (UnimplementedUpdateAdCounterHistogramRequestBuilderServiceServer) SetAdSelectionId(context.Context, *SetAdSelectionIdRequest) (*SetAdSelectionIdResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetAdSelectionId not implemented")
 }
-func (UnimplementedAdSelectionOutcomeBuilderServiceServer) SetRenderUri(context.Context, *SetRenderUriRequest) (*SetRenderUriResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetRenderUri not implemented")
+func (UnimplementedUpdateAdCounterHistogramRequestBuilderServiceServer) SetCallerAdTech(context.Context, *SetCallerAdTechRequest) (*SetCallerAdTechResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetCallerAdTech not implemented")
 }
-func (UnimplementedAdSelectionOutcomeBuilderServiceServer) mustEmbedUnimplementedAdSelectionOutcomeBuilderServiceServer() {
+func (UnimplementedUpdateAdCounterHistogramRequestBuilderServiceServer) mustEmbedUnimplementedUpdateAdCounterHistogramRequestBuilderServiceServer() {
 }
-func (UnimplementedAdSelectionOutcomeBuilderServiceServer) testEmbeddedByValue() {}
+func (UnimplementedUpdateAdCounterHistogramRequestBuilderServiceServer) testEmbeddedByValue() {}
 
-// UnsafeAdSelectionOutcomeBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AdSelectionOutcomeBuilderServiceServer will
+// UnsafeUpdateAdCounterHistogramRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to UpdateAdCounterHistogramRequestBuilderServiceServer will
 // result in compilation errors.
-type UnsafeAdSelectionOutcomeBuilderServiceServer interface {
-	mustEmbedUnimplementedAdSelectionOutcomeBuilderServiceServer()
+type UnsafeUpdateAdCounterHistogramRequestBuilderServiceServer interface {
+	mustEmbedUnimplementedUpdateAdCounterHistogramRequestBuilderServiceServer()
 }
 
-func RegisterAdSelectionOutcomeBuilderServiceServer(s grpc.ServiceRegistrar, srv AdSelectionOutcomeBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedAdSelectionOutcomeBuilderServiceServer was
+func RegisterUpdateAdCounterHistogramRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv UpdateAdCounterHistogramRequestBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedUpdateAdCounterHistogramRequestBuilderServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&AdSelectionOutcomeBuilderService_ServiceDesc, srv)
+	s.RegisterService(&UpdateAdCounterHistogramRequestBuilderService_ServiceDesc, srv)
 }
 
-func _AdSelectionOutcomeBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _UpdateAdCounterHistogramRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(BuildRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdSelectionOutcomeBuilderServiceServer).Build(ctx, in)
+		return srv.(UpdateAdCounterHistogramRequestBuilderServiceServer).Build(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AdSelectionOutcomeBuilderService_Build_FullMethodName,
+		FullMethod: UpdateAdCounterHistogramRequestBuilderService_Build_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionOutcomeBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+		return srv.(UpdateAdCounterHistogramRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdSelectionOutcomeBuilderService_SetAdSelectionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _UpdateAdCounterHistogramRequestBuilderService_SetAdEventType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAdEventTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UpdateAdCounterHistogramRequestBuilderServiceServer).SetAdEventType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UpdateAdCounterHistogramRequestBuilderService_SetAdEventType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UpdateAdCounterHistogramRequestBuilderServiceServer).SetAdEventType(ctx, req.(*SetAdEventTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UpdateAdCounterHistogramRequestBuilderService_SetAdSelectionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SetAdSelectionIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdSelectionOutcomeBuilderServiceServer).SetAdSelectionId(ctx, in)
+		return srv.(UpdateAdCounterHistogramRequestBuilderServiceServer).SetAdSelectionId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AdSelectionOutcomeBuilderService_SetAdSelectionId_FullMethodName,
+		FullMethod: UpdateAdCounterHistogramRequestBuilderService_SetAdSelectionId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionOutcomeBuilderServiceServer).SetAdSelectionId(ctx, req.(*SetAdSelectionIdRequest))
+		return srv.(UpdateAdCounterHistogramRequestBuilderServiceServer).SetAdSelectionId(ctx, req.(*SetAdSelectionIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdSelectionOutcomeBuilderService_SetRenderUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetRenderUriRequest)
+func _UpdateAdCounterHistogramRequestBuilderService_SetCallerAdTech_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetCallerAdTechRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdSelectionOutcomeBuilderServiceServer).SetRenderUri(ctx, in)
+		return srv.(UpdateAdCounterHistogramRequestBuilderServiceServer).SetCallerAdTech(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AdSelectionOutcomeBuilderService_SetRenderUri_FullMethodName,
+		FullMethod: UpdateAdCounterHistogramRequestBuilderService_SetCallerAdTech_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdSelectionOutcomeBuilderServiceServer).SetRenderUri(ctx, req.(*SetRenderUriRequest))
+		return srv.(UpdateAdCounterHistogramRequestBuilderServiceServer).SetCallerAdTech(ctx, req.(*SetCallerAdTechRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// AdSelectionOutcomeBuilderService_ServiceDesc is the grpc.ServiceDesc for AdSelectionOutcomeBuilderService service.
+// UpdateAdCounterHistogramRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for UpdateAdCounterHistogramRequestBuilderService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var AdSelectionOutcomeBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "adselection.AdSelectionOutcomeBuilderService",
-	HandlerType: (*AdSelectionOutcomeBuilderServiceServer)(nil),
+var UpdateAdCounterHistogramRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "adselection.UpdateAdCounterHistogramRequestBuilderService",
+	HandlerType: (*UpdateAdCounterHistogramRequestBuilderServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Build",
-			Handler:    _AdSelectionOutcomeBuilderService_Build_Handler,
+			Handler:    _UpdateAdCounterHistogramRequestBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetAdEventType",
+			Handler:    _UpdateAdCounterHistogramRequestBuilderService_SetAdEventType_Handler,
 		},
 		{
 			MethodName: "SetAdSelectionId",
-			Handler:    _AdSelectionOutcomeBuilderService_SetAdSelectionId_Handler,
+			Handler:    _UpdateAdCounterHistogramRequestBuilderService_SetAdSelectionId_Handler,
 		},
 		{
-			MethodName: "SetRenderUri",
-			Handler:    _AdSelectionOutcomeBuilderService_SetRenderUri_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/adselection/adselection.proto",
-}
-
-const (
-	ReportImpressionRequestService_NewReportImpressionRequest_FullMethodName = "/adselection.ReportImpressionRequestService/NewReportImpressionRequest"
-	ReportImpressionRequestService_GetAdSelectionConfig_FullMethodName       = "/adselection.ReportImpressionRequestService/GetAdSelectionConfig"
-	ReportImpressionRequestService_GetAdSelectionId_FullMethodName           = "/adselection.ReportImpressionRequestService/GetAdSelectionId"
-)
-
-// ReportImpressionRequestServiceClient is the client API for ReportImpressionRequestService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ReportImpressionRequestServiceClient interface {
-	NewReportImpressionRequest(ctx context.Context, in *NewReportImpressionRequestRequest, opts ...grpc.CallOption) (*NewReportImpressionRequestResponse, error)
-	GetAdSelectionConfig(ctx context.Context, in *GetAdSelectionConfigRequest, opts ...grpc.CallOption) (*GetAdSelectionConfigResponse, error)
-	GetAdSelectionId(ctx context.Context, in *ReportImpressionRequestGetAdSelectionIdRequest, opts ...grpc.CallOption) (*GetAdSelectionIdResponse, error)
-}
-
-type reportImpressionRequestServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewReportImpressionRequestServiceClient(cc grpc.ClientConnInterface) ReportImpressionRequestServiceClient {
-	return &reportImpressionRequestServiceClient{cc}
-}
-
-func (c *reportImpressionRequestServiceClient) NewReportImpressionRequest(ctx context.Context, in *NewReportImpressionRequestRequest, opts ...grpc.CallOption) (*NewReportImpressionRequestResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewReportImpressionRequestResponse)
-	err := c.cc.Invoke(ctx, ReportImpressionRequestService_NewReportImpressionRequest_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *reportImpressionRequestServiceClient) GetAdSelectionConfig(ctx context.Context, in *GetAdSelectionConfigRequest, opts ...grpc.CallOption) (*GetAdSelectionConfigResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAdSelectionConfigResponse)
-	err := c.cc.Invoke(ctx, ReportImpressionRequestService_GetAdSelectionConfig_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *reportImpressionRequestServiceClient) GetAdSelectionId(ctx context.Context, in *ReportImpressionRequestGetAdSelectionIdRequest, opts ...grpc.CallOption) (*GetAdSelectionIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAdSelectionIdResponse)
-	err := c.cc.Invoke(ctx, ReportImpressionRequestService_GetAdSelectionId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ReportImpressionRequestServiceServer is the server API for ReportImpressionRequestService service.
-// All implementations must embed UnimplementedReportImpressionRequestServiceServer
-// for forward compatibility.
-type ReportImpressionRequestServiceServer interface {
-	NewReportImpressionRequest(context.Context, *NewReportImpressionRequestRequest) (*NewReportImpressionRequestResponse, error)
-	GetAdSelectionConfig(context.Context, *GetAdSelectionConfigRequest) (*GetAdSelectionConfigResponse, error)
-	GetAdSelectionId(context.Context, *ReportImpressionRequestGetAdSelectionIdRequest) (*GetAdSelectionIdResponse, error)
-	mustEmbedUnimplementedReportImpressionRequestServiceServer()
-}
-
-// UnimplementedReportImpressionRequestServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedReportImpressionRequestServiceServer struct{}
-
-func (UnimplementedReportImpressionRequestServiceServer) NewReportImpressionRequest(context.Context, *NewReportImpressionRequestRequest) (*NewReportImpressionRequestResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewReportImpressionRequest not implemented")
-}
-func (UnimplementedReportImpressionRequestServiceServer) GetAdSelectionConfig(context.Context, *GetAdSelectionConfigRequest) (*GetAdSelectionConfigResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAdSelectionConfig not implemented")
-}
-func (UnimplementedReportImpressionRequestServiceServer) GetAdSelectionId(context.Context, *ReportImpressionRequestGetAdSelectionIdRequest) (*GetAdSelectionIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAdSelectionId not implemented")
-}
-func (UnimplementedReportImpressionRequestServiceServer) mustEmbedUnimplementedReportImpressionRequestServiceServer() {
-}
-func (UnimplementedReportImpressionRequestServiceServer) testEmbeddedByValue() {}
-
-// UnsafeReportImpressionRequestServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ReportImpressionRequestServiceServer will
-// result in compilation errors.
-type UnsafeReportImpressionRequestServiceServer interface {
-	mustEmbedUnimplementedReportImpressionRequestServiceServer()
-}
-
-func RegisterReportImpressionRequestServiceServer(s grpc.ServiceRegistrar, srv ReportImpressionRequestServiceServer) {
-	// If the following call panics, it indicates UnimplementedReportImpressionRequestServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ReportImpressionRequestService_ServiceDesc, srv)
-}
-
-func _ReportImpressionRequestService_NewReportImpressionRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewReportImpressionRequestRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReportImpressionRequestServiceServer).NewReportImpressionRequest(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReportImpressionRequestService_NewReportImpressionRequest_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReportImpressionRequestServiceServer).NewReportImpressionRequest(ctx, req.(*NewReportImpressionRequestRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ReportImpressionRequestService_GetAdSelectionConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAdSelectionConfigRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReportImpressionRequestServiceServer).GetAdSelectionConfig(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReportImpressionRequestService_GetAdSelectionConfig_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReportImpressionRequestServiceServer).GetAdSelectionConfig(ctx, req.(*GetAdSelectionConfigRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ReportImpressionRequestService_GetAdSelectionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReportImpressionRequestGetAdSelectionIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReportImpressionRequestServiceServer).GetAdSelectionId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReportImpressionRequestService_GetAdSelectionId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReportImpressionRequestServiceServer).GetAdSelectionId(ctx, req.(*ReportImpressionRequestGetAdSelectionIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ReportImpressionRequestService_ServiceDesc is the grpc.ServiceDesc for ReportImpressionRequestService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ReportImpressionRequestService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "adselection.ReportImpressionRequestService",
-	HandlerType: (*ReportImpressionRequestServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewReportImpressionRequest",
-			Handler:    _ReportImpressionRequestService_NewReportImpressionRequest_Handler,
-		},
-		{
-			MethodName: "GetAdSelectionConfig",
-			Handler:    _ReportImpressionRequestService_GetAdSelectionConfig_Handler,
-		},
-		{
-			MethodName: "GetAdSelectionId",
-			Handler:    _ReportImpressionRequestService_GetAdSelectionId_Handler,
+			MethodName: "SetCallerAdTech",
+			Handler:    _UpdateAdCounterHistogramRequestBuilderService_SetCallerAdTech_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

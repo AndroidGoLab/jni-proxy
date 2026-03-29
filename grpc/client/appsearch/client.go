@@ -9,6 +9,851 @@ import (
 	"google.golang.org/grpc"
 )
 
+// AppSearchManagerSearchContextClient wraps the gRPC AppSearchManagerSearchContextService client.
+type AppSearchManagerSearchContextClient struct {
+	svc pb.AppSearchManagerSearchContextServiceClient
+}
+
+// NewAppSearchManagerSearchContextClient creates a new AppSearchManagerSearchContext client.
+func NewAppSearchManagerSearchContextClient(cc grpc.ClientConnInterface) *AppSearchManagerSearchContextClient {
+	return &AppSearchManagerSearchContextClient{
+		svc: pb.NewAppSearchManagerSearchContextServiceClient(cc),
+	}
+}
+
+// GetDatabaseName calls the GetDatabaseName RPC.
+func (c *AppSearchManagerSearchContextClient) GetDatabaseName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetDatabaseName(ctx, &pb.GetDatabaseNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// CommitBlobResponseClient wraps the gRPC CommitBlobResponseService client.
+type CommitBlobResponseClient struct {
+	svc pb.CommitBlobResponseServiceClient
+}
+
+// NewCommitBlobResponseClient creates a new CommitBlobResponse client.
+func NewCommitBlobResponseClient(cc grpc.ClientConnInterface) *CommitBlobResponseClient {
+	return &CommitBlobResponseClient{
+		svc: pb.NewCommitBlobResponseServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *CommitBlobResponseClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *CommitBlobResponseClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// RemoveBlobResponseClient wraps the gRPC RemoveBlobResponseService client.
+type RemoveBlobResponseClient struct {
+	svc pb.RemoveBlobResponseServiceClient
+}
+
+// NewRemoveBlobResponseClient creates a new RemoveBlobResponse client.
+func NewRemoveBlobResponseClient(cc grpc.ClientConnInterface) *RemoveBlobResponseClient {
+	return &RemoveBlobResponseClient{
+		svc: pb.NewRemoveBlobResponseServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *RemoveBlobResponseClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *RemoveBlobResponseClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SearchSuggestionResultClient wraps the gRPC SearchSuggestionResultService client.
+type SearchSuggestionResultClient struct {
+	svc pb.SearchSuggestionResultServiceClient
+}
+
+// NewSearchSuggestionResultClient creates a new SearchSuggestionResult client.
+func NewSearchSuggestionResultClient(cc grpc.ClientConnInterface) *SearchSuggestionResultClient {
+	return &SearchSuggestionResultClient{
+		svc: pb.NewSearchSuggestionResultServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SearchSuggestionResultClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.SearchSuggestionResultDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *SearchSuggestionResultClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSuggestedResult calls the GetSuggestedResult RPC.
+func (c *SearchSuggestionResultClient) GetSuggestedResult(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetSuggestedResult(ctx, &pb.GetSuggestedResultRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *SearchSuggestionResultClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SearchSuggestionResultClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.SearchSuggestionResultWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SearchSuggestionResultBuilderClient wraps the gRPC SearchSuggestionResultBuilderService client.
+type SearchSuggestionResultBuilderClient struct {
+	svc pb.SearchSuggestionResultBuilderServiceClient
+}
+
+// NewSearchSuggestionResultBuilderClient creates a new SearchSuggestionResultBuilder client.
+func NewSearchSuggestionResultBuilderClient(cc grpc.ClientConnInterface) *SearchSuggestionResultBuilderClient {
+	return &SearchSuggestionResultBuilderClient{
+		svc: pb.NewSearchSuggestionResultBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *SearchSuggestionResultBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSuggestedResult calls the SetSuggestedResult RPC.
+func (c *SearchSuggestionResultBuilderClient) SetSuggestedResult(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetSuggestedResult(ctx, &pb.SetSuggestedResultRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SearchResultClient wraps the gRPC SearchResultService client.
+type SearchResultClient struct {
+	svc pb.SearchResultServiceClient
+}
+
+// NewSearchResultClient creates a new SearchResult client.
+func NewSearchResultClient(cc grpc.ClientConnInterface) *SearchResultClient {
+	return &SearchResultClient{
+		svc: pb.NewSearchResultServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SearchResultClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.SearchResultDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDatabaseName calls the GetDatabaseName RPC.
+func (c *SearchResultClient) GetDatabaseName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetDatabaseName(ctx, &pb.GetDatabaseNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGenericDocument calls the GetGenericDocument RPC.
+func (c *SearchResultClient) GetGenericDocument(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetGenericDocument(ctx, &pb.GetGenericDocumentRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInformationalRankingSignals calls the GetInformationalRankingSignals RPC.
+func (c *SearchResultClient) GetInformationalRankingSignals(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInformationalRankingSignals(ctx, &pb.GetInformationalRankingSignalsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetJoinedResults calls the GetJoinedResults RPC.
+func (c *SearchResultClient) GetJoinedResults(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetJoinedResults(ctx, &pb.GetJoinedResultsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMatchInfos calls the GetMatchInfos RPC.
+func (c *SearchResultClient) GetMatchInfos(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMatchInfos(ctx, &pb.GetMatchInfosRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageName calls the GetPackageName RPC.
+func (c *SearchResultClient) GetPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetPackageName(ctx, &pb.GetPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRankingSignal calls the GetRankingSignal RPC.
+func (c *SearchResultClient) GetRankingSignal(ctx context.Context) (float64, error) {
+	resp, err := c.svc.GetRankingSignal(ctx, &pb.GetRankingSignalRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SearchResultClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.SearchResultWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SearchResultBuilderClient wraps the gRPC SearchResultBuilderService client.
+type SearchResultBuilderClient struct {
+	svc pb.SearchResultBuilderServiceClient
+}
+
+// NewSearchResultBuilderClient creates a new SearchResultBuilder client.
+func NewSearchResultBuilderClient(cc grpc.ClientConnInterface) *SearchResultBuilderClient {
+	return &SearchResultBuilderClient{
+		svc: pb.NewSearchResultBuilderServiceClient(cc),
+	}
+}
+
+// AddInformationalRankingSignal calls the AddInformationalRankingSignal RPC.
+func (c *SearchResultBuilderClient) AddInformationalRankingSignal(ctx context.Context, arg0 float64) (int64, error) {
+	resp, err := c.svc.AddInformationalRankingSignal(ctx, &pb.AddInformationalRankingSignalRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddJoinedResult calls the AddJoinedResult RPC.
+func (c *SearchResultBuilderClient) AddJoinedResult(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddJoinedResult(ctx, &pb.AddJoinedResultRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddMatchInfo calls the AddMatchInfo RPC.
+func (c *SearchResultBuilderClient) AddMatchInfo(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddMatchInfo(ctx, &pb.AddMatchInfoRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *SearchResultBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetGenericDocument calls the SetGenericDocument RPC.
+func (c *SearchResultBuilderClient) SetGenericDocument(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetGenericDocument(ctx, &pb.SetGenericDocumentRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRankingSignal calls the SetRankingSignal RPC.
+func (c *SearchResultBuilderClient) SetRankingSignal(ctx context.Context, arg0 float64) (int64, error) {
+	resp, err := c.svc.SetRankingSignal(ctx, &pb.SetRankingSignalRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SearchResultMatchInfoClient wraps the gRPC SearchResultMatchInfoService client.
+type SearchResultMatchInfoClient struct {
+	svc pb.SearchResultMatchInfoServiceClient
+}
+
+// NewSearchResultMatchInfoClient creates a new SearchResultMatchInfo client.
+func NewSearchResultMatchInfoClient(cc grpc.ClientConnInterface) *SearchResultMatchInfoClient {
+	return &SearchResultMatchInfoClient{
+		svc: pb.NewSearchResultMatchInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SearchResultMatchInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.SearchResultMatchInfoDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExactMatch calls the GetExactMatch RPC.
+func (c *SearchResultMatchInfoClient) GetExactMatch(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExactMatch(ctx, &pb.GetExactMatchRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetExactMatchRange calls the GetExactMatchRange RPC.
+func (c *SearchResultMatchInfoClient) GetExactMatchRange(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetExactMatchRange(ctx, &pb.GetExactMatchRangeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFullText calls the GetFullText RPC.
+func (c *SearchResultMatchInfoClient) GetFullText(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetFullText(ctx, &pb.GetFullTextRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPropertyPath calls the GetPropertyPath RPC.
+func (c *SearchResultMatchInfoClient) GetPropertyPath(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetPropertyPath(ctx, &pb.GetPropertyPathRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPropertyPathObject calls the GetPropertyPathObject RPC.
+func (c *SearchResultMatchInfoClient) GetPropertyPathObject(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPropertyPathObject(ctx, &pb.GetPropertyPathObjectRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSnippet calls the GetSnippet RPC.
+func (c *SearchResultMatchInfoClient) GetSnippet(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSnippet(ctx, &pb.GetSnippetRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSnippetRange calls the GetSnippetRange RPC.
+func (c *SearchResultMatchInfoClient) GetSnippetRange(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSnippetRange(ctx, &pb.GetSnippetRangeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSubmatch calls the GetSubmatch RPC.
+func (c *SearchResultMatchInfoClient) GetSubmatch(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSubmatch(ctx, &pb.GetSubmatchRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSubmatchRange calls the GetSubmatchRange RPC.
+func (c *SearchResultMatchInfoClient) GetSubmatchRange(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSubmatchRange(ctx, &pb.GetSubmatchRangeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SearchResultMatchInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.SearchResultMatchInfoWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SearchResultMatchRangeClient wraps the gRPC SearchResultMatchRangeService client.
+type SearchResultMatchRangeClient struct {
+	svc pb.SearchResultMatchRangeServiceClient
+}
+
+// NewSearchResultMatchRangeClient creates a new SearchResultMatchRange client.
+func NewSearchResultMatchRangeClient(cc grpc.ClientConnInterface) *SearchResultMatchRangeClient {
+	return &SearchResultMatchRangeClient{
+		svc: pb.NewSearchResultMatchRangeServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *SearchResultMatchRangeClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEnd calls the GetEnd RPC.
+func (c *SearchResultMatchRangeClient) GetEnd(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetEnd(ctx, &pb.GetEndRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStart calls the GetStart RPC.
+func (c *SearchResultMatchRangeClient) GetStart(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetStart(ctx, &pb.GetStartRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *SearchResultMatchRangeClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *SearchResultMatchRangeClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// AppSearchBatchResultClient wraps the gRPC AppSearchBatchResultService client.
+type AppSearchBatchResultClient struct {
+	svc pb.AppSearchBatchResultServiceClient
+}
+
+// NewAppSearchBatchResultClient creates a new AppSearchBatchResult client.
+func NewAppSearchBatchResultClient(cc grpc.ClientConnInterface) *AppSearchBatchResultClient {
+	return &AppSearchBatchResultClient{
+		svc: pb.NewAppSearchBatchResultServiceClient(cc),
+	}
+}
+
+// IsSuccess calls the IsSuccess RPC.
+func (c *AppSearchBatchResultClient) IsSuccess(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsSuccess(ctx, &pb.IsSuccessRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AppSearchBatchResultClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveByDocumentIdRequestClient wraps the gRPC RemoveByDocumentIdRequestService client.
+type RemoveByDocumentIdRequestClient struct {
+	svc pb.RemoveByDocumentIdRequestServiceClient
+}
+
+// NewRemoveByDocumentIdRequestClient creates a new RemoveByDocumentIdRequest client.
+func NewRemoveByDocumentIdRequestClient(cc grpc.ClientConnInterface) *RemoveByDocumentIdRequestClient {
+	return &RemoveByDocumentIdRequestClient{
+		svc: pb.NewRemoveByDocumentIdRequestServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *RemoveByDocumentIdRequestClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.RemoveByDocumentIdRequestDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIds calls the GetIds RPC.
+func (c *RemoveByDocumentIdRequestClient) GetIds(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIds(ctx, &pb.GetIdsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNamespace calls the GetNamespace RPC.
+func (c *RemoveByDocumentIdRequestClient) GetNamespace(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetNamespace(ctx, &pb.GetNamespaceRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *RemoveByDocumentIdRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.RemoveByDocumentIdRequestWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// RemoveByDocumentIdRequestBuilderClient wraps the gRPC RemoveByDocumentIdRequestBuilderService client.
+type RemoveByDocumentIdRequestBuilderClient struct {
+	svc pb.RemoveByDocumentIdRequestBuilderServiceClient
+}
+
+// NewRemoveByDocumentIdRequestBuilderClient creates a new RemoveByDocumentIdRequestBuilder client.
+func NewRemoveByDocumentIdRequestBuilderClient(cc grpc.ClientConnInterface) *RemoveByDocumentIdRequestBuilderClient {
+	return &RemoveByDocumentIdRequestBuilderClient{
+		svc: pb.NewRemoveByDocumentIdRequestBuilderServiceClient(cc),
+	}
+}
+
+// AddIds calls the AddIds RPC.
+func (c *RemoveByDocumentIdRequestBuilderClient) AddIds(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddIds(ctx, &pb.AddIdsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *RemoveByDocumentIdRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SchemaVisibilityConfigClient wraps the gRPC SchemaVisibilityConfigService client.
+type SchemaVisibilityConfigClient struct {
+	svc pb.SchemaVisibilityConfigServiceClient
+}
+
+// NewSchemaVisibilityConfigClient creates a new SchemaVisibilityConfig client.
+func NewSchemaVisibilityConfigClient(cc grpc.ClientConnInterface) *SchemaVisibilityConfigClient {
+	return &SchemaVisibilityConfigClient{
+		svc: pb.NewSchemaVisibilityConfigServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SchemaVisibilityConfigClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.SchemaVisibilityConfigDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *SchemaVisibilityConfigClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAllowedPackages calls the GetAllowedPackages RPC.
+func (c *SchemaVisibilityConfigClient) GetAllowedPackages(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAllowedPackages(ctx, &pb.GetAllowedPackagesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPubliclyVisibleTargetPackage calls the GetPubliclyVisibleTargetPackage RPC.
+func (c *SchemaVisibilityConfigClient) GetPubliclyVisibleTargetPackage(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPubliclyVisibleTargetPackage(ctx, &pb.GetPubliclyVisibleTargetPackageRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRequiredPermissions calls the GetRequiredPermissions RPC.
+func (c *SchemaVisibilityConfigClient) GetRequiredPermissions(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetRequiredPermissions(ctx, &pb.GetRequiredPermissionsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *SchemaVisibilityConfigClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SchemaVisibilityConfigClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.SchemaVisibilityConfigWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SchemaVisibilityConfigBuilderClient wraps the gRPC SchemaVisibilityConfigBuilderService client.
+type SchemaVisibilityConfigBuilderClient struct {
+	svc pb.SchemaVisibilityConfigBuilderServiceClient
+}
+
+// NewSchemaVisibilityConfigBuilderClient creates a new SchemaVisibilityConfigBuilder client.
+func NewSchemaVisibilityConfigBuilderClient(cc grpc.ClientConnInterface) *SchemaVisibilityConfigBuilderClient {
+	return &SchemaVisibilityConfigBuilderClient{
+		svc: pb.NewSchemaVisibilityConfigBuilderServiceClient(cc),
+	}
+}
+
+// AddAllowedPackage calls the AddAllowedPackage RPC.
+func (c *SchemaVisibilityConfigBuilderClient) AddAllowedPackage(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddAllowedPackage(ctx, &pb.AddAllowedPackageRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *SchemaVisibilityConfigBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearAllowedPackages calls the ClearAllowedPackages RPC.
+func (c *SchemaVisibilityConfigBuilderClient) ClearAllowedPackages(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearAllowedPackages(ctx, &pb.ClearAllowedPackagesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearRequiredPermissions calls the ClearRequiredPermissions RPC.
+func (c *SchemaVisibilityConfigBuilderClient) ClearRequiredPermissions(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearRequiredPermissions(ctx, &pb.ClearRequiredPermissionsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPubliclyVisibleTargetPackage calls the SetPubliclyVisibleTargetPackage RPC.
+func (c *SchemaVisibilityConfigBuilderClient) SetPubliclyVisibleTargetPackage(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetPubliclyVisibleTargetPackage(ctx, &pb.SetPubliclyVisibleTargetPackageRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetByDocumentIdRequestClient wraps the gRPC GetByDocumentIdRequestService client.
+type GetByDocumentIdRequestClient struct {
+	svc pb.GetByDocumentIdRequestServiceClient
+}
+
+// NewGetByDocumentIdRequestClient creates a new GetByDocumentIdRequest client.
+func NewGetByDocumentIdRequestClient(cc grpc.ClientConnInterface) *GetByDocumentIdRequestClient {
+	return &GetByDocumentIdRequestClient{
+		svc: pb.NewGetByDocumentIdRequestServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *GetByDocumentIdRequestClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.GetByDocumentIdRequestDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIds calls the GetIds RPC.
+func (c *GetByDocumentIdRequestClient) GetIds(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIds(ctx, &pb.GetIdsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNamespace calls the GetNamespace RPC.
+func (c *GetByDocumentIdRequestClient) GetNamespace(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetNamespace(ctx, &pb.GetNamespaceRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *GetByDocumentIdRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.GetByDocumentIdRequestWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GetByDocumentIdRequestBuilderClient wraps the gRPC GetByDocumentIdRequestBuilderService client.
+type GetByDocumentIdRequestBuilderClient struct {
+	svc pb.GetByDocumentIdRequestBuilderServiceClient
+}
+
+// NewGetByDocumentIdRequestBuilderClient creates a new GetByDocumentIdRequestBuilder client.
+func NewGetByDocumentIdRequestBuilderClient(cc grpc.ClientConnInterface) *GetByDocumentIdRequestBuilderClient {
+	return &GetByDocumentIdRequestBuilderClient{
+		svc: pb.NewGetByDocumentIdRequestBuilderServiceClient(cc),
+	}
+}
+
+// AddIds calls the AddIds RPC.
+func (c *GetByDocumentIdRequestBuilderClient) AddIds(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddIds(ctx, &pb.AddIdsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *GetByDocumentIdRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // AppSearchResultClient wraps the gRPC AppSearchResultService client.
 type AppSearchResultClient struct {
 	svc pb.AppSearchResultServiceClient
@@ -175,6 +1020,2403 @@ func (c *ReportSystemUsageRequestBuilderClient) SetUsageTimestampMillis(ctx cont
 	return resp.GetResult(), nil
 }
 
+// SearchResultsClient wraps the gRPC SearchResultsService client.
+type SearchResultsClient struct {
+	svc pb.SearchResultsServiceClient
+}
+
+// NewSearchResultsClient creates a new SearchResults client.
+func NewSearchResultsClient(cc grpc.ClientConnInterface) *SearchResultsClient {
+	return &SearchResultsClient{
+		svc: pb.NewSearchResultsServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *SearchResultsClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+	return err
+}
+
+// MigratorClient wraps the gRPC MigratorService client.
+type MigratorClient struct {
+	svc pb.MigratorServiceClient
+}
+
+// NewMigratorClient creates a new Migrator client.
+func NewMigratorClient(cc grpc.ClientConnInterface) *MigratorClient {
+	return &MigratorClient{
+		svc: pb.NewMigratorServiceClient(cc),
+	}
+}
+
+// OnDowngrade calls the OnDowngrade RPC.
+func (c *MigratorClient) OnDowngrade(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) (int64, error) {
+	resp, err := c.svc.OnDowngrade(ctx, &pb.OnDowngradeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnUpgrade calls the OnUpgrade RPC.
+func (c *MigratorClient) OnUpgrade(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) (int64, error) {
+	resp, err := c.svc.OnUpgrade(ctx, &pb.OnUpgradeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShouldMigrate calls the ShouldMigrate RPC.
+func (c *MigratorClient) ShouldMigrate(ctx context.Context, arg0 int32, arg1 int32) (bool, error) {
+	resp, err := c.svc.ShouldMigrate(ctx, &pb.ShouldMigrateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PackageIdentifierClient wraps the gRPC PackageIdentifierService client.
+type PackageIdentifierClient struct {
+	svc pb.PackageIdentifierServiceClient
+}
+
+// NewPackageIdentifierClient creates a new PackageIdentifier client.
+func NewPackageIdentifierClient(cc grpc.ClientConnInterface) *PackageIdentifierClient {
+	return &PackageIdentifierClient{
+		svc: pb.NewPackageIdentifierServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *PackageIdentifierClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.PackageIdentifierEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageName calls the GetPackageName RPC.
+func (c *PackageIdentifierClient) GetPackageName(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetPackageName(ctx, &pb.PackageIdentifierGetPackageNameRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSha256Certificate calls the GetSha256Certificate RPC.
+func (c *PackageIdentifierClient) GetSha256Certificate(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSha256Certificate(ctx, &pb.GetSha256CertificateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *PackageIdentifierClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.PackageIdentifierHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReportUsageRequestClient wraps the gRPC ReportUsageRequestService client.
+type ReportUsageRequestClient struct {
+	svc pb.ReportUsageRequestServiceClient
+}
+
+// NewReportUsageRequestClient creates a new ReportUsageRequest client.
+func NewReportUsageRequestClient(cc grpc.ClientConnInterface) *ReportUsageRequestClient {
+	return &ReportUsageRequestClient{
+		svc: pb.NewReportUsageRequestServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ReportUsageRequestClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.ReportUsageRequestDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDocumentId calls the GetDocumentId RPC.
+func (c *ReportUsageRequestClient) GetDocumentId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetDocumentId(ctx, &pb.GetDocumentIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNamespace calls the GetNamespace RPC.
+func (c *ReportUsageRequestClient) GetNamespace(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetNamespace(ctx, &pb.GetNamespaceRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUsageTimestampMillis calls the GetUsageTimestampMillis RPC.
+func (c *ReportUsageRequestClient) GetUsageTimestampMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUsageTimestampMillis(ctx, &pb.GetUsageTimestampMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ReportUsageRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.ReportUsageRequestWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ReportUsageRequestBuilderClient wraps the gRPC ReportUsageRequestBuilderService client.
+type ReportUsageRequestBuilderClient struct {
+	svc pb.ReportUsageRequestBuilderServiceClient
+}
+
+// NewReportUsageRequestBuilderClient creates a new ReportUsageRequestBuilder client.
+func NewReportUsageRequestBuilderClient(cc grpc.ClientConnInterface) *ReportUsageRequestBuilderClient {
+	return &ReportUsageRequestBuilderClient{
+		svc: pb.NewReportUsageRequestBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *ReportUsageRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetUsageTimestampMillis calls the SetUsageTimestampMillis RPC.
+func (c *ReportUsageRequestBuilderClient) SetUsageTimestampMillis(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetUsageTimestampMillis(ctx, &pb.SetUsageTimestampMillisRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PutDocumentsRequestClient wraps the gRPC PutDocumentsRequestService client.
+type PutDocumentsRequestClient struct {
+	svc pb.PutDocumentsRequestServiceClient
+}
+
+// NewPutDocumentsRequestClient creates a new PutDocumentsRequest client.
+func NewPutDocumentsRequestClient(cc grpc.ClientConnInterface) *PutDocumentsRequestClient {
+	return &PutDocumentsRequestClient{
+		svc: pb.NewPutDocumentsRequestServiceClient(cc),
+	}
+}
+
+// GetGenericDocuments calls the GetGenericDocuments RPC.
+func (c *PutDocumentsRequestClient) GetGenericDocuments(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetGenericDocuments(ctx, &pb.GetGenericDocumentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTakenActionGenericDocuments calls the GetTakenActionGenericDocuments RPC.
+func (c *PutDocumentsRequestClient) GetTakenActionGenericDocuments(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTakenActionGenericDocuments(ctx, &pb.GetTakenActionGenericDocumentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PutDocumentsRequestBuilderClient wraps the gRPC PutDocumentsRequestBuilderService client.
+type PutDocumentsRequestBuilderClient struct {
+	svc pb.PutDocumentsRequestBuilderServiceClient
+}
+
+// NewPutDocumentsRequestBuilderClient creates a new PutDocumentsRequestBuilder client.
+func NewPutDocumentsRequestBuilderClient(cc grpc.ClientConnInterface) *PutDocumentsRequestBuilderClient {
+	return &PutDocumentsRequestBuilderClient{
+		svc: pb.NewPutDocumentsRequestBuilderServiceClient(cc),
+	}
+}
+
+// AddGenericDocuments calls the AddGenericDocuments RPC.
+func (c *PutDocumentsRequestBuilderClient) AddGenericDocuments(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddGenericDocuments(ctx, &pb.AddGenericDocumentsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddTakenActionGenericDocuments calls the AddTakenActionGenericDocuments RPC.
+func (c *PutDocumentsRequestBuilderClient) AddTakenActionGenericDocuments(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddTakenActionGenericDocuments(ctx, &pb.AddTakenActionGenericDocumentsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *PutDocumentsRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSchemaRequestClient wraps the gRPC SetSchemaRequestService client.
+type SetSchemaRequestClient struct {
+	svc pb.SetSchemaRequestServiceClient
+}
+
+// NewSetSchemaRequestClient creates a new SetSchemaRequest client.
+func NewSetSchemaRequestClient(cc grpc.ClientConnInterface) *SetSchemaRequestClient {
+	return &SetSchemaRequestClient{
+		svc: pb.NewSetSchemaRequestServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *SetSchemaRequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSchemas calls the GetSchemas RPC.
+func (c *SetSchemaRequestClient) GetSchemas(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSchemas(ctx, &pb.GetSchemasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSchemasNotDisplayedBySystem calls the GetSchemasNotDisplayedBySystem RPC.
+func (c *SetSchemaRequestClient) GetSchemasNotDisplayedBySystem(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSchemasNotDisplayedBySystem(ctx, &pb.GetSchemasNotDisplayedBySystemRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVersion calls the GetVersion RPC.
+func (c *SetSchemaRequestClient) GetVersion(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVersion(ctx, &pb.GetVersionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *SetSchemaRequestClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsForceOverride calls the IsForceOverride RPC.
+func (c *SetSchemaRequestClient) IsForceOverride(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsForceOverride(ctx, &pb.IsForceOverrideRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSchemaRequestBuilderClient wraps the gRPC SetSchemaRequestBuilderService client.
+type SetSchemaRequestBuilderClient struct {
+	svc pb.SetSchemaRequestBuilderServiceClient
+}
+
+// NewSetSchemaRequestBuilderClient creates a new SetSchemaRequestBuilder client.
+func NewSetSchemaRequestBuilderClient(cc grpc.ClientConnInterface) *SetSchemaRequestBuilderClient {
+	return &SetSchemaRequestBuilderClient{
+		svc: pb.NewSetSchemaRequestBuilderServiceClient(cc),
+	}
+}
+
+// AddSchemaTypeVisibleToConfig calls the AddSchemaTypeVisibleToConfig RPC.
+func (c *SetSchemaRequestBuilderClient) AddSchemaTypeVisibleToConfig(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.AddSchemaTypeVisibleToConfig(ctx, &pb.AddSchemaTypeVisibleToConfigRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddSchemas calls the AddSchemas RPC.
+func (c *SetSchemaRequestBuilderClient) AddSchemas(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddSchemas(ctx, &pb.AddSchemasRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *SetSchemaRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearMigrators calls the ClearMigrators RPC.
+func (c *SetSchemaRequestBuilderClient) ClearMigrators(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearMigrators(ctx, &pb.ClearMigratorsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearRequiredPermissionsForSchemaTypeVisibility calls the ClearRequiredPermissionsForSchemaTypeVisibility RPC.
+func (c *SetSchemaRequestBuilderClient) ClearRequiredPermissionsForSchemaTypeVisibility(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ClearRequiredPermissionsForSchemaTypeVisibility(ctx, &pb.ClearRequiredPermissionsForSchemaTypeVisibilityRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearSchemaTypeVisibleToConfigs calls the ClearSchemaTypeVisibleToConfigs RPC.
+func (c *SetSchemaRequestBuilderClient) ClearSchemaTypeVisibleToConfigs(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ClearSchemaTypeVisibleToConfigs(ctx, &pb.ClearSchemaTypeVisibleToConfigsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearSchemas calls the ClearSchemas RPC.
+func (c *SetSchemaRequestBuilderClient) ClearSchemas(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearSchemas(ctx, &pb.ClearSchemasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetForceOverride calls the SetForceOverride RPC.
+func (c *SetSchemaRequestBuilderClient) SetForceOverride(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetForceOverride(ctx, &pb.SetForceOverrideRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMigrator calls the SetMigrator RPC.
+func (c *SetSchemaRequestBuilderClient) SetMigrator(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.SetMigrator(ctx, &pb.SetMigratorRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPubliclyVisibleSchema calls the SetPubliclyVisibleSchema RPC.
+func (c *SetSchemaRequestBuilderClient) SetPubliclyVisibleSchema(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.SetPubliclyVisibleSchema(ctx, &pb.SetPubliclyVisibleSchemaRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSchemaTypeDisplayedBySystem calls the SetSchemaTypeDisplayedBySystem RPC.
+func (c *SetSchemaRequestBuilderClient) SetSchemaTypeDisplayedBySystem(ctx context.Context, arg0 string, arg1 bool) (int64, error) {
+	resp, err := c.svc.SetSchemaTypeDisplayedBySystem(ctx, &pb.SetSchemaTypeDisplayedBySystemRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSchemaTypeVisibilityForPackage calls the SetSchemaTypeVisibilityForPackage RPC.
+func (c *SetSchemaRequestBuilderClient) SetSchemaTypeVisibilityForPackage(ctx context.Context, arg0 string, arg1 bool, arg2 int64) (int64, error) {
+	resp, err := c.svc.SetSchemaTypeVisibilityForPackage(ctx, &pb.SetSchemaTypeVisibilityForPackageRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetVersion calls the SetVersion RPC.
+func (c *SetSchemaRequestBuilderClient) SetVersion(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetVersion(ctx, &pb.SetVersionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSchemaResponseClient wraps the gRPC SetSchemaResponseService client.
+type SetSchemaResponseClient struct {
+	svc pb.SetSchemaResponseServiceClient
+}
+
+// NewSetSchemaResponseClient creates a new SetSchemaResponse client.
+func NewSetSchemaResponseClient(cc grpc.ClientConnInterface) *SetSchemaResponseClient {
+	return &SetSchemaResponseClient{
+		svc: pb.NewSetSchemaResponseServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SetSchemaResponseClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.SetSchemaResponseDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDeletedTypes calls the GetDeletedTypes RPC.
+func (c *SetSchemaResponseClient) GetDeletedTypes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDeletedTypes(ctx, &pb.GetDeletedTypesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetIncompatibleTypes calls the GetIncompatibleTypes RPC.
+func (c *SetSchemaResponseClient) GetIncompatibleTypes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIncompatibleTypes(ctx, &pb.GetIncompatibleTypesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMigratedTypes calls the GetMigratedTypes RPC.
+func (c *SetSchemaResponseClient) GetMigratedTypes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMigratedTypes(ctx, &pb.GetMigratedTypesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMigrationFailures calls the GetMigrationFailures RPC.
+func (c *SetSchemaResponseClient) GetMigrationFailures(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetMigrationFailures(ctx, &pb.GetMigrationFailuresRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SetSchemaResponseClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.SetSchemaResponseWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetSchemaResponseBuilderClient wraps the gRPC SetSchemaResponseBuilderService client.
+type SetSchemaResponseBuilderClient struct {
+	svc pb.SetSchemaResponseBuilderServiceClient
+}
+
+// NewSetSchemaResponseBuilderClient creates a new SetSchemaResponseBuilder client.
+func NewSetSchemaResponseBuilderClient(cc grpc.ClientConnInterface) *SetSchemaResponseBuilderClient {
+	return &SetSchemaResponseBuilderClient{
+		svc: pb.NewSetSchemaResponseBuilderServiceClient(cc),
+	}
+}
+
+// AddDeletedType calls the AddDeletedType RPC.
+func (c *SetSchemaResponseBuilderClient) AddDeletedType(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.AddDeletedType(ctx, &pb.AddDeletedTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddIncompatibleType calls the AddIncompatibleType RPC.
+func (c *SetSchemaResponseBuilderClient) AddIncompatibleType(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.AddIncompatibleType(ctx, &pb.AddIncompatibleTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddMigratedType calls the AddMigratedType RPC.
+func (c *SetSchemaResponseBuilderClient) AddMigratedType(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.AddMigratedType(ctx, &pb.AddMigratedTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddMigrationFailure calls the AddMigrationFailure RPC.
+func (c *SetSchemaResponseBuilderClient) AddMigrationFailure(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddMigrationFailure(ctx, &pb.AddMigrationFailureRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *SetSchemaResponseBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSchemaResponseMigrationFailureClient wraps the gRPC SetSchemaResponseMigrationFailureService client.
+type SetSchemaResponseMigrationFailureClient struct {
+	svc pb.SetSchemaResponseMigrationFailureServiceClient
+}
+
+// NewSetSchemaResponseMigrationFailureClient creates a new SetSchemaResponseMigrationFailure client.
+func NewSetSchemaResponseMigrationFailureClient(cc grpc.ClientConnInterface) *SetSchemaResponseMigrationFailureClient {
+	return &SetSchemaResponseMigrationFailureClient{
+		svc: pb.NewSetSchemaResponseMigrationFailureServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SetSchemaResponseMigrationFailureClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.SetSchemaResponseMigrationFailureDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAppSearchResult calls the GetAppSearchResult RPC.
+func (c *SetSchemaResponseMigrationFailureClient) GetAppSearchResult(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAppSearchResult(ctx, &pb.GetAppSearchResultRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDocumentId calls the GetDocumentId RPC.
+func (c *SetSchemaResponseMigrationFailureClient) GetDocumentId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetDocumentId(ctx, &pb.GetDocumentIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNamespace calls the GetNamespace RPC.
+func (c *SetSchemaResponseMigrationFailureClient) GetNamespace(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetNamespace(ctx, &pb.GetNamespaceRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSchemaType calls the GetSchemaType RPC.
+func (c *SetSchemaResponseMigrationFailureClient) GetSchemaType(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetSchemaType(ctx, &pb.GetSchemaTypeRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *SetSchemaResponseMigrationFailureClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SetSchemaResponseMigrationFailureClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.SetSchemaResponseMigrationFailureWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetBlobVisibilityRequestClient wraps the gRPC SetBlobVisibilityRequestService client.
+type SetBlobVisibilityRequestClient struct {
+	svc pb.SetBlobVisibilityRequestServiceClient
+}
+
+// NewSetBlobVisibilityRequestClient creates a new SetBlobVisibilityRequest client.
+func NewSetBlobVisibilityRequestClient(cc grpc.ClientConnInterface) *SetBlobVisibilityRequestClient {
+	return &SetBlobVisibilityRequestClient{
+		svc: pb.NewSetBlobVisibilityRequestServiceClient(cc),
+	}
+}
+
+// GetNamespacesNotDisplayedBySystem calls the GetNamespacesNotDisplayedBySystem RPC.
+func (c *SetBlobVisibilityRequestClient) GetNamespacesNotDisplayedBySystem(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetNamespacesNotDisplayedBySystem(ctx, &pb.GetNamespacesNotDisplayedBySystemRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBlobVisibilityRequestBuilderClient wraps the gRPC SetBlobVisibilityRequestBuilderService client.
+type SetBlobVisibilityRequestBuilderClient struct {
+	svc pb.SetBlobVisibilityRequestBuilderServiceClient
+}
+
+// NewSetBlobVisibilityRequestBuilderClient creates a new SetBlobVisibilityRequestBuilder client.
+func NewSetBlobVisibilityRequestBuilderClient(cc grpc.ClientConnInterface) *SetBlobVisibilityRequestBuilderClient {
+	return &SetBlobVisibilityRequestBuilderClient{
+		svc: pb.NewSetBlobVisibilityRequestBuilderServiceClient(cc),
+	}
+}
+
+// AddNamespaceVisibleToConfig calls the AddNamespaceVisibleToConfig RPC.
+func (c *SetBlobVisibilityRequestBuilderClient) AddNamespaceVisibleToConfig(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.AddNamespaceVisibleToConfig(ctx, &pb.AddNamespaceVisibleToConfigRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *SetBlobVisibilityRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearNamespaceVisibleToConfigs calls the ClearNamespaceVisibleToConfigs RPC.
+func (c *SetBlobVisibilityRequestBuilderClient) ClearNamespaceVisibleToConfigs(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ClearNamespaceVisibleToConfigs(ctx, &pb.ClearNamespaceVisibleToConfigsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetNamespaceDisplayedBySystem calls the SetNamespaceDisplayedBySystem RPC.
+func (c *SetBlobVisibilityRequestBuilderClient) SetNamespaceDisplayedBySystem(ctx context.Context, arg0 string, arg1 bool) (int64, error) {
+	resp, err := c.svc.SetNamespaceDisplayedBySystem(ctx, &pb.SetNamespaceDisplayedBySystemRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GlobalSearchSessionClient wraps the gRPC GlobalSearchSessionService client.
+type GlobalSearchSessionClient struct {
+	svc pb.GlobalSearchSessionServiceClient
+}
+
+// NewGlobalSearchSessionClient creates a new GlobalSearchSession client.
+func NewGlobalSearchSessionClient(cc grpc.ClientConnInterface) *GlobalSearchSessionClient {
+	return &GlobalSearchSessionClient{
+		svc: pb.NewGlobalSearchSessionServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *GlobalSearchSessionClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+	return err
+}
+
+// RegisterObserverCallback calls the RegisterObserverCallback RPC.
+func (c *GlobalSearchSessionClient) RegisterObserverCallback(ctx context.Context, arg0 string, arg1 int64, arg2 int64, arg3 int64) error {
+	_, err := c.svc.RegisterObserverCallback(ctx, &pb.RegisterObserverCallbackRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// Search calls the Search RPC.
+func (c *GlobalSearchSessionClient) Search(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.Search(ctx, &pb.SearchRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// UnregisterObserverCallback calls the UnregisterObserverCallback RPC.
+func (c *GlobalSearchSessionClient) UnregisterObserverCallback(ctx context.Context, arg0 string, arg1 int64) error {
+	_, err := c.svc.UnregisterObserverCallback(ctx, &pb.UnregisterObserverCallbackRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// StorageInfoClient wraps the gRPC StorageInfoService client.
+type StorageInfoClient struct {
+	svc pb.StorageInfoServiceClient
+}
+
+// NewStorageInfoClient creates a new StorageInfo client.
+func NewStorageInfoClient(cc grpc.ClientConnInterface) *StorageInfoClient {
+	return &StorageInfoClient{
+		svc: pb.NewStorageInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *StorageInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.StorageInfoDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAliveDocumentsCount calls the GetAliveDocumentsCount RPC.
+func (c *StorageInfoClient) GetAliveDocumentsCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetAliveDocumentsCount(ctx, &pb.GetAliveDocumentsCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAliveNamespacesCount calls the GetAliveNamespacesCount RPC.
+func (c *StorageInfoClient) GetAliveNamespacesCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetAliveNamespacesCount(ctx, &pb.GetAliveNamespacesCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBlobsCount calls the GetBlobsCount RPC.
+func (c *StorageInfoClient) GetBlobsCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetBlobsCount(ctx, &pb.GetBlobsCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBlobsSizeBytes calls the GetBlobsSizeBytes RPC.
+func (c *StorageInfoClient) GetBlobsSizeBytes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetBlobsSizeBytes(ctx, &pb.GetBlobsSizeBytesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSizeBytes calls the GetSizeBytes RPC.
+func (c *StorageInfoClient) GetSizeBytes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSizeBytes(ctx, &pb.GetSizeBytesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *StorageInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.StorageInfoWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// StorageInfoBuilderClient wraps the gRPC StorageInfoBuilderService client.
+type StorageInfoBuilderClient struct {
+	svc pb.StorageInfoBuilderServiceClient
+}
+
+// NewStorageInfoBuilderClient creates a new StorageInfoBuilder client.
+func NewStorageInfoBuilderClient(cc grpc.ClientConnInterface) *StorageInfoBuilderClient {
+	return &StorageInfoBuilderClient{
+		svc: pb.NewStorageInfoBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *StorageInfoBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAliveDocumentsCount calls the SetAliveDocumentsCount RPC.
+func (c *StorageInfoBuilderClient) SetAliveDocumentsCount(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetAliveDocumentsCount(ctx, &pb.SetAliveDocumentsCountRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAliveNamespacesCount calls the SetAliveNamespacesCount RPC.
+func (c *StorageInfoBuilderClient) SetAliveNamespacesCount(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetAliveNamespacesCount(ctx, &pb.SetAliveNamespacesCountRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBlobsCount calls the SetBlobsCount RPC.
+func (c *StorageInfoBuilderClient) SetBlobsCount(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetBlobsCount(ctx, &pb.SetBlobsCountRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBlobsSizeBytes calls the SetBlobsSizeBytes RPC.
+func (c *StorageInfoBuilderClient) SetBlobsSizeBytes(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetBlobsSizeBytes(ctx, &pb.SetBlobsSizeBytesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSizeBytes calls the SetSizeBytes RPC.
+func (c *StorageInfoBuilderClient) SetSizeBytes(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetSizeBytes(ctx, &pb.SetSizeBytesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GenericDocumentClient wraps the gRPC GenericDocumentService client.
+type GenericDocumentClient struct {
+	svc pb.GenericDocumentServiceClient
+}
+
+// NewGenericDocumentClient creates a new GenericDocument client.
+func NewGenericDocumentClient(cc grpc.ClientConnInterface) *GenericDocumentClient {
+	return &GenericDocumentClient{
+		svc: pb.NewGenericDocumentServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *GenericDocumentClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCreationTimestampMillis calls the GetCreationTimestampMillis RPC.
+func (c *GenericDocumentClient) GetCreationTimestampMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetCreationTimestampMillis(ctx, &pb.GetCreationTimestampMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetId calls the GetId RPC.
+func (c *GenericDocumentClient) GetId(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNamespace calls the GetNamespace RPC.
+func (c *GenericDocumentClient) GetNamespace(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetNamespace(ctx, &pb.GetNamespaceRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProperty calls the GetProperty RPC.
+func (c *GenericDocumentClient) GetProperty(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetProperty(ctx, &pb.GetPropertyRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPropertyBlobHandle calls the GetPropertyBlobHandle RPC.
+func (c *GenericDocumentClient) GetPropertyBlobHandle(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetPropertyBlobHandle(ctx, &pb.GetPropertyBlobHandleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPropertyBlobHandleArray calls the GetPropertyBlobHandleArray RPC.
+func (c *GenericDocumentClient) GetPropertyBlobHandleArray(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetPropertyBlobHandleArray(ctx, &pb.GetPropertyBlobHandleArrayRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPropertyBoolean calls the GetPropertyBoolean RPC.
+func (c *GenericDocumentClient) GetPropertyBoolean(ctx context.Context, arg0 string) (bool, error) {
+	resp, err := c.svc.GetPropertyBoolean(ctx, &pb.GetPropertyBooleanRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPropertyBooleanArray calls the GetPropertyBooleanArray RPC.
+func (c *GenericDocumentClient) GetPropertyBooleanArray(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetPropertyBooleanArray(ctx, &pb.GetPropertyBooleanArrayRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPropertyBytes calls the GetPropertyBytes RPC.
+func (c *GenericDocumentClient) GetPropertyBytes(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetPropertyBytes(ctx, &pb.GetPropertyBytesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPropertyBytesArray calls the GetPropertyBytesArray RPC.
+func (c *GenericDocumentClient) GetPropertyBytesArray(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetPropertyBytesArray(ctx, &pb.GetPropertyBytesArrayRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPropertyDocument calls the GetPropertyDocument RPC.
+func (c *GenericDocumentClient) GetPropertyDocument(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetPropertyDocument(ctx, &pb.GetPropertyDocumentRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPropertyDocumentArray calls the GetPropertyDocumentArray RPC.
+func (c *GenericDocumentClient) GetPropertyDocumentArray(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetPropertyDocumentArray(ctx, &pb.GetPropertyDocumentArrayRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPropertyDouble calls the GetPropertyDouble RPC.
+func (c *GenericDocumentClient) GetPropertyDouble(ctx context.Context, arg0 string) (float64, error) {
+	resp, err := c.svc.GetPropertyDouble(ctx, &pb.GetPropertyDoubleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPropertyDoubleArray calls the GetPropertyDoubleArray RPC.
+func (c *GenericDocumentClient) GetPropertyDoubleArray(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetPropertyDoubleArray(ctx, &pb.GetPropertyDoubleArrayRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPropertyEmbedding calls the GetPropertyEmbedding RPC.
+func (c *GenericDocumentClient) GetPropertyEmbedding(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetPropertyEmbedding(ctx, &pb.GetPropertyEmbeddingRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPropertyEmbeddingArray calls the GetPropertyEmbeddingArray RPC.
+func (c *GenericDocumentClient) GetPropertyEmbeddingArray(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetPropertyEmbeddingArray(ctx, &pb.GetPropertyEmbeddingArrayRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPropertyLong calls the GetPropertyLong RPC.
+func (c *GenericDocumentClient) GetPropertyLong(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetPropertyLong(ctx, &pb.GetPropertyLongRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPropertyLongArray calls the GetPropertyLongArray RPC.
+func (c *GenericDocumentClient) GetPropertyLongArray(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetPropertyLongArray(ctx, &pb.GetPropertyLongArrayRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPropertyNames calls the GetPropertyNames RPC.
+func (c *GenericDocumentClient) GetPropertyNames(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetPropertyNames(ctx, &pb.GetPropertyNamesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPropertyString calls the GetPropertyString RPC.
+func (c *GenericDocumentClient) GetPropertyString(ctx context.Context, arg0 string) (string, error) {
+	resp, err := c.svc.GetPropertyString(ctx, &pb.GetPropertyStringRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPropertyStringArray calls the GetPropertyStringArray RPC.
+func (c *GenericDocumentClient) GetPropertyStringArray(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.GetPropertyStringArray(ctx, &pb.GetPropertyStringArrayRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSchemaType calls the GetSchemaType RPC.
+func (c *GenericDocumentClient) GetSchemaType(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetSchemaType(ctx, &pb.GetSchemaTypeRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScore calls the GetScore RPC.
+func (c *GenericDocumentClient) GetScore(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetScore(ctx, &pb.GetScoreRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTtlMillis calls the GetTtlMillis RPC.
+func (c *GenericDocumentClient) GetTtlMillis(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTtlMillis(ctx, &pb.GetTtlMillisRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *GenericDocumentClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *GenericDocumentClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxIndexedProperties calls the GetMaxIndexedProperties RPC.
+func (c *GenericDocumentClient) GetMaxIndexedProperties(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxIndexedProperties(ctx, &pb.GetMaxIndexedPropertiesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GenericDocumentBuilderClient wraps the gRPC GenericDocumentBuilderService client.
+type GenericDocumentBuilderClient struct {
+	svc pb.GenericDocumentBuilderServiceClient
+}
+
+// NewGenericDocumentBuilderClient creates a new GenericDocumentBuilder client.
+func NewGenericDocumentBuilderClient(cc grpc.ClientConnInterface) *GenericDocumentBuilderClient {
+	return &GenericDocumentBuilderClient{
+		svc: pb.NewGenericDocumentBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *GenericDocumentBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearProperty calls the ClearProperty RPC.
+func (c *GenericDocumentBuilderClient) ClearProperty(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ClearProperty(ctx, &pb.ClearPropertyRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetCreationTimestampMillis calls the SetCreationTimestampMillis RPC.
+func (c *GenericDocumentBuilderClient) SetCreationTimestampMillis(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetCreationTimestampMillis(ctx, &pb.SetCreationTimestampMillisRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetId calls the SetId RPC.
+func (c *GenericDocumentBuilderClient) SetId(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetId(ctx, &pb.SetIdRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetNamespace calls the SetNamespace RPC.
+func (c *GenericDocumentBuilderClient) SetNamespace(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetNamespace(ctx, &pb.SetNamespaceRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPropertyBlobHandle calls the SetPropertyBlobHandle RPC.
+func (c *GenericDocumentBuilderClient) SetPropertyBlobHandle(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.SetPropertyBlobHandle(ctx, &pb.SetPropertyBlobHandleRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPropertyBoolean calls the SetPropertyBoolean RPC.
+func (c *GenericDocumentBuilderClient) SetPropertyBoolean(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.SetPropertyBoolean(ctx, &pb.SetPropertyBooleanRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPropertyBytes calls the SetPropertyBytes RPC.
+func (c *GenericDocumentBuilderClient) SetPropertyBytes(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.SetPropertyBytes(ctx, &pb.SetPropertyBytesRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPropertyDocument calls the SetPropertyDocument RPC.
+func (c *GenericDocumentBuilderClient) SetPropertyDocument(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.SetPropertyDocument(ctx, &pb.SetPropertyDocumentRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPropertyDouble calls the SetPropertyDouble RPC.
+func (c *GenericDocumentBuilderClient) SetPropertyDouble(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.SetPropertyDouble(ctx, &pb.SetPropertyDoubleRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPropertyEmbedding calls the SetPropertyEmbedding RPC.
+func (c *GenericDocumentBuilderClient) SetPropertyEmbedding(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.SetPropertyEmbedding(ctx, &pb.SetPropertyEmbeddingRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPropertyLong calls the SetPropertyLong RPC.
+func (c *GenericDocumentBuilderClient) SetPropertyLong(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.SetPropertyLong(ctx, &pb.SetPropertyLongRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPropertyString calls the SetPropertyString RPC.
+func (c *GenericDocumentBuilderClient) SetPropertyString(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.SetPropertyString(ctx, &pb.SetPropertyStringRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSchemaType calls the SetSchemaType RPC.
+func (c *GenericDocumentBuilderClient) SetSchemaType(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetSchemaType(ctx, &pb.SetSchemaTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetScore calls the SetScore RPC.
+func (c *GenericDocumentBuilderClient) SetScore(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetScore(ctx, &pb.SetScoreRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetTtlMillis calls the SetTtlMillis RPC.
+func (c *GenericDocumentBuilderClient) SetTtlMillis(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SetTtlMillis(ctx, &pb.SetTtlMillisRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AppSearchSchemaClient wraps the gRPC AppSearchSchemaService client.
+type AppSearchSchemaClient struct {
+	svc pb.AppSearchSchemaServiceClient
+}
+
+// NewAppSearchSchemaClient creates a new AppSearchSchema client.
+func NewAppSearchSchemaClient(cc grpc.ClientConnInterface) *AppSearchSchemaClient {
+	return &AppSearchSchemaClient{
+		svc: pb.NewAppSearchSchemaServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *AppSearchSchemaClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.AppSearchSchemaDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *AppSearchSchemaClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetParentTypes calls the GetParentTypes RPC.
+func (c *AppSearchSchemaClient) GetParentTypes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetParentTypes(ctx, &pb.GetParentTypesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProperties calls the GetProperties RPC.
+func (c *AppSearchSchemaClient) GetProperties(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetProperties(ctx, &pb.GetPropertiesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSchemaType calls the GetSchemaType RPC.
+func (c *AppSearchSchemaClient) GetSchemaType(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetSchemaType(ctx, &pb.GetSchemaTypeRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *AppSearchSchemaClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AppSearchSchemaClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AppSearchSchemaClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.AppSearchSchemaWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// AppSearchSchemaBooleanPropertyConfigClient wraps the gRPC AppSearchSchemaBooleanPropertyConfigService client.
+type AppSearchSchemaBooleanPropertyConfigClient struct {
+	svc pb.AppSearchSchemaBooleanPropertyConfigServiceClient
+}
+
+// NewAppSearchSchemaBooleanPropertyConfigClient creates a new AppSearchSchemaBooleanPropertyConfig client.
+func NewAppSearchSchemaBooleanPropertyConfigClient(cc grpc.ClientConnInterface) *AppSearchSchemaBooleanPropertyConfigClient {
+	return &AppSearchSchemaBooleanPropertyConfigClient{
+		svc: pb.NewAppSearchSchemaBooleanPropertyConfigServiceClient(cc),
+	}
+}
+
+// IsScoringEnabled calls the IsScoringEnabled RPC.
+func (c *AppSearchSchemaBooleanPropertyConfigClient) IsScoringEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsScoringEnabled(ctx, &pb.IsScoringEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AppSearchSchemaBuilderClient wraps the gRPC AppSearchSchemaBuilderService client.
+type AppSearchSchemaBuilderClient struct {
+	svc pb.AppSearchSchemaBuilderServiceClient
+}
+
+// NewAppSearchSchemaBuilderClient creates a new AppSearchSchemaBuilder client.
+func NewAppSearchSchemaBuilderClient(cc grpc.ClientConnInterface) *AppSearchSchemaBuilderClient {
+	return &AppSearchSchemaBuilderClient{
+		svc: pb.NewAppSearchSchemaBuilderServiceClient(cc),
+	}
+}
+
+// AddParentType calls the AddParentType RPC.
+func (c *AppSearchSchemaBuilderClient) AddParentType(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.AddParentType(ctx, &pb.AddParentTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddProperty calls the AddProperty RPC.
+func (c *AppSearchSchemaBuilderClient) AddProperty(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddProperty(ctx, &pb.AddPropertyRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *AppSearchSchemaBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearParentTypes calls the ClearParentTypes RPC.
+func (c *AppSearchSchemaBuilderClient) ClearParentTypes(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearParentTypes(ctx, &pb.ClearParentTypesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearProperties calls the ClearProperties RPC.
+func (c *AppSearchSchemaBuilderClient) ClearProperties(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearProperties(ctx, &pb.ClearPropertiesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetSchemaType calls the SetSchemaType RPC.
+func (c *AppSearchSchemaBuilderClient) SetSchemaType(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetSchemaType(ctx, &pb.SetSchemaTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AppSearchSchemaDocumentPropertyConfigClient wraps the gRPC AppSearchSchemaDocumentPropertyConfigService client.
+type AppSearchSchemaDocumentPropertyConfigClient struct {
+	svc pb.AppSearchSchemaDocumentPropertyConfigServiceClient
+}
+
+// NewAppSearchSchemaDocumentPropertyConfigClient creates a new AppSearchSchemaDocumentPropertyConfig client.
+func NewAppSearchSchemaDocumentPropertyConfigClient(cc grpc.ClientConnInterface) *AppSearchSchemaDocumentPropertyConfigClient {
+	return &AppSearchSchemaDocumentPropertyConfigClient{
+		svc: pb.NewAppSearchSchemaDocumentPropertyConfigServiceClient(cc),
+	}
+}
+
+// GetIndexableNestedProperties calls the GetIndexableNestedProperties RPC.
+func (c *AppSearchSchemaDocumentPropertyConfigClient) GetIndexableNestedProperties(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetIndexableNestedProperties(ctx, &pb.GetIndexableNestedPropertiesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSchemaType calls the GetSchemaType RPC.
+func (c *AppSearchSchemaDocumentPropertyConfigClient) GetSchemaType(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetSchemaType(ctx, &pb.GetSchemaTypeRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShouldIndexNestedProperties calls the ShouldIndexNestedProperties RPC.
+func (c *AppSearchSchemaDocumentPropertyConfigClient) ShouldIndexNestedProperties(ctx context.Context) (bool, error) {
+	resp, err := c.svc.ShouldIndexNestedProperties(ctx, &pb.ShouldIndexNestedPropertiesRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AppSearchSchemaDoublePropertyConfigClient wraps the gRPC AppSearchSchemaDoublePropertyConfigService client.
+type AppSearchSchemaDoublePropertyConfigClient struct {
+	svc pb.AppSearchSchemaDoublePropertyConfigServiceClient
+}
+
+// NewAppSearchSchemaDoublePropertyConfigClient creates a new AppSearchSchemaDoublePropertyConfig client.
+func NewAppSearchSchemaDoublePropertyConfigClient(cc grpc.ClientConnInterface) *AppSearchSchemaDoublePropertyConfigClient {
+	return &AppSearchSchemaDoublePropertyConfigClient{
+		svc: pb.NewAppSearchSchemaDoublePropertyConfigServiceClient(cc),
+	}
+}
+
+// IsScoringEnabled calls the IsScoringEnabled RPC.
+func (c *AppSearchSchemaDoublePropertyConfigClient) IsScoringEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsScoringEnabled(ctx, &pb.IsScoringEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AppSearchSchemaEmbeddingPropertyConfigClient wraps the gRPC AppSearchSchemaEmbeddingPropertyConfigService client.
+type AppSearchSchemaEmbeddingPropertyConfigClient struct {
+	svc pb.AppSearchSchemaEmbeddingPropertyConfigServiceClient
+}
+
+// NewAppSearchSchemaEmbeddingPropertyConfigClient creates a new AppSearchSchemaEmbeddingPropertyConfig client.
+func NewAppSearchSchemaEmbeddingPropertyConfigClient(cc grpc.ClientConnInterface) *AppSearchSchemaEmbeddingPropertyConfigClient {
+	return &AppSearchSchemaEmbeddingPropertyConfigClient{
+		svc: pb.NewAppSearchSchemaEmbeddingPropertyConfigServiceClient(cc),
+	}
+}
+
+// GetIndexingType calls the GetIndexingType RPC.
+func (c *AppSearchSchemaEmbeddingPropertyConfigClient) GetIndexingType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetIndexingType(ctx, &pb.GetIndexingTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetQuantizationType calls the GetQuantizationType RPC.
+func (c *AppSearchSchemaEmbeddingPropertyConfigClient) GetQuantizationType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetQuantizationType(ctx, &pb.GetQuantizationTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AppSearchSchemaLongPropertyConfigClient wraps the gRPC AppSearchSchemaLongPropertyConfigService client.
+type AppSearchSchemaLongPropertyConfigClient struct {
+	svc pb.AppSearchSchemaLongPropertyConfigServiceClient
+}
+
+// NewAppSearchSchemaLongPropertyConfigClient creates a new AppSearchSchemaLongPropertyConfig client.
+func NewAppSearchSchemaLongPropertyConfigClient(cc grpc.ClientConnInterface) *AppSearchSchemaLongPropertyConfigClient {
+	return &AppSearchSchemaLongPropertyConfigClient{
+		svc: pb.NewAppSearchSchemaLongPropertyConfigServiceClient(cc),
+	}
+}
+
+// GetIndexingType calls the GetIndexingType RPC.
+func (c *AppSearchSchemaLongPropertyConfigClient) GetIndexingType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetIndexingType(ctx, &pb.GetIndexingTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsScoringEnabled calls the IsScoringEnabled RPC.
+func (c *AppSearchSchemaLongPropertyConfigClient) IsScoringEnabled(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsScoringEnabled(ctx, &pb.IsScoringEnabledRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AppSearchSchemaPropertyConfigClient wraps the gRPC AppSearchSchemaPropertyConfigService client.
+type AppSearchSchemaPropertyConfigClient struct {
+	svc pb.AppSearchSchemaPropertyConfigServiceClient
+}
+
+// NewAppSearchSchemaPropertyConfigClient creates a new AppSearchSchemaPropertyConfig client.
+func NewAppSearchSchemaPropertyConfigClient(cc grpc.ClientConnInterface) *AppSearchSchemaPropertyConfigClient {
+	return &AppSearchSchemaPropertyConfigClient{
+		svc: pb.NewAppSearchSchemaPropertyConfigServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *AppSearchSchemaPropertyConfigClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCardinality calls the GetCardinality RPC.
+func (c *AppSearchSchemaPropertyConfigClient) GetCardinality(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetCardinality(ctx, &pb.GetCardinalityRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetName calls the GetName RPC.
+func (c *AppSearchSchemaPropertyConfigClient) GetName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *AppSearchSchemaPropertyConfigClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AppSearchSchemaPropertyConfigClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// AppSearchSchemaStringPropertyConfigClient wraps the gRPC AppSearchSchemaStringPropertyConfigService client.
+type AppSearchSchemaStringPropertyConfigClient struct {
+	svc pb.AppSearchSchemaStringPropertyConfigServiceClient
+}
+
+// NewAppSearchSchemaStringPropertyConfigClient creates a new AppSearchSchemaStringPropertyConfig client.
+func NewAppSearchSchemaStringPropertyConfigClient(cc grpc.ClientConnInterface) *AppSearchSchemaStringPropertyConfigClient {
+	return &AppSearchSchemaStringPropertyConfigClient{
+		svc: pb.NewAppSearchSchemaStringPropertyConfigServiceClient(cc),
+	}
+}
+
+// GetIndexingType calls the GetIndexingType RPC.
+func (c *AppSearchSchemaStringPropertyConfigClient) GetIndexingType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetIndexingType(ctx, &pb.GetIndexingTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetJoinableValueType calls the GetJoinableValueType RPC.
+func (c *AppSearchSchemaStringPropertyConfigClient) GetJoinableValueType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetJoinableValueType(ctx, &pb.GetJoinableValueTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTokenizerType calls the GetTokenizerType RPC.
+func (c *AppSearchSchemaStringPropertyConfigClient) GetTokenizerType(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetTokenizerType(ctx, &pb.GetTokenizerTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// JoinSpecClient wraps the gRPC JoinSpecService client.
+type JoinSpecClient struct {
+	svc pb.JoinSpecServiceClient
+}
+
+// NewJoinSpecClient creates a new JoinSpec client.
+func NewJoinSpecClient(cc grpc.ClientConnInterface) *JoinSpecClient {
+	return &JoinSpecClient{
+		svc: pb.NewJoinSpecServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *JoinSpecClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.JoinSpecDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetAggregationScoringStrategy calls the GetAggregationScoringStrategy RPC.
+func (c *JoinSpecClient) GetAggregationScoringStrategy(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetAggregationScoringStrategy(ctx, &pb.GetAggregationScoringStrategyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetChildPropertyExpression calls the GetChildPropertyExpression RPC.
+func (c *JoinSpecClient) GetChildPropertyExpression(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetChildPropertyExpression(ctx, &pb.GetChildPropertyExpressionRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxJoinedResultCount calls the GetMaxJoinedResultCount RPC.
+func (c *JoinSpecClient) GetMaxJoinedResultCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaxJoinedResultCount(ctx, &pb.GetMaxJoinedResultCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNestedQuery calls the GetNestedQuery RPC.
+func (c *JoinSpecClient) GetNestedQuery(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetNestedQuery(ctx, &pb.GetNestedQueryRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNestedSearchSpec calls the GetNestedSearchSpec RPC.
+func (c *JoinSpecClient) GetNestedSearchSpec(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetNestedSearchSpec(ctx, &pb.GetNestedSearchSpecRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *JoinSpecClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.JoinSpecWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// JoinSpecBuilderClient wraps the gRPC JoinSpecBuilderService client.
+type JoinSpecBuilderClient struct {
+	svc pb.JoinSpecBuilderServiceClient
+}
+
+// NewJoinSpecBuilderClient creates a new JoinSpecBuilder client.
+func NewJoinSpecBuilderClient(cc grpc.ClientConnInterface) *JoinSpecBuilderClient {
+	return &JoinSpecBuilderClient{
+		svc: pb.NewJoinSpecBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *JoinSpecBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAggregationScoringStrategy calls the SetAggregationScoringStrategy RPC.
+func (c *JoinSpecBuilderClient) SetAggregationScoringStrategy(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetAggregationScoringStrategy(ctx, &pb.SetAggregationScoringStrategyRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetChildPropertyExpression calls the SetChildPropertyExpression RPC.
+func (c *JoinSpecBuilderClient) SetChildPropertyExpression(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetChildPropertyExpression(ctx, &pb.SetChildPropertyExpressionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMaxJoinedResultCount calls the SetMaxJoinedResultCount RPC.
+func (c *JoinSpecBuilderClient) SetMaxJoinedResultCount(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetMaxJoinedResultCount(ctx, &pb.SetMaxJoinedResultCountRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetNestedSearch calls the SetNestedSearch RPC.
+func (c *JoinSpecBuilderClient) SetNestedSearch(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.SetNestedSearch(ctx, &pb.SetNestedSearchRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EmbeddingVectorClient wraps the gRPC EmbeddingVectorService client.
+type EmbeddingVectorClient struct {
+	svc pb.EmbeddingVectorServiceClient
+}
+
+// NewEmbeddingVectorClient creates a new EmbeddingVector client.
+func NewEmbeddingVectorClient(cc grpc.ClientConnInterface) *EmbeddingVectorClient {
+	return &EmbeddingVectorClient{
+		svc: pb.NewEmbeddingVectorServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *EmbeddingVectorClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *EmbeddingVectorClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EmbeddingVectorEqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetModelSignature calls the GetModelSignature RPC.
+func (c *EmbeddingVectorClient) GetModelSignature(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetModelSignature(ctx, &pb.GetModelSignatureRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetValues calls the GetValues RPC.
+func (c *EmbeddingVectorClient) GetValues(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetValues(ctx, &pb.GetValuesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *EmbeddingVectorClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.EmbeddingVectorHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *EmbeddingVectorClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GetSchemaResponseClient wraps the gRPC GetSchemaResponseService client.
+type GetSchemaResponseClient struct {
+	svc pb.GetSchemaResponseServiceClient
+}
+
+// NewGetSchemaResponseClient creates a new GetSchemaResponse client.
+func NewGetSchemaResponseClient(cc grpc.ClientConnInterface) *GetSchemaResponseClient {
+	return &GetSchemaResponseClient{
+		svc: pb.NewGetSchemaResponseServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *GetSchemaResponseClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.GetSchemaResponseDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSchemaTypesNotDisplayedBySystem calls the GetSchemaTypesNotDisplayedBySystem RPC.
+func (c *GetSchemaResponseClient) GetSchemaTypesNotDisplayedBySystem(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSchemaTypesNotDisplayedBySystem(ctx, &pb.GetSchemaTypesNotDisplayedBySystemRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSchemas calls the GetSchemas RPC.
+func (c *GetSchemaResponseClient) GetSchemas(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSchemas(ctx, &pb.GetSchemasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVersion calls the GetVersion RPC.
+func (c *GetSchemaResponseClient) GetVersion(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVersion(ctx, &pb.GetVersionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *GetSchemaResponseClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.GetSchemaResponseWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GetSchemaResponseBuilderClient wraps the gRPC GetSchemaResponseBuilderService client.
+type GetSchemaResponseBuilderClient struct {
+	svc pb.GetSchemaResponseBuilderServiceClient
+}
+
+// NewGetSchemaResponseBuilderClient creates a new GetSchemaResponseBuilder client.
+func NewGetSchemaResponseBuilderClient(cc grpc.ClientConnInterface) *GetSchemaResponseBuilderClient {
+	return &GetSchemaResponseBuilderClient{
+		svc: pb.NewGetSchemaResponseBuilderServiceClient(cc),
+	}
+}
+
+// AddSchema calls the AddSchema RPC.
+func (c *GetSchemaResponseBuilderClient) AddSchema(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddSchema(ctx, &pb.AddSchemaRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddSchemaTypeNotDisplayedBySystem calls the AddSchemaTypeNotDisplayedBySystem RPC.
+func (c *GetSchemaResponseBuilderClient) AddSchemaTypeNotDisplayedBySystem(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.AddSchemaTypeNotDisplayedBySystem(ctx, &pb.AddSchemaTypeNotDisplayedBySystemRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *GetSchemaResponseBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearPubliclyVisibleSchema calls the ClearPubliclyVisibleSchema RPC.
+func (c *GetSchemaResponseBuilderClient) ClearPubliclyVisibleSchema(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ClearPubliclyVisibleSchema(ctx, &pb.ClearPubliclyVisibleSchemaRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearRequiredPermissionsForSchemaTypeVisibility calls the ClearRequiredPermissionsForSchemaTypeVisibility RPC.
+func (c *GetSchemaResponseBuilderClient) ClearRequiredPermissionsForSchemaTypeVisibility(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ClearRequiredPermissionsForSchemaTypeVisibility(ctx, &pb.ClearRequiredPermissionsForSchemaTypeVisibilityRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearSchemaTypeNotDisplayedBySystem calls the ClearSchemaTypeNotDisplayedBySystem RPC.
+func (c *GetSchemaResponseBuilderClient) ClearSchemaTypeNotDisplayedBySystem(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ClearSchemaTypeNotDisplayedBySystem(ctx, &pb.ClearSchemaTypeNotDisplayedBySystemRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearSchemaTypeVisibleToConfigs calls the ClearSchemaTypeVisibleToConfigs RPC.
+func (c *GetSchemaResponseBuilderClient) ClearSchemaTypeVisibleToConfigs(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ClearSchemaTypeVisibleToConfigs(ctx, &pb.ClearSchemaTypeVisibleToConfigsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearSchemaTypeVisibleToPackages calls the ClearSchemaTypeVisibleToPackages RPC.
+func (c *GetSchemaResponseBuilderClient) ClearSchemaTypeVisibleToPackages(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ClearSchemaTypeVisibleToPackages(ctx, &pb.ClearSchemaTypeVisibleToPackagesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ClearSchemas calls the ClearSchemas RPC.
+func (c *GetSchemaResponseBuilderClient) ClearSchemas(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ClearSchemas(ctx, &pb.ClearSchemasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetPubliclyVisibleSchema calls the SetPubliclyVisibleSchema RPC.
+func (c *GetSchemaResponseBuilderClient) SetPubliclyVisibleSchema(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.SetPubliclyVisibleSchema(ctx, &pb.SetPubliclyVisibleSchemaRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetVersion calls the SetVersion RPC.
+func (c *GetSchemaResponseBuilderClient) SetVersion(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetVersion(ctx, &pb.SetVersionRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenBlobForWriteResponseClient wraps the gRPC OpenBlobForWriteResponseService client.
+type OpenBlobForWriteResponseClient struct {
+	svc pb.OpenBlobForWriteResponseServiceClient
+}
+
+// NewOpenBlobForWriteResponseClient creates a new OpenBlobForWriteResponse client.
+func NewOpenBlobForWriteResponseClient(cc grpc.ClientConnInterface) *OpenBlobForWriteResponseClient {
+	return &OpenBlobForWriteResponseClient{
+		svc: pb.NewOpenBlobForWriteResponseServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *OpenBlobForWriteResponseClient) Close(ctx context.Context, handle int64) error {
+	_, err := c.svc.Close(ctx, &pb.OpenBlobForWriteResponseCloseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *OpenBlobForWriteResponseClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *OpenBlobForWriteResponseClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// EnterpriseGlobalSearchSessionClient wraps the gRPC EnterpriseGlobalSearchSessionService client.
+type EnterpriseGlobalSearchSessionClient struct {
+	svc pb.EnterpriseGlobalSearchSessionServiceClient
+}
+
+// NewEnterpriseGlobalSearchSessionClient creates a new EnterpriseGlobalSearchSession client.
+func NewEnterpriseGlobalSearchSessionClient(cc grpc.ClientConnInterface) *EnterpriseGlobalSearchSessionClient {
+	return &EnterpriseGlobalSearchSessionClient{
+		svc: pb.NewEnterpriseGlobalSearchSessionServiceClient(cc),
+	}
+}
+
+// Search calls the Search RPC.
+func (c *EnterpriseGlobalSearchSessionClient) Search(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.Search(ctx, &pb.SearchRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OpenBlobForReadResponseClient wraps the gRPC OpenBlobForReadResponseService client.
+type OpenBlobForReadResponseClient struct {
+	svc pb.OpenBlobForReadResponseServiceClient
+}
+
+// NewOpenBlobForReadResponseClient creates a new OpenBlobForReadResponse client.
+func NewOpenBlobForReadResponseClient(cc grpc.ClientConnInterface) *OpenBlobForReadResponseClient {
+	return &OpenBlobForReadResponseClient{
+		svc: pb.NewOpenBlobForReadResponseServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *OpenBlobForReadResponseClient) Close(ctx context.Context, handle int64) error {
+	_, err := c.svc.Close(ctx, &pb.OpenBlobForReadResponseCloseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *OpenBlobForReadResponseClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *OpenBlobForReadResponseClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
 // SearchSpecClient wraps the gRPC SearchSpecService client.
 type SearchSpecClient struct {
 	svc pb.SearchSpecServiceClient
@@ -189,7 +3431,7 @@ func NewSearchSpecClient(cc grpc.ClientConnInterface) *SearchSpecClient {
 
 // DescribeContents calls the DescribeContents RPC.
 func (c *SearchSpecClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	resp, err := c.svc.DescribeContents(ctx, &pb.SearchSpecDescribeContentsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -208,6 +3450,60 @@ func (c *SearchSpecClient) GetAdvancedRankingExpression(ctx context.Context) (st
 // GetDefaultEmbeddingSearchMetricType calls the GetDefaultEmbeddingSearchMetricType RPC.
 func (c *SearchSpecClient) GetDefaultEmbeddingSearchMetricType(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetDefaultEmbeddingSearchMetricType(ctx, &pb.GetDefaultEmbeddingSearchMetricTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetEmbeddingParameters calls the GetEmbeddingParameters RPC.
+func (c *SearchSpecClient) GetEmbeddingParameters(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEmbeddingParameters(ctx, &pb.GetEmbeddingParametersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFilterDocumentIds calls the GetFilterDocumentIds RPC.
+func (c *SearchSpecClient) GetFilterDocumentIds(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFilterDocumentIds(ctx, &pb.GetFilterDocumentIdsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFilterNamespaces calls the GetFilterNamespaces RPC.
+func (c *SearchSpecClient) GetFilterNamespaces(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFilterNamespaces(ctx, &pb.GetFilterNamespacesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFilterPackageNames calls the GetFilterPackageNames RPC.
+func (c *SearchSpecClient) GetFilterPackageNames(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFilterPackageNames(ctx, &pb.GetFilterPackageNamesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFilterSchemas calls the GetFilterSchemas RPC.
+func (c *SearchSpecClient) GetFilterSchemas(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFilterSchemas(ctx, &pb.GetFilterSchemasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInformationalRankingExpressions calls the GetInformationalRankingExpressions RPC.
+func (c *SearchSpecClient) GetInformationalRankingExpressions(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInformationalRankingExpressions(ctx, &pb.GetInformationalRankingExpressionsRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -282,6 +3578,15 @@ func (c *SearchSpecClient) GetSearchSourceLogTag(ctx context.Context) (string, e
 	resp, err := c.svc.GetSearchSourceLogTag(ctx, &pb.GetSearchSourceLogTagRequest{})
 	if err != nil {
 		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSearchStringParameters calls the GetSearchStringParameters RPC.
+func (c *SearchSpecClient) GetSearchStringParameters(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSearchStringParameters(ctx, &pb.GetSearchStringParametersRequest{})
+	if err != nil {
+		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -369,7 +3674,7 @@ func (c *SearchSpecClient) IsVerbatimSearchEnabled(ctx context.Context) (bool, e
 
 // WriteToParcel calls the WriteToParcel RPC.
 func (c *SearchSpecClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+	_, err := c.svc.WriteToParcel(ctx, &pb.SearchSpecWriteToParcelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -790,2635 +4095,6 @@ func (c *SearchSpecBuilderClient) SetVerbatimSearchEnabled(ctx context.Context, 
 	return resp.GetResult(), nil
 }
 
-// RemoveBlobResponseClient wraps the gRPC RemoveBlobResponseService client.
-type RemoveBlobResponseClient struct {
-	svc pb.RemoveBlobResponseServiceClient
-}
-
-// NewRemoveBlobResponseClient creates a new RemoveBlobResponse client.
-func NewRemoveBlobResponseClient(cc grpc.ClientConnInterface) *RemoveBlobResponseClient {
-	return &RemoveBlobResponseClient{
-		svc: pb.NewRemoveBlobResponseServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *RemoveBlobResponseClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.RemoveBlobResponseDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *RemoveBlobResponseClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.RemoveBlobResponseWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlobalSearchSessionClient wraps the gRPC GlobalSearchSessionService client.
-type GlobalSearchSessionClient struct {
-	svc pb.GlobalSearchSessionServiceClient
-}
-
-// NewGlobalSearchSessionClient creates a new GlobalSearchSession client.
-func NewGlobalSearchSessionClient(cc grpc.ClientConnInterface) *GlobalSearchSessionClient {
-	return &GlobalSearchSessionClient{
-		svc: pb.NewGlobalSearchSessionServiceClient(cc),
-	}
-}
-
-// Close calls the Close RPC.
-func (c *GlobalSearchSessionClient) Close(ctx context.Context) error {
-	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
-	return err
-}
-
-// RegisterObserverCallback calls the RegisterObserverCallback RPC.
-func (c *GlobalSearchSessionClient) RegisterObserverCallback(ctx context.Context, arg0 string, arg1 int64, arg2 int64, arg3 int64) error {
-	_, err := c.svc.RegisterObserverCallback(ctx, &pb.RegisterObserverCallbackRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// Search calls the Search RPC.
-func (c *GlobalSearchSessionClient) Search(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.Search(ctx, &pb.SearchRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// UnregisterObserverCallback calls the UnregisterObserverCallback RPC.
-func (c *GlobalSearchSessionClient) UnregisterObserverCallback(ctx context.Context, arg0 string, arg1 int64) error {
-	_, err := c.svc.UnregisterObserverCallback(ctx, &pb.UnregisterObserverCallbackRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// SetBlobVisibilityRequestBuilderClient wraps the gRPC SetBlobVisibilityRequestBuilderService client.
-type SetBlobVisibilityRequestBuilderClient struct {
-	svc pb.SetBlobVisibilityRequestBuilderServiceClient
-}
-
-// NewSetBlobVisibilityRequestBuilderClient creates a new SetBlobVisibilityRequestBuilder client.
-func NewSetBlobVisibilityRequestBuilderClient(cc grpc.ClientConnInterface) *SetBlobVisibilityRequestBuilderClient {
-	return &SetBlobVisibilityRequestBuilderClient{
-		svc: pb.NewSetBlobVisibilityRequestBuilderServiceClient(cc),
-	}
-}
-
-// AddNamespaceVisibleToConfig calls the AddNamespaceVisibleToConfig RPC.
-func (c *SetBlobVisibilityRequestBuilderClient) AddNamespaceVisibleToConfig(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.AddNamespaceVisibleToConfig(ctx, &pb.AddNamespaceVisibleToConfigRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Build calls the Build RPC.
-func (c *SetBlobVisibilityRequestBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearNamespaceVisibleToConfigs calls the ClearNamespaceVisibleToConfigs RPC.
-func (c *SetBlobVisibilityRequestBuilderClient) ClearNamespaceVisibleToConfigs(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ClearNamespaceVisibleToConfigs(ctx, &pb.ClearNamespaceVisibleToConfigsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetNamespaceDisplayedBySystem calls the SetNamespaceDisplayedBySystem RPC.
-func (c *SetBlobVisibilityRequestBuilderClient) SetNamespaceDisplayedBySystem(ctx context.Context, arg0 string, arg1 bool) (int64, error) {
-	resp, err := c.svc.SetNamespaceDisplayedBySystem(ctx, &pb.SetNamespaceDisplayedBySystemRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SchemaVisibilityConfigClient wraps the gRPC SchemaVisibilityConfigService client.
-type SchemaVisibilityConfigClient struct {
-	svc pb.SchemaVisibilityConfigServiceClient
-}
-
-// NewSchemaVisibilityConfigClient creates a new SchemaVisibilityConfig client.
-func NewSchemaVisibilityConfigClient(cc grpc.ClientConnInterface) *SchemaVisibilityConfigClient {
-	return &SchemaVisibilityConfigClient{
-		svc: pb.NewSchemaVisibilityConfigServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *SchemaVisibilityConfigClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *SchemaVisibilityConfigClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPubliclyVisibleTargetPackage calls the GetPubliclyVisibleTargetPackage RPC.
-func (c *SchemaVisibilityConfigClient) GetPubliclyVisibleTargetPackage(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetPubliclyVisibleTargetPackage(ctx, &pb.GetPubliclyVisibleTargetPackageRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *SchemaVisibilityConfigClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *SchemaVisibilityConfigClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// SchemaVisibilityConfigBuilderClient wraps the gRPC SchemaVisibilityConfigBuilderService client.
-type SchemaVisibilityConfigBuilderClient struct {
-	svc pb.SchemaVisibilityConfigBuilderServiceClient
-}
-
-// NewSchemaVisibilityConfigBuilderClient creates a new SchemaVisibilityConfigBuilder client.
-func NewSchemaVisibilityConfigBuilderClient(cc grpc.ClientConnInterface) *SchemaVisibilityConfigBuilderClient {
-	return &SchemaVisibilityConfigBuilderClient{
-		svc: pb.NewSchemaVisibilityConfigBuilderServiceClient(cc),
-	}
-}
-
-// AddAllowedPackage calls the AddAllowedPackage RPC.
-func (c *SchemaVisibilityConfigBuilderClient) AddAllowedPackage(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddAllowedPackage(ctx, &pb.AddAllowedPackageRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Build calls the Build RPC.
-func (c *SchemaVisibilityConfigBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearAllowedPackages calls the ClearAllowedPackages RPC.
-func (c *SchemaVisibilityConfigBuilderClient) ClearAllowedPackages(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearAllowedPackages(ctx, &pb.ClearAllowedPackagesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearRequiredPermissions calls the ClearRequiredPermissions RPC.
-func (c *SchemaVisibilityConfigBuilderClient) ClearRequiredPermissions(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearRequiredPermissions(ctx, &pb.ClearRequiredPermissionsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPubliclyVisibleTargetPackage calls the SetPubliclyVisibleTargetPackage RPC.
-func (c *SchemaVisibilityConfigBuilderClient) SetPubliclyVisibleTargetPackage(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetPubliclyVisibleTargetPackage(ctx, &pb.SetPubliclyVisibleTargetPackageRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SearchResultClient wraps the gRPC SearchResultService client.
-type SearchResultClient struct {
-	svc pb.SearchResultServiceClient
-}
-
-// NewSearchResultClient creates a new SearchResult client.
-func NewSearchResultClient(cc grpc.ClientConnInterface) *SearchResultClient {
-	return &SearchResultClient{
-		svc: pb.NewSearchResultServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *SearchResultClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDatabaseName calls the GetDatabaseName RPC.
-func (c *SearchResultClient) GetDatabaseName(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetDatabaseName(ctx, &pb.GetDatabaseNameRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetGenericDocument calls the GetGenericDocument RPC.
-func (c *SearchResultClient) GetGenericDocument(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetGenericDocument(ctx, &pb.GetGenericDocumentRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPackageName calls the GetPackageName RPC.
-func (c *SearchResultClient) GetPackageName(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetPackageName(ctx, &pb.GetPackageNameRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRankingSignal calls the GetRankingSignal RPC.
-func (c *SearchResultClient) GetRankingSignal(ctx context.Context) (float64, error) {
-	resp, err := c.svc.GetRankingSignal(ctx, &pb.GetRankingSignalRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *SearchResultClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// SearchResultBuilderClient wraps the gRPC SearchResultBuilderService client.
-type SearchResultBuilderClient struct {
-	svc pb.SearchResultBuilderServiceClient
-}
-
-// NewSearchResultBuilderClient creates a new SearchResultBuilder client.
-func NewSearchResultBuilderClient(cc grpc.ClientConnInterface) *SearchResultBuilderClient {
-	return &SearchResultBuilderClient{
-		svc: pb.NewSearchResultBuilderServiceClient(cc),
-	}
-}
-
-// AddInformationalRankingSignal calls the AddInformationalRankingSignal RPC.
-func (c *SearchResultBuilderClient) AddInformationalRankingSignal(ctx context.Context, arg0 float64) (int64, error) {
-	resp, err := c.svc.AddInformationalRankingSignal(ctx, &pb.AddInformationalRankingSignalRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddJoinedResult calls the AddJoinedResult RPC.
-func (c *SearchResultBuilderClient) AddJoinedResult(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddJoinedResult(ctx, &pb.AddJoinedResultRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddMatchInfo calls the AddMatchInfo RPC.
-func (c *SearchResultBuilderClient) AddMatchInfo(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddMatchInfo(ctx, &pb.AddMatchInfoRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Build calls the Build RPC.
-func (c *SearchResultBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetGenericDocument calls the SetGenericDocument RPC.
-func (c *SearchResultBuilderClient) SetGenericDocument(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetGenericDocument(ctx, &pb.SetGenericDocumentRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetRankingSignal calls the SetRankingSignal RPC.
-func (c *SearchResultBuilderClient) SetRankingSignal(ctx context.Context, arg0 float64) (int64, error) {
-	resp, err := c.svc.SetRankingSignal(ctx, &pb.SetRankingSignalRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SearchResultMatchInfoClient wraps the gRPC SearchResultMatchInfoService client.
-type SearchResultMatchInfoClient struct {
-	svc pb.SearchResultMatchInfoServiceClient
-}
-
-// NewSearchResultMatchInfoClient creates a new SearchResultMatchInfo client.
-func NewSearchResultMatchInfoClient(cc grpc.ClientConnInterface) *SearchResultMatchInfoClient {
-	return &SearchResultMatchInfoClient{
-		svc: pb.NewSearchResultMatchInfoServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *SearchResultMatchInfoClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetExactMatch calls the GetExactMatch RPC.
-func (c *SearchResultMatchInfoClient) GetExactMatch(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetExactMatch(ctx, &pb.GetExactMatchRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetExactMatchRange calls the GetExactMatchRange RPC.
-func (c *SearchResultMatchInfoClient) GetExactMatchRange(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetExactMatchRange(ctx, &pb.GetExactMatchRangeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFullText calls the GetFullText RPC.
-func (c *SearchResultMatchInfoClient) GetFullText(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetFullText(ctx, &pb.GetFullTextRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPropertyPath calls the GetPropertyPath RPC.
-func (c *SearchResultMatchInfoClient) GetPropertyPath(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetPropertyPath(ctx, &pb.GetPropertyPathRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPropertyPathObject calls the GetPropertyPathObject RPC.
-func (c *SearchResultMatchInfoClient) GetPropertyPathObject(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetPropertyPathObject(ctx, &pb.GetPropertyPathObjectRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSnippet calls the GetSnippet RPC.
-func (c *SearchResultMatchInfoClient) GetSnippet(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSnippet(ctx, &pb.GetSnippetRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSnippetRange calls the GetSnippetRange RPC.
-func (c *SearchResultMatchInfoClient) GetSnippetRange(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSnippetRange(ctx, &pb.GetSnippetRangeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSubmatch calls the GetSubmatch RPC.
-func (c *SearchResultMatchInfoClient) GetSubmatch(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSubmatch(ctx, &pb.GetSubmatchRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSubmatchRange calls the GetSubmatchRange RPC.
-func (c *SearchResultMatchInfoClient) GetSubmatchRange(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSubmatchRange(ctx, &pb.GetSubmatchRangeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *SearchResultMatchInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// SearchResultMatchRangeClient wraps the gRPC SearchResultMatchRangeService client.
-type SearchResultMatchRangeClient struct {
-	svc pb.SearchResultMatchRangeServiceClient
-}
-
-// NewSearchResultMatchRangeClient creates a new SearchResultMatchRange client.
-func NewSearchResultMatchRangeClient(cc grpc.ClientConnInterface) *SearchResultMatchRangeClient {
-	return &SearchResultMatchRangeClient{
-		svc: pb.NewSearchResultMatchRangeServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *SearchResultMatchRangeClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetEnd calls the GetEnd RPC.
-func (c *SearchResultMatchRangeClient) GetEnd(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetEnd(ctx, &pb.GetEndRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStart calls the GetStart RPC.
-func (c *SearchResultMatchRangeClient) GetStart(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetStart(ctx, &pb.GetStartRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *SearchResultMatchRangeClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *SearchResultMatchRangeClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// SearchSuggestionSpecClient wraps the gRPC SearchSuggestionSpecService client.
-type SearchSuggestionSpecClient struct {
-	svc pb.SearchSuggestionSpecServiceClient
-}
-
-// NewSearchSuggestionSpecClient creates a new SearchSuggestionSpec client.
-func NewSearchSuggestionSpecClient(cc grpc.ClientConnInterface) *SearchSuggestionSpecClient {
-	return &SearchSuggestionSpecClient{
-		svc: pb.NewSearchSuggestionSpecServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *SearchSuggestionSpecClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMaximumResultCount calls the GetMaximumResultCount RPC.
-func (c *SearchSuggestionSpecClient) GetMaximumResultCount(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMaximumResultCount(ctx, &pb.GetMaximumResultCountRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRankingStrategy calls the GetRankingStrategy RPC.
-func (c *SearchSuggestionSpecClient) GetRankingStrategy(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetRankingStrategy(ctx, &pb.GetRankingStrategyRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *SearchSuggestionSpecClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// SearchSuggestionSpecBuilderClient wraps the gRPC SearchSuggestionSpecBuilderService client.
-type SearchSuggestionSpecBuilderClient struct {
-	svc pb.SearchSuggestionSpecBuilderServiceClient
-}
-
-// NewSearchSuggestionSpecBuilderClient creates a new SearchSuggestionSpecBuilder client.
-func NewSearchSuggestionSpecBuilderClient(cc grpc.ClientConnInterface) *SearchSuggestionSpecBuilderClient {
-	return &SearchSuggestionSpecBuilderClient{
-		svc: pb.NewSearchSuggestionSpecBuilderServiceClient(cc),
-	}
-}
-
-// AddFilterDocumentIds calls the AddFilterDocumentIds RPC.
-func (c *SearchSuggestionSpecBuilderClient) AddFilterDocumentIds(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.AddFilterDocumentIds(ctx, &pb.SearchSuggestionSpecBuilderAddFilterDocumentIdsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddFilterNamespaces calls the AddFilterNamespaces RPC.
-func (c *SearchSuggestionSpecBuilderClient) AddFilterNamespaces(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddFilterNamespaces(ctx, &pb.AddFilterNamespacesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddFilterSchemas calls the AddFilterSchemas RPC.
-func (c *SearchSuggestionSpecBuilderClient) AddFilterSchemas(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddFilterSchemas(ctx, &pb.AddFilterSchemasRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddSearchStringParameters calls the AddSearchStringParameters RPC.
-func (c *SearchSuggestionSpecBuilderClient) AddSearchStringParameters(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddSearchStringParameters(ctx, &pb.AddSearchStringParametersRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Build calls the Build RPC.
-func (c *SearchSuggestionSpecBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetRankingStrategy calls the SetRankingStrategy RPC.
-func (c *SearchSuggestionSpecBuilderClient) SetRankingStrategy(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetRankingStrategy(ctx, &pb.SetRankingStrategyRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CommitBlobResponseClient wraps the gRPC CommitBlobResponseService client.
-type CommitBlobResponseClient struct {
-	svc pb.CommitBlobResponseServiceClient
-}
-
-// NewCommitBlobResponseClient creates a new CommitBlobResponse client.
-func NewCommitBlobResponseClient(cc grpc.ClientConnInterface) *CommitBlobResponseClient {
-	return &CommitBlobResponseClient{
-		svc: pb.NewCommitBlobResponseServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *CommitBlobResponseClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.CommitBlobResponseDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *CommitBlobResponseClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.CommitBlobResponseWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GetSchemaResponseClient wraps the gRPC GetSchemaResponseService client.
-type GetSchemaResponseClient struct {
-	svc pb.GetSchemaResponseServiceClient
-}
-
-// NewGetSchemaResponseClient creates a new GetSchemaResponse client.
-func NewGetSchemaResponseClient(cc grpc.ClientConnInterface) *GetSchemaResponseClient {
-	return &GetSchemaResponseClient{
-		svc: pb.NewGetSchemaResponseServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *GetSchemaResponseClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetVersion calls the GetVersion RPC.
-func (c *GetSchemaResponseClient) GetVersion(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetVersion(ctx, &pb.GetVersionRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *GetSchemaResponseClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// GetSchemaResponseBuilderClient wraps the gRPC GetSchemaResponseBuilderService client.
-type GetSchemaResponseBuilderClient struct {
-	svc pb.GetSchemaResponseBuilderServiceClient
-}
-
-// NewGetSchemaResponseBuilderClient creates a new GetSchemaResponseBuilder client.
-func NewGetSchemaResponseBuilderClient(cc grpc.ClientConnInterface) *GetSchemaResponseBuilderClient {
-	return &GetSchemaResponseBuilderClient{
-		svc: pb.NewGetSchemaResponseBuilderServiceClient(cc),
-	}
-}
-
-// AddSchema calls the AddSchema RPC.
-func (c *GetSchemaResponseBuilderClient) AddSchema(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddSchema(ctx, &pb.AddSchemaRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddSchemaTypeNotDisplayedBySystem calls the AddSchemaTypeNotDisplayedBySystem RPC.
-func (c *GetSchemaResponseBuilderClient) AddSchemaTypeNotDisplayedBySystem(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.AddSchemaTypeNotDisplayedBySystem(ctx, &pb.AddSchemaTypeNotDisplayedBySystemRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Build calls the Build RPC.
-func (c *GetSchemaResponseBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearPubliclyVisibleSchema calls the ClearPubliclyVisibleSchema RPC.
-func (c *GetSchemaResponseBuilderClient) ClearPubliclyVisibleSchema(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ClearPubliclyVisibleSchema(ctx, &pb.ClearPubliclyVisibleSchemaRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearRequiredPermissionsForSchemaTypeVisibility calls the ClearRequiredPermissionsForSchemaTypeVisibility RPC.
-func (c *GetSchemaResponseBuilderClient) ClearRequiredPermissionsForSchemaTypeVisibility(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ClearRequiredPermissionsForSchemaTypeVisibility(ctx, &pb.ClearRequiredPermissionsForSchemaTypeVisibilityRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearSchemaTypeNotDisplayedBySystem calls the ClearSchemaTypeNotDisplayedBySystem RPC.
-func (c *GetSchemaResponseBuilderClient) ClearSchemaTypeNotDisplayedBySystem(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ClearSchemaTypeNotDisplayedBySystem(ctx, &pb.ClearSchemaTypeNotDisplayedBySystemRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearSchemaTypeVisibleToConfigs calls the ClearSchemaTypeVisibleToConfigs RPC.
-func (c *GetSchemaResponseBuilderClient) ClearSchemaTypeVisibleToConfigs(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ClearSchemaTypeVisibleToConfigs(ctx, &pb.ClearSchemaTypeVisibleToConfigsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearSchemaTypeVisibleToPackages calls the ClearSchemaTypeVisibleToPackages RPC.
-func (c *GetSchemaResponseBuilderClient) ClearSchemaTypeVisibleToPackages(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ClearSchemaTypeVisibleToPackages(ctx, &pb.ClearSchemaTypeVisibleToPackagesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearSchemas calls the ClearSchemas RPC.
-func (c *GetSchemaResponseBuilderClient) ClearSchemas(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearSchemas(ctx, &pb.ClearSchemasRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPubliclyVisibleSchema calls the SetPubliclyVisibleSchema RPC.
-func (c *GetSchemaResponseBuilderClient) SetPubliclyVisibleSchema(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.SetPubliclyVisibleSchema(ctx, &pb.SetPubliclyVisibleSchemaRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetVersion calls the SetVersion RPC.
-func (c *GetSchemaResponseBuilderClient) SetVersion(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetVersion(ctx, &pb.SetVersionRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OpenBlobForReadResponseClient wraps the gRPC OpenBlobForReadResponseService client.
-type OpenBlobForReadResponseClient struct {
-	svc pb.OpenBlobForReadResponseServiceClient
-}
-
-// NewOpenBlobForReadResponseClient creates a new OpenBlobForReadResponse client.
-func NewOpenBlobForReadResponseClient(cc grpc.ClientConnInterface) *OpenBlobForReadResponseClient {
-	return &OpenBlobForReadResponseClient{
-		svc: pb.NewOpenBlobForReadResponseServiceClient(cc),
-	}
-}
-
-// Close calls the Close RPC.
-func (c *OpenBlobForReadResponseClient) Close(ctx context.Context, handle int64) error {
-	_, err := c.svc.Close(ctx, &pb.OpenBlobForReadResponseCloseRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *OpenBlobForReadResponseClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.OpenBlobForReadResponseDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *OpenBlobForReadResponseClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.OpenBlobForReadResponseWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// MigratorClient wraps the gRPC MigratorService client.
-type MigratorClient struct {
-	svc pb.MigratorServiceClient
-}
-
-// NewMigratorClient creates a new Migrator client.
-func NewMigratorClient(cc grpc.ClientConnInterface) *MigratorClient {
-	return &MigratorClient{
-		svc: pb.NewMigratorServiceClient(cc),
-	}
-}
-
-// OnDowngrade calls the OnDowngrade RPC.
-func (c *MigratorClient) OnDowngrade(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) (int64, error) {
-	resp, err := c.svc.OnDowngrade(ctx, &pb.OnDowngradeRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnUpgrade calls the OnUpgrade RPC.
-func (c *MigratorClient) OnUpgrade(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) (int64, error) {
-	resp, err := c.svc.OnUpgrade(ctx, &pb.OnUpgradeRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ShouldMigrate calls the ShouldMigrate RPC.
-func (c *MigratorClient) ShouldMigrate(ctx context.Context, arg0 int32, arg1 int32) (bool, error) {
-	resp, err := c.svc.ShouldMigrate(ctx, &pb.ShouldMigrateRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AppSearchSchemaClient wraps the gRPC AppSearchSchemaService client.
-type AppSearchSchemaClient struct {
-	svc pb.AppSearchSchemaServiceClient
-}
-
-// NewAppSearchSchemaClient creates a new AppSearchSchema client.
-func NewAppSearchSchemaClient(cc grpc.ClientConnInterface) *AppSearchSchemaClient {
-	return &AppSearchSchemaClient{
-		svc: pb.NewAppSearchSchemaServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *AppSearchSchemaClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *AppSearchSchemaClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSchemaType calls the GetSchemaType RPC.
-func (c *AppSearchSchemaClient) GetSchemaType(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetSchemaType(ctx, &pb.GetSchemaTypeRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *AppSearchSchemaClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *AppSearchSchemaClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *AppSearchSchemaClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// AppSearchSchemaBooleanPropertyConfigClient wraps the gRPC AppSearchSchemaBooleanPropertyConfigService client.
-type AppSearchSchemaBooleanPropertyConfigClient struct {
-	svc pb.AppSearchSchemaBooleanPropertyConfigServiceClient
-}
-
-// NewAppSearchSchemaBooleanPropertyConfigClient creates a new AppSearchSchemaBooleanPropertyConfig client.
-func NewAppSearchSchemaBooleanPropertyConfigClient(cc grpc.ClientConnInterface) *AppSearchSchemaBooleanPropertyConfigClient {
-	return &AppSearchSchemaBooleanPropertyConfigClient{
-		svc: pb.NewAppSearchSchemaBooleanPropertyConfigServiceClient(cc),
-	}
-}
-
-// IsScoringEnabled calls the IsScoringEnabled RPC.
-func (c *AppSearchSchemaBooleanPropertyConfigClient) IsScoringEnabled(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsScoringEnabled(ctx, &pb.IsScoringEnabledRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AppSearchSchemaBuilderClient wraps the gRPC AppSearchSchemaBuilderService client.
-type AppSearchSchemaBuilderClient struct {
-	svc pb.AppSearchSchemaBuilderServiceClient
-}
-
-// NewAppSearchSchemaBuilderClient creates a new AppSearchSchemaBuilder client.
-func NewAppSearchSchemaBuilderClient(cc grpc.ClientConnInterface) *AppSearchSchemaBuilderClient {
-	return &AppSearchSchemaBuilderClient{
-		svc: pb.NewAppSearchSchemaBuilderServiceClient(cc),
-	}
-}
-
-// AddParentType calls the AddParentType RPC.
-func (c *AppSearchSchemaBuilderClient) AddParentType(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.AddParentType(ctx, &pb.AddParentTypeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddProperty calls the AddProperty RPC.
-func (c *AppSearchSchemaBuilderClient) AddProperty(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddProperty(ctx, &pb.AddPropertyRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Build calls the Build RPC.
-func (c *AppSearchSchemaBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearParentTypes calls the ClearParentTypes RPC.
-func (c *AppSearchSchemaBuilderClient) ClearParentTypes(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearParentTypes(ctx, &pb.ClearParentTypesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearProperties calls the ClearProperties RPC.
-func (c *AppSearchSchemaBuilderClient) ClearProperties(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearProperties(ctx, &pb.ClearPropertiesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetSchemaType calls the SetSchemaType RPC.
-func (c *AppSearchSchemaBuilderClient) SetSchemaType(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetSchemaType(ctx, &pb.SetSchemaTypeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AppSearchSchemaDocumentPropertyConfigClient wraps the gRPC AppSearchSchemaDocumentPropertyConfigService client.
-type AppSearchSchemaDocumentPropertyConfigClient struct {
-	svc pb.AppSearchSchemaDocumentPropertyConfigServiceClient
-}
-
-// NewAppSearchSchemaDocumentPropertyConfigClient creates a new AppSearchSchemaDocumentPropertyConfig client.
-func NewAppSearchSchemaDocumentPropertyConfigClient(cc grpc.ClientConnInterface) *AppSearchSchemaDocumentPropertyConfigClient {
-	return &AppSearchSchemaDocumentPropertyConfigClient{
-		svc: pb.NewAppSearchSchemaDocumentPropertyConfigServiceClient(cc),
-	}
-}
-
-// GetSchemaType calls the GetSchemaType RPC.
-func (c *AppSearchSchemaDocumentPropertyConfigClient) GetSchemaType(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetSchemaType(ctx, &pb.GetSchemaTypeRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// ShouldIndexNestedProperties calls the ShouldIndexNestedProperties RPC.
-func (c *AppSearchSchemaDocumentPropertyConfigClient) ShouldIndexNestedProperties(ctx context.Context) (bool, error) {
-	resp, err := c.svc.ShouldIndexNestedProperties(ctx, &pb.ShouldIndexNestedPropertiesRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AppSearchSchemaDoublePropertyConfigClient wraps the gRPC AppSearchSchemaDoublePropertyConfigService client.
-type AppSearchSchemaDoublePropertyConfigClient struct {
-	svc pb.AppSearchSchemaDoublePropertyConfigServiceClient
-}
-
-// NewAppSearchSchemaDoublePropertyConfigClient creates a new AppSearchSchemaDoublePropertyConfig client.
-func NewAppSearchSchemaDoublePropertyConfigClient(cc grpc.ClientConnInterface) *AppSearchSchemaDoublePropertyConfigClient {
-	return &AppSearchSchemaDoublePropertyConfigClient{
-		svc: pb.NewAppSearchSchemaDoublePropertyConfigServiceClient(cc),
-	}
-}
-
-// IsScoringEnabled calls the IsScoringEnabled RPC.
-func (c *AppSearchSchemaDoublePropertyConfigClient) IsScoringEnabled(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsScoringEnabled(ctx, &pb.IsScoringEnabledRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AppSearchSchemaEmbeddingPropertyConfigClient wraps the gRPC AppSearchSchemaEmbeddingPropertyConfigService client.
-type AppSearchSchemaEmbeddingPropertyConfigClient struct {
-	svc pb.AppSearchSchemaEmbeddingPropertyConfigServiceClient
-}
-
-// NewAppSearchSchemaEmbeddingPropertyConfigClient creates a new AppSearchSchemaEmbeddingPropertyConfig client.
-func NewAppSearchSchemaEmbeddingPropertyConfigClient(cc grpc.ClientConnInterface) *AppSearchSchemaEmbeddingPropertyConfigClient {
-	return &AppSearchSchemaEmbeddingPropertyConfigClient{
-		svc: pb.NewAppSearchSchemaEmbeddingPropertyConfigServiceClient(cc),
-	}
-}
-
-// GetIndexingType calls the GetIndexingType RPC.
-func (c *AppSearchSchemaEmbeddingPropertyConfigClient) GetIndexingType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetIndexingType(ctx, &pb.GetIndexingTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetQuantizationType calls the GetQuantizationType RPC.
-func (c *AppSearchSchemaEmbeddingPropertyConfigClient) GetQuantizationType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetQuantizationType(ctx, &pb.GetQuantizationTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AppSearchSchemaLongPropertyConfigClient wraps the gRPC AppSearchSchemaLongPropertyConfigService client.
-type AppSearchSchemaLongPropertyConfigClient struct {
-	svc pb.AppSearchSchemaLongPropertyConfigServiceClient
-}
-
-// NewAppSearchSchemaLongPropertyConfigClient creates a new AppSearchSchemaLongPropertyConfig client.
-func NewAppSearchSchemaLongPropertyConfigClient(cc grpc.ClientConnInterface) *AppSearchSchemaLongPropertyConfigClient {
-	return &AppSearchSchemaLongPropertyConfigClient{
-		svc: pb.NewAppSearchSchemaLongPropertyConfigServiceClient(cc),
-	}
-}
-
-// GetIndexingType calls the GetIndexingType RPC.
-func (c *AppSearchSchemaLongPropertyConfigClient) GetIndexingType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetIndexingType(ctx, &pb.GetIndexingTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsScoringEnabled calls the IsScoringEnabled RPC.
-func (c *AppSearchSchemaLongPropertyConfigClient) IsScoringEnabled(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsScoringEnabled(ctx, &pb.IsScoringEnabledRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AppSearchSchemaPropertyConfigClient wraps the gRPC AppSearchSchemaPropertyConfigService client.
-type AppSearchSchemaPropertyConfigClient struct {
-	svc pb.AppSearchSchemaPropertyConfigServiceClient
-}
-
-// NewAppSearchSchemaPropertyConfigClient creates a new AppSearchSchemaPropertyConfig client.
-func NewAppSearchSchemaPropertyConfigClient(cc grpc.ClientConnInterface) *AppSearchSchemaPropertyConfigClient {
-	return &AppSearchSchemaPropertyConfigClient{
-		svc: pb.NewAppSearchSchemaPropertyConfigServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *AppSearchSchemaPropertyConfigClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCardinality calls the GetCardinality RPC.
-func (c *AppSearchSchemaPropertyConfigClient) GetCardinality(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetCardinality(ctx, &pb.GetCardinalityRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetName calls the GetName RPC.
-func (c *AppSearchSchemaPropertyConfigClient) GetName(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *AppSearchSchemaPropertyConfigClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *AppSearchSchemaPropertyConfigClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// AppSearchSchemaStringPropertyConfigClient wraps the gRPC AppSearchSchemaStringPropertyConfigService client.
-type AppSearchSchemaStringPropertyConfigClient struct {
-	svc pb.AppSearchSchemaStringPropertyConfigServiceClient
-}
-
-// NewAppSearchSchemaStringPropertyConfigClient creates a new AppSearchSchemaStringPropertyConfig client.
-func NewAppSearchSchemaStringPropertyConfigClient(cc grpc.ClientConnInterface) *AppSearchSchemaStringPropertyConfigClient {
-	return &AppSearchSchemaStringPropertyConfigClient{
-		svc: pb.NewAppSearchSchemaStringPropertyConfigServiceClient(cc),
-	}
-}
-
-// GetIndexingType calls the GetIndexingType RPC.
-func (c *AppSearchSchemaStringPropertyConfigClient) GetIndexingType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetIndexingType(ctx, &pb.GetIndexingTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetJoinableValueType calls the GetJoinableValueType RPC.
-func (c *AppSearchSchemaStringPropertyConfigClient) GetJoinableValueType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetJoinableValueType(ctx, &pb.GetJoinableValueTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTokenizerType calls the GetTokenizerType RPC.
-func (c *AppSearchSchemaStringPropertyConfigClient) GetTokenizerType(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetTokenizerType(ctx, &pb.GetTokenizerTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetSchemaResponseClient wraps the gRPC SetSchemaResponseService client.
-type SetSchemaResponseClient struct {
-	svc pb.SetSchemaResponseServiceClient
-}
-
-// NewSetSchemaResponseClient creates a new SetSchemaResponse client.
-func NewSetSchemaResponseClient(cc grpc.ClientConnInterface) *SetSchemaResponseClient {
-	return &SetSchemaResponseClient{
-		svc: pb.NewSetSchemaResponseServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *SetSchemaResponseClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *SetSchemaResponseClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// SetSchemaResponseBuilderClient wraps the gRPC SetSchemaResponseBuilderService client.
-type SetSchemaResponseBuilderClient struct {
-	svc pb.SetSchemaResponseBuilderServiceClient
-}
-
-// NewSetSchemaResponseBuilderClient creates a new SetSchemaResponseBuilder client.
-func NewSetSchemaResponseBuilderClient(cc grpc.ClientConnInterface) *SetSchemaResponseBuilderClient {
-	return &SetSchemaResponseBuilderClient{
-		svc: pb.NewSetSchemaResponseBuilderServiceClient(cc),
-	}
-}
-
-// AddDeletedType calls the AddDeletedType RPC.
-func (c *SetSchemaResponseBuilderClient) AddDeletedType(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.AddDeletedType(ctx, &pb.AddDeletedTypeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddIncompatibleType calls the AddIncompatibleType RPC.
-func (c *SetSchemaResponseBuilderClient) AddIncompatibleType(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.AddIncompatibleType(ctx, &pb.AddIncompatibleTypeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddMigratedType calls the AddMigratedType RPC.
-func (c *SetSchemaResponseBuilderClient) AddMigratedType(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.AddMigratedType(ctx, &pb.AddMigratedTypeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddMigrationFailure calls the AddMigrationFailure RPC.
-func (c *SetSchemaResponseBuilderClient) AddMigrationFailure(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddMigrationFailure(ctx, &pb.AddMigrationFailureRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Build calls the Build RPC.
-func (c *SetSchemaResponseBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetSchemaResponseMigrationFailureClient wraps the gRPC SetSchemaResponseMigrationFailureService client.
-type SetSchemaResponseMigrationFailureClient struct {
-	svc pb.SetSchemaResponseMigrationFailureServiceClient
-}
-
-// NewSetSchemaResponseMigrationFailureClient creates a new SetSchemaResponseMigrationFailure client.
-func NewSetSchemaResponseMigrationFailureClient(cc grpc.ClientConnInterface) *SetSchemaResponseMigrationFailureClient {
-	return &SetSchemaResponseMigrationFailureClient{
-		svc: pb.NewSetSchemaResponseMigrationFailureServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *SetSchemaResponseMigrationFailureClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDocumentId calls the GetDocumentId RPC.
-func (c *SetSchemaResponseMigrationFailureClient) GetDocumentId(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetDocumentId(ctx, &pb.GetDocumentIdRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNamespace calls the GetNamespace RPC.
-func (c *SetSchemaResponseMigrationFailureClient) GetNamespace(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetNamespace(ctx, &pb.GetNamespaceRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSchemaType calls the GetSchemaType RPC.
-func (c *SetSchemaResponseMigrationFailureClient) GetSchemaType(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetSchemaType(ctx, &pb.GetSchemaTypeRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *SetSchemaResponseMigrationFailureClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *SetSchemaResponseMigrationFailureClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// PackageIdentifierClient wraps the gRPC PackageIdentifierService client.
-type PackageIdentifierClient struct {
-	svc pb.PackageIdentifierServiceClient
-}
-
-// NewPackageIdentifierClient creates a new PackageIdentifier client.
-func NewPackageIdentifierClient(cc grpc.ClientConnInterface) *PackageIdentifierClient {
-	return &PackageIdentifierClient{
-		svc: pb.NewPackageIdentifierServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *PackageIdentifierClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.PackageIdentifierEqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPackageName calls the GetPackageName RPC.
-func (c *PackageIdentifierClient) GetPackageName(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetPackageName(ctx, &pb.PackageIdentifierGetPackageNameRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSha256Certificate calls the GetSha256Certificate RPC.
-func (c *PackageIdentifierClient) GetSha256Certificate(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetSha256Certificate(ctx, &pb.GetSha256CertificateRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *PackageIdentifierClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.PackageIdentifierHashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OpenBlobForWriteResponseClient wraps the gRPC OpenBlobForWriteResponseService client.
-type OpenBlobForWriteResponseClient struct {
-	svc pb.OpenBlobForWriteResponseServiceClient
-}
-
-// NewOpenBlobForWriteResponseClient creates a new OpenBlobForWriteResponse client.
-func NewOpenBlobForWriteResponseClient(cc grpc.ClientConnInterface) *OpenBlobForWriteResponseClient {
-	return &OpenBlobForWriteResponseClient{
-		svc: pb.NewOpenBlobForWriteResponseServiceClient(cc),
-	}
-}
-
-// Close calls the Close RPC.
-func (c *OpenBlobForWriteResponseClient) Close(ctx context.Context, handle int64) error {
-	_, err := c.svc.Close(ctx, &pb.OpenBlobForWriteResponseCloseRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *OpenBlobForWriteResponseClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.OpenBlobForWriteResponseDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *OpenBlobForWriteResponseClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.OpenBlobForWriteResponseWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GetByDocumentIdRequestClient wraps the gRPC GetByDocumentIdRequestService client.
-type GetByDocumentIdRequestClient struct {
-	svc pb.GetByDocumentIdRequestServiceClient
-}
-
-// NewGetByDocumentIdRequestClient creates a new GetByDocumentIdRequest client.
-func NewGetByDocumentIdRequestClient(cc grpc.ClientConnInterface) *GetByDocumentIdRequestClient {
-	return &GetByDocumentIdRequestClient{
-		svc: pb.NewGetByDocumentIdRequestServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *GetByDocumentIdRequestClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNamespace calls the GetNamespace RPC.
-func (c *GetByDocumentIdRequestClient) GetNamespace(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetNamespace(ctx, &pb.GetNamespaceRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *GetByDocumentIdRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// GetByDocumentIdRequestBuilderClient wraps the gRPC GetByDocumentIdRequestBuilderService client.
-type GetByDocumentIdRequestBuilderClient struct {
-	svc pb.GetByDocumentIdRequestBuilderServiceClient
-}
-
-// NewGetByDocumentIdRequestBuilderClient creates a new GetByDocumentIdRequestBuilder client.
-func NewGetByDocumentIdRequestBuilderClient(cc grpc.ClientConnInterface) *GetByDocumentIdRequestBuilderClient {
-	return &GetByDocumentIdRequestBuilderClient{
-		svc: pb.NewGetByDocumentIdRequestBuilderServiceClient(cc),
-	}
-}
-
-// AddIds calls the AddIds RPC.
-func (c *GetByDocumentIdRequestBuilderClient) AddIds(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddIds(ctx, &pb.AddIdsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Build calls the Build RPC.
-func (c *GetByDocumentIdRequestBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EnterpriseGlobalSearchSessionClient wraps the gRPC EnterpriseGlobalSearchSessionService client.
-type EnterpriseGlobalSearchSessionClient struct {
-	svc pb.EnterpriseGlobalSearchSessionServiceClient
-}
-
-// NewEnterpriseGlobalSearchSessionClient creates a new EnterpriseGlobalSearchSession client.
-func NewEnterpriseGlobalSearchSessionClient(cc grpc.ClientConnInterface) *EnterpriseGlobalSearchSessionClient {
-	return &EnterpriseGlobalSearchSessionClient{
-		svc: pb.NewEnterpriseGlobalSearchSessionServiceClient(cc),
-	}
-}
-
-// Search calls the Search RPC.
-func (c *EnterpriseGlobalSearchSessionClient) Search(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.Search(ctx, &pb.SearchRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AppSearchManagerSearchContextClient wraps the gRPC AppSearchManagerSearchContextService client.
-type AppSearchManagerSearchContextClient struct {
-	svc pb.AppSearchManagerSearchContextServiceClient
-}
-
-// NewAppSearchManagerSearchContextClient creates a new AppSearchManagerSearchContext client.
-func NewAppSearchManagerSearchContextClient(cc grpc.ClientConnInterface) *AppSearchManagerSearchContextClient {
-	return &AppSearchManagerSearchContextClient{
-		svc: pb.NewAppSearchManagerSearchContextServiceClient(cc),
-	}
-}
-
-// GetDatabaseName calls the GetDatabaseName RPC.
-func (c *AppSearchManagerSearchContextClient) GetDatabaseName(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetDatabaseName(ctx, &pb.GetDatabaseNameRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// SearchResultsClient wraps the gRPC SearchResultsService client.
-type SearchResultsClient struct {
-	svc pb.SearchResultsServiceClient
-}
-
-// NewSearchResultsClient creates a new SearchResults client.
-func NewSearchResultsClient(cc grpc.ClientConnInterface) *SearchResultsClient {
-	return &SearchResultsClient{
-		svc: pb.NewSearchResultsServiceClient(cc),
-	}
-}
-
-// Close calls the Close RPC.
-func (c *SearchResultsClient) Close(ctx context.Context) error {
-	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
-	return err
-}
-
-// PutDocumentsRequestBuilderClient wraps the gRPC PutDocumentsRequestBuilderService client.
-type PutDocumentsRequestBuilderClient struct {
-	svc pb.PutDocumentsRequestBuilderServiceClient
-}
-
-// NewPutDocumentsRequestBuilderClient creates a new PutDocumentsRequestBuilder client.
-func NewPutDocumentsRequestBuilderClient(cc grpc.ClientConnInterface) *PutDocumentsRequestBuilderClient {
-	return &PutDocumentsRequestBuilderClient{
-		svc: pb.NewPutDocumentsRequestBuilderServiceClient(cc),
-	}
-}
-
-// AddGenericDocuments calls the AddGenericDocuments RPC.
-func (c *PutDocumentsRequestBuilderClient) AddGenericDocuments(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddGenericDocuments(ctx, &pb.AddGenericDocumentsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddTakenActionGenericDocuments calls the AddTakenActionGenericDocuments RPC.
-func (c *PutDocumentsRequestBuilderClient) AddTakenActionGenericDocuments(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddTakenActionGenericDocuments(ctx, &pb.AddTakenActionGenericDocumentsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Build calls the Build RPC.
-func (c *PutDocumentsRequestBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ReportUsageRequestClient wraps the gRPC ReportUsageRequestService client.
-type ReportUsageRequestClient struct {
-	svc pb.ReportUsageRequestServiceClient
-}
-
-// NewReportUsageRequestClient creates a new ReportUsageRequest client.
-func NewReportUsageRequestClient(cc grpc.ClientConnInterface) *ReportUsageRequestClient {
-	return &ReportUsageRequestClient{
-		svc: pb.NewReportUsageRequestServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *ReportUsageRequestClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDocumentId calls the GetDocumentId RPC.
-func (c *ReportUsageRequestClient) GetDocumentId(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetDocumentId(ctx, &pb.GetDocumentIdRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNamespace calls the GetNamespace RPC.
-func (c *ReportUsageRequestClient) GetNamespace(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetNamespace(ctx, &pb.GetNamespaceRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUsageTimestampMillis calls the GetUsageTimestampMillis RPC.
-func (c *ReportUsageRequestClient) GetUsageTimestampMillis(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetUsageTimestampMillis(ctx, &pb.GetUsageTimestampMillisRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *ReportUsageRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ReportUsageRequestBuilderClient wraps the gRPC ReportUsageRequestBuilderService client.
-type ReportUsageRequestBuilderClient struct {
-	svc pb.ReportUsageRequestBuilderServiceClient
-}
-
-// NewReportUsageRequestBuilderClient creates a new ReportUsageRequestBuilder client.
-func NewReportUsageRequestBuilderClient(cc grpc.ClientConnInterface) *ReportUsageRequestBuilderClient {
-	return &ReportUsageRequestBuilderClient{
-		svc: pb.NewReportUsageRequestBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *ReportUsageRequestBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetUsageTimestampMillis calls the SetUsageTimestampMillis RPC.
-func (c *ReportUsageRequestBuilderClient) SetUsageTimestampMillis(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetUsageTimestampMillis(ctx, &pb.SetUsageTimestampMillisRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// StorageInfoClient wraps the gRPC StorageInfoService client.
-type StorageInfoClient struct {
-	svc pb.StorageInfoServiceClient
-}
-
-// NewStorageInfoClient creates a new StorageInfo client.
-func NewStorageInfoClient(cc grpc.ClientConnInterface) *StorageInfoClient {
-	return &StorageInfoClient{
-		svc: pb.NewStorageInfoServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *StorageInfoClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAliveDocumentsCount calls the GetAliveDocumentsCount RPC.
-func (c *StorageInfoClient) GetAliveDocumentsCount(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetAliveDocumentsCount(ctx, &pb.GetAliveDocumentsCountRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAliveNamespacesCount calls the GetAliveNamespacesCount RPC.
-func (c *StorageInfoClient) GetAliveNamespacesCount(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetAliveNamespacesCount(ctx, &pb.GetAliveNamespacesCountRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBlobsCount calls the GetBlobsCount RPC.
-func (c *StorageInfoClient) GetBlobsCount(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetBlobsCount(ctx, &pb.GetBlobsCountRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBlobsSizeBytes calls the GetBlobsSizeBytes RPC.
-func (c *StorageInfoClient) GetBlobsSizeBytes(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetBlobsSizeBytes(ctx, &pb.GetBlobsSizeBytesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSizeBytes calls the GetSizeBytes RPC.
-func (c *StorageInfoClient) GetSizeBytes(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSizeBytes(ctx, &pb.GetSizeBytesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *StorageInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// StorageInfoBuilderClient wraps the gRPC StorageInfoBuilderService client.
-type StorageInfoBuilderClient struct {
-	svc pb.StorageInfoBuilderServiceClient
-}
-
-// NewStorageInfoBuilderClient creates a new StorageInfoBuilder client.
-func NewStorageInfoBuilderClient(cc grpc.ClientConnInterface) *StorageInfoBuilderClient {
-	return &StorageInfoBuilderClient{
-		svc: pb.NewStorageInfoBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *StorageInfoBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetAliveDocumentsCount calls the SetAliveDocumentsCount RPC.
-func (c *StorageInfoBuilderClient) SetAliveDocumentsCount(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetAliveDocumentsCount(ctx, &pb.SetAliveDocumentsCountRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetAliveNamespacesCount calls the SetAliveNamespacesCount RPC.
-func (c *StorageInfoBuilderClient) SetAliveNamespacesCount(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetAliveNamespacesCount(ctx, &pb.SetAliveNamespacesCountRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetBlobsCount calls the SetBlobsCount RPC.
-func (c *StorageInfoBuilderClient) SetBlobsCount(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetBlobsCount(ctx, &pb.SetBlobsCountRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetBlobsSizeBytes calls the SetBlobsSizeBytes RPC.
-func (c *StorageInfoBuilderClient) SetBlobsSizeBytes(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetBlobsSizeBytes(ctx, &pb.SetBlobsSizeBytesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetSizeBytes calls the SetSizeBytes RPC.
-func (c *StorageInfoBuilderClient) SetSizeBytes(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetSizeBytes(ctx, &pb.SetSizeBytesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GenericDocumentClient wraps the gRPC GenericDocumentService client.
-type GenericDocumentClient struct {
-	svc pb.GenericDocumentServiceClient
-}
-
-// NewGenericDocumentClient creates a new GenericDocument client.
-func NewGenericDocumentClient(cc grpc.ClientConnInterface) *GenericDocumentClient {
-	return &GenericDocumentClient{
-		svc: pb.NewGenericDocumentServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *GenericDocumentClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCreationTimestampMillis calls the GetCreationTimestampMillis RPC.
-func (c *GenericDocumentClient) GetCreationTimestampMillis(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetCreationTimestampMillis(ctx, &pb.GetCreationTimestampMillisRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetId calls the GetId RPC.
-func (c *GenericDocumentClient) GetId(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetId(ctx, &pb.GetIdRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNamespace calls the GetNamespace RPC.
-func (c *GenericDocumentClient) GetNamespace(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetNamespace(ctx, &pb.GetNamespaceRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetProperty calls the GetProperty RPC.
-func (c *GenericDocumentClient) GetProperty(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.GetProperty(ctx, &pb.GetPropertyRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPropertyBlobHandle calls the GetPropertyBlobHandle RPC.
-func (c *GenericDocumentClient) GetPropertyBlobHandle(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.GetPropertyBlobHandle(ctx, &pb.GetPropertyBlobHandleRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPropertyBlobHandleArray calls the GetPropertyBlobHandleArray RPC.
-func (c *GenericDocumentClient) GetPropertyBlobHandleArray(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.GetPropertyBlobHandleArray(ctx, &pb.GetPropertyBlobHandleArrayRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPropertyBoolean calls the GetPropertyBoolean RPC.
-func (c *GenericDocumentClient) GetPropertyBoolean(ctx context.Context, arg0 string) (bool, error) {
-	resp, err := c.svc.GetPropertyBoolean(ctx, &pb.GetPropertyBooleanRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPropertyBooleanArray calls the GetPropertyBooleanArray RPC.
-func (c *GenericDocumentClient) GetPropertyBooleanArray(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.GetPropertyBooleanArray(ctx, &pb.GetPropertyBooleanArrayRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPropertyBytes calls the GetPropertyBytes RPC.
-func (c *GenericDocumentClient) GetPropertyBytes(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.GetPropertyBytes(ctx, &pb.GetPropertyBytesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPropertyBytesArray calls the GetPropertyBytesArray RPC.
-func (c *GenericDocumentClient) GetPropertyBytesArray(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.GetPropertyBytesArray(ctx, &pb.GetPropertyBytesArrayRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPropertyDocument calls the GetPropertyDocument RPC.
-func (c *GenericDocumentClient) GetPropertyDocument(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.GetPropertyDocument(ctx, &pb.GetPropertyDocumentRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPropertyDocumentArray calls the GetPropertyDocumentArray RPC.
-func (c *GenericDocumentClient) GetPropertyDocumentArray(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.GetPropertyDocumentArray(ctx, &pb.GetPropertyDocumentArrayRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPropertyDouble calls the GetPropertyDouble RPC.
-func (c *GenericDocumentClient) GetPropertyDouble(ctx context.Context, arg0 string) (float64, error) {
-	resp, err := c.svc.GetPropertyDouble(ctx, &pb.GetPropertyDoubleRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPropertyDoubleArray calls the GetPropertyDoubleArray RPC.
-func (c *GenericDocumentClient) GetPropertyDoubleArray(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.GetPropertyDoubleArray(ctx, &pb.GetPropertyDoubleArrayRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPropertyEmbedding calls the GetPropertyEmbedding RPC.
-func (c *GenericDocumentClient) GetPropertyEmbedding(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.GetPropertyEmbedding(ctx, &pb.GetPropertyEmbeddingRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPropertyEmbeddingArray calls the GetPropertyEmbeddingArray RPC.
-func (c *GenericDocumentClient) GetPropertyEmbeddingArray(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.GetPropertyEmbeddingArray(ctx, &pb.GetPropertyEmbeddingArrayRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPropertyLong calls the GetPropertyLong RPC.
-func (c *GenericDocumentClient) GetPropertyLong(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.GetPropertyLong(ctx, &pb.GetPropertyLongRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPropertyLongArray calls the GetPropertyLongArray RPC.
-func (c *GenericDocumentClient) GetPropertyLongArray(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.GetPropertyLongArray(ctx, &pb.GetPropertyLongArrayRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPropertyString calls the GetPropertyString RPC.
-func (c *GenericDocumentClient) GetPropertyString(ctx context.Context, arg0 string) (string, error) {
-	resp, err := c.svc.GetPropertyString(ctx, &pb.GetPropertyStringRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPropertyStringArray calls the GetPropertyStringArray RPC.
-func (c *GenericDocumentClient) GetPropertyStringArray(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.GetPropertyStringArray(ctx, &pb.GetPropertyStringArrayRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSchemaType calls the GetSchemaType RPC.
-func (c *GenericDocumentClient) GetSchemaType(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetSchemaType(ctx, &pb.GetSchemaTypeRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetScore calls the GetScore RPC.
-func (c *GenericDocumentClient) GetScore(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetScore(ctx, &pb.GetScoreRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTtlMillis calls the GetTtlMillis RPC.
-func (c *GenericDocumentClient) GetTtlMillis(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTtlMillis(ctx, &pb.GetTtlMillisRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *GenericDocumentClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *GenericDocumentClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMaxIndexedProperties calls the GetMaxIndexedProperties RPC.
-func (c *GenericDocumentClient) GetMaxIndexedProperties(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMaxIndexedProperties(ctx, &pb.GetMaxIndexedPropertiesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GenericDocumentBuilderClient wraps the gRPC GenericDocumentBuilderService client.
-type GenericDocumentBuilderClient struct {
-	svc pb.GenericDocumentBuilderServiceClient
-}
-
-// NewGenericDocumentBuilderClient creates a new GenericDocumentBuilder client.
-func NewGenericDocumentBuilderClient(cc grpc.ClientConnInterface) *GenericDocumentBuilderClient {
-	return &GenericDocumentBuilderClient{
-		svc: pb.NewGenericDocumentBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *GenericDocumentBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearProperty calls the ClearProperty RPC.
-func (c *GenericDocumentBuilderClient) ClearProperty(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ClearProperty(ctx, &pb.ClearPropertyRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetCreationTimestampMillis calls the SetCreationTimestampMillis RPC.
-func (c *GenericDocumentBuilderClient) SetCreationTimestampMillis(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetCreationTimestampMillis(ctx, &pb.SetCreationTimestampMillisRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetId calls the SetId RPC.
-func (c *GenericDocumentBuilderClient) SetId(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetId(ctx, &pb.SetIdRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetNamespace calls the SetNamespace RPC.
-func (c *GenericDocumentBuilderClient) SetNamespace(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetNamespace(ctx, &pb.SetNamespaceRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPropertyBlobHandle calls the SetPropertyBlobHandle RPC.
-func (c *GenericDocumentBuilderClient) SetPropertyBlobHandle(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.SetPropertyBlobHandle(ctx, &pb.SetPropertyBlobHandleRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPropertyBoolean calls the SetPropertyBoolean RPC.
-func (c *GenericDocumentBuilderClient) SetPropertyBoolean(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.SetPropertyBoolean(ctx, &pb.SetPropertyBooleanRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPropertyBytes calls the SetPropertyBytes RPC.
-func (c *GenericDocumentBuilderClient) SetPropertyBytes(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.SetPropertyBytes(ctx, &pb.SetPropertyBytesRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPropertyDocument calls the SetPropertyDocument RPC.
-func (c *GenericDocumentBuilderClient) SetPropertyDocument(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.SetPropertyDocument(ctx, &pb.SetPropertyDocumentRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPropertyDouble calls the SetPropertyDouble RPC.
-func (c *GenericDocumentBuilderClient) SetPropertyDouble(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.SetPropertyDouble(ctx, &pb.SetPropertyDoubleRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPropertyEmbedding calls the SetPropertyEmbedding RPC.
-func (c *GenericDocumentBuilderClient) SetPropertyEmbedding(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.SetPropertyEmbedding(ctx, &pb.SetPropertyEmbeddingRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPropertyLong calls the SetPropertyLong RPC.
-func (c *GenericDocumentBuilderClient) SetPropertyLong(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.SetPropertyLong(ctx, &pb.SetPropertyLongRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPropertyString calls the SetPropertyString RPC.
-func (c *GenericDocumentBuilderClient) SetPropertyString(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.SetPropertyString(ctx, &pb.SetPropertyStringRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetSchemaType calls the SetSchemaType RPC.
-func (c *GenericDocumentBuilderClient) SetSchemaType(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetSchemaType(ctx, &pb.SetSchemaTypeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetScore calls the SetScore RPC.
-func (c *GenericDocumentBuilderClient) SetScore(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetScore(ctx, &pb.SetScoreRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetTtlMillis calls the SetTtlMillis RPC.
-func (c *GenericDocumentBuilderClient) SetTtlMillis(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SetTtlMillis(ctx, &pb.SetTtlMillisRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AppSearchBlobHandleClient wraps the gRPC AppSearchBlobHandleService client.
-type AppSearchBlobHandleClient struct {
-	svc pb.AppSearchBlobHandleServiceClient
-}
-
-// NewAppSearchBlobHandleClient creates a new AppSearchBlobHandle client.
-func NewAppSearchBlobHandleClient(cc grpc.ClientConnInterface) *AppSearchBlobHandleClient {
-	return &AppSearchBlobHandleClient{
-		svc: pb.NewAppSearchBlobHandleServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *AppSearchBlobHandleClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *AppSearchBlobHandleClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDatabaseName calls the GetDatabaseName RPC.
-func (c *AppSearchBlobHandleClient) GetDatabaseName(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetDatabaseName(ctx, &pb.GetDatabaseNameRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNamespace calls the GetNamespace RPC.
-func (c *AppSearchBlobHandleClient) GetNamespace(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetNamespace(ctx, &pb.GetNamespaceRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPackageName calls the GetPackageName RPC.
-func (c *AppSearchBlobHandleClient) GetPackageName(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetPackageName(ctx, &pb.GetPackageNameRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSha256Digest calls the GetSha256Digest RPC.
-func (c *AppSearchBlobHandleClient) GetSha256Digest(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSha256Digest(ctx, &pb.GetSha256DigestRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *AppSearchBlobHandleClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *AppSearchBlobHandleClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *AppSearchBlobHandleClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// CreateWithSha256 calls the CreateWithSha256 RPC.
-func (c *AppSearchBlobHandleClient) CreateWithSha256(ctx context.Context, arg0 int64, arg1 string, arg2 string, arg3 string) (int64, error) {
-	resp, err := c.svc.CreateWithSha256(ctx, &pb.CreateWithSha256Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // AppSearchSessionClient wraps the gRPC AppSearchSessionService client.
 type AppSearchSessionClient struct {
 	svc pb.AppSearchSessionServiceClient
@@ -3440,622 +4116,6 @@ func (c *AppSearchSessionClient) Close(ctx context.Context) error {
 // Search calls the Search RPC.
 func (c *AppSearchSessionClient) Search(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
 	resp, err := c.svc.Search(ctx, &pb.SearchRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SearchSuggestionResultClient wraps the gRPC SearchSuggestionResultService client.
-type SearchSuggestionResultClient struct {
-	svc pb.SearchSuggestionResultServiceClient
-}
-
-// NewSearchSuggestionResultClient creates a new SearchSuggestionResult client.
-func NewSearchSuggestionResultClient(cc grpc.ClientConnInterface) *SearchSuggestionResultClient {
-	return &SearchSuggestionResultClient{
-		svc: pb.NewSearchSuggestionResultServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *SearchSuggestionResultClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *SearchSuggestionResultClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSuggestedResult calls the GetSuggestedResult RPC.
-func (c *SearchSuggestionResultClient) GetSuggestedResult(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetSuggestedResult(ctx, &pb.GetSuggestedResultRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *SearchSuggestionResultClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *SearchSuggestionResultClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// SearchSuggestionResultBuilderClient wraps the gRPC SearchSuggestionResultBuilderService client.
-type SearchSuggestionResultBuilderClient struct {
-	svc pb.SearchSuggestionResultBuilderServiceClient
-}
-
-// NewSearchSuggestionResultBuilderClient creates a new SearchSuggestionResultBuilder client.
-func NewSearchSuggestionResultBuilderClient(cc grpc.ClientConnInterface) *SearchSuggestionResultBuilderClient {
-	return &SearchSuggestionResultBuilderClient{
-		svc: pb.NewSearchSuggestionResultBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *SearchSuggestionResultBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetSuggestedResult calls the SetSuggestedResult RPC.
-func (c *SearchSuggestionResultBuilderClient) SetSuggestedResult(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetSuggestedResult(ctx, &pb.SetSuggestedResultRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RemoveByDocumentIdRequestClient wraps the gRPC RemoveByDocumentIdRequestService client.
-type RemoveByDocumentIdRequestClient struct {
-	svc pb.RemoveByDocumentIdRequestServiceClient
-}
-
-// NewRemoveByDocumentIdRequestClient creates a new RemoveByDocumentIdRequest client.
-func NewRemoveByDocumentIdRequestClient(cc grpc.ClientConnInterface) *RemoveByDocumentIdRequestClient {
-	return &RemoveByDocumentIdRequestClient{
-		svc: pb.NewRemoveByDocumentIdRequestServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *RemoveByDocumentIdRequestClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNamespace calls the GetNamespace RPC.
-func (c *RemoveByDocumentIdRequestClient) GetNamespace(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetNamespace(ctx, &pb.GetNamespaceRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *RemoveByDocumentIdRequestClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// RemoveByDocumentIdRequestBuilderClient wraps the gRPC RemoveByDocumentIdRequestBuilderService client.
-type RemoveByDocumentIdRequestBuilderClient struct {
-	svc pb.RemoveByDocumentIdRequestBuilderServiceClient
-}
-
-// NewRemoveByDocumentIdRequestBuilderClient creates a new RemoveByDocumentIdRequestBuilder client.
-func NewRemoveByDocumentIdRequestBuilderClient(cc grpc.ClientConnInterface) *RemoveByDocumentIdRequestBuilderClient {
-	return &RemoveByDocumentIdRequestBuilderClient{
-		svc: pb.NewRemoveByDocumentIdRequestBuilderServiceClient(cc),
-	}
-}
-
-// AddIds calls the AddIds RPC.
-func (c *RemoveByDocumentIdRequestBuilderClient) AddIds(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddIds(ctx, &pb.AddIdsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Build calls the Build RPC.
-func (c *RemoveByDocumentIdRequestBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetSchemaRequestClient wraps the gRPC SetSchemaRequestService client.
-type SetSchemaRequestClient struct {
-	svc pb.SetSchemaRequestServiceClient
-}
-
-// NewSetSchemaRequestClient creates a new SetSchemaRequest client.
-func NewSetSchemaRequestClient(cc grpc.ClientConnInterface) *SetSchemaRequestClient {
-	return &SetSchemaRequestClient{
-		svc: pb.NewSetSchemaRequestServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *SetSchemaRequestClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetVersion calls the GetVersion RPC.
-func (c *SetSchemaRequestClient) GetVersion(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetVersion(ctx, &pb.GetVersionRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *SetSchemaRequestClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsForceOverride calls the IsForceOverride RPC.
-func (c *SetSchemaRequestClient) IsForceOverride(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsForceOverride(ctx, &pb.IsForceOverrideRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetSchemaRequestBuilderClient wraps the gRPC SetSchemaRequestBuilderService client.
-type SetSchemaRequestBuilderClient struct {
-	svc pb.SetSchemaRequestBuilderServiceClient
-}
-
-// NewSetSchemaRequestBuilderClient creates a new SetSchemaRequestBuilder client.
-func NewSetSchemaRequestBuilderClient(cc grpc.ClientConnInterface) *SetSchemaRequestBuilderClient {
-	return &SetSchemaRequestBuilderClient{
-		svc: pb.NewSetSchemaRequestBuilderServiceClient(cc),
-	}
-}
-
-// AddSchemaTypeVisibleToConfig calls the AddSchemaTypeVisibleToConfig RPC.
-func (c *SetSchemaRequestBuilderClient) AddSchemaTypeVisibleToConfig(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.AddSchemaTypeVisibleToConfig(ctx, &pb.AddSchemaTypeVisibleToConfigRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddSchemas calls the AddSchemas RPC.
-func (c *SetSchemaRequestBuilderClient) AddSchemas(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddSchemas(ctx, &pb.AddSchemasRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Build calls the Build RPC.
-func (c *SetSchemaRequestBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearMigrators calls the ClearMigrators RPC.
-func (c *SetSchemaRequestBuilderClient) ClearMigrators(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearMigrators(ctx, &pb.ClearMigratorsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearRequiredPermissionsForSchemaTypeVisibility calls the ClearRequiredPermissionsForSchemaTypeVisibility RPC.
-func (c *SetSchemaRequestBuilderClient) ClearRequiredPermissionsForSchemaTypeVisibility(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ClearRequiredPermissionsForSchemaTypeVisibility(ctx, &pb.ClearRequiredPermissionsForSchemaTypeVisibilityRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearSchemaTypeVisibleToConfigs calls the ClearSchemaTypeVisibleToConfigs RPC.
-func (c *SetSchemaRequestBuilderClient) ClearSchemaTypeVisibleToConfigs(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ClearSchemaTypeVisibleToConfigs(ctx, &pb.ClearSchemaTypeVisibleToConfigsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ClearSchemas calls the ClearSchemas RPC.
-func (c *SetSchemaRequestBuilderClient) ClearSchemas(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ClearSchemas(ctx, &pb.ClearSchemasRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetForceOverride calls the SetForceOverride RPC.
-func (c *SetSchemaRequestBuilderClient) SetForceOverride(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetForceOverride(ctx, &pb.SetForceOverrideRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetMigrator calls the SetMigrator RPC.
-func (c *SetSchemaRequestBuilderClient) SetMigrator(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.SetMigrator(ctx, &pb.SetMigratorRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetPubliclyVisibleSchema calls the SetPubliclyVisibleSchema RPC.
-func (c *SetSchemaRequestBuilderClient) SetPubliclyVisibleSchema(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.SetPubliclyVisibleSchema(ctx, &pb.SetPubliclyVisibleSchemaRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetSchemaTypeDisplayedBySystem calls the SetSchemaTypeDisplayedBySystem RPC.
-func (c *SetSchemaRequestBuilderClient) SetSchemaTypeDisplayedBySystem(ctx context.Context, arg0 string, arg1 bool) (int64, error) {
-	resp, err := c.svc.SetSchemaTypeDisplayedBySystem(ctx, &pb.SetSchemaTypeDisplayedBySystemRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetSchemaTypeVisibilityForPackage calls the SetSchemaTypeVisibilityForPackage RPC.
-func (c *SetSchemaRequestBuilderClient) SetSchemaTypeVisibilityForPackage(ctx context.Context, arg0 string, arg1 bool, arg2 int64) (int64, error) {
-	resp, err := c.svc.SetSchemaTypeVisibilityForPackage(ctx, &pb.SetSchemaTypeVisibilityForPackageRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetVersion calls the SetVersion RPC.
-func (c *SetSchemaRequestBuilderClient) SetVersion(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetVersion(ctx, &pb.SetVersionRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AppSearchBatchResultClient wraps the gRPC AppSearchBatchResultService client.
-type AppSearchBatchResultClient struct {
-	svc pb.AppSearchBatchResultServiceClient
-}
-
-// NewAppSearchBatchResultClient creates a new AppSearchBatchResult client.
-func NewAppSearchBatchResultClient(cc grpc.ClientConnInterface) *AppSearchBatchResultClient {
-	return &AppSearchBatchResultClient{
-		svc: pb.NewAppSearchBatchResultServiceClient(cc),
-	}
-}
-
-// IsSuccess calls the IsSuccess RPC.
-func (c *AppSearchBatchResultClient) IsSuccess(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsSuccess(ctx, &pb.IsSuccessRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *AppSearchBatchResultClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// EmbeddingVectorClient wraps the gRPC EmbeddingVectorService client.
-type EmbeddingVectorClient struct {
-	svc pb.EmbeddingVectorServiceClient
-}
-
-// NewEmbeddingVectorClient creates a new EmbeddingVector client.
-func NewEmbeddingVectorClient(cc grpc.ClientConnInterface) *EmbeddingVectorClient {
-	return &EmbeddingVectorClient{
-		svc: pb.NewEmbeddingVectorServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *EmbeddingVectorClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.EmbeddingVectorDescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *EmbeddingVectorClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EmbeddingVectorEqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetModelSignature calls the GetModelSignature RPC.
-func (c *EmbeddingVectorClient) GetModelSignature(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetModelSignature(ctx, &pb.GetModelSignatureRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetValues calls the GetValues RPC.
-func (c *EmbeddingVectorClient) GetValues(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetValues(ctx, &pb.GetValuesRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *EmbeddingVectorClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.EmbeddingVectorHashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *EmbeddingVectorClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.EmbeddingVectorWriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// JoinSpecClient wraps the gRPC JoinSpecService client.
-type JoinSpecClient struct {
-	svc pb.JoinSpecServiceClient
-}
-
-// NewJoinSpecClient creates a new JoinSpec client.
-func NewJoinSpecClient(cc grpc.ClientConnInterface) *JoinSpecClient {
-	return &JoinSpecClient{
-		svc: pb.NewJoinSpecServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *JoinSpecClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetAggregationScoringStrategy calls the GetAggregationScoringStrategy RPC.
-func (c *JoinSpecClient) GetAggregationScoringStrategy(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetAggregationScoringStrategy(ctx, &pb.GetAggregationScoringStrategyRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetChildPropertyExpression calls the GetChildPropertyExpression RPC.
-func (c *JoinSpecClient) GetChildPropertyExpression(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetChildPropertyExpression(ctx, &pb.GetChildPropertyExpressionRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMaxJoinedResultCount calls the GetMaxJoinedResultCount RPC.
-func (c *JoinSpecClient) GetMaxJoinedResultCount(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetMaxJoinedResultCount(ctx, &pb.GetMaxJoinedResultCountRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNestedQuery calls the GetNestedQuery RPC.
-func (c *JoinSpecClient) GetNestedQuery(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetNestedQuery(ctx, &pb.GetNestedQueryRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetNestedSearchSpec calls the GetNestedSearchSpec RPC.
-func (c *JoinSpecClient) GetNestedSearchSpec(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetNestedSearchSpec(ctx, &pb.GetNestedSearchSpecRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *JoinSpecClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// JoinSpecBuilderClient wraps the gRPC JoinSpecBuilderService client.
-type JoinSpecBuilderClient struct {
-	svc pb.JoinSpecBuilderServiceClient
-}
-
-// NewJoinSpecBuilderClient creates a new JoinSpecBuilder client.
-func NewJoinSpecBuilderClient(cc grpc.ClientConnInterface) *JoinSpecBuilderClient {
-	return &JoinSpecBuilderClient{
-		svc: pb.NewJoinSpecBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *JoinSpecBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetAggregationScoringStrategy calls the SetAggregationScoringStrategy RPC.
-func (c *JoinSpecBuilderClient) SetAggregationScoringStrategy(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetAggregationScoringStrategy(ctx, &pb.SetAggregationScoringStrategyRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetChildPropertyExpression calls the SetChildPropertyExpression RPC.
-func (c *JoinSpecBuilderClient) SetChildPropertyExpression(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetChildPropertyExpression(ctx, &pb.SetChildPropertyExpressionRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetMaxJoinedResultCount calls the SetMaxJoinedResultCount RPC.
-func (c *JoinSpecBuilderClient) SetMaxJoinedResultCount(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetMaxJoinedResultCount(ctx, &pb.SetMaxJoinedResultCountRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetNestedSearch calls the SetNestedSearch RPC.
-func (c *JoinSpecBuilderClient) SetNestedSearch(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.SetNestedSearch(ctx, &pb.SetNestedSearchRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -4104,6 +4164,17 @@ func (c *PropertyPathClient) Get(ctx context.Context, handle int64, arg0 int32) 
 // HashCode calls the HashCode RPC.
 func (c *PropertyPathClient) HashCode(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.PropertyPathHashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Iterator calls the Iterator RPC.
+func (c *PropertyPathClient) Iterator(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.Iterator(ctx, &pb.IteratorRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -4209,6 +4280,267 @@ func (c *PropertyPathPathSegmentClient) Create2_1(ctx context.Context, arg0 stri
 	resp, err := c.svc.Create2_1(ctx, &pb.Create2_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SearchSuggestionSpecClient wraps the gRPC SearchSuggestionSpecService client.
+type SearchSuggestionSpecClient struct {
+	svc pb.SearchSuggestionSpecServiceClient
+}
+
+// NewSearchSuggestionSpecClient creates a new SearchSuggestionSpec client.
+func NewSearchSuggestionSpecClient(cc grpc.ClientConnInterface) *SearchSuggestionSpecClient {
+	return &SearchSuggestionSpecClient{
+		svc: pb.NewSearchSuggestionSpecServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SearchSuggestionSpecClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.SearchSuggestionSpecDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFilterNamespaces calls the GetFilterNamespaces RPC.
+func (c *SearchSuggestionSpecClient) GetFilterNamespaces(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFilterNamespaces(ctx, &pb.GetFilterNamespacesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFilterSchemas calls the GetFilterSchemas RPC.
+func (c *SearchSuggestionSpecClient) GetFilterSchemas(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFilterSchemas(ctx, &pb.GetFilterSchemasRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaximumResultCount calls the GetMaximumResultCount RPC.
+func (c *SearchSuggestionSpecClient) GetMaximumResultCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetMaximumResultCount(ctx, &pb.GetMaximumResultCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRankingStrategy calls the GetRankingStrategy RPC.
+func (c *SearchSuggestionSpecClient) GetRankingStrategy(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRankingStrategy(ctx, &pb.GetRankingStrategyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSearchStringParameters calls the GetSearchStringParameters RPC.
+func (c *SearchSuggestionSpecClient) GetSearchStringParameters(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSearchStringParameters(ctx, &pb.GetSearchStringParametersRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SearchSuggestionSpecClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.SearchSuggestionSpecWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SearchSuggestionSpecBuilderClient wraps the gRPC SearchSuggestionSpecBuilderService client.
+type SearchSuggestionSpecBuilderClient struct {
+	svc pb.SearchSuggestionSpecBuilderServiceClient
+}
+
+// NewSearchSuggestionSpecBuilderClient creates a new SearchSuggestionSpecBuilder client.
+func NewSearchSuggestionSpecBuilderClient(cc grpc.ClientConnInterface) *SearchSuggestionSpecBuilderClient {
+	return &SearchSuggestionSpecBuilderClient{
+		svc: pb.NewSearchSuggestionSpecBuilderServiceClient(cc),
+	}
+}
+
+// AddFilterDocumentIds calls the AddFilterDocumentIds RPC.
+func (c *SearchSuggestionSpecBuilderClient) AddFilterDocumentIds(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.AddFilterDocumentIds(ctx, &pb.SearchSuggestionSpecBuilderAddFilterDocumentIdsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddFilterNamespaces calls the AddFilterNamespaces RPC.
+func (c *SearchSuggestionSpecBuilderClient) AddFilterNamespaces(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddFilterNamespaces(ctx, &pb.AddFilterNamespacesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddFilterSchemas calls the AddFilterSchemas RPC.
+func (c *SearchSuggestionSpecBuilderClient) AddFilterSchemas(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddFilterSchemas(ctx, &pb.AddFilterSchemasRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddSearchStringParameters calls the AddSearchStringParameters RPC.
+func (c *SearchSuggestionSpecBuilderClient) AddSearchStringParameters(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddSearchStringParameters(ctx, &pb.AddSearchStringParametersRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *SearchSuggestionSpecBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetRankingStrategy calls the SetRankingStrategy RPC.
+func (c *SearchSuggestionSpecBuilderClient) SetRankingStrategy(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetRankingStrategy(ctx, &pb.SetRankingStrategyRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AppSearchBlobHandleClient wraps the gRPC AppSearchBlobHandleService client.
+type AppSearchBlobHandleClient struct {
+	svc pb.AppSearchBlobHandleServiceClient
+}
+
+// NewAppSearchBlobHandleClient creates a new AppSearchBlobHandle client.
+func NewAppSearchBlobHandleClient(cc grpc.ClientConnInterface) *AppSearchBlobHandleClient {
+	return &AppSearchBlobHandleClient{
+		svc: pb.NewAppSearchBlobHandleServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *AppSearchBlobHandleClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.AppSearchBlobHandleDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *AppSearchBlobHandleClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDatabaseName calls the GetDatabaseName RPC.
+func (c *AppSearchBlobHandleClient) GetDatabaseName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetDatabaseName(ctx, &pb.GetDatabaseNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetNamespace calls the GetNamespace RPC.
+func (c *AppSearchBlobHandleClient) GetNamespace(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetNamespace(ctx, &pb.GetNamespaceRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPackageName calls the GetPackageName RPC.
+func (c *AppSearchBlobHandleClient) GetPackageName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetPackageName(ctx, &pb.GetPackageNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSha256Digest calls the GetSha256Digest RPC.
+func (c *AppSearchBlobHandleClient) GetSha256Digest(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSha256Digest(ctx, &pb.GetSha256DigestRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *AppSearchBlobHandleClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AppSearchBlobHandleClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AppSearchBlobHandleClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.AppSearchBlobHandleWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// CreateWithSha256 calls the CreateWithSha256 RPC.
+func (c *AppSearchBlobHandleClient) CreateWithSha256(ctx context.Context, arg0 int64, arg1 string, arg2 string, arg3 string) (int64, error) {
+	resp, err := c.svc.CreateWithSha256(ctx, &pb.CreateWithSha256Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
 	})
 	if err != nil {
 		return 0, err

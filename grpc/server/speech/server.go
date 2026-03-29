@@ -65,6 +65,29 @@ func (s *AlternativeSpansServer) Equals(_ context.Context, req *pb.AlternativeSp
 	return &pb.EqualsResponse{Result: result}, nil
 }
 
+func (s *AlternativeSpansServer) GetSpans(_ context.Context, req *pb.GetSpansRequest) (*pb.GetSpansResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AlternativeSpans{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSpans()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetSpansResponse{Result: handle}, nil
+}
+
 func (s *AlternativeSpansServer) HashCode(_ context.Context, req *pb.AlternativeSpansHashCodeRequest) (*pb.HashCodeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
@@ -154,6 +177,29 @@ func (s *AlternativeSpanServer) Equals(_ context.Context, req *pb.AlternativeSpa
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *AlternativeSpanServer) GetAlternatives(_ context.Context, req *pb.GetAlternativesRequest) (*pb.GetAlternativesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.AlternativeSpan{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAlternatives()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetAlternativesResponse{Result: handle}, nil
 }
 
 func (s *AlternativeSpanServer) GetEndPosition(_ context.Context, req *pb.GetEndPositionRequest) (*pb.GetEndPositionResponse, error) {
@@ -387,6 +433,29 @@ func (s *TextToSpeechServer) AreDefaultsEnforced(_ context.Context, req *pb.AreD
 	return &pb.AreDefaultsEnforcedResponse{Result: result}, nil
 }
 
+func (s *TextToSpeechServer) GetAvailableLanguages(_ context.Context, req *pb.GetAvailableLanguagesRequest) (*pb.GetAvailableLanguagesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TextToSpeech{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAvailableLanguages()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetAvailableLanguagesResponse{Result: handle}, nil
+}
+
 func (s *TextToSpeechServer) GetDefaultEngine(_ context.Context, req *pb.GetDefaultEngineRequest) (*pb.GetDefaultEngineResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
@@ -447,6 +516,52 @@ func (s *TextToSpeechServer) GetDefaultVoice(_ context.Context, req *pb.GetDefau
 	return &pb.GetDefaultVoiceResponse{Result: handle}, nil
 }
 
+func (s *TextToSpeechServer) GetEngines(_ context.Context, req *pb.GetEnginesRequest) (*pb.GetEnginesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TextToSpeech{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetEngines()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetEnginesResponse{Result: handle}, nil
+}
+
+func (s *TextToSpeechServer) GetFeatures(_ context.Context, req *pb.GetFeaturesRequest) (*pb.GetFeaturesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TextToSpeech{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetFeatures(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetFeaturesResponse{Result: handle}, nil
+}
+
 func (s *TextToSpeechServer) GetLanguage(_ context.Context, req *pb.GetLanguageRequest) (*pb.GetLanguageResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
@@ -491,6 +606,29 @@ func (s *TextToSpeechServer) GetVoice(_ context.Context, req *pb.GetVoiceRequest
 		}
 	}
 	return &pb.GetVoiceResponse{Result: handle}, nil
+}
+
+func (s *TextToSpeechServer) GetVoices(_ context.Context, req *pb.GetVoicesRequest) (*pb.GetVoicesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.TextToSpeech{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetVoices()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetVoicesResponse{Result: handle}, nil
 }
 
 func (s *TextToSpeechServer) IsLanguageAvailable(_ context.Context, req *pb.IsLanguageAvailableRequest) (*pb.IsLanguageAvailableResponse, error) {

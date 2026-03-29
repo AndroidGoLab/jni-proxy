@@ -37,7 +37,7 @@ func (s *TargetServer) NewTarget(_ context.Context, req *pb.NewTargetRequest) (*
 	return &pb.NewTargetResponse{Result: handle}, nil
 }
 
-func (s *TargetServer) DescribeContents(_ context.Context, req *pb.TargetDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+func (s *TargetServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -74,7 +74,7 @@ func (s *TargetServer) GetComponentName(_ context.Context, req *pb.GetComponentN
 	return &pb.GetComponentNameResponse{Result: handle}, nil
 }
 
-func (s *TargetServer) GetIcon(_ context.Context, req *pb.TargetGetIconRequest) (*pb.GetIconResponse, error) {
+func (s *TargetServer) GetIcon(_ context.Context, req *pb.GetIconRequest) (*pb.GetIconResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -157,7 +157,7 @@ func (s *TargetServer) GetTitle(_ context.Context, req *pb.GetTitleRequest) (*pb
 	return &pb.GetTitleResponse{Result: handle}, nil
 }
 
-func (s *TargetServer) ToString(_ context.Context, req *pb.TargetToStringRequest) (*pb.ToStringResponse, error) {
+func (s *TargetServer) ToString(_ context.Context, req *pb.ToStringRequest) (*pb.ToStringResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -171,7 +171,7 @@ func (s *TargetServer) ToString(_ context.Context, req *pb.TargetToStringRequest
 	return &pb.ToStringResponse{Result: result}, nil
 }
 
-func (s *TargetServer) WriteToParcel(_ context.Context, req *pb.TargetWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+func (s *TargetServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")

@@ -23,6 +23,7 @@ const _ = grpc.SupportPackageIsVersion9
 const (
 	GetCredentialRequestService_AlwaysSendAppInfoToProvider_FullMethodName = "/credentials.GetCredentialRequestService/AlwaysSendAppInfoToProvider"
 	GetCredentialRequestService_DescribeContents_FullMethodName            = "/credentials.GetCredentialRequestService/DescribeContents"
+	GetCredentialRequestService_GetCredentialOptions_FullMethodName        = "/credentials.GetCredentialRequestService/GetCredentialOptions"
 	GetCredentialRequestService_GetData_FullMethodName                     = "/credentials.GetCredentialRequestService/GetData"
 	GetCredentialRequestService_GetOrigin_FullMethodName                   = "/credentials.GetCredentialRequestService/GetOrigin"
 	GetCredentialRequestService_ToString_FullMethodName                    = "/credentials.GetCredentialRequestService/ToString"
@@ -37,6 +38,7 @@ const (
 type GetCredentialRequestServiceClient interface {
 	AlwaysSendAppInfoToProvider(ctx context.Context, in *AlwaysSendAppInfoToProviderRequest, opts ...grpc.CallOption) (*AlwaysSendAppInfoToProviderResponse, error)
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetCredentialOptions(ctx context.Context, in *GetCredentialOptionsRequest, opts ...grpc.CallOption) (*GetCredentialOptionsResponse, error)
 	GetData(ctx context.Context, in *GetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error)
 	GetOrigin(ctx context.Context, in *GetOriginRequest, opts ...grpc.CallOption) (*GetOriginResponse, error)
 	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
@@ -67,6 +69,16 @@ func (c *getCredentialRequestServiceClient) DescribeContents(ctx context.Context
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
 	err := c.cc.Invoke(ctx, GetCredentialRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *getCredentialRequestServiceClient) GetCredentialOptions(ctx context.Context, in *GetCredentialOptionsRequest, opts ...grpc.CallOption) (*GetCredentialOptionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCredentialOptionsResponse)
+	err := c.cc.Invoke(ctx, GetCredentialRequestService_GetCredentialOptions_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -139,6 +151,7 @@ func (c *getCredentialRequestServiceClient) GetCallingAppInfo(ctx context.Contex
 type GetCredentialRequestServiceServer interface {
 	AlwaysSendAppInfoToProvider(context.Context, *AlwaysSendAppInfoToProviderRequest) (*AlwaysSendAppInfoToProviderResponse, error)
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetCredentialOptions(context.Context, *GetCredentialOptionsRequest) (*GetCredentialOptionsResponse, error)
 	GetData(context.Context, *GetDataRequest) (*GetDataResponse, error)
 	GetOrigin(context.Context, *GetOriginRequest) (*GetOriginResponse, error)
 	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
@@ -160,6 +173,9 @@ func (UnimplementedGetCredentialRequestServiceServer) AlwaysSendAppInfoToProvide
 }
 func (UnimplementedGetCredentialRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedGetCredentialRequestServiceServer) GetCredentialOptions(context.Context, *GetCredentialOptionsRequest) (*GetCredentialOptionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCredentialOptions not implemented")
 }
 func (UnimplementedGetCredentialRequestServiceServer) GetData(context.Context, *GetDataRequest) (*GetDataResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetData not implemented")
@@ -233,6 +249,24 @@ func _GetCredentialRequestService_DescribeContents_Handler(srv interface{}, ctx 
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(GetCredentialRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GetCredentialRequestService_GetCredentialOptions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCredentialOptionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GetCredentialRequestServiceServer).GetCredentialOptions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GetCredentialRequestService_GetCredentialOptions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GetCredentialRequestServiceServer).GetCredentialOptions(ctx, req.(*GetCredentialOptionsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -359,6 +393,10 @@ var GetCredentialRequestService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DescribeContents",
 			Handler:    _GetCredentialRequestService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetCredentialOptions",
+			Handler:    _GetCredentialRequestService_GetCredentialOptions_Handler,
 		},
 		{
 			MethodName: "GetData",
@@ -607,1470 +645,6 @@ var GetCredentialRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	CredentialService_NewCredential_FullMethodName    = "/credentials.CredentialService/NewCredential"
-	CredentialService_DescribeContents_FullMethodName = "/credentials.CredentialService/DescribeContents"
-	CredentialService_GetData_FullMethodName          = "/credentials.CredentialService/GetData"
-	CredentialService_GetType_FullMethodName          = "/credentials.CredentialService/GetType"
-	CredentialService_ToString_FullMethodName         = "/credentials.CredentialService/ToString"
-	CredentialService_WriteToParcel_FullMethodName    = "/credentials.CredentialService/WriteToParcel"
-)
-
-// CredentialServiceClient is the client API for CredentialService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CredentialServiceClient interface {
-	NewCredential(ctx context.Context, in *NewCredentialRequest, opts ...grpc.CallOption) (*NewCredentialResponse, error)
-	DescribeContents(ctx context.Context, in *CredentialDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetData(ctx context.Context, in *CredentialGetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error)
-	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
-	ToString(ctx context.Context, in *CredentialToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *CredentialWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type credentialServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCredentialServiceClient(cc grpc.ClientConnInterface) CredentialServiceClient {
-	return &credentialServiceClient{cc}
-}
-
-func (c *credentialServiceClient) NewCredential(ctx context.Context, in *NewCredentialRequest, opts ...grpc.CallOption) (*NewCredentialResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewCredentialResponse)
-	err := c.cc.Invoke(ctx, CredentialService_NewCredential_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *credentialServiceClient) DescribeContents(ctx context.Context, in *CredentialDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, CredentialService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *credentialServiceClient) GetData(ctx context.Context, in *CredentialGetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDataResponse)
-	err := c.cc.Invoke(ctx, CredentialService_GetData_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *credentialServiceClient) GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTypeResponse)
-	err := c.cc.Invoke(ctx, CredentialService_GetType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *credentialServiceClient) ToString(ctx context.Context, in *CredentialToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, CredentialService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *credentialServiceClient) WriteToParcel(ctx context.Context, in *CredentialWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, CredentialService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CredentialServiceServer is the server API for CredentialService service.
-// All implementations must embed UnimplementedCredentialServiceServer
-// for forward compatibility.
-type CredentialServiceServer interface {
-	NewCredential(context.Context, *NewCredentialRequest) (*NewCredentialResponse, error)
-	DescribeContents(context.Context, *CredentialDescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetData(context.Context, *CredentialGetDataRequest) (*GetDataResponse, error)
-	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
-	ToString(context.Context, *CredentialToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *CredentialWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedCredentialServiceServer()
-}
-
-// UnimplementedCredentialServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCredentialServiceServer struct{}
-
-func (UnimplementedCredentialServiceServer) NewCredential(context.Context, *NewCredentialRequest) (*NewCredentialResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewCredential not implemented")
-}
-func (UnimplementedCredentialServiceServer) DescribeContents(context.Context, *CredentialDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedCredentialServiceServer) GetData(context.Context, *CredentialGetDataRequest) (*GetDataResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetData not implemented")
-}
-func (UnimplementedCredentialServiceServer) GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
-}
-func (UnimplementedCredentialServiceServer) ToString(context.Context, *CredentialToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedCredentialServiceServer) WriteToParcel(context.Context, *CredentialWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedCredentialServiceServer) mustEmbedUnimplementedCredentialServiceServer() {}
-func (UnimplementedCredentialServiceServer) testEmbeddedByValue()                           {}
-
-// UnsafeCredentialServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CredentialServiceServer will
-// result in compilation errors.
-type UnsafeCredentialServiceServer interface {
-	mustEmbedUnimplementedCredentialServiceServer()
-}
-
-func RegisterCredentialServiceServer(s grpc.ServiceRegistrar, srv CredentialServiceServer) {
-	// If the following call panics, it indicates UnimplementedCredentialServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CredentialService_ServiceDesc, srv)
-}
-
-func _CredentialService_NewCredential_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewCredentialRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CredentialServiceServer).NewCredential(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CredentialService_NewCredential_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialServiceServer).NewCredential(ctx, req.(*NewCredentialRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CredentialService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CredentialDescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CredentialServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CredentialService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialServiceServer).DescribeContents(ctx, req.(*CredentialDescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CredentialService_GetData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CredentialGetDataRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CredentialServiceServer).GetData(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CredentialService_GetData_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialServiceServer).GetData(ctx, req.(*CredentialGetDataRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CredentialService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CredentialServiceServer).GetType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CredentialService_GetType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialServiceServer).GetType(ctx, req.(*GetTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CredentialService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CredentialToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CredentialServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CredentialService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialServiceServer).ToString(ctx, req.(*CredentialToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CredentialService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CredentialWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CredentialServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CredentialService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialServiceServer).WriteToParcel(ctx, req.(*CredentialWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CredentialService_ServiceDesc is the grpc.ServiceDesc for CredentialService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CredentialService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "credentials.CredentialService",
-	HandlerType: (*CredentialServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewCredential",
-			Handler:    _CredentialService_NewCredential_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _CredentialService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetData",
-			Handler:    _CredentialService_GetData_Handler,
-		},
-		{
-			MethodName: "GetType",
-			Handler:    _CredentialService_GetType_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _CredentialService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _CredentialService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/credentials/credentials.proto",
-}
-
-const (
-	CreateCredentialRequestService_AlwaysSendAppInfoToProvider_FullMethodName = "/credentials.CreateCredentialRequestService/AlwaysSendAppInfoToProvider"
-	CreateCredentialRequestService_DescribeContents_FullMethodName            = "/credentials.CreateCredentialRequestService/DescribeContents"
-	CreateCredentialRequestService_GetCandidateQueryData_FullMethodName       = "/credentials.CreateCredentialRequestService/GetCandidateQueryData"
-	CreateCredentialRequestService_GetCredentialData_FullMethodName           = "/credentials.CreateCredentialRequestService/GetCredentialData"
-	CreateCredentialRequestService_GetOrigin_FullMethodName                   = "/credentials.CreateCredentialRequestService/GetOrigin"
-	CreateCredentialRequestService_GetType_FullMethodName                     = "/credentials.CreateCredentialRequestService/GetType"
-	CreateCredentialRequestService_IsSystemProviderRequired_FullMethodName    = "/credentials.CreateCredentialRequestService/IsSystemProviderRequired"
-	CreateCredentialRequestService_ToString_FullMethodName                    = "/credentials.CreateCredentialRequestService/ToString"
-	CreateCredentialRequestService_WriteToParcel_FullMethodName               = "/credentials.CreateCredentialRequestService/WriteToParcel"
-	CreateCredentialRequestService_NewCreateCredentialRequest_FullMethodName  = "/credentials.CreateCredentialRequestService/NewCreateCredentialRequest"
-	CreateCredentialRequestService_GetCallingAppInfo_FullMethodName           = "/credentials.CreateCredentialRequestService/GetCallingAppInfo"
-	CreateCredentialRequestService_GetData_FullMethodName                     = "/credentials.CreateCredentialRequestService/GetData"
-)
-
-// CreateCredentialRequestServiceClient is the client API for CreateCredentialRequestService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CreateCredentialRequestServiceClient interface {
-	AlwaysSendAppInfoToProvider(ctx context.Context, in *AlwaysSendAppInfoToProviderRequest, opts ...grpc.CallOption) (*AlwaysSendAppInfoToProviderResponse, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetCandidateQueryData(ctx context.Context, in *GetCandidateQueryDataRequest, opts ...grpc.CallOption) (*GetCandidateQueryDataResponse, error)
-	GetCredentialData(ctx context.Context, in *GetCredentialDataRequest, opts ...grpc.CallOption) (*GetCredentialDataResponse, error)
-	GetOrigin(ctx context.Context, in *GetOriginRequest, opts ...grpc.CallOption) (*GetOriginResponse, error)
-	GetType(ctx context.Context, in *CreateCredentialRequestGetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
-	IsSystemProviderRequired(ctx context.Context, in *IsSystemProviderRequiredRequest, opts ...grpc.CallOption) (*IsSystemProviderRequiredResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-	NewCreateCredentialRequest(ctx context.Context, in *NewCreateCredentialRequestRequest, opts ...grpc.CallOption) (*NewCreateCredentialRequestResponse, error)
-	GetCallingAppInfo(ctx context.Context, in *GetCallingAppInfoRequest, opts ...grpc.CallOption) (*GetCallingAppInfoResponse, error)
-	GetData(ctx context.Context, in *CreateCredentialRequestGetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error)
-}
-
-type createCredentialRequestServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCreateCredentialRequestServiceClient(cc grpc.ClientConnInterface) CreateCredentialRequestServiceClient {
-	return &createCredentialRequestServiceClient{cc}
-}
-
-func (c *createCredentialRequestServiceClient) AlwaysSendAppInfoToProvider(ctx context.Context, in *AlwaysSendAppInfoToProviderRequest, opts ...grpc.CallOption) (*AlwaysSendAppInfoToProviderResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AlwaysSendAppInfoToProviderResponse)
-	err := c.cc.Invoke(ctx, CreateCredentialRequestService_AlwaysSendAppInfoToProvider_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *createCredentialRequestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, CreateCredentialRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *createCredentialRequestServiceClient) GetCandidateQueryData(ctx context.Context, in *GetCandidateQueryDataRequest, opts ...grpc.CallOption) (*GetCandidateQueryDataResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCandidateQueryDataResponse)
-	err := c.cc.Invoke(ctx, CreateCredentialRequestService_GetCandidateQueryData_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *createCredentialRequestServiceClient) GetCredentialData(ctx context.Context, in *GetCredentialDataRequest, opts ...grpc.CallOption) (*GetCredentialDataResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCredentialDataResponse)
-	err := c.cc.Invoke(ctx, CreateCredentialRequestService_GetCredentialData_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *createCredentialRequestServiceClient) GetOrigin(ctx context.Context, in *GetOriginRequest, opts ...grpc.CallOption) (*GetOriginResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetOriginResponse)
-	err := c.cc.Invoke(ctx, CreateCredentialRequestService_GetOrigin_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *createCredentialRequestServiceClient) GetType(ctx context.Context, in *CreateCredentialRequestGetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTypeResponse)
-	err := c.cc.Invoke(ctx, CreateCredentialRequestService_GetType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *createCredentialRequestServiceClient) IsSystemProviderRequired(ctx context.Context, in *IsSystemProviderRequiredRequest, opts ...grpc.CallOption) (*IsSystemProviderRequiredResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsSystemProviderRequiredResponse)
-	err := c.cc.Invoke(ctx, CreateCredentialRequestService_IsSystemProviderRequired_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *createCredentialRequestServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, CreateCredentialRequestService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *createCredentialRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, CreateCredentialRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *createCredentialRequestServiceClient) NewCreateCredentialRequest(ctx context.Context, in *NewCreateCredentialRequestRequest, opts ...grpc.CallOption) (*NewCreateCredentialRequestResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewCreateCredentialRequestResponse)
-	err := c.cc.Invoke(ctx, CreateCredentialRequestService_NewCreateCredentialRequest_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *createCredentialRequestServiceClient) GetCallingAppInfo(ctx context.Context, in *GetCallingAppInfoRequest, opts ...grpc.CallOption) (*GetCallingAppInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCallingAppInfoResponse)
-	err := c.cc.Invoke(ctx, CreateCredentialRequestService_GetCallingAppInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *createCredentialRequestServiceClient) GetData(ctx context.Context, in *CreateCredentialRequestGetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDataResponse)
-	err := c.cc.Invoke(ctx, CreateCredentialRequestService_GetData_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CreateCredentialRequestServiceServer is the server API for CreateCredentialRequestService service.
-// All implementations must embed UnimplementedCreateCredentialRequestServiceServer
-// for forward compatibility.
-type CreateCredentialRequestServiceServer interface {
-	AlwaysSendAppInfoToProvider(context.Context, *AlwaysSendAppInfoToProviderRequest) (*AlwaysSendAppInfoToProviderResponse, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetCandidateQueryData(context.Context, *GetCandidateQueryDataRequest) (*GetCandidateQueryDataResponse, error)
-	GetCredentialData(context.Context, *GetCredentialDataRequest) (*GetCredentialDataResponse, error)
-	GetOrigin(context.Context, *GetOriginRequest) (*GetOriginResponse, error)
-	GetType(context.Context, *CreateCredentialRequestGetTypeRequest) (*GetTypeResponse, error)
-	IsSystemProviderRequired(context.Context, *IsSystemProviderRequiredRequest) (*IsSystemProviderRequiredResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	NewCreateCredentialRequest(context.Context, *NewCreateCredentialRequestRequest) (*NewCreateCredentialRequestResponse, error)
-	GetCallingAppInfo(context.Context, *GetCallingAppInfoRequest) (*GetCallingAppInfoResponse, error)
-	GetData(context.Context, *CreateCredentialRequestGetDataRequest) (*GetDataResponse, error)
-	mustEmbedUnimplementedCreateCredentialRequestServiceServer()
-}
-
-// UnimplementedCreateCredentialRequestServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCreateCredentialRequestServiceServer struct{}
-
-func (UnimplementedCreateCredentialRequestServiceServer) AlwaysSendAppInfoToProvider(context.Context, *AlwaysSendAppInfoToProviderRequest) (*AlwaysSendAppInfoToProviderResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AlwaysSendAppInfoToProvider not implemented")
-}
-func (UnimplementedCreateCredentialRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedCreateCredentialRequestServiceServer) GetCandidateQueryData(context.Context, *GetCandidateQueryDataRequest) (*GetCandidateQueryDataResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCandidateQueryData not implemented")
-}
-func (UnimplementedCreateCredentialRequestServiceServer) GetCredentialData(context.Context, *GetCredentialDataRequest) (*GetCredentialDataResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCredentialData not implemented")
-}
-func (UnimplementedCreateCredentialRequestServiceServer) GetOrigin(context.Context, *GetOriginRequest) (*GetOriginResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetOrigin not implemented")
-}
-func (UnimplementedCreateCredentialRequestServiceServer) GetType(context.Context, *CreateCredentialRequestGetTypeRequest) (*GetTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
-}
-func (UnimplementedCreateCredentialRequestServiceServer) IsSystemProviderRequired(context.Context, *IsSystemProviderRequiredRequest) (*IsSystemProviderRequiredResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsSystemProviderRequired not implemented")
-}
-func (UnimplementedCreateCredentialRequestServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedCreateCredentialRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedCreateCredentialRequestServiceServer) NewCreateCredentialRequest(context.Context, *NewCreateCredentialRequestRequest) (*NewCreateCredentialRequestResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewCreateCredentialRequest not implemented")
-}
-func (UnimplementedCreateCredentialRequestServiceServer) GetCallingAppInfo(context.Context, *GetCallingAppInfoRequest) (*GetCallingAppInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCallingAppInfo not implemented")
-}
-func (UnimplementedCreateCredentialRequestServiceServer) GetData(context.Context, *CreateCredentialRequestGetDataRequest) (*GetDataResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetData not implemented")
-}
-func (UnimplementedCreateCredentialRequestServiceServer) mustEmbedUnimplementedCreateCredentialRequestServiceServer() {
-}
-func (UnimplementedCreateCredentialRequestServiceServer) testEmbeddedByValue() {}
-
-// UnsafeCreateCredentialRequestServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CreateCredentialRequestServiceServer will
-// result in compilation errors.
-type UnsafeCreateCredentialRequestServiceServer interface {
-	mustEmbedUnimplementedCreateCredentialRequestServiceServer()
-}
-
-func RegisterCreateCredentialRequestServiceServer(s grpc.ServiceRegistrar, srv CreateCredentialRequestServiceServer) {
-	// If the following call panics, it indicates UnimplementedCreateCredentialRequestServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CreateCredentialRequestService_ServiceDesc, srv)
-}
-
-func _CreateCredentialRequestService_AlwaysSendAppInfoToProvider_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AlwaysSendAppInfoToProviderRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateCredentialRequestServiceServer).AlwaysSendAppInfoToProvider(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateCredentialRequestService_AlwaysSendAppInfoToProvider_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateCredentialRequestServiceServer).AlwaysSendAppInfoToProvider(ctx, req.(*AlwaysSendAppInfoToProviderRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CreateCredentialRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateCredentialRequestServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateCredentialRequestService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateCredentialRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CreateCredentialRequestService_GetCandidateQueryData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCandidateQueryDataRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateCredentialRequestServiceServer).GetCandidateQueryData(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateCredentialRequestService_GetCandidateQueryData_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateCredentialRequestServiceServer).GetCandidateQueryData(ctx, req.(*GetCandidateQueryDataRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CreateCredentialRequestService_GetCredentialData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCredentialDataRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateCredentialRequestServiceServer).GetCredentialData(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateCredentialRequestService_GetCredentialData_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateCredentialRequestServiceServer).GetCredentialData(ctx, req.(*GetCredentialDataRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CreateCredentialRequestService_GetOrigin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetOriginRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateCredentialRequestServiceServer).GetOrigin(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateCredentialRequestService_GetOrigin_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateCredentialRequestServiceServer).GetOrigin(ctx, req.(*GetOriginRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CreateCredentialRequestService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCredentialRequestGetTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateCredentialRequestServiceServer).GetType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateCredentialRequestService_GetType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateCredentialRequestServiceServer).GetType(ctx, req.(*CreateCredentialRequestGetTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CreateCredentialRequestService_IsSystemProviderRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsSystemProviderRequiredRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateCredentialRequestServiceServer).IsSystemProviderRequired(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateCredentialRequestService_IsSystemProviderRequired_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateCredentialRequestServiceServer).IsSystemProviderRequired(ctx, req.(*IsSystemProviderRequiredRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CreateCredentialRequestService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateCredentialRequestServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateCredentialRequestService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateCredentialRequestServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CreateCredentialRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateCredentialRequestServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateCredentialRequestService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateCredentialRequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CreateCredentialRequestService_NewCreateCredentialRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewCreateCredentialRequestRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateCredentialRequestServiceServer).NewCreateCredentialRequest(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateCredentialRequestService_NewCreateCredentialRequest_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateCredentialRequestServiceServer).NewCreateCredentialRequest(ctx, req.(*NewCreateCredentialRequestRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CreateCredentialRequestService_GetCallingAppInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCallingAppInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateCredentialRequestServiceServer).GetCallingAppInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateCredentialRequestService_GetCallingAppInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateCredentialRequestServiceServer).GetCallingAppInfo(ctx, req.(*GetCallingAppInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CreateCredentialRequestService_GetData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCredentialRequestGetDataRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateCredentialRequestServiceServer).GetData(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateCredentialRequestService_GetData_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateCredentialRequestServiceServer).GetData(ctx, req.(*CreateCredentialRequestGetDataRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CreateCredentialRequestService_ServiceDesc is the grpc.ServiceDesc for CreateCredentialRequestService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CreateCredentialRequestService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "credentials.CreateCredentialRequestService",
-	HandlerType: (*CreateCredentialRequestServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "AlwaysSendAppInfoToProvider",
-			Handler:    _CreateCredentialRequestService_AlwaysSendAppInfoToProvider_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _CreateCredentialRequestService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetCandidateQueryData",
-			Handler:    _CreateCredentialRequestService_GetCandidateQueryData_Handler,
-		},
-		{
-			MethodName: "GetCredentialData",
-			Handler:    _CreateCredentialRequestService_GetCredentialData_Handler,
-		},
-		{
-			MethodName: "GetOrigin",
-			Handler:    _CreateCredentialRequestService_GetOrigin_Handler,
-		},
-		{
-			MethodName: "GetType",
-			Handler:    _CreateCredentialRequestService_GetType_Handler,
-		},
-		{
-			MethodName: "IsSystemProviderRequired",
-			Handler:    _CreateCredentialRequestService_IsSystemProviderRequired_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _CreateCredentialRequestService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _CreateCredentialRequestService_WriteToParcel_Handler,
-		},
-		{
-			MethodName: "NewCreateCredentialRequest",
-			Handler:    _CreateCredentialRequestService_NewCreateCredentialRequest_Handler,
-		},
-		{
-			MethodName: "GetCallingAppInfo",
-			Handler:    _CreateCredentialRequestService_GetCallingAppInfo_Handler,
-		},
-		{
-			MethodName: "GetData",
-			Handler:    _CreateCredentialRequestService_GetData_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/credentials/credentials.proto",
-}
-
-const (
-	CreateCredentialRequestBuilderService_Build_FullMethodName                          = "/credentials.CreateCredentialRequestBuilderService/Build"
-	CreateCredentialRequestBuilderService_SetAlwaysSendAppInfoToProvider_FullMethodName = "/credentials.CreateCredentialRequestBuilderService/SetAlwaysSendAppInfoToProvider"
-	CreateCredentialRequestBuilderService_SetIsSystemProviderRequired_FullMethodName    = "/credentials.CreateCredentialRequestBuilderService/SetIsSystemProviderRequired"
-	CreateCredentialRequestBuilderService_SetOrigin_FullMethodName                      = "/credentials.CreateCredentialRequestBuilderService/SetOrigin"
-)
-
-// CreateCredentialRequestBuilderServiceClient is the client API for CreateCredentialRequestBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CreateCredentialRequestBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetAlwaysSendAppInfoToProvider(ctx context.Context, in *SetAlwaysSendAppInfoToProviderRequest, opts ...grpc.CallOption) (*SetAlwaysSendAppInfoToProviderResponse, error)
-	SetIsSystemProviderRequired(ctx context.Context, in *SetIsSystemProviderRequiredRequest, opts ...grpc.CallOption) (*SetIsSystemProviderRequiredResponse, error)
-	SetOrigin(ctx context.Context, in *SetOriginRequest, opts ...grpc.CallOption) (*SetOriginResponse, error)
-}
-
-type createCredentialRequestBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCreateCredentialRequestBuilderServiceClient(cc grpc.ClientConnInterface) CreateCredentialRequestBuilderServiceClient {
-	return &createCredentialRequestBuilderServiceClient{cc}
-}
-
-func (c *createCredentialRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, CreateCredentialRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *createCredentialRequestBuilderServiceClient) SetAlwaysSendAppInfoToProvider(ctx context.Context, in *SetAlwaysSendAppInfoToProviderRequest, opts ...grpc.CallOption) (*SetAlwaysSendAppInfoToProviderResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetAlwaysSendAppInfoToProviderResponse)
-	err := c.cc.Invoke(ctx, CreateCredentialRequestBuilderService_SetAlwaysSendAppInfoToProvider_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *createCredentialRequestBuilderServiceClient) SetIsSystemProviderRequired(ctx context.Context, in *SetIsSystemProviderRequiredRequest, opts ...grpc.CallOption) (*SetIsSystemProviderRequiredResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetIsSystemProviderRequiredResponse)
-	err := c.cc.Invoke(ctx, CreateCredentialRequestBuilderService_SetIsSystemProviderRequired_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *createCredentialRequestBuilderServiceClient) SetOrigin(ctx context.Context, in *SetOriginRequest, opts ...grpc.CallOption) (*SetOriginResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetOriginResponse)
-	err := c.cc.Invoke(ctx, CreateCredentialRequestBuilderService_SetOrigin_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CreateCredentialRequestBuilderServiceServer is the server API for CreateCredentialRequestBuilderService service.
-// All implementations must embed UnimplementedCreateCredentialRequestBuilderServiceServer
-// for forward compatibility.
-type CreateCredentialRequestBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetAlwaysSendAppInfoToProvider(context.Context, *SetAlwaysSendAppInfoToProviderRequest) (*SetAlwaysSendAppInfoToProviderResponse, error)
-	SetIsSystemProviderRequired(context.Context, *SetIsSystemProviderRequiredRequest) (*SetIsSystemProviderRequiredResponse, error)
-	SetOrigin(context.Context, *SetOriginRequest) (*SetOriginResponse, error)
-	mustEmbedUnimplementedCreateCredentialRequestBuilderServiceServer()
-}
-
-// UnimplementedCreateCredentialRequestBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCreateCredentialRequestBuilderServiceServer struct{}
-
-func (UnimplementedCreateCredentialRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedCreateCredentialRequestBuilderServiceServer) SetAlwaysSendAppInfoToProvider(context.Context, *SetAlwaysSendAppInfoToProviderRequest) (*SetAlwaysSendAppInfoToProviderResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetAlwaysSendAppInfoToProvider not implemented")
-}
-func (UnimplementedCreateCredentialRequestBuilderServiceServer) SetIsSystemProviderRequired(context.Context, *SetIsSystemProviderRequiredRequest) (*SetIsSystemProviderRequiredResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetIsSystemProviderRequired not implemented")
-}
-func (UnimplementedCreateCredentialRequestBuilderServiceServer) SetOrigin(context.Context, *SetOriginRequest) (*SetOriginResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetOrigin not implemented")
-}
-func (UnimplementedCreateCredentialRequestBuilderServiceServer) mustEmbedUnimplementedCreateCredentialRequestBuilderServiceServer() {
-}
-func (UnimplementedCreateCredentialRequestBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeCreateCredentialRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CreateCredentialRequestBuilderServiceServer will
-// result in compilation errors.
-type UnsafeCreateCredentialRequestBuilderServiceServer interface {
-	mustEmbedUnimplementedCreateCredentialRequestBuilderServiceServer()
-}
-
-func RegisterCreateCredentialRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv CreateCredentialRequestBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedCreateCredentialRequestBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CreateCredentialRequestBuilderService_ServiceDesc, srv)
-}
-
-func _CreateCredentialRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateCredentialRequestBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateCredentialRequestBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateCredentialRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CreateCredentialRequestBuilderService_SetAlwaysSendAppInfoToProvider_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetAlwaysSendAppInfoToProviderRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateCredentialRequestBuilderServiceServer).SetAlwaysSendAppInfoToProvider(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateCredentialRequestBuilderService_SetAlwaysSendAppInfoToProvider_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateCredentialRequestBuilderServiceServer).SetAlwaysSendAppInfoToProvider(ctx, req.(*SetAlwaysSendAppInfoToProviderRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CreateCredentialRequestBuilderService_SetIsSystemProviderRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetIsSystemProviderRequiredRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateCredentialRequestBuilderServiceServer).SetIsSystemProviderRequired(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateCredentialRequestBuilderService_SetIsSystemProviderRequired_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateCredentialRequestBuilderServiceServer).SetIsSystemProviderRequired(ctx, req.(*SetIsSystemProviderRequiredRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CreateCredentialRequestBuilderService_SetOrigin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetOriginRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateCredentialRequestBuilderServiceServer).SetOrigin(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateCredentialRequestBuilderService_SetOrigin_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateCredentialRequestBuilderServiceServer).SetOrigin(ctx, req.(*SetOriginRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CreateCredentialRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for CreateCredentialRequestBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CreateCredentialRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "credentials.CreateCredentialRequestBuilderService",
-	HandlerType: (*CreateCredentialRequestBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _CreateCredentialRequestBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetAlwaysSendAppInfoToProvider",
-			Handler:    _CreateCredentialRequestBuilderService_SetAlwaysSendAppInfoToProvider_Handler,
-		},
-		{
-			MethodName: "SetIsSystemProviderRequired",
-			Handler:    _CreateCredentialRequestBuilderService_SetIsSystemProviderRequired_Handler,
-		},
-		{
-			MethodName: "SetOrigin",
-			Handler:    _CreateCredentialRequestBuilderService_SetOrigin_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/credentials/credentials.proto",
-}
-
-const (
-	CredentialDescriptionService_NewCredentialDescription_FullMethodName = "/credentials.CredentialDescriptionService/NewCredentialDescription"
-	CredentialDescriptionService_DescribeContents_FullMethodName         = "/credentials.CredentialDescriptionService/DescribeContents"
-	CredentialDescriptionService_Equals_FullMethodName                   = "/credentials.CredentialDescriptionService/Equals"
-	CredentialDescriptionService_GetType_FullMethodName                  = "/credentials.CredentialDescriptionService/GetType"
-	CredentialDescriptionService_HashCode_FullMethodName                 = "/credentials.CredentialDescriptionService/HashCode"
-	CredentialDescriptionService_WriteToParcel_FullMethodName            = "/credentials.CredentialDescriptionService/WriteToParcel"
-)
-
-// CredentialDescriptionServiceClient is the client API for CredentialDescriptionService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CredentialDescriptionServiceClient interface {
-	NewCredentialDescription(ctx context.Context, in *NewCredentialDescriptionRequest, opts ...grpc.CallOption) (*NewCredentialDescriptionResponse, error)
-	DescribeContents(ctx context.Context, in *CredentialDescriptionDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	WriteToParcel(ctx context.Context, in *CredentialDescriptionWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type credentialDescriptionServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCredentialDescriptionServiceClient(cc grpc.ClientConnInterface) CredentialDescriptionServiceClient {
-	return &credentialDescriptionServiceClient{cc}
-}
-
-func (c *credentialDescriptionServiceClient) NewCredentialDescription(ctx context.Context, in *NewCredentialDescriptionRequest, opts ...grpc.CallOption) (*NewCredentialDescriptionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewCredentialDescriptionResponse)
-	err := c.cc.Invoke(ctx, CredentialDescriptionService_NewCredentialDescription_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *credentialDescriptionServiceClient) DescribeContents(ctx context.Context, in *CredentialDescriptionDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, CredentialDescriptionService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *credentialDescriptionServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, CredentialDescriptionService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *credentialDescriptionServiceClient) GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTypeResponse)
-	err := c.cc.Invoke(ctx, CredentialDescriptionService_GetType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *credentialDescriptionServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, CredentialDescriptionService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *credentialDescriptionServiceClient) WriteToParcel(ctx context.Context, in *CredentialDescriptionWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, CredentialDescriptionService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CredentialDescriptionServiceServer is the server API for CredentialDescriptionService service.
-// All implementations must embed UnimplementedCredentialDescriptionServiceServer
-// for forward compatibility.
-type CredentialDescriptionServiceServer interface {
-	NewCredentialDescription(context.Context, *NewCredentialDescriptionRequest) (*NewCredentialDescriptionResponse, error)
-	DescribeContents(context.Context, *CredentialDescriptionDescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	WriteToParcel(context.Context, *CredentialDescriptionWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedCredentialDescriptionServiceServer()
-}
-
-// UnimplementedCredentialDescriptionServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCredentialDescriptionServiceServer struct{}
-
-func (UnimplementedCredentialDescriptionServiceServer) NewCredentialDescription(context.Context, *NewCredentialDescriptionRequest) (*NewCredentialDescriptionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewCredentialDescription not implemented")
-}
-func (UnimplementedCredentialDescriptionServiceServer) DescribeContents(context.Context, *CredentialDescriptionDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedCredentialDescriptionServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedCredentialDescriptionServiceServer) GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
-}
-func (UnimplementedCredentialDescriptionServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedCredentialDescriptionServiceServer) WriteToParcel(context.Context, *CredentialDescriptionWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedCredentialDescriptionServiceServer) mustEmbedUnimplementedCredentialDescriptionServiceServer() {
-}
-func (UnimplementedCredentialDescriptionServiceServer) testEmbeddedByValue() {}
-
-// UnsafeCredentialDescriptionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CredentialDescriptionServiceServer will
-// result in compilation errors.
-type UnsafeCredentialDescriptionServiceServer interface {
-	mustEmbedUnimplementedCredentialDescriptionServiceServer()
-}
-
-func RegisterCredentialDescriptionServiceServer(s grpc.ServiceRegistrar, srv CredentialDescriptionServiceServer) {
-	// If the following call panics, it indicates UnimplementedCredentialDescriptionServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CredentialDescriptionService_ServiceDesc, srv)
-}
-
-func _CredentialDescriptionService_NewCredentialDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewCredentialDescriptionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CredentialDescriptionServiceServer).NewCredentialDescription(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CredentialDescriptionService_NewCredentialDescription_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialDescriptionServiceServer).NewCredentialDescription(ctx, req.(*NewCredentialDescriptionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CredentialDescriptionService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CredentialDescriptionDescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CredentialDescriptionServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CredentialDescriptionService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialDescriptionServiceServer).DescribeContents(ctx, req.(*CredentialDescriptionDescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CredentialDescriptionService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CredentialDescriptionServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CredentialDescriptionService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialDescriptionServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CredentialDescriptionService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CredentialDescriptionServiceServer).GetType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CredentialDescriptionService_GetType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialDescriptionServiceServer).GetType(ctx, req.(*GetTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CredentialDescriptionService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CredentialDescriptionServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CredentialDescriptionService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialDescriptionServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CredentialDescriptionService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CredentialDescriptionWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CredentialDescriptionServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CredentialDescriptionService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialDescriptionServiceServer).WriteToParcel(ctx, req.(*CredentialDescriptionWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CredentialDescriptionService_ServiceDesc is the grpc.ServiceDesc for CredentialDescriptionService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CredentialDescriptionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "credentials.CredentialDescriptionService",
-	HandlerType: (*CredentialDescriptionServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewCredentialDescription",
-			Handler:    _CredentialDescriptionService_NewCredentialDescription_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _CredentialDescriptionService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _CredentialDescriptionService_Equals_Handler,
-		},
-		{
-			MethodName: "GetType",
-			Handler:    _CredentialDescriptionService_GetType_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _CredentialDescriptionService_HashCode_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _CredentialDescriptionService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/credentials/credentials.proto",
-}
-
-const (
-	CreateCredentialExceptionService_NewCreateCredentialException_FullMethodName = "/credentials.CreateCredentialExceptionService/NewCreateCredentialException"
-	CreateCredentialExceptionService_GetType_FullMethodName                      = "/credentials.CreateCredentialExceptionService/GetType"
-)
-
-// CreateCredentialExceptionServiceClient is the client API for CreateCredentialExceptionService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CreateCredentialExceptionServiceClient interface {
-	NewCreateCredentialException(ctx context.Context, in *NewCreateCredentialExceptionRequest, opts ...grpc.CallOption) (*NewCreateCredentialExceptionResponse, error)
-	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
-}
-
-type createCredentialExceptionServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCreateCredentialExceptionServiceClient(cc grpc.ClientConnInterface) CreateCredentialExceptionServiceClient {
-	return &createCredentialExceptionServiceClient{cc}
-}
-
-func (c *createCredentialExceptionServiceClient) NewCreateCredentialException(ctx context.Context, in *NewCreateCredentialExceptionRequest, opts ...grpc.CallOption) (*NewCreateCredentialExceptionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewCreateCredentialExceptionResponse)
-	err := c.cc.Invoke(ctx, CreateCredentialExceptionService_NewCreateCredentialException_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *createCredentialExceptionServiceClient) GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTypeResponse)
-	err := c.cc.Invoke(ctx, CreateCredentialExceptionService_GetType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CreateCredentialExceptionServiceServer is the server API for CreateCredentialExceptionService service.
-// All implementations must embed UnimplementedCreateCredentialExceptionServiceServer
-// for forward compatibility.
-type CreateCredentialExceptionServiceServer interface {
-	NewCreateCredentialException(context.Context, *NewCreateCredentialExceptionRequest) (*NewCreateCredentialExceptionResponse, error)
-	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
-	mustEmbedUnimplementedCreateCredentialExceptionServiceServer()
-}
-
-// UnimplementedCreateCredentialExceptionServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCreateCredentialExceptionServiceServer struct{}
-
-func (UnimplementedCreateCredentialExceptionServiceServer) NewCreateCredentialException(context.Context, *NewCreateCredentialExceptionRequest) (*NewCreateCredentialExceptionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewCreateCredentialException not implemented")
-}
-func (UnimplementedCreateCredentialExceptionServiceServer) GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
-}
-func (UnimplementedCreateCredentialExceptionServiceServer) mustEmbedUnimplementedCreateCredentialExceptionServiceServer() {
-}
-func (UnimplementedCreateCredentialExceptionServiceServer) testEmbeddedByValue() {}
-
-// UnsafeCreateCredentialExceptionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CreateCredentialExceptionServiceServer will
-// result in compilation errors.
-type UnsafeCreateCredentialExceptionServiceServer interface {
-	mustEmbedUnimplementedCreateCredentialExceptionServiceServer()
-}
-
-func RegisterCreateCredentialExceptionServiceServer(s grpc.ServiceRegistrar, srv CreateCredentialExceptionServiceServer) {
-	// If the following call panics, it indicates UnimplementedCreateCredentialExceptionServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CreateCredentialExceptionService_ServiceDesc, srv)
-}
-
-func _CreateCredentialExceptionService_NewCreateCredentialException_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewCreateCredentialExceptionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateCredentialExceptionServiceServer).NewCreateCredentialException(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateCredentialExceptionService_NewCreateCredentialException_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateCredentialExceptionServiceServer).NewCreateCredentialException(ctx, req.(*NewCreateCredentialExceptionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CreateCredentialExceptionService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateCredentialExceptionServiceServer).GetType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateCredentialExceptionService_GetType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateCredentialExceptionServiceServer).GetType(ctx, req.(*GetTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CreateCredentialExceptionService_ServiceDesc is the grpc.ServiceDesc for CreateCredentialExceptionService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CreateCredentialExceptionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "credentials.CreateCredentialExceptionService",
-	HandlerType: (*CreateCredentialExceptionServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewCreateCredentialException",
-			Handler:    _CreateCredentialExceptionService_NewCreateCredentialException_Handler,
-		},
-		{
-			MethodName: "GetType",
-			Handler:    _CreateCredentialExceptionService_GetType_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/credentials/credentials.proto",
-}
-
-const (
 	ClearCredentialStateExceptionService_NewClearCredentialStateException_FullMethodName = "/credentials.ClearCredentialStateExceptionService/NewClearCredentialStateException"
 	ClearCredentialStateExceptionService_GetType_FullMethodName                          = "/credentials.ClearCredentialStateExceptionService/GetType"
 )
@@ -2212,216 +786,471 @@ var ClearCredentialStateExceptionService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	PrepareGetCredentialResponseService_GetPendingGetCredentialHandle_FullMethodName = "/credentials.PrepareGetCredentialResponseService/GetPendingGetCredentialHandle"
-	PrepareGetCredentialResponseService_HasAuthenticationResults_FullMethodName      = "/credentials.PrepareGetCredentialResponseService/HasAuthenticationResults"
-	PrepareGetCredentialResponseService_HasCredentialResults_FullMethodName          = "/credentials.PrepareGetCredentialResponseService/HasCredentialResults"
-	PrepareGetCredentialResponseService_HasRemoteResults_FullMethodName              = "/credentials.PrepareGetCredentialResponseService/HasRemoteResults"
+	GetCredentialResponseService_NewGetCredentialResponse_FullMethodName = "/credentials.GetCredentialResponseService/NewGetCredentialResponse"
+	GetCredentialResponseService_DescribeContents_FullMethodName         = "/credentials.GetCredentialResponseService/DescribeContents"
+	GetCredentialResponseService_GetCredential_FullMethodName            = "/credentials.GetCredentialResponseService/GetCredential"
+	GetCredentialResponseService_ToString_FullMethodName                 = "/credentials.GetCredentialResponseService/ToString"
+	GetCredentialResponseService_WriteToParcel_FullMethodName            = "/credentials.GetCredentialResponseService/WriteToParcel"
 )
 
-// PrepareGetCredentialResponseServiceClient is the client API for PrepareGetCredentialResponseService service.
+// GetCredentialResponseServiceClient is the client API for GetCredentialResponseService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PrepareGetCredentialResponseServiceClient interface {
-	GetPendingGetCredentialHandle(ctx context.Context, in *GetPendingGetCredentialHandleRequest, opts ...grpc.CallOption) (*GetPendingGetCredentialHandleResponse, error)
-	HasAuthenticationResults(ctx context.Context, in *HasAuthenticationResultsRequest, opts ...grpc.CallOption) (*HasAuthenticationResultsResponse, error)
-	HasCredentialResults(ctx context.Context, in *HasCredentialResultsRequest, opts ...grpc.CallOption) (*HasCredentialResultsResponse, error)
-	HasRemoteResults(ctx context.Context, in *HasRemoteResultsRequest, opts ...grpc.CallOption) (*HasRemoteResultsResponse, error)
+type GetCredentialResponseServiceClient interface {
+	NewGetCredentialResponse(ctx context.Context, in *NewGetCredentialResponseRequest, opts ...grpc.CallOption) (*NewGetCredentialResponseResponse, error)
+	DescribeContents(ctx context.Context, in *GetCredentialResponseDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetCredential(ctx context.Context, in *GetCredentialRequest, opts ...grpc.CallOption) (*GetCredentialResponse, error)
+	ToString(ctx context.Context, in *GetCredentialResponseToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *GetCredentialResponseWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type prepareGetCredentialResponseServiceClient struct {
+type getCredentialResponseServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewPrepareGetCredentialResponseServiceClient(cc grpc.ClientConnInterface) PrepareGetCredentialResponseServiceClient {
-	return &prepareGetCredentialResponseServiceClient{cc}
+func NewGetCredentialResponseServiceClient(cc grpc.ClientConnInterface) GetCredentialResponseServiceClient {
+	return &getCredentialResponseServiceClient{cc}
 }
 
-func (c *prepareGetCredentialResponseServiceClient) GetPendingGetCredentialHandle(ctx context.Context, in *GetPendingGetCredentialHandleRequest, opts ...grpc.CallOption) (*GetPendingGetCredentialHandleResponse, error) {
+func (c *getCredentialResponseServiceClient) NewGetCredentialResponse(ctx context.Context, in *NewGetCredentialResponseRequest, opts ...grpc.CallOption) (*NewGetCredentialResponseResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPendingGetCredentialHandleResponse)
-	err := c.cc.Invoke(ctx, PrepareGetCredentialResponseService_GetPendingGetCredentialHandle_FullMethodName, in, out, cOpts...)
+	out := new(NewGetCredentialResponseResponse)
+	err := c.cc.Invoke(ctx, GetCredentialResponseService_NewGetCredentialResponse_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *prepareGetCredentialResponseServiceClient) HasAuthenticationResults(ctx context.Context, in *HasAuthenticationResultsRequest, opts ...grpc.CallOption) (*HasAuthenticationResultsResponse, error) {
+func (c *getCredentialResponseServiceClient) DescribeContents(ctx context.Context, in *GetCredentialResponseDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HasAuthenticationResultsResponse)
-	err := c.cc.Invoke(ctx, PrepareGetCredentialResponseService_HasAuthenticationResults_FullMethodName, in, out, cOpts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, GetCredentialResponseService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *prepareGetCredentialResponseServiceClient) HasCredentialResults(ctx context.Context, in *HasCredentialResultsRequest, opts ...grpc.CallOption) (*HasCredentialResultsResponse, error) {
+func (c *getCredentialResponseServiceClient) GetCredential(ctx context.Context, in *GetCredentialRequest, opts ...grpc.CallOption) (*GetCredentialResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HasCredentialResultsResponse)
-	err := c.cc.Invoke(ctx, PrepareGetCredentialResponseService_HasCredentialResults_FullMethodName, in, out, cOpts...)
+	out := new(GetCredentialResponse)
+	err := c.cc.Invoke(ctx, GetCredentialResponseService_GetCredential_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *prepareGetCredentialResponseServiceClient) HasRemoteResults(ctx context.Context, in *HasRemoteResultsRequest, opts ...grpc.CallOption) (*HasRemoteResultsResponse, error) {
+func (c *getCredentialResponseServiceClient) ToString(ctx context.Context, in *GetCredentialResponseToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HasRemoteResultsResponse)
-	err := c.cc.Invoke(ctx, PrepareGetCredentialResponseService_HasRemoteResults_FullMethodName, in, out, cOpts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, GetCredentialResponseService_ToString_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// PrepareGetCredentialResponseServiceServer is the server API for PrepareGetCredentialResponseService service.
-// All implementations must embed UnimplementedPrepareGetCredentialResponseServiceServer
+func (c *getCredentialResponseServiceClient) WriteToParcel(ctx context.Context, in *GetCredentialResponseWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, GetCredentialResponseService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// GetCredentialResponseServiceServer is the server API for GetCredentialResponseService service.
+// All implementations must embed UnimplementedGetCredentialResponseServiceServer
 // for forward compatibility.
-type PrepareGetCredentialResponseServiceServer interface {
-	GetPendingGetCredentialHandle(context.Context, *GetPendingGetCredentialHandleRequest) (*GetPendingGetCredentialHandleResponse, error)
-	HasAuthenticationResults(context.Context, *HasAuthenticationResultsRequest) (*HasAuthenticationResultsResponse, error)
-	HasCredentialResults(context.Context, *HasCredentialResultsRequest) (*HasCredentialResultsResponse, error)
-	HasRemoteResults(context.Context, *HasRemoteResultsRequest) (*HasRemoteResultsResponse, error)
-	mustEmbedUnimplementedPrepareGetCredentialResponseServiceServer()
+type GetCredentialResponseServiceServer interface {
+	NewGetCredentialResponse(context.Context, *NewGetCredentialResponseRequest) (*NewGetCredentialResponseResponse, error)
+	DescribeContents(context.Context, *GetCredentialResponseDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetCredential(context.Context, *GetCredentialRequest) (*GetCredentialResponse, error)
+	ToString(context.Context, *GetCredentialResponseToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *GetCredentialResponseWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedGetCredentialResponseServiceServer()
 }
 
-// UnimplementedPrepareGetCredentialResponseServiceServer must be embedded to have
+// UnimplementedGetCredentialResponseServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedPrepareGetCredentialResponseServiceServer struct{}
+type UnimplementedGetCredentialResponseServiceServer struct{}
 
-func (UnimplementedPrepareGetCredentialResponseServiceServer) GetPendingGetCredentialHandle(context.Context, *GetPendingGetCredentialHandleRequest) (*GetPendingGetCredentialHandleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPendingGetCredentialHandle not implemented")
+func (UnimplementedGetCredentialResponseServiceServer) NewGetCredentialResponse(context.Context, *NewGetCredentialResponseRequest) (*NewGetCredentialResponseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewGetCredentialResponse not implemented")
 }
-func (UnimplementedPrepareGetCredentialResponseServiceServer) HasAuthenticationResults(context.Context, *HasAuthenticationResultsRequest) (*HasAuthenticationResultsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HasAuthenticationResults not implemented")
+func (UnimplementedGetCredentialResponseServiceServer) DescribeContents(context.Context, *GetCredentialResponseDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedPrepareGetCredentialResponseServiceServer) HasCredentialResults(context.Context, *HasCredentialResultsRequest) (*HasCredentialResultsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HasCredentialResults not implemented")
+func (UnimplementedGetCredentialResponseServiceServer) GetCredential(context.Context, *GetCredentialRequest) (*GetCredentialResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCredential not implemented")
 }
-func (UnimplementedPrepareGetCredentialResponseServiceServer) HasRemoteResults(context.Context, *HasRemoteResultsRequest) (*HasRemoteResultsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HasRemoteResults not implemented")
+func (UnimplementedGetCredentialResponseServiceServer) ToString(context.Context, *GetCredentialResponseToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedPrepareGetCredentialResponseServiceServer) mustEmbedUnimplementedPrepareGetCredentialResponseServiceServer() {
+func (UnimplementedGetCredentialResponseServiceServer) WriteToParcel(context.Context, *GetCredentialResponseWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedPrepareGetCredentialResponseServiceServer) testEmbeddedByValue() {}
+func (UnimplementedGetCredentialResponseServiceServer) mustEmbedUnimplementedGetCredentialResponseServiceServer() {
+}
+func (UnimplementedGetCredentialResponseServiceServer) testEmbeddedByValue() {}
 
-// UnsafePrepareGetCredentialResponseServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PrepareGetCredentialResponseServiceServer will
+// UnsafeGetCredentialResponseServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to GetCredentialResponseServiceServer will
 // result in compilation errors.
-type UnsafePrepareGetCredentialResponseServiceServer interface {
-	mustEmbedUnimplementedPrepareGetCredentialResponseServiceServer()
+type UnsafeGetCredentialResponseServiceServer interface {
+	mustEmbedUnimplementedGetCredentialResponseServiceServer()
 }
 
-func RegisterPrepareGetCredentialResponseServiceServer(s grpc.ServiceRegistrar, srv PrepareGetCredentialResponseServiceServer) {
-	// If the following call panics, it indicates UnimplementedPrepareGetCredentialResponseServiceServer was
+func RegisterGetCredentialResponseServiceServer(s grpc.ServiceRegistrar, srv GetCredentialResponseServiceServer) {
+	// If the following call panics, it indicates UnimplementedGetCredentialResponseServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&PrepareGetCredentialResponseService_ServiceDesc, srv)
+	s.RegisterService(&GetCredentialResponseService_ServiceDesc, srv)
 }
 
-func _PrepareGetCredentialResponseService_GetPendingGetCredentialHandle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPendingGetCredentialHandleRequest)
+func _GetCredentialResponseService_NewGetCredentialResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewGetCredentialResponseRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PrepareGetCredentialResponseServiceServer).GetPendingGetCredentialHandle(ctx, in)
+		return srv.(GetCredentialResponseServiceServer).NewGetCredentialResponse(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PrepareGetCredentialResponseService_GetPendingGetCredentialHandle_FullMethodName,
+		FullMethod: GetCredentialResponseService_NewGetCredentialResponse_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrepareGetCredentialResponseServiceServer).GetPendingGetCredentialHandle(ctx, req.(*GetPendingGetCredentialHandleRequest))
+		return srv.(GetCredentialResponseServiceServer).NewGetCredentialResponse(ctx, req.(*NewGetCredentialResponseRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PrepareGetCredentialResponseService_HasAuthenticationResults_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HasAuthenticationResultsRequest)
+func _GetCredentialResponseService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCredentialResponseDescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PrepareGetCredentialResponseServiceServer).HasAuthenticationResults(ctx, in)
+		return srv.(GetCredentialResponseServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PrepareGetCredentialResponseService_HasAuthenticationResults_FullMethodName,
+		FullMethod: GetCredentialResponseService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrepareGetCredentialResponseServiceServer).HasAuthenticationResults(ctx, req.(*HasAuthenticationResultsRequest))
+		return srv.(GetCredentialResponseServiceServer).DescribeContents(ctx, req.(*GetCredentialResponseDescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PrepareGetCredentialResponseService_HasCredentialResults_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HasCredentialResultsRequest)
+func _GetCredentialResponseService_GetCredential_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCredentialRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PrepareGetCredentialResponseServiceServer).HasCredentialResults(ctx, in)
+		return srv.(GetCredentialResponseServiceServer).GetCredential(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PrepareGetCredentialResponseService_HasCredentialResults_FullMethodName,
+		FullMethod: GetCredentialResponseService_GetCredential_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrepareGetCredentialResponseServiceServer).HasCredentialResults(ctx, req.(*HasCredentialResultsRequest))
+		return srv.(GetCredentialResponseServiceServer).GetCredential(ctx, req.(*GetCredentialRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _PrepareGetCredentialResponseService_HasRemoteResults_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HasRemoteResultsRequest)
+func _GetCredentialResponseService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCredentialResponseToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(PrepareGetCredentialResponseServiceServer).HasRemoteResults(ctx, in)
+		return srv.(GetCredentialResponseServiceServer).ToString(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: PrepareGetCredentialResponseService_HasRemoteResults_FullMethodName,
+		FullMethod: GetCredentialResponseService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PrepareGetCredentialResponseServiceServer).HasRemoteResults(ctx, req.(*HasRemoteResultsRequest))
+		return srv.(GetCredentialResponseServiceServer).ToString(ctx, req.(*GetCredentialResponseToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// PrepareGetCredentialResponseService_ServiceDesc is the grpc.ServiceDesc for PrepareGetCredentialResponseService service.
+func _GetCredentialResponseService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCredentialResponseWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GetCredentialResponseServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: GetCredentialResponseService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GetCredentialResponseServiceServer).WriteToParcel(ctx, req.(*GetCredentialResponseWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// GetCredentialResponseService_ServiceDesc is the grpc.ServiceDesc for GetCredentialResponseService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var PrepareGetCredentialResponseService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "credentials.PrepareGetCredentialResponseService",
-	HandlerType: (*PrepareGetCredentialResponseServiceServer)(nil),
+var GetCredentialResponseService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "credentials.GetCredentialResponseService",
+	HandlerType: (*GetCredentialResponseServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "GetPendingGetCredentialHandle",
-			Handler:    _PrepareGetCredentialResponseService_GetPendingGetCredentialHandle_Handler,
+			MethodName: "NewGetCredentialResponse",
+			Handler:    _GetCredentialResponseService_NewGetCredentialResponse_Handler,
 		},
 		{
-			MethodName: "HasAuthenticationResults",
-			Handler:    _PrepareGetCredentialResponseService_HasAuthenticationResults_Handler,
+			MethodName: "DescribeContents",
+			Handler:    _GetCredentialResponseService_DescribeContents_Handler,
 		},
 		{
-			MethodName: "HasCredentialResults",
-			Handler:    _PrepareGetCredentialResponseService_HasCredentialResults_Handler,
+			MethodName: "GetCredential",
+			Handler:    _GetCredentialResponseService_GetCredential_Handler,
 		},
 		{
-			MethodName: "HasRemoteResults",
-			Handler:    _PrepareGetCredentialResponseService_HasRemoteResults_Handler,
+			MethodName: "ToString",
+			Handler:    _GetCredentialResponseService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _GetCredentialResponseService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/credentials/credentials.proto",
+}
+
+const (
+	UnregisterCredentialDescriptionRequestService_NewUnregisterCredentialDescriptionRequest_FullMethodName = "/credentials.UnregisterCredentialDescriptionRequestService/NewUnregisterCredentialDescriptionRequest"
+	UnregisterCredentialDescriptionRequestService_DescribeContents_FullMethodName                          = "/credentials.UnregisterCredentialDescriptionRequestService/DescribeContents"
+	UnregisterCredentialDescriptionRequestService_GetCredentialDescriptions_FullMethodName                 = "/credentials.UnregisterCredentialDescriptionRequestService/GetCredentialDescriptions"
+	UnregisterCredentialDescriptionRequestService_WriteToParcel_FullMethodName                             = "/credentials.UnregisterCredentialDescriptionRequestService/WriteToParcel"
+)
+
+// UnregisterCredentialDescriptionRequestServiceClient is the client API for UnregisterCredentialDescriptionRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type UnregisterCredentialDescriptionRequestServiceClient interface {
+	NewUnregisterCredentialDescriptionRequest(ctx context.Context, in *NewUnregisterCredentialDescriptionRequestRequest, opts ...grpc.CallOption) (*NewUnregisterCredentialDescriptionRequestResponse, error)
+	DescribeContents(ctx context.Context, in *UnregisterCredentialDescriptionRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetCredentialDescriptions(ctx context.Context, in *GetCredentialDescriptionsRequest, opts ...grpc.CallOption) (*GetCredentialDescriptionsResponse, error)
+	WriteToParcel(ctx context.Context, in *UnregisterCredentialDescriptionRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type unregisterCredentialDescriptionRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewUnregisterCredentialDescriptionRequestServiceClient(cc grpc.ClientConnInterface) UnregisterCredentialDescriptionRequestServiceClient {
+	return &unregisterCredentialDescriptionRequestServiceClient{cc}
+}
+
+func (c *unregisterCredentialDescriptionRequestServiceClient) NewUnregisterCredentialDescriptionRequest(ctx context.Context, in *NewUnregisterCredentialDescriptionRequestRequest, opts ...grpc.CallOption) (*NewUnregisterCredentialDescriptionRequestResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewUnregisterCredentialDescriptionRequestResponse)
+	err := c.cc.Invoke(ctx, UnregisterCredentialDescriptionRequestService_NewUnregisterCredentialDescriptionRequest_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *unregisterCredentialDescriptionRequestServiceClient) DescribeContents(ctx context.Context, in *UnregisterCredentialDescriptionRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, UnregisterCredentialDescriptionRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *unregisterCredentialDescriptionRequestServiceClient) GetCredentialDescriptions(ctx context.Context, in *GetCredentialDescriptionsRequest, opts ...grpc.CallOption) (*GetCredentialDescriptionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCredentialDescriptionsResponse)
+	err := c.cc.Invoke(ctx, UnregisterCredentialDescriptionRequestService_GetCredentialDescriptions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *unregisterCredentialDescriptionRequestServiceClient) WriteToParcel(ctx context.Context, in *UnregisterCredentialDescriptionRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, UnregisterCredentialDescriptionRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// UnregisterCredentialDescriptionRequestServiceServer is the server API for UnregisterCredentialDescriptionRequestService service.
+// All implementations must embed UnimplementedUnregisterCredentialDescriptionRequestServiceServer
+// for forward compatibility.
+type UnregisterCredentialDescriptionRequestServiceServer interface {
+	NewUnregisterCredentialDescriptionRequest(context.Context, *NewUnregisterCredentialDescriptionRequestRequest) (*NewUnregisterCredentialDescriptionRequestResponse, error)
+	DescribeContents(context.Context, *UnregisterCredentialDescriptionRequestDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetCredentialDescriptions(context.Context, *GetCredentialDescriptionsRequest) (*GetCredentialDescriptionsResponse, error)
+	WriteToParcel(context.Context, *UnregisterCredentialDescriptionRequestWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedUnregisterCredentialDescriptionRequestServiceServer()
+}
+
+// UnimplementedUnregisterCredentialDescriptionRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedUnregisterCredentialDescriptionRequestServiceServer struct{}
+
+func (UnimplementedUnregisterCredentialDescriptionRequestServiceServer) NewUnregisterCredentialDescriptionRequest(context.Context, *NewUnregisterCredentialDescriptionRequestRequest) (*NewUnregisterCredentialDescriptionRequestResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewUnregisterCredentialDescriptionRequest not implemented")
+}
+func (UnimplementedUnregisterCredentialDescriptionRequestServiceServer) DescribeContents(context.Context, *UnregisterCredentialDescriptionRequestDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedUnregisterCredentialDescriptionRequestServiceServer) GetCredentialDescriptions(context.Context, *GetCredentialDescriptionsRequest) (*GetCredentialDescriptionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCredentialDescriptions not implemented")
+}
+func (UnimplementedUnregisterCredentialDescriptionRequestServiceServer) WriteToParcel(context.Context, *UnregisterCredentialDescriptionRequestWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedUnregisterCredentialDescriptionRequestServiceServer) mustEmbedUnimplementedUnregisterCredentialDescriptionRequestServiceServer() {
+}
+func (UnimplementedUnregisterCredentialDescriptionRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafeUnregisterCredentialDescriptionRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to UnregisterCredentialDescriptionRequestServiceServer will
+// result in compilation errors.
+type UnsafeUnregisterCredentialDescriptionRequestServiceServer interface {
+	mustEmbedUnimplementedUnregisterCredentialDescriptionRequestServiceServer()
+}
+
+func RegisterUnregisterCredentialDescriptionRequestServiceServer(s grpc.ServiceRegistrar, srv UnregisterCredentialDescriptionRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedUnregisterCredentialDescriptionRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&UnregisterCredentialDescriptionRequestService_ServiceDesc, srv)
+}
+
+func _UnregisterCredentialDescriptionRequestService_NewUnregisterCredentialDescriptionRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewUnregisterCredentialDescriptionRequestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UnregisterCredentialDescriptionRequestServiceServer).NewUnregisterCredentialDescriptionRequest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UnregisterCredentialDescriptionRequestService_NewUnregisterCredentialDescriptionRequest_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UnregisterCredentialDescriptionRequestServiceServer).NewUnregisterCredentialDescriptionRequest(ctx, req.(*NewUnregisterCredentialDescriptionRequestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UnregisterCredentialDescriptionRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterCredentialDescriptionRequestDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UnregisterCredentialDescriptionRequestServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UnregisterCredentialDescriptionRequestService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UnregisterCredentialDescriptionRequestServiceServer).DescribeContents(ctx, req.(*UnregisterCredentialDescriptionRequestDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UnregisterCredentialDescriptionRequestService_GetCredentialDescriptions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCredentialDescriptionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UnregisterCredentialDescriptionRequestServiceServer).GetCredentialDescriptions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UnregisterCredentialDescriptionRequestService_GetCredentialDescriptions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UnregisterCredentialDescriptionRequestServiceServer).GetCredentialDescriptions(ctx, req.(*GetCredentialDescriptionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UnregisterCredentialDescriptionRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterCredentialDescriptionRequestWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UnregisterCredentialDescriptionRequestServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UnregisterCredentialDescriptionRequestService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UnregisterCredentialDescriptionRequestServiceServer).WriteToParcel(ctx, req.(*UnregisterCredentialDescriptionRequestWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// UnregisterCredentialDescriptionRequestService_ServiceDesc is the grpc.ServiceDesc for UnregisterCredentialDescriptionRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var UnregisterCredentialDescriptionRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "credentials.UnregisterCredentialDescriptionRequestService",
+	HandlerType: (*UnregisterCredentialDescriptionRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewUnregisterCredentialDescriptionRequest",
+			Handler:    _UnregisterCredentialDescriptionRequestService_NewUnregisterCredentialDescriptionRequest_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _UnregisterCredentialDescriptionRequestService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetCredentialDescriptions",
+			Handler:    _UnregisterCredentialDescriptionRequestService_GetCredentialDescriptions_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _UnregisterCredentialDescriptionRequestService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -2722,178 +1551,291 @@ var ClearCredentialStateRequestService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	RegisterCredentialDescriptionRequestService_NewRegisterCredentialDescriptionRequest_FullMethodName = "/credentials.RegisterCredentialDescriptionRequestService/NewRegisterCredentialDescriptionRequest"
-	RegisterCredentialDescriptionRequestService_DescribeContents_FullMethodName                        = "/credentials.RegisterCredentialDescriptionRequestService/DescribeContents"
-	RegisterCredentialDescriptionRequestService_WriteToParcel_FullMethodName                           = "/credentials.RegisterCredentialDescriptionRequestService/WriteToParcel"
+	CredentialService_NewCredential_FullMethodName    = "/credentials.CredentialService/NewCredential"
+	CredentialService_DescribeContents_FullMethodName = "/credentials.CredentialService/DescribeContents"
+	CredentialService_GetData_FullMethodName          = "/credentials.CredentialService/GetData"
+	CredentialService_GetType_FullMethodName          = "/credentials.CredentialService/GetType"
+	CredentialService_ToString_FullMethodName         = "/credentials.CredentialService/ToString"
+	CredentialService_WriteToParcel_FullMethodName    = "/credentials.CredentialService/WriteToParcel"
 )
 
-// RegisterCredentialDescriptionRequestServiceClient is the client API for RegisterCredentialDescriptionRequestService service.
+// CredentialServiceClient is the client API for CredentialService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RegisterCredentialDescriptionRequestServiceClient interface {
-	NewRegisterCredentialDescriptionRequest(ctx context.Context, in *NewRegisterCredentialDescriptionRequestRequest, opts ...grpc.CallOption) (*NewRegisterCredentialDescriptionRequestResponse, error)
-	DescribeContents(ctx context.Context, in *RegisterCredentialDescriptionRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	WriteToParcel(ctx context.Context, in *RegisterCredentialDescriptionRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+type CredentialServiceClient interface {
+	NewCredential(ctx context.Context, in *NewCredentialRequest, opts ...grpc.CallOption) (*NewCredentialResponse, error)
+	DescribeContents(ctx context.Context, in *CredentialDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetData(ctx context.Context, in *CredentialGetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error)
+	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
+	ToString(ctx context.Context, in *CredentialToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *CredentialWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type registerCredentialDescriptionRequestServiceClient struct {
+type credentialServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewRegisterCredentialDescriptionRequestServiceClient(cc grpc.ClientConnInterface) RegisterCredentialDescriptionRequestServiceClient {
-	return &registerCredentialDescriptionRequestServiceClient{cc}
+func NewCredentialServiceClient(cc grpc.ClientConnInterface) CredentialServiceClient {
+	return &credentialServiceClient{cc}
 }
 
-func (c *registerCredentialDescriptionRequestServiceClient) NewRegisterCredentialDescriptionRequest(ctx context.Context, in *NewRegisterCredentialDescriptionRequestRequest, opts ...grpc.CallOption) (*NewRegisterCredentialDescriptionRequestResponse, error) {
+func (c *credentialServiceClient) NewCredential(ctx context.Context, in *NewCredentialRequest, opts ...grpc.CallOption) (*NewCredentialResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewRegisterCredentialDescriptionRequestResponse)
-	err := c.cc.Invoke(ctx, RegisterCredentialDescriptionRequestService_NewRegisterCredentialDescriptionRequest_FullMethodName, in, out, cOpts...)
+	out := new(NewCredentialResponse)
+	err := c.cc.Invoke(ctx, CredentialService_NewCredential_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *registerCredentialDescriptionRequestServiceClient) DescribeContents(ctx context.Context, in *RegisterCredentialDescriptionRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *credentialServiceClient) DescribeContents(ctx context.Context, in *CredentialDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, RegisterCredentialDescriptionRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, CredentialService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *registerCredentialDescriptionRequestServiceClient) WriteToParcel(ctx context.Context, in *RegisterCredentialDescriptionRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *credentialServiceClient) GetData(ctx context.Context, in *CredentialGetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDataResponse)
+	err := c.cc.Invoke(ctx, CredentialService_GetData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialServiceClient) GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTypeResponse)
+	err := c.cc.Invoke(ctx, CredentialService_GetType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialServiceClient) ToString(ctx context.Context, in *CredentialToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, CredentialService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialServiceClient) WriteToParcel(ctx context.Context, in *CredentialWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, RegisterCredentialDescriptionRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, CredentialService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// RegisterCredentialDescriptionRequestServiceServer is the server API for RegisterCredentialDescriptionRequestService service.
-// All implementations must embed UnimplementedRegisterCredentialDescriptionRequestServiceServer
+// CredentialServiceServer is the server API for CredentialService service.
+// All implementations must embed UnimplementedCredentialServiceServer
 // for forward compatibility.
-type RegisterCredentialDescriptionRequestServiceServer interface {
-	NewRegisterCredentialDescriptionRequest(context.Context, *NewRegisterCredentialDescriptionRequestRequest) (*NewRegisterCredentialDescriptionRequestResponse, error)
-	DescribeContents(context.Context, *RegisterCredentialDescriptionRequestDescribeContentsRequest) (*DescribeContentsResponse, error)
-	WriteToParcel(context.Context, *RegisterCredentialDescriptionRequestWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedRegisterCredentialDescriptionRequestServiceServer()
+type CredentialServiceServer interface {
+	NewCredential(context.Context, *NewCredentialRequest) (*NewCredentialResponse, error)
+	DescribeContents(context.Context, *CredentialDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetData(context.Context, *CredentialGetDataRequest) (*GetDataResponse, error)
+	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
+	ToString(context.Context, *CredentialToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *CredentialWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedCredentialServiceServer()
 }
 
-// UnimplementedRegisterCredentialDescriptionRequestServiceServer must be embedded to have
+// UnimplementedCredentialServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedRegisterCredentialDescriptionRequestServiceServer struct{}
+type UnimplementedCredentialServiceServer struct{}
 
-func (UnimplementedRegisterCredentialDescriptionRequestServiceServer) NewRegisterCredentialDescriptionRequest(context.Context, *NewRegisterCredentialDescriptionRequestRequest) (*NewRegisterCredentialDescriptionRequestResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewRegisterCredentialDescriptionRequest not implemented")
+func (UnimplementedCredentialServiceServer) NewCredential(context.Context, *NewCredentialRequest) (*NewCredentialResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewCredential not implemented")
 }
-func (UnimplementedRegisterCredentialDescriptionRequestServiceServer) DescribeContents(context.Context, *RegisterCredentialDescriptionRequestDescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedCredentialServiceServer) DescribeContents(context.Context, *CredentialDescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedRegisterCredentialDescriptionRequestServiceServer) WriteToParcel(context.Context, *RegisterCredentialDescriptionRequestWriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedCredentialServiceServer) GetData(context.Context, *CredentialGetDataRequest) (*GetDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetData not implemented")
+}
+func (UnimplementedCredentialServiceServer) GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
+}
+func (UnimplementedCredentialServiceServer) ToString(context.Context, *CredentialToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedCredentialServiceServer) WriteToParcel(context.Context, *CredentialWriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedRegisterCredentialDescriptionRequestServiceServer) mustEmbedUnimplementedRegisterCredentialDescriptionRequestServiceServer() {
-}
-func (UnimplementedRegisterCredentialDescriptionRequestServiceServer) testEmbeddedByValue() {}
+func (UnimplementedCredentialServiceServer) mustEmbedUnimplementedCredentialServiceServer() {}
+func (UnimplementedCredentialServiceServer) testEmbeddedByValue()                           {}
 
-// UnsafeRegisterCredentialDescriptionRequestServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RegisterCredentialDescriptionRequestServiceServer will
+// UnsafeCredentialServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CredentialServiceServer will
 // result in compilation errors.
-type UnsafeRegisterCredentialDescriptionRequestServiceServer interface {
-	mustEmbedUnimplementedRegisterCredentialDescriptionRequestServiceServer()
+type UnsafeCredentialServiceServer interface {
+	mustEmbedUnimplementedCredentialServiceServer()
 }
 
-func RegisterRegisterCredentialDescriptionRequestServiceServer(s grpc.ServiceRegistrar, srv RegisterCredentialDescriptionRequestServiceServer) {
-	// If the following call panics, it indicates UnimplementedRegisterCredentialDescriptionRequestServiceServer was
+func RegisterCredentialServiceServer(s grpc.ServiceRegistrar, srv CredentialServiceServer) {
+	// If the following call panics, it indicates UnimplementedCredentialServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&RegisterCredentialDescriptionRequestService_ServiceDesc, srv)
+	s.RegisterService(&CredentialService_ServiceDesc, srv)
 }
 
-func _RegisterCredentialDescriptionRequestService_NewRegisterCredentialDescriptionRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewRegisterCredentialDescriptionRequestRequest)
+func _CredentialService_NewCredential_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewCredentialRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RegisterCredentialDescriptionRequestServiceServer).NewRegisterCredentialDescriptionRequest(ctx, in)
+		return srv.(CredentialServiceServer).NewCredential(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RegisterCredentialDescriptionRequestService_NewRegisterCredentialDescriptionRequest_FullMethodName,
+		FullMethod: CredentialService_NewCredential_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RegisterCredentialDescriptionRequestServiceServer).NewRegisterCredentialDescriptionRequest(ctx, req.(*NewRegisterCredentialDescriptionRequestRequest))
+		return srv.(CredentialServiceServer).NewCredential(ctx, req.(*NewCredentialRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RegisterCredentialDescriptionRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RegisterCredentialDescriptionRequestDescribeContentsRequest)
+func _CredentialService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CredentialDescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RegisterCredentialDescriptionRequestServiceServer).DescribeContents(ctx, in)
+		return srv.(CredentialServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RegisterCredentialDescriptionRequestService_DescribeContents_FullMethodName,
+		FullMethod: CredentialService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RegisterCredentialDescriptionRequestServiceServer).DescribeContents(ctx, req.(*RegisterCredentialDescriptionRequestDescribeContentsRequest))
+		return srv.(CredentialServiceServer).DescribeContents(ctx, req.(*CredentialDescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RegisterCredentialDescriptionRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RegisterCredentialDescriptionRequestWriteToParcelRequest)
+func _CredentialService_GetData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CredentialGetDataRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RegisterCredentialDescriptionRequestServiceServer).WriteToParcel(ctx, in)
+		return srv.(CredentialServiceServer).GetData(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RegisterCredentialDescriptionRequestService_WriteToParcel_FullMethodName,
+		FullMethod: CredentialService_GetData_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RegisterCredentialDescriptionRequestServiceServer).WriteToParcel(ctx, req.(*RegisterCredentialDescriptionRequestWriteToParcelRequest))
+		return srv.(CredentialServiceServer).GetData(ctx, req.(*CredentialGetDataRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// RegisterCredentialDescriptionRequestService_ServiceDesc is the grpc.ServiceDesc for RegisterCredentialDescriptionRequestService service.
+func _CredentialService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialServiceServer).GetType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialService_GetType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialServiceServer).GetType(ctx, req.(*GetTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CredentialToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialServiceServer).ToString(ctx, req.(*CredentialToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CredentialWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialServiceServer).WriteToParcel(ctx, req.(*CredentialWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CredentialService_ServiceDesc is the grpc.ServiceDesc for CredentialService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var RegisterCredentialDescriptionRequestService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "credentials.RegisterCredentialDescriptionRequestService",
-	HandlerType: (*RegisterCredentialDescriptionRequestServiceServer)(nil),
+var CredentialService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "credentials.CredentialService",
+	HandlerType: (*CredentialServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewRegisterCredentialDescriptionRequest",
-			Handler:    _RegisterCredentialDescriptionRequestService_NewRegisterCredentialDescriptionRequest_Handler,
+			MethodName: "NewCredential",
+			Handler:    _CredentialService_NewCredential_Handler,
 		},
 		{
 			MethodName: "DescribeContents",
-			Handler:    _RegisterCredentialDescriptionRequestService_DescribeContents_Handler,
+			Handler:    _CredentialService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetData",
+			Handler:    _CredentialService_GetData_Handler,
+		},
+		{
+			MethodName: "GetType",
+			Handler:    _CredentialService_GetType_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _CredentialService_ToString_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _RegisterCredentialDescriptionRequestService_WriteToParcel_Handler,
+			Handler:    _CredentialService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -3080,254 +2022,216 @@ var CredentialManagerService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	GetCredentialResponseService_NewGetCredentialResponse_FullMethodName = "/credentials.GetCredentialResponseService/NewGetCredentialResponse"
-	GetCredentialResponseService_DescribeContents_FullMethodName         = "/credentials.GetCredentialResponseService/DescribeContents"
-	GetCredentialResponseService_GetCredential_FullMethodName            = "/credentials.GetCredentialResponseService/GetCredential"
-	GetCredentialResponseService_ToString_FullMethodName                 = "/credentials.GetCredentialResponseService/ToString"
-	GetCredentialResponseService_WriteToParcel_FullMethodName            = "/credentials.GetCredentialResponseService/WriteToParcel"
+	RegisterCredentialDescriptionRequestService_NewRegisterCredentialDescriptionRequest_FullMethodName = "/credentials.RegisterCredentialDescriptionRequestService/NewRegisterCredentialDescriptionRequest"
+	RegisterCredentialDescriptionRequestService_DescribeContents_FullMethodName                        = "/credentials.RegisterCredentialDescriptionRequestService/DescribeContents"
+	RegisterCredentialDescriptionRequestService_GetCredentialDescriptions_FullMethodName               = "/credentials.RegisterCredentialDescriptionRequestService/GetCredentialDescriptions"
+	RegisterCredentialDescriptionRequestService_WriteToParcel_FullMethodName                           = "/credentials.RegisterCredentialDescriptionRequestService/WriteToParcel"
 )
 
-// GetCredentialResponseServiceClient is the client API for GetCredentialResponseService service.
+// RegisterCredentialDescriptionRequestServiceClient is the client API for RegisterCredentialDescriptionRequestService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type GetCredentialResponseServiceClient interface {
-	NewGetCredentialResponse(ctx context.Context, in *NewGetCredentialResponseRequest, opts ...grpc.CallOption) (*NewGetCredentialResponseResponse, error)
-	DescribeContents(ctx context.Context, in *GetCredentialResponseDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetCredential(ctx context.Context, in *GetCredentialRequest, opts ...grpc.CallOption) (*GetCredentialResponse, error)
-	ToString(ctx context.Context, in *GetCredentialResponseToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *GetCredentialResponseWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+type RegisterCredentialDescriptionRequestServiceClient interface {
+	NewRegisterCredentialDescriptionRequest(ctx context.Context, in *NewRegisterCredentialDescriptionRequestRequest, opts ...grpc.CallOption) (*NewRegisterCredentialDescriptionRequestResponse, error)
+	DescribeContents(ctx context.Context, in *RegisterCredentialDescriptionRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetCredentialDescriptions(ctx context.Context, in *GetCredentialDescriptionsRequest, opts ...grpc.CallOption) (*GetCredentialDescriptionsResponse, error)
+	WriteToParcel(ctx context.Context, in *RegisterCredentialDescriptionRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type getCredentialResponseServiceClient struct {
+type registerCredentialDescriptionRequestServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewGetCredentialResponseServiceClient(cc grpc.ClientConnInterface) GetCredentialResponseServiceClient {
-	return &getCredentialResponseServiceClient{cc}
+func NewRegisterCredentialDescriptionRequestServiceClient(cc grpc.ClientConnInterface) RegisterCredentialDescriptionRequestServiceClient {
+	return &registerCredentialDescriptionRequestServiceClient{cc}
 }
 
-func (c *getCredentialResponseServiceClient) NewGetCredentialResponse(ctx context.Context, in *NewGetCredentialResponseRequest, opts ...grpc.CallOption) (*NewGetCredentialResponseResponse, error) {
+func (c *registerCredentialDescriptionRequestServiceClient) NewRegisterCredentialDescriptionRequest(ctx context.Context, in *NewRegisterCredentialDescriptionRequestRequest, opts ...grpc.CallOption) (*NewRegisterCredentialDescriptionRequestResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewGetCredentialResponseResponse)
-	err := c.cc.Invoke(ctx, GetCredentialResponseService_NewGetCredentialResponse_FullMethodName, in, out, cOpts...)
+	out := new(NewRegisterCredentialDescriptionRequestResponse)
+	err := c.cc.Invoke(ctx, RegisterCredentialDescriptionRequestService_NewRegisterCredentialDescriptionRequest_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *getCredentialResponseServiceClient) DescribeContents(ctx context.Context, in *GetCredentialResponseDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *registerCredentialDescriptionRequestServiceClient) DescribeContents(ctx context.Context, in *RegisterCredentialDescriptionRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, GetCredentialResponseService_DescribeContents_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, RegisterCredentialDescriptionRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *getCredentialResponseServiceClient) GetCredential(ctx context.Context, in *GetCredentialRequest, opts ...grpc.CallOption) (*GetCredentialResponse, error) {
+func (c *registerCredentialDescriptionRequestServiceClient) GetCredentialDescriptions(ctx context.Context, in *GetCredentialDescriptionsRequest, opts ...grpc.CallOption) (*GetCredentialDescriptionsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCredentialResponse)
-	err := c.cc.Invoke(ctx, GetCredentialResponseService_GetCredential_FullMethodName, in, out, cOpts...)
+	out := new(GetCredentialDescriptionsResponse)
+	err := c.cc.Invoke(ctx, RegisterCredentialDescriptionRequestService_GetCredentialDescriptions_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *getCredentialResponseServiceClient) ToString(ctx context.Context, in *GetCredentialResponseToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, GetCredentialResponseService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *getCredentialResponseServiceClient) WriteToParcel(ctx context.Context, in *GetCredentialResponseWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *registerCredentialDescriptionRequestServiceClient) WriteToParcel(ctx context.Context, in *RegisterCredentialDescriptionRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, GetCredentialResponseService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, RegisterCredentialDescriptionRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// GetCredentialResponseServiceServer is the server API for GetCredentialResponseService service.
-// All implementations must embed UnimplementedGetCredentialResponseServiceServer
+// RegisterCredentialDescriptionRequestServiceServer is the server API for RegisterCredentialDescriptionRequestService service.
+// All implementations must embed UnimplementedRegisterCredentialDescriptionRequestServiceServer
 // for forward compatibility.
-type GetCredentialResponseServiceServer interface {
-	NewGetCredentialResponse(context.Context, *NewGetCredentialResponseRequest) (*NewGetCredentialResponseResponse, error)
-	DescribeContents(context.Context, *GetCredentialResponseDescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetCredential(context.Context, *GetCredentialRequest) (*GetCredentialResponse, error)
-	ToString(context.Context, *GetCredentialResponseToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *GetCredentialResponseWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedGetCredentialResponseServiceServer()
+type RegisterCredentialDescriptionRequestServiceServer interface {
+	NewRegisterCredentialDescriptionRequest(context.Context, *NewRegisterCredentialDescriptionRequestRequest) (*NewRegisterCredentialDescriptionRequestResponse, error)
+	DescribeContents(context.Context, *RegisterCredentialDescriptionRequestDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetCredentialDescriptions(context.Context, *GetCredentialDescriptionsRequest) (*GetCredentialDescriptionsResponse, error)
+	WriteToParcel(context.Context, *RegisterCredentialDescriptionRequestWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedRegisterCredentialDescriptionRequestServiceServer()
 }
 
-// UnimplementedGetCredentialResponseServiceServer must be embedded to have
+// UnimplementedRegisterCredentialDescriptionRequestServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedGetCredentialResponseServiceServer struct{}
+type UnimplementedRegisterCredentialDescriptionRequestServiceServer struct{}
 
-func (UnimplementedGetCredentialResponseServiceServer) NewGetCredentialResponse(context.Context, *NewGetCredentialResponseRequest) (*NewGetCredentialResponseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewGetCredentialResponse not implemented")
+func (UnimplementedRegisterCredentialDescriptionRequestServiceServer) NewRegisterCredentialDescriptionRequest(context.Context, *NewRegisterCredentialDescriptionRequestRequest) (*NewRegisterCredentialDescriptionRequestResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewRegisterCredentialDescriptionRequest not implemented")
 }
-func (UnimplementedGetCredentialResponseServiceServer) DescribeContents(context.Context, *GetCredentialResponseDescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedRegisterCredentialDescriptionRequestServiceServer) DescribeContents(context.Context, *RegisterCredentialDescriptionRequestDescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedGetCredentialResponseServiceServer) GetCredential(context.Context, *GetCredentialRequest) (*GetCredentialResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCredential not implemented")
+func (UnimplementedRegisterCredentialDescriptionRequestServiceServer) GetCredentialDescriptions(context.Context, *GetCredentialDescriptionsRequest) (*GetCredentialDescriptionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCredentialDescriptions not implemented")
 }
-func (UnimplementedGetCredentialResponseServiceServer) ToString(context.Context, *GetCredentialResponseToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedGetCredentialResponseServiceServer) WriteToParcel(context.Context, *GetCredentialResponseWriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedRegisterCredentialDescriptionRequestServiceServer) WriteToParcel(context.Context, *RegisterCredentialDescriptionRequestWriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedGetCredentialResponseServiceServer) mustEmbedUnimplementedGetCredentialResponseServiceServer() {
+func (UnimplementedRegisterCredentialDescriptionRequestServiceServer) mustEmbedUnimplementedRegisterCredentialDescriptionRequestServiceServer() {
 }
-func (UnimplementedGetCredentialResponseServiceServer) testEmbeddedByValue() {}
+func (UnimplementedRegisterCredentialDescriptionRequestServiceServer) testEmbeddedByValue() {}
 
-// UnsafeGetCredentialResponseServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to GetCredentialResponseServiceServer will
+// UnsafeRegisterCredentialDescriptionRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RegisterCredentialDescriptionRequestServiceServer will
 // result in compilation errors.
-type UnsafeGetCredentialResponseServiceServer interface {
-	mustEmbedUnimplementedGetCredentialResponseServiceServer()
+type UnsafeRegisterCredentialDescriptionRequestServiceServer interface {
+	mustEmbedUnimplementedRegisterCredentialDescriptionRequestServiceServer()
 }
 
-func RegisterGetCredentialResponseServiceServer(s grpc.ServiceRegistrar, srv GetCredentialResponseServiceServer) {
-	// If the following call panics, it indicates UnimplementedGetCredentialResponseServiceServer was
+func RegisterRegisterCredentialDescriptionRequestServiceServer(s grpc.ServiceRegistrar, srv RegisterCredentialDescriptionRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedRegisterCredentialDescriptionRequestServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&GetCredentialResponseService_ServiceDesc, srv)
+	s.RegisterService(&RegisterCredentialDescriptionRequestService_ServiceDesc, srv)
 }
 
-func _GetCredentialResponseService_NewGetCredentialResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewGetCredentialResponseRequest)
+func _RegisterCredentialDescriptionRequestService_NewRegisterCredentialDescriptionRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewRegisterCredentialDescriptionRequestRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(GetCredentialResponseServiceServer).NewGetCredentialResponse(ctx, in)
+		return srv.(RegisterCredentialDescriptionRequestServiceServer).NewRegisterCredentialDescriptionRequest(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: GetCredentialResponseService_NewGetCredentialResponse_FullMethodName,
+		FullMethod: RegisterCredentialDescriptionRequestService_NewRegisterCredentialDescriptionRequest_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GetCredentialResponseServiceServer).NewGetCredentialResponse(ctx, req.(*NewGetCredentialResponseRequest))
+		return srv.(RegisterCredentialDescriptionRequestServiceServer).NewRegisterCredentialDescriptionRequest(ctx, req.(*NewRegisterCredentialDescriptionRequestRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _GetCredentialResponseService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCredentialResponseDescribeContentsRequest)
+func _RegisterCredentialDescriptionRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterCredentialDescriptionRequestDescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(GetCredentialResponseServiceServer).DescribeContents(ctx, in)
+		return srv.(RegisterCredentialDescriptionRequestServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: GetCredentialResponseService_DescribeContents_FullMethodName,
+		FullMethod: RegisterCredentialDescriptionRequestService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GetCredentialResponseServiceServer).DescribeContents(ctx, req.(*GetCredentialResponseDescribeContentsRequest))
+		return srv.(RegisterCredentialDescriptionRequestServiceServer).DescribeContents(ctx, req.(*RegisterCredentialDescriptionRequestDescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _GetCredentialResponseService_GetCredential_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCredentialRequest)
+func _RegisterCredentialDescriptionRequestService_GetCredentialDescriptions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCredentialDescriptionsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(GetCredentialResponseServiceServer).GetCredential(ctx, in)
+		return srv.(RegisterCredentialDescriptionRequestServiceServer).GetCredentialDescriptions(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: GetCredentialResponseService_GetCredential_FullMethodName,
+		FullMethod: RegisterCredentialDescriptionRequestService_GetCredentialDescriptions_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GetCredentialResponseServiceServer).GetCredential(ctx, req.(*GetCredentialRequest))
+		return srv.(RegisterCredentialDescriptionRequestServiceServer).GetCredentialDescriptions(ctx, req.(*GetCredentialDescriptionsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _GetCredentialResponseService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCredentialResponseToStringRequest)
+func _RegisterCredentialDescriptionRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterCredentialDescriptionRequestWriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(GetCredentialResponseServiceServer).ToString(ctx, in)
+		return srv.(RegisterCredentialDescriptionRequestServiceServer).WriteToParcel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: GetCredentialResponseService_ToString_FullMethodName,
+		FullMethod: RegisterCredentialDescriptionRequestService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GetCredentialResponseServiceServer).ToString(ctx, req.(*GetCredentialResponseToStringRequest))
+		return srv.(RegisterCredentialDescriptionRequestServiceServer).WriteToParcel(ctx, req.(*RegisterCredentialDescriptionRequestWriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _GetCredentialResponseService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCredentialResponseWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GetCredentialResponseServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: GetCredentialResponseService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GetCredentialResponseServiceServer).WriteToParcel(ctx, req.(*GetCredentialResponseWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// GetCredentialResponseService_ServiceDesc is the grpc.ServiceDesc for GetCredentialResponseService service.
+// RegisterCredentialDescriptionRequestService_ServiceDesc is the grpc.ServiceDesc for RegisterCredentialDescriptionRequestService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var GetCredentialResponseService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "credentials.GetCredentialResponseService",
-	HandlerType: (*GetCredentialResponseServiceServer)(nil),
+var RegisterCredentialDescriptionRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "credentials.RegisterCredentialDescriptionRequestService",
+	HandlerType: (*RegisterCredentialDescriptionRequestServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewGetCredentialResponse",
-			Handler:    _GetCredentialResponseService_NewGetCredentialResponse_Handler,
+			MethodName: "NewRegisterCredentialDescriptionRequest",
+			Handler:    _RegisterCredentialDescriptionRequestService_NewRegisterCredentialDescriptionRequest_Handler,
 		},
 		{
 			MethodName: "DescribeContents",
-			Handler:    _GetCredentialResponseService_DescribeContents_Handler,
+			Handler:    _RegisterCredentialDescriptionRequestService_DescribeContents_Handler,
 		},
 		{
-			MethodName: "GetCredential",
-			Handler:    _GetCredentialResponseService_GetCredential_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _GetCredentialResponseService_ToString_Handler,
+			MethodName: "GetCredentialDescriptions",
+			Handler:    _RegisterCredentialDescriptionRequestService_GetCredentialDescriptions_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _GetCredentialResponseService_WriteToParcel_Handler,
+			Handler:    _RegisterCredentialDescriptionRequestService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -3335,330 +2239,520 @@ var GetCredentialResponseService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	CredentialOptionService_DescribeContents_FullMethodName           = "/credentials.CredentialOptionService/DescribeContents"
-	CredentialOptionService_GetCandidateQueryData_FullMethodName      = "/credentials.CredentialOptionService/GetCandidateQueryData"
-	CredentialOptionService_GetCredentialRetrievalData_FullMethodName = "/credentials.CredentialOptionService/GetCredentialRetrievalData"
-	CredentialOptionService_GetType_FullMethodName                    = "/credentials.CredentialOptionService/GetType"
-	CredentialOptionService_IsSystemProviderRequired_FullMethodName   = "/credentials.CredentialOptionService/IsSystemProviderRequired"
-	CredentialOptionService_ToString_FullMethodName                   = "/credentials.CredentialOptionService/ToString"
-	CredentialOptionService_WriteToParcel_FullMethodName              = "/credentials.CredentialOptionService/WriteToParcel"
+	CreateCredentialRequestService_AlwaysSendAppInfoToProvider_FullMethodName = "/credentials.CreateCredentialRequestService/AlwaysSendAppInfoToProvider"
+	CreateCredentialRequestService_DescribeContents_FullMethodName            = "/credentials.CreateCredentialRequestService/DescribeContents"
+	CreateCredentialRequestService_GetCandidateQueryData_FullMethodName       = "/credentials.CreateCredentialRequestService/GetCandidateQueryData"
+	CreateCredentialRequestService_GetCredentialData_FullMethodName           = "/credentials.CreateCredentialRequestService/GetCredentialData"
+	CreateCredentialRequestService_GetOrigin_FullMethodName                   = "/credentials.CreateCredentialRequestService/GetOrigin"
+	CreateCredentialRequestService_GetType_FullMethodName                     = "/credentials.CreateCredentialRequestService/GetType"
+	CreateCredentialRequestService_IsSystemProviderRequired_FullMethodName    = "/credentials.CreateCredentialRequestService/IsSystemProviderRequired"
+	CreateCredentialRequestService_ToString_FullMethodName                    = "/credentials.CreateCredentialRequestService/ToString"
+	CreateCredentialRequestService_WriteToParcel_FullMethodName               = "/credentials.CreateCredentialRequestService/WriteToParcel"
+	CreateCredentialRequestService_NewCreateCredentialRequest_FullMethodName  = "/credentials.CreateCredentialRequestService/NewCreateCredentialRequest"
+	CreateCredentialRequestService_GetCallingAppInfo_FullMethodName           = "/credentials.CreateCredentialRequestService/GetCallingAppInfo"
+	CreateCredentialRequestService_GetData_FullMethodName                     = "/credentials.CreateCredentialRequestService/GetData"
 )
 
-// CredentialOptionServiceClient is the client API for CredentialOptionService service.
+// CreateCredentialRequestServiceClient is the client API for CreateCredentialRequestService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CredentialOptionServiceClient interface {
+type CreateCredentialRequestServiceClient interface {
+	AlwaysSendAppInfoToProvider(ctx context.Context, in *AlwaysSendAppInfoToProviderRequest, opts ...grpc.CallOption) (*AlwaysSendAppInfoToProviderResponse, error)
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	GetCandidateQueryData(ctx context.Context, in *GetCandidateQueryDataRequest, opts ...grpc.CallOption) (*GetCandidateQueryDataResponse, error)
-	GetCredentialRetrievalData(ctx context.Context, in *GetCredentialRetrievalDataRequest, opts ...grpc.CallOption) (*GetCredentialRetrievalDataResponse, error)
-	GetType(ctx context.Context, in *CredentialOptionGetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
+	GetCredentialData(ctx context.Context, in *GetCredentialDataRequest, opts ...grpc.CallOption) (*GetCredentialDataResponse, error)
+	GetOrigin(ctx context.Context, in *GetOriginRequest, opts ...grpc.CallOption) (*GetOriginResponse, error)
+	GetType(ctx context.Context, in *CreateCredentialRequestGetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
 	IsSystemProviderRequired(ctx context.Context, in *IsSystemProviderRequiredRequest, opts ...grpc.CallOption) (*IsSystemProviderRequiredResponse, error)
 	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
 	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	NewCreateCredentialRequest(ctx context.Context, in *NewCreateCredentialRequestRequest, opts ...grpc.CallOption) (*NewCreateCredentialRequestResponse, error)
+	GetCallingAppInfo(ctx context.Context, in *GetCallingAppInfoRequest, opts ...grpc.CallOption) (*GetCallingAppInfoResponse, error)
+	GetData(ctx context.Context, in *BeginCreateCredentialRequestGetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error)
 }
 
-type credentialOptionServiceClient struct {
+type createCredentialRequestServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewCredentialOptionServiceClient(cc grpc.ClientConnInterface) CredentialOptionServiceClient {
-	return &credentialOptionServiceClient{cc}
+func NewCreateCredentialRequestServiceClient(cc grpc.ClientConnInterface) CreateCredentialRequestServiceClient {
+	return &createCredentialRequestServiceClient{cc}
 }
 
-func (c *credentialOptionServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *createCredentialRequestServiceClient) AlwaysSendAppInfoToProvider(ctx context.Context, in *AlwaysSendAppInfoToProviderRequest, opts ...grpc.CallOption) (*AlwaysSendAppInfoToProviderResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AlwaysSendAppInfoToProviderResponse)
+	err := c.cc.Invoke(ctx, CreateCredentialRequestService_AlwaysSendAppInfoToProvider_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *createCredentialRequestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, CredentialOptionService_DescribeContents_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, CreateCredentialRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *credentialOptionServiceClient) GetCandidateQueryData(ctx context.Context, in *GetCandidateQueryDataRequest, opts ...grpc.CallOption) (*GetCandidateQueryDataResponse, error) {
+func (c *createCredentialRequestServiceClient) GetCandidateQueryData(ctx context.Context, in *GetCandidateQueryDataRequest, opts ...grpc.CallOption) (*GetCandidateQueryDataResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetCandidateQueryDataResponse)
-	err := c.cc.Invoke(ctx, CredentialOptionService_GetCandidateQueryData_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, CreateCredentialRequestService_GetCandidateQueryData_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *credentialOptionServiceClient) GetCredentialRetrievalData(ctx context.Context, in *GetCredentialRetrievalDataRequest, opts ...grpc.CallOption) (*GetCredentialRetrievalDataResponse, error) {
+func (c *createCredentialRequestServiceClient) GetCredentialData(ctx context.Context, in *GetCredentialDataRequest, opts ...grpc.CallOption) (*GetCredentialDataResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCredentialRetrievalDataResponse)
-	err := c.cc.Invoke(ctx, CredentialOptionService_GetCredentialRetrievalData_FullMethodName, in, out, cOpts...)
+	out := new(GetCredentialDataResponse)
+	err := c.cc.Invoke(ctx, CreateCredentialRequestService_GetCredentialData_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *credentialOptionServiceClient) GetType(ctx context.Context, in *CredentialOptionGetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
+func (c *createCredentialRequestServiceClient) GetOrigin(ctx context.Context, in *GetOriginRequest, opts ...grpc.CallOption) (*GetOriginResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOriginResponse)
+	err := c.cc.Invoke(ctx, CreateCredentialRequestService_GetOrigin_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *createCredentialRequestServiceClient) GetType(ctx context.Context, in *CreateCredentialRequestGetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetTypeResponse)
-	err := c.cc.Invoke(ctx, CredentialOptionService_GetType_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, CreateCredentialRequestService_GetType_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *credentialOptionServiceClient) IsSystemProviderRequired(ctx context.Context, in *IsSystemProviderRequiredRequest, opts ...grpc.CallOption) (*IsSystemProviderRequiredResponse, error) {
+func (c *createCredentialRequestServiceClient) IsSystemProviderRequired(ctx context.Context, in *IsSystemProviderRequiredRequest, opts ...grpc.CallOption) (*IsSystemProviderRequiredResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(IsSystemProviderRequiredResponse)
-	err := c.cc.Invoke(ctx, CredentialOptionService_IsSystemProviderRequired_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, CreateCredentialRequestService_IsSystemProviderRequired_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *credentialOptionServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+func (c *createCredentialRequestServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, CredentialOptionService_ToString_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, CreateCredentialRequestService_ToString_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *credentialOptionServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *createCredentialRequestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, CredentialOptionService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, CreateCredentialRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// CredentialOptionServiceServer is the server API for CredentialOptionService service.
-// All implementations must embed UnimplementedCredentialOptionServiceServer
+func (c *createCredentialRequestServiceClient) NewCreateCredentialRequest(ctx context.Context, in *NewCreateCredentialRequestRequest, opts ...grpc.CallOption) (*NewCreateCredentialRequestResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewCreateCredentialRequestResponse)
+	err := c.cc.Invoke(ctx, CreateCredentialRequestService_NewCreateCredentialRequest_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *createCredentialRequestServiceClient) GetCallingAppInfo(ctx context.Context, in *GetCallingAppInfoRequest, opts ...grpc.CallOption) (*GetCallingAppInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCallingAppInfoResponse)
+	err := c.cc.Invoke(ctx, CreateCredentialRequestService_GetCallingAppInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *createCredentialRequestServiceClient) GetData(ctx context.Context, in *BeginCreateCredentialRequestGetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDataResponse)
+	err := c.cc.Invoke(ctx, CreateCredentialRequestService_GetData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CreateCredentialRequestServiceServer is the server API for CreateCredentialRequestService service.
+// All implementations must embed UnimplementedCreateCredentialRequestServiceServer
 // for forward compatibility.
-type CredentialOptionServiceServer interface {
+type CreateCredentialRequestServiceServer interface {
+	AlwaysSendAppInfoToProvider(context.Context, *AlwaysSendAppInfoToProviderRequest) (*AlwaysSendAppInfoToProviderResponse, error)
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
 	GetCandidateQueryData(context.Context, *GetCandidateQueryDataRequest) (*GetCandidateQueryDataResponse, error)
-	GetCredentialRetrievalData(context.Context, *GetCredentialRetrievalDataRequest) (*GetCredentialRetrievalDataResponse, error)
-	GetType(context.Context, *CredentialOptionGetTypeRequest) (*GetTypeResponse, error)
+	GetCredentialData(context.Context, *GetCredentialDataRequest) (*GetCredentialDataResponse, error)
+	GetOrigin(context.Context, *GetOriginRequest) (*GetOriginResponse, error)
+	GetType(context.Context, *CreateCredentialRequestGetTypeRequest) (*GetTypeResponse, error)
 	IsSystemProviderRequired(context.Context, *IsSystemProviderRequiredRequest) (*IsSystemProviderRequiredResponse, error)
 	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
 	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedCredentialOptionServiceServer()
+	NewCreateCredentialRequest(context.Context, *NewCreateCredentialRequestRequest) (*NewCreateCredentialRequestResponse, error)
+	GetCallingAppInfo(context.Context, *GetCallingAppInfoRequest) (*GetCallingAppInfoResponse, error)
+	GetData(context.Context, *BeginCreateCredentialRequestGetDataRequest) (*GetDataResponse, error)
+	mustEmbedUnimplementedCreateCredentialRequestServiceServer()
 }
 
-// UnimplementedCredentialOptionServiceServer must be embedded to have
+// UnimplementedCreateCredentialRequestServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedCredentialOptionServiceServer struct{}
+type UnimplementedCreateCredentialRequestServiceServer struct{}
 
-func (UnimplementedCredentialOptionServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedCreateCredentialRequestServiceServer) AlwaysSendAppInfoToProvider(context.Context, *AlwaysSendAppInfoToProviderRequest) (*AlwaysSendAppInfoToProviderResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AlwaysSendAppInfoToProvider not implemented")
+}
+func (UnimplementedCreateCredentialRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedCredentialOptionServiceServer) GetCandidateQueryData(context.Context, *GetCandidateQueryDataRequest) (*GetCandidateQueryDataResponse, error) {
+func (UnimplementedCreateCredentialRequestServiceServer) GetCandidateQueryData(context.Context, *GetCandidateQueryDataRequest) (*GetCandidateQueryDataResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetCandidateQueryData not implemented")
 }
-func (UnimplementedCredentialOptionServiceServer) GetCredentialRetrievalData(context.Context, *GetCredentialRetrievalDataRequest) (*GetCredentialRetrievalDataResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCredentialRetrievalData not implemented")
+func (UnimplementedCreateCredentialRequestServiceServer) GetCredentialData(context.Context, *GetCredentialDataRequest) (*GetCredentialDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCredentialData not implemented")
 }
-func (UnimplementedCredentialOptionServiceServer) GetType(context.Context, *CredentialOptionGetTypeRequest) (*GetTypeResponse, error) {
+func (UnimplementedCreateCredentialRequestServiceServer) GetOrigin(context.Context, *GetOriginRequest) (*GetOriginResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOrigin not implemented")
+}
+func (UnimplementedCreateCredentialRequestServiceServer) GetType(context.Context, *CreateCredentialRequestGetTypeRequest) (*GetTypeResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
 }
-func (UnimplementedCredentialOptionServiceServer) IsSystemProviderRequired(context.Context, *IsSystemProviderRequiredRequest) (*IsSystemProviderRequiredResponse, error) {
+func (UnimplementedCreateCredentialRequestServiceServer) IsSystemProviderRequired(context.Context, *IsSystemProviderRequiredRequest) (*IsSystemProviderRequiredResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsSystemProviderRequired not implemented")
 }
-func (UnimplementedCredentialOptionServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+func (UnimplementedCreateCredentialRequestServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedCredentialOptionServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedCreateCredentialRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedCredentialOptionServiceServer) mustEmbedUnimplementedCredentialOptionServiceServer() {
+func (UnimplementedCreateCredentialRequestServiceServer) NewCreateCredentialRequest(context.Context, *NewCreateCredentialRequestRequest) (*NewCreateCredentialRequestResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewCreateCredentialRequest not implemented")
 }
-func (UnimplementedCredentialOptionServiceServer) testEmbeddedByValue() {}
+func (UnimplementedCreateCredentialRequestServiceServer) GetCallingAppInfo(context.Context, *GetCallingAppInfoRequest) (*GetCallingAppInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCallingAppInfo not implemented")
+}
+func (UnimplementedCreateCredentialRequestServiceServer) GetData(context.Context, *BeginCreateCredentialRequestGetDataRequest) (*GetDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetData not implemented")
+}
+func (UnimplementedCreateCredentialRequestServiceServer) mustEmbedUnimplementedCreateCredentialRequestServiceServer() {
+}
+func (UnimplementedCreateCredentialRequestServiceServer) testEmbeddedByValue() {}
 
-// UnsafeCredentialOptionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CredentialOptionServiceServer will
+// UnsafeCreateCredentialRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CreateCredentialRequestServiceServer will
 // result in compilation errors.
-type UnsafeCredentialOptionServiceServer interface {
-	mustEmbedUnimplementedCredentialOptionServiceServer()
+type UnsafeCreateCredentialRequestServiceServer interface {
+	mustEmbedUnimplementedCreateCredentialRequestServiceServer()
 }
 
-func RegisterCredentialOptionServiceServer(s grpc.ServiceRegistrar, srv CredentialOptionServiceServer) {
-	// If the following call panics, it indicates UnimplementedCredentialOptionServiceServer was
+func RegisterCreateCredentialRequestServiceServer(s grpc.ServiceRegistrar, srv CreateCredentialRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedCreateCredentialRequestServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&CredentialOptionService_ServiceDesc, srv)
+	s.RegisterService(&CreateCredentialRequestService_ServiceDesc, srv)
 }
 
-func _CredentialOptionService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _CreateCredentialRequestService_AlwaysSendAppInfoToProvider_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AlwaysSendAppInfoToProviderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CreateCredentialRequestServiceServer).AlwaysSendAppInfoToProvider(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CreateCredentialRequestService_AlwaysSendAppInfoToProvider_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CreateCredentialRequestServiceServer).AlwaysSendAppInfoToProvider(ctx, req.(*AlwaysSendAppInfoToProviderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CreateCredentialRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CredentialOptionServiceServer).DescribeContents(ctx, in)
+		return srv.(CreateCredentialRequestServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CredentialOptionService_DescribeContents_FullMethodName,
+		FullMethod: CreateCredentialRequestService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialOptionServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(CreateCredentialRequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CredentialOptionService_GetCandidateQueryData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _CreateCredentialRequestService_GetCandidateQueryData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetCandidateQueryDataRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CredentialOptionServiceServer).GetCandidateQueryData(ctx, in)
+		return srv.(CreateCredentialRequestServiceServer).GetCandidateQueryData(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CredentialOptionService_GetCandidateQueryData_FullMethodName,
+		FullMethod: CreateCredentialRequestService_GetCandidateQueryData_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialOptionServiceServer).GetCandidateQueryData(ctx, req.(*GetCandidateQueryDataRequest))
+		return srv.(CreateCredentialRequestServiceServer).GetCandidateQueryData(ctx, req.(*GetCandidateQueryDataRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CredentialOptionService_GetCredentialRetrievalData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCredentialRetrievalDataRequest)
+func _CreateCredentialRequestService_GetCredentialData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCredentialDataRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CredentialOptionServiceServer).GetCredentialRetrievalData(ctx, in)
+		return srv.(CreateCredentialRequestServiceServer).GetCredentialData(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CredentialOptionService_GetCredentialRetrievalData_FullMethodName,
+		FullMethod: CreateCredentialRequestService_GetCredentialData_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialOptionServiceServer).GetCredentialRetrievalData(ctx, req.(*GetCredentialRetrievalDataRequest))
+		return srv.(CreateCredentialRequestServiceServer).GetCredentialData(ctx, req.(*GetCredentialDataRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CredentialOptionService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CredentialOptionGetTypeRequest)
+func _CreateCredentialRequestService_GetOrigin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOriginRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CredentialOptionServiceServer).GetType(ctx, in)
+		return srv.(CreateCredentialRequestServiceServer).GetOrigin(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CredentialOptionService_GetType_FullMethodName,
+		FullMethod: CreateCredentialRequestService_GetOrigin_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialOptionServiceServer).GetType(ctx, req.(*CredentialOptionGetTypeRequest))
+		return srv.(CreateCredentialRequestServiceServer).GetOrigin(ctx, req.(*GetOriginRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CredentialOptionService_IsSystemProviderRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _CreateCredentialRequestService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateCredentialRequestGetTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CreateCredentialRequestServiceServer).GetType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CreateCredentialRequestService_GetType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CreateCredentialRequestServiceServer).GetType(ctx, req.(*CreateCredentialRequestGetTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CreateCredentialRequestService_IsSystemProviderRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsSystemProviderRequiredRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CredentialOptionServiceServer).IsSystemProviderRequired(ctx, in)
+		return srv.(CreateCredentialRequestServiceServer).IsSystemProviderRequired(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CredentialOptionService_IsSystemProviderRequired_FullMethodName,
+		FullMethod: CreateCredentialRequestService_IsSystemProviderRequired_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialOptionServiceServer).IsSystemProviderRequired(ctx, req.(*IsSystemProviderRequiredRequest))
+		return srv.(CreateCredentialRequestServiceServer).IsSystemProviderRequired(ctx, req.(*IsSystemProviderRequiredRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CredentialOptionService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _CreateCredentialRequestService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CredentialOptionServiceServer).ToString(ctx, in)
+		return srv.(CreateCredentialRequestServiceServer).ToString(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CredentialOptionService_ToString_FullMethodName,
+		FullMethod: CreateCredentialRequestService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialOptionServiceServer).ToString(ctx, req.(*ToStringRequest))
+		return srv.(CreateCredentialRequestServiceServer).ToString(ctx, req.(*ToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CredentialOptionService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _CreateCredentialRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CredentialOptionServiceServer).WriteToParcel(ctx, in)
+		return srv.(CreateCredentialRequestServiceServer).WriteToParcel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CredentialOptionService_WriteToParcel_FullMethodName,
+		FullMethod: CreateCredentialRequestService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialOptionServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(CreateCredentialRequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// CredentialOptionService_ServiceDesc is the grpc.ServiceDesc for CredentialOptionService service.
+func _CreateCredentialRequestService_NewCreateCredentialRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewCreateCredentialRequestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CreateCredentialRequestServiceServer).NewCreateCredentialRequest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CreateCredentialRequestService_NewCreateCredentialRequest_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CreateCredentialRequestServiceServer).NewCreateCredentialRequest(ctx, req.(*NewCreateCredentialRequestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CreateCredentialRequestService_GetCallingAppInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCallingAppInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CreateCredentialRequestServiceServer).GetCallingAppInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CreateCredentialRequestService_GetCallingAppInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CreateCredentialRequestServiceServer).GetCallingAppInfo(ctx, req.(*GetCallingAppInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CreateCredentialRequestService_GetData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BeginCreateCredentialRequestGetDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CreateCredentialRequestServiceServer).GetData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CreateCredentialRequestService_GetData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CreateCredentialRequestServiceServer).GetData(ctx, req.(*BeginCreateCredentialRequestGetDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CreateCredentialRequestService_ServiceDesc is the grpc.ServiceDesc for CreateCredentialRequestService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var CredentialOptionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "credentials.CredentialOptionService",
-	HandlerType: (*CredentialOptionServiceServer)(nil),
+var CreateCredentialRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "credentials.CreateCredentialRequestService",
+	HandlerType: (*CreateCredentialRequestServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
+			MethodName: "AlwaysSendAppInfoToProvider",
+			Handler:    _CreateCredentialRequestService_AlwaysSendAppInfoToProvider_Handler,
+		},
+		{
 			MethodName: "DescribeContents",
-			Handler:    _CredentialOptionService_DescribeContents_Handler,
+			Handler:    _CreateCredentialRequestService_DescribeContents_Handler,
 		},
 		{
 			MethodName: "GetCandidateQueryData",
-			Handler:    _CredentialOptionService_GetCandidateQueryData_Handler,
+			Handler:    _CreateCredentialRequestService_GetCandidateQueryData_Handler,
 		},
 		{
-			MethodName: "GetCredentialRetrievalData",
-			Handler:    _CredentialOptionService_GetCredentialRetrievalData_Handler,
+			MethodName: "GetCredentialData",
+			Handler:    _CreateCredentialRequestService_GetCredentialData_Handler,
+		},
+		{
+			MethodName: "GetOrigin",
+			Handler:    _CreateCredentialRequestService_GetOrigin_Handler,
 		},
 		{
 			MethodName: "GetType",
-			Handler:    _CredentialOptionService_GetType_Handler,
+			Handler:    _CreateCredentialRequestService_GetType_Handler,
 		},
 		{
 			MethodName: "IsSystemProviderRequired",
-			Handler:    _CredentialOptionService_IsSystemProviderRequired_Handler,
+			Handler:    _CreateCredentialRequestService_IsSystemProviderRequired_Handler,
 		},
 		{
 			MethodName: "ToString",
-			Handler:    _CredentialOptionService_ToString_Handler,
+			Handler:    _CreateCredentialRequestService_ToString_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _CredentialOptionService_WriteToParcel_Handler,
+			Handler:    _CreateCredentialRequestService_WriteToParcel_Handler,
+		},
+		{
+			MethodName: "NewCreateCredentialRequest",
+			Handler:    _CreateCredentialRequestService_NewCreateCredentialRequest_Handler,
+		},
+		{
+			MethodName: "GetCallingAppInfo",
+			Handler:    _CreateCredentialRequestService_GetCallingAppInfo_Handler,
+		},
+		{
+			MethodName: "GetData",
+			Handler:    _CreateCredentialRequestService_GetData_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -3666,178 +2760,216 @@ var CredentialOptionService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	CredentialOptionBuilderService_AddAllowedProvider_FullMethodName          = "/credentials.CredentialOptionBuilderService/AddAllowedProvider"
-	CredentialOptionBuilderService_Build_FullMethodName                       = "/credentials.CredentialOptionBuilderService/Build"
-	CredentialOptionBuilderService_SetIsSystemProviderRequired_FullMethodName = "/credentials.CredentialOptionBuilderService/SetIsSystemProviderRequired"
+	CreateCredentialRequestBuilderService_Build_FullMethodName                          = "/credentials.CreateCredentialRequestBuilderService/Build"
+	CreateCredentialRequestBuilderService_SetAlwaysSendAppInfoToProvider_FullMethodName = "/credentials.CreateCredentialRequestBuilderService/SetAlwaysSendAppInfoToProvider"
+	CreateCredentialRequestBuilderService_SetIsSystemProviderRequired_FullMethodName    = "/credentials.CreateCredentialRequestBuilderService/SetIsSystemProviderRequired"
+	CreateCredentialRequestBuilderService_SetOrigin_FullMethodName                      = "/credentials.CreateCredentialRequestBuilderService/SetOrigin"
 )
 
-// CredentialOptionBuilderServiceClient is the client API for CredentialOptionBuilderService service.
+// CreateCredentialRequestBuilderServiceClient is the client API for CreateCredentialRequestBuilderService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CredentialOptionBuilderServiceClient interface {
-	AddAllowedProvider(ctx context.Context, in *AddAllowedProviderRequest, opts ...grpc.CallOption) (*AddAllowedProviderResponse, error)
+type CreateCredentialRequestBuilderServiceClient interface {
 	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetAlwaysSendAppInfoToProvider(ctx context.Context, in *SetAlwaysSendAppInfoToProviderRequest, opts ...grpc.CallOption) (*SetAlwaysSendAppInfoToProviderResponse, error)
 	SetIsSystemProviderRequired(ctx context.Context, in *SetIsSystemProviderRequiredRequest, opts ...grpc.CallOption) (*SetIsSystemProviderRequiredResponse, error)
+	SetOrigin(ctx context.Context, in *SetOriginRequest, opts ...grpc.CallOption) (*SetOriginResponse, error)
 }
 
-type credentialOptionBuilderServiceClient struct {
+type createCredentialRequestBuilderServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewCredentialOptionBuilderServiceClient(cc grpc.ClientConnInterface) CredentialOptionBuilderServiceClient {
-	return &credentialOptionBuilderServiceClient{cc}
+func NewCreateCredentialRequestBuilderServiceClient(cc grpc.ClientConnInterface) CreateCredentialRequestBuilderServiceClient {
+	return &createCredentialRequestBuilderServiceClient{cc}
 }
 
-func (c *credentialOptionBuilderServiceClient) AddAllowedProvider(ctx context.Context, in *AddAllowedProviderRequest, opts ...grpc.CallOption) (*AddAllowedProviderResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddAllowedProviderResponse)
-	err := c.cc.Invoke(ctx, CredentialOptionBuilderService_AddAllowedProvider_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *credentialOptionBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+func (c *createCredentialRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, CredentialOptionBuilderService_Build_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, CreateCredentialRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *credentialOptionBuilderServiceClient) SetIsSystemProviderRequired(ctx context.Context, in *SetIsSystemProviderRequiredRequest, opts ...grpc.CallOption) (*SetIsSystemProviderRequiredResponse, error) {
+func (c *createCredentialRequestBuilderServiceClient) SetAlwaysSendAppInfoToProvider(ctx context.Context, in *SetAlwaysSendAppInfoToProviderRequest, opts ...grpc.CallOption) (*SetAlwaysSendAppInfoToProviderResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetAlwaysSendAppInfoToProviderResponse)
+	err := c.cc.Invoke(ctx, CreateCredentialRequestBuilderService_SetAlwaysSendAppInfoToProvider_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *createCredentialRequestBuilderServiceClient) SetIsSystemProviderRequired(ctx context.Context, in *SetIsSystemProviderRequiredRequest, opts ...grpc.CallOption) (*SetIsSystemProviderRequiredResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(SetIsSystemProviderRequiredResponse)
-	err := c.cc.Invoke(ctx, CredentialOptionBuilderService_SetIsSystemProviderRequired_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, CreateCredentialRequestBuilderService_SetIsSystemProviderRequired_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// CredentialOptionBuilderServiceServer is the server API for CredentialOptionBuilderService service.
-// All implementations must embed UnimplementedCredentialOptionBuilderServiceServer
-// for forward compatibility.
-type CredentialOptionBuilderServiceServer interface {
-	AddAllowedProvider(context.Context, *AddAllowedProviderRequest) (*AddAllowedProviderResponse, error)
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetIsSystemProviderRequired(context.Context, *SetIsSystemProviderRequiredRequest) (*SetIsSystemProviderRequiredResponse, error)
-	mustEmbedUnimplementedCredentialOptionBuilderServiceServer()
+func (c *createCredentialRequestBuilderServiceClient) SetOrigin(ctx context.Context, in *SetOriginRequest, opts ...grpc.CallOption) (*SetOriginResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetOriginResponse)
+	err := c.cc.Invoke(ctx, CreateCredentialRequestBuilderService_SetOrigin_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
-// UnimplementedCredentialOptionBuilderServiceServer must be embedded to have
+// CreateCredentialRequestBuilderServiceServer is the server API for CreateCredentialRequestBuilderService service.
+// All implementations must embed UnimplementedCreateCredentialRequestBuilderServiceServer
+// for forward compatibility.
+type CreateCredentialRequestBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetAlwaysSendAppInfoToProvider(context.Context, *SetAlwaysSendAppInfoToProviderRequest) (*SetAlwaysSendAppInfoToProviderResponse, error)
+	SetIsSystemProviderRequired(context.Context, *SetIsSystemProviderRequiredRequest) (*SetIsSystemProviderRequiredResponse, error)
+	SetOrigin(context.Context, *SetOriginRequest) (*SetOriginResponse, error)
+	mustEmbedUnimplementedCreateCredentialRequestBuilderServiceServer()
+}
+
+// UnimplementedCreateCredentialRequestBuilderServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedCredentialOptionBuilderServiceServer struct{}
+type UnimplementedCreateCredentialRequestBuilderServiceServer struct{}
 
-func (UnimplementedCredentialOptionBuilderServiceServer) AddAllowedProvider(context.Context, *AddAllowedProviderRequest) (*AddAllowedProviderResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddAllowedProvider not implemented")
-}
-func (UnimplementedCredentialOptionBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+func (UnimplementedCreateCredentialRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
 }
-func (UnimplementedCredentialOptionBuilderServiceServer) SetIsSystemProviderRequired(context.Context, *SetIsSystemProviderRequiredRequest) (*SetIsSystemProviderRequiredResponse, error) {
+func (UnimplementedCreateCredentialRequestBuilderServiceServer) SetAlwaysSendAppInfoToProvider(context.Context, *SetAlwaysSendAppInfoToProviderRequest) (*SetAlwaysSendAppInfoToProviderResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAlwaysSendAppInfoToProvider not implemented")
+}
+func (UnimplementedCreateCredentialRequestBuilderServiceServer) SetIsSystemProviderRequired(context.Context, *SetIsSystemProviderRequiredRequest) (*SetIsSystemProviderRequiredResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetIsSystemProviderRequired not implemented")
 }
-func (UnimplementedCredentialOptionBuilderServiceServer) mustEmbedUnimplementedCredentialOptionBuilderServiceServer() {
+func (UnimplementedCreateCredentialRequestBuilderServiceServer) SetOrigin(context.Context, *SetOriginRequest) (*SetOriginResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetOrigin not implemented")
 }
-func (UnimplementedCredentialOptionBuilderServiceServer) testEmbeddedByValue() {}
+func (UnimplementedCreateCredentialRequestBuilderServiceServer) mustEmbedUnimplementedCreateCredentialRequestBuilderServiceServer() {
+}
+func (UnimplementedCreateCredentialRequestBuilderServiceServer) testEmbeddedByValue() {}
 
-// UnsafeCredentialOptionBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CredentialOptionBuilderServiceServer will
+// UnsafeCreateCredentialRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CreateCredentialRequestBuilderServiceServer will
 // result in compilation errors.
-type UnsafeCredentialOptionBuilderServiceServer interface {
-	mustEmbedUnimplementedCredentialOptionBuilderServiceServer()
+type UnsafeCreateCredentialRequestBuilderServiceServer interface {
+	mustEmbedUnimplementedCreateCredentialRequestBuilderServiceServer()
 }
 
-func RegisterCredentialOptionBuilderServiceServer(s grpc.ServiceRegistrar, srv CredentialOptionBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedCredentialOptionBuilderServiceServer was
+func RegisterCreateCredentialRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv CreateCredentialRequestBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedCreateCredentialRequestBuilderServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&CredentialOptionBuilderService_ServiceDesc, srv)
+	s.RegisterService(&CreateCredentialRequestBuilderService_ServiceDesc, srv)
 }
 
-func _CredentialOptionBuilderService_AddAllowedProvider_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddAllowedProviderRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CredentialOptionBuilderServiceServer).AddAllowedProvider(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CredentialOptionBuilderService_AddAllowedProvider_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialOptionBuilderServiceServer).AddAllowedProvider(ctx, req.(*AddAllowedProviderRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CredentialOptionBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _CreateCredentialRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(BuildRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CredentialOptionBuilderServiceServer).Build(ctx, in)
+		return srv.(CreateCredentialRequestBuilderServiceServer).Build(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CredentialOptionBuilderService_Build_FullMethodName,
+		FullMethod: CreateCredentialRequestBuilderService_Build_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialOptionBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+		return srv.(CreateCredentialRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CredentialOptionBuilderService_SetIsSystemProviderRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _CreateCredentialRequestBuilderService_SetAlwaysSendAppInfoToProvider_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAlwaysSendAppInfoToProviderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CreateCredentialRequestBuilderServiceServer).SetAlwaysSendAppInfoToProvider(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CreateCredentialRequestBuilderService_SetAlwaysSendAppInfoToProvider_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CreateCredentialRequestBuilderServiceServer).SetAlwaysSendAppInfoToProvider(ctx, req.(*SetAlwaysSendAppInfoToProviderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CreateCredentialRequestBuilderService_SetIsSystemProviderRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SetIsSystemProviderRequiredRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CredentialOptionBuilderServiceServer).SetIsSystemProviderRequired(ctx, in)
+		return srv.(CreateCredentialRequestBuilderServiceServer).SetIsSystemProviderRequired(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CredentialOptionBuilderService_SetIsSystemProviderRequired_FullMethodName,
+		FullMethod: CreateCredentialRequestBuilderService_SetIsSystemProviderRequired_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialOptionBuilderServiceServer).SetIsSystemProviderRequired(ctx, req.(*SetIsSystemProviderRequiredRequest))
+		return srv.(CreateCredentialRequestBuilderServiceServer).SetIsSystemProviderRequired(ctx, req.(*SetIsSystemProviderRequiredRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// CredentialOptionBuilderService_ServiceDesc is the grpc.ServiceDesc for CredentialOptionBuilderService service.
+func _CreateCredentialRequestBuilderService_SetOrigin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetOriginRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CreateCredentialRequestBuilderServiceServer).SetOrigin(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CreateCredentialRequestBuilderService_SetOrigin_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CreateCredentialRequestBuilderServiceServer).SetOrigin(ctx, req.(*SetOriginRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CreateCredentialRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for CreateCredentialRequestBuilderService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var CredentialOptionBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "credentials.CredentialOptionBuilderService",
-	HandlerType: (*CredentialOptionBuilderServiceServer)(nil),
+var CreateCredentialRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "credentials.CreateCredentialRequestBuilderService",
+	HandlerType: (*CreateCredentialRequestBuilderServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "AddAllowedProvider",
-			Handler:    _CredentialOptionBuilderService_AddAllowedProvider_Handler,
+			MethodName: "Build",
+			Handler:    _CreateCredentialRequestBuilderService_Build_Handler,
 		},
 		{
-			MethodName: "Build",
-			Handler:    _CredentialOptionBuilderService_Build_Handler,
+			MethodName: "SetAlwaysSendAppInfoToProvider",
+			Handler:    _CreateCredentialRequestBuilderService_SetAlwaysSendAppInfoToProvider_Handler,
 		},
 		{
 			MethodName: "SetIsSystemProviderRequired",
-			Handler:    _CredentialOptionBuilderService_SetIsSystemProviderRequired_Handler,
+			Handler:    _CreateCredentialRequestBuilderService_SetIsSystemProviderRequired_Handler,
+		},
+		{
+			MethodName: "SetOrigin",
+			Handler:    _CreateCredentialRequestBuilderService_SetOrigin_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -3845,178 +2977,509 @@ var CredentialOptionBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	UnregisterCredentialDescriptionRequestService_NewUnregisterCredentialDescriptionRequest_FullMethodName = "/credentials.UnregisterCredentialDescriptionRequestService/NewUnregisterCredentialDescriptionRequest"
-	UnregisterCredentialDescriptionRequestService_DescribeContents_FullMethodName                          = "/credentials.UnregisterCredentialDescriptionRequestService/DescribeContents"
-	UnregisterCredentialDescriptionRequestService_WriteToParcel_FullMethodName                             = "/credentials.UnregisterCredentialDescriptionRequestService/WriteToParcel"
+	CreateCredentialExceptionService_NewCreateCredentialException_FullMethodName = "/credentials.CreateCredentialExceptionService/NewCreateCredentialException"
+	CreateCredentialExceptionService_GetType_FullMethodName                      = "/credentials.CreateCredentialExceptionService/GetType"
 )
 
-// UnregisterCredentialDescriptionRequestServiceClient is the client API for UnregisterCredentialDescriptionRequestService service.
+// CreateCredentialExceptionServiceClient is the client API for CreateCredentialExceptionService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type UnregisterCredentialDescriptionRequestServiceClient interface {
-	NewUnregisterCredentialDescriptionRequest(ctx context.Context, in *NewUnregisterCredentialDescriptionRequestRequest, opts ...grpc.CallOption) (*NewUnregisterCredentialDescriptionRequestResponse, error)
-	DescribeContents(ctx context.Context, in *UnregisterCredentialDescriptionRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	WriteToParcel(ctx context.Context, in *UnregisterCredentialDescriptionRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+type CreateCredentialExceptionServiceClient interface {
+	NewCreateCredentialException(ctx context.Context, in *NewCreateCredentialExceptionRequest, opts ...grpc.CallOption) (*NewCreateCredentialExceptionResponse, error)
+	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
 }
 
-type unregisterCredentialDescriptionRequestServiceClient struct {
+type createCredentialExceptionServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewUnregisterCredentialDescriptionRequestServiceClient(cc grpc.ClientConnInterface) UnregisterCredentialDescriptionRequestServiceClient {
-	return &unregisterCredentialDescriptionRequestServiceClient{cc}
+func NewCreateCredentialExceptionServiceClient(cc grpc.ClientConnInterface) CreateCredentialExceptionServiceClient {
+	return &createCredentialExceptionServiceClient{cc}
 }
 
-func (c *unregisterCredentialDescriptionRequestServiceClient) NewUnregisterCredentialDescriptionRequest(ctx context.Context, in *NewUnregisterCredentialDescriptionRequestRequest, opts ...grpc.CallOption) (*NewUnregisterCredentialDescriptionRequestResponse, error) {
+func (c *createCredentialExceptionServiceClient) NewCreateCredentialException(ctx context.Context, in *NewCreateCredentialExceptionRequest, opts ...grpc.CallOption) (*NewCreateCredentialExceptionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewUnregisterCredentialDescriptionRequestResponse)
-	err := c.cc.Invoke(ctx, UnregisterCredentialDescriptionRequestService_NewUnregisterCredentialDescriptionRequest_FullMethodName, in, out, cOpts...)
+	out := new(NewCreateCredentialExceptionResponse)
+	err := c.cc.Invoke(ctx, CreateCredentialExceptionService_NewCreateCredentialException_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *unregisterCredentialDescriptionRequestServiceClient) DescribeContents(ctx context.Context, in *UnregisterCredentialDescriptionRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *createCredentialExceptionServiceClient) GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, UnregisterCredentialDescriptionRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
+	out := new(GetTypeResponse)
+	err := c.cc.Invoke(ctx, CreateCredentialExceptionService_GetType_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *unregisterCredentialDescriptionRequestServiceClient) WriteToParcel(ctx context.Context, in *UnregisterCredentialDescriptionRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, UnregisterCredentialDescriptionRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// UnregisterCredentialDescriptionRequestServiceServer is the server API for UnregisterCredentialDescriptionRequestService service.
-// All implementations must embed UnimplementedUnregisterCredentialDescriptionRequestServiceServer
+// CreateCredentialExceptionServiceServer is the server API for CreateCredentialExceptionService service.
+// All implementations must embed UnimplementedCreateCredentialExceptionServiceServer
 // for forward compatibility.
-type UnregisterCredentialDescriptionRequestServiceServer interface {
-	NewUnregisterCredentialDescriptionRequest(context.Context, *NewUnregisterCredentialDescriptionRequestRequest) (*NewUnregisterCredentialDescriptionRequestResponse, error)
-	DescribeContents(context.Context, *UnregisterCredentialDescriptionRequestDescribeContentsRequest) (*DescribeContentsResponse, error)
-	WriteToParcel(context.Context, *UnregisterCredentialDescriptionRequestWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedUnregisterCredentialDescriptionRequestServiceServer()
+type CreateCredentialExceptionServiceServer interface {
+	NewCreateCredentialException(context.Context, *NewCreateCredentialExceptionRequest) (*NewCreateCredentialExceptionResponse, error)
+	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
+	mustEmbedUnimplementedCreateCredentialExceptionServiceServer()
 }
 
-// UnimplementedUnregisterCredentialDescriptionRequestServiceServer must be embedded to have
+// UnimplementedCreateCredentialExceptionServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedUnregisterCredentialDescriptionRequestServiceServer struct{}
+type UnimplementedCreateCredentialExceptionServiceServer struct{}
 
-func (UnimplementedUnregisterCredentialDescriptionRequestServiceServer) NewUnregisterCredentialDescriptionRequest(context.Context, *NewUnregisterCredentialDescriptionRequestRequest) (*NewUnregisterCredentialDescriptionRequestResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewUnregisterCredentialDescriptionRequest not implemented")
+func (UnimplementedCreateCredentialExceptionServiceServer) NewCreateCredentialException(context.Context, *NewCreateCredentialExceptionRequest) (*NewCreateCredentialExceptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewCreateCredentialException not implemented")
 }
-func (UnimplementedUnregisterCredentialDescriptionRequestServiceServer) DescribeContents(context.Context, *UnregisterCredentialDescriptionRequestDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+func (UnimplementedCreateCredentialExceptionServiceServer) GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
 }
-func (UnimplementedUnregisterCredentialDescriptionRequestServiceServer) WriteToParcel(context.Context, *UnregisterCredentialDescriptionRequestWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+func (UnimplementedCreateCredentialExceptionServiceServer) mustEmbedUnimplementedCreateCredentialExceptionServiceServer() {
 }
-func (UnimplementedUnregisterCredentialDescriptionRequestServiceServer) mustEmbedUnimplementedUnregisterCredentialDescriptionRequestServiceServer() {
-}
-func (UnimplementedUnregisterCredentialDescriptionRequestServiceServer) testEmbeddedByValue() {}
+func (UnimplementedCreateCredentialExceptionServiceServer) testEmbeddedByValue() {}
 
-// UnsafeUnregisterCredentialDescriptionRequestServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to UnregisterCredentialDescriptionRequestServiceServer will
+// UnsafeCreateCredentialExceptionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CreateCredentialExceptionServiceServer will
 // result in compilation errors.
-type UnsafeUnregisterCredentialDescriptionRequestServiceServer interface {
-	mustEmbedUnimplementedUnregisterCredentialDescriptionRequestServiceServer()
+type UnsafeCreateCredentialExceptionServiceServer interface {
+	mustEmbedUnimplementedCreateCredentialExceptionServiceServer()
 }
 
-func RegisterUnregisterCredentialDescriptionRequestServiceServer(s grpc.ServiceRegistrar, srv UnregisterCredentialDescriptionRequestServiceServer) {
-	// If the following call panics, it indicates UnimplementedUnregisterCredentialDescriptionRequestServiceServer was
+func RegisterCreateCredentialExceptionServiceServer(s grpc.ServiceRegistrar, srv CreateCredentialExceptionServiceServer) {
+	// If the following call panics, it indicates UnimplementedCreateCredentialExceptionServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&UnregisterCredentialDescriptionRequestService_ServiceDesc, srv)
+	s.RegisterService(&CreateCredentialExceptionService_ServiceDesc, srv)
 }
 
-func _UnregisterCredentialDescriptionRequestService_NewUnregisterCredentialDescriptionRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewUnregisterCredentialDescriptionRequestRequest)
+func _CreateCredentialExceptionService_NewCreateCredentialException_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewCreateCredentialExceptionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UnregisterCredentialDescriptionRequestServiceServer).NewUnregisterCredentialDescriptionRequest(ctx, in)
+		return srv.(CreateCredentialExceptionServiceServer).NewCreateCredentialException(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UnregisterCredentialDescriptionRequestService_NewUnregisterCredentialDescriptionRequest_FullMethodName,
+		FullMethod: CreateCredentialExceptionService_NewCreateCredentialException_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UnregisterCredentialDescriptionRequestServiceServer).NewUnregisterCredentialDescriptionRequest(ctx, req.(*NewUnregisterCredentialDescriptionRequestRequest))
+		return srv.(CreateCredentialExceptionServiceServer).NewCreateCredentialException(ctx, req.(*NewCreateCredentialExceptionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UnregisterCredentialDescriptionRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnregisterCredentialDescriptionRequestDescribeContentsRequest)
+func _CreateCredentialExceptionService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTypeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UnregisterCredentialDescriptionRequestServiceServer).DescribeContents(ctx, in)
+		return srv.(CreateCredentialExceptionServiceServer).GetType(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UnregisterCredentialDescriptionRequestService_DescribeContents_FullMethodName,
+		FullMethod: CreateCredentialExceptionService_GetType_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UnregisterCredentialDescriptionRequestServiceServer).DescribeContents(ctx, req.(*UnregisterCredentialDescriptionRequestDescribeContentsRequest))
+		return srv.(CreateCredentialExceptionServiceServer).GetType(ctx, req.(*GetTypeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UnregisterCredentialDescriptionRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnregisterCredentialDescriptionRequestWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UnregisterCredentialDescriptionRequestServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UnregisterCredentialDescriptionRequestService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UnregisterCredentialDescriptionRequestServiceServer).WriteToParcel(ctx, req.(*UnregisterCredentialDescriptionRequestWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// UnregisterCredentialDescriptionRequestService_ServiceDesc is the grpc.ServiceDesc for UnregisterCredentialDescriptionRequestService service.
+// CreateCredentialExceptionService_ServiceDesc is the grpc.ServiceDesc for CreateCredentialExceptionService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var UnregisterCredentialDescriptionRequestService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "credentials.UnregisterCredentialDescriptionRequestService",
-	HandlerType: (*UnregisterCredentialDescriptionRequestServiceServer)(nil),
+var CreateCredentialExceptionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "credentials.CreateCredentialExceptionService",
+	HandlerType: (*CreateCredentialExceptionServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewUnregisterCredentialDescriptionRequest",
-			Handler:    _UnregisterCredentialDescriptionRequestService_NewUnregisterCredentialDescriptionRequest_Handler,
+			MethodName: "NewCreateCredentialException",
+			Handler:    _CreateCredentialExceptionService_NewCreateCredentialException_Handler,
+		},
+		{
+			MethodName: "GetType",
+			Handler:    _CreateCredentialExceptionService_GetType_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/credentials/credentials.proto",
+}
+
+const (
+	CredentialDescriptionService_NewCredentialDescription_FullMethodName = "/credentials.CredentialDescriptionService/NewCredentialDescription"
+	CredentialDescriptionService_DescribeContents_FullMethodName         = "/credentials.CredentialDescriptionService/DescribeContents"
+	CredentialDescriptionService_Equals_FullMethodName                   = "/credentials.CredentialDescriptionService/Equals"
+	CredentialDescriptionService_GetCredentialEntries_FullMethodName     = "/credentials.CredentialDescriptionService/GetCredentialEntries"
+	CredentialDescriptionService_GetSupportedElementKeys_FullMethodName  = "/credentials.CredentialDescriptionService/GetSupportedElementKeys"
+	CredentialDescriptionService_GetType_FullMethodName                  = "/credentials.CredentialDescriptionService/GetType"
+	CredentialDescriptionService_HashCode_FullMethodName                 = "/credentials.CredentialDescriptionService/HashCode"
+	CredentialDescriptionService_WriteToParcel_FullMethodName            = "/credentials.CredentialDescriptionService/WriteToParcel"
+)
+
+// CredentialDescriptionServiceClient is the client API for CredentialDescriptionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CredentialDescriptionServiceClient interface {
+	NewCredentialDescription(ctx context.Context, in *NewCredentialDescriptionRequest, opts ...grpc.CallOption) (*NewCredentialDescriptionResponse, error)
+	DescribeContents(ctx context.Context, in *CredentialDescriptionDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetCredentialEntries(ctx context.Context, in *GetCredentialEntriesRequest, opts ...grpc.CallOption) (*GetCredentialEntriesResponse, error)
+	GetSupportedElementKeys(ctx context.Context, in *GetSupportedElementKeysRequest, opts ...grpc.CallOption) (*GetSupportedElementKeysResponse, error)
+	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	WriteToParcel(ctx context.Context, in *CredentialDescriptionWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type credentialDescriptionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCredentialDescriptionServiceClient(cc grpc.ClientConnInterface) CredentialDescriptionServiceClient {
+	return &credentialDescriptionServiceClient{cc}
+}
+
+func (c *credentialDescriptionServiceClient) NewCredentialDescription(ctx context.Context, in *NewCredentialDescriptionRequest, opts ...grpc.CallOption) (*NewCredentialDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewCredentialDescriptionResponse)
+	err := c.cc.Invoke(ctx, CredentialDescriptionService_NewCredentialDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialDescriptionServiceClient) DescribeContents(ctx context.Context, in *CredentialDescriptionDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, CredentialDescriptionService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialDescriptionServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, CredentialDescriptionService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialDescriptionServiceClient) GetCredentialEntries(ctx context.Context, in *GetCredentialEntriesRequest, opts ...grpc.CallOption) (*GetCredentialEntriesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCredentialEntriesResponse)
+	err := c.cc.Invoke(ctx, CredentialDescriptionService_GetCredentialEntries_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialDescriptionServiceClient) GetSupportedElementKeys(ctx context.Context, in *GetSupportedElementKeysRequest, opts ...grpc.CallOption) (*GetSupportedElementKeysResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedElementKeysResponse)
+	err := c.cc.Invoke(ctx, CredentialDescriptionService_GetSupportedElementKeys_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialDescriptionServiceClient) GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTypeResponse)
+	err := c.cc.Invoke(ctx, CredentialDescriptionService_GetType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialDescriptionServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, CredentialDescriptionService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialDescriptionServiceClient) WriteToParcel(ctx context.Context, in *CredentialDescriptionWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, CredentialDescriptionService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CredentialDescriptionServiceServer is the server API for CredentialDescriptionService service.
+// All implementations must embed UnimplementedCredentialDescriptionServiceServer
+// for forward compatibility.
+type CredentialDescriptionServiceServer interface {
+	NewCredentialDescription(context.Context, *NewCredentialDescriptionRequest) (*NewCredentialDescriptionResponse, error)
+	DescribeContents(context.Context, *CredentialDescriptionDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetCredentialEntries(context.Context, *GetCredentialEntriesRequest) (*GetCredentialEntriesResponse, error)
+	GetSupportedElementKeys(context.Context, *GetSupportedElementKeysRequest) (*GetSupportedElementKeysResponse, error)
+	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	WriteToParcel(context.Context, *CredentialDescriptionWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedCredentialDescriptionServiceServer()
+}
+
+// UnimplementedCredentialDescriptionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCredentialDescriptionServiceServer struct{}
+
+func (UnimplementedCredentialDescriptionServiceServer) NewCredentialDescription(context.Context, *NewCredentialDescriptionRequest) (*NewCredentialDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewCredentialDescription not implemented")
+}
+func (UnimplementedCredentialDescriptionServiceServer) DescribeContents(context.Context, *CredentialDescriptionDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedCredentialDescriptionServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedCredentialDescriptionServiceServer) GetCredentialEntries(context.Context, *GetCredentialEntriesRequest) (*GetCredentialEntriesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCredentialEntries not implemented")
+}
+func (UnimplementedCredentialDescriptionServiceServer) GetSupportedElementKeys(context.Context, *GetSupportedElementKeysRequest) (*GetSupportedElementKeysResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedElementKeys not implemented")
+}
+func (UnimplementedCredentialDescriptionServiceServer) GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
+}
+func (UnimplementedCredentialDescriptionServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedCredentialDescriptionServiceServer) WriteToParcel(context.Context, *CredentialDescriptionWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedCredentialDescriptionServiceServer) mustEmbedUnimplementedCredentialDescriptionServiceServer() {
+}
+func (UnimplementedCredentialDescriptionServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCredentialDescriptionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CredentialDescriptionServiceServer will
+// result in compilation errors.
+type UnsafeCredentialDescriptionServiceServer interface {
+	mustEmbedUnimplementedCredentialDescriptionServiceServer()
+}
+
+func RegisterCredentialDescriptionServiceServer(s grpc.ServiceRegistrar, srv CredentialDescriptionServiceServer) {
+	// If the following call panics, it indicates UnimplementedCredentialDescriptionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CredentialDescriptionService_ServiceDesc, srv)
+}
+
+func _CredentialDescriptionService_NewCredentialDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewCredentialDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialDescriptionServiceServer).NewCredentialDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialDescriptionService_NewCredentialDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialDescriptionServiceServer).NewCredentialDescription(ctx, req.(*NewCredentialDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialDescriptionService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CredentialDescriptionDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialDescriptionServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialDescriptionService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialDescriptionServiceServer).DescribeContents(ctx, req.(*CredentialDescriptionDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialDescriptionService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialDescriptionServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialDescriptionService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialDescriptionServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialDescriptionService_GetCredentialEntries_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCredentialEntriesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialDescriptionServiceServer).GetCredentialEntries(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialDescriptionService_GetCredentialEntries_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialDescriptionServiceServer).GetCredentialEntries(ctx, req.(*GetCredentialEntriesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialDescriptionService_GetSupportedElementKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedElementKeysRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialDescriptionServiceServer).GetSupportedElementKeys(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialDescriptionService_GetSupportedElementKeys_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialDescriptionServiceServer).GetSupportedElementKeys(ctx, req.(*GetSupportedElementKeysRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialDescriptionService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialDescriptionServiceServer).GetType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialDescriptionService_GetType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialDescriptionServiceServer).GetType(ctx, req.(*GetTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialDescriptionService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialDescriptionServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialDescriptionService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialDescriptionServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialDescriptionService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CredentialDescriptionWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialDescriptionServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialDescriptionService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialDescriptionServiceServer).WriteToParcel(ctx, req.(*CredentialDescriptionWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CredentialDescriptionService_ServiceDesc is the grpc.ServiceDesc for CredentialDescriptionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CredentialDescriptionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "credentials.CredentialDescriptionService",
+	HandlerType: (*CredentialDescriptionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewCredentialDescription",
+			Handler:    _CredentialDescriptionService_NewCredentialDescription_Handler,
 		},
 		{
 			MethodName: "DescribeContents",
-			Handler:    _UnregisterCredentialDescriptionRequestService_DescribeContents_Handler,
+			Handler:    _CredentialDescriptionService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _CredentialDescriptionService_Equals_Handler,
+		},
+		{
+			MethodName: "GetCredentialEntries",
+			Handler:    _CredentialDescriptionService_GetCredentialEntries_Handler,
+		},
+		{
+			MethodName: "GetSupportedElementKeys",
+			Handler:    _CredentialDescriptionService_GetSupportedElementKeys_Handler,
+		},
+		{
+			MethodName: "GetType",
+			Handler:    _CredentialDescriptionService_GetType_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _CredentialDescriptionService_HashCode_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _UnregisterCredentialDescriptionRequestService_WriteToParcel_Handler,
+			Handler:    _CredentialDescriptionService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -4420,980 +3883,585 @@ var GetCredentialExceptionService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	BeginGetCredentialOptionService_NewBeginGetCredentialOption_FullMethodName = "/credentials.BeginGetCredentialOptionService/NewBeginGetCredentialOption"
-	BeginGetCredentialOptionService_DescribeContents_FullMethodName            = "/credentials.BeginGetCredentialOptionService/DescribeContents"
-	BeginGetCredentialOptionService_GetCandidateQueryData_FullMethodName       = "/credentials.BeginGetCredentialOptionService/GetCandidateQueryData"
-	BeginGetCredentialOptionService_GetId_FullMethodName                       = "/credentials.BeginGetCredentialOptionService/GetId"
-	BeginGetCredentialOptionService_GetType_FullMethodName                     = "/credentials.BeginGetCredentialOptionService/GetType"
-	BeginGetCredentialOptionService_ToString_FullMethodName                    = "/credentials.BeginGetCredentialOptionService/ToString"
-	BeginGetCredentialOptionService_WriteToParcel_FullMethodName               = "/credentials.BeginGetCredentialOptionService/WriteToParcel"
+	PrepareGetCredentialResponseService_GetPendingGetCredentialHandle_FullMethodName = "/credentials.PrepareGetCredentialResponseService/GetPendingGetCredentialHandle"
+	PrepareGetCredentialResponseService_HasAuthenticationResults_FullMethodName      = "/credentials.PrepareGetCredentialResponseService/HasAuthenticationResults"
+	PrepareGetCredentialResponseService_HasCredentialResults_FullMethodName          = "/credentials.PrepareGetCredentialResponseService/HasCredentialResults"
+	PrepareGetCredentialResponseService_HasRemoteResults_FullMethodName              = "/credentials.PrepareGetCredentialResponseService/HasRemoteResults"
 )
 
-// BeginGetCredentialOptionServiceClient is the client API for BeginGetCredentialOptionService service.
+// PrepareGetCredentialResponseServiceClient is the client API for PrepareGetCredentialResponseService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type BeginGetCredentialOptionServiceClient interface {
-	NewBeginGetCredentialOption(ctx context.Context, in *NewBeginGetCredentialOptionRequest, opts ...grpc.CallOption) (*NewBeginGetCredentialOptionResponse, error)
-	DescribeContents(ctx context.Context, in *CreateCredentialRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetCandidateQueryData(ctx context.Context, in *BeginGetCredentialOptionGetCandidateQueryDataRequest, opts ...grpc.CallOption) (*GetCandidateQueryDataResponse, error)
-	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
-	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
-	ToString(ctx context.Context, in *BeginGetCredentialOptionToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *CreateCredentialRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+type PrepareGetCredentialResponseServiceClient interface {
+	GetPendingGetCredentialHandle(ctx context.Context, in *GetPendingGetCredentialHandleRequest, opts ...grpc.CallOption) (*GetPendingGetCredentialHandleResponse, error)
+	HasAuthenticationResults(ctx context.Context, in *HasAuthenticationResultsRequest, opts ...grpc.CallOption) (*HasAuthenticationResultsResponse, error)
+	HasCredentialResults(ctx context.Context, in *HasCredentialResultsRequest, opts ...grpc.CallOption) (*HasCredentialResultsResponse, error)
+	HasRemoteResults(ctx context.Context, in *HasRemoteResultsRequest, opts ...grpc.CallOption) (*HasRemoteResultsResponse, error)
 }
 
-type beginGetCredentialOptionServiceClient struct {
+type prepareGetCredentialResponseServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewBeginGetCredentialOptionServiceClient(cc grpc.ClientConnInterface) BeginGetCredentialOptionServiceClient {
-	return &beginGetCredentialOptionServiceClient{cc}
+func NewPrepareGetCredentialResponseServiceClient(cc grpc.ClientConnInterface) PrepareGetCredentialResponseServiceClient {
+	return &prepareGetCredentialResponseServiceClient{cc}
 }
 
-func (c *beginGetCredentialOptionServiceClient) NewBeginGetCredentialOption(ctx context.Context, in *NewBeginGetCredentialOptionRequest, opts ...grpc.CallOption) (*NewBeginGetCredentialOptionResponse, error) {
+func (c *prepareGetCredentialResponseServiceClient) GetPendingGetCredentialHandle(ctx context.Context, in *GetPendingGetCredentialHandleRequest, opts ...grpc.CallOption) (*GetPendingGetCredentialHandleResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewBeginGetCredentialOptionResponse)
-	err := c.cc.Invoke(ctx, BeginGetCredentialOptionService_NewBeginGetCredentialOption_FullMethodName, in, out, cOpts...)
+	out := new(GetPendingGetCredentialHandleResponse)
+	err := c.cc.Invoke(ctx, PrepareGetCredentialResponseService_GetPendingGetCredentialHandle_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *beginGetCredentialOptionServiceClient) DescribeContents(ctx context.Context, in *CreateCredentialRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *prepareGetCredentialResponseServiceClient) HasAuthenticationResults(ctx context.Context, in *HasAuthenticationResultsRequest, opts ...grpc.CallOption) (*HasAuthenticationResultsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, BeginGetCredentialOptionService_DescribeContents_FullMethodName, in, out, cOpts...)
+	out := new(HasAuthenticationResultsResponse)
+	err := c.cc.Invoke(ctx, PrepareGetCredentialResponseService_HasAuthenticationResults_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *beginGetCredentialOptionServiceClient) GetCandidateQueryData(ctx context.Context, in *BeginGetCredentialOptionGetCandidateQueryDataRequest, opts ...grpc.CallOption) (*GetCandidateQueryDataResponse, error) {
+func (c *prepareGetCredentialResponseServiceClient) HasCredentialResults(ctx context.Context, in *HasCredentialResultsRequest, opts ...grpc.CallOption) (*HasCredentialResultsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCandidateQueryDataResponse)
-	err := c.cc.Invoke(ctx, BeginGetCredentialOptionService_GetCandidateQueryData_FullMethodName, in, out, cOpts...)
+	out := new(HasCredentialResultsResponse)
+	err := c.cc.Invoke(ctx, PrepareGetCredentialResponseService_HasCredentialResults_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *beginGetCredentialOptionServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
+func (c *prepareGetCredentialResponseServiceClient) HasRemoteResults(ctx context.Context, in *HasRemoteResultsRequest, opts ...grpc.CallOption) (*HasRemoteResultsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIdResponse)
-	err := c.cc.Invoke(ctx, BeginGetCredentialOptionService_GetId_FullMethodName, in, out, cOpts...)
+	out := new(HasRemoteResultsResponse)
+	err := c.cc.Invoke(ctx, PrepareGetCredentialResponseService_HasRemoteResults_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *beginGetCredentialOptionServiceClient) GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTypeResponse)
-	err := c.cc.Invoke(ctx, BeginGetCredentialOptionService_GetType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *beginGetCredentialOptionServiceClient) ToString(ctx context.Context, in *BeginGetCredentialOptionToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, BeginGetCredentialOptionService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *beginGetCredentialOptionServiceClient) WriteToParcel(ctx context.Context, in *CreateCredentialRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, BeginGetCredentialOptionService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// BeginGetCredentialOptionServiceServer is the server API for BeginGetCredentialOptionService service.
-// All implementations must embed UnimplementedBeginGetCredentialOptionServiceServer
+// PrepareGetCredentialResponseServiceServer is the server API for PrepareGetCredentialResponseService service.
+// All implementations must embed UnimplementedPrepareGetCredentialResponseServiceServer
 // for forward compatibility.
-type BeginGetCredentialOptionServiceServer interface {
-	NewBeginGetCredentialOption(context.Context, *NewBeginGetCredentialOptionRequest) (*NewBeginGetCredentialOptionResponse, error)
-	DescribeContents(context.Context, *CreateCredentialRequestDescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetCandidateQueryData(context.Context, *BeginGetCredentialOptionGetCandidateQueryDataRequest) (*GetCandidateQueryDataResponse, error)
-	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
-	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
-	ToString(context.Context, *BeginGetCredentialOptionToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *CreateCredentialRequestWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedBeginGetCredentialOptionServiceServer()
+type PrepareGetCredentialResponseServiceServer interface {
+	GetPendingGetCredentialHandle(context.Context, *GetPendingGetCredentialHandleRequest) (*GetPendingGetCredentialHandleResponse, error)
+	HasAuthenticationResults(context.Context, *HasAuthenticationResultsRequest) (*HasAuthenticationResultsResponse, error)
+	HasCredentialResults(context.Context, *HasCredentialResultsRequest) (*HasCredentialResultsResponse, error)
+	HasRemoteResults(context.Context, *HasRemoteResultsRequest) (*HasRemoteResultsResponse, error)
+	mustEmbedUnimplementedPrepareGetCredentialResponseServiceServer()
 }
 
-// UnimplementedBeginGetCredentialOptionServiceServer must be embedded to have
+// UnimplementedPrepareGetCredentialResponseServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedBeginGetCredentialOptionServiceServer struct{}
+type UnimplementedPrepareGetCredentialResponseServiceServer struct{}
 
-func (UnimplementedBeginGetCredentialOptionServiceServer) NewBeginGetCredentialOption(context.Context, *NewBeginGetCredentialOptionRequest) (*NewBeginGetCredentialOptionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewBeginGetCredentialOption not implemented")
+func (UnimplementedPrepareGetCredentialResponseServiceServer) GetPendingGetCredentialHandle(context.Context, *GetPendingGetCredentialHandleRequest) (*GetPendingGetCredentialHandleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPendingGetCredentialHandle not implemented")
 }
-func (UnimplementedBeginGetCredentialOptionServiceServer) DescribeContents(context.Context, *CreateCredentialRequestDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+func (UnimplementedPrepareGetCredentialResponseServiceServer) HasAuthenticationResults(context.Context, *HasAuthenticationResultsRequest) (*HasAuthenticationResultsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasAuthenticationResults not implemented")
 }
-func (UnimplementedBeginGetCredentialOptionServiceServer) GetCandidateQueryData(context.Context, *BeginGetCredentialOptionGetCandidateQueryDataRequest) (*GetCandidateQueryDataResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCandidateQueryData not implemented")
+func (UnimplementedPrepareGetCredentialResponseServiceServer) HasCredentialResults(context.Context, *HasCredentialResultsRequest) (*HasCredentialResultsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasCredentialResults not implemented")
 }
-func (UnimplementedBeginGetCredentialOptionServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
+func (UnimplementedPrepareGetCredentialResponseServiceServer) HasRemoteResults(context.Context, *HasRemoteResultsRequest) (*HasRemoteResultsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasRemoteResults not implemented")
 }
-func (UnimplementedBeginGetCredentialOptionServiceServer) GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
+func (UnimplementedPrepareGetCredentialResponseServiceServer) mustEmbedUnimplementedPrepareGetCredentialResponseServiceServer() {
 }
-func (UnimplementedBeginGetCredentialOptionServiceServer) ToString(context.Context, *BeginGetCredentialOptionToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedBeginGetCredentialOptionServiceServer) WriteToParcel(context.Context, *CreateCredentialRequestWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedBeginGetCredentialOptionServiceServer) mustEmbedUnimplementedBeginGetCredentialOptionServiceServer() {
-}
-func (UnimplementedBeginGetCredentialOptionServiceServer) testEmbeddedByValue() {}
+func (UnimplementedPrepareGetCredentialResponseServiceServer) testEmbeddedByValue() {}
 
-// UnsafeBeginGetCredentialOptionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to BeginGetCredentialOptionServiceServer will
+// UnsafePrepareGetCredentialResponseServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PrepareGetCredentialResponseServiceServer will
 // result in compilation errors.
-type UnsafeBeginGetCredentialOptionServiceServer interface {
-	mustEmbedUnimplementedBeginGetCredentialOptionServiceServer()
+type UnsafePrepareGetCredentialResponseServiceServer interface {
+	mustEmbedUnimplementedPrepareGetCredentialResponseServiceServer()
 }
 
-func RegisterBeginGetCredentialOptionServiceServer(s grpc.ServiceRegistrar, srv BeginGetCredentialOptionServiceServer) {
-	// If the following call panics, it indicates UnimplementedBeginGetCredentialOptionServiceServer was
+func RegisterPrepareGetCredentialResponseServiceServer(s grpc.ServiceRegistrar, srv PrepareGetCredentialResponseServiceServer) {
+	// If the following call panics, it indicates UnimplementedPrepareGetCredentialResponseServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&BeginGetCredentialOptionService_ServiceDesc, srv)
+	s.RegisterService(&PrepareGetCredentialResponseService_ServiceDesc, srv)
 }
 
-func _BeginGetCredentialOptionService_NewBeginGetCredentialOption_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewBeginGetCredentialOptionRequest)
+func _PrepareGetCredentialResponseService_GetPendingGetCredentialHandle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPendingGetCredentialHandleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BeginGetCredentialOptionServiceServer).NewBeginGetCredentialOption(ctx, in)
+		return srv.(PrepareGetCredentialResponseServiceServer).GetPendingGetCredentialHandle(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BeginGetCredentialOptionService_NewBeginGetCredentialOption_FullMethodName,
+		FullMethod: PrepareGetCredentialResponseService_GetPendingGetCredentialHandle_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BeginGetCredentialOptionServiceServer).NewBeginGetCredentialOption(ctx, req.(*NewBeginGetCredentialOptionRequest))
+		return srv.(PrepareGetCredentialResponseServiceServer).GetPendingGetCredentialHandle(ctx, req.(*GetPendingGetCredentialHandleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BeginGetCredentialOptionService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCredentialRequestDescribeContentsRequest)
+func _PrepareGetCredentialResponseService_HasAuthenticationResults_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasAuthenticationResultsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BeginGetCredentialOptionServiceServer).DescribeContents(ctx, in)
+		return srv.(PrepareGetCredentialResponseServiceServer).HasAuthenticationResults(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BeginGetCredentialOptionService_DescribeContents_FullMethodName,
+		FullMethod: PrepareGetCredentialResponseService_HasAuthenticationResults_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BeginGetCredentialOptionServiceServer).DescribeContents(ctx, req.(*CreateCredentialRequestDescribeContentsRequest))
+		return srv.(PrepareGetCredentialResponseServiceServer).HasAuthenticationResults(ctx, req.(*HasAuthenticationResultsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BeginGetCredentialOptionService_GetCandidateQueryData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BeginGetCredentialOptionGetCandidateQueryDataRequest)
+func _PrepareGetCredentialResponseService_HasCredentialResults_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasCredentialResultsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BeginGetCredentialOptionServiceServer).GetCandidateQueryData(ctx, in)
+		return srv.(PrepareGetCredentialResponseServiceServer).HasCredentialResults(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BeginGetCredentialOptionService_GetCandidateQueryData_FullMethodName,
+		FullMethod: PrepareGetCredentialResponseService_HasCredentialResults_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BeginGetCredentialOptionServiceServer).GetCandidateQueryData(ctx, req.(*BeginGetCredentialOptionGetCandidateQueryDataRequest))
+		return srv.(PrepareGetCredentialResponseServiceServer).HasCredentialResults(ctx, req.(*HasCredentialResultsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BeginGetCredentialOptionService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIdRequest)
+func _PrepareGetCredentialResponseService_HasRemoteResults_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasRemoteResultsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(BeginGetCredentialOptionServiceServer).GetId(ctx, in)
+		return srv.(PrepareGetCredentialResponseServiceServer).HasRemoteResults(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: BeginGetCredentialOptionService_GetId_FullMethodName,
+		FullMethod: PrepareGetCredentialResponseService_HasRemoteResults_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BeginGetCredentialOptionServiceServer).GetId(ctx, req.(*GetIdRequest))
+		return srv.(PrepareGetCredentialResponseServiceServer).HasRemoteResults(ctx, req.(*HasRemoteResultsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _BeginGetCredentialOptionService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BeginGetCredentialOptionServiceServer).GetType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BeginGetCredentialOptionService_GetType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BeginGetCredentialOptionServiceServer).GetType(ctx, req.(*GetTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BeginGetCredentialOptionService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BeginGetCredentialOptionToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BeginGetCredentialOptionServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BeginGetCredentialOptionService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BeginGetCredentialOptionServiceServer).ToString(ctx, req.(*BeginGetCredentialOptionToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BeginGetCredentialOptionService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCredentialRequestWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BeginGetCredentialOptionServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BeginGetCredentialOptionService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BeginGetCredentialOptionServiceServer).WriteToParcel(ctx, req.(*CreateCredentialRequestWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// BeginGetCredentialOptionService_ServiceDesc is the grpc.ServiceDesc for BeginGetCredentialOptionService service.
+// PrepareGetCredentialResponseService_ServiceDesc is the grpc.ServiceDesc for PrepareGetCredentialResponseService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var BeginGetCredentialOptionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "credentials.BeginGetCredentialOptionService",
-	HandlerType: (*BeginGetCredentialOptionServiceServer)(nil),
+var PrepareGetCredentialResponseService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "credentials.PrepareGetCredentialResponseService",
+	HandlerType: (*PrepareGetCredentialResponseServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewBeginGetCredentialOption",
-			Handler:    _BeginGetCredentialOptionService_NewBeginGetCredentialOption_Handler,
+			MethodName: "GetPendingGetCredentialHandle",
+			Handler:    _PrepareGetCredentialResponseService_GetPendingGetCredentialHandle_Handler,
 		},
 		{
+			MethodName: "HasAuthenticationResults",
+			Handler:    _PrepareGetCredentialResponseService_HasAuthenticationResults_Handler,
+		},
+		{
+			MethodName: "HasCredentialResults",
+			Handler:    _PrepareGetCredentialResponseService_HasCredentialResults_Handler,
+		},
+		{
+			MethodName: "HasRemoteResults",
+			Handler:    _PrepareGetCredentialResponseService_HasRemoteResults_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/credentials/credentials.proto",
+}
+
+const (
+	CredentialOptionService_DescribeContents_FullMethodName           = "/credentials.CredentialOptionService/DescribeContents"
+	CredentialOptionService_GetAllowedProviders_FullMethodName        = "/credentials.CredentialOptionService/GetAllowedProviders"
+	CredentialOptionService_GetCandidateQueryData_FullMethodName      = "/credentials.CredentialOptionService/GetCandidateQueryData"
+	CredentialOptionService_GetCredentialRetrievalData_FullMethodName = "/credentials.CredentialOptionService/GetCredentialRetrievalData"
+	CredentialOptionService_GetType_FullMethodName                    = "/credentials.CredentialOptionService/GetType"
+	CredentialOptionService_IsSystemProviderRequired_FullMethodName   = "/credentials.CredentialOptionService/IsSystemProviderRequired"
+	CredentialOptionService_ToString_FullMethodName                   = "/credentials.CredentialOptionService/ToString"
+	CredentialOptionService_WriteToParcel_FullMethodName              = "/credentials.CredentialOptionService/WriteToParcel"
+)
+
+// CredentialOptionServiceClient is the client API for CredentialOptionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CredentialOptionServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetAllowedProviders(ctx context.Context, in *GetAllowedProvidersRequest, opts ...grpc.CallOption) (*GetAllowedProvidersResponse, error)
+	GetCandidateQueryData(ctx context.Context, in *GetCandidateQueryDataRequest, opts ...grpc.CallOption) (*GetCandidateQueryDataResponse, error)
+	GetCredentialRetrievalData(ctx context.Context, in *GetCredentialRetrievalDataRequest, opts ...grpc.CallOption) (*GetCredentialRetrievalDataResponse, error)
+	GetType(ctx context.Context, in *CredentialOptionGetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
+	IsSystemProviderRequired(ctx context.Context, in *IsSystemProviderRequiredRequest, opts ...grpc.CallOption) (*IsSystemProviderRequiredResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type credentialOptionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCredentialOptionServiceClient(cc grpc.ClientConnInterface) CredentialOptionServiceClient {
+	return &credentialOptionServiceClient{cc}
+}
+
+func (c *credentialOptionServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, CredentialOptionService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialOptionServiceClient) GetAllowedProviders(ctx context.Context, in *GetAllowedProvidersRequest, opts ...grpc.CallOption) (*GetAllowedProvidersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAllowedProvidersResponse)
+	err := c.cc.Invoke(ctx, CredentialOptionService_GetAllowedProviders_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialOptionServiceClient) GetCandidateQueryData(ctx context.Context, in *GetCandidateQueryDataRequest, opts ...grpc.CallOption) (*GetCandidateQueryDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCandidateQueryDataResponse)
+	err := c.cc.Invoke(ctx, CredentialOptionService_GetCandidateQueryData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialOptionServiceClient) GetCredentialRetrievalData(ctx context.Context, in *GetCredentialRetrievalDataRequest, opts ...grpc.CallOption) (*GetCredentialRetrievalDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCredentialRetrievalDataResponse)
+	err := c.cc.Invoke(ctx, CredentialOptionService_GetCredentialRetrievalData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialOptionServiceClient) GetType(ctx context.Context, in *CredentialOptionGetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTypeResponse)
+	err := c.cc.Invoke(ctx, CredentialOptionService_GetType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialOptionServiceClient) IsSystemProviderRequired(ctx context.Context, in *IsSystemProviderRequiredRequest, opts ...grpc.CallOption) (*IsSystemProviderRequiredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsSystemProviderRequiredResponse)
+	err := c.cc.Invoke(ctx, CredentialOptionService_IsSystemProviderRequired_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialOptionServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, CredentialOptionService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialOptionServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, CredentialOptionService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CredentialOptionServiceServer is the server API for CredentialOptionService service.
+// All implementations must embed UnimplementedCredentialOptionServiceServer
+// for forward compatibility.
+type CredentialOptionServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetAllowedProviders(context.Context, *GetAllowedProvidersRequest) (*GetAllowedProvidersResponse, error)
+	GetCandidateQueryData(context.Context, *GetCandidateQueryDataRequest) (*GetCandidateQueryDataResponse, error)
+	GetCredentialRetrievalData(context.Context, *GetCredentialRetrievalDataRequest) (*GetCredentialRetrievalDataResponse, error)
+	GetType(context.Context, *CredentialOptionGetTypeRequest) (*GetTypeResponse, error)
+	IsSystemProviderRequired(context.Context, *IsSystemProviderRequiredRequest) (*IsSystemProviderRequiredResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedCredentialOptionServiceServer()
+}
+
+// UnimplementedCredentialOptionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCredentialOptionServiceServer struct{}
+
+func (UnimplementedCredentialOptionServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedCredentialOptionServiceServer) GetAllowedProviders(context.Context, *GetAllowedProvidersRequest) (*GetAllowedProvidersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAllowedProviders not implemented")
+}
+func (UnimplementedCredentialOptionServiceServer) GetCandidateQueryData(context.Context, *GetCandidateQueryDataRequest) (*GetCandidateQueryDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCandidateQueryData not implemented")
+}
+func (UnimplementedCredentialOptionServiceServer) GetCredentialRetrievalData(context.Context, *GetCredentialRetrievalDataRequest) (*GetCredentialRetrievalDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCredentialRetrievalData not implemented")
+}
+func (UnimplementedCredentialOptionServiceServer) GetType(context.Context, *CredentialOptionGetTypeRequest) (*GetTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
+}
+func (UnimplementedCredentialOptionServiceServer) IsSystemProviderRequired(context.Context, *IsSystemProviderRequiredRequest) (*IsSystemProviderRequiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsSystemProviderRequired not implemented")
+}
+func (UnimplementedCredentialOptionServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedCredentialOptionServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedCredentialOptionServiceServer) mustEmbedUnimplementedCredentialOptionServiceServer() {
+}
+func (UnimplementedCredentialOptionServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCredentialOptionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CredentialOptionServiceServer will
+// result in compilation errors.
+type UnsafeCredentialOptionServiceServer interface {
+	mustEmbedUnimplementedCredentialOptionServiceServer()
+}
+
+func RegisterCredentialOptionServiceServer(s grpc.ServiceRegistrar, srv CredentialOptionServiceServer) {
+	// If the following call panics, it indicates UnimplementedCredentialOptionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CredentialOptionService_ServiceDesc, srv)
+}
+
+func _CredentialOptionService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialOptionServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialOptionService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialOptionServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialOptionService_GetAllowedProviders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllowedProvidersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialOptionServiceServer).GetAllowedProviders(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialOptionService_GetAllowedProviders_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialOptionServiceServer).GetAllowedProviders(ctx, req.(*GetAllowedProvidersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialOptionService_GetCandidateQueryData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCandidateQueryDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialOptionServiceServer).GetCandidateQueryData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialOptionService_GetCandidateQueryData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialOptionServiceServer).GetCandidateQueryData(ctx, req.(*GetCandidateQueryDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialOptionService_GetCredentialRetrievalData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCredentialRetrievalDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialOptionServiceServer).GetCredentialRetrievalData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialOptionService_GetCredentialRetrievalData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialOptionServiceServer).GetCredentialRetrievalData(ctx, req.(*GetCredentialRetrievalDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialOptionService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CredentialOptionGetTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialOptionServiceServer).GetType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialOptionService_GetType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialOptionServiceServer).GetType(ctx, req.(*CredentialOptionGetTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialOptionService_IsSystemProviderRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsSystemProviderRequiredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialOptionServiceServer).IsSystemProviderRequired(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialOptionService_IsSystemProviderRequired_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialOptionServiceServer).IsSystemProviderRequired(ctx, req.(*IsSystemProviderRequiredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialOptionService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialOptionServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialOptionService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialOptionServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialOptionService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialOptionServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialOptionService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialOptionServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CredentialOptionService_ServiceDesc is the grpc.ServiceDesc for CredentialOptionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CredentialOptionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "credentials.CredentialOptionService",
+	HandlerType: (*CredentialOptionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
 			MethodName: "DescribeContents",
-			Handler:    _BeginGetCredentialOptionService_DescribeContents_Handler,
+			Handler:    _CredentialOptionService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetAllowedProviders",
+			Handler:    _CredentialOptionService_GetAllowedProviders_Handler,
 		},
 		{
 			MethodName: "GetCandidateQueryData",
-			Handler:    _BeginGetCredentialOptionService_GetCandidateQueryData_Handler,
+			Handler:    _CredentialOptionService_GetCandidateQueryData_Handler,
 		},
 		{
-			MethodName: "GetId",
-			Handler:    _BeginGetCredentialOptionService_GetId_Handler,
-		},
-		{
-			MethodName: "GetType",
-			Handler:    _BeginGetCredentialOptionService_GetType_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _BeginGetCredentialOptionService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _BeginGetCredentialOptionService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/credentials/credentials.proto",
-}
-
-const (
-	CredentialProviderServiceService_OnBind_FullMethodName   = "/credentials.CredentialProviderServiceService/OnBind"
-	CredentialProviderServiceService_OnCreate_FullMethodName = "/credentials.CredentialProviderServiceService/OnCreate"
-)
-
-// CredentialProviderServiceServiceClient is the client API for CredentialProviderServiceService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CredentialProviderServiceServiceClient interface {
-	OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error)
-	OnCreate(ctx context.Context, in *OnCreateRequest, opts ...grpc.CallOption) (*OnCreateResponse, error)
-}
-
-type credentialProviderServiceServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCredentialProviderServiceServiceClient(cc grpc.ClientConnInterface) CredentialProviderServiceServiceClient {
-	return &credentialProviderServiceServiceClient{cc}
-}
-
-func (c *credentialProviderServiceServiceClient) OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnBindResponse)
-	err := c.cc.Invoke(ctx, CredentialProviderServiceService_OnBind_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *credentialProviderServiceServiceClient) OnCreate(ctx context.Context, in *OnCreateRequest, opts ...grpc.CallOption) (*OnCreateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnCreateResponse)
-	err := c.cc.Invoke(ctx, CredentialProviderServiceService_OnCreate_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CredentialProviderServiceServiceServer is the server API for CredentialProviderServiceService service.
-// All implementations must embed UnimplementedCredentialProviderServiceServiceServer
-// for forward compatibility.
-type CredentialProviderServiceServiceServer interface {
-	OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error)
-	OnCreate(context.Context, *OnCreateRequest) (*OnCreateResponse, error)
-	mustEmbedUnimplementedCredentialProviderServiceServiceServer()
-}
-
-// UnimplementedCredentialProviderServiceServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCredentialProviderServiceServiceServer struct{}
-
-func (UnimplementedCredentialProviderServiceServiceServer) OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnBind not implemented")
-}
-func (UnimplementedCredentialProviderServiceServiceServer) OnCreate(context.Context, *OnCreateRequest) (*OnCreateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnCreate not implemented")
-}
-func (UnimplementedCredentialProviderServiceServiceServer) mustEmbedUnimplementedCredentialProviderServiceServiceServer() {
-}
-func (UnimplementedCredentialProviderServiceServiceServer) testEmbeddedByValue() {}
-
-// UnsafeCredentialProviderServiceServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CredentialProviderServiceServiceServer will
-// result in compilation errors.
-type UnsafeCredentialProviderServiceServiceServer interface {
-	mustEmbedUnimplementedCredentialProviderServiceServiceServer()
-}
-
-func RegisterCredentialProviderServiceServiceServer(s grpc.ServiceRegistrar, srv CredentialProviderServiceServiceServer) {
-	// If the following call panics, it indicates UnimplementedCredentialProviderServiceServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CredentialProviderServiceService_ServiceDesc, srv)
-}
-
-func _CredentialProviderServiceService_OnBind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnBindRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CredentialProviderServiceServiceServer).OnBind(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CredentialProviderServiceService_OnBind_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialProviderServiceServiceServer).OnBind(ctx, req.(*OnBindRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CredentialProviderServiceService_OnCreate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnCreateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CredentialProviderServiceServiceServer).OnCreate(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CredentialProviderServiceService_OnCreate_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialProviderServiceServiceServer).OnCreate(ctx, req.(*OnCreateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CredentialProviderServiceService_ServiceDesc is the grpc.ServiceDesc for CredentialProviderServiceService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CredentialProviderServiceService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "credentials.CredentialProviderServiceService",
-	HandlerType: (*CredentialProviderServiceServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnBind",
-			Handler:    _CredentialProviderServiceService_OnBind_Handler,
-		},
-		{
-			MethodName: "OnCreate",
-			Handler:    _CredentialProviderServiceService_OnCreate_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/credentials/credentials.proto",
-}
-
-const (
-	CreateEntryService_NewCreateEntry_FullMethodName   = "/credentials.CreateEntryService/NewCreateEntry"
-	CreateEntryService_DescribeContents_FullMethodName = "/credentials.CreateEntryService/DescribeContents"
-	CreateEntryService_GetSlice_FullMethodName         = "/credentials.CreateEntryService/GetSlice"
-	CreateEntryService_WriteToParcel_FullMethodName    = "/credentials.CreateEntryService/WriteToParcel"
-)
-
-// CreateEntryServiceClient is the client API for CreateEntryService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CreateEntryServiceClient interface {
-	NewCreateEntry(ctx context.Context, in *NewCreateEntryRequest, opts ...grpc.CallOption) (*NewCreateEntryResponse, error)
-	DescribeContents(ctx context.Context, in *CreateCredentialRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetSlice(ctx context.Context, in *GetSliceRequest, opts ...grpc.CallOption) (*GetSliceResponse, error)
-	WriteToParcel(ctx context.Context, in *CreateCredentialRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type createEntryServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCreateEntryServiceClient(cc grpc.ClientConnInterface) CreateEntryServiceClient {
-	return &createEntryServiceClient{cc}
-}
-
-func (c *createEntryServiceClient) NewCreateEntry(ctx context.Context, in *NewCreateEntryRequest, opts ...grpc.CallOption) (*NewCreateEntryResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewCreateEntryResponse)
-	err := c.cc.Invoke(ctx, CreateEntryService_NewCreateEntry_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *createEntryServiceClient) DescribeContents(ctx context.Context, in *CreateCredentialRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, CreateEntryService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *createEntryServiceClient) GetSlice(ctx context.Context, in *GetSliceRequest, opts ...grpc.CallOption) (*GetSliceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSliceResponse)
-	err := c.cc.Invoke(ctx, CreateEntryService_GetSlice_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *createEntryServiceClient) WriteToParcel(ctx context.Context, in *CreateCredentialRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, CreateEntryService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CreateEntryServiceServer is the server API for CreateEntryService service.
-// All implementations must embed UnimplementedCreateEntryServiceServer
-// for forward compatibility.
-type CreateEntryServiceServer interface {
-	NewCreateEntry(context.Context, *NewCreateEntryRequest) (*NewCreateEntryResponse, error)
-	DescribeContents(context.Context, *CreateCredentialRequestDescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetSlice(context.Context, *GetSliceRequest) (*GetSliceResponse, error)
-	WriteToParcel(context.Context, *CreateCredentialRequestWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedCreateEntryServiceServer()
-}
-
-// UnimplementedCreateEntryServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCreateEntryServiceServer struct{}
-
-func (UnimplementedCreateEntryServiceServer) NewCreateEntry(context.Context, *NewCreateEntryRequest) (*NewCreateEntryResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewCreateEntry not implemented")
-}
-func (UnimplementedCreateEntryServiceServer) DescribeContents(context.Context, *CreateCredentialRequestDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedCreateEntryServiceServer) GetSlice(context.Context, *GetSliceRequest) (*GetSliceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSlice not implemented")
-}
-func (UnimplementedCreateEntryServiceServer) WriteToParcel(context.Context, *CreateCredentialRequestWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedCreateEntryServiceServer) mustEmbedUnimplementedCreateEntryServiceServer() {}
-func (UnimplementedCreateEntryServiceServer) testEmbeddedByValue()                            {}
-
-// UnsafeCreateEntryServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CreateEntryServiceServer will
-// result in compilation errors.
-type UnsafeCreateEntryServiceServer interface {
-	mustEmbedUnimplementedCreateEntryServiceServer()
-}
-
-func RegisterCreateEntryServiceServer(s grpc.ServiceRegistrar, srv CreateEntryServiceServer) {
-	// If the following call panics, it indicates UnimplementedCreateEntryServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CreateEntryService_ServiceDesc, srv)
-}
-
-func _CreateEntryService_NewCreateEntry_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewCreateEntryRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateEntryServiceServer).NewCreateEntry(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateEntryService_NewCreateEntry_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateEntryServiceServer).NewCreateEntry(ctx, req.(*NewCreateEntryRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CreateEntryService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCredentialRequestDescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateEntryServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateEntryService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateEntryServiceServer).DescribeContents(ctx, req.(*CreateCredentialRequestDescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CreateEntryService_GetSlice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSliceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateEntryServiceServer).GetSlice(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateEntryService_GetSlice_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateEntryServiceServer).GetSlice(ctx, req.(*GetSliceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CreateEntryService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCredentialRequestWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CreateEntryServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CreateEntryService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CreateEntryServiceServer).WriteToParcel(ctx, req.(*CreateCredentialRequestWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CreateEntryService_ServiceDesc is the grpc.ServiceDesc for CreateEntryService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CreateEntryService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "credentials.CreateEntryService",
-	HandlerType: (*CreateEntryServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewCreateEntry",
-			Handler:    _CreateEntryService_NewCreateEntry_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _CreateEntryService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetSlice",
-			Handler:    _CreateEntryService_GetSlice_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _CreateEntryService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/credentials/credentials.proto",
-}
-
-const (
-	BeginCreateCredentialRequestService_NewBeginCreateCredentialRequest_FullMethodName = "/credentials.BeginCreateCredentialRequestService/NewBeginCreateCredentialRequest"
-	BeginCreateCredentialRequestService_DescribeContents_FullMethodName                = "/credentials.BeginCreateCredentialRequestService/DescribeContents"
-	BeginCreateCredentialRequestService_GetCallingAppInfo_FullMethodName               = "/credentials.BeginCreateCredentialRequestService/GetCallingAppInfo"
-	BeginCreateCredentialRequestService_GetData_FullMethodName                         = "/credentials.BeginCreateCredentialRequestService/GetData"
-	BeginCreateCredentialRequestService_GetType_FullMethodName                         = "/credentials.BeginCreateCredentialRequestService/GetType"
-	BeginCreateCredentialRequestService_WriteToParcel_FullMethodName                   = "/credentials.BeginCreateCredentialRequestService/WriteToParcel"
-)
-
-// BeginCreateCredentialRequestServiceClient is the client API for BeginCreateCredentialRequestService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type BeginCreateCredentialRequestServiceClient interface {
-	NewBeginCreateCredentialRequest(ctx context.Context, in *NewBeginCreateCredentialRequestRequest, opts ...grpc.CallOption) (*NewBeginCreateCredentialRequestResponse, error)
-	DescribeContents(ctx context.Context, in *CreateCredentialRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetCallingAppInfo(ctx context.Context, in *GetCallingAppInfoRequest, opts ...grpc.CallOption) (*GetCallingAppInfoResponse, error)
-	GetData(ctx context.Context, in *CreateCredentialRequestGetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error)
-	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
-	WriteToParcel(ctx context.Context, in *CreateCredentialRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type beginCreateCredentialRequestServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewBeginCreateCredentialRequestServiceClient(cc grpc.ClientConnInterface) BeginCreateCredentialRequestServiceClient {
-	return &beginCreateCredentialRequestServiceClient{cc}
-}
-
-func (c *beginCreateCredentialRequestServiceClient) NewBeginCreateCredentialRequest(ctx context.Context, in *NewBeginCreateCredentialRequestRequest, opts ...grpc.CallOption) (*NewBeginCreateCredentialRequestResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewBeginCreateCredentialRequestResponse)
-	err := c.cc.Invoke(ctx, BeginCreateCredentialRequestService_NewBeginCreateCredentialRequest_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *beginCreateCredentialRequestServiceClient) DescribeContents(ctx context.Context, in *CreateCredentialRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, BeginCreateCredentialRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *beginCreateCredentialRequestServiceClient) GetCallingAppInfo(ctx context.Context, in *GetCallingAppInfoRequest, opts ...grpc.CallOption) (*GetCallingAppInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCallingAppInfoResponse)
-	err := c.cc.Invoke(ctx, BeginCreateCredentialRequestService_GetCallingAppInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *beginCreateCredentialRequestServiceClient) GetData(ctx context.Context, in *CreateCredentialRequestGetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDataResponse)
-	err := c.cc.Invoke(ctx, BeginCreateCredentialRequestService_GetData_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *beginCreateCredentialRequestServiceClient) GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTypeResponse)
-	err := c.cc.Invoke(ctx, BeginCreateCredentialRequestService_GetType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *beginCreateCredentialRequestServiceClient) WriteToParcel(ctx context.Context, in *CreateCredentialRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, BeginCreateCredentialRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// BeginCreateCredentialRequestServiceServer is the server API for BeginCreateCredentialRequestService service.
-// All implementations must embed UnimplementedBeginCreateCredentialRequestServiceServer
-// for forward compatibility.
-type BeginCreateCredentialRequestServiceServer interface {
-	NewBeginCreateCredentialRequest(context.Context, *NewBeginCreateCredentialRequestRequest) (*NewBeginCreateCredentialRequestResponse, error)
-	DescribeContents(context.Context, *CreateCredentialRequestDescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetCallingAppInfo(context.Context, *GetCallingAppInfoRequest) (*GetCallingAppInfoResponse, error)
-	GetData(context.Context, *CreateCredentialRequestGetDataRequest) (*GetDataResponse, error)
-	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
-	WriteToParcel(context.Context, *CreateCredentialRequestWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedBeginCreateCredentialRequestServiceServer()
-}
-
-// UnimplementedBeginCreateCredentialRequestServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedBeginCreateCredentialRequestServiceServer struct{}
-
-func (UnimplementedBeginCreateCredentialRequestServiceServer) NewBeginCreateCredentialRequest(context.Context, *NewBeginCreateCredentialRequestRequest) (*NewBeginCreateCredentialRequestResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewBeginCreateCredentialRequest not implemented")
-}
-func (UnimplementedBeginCreateCredentialRequestServiceServer) DescribeContents(context.Context, *CreateCredentialRequestDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedBeginCreateCredentialRequestServiceServer) GetCallingAppInfo(context.Context, *GetCallingAppInfoRequest) (*GetCallingAppInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCallingAppInfo not implemented")
-}
-func (UnimplementedBeginCreateCredentialRequestServiceServer) GetData(context.Context, *CreateCredentialRequestGetDataRequest) (*GetDataResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetData not implemented")
-}
-func (UnimplementedBeginCreateCredentialRequestServiceServer) GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
-}
-func (UnimplementedBeginCreateCredentialRequestServiceServer) WriteToParcel(context.Context, *CreateCredentialRequestWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedBeginCreateCredentialRequestServiceServer) mustEmbedUnimplementedBeginCreateCredentialRequestServiceServer() {
-}
-func (UnimplementedBeginCreateCredentialRequestServiceServer) testEmbeddedByValue() {}
-
-// UnsafeBeginCreateCredentialRequestServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to BeginCreateCredentialRequestServiceServer will
-// result in compilation errors.
-type UnsafeBeginCreateCredentialRequestServiceServer interface {
-	mustEmbedUnimplementedBeginCreateCredentialRequestServiceServer()
-}
-
-func RegisterBeginCreateCredentialRequestServiceServer(s grpc.ServiceRegistrar, srv BeginCreateCredentialRequestServiceServer) {
-	// If the following call panics, it indicates UnimplementedBeginCreateCredentialRequestServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&BeginCreateCredentialRequestService_ServiceDesc, srv)
-}
-
-func _BeginCreateCredentialRequestService_NewBeginCreateCredentialRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewBeginCreateCredentialRequestRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BeginCreateCredentialRequestServiceServer).NewBeginCreateCredentialRequest(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BeginCreateCredentialRequestService_NewBeginCreateCredentialRequest_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BeginCreateCredentialRequestServiceServer).NewBeginCreateCredentialRequest(ctx, req.(*NewBeginCreateCredentialRequestRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BeginCreateCredentialRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCredentialRequestDescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BeginCreateCredentialRequestServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BeginCreateCredentialRequestService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BeginCreateCredentialRequestServiceServer).DescribeContents(ctx, req.(*CreateCredentialRequestDescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BeginCreateCredentialRequestService_GetCallingAppInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCallingAppInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BeginCreateCredentialRequestServiceServer).GetCallingAppInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BeginCreateCredentialRequestService_GetCallingAppInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BeginCreateCredentialRequestServiceServer).GetCallingAppInfo(ctx, req.(*GetCallingAppInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BeginCreateCredentialRequestService_GetData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCredentialRequestGetDataRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BeginCreateCredentialRequestServiceServer).GetData(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BeginCreateCredentialRequestService_GetData_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BeginCreateCredentialRequestServiceServer).GetData(ctx, req.(*CreateCredentialRequestGetDataRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BeginCreateCredentialRequestService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTypeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BeginCreateCredentialRequestServiceServer).GetType(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BeginCreateCredentialRequestService_GetType_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BeginCreateCredentialRequestServiceServer).GetType(ctx, req.(*GetTypeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _BeginCreateCredentialRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCredentialRequestWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(BeginCreateCredentialRequestServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: BeginCreateCredentialRequestService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BeginCreateCredentialRequestServiceServer).WriteToParcel(ctx, req.(*CreateCredentialRequestWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// BeginCreateCredentialRequestService_ServiceDesc is the grpc.ServiceDesc for BeginCreateCredentialRequestService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var BeginCreateCredentialRequestService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "credentials.BeginCreateCredentialRequestService",
-	HandlerType: (*BeginCreateCredentialRequestServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewBeginCreateCredentialRequest",
-			Handler:    _BeginCreateCredentialRequestService_NewBeginCreateCredentialRequest_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _BeginCreateCredentialRequestService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetCallingAppInfo",
-			Handler:    _BeginCreateCredentialRequestService_GetCallingAppInfo_Handler,
-		},
-		{
-			MethodName: "GetData",
-			Handler:    _BeginCreateCredentialRequestService_GetData_Handler,
+			MethodName: "GetCredentialRetrievalData",
+			Handler:    _CredentialOptionService_GetCredentialRetrievalData_Handler,
 		},
 		{
 			MethodName: "GetType",
-			Handler:    _BeginCreateCredentialRequestService_GetType_Handler,
+			Handler:    _CredentialOptionService_GetType_Handler,
+		},
+		{
+			MethodName: "IsSystemProviderRequired",
+			Handler:    _CredentialOptionService_IsSystemProviderRequired_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _CredentialOptionService_ToString_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _BeginCreateCredentialRequestService_WriteToParcel_Handler,
+			Handler:    _CredentialOptionService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -5401,329 +4469,178 @@ var BeginCreateCredentialRequestService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	CallingAppInfoService_NewCallingAppInfo_FullMethodName = "/credentials.CallingAppInfoService/NewCallingAppInfo"
-	CallingAppInfoService_DescribeContents_FullMethodName  = "/credentials.CallingAppInfoService/DescribeContents"
-	CallingAppInfoService_GetOrigin_FullMethodName         = "/credentials.CallingAppInfoService/GetOrigin"
-	CallingAppInfoService_GetPackageName_FullMethodName    = "/credentials.CallingAppInfoService/GetPackageName"
-	CallingAppInfoService_GetSigningInfo_FullMethodName    = "/credentials.CallingAppInfoService/GetSigningInfo"
-	CallingAppInfoService_ToString_FullMethodName          = "/credentials.CallingAppInfoService/ToString"
-	CallingAppInfoService_WriteToParcel_FullMethodName     = "/credentials.CallingAppInfoService/WriteToParcel"
+	CredentialOptionBuilderService_AddAllowedProvider_FullMethodName          = "/credentials.CredentialOptionBuilderService/AddAllowedProvider"
+	CredentialOptionBuilderService_Build_FullMethodName                       = "/credentials.CredentialOptionBuilderService/Build"
+	CredentialOptionBuilderService_SetIsSystemProviderRequired_FullMethodName = "/credentials.CredentialOptionBuilderService/SetIsSystemProviderRequired"
 )
 
-// CallingAppInfoServiceClient is the client API for CallingAppInfoService service.
+// CredentialOptionBuilderServiceClient is the client API for CredentialOptionBuilderService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CallingAppInfoServiceClient interface {
-	NewCallingAppInfo(ctx context.Context, in *NewCallingAppInfoRequest, opts ...grpc.CallOption) (*NewCallingAppInfoResponse, error)
-	DescribeContents(ctx context.Context, in *CreateCredentialRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetOrigin(ctx context.Context, in *CallingAppInfoGetOriginRequest, opts ...grpc.CallOption) (*GetOriginResponse, error)
-	GetPackageName(ctx context.Context, in *GetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error)
-	GetSigningInfo(ctx context.Context, in *GetSigningInfoRequest, opts ...grpc.CallOption) (*GetSigningInfoResponse, error)
-	ToString(ctx context.Context, in *BeginGetCredentialOptionToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *CreateCredentialRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+type CredentialOptionBuilderServiceClient interface {
+	AddAllowedProvider(ctx context.Context, in *AddAllowedProviderRequest, opts ...grpc.CallOption) (*AddAllowedProviderResponse, error)
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetIsSystemProviderRequired(ctx context.Context, in *SetIsSystemProviderRequiredRequest, opts ...grpc.CallOption) (*SetIsSystemProviderRequiredResponse, error)
 }
 
-type callingAppInfoServiceClient struct {
+type credentialOptionBuilderServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewCallingAppInfoServiceClient(cc grpc.ClientConnInterface) CallingAppInfoServiceClient {
-	return &callingAppInfoServiceClient{cc}
+func NewCredentialOptionBuilderServiceClient(cc grpc.ClientConnInterface) CredentialOptionBuilderServiceClient {
+	return &credentialOptionBuilderServiceClient{cc}
 }
 
-func (c *callingAppInfoServiceClient) NewCallingAppInfo(ctx context.Context, in *NewCallingAppInfoRequest, opts ...grpc.CallOption) (*NewCallingAppInfoResponse, error) {
+func (c *credentialOptionBuilderServiceClient) AddAllowedProvider(ctx context.Context, in *AddAllowedProviderRequest, opts ...grpc.CallOption) (*AddAllowedProviderResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewCallingAppInfoResponse)
-	err := c.cc.Invoke(ctx, CallingAppInfoService_NewCallingAppInfo_FullMethodName, in, out, cOpts...)
+	out := new(AddAllowedProviderResponse)
+	err := c.cc.Invoke(ctx, CredentialOptionBuilderService_AddAllowedProvider_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *callingAppInfoServiceClient) DescribeContents(ctx context.Context, in *CreateCredentialRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *credentialOptionBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, CallingAppInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, CredentialOptionBuilderService_Build_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *callingAppInfoServiceClient) GetOrigin(ctx context.Context, in *CallingAppInfoGetOriginRequest, opts ...grpc.CallOption) (*GetOriginResponse, error) {
+func (c *credentialOptionBuilderServiceClient) SetIsSystemProviderRequired(ctx context.Context, in *SetIsSystemProviderRequiredRequest, opts ...grpc.CallOption) (*SetIsSystemProviderRequiredResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetOriginResponse)
-	err := c.cc.Invoke(ctx, CallingAppInfoService_GetOrigin_FullMethodName, in, out, cOpts...)
+	out := new(SetIsSystemProviderRequiredResponse)
+	err := c.cc.Invoke(ctx, CredentialOptionBuilderService_SetIsSystemProviderRequired_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *callingAppInfoServiceClient) GetPackageName(ctx context.Context, in *GetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPackageNameResponse)
-	err := c.cc.Invoke(ctx, CallingAppInfoService_GetPackageName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *callingAppInfoServiceClient) GetSigningInfo(ctx context.Context, in *GetSigningInfoRequest, opts ...grpc.CallOption) (*GetSigningInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSigningInfoResponse)
-	err := c.cc.Invoke(ctx, CallingAppInfoService_GetSigningInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *callingAppInfoServiceClient) ToString(ctx context.Context, in *BeginGetCredentialOptionToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, CallingAppInfoService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *callingAppInfoServiceClient) WriteToParcel(ctx context.Context, in *CreateCredentialRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, CallingAppInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CallingAppInfoServiceServer is the server API for CallingAppInfoService service.
-// All implementations must embed UnimplementedCallingAppInfoServiceServer
+// CredentialOptionBuilderServiceServer is the server API for CredentialOptionBuilderService service.
+// All implementations must embed UnimplementedCredentialOptionBuilderServiceServer
 // for forward compatibility.
-type CallingAppInfoServiceServer interface {
-	NewCallingAppInfo(context.Context, *NewCallingAppInfoRequest) (*NewCallingAppInfoResponse, error)
-	DescribeContents(context.Context, *CreateCredentialRequestDescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetOrigin(context.Context, *CallingAppInfoGetOriginRequest) (*GetOriginResponse, error)
-	GetPackageName(context.Context, *GetPackageNameRequest) (*GetPackageNameResponse, error)
-	GetSigningInfo(context.Context, *GetSigningInfoRequest) (*GetSigningInfoResponse, error)
-	ToString(context.Context, *BeginGetCredentialOptionToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *CreateCredentialRequestWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedCallingAppInfoServiceServer()
+type CredentialOptionBuilderServiceServer interface {
+	AddAllowedProvider(context.Context, *AddAllowedProviderRequest) (*AddAllowedProviderResponse, error)
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetIsSystemProviderRequired(context.Context, *SetIsSystemProviderRequiredRequest) (*SetIsSystemProviderRequiredResponse, error)
+	mustEmbedUnimplementedCredentialOptionBuilderServiceServer()
 }
 
-// UnimplementedCallingAppInfoServiceServer must be embedded to have
+// UnimplementedCredentialOptionBuilderServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedCallingAppInfoServiceServer struct{}
+type UnimplementedCredentialOptionBuilderServiceServer struct{}
 
-func (UnimplementedCallingAppInfoServiceServer) NewCallingAppInfo(context.Context, *NewCallingAppInfoRequest) (*NewCallingAppInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewCallingAppInfo not implemented")
+func (UnimplementedCredentialOptionBuilderServiceServer) AddAllowedProvider(context.Context, *AddAllowedProviderRequest) (*AddAllowedProviderResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddAllowedProvider not implemented")
 }
-func (UnimplementedCallingAppInfoServiceServer) DescribeContents(context.Context, *CreateCredentialRequestDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+func (UnimplementedCredentialOptionBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
 }
-func (UnimplementedCallingAppInfoServiceServer) GetOrigin(context.Context, *CallingAppInfoGetOriginRequest) (*GetOriginResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetOrigin not implemented")
+func (UnimplementedCredentialOptionBuilderServiceServer) SetIsSystemProviderRequired(context.Context, *SetIsSystemProviderRequiredRequest) (*SetIsSystemProviderRequiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetIsSystemProviderRequired not implemented")
 }
-func (UnimplementedCallingAppInfoServiceServer) GetPackageName(context.Context, *GetPackageNameRequest) (*GetPackageNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPackageName not implemented")
+func (UnimplementedCredentialOptionBuilderServiceServer) mustEmbedUnimplementedCredentialOptionBuilderServiceServer() {
 }
-func (UnimplementedCallingAppInfoServiceServer) GetSigningInfo(context.Context, *GetSigningInfoRequest) (*GetSigningInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSigningInfo not implemented")
-}
-func (UnimplementedCallingAppInfoServiceServer) ToString(context.Context, *BeginGetCredentialOptionToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedCallingAppInfoServiceServer) WriteToParcel(context.Context, *CreateCredentialRequestWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedCallingAppInfoServiceServer) mustEmbedUnimplementedCallingAppInfoServiceServer() {}
-func (UnimplementedCallingAppInfoServiceServer) testEmbeddedByValue()                               {}
+func (UnimplementedCredentialOptionBuilderServiceServer) testEmbeddedByValue() {}
 
-// UnsafeCallingAppInfoServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CallingAppInfoServiceServer will
+// UnsafeCredentialOptionBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CredentialOptionBuilderServiceServer will
 // result in compilation errors.
-type UnsafeCallingAppInfoServiceServer interface {
-	mustEmbedUnimplementedCallingAppInfoServiceServer()
+type UnsafeCredentialOptionBuilderServiceServer interface {
+	mustEmbedUnimplementedCredentialOptionBuilderServiceServer()
 }
 
-func RegisterCallingAppInfoServiceServer(s grpc.ServiceRegistrar, srv CallingAppInfoServiceServer) {
-	// If the following call panics, it indicates UnimplementedCallingAppInfoServiceServer was
+func RegisterCredentialOptionBuilderServiceServer(s grpc.ServiceRegistrar, srv CredentialOptionBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedCredentialOptionBuilderServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&CallingAppInfoService_ServiceDesc, srv)
+	s.RegisterService(&CredentialOptionBuilderService_ServiceDesc, srv)
 }
 
-func _CallingAppInfoService_NewCallingAppInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewCallingAppInfoRequest)
+func _CredentialOptionBuilderService_AddAllowedProvider_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddAllowedProviderRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CallingAppInfoServiceServer).NewCallingAppInfo(ctx, in)
+		return srv.(CredentialOptionBuilderServiceServer).AddAllowedProvider(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CallingAppInfoService_NewCallingAppInfo_FullMethodName,
+		FullMethod: CredentialOptionBuilderService_AddAllowedProvider_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CallingAppInfoServiceServer).NewCallingAppInfo(ctx, req.(*NewCallingAppInfoRequest))
+		return srv.(CredentialOptionBuilderServiceServer).AddAllowedProvider(ctx, req.(*AddAllowedProviderRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CallingAppInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCredentialRequestDescribeContentsRequest)
+func _CredentialOptionBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CallingAppInfoServiceServer).DescribeContents(ctx, in)
+		return srv.(CredentialOptionBuilderServiceServer).Build(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CallingAppInfoService_DescribeContents_FullMethodName,
+		FullMethod: CredentialOptionBuilderService_Build_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CallingAppInfoServiceServer).DescribeContents(ctx, req.(*CreateCredentialRequestDescribeContentsRequest))
+		return srv.(CredentialOptionBuilderServiceServer).Build(ctx, req.(*BuildRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CallingAppInfoService_GetOrigin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CallingAppInfoGetOriginRequest)
+func _CredentialOptionBuilderService_SetIsSystemProviderRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetIsSystemProviderRequiredRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CallingAppInfoServiceServer).GetOrigin(ctx, in)
+		return srv.(CredentialOptionBuilderServiceServer).SetIsSystemProviderRequired(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CallingAppInfoService_GetOrigin_FullMethodName,
+		FullMethod: CredentialOptionBuilderService_SetIsSystemProviderRequired_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CallingAppInfoServiceServer).GetOrigin(ctx, req.(*CallingAppInfoGetOriginRequest))
+		return srv.(CredentialOptionBuilderServiceServer).SetIsSystemProviderRequired(ctx, req.(*SetIsSystemProviderRequiredRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CallingAppInfoService_GetPackageName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPackageNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CallingAppInfoServiceServer).GetPackageName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CallingAppInfoService_GetPackageName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CallingAppInfoServiceServer).GetPackageName(ctx, req.(*GetPackageNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CallingAppInfoService_GetSigningInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSigningInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CallingAppInfoServiceServer).GetSigningInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CallingAppInfoService_GetSigningInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CallingAppInfoServiceServer).GetSigningInfo(ctx, req.(*GetSigningInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CallingAppInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BeginGetCredentialOptionToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CallingAppInfoServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CallingAppInfoService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CallingAppInfoServiceServer).ToString(ctx, req.(*BeginGetCredentialOptionToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CallingAppInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCredentialRequestWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CallingAppInfoServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CallingAppInfoService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CallingAppInfoServiceServer).WriteToParcel(ctx, req.(*CreateCredentialRequestWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CallingAppInfoService_ServiceDesc is the grpc.ServiceDesc for CallingAppInfoService service.
+// CredentialOptionBuilderService_ServiceDesc is the grpc.ServiceDesc for CredentialOptionBuilderService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var CallingAppInfoService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "credentials.CallingAppInfoService",
-	HandlerType: (*CallingAppInfoServiceServer)(nil),
+var CredentialOptionBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "credentials.CredentialOptionBuilderService",
+	HandlerType: (*CredentialOptionBuilderServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewCallingAppInfo",
-			Handler:    _CallingAppInfoService_NewCallingAppInfo_Handler,
+			MethodName: "AddAllowedProvider",
+			Handler:    _CredentialOptionBuilderService_AddAllowedProvider_Handler,
 		},
 		{
-			MethodName: "DescribeContents",
-			Handler:    _CallingAppInfoService_DescribeContents_Handler,
+			MethodName: "Build",
+			Handler:    _CredentialOptionBuilderService_Build_Handler,
 		},
 		{
-			MethodName: "GetOrigin",
-			Handler:    _CallingAppInfoService_GetOrigin_Handler,
-		},
-		{
-			MethodName: "GetPackageName",
-			Handler:    _CallingAppInfoService_GetPackageName_Handler,
-		},
-		{
-			MethodName: "GetSigningInfo",
-			Handler:    _CallingAppInfoService_GetSigningInfo_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _CallingAppInfoService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _CallingAppInfoService_WriteToParcel_Handler,
+			MethodName: "SetIsSystemProviderRequired",
+			Handler:    _CredentialOptionBuilderService_SetIsSystemProviderRequired_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -5733,6 +4650,9 @@ var CallingAppInfoService_ServiceDesc = grpc.ServiceDesc{
 const (
 	BeginGetCredentialResponseService_NewBeginGetCredentialResponse_FullMethodName = "/credentials.BeginGetCredentialResponseService/NewBeginGetCredentialResponse"
 	BeginGetCredentialResponseService_DescribeContents_FullMethodName              = "/credentials.BeginGetCredentialResponseService/DescribeContents"
+	BeginGetCredentialResponseService_GetActions_FullMethodName                    = "/credentials.BeginGetCredentialResponseService/GetActions"
+	BeginGetCredentialResponseService_GetAuthenticationActions_FullMethodName      = "/credentials.BeginGetCredentialResponseService/GetAuthenticationActions"
+	BeginGetCredentialResponseService_GetCredentialEntries_FullMethodName          = "/credentials.BeginGetCredentialResponseService/GetCredentialEntries"
 	BeginGetCredentialResponseService_GetRemoteCredentialEntry_FullMethodName      = "/credentials.BeginGetCredentialResponseService/GetRemoteCredentialEntry"
 	BeginGetCredentialResponseService_WriteToParcel_FullMethodName                 = "/credentials.BeginGetCredentialResponseService/WriteToParcel"
 )
@@ -5742,9 +4662,12 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type BeginGetCredentialResponseServiceClient interface {
 	NewBeginGetCredentialResponse(ctx context.Context, in *NewBeginGetCredentialResponseRequest, opts ...grpc.CallOption) (*NewBeginGetCredentialResponseResponse, error)
-	DescribeContents(ctx context.Context, in *CreateCredentialRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	DescribeContents(ctx context.Context, in *BeginGetCredentialResponseDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetActions(ctx context.Context, in *GetActionsRequest, opts ...grpc.CallOption) (*GetActionsResponse, error)
+	GetAuthenticationActions(ctx context.Context, in *GetAuthenticationActionsRequest, opts ...grpc.CallOption) (*GetAuthenticationActionsResponse, error)
+	GetCredentialEntries(ctx context.Context, in *GetCredentialEntriesRequest, opts ...grpc.CallOption) (*GetCredentialEntriesResponse, error)
 	GetRemoteCredentialEntry(ctx context.Context, in *GetRemoteCredentialEntryRequest, opts ...grpc.CallOption) (*GetRemoteCredentialEntryResponse, error)
-	WriteToParcel(ctx context.Context, in *CreateCredentialRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	WriteToParcel(ctx context.Context, in *BeginGetCredentialResponseWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
 type beginGetCredentialResponseServiceClient struct {
@@ -5765,10 +4688,40 @@ func (c *beginGetCredentialResponseServiceClient) NewBeginGetCredentialResponse(
 	return out, nil
 }
 
-func (c *beginGetCredentialResponseServiceClient) DescribeContents(ctx context.Context, in *CreateCredentialRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *beginGetCredentialResponseServiceClient) DescribeContents(ctx context.Context, in *BeginGetCredentialResponseDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
 	err := c.cc.Invoke(ctx, BeginGetCredentialResponseService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *beginGetCredentialResponseServiceClient) GetActions(ctx context.Context, in *GetActionsRequest, opts ...grpc.CallOption) (*GetActionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetActionsResponse)
+	err := c.cc.Invoke(ctx, BeginGetCredentialResponseService_GetActions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *beginGetCredentialResponseServiceClient) GetAuthenticationActions(ctx context.Context, in *GetAuthenticationActionsRequest, opts ...grpc.CallOption) (*GetAuthenticationActionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAuthenticationActionsResponse)
+	err := c.cc.Invoke(ctx, BeginGetCredentialResponseService_GetAuthenticationActions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *beginGetCredentialResponseServiceClient) GetCredentialEntries(ctx context.Context, in *GetCredentialEntriesRequest, opts ...grpc.CallOption) (*GetCredentialEntriesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCredentialEntriesResponse)
+	err := c.cc.Invoke(ctx, BeginGetCredentialResponseService_GetCredentialEntries_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -5785,7 +4738,7 @@ func (c *beginGetCredentialResponseServiceClient) GetRemoteCredentialEntry(ctx c
 	return out, nil
 }
 
-func (c *beginGetCredentialResponseServiceClient) WriteToParcel(ctx context.Context, in *CreateCredentialRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *beginGetCredentialResponseServiceClient) WriteToParcel(ctx context.Context, in *BeginGetCredentialResponseWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
 	err := c.cc.Invoke(ctx, BeginGetCredentialResponseService_WriteToParcel_FullMethodName, in, out, cOpts...)
@@ -5800,9 +4753,12 @@ func (c *beginGetCredentialResponseServiceClient) WriteToParcel(ctx context.Cont
 // for forward compatibility.
 type BeginGetCredentialResponseServiceServer interface {
 	NewBeginGetCredentialResponse(context.Context, *NewBeginGetCredentialResponseRequest) (*NewBeginGetCredentialResponseResponse, error)
-	DescribeContents(context.Context, *CreateCredentialRequestDescribeContentsRequest) (*DescribeContentsResponse, error)
+	DescribeContents(context.Context, *BeginGetCredentialResponseDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetActions(context.Context, *GetActionsRequest) (*GetActionsResponse, error)
+	GetAuthenticationActions(context.Context, *GetAuthenticationActionsRequest) (*GetAuthenticationActionsResponse, error)
+	GetCredentialEntries(context.Context, *GetCredentialEntriesRequest) (*GetCredentialEntriesResponse, error)
 	GetRemoteCredentialEntry(context.Context, *GetRemoteCredentialEntryRequest) (*GetRemoteCredentialEntryResponse, error)
-	WriteToParcel(context.Context, *CreateCredentialRequestWriteToParcelRequest) (*WriteToParcelResponse, error)
+	WriteToParcel(context.Context, *BeginGetCredentialResponseWriteToParcelRequest) (*WriteToParcelResponse, error)
 	mustEmbedUnimplementedBeginGetCredentialResponseServiceServer()
 }
 
@@ -5816,13 +4772,22 @@ type UnimplementedBeginGetCredentialResponseServiceServer struct{}
 func (UnimplementedBeginGetCredentialResponseServiceServer) NewBeginGetCredentialResponse(context.Context, *NewBeginGetCredentialResponseRequest) (*NewBeginGetCredentialResponseResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method NewBeginGetCredentialResponse not implemented")
 }
-func (UnimplementedBeginGetCredentialResponseServiceServer) DescribeContents(context.Context, *CreateCredentialRequestDescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedBeginGetCredentialResponseServiceServer) DescribeContents(context.Context, *BeginGetCredentialResponseDescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedBeginGetCredentialResponseServiceServer) GetActions(context.Context, *GetActionsRequest) (*GetActionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetActions not implemented")
+}
+func (UnimplementedBeginGetCredentialResponseServiceServer) GetAuthenticationActions(context.Context, *GetAuthenticationActionsRequest) (*GetAuthenticationActionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAuthenticationActions not implemented")
+}
+func (UnimplementedBeginGetCredentialResponseServiceServer) GetCredentialEntries(context.Context, *GetCredentialEntriesRequest) (*GetCredentialEntriesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCredentialEntries not implemented")
 }
 func (UnimplementedBeginGetCredentialResponseServiceServer) GetRemoteCredentialEntry(context.Context, *GetRemoteCredentialEntryRequest) (*GetRemoteCredentialEntryResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetRemoteCredentialEntry not implemented")
 }
-func (UnimplementedBeginGetCredentialResponseServiceServer) WriteToParcel(context.Context, *CreateCredentialRequestWriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedBeginGetCredentialResponseServiceServer) WriteToParcel(context.Context, *BeginGetCredentialResponseWriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
 func (UnimplementedBeginGetCredentialResponseServiceServer) mustEmbedUnimplementedBeginGetCredentialResponseServiceServer() {
@@ -5866,7 +4831,7 @@ func _BeginGetCredentialResponseService_NewBeginGetCredentialResponse_Handler(sr
 }
 
 func _BeginGetCredentialResponseService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCredentialRequestDescribeContentsRequest)
+	in := new(BeginGetCredentialResponseDescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -5878,7 +4843,61 @@ func _BeginGetCredentialResponseService_DescribeContents_Handler(srv interface{}
 		FullMethod: BeginGetCredentialResponseService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BeginGetCredentialResponseServiceServer).DescribeContents(ctx, req.(*CreateCredentialRequestDescribeContentsRequest))
+		return srv.(BeginGetCredentialResponseServiceServer).DescribeContents(ctx, req.(*BeginGetCredentialResponseDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BeginGetCredentialResponseService_GetActions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetActionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BeginGetCredentialResponseServiceServer).GetActions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BeginGetCredentialResponseService_GetActions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BeginGetCredentialResponseServiceServer).GetActions(ctx, req.(*GetActionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BeginGetCredentialResponseService_GetAuthenticationActions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAuthenticationActionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BeginGetCredentialResponseServiceServer).GetAuthenticationActions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BeginGetCredentialResponseService_GetAuthenticationActions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BeginGetCredentialResponseServiceServer).GetAuthenticationActions(ctx, req.(*GetAuthenticationActionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BeginGetCredentialResponseService_GetCredentialEntries_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCredentialEntriesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BeginGetCredentialResponseServiceServer).GetCredentialEntries(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BeginGetCredentialResponseService_GetCredentialEntries_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BeginGetCredentialResponseServiceServer).GetCredentialEntries(ctx, req.(*GetCredentialEntriesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -5902,7 +4921,7 @@ func _BeginGetCredentialResponseService_GetRemoteCredentialEntry_Handler(srv int
 }
 
 func _BeginGetCredentialResponseService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCredentialRequestWriteToParcelRequest)
+	in := new(BeginGetCredentialResponseWriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -5914,7 +4933,7 @@ func _BeginGetCredentialResponseService_WriteToParcel_Handler(srv interface{}, c
 		FullMethod: BeginGetCredentialResponseService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BeginGetCredentialResponseServiceServer).WriteToParcel(ctx, req.(*CreateCredentialRequestWriteToParcelRequest))
+		return srv.(BeginGetCredentialResponseServiceServer).WriteToParcel(ctx, req.(*BeginGetCredentialResponseWriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -5933,6 +4952,18 @@ var BeginGetCredentialResponseService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DescribeContents",
 			Handler:    _BeginGetCredentialResponseService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetActions",
+			Handler:    _BeginGetCredentialResponseService_GetActions_Handler,
+		},
+		{
+			MethodName: "GetAuthenticationActions",
+			Handler:    _BeginGetCredentialResponseService_GetAuthenticationActions_Handler,
+		},
+		{
+			MethodName: "GetCredentialEntries",
+			Handler:    _BeginGetCredentialResponseService_GetCredentialEntries_Handler,
 		},
 		{
 			MethodName: "GetRemoteCredentialEntry",
@@ -6203,8 +5234,848 @@ var BeginGetCredentialResponseBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	CallingAppInfoService_NewCallingAppInfo_FullMethodName = "/credentials.CallingAppInfoService/NewCallingAppInfo"
+	CallingAppInfoService_DescribeContents_FullMethodName  = "/credentials.CallingAppInfoService/DescribeContents"
+	CallingAppInfoService_GetOrigin_FullMethodName         = "/credentials.CallingAppInfoService/GetOrigin"
+	CallingAppInfoService_GetPackageName_FullMethodName    = "/credentials.CallingAppInfoService/GetPackageName"
+	CallingAppInfoService_GetSigningInfo_FullMethodName    = "/credentials.CallingAppInfoService/GetSigningInfo"
+	CallingAppInfoService_ToString_FullMethodName          = "/credentials.CallingAppInfoService/ToString"
+	CallingAppInfoService_WriteToParcel_FullMethodName     = "/credentials.CallingAppInfoService/WriteToParcel"
+)
+
+// CallingAppInfoServiceClient is the client API for CallingAppInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CallingAppInfoServiceClient interface {
+	NewCallingAppInfo(ctx context.Context, in *NewCallingAppInfoRequest, opts ...grpc.CallOption) (*NewCallingAppInfoResponse, error)
+	DescribeContents(ctx context.Context, in *BeginGetCredentialResponseDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetOrigin(ctx context.Context, in *CallingAppInfoGetOriginRequest, opts ...grpc.CallOption) (*GetOriginResponse, error)
+	GetPackageName(ctx context.Context, in *GetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error)
+	GetSigningInfo(ctx context.Context, in *GetSigningInfoRequest, opts ...grpc.CallOption) (*GetSigningInfoResponse, error)
+	ToString(ctx context.Context, in *CallingAppInfoToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *BeginGetCredentialResponseWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type callingAppInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCallingAppInfoServiceClient(cc grpc.ClientConnInterface) CallingAppInfoServiceClient {
+	return &callingAppInfoServiceClient{cc}
+}
+
+func (c *callingAppInfoServiceClient) NewCallingAppInfo(ctx context.Context, in *NewCallingAppInfoRequest, opts ...grpc.CallOption) (*NewCallingAppInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewCallingAppInfoResponse)
+	err := c.cc.Invoke(ctx, CallingAppInfoService_NewCallingAppInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *callingAppInfoServiceClient) DescribeContents(ctx context.Context, in *BeginGetCredentialResponseDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, CallingAppInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *callingAppInfoServiceClient) GetOrigin(ctx context.Context, in *CallingAppInfoGetOriginRequest, opts ...grpc.CallOption) (*GetOriginResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOriginResponse)
+	err := c.cc.Invoke(ctx, CallingAppInfoService_GetOrigin_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *callingAppInfoServiceClient) GetPackageName(ctx context.Context, in *GetPackageNameRequest, opts ...grpc.CallOption) (*GetPackageNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPackageNameResponse)
+	err := c.cc.Invoke(ctx, CallingAppInfoService_GetPackageName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *callingAppInfoServiceClient) GetSigningInfo(ctx context.Context, in *GetSigningInfoRequest, opts ...grpc.CallOption) (*GetSigningInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSigningInfoResponse)
+	err := c.cc.Invoke(ctx, CallingAppInfoService_GetSigningInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *callingAppInfoServiceClient) ToString(ctx context.Context, in *CallingAppInfoToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, CallingAppInfoService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *callingAppInfoServiceClient) WriteToParcel(ctx context.Context, in *BeginGetCredentialResponseWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, CallingAppInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CallingAppInfoServiceServer is the server API for CallingAppInfoService service.
+// All implementations must embed UnimplementedCallingAppInfoServiceServer
+// for forward compatibility.
+type CallingAppInfoServiceServer interface {
+	NewCallingAppInfo(context.Context, *NewCallingAppInfoRequest) (*NewCallingAppInfoResponse, error)
+	DescribeContents(context.Context, *BeginGetCredentialResponseDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetOrigin(context.Context, *CallingAppInfoGetOriginRequest) (*GetOriginResponse, error)
+	GetPackageName(context.Context, *GetPackageNameRequest) (*GetPackageNameResponse, error)
+	GetSigningInfo(context.Context, *GetSigningInfoRequest) (*GetSigningInfoResponse, error)
+	ToString(context.Context, *CallingAppInfoToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *BeginGetCredentialResponseWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedCallingAppInfoServiceServer()
+}
+
+// UnimplementedCallingAppInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCallingAppInfoServiceServer struct{}
+
+func (UnimplementedCallingAppInfoServiceServer) NewCallingAppInfo(context.Context, *NewCallingAppInfoRequest) (*NewCallingAppInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewCallingAppInfo not implemented")
+}
+func (UnimplementedCallingAppInfoServiceServer) DescribeContents(context.Context, *BeginGetCredentialResponseDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedCallingAppInfoServiceServer) GetOrigin(context.Context, *CallingAppInfoGetOriginRequest) (*GetOriginResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOrigin not implemented")
+}
+func (UnimplementedCallingAppInfoServiceServer) GetPackageName(context.Context, *GetPackageNameRequest) (*GetPackageNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPackageName not implemented")
+}
+func (UnimplementedCallingAppInfoServiceServer) GetSigningInfo(context.Context, *GetSigningInfoRequest) (*GetSigningInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSigningInfo not implemented")
+}
+func (UnimplementedCallingAppInfoServiceServer) ToString(context.Context, *CallingAppInfoToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedCallingAppInfoServiceServer) WriteToParcel(context.Context, *BeginGetCredentialResponseWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedCallingAppInfoServiceServer) mustEmbedUnimplementedCallingAppInfoServiceServer() {}
+func (UnimplementedCallingAppInfoServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeCallingAppInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CallingAppInfoServiceServer will
+// result in compilation errors.
+type UnsafeCallingAppInfoServiceServer interface {
+	mustEmbedUnimplementedCallingAppInfoServiceServer()
+}
+
+func RegisterCallingAppInfoServiceServer(s grpc.ServiceRegistrar, srv CallingAppInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedCallingAppInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CallingAppInfoService_ServiceDesc, srv)
+}
+
+func _CallingAppInfoService_NewCallingAppInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewCallingAppInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CallingAppInfoServiceServer).NewCallingAppInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CallingAppInfoService_NewCallingAppInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CallingAppInfoServiceServer).NewCallingAppInfo(ctx, req.(*NewCallingAppInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CallingAppInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BeginGetCredentialResponseDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CallingAppInfoServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CallingAppInfoService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CallingAppInfoServiceServer).DescribeContents(ctx, req.(*BeginGetCredentialResponseDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CallingAppInfoService_GetOrigin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CallingAppInfoGetOriginRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CallingAppInfoServiceServer).GetOrigin(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CallingAppInfoService_GetOrigin_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CallingAppInfoServiceServer).GetOrigin(ctx, req.(*CallingAppInfoGetOriginRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CallingAppInfoService_GetPackageName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPackageNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CallingAppInfoServiceServer).GetPackageName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CallingAppInfoService_GetPackageName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CallingAppInfoServiceServer).GetPackageName(ctx, req.(*GetPackageNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CallingAppInfoService_GetSigningInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSigningInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CallingAppInfoServiceServer).GetSigningInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CallingAppInfoService_GetSigningInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CallingAppInfoServiceServer).GetSigningInfo(ctx, req.(*GetSigningInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CallingAppInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CallingAppInfoToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CallingAppInfoServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CallingAppInfoService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CallingAppInfoServiceServer).ToString(ctx, req.(*CallingAppInfoToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CallingAppInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BeginGetCredentialResponseWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CallingAppInfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CallingAppInfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CallingAppInfoServiceServer).WriteToParcel(ctx, req.(*BeginGetCredentialResponseWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CallingAppInfoService_ServiceDesc is the grpc.ServiceDesc for CallingAppInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CallingAppInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "credentials.CallingAppInfoService",
+	HandlerType: (*CallingAppInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewCallingAppInfo",
+			Handler:    _CallingAppInfoService_NewCallingAppInfo_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _CallingAppInfoService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetOrigin",
+			Handler:    _CallingAppInfoService_GetOrigin_Handler,
+		},
+		{
+			MethodName: "GetPackageName",
+			Handler:    _CallingAppInfoService_GetPackageName_Handler,
+		},
+		{
+			MethodName: "GetSigningInfo",
+			Handler:    _CallingAppInfoService_GetSigningInfo_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _CallingAppInfoService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _CallingAppInfoService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/credentials/credentials.proto",
+}
+
+const (
+	ActionService_NewAction_FullMethodName        = "/credentials.ActionService/NewAction"
+	ActionService_DescribeContents_FullMethodName = "/credentials.ActionService/DescribeContents"
+	ActionService_GetSlice_FullMethodName         = "/credentials.ActionService/GetSlice"
+	ActionService_WriteToParcel_FullMethodName    = "/credentials.ActionService/WriteToParcel"
+)
+
+// ActionServiceClient is the client API for ActionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ActionServiceClient interface {
+	NewAction(ctx context.Context, in *NewActionRequest, opts ...grpc.CallOption) (*NewActionResponse, error)
+	DescribeContents(ctx context.Context, in *BeginGetCredentialResponseDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetSlice(ctx context.Context, in *GetSliceRequest, opts ...grpc.CallOption) (*GetSliceResponse, error)
+	WriteToParcel(ctx context.Context, in *BeginGetCredentialResponseWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type actionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewActionServiceClient(cc grpc.ClientConnInterface) ActionServiceClient {
+	return &actionServiceClient{cc}
+}
+
+func (c *actionServiceClient) NewAction(ctx context.Context, in *NewActionRequest, opts ...grpc.CallOption) (*NewActionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewActionResponse)
+	err := c.cc.Invoke(ctx, ActionService_NewAction_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *actionServiceClient) DescribeContents(ctx context.Context, in *BeginGetCredentialResponseDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ActionService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *actionServiceClient) GetSlice(ctx context.Context, in *GetSliceRequest, opts ...grpc.CallOption) (*GetSliceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSliceResponse)
+	err := c.cc.Invoke(ctx, ActionService_GetSlice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *actionServiceClient) WriteToParcel(ctx context.Context, in *BeginGetCredentialResponseWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ActionService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ActionServiceServer is the server API for ActionService service.
+// All implementations must embed UnimplementedActionServiceServer
+// for forward compatibility.
+type ActionServiceServer interface {
+	NewAction(context.Context, *NewActionRequest) (*NewActionResponse, error)
+	DescribeContents(context.Context, *BeginGetCredentialResponseDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetSlice(context.Context, *GetSliceRequest) (*GetSliceResponse, error)
+	WriteToParcel(context.Context, *BeginGetCredentialResponseWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedActionServiceServer()
+}
+
+// UnimplementedActionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedActionServiceServer struct{}
+
+func (UnimplementedActionServiceServer) NewAction(context.Context, *NewActionRequest) (*NewActionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewAction not implemented")
+}
+func (UnimplementedActionServiceServer) DescribeContents(context.Context, *BeginGetCredentialResponseDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedActionServiceServer) GetSlice(context.Context, *GetSliceRequest) (*GetSliceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSlice not implemented")
+}
+func (UnimplementedActionServiceServer) WriteToParcel(context.Context, *BeginGetCredentialResponseWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedActionServiceServer) mustEmbedUnimplementedActionServiceServer() {}
+func (UnimplementedActionServiceServer) testEmbeddedByValue()                       {}
+
+// UnsafeActionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ActionServiceServer will
+// result in compilation errors.
+type UnsafeActionServiceServer interface {
+	mustEmbedUnimplementedActionServiceServer()
+}
+
+func RegisterActionServiceServer(s grpc.ServiceRegistrar, srv ActionServiceServer) {
+	// If the following call panics, it indicates UnimplementedActionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ActionService_ServiceDesc, srv)
+}
+
+func _ActionService_NewAction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewActionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActionServiceServer).NewAction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActionService_NewAction_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActionServiceServer).NewAction(ctx, req.(*NewActionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActionService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BeginGetCredentialResponseDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActionServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActionService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActionServiceServer).DescribeContents(ctx, req.(*BeginGetCredentialResponseDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActionService_GetSlice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSliceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActionServiceServer).GetSlice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActionService_GetSlice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActionServiceServer).GetSlice(ctx, req.(*GetSliceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ActionService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BeginGetCredentialResponseWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ActionServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ActionService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ActionServiceServer).WriteToParcel(ctx, req.(*BeginGetCredentialResponseWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ActionService_ServiceDesc is the grpc.ServiceDesc for ActionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ActionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "credentials.ActionService",
+	HandlerType: (*ActionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewAction",
+			Handler:    _ActionService_NewAction_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _ActionService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetSlice",
+			Handler:    _ActionService_GetSlice_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _ActionService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/credentials/credentials.proto",
+}
+
+const (
+	CredentialEntryService_NewCredentialEntry_FullMethodName            = "/credentials.CredentialEntryService/NewCredentialEntry"
+	CredentialEntryService_DescribeContents_FullMethodName              = "/credentials.CredentialEntryService/DescribeContents"
+	CredentialEntryService_GetBeginGetCredentialOptionId_FullMethodName = "/credentials.CredentialEntryService/GetBeginGetCredentialOptionId"
+	CredentialEntryService_GetSlice_FullMethodName                      = "/credentials.CredentialEntryService/GetSlice"
+	CredentialEntryService_GetType_FullMethodName                       = "/credentials.CredentialEntryService/GetType"
+	CredentialEntryService_WriteToParcel_FullMethodName                 = "/credentials.CredentialEntryService/WriteToParcel"
+)
+
+// CredentialEntryServiceClient is the client API for CredentialEntryService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CredentialEntryServiceClient interface {
+	NewCredentialEntry(ctx context.Context, in *NewCredentialEntryRequest, opts ...grpc.CallOption) (*NewCredentialEntryResponse, error)
+	DescribeContents(ctx context.Context, in *BeginGetCredentialResponseDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetBeginGetCredentialOptionId(ctx context.Context, in *GetBeginGetCredentialOptionIdRequest, opts ...grpc.CallOption) (*GetBeginGetCredentialOptionIdResponse, error)
+	GetSlice(ctx context.Context, in *GetSliceRequest, opts ...grpc.CallOption) (*GetSliceResponse, error)
+	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
+	WriteToParcel(ctx context.Context, in *BeginGetCredentialResponseWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type credentialEntryServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCredentialEntryServiceClient(cc grpc.ClientConnInterface) CredentialEntryServiceClient {
+	return &credentialEntryServiceClient{cc}
+}
+
+func (c *credentialEntryServiceClient) NewCredentialEntry(ctx context.Context, in *NewCredentialEntryRequest, opts ...grpc.CallOption) (*NewCredentialEntryResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewCredentialEntryResponse)
+	err := c.cc.Invoke(ctx, CredentialEntryService_NewCredentialEntry_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialEntryServiceClient) DescribeContents(ctx context.Context, in *BeginGetCredentialResponseDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, CredentialEntryService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialEntryServiceClient) GetBeginGetCredentialOptionId(ctx context.Context, in *GetBeginGetCredentialOptionIdRequest, opts ...grpc.CallOption) (*GetBeginGetCredentialOptionIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBeginGetCredentialOptionIdResponse)
+	err := c.cc.Invoke(ctx, CredentialEntryService_GetBeginGetCredentialOptionId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialEntryServiceClient) GetSlice(ctx context.Context, in *GetSliceRequest, opts ...grpc.CallOption) (*GetSliceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSliceResponse)
+	err := c.cc.Invoke(ctx, CredentialEntryService_GetSlice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialEntryServiceClient) GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTypeResponse)
+	err := c.cc.Invoke(ctx, CredentialEntryService_GetType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialEntryServiceClient) WriteToParcel(ctx context.Context, in *BeginGetCredentialResponseWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, CredentialEntryService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CredentialEntryServiceServer is the server API for CredentialEntryService service.
+// All implementations must embed UnimplementedCredentialEntryServiceServer
+// for forward compatibility.
+type CredentialEntryServiceServer interface {
+	NewCredentialEntry(context.Context, *NewCredentialEntryRequest) (*NewCredentialEntryResponse, error)
+	DescribeContents(context.Context, *BeginGetCredentialResponseDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetBeginGetCredentialOptionId(context.Context, *GetBeginGetCredentialOptionIdRequest) (*GetBeginGetCredentialOptionIdResponse, error)
+	GetSlice(context.Context, *GetSliceRequest) (*GetSliceResponse, error)
+	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
+	WriteToParcel(context.Context, *BeginGetCredentialResponseWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedCredentialEntryServiceServer()
+}
+
+// UnimplementedCredentialEntryServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCredentialEntryServiceServer struct{}
+
+func (UnimplementedCredentialEntryServiceServer) NewCredentialEntry(context.Context, *NewCredentialEntryRequest) (*NewCredentialEntryResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewCredentialEntry not implemented")
+}
+func (UnimplementedCredentialEntryServiceServer) DescribeContents(context.Context, *BeginGetCredentialResponseDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedCredentialEntryServiceServer) GetBeginGetCredentialOptionId(context.Context, *GetBeginGetCredentialOptionIdRequest) (*GetBeginGetCredentialOptionIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBeginGetCredentialOptionId not implemented")
+}
+func (UnimplementedCredentialEntryServiceServer) GetSlice(context.Context, *GetSliceRequest) (*GetSliceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSlice not implemented")
+}
+func (UnimplementedCredentialEntryServiceServer) GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
+}
+func (UnimplementedCredentialEntryServiceServer) WriteToParcel(context.Context, *BeginGetCredentialResponseWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedCredentialEntryServiceServer) mustEmbedUnimplementedCredentialEntryServiceServer() {
+}
+func (UnimplementedCredentialEntryServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCredentialEntryServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CredentialEntryServiceServer will
+// result in compilation errors.
+type UnsafeCredentialEntryServiceServer interface {
+	mustEmbedUnimplementedCredentialEntryServiceServer()
+}
+
+func RegisterCredentialEntryServiceServer(s grpc.ServiceRegistrar, srv CredentialEntryServiceServer) {
+	// If the following call panics, it indicates UnimplementedCredentialEntryServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CredentialEntryService_ServiceDesc, srv)
+}
+
+func _CredentialEntryService_NewCredentialEntry_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewCredentialEntryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialEntryServiceServer).NewCredentialEntry(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialEntryService_NewCredentialEntry_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialEntryServiceServer).NewCredentialEntry(ctx, req.(*NewCredentialEntryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialEntryService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BeginGetCredentialResponseDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialEntryServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialEntryService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialEntryServiceServer).DescribeContents(ctx, req.(*BeginGetCredentialResponseDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialEntryService_GetBeginGetCredentialOptionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBeginGetCredentialOptionIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialEntryServiceServer).GetBeginGetCredentialOptionId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialEntryService_GetBeginGetCredentialOptionId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialEntryServiceServer).GetBeginGetCredentialOptionId(ctx, req.(*GetBeginGetCredentialOptionIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialEntryService_GetSlice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSliceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialEntryServiceServer).GetSlice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialEntryService_GetSlice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialEntryServiceServer).GetSlice(ctx, req.(*GetSliceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialEntryService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialEntryServiceServer).GetType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialEntryService_GetType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialEntryServiceServer).GetType(ctx, req.(*GetTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialEntryService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BeginGetCredentialResponseWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialEntryServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialEntryService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialEntryServiceServer).WriteToParcel(ctx, req.(*BeginGetCredentialResponseWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CredentialEntryService_ServiceDesc is the grpc.ServiceDesc for CredentialEntryService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CredentialEntryService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "credentials.CredentialEntryService",
+	HandlerType: (*CredentialEntryServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewCredentialEntry",
+			Handler:    _CredentialEntryService_NewCredentialEntry_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _CredentialEntryService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetBeginGetCredentialOptionId",
+			Handler:    _CredentialEntryService_GetBeginGetCredentialOptionId_Handler,
+		},
+		{
+			MethodName: "GetSlice",
+			Handler:    _CredentialEntryService_GetSlice_Handler,
+		},
+		{
+			MethodName: "GetType",
+			Handler:    _CredentialEntryService_GetType_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _CredentialEntryService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/credentials/credentials.proto",
+}
+
+const (
 	BeginCreateCredentialResponseService_NewBeginCreateCredentialResponse_FullMethodName = "/credentials.BeginCreateCredentialResponseService/NewBeginCreateCredentialResponse"
 	BeginCreateCredentialResponseService_DescribeContents_FullMethodName                 = "/credentials.BeginCreateCredentialResponseService/DescribeContents"
+	BeginCreateCredentialResponseService_GetCreateEntries_FullMethodName                 = "/credentials.BeginCreateCredentialResponseService/GetCreateEntries"
 	BeginCreateCredentialResponseService_GetRemoteCreateEntry_FullMethodName             = "/credentials.BeginCreateCredentialResponseService/GetRemoteCreateEntry"
 	BeginCreateCredentialResponseService_WriteToParcel_FullMethodName                    = "/credentials.BeginCreateCredentialResponseService/WriteToParcel"
 )
@@ -6214,9 +6085,10 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type BeginCreateCredentialResponseServiceClient interface {
 	NewBeginCreateCredentialResponse(ctx context.Context, in *NewBeginCreateCredentialResponseRequest, opts ...grpc.CallOption) (*NewBeginCreateCredentialResponseResponse, error)
-	DescribeContents(ctx context.Context, in *CreateCredentialRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	DescribeContents(ctx context.Context, in *BeginGetCredentialResponseDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetCreateEntries(ctx context.Context, in *GetCreateEntriesRequest, opts ...grpc.CallOption) (*GetCreateEntriesResponse, error)
 	GetRemoteCreateEntry(ctx context.Context, in *GetRemoteCreateEntryRequest, opts ...grpc.CallOption) (*GetRemoteCreateEntryResponse, error)
-	WriteToParcel(ctx context.Context, in *CreateCredentialRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	WriteToParcel(ctx context.Context, in *BeginGetCredentialResponseWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
 type beginCreateCredentialResponseServiceClient struct {
@@ -6237,10 +6109,20 @@ func (c *beginCreateCredentialResponseServiceClient) NewBeginCreateCredentialRes
 	return out, nil
 }
 
-func (c *beginCreateCredentialResponseServiceClient) DescribeContents(ctx context.Context, in *CreateCredentialRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *beginCreateCredentialResponseServiceClient) DescribeContents(ctx context.Context, in *BeginGetCredentialResponseDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
 	err := c.cc.Invoke(ctx, BeginCreateCredentialResponseService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *beginCreateCredentialResponseServiceClient) GetCreateEntries(ctx context.Context, in *GetCreateEntriesRequest, opts ...grpc.CallOption) (*GetCreateEntriesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCreateEntriesResponse)
+	err := c.cc.Invoke(ctx, BeginCreateCredentialResponseService_GetCreateEntries_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -6257,7 +6139,7 @@ func (c *beginCreateCredentialResponseServiceClient) GetRemoteCreateEntry(ctx co
 	return out, nil
 }
 
-func (c *beginCreateCredentialResponseServiceClient) WriteToParcel(ctx context.Context, in *CreateCredentialRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *beginCreateCredentialResponseServiceClient) WriteToParcel(ctx context.Context, in *BeginGetCredentialResponseWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
 	err := c.cc.Invoke(ctx, BeginCreateCredentialResponseService_WriteToParcel_FullMethodName, in, out, cOpts...)
@@ -6272,9 +6154,10 @@ func (c *beginCreateCredentialResponseServiceClient) WriteToParcel(ctx context.C
 // for forward compatibility.
 type BeginCreateCredentialResponseServiceServer interface {
 	NewBeginCreateCredentialResponse(context.Context, *NewBeginCreateCredentialResponseRequest) (*NewBeginCreateCredentialResponseResponse, error)
-	DescribeContents(context.Context, *CreateCredentialRequestDescribeContentsRequest) (*DescribeContentsResponse, error)
+	DescribeContents(context.Context, *BeginGetCredentialResponseDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetCreateEntries(context.Context, *GetCreateEntriesRequest) (*GetCreateEntriesResponse, error)
 	GetRemoteCreateEntry(context.Context, *GetRemoteCreateEntryRequest) (*GetRemoteCreateEntryResponse, error)
-	WriteToParcel(context.Context, *CreateCredentialRequestWriteToParcelRequest) (*WriteToParcelResponse, error)
+	WriteToParcel(context.Context, *BeginGetCredentialResponseWriteToParcelRequest) (*WriteToParcelResponse, error)
 	mustEmbedUnimplementedBeginCreateCredentialResponseServiceServer()
 }
 
@@ -6288,13 +6171,16 @@ type UnimplementedBeginCreateCredentialResponseServiceServer struct{}
 func (UnimplementedBeginCreateCredentialResponseServiceServer) NewBeginCreateCredentialResponse(context.Context, *NewBeginCreateCredentialResponseRequest) (*NewBeginCreateCredentialResponseResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method NewBeginCreateCredentialResponse not implemented")
 }
-func (UnimplementedBeginCreateCredentialResponseServiceServer) DescribeContents(context.Context, *CreateCredentialRequestDescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedBeginCreateCredentialResponseServiceServer) DescribeContents(context.Context, *BeginGetCredentialResponseDescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedBeginCreateCredentialResponseServiceServer) GetCreateEntries(context.Context, *GetCreateEntriesRequest) (*GetCreateEntriesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCreateEntries not implemented")
 }
 func (UnimplementedBeginCreateCredentialResponseServiceServer) GetRemoteCreateEntry(context.Context, *GetRemoteCreateEntryRequest) (*GetRemoteCreateEntryResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetRemoteCreateEntry not implemented")
 }
-func (UnimplementedBeginCreateCredentialResponseServiceServer) WriteToParcel(context.Context, *CreateCredentialRequestWriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedBeginCreateCredentialResponseServiceServer) WriteToParcel(context.Context, *BeginGetCredentialResponseWriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
 func (UnimplementedBeginCreateCredentialResponseServiceServer) mustEmbedUnimplementedBeginCreateCredentialResponseServiceServer() {
@@ -6338,7 +6224,7 @@ func _BeginCreateCredentialResponseService_NewBeginCreateCredentialResponse_Hand
 }
 
 func _BeginCreateCredentialResponseService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCredentialRequestDescribeContentsRequest)
+	in := new(BeginGetCredentialResponseDescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -6350,7 +6236,25 @@ func _BeginCreateCredentialResponseService_DescribeContents_Handler(srv interfac
 		FullMethod: BeginCreateCredentialResponseService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BeginCreateCredentialResponseServiceServer).DescribeContents(ctx, req.(*CreateCredentialRequestDescribeContentsRequest))
+		return srv.(BeginCreateCredentialResponseServiceServer).DescribeContents(ctx, req.(*BeginGetCredentialResponseDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BeginCreateCredentialResponseService_GetCreateEntries_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCreateEntriesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BeginCreateCredentialResponseServiceServer).GetCreateEntries(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BeginCreateCredentialResponseService_GetCreateEntries_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BeginCreateCredentialResponseServiceServer).GetCreateEntries(ctx, req.(*GetCreateEntriesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -6374,7 +6278,7 @@ func _BeginCreateCredentialResponseService_GetRemoteCreateEntry_Handler(srv inte
 }
 
 func _BeginCreateCredentialResponseService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCredentialRequestWriteToParcelRequest)
+	in := new(BeginGetCredentialResponseWriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -6386,7 +6290,7 @@ func _BeginCreateCredentialResponseService_WriteToParcel_Handler(srv interface{}
 		FullMethod: BeginCreateCredentialResponseService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(BeginCreateCredentialResponseServiceServer).WriteToParcel(ctx, req.(*CreateCredentialRequestWriteToParcelRequest))
+		return srv.(BeginCreateCredentialResponseServiceServer).WriteToParcel(ctx, req.(*BeginGetCredentialResponseWriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -6405,6 +6309,10 @@ var BeginCreateCredentialResponseService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DescribeContents",
 			Handler:    _BeginCreateCredentialResponseService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetCreateEntries",
+			Handler:    _BeginCreateCredentialResponseService_GetCreateEntries_Handler,
 		},
 		{
 			MethodName: "GetRemoteCreateEntry",
@@ -6599,292 +6507,215 @@ var BeginCreateCredentialResponseBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	CredentialEntryService_NewCredentialEntry_FullMethodName            = "/credentials.CredentialEntryService/NewCredentialEntry"
-	CredentialEntryService_DescribeContents_FullMethodName              = "/credentials.CredentialEntryService/DescribeContents"
-	CredentialEntryService_GetBeginGetCredentialOptionId_FullMethodName = "/credentials.CredentialEntryService/GetBeginGetCredentialOptionId"
-	CredentialEntryService_GetSlice_FullMethodName                      = "/credentials.CredentialEntryService/GetSlice"
-	CredentialEntryService_GetType_FullMethodName                       = "/credentials.CredentialEntryService/GetType"
-	CredentialEntryService_WriteToParcel_FullMethodName                 = "/credentials.CredentialEntryService/WriteToParcel"
+	CreateEntryService_NewCreateEntry_FullMethodName   = "/credentials.CreateEntryService/NewCreateEntry"
+	CreateEntryService_DescribeContents_FullMethodName = "/credentials.CreateEntryService/DescribeContents"
+	CreateEntryService_GetSlice_FullMethodName         = "/credentials.CreateEntryService/GetSlice"
+	CreateEntryService_WriteToParcel_FullMethodName    = "/credentials.CreateEntryService/WriteToParcel"
 )
 
-// CredentialEntryServiceClient is the client API for CredentialEntryService service.
+// CreateEntryServiceClient is the client API for CreateEntryService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CredentialEntryServiceClient interface {
-	NewCredentialEntry(ctx context.Context, in *NewCredentialEntryRequest, opts ...grpc.CallOption) (*NewCredentialEntryResponse, error)
-	DescribeContents(ctx context.Context, in *CreateCredentialRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetBeginGetCredentialOptionId(ctx context.Context, in *GetBeginGetCredentialOptionIdRequest, opts ...grpc.CallOption) (*GetBeginGetCredentialOptionIdResponse, error)
+type CreateEntryServiceClient interface {
+	NewCreateEntry(ctx context.Context, in *NewCreateEntryRequest, opts ...grpc.CallOption) (*NewCreateEntryResponse, error)
+	DescribeContents(ctx context.Context, in *BeginGetCredentialResponseDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	GetSlice(ctx context.Context, in *GetSliceRequest, opts ...grpc.CallOption) (*GetSliceResponse, error)
-	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
-	WriteToParcel(ctx context.Context, in *CreateCredentialRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	WriteToParcel(ctx context.Context, in *BeginGetCredentialResponseWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type credentialEntryServiceClient struct {
+type createEntryServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewCredentialEntryServiceClient(cc grpc.ClientConnInterface) CredentialEntryServiceClient {
-	return &credentialEntryServiceClient{cc}
+func NewCreateEntryServiceClient(cc grpc.ClientConnInterface) CreateEntryServiceClient {
+	return &createEntryServiceClient{cc}
 }
 
-func (c *credentialEntryServiceClient) NewCredentialEntry(ctx context.Context, in *NewCredentialEntryRequest, opts ...grpc.CallOption) (*NewCredentialEntryResponse, error) {
+func (c *createEntryServiceClient) NewCreateEntry(ctx context.Context, in *NewCreateEntryRequest, opts ...grpc.CallOption) (*NewCreateEntryResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewCredentialEntryResponse)
-	err := c.cc.Invoke(ctx, CredentialEntryService_NewCredentialEntry_FullMethodName, in, out, cOpts...)
+	out := new(NewCreateEntryResponse)
+	err := c.cc.Invoke(ctx, CreateEntryService_NewCreateEntry_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *credentialEntryServiceClient) DescribeContents(ctx context.Context, in *CreateCredentialRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *createEntryServiceClient) DescribeContents(ctx context.Context, in *BeginGetCredentialResponseDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, CredentialEntryService_DescribeContents_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, CreateEntryService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *credentialEntryServiceClient) GetBeginGetCredentialOptionId(ctx context.Context, in *GetBeginGetCredentialOptionIdRequest, opts ...grpc.CallOption) (*GetBeginGetCredentialOptionIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetBeginGetCredentialOptionIdResponse)
-	err := c.cc.Invoke(ctx, CredentialEntryService_GetBeginGetCredentialOptionId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *credentialEntryServiceClient) GetSlice(ctx context.Context, in *GetSliceRequest, opts ...grpc.CallOption) (*GetSliceResponse, error) {
+func (c *createEntryServiceClient) GetSlice(ctx context.Context, in *GetSliceRequest, opts ...grpc.CallOption) (*GetSliceResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetSliceResponse)
-	err := c.cc.Invoke(ctx, CredentialEntryService_GetSlice_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, CreateEntryService_GetSlice_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *credentialEntryServiceClient) GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTypeResponse)
-	err := c.cc.Invoke(ctx, CredentialEntryService_GetType_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *credentialEntryServiceClient) WriteToParcel(ctx context.Context, in *CreateCredentialRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *createEntryServiceClient) WriteToParcel(ctx context.Context, in *BeginGetCredentialResponseWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, CredentialEntryService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, CreateEntryService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// CredentialEntryServiceServer is the server API for CredentialEntryService service.
-// All implementations must embed UnimplementedCredentialEntryServiceServer
+// CreateEntryServiceServer is the server API for CreateEntryService service.
+// All implementations must embed UnimplementedCreateEntryServiceServer
 // for forward compatibility.
-type CredentialEntryServiceServer interface {
-	NewCredentialEntry(context.Context, *NewCredentialEntryRequest) (*NewCredentialEntryResponse, error)
-	DescribeContents(context.Context, *CreateCredentialRequestDescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetBeginGetCredentialOptionId(context.Context, *GetBeginGetCredentialOptionIdRequest) (*GetBeginGetCredentialOptionIdResponse, error)
+type CreateEntryServiceServer interface {
+	NewCreateEntry(context.Context, *NewCreateEntryRequest) (*NewCreateEntryResponse, error)
+	DescribeContents(context.Context, *BeginGetCredentialResponseDescribeContentsRequest) (*DescribeContentsResponse, error)
 	GetSlice(context.Context, *GetSliceRequest) (*GetSliceResponse, error)
-	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
-	WriteToParcel(context.Context, *CreateCredentialRequestWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedCredentialEntryServiceServer()
+	WriteToParcel(context.Context, *BeginGetCredentialResponseWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedCreateEntryServiceServer()
 }
 
-// UnimplementedCredentialEntryServiceServer must be embedded to have
+// UnimplementedCreateEntryServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedCredentialEntryServiceServer struct{}
+type UnimplementedCreateEntryServiceServer struct{}
 
-func (UnimplementedCredentialEntryServiceServer) NewCredentialEntry(context.Context, *NewCredentialEntryRequest) (*NewCredentialEntryResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewCredentialEntry not implemented")
+func (UnimplementedCreateEntryServiceServer) NewCreateEntry(context.Context, *NewCreateEntryRequest) (*NewCreateEntryResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewCreateEntry not implemented")
 }
-func (UnimplementedCredentialEntryServiceServer) DescribeContents(context.Context, *CreateCredentialRequestDescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedCreateEntryServiceServer) DescribeContents(context.Context, *BeginGetCredentialResponseDescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedCredentialEntryServiceServer) GetBeginGetCredentialOptionId(context.Context, *GetBeginGetCredentialOptionIdRequest) (*GetBeginGetCredentialOptionIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetBeginGetCredentialOptionId not implemented")
-}
-func (UnimplementedCredentialEntryServiceServer) GetSlice(context.Context, *GetSliceRequest) (*GetSliceResponse, error) {
+func (UnimplementedCreateEntryServiceServer) GetSlice(context.Context, *GetSliceRequest) (*GetSliceResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetSlice not implemented")
 }
-func (UnimplementedCredentialEntryServiceServer) GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
-}
-func (UnimplementedCredentialEntryServiceServer) WriteToParcel(context.Context, *CreateCredentialRequestWriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedCreateEntryServiceServer) WriteToParcel(context.Context, *BeginGetCredentialResponseWriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedCredentialEntryServiceServer) mustEmbedUnimplementedCredentialEntryServiceServer() {
-}
-func (UnimplementedCredentialEntryServiceServer) testEmbeddedByValue() {}
+func (UnimplementedCreateEntryServiceServer) mustEmbedUnimplementedCreateEntryServiceServer() {}
+func (UnimplementedCreateEntryServiceServer) testEmbeddedByValue()                            {}
 
-// UnsafeCredentialEntryServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CredentialEntryServiceServer will
+// UnsafeCreateEntryServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CreateEntryServiceServer will
 // result in compilation errors.
-type UnsafeCredentialEntryServiceServer interface {
-	mustEmbedUnimplementedCredentialEntryServiceServer()
+type UnsafeCreateEntryServiceServer interface {
+	mustEmbedUnimplementedCreateEntryServiceServer()
 }
 
-func RegisterCredentialEntryServiceServer(s grpc.ServiceRegistrar, srv CredentialEntryServiceServer) {
-	// If the following call panics, it indicates UnimplementedCredentialEntryServiceServer was
+func RegisterCreateEntryServiceServer(s grpc.ServiceRegistrar, srv CreateEntryServiceServer) {
+	// If the following call panics, it indicates UnimplementedCreateEntryServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&CredentialEntryService_ServiceDesc, srv)
+	s.RegisterService(&CreateEntryService_ServiceDesc, srv)
 }
 
-func _CredentialEntryService_NewCredentialEntry_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewCredentialEntryRequest)
+func _CreateEntryService_NewCreateEntry_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewCreateEntryRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CredentialEntryServiceServer).NewCredentialEntry(ctx, in)
+		return srv.(CreateEntryServiceServer).NewCreateEntry(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CredentialEntryService_NewCredentialEntry_FullMethodName,
+		FullMethod: CreateEntryService_NewCreateEntry_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialEntryServiceServer).NewCredentialEntry(ctx, req.(*NewCredentialEntryRequest))
+		return srv.(CreateEntryServiceServer).NewCreateEntry(ctx, req.(*NewCreateEntryRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CredentialEntryService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCredentialRequestDescribeContentsRequest)
+func _CreateEntryService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BeginGetCredentialResponseDescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CredentialEntryServiceServer).DescribeContents(ctx, in)
+		return srv.(CreateEntryServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CredentialEntryService_DescribeContents_FullMethodName,
+		FullMethod: CreateEntryService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialEntryServiceServer).DescribeContents(ctx, req.(*CreateCredentialRequestDescribeContentsRequest))
+		return srv.(CreateEntryServiceServer).DescribeContents(ctx, req.(*BeginGetCredentialResponseDescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CredentialEntryService_GetBeginGetCredentialOptionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetBeginGetCredentialOptionIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CredentialEntryServiceServer).GetBeginGetCredentialOptionId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CredentialEntryService_GetBeginGetCredentialOptionId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialEntryServiceServer).GetBeginGetCredentialOptionId(ctx, req.(*GetBeginGetCredentialOptionIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CredentialEntryService_GetSlice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _CreateEntryService_GetSlice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetSliceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CredentialEntryServiceServer).GetSlice(ctx, in)
+		return srv.(CreateEntryServiceServer).GetSlice(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CredentialEntryService_GetSlice_FullMethodName,
+		FullMethod: CreateEntryService_GetSlice_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialEntryServiceServer).GetSlice(ctx, req.(*GetSliceRequest))
+		return srv.(CreateEntryServiceServer).GetSlice(ctx, req.(*GetSliceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CredentialEntryService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTypeRequest)
+func _CreateEntryService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BeginGetCredentialResponseWriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CredentialEntryServiceServer).GetType(ctx, in)
+		return srv.(CreateEntryServiceServer).WriteToParcel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CredentialEntryService_GetType_FullMethodName,
+		FullMethod: CreateEntryService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialEntryServiceServer).GetType(ctx, req.(*GetTypeRequest))
+		return srv.(CreateEntryServiceServer).WriteToParcel(ctx, req.(*BeginGetCredentialResponseWriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CredentialEntryService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCredentialRequestWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CredentialEntryServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CredentialEntryService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialEntryServiceServer).WriteToParcel(ctx, req.(*CreateCredentialRequestWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CredentialEntryService_ServiceDesc is the grpc.ServiceDesc for CredentialEntryService service.
+// CreateEntryService_ServiceDesc is the grpc.ServiceDesc for CreateEntryService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var CredentialEntryService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "credentials.CredentialEntryService",
-	HandlerType: (*CredentialEntryServiceServer)(nil),
+var CreateEntryService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "credentials.CreateEntryService",
+	HandlerType: (*CreateEntryServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewCredentialEntry",
-			Handler:    _CredentialEntryService_NewCredentialEntry_Handler,
+			MethodName: "NewCreateEntry",
+			Handler:    _CreateEntryService_NewCreateEntry_Handler,
 		},
 		{
 			MethodName: "DescribeContents",
-			Handler:    _CredentialEntryService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetBeginGetCredentialOptionId",
-			Handler:    _CredentialEntryService_GetBeginGetCredentialOptionId_Handler,
+			Handler:    _CreateEntryService_DescribeContents_Handler,
 		},
 		{
 			MethodName: "GetSlice",
-			Handler:    _CredentialEntryService_GetSlice_Handler,
-		},
-		{
-			MethodName: "GetType",
-			Handler:    _CredentialEntryService_GetType_Handler,
+			Handler:    _CreateEntryService_GetSlice_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _CredentialEntryService_WriteToParcel_Handler,
+			Handler:    _CreateEntryService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -6892,9 +6723,660 @@ var CredentialEntryService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	BeginGetCredentialRequestService_DescribeContents_FullMethodName  = "/credentials.BeginGetCredentialRequestService/DescribeContents"
-	BeginGetCredentialRequestService_GetCallingAppInfo_FullMethodName = "/credentials.BeginGetCredentialRequestService/GetCallingAppInfo"
-	BeginGetCredentialRequestService_WriteToParcel_FullMethodName     = "/credentials.BeginGetCredentialRequestService/WriteToParcel"
+	BeginCreateCredentialRequestService_NewBeginCreateCredentialRequest_FullMethodName = "/credentials.BeginCreateCredentialRequestService/NewBeginCreateCredentialRequest"
+	BeginCreateCredentialRequestService_DescribeContents_FullMethodName                = "/credentials.BeginCreateCredentialRequestService/DescribeContents"
+	BeginCreateCredentialRequestService_GetCallingAppInfo_FullMethodName               = "/credentials.BeginCreateCredentialRequestService/GetCallingAppInfo"
+	BeginCreateCredentialRequestService_GetData_FullMethodName                         = "/credentials.BeginCreateCredentialRequestService/GetData"
+	BeginCreateCredentialRequestService_GetType_FullMethodName                         = "/credentials.BeginCreateCredentialRequestService/GetType"
+	BeginCreateCredentialRequestService_WriteToParcel_FullMethodName                   = "/credentials.BeginCreateCredentialRequestService/WriteToParcel"
+)
+
+// BeginCreateCredentialRequestServiceClient is the client API for BeginCreateCredentialRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type BeginCreateCredentialRequestServiceClient interface {
+	NewBeginCreateCredentialRequest(ctx context.Context, in *NewBeginCreateCredentialRequestRequest, opts ...grpc.CallOption) (*NewBeginCreateCredentialRequestResponse, error)
+	DescribeContents(ctx context.Context, in *BeginGetCredentialResponseDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetCallingAppInfo(ctx context.Context, in *GetCallingAppInfoRequest, opts ...grpc.CallOption) (*GetCallingAppInfoResponse, error)
+	GetData(ctx context.Context, in *BeginCreateCredentialRequestGetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error)
+	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
+	WriteToParcel(ctx context.Context, in *BeginGetCredentialResponseWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type beginCreateCredentialRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewBeginCreateCredentialRequestServiceClient(cc grpc.ClientConnInterface) BeginCreateCredentialRequestServiceClient {
+	return &beginCreateCredentialRequestServiceClient{cc}
+}
+
+func (c *beginCreateCredentialRequestServiceClient) NewBeginCreateCredentialRequest(ctx context.Context, in *NewBeginCreateCredentialRequestRequest, opts ...grpc.CallOption) (*NewBeginCreateCredentialRequestResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewBeginCreateCredentialRequestResponse)
+	err := c.cc.Invoke(ctx, BeginCreateCredentialRequestService_NewBeginCreateCredentialRequest_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *beginCreateCredentialRequestServiceClient) DescribeContents(ctx context.Context, in *BeginGetCredentialResponseDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, BeginCreateCredentialRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *beginCreateCredentialRequestServiceClient) GetCallingAppInfo(ctx context.Context, in *GetCallingAppInfoRequest, opts ...grpc.CallOption) (*GetCallingAppInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCallingAppInfoResponse)
+	err := c.cc.Invoke(ctx, BeginCreateCredentialRequestService_GetCallingAppInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *beginCreateCredentialRequestServiceClient) GetData(ctx context.Context, in *BeginCreateCredentialRequestGetDataRequest, opts ...grpc.CallOption) (*GetDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDataResponse)
+	err := c.cc.Invoke(ctx, BeginCreateCredentialRequestService_GetData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *beginCreateCredentialRequestServiceClient) GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTypeResponse)
+	err := c.cc.Invoke(ctx, BeginCreateCredentialRequestService_GetType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *beginCreateCredentialRequestServiceClient) WriteToParcel(ctx context.Context, in *BeginGetCredentialResponseWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, BeginCreateCredentialRequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// BeginCreateCredentialRequestServiceServer is the server API for BeginCreateCredentialRequestService service.
+// All implementations must embed UnimplementedBeginCreateCredentialRequestServiceServer
+// for forward compatibility.
+type BeginCreateCredentialRequestServiceServer interface {
+	NewBeginCreateCredentialRequest(context.Context, *NewBeginCreateCredentialRequestRequest) (*NewBeginCreateCredentialRequestResponse, error)
+	DescribeContents(context.Context, *BeginGetCredentialResponseDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetCallingAppInfo(context.Context, *GetCallingAppInfoRequest) (*GetCallingAppInfoResponse, error)
+	GetData(context.Context, *BeginCreateCredentialRequestGetDataRequest) (*GetDataResponse, error)
+	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
+	WriteToParcel(context.Context, *BeginGetCredentialResponseWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedBeginCreateCredentialRequestServiceServer()
+}
+
+// UnimplementedBeginCreateCredentialRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedBeginCreateCredentialRequestServiceServer struct{}
+
+func (UnimplementedBeginCreateCredentialRequestServiceServer) NewBeginCreateCredentialRequest(context.Context, *NewBeginCreateCredentialRequestRequest) (*NewBeginCreateCredentialRequestResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewBeginCreateCredentialRequest not implemented")
+}
+func (UnimplementedBeginCreateCredentialRequestServiceServer) DescribeContents(context.Context, *BeginGetCredentialResponseDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedBeginCreateCredentialRequestServiceServer) GetCallingAppInfo(context.Context, *GetCallingAppInfoRequest) (*GetCallingAppInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCallingAppInfo not implemented")
+}
+func (UnimplementedBeginCreateCredentialRequestServiceServer) GetData(context.Context, *BeginCreateCredentialRequestGetDataRequest) (*GetDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetData not implemented")
+}
+func (UnimplementedBeginCreateCredentialRequestServiceServer) GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
+}
+func (UnimplementedBeginCreateCredentialRequestServiceServer) WriteToParcel(context.Context, *BeginGetCredentialResponseWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedBeginCreateCredentialRequestServiceServer) mustEmbedUnimplementedBeginCreateCredentialRequestServiceServer() {
+}
+func (UnimplementedBeginCreateCredentialRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafeBeginCreateCredentialRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to BeginCreateCredentialRequestServiceServer will
+// result in compilation errors.
+type UnsafeBeginCreateCredentialRequestServiceServer interface {
+	mustEmbedUnimplementedBeginCreateCredentialRequestServiceServer()
+}
+
+func RegisterBeginCreateCredentialRequestServiceServer(s grpc.ServiceRegistrar, srv BeginCreateCredentialRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedBeginCreateCredentialRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&BeginCreateCredentialRequestService_ServiceDesc, srv)
+}
+
+func _BeginCreateCredentialRequestService_NewBeginCreateCredentialRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewBeginCreateCredentialRequestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BeginCreateCredentialRequestServiceServer).NewBeginCreateCredentialRequest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BeginCreateCredentialRequestService_NewBeginCreateCredentialRequest_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BeginCreateCredentialRequestServiceServer).NewBeginCreateCredentialRequest(ctx, req.(*NewBeginCreateCredentialRequestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BeginCreateCredentialRequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BeginGetCredentialResponseDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BeginCreateCredentialRequestServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BeginCreateCredentialRequestService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BeginCreateCredentialRequestServiceServer).DescribeContents(ctx, req.(*BeginGetCredentialResponseDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BeginCreateCredentialRequestService_GetCallingAppInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCallingAppInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BeginCreateCredentialRequestServiceServer).GetCallingAppInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BeginCreateCredentialRequestService_GetCallingAppInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BeginCreateCredentialRequestServiceServer).GetCallingAppInfo(ctx, req.(*GetCallingAppInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BeginCreateCredentialRequestService_GetData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BeginCreateCredentialRequestGetDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BeginCreateCredentialRequestServiceServer).GetData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BeginCreateCredentialRequestService_GetData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BeginCreateCredentialRequestServiceServer).GetData(ctx, req.(*BeginCreateCredentialRequestGetDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BeginCreateCredentialRequestService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BeginCreateCredentialRequestServiceServer).GetType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BeginCreateCredentialRequestService_GetType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BeginCreateCredentialRequestServiceServer).GetType(ctx, req.(*GetTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BeginCreateCredentialRequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BeginGetCredentialResponseWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BeginCreateCredentialRequestServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BeginCreateCredentialRequestService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BeginCreateCredentialRequestServiceServer).WriteToParcel(ctx, req.(*BeginGetCredentialResponseWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// BeginCreateCredentialRequestService_ServiceDesc is the grpc.ServiceDesc for BeginCreateCredentialRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var BeginCreateCredentialRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "credentials.BeginCreateCredentialRequestService",
+	HandlerType: (*BeginCreateCredentialRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewBeginCreateCredentialRequest",
+			Handler:    _BeginCreateCredentialRequestService_NewBeginCreateCredentialRequest_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _BeginCreateCredentialRequestService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetCallingAppInfo",
+			Handler:    _BeginCreateCredentialRequestService_GetCallingAppInfo_Handler,
+		},
+		{
+			MethodName: "GetData",
+			Handler:    _BeginCreateCredentialRequestService_GetData_Handler,
+		},
+		{
+			MethodName: "GetType",
+			Handler:    _BeginCreateCredentialRequestService_GetType_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _BeginCreateCredentialRequestService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/credentials/credentials.proto",
+}
+
+const (
+	CredentialProviderServiceService_OnBind_FullMethodName   = "/credentials.CredentialProviderServiceService/OnBind"
+	CredentialProviderServiceService_OnCreate_FullMethodName = "/credentials.CredentialProviderServiceService/OnCreate"
+)
+
+// CredentialProviderServiceServiceClient is the client API for CredentialProviderServiceService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CredentialProviderServiceServiceClient interface {
+	OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error)
+	OnCreate(ctx context.Context, in *OnCreateRequest, opts ...grpc.CallOption) (*OnCreateResponse, error)
+}
+
+type credentialProviderServiceServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCredentialProviderServiceServiceClient(cc grpc.ClientConnInterface) CredentialProviderServiceServiceClient {
+	return &credentialProviderServiceServiceClient{cc}
+}
+
+func (c *credentialProviderServiceServiceClient) OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnBindResponse)
+	err := c.cc.Invoke(ctx, CredentialProviderServiceService_OnBind_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialProviderServiceServiceClient) OnCreate(ctx context.Context, in *OnCreateRequest, opts ...grpc.CallOption) (*OnCreateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCreateResponse)
+	err := c.cc.Invoke(ctx, CredentialProviderServiceService_OnCreate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CredentialProviderServiceServiceServer is the server API for CredentialProviderServiceService service.
+// All implementations must embed UnimplementedCredentialProviderServiceServiceServer
+// for forward compatibility.
+type CredentialProviderServiceServiceServer interface {
+	OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error)
+	OnCreate(context.Context, *OnCreateRequest) (*OnCreateResponse, error)
+	mustEmbedUnimplementedCredentialProviderServiceServiceServer()
+}
+
+// UnimplementedCredentialProviderServiceServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCredentialProviderServiceServiceServer struct{}
+
+func (UnimplementedCredentialProviderServiceServiceServer) OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnBind not implemented")
+}
+func (UnimplementedCredentialProviderServiceServiceServer) OnCreate(context.Context, *OnCreateRequest) (*OnCreateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCreate not implemented")
+}
+func (UnimplementedCredentialProviderServiceServiceServer) mustEmbedUnimplementedCredentialProviderServiceServiceServer() {
+}
+func (UnimplementedCredentialProviderServiceServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCredentialProviderServiceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CredentialProviderServiceServiceServer will
+// result in compilation errors.
+type UnsafeCredentialProviderServiceServiceServer interface {
+	mustEmbedUnimplementedCredentialProviderServiceServiceServer()
+}
+
+func RegisterCredentialProviderServiceServiceServer(s grpc.ServiceRegistrar, srv CredentialProviderServiceServiceServer) {
+	// If the following call panics, it indicates UnimplementedCredentialProviderServiceServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CredentialProviderServiceService_ServiceDesc, srv)
+}
+
+func _CredentialProviderServiceService_OnBind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnBindRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialProviderServiceServiceServer).OnBind(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialProviderServiceService_OnBind_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialProviderServiceServiceServer).OnBind(ctx, req.(*OnBindRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialProviderServiceService_OnCreate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCreateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialProviderServiceServiceServer).OnCreate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialProviderServiceService_OnCreate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialProviderServiceServiceServer).OnCreate(ctx, req.(*OnCreateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CredentialProviderServiceService_ServiceDesc is the grpc.ServiceDesc for CredentialProviderServiceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CredentialProviderServiceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "credentials.CredentialProviderServiceService",
+	HandlerType: (*CredentialProviderServiceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnBind",
+			Handler:    _CredentialProviderServiceService_OnBind_Handler,
+		},
+		{
+			MethodName: "OnCreate",
+			Handler:    _CredentialProviderServiceService_OnCreate_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/credentials/credentials.proto",
+}
+
+const (
+	RemoteEntryService_NewRemoteEntry_FullMethodName   = "/credentials.RemoteEntryService/NewRemoteEntry"
+	RemoteEntryService_DescribeContents_FullMethodName = "/credentials.RemoteEntryService/DescribeContents"
+	RemoteEntryService_GetSlice_FullMethodName         = "/credentials.RemoteEntryService/GetSlice"
+	RemoteEntryService_WriteToParcel_FullMethodName    = "/credentials.RemoteEntryService/WriteToParcel"
+)
+
+// RemoteEntryServiceClient is the client API for RemoteEntryService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RemoteEntryServiceClient interface {
+	NewRemoteEntry(ctx context.Context, in *NewRemoteEntryRequest, opts ...grpc.CallOption) (*NewRemoteEntryResponse, error)
+	DescribeContents(ctx context.Context, in *BeginGetCredentialResponseDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetSlice(ctx context.Context, in *GetSliceRequest, opts ...grpc.CallOption) (*GetSliceResponse, error)
+	WriteToParcel(ctx context.Context, in *BeginGetCredentialResponseWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type remoteEntryServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRemoteEntryServiceClient(cc grpc.ClientConnInterface) RemoteEntryServiceClient {
+	return &remoteEntryServiceClient{cc}
+}
+
+func (c *remoteEntryServiceClient) NewRemoteEntry(ctx context.Context, in *NewRemoteEntryRequest, opts ...grpc.CallOption) (*NewRemoteEntryResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewRemoteEntryResponse)
+	err := c.cc.Invoke(ctx, RemoteEntryService_NewRemoteEntry_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *remoteEntryServiceClient) DescribeContents(ctx context.Context, in *BeginGetCredentialResponseDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, RemoteEntryService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *remoteEntryServiceClient) GetSlice(ctx context.Context, in *GetSliceRequest, opts ...grpc.CallOption) (*GetSliceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSliceResponse)
+	err := c.cc.Invoke(ctx, RemoteEntryService_GetSlice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *remoteEntryServiceClient) WriteToParcel(ctx context.Context, in *BeginGetCredentialResponseWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, RemoteEntryService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RemoteEntryServiceServer is the server API for RemoteEntryService service.
+// All implementations must embed UnimplementedRemoteEntryServiceServer
+// for forward compatibility.
+type RemoteEntryServiceServer interface {
+	NewRemoteEntry(context.Context, *NewRemoteEntryRequest) (*NewRemoteEntryResponse, error)
+	DescribeContents(context.Context, *BeginGetCredentialResponseDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetSlice(context.Context, *GetSliceRequest) (*GetSliceResponse, error)
+	WriteToParcel(context.Context, *BeginGetCredentialResponseWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedRemoteEntryServiceServer()
+}
+
+// UnimplementedRemoteEntryServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedRemoteEntryServiceServer struct{}
+
+func (UnimplementedRemoteEntryServiceServer) NewRemoteEntry(context.Context, *NewRemoteEntryRequest) (*NewRemoteEntryResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewRemoteEntry not implemented")
+}
+func (UnimplementedRemoteEntryServiceServer) DescribeContents(context.Context, *BeginGetCredentialResponseDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedRemoteEntryServiceServer) GetSlice(context.Context, *GetSliceRequest) (*GetSliceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSlice not implemented")
+}
+func (UnimplementedRemoteEntryServiceServer) WriteToParcel(context.Context, *BeginGetCredentialResponseWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedRemoteEntryServiceServer) mustEmbedUnimplementedRemoteEntryServiceServer() {}
+func (UnimplementedRemoteEntryServiceServer) testEmbeddedByValue()                            {}
+
+// UnsafeRemoteEntryServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RemoteEntryServiceServer will
+// result in compilation errors.
+type UnsafeRemoteEntryServiceServer interface {
+	mustEmbedUnimplementedRemoteEntryServiceServer()
+}
+
+func RegisterRemoteEntryServiceServer(s grpc.ServiceRegistrar, srv RemoteEntryServiceServer) {
+	// If the following call panics, it indicates UnimplementedRemoteEntryServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&RemoteEntryService_ServiceDesc, srv)
+}
+
+func _RemoteEntryService_NewRemoteEntry_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewRemoteEntryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RemoteEntryServiceServer).NewRemoteEntry(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RemoteEntryService_NewRemoteEntry_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RemoteEntryServiceServer).NewRemoteEntry(ctx, req.(*NewRemoteEntryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RemoteEntryService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BeginGetCredentialResponseDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RemoteEntryServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RemoteEntryService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RemoteEntryServiceServer).DescribeContents(ctx, req.(*BeginGetCredentialResponseDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RemoteEntryService_GetSlice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSliceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RemoteEntryServiceServer).GetSlice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RemoteEntryService_GetSlice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RemoteEntryServiceServer).GetSlice(ctx, req.(*GetSliceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RemoteEntryService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BeginGetCredentialResponseWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RemoteEntryServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RemoteEntryService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RemoteEntryServiceServer).WriteToParcel(ctx, req.(*BeginGetCredentialResponseWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RemoteEntryService_ServiceDesc is the grpc.ServiceDesc for RemoteEntryService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RemoteEntryService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "credentials.RemoteEntryService",
+	HandlerType: (*RemoteEntryServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewRemoteEntry",
+			Handler:    _RemoteEntryService_NewRemoteEntry_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _RemoteEntryService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetSlice",
+			Handler:    _RemoteEntryService_GetSlice_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _RemoteEntryService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/credentials/credentials.proto",
+}
+
+const (
+	BeginGetCredentialRequestService_DescribeContents_FullMethodName             = "/credentials.BeginGetCredentialRequestService/DescribeContents"
+	BeginGetCredentialRequestService_GetBeginGetCredentialOptions_FullMethodName = "/credentials.BeginGetCredentialRequestService/GetBeginGetCredentialOptions"
+	BeginGetCredentialRequestService_GetCallingAppInfo_FullMethodName            = "/credentials.BeginGetCredentialRequestService/GetCallingAppInfo"
+	BeginGetCredentialRequestService_WriteToParcel_FullMethodName                = "/credentials.BeginGetCredentialRequestService/WriteToParcel"
 )
 
 // BeginGetCredentialRequestServiceClient is the client API for BeginGetCredentialRequestService service.
@@ -6902,6 +7384,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type BeginGetCredentialRequestServiceClient interface {
 	DescribeContents(ctx context.Context, in *BeginGetCredentialRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetBeginGetCredentialOptions(ctx context.Context, in *GetBeginGetCredentialOptionsRequest, opts ...grpc.CallOption) (*GetBeginGetCredentialOptionsResponse, error)
 	GetCallingAppInfo(ctx context.Context, in *BeginGetCredentialRequestGetCallingAppInfoRequest, opts ...grpc.CallOption) (*GetCallingAppInfoResponse, error)
 	WriteToParcel(ctx context.Context, in *BeginGetCredentialRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
@@ -6918,6 +7401,16 @@ func (c *beginGetCredentialRequestServiceClient) DescribeContents(ctx context.Co
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
 	err := c.cc.Invoke(ctx, BeginGetCredentialRequestService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *beginGetCredentialRequestServiceClient) GetBeginGetCredentialOptions(ctx context.Context, in *GetBeginGetCredentialOptionsRequest, opts ...grpc.CallOption) (*GetBeginGetCredentialOptionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetBeginGetCredentialOptionsResponse)
+	err := c.cc.Invoke(ctx, BeginGetCredentialRequestService_GetBeginGetCredentialOptions_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -6949,6 +7442,7 @@ func (c *beginGetCredentialRequestServiceClient) WriteToParcel(ctx context.Conte
 // for forward compatibility.
 type BeginGetCredentialRequestServiceServer interface {
 	DescribeContents(context.Context, *BeginGetCredentialRequestDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetBeginGetCredentialOptions(context.Context, *GetBeginGetCredentialOptionsRequest) (*GetBeginGetCredentialOptionsResponse, error)
 	GetCallingAppInfo(context.Context, *BeginGetCredentialRequestGetCallingAppInfoRequest) (*GetCallingAppInfoResponse, error)
 	WriteToParcel(context.Context, *BeginGetCredentialRequestWriteToParcelRequest) (*WriteToParcelResponse, error)
 	mustEmbedUnimplementedBeginGetCredentialRequestServiceServer()
@@ -6963,6 +7457,9 @@ type UnimplementedBeginGetCredentialRequestServiceServer struct{}
 
 func (UnimplementedBeginGetCredentialRequestServiceServer) DescribeContents(context.Context, *BeginGetCredentialRequestDescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedBeginGetCredentialRequestServiceServer) GetBeginGetCredentialOptions(context.Context, *GetBeginGetCredentialOptionsRequest) (*GetBeginGetCredentialOptionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetBeginGetCredentialOptions not implemented")
 }
 func (UnimplementedBeginGetCredentialRequestServiceServer) GetCallingAppInfo(context.Context, *BeginGetCredentialRequestGetCallingAppInfoRequest) (*GetCallingAppInfoResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetCallingAppInfo not implemented")
@@ -7006,6 +7503,24 @@ func _BeginGetCredentialRequestService_DescribeContents_Handler(srv interface{},
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(BeginGetCredentialRequestServiceServer).DescribeContents(ctx, req.(*BeginGetCredentialRequestDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BeginGetCredentialRequestService_GetBeginGetCredentialOptions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBeginGetCredentialOptionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BeginGetCredentialRequestServiceServer).GetBeginGetCredentialOptions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BeginGetCredentialRequestService_GetBeginGetCredentialOptions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BeginGetCredentialRequestServiceServer).GetBeginGetCredentialOptions(ctx, req.(*GetBeginGetCredentialOptionsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -7056,6 +7571,10 @@ var BeginGetCredentialRequestService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DescribeContents",
 			Handler:    _BeginGetCredentialRequestService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetBeginGetCredentialOptions",
+			Handler:    _BeginGetCredentialRequestService_GetBeginGetCredentialOptions_Handler,
 		},
 		{
 			MethodName: "GetCallingAppInfo",
@@ -7250,431 +7769,330 @@ var BeginGetCredentialRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	RemoteEntryService_NewRemoteEntry_FullMethodName   = "/credentials.RemoteEntryService/NewRemoteEntry"
-	RemoteEntryService_DescribeContents_FullMethodName = "/credentials.RemoteEntryService/DescribeContents"
-	RemoteEntryService_GetSlice_FullMethodName         = "/credentials.RemoteEntryService/GetSlice"
-	RemoteEntryService_WriteToParcel_FullMethodName    = "/credentials.RemoteEntryService/WriteToParcel"
+	BeginGetCredentialOptionService_NewBeginGetCredentialOption_FullMethodName = "/credentials.BeginGetCredentialOptionService/NewBeginGetCredentialOption"
+	BeginGetCredentialOptionService_DescribeContents_FullMethodName            = "/credentials.BeginGetCredentialOptionService/DescribeContents"
+	BeginGetCredentialOptionService_GetCandidateQueryData_FullMethodName       = "/credentials.BeginGetCredentialOptionService/GetCandidateQueryData"
+	BeginGetCredentialOptionService_GetId_FullMethodName                       = "/credentials.BeginGetCredentialOptionService/GetId"
+	BeginGetCredentialOptionService_GetType_FullMethodName                     = "/credentials.BeginGetCredentialOptionService/GetType"
+	BeginGetCredentialOptionService_ToString_FullMethodName                    = "/credentials.BeginGetCredentialOptionService/ToString"
+	BeginGetCredentialOptionService_WriteToParcel_FullMethodName               = "/credentials.BeginGetCredentialOptionService/WriteToParcel"
 )
 
-// RemoteEntryServiceClient is the client API for RemoteEntryService service.
+// BeginGetCredentialOptionServiceClient is the client API for BeginGetCredentialOptionService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RemoteEntryServiceClient interface {
-	NewRemoteEntry(ctx context.Context, in *NewRemoteEntryRequest, opts ...grpc.CallOption) (*NewRemoteEntryResponse, error)
-	DescribeContents(ctx context.Context, in *CreateCredentialRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetSlice(ctx context.Context, in *GetSliceRequest, opts ...grpc.CallOption) (*GetSliceResponse, error)
-	WriteToParcel(ctx context.Context, in *CreateCredentialRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+type BeginGetCredentialOptionServiceClient interface {
+	NewBeginGetCredentialOption(ctx context.Context, in *NewBeginGetCredentialOptionRequest, opts ...grpc.CallOption) (*NewBeginGetCredentialOptionResponse, error)
+	DescribeContents(ctx context.Context, in *BeginGetCredentialResponseDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetCandidateQueryData(ctx context.Context, in *BeginGetCredentialOptionGetCandidateQueryDataRequest, opts ...grpc.CallOption) (*GetCandidateQueryDataResponse, error)
+	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
+	GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error)
+	ToString(ctx context.Context, in *CallingAppInfoToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *BeginGetCredentialResponseWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type remoteEntryServiceClient struct {
+type beginGetCredentialOptionServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewRemoteEntryServiceClient(cc grpc.ClientConnInterface) RemoteEntryServiceClient {
-	return &remoteEntryServiceClient{cc}
+func NewBeginGetCredentialOptionServiceClient(cc grpc.ClientConnInterface) BeginGetCredentialOptionServiceClient {
+	return &beginGetCredentialOptionServiceClient{cc}
 }
 
-func (c *remoteEntryServiceClient) NewRemoteEntry(ctx context.Context, in *NewRemoteEntryRequest, opts ...grpc.CallOption) (*NewRemoteEntryResponse, error) {
+func (c *beginGetCredentialOptionServiceClient) NewBeginGetCredentialOption(ctx context.Context, in *NewBeginGetCredentialOptionRequest, opts ...grpc.CallOption) (*NewBeginGetCredentialOptionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewRemoteEntryResponse)
-	err := c.cc.Invoke(ctx, RemoteEntryService_NewRemoteEntry_FullMethodName, in, out, cOpts...)
+	out := new(NewBeginGetCredentialOptionResponse)
+	err := c.cc.Invoke(ctx, BeginGetCredentialOptionService_NewBeginGetCredentialOption_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *remoteEntryServiceClient) DescribeContents(ctx context.Context, in *CreateCredentialRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *beginGetCredentialOptionServiceClient) DescribeContents(ctx context.Context, in *BeginGetCredentialResponseDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, RemoteEntryService_DescribeContents_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, BeginGetCredentialOptionService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *remoteEntryServiceClient) GetSlice(ctx context.Context, in *GetSliceRequest, opts ...grpc.CallOption) (*GetSliceResponse, error) {
+func (c *beginGetCredentialOptionServiceClient) GetCandidateQueryData(ctx context.Context, in *BeginGetCredentialOptionGetCandidateQueryDataRequest, opts ...grpc.CallOption) (*GetCandidateQueryDataResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSliceResponse)
-	err := c.cc.Invoke(ctx, RemoteEntryService_GetSlice_FullMethodName, in, out, cOpts...)
+	out := new(GetCandidateQueryDataResponse)
+	err := c.cc.Invoke(ctx, BeginGetCredentialOptionService_GetCandidateQueryData_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *remoteEntryServiceClient) WriteToParcel(ctx context.Context, in *CreateCredentialRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *beginGetCredentialOptionServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIdResponse)
+	err := c.cc.Invoke(ctx, BeginGetCredentialOptionService_GetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *beginGetCredentialOptionServiceClient) GetType(ctx context.Context, in *GetTypeRequest, opts ...grpc.CallOption) (*GetTypeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTypeResponse)
+	err := c.cc.Invoke(ctx, BeginGetCredentialOptionService_GetType_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *beginGetCredentialOptionServiceClient) ToString(ctx context.Context, in *CallingAppInfoToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, BeginGetCredentialOptionService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *beginGetCredentialOptionServiceClient) WriteToParcel(ctx context.Context, in *BeginGetCredentialResponseWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, RemoteEntryService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, BeginGetCredentialOptionService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// RemoteEntryServiceServer is the server API for RemoteEntryService service.
-// All implementations must embed UnimplementedRemoteEntryServiceServer
+// BeginGetCredentialOptionServiceServer is the server API for BeginGetCredentialOptionService service.
+// All implementations must embed UnimplementedBeginGetCredentialOptionServiceServer
 // for forward compatibility.
-type RemoteEntryServiceServer interface {
-	NewRemoteEntry(context.Context, *NewRemoteEntryRequest) (*NewRemoteEntryResponse, error)
-	DescribeContents(context.Context, *CreateCredentialRequestDescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetSlice(context.Context, *GetSliceRequest) (*GetSliceResponse, error)
-	WriteToParcel(context.Context, *CreateCredentialRequestWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedRemoteEntryServiceServer()
+type BeginGetCredentialOptionServiceServer interface {
+	NewBeginGetCredentialOption(context.Context, *NewBeginGetCredentialOptionRequest) (*NewBeginGetCredentialOptionResponse, error)
+	DescribeContents(context.Context, *BeginGetCredentialResponseDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetCandidateQueryData(context.Context, *BeginGetCredentialOptionGetCandidateQueryDataRequest) (*GetCandidateQueryDataResponse, error)
+	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
+	GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error)
+	ToString(context.Context, *CallingAppInfoToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *BeginGetCredentialResponseWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedBeginGetCredentialOptionServiceServer()
 }
 
-// UnimplementedRemoteEntryServiceServer must be embedded to have
+// UnimplementedBeginGetCredentialOptionServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedRemoteEntryServiceServer struct{}
+type UnimplementedBeginGetCredentialOptionServiceServer struct{}
 
-func (UnimplementedRemoteEntryServiceServer) NewRemoteEntry(context.Context, *NewRemoteEntryRequest) (*NewRemoteEntryResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewRemoteEntry not implemented")
+func (UnimplementedBeginGetCredentialOptionServiceServer) NewBeginGetCredentialOption(context.Context, *NewBeginGetCredentialOptionRequest) (*NewBeginGetCredentialOptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewBeginGetCredentialOption not implemented")
 }
-func (UnimplementedRemoteEntryServiceServer) DescribeContents(context.Context, *CreateCredentialRequestDescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedBeginGetCredentialOptionServiceServer) DescribeContents(context.Context, *BeginGetCredentialResponseDescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedRemoteEntryServiceServer) GetSlice(context.Context, *GetSliceRequest) (*GetSliceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSlice not implemented")
+func (UnimplementedBeginGetCredentialOptionServiceServer) GetCandidateQueryData(context.Context, *BeginGetCredentialOptionGetCandidateQueryDataRequest) (*GetCandidateQueryDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCandidateQueryData not implemented")
 }
-func (UnimplementedRemoteEntryServiceServer) WriteToParcel(context.Context, *CreateCredentialRequestWriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedBeginGetCredentialOptionServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
+}
+func (UnimplementedBeginGetCredentialOptionServiceServer) GetType(context.Context, *GetTypeRequest) (*GetTypeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetType not implemented")
+}
+func (UnimplementedBeginGetCredentialOptionServiceServer) ToString(context.Context, *CallingAppInfoToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedBeginGetCredentialOptionServiceServer) WriteToParcel(context.Context, *BeginGetCredentialResponseWriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedRemoteEntryServiceServer) mustEmbedUnimplementedRemoteEntryServiceServer() {}
-func (UnimplementedRemoteEntryServiceServer) testEmbeddedByValue()                            {}
+func (UnimplementedBeginGetCredentialOptionServiceServer) mustEmbedUnimplementedBeginGetCredentialOptionServiceServer() {
+}
+func (UnimplementedBeginGetCredentialOptionServiceServer) testEmbeddedByValue() {}
 
-// UnsafeRemoteEntryServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RemoteEntryServiceServer will
+// UnsafeBeginGetCredentialOptionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to BeginGetCredentialOptionServiceServer will
 // result in compilation errors.
-type UnsafeRemoteEntryServiceServer interface {
-	mustEmbedUnimplementedRemoteEntryServiceServer()
+type UnsafeBeginGetCredentialOptionServiceServer interface {
+	mustEmbedUnimplementedBeginGetCredentialOptionServiceServer()
 }
 
-func RegisterRemoteEntryServiceServer(s grpc.ServiceRegistrar, srv RemoteEntryServiceServer) {
-	// If the following call panics, it indicates UnimplementedRemoteEntryServiceServer was
+func RegisterBeginGetCredentialOptionServiceServer(s grpc.ServiceRegistrar, srv BeginGetCredentialOptionServiceServer) {
+	// If the following call panics, it indicates UnimplementedBeginGetCredentialOptionServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&RemoteEntryService_ServiceDesc, srv)
+	s.RegisterService(&BeginGetCredentialOptionService_ServiceDesc, srv)
 }
 
-func _RemoteEntryService_NewRemoteEntry_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewRemoteEntryRequest)
+func _BeginGetCredentialOptionService_NewBeginGetCredentialOption_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewBeginGetCredentialOptionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RemoteEntryServiceServer).NewRemoteEntry(ctx, in)
+		return srv.(BeginGetCredentialOptionServiceServer).NewBeginGetCredentialOption(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RemoteEntryService_NewRemoteEntry_FullMethodName,
+		FullMethod: BeginGetCredentialOptionService_NewBeginGetCredentialOption_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RemoteEntryServiceServer).NewRemoteEntry(ctx, req.(*NewRemoteEntryRequest))
+		return srv.(BeginGetCredentialOptionServiceServer).NewBeginGetCredentialOption(ctx, req.(*NewBeginGetCredentialOptionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RemoteEntryService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCredentialRequestDescribeContentsRequest)
+func _BeginGetCredentialOptionService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BeginGetCredentialResponseDescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RemoteEntryServiceServer).DescribeContents(ctx, in)
+		return srv.(BeginGetCredentialOptionServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RemoteEntryService_DescribeContents_FullMethodName,
+		FullMethod: BeginGetCredentialOptionService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RemoteEntryServiceServer).DescribeContents(ctx, req.(*CreateCredentialRequestDescribeContentsRequest))
+		return srv.(BeginGetCredentialOptionServiceServer).DescribeContents(ctx, req.(*BeginGetCredentialResponseDescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RemoteEntryService_GetSlice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSliceRequest)
+func _BeginGetCredentialOptionService_GetCandidateQueryData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BeginGetCredentialOptionGetCandidateQueryDataRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RemoteEntryServiceServer).GetSlice(ctx, in)
+		return srv.(BeginGetCredentialOptionServiceServer).GetCandidateQueryData(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RemoteEntryService_GetSlice_FullMethodName,
+		FullMethod: BeginGetCredentialOptionService_GetCandidateQueryData_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RemoteEntryServiceServer).GetSlice(ctx, req.(*GetSliceRequest))
+		return srv.(BeginGetCredentialOptionServiceServer).GetCandidateQueryData(ctx, req.(*BeginGetCredentialOptionGetCandidateQueryDataRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RemoteEntryService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCredentialRequestWriteToParcelRequest)
+func _BeginGetCredentialOptionService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RemoteEntryServiceServer).WriteToParcel(ctx, in)
+		return srv.(BeginGetCredentialOptionServiceServer).GetId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: RemoteEntryService_WriteToParcel_FullMethodName,
+		FullMethod: BeginGetCredentialOptionService_GetId_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RemoteEntryServiceServer).WriteToParcel(ctx, req.(*CreateCredentialRequestWriteToParcelRequest))
+		return srv.(BeginGetCredentialOptionServiceServer).GetId(ctx, req.(*GetIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// RemoteEntryService_ServiceDesc is the grpc.ServiceDesc for RemoteEntryService service.
+func _BeginGetCredentialOptionService_GetType_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTypeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BeginGetCredentialOptionServiceServer).GetType(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BeginGetCredentialOptionService_GetType_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BeginGetCredentialOptionServiceServer).GetType(ctx, req.(*GetTypeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BeginGetCredentialOptionService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CallingAppInfoToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BeginGetCredentialOptionServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BeginGetCredentialOptionService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BeginGetCredentialOptionServiceServer).ToString(ctx, req.(*CallingAppInfoToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BeginGetCredentialOptionService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BeginGetCredentialResponseWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BeginGetCredentialOptionServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BeginGetCredentialOptionService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BeginGetCredentialOptionServiceServer).WriteToParcel(ctx, req.(*BeginGetCredentialResponseWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// BeginGetCredentialOptionService_ServiceDesc is the grpc.ServiceDesc for BeginGetCredentialOptionService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var RemoteEntryService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "credentials.RemoteEntryService",
-	HandlerType: (*RemoteEntryServiceServer)(nil),
+var BeginGetCredentialOptionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "credentials.BeginGetCredentialOptionService",
+	HandlerType: (*BeginGetCredentialOptionServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewRemoteEntry",
-			Handler:    _RemoteEntryService_NewRemoteEntry_Handler,
+			MethodName: "NewBeginGetCredentialOption",
+			Handler:    _BeginGetCredentialOptionService_NewBeginGetCredentialOption_Handler,
 		},
 		{
 			MethodName: "DescribeContents",
-			Handler:    _RemoteEntryService_DescribeContents_Handler,
+			Handler:    _BeginGetCredentialOptionService_DescribeContents_Handler,
 		},
 		{
-			MethodName: "GetSlice",
-			Handler:    _RemoteEntryService_GetSlice_Handler,
+			MethodName: "GetCandidateQueryData",
+			Handler:    _BeginGetCredentialOptionService_GetCandidateQueryData_Handler,
 		},
 		{
-			MethodName: "WriteToParcel",
-			Handler:    _RemoteEntryService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/credentials/credentials.proto",
-}
-
-const (
-	ActionService_NewAction_FullMethodName        = "/credentials.ActionService/NewAction"
-	ActionService_DescribeContents_FullMethodName = "/credentials.ActionService/DescribeContents"
-	ActionService_GetSlice_FullMethodName         = "/credentials.ActionService/GetSlice"
-	ActionService_WriteToParcel_FullMethodName    = "/credentials.ActionService/WriteToParcel"
-)
-
-// ActionServiceClient is the client API for ActionService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ActionServiceClient interface {
-	NewAction(ctx context.Context, in *NewActionRequest, opts ...grpc.CallOption) (*NewActionResponse, error)
-	DescribeContents(ctx context.Context, in *CreateCredentialRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetSlice(ctx context.Context, in *GetSliceRequest, opts ...grpc.CallOption) (*GetSliceResponse, error)
-	WriteToParcel(ctx context.Context, in *CreateCredentialRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type actionServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewActionServiceClient(cc grpc.ClientConnInterface) ActionServiceClient {
-	return &actionServiceClient{cc}
-}
-
-func (c *actionServiceClient) NewAction(ctx context.Context, in *NewActionRequest, opts ...grpc.CallOption) (*NewActionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewActionResponse)
-	err := c.cc.Invoke(ctx, ActionService_NewAction_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *actionServiceClient) DescribeContents(ctx context.Context, in *CreateCredentialRequestDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, ActionService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *actionServiceClient) GetSlice(ctx context.Context, in *GetSliceRequest, opts ...grpc.CallOption) (*GetSliceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSliceResponse)
-	err := c.cc.Invoke(ctx, ActionService_GetSlice_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *actionServiceClient) WriteToParcel(ctx context.Context, in *CreateCredentialRequestWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, ActionService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ActionServiceServer is the server API for ActionService service.
-// All implementations must embed UnimplementedActionServiceServer
-// for forward compatibility.
-type ActionServiceServer interface {
-	NewAction(context.Context, *NewActionRequest) (*NewActionResponse, error)
-	DescribeContents(context.Context, *CreateCredentialRequestDescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetSlice(context.Context, *GetSliceRequest) (*GetSliceResponse, error)
-	WriteToParcel(context.Context, *CreateCredentialRequestWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedActionServiceServer()
-}
-
-// UnimplementedActionServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedActionServiceServer struct{}
-
-func (UnimplementedActionServiceServer) NewAction(context.Context, *NewActionRequest) (*NewActionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewAction not implemented")
-}
-func (UnimplementedActionServiceServer) DescribeContents(context.Context, *CreateCredentialRequestDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedActionServiceServer) GetSlice(context.Context, *GetSliceRequest) (*GetSliceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSlice not implemented")
-}
-func (UnimplementedActionServiceServer) WriteToParcel(context.Context, *CreateCredentialRequestWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedActionServiceServer) mustEmbedUnimplementedActionServiceServer() {}
-func (UnimplementedActionServiceServer) testEmbeddedByValue()                       {}
-
-// UnsafeActionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ActionServiceServer will
-// result in compilation errors.
-type UnsafeActionServiceServer interface {
-	mustEmbedUnimplementedActionServiceServer()
-}
-
-func RegisterActionServiceServer(s grpc.ServiceRegistrar, srv ActionServiceServer) {
-	// If the following call panics, it indicates UnimplementedActionServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ActionService_ServiceDesc, srv)
-}
-
-func _ActionService_NewAction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewActionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActionServiceServer).NewAction(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActionService_NewAction_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActionServiceServer).NewAction(ctx, req.(*NewActionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActionService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCredentialRequestDescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActionServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActionService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActionServiceServer).DescribeContents(ctx, req.(*CreateCredentialRequestDescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActionService_GetSlice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSliceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActionServiceServer).GetSlice(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActionService_GetSlice_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActionServiceServer).GetSlice(ctx, req.(*GetSliceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ActionService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateCredentialRequestWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ActionServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ActionService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ActionServiceServer).WriteToParcel(ctx, req.(*CreateCredentialRequestWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ActionService_ServiceDesc is the grpc.ServiceDesc for ActionService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ActionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "credentials.ActionService",
-	HandlerType: (*ActionServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewAction",
-			Handler:    _ActionService_NewAction_Handler,
+			MethodName: "GetId",
+			Handler:    _BeginGetCredentialOptionService_GetId_Handler,
 		},
 		{
-			MethodName: "DescribeContents",
-			Handler:    _ActionService_DescribeContents_Handler,
+			MethodName: "GetType",
+			Handler:    _BeginGetCredentialOptionService_GetType_Handler,
 		},
 		{
-			MethodName: "GetSlice",
-			Handler:    _ActionService_GetSlice_Handler,
+			MethodName: "ToString",
+			Handler:    _BeginGetCredentialOptionService_ToString_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _ActionService_WriteToParcel_Handler,
+			Handler:    _BeginGetCredentialOptionService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

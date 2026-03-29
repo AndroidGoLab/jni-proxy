@@ -15,6 +15,183 @@ import (
 	"google.golang.org/grpc/status"
 )
 
+// InteractionServiceServer implements pb.InteractionServiceServiceServer.
+type InteractionServiceServer struct {
+	pb.UnimplementedInteractionServiceServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *InteractionServiceServer) NewInteractionService(_ context.Context, req *pb.NewInteractionServiceRequest) (*pb.NewInteractionServiceResponse, error) {
+	obj, err := jnipkg.NewInteractionService(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewInteractionServiceResponse{Result: handle}, nil
+}
+
+func (s *InteractionServiceServer) GetDisabledShowContext(_ context.Context, req *pb.GetDisabledShowContextRequest) (*pb.GetDisabledShowContextResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.InteractionService{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetDisabledShowContext()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetDisabledShowContextResponse{Result: result}, nil
+}
+
+func (s *InteractionServiceServer) OnBind(_ context.Context, req *pb.InteractionServiceOnBindRequest) (*pb.OnBindResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.InteractionService{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.OnBind(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.OnBindResponse{Result: handle}, nil
+}
+
+func (s *InteractionServiceServer) OnLaunchVoiceAssistFromKeyguard(_ context.Context, req *pb.OnLaunchVoiceAssistFromKeyguardRequest) (*pb.OnLaunchVoiceAssistFromKeyguardResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.InteractionService{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnLaunchVoiceAssistFromKeyguard(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnLaunchVoiceAssistFromKeyguardResponse{}, nil
+}
+
+func (s *InteractionServiceServer) OnPrepareToShowSession(_ context.Context, req *pb.OnPrepareToShowSessionRequest) (*pb.OnPrepareToShowSessionResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.InteractionService{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnPrepareToShowSession(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnPrepareToShowSessionResponse{}, nil
+}
+
+func (s *InteractionServiceServer) OnReady(_ context.Context, req *pb.OnReadyRequest) (*pb.OnReadyResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.InteractionService{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnReady(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnReadyResponse{}, nil
+}
+
+func (s *InteractionServiceServer) OnShowSessionFailed(_ context.Context, req *pb.OnShowSessionFailedRequest) (*pb.OnShowSessionFailedResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.InteractionService{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnShowSessionFailed(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnShowSessionFailedResponse{}, nil
+}
+
+func (s *InteractionServiceServer) OnShutdown(_ context.Context, req *pb.OnShutdownRequest) (*pb.OnShutdownResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.InteractionService{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.OnShutdown(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.OnShutdownResponse{}, nil
+}
+
+func (s *InteractionServiceServer) SetDisabledShowContext(_ context.Context, req *pb.SetDisabledShowContextRequest) (*pb.SetDisabledShowContextResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.InteractionService{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetDisabledShowContext(req.GetArg0()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetDisabledShowContextResponse{}, nil
+}
+
+func (s *InteractionServiceServer) SetUiHints(_ context.Context, req *pb.SetUiHintsRequest) (*pb.SetUiHintsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.InteractionService{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetUiHints(s.Handles.Get(req.GetArg0())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetUiHintsResponse{}, nil
+}
+
+func (s *InteractionServiceServer) ShowSession(_ context.Context, req *pb.ShowSessionRequest) (*pb.ShowSessionResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.InteractionService{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.ShowSession(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ShowSessionResponse{}, nil
+}
+
+func (s *InteractionServiceServer) IsActiveService(_ context.Context, req *pb.IsActiveServiceRequest) (*pb.IsActiveServiceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.InteractionService{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.IsActiveService(s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.IsActiveServiceResponse{Result: result}, nil
+}
+
 // InteractionSessionServer implements pb.InteractionSessionServiceServer.
 type InteractionSessionServer struct {
 	pb.UnimplementedInteractionSessionServiceServer
@@ -767,181 +944,4 @@ func (s *InteractionSessionServer) UnregisterVisibleActivityCallback(_ context.C
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.UnregisterVisibleActivityCallbackResponse{}, nil
-}
-
-// InteractionServiceServer implements pb.InteractionServiceServiceServer.
-type InteractionServiceServer struct {
-	pb.UnimplementedInteractionServiceServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *InteractionServiceServer) NewInteractionService(_ context.Context, req *pb.NewInteractionServiceRequest) (*pb.NewInteractionServiceResponse, error) {
-	obj, err := jnipkg.NewInteractionService(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewInteractionServiceResponse{Result: handle}, nil
-}
-
-func (s *InteractionServiceServer) GetDisabledShowContext(_ context.Context, req *pb.GetDisabledShowContextRequest) (*pb.GetDisabledShowContextResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.InteractionService{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetDisabledShowContext()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetDisabledShowContextResponse{Result: result}, nil
-}
-
-func (s *InteractionServiceServer) OnBind(_ context.Context, req *pb.InteractionServiceOnBindRequest) (*pb.OnBindResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.InteractionService{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.OnBind(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.OnBindResponse{Result: handle}, nil
-}
-
-func (s *InteractionServiceServer) OnLaunchVoiceAssistFromKeyguard(_ context.Context, req *pb.OnLaunchVoiceAssistFromKeyguardRequest) (*pb.OnLaunchVoiceAssistFromKeyguardResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.InteractionService{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnLaunchVoiceAssistFromKeyguard(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnLaunchVoiceAssistFromKeyguardResponse{}, nil
-}
-
-func (s *InteractionServiceServer) OnPrepareToShowSession(_ context.Context, req *pb.OnPrepareToShowSessionRequest) (*pb.OnPrepareToShowSessionResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.InteractionService{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnPrepareToShowSession(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnPrepareToShowSessionResponse{}, nil
-}
-
-func (s *InteractionServiceServer) OnReady(_ context.Context, req *pb.OnReadyRequest) (*pb.OnReadyResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.InteractionService{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnReady(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnReadyResponse{}, nil
-}
-
-func (s *InteractionServiceServer) OnShowSessionFailed(_ context.Context, req *pb.OnShowSessionFailedRequest) (*pb.OnShowSessionFailedResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.InteractionService{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnShowSessionFailed(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnShowSessionFailedResponse{}, nil
-}
-
-func (s *InteractionServiceServer) OnShutdown(_ context.Context, req *pb.OnShutdownRequest) (*pb.OnShutdownResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.InteractionService{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.OnShutdown(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.OnShutdownResponse{}, nil
-}
-
-func (s *InteractionServiceServer) SetDisabledShowContext(_ context.Context, req *pb.SetDisabledShowContextRequest) (*pb.SetDisabledShowContextResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.InteractionService{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetDisabledShowContext(req.GetArg0()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetDisabledShowContextResponse{}, nil
-}
-
-func (s *InteractionServiceServer) SetUiHints(_ context.Context, req *pb.SetUiHintsRequest) (*pb.SetUiHintsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.InteractionService{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetUiHints(s.Handles.Get(req.GetArg0())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetUiHintsResponse{}, nil
-}
-
-func (s *InteractionServiceServer) ShowSession(_ context.Context, req *pb.ShowSessionRequest) (*pb.ShowSessionResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.InteractionService{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.ShowSession(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ShowSessionResponse{}, nil
-}
-
-func (s *InteractionServiceServer) IsActiveService(_ context.Context, req *pb.IsActiveServiceRequest) (*pb.IsActiveServiceResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.InteractionService{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.IsActiveService(s.Ctx.Obj, s.Handles.Get(req.GetArg1()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.IsActiveServiceResponse{Result: result}, nil
 }

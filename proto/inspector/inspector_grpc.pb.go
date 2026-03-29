@@ -124,6 +124,807 @@ var InspectionCompanionService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	IntFlagMappingService_NewIntFlagMapping_FullMethodName = "/inspector.IntFlagMappingService/NewIntFlagMapping"
+	IntFlagMappingService_Add_FullMethodName               = "/inspector.IntFlagMappingService/Add"
+	IntFlagMappingService_Get_FullMethodName               = "/inspector.IntFlagMappingService/Get"
+)
+
+// IntFlagMappingServiceClient is the client API for IntFlagMappingService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type IntFlagMappingServiceClient interface {
+	NewIntFlagMapping(ctx context.Context, in *NewIntFlagMappingRequest, opts ...grpc.CallOption) (*NewIntFlagMappingResponse, error)
+	Add(ctx context.Context, in *AddRequest, opts ...grpc.CallOption) (*AddResponse, error)
+	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
+}
+
+type intFlagMappingServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewIntFlagMappingServiceClient(cc grpc.ClientConnInterface) IntFlagMappingServiceClient {
+	return &intFlagMappingServiceClient{cc}
+}
+
+func (c *intFlagMappingServiceClient) NewIntFlagMapping(ctx context.Context, in *NewIntFlagMappingRequest, opts ...grpc.CallOption) (*NewIntFlagMappingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewIntFlagMappingResponse)
+	err := c.cc.Invoke(ctx, IntFlagMappingService_NewIntFlagMapping_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *intFlagMappingServiceClient) Add(ctx context.Context, in *AddRequest, opts ...grpc.CallOption) (*AddResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddResponse)
+	err := c.cc.Invoke(ctx, IntFlagMappingService_Add_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *intFlagMappingServiceClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetResponse)
+	err := c.cc.Invoke(ctx, IntFlagMappingService_Get_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// IntFlagMappingServiceServer is the server API for IntFlagMappingService service.
+// All implementations must embed UnimplementedIntFlagMappingServiceServer
+// for forward compatibility.
+type IntFlagMappingServiceServer interface {
+	NewIntFlagMapping(context.Context, *NewIntFlagMappingRequest) (*NewIntFlagMappingResponse, error)
+	Add(context.Context, *AddRequest) (*AddResponse, error)
+	Get(context.Context, *GetRequest) (*GetResponse, error)
+	mustEmbedUnimplementedIntFlagMappingServiceServer()
+}
+
+// UnimplementedIntFlagMappingServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedIntFlagMappingServiceServer struct{}
+
+func (UnimplementedIntFlagMappingServiceServer) NewIntFlagMapping(context.Context, *NewIntFlagMappingRequest) (*NewIntFlagMappingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewIntFlagMapping not implemented")
+}
+func (UnimplementedIntFlagMappingServiceServer) Add(context.Context, *AddRequest) (*AddResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Add not implemented")
+}
+func (UnimplementedIntFlagMappingServiceServer) Get(context.Context, *GetRequest) (*GetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Get not implemented")
+}
+func (UnimplementedIntFlagMappingServiceServer) mustEmbedUnimplementedIntFlagMappingServiceServer() {}
+func (UnimplementedIntFlagMappingServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeIntFlagMappingServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to IntFlagMappingServiceServer will
+// result in compilation errors.
+type UnsafeIntFlagMappingServiceServer interface {
+	mustEmbedUnimplementedIntFlagMappingServiceServer()
+}
+
+func RegisterIntFlagMappingServiceServer(s grpc.ServiceRegistrar, srv IntFlagMappingServiceServer) {
+	// If the following call panics, it indicates UnimplementedIntFlagMappingServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&IntFlagMappingService_ServiceDesc, srv)
+}
+
+func _IntFlagMappingService_NewIntFlagMapping_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewIntFlagMappingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IntFlagMappingServiceServer).NewIntFlagMapping(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IntFlagMappingService_NewIntFlagMapping_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IntFlagMappingServiceServer).NewIntFlagMapping(ctx, req.(*NewIntFlagMappingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IntFlagMappingService_Add_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IntFlagMappingServiceServer).Add(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IntFlagMappingService_Add_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IntFlagMappingServiceServer).Add(ctx, req.(*AddRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _IntFlagMappingService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(IntFlagMappingServiceServer).Get(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: IntFlagMappingService_Get_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(IntFlagMappingServiceServer).Get(ctx, req.(*GetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// IntFlagMappingService_ServiceDesc is the grpc.ServiceDesc for IntFlagMappingService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var IntFlagMappingService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "inspector.IntFlagMappingService",
+	HandlerType: (*IntFlagMappingServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewIntFlagMapping",
+			Handler:    _IntFlagMappingService_NewIntFlagMapping_Handler,
+		},
+		{
+			MethodName: "Add",
+			Handler:    _IntFlagMappingService_Add_Handler,
+		},
+		{
+			MethodName: "Get",
+			Handler:    _IntFlagMappingService_Get_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/inspector/inspector.proto",
+}
+
+const (
+	PropertyMapperService_MapBoolean_FullMethodName    = "/inspector.PropertyMapperService/MapBoolean"
+	PropertyMapperService_MapByte_FullMethodName       = "/inspector.PropertyMapperService/MapByte"
+	PropertyMapperService_MapChar_FullMethodName       = "/inspector.PropertyMapperService/MapChar"
+	PropertyMapperService_MapColor_FullMethodName      = "/inspector.PropertyMapperService/MapColor"
+	PropertyMapperService_MapDouble_FullMethodName     = "/inspector.PropertyMapperService/MapDouble"
+	PropertyMapperService_MapFloat_FullMethodName      = "/inspector.PropertyMapperService/MapFloat"
+	PropertyMapperService_MapGravity_FullMethodName    = "/inspector.PropertyMapperService/MapGravity"
+	PropertyMapperService_MapInt_FullMethodName        = "/inspector.PropertyMapperService/MapInt"
+	PropertyMapperService_MapLong_FullMethodName       = "/inspector.PropertyMapperService/MapLong"
+	PropertyMapperService_MapObject_FullMethodName     = "/inspector.PropertyMapperService/MapObject"
+	PropertyMapperService_MapResourceId_FullMethodName = "/inspector.PropertyMapperService/MapResourceId"
+	PropertyMapperService_MapShort_FullMethodName      = "/inspector.PropertyMapperService/MapShort"
+)
+
+// PropertyMapperServiceClient is the client API for PropertyMapperService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PropertyMapperServiceClient interface {
+	MapBoolean(ctx context.Context, in *MapBooleanRequest, opts ...grpc.CallOption) (*MapBooleanResponse, error)
+	MapByte(ctx context.Context, in *MapByteRequest, opts ...grpc.CallOption) (*MapByteResponse, error)
+	MapChar(ctx context.Context, in *MapCharRequest, opts ...grpc.CallOption) (*MapCharResponse, error)
+	MapColor(ctx context.Context, in *MapColorRequest, opts ...grpc.CallOption) (*MapColorResponse, error)
+	MapDouble(ctx context.Context, in *MapDoubleRequest, opts ...grpc.CallOption) (*MapDoubleResponse, error)
+	MapFloat(ctx context.Context, in *MapFloatRequest, opts ...grpc.CallOption) (*MapFloatResponse, error)
+	MapGravity(ctx context.Context, in *MapGravityRequest, opts ...grpc.CallOption) (*MapGravityResponse, error)
+	MapInt(ctx context.Context, in *MapIntRequest, opts ...grpc.CallOption) (*MapIntResponse, error)
+	MapLong(ctx context.Context, in *MapLongRequest, opts ...grpc.CallOption) (*MapLongResponse, error)
+	MapObject(ctx context.Context, in *MapObjectRequest, opts ...grpc.CallOption) (*MapObjectResponse, error)
+	MapResourceId(ctx context.Context, in *MapResourceIdRequest, opts ...grpc.CallOption) (*MapResourceIdResponse, error)
+	MapShort(ctx context.Context, in *MapShortRequest, opts ...grpc.CallOption) (*MapShortResponse, error)
+}
+
+type propertyMapperServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPropertyMapperServiceClient(cc grpc.ClientConnInterface) PropertyMapperServiceClient {
+	return &propertyMapperServiceClient{cc}
+}
+
+func (c *propertyMapperServiceClient) MapBoolean(ctx context.Context, in *MapBooleanRequest, opts ...grpc.CallOption) (*MapBooleanResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MapBooleanResponse)
+	err := c.cc.Invoke(ctx, PropertyMapperService_MapBoolean_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *propertyMapperServiceClient) MapByte(ctx context.Context, in *MapByteRequest, opts ...grpc.CallOption) (*MapByteResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MapByteResponse)
+	err := c.cc.Invoke(ctx, PropertyMapperService_MapByte_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *propertyMapperServiceClient) MapChar(ctx context.Context, in *MapCharRequest, opts ...grpc.CallOption) (*MapCharResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MapCharResponse)
+	err := c.cc.Invoke(ctx, PropertyMapperService_MapChar_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *propertyMapperServiceClient) MapColor(ctx context.Context, in *MapColorRequest, opts ...grpc.CallOption) (*MapColorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MapColorResponse)
+	err := c.cc.Invoke(ctx, PropertyMapperService_MapColor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *propertyMapperServiceClient) MapDouble(ctx context.Context, in *MapDoubleRequest, opts ...grpc.CallOption) (*MapDoubleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MapDoubleResponse)
+	err := c.cc.Invoke(ctx, PropertyMapperService_MapDouble_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *propertyMapperServiceClient) MapFloat(ctx context.Context, in *MapFloatRequest, opts ...grpc.CallOption) (*MapFloatResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MapFloatResponse)
+	err := c.cc.Invoke(ctx, PropertyMapperService_MapFloat_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *propertyMapperServiceClient) MapGravity(ctx context.Context, in *MapGravityRequest, opts ...grpc.CallOption) (*MapGravityResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MapGravityResponse)
+	err := c.cc.Invoke(ctx, PropertyMapperService_MapGravity_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *propertyMapperServiceClient) MapInt(ctx context.Context, in *MapIntRequest, opts ...grpc.CallOption) (*MapIntResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MapIntResponse)
+	err := c.cc.Invoke(ctx, PropertyMapperService_MapInt_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *propertyMapperServiceClient) MapLong(ctx context.Context, in *MapLongRequest, opts ...grpc.CallOption) (*MapLongResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MapLongResponse)
+	err := c.cc.Invoke(ctx, PropertyMapperService_MapLong_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *propertyMapperServiceClient) MapObject(ctx context.Context, in *MapObjectRequest, opts ...grpc.CallOption) (*MapObjectResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MapObjectResponse)
+	err := c.cc.Invoke(ctx, PropertyMapperService_MapObject_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *propertyMapperServiceClient) MapResourceId(ctx context.Context, in *MapResourceIdRequest, opts ...grpc.CallOption) (*MapResourceIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MapResourceIdResponse)
+	err := c.cc.Invoke(ctx, PropertyMapperService_MapResourceId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *propertyMapperServiceClient) MapShort(ctx context.Context, in *MapShortRequest, opts ...grpc.CallOption) (*MapShortResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MapShortResponse)
+	err := c.cc.Invoke(ctx, PropertyMapperService_MapShort_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PropertyMapperServiceServer is the server API for PropertyMapperService service.
+// All implementations must embed UnimplementedPropertyMapperServiceServer
+// for forward compatibility.
+type PropertyMapperServiceServer interface {
+	MapBoolean(context.Context, *MapBooleanRequest) (*MapBooleanResponse, error)
+	MapByte(context.Context, *MapByteRequest) (*MapByteResponse, error)
+	MapChar(context.Context, *MapCharRequest) (*MapCharResponse, error)
+	MapColor(context.Context, *MapColorRequest) (*MapColorResponse, error)
+	MapDouble(context.Context, *MapDoubleRequest) (*MapDoubleResponse, error)
+	MapFloat(context.Context, *MapFloatRequest) (*MapFloatResponse, error)
+	MapGravity(context.Context, *MapGravityRequest) (*MapGravityResponse, error)
+	MapInt(context.Context, *MapIntRequest) (*MapIntResponse, error)
+	MapLong(context.Context, *MapLongRequest) (*MapLongResponse, error)
+	MapObject(context.Context, *MapObjectRequest) (*MapObjectResponse, error)
+	MapResourceId(context.Context, *MapResourceIdRequest) (*MapResourceIdResponse, error)
+	MapShort(context.Context, *MapShortRequest) (*MapShortResponse, error)
+	mustEmbedUnimplementedPropertyMapperServiceServer()
+}
+
+// UnimplementedPropertyMapperServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPropertyMapperServiceServer struct{}
+
+func (UnimplementedPropertyMapperServiceServer) MapBoolean(context.Context, *MapBooleanRequest) (*MapBooleanResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method MapBoolean not implemented")
+}
+func (UnimplementedPropertyMapperServiceServer) MapByte(context.Context, *MapByteRequest) (*MapByteResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method MapByte not implemented")
+}
+func (UnimplementedPropertyMapperServiceServer) MapChar(context.Context, *MapCharRequest) (*MapCharResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method MapChar not implemented")
+}
+func (UnimplementedPropertyMapperServiceServer) MapColor(context.Context, *MapColorRequest) (*MapColorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method MapColor not implemented")
+}
+func (UnimplementedPropertyMapperServiceServer) MapDouble(context.Context, *MapDoubleRequest) (*MapDoubleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method MapDouble not implemented")
+}
+func (UnimplementedPropertyMapperServiceServer) MapFloat(context.Context, *MapFloatRequest) (*MapFloatResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method MapFloat not implemented")
+}
+func (UnimplementedPropertyMapperServiceServer) MapGravity(context.Context, *MapGravityRequest) (*MapGravityResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method MapGravity not implemented")
+}
+func (UnimplementedPropertyMapperServiceServer) MapInt(context.Context, *MapIntRequest) (*MapIntResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method MapInt not implemented")
+}
+func (UnimplementedPropertyMapperServiceServer) MapLong(context.Context, *MapLongRequest) (*MapLongResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method MapLong not implemented")
+}
+func (UnimplementedPropertyMapperServiceServer) MapObject(context.Context, *MapObjectRequest) (*MapObjectResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method MapObject not implemented")
+}
+func (UnimplementedPropertyMapperServiceServer) MapResourceId(context.Context, *MapResourceIdRequest) (*MapResourceIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method MapResourceId not implemented")
+}
+func (UnimplementedPropertyMapperServiceServer) MapShort(context.Context, *MapShortRequest) (*MapShortResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method MapShort not implemented")
+}
+func (UnimplementedPropertyMapperServiceServer) mustEmbedUnimplementedPropertyMapperServiceServer() {}
+func (UnimplementedPropertyMapperServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafePropertyMapperServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PropertyMapperServiceServer will
+// result in compilation errors.
+type UnsafePropertyMapperServiceServer interface {
+	mustEmbedUnimplementedPropertyMapperServiceServer()
+}
+
+func RegisterPropertyMapperServiceServer(s grpc.ServiceRegistrar, srv PropertyMapperServiceServer) {
+	// If the following call panics, it indicates UnimplementedPropertyMapperServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PropertyMapperService_ServiceDesc, srv)
+}
+
+func _PropertyMapperService_MapBoolean_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MapBooleanRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PropertyMapperServiceServer).MapBoolean(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PropertyMapperService_MapBoolean_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PropertyMapperServiceServer).MapBoolean(ctx, req.(*MapBooleanRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PropertyMapperService_MapByte_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MapByteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PropertyMapperServiceServer).MapByte(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PropertyMapperService_MapByte_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PropertyMapperServiceServer).MapByte(ctx, req.(*MapByteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PropertyMapperService_MapChar_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MapCharRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PropertyMapperServiceServer).MapChar(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PropertyMapperService_MapChar_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PropertyMapperServiceServer).MapChar(ctx, req.(*MapCharRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PropertyMapperService_MapColor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MapColorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PropertyMapperServiceServer).MapColor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PropertyMapperService_MapColor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PropertyMapperServiceServer).MapColor(ctx, req.(*MapColorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PropertyMapperService_MapDouble_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MapDoubleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PropertyMapperServiceServer).MapDouble(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PropertyMapperService_MapDouble_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PropertyMapperServiceServer).MapDouble(ctx, req.(*MapDoubleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PropertyMapperService_MapFloat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MapFloatRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PropertyMapperServiceServer).MapFloat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PropertyMapperService_MapFloat_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PropertyMapperServiceServer).MapFloat(ctx, req.(*MapFloatRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PropertyMapperService_MapGravity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MapGravityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PropertyMapperServiceServer).MapGravity(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PropertyMapperService_MapGravity_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PropertyMapperServiceServer).MapGravity(ctx, req.(*MapGravityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PropertyMapperService_MapInt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MapIntRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PropertyMapperServiceServer).MapInt(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PropertyMapperService_MapInt_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PropertyMapperServiceServer).MapInt(ctx, req.(*MapIntRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PropertyMapperService_MapLong_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MapLongRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PropertyMapperServiceServer).MapLong(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PropertyMapperService_MapLong_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PropertyMapperServiceServer).MapLong(ctx, req.(*MapLongRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PropertyMapperService_MapObject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MapObjectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PropertyMapperServiceServer).MapObject(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PropertyMapperService_MapObject_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PropertyMapperServiceServer).MapObject(ctx, req.(*MapObjectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PropertyMapperService_MapResourceId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MapResourceIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PropertyMapperServiceServer).MapResourceId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PropertyMapperService_MapResourceId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PropertyMapperServiceServer).MapResourceId(ctx, req.(*MapResourceIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PropertyMapperService_MapShort_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MapShortRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PropertyMapperServiceServer).MapShort(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PropertyMapperService_MapShort_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PropertyMapperServiceServer).MapShort(ctx, req.(*MapShortRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PropertyMapperService_ServiceDesc is the grpc.ServiceDesc for PropertyMapperService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PropertyMapperService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "inspector.PropertyMapperService",
+	HandlerType: (*PropertyMapperServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "MapBoolean",
+			Handler:    _PropertyMapperService_MapBoolean_Handler,
+		},
+		{
+			MethodName: "MapByte",
+			Handler:    _PropertyMapperService_MapByte_Handler,
+		},
+		{
+			MethodName: "MapChar",
+			Handler:    _PropertyMapperService_MapChar_Handler,
+		},
+		{
+			MethodName: "MapColor",
+			Handler:    _PropertyMapperService_MapColor_Handler,
+		},
+		{
+			MethodName: "MapDouble",
+			Handler:    _PropertyMapperService_MapDouble_Handler,
+		},
+		{
+			MethodName: "MapFloat",
+			Handler:    _PropertyMapperService_MapFloat_Handler,
+		},
+		{
+			MethodName: "MapGravity",
+			Handler:    _PropertyMapperService_MapGravity_Handler,
+		},
+		{
+			MethodName: "MapInt",
+			Handler:    _PropertyMapperService_MapInt_Handler,
+		},
+		{
+			MethodName: "MapLong",
+			Handler:    _PropertyMapperService_MapLong_Handler,
+		},
+		{
+			MethodName: "MapObject",
+			Handler:    _PropertyMapperService_MapObject_Handler,
+		},
+		{
+			MethodName: "MapResourceId",
+			Handler:    _PropertyMapperService_MapResourceId_Handler,
+		},
+		{
+			MethodName: "MapShort",
+			Handler:    _PropertyMapperService_MapShort_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/inspector/inspector.proto",
+}
+
+const (
+	WindowInspectorService_GetGlobalWindowViews_FullMethodName = "/inspector.WindowInspectorService/GetGlobalWindowViews"
+)
+
+// WindowInspectorServiceClient is the client API for WindowInspectorService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type WindowInspectorServiceClient interface {
+	GetGlobalWindowViews(ctx context.Context, in *GetGlobalWindowViewsRequest, opts ...grpc.CallOption) (*GetGlobalWindowViewsResponse, error)
+}
+
+type windowInspectorServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewWindowInspectorServiceClient(cc grpc.ClientConnInterface) WindowInspectorServiceClient {
+	return &windowInspectorServiceClient{cc}
+}
+
+func (c *windowInspectorServiceClient) GetGlobalWindowViews(ctx context.Context, in *GetGlobalWindowViewsRequest, opts ...grpc.CallOption) (*GetGlobalWindowViewsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetGlobalWindowViewsResponse)
+	err := c.cc.Invoke(ctx, WindowInspectorService_GetGlobalWindowViews_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// WindowInspectorServiceServer is the server API for WindowInspectorService service.
+// All implementations must embed UnimplementedWindowInspectorServiceServer
+// for forward compatibility.
+type WindowInspectorServiceServer interface {
+	GetGlobalWindowViews(context.Context, *GetGlobalWindowViewsRequest) (*GetGlobalWindowViewsResponse, error)
+	mustEmbedUnimplementedWindowInspectorServiceServer()
+}
+
+// UnimplementedWindowInspectorServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedWindowInspectorServiceServer struct{}
+
+func (UnimplementedWindowInspectorServiceServer) GetGlobalWindowViews(context.Context, *GetGlobalWindowViewsRequest) (*GetGlobalWindowViewsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetGlobalWindowViews not implemented")
+}
+func (UnimplementedWindowInspectorServiceServer) mustEmbedUnimplementedWindowInspectorServiceServer() {
+}
+func (UnimplementedWindowInspectorServiceServer) testEmbeddedByValue() {}
+
+// UnsafeWindowInspectorServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to WindowInspectorServiceServer will
+// result in compilation errors.
+type UnsafeWindowInspectorServiceServer interface {
+	mustEmbedUnimplementedWindowInspectorServiceServer()
+}
+
+func RegisterWindowInspectorServiceServer(s grpc.ServiceRegistrar, srv WindowInspectorServiceServer) {
+	// If the following call panics, it indicates UnimplementedWindowInspectorServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&WindowInspectorService_ServiceDesc, srv)
+}
+
+func _WindowInspectorService_GetGlobalWindowViews_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetGlobalWindowViewsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WindowInspectorServiceServer).GetGlobalWindowViews(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WindowInspectorService_GetGlobalWindowViews_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WindowInspectorServiceServer).GetGlobalWindowViews(ctx, req.(*GetGlobalWindowViewsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// WindowInspectorService_ServiceDesc is the grpc.ServiceDesc for WindowInspectorService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var WindowInspectorService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "inspector.WindowInspectorService",
+	HandlerType: (*WindowInspectorServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetGlobalWindowViews",
+			Handler:    _WindowInspectorService_GetGlobalWindowViews_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/inspector/inspector.proto",
+}
+
+const (
 	PropertyReaderService_ReadBoolean_FullMethodName    = "/inspector.PropertyReaderService/ReadBoolean"
 	PropertyReaderService_ReadByteValue_FullMethodName  = "/inspector.PropertyReaderService/ReadByteValue"
 	PropertyReaderService_ReadChar_FullMethodName       = "/inspector.PropertyReaderService/ReadChar"
@@ -789,666 +1590,6 @@ var PropertyReaderService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ReadShort",
 			Handler:    _PropertyReaderService_ReadShort_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/inspector/inspector.proto",
-}
-
-const (
-	PropertyMapperService_MapBoolean_FullMethodName    = "/inspector.PropertyMapperService/MapBoolean"
-	PropertyMapperService_MapByte_FullMethodName       = "/inspector.PropertyMapperService/MapByte"
-	PropertyMapperService_MapChar_FullMethodName       = "/inspector.PropertyMapperService/MapChar"
-	PropertyMapperService_MapColor_FullMethodName      = "/inspector.PropertyMapperService/MapColor"
-	PropertyMapperService_MapDouble_FullMethodName     = "/inspector.PropertyMapperService/MapDouble"
-	PropertyMapperService_MapFloat_FullMethodName      = "/inspector.PropertyMapperService/MapFloat"
-	PropertyMapperService_MapGravity_FullMethodName    = "/inspector.PropertyMapperService/MapGravity"
-	PropertyMapperService_MapInt_FullMethodName        = "/inspector.PropertyMapperService/MapInt"
-	PropertyMapperService_MapLong_FullMethodName       = "/inspector.PropertyMapperService/MapLong"
-	PropertyMapperService_MapObject_FullMethodName     = "/inspector.PropertyMapperService/MapObject"
-	PropertyMapperService_MapResourceId_FullMethodName = "/inspector.PropertyMapperService/MapResourceId"
-	PropertyMapperService_MapShort_FullMethodName      = "/inspector.PropertyMapperService/MapShort"
-)
-
-// PropertyMapperServiceClient is the client API for PropertyMapperService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PropertyMapperServiceClient interface {
-	MapBoolean(ctx context.Context, in *MapBooleanRequest, opts ...grpc.CallOption) (*MapBooleanResponse, error)
-	MapByte(ctx context.Context, in *MapByteRequest, opts ...grpc.CallOption) (*MapByteResponse, error)
-	MapChar(ctx context.Context, in *MapCharRequest, opts ...grpc.CallOption) (*MapCharResponse, error)
-	MapColor(ctx context.Context, in *MapColorRequest, opts ...grpc.CallOption) (*MapColorResponse, error)
-	MapDouble(ctx context.Context, in *MapDoubleRequest, opts ...grpc.CallOption) (*MapDoubleResponse, error)
-	MapFloat(ctx context.Context, in *MapFloatRequest, opts ...grpc.CallOption) (*MapFloatResponse, error)
-	MapGravity(ctx context.Context, in *MapGravityRequest, opts ...grpc.CallOption) (*MapGravityResponse, error)
-	MapInt(ctx context.Context, in *MapIntRequest, opts ...grpc.CallOption) (*MapIntResponse, error)
-	MapLong(ctx context.Context, in *MapLongRequest, opts ...grpc.CallOption) (*MapLongResponse, error)
-	MapObject(ctx context.Context, in *MapObjectRequest, opts ...grpc.CallOption) (*MapObjectResponse, error)
-	MapResourceId(ctx context.Context, in *MapResourceIdRequest, opts ...grpc.CallOption) (*MapResourceIdResponse, error)
-	MapShort(ctx context.Context, in *MapShortRequest, opts ...grpc.CallOption) (*MapShortResponse, error)
-}
-
-type propertyMapperServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPropertyMapperServiceClient(cc grpc.ClientConnInterface) PropertyMapperServiceClient {
-	return &propertyMapperServiceClient{cc}
-}
-
-func (c *propertyMapperServiceClient) MapBoolean(ctx context.Context, in *MapBooleanRequest, opts ...grpc.CallOption) (*MapBooleanResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MapBooleanResponse)
-	err := c.cc.Invoke(ctx, PropertyMapperService_MapBoolean_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *propertyMapperServiceClient) MapByte(ctx context.Context, in *MapByteRequest, opts ...grpc.CallOption) (*MapByteResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MapByteResponse)
-	err := c.cc.Invoke(ctx, PropertyMapperService_MapByte_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *propertyMapperServiceClient) MapChar(ctx context.Context, in *MapCharRequest, opts ...grpc.CallOption) (*MapCharResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MapCharResponse)
-	err := c.cc.Invoke(ctx, PropertyMapperService_MapChar_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *propertyMapperServiceClient) MapColor(ctx context.Context, in *MapColorRequest, opts ...grpc.CallOption) (*MapColorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MapColorResponse)
-	err := c.cc.Invoke(ctx, PropertyMapperService_MapColor_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *propertyMapperServiceClient) MapDouble(ctx context.Context, in *MapDoubleRequest, opts ...grpc.CallOption) (*MapDoubleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MapDoubleResponse)
-	err := c.cc.Invoke(ctx, PropertyMapperService_MapDouble_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *propertyMapperServiceClient) MapFloat(ctx context.Context, in *MapFloatRequest, opts ...grpc.CallOption) (*MapFloatResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MapFloatResponse)
-	err := c.cc.Invoke(ctx, PropertyMapperService_MapFloat_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *propertyMapperServiceClient) MapGravity(ctx context.Context, in *MapGravityRequest, opts ...grpc.CallOption) (*MapGravityResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MapGravityResponse)
-	err := c.cc.Invoke(ctx, PropertyMapperService_MapGravity_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *propertyMapperServiceClient) MapInt(ctx context.Context, in *MapIntRequest, opts ...grpc.CallOption) (*MapIntResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MapIntResponse)
-	err := c.cc.Invoke(ctx, PropertyMapperService_MapInt_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *propertyMapperServiceClient) MapLong(ctx context.Context, in *MapLongRequest, opts ...grpc.CallOption) (*MapLongResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MapLongResponse)
-	err := c.cc.Invoke(ctx, PropertyMapperService_MapLong_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *propertyMapperServiceClient) MapObject(ctx context.Context, in *MapObjectRequest, opts ...grpc.CallOption) (*MapObjectResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MapObjectResponse)
-	err := c.cc.Invoke(ctx, PropertyMapperService_MapObject_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *propertyMapperServiceClient) MapResourceId(ctx context.Context, in *MapResourceIdRequest, opts ...grpc.CallOption) (*MapResourceIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MapResourceIdResponse)
-	err := c.cc.Invoke(ctx, PropertyMapperService_MapResourceId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *propertyMapperServiceClient) MapShort(ctx context.Context, in *MapShortRequest, opts ...grpc.CallOption) (*MapShortResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MapShortResponse)
-	err := c.cc.Invoke(ctx, PropertyMapperService_MapShort_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PropertyMapperServiceServer is the server API for PropertyMapperService service.
-// All implementations must embed UnimplementedPropertyMapperServiceServer
-// for forward compatibility.
-type PropertyMapperServiceServer interface {
-	MapBoolean(context.Context, *MapBooleanRequest) (*MapBooleanResponse, error)
-	MapByte(context.Context, *MapByteRequest) (*MapByteResponse, error)
-	MapChar(context.Context, *MapCharRequest) (*MapCharResponse, error)
-	MapColor(context.Context, *MapColorRequest) (*MapColorResponse, error)
-	MapDouble(context.Context, *MapDoubleRequest) (*MapDoubleResponse, error)
-	MapFloat(context.Context, *MapFloatRequest) (*MapFloatResponse, error)
-	MapGravity(context.Context, *MapGravityRequest) (*MapGravityResponse, error)
-	MapInt(context.Context, *MapIntRequest) (*MapIntResponse, error)
-	MapLong(context.Context, *MapLongRequest) (*MapLongResponse, error)
-	MapObject(context.Context, *MapObjectRequest) (*MapObjectResponse, error)
-	MapResourceId(context.Context, *MapResourceIdRequest) (*MapResourceIdResponse, error)
-	MapShort(context.Context, *MapShortRequest) (*MapShortResponse, error)
-	mustEmbedUnimplementedPropertyMapperServiceServer()
-}
-
-// UnimplementedPropertyMapperServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPropertyMapperServiceServer struct{}
-
-func (UnimplementedPropertyMapperServiceServer) MapBoolean(context.Context, *MapBooleanRequest) (*MapBooleanResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method MapBoolean not implemented")
-}
-func (UnimplementedPropertyMapperServiceServer) MapByte(context.Context, *MapByteRequest) (*MapByteResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method MapByte not implemented")
-}
-func (UnimplementedPropertyMapperServiceServer) MapChar(context.Context, *MapCharRequest) (*MapCharResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method MapChar not implemented")
-}
-func (UnimplementedPropertyMapperServiceServer) MapColor(context.Context, *MapColorRequest) (*MapColorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method MapColor not implemented")
-}
-func (UnimplementedPropertyMapperServiceServer) MapDouble(context.Context, *MapDoubleRequest) (*MapDoubleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method MapDouble not implemented")
-}
-func (UnimplementedPropertyMapperServiceServer) MapFloat(context.Context, *MapFloatRequest) (*MapFloatResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method MapFloat not implemented")
-}
-func (UnimplementedPropertyMapperServiceServer) MapGravity(context.Context, *MapGravityRequest) (*MapGravityResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method MapGravity not implemented")
-}
-func (UnimplementedPropertyMapperServiceServer) MapInt(context.Context, *MapIntRequest) (*MapIntResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method MapInt not implemented")
-}
-func (UnimplementedPropertyMapperServiceServer) MapLong(context.Context, *MapLongRequest) (*MapLongResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method MapLong not implemented")
-}
-func (UnimplementedPropertyMapperServiceServer) MapObject(context.Context, *MapObjectRequest) (*MapObjectResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method MapObject not implemented")
-}
-func (UnimplementedPropertyMapperServiceServer) MapResourceId(context.Context, *MapResourceIdRequest) (*MapResourceIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method MapResourceId not implemented")
-}
-func (UnimplementedPropertyMapperServiceServer) MapShort(context.Context, *MapShortRequest) (*MapShortResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method MapShort not implemented")
-}
-func (UnimplementedPropertyMapperServiceServer) mustEmbedUnimplementedPropertyMapperServiceServer() {}
-func (UnimplementedPropertyMapperServiceServer) testEmbeddedByValue()                               {}
-
-// UnsafePropertyMapperServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PropertyMapperServiceServer will
-// result in compilation errors.
-type UnsafePropertyMapperServiceServer interface {
-	mustEmbedUnimplementedPropertyMapperServiceServer()
-}
-
-func RegisterPropertyMapperServiceServer(s grpc.ServiceRegistrar, srv PropertyMapperServiceServer) {
-	// If the following call panics, it indicates UnimplementedPropertyMapperServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PropertyMapperService_ServiceDesc, srv)
-}
-
-func _PropertyMapperService_MapBoolean_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MapBooleanRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PropertyMapperServiceServer).MapBoolean(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PropertyMapperService_MapBoolean_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PropertyMapperServiceServer).MapBoolean(ctx, req.(*MapBooleanRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PropertyMapperService_MapByte_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MapByteRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PropertyMapperServiceServer).MapByte(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PropertyMapperService_MapByte_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PropertyMapperServiceServer).MapByte(ctx, req.(*MapByteRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PropertyMapperService_MapChar_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MapCharRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PropertyMapperServiceServer).MapChar(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PropertyMapperService_MapChar_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PropertyMapperServiceServer).MapChar(ctx, req.(*MapCharRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PropertyMapperService_MapColor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MapColorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PropertyMapperServiceServer).MapColor(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PropertyMapperService_MapColor_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PropertyMapperServiceServer).MapColor(ctx, req.(*MapColorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PropertyMapperService_MapDouble_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MapDoubleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PropertyMapperServiceServer).MapDouble(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PropertyMapperService_MapDouble_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PropertyMapperServiceServer).MapDouble(ctx, req.(*MapDoubleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PropertyMapperService_MapFloat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MapFloatRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PropertyMapperServiceServer).MapFloat(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PropertyMapperService_MapFloat_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PropertyMapperServiceServer).MapFloat(ctx, req.(*MapFloatRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PropertyMapperService_MapGravity_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MapGravityRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PropertyMapperServiceServer).MapGravity(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PropertyMapperService_MapGravity_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PropertyMapperServiceServer).MapGravity(ctx, req.(*MapGravityRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PropertyMapperService_MapInt_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MapIntRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PropertyMapperServiceServer).MapInt(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PropertyMapperService_MapInt_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PropertyMapperServiceServer).MapInt(ctx, req.(*MapIntRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PropertyMapperService_MapLong_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MapLongRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PropertyMapperServiceServer).MapLong(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PropertyMapperService_MapLong_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PropertyMapperServiceServer).MapLong(ctx, req.(*MapLongRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PropertyMapperService_MapObject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MapObjectRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PropertyMapperServiceServer).MapObject(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PropertyMapperService_MapObject_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PropertyMapperServiceServer).MapObject(ctx, req.(*MapObjectRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PropertyMapperService_MapResourceId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MapResourceIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PropertyMapperServiceServer).MapResourceId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PropertyMapperService_MapResourceId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PropertyMapperServiceServer).MapResourceId(ctx, req.(*MapResourceIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PropertyMapperService_MapShort_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MapShortRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PropertyMapperServiceServer).MapShort(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PropertyMapperService_MapShort_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PropertyMapperServiceServer).MapShort(ctx, req.(*MapShortRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PropertyMapperService_ServiceDesc is the grpc.ServiceDesc for PropertyMapperService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PropertyMapperService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "inspector.PropertyMapperService",
-	HandlerType: (*PropertyMapperServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "MapBoolean",
-			Handler:    _PropertyMapperService_MapBoolean_Handler,
-		},
-		{
-			MethodName: "MapByte",
-			Handler:    _PropertyMapperService_MapByte_Handler,
-		},
-		{
-			MethodName: "MapChar",
-			Handler:    _PropertyMapperService_MapChar_Handler,
-		},
-		{
-			MethodName: "MapColor",
-			Handler:    _PropertyMapperService_MapColor_Handler,
-		},
-		{
-			MethodName: "MapDouble",
-			Handler:    _PropertyMapperService_MapDouble_Handler,
-		},
-		{
-			MethodName: "MapFloat",
-			Handler:    _PropertyMapperService_MapFloat_Handler,
-		},
-		{
-			MethodName: "MapGravity",
-			Handler:    _PropertyMapperService_MapGravity_Handler,
-		},
-		{
-			MethodName: "MapInt",
-			Handler:    _PropertyMapperService_MapInt_Handler,
-		},
-		{
-			MethodName: "MapLong",
-			Handler:    _PropertyMapperService_MapLong_Handler,
-		},
-		{
-			MethodName: "MapObject",
-			Handler:    _PropertyMapperService_MapObject_Handler,
-		},
-		{
-			MethodName: "MapResourceId",
-			Handler:    _PropertyMapperService_MapResourceId_Handler,
-		},
-		{
-			MethodName: "MapShort",
-			Handler:    _PropertyMapperService_MapShort_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/inspector/inspector.proto",
-}
-
-const (
-	IntFlagMappingService_NewIntFlagMapping_FullMethodName = "/inspector.IntFlagMappingService/NewIntFlagMapping"
-	IntFlagMappingService_Add_FullMethodName               = "/inspector.IntFlagMappingService/Add"
-)
-
-// IntFlagMappingServiceClient is the client API for IntFlagMappingService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type IntFlagMappingServiceClient interface {
-	NewIntFlagMapping(ctx context.Context, in *NewIntFlagMappingRequest, opts ...grpc.CallOption) (*NewIntFlagMappingResponse, error)
-	Add(ctx context.Context, in *AddRequest, opts ...grpc.CallOption) (*AddResponse, error)
-}
-
-type intFlagMappingServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewIntFlagMappingServiceClient(cc grpc.ClientConnInterface) IntFlagMappingServiceClient {
-	return &intFlagMappingServiceClient{cc}
-}
-
-func (c *intFlagMappingServiceClient) NewIntFlagMapping(ctx context.Context, in *NewIntFlagMappingRequest, opts ...grpc.CallOption) (*NewIntFlagMappingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewIntFlagMappingResponse)
-	err := c.cc.Invoke(ctx, IntFlagMappingService_NewIntFlagMapping_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *intFlagMappingServiceClient) Add(ctx context.Context, in *AddRequest, opts ...grpc.CallOption) (*AddResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddResponse)
-	err := c.cc.Invoke(ctx, IntFlagMappingService_Add_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// IntFlagMappingServiceServer is the server API for IntFlagMappingService service.
-// All implementations must embed UnimplementedIntFlagMappingServiceServer
-// for forward compatibility.
-type IntFlagMappingServiceServer interface {
-	NewIntFlagMapping(context.Context, *NewIntFlagMappingRequest) (*NewIntFlagMappingResponse, error)
-	Add(context.Context, *AddRequest) (*AddResponse, error)
-	mustEmbedUnimplementedIntFlagMappingServiceServer()
-}
-
-// UnimplementedIntFlagMappingServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedIntFlagMappingServiceServer struct{}
-
-func (UnimplementedIntFlagMappingServiceServer) NewIntFlagMapping(context.Context, *NewIntFlagMappingRequest) (*NewIntFlagMappingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewIntFlagMapping not implemented")
-}
-func (UnimplementedIntFlagMappingServiceServer) Add(context.Context, *AddRequest) (*AddResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Add not implemented")
-}
-func (UnimplementedIntFlagMappingServiceServer) mustEmbedUnimplementedIntFlagMappingServiceServer() {}
-func (UnimplementedIntFlagMappingServiceServer) testEmbeddedByValue()                               {}
-
-// UnsafeIntFlagMappingServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to IntFlagMappingServiceServer will
-// result in compilation errors.
-type UnsafeIntFlagMappingServiceServer interface {
-	mustEmbedUnimplementedIntFlagMappingServiceServer()
-}
-
-func RegisterIntFlagMappingServiceServer(s grpc.ServiceRegistrar, srv IntFlagMappingServiceServer) {
-	// If the following call panics, it indicates UnimplementedIntFlagMappingServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&IntFlagMappingService_ServiceDesc, srv)
-}
-
-func _IntFlagMappingService_NewIntFlagMapping_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewIntFlagMappingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(IntFlagMappingServiceServer).NewIntFlagMapping(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: IntFlagMappingService_NewIntFlagMapping_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(IntFlagMappingServiceServer).NewIntFlagMapping(ctx, req.(*NewIntFlagMappingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _IntFlagMappingService_Add_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(IntFlagMappingServiceServer).Add(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: IntFlagMappingService_Add_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(IntFlagMappingServiceServer).Add(ctx, req.(*AddRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// IntFlagMappingService_ServiceDesc is the grpc.ServiceDesc for IntFlagMappingService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var IntFlagMappingService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "inspector.IntFlagMappingService",
-	HandlerType: (*IntFlagMappingServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewIntFlagMapping",
-			Handler:    _IntFlagMappingService_NewIntFlagMapping_Handler,
-		},
-		{
-			MethodName: "Add",
-			Handler:    _IntFlagMappingService_Add_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

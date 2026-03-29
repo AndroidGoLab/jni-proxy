@@ -6,6 +6,51 @@ package printservice;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/printservice";
 
+message OnCustomPrinterIconLoadedRequest {
+  int64 arg0 = 1;
+}
+
+message OnCustomPrinterIconLoadedResponse {
+  bool result = 1;
+}
+
+message GetDataRequest {
+}
+
+message GetDataResponse {
+  int64 result = 1;
+}
+
+message GetInfoRequest {
+}
+
+message GetInfoResponse {
+  int64 result = 1;
+}
+
+message GeneratePrinterIdRequest {
+  string arg0 = 1;
+}
+
+message GeneratePrinterIdResponse {
+  int64 result = 1;
+}
+
+message GetActivePrintJobsRequest {
+}
+
+message GetActivePrintJobsResponse {
+  int64 result = 1;
+}
+
+message OnBindRequest {
+  int64 arg0 = 1;
+}
+
+message OnBindResponse {
+  int64 result = 1;
+}
+
 message BlockRequest {
   string arg0 = 1;
 }
@@ -71,13 +116,6 @@ message GetIdRequest {
 }
 
 message GetIdResponse {
-  int64 result = 1;
-}
-
-message GetInfoRequest {
-}
-
-message GetInfoResponse {
   int64 result = 1;
 }
 
@@ -181,34 +219,17 @@ message StartResponse {
   bool result = 1;
 }
 
-message OnCustomPrinterIconLoadedRequest {
-  int64 arg0 = 1;
+message GetPrintersRequest {
 }
 
-message OnCustomPrinterIconLoadedResponse {
-  bool result = 1;
-}
-
-message GetDataRequest {
-}
-
-message GetDataResponse {
+message GetPrintersResponse {
   int64 result = 1;
 }
 
-message GeneratePrinterIdRequest {
-  string arg0 = 1;
+message GetTrackedPrintersRequest {
 }
 
-message GeneratePrinterIdResponse {
-  int64 result = 1;
-}
-
-message OnBindRequest {
-  int64 arg0 = 1;
-}
-
-message OnBindResponse {
+message GetTrackedPrintersResponse {
   int64 result = 1;
 }
 
@@ -261,6 +282,21 @@ message OnStopPrinterStateTrackingRequest {
 message OnStopPrinterStateTrackingResponse {
 }
 
+service CustomPrinterIconCallbackService {
+  rpc OnCustomPrinterIconLoaded (OnCustomPrinterIconLoadedRequest) returns (OnCustomPrinterIconLoadedResponse);
+}
+
+service PrintDocumentService {
+  rpc GetData (GetDataRequest) returns (GetDataResponse);
+  rpc GetInfo (GetInfoRequest) returns (GetInfoResponse);
+}
+
+service PrintServiceService {
+  rpc GeneratePrinterId (GeneratePrinterIdRequest) returns (GeneratePrinterIdResponse);
+  rpc GetActivePrintJobs (GetActivePrintJobsRequest) returns (GetActivePrintJobsResponse);
+  rpc OnBind (OnBindRequest) returns (OnBindResponse);
+}
+
 service PrintJobService {
   rpc Block (BlockRequest) returns (BlockResponse);
   rpc Cancel (CancelRequest) returns (CancelResponse);
@@ -288,21 +324,9 @@ service PrintJobService {
   rpc Start (StartRequest) returns (StartResponse);
 }
 
-service CustomPrinterIconCallbackService {
-  rpc OnCustomPrinterIconLoaded (OnCustomPrinterIconLoadedRequest) returns (OnCustomPrinterIconLoadedResponse);
-}
-
-service PrintDocumentService {
-  rpc GetData (GetDataRequest) returns (GetDataResponse);
-  rpc GetInfo (GetInfoRequest) returns (GetInfoResponse);
-}
-
-service PrintServiceService {
-  rpc GeneratePrinterId (GeneratePrinterIdRequest) returns (GeneratePrinterIdResponse);
-  rpc OnBind (OnBindRequest) returns (OnBindResponse);
-}
-
 service PrinterDiscoverySessionService {
+  rpc GetPrinters (GetPrintersRequest) returns (GetPrintersResponse);
+  rpc GetTrackedPrinters (GetTrackedPrintersRequest) returns (GetTrackedPrintersResponse);
   rpc IsDestroyed (IsDestroyedRequest) returns (IsDestroyedResponse);
   rpc IsPrinterDiscoveryStarted (IsPrinterDiscoveryStartedRequest) returns (IsPrinterDiscoveryStartedResponse);
   rpc OnDestroy (OnDestroyRequest) returns (OnDestroyResponse);

@@ -9,274 +9,6 @@ import (
 	"google.golang.org/grpc"
 )
 
-// StatelessTemplateClient wraps the gRPC StatelessTemplateService client.
-type StatelessTemplateClient struct {
-	svc pb.StatelessTemplateServiceClient
-}
-
-// NewStatelessTemplateClient creates a new StatelessTemplate client.
-func NewStatelessTemplateClient(cc grpc.ClientConnInterface) *StatelessTemplateClient {
-	return &StatelessTemplateClient{
-		svc: pb.NewStatelessTemplateServiceClient(cc),
-	}
-}
-
-// GetTemplateType calls the GetTemplateType RPC.
-func (c *StatelessTemplateClient) GetTemplateType(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetTemplateType(ctx, &pb.GetTemplateTypeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// TemperatureControlTemplateClient wraps the gRPC TemperatureControlTemplateService client.
-type TemperatureControlTemplateClient struct {
-	svc pb.TemperatureControlTemplateServiceClient
-}
-
-// NewTemperatureControlTemplateClient creates a new TemperatureControlTemplate client.
-func NewTemperatureControlTemplateClient(cc grpc.ClientConnInterface) *TemperatureControlTemplateClient {
-	return &TemperatureControlTemplateClient{
-		svc: pb.NewTemperatureControlTemplateServiceClient(cc),
-	}
-}
-
-// GetCurrentActiveMode calls the GetCurrentActiveMode RPC.
-func (c *TemperatureControlTemplateClient) GetCurrentActiveMode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetCurrentActiveMode(ctx, &pb.GetCurrentActiveModeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCurrentMode calls the GetCurrentMode RPC.
-func (c *TemperatureControlTemplateClient) GetCurrentMode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetCurrentMode(ctx, &pb.GetCurrentModeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetModes calls the GetModes RPC.
-func (c *TemperatureControlTemplateClient) GetModes(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetModes(ctx, &pb.GetModesRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTemplate calls the GetTemplate RPC.
-func (c *TemperatureControlTemplateClient) GetTemplate(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetTemplate(ctx, &pb.GetTemplateRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTemplateType calls the GetTemplateType RPC.
-func (c *TemperatureControlTemplateClient) GetTemplateType(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetTemplateType(ctx, &pb.GetTemplateTypeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ControlButtonClient wraps the gRPC ControlButtonService client.
-type ControlButtonClient struct {
-	svc pb.ControlButtonServiceClient
-}
-
-// NewControlButtonClient creates a new ControlButton client.
-func NewControlButtonClient(cc grpc.ClientConnInterface) *ControlButtonClient {
-	return &ControlButtonClient{
-		svc: pb.NewControlButtonServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *ControlButtonClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetActionDescription calls the GetActionDescription RPC.
-func (c *ControlButtonClient) GetActionDescription(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetActionDescription(ctx, &pb.GetActionDescriptionRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsChecked calls the IsChecked RPC.
-func (c *ControlButtonClient) IsChecked(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsChecked(ctx, &pb.IsCheckedRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *ControlButtonClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// RangeTemplateClient wraps the gRPC RangeTemplateService client.
-type RangeTemplateClient struct {
-	svc pb.RangeTemplateServiceClient
-}
-
-// NewRangeTemplateClient creates a new RangeTemplate client.
-func NewRangeTemplateClient(cc grpc.ClientConnInterface) *RangeTemplateClient {
-	return &RangeTemplateClient{
-		svc: pb.NewRangeTemplateServiceClient(cc),
-	}
-}
-
-// GetCurrentValue calls the GetCurrentValue RPC.
-func (c *RangeTemplateClient) GetCurrentValue(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetCurrentValue(ctx, &pb.GetCurrentValueRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFormatString calls the GetFormatString RPC.
-func (c *RangeTemplateClient) GetFormatString(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetFormatString(ctx, &pb.GetFormatStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMaxValue calls the GetMaxValue RPC.
-func (c *RangeTemplateClient) GetMaxValue(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetMaxValue(ctx, &pb.GetMaxValueRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetMinValue calls the GetMinValue RPC.
-func (c *RangeTemplateClient) GetMinValue(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetMinValue(ctx, &pb.GetMinValueRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStepValue calls the GetStepValue RPC.
-func (c *RangeTemplateClient) GetStepValue(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetStepValue(ctx, &pb.GetStepValueRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTemplateType calls the GetTemplateType RPC.
-func (c *RangeTemplateClient) GetTemplateType(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetTemplateType(ctx, &pb.GetTemplateTypeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToggleTemplateClient wraps the gRPC ToggleTemplateService client.
-type ToggleTemplateClient struct {
-	svc pb.ToggleTemplateServiceClient
-}
-
-// NewToggleTemplateClient creates a new ToggleTemplate client.
-func NewToggleTemplateClient(cc grpc.ClientConnInterface) *ToggleTemplateClient {
-	return &ToggleTemplateClient{
-		svc: pb.NewToggleTemplateServiceClient(cc),
-	}
-}
-
-// GetContentDescription calls the GetContentDescription RPC.
-func (c *ToggleTemplateClient) GetContentDescription(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetContentDescription(ctx, &pb.GetContentDescriptionRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTemplateType calls the GetTemplateType RPC.
-func (c *ToggleTemplateClient) GetTemplateType(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetTemplateType(ctx, &pb.GetTemplateTypeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsChecked calls the IsChecked RPC.
-func (c *ToggleTemplateClient) IsChecked(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsChecked(ctx, &pb.IsCheckedRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
 // ThumbnailTemplateClient wraps the gRPC ThumbnailTemplateService client.
 type ThumbnailTemplateClient struct {
 	svc pb.ThumbnailTemplateServiceClient
@@ -381,6 +113,29 @@ func (c *ControlTemplateClient) GetNoTemplateObject(ctx context.Context) (int64,
 	return resp.GetResult(), nil
 }
 
+// StatelessTemplateClient wraps the gRPC StatelessTemplateService client.
+type StatelessTemplateClient struct {
+	svc pb.StatelessTemplateServiceClient
+}
+
+// NewStatelessTemplateClient creates a new StatelessTemplate client.
+func NewStatelessTemplateClient(cc grpc.ClientConnInterface) *StatelessTemplateClient {
+	return &StatelessTemplateClient{
+		svc: pb.NewStatelessTemplateServiceClient(cc),
+	}
+}
+
+// GetTemplateType calls the GetTemplateType RPC.
+func (c *StatelessTemplateClient) GetTemplateType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetTemplateType(ctx, &pb.GetTemplateTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // ToggleRangeTemplateClient wraps the gRPC ToggleRangeTemplateService client.
 type ToggleRangeTemplateClient struct {
 	svc pb.ToggleRangeTemplateServiceClient
@@ -435,4 +190,249 @@ func (c *ToggleRangeTemplateClient) IsChecked(ctx context.Context, handle int64)
 		return false, err
 	}
 	return resp.GetResult(), nil
+}
+
+// RangeTemplateClient wraps the gRPC RangeTemplateService client.
+type RangeTemplateClient struct {
+	svc pb.RangeTemplateServiceClient
+}
+
+// NewRangeTemplateClient creates a new RangeTemplate client.
+func NewRangeTemplateClient(cc grpc.ClientConnInterface) *RangeTemplateClient {
+	return &RangeTemplateClient{
+		svc: pb.NewRangeTemplateServiceClient(cc),
+	}
+}
+
+// GetCurrentValue calls the GetCurrentValue RPC.
+func (c *RangeTemplateClient) GetCurrentValue(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetCurrentValue(ctx, &pb.GetCurrentValueRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFormatString calls the GetFormatString RPC.
+func (c *RangeTemplateClient) GetFormatString(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetFormatString(ctx, &pb.GetFormatStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMaxValue calls the GetMaxValue RPC.
+func (c *RangeTemplateClient) GetMaxValue(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetMaxValue(ctx, &pb.GetMaxValueRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetMinValue calls the GetMinValue RPC.
+func (c *RangeTemplateClient) GetMinValue(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetMinValue(ctx, &pb.GetMinValueRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStepValue calls the GetStepValue RPC.
+func (c *RangeTemplateClient) GetStepValue(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetStepValue(ctx, &pb.GetStepValueRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTemplateType calls the GetTemplateType RPC.
+func (c *RangeTemplateClient) GetTemplateType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetTemplateType(ctx, &pb.GetTemplateTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TemperatureControlTemplateClient wraps the gRPC TemperatureControlTemplateService client.
+type TemperatureControlTemplateClient struct {
+	svc pb.TemperatureControlTemplateServiceClient
+}
+
+// NewTemperatureControlTemplateClient creates a new TemperatureControlTemplate client.
+func NewTemperatureControlTemplateClient(cc grpc.ClientConnInterface) *TemperatureControlTemplateClient {
+	return &TemperatureControlTemplateClient{
+		svc: pb.NewTemperatureControlTemplateServiceClient(cc),
+	}
+}
+
+// GetCurrentActiveMode calls the GetCurrentActiveMode RPC.
+func (c *TemperatureControlTemplateClient) GetCurrentActiveMode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetCurrentActiveMode(ctx, &pb.GetCurrentActiveModeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCurrentMode calls the GetCurrentMode RPC.
+func (c *TemperatureControlTemplateClient) GetCurrentMode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetCurrentMode(ctx, &pb.GetCurrentModeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetModes calls the GetModes RPC.
+func (c *TemperatureControlTemplateClient) GetModes(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetModes(ctx, &pb.GetModesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTemplate calls the GetTemplate RPC.
+func (c *TemperatureControlTemplateClient) GetTemplate(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTemplate(ctx, &pb.GetTemplateRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTemplateType calls the GetTemplateType RPC.
+func (c *TemperatureControlTemplateClient) GetTemplateType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetTemplateType(ctx, &pb.GetTemplateTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToggleTemplateClient wraps the gRPC ToggleTemplateService client.
+type ToggleTemplateClient struct {
+	svc pb.ToggleTemplateServiceClient
+}
+
+// NewToggleTemplateClient creates a new ToggleTemplate client.
+func NewToggleTemplateClient(cc grpc.ClientConnInterface) *ToggleTemplateClient {
+	return &ToggleTemplateClient{
+		svc: pb.NewToggleTemplateServiceClient(cc),
+	}
+}
+
+// GetContentDescription calls the GetContentDescription RPC.
+func (c *ToggleTemplateClient) GetContentDescription(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetContentDescription(ctx, &pb.GetContentDescriptionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTemplateType calls the GetTemplateType RPC.
+func (c *ToggleTemplateClient) GetTemplateType(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetTemplateType(ctx, &pb.GetTemplateTypeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsChecked calls the IsChecked RPC.
+func (c *ToggleTemplateClient) IsChecked(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsChecked(ctx, &pb.IsCheckedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ControlButtonClient wraps the gRPC ControlButtonService client.
+type ControlButtonClient struct {
+	svc pb.ControlButtonServiceClient
+}
+
+// NewControlButtonClient creates a new ControlButton client.
+func NewControlButtonClient(cc grpc.ClientConnInterface) *ControlButtonClient {
+	return &ControlButtonClient{
+		svc: pb.NewControlButtonServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ControlButtonClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetActionDescription calls the GetActionDescription RPC.
+func (c *ControlButtonClient) GetActionDescription(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetActionDescription(ctx, &pb.GetActionDescriptionRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsChecked calls the IsChecked RPC.
+func (c *ControlButtonClient) IsChecked(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsChecked(ctx, &pb.IsCheckedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ControlButtonClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
 }

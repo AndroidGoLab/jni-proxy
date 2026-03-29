@@ -6,6 +6,14 @@ package adid;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/adid";
 
+message GetRequest {
+  int64 arg0 = 1;
+}
+
+message GetResponse {
+  int64 result = 1;
+}
+
 message NewAdIdRequest {
   string arg0 = 1;
   bool arg1 = 2;
@@ -56,12 +64,8 @@ message ToStringResponse {
   string result = 1;
 }
 
-message GetRequest {
-  int64 arg0 = 1;
-}
-
-message GetResponse {
-  int64 result = 1;
+service AdIdManagerService {
+  rpc Get (GetRequest) returns (GetResponse);
 }
 
 service AdIdService {
@@ -71,8 +75,4 @@ service AdIdService {
   rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
   rpc IsLimitAdTrackingEnabled (IsLimitAdTrackingEnabledRequest) returns (IsLimitAdTrackingEnabledResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
-}
-
-service AdIdManagerService {
-  rpc Get (GetRequest) returns (GetResponse);
 }

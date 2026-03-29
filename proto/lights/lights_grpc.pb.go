@@ -21,6 +21,146 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	RequestService_GetLightStates_FullMethodName = "/lights.RequestService/GetLightStates"
+	RequestService_GetLights_FullMethodName      = "/lights.RequestService/GetLights"
+)
+
+// RequestServiceClient is the client API for RequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RequestServiceClient interface {
+	GetLightStates(ctx context.Context, in *GetLightStatesRequest, opts ...grpc.CallOption) (*GetLightStatesResponse, error)
+	GetLights(ctx context.Context, in *GetLightsRequest, opts ...grpc.CallOption) (*GetLightsResponse, error)
+}
+
+type requestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRequestServiceClient(cc grpc.ClientConnInterface) RequestServiceClient {
+	return &requestServiceClient{cc}
+}
+
+func (c *requestServiceClient) GetLightStates(ctx context.Context, in *GetLightStatesRequest, opts ...grpc.CallOption) (*GetLightStatesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLightStatesResponse)
+	err := c.cc.Invoke(ctx, RequestService_GetLightStates_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *requestServiceClient) GetLights(ctx context.Context, in *GetLightsRequest, opts ...grpc.CallOption) (*GetLightsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLightsResponse)
+	err := c.cc.Invoke(ctx, RequestService_GetLights_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RequestServiceServer is the server API for RequestService service.
+// All implementations must embed UnimplementedRequestServiceServer
+// for forward compatibility.
+type RequestServiceServer interface {
+	GetLightStates(context.Context, *GetLightStatesRequest) (*GetLightStatesResponse, error)
+	GetLights(context.Context, *GetLightsRequest) (*GetLightsResponse, error)
+	mustEmbedUnimplementedRequestServiceServer()
+}
+
+// UnimplementedRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedRequestServiceServer struct{}
+
+func (UnimplementedRequestServiceServer) GetLightStates(context.Context, *GetLightStatesRequest) (*GetLightStatesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLightStates not implemented")
+}
+func (UnimplementedRequestServiceServer) GetLights(context.Context, *GetLightsRequest) (*GetLightsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLights not implemented")
+}
+func (UnimplementedRequestServiceServer) mustEmbedUnimplementedRequestServiceServer() {}
+func (UnimplementedRequestServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RequestServiceServer will
+// result in compilation errors.
+type UnsafeRequestServiceServer interface {
+	mustEmbedUnimplementedRequestServiceServer()
+}
+
+func RegisterRequestServiceServer(s grpc.ServiceRegistrar, srv RequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&RequestService_ServiceDesc, srv)
+}
+
+func _RequestService_GetLightStates_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLightStatesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RequestServiceServer).GetLightStates(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RequestService_GetLightStates_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RequestServiceServer).GetLightStates(ctx, req.(*GetLightStatesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RequestService_GetLights_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLightsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RequestServiceServer).GetLights(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RequestService_GetLights_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RequestServiceServer).GetLights(ctx, req.(*GetLightsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RequestService_ServiceDesc is the grpc.ServiceDesc for RequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "lights.RequestService",
+	HandlerType: (*RequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetLightStates",
+			Handler:    _RequestService_GetLightStates_Handler,
+		},
+		{
+			MethodName: "GetLights",
+			Handler:    _RequestService_GetLights_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/lights/lights.proto",
+}
+
+const (
 	RequestBuilderService_AddLight_FullMethodName   = "/lights.RequestBuilderService/AddLight"
 	RequestBuilderService_Build_FullMethodName      = "/lights.RequestBuilderService/Build"
 	RequestBuilderService_ClearLight_FullMethodName = "/lights.RequestBuilderService/ClearLight"
@@ -1115,6 +1255,7 @@ var LightService_ServiceDesc = grpc.ServiceDesc{
 
 const (
 	ManagerService_GetLightState_FullMethodName = "/lights.ManagerService/GetLightState"
+	ManagerService_GetLights_FullMethodName     = "/lights.ManagerService/GetLights"
 	ManagerService_OpenSession_FullMethodName   = "/lights.ManagerService/OpenSession"
 )
 
@@ -1123,6 +1264,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ManagerServiceClient interface {
 	GetLightState(ctx context.Context, in *GetLightStateRequest, opts ...grpc.CallOption) (*GetLightStateResponse, error)
+	GetLights(ctx context.Context, in *GetLightsRequest, opts ...grpc.CallOption) (*GetLightsResponse, error)
 	OpenSession(ctx context.Context, in *OpenSessionRequest, opts ...grpc.CallOption) (*OpenSessionResponse, error)
 }
 
@@ -1144,6 +1286,16 @@ func (c *managerServiceClient) GetLightState(ctx context.Context, in *GetLightSt
 	return out, nil
 }
 
+func (c *managerServiceClient) GetLights(ctx context.Context, in *GetLightsRequest, opts ...grpc.CallOption) (*GetLightsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLightsResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetLights_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *managerServiceClient) OpenSession(ctx context.Context, in *OpenSessionRequest, opts ...grpc.CallOption) (*OpenSessionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(OpenSessionResponse)
@@ -1159,6 +1311,7 @@ func (c *managerServiceClient) OpenSession(ctx context.Context, in *OpenSessionR
 // for forward compatibility.
 type ManagerServiceServer interface {
 	GetLightState(context.Context, *GetLightStateRequest) (*GetLightStateResponse, error)
+	GetLights(context.Context, *GetLightsRequest) (*GetLightsResponse, error)
 	OpenSession(context.Context, *OpenSessionRequest) (*OpenSessionResponse, error)
 	mustEmbedUnimplementedManagerServiceServer()
 }
@@ -1172,6 +1325,9 @@ type UnimplementedManagerServiceServer struct{}
 
 func (UnimplementedManagerServiceServer) GetLightState(context.Context, *GetLightStateRequest) (*GetLightStateResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetLightState not implemented")
+}
+func (UnimplementedManagerServiceServer) GetLights(context.Context, *GetLightsRequest) (*GetLightsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLights not implemented")
 }
 func (UnimplementedManagerServiceServer) OpenSession(context.Context, *OpenSessionRequest) (*OpenSessionResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method OpenSession not implemented")
@@ -1215,6 +1371,24 @@ func _ManagerService_GetLightState_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ManagerService_GetLights_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLightsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetLights(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetLights_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetLights(ctx, req.(*GetLightsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _ManagerService_OpenSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(OpenSessionRequest)
 	if err := dec(in); err != nil {
@@ -1243,6 +1417,10 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetLightState",
 			Handler:    _ManagerService_GetLightState_Handler,
+		},
+		{
+			MethodName: "GetLights",
+			Handler:    _ManagerService_GetLights_Handler,
 		},
 		{
 			MethodName: "OpenSession",

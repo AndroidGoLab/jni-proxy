@@ -90,6 +90,22 @@ var cameraManagerGetCameraIdListCmd = &cobra.Command{
 	},
 }
 
+var cameraManagerGetConcurrentCameraIdsCmd = &cobra.Command{
+	Use:   "get-concurrent-camera-ids",
+	Short: "GetConcurrentCameraIds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetConcurrentCameraIdsRequest{}
+		resp, err := client.GetConcurrentCameraIds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var cameraManagerGetTorchStrengthLevelCmd = &cobra.Command{
 	Use:   "get-torch-strength-level",
 	Short: "GetTorchStrengthLevel RPC",
@@ -458,6 +474,7 @@ func init() {
 	cameraManagerGetCameraExtensionCharacteristicsCmd.Flags().String("arg0", "", "arg0 (string)")
 	cameraManagerCmd.AddCommand(cameraManagerGetCameraExtensionCharacteristicsCmd)
 	cameraManagerCmd.AddCommand(cameraManagerGetCameraIdListCmd)
+	cameraManagerCmd.AddCommand(cameraManagerGetConcurrentCameraIdsCmd)
 	cameraManagerGetTorchStrengthLevelCmd.Flags().String("arg0", "", "arg0 (string)")
 	cameraManagerCmd.AddCommand(cameraManagerGetTorchStrengthLevelCmd)
 	cameraManagerIsCameraDeviceSetupSupportedCmd.Flags().String("arg0", "", "arg0 (string)")

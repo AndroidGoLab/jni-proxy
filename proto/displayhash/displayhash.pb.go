@@ -23,254 +23,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type VerifyDisplayHashRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *VerifyDisplayHashRequest) Reset() {
-	*x = VerifyDisplayHashRequest{}
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[0]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *VerifyDisplayHashRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*VerifyDisplayHashRequest) ProtoMessage() {}
-
-func (x *VerifyDisplayHashRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[0]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use VerifyDisplayHashRequest.ProtoReflect.Descriptor instead.
-func (*VerifyDisplayHashRequest) Descriptor() ([]byte, []int) {
-	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *VerifyDisplayHashRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type VerifyDisplayHashResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *VerifyDisplayHashResponse) Reset() {
-	*x = VerifyDisplayHashResponse{}
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *VerifyDisplayHashResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*VerifyDisplayHashResponse) ProtoMessage() {}
-
-func (x *VerifyDisplayHashResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use VerifyDisplayHashResponse.ProtoReflect.Descriptor instead.
-func (*VerifyDisplayHashResponse) Descriptor() ([]byte, []int) {
-	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *VerifyDisplayHashResponse) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
-type OnDisplayHashErrorRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnDisplayHashErrorRequest) Reset() {
-	*x = OnDisplayHashErrorRequest{}
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[2]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnDisplayHashErrorRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnDisplayHashErrorRequest) ProtoMessage() {}
-
-func (x *OnDisplayHashErrorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[2]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnDisplayHashErrorRequest.ProtoReflect.Descriptor instead.
-func (*OnDisplayHashErrorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *OnDisplayHashErrorRequest) GetArg0() int32 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnDisplayHashErrorResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnDisplayHashErrorResponse) Reset() {
-	*x = OnDisplayHashErrorResponse{}
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[3]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnDisplayHashErrorResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnDisplayHashErrorResponse) ProtoMessage() {}
-
-func (x *OnDisplayHashErrorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[3]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnDisplayHashErrorResponse.ProtoReflect.Descriptor instead.
-func (*OnDisplayHashErrorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{3}
-}
-
-type OnDisplayHashResultRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnDisplayHashResultRequest) Reset() {
-	*x = OnDisplayHashResultRequest{}
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[4]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnDisplayHashResultRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnDisplayHashResultRequest) ProtoMessage() {}
-
-func (x *OnDisplayHashResultRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[4]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnDisplayHashResultRequest.ProtoReflect.Descriptor instead.
-func (*OnDisplayHashResultRequest) Descriptor() ([]byte, []int) {
-	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *OnDisplayHashResultRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type OnDisplayHashResultResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnDisplayHashResultResponse) Reset() {
-	*x = OnDisplayHashResultResponse{}
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[5]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnDisplayHashResultResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnDisplayHashResultResponse) ProtoMessage() {}
-
-func (x *OnDisplayHashResultResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[5]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnDisplayHashResultResponse.ProtoReflect.Descriptor instead.
-func (*OnDisplayHashResultResponse) Descriptor() ([]byte, []int) {
-	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{5}
-}
-
 type NewVerifiedDisplayHashRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -283,7 +35,7 @@ type NewVerifiedDisplayHashRequest struct {
 
 func (x *NewVerifiedDisplayHashRequest) Reset() {
 	*x = NewVerifiedDisplayHashRequest{}
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[6]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -295,7 +47,7 @@ func (x *NewVerifiedDisplayHashRequest) String() string {
 func (*NewVerifiedDisplayHashRequest) ProtoMessage() {}
 
 func (x *NewVerifiedDisplayHashRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[6]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -308,7 +60,7 @@ func (x *NewVerifiedDisplayHashRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewVerifiedDisplayHashRequest.ProtoReflect.Descriptor instead.
 func (*NewVerifiedDisplayHashRequest) Descriptor() ([]byte, []int) {
-	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{6}
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *NewVerifiedDisplayHashRequest) GetArg0() int64 {
@@ -348,7 +100,7 @@ type NewVerifiedDisplayHashResponse struct {
 
 func (x *NewVerifiedDisplayHashResponse) Reset() {
 	*x = NewVerifiedDisplayHashResponse{}
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[7]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -360,7 +112,7 @@ func (x *NewVerifiedDisplayHashResponse) String() string {
 func (*NewVerifiedDisplayHashResponse) ProtoMessage() {}
 
 func (x *NewVerifiedDisplayHashResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[7]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -373,7 +125,7 @@ func (x *NewVerifiedDisplayHashResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewVerifiedDisplayHashResponse.ProtoReflect.Descriptor instead.
 func (*NewVerifiedDisplayHashResponse) Descriptor() ([]byte, []int) {
-	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{7}
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *NewVerifiedDisplayHashResponse) GetResult() int64 {
@@ -392,7 +144,7 @@ type DescribeContentsRequest struct {
 
 func (x *DescribeContentsRequest) Reset() {
 	*x = DescribeContentsRequest{}
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[8]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -404,7 +156,7 @@ func (x *DescribeContentsRequest) String() string {
 func (*DescribeContentsRequest) ProtoMessage() {}
 
 func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[8]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -417,7 +169,7 @@ func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
 func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{8}
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *DescribeContentsRequest) GetHandle() int64 {
@@ -436,7 +188,7 @@ type DescribeContentsResponse struct {
 
 func (x *DescribeContentsResponse) Reset() {
 	*x = DescribeContentsResponse{}
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[9]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -448,7 +200,7 @@ func (x *DescribeContentsResponse) String() string {
 func (*DescribeContentsResponse) ProtoMessage() {}
 
 func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[9]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -461,7 +213,7 @@ func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
 func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{9}
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *DescribeContentsResponse) GetResult() int32 {
@@ -480,7 +232,7 @@ type GetBoundsInWindowRequest struct {
 
 func (x *GetBoundsInWindowRequest) Reset() {
 	*x = GetBoundsInWindowRequest{}
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[10]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -492,7 +244,7 @@ func (x *GetBoundsInWindowRequest) String() string {
 func (*GetBoundsInWindowRequest) ProtoMessage() {}
 
 func (x *GetBoundsInWindowRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[10]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -505,7 +257,7 @@ func (x *GetBoundsInWindowRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBoundsInWindowRequest.ProtoReflect.Descriptor instead.
 func (*GetBoundsInWindowRequest) Descriptor() ([]byte, []int) {
-	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{10}
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *GetBoundsInWindowRequest) GetHandle() int64 {
@@ -524,7 +276,7 @@ type GetBoundsInWindowResponse struct {
 
 func (x *GetBoundsInWindowResponse) Reset() {
 	*x = GetBoundsInWindowResponse{}
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[11]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -536,7 +288,7 @@ func (x *GetBoundsInWindowResponse) String() string {
 func (*GetBoundsInWindowResponse) ProtoMessage() {}
 
 func (x *GetBoundsInWindowResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[11]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -549,7 +301,7 @@ func (x *GetBoundsInWindowResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBoundsInWindowResponse.ProtoReflect.Descriptor instead.
 func (*GetBoundsInWindowResponse) Descriptor() ([]byte, []int) {
-	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{11}
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *GetBoundsInWindowResponse) GetResult() int64 {
@@ -568,7 +320,7 @@ type GetHashAlgorithmRequest struct {
 
 func (x *GetHashAlgorithmRequest) Reset() {
 	*x = GetHashAlgorithmRequest{}
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[12]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -580,7 +332,7 @@ func (x *GetHashAlgorithmRequest) String() string {
 func (*GetHashAlgorithmRequest) ProtoMessage() {}
 
 func (x *GetHashAlgorithmRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[12]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -593,7 +345,7 @@ func (x *GetHashAlgorithmRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetHashAlgorithmRequest.ProtoReflect.Descriptor instead.
 func (*GetHashAlgorithmRequest) Descriptor() ([]byte, []int) {
-	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{12}
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *GetHashAlgorithmRequest) GetHandle() int64 {
@@ -612,7 +364,7 @@ type GetHashAlgorithmResponse struct {
 
 func (x *GetHashAlgorithmResponse) Reset() {
 	*x = GetHashAlgorithmResponse{}
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[13]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -624,7 +376,7 @@ func (x *GetHashAlgorithmResponse) String() string {
 func (*GetHashAlgorithmResponse) ProtoMessage() {}
 
 func (x *GetHashAlgorithmResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[13]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -637,7 +389,7 @@ func (x *GetHashAlgorithmResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetHashAlgorithmResponse.ProtoReflect.Descriptor instead.
 func (*GetHashAlgorithmResponse) Descriptor() ([]byte, []int) {
-	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{13}
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *GetHashAlgorithmResponse) GetResult() string {
@@ -656,7 +408,7 @@ type GetImageHashRequest struct {
 
 func (x *GetImageHashRequest) Reset() {
 	*x = GetImageHashRequest{}
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[14]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -668,7 +420,7 @@ func (x *GetImageHashRequest) String() string {
 func (*GetImageHashRequest) ProtoMessage() {}
 
 func (x *GetImageHashRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[14]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -681,7 +433,7 @@ func (x *GetImageHashRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetImageHashRequest.ProtoReflect.Descriptor instead.
 func (*GetImageHashRequest) Descriptor() ([]byte, []int) {
-	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{14}
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *GetImageHashRequest) GetHandle() int64 {
@@ -700,7 +452,7 @@ type GetImageHashResponse struct {
 
 func (x *GetImageHashResponse) Reset() {
 	*x = GetImageHashResponse{}
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[15]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -712,7 +464,7 @@ func (x *GetImageHashResponse) String() string {
 func (*GetImageHashResponse) ProtoMessage() {}
 
 func (x *GetImageHashResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[15]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -725,7 +477,7 @@ func (x *GetImageHashResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetImageHashResponse.ProtoReflect.Descriptor instead.
 func (*GetImageHashResponse) Descriptor() ([]byte, []int) {
-	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{15}
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *GetImageHashResponse) GetResult() int64 {
@@ -744,7 +496,7 @@ type GetTimeMillisRequest struct {
 
 func (x *GetTimeMillisRequest) Reset() {
 	*x = GetTimeMillisRequest{}
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[16]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -756,7 +508,7 @@ func (x *GetTimeMillisRequest) String() string {
 func (*GetTimeMillisRequest) ProtoMessage() {}
 
 func (x *GetTimeMillisRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[16]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -769,7 +521,7 @@ func (x *GetTimeMillisRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTimeMillisRequest.ProtoReflect.Descriptor instead.
 func (*GetTimeMillisRequest) Descriptor() ([]byte, []int) {
-	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{16}
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *GetTimeMillisRequest) GetHandle() int64 {
@@ -788,7 +540,7 @@ type GetTimeMillisResponse struct {
 
 func (x *GetTimeMillisResponse) Reset() {
 	*x = GetTimeMillisResponse{}
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[17]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -800,7 +552,7 @@ func (x *GetTimeMillisResponse) String() string {
 func (*GetTimeMillisResponse) ProtoMessage() {}
 
 func (x *GetTimeMillisResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[17]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -813,7 +565,7 @@ func (x *GetTimeMillisResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTimeMillisResponse.ProtoReflect.Descriptor instead.
 func (*GetTimeMillisResponse) Descriptor() ([]byte, []int) {
-	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{17}
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *GetTimeMillisResponse) GetResult() int64 {
@@ -832,7 +584,7 @@ type ToStringRequest struct {
 
 func (x *ToStringRequest) Reset() {
 	*x = ToStringRequest{}
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[18]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -844,7 +596,7 @@ func (x *ToStringRequest) String() string {
 func (*ToStringRequest) ProtoMessage() {}
 
 func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[18]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -857,7 +609,7 @@ func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
 func (*ToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{18}
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *ToStringRequest) GetHandle() int64 {
@@ -876,7 +628,7 @@ type ToStringResponse struct {
 
 func (x *ToStringResponse) Reset() {
 	*x = ToStringResponse{}
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[19]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -888,7 +640,7 @@ func (x *ToStringResponse) String() string {
 func (*ToStringResponse) ProtoMessage() {}
 
 func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[19]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -901,7 +653,7 @@ func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
 func (*ToStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{19}
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *ToStringResponse) GetResult() string {
@@ -922,7 +674,7 @@ type WriteToParcelRequest struct {
 
 func (x *WriteToParcelRequest) Reset() {
 	*x = WriteToParcelRequest{}
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[20]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -934,7 +686,7 @@ func (x *WriteToParcelRequest) String() string {
 func (*WriteToParcelRequest) ProtoMessage() {}
 
 func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[20]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -947,7 +699,7 @@ func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
 func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{20}
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *WriteToParcelRequest) GetHandle() int64 {
@@ -979,7 +731,7 @@ type WriteToParcelResponse struct {
 
 func (x *WriteToParcelResponse) Reset() {
 	*x = WriteToParcelResponse{}
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[21]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -991,7 +743,7 @@ func (x *WriteToParcelResponse) String() string {
 func (*WriteToParcelResponse) ProtoMessage() {}
 
 func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[21]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1004,7 +756,7 @@ func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
 func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{21}
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{15}
 }
 
 type DisplayHashDescribeContentsRequest struct {
@@ -1015,7 +767,7 @@ type DisplayHashDescribeContentsRequest struct {
 
 func (x *DisplayHashDescribeContentsRequest) Reset() {
 	*x = DisplayHashDescribeContentsRequest{}
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[22]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1027,7 +779,7 @@ func (x *DisplayHashDescribeContentsRequest) String() string {
 func (*DisplayHashDescribeContentsRequest) ProtoMessage() {}
 
 func (x *DisplayHashDescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[22]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1040,7 +792,7 @@ func (x *DisplayHashDescribeContentsRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use DisplayHashDescribeContentsRequest.ProtoReflect.Descriptor instead.
 func (*DisplayHashDescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{22}
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{16}
 }
 
 type DisplayHashToStringRequest struct {
@@ -1051,7 +803,7 @@ type DisplayHashToStringRequest struct {
 
 func (x *DisplayHashToStringRequest) Reset() {
 	*x = DisplayHashToStringRequest{}
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[23]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1063,7 +815,7 @@ func (x *DisplayHashToStringRequest) String() string {
 func (*DisplayHashToStringRequest) ProtoMessage() {}
 
 func (x *DisplayHashToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[23]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1076,7 +828,7 @@ func (x *DisplayHashToStringRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DisplayHashToStringRequest.ProtoReflect.Descriptor instead.
 func (*DisplayHashToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{23}
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{17}
 }
 
 type DisplayHashWriteToParcelRequest struct {
@@ -1089,7 +841,7 @@ type DisplayHashWriteToParcelRequest struct {
 
 func (x *DisplayHashWriteToParcelRequest) Reset() {
 	*x = DisplayHashWriteToParcelRequest{}
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[24]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1101,7 +853,7 @@ func (x *DisplayHashWriteToParcelRequest) String() string {
 func (*DisplayHashWriteToParcelRequest) ProtoMessage() {}
 
 func (x *DisplayHashWriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_displayhash_displayhash_proto_msgTypes[24]
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1114,7 +866,7 @@ func (x *DisplayHashWriteToParcelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DisplayHashWriteToParcelRequest.ProtoReflect.Descriptor instead.
 func (*DisplayHashWriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{24}
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *DisplayHashWriteToParcelRequest) GetArg0() int64 {
@@ -1131,21 +883,339 @@ func (x *DisplayHashWriteToParcelRequest) GetArg1() int32 {
 	return 0
 }
 
+type OnDisplayHashErrorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int32                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDisplayHashErrorRequest) Reset() {
+	*x = OnDisplayHashErrorRequest{}
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDisplayHashErrorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDisplayHashErrorRequest) ProtoMessage() {}
+
+func (x *OnDisplayHashErrorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDisplayHashErrorRequest.ProtoReflect.Descriptor instead.
+func (*OnDisplayHashErrorRequest) Descriptor() ([]byte, []int) {
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *OnDisplayHashErrorRequest) GetArg0() int32 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnDisplayHashErrorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDisplayHashErrorResponse) Reset() {
+	*x = OnDisplayHashErrorResponse{}
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDisplayHashErrorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDisplayHashErrorResponse) ProtoMessage() {}
+
+func (x *OnDisplayHashErrorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDisplayHashErrorResponse.ProtoReflect.Descriptor instead.
+func (*OnDisplayHashErrorResponse) Descriptor() ([]byte, []int) {
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{20}
+}
+
+type OnDisplayHashResultRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDisplayHashResultRequest) Reset() {
+	*x = OnDisplayHashResultRequest{}
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDisplayHashResultRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDisplayHashResultRequest) ProtoMessage() {}
+
+func (x *OnDisplayHashResultRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDisplayHashResultRequest.ProtoReflect.Descriptor instead.
+func (*OnDisplayHashResultRequest) Descriptor() ([]byte, []int) {
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *OnDisplayHashResultRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type OnDisplayHashResultResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnDisplayHashResultResponse) Reset() {
+	*x = OnDisplayHashResultResponse{}
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnDisplayHashResultResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnDisplayHashResultResponse) ProtoMessage() {}
+
+func (x *OnDisplayHashResultResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnDisplayHashResultResponse.ProtoReflect.Descriptor instead.
+func (*OnDisplayHashResultResponse) Descriptor() ([]byte, []int) {
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{22}
+}
+
+type GetSupportedHashAlgorithmsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSupportedHashAlgorithmsRequest) Reset() {
+	*x = GetSupportedHashAlgorithmsRequest{}
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSupportedHashAlgorithmsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSupportedHashAlgorithmsRequest) ProtoMessage() {}
+
+func (x *GetSupportedHashAlgorithmsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSupportedHashAlgorithmsRequest.ProtoReflect.Descriptor instead.
+func (*GetSupportedHashAlgorithmsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{23}
+}
+
+type GetSupportedHashAlgorithmsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSupportedHashAlgorithmsResponse) Reset() {
+	*x = GetSupportedHashAlgorithmsResponse{}
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSupportedHashAlgorithmsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSupportedHashAlgorithmsResponse) ProtoMessage() {}
+
+func (x *GetSupportedHashAlgorithmsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSupportedHashAlgorithmsResponse.ProtoReflect.Descriptor instead.
+func (*GetSupportedHashAlgorithmsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *GetSupportedHashAlgorithmsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type VerifyDisplayHashRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *VerifyDisplayHashRequest) Reset() {
+	*x = VerifyDisplayHashRequest{}
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *VerifyDisplayHashRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*VerifyDisplayHashRequest) ProtoMessage() {}
+
+func (x *VerifyDisplayHashRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use VerifyDisplayHashRequest.ProtoReflect.Descriptor instead.
+func (*VerifyDisplayHashRequest) Descriptor() ([]byte, []int) {
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *VerifyDisplayHashRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type VerifyDisplayHashResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *VerifyDisplayHashResponse) Reset() {
+	*x = VerifyDisplayHashResponse{}
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *VerifyDisplayHashResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*VerifyDisplayHashResponse) ProtoMessage() {}
+
+func (x *VerifyDisplayHashResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_displayhash_displayhash_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use VerifyDisplayHashResponse.ProtoReflect.Descriptor instead.
+func (*VerifyDisplayHashResponse) Descriptor() ([]byte, []int) {
+	return file_proto_displayhash_displayhash_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *VerifyDisplayHashResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 var File_proto_displayhash_displayhash_proto protoreflect.FileDescriptor
 
 const file_proto_displayhash_displayhash_proto_rawDesc = "" +
 	"\n" +
-	"#proto/displayhash/displayhash.proto\x12\vdisplayhash\".\n" +
-	"\x18VerifyDisplayHashRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"3\n" +
-	"\x19VerifyDisplayHashResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result\"/\n" +
-	"\x19OnDisplayHashErrorRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x1c\n" +
-	"\x1aOnDisplayHashErrorResponse\"0\n" +
-	"\x1aOnDisplayHashResultRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1d\n" +
-	"\x1bOnDisplayHashResultResponse\"o\n" +
+	"#proto/displayhash/displayhash.proto\x12\vdisplayhash\"o\n" +
 	"\x1dNewVerifiedDisplayHashRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
@@ -1186,12 +1256,20 @@ const file_proto_displayhash_displayhash_proto_rawDesc = "" +
 	"\x1aDisplayHashToStringRequest\"I\n" +
 	"\x1fDisplayHashWriteToParcelRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x05R\x04arg12\x7f\n" +
-	"\x19DisplayHashManagerService\x12b\n" +
-	"\x11VerifyDisplayHash\x12%.displayhash.VerifyDisplayHashRequest\x1a&.displayhash.VerifyDisplayHashResponse2\xf3\x01\n" +
-	" DisplayHashResultCallbackService\x12e\n" +
-	"\x12OnDisplayHashError\x12&.displayhash.OnDisplayHashErrorRequest\x1a'.displayhash.OnDisplayHashErrorResponse\x12h\n" +
-	"\x13OnDisplayHashResult\x12'.displayhash.OnDisplayHashResultRequest\x1a(.displayhash.OnDisplayHashResultResponse2\x83\x06\n" +
+	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\"/\n" +
+	"\x19OnDisplayHashErrorRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"\x1c\n" +
+	"\x1aOnDisplayHashErrorResponse\"0\n" +
+	"\x1aOnDisplayHashResultRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1d\n" +
+	"\x1bOnDisplayHashResultResponse\"#\n" +
+	"!GetSupportedHashAlgorithmsRequest\"<\n" +
+	"\"GetSupportedHashAlgorithmsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
+	"\x18VerifyDisplayHashRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"3\n" +
+	"\x19VerifyDisplayHashResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\x83\x06\n" +
 	"\x1aVerifiedDisplayHashService\x12q\n" +
 	"\x16NewVerifiedDisplayHash\x12*.displayhash.NewVerifiedDisplayHashRequest\x1a+.displayhash.NewVerifiedDisplayHashResponse\x12_\n" +
 	"\x10DescribeContents\x12$.displayhash.DescribeContentsRequest\x1a%.displayhash.DescribeContentsResponse\x12b\n" +
@@ -1204,7 +1282,13 @@ const file_proto_displayhash_displayhash_proto_rawDesc = "" +
 	"\x12DisplayHashService\x12j\n" +
 	"\x10DescribeContents\x12/.displayhash.DisplayHashDescribeContentsRequest\x1a%.displayhash.DescribeContentsResponse\x12R\n" +
 	"\bToString\x12'.displayhash.DisplayHashToStringRequest\x1a\x1d.displayhash.ToStringResponse\x12a\n" +
-	"\rWriteToParcel\x12,.displayhash.DisplayHashWriteToParcelRequest\x1a\".displayhash.WriteToParcelResponseB5Z3github.com/AndroidGoLab/jni-proxy/proto/displayhashb\x06proto3"
+	"\rWriteToParcel\x12,.displayhash.DisplayHashWriteToParcelRequest\x1a\".displayhash.WriteToParcelResponse2\xf3\x01\n" +
+	" DisplayHashResultCallbackService\x12e\n" +
+	"\x12OnDisplayHashError\x12&.displayhash.OnDisplayHashErrorRequest\x1a'.displayhash.OnDisplayHashErrorResponse\x12h\n" +
+	"\x13OnDisplayHashResult\x12'.displayhash.OnDisplayHashResultRequest\x1a(.displayhash.OnDisplayHashResultResponse2\xfe\x01\n" +
+	"\x19DisplayHashManagerService\x12}\n" +
+	"\x1aGetSupportedHashAlgorithms\x12..displayhash.GetSupportedHashAlgorithmsRequest\x1a/.displayhash.GetSupportedHashAlgorithmsResponse\x12b\n" +
+	"\x11VerifyDisplayHash\x12%.displayhash.VerifyDisplayHashRequest\x1a&.displayhash.VerifyDisplayHashResponseB5Z3github.com/AndroidGoLab/jni-proxy/proto/displayhashb\x06proto3"
 
 var (
 	file_proto_displayhash_displayhash_proto_rawDescOnce sync.Once
@@ -1218,65 +1302,69 @@ func file_proto_displayhash_displayhash_proto_rawDescGZIP() []byte {
 	return file_proto_displayhash_displayhash_proto_rawDescData
 }
 
-var file_proto_displayhash_displayhash_proto_msgTypes = make([]protoimpl.MessageInfo, 25)
+var file_proto_displayhash_displayhash_proto_msgTypes = make([]protoimpl.MessageInfo, 27)
 var file_proto_displayhash_displayhash_proto_goTypes = []any{
-	(*VerifyDisplayHashRequest)(nil),           // 0: displayhash.VerifyDisplayHashRequest
-	(*VerifyDisplayHashResponse)(nil),          // 1: displayhash.VerifyDisplayHashResponse
-	(*OnDisplayHashErrorRequest)(nil),          // 2: displayhash.OnDisplayHashErrorRequest
-	(*OnDisplayHashErrorResponse)(nil),         // 3: displayhash.OnDisplayHashErrorResponse
-	(*OnDisplayHashResultRequest)(nil),         // 4: displayhash.OnDisplayHashResultRequest
-	(*OnDisplayHashResultResponse)(nil),        // 5: displayhash.OnDisplayHashResultResponse
-	(*NewVerifiedDisplayHashRequest)(nil),      // 6: displayhash.NewVerifiedDisplayHashRequest
-	(*NewVerifiedDisplayHashResponse)(nil),     // 7: displayhash.NewVerifiedDisplayHashResponse
-	(*DescribeContentsRequest)(nil),            // 8: displayhash.DescribeContentsRequest
-	(*DescribeContentsResponse)(nil),           // 9: displayhash.DescribeContentsResponse
-	(*GetBoundsInWindowRequest)(nil),           // 10: displayhash.GetBoundsInWindowRequest
-	(*GetBoundsInWindowResponse)(nil),          // 11: displayhash.GetBoundsInWindowResponse
-	(*GetHashAlgorithmRequest)(nil),            // 12: displayhash.GetHashAlgorithmRequest
-	(*GetHashAlgorithmResponse)(nil),           // 13: displayhash.GetHashAlgorithmResponse
-	(*GetImageHashRequest)(nil),                // 14: displayhash.GetImageHashRequest
-	(*GetImageHashResponse)(nil),               // 15: displayhash.GetImageHashResponse
-	(*GetTimeMillisRequest)(nil),               // 16: displayhash.GetTimeMillisRequest
-	(*GetTimeMillisResponse)(nil),              // 17: displayhash.GetTimeMillisResponse
-	(*ToStringRequest)(nil),                    // 18: displayhash.ToStringRequest
-	(*ToStringResponse)(nil),                   // 19: displayhash.ToStringResponse
-	(*WriteToParcelRequest)(nil),               // 20: displayhash.WriteToParcelRequest
-	(*WriteToParcelResponse)(nil),              // 21: displayhash.WriteToParcelResponse
-	(*DisplayHashDescribeContentsRequest)(nil), // 22: displayhash.DisplayHashDescribeContentsRequest
-	(*DisplayHashToStringRequest)(nil),         // 23: displayhash.DisplayHashToStringRequest
-	(*DisplayHashWriteToParcelRequest)(nil),    // 24: displayhash.DisplayHashWriteToParcelRequest
+	(*NewVerifiedDisplayHashRequest)(nil),      // 0: displayhash.NewVerifiedDisplayHashRequest
+	(*NewVerifiedDisplayHashResponse)(nil),     // 1: displayhash.NewVerifiedDisplayHashResponse
+	(*DescribeContentsRequest)(nil),            // 2: displayhash.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),           // 3: displayhash.DescribeContentsResponse
+	(*GetBoundsInWindowRequest)(nil),           // 4: displayhash.GetBoundsInWindowRequest
+	(*GetBoundsInWindowResponse)(nil),          // 5: displayhash.GetBoundsInWindowResponse
+	(*GetHashAlgorithmRequest)(nil),            // 6: displayhash.GetHashAlgorithmRequest
+	(*GetHashAlgorithmResponse)(nil),           // 7: displayhash.GetHashAlgorithmResponse
+	(*GetImageHashRequest)(nil),                // 8: displayhash.GetImageHashRequest
+	(*GetImageHashResponse)(nil),               // 9: displayhash.GetImageHashResponse
+	(*GetTimeMillisRequest)(nil),               // 10: displayhash.GetTimeMillisRequest
+	(*GetTimeMillisResponse)(nil),              // 11: displayhash.GetTimeMillisResponse
+	(*ToStringRequest)(nil),                    // 12: displayhash.ToStringRequest
+	(*ToStringResponse)(nil),                   // 13: displayhash.ToStringResponse
+	(*WriteToParcelRequest)(nil),               // 14: displayhash.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),              // 15: displayhash.WriteToParcelResponse
+	(*DisplayHashDescribeContentsRequest)(nil), // 16: displayhash.DisplayHashDescribeContentsRequest
+	(*DisplayHashToStringRequest)(nil),         // 17: displayhash.DisplayHashToStringRequest
+	(*DisplayHashWriteToParcelRequest)(nil),    // 18: displayhash.DisplayHashWriteToParcelRequest
+	(*OnDisplayHashErrorRequest)(nil),          // 19: displayhash.OnDisplayHashErrorRequest
+	(*OnDisplayHashErrorResponse)(nil),         // 20: displayhash.OnDisplayHashErrorResponse
+	(*OnDisplayHashResultRequest)(nil),         // 21: displayhash.OnDisplayHashResultRequest
+	(*OnDisplayHashResultResponse)(nil),        // 22: displayhash.OnDisplayHashResultResponse
+	(*GetSupportedHashAlgorithmsRequest)(nil),  // 23: displayhash.GetSupportedHashAlgorithmsRequest
+	(*GetSupportedHashAlgorithmsResponse)(nil), // 24: displayhash.GetSupportedHashAlgorithmsResponse
+	(*VerifyDisplayHashRequest)(nil),           // 25: displayhash.VerifyDisplayHashRequest
+	(*VerifyDisplayHashResponse)(nil),          // 26: displayhash.VerifyDisplayHashResponse
 }
 var file_proto_displayhash_displayhash_proto_depIdxs = []int32{
-	0,  // 0: displayhash.DisplayHashManagerService.VerifyDisplayHash:input_type -> displayhash.VerifyDisplayHashRequest
-	2,  // 1: displayhash.DisplayHashResultCallbackService.OnDisplayHashError:input_type -> displayhash.OnDisplayHashErrorRequest
-	4,  // 2: displayhash.DisplayHashResultCallbackService.OnDisplayHashResult:input_type -> displayhash.OnDisplayHashResultRequest
-	6,  // 3: displayhash.VerifiedDisplayHashService.NewVerifiedDisplayHash:input_type -> displayhash.NewVerifiedDisplayHashRequest
-	8,  // 4: displayhash.VerifiedDisplayHashService.DescribeContents:input_type -> displayhash.DescribeContentsRequest
-	10, // 5: displayhash.VerifiedDisplayHashService.GetBoundsInWindow:input_type -> displayhash.GetBoundsInWindowRequest
-	12, // 6: displayhash.VerifiedDisplayHashService.GetHashAlgorithm:input_type -> displayhash.GetHashAlgorithmRequest
-	14, // 7: displayhash.VerifiedDisplayHashService.GetImageHash:input_type -> displayhash.GetImageHashRequest
-	16, // 8: displayhash.VerifiedDisplayHashService.GetTimeMillis:input_type -> displayhash.GetTimeMillisRequest
-	18, // 9: displayhash.VerifiedDisplayHashService.ToString:input_type -> displayhash.ToStringRequest
-	20, // 10: displayhash.VerifiedDisplayHashService.WriteToParcel:input_type -> displayhash.WriteToParcelRequest
-	22, // 11: displayhash.DisplayHashService.DescribeContents:input_type -> displayhash.DisplayHashDescribeContentsRequest
-	23, // 12: displayhash.DisplayHashService.ToString:input_type -> displayhash.DisplayHashToStringRequest
-	24, // 13: displayhash.DisplayHashService.WriteToParcel:input_type -> displayhash.DisplayHashWriteToParcelRequest
-	1,  // 14: displayhash.DisplayHashManagerService.VerifyDisplayHash:output_type -> displayhash.VerifyDisplayHashResponse
-	3,  // 15: displayhash.DisplayHashResultCallbackService.OnDisplayHashError:output_type -> displayhash.OnDisplayHashErrorResponse
-	5,  // 16: displayhash.DisplayHashResultCallbackService.OnDisplayHashResult:output_type -> displayhash.OnDisplayHashResultResponse
-	7,  // 17: displayhash.VerifiedDisplayHashService.NewVerifiedDisplayHash:output_type -> displayhash.NewVerifiedDisplayHashResponse
-	9,  // 18: displayhash.VerifiedDisplayHashService.DescribeContents:output_type -> displayhash.DescribeContentsResponse
-	11, // 19: displayhash.VerifiedDisplayHashService.GetBoundsInWindow:output_type -> displayhash.GetBoundsInWindowResponse
-	13, // 20: displayhash.VerifiedDisplayHashService.GetHashAlgorithm:output_type -> displayhash.GetHashAlgorithmResponse
-	15, // 21: displayhash.VerifiedDisplayHashService.GetImageHash:output_type -> displayhash.GetImageHashResponse
-	17, // 22: displayhash.VerifiedDisplayHashService.GetTimeMillis:output_type -> displayhash.GetTimeMillisResponse
-	19, // 23: displayhash.VerifiedDisplayHashService.ToString:output_type -> displayhash.ToStringResponse
-	21, // 24: displayhash.VerifiedDisplayHashService.WriteToParcel:output_type -> displayhash.WriteToParcelResponse
-	9,  // 25: displayhash.DisplayHashService.DescribeContents:output_type -> displayhash.DescribeContentsResponse
-	19, // 26: displayhash.DisplayHashService.ToString:output_type -> displayhash.ToStringResponse
-	21, // 27: displayhash.DisplayHashService.WriteToParcel:output_type -> displayhash.WriteToParcelResponse
-	14, // [14:28] is the sub-list for method output_type
-	0,  // [0:14] is the sub-list for method input_type
+	0,  // 0: displayhash.VerifiedDisplayHashService.NewVerifiedDisplayHash:input_type -> displayhash.NewVerifiedDisplayHashRequest
+	2,  // 1: displayhash.VerifiedDisplayHashService.DescribeContents:input_type -> displayhash.DescribeContentsRequest
+	4,  // 2: displayhash.VerifiedDisplayHashService.GetBoundsInWindow:input_type -> displayhash.GetBoundsInWindowRequest
+	6,  // 3: displayhash.VerifiedDisplayHashService.GetHashAlgorithm:input_type -> displayhash.GetHashAlgorithmRequest
+	8,  // 4: displayhash.VerifiedDisplayHashService.GetImageHash:input_type -> displayhash.GetImageHashRequest
+	10, // 5: displayhash.VerifiedDisplayHashService.GetTimeMillis:input_type -> displayhash.GetTimeMillisRequest
+	12, // 6: displayhash.VerifiedDisplayHashService.ToString:input_type -> displayhash.ToStringRequest
+	14, // 7: displayhash.VerifiedDisplayHashService.WriteToParcel:input_type -> displayhash.WriteToParcelRequest
+	16, // 8: displayhash.DisplayHashService.DescribeContents:input_type -> displayhash.DisplayHashDescribeContentsRequest
+	17, // 9: displayhash.DisplayHashService.ToString:input_type -> displayhash.DisplayHashToStringRequest
+	18, // 10: displayhash.DisplayHashService.WriteToParcel:input_type -> displayhash.DisplayHashWriteToParcelRequest
+	19, // 11: displayhash.DisplayHashResultCallbackService.OnDisplayHashError:input_type -> displayhash.OnDisplayHashErrorRequest
+	21, // 12: displayhash.DisplayHashResultCallbackService.OnDisplayHashResult:input_type -> displayhash.OnDisplayHashResultRequest
+	23, // 13: displayhash.DisplayHashManagerService.GetSupportedHashAlgorithms:input_type -> displayhash.GetSupportedHashAlgorithmsRequest
+	25, // 14: displayhash.DisplayHashManagerService.VerifyDisplayHash:input_type -> displayhash.VerifyDisplayHashRequest
+	1,  // 15: displayhash.VerifiedDisplayHashService.NewVerifiedDisplayHash:output_type -> displayhash.NewVerifiedDisplayHashResponse
+	3,  // 16: displayhash.VerifiedDisplayHashService.DescribeContents:output_type -> displayhash.DescribeContentsResponse
+	5,  // 17: displayhash.VerifiedDisplayHashService.GetBoundsInWindow:output_type -> displayhash.GetBoundsInWindowResponse
+	7,  // 18: displayhash.VerifiedDisplayHashService.GetHashAlgorithm:output_type -> displayhash.GetHashAlgorithmResponse
+	9,  // 19: displayhash.VerifiedDisplayHashService.GetImageHash:output_type -> displayhash.GetImageHashResponse
+	11, // 20: displayhash.VerifiedDisplayHashService.GetTimeMillis:output_type -> displayhash.GetTimeMillisResponse
+	13, // 21: displayhash.VerifiedDisplayHashService.ToString:output_type -> displayhash.ToStringResponse
+	15, // 22: displayhash.VerifiedDisplayHashService.WriteToParcel:output_type -> displayhash.WriteToParcelResponse
+	3,  // 23: displayhash.DisplayHashService.DescribeContents:output_type -> displayhash.DescribeContentsResponse
+	13, // 24: displayhash.DisplayHashService.ToString:output_type -> displayhash.ToStringResponse
+	15, // 25: displayhash.DisplayHashService.WriteToParcel:output_type -> displayhash.WriteToParcelResponse
+	20, // 26: displayhash.DisplayHashResultCallbackService.OnDisplayHashError:output_type -> displayhash.OnDisplayHashErrorResponse
+	22, // 27: displayhash.DisplayHashResultCallbackService.OnDisplayHashResult:output_type -> displayhash.OnDisplayHashResultResponse
+	24, // 28: displayhash.DisplayHashManagerService.GetSupportedHashAlgorithms:output_type -> displayhash.GetSupportedHashAlgorithmsResponse
+	26, // 29: displayhash.DisplayHashManagerService.VerifyDisplayHash:output_type -> displayhash.VerifyDisplayHashResponse
+	15, // [15:30] is the sub-list for method output_type
+	0,  // [0:15] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -1293,7 +1381,7 @@ func file_proto_displayhash_displayhash_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_displayhash_displayhash_proto_rawDesc), len(file_proto_displayhash_displayhash_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   25,
+			NumMessages:   27,
 			NumExtensions: 0,
 			NumServices:   4,
 		},

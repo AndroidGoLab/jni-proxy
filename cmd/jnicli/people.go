@@ -12,6 +12,93 @@ var peopleCmd = &cobra.Command{
 	Short: "people service operations",
 }
 
+var peopleManagerCmd = &cobra.Command{
+	Use:   "manager",
+	Short: "ManagerService operations",
+}
+
+var peopleManagerAddOrUpdateStatusCmd = &cobra.Command{
+	Use:   "add-or-update-status",
+	Short: "AddOrUpdateStatus RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.AddOrUpdateStatusRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AddOrUpdateStatus(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var peopleManagerClearStatusCmd = &cobra.Command{
+	Use:   "clear-status",
+	Short: "ClearStatus RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.ClearStatusRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ClearStatus(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var peopleManagerClearStatusesCmd = &cobra.Command{
+	Use:   "clear-statuses",
+	Short: "ClearStatuses RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.ClearStatusesRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ClearStatuses(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var peopleManagerGetStatusesCmd = &cobra.Command{
+	Use:   "get-statuses",
+	Short: "GetStatuses RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetStatusesRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetStatuses(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var peopleConversationStatusCmd = &cobra.Command{
 	Use:   "conversation-status",
 	Short: "ConversationStatusService operations",
@@ -334,75 +421,18 @@ var peopleConversationStatusBuilderSetStartTimeMillisCmd = &cobra.Command{
 	},
 }
 
-var peopleManagerCmd = &cobra.Command{
-	Use:   "manager",
-	Short: "ManagerService operations",
-}
-
-var peopleManagerAddOrUpdateStatusCmd = &cobra.Command{
-	Use:   "add-or-update-status",
-	Short: "AddOrUpdateStatus RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.AddOrUpdateStatusRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.AddOrUpdateStatus(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var peopleManagerClearStatusCmd = &cobra.Command{
-	Use:   "clear-status",
-	Short: "ClearStatus RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.ClearStatusRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ClearStatus(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var peopleManagerClearStatusesCmd = &cobra.Command{
-	Use:   "clear-statuses",
-	Short: "ClearStatuses RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.ClearStatusesRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ClearStatuses(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
+	peopleManagerAddOrUpdateStatusCmd.Flags().String("arg0", "", "arg0 (string)")
+	peopleManagerAddOrUpdateStatusCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	peopleManagerCmd.AddCommand(peopleManagerAddOrUpdateStatusCmd)
+	peopleManagerClearStatusCmd.Flags().String("arg0", "", "arg0 (string)")
+	peopleManagerClearStatusCmd.Flags().String("arg1", "", "arg1 (string)")
+	peopleManagerCmd.AddCommand(peopleManagerClearStatusCmd)
+	peopleManagerClearStatusesCmd.Flags().String("arg0", "", "arg0 (string)")
+	peopleManagerCmd.AddCommand(peopleManagerClearStatusesCmd)
+	peopleManagerGetStatusesCmd.Flags().String("arg0", "", "arg0 (string)")
+	peopleManagerCmd.AddCommand(peopleManagerGetStatusesCmd)
+	peopleCmd.AddCommand(peopleManagerCmd)
 	peopleConversationStatusCmd.AddCommand(peopleConversationStatusDescribeContentsCmd)
 	peopleConversationStatusEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	peopleConversationStatusCmd.AddCommand(peopleConversationStatusEqualsCmd)
@@ -431,14 +461,5 @@ func init() {
 	peopleConversationStatusBuilderSetStartTimeMillisCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	peopleConversationStatusBuilderCmd.AddCommand(peopleConversationStatusBuilderSetStartTimeMillisCmd)
 	peopleCmd.AddCommand(peopleConversationStatusBuilderCmd)
-	peopleManagerAddOrUpdateStatusCmd.Flags().String("arg0", "", "arg0 (string)")
-	peopleManagerAddOrUpdateStatusCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	peopleManagerCmd.AddCommand(peopleManagerAddOrUpdateStatusCmd)
-	peopleManagerClearStatusCmd.Flags().String("arg0", "", "arg0 (string)")
-	peopleManagerClearStatusCmd.Flags().String("arg1", "", "arg1 (string)")
-	peopleManagerCmd.AddCommand(peopleManagerClearStatusCmd)
-	peopleManagerClearStatusesCmd.Flags().String("arg0", "", "arg0 (string)")
-	peopleManagerCmd.AddCommand(peopleManagerClearStatusesCmd)
-	peopleCmd.AddCommand(peopleManagerCmd)
 	rootCmd.AddCommand(peopleCmd)
 }

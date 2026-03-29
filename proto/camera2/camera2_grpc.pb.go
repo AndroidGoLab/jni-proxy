@@ -21,819 +21,102 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	CameraExtensionCharacteristicsService_IsCaptureProcessProgressAvailable_FullMethodName = "/camera2.CameraExtensionCharacteristicsService/IsCaptureProcessProgressAvailable"
-	CameraExtensionCharacteristicsService_IsPostviewAvailable_FullMethodName               = "/camera2.CameraExtensionCharacteristicsService/IsPostviewAvailable"
+	CameraConstrainedHighSpeedCaptureSessionService_CreateHighSpeedRequestList_FullMethodName = "/camera2.CameraConstrainedHighSpeedCaptureSessionService/CreateHighSpeedRequestList"
 )
 
-// CameraExtensionCharacteristicsServiceClient is the client API for CameraExtensionCharacteristicsService service.
+// CameraConstrainedHighSpeedCaptureSessionServiceClient is the client API for CameraConstrainedHighSpeedCaptureSessionService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CameraExtensionCharacteristicsServiceClient interface {
-	IsCaptureProcessProgressAvailable(ctx context.Context, in *IsCaptureProcessProgressAvailableRequest, opts ...grpc.CallOption) (*IsCaptureProcessProgressAvailableResponse, error)
-	IsPostviewAvailable(ctx context.Context, in *IsPostviewAvailableRequest, opts ...grpc.CallOption) (*IsPostviewAvailableResponse, error)
+type CameraConstrainedHighSpeedCaptureSessionServiceClient interface {
+	CreateHighSpeedRequestList(ctx context.Context, in *CreateHighSpeedRequestListRequest, opts ...grpc.CallOption) (*CreateHighSpeedRequestListResponse, error)
 }
 
-type cameraExtensionCharacteristicsServiceClient struct {
+type cameraConstrainedHighSpeedCaptureSessionServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewCameraExtensionCharacteristicsServiceClient(cc grpc.ClientConnInterface) CameraExtensionCharacteristicsServiceClient {
-	return &cameraExtensionCharacteristicsServiceClient{cc}
+func NewCameraConstrainedHighSpeedCaptureSessionServiceClient(cc grpc.ClientConnInterface) CameraConstrainedHighSpeedCaptureSessionServiceClient {
+	return &cameraConstrainedHighSpeedCaptureSessionServiceClient{cc}
 }
 
-func (c *cameraExtensionCharacteristicsServiceClient) IsCaptureProcessProgressAvailable(ctx context.Context, in *IsCaptureProcessProgressAvailableRequest, opts ...grpc.CallOption) (*IsCaptureProcessProgressAvailableResponse, error) {
+func (c *cameraConstrainedHighSpeedCaptureSessionServiceClient) CreateHighSpeedRequestList(ctx context.Context, in *CreateHighSpeedRequestListRequest, opts ...grpc.CallOption) (*CreateHighSpeedRequestListResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsCaptureProcessProgressAvailableResponse)
-	err := c.cc.Invoke(ctx, CameraExtensionCharacteristicsService_IsCaptureProcessProgressAvailable_FullMethodName, in, out, cOpts...)
+	out := new(CreateHighSpeedRequestListResponse)
+	err := c.cc.Invoke(ctx, CameraConstrainedHighSpeedCaptureSessionService_CreateHighSpeedRequestList_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *cameraExtensionCharacteristicsServiceClient) IsPostviewAvailable(ctx context.Context, in *IsPostviewAvailableRequest, opts ...grpc.CallOption) (*IsPostviewAvailableResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsPostviewAvailableResponse)
-	err := c.cc.Invoke(ctx, CameraExtensionCharacteristicsService_IsPostviewAvailable_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CameraExtensionCharacteristicsServiceServer is the server API for CameraExtensionCharacteristicsService service.
-// All implementations must embed UnimplementedCameraExtensionCharacteristicsServiceServer
+// CameraConstrainedHighSpeedCaptureSessionServiceServer is the server API for CameraConstrainedHighSpeedCaptureSessionService service.
+// All implementations must embed UnimplementedCameraConstrainedHighSpeedCaptureSessionServiceServer
 // for forward compatibility.
-type CameraExtensionCharacteristicsServiceServer interface {
-	IsCaptureProcessProgressAvailable(context.Context, *IsCaptureProcessProgressAvailableRequest) (*IsCaptureProcessProgressAvailableResponse, error)
-	IsPostviewAvailable(context.Context, *IsPostviewAvailableRequest) (*IsPostviewAvailableResponse, error)
-	mustEmbedUnimplementedCameraExtensionCharacteristicsServiceServer()
+type CameraConstrainedHighSpeedCaptureSessionServiceServer interface {
+	CreateHighSpeedRequestList(context.Context, *CreateHighSpeedRequestListRequest) (*CreateHighSpeedRequestListResponse, error)
+	mustEmbedUnimplementedCameraConstrainedHighSpeedCaptureSessionServiceServer()
 }
 
-// UnimplementedCameraExtensionCharacteristicsServiceServer must be embedded to have
+// UnimplementedCameraConstrainedHighSpeedCaptureSessionServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedCameraExtensionCharacteristicsServiceServer struct{}
+type UnimplementedCameraConstrainedHighSpeedCaptureSessionServiceServer struct{}
 
-func (UnimplementedCameraExtensionCharacteristicsServiceServer) IsCaptureProcessProgressAvailable(context.Context, *IsCaptureProcessProgressAvailableRequest) (*IsCaptureProcessProgressAvailableResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsCaptureProcessProgressAvailable not implemented")
+func (UnimplementedCameraConstrainedHighSpeedCaptureSessionServiceServer) CreateHighSpeedRequestList(context.Context, *CreateHighSpeedRequestListRequest) (*CreateHighSpeedRequestListResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateHighSpeedRequestList not implemented")
 }
-func (UnimplementedCameraExtensionCharacteristicsServiceServer) IsPostviewAvailable(context.Context, *IsPostviewAvailableRequest) (*IsPostviewAvailableResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsPostviewAvailable not implemented")
+func (UnimplementedCameraConstrainedHighSpeedCaptureSessionServiceServer) mustEmbedUnimplementedCameraConstrainedHighSpeedCaptureSessionServiceServer() {
 }
-func (UnimplementedCameraExtensionCharacteristicsServiceServer) mustEmbedUnimplementedCameraExtensionCharacteristicsServiceServer() {
-}
-func (UnimplementedCameraExtensionCharacteristicsServiceServer) testEmbeddedByValue() {}
+func (UnimplementedCameraConstrainedHighSpeedCaptureSessionServiceServer) testEmbeddedByValue() {}
 
-// UnsafeCameraExtensionCharacteristicsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CameraExtensionCharacteristicsServiceServer will
+// UnsafeCameraConstrainedHighSpeedCaptureSessionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CameraConstrainedHighSpeedCaptureSessionServiceServer will
 // result in compilation errors.
-type UnsafeCameraExtensionCharacteristicsServiceServer interface {
-	mustEmbedUnimplementedCameraExtensionCharacteristicsServiceServer()
+type UnsafeCameraConstrainedHighSpeedCaptureSessionServiceServer interface {
+	mustEmbedUnimplementedCameraConstrainedHighSpeedCaptureSessionServiceServer()
 }
 
-func RegisterCameraExtensionCharacteristicsServiceServer(s grpc.ServiceRegistrar, srv CameraExtensionCharacteristicsServiceServer) {
-	// If the following call panics, it indicates UnimplementedCameraExtensionCharacteristicsServiceServer was
+func RegisterCameraConstrainedHighSpeedCaptureSessionServiceServer(s grpc.ServiceRegistrar, srv CameraConstrainedHighSpeedCaptureSessionServiceServer) {
+	// If the following call panics, it indicates UnimplementedCameraConstrainedHighSpeedCaptureSessionServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&CameraExtensionCharacteristicsService_ServiceDesc, srv)
+	s.RegisterService(&CameraConstrainedHighSpeedCaptureSessionService_ServiceDesc, srv)
 }
 
-func _CameraExtensionCharacteristicsService_IsCaptureProcessProgressAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsCaptureProcessProgressAvailableRequest)
+func _CameraConstrainedHighSpeedCaptureSessionService_CreateHighSpeedRequestList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateHighSpeedRequestListRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CameraExtensionCharacteristicsServiceServer).IsCaptureProcessProgressAvailable(ctx, in)
+		return srv.(CameraConstrainedHighSpeedCaptureSessionServiceServer).CreateHighSpeedRequestList(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CameraExtensionCharacteristicsService_IsCaptureProcessProgressAvailable_FullMethodName,
+		FullMethod: CameraConstrainedHighSpeedCaptureSessionService_CreateHighSpeedRequestList_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraExtensionCharacteristicsServiceServer).IsCaptureProcessProgressAvailable(ctx, req.(*IsCaptureProcessProgressAvailableRequest))
+		return srv.(CameraConstrainedHighSpeedCaptureSessionServiceServer).CreateHighSpeedRequestList(ctx, req.(*CreateHighSpeedRequestListRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CameraExtensionCharacteristicsService_IsPostviewAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsPostviewAvailableRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraExtensionCharacteristicsServiceServer).IsPostviewAvailable(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraExtensionCharacteristicsService_IsPostviewAvailable_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraExtensionCharacteristicsServiceServer).IsPostviewAvailable(ctx, req.(*IsPostviewAvailableRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CameraExtensionCharacteristicsService_ServiceDesc is the grpc.ServiceDesc for CameraExtensionCharacteristicsService service.
+// CameraConstrainedHighSpeedCaptureSessionService_ServiceDesc is the grpc.ServiceDesc for CameraConstrainedHighSpeedCaptureSessionService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var CameraExtensionCharacteristicsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "camera2.CameraExtensionCharacteristicsService",
-	HandlerType: (*CameraExtensionCharacteristicsServiceServer)(nil),
+var CameraConstrainedHighSpeedCaptureSessionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "camera2.CameraConstrainedHighSpeedCaptureSessionService",
+	HandlerType: (*CameraConstrainedHighSpeedCaptureSessionServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "IsCaptureProcessProgressAvailable",
-			Handler:    _CameraExtensionCharacteristicsService_IsCaptureProcessProgressAvailable_Handler,
-		},
-		{
-			MethodName: "IsPostviewAvailable",
-			Handler:    _CameraExtensionCharacteristicsService_IsPostviewAvailable_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/camera2/camera2.proto",
-}
-
-const (
-	CameraOfflineSessionService_Close_FullMethodName = "/camera2.CameraOfflineSessionService/Close"
-)
-
-// CameraOfflineSessionServiceClient is the client API for CameraOfflineSessionService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CameraOfflineSessionServiceClient interface {
-	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
-}
-
-type cameraOfflineSessionServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCameraOfflineSessionServiceClient(cc grpc.ClientConnInterface) CameraOfflineSessionServiceClient {
-	return &cameraOfflineSessionServiceClient{cc}
-}
-
-func (c *cameraOfflineSessionServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, CameraOfflineSessionService_Close_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CameraOfflineSessionServiceServer is the server API for CameraOfflineSessionService service.
-// All implementations must embed UnimplementedCameraOfflineSessionServiceServer
-// for forward compatibility.
-type CameraOfflineSessionServiceServer interface {
-	Close(context.Context, *CloseRequest) (*CloseResponse, error)
-	mustEmbedUnimplementedCameraOfflineSessionServiceServer()
-}
-
-// UnimplementedCameraOfflineSessionServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCameraOfflineSessionServiceServer struct{}
-
-func (UnimplementedCameraOfflineSessionServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
-}
-func (UnimplementedCameraOfflineSessionServiceServer) mustEmbedUnimplementedCameraOfflineSessionServiceServer() {
-}
-func (UnimplementedCameraOfflineSessionServiceServer) testEmbeddedByValue() {}
-
-// UnsafeCameraOfflineSessionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CameraOfflineSessionServiceServer will
-// result in compilation errors.
-type UnsafeCameraOfflineSessionServiceServer interface {
-	mustEmbedUnimplementedCameraOfflineSessionServiceServer()
-}
-
-func RegisterCameraOfflineSessionServiceServer(s grpc.ServiceRegistrar, srv CameraOfflineSessionServiceServer) {
-	// If the following call panics, it indicates UnimplementedCameraOfflineSessionServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CameraOfflineSessionService_ServiceDesc, srv)
-}
-
-func _CameraOfflineSessionService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraOfflineSessionServiceServer).Close(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraOfflineSessionService_Close_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraOfflineSessionServiceServer).Close(ctx, req.(*CloseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CameraOfflineSessionService_ServiceDesc is the grpc.ServiceDesc for CameraOfflineSessionService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CameraOfflineSessionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "camera2.CameraOfflineSessionService",
-	HandlerType: (*CameraOfflineSessionServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Close",
-			Handler:    _CameraOfflineSessionService_Close_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/camera2/camera2.proto",
-}
-
-const (
-	CameraOfflineSessionCameraOfflineSessionCallbackService_OnClosed_FullMethodName       = "/camera2.CameraOfflineSessionCameraOfflineSessionCallbackService/OnClosed"
-	CameraOfflineSessionCameraOfflineSessionCallbackService_OnError_FullMethodName        = "/camera2.CameraOfflineSessionCameraOfflineSessionCallbackService/OnError"
-	CameraOfflineSessionCameraOfflineSessionCallbackService_OnIdle_FullMethodName         = "/camera2.CameraOfflineSessionCameraOfflineSessionCallbackService/OnIdle"
-	CameraOfflineSessionCameraOfflineSessionCallbackService_OnReady_FullMethodName        = "/camera2.CameraOfflineSessionCameraOfflineSessionCallbackService/OnReady"
-	CameraOfflineSessionCameraOfflineSessionCallbackService_OnSwitchFailed_FullMethodName = "/camera2.CameraOfflineSessionCameraOfflineSessionCallbackService/OnSwitchFailed"
-)
-
-// CameraOfflineSessionCameraOfflineSessionCallbackServiceClient is the client API for CameraOfflineSessionCameraOfflineSessionCallbackService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CameraOfflineSessionCameraOfflineSessionCallbackServiceClient interface {
-	OnClosed(ctx context.Context, in *OnClosedRequest, opts ...grpc.CallOption) (*OnClosedResponse, error)
-	OnError(ctx context.Context, in *OnErrorRequest, opts ...grpc.CallOption) (*OnErrorResponse, error)
-	OnIdle(ctx context.Context, in *OnIdleRequest, opts ...grpc.CallOption) (*OnIdleResponse, error)
-	OnReady(ctx context.Context, in *OnReadyRequest, opts ...grpc.CallOption) (*OnReadyResponse, error)
-	OnSwitchFailed(ctx context.Context, in *OnSwitchFailedRequest, opts ...grpc.CallOption) (*OnSwitchFailedResponse, error)
-}
-
-type cameraOfflineSessionCameraOfflineSessionCallbackServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCameraOfflineSessionCameraOfflineSessionCallbackServiceClient(cc grpc.ClientConnInterface) CameraOfflineSessionCameraOfflineSessionCallbackServiceClient {
-	return &cameraOfflineSessionCameraOfflineSessionCallbackServiceClient{cc}
-}
-
-func (c *cameraOfflineSessionCameraOfflineSessionCallbackServiceClient) OnClosed(ctx context.Context, in *OnClosedRequest, opts ...grpc.CallOption) (*OnClosedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnClosedResponse)
-	err := c.cc.Invoke(ctx, CameraOfflineSessionCameraOfflineSessionCallbackService_OnClosed_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cameraOfflineSessionCameraOfflineSessionCallbackServiceClient) OnError(ctx context.Context, in *OnErrorRequest, opts ...grpc.CallOption) (*OnErrorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnErrorResponse)
-	err := c.cc.Invoke(ctx, CameraOfflineSessionCameraOfflineSessionCallbackService_OnError_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cameraOfflineSessionCameraOfflineSessionCallbackServiceClient) OnIdle(ctx context.Context, in *OnIdleRequest, opts ...grpc.CallOption) (*OnIdleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnIdleResponse)
-	err := c.cc.Invoke(ctx, CameraOfflineSessionCameraOfflineSessionCallbackService_OnIdle_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cameraOfflineSessionCameraOfflineSessionCallbackServiceClient) OnReady(ctx context.Context, in *OnReadyRequest, opts ...grpc.CallOption) (*OnReadyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnReadyResponse)
-	err := c.cc.Invoke(ctx, CameraOfflineSessionCameraOfflineSessionCallbackService_OnReady_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cameraOfflineSessionCameraOfflineSessionCallbackServiceClient) OnSwitchFailed(ctx context.Context, in *OnSwitchFailedRequest, opts ...grpc.CallOption) (*OnSwitchFailedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnSwitchFailedResponse)
-	err := c.cc.Invoke(ctx, CameraOfflineSessionCameraOfflineSessionCallbackService_OnSwitchFailed_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CameraOfflineSessionCameraOfflineSessionCallbackServiceServer is the server API for CameraOfflineSessionCameraOfflineSessionCallbackService service.
-// All implementations must embed UnimplementedCameraOfflineSessionCameraOfflineSessionCallbackServiceServer
-// for forward compatibility.
-type CameraOfflineSessionCameraOfflineSessionCallbackServiceServer interface {
-	OnClosed(context.Context, *OnClosedRequest) (*OnClosedResponse, error)
-	OnError(context.Context, *OnErrorRequest) (*OnErrorResponse, error)
-	OnIdle(context.Context, *OnIdleRequest) (*OnIdleResponse, error)
-	OnReady(context.Context, *OnReadyRequest) (*OnReadyResponse, error)
-	OnSwitchFailed(context.Context, *OnSwitchFailedRequest) (*OnSwitchFailedResponse, error)
-	mustEmbedUnimplementedCameraOfflineSessionCameraOfflineSessionCallbackServiceServer()
-}
-
-// UnimplementedCameraOfflineSessionCameraOfflineSessionCallbackServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCameraOfflineSessionCameraOfflineSessionCallbackServiceServer struct{}
-
-func (UnimplementedCameraOfflineSessionCameraOfflineSessionCallbackServiceServer) OnClosed(context.Context, *OnClosedRequest) (*OnClosedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnClosed not implemented")
-}
-func (UnimplementedCameraOfflineSessionCameraOfflineSessionCallbackServiceServer) OnError(context.Context, *OnErrorRequest) (*OnErrorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnError not implemented")
-}
-func (UnimplementedCameraOfflineSessionCameraOfflineSessionCallbackServiceServer) OnIdle(context.Context, *OnIdleRequest) (*OnIdleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnIdle not implemented")
-}
-func (UnimplementedCameraOfflineSessionCameraOfflineSessionCallbackServiceServer) OnReady(context.Context, *OnReadyRequest) (*OnReadyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnReady not implemented")
-}
-func (UnimplementedCameraOfflineSessionCameraOfflineSessionCallbackServiceServer) OnSwitchFailed(context.Context, *OnSwitchFailedRequest) (*OnSwitchFailedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnSwitchFailed not implemented")
-}
-func (UnimplementedCameraOfflineSessionCameraOfflineSessionCallbackServiceServer) mustEmbedUnimplementedCameraOfflineSessionCameraOfflineSessionCallbackServiceServer() {
-}
-func (UnimplementedCameraOfflineSessionCameraOfflineSessionCallbackServiceServer) testEmbeddedByValue() {
-}
-
-// UnsafeCameraOfflineSessionCameraOfflineSessionCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CameraOfflineSessionCameraOfflineSessionCallbackServiceServer will
-// result in compilation errors.
-type UnsafeCameraOfflineSessionCameraOfflineSessionCallbackServiceServer interface {
-	mustEmbedUnimplementedCameraOfflineSessionCameraOfflineSessionCallbackServiceServer()
-}
-
-func RegisterCameraOfflineSessionCameraOfflineSessionCallbackServiceServer(s grpc.ServiceRegistrar, srv CameraOfflineSessionCameraOfflineSessionCallbackServiceServer) {
-	// If the following call panics, it indicates UnimplementedCameraOfflineSessionCameraOfflineSessionCallbackServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CameraOfflineSessionCameraOfflineSessionCallbackService_ServiceDesc, srv)
-}
-
-func _CameraOfflineSessionCameraOfflineSessionCallbackService_OnClosed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnClosedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraOfflineSessionCameraOfflineSessionCallbackServiceServer).OnClosed(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraOfflineSessionCameraOfflineSessionCallbackService_OnClosed_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraOfflineSessionCameraOfflineSessionCallbackServiceServer).OnClosed(ctx, req.(*OnClosedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CameraOfflineSessionCameraOfflineSessionCallbackService_OnError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnErrorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraOfflineSessionCameraOfflineSessionCallbackServiceServer).OnError(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraOfflineSessionCameraOfflineSessionCallbackService_OnError_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraOfflineSessionCameraOfflineSessionCallbackServiceServer).OnError(ctx, req.(*OnErrorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CameraOfflineSessionCameraOfflineSessionCallbackService_OnIdle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnIdleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraOfflineSessionCameraOfflineSessionCallbackServiceServer).OnIdle(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraOfflineSessionCameraOfflineSessionCallbackService_OnIdle_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraOfflineSessionCameraOfflineSessionCallbackServiceServer).OnIdle(ctx, req.(*OnIdleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CameraOfflineSessionCameraOfflineSessionCallbackService_OnReady_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnReadyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraOfflineSessionCameraOfflineSessionCallbackServiceServer).OnReady(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraOfflineSessionCameraOfflineSessionCallbackService_OnReady_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraOfflineSessionCameraOfflineSessionCallbackServiceServer).OnReady(ctx, req.(*OnReadyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CameraOfflineSessionCameraOfflineSessionCallbackService_OnSwitchFailed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnSwitchFailedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraOfflineSessionCameraOfflineSessionCallbackServiceServer).OnSwitchFailed(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraOfflineSessionCameraOfflineSessionCallbackService_OnSwitchFailed_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraOfflineSessionCameraOfflineSessionCallbackServiceServer).OnSwitchFailed(ctx, req.(*OnSwitchFailedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CameraOfflineSessionCameraOfflineSessionCallbackService_ServiceDesc is the grpc.ServiceDesc for CameraOfflineSessionCameraOfflineSessionCallbackService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CameraOfflineSessionCameraOfflineSessionCallbackService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "camera2.CameraOfflineSessionCameraOfflineSessionCallbackService",
-	HandlerType: (*CameraOfflineSessionCameraOfflineSessionCallbackServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnClosed",
-			Handler:    _CameraOfflineSessionCameraOfflineSessionCallbackService_OnClosed_Handler,
-		},
-		{
-			MethodName: "OnError",
-			Handler:    _CameraOfflineSessionCameraOfflineSessionCallbackService_OnError_Handler,
-		},
-		{
-			MethodName: "OnIdle",
-			Handler:    _CameraOfflineSessionCameraOfflineSessionCallbackService_OnIdle_Handler,
-		},
-		{
-			MethodName: "OnReady",
-			Handler:    _CameraOfflineSessionCameraOfflineSessionCallbackService_OnReady_Handler,
-		},
-		{
-			MethodName: "OnSwitchFailed",
-			Handler:    _CameraOfflineSessionCameraOfflineSessionCallbackService_OnSwitchFailed_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/camera2/camera2.proto",
-}
-
-const (
-	CameraCharacteristicsService_GetRecommendedStreamConfigurationMap_FullMethodName = "/camera2.CameraCharacteristicsService/GetRecommendedStreamConfigurationMap"
-)
-
-// CameraCharacteristicsServiceClient is the client API for CameraCharacteristicsService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CameraCharacteristicsServiceClient interface {
-	GetRecommendedStreamConfigurationMap(ctx context.Context, in *GetRecommendedStreamConfigurationMapRequest, opts ...grpc.CallOption) (*GetRecommendedStreamConfigurationMapResponse, error)
-}
-
-type cameraCharacteristicsServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCameraCharacteristicsServiceClient(cc grpc.ClientConnInterface) CameraCharacteristicsServiceClient {
-	return &cameraCharacteristicsServiceClient{cc}
-}
-
-func (c *cameraCharacteristicsServiceClient) GetRecommendedStreamConfigurationMap(ctx context.Context, in *GetRecommendedStreamConfigurationMapRequest, opts ...grpc.CallOption) (*GetRecommendedStreamConfigurationMapResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRecommendedStreamConfigurationMapResponse)
-	err := c.cc.Invoke(ctx, CameraCharacteristicsService_GetRecommendedStreamConfigurationMap_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CameraCharacteristicsServiceServer is the server API for CameraCharacteristicsService service.
-// All implementations must embed UnimplementedCameraCharacteristicsServiceServer
-// for forward compatibility.
-type CameraCharacteristicsServiceServer interface {
-	GetRecommendedStreamConfigurationMap(context.Context, *GetRecommendedStreamConfigurationMapRequest) (*GetRecommendedStreamConfigurationMapResponse, error)
-	mustEmbedUnimplementedCameraCharacteristicsServiceServer()
-}
-
-// UnimplementedCameraCharacteristicsServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCameraCharacteristicsServiceServer struct{}
-
-func (UnimplementedCameraCharacteristicsServiceServer) GetRecommendedStreamConfigurationMap(context.Context, *GetRecommendedStreamConfigurationMapRequest) (*GetRecommendedStreamConfigurationMapResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRecommendedStreamConfigurationMap not implemented")
-}
-func (UnimplementedCameraCharacteristicsServiceServer) mustEmbedUnimplementedCameraCharacteristicsServiceServer() {
-}
-func (UnimplementedCameraCharacteristicsServiceServer) testEmbeddedByValue() {}
-
-// UnsafeCameraCharacteristicsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CameraCharacteristicsServiceServer will
-// result in compilation errors.
-type UnsafeCameraCharacteristicsServiceServer interface {
-	mustEmbedUnimplementedCameraCharacteristicsServiceServer()
-}
-
-func RegisterCameraCharacteristicsServiceServer(s grpc.ServiceRegistrar, srv CameraCharacteristicsServiceServer) {
-	// If the following call panics, it indicates UnimplementedCameraCharacteristicsServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CameraCharacteristicsService_ServiceDesc, srv)
-}
-
-func _CameraCharacteristicsService_GetRecommendedStreamConfigurationMap_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRecommendedStreamConfigurationMapRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraCharacteristicsServiceServer).GetRecommendedStreamConfigurationMap(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraCharacteristicsService_GetRecommendedStreamConfigurationMap_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraCharacteristicsServiceServer).GetRecommendedStreamConfigurationMap(ctx, req.(*GetRecommendedStreamConfigurationMapRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CameraCharacteristicsService_ServiceDesc is the grpc.ServiceDesc for CameraCharacteristicsService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CameraCharacteristicsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "camera2.CameraCharacteristicsService",
-	HandlerType: (*CameraCharacteristicsServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetRecommendedStreamConfigurationMap",
-			Handler:    _CameraCharacteristicsService_GetRecommendedStreamConfigurationMap_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/camera2/camera2.proto",
-}
-
-const (
-	CameraCharacteristicsKeyService_Equals_FullMethodName   = "/camera2.CameraCharacteristicsKeyService/Equals"
-	CameraCharacteristicsKeyService_GetName_FullMethodName  = "/camera2.CameraCharacteristicsKeyService/GetName"
-	CameraCharacteristicsKeyService_HashCode_FullMethodName = "/camera2.CameraCharacteristicsKeyService/HashCode"
-	CameraCharacteristicsKeyService_ToString_FullMethodName = "/camera2.CameraCharacteristicsKeyService/ToString"
-)
-
-// CameraCharacteristicsKeyServiceClient is the client API for CameraCharacteristicsKeyService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CameraCharacteristicsKeyServiceClient interface {
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type cameraCharacteristicsKeyServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCameraCharacteristicsKeyServiceClient(cc grpc.ClientConnInterface) CameraCharacteristicsKeyServiceClient {
-	return &cameraCharacteristicsKeyServiceClient{cc}
-}
-
-func (c *cameraCharacteristicsKeyServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, CameraCharacteristicsKeyService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cameraCharacteristicsKeyServiceClient) GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNameResponse)
-	err := c.cc.Invoke(ctx, CameraCharacteristicsKeyService_GetName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cameraCharacteristicsKeyServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, CameraCharacteristicsKeyService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cameraCharacteristicsKeyServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, CameraCharacteristicsKeyService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CameraCharacteristicsKeyServiceServer is the server API for CameraCharacteristicsKeyService service.
-// All implementations must embed UnimplementedCameraCharacteristicsKeyServiceServer
-// for forward compatibility.
-type CameraCharacteristicsKeyServiceServer interface {
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetName(context.Context, *GetNameRequest) (*GetNameResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedCameraCharacteristicsKeyServiceServer()
-}
-
-// UnimplementedCameraCharacteristicsKeyServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCameraCharacteristicsKeyServiceServer struct{}
-
-func (UnimplementedCameraCharacteristicsKeyServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedCameraCharacteristicsKeyServiceServer) GetName(context.Context, *GetNameRequest) (*GetNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetName not implemented")
-}
-func (UnimplementedCameraCharacteristicsKeyServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedCameraCharacteristicsKeyServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedCameraCharacteristicsKeyServiceServer) mustEmbedUnimplementedCameraCharacteristicsKeyServiceServer() {
-}
-func (UnimplementedCameraCharacteristicsKeyServiceServer) testEmbeddedByValue() {}
-
-// UnsafeCameraCharacteristicsKeyServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CameraCharacteristicsKeyServiceServer will
-// result in compilation errors.
-type UnsafeCameraCharacteristicsKeyServiceServer interface {
-	mustEmbedUnimplementedCameraCharacteristicsKeyServiceServer()
-}
-
-func RegisterCameraCharacteristicsKeyServiceServer(s grpc.ServiceRegistrar, srv CameraCharacteristicsKeyServiceServer) {
-	// If the following call panics, it indicates UnimplementedCameraCharacteristicsKeyServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CameraCharacteristicsKeyService_ServiceDesc, srv)
-}
-
-func _CameraCharacteristicsKeyService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraCharacteristicsKeyServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraCharacteristicsKeyService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraCharacteristicsKeyServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CameraCharacteristicsKeyService_GetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraCharacteristicsKeyServiceServer).GetName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraCharacteristicsKeyService_GetName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraCharacteristicsKeyServiceServer).GetName(ctx, req.(*GetNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CameraCharacteristicsKeyService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraCharacteristicsKeyServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraCharacteristicsKeyService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraCharacteristicsKeyServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CameraCharacteristicsKeyService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraCharacteristicsKeyServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraCharacteristicsKeyService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraCharacteristicsKeyServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CameraCharacteristicsKeyService_ServiceDesc is the grpc.ServiceDesc for CameraCharacteristicsKeyService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CameraCharacteristicsKeyService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "camera2.CameraCharacteristicsKeyService",
-	HandlerType: (*CameraCharacteristicsKeyServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Equals",
-			Handler:    _CameraCharacteristicsKeyService_Equals_Handler,
-		},
-		{
-			MethodName: "GetName",
-			Handler:    _CameraCharacteristicsKeyService_GetName_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _CameraCharacteristicsKeyService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _CameraCharacteristicsKeyService_ToString_Handler,
+			MethodName: "CreateHighSpeedRequestList",
+			Handler:    _CameraConstrainedHighSpeedCaptureSessionService_CreateHighSpeedRequestList_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -843,6 +126,7 @@ var CameraCharacteristicsKeyService_ServiceDesc = grpc.ServiceDesc{
 const (
 	CaptureResultService_GetCameraId_FullMethodName    = "/camera2.CaptureResultService/GetCameraId"
 	CaptureResultService_GetFrameNumber_FullMethodName = "/camera2.CaptureResultService/GetFrameNumber"
+	CaptureResultService_GetKeys_FullMethodName        = "/camera2.CaptureResultService/GetKeys"
 	CaptureResultService_GetRequest_FullMethodName     = "/camera2.CaptureResultService/GetRequest"
 	CaptureResultService_GetSequenceId_FullMethodName  = "/camera2.CaptureResultService/GetSequenceId"
 )
@@ -853,6 +137,7 @@ const (
 type CaptureResultServiceClient interface {
 	GetCameraId(ctx context.Context, in *GetCameraIdRequest, opts ...grpc.CallOption) (*GetCameraIdResponse, error)
 	GetFrameNumber(ctx context.Context, in *GetFrameNumberRequest, opts ...grpc.CallOption) (*GetFrameNumberResponse, error)
+	GetKeys(ctx context.Context, in *GetKeysRequest, opts ...grpc.CallOption) (*GetKeysResponse, error)
 	GetRequest(ctx context.Context, in *GetRequestRequest, opts ...grpc.CallOption) (*GetRequestResponse, error)
 	GetSequenceId(ctx context.Context, in *GetSequenceIdRequest, opts ...grpc.CallOption) (*GetSequenceIdResponse, error)
 }
@@ -885,6 +170,16 @@ func (c *captureResultServiceClient) GetFrameNumber(ctx context.Context, in *Get
 	return out, nil
 }
 
+func (c *captureResultServiceClient) GetKeys(ctx context.Context, in *GetKeysRequest, opts ...grpc.CallOption) (*GetKeysResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetKeysResponse)
+	err := c.cc.Invoke(ctx, CaptureResultService_GetKeys_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *captureResultServiceClient) GetRequest(ctx context.Context, in *GetRequestRequest, opts ...grpc.CallOption) (*GetRequestResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetRequestResponse)
@@ -911,6 +206,7 @@ func (c *captureResultServiceClient) GetSequenceId(ctx context.Context, in *GetS
 type CaptureResultServiceServer interface {
 	GetCameraId(context.Context, *GetCameraIdRequest) (*GetCameraIdResponse, error)
 	GetFrameNumber(context.Context, *GetFrameNumberRequest) (*GetFrameNumberResponse, error)
+	GetKeys(context.Context, *GetKeysRequest) (*GetKeysResponse, error)
 	GetRequest(context.Context, *GetRequestRequest) (*GetRequestResponse, error)
 	GetSequenceId(context.Context, *GetSequenceIdRequest) (*GetSequenceIdResponse, error)
 	mustEmbedUnimplementedCaptureResultServiceServer()
@@ -928,6 +224,9 @@ func (UnimplementedCaptureResultServiceServer) GetCameraId(context.Context, *Get
 }
 func (UnimplementedCaptureResultServiceServer) GetFrameNumber(context.Context, *GetFrameNumberRequest) (*GetFrameNumberResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetFrameNumber not implemented")
+}
+func (UnimplementedCaptureResultServiceServer) GetKeys(context.Context, *GetKeysRequest) (*GetKeysResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetKeys not implemented")
 }
 func (UnimplementedCaptureResultServiceServer) GetRequest(context.Context, *GetRequestRequest) (*GetRequestResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetRequest not implemented")
@@ -992,6 +291,24 @@ func _CaptureResultService_GetFrameNumber_Handler(srv interface{}, ctx context.C
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CaptureResultService_GetKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetKeysRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CaptureResultServiceServer).GetKeys(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CaptureResultService_GetKeys_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CaptureResultServiceServer).GetKeys(ctx, req.(*GetKeysRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _CaptureResultService_GetRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetRequestRequest)
 	if err := dec(in); err != nil {
@@ -1042,6 +359,10 @@ var CaptureResultService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetFrameNumber",
 			Handler:    _CaptureResultService_GetFrameNumber_Handler,
+		},
+		{
+			MethodName: "GetKeys",
+			Handler:    _CaptureResultService_GetKeys_Handler,
 		},
 		{
 			MethodName: "GetRequest",
@@ -1274,1681 +595,101 @@ var CaptureResultKeyService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	CaptureFailureService_GetFrameNumber_FullMethodName      = "/camera2.CaptureFailureService/GetFrameNumber"
-	CaptureFailureService_GetPhysicalCameraId_FullMethodName = "/camera2.CaptureFailureService/GetPhysicalCameraId"
-	CaptureFailureService_GetReason_FullMethodName           = "/camera2.CaptureFailureService/GetReason"
-	CaptureFailureService_GetRequest_FullMethodName          = "/camera2.CaptureFailureService/GetRequest"
-	CaptureFailureService_GetSequenceId_FullMethodName       = "/camera2.CaptureFailureService/GetSequenceId"
-	CaptureFailureService_WasImageCaptured_FullMethodName    = "/camera2.CaptureFailureService/WasImageCaptured"
+	CameraMetadataService_GetKeys_FullMethodName = "/camera2.CameraMetadataService/GetKeys"
 )
 
-// CaptureFailureServiceClient is the client API for CaptureFailureService service.
+// CameraMetadataServiceClient is the client API for CameraMetadataService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CaptureFailureServiceClient interface {
-	GetFrameNumber(ctx context.Context, in *GetFrameNumberRequest, opts ...grpc.CallOption) (*GetFrameNumberResponse, error)
-	GetPhysicalCameraId(ctx context.Context, in *GetPhysicalCameraIdRequest, opts ...grpc.CallOption) (*GetPhysicalCameraIdResponse, error)
-	GetReason(ctx context.Context, in *GetReasonRequest, opts ...grpc.CallOption) (*GetReasonResponse, error)
-	GetRequest(ctx context.Context, in *GetRequestRequest, opts ...grpc.CallOption) (*GetRequestResponse, error)
-	GetSequenceId(ctx context.Context, in *GetSequenceIdRequest, opts ...grpc.CallOption) (*GetSequenceIdResponse, error)
-	WasImageCaptured(ctx context.Context, in *WasImageCapturedRequest, opts ...grpc.CallOption) (*WasImageCapturedResponse, error)
+type CameraMetadataServiceClient interface {
+	GetKeys(ctx context.Context, in *GetKeysRequest, opts ...grpc.CallOption) (*GetKeysResponse, error)
 }
 
-type captureFailureServiceClient struct {
+type cameraMetadataServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewCaptureFailureServiceClient(cc grpc.ClientConnInterface) CaptureFailureServiceClient {
-	return &captureFailureServiceClient{cc}
+func NewCameraMetadataServiceClient(cc grpc.ClientConnInterface) CameraMetadataServiceClient {
+	return &cameraMetadataServiceClient{cc}
 }
 
-func (c *captureFailureServiceClient) GetFrameNumber(ctx context.Context, in *GetFrameNumberRequest, opts ...grpc.CallOption) (*GetFrameNumberResponse, error) {
+func (c *cameraMetadataServiceClient) GetKeys(ctx context.Context, in *GetKeysRequest, opts ...grpc.CallOption) (*GetKeysResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFrameNumberResponse)
-	err := c.cc.Invoke(ctx, CaptureFailureService_GetFrameNumber_FullMethodName, in, out, cOpts...)
+	out := new(GetKeysResponse)
+	err := c.cc.Invoke(ctx, CameraMetadataService_GetKeys_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *captureFailureServiceClient) GetPhysicalCameraId(ctx context.Context, in *GetPhysicalCameraIdRequest, opts ...grpc.CallOption) (*GetPhysicalCameraIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPhysicalCameraIdResponse)
-	err := c.cc.Invoke(ctx, CaptureFailureService_GetPhysicalCameraId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *captureFailureServiceClient) GetReason(ctx context.Context, in *GetReasonRequest, opts ...grpc.CallOption) (*GetReasonResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetReasonResponse)
-	err := c.cc.Invoke(ctx, CaptureFailureService_GetReason_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *captureFailureServiceClient) GetRequest(ctx context.Context, in *GetRequestRequest, opts ...grpc.CallOption) (*GetRequestResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRequestResponse)
-	err := c.cc.Invoke(ctx, CaptureFailureService_GetRequest_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *captureFailureServiceClient) GetSequenceId(ctx context.Context, in *GetSequenceIdRequest, opts ...grpc.CallOption) (*GetSequenceIdResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSequenceIdResponse)
-	err := c.cc.Invoke(ctx, CaptureFailureService_GetSequenceId_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *captureFailureServiceClient) WasImageCaptured(ctx context.Context, in *WasImageCapturedRequest, opts ...grpc.CallOption) (*WasImageCapturedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WasImageCapturedResponse)
-	err := c.cc.Invoke(ctx, CaptureFailureService_WasImageCaptured_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CaptureFailureServiceServer is the server API for CaptureFailureService service.
-// All implementations must embed UnimplementedCaptureFailureServiceServer
+// CameraMetadataServiceServer is the server API for CameraMetadataService service.
+// All implementations must embed UnimplementedCameraMetadataServiceServer
 // for forward compatibility.
-type CaptureFailureServiceServer interface {
-	GetFrameNumber(context.Context, *GetFrameNumberRequest) (*GetFrameNumberResponse, error)
-	GetPhysicalCameraId(context.Context, *GetPhysicalCameraIdRequest) (*GetPhysicalCameraIdResponse, error)
-	GetReason(context.Context, *GetReasonRequest) (*GetReasonResponse, error)
-	GetRequest(context.Context, *GetRequestRequest) (*GetRequestResponse, error)
-	GetSequenceId(context.Context, *GetSequenceIdRequest) (*GetSequenceIdResponse, error)
-	WasImageCaptured(context.Context, *WasImageCapturedRequest) (*WasImageCapturedResponse, error)
-	mustEmbedUnimplementedCaptureFailureServiceServer()
+type CameraMetadataServiceServer interface {
+	GetKeys(context.Context, *GetKeysRequest) (*GetKeysResponse, error)
+	mustEmbedUnimplementedCameraMetadataServiceServer()
 }
 
-// UnimplementedCaptureFailureServiceServer must be embedded to have
+// UnimplementedCameraMetadataServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedCaptureFailureServiceServer struct{}
+type UnimplementedCameraMetadataServiceServer struct{}
 
-func (UnimplementedCaptureFailureServiceServer) GetFrameNumber(context.Context, *GetFrameNumberRequest) (*GetFrameNumberResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFrameNumber not implemented")
+func (UnimplementedCameraMetadataServiceServer) GetKeys(context.Context, *GetKeysRequest) (*GetKeysResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetKeys not implemented")
 }
-func (UnimplementedCaptureFailureServiceServer) GetPhysicalCameraId(context.Context, *GetPhysicalCameraIdRequest) (*GetPhysicalCameraIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPhysicalCameraId not implemented")
-}
-func (UnimplementedCaptureFailureServiceServer) GetReason(context.Context, *GetReasonRequest) (*GetReasonResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetReason not implemented")
-}
-func (UnimplementedCaptureFailureServiceServer) GetRequest(context.Context, *GetRequestRequest) (*GetRequestResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRequest not implemented")
-}
-func (UnimplementedCaptureFailureServiceServer) GetSequenceId(context.Context, *GetSequenceIdRequest) (*GetSequenceIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSequenceId not implemented")
-}
-func (UnimplementedCaptureFailureServiceServer) WasImageCaptured(context.Context, *WasImageCapturedRequest) (*WasImageCapturedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WasImageCaptured not implemented")
-}
-func (UnimplementedCaptureFailureServiceServer) mustEmbedUnimplementedCaptureFailureServiceServer() {}
-func (UnimplementedCaptureFailureServiceServer) testEmbeddedByValue()                               {}
+func (UnimplementedCameraMetadataServiceServer) mustEmbedUnimplementedCameraMetadataServiceServer() {}
+func (UnimplementedCameraMetadataServiceServer) testEmbeddedByValue()                               {}
 
-// UnsafeCaptureFailureServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CaptureFailureServiceServer will
+// UnsafeCameraMetadataServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CameraMetadataServiceServer will
 // result in compilation errors.
-type UnsafeCaptureFailureServiceServer interface {
-	mustEmbedUnimplementedCaptureFailureServiceServer()
+type UnsafeCameraMetadataServiceServer interface {
+	mustEmbedUnimplementedCameraMetadataServiceServer()
 }
 
-func RegisterCaptureFailureServiceServer(s grpc.ServiceRegistrar, srv CaptureFailureServiceServer) {
-	// If the following call panics, it indicates UnimplementedCaptureFailureServiceServer was
+func RegisterCameraMetadataServiceServer(s grpc.ServiceRegistrar, srv CameraMetadataServiceServer) {
+	// If the following call panics, it indicates UnimplementedCameraMetadataServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&CaptureFailureService_ServiceDesc, srv)
+	s.RegisterService(&CameraMetadataService_ServiceDesc, srv)
 }
 
-func _CaptureFailureService_GetFrameNumber_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFrameNumberRequest)
+func _CameraMetadataService_GetKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetKeysRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CaptureFailureServiceServer).GetFrameNumber(ctx, in)
+		return srv.(CameraMetadataServiceServer).GetKeys(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CaptureFailureService_GetFrameNumber_FullMethodName,
+		FullMethod: CameraMetadataService_GetKeys_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CaptureFailureServiceServer).GetFrameNumber(ctx, req.(*GetFrameNumberRequest))
+		return srv.(CameraMetadataServiceServer).GetKeys(ctx, req.(*GetKeysRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CaptureFailureService_GetPhysicalCameraId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPhysicalCameraIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CaptureFailureServiceServer).GetPhysicalCameraId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CaptureFailureService_GetPhysicalCameraId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CaptureFailureServiceServer).GetPhysicalCameraId(ctx, req.(*GetPhysicalCameraIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CaptureFailureService_GetReason_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetReasonRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CaptureFailureServiceServer).GetReason(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CaptureFailureService_GetReason_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CaptureFailureServiceServer).GetReason(ctx, req.(*GetReasonRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CaptureFailureService_GetRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRequestRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CaptureFailureServiceServer).GetRequest(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CaptureFailureService_GetRequest_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CaptureFailureServiceServer).GetRequest(ctx, req.(*GetRequestRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CaptureFailureService_GetSequenceId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSequenceIdRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CaptureFailureServiceServer).GetSequenceId(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CaptureFailureService_GetSequenceId_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CaptureFailureServiceServer).GetSequenceId(ctx, req.(*GetSequenceIdRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CaptureFailureService_WasImageCaptured_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WasImageCapturedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CaptureFailureServiceServer).WasImageCaptured(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CaptureFailureService_WasImageCaptured_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CaptureFailureServiceServer).WasImageCaptured(ctx, req.(*WasImageCapturedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CaptureFailureService_ServiceDesc is the grpc.ServiceDesc for CaptureFailureService service.
+// CameraMetadataService_ServiceDesc is the grpc.ServiceDesc for CameraMetadataService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var CaptureFailureService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "camera2.CaptureFailureService",
-	HandlerType: (*CaptureFailureServiceServer)(nil),
+var CameraMetadataService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "camera2.CameraMetadataService",
+	HandlerType: (*CameraMetadataServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "GetFrameNumber",
-			Handler:    _CaptureFailureService_GetFrameNumber_Handler,
-		},
-		{
-			MethodName: "GetPhysicalCameraId",
-			Handler:    _CaptureFailureService_GetPhysicalCameraId_Handler,
-		},
-		{
-			MethodName: "GetReason",
-			Handler:    _CaptureFailureService_GetReason_Handler,
-		},
-		{
-			MethodName: "GetRequest",
-			Handler:    _CaptureFailureService_GetRequest_Handler,
-		},
-		{
-			MethodName: "GetSequenceId",
-			Handler:    _CaptureFailureService_GetSequenceId_Handler,
-		},
-		{
-			MethodName: "WasImageCaptured",
-			Handler:    _CaptureFailureService_WasImageCaptured_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/camera2/camera2.proto",
-}
-
-const (
-	CameraExtensionSessionService_Capture_FullMethodName                        = "/camera2.CameraExtensionSessionService/Capture"
-	CameraExtensionSessionService_Close_FullMethodName                          = "/camera2.CameraExtensionSessionService/Close"
-	CameraExtensionSessionService_GetDevice_FullMethodName                      = "/camera2.CameraExtensionSessionService/GetDevice"
-	CameraExtensionSessionService_GetRealtimeStillCaptureLatency_FullMethodName = "/camera2.CameraExtensionSessionService/GetRealtimeStillCaptureLatency"
-	CameraExtensionSessionService_SetRepeatingRequest_FullMethodName            = "/camera2.CameraExtensionSessionService/SetRepeatingRequest"
-	CameraExtensionSessionService_StopRepeating_FullMethodName                  = "/camera2.CameraExtensionSessionService/StopRepeating"
-)
-
-// CameraExtensionSessionServiceClient is the client API for CameraExtensionSessionService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CameraExtensionSessionServiceClient interface {
-	Capture(ctx context.Context, in *CaptureRequest, opts ...grpc.CallOption) (*CaptureResponse, error)
-	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
-	GetDevice(ctx context.Context, in *GetDeviceRequest, opts ...grpc.CallOption) (*GetDeviceResponse, error)
-	GetRealtimeStillCaptureLatency(ctx context.Context, in *GetRealtimeStillCaptureLatencyRequest, opts ...grpc.CallOption) (*GetRealtimeStillCaptureLatencyResponse, error)
-	SetRepeatingRequest(ctx context.Context, in *SetRepeatingRequestRequest, opts ...grpc.CallOption) (*SetRepeatingRequestResponse, error)
-	StopRepeating(ctx context.Context, in *StopRepeatingRequest, opts ...grpc.CallOption) (*StopRepeatingResponse, error)
-}
-
-type cameraExtensionSessionServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCameraExtensionSessionServiceClient(cc grpc.ClientConnInterface) CameraExtensionSessionServiceClient {
-	return &cameraExtensionSessionServiceClient{cc}
-}
-
-func (c *cameraExtensionSessionServiceClient) Capture(ctx context.Context, in *CaptureRequest, opts ...grpc.CallOption) (*CaptureResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CaptureResponse)
-	err := c.cc.Invoke(ctx, CameraExtensionSessionService_Capture_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cameraExtensionSessionServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, CameraExtensionSessionService_Close_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cameraExtensionSessionServiceClient) GetDevice(ctx context.Context, in *GetDeviceRequest, opts ...grpc.CallOption) (*GetDeviceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDeviceResponse)
-	err := c.cc.Invoke(ctx, CameraExtensionSessionService_GetDevice_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cameraExtensionSessionServiceClient) GetRealtimeStillCaptureLatency(ctx context.Context, in *GetRealtimeStillCaptureLatencyRequest, opts ...grpc.CallOption) (*GetRealtimeStillCaptureLatencyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRealtimeStillCaptureLatencyResponse)
-	err := c.cc.Invoke(ctx, CameraExtensionSessionService_GetRealtimeStillCaptureLatency_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cameraExtensionSessionServiceClient) SetRepeatingRequest(ctx context.Context, in *SetRepeatingRequestRequest, opts ...grpc.CallOption) (*SetRepeatingRequestResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetRepeatingRequestResponse)
-	err := c.cc.Invoke(ctx, CameraExtensionSessionService_SetRepeatingRequest_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cameraExtensionSessionServiceClient) StopRepeating(ctx context.Context, in *StopRepeatingRequest, opts ...grpc.CallOption) (*StopRepeatingResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(StopRepeatingResponse)
-	err := c.cc.Invoke(ctx, CameraExtensionSessionService_StopRepeating_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CameraExtensionSessionServiceServer is the server API for CameraExtensionSessionService service.
-// All implementations must embed UnimplementedCameraExtensionSessionServiceServer
-// for forward compatibility.
-type CameraExtensionSessionServiceServer interface {
-	Capture(context.Context, *CaptureRequest) (*CaptureResponse, error)
-	Close(context.Context, *CloseRequest) (*CloseResponse, error)
-	GetDevice(context.Context, *GetDeviceRequest) (*GetDeviceResponse, error)
-	GetRealtimeStillCaptureLatency(context.Context, *GetRealtimeStillCaptureLatencyRequest) (*GetRealtimeStillCaptureLatencyResponse, error)
-	SetRepeatingRequest(context.Context, *SetRepeatingRequestRequest) (*SetRepeatingRequestResponse, error)
-	StopRepeating(context.Context, *StopRepeatingRequest) (*StopRepeatingResponse, error)
-	mustEmbedUnimplementedCameraExtensionSessionServiceServer()
-}
-
-// UnimplementedCameraExtensionSessionServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCameraExtensionSessionServiceServer struct{}
-
-func (UnimplementedCameraExtensionSessionServiceServer) Capture(context.Context, *CaptureRequest) (*CaptureResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Capture not implemented")
-}
-func (UnimplementedCameraExtensionSessionServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
-}
-func (UnimplementedCameraExtensionSessionServiceServer) GetDevice(context.Context, *GetDeviceRequest) (*GetDeviceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDevice not implemented")
-}
-func (UnimplementedCameraExtensionSessionServiceServer) GetRealtimeStillCaptureLatency(context.Context, *GetRealtimeStillCaptureLatencyRequest) (*GetRealtimeStillCaptureLatencyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRealtimeStillCaptureLatency not implemented")
-}
-func (UnimplementedCameraExtensionSessionServiceServer) SetRepeatingRequest(context.Context, *SetRepeatingRequestRequest) (*SetRepeatingRequestResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetRepeatingRequest not implemented")
-}
-func (UnimplementedCameraExtensionSessionServiceServer) StopRepeating(context.Context, *StopRepeatingRequest) (*StopRepeatingResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method StopRepeating not implemented")
-}
-func (UnimplementedCameraExtensionSessionServiceServer) mustEmbedUnimplementedCameraExtensionSessionServiceServer() {
-}
-func (UnimplementedCameraExtensionSessionServiceServer) testEmbeddedByValue() {}
-
-// UnsafeCameraExtensionSessionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CameraExtensionSessionServiceServer will
-// result in compilation errors.
-type UnsafeCameraExtensionSessionServiceServer interface {
-	mustEmbedUnimplementedCameraExtensionSessionServiceServer()
-}
-
-func RegisterCameraExtensionSessionServiceServer(s grpc.ServiceRegistrar, srv CameraExtensionSessionServiceServer) {
-	// If the following call panics, it indicates UnimplementedCameraExtensionSessionServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CameraExtensionSessionService_ServiceDesc, srv)
-}
-
-func _CameraExtensionSessionService_Capture_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CaptureRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraExtensionSessionServiceServer).Capture(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraExtensionSessionService_Capture_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraExtensionSessionServiceServer).Capture(ctx, req.(*CaptureRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CameraExtensionSessionService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraExtensionSessionServiceServer).Close(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraExtensionSessionService_Close_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraExtensionSessionServiceServer).Close(ctx, req.(*CloseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CameraExtensionSessionService_GetDevice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDeviceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraExtensionSessionServiceServer).GetDevice(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraExtensionSessionService_GetDevice_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraExtensionSessionServiceServer).GetDevice(ctx, req.(*GetDeviceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CameraExtensionSessionService_GetRealtimeStillCaptureLatency_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRealtimeStillCaptureLatencyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraExtensionSessionServiceServer).GetRealtimeStillCaptureLatency(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraExtensionSessionService_GetRealtimeStillCaptureLatency_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraExtensionSessionServiceServer).GetRealtimeStillCaptureLatency(ctx, req.(*GetRealtimeStillCaptureLatencyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CameraExtensionSessionService_SetRepeatingRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetRepeatingRequestRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraExtensionSessionServiceServer).SetRepeatingRequest(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraExtensionSessionService_SetRepeatingRequest_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraExtensionSessionServiceServer).SetRepeatingRequest(ctx, req.(*SetRepeatingRequestRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CameraExtensionSessionService_StopRepeating_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StopRepeatingRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraExtensionSessionServiceServer).StopRepeating(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraExtensionSessionService_StopRepeating_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraExtensionSessionServiceServer).StopRepeating(ctx, req.(*StopRepeatingRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CameraExtensionSessionService_ServiceDesc is the grpc.ServiceDesc for CameraExtensionSessionService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CameraExtensionSessionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "camera2.CameraExtensionSessionService",
-	HandlerType: (*CameraExtensionSessionServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Capture",
-			Handler:    _CameraExtensionSessionService_Capture_Handler,
-		},
-		{
-			MethodName: "Close",
-			Handler:    _CameraExtensionSessionService_Close_Handler,
-		},
-		{
-			MethodName: "GetDevice",
-			Handler:    _CameraExtensionSessionService_GetDevice_Handler,
-		},
-		{
-			MethodName: "GetRealtimeStillCaptureLatency",
-			Handler:    _CameraExtensionSessionService_GetRealtimeStillCaptureLatency_Handler,
-		},
-		{
-			MethodName: "SetRepeatingRequest",
-			Handler:    _CameraExtensionSessionService_SetRepeatingRequest_Handler,
-		},
-		{
-			MethodName: "StopRepeating",
-			Handler:    _CameraExtensionSessionService_StopRepeating_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/camera2/camera2.proto",
-}
-
-const (
-	CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureFailed2_FullMethodName           = "/camera2.CameraExtensionSessionExtensionCaptureCallbackService/OnCaptureFailed2"
-	CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureFailed3_1_FullMethodName         = "/camera2.CameraExtensionSessionExtensionCaptureCallbackService/OnCaptureFailed3_1"
-	CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureProcessProgressed_FullMethodName = "/camera2.CameraExtensionSessionExtensionCaptureCallbackService/OnCaptureProcessProgressed"
-	CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureProcessStarted_FullMethodName    = "/camera2.CameraExtensionSessionExtensionCaptureCallbackService/OnCaptureProcessStarted"
-	CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureResultAvailable_FullMethodName   = "/camera2.CameraExtensionSessionExtensionCaptureCallbackService/OnCaptureResultAvailable"
-	CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureSequenceAborted_FullMethodName   = "/camera2.CameraExtensionSessionExtensionCaptureCallbackService/OnCaptureSequenceAborted"
-	CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureSequenceCompleted_FullMethodName = "/camera2.CameraExtensionSessionExtensionCaptureCallbackService/OnCaptureSequenceCompleted"
-	CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureStarted_FullMethodName           = "/camera2.CameraExtensionSessionExtensionCaptureCallbackService/OnCaptureStarted"
-)
-
-// CameraExtensionSessionExtensionCaptureCallbackServiceClient is the client API for CameraExtensionSessionExtensionCaptureCallbackService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CameraExtensionSessionExtensionCaptureCallbackServiceClient interface {
-	OnCaptureFailed2(ctx context.Context, in *OnCaptureFailed2Request, opts ...grpc.CallOption) (*OnCaptureFailed2Response, error)
-	OnCaptureFailed3_1(ctx context.Context, in *OnCaptureFailed3_1Request, opts ...grpc.CallOption) (*OnCaptureFailed3_1Response, error)
-	OnCaptureProcessProgressed(ctx context.Context, in *OnCaptureProcessProgressedRequest, opts ...grpc.CallOption) (*OnCaptureProcessProgressedResponse, error)
-	OnCaptureProcessStarted(ctx context.Context, in *OnCaptureProcessStartedRequest, opts ...grpc.CallOption) (*OnCaptureProcessStartedResponse, error)
-	OnCaptureResultAvailable(ctx context.Context, in *OnCaptureResultAvailableRequest, opts ...grpc.CallOption) (*OnCaptureResultAvailableResponse, error)
-	OnCaptureSequenceAborted(ctx context.Context, in *OnCaptureSequenceAbortedRequest, opts ...grpc.CallOption) (*OnCaptureSequenceAbortedResponse, error)
-	OnCaptureSequenceCompleted(ctx context.Context, in *OnCaptureSequenceCompletedRequest, opts ...grpc.CallOption) (*OnCaptureSequenceCompletedResponse, error)
-	OnCaptureStarted(ctx context.Context, in *OnCaptureStartedRequest, opts ...grpc.CallOption) (*OnCaptureStartedResponse, error)
-}
-
-type cameraExtensionSessionExtensionCaptureCallbackServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCameraExtensionSessionExtensionCaptureCallbackServiceClient(cc grpc.ClientConnInterface) CameraExtensionSessionExtensionCaptureCallbackServiceClient {
-	return &cameraExtensionSessionExtensionCaptureCallbackServiceClient{cc}
-}
-
-func (c *cameraExtensionSessionExtensionCaptureCallbackServiceClient) OnCaptureFailed2(ctx context.Context, in *OnCaptureFailed2Request, opts ...grpc.CallOption) (*OnCaptureFailed2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnCaptureFailed2Response)
-	err := c.cc.Invoke(ctx, CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureFailed2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cameraExtensionSessionExtensionCaptureCallbackServiceClient) OnCaptureFailed3_1(ctx context.Context, in *OnCaptureFailed3_1Request, opts ...grpc.CallOption) (*OnCaptureFailed3_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnCaptureFailed3_1Response)
-	err := c.cc.Invoke(ctx, CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureFailed3_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cameraExtensionSessionExtensionCaptureCallbackServiceClient) OnCaptureProcessProgressed(ctx context.Context, in *OnCaptureProcessProgressedRequest, opts ...grpc.CallOption) (*OnCaptureProcessProgressedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnCaptureProcessProgressedResponse)
-	err := c.cc.Invoke(ctx, CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureProcessProgressed_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cameraExtensionSessionExtensionCaptureCallbackServiceClient) OnCaptureProcessStarted(ctx context.Context, in *OnCaptureProcessStartedRequest, opts ...grpc.CallOption) (*OnCaptureProcessStartedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnCaptureProcessStartedResponse)
-	err := c.cc.Invoke(ctx, CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureProcessStarted_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cameraExtensionSessionExtensionCaptureCallbackServiceClient) OnCaptureResultAvailable(ctx context.Context, in *OnCaptureResultAvailableRequest, opts ...grpc.CallOption) (*OnCaptureResultAvailableResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnCaptureResultAvailableResponse)
-	err := c.cc.Invoke(ctx, CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureResultAvailable_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cameraExtensionSessionExtensionCaptureCallbackServiceClient) OnCaptureSequenceAborted(ctx context.Context, in *OnCaptureSequenceAbortedRequest, opts ...grpc.CallOption) (*OnCaptureSequenceAbortedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnCaptureSequenceAbortedResponse)
-	err := c.cc.Invoke(ctx, CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureSequenceAborted_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cameraExtensionSessionExtensionCaptureCallbackServiceClient) OnCaptureSequenceCompleted(ctx context.Context, in *OnCaptureSequenceCompletedRequest, opts ...grpc.CallOption) (*OnCaptureSequenceCompletedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnCaptureSequenceCompletedResponse)
-	err := c.cc.Invoke(ctx, CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureSequenceCompleted_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cameraExtensionSessionExtensionCaptureCallbackServiceClient) OnCaptureStarted(ctx context.Context, in *OnCaptureStartedRequest, opts ...grpc.CallOption) (*OnCaptureStartedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnCaptureStartedResponse)
-	err := c.cc.Invoke(ctx, CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureStarted_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CameraExtensionSessionExtensionCaptureCallbackServiceServer is the server API for CameraExtensionSessionExtensionCaptureCallbackService service.
-// All implementations must embed UnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer
-// for forward compatibility.
-type CameraExtensionSessionExtensionCaptureCallbackServiceServer interface {
-	OnCaptureFailed2(context.Context, *OnCaptureFailed2Request) (*OnCaptureFailed2Response, error)
-	OnCaptureFailed3_1(context.Context, *OnCaptureFailed3_1Request) (*OnCaptureFailed3_1Response, error)
-	OnCaptureProcessProgressed(context.Context, *OnCaptureProcessProgressedRequest) (*OnCaptureProcessProgressedResponse, error)
-	OnCaptureProcessStarted(context.Context, *OnCaptureProcessStartedRequest) (*OnCaptureProcessStartedResponse, error)
-	OnCaptureResultAvailable(context.Context, *OnCaptureResultAvailableRequest) (*OnCaptureResultAvailableResponse, error)
-	OnCaptureSequenceAborted(context.Context, *OnCaptureSequenceAbortedRequest) (*OnCaptureSequenceAbortedResponse, error)
-	OnCaptureSequenceCompleted(context.Context, *OnCaptureSequenceCompletedRequest) (*OnCaptureSequenceCompletedResponse, error)
-	OnCaptureStarted(context.Context, *OnCaptureStartedRequest) (*OnCaptureStartedResponse, error)
-	mustEmbedUnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer()
-}
-
-// UnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer struct{}
-
-func (UnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer) OnCaptureFailed2(context.Context, *OnCaptureFailed2Request) (*OnCaptureFailed2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnCaptureFailed2 not implemented")
-}
-func (UnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer) OnCaptureFailed3_1(context.Context, *OnCaptureFailed3_1Request) (*OnCaptureFailed3_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnCaptureFailed3_1 not implemented")
-}
-func (UnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer) OnCaptureProcessProgressed(context.Context, *OnCaptureProcessProgressedRequest) (*OnCaptureProcessProgressedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnCaptureProcessProgressed not implemented")
-}
-func (UnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer) OnCaptureProcessStarted(context.Context, *OnCaptureProcessStartedRequest) (*OnCaptureProcessStartedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnCaptureProcessStarted not implemented")
-}
-func (UnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer) OnCaptureResultAvailable(context.Context, *OnCaptureResultAvailableRequest) (*OnCaptureResultAvailableResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnCaptureResultAvailable not implemented")
-}
-func (UnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer) OnCaptureSequenceAborted(context.Context, *OnCaptureSequenceAbortedRequest) (*OnCaptureSequenceAbortedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnCaptureSequenceAborted not implemented")
-}
-func (UnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer) OnCaptureSequenceCompleted(context.Context, *OnCaptureSequenceCompletedRequest) (*OnCaptureSequenceCompletedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnCaptureSequenceCompleted not implemented")
-}
-func (UnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer) OnCaptureStarted(context.Context, *OnCaptureStartedRequest) (*OnCaptureStartedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnCaptureStarted not implemented")
-}
-func (UnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer) mustEmbedUnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer() {
-}
-func (UnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer) testEmbeddedByValue() {
-}
-
-// UnsafeCameraExtensionSessionExtensionCaptureCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CameraExtensionSessionExtensionCaptureCallbackServiceServer will
-// result in compilation errors.
-type UnsafeCameraExtensionSessionExtensionCaptureCallbackServiceServer interface {
-	mustEmbedUnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer()
-}
-
-func RegisterCameraExtensionSessionExtensionCaptureCallbackServiceServer(s grpc.ServiceRegistrar, srv CameraExtensionSessionExtensionCaptureCallbackServiceServer) {
-	// If the following call panics, it indicates UnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CameraExtensionSessionExtensionCaptureCallbackService_ServiceDesc, srv)
-}
-
-func _CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureFailed2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnCaptureFailed2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraExtensionSessionExtensionCaptureCallbackServiceServer).OnCaptureFailed2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureFailed2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraExtensionSessionExtensionCaptureCallbackServiceServer).OnCaptureFailed2(ctx, req.(*OnCaptureFailed2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureFailed3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnCaptureFailed3_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraExtensionSessionExtensionCaptureCallbackServiceServer).OnCaptureFailed3_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureFailed3_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraExtensionSessionExtensionCaptureCallbackServiceServer).OnCaptureFailed3_1(ctx, req.(*OnCaptureFailed3_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureProcessProgressed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnCaptureProcessProgressedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraExtensionSessionExtensionCaptureCallbackServiceServer).OnCaptureProcessProgressed(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureProcessProgressed_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraExtensionSessionExtensionCaptureCallbackServiceServer).OnCaptureProcessProgressed(ctx, req.(*OnCaptureProcessProgressedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureProcessStarted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnCaptureProcessStartedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraExtensionSessionExtensionCaptureCallbackServiceServer).OnCaptureProcessStarted(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureProcessStarted_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraExtensionSessionExtensionCaptureCallbackServiceServer).OnCaptureProcessStarted(ctx, req.(*OnCaptureProcessStartedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureResultAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnCaptureResultAvailableRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraExtensionSessionExtensionCaptureCallbackServiceServer).OnCaptureResultAvailable(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureResultAvailable_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraExtensionSessionExtensionCaptureCallbackServiceServer).OnCaptureResultAvailable(ctx, req.(*OnCaptureResultAvailableRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureSequenceAborted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnCaptureSequenceAbortedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraExtensionSessionExtensionCaptureCallbackServiceServer).OnCaptureSequenceAborted(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureSequenceAborted_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraExtensionSessionExtensionCaptureCallbackServiceServer).OnCaptureSequenceAborted(ctx, req.(*OnCaptureSequenceAbortedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureSequenceCompleted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnCaptureSequenceCompletedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraExtensionSessionExtensionCaptureCallbackServiceServer).OnCaptureSequenceCompleted(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureSequenceCompleted_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraExtensionSessionExtensionCaptureCallbackServiceServer).OnCaptureSequenceCompleted(ctx, req.(*OnCaptureSequenceCompletedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureStarted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnCaptureStartedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraExtensionSessionExtensionCaptureCallbackServiceServer).OnCaptureStarted(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureStarted_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraExtensionSessionExtensionCaptureCallbackServiceServer).OnCaptureStarted(ctx, req.(*OnCaptureStartedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CameraExtensionSessionExtensionCaptureCallbackService_ServiceDesc is the grpc.ServiceDesc for CameraExtensionSessionExtensionCaptureCallbackService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CameraExtensionSessionExtensionCaptureCallbackService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "camera2.CameraExtensionSessionExtensionCaptureCallbackService",
-	HandlerType: (*CameraExtensionSessionExtensionCaptureCallbackServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnCaptureFailed2",
-			Handler:    _CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureFailed2_Handler,
-		},
-		{
-			MethodName: "OnCaptureFailed3_1",
-			Handler:    _CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureFailed3_1_Handler,
-		},
-		{
-			MethodName: "OnCaptureProcessProgressed",
-			Handler:    _CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureProcessProgressed_Handler,
-		},
-		{
-			MethodName: "OnCaptureProcessStarted",
-			Handler:    _CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureProcessStarted_Handler,
-		},
-		{
-			MethodName: "OnCaptureResultAvailable",
-			Handler:    _CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureResultAvailable_Handler,
-		},
-		{
-			MethodName: "OnCaptureSequenceAborted",
-			Handler:    _CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureSequenceAborted_Handler,
-		},
-		{
-			MethodName: "OnCaptureSequenceCompleted",
-			Handler:    _CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureSequenceCompleted_Handler,
-		},
-		{
-			MethodName: "OnCaptureStarted",
-			Handler:    _CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureStarted_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/camera2/camera2.proto",
-}
-
-const (
-	CameraExtensionSessionStateCallbackService_OnClosed_FullMethodName          = "/camera2.CameraExtensionSessionStateCallbackService/OnClosed"
-	CameraExtensionSessionStateCallbackService_OnConfigureFailed_FullMethodName = "/camera2.CameraExtensionSessionStateCallbackService/OnConfigureFailed"
-	CameraExtensionSessionStateCallbackService_OnConfigured_FullMethodName      = "/camera2.CameraExtensionSessionStateCallbackService/OnConfigured"
-)
-
-// CameraExtensionSessionStateCallbackServiceClient is the client API for CameraExtensionSessionStateCallbackService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CameraExtensionSessionStateCallbackServiceClient interface {
-	OnClosed(ctx context.Context, in *OnClosedRequest, opts ...grpc.CallOption) (*OnClosedResponse, error)
-	OnConfigureFailed(ctx context.Context, in *OnConfigureFailedRequest, opts ...grpc.CallOption) (*OnConfigureFailedResponse, error)
-	OnConfigured(ctx context.Context, in *OnConfiguredRequest, opts ...grpc.CallOption) (*OnConfiguredResponse, error)
-}
-
-type cameraExtensionSessionStateCallbackServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCameraExtensionSessionStateCallbackServiceClient(cc grpc.ClientConnInterface) CameraExtensionSessionStateCallbackServiceClient {
-	return &cameraExtensionSessionStateCallbackServiceClient{cc}
-}
-
-func (c *cameraExtensionSessionStateCallbackServiceClient) OnClosed(ctx context.Context, in *OnClosedRequest, opts ...grpc.CallOption) (*OnClosedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnClosedResponse)
-	err := c.cc.Invoke(ctx, CameraExtensionSessionStateCallbackService_OnClosed_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cameraExtensionSessionStateCallbackServiceClient) OnConfigureFailed(ctx context.Context, in *OnConfigureFailedRequest, opts ...grpc.CallOption) (*OnConfigureFailedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnConfigureFailedResponse)
-	err := c.cc.Invoke(ctx, CameraExtensionSessionStateCallbackService_OnConfigureFailed_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cameraExtensionSessionStateCallbackServiceClient) OnConfigured(ctx context.Context, in *OnConfiguredRequest, opts ...grpc.CallOption) (*OnConfiguredResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnConfiguredResponse)
-	err := c.cc.Invoke(ctx, CameraExtensionSessionStateCallbackService_OnConfigured_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CameraExtensionSessionStateCallbackServiceServer is the server API for CameraExtensionSessionStateCallbackService service.
-// All implementations must embed UnimplementedCameraExtensionSessionStateCallbackServiceServer
-// for forward compatibility.
-type CameraExtensionSessionStateCallbackServiceServer interface {
-	OnClosed(context.Context, *OnClosedRequest) (*OnClosedResponse, error)
-	OnConfigureFailed(context.Context, *OnConfigureFailedRequest) (*OnConfigureFailedResponse, error)
-	OnConfigured(context.Context, *OnConfiguredRequest) (*OnConfiguredResponse, error)
-	mustEmbedUnimplementedCameraExtensionSessionStateCallbackServiceServer()
-}
-
-// UnimplementedCameraExtensionSessionStateCallbackServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCameraExtensionSessionStateCallbackServiceServer struct{}
-
-func (UnimplementedCameraExtensionSessionStateCallbackServiceServer) OnClosed(context.Context, *OnClosedRequest) (*OnClosedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnClosed not implemented")
-}
-func (UnimplementedCameraExtensionSessionStateCallbackServiceServer) OnConfigureFailed(context.Context, *OnConfigureFailedRequest) (*OnConfigureFailedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnConfigureFailed not implemented")
-}
-func (UnimplementedCameraExtensionSessionStateCallbackServiceServer) OnConfigured(context.Context, *OnConfiguredRequest) (*OnConfiguredResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnConfigured not implemented")
-}
-func (UnimplementedCameraExtensionSessionStateCallbackServiceServer) mustEmbedUnimplementedCameraExtensionSessionStateCallbackServiceServer() {
-}
-func (UnimplementedCameraExtensionSessionStateCallbackServiceServer) testEmbeddedByValue() {}
-
-// UnsafeCameraExtensionSessionStateCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CameraExtensionSessionStateCallbackServiceServer will
-// result in compilation errors.
-type UnsafeCameraExtensionSessionStateCallbackServiceServer interface {
-	mustEmbedUnimplementedCameraExtensionSessionStateCallbackServiceServer()
-}
-
-func RegisterCameraExtensionSessionStateCallbackServiceServer(s grpc.ServiceRegistrar, srv CameraExtensionSessionStateCallbackServiceServer) {
-	// If the following call panics, it indicates UnimplementedCameraExtensionSessionStateCallbackServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CameraExtensionSessionStateCallbackService_ServiceDesc, srv)
-}
-
-func _CameraExtensionSessionStateCallbackService_OnClosed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnClosedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraExtensionSessionStateCallbackServiceServer).OnClosed(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraExtensionSessionStateCallbackService_OnClosed_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraExtensionSessionStateCallbackServiceServer).OnClosed(ctx, req.(*OnClosedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CameraExtensionSessionStateCallbackService_OnConfigureFailed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnConfigureFailedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraExtensionSessionStateCallbackServiceServer).OnConfigureFailed(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraExtensionSessionStateCallbackService_OnConfigureFailed_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraExtensionSessionStateCallbackServiceServer).OnConfigureFailed(ctx, req.(*OnConfigureFailedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CameraExtensionSessionStateCallbackService_OnConfigured_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnConfiguredRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraExtensionSessionStateCallbackServiceServer).OnConfigured(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraExtensionSessionStateCallbackService_OnConfigured_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraExtensionSessionStateCallbackServiceServer).OnConfigured(ctx, req.(*OnConfiguredRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CameraExtensionSessionStateCallbackService_ServiceDesc is the grpc.ServiceDesc for CameraExtensionSessionStateCallbackService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CameraExtensionSessionStateCallbackService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "camera2.CameraExtensionSessionStateCallbackService",
-	HandlerType: (*CameraExtensionSessionStateCallbackServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnClosed",
-			Handler:    _CameraExtensionSessionStateCallbackService_OnClosed_Handler,
-		},
-		{
-			MethodName: "OnConfigureFailed",
-			Handler:    _CameraExtensionSessionStateCallbackService_OnConfigureFailed_Handler,
-		},
-		{
-			MethodName: "OnConfigured",
-			Handler:    _CameraExtensionSessionStateCallbackService_OnConfigured_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/camera2/camera2.proto",
-}
-
-const (
-	CameraExtensionSessionStillCaptureLatencyService_Equals_FullMethodName               = "/camera2.CameraExtensionSessionStillCaptureLatencyService/Equals"
-	CameraExtensionSessionStillCaptureLatencyService_GetCaptureLatency_FullMethodName    = "/camera2.CameraExtensionSessionStillCaptureLatencyService/GetCaptureLatency"
-	CameraExtensionSessionStillCaptureLatencyService_GetProcessingLatency_FullMethodName = "/camera2.CameraExtensionSessionStillCaptureLatencyService/GetProcessingLatency"
-	CameraExtensionSessionStillCaptureLatencyService_HashCode_FullMethodName             = "/camera2.CameraExtensionSessionStillCaptureLatencyService/HashCode"
-	CameraExtensionSessionStillCaptureLatencyService_ToString_FullMethodName             = "/camera2.CameraExtensionSessionStillCaptureLatencyService/ToString"
-)
-
-// CameraExtensionSessionStillCaptureLatencyServiceClient is the client API for CameraExtensionSessionStillCaptureLatencyService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CameraExtensionSessionStillCaptureLatencyServiceClient interface {
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetCaptureLatency(ctx context.Context, in *GetCaptureLatencyRequest, opts ...grpc.CallOption) (*GetCaptureLatencyResponse, error)
-	GetProcessingLatency(ctx context.Context, in *GetProcessingLatencyRequest, opts ...grpc.CallOption) (*GetProcessingLatencyResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type cameraExtensionSessionStillCaptureLatencyServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCameraExtensionSessionStillCaptureLatencyServiceClient(cc grpc.ClientConnInterface) CameraExtensionSessionStillCaptureLatencyServiceClient {
-	return &cameraExtensionSessionStillCaptureLatencyServiceClient{cc}
-}
-
-func (c *cameraExtensionSessionStillCaptureLatencyServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, CameraExtensionSessionStillCaptureLatencyService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cameraExtensionSessionStillCaptureLatencyServiceClient) GetCaptureLatency(ctx context.Context, in *GetCaptureLatencyRequest, opts ...grpc.CallOption) (*GetCaptureLatencyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCaptureLatencyResponse)
-	err := c.cc.Invoke(ctx, CameraExtensionSessionStillCaptureLatencyService_GetCaptureLatency_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cameraExtensionSessionStillCaptureLatencyServiceClient) GetProcessingLatency(ctx context.Context, in *GetProcessingLatencyRequest, opts ...grpc.CallOption) (*GetProcessingLatencyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetProcessingLatencyResponse)
-	err := c.cc.Invoke(ctx, CameraExtensionSessionStillCaptureLatencyService_GetProcessingLatency_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cameraExtensionSessionStillCaptureLatencyServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, CameraExtensionSessionStillCaptureLatencyService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cameraExtensionSessionStillCaptureLatencyServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, CameraExtensionSessionStillCaptureLatencyService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CameraExtensionSessionStillCaptureLatencyServiceServer is the server API for CameraExtensionSessionStillCaptureLatencyService service.
-// All implementations must embed UnimplementedCameraExtensionSessionStillCaptureLatencyServiceServer
-// for forward compatibility.
-type CameraExtensionSessionStillCaptureLatencyServiceServer interface {
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetCaptureLatency(context.Context, *GetCaptureLatencyRequest) (*GetCaptureLatencyResponse, error)
-	GetProcessingLatency(context.Context, *GetProcessingLatencyRequest) (*GetProcessingLatencyResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedCameraExtensionSessionStillCaptureLatencyServiceServer()
-}
-
-// UnimplementedCameraExtensionSessionStillCaptureLatencyServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCameraExtensionSessionStillCaptureLatencyServiceServer struct{}
-
-func (UnimplementedCameraExtensionSessionStillCaptureLatencyServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedCameraExtensionSessionStillCaptureLatencyServiceServer) GetCaptureLatency(context.Context, *GetCaptureLatencyRequest) (*GetCaptureLatencyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCaptureLatency not implemented")
-}
-func (UnimplementedCameraExtensionSessionStillCaptureLatencyServiceServer) GetProcessingLatency(context.Context, *GetProcessingLatencyRequest) (*GetProcessingLatencyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetProcessingLatency not implemented")
-}
-func (UnimplementedCameraExtensionSessionStillCaptureLatencyServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedCameraExtensionSessionStillCaptureLatencyServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedCameraExtensionSessionStillCaptureLatencyServiceServer) mustEmbedUnimplementedCameraExtensionSessionStillCaptureLatencyServiceServer() {
-}
-func (UnimplementedCameraExtensionSessionStillCaptureLatencyServiceServer) testEmbeddedByValue() {}
-
-// UnsafeCameraExtensionSessionStillCaptureLatencyServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CameraExtensionSessionStillCaptureLatencyServiceServer will
-// result in compilation errors.
-type UnsafeCameraExtensionSessionStillCaptureLatencyServiceServer interface {
-	mustEmbedUnimplementedCameraExtensionSessionStillCaptureLatencyServiceServer()
-}
-
-func RegisterCameraExtensionSessionStillCaptureLatencyServiceServer(s grpc.ServiceRegistrar, srv CameraExtensionSessionStillCaptureLatencyServiceServer) {
-	// If the following call panics, it indicates UnimplementedCameraExtensionSessionStillCaptureLatencyServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CameraExtensionSessionStillCaptureLatencyService_ServiceDesc, srv)
-}
-
-func _CameraExtensionSessionStillCaptureLatencyService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraExtensionSessionStillCaptureLatencyServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraExtensionSessionStillCaptureLatencyService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraExtensionSessionStillCaptureLatencyServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CameraExtensionSessionStillCaptureLatencyService_GetCaptureLatency_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCaptureLatencyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraExtensionSessionStillCaptureLatencyServiceServer).GetCaptureLatency(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraExtensionSessionStillCaptureLatencyService_GetCaptureLatency_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraExtensionSessionStillCaptureLatencyServiceServer).GetCaptureLatency(ctx, req.(*GetCaptureLatencyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CameraExtensionSessionStillCaptureLatencyService_GetProcessingLatency_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetProcessingLatencyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraExtensionSessionStillCaptureLatencyServiceServer).GetProcessingLatency(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraExtensionSessionStillCaptureLatencyService_GetProcessingLatency_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraExtensionSessionStillCaptureLatencyServiceServer).GetProcessingLatency(ctx, req.(*GetProcessingLatencyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CameraExtensionSessionStillCaptureLatencyService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraExtensionSessionStillCaptureLatencyServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraExtensionSessionStillCaptureLatencyService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraExtensionSessionStillCaptureLatencyServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CameraExtensionSessionStillCaptureLatencyService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CameraExtensionSessionStillCaptureLatencyServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CameraExtensionSessionStillCaptureLatencyService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraExtensionSessionStillCaptureLatencyServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CameraExtensionSessionStillCaptureLatencyService_ServiceDesc is the grpc.ServiceDesc for CameraExtensionSessionStillCaptureLatencyService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CameraExtensionSessionStillCaptureLatencyService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "camera2.CameraExtensionSessionStillCaptureLatencyService",
-	HandlerType: (*CameraExtensionSessionStillCaptureLatencyServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Equals",
-			Handler:    _CameraExtensionSessionStillCaptureLatencyService_Equals_Handler,
-		},
-		{
-			MethodName: "GetCaptureLatency",
-			Handler:    _CameraExtensionSessionStillCaptureLatencyService_GetCaptureLatency_Handler,
-		},
-		{
-			MethodName: "GetProcessingLatency",
-			Handler:    _CameraExtensionSessionStillCaptureLatencyService_GetProcessingLatency_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _CameraExtensionSessionStillCaptureLatencyService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _CameraExtensionSessionStillCaptureLatencyService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/camera2/camera2.proto",
-}
-
-const (
-	MultiResolutionImageReaderService_NewMultiResolutionImageReader_FullMethodName = "/camera2.MultiResolutionImageReaderService/NewMultiResolutionImageReader"
-	MultiResolutionImageReaderService_Close_FullMethodName                         = "/camera2.MultiResolutionImageReaderService/Close"
-	MultiResolutionImageReaderService_Flush_FullMethodName                         = "/camera2.MultiResolutionImageReaderService/Flush"
-	MultiResolutionImageReaderService_GetStreamInfoForImageReader_FullMethodName   = "/camera2.MultiResolutionImageReaderService/GetStreamInfoForImageReader"
-	MultiResolutionImageReaderService_GetSurface_FullMethodName                    = "/camera2.MultiResolutionImageReaderService/GetSurface"
-	MultiResolutionImageReaderService_SetOnImageAvailableListener_FullMethodName   = "/camera2.MultiResolutionImageReaderService/SetOnImageAvailableListener"
-)
-
-// MultiResolutionImageReaderServiceClient is the client API for MultiResolutionImageReaderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type MultiResolutionImageReaderServiceClient interface {
-	NewMultiResolutionImageReader(ctx context.Context, in *NewMultiResolutionImageReaderRequest, opts ...grpc.CallOption) (*NewMultiResolutionImageReaderResponse, error)
-	Close(ctx context.Context, in *MultiResolutionImageReaderCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
-	Flush(ctx context.Context, in *FlushRequest, opts ...grpc.CallOption) (*FlushResponse, error)
-	GetStreamInfoForImageReader(ctx context.Context, in *GetStreamInfoForImageReaderRequest, opts ...grpc.CallOption) (*GetStreamInfoForImageReaderResponse, error)
-	GetSurface(ctx context.Context, in *GetSurfaceRequest, opts ...grpc.CallOption) (*GetSurfaceResponse, error)
-	SetOnImageAvailableListener(ctx context.Context, in *SetOnImageAvailableListenerRequest, opts ...grpc.CallOption) (*SetOnImageAvailableListenerResponse, error)
-}
-
-type multiResolutionImageReaderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewMultiResolutionImageReaderServiceClient(cc grpc.ClientConnInterface) MultiResolutionImageReaderServiceClient {
-	return &multiResolutionImageReaderServiceClient{cc}
-}
-
-func (c *multiResolutionImageReaderServiceClient) NewMultiResolutionImageReader(ctx context.Context, in *NewMultiResolutionImageReaderRequest, opts ...grpc.CallOption) (*NewMultiResolutionImageReaderResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewMultiResolutionImageReaderResponse)
-	err := c.cc.Invoke(ctx, MultiResolutionImageReaderService_NewMultiResolutionImageReader_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *multiResolutionImageReaderServiceClient) Close(ctx context.Context, in *MultiResolutionImageReaderCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, MultiResolutionImageReaderService_Close_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *multiResolutionImageReaderServiceClient) Flush(ctx context.Context, in *FlushRequest, opts ...grpc.CallOption) (*FlushResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FlushResponse)
-	err := c.cc.Invoke(ctx, MultiResolutionImageReaderService_Flush_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *multiResolutionImageReaderServiceClient) GetStreamInfoForImageReader(ctx context.Context, in *GetStreamInfoForImageReaderRequest, opts ...grpc.CallOption) (*GetStreamInfoForImageReaderResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStreamInfoForImageReaderResponse)
-	err := c.cc.Invoke(ctx, MultiResolutionImageReaderService_GetStreamInfoForImageReader_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *multiResolutionImageReaderServiceClient) GetSurface(ctx context.Context, in *GetSurfaceRequest, opts ...grpc.CallOption) (*GetSurfaceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSurfaceResponse)
-	err := c.cc.Invoke(ctx, MultiResolutionImageReaderService_GetSurface_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *multiResolutionImageReaderServiceClient) SetOnImageAvailableListener(ctx context.Context, in *SetOnImageAvailableListenerRequest, opts ...grpc.CallOption) (*SetOnImageAvailableListenerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetOnImageAvailableListenerResponse)
-	err := c.cc.Invoke(ctx, MultiResolutionImageReaderService_SetOnImageAvailableListener_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// MultiResolutionImageReaderServiceServer is the server API for MultiResolutionImageReaderService service.
-// All implementations must embed UnimplementedMultiResolutionImageReaderServiceServer
-// for forward compatibility.
-type MultiResolutionImageReaderServiceServer interface {
-	NewMultiResolutionImageReader(context.Context, *NewMultiResolutionImageReaderRequest) (*NewMultiResolutionImageReaderResponse, error)
-	Close(context.Context, *MultiResolutionImageReaderCloseRequest) (*CloseResponse, error)
-	Flush(context.Context, *FlushRequest) (*FlushResponse, error)
-	GetStreamInfoForImageReader(context.Context, *GetStreamInfoForImageReaderRequest) (*GetStreamInfoForImageReaderResponse, error)
-	GetSurface(context.Context, *GetSurfaceRequest) (*GetSurfaceResponse, error)
-	SetOnImageAvailableListener(context.Context, *SetOnImageAvailableListenerRequest) (*SetOnImageAvailableListenerResponse, error)
-	mustEmbedUnimplementedMultiResolutionImageReaderServiceServer()
-}
-
-// UnimplementedMultiResolutionImageReaderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedMultiResolutionImageReaderServiceServer struct{}
-
-func (UnimplementedMultiResolutionImageReaderServiceServer) NewMultiResolutionImageReader(context.Context, *NewMultiResolutionImageReaderRequest) (*NewMultiResolutionImageReaderResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewMultiResolutionImageReader not implemented")
-}
-func (UnimplementedMultiResolutionImageReaderServiceServer) Close(context.Context, *MultiResolutionImageReaderCloseRequest) (*CloseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
-}
-func (UnimplementedMultiResolutionImageReaderServiceServer) Flush(context.Context, *FlushRequest) (*FlushResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Flush not implemented")
-}
-func (UnimplementedMultiResolutionImageReaderServiceServer) GetStreamInfoForImageReader(context.Context, *GetStreamInfoForImageReaderRequest) (*GetStreamInfoForImageReaderResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStreamInfoForImageReader not implemented")
-}
-func (UnimplementedMultiResolutionImageReaderServiceServer) GetSurface(context.Context, *GetSurfaceRequest) (*GetSurfaceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSurface not implemented")
-}
-func (UnimplementedMultiResolutionImageReaderServiceServer) SetOnImageAvailableListener(context.Context, *SetOnImageAvailableListenerRequest) (*SetOnImageAvailableListenerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetOnImageAvailableListener not implemented")
-}
-func (UnimplementedMultiResolutionImageReaderServiceServer) mustEmbedUnimplementedMultiResolutionImageReaderServiceServer() {
-}
-func (UnimplementedMultiResolutionImageReaderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeMultiResolutionImageReaderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to MultiResolutionImageReaderServiceServer will
-// result in compilation errors.
-type UnsafeMultiResolutionImageReaderServiceServer interface {
-	mustEmbedUnimplementedMultiResolutionImageReaderServiceServer()
-}
-
-func RegisterMultiResolutionImageReaderServiceServer(s grpc.ServiceRegistrar, srv MultiResolutionImageReaderServiceServer) {
-	// If the following call panics, it indicates UnimplementedMultiResolutionImageReaderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&MultiResolutionImageReaderService_ServiceDesc, srv)
-}
-
-func _MultiResolutionImageReaderService_NewMultiResolutionImageReader_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewMultiResolutionImageReaderRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MultiResolutionImageReaderServiceServer).NewMultiResolutionImageReader(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MultiResolutionImageReaderService_NewMultiResolutionImageReader_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MultiResolutionImageReaderServiceServer).NewMultiResolutionImageReader(ctx, req.(*NewMultiResolutionImageReaderRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MultiResolutionImageReaderService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MultiResolutionImageReaderCloseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MultiResolutionImageReaderServiceServer).Close(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MultiResolutionImageReaderService_Close_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MultiResolutionImageReaderServiceServer).Close(ctx, req.(*MultiResolutionImageReaderCloseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MultiResolutionImageReaderService_Flush_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FlushRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MultiResolutionImageReaderServiceServer).Flush(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MultiResolutionImageReaderService_Flush_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MultiResolutionImageReaderServiceServer).Flush(ctx, req.(*FlushRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MultiResolutionImageReaderService_GetStreamInfoForImageReader_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStreamInfoForImageReaderRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MultiResolutionImageReaderServiceServer).GetStreamInfoForImageReader(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MultiResolutionImageReaderService_GetStreamInfoForImageReader_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MultiResolutionImageReaderServiceServer).GetStreamInfoForImageReader(ctx, req.(*GetStreamInfoForImageReaderRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MultiResolutionImageReaderService_GetSurface_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSurfaceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MultiResolutionImageReaderServiceServer).GetSurface(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MultiResolutionImageReaderService_GetSurface_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MultiResolutionImageReaderServiceServer).GetSurface(ctx, req.(*GetSurfaceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _MultiResolutionImageReaderService_SetOnImageAvailableListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetOnImageAvailableListenerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(MultiResolutionImageReaderServiceServer).SetOnImageAvailableListener(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: MultiResolutionImageReaderService_SetOnImageAvailableListener_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MultiResolutionImageReaderServiceServer).SetOnImageAvailableListener(ctx, req.(*SetOnImageAvailableListenerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// MultiResolutionImageReaderService_ServiceDesc is the grpc.ServiceDesc for MultiResolutionImageReaderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var MultiResolutionImageReaderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "camera2.MultiResolutionImageReaderService",
-	HandlerType: (*MultiResolutionImageReaderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewMultiResolutionImageReader",
-			Handler:    _MultiResolutionImageReaderService_NewMultiResolutionImageReader_Handler,
-		},
-		{
-			MethodName: "Close",
-			Handler:    _MultiResolutionImageReaderService_Close_Handler,
-		},
-		{
-			MethodName: "Flush",
-			Handler:    _MultiResolutionImageReaderService_Flush_Handler,
-		},
-		{
-			MethodName: "GetStreamInfoForImageReader",
-			Handler:    _MultiResolutionImageReaderService_GetStreamInfoForImageReader_Handler,
-		},
-		{
-			MethodName: "GetSurface",
-			Handler:    _MultiResolutionImageReaderService_GetSurface_Handler,
-		},
-		{
-			MethodName: "SetOnImageAvailableListener",
-			Handler:    _MultiResolutionImageReaderService_SetOnImageAvailableListener_Handler,
+			MethodName: "GetKeys",
+			Handler:    _CameraMetadataService_GetKeys_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -3458,8 +1199,8 @@ type CameraCaptureSessionCaptureCallbackServiceClient interface {
 	OnCaptureFailed(ctx context.Context, in *OnCaptureFailedRequest, opts ...grpc.CallOption) (*OnCaptureFailedResponse, error)
 	OnCaptureProgressed(ctx context.Context, in *OnCaptureProgressedRequest, opts ...grpc.CallOption) (*OnCaptureProgressedResponse, error)
 	OnCaptureSequenceAborted(ctx context.Context, in *OnCaptureSequenceAbortedRequest, opts ...grpc.CallOption) (*OnCaptureSequenceAbortedResponse, error)
-	OnCaptureSequenceCompleted(ctx context.Context, in *CameraCaptureSessionCaptureCallbackOnCaptureSequenceCompletedRequest, opts ...grpc.CallOption) (*OnCaptureSequenceCompletedResponse, error)
-	OnCaptureStarted(ctx context.Context, in *CameraCaptureSessionCaptureCallbackOnCaptureStartedRequest, opts ...grpc.CallOption) (*OnCaptureStartedResponse, error)
+	OnCaptureSequenceCompleted(ctx context.Context, in *OnCaptureSequenceCompletedRequest, opts ...grpc.CallOption) (*OnCaptureSequenceCompletedResponse, error)
+	OnCaptureStarted(ctx context.Context, in *OnCaptureStartedRequest, opts ...grpc.CallOption) (*OnCaptureStartedResponse, error)
 	OnReadoutStarted(ctx context.Context, in *OnReadoutStartedRequest, opts ...grpc.CallOption) (*OnReadoutStartedResponse, error)
 }
 
@@ -3521,7 +1262,7 @@ func (c *cameraCaptureSessionCaptureCallbackServiceClient) OnCaptureSequenceAbor
 	return out, nil
 }
 
-func (c *cameraCaptureSessionCaptureCallbackServiceClient) OnCaptureSequenceCompleted(ctx context.Context, in *CameraCaptureSessionCaptureCallbackOnCaptureSequenceCompletedRequest, opts ...grpc.CallOption) (*OnCaptureSequenceCompletedResponse, error) {
+func (c *cameraCaptureSessionCaptureCallbackServiceClient) OnCaptureSequenceCompleted(ctx context.Context, in *OnCaptureSequenceCompletedRequest, opts ...grpc.CallOption) (*OnCaptureSequenceCompletedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(OnCaptureSequenceCompletedResponse)
 	err := c.cc.Invoke(ctx, CameraCaptureSessionCaptureCallbackService_OnCaptureSequenceCompleted_FullMethodName, in, out, cOpts...)
@@ -3531,7 +1272,7 @@ func (c *cameraCaptureSessionCaptureCallbackServiceClient) OnCaptureSequenceComp
 	return out, nil
 }
 
-func (c *cameraCaptureSessionCaptureCallbackServiceClient) OnCaptureStarted(ctx context.Context, in *CameraCaptureSessionCaptureCallbackOnCaptureStartedRequest, opts ...grpc.CallOption) (*OnCaptureStartedResponse, error) {
+func (c *cameraCaptureSessionCaptureCallbackServiceClient) OnCaptureStarted(ctx context.Context, in *OnCaptureStartedRequest, opts ...grpc.CallOption) (*OnCaptureStartedResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(OnCaptureStartedResponse)
 	err := c.cc.Invoke(ctx, CameraCaptureSessionCaptureCallbackService_OnCaptureStarted_FullMethodName, in, out, cOpts...)
@@ -3560,8 +1301,8 @@ type CameraCaptureSessionCaptureCallbackServiceServer interface {
 	OnCaptureFailed(context.Context, *OnCaptureFailedRequest) (*OnCaptureFailedResponse, error)
 	OnCaptureProgressed(context.Context, *OnCaptureProgressedRequest) (*OnCaptureProgressedResponse, error)
 	OnCaptureSequenceAborted(context.Context, *OnCaptureSequenceAbortedRequest) (*OnCaptureSequenceAbortedResponse, error)
-	OnCaptureSequenceCompleted(context.Context, *CameraCaptureSessionCaptureCallbackOnCaptureSequenceCompletedRequest) (*OnCaptureSequenceCompletedResponse, error)
-	OnCaptureStarted(context.Context, *CameraCaptureSessionCaptureCallbackOnCaptureStartedRequest) (*OnCaptureStartedResponse, error)
+	OnCaptureSequenceCompleted(context.Context, *OnCaptureSequenceCompletedRequest) (*OnCaptureSequenceCompletedResponse, error)
+	OnCaptureStarted(context.Context, *OnCaptureStartedRequest) (*OnCaptureStartedResponse, error)
 	OnReadoutStarted(context.Context, *OnReadoutStartedRequest) (*OnReadoutStartedResponse, error)
 	mustEmbedUnimplementedCameraCaptureSessionCaptureCallbackServiceServer()
 }
@@ -3588,10 +1329,10 @@ func (UnimplementedCameraCaptureSessionCaptureCallbackServiceServer) OnCapturePr
 func (UnimplementedCameraCaptureSessionCaptureCallbackServiceServer) OnCaptureSequenceAborted(context.Context, *OnCaptureSequenceAbortedRequest) (*OnCaptureSequenceAbortedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method OnCaptureSequenceAborted not implemented")
 }
-func (UnimplementedCameraCaptureSessionCaptureCallbackServiceServer) OnCaptureSequenceCompleted(context.Context, *CameraCaptureSessionCaptureCallbackOnCaptureSequenceCompletedRequest) (*OnCaptureSequenceCompletedResponse, error) {
+func (UnimplementedCameraCaptureSessionCaptureCallbackServiceServer) OnCaptureSequenceCompleted(context.Context, *OnCaptureSequenceCompletedRequest) (*OnCaptureSequenceCompletedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method OnCaptureSequenceCompleted not implemented")
 }
-func (UnimplementedCameraCaptureSessionCaptureCallbackServiceServer) OnCaptureStarted(context.Context, *CameraCaptureSessionCaptureCallbackOnCaptureStartedRequest) (*OnCaptureStartedResponse, error) {
+func (UnimplementedCameraCaptureSessionCaptureCallbackServiceServer) OnCaptureStarted(context.Context, *OnCaptureStartedRequest) (*OnCaptureStartedResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method OnCaptureStarted not implemented")
 }
 func (UnimplementedCameraCaptureSessionCaptureCallbackServiceServer) OnReadoutStarted(context.Context, *OnReadoutStartedRequest) (*OnReadoutStartedResponse, error) {
@@ -3710,7 +1451,7 @@ func _CameraCaptureSessionCaptureCallbackService_OnCaptureSequenceAborted_Handle
 }
 
 func _CameraCaptureSessionCaptureCallbackService_OnCaptureSequenceCompleted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CameraCaptureSessionCaptureCallbackOnCaptureSequenceCompletedRequest)
+	in := new(OnCaptureSequenceCompletedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -3722,13 +1463,13 @@ func _CameraCaptureSessionCaptureCallbackService_OnCaptureSequenceCompleted_Hand
 		FullMethod: CameraCaptureSessionCaptureCallbackService_OnCaptureSequenceCompleted_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraCaptureSessionCaptureCallbackServiceServer).OnCaptureSequenceCompleted(ctx, req.(*CameraCaptureSessionCaptureCallbackOnCaptureSequenceCompletedRequest))
+		return srv.(CameraCaptureSessionCaptureCallbackServiceServer).OnCaptureSequenceCompleted(ctx, req.(*OnCaptureSequenceCompletedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _CameraCaptureSessionCaptureCallbackService_OnCaptureStarted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CameraCaptureSessionCaptureCallbackOnCaptureStartedRequest)
+	in := new(OnCaptureStartedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -3740,7 +1481,7 @@ func _CameraCaptureSessionCaptureCallbackService_OnCaptureStarted_Handler(srv in
 		FullMethod: CameraCaptureSessionCaptureCallbackService_OnCaptureStarted_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraCaptureSessionCaptureCallbackServiceServer).OnCaptureStarted(ctx, req.(*CameraCaptureSessionCaptureCallbackOnCaptureStartedRequest))
+		return srv.(CameraCaptureSessionCaptureCallbackServiceServer).OnCaptureStarted(ctx, req.(*OnCaptureStartedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4132,6 +1873,401 @@ var CameraCaptureSessionStateCallbackService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "OnSurfacePrepared",
 			Handler:    _CameraCaptureSessionStateCallbackService_OnSurfacePrepared_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/camera2/camera2.proto",
+}
+
+const (
+	CaptureFailureService_GetFrameNumber_FullMethodName      = "/camera2.CaptureFailureService/GetFrameNumber"
+	CaptureFailureService_GetPhysicalCameraId_FullMethodName = "/camera2.CaptureFailureService/GetPhysicalCameraId"
+	CaptureFailureService_GetReason_FullMethodName           = "/camera2.CaptureFailureService/GetReason"
+	CaptureFailureService_GetRequest_FullMethodName          = "/camera2.CaptureFailureService/GetRequest"
+	CaptureFailureService_GetSequenceId_FullMethodName       = "/camera2.CaptureFailureService/GetSequenceId"
+	CaptureFailureService_WasImageCaptured_FullMethodName    = "/camera2.CaptureFailureService/WasImageCaptured"
+)
+
+// CaptureFailureServiceClient is the client API for CaptureFailureService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CaptureFailureServiceClient interface {
+	GetFrameNumber(ctx context.Context, in *GetFrameNumberRequest, opts ...grpc.CallOption) (*GetFrameNumberResponse, error)
+	GetPhysicalCameraId(ctx context.Context, in *GetPhysicalCameraIdRequest, opts ...grpc.CallOption) (*GetPhysicalCameraIdResponse, error)
+	GetReason(ctx context.Context, in *GetReasonRequest, opts ...grpc.CallOption) (*GetReasonResponse, error)
+	GetRequest(ctx context.Context, in *GetRequestRequest, opts ...grpc.CallOption) (*GetRequestResponse, error)
+	GetSequenceId(ctx context.Context, in *GetSequenceIdRequest, opts ...grpc.CallOption) (*GetSequenceIdResponse, error)
+	WasImageCaptured(ctx context.Context, in *WasImageCapturedRequest, opts ...grpc.CallOption) (*WasImageCapturedResponse, error)
+}
+
+type captureFailureServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCaptureFailureServiceClient(cc grpc.ClientConnInterface) CaptureFailureServiceClient {
+	return &captureFailureServiceClient{cc}
+}
+
+func (c *captureFailureServiceClient) GetFrameNumber(ctx context.Context, in *GetFrameNumberRequest, opts ...grpc.CallOption) (*GetFrameNumberResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFrameNumberResponse)
+	err := c.cc.Invoke(ctx, CaptureFailureService_GetFrameNumber_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *captureFailureServiceClient) GetPhysicalCameraId(ctx context.Context, in *GetPhysicalCameraIdRequest, opts ...grpc.CallOption) (*GetPhysicalCameraIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPhysicalCameraIdResponse)
+	err := c.cc.Invoke(ctx, CaptureFailureService_GetPhysicalCameraId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *captureFailureServiceClient) GetReason(ctx context.Context, in *GetReasonRequest, opts ...grpc.CallOption) (*GetReasonResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetReasonResponse)
+	err := c.cc.Invoke(ctx, CaptureFailureService_GetReason_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *captureFailureServiceClient) GetRequest(ctx context.Context, in *GetRequestRequest, opts ...grpc.CallOption) (*GetRequestResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRequestResponse)
+	err := c.cc.Invoke(ctx, CaptureFailureService_GetRequest_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *captureFailureServiceClient) GetSequenceId(ctx context.Context, in *GetSequenceIdRequest, opts ...grpc.CallOption) (*GetSequenceIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSequenceIdResponse)
+	err := c.cc.Invoke(ctx, CaptureFailureService_GetSequenceId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *captureFailureServiceClient) WasImageCaptured(ctx context.Context, in *WasImageCapturedRequest, opts ...grpc.CallOption) (*WasImageCapturedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WasImageCapturedResponse)
+	err := c.cc.Invoke(ctx, CaptureFailureService_WasImageCaptured_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CaptureFailureServiceServer is the server API for CaptureFailureService service.
+// All implementations must embed UnimplementedCaptureFailureServiceServer
+// for forward compatibility.
+type CaptureFailureServiceServer interface {
+	GetFrameNumber(context.Context, *GetFrameNumberRequest) (*GetFrameNumberResponse, error)
+	GetPhysicalCameraId(context.Context, *GetPhysicalCameraIdRequest) (*GetPhysicalCameraIdResponse, error)
+	GetReason(context.Context, *GetReasonRequest) (*GetReasonResponse, error)
+	GetRequest(context.Context, *GetRequestRequest) (*GetRequestResponse, error)
+	GetSequenceId(context.Context, *GetSequenceIdRequest) (*GetSequenceIdResponse, error)
+	WasImageCaptured(context.Context, *WasImageCapturedRequest) (*WasImageCapturedResponse, error)
+	mustEmbedUnimplementedCaptureFailureServiceServer()
+}
+
+// UnimplementedCaptureFailureServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCaptureFailureServiceServer struct{}
+
+func (UnimplementedCaptureFailureServiceServer) GetFrameNumber(context.Context, *GetFrameNumberRequest) (*GetFrameNumberResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFrameNumber not implemented")
+}
+func (UnimplementedCaptureFailureServiceServer) GetPhysicalCameraId(context.Context, *GetPhysicalCameraIdRequest) (*GetPhysicalCameraIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPhysicalCameraId not implemented")
+}
+func (UnimplementedCaptureFailureServiceServer) GetReason(context.Context, *GetReasonRequest) (*GetReasonResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetReason not implemented")
+}
+func (UnimplementedCaptureFailureServiceServer) GetRequest(context.Context, *GetRequestRequest) (*GetRequestResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRequest not implemented")
+}
+func (UnimplementedCaptureFailureServiceServer) GetSequenceId(context.Context, *GetSequenceIdRequest) (*GetSequenceIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSequenceId not implemented")
+}
+func (UnimplementedCaptureFailureServiceServer) WasImageCaptured(context.Context, *WasImageCapturedRequest) (*WasImageCapturedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WasImageCaptured not implemented")
+}
+func (UnimplementedCaptureFailureServiceServer) mustEmbedUnimplementedCaptureFailureServiceServer() {}
+func (UnimplementedCaptureFailureServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeCaptureFailureServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CaptureFailureServiceServer will
+// result in compilation errors.
+type UnsafeCaptureFailureServiceServer interface {
+	mustEmbedUnimplementedCaptureFailureServiceServer()
+}
+
+func RegisterCaptureFailureServiceServer(s grpc.ServiceRegistrar, srv CaptureFailureServiceServer) {
+	// If the following call panics, it indicates UnimplementedCaptureFailureServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CaptureFailureService_ServiceDesc, srv)
+}
+
+func _CaptureFailureService_GetFrameNumber_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFrameNumberRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CaptureFailureServiceServer).GetFrameNumber(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CaptureFailureService_GetFrameNumber_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CaptureFailureServiceServer).GetFrameNumber(ctx, req.(*GetFrameNumberRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CaptureFailureService_GetPhysicalCameraId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPhysicalCameraIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CaptureFailureServiceServer).GetPhysicalCameraId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CaptureFailureService_GetPhysicalCameraId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CaptureFailureServiceServer).GetPhysicalCameraId(ctx, req.(*GetPhysicalCameraIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CaptureFailureService_GetReason_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetReasonRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CaptureFailureServiceServer).GetReason(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CaptureFailureService_GetReason_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CaptureFailureServiceServer).GetReason(ctx, req.(*GetReasonRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CaptureFailureService_GetRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRequestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CaptureFailureServiceServer).GetRequest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CaptureFailureService_GetRequest_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CaptureFailureServiceServer).GetRequest(ctx, req.(*GetRequestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CaptureFailureService_GetSequenceId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSequenceIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CaptureFailureServiceServer).GetSequenceId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CaptureFailureService_GetSequenceId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CaptureFailureServiceServer).GetSequenceId(ctx, req.(*GetSequenceIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CaptureFailureService_WasImageCaptured_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WasImageCapturedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CaptureFailureServiceServer).WasImageCaptured(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CaptureFailureService_WasImageCaptured_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CaptureFailureServiceServer).WasImageCaptured(ctx, req.(*WasImageCapturedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CaptureFailureService_ServiceDesc is the grpc.ServiceDesc for CaptureFailureService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CaptureFailureService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "camera2.CaptureFailureService",
+	HandlerType: (*CaptureFailureServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetFrameNumber",
+			Handler:    _CaptureFailureService_GetFrameNumber_Handler,
+		},
+		{
+			MethodName: "GetPhysicalCameraId",
+			Handler:    _CaptureFailureService_GetPhysicalCameraId_Handler,
+		},
+		{
+			MethodName: "GetReason",
+			Handler:    _CaptureFailureService_GetReason_Handler,
+		},
+		{
+			MethodName: "GetRequest",
+			Handler:    _CaptureFailureService_GetRequest_Handler,
+		},
+		{
+			MethodName: "GetSequenceId",
+			Handler:    _CaptureFailureService_GetSequenceId_Handler,
+		},
+		{
+			MethodName: "WasImageCaptured",
+			Handler:    _CaptureFailureService_WasImageCaptured_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/camera2/camera2.proto",
+}
+
+const (
+	TotalCaptureResultService_GetPartialResults_FullMethodName = "/camera2.TotalCaptureResultService/GetPartialResults"
+)
+
+// TotalCaptureResultServiceClient is the client API for TotalCaptureResultService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TotalCaptureResultServiceClient interface {
+	GetPartialResults(ctx context.Context, in *GetPartialResultsRequest, opts ...grpc.CallOption) (*GetPartialResultsResponse, error)
+}
+
+type totalCaptureResultServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTotalCaptureResultServiceClient(cc grpc.ClientConnInterface) TotalCaptureResultServiceClient {
+	return &totalCaptureResultServiceClient{cc}
+}
+
+func (c *totalCaptureResultServiceClient) GetPartialResults(ctx context.Context, in *GetPartialResultsRequest, opts ...grpc.CallOption) (*GetPartialResultsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPartialResultsResponse)
+	err := c.cc.Invoke(ctx, TotalCaptureResultService_GetPartialResults_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TotalCaptureResultServiceServer is the server API for TotalCaptureResultService service.
+// All implementations must embed UnimplementedTotalCaptureResultServiceServer
+// for forward compatibility.
+type TotalCaptureResultServiceServer interface {
+	GetPartialResults(context.Context, *GetPartialResultsRequest) (*GetPartialResultsResponse, error)
+	mustEmbedUnimplementedTotalCaptureResultServiceServer()
+}
+
+// UnimplementedTotalCaptureResultServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTotalCaptureResultServiceServer struct{}
+
+func (UnimplementedTotalCaptureResultServiceServer) GetPartialResults(context.Context, *GetPartialResultsRequest) (*GetPartialResultsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPartialResults not implemented")
+}
+func (UnimplementedTotalCaptureResultServiceServer) mustEmbedUnimplementedTotalCaptureResultServiceServer() {
+}
+func (UnimplementedTotalCaptureResultServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTotalCaptureResultServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TotalCaptureResultServiceServer will
+// result in compilation errors.
+type UnsafeTotalCaptureResultServiceServer interface {
+	mustEmbedUnimplementedTotalCaptureResultServiceServer()
+}
+
+func RegisterTotalCaptureResultServiceServer(s grpc.ServiceRegistrar, srv TotalCaptureResultServiceServer) {
+	// If the following call panics, it indicates UnimplementedTotalCaptureResultServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TotalCaptureResultService_ServiceDesc, srv)
+}
+
+func _TotalCaptureResultService_GetPartialResults_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPartialResultsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TotalCaptureResultServiceServer).GetPartialResults(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TotalCaptureResultService_GetPartialResults_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TotalCaptureResultServiceServer).GetPartialResults(ctx, req.(*GetPartialResultsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TotalCaptureResultService_ServiceDesc is the grpc.ServiceDesc for TotalCaptureResultService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TotalCaptureResultService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "camera2.TotalCaptureResultService",
+	HandlerType: (*TotalCaptureResultServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetPartialResults",
+			Handler:    _TotalCaptureResultService_GetPartialResults_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -5017,8 +3153,1539 @@ var CameraDeviceStateCallbackService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	CameraAccessExceptionService_NewCameraAccessException_FullMethodName = "/camera2.CameraAccessExceptionService/NewCameraAccessException"
+	CameraAccessExceptionService_GetReason_FullMethodName                = "/camera2.CameraAccessExceptionService/GetReason"
+)
+
+// CameraAccessExceptionServiceClient is the client API for CameraAccessExceptionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CameraAccessExceptionServiceClient interface {
+	NewCameraAccessException(ctx context.Context, in *NewCameraAccessExceptionRequest, opts ...grpc.CallOption) (*NewCameraAccessExceptionResponse, error)
+	GetReason(ctx context.Context, in *CameraAccessExceptionGetReasonRequest, opts ...grpc.CallOption) (*GetReasonResponse, error)
+}
+
+type cameraAccessExceptionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCameraAccessExceptionServiceClient(cc grpc.ClientConnInterface) CameraAccessExceptionServiceClient {
+	return &cameraAccessExceptionServiceClient{cc}
+}
+
+func (c *cameraAccessExceptionServiceClient) NewCameraAccessException(ctx context.Context, in *NewCameraAccessExceptionRequest, opts ...grpc.CallOption) (*NewCameraAccessExceptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewCameraAccessExceptionResponse)
+	err := c.cc.Invoke(ctx, CameraAccessExceptionService_NewCameraAccessException_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraAccessExceptionServiceClient) GetReason(ctx context.Context, in *CameraAccessExceptionGetReasonRequest, opts ...grpc.CallOption) (*GetReasonResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetReasonResponse)
+	err := c.cc.Invoke(ctx, CameraAccessExceptionService_GetReason_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CameraAccessExceptionServiceServer is the server API for CameraAccessExceptionService service.
+// All implementations must embed UnimplementedCameraAccessExceptionServiceServer
+// for forward compatibility.
+type CameraAccessExceptionServiceServer interface {
+	NewCameraAccessException(context.Context, *NewCameraAccessExceptionRequest) (*NewCameraAccessExceptionResponse, error)
+	GetReason(context.Context, *CameraAccessExceptionGetReasonRequest) (*GetReasonResponse, error)
+	mustEmbedUnimplementedCameraAccessExceptionServiceServer()
+}
+
+// UnimplementedCameraAccessExceptionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCameraAccessExceptionServiceServer struct{}
+
+func (UnimplementedCameraAccessExceptionServiceServer) NewCameraAccessException(context.Context, *NewCameraAccessExceptionRequest) (*NewCameraAccessExceptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewCameraAccessException not implemented")
+}
+func (UnimplementedCameraAccessExceptionServiceServer) GetReason(context.Context, *CameraAccessExceptionGetReasonRequest) (*GetReasonResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetReason not implemented")
+}
+func (UnimplementedCameraAccessExceptionServiceServer) mustEmbedUnimplementedCameraAccessExceptionServiceServer() {
+}
+func (UnimplementedCameraAccessExceptionServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCameraAccessExceptionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CameraAccessExceptionServiceServer will
+// result in compilation errors.
+type UnsafeCameraAccessExceptionServiceServer interface {
+	mustEmbedUnimplementedCameraAccessExceptionServiceServer()
+}
+
+func RegisterCameraAccessExceptionServiceServer(s grpc.ServiceRegistrar, srv CameraAccessExceptionServiceServer) {
+	// If the following call panics, it indicates UnimplementedCameraAccessExceptionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CameraAccessExceptionService_ServiceDesc, srv)
+}
+
+func _CameraAccessExceptionService_NewCameraAccessException_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewCameraAccessExceptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraAccessExceptionServiceServer).NewCameraAccessException(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraAccessExceptionService_NewCameraAccessException_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraAccessExceptionServiceServer).NewCameraAccessException(ctx, req.(*NewCameraAccessExceptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraAccessExceptionService_GetReason_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CameraAccessExceptionGetReasonRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraAccessExceptionServiceServer).GetReason(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraAccessExceptionService_GetReason_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraAccessExceptionServiceServer).GetReason(ctx, req.(*CameraAccessExceptionGetReasonRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CameraAccessExceptionService_ServiceDesc is the grpc.ServiceDesc for CameraAccessExceptionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CameraAccessExceptionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "camera2.CameraAccessExceptionService",
+	HandlerType: (*CameraAccessExceptionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewCameraAccessException",
+			Handler:    _CameraAccessExceptionService_NewCameraAccessException_Handler,
+		},
+		{
+			MethodName: "GetReason",
+			Handler:    _CameraAccessExceptionService_GetReason_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/camera2/camera2.proto",
+}
+
+const (
+	CameraOfflineSessionService_Close_FullMethodName = "/camera2.CameraOfflineSessionService/Close"
+)
+
+// CameraOfflineSessionServiceClient is the client API for CameraOfflineSessionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CameraOfflineSessionServiceClient interface {
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+}
+
+type cameraOfflineSessionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCameraOfflineSessionServiceClient(cc grpc.ClientConnInterface) CameraOfflineSessionServiceClient {
+	return &cameraOfflineSessionServiceClient{cc}
+}
+
+func (c *cameraOfflineSessionServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, CameraOfflineSessionService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CameraOfflineSessionServiceServer is the server API for CameraOfflineSessionService service.
+// All implementations must embed UnimplementedCameraOfflineSessionServiceServer
+// for forward compatibility.
+type CameraOfflineSessionServiceServer interface {
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	mustEmbedUnimplementedCameraOfflineSessionServiceServer()
+}
+
+// UnimplementedCameraOfflineSessionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCameraOfflineSessionServiceServer struct{}
+
+func (UnimplementedCameraOfflineSessionServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedCameraOfflineSessionServiceServer) mustEmbedUnimplementedCameraOfflineSessionServiceServer() {
+}
+func (UnimplementedCameraOfflineSessionServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCameraOfflineSessionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CameraOfflineSessionServiceServer will
+// result in compilation errors.
+type UnsafeCameraOfflineSessionServiceServer interface {
+	mustEmbedUnimplementedCameraOfflineSessionServiceServer()
+}
+
+func RegisterCameraOfflineSessionServiceServer(s grpc.ServiceRegistrar, srv CameraOfflineSessionServiceServer) {
+	// If the following call panics, it indicates UnimplementedCameraOfflineSessionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CameraOfflineSessionService_ServiceDesc, srv)
+}
+
+func _CameraOfflineSessionService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraOfflineSessionServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraOfflineSessionService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraOfflineSessionServiceServer).Close(ctx, req.(*CloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CameraOfflineSessionService_ServiceDesc is the grpc.ServiceDesc for CameraOfflineSessionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CameraOfflineSessionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "camera2.CameraOfflineSessionService",
+	HandlerType: (*CameraOfflineSessionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Close",
+			Handler:    _CameraOfflineSessionService_Close_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/camera2/camera2.proto",
+}
+
+const (
+	CameraOfflineSessionCameraOfflineSessionCallbackService_OnClosed_FullMethodName       = "/camera2.CameraOfflineSessionCameraOfflineSessionCallbackService/OnClosed"
+	CameraOfflineSessionCameraOfflineSessionCallbackService_OnError_FullMethodName        = "/camera2.CameraOfflineSessionCameraOfflineSessionCallbackService/OnError"
+	CameraOfflineSessionCameraOfflineSessionCallbackService_OnIdle_FullMethodName         = "/camera2.CameraOfflineSessionCameraOfflineSessionCallbackService/OnIdle"
+	CameraOfflineSessionCameraOfflineSessionCallbackService_OnReady_FullMethodName        = "/camera2.CameraOfflineSessionCameraOfflineSessionCallbackService/OnReady"
+	CameraOfflineSessionCameraOfflineSessionCallbackService_OnSwitchFailed_FullMethodName = "/camera2.CameraOfflineSessionCameraOfflineSessionCallbackService/OnSwitchFailed"
+)
+
+// CameraOfflineSessionCameraOfflineSessionCallbackServiceClient is the client API for CameraOfflineSessionCameraOfflineSessionCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CameraOfflineSessionCameraOfflineSessionCallbackServiceClient interface {
+	OnClosed(ctx context.Context, in *OnClosedRequest, opts ...grpc.CallOption) (*OnClosedResponse, error)
+	OnError(ctx context.Context, in *OnErrorRequest, opts ...grpc.CallOption) (*OnErrorResponse, error)
+	OnIdle(ctx context.Context, in *OnIdleRequest, opts ...grpc.CallOption) (*OnIdleResponse, error)
+	OnReady(ctx context.Context, in *OnReadyRequest, opts ...grpc.CallOption) (*OnReadyResponse, error)
+	OnSwitchFailed(ctx context.Context, in *OnSwitchFailedRequest, opts ...grpc.CallOption) (*OnSwitchFailedResponse, error)
+}
+
+type cameraOfflineSessionCameraOfflineSessionCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCameraOfflineSessionCameraOfflineSessionCallbackServiceClient(cc grpc.ClientConnInterface) CameraOfflineSessionCameraOfflineSessionCallbackServiceClient {
+	return &cameraOfflineSessionCameraOfflineSessionCallbackServiceClient{cc}
+}
+
+func (c *cameraOfflineSessionCameraOfflineSessionCallbackServiceClient) OnClosed(ctx context.Context, in *OnClosedRequest, opts ...grpc.CallOption) (*OnClosedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnClosedResponse)
+	err := c.cc.Invoke(ctx, CameraOfflineSessionCameraOfflineSessionCallbackService_OnClosed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraOfflineSessionCameraOfflineSessionCallbackServiceClient) OnError(ctx context.Context, in *OnErrorRequest, opts ...grpc.CallOption) (*OnErrorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnErrorResponse)
+	err := c.cc.Invoke(ctx, CameraOfflineSessionCameraOfflineSessionCallbackService_OnError_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraOfflineSessionCameraOfflineSessionCallbackServiceClient) OnIdle(ctx context.Context, in *OnIdleRequest, opts ...grpc.CallOption) (*OnIdleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnIdleResponse)
+	err := c.cc.Invoke(ctx, CameraOfflineSessionCameraOfflineSessionCallbackService_OnIdle_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraOfflineSessionCameraOfflineSessionCallbackServiceClient) OnReady(ctx context.Context, in *OnReadyRequest, opts ...grpc.CallOption) (*OnReadyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnReadyResponse)
+	err := c.cc.Invoke(ctx, CameraOfflineSessionCameraOfflineSessionCallbackService_OnReady_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraOfflineSessionCameraOfflineSessionCallbackServiceClient) OnSwitchFailed(ctx context.Context, in *OnSwitchFailedRequest, opts ...grpc.CallOption) (*OnSwitchFailedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnSwitchFailedResponse)
+	err := c.cc.Invoke(ctx, CameraOfflineSessionCameraOfflineSessionCallbackService_OnSwitchFailed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CameraOfflineSessionCameraOfflineSessionCallbackServiceServer is the server API for CameraOfflineSessionCameraOfflineSessionCallbackService service.
+// All implementations must embed UnimplementedCameraOfflineSessionCameraOfflineSessionCallbackServiceServer
+// for forward compatibility.
+type CameraOfflineSessionCameraOfflineSessionCallbackServiceServer interface {
+	OnClosed(context.Context, *OnClosedRequest) (*OnClosedResponse, error)
+	OnError(context.Context, *OnErrorRequest) (*OnErrorResponse, error)
+	OnIdle(context.Context, *OnIdleRequest) (*OnIdleResponse, error)
+	OnReady(context.Context, *OnReadyRequest) (*OnReadyResponse, error)
+	OnSwitchFailed(context.Context, *OnSwitchFailedRequest) (*OnSwitchFailedResponse, error)
+	mustEmbedUnimplementedCameraOfflineSessionCameraOfflineSessionCallbackServiceServer()
+}
+
+// UnimplementedCameraOfflineSessionCameraOfflineSessionCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCameraOfflineSessionCameraOfflineSessionCallbackServiceServer struct{}
+
+func (UnimplementedCameraOfflineSessionCameraOfflineSessionCallbackServiceServer) OnClosed(context.Context, *OnClosedRequest) (*OnClosedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnClosed not implemented")
+}
+func (UnimplementedCameraOfflineSessionCameraOfflineSessionCallbackServiceServer) OnError(context.Context, *OnErrorRequest) (*OnErrorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnError not implemented")
+}
+func (UnimplementedCameraOfflineSessionCameraOfflineSessionCallbackServiceServer) OnIdle(context.Context, *OnIdleRequest) (*OnIdleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnIdle not implemented")
+}
+func (UnimplementedCameraOfflineSessionCameraOfflineSessionCallbackServiceServer) OnReady(context.Context, *OnReadyRequest) (*OnReadyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnReady not implemented")
+}
+func (UnimplementedCameraOfflineSessionCameraOfflineSessionCallbackServiceServer) OnSwitchFailed(context.Context, *OnSwitchFailedRequest) (*OnSwitchFailedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnSwitchFailed not implemented")
+}
+func (UnimplementedCameraOfflineSessionCameraOfflineSessionCallbackServiceServer) mustEmbedUnimplementedCameraOfflineSessionCameraOfflineSessionCallbackServiceServer() {
+}
+func (UnimplementedCameraOfflineSessionCameraOfflineSessionCallbackServiceServer) testEmbeddedByValue() {
+}
+
+// UnsafeCameraOfflineSessionCameraOfflineSessionCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CameraOfflineSessionCameraOfflineSessionCallbackServiceServer will
+// result in compilation errors.
+type UnsafeCameraOfflineSessionCameraOfflineSessionCallbackServiceServer interface {
+	mustEmbedUnimplementedCameraOfflineSessionCameraOfflineSessionCallbackServiceServer()
+}
+
+func RegisterCameraOfflineSessionCameraOfflineSessionCallbackServiceServer(s grpc.ServiceRegistrar, srv CameraOfflineSessionCameraOfflineSessionCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedCameraOfflineSessionCameraOfflineSessionCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CameraOfflineSessionCameraOfflineSessionCallbackService_ServiceDesc, srv)
+}
+
+func _CameraOfflineSessionCameraOfflineSessionCallbackService_OnClosed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnClosedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraOfflineSessionCameraOfflineSessionCallbackServiceServer).OnClosed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraOfflineSessionCameraOfflineSessionCallbackService_OnClosed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraOfflineSessionCameraOfflineSessionCallbackServiceServer).OnClosed(ctx, req.(*OnClosedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraOfflineSessionCameraOfflineSessionCallbackService_OnError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnErrorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraOfflineSessionCameraOfflineSessionCallbackServiceServer).OnError(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraOfflineSessionCameraOfflineSessionCallbackService_OnError_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraOfflineSessionCameraOfflineSessionCallbackServiceServer).OnError(ctx, req.(*OnErrorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraOfflineSessionCameraOfflineSessionCallbackService_OnIdle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnIdleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraOfflineSessionCameraOfflineSessionCallbackServiceServer).OnIdle(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraOfflineSessionCameraOfflineSessionCallbackService_OnIdle_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraOfflineSessionCameraOfflineSessionCallbackServiceServer).OnIdle(ctx, req.(*OnIdleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraOfflineSessionCameraOfflineSessionCallbackService_OnReady_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnReadyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraOfflineSessionCameraOfflineSessionCallbackServiceServer).OnReady(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraOfflineSessionCameraOfflineSessionCallbackService_OnReady_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraOfflineSessionCameraOfflineSessionCallbackServiceServer).OnReady(ctx, req.(*OnReadyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraOfflineSessionCameraOfflineSessionCallbackService_OnSwitchFailed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnSwitchFailedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraOfflineSessionCameraOfflineSessionCallbackServiceServer).OnSwitchFailed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraOfflineSessionCameraOfflineSessionCallbackService_OnSwitchFailed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraOfflineSessionCameraOfflineSessionCallbackServiceServer).OnSwitchFailed(ctx, req.(*OnSwitchFailedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CameraOfflineSessionCameraOfflineSessionCallbackService_ServiceDesc is the grpc.ServiceDesc for CameraOfflineSessionCameraOfflineSessionCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CameraOfflineSessionCameraOfflineSessionCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "camera2.CameraOfflineSessionCameraOfflineSessionCallbackService",
+	HandlerType: (*CameraOfflineSessionCameraOfflineSessionCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnClosed",
+			Handler:    _CameraOfflineSessionCameraOfflineSessionCallbackService_OnClosed_Handler,
+		},
+		{
+			MethodName: "OnError",
+			Handler:    _CameraOfflineSessionCameraOfflineSessionCallbackService_OnError_Handler,
+		},
+		{
+			MethodName: "OnIdle",
+			Handler:    _CameraOfflineSessionCameraOfflineSessionCallbackService_OnIdle_Handler,
+		},
+		{
+			MethodName: "OnReady",
+			Handler:    _CameraOfflineSessionCameraOfflineSessionCallbackService_OnReady_Handler,
+		},
+		{
+			MethodName: "OnSwitchFailed",
+			Handler:    _CameraOfflineSessionCameraOfflineSessionCallbackService_OnSwitchFailed_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/camera2/camera2.proto",
+}
+
+const (
+	CameraCharacteristicsService_GetAvailableCaptureRequestKeys_FullMethodName         = "/camera2.CameraCharacteristicsService/GetAvailableCaptureRequestKeys"
+	CameraCharacteristicsService_GetAvailableCaptureResultKeys_FullMethodName          = "/camera2.CameraCharacteristicsService/GetAvailableCaptureResultKeys"
+	CameraCharacteristicsService_GetAvailablePhysicalCameraRequestKeys_FullMethodName  = "/camera2.CameraCharacteristicsService/GetAvailablePhysicalCameraRequestKeys"
+	CameraCharacteristicsService_GetAvailableSessionCharacteristicsKeys_FullMethodName = "/camera2.CameraCharacteristicsService/GetAvailableSessionCharacteristicsKeys"
+	CameraCharacteristicsService_GetAvailableSessionKeys_FullMethodName                = "/camera2.CameraCharacteristicsService/GetAvailableSessionKeys"
+	CameraCharacteristicsService_GetKeys_FullMethodName                                = "/camera2.CameraCharacteristicsService/GetKeys"
+	CameraCharacteristicsService_GetKeysNeedingPermission_FullMethodName               = "/camera2.CameraCharacteristicsService/GetKeysNeedingPermission"
+	CameraCharacteristicsService_GetPhysicalCameraIds_FullMethodName                   = "/camera2.CameraCharacteristicsService/GetPhysicalCameraIds"
+	CameraCharacteristicsService_GetRecommendedStreamConfigurationMap_FullMethodName   = "/camera2.CameraCharacteristicsService/GetRecommendedStreamConfigurationMap"
+)
+
+// CameraCharacteristicsServiceClient is the client API for CameraCharacteristicsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CameraCharacteristicsServiceClient interface {
+	GetAvailableCaptureRequestKeys(ctx context.Context, in *GetAvailableCaptureRequestKeysRequest, opts ...grpc.CallOption) (*GetAvailableCaptureRequestKeysResponse, error)
+	GetAvailableCaptureResultKeys(ctx context.Context, in *GetAvailableCaptureResultKeysRequest, opts ...grpc.CallOption) (*GetAvailableCaptureResultKeysResponse, error)
+	GetAvailablePhysicalCameraRequestKeys(ctx context.Context, in *GetAvailablePhysicalCameraRequestKeysRequest, opts ...grpc.CallOption) (*GetAvailablePhysicalCameraRequestKeysResponse, error)
+	GetAvailableSessionCharacteristicsKeys(ctx context.Context, in *GetAvailableSessionCharacteristicsKeysRequest, opts ...grpc.CallOption) (*GetAvailableSessionCharacteristicsKeysResponse, error)
+	GetAvailableSessionKeys(ctx context.Context, in *GetAvailableSessionKeysRequest, opts ...grpc.CallOption) (*GetAvailableSessionKeysResponse, error)
+	GetKeys(ctx context.Context, in *GetKeysRequest, opts ...grpc.CallOption) (*GetKeysResponse, error)
+	GetKeysNeedingPermission(ctx context.Context, in *GetKeysNeedingPermissionRequest, opts ...grpc.CallOption) (*GetKeysNeedingPermissionResponse, error)
+	GetPhysicalCameraIds(ctx context.Context, in *GetPhysicalCameraIdsRequest, opts ...grpc.CallOption) (*GetPhysicalCameraIdsResponse, error)
+	GetRecommendedStreamConfigurationMap(ctx context.Context, in *GetRecommendedStreamConfigurationMapRequest, opts ...grpc.CallOption) (*GetRecommendedStreamConfigurationMapResponse, error)
+}
+
+type cameraCharacteristicsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCameraCharacteristicsServiceClient(cc grpc.ClientConnInterface) CameraCharacteristicsServiceClient {
+	return &cameraCharacteristicsServiceClient{cc}
+}
+
+func (c *cameraCharacteristicsServiceClient) GetAvailableCaptureRequestKeys(ctx context.Context, in *GetAvailableCaptureRequestKeysRequest, opts ...grpc.CallOption) (*GetAvailableCaptureRequestKeysResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAvailableCaptureRequestKeysResponse)
+	err := c.cc.Invoke(ctx, CameraCharacteristicsService_GetAvailableCaptureRequestKeys_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraCharacteristicsServiceClient) GetAvailableCaptureResultKeys(ctx context.Context, in *GetAvailableCaptureResultKeysRequest, opts ...grpc.CallOption) (*GetAvailableCaptureResultKeysResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAvailableCaptureResultKeysResponse)
+	err := c.cc.Invoke(ctx, CameraCharacteristicsService_GetAvailableCaptureResultKeys_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraCharacteristicsServiceClient) GetAvailablePhysicalCameraRequestKeys(ctx context.Context, in *GetAvailablePhysicalCameraRequestKeysRequest, opts ...grpc.CallOption) (*GetAvailablePhysicalCameraRequestKeysResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAvailablePhysicalCameraRequestKeysResponse)
+	err := c.cc.Invoke(ctx, CameraCharacteristicsService_GetAvailablePhysicalCameraRequestKeys_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraCharacteristicsServiceClient) GetAvailableSessionCharacteristicsKeys(ctx context.Context, in *GetAvailableSessionCharacteristicsKeysRequest, opts ...grpc.CallOption) (*GetAvailableSessionCharacteristicsKeysResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAvailableSessionCharacteristicsKeysResponse)
+	err := c.cc.Invoke(ctx, CameraCharacteristicsService_GetAvailableSessionCharacteristicsKeys_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraCharacteristicsServiceClient) GetAvailableSessionKeys(ctx context.Context, in *GetAvailableSessionKeysRequest, opts ...grpc.CallOption) (*GetAvailableSessionKeysResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAvailableSessionKeysResponse)
+	err := c.cc.Invoke(ctx, CameraCharacteristicsService_GetAvailableSessionKeys_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraCharacteristicsServiceClient) GetKeys(ctx context.Context, in *GetKeysRequest, opts ...grpc.CallOption) (*GetKeysResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetKeysResponse)
+	err := c.cc.Invoke(ctx, CameraCharacteristicsService_GetKeys_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraCharacteristicsServiceClient) GetKeysNeedingPermission(ctx context.Context, in *GetKeysNeedingPermissionRequest, opts ...grpc.CallOption) (*GetKeysNeedingPermissionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetKeysNeedingPermissionResponse)
+	err := c.cc.Invoke(ctx, CameraCharacteristicsService_GetKeysNeedingPermission_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraCharacteristicsServiceClient) GetPhysicalCameraIds(ctx context.Context, in *GetPhysicalCameraIdsRequest, opts ...grpc.CallOption) (*GetPhysicalCameraIdsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPhysicalCameraIdsResponse)
+	err := c.cc.Invoke(ctx, CameraCharacteristicsService_GetPhysicalCameraIds_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraCharacteristicsServiceClient) GetRecommendedStreamConfigurationMap(ctx context.Context, in *GetRecommendedStreamConfigurationMapRequest, opts ...grpc.CallOption) (*GetRecommendedStreamConfigurationMapResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRecommendedStreamConfigurationMapResponse)
+	err := c.cc.Invoke(ctx, CameraCharacteristicsService_GetRecommendedStreamConfigurationMap_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CameraCharacteristicsServiceServer is the server API for CameraCharacteristicsService service.
+// All implementations must embed UnimplementedCameraCharacteristicsServiceServer
+// for forward compatibility.
+type CameraCharacteristicsServiceServer interface {
+	GetAvailableCaptureRequestKeys(context.Context, *GetAvailableCaptureRequestKeysRequest) (*GetAvailableCaptureRequestKeysResponse, error)
+	GetAvailableCaptureResultKeys(context.Context, *GetAvailableCaptureResultKeysRequest) (*GetAvailableCaptureResultKeysResponse, error)
+	GetAvailablePhysicalCameraRequestKeys(context.Context, *GetAvailablePhysicalCameraRequestKeysRequest) (*GetAvailablePhysicalCameraRequestKeysResponse, error)
+	GetAvailableSessionCharacteristicsKeys(context.Context, *GetAvailableSessionCharacteristicsKeysRequest) (*GetAvailableSessionCharacteristicsKeysResponse, error)
+	GetAvailableSessionKeys(context.Context, *GetAvailableSessionKeysRequest) (*GetAvailableSessionKeysResponse, error)
+	GetKeys(context.Context, *GetKeysRequest) (*GetKeysResponse, error)
+	GetKeysNeedingPermission(context.Context, *GetKeysNeedingPermissionRequest) (*GetKeysNeedingPermissionResponse, error)
+	GetPhysicalCameraIds(context.Context, *GetPhysicalCameraIdsRequest) (*GetPhysicalCameraIdsResponse, error)
+	GetRecommendedStreamConfigurationMap(context.Context, *GetRecommendedStreamConfigurationMapRequest) (*GetRecommendedStreamConfigurationMapResponse, error)
+	mustEmbedUnimplementedCameraCharacteristicsServiceServer()
+}
+
+// UnimplementedCameraCharacteristicsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCameraCharacteristicsServiceServer struct{}
+
+func (UnimplementedCameraCharacteristicsServiceServer) GetAvailableCaptureRequestKeys(context.Context, *GetAvailableCaptureRequestKeysRequest) (*GetAvailableCaptureRequestKeysResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAvailableCaptureRequestKeys not implemented")
+}
+func (UnimplementedCameraCharacteristicsServiceServer) GetAvailableCaptureResultKeys(context.Context, *GetAvailableCaptureResultKeysRequest) (*GetAvailableCaptureResultKeysResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAvailableCaptureResultKeys not implemented")
+}
+func (UnimplementedCameraCharacteristicsServiceServer) GetAvailablePhysicalCameraRequestKeys(context.Context, *GetAvailablePhysicalCameraRequestKeysRequest) (*GetAvailablePhysicalCameraRequestKeysResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAvailablePhysicalCameraRequestKeys not implemented")
+}
+func (UnimplementedCameraCharacteristicsServiceServer) GetAvailableSessionCharacteristicsKeys(context.Context, *GetAvailableSessionCharacteristicsKeysRequest) (*GetAvailableSessionCharacteristicsKeysResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAvailableSessionCharacteristicsKeys not implemented")
+}
+func (UnimplementedCameraCharacteristicsServiceServer) GetAvailableSessionKeys(context.Context, *GetAvailableSessionKeysRequest) (*GetAvailableSessionKeysResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAvailableSessionKeys not implemented")
+}
+func (UnimplementedCameraCharacteristicsServiceServer) GetKeys(context.Context, *GetKeysRequest) (*GetKeysResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetKeys not implemented")
+}
+func (UnimplementedCameraCharacteristicsServiceServer) GetKeysNeedingPermission(context.Context, *GetKeysNeedingPermissionRequest) (*GetKeysNeedingPermissionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetKeysNeedingPermission not implemented")
+}
+func (UnimplementedCameraCharacteristicsServiceServer) GetPhysicalCameraIds(context.Context, *GetPhysicalCameraIdsRequest) (*GetPhysicalCameraIdsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPhysicalCameraIds not implemented")
+}
+func (UnimplementedCameraCharacteristicsServiceServer) GetRecommendedStreamConfigurationMap(context.Context, *GetRecommendedStreamConfigurationMapRequest) (*GetRecommendedStreamConfigurationMapResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRecommendedStreamConfigurationMap not implemented")
+}
+func (UnimplementedCameraCharacteristicsServiceServer) mustEmbedUnimplementedCameraCharacteristicsServiceServer() {
+}
+func (UnimplementedCameraCharacteristicsServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCameraCharacteristicsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CameraCharacteristicsServiceServer will
+// result in compilation errors.
+type UnsafeCameraCharacteristicsServiceServer interface {
+	mustEmbedUnimplementedCameraCharacteristicsServiceServer()
+}
+
+func RegisterCameraCharacteristicsServiceServer(s grpc.ServiceRegistrar, srv CameraCharacteristicsServiceServer) {
+	// If the following call panics, it indicates UnimplementedCameraCharacteristicsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CameraCharacteristicsService_ServiceDesc, srv)
+}
+
+func _CameraCharacteristicsService_GetAvailableCaptureRequestKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAvailableCaptureRequestKeysRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraCharacteristicsServiceServer).GetAvailableCaptureRequestKeys(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraCharacteristicsService_GetAvailableCaptureRequestKeys_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraCharacteristicsServiceServer).GetAvailableCaptureRequestKeys(ctx, req.(*GetAvailableCaptureRequestKeysRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraCharacteristicsService_GetAvailableCaptureResultKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAvailableCaptureResultKeysRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraCharacteristicsServiceServer).GetAvailableCaptureResultKeys(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraCharacteristicsService_GetAvailableCaptureResultKeys_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraCharacteristicsServiceServer).GetAvailableCaptureResultKeys(ctx, req.(*GetAvailableCaptureResultKeysRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraCharacteristicsService_GetAvailablePhysicalCameraRequestKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAvailablePhysicalCameraRequestKeysRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraCharacteristicsServiceServer).GetAvailablePhysicalCameraRequestKeys(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraCharacteristicsService_GetAvailablePhysicalCameraRequestKeys_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraCharacteristicsServiceServer).GetAvailablePhysicalCameraRequestKeys(ctx, req.(*GetAvailablePhysicalCameraRequestKeysRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraCharacteristicsService_GetAvailableSessionCharacteristicsKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAvailableSessionCharacteristicsKeysRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraCharacteristicsServiceServer).GetAvailableSessionCharacteristicsKeys(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraCharacteristicsService_GetAvailableSessionCharacteristicsKeys_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraCharacteristicsServiceServer).GetAvailableSessionCharacteristicsKeys(ctx, req.(*GetAvailableSessionCharacteristicsKeysRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraCharacteristicsService_GetAvailableSessionKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAvailableSessionKeysRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraCharacteristicsServiceServer).GetAvailableSessionKeys(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraCharacteristicsService_GetAvailableSessionKeys_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraCharacteristicsServiceServer).GetAvailableSessionKeys(ctx, req.(*GetAvailableSessionKeysRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraCharacteristicsService_GetKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetKeysRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraCharacteristicsServiceServer).GetKeys(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraCharacteristicsService_GetKeys_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraCharacteristicsServiceServer).GetKeys(ctx, req.(*GetKeysRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraCharacteristicsService_GetKeysNeedingPermission_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetKeysNeedingPermissionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraCharacteristicsServiceServer).GetKeysNeedingPermission(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraCharacteristicsService_GetKeysNeedingPermission_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraCharacteristicsServiceServer).GetKeysNeedingPermission(ctx, req.(*GetKeysNeedingPermissionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraCharacteristicsService_GetPhysicalCameraIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPhysicalCameraIdsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraCharacteristicsServiceServer).GetPhysicalCameraIds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraCharacteristicsService_GetPhysicalCameraIds_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraCharacteristicsServiceServer).GetPhysicalCameraIds(ctx, req.(*GetPhysicalCameraIdsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraCharacteristicsService_GetRecommendedStreamConfigurationMap_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRecommendedStreamConfigurationMapRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraCharacteristicsServiceServer).GetRecommendedStreamConfigurationMap(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraCharacteristicsService_GetRecommendedStreamConfigurationMap_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraCharacteristicsServiceServer).GetRecommendedStreamConfigurationMap(ctx, req.(*GetRecommendedStreamConfigurationMapRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CameraCharacteristicsService_ServiceDesc is the grpc.ServiceDesc for CameraCharacteristicsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CameraCharacteristicsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "camera2.CameraCharacteristicsService",
+	HandlerType: (*CameraCharacteristicsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetAvailableCaptureRequestKeys",
+			Handler:    _CameraCharacteristicsService_GetAvailableCaptureRequestKeys_Handler,
+		},
+		{
+			MethodName: "GetAvailableCaptureResultKeys",
+			Handler:    _CameraCharacteristicsService_GetAvailableCaptureResultKeys_Handler,
+		},
+		{
+			MethodName: "GetAvailablePhysicalCameraRequestKeys",
+			Handler:    _CameraCharacteristicsService_GetAvailablePhysicalCameraRequestKeys_Handler,
+		},
+		{
+			MethodName: "GetAvailableSessionCharacteristicsKeys",
+			Handler:    _CameraCharacteristicsService_GetAvailableSessionCharacteristicsKeys_Handler,
+		},
+		{
+			MethodName: "GetAvailableSessionKeys",
+			Handler:    _CameraCharacteristicsService_GetAvailableSessionKeys_Handler,
+		},
+		{
+			MethodName: "GetKeys",
+			Handler:    _CameraCharacteristicsService_GetKeys_Handler,
+		},
+		{
+			MethodName: "GetKeysNeedingPermission",
+			Handler:    _CameraCharacteristicsService_GetKeysNeedingPermission_Handler,
+		},
+		{
+			MethodName: "GetPhysicalCameraIds",
+			Handler:    _CameraCharacteristicsService_GetPhysicalCameraIds_Handler,
+		},
+		{
+			MethodName: "GetRecommendedStreamConfigurationMap",
+			Handler:    _CameraCharacteristicsService_GetRecommendedStreamConfigurationMap_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/camera2/camera2.proto",
+}
+
+const (
+	CameraCharacteristicsKeyService_Equals_FullMethodName   = "/camera2.CameraCharacteristicsKeyService/Equals"
+	CameraCharacteristicsKeyService_GetName_FullMethodName  = "/camera2.CameraCharacteristicsKeyService/GetName"
+	CameraCharacteristicsKeyService_HashCode_FullMethodName = "/camera2.CameraCharacteristicsKeyService/HashCode"
+	CameraCharacteristicsKeyService_ToString_FullMethodName = "/camera2.CameraCharacteristicsKeyService/ToString"
+)
+
+// CameraCharacteristicsKeyServiceClient is the client API for CameraCharacteristicsKeyService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CameraCharacteristicsKeyServiceClient interface {
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type cameraCharacteristicsKeyServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCameraCharacteristicsKeyServiceClient(cc grpc.ClientConnInterface) CameraCharacteristicsKeyServiceClient {
+	return &cameraCharacteristicsKeyServiceClient{cc}
+}
+
+func (c *cameraCharacteristicsKeyServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, CameraCharacteristicsKeyService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraCharacteristicsKeyServiceClient) GetName(ctx context.Context, in *GetNameRequest, opts ...grpc.CallOption) (*GetNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNameResponse)
+	err := c.cc.Invoke(ctx, CameraCharacteristicsKeyService_GetName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraCharacteristicsKeyServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, CameraCharacteristicsKeyService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraCharacteristicsKeyServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, CameraCharacteristicsKeyService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CameraCharacteristicsKeyServiceServer is the server API for CameraCharacteristicsKeyService service.
+// All implementations must embed UnimplementedCameraCharacteristicsKeyServiceServer
+// for forward compatibility.
+type CameraCharacteristicsKeyServiceServer interface {
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetName(context.Context, *GetNameRequest) (*GetNameResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedCameraCharacteristicsKeyServiceServer()
+}
+
+// UnimplementedCameraCharacteristicsKeyServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCameraCharacteristicsKeyServiceServer struct{}
+
+func (UnimplementedCameraCharacteristicsKeyServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedCameraCharacteristicsKeyServiceServer) GetName(context.Context, *GetNameRequest) (*GetNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetName not implemented")
+}
+func (UnimplementedCameraCharacteristicsKeyServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedCameraCharacteristicsKeyServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedCameraCharacteristicsKeyServiceServer) mustEmbedUnimplementedCameraCharacteristicsKeyServiceServer() {
+}
+func (UnimplementedCameraCharacteristicsKeyServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCameraCharacteristicsKeyServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CameraCharacteristicsKeyServiceServer will
+// result in compilation errors.
+type UnsafeCameraCharacteristicsKeyServiceServer interface {
+	mustEmbedUnimplementedCameraCharacteristicsKeyServiceServer()
+}
+
+func RegisterCameraCharacteristicsKeyServiceServer(s grpc.ServiceRegistrar, srv CameraCharacteristicsKeyServiceServer) {
+	// If the following call panics, it indicates UnimplementedCameraCharacteristicsKeyServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CameraCharacteristicsKeyService_ServiceDesc, srv)
+}
+
+func _CameraCharacteristicsKeyService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraCharacteristicsKeyServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraCharacteristicsKeyService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraCharacteristicsKeyServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraCharacteristicsKeyService_GetName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraCharacteristicsKeyServiceServer).GetName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraCharacteristicsKeyService_GetName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraCharacteristicsKeyServiceServer).GetName(ctx, req.(*GetNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraCharacteristicsKeyService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraCharacteristicsKeyServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraCharacteristicsKeyService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraCharacteristicsKeyServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraCharacteristicsKeyService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraCharacteristicsKeyServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraCharacteristicsKeyService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraCharacteristicsKeyServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CameraCharacteristicsKeyService_ServiceDesc is the grpc.ServiceDesc for CameraCharacteristicsKeyService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CameraCharacteristicsKeyService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "camera2.CameraCharacteristicsKeyService",
+	HandlerType: (*CameraCharacteristicsKeyServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Equals",
+			Handler:    _CameraCharacteristicsKeyService_Equals_Handler,
+		},
+		{
+			MethodName: "GetName",
+			Handler:    _CameraCharacteristicsKeyService_GetName_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _CameraCharacteristicsKeyService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _CameraCharacteristicsKeyService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/camera2/camera2.proto",
+}
+
+const (
+	DngCreatorService_NewDngCreator_FullMethodName    = "/camera2.DngCreatorService/NewDngCreator"
+	DngCreatorService_Close_FullMethodName            = "/camera2.DngCreatorService/Close"
+	DngCreatorService_SetDescription_FullMethodName   = "/camera2.DngCreatorService/SetDescription"
+	DngCreatorService_SetLocation_FullMethodName      = "/camera2.DngCreatorService/SetLocation"
+	DngCreatorService_SetOrientation_FullMethodName   = "/camera2.DngCreatorService/SetOrientation"
+	DngCreatorService_SetThumbnail1_FullMethodName    = "/camera2.DngCreatorService/SetThumbnail1"
+	DngCreatorService_SetThumbnail1_1_FullMethodName  = "/camera2.DngCreatorService/SetThumbnail1_1"
+	DngCreatorService_WriteImage_FullMethodName       = "/camera2.DngCreatorService/WriteImage"
+	DngCreatorService_WriteInputStream_FullMethodName = "/camera2.DngCreatorService/WriteInputStream"
+)
+
+// DngCreatorServiceClient is the client API for DngCreatorService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DngCreatorServiceClient interface {
+	NewDngCreator(ctx context.Context, in *NewDngCreatorRequest, opts ...grpc.CallOption) (*NewDngCreatorResponse, error)
+	Close(ctx context.Context, in *DngCreatorCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	SetDescription(ctx context.Context, in *SetDescriptionRequest, opts ...grpc.CallOption) (*SetDescriptionResponse, error)
+	SetLocation(ctx context.Context, in *SetLocationRequest, opts ...grpc.CallOption) (*SetLocationResponse, error)
+	SetOrientation(ctx context.Context, in *SetOrientationRequest, opts ...grpc.CallOption) (*SetOrientationResponse, error)
+	SetThumbnail1(ctx context.Context, in *SetThumbnail1Request, opts ...grpc.CallOption) (*SetThumbnail1Response, error)
+	SetThumbnail1_1(ctx context.Context, in *SetThumbnail1_1Request, opts ...grpc.CallOption) (*SetThumbnail1_1Response, error)
+	WriteImage(ctx context.Context, in *WriteImageRequest, opts ...grpc.CallOption) (*WriteImageResponse, error)
+	WriteInputStream(ctx context.Context, in *WriteInputStreamRequest, opts ...grpc.CallOption) (*WriteInputStreamResponse, error)
+}
+
+type dngCreatorServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDngCreatorServiceClient(cc grpc.ClientConnInterface) DngCreatorServiceClient {
+	return &dngCreatorServiceClient{cc}
+}
+
+func (c *dngCreatorServiceClient) NewDngCreator(ctx context.Context, in *NewDngCreatorRequest, opts ...grpc.CallOption) (*NewDngCreatorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewDngCreatorResponse)
+	err := c.cc.Invoke(ctx, DngCreatorService_NewDngCreator_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dngCreatorServiceClient) Close(ctx context.Context, in *DngCreatorCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, DngCreatorService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dngCreatorServiceClient) SetDescription(ctx context.Context, in *SetDescriptionRequest, opts ...grpc.CallOption) (*SetDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDescriptionResponse)
+	err := c.cc.Invoke(ctx, DngCreatorService_SetDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dngCreatorServiceClient) SetLocation(ctx context.Context, in *SetLocationRequest, opts ...grpc.CallOption) (*SetLocationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetLocationResponse)
+	err := c.cc.Invoke(ctx, DngCreatorService_SetLocation_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dngCreatorServiceClient) SetOrientation(ctx context.Context, in *SetOrientationRequest, opts ...grpc.CallOption) (*SetOrientationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetOrientationResponse)
+	err := c.cc.Invoke(ctx, DngCreatorService_SetOrientation_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dngCreatorServiceClient) SetThumbnail1(ctx context.Context, in *SetThumbnail1Request, opts ...grpc.CallOption) (*SetThumbnail1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetThumbnail1Response)
+	err := c.cc.Invoke(ctx, DngCreatorService_SetThumbnail1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dngCreatorServiceClient) SetThumbnail1_1(ctx context.Context, in *SetThumbnail1_1Request, opts ...grpc.CallOption) (*SetThumbnail1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetThumbnail1_1Response)
+	err := c.cc.Invoke(ctx, DngCreatorService_SetThumbnail1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dngCreatorServiceClient) WriteImage(ctx context.Context, in *WriteImageRequest, opts ...grpc.CallOption) (*WriteImageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteImageResponse)
+	err := c.cc.Invoke(ctx, DngCreatorService_WriteImage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dngCreatorServiceClient) WriteInputStream(ctx context.Context, in *WriteInputStreamRequest, opts ...grpc.CallOption) (*WriteInputStreamResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteInputStreamResponse)
+	err := c.cc.Invoke(ctx, DngCreatorService_WriteInputStream_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DngCreatorServiceServer is the server API for DngCreatorService service.
+// All implementations must embed UnimplementedDngCreatorServiceServer
+// for forward compatibility.
+type DngCreatorServiceServer interface {
+	NewDngCreator(context.Context, *NewDngCreatorRequest) (*NewDngCreatorResponse, error)
+	Close(context.Context, *DngCreatorCloseRequest) (*CloseResponse, error)
+	SetDescription(context.Context, *SetDescriptionRequest) (*SetDescriptionResponse, error)
+	SetLocation(context.Context, *SetLocationRequest) (*SetLocationResponse, error)
+	SetOrientation(context.Context, *SetOrientationRequest) (*SetOrientationResponse, error)
+	SetThumbnail1(context.Context, *SetThumbnail1Request) (*SetThumbnail1Response, error)
+	SetThumbnail1_1(context.Context, *SetThumbnail1_1Request) (*SetThumbnail1_1Response, error)
+	WriteImage(context.Context, *WriteImageRequest) (*WriteImageResponse, error)
+	WriteInputStream(context.Context, *WriteInputStreamRequest) (*WriteInputStreamResponse, error)
+	mustEmbedUnimplementedDngCreatorServiceServer()
+}
+
+// UnimplementedDngCreatorServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDngCreatorServiceServer struct{}
+
+func (UnimplementedDngCreatorServiceServer) NewDngCreator(context.Context, *NewDngCreatorRequest) (*NewDngCreatorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewDngCreator not implemented")
+}
+func (UnimplementedDngCreatorServiceServer) Close(context.Context, *DngCreatorCloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedDngCreatorServiceServer) SetDescription(context.Context, *SetDescriptionRequest) (*SetDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDescription not implemented")
+}
+func (UnimplementedDngCreatorServiceServer) SetLocation(context.Context, *SetLocationRequest) (*SetLocationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetLocation not implemented")
+}
+func (UnimplementedDngCreatorServiceServer) SetOrientation(context.Context, *SetOrientationRequest) (*SetOrientationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetOrientation not implemented")
+}
+func (UnimplementedDngCreatorServiceServer) SetThumbnail1(context.Context, *SetThumbnail1Request) (*SetThumbnail1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetThumbnail1 not implemented")
+}
+func (UnimplementedDngCreatorServiceServer) SetThumbnail1_1(context.Context, *SetThumbnail1_1Request) (*SetThumbnail1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetThumbnail1_1 not implemented")
+}
+func (UnimplementedDngCreatorServiceServer) WriteImage(context.Context, *WriteImageRequest) (*WriteImageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteImage not implemented")
+}
+func (UnimplementedDngCreatorServiceServer) WriteInputStream(context.Context, *WriteInputStreamRequest) (*WriteInputStreamResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteInputStream not implemented")
+}
+func (UnimplementedDngCreatorServiceServer) mustEmbedUnimplementedDngCreatorServiceServer() {}
+func (UnimplementedDngCreatorServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafeDngCreatorServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DngCreatorServiceServer will
+// result in compilation errors.
+type UnsafeDngCreatorServiceServer interface {
+	mustEmbedUnimplementedDngCreatorServiceServer()
+}
+
+func RegisterDngCreatorServiceServer(s grpc.ServiceRegistrar, srv DngCreatorServiceServer) {
+	// If the following call panics, it indicates UnimplementedDngCreatorServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DngCreatorService_ServiceDesc, srv)
+}
+
+func _DngCreatorService_NewDngCreator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewDngCreatorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DngCreatorServiceServer).NewDngCreator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DngCreatorService_NewDngCreator_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DngCreatorServiceServer).NewDngCreator(ctx, req.(*NewDngCreatorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DngCreatorService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DngCreatorCloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DngCreatorServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DngCreatorService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DngCreatorServiceServer).Close(ctx, req.(*DngCreatorCloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DngCreatorService_SetDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DngCreatorServiceServer).SetDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DngCreatorService_SetDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DngCreatorServiceServer).SetDescription(ctx, req.(*SetDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DngCreatorService_SetLocation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetLocationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DngCreatorServiceServer).SetLocation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DngCreatorService_SetLocation_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DngCreatorServiceServer).SetLocation(ctx, req.(*SetLocationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DngCreatorService_SetOrientation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetOrientationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DngCreatorServiceServer).SetOrientation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DngCreatorService_SetOrientation_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DngCreatorServiceServer).SetOrientation(ctx, req.(*SetOrientationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DngCreatorService_SetThumbnail1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetThumbnail1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DngCreatorServiceServer).SetThumbnail1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DngCreatorService_SetThumbnail1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DngCreatorServiceServer).SetThumbnail1(ctx, req.(*SetThumbnail1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DngCreatorService_SetThumbnail1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetThumbnail1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DngCreatorServiceServer).SetThumbnail1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DngCreatorService_SetThumbnail1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DngCreatorServiceServer).SetThumbnail1_1(ctx, req.(*SetThumbnail1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DngCreatorService_WriteImage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteImageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DngCreatorServiceServer).WriteImage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DngCreatorService_WriteImage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DngCreatorServiceServer).WriteImage(ctx, req.(*WriteImageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DngCreatorService_WriteInputStream_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteInputStreamRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DngCreatorServiceServer).WriteInputStream(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DngCreatorService_WriteInputStream_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DngCreatorServiceServer).WriteInputStream(ctx, req.(*WriteInputStreamRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DngCreatorService_ServiceDesc is the grpc.ServiceDesc for DngCreatorService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DngCreatorService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "camera2.DngCreatorService",
+	HandlerType: (*DngCreatorServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewDngCreator",
+			Handler:    _DngCreatorService_NewDngCreator_Handler,
+		},
+		{
+			MethodName: "Close",
+			Handler:    _DngCreatorService_Close_Handler,
+		},
+		{
+			MethodName: "SetDescription",
+			Handler:    _DngCreatorService_SetDescription_Handler,
+		},
+		{
+			MethodName: "SetLocation",
+			Handler:    _DngCreatorService_SetLocation_Handler,
+		},
+		{
+			MethodName: "SetOrientation",
+			Handler:    _DngCreatorService_SetOrientation_Handler,
+		},
+		{
+			MethodName: "SetThumbnail1",
+			Handler:    _DngCreatorService_SetThumbnail1_Handler,
+		},
+		{
+			MethodName: "SetThumbnail1_1",
+			Handler:    _DngCreatorService_SetThumbnail1_1_Handler,
+		},
+		{
+			MethodName: "WriteImage",
+			Handler:    _DngCreatorService_WriteImage_Handler,
+		},
+		{
+			MethodName: "WriteInputStream",
+			Handler:    _DngCreatorService_WriteInputStream_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/camera2/camera2.proto",
+}
+
+const (
 	CaptureRequestService_DescribeContents_FullMethodName = "/camera2.CaptureRequestService/DescribeContents"
 	CaptureRequestService_Equals_FullMethodName           = "/camera2.CaptureRequestService/Equals"
+	CaptureRequestService_GetKeys_FullMethodName          = "/camera2.CaptureRequestService/GetKeys"
 	CaptureRequestService_GetTag_FullMethodName           = "/camera2.CaptureRequestService/GetTag"
 	CaptureRequestService_HashCode_FullMethodName         = "/camera2.CaptureRequestService/HashCode"
 	CaptureRequestService_IsReprocess_FullMethodName      = "/camera2.CaptureRequestService/IsReprocess"
@@ -5031,6 +4698,7 @@ const (
 type CaptureRequestServiceClient interface {
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetKeys(ctx context.Context, in *GetKeysRequest, opts ...grpc.CallOption) (*GetKeysResponse, error)
 	GetTag(ctx context.Context, in *GetTagRequest, opts ...grpc.CallOption) (*GetTagResponse, error)
 	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 	IsReprocess(ctx context.Context, in *IsReprocessRequest, opts ...grpc.CallOption) (*IsReprocessResponse, error)
@@ -5059,6 +4727,16 @@ func (c *captureRequestServiceClient) Equals(ctx context.Context, in *EqualsRequ
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
 	err := c.cc.Invoke(ctx, CaptureRequestService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *captureRequestServiceClient) GetKeys(ctx context.Context, in *GetKeysRequest, opts ...grpc.CallOption) (*GetKeysResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetKeysResponse)
+	err := c.cc.Invoke(ctx, CaptureRequestService_GetKeys_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -5111,6 +4789,7 @@ func (c *captureRequestServiceClient) WriteToParcel(ctx context.Context, in *Wri
 type CaptureRequestServiceServer interface {
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
 	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetKeys(context.Context, *GetKeysRequest) (*GetKeysResponse, error)
 	GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error)
 	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
 	IsReprocess(context.Context, *IsReprocessRequest) (*IsReprocessResponse, error)
@@ -5130,6 +4809,9 @@ func (UnimplementedCaptureRequestServiceServer) DescribeContents(context.Context
 }
 func (UnimplementedCaptureRequestServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedCaptureRequestServiceServer) GetKeys(context.Context, *GetKeysRequest) (*GetKeysResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetKeys not implemented")
 }
 func (UnimplementedCaptureRequestServiceServer) GetTag(context.Context, *GetTagRequest) (*GetTagResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetTag not implemented")
@@ -5196,6 +4878,24 @@ func _CaptureRequestService_Equals_Handler(srv interface{}, ctx context.Context,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CaptureRequestServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CaptureRequestService_GetKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetKeysRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CaptureRequestServiceServer).GetKeys(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CaptureRequestService_GetKeys_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CaptureRequestServiceServer).GetKeys(ctx, req.(*GetKeysRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -5286,6 +4986,10 @@ var CaptureRequestService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Equals",
 			Handler:    _CaptureRequestService_Equals_Handler,
+		},
+		{
+			MethodName: "GetKeys",
+			Handler:    _CaptureRequestService_GetKeys_Handler,
 		},
 		{
 			MethodName: "GetTag",
@@ -5743,405 +5447,292 @@ var CaptureRequestKeyService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	DngCreatorService_NewDngCreator_FullMethodName    = "/camera2.DngCreatorService/NewDngCreator"
-	DngCreatorService_Close_FullMethodName            = "/camera2.DngCreatorService/Close"
-	DngCreatorService_SetDescription_FullMethodName   = "/camera2.DngCreatorService/SetDescription"
-	DngCreatorService_SetLocation_FullMethodName      = "/camera2.DngCreatorService/SetLocation"
-	DngCreatorService_SetOrientation_FullMethodName   = "/camera2.DngCreatorService/SetOrientation"
-	DngCreatorService_SetThumbnail1_FullMethodName    = "/camera2.DngCreatorService/SetThumbnail1"
-	DngCreatorService_SetThumbnail1_1_FullMethodName  = "/camera2.DngCreatorService/SetThumbnail1_1"
-	DngCreatorService_WriteImage_FullMethodName       = "/camera2.DngCreatorService/WriteImage"
-	DngCreatorService_WriteInputStream_FullMethodName = "/camera2.DngCreatorService/WriteInputStream"
+	MultiResolutionImageReaderService_NewMultiResolutionImageReader_FullMethodName = "/camera2.MultiResolutionImageReaderService/NewMultiResolutionImageReader"
+	MultiResolutionImageReaderService_Close_FullMethodName                         = "/camera2.MultiResolutionImageReaderService/Close"
+	MultiResolutionImageReaderService_Flush_FullMethodName                         = "/camera2.MultiResolutionImageReaderService/Flush"
+	MultiResolutionImageReaderService_GetStreamInfoForImageReader_FullMethodName   = "/camera2.MultiResolutionImageReaderService/GetStreamInfoForImageReader"
+	MultiResolutionImageReaderService_GetSurface_FullMethodName                    = "/camera2.MultiResolutionImageReaderService/GetSurface"
+	MultiResolutionImageReaderService_SetOnImageAvailableListener_FullMethodName   = "/camera2.MultiResolutionImageReaderService/SetOnImageAvailableListener"
 )
 
-// DngCreatorServiceClient is the client API for DngCreatorService service.
+// MultiResolutionImageReaderServiceClient is the client API for MultiResolutionImageReaderService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DngCreatorServiceClient interface {
-	NewDngCreator(ctx context.Context, in *NewDngCreatorRequest, opts ...grpc.CallOption) (*NewDngCreatorResponse, error)
-	Close(ctx context.Context, in *DngCreatorCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
-	SetDescription(ctx context.Context, in *SetDescriptionRequest, opts ...grpc.CallOption) (*SetDescriptionResponse, error)
-	SetLocation(ctx context.Context, in *SetLocationRequest, opts ...grpc.CallOption) (*SetLocationResponse, error)
-	SetOrientation(ctx context.Context, in *SetOrientationRequest, opts ...grpc.CallOption) (*SetOrientationResponse, error)
-	SetThumbnail1(ctx context.Context, in *SetThumbnail1Request, opts ...grpc.CallOption) (*SetThumbnail1Response, error)
-	SetThumbnail1_1(ctx context.Context, in *SetThumbnail1_1Request, opts ...grpc.CallOption) (*SetThumbnail1_1Response, error)
-	WriteImage(ctx context.Context, in *WriteImageRequest, opts ...grpc.CallOption) (*WriteImageResponse, error)
-	WriteInputStream(ctx context.Context, in *WriteInputStreamRequest, opts ...grpc.CallOption) (*WriteInputStreamResponse, error)
+type MultiResolutionImageReaderServiceClient interface {
+	NewMultiResolutionImageReader(ctx context.Context, in *NewMultiResolutionImageReaderRequest, opts ...grpc.CallOption) (*NewMultiResolutionImageReaderResponse, error)
+	Close(ctx context.Context, in *MultiResolutionImageReaderCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	Flush(ctx context.Context, in *FlushRequest, opts ...grpc.CallOption) (*FlushResponse, error)
+	GetStreamInfoForImageReader(ctx context.Context, in *GetStreamInfoForImageReaderRequest, opts ...grpc.CallOption) (*GetStreamInfoForImageReaderResponse, error)
+	GetSurface(ctx context.Context, in *GetSurfaceRequest, opts ...grpc.CallOption) (*GetSurfaceResponse, error)
+	SetOnImageAvailableListener(ctx context.Context, in *SetOnImageAvailableListenerRequest, opts ...grpc.CallOption) (*SetOnImageAvailableListenerResponse, error)
 }
 
-type dngCreatorServiceClient struct {
+type multiResolutionImageReaderServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewDngCreatorServiceClient(cc grpc.ClientConnInterface) DngCreatorServiceClient {
-	return &dngCreatorServiceClient{cc}
+func NewMultiResolutionImageReaderServiceClient(cc grpc.ClientConnInterface) MultiResolutionImageReaderServiceClient {
+	return &multiResolutionImageReaderServiceClient{cc}
 }
 
-func (c *dngCreatorServiceClient) NewDngCreator(ctx context.Context, in *NewDngCreatorRequest, opts ...grpc.CallOption) (*NewDngCreatorResponse, error) {
+func (c *multiResolutionImageReaderServiceClient) NewMultiResolutionImageReader(ctx context.Context, in *NewMultiResolutionImageReaderRequest, opts ...grpc.CallOption) (*NewMultiResolutionImageReaderResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewDngCreatorResponse)
-	err := c.cc.Invoke(ctx, DngCreatorService_NewDngCreator_FullMethodName, in, out, cOpts...)
+	out := new(NewMultiResolutionImageReaderResponse)
+	err := c.cc.Invoke(ctx, MultiResolutionImageReaderService_NewMultiResolutionImageReader_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *dngCreatorServiceClient) Close(ctx context.Context, in *DngCreatorCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+func (c *multiResolutionImageReaderServiceClient) Close(ctx context.Context, in *MultiResolutionImageReaderCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, DngCreatorService_Close_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, MultiResolutionImageReaderService_Close_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *dngCreatorServiceClient) SetDescription(ctx context.Context, in *SetDescriptionRequest, opts ...grpc.CallOption) (*SetDescriptionResponse, error) {
+func (c *multiResolutionImageReaderServiceClient) Flush(ctx context.Context, in *FlushRequest, opts ...grpc.CallOption) (*FlushResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetDescriptionResponse)
-	err := c.cc.Invoke(ctx, DngCreatorService_SetDescription_FullMethodName, in, out, cOpts...)
+	out := new(FlushResponse)
+	err := c.cc.Invoke(ctx, MultiResolutionImageReaderService_Flush_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *dngCreatorServiceClient) SetLocation(ctx context.Context, in *SetLocationRequest, opts ...grpc.CallOption) (*SetLocationResponse, error) {
+func (c *multiResolutionImageReaderServiceClient) GetStreamInfoForImageReader(ctx context.Context, in *GetStreamInfoForImageReaderRequest, opts ...grpc.CallOption) (*GetStreamInfoForImageReaderResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetLocationResponse)
-	err := c.cc.Invoke(ctx, DngCreatorService_SetLocation_FullMethodName, in, out, cOpts...)
+	out := new(GetStreamInfoForImageReaderResponse)
+	err := c.cc.Invoke(ctx, MultiResolutionImageReaderService_GetStreamInfoForImageReader_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *dngCreatorServiceClient) SetOrientation(ctx context.Context, in *SetOrientationRequest, opts ...grpc.CallOption) (*SetOrientationResponse, error) {
+func (c *multiResolutionImageReaderServiceClient) GetSurface(ctx context.Context, in *GetSurfaceRequest, opts ...grpc.CallOption) (*GetSurfaceResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetOrientationResponse)
-	err := c.cc.Invoke(ctx, DngCreatorService_SetOrientation_FullMethodName, in, out, cOpts...)
+	out := new(GetSurfaceResponse)
+	err := c.cc.Invoke(ctx, MultiResolutionImageReaderService_GetSurface_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *dngCreatorServiceClient) SetThumbnail1(ctx context.Context, in *SetThumbnail1Request, opts ...grpc.CallOption) (*SetThumbnail1Response, error) {
+func (c *multiResolutionImageReaderServiceClient) SetOnImageAvailableListener(ctx context.Context, in *SetOnImageAvailableListenerRequest, opts ...grpc.CallOption) (*SetOnImageAvailableListenerResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetThumbnail1Response)
-	err := c.cc.Invoke(ctx, DngCreatorService_SetThumbnail1_FullMethodName, in, out, cOpts...)
+	out := new(SetOnImageAvailableListenerResponse)
+	err := c.cc.Invoke(ctx, MultiResolutionImageReaderService_SetOnImageAvailableListener_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *dngCreatorServiceClient) SetThumbnail1_1(ctx context.Context, in *SetThumbnail1_1Request, opts ...grpc.CallOption) (*SetThumbnail1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetThumbnail1_1Response)
-	err := c.cc.Invoke(ctx, DngCreatorService_SetThumbnail1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dngCreatorServiceClient) WriteImage(ctx context.Context, in *WriteImageRequest, opts ...grpc.CallOption) (*WriteImageResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteImageResponse)
-	err := c.cc.Invoke(ctx, DngCreatorService_WriteImage_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dngCreatorServiceClient) WriteInputStream(ctx context.Context, in *WriteInputStreamRequest, opts ...grpc.CallOption) (*WriteInputStreamResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteInputStreamResponse)
-	err := c.cc.Invoke(ctx, DngCreatorService_WriteInputStream_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DngCreatorServiceServer is the server API for DngCreatorService service.
-// All implementations must embed UnimplementedDngCreatorServiceServer
+// MultiResolutionImageReaderServiceServer is the server API for MultiResolutionImageReaderService service.
+// All implementations must embed UnimplementedMultiResolutionImageReaderServiceServer
 // for forward compatibility.
-type DngCreatorServiceServer interface {
-	NewDngCreator(context.Context, *NewDngCreatorRequest) (*NewDngCreatorResponse, error)
-	Close(context.Context, *DngCreatorCloseRequest) (*CloseResponse, error)
-	SetDescription(context.Context, *SetDescriptionRequest) (*SetDescriptionResponse, error)
-	SetLocation(context.Context, *SetLocationRequest) (*SetLocationResponse, error)
-	SetOrientation(context.Context, *SetOrientationRequest) (*SetOrientationResponse, error)
-	SetThumbnail1(context.Context, *SetThumbnail1Request) (*SetThumbnail1Response, error)
-	SetThumbnail1_1(context.Context, *SetThumbnail1_1Request) (*SetThumbnail1_1Response, error)
-	WriteImage(context.Context, *WriteImageRequest) (*WriteImageResponse, error)
-	WriteInputStream(context.Context, *WriteInputStreamRequest) (*WriteInputStreamResponse, error)
-	mustEmbedUnimplementedDngCreatorServiceServer()
+type MultiResolutionImageReaderServiceServer interface {
+	NewMultiResolutionImageReader(context.Context, *NewMultiResolutionImageReaderRequest) (*NewMultiResolutionImageReaderResponse, error)
+	Close(context.Context, *MultiResolutionImageReaderCloseRequest) (*CloseResponse, error)
+	Flush(context.Context, *FlushRequest) (*FlushResponse, error)
+	GetStreamInfoForImageReader(context.Context, *GetStreamInfoForImageReaderRequest) (*GetStreamInfoForImageReaderResponse, error)
+	GetSurface(context.Context, *GetSurfaceRequest) (*GetSurfaceResponse, error)
+	SetOnImageAvailableListener(context.Context, *SetOnImageAvailableListenerRequest) (*SetOnImageAvailableListenerResponse, error)
+	mustEmbedUnimplementedMultiResolutionImageReaderServiceServer()
 }
 
-// UnimplementedDngCreatorServiceServer must be embedded to have
+// UnimplementedMultiResolutionImageReaderServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedDngCreatorServiceServer struct{}
+type UnimplementedMultiResolutionImageReaderServiceServer struct{}
 
-func (UnimplementedDngCreatorServiceServer) NewDngCreator(context.Context, *NewDngCreatorRequest) (*NewDngCreatorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewDngCreator not implemented")
+func (UnimplementedMultiResolutionImageReaderServiceServer) NewMultiResolutionImageReader(context.Context, *NewMultiResolutionImageReaderRequest) (*NewMultiResolutionImageReaderResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewMultiResolutionImageReader not implemented")
 }
-func (UnimplementedDngCreatorServiceServer) Close(context.Context, *DngCreatorCloseRequest) (*CloseResponse, error) {
+func (UnimplementedMultiResolutionImageReaderServiceServer) Close(context.Context, *MultiResolutionImageReaderCloseRequest) (*CloseResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
 }
-func (UnimplementedDngCreatorServiceServer) SetDescription(context.Context, *SetDescriptionRequest) (*SetDescriptionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetDescription not implemented")
+func (UnimplementedMultiResolutionImageReaderServiceServer) Flush(context.Context, *FlushRequest) (*FlushResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Flush not implemented")
 }
-func (UnimplementedDngCreatorServiceServer) SetLocation(context.Context, *SetLocationRequest) (*SetLocationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetLocation not implemented")
+func (UnimplementedMultiResolutionImageReaderServiceServer) GetStreamInfoForImageReader(context.Context, *GetStreamInfoForImageReaderRequest) (*GetStreamInfoForImageReaderResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStreamInfoForImageReader not implemented")
 }
-func (UnimplementedDngCreatorServiceServer) SetOrientation(context.Context, *SetOrientationRequest) (*SetOrientationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetOrientation not implemented")
+func (UnimplementedMultiResolutionImageReaderServiceServer) GetSurface(context.Context, *GetSurfaceRequest) (*GetSurfaceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSurface not implemented")
 }
-func (UnimplementedDngCreatorServiceServer) SetThumbnail1(context.Context, *SetThumbnail1Request) (*SetThumbnail1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetThumbnail1 not implemented")
+func (UnimplementedMultiResolutionImageReaderServiceServer) SetOnImageAvailableListener(context.Context, *SetOnImageAvailableListenerRequest) (*SetOnImageAvailableListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetOnImageAvailableListener not implemented")
 }
-func (UnimplementedDngCreatorServiceServer) SetThumbnail1_1(context.Context, *SetThumbnail1_1Request) (*SetThumbnail1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetThumbnail1_1 not implemented")
+func (UnimplementedMultiResolutionImageReaderServiceServer) mustEmbedUnimplementedMultiResolutionImageReaderServiceServer() {
 }
-func (UnimplementedDngCreatorServiceServer) WriteImage(context.Context, *WriteImageRequest) (*WriteImageResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteImage not implemented")
-}
-func (UnimplementedDngCreatorServiceServer) WriteInputStream(context.Context, *WriteInputStreamRequest) (*WriteInputStreamResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteInputStream not implemented")
-}
-func (UnimplementedDngCreatorServiceServer) mustEmbedUnimplementedDngCreatorServiceServer() {}
-func (UnimplementedDngCreatorServiceServer) testEmbeddedByValue()                           {}
+func (UnimplementedMultiResolutionImageReaderServiceServer) testEmbeddedByValue() {}
 
-// UnsafeDngCreatorServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DngCreatorServiceServer will
+// UnsafeMultiResolutionImageReaderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to MultiResolutionImageReaderServiceServer will
 // result in compilation errors.
-type UnsafeDngCreatorServiceServer interface {
-	mustEmbedUnimplementedDngCreatorServiceServer()
+type UnsafeMultiResolutionImageReaderServiceServer interface {
+	mustEmbedUnimplementedMultiResolutionImageReaderServiceServer()
 }
 
-func RegisterDngCreatorServiceServer(s grpc.ServiceRegistrar, srv DngCreatorServiceServer) {
-	// If the following call panics, it indicates UnimplementedDngCreatorServiceServer was
+func RegisterMultiResolutionImageReaderServiceServer(s grpc.ServiceRegistrar, srv MultiResolutionImageReaderServiceServer) {
+	// If the following call panics, it indicates UnimplementedMultiResolutionImageReaderServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&DngCreatorService_ServiceDesc, srv)
+	s.RegisterService(&MultiResolutionImageReaderService_ServiceDesc, srv)
 }
 
-func _DngCreatorService_NewDngCreator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewDngCreatorRequest)
+func _MultiResolutionImageReaderService_NewMultiResolutionImageReader_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewMultiResolutionImageReaderRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DngCreatorServiceServer).NewDngCreator(ctx, in)
+		return srv.(MultiResolutionImageReaderServiceServer).NewMultiResolutionImageReader(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DngCreatorService_NewDngCreator_FullMethodName,
+		FullMethod: MultiResolutionImageReaderService_NewMultiResolutionImageReader_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DngCreatorServiceServer).NewDngCreator(ctx, req.(*NewDngCreatorRequest))
+		return srv.(MultiResolutionImageReaderServiceServer).NewMultiResolutionImageReader(ctx, req.(*NewMultiResolutionImageReaderRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DngCreatorService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DngCreatorCloseRequest)
+func _MultiResolutionImageReaderService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MultiResolutionImageReaderCloseRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DngCreatorServiceServer).Close(ctx, in)
+		return srv.(MultiResolutionImageReaderServiceServer).Close(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DngCreatorService_Close_FullMethodName,
+		FullMethod: MultiResolutionImageReaderService_Close_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DngCreatorServiceServer).Close(ctx, req.(*DngCreatorCloseRequest))
+		return srv.(MultiResolutionImageReaderServiceServer).Close(ctx, req.(*MultiResolutionImageReaderCloseRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DngCreatorService_SetDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetDescriptionRequest)
+func _MultiResolutionImageReaderService_Flush_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FlushRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DngCreatorServiceServer).SetDescription(ctx, in)
+		return srv.(MultiResolutionImageReaderServiceServer).Flush(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DngCreatorService_SetDescription_FullMethodName,
+		FullMethod: MultiResolutionImageReaderService_Flush_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DngCreatorServiceServer).SetDescription(ctx, req.(*SetDescriptionRequest))
+		return srv.(MultiResolutionImageReaderServiceServer).Flush(ctx, req.(*FlushRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DngCreatorService_SetLocation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetLocationRequest)
+func _MultiResolutionImageReaderService_GetStreamInfoForImageReader_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStreamInfoForImageReaderRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DngCreatorServiceServer).SetLocation(ctx, in)
+		return srv.(MultiResolutionImageReaderServiceServer).GetStreamInfoForImageReader(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DngCreatorService_SetLocation_FullMethodName,
+		FullMethod: MultiResolutionImageReaderService_GetStreamInfoForImageReader_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DngCreatorServiceServer).SetLocation(ctx, req.(*SetLocationRequest))
+		return srv.(MultiResolutionImageReaderServiceServer).GetStreamInfoForImageReader(ctx, req.(*GetStreamInfoForImageReaderRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DngCreatorService_SetOrientation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetOrientationRequest)
+func _MultiResolutionImageReaderService_GetSurface_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSurfaceRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DngCreatorServiceServer).SetOrientation(ctx, in)
+		return srv.(MultiResolutionImageReaderServiceServer).GetSurface(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DngCreatorService_SetOrientation_FullMethodName,
+		FullMethod: MultiResolutionImageReaderService_GetSurface_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DngCreatorServiceServer).SetOrientation(ctx, req.(*SetOrientationRequest))
+		return srv.(MultiResolutionImageReaderServiceServer).GetSurface(ctx, req.(*GetSurfaceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DngCreatorService_SetThumbnail1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetThumbnail1Request)
+func _MultiResolutionImageReaderService_SetOnImageAvailableListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetOnImageAvailableListenerRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DngCreatorServiceServer).SetThumbnail1(ctx, in)
+		return srv.(MultiResolutionImageReaderServiceServer).SetOnImageAvailableListener(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DngCreatorService_SetThumbnail1_FullMethodName,
+		FullMethod: MultiResolutionImageReaderService_SetOnImageAvailableListener_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DngCreatorServiceServer).SetThumbnail1(ctx, req.(*SetThumbnail1Request))
+		return srv.(MultiResolutionImageReaderServiceServer).SetOnImageAvailableListener(ctx, req.(*SetOnImageAvailableListenerRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DngCreatorService_SetThumbnail1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetThumbnail1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DngCreatorServiceServer).SetThumbnail1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DngCreatorService_SetThumbnail1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DngCreatorServiceServer).SetThumbnail1_1(ctx, req.(*SetThumbnail1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DngCreatorService_WriteImage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteImageRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DngCreatorServiceServer).WriteImage(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DngCreatorService_WriteImage_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DngCreatorServiceServer).WriteImage(ctx, req.(*WriteImageRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DngCreatorService_WriteInputStream_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteInputStreamRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DngCreatorServiceServer).WriteInputStream(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DngCreatorService_WriteInputStream_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DngCreatorServiceServer).WriteInputStream(ctx, req.(*WriteInputStreamRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DngCreatorService_ServiceDesc is the grpc.ServiceDesc for DngCreatorService service.
+// MultiResolutionImageReaderService_ServiceDesc is the grpc.ServiceDesc for MultiResolutionImageReaderService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var DngCreatorService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "camera2.DngCreatorService",
-	HandlerType: (*DngCreatorServiceServer)(nil),
+var MultiResolutionImageReaderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "camera2.MultiResolutionImageReaderService",
+	HandlerType: (*MultiResolutionImageReaderServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewDngCreator",
-			Handler:    _DngCreatorService_NewDngCreator_Handler,
+			MethodName: "NewMultiResolutionImageReader",
+			Handler:    _MultiResolutionImageReaderService_NewMultiResolutionImageReader_Handler,
 		},
 		{
 			MethodName: "Close",
-			Handler:    _DngCreatorService_Close_Handler,
+			Handler:    _MultiResolutionImageReaderService_Close_Handler,
 		},
 		{
-			MethodName: "SetDescription",
-			Handler:    _DngCreatorService_SetDescription_Handler,
+			MethodName: "Flush",
+			Handler:    _MultiResolutionImageReaderService_Flush_Handler,
 		},
 		{
-			MethodName: "SetLocation",
-			Handler:    _DngCreatorService_SetLocation_Handler,
+			MethodName: "GetStreamInfoForImageReader",
+			Handler:    _MultiResolutionImageReaderService_GetStreamInfoForImageReader_Handler,
 		},
 		{
-			MethodName: "SetOrientation",
-			Handler:    _DngCreatorService_SetOrientation_Handler,
+			MethodName: "GetSurface",
+			Handler:    _MultiResolutionImageReaderService_GetSurface_Handler,
 		},
 		{
-			MethodName: "SetThumbnail1",
-			Handler:    _DngCreatorService_SetThumbnail1_Handler,
-		},
-		{
-			MethodName: "SetThumbnail1_1",
-			Handler:    _DngCreatorService_SetThumbnail1_1_Handler,
-		},
-		{
-			MethodName: "WriteImage",
-			Handler:    _DngCreatorService_WriteImage_Handler,
-		},
-		{
-			MethodName: "WriteInputStream",
-			Handler:    _DngCreatorService_WriteInputStream_Handler,
+			MethodName: "SetOnImageAvailableListener",
+			Handler:    _MultiResolutionImageReaderService_SetOnImageAvailableListener_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -6149,140 +5740,1503 @@ var DngCreatorService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	CameraAccessExceptionService_NewCameraAccessException_FullMethodName = "/camera2.CameraAccessExceptionService/NewCameraAccessException"
-	CameraAccessExceptionService_GetReason_FullMethodName                = "/camera2.CameraAccessExceptionService/GetReason"
+	CameraExtensionSessionService_Capture_FullMethodName                        = "/camera2.CameraExtensionSessionService/Capture"
+	CameraExtensionSessionService_Close_FullMethodName                          = "/camera2.CameraExtensionSessionService/Close"
+	CameraExtensionSessionService_GetDevice_FullMethodName                      = "/camera2.CameraExtensionSessionService/GetDevice"
+	CameraExtensionSessionService_GetRealtimeStillCaptureLatency_FullMethodName = "/camera2.CameraExtensionSessionService/GetRealtimeStillCaptureLatency"
+	CameraExtensionSessionService_SetRepeatingRequest_FullMethodName            = "/camera2.CameraExtensionSessionService/SetRepeatingRequest"
+	CameraExtensionSessionService_StopRepeating_FullMethodName                  = "/camera2.CameraExtensionSessionService/StopRepeating"
 )
 
-// CameraAccessExceptionServiceClient is the client API for CameraAccessExceptionService service.
+// CameraExtensionSessionServiceClient is the client API for CameraExtensionSessionService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CameraAccessExceptionServiceClient interface {
-	NewCameraAccessException(ctx context.Context, in *NewCameraAccessExceptionRequest, opts ...grpc.CallOption) (*NewCameraAccessExceptionResponse, error)
-	GetReason(ctx context.Context, in *CameraAccessExceptionGetReasonRequest, opts ...grpc.CallOption) (*GetReasonResponse, error)
+type CameraExtensionSessionServiceClient interface {
+	Capture(ctx context.Context, in *CaptureRequest, opts ...grpc.CallOption) (*CaptureResponse, error)
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	GetDevice(ctx context.Context, in *GetDeviceRequest, opts ...grpc.CallOption) (*GetDeviceResponse, error)
+	GetRealtimeStillCaptureLatency(ctx context.Context, in *GetRealtimeStillCaptureLatencyRequest, opts ...grpc.CallOption) (*GetRealtimeStillCaptureLatencyResponse, error)
+	SetRepeatingRequest(ctx context.Context, in *SetRepeatingRequestRequest, opts ...grpc.CallOption) (*SetRepeatingRequestResponse, error)
+	StopRepeating(ctx context.Context, in *StopRepeatingRequest, opts ...grpc.CallOption) (*StopRepeatingResponse, error)
 }
 
-type cameraAccessExceptionServiceClient struct {
+type cameraExtensionSessionServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewCameraAccessExceptionServiceClient(cc grpc.ClientConnInterface) CameraAccessExceptionServiceClient {
-	return &cameraAccessExceptionServiceClient{cc}
+func NewCameraExtensionSessionServiceClient(cc grpc.ClientConnInterface) CameraExtensionSessionServiceClient {
+	return &cameraExtensionSessionServiceClient{cc}
 }
 
-func (c *cameraAccessExceptionServiceClient) NewCameraAccessException(ctx context.Context, in *NewCameraAccessExceptionRequest, opts ...grpc.CallOption) (*NewCameraAccessExceptionResponse, error) {
+func (c *cameraExtensionSessionServiceClient) Capture(ctx context.Context, in *CaptureRequest, opts ...grpc.CallOption) (*CaptureResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewCameraAccessExceptionResponse)
-	err := c.cc.Invoke(ctx, CameraAccessExceptionService_NewCameraAccessException_FullMethodName, in, out, cOpts...)
+	out := new(CaptureResponse)
+	err := c.cc.Invoke(ctx, CameraExtensionSessionService_Capture_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *cameraAccessExceptionServiceClient) GetReason(ctx context.Context, in *CameraAccessExceptionGetReasonRequest, opts ...grpc.CallOption) (*GetReasonResponse, error) {
+func (c *cameraExtensionSessionServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetReasonResponse)
-	err := c.cc.Invoke(ctx, CameraAccessExceptionService_GetReason_FullMethodName, in, out, cOpts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, CameraExtensionSessionService_Close_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// CameraAccessExceptionServiceServer is the server API for CameraAccessExceptionService service.
-// All implementations must embed UnimplementedCameraAccessExceptionServiceServer
+func (c *cameraExtensionSessionServiceClient) GetDevice(ctx context.Context, in *GetDeviceRequest, opts ...grpc.CallOption) (*GetDeviceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDeviceResponse)
+	err := c.cc.Invoke(ctx, CameraExtensionSessionService_GetDevice_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraExtensionSessionServiceClient) GetRealtimeStillCaptureLatency(ctx context.Context, in *GetRealtimeStillCaptureLatencyRequest, opts ...grpc.CallOption) (*GetRealtimeStillCaptureLatencyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRealtimeStillCaptureLatencyResponse)
+	err := c.cc.Invoke(ctx, CameraExtensionSessionService_GetRealtimeStillCaptureLatency_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraExtensionSessionServiceClient) SetRepeatingRequest(ctx context.Context, in *SetRepeatingRequestRequest, opts ...grpc.CallOption) (*SetRepeatingRequestResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetRepeatingRequestResponse)
+	err := c.cc.Invoke(ctx, CameraExtensionSessionService_SetRepeatingRequest_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraExtensionSessionServiceClient) StopRepeating(ctx context.Context, in *StopRepeatingRequest, opts ...grpc.CallOption) (*StopRepeatingResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(StopRepeatingResponse)
+	err := c.cc.Invoke(ctx, CameraExtensionSessionService_StopRepeating_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CameraExtensionSessionServiceServer is the server API for CameraExtensionSessionService service.
+// All implementations must embed UnimplementedCameraExtensionSessionServiceServer
 // for forward compatibility.
-type CameraAccessExceptionServiceServer interface {
-	NewCameraAccessException(context.Context, *NewCameraAccessExceptionRequest) (*NewCameraAccessExceptionResponse, error)
-	GetReason(context.Context, *CameraAccessExceptionGetReasonRequest) (*GetReasonResponse, error)
-	mustEmbedUnimplementedCameraAccessExceptionServiceServer()
+type CameraExtensionSessionServiceServer interface {
+	Capture(context.Context, *CaptureRequest) (*CaptureResponse, error)
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	GetDevice(context.Context, *GetDeviceRequest) (*GetDeviceResponse, error)
+	GetRealtimeStillCaptureLatency(context.Context, *GetRealtimeStillCaptureLatencyRequest) (*GetRealtimeStillCaptureLatencyResponse, error)
+	SetRepeatingRequest(context.Context, *SetRepeatingRequestRequest) (*SetRepeatingRequestResponse, error)
+	StopRepeating(context.Context, *StopRepeatingRequest) (*StopRepeatingResponse, error)
+	mustEmbedUnimplementedCameraExtensionSessionServiceServer()
 }
 
-// UnimplementedCameraAccessExceptionServiceServer must be embedded to have
+// UnimplementedCameraExtensionSessionServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedCameraAccessExceptionServiceServer struct{}
+type UnimplementedCameraExtensionSessionServiceServer struct{}
 
-func (UnimplementedCameraAccessExceptionServiceServer) NewCameraAccessException(context.Context, *NewCameraAccessExceptionRequest) (*NewCameraAccessExceptionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewCameraAccessException not implemented")
+func (UnimplementedCameraExtensionSessionServiceServer) Capture(context.Context, *CaptureRequest) (*CaptureResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Capture not implemented")
 }
-func (UnimplementedCameraAccessExceptionServiceServer) GetReason(context.Context, *CameraAccessExceptionGetReasonRequest) (*GetReasonResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetReason not implemented")
+func (UnimplementedCameraExtensionSessionServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
 }
-func (UnimplementedCameraAccessExceptionServiceServer) mustEmbedUnimplementedCameraAccessExceptionServiceServer() {
+func (UnimplementedCameraExtensionSessionServiceServer) GetDevice(context.Context, *GetDeviceRequest) (*GetDeviceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDevice not implemented")
 }
-func (UnimplementedCameraAccessExceptionServiceServer) testEmbeddedByValue() {}
+func (UnimplementedCameraExtensionSessionServiceServer) GetRealtimeStillCaptureLatency(context.Context, *GetRealtimeStillCaptureLatencyRequest) (*GetRealtimeStillCaptureLatencyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRealtimeStillCaptureLatency not implemented")
+}
+func (UnimplementedCameraExtensionSessionServiceServer) SetRepeatingRequest(context.Context, *SetRepeatingRequestRequest) (*SetRepeatingRequestResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetRepeatingRequest not implemented")
+}
+func (UnimplementedCameraExtensionSessionServiceServer) StopRepeating(context.Context, *StopRepeatingRequest) (*StopRepeatingResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method StopRepeating not implemented")
+}
+func (UnimplementedCameraExtensionSessionServiceServer) mustEmbedUnimplementedCameraExtensionSessionServiceServer() {
+}
+func (UnimplementedCameraExtensionSessionServiceServer) testEmbeddedByValue() {}
 
-// UnsafeCameraAccessExceptionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CameraAccessExceptionServiceServer will
+// UnsafeCameraExtensionSessionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CameraExtensionSessionServiceServer will
 // result in compilation errors.
-type UnsafeCameraAccessExceptionServiceServer interface {
-	mustEmbedUnimplementedCameraAccessExceptionServiceServer()
+type UnsafeCameraExtensionSessionServiceServer interface {
+	mustEmbedUnimplementedCameraExtensionSessionServiceServer()
 }
 
-func RegisterCameraAccessExceptionServiceServer(s grpc.ServiceRegistrar, srv CameraAccessExceptionServiceServer) {
-	// If the following call panics, it indicates UnimplementedCameraAccessExceptionServiceServer was
+func RegisterCameraExtensionSessionServiceServer(s grpc.ServiceRegistrar, srv CameraExtensionSessionServiceServer) {
+	// If the following call panics, it indicates UnimplementedCameraExtensionSessionServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&CameraAccessExceptionService_ServiceDesc, srv)
+	s.RegisterService(&CameraExtensionSessionService_ServiceDesc, srv)
 }
 
-func _CameraAccessExceptionService_NewCameraAccessException_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewCameraAccessExceptionRequest)
+func _CameraExtensionSessionService_Capture_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CaptureRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CameraAccessExceptionServiceServer).NewCameraAccessException(ctx, in)
+		return srv.(CameraExtensionSessionServiceServer).Capture(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CameraAccessExceptionService_NewCameraAccessException_FullMethodName,
+		FullMethod: CameraExtensionSessionService_Capture_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraAccessExceptionServiceServer).NewCameraAccessException(ctx, req.(*NewCameraAccessExceptionRequest))
+		return srv.(CameraExtensionSessionServiceServer).Capture(ctx, req.(*CaptureRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CameraAccessExceptionService_GetReason_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CameraAccessExceptionGetReasonRequest)
+func _CameraExtensionSessionService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CameraAccessExceptionServiceServer).GetReason(ctx, in)
+		return srv.(CameraExtensionSessionServiceServer).Close(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: CameraAccessExceptionService_GetReason_FullMethodName,
+		FullMethod: CameraExtensionSessionService_Close_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CameraAccessExceptionServiceServer).GetReason(ctx, req.(*CameraAccessExceptionGetReasonRequest))
+		return srv.(CameraExtensionSessionServiceServer).Close(ctx, req.(*CloseRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// CameraAccessExceptionService_ServiceDesc is the grpc.ServiceDesc for CameraAccessExceptionService service.
+func _CameraExtensionSessionService_GetDevice_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDeviceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraExtensionSessionServiceServer).GetDevice(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraExtensionSessionService_GetDevice_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraExtensionSessionServiceServer).GetDevice(ctx, req.(*GetDeviceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraExtensionSessionService_GetRealtimeStillCaptureLatency_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRealtimeStillCaptureLatencyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraExtensionSessionServiceServer).GetRealtimeStillCaptureLatency(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraExtensionSessionService_GetRealtimeStillCaptureLatency_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraExtensionSessionServiceServer).GetRealtimeStillCaptureLatency(ctx, req.(*GetRealtimeStillCaptureLatencyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraExtensionSessionService_SetRepeatingRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetRepeatingRequestRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraExtensionSessionServiceServer).SetRepeatingRequest(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraExtensionSessionService_SetRepeatingRequest_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraExtensionSessionServiceServer).SetRepeatingRequest(ctx, req.(*SetRepeatingRequestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraExtensionSessionService_StopRepeating_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StopRepeatingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraExtensionSessionServiceServer).StopRepeating(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraExtensionSessionService_StopRepeating_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraExtensionSessionServiceServer).StopRepeating(ctx, req.(*StopRepeatingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CameraExtensionSessionService_ServiceDesc is the grpc.ServiceDesc for CameraExtensionSessionService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var CameraAccessExceptionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "camera2.CameraAccessExceptionService",
-	HandlerType: (*CameraAccessExceptionServiceServer)(nil),
+var CameraExtensionSessionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "camera2.CameraExtensionSessionService",
+	HandlerType: (*CameraExtensionSessionServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewCameraAccessException",
-			Handler:    _CameraAccessExceptionService_NewCameraAccessException_Handler,
+			MethodName: "Capture",
+			Handler:    _CameraExtensionSessionService_Capture_Handler,
 		},
 		{
-			MethodName: "GetReason",
-			Handler:    _CameraAccessExceptionService_GetReason_Handler,
+			MethodName: "Close",
+			Handler:    _CameraExtensionSessionService_Close_Handler,
+		},
+		{
+			MethodName: "GetDevice",
+			Handler:    _CameraExtensionSessionService_GetDevice_Handler,
+		},
+		{
+			MethodName: "GetRealtimeStillCaptureLatency",
+			Handler:    _CameraExtensionSessionService_GetRealtimeStillCaptureLatency_Handler,
+		},
+		{
+			MethodName: "SetRepeatingRequest",
+			Handler:    _CameraExtensionSessionService_SetRepeatingRequest_Handler,
+		},
+		{
+			MethodName: "StopRepeating",
+			Handler:    _CameraExtensionSessionService_StopRepeating_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/camera2/camera2.proto",
+}
+
+const (
+	CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureFailed2_FullMethodName           = "/camera2.CameraExtensionSessionExtensionCaptureCallbackService/OnCaptureFailed2"
+	CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureFailed3_1_FullMethodName         = "/camera2.CameraExtensionSessionExtensionCaptureCallbackService/OnCaptureFailed3_1"
+	CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureProcessProgressed_FullMethodName = "/camera2.CameraExtensionSessionExtensionCaptureCallbackService/OnCaptureProcessProgressed"
+	CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureProcessStarted_FullMethodName    = "/camera2.CameraExtensionSessionExtensionCaptureCallbackService/OnCaptureProcessStarted"
+	CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureResultAvailable_FullMethodName   = "/camera2.CameraExtensionSessionExtensionCaptureCallbackService/OnCaptureResultAvailable"
+	CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureSequenceAborted_FullMethodName   = "/camera2.CameraExtensionSessionExtensionCaptureCallbackService/OnCaptureSequenceAborted"
+	CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureSequenceCompleted_FullMethodName = "/camera2.CameraExtensionSessionExtensionCaptureCallbackService/OnCaptureSequenceCompleted"
+	CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureStarted_FullMethodName           = "/camera2.CameraExtensionSessionExtensionCaptureCallbackService/OnCaptureStarted"
+)
+
+// CameraExtensionSessionExtensionCaptureCallbackServiceClient is the client API for CameraExtensionSessionExtensionCaptureCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CameraExtensionSessionExtensionCaptureCallbackServiceClient interface {
+	OnCaptureFailed2(ctx context.Context, in *OnCaptureFailed2Request, opts ...grpc.CallOption) (*OnCaptureFailed2Response, error)
+	OnCaptureFailed3_1(ctx context.Context, in *OnCaptureFailed3_1Request, opts ...grpc.CallOption) (*OnCaptureFailed3_1Response, error)
+	OnCaptureProcessProgressed(ctx context.Context, in *OnCaptureProcessProgressedRequest, opts ...grpc.CallOption) (*OnCaptureProcessProgressedResponse, error)
+	OnCaptureProcessStarted(ctx context.Context, in *OnCaptureProcessStartedRequest, opts ...grpc.CallOption) (*OnCaptureProcessStartedResponse, error)
+	OnCaptureResultAvailable(ctx context.Context, in *OnCaptureResultAvailableRequest, opts ...grpc.CallOption) (*OnCaptureResultAvailableResponse, error)
+	OnCaptureSequenceAborted(ctx context.Context, in *OnCaptureSequenceAbortedRequest, opts ...grpc.CallOption) (*OnCaptureSequenceAbortedResponse, error)
+	OnCaptureSequenceCompleted(ctx context.Context, in *CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceCompletedRequest, opts ...grpc.CallOption) (*OnCaptureSequenceCompletedResponse, error)
+	OnCaptureStarted(ctx context.Context, in *CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedRequest, opts ...grpc.CallOption) (*OnCaptureStartedResponse, error)
+}
+
+type cameraExtensionSessionExtensionCaptureCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCameraExtensionSessionExtensionCaptureCallbackServiceClient(cc grpc.ClientConnInterface) CameraExtensionSessionExtensionCaptureCallbackServiceClient {
+	return &cameraExtensionSessionExtensionCaptureCallbackServiceClient{cc}
+}
+
+func (c *cameraExtensionSessionExtensionCaptureCallbackServiceClient) OnCaptureFailed2(ctx context.Context, in *OnCaptureFailed2Request, opts ...grpc.CallOption) (*OnCaptureFailed2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCaptureFailed2Response)
+	err := c.cc.Invoke(ctx, CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureFailed2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraExtensionSessionExtensionCaptureCallbackServiceClient) OnCaptureFailed3_1(ctx context.Context, in *OnCaptureFailed3_1Request, opts ...grpc.CallOption) (*OnCaptureFailed3_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCaptureFailed3_1Response)
+	err := c.cc.Invoke(ctx, CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureFailed3_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraExtensionSessionExtensionCaptureCallbackServiceClient) OnCaptureProcessProgressed(ctx context.Context, in *OnCaptureProcessProgressedRequest, opts ...grpc.CallOption) (*OnCaptureProcessProgressedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCaptureProcessProgressedResponse)
+	err := c.cc.Invoke(ctx, CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureProcessProgressed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraExtensionSessionExtensionCaptureCallbackServiceClient) OnCaptureProcessStarted(ctx context.Context, in *OnCaptureProcessStartedRequest, opts ...grpc.CallOption) (*OnCaptureProcessStartedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCaptureProcessStartedResponse)
+	err := c.cc.Invoke(ctx, CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureProcessStarted_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraExtensionSessionExtensionCaptureCallbackServiceClient) OnCaptureResultAvailable(ctx context.Context, in *OnCaptureResultAvailableRequest, opts ...grpc.CallOption) (*OnCaptureResultAvailableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCaptureResultAvailableResponse)
+	err := c.cc.Invoke(ctx, CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureResultAvailable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraExtensionSessionExtensionCaptureCallbackServiceClient) OnCaptureSequenceAborted(ctx context.Context, in *OnCaptureSequenceAbortedRequest, opts ...grpc.CallOption) (*OnCaptureSequenceAbortedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCaptureSequenceAbortedResponse)
+	err := c.cc.Invoke(ctx, CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureSequenceAborted_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraExtensionSessionExtensionCaptureCallbackServiceClient) OnCaptureSequenceCompleted(ctx context.Context, in *CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceCompletedRequest, opts ...grpc.CallOption) (*OnCaptureSequenceCompletedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCaptureSequenceCompletedResponse)
+	err := c.cc.Invoke(ctx, CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureSequenceCompleted_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraExtensionSessionExtensionCaptureCallbackServiceClient) OnCaptureStarted(ctx context.Context, in *CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedRequest, opts ...grpc.CallOption) (*OnCaptureStartedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnCaptureStartedResponse)
+	err := c.cc.Invoke(ctx, CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureStarted_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CameraExtensionSessionExtensionCaptureCallbackServiceServer is the server API for CameraExtensionSessionExtensionCaptureCallbackService service.
+// All implementations must embed UnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer
+// for forward compatibility.
+type CameraExtensionSessionExtensionCaptureCallbackServiceServer interface {
+	OnCaptureFailed2(context.Context, *OnCaptureFailed2Request) (*OnCaptureFailed2Response, error)
+	OnCaptureFailed3_1(context.Context, *OnCaptureFailed3_1Request) (*OnCaptureFailed3_1Response, error)
+	OnCaptureProcessProgressed(context.Context, *OnCaptureProcessProgressedRequest) (*OnCaptureProcessProgressedResponse, error)
+	OnCaptureProcessStarted(context.Context, *OnCaptureProcessStartedRequest) (*OnCaptureProcessStartedResponse, error)
+	OnCaptureResultAvailable(context.Context, *OnCaptureResultAvailableRequest) (*OnCaptureResultAvailableResponse, error)
+	OnCaptureSequenceAborted(context.Context, *OnCaptureSequenceAbortedRequest) (*OnCaptureSequenceAbortedResponse, error)
+	OnCaptureSequenceCompleted(context.Context, *CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceCompletedRequest) (*OnCaptureSequenceCompletedResponse, error)
+	OnCaptureStarted(context.Context, *CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedRequest) (*OnCaptureStartedResponse, error)
+	mustEmbedUnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer()
+}
+
+// UnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer struct{}
+
+func (UnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer) OnCaptureFailed2(context.Context, *OnCaptureFailed2Request) (*OnCaptureFailed2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCaptureFailed2 not implemented")
+}
+func (UnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer) OnCaptureFailed3_1(context.Context, *OnCaptureFailed3_1Request) (*OnCaptureFailed3_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCaptureFailed3_1 not implemented")
+}
+func (UnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer) OnCaptureProcessProgressed(context.Context, *OnCaptureProcessProgressedRequest) (*OnCaptureProcessProgressedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCaptureProcessProgressed not implemented")
+}
+func (UnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer) OnCaptureProcessStarted(context.Context, *OnCaptureProcessStartedRequest) (*OnCaptureProcessStartedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCaptureProcessStarted not implemented")
+}
+func (UnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer) OnCaptureResultAvailable(context.Context, *OnCaptureResultAvailableRequest) (*OnCaptureResultAvailableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCaptureResultAvailable not implemented")
+}
+func (UnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer) OnCaptureSequenceAborted(context.Context, *OnCaptureSequenceAbortedRequest) (*OnCaptureSequenceAbortedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCaptureSequenceAborted not implemented")
+}
+func (UnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer) OnCaptureSequenceCompleted(context.Context, *CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceCompletedRequest) (*OnCaptureSequenceCompletedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCaptureSequenceCompleted not implemented")
+}
+func (UnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer) OnCaptureStarted(context.Context, *CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedRequest) (*OnCaptureStartedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnCaptureStarted not implemented")
+}
+func (UnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer) mustEmbedUnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer() {
+}
+func (UnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer) testEmbeddedByValue() {
+}
+
+// UnsafeCameraExtensionSessionExtensionCaptureCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CameraExtensionSessionExtensionCaptureCallbackServiceServer will
+// result in compilation errors.
+type UnsafeCameraExtensionSessionExtensionCaptureCallbackServiceServer interface {
+	mustEmbedUnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer()
+}
+
+func RegisterCameraExtensionSessionExtensionCaptureCallbackServiceServer(s grpc.ServiceRegistrar, srv CameraExtensionSessionExtensionCaptureCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedCameraExtensionSessionExtensionCaptureCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CameraExtensionSessionExtensionCaptureCallbackService_ServiceDesc, srv)
+}
+
+func _CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureFailed2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCaptureFailed2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraExtensionSessionExtensionCaptureCallbackServiceServer).OnCaptureFailed2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureFailed2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraExtensionSessionExtensionCaptureCallbackServiceServer).OnCaptureFailed2(ctx, req.(*OnCaptureFailed2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureFailed3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCaptureFailed3_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraExtensionSessionExtensionCaptureCallbackServiceServer).OnCaptureFailed3_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureFailed3_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraExtensionSessionExtensionCaptureCallbackServiceServer).OnCaptureFailed3_1(ctx, req.(*OnCaptureFailed3_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureProcessProgressed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCaptureProcessProgressedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraExtensionSessionExtensionCaptureCallbackServiceServer).OnCaptureProcessProgressed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureProcessProgressed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraExtensionSessionExtensionCaptureCallbackServiceServer).OnCaptureProcessProgressed(ctx, req.(*OnCaptureProcessProgressedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureProcessStarted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCaptureProcessStartedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraExtensionSessionExtensionCaptureCallbackServiceServer).OnCaptureProcessStarted(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureProcessStarted_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraExtensionSessionExtensionCaptureCallbackServiceServer).OnCaptureProcessStarted(ctx, req.(*OnCaptureProcessStartedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureResultAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCaptureResultAvailableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraExtensionSessionExtensionCaptureCallbackServiceServer).OnCaptureResultAvailable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureResultAvailable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraExtensionSessionExtensionCaptureCallbackServiceServer).OnCaptureResultAvailable(ctx, req.(*OnCaptureResultAvailableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureSequenceAborted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnCaptureSequenceAbortedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraExtensionSessionExtensionCaptureCallbackServiceServer).OnCaptureSequenceAborted(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureSequenceAborted_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraExtensionSessionExtensionCaptureCallbackServiceServer).OnCaptureSequenceAborted(ctx, req.(*OnCaptureSequenceAbortedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureSequenceCompleted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceCompletedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraExtensionSessionExtensionCaptureCallbackServiceServer).OnCaptureSequenceCompleted(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureSequenceCompleted_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraExtensionSessionExtensionCaptureCallbackServiceServer).OnCaptureSequenceCompleted(ctx, req.(*CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceCompletedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureStarted_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraExtensionSessionExtensionCaptureCallbackServiceServer).OnCaptureStarted(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureStarted_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraExtensionSessionExtensionCaptureCallbackServiceServer).OnCaptureStarted(ctx, req.(*CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CameraExtensionSessionExtensionCaptureCallbackService_ServiceDesc is the grpc.ServiceDesc for CameraExtensionSessionExtensionCaptureCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CameraExtensionSessionExtensionCaptureCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "camera2.CameraExtensionSessionExtensionCaptureCallbackService",
+	HandlerType: (*CameraExtensionSessionExtensionCaptureCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnCaptureFailed2",
+			Handler:    _CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureFailed2_Handler,
+		},
+		{
+			MethodName: "OnCaptureFailed3_1",
+			Handler:    _CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureFailed3_1_Handler,
+		},
+		{
+			MethodName: "OnCaptureProcessProgressed",
+			Handler:    _CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureProcessProgressed_Handler,
+		},
+		{
+			MethodName: "OnCaptureProcessStarted",
+			Handler:    _CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureProcessStarted_Handler,
+		},
+		{
+			MethodName: "OnCaptureResultAvailable",
+			Handler:    _CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureResultAvailable_Handler,
+		},
+		{
+			MethodName: "OnCaptureSequenceAborted",
+			Handler:    _CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureSequenceAborted_Handler,
+		},
+		{
+			MethodName: "OnCaptureSequenceCompleted",
+			Handler:    _CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureSequenceCompleted_Handler,
+		},
+		{
+			MethodName: "OnCaptureStarted",
+			Handler:    _CameraExtensionSessionExtensionCaptureCallbackService_OnCaptureStarted_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/camera2/camera2.proto",
+}
+
+const (
+	CameraExtensionSessionStateCallbackService_OnClosed_FullMethodName          = "/camera2.CameraExtensionSessionStateCallbackService/OnClosed"
+	CameraExtensionSessionStateCallbackService_OnConfigureFailed_FullMethodName = "/camera2.CameraExtensionSessionStateCallbackService/OnConfigureFailed"
+	CameraExtensionSessionStateCallbackService_OnConfigured_FullMethodName      = "/camera2.CameraExtensionSessionStateCallbackService/OnConfigured"
+)
+
+// CameraExtensionSessionStateCallbackServiceClient is the client API for CameraExtensionSessionStateCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CameraExtensionSessionStateCallbackServiceClient interface {
+	OnClosed(ctx context.Context, in *OnClosedRequest, opts ...grpc.CallOption) (*OnClosedResponse, error)
+	OnConfigureFailed(ctx context.Context, in *OnConfigureFailedRequest, opts ...grpc.CallOption) (*OnConfigureFailedResponse, error)
+	OnConfigured(ctx context.Context, in *OnConfiguredRequest, opts ...grpc.CallOption) (*OnConfiguredResponse, error)
+}
+
+type cameraExtensionSessionStateCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCameraExtensionSessionStateCallbackServiceClient(cc grpc.ClientConnInterface) CameraExtensionSessionStateCallbackServiceClient {
+	return &cameraExtensionSessionStateCallbackServiceClient{cc}
+}
+
+func (c *cameraExtensionSessionStateCallbackServiceClient) OnClosed(ctx context.Context, in *OnClosedRequest, opts ...grpc.CallOption) (*OnClosedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnClosedResponse)
+	err := c.cc.Invoke(ctx, CameraExtensionSessionStateCallbackService_OnClosed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraExtensionSessionStateCallbackServiceClient) OnConfigureFailed(ctx context.Context, in *OnConfigureFailedRequest, opts ...grpc.CallOption) (*OnConfigureFailedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnConfigureFailedResponse)
+	err := c.cc.Invoke(ctx, CameraExtensionSessionStateCallbackService_OnConfigureFailed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraExtensionSessionStateCallbackServiceClient) OnConfigured(ctx context.Context, in *OnConfiguredRequest, opts ...grpc.CallOption) (*OnConfiguredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnConfiguredResponse)
+	err := c.cc.Invoke(ctx, CameraExtensionSessionStateCallbackService_OnConfigured_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CameraExtensionSessionStateCallbackServiceServer is the server API for CameraExtensionSessionStateCallbackService service.
+// All implementations must embed UnimplementedCameraExtensionSessionStateCallbackServiceServer
+// for forward compatibility.
+type CameraExtensionSessionStateCallbackServiceServer interface {
+	OnClosed(context.Context, *OnClosedRequest) (*OnClosedResponse, error)
+	OnConfigureFailed(context.Context, *OnConfigureFailedRequest) (*OnConfigureFailedResponse, error)
+	OnConfigured(context.Context, *OnConfiguredRequest) (*OnConfiguredResponse, error)
+	mustEmbedUnimplementedCameraExtensionSessionStateCallbackServiceServer()
+}
+
+// UnimplementedCameraExtensionSessionStateCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCameraExtensionSessionStateCallbackServiceServer struct{}
+
+func (UnimplementedCameraExtensionSessionStateCallbackServiceServer) OnClosed(context.Context, *OnClosedRequest) (*OnClosedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnClosed not implemented")
+}
+func (UnimplementedCameraExtensionSessionStateCallbackServiceServer) OnConfigureFailed(context.Context, *OnConfigureFailedRequest) (*OnConfigureFailedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnConfigureFailed not implemented")
+}
+func (UnimplementedCameraExtensionSessionStateCallbackServiceServer) OnConfigured(context.Context, *OnConfiguredRequest) (*OnConfiguredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnConfigured not implemented")
+}
+func (UnimplementedCameraExtensionSessionStateCallbackServiceServer) mustEmbedUnimplementedCameraExtensionSessionStateCallbackServiceServer() {
+}
+func (UnimplementedCameraExtensionSessionStateCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCameraExtensionSessionStateCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CameraExtensionSessionStateCallbackServiceServer will
+// result in compilation errors.
+type UnsafeCameraExtensionSessionStateCallbackServiceServer interface {
+	mustEmbedUnimplementedCameraExtensionSessionStateCallbackServiceServer()
+}
+
+func RegisterCameraExtensionSessionStateCallbackServiceServer(s grpc.ServiceRegistrar, srv CameraExtensionSessionStateCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedCameraExtensionSessionStateCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CameraExtensionSessionStateCallbackService_ServiceDesc, srv)
+}
+
+func _CameraExtensionSessionStateCallbackService_OnClosed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnClosedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraExtensionSessionStateCallbackServiceServer).OnClosed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraExtensionSessionStateCallbackService_OnClosed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraExtensionSessionStateCallbackServiceServer).OnClosed(ctx, req.(*OnClosedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraExtensionSessionStateCallbackService_OnConfigureFailed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnConfigureFailedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraExtensionSessionStateCallbackServiceServer).OnConfigureFailed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraExtensionSessionStateCallbackService_OnConfigureFailed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraExtensionSessionStateCallbackServiceServer).OnConfigureFailed(ctx, req.(*OnConfigureFailedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraExtensionSessionStateCallbackService_OnConfigured_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnConfiguredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraExtensionSessionStateCallbackServiceServer).OnConfigured(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraExtensionSessionStateCallbackService_OnConfigured_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraExtensionSessionStateCallbackServiceServer).OnConfigured(ctx, req.(*OnConfiguredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CameraExtensionSessionStateCallbackService_ServiceDesc is the grpc.ServiceDesc for CameraExtensionSessionStateCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CameraExtensionSessionStateCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "camera2.CameraExtensionSessionStateCallbackService",
+	HandlerType: (*CameraExtensionSessionStateCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnClosed",
+			Handler:    _CameraExtensionSessionStateCallbackService_OnClosed_Handler,
+		},
+		{
+			MethodName: "OnConfigureFailed",
+			Handler:    _CameraExtensionSessionStateCallbackService_OnConfigureFailed_Handler,
+		},
+		{
+			MethodName: "OnConfigured",
+			Handler:    _CameraExtensionSessionStateCallbackService_OnConfigured_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/camera2/camera2.proto",
+}
+
+const (
+	CameraExtensionSessionStillCaptureLatencyService_Equals_FullMethodName               = "/camera2.CameraExtensionSessionStillCaptureLatencyService/Equals"
+	CameraExtensionSessionStillCaptureLatencyService_GetCaptureLatency_FullMethodName    = "/camera2.CameraExtensionSessionStillCaptureLatencyService/GetCaptureLatency"
+	CameraExtensionSessionStillCaptureLatencyService_GetProcessingLatency_FullMethodName = "/camera2.CameraExtensionSessionStillCaptureLatencyService/GetProcessingLatency"
+	CameraExtensionSessionStillCaptureLatencyService_HashCode_FullMethodName             = "/camera2.CameraExtensionSessionStillCaptureLatencyService/HashCode"
+	CameraExtensionSessionStillCaptureLatencyService_ToString_FullMethodName             = "/camera2.CameraExtensionSessionStillCaptureLatencyService/ToString"
+)
+
+// CameraExtensionSessionStillCaptureLatencyServiceClient is the client API for CameraExtensionSessionStillCaptureLatencyService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CameraExtensionSessionStillCaptureLatencyServiceClient interface {
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetCaptureLatency(ctx context.Context, in *GetCaptureLatencyRequest, opts ...grpc.CallOption) (*GetCaptureLatencyResponse, error)
+	GetProcessingLatency(ctx context.Context, in *GetProcessingLatencyRequest, opts ...grpc.CallOption) (*GetProcessingLatencyResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type cameraExtensionSessionStillCaptureLatencyServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCameraExtensionSessionStillCaptureLatencyServiceClient(cc grpc.ClientConnInterface) CameraExtensionSessionStillCaptureLatencyServiceClient {
+	return &cameraExtensionSessionStillCaptureLatencyServiceClient{cc}
+}
+
+func (c *cameraExtensionSessionStillCaptureLatencyServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, CameraExtensionSessionStillCaptureLatencyService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraExtensionSessionStillCaptureLatencyServiceClient) GetCaptureLatency(ctx context.Context, in *GetCaptureLatencyRequest, opts ...grpc.CallOption) (*GetCaptureLatencyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCaptureLatencyResponse)
+	err := c.cc.Invoke(ctx, CameraExtensionSessionStillCaptureLatencyService_GetCaptureLatency_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraExtensionSessionStillCaptureLatencyServiceClient) GetProcessingLatency(ctx context.Context, in *GetProcessingLatencyRequest, opts ...grpc.CallOption) (*GetProcessingLatencyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetProcessingLatencyResponse)
+	err := c.cc.Invoke(ctx, CameraExtensionSessionStillCaptureLatencyService_GetProcessingLatency_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraExtensionSessionStillCaptureLatencyServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, CameraExtensionSessionStillCaptureLatencyService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraExtensionSessionStillCaptureLatencyServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, CameraExtensionSessionStillCaptureLatencyService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CameraExtensionSessionStillCaptureLatencyServiceServer is the server API for CameraExtensionSessionStillCaptureLatencyService service.
+// All implementations must embed UnimplementedCameraExtensionSessionStillCaptureLatencyServiceServer
+// for forward compatibility.
+type CameraExtensionSessionStillCaptureLatencyServiceServer interface {
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetCaptureLatency(context.Context, *GetCaptureLatencyRequest) (*GetCaptureLatencyResponse, error)
+	GetProcessingLatency(context.Context, *GetProcessingLatencyRequest) (*GetProcessingLatencyResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedCameraExtensionSessionStillCaptureLatencyServiceServer()
+}
+
+// UnimplementedCameraExtensionSessionStillCaptureLatencyServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCameraExtensionSessionStillCaptureLatencyServiceServer struct{}
+
+func (UnimplementedCameraExtensionSessionStillCaptureLatencyServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedCameraExtensionSessionStillCaptureLatencyServiceServer) GetCaptureLatency(context.Context, *GetCaptureLatencyRequest) (*GetCaptureLatencyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCaptureLatency not implemented")
+}
+func (UnimplementedCameraExtensionSessionStillCaptureLatencyServiceServer) GetProcessingLatency(context.Context, *GetProcessingLatencyRequest) (*GetProcessingLatencyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetProcessingLatency not implemented")
+}
+func (UnimplementedCameraExtensionSessionStillCaptureLatencyServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedCameraExtensionSessionStillCaptureLatencyServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedCameraExtensionSessionStillCaptureLatencyServiceServer) mustEmbedUnimplementedCameraExtensionSessionStillCaptureLatencyServiceServer() {
+}
+func (UnimplementedCameraExtensionSessionStillCaptureLatencyServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCameraExtensionSessionStillCaptureLatencyServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CameraExtensionSessionStillCaptureLatencyServiceServer will
+// result in compilation errors.
+type UnsafeCameraExtensionSessionStillCaptureLatencyServiceServer interface {
+	mustEmbedUnimplementedCameraExtensionSessionStillCaptureLatencyServiceServer()
+}
+
+func RegisterCameraExtensionSessionStillCaptureLatencyServiceServer(s grpc.ServiceRegistrar, srv CameraExtensionSessionStillCaptureLatencyServiceServer) {
+	// If the following call panics, it indicates UnimplementedCameraExtensionSessionStillCaptureLatencyServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CameraExtensionSessionStillCaptureLatencyService_ServiceDesc, srv)
+}
+
+func _CameraExtensionSessionStillCaptureLatencyService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraExtensionSessionStillCaptureLatencyServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraExtensionSessionStillCaptureLatencyService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraExtensionSessionStillCaptureLatencyServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraExtensionSessionStillCaptureLatencyService_GetCaptureLatency_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCaptureLatencyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraExtensionSessionStillCaptureLatencyServiceServer).GetCaptureLatency(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraExtensionSessionStillCaptureLatencyService_GetCaptureLatency_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraExtensionSessionStillCaptureLatencyServiceServer).GetCaptureLatency(ctx, req.(*GetCaptureLatencyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraExtensionSessionStillCaptureLatencyService_GetProcessingLatency_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetProcessingLatencyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraExtensionSessionStillCaptureLatencyServiceServer).GetProcessingLatency(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraExtensionSessionStillCaptureLatencyService_GetProcessingLatency_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraExtensionSessionStillCaptureLatencyServiceServer).GetProcessingLatency(ctx, req.(*GetProcessingLatencyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraExtensionSessionStillCaptureLatencyService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraExtensionSessionStillCaptureLatencyServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraExtensionSessionStillCaptureLatencyService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraExtensionSessionStillCaptureLatencyServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraExtensionSessionStillCaptureLatencyService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraExtensionSessionStillCaptureLatencyServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraExtensionSessionStillCaptureLatencyService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraExtensionSessionStillCaptureLatencyServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CameraExtensionSessionStillCaptureLatencyService_ServiceDesc is the grpc.ServiceDesc for CameraExtensionSessionStillCaptureLatencyService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CameraExtensionSessionStillCaptureLatencyService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "camera2.CameraExtensionSessionStillCaptureLatencyService",
+	HandlerType: (*CameraExtensionSessionStillCaptureLatencyServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Equals",
+			Handler:    _CameraExtensionSessionStillCaptureLatencyService_Equals_Handler,
+		},
+		{
+			MethodName: "GetCaptureLatency",
+			Handler:    _CameraExtensionSessionStillCaptureLatencyService_GetCaptureLatency_Handler,
+		},
+		{
+			MethodName: "GetProcessingLatency",
+			Handler:    _CameraExtensionSessionStillCaptureLatencyService_GetProcessingLatency_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _CameraExtensionSessionStillCaptureLatencyService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _CameraExtensionSessionStillCaptureLatencyService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/camera2/camera2.proto",
+}
+
+const (
+	CameraExtensionCharacteristicsService_GetAvailableCaptureRequestKeys_FullMethodName        = "/camera2.CameraExtensionCharacteristicsService/GetAvailableCaptureRequestKeys"
+	CameraExtensionCharacteristicsService_GetAvailableCaptureResultKeys_FullMethodName         = "/camera2.CameraExtensionCharacteristicsService/GetAvailableCaptureResultKeys"
+	CameraExtensionCharacteristicsService_GetEstimatedCaptureLatencyRangeMillis_FullMethodName = "/camera2.CameraExtensionCharacteristicsService/GetEstimatedCaptureLatencyRangeMillis"
+	CameraExtensionCharacteristicsService_GetExtensionSupportedSizes_FullMethodName            = "/camera2.CameraExtensionCharacteristicsService/GetExtensionSupportedSizes"
+	CameraExtensionCharacteristicsService_GetKeys_FullMethodName                               = "/camera2.CameraExtensionCharacteristicsService/GetKeys"
+	CameraExtensionCharacteristicsService_GetPostviewSupportedSizes_FullMethodName             = "/camera2.CameraExtensionCharacteristicsService/GetPostviewSupportedSizes"
+	CameraExtensionCharacteristicsService_GetSupportedExtensions_FullMethodName                = "/camera2.CameraExtensionCharacteristicsService/GetSupportedExtensions"
+	CameraExtensionCharacteristicsService_IsCaptureProcessProgressAvailable_FullMethodName     = "/camera2.CameraExtensionCharacteristicsService/IsCaptureProcessProgressAvailable"
+	CameraExtensionCharacteristicsService_IsPostviewAvailable_FullMethodName                   = "/camera2.CameraExtensionCharacteristicsService/IsPostviewAvailable"
+)
+
+// CameraExtensionCharacteristicsServiceClient is the client API for CameraExtensionCharacteristicsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CameraExtensionCharacteristicsServiceClient interface {
+	GetAvailableCaptureRequestKeys(ctx context.Context, in *CameraExtensionCharacteristicsGetAvailableCaptureRequestKeysRequest, opts ...grpc.CallOption) (*GetAvailableCaptureRequestKeysResponse, error)
+	GetAvailableCaptureResultKeys(ctx context.Context, in *CameraExtensionCharacteristicsGetAvailableCaptureResultKeysRequest, opts ...grpc.CallOption) (*GetAvailableCaptureResultKeysResponse, error)
+	GetEstimatedCaptureLatencyRangeMillis(ctx context.Context, in *GetEstimatedCaptureLatencyRangeMillisRequest, opts ...grpc.CallOption) (*GetEstimatedCaptureLatencyRangeMillisResponse, error)
+	GetExtensionSupportedSizes(ctx context.Context, in *GetExtensionSupportedSizesRequest, opts ...grpc.CallOption) (*GetExtensionSupportedSizesResponse, error)
+	GetKeys(ctx context.Context, in *CameraExtensionCharacteristicsGetKeysRequest, opts ...grpc.CallOption) (*GetKeysResponse, error)
+	GetPostviewSupportedSizes(ctx context.Context, in *GetPostviewSupportedSizesRequest, opts ...grpc.CallOption) (*GetPostviewSupportedSizesResponse, error)
+	GetSupportedExtensions(ctx context.Context, in *GetSupportedExtensionsRequest, opts ...grpc.CallOption) (*GetSupportedExtensionsResponse, error)
+	IsCaptureProcessProgressAvailable(ctx context.Context, in *IsCaptureProcessProgressAvailableRequest, opts ...grpc.CallOption) (*IsCaptureProcessProgressAvailableResponse, error)
+	IsPostviewAvailable(ctx context.Context, in *IsPostviewAvailableRequest, opts ...grpc.CallOption) (*IsPostviewAvailableResponse, error)
+}
+
+type cameraExtensionCharacteristicsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCameraExtensionCharacteristicsServiceClient(cc grpc.ClientConnInterface) CameraExtensionCharacteristicsServiceClient {
+	return &cameraExtensionCharacteristicsServiceClient{cc}
+}
+
+func (c *cameraExtensionCharacteristicsServiceClient) GetAvailableCaptureRequestKeys(ctx context.Context, in *CameraExtensionCharacteristicsGetAvailableCaptureRequestKeysRequest, opts ...grpc.CallOption) (*GetAvailableCaptureRequestKeysResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAvailableCaptureRequestKeysResponse)
+	err := c.cc.Invoke(ctx, CameraExtensionCharacteristicsService_GetAvailableCaptureRequestKeys_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraExtensionCharacteristicsServiceClient) GetAvailableCaptureResultKeys(ctx context.Context, in *CameraExtensionCharacteristicsGetAvailableCaptureResultKeysRequest, opts ...grpc.CallOption) (*GetAvailableCaptureResultKeysResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAvailableCaptureResultKeysResponse)
+	err := c.cc.Invoke(ctx, CameraExtensionCharacteristicsService_GetAvailableCaptureResultKeys_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraExtensionCharacteristicsServiceClient) GetEstimatedCaptureLatencyRangeMillis(ctx context.Context, in *GetEstimatedCaptureLatencyRangeMillisRequest, opts ...grpc.CallOption) (*GetEstimatedCaptureLatencyRangeMillisResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEstimatedCaptureLatencyRangeMillisResponse)
+	err := c.cc.Invoke(ctx, CameraExtensionCharacteristicsService_GetEstimatedCaptureLatencyRangeMillis_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraExtensionCharacteristicsServiceClient) GetExtensionSupportedSizes(ctx context.Context, in *GetExtensionSupportedSizesRequest, opts ...grpc.CallOption) (*GetExtensionSupportedSizesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExtensionSupportedSizesResponse)
+	err := c.cc.Invoke(ctx, CameraExtensionCharacteristicsService_GetExtensionSupportedSizes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraExtensionCharacteristicsServiceClient) GetKeys(ctx context.Context, in *CameraExtensionCharacteristicsGetKeysRequest, opts ...grpc.CallOption) (*GetKeysResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetKeysResponse)
+	err := c.cc.Invoke(ctx, CameraExtensionCharacteristicsService_GetKeys_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraExtensionCharacteristicsServiceClient) GetPostviewSupportedSizes(ctx context.Context, in *GetPostviewSupportedSizesRequest, opts ...grpc.CallOption) (*GetPostviewSupportedSizesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPostviewSupportedSizesResponse)
+	err := c.cc.Invoke(ctx, CameraExtensionCharacteristicsService_GetPostviewSupportedSizes_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraExtensionCharacteristicsServiceClient) GetSupportedExtensions(ctx context.Context, in *GetSupportedExtensionsRequest, opts ...grpc.CallOption) (*GetSupportedExtensionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedExtensionsResponse)
+	err := c.cc.Invoke(ctx, CameraExtensionCharacteristicsService_GetSupportedExtensions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraExtensionCharacteristicsServiceClient) IsCaptureProcessProgressAvailable(ctx context.Context, in *IsCaptureProcessProgressAvailableRequest, opts ...grpc.CallOption) (*IsCaptureProcessProgressAvailableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsCaptureProcessProgressAvailableResponse)
+	err := c.cc.Invoke(ctx, CameraExtensionCharacteristicsService_IsCaptureProcessProgressAvailable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cameraExtensionCharacteristicsServiceClient) IsPostviewAvailable(ctx context.Context, in *IsPostviewAvailableRequest, opts ...grpc.CallOption) (*IsPostviewAvailableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsPostviewAvailableResponse)
+	err := c.cc.Invoke(ctx, CameraExtensionCharacteristicsService_IsPostviewAvailable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CameraExtensionCharacteristicsServiceServer is the server API for CameraExtensionCharacteristicsService service.
+// All implementations must embed UnimplementedCameraExtensionCharacteristicsServiceServer
+// for forward compatibility.
+type CameraExtensionCharacteristicsServiceServer interface {
+	GetAvailableCaptureRequestKeys(context.Context, *CameraExtensionCharacteristicsGetAvailableCaptureRequestKeysRequest) (*GetAvailableCaptureRequestKeysResponse, error)
+	GetAvailableCaptureResultKeys(context.Context, *CameraExtensionCharacteristicsGetAvailableCaptureResultKeysRequest) (*GetAvailableCaptureResultKeysResponse, error)
+	GetEstimatedCaptureLatencyRangeMillis(context.Context, *GetEstimatedCaptureLatencyRangeMillisRequest) (*GetEstimatedCaptureLatencyRangeMillisResponse, error)
+	GetExtensionSupportedSizes(context.Context, *GetExtensionSupportedSizesRequest) (*GetExtensionSupportedSizesResponse, error)
+	GetKeys(context.Context, *CameraExtensionCharacteristicsGetKeysRequest) (*GetKeysResponse, error)
+	GetPostviewSupportedSizes(context.Context, *GetPostviewSupportedSizesRequest) (*GetPostviewSupportedSizesResponse, error)
+	GetSupportedExtensions(context.Context, *GetSupportedExtensionsRequest) (*GetSupportedExtensionsResponse, error)
+	IsCaptureProcessProgressAvailable(context.Context, *IsCaptureProcessProgressAvailableRequest) (*IsCaptureProcessProgressAvailableResponse, error)
+	IsPostviewAvailable(context.Context, *IsPostviewAvailableRequest) (*IsPostviewAvailableResponse, error)
+	mustEmbedUnimplementedCameraExtensionCharacteristicsServiceServer()
+}
+
+// UnimplementedCameraExtensionCharacteristicsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCameraExtensionCharacteristicsServiceServer struct{}
+
+func (UnimplementedCameraExtensionCharacteristicsServiceServer) GetAvailableCaptureRequestKeys(context.Context, *CameraExtensionCharacteristicsGetAvailableCaptureRequestKeysRequest) (*GetAvailableCaptureRequestKeysResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAvailableCaptureRequestKeys not implemented")
+}
+func (UnimplementedCameraExtensionCharacteristicsServiceServer) GetAvailableCaptureResultKeys(context.Context, *CameraExtensionCharacteristicsGetAvailableCaptureResultKeysRequest) (*GetAvailableCaptureResultKeysResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAvailableCaptureResultKeys not implemented")
+}
+func (UnimplementedCameraExtensionCharacteristicsServiceServer) GetEstimatedCaptureLatencyRangeMillis(context.Context, *GetEstimatedCaptureLatencyRangeMillisRequest) (*GetEstimatedCaptureLatencyRangeMillisResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEstimatedCaptureLatencyRangeMillis not implemented")
+}
+func (UnimplementedCameraExtensionCharacteristicsServiceServer) GetExtensionSupportedSizes(context.Context, *GetExtensionSupportedSizesRequest) (*GetExtensionSupportedSizesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtensionSupportedSizes not implemented")
+}
+func (UnimplementedCameraExtensionCharacteristicsServiceServer) GetKeys(context.Context, *CameraExtensionCharacteristicsGetKeysRequest) (*GetKeysResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetKeys not implemented")
+}
+func (UnimplementedCameraExtensionCharacteristicsServiceServer) GetPostviewSupportedSizes(context.Context, *GetPostviewSupportedSizesRequest) (*GetPostviewSupportedSizesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPostviewSupportedSizes not implemented")
+}
+func (UnimplementedCameraExtensionCharacteristicsServiceServer) GetSupportedExtensions(context.Context, *GetSupportedExtensionsRequest) (*GetSupportedExtensionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedExtensions not implemented")
+}
+func (UnimplementedCameraExtensionCharacteristicsServiceServer) IsCaptureProcessProgressAvailable(context.Context, *IsCaptureProcessProgressAvailableRequest) (*IsCaptureProcessProgressAvailableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsCaptureProcessProgressAvailable not implemented")
+}
+func (UnimplementedCameraExtensionCharacteristicsServiceServer) IsPostviewAvailable(context.Context, *IsPostviewAvailableRequest) (*IsPostviewAvailableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsPostviewAvailable not implemented")
+}
+func (UnimplementedCameraExtensionCharacteristicsServiceServer) mustEmbedUnimplementedCameraExtensionCharacteristicsServiceServer() {
+}
+func (UnimplementedCameraExtensionCharacteristicsServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCameraExtensionCharacteristicsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CameraExtensionCharacteristicsServiceServer will
+// result in compilation errors.
+type UnsafeCameraExtensionCharacteristicsServiceServer interface {
+	mustEmbedUnimplementedCameraExtensionCharacteristicsServiceServer()
+}
+
+func RegisterCameraExtensionCharacteristicsServiceServer(s grpc.ServiceRegistrar, srv CameraExtensionCharacteristicsServiceServer) {
+	// If the following call panics, it indicates UnimplementedCameraExtensionCharacteristicsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CameraExtensionCharacteristicsService_ServiceDesc, srv)
+}
+
+func _CameraExtensionCharacteristicsService_GetAvailableCaptureRequestKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CameraExtensionCharacteristicsGetAvailableCaptureRequestKeysRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraExtensionCharacteristicsServiceServer).GetAvailableCaptureRequestKeys(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraExtensionCharacteristicsService_GetAvailableCaptureRequestKeys_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraExtensionCharacteristicsServiceServer).GetAvailableCaptureRequestKeys(ctx, req.(*CameraExtensionCharacteristicsGetAvailableCaptureRequestKeysRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraExtensionCharacteristicsService_GetAvailableCaptureResultKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CameraExtensionCharacteristicsGetAvailableCaptureResultKeysRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraExtensionCharacteristicsServiceServer).GetAvailableCaptureResultKeys(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraExtensionCharacteristicsService_GetAvailableCaptureResultKeys_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraExtensionCharacteristicsServiceServer).GetAvailableCaptureResultKeys(ctx, req.(*CameraExtensionCharacteristicsGetAvailableCaptureResultKeysRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraExtensionCharacteristicsService_GetEstimatedCaptureLatencyRangeMillis_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEstimatedCaptureLatencyRangeMillisRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraExtensionCharacteristicsServiceServer).GetEstimatedCaptureLatencyRangeMillis(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraExtensionCharacteristicsService_GetEstimatedCaptureLatencyRangeMillis_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraExtensionCharacteristicsServiceServer).GetEstimatedCaptureLatencyRangeMillis(ctx, req.(*GetEstimatedCaptureLatencyRangeMillisRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraExtensionCharacteristicsService_GetExtensionSupportedSizes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExtensionSupportedSizesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraExtensionCharacteristicsServiceServer).GetExtensionSupportedSizes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraExtensionCharacteristicsService_GetExtensionSupportedSizes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraExtensionCharacteristicsServiceServer).GetExtensionSupportedSizes(ctx, req.(*GetExtensionSupportedSizesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraExtensionCharacteristicsService_GetKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CameraExtensionCharacteristicsGetKeysRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraExtensionCharacteristicsServiceServer).GetKeys(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraExtensionCharacteristicsService_GetKeys_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraExtensionCharacteristicsServiceServer).GetKeys(ctx, req.(*CameraExtensionCharacteristicsGetKeysRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraExtensionCharacteristicsService_GetPostviewSupportedSizes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPostviewSupportedSizesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraExtensionCharacteristicsServiceServer).GetPostviewSupportedSizes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraExtensionCharacteristicsService_GetPostviewSupportedSizes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraExtensionCharacteristicsServiceServer).GetPostviewSupportedSizes(ctx, req.(*GetPostviewSupportedSizesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraExtensionCharacteristicsService_GetSupportedExtensions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedExtensionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraExtensionCharacteristicsServiceServer).GetSupportedExtensions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraExtensionCharacteristicsService_GetSupportedExtensions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraExtensionCharacteristicsServiceServer).GetSupportedExtensions(ctx, req.(*GetSupportedExtensionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraExtensionCharacteristicsService_IsCaptureProcessProgressAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsCaptureProcessProgressAvailableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraExtensionCharacteristicsServiceServer).IsCaptureProcessProgressAvailable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraExtensionCharacteristicsService_IsCaptureProcessProgressAvailable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraExtensionCharacteristicsServiceServer).IsCaptureProcessProgressAvailable(ctx, req.(*IsCaptureProcessProgressAvailableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CameraExtensionCharacteristicsService_IsPostviewAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsPostviewAvailableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CameraExtensionCharacteristicsServiceServer).IsPostviewAvailable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CameraExtensionCharacteristicsService_IsPostviewAvailable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CameraExtensionCharacteristicsServiceServer).IsPostviewAvailable(ctx, req.(*IsPostviewAvailableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CameraExtensionCharacteristicsService_ServiceDesc is the grpc.ServiceDesc for CameraExtensionCharacteristicsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CameraExtensionCharacteristicsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "camera2.CameraExtensionCharacteristicsService",
+	HandlerType: (*CameraExtensionCharacteristicsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetAvailableCaptureRequestKeys",
+			Handler:    _CameraExtensionCharacteristicsService_GetAvailableCaptureRequestKeys_Handler,
+		},
+		{
+			MethodName: "GetAvailableCaptureResultKeys",
+			Handler:    _CameraExtensionCharacteristicsService_GetAvailableCaptureResultKeys_Handler,
+		},
+		{
+			MethodName: "GetEstimatedCaptureLatencyRangeMillis",
+			Handler:    _CameraExtensionCharacteristicsService_GetEstimatedCaptureLatencyRangeMillis_Handler,
+		},
+		{
+			MethodName: "GetExtensionSupportedSizes",
+			Handler:    _CameraExtensionCharacteristicsService_GetExtensionSupportedSizes_Handler,
+		},
+		{
+			MethodName: "GetKeys",
+			Handler:    _CameraExtensionCharacteristicsService_GetKeys_Handler,
+		},
+		{
+			MethodName: "GetPostviewSupportedSizes",
+			Handler:    _CameraExtensionCharacteristicsService_GetPostviewSupportedSizes_Handler,
+		},
+		{
+			MethodName: "GetSupportedExtensions",
+			Handler:    _CameraExtensionCharacteristicsService_GetSupportedExtensions_Handler,
+		},
+		{
+			MethodName: "IsCaptureProcessProgressAvailable",
+			Handler:    _CameraExtensionCharacteristicsService_IsCaptureProcessProgressAvailable_Handler,
+		},
+		{
+			MethodName: "IsPostviewAvailable",
+			Handler:    _CameraExtensionCharacteristicsService_IsPostviewAvailable_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

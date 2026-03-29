@@ -12,1687 +12,6 @@ var sipCmd = &cobra.Command{
 	Short: "sip service operations",
 }
 
-var sipSessionCmd = &cobra.Command{
-	Use:   "session",
-	Short: "SessionService operations",
-}
-
-var sipSessionAnswerCallCmd = &cobra.Command{
-	Use:   "answer-call",
-	Short: "AnswerCall RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionServiceClient(grpcConn)
-		req := &pb.AnswerCallRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.AnswerCall(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipSessionChangeCallCmd = &cobra.Command{
-	Use:   "change-call",
-	Short: "ChangeCall RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionServiceClient(grpcConn)
-		req := &pb.ChangeCallRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.ChangeCall(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipSessionEndCallCmd = &cobra.Command{
-	Use:   "end-call",
-	Short: "EndCall RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionServiceClient(grpcConn)
-		req := &pb.EndCallRequest{}
-		resp, err := client.EndCall(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipSessionGetCallIdCmd = &cobra.Command{
-	Use:   "get-call-id",
-	Short: "GetCallId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionServiceClient(grpcConn)
-		req := &pb.GetCallIdRequest{}
-		resp, err := client.GetCallId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipSessionGetLocalIpCmd = &cobra.Command{
-	Use:   "get-local-ip",
-	Short: "GetLocalIp RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionServiceClient(grpcConn)
-		req := &pb.GetLocalIpRequest{}
-		resp, err := client.GetLocalIp(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipSessionGetLocalProfileCmd = &cobra.Command{
-	Use:   "get-local-profile",
-	Short: "GetLocalProfile RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionServiceClient(grpcConn)
-		req := &pb.GetLocalProfileRequest{}
-		resp, err := client.GetLocalProfile(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipSessionGetPeerProfileCmd = &cobra.Command{
-	Use:   "get-peer-profile",
-	Short: "GetPeerProfile RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionServiceClient(grpcConn)
-		req := &pb.GetPeerProfileRequest{}
-		resp, err := client.GetPeerProfile(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipSessionGetStateCmd = &cobra.Command{
-	Use:   "get-state",
-	Short: "GetState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionServiceClient(grpcConn)
-		req := &pb.GetStateRequest{}
-		resp, err := client.GetState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipSessionIsInCallCmd = &cobra.Command{
-	Use:   "is-in-call",
-	Short: "IsInCall RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionServiceClient(grpcConn)
-		req := &pb.IsInCallRequest{}
-		resp, err := client.IsInCall(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipSessionMakeCallCmd = &cobra.Command{
-	Use:   "make-call",
-	Short: "MakeCall RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionServiceClient(grpcConn)
-		req := &pb.MakeCallRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.MakeCall(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipSessionRegisterCmd = &cobra.Command{
-	Use:   "register",
-	Short: "Register RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionServiceClient(grpcConn)
-		req := &pb.RegisterRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Register(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipSessionSetListenerCmd = &cobra.Command{
-	Use:   "set-listener",
-	Short: "SetListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionServiceClient(grpcConn)
-		req := &pb.SetListenerRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipSessionUnregisterCmd = &cobra.Command{
-	Use:   "unregister",
-	Short: "Unregister RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionServiceClient(grpcConn)
-		req := &pb.UnregisterRequest{}
-		resp, err := client.Unregister(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipSessionListenerCmd = &cobra.Command{
-	Use:   "session-listener",
-	Short: "SessionListenerService operations",
-}
-
-var sipSessionListenerOnCallBusyCmd = &cobra.Command{
-	Use:   "on-call-busy",
-	Short: "OnCallBusy RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionListenerServiceClient(grpcConn)
-		req := &pb.OnCallBusyRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnCallBusy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipSessionListenerOnCallChangeFailedCmd = &cobra.Command{
-	Use:   "on-call-change-failed",
-	Short: "OnCallChangeFailed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionListenerServiceClient(grpcConn)
-		req := &pb.OnCallChangeFailedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnCallChangeFailed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipSessionListenerOnCallEndedCmd = &cobra.Command{
-	Use:   "on-call-ended",
-	Short: "OnCallEnded RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionListenerServiceClient(grpcConn)
-		req := &pb.OnCallEndedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnCallEnded(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipSessionListenerOnCallEstablishedCmd = &cobra.Command{
-	Use:   "on-call-established",
-	Short: "OnCallEstablished RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionListenerServiceClient(grpcConn)
-		req := &pb.OnCallEstablishedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnCallEstablished(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipSessionListenerOnCallingCmd = &cobra.Command{
-	Use:   "on-calling",
-	Short: "OnCalling RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionListenerServiceClient(grpcConn)
-		req := &pb.OnCallingRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnCalling(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipSessionListenerOnErrorCmd = &cobra.Command{
-	Use:   "on-error",
-	Short: "OnError RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionListenerServiceClient(grpcConn)
-		req := &pb.OnErrorRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnError(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipSessionListenerOnRegisteringCmd = &cobra.Command{
-	Use:   "on-registering",
-	Short: "OnRegistering RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionListenerServiceClient(grpcConn)
-		req := &pb.OnRegisteringRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnRegistering(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipSessionListenerOnRegistrationDoneCmd = &cobra.Command{
-	Use:   "on-registration-done",
-	Short: "OnRegistrationDone RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionListenerServiceClient(grpcConn)
-		req := &pb.OnRegistrationDoneRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnRegistrationDone(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipSessionListenerOnRegistrationFailedCmd = &cobra.Command{
-	Use:   "on-registration-failed",
-	Short: "OnRegistrationFailed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionListenerServiceClient(grpcConn)
-		req := &pb.OnRegistrationFailedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnRegistrationFailed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipSessionListenerOnRegistrationTimeoutCmd = &cobra.Command{
-	Use:   "on-registration-timeout",
-	Short: "OnRegistrationTimeout RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionListenerServiceClient(grpcConn)
-		req := &pb.OnRegistrationTimeoutRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnRegistrationTimeout(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipSessionListenerOnRingingCmd = &cobra.Command{
-	Use:   "on-ringing",
-	Short: "OnRinging RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionListenerServiceClient(grpcConn)
-		req := &pb.OnRingingRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnRinging(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipSessionListenerOnRingingBackCmd = &cobra.Command{
-	Use:   "on-ringing-back",
-	Short: "OnRingingBack RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionListenerServiceClient(grpcConn)
-		req := &pb.OnRingingBackRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnRingingBack(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipSessionStateCmd = &cobra.Command{
-	Use:   "session-state",
-	Short: "SessionStateService operations",
-}
-
-var sipSessionStateToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionStateServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipManagerCmd = &cobra.Command{
-	Use:   "manager",
-	Short: "ManagerService operations",
-}
-
-var sipManagerCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.CloseRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipManagerCreateSipSessionCmd = &cobra.Command{
-	Use:   "create-sip-session",
-	Short: "CreateSipSession RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.CreateSipSessionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.CreateSipSession(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipManagerGetSessionForCmd = &cobra.Command{
-	Use:   "get-session-for",
-	Short: "GetSessionFor RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetSessionForRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetSessionFor(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipManagerIsOpenedCmd = &cobra.Command{
-	Use:   "is-opened",
-	Short: "IsOpened RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.IsOpenedRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsOpened(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipManagerIsRegisteredCmd = &cobra.Command{
-	Use:   "is-registered",
-	Short: "IsRegistered RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.IsRegisteredRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsRegistered(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipManagerMakeAudioCall4Cmd = &cobra.Command{
-	Use:   "make-audio-call4",
-	Short: "MakeAudioCall4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.MakeAudioCall4Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.MakeAudioCall4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipManagerMakeAudioCall4_1Cmd = &cobra.Command{
-	Use:   "make-audio-call4_1",
-	Short: "MakeAudioCall4_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.MakeAudioCall4_1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.MakeAudioCall4_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipManagerOpen1Cmd = &cobra.Command{
-	Use:   "open1",
-	Short: "Open1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.Open1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Open1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipManagerOpen3_1Cmd = &cobra.Command{
-	Use:   "open3_1",
-	Short: "Open3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.Open3_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Open3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipManagerRegisterCmd = &cobra.Command{
-	Use:   "register",
-	Short: "Register RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.ManagerRegisterRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Register(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipManagerSetRegistrationListenerCmd = &cobra.Command{
-	Use:   "set-registration-listener",
-	Short: "SetRegistrationListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.SetRegistrationListenerRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetRegistrationListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipManagerTakeAudioCallCmd = &cobra.Command{
-	Use:   "take-audio-call",
-	Short: "TakeAudioCall RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.TakeAudioCallRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.TakeAudioCall(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipManagerUnregisterCmd = &cobra.Command{
-	Use:   "unregister",
-	Short: "Unregister RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.ManagerUnregisterRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Unregister(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipManagerGetCallIdCmd = &cobra.Command{
-	Use:   "get-call-id",
-	Short: "GetCallId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.ManagerGetCallIdRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetCallId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipManagerGetOfferSessionDescriptionCmd = &cobra.Command{
-	Use:   "get-offer-session-description",
-	Short: "GetOfferSessionDescription RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetOfferSessionDescriptionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetOfferSessionDescription(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipManagerIsApiSupportedCmd = &cobra.Command{
-	Use:   "is-api-supported",
-	Short: "IsApiSupported RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.IsApiSupportedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsApiSupported(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipManagerIsIncomingCallIntentCmd = &cobra.Command{
-	Use:   "is-incoming-call-intent",
-	Short: "IsIncomingCallIntent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.IsIncomingCallIntentRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsIncomingCallIntent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipManagerIsSipWifiOnlyCmd = &cobra.Command{
-	Use:   "is-sip-wifi-only",
-	Short: "IsSipWifiOnly RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.IsSipWifiOnlyRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsSipWifiOnly(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipManagerIsVoipSupportedCmd = &cobra.Command{
-	Use:   "is-voip-supported",
-	Short: "IsVoipSupported RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.IsVoipSupportedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsVoipSupported(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipManagerNewInstanceCmd = &cobra.Command{
-	Use:   "new-instance",
-	Short: "NewInstance RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.NewInstanceRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewInstance(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipAudioCallCmd = &cobra.Command{
-	Use:   "audio-call",
-	Short: "AudioCallService operations",
-}
-
-var sipAudioCallNewAudioCallCmd = &cobra.Command{
-	Use:   "new-audio-call",
-	Short: "NewAudioCall RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioCallServiceClient(grpcConn)
-		req := &pb.NewAudioCallRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewAudioCall(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipAudioCallAnswerCallCmd = &cobra.Command{
-	Use:   "answer-call",
-	Short: "AnswerCall RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioCallServiceClient(grpcConn)
-		req := &pb.AudioCallAnswerCallRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AnswerCall(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipAudioCallAttachCallCmd = &cobra.Command{
-	Use:   "attach-call",
-	Short: "AttachCall RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioCallServiceClient(grpcConn)
-		req := &pb.AttachCallRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.AttachCall(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipAudioCallCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioCallServiceClient(grpcConn)
-		req := &pb.AudioCallCloseRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipAudioCallContinueCallCmd = &cobra.Command{
-	Use:   "continue-call",
-	Short: "ContinueCall RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioCallServiceClient(grpcConn)
-		req := &pb.ContinueCallRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ContinueCall(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipAudioCallEndCallCmd = &cobra.Command{
-	Use:   "end-call",
-	Short: "EndCall RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioCallServiceClient(grpcConn)
-		req := &pb.AudioCallEndCallRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.EndCall(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipAudioCallGetLocalProfileCmd = &cobra.Command{
-	Use:   "get-local-profile",
-	Short: "GetLocalProfile RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioCallServiceClient(grpcConn)
-		req := &pb.AudioCallGetLocalProfileRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetLocalProfile(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipAudioCallGetPeerProfileCmd = &cobra.Command{
-	Use:   "get-peer-profile",
-	Short: "GetPeerProfile RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioCallServiceClient(grpcConn)
-		req := &pb.AudioCallGetPeerProfileRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetPeerProfile(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipAudioCallGetStateCmd = &cobra.Command{
-	Use:   "get-state",
-	Short: "GetState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioCallServiceClient(grpcConn)
-		req := &pb.AudioCallGetStateRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipAudioCallHoldCallCmd = &cobra.Command{
-	Use:   "hold-call",
-	Short: "HoldCall RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioCallServiceClient(grpcConn)
-		req := &pb.HoldCallRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.HoldCall(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipAudioCallIsInCallCmd = &cobra.Command{
-	Use:   "is-in-call",
-	Short: "IsInCall RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioCallServiceClient(grpcConn)
-		req := &pb.AudioCallIsInCallRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsInCall(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipAudioCallIsMutedCmd = &cobra.Command{
-	Use:   "is-muted",
-	Short: "IsMuted RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioCallServiceClient(grpcConn)
-		req := &pb.IsMutedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsMuted(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipAudioCallIsOnHoldCmd = &cobra.Command{
-	Use:   "is-on-hold",
-	Short: "IsOnHold RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioCallServiceClient(grpcConn)
-		req := &pb.IsOnHoldRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsOnHold(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipAudioCallMakeCallCmd = &cobra.Command{
-	Use:   "make-call",
-	Short: "MakeCall RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioCallServiceClient(grpcConn)
-		req := &pb.AudioCallMakeCallRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.MakeCall(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipAudioCallSendDtmf1Cmd = &cobra.Command{
-	Use:   "send-dtmf1",
-	Short: "SendDtmf1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioCallServiceClient(grpcConn)
-		req := &pb.SendDtmf1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SendDtmf1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipAudioCallSendDtmf2_1Cmd = &cobra.Command{
-	Use:   "send-dtmf2_1",
-	Short: "SendDtmf2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioCallServiceClient(grpcConn)
-		req := &pb.SendDtmf2_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SendDtmf2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipAudioCallSetListener1Cmd = &cobra.Command{
-	Use:   "set-listener1",
-	Short: "SetListener1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioCallServiceClient(grpcConn)
-		req := &pb.SetListener1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetListener1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipAudioCallSetListener2_1Cmd = &cobra.Command{
-	Use:   "set-listener2_1",
-	Short: "SetListener2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioCallServiceClient(grpcConn)
-		req := &pb.SetListener2_1Request{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetListener2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipAudioCallSetSpeakerModeCmd = &cobra.Command{
-	Use:   "set-speaker-mode",
-	Short: "SetSpeakerMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioCallServiceClient(grpcConn)
-		req := &pb.SetSpeakerModeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSpeakerMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipAudioCallStartAudioCmd = &cobra.Command{
-	Use:   "start-audio",
-	Short: "StartAudio RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioCallServiceClient(grpcConn)
-		req := &pb.StartAudioRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.StartAudio(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipAudioCallToggleMuteCmd = &cobra.Command{
-	Use:   "toggle-mute",
-	Short: "ToggleMute RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioCallServiceClient(grpcConn)
-		req := &pb.ToggleMuteRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToggleMute(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipAudioCallListenerCmd = &cobra.Command{
-	Use:   "audio-call-listener",
-	Short: "AudioCallListenerService operations",
-}
-
-var sipAudioCallListenerOnCallBusyCmd = &cobra.Command{
-	Use:   "on-call-busy",
-	Short: "OnCallBusy RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioCallListenerServiceClient(grpcConn)
-		req := &pb.OnCallBusyRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnCallBusy(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipAudioCallListenerOnCallEndedCmd = &cobra.Command{
-	Use:   "on-call-ended",
-	Short: "OnCallEnded RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioCallListenerServiceClient(grpcConn)
-		req := &pb.OnCallEndedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnCallEnded(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipAudioCallListenerOnCallEstablishedCmd = &cobra.Command{
-	Use:   "on-call-established",
-	Short: "OnCallEstablished RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioCallListenerServiceClient(grpcConn)
-		req := &pb.AudioCallListenerOnCallEstablishedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnCallEstablished(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipAudioCallListenerOnCallHeldCmd = &cobra.Command{
-	Use:   "on-call-held",
-	Short: "OnCallHeld RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioCallListenerServiceClient(grpcConn)
-		req := &pb.OnCallHeldRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnCallHeld(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipAudioCallListenerOnCallingCmd = &cobra.Command{
-	Use:   "on-calling",
-	Short: "OnCalling RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioCallListenerServiceClient(grpcConn)
-		req := &pb.OnCallingRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnCalling(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipAudioCallListenerOnChangedCmd = &cobra.Command{
-	Use:   "on-changed",
-	Short: "OnChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioCallListenerServiceClient(grpcConn)
-		req := &pb.OnChangedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipAudioCallListenerOnErrorCmd = &cobra.Command{
-	Use:   "on-error",
-	Short: "OnError RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioCallListenerServiceClient(grpcConn)
-		req := &pb.OnErrorRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnError(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipAudioCallListenerOnReadyToCallCmd = &cobra.Command{
-	Use:   "on-ready-to-call",
-	Short: "OnReadyToCall RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioCallListenerServiceClient(grpcConn)
-		req := &pb.OnReadyToCallRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnReadyToCall(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipAudioCallListenerOnRingingCmd = &cobra.Command{
-	Use:   "on-ringing",
-	Short: "OnRinging RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioCallListenerServiceClient(grpcConn)
-		req := &pb.AudioCallListenerOnRingingRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnRinging(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipAudioCallListenerOnRingingBackCmd = &cobra.Command{
-	Use:   "on-ringing-back",
-	Short: "OnRingingBack RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAudioCallListenerServiceClient(grpcConn)
-		req := &pb.OnRingingBackRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnRingingBack(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipRegistrationListenerCmd = &cobra.Command{
-	Use:   "registration-listener",
-	Short: "RegistrationListenerService operations",
-}
-
-var sipRegistrationListenerOnRegisteringCmd = &cobra.Command{
-	Use:   "on-registering",
-	Short: "OnRegistering RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRegistrationListenerServiceClient(grpcConn)
-		req := &pb.RegistrationListenerOnRegisteringRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnRegistering(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipRegistrationListenerOnRegistrationDoneCmd = &cobra.Command{
-	Use:   "on-registration-done",
-	Short: "OnRegistrationDone RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRegistrationListenerServiceClient(grpcConn)
-		req := &pb.RegistrationListenerOnRegistrationDoneRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnRegistrationDone(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var sipRegistrationListenerOnRegistrationFailedCmd = &cobra.Command{
-	Use:   "on-registration-failed",
-	Short: "OnRegistrationFailed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRegistrationListenerServiceClient(grpcConn)
-		req := &pb.RegistrationListenerOnRegistrationFailedRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnRegistrationFailed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var sipProfileCmd = &cobra.Command{
 	Use:   "profile",
 	Short: "ProfileService operations",
@@ -2139,6 +458,1260 @@ var sipProfileBuilderSetSendKeepAliveCmd = &cobra.Command{
 	},
 }
 
+var sipRegistrationListenerCmd = &cobra.Command{
+	Use:   "registration-listener",
+	Short: "RegistrationListenerService operations",
+}
+
+var sipRegistrationListenerOnRegisteringCmd = &cobra.Command{
+	Use:   "on-registering",
+	Short: "OnRegistering RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRegistrationListenerServiceClient(grpcConn)
+		req := &pb.OnRegisteringRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnRegistering(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipRegistrationListenerOnRegistrationDoneCmd = &cobra.Command{
+	Use:   "on-registration-done",
+	Short: "OnRegistrationDone RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRegistrationListenerServiceClient(grpcConn)
+		req := &pb.OnRegistrationDoneRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnRegistrationDone(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipRegistrationListenerOnRegistrationFailedCmd = &cobra.Command{
+	Use:   "on-registration-failed",
+	Short: "OnRegistrationFailed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRegistrationListenerServiceClient(grpcConn)
+		req := &pb.OnRegistrationFailedRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnRegistrationFailed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipAudioCallCmd = &cobra.Command{
+	Use:   "audio-call",
+	Short: "AudioCallService operations",
+}
+
+var sipAudioCallNewAudioCallCmd = &cobra.Command{
+	Use:   "new-audio-call",
+	Short: "NewAudioCall RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioCallServiceClient(grpcConn)
+		req := &pb.NewAudioCallRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewAudioCall(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipAudioCallAnswerCallCmd = &cobra.Command{
+	Use:   "answer-call",
+	Short: "AnswerCall RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioCallServiceClient(grpcConn)
+		req := &pb.AnswerCallRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AnswerCall(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipAudioCallAttachCallCmd = &cobra.Command{
+	Use:   "attach-call",
+	Short: "AttachCall RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioCallServiceClient(grpcConn)
+		req := &pb.AttachCallRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AttachCall(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipAudioCallCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioCallServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipAudioCallContinueCallCmd = &cobra.Command{
+	Use:   "continue-call",
+	Short: "ContinueCall RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioCallServiceClient(grpcConn)
+		req := &pb.ContinueCallRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ContinueCall(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipAudioCallEndCallCmd = &cobra.Command{
+	Use:   "end-call",
+	Short: "EndCall RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioCallServiceClient(grpcConn)
+		req := &pb.EndCallRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.EndCall(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipAudioCallGetLocalProfileCmd = &cobra.Command{
+	Use:   "get-local-profile",
+	Short: "GetLocalProfile RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioCallServiceClient(grpcConn)
+		req := &pb.GetLocalProfileRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLocalProfile(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipAudioCallGetPeerProfileCmd = &cobra.Command{
+	Use:   "get-peer-profile",
+	Short: "GetPeerProfile RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioCallServiceClient(grpcConn)
+		req := &pb.GetPeerProfileRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPeerProfile(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipAudioCallGetStateCmd = &cobra.Command{
+	Use:   "get-state",
+	Short: "GetState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioCallServiceClient(grpcConn)
+		req := &pb.GetStateRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipAudioCallHoldCallCmd = &cobra.Command{
+	Use:   "hold-call",
+	Short: "HoldCall RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioCallServiceClient(grpcConn)
+		req := &pb.HoldCallRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.HoldCall(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipAudioCallIsInCallCmd = &cobra.Command{
+	Use:   "is-in-call",
+	Short: "IsInCall RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioCallServiceClient(grpcConn)
+		req := &pb.IsInCallRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsInCall(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipAudioCallIsMutedCmd = &cobra.Command{
+	Use:   "is-muted",
+	Short: "IsMuted RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioCallServiceClient(grpcConn)
+		req := &pb.IsMutedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsMuted(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipAudioCallIsOnHoldCmd = &cobra.Command{
+	Use:   "is-on-hold",
+	Short: "IsOnHold RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioCallServiceClient(grpcConn)
+		req := &pb.IsOnHoldRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsOnHold(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipAudioCallMakeCallCmd = &cobra.Command{
+	Use:   "make-call",
+	Short: "MakeCall RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioCallServiceClient(grpcConn)
+		req := &pb.MakeCallRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.MakeCall(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipAudioCallSendDtmf1Cmd = &cobra.Command{
+	Use:   "send-dtmf1",
+	Short: "SendDtmf1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioCallServiceClient(grpcConn)
+		req := &pb.SendDtmf1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SendDtmf1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipAudioCallSendDtmf2_1Cmd = &cobra.Command{
+	Use:   "send-dtmf2_1",
+	Short: "SendDtmf2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioCallServiceClient(grpcConn)
+		req := &pb.SendDtmf2_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SendDtmf2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipAudioCallSetListener1Cmd = &cobra.Command{
+	Use:   "set-listener1",
+	Short: "SetListener1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioCallServiceClient(grpcConn)
+		req := &pb.SetListener1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetListener1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipAudioCallSetListener2_1Cmd = &cobra.Command{
+	Use:   "set-listener2_1",
+	Short: "SetListener2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioCallServiceClient(grpcConn)
+		req := &pb.SetListener2_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetBool("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetListener2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipAudioCallSetSpeakerModeCmd = &cobra.Command{
+	Use:   "set-speaker-mode",
+	Short: "SetSpeakerMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioCallServiceClient(grpcConn)
+		req := &pb.SetSpeakerModeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSpeakerMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipAudioCallStartAudioCmd = &cobra.Command{
+	Use:   "start-audio",
+	Short: "StartAudio RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioCallServiceClient(grpcConn)
+		req := &pb.StartAudioRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.StartAudio(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipAudioCallToggleMuteCmd = &cobra.Command{
+	Use:   "toggle-mute",
+	Short: "ToggleMute RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioCallServiceClient(grpcConn)
+		req := &pb.ToggleMuteRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToggleMute(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipAudioCallListenerCmd = &cobra.Command{
+	Use:   "audio-call-listener",
+	Short: "AudioCallListenerService operations",
+}
+
+var sipAudioCallListenerOnCallBusyCmd = &cobra.Command{
+	Use:   "on-call-busy",
+	Short: "OnCallBusy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioCallListenerServiceClient(grpcConn)
+		req := &pb.OnCallBusyRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnCallBusy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipAudioCallListenerOnCallEndedCmd = &cobra.Command{
+	Use:   "on-call-ended",
+	Short: "OnCallEnded RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioCallListenerServiceClient(grpcConn)
+		req := &pb.OnCallEndedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnCallEnded(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipAudioCallListenerOnCallEstablishedCmd = &cobra.Command{
+	Use:   "on-call-established",
+	Short: "OnCallEstablished RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioCallListenerServiceClient(grpcConn)
+		req := &pb.OnCallEstablishedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnCallEstablished(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipAudioCallListenerOnCallHeldCmd = &cobra.Command{
+	Use:   "on-call-held",
+	Short: "OnCallHeld RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioCallListenerServiceClient(grpcConn)
+		req := &pb.OnCallHeldRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnCallHeld(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipAudioCallListenerOnCallingCmd = &cobra.Command{
+	Use:   "on-calling",
+	Short: "OnCalling RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioCallListenerServiceClient(grpcConn)
+		req := &pb.OnCallingRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnCalling(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipAudioCallListenerOnChangedCmd = &cobra.Command{
+	Use:   "on-changed",
+	Short: "OnChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioCallListenerServiceClient(grpcConn)
+		req := &pb.OnChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipAudioCallListenerOnErrorCmd = &cobra.Command{
+	Use:   "on-error",
+	Short: "OnError RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioCallListenerServiceClient(grpcConn)
+		req := &pb.OnErrorRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnError(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipAudioCallListenerOnReadyToCallCmd = &cobra.Command{
+	Use:   "on-ready-to-call",
+	Short: "OnReadyToCall RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioCallListenerServiceClient(grpcConn)
+		req := &pb.OnReadyToCallRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnReadyToCall(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipAudioCallListenerOnRingingCmd = &cobra.Command{
+	Use:   "on-ringing",
+	Short: "OnRinging RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioCallListenerServiceClient(grpcConn)
+		req := &pb.OnRingingRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnRinging(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipAudioCallListenerOnRingingBackCmd = &cobra.Command{
+	Use:   "on-ringing-back",
+	Short: "OnRingingBack RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAudioCallListenerServiceClient(grpcConn)
+		req := &pb.OnRingingBackRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnRingingBack(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipSessionCmd = &cobra.Command{
+	Use:   "session",
+	Short: "SessionService operations",
+}
+
+var sipSessionAnswerCallCmd = &cobra.Command{
+	Use:   "answer-call",
+	Short: "AnswerCall RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionServiceClient(grpcConn)
+		req := &pb.SessionAnswerCallRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AnswerCall(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipSessionChangeCallCmd = &cobra.Command{
+	Use:   "change-call",
+	Short: "ChangeCall RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionServiceClient(grpcConn)
+		req := &pb.ChangeCallRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.ChangeCall(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipSessionEndCallCmd = &cobra.Command{
+	Use:   "end-call",
+	Short: "EndCall RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionServiceClient(grpcConn)
+		req := &pb.SessionEndCallRequest{}
+		resp, err := client.EndCall(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipSessionGetCallIdCmd = &cobra.Command{
+	Use:   "get-call-id",
+	Short: "GetCallId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionServiceClient(grpcConn)
+		req := &pb.GetCallIdRequest{}
+		resp, err := client.GetCallId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipSessionGetLocalIpCmd = &cobra.Command{
+	Use:   "get-local-ip",
+	Short: "GetLocalIp RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionServiceClient(grpcConn)
+		req := &pb.GetLocalIpRequest{}
+		resp, err := client.GetLocalIp(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipSessionGetLocalProfileCmd = &cobra.Command{
+	Use:   "get-local-profile",
+	Short: "GetLocalProfile RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionServiceClient(grpcConn)
+		req := &pb.SessionGetLocalProfileRequest{}
+		resp, err := client.GetLocalProfile(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipSessionGetPeerProfileCmd = &cobra.Command{
+	Use:   "get-peer-profile",
+	Short: "GetPeerProfile RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionServiceClient(grpcConn)
+		req := &pb.SessionGetPeerProfileRequest{}
+		resp, err := client.GetPeerProfile(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipSessionGetStateCmd = &cobra.Command{
+	Use:   "get-state",
+	Short: "GetState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionServiceClient(grpcConn)
+		req := &pb.SessionGetStateRequest{}
+		resp, err := client.GetState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipSessionIsInCallCmd = &cobra.Command{
+	Use:   "is-in-call",
+	Short: "IsInCall RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionServiceClient(grpcConn)
+		req := &pb.SessionIsInCallRequest{}
+		resp, err := client.IsInCall(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipSessionMakeCallCmd = &cobra.Command{
+	Use:   "make-call",
+	Short: "MakeCall RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionServiceClient(grpcConn)
+		req := &pb.SessionMakeCallRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.MakeCall(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipSessionRegisterCmd = &cobra.Command{
+	Use:   "register",
+	Short: "Register RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionServiceClient(grpcConn)
+		req := &pb.RegisterRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Register(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipSessionSetListenerCmd = &cobra.Command{
+	Use:   "set-listener",
+	Short: "SetListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionServiceClient(grpcConn)
+		req := &pb.SetListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipSessionUnregisterCmd = &cobra.Command{
+	Use:   "unregister",
+	Short: "Unregister RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionServiceClient(grpcConn)
+		req := &pb.UnregisterRequest{}
+		resp, err := client.Unregister(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipSessionListenerCmd = &cobra.Command{
+	Use:   "session-listener",
+	Short: "SessionListenerService operations",
+}
+
+var sipSessionListenerOnCallBusyCmd = &cobra.Command{
+	Use:   "on-call-busy",
+	Short: "OnCallBusy RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionListenerServiceClient(grpcConn)
+		req := &pb.OnCallBusyRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnCallBusy(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipSessionListenerOnCallChangeFailedCmd = &cobra.Command{
+	Use:   "on-call-change-failed",
+	Short: "OnCallChangeFailed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionListenerServiceClient(grpcConn)
+		req := &pb.OnCallChangeFailedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnCallChangeFailed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipSessionListenerOnCallEndedCmd = &cobra.Command{
+	Use:   "on-call-ended",
+	Short: "OnCallEnded RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionListenerServiceClient(grpcConn)
+		req := &pb.OnCallEndedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnCallEnded(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipSessionListenerOnCallEstablishedCmd = &cobra.Command{
+	Use:   "on-call-established",
+	Short: "OnCallEstablished RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionListenerServiceClient(grpcConn)
+		req := &pb.SessionListenerOnCallEstablishedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnCallEstablished(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipSessionListenerOnCallingCmd = &cobra.Command{
+	Use:   "on-calling",
+	Short: "OnCalling RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionListenerServiceClient(grpcConn)
+		req := &pb.OnCallingRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnCalling(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipSessionListenerOnErrorCmd = &cobra.Command{
+	Use:   "on-error",
+	Short: "OnError RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionListenerServiceClient(grpcConn)
+		req := &pb.OnErrorRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnError(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipSessionListenerOnRegisteringCmd = &cobra.Command{
+	Use:   "on-registering",
+	Short: "OnRegistering RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionListenerServiceClient(grpcConn)
+		req := &pb.SessionListenerOnRegisteringRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnRegistering(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipSessionListenerOnRegistrationDoneCmd = &cobra.Command{
+	Use:   "on-registration-done",
+	Short: "OnRegistrationDone RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionListenerServiceClient(grpcConn)
+		req := &pb.SessionListenerOnRegistrationDoneRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnRegistrationDone(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipSessionListenerOnRegistrationFailedCmd = &cobra.Command{
+	Use:   "on-registration-failed",
+	Short: "OnRegistrationFailed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionListenerServiceClient(grpcConn)
+		req := &pb.SessionListenerOnRegistrationFailedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnRegistrationFailed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipSessionListenerOnRegistrationTimeoutCmd = &cobra.Command{
+	Use:   "on-registration-timeout",
+	Short: "OnRegistrationTimeout RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionListenerServiceClient(grpcConn)
+		req := &pb.OnRegistrationTimeoutRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnRegistrationTimeout(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipSessionListenerOnRingingCmd = &cobra.Command{
+	Use:   "on-ringing",
+	Short: "OnRinging RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionListenerServiceClient(grpcConn)
+		req := &pb.SessionListenerOnRingingRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnRinging(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipSessionListenerOnRingingBackCmd = &cobra.Command{
+	Use:   "on-ringing-back",
+	Short: "OnRingingBack RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionListenerServiceClient(grpcConn)
+		req := &pb.OnRingingBackRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnRingingBack(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipSessionStateCmd = &cobra.Command{
+	Use:   "session-state",
+	Short: "SessionStateService operations",
+}
+
+var sipSessionStateToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionStateServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var sipErrorCodeCmd = &cobra.Command{
 	Use:   "error-code",
 	Short: "ErrorCodeService operations",
@@ -2163,123 +1736,483 @@ var sipErrorCodeToStringCmd = &cobra.Command{
 	},
 }
 
+var sipManagerCmd = &cobra.Command{
+	Use:   "manager",
+	Short: "ManagerService operations",
+}
+
+var sipManagerCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.ManagerCloseRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipManagerCreateSipSessionCmd = &cobra.Command{
+	Use:   "create-sip-session",
+	Short: "CreateSipSession RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.CreateSipSessionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CreateSipSession(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipManagerGetSessionForCmd = &cobra.Command{
+	Use:   "get-session-for",
+	Short: "GetSessionFor RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetSessionForRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetSessionFor(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipManagerIsOpenedCmd = &cobra.Command{
+	Use:   "is-opened",
+	Short: "IsOpened RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.IsOpenedRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsOpened(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipManagerIsRegisteredCmd = &cobra.Command{
+	Use:   "is-registered",
+	Short: "IsRegistered RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.IsRegisteredRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsRegistered(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipManagerMakeAudioCall4Cmd = &cobra.Command{
+	Use:   "make-audio-call4",
+	Short: "MakeAudioCall4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.MakeAudioCall4Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.MakeAudioCall4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipManagerMakeAudioCall4_1Cmd = &cobra.Command{
+	Use:   "make-audio-call4_1",
+	Short: "MakeAudioCall4_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.MakeAudioCall4_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.MakeAudioCall4_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipManagerOpen1Cmd = &cobra.Command{
+	Use:   "open1",
+	Short: "Open1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.Open1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Open1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipManagerOpen3_1Cmd = &cobra.Command{
+	Use:   "open3_1",
+	Short: "Open3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.Open3_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Open3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipManagerRegisterCmd = &cobra.Command{
+	Use:   "register",
+	Short: "Register RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.ManagerRegisterRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Register(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipManagerSetRegistrationListenerCmd = &cobra.Command{
+	Use:   "set-registration-listener",
+	Short: "SetRegistrationListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.SetRegistrationListenerRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetRegistrationListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipManagerTakeAudioCallCmd = &cobra.Command{
+	Use:   "take-audio-call",
+	Short: "TakeAudioCall RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.TakeAudioCallRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.TakeAudioCall(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipManagerUnregisterCmd = &cobra.Command{
+	Use:   "unregister",
+	Short: "Unregister RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.ManagerUnregisterRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Unregister(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipManagerGetCallIdCmd = &cobra.Command{
+	Use:   "get-call-id",
+	Short: "GetCallId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.ManagerGetCallIdRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetCallId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipManagerGetOfferSessionDescriptionCmd = &cobra.Command{
+	Use:   "get-offer-session-description",
+	Short: "GetOfferSessionDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetOfferSessionDescriptionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetOfferSessionDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipManagerIsApiSupportedCmd = &cobra.Command{
+	Use:   "is-api-supported",
+	Short: "IsApiSupported RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.IsApiSupportedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsApiSupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipManagerIsIncomingCallIntentCmd = &cobra.Command{
+	Use:   "is-incoming-call-intent",
+	Short: "IsIncomingCallIntent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.IsIncomingCallIntentRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsIncomingCallIntent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipManagerIsSipWifiOnlyCmd = &cobra.Command{
+	Use:   "is-sip-wifi-only",
+	Short: "IsSipWifiOnly RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.IsSipWifiOnlyRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsSipWifiOnly(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipManagerIsVoipSupportedCmd = &cobra.Command{
+	Use:   "is-voip-supported",
+	Short: "IsVoipSupported RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.IsVoipSupportedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsVoipSupported(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var sipManagerNewInstanceCmd = &cobra.Command{
+	Use:   "new-instance",
+	Short: "NewInstance RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.NewInstanceRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewInstance(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
-	sipSessionAnswerCallCmd.Flags().String("arg0", "", "arg0 (string)")
-	sipSessionAnswerCallCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	sipSessionCmd.AddCommand(sipSessionAnswerCallCmd)
-	sipSessionChangeCallCmd.Flags().String("arg0", "", "arg0 (string)")
-	sipSessionChangeCallCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	sipSessionCmd.AddCommand(sipSessionChangeCallCmd)
-	sipSessionCmd.AddCommand(sipSessionEndCallCmd)
-	sipSessionCmd.AddCommand(sipSessionGetCallIdCmd)
-	sipSessionCmd.AddCommand(sipSessionGetLocalIpCmd)
-	sipSessionCmd.AddCommand(sipSessionGetLocalProfileCmd)
-	sipSessionCmd.AddCommand(sipSessionGetPeerProfileCmd)
-	sipSessionCmd.AddCommand(sipSessionGetStateCmd)
-	sipSessionCmd.AddCommand(sipSessionIsInCallCmd)
-	sipSessionMakeCallCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sipSessionMakeCallCmd.Flags().String("arg1", "", "arg1 (string)")
-	sipSessionMakeCallCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	sipSessionCmd.AddCommand(sipSessionMakeCallCmd)
-	sipSessionRegisterCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	sipSessionCmd.AddCommand(sipSessionRegisterCmd)
-	sipSessionSetListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sipSessionCmd.AddCommand(sipSessionSetListenerCmd)
-	sipSessionCmd.AddCommand(sipSessionUnregisterCmd)
-	sipCmd.AddCommand(sipSessionCmd)
-	sipSessionListenerOnCallBusyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sipSessionListenerCmd.AddCommand(sipSessionListenerOnCallBusyCmd)
-	sipSessionListenerOnCallChangeFailedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sipSessionListenerOnCallChangeFailedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	sipSessionListenerOnCallChangeFailedCmd.Flags().String("arg2", "", "arg2 (string)")
-	sipSessionListenerCmd.AddCommand(sipSessionListenerOnCallChangeFailedCmd)
-	sipSessionListenerOnCallEndedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sipSessionListenerCmd.AddCommand(sipSessionListenerOnCallEndedCmd)
-	sipSessionListenerOnCallEstablishedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sipSessionListenerOnCallEstablishedCmd.Flags().String("arg1", "", "arg1 (string)")
-	sipSessionListenerCmd.AddCommand(sipSessionListenerOnCallEstablishedCmd)
-	sipSessionListenerOnCallingCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sipSessionListenerCmd.AddCommand(sipSessionListenerOnCallingCmd)
-	sipSessionListenerOnErrorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sipSessionListenerOnErrorCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	sipSessionListenerOnErrorCmd.Flags().String("arg2", "", "arg2 (string)")
-	sipSessionListenerCmd.AddCommand(sipSessionListenerOnErrorCmd)
-	sipSessionListenerOnRegisteringCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sipSessionListenerCmd.AddCommand(sipSessionListenerOnRegisteringCmd)
-	sipSessionListenerOnRegistrationDoneCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sipSessionListenerOnRegistrationDoneCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	sipSessionListenerCmd.AddCommand(sipSessionListenerOnRegistrationDoneCmd)
-	sipSessionListenerOnRegistrationFailedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sipSessionListenerOnRegistrationFailedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	sipSessionListenerOnRegistrationFailedCmd.Flags().String("arg2", "", "arg2 (string)")
-	sipSessionListenerCmd.AddCommand(sipSessionListenerOnRegistrationFailedCmd)
-	sipSessionListenerOnRegistrationTimeoutCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sipSessionListenerCmd.AddCommand(sipSessionListenerOnRegistrationTimeoutCmd)
-	sipSessionListenerOnRingingCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sipSessionListenerOnRingingCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	sipSessionListenerOnRingingCmd.Flags().String("arg2", "", "arg2 (string)")
-	sipSessionListenerCmd.AddCommand(sipSessionListenerOnRingingCmd)
-	sipSessionListenerOnRingingBackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sipSessionListenerCmd.AddCommand(sipSessionListenerOnRingingBackCmd)
-	sipCmd.AddCommand(sipSessionListenerCmd)
-	sipSessionStateToStringCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	sipSessionStateCmd.AddCommand(sipSessionStateToStringCmd)
-	sipCmd.AddCommand(sipSessionStateCmd)
-	sipManagerCloseCmd.Flags().String("arg0", "", "arg0 (string)")
-	sipManagerCmd.AddCommand(sipManagerCloseCmd)
-	sipManagerCreateSipSessionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sipManagerCreateSipSessionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	sipManagerCmd.AddCommand(sipManagerCreateSipSessionCmd)
-	sipManagerGetSessionForCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sipManagerCmd.AddCommand(sipManagerGetSessionForCmd)
-	sipManagerIsOpenedCmd.Flags().String("arg0", "", "arg0 (string)")
-	sipManagerCmd.AddCommand(sipManagerIsOpenedCmd)
-	sipManagerIsRegisteredCmd.Flags().String("arg0", "", "arg0 (string)")
-	sipManagerCmd.AddCommand(sipManagerIsRegisteredCmd)
-	sipManagerMakeAudioCall4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sipManagerMakeAudioCall4Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	sipManagerMakeAudioCall4Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	sipManagerMakeAudioCall4Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	sipManagerCmd.AddCommand(sipManagerMakeAudioCall4Cmd)
-	sipManagerMakeAudioCall4_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	sipManagerMakeAudioCall4_1Cmd.Flags().String("arg1", "", "arg1 (string)")
-	sipManagerMakeAudioCall4_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	sipManagerMakeAudioCall4_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	sipManagerCmd.AddCommand(sipManagerMakeAudioCall4_1Cmd)
-	sipManagerOpen1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sipManagerCmd.AddCommand(sipManagerOpen1Cmd)
-	sipManagerOpen3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sipManagerOpen3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	sipManagerOpen3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	sipManagerCmd.AddCommand(sipManagerOpen3_1Cmd)
-	sipManagerRegisterCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sipManagerRegisterCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	sipManagerRegisterCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	sipManagerCmd.AddCommand(sipManagerRegisterCmd)
-	sipManagerSetRegistrationListenerCmd.Flags().String("arg0", "", "arg0 (string)")
-	sipManagerSetRegistrationListenerCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	sipManagerCmd.AddCommand(sipManagerSetRegistrationListenerCmd)
-	sipManagerTakeAudioCallCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sipManagerTakeAudioCallCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	sipManagerCmd.AddCommand(sipManagerTakeAudioCallCmd)
-	sipManagerUnregisterCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sipManagerUnregisterCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	sipManagerCmd.AddCommand(sipManagerUnregisterCmd)
-	sipManagerGetCallIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sipManagerCmd.AddCommand(sipManagerGetCallIdCmd)
-	sipManagerGetOfferSessionDescriptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sipManagerCmd.AddCommand(sipManagerGetOfferSessionDescriptionCmd)
-	sipManagerIsApiSupportedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sipManagerCmd.AddCommand(sipManagerIsApiSupportedCmd)
-	sipManagerIsIncomingCallIntentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sipManagerCmd.AddCommand(sipManagerIsIncomingCallIntentCmd)
-	sipManagerIsSipWifiOnlyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sipManagerCmd.AddCommand(sipManagerIsSipWifiOnlyCmd)
-	sipManagerIsVoipSupportedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sipManagerCmd.AddCommand(sipManagerIsVoipSupportedCmd)
-	sipManagerNewInstanceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sipManagerCmd.AddCommand(sipManagerNewInstanceCmd)
-	sipCmd.AddCommand(sipManagerCmd)
+	sipProfileCmd.AddCommand(sipProfileDescribeContentsCmd)
+	sipProfileCmd.AddCommand(sipProfileGetAuthUserNameCmd)
+	sipProfileCmd.AddCommand(sipProfileGetAutoRegistrationCmd)
+	sipProfileCmd.AddCommand(sipProfileGetDisplayNameCmd)
+	sipProfileCmd.AddCommand(sipProfileGetPasswordCmd)
+	sipProfileCmd.AddCommand(sipProfileGetPortCmd)
+	sipProfileCmd.AddCommand(sipProfileGetProfileNameCmd)
+	sipProfileCmd.AddCommand(sipProfileGetProtocolCmd)
+	sipProfileCmd.AddCommand(sipProfileGetProxyAddressCmd)
+	sipProfileCmd.AddCommand(sipProfileGetSendKeepAliveCmd)
+	sipProfileCmd.AddCommand(sipProfileGetSipDomainCmd)
+	sipProfileCmd.AddCommand(sipProfileGetUriStringCmd)
+	sipProfileCmd.AddCommand(sipProfileGetUserNameCmd)
+	sipProfileSetCallingUidCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	sipProfileCmd.AddCommand(sipProfileSetCallingUidCmd)
+	sipProfileWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sipProfileWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	sipProfileCmd.AddCommand(sipProfileWriteToParcelCmd)
+	sipCmd.AddCommand(sipProfileCmd)
+	sipProfileBuilderCmd.AddCommand(sipProfileBuilderBuildCmd)
+	sipProfileBuilderSetAuthUserNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	sipProfileBuilderCmd.AddCommand(sipProfileBuilderSetAuthUserNameCmd)
+	sipProfileBuilderSetAutoRegistrationCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	sipProfileBuilderCmd.AddCommand(sipProfileBuilderSetAutoRegistrationCmd)
+	sipProfileBuilderSetDisplayNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	sipProfileBuilderCmd.AddCommand(sipProfileBuilderSetDisplayNameCmd)
+	sipProfileBuilderSetOutboundProxyCmd.Flags().String("arg0", "", "arg0 (string)")
+	sipProfileBuilderCmd.AddCommand(sipProfileBuilderSetOutboundProxyCmd)
+	sipProfileBuilderSetPasswordCmd.Flags().String("arg0", "", "arg0 (string)")
+	sipProfileBuilderCmd.AddCommand(sipProfileBuilderSetPasswordCmd)
+	sipProfileBuilderSetPortCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	sipProfileBuilderCmd.AddCommand(sipProfileBuilderSetPortCmd)
+	sipProfileBuilderSetProfileNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	sipProfileBuilderCmd.AddCommand(sipProfileBuilderSetProfileNameCmd)
+	sipProfileBuilderSetProtocolCmd.Flags().String("arg0", "", "arg0 (string)")
+	sipProfileBuilderCmd.AddCommand(sipProfileBuilderSetProtocolCmd)
+	sipProfileBuilderSetSendKeepAliveCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	sipProfileBuilderCmd.AddCommand(sipProfileBuilderSetSendKeepAliveCmd)
+	sipCmd.AddCommand(sipProfileBuilderCmd)
+	sipRegistrationListenerOnRegisteringCmd.Flags().String("arg0", "", "arg0 (string)")
+	sipRegistrationListenerCmd.AddCommand(sipRegistrationListenerOnRegisteringCmd)
+	sipRegistrationListenerOnRegistrationDoneCmd.Flags().String("arg0", "", "arg0 (string)")
+	sipRegistrationListenerOnRegistrationDoneCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	sipRegistrationListenerCmd.AddCommand(sipRegistrationListenerOnRegistrationDoneCmd)
+	sipRegistrationListenerOnRegistrationFailedCmd.Flags().String("arg0", "", "arg0 (string)")
+	sipRegistrationListenerOnRegistrationFailedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	sipRegistrationListenerOnRegistrationFailedCmd.Flags().String("arg2", "", "arg2 (string)")
+	sipRegistrationListenerCmd.AddCommand(sipRegistrationListenerOnRegistrationFailedCmd)
+	sipCmd.AddCommand(sipRegistrationListenerCmd)
 	sipAudioCallNewAudioCallCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	sipAudioCallNewAudioCallCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	sipAudioCallCmd.AddCommand(sipAudioCallNewAudioCallCmd)
@@ -2363,57 +2296,124 @@ func init() {
 	sipAudioCallListenerOnRingingBackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	sipAudioCallListenerCmd.AddCommand(sipAudioCallListenerOnRingingBackCmd)
 	sipCmd.AddCommand(sipAudioCallListenerCmd)
-	sipRegistrationListenerOnRegisteringCmd.Flags().String("arg0", "", "arg0 (string)")
-	sipRegistrationListenerCmd.AddCommand(sipRegistrationListenerOnRegisteringCmd)
-	sipRegistrationListenerOnRegistrationDoneCmd.Flags().String("arg0", "", "arg0 (string)")
-	sipRegistrationListenerOnRegistrationDoneCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	sipRegistrationListenerCmd.AddCommand(sipRegistrationListenerOnRegistrationDoneCmd)
-	sipRegistrationListenerOnRegistrationFailedCmd.Flags().String("arg0", "", "arg0 (string)")
-	sipRegistrationListenerOnRegistrationFailedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	sipRegistrationListenerOnRegistrationFailedCmd.Flags().String("arg2", "", "arg2 (string)")
-	sipRegistrationListenerCmd.AddCommand(sipRegistrationListenerOnRegistrationFailedCmd)
-	sipCmd.AddCommand(sipRegistrationListenerCmd)
-	sipProfileCmd.AddCommand(sipProfileDescribeContentsCmd)
-	sipProfileCmd.AddCommand(sipProfileGetAuthUserNameCmd)
-	sipProfileCmd.AddCommand(sipProfileGetAutoRegistrationCmd)
-	sipProfileCmd.AddCommand(sipProfileGetDisplayNameCmd)
-	sipProfileCmd.AddCommand(sipProfileGetPasswordCmd)
-	sipProfileCmd.AddCommand(sipProfileGetPortCmd)
-	sipProfileCmd.AddCommand(sipProfileGetProfileNameCmd)
-	sipProfileCmd.AddCommand(sipProfileGetProtocolCmd)
-	sipProfileCmd.AddCommand(sipProfileGetProxyAddressCmd)
-	sipProfileCmd.AddCommand(sipProfileGetSendKeepAliveCmd)
-	sipProfileCmd.AddCommand(sipProfileGetSipDomainCmd)
-	sipProfileCmd.AddCommand(sipProfileGetUriStringCmd)
-	sipProfileCmd.AddCommand(sipProfileGetUserNameCmd)
-	sipProfileSetCallingUidCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	sipProfileCmd.AddCommand(sipProfileSetCallingUidCmd)
-	sipProfileWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	sipProfileWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	sipProfileCmd.AddCommand(sipProfileWriteToParcelCmd)
-	sipCmd.AddCommand(sipProfileCmd)
-	sipProfileBuilderCmd.AddCommand(sipProfileBuilderBuildCmd)
-	sipProfileBuilderSetAuthUserNameCmd.Flags().String("arg0", "", "arg0 (string)")
-	sipProfileBuilderCmd.AddCommand(sipProfileBuilderSetAuthUserNameCmd)
-	sipProfileBuilderSetAutoRegistrationCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	sipProfileBuilderCmd.AddCommand(sipProfileBuilderSetAutoRegistrationCmd)
-	sipProfileBuilderSetDisplayNameCmd.Flags().String("arg0", "", "arg0 (string)")
-	sipProfileBuilderCmd.AddCommand(sipProfileBuilderSetDisplayNameCmd)
-	sipProfileBuilderSetOutboundProxyCmd.Flags().String("arg0", "", "arg0 (string)")
-	sipProfileBuilderCmd.AddCommand(sipProfileBuilderSetOutboundProxyCmd)
-	sipProfileBuilderSetPasswordCmd.Flags().String("arg0", "", "arg0 (string)")
-	sipProfileBuilderCmd.AddCommand(sipProfileBuilderSetPasswordCmd)
-	sipProfileBuilderSetPortCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	sipProfileBuilderCmd.AddCommand(sipProfileBuilderSetPortCmd)
-	sipProfileBuilderSetProfileNameCmd.Flags().String("arg0", "", "arg0 (string)")
-	sipProfileBuilderCmd.AddCommand(sipProfileBuilderSetProfileNameCmd)
-	sipProfileBuilderSetProtocolCmd.Flags().String("arg0", "", "arg0 (string)")
-	sipProfileBuilderCmd.AddCommand(sipProfileBuilderSetProtocolCmd)
-	sipProfileBuilderSetSendKeepAliveCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	sipProfileBuilderCmd.AddCommand(sipProfileBuilderSetSendKeepAliveCmd)
-	sipCmd.AddCommand(sipProfileBuilderCmd)
+	sipSessionAnswerCallCmd.Flags().String("arg0", "", "arg0 (string)")
+	sipSessionAnswerCallCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	sipSessionCmd.AddCommand(sipSessionAnswerCallCmd)
+	sipSessionChangeCallCmd.Flags().String("arg0", "", "arg0 (string)")
+	sipSessionChangeCallCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	sipSessionCmd.AddCommand(sipSessionChangeCallCmd)
+	sipSessionCmd.AddCommand(sipSessionEndCallCmd)
+	sipSessionCmd.AddCommand(sipSessionGetCallIdCmd)
+	sipSessionCmd.AddCommand(sipSessionGetLocalIpCmd)
+	sipSessionCmd.AddCommand(sipSessionGetLocalProfileCmd)
+	sipSessionCmd.AddCommand(sipSessionGetPeerProfileCmd)
+	sipSessionCmd.AddCommand(sipSessionGetStateCmd)
+	sipSessionCmd.AddCommand(sipSessionIsInCallCmd)
+	sipSessionMakeCallCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sipSessionMakeCallCmd.Flags().String("arg1", "", "arg1 (string)")
+	sipSessionMakeCallCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	sipSessionCmd.AddCommand(sipSessionMakeCallCmd)
+	sipSessionRegisterCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	sipSessionCmd.AddCommand(sipSessionRegisterCmd)
+	sipSessionSetListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sipSessionCmd.AddCommand(sipSessionSetListenerCmd)
+	sipSessionCmd.AddCommand(sipSessionUnregisterCmd)
+	sipCmd.AddCommand(sipSessionCmd)
+	sipSessionListenerOnCallBusyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sipSessionListenerCmd.AddCommand(sipSessionListenerOnCallBusyCmd)
+	sipSessionListenerOnCallChangeFailedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sipSessionListenerOnCallChangeFailedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	sipSessionListenerOnCallChangeFailedCmd.Flags().String("arg2", "", "arg2 (string)")
+	sipSessionListenerCmd.AddCommand(sipSessionListenerOnCallChangeFailedCmd)
+	sipSessionListenerOnCallEndedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sipSessionListenerCmd.AddCommand(sipSessionListenerOnCallEndedCmd)
+	sipSessionListenerOnCallEstablishedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sipSessionListenerOnCallEstablishedCmd.Flags().String("arg1", "", "arg1 (string)")
+	sipSessionListenerCmd.AddCommand(sipSessionListenerOnCallEstablishedCmd)
+	sipSessionListenerOnCallingCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sipSessionListenerCmd.AddCommand(sipSessionListenerOnCallingCmd)
+	sipSessionListenerOnErrorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sipSessionListenerOnErrorCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	sipSessionListenerOnErrorCmd.Flags().String("arg2", "", "arg2 (string)")
+	sipSessionListenerCmd.AddCommand(sipSessionListenerOnErrorCmd)
+	sipSessionListenerOnRegisteringCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sipSessionListenerCmd.AddCommand(sipSessionListenerOnRegisteringCmd)
+	sipSessionListenerOnRegistrationDoneCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sipSessionListenerOnRegistrationDoneCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	sipSessionListenerCmd.AddCommand(sipSessionListenerOnRegistrationDoneCmd)
+	sipSessionListenerOnRegistrationFailedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sipSessionListenerOnRegistrationFailedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	sipSessionListenerOnRegistrationFailedCmd.Flags().String("arg2", "", "arg2 (string)")
+	sipSessionListenerCmd.AddCommand(sipSessionListenerOnRegistrationFailedCmd)
+	sipSessionListenerOnRegistrationTimeoutCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sipSessionListenerCmd.AddCommand(sipSessionListenerOnRegistrationTimeoutCmd)
+	sipSessionListenerOnRingingCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sipSessionListenerOnRingingCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	sipSessionListenerOnRingingCmd.Flags().String("arg2", "", "arg2 (string)")
+	sipSessionListenerCmd.AddCommand(sipSessionListenerOnRingingCmd)
+	sipSessionListenerOnRingingBackCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sipSessionListenerCmd.AddCommand(sipSessionListenerOnRingingBackCmd)
+	sipCmd.AddCommand(sipSessionListenerCmd)
+	sipSessionStateToStringCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	sipSessionStateCmd.AddCommand(sipSessionStateToStringCmd)
+	sipCmd.AddCommand(sipSessionStateCmd)
 	sipErrorCodeToStringCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	sipErrorCodeCmd.AddCommand(sipErrorCodeToStringCmd)
 	sipCmd.AddCommand(sipErrorCodeCmd)
+	sipManagerCloseCmd.Flags().String("arg0", "", "arg0 (string)")
+	sipManagerCmd.AddCommand(sipManagerCloseCmd)
+	sipManagerCreateSipSessionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sipManagerCreateSipSessionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	sipManagerCmd.AddCommand(sipManagerCreateSipSessionCmd)
+	sipManagerGetSessionForCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sipManagerCmd.AddCommand(sipManagerGetSessionForCmd)
+	sipManagerIsOpenedCmd.Flags().String("arg0", "", "arg0 (string)")
+	sipManagerCmd.AddCommand(sipManagerIsOpenedCmd)
+	sipManagerIsRegisteredCmd.Flags().String("arg0", "", "arg0 (string)")
+	sipManagerCmd.AddCommand(sipManagerIsRegisteredCmd)
+	sipManagerMakeAudioCall4Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sipManagerMakeAudioCall4Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	sipManagerMakeAudioCall4Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	sipManagerMakeAudioCall4Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	sipManagerCmd.AddCommand(sipManagerMakeAudioCall4Cmd)
+	sipManagerMakeAudioCall4_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	sipManagerMakeAudioCall4_1Cmd.Flags().String("arg1", "", "arg1 (string)")
+	sipManagerMakeAudioCall4_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	sipManagerMakeAudioCall4_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	sipManagerCmd.AddCommand(sipManagerMakeAudioCall4_1Cmd)
+	sipManagerOpen1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sipManagerCmd.AddCommand(sipManagerOpen1Cmd)
+	sipManagerOpen3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sipManagerOpen3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	sipManagerOpen3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	sipManagerCmd.AddCommand(sipManagerOpen3_1Cmd)
+	sipManagerRegisterCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sipManagerRegisterCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	sipManagerRegisterCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	sipManagerCmd.AddCommand(sipManagerRegisterCmd)
+	sipManagerSetRegistrationListenerCmd.Flags().String("arg0", "", "arg0 (string)")
+	sipManagerSetRegistrationListenerCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	sipManagerCmd.AddCommand(sipManagerSetRegistrationListenerCmd)
+	sipManagerTakeAudioCallCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sipManagerTakeAudioCallCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	sipManagerCmd.AddCommand(sipManagerTakeAudioCallCmd)
+	sipManagerUnregisterCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sipManagerUnregisterCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	sipManagerCmd.AddCommand(sipManagerUnregisterCmd)
+	sipManagerGetCallIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sipManagerCmd.AddCommand(sipManagerGetCallIdCmd)
+	sipManagerGetOfferSessionDescriptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sipManagerCmd.AddCommand(sipManagerGetOfferSessionDescriptionCmd)
+	sipManagerIsApiSupportedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sipManagerCmd.AddCommand(sipManagerIsApiSupportedCmd)
+	sipManagerIsIncomingCallIntentCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sipManagerCmd.AddCommand(sipManagerIsIncomingCallIntentCmd)
+	sipManagerIsSipWifiOnlyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sipManagerCmd.AddCommand(sipManagerIsSipWifiOnlyCmd)
+	sipManagerIsVoipSupportedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sipManagerCmd.AddCommand(sipManagerIsVoipSupportedCmd)
+	sipManagerNewInstanceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	sipManagerCmd.AddCommand(sipManagerNewInstanceCmd)
+	sipCmd.AddCommand(sipManagerCmd)
 	rootCmd.AddCommand(sipCmd)
 }

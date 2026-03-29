@@ -21,6 +21,666 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	LengthService_CompareTo1_FullMethodName   = "/units.LengthService/CompareTo1"
+	LengthService_Equals_FullMethodName       = "/units.LengthService/Equals"
+	LengthService_GetInMeters_FullMethodName  = "/units.LengthService/GetInMeters"
+	LengthService_HashCode_FullMethodName     = "/units.LengthService/HashCode"
+	LengthService_ToString_FullMethodName     = "/units.LengthService/ToString"
+	LengthService_CompareTo1_1_FullMethodName = "/units.LengthService/CompareTo1_1"
+	LengthService_FromMeters_FullMethodName   = "/units.LengthService/FromMeters"
+)
+
+// LengthServiceClient is the client API for LengthService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type LengthServiceClient interface {
+	CompareTo1(ctx context.Context, in *CompareTo1Request, opts ...grpc.CallOption) (*CompareTo1Response, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetInMeters(ctx context.Context, in *GetInMetersRequest, opts ...grpc.CallOption) (*GetInMetersResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	CompareTo1_1(ctx context.Context, in *CompareTo1_1Request, opts ...grpc.CallOption) (*CompareTo1_1Response, error)
+	FromMeters(ctx context.Context, in *FromMetersRequest, opts ...grpc.CallOption) (*FromMetersResponse, error)
+}
+
+type lengthServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewLengthServiceClient(cc grpc.ClientConnInterface) LengthServiceClient {
+	return &lengthServiceClient{cc}
+}
+
+func (c *lengthServiceClient) CompareTo1(ctx context.Context, in *CompareTo1Request, opts ...grpc.CallOption) (*CompareTo1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CompareTo1Response)
+	err := c.cc.Invoke(ctx, LengthService_CompareTo1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *lengthServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, LengthService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *lengthServiceClient) GetInMeters(ctx context.Context, in *GetInMetersRequest, opts ...grpc.CallOption) (*GetInMetersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInMetersResponse)
+	err := c.cc.Invoke(ctx, LengthService_GetInMeters_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *lengthServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, LengthService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *lengthServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, LengthService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *lengthServiceClient) CompareTo1_1(ctx context.Context, in *CompareTo1_1Request, opts ...grpc.CallOption) (*CompareTo1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CompareTo1_1Response)
+	err := c.cc.Invoke(ctx, LengthService_CompareTo1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *lengthServiceClient) FromMeters(ctx context.Context, in *FromMetersRequest, opts ...grpc.CallOption) (*FromMetersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FromMetersResponse)
+	err := c.cc.Invoke(ctx, LengthService_FromMeters_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// LengthServiceServer is the server API for LengthService service.
+// All implementations must embed UnimplementedLengthServiceServer
+// for forward compatibility.
+type LengthServiceServer interface {
+	CompareTo1(context.Context, *CompareTo1Request) (*CompareTo1Response, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetInMeters(context.Context, *GetInMetersRequest) (*GetInMetersResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	CompareTo1_1(context.Context, *CompareTo1_1Request) (*CompareTo1_1Response, error)
+	FromMeters(context.Context, *FromMetersRequest) (*FromMetersResponse, error)
+	mustEmbedUnimplementedLengthServiceServer()
+}
+
+// UnimplementedLengthServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedLengthServiceServer struct{}
+
+func (UnimplementedLengthServiceServer) CompareTo1(context.Context, *CompareTo1Request) (*CompareTo1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CompareTo1 not implemented")
+}
+func (UnimplementedLengthServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedLengthServiceServer) GetInMeters(context.Context, *GetInMetersRequest) (*GetInMetersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInMeters not implemented")
+}
+func (UnimplementedLengthServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedLengthServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedLengthServiceServer) CompareTo1_1(context.Context, *CompareTo1_1Request) (*CompareTo1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CompareTo1_1 not implemented")
+}
+func (UnimplementedLengthServiceServer) FromMeters(context.Context, *FromMetersRequest) (*FromMetersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FromMeters not implemented")
+}
+func (UnimplementedLengthServiceServer) mustEmbedUnimplementedLengthServiceServer() {}
+func (UnimplementedLengthServiceServer) testEmbeddedByValue()                       {}
+
+// UnsafeLengthServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to LengthServiceServer will
+// result in compilation errors.
+type UnsafeLengthServiceServer interface {
+	mustEmbedUnimplementedLengthServiceServer()
+}
+
+func RegisterLengthServiceServer(s grpc.ServiceRegistrar, srv LengthServiceServer) {
+	// If the following call panics, it indicates UnimplementedLengthServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&LengthService_ServiceDesc, srv)
+}
+
+func _LengthService_CompareTo1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CompareTo1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LengthServiceServer).CompareTo1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LengthService_CompareTo1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LengthServiceServer).CompareTo1(ctx, req.(*CompareTo1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LengthService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LengthServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LengthService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LengthServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LengthService_GetInMeters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInMetersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LengthServiceServer).GetInMeters(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LengthService_GetInMeters_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LengthServiceServer).GetInMeters(ctx, req.(*GetInMetersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LengthService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LengthServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LengthService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LengthServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LengthService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LengthServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LengthService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LengthServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LengthService_CompareTo1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CompareTo1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LengthServiceServer).CompareTo1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LengthService_CompareTo1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LengthServiceServer).CompareTo1_1(ctx, req.(*CompareTo1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _LengthService_FromMeters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FromMetersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LengthServiceServer).FromMeters(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LengthService_FromMeters_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LengthServiceServer).FromMeters(ctx, req.(*FromMetersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// LengthService_ServiceDesc is the grpc.ServiceDesc for LengthService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var LengthService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "units.LengthService",
+	HandlerType: (*LengthServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CompareTo1",
+			Handler:    _LengthService_CompareTo1_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _LengthService_Equals_Handler,
+		},
+		{
+			MethodName: "GetInMeters",
+			Handler:    _LengthService_GetInMeters_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _LengthService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _LengthService_ToString_Handler,
+		},
+		{
+			MethodName: "CompareTo1_1",
+			Handler:    _LengthService_CompareTo1_1_Handler,
+		},
+		{
+			MethodName: "FromMeters",
+			Handler:    _LengthService_FromMeters_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/units/units.proto",
+}
+
+const (
+	PowerService_CompareTo1_FullMethodName   = "/units.PowerService/CompareTo1"
+	PowerService_Equals_FullMethodName       = "/units.PowerService/Equals"
+	PowerService_GetInWatts_FullMethodName   = "/units.PowerService/GetInWatts"
+	PowerService_HashCode_FullMethodName     = "/units.PowerService/HashCode"
+	PowerService_ToString_FullMethodName     = "/units.PowerService/ToString"
+	PowerService_CompareTo1_1_FullMethodName = "/units.PowerService/CompareTo1_1"
+	PowerService_FromWatts_FullMethodName    = "/units.PowerService/FromWatts"
+)
+
+// PowerServiceClient is the client API for PowerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PowerServiceClient interface {
+	CompareTo1(ctx context.Context, in *CompareTo1Request, opts ...grpc.CallOption) (*CompareTo1Response, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetInWatts(ctx context.Context, in *GetInWattsRequest, opts ...grpc.CallOption) (*GetInWattsResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	CompareTo1_1(ctx context.Context, in *CompareTo1_1Request, opts ...grpc.CallOption) (*CompareTo1_1Response, error)
+	FromWatts(ctx context.Context, in *FromWattsRequest, opts ...grpc.CallOption) (*FromWattsResponse, error)
+}
+
+type powerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPowerServiceClient(cc grpc.ClientConnInterface) PowerServiceClient {
+	return &powerServiceClient{cc}
+}
+
+func (c *powerServiceClient) CompareTo1(ctx context.Context, in *CompareTo1Request, opts ...grpc.CallOption) (*CompareTo1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CompareTo1Response)
+	err := c.cc.Invoke(ctx, PowerService_CompareTo1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *powerServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, PowerService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *powerServiceClient) GetInWatts(ctx context.Context, in *GetInWattsRequest, opts ...grpc.CallOption) (*GetInWattsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInWattsResponse)
+	err := c.cc.Invoke(ctx, PowerService_GetInWatts_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *powerServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, PowerService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *powerServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, PowerService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *powerServiceClient) CompareTo1_1(ctx context.Context, in *CompareTo1_1Request, opts ...grpc.CallOption) (*CompareTo1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CompareTo1_1Response)
+	err := c.cc.Invoke(ctx, PowerService_CompareTo1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *powerServiceClient) FromWatts(ctx context.Context, in *FromWattsRequest, opts ...grpc.CallOption) (*FromWattsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FromWattsResponse)
+	err := c.cc.Invoke(ctx, PowerService_FromWatts_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PowerServiceServer is the server API for PowerService service.
+// All implementations must embed UnimplementedPowerServiceServer
+// for forward compatibility.
+type PowerServiceServer interface {
+	CompareTo1(context.Context, *CompareTo1Request) (*CompareTo1Response, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetInWatts(context.Context, *GetInWattsRequest) (*GetInWattsResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	CompareTo1_1(context.Context, *CompareTo1_1Request) (*CompareTo1_1Response, error)
+	FromWatts(context.Context, *FromWattsRequest) (*FromWattsResponse, error)
+	mustEmbedUnimplementedPowerServiceServer()
+}
+
+// UnimplementedPowerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPowerServiceServer struct{}
+
+func (UnimplementedPowerServiceServer) CompareTo1(context.Context, *CompareTo1Request) (*CompareTo1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CompareTo1 not implemented")
+}
+func (UnimplementedPowerServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedPowerServiceServer) GetInWatts(context.Context, *GetInWattsRequest) (*GetInWattsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInWatts not implemented")
+}
+func (UnimplementedPowerServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedPowerServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedPowerServiceServer) CompareTo1_1(context.Context, *CompareTo1_1Request) (*CompareTo1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CompareTo1_1 not implemented")
+}
+func (UnimplementedPowerServiceServer) FromWatts(context.Context, *FromWattsRequest) (*FromWattsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FromWatts not implemented")
+}
+func (UnimplementedPowerServiceServer) mustEmbedUnimplementedPowerServiceServer() {}
+func (UnimplementedPowerServiceServer) testEmbeddedByValue()                      {}
+
+// UnsafePowerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PowerServiceServer will
+// result in compilation errors.
+type UnsafePowerServiceServer interface {
+	mustEmbedUnimplementedPowerServiceServer()
+}
+
+func RegisterPowerServiceServer(s grpc.ServiceRegistrar, srv PowerServiceServer) {
+	// If the following call panics, it indicates UnimplementedPowerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PowerService_ServiceDesc, srv)
+}
+
+func _PowerService_CompareTo1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CompareTo1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PowerServiceServer).CompareTo1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PowerService_CompareTo1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PowerServiceServer).CompareTo1(ctx, req.(*CompareTo1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PowerService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PowerServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PowerService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PowerServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PowerService_GetInWatts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInWattsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PowerServiceServer).GetInWatts(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PowerService_GetInWatts_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PowerServiceServer).GetInWatts(ctx, req.(*GetInWattsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PowerService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PowerServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PowerService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PowerServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PowerService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PowerServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PowerService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PowerServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PowerService_CompareTo1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CompareTo1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PowerServiceServer).CompareTo1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PowerService_CompareTo1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PowerServiceServer).CompareTo1_1(ctx, req.(*CompareTo1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PowerService_FromWatts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FromWattsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PowerServiceServer).FromWatts(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PowerService_FromWatts_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PowerServiceServer).FromWatts(ctx, req.(*FromWattsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PowerService_ServiceDesc is the grpc.ServiceDesc for PowerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PowerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "units.PowerService",
+	HandlerType: (*PowerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CompareTo1",
+			Handler:    _PowerService_CompareTo1_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _PowerService_Equals_Handler,
+		},
+		{
+			MethodName: "GetInWatts",
+			Handler:    _PowerService_GetInWatts_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _PowerService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _PowerService_ToString_Handler,
+		},
+		{
+			MethodName: "CompareTo1_1",
+			Handler:    _PowerService_CompareTo1_1_Handler,
+		},
+		{
+			MethodName: "FromWatts",
+			Handler:    _PowerService_FromWatts_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/units/units.proto",
+}
+
+const (
 	BloodGlucoseService_CompareTo1_FullMethodName              = "/units.BloodGlucoseService/CompareTo1"
 	BloodGlucoseService_Equals_FullMethodName                  = "/units.BloodGlucoseService/Equals"
 	BloodGlucoseService_GetInMillimolesPerLiter_FullMethodName = "/units.BloodGlucoseService/GetInMillimolesPerLiter"
@@ -674,1327 +1334,6 @@ var VolumeService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "FromLiters",
 			Handler:    _VolumeService_FromLiters_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/units/units.proto",
-}
-
-const (
-	TemperatureDeltaService_CompareTo1_FullMethodName   = "/units.TemperatureDeltaService/CompareTo1"
-	TemperatureDeltaService_Equals_FullMethodName       = "/units.TemperatureDeltaService/Equals"
-	TemperatureDeltaService_GetInCelsius_FullMethodName = "/units.TemperatureDeltaService/GetInCelsius"
-	TemperatureDeltaService_HashCode_FullMethodName     = "/units.TemperatureDeltaService/HashCode"
-	TemperatureDeltaService_ToString_FullMethodName     = "/units.TemperatureDeltaService/ToString"
-	TemperatureDeltaService_CompareTo1_1_FullMethodName = "/units.TemperatureDeltaService/CompareTo1_1"
-	TemperatureDeltaService_FromCelsius_FullMethodName  = "/units.TemperatureDeltaService/FromCelsius"
-)
-
-// TemperatureDeltaServiceClient is the client API for TemperatureDeltaService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TemperatureDeltaServiceClient interface {
-	CompareTo1(ctx context.Context, in *CompareTo1Request, opts ...grpc.CallOption) (*CompareTo1Response, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetInCelsius(ctx context.Context, in *GetInCelsiusRequest, opts ...grpc.CallOption) (*GetInCelsiusResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	CompareTo1_1(ctx context.Context, in *CompareTo1_1Request, opts ...grpc.CallOption) (*CompareTo1_1Response, error)
-	FromCelsius(ctx context.Context, in *FromCelsiusRequest, opts ...grpc.CallOption) (*FromCelsiusResponse, error)
-}
-
-type temperatureDeltaServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewTemperatureDeltaServiceClient(cc grpc.ClientConnInterface) TemperatureDeltaServiceClient {
-	return &temperatureDeltaServiceClient{cc}
-}
-
-func (c *temperatureDeltaServiceClient) CompareTo1(ctx context.Context, in *CompareTo1Request, opts ...grpc.CallOption) (*CompareTo1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CompareTo1Response)
-	err := c.cc.Invoke(ctx, TemperatureDeltaService_CompareTo1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *temperatureDeltaServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, TemperatureDeltaService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *temperatureDeltaServiceClient) GetInCelsius(ctx context.Context, in *GetInCelsiusRequest, opts ...grpc.CallOption) (*GetInCelsiusResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInCelsiusResponse)
-	err := c.cc.Invoke(ctx, TemperatureDeltaService_GetInCelsius_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *temperatureDeltaServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, TemperatureDeltaService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *temperatureDeltaServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, TemperatureDeltaService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *temperatureDeltaServiceClient) CompareTo1_1(ctx context.Context, in *CompareTo1_1Request, opts ...grpc.CallOption) (*CompareTo1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CompareTo1_1Response)
-	err := c.cc.Invoke(ctx, TemperatureDeltaService_CompareTo1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *temperatureDeltaServiceClient) FromCelsius(ctx context.Context, in *FromCelsiusRequest, opts ...grpc.CallOption) (*FromCelsiusResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FromCelsiusResponse)
-	err := c.cc.Invoke(ctx, TemperatureDeltaService_FromCelsius_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// TemperatureDeltaServiceServer is the server API for TemperatureDeltaService service.
-// All implementations must embed UnimplementedTemperatureDeltaServiceServer
-// for forward compatibility.
-type TemperatureDeltaServiceServer interface {
-	CompareTo1(context.Context, *CompareTo1Request) (*CompareTo1Response, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetInCelsius(context.Context, *GetInCelsiusRequest) (*GetInCelsiusResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	CompareTo1_1(context.Context, *CompareTo1_1Request) (*CompareTo1_1Response, error)
-	FromCelsius(context.Context, *FromCelsiusRequest) (*FromCelsiusResponse, error)
-	mustEmbedUnimplementedTemperatureDeltaServiceServer()
-}
-
-// UnimplementedTemperatureDeltaServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedTemperatureDeltaServiceServer struct{}
-
-func (UnimplementedTemperatureDeltaServiceServer) CompareTo1(context.Context, *CompareTo1Request) (*CompareTo1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method CompareTo1 not implemented")
-}
-func (UnimplementedTemperatureDeltaServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedTemperatureDeltaServiceServer) GetInCelsius(context.Context, *GetInCelsiusRequest) (*GetInCelsiusResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInCelsius not implemented")
-}
-func (UnimplementedTemperatureDeltaServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedTemperatureDeltaServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedTemperatureDeltaServiceServer) CompareTo1_1(context.Context, *CompareTo1_1Request) (*CompareTo1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method CompareTo1_1 not implemented")
-}
-func (UnimplementedTemperatureDeltaServiceServer) FromCelsius(context.Context, *FromCelsiusRequest) (*FromCelsiusResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method FromCelsius not implemented")
-}
-func (UnimplementedTemperatureDeltaServiceServer) mustEmbedUnimplementedTemperatureDeltaServiceServer() {
-}
-func (UnimplementedTemperatureDeltaServiceServer) testEmbeddedByValue() {}
-
-// UnsafeTemperatureDeltaServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TemperatureDeltaServiceServer will
-// result in compilation errors.
-type UnsafeTemperatureDeltaServiceServer interface {
-	mustEmbedUnimplementedTemperatureDeltaServiceServer()
-}
-
-func RegisterTemperatureDeltaServiceServer(s grpc.ServiceRegistrar, srv TemperatureDeltaServiceServer) {
-	// If the following call panics, it indicates UnimplementedTemperatureDeltaServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&TemperatureDeltaService_ServiceDesc, srv)
-}
-
-func _TemperatureDeltaService_CompareTo1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CompareTo1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TemperatureDeltaServiceServer).CompareTo1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TemperatureDeltaService_CompareTo1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TemperatureDeltaServiceServer).CompareTo1(ctx, req.(*CompareTo1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TemperatureDeltaService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TemperatureDeltaServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TemperatureDeltaService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TemperatureDeltaServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TemperatureDeltaService_GetInCelsius_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInCelsiusRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TemperatureDeltaServiceServer).GetInCelsius(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TemperatureDeltaService_GetInCelsius_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TemperatureDeltaServiceServer).GetInCelsius(ctx, req.(*GetInCelsiusRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TemperatureDeltaService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TemperatureDeltaServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TemperatureDeltaService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TemperatureDeltaServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TemperatureDeltaService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TemperatureDeltaServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TemperatureDeltaService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TemperatureDeltaServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TemperatureDeltaService_CompareTo1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CompareTo1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TemperatureDeltaServiceServer).CompareTo1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TemperatureDeltaService_CompareTo1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TemperatureDeltaServiceServer).CompareTo1_1(ctx, req.(*CompareTo1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TemperatureDeltaService_FromCelsius_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FromCelsiusRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TemperatureDeltaServiceServer).FromCelsius(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TemperatureDeltaService_FromCelsius_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TemperatureDeltaServiceServer).FromCelsius(ctx, req.(*FromCelsiusRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// TemperatureDeltaService_ServiceDesc is the grpc.ServiceDesc for TemperatureDeltaService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var TemperatureDeltaService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "units.TemperatureDeltaService",
-	HandlerType: (*TemperatureDeltaServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "CompareTo1",
-			Handler:    _TemperatureDeltaService_CompareTo1_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _TemperatureDeltaService_Equals_Handler,
-		},
-		{
-			MethodName: "GetInCelsius",
-			Handler:    _TemperatureDeltaService_GetInCelsius_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _TemperatureDeltaService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _TemperatureDeltaService_ToString_Handler,
-		},
-		{
-			MethodName: "CompareTo1_1",
-			Handler:    _TemperatureDeltaService_CompareTo1_1_Handler,
-		},
-		{
-			MethodName: "FromCelsius",
-			Handler:    _TemperatureDeltaService_FromCelsius_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/units/units.proto",
-}
-
-const (
-	PowerService_CompareTo1_FullMethodName   = "/units.PowerService/CompareTo1"
-	PowerService_Equals_FullMethodName       = "/units.PowerService/Equals"
-	PowerService_GetInWatts_FullMethodName   = "/units.PowerService/GetInWatts"
-	PowerService_HashCode_FullMethodName     = "/units.PowerService/HashCode"
-	PowerService_ToString_FullMethodName     = "/units.PowerService/ToString"
-	PowerService_CompareTo1_1_FullMethodName = "/units.PowerService/CompareTo1_1"
-	PowerService_FromWatts_FullMethodName    = "/units.PowerService/FromWatts"
-)
-
-// PowerServiceClient is the client API for PowerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PowerServiceClient interface {
-	CompareTo1(ctx context.Context, in *CompareTo1Request, opts ...grpc.CallOption) (*CompareTo1Response, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetInWatts(ctx context.Context, in *GetInWattsRequest, opts ...grpc.CallOption) (*GetInWattsResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	CompareTo1_1(ctx context.Context, in *CompareTo1_1Request, opts ...grpc.CallOption) (*CompareTo1_1Response, error)
-	FromWatts(ctx context.Context, in *FromWattsRequest, opts ...grpc.CallOption) (*FromWattsResponse, error)
-}
-
-type powerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPowerServiceClient(cc grpc.ClientConnInterface) PowerServiceClient {
-	return &powerServiceClient{cc}
-}
-
-func (c *powerServiceClient) CompareTo1(ctx context.Context, in *CompareTo1Request, opts ...grpc.CallOption) (*CompareTo1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CompareTo1Response)
-	err := c.cc.Invoke(ctx, PowerService_CompareTo1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *powerServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, PowerService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *powerServiceClient) GetInWatts(ctx context.Context, in *GetInWattsRequest, opts ...grpc.CallOption) (*GetInWattsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInWattsResponse)
-	err := c.cc.Invoke(ctx, PowerService_GetInWatts_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *powerServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, PowerService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *powerServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, PowerService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *powerServiceClient) CompareTo1_1(ctx context.Context, in *CompareTo1_1Request, opts ...grpc.CallOption) (*CompareTo1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CompareTo1_1Response)
-	err := c.cc.Invoke(ctx, PowerService_CompareTo1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *powerServiceClient) FromWatts(ctx context.Context, in *FromWattsRequest, opts ...grpc.CallOption) (*FromWattsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FromWattsResponse)
-	err := c.cc.Invoke(ctx, PowerService_FromWatts_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PowerServiceServer is the server API for PowerService service.
-// All implementations must embed UnimplementedPowerServiceServer
-// for forward compatibility.
-type PowerServiceServer interface {
-	CompareTo1(context.Context, *CompareTo1Request) (*CompareTo1Response, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetInWatts(context.Context, *GetInWattsRequest) (*GetInWattsResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	CompareTo1_1(context.Context, *CompareTo1_1Request) (*CompareTo1_1Response, error)
-	FromWatts(context.Context, *FromWattsRequest) (*FromWattsResponse, error)
-	mustEmbedUnimplementedPowerServiceServer()
-}
-
-// UnimplementedPowerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPowerServiceServer struct{}
-
-func (UnimplementedPowerServiceServer) CompareTo1(context.Context, *CompareTo1Request) (*CompareTo1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method CompareTo1 not implemented")
-}
-func (UnimplementedPowerServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedPowerServiceServer) GetInWatts(context.Context, *GetInWattsRequest) (*GetInWattsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInWatts not implemented")
-}
-func (UnimplementedPowerServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedPowerServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedPowerServiceServer) CompareTo1_1(context.Context, *CompareTo1_1Request) (*CompareTo1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method CompareTo1_1 not implemented")
-}
-func (UnimplementedPowerServiceServer) FromWatts(context.Context, *FromWattsRequest) (*FromWattsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method FromWatts not implemented")
-}
-func (UnimplementedPowerServiceServer) mustEmbedUnimplementedPowerServiceServer() {}
-func (UnimplementedPowerServiceServer) testEmbeddedByValue()                      {}
-
-// UnsafePowerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PowerServiceServer will
-// result in compilation errors.
-type UnsafePowerServiceServer interface {
-	mustEmbedUnimplementedPowerServiceServer()
-}
-
-func RegisterPowerServiceServer(s grpc.ServiceRegistrar, srv PowerServiceServer) {
-	// If the following call panics, it indicates UnimplementedPowerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PowerService_ServiceDesc, srv)
-}
-
-func _PowerService_CompareTo1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CompareTo1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PowerServiceServer).CompareTo1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PowerService_CompareTo1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerServiceServer).CompareTo1(ctx, req.(*CompareTo1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PowerService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PowerServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PowerService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PowerService_GetInWatts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInWattsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PowerServiceServer).GetInWatts(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PowerService_GetInWatts_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerServiceServer).GetInWatts(ctx, req.(*GetInWattsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PowerService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PowerServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PowerService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PowerService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PowerServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PowerService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PowerService_CompareTo1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CompareTo1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PowerServiceServer).CompareTo1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PowerService_CompareTo1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerServiceServer).CompareTo1_1(ctx, req.(*CompareTo1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PowerService_FromWatts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FromWattsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PowerServiceServer).FromWatts(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PowerService_FromWatts_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PowerServiceServer).FromWatts(ctx, req.(*FromWattsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PowerService_ServiceDesc is the grpc.ServiceDesc for PowerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PowerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "units.PowerService",
-	HandlerType: (*PowerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "CompareTo1",
-			Handler:    _PowerService_CompareTo1_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _PowerService_Equals_Handler,
-		},
-		{
-			MethodName: "GetInWatts",
-			Handler:    _PowerService_GetInWatts_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _PowerService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _PowerService_ToString_Handler,
-		},
-		{
-			MethodName: "CompareTo1_1",
-			Handler:    _PowerService_CompareTo1_1_Handler,
-		},
-		{
-			MethodName: "FromWatts",
-			Handler:    _PowerService_FromWatts_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/units/units.proto",
-}
-
-const (
-	LengthService_CompareTo1_FullMethodName   = "/units.LengthService/CompareTo1"
-	LengthService_Equals_FullMethodName       = "/units.LengthService/Equals"
-	LengthService_GetInMeters_FullMethodName  = "/units.LengthService/GetInMeters"
-	LengthService_HashCode_FullMethodName     = "/units.LengthService/HashCode"
-	LengthService_ToString_FullMethodName     = "/units.LengthService/ToString"
-	LengthService_CompareTo1_1_FullMethodName = "/units.LengthService/CompareTo1_1"
-	LengthService_FromMeters_FullMethodName   = "/units.LengthService/FromMeters"
-)
-
-// LengthServiceClient is the client API for LengthService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type LengthServiceClient interface {
-	CompareTo1(ctx context.Context, in *CompareTo1Request, opts ...grpc.CallOption) (*CompareTo1Response, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetInMeters(ctx context.Context, in *GetInMetersRequest, opts ...grpc.CallOption) (*GetInMetersResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	CompareTo1_1(ctx context.Context, in *CompareTo1_1Request, opts ...grpc.CallOption) (*CompareTo1_1Response, error)
-	FromMeters(ctx context.Context, in *FromMetersRequest, opts ...grpc.CallOption) (*FromMetersResponse, error)
-}
-
-type lengthServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewLengthServiceClient(cc grpc.ClientConnInterface) LengthServiceClient {
-	return &lengthServiceClient{cc}
-}
-
-func (c *lengthServiceClient) CompareTo1(ctx context.Context, in *CompareTo1Request, opts ...grpc.CallOption) (*CompareTo1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CompareTo1Response)
-	err := c.cc.Invoke(ctx, LengthService_CompareTo1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *lengthServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, LengthService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *lengthServiceClient) GetInMeters(ctx context.Context, in *GetInMetersRequest, opts ...grpc.CallOption) (*GetInMetersResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInMetersResponse)
-	err := c.cc.Invoke(ctx, LengthService_GetInMeters_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *lengthServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, LengthService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *lengthServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, LengthService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *lengthServiceClient) CompareTo1_1(ctx context.Context, in *CompareTo1_1Request, opts ...grpc.CallOption) (*CompareTo1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CompareTo1_1Response)
-	err := c.cc.Invoke(ctx, LengthService_CompareTo1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *lengthServiceClient) FromMeters(ctx context.Context, in *FromMetersRequest, opts ...grpc.CallOption) (*FromMetersResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FromMetersResponse)
-	err := c.cc.Invoke(ctx, LengthService_FromMeters_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// LengthServiceServer is the server API for LengthService service.
-// All implementations must embed UnimplementedLengthServiceServer
-// for forward compatibility.
-type LengthServiceServer interface {
-	CompareTo1(context.Context, *CompareTo1Request) (*CompareTo1Response, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetInMeters(context.Context, *GetInMetersRequest) (*GetInMetersResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	CompareTo1_1(context.Context, *CompareTo1_1Request) (*CompareTo1_1Response, error)
-	FromMeters(context.Context, *FromMetersRequest) (*FromMetersResponse, error)
-	mustEmbedUnimplementedLengthServiceServer()
-}
-
-// UnimplementedLengthServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedLengthServiceServer struct{}
-
-func (UnimplementedLengthServiceServer) CompareTo1(context.Context, *CompareTo1Request) (*CompareTo1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method CompareTo1 not implemented")
-}
-func (UnimplementedLengthServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedLengthServiceServer) GetInMeters(context.Context, *GetInMetersRequest) (*GetInMetersResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInMeters not implemented")
-}
-func (UnimplementedLengthServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedLengthServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedLengthServiceServer) CompareTo1_1(context.Context, *CompareTo1_1Request) (*CompareTo1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method CompareTo1_1 not implemented")
-}
-func (UnimplementedLengthServiceServer) FromMeters(context.Context, *FromMetersRequest) (*FromMetersResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method FromMeters not implemented")
-}
-func (UnimplementedLengthServiceServer) mustEmbedUnimplementedLengthServiceServer() {}
-func (UnimplementedLengthServiceServer) testEmbeddedByValue()                       {}
-
-// UnsafeLengthServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to LengthServiceServer will
-// result in compilation errors.
-type UnsafeLengthServiceServer interface {
-	mustEmbedUnimplementedLengthServiceServer()
-}
-
-func RegisterLengthServiceServer(s grpc.ServiceRegistrar, srv LengthServiceServer) {
-	// If the following call panics, it indicates UnimplementedLengthServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&LengthService_ServiceDesc, srv)
-}
-
-func _LengthService_CompareTo1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CompareTo1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LengthServiceServer).CompareTo1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LengthService_CompareTo1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LengthServiceServer).CompareTo1(ctx, req.(*CompareTo1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LengthService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LengthServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LengthService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LengthServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LengthService_GetInMeters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInMetersRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LengthServiceServer).GetInMeters(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LengthService_GetInMeters_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LengthServiceServer).GetInMeters(ctx, req.(*GetInMetersRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LengthService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LengthServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LengthService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LengthServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LengthService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LengthServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LengthService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LengthServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LengthService_CompareTo1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CompareTo1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LengthServiceServer).CompareTo1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LengthService_CompareTo1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LengthServiceServer).CompareTo1_1(ctx, req.(*CompareTo1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LengthService_FromMeters_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FromMetersRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LengthServiceServer).FromMeters(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LengthService_FromMeters_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LengthServiceServer).FromMeters(ctx, req.(*FromMetersRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// LengthService_ServiceDesc is the grpc.ServiceDesc for LengthService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var LengthService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "units.LengthService",
-	HandlerType: (*LengthServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "CompareTo1",
-			Handler:    _LengthService_CompareTo1_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _LengthService_Equals_Handler,
-		},
-		{
-			MethodName: "GetInMeters",
-			Handler:    _LengthService_GetInMeters_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _LengthService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _LengthService_ToString_Handler,
-		},
-		{
-			MethodName: "CompareTo1_1",
-			Handler:    _LengthService_CompareTo1_1_Handler,
-		},
-		{
-			MethodName: "FromMeters",
-			Handler:    _LengthService_FromMeters_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/units/units.proto",
-}
-
-const (
-	PercentageService_CompareTo1_FullMethodName   = "/units.PercentageService/CompareTo1"
-	PercentageService_Equals_FullMethodName       = "/units.PercentageService/Equals"
-	PercentageService_GetValue_FullMethodName     = "/units.PercentageService/GetValue"
-	PercentageService_HashCode_FullMethodName     = "/units.PercentageService/HashCode"
-	PercentageService_ToString_FullMethodName     = "/units.PercentageService/ToString"
-	PercentageService_CompareTo1_1_FullMethodName = "/units.PercentageService/CompareTo1_1"
-	PercentageService_FromValue_FullMethodName    = "/units.PercentageService/FromValue"
-)
-
-// PercentageServiceClient is the client API for PercentageService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PercentageServiceClient interface {
-	CompareTo1(ctx context.Context, in *CompareTo1Request, opts ...grpc.CallOption) (*CompareTo1Response, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetValue(ctx context.Context, in *GetValueRequest, opts ...grpc.CallOption) (*GetValueResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	CompareTo1_1(ctx context.Context, in *CompareTo1_1Request, opts ...grpc.CallOption) (*CompareTo1_1Response, error)
-	FromValue(ctx context.Context, in *FromValueRequest, opts ...grpc.CallOption) (*FromValueResponse, error)
-}
-
-type percentageServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPercentageServiceClient(cc grpc.ClientConnInterface) PercentageServiceClient {
-	return &percentageServiceClient{cc}
-}
-
-func (c *percentageServiceClient) CompareTo1(ctx context.Context, in *CompareTo1Request, opts ...grpc.CallOption) (*CompareTo1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CompareTo1Response)
-	err := c.cc.Invoke(ctx, PercentageService_CompareTo1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *percentageServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, PercentageService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *percentageServiceClient) GetValue(ctx context.Context, in *GetValueRequest, opts ...grpc.CallOption) (*GetValueResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetValueResponse)
-	err := c.cc.Invoke(ctx, PercentageService_GetValue_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *percentageServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, PercentageService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *percentageServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, PercentageService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *percentageServiceClient) CompareTo1_1(ctx context.Context, in *CompareTo1_1Request, opts ...grpc.CallOption) (*CompareTo1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CompareTo1_1Response)
-	err := c.cc.Invoke(ctx, PercentageService_CompareTo1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *percentageServiceClient) FromValue(ctx context.Context, in *FromValueRequest, opts ...grpc.CallOption) (*FromValueResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FromValueResponse)
-	err := c.cc.Invoke(ctx, PercentageService_FromValue_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PercentageServiceServer is the server API for PercentageService service.
-// All implementations must embed UnimplementedPercentageServiceServer
-// for forward compatibility.
-type PercentageServiceServer interface {
-	CompareTo1(context.Context, *CompareTo1Request) (*CompareTo1Response, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetValue(context.Context, *GetValueRequest) (*GetValueResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	CompareTo1_1(context.Context, *CompareTo1_1Request) (*CompareTo1_1Response, error)
-	FromValue(context.Context, *FromValueRequest) (*FromValueResponse, error)
-	mustEmbedUnimplementedPercentageServiceServer()
-}
-
-// UnimplementedPercentageServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPercentageServiceServer struct{}
-
-func (UnimplementedPercentageServiceServer) CompareTo1(context.Context, *CompareTo1Request) (*CompareTo1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method CompareTo1 not implemented")
-}
-func (UnimplementedPercentageServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedPercentageServiceServer) GetValue(context.Context, *GetValueRequest) (*GetValueResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetValue not implemented")
-}
-func (UnimplementedPercentageServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedPercentageServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedPercentageServiceServer) CompareTo1_1(context.Context, *CompareTo1_1Request) (*CompareTo1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method CompareTo1_1 not implemented")
-}
-func (UnimplementedPercentageServiceServer) FromValue(context.Context, *FromValueRequest) (*FromValueResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method FromValue not implemented")
-}
-func (UnimplementedPercentageServiceServer) mustEmbedUnimplementedPercentageServiceServer() {}
-func (UnimplementedPercentageServiceServer) testEmbeddedByValue()                           {}
-
-// UnsafePercentageServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PercentageServiceServer will
-// result in compilation errors.
-type UnsafePercentageServiceServer interface {
-	mustEmbedUnimplementedPercentageServiceServer()
-}
-
-func RegisterPercentageServiceServer(s grpc.ServiceRegistrar, srv PercentageServiceServer) {
-	// If the following call panics, it indicates UnimplementedPercentageServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PercentageService_ServiceDesc, srv)
-}
-
-func _PercentageService_CompareTo1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CompareTo1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PercentageServiceServer).CompareTo1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PercentageService_CompareTo1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PercentageServiceServer).CompareTo1(ctx, req.(*CompareTo1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PercentageService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PercentageServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PercentageService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PercentageServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PercentageService_GetValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetValueRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PercentageServiceServer).GetValue(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PercentageService_GetValue_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PercentageServiceServer).GetValue(ctx, req.(*GetValueRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PercentageService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PercentageServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PercentageService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PercentageServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PercentageService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PercentageServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PercentageService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PercentageServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PercentageService_CompareTo1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CompareTo1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PercentageServiceServer).CompareTo1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PercentageService_CompareTo1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PercentageServiceServer).CompareTo1_1(ctx, req.(*CompareTo1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PercentageService_FromValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FromValueRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PercentageServiceServer).FromValue(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PercentageService_FromValue_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PercentageServiceServer).FromValue(ctx, req.(*FromValueRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PercentageService_ServiceDesc is the grpc.ServiceDesc for PercentageService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PercentageService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "units.PercentageService",
-	HandlerType: (*PercentageServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "CompareTo1",
-			Handler:    _PercentageService_CompareTo1_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _PercentageService_Equals_Handler,
-		},
-		{
-			MethodName: "GetValue",
-			Handler:    _PercentageService_GetValue_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _PercentageService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _PercentageService_ToString_Handler,
-		},
-		{
-			MethodName: "CompareTo1_1",
-			Handler:    _PercentageService_CompareTo1_1_Handler,
-		},
-		{
-			MethodName: "FromValue",
-			Handler:    _PercentageService_FromValue_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -2992,6 +2331,337 @@ var VelocityService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	TemperatureDeltaService_CompareTo1_FullMethodName   = "/units.TemperatureDeltaService/CompareTo1"
+	TemperatureDeltaService_Equals_FullMethodName       = "/units.TemperatureDeltaService/Equals"
+	TemperatureDeltaService_GetInCelsius_FullMethodName = "/units.TemperatureDeltaService/GetInCelsius"
+	TemperatureDeltaService_HashCode_FullMethodName     = "/units.TemperatureDeltaService/HashCode"
+	TemperatureDeltaService_ToString_FullMethodName     = "/units.TemperatureDeltaService/ToString"
+	TemperatureDeltaService_CompareTo1_1_FullMethodName = "/units.TemperatureDeltaService/CompareTo1_1"
+	TemperatureDeltaService_FromCelsius_FullMethodName  = "/units.TemperatureDeltaService/FromCelsius"
+)
+
+// TemperatureDeltaServiceClient is the client API for TemperatureDeltaService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TemperatureDeltaServiceClient interface {
+	CompareTo1(ctx context.Context, in *CompareTo1Request, opts ...grpc.CallOption) (*CompareTo1Response, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetInCelsius(ctx context.Context, in *GetInCelsiusRequest, opts ...grpc.CallOption) (*GetInCelsiusResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	CompareTo1_1(ctx context.Context, in *CompareTo1_1Request, opts ...grpc.CallOption) (*CompareTo1_1Response, error)
+	FromCelsius(ctx context.Context, in *FromCelsiusRequest, opts ...grpc.CallOption) (*FromCelsiusResponse, error)
+}
+
+type temperatureDeltaServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTemperatureDeltaServiceClient(cc grpc.ClientConnInterface) TemperatureDeltaServiceClient {
+	return &temperatureDeltaServiceClient{cc}
+}
+
+func (c *temperatureDeltaServiceClient) CompareTo1(ctx context.Context, in *CompareTo1Request, opts ...grpc.CallOption) (*CompareTo1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CompareTo1Response)
+	err := c.cc.Invoke(ctx, TemperatureDeltaService_CompareTo1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *temperatureDeltaServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, TemperatureDeltaService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *temperatureDeltaServiceClient) GetInCelsius(ctx context.Context, in *GetInCelsiusRequest, opts ...grpc.CallOption) (*GetInCelsiusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInCelsiusResponse)
+	err := c.cc.Invoke(ctx, TemperatureDeltaService_GetInCelsius_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *temperatureDeltaServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, TemperatureDeltaService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *temperatureDeltaServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, TemperatureDeltaService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *temperatureDeltaServiceClient) CompareTo1_1(ctx context.Context, in *CompareTo1_1Request, opts ...grpc.CallOption) (*CompareTo1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CompareTo1_1Response)
+	err := c.cc.Invoke(ctx, TemperatureDeltaService_CompareTo1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *temperatureDeltaServiceClient) FromCelsius(ctx context.Context, in *FromCelsiusRequest, opts ...grpc.CallOption) (*FromCelsiusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FromCelsiusResponse)
+	err := c.cc.Invoke(ctx, TemperatureDeltaService_FromCelsius_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TemperatureDeltaServiceServer is the server API for TemperatureDeltaService service.
+// All implementations must embed UnimplementedTemperatureDeltaServiceServer
+// for forward compatibility.
+type TemperatureDeltaServiceServer interface {
+	CompareTo1(context.Context, *CompareTo1Request) (*CompareTo1Response, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetInCelsius(context.Context, *GetInCelsiusRequest) (*GetInCelsiusResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	CompareTo1_1(context.Context, *CompareTo1_1Request) (*CompareTo1_1Response, error)
+	FromCelsius(context.Context, *FromCelsiusRequest) (*FromCelsiusResponse, error)
+	mustEmbedUnimplementedTemperatureDeltaServiceServer()
+}
+
+// UnimplementedTemperatureDeltaServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTemperatureDeltaServiceServer struct{}
+
+func (UnimplementedTemperatureDeltaServiceServer) CompareTo1(context.Context, *CompareTo1Request) (*CompareTo1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CompareTo1 not implemented")
+}
+func (UnimplementedTemperatureDeltaServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedTemperatureDeltaServiceServer) GetInCelsius(context.Context, *GetInCelsiusRequest) (*GetInCelsiusResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInCelsius not implemented")
+}
+func (UnimplementedTemperatureDeltaServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedTemperatureDeltaServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedTemperatureDeltaServiceServer) CompareTo1_1(context.Context, *CompareTo1_1Request) (*CompareTo1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CompareTo1_1 not implemented")
+}
+func (UnimplementedTemperatureDeltaServiceServer) FromCelsius(context.Context, *FromCelsiusRequest) (*FromCelsiusResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FromCelsius not implemented")
+}
+func (UnimplementedTemperatureDeltaServiceServer) mustEmbedUnimplementedTemperatureDeltaServiceServer() {
+}
+func (UnimplementedTemperatureDeltaServiceServer) testEmbeddedByValue() {}
+
+// UnsafeTemperatureDeltaServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TemperatureDeltaServiceServer will
+// result in compilation errors.
+type UnsafeTemperatureDeltaServiceServer interface {
+	mustEmbedUnimplementedTemperatureDeltaServiceServer()
+}
+
+func RegisterTemperatureDeltaServiceServer(s grpc.ServiceRegistrar, srv TemperatureDeltaServiceServer) {
+	// If the following call panics, it indicates UnimplementedTemperatureDeltaServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TemperatureDeltaService_ServiceDesc, srv)
+}
+
+func _TemperatureDeltaService_CompareTo1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CompareTo1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TemperatureDeltaServiceServer).CompareTo1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TemperatureDeltaService_CompareTo1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TemperatureDeltaServiceServer).CompareTo1(ctx, req.(*CompareTo1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TemperatureDeltaService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TemperatureDeltaServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TemperatureDeltaService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TemperatureDeltaServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TemperatureDeltaService_GetInCelsius_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInCelsiusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TemperatureDeltaServiceServer).GetInCelsius(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TemperatureDeltaService_GetInCelsius_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TemperatureDeltaServiceServer).GetInCelsius(ctx, req.(*GetInCelsiusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TemperatureDeltaService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TemperatureDeltaServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TemperatureDeltaService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TemperatureDeltaServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TemperatureDeltaService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TemperatureDeltaServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TemperatureDeltaService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TemperatureDeltaServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TemperatureDeltaService_CompareTo1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CompareTo1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TemperatureDeltaServiceServer).CompareTo1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TemperatureDeltaService_CompareTo1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TemperatureDeltaServiceServer).CompareTo1_1(ctx, req.(*CompareTo1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TemperatureDeltaService_FromCelsius_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FromCelsiusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TemperatureDeltaServiceServer).FromCelsius(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TemperatureDeltaService_FromCelsius_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TemperatureDeltaServiceServer).FromCelsius(ctx, req.(*FromCelsiusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TemperatureDeltaService_ServiceDesc is the grpc.ServiceDesc for TemperatureDeltaService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TemperatureDeltaService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "units.TemperatureDeltaService",
+	HandlerType: (*TemperatureDeltaServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CompareTo1",
+			Handler:    _TemperatureDeltaService_CompareTo1_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _TemperatureDeltaService_Equals_Handler,
+		},
+		{
+			MethodName: "GetInCelsius",
+			Handler:    _TemperatureDeltaService_GetInCelsius_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _TemperatureDeltaService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _TemperatureDeltaService_ToString_Handler,
+		},
+		{
+			MethodName: "CompareTo1_1",
+			Handler:    _TemperatureDeltaService_CompareTo1_1_Handler,
+		},
+		{
+			MethodName: "FromCelsius",
+			Handler:    _TemperatureDeltaService_FromCelsius_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/units/units.proto",
+}
+
+const (
 	MassService_CompareTo1_FullMethodName   = "/units.MassService/CompareTo1"
 	MassService_Equals_FullMethodName       = "/units.MassService/Equals"
 	MassService_GetInGrams_FullMethodName   = "/units.MassService/GetInGrams"
@@ -3645,6 +3315,336 @@ var EnergyService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "FromCalories",
 			Handler:    _EnergyService_FromCalories_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/units/units.proto",
+}
+
+const (
+	PercentageService_CompareTo1_FullMethodName   = "/units.PercentageService/CompareTo1"
+	PercentageService_Equals_FullMethodName       = "/units.PercentageService/Equals"
+	PercentageService_GetValue_FullMethodName     = "/units.PercentageService/GetValue"
+	PercentageService_HashCode_FullMethodName     = "/units.PercentageService/HashCode"
+	PercentageService_ToString_FullMethodName     = "/units.PercentageService/ToString"
+	PercentageService_CompareTo1_1_FullMethodName = "/units.PercentageService/CompareTo1_1"
+	PercentageService_FromValue_FullMethodName    = "/units.PercentageService/FromValue"
+)
+
+// PercentageServiceClient is the client API for PercentageService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PercentageServiceClient interface {
+	CompareTo1(ctx context.Context, in *CompareTo1Request, opts ...grpc.CallOption) (*CompareTo1Response, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetValue(ctx context.Context, in *GetValueRequest, opts ...grpc.CallOption) (*GetValueResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	CompareTo1_1(ctx context.Context, in *CompareTo1_1Request, opts ...grpc.CallOption) (*CompareTo1_1Response, error)
+	FromValue(ctx context.Context, in *FromValueRequest, opts ...grpc.CallOption) (*FromValueResponse, error)
+}
+
+type percentageServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPercentageServiceClient(cc grpc.ClientConnInterface) PercentageServiceClient {
+	return &percentageServiceClient{cc}
+}
+
+func (c *percentageServiceClient) CompareTo1(ctx context.Context, in *CompareTo1Request, opts ...grpc.CallOption) (*CompareTo1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CompareTo1Response)
+	err := c.cc.Invoke(ctx, PercentageService_CompareTo1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *percentageServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, PercentageService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *percentageServiceClient) GetValue(ctx context.Context, in *GetValueRequest, opts ...grpc.CallOption) (*GetValueResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetValueResponse)
+	err := c.cc.Invoke(ctx, PercentageService_GetValue_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *percentageServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, PercentageService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *percentageServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, PercentageService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *percentageServiceClient) CompareTo1_1(ctx context.Context, in *CompareTo1_1Request, opts ...grpc.CallOption) (*CompareTo1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CompareTo1_1Response)
+	err := c.cc.Invoke(ctx, PercentageService_CompareTo1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *percentageServiceClient) FromValue(ctx context.Context, in *FromValueRequest, opts ...grpc.CallOption) (*FromValueResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FromValueResponse)
+	err := c.cc.Invoke(ctx, PercentageService_FromValue_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PercentageServiceServer is the server API for PercentageService service.
+// All implementations must embed UnimplementedPercentageServiceServer
+// for forward compatibility.
+type PercentageServiceServer interface {
+	CompareTo1(context.Context, *CompareTo1Request) (*CompareTo1Response, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetValue(context.Context, *GetValueRequest) (*GetValueResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	CompareTo1_1(context.Context, *CompareTo1_1Request) (*CompareTo1_1Response, error)
+	FromValue(context.Context, *FromValueRequest) (*FromValueResponse, error)
+	mustEmbedUnimplementedPercentageServiceServer()
+}
+
+// UnimplementedPercentageServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPercentageServiceServer struct{}
+
+func (UnimplementedPercentageServiceServer) CompareTo1(context.Context, *CompareTo1Request) (*CompareTo1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CompareTo1 not implemented")
+}
+func (UnimplementedPercentageServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedPercentageServiceServer) GetValue(context.Context, *GetValueRequest) (*GetValueResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetValue not implemented")
+}
+func (UnimplementedPercentageServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedPercentageServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedPercentageServiceServer) CompareTo1_1(context.Context, *CompareTo1_1Request) (*CompareTo1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CompareTo1_1 not implemented")
+}
+func (UnimplementedPercentageServiceServer) FromValue(context.Context, *FromValueRequest) (*FromValueResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method FromValue not implemented")
+}
+func (UnimplementedPercentageServiceServer) mustEmbedUnimplementedPercentageServiceServer() {}
+func (UnimplementedPercentageServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafePercentageServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PercentageServiceServer will
+// result in compilation errors.
+type UnsafePercentageServiceServer interface {
+	mustEmbedUnimplementedPercentageServiceServer()
+}
+
+func RegisterPercentageServiceServer(s grpc.ServiceRegistrar, srv PercentageServiceServer) {
+	// If the following call panics, it indicates UnimplementedPercentageServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PercentageService_ServiceDesc, srv)
+}
+
+func _PercentageService_CompareTo1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CompareTo1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PercentageServiceServer).CompareTo1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PercentageService_CompareTo1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PercentageServiceServer).CompareTo1(ctx, req.(*CompareTo1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PercentageService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PercentageServiceServer).Equals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PercentageService_Equals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PercentageServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PercentageService_GetValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetValueRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PercentageServiceServer).GetValue(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PercentageService_GetValue_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PercentageServiceServer).GetValue(ctx, req.(*GetValueRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PercentageService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PercentageServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PercentageService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PercentageServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PercentageService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PercentageServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PercentageService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PercentageServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PercentageService_CompareTo1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CompareTo1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PercentageServiceServer).CompareTo1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PercentageService_CompareTo1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PercentageServiceServer).CompareTo1_1(ctx, req.(*CompareTo1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PercentageService_FromValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FromValueRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PercentageServiceServer).FromValue(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PercentageService_FromValue_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PercentageServiceServer).FromValue(ctx, req.(*FromValueRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PercentageService_ServiceDesc is the grpc.ServiceDesc for PercentageService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PercentageService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "units.PercentageService",
+	HandlerType: (*PercentageServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CompareTo1",
+			Handler:    _PercentageService_CompareTo1_Handler,
+		},
+		{
+			MethodName: "Equals",
+			Handler:    _PercentageService_Equals_Handler,
+		},
+		{
+			MethodName: "GetValue",
+			Handler:    _PercentageService_GetValue_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _PercentageService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _PercentageService_ToString_Handler,
+		},
+		{
+			MethodName: "CompareTo1_1",
+			Handler:    _PercentageService_CompareTo1_1_Handler,
+		},
+		{
+			MethodName: "FromValue",
+			Handler:    _PercentageService_FromValue_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

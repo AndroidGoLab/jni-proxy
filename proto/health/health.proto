@@ -6,6 +6,62 @@ package health;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/health";
 
+message NewTimerStatRequest {
+}
+
+message NewTimerStatResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetCountRequest {
+  int64 handle = 1;
+}
+
+message GetCountResponse {
+  int32 result = 1;
+}
+
+message GetTimeRequest {
+  int64 handle = 1;
+}
+
+message GetTimeResponse {
+  int64 result = 1;
+}
+
+message SetCountRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetCountResponse {
+}
+
+message SetTimeRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message SetTimeResponse {
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
 message GetDataTypeRequest {
 }
 
@@ -220,60 +276,14 @@ message TakeUidSnapshotsResponse {
   int64 result = 1;
 }
 
-message NewTimerStatRequest {
-}
-
-message NewTimerStatResponse {
-  int64 result = 1;
-}
-
-message DescribeContentsRequest {
-  int64 handle = 1;
-}
-
-message DescribeContentsResponse {
-  int32 result = 1;
-}
-
-message GetCountRequest {
-  int64 handle = 1;
-}
-
-message GetCountResponse {
-  int32 result = 1;
-}
-
-message GetTimeRequest {
-  int64 handle = 1;
-}
-
-message GetTimeResponse {
-  int64 result = 1;
-}
-
-message SetCountRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message SetCountResponse {
-}
-
-message SetTimeRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message SetTimeResponse {
-}
-
-message WriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message WriteToParcelResponse {
+service TimerStatService {
+  rpc NewTimerStat (NewTimerStatRequest) returns (NewTimerStatResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetCount (GetCountRequest) returns (GetCountResponse);
+  rpc GetTime (GetTimeRequest) returns (GetTimeResponse);
+  rpc SetCount (SetCountRequest) returns (SetCountResponse);
+  rpc SetTime (SetTimeRequest) returns (SetTimeResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
 service StatsService {
@@ -308,14 +318,4 @@ service SystemHealthManagerService {
   rpc TakeMyUidSnapshot (TakeMyUidSnapshotRequest) returns (TakeMyUidSnapshotResponse);
   rpc TakeUidSnapshot (TakeUidSnapshotRequest) returns (TakeUidSnapshotResponse);
   rpc TakeUidSnapshots (TakeUidSnapshotsRequest) returns (TakeUidSnapshotsResponse);
-}
-
-service TimerStatService {
-  rpc NewTimerStat (NewTimerStatRequest) returns (NewTimerStatResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetCount (GetCountRequest) returns (GetCountResponse);
-  rpc GetTime (GetTimeRequest) returns (GetTimeResponse);
-  rpc SetCount (SetCountRequest) returns (SetCountResponse);
-  rpc SetTime (SetTimeRequest) returns (SetTimeResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }

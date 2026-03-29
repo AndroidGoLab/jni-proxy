@@ -12,23 +12,130 @@ var ikeCmd = &cobra.Command{
 	Short: "ike service operations",
 }
 
-var ikeIpv6AddrIdentificationCmd = &cobra.Command{
-	Use:   "ipv6addr-identification",
-	Short: "Ipv6AddrIdentificationService operations",
+var ikeSessionConfigurationCmd = &cobra.Command{
+	Use:   "session-configuration",
+	Short: "SessionConfigurationService operations",
 }
 
-var ikeIpv6AddrIdentificationNewIpv6AddrIdentificationCmd = &cobra.Command{
-	Use:   "new-ipv6addr-identification",
-	Short: "NewIpv6AddrIdentification RPC",
+var ikeSessionConfigurationGetEapInfoCmd = &cobra.Command{
+	Use:   "get-eap-info",
+	Short: "GetEapInfo RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewIpv6AddrIdentificationServiceClient(grpcConn)
-		req := &pb.NewIpv6AddrIdentificationRequest{}
+		client := pb.NewSessionConfigurationServiceClient(grpcConn)
+		req := &pb.GetEapInfoRequest{}
+		resp, err := client.GetEapInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSessionConfigurationGetIkeSessionConnectionInfoCmd = &cobra.Command{
+	Use:   "get-ike-session-connection-info",
+	Short: "GetIkeSessionConnectionInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionConfigurationServiceClient(grpcConn)
+		req := &pb.GetIkeSessionConnectionInfoRequest{}
+		resp, err := client.GetIkeSessionConnectionInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSessionConfigurationGetRemoteApplicationVersionCmd = &cobra.Command{
+	Use:   "get-remote-application-version",
+	Short: "GetRemoteApplicationVersion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionConfigurationServiceClient(grpcConn)
+		req := &pb.GetRemoteApplicationVersionRequest{}
+		resp, err := client.GetRemoteApplicationVersion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSessionConfigurationGetRemoteVendorIdsCmd = &cobra.Command{
+	Use:   "get-remote-vendor-ids",
+	Short: "GetRemoteVendorIds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionConfigurationServiceClient(grpcConn)
+		req := &pb.GetRemoteVendorIdsRequest{}
+		resp, err := client.GetRemoteVendorIds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSessionConfigurationIsIkeExtensionEnabledCmd = &cobra.Command{
+	Use:   "is-ike-extension-enabled",
+	Short: "IsIkeExtensionEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionConfigurationServiceClient(grpcConn)
+		req := &pb.IsIkeExtensionEnabledRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsIkeExtensionEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSessionConfigurationBuilderCmd = &cobra.Command{
+	Use:   "session-configuration-builder",
+	Short: "SessionConfigurationBuilderService operations",
+}
+
+var ikeSessionConfigurationBuilderAddIkeExtensionCmd = &cobra.Command{
+	Use:   "add-ike-extension",
+	Short: "AddIkeExtension RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionConfigurationBuilderServiceClient(grpcConn)
+		req := &pb.AddIkeExtensionRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddIkeExtension(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSessionConfigurationBuilderAddRemoteVendorIdCmd = &cobra.Command{
+	Use:   "add-remote-vendor-id",
+	Short: "AddRemoteVendorId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionConfigurationBuilderServiceClient(grpcConn)
+		req := &pb.AddRemoteVendorIdRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.NewIpv6AddrIdentification(ctx, req)
+		resp, err := client.AddRemoteVendorId(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -36,387 +143,13 @@ var ikeIpv6AddrIdentificationNewIpv6AddrIdentificationCmd = &cobra.Command{
 	},
 }
 
-var ikeIpv6AddrIdentificationEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIpv6AddrIdentificationServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeIpv6AddrIdentificationHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIpv6AddrIdentificationServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeSessionCmd = &cobra.Command{
-	Use:   "session",
-	Short: "SessionService operations",
-}
-
-var ikeSessionNewSessionCmd = &cobra.Command{
-	Use:   "new-session",
-	Short: "NewSession RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionServiceClient(grpcConn)
-		req := &pb.NewSessionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		resp, err := client.NewSession(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeSessionCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionServiceClient(grpcConn)
-		req := &pb.CloseRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeSessionCloseChildSessionCmd = &cobra.Command{
-	Use:   "close-child-session",
-	Short: "CloseChildSession RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionServiceClient(grpcConn)
-		req := &pb.CloseChildSessionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CloseChildSession(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeSessionDumpCmd = &cobra.Command{
-	Use:   "dump",
-	Short: "Dump RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionServiceClient(grpcConn)
-		req := &pb.DumpRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Dump(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeSessionFinalizeCmd = &cobra.Command{
-	Use:   "finalize",
-	Short: "Finalize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionServiceClient(grpcConn)
-		req := &pb.FinalizeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Finalize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeSessionKillCmd = &cobra.Command{
-	Use:   "kill",
-	Short: "Kill RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionServiceClient(grpcConn)
-		req := &pb.KillRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Kill(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeSessionOpenChildSessionCmd = &cobra.Command{
-	Use:   "open-child-session",
-	Short: "OpenChildSession RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionServiceClient(grpcConn)
-		req := &pb.OpenChildSessionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OpenChildSession(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeTunnelConnectionParamsCmd = &cobra.Command{
-	Use:   "tunnel-connection-params",
-	Short: "TunnelConnectionParamsService operations",
-}
-
-var ikeTunnelConnectionParamsNewTunnelConnectionParamsCmd = &cobra.Command{
-	Use:   "new-tunnel-connection-params",
-	Short: "NewTunnelConnectionParams RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTunnelConnectionParamsServiceClient(grpcConn)
-		req := &pb.NewTunnelConnectionParamsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewTunnelConnectionParams(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeTunnelConnectionParamsEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTunnelConnectionParamsServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeTunnelConnectionParamsGetIkeSessionParamsCmd = &cobra.Command{
-	Use:   "get-ike-session-params",
-	Short: "GetIkeSessionParams RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTunnelConnectionParamsServiceClient(grpcConn)
-		req := &pb.GetIkeSessionParamsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetIkeSessionParams(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeTunnelConnectionParamsGetTunnelModeChildSessionParamsCmd = &cobra.Command{
-	Use:   "get-tunnel-mode-child-session-params",
-	Short: "GetTunnelModeChildSessionParams RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTunnelConnectionParamsServiceClient(grpcConn)
-		req := &pb.GetTunnelModeChildSessionParamsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetTunnelModeChildSessionParams(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeTunnelConnectionParamsHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTunnelConnectionParamsServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeTransportModeChildSessionParamsBuilderCmd = &cobra.Command{
-	Use:   "transport-mode-child-session-params-builder",
-	Short: "TransportModeChildSessionParamsBuilderService operations",
-}
-
-var ikeTransportModeChildSessionParamsBuilderAddChildSaProposalCmd = &cobra.Command{
-	Use:   "add-child-sa-proposal",
-	Short: "AddChildSaProposal RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransportModeChildSessionParamsBuilderServiceClient(grpcConn)
-		req := &pb.AddChildSaProposalRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddChildSaProposal(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeTransportModeChildSessionParamsBuilderAddInboundTrafficSelectorsCmd = &cobra.Command{
-	Use:   "add-inbound-traffic-selectors",
-	Short: "AddInboundTrafficSelectors RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransportModeChildSessionParamsBuilderServiceClient(grpcConn)
-		req := &pb.AddInboundTrafficSelectorsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddInboundTrafficSelectors(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeTransportModeChildSessionParamsBuilderAddOutboundTrafficSelectorsCmd = &cobra.Command{
-	Use:   "add-outbound-traffic-selectors",
-	Short: "AddOutboundTrafficSelectors RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTransportModeChildSessionParamsBuilderServiceClient(grpcConn)
-		req := &pb.AddOutboundTrafficSelectorsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddOutboundTrafficSelectors(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeTransportModeChildSessionParamsBuilderBuildCmd = &cobra.Command{
+var ikeSessionConfigurationBuilderBuildCmd = &cobra.Command{
 	Use:   "build",
 	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTransportModeChildSessionParamsBuilderServiceClient(grpcConn)
+		client := pb.NewSessionConfigurationBuilderServiceClient(grpcConn)
 		req := &pb.BuildRequest{}
 		resp, err := client.Build(ctx, req)
 		if err != nil {
@@ -426,21 +159,290 @@ var ikeTransportModeChildSessionParamsBuilderBuildCmd = &cobra.Command{
 	},
 }
 
-var ikeTransportModeChildSessionParamsBuilderSetLifetimeSecondsCmd = &cobra.Command{
-	Use:   "set-lifetime-seconds",
-	Short: "SetLifetimeSeconds RPC",
+var ikeSessionConfigurationBuilderClearIkeExtensionsCmd = &cobra.Command{
+	Use:   "clear-ike-extensions",
+	Short: "ClearIkeExtensions RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewTransportModeChildSessionParamsBuilderServiceClient(grpcConn)
-		req := &pb.SetLifetimeSecondsRequest{}
+		client := pb.NewSessionConfigurationBuilderServiceClient(grpcConn)
+		req := &pb.ClearIkeExtensionsRequest{}
+		resp, err := client.ClearIkeExtensions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSessionConfigurationBuilderClearRemoteApplicationVersionCmd = &cobra.Command{
+	Use:   "clear-remote-application-version",
+	Short: "ClearRemoteApplicationVersion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionConfigurationBuilderServiceClient(grpcConn)
+		req := &pb.ClearRemoteApplicationVersionRequest{}
+		resp, err := client.ClearRemoteApplicationVersion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSessionConfigurationBuilderClearRemoteVendorIdsCmd = &cobra.Command{
+	Use:   "clear-remote-vendor-ids",
+	Short: "ClearRemoteVendorIds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionConfigurationBuilderServiceClient(grpcConn)
+		req := &pb.ClearRemoteVendorIdsRequest{}
+		resp, err := client.ClearRemoteVendorIds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSessionConfigurationBuilderSetEapInfoCmd = &cobra.Command{
+	Use:   "set-eap-info",
+	Short: "SetEapInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionConfigurationBuilderServiceClient(grpcConn)
+		req := &pb.SetEapInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEapInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSessionConfigurationBuilderSetRemoteApplicationVersionCmd = &cobra.Command{
+	Use:   "set-remote-application-version",
+	Short: "SetRemoteApplicationVersion RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionConfigurationBuilderServiceClient(grpcConn)
+		req := &pb.SetRemoteApplicationVersionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRemoteApplicationVersion(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSessionConnectionInfoCmd = &cobra.Command{
+	Use:   "session-connection-info",
+	Short: "SessionConnectionInfoService operations",
+}
+
+var ikeSessionConnectionInfoNewSessionConnectionInfoCmd = &cobra.Command{
+	Use:   "new-session-connection-info",
+	Short: "NewSessionConnectionInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionConnectionInfoServiceClient(grpcConn)
+		req := &pb.NewSessionConnectionInfoRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewSessionConnectionInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSessionConnectionInfoGetLocalAddressCmd = &cobra.Command{
+	Use:   "get-local-address",
+	Short: "GetLocalAddress RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionConnectionInfoServiceClient(grpcConn)
+		req := &pb.GetLocalAddressRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetLocalAddress(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSessionConnectionInfoGetNetworkCmd = &cobra.Command{
+	Use:   "get-network",
+	Short: "GetNetwork RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionConnectionInfoServiceClient(grpcConn)
+		req := &pb.GetNetworkRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetNetwork(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSessionConnectionInfoGetRemoteAddressCmd = &cobra.Command{
+	Use:   "get-remote-address",
+	Short: "GetRemoteAddress RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionConnectionInfoServiceClient(grpcConn)
+		req := &pb.GetRemoteAddressRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetRemoteAddress(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeChildSaProposalCmd = &cobra.Command{
+	Use:   "child-sa-proposal",
+	Short: "ChildSaProposalService operations",
+}
+
+var ikeChildSaProposalEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChildSaProposalServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeChildSaProposalHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChildSaProposalServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeChildSaProposalGetSupportedEncryptionAlgorithmsCmd = &cobra.Command{
+	Use:   "get-supported-encryption-algorithms",
+	Short: "GetSupportedEncryptionAlgorithms RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChildSaProposalServiceClient(grpcConn)
+		req := &pb.GetSupportedEncryptionAlgorithmsRequest{}
+		resp, err := client.GetSupportedEncryptionAlgorithms(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeChildSaProposalGetSupportedIntegrityAlgorithmsCmd = &cobra.Command{
+	Use:   "get-supported-integrity-algorithms",
+	Short: "GetSupportedIntegrityAlgorithms RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChildSaProposalServiceClient(grpcConn)
+		req := &pb.GetSupportedIntegrityAlgorithmsRequest{}
+		resp, err := client.GetSupportedIntegrityAlgorithms(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeChildSaProposalBuilderCmd = &cobra.Command{
+	Use:   "child-sa-proposal-builder",
+	Short: "ChildSaProposalBuilderService operations",
+}
+
+var ikeChildSaProposalBuilderAddDhGroupCmd = &cobra.Command{
+	Use:   "add-dh-group",
+	Short: "AddDhGroup RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChildSaProposalBuilderServiceClient(grpcConn)
+		req := &pb.AddDhGroupRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddDhGroup(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeChildSaProposalBuilderAddEncryptionAlgorithmCmd = &cobra.Command{
+	Use:   "add-encryption-algorithm",
+	Short: "AddEncryptionAlgorithm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChildSaProposalBuilderServiceClient(grpcConn)
+		req := &pb.AddEncryptionAlgorithmRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.SetLifetimeSeconds(ctx, req)
+		resp, err := client.AddEncryptionAlgorithm(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -448,20 +450,18 @@ var ikeTransportModeChildSessionParamsBuilderSetLifetimeSecondsCmd = &cobra.Comm
 	},
 }
 
-var ikeChildSessionCallbackCmd = &cobra.Command{
-	Use:   "child-session-callback",
-	Short: "ChildSessionCallbackService operations",
-}
-
-var ikeChildSessionCallbackOnClosedCmd = &cobra.Command{
-	Use:   "on-closed",
-	Short: "OnClosed RPC",
+var ikeChildSaProposalBuilderAddIntegrityAlgorithmCmd = &cobra.Command{
+	Use:   "add-integrity-algorithm",
+	Short: "AddIntegrityAlgorithm RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewChildSessionCallbackServiceClient(grpcConn)
-		req := &pb.OnClosedRequest{}
-		resp, err := client.OnClosed(ctx, req)
+		client := pb.NewChildSaProposalBuilderServiceClient(grpcConn)
+		req := &pb.AddIntegrityAlgorithmRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddIntegrityAlgorithm(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -469,21 +469,39 @@ var ikeChildSessionCallbackOnClosedCmd = &cobra.Command{
 	},
 }
 
-var ikeChildSessionCallbackOnIpSecTransformCreatedCmd = &cobra.Command{
-	Use:   "on-ip-sec-transform-created",
-	Short: "OnIpSecTransformCreated RPC",
+var ikeChildSaProposalBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewChildSessionCallbackServiceClient(grpcConn)
-		req := &pb.OnIpSecTransformCreatedRequest{}
+		client := pb.NewChildSaProposalBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeDerAsn1DnIdentificationCmd = &cobra.Command{
+	Use:   "der-asn1dn-identification",
+	Short: "DerAsn1DnIdentificationService operations",
+}
+
+var ikeDerAsn1DnIdentificationNewDerAsn1DnIdentificationCmd = &cobra.Command{
+	Use:   "new-der-asn1dn-identification",
+	Short: "NewDerAsn1DnIdentification RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDerAsn1DnIdentificationServiceClient(grpcConn)
+		req := &pb.NewDerAsn1DnIdentificationRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnIpSecTransformCreated(ctx, req)
+		resp, err := client.NewDerAsn1DnIdentification(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -491,21 +509,21 @@ var ikeChildSessionCallbackOnIpSecTransformCreatedCmd = &cobra.Command{
 	},
 }
 
-var ikeChildSessionCallbackOnIpSecTransformDeletedCmd = &cobra.Command{
-	Use:   "on-ip-sec-transform-deleted",
-	Short: "OnIpSecTransformDeleted RPC",
+var ikeDerAsn1DnIdentificationEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewChildSessionCallbackServiceClient(grpcConn)
-		req := &pb.OnIpSecTransformDeletedRequest{}
+		client := pb.NewDerAsn1DnIdentificationServiceClient(grpcConn)
+		req := &pb.DerAsn1DnIdentificationEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnIpSecTransformDeleted(ctx, req)
+		resp, err := client.Equals(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -513,18 +531,122 @@ var ikeChildSessionCallbackOnIpSecTransformDeletedCmd = &cobra.Command{
 	},
 }
 
-var ikeChildSessionCallbackOnOpenedCmd = &cobra.Command{
-	Use:   "on-opened",
-	Short: "OnOpened RPC",
+var ikeDerAsn1DnIdentificationHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewChildSessionCallbackServiceClient(grpcConn)
-		req := &pb.OnOpenedRequest{}
+		client := pb.NewDerAsn1DnIdentificationServiceClient(grpcConn)
+		req := &pb.DerAsn1DnIdentificationHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSaProposalCmd = &cobra.Command{
+	Use:   "sa-proposal",
+	Short: "SaProposalService operations",
+}
+
+var ikeSaProposalEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSaProposalServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.OnOpened(ctx, req)
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSaProposalGetDhGroupsCmd = &cobra.Command{
+	Use:   "get-dh-groups",
+	Short: "GetDhGroups RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSaProposalServiceClient(grpcConn)
+		req := &pb.GetDhGroupsRequest{}
+		resp, err := client.GetDhGroups(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSaProposalGetIntegrityAlgorithmsCmd = &cobra.Command{
+	Use:   "get-integrity-algorithms",
+	Short: "GetIntegrityAlgorithms RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSaProposalServiceClient(grpcConn)
+		req := &pb.GetIntegrityAlgorithmsRequest{}
+		resp, err := client.GetIntegrityAlgorithms(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSaProposalHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSaProposalServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSaProposalToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSaProposalServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSaProposalGetSupportedDhGroupsCmd = &cobra.Command{
+	Use:   "get-supported-dh-groups",
+	Short: "GetSupportedDhGroups RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSaProposalServiceClient(grpcConn)
+		req := &pb.GetSupportedDhGroupsRequest{}
+		resp, err := client.GetSupportedDhGroups(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -544,7 +666,7 @@ var ikeSessionParamsEqualsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewSessionParamsServiceClient(grpcConn)
-		req := &pb.SessionParamsEqualsRequest{}
+		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -581,6 +703,38 @@ var ikeSessionParamsGetHardLifetimeSecondsCmd = &cobra.Command{
 		client := pb.NewSessionParamsServiceClient(grpcConn)
 		req := &pb.GetHardLifetimeSecondsRequest{}
 		resp, err := client.GetHardLifetimeSeconds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSessionParamsGetIkeOptionsCmd = &cobra.Command{
+	Use:   "get-ike-options",
+	Short: "GetIkeOptions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionParamsServiceClient(grpcConn)
+		req := &pb.GetIkeOptionsRequest{}
+		resp, err := client.GetIkeOptions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSessionParamsGetIkeSaProposalsCmd = &cobra.Command{
+	Use:   "get-ike-sa-proposals",
+	Short: "GetIkeSaProposals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionParamsServiceClient(grpcConn)
+		req := &pb.GetIkeSaProposalsRequest{}
+		resp, err := client.GetIkeSaProposals(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -643,7 +797,7 @@ var ikeSessionParamsGetNetworkCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewSessionParamsServiceClient(grpcConn)
-		req := &pb.GetNetworkRequest{}
+		req := &pb.SessionParamsGetNetworkRequest{}
 		resp, err := client.GetNetwork(ctx, req)
 		if err != nil {
 			return err
@@ -758,7 +912,7 @@ var ikeSessionParamsHashCodeCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewSessionParamsServiceClient(grpcConn)
-		req := &pb.SessionParamsHashCodeRequest{}
+		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
 			return err
@@ -1078,7 +1232,7 @@ var ikeSessionParamsIkeAuthConfigEqualsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewSessionParamsIkeAuthConfigServiceClient(grpcConn)
-		req := &pb.SessionParamsIkeAuthConfigEqualsRequest{}
+		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -1097,7 +1251,7 @@ var ikeSessionParamsIkeAuthConfigHashCodeCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewSessionParamsIkeAuthConfigServiceClient(grpcConn)
-		req := &pb.SessionParamsIkeAuthConfigHashCodeRequest{}
+		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
 			return err
@@ -1118,7 +1272,7 @@ var ikeSessionParamsIkeAuthDigitalSignLocalConfigEqualsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewSessionParamsIkeAuthDigitalSignLocalConfigServiceClient(grpcConn)
-		req := &pb.SessionParamsIkeAuthDigitalSignLocalConfigEqualsRequest{}
+		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -1139,6 +1293,22 @@ var ikeSessionParamsIkeAuthDigitalSignLocalConfigGetClientEndCertificateCmd = &c
 		client := pb.NewSessionParamsIkeAuthDigitalSignLocalConfigServiceClient(grpcConn)
 		req := &pb.GetClientEndCertificateRequest{}
 		resp, err := client.GetClientEndCertificate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSessionParamsIkeAuthDigitalSignLocalConfigGetIntermediateCertificatesCmd = &cobra.Command{
+	Use:   "get-intermediate-certificates",
+	Short: "GetIntermediateCertificates RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionParamsIkeAuthDigitalSignLocalConfigServiceClient(grpcConn)
+		req := &pb.GetIntermediateCertificatesRequest{}
+		resp, err := client.GetIntermediateCertificates(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1169,7 +1339,7 @@ var ikeSessionParamsIkeAuthDigitalSignLocalConfigHashCodeCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewSessionParamsIkeAuthDigitalSignLocalConfigServiceClient(grpcConn)
-		req := &pb.SessionParamsIkeAuthDigitalSignLocalConfigHashCodeRequest{}
+		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
 			return err
@@ -1190,7 +1360,7 @@ var ikeSessionParamsIkeAuthDigitalSignRemoteConfigEqualsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewSessionParamsIkeAuthDigitalSignRemoteConfigServiceClient(grpcConn)
-		req := &pb.SessionParamsIkeAuthDigitalSignRemoteConfigEqualsRequest{}
+		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -1225,7 +1395,7 @@ var ikeSessionParamsIkeAuthDigitalSignRemoteConfigHashCodeCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewSessionParamsIkeAuthDigitalSignRemoteConfigServiceClient(grpcConn)
-		req := &pb.SessionParamsIkeAuthDigitalSignRemoteConfigHashCodeRequest{}
+		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
 			return err
@@ -1246,7 +1416,7 @@ var ikeSessionParamsIkeAuthEapConfigEqualsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewSessionParamsIkeAuthEapConfigServiceClient(grpcConn)
-		req := &pb.SessionParamsIkeAuthEapConfigEqualsRequest{}
+		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -1281,7 +1451,7 @@ var ikeSessionParamsIkeAuthEapConfigHashCodeCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewSessionParamsIkeAuthEapConfigServiceClient(grpcConn)
-		req := &pb.SessionParamsIkeAuthEapConfigHashCodeRequest{}
+		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
 			return err
@@ -1302,7 +1472,7 @@ var ikeSessionParamsIkeAuthPskConfigEqualsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewSessionParamsIkeAuthPskConfigServiceClient(grpcConn)
-		req := &pb.SessionParamsIkeAuthPskConfigEqualsRequest{}
+		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -1337,377 +1507,8 @@ var ikeSessionParamsIkeAuthPskConfigHashCodeCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewSessionParamsIkeAuthPskConfigServiceClient(grpcConn)
-		req := &pb.SessionParamsIkeAuthPskConfigHashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeSessionConfigurationCmd = &cobra.Command{
-	Use:   "session-configuration",
-	Short: "SessionConfigurationService operations",
-}
-
-var ikeSessionConfigurationGetEapInfoCmd = &cobra.Command{
-	Use:   "get-eap-info",
-	Short: "GetEapInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionConfigurationServiceClient(grpcConn)
-		req := &pb.GetEapInfoRequest{}
-		resp, err := client.GetEapInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeSessionConfigurationGetIkeSessionConnectionInfoCmd = &cobra.Command{
-	Use:   "get-ike-session-connection-info",
-	Short: "GetIkeSessionConnectionInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionConfigurationServiceClient(grpcConn)
-		req := &pb.GetIkeSessionConnectionInfoRequest{}
-		resp, err := client.GetIkeSessionConnectionInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeSessionConfigurationGetRemoteApplicationVersionCmd = &cobra.Command{
-	Use:   "get-remote-application-version",
-	Short: "GetRemoteApplicationVersion RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionConfigurationServiceClient(grpcConn)
-		req := &pb.GetRemoteApplicationVersionRequest{}
-		resp, err := client.GetRemoteApplicationVersion(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeSessionConfigurationIsIkeExtensionEnabledCmd = &cobra.Command{
-	Use:   "is-ike-extension-enabled",
-	Short: "IsIkeExtensionEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionConfigurationServiceClient(grpcConn)
-		req := &pb.IsIkeExtensionEnabledRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsIkeExtensionEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeSessionConfigurationBuilderCmd = &cobra.Command{
-	Use:   "session-configuration-builder",
-	Short: "SessionConfigurationBuilderService operations",
-}
-
-var ikeSessionConfigurationBuilderAddIkeExtensionCmd = &cobra.Command{
-	Use:   "add-ike-extension",
-	Short: "AddIkeExtension RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionConfigurationBuilderServiceClient(grpcConn)
-		req := &pb.AddIkeExtensionRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddIkeExtension(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeSessionConfigurationBuilderAddRemoteVendorIdCmd = &cobra.Command{
-	Use:   "add-remote-vendor-id",
-	Short: "AddRemoteVendorId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionConfigurationBuilderServiceClient(grpcConn)
-		req := &pb.AddRemoteVendorIdRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddRemoteVendorId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeSessionConfigurationBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionConfigurationBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeSessionConfigurationBuilderClearIkeExtensionsCmd = &cobra.Command{
-	Use:   "clear-ike-extensions",
-	Short: "ClearIkeExtensions RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionConfigurationBuilderServiceClient(grpcConn)
-		req := &pb.ClearIkeExtensionsRequest{}
-		resp, err := client.ClearIkeExtensions(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeSessionConfigurationBuilderClearRemoteApplicationVersionCmd = &cobra.Command{
-	Use:   "clear-remote-application-version",
-	Short: "ClearRemoteApplicationVersion RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionConfigurationBuilderServiceClient(grpcConn)
-		req := &pb.ClearRemoteApplicationVersionRequest{}
-		resp, err := client.ClearRemoteApplicationVersion(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeSessionConfigurationBuilderClearRemoteVendorIdsCmd = &cobra.Command{
-	Use:   "clear-remote-vendor-ids",
-	Short: "ClearRemoteVendorIds RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionConfigurationBuilderServiceClient(grpcConn)
-		req := &pb.ClearRemoteVendorIdsRequest{}
-		resp, err := client.ClearRemoteVendorIds(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeSessionConfigurationBuilderSetEapInfoCmd = &cobra.Command{
-	Use:   "set-eap-info",
-	Short: "SetEapInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionConfigurationBuilderServiceClient(grpcConn)
-		req := &pb.SetEapInfoRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEapInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeSessionConfigurationBuilderSetRemoteApplicationVersionCmd = &cobra.Command{
-	Use:   "set-remote-application-version",
-	Short: "SetRemoteApplicationVersion RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionConfigurationBuilderServiceClient(grpcConn)
-		req := &pb.SetRemoteApplicationVersionRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetRemoteApplicationVersion(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeIpv4AddrIdentificationCmd = &cobra.Command{
-	Use:   "ipv4addr-identification",
-	Short: "Ipv4AddrIdentificationService operations",
-}
-
-var ikeIpv4AddrIdentificationNewIpv4AddrIdentificationCmd = &cobra.Command{
-	Use:   "new-ipv4addr-identification",
-	Short: "NewIpv4AddrIdentification RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIpv4AddrIdentificationServiceClient(grpcConn)
-		req := &pb.NewIpv4AddrIdentificationRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewIpv4AddrIdentification(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeIpv4AddrIdentificationEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIpv4AddrIdentificationServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeIpv4AddrIdentificationHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIpv4AddrIdentificationServiceClient(grpcConn)
 		req := &pb.HashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
 		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeSessionConnectionInfoCmd = &cobra.Command{
-	Use:   "session-connection-info",
-	Short: "SessionConnectionInfoService operations",
-}
-
-var ikeSessionConnectionInfoNewSessionConnectionInfoCmd = &cobra.Command{
-	Use:   "new-session-connection-info",
-	Short: "NewSessionConnectionInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionConnectionInfoServiceClient(grpcConn)
-		req := &pb.NewSessionConnectionInfoRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.NewSessionConnectionInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeSessionConnectionInfoGetLocalAddressCmd = &cobra.Command{
-	Use:   "get-local-address",
-	Short: "GetLocalAddress RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionConnectionInfoServiceClient(grpcConn)
-		req := &pb.GetLocalAddressRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetLocalAddress(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeSessionConnectionInfoGetNetworkCmd = &cobra.Command{
-	Use:   "get-network",
-	Short: "GetNetwork RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionConnectionInfoServiceClient(grpcConn)
-		req := &pb.SessionConnectionInfoGetNetworkRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetNetwork(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeSessionConnectionInfoGetRemoteAddressCmd = &cobra.Command{
-	Use:   "get-remote-address",
-	Short: "GetRemoteAddress RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSessionConnectionInfoServiceClient(grpcConn)
-		req := &pb.GetRemoteAddressRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetRemoteAddress(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1746,7 +1547,7 @@ var ikeRfc822AddrIdentificationEqualsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewRfc822AddrIdentificationServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
+		req := &pb.Rfc822AddrIdentificationEqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -1768,7 +1569,7 @@ var ikeRfc822AddrIdentificationHashCodeCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewRfc822AddrIdentificationServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
+		req := &pb.Rfc822AddrIdentificationHashCodeRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -1780,19 +1581,50 @@ var ikeRfc822AddrIdentificationHashCodeCmd = &cobra.Command{
 	},
 }
 
-var ikeSaProposalCmd = &cobra.Command{
-	Use:   "sa-proposal",
-	Short: "SaProposalService operations",
+var ikeTrafficSelectorCmd = &cobra.Command{
+	Use:   "traffic-selector",
+	Short: "TrafficSelectorService operations",
 }
 
-var ikeSaProposalEqualsCmd = &cobra.Command{
+var ikeTrafficSelectorNewTrafficSelectorCmd = &cobra.Command{
+	Use:   "new-traffic-selector",
+	Short: "NewTrafficSelector RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrafficSelectorServiceClient(grpcConn)
+		req := &pb.NewTrafficSelectorRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.NewTrafficSelector(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeTrafficSelectorEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSaProposalServiceClient(grpcConn)
-		req := &pb.SaProposalEqualsRequest{}
+		client := pb.NewTrafficSelectorServiceClient(grpcConn)
+		req := &pb.TrafficSelectorEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -1804,14 +1636,17 @@ var ikeSaProposalEqualsCmd = &cobra.Command{
 	},
 }
 
-var ikeSaProposalHashCodeCmd = &cobra.Command{
+var ikeTrafficSelectorHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSaProposalServiceClient(grpcConn)
-		req := &pb.SaProposalHashCodeRequest{}
+		client := pb.NewTrafficSelectorServiceClient(grpcConn)
+		req := &pb.TrafficSelectorHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
 			return err
@@ -1820,15 +1655,662 @@ var ikeSaProposalHashCodeCmd = &cobra.Command{
 	},
 }
 
-var ikeSaProposalToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
+var ikeChildSessionConfigurationCmd = &cobra.Command{
+	Use:   "child-session-configuration",
+	Short: "ChildSessionConfigurationService operations",
+}
+
+var ikeChildSessionConfigurationGetInboundTrafficSelectorsCmd = &cobra.Command{
+	Use:   "get-inbound-traffic-selectors",
+	Short: "GetInboundTrafficSelectors RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSaProposalServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
+		client := pb.NewChildSessionConfigurationServiceClient(grpcConn)
+		req := &pb.GetInboundTrafficSelectorsRequest{}
+		resp, err := client.GetInboundTrafficSelectors(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeChildSessionConfigurationGetOutboundTrafficSelectorsCmd = &cobra.Command{
+	Use:   "get-outbound-traffic-selectors",
+	Short: "GetOutboundTrafficSelectors RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChildSessionConfigurationServiceClient(grpcConn)
+		req := &pb.GetOutboundTrafficSelectorsRequest{}
+		resp, err := client.GetOutboundTrafficSelectors(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeChildSessionConfigurationBuilderCmd = &cobra.Command{
+	Use:   "child-session-configuration-builder",
+	Short: "ChildSessionConfigurationBuilderService operations",
+}
+
+var ikeChildSessionConfigurationBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChildSessionConfigurationBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeIkeSaProposalCmd = &cobra.Command{
+	Use:   "ike-sa-proposal",
+	Short: "IkeSaProposalService operations",
+}
+
+var ikeIkeSaProposalEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIkeSaProposalServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeIkeSaProposalGetPseudorandomFunctionsCmd = &cobra.Command{
+	Use:   "get-pseudorandom-functions",
+	Short: "GetPseudorandomFunctions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIkeSaProposalServiceClient(grpcConn)
+		req := &pb.GetPseudorandomFunctionsRequest{}
+		resp, err := client.GetPseudorandomFunctions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeIkeSaProposalHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIkeSaProposalServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeIkeSaProposalGetSupportedEncryptionAlgorithmsCmd = &cobra.Command{
+	Use:   "get-supported-encryption-algorithms",
+	Short: "GetSupportedEncryptionAlgorithms RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIkeSaProposalServiceClient(grpcConn)
+		req := &pb.GetSupportedEncryptionAlgorithmsRequest{}
+		resp, err := client.GetSupportedEncryptionAlgorithms(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeIkeSaProposalGetSupportedIntegrityAlgorithmsCmd = &cobra.Command{
+	Use:   "get-supported-integrity-algorithms",
+	Short: "GetSupportedIntegrityAlgorithms RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIkeSaProposalServiceClient(grpcConn)
+		req := &pb.GetSupportedIntegrityAlgorithmsRequest{}
+		resp, err := client.GetSupportedIntegrityAlgorithms(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeIkeSaProposalGetSupportedPseudorandomFunctionsCmd = &cobra.Command{
+	Use:   "get-supported-pseudorandom-functions",
+	Short: "GetSupportedPseudorandomFunctions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIkeSaProposalServiceClient(grpcConn)
+		req := &pb.GetSupportedPseudorandomFunctionsRequest{}
+		resp, err := client.GetSupportedPseudorandomFunctions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSaProposalBuilderCmd = &cobra.Command{
+	Use:   "sa-proposal-builder",
+	Short: "SaProposalBuilderService operations",
+}
+
+var ikeSaProposalBuilderAddDhGroupCmd = &cobra.Command{
+	Use:   "add-dh-group",
+	Short: "AddDhGroup RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSaProposalBuilderServiceClient(grpcConn)
+		req := &pb.AddDhGroupRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddDhGroup(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSaProposalBuilderAddEncryptionAlgorithmCmd = &cobra.Command{
+	Use:   "add-encryption-algorithm",
+	Short: "AddEncryptionAlgorithm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSaProposalBuilderServiceClient(grpcConn)
+		req := &pb.AddEncryptionAlgorithmRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AddEncryptionAlgorithm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSaProposalBuilderAddIntegrityAlgorithmCmd = &cobra.Command{
+	Use:   "add-integrity-algorithm",
+	Short: "AddIntegrityAlgorithm RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSaProposalBuilderServiceClient(grpcConn)
+		req := &pb.AddIntegrityAlgorithmRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddIntegrityAlgorithm(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSaProposalBuilderAddPseudorandomFunctionCmd = &cobra.Command{
+	Use:   "add-pseudorandom-function",
+	Short: "AddPseudorandomFunction RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSaProposalBuilderServiceClient(grpcConn)
+		req := &pb.AddPseudorandomFunctionRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddPseudorandomFunction(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSaProposalBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSaProposalBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSessionCmd = &cobra.Command{
+	Use:   "session",
+	Short: "SessionService operations",
+}
+
+var ikeSessionNewSessionCmd = &cobra.Command{
+	Use:   "new-session",
+	Short: "NewSession RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionServiceClient(grpcConn)
+		req := &pb.NewSessionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.NewSession(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSessionCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSessionCloseChildSessionCmd = &cobra.Command{
+	Use:   "close-child-session",
+	Short: "CloseChildSession RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionServiceClient(grpcConn)
+		req := &pb.CloseChildSessionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CloseChildSession(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSessionDumpCmd = &cobra.Command{
+	Use:   "dump",
+	Short: "Dump RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionServiceClient(grpcConn)
+		req := &pb.DumpRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Dump(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSessionFinalizeCmd = &cobra.Command{
+	Use:   "finalize",
+	Short: "Finalize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionServiceClient(grpcConn)
+		req := &pb.FinalizeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Finalize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSessionKillCmd = &cobra.Command{
+	Use:   "kill",
+	Short: "Kill RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionServiceClient(grpcConn)
+		req := &pb.KillRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Kill(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeSessionOpenChildSessionCmd = &cobra.Command{
+	Use:   "open-child-session",
+	Short: "OpenChildSession RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSessionServiceClient(grpcConn)
+		req := &pb.OpenChildSessionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OpenChildSession(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeIpv4AddrIdentificationCmd = &cobra.Command{
+	Use:   "ipv4addr-identification",
+	Short: "Ipv4AddrIdentificationService operations",
+}
+
+var ikeIpv4AddrIdentificationNewIpv4AddrIdentificationCmd = &cobra.Command{
+	Use:   "new-ipv4addr-identification",
+	Short: "NewIpv4AddrIdentification RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIpv4AddrIdentificationServiceClient(grpcConn)
+		req := &pb.NewIpv4AddrIdentificationRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewIpv4AddrIdentification(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeIpv4AddrIdentificationEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIpv4AddrIdentificationServiceClient(grpcConn)
+		req := &pb.Ipv4AddrIdentificationEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeIpv4AddrIdentificationHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIpv4AddrIdentificationServiceClient(grpcConn)
+		req := &pb.Ipv4AddrIdentificationHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeIpv6AddrIdentificationCmd = &cobra.Command{
+	Use:   "ipv6addr-identification",
+	Short: "Ipv6AddrIdentificationService operations",
+}
+
+var ikeIpv6AddrIdentificationNewIpv6AddrIdentificationCmd = &cobra.Command{
+	Use:   "new-ipv6addr-identification",
+	Short: "NewIpv6AddrIdentification RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIpv6AddrIdentificationServiceClient(grpcConn)
+		req := &pb.NewIpv6AddrIdentificationRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewIpv6AddrIdentification(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeIpv6AddrIdentificationEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIpv6AddrIdentificationServiceClient(grpcConn)
+		req := &pb.Ipv6AddrIdentificationEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeIpv6AddrIdentificationHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIpv6AddrIdentificationServiceClient(grpcConn)
+		req := &pb.Ipv6AddrIdentificationHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeTunnelConnectionParamsCmd = &cobra.Command{
+	Use:   "tunnel-connection-params",
+	Short: "TunnelConnectionParamsService operations",
+}
+
+var ikeTunnelConnectionParamsNewTunnelConnectionParamsCmd = &cobra.Command{
+	Use:   "new-tunnel-connection-params",
+	Short: "NewTunnelConnectionParams RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTunnelConnectionParamsServiceClient(grpcConn)
+		req := &pb.NewTunnelConnectionParamsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewTunnelConnectionParams(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeTunnelConnectionParamsEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTunnelConnectionParamsServiceClient(grpcConn)
+		req := &pb.TunnelConnectionParamsEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeTunnelConnectionParamsGetIkeSessionParamsCmd = &cobra.Command{
+	Use:   "get-ike-session-params",
+	Short: "GetIkeSessionParams RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTunnelConnectionParamsServiceClient(grpcConn)
+		req := &pb.GetIkeSessionParamsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetIkeSessionParams(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeTunnelConnectionParamsGetTunnelModeChildSessionParamsCmd = &cobra.Command{
+	Use:   "get-tunnel-mode-child-session-params",
+	Short: "GetTunnelModeChildSessionParams RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTunnelConnectionParamsServiceClient(grpcConn)
+		req := &pb.GetTunnelModeChildSessionParamsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTunnelModeChildSessionParams(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeTunnelConnectionParamsHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTunnelConnectionParamsServiceClient(grpcConn)
+		req := &pb.TunnelConnectionParamsHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1876,6 +2358,155 @@ var ikeSessionCallbackOnOpenedCmd = &cobra.Command{
 	},
 }
 
+var ikeChildSessionCallbackCmd = &cobra.Command{
+	Use:   "child-session-callback",
+	Short: "ChildSessionCallbackService operations",
+}
+
+var ikeChildSessionCallbackOnClosedCmd = &cobra.Command{
+	Use:   "on-closed",
+	Short: "OnClosed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChildSessionCallbackServiceClient(grpcConn)
+		req := &pb.OnClosedRequest{}
+		resp, err := client.OnClosed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeChildSessionCallbackOnIpSecTransformCreatedCmd = &cobra.Command{
+	Use:   "on-ip-sec-transform-created",
+	Short: "OnIpSecTransformCreated RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChildSessionCallbackServiceClient(grpcConn)
+		req := &pb.OnIpSecTransformCreatedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnIpSecTransformCreated(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeChildSessionCallbackOnIpSecTransformDeletedCmd = &cobra.Command{
+	Use:   "on-ip-sec-transform-deleted",
+	Short: "OnIpSecTransformDeleted RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChildSessionCallbackServiceClient(grpcConn)
+		req := &pb.OnIpSecTransformDeletedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnIpSecTransformDeleted(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeChildSessionCallbackOnOpenedCmd = &cobra.Command{
+	Use:   "on-opened",
+	Short: "OnOpened RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChildSessionCallbackServiceClient(grpcConn)
+		req := &pb.OnOpenedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnOpened(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeKeyIdIdentificationCmd = &cobra.Command{
+	Use:   "key-id-identification",
+	Short: "KeyIdIdentificationService operations",
+}
+
+var ikeKeyIdIdentificationNewKeyIdIdentificationCmd = &cobra.Command{
+	Use:   "new-key-id-identification",
+	Short: "NewKeyIdIdentification RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyIdIdentificationServiceClient(grpcConn)
+		req := &pb.NewKeyIdIdentificationRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewKeyIdIdentification(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeKeyIdIdentificationEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyIdIdentificationServiceClient(grpcConn)
+		req := &pb.KeyIdIdentificationEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeKeyIdIdentificationHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyIdIdentificationServiceClient(grpcConn)
+		req := &pb.KeyIdIdentificationHashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var ikeFqdnIdentificationCmd = &cobra.Command{
 	Use:   "fqdn-identification",
 	Short: "FqdnIdentificationService operations",
@@ -1907,7 +2538,7 @@ var ikeFqdnIdentificationEqualsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewFqdnIdentificationServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
+		req := &pb.FqdnIdentificationEqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -1929,132 +2560,11 @@ var ikeFqdnIdentificationHashCodeCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewFqdnIdentificationServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
+		req := &pb.FqdnIdentificationHashCodeRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
 		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeChildSaProposalCmd = &cobra.Command{
-	Use:   "child-sa-proposal",
-	Short: "ChildSaProposalService operations",
-}
-
-var ikeChildSaProposalEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChildSaProposalServiceClient(grpcConn)
-		req := &pb.ChildSaProposalEqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeChildSaProposalHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChildSaProposalServiceClient(grpcConn)
-		req := &pb.ChildSaProposalHashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeChildSaProposalBuilderCmd = &cobra.Command{
-	Use:   "child-sa-proposal-builder",
-	Short: "ChildSaProposalBuilderService operations",
-}
-
-var ikeChildSaProposalBuilderAddDhGroupCmd = &cobra.Command{
-	Use:   "add-dh-group",
-	Short: "AddDhGroup RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChildSaProposalBuilderServiceClient(grpcConn)
-		req := &pb.AddDhGroupRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddDhGroup(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeChildSaProposalBuilderAddEncryptionAlgorithmCmd = &cobra.Command{
-	Use:   "add-encryption-algorithm",
-	Short: "AddEncryptionAlgorithm RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChildSaProposalBuilderServiceClient(grpcConn)
-		req := &pb.AddEncryptionAlgorithmRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.AddEncryptionAlgorithm(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeChildSaProposalBuilderAddIntegrityAlgorithmCmd = &cobra.Command{
-	Use:   "add-integrity-algorithm",
-	Short: "AddIntegrityAlgorithm RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChildSaProposalBuilderServiceClient(grpcConn)
-		req := &pb.AddIntegrityAlgorithmRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddIntegrityAlgorithm(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeChildSaProposalBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChildSaProposalBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2074,11 +2584,27 @@ var ikeChildSessionParamsEqualsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewChildSessionParamsServiceClient(grpcConn)
-		req := &pb.ChildSessionParamsEqualsRequest{}
+		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeChildSessionParamsGetChildSaProposalsCmd = &cobra.Command{
+	Use:   "get-child-sa-proposals",
+	Short: "GetChildSaProposals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChildSessionParamsServiceClient(grpcConn)
+		req := &pb.GetChildSaProposalsRequest{}
+		resp, err := client.GetChildSaProposals(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2095,6 +2621,38 @@ var ikeChildSessionParamsGetHardLifetimeSecondsCmd = &cobra.Command{
 		client := pb.NewChildSessionParamsServiceClient(grpcConn)
 		req := &pb.GetHardLifetimeSecondsRequest{}
 		resp, err := client.GetHardLifetimeSeconds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeChildSessionParamsGetInboundTrafficSelectorsCmd = &cobra.Command{
+	Use:   "get-inbound-traffic-selectors",
+	Short: "GetInboundTrafficSelectors RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChildSessionParamsServiceClient(grpcConn)
+		req := &pb.GetInboundTrafficSelectorsRequest{}
+		resp, err := client.GetInboundTrafficSelectors(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeChildSessionParamsGetOutboundTrafficSelectorsCmd = &cobra.Command{
+	Use:   "get-outbound-traffic-selectors",
+	Short: "GetOutboundTrafficSelectors RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewChildSessionParamsServiceClient(grpcConn)
+		req := &pb.GetOutboundTrafficSelectorsRequest{}
+		resp, err := client.GetOutboundTrafficSelectors(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2125,7 +2683,7 @@ var ikeChildSessionParamsHashCodeCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewChildSessionParamsServiceClient(grpcConn)
-		req := &pb.ChildSessionParamsHashCodeRequest{}
+		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
 			return err
@@ -2146,11 +2704,27 @@ var ikeTunnelModeChildSessionParamsEqualsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewTunnelModeChildSessionParamsServiceClient(grpcConn)
-		req := &pb.TunnelModeChildSessionParamsEqualsRequest{}
+		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ikeTunnelModeChildSessionParamsGetConfigurationRequestsCmd = &cobra.Command{
+	Use:   "get-configuration-requests",
+	Short: "GetConfigurationRequests RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTunnelModeChildSessionParamsServiceClient(grpcConn)
+		req := &pb.GetConfigurationRequestsRequest{}
+		resp, err := client.GetConfigurationRequests(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2165,7 +2739,7 @@ var ikeTunnelModeChildSessionParamsHashCodeCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewTunnelModeChildSessionParamsServiceClient(grpcConn)
-		req := &pb.TunnelModeChildSessionParamsHashCodeRequest{}
+		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
 			return err
@@ -2430,23 +3004,23 @@ var ikeTunnelModeChildSessionParamsConfigRequestIpv6AddressGetPrefixLengthCmd = 
 	},
 }
 
-var ikeIkeSaProposalCmd = &cobra.Command{
-	Use:   "ike-sa-proposal",
-	Short: "IkeSaProposalService operations",
+var ikeTransportModeChildSessionParamsBuilderCmd = &cobra.Command{
+	Use:   "transport-mode-child-session-params-builder",
+	Short: "TransportModeChildSessionParamsBuilderService operations",
 }
 
-var ikeIkeSaProposalEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
+var ikeTransportModeChildSessionParamsBuilderAddChildSaProposalCmd = &cobra.Command{
+	Use:   "add-child-sa-proposal",
+	Short: "AddChildSaProposal RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewIkeSaProposalServiceClient(grpcConn)
-		req := &pb.IkeSaProposalEqualsRequest{}
+		client := pb.NewTransportModeChildSessionParamsBuilderServiceClient(grpcConn)
+		req := &pb.AddChildSaProposalRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.Equals(ctx, req)
+		resp, err := client.AddChildSaProposal(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2454,39 +3028,18 @@ var ikeIkeSaProposalEqualsCmd = &cobra.Command{
 	},
 }
 
-var ikeIkeSaProposalHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
+var ikeTransportModeChildSessionParamsBuilderAddInboundTrafficSelectorsCmd = &cobra.Command{
+	Use:   "add-inbound-traffic-selectors",
+	Short: "AddInboundTrafficSelectors RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewIkeSaProposalServiceClient(grpcConn)
-		req := &pb.IkeSaProposalHashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeSaProposalBuilderCmd = &cobra.Command{
-	Use:   "sa-proposal-builder",
-	Short: "SaProposalBuilderService operations",
-}
-
-var ikeSaProposalBuilderAddDhGroupCmd = &cobra.Command{
-	Use:   "add-dh-group",
-	Short: "AddDhGroup RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSaProposalBuilderServiceClient(grpcConn)
-		req := &pb.AddDhGroupRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+		client := pb.NewTransportModeChildSessionParamsBuilderServiceClient(grpcConn)
+		req := &pb.AddInboundTrafficSelectorsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.AddDhGroup(ctx, req)
+		resp, err := client.AddInboundTrafficSelectors(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2494,21 +3047,18 @@ var ikeSaProposalBuilderAddDhGroupCmd = &cobra.Command{
 	},
 }
 
-var ikeSaProposalBuilderAddEncryptionAlgorithmCmd = &cobra.Command{
-	Use:   "add-encryption-algorithm",
-	Short: "AddEncryptionAlgorithm RPC",
+var ikeTransportModeChildSessionParamsBuilderAddOutboundTrafficSelectorsCmd = &cobra.Command{
+	Use:   "add-outbound-traffic-selectors",
+	Short: "AddOutboundTrafficSelectors RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSaProposalBuilderServiceClient(grpcConn)
-		req := &pb.AddEncryptionAlgorithmRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+		client := pb.NewTransportModeChildSessionParamsBuilderServiceClient(grpcConn)
+		req := &pb.AddOutboundTrafficSelectorsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.AddEncryptionAlgorithm(ctx, req)
+		resp, err := client.AddOutboundTrafficSelectors(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2516,51 +3066,13 @@ var ikeSaProposalBuilderAddEncryptionAlgorithmCmd = &cobra.Command{
 	},
 }
 
-var ikeSaProposalBuilderAddIntegrityAlgorithmCmd = &cobra.Command{
-	Use:   "add-integrity-algorithm",
-	Short: "AddIntegrityAlgorithm RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSaProposalBuilderServiceClient(grpcConn)
-		req := &pb.AddIntegrityAlgorithmRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddIntegrityAlgorithm(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeSaProposalBuilderAddPseudorandomFunctionCmd = &cobra.Command{
-	Use:   "add-pseudorandom-function",
-	Short: "AddPseudorandomFunction RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSaProposalBuilderServiceClient(grpcConn)
-		req := &pb.AddPseudorandomFunctionRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddPseudorandomFunction(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeSaProposalBuilderBuildCmd = &cobra.Command{
+var ikeTransportModeChildSessionParamsBuilderBuildCmd = &cobra.Command{
 	Use:   "build",
 	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSaProposalBuilderServiceClient(grpcConn)
+		client := pb.NewTransportModeChildSessionParamsBuilderServiceClient(grpcConn)
 		req := &pb.BuildRequest{}
 		resp, err := client.Build(ctx, req)
 		if err != nil {
@@ -2570,224 +3082,21 @@ var ikeSaProposalBuilderBuildCmd = &cobra.Command{
 	},
 }
 
-var ikeDerAsn1DnIdentificationCmd = &cobra.Command{
-	Use:   "der-asn1dn-identification",
-	Short: "DerAsn1DnIdentificationService operations",
-}
-
-var ikeDerAsn1DnIdentificationNewDerAsn1DnIdentificationCmd = &cobra.Command{
-	Use:   "new-der-asn1dn-identification",
-	Short: "NewDerAsn1DnIdentification RPC",
+var ikeTransportModeChildSessionParamsBuilderSetLifetimeSecondsCmd = &cobra.Command{
+	Use:   "set-lifetime-seconds",
+	Short: "SetLifetimeSeconds RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDerAsn1DnIdentificationServiceClient(grpcConn)
-		req := &pb.NewDerAsn1DnIdentificationRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewDerAsn1DnIdentification(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeDerAsn1DnIdentificationEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDerAsn1DnIdentificationServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeDerAsn1DnIdentificationHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDerAsn1DnIdentificationServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeTrafficSelectorCmd = &cobra.Command{
-	Use:   "traffic-selector",
-	Short: "TrafficSelectorService operations",
-}
-
-var ikeTrafficSelectorNewTrafficSelectorCmd = &cobra.Command{
-	Use:   "new-traffic-selector",
-	Short: "NewTrafficSelector RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrafficSelectorServiceClient(grpcConn)
-		req := &pb.NewTrafficSelectorRequest{}
+		client := pb.NewTransportModeChildSessionParamsBuilderServiceClient(grpcConn)
+		req := &pb.SetLifetimeSecondsRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.NewTrafficSelector(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeTrafficSelectorEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrafficSelectorServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeTrafficSelectorHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrafficSelectorServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeKeyIdIdentificationCmd = &cobra.Command{
-	Use:   "key-id-identification",
-	Short: "KeyIdIdentificationService operations",
-}
-
-var ikeKeyIdIdentificationNewKeyIdIdentificationCmd = &cobra.Command{
-	Use:   "new-key-id-identification",
-	Short: "NewKeyIdIdentification RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyIdIdentificationServiceClient(grpcConn)
-		req := &pb.NewKeyIdIdentificationRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewKeyIdIdentification(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeKeyIdIdentificationEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyIdIdentificationServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeKeyIdIdentificationHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyIdIdentificationServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ikeChildSessionConfigurationBuilderCmd = &cobra.Command{
-	Use:   "child-session-configuration-builder",
-	Short: "ChildSessionConfigurationBuilderService operations",
-}
-
-var ikeChildSessionConfigurationBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewChildSessionConfigurationBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
+		resp, err := client.SetLifetimeSeconds(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2796,76 +3105,74 @@ var ikeChildSessionConfigurationBuilderBuildCmd = &cobra.Command{
 }
 
 func init() {
-	ikeIpv6AddrIdentificationNewIpv6AddrIdentificationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ikeIpv6AddrIdentificationCmd.AddCommand(ikeIpv6AddrIdentificationNewIpv6AddrIdentificationCmd)
-	ikeIpv6AddrIdentificationEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ikeIpv6AddrIdentificationEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ikeIpv6AddrIdentificationCmd.AddCommand(ikeIpv6AddrIdentificationEqualsCmd)
-	ikeIpv6AddrIdentificationHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ikeIpv6AddrIdentificationCmd.AddCommand(ikeIpv6AddrIdentificationHashCodeCmd)
-	ikeCmd.AddCommand(ikeIpv6AddrIdentificationCmd)
-	ikeSessionNewSessionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ikeSessionNewSessionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	ikeSessionNewSessionCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	ikeSessionNewSessionCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	ikeSessionNewSessionCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
-	ikeSessionNewSessionCmd.Flags().Int64("arg5", 0, "arg5 (int64)")
-	ikeSessionCmd.AddCommand(ikeSessionNewSessionCmd)
-	ikeSessionCloseCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ikeSessionCmd.AddCommand(ikeSessionCloseCmd)
-	ikeSessionCloseChildSessionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ikeSessionCloseChildSessionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ikeSessionCmd.AddCommand(ikeSessionCloseChildSessionCmd)
-	ikeSessionDumpCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ikeSessionDumpCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ikeSessionCmd.AddCommand(ikeSessionDumpCmd)
-	ikeSessionFinalizeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ikeSessionCmd.AddCommand(ikeSessionFinalizeCmd)
-	ikeSessionKillCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ikeSessionCmd.AddCommand(ikeSessionKillCmd)
-	ikeSessionOpenChildSessionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ikeSessionOpenChildSessionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ikeSessionOpenChildSessionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	ikeSessionCmd.AddCommand(ikeSessionOpenChildSessionCmd)
-	ikeCmd.AddCommand(ikeSessionCmd)
-	ikeTunnelConnectionParamsNewTunnelConnectionParamsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ikeTunnelConnectionParamsNewTunnelConnectionParamsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	ikeTunnelConnectionParamsCmd.AddCommand(ikeTunnelConnectionParamsNewTunnelConnectionParamsCmd)
-	ikeTunnelConnectionParamsEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ikeTunnelConnectionParamsEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ikeTunnelConnectionParamsCmd.AddCommand(ikeTunnelConnectionParamsEqualsCmd)
-	ikeTunnelConnectionParamsGetIkeSessionParamsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ikeTunnelConnectionParamsCmd.AddCommand(ikeTunnelConnectionParamsGetIkeSessionParamsCmd)
-	ikeTunnelConnectionParamsGetTunnelModeChildSessionParamsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ikeTunnelConnectionParamsCmd.AddCommand(ikeTunnelConnectionParamsGetTunnelModeChildSessionParamsCmd)
-	ikeTunnelConnectionParamsHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ikeTunnelConnectionParamsCmd.AddCommand(ikeTunnelConnectionParamsHashCodeCmd)
-	ikeCmd.AddCommand(ikeTunnelConnectionParamsCmd)
-	ikeTransportModeChildSessionParamsBuilderAddChildSaProposalCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ikeTransportModeChildSessionParamsBuilderCmd.AddCommand(ikeTransportModeChildSessionParamsBuilderAddChildSaProposalCmd)
-	ikeTransportModeChildSessionParamsBuilderAddInboundTrafficSelectorsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ikeTransportModeChildSessionParamsBuilderCmd.AddCommand(ikeTransportModeChildSessionParamsBuilderAddInboundTrafficSelectorsCmd)
-	ikeTransportModeChildSessionParamsBuilderAddOutboundTrafficSelectorsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ikeTransportModeChildSessionParamsBuilderCmd.AddCommand(ikeTransportModeChildSessionParamsBuilderAddOutboundTrafficSelectorsCmd)
-	ikeTransportModeChildSessionParamsBuilderCmd.AddCommand(ikeTransportModeChildSessionParamsBuilderBuildCmd)
-	ikeTransportModeChildSessionParamsBuilderSetLifetimeSecondsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	ikeTransportModeChildSessionParamsBuilderSetLifetimeSecondsCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	ikeTransportModeChildSessionParamsBuilderCmd.AddCommand(ikeTransportModeChildSessionParamsBuilderSetLifetimeSecondsCmd)
-	ikeCmd.AddCommand(ikeTransportModeChildSessionParamsBuilderCmd)
-	ikeChildSessionCallbackCmd.AddCommand(ikeChildSessionCallbackOnClosedCmd)
-	ikeChildSessionCallbackOnIpSecTransformCreatedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ikeChildSessionCallbackOnIpSecTransformCreatedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	ikeChildSessionCallbackCmd.AddCommand(ikeChildSessionCallbackOnIpSecTransformCreatedCmd)
-	ikeChildSessionCallbackOnIpSecTransformDeletedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ikeChildSessionCallbackOnIpSecTransformDeletedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	ikeChildSessionCallbackCmd.AddCommand(ikeChildSessionCallbackOnIpSecTransformDeletedCmd)
-	ikeChildSessionCallbackOnOpenedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ikeChildSessionCallbackCmd.AddCommand(ikeChildSessionCallbackOnOpenedCmd)
-	ikeCmd.AddCommand(ikeChildSessionCallbackCmd)
+	ikeSessionConfigurationCmd.AddCommand(ikeSessionConfigurationGetEapInfoCmd)
+	ikeSessionConfigurationCmd.AddCommand(ikeSessionConfigurationGetIkeSessionConnectionInfoCmd)
+	ikeSessionConfigurationCmd.AddCommand(ikeSessionConfigurationGetRemoteApplicationVersionCmd)
+	ikeSessionConfigurationCmd.AddCommand(ikeSessionConfigurationGetRemoteVendorIdsCmd)
+	ikeSessionConfigurationIsIkeExtensionEnabledCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	ikeSessionConfigurationCmd.AddCommand(ikeSessionConfigurationIsIkeExtensionEnabledCmd)
+	ikeCmd.AddCommand(ikeSessionConfigurationCmd)
+	ikeSessionConfigurationBuilderAddIkeExtensionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	ikeSessionConfigurationBuilderCmd.AddCommand(ikeSessionConfigurationBuilderAddIkeExtensionCmd)
+	ikeSessionConfigurationBuilderAddRemoteVendorIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ikeSessionConfigurationBuilderCmd.AddCommand(ikeSessionConfigurationBuilderAddRemoteVendorIdCmd)
+	ikeSessionConfigurationBuilderCmd.AddCommand(ikeSessionConfigurationBuilderBuildCmd)
+	ikeSessionConfigurationBuilderCmd.AddCommand(ikeSessionConfigurationBuilderClearIkeExtensionsCmd)
+	ikeSessionConfigurationBuilderCmd.AddCommand(ikeSessionConfigurationBuilderClearRemoteApplicationVersionCmd)
+	ikeSessionConfigurationBuilderCmd.AddCommand(ikeSessionConfigurationBuilderClearRemoteVendorIdsCmd)
+	ikeSessionConfigurationBuilderSetEapInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ikeSessionConfigurationBuilderCmd.AddCommand(ikeSessionConfigurationBuilderSetEapInfoCmd)
+	ikeSessionConfigurationBuilderSetRemoteApplicationVersionCmd.Flags().String("arg0", "", "arg0 (string)")
+	ikeSessionConfigurationBuilderCmd.AddCommand(ikeSessionConfigurationBuilderSetRemoteApplicationVersionCmd)
+	ikeCmd.AddCommand(ikeSessionConfigurationBuilderCmd)
+	ikeSessionConnectionInfoNewSessionConnectionInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ikeSessionConnectionInfoNewSessionConnectionInfoCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	ikeSessionConnectionInfoNewSessionConnectionInfoCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	ikeSessionConnectionInfoCmd.AddCommand(ikeSessionConnectionInfoNewSessionConnectionInfoCmd)
+	ikeSessionConnectionInfoGetLocalAddressCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ikeSessionConnectionInfoCmd.AddCommand(ikeSessionConnectionInfoGetLocalAddressCmd)
+	ikeSessionConnectionInfoGetNetworkCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ikeSessionConnectionInfoCmd.AddCommand(ikeSessionConnectionInfoGetNetworkCmd)
+	ikeSessionConnectionInfoGetRemoteAddressCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ikeSessionConnectionInfoCmd.AddCommand(ikeSessionConnectionInfoGetRemoteAddressCmd)
+	ikeCmd.AddCommand(ikeSessionConnectionInfoCmd)
+	ikeChildSaProposalEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ikeChildSaProposalCmd.AddCommand(ikeChildSaProposalEqualsCmd)
+	ikeChildSaProposalCmd.AddCommand(ikeChildSaProposalHashCodeCmd)
+	ikeChildSaProposalCmd.AddCommand(ikeChildSaProposalGetSupportedEncryptionAlgorithmsCmd)
+	ikeChildSaProposalCmd.AddCommand(ikeChildSaProposalGetSupportedIntegrityAlgorithmsCmd)
+	ikeCmd.AddCommand(ikeChildSaProposalCmd)
+	ikeChildSaProposalBuilderAddDhGroupCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	ikeChildSaProposalBuilderCmd.AddCommand(ikeChildSaProposalBuilderAddDhGroupCmd)
+	ikeChildSaProposalBuilderAddEncryptionAlgorithmCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	ikeChildSaProposalBuilderAddEncryptionAlgorithmCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	ikeChildSaProposalBuilderCmd.AddCommand(ikeChildSaProposalBuilderAddEncryptionAlgorithmCmd)
+	ikeChildSaProposalBuilderAddIntegrityAlgorithmCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	ikeChildSaProposalBuilderCmd.AddCommand(ikeChildSaProposalBuilderAddIntegrityAlgorithmCmd)
+	ikeChildSaProposalBuilderCmd.AddCommand(ikeChildSaProposalBuilderBuildCmd)
+	ikeCmd.AddCommand(ikeChildSaProposalBuilderCmd)
+	ikeDerAsn1DnIdentificationNewDerAsn1DnIdentificationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ikeDerAsn1DnIdentificationCmd.AddCommand(ikeDerAsn1DnIdentificationNewDerAsn1DnIdentificationCmd)
+	ikeDerAsn1DnIdentificationEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ikeDerAsn1DnIdentificationEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ikeDerAsn1DnIdentificationCmd.AddCommand(ikeDerAsn1DnIdentificationEqualsCmd)
+	ikeDerAsn1DnIdentificationHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ikeDerAsn1DnIdentificationCmd.AddCommand(ikeDerAsn1DnIdentificationHashCodeCmd)
+	ikeCmd.AddCommand(ikeDerAsn1DnIdentificationCmd)
+	ikeSaProposalEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ikeSaProposalCmd.AddCommand(ikeSaProposalEqualsCmd)
+	ikeSaProposalCmd.AddCommand(ikeSaProposalGetDhGroupsCmd)
+	ikeSaProposalCmd.AddCommand(ikeSaProposalGetIntegrityAlgorithmsCmd)
+	ikeSaProposalCmd.AddCommand(ikeSaProposalHashCodeCmd)
+	ikeSaProposalCmd.AddCommand(ikeSaProposalToStringCmd)
+	ikeSaProposalCmd.AddCommand(ikeSaProposalGetSupportedDhGroupsCmd)
+	ikeCmd.AddCommand(ikeSaProposalCmd)
 	ikeSessionParamsEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	ikeSessionParamsCmd.AddCommand(ikeSessionParamsEqualsCmd)
 	ikeSessionParamsCmd.AddCommand(ikeSessionParamsGetDpdDelaySecondsCmd)
 	ikeSessionParamsCmd.AddCommand(ikeSessionParamsGetHardLifetimeSecondsCmd)
+	ikeSessionParamsCmd.AddCommand(ikeSessionParamsGetIkeOptionsCmd)
+	ikeSessionParamsCmd.AddCommand(ikeSessionParamsGetIkeSaProposalsCmd)
 	ikeSessionParamsCmd.AddCommand(ikeSessionParamsGetLocalAuthConfigCmd)
 	ikeSessionParamsCmd.AddCommand(ikeSessionParamsGetLocalIdentificationCmd)
 	ikeSessionParamsCmd.AddCommand(ikeSessionParamsGetNattKeepAliveDelaySecondsCmd)
@@ -2920,6 +3227,7 @@ func init() {
 	ikeSessionParamsIkeAuthDigitalSignLocalConfigEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	ikeSessionParamsIkeAuthDigitalSignLocalConfigCmd.AddCommand(ikeSessionParamsIkeAuthDigitalSignLocalConfigEqualsCmd)
 	ikeSessionParamsIkeAuthDigitalSignLocalConfigCmd.AddCommand(ikeSessionParamsIkeAuthDigitalSignLocalConfigGetClientEndCertificateCmd)
+	ikeSessionParamsIkeAuthDigitalSignLocalConfigCmd.AddCommand(ikeSessionParamsIkeAuthDigitalSignLocalConfigGetIntermediateCertificatesCmd)
 	ikeSessionParamsIkeAuthDigitalSignLocalConfigCmd.AddCommand(ikeSessionParamsIkeAuthDigitalSignLocalConfigGetPrivateKeyCmd)
 	ikeSessionParamsIkeAuthDigitalSignLocalConfigCmd.AddCommand(ikeSessionParamsIkeAuthDigitalSignLocalConfigHashCodeCmd)
 	ikeCmd.AddCommand(ikeSessionParamsIkeAuthDigitalSignLocalConfigCmd)
@@ -2938,44 +3246,6 @@ func init() {
 	ikeSessionParamsIkeAuthPskConfigCmd.AddCommand(ikeSessionParamsIkeAuthPskConfigGetPskCmd)
 	ikeSessionParamsIkeAuthPskConfigCmd.AddCommand(ikeSessionParamsIkeAuthPskConfigHashCodeCmd)
 	ikeCmd.AddCommand(ikeSessionParamsIkeAuthPskConfigCmd)
-	ikeSessionConfigurationCmd.AddCommand(ikeSessionConfigurationGetEapInfoCmd)
-	ikeSessionConfigurationCmd.AddCommand(ikeSessionConfigurationGetIkeSessionConnectionInfoCmd)
-	ikeSessionConfigurationCmd.AddCommand(ikeSessionConfigurationGetRemoteApplicationVersionCmd)
-	ikeSessionConfigurationIsIkeExtensionEnabledCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	ikeSessionConfigurationCmd.AddCommand(ikeSessionConfigurationIsIkeExtensionEnabledCmd)
-	ikeCmd.AddCommand(ikeSessionConfigurationCmd)
-	ikeSessionConfigurationBuilderAddIkeExtensionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	ikeSessionConfigurationBuilderCmd.AddCommand(ikeSessionConfigurationBuilderAddIkeExtensionCmd)
-	ikeSessionConfigurationBuilderAddRemoteVendorIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ikeSessionConfigurationBuilderCmd.AddCommand(ikeSessionConfigurationBuilderAddRemoteVendorIdCmd)
-	ikeSessionConfigurationBuilderCmd.AddCommand(ikeSessionConfigurationBuilderBuildCmd)
-	ikeSessionConfigurationBuilderCmd.AddCommand(ikeSessionConfigurationBuilderClearIkeExtensionsCmd)
-	ikeSessionConfigurationBuilderCmd.AddCommand(ikeSessionConfigurationBuilderClearRemoteApplicationVersionCmd)
-	ikeSessionConfigurationBuilderCmd.AddCommand(ikeSessionConfigurationBuilderClearRemoteVendorIdsCmd)
-	ikeSessionConfigurationBuilderSetEapInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ikeSessionConfigurationBuilderCmd.AddCommand(ikeSessionConfigurationBuilderSetEapInfoCmd)
-	ikeSessionConfigurationBuilderSetRemoteApplicationVersionCmd.Flags().String("arg0", "", "arg0 (string)")
-	ikeSessionConfigurationBuilderCmd.AddCommand(ikeSessionConfigurationBuilderSetRemoteApplicationVersionCmd)
-	ikeCmd.AddCommand(ikeSessionConfigurationBuilderCmd)
-	ikeIpv4AddrIdentificationNewIpv4AddrIdentificationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ikeIpv4AddrIdentificationCmd.AddCommand(ikeIpv4AddrIdentificationNewIpv4AddrIdentificationCmd)
-	ikeIpv4AddrIdentificationEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ikeIpv4AddrIdentificationEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ikeIpv4AddrIdentificationCmd.AddCommand(ikeIpv4AddrIdentificationEqualsCmd)
-	ikeIpv4AddrIdentificationHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ikeIpv4AddrIdentificationCmd.AddCommand(ikeIpv4AddrIdentificationHashCodeCmd)
-	ikeCmd.AddCommand(ikeIpv4AddrIdentificationCmd)
-	ikeSessionConnectionInfoNewSessionConnectionInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ikeSessionConnectionInfoNewSessionConnectionInfoCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	ikeSessionConnectionInfoNewSessionConnectionInfoCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	ikeSessionConnectionInfoCmd.AddCommand(ikeSessionConnectionInfoNewSessionConnectionInfoCmd)
-	ikeSessionConnectionInfoGetLocalAddressCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ikeSessionConnectionInfoCmd.AddCommand(ikeSessionConnectionInfoGetLocalAddressCmd)
-	ikeSessionConnectionInfoGetNetworkCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ikeSessionConnectionInfoCmd.AddCommand(ikeSessionConnectionInfoGetNetworkCmd)
-	ikeSessionConnectionInfoGetRemoteAddressCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ikeSessionConnectionInfoCmd.AddCommand(ikeSessionConnectionInfoGetRemoteAddressCmd)
-	ikeCmd.AddCommand(ikeSessionConnectionInfoCmd)
 	ikeRfc822AddrIdentificationNewRfc822AddrIdentificationCmd.Flags().String("arg0", "", "arg0 (string)")
 	ikeRfc822AddrIdentificationCmd.AddCommand(ikeRfc822AddrIdentificationNewRfc822AddrIdentificationCmd)
 	ikeRfc822AddrIdentificationEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
@@ -2984,15 +3254,116 @@ func init() {
 	ikeRfc822AddrIdentificationHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
 	ikeRfc822AddrIdentificationCmd.AddCommand(ikeRfc822AddrIdentificationHashCodeCmd)
 	ikeCmd.AddCommand(ikeRfc822AddrIdentificationCmd)
-	ikeSaProposalEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ikeSaProposalCmd.AddCommand(ikeSaProposalEqualsCmd)
-	ikeSaProposalCmd.AddCommand(ikeSaProposalHashCodeCmd)
-	ikeSaProposalCmd.AddCommand(ikeSaProposalToStringCmd)
-	ikeCmd.AddCommand(ikeSaProposalCmd)
+	ikeTrafficSelectorNewTrafficSelectorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	ikeTrafficSelectorNewTrafficSelectorCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	ikeTrafficSelectorNewTrafficSelectorCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	ikeTrafficSelectorNewTrafficSelectorCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	ikeTrafficSelectorCmd.AddCommand(ikeTrafficSelectorNewTrafficSelectorCmd)
+	ikeTrafficSelectorEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ikeTrafficSelectorEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ikeTrafficSelectorCmd.AddCommand(ikeTrafficSelectorEqualsCmd)
+	ikeTrafficSelectorHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ikeTrafficSelectorCmd.AddCommand(ikeTrafficSelectorHashCodeCmd)
+	ikeCmd.AddCommand(ikeTrafficSelectorCmd)
+	ikeChildSessionConfigurationCmd.AddCommand(ikeChildSessionConfigurationGetInboundTrafficSelectorsCmd)
+	ikeChildSessionConfigurationCmd.AddCommand(ikeChildSessionConfigurationGetOutboundTrafficSelectorsCmd)
+	ikeCmd.AddCommand(ikeChildSessionConfigurationCmd)
+	ikeChildSessionConfigurationBuilderCmd.AddCommand(ikeChildSessionConfigurationBuilderBuildCmd)
+	ikeCmd.AddCommand(ikeChildSessionConfigurationBuilderCmd)
+	ikeIkeSaProposalEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ikeIkeSaProposalCmd.AddCommand(ikeIkeSaProposalEqualsCmd)
+	ikeIkeSaProposalCmd.AddCommand(ikeIkeSaProposalGetPseudorandomFunctionsCmd)
+	ikeIkeSaProposalCmd.AddCommand(ikeIkeSaProposalHashCodeCmd)
+	ikeIkeSaProposalCmd.AddCommand(ikeIkeSaProposalGetSupportedEncryptionAlgorithmsCmd)
+	ikeIkeSaProposalCmd.AddCommand(ikeIkeSaProposalGetSupportedIntegrityAlgorithmsCmd)
+	ikeIkeSaProposalCmd.AddCommand(ikeIkeSaProposalGetSupportedPseudorandomFunctionsCmd)
+	ikeCmd.AddCommand(ikeIkeSaProposalCmd)
+	ikeSaProposalBuilderAddDhGroupCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	ikeSaProposalBuilderCmd.AddCommand(ikeSaProposalBuilderAddDhGroupCmd)
+	ikeSaProposalBuilderAddEncryptionAlgorithmCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	ikeSaProposalBuilderAddEncryptionAlgorithmCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	ikeSaProposalBuilderCmd.AddCommand(ikeSaProposalBuilderAddEncryptionAlgorithmCmd)
+	ikeSaProposalBuilderAddIntegrityAlgorithmCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	ikeSaProposalBuilderCmd.AddCommand(ikeSaProposalBuilderAddIntegrityAlgorithmCmd)
+	ikeSaProposalBuilderAddPseudorandomFunctionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	ikeSaProposalBuilderCmd.AddCommand(ikeSaProposalBuilderAddPseudorandomFunctionCmd)
+	ikeSaProposalBuilderCmd.AddCommand(ikeSaProposalBuilderBuildCmd)
+	ikeCmd.AddCommand(ikeSaProposalBuilderCmd)
+	ikeSessionNewSessionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ikeSessionNewSessionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	ikeSessionNewSessionCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	ikeSessionNewSessionCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	ikeSessionNewSessionCmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	ikeSessionNewSessionCmd.Flags().Int64("arg5", 0, "arg5 (int64)")
+	ikeSessionCmd.AddCommand(ikeSessionNewSessionCmd)
+	ikeSessionCloseCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ikeSessionCmd.AddCommand(ikeSessionCloseCmd)
+	ikeSessionCloseChildSessionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ikeSessionCloseChildSessionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ikeSessionCmd.AddCommand(ikeSessionCloseChildSessionCmd)
+	ikeSessionDumpCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ikeSessionDumpCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ikeSessionCmd.AddCommand(ikeSessionDumpCmd)
+	ikeSessionFinalizeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ikeSessionCmd.AddCommand(ikeSessionFinalizeCmd)
+	ikeSessionKillCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ikeSessionCmd.AddCommand(ikeSessionKillCmd)
+	ikeSessionOpenChildSessionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ikeSessionOpenChildSessionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ikeSessionOpenChildSessionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	ikeSessionCmd.AddCommand(ikeSessionOpenChildSessionCmd)
+	ikeCmd.AddCommand(ikeSessionCmd)
+	ikeIpv4AddrIdentificationNewIpv4AddrIdentificationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ikeIpv4AddrIdentificationCmd.AddCommand(ikeIpv4AddrIdentificationNewIpv4AddrIdentificationCmd)
+	ikeIpv4AddrIdentificationEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ikeIpv4AddrIdentificationEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ikeIpv4AddrIdentificationCmd.AddCommand(ikeIpv4AddrIdentificationEqualsCmd)
+	ikeIpv4AddrIdentificationHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ikeIpv4AddrIdentificationCmd.AddCommand(ikeIpv4AddrIdentificationHashCodeCmd)
+	ikeCmd.AddCommand(ikeIpv4AddrIdentificationCmd)
+	ikeIpv6AddrIdentificationNewIpv6AddrIdentificationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ikeIpv6AddrIdentificationCmd.AddCommand(ikeIpv6AddrIdentificationNewIpv6AddrIdentificationCmd)
+	ikeIpv6AddrIdentificationEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ikeIpv6AddrIdentificationEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ikeIpv6AddrIdentificationCmd.AddCommand(ikeIpv6AddrIdentificationEqualsCmd)
+	ikeIpv6AddrIdentificationHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ikeIpv6AddrIdentificationCmd.AddCommand(ikeIpv6AddrIdentificationHashCodeCmd)
+	ikeCmd.AddCommand(ikeIpv6AddrIdentificationCmd)
+	ikeTunnelConnectionParamsNewTunnelConnectionParamsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ikeTunnelConnectionParamsNewTunnelConnectionParamsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	ikeTunnelConnectionParamsCmd.AddCommand(ikeTunnelConnectionParamsNewTunnelConnectionParamsCmd)
+	ikeTunnelConnectionParamsEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ikeTunnelConnectionParamsEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ikeTunnelConnectionParamsCmd.AddCommand(ikeTunnelConnectionParamsEqualsCmd)
+	ikeTunnelConnectionParamsGetIkeSessionParamsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ikeTunnelConnectionParamsCmd.AddCommand(ikeTunnelConnectionParamsGetIkeSessionParamsCmd)
+	ikeTunnelConnectionParamsGetTunnelModeChildSessionParamsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ikeTunnelConnectionParamsCmd.AddCommand(ikeTunnelConnectionParamsGetTunnelModeChildSessionParamsCmd)
+	ikeTunnelConnectionParamsHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ikeTunnelConnectionParamsCmd.AddCommand(ikeTunnelConnectionParamsHashCodeCmd)
+	ikeCmd.AddCommand(ikeTunnelConnectionParamsCmd)
 	ikeSessionCallbackCmd.AddCommand(ikeSessionCallbackOnClosedCmd)
 	ikeSessionCallbackOnOpenedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	ikeSessionCallbackCmd.AddCommand(ikeSessionCallbackOnOpenedCmd)
 	ikeCmd.AddCommand(ikeSessionCallbackCmd)
+	ikeChildSessionCallbackCmd.AddCommand(ikeChildSessionCallbackOnClosedCmd)
+	ikeChildSessionCallbackOnIpSecTransformCreatedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ikeChildSessionCallbackOnIpSecTransformCreatedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	ikeChildSessionCallbackCmd.AddCommand(ikeChildSessionCallbackOnIpSecTransformCreatedCmd)
+	ikeChildSessionCallbackOnIpSecTransformDeletedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ikeChildSessionCallbackOnIpSecTransformDeletedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	ikeChildSessionCallbackCmd.AddCommand(ikeChildSessionCallbackOnIpSecTransformDeletedCmd)
+	ikeChildSessionCallbackOnOpenedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ikeChildSessionCallbackCmd.AddCommand(ikeChildSessionCallbackOnOpenedCmd)
+	ikeCmd.AddCommand(ikeChildSessionCallbackCmd)
+	ikeKeyIdIdentificationNewKeyIdIdentificationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ikeKeyIdIdentificationCmd.AddCommand(ikeKeyIdIdentificationNewKeyIdIdentificationCmd)
+	ikeKeyIdIdentificationEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ikeKeyIdIdentificationEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ikeKeyIdIdentificationCmd.AddCommand(ikeKeyIdIdentificationEqualsCmd)
+	ikeKeyIdIdentificationHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ikeKeyIdIdentificationCmd.AddCommand(ikeKeyIdIdentificationHashCodeCmd)
+	ikeCmd.AddCommand(ikeKeyIdIdentificationCmd)
 	ikeFqdnIdentificationNewFqdnIdentificationCmd.Flags().String("arg0", "", "arg0 (string)")
 	ikeFqdnIdentificationCmd.AddCommand(ikeFqdnIdentificationNewFqdnIdentificationCmd)
 	ikeFqdnIdentificationEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
@@ -3001,27 +3372,18 @@ func init() {
 	ikeFqdnIdentificationHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
 	ikeFqdnIdentificationCmd.AddCommand(ikeFqdnIdentificationHashCodeCmd)
 	ikeCmd.AddCommand(ikeFqdnIdentificationCmd)
-	ikeChildSaProposalEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ikeChildSaProposalCmd.AddCommand(ikeChildSaProposalEqualsCmd)
-	ikeChildSaProposalCmd.AddCommand(ikeChildSaProposalHashCodeCmd)
-	ikeCmd.AddCommand(ikeChildSaProposalCmd)
-	ikeChildSaProposalBuilderAddDhGroupCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	ikeChildSaProposalBuilderCmd.AddCommand(ikeChildSaProposalBuilderAddDhGroupCmd)
-	ikeChildSaProposalBuilderAddEncryptionAlgorithmCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	ikeChildSaProposalBuilderAddEncryptionAlgorithmCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	ikeChildSaProposalBuilderCmd.AddCommand(ikeChildSaProposalBuilderAddEncryptionAlgorithmCmd)
-	ikeChildSaProposalBuilderAddIntegrityAlgorithmCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	ikeChildSaProposalBuilderCmd.AddCommand(ikeChildSaProposalBuilderAddIntegrityAlgorithmCmd)
-	ikeChildSaProposalBuilderCmd.AddCommand(ikeChildSaProposalBuilderBuildCmd)
-	ikeCmd.AddCommand(ikeChildSaProposalBuilderCmd)
 	ikeChildSessionParamsEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	ikeChildSessionParamsCmd.AddCommand(ikeChildSessionParamsEqualsCmd)
+	ikeChildSessionParamsCmd.AddCommand(ikeChildSessionParamsGetChildSaProposalsCmd)
 	ikeChildSessionParamsCmd.AddCommand(ikeChildSessionParamsGetHardLifetimeSecondsCmd)
+	ikeChildSessionParamsCmd.AddCommand(ikeChildSessionParamsGetInboundTrafficSelectorsCmd)
+	ikeChildSessionParamsCmd.AddCommand(ikeChildSessionParamsGetOutboundTrafficSelectorsCmd)
 	ikeChildSessionParamsCmd.AddCommand(ikeChildSessionParamsGetSoftLifetimeSecondsCmd)
 	ikeChildSessionParamsCmd.AddCommand(ikeChildSessionParamsHashCodeCmd)
 	ikeCmd.AddCommand(ikeChildSessionParamsCmd)
 	ikeTunnelModeChildSessionParamsEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	ikeTunnelModeChildSessionParamsCmd.AddCommand(ikeTunnelModeChildSessionParamsEqualsCmd)
+	ikeTunnelModeChildSessionParamsCmd.AddCommand(ikeTunnelModeChildSessionParamsGetConfigurationRequestsCmd)
 	ikeTunnelModeChildSessionParamsCmd.AddCommand(ikeTunnelModeChildSessionParamsHashCodeCmd)
 	ikeCmd.AddCommand(ikeTunnelModeChildSessionParamsCmd)
 	ikeTunnelModeChildSessionParamsBuilderAddChildSaProposalCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -3051,49 +3413,16 @@ func init() {
 	ikeTunnelModeChildSessionParamsConfigRequestIpv6AddressCmd.AddCommand(ikeTunnelModeChildSessionParamsConfigRequestIpv6AddressGetAddressCmd)
 	ikeTunnelModeChildSessionParamsConfigRequestIpv6AddressCmd.AddCommand(ikeTunnelModeChildSessionParamsConfigRequestIpv6AddressGetPrefixLengthCmd)
 	ikeCmd.AddCommand(ikeTunnelModeChildSessionParamsConfigRequestIpv6AddressCmd)
-	ikeIkeSaProposalEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ikeIkeSaProposalCmd.AddCommand(ikeIkeSaProposalEqualsCmd)
-	ikeIkeSaProposalCmd.AddCommand(ikeIkeSaProposalHashCodeCmd)
-	ikeCmd.AddCommand(ikeIkeSaProposalCmd)
-	ikeSaProposalBuilderAddDhGroupCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	ikeSaProposalBuilderCmd.AddCommand(ikeSaProposalBuilderAddDhGroupCmd)
-	ikeSaProposalBuilderAddEncryptionAlgorithmCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	ikeSaProposalBuilderAddEncryptionAlgorithmCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	ikeSaProposalBuilderCmd.AddCommand(ikeSaProposalBuilderAddEncryptionAlgorithmCmd)
-	ikeSaProposalBuilderAddIntegrityAlgorithmCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	ikeSaProposalBuilderCmd.AddCommand(ikeSaProposalBuilderAddIntegrityAlgorithmCmd)
-	ikeSaProposalBuilderAddPseudorandomFunctionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	ikeSaProposalBuilderCmd.AddCommand(ikeSaProposalBuilderAddPseudorandomFunctionCmd)
-	ikeSaProposalBuilderCmd.AddCommand(ikeSaProposalBuilderBuildCmd)
-	ikeCmd.AddCommand(ikeSaProposalBuilderCmd)
-	ikeDerAsn1DnIdentificationNewDerAsn1DnIdentificationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ikeDerAsn1DnIdentificationCmd.AddCommand(ikeDerAsn1DnIdentificationNewDerAsn1DnIdentificationCmd)
-	ikeDerAsn1DnIdentificationEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ikeDerAsn1DnIdentificationEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ikeDerAsn1DnIdentificationCmd.AddCommand(ikeDerAsn1DnIdentificationEqualsCmd)
-	ikeDerAsn1DnIdentificationHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ikeDerAsn1DnIdentificationCmd.AddCommand(ikeDerAsn1DnIdentificationHashCodeCmd)
-	ikeCmd.AddCommand(ikeDerAsn1DnIdentificationCmd)
-	ikeTrafficSelectorNewTrafficSelectorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	ikeTrafficSelectorNewTrafficSelectorCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	ikeTrafficSelectorNewTrafficSelectorCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	ikeTrafficSelectorNewTrafficSelectorCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	ikeTrafficSelectorCmd.AddCommand(ikeTrafficSelectorNewTrafficSelectorCmd)
-	ikeTrafficSelectorEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ikeTrafficSelectorEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ikeTrafficSelectorCmd.AddCommand(ikeTrafficSelectorEqualsCmd)
-	ikeTrafficSelectorHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ikeTrafficSelectorCmd.AddCommand(ikeTrafficSelectorHashCodeCmd)
-	ikeCmd.AddCommand(ikeTrafficSelectorCmd)
-	ikeKeyIdIdentificationNewKeyIdIdentificationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ikeKeyIdIdentificationCmd.AddCommand(ikeKeyIdIdentificationNewKeyIdIdentificationCmd)
-	ikeKeyIdIdentificationEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ikeKeyIdIdentificationEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ikeKeyIdIdentificationCmd.AddCommand(ikeKeyIdIdentificationEqualsCmd)
-	ikeKeyIdIdentificationHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ikeKeyIdIdentificationCmd.AddCommand(ikeKeyIdIdentificationHashCodeCmd)
-	ikeCmd.AddCommand(ikeKeyIdIdentificationCmd)
-	ikeChildSessionConfigurationBuilderCmd.AddCommand(ikeChildSessionConfigurationBuilderBuildCmd)
-	ikeCmd.AddCommand(ikeChildSessionConfigurationBuilderCmd)
+	ikeTransportModeChildSessionParamsBuilderAddChildSaProposalCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ikeTransportModeChildSessionParamsBuilderCmd.AddCommand(ikeTransportModeChildSessionParamsBuilderAddChildSaProposalCmd)
+	ikeTransportModeChildSessionParamsBuilderAddInboundTrafficSelectorsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ikeTransportModeChildSessionParamsBuilderCmd.AddCommand(ikeTransportModeChildSessionParamsBuilderAddInboundTrafficSelectorsCmd)
+	ikeTransportModeChildSessionParamsBuilderAddOutboundTrafficSelectorsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ikeTransportModeChildSessionParamsBuilderCmd.AddCommand(ikeTransportModeChildSessionParamsBuilderAddOutboundTrafficSelectorsCmd)
+	ikeTransportModeChildSessionParamsBuilderCmd.AddCommand(ikeTransportModeChildSessionParamsBuilderBuildCmd)
+	ikeTransportModeChildSessionParamsBuilderSetLifetimeSecondsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	ikeTransportModeChildSessionParamsBuilderSetLifetimeSecondsCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	ikeTransportModeChildSessionParamsBuilderCmd.AddCommand(ikeTransportModeChildSessionParamsBuilderSetLifetimeSecondsCmd)
+	ikeCmd.AddCommand(ikeTransportModeChildSessionParamsBuilderCmd)
 	rootCmd.AddCommand(ikeCmd)
 }

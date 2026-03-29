@@ -9,6 +9,29 @@ import (
 	"google.golang.org/grpc"
 )
 
+// AdIdManagerClient wraps the gRPC AdIdManagerService client.
+type AdIdManagerClient struct {
+	svc pb.AdIdManagerServiceClient
+}
+
+// NewAdIdManagerClient creates a new AdIdManager client.
+func NewAdIdManagerClient(cc grpc.ClientConnInterface) *AdIdManagerClient {
+	return &AdIdManagerClient{
+		svc: pb.NewAdIdManagerServiceClient(cc),
+	}
+}
+
+// Get calls the Get RPC.
+func (c *AdIdManagerClient) Get(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Get(ctx, &pb.GetRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // AdIdClient wraps the gRPC AdIdService client.
 type AdIdClient struct {
 	svc pb.AdIdServiceClient
@@ -73,29 +96,6 @@ func (c *AdIdClient) ToString(ctx context.Context, handle int64) (string, error)
 	})
 	if err != nil {
 		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// AdIdManagerClient wraps the gRPC AdIdManagerService client.
-type AdIdManagerClient struct {
-	svc pb.AdIdManagerServiceClient
-}
-
-// NewAdIdManagerClient creates a new AdIdManager client.
-func NewAdIdManagerClient(cc grpc.ClientConnInterface) *AdIdManagerClient {
-	return &AdIdManagerClient{
-		svc: pb.NewAdIdManagerServiceClient(cc),
-	}
-}
-
-// Get calls the Get RPC.
-func (c *AdIdManagerClient) Get(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.Get(ctx, &pb.GetRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
 	}
 	return resp.GetResult(), nil
 }

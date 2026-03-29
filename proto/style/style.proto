@@ -6,12 +6,11 @@ package style;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/style";
 
-message NewTextAppearanceSpanRequest {
+message NewTypefaceSpanRequest {
   int64 arg0 = 1;
-  int32 arg1 = 2;
 }
 
-message NewTextAppearanceSpanResponse {
+message NewTypefaceSpanResponse {
   int64 result = 1;
 }
 
@@ -31,115 +30,11 @@ message GetFamilyResponse {
   string result = 1;
 }
 
-message GetFontFeatureSettingsRequest {
-  int64 handle = 1;
-}
-
-message GetFontFeatureSettingsResponse {
-  string result = 1;
-}
-
-message GetFontVariationSettingsRequest {
-  int64 handle = 1;
-}
-
-message GetFontVariationSettingsResponse {
-  string result = 1;
-}
-
-message GetLetterSpacingRequest {
-  int64 handle = 1;
-}
-
-message GetLetterSpacingResponse {
-  float result = 1;
-}
-
-message GetLinkTextColorRequest {
-  int64 handle = 1;
-}
-
-message GetLinkTextColorResponse {
-  int64 result = 1;
-}
-
-message GetShadowColorRequest {
-  int64 handle = 1;
-}
-
-message GetShadowColorResponse {
-  int32 result = 1;
-}
-
-message GetShadowDxRequest {
-  int64 handle = 1;
-}
-
-message GetShadowDxResponse {
-  float result = 1;
-}
-
-message GetShadowDyRequest {
-  int64 handle = 1;
-}
-
-message GetShadowDyResponse {
-  float result = 1;
-}
-
-message GetShadowRadiusRequest {
-  int64 handle = 1;
-}
-
-message GetShadowRadiusResponse {
-  float result = 1;
-}
-
 message GetSpanTypeIdRequest {
   int64 handle = 1;
 }
 
 message GetSpanTypeIdResponse {
-  int32 result = 1;
-}
-
-message GetTextColorRequest {
-  int64 handle = 1;
-}
-
-message GetTextColorResponse {
-  int64 result = 1;
-}
-
-message GetTextFontWeightRequest {
-  int64 handle = 1;
-}
-
-message GetTextFontWeightResponse {
-  int32 result = 1;
-}
-
-message GetTextLocalesRequest {
-  int64 handle = 1;
-}
-
-message GetTextLocalesResponse {
-  int64 result = 1;
-}
-
-message GetTextSizeRequest {
-  int64 handle = 1;
-}
-
-message GetTextSizeResponse {
-  int32 result = 1;
-}
-
-message GetTextStyleRequest {
-  int64 handle = 1;
-}
-
-message GetTextStyleResponse {
   int32 result = 1;
 }
 
@@ -149,14 +44,6 @@ message GetTypefaceRequest {
 
 message GetTypefaceResponse {
   int64 result = 1;
-}
-
-message IsElegantTextHeightRequest {
-  int64 handle = 1;
-}
-
-message IsElegantTextHeightResponse {
-  bool result = 1;
 }
 
 message ToStringRequest {
@@ -192,18 +79,25 @@ message WriteToParcelRequest {
 message WriteToParcelResponse {
 }
 
-message NewNoWritingToolsSpanRequest {
+message NewIconMarginSpanRequest {
+  int64 arg0 = 1;
 }
 
-message NewNoWritingToolsSpanResponse {
+message NewIconMarginSpanResponse {
   int64 result = 1;
 }
 
-message NewQuoteSpanRequest {
+message ChooseHeightRequest {
+  int64 handle = 1;
+  string arg0 = 2;
+  int32 arg1 = 3;
+  int32 arg2 = 4;
+  int32 arg3 = 5;
+  int32 arg4 = 6;
+  int64 arg5 = 7;
 }
 
-message NewQuoteSpanResponse {
-  int64 result = 1;
+message ChooseHeightResponse {
 }
 
 message DrawLeadingMarginRequest {
@@ -225,20 +119,12 @@ message DrawLeadingMarginRequest {
 message DrawLeadingMarginResponse {
 }
 
-message GetColorRequest {
+message GetBitmapRequest {
   int64 handle = 1;
 }
 
-message GetColorResponse {
-  int32 result = 1;
-}
-
-message GetGapWidthRequest {
-  int64 handle = 1;
-}
-
-message GetGapWidthResponse {
-  int32 result = 1;
+message GetBitmapResponse {
+  int64 result = 1;
 }
 
 message GetLeadingMarginRequest {
@@ -250,332 +136,11 @@ message GetLeadingMarginResponse {
   int32 result = 1;
 }
 
-message GetStripeWidthRequest {
-  int64 handle = 1;
-}
-
-message GetStripeWidthResponse {
-  int32 result = 1;
-}
-
-message GetUnderlyingRequest {
-}
-
-message GetUnderlyingResponse {
-  int64 result = 1;
-}
-
-message CharacterStyleUpdateDrawStateRequest {
-  int64 arg0 = 1;
-}
-
-message WrapRequest {
-  int64 arg0 = 1;
-}
-
-message WrapResponse {
-  int64 result = 1;
-}
-
-message ChooseHeightRequest {
-  string arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-  int32 arg4 = 5;
-  int64 arg5 = 6;
-}
-
-message ChooseHeightResponse {
-}
-
-message LineHeightSpanStandardDescribeContentsRequest {
-}
-
-message GetHeightRequest {
-}
-
-message GetHeightResponse {
-  int32 result = 1;
-}
-
-message LineHeightSpanStandardGetSpanTypeIdRequest {
-}
-
-message LineHeightSpanStandardWriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message LineHeightSpanWithDensityChooseHeightRequest {
-  string arg0 = 1;
-  int32 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-  int32 arg4 = 5;
-  int64 arg5 = 6;
-  int64 arg6 = 7;
-}
-
-message NewRelativeSizeSpanRequest {
-  int64 arg0 = 1;
-}
-
-message NewRelativeSizeSpanResponse {
-  int64 result = 1;
-}
-
-message GetSizeChangeRequest {
-  int64 handle = 1;
-}
-
-message GetSizeChangeResponse {
-  float result = 1;
-}
-
-message NewAbsoluteSizeSpanRequest {
-  int64 arg0 = 1;
-}
-
-message NewAbsoluteSizeSpanResponse {
-  int64 result = 1;
-}
-
-message GetDipRequest {
-  int64 handle = 1;
-}
-
-message GetDipResponse {
-  bool result = 1;
-}
-
-message GetSizeRequest {
-  int64 handle = 1;
-}
-
-message GetSizeResponse {
-  int32 result = 1;
-}
-
-message NewSubscriptSpanRequest {
-}
-
-message NewSubscriptSpanResponse {
-  int64 result = 1;
-}
-
-message NewDrawableMarginSpanRequest {
-  int64 arg0 = 1;
-}
-
-message NewDrawableMarginSpanResponse {
-  int64 result = 1;
-}
-
-message DrawableMarginSpanChooseHeightRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-  int32 arg3 = 5;
-  int32 arg4 = 6;
-  int64 arg5 = 7;
-}
-
-message GetDrawableRequest {
-  int64 handle = 1;
-}
-
-message GetDrawableResponse {
-  int64 result = 1;
-}
-
 message GetPaddingRequest {
   int64 handle = 1;
 }
 
 message GetPaddingResponse {
-  int32 result = 1;
-}
-
-message DrawRequest {
-  int64 arg0 = 1;
-  string arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-  float arg4 = 5;
-  int32 arg5 = 6;
-  int32 arg6 = 7;
-  int32 arg7 = 8;
-  int64 arg8 = 9;
-}
-
-message DrawResponse {
-}
-
-message GetContentDescriptionRequest {
-}
-
-message GetContentDescriptionResponse {
-  int64 result = 1;
-}
-
-message ReplacementSpanGetSizeRequest {
-  int64 arg0 = 1;
-  string arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-  int64 arg4 = 5;
-}
-
-message SetContentDescriptionRequest {
-  string arg0 = 1;
-}
-
-message SetContentDescriptionResponse {
-}
-
-message ReplacementSpanUpdateDrawStateRequest {
-  int64 arg0 = 1;
-}
-
-message ReplacementSpanUpdateMeasureStateRequest {
-  int64 arg0 = 1;
-}
-
-message NewForegroundColorSpanRequest {
-  int64 arg0 = 1;
-}
-
-message NewForegroundColorSpanResponse {
-  int64 result = 1;
-}
-
-message GetForegroundColorRequest {
-  int64 handle = 1;
-}
-
-message GetForegroundColorResponse {
-  int32 result = 1;
-}
-
-message NewTypefaceSpanRequest {
-  int64 arg0 = 1;
-}
-
-message NewTypefaceSpanResponse {
-  int64 result = 1;
-}
-
-message DynamicDrawableSpanGetDrawableRequest {
-}
-
-message DynamicDrawableSpanGetSizeRequest {
-  int64 arg0 = 1;
-  string arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-  int64 arg4 = 5;
-}
-
-message GetVerticalAlignmentRequest {
-}
-
-message GetVerticalAlignmentResponse {
-  int32 result = 1;
-}
-
-message DynamicDrawableSpanToStringRequest {
-}
-
-message NewBulletSpanRequest {
-}
-
-message NewBulletSpanResponse {
-  int64 result = 1;
-}
-
-message GetBulletRadiusRequest {
-  int64 handle = 1;
-}
-
-message GetBulletRadiusResponse {
-  int32 result = 1;
-}
-
-message NewUnderlineSpanRequest {
-}
-
-message NewUnderlineSpanResponse {
-  int64 result = 1;
-}
-
-message DrawBackgroundRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-  int32 arg4 = 5;
-  int32 arg5 = 6;
-  int32 arg6 = 7;
-  string arg7 = 8;
-  int32 arg8 = 9;
-  int32 arg9 = 10;
-  int32 arg10 = 11;
-}
-
-message DrawBackgroundResponse {
-}
-
-message LineBackgroundSpanStandardDescribeContentsRequest {
-}
-
-message LineBackgroundSpanStandardGetColorRequest {
-}
-
-message LineBackgroundSpanStandardGetSpanTypeIdRequest {
-}
-
-message LineBackgroundSpanStandardWriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message OnClickRequest {
-  int64 arg0 = 1;
-}
-
-message OnClickResponse {
-}
-
-message ClickableSpanToStringRequest {
-}
-
-message ClickableSpanUpdateDrawStateRequest {
-  int64 arg0 = 1;
-}
-
-message NewSpanRequest {
-  int64 arg0 = 1;
-}
-
-message NewSpanResponse {
-  int64 result = 1;
-}
-
-message GetFontWeightAdjustmentRequest {
-  int64 handle = 1;
-}
-
-message GetFontWeightAdjustmentResponse {
-  int32 result = 1;
-}
-
-message GetStyleRequest {
-  int64 handle = 1;
-}
-
-message GetStyleResponse {
   int32 result = 1;
 }
 
@@ -654,6 +219,249 @@ message SetFlagsRequest {
 message SetFlagsResponse {
 }
 
+message NewTextAppearanceSpanRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewTextAppearanceSpanResponse {
+  int64 result = 1;
+}
+
+message GetFontFeatureSettingsRequest {
+  int64 handle = 1;
+}
+
+message GetFontFeatureSettingsResponse {
+  string result = 1;
+}
+
+message GetFontVariationSettingsRequest {
+  int64 handle = 1;
+}
+
+message GetFontVariationSettingsResponse {
+  string result = 1;
+}
+
+message GetLetterSpacingRequest {
+  int64 handle = 1;
+}
+
+message GetLetterSpacingResponse {
+  float result = 1;
+}
+
+message GetLinkTextColorRequest {
+  int64 handle = 1;
+}
+
+message GetLinkTextColorResponse {
+  int64 result = 1;
+}
+
+message GetShadowColorRequest {
+  int64 handle = 1;
+}
+
+message GetShadowColorResponse {
+  int32 result = 1;
+}
+
+message GetShadowDxRequest {
+  int64 handle = 1;
+}
+
+message GetShadowDxResponse {
+  float result = 1;
+}
+
+message GetShadowDyRequest {
+  int64 handle = 1;
+}
+
+message GetShadowDyResponse {
+  float result = 1;
+}
+
+message GetShadowRadiusRequest {
+  int64 handle = 1;
+}
+
+message GetShadowRadiusResponse {
+  float result = 1;
+}
+
+message GetTextColorRequest {
+  int64 handle = 1;
+}
+
+message GetTextColorResponse {
+  int64 result = 1;
+}
+
+message GetTextFontWeightRequest {
+  int64 handle = 1;
+}
+
+message GetTextFontWeightResponse {
+  int32 result = 1;
+}
+
+message GetTextLocalesRequest {
+  int64 handle = 1;
+}
+
+message GetTextLocalesResponse {
+  int64 result = 1;
+}
+
+message GetTextSizeRequest {
+  int64 handle = 1;
+}
+
+message GetTextSizeResponse {
+  int32 result = 1;
+}
+
+message GetTextStyleRequest {
+  int64 handle = 1;
+}
+
+message GetTextStyleResponse {
+  int32 result = 1;
+}
+
+message IsElegantTextHeightRequest {
+  int64 handle = 1;
+}
+
+message IsElegantTextHeightResponse {
+  bool result = 1;
+}
+
+message NewBulletSpanRequest {
+}
+
+message NewBulletSpanResponse {
+  int64 result = 1;
+}
+
+message GetBulletRadiusRequest {
+  int64 handle = 1;
+}
+
+message GetBulletRadiusResponse {
+  int32 result = 1;
+}
+
+message GetColorRequest {
+  int64 handle = 1;
+}
+
+message GetColorResponse {
+  int32 result = 1;
+}
+
+message GetGapWidthRequest {
+  int64 handle = 1;
+}
+
+message GetGapWidthResponse {
+  int32 result = 1;
+}
+
+message NewStrikethroughSpanRequest {
+}
+
+message NewStrikethroughSpanResponse {
+  int64 result = 1;
+}
+
+message DrawRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  float arg4 = 5;
+  int32 arg5 = 6;
+  int32 arg6 = 7;
+  int32 arg7 = 8;
+  int64 arg8 = 9;
+}
+
+message DrawResponse {
+}
+
+message GetDrawableRequest {
+}
+
+message GetDrawableResponse {
+  int64 result = 1;
+}
+
+message GetSizeRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int64 arg4 = 5;
+}
+
+message GetSizeResponse {
+  int32 result = 1;
+}
+
+message GetVerticalAlignmentRequest {
+}
+
+message GetVerticalAlignmentResponse {
+  int32 result = 1;
+}
+
+message DynamicDrawableSpanToStringRequest {
+}
+
+message GetTabStopRequest {
+}
+
+message GetTabStopResponse {
+  int32 result = 1;
+}
+
+message TabStopSpanStandardToStringRequest {
+}
+
+message NewSubscriptSpanRequest {
+}
+
+message NewSubscriptSpanResponse {
+  int64 result = 1;
+}
+
+message NewSuggestionRangeSpanRequest {
+}
+
+message NewSuggestionRangeSpanResponse {
+  int64 result = 1;
+}
+
+message GetBackgroundColorRequest {
+  int64 handle = 1;
+}
+
+message GetBackgroundColorResponse {
+  int32 result = 1;
+}
+
+message SetBackgroundColorRequest {
+  int64 handle = 1;
+  int32 arg0 = 2;
+}
+
+message SetBackgroundColorResponse {
+}
+
 message NewLineBreakConfigSpanRequest {
   int64 arg0 = 1;
 }
@@ -686,156 +494,28 @@ message CreateNoHyphenationSpanResponse {
   int64 result = 1;
 }
 
-message GetTabStopRequest {
+message NewSpanRequest {
+  int64 arg0 = 1;
 }
 
-message GetTabStopResponse {
+message NewSpanResponse {
+  int64 result = 1;
+}
+
+message GetFontWeightAdjustmentRequest {
+  int64 handle = 1;
+}
+
+message GetFontWeightAdjustmentResponse {
   int32 result = 1;
 }
 
-message TabStopSpanStandardToStringRequest {
-}
-
-message NewScaleXSpanRequest {
-  int64 arg0 = 1;
-}
-
-message NewScaleXSpanResponse {
-  int64 result = 1;
-}
-
-message GetScaleXRequest {
+message GetStyleRequest {
   int64 handle = 1;
 }
 
-message GetScaleXResponse {
-  float result = 1;
-}
-
-message NewImageSpanRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-}
-
-message NewImageSpanResponse {
-  int64 result = 1;
-}
-
-message GetSourceRequest {
-  int64 handle = 1;
-}
-
-message GetSourceResponse {
-  string result = 1;
-}
-
-message LeadingMarginSpanDrawLeadingMarginRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-  int32 arg4 = 5;
-  int32 arg5 = 6;
-  int32 arg6 = 7;
-  string arg7 = 8;
-  int32 arg8 = 9;
-  int32 arg9 = 10;
-  bool arg10 = 11;
-  int64 arg11 = 12;
-}
-
-message LeadingMarginSpanGetLeadingMarginRequest {
-  bool arg0 = 1;
-}
-
-message GetLeadingMarginLineCountRequest {
-}
-
-message GetLeadingMarginLineCountResponse {
+message GetStyleResponse {
   int32 result = 1;
-}
-
-message LeadingMarginSpanStandardDescribeContentsRequest {
-}
-
-message LeadingMarginSpanStandardDrawLeadingMarginRequest {
-  int64 arg0 = 1;
-  int64 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-  int32 arg4 = 5;
-  int32 arg5 = 6;
-  int32 arg6 = 7;
-  string arg7 = 8;
-  int32 arg8 = 9;
-  int32 arg9 = 10;
-  bool arg10 = 11;
-  int64 arg11 = 12;
-}
-
-message LeadingMarginSpanStandardGetLeadingMarginRequest {
-  bool arg0 = 1;
-}
-
-message LeadingMarginSpanStandardGetSpanTypeIdRequest {
-}
-
-message LeadingMarginSpanStandardWriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message NewIconMarginSpanRequest {
-  int64 arg0 = 1;
-}
-
-message NewIconMarginSpanResponse {
-  int64 result = 1;
-}
-
-message IconMarginSpanChooseHeightRequest {
-  int64 handle = 1;
-  string arg0 = 2;
-  int32 arg1 = 3;
-  int32 arg2 = 4;
-  int32 arg3 = 5;
-  int32 arg4 = 6;
-  int64 arg5 = 7;
-}
-
-message GetBitmapRequest {
-  int64 handle = 1;
-}
-
-message GetBitmapResponse {
-  int64 result = 1;
-}
-
-message NewLocaleSpanRequest {
-  int64 arg0 = 1;
-}
-
-message NewLocaleSpanResponse {
-  int64 result = 1;
-}
-
-message LocaleSpanGetLocaleResponse {
-  int64 result = 1;
-}
-
-message GetLocalesRequest {
-  int64 handle = 1;
-}
-
-message GetLocalesResponse {
-  int64 result = 1;
-}
-
-message NewSuperscriptSpanRequest {
-}
-
-message NewSuperscriptSpanResponse {
-  int64 result = 1;
 }
 
 message NewTtsSpanRequest {
@@ -1152,27 +832,20 @@ message SetVerbatimResponse {
   int64 result = 1;
 }
 
-message NewSuggestionRangeSpanRequest {
+message NewRelativeSizeSpanRequest {
+  int64 arg0 = 1;
 }
 
-message NewSuggestionRangeSpanResponse {
+message NewRelativeSizeSpanResponse {
   int64 result = 1;
 }
 
-message GetBackgroundColorRequest {
+message GetSizeChangeRequest {
   int64 handle = 1;
 }
 
-message GetBackgroundColorResponse {
-  int32 result = 1;
-}
-
-message SetBackgroundColorRequest {
-  int64 handle = 1;
-  int32 arg0 = 2;
-}
-
-message SetBackgroundColorResponse {
+message GetSizeChangeResponse {
+  float result = 1;
 }
 
 message NewEasyEditSpanRequest {
@@ -1180,6 +853,114 @@ message NewEasyEditSpanRequest {
 
 message NewEasyEditSpanResponse {
   int64 result = 1;
+}
+
+message NewURLSpanRequest {
+  int64 arg0 = 1;
+}
+
+message NewURLSpanResponse {
+  int64 result = 1;
+}
+
+message GetURLRequest {
+  int64 handle = 1;
+}
+
+message GetURLResponse {
+  string result = 1;
+}
+
+message OnClickRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message OnClickResponse {
+}
+
+message NewForegroundColorSpanRequest {
+  int64 arg0 = 1;
+}
+
+message NewForegroundColorSpanResponse {
+  int64 result = 1;
+}
+
+message GetForegroundColorRequest {
+  int64 handle = 1;
+}
+
+message GetForegroundColorResponse {
+  int32 result = 1;
+}
+
+message GetContentDescriptionRequest {
+}
+
+message GetContentDescriptionResponse {
+  int64 result = 1;
+}
+
+message SetContentDescriptionRequest {
+  string arg0 = 1;
+}
+
+message SetContentDescriptionResponse {
+}
+
+message ReplacementSpanUpdateDrawStateRequest {
+  int64 arg0 = 1;
+}
+
+message ReplacementSpanUpdateMeasureStateRequest {
+  int64 arg0 = 1;
+}
+
+message LineHeightSpanChooseHeightRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message LineHeightSpanStandardChooseHeightRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message LineHeightSpanStandardDescribeContentsRequest {
+}
+
+message GetHeightRequest {
+}
+
+message GetHeightResponse {
+  int32 result = 1;
+}
+
+message LineHeightSpanStandardGetSpanTypeIdRequest {
+}
+
+message LineHeightSpanStandardWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message LineHeightSpanWithDensityChooseHeightRequest {
+  string arg0 = 1;
+  int32 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+  int64 arg5 = 6;
+  int64 arg6 = 7;
 }
 
 message GetAlignmentRequest {
@@ -1203,6 +984,144 @@ message AlignmentSpanStandardWriteToParcelRequest {
   int32 arg1 = 2;
 }
 
+message DrawBackgroundRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+  int32 arg5 = 6;
+  int32 arg6 = 7;
+  string arg7 = 8;
+  int32 arg8 = 9;
+  int32 arg9 = 10;
+  int32 arg10 = 11;
+}
+
+message DrawBackgroundResponse {
+}
+
+message LineBackgroundSpanStandardDescribeContentsRequest {
+}
+
+message LineBackgroundSpanStandardGetColorRequest {
+}
+
+message LineBackgroundSpanStandardGetSpanTypeIdRequest {
+}
+
+message LineBackgroundSpanStandardWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message NewDrawableMarginSpanRequest {
+  int64 arg0 = 1;
+}
+
+message NewDrawableMarginSpanResponse {
+  int64 result = 1;
+}
+
+message DrawableMarginSpanGetDrawableRequest {
+  int64 handle = 1;
+}
+
+message NewAbsoluteSizeSpanRequest {
+  int64 arg0 = 1;
+}
+
+message NewAbsoluteSizeSpanResponse {
+  int64 result = 1;
+}
+
+message GetDipRequest {
+  int64 handle = 1;
+}
+
+message GetDipResponse {
+  bool result = 1;
+}
+
+message AbsoluteSizeSpanGetSizeRequest {
+  int64 handle = 1;
+}
+
+message LeadingMarginSpanDrawLeadingMarginRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+  int32 arg5 = 6;
+  int32 arg6 = 7;
+  string arg7 = 8;
+  int32 arg8 = 9;
+  int32 arg9 = 10;
+  bool arg10 = 11;
+  int64 arg11 = 12;
+}
+
+message LeadingMarginSpanGetLeadingMarginRequest {
+  bool arg0 = 1;
+}
+
+message GetLeadingMarginLineCountRequest {
+}
+
+message GetLeadingMarginLineCountResponse {
+  int32 result = 1;
+}
+
+message LeadingMarginSpanStandardDescribeContentsRequest {
+}
+
+message LeadingMarginSpanStandardDrawLeadingMarginRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  int32 arg4 = 5;
+  int32 arg5 = 6;
+  int32 arg6 = 7;
+  string arg7 = 8;
+  int32 arg8 = 9;
+  int32 arg9 = 10;
+  bool arg10 = 11;
+  int64 arg11 = 12;
+}
+
+message LeadingMarginSpanStandardGetLeadingMarginRequest {
+  bool arg0 = 1;
+}
+
+message LeadingMarginSpanStandardGetSpanTypeIdRequest {
+}
+
+message LeadingMarginSpanStandardWriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message GetUnderlyingRequest {
+}
+
+message GetUnderlyingResponse {
+  int64 result = 1;
+}
+
+message CharacterStyleUpdateDrawStateRequest {
+  int64 arg0 = 1;
+}
+
+message WrapRequest {
+  int64 arg0 = 1;
+}
+
+message WrapResponse {
+  int64 result = 1;
+}
+
 message NewMaskFilterSpanRequest {
   int64 arg0 = 1;
 }
@@ -1219,18 +1138,39 @@ message GetMaskFilterResponse {
   int64 result = 1;
 }
 
-message NewBackgroundColorSpanRequest {
-  int64 arg0 = 1;
+message NewUnderlineSpanRequest {
 }
 
-message NewBackgroundColorSpanResponse {
+message NewUnderlineSpanResponse {
   int64 result = 1;
 }
 
-message NewStrikethroughSpanRequest {
+message NewNoWritingToolsSpanRequest {
 }
 
-message NewStrikethroughSpanResponse {
+message NewNoWritingToolsSpanResponse {
+  int64 result = 1;
+}
+
+message NewQuoteSpanRequest {
+}
+
+message NewQuoteSpanResponse {
+  int64 result = 1;
+}
+
+message GetStripeWidthRequest {
+  int64 handle = 1;
+}
+
+message GetStripeWidthResponse {
+  int32 result = 1;
+}
+
+message NewSuperscriptSpanRequest {
+}
+
+message NewSuperscriptSpanResponse {
   int64 result = 1;
 }
 
@@ -1252,25 +1192,118 @@ message GetUnderlying0_1Response {
   int64 result = 1;
 }
 
-message NewURLSpanRequest {
+message NewLocaleSpanRequest {
   int64 arg0 = 1;
 }
 
-message NewURLSpanResponse {
+message NewLocaleSpanResponse {
   int64 result = 1;
 }
 
-message GetURLRequest {
+message LocaleSpanGetLocaleResponse {
+  int64 result = 1;
+}
+
+message GetLocalesRequest {
   int64 handle = 1;
 }
 
-message GetURLResponse {
+message GetLocalesResponse {
+  int64 result = 1;
+}
+
+message NewScaleXSpanRequest {
+  int64 arg0 = 1;
+}
+
+message NewScaleXSpanResponse {
+  int64 result = 1;
+}
+
+message GetScaleXRequest {
+  int64 handle = 1;
+}
+
+message GetScaleXResponse {
+  float result = 1;
+}
+
+message NewImageSpanRequest {
+  int64 arg0 = 1;
+  int64 arg1 = 2;
+}
+
+message NewImageSpanResponse {
+  int64 result = 1;
+}
+
+message ImageSpanGetDrawableRequest {
+  int64 handle = 1;
+}
+
+message GetSourceRequest {
+  int64 handle = 1;
+}
+
+message GetSourceResponse {
   string result = 1;
 }
 
-message URLSpanOnClickRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
+message NewBackgroundColorSpanRequest {
+  int64 arg0 = 1;
+}
+
+message NewBackgroundColorSpanResponse {
+  int64 result = 1;
+}
+
+message ClickableSpanOnClickRequest {
+  int64 arg0 = 1;
+}
+
+message ClickableSpanToStringRequest {
+}
+
+message ClickableSpanUpdateDrawStateRequest {
+  int64 arg0 = 1;
+}
+
+service TypefaceSpanService {
+  rpc NewTypefaceSpan (NewTypefaceSpanRequest) returns (NewTypefaceSpanResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetFamily (GetFamilyRequest) returns (GetFamilyResponse);
+  rpc GetSpanTypeId (GetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
+  rpc GetTypeface (GetTypefaceRequest) returns (GetTypefaceResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc UpdateDrawState (UpdateDrawStateRequest) returns (UpdateDrawStateResponse);
+  rpc UpdateMeasureState (UpdateMeasureStateRequest) returns (UpdateMeasureStateResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service IconMarginSpanService {
+  rpc NewIconMarginSpan (NewIconMarginSpanRequest) returns (NewIconMarginSpanResponse);
+  rpc ChooseHeight (ChooseHeightRequest) returns (ChooseHeightResponse);
+  rpc DrawLeadingMargin (DrawLeadingMarginRequest) returns (DrawLeadingMarginResponse);
+  rpc GetBitmap (GetBitmapRequest) returns (GetBitmapResponse);
+  rpc GetLeadingMargin (GetLeadingMarginRequest) returns (GetLeadingMarginResponse);
+  rpc GetPadding (GetPaddingRequest) returns (GetPaddingResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service SuggestionSpanService {
+  rpc NewSuggestionSpan (NewSuggestionSpanRequest) returns (NewSuggestionSpanResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetFlags (GetFlagsRequest) returns (GetFlagsResponse);
+  rpc GetLocale (GetLocaleRequest) returns (GetLocaleResponse);
+  rpc GetLocaleObject (GetLocaleObjectRequest) returns (GetLocaleObjectResponse);
+  rpc GetSpanTypeId (GetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
+  rpc GetSuggestions (GetSuggestionsRequest) returns (GetSuggestionsResponse);
+  rpc GetUnderlineColor (GetUnderlineColorRequest) returns (GetUnderlineColorResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc SetFlags (SetFlagsRequest) returns (SetFlagsResponse);
+  rpc UpdateDrawState (UpdateDrawStateRequest) returns (UpdateDrawStateResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
 service TextAppearanceSpanService {
@@ -1299,131 +1332,6 @@ service TextAppearanceSpanService {
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service NoWritingToolsSpanService {
-  rpc NewNoWritingToolsSpan (NewNoWritingToolsSpanRequest) returns (NewNoWritingToolsSpanResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetSpanTypeId (GetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service QuoteSpanService {
-  rpc NewQuoteSpan (NewQuoteSpanRequest) returns (NewQuoteSpanResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc DrawLeadingMargin (DrawLeadingMarginRequest) returns (DrawLeadingMarginResponse);
-  rpc GetColor (GetColorRequest) returns (GetColorResponse);
-  rpc GetGapWidth (GetGapWidthRequest) returns (GetGapWidthResponse);
-  rpc GetLeadingMargin (GetLeadingMarginRequest) returns (GetLeadingMarginResponse);
-  rpc GetSpanTypeId (GetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
-  rpc GetStripeWidth (GetStripeWidthRequest) returns (GetStripeWidthResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service CharacterStyleService {
-  rpc GetUnderlying (GetUnderlyingRequest) returns (GetUnderlyingResponse);
-  rpc UpdateDrawState (CharacterStyleUpdateDrawStateRequest) returns (UpdateDrawStateResponse);
-  rpc Wrap (WrapRequest) returns (WrapResponse);
-}
-
-service LineHeightSpanService {
-  rpc ChooseHeight (ChooseHeightRequest) returns (ChooseHeightResponse);
-}
-
-service LineHeightSpanStandardService {
-  rpc ChooseHeight (ChooseHeightRequest) returns (ChooseHeightResponse);
-  rpc DescribeContents (LineHeightSpanStandardDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetHeight (GetHeightRequest) returns (GetHeightResponse);
-  rpc GetSpanTypeId (LineHeightSpanStandardGetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
-  rpc WriteToParcel (LineHeightSpanStandardWriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service LineHeightSpanWithDensityService {
-  rpc ChooseHeight (LineHeightSpanWithDensityChooseHeightRequest) returns (ChooseHeightResponse);
-}
-
-service RelativeSizeSpanService {
-  rpc NewRelativeSizeSpan (NewRelativeSizeSpanRequest) returns (NewRelativeSizeSpanResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetSizeChange (GetSizeChangeRequest) returns (GetSizeChangeResponse);
-  rpc GetSpanTypeId (GetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc UpdateDrawState (UpdateDrawStateRequest) returns (UpdateDrawStateResponse);
-  rpc UpdateMeasureState (UpdateMeasureStateRequest) returns (UpdateMeasureStateResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service AbsoluteSizeSpanService {
-  rpc NewAbsoluteSizeSpan (NewAbsoluteSizeSpanRequest) returns (NewAbsoluteSizeSpanResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetDip (GetDipRequest) returns (GetDipResponse);
-  rpc GetSize (GetSizeRequest) returns (GetSizeResponse);
-  rpc GetSpanTypeId (GetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc UpdateDrawState (UpdateDrawStateRequest) returns (UpdateDrawStateResponse);
-  rpc UpdateMeasureState (UpdateMeasureStateRequest) returns (UpdateMeasureStateResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service SubscriptSpanService {
-  rpc NewSubscriptSpan (NewSubscriptSpanRequest) returns (NewSubscriptSpanResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetSpanTypeId (GetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc UpdateDrawState (UpdateDrawStateRequest) returns (UpdateDrawStateResponse);
-  rpc UpdateMeasureState (UpdateMeasureStateRequest) returns (UpdateMeasureStateResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service DrawableMarginSpanService {
-  rpc NewDrawableMarginSpan (NewDrawableMarginSpanRequest) returns (NewDrawableMarginSpanResponse);
-  rpc ChooseHeight (DrawableMarginSpanChooseHeightRequest) returns (ChooseHeightResponse);
-  rpc DrawLeadingMargin (DrawLeadingMarginRequest) returns (DrawLeadingMarginResponse);
-  rpc GetDrawable (GetDrawableRequest) returns (GetDrawableResponse);
-  rpc GetLeadingMargin (GetLeadingMarginRequest) returns (GetLeadingMarginResponse);
-  rpc GetPadding (GetPaddingRequest) returns (GetPaddingResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-}
-
-service ReplacementSpanService {
-  rpc Draw (DrawRequest) returns (DrawResponse);
-  rpc GetContentDescription (GetContentDescriptionRequest) returns (GetContentDescriptionResponse);
-  rpc GetSize (ReplacementSpanGetSizeRequest) returns (GetSizeResponse);
-  rpc SetContentDescription (SetContentDescriptionRequest) returns (SetContentDescriptionResponse);
-  rpc UpdateDrawState (ReplacementSpanUpdateDrawStateRequest) returns (UpdateDrawStateResponse);
-  rpc UpdateMeasureState (ReplacementSpanUpdateMeasureStateRequest) returns (UpdateMeasureStateResponse);
-}
-
-service ForegroundColorSpanService {
-  rpc NewForegroundColorSpan (NewForegroundColorSpanRequest) returns (NewForegroundColorSpanResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetForegroundColor (GetForegroundColorRequest) returns (GetForegroundColorResponse);
-  rpc GetSpanTypeId (GetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc UpdateDrawState (UpdateDrawStateRequest) returns (UpdateDrawStateResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service TypefaceSpanService {
-  rpc NewTypefaceSpan (NewTypefaceSpanRequest) returns (NewTypefaceSpanResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetFamily (GetFamilyRequest) returns (GetFamilyResponse);
-  rpc GetSpanTypeId (GetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
-  rpc GetTypeface (GetTypefaceRequest) returns (GetTypefaceResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc UpdateDrawState (UpdateDrawStateRequest) returns (UpdateDrawStateResponse);
-  rpc UpdateMeasureState (UpdateMeasureStateRequest) returns (UpdateMeasureStateResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service DynamicDrawableSpanService {
-  rpc Draw (DrawRequest) returns (DrawResponse);
-  rpc GetDrawable (DynamicDrawableSpanGetDrawableRequest) returns (GetDrawableResponse);
-  rpc GetSize (DynamicDrawableSpanGetSizeRequest) returns (GetSizeResponse);
-  rpc GetVerticalAlignment (GetVerticalAlignmentRequest) returns (GetVerticalAlignmentResponse);
-  rpc ToString (DynamicDrawableSpanToStringRequest) returns (ToStringResponse);
-}
-
 service BulletSpanService {
   rpc NewBulletSpan (NewBulletSpanRequest) returns (NewBulletSpanResponse);
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
@@ -1437,8 +1345,8 @@ service BulletSpanService {
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service UnderlineSpanService {
-  rpc NewUnderlineSpan (NewUnderlineSpanRequest) returns (NewUnderlineSpanResponse);
+service StrikethroughSpanService {
+  rpc NewStrikethroughSpan (NewStrikethroughSpanRequest) returns (NewStrikethroughSpanResponse);
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc GetSpanTypeId (GetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
@@ -1446,48 +1354,39 @@ service UnderlineSpanService {
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service LineBackgroundSpanService {
-  rpc DrawBackground (DrawBackgroundRequest) returns (DrawBackgroundResponse);
+service DynamicDrawableSpanService {
+  rpc Draw (DrawRequest) returns (DrawResponse);
+  rpc GetDrawable (GetDrawableRequest) returns (GetDrawableResponse);
+  rpc GetSize (GetSizeRequest) returns (GetSizeResponse);
+  rpc GetVerticalAlignment (GetVerticalAlignmentRequest) returns (GetVerticalAlignmentResponse);
+  rpc ToString (DynamicDrawableSpanToStringRequest) returns (ToStringResponse);
 }
 
-service LineBackgroundSpanStandardService {
-  rpc DescribeContents (LineBackgroundSpanStandardDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc DrawBackground (DrawBackgroundRequest) returns (DrawBackgroundResponse);
-  rpc GetColor (LineBackgroundSpanStandardGetColorRequest) returns (GetColorResponse);
-  rpc GetSpanTypeId (LineBackgroundSpanStandardGetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
-  rpc WriteToParcel (LineBackgroundSpanStandardWriteToParcelRequest) returns (WriteToParcelResponse);
+service TabStopSpanService {
+  rpc GetTabStop (GetTabStopRequest) returns (GetTabStopResponse);
 }
 
-service ClickableSpanService {
-  rpc OnClick (OnClickRequest) returns (OnClickResponse);
-  rpc ToString (ClickableSpanToStringRequest) returns (ToStringResponse);
-  rpc UpdateDrawState (ClickableSpanUpdateDrawStateRequest) returns (UpdateDrawStateResponse);
+service TabStopSpanStandardService {
+  rpc GetTabStop (GetTabStopRequest) returns (GetTabStopResponse);
+  rpc ToString (TabStopSpanStandardToStringRequest) returns (ToStringResponse);
 }
 
-service SpanService {
-  rpc NewSpan (NewSpanRequest) returns (NewSpanResponse);
+service SubscriptSpanService {
+  rpc NewSubscriptSpan (NewSubscriptSpanRequest) returns (NewSubscriptSpanResponse);
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetFontWeightAdjustment (GetFontWeightAdjustmentRequest) returns (GetFontWeightAdjustmentResponse);
   rpc GetSpanTypeId (GetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
-  rpc GetStyle (GetStyleRequest) returns (GetStyleResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc UpdateDrawState (UpdateDrawStateRequest) returns (UpdateDrawStateResponse);
   rpc UpdateMeasureState (UpdateMeasureStateRequest) returns (UpdateMeasureStateResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service SuggestionSpanService {
-  rpc NewSuggestionSpan (NewSuggestionSpanRequest) returns (NewSuggestionSpanResponse);
+service SuggestionRangeSpanService {
+  rpc NewSuggestionRangeSpan (NewSuggestionRangeSpanRequest) returns (NewSuggestionRangeSpanResponse);
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetFlags (GetFlagsRequest) returns (GetFlagsResponse);
-  rpc GetLocale (GetLocaleRequest) returns (GetLocaleResponse);
-  rpc GetLocaleObject (GetLocaleObjectRequest) returns (GetLocaleObjectResponse);
+  rpc GetBackgroundColor (GetBackgroundColorRequest) returns (GetBackgroundColorResponse);
   rpc GetSpanTypeId (GetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
-  rpc GetSuggestions (GetSuggestionsRequest) returns (GetSuggestionsResponse);
-  rpc GetUnderlineColor (GetUnderlineColorRequest) returns (GetUnderlineColorResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc SetFlags (SetFlagsRequest) returns (SetFlagsResponse);
+  rpc SetBackgroundColor (SetBackgroundColorRequest) returns (SetBackgroundColorResponse);
   rpc UpdateDrawState (UpdateDrawStateRequest) returns (UpdateDrawStateResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
@@ -1505,76 +1404,12 @@ service LineBreakConfigSpanService {
   rpc CreateNoHyphenationSpan (CreateNoHyphenationSpanRequest) returns (CreateNoHyphenationSpanResponse);
 }
 
-service TabStopSpanService {
-  rpc GetTabStop (GetTabStopRequest) returns (GetTabStopResponse);
-}
-
-service TabStopSpanStandardService {
-  rpc GetTabStop (GetTabStopRequest) returns (GetTabStopResponse);
-  rpc ToString (TabStopSpanStandardToStringRequest) returns (ToStringResponse);
-}
-
-service ScaleXSpanService {
-  rpc NewScaleXSpan (NewScaleXSpanRequest) returns (NewScaleXSpanResponse);
+service SpanService {
+  rpc NewSpan (NewSpanRequest) returns (NewSpanResponse);
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetScaleX (GetScaleXRequest) returns (GetScaleXResponse);
+  rpc GetFontWeightAdjustment (GetFontWeightAdjustmentRequest) returns (GetFontWeightAdjustmentResponse);
   rpc GetSpanTypeId (GetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc UpdateDrawState (UpdateDrawStateRequest) returns (UpdateDrawStateResponse);
-  rpc UpdateMeasureState (UpdateMeasureStateRequest) returns (UpdateMeasureStateResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service ImageSpanService {
-  rpc NewImageSpan (NewImageSpanRequest) returns (NewImageSpanResponse);
-  rpc GetDrawable (GetDrawableRequest) returns (GetDrawableResponse);
-  rpc GetSource (GetSourceRequest) returns (GetSourceResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-}
-
-service LeadingMarginSpanService {
-  rpc DrawLeadingMargin (LeadingMarginSpanDrawLeadingMarginRequest) returns (DrawLeadingMarginResponse);
-  rpc GetLeadingMargin (LeadingMarginSpanGetLeadingMarginRequest) returns (GetLeadingMarginResponse);
-}
-
-service LeadingMarginSpanLeadingMarginSpan2Service {
-  rpc GetLeadingMarginLineCount (GetLeadingMarginLineCountRequest) returns (GetLeadingMarginLineCountResponse);
-}
-
-service LeadingMarginSpanStandardService {
-  rpc DescribeContents (LeadingMarginSpanStandardDescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc DrawLeadingMargin (LeadingMarginSpanStandardDrawLeadingMarginRequest) returns (DrawLeadingMarginResponse);
-  rpc GetLeadingMargin (LeadingMarginSpanStandardGetLeadingMarginRequest) returns (GetLeadingMarginResponse);
-  rpc GetSpanTypeId (LeadingMarginSpanStandardGetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
-  rpc WriteToParcel (LeadingMarginSpanStandardWriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service IconMarginSpanService {
-  rpc NewIconMarginSpan (NewIconMarginSpanRequest) returns (NewIconMarginSpanResponse);
-  rpc ChooseHeight (IconMarginSpanChooseHeightRequest) returns (ChooseHeightResponse);
-  rpc DrawLeadingMargin (DrawLeadingMarginRequest) returns (DrawLeadingMarginResponse);
-  rpc GetBitmap (GetBitmapRequest) returns (GetBitmapResponse);
-  rpc GetLeadingMargin (GetLeadingMarginRequest) returns (GetLeadingMarginResponse);
-  rpc GetPadding (GetPaddingRequest) returns (GetPaddingResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-}
-
-service LocaleSpanService {
-  rpc NewLocaleSpan (NewLocaleSpanRequest) returns (NewLocaleSpanResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetLocale (GetLocaleRequest) returns (LocaleSpanGetLocaleResponse);
-  rpc GetLocales (GetLocalesRequest) returns (GetLocalesResponse);
-  rpc GetSpanTypeId (GetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc UpdateDrawState (UpdateDrawStateRequest) returns (UpdateDrawStateResponse);
-  rpc UpdateMeasureState (UpdateMeasureStateRequest) returns (UpdateMeasureStateResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service SuperscriptSpanService {
-  rpc NewSuperscriptSpan (NewSuperscriptSpanRequest) returns (NewSuperscriptSpanResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetSpanTypeId (GetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
+  rpc GetStyle (GetStyleRequest) returns (GetStyleResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc UpdateDrawState (UpdateDrawStateRequest) returns (UpdateDrawStateResponse);
   rpc UpdateMeasureState (UpdateMeasureStateRequest) returns (UpdateMeasureStateResponse);
@@ -1690,13 +1525,14 @@ service TtsSpanVerbatimBuilderService {
   rpc SetVerbatim (SetVerbatimRequest) returns (SetVerbatimResponse);
 }
 
-service SuggestionRangeSpanService {
-  rpc NewSuggestionRangeSpan (NewSuggestionRangeSpanRequest) returns (NewSuggestionRangeSpanResponse);
+service RelativeSizeSpanService {
+  rpc NewRelativeSizeSpan (NewRelativeSizeSpanRequest) returns (NewRelativeSizeSpanResponse);
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetBackgroundColor (GetBackgroundColorRequest) returns (GetBackgroundColorResponse);
+  rpc GetSizeChange (GetSizeChangeRequest) returns (GetSizeChangeResponse);
   rpc GetSpanTypeId (GetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
-  rpc SetBackgroundColor (SetBackgroundColorRequest) returns (SetBackgroundColorResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc UpdateDrawState (UpdateDrawStateRequest) returns (UpdateDrawStateResponse);
+  rpc UpdateMeasureState (UpdateMeasureStateRequest) returns (UpdateMeasureStateResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
@@ -1705,6 +1541,51 @@ service EasyEditSpanService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
   rpc GetSpanTypeId (GetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service URLSpanService {
+  rpc NewURLSpan (NewURLSpanRequest) returns (NewURLSpanResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetSpanTypeId (GetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
+  rpc GetURL (GetURLRequest) returns (GetURLResponse);
+  rpc OnClick (OnClickRequest) returns (OnClickResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ForegroundColorSpanService {
+  rpc NewForegroundColorSpan (NewForegroundColorSpanRequest) returns (NewForegroundColorSpanResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetForegroundColor (GetForegroundColorRequest) returns (GetForegroundColorResponse);
+  rpc GetSpanTypeId (GetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc UpdateDrawState (UpdateDrawStateRequest) returns (UpdateDrawStateResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ReplacementSpanService {
+  rpc Draw (DrawRequest) returns (DrawResponse);
+  rpc GetContentDescription (GetContentDescriptionRequest) returns (GetContentDescriptionResponse);
+  rpc GetSize (GetSizeRequest) returns (GetSizeResponse);
+  rpc SetContentDescription (SetContentDescriptionRequest) returns (SetContentDescriptionResponse);
+  rpc UpdateDrawState (ReplacementSpanUpdateDrawStateRequest) returns (UpdateDrawStateResponse);
+  rpc UpdateMeasureState (ReplacementSpanUpdateMeasureStateRequest) returns (UpdateMeasureStateResponse);
+}
+
+service LineHeightSpanService {
+  rpc ChooseHeight (LineHeightSpanChooseHeightRequest) returns (ChooseHeightResponse);
+}
+
+service LineHeightSpanStandardService {
+  rpc ChooseHeight (LineHeightSpanStandardChooseHeightRequest) returns (ChooseHeightResponse);
+  rpc DescribeContents (LineHeightSpanStandardDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetHeight (GetHeightRequest) returns (GetHeightResponse);
+  rpc GetSpanTypeId (LineHeightSpanStandardGetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
+  rpc WriteToParcel (LineHeightSpanStandardWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service LineHeightSpanWithDensityService {
+  rpc ChooseHeight (LineHeightSpanWithDensityChooseHeightRequest) returns (ChooseHeightResponse);
 }
 
 service AlignmentSpanService {
@@ -1719,11 +1600,144 @@ service AlignmentSpanStandardService {
   rpc WriteToParcel (AlignmentSpanStandardWriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
+service LineBackgroundSpanService {
+  rpc DrawBackground (DrawBackgroundRequest) returns (DrawBackgroundResponse);
+}
+
+service LineBackgroundSpanStandardService {
+  rpc DescribeContents (LineBackgroundSpanStandardDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc DrawBackground (DrawBackgroundRequest) returns (DrawBackgroundResponse);
+  rpc GetColor (LineBackgroundSpanStandardGetColorRequest) returns (GetColorResponse);
+  rpc GetSpanTypeId (LineBackgroundSpanStandardGetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
+  rpc WriteToParcel (LineBackgroundSpanStandardWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service DrawableMarginSpanService {
+  rpc NewDrawableMarginSpan (NewDrawableMarginSpanRequest) returns (NewDrawableMarginSpanResponse);
+  rpc ChooseHeight (ChooseHeightRequest) returns (ChooseHeightResponse);
+  rpc DrawLeadingMargin (DrawLeadingMarginRequest) returns (DrawLeadingMarginResponse);
+  rpc GetDrawable (DrawableMarginSpanGetDrawableRequest) returns (GetDrawableResponse);
+  rpc GetLeadingMargin (GetLeadingMarginRequest) returns (GetLeadingMarginResponse);
+  rpc GetPadding (GetPaddingRequest) returns (GetPaddingResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+}
+
+service AbsoluteSizeSpanService {
+  rpc NewAbsoluteSizeSpan (NewAbsoluteSizeSpanRequest) returns (NewAbsoluteSizeSpanResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetDip (GetDipRequest) returns (GetDipResponse);
+  rpc GetSize (AbsoluteSizeSpanGetSizeRequest) returns (GetSizeResponse);
+  rpc GetSpanTypeId (GetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc UpdateDrawState (UpdateDrawStateRequest) returns (UpdateDrawStateResponse);
+  rpc UpdateMeasureState (UpdateMeasureStateRequest) returns (UpdateMeasureStateResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service LeadingMarginSpanService {
+  rpc DrawLeadingMargin (LeadingMarginSpanDrawLeadingMarginRequest) returns (DrawLeadingMarginResponse);
+  rpc GetLeadingMargin (LeadingMarginSpanGetLeadingMarginRequest) returns (GetLeadingMarginResponse);
+}
+
+service LeadingMarginSpanLeadingMarginSpan2Service {
+  rpc GetLeadingMarginLineCount (GetLeadingMarginLineCountRequest) returns (GetLeadingMarginLineCountResponse);
+}
+
+service LeadingMarginSpanStandardService {
+  rpc DescribeContents (LeadingMarginSpanStandardDescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc DrawLeadingMargin (LeadingMarginSpanStandardDrawLeadingMarginRequest) returns (DrawLeadingMarginResponse);
+  rpc GetLeadingMargin (LeadingMarginSpanStandardGetLeadingMarginRequest) returns (GetLeadingMarginResponse);
+  rpc GetSpanTypeId (LeadingMarginSpanStandardGetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
+  rpc WriteToParcel (LeadingMarginSpanStandardWriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service CharacterStyleService {
+  rpc GetUnderlying (GetUnderlyingRequest) returns (GetUnderlyingResponse);
+  rpc UpdateDrawState (CharacterStyleUpdateDrawStateRequest) returns (UpdateDrawStateResponse);
+  rpc Wrap (WrapRequest) returns (WrapResponse);
+}
+
 service MaskFilterSpanService {
   rpc NewMaskFilterSpan (NewMaskFilterSpanRequest) returns (NewMaskFilterSpanResponse);
   rpc GetMaskFilter (GetMaskFilterRequest) returns (GetMaskFilterResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc UpdateDrawState (UpdateDrawStateRequest) returns (UpdateDrawStateResponse);
+}
+
+service UnderlineSpanService {
+  rpc NewUnderlineSpan (NewUnderlineSpanRequest) returns (NewUnderlineSpanResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetSpanTypeId (GetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc UpdateDrawState (UpdateDrawStateRequest) returns (UpdateDrawStateResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service NoWritingToolsSpanService {
+  rpc NewNoWritingToolsSpan (NewNoWritingToolsSpanRequest) returns (NewNoWritingToolsSpanResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetSpanTypeId (GetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service QuoteSpanService {
+  rpc NewQuoteSpan (NewQuoteSpanRequest) returns (NewQuoteSpanResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc DrawLeadingMargin (DrawLeadingMarginRequest) returns (DrawLeadingMarginResponse);
+  rpc GetColor (GetColorRequest) returns (GetColorResponse);
+  rpc GetGapWidth (GetGapWidthRequest) returns (GetGapWidthResponse);
+  rpc GetLeadingMargin (GetLeadingMarginRequest) returns (GetLeadingMarginResponse);
+  rpc GetSpanTypeId (GetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
+  rpc GetStripeWidth (GetStripeWidthRequest) returns (GetStripeWidthResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service SuperscriptSpanService {
+  rpc NewSuperscriptSpan (NewSuperscriptSpanRequest) returns (NewSuperscriptSpanResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetSpanTypeId (GetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc UpdateDrawState (UpdateDrawStateRequest) returns (UpdateDrawStateResponse);
+  rpc UpdateMeasureState (UpdateMeasureStateRequest) returns (UpdateMeasureStateResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service MetricAffectingSpanService {
+  rpc GetUnderlying0 (GetUnderlying0Request) returns (GetUnderlying0Response);
+  rpc UpdateMeasureState (MetricAffectingSpanUpdateMeasureStateRequest) returns (UpdateMeasureStateResponse);
+  rpc GetUnderlying0_1 (GetUnderlying0_1Request) returns (GetUnderlying0_1Response);
+}
+
+service LocaleSpanService {
+  rpc NewLocaleSpan (NewLocaleSpanRequest) returns (NewLocaleSpanResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetLocale (GetLocaleRequest) returns (LocaleSpanGetLocaleResponse);
+  rpc GetLocales (GetLocalesRequest) returns (GetLocalesResponse);
+  rpc GetSpanTypeId (GetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc UpdateDrawState (UpdateDrawStateRequest) returns (UpdateDrawStateResponse);
+  rpc UpdateMeasureState (UpdateMeasureStateRequest) returns (UpdateMeasureStateResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ScaleXSpanService {
+  rpc NewScaleXSpan (NewScaleXSpanRequest) returns (NewScaleXSpanResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetScaleX (GetScaleXRequest) returns (GetScaleXResponse);
+  rpc GetSpanTypeId (GetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc UpdateDrawState (UpdateDrawStateRequest) returns (UpdateDrawStateResponse);
+  rpc UpdateMeasureState (UpdateMeasureStateRequest) returns (UpdateMeasureStateResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ImageSpanService {
+  rpc NewImageSpan (NewImageSpanRequest) returns (NewImageSpanResponse);
+  rpc GetDrawable (ImageSpanGetDrawableRequest) returns (GetDrawableResponse);
+  rpc GetSource (GetSourceRequest) returns (GetSourceResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
 }
 
 service BackgroundColorSpanService {
@@ -1736,27 +1750,8 @@ service BackgroundColorSpanService {
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service StrikethroughSpanService {
-  rpc NewStrikethroughSpan (NewStrikethroughSpanRequest) returns (NewStrikethroughSpanResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetSpanTypeId (GetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc UpdateDrawState (UpdateDrawStateRequest) returns (UpdateDrawStateResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
-}
-
-service MetricAffectingSpanService {
-  rpc GetUnderlying0 (GetUnderlying0Request) returns (GetUnderlying0Response);
-  rpc UpdateMeasureState (MetricAffectingSpanUpdateMeasureStateRequest) returns (UpdateMeasureStateResponse);
-  rpc GetUnderlying0_1 (GetUnderlying0_1Request) returns (GetUnderlying0_1Response);
-}
-
-service URLSpanService {
-  rpc NewURLSpan (NewURLSpanRequest) returns (NewURLSpanResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetSpanTypeId (GetSpanTypeIdRequest) returns (GetSpanTypeIdResponse);
-  rpc GetURL (GetURLRequest) returns (GetURLResponse);
-  rpc OnClick (URLSpanOnClickRequest) returns (OnClickResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+service ClickableSpanService {
+  rpc OnClick (ClickableSpanOnClickRequest) returns (OnClickResponse);
+  rpc ToString (ClickableSpanToStringRequest) returns (ToStringResponse);
+  rpc UpdateDrawState (ClickableSpanUpdateDrawStateRequest) returns (UpdateDrawStateResponse);
 }

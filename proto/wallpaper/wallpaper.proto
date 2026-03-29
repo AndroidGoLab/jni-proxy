@@ -49,6 +49,13 @@ message GetContextUriResponse {
   int64 result = 1;
 }
 
+message GetDescriptionRequest {
+}
+
+message GetDescriptionResponse {
+  int64 result = 1;
+}
+
 message GetIdRequest {
 }
 
@@ -172,12 +179,8 @@ message InstanceEqualsRequest {
   int64 arg0 = 2;
 }
 
-message GetDescriptionRequest {
+message InstanceGetDescriptionRequest {
   int64 handle = 1;
-}
-
-message GetDescriptionResponse {
-  int64 result = 1;
 }
 
 message InstanceGetIdRequest {
@@ -431,6 +434,7 @@ service DescriptionService {
   rpc GetContent (GetContentRequest) returns (GetContentResponse);
   rpc GetContextDescription (GetContextDescriptionRequest) returns (GetContextDescriptionResponse);
   rpc GetContextUri (GetContextUriRequest) returns (GetContextUriResponse);
+  rpc GetDescription (GetDescriptionRequest) returns (GetDescriptionResponse);
   rpc GetId (GetIdRequest) returns (GetIdResponse);
   rpc GetThumbnail (GetThumbnailRequest) returns (GetThumbnailResponse);
   rpc GetTitle (GetTitleRequest) returns (GetTitleResponse);
@@ -454,7 +458,7 @@ service InstanceService {
   rpc NewInstance (NewInstanceRequest) returns (NewInstanceResponse);
   rpc DescribeContents (InstanceDescribeContentsRequest) returns (DescribeContentsResponse);
   rpc Equals (InstanceEqualsRequest) returns (EqualsResponse);
-  rpc GetDescription (GetDescriptionRequest) returns (GetDescriptionResponse);
+  rpc GetDescription (InstanceGetDescriptionRequest) returns (GetDescriptionResponse);
   rpc GetId (InstanceGetIdRequest) returns (GetIdResponse);
   rpc GetInfo (GetInfoRequest) returns (GetInfoResponse);
   rpc HashCode (InstanceHashCodeRequest) returns (HashCodeResponse);

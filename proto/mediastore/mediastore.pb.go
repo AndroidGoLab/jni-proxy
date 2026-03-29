@@ -303,6 +303,102 @@ func (x *GetDocumentUriResponse) GetResult() int64 {
 	return 0
 }
 
+type GetExternalVolumeNamesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExternalVolumeNamesRequest) Reset() {
+	*x = GetExternalVolumeNamesRequest{}
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExternalVolumeNamesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExternalVolumeNamesRequest) ProtoMessage() {}
+
+func (x *GetExternalVolumeNamesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExternalVolumeNamesRequest.ProtoReflect.Descriptor instead.
+func (*GetExternalVolumeNamesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *GetExternalVolumeNamesRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetExternalVolumeNamesRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetExternalVolumeNamesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetExternalVolumeNamesResponse) Reset() {
+	*x = GetExternalVolumeNamesResponse{}
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetExternalVolumeNamesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetExternalVolumeNamesResponse) ProtoMessage() {}
+
+func (x *GetExternalVolumeNamesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetExternalVolumeNamesResponse.ProtoReflect.Descriptor instead.
+func (*GetExternalVolumeNamesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetExternalVolumeNamesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 type GetGenerationRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
@@ -314,7 +410,7 @@ type GetGenerationRequest struct {
 
 func (x *GetGenerationRequest) Reset() {
 	*x = GetGenerationRequest{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[6]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -326,7 +422,7 @@ func (x *GetGenerationRequest) String() string {
 func (*GetGenerationRequest) ProtoMessage() {}
 
 func (x *GetGenerationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[6]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -339,7 +435,7 @@ func (x *GetGenerationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetGenerationRequest.ProtoReflect.Descriptor instead.
 func (*GetGenerationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{6}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *GetGenerationRequest) GetHandle() int64 {
@@ -372,7 +468,7 @@ type GetGenerationResponse struct {
 
 func (x *GetGenerationResponse) Reset() {
 	*x = GetGenerationResponse{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[7]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -384,7 +480,7 @@ func (x *GetGenerationResponse) String() string {
 func (*GetGenerationResponse) ProtoMessage() {}
 
 func (x *GetGenerationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[7]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -397,7 +493,7 @@ func (x *GetGenerationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetGenerationResponse.ProtoReflect.Descriptor instead.
 func (*GetGenerationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{7}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *GetGenerationResponse) GetResult() int64 {
@@ -416,7 +512,7 @@ type GetMediaScannerUriRequest struct {
 
 func (x *GetMediaScannerUriRequest) Reset() {
 	*x = GetMediaScannerUriRequest{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[8]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -428,7 +524,7 @@ func (x *GetMediaScannerUriRequest) String() string {
 func (*GetMediaScannerUriRequest) ProtoMessage() {}
 
 func (x *GetMediaScannerUriRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[8]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -441,7 +537,7 @@ func (x *GetMediaScannerUriRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMediaScannerUriRequest.ProtoReflect.Descriptor instead.
 func (*GetMediaScannerUriRequest) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{8}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *GetMediaScannerUriRequest) GetHandle() int64 {
@@ -460,7 +556,7 @@ type GetMediaScannerUriResponse struct {
 
 func (x *GetMediaScannerUriResponse) Reset() {
 	*x = GetMediaScannerUriResponse{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[9]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -472,7 +568,7 @@ func (x *GetMediaScannerUriResponse) String() string {
 func (*GetMediaScannerUriResponse) ProtoMessage() {}
 
 func (x *GetMediaScannerUriResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[9]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -485,7 +581,7 @@ func (x *GetMediaScannerUriResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMediaScannerUriResponse.ProtoReflect.Descriptor instead.
 func (*GetMediaScannerUriResponse) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{9}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *GetMediaScannerUriResponse) GetResult() int64 {
@@ -506,7 +602,7 @@ type GetMediaUriRequest struct {
 
 func (x *GetMediaUriRequest) Reset() {
 	*x = GetMediaUriRequest{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[10]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -518,7 +614,7 @@ func (x *GetMediaUriRequest) String() string {
 func (*GetMediaUriRequest) ProtoMessage() {}
 
 func (x *GetMediaUriRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[10]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -531,7 +627,7 @@ func (x *GetMediaUriRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMediaUriRequest.ProtoReflect.Descriptor instead.
 func (*GetMediaUriRequest) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{10}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *GetMediaUriRequest) GetHandle() int64 {
@@ -564,7 +660,7 @@ type GetMediaUriResponse struct {
 
 func (x *GetMediaUriResponse) Reset() {
 	*x = GetMediaUriResponse{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[11]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -576,7 +672,7 @@ func (x *GetMediaUriResponse) String() string {
 func (*GetMediaUriResponse) ProtoMessage() {}
 
 func (x *GetMediaUriResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[11]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -589,7 +685,7 @@ func (x *GetMediaUriResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMediaUriResponse.ProtoReflect.Descriptor instead.
 func (*GetMediaUriResponse) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{11}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *GetMediaUriResponse) GetResult() int64 {
@@ -610,7 +706,7 @@ type GetOriginalMediaFormatFileDescriptorRequest struct {
 
 func (x *GetOriginalMediaFormatFileDescriptorRequest) Reset() {
 	*x = GetOriginalMediaFormatFileDescriptorRequest{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[12]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -622,7 +718,7 @@ func (x *GetOriginalMediaFormatFileDescriptorRequest) String() string {
 func (*GetOriginalMediaFormatFileDescriptorRequest) ProtoMessage() {}
 
 func (x *GetOriginalMediaFormatFileDescriptorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[12]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -635,7 +731,7 @@ func (x *GetOriginalMediaFormatFileDescriptorRequest) ProtoReflect() protoreflec
 
 // Deprecated: Use GetOriginalMediaFormatFileDescriptorRequest.ProtoReflect.Descriptor instead.
 func (*GetOriginalMediaFormatFileDescriptorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{12}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *GetOriginalMediaFormatFileDescriptorRequest) GetHandle() int64 {
@@ -668,7 +764,7 @@ type GetOriginalMediaFormatFileDescriptorResponse struct {
 
 func (x *GetOriginalMediaFormatFileDescriptorResponse) Reset() {
 	*x = GetOriginalMediaFormatFileDescriptorResponse{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[13]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -680,7 +776,7 @@ func (x *GetOriginalMediaFormatFileDescriptorResponse) String() string {
 func (*GetOriginalMediaFormatFileDescriptorResponse) ProtoMessage() {}
 
 func (x *GetOriginalMediaFormatFileDescriptorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[13]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -693,7 +789,7 @@ func (x *GetOriginalMediaFormatFileDescriptorResponse) ProtoReflect() protorefle
 
 // Deprecated: Use GetOriginalMediaFormatFileDescriptorResponse.ProtoReflect.Descriptor instead.
 func (*GetOriginalMediaFormatFileDescriptorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{13}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *GetOriginalMediaFormatFileDescriptorResponse) GetResult() int64 {
@@ -712,7 +808,7 @@ type GetPickImagesMaxLimitRequest struct {
 
 func (x *GetPickImagesMaxLimitRequest) Reset() {
 	*x = GetPickImagesMaxLimitRequest{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[14]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -724,7 +820,7 @@ func (x *GetPickImagesMaxLimitRequest) String() string {
 func (*GetPickImagesMaxLimitRequest) ProtoMessage() {}
 
 func (x *GetPickImagesMaxLimitRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[14]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -737,7 +833,7 @@ func (x *GetPickImagesMaxLimitRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPickImagesMaxLimitRequest.ProtoReflect.Descriptor instead.
 func (*GetPickImagesMaxLimitRequest) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{14}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *GetPickImagesMaxLimitRequest) GetHandle() int64 {
@@ -756,7 +852,7 @@ type GetPickImagesMaxLimitResponse struct {
 
 func (x *GetPickImagesMaxLimitResponse) Reset() {
 	*x = GetPickImagesMaxLimitResponse{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[15]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -768,7 +864,7 @@ func (x *GetPickImagesMaxLimitResponse) String() string {
 func (*GetPickImagesMaxLimitResponse) ProtoMessage() {}
 
 func (x *GetPickImagesMaxLimitResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[15]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -781,10 +877,106 @@ func (x *GetPickImagesMaxLimitResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPickImagesMaxLimitResponse.ProtoReflect.Descriptor instead.
 func (*GetPickImagesMaxLimitResponse) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{15}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *GetPickImagesMaxLimitResponse) GetResult() int32 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRecentExternalVolumeNamesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	Arg0          int64                  `protobuf:"varint,2,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRecentExternalVolumeNamesRequest) Reset() {
+	*x = GetRecentExternalVolumeNamesRequest{}
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRecentExternalVolumeNamesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRecentExternalVolumeNamesRequest) ProtoMessage() {}
+
+func (x *GetRecentExternalVolumeNamesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRecentExternalVolumeNamesRequest.ProtoReflect.Descriptor instead.
+func (*GetRecentExternalVolumeNamesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *GetRecentExternalVolumeNamesRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+func (x *GetRecentExternalVolumeNamesRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type GetRecentExternalVolumeNamesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRecentExternalVolumeNamesResponse) Reset() {
+	*x = GetRecentExternalVolumeNamesResponse{}
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRecentExternalVolumeNamesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRecentExternalVolumeNamesResponse) ProtoMessage() {}
+
+func (x *GetRecentExternalVolumeNamesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRecentExternalVolumeNamesResponse.ProtoReflect.Descriptor instead.
+func (*GetRecentExternalVolumeNamesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *GetRecentExternalVolumeNamesResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -802,7 +994,7 @@ type GetRedactedUriRequest struct {
 
 func (x *GetRedactedUriRequest) Reset() {
 	*x = GetRedactedUriRequest{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[16]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -814,7 +1006,7 @@ func (x *GetRedactedUriRequest) String() string {
 func (*GetRedactedUriRequest) ProtoMessage() {}
 
 func (x *GetRedactedUriRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[16]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -827,7 +1019,7 @@ func (x *GetRedactedUriRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRedactedUriRequest.ProtoReflect.Descriptor instead.
 func (*GetRedactedUriRequest) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{16}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *GetRedactedUriRequest) GetHandle() int64 {
@@ -860,7 +1052,7 @@ type GetRedactedUriResponse struct {
 
 func (x *GetRedactedUriResponse) Reset() {
 	*x = GetRedactedUriResponse{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[17]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -872,7 +1064,7 @@ func (x *GetRedactedUriResponse) String() string {
 func (*GetRedactedUriResponse) ProtoMessage() {}
 
 func (x *GetRedactedUriResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[17]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -885,7 +1077,7 @@ func (x *GetRedactedUriResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRedactedUriResponse.ProtoReflect.Descriptor instead.
 func (*GetRedactedUriResponse) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{17}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *GetRedactedUriResponse) GetResult() int64 {
@@ -905,7 +1097,7 @@ type GetRequireOriginalRequest struct {
 
 func (x *GetRequireOriginalRequest) Reset() {
 	*x = GetRequireOriginalRequest{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[18]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -917,7 +1109,7 @@ func (x *GetRequireOriginalRequest) String() string {
 func (*GetRequireOriginalRequest) ProtoMessage() {}
 
 func (x *GetRequireOriginalRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[18]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -930,7 +1122,7 @@ func (x *GetRequireOriginalRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRequireOriginalRequest.ProtoReflect.Descriptor instead.
 func (*GetRequireOriginalRequest) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{18}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *GetRequireOriginalRequest) GetHandle() int64 {
@@ -956,7 +1148,7 @@ type GetRequireOriginalResponse struct {
 
 func (x *GetRequireOriginalResponse) Reset() {
 	*x = GetRequireOriginalResponse{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[19]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -968,7 +1160,7 @@ func (x *GetRequireOriginalResponse) String() string {
 func (*GetRequireOriginalResponse) ProtoMessage() {}
 
 func (x *GetRequireOriginalResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[19]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -981,7 +1173,7 @@ func (x *GetRequireOriginalResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRequireOriginalResponse.ProtoReflect.Descriptor instead.
 func (*GetRequireOriginalResponse) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{19}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *GetRequireOriginalResponse) GetResult() bool {
@@ -1001,7 +1193,7 @@ type GetVersion1Request struct {
 
 func (x *GetVersion1Request) Reset() {
 	*x = GetVersion1Request{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[20]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1013,7 +1205,7 @@ func (x *GetVersion1Request) String() string {
 func (*GetVersion1Request) ProtoMessage() {}
 
 func (x *GetVersion1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[20]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1026,7 +1218,7 @@ func (x *GetVersion1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetVersion1Request.ProtoReflect.Descriptor instead.
 func (*GetVersion1Request) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{20}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *GetVersion1Request) GetHandle() int64 {
@@ -1052,7 +1244,7 @@ type GetVersion1Response struct {
 
 func (x *GetVersion1Response) Reset() {
 	*x = GetVersion1Response{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[21]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1064,7 +1256,7 @@ func (x *GetVersion1Response) String() string {
 func (*GetVersion1Response) ProtoMessage() {}
 
 func (x *GetVersion1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[21]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1077,7 +1269,7 @@ func (x *GetVersion1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetVersion1Response.ProtoReflect.Descriptor instead.
 func (*GetVersion1Response) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{21}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *GetVersion1Response) GetResult() string {
@@ -1098,7 +1290,7 @@ type GetVersion2_1Request struct {
 
 func (x *GetVersion2_1Request) Reset() {
 	*x = GetVersion2_1Request{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[22]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1110,7 +1302,7 @@ func (x *GetVersion2_1Request) String() string {
 func (*GetVersion2_1Request) ProtoMessage() {}
 
 func (x *GetVersion2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[22]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1123,7 +1315,7 @@ func (x *GetVersion2_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetVersion2_1Request.ProtoReflect.Descriptor instead.
 func (*GetVersion2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{22}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *GetVersion2_1Request) GetHandle() int64 {
@@ -1156,7 +1348,7 @@ type GetVersion2_1Response struct {
 
 func (x *GetVersion2_1Response) Reset() {
 	*x = GetVersion2_1Response{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[23]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1168,7 +1360,7 @@ func (x *GetVersion2_1Response) String() string {
 func (*GetVersion2_1Response) ProtoMessage() {}
 
 func (x *GetVersion2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[23]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1181,7 +1373,7 @@ func (x *GetVersion2_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetVersion2_1Response.ProtoReflect.Descriptor instead.
 func (*GetVersion2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{23}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *GetVersion2_1Response) GetResult() string {
@@ -1201,7 +1393,7 @@ type GetVolumeNameRequest struct {
 
 func (x *GetVolumeNameRequest) Reset() {
 	*x = GetVolumeNameRequest{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[24]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1213,7 +1405,7 @@ func (x *GetVolumeNameRequest) String() string {
 func (*GetVolumeNameRequest) ProtoMessage() {}
 
 func (x *GetVolumeNameRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[24]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1226,7 +1418,7 @@ func (x *GetVolumeNameRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetVolumeNameRequest.ProtoReflect.Descriptor instead.
 func (*GetVolumeNameRequest) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{24}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *GetVolumeNameRequest) GetHandle() int64 {
@@ -1252,7 +1444,7 @@ type GetVolumeNameResponse struct {
 
 func (x *GetVolumeNameResponse) Reset() {
 	*x = GetVolumeNameResponse{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[25]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1264,7 +1456,7 @@ func (x *GetVolumeNameResponse) String() string {
 func (*GetVolumeNameResponse) ProtoMessage() {}
 
 func (x *GetVolumeNameResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[25]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1277,7 +1469,7 @@ func (x *GetVolumeNameResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetVolumeNameResponse.ProtoReflect.Descriptor instead.
 func (*GetVolumeNameResponse) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{25}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *GetVolumeNameResponse) GetResult() string {
@@ -1298,7 +1490,7 @@ type IsCurrentCloudMediaProviderAuthorityRequest struct {
 
 func (x *IsCurrentCloudMediaProviderAuthorityRequest) Reset() {
 	*x = IsCurrentCloudMediaProviderAuthorityRequest{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[26]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1310,7 +1502,7 @@ func (x *IsCurrentCloudMediaProviderAuthorityRequest) String() string {
 func (*IsCurrentCloudMediaProviderAuthorityRequest) ProtoMessage() {}
 
 func (x *IsCurrentCloudMediaProviderAuthorityRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[26]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1323,7 +1515,7 @@ func (x *IsCurrentCloudMediaProviderAuthorityRequest) ProtoReflect() protoreflec
 
 // Deprecated: Use IsCurrentCloudMediaProviderAuthorityRequest.ProtoReflect.Descriptor instead.
 func (*IsCurrentCloudMediaProviderAuthorityRequest) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{26}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *IsCurrentCloudMediaProviderAuthorityRequest) GetHandle() int64 {
@@ -1356,7 +1548,7 @@ type IsCurrentCloudMediaProviderAuthorityResponse struct {
 
 func (x *IsCurrentCloudMediaProviderAuthorityResponse) Reset() {
 	*x = IsCurrentCloudMediaProviderAuthorityResponse{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[27]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1368,7 +1560,7 @@ func (x *IsCurrentCloudMediaProviderAuthorityResponse) String() string {
 func (*IsCurrentCloudMediaProviderAuthorityResponse) ProtoMessage() {}
 
 func (x *IsCurrentCloudMediaProviderAuthorityResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[27]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1381,7 +1573,7 @@ func (x *IsCurrentCloudMediaProviderAuthorityResponse) ProtoReflect() protorefle
 
 // Deprecated: Use IsCurrentCloudMediaProviderAuthorityResponse.ProtoReflect.Descriptor instead.
 func (*IsCurrentCloudMediaProviderAuthorityResponse) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{27}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *IsCurrentCloudMediaProviderAuthorityResponse) GetResult() bool {
@@ -1403,7 +1595,7 @@ type IsCurrentSystemGalleryRequest struct {
 
 func (x *IsCurrentSystemGalleryRequest) Reset() {
 	*x = IsCurrentSystemGalleryRequest{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[28]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1415,7 +1607,7 @@ func (x *IsCurrentSystemGalleryRequest) String() string {
 func (*IsCurrentSystemGalleryRequest) ProtoMessage() {}
 
 func (x *IsCurrentSystemGalleryRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[28]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1428,7 +1620,7 @@ func (x *IsCurrentSystemGalleryRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsCurrentSystemGalleryRequest.ProtoReflect.Descriptor instead.
 func (*IsCurrentSystemGalleryRequest) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{28}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *IsCurrentSystemGalleryRequest) GetHandle() int64 {
@@ -1468,7 +1660,7 @@ type IsCurrentSystemGalleryResponse struct {
 
 func (x *IsCurrentSystemGalleryResponse) Reset() {
 	*x = IsCurrentSystemGalleryResponse{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[29]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1480,7 +1672,7 @@ func (x *IsCurrentSystemGalleryResponse) String() string {
 func (*IsCurrentSystemGalleryResponse) ProtoMessage() {}
 
 func (x *IsCurrentSystemGalleryResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[29]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1493,7 +1685,7 @@ func (x *IsCurrentSystemGalleryResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsCurrentSystemGalleryResponse.ProtoReflect.Descriptor instead.
 func (*IsCurrentSystemGalleryResponse) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{29}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *IsCurrentSystemGalleryResponse) GetResult() bool {
@@ -1514,7 +1706,7 @@ type IsSupportedCloudMediaProviderAuthorityRequest struct {
 
 func (x *IsSupportedCloudMediaProviderAuthorityRequest) Reset() {
 	*x = IsSupportedCloudMediaProviderAuthorityRequest{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[30]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1526,7 +1718,7 @@ func (x *IsSupportedCloudMediaProviderAuthorityRequest) String() string {
 func (*IsSupportedCloudMediaProviderAuthorityRequest) ProtoMessage() {}
 
 func (x *IsSupportedCloudMediaProviderAuthorityRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[30]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1539,7 +1731,7 @@ func (x *IsSupportedCloudMediaProviderAuthorityRequest) ProtoReflect() protorefl
 
 // Deprecated: Use IsSupportedCloudMediaProviderAuthorityRequest.ProtoReflect.Descriptor instead.
 func (*IsSupportedCloudMediaProviderAuthorityRequest) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{30}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *IsSupportedCloudMediaProviderAuthorityRequest) GetHandle() int64 {
@@ -1572,7 +1764,7 @@ type IsSupportedCloudMediaProviderAuthorityResponse struct {
 
 func (x *IsSupportedCloudMediaProviderAuthorityResponse) Reset() {
 	*x = IsSupportedCloudMediaProviderAuthorityResponse{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[31]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1584,7 +1776,7 @@ func (x *IsSupportedCloudMediaProviderAuthorityResponse) String() string {
 func (*IsSupportedCloudMediaProviderAuthorityResponse) ProtoMessage() {}
 
 func (x *IsSupportedCloudMediaProviderAuthorityResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[31]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1597,7 +1789,7 @@ func (x *IsSupportedCloudMediaProviderAuthorityResponse) ProtoReflect() protoref
 
 // Deprecated: Use IsSupportedCloudMediaProviderAuthorityResponse.ProtoReflect.Descriptor instead.
 func (*IsSupportedCloudMediaProviderAuthorityResponse) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{31}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *IsSupportedCloudMediaProviderAuthorityResponse) GetResult() bool {
@@ -1619,7 +1811,7 @@ type NotifyCloudMediaChangedEventRequest struct {
 
 func (x *NotifyCloudMediaChangedEventRequest) Reset() {
 	*x = NotifyCloudMediaChangedEventRequest{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[32]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1631,7 +1823,7 @@ func (x *NotifyCloudMediaChangedEventRequest) String() string {
 func (*NotifyCloudMediaChangedEventRequest) ProtoMessage() {}
 
 func (x *NotifyCloudMediaChangedEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[32]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1644,7 +1836,7 @@ func (x *NotifyCloudMediaChangedEventRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use NotifyCloudMediaChangedEventRequest.ProtoReflect.Descriptor instead.
 func (*NotifyCloudMediaChangedEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{32}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *NotifyCloudMediaChangedEventRequest) GetHandle() int64 {
@@ -1683,7 +1875,7 @@ type NotifyCloudMediaChangedEventResponse struct {
 
 func (x *NotifyCloudMediaChangedEventResponse) Reset() {
 	*x = NotifyCloudMediaChangedEventResponse{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[33]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1695,7 +1887,7 @@ func (x *NotifyCloudMediaChangedEventResponse) String() string {
 func (*NotifyCloudMediaChangedEventResponse) ProtoMessage() {}
 
 func (x *NotifyCloudMediaChangedEventResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[33]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1708,7 +1900,7 @@ func (x *NotifyCloudMediaChangedEventResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use NotifyCloudMediaChangedEventResponse.ProtoReflect.Descriptor instead.
 func (*NotifyCloudMediaChangedEventResponse) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{33}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{37}
 }
 
 type OpenAssetFileDescriptorRequest struct {
@@ -1724,7 +1916,7 @@ type OpenAssetFileDescriptorRequest struct {
 
 func (x *OpenAssetFileDescriptorRequest) Reset() {
 	*x = OpenAssetFileDescriptorRequest{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[34]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1736,7 +1928,7 @@ func (x *OpenAssetFileDescriptorRequest) String() string {
 func (*OpenAssetFileDescriptorRequest) ProtoMessage() {}
 
 func (x *OpenAssetFileDescriptorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[34]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1749,7 +1941,7 @@ func (x *OpenAssetFileDescriptorRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenAssetFileDescriptorRequest.ProtoReflect.Descriptor instead.
 func (*OpenAssetFileDescriptorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{34}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *OpenAssetFileDescriptorRequest) GetHandle() int64 {
@@ -1796,7 +1988,7 @@ type OpenAssetFileDescriptorResponse struct {
 
 func (x *OpenAssetFileDescriptorResponse) Reset() {
 	*x = OpenAssetFileDescriptorResponse{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[35]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1808,7 +2000,7 @@ func (x *OpenAssetFileDescriptorResponse) String() string {
 func (*OpenAssetFileDescriptorResponse) ProtoMessage() {}
 
 func (x *OpenAssetFileDescriptorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[35]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1821,7 +2013,7 @@ func (x *OpenAssetFileDescriptorResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenAssetFileDescriptorResponse.ProtoReflect.Descriptor instead.
 func (*OpenAssetFileDescriptorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{35}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *OpenAssetFileDescriptorResponse) GetResult() int64 {
@@ -1844,7 +2036,7 @@ type OpenFileDescriptorRequest struct {
 
 func (x *OpenFileDescriptorRequest) Reset() {
 	*x = OpenFileDescriptorRequest{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[36]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1856,7 +2048,7 @@ func (x *OpenFileDescriptorRequest) String() string {
 func (*OpenFileDescriptorRequest) ProtoMessage() {}
 
 func (x *OpenFileDescriptorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[36]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1869,7 +2061,7 @@ func (x *OpenFileDescriptorRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenFileDescriptorRequest.ProtoReflect.Descriptor instead.
 func (*OpenFileDescriptorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{36}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *OpenFileDescriptorRequest) GetHandle() int64 {
@@ -1916,7 +2108,7 @@ type OpenFileDescriptorResponse struct {
 
 func (x *OpenFileDescriptorResponse) Reset() {
 	*x = OpenFileDescriptorResponse{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[37]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1928,7 +2120,7 @@ func (x *OpenFileDescriptorResponse) String() string {
 func (*OpenFileDescriptorResponse) ProtoMessage() {}
 
 func (x *OpenFileDescriptorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[37]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1941,7 +2133,7 @@ func (x *OpenFileDescriptorResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OpenFileDescriptorResponse.ProtoReflect.Descriptor instead.
 func (*OpenFileDescriptorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{37}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *OpenFileDescriptorResponse) GetResult() int64 {
@@ -1965,7 +2157,7 @@ type OpenTypedAssetFileDescriptorRequest struct {
 
 func (x *OpenTypedAssetFileDescriptorRequest) Reset() {
 	*x = OpenTypedAssetFileDescriptorRequest{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[38]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1977,7 +2169,7 @@ func (x *OpenTypedAssetFileDescriptorRequest) String() string {
 func (*OpenTypedAssetFileDescriptorRequest) ProtoMessage() {}
 
 func (x *OpenTypedAssetFileDescriptorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[38]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1990,7 +2182,7 @@ func (x *OpenTypedAssetFileDescriptorRequest) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use OpenTypedAssetFileDescriptorRequest.ProtoReflect.Descriptor instead.
 func (*OpenTypedAssetFileDescriptorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{38}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *OpenTypedAssetFileDescriptorRequest) GetHandle() int64 {
@@ -2044,7 +2236,7 @@ type OpenTypedAssetFileDescriptorResponse struct {
 
 func (x *OpenTypedAssetFileDescriptorResponse) Reset() {
 	*x = OpenTypedAssetFileDescriptorResponse{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[39]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2056,7 +2248,7 @@ func (x *OpenTypedAssetFileDescriptorResponse) String() string {
 func (*OpenTypedAssetFileDescriptorResponse) ProtoMessage() {}
 
 func (x *OpenTypedAssetFileDescriptorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[39]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2069,7 +2261,7 @@ func (x *OpenTypedAssetFileDescriptorResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use OpenTypedAssetFileDescriptorResponse.ProtoReflect.Descriptor instead.
 func (*OpenTypedAssetFileDescriptorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{39}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *OpenTypedAssetFileDescriptorResponse) GetResult() int64 {
@@ -2089,7 +2281,7 @@ type SetIncludePendingRequest struct {
 
 func (x *SetIncludePendingRequest) Reset() {
 	*x = SetIncludePendingRequest{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[40]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2101,7 +2293,7 @@ func (x *SetIncludePendingRequest) String() string {
 func (*SetIncludePendingRequest) ProtoMessage() {}
 
 func (x *SetIncludePendingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[40]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2114,7 +2306,7 @@ func (x *SetIncludePendingRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetIncludePendingRequest.ProtoReflect.Descriptor instead.
 func (*SetIncludePendingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{40}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *SetIncludePendingRequest) GetHandle() int64 {
@@ -2140,7 +2332,7 @@ type SetIncludePendingResponse struct {
 
 func (x *SetIncludePendingResponse) Reset() {
 	*x = SetIncludePendingResponse{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[41]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2152,7 +2344,7 @@ func (x *SetIncludePendingResponse) String() string {
 func (*SetIncludePendingResponse) ProtoMessage() {}
 
 func (x *SetIncludePendingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[41]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2165,7 +2357,7 @@ func (x *SetIncludePendingResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetIncludePendingResponse.ProtoReflect.Descriptor instead.
 func (*SetIncludePendingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{41}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *SetIncludePendingResponse) GetResult() int64 {
@@ -2185,7 +2377,7 @@ type SetRequireOriginalRequest struct {
 
 func (x *SetRequireOriginalRequest) Reset() {
 	*x = SetRequireOriginalRequest{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[42]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2197,7 +2389,7 @@ func (x *SetRequireOriginalRequest) String() string {
 func (*SetRequireOriginalRequest) ProtoMessage() {}
 
 func (x *SetRequireOriginalRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[42]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2210,7 +2402,7 @@ func (x *SetRequireOriginalRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetRequireOriginalRequest.ProtoReflect.Descriptor instead.
 func (*SetRequireOriginalRequest) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{42}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *SetRequireOriginalRequest) GetHandle() int64 {
@@ -2236,7 +2428,7 @@ type SetRequireOriginalResponse struct {
 
 func (x *SetRequireOriginalResponse) Reset() {
 	*x = SetRequireOriginalResponse{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[43]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2248,7 +2440,7 @@ func (x *SetRequireOriginalResponse) String() string {
 func (*SetRequireOriginalResponse) ProtoMessage() {}
 
 func (x *SetRequireOriginalResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[43]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2261,7 +2453,7 @@ func (x *SetRequireOriginalResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetRequireOriginalResponse.ProtoReflect.Descriptor instead.
 func (*SetRequireOriginalResponse) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{43}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *SetRequireOriginalResponse) GetResult() int64 {
@@ -2280,7 +2472,7 @@ type KeyForRequest struct {
 
 func (x *KeyForRequest) Reset() {
 	*x = KeyForRequest{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[44]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2292,7 +2484,7 @@ func (x *KeyForRequest) String() string {
 func (*KeyForRequest) ProtoMessage() {}
 
 func (x *KeyForRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[44]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2305,7 +2497,7 @@ func (x *KeyForRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use KeyForRequest.ProtoReflect.Descriptor instead.
 func (*KeyForRequest) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{44}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *KeyForRequest) GetArg0() string {
@@ -2324,7 +2516,7 @@ type KeyForResponse struct {
 
 func (x *KeyForResponse) Reset() {
 	*x = KeyForResponse{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[45]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2336,7 +2528,7 @@ func (x *KeyForResponse) String() string {
 func (*KeyForResponse) ProtoMessage() {}
 
 func (x *KeyForResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[45]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2349,7 +2541,7 @@ func (x *KeyForResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use KeyForResponse.ProtoReflect.Descriptor instead.
 func (*KeyForResponse) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{45}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{49}
 }
 
 func (x *KeyForResponse) GetResult() string {
@@ -2368,7 +2560,7 @@ type GetContentUri1Request struct {
 
 func (x *GetContentUri1Request) Reset() {
 	*x = GetContentUri1Request{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[46]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2380,7 +2572,7 @@ func (x *GetContentUri1Request) String() string {
 func (*GetContentUri1Request) ProtoMessage() {}
 
 func (x *GetContentUri1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[46]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2393,7 +2585,7 @@ func (x *GetContentUri1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetContentUri1Request.ProtoReflect.Descriptor instead.
 func (*GetContentUri1Request) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{46}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *GetContentUri1Request) GetArg0() string {
@@ -2412,7 +2604,7 @@ type GetContentUri1Response struct {
 
 func (x *GetContentUri1Response) Reset() {
 	*x = GetContentUri1Response{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[47]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2424,7 +2616,7 @@ func (x *GetContentUri1Response) String() string {
 func (*GetContentUri1Response) ProtoMessage() {}
 
 func (x *GetContentUri1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[47]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2437,7 +2629,7 @@ func (x *GetContentUri1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetContentUri1Response.ProtoReflect.Descriptor instead.
 func (*GetContentUri1Response) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{47}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{51}
 }
 
 func (x *GetContentUri1Response) GetResult() int64 {
@@ -2457,7 +2649,7 @@ type GetContentUri2_1Request struct {
 
 func (x *GetContentUri2_1Request) Reset() {
 	*x = GetContentUri2_1Request{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[48]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2469,7 +2661,7 @@ func (x *GetContentUri2_1Request) String() string {
 func (*GetContentUri2_1Request) ProtoMessage() {}
 
 func (x *GetContentUri2_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[48]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2482,7 +2674,7 @@ func (x *GetContentUri2_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetContentUri2_1Request.ProtoReflect.Descriptor instead.
 func (*GetContentUri2_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{48}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *GetContentUri2_1Request) GetArg0() string {
@@ -2508,7 +2700,7 @@ type GetContentUri2_1Response struct {
 
 func (x *GetContentUri2_1Response) Reset() {
 	*x = GetContentUri2_1Response{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[49]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2520,7 +2712,7 @@ func (x *GetContentUri2_1Response) String() string {
 func (*GetContentUri2_1Response) ProtoMessage() {}
 
 func (x *GetContentUri2_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[49]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2533,7 +2725,7 @@ func (x *GetContentUri2_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetContentUri2_1Response.ProtoReflect.Descriptor instead.
 func (*GetContentUri2_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{49}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *GetContentUri2_1Response) GetResult() int64 {
@@ -2554,7 +2746,7 @@ type QueryRequest struct {
 
 func (x *QueryRequest) Reset() {
 	*x = QueryRequest{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[50]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2566,7 +2758,7 @@ func (x *QueryRequest) String() string {
 func (*QueryRequest) ProtoMessage() {}
 
 func (x *QueryRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[50]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2579,7 +2771,7 @@ func (x *QueryRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QueryRequest.ProtoReflect.Descriptor instead.
 func (*QueryRequest) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{50}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *QueryRequest) GetArg0() int64 {
@@ -2612,7 +2804,7 @@ type QueryResponse struct {
 
 func (x *QueryResponse) Reset() {
 	*x = QueryResponse{}
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[51]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2624,7 +2816,7 @@ func (x *QueryResponse) String() string {
 func (*QueryResponse) ProtoMessage() {}
 
 func (x *QueryResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_mediastore_mediastore_proto_msgTypes[51]
+	mi := &file_proto_mediastore_mediastore_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2637,7 +2829,7 @@ func (x *QueryResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QueryResponse.ProtoReflect.Descriptor instead.
 func (*QueryResponse) Descriptor() ([]byte, []int) {
-	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{51}
+	return file_proto_mediastore_mediastore_proto_rawDescGZIP(), []int{55}
 }
 
 func (x *QueryResponse) GetResult() int64 {
@@ -2666,6 +2858,11 @@ const file_proto_mediastore_mediastore_proto_rawDesc = "" +
 	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x03 \x01(\x03R\x04arg1\"0\n" +
 	"\x16GetDocumentUriResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"K\n" +
+	"\x1dGetExternalVolumeNamesRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\"8\n" +
+	"\x1eGetExternalVolumeNamesResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"V\n" +
 	"\x14GetGenerationRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
@@ -2692,7 +2889,12 @@ const file_proto_mediastore_mediastore_proto_rawDesc = "" +
 	"\x1cGetPickImagesMaxLimitRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"7\n" +
 	"\x1dGetPickImagesMaxLimitResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x05R\x06result\"W\n" +
+	"\x06result\x18\x01 \x01(\x05R\x06result\"Q\n" +
+	"#GetRecentExternalVolumeNamesRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
+	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\">\n" +
+	"$GetRecentExternalVolumeNamesResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"W\n" +
 	"\x15GetRedactedUriRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
 	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
@@ -2798,16 +3000,18 @@ const file_proto_mediastore_mediastore_proto_rawDesc = "" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\x12\x12\n" +
 	"\x04arg2\x18\x03 \x01(\x03R\x04arg2\"'\n" +
 	"\rQueryResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\x03R\x06result2\xc1\x12\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result2\xb6\x14\n" +
 	"\x11MediaStoreService\x12T\n" +
 	"\rNewMediaStore\x12 .mediastore.NewMediaStoreRequest\x1a!.mediastore.NewMediaStoreResponse\x12W\n" +
 	"\x0eCanManageMedia\x12!.mediastore.CanManageMediaRequest\x1a\".mediastore.CanManageMediaResponse\x12W\n" +
-	"\x0eGetDocumentUri\x12!.mediastore.GetDocumentUriRequest\x1a\".mediastore.GetDocumentUriResponse\x12T\n" +
+	"\x0eGetDocumentUri\x12!.mediastore.GetDocumentUriRequest\x1a\".mediastore.GetDocumentUriResponse\x12o\n" +
+	"\x16GetExternalVolumeNames\x12).mediastore.GetExternalVolumeNamesRequest\x1a*.mediastore.GetExternalVolumeNamesResponse\x12T\n" +
 	"\rGetGeneration\x12 .mediastore.GetGenerationRequest\x1a!.mediastore.GetGenerationResponse\x12c\n" +
 	"\x12GetMediaScannerUri\x12%.mediastore.GetMediaScannerUriRequest\x1a&.mediastore.GetMediaScannerUriResponse\x12N\n" +
 	"\vGetMediaUri\x12\x1e.mediastore.GetMediaUriRequest\x1a\x1f.mediastore.GetMediaUriResponse\x12\x99\x01\n" +
 	"$GetOriginalMediaFormatFileDescriptor\x127.mediastore.GetOriginalMediaFormatFileDescriptorRequest\x1a8.mediastore.GetOriginalMediaFormatFileDescriptorResponse\x12l\n" +
-	"\x15GetPickImagesMaxLimit\x12(.mediastore.GetPickImagesMaxLimitRequest\x1a).mediastore.GetPickImagesMaxLimitResponse\x12W\n" +
+	"\x15GetPickImagesMaxLimit\x12(.mediastore.GetPickImagesMaxLimitRequest\x1a).mediastore.GetPickImagesMaxLimitResponse\x12\x81\x01\n" +
+	"\x1cGetRecentExternalVolumeNames\x12/.mediastore.GetRecentExternalVolumeNamesRequest\x1a0.mediastore.GetRecentExternalVolumeNamesResponse\x12W\n" +
 	"\x0eGetRedactedUri\x12!.mediastore.GetRedactedUriRequest\x1a\".mediastore.GetRedactedUriResponse\x12c\n" +
 	"\x12GetRequireOriginal\x12%.mediastore.GetRequireOriginalRequest\x1a&.mediastore.GetRequireOriginalResponse\x12N\n" +
 	"\vGetVersion1\x12\x1e.mediastore.GetVersion1Request\x1a\x1f.mediastore.GetVersion1Response\x12T\n" +
@@ -2845,7 +3049,7 @@ func file_proto_mediastore_mediastore_proto_rawDescGZIP() []byte {
 	return file_proto_mediastore_mediastore_proto_rawDescData
 }
 
-var file_proto_mediastore_mediastore_proto_msgTypes = make([]protoimpl.MessageInfo, 52)
+var file_proto_mediastore_mediastore_proto_msgTypes = make([]protoimpl.MessageInfo, 56)
 var file_proto_mediastore_mediastore_proto_goTypes = []any{
 	(*NewMediaStoreRequest)(nil),                           // 0: mediastore.NewMediaStoreRequest
 	(*NewMediaStoreResponse)(nil),                          // 1: mediastore.NewMediaStoreResponse
@@ -2853,112 +3057,120 @@ var file_proto_mediastore_mediastore_proto_goTypes = []any{
 	(*CanManageMediaResponse)(nil),                         // 3: mediastore.CanManageMediaResponse
 	(*GetDocumentUriRequest)(nil),                          // 4: mediastore.GetDocumentUriRequest
 	(*GetDocumentUriResponse)(nil),                         // 5: mediastore.GetDocumentUriResponse
-	(*GetGenerationRequest)(nil),                           // 6: mediastore.GetGenerationRequest
-	(*GetGenerationResponse)(nil),                          // 7: mediastore.GetGenerationResponse
-	(*GetMediaScannerUriRequest)(nil),                      // 8: mediastore.GetMediaScannerUriRequest
-	(*GetMediaScannerUriResponse)(nil),                     // 9: mediastore.GetMediaScannerUriResponse
-	(*GetMediaUriRequest)(nil),                             // 10: mediastore.GetMediaUriRequest
-	(*GetMediaUriResponse)(nil),                            // 11: mediastore.GetMediaUriResponse
-	(*GetOriginalMediaFormatFileDescriptorRequest)(nil),    // 12: mediastore.GetOriginalMediaFormatFileDescriptorRequest
-	(*GetOriginalMediaFormatFileDescriptorResponse)(nil),   // 13: mediastore.GetOriginalMediaFormatFileDescriptorResponse
-	(*GetPickImagesMaxLimitRequest)(nil),                   // 14: mediastore.GetPickImagesMaxLimitRequest
-	(*GetPickImagesMaxLimitResponse)(nil),                  // 15: mediastore.GetPickImagesMaxLimitResponse
-	(*GetRedactedUriRequest)(nil),                          // 16: mediastore.GetRedactedUriRequest
-	(*GetRedactedUriResponse)(nil),                         // 17: mediastore.GetRedactedUriResponse
-	(*GetRequireOriginalRequest)(nil),                      // 18: mediastore.GetRequireOriginalRequest
-	(*GetRequireOriginalResponse)(nil),                     // 19: mediastore.GetRequireOriginalResponse
-	(*GetVersion1Request)(nil),                             // 20: mediastore.GetVersion1Request
-	(*GetVersion1Response)(nil),                            // 21: mediastore.GetVersion1Response
-	(*GetVersion2_1Request)(nil),                           // 22: mediastore.GetVersion2_1Request
-	(*GetVersion2_1Response)(nil),                          // 23: mediastore.GetVersion2_1Response
-	(*GetVolumeNameRequest)(nil),                           // 24: mediastore.GetVolumeNameRequest
-	(*GetVolumeNameResponse)(nil),                          // 25: mediastore.GetVolumeNameResponse
-	(*IsCurrentCloudMediaProviderAuthorityRequest)(nil),    // 26: mediastore.IsCurrentCloudMediaProviderAuthorityRequest
-	(*IsCurrentCloudMediaProviderAuthorityResponse)(nil),   // 27: mediastore.IsCurrentCloudMediaProviderAuthorityResponse
-	(*IsCurrentSystemGalleryRequest)(nil),                  // 28: mediastore.IsCurrentSystemGalleryRequest
-	(*IsCurrentSystemGalleryResponse)(nil),                 // 29: mediastore.IsCurrentSystemGalleryResponse
-	(*IsSupportedCloudMediaProviderAuthorityRequest)(nil),  // 30: mediastore.IsSupportedCloudMediaProviderAuthorityRequest
-	(*IsSupportedCloudMediaProviderAuthorityResponse)(nil), // 31: mediastore.IsSupportedCloudMediaProviderAuthorityResponse
-	(*NotifyCloudMediaChangedEventRequest)(nil),            // 32: mediastore.NotifyCloudMediaChangedEventRequest
-	(*NotifyCloudMediaChangedEventResponse)(nil),           // 33: mediastore.NotifyCloudMediaChangedEventResponse
-	(*OpenAssetFileDescriptorRequest)(nil),                 // 34: mediastore.OpenAssetFileDescriptorRequest
-	(*OpenAssetFileDescriptorResponse)(nil),                // 35: mediastore.OpenAssetFileDescriptorResponse
-	(*OpenFileDescriptorRequest)(nil),                      // 36: mediastore.OpenFileDescriptorRequest
-	(*OpenFileDescriptorResponse)(nil),                     // 37: mediastore.OpenFileDescriptorResponse
-	(*OpenTypedAssetFileDescriptorRequest)(nil),            // 38: mediastore.OpenTypedAssetFileDescriptorRequest
-	(*OpenTypedAssetFileDescriptorResponse)(nil),           // 39: mediastore.OpenTypedAssetFileDescriptorResponse
-	(*SetIncludePendingRequest)(nil),                       // 40: mediastore.SetIncludePendingRequest
-	(*SetIncludePendingResponse)(nil),                      // 41: mediastore.SetIncludePendingResponse
-	(*SetRequireOriginalRequest)(nil),                      // 42: mediastore.SetRequireOriginalRequest
-	(*SetRequireOriginalResponse)(nil),                     // 43: mediastore.SetRequireOriginalResponse
-	(*KeyForRequest)(nil),                                  // 44: mediastore.KeyForRequest
-	(*KeyForResponse)(nil),                                 // 45: mediastore.KeyForResponse
-	(*GetContentUri1Request)(nil),                          // 46: mediastore.GetContentUri1Request
-	(*GetContentUri1Response)(nil),                         // 47: mediastore.GetContentUri1Response
-	(*GetContentUri2_1Request)(nil),                        // 48: mediastore.GetContentUri2_1Request
-	(*GetContentUri2_1Response)(nil),                       // 49: mediastore.GetContentUri2_1Response
-	(*QueryRequest)(nil),                                   // 50: mediastore.QueryRequest
-	(*QueryResponse)(nil),                                  // 51: mediastore.QueryResponse
+	(*GetExternalVolumeNamesRequest)(nil),                  // 6: mediastore.GetExternalVolumeNamesRequest
+	(*GetExternalVolumeNamesResponse)(nil),                 // 7: mediastore.GetExternalVolumeNamesResponse
+	(*GetGenerationRequest)(nil),                           // 8: mediastore.GetGenerationRequest
+	(*GetGenerationResponse)(nil),                          // 9: mediastore.GetGenerationResponse
+	(*GetMediaScannerUriRequest)(nil),                      // 10: mediastore.GetMediaScannerUriRequest
+	(*GetMediaScannerUriResponse)(nil),                     // 11: mediastore.GetMediaScannerUriResponse
+	(*GetMediaUriRequest)(nil),                             // 12: mediastore.GetMediaUriRequest
+	(*GetMediaUriResponse)(nil),                            // 13: mediastore.GetMediaUriResponse
+	(*GetOriginalMediaFormatFileDescriptorRequest)(nil),    // 14: mediastore.GetOriginalMediaFormatFileDescriptorRequest
+	(*GetOriginalMediaFormatFileDescriptorResponse)(nil),   // 15: mediastore.GetOriginalMediaFormatFileDescriptorResponse
+	(*GetPickImagesMaxLimitRequest)(nil),                   // 16: mediastore.GetPickImagesMaxLimitRequest
+	(*GetPickImagesMaxLimitResponse)(nil),                  // 17: mediastore.GetPickImagesMaxLimitResponse
+	(*GetRecentExternalVolumeNamesRequest)(nil),            // 18: mediastore.GetRecentExternalVolumeNamesRequest
+	(*GetRecentExternalVolumeNamesResponse)(nil),           // 19: mediastore.GetRecentExternalVolumeNamesResponse
+	(*GetRedactedUriRequest)(nil),                          // 20: mediastore.GetRedactedUriRequest
+	(*GetRedactedUriResponse)(nil),                         // 21: mediastore.GetRedactedUriResponse
+	(*GetRequireOriginalRequest)(nil),                      // 22: mediastore.GetRequireOriginalRequest
+	(*GetRequireOriginalResponse)(nil),                     // 23: mediastore.GetRequireOriginalResponse
+	(*GetVersion1Request)(nil),                             // 24: mediastore.GetVersion1Request
+	(*GetVersion1Response)(nil),                            // 25: mediastore.GetVersion1Response
+	(*GetVersion2_1Request)(nil),                           // 26: mediastore.GetVersion2_1Request
+	(*GetVersion2_1Response)(nil),                          // 27: mediastore.GetVersion2_1Response
+	(*GetVolumeNameRequest)(nil),                           // 28: mediastore.GetVolumeNameRequest
+	(*GetVolumeNameResponse)(nil),                          // 29: mediastore.GetVolumeNameResponse
+	(*IsCurrentCloudMediaProviderAuthorityRequest)(nil),    // 30: mediastore.IsCurrentCloudMediaProviderAuthorityRequest
+	(*IsCurrentCloudMediaProviderAuthorityResponse)(nil),   // 31: mediastore.IsCurrentCloudMediaProviderAuthorityResponse
+	(*IsCurrentSystemGalleryRequest)(nil),                  // 32: mediastore.IsCurrentSystemGalleryRequest
+	(*IsCurrentSystemGalleryResponse)(nil),                 // 33: mediastore.IsCurrentSystemGalleryResponse
+	(*IsSupportedCloudMediaProviderAuthorityRequest)(nil),  // 34: mediastore.IsSupportedCloudMediaProviderAuthorityRequest
+	(*IsSupportedCloudMediaProviderAuthorityResponse)(nil), // 35: mediastore.IsSupportedCloudMediaProviderAuthorityResponse
+	(*NotifyCloudMediaChangedEventRequest)(nil),            // 36: mediastore.NotifyCloudMediaChangedEventRequest
+	(*NotifyCloudMediaChangedEventResponse)(nil),           // 37: mediastore.NotifyCloudMediaChangedEventResponse
+	(*OpenAssetFileDescriptorRequest)(nil),                 // 38: mediastore.OpenAssetFileDescriptorRequest
+	(*OpenAssetFileDescriptorResponse)(nil),                // 39: mediastore.OpenAssetFileDescriptorResponse
+	(*OpenFileDescriptorRequest)(nil),                      // 40: mediastore.OpenFileDescriptorRequest
+	(*OpenFileDescriptorResponse)(nil),                     // 41: mediastore.OpenFileDescriptorResponse
+	(*OpenTypedAssetFileDescriptorRequest)(nil),            // 42: mediastore.OpenTypedAssetFileDescriptorRequest
+	(*OpenTypedAssetFileDescriptorResponse)(nil),           // 43: mediastore.OpenTypedAssetFileDescriptorResponse
+	(*SetIncludePendingRequest)(nil),                       // 44: mediastore.SetIncludePendingRequest
+	(*SetIncludePendingResponse)(nil),                      // 45: mediastore.SetIncludePendingResponse
+	(*SetRequireOriginalRequest)(nil),                      // 46: mediastore.SetRequireOriginalRequest
+	(*SetRequireOriginalResponse)(nil),                     // 47: mediastore.SetRequireOriginalResponse
+	(*KeyForRequest)(nil),                                  // 48: mediastore.KeyForRequest
+	(*KeyForResponse)(nil),                                 // 49: mediastore.KeyForResponse
+	(*GetContentUri1Request)(nil),                          // 50: mediastore.GetContentUri1Request
+	(*GetContentUri1Response)(nil),                         // 51: mediastore.GetContentUri1Response
+	(*GetContentUri2_1Request)(nil),                        // 52: mediastore.GetContentUri2_1Request
+	(*GetContentUri2_1Response)(nil),                       // 53: mediastore.GetContentUri2_1Response
+	(*QueryRequest)(nil),                                   // 54: mediastore.QueryRequest
+	(*QueryResponse)(nil),                                  // 55: mediastore.QueryResponse
 }
 var file_proto_mediastore_mediastore_proto_depIdxs = []int32{
 	0,  // 0: mediastore.MediaStoreService.NewMediaStore:input_type -> mediastore.NewMediaStoreRequest
 	2,  // 1: mediastore.MediaStoreService.CanManageMedia:input_type -> mediastore.CanManageMediaRequest
 	4,  // 2: mediastore.MediaStoreService.GetDocumentUri:input_type -> mediastore.GetDocumentUriRequest
-	6,  // 3: mediastore.MediaStoreService.GetGeneration:input_type -> mediastore.GetGenerationRequest
-	8,  // 4: mediastore.MediaStoreService.GetMediaScannerUri:input_type -> mediastore.GetMediaScannerUriRequest
-	10, // 5: mediastore.MediaStoreService.GetMediaUri:input_type -> mediastore.GetMediaUriRequest
-	12, // 6: mediastore.MediaStoreService.GetOriginalMediaFormatFileDescriptor:input_type -> mediastore.GetOriginalMediaFormatFileDescriptorRequest
-	14, // 7: mediastore.MediaStoreService.GetPickImagesMaxLimit:input_type -> mediastore.GetPickImagesMaxLimitRequest
-	16, // 8: mediastore.MediaStoreService.GetRedactedUri:input_type -> mediastore.GetRedactedUriRequest
-	18, // 9: mediastore.MediaStoreService.GetRequireOriginal:input_type -> mediastore.GetRequireOriginalRequest
-	20, // 10: mediastore.MediaStoreService.GetVersion1:input_type -> mediastore.GetVersion1Request
-	22, // 11: mediastore.MediaStoreService.GetVersion2_1:input_type -> mediastore.GetVersion2_1Request
-	24, // 12: mediastore.MediaStoreService.GetVolumeName:input_type -> mediastore.GetVolumeNameRequest
-	26, // 13: mediastore.MediaStoreService.IsCurrentCloudMediaProviderAuthority:input_type -> mediastore.IsCurrentCloudMediaProviderAuthorityRequest
-	28, // 14: mediastore.MediaStoreService.IsCurrentSystemGallery:input_type -> mediastore.IsCurrentSystemGalleryRequest
-	30, // 15: mediastore.MediaStoreService.IsSupportedCloudMediaProviderAuthority:input_type -> mediastore.IsSupportedCloudMediaProviderAuthorityRequest
-	32, // 16: mediastore.MediaStoreService.NotifyCloudMediaChangedEvent:input_type -> mediastore.NotifyCloudMediaChangedEventRequest
-	34, // 17: mediastore.MediaStoreService.OpenAssetFileDescriptor:input_type -> mediastore.OpenAssetFileDescriptorRequest
-	36, // 18: mediastore.MediaStoreService.OpenFileDescriptor:input_type -> mediastore.OpenFileDescriptorRequest
-	38, // 19: mediastore.MediaStoreService.OpenTypedAssetFileDescriptor:input_type -> mediastore.OpenTypedAssetFileDescriptorRequest
-	40, // 20: mediastore.MediaStoreService.SetIncludePending:input_type -> mediastore.SetIncludePendingRequest
-	42, // 21: mediastore.MediaStoreService.SetRequireOriginal:input_type -> mediastore.SetRequireOriginalRequest
-	44, // 22: mediastore.MediaStoreAudioService.KeyFor:input_type -> mediastore.KeyForRequest
-	46, // 23: mediastore.MediaStoreDownloadsService.GetContentUri1:input_type -> mediastore.GetContentUri1Request
-	48, // 24: mediastore.MediaStoreDownloadsService.GetContentUri2_1:input_type -> mediastore.GetContentUri2_1Request
-	46, // 25: mediastore.MediaStoreFilesService.GetContentUri1:input_type -> mediastore.GetContentUri1Request
-	48, // 26: mediastore.MediaStoreFilesService.GetContentUri2_1:input_type -> mediastore.GetContentUri2_1Request
-	50, // 27: mediastore.MediaStoreVideoService.Query:input_type -> mediastore.QueryRequest
-	1,  // 28: mediastore.MediaStoreService.NewMediaStore:output_type -> mediastore.NewMediaStoreResponse
-	3,  // 29: mediastore.MediaStoreService.CanManageMedia:output_type -> mediastore.CanManageMediaResponse
-	5,  // 30: mediastore.MediaStoreService.GetDocumentUri:output_type -> mediastore.GetDocumentUriResponse
-	7,  // 31: mediastore.MediaStoreService.GetGeneration:output_type -> mediastore.GetGenerationResponse
-	9,  // 32: mediastore.MediaStoreService.GetMediaScannerUri:output_type -> mediastore.GetMediaScannerUriResponse
-	11, // 33: mediastore.MediaStoreService.GetMediaUri:output_type -> mediastore.GetMediaUriResponse
-	13, // 34: mediastore.MediaStoreService.GetOriginalMediaFormatFileDescriptor:output_type -> mediastore.GetOriginalMediaFormatFileDescriptorResponse
-	15, // 35: mediastore.MediaStoreService.GetPickImagesMaxLimit:output_type -> mediastore.GetPickImagesMaxLimitResponse
-	17, // 36: mediastore.MediaStoreService.GetRedactedUri:output_type -> mediastore.GetRedactedUriResponse
-	19, // 37: mediastore.MediaStoreService.GetRequireOriginal:output_type -> mediastore.GetRequireOriginalResponse
-	21, // 38: mediastore.MediaStoreService.GetVersion1:output_type -> mediastore.GetVersion1Response
-	23, // 39: mediastore.MediaStoreService.GetVersion2_1:output_type -> mediastore.GetVersion2_1Response
-	25, // 40: mediastore.MediaStoreService.GetVolumeName:output_type -> mediastore.GetVolumeNameResponse
-	27, // 41: mediastore.MediaStoreService.IsCurrentCloudMediaProviderAuthority:output_type -> mediastore.IsCurrentCloudMediaProviderAuthorityResponse
-	29, // 42: mediastore.MediaStoreService.IsCurrentSystemGallery:output_type -> mediastore.IsCurrentSystemGalleryResponse
-	31, // 43: mediastore.MediaStoreService.IsSupportedCloudMediaProviderAuthority:output_type -> mediastore.IsSupportedCloudMediaProviderAuthorityResponse
-	33, // 44: mediastore.MediaStoreService.NotifyCloudMediaChangedEvent:output_type -> mediastore.NotifyCloudMediaChangedEventResponse
-	35, // 45: mediastore.MediaStoreService.OpenAssetFileDescriptor:output_type -> mediastore.OpenAssetFileDescriptorResponse
-	37, // 46: mediastore.MediaStoreService.OpenFileDescriptor:output_type -> mediastore.OpenFileDescriptorResponse
-	39, // 47: mediastore.MediaStoreService.OpenTypedAssetFileDescriptor:output_type -> mediastore.OpenTypedAssetFileDescriptorResponse
-	41, // 48: mediastore.MediaStoreService.SetIncludePending:output_type -> mediastore.SetIncludePendingResponse
-	43, // 49: mediastore.MediaStoreService.SetRequireOriginal:output_type -> mediastore.SetRequireOriginalResponse
-	45, // 50: mediastore.MediaStoreAudioService.KeyFor:output_type -> mediastore.KeyForResponse
-	47, // 51: mediastore.MediaStoreDownloadsService.GetContentUri1:output_type -> mediastore.GetContentUri1Response
-	49, // 52: mediastore.MediaStoreDownloadsService.GetContentUri2_1:output_type -> mediastore.GetContentUri2_1Response
-	47, // 53: mediastore.MediaStoreFilesService.GetContentUri1:output_type -> mediastore.GetContentUri1Response
-	49, // 54: mediastore.MediaStoreFilesService.GetContentUri2_1:output_type -> mediastore.GetContentUri2_1Response
-	51, // 55: mediastore.MediaStoreVideoService.Query:output_type -> mediastore.QueryResponse
-	28, // [28:56] is the sub-list for method output_type
-	0,  // [0:28] is the sub-list for method input_type
+	6,  // 3: mediastore.MediaStoreService.GetExternalVolumeNames:input_type -> mediastore.GetExternalVolumeNamesRequest
+	8,  // 4: mediastore.MediaStoreService.GetGeneration:input_type -> mediastore.GetGenerationRequest
+	10, // 5: mediastore.MediaStoreService.GetMediaScannerUri:input_type -> mediastore.GetMediaScannerUriRequest
+	12, // 6: mediastore.MediaStoreService.GetMediaUri:input_type -> mediastore.GetMediaUriRequest
+	14, // 7: mediastore.MediaStoreService.GetOriginalMediaFormatFileDescriptor:input_type -> mediastore.GetOriginalMediaFormatFileDescriptorRequest
+	16, // 8: mediastore.MediaStoreService.GetPickImagesMaxLimit:input_type -> mediastore.GetPickImagesMaxLimitRequest
+	18, // 9: mediastore.MediaStoreService.GetRecentExternalVolumeNames:input_type -> mediastore.GetRecentExternalVolumeNamesRequest
+	20, // 10: mediastore.MediaStoreService.GetRedactedUri:input_type -> mediastore.GetRedactedUriRequest
+	22, // 11: mediastore.MediaStoreService.GetRequireOriginal:input_type -> mediastore.GetRequireOriginalRequest
+	24, // 12: mediastore.MediaStoreService.GetVersion1:input_type -> mediastore.GetVersion1Request
+	26, // 13: mediastore.MediaStoreService.GetVersion2_1:input_type -> mediastore.GetVersion2_1Request
+	28, // 14: mediastore.MediaStoreService.GetVolumeName:input_type -> mediastore.GetVolumeNameRequest
+	30, // 15: mediastore.MediaStoreService.IsCurrentCloudMediaProviderAuthority:input_type -> mediastore.IsCurrentCloudMediaProviderAuthorityRequest
+	32, // 16: mediastore.MediaStoreService.IsCurrentSystemGallery:input_type -> mediastore.IsCurrentSystemGalleryRequest
+	34, // 17: mediastore.MediaStoreService.IsSupportedCloudMediaProviderAuthority:input_type -> mediastore.IsSupportedCloudMediaProviderAuthorityRequest
+	36, // 18: mediastore.MediaStoreService.NotifyCloudMediaChangedEvent:input_type -> mediastore.NotifyCloudMediaChangedEventRequest
+	38, // 19: mediastore.MediaStoreService.OpenAssetFileDescriptor:input_type -> mediastore.OpenAssetFileDescriptorRequest
+	40, // 20: mediastore.MediaStoreService.OpenFileDescriptor:input_type -> mediastore.OpenFileDescriptorRequest
+	42, // 21: mediastore.MediaStoreService.OpenTypedAssetFileDescriptor:input_type -> mediastore.OpenTypedAssetFileDescriptorRequest
+	44, // 22: mediastore.MediaStoreService.SetIncludePending:input_type -> mediastore.SetIncludePendingRequest
+	46, // 23: mediastore.MediaStoreService.SetRequireOriginal:input_type -> mediastore.SetRequireOriginalRequest
+	48, // 24: mediastore.MediaStoreAudioService.KeyFor:input_type -> mediastore.KeyForRequest
+	50, // 25: mediastore.MediaStoreDownloadsService.GetContentUri1:input_type -> mediastore.GetContentUri1Request
+	52, // 26: mediastore.MediaStoreDownloadsService.GetContentUri2_1:input_type -> mediastore.GetContentUri2_1Request
+	50, // 27: mediastore.MediaStoreFilesService.GetContentUri1:input_type -> mediastore.GetContentUri1Request
+	52, // 28: mediastore.MediaStoreFilesService.GetContentUri2_1:input_type -> mediastore.GetContentUri2_1Request
+	54, // 29: mediastore.MediaStoreVideoService.Query:input_type -> mediastore.QueryRequest
+	1,  // 30: mediastore.MediaStoreService.NewMediaStore:output_type -> mediastore.NewMediaStoreResponse
+	3,  // 31: mediastore.MediaStoreService.CanManageMedia:output_type -> mediastore.CanManageMediaResponse
+	5,  // 32: mediastore.MediaStoreService.GetDocumentUri:output_type -> mediastore.GetDocumentUriResponse
+	7,  // 33: mediastore.MediaStoreService.GetExternalVolumeNames:output_type -> mediastore.GetExternalVolumeNamesResponse
+	9,  // 34: mediastore.MediaStoreService.GetGeneration:output_type -> mediastore.GetGenerationResponse
+	11, // 35: mediastore.MediaStoreService.GetMediaScannerUri:output_type -> mediastore.GetMediaScannerUriResponse
+	13, // 36: mediastore.MediaStoreService.GetMediaUri:output_type -> mediastore.GetMediaUriResponse
+	15, // 37: mediastore.MediaStoreService.GetOriginalMediaFormatFileDescriptor:output_type -> mediastore.GetOriginalMediaFormatFileDescriptorResponse
+	17, // 38: mediastore.MediaStoreService.GetPickImagesMaxLimit:output_type -> mediastore.GetPickImagesMaxLimitResponse
+	19, // 39: mediastore.MediaStoreService.GetRecentExternalVolumeNames:output_type -> mediastore.GetRecentExternalVolumeNamesResponse
+	21, // 40: mediastore.MediaStoreService.GetRedactedUri:output_type -> mediastore.GetRedactedUriResponse
+	23, // 41: mediastore.MediaStoreService.GetRequireOriginal:output_type -> mediastore.GetRequireOriginalResponse
+	25, // 42: mediastore.MediaStoreService.GetVersion1:output_type -> mediastore.GetVersion1Response
+	27, // 43: mediastore.MediaStoreService.GetVersion2_1:output_type -> mediastore.GetVersion2_1Response
+	29, // 44: mediastore.MediaStoreService.GetVolumeName:output_type -> mediastore.GetVolumeNameResponse
+	31, // 45: mediastore.MediaStoreService.IsCurrentCloudMediaProviderAuthority:output_type -> mediastore.IsCurrentCloudMediaProviderAuthorityResponse
+	33, // 46: mediastore.MediaStoreService.IsCurrentSystemGallery:output_type -> mediastore.IsCurrentSystemGalleryResponse
+	35, // 47: mediastore.MediaStoreService.IsSupportedCloudMediaProviderAuthority:output_type -> mediastore.IsSupportedCloudMediaProviderAuthorityResponse
+	37, // 48: mediastore.MediaStoreService.NotifyCloudMediaChangedEvent:output_type -> mediastore.NotifyCloudMediaChangedEventResponse
+	39, // 49: mediastore.MediaStoreService.OpenAssetFileDescriptor:output_type -> mediastore.OpenAssetFileDescriptorResponse
+	41, // 50: mediastore.MediaStoreService.OpenFileDescriptor:output_type -> mediastore.OpenFileDescriptorResponse
+	43, // 51: mediastore.MediaStoreService.OpenTypedAssetFileDescriptor:output_type -> mediastore.OpenTypedAssetFileDescriptorResponse
+	45, // 52: mediastore.MediaStoreService.SetIncludePending:output_type -> mediastore.SetIncludePendingResponse
+	47, // 53: mediastore.MediaStoreService.SetRequireOriginal:output_type -> mediastore.SetRequireOriginalResponse
+	49, // 54: mediastore.MediaStoreAudioService.KeyFor:output_type -> mediastore.KeyForResponse
+	51, // 55: mediastore.MediaStoreDownloadsService.GetContentUri1:output_type -> mediastore.GetContentUri1Response
+	53, // 56: mediastore.MediaStoreDownloadsService.GetContentUri2_1:output_type -> mediastore.GetContentUri2_1Response
+	51, // 57: mediastore.MediaStoreFilesService.GetContentUri1:output_type -> mediastore.GetContentUri1Response
+	53, // 58: mediastore.MediaStoreFilesService.GetContentUri2_1:output_type -> mediastore.GetContentUri2_1Response
+	55, // 59: mediastore.MediaStoreVideoService.Query:output_type -> mediastore.QueryResponse
+	30, // [30:60] is the sub-list for method output_type
+	0,  // [0:30] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -2975,7 +3187,7 @@ func file_proto_mediastore_mediastore_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_mediastore_mediastore_proto_rawDesc), len(file_proto_mediastore_mediastore_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   52,
+			NumMessages:   56,
 			NumExtensions: 0,
 			NumServices:   5,
 		},

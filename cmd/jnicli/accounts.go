@@ -12,23 +12,416 @@ var accountsCmd = &cobra.Command{
 	Short: "accounts service operations",
 }
 
-var accountsOnAccountsUpdateListenerCmd = &cobra.Command{
-	Use:   "on-accounts-update-listener",
-	Short: "OnAccountsUpdateListenerService operations",
+var accountsAccountAuthenticatorResponseCmd = &cobra.Command{
+	Use:   "account-authenticator-response",
+	Short: "AccountAuthenticatorResponseService operations",
 }
 
-var accountsOnAccountsUpdateListenerOnAccountsUpdatedCmd = &cobra.Command{
-	Use:   "on-accounts-updated",
-	Short: "OnAccountsUpdated RPC",
+var accountsAccountAuthenticatorResponseNewAccountAuthenticatorResponseCmd = &cobra.Command{
+	Use:   "new-account-authenticator-response",
+	Short: "NewAccountAuthenticatorResponse RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewOnAccountsUpdateListenerServiceClient(grpcConn)
-		req := &pb.OnAccountsUpdatedRequest{}
+		client := pb.NewAccountAuthenticatorResponseServiceClient(grpcConn)
+		req := &pb.NewAccountAuthenticatorResponseRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.OnAccountsUpdated(ctx, req)
+		resp, err := client.NewAccountAuthenticatorResponse(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accountsAccountAuthenticatorResponseDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccountAuthenticatorResponseServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accountsAccountAuthenticatorResponseOnErrorCmd = &cobra.Command{
+	Use:   "on-error",
+	Short: "OnError RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccountAuthenticatorResponseServiceClient(grpcConn)
+		req := &pb.OnErrorRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnError(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accountsAccountAuthenticatorResponseOnRequestContinuedCmd = &cobra.Command{
+	Use:   "on-request-continued",
+	Short: "OnRequestContinued RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccountAuthenticatorResponseServiceClient(grpcConn)
+		req := &pb.OnRequestContinuedRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.OnRequestContinued(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accountsAccountAuthenticatorResponseOnResultCmd = &cobra.Command{
+	Use:   "on-result",
+	Short: "OnResult RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccountAuthenticatorResponseServiceClient(grpcConn)
+		req := &pb.OnResultRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnResult(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accountsAccountAuthenticatorResponseWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccountAuthenticatorResponseServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accountsAuthenticatorDescriptionCmd = &cobra.Command{
+	Use:   "authenticator-description",
+	Short: "AuthenticatorDescriptionService operations",
+}
+
+var accountsAuthenticatorDescriptionNewAuthenticatorDescriptionCmd = &cobra.Command{
+	Use:   "new-authenticator-description",
+	Short: "NewAuthenticatorDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAuthenticatorDescriptionServiceClient(grpcConn)
+		req := &pb.NewAuthenticatorDescriptionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.NewAuthenticatorDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accountsAuthenticatorDescriptionDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAuthenticatorDescriptionServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accountsAuthenticatorDescriptionEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAuthenticatorDescriptionServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accountsAuthenticatorDescriptionHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAuthenticatorDescriptionServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accountsAuthenticatorDescriptionToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAuthenticatorDescriptionServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accountsAuthenticatorDescriptionWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAuthenticatorDescriptionServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accountsAuthenticatorDescriptionNewKeyCmd = &cobra.Command{
+	Use:   "new-key",
+	Short: "NewKey RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAuthenticatorDescriptionServiceClient(grpcConn)
+		req := &pb.NewKeyRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewKey(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accountsAccountManagerFutureCmd = &cobra.Command{
+	Use:   "account-manager-future",
+	Short: "AccountManagerFutureService operations",
+}
+
+var accountsAccountManagerFutureCancelCmd = &cobra.Command{
+	Use:   "cancel",
+	Short: "Cancel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccountManagerFutureServiceClient(grpcConn)
+		req := &pb.CancelRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Cancel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accountsAccountManagerFutureIsCancelledCmd = &cobra.Command{
+	Use:   "is-cancelled",
+	Short: "IsCancelled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccountManagerFutureServiceClient(grpcConn)
+		req := &pb.IsCancelledRequest{}
+		resp, err := client.IsCancelled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accountsAccountManagerFutureIsDoneCmd = &cobra.Command{
+	Use:   "is-done",
+	Short: "IsDone RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccountManagerFutureServiceClient(grpcConn)
+		req := &pb.IsDoneRequest{}
+		resp, err := client.IsDone(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accountsAccountAuthenticatorActivityCmd = &cobra.Command{
+	Use:   "account-authenticator-activity",
+	Short: "AccountAuthenticatorActivityService operations",
+}
+
+var accountsAccountAuthenticatorActivityNewAccountAuthenticatorActivityCmd = &cobra.Command{
+	Use:   "new-account-authenticator-activity",
+	Short: "NewAccountAuthenticatorActivity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccountAuthenticatorActivityServiceClient(grpcConn)
+		req := &pb.NewAccountAuthenticatorActivityRequest{}
+		resp, err := client.NewAccountAuthenticatorActivity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accountsAccountAuthenticatorActivityFinishCmd = &cobra.Command{
+	Use:   "finish",
+	Short: "Finish RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccountAuthenticatorActivityServiceClient(grpcConn)
+		req := &pb.FinishRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Finish(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accountsAccountAuthenticatorActivitySetAccountAuthenticatorResultCmd = &cobra.Command{
+	Use:   "set-account-authenticator-result",
+	Short: "SetAccountAuthenticatorResult RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAccountAuthenticatorActivityServiceClient(grpcConn)
+		req := &pb.SetAccountAuthenticatorResultRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAccountAuthenticatorResult(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -157,383 +550,6 @@ var accountsAccountWriteToParcelCmd = &cobra.Command{
 			req.Arg1 = v
 		}
 		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAbstractAccountAuthenticatorCmd = &cobra.Command{
-	Use:   "abstract-account-authenticator",
-	Short: "AbstractAccountAuthenticatorService operations",
-}
-
-var accountsAbstractAccountAuthenticatorAddAccountCmd = &cobra.Command{
-	Use:   "add-account",
-	Short: "AddAccount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbstractAccountAuthenticatorServiceClient(grpcConn)
-		req := &pb.AddAccountRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.AddAccount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAbstractAccountAuthenticatorAddAccountFromCredentialsCmd = &cobra.Command{
-	Use:   "add-account-from-credentials",
-	Short: "AddAccountFromCredentials RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbstractAccountAuthenticatorServiceClient(grpcConn)
-		req := &pb.AddAccountFromCredentialsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.AddAccountFromCredentials(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAbstractAccountAuthenticatorConfirmCredentialsCmd = &cobra.Command{
-	Use:   "confirm-credentials",
-	Short: "ConfirmCredentials RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbstractAccountAuthenticatorServiceClient(grpcConn)
-		req := &pb.ConfirmCredentialsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.ConfirmCredentials(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAbstractAccountAuthenticatorEditPropertiesCmd = &cobra.Command{
-	Use:   "edit-properties",
-	Short: "EditProperties RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbstractAccountAuthenticatorServiceClient(grpcConn)
-		req := &pb.EditPropertiesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.EditProperties(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAbstractAccountAuthenticatorFinishSessionCmd = &cobra.Command{
-	Use:   "finish-session",
-	Short: "FinishSession RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbstractAccountAuthenticatorServiceClient(grpcConn)
-		req := &pb.FinishSessionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.FinishSession(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAbstractAccountAuthenticatorGetAccountCredentialsForCloningCmd = &cobra.Command{
-	Use:   "get-account-credentials-for-cloning",
-	Short: "GetAccountCredentialsForCloning RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbstractAccountAuthenticatorServiceClient(grpcConn)
-		req := &pb.GetAccountCredentialsForCloningRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetAccountCredentialsForCloning(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAbstractAccountAuthenticatorGetAccountRemovalAllowedCmd = &cobra.Command{
-	Use:   "get-account-removal-allowed",
-	Short: "GetAccountRemovalAllowed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbstractAccountAuthenticatorServiceClient(grpcConn)
-		req := &pb.GetAccountRemovalAllowedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.GetAccountRemovalAllowed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAbstractAccountAuthenticatorGetAuthTokenCmd = &cobra.Command{
-	Use:   "get-auth-token",
-	Short: "GetAuthToken RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbstractAccountAuthenticatorServiceClient(grpcConn)
-		req := &pb.GetAuthTokenRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.GetAuthToken(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAbstractAccountAuthenticatorGetAuthTokenLabelCmd = &cobra.Command{
-	Use:   "get-auth-token-label",
-	Short: "GetAuthTokenLabel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbstractAccountAuthenticatorServiceClient(grpcConn)
-		req := &pb.GetAuthTokenLabelRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetAuthTokenLabel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAbstractAccountAuthenticatorGetIBinderCmd = &cobra.Command{
-	Use:   "get-i-binder",
-	Short: "GetIBinder RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbstractAccountAuthenticatorServiceClient(grpcConn)
-		req := &pb.GetIBinderRequest{}
-		resp, err := client.GetIBinder(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAbstractAccountAuthenticatorHasFeaturesCmd = &cobra.Command{
-	Use:   "has-features",
-	Short: "HasFeatures RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbstractAccountAuthenticatorServiceClient(grpcConn)
-		req := &pb.HasFeaturesRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.HasFeatures(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAbstractAccountAuthenticatorIsCredentialsUpdateSuggestedCmd = &cobra.Command{
-	Use:   "is-credentials-update-suggested",
-	Short: "IsCredentialsUpdateSuggested RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbstractAccountAuthenticatorServiceClient(grpcConn)
-		req := &pb.IsCredentialsUpdateSuggestedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.IsCredentialsUpdateSuggested(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAbstractAccountAuthenticatorStartAddAccountSessionCmd = &cobra.Command{
-	Use:   "start-add-account-session",
-	Short: "StartAddAccountSession RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbstractAccountAuthenticatorServiceClient(grpcConn)
-		req := &pb.StartAddAccountSessionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.StartAddAccountSession(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAbstractAccountAuthenticatorStartUpdateCredentialsSessionCmd = &cobra.Command{
-	Use:   "start-update-credentials-session",
-	Short: "StartUpdateCredentialsSession RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbstractAccountAuthenticatorServiceClient(grpcConn)
-		req := &pb.StartUpdateCredentialsSessionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.StartUpdateCredentialsSession(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAbstractAccountAuthenticatorUpdateCredentialsCmd = &cobra.Command{
-	Use:   "update-credentials",
-	Short: "UpdateCredentials RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAbstractAccountAuthenticatorServiceClient(grpcConn)
-		req := &pb.UpdateCredentialsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.UpdateCredentials(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -987,61 +1003,23 @@ var accountsAccountManagerGetCmd = &cobra.Command{
 	},
 }
 
-var accountsAccountAuthenticatorActivityCmd = &cobra.Command{
-	Use:   "account-authenticator-activity",
-	Short: "AccountAuthenticatorActivityService operations",
+var accountsOnAccountsUpdateListenerCmd = &cobra.Command{
+	Use:   "on-accounts-update-listener",
+	Short: "OnAccountsUpdateListenerService operations",
 }
 
-var accountsAccountAuthenticatorActivityNewAccountAuthenticatorActivityCmd = &cobra.Command{
-	Use:   "new-account-authenticator-activity",
-	Short: "NewAccountAuthenticatorActivity RPC",
+var accountsOnAccountsUpdateListenerOnAccountsUpdatedCmd = &cobra.Command{
+	Use:   "on-accounts-updated",
+	Short: "OnAccountsUpdated RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAccountAuthenticatorActivityServiceClient(grpcConn)
-		req := &pb.NewAccountAuthenticatorActivityRequest{}
-		resp, err := client.NewAccountAuthenticatorActivity(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAccountAuthenticatorActivityFinishCmd = &cobra.Command{
-	Use:   "finish",
-	Short: "Finish RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccountAuthenticatorActivityServiceClient(grpcConn)
-		req := &pb.FinishRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Finish(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAccountAuthenticatorActivitySetAccountAuthenticatorResultCmd = &cobra.Command{
-	Use:   "set-account-authenticator-result",
-	Short: "SetAccountAuthenticatorResult RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccountAuthenticatorActivityServiceClient(grpcConn)
-		req := &pb.SetAccountAuthenticatorResultRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
+		client := pb.NewOnAccountsUpdateListenerServiceClient(grpcConn)
+		req := &pb.OnAccountsUpdatedRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetAccountAuthenticatorResult(ctx, req)
+		resp, err := client.OnAccountsUpdated(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1049,94 +1027,35 @@ var accountsAccountAuthenticatorActivitySetAccountAuthenticatorResultCmd = &cobr
 	},
 }
 
-var accountsAccountManagerFutureCmd = &cobra.Command{
-	Use:   "account-manager-future",
-	Short: "AccountManagerFutureService operations",
+var accountsAbstractAccountAuthenticatorCmd = &cobra.Command{
+	Use:   "abstract-account-authenticator",
+	Short: "AbstractAccountAuthenticatorService operations",
 }
 
-var accountsAccountManagerFutureCancelCmd = &cobra.Command{
-	Use:   "cancel",
-	Short: "Cancel RPC",
+var accountsAbstractAccountAuthenticatorAddAccountCmd = &cobra.Command{
+	Use:   "add-account",
+	Short: "AddAccount RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAccountManagerFutureServiceClient(grpcConn)
-		req := &pb.CancelRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Cancel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAccountManagerFutureIsCancelledCmd = &cobra.Command{
-	Use:   "is-cancelled",
-	Short: "IsCancelled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccountManagerFutureServiceClient(grpcConn)
-		req := &pb.IsCancelledRequest{}
-		resp, err := client.IsCancelled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAccountManagerFutureIsDoneCmd = &cobra.Command{
-	Use:   "is-done",
-	Short: "IsDone RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccountManagerFutureServiceClient(grpcConn)
-		req := &pb.IsDoneRequest{}
-		resp, err := client.IsDone(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAuthenticatorDescriptionCmd = &cobra.Command{
-	Use:   "authenticator-description",
-	Short: "AuthenticatorDescriptionService operations",
-}
-
-var accountsAuthenticatorDescriptionNewAuthenticatorDescriptionCmd = &cobra.Command{
-	Use:   "new-authenticator-description",
-	Short: "NewAuthenticatorDescription RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAuthenticatorDescriptionServiceClient(grpcConn)
-		req := &pb.NewAuthenticatorDescriptionRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+		client := pb.NewAbstractAccountAuthenticatorServiceClient(grpcConn)
+		req := &pb.AddAccountRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetString("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
 			req.Arg2 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
 			req.Arg3 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg4"); err == nil {
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
 			req.Arg4 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		resp, err := client.NewAuthenticatorDescription(ctx, req)
+		resp, err := client.AddAccount(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1144,103 +1063,24 @@ var accountsAuthenticatorDescriptionNewAuthenticatorDescriptionCmd = &cobra.Comm
 	},
 }
 
-var accountsAuthenticatorDescriptionDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
+var accountsAbstractAccountAuthenticatorAddAccountFromCredentialsCmd = &cobra.Command{
+	Use:   "add-account-from-credentials",
+	Short: "AddAccountFromCredentials RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAuthenticatorDescriptionServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAuthenticatorDescriptionEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAuthenticatorDescriptionServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
+		client := pb.NewAbstractAccountAuthenticatorServiceClient(grpcConn)
+		req := &pb.AddAccountFromCredentialsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAuthenticatorDescriptionHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAuthenticatorDescriptionServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAuthenticatorDescriptionToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAuthenticatorDescriptionServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAuthenticatorDescriptionWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAuthenticatorDescriptionServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.WriteToParcel(ctx, req)
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.AddAccountFromCredentials(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1248,45 +1088,24 @@ var accountsAuthenticatorDescriptionWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var accountsAuthenticatorDescriptionNewKeyCmd = &cobra.Command{
-	Use:   "new-key",
-	Short: "NewKey RPC",
+var accountsAbstractAccountAuthenticatorConfirmCredentialsCmd = &cobra.Command{
+	Use:   "confirm-credentials",
+	Short: "ConfirmCredentials RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAuthenticatorDescriptionServiceClient(grpcConn)
-		req := &pb.NewKeyRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewKey(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAccountAuthenticatorResponseCmd = &cobra.Command{
-	Use:   "account-authenticator-response",
-	Short: "AccountAuthenticatorResponseService operations",
-}
-
-var accountsAccountAuthenticatorResponseNewAccountAuthenticatorResponseCmd = &cobra.Command{
-	Use:   "new-account-authenticator-response",
-	Short: "NewAccountAuthenticatorResponse RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccountAuthenticatorResponseServiceClient(grpcConn)
-		req := &pb.NewAccountAuthenticatorResponseRequest{}
+		client := pb.NewAbstractAccountAuthenticatorServiceClient(grpcConn)
+		req := &pb.ConfirmCredentialsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.NewAccountAuthenticatorResponse(ctx, req)
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.ConfirmCredentials(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1294,43 +1113,21 @@ var accountsAccountAuthenticatorResponseNewAccountAuthenticatorResponseCmd = &co
 	},
 }
 
-var accountsAccountAuthenticatorResponseDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
+var accountsAbstractAccountAuthenticatorEditPropertiesCmd = &cobra.Command{
+	Use:   "edit-properties",
+	Short: "EditProperties RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAccountAuthenticatorResponseServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAccountAuthenticatorResponseOnErrorCmd = &cobra.Command{
-	Use:   "on-error",
-	Short: "OnError RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccountAuthenticatorResponseServiceClient(grpcConn)
-		req := &pb.OnErrorRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+		client := pb.NewAbstractAccountAuthenticatorServiceClient(grpcConn)
+		req := &pb.EditPropertiesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetString("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.OnError(ctx, req)
+		resp, err := client.EditProperties(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1338,65 +1135,268 @@ var accountsAccountAuthenticatorResponseOnErrorCmd = &cobra.Command{
 	},
 }
 
-var accountsAccountAuthenticatorResponseOnRequestContinuedCmd = &cobra.Command{
-	Use:   "on-request-continued",
-	Short: "OnRequestContinued RPC",
+var accountsAbstractAccountAuthenticatorFinishSessionCmd = &cobra.Command{
+	Use:   "finish-session",
+	Short: "FinishSession RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAccountAuthenticatorResponseServiceClient(grpcConn)
-		req := &pb.OnRequestContinuedRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.OnRequestContinued(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAccountAuthenticatorResponseOnResultCmd = &cobra.Command{
-	Use:   "on-result",
-	Short: "OnResult RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccountAuthenticatorResponseServiceClient(grpcConn)
-		req := &pb.OnResultRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
+		client := pb.NewAbstractAccountAuthenticatorServiceClient(grpcConn)
+		req := &pb.FinishSessionRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.OnResult(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var accountsAccountAuthenticatorResponseWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAccountAuthenticatorResponseServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.WriteToParcel(ctx, req)
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.FinishSession(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accountsAbstractAccountAuthenticatorGetAccountCredentialsForCloningCmd = &cobra.Command{
+	Use:   "get-account-credentials-for-cloning",
+	Short: "GetAccountCredentialsForCloning RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractAccountAuthenticatorServiceClient(grpcConn)
+		req := &pb.GetAccountCredentialsForCloningRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetAccountCredentialsForCloning(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accountsAbstractAccountAuthenticatorGetAccountRemovalAllowedCmd = &cobra.Command{
+	Use:   "get-account-removal-allowed",
+	Short: "GetAccountRemovalAllowed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractAccountAuthenticatorServiceClient(grpcConn)
+		req := &pb.GetAccountRemovalAllowedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetAccountRemovalAllowed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accountsAbstractAccountAuthenticatorGetAuthTokenCmd = &cobra.Command{
+	Use:   "get-auth-token",
+	Short: "GetAuthToken RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractAccountAuthenticatorServiceClient(grpcConn)
+		req := &pb.GetAuthTokenRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.GetAuthToken(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accountsAbstractAccountAuthenticatorGetAuthTokenLabelCmd = &cobra.Command{
+	Use:   "get-auth-token-label",
+	Short: "GetAuthTokenLabel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractAccountAuthenticatorServiceClient(grpcConn)
+		req := &pb.GetAuthTokenLabelRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetAuthTokenLabel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accountsAbstractAccountAuthenticatorGetIBinderCmd = &cobra.Command{
+	Use:   "get-i-binder",
+	Short: "GetIBinder RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractAccountAuthenticatorServiceClient(grpcConn)
+		req := &pb.GetIBinderRequest{}
+		resp, err := client.GetIBinder(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accountsAbstractAccountAuthenticatorHasFeaturesCmd = &cobra.Command{
+	Use:   "has-features",
+	Short: "HasFeatures RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractAccountAuthenticatorServiceClient(grpcConn)
+		req := &pb.HasFeaturesRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.HasFeatures(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accountsAbstractAccountAuthenticatorIsCredentialsUpdateSuggestedCmd = &cobra.Command{
+	Use:   "is-credentials-update-suggested",
+	Short: "IsCredentialsUpdateSuggested RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractAccountAuthenticatorServiceClient(grpcConn)
+		req := &pb.IsCredentialsUpdateSuggestedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.IsCredentialsUpdateSuggested(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accountsAbstractAccountAuthenticatorStartAddAccountSessionCmd = &cobra.Command{
+	Use:   "start-add-account-session",
+	Short: "StartAddAccountSession RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractAccountAuthenticatorServiceClient(grpcConn)
+		req := &pb.StartAddAccountSessionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.StartAddAccountSession(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accountsAbstractAccountAuthenticatorStartUpdateCredentialsSessionCmd = &cobra.Command{
+	Use:   "start-update-credentials-session",
+	Short: "StartUpdateCredentialsSession RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractAccountAuthenticatorServiceClient(grpcConn)
+		req := &pb.StartUpdateCredentialsSessionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.StartUpdateCredentialsSession(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var accountsAbstractAccountAuthenticatorUpdateCredentialsCmd = &cobra.Command{
+	Use:   "update-credentials",
+	Short: "UpdateCredentials RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAbstractAccountAuthenticatorServiceClient(grpcConn)
+		req := &pb.UpdateCredentialsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.UpdateCredentials(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1405,9 +1405,60 @@ var accountsAccountAuthenticatorResponseWriteToParcelCmd = &cobra.Command{
 }
 
 func init() {
-	accountsOnAccountsUpdateListenerOnAccountsUpdatedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accountsOnAccountsUpdateListenerCmd.AddCommand(accountsOnAccountsUpdateListenerOnAccountsUpdatedCmd)
-	accountsCmd.AddCommand(accountsOnAccountsUpdateListenerCmd)
+	accountsAccountAuthenticatorResponseNewAccountAuthenticatorResponseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accountsAccountAuthenticatorResponseCmd.AddCommand(accountsAccountAuthenticatorResponseNewAccountAuthenticatorResponseCmd)
+	accountsAccountAuthenticatorResponseDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accountsAccountAuthenticatorResponseCmd.AddCommand(accountsAccountAuthenticatorResponseDescribeContentsCmd)
+	accountsAccountAuthenticatorResponseOnErrorCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accountsAccountAuthenticatorResponseOnErrorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	accountsAccountAuthenticatorResponseOnErrorCmd.Flags().String("arg1", "", "arg1 (string)")
+	accountsAccountAuthenticatorResponseCmd.AddCommand(accountsAccountAuthenticatorResponseOnErrorCmd)
+	accountsAccountAuthenticatorResponseOnRequestContinuedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accountsAccountAuthenticatorResponseCmd.AddCommand(accountsAccountAuthenticatorResponseOnRequestContinuedCmd)
+	accountsAccountAuthenticatorResponseOnResultCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accountsAccountAuthenticatorResponseOnResultCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accountsAccountAuthenticatorResponseCmd.AddCommand(accountsAccountAuthenticatorResponseOnResultCmd)
+	accountsAccountAuthenticatorResponseWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accountsAccountAuthenticatorResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accountsAccountAuthenticatorResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	accountsAccountAuthenticatorResponseCmd.AddCommand(accountsAccountAuthenticatorResponseWriteToParcelCmd)
+	accountsCmd.AddCommand(accountsAccountAuthenticatorResponseCmd)
+	accountsAuthenticatorDescriptionNewAuthenticatorDescriptionCmd.Flags().String("arg0", "", "arg0 (string)")
+	accountsAuthenticatorDescriptionNewAuthenticatorDescriptionCmd.Flags().String("arg1", "", "arg1 (string)")
+	accountsAuthenticatorDescriptionNewAuthenticatorDescriptionCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	accountsAuthenticatorDescriptionNewAuthenticatorDescriptionCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	accountsAuthenticatorDescriptionNewAuthenticatorDescriptionCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
+	accountsAuthenticatorDescriptionNewAuthenticatorDescriptionCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	accountsAuthenticatorDescriptionCmd.AddCommand(accountsAuthenticatorDescriptionNewAuthenticatorDescriptionCmd)
+	accountsAuthenticatorDescriptionDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accountsAuthenticatorDescriptionCmd.AddCommand(accountsAuthenticatorDescriptionDescribeContentsCmd)
+	accountsAuthenticatorDescriptionEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accountsAuthenticatorDescriptionEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accountsAuthenticatorDescriptionCmd.AddCommand(accountsAuthenticatorDescriptionEqualsCmd)
+	accountsAuthenticatorDescriptionHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accountsAuthenticatorDescriptionCmd.AddCommand(accountsAuthenticatorDescriptionHashCodeCmd)
+	accountsAuthenticatorDescriptionToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accountsAuthenticatorDescriptionCmd.AddCommand(accountsAuthenticatorDescriptionToStringCmd)
+	accountsAuthenticatorDescriptionWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accountsAuthenticatorDescriptionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accountsAuthenticatorDescriptionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	accountsAuthenticatorDescriptionCmd.AddCommand(accountsAuthenticatorDescriptionWriteToParcelCmd)
+	accountsAuthenticatorDescriptionNewKeyCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accountsAuthenticatorDescriptionNewKeyCmd.Flags().String("arg0", "", "arg0 (string)")
+	accountsAuthenticatorDescriptionCmd.AddCommand(accountsAuthenticatorDescriptionNewKeyCmd)
+	accountsCmd.AddCommand(accountsAuthenticatorDescriptionCmd)
+	accountsAccountManagerFutureCancelCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	accountsAccountManagerFutureCmd.AddCommand(accountsAccountManagerFutureCancelCmd)
+	accountsAccountManagerFutureCmd.AddCommand(accountsAccountManagerFutureIsCancelledCmd)
+	accountsAccountManagerFutureCmd.AddCommand(accountsAccountManagerFutureIsDoneCmd)
+	accountsCmd.AddCommand(accountsAccountManagerFutureCmd)
+	accountsAccountAuthenticatorActivityCmd.AddCommand(accountsAccountAuthenticatorActivityNewAccountAuthenticatorActivityCmd)
+	accountsAccountAuthenticatorActivityFinishCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accountsAccountAuthenticatorActivityCmd.AddCommand(accountsAccountAuthenticatorActivityFinishCmd)
+	accountsAccountAuthenticatorActivitySetAccountAuthenticatorResultCmd.Flags().Int64("handle", 0, "handle (int64)")
+	accountsAccountAuthenticatorActivitySetAccountAuthenticatorResultCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accountsAccountAuthenticatorActivityCmd.AddCommand(accountsAccountAuthenticatorActivitySetAccountAuthenticatorResultCmd)
+	accountsCmd.AddCommand(accountsAccountAuthenticatorActivityCmd)
 	accountsAccountNewAccountCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	accountsAccountCmd.AddCommand(accountsAccountNewAccountCmd)
 	accountsAccountDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
@@ -1424,6 +1475,66 @@ func init() {
 	accountsAccountWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	accountsAccountCmd.AddCommand(accountsAccountWriteToParcelCmd)
 	accountsCmd.AddCommand(accountsAccountCmd)
+	accountsAccountManagerAddAccountExplicitlyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accountsAccountManagerAddAccountExplicitlyCmd.Flags().String("arg1", "", "arg1 (string)")
+	accountsAccountManagerAddAccountExplicitlyCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	accountsAccountManagerCmd.AddCommand(accountsAccountManagerAddAccountExplicitlyCmd)
+	accountsAccountManagerBlockingGetAuthTokenCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accountsAccountManagerBlockingGetAuthTokenCmd.Flags().String("arg1", "", "arg1 (string)")
+	accountsAccountManagerBlockingGetAuthTokenCmd.Flags().Bool("arg2", false, "arg2 (bool)")
+	accountsAccountManagerCmd.AddCommand(accountsAccountManagerBlockingGetAuthTokenCmd)
+	accountsAccountManagerClearPasswordCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accountsAccountManagerCmd.AddCommand(accountsAccountManagerClearPasswordCmd)
+	accountsAccountManagerGetAccountVisibilityCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accountsAccountManagerGetAccountVisibilityCmd.Flags().String("arg1", "", "arg1 (string)")
+	accountsAccountManagerCmd.AddCommand(accountsAccountManagerGetAccountVisibilityCmd)
+	accountsAccountManagerCmd.AddCommand(accountsAccountManagerGetAccountsCmd)
+	accountsAccountManagerGetAccountsByTypeCmd.Flags().String("arg0", "", "arg0 (string)")
+	accountsAccountManagerCmd.AddCommand(accountsAccountManagerGetAccountsByTypeCmd)
+	accountsAccountManagerGetAccountsByTypeForPackageCmd.Flags().String("arg0", "", "arg0 (string)")
+	accountsAccountManagerGetAccountsByTypeForPackageCmd.Flags().String("arg1", "", "arg1 (string)")
+	accountsAccountManagerCmd.AddCommand(accountsAccountManagerGetAccountsByTypeForPackageCmd)
+	accountsAccountManagerCmd.AddCommand(accountsAccountManagerGetAuthenticatorTypesCmd)
+	accountsAccountManagerGetPasswordCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accountsAccountManagerCmd.AddCommand(accountsAccountManagerGetPasswordCmd)
+	accountsAccountManagerGetPreviousNameCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accountsAccountManagerCmd.AddCommand(accountsAccountManagerGetPreviousNameCmd)
+	accountsAccountManagerGetUserDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accountsAccountManagerGetUserDataCmd.Flags().String("arg1", "", "arg1 (string)")
+	accountsAccountManagerCmd.AddCommand(accountsAccountManagerGetUserDataCmd)
+	accountsAccountManagerInvalidateAuthTokenCmd.Flags().String("arg0", "", "arg0 (string)")
+	accountsAccountManagerInvalidateAuthTokenCmd.Flags().String("arg1", "", "arg1 (string)")
+	accountsAccountManagerCmd.AddCommand(accountsAccountManagerInvalidateAuthTokenCmd)
+	accountsAccountManagerNotifyAccountAuthenticatedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accountsAccountManagerCmd.AddCommand(accountsAccountManagerNotifyAccountAuthenticatedCmd)
+	accountsAccountManagerPeekAuthTokenCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accountsAccountManagerPeekAuthTokenCmd.Flags().String("arg1", "", "arg1 (string)")
+	accountsAccountManagerCmd.AddCommand(accountsAccountManagerPeekAuthTokenCmd)
+	accountsAccountManagerRemoveAccountExplicitlyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accountsAccountManagerCmd.AddCommand(accountsAccountManagerRemoveAccountExplicitlyCmd)
+	accountsAccountManagerRemoveOnAccountsUpdatedListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accountsAccountManagerCmd.AddCommand(accountsAccountManagerRemoveOnAccountsUpdatedListenerCmd)
+	accountsAccountManagerSetAccountVisibilityCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accountsAccountManagerSetAccountVisibilityCmd.Flags().String("arg1", "", "arg1 (string)")
+	accountsAccountManagerSetAccountVisibilityCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	accountsAccountManagerCmd.AddCommand(accountsAccountManagerSetAccountVisibilityCmd)
+	accountsAccountManagerSetAuthTokenCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accountsAccountManagerSetAuthTokenCmd.Flags().String("arg1", "", "arg1 (string)")
+	accountsAccountManagerSetAuthTokenCmd.Flags().String("arg2", "", "arg2 (string)")
+	accountsAccountManagerCmd.AddCommand(accountsAccountManagerSetAuthTokenCmd)
+	accountsAccountManagerSetPasswordCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accountsAccountManagerSetPasswordCmd.Flags().String("arg1", "", "arg1 (string)")
+	accountsAccountManagerCmd.AddCommand(accountsAccountManagerSetPasswordCmd)
+	accountsAccountManagerSetUserDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accountsAccountManagerSetUserDataCmd.Flags().String("arg1", "", "arg1 (string)")
+	accountsAccountManagerSetUserDataCmd.Flags().String("arg2", "", "arg2 (string)")
+	accountsAccountManagerCmd.AddCommand(accountsAccountManagerSetUserDataCmd)
+	accountsAccountManagerGetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accountsAccountManagerCmd.AddCommand(accountsAccountManagerGetCmd)
+	accountsCmd.AddCommand(accountsAccountManagerCmd)
+	accountsOnAccountsUpdateListenerOnAccountsUpdatedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	accountsOnAccountsUpdateListenerCmd.AddCommand(accountsOnAccountsUpdateListenerOnAccountsUpdatedCmd)
+	accountsCmd.AddCommand(accountsOnAccountsUpdateListenerCmd)
 	accountsAbstractAccountAuthenticatorAddAccountCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	accountsAbstractAccountAuthenticatorAddAccountCmd.Flags().String("arg1", "", "arg1 (string)")
 	accountsAbstractAccountAuthenticatorAddAccountCmd.Flags().String("arg2", "", "arg2 (string)")
@@ -1484,116 +1595,5 @@ func init() {
 	accountsAbstractAccountAuthenticatorUpdateCredentialsCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
 	accountsAbstractAccountAuthenticatorCmd.AddCommand(accountsAbstractAccountAuthenticatorUpdateCredentialsCmd)
 	accountsCmd.AddCommand(accountsAbstractAccountAuthenticatorCmd)
-	accountsAccountManagerAddAccountExplicitlyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accountsAccountManagerAddAccountExplicitlyCmd.Flags().String("arg1", "", "arg1 (string)")
-	accountsAccountManagerAddAccountExplicitlyCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	accountsAccountManagerCmd.AddCommand(accountsAccountManagerAddAccountExplicitlyCmd)
-	accountsAccountManagerBlockingGetAuthTokenCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accountsAccountManagerBlockingGetAuthTokenCmd.Flags().String("arg1", "", "arg1 (string)")
-	accountsAccountManagerBlockingGetAuthTokenCmd.Flags().Bool("arg2", false, "arg2 (bool)")
-	accountsAccountManagerCmd.AddCommand(accountsAccountManagerBlockingGetAuthTokenCmd)
-	accountsAccountManagerClearPasswordCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accountsAccountManagerCmd.AddCommand(accountsAccountManagerClearPasswordCmd)
-	accountsAccountManagerGetAccountVisibilityCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accountsAccountManagerGetAccountVisibilityCmd.Flags().String("arg1", "", "arg1 (string)")
-	accountsAccountManagerCmd.AddCommand(accountsAccountManagerGetAccountVisibilityCmd)
-	accountsAccountManagerCmd.AddCommand(accountsAccountManagerGetAccountsCmd)
-	accountsAccountManagerGetAccountsByTypeCmd.Flags().String("arg0", "", "arg0 (string)")
-	accountsAccountManagerCmd.AddCommand(accountsAccountManagerGetAccountsByTypeCmd)
-	accountsAccountManagerGetAccountsByTypeForPackageCmd.Flags().String("arg0", "", "arg0 (string)")
-	accountsAccountManagerGetAccountsByTypeForPackageCmd.Flags().String("arg1", "", "arg1 (string)")
-	accountsAccountManagerCmd.AddCommand(accountsAccountManagerGetAccountsByTypeForPackageCmd)
-	accountsAccountManagerCmd.AddCommand(accountsAccountManagerGetAuthenticatorTypesCmd)
-	accountsAccountManagerGetPasswordCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accountsAccountManagerCmd.AddCommand(accountsAccountManagerGetPasswordCmd)
-	accountsAccountManagerGetPreviousNameCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accountsAccountManagerCmd.AddCommand(accountsAccountManagerGetPreviousNameCmd)
-	accountsAccountManagerGetUserDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accountsAccountManagerGetUserDataCmd.Flags().String("arg1", "", "arg1 (string)")
-	accountsAccountManagerCmd.AddCommand(accountsAccountManagerGetUserDataCmd)
-	accountsAccountManagerInvalidateAuthTokenCmd.Flags().String("arg0", "", "arg0 (string)")
-	accountsAccountManagerInvalidateAuthTokenCmd.Flags().String("arg1", "", "arg1 (string)")
-	accountsAccountManagerCmd.AddCommand(accountsAccountManagerInvalidateAuthTokenCmd)
-	accountsAccountManagerNotifyAccountAuthenticatedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accountsAccountManagerCmd.AddCommand(accountsAccountManagerNotifyAccountAuthenticatedCmd)
-	accountsAccountManagerPeekAuthTokenCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accountsAccountManagerPeekAuthTokenCmd.Flags().String("arg1", "", "arg1 (string)")
-	accountsAccountManagerCmd.AddCommand(accountsAccountManagerPeekAuthTokenCmd)
-	accountsAccountManagerRemoveAccountExplicitlyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accountsAccountManagerCmd.AddCommand(accountsAccountManagerRemoveAccountExplicitlyCmd)
-	accountsAccountManagerRemoveOnAccountsUpdatedListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accountsAccountManagerCmd.AddCommand(accountsAccountManagerRemoveOnAccountsUpdatedListenerCmd)
-	accountsAccountManagerSetAccountVisibilityCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accountsAccountManagerSetAccountVisibilityCmd.Flags().String("arg1", "", "arg1 (string)")
-	accountsAccountManagerSetAccountVisibilityCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	accountsAccountManagerCmd.AddCommand(accountsAccountManagerSetAccountVisibilityCmd)
-	accountsAccountManagerSetAuthTokenCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accountsAccountManagerSetAuthTokenCmd.Flags().String("arg1", "", "arg1 (string)")
-	accountsAccountManagerSetAuthTokenCmd.Flags().String("arg2", "", "arg2 (string)")
-	accountsAccountManagerCmd.AddCommand(accountsAccountManagerSetAuthTokenCmd)
-	accountsAccountManagerSetPasswordCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accountsAccountManagerSetPasswordCmd.Flags().String("arg1", "", "arg1 (string)")
-	accountsAccountManagerCmd.AddCommand(accountsAccountManagerSetPasswordCmd)
-	accountsAccountManagerSetUserDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accountsAccountManagerSetUserDataCmd.Flags().String("arg1", "", "arg1 (string)")
-	accountsAccountManagerSetUserDataCmd.Flags().String("arg2", "", "arg2 (string)")
-	accountsAccountManagerCmd.AddCommand(accountsAccountManagerSetUserDataCmd)
-	accountsAccountManagerGetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accountsAccountManagerCmd.AddCommand(accountsAccountManagerGetCmd)
-	accountsCmd.AddCommand(accountsAccountManagerCmd)
-	accountsAccountAuthenticatorActivityCmd.AddCommand(accountsAccountAuthenticatorActivityNewAccountAuthenticatorActivityCmd)
-	accountsAccountAuthenticatorActivityFinishCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accountsAccountAuthenticatorActivityCmd.AddCommand(accountsAccountAuthenticatorActivityFinishCmd)
-	accountsAccountAuthenticatorActivitySetAccountAuthenticatorResultCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accountsAccountAuthenticatorActivitySetAccountAuthenticatorResultCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accountsAccountAuthenticatorActivityCmd.AddCommand(accountsAccountAuthenticatorActivitySetAccountAuthenticatorResultCmd)
-	accountsCmd.AddCommand(accountsAccountAuthenticatorActivityCmd)
-	accountsAccountManagerFutureCancelCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	accountsAccountManagerFutureCmd.AddCommand(accountsAccountManagerFutureCancelCmd)
-	accountsAccountManagerFutureCmd.AddCommand(accountsAccountManagerFutureIsCancelledCmd)
-	accountsAccountManagerFutureCmd.AddCommand(accountsAccountManagerFutureIsDoneCmd)
-	accountsCmd.AddCommand(accountsAccountManagerFutureCmd)
-	accountsAuthenticatorDescriptionNewAuthenticatorDescriptionCmd.Flags().String("arg0", "", "arg0 (string)")
-	accountsAuthenticatorDescriptionNewAuthenticatorDescriptionCmd.Flags().String("arg1", "", "arg1 (string)")
-	accountsAuthenticatorDescriptionNewAuthenticatorDescriptionCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	accountsAuthenticatorDescriptionNewAuthenticatorDescriptionCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	accountsAuthenticatorDescriptionNewAuthenticatorDescriptionCmd.Flags().Int32("arg4", 0, "arg4 (int32)")
-	accountsAuthenticatorDescriptionNewAuthenticatorDescriptionCmd.Flags().Int32("arg5", 0, "arg5 (int32)")
-	accountsAuthenticatorDescriptionCmd.AddCommand(accountsAuthenticatorDescriptionNewAuthenticatorDescriptionCmd)
-	accountsAuthenticatorDescriptionDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accountsAuthenticatorDescriptionCmd.AddCommand(accountsAuthenticatorDescriptionDescribeContentsCmd)
-	accountsAuthenticatorDescriptionEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accountsAuthenticatorDescriptionEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accountsAuthenticatorDescriptionCmd.AddCommand(accountsAuthenticatorDescriptionEqualsCmd)
-	accountsAuthenticatorDescriptionHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accountsAuthenticatorDescriptionCmd.AddCommand(accountsAuthenticatorDescriptionHashCodeCmd)
-	accountsAuthenticatorDescriptionToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accountsAuthenticatorDescriptionCmd.AddCommand(accountsAuthenticatorDescriptionToStringCmd)
-	accountsAuthenticatorDescriptionWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accountsAuthenticatorDescriptionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accountsAuthenticatorDescriptionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	accountsAuthenticatorDescriptionCmd.AddCommand(accountsAuthenticatorDescriptionWriteToParcelCmd)
-	accountsAuthenticatorDescriptionNewKeyCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accountsAuthenticatorDescriptionNewKeyCmd.Flags().String("arg0", "", "arg0 (string)")
-	accountsAuthenticatorDescriptionCmd.AddCommand(accountsAuthenticatorDescriptionNewKeyCmd)
-	accountsCmd.AddCommand(accountsAuthenticatorDescriptionCmd)
-	accountsAccountAuthenticatorResponseNewAccountAuthenticatorResponseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accountsAccountAuthenticatorResponseCmd.AddCommand(accountsAccountAuthenticatorResponseNewAccountAuthenticatorResponseCmd)
-	accountsAccountAuthenticatorResponseDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accountsAccountAuthenticatorResponseCmd.AddCommand(accountsAccountAuthenticatorResponseDescribeContentsCmd)
-	accountsAccountAuthenticatorResponseOnErrorCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accountsAccountAuthenticatorResponseOnErrorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	accountsAccountAuthenticatorResponseOnErrorCmd.Flags().String("arg1", "", "arg1 (string)")
-	accountsAccountAuthenticatorResponseCmd.AddCommand(accountsAccountAuthenticatorResponseOnErrorCmd)
-	accountsAccountAuthenticatorResponseOnRequestContinuedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accountsAccountAuthenticatorResponseCmd.AddCommand(accountsAccountAuthenticatorResponseOnRequestContinuedCmd)
-	accountsAccountAuthenticatorResponseOnResultCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accountsAccountAuthenticatorResponseOnResultCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accountsAccountAuthenticatorResponseCmd.AddCommand(accountsAccountAuthenticatorResponseOnResultCmd)
-	accountsAccountAuthenticatorResponseWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	accountsAccountAuthenticatorResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	accountsAccountAuthenticatorResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	accountsAccountAuthenticatorResponseCmd.AddCommand(accountsAccountAuthenticatorResponseWriteToParcelCmd)
-	accountsCmd.AddCommand(accountsAccountAuthenticatorResponseCmd)
 	rootCmd.AddCommand(accountsCmd)
 }

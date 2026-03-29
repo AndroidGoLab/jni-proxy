@@ -832,6 +832,30 @@ var contactsContractSimAccountWriteToParcelCmd = &cobra.Command{
 	},
 }
 
+var contactsContractSimContactsCmd = &cobra.Command{
+	Use:   "contract-sim-contacts",
+	Short: "ContractSimContactsService operations",
+}
+
+var contactsContractSimContactsGetSimAccountsCmd = &cobra.Command{
+	Use:   "get-sim-accounts",
+	Short: "GetSimAccounts RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewContractSimContactsServiceClient(grpcConn)
+		req := &pb.GetSimAccountsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetSimAccounts(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var contactsContractStatusUpdatesCmd = &cobra.Command{
 	Use:   "contract-status-updates",
 	Short: "ContractStatusUpdatesService operations",
@@ -1060,6 +1084,9 @@ func init() {
 	contactsContractSimAccountWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	contactsContractSimAccountCmd.AddCommand(contactsContractSimAccountWriteToParcelCmd)
 	contactsCmd.AddCommand(contactsContractSimAccountCmd)
+	contactsContractSimContactsGetSimAccountsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	contactsContractSimContactsCmd.AddCommand(contactsContractSimContactsGetSimAccountsCmd)
+	contactsCmd.AddCommand(contactsContractSimContactsCmd)
 	contactsContractStatusUpdatesGetPresenceIconResourceIdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	contactsContractStatusUpdatesCmd.AddCommand(contactsContractStatusUpdatesGetPresenceIconResourceIdCmd)
 	contactsContractStatusUpdatesGetPresencePrecedenceCmd.Flags().Int32("arg0", 0, "arg0 (int32)")

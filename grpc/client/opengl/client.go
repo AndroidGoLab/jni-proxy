@@ -9,21 +9,2870 @@ import (
 	"google.golang.org/grpc"
 )
 
-// GLUClient wraps the gRPC GLUService client.
-type GLUClient struct {
-	svc pb.GLUServiceClient
+// GLUtilsClient wraps the gRPC GLUtilsService client.
+type GLUtilsClient struct {
+	svc pb.GLUtilsServiceClient
 }
 
-// NewGLUClient creates a new GLU client.
-func NewGLUClient(cc grpc.ClientConnInterface) *GLUClient {
-	return &GLUClient{
-		svc: pb.NewGLUServiceClient(cc),
+// NewGLUtilsClient creates a new GLUtils client.
+func NewGLUtilsClient(cc grpc.ClientConnInterface) *GLUtilsClient {
+	return &GLUtilsClient{
+		svc: pb.NewGLUtilsServiceClient(cc),
 	}
 }
 
-// GluErrorString calls the GluErrorString RPC.
-func (c *GLUClient) GluErrorString(ctx context.Context, handle int64, arg0 int32) (string, error) {
-	resp, err := c.svc.GluErrorString(ctx, &pb.GluErrorStringRequest{
+// GetEGLErrorString calls the GetEGLErrorString RPC.
+func (c *GLUtilsClient) GetEGLErrorString(ctx context.Context, arg0 int32) (string, error) {
+	resp, err := c.svc.GetEGLErrorString(ctx, &pb.GetEGLErrorStringRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInternalFormat calls the GetInternalFormat RPC.
+func (c *GLUtilsClient) GetInternalFormat(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.GetInternalFormat(ctx, &pb.GetInternalFormatRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetType calls the GetType RPC.
+func (c *GLUtilsClient) GetType(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TexImage2D4 calls the TexImage2D4 RPC.
+func (c *GLUtilsClient) TexImage2D4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.TexImage2D4(ctx, &pb.TexImage2D4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// TexImage2D5_1 calls the TexImage2D5_1 RPC.
+func (c *GLUtilsClient) TexImage2D5_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
+	_, err := c.svc.TexImage2D5_1(ctx, &pb.TexImage2D5_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// TexImage2D6_2 calls the TexImage2D6_2 RPC.
+func (c *GLUtilsClient) TexImage2D6_2(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32, arg5 int32) error {
+	_, err := c.svc.TexImage2D6_2(ctx, &pb.TexImage2D6_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	return err
+}
+
+// TexSubImage2D5 calls the TexSubImage2D5 RPC.
+func (c *GLUtilsClient) TexSubImage2D5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64) error {
+	_, err := c.svc.TexSubImage2D5(ctx, &pb.TexSubImage2D5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// TexSubImage2D7_1 calls the TexSubImage2D7_1 RPC.
+func (c *GLUtilsClient) TexSubImage2D7_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64, arg5 int32, arg6 int32) error {
+	_, err := c.svc.TexSubImage2D7_1(ctx, &pb.TexSubImage2D7_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+		Arg6: arg6,
+	})
+	return err
+}
+
+// EGLImageClient wraps the gRPC EGLImageService client.
+type EGLImageClient struct {
+	svc pb.EGLImageServiceClient
+}
+
+// NewEGLImageClient creates a new EGLImage client.
+func NewEGLImageClient(cc grpc.ClientConnInterface) *EGLImageClient {
+	return &EGLImageClient{
+		svc: pb.NewEGLImageServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *EGLImageClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EGLSyncClient wraps the gRPC EGLSyncService client.
+type EGLSyncClient struct {
+	svc pb.EGLSyncServiceClient
+}
+
+// NewEGLSyncClient creates a new EGLSync client.
+func NewEGLSyncClient(cc grpc.ClientConnInterface) *EGLSyncClient {
+	return &EGLSyncClient{
+		svc: pb.NewEGLSyncServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *EGLSyncClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ETC1Client wraps the gRPC ETC1Service client.
+type ETC1Client struct {
+	svc pb.ETC1ServiceClient
+}
+
+// NewETC1Client creates a new ETC1 client.
+func NewETC1Client(cc grpc.ClientConnInterface) *ETC1Client {
+	return &ETC1Client{
+		svc: pb.NewETC1ServiceClient(cc),
+	}
+}
+
+// DecodeBlock calls the DecodeBlock RPC.
+func (c *ETC1Client) DecodeBlock(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.DecodeBlock(ctx, &pb.DecodeBlockRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// DecodeImage calls the DecodeImage RPC.
+func (c *ETC1Client) DecodeImage(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int32, arg4 int32, arg5 int32) error {
+	_, err := c.svc.DecodeImage(ctx, &pb.DecodeImageRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	return err
+}
+
+// EncodeBlock calls the EncodeBlock RPC.
+func (c *ETC1Client) EncodeBlock(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64) error {
+	_, err := c.svc.EncodeBlock(ctx, &pb.EncodeBlockRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// EncodeImage calls the EncodeImage RPC.
+func (c *ETC1Client) EncodeImage(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int64) error {
+	_, err := c.svc.EncodeImage(ctx, &pb.EncodeImageRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	return err
+}
+
+// FormatHeader calls the FormatHeader RPC.
+func (c *ETC1Client) FormatHeader(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32) error {
+	_, err := c.svc.FormatHeader(ctx, &pb.FormatHeaderRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GetEncodedDataSize calls the GetEncodedDataSize RPC.
+func (c *ETC1Client) GetEncodedDataSize(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int32, error) {
+	resp, err := c.svc.GetEncodedDataSize(ctx, &pb.GetEncodedDataSizeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHeight calls the GetHeight RPC.
+func (c *ETC1Client) GetHeight(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+	resp, err := c.svc.GetHeight(ctx, &pb.GetHeightRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWidth calls the GetWidth RPC.
+func (c *ETC1Client) GetWidth(ctx context.Context, handle int64, arg0 int64) (int32, error) {
+	resp, err := c.svc.GetWidth(ctx, &pb.GetWidthRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsValid calls the IsValid RPC.
+func (c *ETC1Client) IsValid(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.IsValid(ctx, &pb.IsValidRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// VisibilityClient wraps the gRPC VisibilityService client.
+type VisibilityClient struct {
+	svc pb.VisibilityServiceClient
+}
+
+// NewVisibilityClient creates a new Visibility client.
+func NewVisibilityClient(cc grpc.ClientConnInterface) *VisibilityClient {
+	return &VisibilityClient{
+		svc: pb.NewVisibilityServiceClient(cc),
+	}
+}
+
+// ComputeBoundingSphere calls the ComputeBoundingSphere RPC.
+func (c *VisibilityClient) ComputeBoundingSphere(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
+	_, err := c.svc.ComputeBoundingSphere(ctx, &pb.ComputeBoundingSphereRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	return err
+}
+
+// FrustumCullSpheres calls the FrustumCullSpheres RPC.
+func (c *VisibilityClient) FrustumCullSpheres(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64, arg3 int32, arg4 int32, arg5 int64, arg6 int32, arg7 int32) (int32, error) {
+	resp, err := c.svc.FrustumCullSpheres(ctx, &pb.FrustumCullSpheresRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+		Arg6:   arg6,
+		Arg7:   arg7,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// VisibilityTest calls the VisibilityTest RPC.
+func (c *VisibilityClient) VisibilityTest(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64, arg3 int32, arg4 int64, arg5 int32, arg6 int32) (int32, error) {
+	resp, err := c.svc.VisibilityTest(ctx, &pb.VisibilityTestRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+		Arg6:   arg6,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EGLConfigClient wraps the gRPC EGLConfigService client.
+type EGLConfigClient struct {
+	svc pb.EGLConfigServiceClient
+}
+
+// NewEGLConfigClient creates a new EGLConfig client.
+func NewEGLConfigClient(cc grpc.ClientConnInterface) *EGLConfigClient {
+	return &EGLConfigClient{
+		svc: pb.NewEGLConfigServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *EGLConfigClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GLES11Client wraps the gRPC GLES11Service client.
+type GLES11Client struct {
+	svc pb.GLES11ServiceClient
+}
+
+// NewGLES11Client creates a new GLES11 client.
+func NewGLES11Client(cc grpc.ClientConnInterface) *GLES11Client {
+	return &GLES11Client{
+		svc: pb.NewGLES11ServiceClient(cc),
+	}
+}
+
+// GlBindBuffer calls the GlBindBuffer RPC.
+func (c *GLES11Client) GlBindBuffer(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.GlBindBuffer(ctx, &pb.GlBindBufferRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlBufferData calls the GlBufferData RPC.
+func (c *GLES11Client) GlBufferData(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlBufferData(ctx, &pb.GlBufferDataRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlBufferSubData calls the GlBufferSubData RPC.
+func (c *GLES11Client) GlBufferSubData(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
+	_, err := c.svc.GlBufferSubData(ctx, &pb.GlBufferSubDataRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlClipPlanef3 calls the GlClipPlanef3 RPC.
+func (c *GLES11Client) GlClipPlanef3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GlClipPlanef3(ctx, &pb.GlClipPlanef3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlClipPlanef2_1 calls the GlClipPlanef2_1 RPC.
+func (c *GLES11Client) GlClipPlanef2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlClipPlanef2_1(ctx, &pb.GlClipPlanef2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlClipPlanex3 calls the GlClipPlanex3 RPC.
+func (c *GLES11Client) GlClipPlanex3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GlClipPlanex3(ctx, &pb.GlClipPlanex3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlClipPlanex2_1 calls the GlClipPlanex2_1 RPC.
+func (c *GLES11Client) GlClipPlanex2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlClipPlanex2_1(ctx, &pb.GlClipPlanex2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlColor4Ub calls the GlColor4Ub RPC.
+func (c *GLES11Client) GlColor4Ub(ctx context.Context, handle int64, arg0 int8, arg1 int8, arg2 int8, arg3 int8) error {
+	_, err := c.svc.GlColor4Ub(ctx, &pb.GlColor4UbRequest{
+		Handle: handle,
+		Arg0:   int64(arg0),
+		Arg1:   int64(arg1),
+		Arg2:   int64(arg2),
+		Arg3:   int64(arg3),
+	})
+	return err
+}
+
+// GlColorPointer calls the GlColorPointer RPC.
+func (c *GLES11Client) GlColorPointer(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.GlColorPointer(ctx, &pb.GlColorPointerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlDeleteBuffers3 calls the GlDeleteBuffers3 RPC.
+func (c *GLES11Client) GlDeleteBuffers3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GlDeleteBuffers3(ctx, &pb.GlDeleteBuffers3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlDeleteBuffers2_1 calls the GlDeleteBuffers2_1 RPC.
+func (c *GLES11Client) GlDeleteBuffers2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlDeleteBuffers2_1(ctx, &pb.GlDeleteBuffers2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlDrawElements calls the GlDrawElements RPC.
+func (c *GLES11Client) GlDrawElements(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.GlDrawElements(ctx, &pb.GlDrawElementsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlGenBuffers3 calls the GlGenBuffers3 RPC.
+func (c *GLES11Client) GlGenBuffers3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GlGenBuffers3(ctx, &pb.GlGenBuffers3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlGenBuffers2_1 calls the GlGenBuffers2_1 RPC.
+func (c *GLES11Client) GlGenBuffers2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlGenBuffers2_1(ctx, &pb.GlGenBuffers2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlGetBooleanv3 calls the GlGetBooleanv3 RPC.
+func (c *GLES11Client) GlGetBooleanv3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GlGetBooleanv3(ctx, &pb.GlGetBooleanv3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlGetBooleanv2_1 calls the GlGetBooleanv2_1 RPC.
+func (c *GLES11Client) GlGetBooleanv2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlGetBooleanv2_1(ctx, &pb.GlGetBooleanv2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlGetBufferParameteriv4 calls the GlGetBufferParameteriv4 RPC.
+func (c *GLES11Client) GlGetBufferParameteriv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlGetBufferParameteriv4(ctx, &pb.GlGetBufferParameteriv4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlGetBufferParameteriv3_1 calls the GlGetBufferParameteriv3_1 RPC.
+func (c *GLES11Client) GlGetBufferParameteriv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlGetBufferParameteriv3_1(ctx, &pb.GlGetBufferParameteriv3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlGetClipPlanef3 calls the GlGetClipPlanef3 RPC.
+func (c *GLES11Client) GlGetClipPlanef3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GlGetClipPlanef3(ctx, &pb.GlGetClipPlanef3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlGetClipPlanef2_1 calls the GlGetClipPlanef2_1 RPC.
+func (c *GLES11Client) GlGetClipPlanef2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlGetClipPlanef2_1(ctx, &pb.GlGetClipPlanef2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlGetClipPlanex3 calls the GlGetClipPlanex3 RPC.
+func (c *GLES11Client) GlGetClipPlanex3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GlGetClipPlanex3(ctx, &pb.GlGetClipPlanex3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlGetClipPlanex2_1 calls the GlGetClipPlanex2_1 RPC.
+func (c *GLES11Client) GlGetClipPlanex2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlGetClipPlanex2_1(ctx, &pb.GlGetClipPlanex2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlGetFixedv3 calls the GlGetFixedv3 RPC.
+func (c *GLES11Client) GlGetFixedv3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GlGetFixedv3(ctx, &pb.GlGetFixedv3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlGetFixedv2_1 calls the GlGetFixedv2_1 RPC.
+func (c *GLES11Client) GlGetFixedv2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlGetFixedv2_1(ctx, &pb.GlGetFixedv2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlGetFloatv3 calls the GlGetFloatv3 RPC.
+func (c *GLES11Client) GlGetFloatv3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GlGetFloatv3(ctx, &pb.GlGetFloatv3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlGetFloatv2_1 calls the GlGetFloatv2_1 RPC.
+func (c *GLES11Client) GlGetFloatv2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlGetFloatv2_1(ctx, &pb.GlGetFloatv2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlGetLightfv4 calls the GlGetLightfv4 RPC.
+func (c *GLES11Client) GlGetLightfv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlGetLightfv4(ctx, &pb.GlGetLightfv4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlGetLightfv3_1 calls the GlGetLightfv3_1 RPC.
+func (c *GLES11Client) GlGetLightfv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlGetLightfv3_1(ctx, &pb.GlGetLightfv3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlGetLightxv4 calls the GlGetLightxv4 RPC.
+func (c *GLES11Client) GlGetLightxv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlGetLightxv4(ctx, &pb.GlGetLightxv4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlGetLightxv3_1 calls the GlGetLightxv3_1 RPC.
+func (c *GLES11Client) GlGetLightxv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlGetLightxv3_1(ctx, &pb.GlGetLightxv3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlGetMaterialfv4 calls the GlGetMaterialfv4 RPC.
+func (c *GLES11Client) GlGetMaterialfv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlGetMaterialfv4(ctx, &pb.GlGetMaterialfv4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlGetMaterialfv3_1 calls the GlGetMaterialfv3_1 RPC.
+func (c *GLES11Client) GlGetMaterialfv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlGetMaterialfv3_1(ctx, &pb.GlGetMaterialfv3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlGetMaterialxv4 calls the GlGetMaterialxv4 RPC.
+func (c *GLES11Client) GlGetMaterialxv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlGetMaterialxv4(ctx, &pb.GlGetMaterialxv4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlGetMaterialxv3_1 calls the GlGetMaterialxv3_1 RPC.
+func (c *GLES11Client) GlGetMaterialxv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlGetMaterialxv3_1(ctx, &pb.GlGetMaterialxv3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlGetTexEnvfv4 calls the GlGetTexEnvfv4 RPC.
+func (c *GLES11Client) GlGetTexEnvfv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlGetTexEnvfv4(ctx, &pb.GlGetTexEnvfv4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlGetTexEnvfv3_1 calls the GlGetTexEnvfv3_1 RPC.
+func (c *GLES11Client) GlGetTexEnvfv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlGetTexEnvfv3_1(ctx, &pb.GlGetTexEnvfv3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlGetTexEnviv4 calls the GlGetTexEnviv4 RPC.
+func (c *GLES11Client) GlGetTexEnviv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlGetTexEnviv4(ctx, &pb.GlGetTexEnviv4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlGetTexEnviv3_1 calls the GlGetTexEnviv3_1 RPC.
+func (c *GLES11Client) GlGetTexEnviv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlGetTexEnviv3_1(ctx, &pb.GlGetTexEnviv3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlGetTexEnvxv4 calls the GlGetTexEnvxv4 RPC.
+func (c *GLES11Client) GlGetTexEnvxv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlGetTexEnvxv4(ctx, &pb.GlGetTexEnvxv4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlGetTexEnvxv3_1 calls the GlGetTexEnvxv3_1 RPC.
+func (c *GLES11Client) GlGetTexEnvxv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlGetTexEnvxv3_1(ctx, &pb.GlGetTexEnvxv3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlGetTexParameterfv4 calls the GlGetTexParameterfv4 RPC.
+func (c *GLES11Client) GlGetTexParameterfv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlGetTexParameterfv4(ctx, &pb.GlGetTexParameterfv4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlGetTexParameterfv3_1 calls the GlGetTexParameterfv3_1 RPC.
+func (c *GLES11Client) GlGetTexParameterfv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlGetTexParameterfv3_1(ctx, &pb.GlGetTexParameterfv3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlGetTexParameteriv4 calls the GlGetTexParameteriv4 RPC.
+func (c *GLES11Client) GlGetTexParameteriv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlGetTexParameteriv4(ctx, &pb.GlGetTexParameteriv4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlGetTexParameteriv3_1 calls the GlGetTexParameteriv3_1 RPC.
+func (c *GLES11Client) GlGetTexParameteriv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlGetTexParameteriv3_1(ctx, &pb.GlGetTexParameteriv3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlGetTexParameterxv4 calls the GlGetTexParameterxv4 RPC.
+func (c *GLES11Client) GlGetTexParameterxv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlGetTexParameterxv4(ctx, &pb.GlGetTexParameterxv4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlGetTexParameterxv3_1 calls the GlGetTexParameterxv3_1 RPC.
+func (c *GLES11Client) GlGetTexParameterxv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlGetTexParameterxv3_1(ctx, &pb.GlGetTexParameterxv3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlIsBuffer calls the GlIsBuffer RPC.
+func (c *GLES11Client) GlIsBuffer(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.GlIsBuffer(ctx, &pb.GlIsBufferRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GlIsEnabled calls the GlIsEnabled RPC.
+func (c *GLES11Client) GlIsEnabled(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.GlIsEnabled(ctx, &pb.GlIsEnabledRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GlIsTexture calls the GlIsTexture RPC.
+func (c *GLES11Client) GlIsTexture(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.GlIsTexture(ctx, &pb.GlIsTextureRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GlNormalPointer calls the GlNormalPointer RPC.
+func (c *GLES11Client) GlNormalPointer(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.GlNormalPointer(ctx, &pb.GlNormalPointerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlPointParameterf calls the GlPointParameterf RPC.
+func (c *GLES11Client) GlPointParameterf(ctx context.Context, handle int64, arg0 int32, arg1 float32) error {
+	_, err := c.svc.GlPointParameterf(ctx, &pb.GlPointParameterfRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlPointParameterfv3 calls the GlPointParameterfv3 RPC.
+func (c *GLES11Client) GlPointParameterfv3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GlPointParameterfv3(ctx, &pb.GlPointParameterfv3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlPointParameterfv2_1 calls the GlPointParameterfv2_1 RPC.
+func (c *GLES11Client) GlPointParameterfv2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlPointParameterfv2_1(ctx, &pb.GlPointParameterfv2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlPointParameterx calls the GlPointParameterx RPC.
+func (c *GLES11Client) GlPointParameterx(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.GlPointParameterx(ctx, &pb.GlPointParameterxRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlPointParameterxv3 calls the GlPointParameterxv3 RPC.
+func (c *GLES11Client) GlPointParameterxv3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GlPointParameterxv3(ctx, &pb.GlPointParameterxv3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlPointParameterxv2_1 calls the GlPointParameterxv2_1 RPC.
+func (c *GLES11Client) GlPointParameterxv2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlPointParameterxv2_1(ctx, &pb.GlPointParameterxv2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlPointSizePointerOES calls the GlPointSizePointerOES RPC.
+func (c *GLES11Client) GlPointSizePointerOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlPointSizePointerOES(ctx, &pb.GlPointSizePointerOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlTexCoordPointer calls the GlTexCoordPointer RPC.
+func (c *GLES11Client) GlTexCoordPointer(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.GlTexCoordPointer(ctx, &pb.GlTexCoordPointerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlTexEnvi calls the GlTexEnvi RPC.
+func (c *GLES11Client) GlTexEnvi(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.GlTexEnvi(ctx, &pb.GlTexEnviRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlTexEnviv4 calls the GlTexEnviv4 RPC.
+func (c *GLES11Client) GlTexEnviv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlTexEnviv4(ctx, &pb.GlTexEnviv4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlTexEnviv3_1 calls the GlTexEnviv3_1 RPC.
+func (c *GLES11Client) GlTexEnviv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlTexEnviv3_1(ctx, &pb.GlTexEnviv3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlTexParameterfv4 calls the GlTexParameterfv4 RPC.
+func (c *GLES11Client) GlTexParameterfv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlTexParameterfv4(ctx, &pb.GlTexParameterfv4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlTexParameterfv3_1 calls the GlTexParameterfv3_1 RPC.
+func (c *GLES11Client) GlTexParameterfv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlTexParameterfv3_1(ctx, &pb.GlTexParameterfv3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlTexParameteri calls the GlTexParameteri RPC.
+func (c *GLES11Client) GlTexParameteri(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.GlTexParameteri(ctx, &pb.GlTexParameteriRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlTexParameteriv4 calls the GlTexParameteriv4 RPC.
+func (c *GLES11Client) GlTexParameteriv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlTexParameteriv4(ctx, &pb.GlTexParameteriv4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlTexParameteriv3_1 calls the GlTexParameteriv3_1 RPC.
+func (c *GLES11Client) GlTexParameteriv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlTexParameteriv3_1(ctx, &pb.GlTexParameteriv3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlTexParameterxv4 calls the GlTexParameterxv4 RPC.
+func (c *GLES11Client) GlTexParameterxv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlTexParameterxv4(ctx, &pb.GlTexParameterxv4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlTexParameterxv3_1 calls the GlTexParameterxv3_1 RPC.
+func (c *GLES11Client) GlTexParameterxv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlTexParameterxv3_1(ctx, &pb.GlTexParameterxv3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlVertexPointer calls the GlVertexPointer RPC.
+func (c *GLES11Client) GlVertexPointer(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.GlVertexPointer(ctx, &pb.GlVertexPointerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GLES32Client wraps the gRPC GLES32Service client.
+type GLES32Client struct {
+	svc pb.GLES32ServiceClient
+}
+
+// NewGLES32Client creates a new GLES32 client.
+func NewGLES32Client(cc grpc.ClientConnInterface) *GLES32Client {
+	return &GLES32Client{
+		svc: pb.NewGLES32ServiceClient(cc),
+	}
+}
+
+// GlBlendBarrier calls the GlBlendBarrier RPC.
+func (c *GLES32Client) GlBlendBarrier(ctx context.Context) error {
+	_, err := c.svc.GlBlendBarrier(ctx, &pb.GlBlendBarrierRequest{})
+	return err
+}
+
+// GlBlendEquationSeparatei calls the GlBlendEquationSeparatei RPC.
+func (c *GLES32Client) GlBlendEquationSeparatei(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.GlBlendEquationSeparatei(ctx, &pb.GlBlendEquationSeparateiRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GlBlendEquationi calls the GlBlendEquationi RPC.
+func (c *GLES32Client) GlBlendEquationi(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.GlBlendEquationi(ctx, &pb.GlBlendEquationiRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GlBlendFuncSeparatei calls the GlBlendFuncSeparatei RPC.
+func (c *GLES32Client) GlBlendFuncSeparatei(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
+	_, err := c.svc.GlBlendFuncSeparatei(ctx, &pb.GlBlendFuncSeparateiRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlBlendFunci calls the GlBlendFunci RPC.
+func (c *GLES32Client) GlBlendFunci(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.GlBlendFunci(ctx, &pb.GlBlendFunciRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GlColorMaski calls the GlColorMaski RPC.
+func (c *GLES32Client) GlColorMaski(ctx context.Context, arg0 int32, arg1 bool, arg2 bool, arg3 bool, arg4 bool) error {
+	_, err := c.svc.GlColorMaski(ctx, &pb.GlColorMaskiRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlCopyImageSubData calls the GlCopyImageSubData RPC.
+func (c *GLES32Client) GlCopyImageSubData(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int32, arg7 int32, arg8 int32, arg9 int32, arg10 int32, arg11 int32, arg12 int32, arg13 int32, arg14 int32) error {
+	_, err := c.svc.GlCopyImageSubData(ctx, &pb.GlCopyImageSubDataRequest{
+		Arg0:  arg0,
+		Arg1:  arg1,
+		Arg2:  arg2,
+		Arg3:  arg3,
+		Arg4:  arg4,
+		Arg5:  arg5,
+		Arg6:  arg6,
+		Arg7:  arg7,
+		Arg8:  arg8,
+		Arg9:  arg9,
+		Arg10: arg10,
+		Arg11: arg11,
+		Arg12: arg12,
+		Arg13: arg13,
+		Arg14: arg14,
+	})
+	return err
+}
+
+// GlDebugMessageCallback calls the GlDebugMessageCallback RPC.
+func (c *GLES32Client) GlDebugMessageCallback(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.GlDebugMessageCallback(ctx, &pb.GlDebugMessageCallbackRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GlDebugMessageControl7 calls the GlDebugMessageControl7 RPC.
+func (c *GLES32Client) GlDebugMessageControl7(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64, arg5 int32, arg6 bool) error {
+	_, err := c.svc.GlDebugMessageControl7(ctx, &pb.GlDebugMessageControl7Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+		Arg6: arg6,
+	})
+	return err
+}
+
+// GlDebugMessageControl6_1 calls the GlDebugMessageControl6_1 RPC.
+func (c *GLES32Client) GlDebugMessageControl6_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64, arg5 bool) error {
+	_, err := c.svc.GlDebugMessageControl6_1(ctx, &pb.GlDebugMessageControl6_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	return err
+}
+
+// GlDebugMessageInsert calls the GlDebugMessageInsert RPC.
+func (c *GLES32Client) GlDebugMessageInsert(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 string) error {
+	_, err := c.svc.GlDebugMessageInsert(ctx, &pb.GlDebugMessageInsertRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	return err
+}
+
+// GlDisablei calls the GlDisablei RPC.
+func (c *GLES32Client) GlDisablei(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.GlDisablei(ctx, &pb.GlDisableiRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GlDrawElementsBaseVertex calls the GlDrawElementsBaseVertex RPC.
+func (c *GLES32Client) GlDrawElementsBaseVertex(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
+	_, err := c.svc.GlDrawElementsBaseVertex(ctx, &pb.GlDrawElementsBaseVertexRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlDrawElementsInstancedBaseVertex6 calls the GlDrawElementsInstancedBaseVertex6 RPC.
+func (c *GLES32Client) GlDrawElementsInstancedBaseVertex6(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32) error {
+	_, err := c.svc.GlDrawElementsInstancedBaseVertex6(ctx, &pb.GlDrawElementsInstancedBaseVertex6Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	return err
+}
+
+// GlDrawElementsInstancedBaseVertex6_1 calls the GlDrawElementsInstancedBaseVertex6_1 RPC.
+func (c *GLES32Client) GlDrawElementsInstancedBaseVertex6_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32, arg5 int32) error {
+	_, err := c.svc.GlDrawElementsInstancedBaseVertex6_1(ctx, &pb.GlDrawElementsInstancedBaseVertex6_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	return err
+}
+
+// GlDrawRangeElementsBaseVertex calls the GlDrawRangeElementsBaseVertex RPC.
+func (c *GLES32Client) GlDrawRangeElementsBaseVertex(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int64, arg6 int32) error {
+	_, err := c.svc.GlDrawRangeElementsBaseVertex(ctx, &pb.GlDrawRangeElementsBaseVertexRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+		Arg6: arg6,
+	})
+	return err
+}
+
+// GlEnablei calls the GlEnablei RPC.
+func (c *GLES32Client) GlEnablei(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.GlEnablei(ctx, &pb.GlEnableiRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GlFramebufferTexture calls the GlFramebufferTexture RPC.
+func (c *GLES32Client) GlFramebufferTexture(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.GlFramebufferTexture(ctx, &pb.GlFramebufferTextureRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlGetDebugMessageLog14 calls the GlGetDebugMessageLog14 RPC.
+func (c *GLES32Client) GlGetDebugMessageLog14(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32, arg4 int64, arg5 int32, arg6 int64, arg7 int32, arg8 int64, arg9 int32, arg10 int64, arg11 int32, arg12 int64, arg13 int32) (int32, error) {
+	resp, err := c.svc.GlGetDebugMessageLog14(ctx, &pb.GlGetDebugMessageLog14Request{
+		Arg0:  arg0,
+		Arg1:  arg1,
+		Arg2:  arg2,
+		Arg3:  arg3,
+		Arg4:  arg4,
+		Arg5:  arg5,
+		Arg6:  arg6,
+		Arg7:  arg7,
+		Arg8:  arg8,
+		Arg9:  arg9,
+		Arg10: arg10,
+		Arg11: arg11,
+		Arg12: arg12,
+		Arg13: arg13,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GlGetDebugMessageLog9_1 calls the GlGetDebugMessageLog9_1 RPC.
+func (c *GLES32Client) GlGetDebugMessageLog9_1(ctx context.Context, arg0 int32, arg1 int64, arg2 int32, arg3 int64, arg4 int32, arg5 int64, arg6 int32, arg7 int64, arg8 int32) (int64, error) {
+	resp, err := c.svc.GlGetDebugMessageLog9_1(ctx, &pb.GlGetDebugMessageLog9_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+		Arg6: arg6,
+		Arg7: arg7,
+		Arg8: arg8,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GlGetDebugMessageLog5_2 calls the GlGetDebugMessageLog5_2 RPC.
+func (c *GLES32Client) GlGetDebugMessageLog5_2(ctx context.Context, arg0 int32, arg1 int64, arg2 int64, arg3 int64, arg4 int64) (int64, error) {
+	resp, err := c.svc.GlGetDebugMessageLog5_2(ctx, &pb.GlGetDebugMessageLog5_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GlGetGraphicsResetStatus calls the GlGetGraphicsResetStatus RPC.
+func (c *GLES32Client) GlGetGraphicsResetStatus(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GlGetGraphicsResetStatus(ctx, &pb.GlGetGraphicsResetStatusRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GlGetObjectLabel calls the GlGetObjectLabel RPC.
+func (c *GLES32Client) GlGetObjectLabel(ctx context.Context, arg0 int32, arg1 int32) (string, error) {
+	resp, err := c.svc.GlGetObjectLabel(ctx, &pb.GlGetObjectLabelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GlGetObjectPtrLabel calls the GlGetObjectPtrLabel RPC.
+func (c *GLES32Client) GlGetObjectPtrLabel(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.GlGetObjectPtrLabel(ctx, &pb.GlGetObjectPtrLabelRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GlGetPointerv calls the GlGetPointerv RPC.
+func (c *GLES32Client) GlGetPointerv(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GlGetPointerv(ctx, &pb.GlGetPointervRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GlGetSamplerParameterIiv4 calls the GlGetSamplerParameterIiv4 RPC.
+func (c *GLES32Client) GlGetSamplerParameterIiv4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlGetSamplerParameterIiv4(ctx, &pb.GlGetSamplerParameterIiv4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlGetSamplerParameterIiv3_1 calls the GlGetSamplerParameterIiv3_1 RPC.
+func (c *GLES32Client) GlGetSamplerParameterIiv3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlGetSamplerParameterIiv3_1(ctx, &pb.GlGetSamplerParameterIiv3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GlGetSamplerParameterIuiv4 calls the GlGetSamplerParameterIuiv4 RPC.
+func (c *GLES32Client) GlGetSamplerParameterIuiv4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlGetSamplerParameterIuiv4(ctx, &pb.GlGetSamplerParameterIuiv4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlGetSamplerParameterIuiv3_1 calls the GlGetSamplerParameterIuiv3_1 RPC.
+func (c *GLES32Client) GlGetSamplerParameterIuiv3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlGetSamplerParameterIuiv3_1(ctx, &pb.GlGetSamplerParameterIuiv3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GlGetTexParameterIiv4 calls the GlGetTexParameterIiv4 RPC.
+func (c *GLES32Client) GlGetTexParameterIiv4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlGetTexParameterIiv4(ctx, &pb.GlGetTexParameterIiv4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlGetTexParameterIiv3_1 calls the GlGetTexParameterIiv3_1 RPC.
+func (c *GLES32Client) GlGetTexParameterIiv3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlGetTexParameterIiv3_1(ctx, &pb.GlGetTexParameterIiv3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GlGetTexParameterIuiv4 calls the GlGetTexParameterIuiv4 RPC.
+func (c *GLES32Client) GlGetTexParameterIuiv4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlGetTexParameterIuiv4(ctx, &pb.GlGetTexParameterIuiv4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlGetTexParameterIuiv3_1 calls the GlGetTexParameterIuiv3_1 RPC.
+func (c *GLES32Client) GlGetTexParameterIuiv3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlGetTexParameterIuiv3_1(ctx, &pb.GlGetTexParameterIuiv3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GlGetnUniformfv5 calls the GlGetnUniformfv5 RPC.
+func (c *GLES32Client) GlGetnUniformfv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
+	_, err := c.svc.GlGetnUniformfv5(ctx, &pb.GlGetnUniformfv5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlGetnUniformfv4_1 calls the GlGetnUniformfv4_1 RPC.
+func (c *GLES32Client) GlGetnUniformfv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
+	_, err := c.svc.GlGetnUniformfv4_1(ctx, &pb.GlGetnUniformfv4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlGetnUniformiv5 calls the GlGetnUniformiv5 RPC.
+func (c *GLES32Client) GlGetnUniformiv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
+	_, err := c.svc.GlGetnUniformiv5(ctx, &pb.GlGetnUniformiv5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlGetnUniformiv4_1 calls the GlGetnUniformiv4_1 RPC.
+func (c *GLES32Client) GlGetnUniformiv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
+	_, err := c.svc.GlGetnUniformiv4_1(ctx, &pb.GlGetnUniformiv4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlGetnUniformuiv5 calls the GlGetnUniformuiv5 RPC.
+func (c *GLES32Client) GlGetnUniformuiv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
+	_, err := c.svc.GlGetnUniformuiv5(ctx, &pb.GlGetnUniformuiv5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlGetnUniformuiv4_1 calls the GlGetnUniformuiv4_1 RPC.
+func (c *GLES32Client) GlGetnUniformuiv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
+	_, err := c.svc.GlGetnUniformuiv4_1(ctx, &pb.GlGetnUniformuiv4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlIsEnabledi calls the GlIsEnabledi RPC.
+func (c *GLES32Client) GlIsEnabledi(ctx context.Context, arg0 int32, arg1 int32) (bool, error) {
+	resp, err := c.svc.GlIsEnabledi(ctx, &pb.GlIsEnablediRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GlMinSampleShading calls the GlMinSampleShading RPC.
+func (c *GLES32Client) GlMinSampleShading(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.GlMinSampleShading(ctx, &pb.GlMinSampleShadingRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GlObjectLabel calls the GlObjectLabel RPC.
+func (c *GLES32Client) GlObjectLabel(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 string) error {
+	_, err := c.svc.GlObjectLabel(ctx, &pb.GlObjectLabelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlObjectPtrLabel calls the GlObjectPtrLabel RPC.
+func (c *GLES32Client) GlObjectPtrLabel(ctx context.Context, arg0 int64, arg1 string) error {
+	_, err := c.svc.GlObjectPtrLabel(ctx, &pb.GlObjectPtrLabelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GlPatchParameteri calls the GlPatchParameteri RPC.
+func (c *GLES32Client) GlPatchParameteri(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.GlPatchParameteri(ctx, &pb.GlPatchParameteriRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GlPopDebugGroup calls the GlPopDebugGroup RPC.
+func (c *GLES32Client) GlPopDebugGroup(ctx context.Context) error {
+	_, err := c.svc.GlPopDebugGroup(ctx, &pb.GlPopDebugGroupRequest{})
+	return err
+}
+
+// GlPrimitiveBoundingBox calls the GlPrimitiveBoundingBox RPC.
+func (c *GLES32Client) GlPrimitiveBoundingBox(ctx context.Context, arg0 float32, arg1 float32, arg2 float32, arg3 float32, arg4 float32, arg5 float32, arg6 float32, arg7 float32) error {
+	_, err := c.svc.GlPrimitiveBoundingBox(ctx, &pb.GlPrimitiveBoundingBoxRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+		Arg6: arg6,
+		Arg7: arg7,
+	})
+	return err
+}
+
+// GlPushDebugGroup calls the GlPushDebugGroup RPC.
+func (c *GLES32Client) GlPushDebugGroup(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 string) error {
+	_, err := c.svc.GlPushDebugGroup(ctx, &pb.GlPushDebugGroupRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlReadnPixels calls the GlReadnPixels RPC.
+func (c *GLES32Client) GlReadnPixels(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int32, arg7 int64) error {
+	_, err := c.svc.GlReadnPixels(ctx, &pb.GlReadnPixelsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+		Arg6: arg6,
+		Arg7: arg7,
+	})
+	return err
+}
+
+// GlSamplerParameterIiv4 calls the GlSamplerParameterIiv4 RPC.
+func (c *GLES32Client) GlSamplerParameterIiv4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlSamplerParameterIiv4(ctx, &pb.GlSamplerParameterIiv4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlSamplerParameterIiv3_1 calls the GlSamplerParameterIiv3_1 RPC.
+func (c *GLES32Client) GlSamplerParameterIiv3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlSamplerParameterIiv3_1(ctx, &pb.GlSamplerParameterIiv3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GlSamplerParameterIuiv4 calls the GlSamplerParameterIuiv4 RPC.
+func (c *GLES32Client) GlSamplerParameterIuiv4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlSamplerParameterIuiv4(ctx, &pb.GlSamplerParameterIuiv4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlSamplerParameterIuiv3_1 calls the GlSamplerParameterIuiv3_1 RPC.
+func (c *GLES32Client) GlSamplerParameterIuiv3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlSamplerParameterIuiv3_1(ctx, &pb.GlSamplerParameterIuiv3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GlTexBuffer calls the GlTexBuffer RPC.
+func (c *GLES32Client) GlTexBuffer(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.GlTexBuffer(ctx, &pb.GlTexBufferRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GlTexBufferRange calls the GlTexBufferRange RPC.
+func (c *GLES32Client) GlTexBufferRange(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
+	_, err := c.svc.GlTexBufferRange(ctx, &pb.GlTexBufferRangeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlTexParameterIiv4 calls the GlTexParameterIiv4 RPC.
+func (c *GLES32Client) GlTexParameterIiv4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlTexParameterIiv4(ctx, &pb.GlTexParameterIiv4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlTexParameterIiv3_1 calls the GlTexParameterIiv3_1 RPC.
+func (c *GLES32Client) GlTexParameterIiv3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlTexParameterIiv3_1(ctx, &pb.GlTexParameterIiv3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GlTexParameterIuiv4 calls the GlTexParameterIuiv4 RPC.
+func (c *GLES32Client) GlTexParameterIuiv4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlTexParameterIuiv4(ctx, &pb.GlTexParameterIuiv4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlTexParameterIuiv3_1 calls the GlTexParameterIuiv3_1 RPC.
+func (c *GLES32Client) GlTexParameterIuiv3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlTexParameterIuiv3_1(ctx, &pb.GlTexParameterIuiv3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GlTexStorage3DMultisample calls the GlTexStorage3DMultisample RPC.
+func (c *GLES32Client) GlTexStorage3DMultisample(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 bool) error {
+	_, err := c.svc.GlTexStorage3DMultisample(ctx, &pb.GlTexStorage3DMultisampleRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+		Arg6: arg6,
+	})
+	return err
+}
+
+// GLES32DebugProcClient wraps the gRPC GLES32DebugProcService client.
+type GLES32DebugProcClient struct {
+	svc pb.GLES32DebugProcServiceClient
+}
+
+// NewGLES32DebugProcClient creates a new GLES32DebugProc client.
+func NewGLES32DebugProcClient(cc grpc.ClientConnInterface) *GLES32DebugProcClient {
+	return &GLES32DebugProcClient{
+		svc: pb.NewGLES32DebugProcServiceClient(cc),
+	}
+}
+
+// OnMessage calls the OnMessage RPC.
+func (c *GLES32DebugProcClient) OnMessage(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 string) error {
+	_, err := c.svc.OnMessage(ctx, &pb.OnMessageRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// EGL14Client wraps the gRPC EGL14Service client.
+type EGL14Client struct {
+	svc pb.EGL14ServiceClient
+}
+
+// NewEGL14Client creates a new EGL14 client.
+func NewEGL14Client(cc grpc.ClientConnInterface) *EGL14Client {
+	return &EGL14Client{
+		svc: pb.NewEGL14ServiceClient(cc),
+	}
+}
+
+// EglBindAPI calls the EglBindAPI RPC.
+func (c *EGL14Client) EglBindAPI(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.EglBindAPI(ctx, &pb.EglBindAPIRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EglBindTexImage calls the EglBindTexImage RPC.
+func (c *EGL14Client) EglBindTexImage(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32) (bool, error) {
+	resp, err := c.svc.EglBindTexImage(ctx, &pb.EglBindTexImageRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EglChooseConfig calls the EglChooseConfig RPC.
+func (c *EGL14Client) EglChooseConfig(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int64, arg4 int32, arg5 int32, arg6 int64, arg7 int32) (bool, error) {
+	resp, err := c.svc.EglChooseConfig(ctx, &pb.EglChooseConfigRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+		Arg6:   arg6,
+		Arg7:   arg7,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EglCopyBuffers calls the EglCopyBuffers RPC.
+func (c *EGL14Client) EglCopyBuffers(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32) (bool, error) {
+	resp, err := c.svc.EglCopyBuffers(ctx, &pb.EglCopyBuffersRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EglCreateContext calls the EglCreateContext RPC.
+func (c *EGL14Client) EglCreateContext(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64, arg4 int32) (int64, error) {
+	resp, err := c.svc.EglCreateContext(ctx, &pb.EglCreateContextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EglCreatePbufferFromClientBuffer calls the EglCreatePbufferFromClientBuffer RPC.
+func (c *EGL14Client) EglCreatePbufferFromClientBuffer(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int64, arg4 int64, arg5 int32) (int64, error) {
+	resp, err := c.svc.EglCreatePbufferFromClientBuffer(ctx, &pb.EglCreatePbufferFromClientBufferRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EglCreatePbufferSurface calls the EglCreatePbufferSurface RPC.
+func (c *EGL14Client) EglCreatePbufferSurface(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int32) (int64, error) {
+	resp, err := c.svc.EglCreatePbufferSurface(ctx, &pb.EglCreatePbufferSurfaceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EglCreatePixmapSurface calls the EglCreatePixmapSurface RPC.
+func (c *EGL14Client) EglCreatePixmapSurface(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int64, arg4 int32) (int64, error) {
+	resp, err := c.svc.EglCreatePixmapSurface(ctx, &pb.EglCreatePixmapSurfaceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EglCreateWindowSurface calls the EglCreateWindowSurface RPC.
+func (c *EGL14Client) EglCreateWindowSurface(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64, arg4 int32) (int64, error) {
+	resp, err := c.svc.EglCreateWindowSurface(ctx, &pb.EglCreateWindowSurfaceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EglDestroyContext calls the EglDestroyContext RPC.
+func (c *EGL14Client) EglDestroyContext(ctx context.Context, handle int64, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.EglDestroyContext(ctx, &pb.EglDestroyContextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EglDestroySurface calls the EglDestroySurface RPC.
+func (c *EGL14Client) EglDestroySurface(ctx context.Context, handle int64, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.EglDestroySurface(ctx, &pb.EglDestroySurfaceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EglGetConfigAttrib calls the EglGetConfigAttrib RPC.
+func (c *EGL14Client) EglGetConfigAttrib(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int64, arg4 int32) (bool, error) {
+	resp, err := c.svc.EglGetConfigAttrib(ctx, &pb.EglGetConfigAttribRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EglGetConfigs calls the EglGetConfigs RPC.
+func (c *EGL14Client) EglGetConfigs(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int32, arg4 int64, arg5 int32) (bool, error) {
+	resp, err := c.svc.EglGetConfigs(ctx, &pb.EglGetConfigsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EglGetCurrentContext calls the EglGetCurrentContext RPC.
+func (c *EGL14Client) EglGetCurrentContext(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.EglGetCurrentContext(ctx, &pb.EglGetCurrentContextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EglGetCurrentDisplay calls the EglGetCurrentDisplay RPC.
+func (c *EGL14Client) EglGetCurrentDisplay(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.EglGetCurrentDisplay(ctx, &pb.EglGetCurrentDisplayRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EglGetCurrentSurface calls the EglGetCurrentSurface RPC.
+func (c *EGL14Client) EglGetCurrentSurface(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.EglGetCurrentSurface(ctx, &pb.EglGetCurrentSurfaceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EglGetDisplay calls the EglGetDisplay RPC.
+func (c *EGL14Client) EglGetDisplay(ctx context.Context, handle int64, arg0 int32) (int64, error) {
+	resp, err := c.svc.EglGetDisplay(ctx, &pb.EglGetDisplayRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EglGetError calls the EglGetError RPC.
+func (c *EGL14Client) EglGetError(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.EglGetError(ctx, &pb.EglGetErrorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EglInitialize calls the EglInitialize RPC.
+func (c *EGL14Client) EglInitialize(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int64, arg4 int32) (bool, error) {
+	resp, err := c.svc.EglInitialize(ctx, &pb.EglInitializeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EglMakeCurrent calls the EglMakeCurrent RPC.
+func (c *EGL14Client) EglMakeCurrent(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (bool, error) {
+	resp, err := c.svc.EglMakeCurrent(ctx, &pb.EglMakeCurrentRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EglQueryAPI calls the EglQueryAPI RPC.
+func (c *EGL14Client) EglQueryAPI(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.EglQueryAPI(ctx, &pb.EglQueryAPIRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EglQueryContext calls the EglQueryContext RPC.
+func (c *EGL14Client) EglQueryContext(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int64, arg4 int32) (bool, error) {
+	resp, err := c.svc.EglQueryContext(ctx, &pb.EglQueryContextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EglQueryString calls the EglQueryString RPC.
+func (c *EGL14Client) EglQueryString(ctx context.Context, handle int64, arg0 int64, arg1 int32) (string, error) {
+	resp, err := c.svc.EglQueryString(ctx, &pb.EglQueryStringRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// EglQuerySurface calls the EglQuerySurface RPC.
+func (c *EGL14Client) EglQuerySurface(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int64, arg4 int32) (bool, error) {
+	resp, err := c.svc.EglQuerySurface(ctx, &pb.EglQuerySurfaceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EglReleaseTexImage calls the EglReleaseTexImage RPC.
+func (c *EGL14Client) EglReleaseTexImage(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32) (bool, error) {
+	resp, err := c.svc.EglReleaseTexImage(ctx, &pb.EglReleaseTexImageRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EglReleaseThread calls the EglReleaseThread RPC.
+func (c *EGL14Client) EglReleaseThread(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.EglReleaseThread(ctx, &pb.EglReleaseThreadRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EglSurfaceAttrib calls the EglSurfaceAttrib RPC.
+func (c *EGL14Client) EglSurfaceAttrib(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int32) (bool, error) {
+	resp, err := c.svc.EglSurfaceAttrib(ctx, &pb.EglSurfaceAttribRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EglSwapBuffers calls the EglSwapBuffers RPC.
+func (c *EGL14Client) EglSwapBuffers(ctx context.Context, handle int64, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.EglSwapBuffers(ctx, &pb.EglSwapBuffersRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EglSwapInterval calls the EglSwapInterval RPC.
+func (c *EGL14Client) EglSwapInterval(ctx context.Context, handle int64, arg0 int64, arg1 int32) (bool, error) {
+	resp, err := c.svc.EglSwapInterval(ctx, &pb.EglSwapIntervalRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EglTerminate calls the EglTerminate RPC.
+func (c *EGL14Client) EglTerminate(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.EglTerminate(ctx, &pb.EglTerminateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EglWaitClient calls the EglWaitClient RPC.
+func (c *EGL14Client) EglWaitClient(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.EglWaitClient(ctx, &pb.EglWaitClientRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EglWaitGL calls the EglWaitGL RPC.
+func (c *EGL14Client) EglWaitGL(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.EglWaitGL(ctx, &pb.EglWaitGLRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EglWaitNative calls the EglWaitNative RPC.
+func (c *EGL14Client) EglWaitNative(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.EglWaitNative(ctx, &pb.EglWaitNativeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GLES10Client wraps the gRPC GLES10Service client.
+type GLES10Client struct {
+	svc pb.GLES10ServiceClient
+}
+
+// NewGLES10Client creates a new GLES10 client.
+func NewGLES10Client(cc grpc.ClientConnInterface) *GLES10Client {
+	return &GLES10Client{
+		svc: pb.NewGLES10ServiceClient(cc),
+	}
+}
+
+// GlActiveTexture calls the GlActiveTexture RPC.
+func (c *GLES10Client) GlActiveTexture(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.GlActiveTexture(ctx, &pb.GlActiveTextureRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GlAlphaFunc calls the GlAlphaFunc RPC.
+func (c *GLES10Client) GlAlphaFunc(ctx context.Context, handle int64, arg0 int32, arg1 float32) error {
+	_, err := c.svc.GlAlphaFunc(ctx, &pb.GlAlphaFuncRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlAlphaFuncx calls the GlAlphaFuncx RPC.
+func (c *GLES10Client) GlAlphaFuncx(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.GlAlphaFuncx(ctx, &pb.GlAlphaFuncxRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlBindTexture calls the GlBindTexture RPC.
+func (c *GLES10Client) GlBindTexture(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.GlBindTexture(ctx, &pb.GlBindTextureRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlBlendFunc calls the GlBlendFunc RPC.
+func (c *GLES10Client) GlBlendFunc(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.GlBlendFunc(ctx, &pb.GlBlendFuncRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlClear calls the GlClear RPC.
+func (c *GLES10Client) GlClear(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.GlClear(ctx, &pb.GlClearRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GlClearColor calls the GlClearColor RPC.
+func (c *GLES10Client) GlClearColor(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32) error {
+	_, err := c.svc.GlClearColor(ctx, &pb.GlClearColorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlClearColorx calls the GlClearColorx RPC.
+func (c *GLES10Client) GlClearColorx(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.GlClearColorx(ctx, &pb.GlClearColorxRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlClearDepthf calls the GlClearDepthf RPC.
+func (c *GLES10Client) GlClearDepthf(ctx context.Context, handle int64, arg0 float32) error {
+	_, err := c.svc.GlClearDepthf(ctx, &pb.GlClearDepthfRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GlClearDepthx calls the GlClearDepthx RPC.
+func (c *GLES10Client) GlClearDepthx(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.GlClearDepthx(ctx, &pb.GlClearDepthxRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GlClearStencil calls the GlClearStencil RPC.
+func (c *GLES10Client) GlClearStencil(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.GlClearStencil(ctx, &pb.GlClearStencilRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GlClientActiveTexture calls the GlClientActiveTexture RPC.
+func (c *GLES10Client) GlClientActiveTexture(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.GlClientActiveTexture(ctx, &pb.GlClientActiveTextureRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GlColor4F calls the GlColor4F RPC.
+func (c *GLES10Client) GlColor4F(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32) error {
+	_, err := c.svc.GlColor4F(ctx, &pb.GlColor4FRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlColor4X calls the GlColor4X RPC.
+func (c *GLES10Client) GlColor4X(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.GlColor4X(ctx, &pb.GlColor4XRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlColorMask calls the GlColorMask RPC.
+func (c *GLES10Client) GlColorMask(ctx context.Context, handle int64, arg0 bool, arg1 bool, arg2 bool, arg3 bool) error {
+	_, err := c.svc.GlColorMask(ctx, &pb.GlColorMaskRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlColorPointer calls the GlColorPointer RPC.
+func (c *GLES10Client) GlColorPointer(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
+	_, err := c.svc.GlColorPointer(ctx, &pb.GLES10GlColorPointerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlCompressedTexImage2D calls the GlCompressedTexImage2D RPC.
+func (c *GLES10Client) GlCompressedTexImage2D(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int32, arg7 int64) error {
+	_, err := c.svc.GlCompressedTexImage2D(ctx, &pb.GlCompressedTexImage2DRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+		Arg6:   arg6,
+		Arg7:   arg7,
+	})
+	return err
+}
+
+// GlCompressedTexSubImage2D calls the GlCompressedTexSubImage2D RPC.
+func (c *GLES10Client) GlCompressedTexSubImage2D(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int32, arg7 int32, arg8 int64) error {
+	_, err := c.svc.GlCompressedTexSubImage2D(ctx, &pb.GlCompressedTexSubImage2DRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+		Arg6:   arg6,
+		Arg7:   arg7,
+		Arg8:   arg8,
+	})
+	return err
+}
+
+// GlCopyTexImage2D calls the GlCopyTexImage2D RPC.
+func (c *GLES10Client) GlCopyTexImage2D(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int32, arg7 int32) error {
+	_, err := c.svc.GlCopyTexImage2D(ctx, &pb.GlCopyTexImage2DRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+		Arg6:   arg6,
+		Arg7:   arg7,
+	})
+	return err
+}
+
+// GlCopyTexSubImage2D calls the GlCopyTexSubImage2D RPC.
+func (c *GLES10Client) GlCopyTexSubImage2D(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int32, arg7 int32) error {
+	_, err := c.svc.GlCopyTexSubImage2D(ctx, &pb.GlCopyTexSubImage2DRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+		Arg6:   arg6,
+		Arg7:   arg7,
+	})
+	return err
+}
+
+// GlCullFace calls the GlCullFace RPC.
+func (c *GLES10Client) GlCullFace(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.GlCullFace(ctx, &pb.GlCullFaceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GlDeleteTextures3 calls the GlDeleteTextures3 RPC.
+func (c *GLES10Client) GlDeleteTextures3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GlDeleteTextures3(ctx, &pb.GlDeleteTextures3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlDeleteTextures2_1 calls the GlDeleteTextures2_1 RPC.
+func (c *GLES10Client) GlDeleteTextures2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlDeleteTextures2_1(ctx, &pb.GlDeleteTextures2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlDepthFunc calls the GlDepthFunc RPC.
+func (c *GLES10Client) GlDepthFunc(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.GlDepthFunc(ctx, &pb.GlDepthFuncRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GlDepthMask calls the GlDepthMask RPC.
+func (c *GLES10Client) GlDepthMask(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.GlDepthMask(ctx, &pb.GlDepthMaskRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GlDepthRangef calls the GlDepthRangef RPC.
+func (c *GLES10Client) GlDepthRangef(ctx context.Context, handle int64, arg0 float32, arg1 float32) error {
+	_, err := c.svc.GlDepthRangef(ctx, &pb.GlDepthRangefRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlDepthRangex calls the GlDepthRangex RPC.
+func (c *GLES10Client) GlDepthRangex(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.GlDepthRangex(ctx, &pb.GlDepthRangexRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlDisable calls the GlDisable RPC.
+func (c *GLES10Client) GlDisable(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.GlDisable(ctx, &pb.GlDisableRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GlDisableClientState calls the GlDisableClientState RPC.
+func (c *GLES10Client) GlDisableClientState(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.GlDisableClientState(ctx, &pb.GlDisableClientStateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GlDrawArrays calls the GlDrawArrays RPC.
+func (c *GLES10Client) GlDrawArrays(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.GlDrawArrays(ctx, &pb.GlDrawArraysRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlDrawElements calls the GlDrawElements RPC.
+func (c *GLES10Client) GlDrawElements(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
+	_, err := c.svc.GlDrawElements(ctx, &pb.GLES10GlDrawElementsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlEnable calls the GlEnable RPC.
+func (c *GLES10Client) GlEnable(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.GlEnable(ctx, &pb.GlEnableRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GlEnableClientState calls the GlEnableClientState RPC.
+func (c *GLES10Client) GlEnableClientState(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.GlEnableClientState(ctx, &pb.GlEnableClientStateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GlFinish calls the GlFinish RPC.
+func (c *GLES10Client) GlFinish(ctx context.Context, handle int64) error {
+	_, err := c.svc.GlFinish(ctx, &pb.GlFinishRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// GlFlush calls the GlFlush RPC.
+func (c *GLES10Client) GlFlush(ctx context.Context, handle int64) error {
+	_, err := c.svc.GlFlush(ctx, &pb.GlFlushRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// GlFogf calls the GlFogf RPC.
+func (c *GLES10Client) GlFogf(ctx context.Context, handle int64, arg0 int32, arg1 float32) error {
+	_, err := c.svc.GlFogf(ctx, &pb.GlFogfRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlFogfv3 calls the GlFogfv3 RPC.
+func (c *GLES10Client) GlFogfv3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GlFogfv3(ctx, &pb.GlFogfv3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlFogfv2_1 calls the GlFogfv2_1 RPC.
+func (c *GLES10Client) GlFogfv2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlFogfv2_1(ctx, &pb.GlFogfv2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlFogx calls the GlFogx RPC.
+func (c *GLES10Client) GlFogx(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.GlFogx(ctx, &pb.GlFogxRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlFogxv3 calls the GlFogxv3 RPC.
+func (c *GLES10Client) GlFogxv3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GlFogxv3(ctx, &pb.GlFogxv3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlFogxv2_1 calls the GlFogxv2_1 RPC.
+func (c *GLES10Client) GlFogxv2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlFogxv2_1(ctx, &pb.GlFogxv2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlFrontFace calls the GlFrontFace RPC.
+func (c *GLES10Client) GlFrontFace(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.GlFrontFace(ctx, &pb.GlFrontFaceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GlFrustumf calls the GlFrustumf RPC.
+func (c *GLES10Client) GlFrustumf(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32, arg4 float32, arg5 float32) error {
+	_, err := c.svc.GlFrustumf(ctx, &pb.GlFrustumfRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	return err
+}
+
+// GlFrustumx calls the GlFrustumx RPC.
+func (c *GLES10Client) GlFrustumx(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32) error {
+	_, err := c.svc.GlFrustumx(ctx, &pb.GlFrustumxRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	return err
+}
+
+// GlGenTextures3 calls the GlGenTextures3 RPC.
+func (c *GLES10Client) GlGenTextures3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GlGenTextures3(ctx, &pb.GlGenTextures3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlGenTextures2_1 calls the GlGenTextures2_1 RPC.
+func (c *GLES10Client) GlGenTextures2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlGenTextures2_1(ctx, &pb.GlGenTextures2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlGetError calls the GlGetError RPC.
+func (c *GLES10Client) GlGetError(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GlGetError(ctx, &pb.GlGetErrorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GlGetIntegerv3 calls the GlGetIntegerv3 RPC.
+func (c *GLES10Client) GlGetIntegerv3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GlGetIntegerv3(ctx, &pb.GlGetIntegerv3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlGetIntegerv2_1 calls the GlGetIntegerv2_1 RPC.
+func (c *GLES10Client) GlGetIntegerv2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlGetIntegerv2_1(ctx, &pb.GlGetIntegerv2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlGetString calls the GlGetString RPC.
+func (c *GLES10Client) GlGetString(ctx context.Context, handle int64, arg0 int32) (string, error) {
+	resp, err := c.svc.GlGetString(ctx, &pb.GlGetStringRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -33,9 +2882,701 @@ func (c *GLUClient) GluErrorString(ctx context.Context, handle int64, arg0 int32
 	return resp.GetResult(), nil
 }
 
-// GluLookAt calls the GluLookAt RPC.
-func (c *GLUClient) GluLookAt(ctx context.Context, handle int64, arg0 int64, arg1 float32, arg2 float32, arg3 float32, arg4 float32, arg5 float32, arg6 float32, arg7 float32, arg8 float32, arg9 float32) error {
-	_, err := c.svc.GluLookAt(ctx, &pb.GluLookAtRequest{
+// GlHint calls the GlHint RPC.
+func (c *GLES10Client) GlHint(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.GlHint(ctx, &pb.GlHintRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlLightModelf calls the GlLightModelf RPC.
+func (c *GLES10Client) GlLightModelf(ctx context.Context, handle int64, arg0 int32, arg1 float32) error {
+	_, err := c.svc.GlLightModelf(ctx, &pb.GlLightModelfRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlLightModelfv3 calls the GlLightModelfv3 RPC.
+func (c *GLES10Client) GlLightModelfv3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GlLightModelfv3(ctx, &pb.GlLightModelfv3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlLightModelfv2_1 calls the GlLightModelfv2_1 RPC.
+func (c *GLES10Client) GlLightModelfv2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlLightModelfv2_1(ctx, &pb.GlLightModelfv2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlLightModelx calls the GlLightModelx RPC.
+func (c *GLES10Client) GlLightModelx(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.GlLightModelx(ctx, &pb.GlLightModelxRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlLightModelxv3 calls the GlLightModelxv3 RPC.
+func (c *GLES10Client) GlLightModelxv3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GlLightModelxv3(ctx, &pb.GlLightModelxv3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlLightModelxv2_1 calls the GlLightModelxv2_1 RPC.
+func (c *GLES10Client) GlLightModelxv2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlLightModelxv2_1(ctx, &pb.GlLightModelxv2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlLightf calls the GlLightf RPC.
+func (c *GLES10Client) GlLightf(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 float32) error {
+	_, err := c.svc.GlLightf(ctx, &pb.GlLightfRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlLightfv4 calls the GlLightfv4 RPC.
+func (c *GLES10Client) GlLightfv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlLightfv4(ctx, &pb.GlLightfv4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlLightfv3_1 calls the GlLightfv3_1 RPC.
+func (c *GLES10Client) GlLightfv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlLightfv3_1(ctx, &pb.GlLightfv3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlLightx calls the GlLightx RPC.
+func (c *GLES10Client) GlLightx(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.GlLightx(ctx, &pb.GlLightxRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlLightxv4 calls the GlLightxv4 RPC.
+func (c *GLES10Client) GlLightxv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlLightxv4(ctx, &pb.GlLightxv4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlLightxv3_1 calls the GlLightxv3_1 RPC.
+func (c *GLES10Client) GlLightxv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlLightxv3_1(ctx, &pb.GlLightxv3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlLineWidth calls the GlLineWidth RPC.
+func (c *GLES10Client) GlLineWidth(ctx context.Context, handle int64, arg0 float32) error {
+	_, err := c.svc.GlLineWidth(ctx, &pb.GlLineWidthRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GlLineWidthx calls the GlLineWidthx RPC.
+func (c *GLES10Client) GlLineWidthx(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.GlLineWidthx(ctx, &pb.GlLineWidthxRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GlLoadIdentity calls the GlLoadIdentity RPC.
+func (c *GLES10Client) GlLoadIdentity(ctx context.Context, handle int64) error {
+	_, err := c.svc.GlLoadIdentity(ctx, &pb.GlLoadIdentityRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// GlLoadMatrixf2 calls the GlLoadMatrixf2 RPC.
+func (c *GLES10Client) GlLoadMatrixf2(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.GlLoadMatrixf2(ctx, &pb.GlLoadMatrixf2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlLoadMatrixf1_1 calls the GlLoadMatrixf1_1 RPC.
+func (c *GLES10Client) GlLoadMatrixf1_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.GlLoadMatrixf1_1(ctx, &pb.GlLoadMatrixf1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GlLoadMatrixx2 calls the GlLoadMatrixx2 RPC.
+func (c *GLES10Client) GlLoadMatrixx2(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.GlLoadMatrixx2(ctx, &pb.GlLoadMatrixx2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlLoadMatrixx1_1 calls the GlLoadMatrixx1_1 RPC.
+func (c *GLES10Client) GlLoadMatrixx1_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.GlLoadMatrixx1_1(ctx, &pb.GlLoadMatrixx1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GlLogicOp calls the GlLogicOp RPC.
+func (c *GLES10Client) GlLogicOp(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.GlLogicOp(ctx, &pb.GlLogicOpRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GlMaterialf calls the GlMaterialf RPC.
+func (c *GLES10Client) GlMaterialf(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 float32) error {
+	_, err := c.svc.GlMaterialf(ctx, &pb.GlMaterialfRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlMaterialfv4 calls the GlMaterialfv4 RPC.
+func (c *GLES10Client) GlMaterialfv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlMaterialfv4(ctx, &pb.GlMaterialfv4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlMaterialfv3_1 calls the GlMaterialfv3_1 RPC.
+func (c *GLES10Client) GlMaterialfv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlMaterialfv3_1(ctx, &pb.GlMaterialfv3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlMaterialx calls the GlMaterialx RPC.
+func (c *GLES10Client) GlMaterialx(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.GlMaterialx(ctx, &pb.GlMaterialxRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlMaterialxv4 calls the GlMaterialxv4 RPC.
+func (c *GLES10Client) GlMaterialxv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlMaterialxv4(ctx, &pb.GlMaterialxv4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlMaterialxv3_1 calls the GlMaterialxv3_1 RPC.
+func (c *GLES10Client) GlMaterialxv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlMaterialxv3_1(ctx, &pb.GlMaterialxv3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlMatrixMode calls the GlMatrixMode RPC.
+func (c *GLES10Client) GlMatrixMode(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.GlMatrixMode(ctx, &pb.GlMatrixModeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GlMultMatrixf2 calls the GlMultMatrixf2 RPC.
+func (c *GLES10Client) GlMultMatrixf2(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.GlMultMatrixf2(ctx, &pb.GlMultMatrixf2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlMultMatrixf1_1 calls the GlMultMatrixf1_1 RPC.
+func (c *GLES10Client) GlMultMatrixf1_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.GlMultMatrixf1_1(ctx, &pb.GlMultMatrixf1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GlMultMatrixx2 calls the GlMultMatrixx2 RPC.
+func (c *GLES10Client) GlMultMatrixx2(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.GlMultMatrixx2(ctx, &pb.GlMultMatrixx2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlMultMatrixx1_1 calls the GlMultMatrixx1_1 RPC.
+func (c *GLES10Client) GlMultMatrixx1_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.GlMultMatrixx1_1(ctx, &pb.GlMultMatrixx1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GlMultiTexCoord4F calls the GlMultiTexCoord4F RPC.
+func (c *GLES10Client) GlMultiTexCoord4F(ctx context.Context, handle int64, arg0 int32, arg1 float32, arg2 float32, arg3 float32, arg4 float32) error {
+	_, err := c.svc.GlMultiTexCoord4F(ctx, &pb.GlMultiTexCoord4FRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	return err
+}
+
+// GlMultiTexCoord4X calls the GlMultiTexCoord4X RPC.
+func (c *GLES10Client) GlMultiTexCoord4X(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
+	_, err := c.svc.GlMultiTexCoord4X(ctx, &pb.GlMultiTexCoord4XRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	return err
+}
+
+// GlNormal3F calls the GlNormal3F RPC.
+func (c *GLES10Client) GlNormal3F(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32) error {
+	_, err := c.svc.GlNormal3F(ctx, &pb.GlNormal3FRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlNormal3X calls the GlNormal3X RPC.
+func (c *GLES10Client) GlNormal3X(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.GlNormal3X(ctx, &pb.GlNormal3XRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlNormalPointer calls the GlNormalPointer RPC.
+func (c *GLES10Client) GlNormalPointer(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlNormalPointer(ctx, &pb.GLES10GlNormalPointerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlOrthof calls the GlOrthof RPC.
+func (c *GLES10Client) GlOrthof(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32, arg4 float32, arg5 float32) error {
+	_, err := c.svc.GlOrthof(ctx, &pb.GlOrthofRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	return err
+}
+
+// GlOrthox calls the GlOrthox RPC.
+func (c *GLES10Client) GlOrthox(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32) error {
+	_, err := c.svc.GlOrthox(ctx, &pb.GlOrthoxRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	return err
+}
+
+// GlPixelStorei calls the GlPixelStorei RPC.
+func (c *GLES10Client) GlPixelStorei(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.GlPixelStorei(ctx, &pb.GlPixelStoreiRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlPointSize calls the GlPointSize RPC.
+func (c *GLES10Client) GlPointSize(ctx context.Context, handle int64, arg0 float32) error {
+	_, err := c.svc.GlPointSize(ctx, &pb.GlPointSizeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GlPointSizex calls the GlPointSizex RPC.
+func (c *GLES10Client) GlPointSizex(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.GlPointSizex(ctx, &pb.GlPointSizexRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GlPolygonOffset calls the GlPolygonOffset RPC.
+func (c *GLES10Client) GlPolygonOffset(ctx context.Context, handle int64, arg0 float32, arg1 float32) error {
+	_, err := c.svc.GlPolygonOffset(ctx, &pb.GlPolygonOffsetRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlPolygonOffsetx calls the GlPolygonOffsetx RPC.
+func (c *GLES10Client) GlPolygonOffsetx(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.GlPolygonOffsetx(ctx, &pb.GlPolygonOffsetxRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlPopMatrix calls the GlPopMatrix RPC.
+func (c *GLES10Client) GlPopMatrix(ctx context.Context, handle int64) error {
+	_, err := c.svc.GlPopMatrix(ctx, &pb.GlPopMatrixRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// GlPushMatrix calls the GlPushMatrix RPC.
+func (c *GLES10Client) GlPushMatrix(ctx context.Context, handle int64) error {
+	_, err := c.svc.GlPushMatrix(ctx, &pb.GlPushMatrixRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// GlReadPixels calls the GlReadPixels RPC.
+func (c *GLES10Client) GlReadPixels(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int64) error {
+	_, err := c.svc.GlReadPixels(ctx, &pb.GlReadPixelsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+		Arg6:   arg6,
+	})
+	return err
+}
+
+// GlRotatef calls the GlRotatef RPC.
+func (c *GLES10Client) GlRotatef(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32) error {
+	_, err := c.svc.GlRotatef(ctx, &pb.GlRotatefRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlRotatex calls the GlRotatex RPC.
+func (c *GLES10Client) GlRotatex(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.GlRotatex(ctx, &pb.GlRotatexRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlSampleCoverage calls the GlSampleCoverage RPC.
+func (c *GLES10Client) GlSampleCoverage(ctx context.Context, handle int64, arg0 float32, arg1 bool) error {
+	_, err := c.svc.GlSampleCoverage(ctx, &pb.GlSampleCoverageRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlSampleCoveragex calls the GlSampleCoveragex RPC.
+func (c *GLES10Client) GlSampleCoveragex(ctx context.Context, handle int64, arg0 int32, arg1 bool) error {
+	_, err := c.svc.GlSampleCoveragex(ctx, &pb.GlSampleCoveragexRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlScalef calls the GlScalef RPC.
+func (c *GLES10Client) GlScalef(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32) error {
+	_, err := c.svc.GlScalef(ctx, &pb.GlScalefRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlScalex calls the GlScalex RPC.
+func (c *GLES10Client) GlScalex(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.GlScalex(ctx, &pb.GlScalexRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlScissor calls the GlScissor RPC.
+func (c *GLES10Client) GlScissor(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.GlScissor(ctx, &pb.GlScissorRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlShadeModel calls the GlShadeModel RPC.
+func (c *GLES10Client) GlShadeModel(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.GlShadeModel(ctx, &pb.GlShadeModelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GlStencilFunc calls the GlStencilFunc RPC.
+func (c *GLES10Client) GlStencilFunc(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.GlStencilFunc(ctx, &pb.GlStencilFuncRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlStencilMask calls the GlStencilMask RPC.
+func (c *GLES10Client) GlStencilMask(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.GlStencilMask(ctx, &pb.GlStencilMaskRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GlStencilOp calls the GlStencilOp RPC.
+func (c *GLES10Client) GlStencilOp(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.GlStencilOp(ctx, &pb.GlStencilOpRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlTexCoordPointer calls the GlTexCoordPointer RPC.
+func (c *GLES10Client) GlTexCoordPointer(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
+	_, err := c.svc.GlTexCoordPointer(ctx, &pb.GLES10GlTexCoordPointerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlTexEnvf calls the GlTexEnvf RPC.
+func (c *GLES10Client) GlTexEnvf(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 float32) error {
+	_, err := c.svc.GlTexEnvf(ctx, &pb.GlTexEnvfRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlTexEnvfv4 calls the GlTexEnvfv4 RPC.
+func (c *GLES10Client) GlTexEnvfv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlTexEnvfv4(ctx, &pb.GlTexEnvfv4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlTexEnvfv3_1 calls the GlTexEnvfv3_1 RPC.
+func (c *GLES10Client) GlTexEnvfv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlTexEnvfv3_1(ctx, &pb.GlTexEnvfv3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlTexEnvx calls the GlTexEnvx RPC.
+func (c *GLES10Client) GlTexEnvx(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.GlTexEnvx(ctx, &pb.GlTexEnvxRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlTexEnvxv4 calls the GlTexEnvxv4 RPC.
+func (c *GLES10Client) GlTexEnvxv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlTexEnvxv4(ctx, &pb.GlTexEnvxv4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlTexEnvxv3_1 calls the GlTexEnvxv3_1 RPC.
+func (c *GLES10Client) GlTexEnvxv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlTexEnvxv3_1(ctx, &pb.GlTexEnvxv3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlTexImage2D calls the GlTexImage2D RPC.
+func (c *GLES10Client) GlTexImage2D(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int32, arg7 int32, arg8 int64) error {
+	_, err := c.svc.GlTexImage2D(ctx, &pb.GlTexImage2DRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -46,40 +3587,35 @@ func (c *GLUClient) GluLookAt(ctx context.Context, handle int64, arg0 int64, arg
 		Arg6:   arg6,
 		Arg7:   arg7,
 		Arg8:   arg8,
-		Arg9:   arg9,
 	})
 	return err
 }
 
-// GluOrtho2D calls the GluOrtho2D RPC.
-func (c *GLUClient) GluOrtho2D(ctx context.Context, handle int64, arg0 int64, arg1 float32, arg2 float32, arg3 float32, arg4 float32) error {
-	_, err := c.svc.GluOrtho2D(ctx, &pb.GluOrtho2DRequest{
+// GlTexParameterf calls the GlTexParameterf RPC.
+func (c *GLES10Client) GlTexParameterf(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 float32) error {
+	_, err := c.svc.GlTexParameterf(ctx, &pb.GlTexParameterfRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
 		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
 	})
 	return err
 }
 
-// GluPerspective calls the GluPerspective RPC.
-func (c *GLUClient) GluPerspective(ctx context.Context, handle int64, arg0 int64, arg1 float32, arg2 float32, arg3 float32, arg4 float32) error {
-	_, err := c.svc.GluPerspective(ctx, &pb.GluPerspectiveRequest{
+// GlTexParameterx calls the GlTexParameterx RPC.
+func (c *GLES10Client) GlTexParameterx(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.GlTexParameterx(ctx, &pb.GlTexParameterxRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
 		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
 	})
 	return err
 }
 
-// GluProject calls the GluProject RPC.
-func (c *GLUClient) GluProject(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 int64, arg4 int32, arg5 int64, arg6 int32, arg7 int64, arg8 int32, arg9 int64, arg10 int32) (int32, error) {
-	resp, err := c.svc.GluProject(ctx, &pb.GluProjectRequest{
+// GlTexSubImage2D calls the GlTexSubImage2D RPC.
+func (c *GLES10Client) GlTexSubImage2D(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int32, arg7 int32, arg8 int64) error {
+	_, err := c.svc.GlTexSubImage2D(ctx, &pb.GlTexSubImage2DRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -90,8 +3626,75 @@ func (c *GLUClient) GluProject(ctx context.Context, handle int64, arg0 float32, 
 		Arg6:   arg6,
 		Arg7:   arg7,
 		Arg8:   arg8,
-		Arg9:   arg9,
-		Arg10:  arg10,
+	})
+	return err
+}
+
+// GlTranslatef calls the GlTranslatef RPC.
+func (c *GLES10Client) GlTranslatef(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32) error {
+	_, err := c.svc.GlTranslatef(ctx, &pb.GlTranslatefRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlTranslatex calls the GlTranslatex RPC.
+func (c *GLES10Client) GlTranslatex(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.GlTranslatex(ctx, &pb.GlTranslatexRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlVertexPointer calls the GlVertexPointer RPC.
+func (c *GLES10Client) GlVertexPointer(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
+	_, err := c.svc.GlVertexPointer(ctx, &pb.GLES10GlVertexPointerRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlViewport calls the GlViewport RPC.
+func (c *GLES10Client) GlViewport(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.GlViewport(ctx, &pb.GlViewportRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GLDebugHelperClient wraps the gRPC GLDebugHelperService client.
+type GLDebugHelperClient struct {
+	svc pb.GLDebugHelperServiceClient
+}
+
+// NewGLDebugHelperClient creates a new GLDebugHelper client.
+func NewGLDebugHelperClient(cc grpc.ClientConnInterface) *GLDebugHelperClient {
+	return &GLDebugHelperClient{
+		svc: pb.NewGLDebugHelperServiceClient(cc),
+	}
+}
+
+// Wrap3 calls the Wrap3 RPC.
+func (c *GLDebugHelperClient) Wrap3(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64) (int64, error) {
+	resp, err := c.svc.Wrap3(ctx, &pb.Wrap3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
 	})
 	if err != nil {
 		return 0, err
@@ -99,9 +3702,1530 @@ func (c *GLUClient) GluProject(ctx context.Context, handle int64, arg0 float32, 
 	return resp.GetResult(), nil
 }
 
-// GluUnProject calls the GluUnProject RPC.
-func (c *GLUClient) GluUnProject(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 int64, arg4 int32, arg5 int64, arg6 int32, arg7 int64, arg8 int32, arg9 int64, arg10 int32) (int32, error) {
-	resp, err := c.svc.GluUnProject(ctx, &pb.GluUnProjectRequest{
+// Wrap3_1 calls the Wrap3_1 RPC.
+func (c *GLDebugHelperClient) Wrap3_1(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64) (int64, error) {
+	resp, err := c.svc.Wrap3_1(ctx, &pb.Wrap3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GLES31Client wraps the gRPC GLES31Service client.
+type GLES31Client struct {
+	svc pb.GLES31ServiceClient
+}
+
+// NewGLES31Client creates a new GLES31 client.
+func NewGLES31Client(cc grpc.ClientConnInterface) *GLES31Client {
+	return &GLES31Client{
+		svc: pb.NewGLES31ServiceClient(cc),
+	}
+}
+
+// GlActiveShaderProgram calls the GlActiveShaderProgram RPC.
+func (c *GLES31Client) GlActiveShaderProgram(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.GlActiveShaderProgram(ctx, &pb.GlActiveShaderProgramRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GlBindImageTexture calls the GlBindImageTexture RPC.
+func (c *GLES31Client) GlBindImageTexture(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int32, arg5 int32, arg6 int32) error {
+	_, err := c.svc.GlBindImageTexture(ctx, &pb.GlBindImageTextureRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+		Arg6: arg6,
+	})
+	return err
+}
+
+// GlBindProgramPipeline calls the GlBindProgramPipeline RPC.
+func (c *GLES31Client) GlBindProgramPipeline(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.GlBindProgramPipeline(ctx, &pb.GlBindProgramPipelineRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GlBindVertexBuffer calls the GlBindVertexBuffer RPC.
+func (c *GLES31Client) GlBindVertexBuffer(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlBindVertexBuffer(ctx, &pb.GlBindVertexBufferRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlCreateShaderProgramv calls the GlCreateShaderProgramv RPC.
+func (c *GLES31Client) GlCreateShaderProgramv(ctx context.Context, arg0 int32, arg1 int64) (int32, error) {
+	resp, err := c.svc.GlCreateShaderProgramv(ctx, &pb.GlCreateShaderProgramvRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GlDeleteProgramPipelines3 calls the GlDeleteProgramPipelines3 RPC.
+func (c *GLES31Client) GlDeleteProgramPipelines3(ctx context.Context, arg0 int32, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GlDeleteProgramPipelines3(ctx, &pb.GlDeleteProgramPipelines3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GlDeleteProgramPipelines2_1 calls the GlDeleteProgramPipelines2_1 RPC.
+func (c *GLES31Client) GlDeleteProgramPipelines2_1(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlDeleteProgramPipelines2_1(ctx, &pb.GlDeleteProgramPipelines2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GlDispatchCompute calls the GlDispatchCompute RPC.
+func (c *GLES31Client) GlDispatchCompute(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.GlDispatchCompute(ctx, &pb.GlDispatchComputeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GlDispatchComputeIndirect calls the GlDispatchComputeIndirect RPC.
+func (c *GLES31Client) GlDispatchComputeIndirect(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.GlDispatchComputeIndirect(ctx, &pb.GlDispatchComputeIndirectRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GlDrawArraysIndirect calls the GlDrawArraysIndirect RPC.
+func (c *GLES31Client) GlDrawArraysIndirect(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlDrawArraysIndirect(ctx, &pb.GlDrawArraysIndirectRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GlDrawElementsIndirect calls the GlDrawElementsIndirect RPC.
+func (c *GLES31Client) GlDrawElementsIndirect(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlDrawElementsIndirect(ctx, &pb.GlDrawElementsIndirectRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GlFramebufferParameteri calls the GlFramebufferParameteri RPC.
+func (c *GLES31Client) GlFramebufferParameteri(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.GlFramebufferParameteri(ctx, &pb.GlFramebufferParameteriRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GlGenProgramPipelines3 calls the GlGenProgramPipelines3 RPC.
+func (c *GLES31Client) GlGenProgramPipelines3(ctx context.Context, arg0 int32, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GlGenProgramPipelines3(ctx, &pb.GlGenProgramPipelines3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GlGenProgramPipelines2_1 calls the GlGenProgramPipelines2_1 RPC.
+func (c *GLES31Client) GlGenProgramPipelines2_1(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlGenProgramPipelines2_1(ctx, &pb.GlGenProgramPipelines2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GlGetBooleaniV4 calls the GlGetBooleaniV4 RPC.
+func (c *GLES31Client) GlGetBooleaniV4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlGetBooleaniV4(ctx, &pb.GlGetBooleaniV4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlGetBooleaniV3_1 calls the GlGetBooleaniV3_1 RPC.
+func (c *GLES31Client) GlGetBooleaniV3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlGetBooleaniV3_1(ctx, &pb.GlGetBooleaniV3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GlGetFramebufferParameteriv4 calls the GlGetFramebufferParameteriv4 RPC.
+func (c *GLES31Client) GlGetFramebufferParameteriv4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlGetFramebufferParameteriv4(ctx, &pb.GlGetFramebufferParameteriv4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlGetFramebufferParameteriv3_1 calls the GlGetFramebufferParameteriv3_1 RPC.
+func (c *GLES31Client) GlGetFramebufferParameteriv3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlGetFramebufferParameteriv3_1(ctx, &pb.GlGetFramebufferParameteriv3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GlGetMultisamplefv4 calls the GlGetMultisamplefv4 RPC.
+func (c *GLES31Client) GlGetMultisamplefv4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlGetMultisamplefv4(ctx, &pb.GlGetMultisamplefv4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlGetMultisamplefv3_1 calls the GlGetMultisamplefv3_1 RPC.
+func (c *GLES31Client) GlGetMultisamplefv3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlGetMultisamplefv3_1(ctx, &pb.GlGetMultisamplefv3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GlGetProgramInterfaceiv5 calls the GlGetProgramInterfaceiv5 RPC.
+func (c *GLES31Client) GlGetProgramInterfaceiv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
+	_, err := c.svc.GlGetProgramInterfaceiv5(ctx, &pb.GlGetProgramInterfaceiv5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlGetProgramInterfaceiv4_1 calls the GlGetProgramInterfaceiv4_1 RPC.
+func (c *GLES31Client) GlGetProgramInterfaceiv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
+	_, err := c.svc.GlGetProgramInterfaceiv4_1(ctx, &pb.GlGetProgramInterfaceiv4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlGetProgramPipelineInfoLog calls the GlGetProgramPipelineInfoLog RPC.
+func (c *GLES31Client) GlGetProgramPipelineInfoLog(ctx context.Context, arg0 int32) (string, error) {
+	resp, err := c.svc.GlGetProgramPipelineInfoLog(ctx, &pb.GlGetProgramPipelineInfoLogRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GlGetProgramPipelineiv4 calls the GlGetProgramPipelineiv4 RPC.
+func (c *GLES31Client) GlGetProgramPipelineiv4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlGetProgramPipelineiv4(ctx, &pb.GlGetProgramPipelineiv4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlGetProgramPipelineiv3_1 calls the GlGetProgramPipelineiv3_1 RPC.
+func (c *GLES31Client) GlGetProgramPipelineiv3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlGetProgramPipelineiv3_1(ctx, &pb.GlGetProgramPipelineiv3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GlGetProgramResourceIndex calls the GlGetProgramResourceIndex RPC.
+func (c *GLES31Client) GlGetProgramResourceIndex(ctx context.Context, arg0 int32, arg1 int32, arg2 string) (int32, error) {
+	resp, err := c.svc.GlGetProgramResourceIndex(ctx, &pb.GlGetProgramResourceIndexRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GlGetProgramResourceLocation calls the GlGetProgramResourceLocation RPC.
+func (c *GLES31Client) GlGetProgramResourceLocation(ctx context.Context, arg0 int32, arg1 int32, arg2 string) (int32, error) {
+	resp, err := c.svc.GlGetProgramResourceLocation(ctx, &pb.GlGetProgramResourceLocationRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GlGetProgramResourceName calls the GlGetProgramResourceName RPC.
+func (c *GLES31Client) GlGetProgramResourceName(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) (string, error) {
+	resp, err := c.svc.GlGetProgramResourceName(ctx, &pb.GlGetProgramResourceNameRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GlGetProgramResourceiv11 calls the GlGetProgramResourceiv11 RPC.
+func (c *GLES31Client) GlGetProgramResourceiv11(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64, arg5 int32, arg6 int32, arg7 int64, arg8 int32, arg9 int64, arg10 int32) error {
+	_, err := c.svc.GlGetProgramResourceiv11(ctx, &pb.GlGetProgramResourceiv11Request{
+		Arg0:  arg0,
+		Arg1:  arg1,
+		Arg2:  arg2,
+		Arg3:  arg3,
+		Arg4:  arg4,
+		Arg5:  arg5,
+		Arg6:  arg6,
+		Arg7:  arg7,
+		Arg8:  arg8,
+		Arg9:  arg9,
+		Arg10: arg10,
+	})
+	return err
+}
+
+// GlGetProgramResourceiv8_1 calls the GlGetProgramResourceiv8_1 RPC.
+func (c *GLES31Client) GlGetProgramResourceiv8_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64, arg5 int32, arg6 int64, arg7 int64) error {
+	_, err := c.svc.GlGetProgramResourceiv8_1(ctx, &pb.GlGetProgramResourceiv8_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+		Arg6: arg6,
+		Arg7: arg7,
+	})
+	return err
+}
+
+// GlGetTexLevelParameterfv5 calls the GlGetTexLevelParameterfv5 RPC.
+func (c *GLES31Client) GlGetTexLevelParameterfv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
+	_, err := c.svc.GlGetTexLevelParameterfv5(ctx, &pb.GlGetTexLevelParameterfv5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlGetTexLevelParameterfv4_1 calls the GlGetTexLevelParameterfv4_1 RPC.
+func (c *GLES31Client) GlGetTexLevelParameterfv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
+	_, err := c.svc.GlGetTexLevelParameterfv4_1(ctx, &pb.GlGetTexLevelParameterfv4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlGetTexLevelParameteriv5 calls the GlGetTexLevelParameteriv5 RPC.
+func (c *GLES31Client) GlGetTexLevelParameteriv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
+	_, err := c.svc.GlGetTexLevelParameteriv5(ctx, &pb.GlGetTexLevelParameteriv5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlGetTexLevelParameteriv4_1 calls the GlGetTexLevelParameteriv4_1 RPC.
+func (c *GLES31Client) GlGetTexLevelParameteriv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
+	_, err := c.svc.GlGetTexLevelParameteriv4_1(ctx, &pb.GlGetTexLevelParameteriv4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlIsProgramPipeline calls the GlIsProgramPipeline RPC.
+func (c *GLES31Client) GlIsProgramPipeline(ctx context.Context, arg0 int32) (bool, error) {
+	resp, err := c.svc.GlIsProgramPipeline(ctx, &pb.GlIsProgramPipelineRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GlMemoryBarrier calls the GlMemoryBarrier RPC.
+func (c *GLES31Client) GlMemoryBarrier(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.GlMemoryBarrier(ctx, &pb.GlMemoryBarrierRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GlMemoryBarrierByRegion calls the GlMemoryBarrierByRegion RPC.
+func (c *GLES31Client) GlMemoryBarrierByRegion(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.GlMemoryBarrierByRegion(ctx, &pb.GlMemoryBarrierByRegionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GlProgramUniform1F calls the GlProgramUniform1F RPC.
+func (c *GLES31Client) GlProgramUniform1F(ctx context.Context, arg0 int32, arg1 int32, arg2 float32) error {
+	_, err := c.svc.GlProgramUniform1F(ctx, &pb.GlProgramUniform1FRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GlProgramUniform1Fv5 calls the GlProgramUniform1Fv5 RPC.
+func (c *GLES31Client) GlProgramUniform1Fv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
+	_, err := c.svc.GlProgramUniform1Fv5(ctx, &pb.GlProgramUniform1Fv5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlProgramUniform1Fv4_1 calls the GlProgramUniform1Fv4_1 RPC.
+func (c *GLES31Client) GlProgramUniform1Fv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
+	_, err := c.svc.GlProgramUniform1Fv4_1(ctx, &pb.GlProgramUniform1Fv4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlProgramUniform1I calls the GlProgramUniform1I RPC.
+func (c *GLES31Client) GlProgramUniform1I(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.GlProgramUniform1I(ctx, &pb.GlProgramUniform1IRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GlProgramUniform1Iv5 calls the GlProgramUniform1Iv5 RPC.
+func (c *GLES31Client) GlProgramUniform1Iv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
+	_, err := c.svc.GlProgramUniform1Iv5(ctx, &pb.GlProgramUniform1Iv5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlProgramUniform1Iv4_1 calls the GlProgramUniform1Iv4_1 RPC.
+func (c *GLES31Client) GlProgramUniform1Iv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
+	_, err := c.svc.GlProgramUniform1Iv4_1(ctx, &pb.GlProgramUniform1Iv4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlProgramUniform1Ui calls the GlProgramUniform1Ui RPC.
+func (c *GLES31Client) GlProgramUniform1Ui(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.GlProgramUniform1Ui(ctx, &pb.GlProgramUniform1UiRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GlProgramUniform1Uiv5 calls the GlProgramUniform1Uiv5 RPC.
+func (c *GLES31Client) GlProgramUniform1Uiv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
+	_, err := c.svc.GlProgramUniform1Uiv5(ctx, &pb.GlProgramUniform1Uiv5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlProgramUniform1Uiv4_1 calls the GlProgramUniform1Uiv4_1 RPC.
+func (c *GLES31Client) GlProgramUniform1Uiv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
+	_, err := c.svc.GlProgramUniform1Uiv4_1(ctx, &pb.GlProgramUniform1Uiv4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlProgramUniform2F calls the GlProgramUniform2F RPC.
+func (c *GLES31Client) GlProgramUniform2F(ctx context.Context, arg0 int32, arg1 int32, arg2 float32, arg3 float32) error {
+	_, err := c.svc.GlProgramUniform2F(ctx, &pb.GlProgramUniform2FRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlProgramUniform2Fv5 calls the GlProgramUniform2Fv5 RPC.
+func (c *GLES31Client) GlProgramUniform2Fv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
+	_, err := c.svc.GlProgramUniform2Fv5(ctx, &pb.GlProgramUniform2Fv5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlProgramUniform2Fv4_1 calls the GlProgramUniform2Fv4_1 RPC.
+func (c *GLES31Client) GlProgramUniform2Fv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
+	_, err := c.svc.GlProgramUniform2Fv4_1(ctx, &pb.GlProgramUniform2Fv4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlProgramUniform2I calls the GlProgramUniform2I RPC.
+func (c *GLES31Client) GlProgramUniform2I(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.GlProgramUniform2I(ctx, &pb.GlProgramUniform2IRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlProgramUniform2Iv5 calls the GlProgramUniform2Iv5 RPC.
+func (c *GLES31Client) GlProgramUniform2Iv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
+	_, err := c.svc.GlProgramUniform2Iv5(ctx, &pb.GlProgramUniform2Iv5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlProgramUniform2Iv4_1 calls the GlProgramUniform2Iv4_1 RPC.
+func (c *GLES31Client) GlProgramUniform2Iv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
+	_, err := c.svc.GlProgramUniform2Iv4_1(ctx, &pb.GlProgramUniform2Iv4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlProgramUniform2Ui calls the GlProgramUniform2Ui RPC.
+func (c *GLES31Client) GlProgramUniform2Ui(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.GlProgramUniform2Ui(ctx, &pb.GlProgramUniform2UiRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlProgramUniform2Uiv5 calls the GlProgramUniform2Uiv5 RPC.
+func (c *GLES31Client) GlProgramUniform2Uiv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
+	_, err := c.svc.GlProgramUniform2Uiv5(ctx, &pb.GlProgramUniform2Uiv5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlProgramUniform2Uiv4_1 calls the GlProgramUniform2Uiv4_1 RPC.
+func (c *GLES31Client) GlProgramUniform2Uiv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
+	_, err := c.svc.GlProgramUniform2Uiv4_1(ctx, &pb.GlProgramUniform2Uiv4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlProgramUniform3F calls the GlProgramUniform3F RPC.
+func (c *GLES31Client) GlProgramUniform3F(ctx context.Context, arg0 int32, arg1 int32, arg2 float32, arg3 float32, arg4 float32) error {
+	_, err := c.svc.GlProgramUniform3F(ctx, &pb.GlProgramUniform3FRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlProgramUniform3Fv5 calls the GlProgramUniform3Fv5 RPC.
+func (c *GLES31Client) GlProgramUniform3Fv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
+	_, err := c.svc.GlProgramUniform3Fv5(ctx, &pb.GlProgramUniform3Fv5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlProgramUniform3Fv4_1 calls the GlProgramUniform3Fv4_1 RPC.
+func (c *GLES31Client) GlProgramUniform3Fv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
+	_, err := c.svc.GlProgramUniform3Fv4_1(ctx, &pb.GlProgramUniform3Fv4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlProgramUniform3I calls the GlProgramUniform3I RPC.
+func (c *GLES31Client) GlProgramUniform3I(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
+	_, err := c.svc.GlProgramUniform3I(ctx, &pb.GlProgramUniform3IRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlProgramUniform3Iv5 calls the GlProgramUniform3Iv5 RPC.
+func (c *GLES31Client) GlProgramUniform3Iv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
+	_, err := c.svc.GlProgramUniform3Iv5(ctx, &pb.GlProgramUniform3Iv5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlProgramUniform3Iv4_1 calls the GlProgramUniform3Iv4_1 RPC.
+func (c *GLES31Client) GlProgramUniform3Iv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
+	_, err := c.svc.GlProgramUniform3Iv4_1(ctx, &pb.GlProgramUniform3Iv4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlProgramUniform3Ui calls the GlProgramUniform3Ui RPC.
+func (c *GLES31Client) GlProgramUniform3Ui(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
+	_, err := c.svc.GlProgramUniform3Ui(ctx, &pb.GlProgramUniform3UiRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlProgramUniform3Uiv5 calls the GlProgramUniform3Uiv5 RPC.
+func (c *GLES31Client) GlProgramUniform3Uiv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
+	_, err := c.svc.GlProgramUniform3Uiv5(ctx, &pb.GlProgramUniform3Uiv5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlProgramUniform3Uiv4_1 calls the GlProgramUniform3Uiv4_1 RPC.
+func (c *GLES31Client) GlProgramUniform3Uiv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
+	_, err := c.svc.GlProgramUniform3Uiv4_1(ctx, &pb.GlProgramUniform3Uiv4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlProgramUniform4F calls the GlProgramUniform4F RPC.
+func (c *GLES31Client) GlProgramUniform4F(ctx context.Context, arg0 int32, arg1 int32, arg2 float32, arg3 float32, arg4 float32, arg5 float32) error {
+	_, err := c.svc.GlProgramUniform4F(ctx, &pb.GlProgramUniform4FRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	return err
+}
+
+// GlProgramUniform4Fv5 calls the GlProgramUniform4Fv5 RPC.
+func (c *GLES31Client) GlProgramUniform4Fv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
+	_, err := c.svc.GlProgramUniform4Fv5(ctx, &pb.GlProgramUniform4Fv5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlProgramUniform4Fv4_1 calls the GlProgramUniform4Fv4_1 RPC.
+func (c *GLES31Client) GlProgramUniform4Fv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
+	_, err := c.svc.GlProgramUniform4Fv4_1(ctx, &pb.GlProgramUniform4Fv4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlProgramUniform4I calls the GlProgramUniform4I RPC.
+func (c *GLES31Client) GlProgramUniform4I(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32) error {
+	_, err := c.svc.GlProgramUniform4I(ctx, &pb.GlProgramUniform4IRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	return err
+}
+
+// GlProgramUniform4Iv5 calls the GlProgramUniform4Iv5 RPC.
+func (c *GLES31Client) GlProgramUniform4Iv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
+	_, err := c.svc.GlProgramUniform4Iv5(ctx, &pb.GlProgramUniform4Iv5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlProgramUniform4Iv4_1 calls the GlProgramUniform4Iv4_1 RPC.
+func (c *GLES31Client) GlProgramUniform4Iv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
+	_, err := c.svc.GlProgramUniform4Iv4_1(ctx, &pb.GlProgramUniform4Iv4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlProgramUniform4Ui calls the GlProgramUniform4Ui RPC.
+func (c *GLES31Client) GlProgramUniform4Ui(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32) error {
+	_, err := c.svc.GlProgramUniform4Ui(ctx, &pb.GlProgramUniform4UiRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	return err
+}
+
+// GlProgramUniform4Uiv5 calls the GlProgramUniform4Uiv5 RPC.
+func (c *GLES31Client) GlProgramUniform4Uiv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
+	_, err := c.svc.GlProgramUniform4Uiv5(ctx, &pb.GlProgramUniform4Uiv5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlProgramUniform4Uiv4_1 calls the GlProgramUniform4Uiv4_1 RPC.
+func (c *GLES31Client) GlProgramUniform4Uiv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
+	_, err := c.svc.GlProgramUniform4Uiv4_1(ctx, &pb.GlProgramUniform4Uiv4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlProgramUniformMatrix2Fv6 calls the GlProgramUniformMatrix2Fv6 RPC.
+func (c *GLES31Client) GlProgramUniformMatrix2Fv6(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64, arg5 int32) error {
+	_, err := c.svc.GlProgramUniformMatrix2Fv6(ctx, &pb.GlProgramUniformMatrix2Fv6Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	return err
+}
+
+// GlProgramUniformMatrix2Fv5_1 calls the GlProgramUniformMatrix2Fv5_1 RPC.
+func (c *GLES31Client) GlProgramUniformMatrix2Fv5_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64) error {
+	_, err := c.svc.GlProgramUniformMatrix2Fv5_1(ctx, &pb.GlProgramUniformMatrix2Fv5_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlProgramUniformMatrix2X3Fv6 calls the GlProgramUniformMatrix2X3Fv6 RPC.
+func (c *GLES31Client) GlProgramUniformMatrix2X3Fv6(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64, arg5 int32) error {
+	_, err := c.svc.GlProgramUniformMatrix2X3Fv6(ctx, &pb.GlProgramUniformMatrix2X3Fv6Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	return err
+}
+
+// GlProgramUniformMatrix2X3Fv5_1 calls the GlProgramUniformMatrix2X3Fv5_1 RPC.
+func (c *GLES31Client) GlProgramUniformMatrix2X3Fv5_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64) error {
+	_, err := c.svc.GlProgramUniformMatrix2X3Fv5_1(ctx, &pb.GlProgramUniformMatrix2X3Fv5_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlProgramUniformMatrix2X4Fv6 calls the GlProgramUniformMatrix2X4Fv6 RPC.
+func (c *GLES31Client) GlProgramUniformMatrix2X4Fv6(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64, arg5 int32) error {
+	_, err := c.svc.GlProgramUniformMatrix2X4Fv6(ctx, &pb.GlProgramUniformMatrix2X4Fv6Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	return err
+}
+
+// GlProgramUniformMatrix2X4Fv5_1 calls the GlProgramUniformMatrix2X4Fv5_1 RPC.
+func (c *GLES31Client) GlProgramUniformMatrix2X4Fv5_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64) error {
+	_, err := c.svc.GlProgramUniformMatrix2X4Fv5_1(ctx, &pb.GlProgramUniformMatrix2X4Fv5_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlProgramUniformMatrix3Fv6 calls the GlProgramUniformMatrix3Fv6 RPC.
+func (c *GLES31Client) GlProgramUniformMatrix3Fv6(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64, arg5 int32) error {
+	_, err := c.svc.GlProgramUniformMatrix3Fv6(ctx, &pb.GlProgramUniformMatrix3Fv6Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	return err
+}
+
+// GlProgramUniformMatrix3Fv5_1 calls the GlProgramUniformMatrix3Fv5_1 RPC.
+func (c *GLES31Client) GlProgramUniformMatrix3Fv5_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64) error {
+	_, err := c.svc.GlProgramUniformMatrix3Fv5_1(ctx, &pb.GlProgramUniformMatrix3Fv5_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlProgramUniformMatrix3X2Fv6 calls the GlProgramUniformMatrix3X2Fv6 RPC.
+func (c *GLES31Client) GlProgramUniformMatrix3X2Fv6(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64, arg5 int32) error {
+	_, err := c.svc.GlProgramUniformMatrix3X2Fv6(ctx, &pb.GlProgramUniformMatrix3X2Fv6Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	return err
+}
+
+// GlProgramUniformMatrix3X2Fv5_1 calls the GlProgramUniformMatrix3X2Fv5_1 RPC.
+func (c *GLES31Client) GlProgramUniformMatrix3X2Fv5_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64) error {
+	_, err := c.svc.GlProgramUniformMatrix3X2Fv5_1(ctx, &pb.GlProgramUniformMatrix3X2Fv5_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlProgramUniformMatrix3X4Fv6 calls the GlProgramUniformMatrix3X4Fv6 RPC.
+func (c *GLES31Client) GlProgramUniformMatrix3X4Fv6(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64, arg5 int32) error {
+	_, err := c.svc.GlProgramUniformMatrix3X4Fv6(ctx, &pb.GlProgramUniformMatrix3X4Fv6Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	return err
+}
+
+// GlProgramUniformMatrix3X4Fv5_1 calls the GlProgramUniformMatrix3X4Fv5_1 RPC.
+func (c *GLES31Client) GlProgramUniformMatrix3X4Fv5_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64) error {
+	_, err := c.svc.GlProgramUniformMatrix3X4Fv5_1(ctx, &pb.GlProgramUniformMatrix3X4Fv5_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlProgramUniformMatrix4Fv6 calls the GlProgramUniformMatrix4Fv6 RPC.
+func (c *GLES31Client) GlProgramUniformMatrix4Fv6(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64, arg5 int32) error {
+	_, err := c.svc.GlProgramUniformMatrix4Fv6(ctx, &pb.GlProgramUniformMatrix4Fv6Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	return err
+}
+
+// GlProgramUniformMatrix4Fv5_1 calls the GlProgramUniformMatrix4Fv5_1 RPC.
+func (c *GLES31Client) GlProgramUniformMatrix4Fv5_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64) error {
+	_, err := c.svc.GlProgramUniformMatrix4Fv5_1(ctx, &pb.GlProgramUniformMatrix4Fv5_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlProgramUniformMatrix4X2Fv6 calls the GlProgramUniformMatrix4X2Fv6 RPC.
+func (c *GLES31Client) GlProgramUniformMatrix4X2Fv6(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64, arg5 int32) error {
+	_, err := c.svc.GlProgramUniformMatrix4X2Fv6(ctx, &pb.GlProgramUniformMatrix4X2Fv6Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	return err
+}
+
+// GlProgramUniformMatrix4X2Fv5_1 calls the GlProgramUniformMatrix4X2Fv5_1 RPC.
+func (c *GLES31Client) GlProgramUniformMatrix4X2Fv5_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64) error {
+	_, err := c.svc.GlProgramUniformMatrix4X2Fv5_1(ctx, &pb.GlProgramUniformMatrix4X2Fv5_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlProgramUniformMatrix4X3Fv6 calls the GlProgramUniformMatrix4X3Fv6 RPC.
+func (c *GLES31Client) GlProgramUniformMatrix4X3Fv6(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64, arg5 int32) error {
+	_, err := c.svc.GlProgramUniformMatrix4X3Fv6(ctx, &pb.GlProgramUniformMatrix4X3Fv6Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	return err
+}
+
+// GlProgramUniformMatrix4X3Fv5_1 calls the GlProgramUniformMatrix4X3Fv5_1 RPC.
+func (c *GLES31Client) GlProgramUniformMatrix4X3Fv5_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64) error {
+	_, err := c.svc.GlProgramUniformMatrix4X3Fv5_1(ctx, &pb.GlProgramUniformMatrix4X3Fv5_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlSampleMaski calls the GlSampleMaski RPC.
+func (c *GLES31Client) GlSampleMaski(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.GlSampleMaski(ctx, &pb.GlSampleMaskiRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GlTexStorage2DMultisample calls the GlTexStorage2DMultisample RPC.
+func (c *GLES31Client) GlTexStorage2DMultisample(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 bool) error {
+	_, err := c.svc.GlTexStorage2DMultisample(ctx, &pb.GlTexStorage2DMultisampleRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	return err
+}
+
+// GlUseProgramStages calls the GlUseProgramStages RPC.
+func (c *GLES31Client) GlUseProgramStages(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.GlUseProgramStages(ctx, &pb.GlUseProgramStagesRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GlValidateProgramPipeline calls the GlValidateProgramPipeline RPC.
+func (c *GLES31Client) GlValidateProgramPipeline(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.GlValidateProgramPipeline(ctx, &pb.GlValidateProgramPipelineRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GlVertexAttribBinding calls the GlVertexAttribBinding RPC.
+func (c *GLES31Client) GlVertexAttribBinding(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.GlVertexAttribBinding(ctx, &pb.GlVertexAttribBindingRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GlVertexAttribFormat calls the GlVertexAttribFormat RPC.
+func (c *GLES31Client) GlVertexAttribFormat(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int32) error {
+	_, err := c.svc.GlVertexAttribFormat(ctx, &pb.GlVertexAttribFormatRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlVertexAttribIFormat calls the GlVertexAttribIFormat RPC.
+func (c *GLES31Client) GlVertexAttribIFormat(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.GlVertexAttribIFormat(ctx, &pb.GlVertexAttribIFormatRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlVertexBindingDivisor calls the GlVertexBindingDivisor RPC.
+func (c *GLES31Client) GlVertexBindingDivisor(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.GlVertexBindingDivisor(ctx, &pb.GlVertexBindingDivisorRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// EGLExtClient wraps the gRPC EGLExtService client.
+type EGLExtClient struct {
+	svc pb.EGLExtServiceClient
+}
+
+// NewEGLExtClient creates a new EGLExt client.
+func NewEGLExtClient(cc grpc.ClientConnInterface) *EGLExtClient {
+	return &EGLExtClient{
+		svc: pb.NewEGLExtServiceClient(cc),
+	}
+}
+
+// EglDupNativeFenceFDANDROID calls the EglDupNativeFenceFDANDROID RPC.
+func (c *EGLExtClient) EglDupNativeFenceFDANDROID(ctx context.Context, handle int64, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.EglDupNativeFenceFDANDROID(ctx, &pb.EglDupNativeFenceFDANDROIDRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EglPresentationTimeANDROID calls the EglPresentationTimeANDROID RPC.
+func (c *EGLExtClient) EglPresentationTimeANDROID(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
+	resp, err := c.svc.EglPresentationTimeANDROID(ctx, &pb.EglPresentationTimeANDROIDRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// EGLSurfaceClient wraps the gRPC EGLSurfaceService client.
+type EGLSurfaceClient struct {
+	svc pb.EGLSurfaceServiceClient
+}
+
+// NewEGLSurfaceClient creates a new EGLSurface client.
+func NewEGLSurfaceClient(cc grpc.ClientConnInterface) *EGLSurfaceClient {
+	return &EGLSurfaceClient{
+		svc: pb.NewEGLSurfaceServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *EGLSurfaceClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ETC1UtilClient wraps the gRPC ETC1UtilService client.
+type ETC1UtilClient struct {
+	svc pb.ETC1UtilServiceClient
+}
+
+// NewETC1UtilClient creates a new ETC1Util client.
+func NewETC1UtilClient(cc grpc.ClientConnInterface) *ETC1UtilClient {
+	return &ETC1UtilClient{
+		svc: pb.NewETC1UtilServiceClient(cc),
+	}
+}
+
+// CompressTexture calls the CompressTexture RPC.
+func (c *ETC1UtilClient) CompressTexture(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int32) (int64, error) {
+	resp, err := c.svc.CompressTexture(ctx, &pb.CompressTextureRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateTexture calls the CreateTexture RPC.
+func (c *ETC1UtilClient) CreateTexture(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.CreateTexture(ctx, &pb.CreateTextureRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsETC1Supported calls the IsETC1Supported RPC.
+func (c *ETC1UtilClient) IsETC1Supported(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.IsETC1Supported(ctx, &pb.IsETC1SupportedRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LoadTexture6 calls the LoadTexture6 RPC.
+func (c *ETC1UtilClient) LoadTexture6(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int64) error {
+	_, err := c.svc.LoadTexture6(ctx, &pb.LoadTexture6Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	return err
+}
+
+// LoadTexture6_1 calls the LoadTexture6_1 RPC.
+func (c *ETC1UtilClient) LoadTexture6_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int64) error {
+	_, err := c.svc.LoadTexture6_1(ctx, &pb.LoadTexture6_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	return err
+}
+
+// WriteTexture calls the WriteTexture RPC.
+func (c *ETC1UtilClient) WriteTexture(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.WriteTexture(ctx, &pb.WriteTextureRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// ETC1UtilETC1TextureClient wraps the gRPC ETC1UtilETC1TextureService client.
+type ETC1UtilETC1TextureClient struct {
+	svc pb.ETC1UtilETC1TextureServiceClient
+}
+
+// NewETC1UtilETC1TextureClient creates a new ETC1UtilETC1Texture client.
+func NewETC1UtilETC1TextureClient(cc grpc.ClientConnInterface) *ETC1UtilETC1TextureClient {
+	return &ETC1UtilETC1TextureClient{
+		svc: pb.NewETC1UtilETC1TextureServiceClient(cc),
+	}
+}
+
+// GetData calls the GetData RPC.
+func (c *ETC1UtilETC1TextureClient) GetData(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetData(ctx, &pb.GetDataRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHeight calls the GetHeight RPC.
+func (c *ETC1UtilETC1TextureClient) GetHeight(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetHeight(ctx, &pb.ETC1UtilETC1TextureGetHeightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWidth calls the GetWidth RPC.
+func (c *ETC1UtilETC1TextureClient) GetWidth(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetWidth(ctx, &pb.ETC1UtilETC1TextureGetWidthRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MatrixClient wraps the gRPC MatrixService client.
+type MatrixClient struct {
+	svc pb.MatrixServiceClient
+}
+
+// NewMatrixClient creates a new Matrix client.
+func NewMatrixClient(cc grpc.ClientConnInterface) *MatrixClient {
+	return &MatrixClient{
+		svc: pb.NewMatrixServiceClient(cc),
+	}
+}
+
+// FrustumM calls the FrustumM RPC.
+func (c *MatrixClient) FrustumM(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 float32, arg3 float32, arg4 float32, arg5 float32, arg6 float32, arg7 float32) error {
+	_, err := c.svc.FrustumM(ctx, &pb.FrustumMRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+		Arg6:   arg6,
+		Arg7:   arg7,
+	})
+	return err
+}
+
+// InvertM calls the InvertM RPC.
+func (c *MatrixClient) InvertM(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64, arg3 int32) (bool, error) {
+	resp, err := c.svc.InvertM(ctx, &pb.InvertMRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Length calls the Length RPC.
+func (c *MatrixClient) Length(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32) (float32, error) {
+	resp, err := c.svc.Length(ctx, &pb.LengthRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MultiplyMM calls the MultiplyMM RPC.
+func (c *MatrixClient) MultiplyMM(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64, arg3 int32, arg4 int64, arg5 int32) error {
+	_, err := c.svc.MultiplyMM(ctx, &pb.MultiplyMMRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	return err
+}
+
+// MultiplyMV calls the MultiplyMV RPC.
+func (c *MatrixClient) MultiplyMV(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64, arg3 int32, arg4 int64, arg5 int32) error {
+	_, err := c.svc.MultiplyMV(ctx, &pb.MultiplyMVRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	return err
+}
+
+// OrthoM calls the OrthoM RPC.
+func (c *MatrixClient) OrthoM(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 float32, arg3 float32, arg4 float32, arg5 float32, arg6 float32, arg7 float32) error {
+	_, err := c.svc.OrthoM(ctx, &pb.OrthoMRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+		Arg6:   arg6,
+		Arg7:   arg7,
+	})
+	return err
+}
+
+// PerspectiveM calls the PerspectiveM RPC.
+func (c *MatrixClient) PerspectiveM(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 float32, arg3 float32, arg4 float32, arg5 float32) error {
+	_, err := c.svc.PerspectiveM(ctx, &pb.PerspectiveMRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	return err
+}
+
+// RotateM6 calls the RotateM6 RPC.
+func (c *MatrixClient) RotateM6(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 float32, arg3 float32, arg4 float32, arg5 float32) error {
+	_, err := c.svc.RotateM6(ctx, &pb.RotateM6Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	return err
+}
+
+// RotateM8_1 calls the RotateM8_1 RPC.
+func (c *MatrixClient) RotateM8_1(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64, arg3 int32, arg4 float32, arg5 float32, arg6 float32, arg7 float32) error {
+	_, err := c.svc.RotateM8_1(ctx, &pb.RotateM8_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+		Arg6:   arg6,
+		Arg7:   arg7,
+	})
+	return err
+}
+
+// ScaleM5 calls the ScaleM5 RPC.
+func (c *MatrixClient) ScaleM5(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 float32, arg3 float32, arg4 float32) error {
+	_, err := c.svc.ScaleM5(ctx, &pb.ScaleM5Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	return err
+}
+
+// ScaleM7_1 calls the ScaleM7_1 RPC.
+func (c *MatrixClient) ScaleM7_1(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64, arg3 int32, arg4 float32, arg5 float32, arg6 float32) error {
+	_, err := c.svc.ScaleM7_1(ctx, &pb.ScaleM7_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+		Arg6:   arg6,
+	})
+	return err
+}
+
+// SetIdentityM calls the SetIdentityM RPC.
+func (c *MatrixClient) SetIdentityM(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.SetIdentityM(ctx, &pb.SetIdentityMRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SetLookAtM calls the SetLookAtM RPC.
+func (c *MatrixClient) SetLookAtM(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 float32, arg3 float32, arg4 float32, arg5 float32, arg6 float32, arg7 float32, arg8 float32, arg9 float32, arg10 float32) error {
+	_, err := c.svc.SetLookAtM(ctx, &pb.SetLookAtMRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -115,8 +5239,108 @@ func (c *GLUClient) GluUnProject(ctx context.Context, handle int64, arg0 float32
 		Arg9:   arg9,
 		Arg10:  arg10,
 	})
+	return err
+}
+
+// SetRotateEulerM calls the SetRotateEulerM RPC.
+func (c *MatrixClient) SetRotateEulerM(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 float32, arg3 float32, arg4 float32) error {
+	_, err := c.svc.SetRotateEulerM(ctx, &pb.SetRotateEulerMRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	return err
+}
+
+// SetRotateEulerM2 calls the SetRotateEulerM2 RPC.
+func (c *MatrixClient) SetRotateEulerM2(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 float32, arg3 float32, arg4 float32) error {
+	_, err := c.svc.SetRotateEulerM2(ctx, &pb.SetRotateEulerM2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	return err
+}
+
+// SetRotateM calls the SetRotateM RPC.
+func (c *MatrixClient) SetRotateM(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 float32, arg3 float32, arg4 float32, arg5 float32) error {
+	_, err := c.svc.SetRotateM(ctx, &pb.SetRotateMRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	return err
+}
+
+// TranslateM5 calls the TranslateM5 RPC.
+func (c *MatrixClient) TranslateM5(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 float32, arg3 float32, arg4 float32) error {
+	_, err := c.svc.TranslateM5(ctx, &pb.TranslateM5Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	return err
+}
+
+// TranslateM7_1 calls the TranslateM7_1 RPC.
+func (c *MatrixClient) TranslateM7_1(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64, arg3 int32, arg4 float32, arg5 float32, arg6 float32) error {
+	_, err := c.svc.TranslateM7_1(ctx, &pb.TranslateM7_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+		Arg6:   arg6,
+	})
+	return err
+}
+
+// TransposeM calls the TransposeM RPC.
+func (c *MatrixClient) TransposeM(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.TransposeM(ctx, &pb.TransposeMRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// EGLDisplayClient wraps the gRPC EGLDisplayService client.
+type EGLDisplayClient struct {
+	svc pb.EGLDisplayServiceClient
+}
+
+// NewEGLDisplayClient creates a new EGLDisplay client.
+func NewEGLDisplayClient(cc grpc.ClientConnInterface) *EGLDisplayClient {
+	return &EGLDisplayClient{
+		svc: pb.NewEGLDisplayServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *EGLDisplayClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
 	if err != nil {
-		return 0, err
+		return false, err
 	}
 	return resp.GetResult(), nil
 }
@@ -2306,34 +7530,461 @@ func (c *GLES20Client) GlViewport(ctx context.Context, handle int64, arg0 int32,
 	return err
 }
 
-// VisibilityClient wraps the gRPC VisibilityService client.
-type VisibilityClient struct {
-	svc pb.VisibilityServiceClient
+// GLES10ExtClient wraps the gRPC GLES10ExtService client.
+type GLES10ExtClient struct {
+	svc pb.GLES10ExtServiceClient
 }
 
-// NewVisibilityClient creates a new Visibility client.
-func NewVisibilityClient(cc grpc.ClientConnInterface) *VisibilityClient {
-	return &VisibilityClient{
-		svc: pb.NewVisibilityServiceClient(cc),
+// NewGLES10ExtClient creates a new GLES10Ext client.
+func NewGLES10ExtClient(cc grpc.ClientConnInterface) *GLES10ExtClient {
+	return &GLES10ExtClient{
+		svc: pb.NewGLES10ExtServiceClient(cc),
 	}
 }
 
-// ComputeBoundingSphere calls the ComputeBoundingSphere RPC.
-func (c *VisibilityClient) ComputeBoundingSphere(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
-	_, err := c.svc.ComputeBoundingSphere(ctx, &pb.ComputeBoundingSphereRequest{
+// GlQueryMatrixxOES4 calls the GlQueryMatrixxOES4 RPC.
+func (c *GLES10ExtClient) GlQueryMatrixxOES4(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64, arg3 int32) (int32, error) {
+	resp, err := c.svc.GlQueryMatrixxOES4(ctx, &pb.GlQueryMatrixxOES4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GlQueryMatrixxOES2_1 calls the GlQueryMatrixxOES2_1 RPC.
+func (c *GLES10ExtClient) GlQueryMatrixxOES2_1(ctx context.Context, handle int64, arg0 int64, arg1 int64) (int32, error) {
+	resp, err := c.svc.GlQueryMatrixxOES2_1(ctx, &pb.GlQueryMatrixxOES2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GLSurfaceViewClient wraps the gRPC GLSurfaceViewService client.
+type GLSurfaceViewClient struct {
+	svc pb.GLSurfaceViewServiceClient
+}
+
+// NewGLSurfaceViewClient creates a new GLSurfaceView client.
+func NewGLSurfaceViewClient(cc grpc.ClientConnInterface) *GLSurfaceViewClient {
+	return &GLSurfaceViewClient{
+		svc: pb.NewGLSurfaceViewServiceClient(cc),
+	}
+}
+
+// GetDebugFlags calls the GetDebugFlags RPC.
+func (c *GLSurfaceViewClient) GetDebugFlags(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetDebugFlags(ctx, &pb.GetDebugFlagsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPreserveEGLContextOnPause calls the GetPreserveEGLContextOnPause RPC.
+func (c *GLSurfaceViewClient) GetPreserveEGLContextOnPause(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.GetPreserveEGLContextOnPause(ctx, &pb.GetPreserveEGLContextOnPauseRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRenderMode calls the GetRenderMode RPC.
+func (c *GLSurfaceViewClient) GetRenderMode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetRenderMode(ctx, &pb.GetRenderModeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnPause calls the OnPause RPC.
+func (c *GLSurfaceViewClient) OnPause(ctx context.Context, handle int64) error {
+	_, err := c.svc.OnPause(ctx, &pb.OnPauseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// OnResume calls the OnResume RPC.
+func (c *GLSurfaceViewClient) OnResume(ctx context.Context, handle int64) error {
+	_, err := c.svc.OnResume(ctx, &pb.OnResumeRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// QueueEvent calls the QueueEvent RPC.
+func (c *GLSurfaceViewClient) QueueEvent(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.QueueEvent(ctx, &pb.QueueEventRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// RequestRender calls the RequestRender RPC.
+func (c *GLSurfaceViewClient) RequestRender(ctx context.Context, handle int64) error {
+	_, err := c.svc.RequestRender(ctx, &pb.RequestRenderRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// SetDebugFlags calls the SetDebugFlags RPC.
+func (c *GLSurfaceViewClient) SetDebugFlags(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetDebugFlags(ctx, &pb.SetDebugFlagsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetEGLConfigChooser1 calls the SetEGLConfigChooser1 RPC.
+func (c *GLSurfaceViewClient) SetEGLConfigChooser1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetEGLConfigChooser1(ctx, &pb.SetEGLConfigChooser1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetEGLConfigChooser1_1 calls the SetEGLConfigChooser1_1 RPC.
+func (c *GLSurfaceViewClient) SetEGLConfigChooser1_1(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetEGLConfigChooser1_1(ctx, &pb.SetEGLConfigChooser1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetEGLConfigChooser6_2 calls the SetEGLConfigChooser6_2 RPC.
+func (c *GLSurfaceViewClient) SetEGLConfigChooser6_2(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32) error {
+	_, err := c.svc.SetEGLConfigChooser6_2(ctx, &pb.SetEGLConfigChooser6_2Request{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
 		Arg2:   arg2,
 		Arg3:   arg3,
 		Arg4:   arg4,
+		Arg5:   arg5,
 	})
 	return err
 }
 
-// FrustumCullSpheres calls the FrustumCullSpheres RPC.
-func (c *VisibilityClient) FrustumCullSpheres(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64, arg3 int32, arg4 int32, arg5 int64, arg6 int32, arg7 int32) (int32, error) {
-	resp, err := c.svc.FrustumCullSpheres(ctx, &pb.FrustumCullSpheresRequest{
+// SetEGLContextClientVersion calls the SetEGLContextClientVersion RPC.
+func (c *GLSurfaceViewClient) SetEGLContextClientVersion(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetEGLContextClientVersion(ctx, &pb.SetEGLContextClientVersionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetEGLContextFactory calls the SetEGLContextFactory RPC.
+func (c *GLSurfaceViewClient) SetEGLContextFactory(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetEGLContextFactory(ctx, &pb.SetEGLContextFactoryRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetEGLWindowSurfaceFactory calls the SetEGLWindowSurfaceFactory RPC.
+func (c *GLSurfaceViewClient) SetEGLWindowSurfaceFactory(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetEGLWindowSurfaceFactory(ctx, &pb.SetEGLWindowSurfaceFactoryRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetGLWrapper calls the SetGLWrapper RPC.
+func (c *GLSurfaceViewClient) SetGLWrapper(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetGLWrapper(ctx, &pb.SetGLWrapperRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetPreserveEGLContextOnPause calls the SetPreserveEGLContextOnPause RPC.
+func (c *GLSurfaceViewClient) SetPreserveEGLContextOnPause(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetPreserveEGLContextOnPause(ctx, &pb.SetPreserveEGLContextOnPauseRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetRenderMode calls the SetRenderMode RPC.
+func (c *GLSurfaceViewClient) SetRenderMode(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetRenderMode(ctx, &pb.SetRenderModeRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetRenderer calls the SetRenderer RPC.
+func (c *GLSurfaceViewClient) SetRenderer(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetRenderer(ctx, &pb.SetRendererRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SurfaceChanged calls the SurfaceChanged RPC.
+func (c *GLSurfaceViewClient) SurfaceChanged(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.SurfaceChanged(ctx, &pb.SurfaceChangedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// SurfaceCreated calls the SurfaceCreated RPC.
+func (c *GLSurfaceViewClient) SurfaceCreated(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SurfaceCreated(ctx, &pb.SurfaceCreatedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SurfaceDestroyed calls the SurfaceDestroyed RPC.
+func (c *GLSurfaceViewClient) SurfaceDestroyed(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SurfaceDestroyed(ctx, &pb.SurfaceDestroyedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SurfaceRedrawNeeded calls the SurfaceRedrawNeeded RPC.
+func (c *GLSurfaceViewClient) SurfaceRedrawNeeded(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SurfaceRedrawNeeded(ctx, &pb.SurfaceRedrawNeededRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SurfaceRedrawNeededAsync calls the SurfaceRedrawNeededAsync RPC.
+func (c *GLSurfaceViewClient) SurfaceRedrawNeededAsync(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.SurfaceRedrawNeededAsync(ctx, &pb.SurfaceRedrawNeededAsyncRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GLSurfaceViewEGLConfigChooserClient wraps the gRPC GLSurfaceViewEGLConfigChooserService client.
+type GLSurfaceViewEGLConfigChooserClient struct {
+	svc pb.GLSurfaceViewEGLConfigChooserServiceClient
+}
+
+// NewGLSurfaceViewEGLConfigChooserClient creates a new GLSurfaceViewEGLConfigChooser client.
+func NewGLSurfaceViewEGLConfigChooserClient(cc grpc.ClientConnInterface) *GLSurfaceViewEGLConfigChooserClient {
+	return &GLSurfaceViewEGLConfigChooserClient{
+		svc: pb.NewGLSurfaceViewEGLConfigChooserServiceClient(cc),
+	}
+}
+
+// ChooseConfig calls the ChooseConfig RPC.
+func (c *GLSurfaceViewEGLConfigChooserClient) ChooseConfig(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.ChooseConfig(ctx, &pb.ChooseConfigRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GLSurfaceViewEGLContextFactoryClient wraps the gRPC GLSurfaceViewEGLContextFactoryService client.
+type GLSurfaceViewEGLContextFactoryClient struct {
+	svc pb.GLSurfaceViewEGLContextFactoryServiceClient
+}
+
+// NewGLSurfaceViewEGLContextFactoryClient creates a new GLSurfaceViewEGLContextFactory client.
+func NewGLSurfaceViewEGLContextFactoryClient(cc grpc.ClientConnInterface) *GLSurfaceViewEGLContextFactoryClient {
+	return &GLSurfaceViewEGLContextFactoryClient{
+		svc: pb.NewGLSurfaceViewEGLContextFactoryServiceClient(cc),
+	}
+}
+
+// CreateContext calls the CreateContext RPC.
+func (c *GLSurfaceViewEGLContextFactoryClient) CreateContext(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.CreateContext(ctx, &pb.CreateContextRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DestroyContext calls the DestroyContext RPC.
+func (c *GLSurfaceViewEGLContextFactoryClient) DestroyContext(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.DestroyContext(ctx, &pb.DestroyContextRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GLSurfaceViewEGLWindowSurfaceFactoryClient wraps the gRPC GLSurfaceViewEGLWindowSurfaceFactoryService client.
+type GLSurfaceViewEGLWindowSurfaceFactoryClient struct {
+	svc pb.GLSurfaceViewEGLWindowSurfaceFactoryServiceClient
+}
+
+// NewGLSurfaceViewEGLWindowSurfaceFactoryClient creates a new GLSurfaceViewEGLWindowSurfaceFactory client.
+func NewGLSurfaceViewEGLWindowSurfaceFactoryClient(cc grpc.ClientConnInterface) *GLSurfaceViewEGLWindowSurfaceFactoryClient {
+	return &GLSurfaceViewEGLWindowSurfaceFactoryClient{
+		svc: pb.NewGLSurfaceViewEGLWindowSurfaceFactoryServiceClient(cc),
+	}
+}
+
+// CreateWindowSurface calls the CreateWindowSurface RPC.
+func (c *GLSurfaceViewEGLWindowSurfaceFactoryClient) CreateWindowSurface(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
+	resp, err := c.svc.CreateWindowSurface(ctx, &pb.CreateWindowSurfaceRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DestroySurface calls the DestroySurface RPC.
+func (c *GLSurfaceViewEGLWindowSurfaceFactoryClient) DestroySurface(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.DestroySurface(ctx, &pb.DestroySurfaceRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GLSurfaceViewGLWrapperClient wraps the gRPC GLSurfaceViewGLWrapperService client.
+type GLSurfaceViewGLWrapperClient struct {
+	svc pb.GLSurfaceViewGLWrapperServiceClient
+}
+
+// NewGLSurfaceViewGLWrapperClient creates a new GLSurfaceViewGLWrapper client.
+func NewGLSurfaceViewGLWrapperClient(cc grpc.ClientConnInterface) *GLSurfaceViewGLWrapperClient {
+	return &GLSurfaceViewGLWrapperClient{
+		svc: pb.NewGLSurfaceViewGLWrapperServiceClient(cc),
+	}
+}
+
+// Wrap calls the Wrap RPC.
+func (c *GLSurfaceViewGLWrapperClient) Wrap(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Wrap(ctx, &pb.WrapRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GLSurfaceViewRendererClient wraps the gRPC GLSurfaceViewRendererService client.
+type GLSurfaceViewRendererClient struct {
+	svc pb.GLSurfaceViewRendererServiceClient
+}
+
+// NewGLSurfaceViewRendererClient creates a new GLSurfaceViewRenderer client.
+func NewGLSurfaceViewRendererClient(cc grpc.ClientConnInterface) *GLSurfaceViewRendererClient {
+	return &GLSurfaceViewRendererClient{
+		svc: pb.NewGLSurfaceViewRendererServiceClient(cc),
+	}
+}
+
+// OnDrawFrame calls the OnDrawFrame RPC.
+func (c *GLSurfaceViewRendererClient) OnDrawFrame(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnDrawFrame(ctx, &pb.OnDrawFrameRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnSurfaceChanged calls the OnSurfaceChanged RPC.
+func (c *GLSurfaceViewRendererClient) OnSurfaceChanged(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) error {
+	_, err := c.svc.OnSurfaceChanged(ctx, &pb.OnSurfaceChangedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnSurfaceCreated calls the OnSurfaceCreated RPC.
+func (c *GLSurfaceViewRendererClient) OnSurfaceCreated(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.OnSurfaceCreated(ctx, &pb.OnSurfaceCreatedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GLUClient wraps the gRPC GLUService client.
+type GLUClient struct {
+	svc pb.GLUServiceClient
+}
+
+// NewGLUClient creates a new GLU client.
+func NewGLUClient(cc grpc.ClientConnInterface) *GLUClient {
+	return &GLUClient{
+		svc: pb.NewGLUServiceClient(cc),
+	}
+}
+
+// GluErrorString calls the GluErrorString RPC.
+func (c *GLUClient) GluErrorString(ctx context.Context, handle int64, arg0 int32) (string, error) {
+	resp, err := c.svc.GluErrorString(ctx, &pb.GluErrorStringRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GluLookAt calls the GluLookAt RPC.
+func (c *GLUClient) GluLookAt(ctx context.Context, handle int64, arg0 int64, arg1 float32, arg2 float32, arg3 float32, arg4 float32, arg5 float32, arg6 float32, arg7 float32, arg8 float32, arg9 float32) error {
+	_, err := c.svc.GluLookAt(ctx, &pb.GluLookAtRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -2343,16 +7994,41 @@ func (c *VisibilityClient) FrustumCullSpheres(ctx context.Context, handle int64,
 		Arg5:   arg5,
 		Arg6:   arg6,
 		Arg7:   arg7,
+		Arg8:   arg8,
+		Arg9:   arg9,
 	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
+	return err
 }
 
-// VisibilityTest calls the VisibilityTest RPC.
-func (c *VisibilityClient) VisibilityTest(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64, arg3 int32, arg4 int64, arg5 int32, arg6 int32) (int32, error) {
-	resp, err := c.svc.VisibilityTest(ctx, &pb.VisibilityTestRequest{
+// GluOrtho2D calls the GluOrtho2D RPC.
+func (c *GLUClient) GluOrtho2D(ctx context.Context, handle int64, arg0 int64, arg1 float32, arg2 float32, arg3 float32, arg4 float32) error {
+	_, err := c.svc.GluOrtho2D(ctx, &pb.GluOrtho2DRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	return err
+}
+
+// GluPerspective calls the GluPerspective RPC.
+func (c *GLUClient) GluPerspective(ctx context.Context, handle int64, arg0 int64, arg1 float32, arg2 float32, arg3 float32, arg4 float32) error {
+	_, err := c.svc.GluPerspective(ctx, &pb.GluPerspectiveRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	return err
+}
+
+// GluProject calls the GluProject RPC.
+func (c *GLUClient) GluProject(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 int64, arg4 int32, arg5 int64, arg6 int32, arg7 int64, arg8 int32, arg9 int64, arg10 int32) (int32, error) {
+	resp, err := c.svc.GluProject(ctx, &pb.GluProjectRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -2361,6 +8037,10 @@ func (c *VisibilityClient) VisibilityTest(ctx context.Context, handle int64, arg
 		Arg4:   arg4,
 		Arg5:   arg5,
 		Arg6:   arg6,
+		Arg7:   arg7,
+		Arg8:   arg8,
+		Arg9:   arg9,
+		Arg10:  arg10,
 	})
 	if err != nil {
 		return 0, err
@@ -2368,65 +8048,21 @@ func (c *VisibilityClient) VisibilityTest(ctx context.Context, handle int64, arg
 	return resp.GetResult(), nil
 }
 
-// GLES31Client wraps the gRPC GLES31Service client.
-type GLES31Client struct {
-	svc pb.GLES31ServiceClient
-}
-
-// NewGLES31Client creates a new GLES31 client.
-func NewGLES31Client(cc grpc.ClientConnInterface) *GLES31Client {
-	return &GLES31Client{
-		svc: pb.NewGLES31ServiceClient(cc),
-	}
-}
-
-// GlActiveShaderProgram calls the GlActiveShaderProgram RPC.
-func (c *GLES31Client) GlActiveShaderProgram(ctx context.Context, arg0 int32, arg1 int32) error {
-	_, err := c.svc.GlActiveShaderProgram(ctx, &pb.GlActiveShaderProgramRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// GlBindImageTexture calls the GlBindImageTexture RPC.
-func (c *GLES31Client) GlBindImageTexture(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int32, arg5 int32, arg6 int32) error {
-	_, err := c.svc.GlBindImageTexture(ctx, &pb.GlBindImageTextureRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-		Arg6: arg6,
-	})
-	return err
-}
-
-// GlBindProgramPipeline calls the GlBindProgramPipeline RPC.
-func (c *GLES31Client) GlBindProgramPipeline(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.GlBindProgramPipeline(ctx, &pb.GlBindProgramPipelineRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// GlBindVertexBuffer calls the GlBindVertexBuffer RPC.
-func (c *GLES31Client) GlBindVertexBuffer(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlBindVertexBuffer(ctx, &pb.GlBindVertexBufferRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GlCreateShaderProgramv calls the GlCreateShaderProgramv RPC.
-func (c *GLES31Client) GlCreateShaderProgramv(ctx context.Context, arg0 int32, arg1 int64) (int32, error) {
-	resp, err := c.svc.GlCreateShaderProgramv(ctx, &pb.GlCreateShaderProgramvRequest{
-		Arg0: arg0,
-		Arg1: arg1,
+// GluUnProject calls the GluUnProject RPC.
+func (c *GLUClient) GluUnProject(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 int64, arg4 int32, arg5 int64, arg6 int32, arg7 int64, arg8 int32, arg9 int64, arg10 int32) (int32, error) {
+	resp, err := c.svc.GluUnProject(ctx, &pb.GluUnProjectRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+		Arg6:   arg6,
+		Arg7:   arg7,
+		Arg8:   arg8,
+		Arg9:   arg9,
+		Arg10:  arg10,
 	})
 	if err != nil {
 		return 0, err
@@ -2434,215 +8070,84 @@ func (c *GLES31Client) GlCreateShaderProgramv(ctx context.Context, arg0 int32, a
 	return resp.GetResult(), nil
 }
 
-// GlDeleteProgramPipelines3 calls the GlDeleteProgramPipelines3 RPC.
-func (c *GLES31Client) GlDeleteProgramPipelines3(ctx context.Context, arg0 int32, arg1 int64, arg2 int32) error {
-	_, err := c.svc.GlDeleteProgramPipelines3(ctx, &pb.GlDeleteProgramPipelines3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
+// GLES11ExtClient wraps the gRPC GLES11ExtService client.
+type GLES11ExtClient struct {
+	svc pb.GLES11ExtServiceClient
 }
 
-// GlDeleteProgramPipelines2_1 calls the GlDeleteProgramPipelines2_1 RPC.
-func (c *GLES31Client) GlDeleteProgramPipelines2_1(ctx context.Context, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlDeleteProgramPipelines2_1(ctx, &pb.GlDeleteProgramPipelines2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// GlDispatchCompute calls the GlDispatchCompute RPC.
-func (c *GLES31Client) GlDispatchCompute(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.GlDispatchCompute(ctx, &pb.GlDispatchComputeRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GlDispatchComputeIndirect calls the GlDispatchComputeIndirect RPC.
-func (c *GLES31Client) GlDispatchComputeIndirect(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.GlDispatchComputeIndirect(ctx, &pb.GlDispatchComputeIndirectRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// GlDrawArraysIndirect calls the GlDrawArraysIndirect RPC.
-func (c *GLES31Client) GlDrawArraysIndirect(ctx context.Context, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlDrawArraysIndirect(ctx, &pb.GlDrawArraysIndirectRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// GlDrawElementsIndirect calls the GlDrawElementsIndirect RPC.
-func (c *GLES31Client) GlDrawElementsIndirect(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlDrawElementsIndirect(ctx, &pb.GlDrawElementsIndirectRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GlFramebufferParameteri calls the GlFramebufferParameteri RPC.
-func (c *GLES31Client) GlFramebufferParameteri(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.GlFramebufferParameteri(ctx, &pb.GlFramebufferParameteriRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GlGenProgramPipelines3 calls the GlGenProgramPipelines3 RPC.
-func (c *GLES31Client) GlGenProgramPipelines3(ctx context.Context, arg0 int32, arg1 int64, arg2 int32) error {
-	_, err := c.svc.GlGenProgramPipelines3(ctx, &pb.GlGenProgramPipelines3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GlGenProgramPipelines2_1 calls the GlGenProgramPipelines2_1 RPC.
-func (c *GLES31Client) GlGenProgramPipelines2_1(ctx context.Context, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlGenProgramPipelines2_1(ctx, &pb.GlGenProgramPipelines2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// GlGetBooleaniV4 calls the GlGetBooleaniV4 RPC.
-func (c *GLES31Client) GlGetBooleaniV4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlGetBooleaniV4(ctx, &pb.GlGetBooleaniV4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GlGetBooleaniV3_1 calls the GlGetBooleaniV3_1 RPC.
-func (c *GLES31Client) GlGetBooleaniV3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlGetBooleaniV3_1(ctx, &pb.GlGetBooleaniV3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GlGetFramebufferParameteriv4 calls the GlGetFramebufferParameteriv4 RPC.
-func (c *GLES31Client) GlGetFramebufferParameteriv4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlGetFramebufferParameteriv4(ctx, &pb.GlGetFramebufferParameteriv4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GlGetFramebufferParameteriv3_1 calls the GlGetFramebufferParameteriv3_1 RPC.
-func (c *GLES31Client) GlGetFramebufferParameteriv3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlGetFramebufferParameteriv3_1(ctx, &pb.GlGetFramebufferParameteriv3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GlGetMultisamplefv4 calls the GlGetMultisamplefv4 RPC.
-func (c *GLES31Client) GlGetMultisamplefv4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlGetMultisamplefv4(ctx, &pb.GlGetMultisamplefv4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GlGetMultisamplefv3_1 calls the GlGetMultisamplefv3_1 RPC.
-func (c *GLES31Client) GlGetMultisamplefv3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlGetMultisamplefv3_1(ctx, &pb.GlGetMultisamplefv3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GlGetProgramInterfaceiv5 calls the GlGetProgramInterfaceiv5 RPC.
-func (c *GLES31Client) GlGetProgramInterfaceiv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
-	_, err := c.svc.GlGetProgramInterfaceiv5(ctx, &pb.GlGetProgramInterfaceiv5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// GlGetProgramInterfaceiv4_1 calls the GlGetProgramInterfaceiv4_1 RPC.
-func (c *GLES31Client) GlGetProgramInterfaceiv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
-	_, err := c.svc.GlGetProgramInterfaceiv4_1(ctx, &pb.GlGetProgramInterfaceiv4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GlGetProgramPipelineInfoLog calls the GlGetProgramPipelineInfoLog RPC.
-func (c *GLES31Client) GlGetProgramPipelineInfoLog(ctx context.Context, arg0 int32) (string, error) {
-	resp, err := c.svc.GlGetProgramPipelineInfoLog(ctx, &pb.GlGetProgramPipelineInfoLogRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
+// NewGLES11ExtClient creates a new GLES11Ext client.
+func NewGLES11ExtClient(cc grpc.ClientConnInterface) *GLES11ExtClient {
+	return &GLES11ExtClient{
+		svc: pb.NewGLES11ExtServiceClient(cc),
 	}
-	return resp.GetResult(), nil
 }
 
-// GlGetProgramPipelineiv4 calls the GlGetProgramPipelineiv4 RPC.
-func (c *GLES31Client) GlGetProgramPipelineiv4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlGetProgramPipelineiv4(ctx, &pb.GlGetProgramPipelineiv4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
+// GlAlphaFuncxOES calls the GlAlphaFuncxOES RPC.
+func (c *GLES11ExtClient) GlAlphaFuncxOES(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.GlAlphaFuncxOES(ctx, &pb.GlAlphaFuncxOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
 	})
 	return err
 }
 
-// GlGetProgramPipelineiv3_1 calls the GlGetProgramPipelineiv3_1 RPC.
-func (c *GLES31Client) GlGetProgramPipelineiv3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlGetProgramPipelineiv3_1(ctx, &pb.GlGetProgramPipelineiv3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
+// GlBindFramebufferOES calls the GlBindFramebufferOES RPC.
+func (c *GLES11ExtClient) GlBindFramebufferOES(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.GlBindFramebufferOES(ctx, &pb.GlBindFramebufferOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
 	})
 	return err
 }
 
-// GlGetProgramResourceIndex calls the GlGetProgramResourceIndex RPC.
-func (c *GLES31Client) GlGetProgramResourceIndex(ctx context.Context, arg0 int32, arg1 int32, arg2 string) (int32, error) {
-	resp, err := c.svc.GlGetProgramResourceIndex(ctx, &pb.GlGetProgramResourceIndexRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
+// GlBindRenderbufferOES calls the GlBindRenderbufferOES RPC.
+func (c *GLES11ExtClient) GlBindRenderbufferOES(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.GlBindRenderbufferOES(ctx, &pb.GlBindRenderbufferOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlBlendEquationOES calls the GlBlendEquationOES RPC.
+func (c *GLES11ExtClient) GlBlendEquationOES(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.GlBlendEquationOES(ctx, &pb.GlBlendEquationOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GlBlendEquationSeparateOES calls the GlBlendEquationSeparateOES RPC.
+func (c *GLES11ExtClient) GlBlendEquationSeparateOES(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.GlBlendEquationSeparateOES(ctx, &pb.GlBlendEquationSeparateOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlBlendFuncSeparateOES calls the GlBlendFuncSeparateOES RPC.
+func (c *GLES11ExtClient) GlBlendFuncSeparateOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.GlBlendFuncSeparateOES(ctx, &pb.GlBlendFuncSeparateOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlCheckFramebufferStatusOES calls the GlCheckFramebufferStatusOES RPC.
+func (c *GLES11ExtClient) GlCheckFramebufferStatusOES(ctx context.Context, handle int64, arg0 int32) (int32, error) {
+	resp, err := c.svc.GlCheckFramebufferStatusOES(ctx, &pb.GlCheckFramebufferStatusOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	if err != nil {
 		return 0, err
@@ -2650,115 +8155,721 @@ func (c *GLES31Client) GlGetProgramResourceIndex(ctx context.Context, arg0 int32
 	return resp.GetResult(), nil
 }
 
-// GlGetProgramResourceLocation calls the GlGetProgramResourceLocation RPC.
-func (c *GLES31Client) GlGetProgramResourceLocation(ctx context.Context, arg0 int32, arg1 int32, arg2 string) (int32, error) {
-	resp, err := c.svc.GlGetProgramResourceLocation(ctx, &pb.GlGetProgramResourceLocationRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GlGetProgramResourceName calls the GlGetProgramResourceName RPC.
-func (c *GLES31Client) GlGetProgramResourceName(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) (string, error) {
-	resp, err := c.svc.GlGetProgramResourceName(ctx, &pb.GlGetProgramResourceNameRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GlGetProgramResourceiv11 calls the GlGetProgramResourceiv11 RPC.
-func (c *GLES31Client) GlGetProgramResourceiv11(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64, arg5 int32, arg6 int32, arg7 int64, arg8 int32, arg9 int64, arg10 int32) error {
-	_, err := c.svc.GlGetProgramResourceiv11(ctx, &pb.GlGetProgramResourceiv11Request{
-		Arg0:  arg0,
-		Arg1:  arg1,
-		Arg2:  arg2,
-		Arg3:  arg3,
-		Arg4:  arg4,
-		Arg5:  arg5,
-		Arg6:  arg6,
-		Arg7:  arg7,
-		Arg8:  arg8,
-		Arg9:  arg9,
-		Arg10: arg10,
+// GlClearColorxOES calls the GlClearColorxOES RPC.
+func (c *GLES11ExtClient) GlClearColorxOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.GlClearColorxOES(ctx, &pb.GlClearColorxOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
 	})
 	return err
 }
 
-// GlGetProgramResourceiv8_1 calls the GlGetProgramResourceiv8_1 RPC.
-func (c *GLES31Client) GlGetProgramResourceiv8_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64, arg5 int32, arg6 int64, arg7 int64) error {
-	_, err := c.svc.GlGetProgramResourceiv8_1(ctx, &pb.GlGetProgramResourceiv8_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-		Arg6: arg6,
-		Arg7: arg7,
+// GlClearDepthfOES calls the GlClearDepthfOES RPC.
+func (c *GLES11ExtClient) GlClearDepthfOES(ctx context.Context, handle int64, arg0 float32) error {
+	_, err := c.svc.GlClearDepthfOES(ctx, &pb.GlClearDepthfOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	return err
 }
 
-// GlGetTexLevelParameterfv5 calls the GlGetTexLevelParameterfv5 RPC.
-func (c *GLES31Client) GlGetTexLevelParameterfv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
-	_, err := c.svc.GlGetTexLevelParameterfv5(ctx, &pb.GlGetTexLevelParameterfv5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
+// GlClearDepthxOES calls the GlClearDepthxOES RPC.
+func (c *GLES11ExtClient) GlClearDepthxOES(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.GlClearDepthxOES(ctx, &pb.GlClearDepthxOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	return err
 }
 
-// GlGetTexLevelParameterfv4_1 calls the GlGetTexLevelParameterfv4_1 RPC.
-func (c *GLES31Client) GlGetTexLevelParameterfv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
-	_, err := c.svc.GlGetTexLevelParameterfv4_1(ctx, &pb.GlGetTexLevelParameterfv4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
+// GlClipPlanefOES3 calls the GlClipPlanefOES3 RPC.
+func (c *GLES11ExtClient) GlClipPlanefOES3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GlClipPlanefOES3(ctx, &pb.GlClipPlanefOES3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
 	})
 	return err
 }
 
-// GlGetTexLevelParameteriv5 calls the GlGetTexLevelParameteriv5 RPC.
-func (c *GLES31Client) GlGetTexLevelParameteriv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
-	_, err := c.svc.GlGetTexLevelParameteriv5(ctx, &pb.GlGetTexLevelParameteriv5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
+// GlClipPlanefOES2_1 calls the GlClipPlanefOES2_1 RPC.
+func (c *GLES11ExtClient) GlClipPlanefOES2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlClipPlanefOES2_1(ctx, &pb.GlClipPlanefOES2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
 	})
 	return err
 }
 
-// GlGetTexLevelParameteriv4_1 calls the GlGetTexLevelParameteriv4_1 RPC.
-func (c *GLES31Client) GlGetTexLevelParameteriv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
-	_, err := c.svc.GlGetTexLevelParameteriv4_1(ctx, &pb.GlGetTexLevelParameteriv4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
+// GlClipPlanexOES3 calls the GlClipPlanexOES3 RPC.
+func (c *GLES11ExtClient) GlClipPlanexOES3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GlClipPlanexOES3(ctx, &pb.GlClipPlanexOES3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
 	})
 	return err
 }
 
-// GlIsProgramPipeline calls the GlIsProgramPipeline RPC.
-func (c *GLES31Client) GlIsProgramPipeline(ctx context.Context, arg0 int32) (bool, error) {
-	resp, err := c.svc.GlIsProgramPipeline(ctx, &pb.GlIsProgramPipelineRequest{
-		Arg0: arg0,
+// GlClipPlanexOES2_1 calls the GlClipPlanexOES2_1 RPC.
+func (c *GLES11ExtClient) GlClipPlanexOES2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlClipPlanexOES2_1(ctx, &pb.GlClipPlanexOES2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlColor4XOES calls the GlColor4XOES RPC.
+func (c *GLES11ExtClient) GlColor4XOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.GlColor4XOES(ctx, &pb.GlColor4XOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlCurrentPaletteMatrixOES calls the GlCurrentPaletteMatrixOES RPC.
+func (c *GLES11ExtClient) GlCurrentPaletteMatrixOES(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.GlCurrentPaletteMatrixOES(ctx, &pb.GlCurrentPaletteMatrixOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GlDeleteFramebuffersOES3 calls the GlDeleteFramebuffersOES3 RPC.
+func (c *GLES11ExtClient) GlDeleteFramebuffersOES3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GlDeleteFramebuffersOES3(ctx, &pb.GlDeleteFramebuffersOES3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlDeleteFramebuffersOES2_1 calls the GlDeleteFramebuffersOES2_1 RPC.
+func (c *GLES11ExtClient) GlDeleteFramebuffersOES2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlDeleteFramebuffersOES2_1(ctx, &pb.GlDeleteFramebuffersOES2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlDeleteRenderbuffersOES3 calls the GlDeleteRenderbuffersOES3 RPC.
+func (c *GLES11ExtClient) GlDeleteRenderbuffersOES3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GlDeleteRenderbuffersOES3(ctx, &pb.GlDeleteRenderbuffersOES3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlDeleteRenderbuffersOES2_1 calls the GlDeleteRenderbuffersOES2_1 RPC.
+func (c *GLES11ExtClient) GlDeleteRenderbuffersOES2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlDeleteRenderbuffersOES2_1(ctx, &pb.GlDeleteRenderbuffersOES2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlDepthRangefOES calls the GlDepthRangefOES RPC.
+func (c *GLES11ExtClient) GlDepthRangefOES(ctx context.Context, handle int64, arg0 float32, arg1 float32) error {
+	_, err := c.svc.GlDepthRangefOES(ctx, &pb.GlDepthRangefOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlDepthRangexOES calls the GlDepthRangexOES RPC.
+func (c *GLES11ExtClient) GlDepthRangexOES(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.GlDepthRangexOES(ctx, &pb.GlDepthRangexOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlDrawTexfOES calls the GlDrawTexfOES RPC.
+func (c *GLES11ExtClient) GlDrawTexfOES(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32, arg4 float32) error {
+	_, err := c.svc.GlDrawTexfOES(ctx, &pb.GlDrawTexfOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	return err
+}
+
+// GlDrawTexfvOES2 calls the GlDrawTexfvOES2 RPC.
+func (c *GLES11ExtClient) GlDrawTexfvOES2(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.GlDrawTexfvOES2(ctx, &pb.GlDrawTexfvOES2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlDrawTexfvOES1_1 calls the GlDrawTexfvOES1_1 RPC.
+func (c *GLES11ExtClient) GlDrawTexfvOES1_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.GlDrawTexfvOES1_1(ctx, &pb.GlDrawTexfvOES1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GlDrawTexiOES calls the GlDrawTexiOES RPC.
+func (c *GLES11ExtClient) GlDrawTexiOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
+	_, err := c.svc.GlDrawTexiOES(ctx, &pb.GlDrawTexiOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	return err
+}
+
+// GlDrawTexivOES2 calls the GlDrawTexivOES2 RPC.
+func (c *GLES11ExtClient) GlDrawTexivOES2(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.GlDrawTexivOES2(ctx, &pb.GlDrawTexivOES2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlDrawTexivOES1_1 calls the GlDrawTexivOES1_1 RPC.
+func (c *GLES11ExtClient) GlDrawTexivOES1_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.GlDrawTexivOES1_1(ctx, &pb.GlDrawTexivOES1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GlDrawTexsOES calls the GlDrawTexsOES RPC.
+func (c *GLES11ExtClient) GlDrawTexsOES(ctx context.Context, handle int64, arg0 int16, arg1 int16, arg2 int16, arg3 int16, arg4 int16) error {
+	_, err := c.svc.GlDrawTexsOES(ctx, &pb.GlDrawTexsOESRequest{
+		Handle: handle,
+		Arg0:   int32(arg0),
+		Arg1:   int32(arg1),
+		Arg2:   int32(arg2),
+		Arg3:   int32(arg3),
+		Arg4:   int32(arg4),
+	})
+	return err
+}
+
+// GlDrawTexsvOES1 calls the GlDrawTexsvOES1 RPC.
+func (c *GLES11ExtClient) GlDrawTexsvOES1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.GlDrawTexsvOES1(ctx, &pb.GlDrawTexsvOES1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GlDrawTexsvOES2_1 calls the GlDrawTexsvOES2_1 RPC.
+func (c *GLES11ExtClient) GlDrawTexsvOES2_1(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.GlDrawTexsvOES2_1(ctx, &pb.GlDrawTexsvOES2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlDrawTexxOES calls the GlDrawTexxOES RPC.
+func (c *GLES11ExtClient) GlDrawTexxOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
+	_, err := c.svc.GlDrawTexxOES(ctx, &pb.GlDrawTexxOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	return err
+}
+
+// GlDrawTexxvOES2 calls the GlDrawTexxvOES2 RPC.
+func (c *GLES11ExtClient) GlDrawTexxvOES2(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.GlDrawTexxvOES2(ctx, &pb.GlDrawTexxvOES2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlDrawTexxvOES1_1 calls the GlDrawTexxvOES1_1 RPC.
+func (c *GLES11ExtClient) GlDrawTexxvOES1_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.GlDrawTexxvOES1_1(ctx, &pb.GlDrawTexxvOES1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GlEGLImageTargetRenderbufferStorageOES calls the GlEGLImageTargetRenderbufferStorageOES RPC.
+func (c *GLES11ExtClient) GlEGLImageTargetRenderbufferStorageOES(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlEGLImageTargetRenderbufferStorageOES(ctx, &pb.GlEGLImageTargetRenderbufferStorageOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlEGLImageTargetTexture2DOES calls the GlEGLImageTargetTexture2DOES RPC.
+func (c *GLES11ExtClient) GlEGLImageTargetTexture2DOES(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlEGLImageTargetTexture2DOES(ctx, &pb.GlEGLImageTargetTexture2DOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlFogxOES calls the GlFogxOES RPC.
+func (c *GLES11ExtClient) GlFogxOES(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.GlFogxOES(ctx, &pb.GlFogxOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlFogxvOES3 calls the GlFogxvOES3 RPC.
+func (c *GLES11ExtClient) GlFogxvOES3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GlFogxvOES3(ctx, &pb.GlFogxvOES3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlFogxvOES2_1 calls the GlFogxvOES2_1 RPC.
+func (c *GLES11ExtClient) GlFogxvOES2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlFogxvOES2_1(ctx, &pb.GlFogxvOES2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlFramebufferRenderbufferOES calls the GlFramebufferRenderbufferOES RPC.
+func (c *GLES11ExtClient) GlFramebufferRenderbufferOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.GlFramebufferRenderbufferOES(ctx, &pb.GlFramebufferRenderbufferOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlFramebufferTexture2DOES calls the GlFramebufferTexture2DOES RPC.
+func (c *GLES11ExtClient) GlFramebufferTexture2DOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
+	_, err := c.svc.GlFramebufferTexture2DOES(ctx, &pb.GlFramebufferTexture2DOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	return err
+}
+
+// GlFrustumfOES calls the GlFrustumfOES RPC.
+func (c *GLES11ExtClient) GlFrustumfOES(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32, arg4 float32, arg5 float32) error {
+	_, err := c.svc.GlFrustumfOES(ctx, &pb.GlFrustumfOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	return err
+}
+
+// GlFrustumxOES calls the GlFrustumxOES RPC.
+func (c *GLES11ExtClient) GlFrustumxOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32) error {
+	_, err := c.svc.GlFrustumxOES(ctx, &pb.GlFrustumxOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	return err
+}
+
+// GlGenFramebuffersOES3 calls the GlGenFramebuffersOES3 RPC.
+func (c *GLES11ExtClient) GlGenFramebuffersOES3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GlGenFramebuffersOES3(ctx, &pb.GlGenFramebuffersOES3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlGenFramebuffersOES2_1 calls the GlGenFramebuffersOES2_1 RPC.
+func (c *GLES11ExtClient) GlGenFramebuffersOES2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlGenFramebuffersOES2_1(ctx, &pb.GlGenFramebuffersOES2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlGenRenderbuffersOES3 calls the GlGenRenderbuffersOES3 RPC.
+func (c *GLES11ExtClient) GlGenRenderbuffersOES3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GlGenRenderbuffersOES3(ctx, &pb.GlGenRenderbuffersOES3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlGenRenderbuffersOES2_1 calls the GlGenRenderbuffersOES2_1 RPC.
+func (c *GLES11ExtClient) GlGenRenderbuffersOES2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlGenRenderbuffersOES2_1(ctx, &pb.GlGenRenderbuffersOES2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlGenerateMipmapOES calls the GlGenerateMipmapOES RPC.
+func (c *GLES11ExtClient) GlGenerateMipmapOES(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.GlGenerateMipmapOES(ctx, &pb.GlGenerateMipmapOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GlGetClipPlanefOES3 calls the GlGetClipPlanefOES3 RPC.
+func (c *GLES11ExtClient) GlGetClipPlanefOES3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GlGetClipPlanefOES3(ctx, &pb.GlGetClipPlanefOES3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlGetClipPlanefOES2_1 calls the GlGetClipPlanefOES2_1 RPC.
+func (c *GLES11ExtClient) GlGetClipPlanefOES2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlGetClipPlanefOES2_1(ctx, &pb.GlGetClipPlanefOES2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlGetClipPlanexOES3 calls the GlGetClipPlanexOES3 RPC.
+func (c *GLES11ExtClient) GlGetClipPlanexOES3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GlGetClipPlanexOES3(ctx, &pb.GlGetClipPlanexOES3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlGetClipPlanexOES2_1 calls the GlGetClipPlanexOES2_1 RPC.
+func (c *GLES11ExtClient) GlGetClipPlanexOES2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlGetClipPlanexOES2_1(ctx, &pb.GlGetClipPlanexOES2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlGetFixedvOES3 calls the GlGetFixedvOES3 RPC.
+func (c *GLES11ExtClient) GlGetFixedvOES3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GlGetFixedvOES3(ctx, &pb.GlGetFixedvOES3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlGetFixedvOES2_1 calls the GlGetFixedvOES2_1 RPC.
+func (c *GLES11ExtClient) GlGetFixedvOES2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlGetFixedvOES2_1(ctx, &pb.GlGetFixedvOES2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// GlGetFramebufferAttachmentParameterivOES5 calls the GlGetFramebufferAttachmentParameterivOES5 RPC.
+func (c *GLES11ExtClient) GlGetFramebufferAttachmentParameterivOES5(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
+	_, err := c.svc.GlGetFramebufferAttachmentParameterivOES5(ctx, &pb.GlGetFramebufferAttachmentParameterivOES5Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+	})
+	return err
+}
+
+// GlGetFramebufferAttachmentParameterivOES4_1 calls the GlGetFramebufferAttachmentParameterivOES4_1 RPC.
+func (c *GLES11ExtClient) GlGetFramebufferAttachmentParameterivOES4_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
+	_, err := c.svc.GlGetFramebufferAttachmentParameterivOES4_1(ctx, &pb.GlGetFramebufferAttachmentParameterivOES4_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlGetLightxvOES4 calls the GlGetLightxvOES4 RPC.
+func (c *GLES11ExtClient) GlGetLightxvOES4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlGetLightxvOES4(ctx, &pb.GlGetLightxvOES4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlGetLightxvOES3_1 calls the GlGetLightxvOES3_1 RPC.
+func (c *GLES11ExtClient) GlGetLightxvOES3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlGetLightxvOES3_1(ctx, &pb.GlGetLightxvOES3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlGetMaterialxvOES4 calls the GlGetMaterialxvOES4 RPC.
+func (c *GLES11ExtClient) GlGetMaterialxvOES4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlGetMaterialxvOES4(ctx, &pb.GlGetMaterialxvOES4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlGetMaterialxvOES3_1 calls the GlGetMaterialxvOES3_1 RPC.
+func (c *GLES11ExtClient) GlGetMaterialxvOES3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlGetMaterialxvOES3_1(ctx, &pb.GlGetMaterialxvOES3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlGetRenderbufferParameterivOES4 calls the GlGetRenderbufferParameterivOES4 RPC.
+func (c *GLES11ExtClient) GlGetRenderbufferParameterivOES4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlGetRenderbufferParameterivOES4(ctx, &pb.GlGetRenderbufferParameterivOES4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlGetRenderbufferParameterivOES3_1 calls the GlGetRenderbufferParameterivOES3_1 RPC.
+func (c *GLES11ExtClient) GlGetRenderbufferParameterivOES3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlGetRenderbufferParameterivOES3_1(ctx, &pb.GlGetRenderbufferParameterivOES3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlGetTexEnvxvOES4 calls the GlGetTexEnvxvOES4 RPC.
+func (c *GLES11ExtClient) GlGetTexEnvxvOES4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlGetTexEnvxvOES4(ctx, &pb.GlGetTexEnvxvOES4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlGetTexEnvxvOES3_1 calls the GlGetTexEnvxvOES3_1 RPC.
+func (c *GLES11ExtClient) GlGetTexEnvxvOES3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlGetTexEnvxvOES3_1(ctx, &pb.GlGetTexEnvxvOES3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlGetTexGenfvOES4 calls the GlGetTexGenfvOES4 RPC.
+func (c *GLES11ExtClient) GlGetTexGenfvOES4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlGetTexGenfvOES4(ctx, &pb.GlGetTexGenfvOES4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlGetTexGenfvOES3_1 calls the GlGetTexGenfvOES3_1 RPC.
+func (c *GLES11ExtClient) GlGetTexGenfvOES3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlGetTexGenfvOES3_1(ctx, &pb.GlGetTexGenfvOES3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlGetTexGenivOES4 calls the GlGetTexGenivOES4 RPC.
+func (c *GLES11ExtClient) GlGetTexGenivOES4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlGetTexGenivOES4(ctx, &pb.GlGetTexGenivOES4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlGetTexGenivOES3_1 calls the GlGetTexGenivOES3_1 RPC.
+func (c *GLES11ExtClient) GlGetTexGenivOES3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlGetTexGenivOES3_1(ctx, &pb.GlGetTexGenivOES3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlGetTexGenxvOES4 calls the GlGetTexGenxvOES4 RPC.
+func (c *GLES11ExtClient) GlGetTexGenxvOES4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlGetTexGenxvOES4(ctx, &pb.GlGetTexGenxvOES4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlGetTexGenxvOES3_1 calls the GlGetTexGenxvOES3_1 RPC.
+func (c *GLES11ExtClient) GlGetTexGenxvOES3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlGetTexGenxvOES3_1(ctx, &pb.GlGetTexGenxvOES3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlGetTexParameterxvOES4 calls the GlGetTexParameterxvOES4 RPC.
+func (c *GLES11ExtClient) GlGetTexParameterxvOES4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlGetTexParameterxvOES4(ctx, &pb.GlGetTexParameterxvOES4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// GlGetTexParameterxvOES3_1 calls the GlGetTexParameterxvOES3_1 RPC.
+func (c *GLES11ExtClient) GlGetTexParameterxvOES3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlGetTexParameterxvOES3_1(ctx, &pb.GlGetTexParameterxvOES3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// GlIsFramebufferOES calls the GlIsFramebufferOES RPC.
+func (c *GLES11ExtClient) GlIsFramebufferOES(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.GlIsFramebufferOES(ctx, &pb.GlIsFramebufferOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	if err != nil {
 		return false, err
@@ -2766,738 +8877,520 @@ func (c *GLES31Client) GlIsProgramPipeline(ctx context.Context, arg0 int32) (boo
 	return resp.GetResult(), nil
 }
 
-// GlMemoryBarrier calls the GlMemoryBarrier RPC.
-func (c *GLES31Client) GlMemoryBarrier(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.GlMemoryBarrier(ctx, &pb.GlMemoryBarrierRequest{
-		Arg0: arg0,
+// GlIsRenderbufferOES calls the GlIsRenderbufferOES RPC.
+func (c *GLES11ExtClient) GlIsRenderbufferOES(ctx context.Context, handle int64, arg0 int32) (bool, error) {
+	resp, err := c.svc.GlIsRenderbufferOES(ctx, &pb.GlIsRenderbufferOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GlLightModelxOES calls the GlLightModelxOES RPC.
+func (c *GLES11ExtClient) GlLightModelxOES(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.GlLightModelxOES(ctx, &pb.GlLightModelxOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
 	})
 	return err
 }
 
-// GlMemoryBarrierByRegion calls the GlMemoryBarrierByRegion RPC.
-func (c *GLES31Client) GlMemoryBarrierByRegion(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.GlMemoryBarrierByRegion(ctx, &pb.GlMemoryBarrierByRegionRequest{
-		Arg0: arg0,
+// GlLightModelxvOES3 calls the GlLightModelxvOES3 RPC.
+func (c *GLES11ExtClient) GlLightModelxvOES3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GlLightModelxvOES3(ctx, &pb.GlLightModelxvOES3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
 	})
 	return err
 }
 
-// GlProgramUniform1F calls the GlProgramUniform1F RPC.
-func (c *GLES31Client) GlProgramUniform1F(ctx context.Context, arg0 int32, arg1 int32, arg2 float32) error {
-	_, err := c.svc.GlProgramUniform1F(ctx, &pb.GlProgramUniform1FRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
+// GlLightModelxvOES2_1 calls the GlLightModelxvOES2_1 RPC.
+func (c *GLES11ExtClient) GlLightModelxvOES2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlLightModelxvOES2_1(ctx, &pb.GlLightModelxvOES2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
 	})
 	return err
 }
 
-// GlProgramUniform1Fv5 calls the GlProgramUniform1Fv5 RPC.
-func (c *GLES31Client) GlProgramUniform1Fv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
-	_, err := c.svc.GlProgramUniform1Fv5(ctx, &pb.GlProgramUniform1Fv5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
+// GlLightxOES calls the GlLightxOES RPC.
+func (c *GLES11ExtClient) GlLightxOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.GlLightxOES(ctx, &pb.GlLightxOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
 	})
 	return err
 }
 
-// GlProgramUniform1Fv4_1 calls the GlProgramUniform1Fv4_1 RPC.
-func (c *GLES31Client) GlProgramUniform1Fv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
-	_, err := c.svc.GlProgramUniform1Fv4_1(ctx, &pb.GlProgramUniform1Fv4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
+// GlLightxvOES4 calls the GlLightxvOES4 RPC.
+func (c *GLES11ExtClient) GlLightxvOES4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlLightxvOES4(ctx, &pb.GlLightxvOES4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
 	})
 	return err
 }
 
-// GlProgramUniform1I calls the GlProgramUniform1I RPC.
-func (c *GLES31Client) GlProgramUniform1I(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.GlProgramUniform1I(ctx, &pb.GlProgramUniform1IRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
+// GlLightxvOES3_1 calls the GlLightxvOES3_1 RPC.
+func (c *GLES11ExtClient) GlLightxvOES3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlLightxvOES3_1(ctx, &pb.GlLightxvOES3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
 	})
 	return err
 }
 
-// GlProgramUniform1Iv5 calls the GlProgramUniform1Iv5 RPC.
-func (c *GLES31Client) GlProgramUniform1Iv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
-	_, err := c.svc.GlProgramUniform1Iv5(ctx, &pb.GlProgramUniform1Iv5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
+// GlLineWidthxOES calls the GlLineWidthxOES RPC.
+func (c *GLES11ExtClient) GlLineWidthxOES(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.GlLineWidthxOES(ctx, &pb.GlLineWidthxOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	return err
 }
 
-// GlProgramUniform1Iv4_1 calls the GlProgramUniform1Iv4_1 RPC.
-func (c *GLES31Client) GlProgramUniform1Iv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
-	_, err := c.svc.GlProgramUniform1Iv4_1(ctx, &pb.GlProgramUniform1Iv4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
+// GlLoadMatrixxOES2 calls the GlLoadMatrixxOES2 RPC.
+func (c *GLES11ExtClient) GlLoadMatrixxOES2(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.GlLoadMatrixxOES2(ctx, &pb.GlLoadMatrixxOES2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
 	})
 	return err
 }
 
-// GlProgramUniform1Ui calls the GlProgramUniform1Ui RPC.
-func (c *GLES31Client) GlProgramUniform1Ui(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.GlProgramUniform1Ui(ctx, &pb.GlProgramUniform1UiRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
+// GlLoadMatrixxOES1_1 calls the GlLoadMatrixxOES1_1 RPC.
+func (c *GLES11ExtClient) GlLoadMatrixxOES1_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.GlLoadMatrixxOES1_1(ctx, &pb.GlLoadMatrixxOES1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	return err
 }
 
-// GlProgramUniform1Uiv5 calls the GlProgramUniform1Uiv5 RPC.
-func (c *GLES31Client) GlProgramUniform1Uiv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
-	_, err := c.svc.GlProgramUniform1Uiv5(ctx, &pb.GlProgramUniform1Uiv5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
+// GlLoadPaletteFromModelViewMatrixOES calls the GlLoadPaletteFromModelViewMatrixOES RPC.
+func (c *GLES11ExtClient) GlLoadPaletteFromModelViewMatrixOES(ctx context.Context, handle int64) error {
+	_, err := c.svc.GlLoadPaletteFromModelViewMatrixOES(ctx, &pb.GlLoadPaletteFromModelViewMatrixOESRequest{
+		Handle: handle,
 	})
 	return err
 }
 
-// GlProgramUniform1Uiv4_1 calls the GlProgramUniform1Uiv4_1 RPC.
-func (c *GLES31Client) GlProgramUniform1Uiv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
-	_, err := c.svc.GlProgramUniform1Uiv4_1(ctx, &pb.GlProgramUniform1Uiv4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
+// GlMaterialxOES calls the GlMaterialxOES RPC.
+func (c *GLES11ExtClient) GlMaterialxOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.GlMaterialxOES(ctx, &pb.GlMaterialxOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
 	})
 	return err
 }
 
-// GlProgramUniform2F calls the GlProgramUniform2F RPC.
-func (c *GLES31Client) GlProgramUniform2F(ctx context.Context, arg0 int32, arg1 int32, arg2 float32, arg3 float32) error {
-	_, err := c.svc.GlProgramUniform2F(ctx, &pb.GlProgramUniform2FRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
+// GlMaterialxvOES4 calls the GlMaterialxvOES4 RPC.
+func (c *GLES11ExtClient) GlMaterialxvOES4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlMaterialxvOES4(ctx, &pb.GlMaterialxvOES4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
 	})
 	return err
 }
 
-// GlProgramUniform2Fv5 calls the GlProgramUniform2Fv5 RPC.
-func (c *GLES31Client) GlProgramUniform2Fv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
-	_, err := c.svc.GlProgramUniform2Fv5(ctx, &pb.GlProgramUniform2Fv5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
+// GlMaterialxvOES3_1 calls the GlMaterialxvOES3_1 RPC.
+func (c *GLES11ExtClient) GlMaterialxvOES3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlMaterialxvOES3_1(ctx, &pb.GlMaterialxvOES3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
 	})
 	return err
 }
 
-// GlProgramUniform2Fv4_1 calls the GlProgramUniform2Fv4_1 RPC.
-func (c *GLES31Client) GlProgramUniform2Fv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
-	_, err := c.svc.GlProgramUniform2Fv4_1(ctx, &pb.GlProgramUniform2Fv4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
+// GlMatrixIndexPointerOES calls the GlMatrixIndexPointerOES RPC.
+func (c *GLES11ExtClient) GlMatrixIndexPointerOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
+	_, err := c.svc.GlMatrixIndexPointerOES(ctx, &pb.GlMatrixIndexPointerOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
 	})
 	return err
 }
 
-// GlProgramUniform2I calls the GlProgramUniform2I RPC.
-func (c *GLES31Client) GlProgramUniform2I(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.GlProgramUniform2I(ctx, &pb.GlProgramUniform2IRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
+// GlMultMatrixxOES2 calls the GlMultMatrixxOES2 RPC.
+func (c *GLES11ExtClient) GlMultMatrixxOES2(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.GlMultMatrixxOES2(ctx, &pb.GlMultMatrixxOES2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
 	})
 	return err
 }
 
-// GlProgramUniform2Iv5 calls the GlProgramUniform2Iv5 RPC.
-func (c *GLES31Client) GlProgramUniform2Iv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
-	_, err := c.svc.GlProgramUniform2Iv5(ctx, &pb.GlProgramUniform2Iv5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
+// GlMultMatrixxOES1_1 calls the GlMultMatrixxOES1_1 RPC.
+func (c *GLES11ExtClient) GlMultMatrixxOES1_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.GlMultMatrixxOES1_1(ctx, &pb.GlMultMatrixxOES1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	return err
 }
 
-// GlProgramUniform2Iv4_1 calls the GlProgramUniform2Iv4_1 RPC.
-func (c *GLES31Client) GlProgramUniform2Iv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
-	_, err := c.svc.GlProgramUniform2Iv4_1(ctx, &pb.GlProgramUniform2Iv4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
+// GlMultiTexCoord4XOES calls the GlMultiTexCoord4XOES RPC.
+func (c *GLES11ExtClient) GlMultiTexCoord4XOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
+	_, err := c.svc.GlMultiTexCoord4XOES(ctx, &pb.GlMultiTexCoord4XOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
 	})
 	return err
 }
 
-// GlProgramUniform2Ui calls the GlProgramUniform2Ui RPC.
-func (c *GLES31Client) GlProgramUniform2Ui(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.GlProgramUniform2Ui(ctx, &pb.GlProgramUniform2UiRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
+// GlNormal3XOES calls the GlNormal3XOES RPC.
+func (c *GLES11ExtClient) GlNormal3XOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.GlNormal3XOES(ctx, &pb.GlNormal3XOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
 	})
 	return err
 }
 
-// GlProgramUniform2Uiv5 calls the GlProgramUniform2Uiv5 RPC.
-func (c *GLES31Client) GlProgramUniform2Uiv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
-	_, err := c.svc.GlProgramUniform2Uiv5(ctx, &pb.GlProgramUniform2Uiv5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
+// GlOrthofOES calls the GlOrthofOES RPC.
+func (c *GLES11ExtClient) GlOrthofOES(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32, arg4 float32, arg5 float32) error {
+	_, err := c.svc.GlOrthofOES(ctx, &pb.GlOrthofOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
 	})
 	return err
 }
 
-// GlProgramUniform2Uiv4_1 calls the GlProgramUniform2Uiv4_1 RPC.
-func (c *GLES31Client) GlProgramUniform2Uiv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
-	_, err := c.svc.GlProgramUniform2Uiv4_1(ctx, &pb.GlProgramUniform2Uiv4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
+// GlOrthoxOES calls the GlOrthoxOES RPC.
+func (c *GLES11ExtClient) GlOrthoxOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32) error {
+	_, err := c.svc.GlOrthoxOES(ctx, &pb.GlOrthoxOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
 	})
 	return err
 }
 
-// GlProgramUniform3F calls the GlProgramUniform3F RPC.
-func (c *GLES31Client) GlProgramUniform3F(ctx context.Context, arg0 int32, arg1 int32, arg2 float32, arg3 float32, arg4 float32) error {
-	_, err := c.svc.GlProgramUniform3F(ctx, &pb.GlProgramUniform3FRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
+// GlPointParameterxOES calls the GlPointParameterxOES RPC.
+func (c *GLES11ExtClient) GlPointParameterxOES(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.GlPointParameterxOES(ctx, &pb.GlPointParameterxOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
 	})
 	return err
 }
 
-// GlProgramUniform3Fv5 calls the GlProgramUniform3Fv5 RPC.
-func (c *GLES31Client) GlProgramUniform3Fv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
-	_, err := c.svc.GlProgramUniform3Fv5(ctx, &pb.GlProgramUniform3Fv5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
+// GlPointParameterxvOES3 calls the GlPointParameterxvOES3 RPC.
+func (c *GLES11ExtClient) GlPointParameterxvOES3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
+	_, err := c.svc.GlPointParameterxvOES3(ctx, &pb.GlPointParameterxvOES3Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
 	})
 	return err
 }
 
-// GlProgramUniform3Fv4_1 calls the GlProgramUniform3Fv4_1 RPC.
-func (c *GLES31Client) GlProgramUniform3Fv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
-	_, err := c.svc.GlProgramUniform3Fv4_1(ctx, &pb.GlProgramUniform3Fv4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
+// GlPointParameterxvOES2_1 calls the GlPointParameterxvOES2_1 RPC.
+func (c *GLES11ExtClient) GlPointParameterxvOES2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
+	_, err := c.svc.GlPointParameterxvOES2_1(ctx, &pb.GlPointParameterxvOES2_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
 	})
 	return err
 }
 
-// GlProgramUniform3I calls the GlProgramUniform3I RPC.
-func (c *GLES31Client) GlProgramUniform3I(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
-	_, err := c.svc.GlProgramUniform3I(ctx, &pb.GlProgramUniform3IRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
+// GlPointSizexOES calls the GlPointSizexOES RPC.
+func (c *GLES11ExtClient) GlPointSizexOES(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.GlPointSizexOES(ctx, &pb.GlPointSizexOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	return err
 }
 
-// GlProgramUniform3Iv5 calls the GlProgramUniform3Iv5 RPC.
-func (c *GLES31Client) GlProgramUniform3Iv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
-	_, err := c.svc.GlProgramUniform3Iv5(ctx, &pb.GlProgramUniform3Iv5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
+// GlPolygonOffsetxOES calls the GlPolygonOffsetxOES RPC.
+func (c *GLES11ExtClient) GlPolygonOffsetxOES(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.GlPolygonOffsetxOES(ctx, &pb.GlPolygonOffsetxOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
 	})
 	return err
 }
 
-// GlProgramUniform3Iv4_1 calls the GlProgramUniform3Iv4_1 RPC.
-func (c *GLES31Client) GlProgramUniform3Iv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
-	_, err := c.svc.GlProgramUniform3Iv4_1(ctx, &pb.GlProgramUniform3Iv4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
+// GlRenderbufferStorageOES calls the GlRenderbufferStorageOES RPC.
+func (c *GLES11ExtClient) GlRenderbufferStorageOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.GlRenderbufferStorageOES(ctx, &pb.GlRenderbufferStorageOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
 	})
 	return err
 }
 
-// GlProgramUniform3Ui calls the GlProgramUniform3Ui RPC.
-func (c *GLES31Client) GlProgramUniform3Ui(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
-	_, err := c.svc.GlProgramUniform3Ui(ctx, &pb.GlProgramUniform3UiRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
+// GlRotatexOES calls the GlRotatexOES RPC.
+func (c *GLES11ExtClient) GlRotatexOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.GlRotatexOES(ctx, &pb.GlRotatexOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
 	})
 	return err
 }
 
-// GlProgramUniform3Uiv5 calls the GlProgramUniform3Uiv5 RPC.
-func (c *GLES31Client) GlProgramUniform3Uiv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
-	_, err := c.svc.GlProgramUniform3Uiv5(ctx, &pb.GlProgramUniform3Uiv5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
+// GlSampleCoveragexOES calls the GlSampleCoveragexOES RPC.
+func (c *GLES11ExtClient) GlSampleCoveragexOES(ctx context.Context, handle int64, arg0 int32, arg1 bool) error {
+	_, err := c.svc.GlSampleCoveragexOES(ctx, &pb.GlSampleCoveragexOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
 	})
 	return err
 }
 
-// GlProgramUniform3Uiv4_1 calls the GlProgramUniform3Uiv4_1 RPC.
-func (c *GLES31Client) GlProgramUniform3Uiv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
-	_, err := c.svc.GlProgramUniform3Uiv4_1(ctx, &pb.GlProgramUniform3Uiv4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
+// GlScalexOES calls the GlScalexOES RPC.
+func (c *GLES11ExtClient) GlScalexOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.GlScalexOES(ctx, &pb.GlScalexOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
 	})
 	return err
 }
 
-// GlProgramUniform4F calls the GlProgramUniform4F RPC.
-func (c *GLES31Client) GlProgramUniform4F(ctx context.Context, arg0 int32, arg1 int32, arg2 float32, arg3 float32, arg4 float32, arg5 float32) error {
-	_, err := c.svc.GlProgramUniform4F(ctx, &pb.GlProgramUniform4FRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
+// GlTexEnvxOES calls the GlTexEnvxOES RPC.
+func (c *GLES11ExtClient) GlTexEnvxOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.GlTexEnvxOES(ctx, &pb.GlTexEnvxOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
 	})
 	return err
 }
 
-// GlProgramUniform4Fv5 calls the GlProgramUniform4Fv5 RPC.
-func (c *GLES31Client) GlProgramUniform4Fv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
-	_, err := c.svc.GlProgramUniform4Fv5(ctx, &pb.GlProgramUniform4Fv5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
+// GlTexEnvxvOES4 calls the GlTexEnvxvOES4 RPC.
+func (c *GLES11ExtClient) GlTexEnvxvOES4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlTexEnvxvOES4(ctx, &pb.GlTexEnvxvOES4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
 	})
 	return err
 }
 
-// GlProgramUniform4Fv4_1 calls the GlProgramUniform4Fv4_1 RPC.
-func (c *GLES31Client) GlProgramUniform4Fv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
-	_, err := c.svc.GlProgramUniform4Fv4_1(ctx, &pb.GlProgramUniform4Fv4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
+// GlTexEnvxvOES3_1 calls the GlTexEnvxvOES3_1 RPC.
+func (c *GLES11ExtClient) GlTexEnvxvOES3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlTexEnvxvOES3_1(ctx, &pb.GlTexEnvxvOES3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
 	})
 	return err
 }
 
-// GlProgramUniform4I calls the GlProgramUniform4I RPC.
-func (c *GLES31Client) GlProgramUniform4I(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32) error {
-	_, err := c.svc.GlProgramUniform4I(ctx, &pb.GlProgramUniform4IRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
+// GlTexGenfOES calls the GlTexGenfOES RPC.
+func (c *GLES11ExtClient) GlTexGenfOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 float32) error {
+	_, err := c.svc.GlTexGenfOES(ctx, &pb.GlTexGenfOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
 	})
 	return err
 }
 
-// GlProgramUniform4Iv5 calls the GlProgramUniform4Iv5 RPC.
-func (c *GLES31Client) GlProgramUniform4Iv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
-	_, err := c.svc.GlProgramUniform4Iv5(ctx, &pb.GlProgramUniform4Iv5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
+// GlTexGenfvOES4 calls the GlTexGenfvOES4 RPC.
+func (c *GLES11ExtClient) GlTexGenfvOES4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlTexGenfvOES4(ctx, &pb.GlTexGenfvOES4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
 	})
 	return err
 }
 
-// GlProgramUniform4Iv4_1 calls the GlProgramUniform4Iv4_1 RPC.
-func (c *GLES31Client) GlProgramUniform4Iv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
-	_, err := c.svc.GlProgramUniform4Iv4_1(ctx, &pb.GlProgramUniform4Iv4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
+// GlTexGenfvOES3_1 calls the GlTexGenfvOES3_1 RPC.
+func (c *GLES11ExtClient) GlTexGenfvOES3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlTexGenfvOES3_1(ctx, &pb.GlTexGenfvOES3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
 	})
 	return err
 }
 
-// GlProgramUniform4Ui calls the GlProgramUniform4Ui RPC.
-func (c *GLES31Client) GlProgramUniform4Ui(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32) error {
-	_, err := c.svc.GlProgramUniform4Ui(ctx, &pb.GlProgramUniform4UiRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
+// GlTexGeniOES calls the GlTexGeniOES RPC.
+func (c *GLES11ExtClient) GlTexGeniOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.GlTexGeniOES(ctx, &pb.GlTexGeniOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
 	})
 	return err
 }
 
-// GlProgramUniform4Uiv5 calls the GlProgramUniform4Uiv5 RPC.
-func (c *GLES31Client) GlProgramUniform4Uiv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
-	_, err := c.svc.GlProgramUniform4Uiv5(ctx, &pb.GlProgramUniform4Uiv5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
+// GlTexGenivOES4 calls the GlTexGenivOES4 RPC.
+func (c *GLES11ExtClient) GlTexGenivOES4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlTexGenivOES4(ctx, &pb.GlTexGenivOES4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
 	})
 	return err
 }
 
-// GlProgramUniform4Uiv4_1 calls the GlProgramUniform4Uiv4_1 RPC.
-func (c *GLES31Client) GlProgramUniform4Uiv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
-	_, err := c.svc.GlProgramUniform4Uiv4_1(ctx, &pb.GlProgramUniform4Uiv4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
+// GlTexGenivOES3_1 calls the GlTexGenivOES3_1 RPC.
+func (c *GLES11ExtClient) GlTexGenivOES3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlTexGenivOES3_1(ctx, &pb.GlTexGenivOES3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
 	})
 	return err
 }
 
-// GlProgramUniformMatrix2Fv6 calls the GlProgramUniformMatrix2Fv6 RPC.
-func (c *GLES31Client) GlProgramUniformMatrix2Fv6(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64, arg5 int32) error {
-	_, err := c.svc.GlProgramUniformMatrix2Fv6(ctx, &pb.GlProgramUniformMatrix2Fv6Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
+// GlTexGenxOES calls the GlTexGenxOES RPC.
+func (c *GLES11ExtClient) GlTexGenxOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.GlTexGenxOES(ctx, &pb.GlTexGenxOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
 	})
 	return err
 }
 
-// GlProgramUniformMatrix2Fv5_1 calls the GlProgramUniformMatrix2Fv5_1 RPC.
-func (c *GLES31Client) GlProgramUniformMatrix2Fv5_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64) error {
-	_, err := c.svc.GlProgramUniformMatrix2Fv5_1(ctx, &pb.GlProgramUniformMatrix2Fv5_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
+// GlTexGenxvOES4 calls the GlTexGenxvOES4 RPC.
+func (c *GLES11ExtClient) GlTexGenxvOES4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlTexGenxvOES4(ctx, &pb.GlTexGenxvOES4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
 	})
 	return err
 }
 
-// GlProgramUniformMatrix2X3Fv6 calls the GlProgramUniformMatrix2X3Fv6 RPC.
-func (c *GLES31Client) GlProgramUniformMatrix2X3Fv6(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64, arg5 int32) error {
-	_, err := c.svc.GlProgramUniformMatrix2X3Fv6(ctx, &pb.GlProgramUniformMatrix2X3Fv6Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
+// GlTexGenxvOES3_1 calls the GlTexGenxvOES3_1 RPC.
+func (c *GLES11ExtClient) GlTexGenxvOES3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlTexGenxvOES3_1(ctx, &pb.GlTexGenxvOES3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
 	})
 	return err
 }
 
-// GlProgramUniformMatrix2X3Fv5_1 calls the GlProgramUniformMatrix2X3Fv5_1 RPC.
-func (c *GLES31Client) GlProgramUniformMatrix2X3Fv5_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64) error {
-	_, err := c.svc.GlProgramUniformMatrix2X3Fv5_1(ctx, &pb.GlProgramUniformMatrix2X3Fv5_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
+// GlTexParameterxOES calls the GlTexParameterxOES RPC.
+func (c *GLES11ExtClient) GlTexParameterxOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.GlTexParameterxOES(ctx, &pb.GlTexParameterxOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
 	})
 	return err
 }
 
-// GlProgramUniformMatrix2X4Fv6 calls the GlProgramUniformMatrix2X4Fv6 RPC.
-func (c *GLES31Client) GlProgramUniformMatrix2X4Fv6(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64, arg5 int32) error {
-	_, err := c.svc.GlProgramUniformMatrix2X4Fv6(ctx, &pb.GlProgramUniformMatrix2X4Fv6Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
+// GlTexParameterxvOES4 calls the GlTexParameterxvOES4 RPC.
+func (c *GLES11ExtClient) GlTexParameterxvOES4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlTexParameterxvOES4(ctx, &pb.GlTexParameterxvOES4Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
 	})
 	return err
 }
 
-// GlProgramUniformMatrix2X4Fv5_1 calls the GlProgramUniformMatrix2X4Fv5_1 RPC.
-func (c *GLES31Client) GlProgramUniformMatrix2X4Fv5_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64) error {
-	_, err := c.svc.GlProgramUniformMatrix2X4Fv5_1(ctx, &pb.GlProgramUniformMatrix2X4Fv5_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
+// GlTexParameterxvOES3_1 calls the GlTexParameterxvOES3_1 RPC.
+func (c *GLES11ExtClient) GlTexParameterxvOES3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlTexParameterxvOES3_1(ctx, &pb.GlTexParameterxvOES3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
 	})
 	return err
 }
 
-// GlProgramUniformMatrix3Fv6 calls the GlProgramUniformMatrix3Fv6 RPC.
-func (c *GLES31Client) GlProgramUniformMatrix3Fv6(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64, arg5 int32) error {
-	_, err := c.svc.GlProgramUniformMatrix3Fv6(ctx, &pb.GlProgramUniformMatrix3Fv6Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
+// GlTranslatexOES calls the GlTranslatexOES RPC.
+func (c *GLES11ExtClient) GlTranslatexOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.GlTranslatexOES(ctx, &pb.GlTranslatexOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
 	})
 	return err
 }
 
-// GlProgramUniformMatrix3Fv5_1 calls the GlProgramUniformMatrix3Fv5_1 RPC.
-func (c *GLES31Client) GlProgramUniformMatrix3Fv5_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64) error {
-	_, err := c.svc.GlProgramUniformMatrix3Fv5_1(ctx, &pb.GlProgramUniformMatrix3Fv5_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// GlProgramUniformMatrix3X2Fv6 calls the GlProgramUniformMatrix3X2Fv6 RPC.
-func (c *GLES31Client) GlProgramUniformMatrix3X2Fv6(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64, arg5 int32) error {
-	_, err := c.svc.GlProgramUniformMatrix3X2Fv6(ctx, &pb.GlProgramUniformMatrix3X2Fv6Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-	})
-	return err
-}
-
-// GlProgramUniformMatrix3X2Fv5_1 calls the GlProgramUniformMatrix3X2Fv5_1 RPC.
-func (c *GLES31Client) GlProgramUniformMatrix3X2Fv5_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64) error {
-	_, err := c.svc.GlProgramUniformMatrix3X2Fv5_1(ctx, &pb.GlProgramUniformMatrix3X2Fv5_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// GlProgramUniformMatrix3X4Fv6 calls the GlProgramUniformMatrix3X4Fv6 RPC.
-func (c *GLES31Client) GlProgramUniformMatrix3X4Fv6(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64, arg5 int32) error {
-	_, err := c.svc.GlProgramUniformMatrix3X4Fv6(ctx, &pb.GlProgramUniformMatrix3X4Fv6Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-	})
-	return err
-}
-
-// GlProgramUniformMatrix3X4Fv5_1 calls the GlProgramUniformMatrix3X4Fv5_1 RPC.
-func (c *GLES31Client) GlProgramUniformMatrix3X4Fv5_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64) error {
-	_, err := c.svc.GlProgramUniformMatrix3X4Fv5_1(ctx, &pb.GlProgramUniformMatrix3X4Fv5_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// GlProgramUniformMatrix4Fv6 calls the GlProgramUniformMatrix4Fv6 RPC.
-func (c *GLES31Client) GlProgramUniformMatrix4Fv6(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64, arg5 int32) error {
-	_, err := c.svc.GlProgramUniformMatrix4Fv6(ctx, &pb.GlProgramUniformMatrix4Fv6Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-	})
-	return err
-}
-
-// GlProgramUniformMatrix4Fv5_1 calls the GlProgramUniformMatrix4Fv5_1 RPC.
-func (c *GLES31Client) GlProgramUniformMatrix4Fv5_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64) error {
-	_, err := c.svc.GlProgramUniformMatrix4Fv5_1(ctx, &pb.GlProgramUniformMatrix4Fv5_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// GlProgramUniformMatrix4X2Fv6 calls the GlProgramUniformMatrix4X2Fv6 RPC.
-func (c *GLES31Client) GlProgramUniformMatrix4X2Fv6(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64, arg5 int32) error {
-	_, err := c.svc.GlProgramUniformMatrix4X2Fv6(ctx, &pb.GlProgramUniformMatrix4X2Fv6Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-	})
-	return err
-}
-
-// GlProgramUniformMatrix4X2Fv5_1 calls the GlProgramUniformMatrix4X2Fv5_1 RPC.
-func (c *GLES31Client) GlProgramUniformMatrix4X2Fv5_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64) error {
-	_, err := c.svc.GlProgramUniformMatrix4X2Fv5_1(ctx, &pb.GlProgramUniformMatrix4X2Fv5_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// GlProgramUniformMatrix4X3Fv6 calls the GlProgramUniformMatrix4X3Fv6 RPC.
-func (c *GLES31Client) GlProgramUniformMatrix4X3Fv6(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64, arg5 int32) error {
-	_, err := c.svc.GlProgramUniformMatrix4X3Fv6(ctx, &pb.GlProgramUniformMatrix4X3Fv6Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-	})
-	return err
-}
-
-// GlProgramUniformMatrix4X3Fv5_1 calls the GlProgramUniformMatrix4X3Fv5_1 RPC.
-func (c *GLES31Client) GlProgramUniformMatrix4X3Fv5_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int64) error {
-	_, err := c.svc.GlProgramUniformMatrix4X3Fv5_1(ctx, &pb.GlProgramUniformMatrix4X3Fv5_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// GlSampleMaski calls the GlSampleMaski RPC.
-func (c *GLES31Client) GlSampleMaski(ctx context.Context, arg0 int32, arg1 int32) error {
-	_, err := c.svc.GlSampleMaski(ctx, &pb.GlSampleMaskiRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// GlTexStorage2DMultisample calls the GlTexStorage2DMultisample RPC.
-func (c *GLES31Client) GlTexStorage2DMultisample(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 bool) error {
-	_, err := c.svc.GlTexStorage2DMultisample(ctx, &pb.GlTexStorage2DMultisampleRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-	})
-	return err
-}
-
-// GlUseProgramStages calls the GlUseProgramStages RPC.
-func (c *GLES31Client) GlUseProgramStages(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.GlUseProgramStages(ctx, &pb.GlUseProgramStagesRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GlValidateProgramPipeline calls the GlValidateProgramPipeline RPC.
-func (c *GLES31Client) GlValidateProgramPipeline(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.GlValidateProgramPipeline(ctx, &pb.GlValidateProgramPipelineRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// GlVertexAttribBinding calls the GlVertexAttribBinding RPC.
-func (c *GLES31Client) GlVertexAttribBinding(ctx context.Context, arg0 int32, arg1 int32) error {
-	_, err := c.svc.GlVertexAttribBinding(ctx, &pb.GlVertexAttribBindingRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// GlVertexAttribFormat calls the GlVertexAttribFormat RPC.
-func (c *GLES31Client) GlVertexAttribFormat(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 bool, arg4 int32) error {
-	_, err := c.svc.GlVertexAttribFormat(ctx, &pb.GlVertexAttribFormatRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// GlVertexAttribIFormat calls the GlVertexAttribIFormat RPC.
-func (c *GLES31Client) GlVertexAttribIFormat(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.GlVertexAttribIFormat(ctx, &pb.GlVertexAttribIFormatRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GlVertexBindingDivisor calls the GlVertexBindingDivisor RPC.
-func (c *GLES31Client) GlVertexBindingDivisor(ctx context.Context, arg0 int32, arg1 int32) error {
-	_, err := c.svc.GlVertexBindingDivisor(ctx, &pb.GlVertexBindingDivisorRequest{
-		Arg0: arg0,
-		Arg1: arg1,
+// GlWeightPointerOES calls the GlWeightPointerOES RPC.
+func (c *GLES11ExtClient) GlWeightPointerOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
+	_, err := c.svc.GlWeightPointerOES(ctx, &pb.GlWeightPointerOESRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
 	})
 	return err
 }
@@ -3537,1941 +9430,6 @@ func (c *EGLObjectHandleClient) HashCode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GLES31ExtClient wraps the gRPC GLES31ExtService client.
-type GLES31ExtClient struct {
-	svc pb.GLES31ExtServiceClient
-}
-
-// NewGLES31ExtClient creates a new GLES31Ext client.
-func NewGLES31ExtClient(cc grpc.ClientConnInterface) *GLES31ExtClient {
-	return &GLES31ExtClient{
-		svc: pb.NewGLES31ExtServiceClient(cc),
-	}
-}
-
-// GlBlendBarrierKHR calls the GlBlendBarrierKHR RPC.
-func (c *GLES31ExtClient) GlBlendBarrierKHR(ctx context.Context) error {
-	_, err := c.svc.GlBlendBarrierKHR(ctx, &pb.GlBlendBarrierKHRRequest{})
-	return err
-}
-
-// GlBlendEquationSeparateiEXT calls the GlBlendEquationSeparateiEXT RPC.
-func (c *GLES31ExtClient) GlBlendEquationSeparateiEXT(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.GlBlendEquationSeparateiEXT(ctx, &pb.GlBlendEquationSeparateiEXTRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GlBlendEquationiEXT calls the GlBlendEquationiEXT RPC.
-func (c *GLES31ExtClient) GlBlendEquationiEXT(ctx context.Context, arg0 int32, arg1 int32) error {
-	_, err := c.svc.GlBlendEquationiEXT(ctx, &pb.GlBlendEquationiEXTRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// GlBlendFuncSeparateiEXT calls the GlBlendFuncSeparateiEXT RPC.
-func (c *GLES31ExtClient) GlBlendFuncSeparateiEXT(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
-	_, err := c.svc.GlBlendFuncSeparateiEXT(ctx, &pb.GlBlendFuncSeparateiEXTRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// GlBlendFunciEXT calls the GlBlendFunciEXT RPC.
-func (c *GLES31ExtClient) GlBlendFunciEXT(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.GlBlendFunciEXT(ctx, &pb.GlBlendFunciEXTRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GlColorMaskiEXT calls the GlColorMaskiEXT RPC.
-func (c *GLES31ExtClient) GlColorMaskiEXT(ctx context.Context, arg0 int32, arg1 bool, arg2 bool, arg3 bool, arg4 bool) error {
-	_, err := c.svc.GlColorMaskiEXT(ctx, &pb.GlColorMaskiEXTRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// GlCopyImageSubDataEXT calls the GlCopyImageSubDataEXT RPC.
-func (c *GLES31ExtClient) GlCopyImageSubDataEXT(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int32, arg7 int32, arg8 int32, arg9 int32, arg10 int32, arg11 int32, arg12 int32, arg13 int32, arg14 int32) error {
-	_, err := c.svc.GlCopyImageSubDataEXT(ctx, &pb.GlCopyImageSubDataEXTRequest{
-		Arg0:  arg0,
-		Arg1:  arg1,
-		Arg2:  arg2,
-		Arg3:  arg3,
-		Arg4:  arg4,
-		Arg5:  arg5,
-		Arg6:  arg6,
-		Arg7:  arg7,
-		Arg8:  arg8,
-		Arg9:  arg9,
-		Arg10: arg10,
-		Arg11: arg11,
-		Arg12: arg12,
-		Arg13: arg13,
-		Arg14: arg14,
-	})
-	return err
-}
-
-// GlDebugMessageCallbackKHR calls the GlDebugMessageCallbackKHR RPC.
-func (c *GLES31ExtClient) GlDebugMessageCallbackKHR(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.GlDebugMessageCallbackKHR(ctx, &pb.GlDebugMessageCallbackKHRRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// GlDebugMessageControlKHR7 calls the GlDebugMessageControlKHR7 RPC.
-func (c *GLES31ExtClient) GlDebugMessageControlKHR7(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64, arg5 int32, arg6 bool) error {
-	_, err := c.svc.GlDebugMessageControlKHR7(ctx, &pb.GlDebugMessageControlKHR7Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-		Arg6: arg6,
-	})
-	return err
-}
-
-// GlDebugMessageControlKHR6_1 calls the GlDebugMessageControlKHR6_1 RPC.
-func (c *GLES31ExtClient) GlDebugMessageControlKHR6_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64, arg5 bool) error {
-	_, err := c.svc.GlDebugMessageControlKHR6_1(ctx, &pb.GlDebugMessageControlKHR6_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-	})
-	return err
-}
-
-// GlDebugMessageInsertKHR calls the GlDebugMessageInsertKHR RPC.
-func (c *GLES31ExtClient) GlDebugMessageInsertKHR(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 string) error {
-	_, err := c.svc.GlDebugMessageInsertKHR(ctx, &pb.GlDebugMessageInsertKHRRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// GlDisableiEXT calls the GlDisableiEXT RPC.
-func (c *GLES31ExtClient) GlDisableiEXT(ctx context.Context, arg0 int32, arg1 int32) error {
-	_, err := c.svc.GlDisableiEXT(ctx, &pb.GlDisableiEXTRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// GlEnableiEXT calls the GlEnableiEXT RPC.
-func (c *GLES31ExtClient) GlEnableiEXT(ctx context.Context, arg0 int32, arg1 int32) error {
-	_, err := c.svc.GlEnableiEXT(ctx, &pb.GlEnableiEXTRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// GlFramebufferTextureEXT calls the GlFramebufferTextureEXT RPC.
-func (c *GLES31ExtClient) GlFramebufferTextureEXT(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.GlFramebufferTextureEXT(ctx, &pb.GlFramebufferTextureEXTRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GlGetDebugMessageCallbackKHR calls the GlGetDebugMessageCallbackKHR RPC.
-func (c *GLES31ExtClient) GlGetDebugMessageCallbackKHR(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GlGetDebugMessageCallbackKHR(ctx, &pb.GlGetDebugMessageCallbackKHRRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GlGetDebugMessageLogKHR14 calls the GlGetDebugMessageLogKHR14 RPC.
-func (c *GLES31ExtClient) GlGetDebugMessageLogKHR14(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32, arg4 int64, arg5 int32, arg6 int64, arg7 int32, arg8 int64, arg9 int32, arg10 int64, arg11 int32, arg12 int64, arg13 int32) (int32, error) {
-	resp, err := c.svc.GlGetDebugMessageLogKHR14(ctx, &pb.GlGetDebugMessageLogKHR14Request{
-		Arg0:  arg0,
-		Arg1:  arg1,
-		Arg2:  arg2,
-		Arg3:  arg3,
-		Arg4:  arg4,
-		Arg5:  arg5,
-		Arg6:  arg6,
-		Arg7:  arg7,
-		Arg8:  arg8,
-		Arg9:  arg9,
-		Arg10: arg10,
-		Arg11: arg11,
-		Arg12: arg12,
-		Arg13: arg13,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GlGetDebugMessageLogKHR9_1 calls the GlGetDebugMessageLogKHR9_1 RPC.
-func (c *GLES31ExtClient) GlGetDebugMessageLogKHR9_1(ctx context.Context, arg0 int32, arg1 int64, arg2 int32, arg3 int64, arg4 int32, arg5 int64, arg6 int32, arg7 int64, arg8 int32) (int64, error) {
-	resp, err := c.svc.GlGetDebugMessageLogKHR9_1(ctx, &pb.GlGetDebugMessageLogKHR9_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-		Arg6: arg6,
-		Arg7: arg7,
-		Arg8: arg8,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GlGetDebugMessageLogKHR5_2 calls the GlGetDebugMessageLogKHR5_2 RPC.
-func (c *GLES31ExtClient) GlGetDebugMessageLogKHR5_2(ctx context.Context, arg0 int32, arg1 int64, arg2 int64, arg3 int64, arg4 int64) (int64, error) {
-	resp, err := c.svc.GlGetDebugMessageLogKHR5_2(ctx, &pb.GlGetDebugMessageLogKHR5_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GlGetObjectLabelKHR calls the GlGetObjectLabelKHR RPC.
-func (c *GLES31ExtClient) GlGetObjectLabelKHR(ctx context.Context, arg0 int32, arg1 int32) (string, error) {
-	resp, err := c.svc.GlGetObjectLabelKHR(ctx, &pb.GlGetObjectLabelKHRRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GlGetObjectPtrLabelKHR calls the GlGetObjectPtrLabelKHR RPC.
-func (c *GLES31ExtClient) GlGetObjectPtrLabelKHR(ctx context.Context, arg0 int64) (string, error) {
-	resp, err := c.svc.GlGetObjectPtrLabelKHR(ctx, &pb.GlGetObjectPtrLabelKHRRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GlGetSamplerParameterIivEXT4 calls the GlGetSamplerParameterIivEXT4 RPC.
-func (c *GLES31ExtClient) GlGetSamplerParameterIivEXT4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlGetSamplerParameterIivEXT4(ctx, &pb.GlGetSamplerParameterIivEXT4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GlGetSamplerParameterIivEXT3_1 calls the GlGetSamplerParameterIivEXT3_1 RPC.
-func (c *GLES31ExtClient) GlGetSamplerParameterIivEXT3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlGetSamplerParameterIivEXT3_1(ctx, &pb.GlGetSamplerParameterIivEXT3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GlGetSamplerParameterIuivEXT4 calls the GlGetSamplerParameterIuivEXT4 RPC.
-func (c *GLES31ExtClient) GlGetSamplerParameterIuivEXT4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlGetSamplerParameterIuivEXT4(ctx, &pb.GlGetSamplerParameterIuivEXT4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GlGetSamplerParameterIuivEXT3_1 calls the GlGetSamplerParameterIuivEXT3_1 RPC.
-func (c *GLES31ExtClient) GlGetSamplerParameterIuivEXT3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlGetSamplerParameterIuivEXT3_1(ctx, &pb.GlGetSamplerParameterIuivEXT3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GlGetTexParameterIivEXT4 calls the GlGetTexParameterIivEXT4 RPC.
-func (c *GLES31ExtClient) GlGetTexParameterIivEXT4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlGetTexParameterIivEXT4(ctx, &pb.GlGetTexParameterIivEXT4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GlGetTexParameterIivEXT3_1 calls the GlGetTexParameterIivEXT3_1 RPC.
-func (c *GLES31ExtClient) GlGetTexParameterIivEXT3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlGetTexParameterIivEXT3_1(ctx, &pb.GlGetTexParameterIivEXT3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GlGetTexParameterIuivEXT4 calls the GlGetTexParameterIuivEXT4 RPC.
-func (c *GLES31ExtClient) GlGetTexParameterIuivEXT4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlGetTexParameterIuivEXT4(ctx, &pb.GlGetTexParameterIuivEXT4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GlGetTexParameterIuivEXT3_1 calls the GlGetTexParameterIuivEXT3_1 RPC.
-func (c *GLES31ExtClient) GlGetTexParameterIuivEXT3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlGetTexParameterIuivEXT3_1(ctx, &pb.GlGetTexParameterIuivEXT3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GlIsEnablediEXT calls the GlIsEnablediEXT RPC.
-func (c *GLES31ExtClient) GlIsEnablediEXT(ctx context.Context, arg0 int32, arg1 int32) (bool, error) {
-	resp, err := c.svc.GlIsEnablediEXT(ctx, &pb.GlIsEnablediEXTRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GlMinSampleShadingOES calls the GlMinSampleShadingOES RPC.
-func (c *GLES31ExtClient) GlMinSampleShadingOES(ctx context.Context, arg0 float32) error {
-	_, err := c.svc.GlMinSampleShadingOES(ctx, &pb.GlMinSampleShadingOESRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// GlObjectLabelKHR calls the GlObjectLabelKHR RPC.
-func (c *GLES31ExtClient) GlObjectLabelKHR(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 string) error {
-	_, err := c.svc.GlObjectLabelKHR(ctx, &pb.GlObjectLabelKHRRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GlObjectPtrLabelKHR calls the GlObjectPtrLabelKHR RPC.
-func (c *GLES31ExtClient) GlObjectPtrLabelKHR(ctx context.Context, arg0 int64, arg1 string) error {
-	_, err := c.svc.GlObjectPtrLabelKHR(ctx, &pb.GlObjectPtrLabelKHRRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// GlPatchParameteriEXT calls the GlPatchParameteriEXT RPC.
-func (c *GLES31ExtClient) GlPatchParameteriEXT(ctx context.Context, arg0 int32, arg1 int32) error {
-	_, err := c.svc.GlPatchParameteriEXT(ctx, &pb.GlPatchParameteriEXTRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// GlPopDebugGroupKHR calls the GlPopDebugGroupKHR RPC.
-func (c *GLES31ExtClient) GlPopDebugGroupKHR(ctx context.Context) error {
-	_, err := c.svc.GlPopDebugGroupKHR(ctx, &pb.GlPopDebugGroupKHRRequest{})
-	return err
-}
-
-// GlPrimitiveBoundingBoxEXT calls the GlPrimitiveBoundingBoxEXT RPC.
-func (c *GLES31ExtClient) GlPrimitiveBoundingBoxEXT(ctx context.Context, arg0 float32, arg1 float32, arg2 float32, arg3 float32, arg4 float32, arg5 float32, arg6 float32, arg7 float32) error {
-	_, err := c.svc.GlPrimitiveBoundingBoxEXT(ctx, &pb.GlPrimitiveBoundingBoxEXTRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-		Arg6: arg6,
-		Arg7: arg7,
-	})
-	return err
-}
-
-// GlPushDebugGroupKHR calls the GlPushDebugGroupKHR RPC.
-func (c *GLES31ExtClient) GlPushDebugGroupKHR(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 string) error {
-	_, err := c.svc.GlPushDebugGroupKHR(ctx, &pb.GlPushDebugGroupKHRRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GlSamplerParameterIivEXT4 calls the GlSamplerParameterIivEXT4 RPC.
-func (c *GLES31ExtClient) GlSamplerParameterIivEXT4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlSamplerParameterIivEXT4(ctx, &pb.GlSamplerParameterIivEXT4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GlSamplerParameterIivEXT3_1 calls the GlSamplerParameterIivEXT3_1 RPC.
-func (c *GLES31ExtClient) GlSamplerParameterIivEXT3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlSamplerParameterIivEXT3_1(ctx, &pb.GlSamplerParameterIivEXT3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GlSamplerParameterIuivEXT4 calls the GlSamplerParameterIuivEXT4 RPC.
-func (c *GLES31ExtClient) GlSamplerParameterIuivEXT4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlSamplerParameterIuivEXT4(ctx, &pb.GlSamplerParameterIuivEXT4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GlSamplerParameterIuivEXT3_1 calls the GlSamplerParameterIuivEXT3_1 RPC.
-func (c *GLES31ExtClient) GlSamplerParameterIuivEXT3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlSamplerParameterIuivEXT3_1(ctx, &pb.GlSamplerParameterIuivEXT3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GlTexBufferEXT calls the GlTexBufferEXT RPC.
-func (c *GLES31ExtClient) GlTexBufferEXT(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.GlTexBufferEXT(ctx, &pb.GlTexBufferEXTRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GlTexBufferRangeEXT calls the GlTexBufferRangeEXT RPC.
-func (c *GLES31ExtClient) GlTexBufferRangeEXT(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
-	_, err := c.svc.GlTexBufferRangeEXT(ctx, &pb.GlTexBufferRangeEXTRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// GlTexParameterIivEXT4 calls the GlTexParameterIivEXT4 RPC.
-func (c *GLES31ExtClient) GlTexParameterIivEXT4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlTexParameterIivEXT4(ctx, &pb.GlTexParameterIivEXT4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GlTexParameterIivEXT3_1 calls the GlTexParameterIivEXT3_1 RPC.
-func (c *GLES31ExtClient) GlTexParameterIivEXT3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlTexParameterIivEXT3_1(ctx, &pb.GlTexParameterIivEXT3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GlTexParameterIuivEXT4 calls the GlTexParameterIuivEXT4 RPC.
-func (c *GLES31ExtClient) GlTexParameterIuivEXT4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlTexParameterIuivEXT4(ctx, &pb.GlTexParameterIuivEXT4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GlTexParameterIuivEXT3_1 calls the GlTexParameterIuivEXT3_1 RPC.
-func (c *GLES31ExtClient) GlTexParameterIuivEXT3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlTexParameterIuivEXT3_1(ctx, &pb.GlTexParameterIuivEXT3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GlTexStorage3DMultisampleOES calls the GlTexStorage3DMultisampleOES RPC.
-func (c *GLES31ExtClient) GlTexStorage3DMultisampleOES(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 bool) error {
-	_, err := c.svc.GlTexStorage3DMultisampleOES(ctx, &pb.GlTexStorage3DMultisampleOESRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-		Arg6: arg6,
-	})
-	return err
-}
-
-// GLES31ExtDebugProcKHRClient wraps the gRPC GLES31ExtDebugProcKHRService client.
-type GLES31ExtDebugProcKHRClient struct {
-	svc pb.GLES31ExtDebugProcKHRServiceClient
-}
-
-// NewGLES31ExtDebugProcKHRClient creates a new GLES31ExtDebugProcKHR client.
-func NewGLES31ExtDebugProcKHRClient(cc grpc.ClientConnInterface) *GLES31ExtDebugProcKHRClient {
-	return &GLES31ExtDebugProcKHRClient{
-		svc: pb.NewGLES31ExtDebugProcKHRServiceClient(cc),
-	}
-}
-
-// OnMessage calls the OnMessage RPC.
-func (c *GLES31ExtDebugProcKHRClient) OnMessage(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 string) error {
-	_, err := c.svc.OnMessage(ctx, &pb.OnMessageRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// GLES10Client wraps the gRPC GLES10Service client.
-type GLES10Client struct {
-	svc pb.GLES10ServiceClient
-}
-
-// NewGLES10Client creates a new GLES10 client.
-func NewGLES10Client(cc grpc.ClientConnInterface) *GLES10Client {
-	return &GLES10Client{
-		svc: pb.NewGLES10ServiceClient(cc),
-	}
-}
-
-// GlActiveTexture calls the GlActiveTexture RPC.
-func (c *GLES10Client) GlActiveTexture(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.GlActiveTexture(ctx, &pb.GlActiveTextureRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlAlphaFunc calls the GlAlphaFunc RPC.
-func (c *GLES10Client) GlAlphaFunc(ctx context.Context, handle int64, arg0 int32, arg1 float32) error {
-	_, err := c.svc.GlAlphaFunc(ctx, &pb.GlAlphaFuncRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlAlphaFuncx calls the GlAlphaFuncx RPC.
-func (c *GLES10Client) GlAlphaFuncx(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.GlAlphaFuncx(ctx, &pb.GlAlphaFuncxRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlBindTexture calls the GlBindTexture RPC.
-func (c *GLES10Client) GlBindTexture(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.GlBindTexture(ctx, &pb.GlBindTextureRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlBlendFunc calls the GlBlendFunc RPC.
-func (c *GLES10Client) GlBlendFunc(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.GlBlendFunc(ctx, &pb.GlBlendFuncRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlClear calls the GlClear RPC.
-func (c *GLES10Client) GlClear(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.GlClear(ctx, &pb.GlClearRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlClearColor calls the GlClearColor RPC.
-func (c *GLES10Client) GlClearColor(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32) error {
-	_, err := c.svc.GlClearColor(ctx, &pb.GlClearColorRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlClearColorx calls the GlClearColorx RPC.
-func (c *GLES10Client) GlClearColorx(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.GlClearColorx(ctx, &pb.GlClearColorxRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlClearDepthf calls the GlClearDepthf RPC.
-func (c *GLES10Client) GlClearDepthf(ctx context.Context, handle int64, arg0 float32) error {
-	_, err := c.svc.GlClearDepthf(ctx, &pb.GlClearDepthfRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlClearDepthx calls the GlClearDepthx RPC.
-func (c *GLES10Client) GlClearDepthx(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.GlClearDepthx(ctx, &pb.GlClearDepthxRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlClearStencil calls the GlClearStencil RPC.
-func (c *GLES10Client) GlClearStencil(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.GlClearStencil(ctx, &pb.GlClearStencilRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlClientActiveTexture calls the GlClientActiveTexture RPC.
-func (c *GLES10Client) GlClientActiveTexture(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.GlClientActiveTexture(ctx, &pb.GlClientActiveTextureRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlColor4F calls the GlColor4F RPC.
-func (c *GLES10Client) GlColor4F(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32) error {
-	_, err := c.svc.GlColor4F(ctx, &pb.GlColor4FRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlColor4X calls the GlColor4X RPC.
-func (c *GLES10Client) GlColor4X(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.GlColor4X(ctx, &pb.GlColor4XRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlColorMask calls the GlColorMask RPC.
-func (c *GLES10Client) GlColorMask(ctx context.Context, handle int64, arg0 bool, arg1 bool, arg2 bool, arg3 bool) error {
-	_, err := c.svc.GlColorMask(ctx, &pb.GlColorMaskRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlColorPointer calls the GlColorPointer RPC.
-func (c *GLES10Client) GlColorPointer(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
-	_, err := c.svc.GlColorPointer(ctx, &pb.GlColorPointerRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlCompressedTexImage2D calls the GlCompressedTexImage2D RPC.
-func (c *GLES10Client) GlCompressedTexImage2D(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int32, arg7 int64) error {
-	_, err := c.svc.GlCompressedTexImage2D(ctx, &pb.GlCompressedTexImage2DRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-		Arg6:   arg6,
-		Arg7:   arg7,
-	})
-	return err
-}
-
-// GlCompressedTexSubImage2D calls the GlCompressedTexSubImage2D RPC.
-func (c *GLES10Client) GlCompressedTexSubImage2D(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int32, arg7 int32, arg8 int64) error {
-	_, err := c.svc.GlCompressedTexSubImage2D(ctx, &pb.GlCompressedTexSubImage2DRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-		Arg6:   arg6,
-		Arg7:   arg7,
-		Arg8:   arg8,
-	})
-	return err
-}
-
-// GlCopyTexImage2D calls the GlCopyTexImage2D RPC.
-func (c *GLES10Client) GlCopyTexImage2D(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int32, arg7 int32) error {
-	_, err := c.svc.GlCopyTexImage2D(ctx, &pb.GlCopyTexImage2DRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-		Arg6:   arg6,
-		Arg7:   arg7,
-	})
-	return err
-}
-
-// GlCopyTexSubImage2D calls the GlCopyTexSubImage2D RPC.
-func (c *GLES10Client) GlCopyTexSubImage2D(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int32, arg7 int32) error {
-	_, err := c.svc.GlCopyTexSubImage2D(ctx, &pb.GlCopyTexSubImage2DRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-		Arg6:   arg6,
-		Arg7:   arg7,
-	})
-	return err
-}
-
-// GlCullFace calls the GlCullFace RPC.
-func (c *GLES10Client) GlCullFace(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.GlCullFace(ctx, &pb.GlCullFaceRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlDeleteTextures3 calls the GlDeleteTextures3 RPC.
-func (c *GLES10Client) GlDeleteTextures3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
-	_, err := c.svc.GlDeleteTextures3(ctx, &pb.GlDeleteTextures3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlDeleteTextures2_1 calls the GlDeleteTextures2_1 RPC.
-func (c *GLES10Client) GlDeleteTextures2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlDeleteTextures2_1(ctx, &pb.GlDeleteTextures2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlDepthFunc calls the GlDepthFunc RPC.
-func (c *GLES10Client) GlDepthFunc(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.GlDepthFunc(ctx, &pb.GlDepthFuncRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlDepthMask calls the GlDepthMask RPC.
-func (c *GLES10Client) GlDepthMask(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.GlDepthMask(ctx, &pb.GlDepthMaskRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlDepthRangef calls the GlDepthRangef RPC.
-func (c *GLES10Client) GlDepthRangef(ctx context.Context, handle int64, arg0 float32, arg1 float32) error {
-	_, err := c.svc.GlDepthRangef(ctx, &pb.GlDepthRangefRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlDepthRangex calls the GlDepthRangex RPC.
-func (c *GLES10Client) GlDepthRangex(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.GlDepthRangex(ctx, &pb.GlDepthRangexRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlDisable calls the GlDisable RPC.
-func (c *GLES10Client) GlDisable(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.GlDisable(ctx, &pb.GlDisableRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlDisableClientState calls the GlDisableClientState RPC.
-func (c *GLES10Client) GlDisableClientState(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.GlDisableClientState(ctx, &pb.GlDisableClientStateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlDrawArrays calls the GlDrawArrays RPC.
-func (c *GLES10Client) GlDrawArrays(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.GlDrawArrays(ctx, &pb.GlDrawArraysRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlDrawElements calls the GlDrawElements RPC.
-func (c *GLES10Client) GlDrawElements(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
-	_, err := c.svc.GlDrawElements(ctx, &pb.GlDrawElementsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlEnable calls the GlEnable RPC.
-func (c *GLES10Client) GlEnable(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.GlEnable(ctx, &pb.GlEnableRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlEnableClientState calls the GlEnableClientState RPC.
-func (c *GLES10Client) GlEnableClientState(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.GlEnableClientState(ctx, &pb.GlEnableClientStateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlFinish calls the GlFinish RPC.
-func (c *GLES10Client) GlFinish(ctx context.Context, handle int64) error {
-	_, err := c.svc.GlFinish(ctx, &pb.GlFinishRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// GlFlush calls the GlFlush RPC.
-func (c *GLES10Client) GlFlush(ctx context.Context, handle int64) error {
-	_, err := c.svc.GlFlush(ctx, &pb.GlFlushRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// GlFogf calls the GlFogf RPC.
-func (c *GLES10Client) GlFogf(ctx context.Context, handle int64, arg0 int32, arg1 float32) error {
-	_, err := c.svc.GlFogf(ctx, &pb.GlFogfRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlFogfv3 calls the GlFogfv3 RPC.
-func (c *GLES10Client) GlFogfv3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
-	_, err := c.svc.GlFogfv3(ctx, &pb.GlFogfv3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlFogfv2_1 calls the GlFogfv2_1 RPC.
-func (c *GLES10Client) GlFogfv2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlFogfv2_1(ctx, &pb.GlFogfv2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlFogx calls the GlFogx RPC.
-func (c *GLES10Client) GlFogx(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.GlFogx(ctx, &pb.GlFogxRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlFogxv3 calls the GlFogxv3 RPC.
-func (c *GLES10Client) GlFogxv3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
-	_, err := c.svc.GlFogxv3(ctx, &pb.GlFogxv3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlFogxv2_1 calls the GlFogxv2_1 RPC.
-func (c *GLES10Client) GlFogxv2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlFogxv2_1(ctx, &pb.GlFogxv2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlFrontFace calls the GlFrontFace RPC.
-func (c *GLES10Client) GlFrontFace(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.GlFrontFace(ctx, &pb.GlFrontFaceRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlFrustumf calls the GlFrustumf RPC.
-func (c *GLES10Client) GlFrustumf(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32, arg4 float32, arg5 float32) error {
-	_, err := c.svc.GlFrustumf(ctx, &pb.GlFrustumfRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	return err
-}
-
-// GlFrustumx calls the GlFrustumx RPC.
-func (c *GLES10Client) GlFrustumx(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32) error {
-	_, err := c.svc.GlFrustumx(ctx, &pb.GlFrustumxRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	return err
-}
-
-// GlGenTextures3 calls the GlGenTextures3 RPC.
-func (c *GLES10Client) GlGenTextures3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
-	_, err := c.svc.GlGenTextures3(ctx, &pb.GlGenTextures3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlGenTextures2_1 calls the GlGenTextures2_1 RPC.
-func (c *GLES10Client) GlGenTextures2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlGenTextures2_1(ctx, &pb.GlGenTextures2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlGetError calls the GlGetError RPC.
-func (c *GLES10Client) GlGetError(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GlGetError(ctx, &pb.GlGetErrorRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GlGetIntegerv3 calls the GlGetIntegerv3 RPC.
-func (c *GLES10Client) GlGetIntegerv3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
-	_, err := c.svc.GlGetIntegerv3(ctx, &pb.GlGetIntegerv3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlGetIntegerv2_1 calls the GlGetIntegerv2_1 RPC.
-func (c *GLES10Client) GlGetIntegerv2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlGetIntegerv2_1(ctx, &pb.GlGetIntegerv2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlGetString calls the GlGetString RPC.
-func (c *GLES10Client) GlGetString(ctx context.Context, handle int64, arg0 int32) (string, error) {
-	resp, err := c.svc.GlGetString(ctx, &pb.GlGetStringRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GlHint calls the GlHint RPC.
-func (c *GLES10Client) GlHint(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.GlHint(ctx, &pb.GlHintRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlLightModelf calls the GlLightModelf RPC.
-func (c *GLES10Client) GlLightModelf(ctx context.Context, handle int64, arg0 int32, arg1 float32) error {
-	_, err := c.svc.GlLightModelf(ctx, &pb.GlLightModelfRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlLightModelfv3 calls the GlLightModelfv3 RPC.
-func (c *GLES10Client) GlLightModelfv3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
-	_, err := c.svc.GlLightModelfv3(ctx, &pb.GlLightModelfv3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlLightModelfv2_1 calls the GlLightModelfv2_1 RPC.
-func (c *GLES10Client) GlLightModelfv2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlLightModelfv2_1(ctx, &pb.GlLightModelfv2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlLightModelx calls the GlLightModelx RPC.
-func (c *GLES10Client) GlLightModelx(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.GlLightModelx(ctx, &pb.GlLightModelxRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlLightModelxv3 calls the GlLightModelxv3 RPC.
-func (c *GLES10Client) GlLightModelxv3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
-	_, err := c.svc.GlLightModelxv3(ctx, &pb.GlLightModelxv3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlLightModelxv2_1 calls the GlLightModelxv2_1 RPC.
-func (c *GLES10Client) GlLightModelxv2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlLightModelxv2_1(ctx, &pb.GlLightModelxv2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlLightf calls the GlLightf RPC.
-func (c *GLES10Client) GlLightf(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 float32) error {
-	_, err := c.svc.GlLightf(ctx, &pb.GlLightfRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlLightfv4 calls the GlLightfv4 RPC.
-func (c *GLES10Client) GlLightfv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlLightfv4(ctx, &pb.GlLightfv4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlLightfv3_1 calls the GlLightfv3_1 RPC.
-func (c *GLES10Client) GlLightfv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlLightfv3_1(ctx, &pb.GlLightfv3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlLightx calls the GlLightx RPC.
-func (c *GLES10Client) GlLightx(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.GlLightx(ctx, &pb.GlLightxRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlLightxv4 calls the GlLightxv4 RPC.
-func (c *GLES10Client) GlLightxv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlLightxv4(ctx, &pb.GlLightxv4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlLightxv3_1 calls the GlLightxv3_1 RPC.
-func (c *GLES10Client) GlLightxv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlLightxv3_1(ctx, &pb.GlLightxv3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlLineWidth calls the GlLineWidth RPC.
-func (c *GLES10Client) GlLineWidth(ctx context.Context, handle int64, arg0 float32) error {
-	_, err := c.svc.GlLineWidth(ctx, &pb.GlLineWidthRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlLineWidthx calls the GlLineWidthx RPC.
-func (c *GLES10Client) GlLineWidthx(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.GlLineWidthx(ctx, &pb.GlLineWidthxRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlLoadIdentity calls the GlLoadIdentity RPC.
-func (c *GLES10Client) GlLoadIdentity(ctx context.Context, handle int64) error {
-	_, err := c.svc.GlLoadIdentity(ctx, &pb.GlLoadIdentityRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// GlLoadMatrixf2 calls the GlLoadMatrixf2 RPC.
-func (c *GLES10Client) GlLoadMatrixf2(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.GlLoadMatrixf2(ctx, &pb.GlLoadMatrixf2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlLoadMatrixf1_1 calls the GlLoadMatrixf1_1 RPC.
-func (c *GLES10Client) GlLoadMatrixf1_1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.GlLoadMatrixf1_1(ctx, &pb.GlLoadMatrixf1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlLoadMatrixx2 calls the GlLoadMatrixx2 RPC.
-func (c *GLES10Client) GlLoadMatrixx2(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.GlLoadMatrixx2(ctx, &pb.GlLoadMatrixx2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlLoadMatrixx1_1 calls the GlLoadMatrixx1_1 RPC.
-func (c *GLES10Client) GlLoadMatrixx1_1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.GlLoadMatrixx1_1(ctx, &pb.GlLoadMatrixx1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlLogicOp calls the GlLogicOp RPC.
-func (c *GLES10Client) GlLogicOp(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.GlLogicOp(ctx, &pb.GlLogicOpRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlMaterialf calls the GlMaterialf RPC.
-func (c *GLES10Client) GlMaterialf(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 float32) error {
-	_, err := c.svc.GlMaterialf(ctx, &pb.GlMaterialfRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlMaterialfv4 calls the GlMaterialfv4 RPC.
-func (c *GLES10Client) GlMaterialfv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlMaterialfv4(ctx, &pb.GlMaterialfv4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlMaterialfv3_1 calls the GlMaterialfv3_1 RPC.
-func (c *GLES10Client) GlMaterialfv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlMaterialfv3_1(ctx, &pb.GlMaterialfv3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlMaterialx calls the GlMaterialx RPC.
-func (c *GLES10Client) GlMaterialx(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.GlMaterialx(ctx, &pb.GlMaterialxRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlMaterialxv4 calls the GlMaterialxv4 RPC.
-func (c *GLES10Client) GlMaterialxv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlMaterialxv4(ctx, &pb.GlMaterialxv4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlMaterialxv3_1 calls the GlMaterialxv3_1 RPC.
-func (c *GLES10Client) GlMaterialxv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlMaterialxv3_1(ctx, &pb.GlMaterialxv3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlMatrixMode calls the GlMatrixMode RPC.
-func (c *GLES10Client) GlMatrixMode(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.GlMatrixMode(ctx, &pb.GlMatrixModeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlMultMatrixf2 calls the GlMultMatrixf2 RPC.
-func (c *GLES10Client) GlMultMatrixf2(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.GlMultMatrixf2(ctx, &pb.GlMultMatrixf2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlMultMatrixf1_1 calls the GlMultMatrixf1_1 RPC.
-func (c *GLES10Client) GlMultMatrixf1_1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.GlMultMatrixf1_1(ctx, &pb.GlMultMatrixf1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlMultMatrixx2 calls the GlMultMatrixx2 RPC.
-func (c *GLES10Client) GlMultMatrixx2(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.GlMultMatrixx2(ctx, &pb.GlMultMatrixx2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlMultMatrixx1_1 calls the GlMultMatrixx1_1 RPC.
-func (c *GLES10Client) GlMultMatrixx1_1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.GlMultMatrixx1_1(ctx, &pb.GlMultMatrixx1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlMultiTexCoord4F calls the GlMultiTexCoord4F RPC.
-func (c *GLES10Client) GlMultiTexCoord4F(ctx context.Context, handle int64, arg0 int32, arg1 float32, arg2 float32, arg3 float32, arg4 float32) error {
-	_, err := c.svc.GlMultiTexCoord4F(ctx, &pb.GlMultiTexCoord4FRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-	})
-	return err
-}
-
-// GlMultiTexCoord4X calls the GlMultiTexCoord4X RPC.
-func (c *GLES10Client) GlMultiTexCoord4X(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
-	_, err := c.svc.GlMultiTexCoord4X(ctx, &pb.GlMultiTexCoord4XRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-	})
-	return err
-}
-
-// GlNormal3F calls the GlNormal3F RPC.
-func (c *GLES10Client) GlNormal3F(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32) error {
-	_, err := c.svc.GlNormal3F(ctx, &pb.GlNormal3FRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlNormal3X calls the GlNormal3X RPC.
-func (c *GLES10Client) GlNormal3X(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.GlNormal3X(ctx, &pb.GlNormal3XRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlNormalPointer calls the GlNormalPointer RPC.
-func (c *GLES10Client) GlNormalPointer(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlNormalPointer(ctx, &pb.GlNormalPointerRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlOrthof calls the GlOrthof RPC.
-func (c *GLES10Client) GlOrthof(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32, arg4 float32, arg5 float32) error {
-	_, err := c.svc.GlOrthof(ctx, &pb.GlOrthofRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	return err
-}
-
-// GlOrthox calls the GlOrthox RPC.
-func (c *GLES10Client) GlOrthox(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32) error {
-	_, err := c.svc.GlOrthox(ctx, &pb.GlOrthoxRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	return err
-}
-
-// GlPixelStorei calls the GlPixelStorei RPC.
-func (c *GLES10Client) GlPixelStorei(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.GlPixelStorei(ctx, &pb.GlPixelStoreiRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlPointSize calls the GlPointSize RPC.
-func (c *GLES10Client) GlPointSize(ctx context.Context, handle int64, arg0 float32) error {
-	_, err := c.svc.GlPointSize(ctx, &pb.GlPointSizeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlPointSizex calls the GlPointSizex RPC.
-func (c *GLES10Client) GlPointSizex(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.GlPointSizex(ctx, &pb.GlPointSizexRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlPolygonOffset calls the GlPolygonOffset RPC.
-func (c *GLES10Client) GlPolygonOffset(ctx context.Context, handle int64, arg0 float32, arg1 float32) error {
-	_, err := c.svc.GlPolygonOffset(ctx, &pb.GlPolygonOffsetRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlPolygonOffsetx calls the GlPolygonOffsetx RPC.
-func (c *GLES10Client) GlPolygonOffsetx(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.GlPolygonOffsetx(ctx, &pb.GlPolygonOffsetxRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlPopMatrix calls the GlPopMatrix RPC.
-func (c *GLES10Client) GlPopMatrix(ctx context.Context, handle int64) error {
-	_, err := c.svc.GlPopMatrix(ctx, &pb.GlPopMatrixRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// GlPushMatrix calls the GlPushMatrix RPC.
-func (c *GLES10Client) GlPushMatrix(ctx context.Context, handle int64) error {
-	_, err := c.svc.GlPushMatrix(ctx, &pb.GlPushMatrixRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// GlReadPixels calls the GlReadPixels RPC.
-func (c *GLES10Client) GlReadPixels(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int64) error {
-	_, err := c.svc.GlReadPixels(ctx, &pb.GlReadPixelsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-		Arg6:   arg6,
-	})
-	return err
-}
-
-// GlRotatef calls the GlRotatef RPC.
-func (c *GLES10Client) GlRotatef(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32) error {
-	_, err := c.svc.GlRotatef(ctx, &pb.GlRotatefRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlRotatex calls the GlRotatex RPC.
-func (c *GLES10Client) GlRotatex(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.GlRotatex(ctx, &pb.GlRotatexRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlSampleCoverage calls the GlSampleCoverage RPC.
-func (c *GLES10Client) GlSampleCoverage(ctx context.Context, handle int64, arg0 float32, arg1 bool) error {
-	_, err := c.svc.GlSampleCoverage(ctx, &pb.GlSampleCoverageRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlSampleCoveragex calls the GlSampleCoveragex RPC.
-func (c *GLES10Client) GlSampleCoveragex(ctx context.Context, handle int64, arg0 int32, arg1 bool) error {
-	_, err := c.svc.GlSampleCoveragex(ctx, &pb.GlSampleCoveragexRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlScalef calls the GlScalef RPC.
-func (c *GLES10Client) GlScalef(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32) error {
-	_, err := c.svc.GlScalef(ctx, &pb.GlScalefRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlScalex calls the GlScalex RPC.
-func (c *GLES10Client) GlScalex(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.GlScalex(ctx, &pb.GlScalexRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlScissor calls the GlScissor RPC.
-func (c *GLES10Client) GlScissor(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.GlScissor(ctx, &pb.GlScissorRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlShadeModel calls the GlShadeModel RPC.
-func (c *GLES10Client) GlShadeModel(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.GlShadeModel(ctx, &pb.GlShadeModelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlStencilFunc calls the GlStencilFunc RPC.
-func (c *GLES10Client) GlStencilFunc(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.GlStencilFunc(ctx, &pb.GlStencilFuncRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlStencilMask calls the GlStencilMask RPC.
-func (c *GLES10Client) GlStencilMask(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.GlStencilMask(ctx, &pb.GlStencilMaskRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlStencilOp calls the GlStencilOp RPC.
-func (c *GLES10Client) GlStencilOp(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.GlStencilOp(ctx, &pb.GlStencilOpRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlTexCoordPointer calls the GlTexCoordPointer RPC.
-func (c *GLES10Client) GlTexCoordPointer(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
-	_, err := c.svc.GlTexCoordPointer(ctx, &pb.GlTexCoordPointerRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlTexEnvf calls the GlTexEnvf RPC.
-func (c *GLES10Client) GlTexEnvf(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 float32) error {
-	_, err := c.svc.GlTexEnvf(ctx, &pb.GlTexEnvfRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlTexEnvfv4 calls the GlTexEnvfv4 RPC.
-func (c *GLES10Client) GlTexEnvfv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlTexEnvfv4(ctx, &pb.GlTexEnvfv4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlTexEnvfv3_1 calls the GlTexEnvfv3_1 RPC.
-func (c *GLES10Client) GlTexEnvfv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlTexEnvfv3_1(ctx, &pb.GlTexEnvfv3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlTexEnvx calls the GlTexEnvx RPC.
-func (c *GLES10Client) GlTexEnvx(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.GlTexEnvx(ctx, &pb.GlTexEnvxRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlTexEnvxv4 calls the GlTexEnvxv4 RPC.
-func (c *GLES10Client) GlTexEnvxv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlTexEnvxv4(ctx, &pb.GlTexEnvxv4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlTexEnvxv3_1 calls the GlTexEnvxv3_1 RPC.
-func (c *GLES10Client) GlTexEnvxv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlTexEnvxv3_1(ctx, &pb.GlTexEnvxv3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlTexImage2D calls the GlTexImage2D RPC.
-func (c *GLES10Client) GlTexImage2D(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int32, arg7 int32, arg8 int64) error {
-	_, err := c.svc.GlTexImage2D(ctx, &pb.GlTexImage2DRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-		Arg6:   arg6,
-		Arg7:   arg7,
-		Arg8:   arg8,
-	})
-	return err
-}
-
-// GlTexParameterf calls the GlTexParameterf RPC.
-func (c *GLES10Client) GlTexParameterf(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 float32) error {
-	_, err := c.svc.GlTexParameterf(ctx, &pb.GlTexParameterfRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlTexParameterx calls the GlTexParameterx RPC.
-func (c *GLES10Client) GlTexParameterx(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.GlTexParameterx(ctx, &pb.GlTexParameterxRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlTexSubImage2D calls the GlTexSubImage2D RPC.
-func (c *GLES10Client) GlTexSubImage2D(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int32, arg7 int32, arg8 int64) error {
-	_, err := c.svc.GlTexSubImage2D(ctx, &pb.GlTexSubImage2DRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-		Arg6:   arg6,
-		Arg7:   arg7,
-		Arg8:   arg8,
-	})
-	return err
-}
-
-// GlTranslatef calls the GlTranslatef RPC.
-func (c *GLES10Client) GlTranslatef(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32) error {
-	_, err := c.svc.GlTranslatef(ctx, &pb.GlTranslatefRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlTranslatex calls the GlTranslatex RPC.
-func (c *GLES10Client) GlTranslatex(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.GlTranslatex(ctx, &pb.GlTranslatexRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlVertexPointer calls the GlVertexPointer RPC.
-func (c *GLES10Client) GlVertexPointer(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
-	_, err := c.svc.GlVertexPointer(ctx, &pb.GlVertexPointerRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlViewport calls the GlViewport RPC.
-func (c *GLES10Client) GlViewport(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.GlViewport(ctx, &pb.GlViewportRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// EGLContextClient wraps the gRPC EGLContextService client.
-type EGLContextClient struct {
-	svc pb.EGLContextServiceClient
-}
-
-// NewEGLContextClient creates a new EGLContext client.
-func NewEGLContextClient(cc grpc.ClientConnInterface) *EGLContextClient {
-	return &EGLContextClient{
-		svc: pb.NewEGLContextServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *EGLContextClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
 	}
 	return resp.GetResult(), nil
 }
@@ -7472,329 +11430,27 @@ func (c *GLES30Client) GlWaitSync(ctx context.Context, handle int64, arg0 int64,
 	return err
 }
 
-// GLDebugHelperClient wraps the gRPC GLDebugHelperService client.
-type GLDebugHelperClient struct {
-	svc pb.GLDebugHelperServiceClient
+// GLES31ExtClient wraps the gRPC GLES31ExtService client.
+type GLES31ExtClient struct {
+	svc pb.GLES31ExtServiceClient
 }
 
-// NewGLDebugHelperClient creates a new GLDebugHelper client.
-func NewGLDebugHelperClient(cc grpc.ClientConnInterface) *GLDebugHelperClient {
-	return &GLDebugHelperClient{
-		svc: pb.NewGLDebugHelperServiceClient(cc),
+// NewGLES31ExtClient creates a new GLES31Ext client.
+func NewGLES31ExtClient(cc grpc.ClientConnInterface) *GLES31ExtClient {
+	return &GLES31ExtClient{
+		svc: pb.NewGLES31ExtServiceClient(cc),
 	}
 }
 
-// Wrap3 calls the Wrap3 RPC.
-func (c *GLDebugHelperClient) Wrap3(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64) (int64, error) {
-	resp, err := c.svc.Wrap3(ctx, &pb.Wrap3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Wrap3_1 calls the Wrap3_1 RPC.
-func (c *GLDebugHelperClient) Wrap3_1(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64) (int64, error) {
-	resp, err := c.svc.Wrap3_1(ctx, &pb.Wrap3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GLSurfaceViewClient wraps the gRPC GLSurfaceViewService client.
-type GLSurfaceViewClient struct {
-	svc pb.GLSurfaceViewServiceClient
-}
-
-// NewGLSurfaceViewClient creates a new GLSurfaceView client.
-func NewGLSurfaceViewClient(cc grpc.ClientConnInterface) *GLSurfaceViewClient {
-	return &GLSurfaceViewClient{
-		svc: pb.NewGLSurfaceViewServiceClient(cc),
-	}
-}
-
-// GetDebugFlags calls the GetDebugFlags RPC.
-func (c *GLSurfaceViewClient) GetDebugFlags(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetDebugFlags(ctx, &pb.GetDebugFlagsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPreserveEGLContextOnPause calls the GetPreserveEGLContextOnPause RPC.
-func (c *GLSurfaceViewClient) GetPreserveEGLContextOnPause(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.GetPreserveEGLContextOnPause(ctx, &pb.GetPreserveEGLContextOnPauseRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRenderMode calls the GetRenderMode RPC.
-func (c *GLSurfaceViewClient) GetRenderMode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetRenderMode(ctx, &pb.GetRenderModeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnPause calls the OnPause RPC.
-func (c *GLSurfaceViewClient) OnPause(ctx context.Context, handle int64) error {
-	_, err := c.svc.OnPause(ctx, &pb.OnPauseRequest{
-		Handle: handle,
-	})
+// GlBlendBarrierKHR calls the GlBlendBarrierKHR RPC.
+func (c *GLES31ExtClient) GlBlendBarrierKHR(ctx context.Context) error {
+	_, err := c.svc.GlBlendBarrierKHR(ctx, &pb.GlBlendBarrierKHRRequest{})
 	return err
 }
 
-// OnResume calls the OnResume RPC.
-func (c *GLSurfaceViewClient) OnResume(ctx context.Context, handle int64) error {
-	_, err := c.svc.OnResume(ctx, &pb.OnResumeRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// QueueEvent calls the QueueEvent RPC.
-func (c *GLSurfaceViewClient) QueueEvent(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.QueueEvent(ctx, &pb.QueueEventRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// RequestRender calls the RequestRender RPC.
-func (c *GLSurfaceViewClient) RequestRender(ctx context.Context, handle int64) error {
-	_, err := c.svc.RequestRender(ctx, &pb.RequestRenderRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// SetDebugFlags calls the SetDebugFlags RPC.
-func (c *GLSurfaceViewClient) SetDebugFlags(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetDebugFlags(ctx, &pb.SetDebugFlagsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetEGLConfigChooser1 calls the SetEGLConfigChooser1 RPC.
-func (c *GLSurfaceViewClient) SetEGLConfigChooser1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetEGLConfigChooser1(ctx, &pb.SetEGLConfigChooser1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetEGLConfigChooser1_1 calls the SetEGLConfigChooser1_1 RPC.
-func (c *GLSurfaceViewClient) SetEGLConfigChooser1_1(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetEGLConfigChooser1_1(ctx, &pb.SetEGLConfigChooser1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetEGLConfigChooser6_2 calls the SetEGLConfigChooser6_2 RPC.
-func (c *GLSurfaceViewClient) SetEGLConfigChooser6_2(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32) error {
-	_, err := c.svc.SetEGLConfigChooser6_2(ctx, &pb.SetEGLConfigChooser6_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	return err
-}
-
-// SetEGLContextClientVersion calls the SetEGLContextClientVersion RPC.
-func (c *GLSurfaceViewClient) SetEGLContextClientVersion(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetEGLContextClientVersion(ctx, &pb.SetEGLContextClientVersionRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetEGLContextFactory calls the SetEGLContextFactory RPC.
-func (c *GLSurfaceViewClient) SetEGLContextFactory(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetEGLContextFactory(ctx, &pb.SetEGLContextFactoryRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetEGLWindowSurfaceFactory calls the SetEGLWindowSurfaceFactory RPC.
-func (c *GLSurfaceViewClient) SetEGLWindowSurfaceFactory(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetEGLWindowSurfaceFactory(ctx, &pb.SetEGLWindowSurfaceFactoryRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetGLWrapper calls the SetGLWrapper RPC.
-func (c *GLSurfaceViewClient) SetGLWrapper(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetGLWrapper(ctx, &pb.SetGLWrapperRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetPreserveEGLContextOnPause calls the SetPreserveEGLContextOnPause RPC.
-func (c *GLSurfaceViewClient) SetPreserveEGLContextOnPause(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetPreserveEGLContextOnPause(ctx, &pb.SetPreserveEGLContextOnPauseRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetRenderMode calls the SetRenderMode RPC.
-func (c *GLSurfaceViewClient) SetRenderMode(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetRenderMode(ctx, &pb.SetRenderModeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetRenderer calls the SetRenderer RPC.
-func (c *GLSurfaceViewClient) SetRenderer(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetRenderer(ctx, &pb.SetRendererRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SurfaceChanged calls the SurfaceChanged RPC.
-func (c *GLSurfaceViewClient) SurfaceChanged(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.SurfaceChanged(ctx, &pb.SurfaceChangedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// SurfaceCreated calls the SurfaceCreated RPC.
-func (c *GLSurfaceViewClient) SurfaceCreated(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SurfaceCreated(ctx, &pb.SurfaceCreatedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SurfaceDestroyed calls the SurfaceDestroyed RPC.
-func (c *GLSurfaceViewClient) SurfaceDestroyed(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SurfaceDestroyed(ctx, &pb.SurfaceDestroyedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SurfaceRedrawNeeded calls the SurfaceRedrawNeeded RPC.
-func (c *GLSurfaceViewClient) SurfaceRedrawNeeded(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SurfaceRedrawNeeded(ctx, &pb.SurfaceRedrawNeededRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SurfaceRedrawNeededAsync calls the SurfaceRedrawNeededAsync RPC.
-func (c *GLSurfaceViewClient) SurfaceRedrawNeededAsync(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.SurfaceRedrawNeededAsync(ctx, &pb.SurfaceRedrawNeededAsyncRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GLSurfaceViewEGLConfigChooserClient wraps the gRPC GLSurfaceViewEGLConfigChooserService client.
-type GLSurfaceViewEGLConfigChooserClient struct {
-	svc pb.GLSurfaceViewEGLConfigChooserServiceClient
-}
-
-// NewGLSurfaceViewEGLConfigChooserClient creates a new GLSurfaceViewEGLConfigChooser client.
-func NewGLSurfaceViewEGLConfigChooserClient(cc grpc.ClientConnInterface) *GLSurfaceViewEGLConfigChooserClient {
-	return &GLSurfaceViewEGLConfigChooserClient{
-		svc: pb.NewGLSurfaceViewEGLConfigChooserServiceClient(cc),
-	}
-}
-
-// ChooseConfig calls the ChooseConfig RPC.
-func (c *GLSurfaceViewEGLConfigChooserClient) ChooseConfig(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.ChooseConfig(ctx, &pb.ChooseConfigRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GLSurfaceViewEGLContextFactoryClient wraps the gRPC GLSurfaceViewEGLContextFactoryService client.
-type GLSurfaceViewEGLContextFactoryClient struct {
-	svc pb.GLSurfaceViewEGLContextFactoryServiceClient
-}
-
-// NewGLSurfaceViewEGLContextFactoryClient creates a new GLSurfaceViewEGLContextFactory client.
-func NewGLSurfaceViewEGLContextFactoryClient(cc grpc.ClientConnInterface) *GLSurfaceViewEGLContextFactoryClient {
-	return &GLSurfaceViewEGLContextFactoryClient{
-		svc: pb.NewGLSurfaceViewEGLContextFactoryServiceClient(cc),
-	}
-}
-
-// CreateContext calls the CreateContext RPC.
-func (c *GLSurfaceViewEGLContextFactoryClient) CreateContext(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.CreateContext(ctx, &pb.CreateContextRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DestroyContext calls the DestroyContext RPC.
-func (c *GLSurfaceViewEGLContextFactoryClient) DestroyContext(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.DestroyContext(ctx, &pb.DestroyContextRequest{
+// GlBlendEquationSeparateiEXT calls the GlBlendEquationSeparateiEXT RPC.
+func (c *GLES31ExtClient) GlBlendEquationSeparateiEXT(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.GlBlendEquationSeparateiEXT(ctx, &pb.GlBlendEquationSeparateiEXTRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
@@ -7802,35 +11458,251 @@ func (c *GLSurfaceViewEGLContextFactoryClient) DestroyContext(ctx context.Contex
 	return err
 }
 
-// GLSurfaceViewEGLWindowSurfaceFactoryClient wraps the gRPC GLSurfaceViewEGLWindowSurfaceFactoryService client.
-type GLSurfaceViewEGLWindowSurfaceFactoryClient struct {
-	svc pb.GLSurfaceViewEGLWindowSurfaceFactoryServiceClient
+// GlBlendEquationiEXT calls the GlBlendEquationiEXT RPC.
+func (c *GLES31ExtClient) GlBlendEquationiEXT(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.GlBlendEquationiEXT(ctx, &pb.GlBlendEquationiEXTRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
 }
 
-// NewGLSurfaceViewEGLWindowSurfaceFactoryClient creates a new GLSurfaceViewEGLWindowSurfaceFactory client.
-func NewGLSurfaceViewEGLWindowSurfaceFactoryClient(cc grpc.ClientConnInterface) *GLSurfaceViewEGLWindowSurfaceFactoryClient {
-	return &GLSurfaceViewEGLWindowSurfaceFactoryClient{
-		svc: pb.NewGLSurfaceViewEGLWindowSurfaceFactoryServiceClient(cc),
-	}
+// GlBlendFuncSeparateiEXT calls the GlBlendFuncSeparateiEXT RPC.
+func (c *GLES31ExtClient) GlBlendFuncSeparateiEXT(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
+	_, err := c.svc.GlBlendFuncSeparateiEXT(ctx, &pb.GlBlendFuncSeparateiEXTRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
 }
 
-// CreateWindowSurface calls the CreateWindowSurface RPC.
-func (c *GLSurfaceViewEGLWindowSurfaceFactoryClient) CreateWindowSurface(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (int64, error) {
-	resp, err := c.svc.CreateWindowSurface(ctx, &pb.CreateWindowSurfaceRequest{
+// GlBlendFunciEXT calls the GlBlendFunciEXT RPC.
+func (c *GLES31ExtClient) GlBlendFunciEXT(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.GlBlendFunciEXT(ctx, &pb.GlBlendFunciEXTRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GlColorMaskiEXT calls the GlColorMaskiEXT RPC.
+func (c *GLES31ExtClient) GlColorMaskiEXT(ctx context.Context, arg0 int32, arg1 bool, arg2 bool, arg3 bool, arg4 bool) error {
+	_, err := c.svc.GlColorMaskiEXT(ctx, &pb.GlColorMaskiEXTRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlCopyImageSubDataEXT calls the GlCopyImageSubDataEXT RPC.
+func (c *GLES31ExtClient) GlCopyImageSubDataEXT(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int32, arg7 int32, arg8 int32, arg9 int32, arg10 int32, arg11 int32, arg12 int32, arg13 int32, arg14 int32) error {
+	_, err := c.svc.GlCopyImageSubDataEXT(ctx, &pb.GlCopyImageSubDataEXTRequest{
+		Arg0:  arg0,
+		Arg1:  arg1,
+		Arg2:  arg2,
+		Arg3:  arg3,
+		Arg4:  arg4,
+		Arg5:  arg5,
+		Arg6:  arg6,
+		Arg7:  arg7,
+		Arg8:  arg8,
+		Arg9:  arg9,
+		Arg10: arg10,
+		Arg11: arg11,
+		Arg12: arg12,
+		Arg13: arg13,
+		Arg14: arg14,
+	})
+	return err
+}
+
+// GlDebugMessageCallbackKHR calls the GlDebugMessageCallbackKHR RPC.
+func (c *GLES31ExtClient) GlDebugMessageCallbackKHR(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.GlDebugMessageCallbackKHR(ctx, &pb.GlDebugMessageCallbackKHRRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GlDebugMessageControlKHR7 calls the GlDebugMessageControlKHR7 RPC.
+func (c *GLES31ExtClient) GlDebugMessageControlKHR7(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64, arg5 int32, arg6 bool) error {
+	_, err := c.svc.GlDebugMessageControlKHR7(ctx, &pb.GlDebugMessageControlKHR7Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+		Arg6: arg6,
+	})
+	return err
+}
+
+// GlDebugMessageControlKHR6_1 calls the GlDebugMessageControlKHR6_1 RPC.
+func (c *GLES31ExtClient) GlDebugMessageControlKHR6_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64, arg5 bool) error {
+	_, err := c.svc.GlDebugMessageControlKHR6_1(ctx, &pb.GlDebugMessageControlKHR6_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	return err
+}
+
+// GlDebugMessageInsertKHR calls the GlDebugMessageInsertKHR RPC.
+func (c *GLES31ExtClient) GlDebugMessageInsertKHR(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 string) error {
+	_, err := c.svc.GlDebugMessageInsertKHR(ctx, &pb.GlDebugMessageInsertKHRRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlDisableiEXT calls the GlDisableiEXT RPC.
+func (c *GLES31ExtClient) GlDisableiEXT(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.GlDisableiEXT(ctx, &pb.GlDisableiEXTRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GlEnableiEXT calls the GlEnableiEXT RPC.
+func (c *GLES31ExtClient) GlEnableiEXT(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.GlEnableiEXT(ctx, &pb.GlEnableiEXTRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GlFramebufferTextureEXT calls the GlFramebufferTextureEXT RPC.
+func (c *GLES31ExtClient) GlFramebufferTextureEXT(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
+	_, err := c.svc.GlFramebufferTextureEXT(ctx, &pb.GlFramebufferTextureEXTRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
 		Arg3: arg3,
 	})
+	return err
+}
+
+// GlGetDebugMessageCallbackKHR calls the GlGetDebugMessageCallbackKHR RPC.
+func (c *GLES31ExtClient) GlGetDebugMessageCallbackKHR(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GlGetDebugMessageCallbackKHR(ctx, &pb.GlGetDebugMessageCallbackKHRRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// DestroySurface calls the DestroySurface RPC.
-func (c *GLSurfaceViewEGLWindowSurfaceFactoryClient) DestroySurface(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.DestroySurface(ctx, &pb.DestroySurfaceRequest{
+// GlGetDebugMessageLogKHR14 calls the GlGetDebugMessageLogKHR14 RPC.
+func (c *GLES31ExtClient) GlGetDebugMessageLogKHR14(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32, arg4 int64, arg5 int32, arg6 int64, arg7 int32, arg8 int64, arg9 int32, arg10 int64, arg11 int32, arg12 int64, arg13 int32) (int32, error) {
+	resp, err := c.svc.GlGetDebugMessageLogKHR14(ctx, &pb.GlGetDebugMessageLogKHR14Request{
+		Arg0:  arg0,
+		Arg1:  arg1,
+		Arg2:  arg2,
+		Arg3:  arg3,
+		Arg4:  arg4,
+		Arg5:  arg5,
+		Arg6:  arg6,
+		Arg7:  arg7,
+		Arg8:  arg8,
+		Arg9:  arg9,
+		Arg10: arg10,
+		Arg11: arg11,
+		Arg12: arg12,
+		Arg13: arg13,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GlGetDebugMessageLogKHR9_1 calls the GlGetDebugMessageLogKHR9_1 RPC.
+func (c *GLES31ExtClient) GlGetDebugMessageLogKHR9_1(ctx context.Context, arg0 int32, arg1 int64, arg2 int32, arg3 int64, arg4 int32, arg5 int64, arg6 int32, arg7 int64, arg8 int32) (int64, error) {
+	resp, err := c.svc.GlGetDebugMessageLogKHR9_1(ctx, &pb.GlGetDebugMessageLogKHR9_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+		Arg6: arg6,
+		Arg7: arg7,
+		Arg8: arg8,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GlGetDebugMessageLogKHR5_2 calls the GlGetDebugMessageLogKHR5_2 RPC.
+func (c *GLES31ExtClient) GlGetDebugMessageLogKHR5_2(ctx context.Context, arg0 int32, arg1 int64, arg2 int64, arg3 int64, arg4 int64) (int64, error) {
+	resp, err := c.svc.GlGetDebugMessageLogKHR5_2(ctx, &pb.GlGetDebugMessageLogKHR5_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GlGetObjectLabelKHR calls the GlGetObjectLabelKHR RPC.
+func (c *GLES31ExtClient) GlGetObjectLabelKHR(ctx context.Context, arg0 int32, arg1 int32) (string, error) {
+	resp, err := c.svc.GlGetObjectLabelKHR(ctx, &pb.GlGetObjectLabelKHRRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GlGetObjectPtrLabelKHR calls the GlGetObjectPtrLabelKHR RPC.
+func (c *GLES31ExtClient) GlGetObjectPtrLabelKHR(ctx context.Context, arg0 int64) (string, error) {
+	resp, err := c.svc.GlGetObjectPtrLabelKHR(ctx, &pb.GlGetObjectPtrLabelKHRRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GlGetSamplerParameterIivEXT4 calls the GlGetSamplerParameterIivEXT4 RPC.
+func (c *GLES31ExtClient) GlGetSamplerParameterIivEXT4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlGetSamplerParameterIivEXT4(ctx, &pb.GlGetSamplerParameterIivEXT4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlGetSamplerParameterIivEXT3_1 calls the GlGetSamplerParameterIivEXT3_1 RPC.
+func (c *GLES31ExtClient) GlGetSamplerParameterIivEXT3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlGetSamplerParameterIivEXT3_1(ctx, &pb.GlGetSamplerParameterIivEXT3_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
@@ -7838,52 +11710,20 @@ func (c *GLSurfaceViewEGLWindowSurfaceFactoryClient) DestroySurface(ctx context.
 	return err
 }
 
-// GLSurfaceViewGLWrapperClient wraps the gRPC GLSurfaceViewGLWrapperService client.
-type GLSurfaceViewGLWrapperClient struct {
-	svc pb.GLSurfaceViewGLWrapperServiceClient
-}
-
-// NewGLSurfaceViewGLWrapperClient creates a new GLSurfaceViewGLWrapper client.
-func NewGLSurfaceViewGLWrapperClient(cc grpc.ClientConnInterface) *GLSurfaceViewGLWrapperClient {
-	return &GLSurfaceViewGLWrapperClient{
-		svc: pb.NewGLSurfaceViewGLWrapperServiceClient(cc),
-	}
-}
-
-// Wrap calls the Wrap RPC.
-func (c *GLSurfaceViewGLWrapperClient) Wrap(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.Wrap(ctx, &pb.WrapRequest{
+// GlGetSamplerParameterIuivEXT4 calls the GlGetSamplerParameterIuivEXT4 RPC.
+func (c *GLES31ExtClient) GlGetSamplerParameterIuivEXT4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlGetSamplerParameterIuivEXT4(ctx, &pb.GlGetSamplerParameterIuivEXT4Request{
 		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GLSurfaceViewRendererClient wraps the gRPC GLSurfaceViewRendererService client.
-type GLSurfaceViewRendererClient struct {
-	svc pb.GLSurfaceViewRendererServiceClient
-}
-
-// NewGLSurfaceViewRendererClient creates a new GLSurfaceViewRenderer client.
-func NewGLSurfaceViewRendererClient(cc grpc.ClientConnInterface) *GLSurfaceViewRendererClient {
-	return &GLSurfaceViewRendererClient{
-		svc: pb.NewGLSurfaceViewRendererServiceClient(cc),
-	}
-}
-
-// OnDrawFrame calls the OnDrawFrame RPC.
-func (c *GLSurfaceViewRendererClient) OnDrawFrame(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnDrawFrame(ctx, &pb.OnDrawFrameRequest{
-		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
 	})
 	return err
 }
 
-// OnSurfaceChanged calls the OnSurfaceChanged RPC.
-func (c *GLSurfaceViewRendererClient) OnSurfaceChanged(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) error {
-	_, err := c.svc.OnSurfaceChanged(ctx, &pb.OnSurfaceChangedRequest{
+// GlGetSamplerParameterIuivEXT3_1 calls the GlGetSamplerParameterIuivEXT3_1 RPC.
+func (c *GLES31ExtClient) GlGetSamplerParameterIuivEXT3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlGetSamplerParameterIuivEXT3_1(ctx, &pb.GlGetSamplerParameterIuivEXT3_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
@@ -7891,421 +11731,292 @@ func (c *GLSurfaceViewRendererClient) OnSurfaceChanged(ctx context.Context, arg0
 	return err
 }
 
-// OnSurfaceCreated calls the OnSurfaceCreated RPC.
-func (c *GLSurfaceViewRendererClient) OnSurfaceCreated(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.OnSurfaceCreated(ctx, &pb.OnSurfaceCreatedRequest{
+// GlGetTexParameterIivEXT4 calls the GlGetTexParameterIivEXT4 RPC.
+func (c *GLES31ExtClient) GlGetTexParameterIivEXT4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlGetTexParameterIivEXT4(ctx, &pb.GlGetTexParameterIivEXT4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlGetTexParameterIivEXT3_1 calls the GlGetTexParameterIivEXT3_1 RPC.
+func (c *GLES31ExtClient) GlGetTexParameterIivEXT3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlGetTexParameterIivEXT3_1(ctx, &pb.GlGetTexParameterIivEXT3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GlGetTexParameterIuivEXT4 calls the GlGetTexParameterIuivEXT4 RPC.
+func (c *GLES31ExtClient) GlGetTexParameterIuivEXT4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlGetTexParameterIuivEXT4(ctx, &pb.GlGetTexParameterIuivEXT4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlGetTexParameterIuivEXT3_1 calls the GlGetTexParameterIuivEXT3_1 RPC.
+func (c *GLES31ExtClient) GlGetTexParameterIuivEXT3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlGetTexParameterIuivEXT3_1(ctx, &pb.GlGetTexParameterIuivEXT3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GlIsEnablediEXT calls the GlIsEnablediEXT RPC.
+func (c *GLES31ExtClient) GlIsEnablediEXT(ctx context.Context, arg0 int32, arg1 int32) (bool, error) {
+	resp, err := c.svc.GlIsEnablediEXT(ctx, &pb.GlIsEnablediEXTRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GlMinSampleShadingOES calls the GlMinSampleShadingOES RPC.
+func (c *GLES31ExtClient) GlMinSampleShadingOES(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.GlMinSampleShadingOES(ctx, &pb.GlMinSampleShadingOESRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GlObjectLabelKHR calls the GlObjectLabelKHR RPC.
+func (c *GLES31ExtClient) GlObjectLabelKHR(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 string) error {
+	_, err := c.svc.GlObjectLabelKHR(ctx, &pb.GlObjectLabelKHRRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlObjectPtrLabelKHR calls the GlObjectPtrLabelKHR RPC.
+func (c *GLES31ExtClient) GlObjectPtrLabelKHR(ctx context.Context, arg0 int64, arg1 string) error {
+	_, err := c.svc.GlObjectPtrLabelKHR(ctx, &pb.GlObjectPtrLabelKHRRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
 	return err
 }
 
-// MatrixClient wraps the gRPC MatrixService client.
-type MatrixClient struct {
-	svc pb.MatrixServiceClient
-}
-
-// NewMatrixClient creates a new Matrix client.
-func NewMatrixClient(cc grpc.ClientConnInterface) *MatrixClient {
-	return &MatrixClient{
-		svc: pb.NewMatrixServiceClient(cc),
-	}
-}
-
-// FrustumM calls the FrustumM RPC.
-func (c *MatrixClient) FrustumM(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 float32, arg3 float32, arg4 float32, arg5 float32, arg6 float32, arg7 float32) error {
-	_, err := c.svc.FrustumM(ctx, &pb.FrustumMRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-		Arg6:   arg6,
-		Arg7:   arg7,
+// GlPatchParameteriEXT calls the GlPatchParameteriEXT RPC.
+func (c *GLES31ExtClient) GlPatchParameteriEXT(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.GlPatchParameteriEXT(ctx, &pb.GlPatchParameteriEXTRequest{
+		Arg0: arg0,
+		Arg1: arg1,
 	})
 	return err
 }
 
-// InvertM calls the InvertM RPC.
-func (c *MatrixClient) InvertM(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64, arg3 int32) (bool, error) {
-	resp, err := c.svc.InvertM(ctx, &pb.InvertMRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
+// GlPopDebugGroupKHR calls the GlPopDebugGroupKHR RPC.
+func (c *GLES31ExtClient) GlPopDebugGroupKHR(ctx context.Context) error {
+	_, err := c.svc.GlPopDebugGroupKHR(ctx, &pb.GlPopDebugGroupKHRRequest{})
+	return err
+}
+
+// GlPrimitiveBoundingBoxEXT calls the GlPrimitiveBoundingBoxEXT RPC.
+func (c *GLES31ExtClient) GlPrimitiveBoundingBoxEXT(ctx context.Context, arg0 float32, arg1 float32, arg2 float32, arg3 float32, arg4 float32, arg5 float32, arg6 float32, arg7 float32) error {
+	_, err := c.svc.GlPrimitiveBoundingBoxEXT(ctx, &pb.GlPrimitiveBoundingBoxEXTRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+		Arg6: arg6,
+		Arg7: arg7,
+	})
+	return err
+}
+
+// GlPushDebugGroupKHR calls the GlPushDebugGroupKHR RPC.
+func (c *GLES31ExtClient) GlPushDebugGroupKHR(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 string) error {
+	_, err := c.svc.GlPushDebugGroupKHR(ctx, &pb.GlPushDebugGroupKHRRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlSamplerParameterIivEXT4 calls the GlSamplerParameterIivEXT4 RPC.
+func (c *GLES31ExtClient) GlSamplerParameterIivEXT4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlSamplerParameterIivEXT4(ctx, &pb.GlSamplerParameterIivEXT4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlSamplerParameterIivEXT3_1 calls the GlSamplerParameterIivEXT3_1 RPC.
+func (c *GLES31ExtClient) GlSamplerParameterIivEXT3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlSamplerParameterIivEXT3_1(ctx, &pb.GlSamplerParameterIivEXT3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GlSamplerParameterIuivEXT4 calls the GlSamplerParameterIuivEXT4 RPC.
+func (c *GLES31ExtClient) GlSamplerParameterIuivEXT4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlSamplerParameterIuivEXT4(ctx, &pb.GlSamplerParameterIuivEXT4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlSamplerParameterIuivEXT3_1 calls the GlSamplerParameterIuivEXT3_1 RPC.
+func (c *GLES31ExtClient) GlSamplerParameterIuivEXT3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlSamplerParameterIuivEXT3_1(ctx, &pb.GlSamplerParameterIuivEXT3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GlTexBufferEXT calls the GlTexBufferEXT RPC.
+func (c *GLES31ExtClient) GlTexBufferEXT(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
+	_, err := c.svc.GlTexBufferEXT(ctx, &pb.GlTexBufferEXTRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GlTexBufferRangeEXT calls the GlTexBufferRangeEXT RPC.
+func (c *GLES31ExtClient) GlTexBufferRangeEXT(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
+	_, err := c.svc.GlTexBufferRangeEXT(ctx, &pb.GlTexBufferRangeEXTRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// GlTexParameterIivEXT4 calls the GlTexParameterIivEXT4 RPC.
+func (c *GLES31ExtClient) GlTexParameterIivEXT4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlTexParameterIivEXT4(ctx, &pb.GlTexParameterIivEXT4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlTexParameterIivEXT3_1 calls the GlTexParameterIivEXT3_1 RPC.
+func (c *GLES31ExtClient) GlTexParameterIivEXT3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlTexParameterIivEXT3_1(ctx, &pb.GlTexParameterIivEXT3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GlTexParameterIuivEXT4 calls the GlTexParameterIuivEXT4 RPC.
+func (c *GLES31ExtClient) GlTexParameterIuivEXT4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.GlTexParameterIuivEXT4(ctx, &pb.GlTexParameterIuivEXT4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// GlTexParameterIuivEXT3_1 calls the GlTexParameterIuivEXT3_1 RPC.
+func (c *GLES31ExtClient) GlTexParameterIuivEXT3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.GlTexParameterIuivEXT3_1(ctx, &pb.GlTexParameterIuivEXT3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GlTexStorage3DMultisampleOES calls the GlTexStorage3DMultisampleOES RPC.
+func (c *GLES31ExtClient) GlTexStorage3DMultisampleOES(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 bool) error {
+	_, err := c.svc.GlTexStorage3DMultisampleOES(ctx, &pb.GlTexStorage3DMultisampleOESRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+		Arg6: arg6,
+	})
+	return err
+}
+
+// GLES31ExtDebugProcKHRClient wraps the gRPC GLES31ExtDebugProcKHRService client.
+type GLES31ExtDebugProcKHRClient struct {
+	svc pb.GLES31ExtDebugProcKHRServiceClient
+}
+
+// NewGLES31ExtDebugProcKHRClient creates a new GLES31ExtDebugProcKHR client.
+func NewGLES31ExtDebugProcKHRClient(cc grpc.ClientConnInterface) *GLES31ExtDebugProcKHRClient {
+	return &GLES31ExtDebugProcKHRClient{
+		svc: pb.NewGLES31ExtDebugProcKHRServiceClient(cc),
+	}
+}
+
+// OnMessage calls the OnMessage RPC.
+func (c *GLES31ExtDebugProcKHRClient) OnMessage(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 string) error {
+	_, err := c.svc.OnMessage(ctx, &pb.OnMessageRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// EGLContextClient wraps the gRPC EGLContextService client.
+type EGLContextClient struct {
+	svc pb.EGLContextServiceClient
+}
+
+// NewEGLContextClient creates a new EGLContext client.
+func NewEGLContextClient(cc grpc.ClientConnInterface) *EGLContextClient {
+	return &EGLContextClient{
+		svc: pb.NewEGLContextServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *EGLContextClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
 	})
 	if err != nil {
 		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Length calls the Length RPC.
-func (c *MatrixClient) Length(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32) (float32, error) {
-	resp, err := c.svc.Length(ctx, &pb.LengthRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MultiplyMM calls the MultiplyMM RPC.
-func (c *MatrixClient) MultiplyMM(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64, arg3 int32, arg4 int64, arg5 int32) error {
-	_, err := c.svc.MultiplyMM(ctx, &pb.MultiplyMMRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	return err
-}
-
-// MultiplyMV calls the MultiplyMV RPC.
-func (c *MatrixClient) MultiplyMV(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64, arg3 int32, arg4 int64, arg5 int32) error {
-	_, err := c.svc.MultiplyMV(ctx, &pb.MultiplyMVRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	return err
-}
-
-// OrthoM calls the OrthoM RPC.
-func (c *MatrixClient) OrthoM(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 float32, arg3 float32, arg4 float32, arg5 float32, arg6 float32, arg7 float32) error {
-	_, err := c.svc.OrthoM(ctx, &pb.OrthoMRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-		Arg6:   arg6,
-		Arg7:   arg7,
-	})
-	return err
-}
-
-// PerspectiveM calls the PerspectiveM RPC.
-func (c *MatrixClient) PerspectiveM(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 float32, arg3 float32, arg4 float32, arg5 float32) error {
-	_, err := c.svc.PerspectiveM(ctx, &pb.PerspectiveMRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	return err
-}
-
-// RotateM6 calls the RotateM6 RPC.
-func (c *MatrixClient) RotateM6(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 float32, arg3 float32, arg4 float32, arg5 float32) error {
-	_, err := c.svc.RotateM6(ctx, &pb.RotateM6Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	return err
-}
-
-// RotateM8_1 calls the RotateM8_1 RPC.
-func (c *MatrixClient) RotateM8_1(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64, arg3 int32, arg4 float32, arg5 float32, arg6 float32, arg7 float32) error {
-	_, err := c.svc.RotateM8_1(ctx, &pb.RotateM8_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-		Arg6:   arg6,
-		Arg7:   arg7,
-	})
-	return err
-}
-
-// ScaleM5 calls the ScaleM5 RPC.
-func (c *MatrixClient) ScaleM5(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 float32, arg3 float32, arg4 float32) error {
-	_, err := c.svc.ScaleM5(ctx, &pb.ScaleM5Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-	})
-	return err
-}
-
-// ScaleM7_1 calls the ScaleM7_1 RPC.
-func (c *MatrixClient) ScaleM7_1(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64, arg3 int32, arg4 float32, arg5 float32, arg6 float32) error {
-	_, err := c.svc.ScaleM7_1(ctx, &pb.ScaleM7_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-		Arg6:   arg6,
-	})
-	return err
-}
-
-// SetIdentityM calls the SetIdentityM RPC.
-func (c *MatrixClient) SetIdentityM(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.SetIdentityM(ctx, &pb.SetIdentityMRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SetLookAtM calls the SetLookAtM RPC.
-func (c *MatrixClient) SetLookAtM(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 float32, arg3 float32, arg4 float32, arg5 float32, arg6 float32, arg7 float32, arg8 float32, arg9 float32, arg10 float32) error {
-	_, err := c.svc.SetLookAtM(ctx, &pb.SetLookAtMRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-		Arg6:   arg6,
-		Arg7:   arg7,
-		Arg8:   arg8,
-		Arg9:   arg9,
-		Arg10:  arg10,
-	})
-	return err
-}
-
-// SetRotateEulerM calls the SetRotateEulerM RPC.
-func (c *MatrixClient) SetRotateEulerM(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 float32, arg3 float32, arg4 float32) error {
-	_, err := c.svc.SetRotateEulerM(ctx, &pb.SetRotateEulerMRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-	})
-	return err
-}
-
-// SetRotateEulerM2 calls the SetRotateEulerM2 RPC.
-func (c *MatrixClient) SetRotateEulerM2(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 float32, arg3 float32, arg4 float32) error {
-	_, err := c.svc.SetRotateEulerM2(ctx, &pb.SetRotateEulerM2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-	})
-	return err
-}
-
-// SetRotateM calls the SetRotateM RPC.
-func (c *MatrixClient) SetRotateM(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 float32, arg3 float32, arg4 float32, arg5 float32) error {
-	_, err := c.svc.SetRotateM(ctx, &pb.SetRotateMRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	return err
-}
-
-// TranslateM5 calls the TranslateM5 RPC.
-func (c *MatrixClient) TranslateM5(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 float32, arg3 float32, arg4 float32) error {
-	_, err := c.svc.TranslateM5(ctx, &pb.TranslateM5Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-	})
-	return err
-}
-
-// TranslateM7_1 calls the TranslateM7_1 RPC.
-func (c *MatrixClient) TranslateM7_1(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64, arg3 int32, arg4 float32, arg5 float32, arg6 float32) error {
-	_, err := c.svc.TranslateM7_1(ctx, &pb.TranslateM7_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-		Arg6:   arg6,
-	})
-	return err
-}
-
-// TransposeM calls the TransposeM RPC.
-func (c *MatrixClient) TransposeM(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.TransposeM(ctx, &pb.TransposeMRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// ETC1UtilClient wraps the gRPC ETC1UtilService client.
-type ETC1UtilClient struct {
-	svc pb.ETC1UtilServiceClient
-}
-
-// NewETC1UtilClient creates a new ETC1Util client.
-func NewETC1UtilClient(cc grpc.ClientConnInterface) *ETC1UtilClient {
-	return &ETC1UtilClient{
-		svc: pb.NewETC1UtilServiceClient(cc),
-	}
-}
-
-// CompressTexture calls the CompressTexture RPC.
-func (c *ETC1UtilClient) CompressTexture(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int32) (int64, error) {
-	resp, err := c.svc.CompressTexture(ctx, &pb.CompressTextureRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateTexture calls the CreateTexture RPC.
-func (c *ETC1UtilClient) CreateTexture(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.CreateTexture(ctx, &pb.CreateTextureRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsETC1Supported calls the IsETC1Supported RPC.
-func (c *ETC1UtilClient) IsETC1Supported(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.IsETC1Supported(ctx, &pb.IsETC1SupportedRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LoadTexture6 calls the LoadTexture6 RPC.
-func (c *ETC1UtilClient) LoadTexture6(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int64) error {
-	_, err := c.svc.LoadTexture6(ctx, &pb.LoadTexture6Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	return err
-}
-
-// LoadTexture6_1 calls the LoadTexture6_1 RPC.
-func (c *ETC1UtilClient) LoadTexture6_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int64) error {
-	_, err := c.svc.LoadTexture6_1(ctx, &pb.LoadTexture6_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	return err
-}
-
-// WriteTexture calls the WriteTexture RPC.
-func (c *ETC1UtilClient) WriteTexture(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.WriteTexture(ctx, &pb.WriteTextureRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// ETC1UtilETC1TextureClient wraps the gRPC ETC1UtilETC1TextureService client.
-type ETC1UtilETC1TextureClient struct {
-	svc pb.ETC1UtilETC1TextureServiceClient
-}
-
-// NewETC1UtilETC1TextureClient creates a new ETC1UtilETC1Texture client.
-func NewETC1UtilETC1TextureClient(cc grpc.ClientConnInterface) *ETC1UtilETC1TextureClient {
-	return &ETC1UtilETC1TextureClient{
-		svc: pb.NewETC1UtilETC1TextureServiceClient(cc),
-	}
-}
-
-// GetData calls the GetData RPC.
-func (c *ETC1UtilETC1TextureClient) GetData(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetData(ctx, &pb.GetDataRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetHeight calls the GetHeight RPC.
-func (c *ETC1UtilETC1TextureClient) GetHeight(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetHeight(ctx, &pb.GetHeightRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWidth calls the GetWidth RPC.
-func (c *ETC1UtilETC1TextureClient) GetWidth(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetWidth(ctx, &pb.GetWidthRequest{})
-	if err != nil {
-		return 0, err
 	}
 	return resp.GetResult(), nil
 }
@@ -8455,3717 +12166,6 @@ func (c *EGL15Client) EglWaitSync(ctx context.Context, arg0 int64, arg1 int64, a
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EGLImageClient wraps the gRPC EGLImageService client.
-type EGLImageClient struct {
-	svc pb.EGLImageServiceClient
-}
-
-// NewEGLImageClient creates a new EGLImage client.
-func NewEGLImageClient(cc grpc.ClientConnInterface) *EGLImageClient {
-	return &EGLImageClient{
-		svc: pb.NewEGLImageServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *EGLImageClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GLUtilsClient wraps the gRPC GLUtilsService client.
-type GLUtilsClient struct {
-	svc pb.GLUtilsServiceClient
-}
-
-// NewGLUtilsClient creates a new GLUtils client.
-func NewGLUtilsClient(cc grpc.ClientConnInterface) *GLUtilsClient {
-	return &GLUtilsClient{
-		svc: pb.NewGLUtilsServiceClient(cc),
-	}
-}
-
-// GetEGLErrorString calls the GetEGLErrorString RPC.
-func (c *GLUtilsClient) GetEGLErrorString(ctx context.Context, arg0 int32) (string, error) {
-	resp, err := c.svc.GetEGLErrorString(ctx, &pb.GetEGLErrorStringRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInternalFormat calls the GetInternalFormat RPC.
-func (c *GLUtilsClient) GetInternalFormat(ctx context.Context, arg0 int64) (int32, error) {
-	resp, err := c.svc.GetInternalFormat(ctx, &pb.GetInternalFormatRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetType calls the GetType RPC.
-func (c *GLUtilsClient) GetType(ctx context.Context, arg0 int64) (int32, error) {
-	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// TexImage2D4 calls the TexImage2D4 RPC.
-func (c *GLUtilsClient) TexImage2D4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.TexImage2D4(ctx, &pb.TexImage2D4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// TexImage2D5_1 calls the TexImage2D5_1 RPC.
-func (c *GLUtilsClient) TexImage2D5_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
-	_, err := c.svc.TexImage2D5_1(ctx, &pb.TexImage2D5_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// TexImage2D6_2 calls the TexImage2D6_2 RPC.
-func (c *GLUtilsClient) TexImage2D6_2(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32, arg5 int32) error {
-	_, err := c.svc.TexImage2D6_2(ctx, &pb.TexImage2D6_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-	})
-	return err
-}
-
-// TexSubImage2D5 calls the TexSubImage2D5 RPC.
-func (c *GLUtilsClient) TexSubImage2D5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64) error {
-	_, err := c.svc.TexSubImage2D5(ctx, &pb.TexSubImage2D5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// TexSubImage2D7_1 calls the TexSubImage2D7_1 RPC.
-func (c *GLUtilsClient) TexSubImage2D7_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64, arg5 int32, arg6 int32) error {
-	_, err := c.svc.TexSubImage2D7_1(ctx, &pb.TexSubImage2D7_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-		Arg6: arg6,
-	})
-	return err
-}
-
-// EGLExtClient wraps the gRPC EGLExtService client.
-type EGLExtClient struct {
-	svc pb.EGLExtServiceClient
-}
-
-// NewEGLExtClient creates a new EGLExt client.
-func NewEGLExtClient(cc grpc.ClientConnInterface) *EGLExtClient {
-	return &EGLExtClient{
-		svc: pb.NewEGLExtServiceClient(cc),
-	}
-}
-
-// EglDupNativeFenceFDANDROID calls the EglDupNativeFenceFDANDROID RPC.
-func (c *EGLExtClient) EglDupNativeFenceFDANDROID(ctx context.Context, handle int64, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.EglDupNativeFenceFDANDROID(ctx, &pb.EglDupNativeFenceFDANDROIDRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EglPresentationTimeANDROID calls the EglPresentationTimeANDROID RPC.
-func (c *EGLExtClient) EglPresentationTimeANDROID(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) (bool, error) {
-	resp, err := c.svc.EglPresentationTimeANDROID(ctx, &pb.EglPresentationTimeANDROIDRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EGLSurfaceClient wraps the gRPC EGLSurfaceService client.
-type EGLSurfaceClient struct {
-	svc pb.EGLSurfaceServiceClient
-}
-
-// NewEGLSurfaceClient creates a new EGLSurface client.
-func NewEGLSurfaceClient(cc grpc.ClientConnInterface) *EGLSurfaceClient {
-	return &EGLSurfaceClient{
-		svc: pb.NewEGLSurfaceServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *EGLSurfaceClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GLES32Client wraps the gRPC GLES32Service client.
-type GLES32Client struct {
-	svc pb.GLES32ServiceClient
-}
-
-// NewGLES32Client creates a new GLES32 client.
-func NewGLES32Client(cc grpc.ClientConnInterface) *GLES32Client {
-	return &GLES32Client{
-		svc: pb.NewGLES32ServiceClient(cc),
-	}
-}
-
-// GlBlendBarrier calls the GlBlendBarrier RPC.
-func (c *GLES32Client) GlBlendBarrier(ctx context.Context) error {
-	_, err := c.svc.GlBlendBarrier(ctx, &pb.GlBlendBarrierRequest{})
-	return err
-}
-
-// GlBlendEquationSeparatei calls the GlBlendEquationSeparatei RPC.
-func (c *GLES32Client) GlBlendEquationSeparatei(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.GlBlendEquationSeparatei(ctx, &pb.GlBlendEquationSeparateiRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GlBlendEquationi calls the GlBlendEquationi RPC.
-func (c *GLES32Client) GlBlendEquationi(ctx context.Context, arg0 int32, arg1 int32) error {
-	_, err := c.svc.GlBlendEquationi(ctx, &pb.GlBlendEquationiRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// GlBlendFuncSeparatei calls the GlBlendFuncSeparatei RPC.
-func (c *GLES32Client) GlBlendFuncSeparatei(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
-	_, err := c.svc.GlBlendFuncSeparatei(ctx, &pb.GlBlendFuncSeparateiRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// GlBlendFunci calls the GlBlendFunci RPC.
-func (c *GLES32Client) GlBlendFunci(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.GlBlendFunci(ctx, &pb.GlBlendFunciRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GlColorMaski calls the GlColorMaski RPC.
-func (c *GLES32Client) GlColorMaski(ctx context.Context, arg0 int32, arg1 bool, arg2 bool, arg3 bool, arg4 bool) error {
-	_, err := c.svc.GlColorMaski(ctx, &pb.GlColorMaskiRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// GlCopyImageSubData calls the GlCopyImageSubData RPC.
-func (c *GLES32Client) GlCopyImageSubData(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int32, arg7 int32, arg8 int32, arg9 int32, arg10 int32, arg11 int32, arg12 int32, arg13 int32, arg14 int32) error {
-	_, err := c.svc.GlCopyImageSubData(ctx, &pb.GlCopyImageSubDataRequest{
-		Arg0:  arg0,
-		Arg1:  arg1,
-		Arg2:  arg2,
-		Arg3:  arg3,
-		Arg4:  arg4,
-		Arg5:  arg5,
-		Arg6:  arg6,
-		Arg7:  arg7,
-		Arg8:  arg8,
-		Arg9:  arg9,
-		Arg10: arg10,
-		Arg11: arg11,
-		Arg12: arg12,
-		Arg13: arg13,
-		Arg14: arg14,
-	})
-	return err
-}
-
-// GlDebugMessageCallback calls the GlDebugMessageCallback RPC.
-func (c *GLES32Client) GlDebugMessageCallback(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.GlDebugMessageCallback(ctx, &pb.GlDebugMessageCallbackRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// GlDebugMessageControl7 calls the GlDebugMessageControl7 RPC.
-func (c *GLES32Client) GlDebugMessageControl7(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64, arg5 int32, arg6 bool) error {
-	_, err := c.svc.GlDebugMessageControl7(ctx, &pb.GlDebugMessageControl7Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-		Arg6: arg6,
-	})
-	return err
-}
-
-// GlDebugMessageControl6_1 calls the GlDebugMessageControl6_1 RPC.
-func (c *GLES32Client) GlDebugMessageControl6_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64, arg5 bool) error {
-	_, err := c.svc.GlDebugMessageControl6_1(ctx, &pb.GlDebugMessageControl6_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-	})
-	return err
-}
-
-// GlDebugMessageInsert calls the GlDebugMessageInsert RPC.
-func (c *GLES32Client) GlDebugMessageInsert(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 string) error {
-	_, err := c.svc.GlDebugMessageInsert(ctx, &pb.GlDebugMessageInsertRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-	})
-	return err
-}
-
-// GlDisablei calls the GlDisablei RPC.
-func (c *GLES32Client) GlDisablei(ctx context.Context, arg0 int32, arg1 int32) error {
-	_, err := c.svc.GlDisablei(ctx, &pb.GlDisableiRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// GlDrawElementsBaseVertex calls the GlDrawElementsBaseVertex RPC.
-func (c *GLES32Client) GlDrawElementsBaseVertex(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
-	_, err := c.svc.GlDrawElementsBaseVertex(ctx, &pb.GlDrawElementsBaseVertexRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// GlDrawElementsInstancedBaseVertex6 calls the GlDrawElementsInstancedBaseVertex6 RPC.
-func (c *GLES32Client) GlDrawElementsInstancedBaseVertex6(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32) error {
-	_, err := c.svc.GlDrawElementsInstancedBaseVertex6(ctx, &pb.GlDrawElementsInstancedBaseVertex6Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-	})
-	return err
-}
-
-// GlDrawElementsInstancedBaseVertex6_1 calls the GlDrawElementsInstancedBaseVertex6_1 RPC.
-func (c *GLES32Client) GlDrawElementsInstancedBaseVertex6_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32, arg5 int32) error {
-	_, err := c.svc.GlDrawElementsInstancedBaseVertex6_1(ctx, &pb.GlDrawElementsInstancedBaseVertex6_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-	})
-	return err
-}
-
-// GlDrawRangeElementsBaseVertex calls the GlDrawRangeElementsBaseVertex RPC.
-func (c *GLES32Client) GlDrawRangeElementsBaseVertex(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int64, arg6 int32) error {
-	_, err := c.svc.GlDrawRangeElementsBaseVertex(ctx, &pb.GlDrawRangeElementsBaseVertexRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-		Arg6: arg6,
-	})
-	return err
-}
-
-// GlEnablei calls the GlEnablei RPC.
-func (c *GLES32Client) GlEnablei(ctx context.Context, arg0 int32, arg1 int32) error {
-	_, err := c.svc.GlEnablei(ctx, &pb.GlEnableiRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// GlFramebufferTexture calls the GlFramebufferTexture RPC.
-func (c *GLES32Client) GlFramebufferTexture(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.GlFramebufferTexture(ctx, &pb.GlFramebufferTextureRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GlGetDebugMessageLog14 calls the GlGetDebugMessageLog14 RPC.
-func (c *GLES32Client) GlGetDebugMessageLog14(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32, arg4 int64, arg5 int32, arg6 int64, arg7 int32, arg8 int64, arg9 int32, arg10 int64, arg11 int32, arg12 int64, arg13 int32) (int32, error) {
-	resp, err := c.svc.GlGetDebugMessageLog14(ctx, &pb.GlGetDebugMessageLog14Request{
-		Arg0:  arg0,
-		Arg1:  arg1,
-		Arg2:  arg2,
-		Arg3:  arg3,
-		Arg4:  arg4,
-		Arg5:  arg5,
-		Arg6:  arg6,
-		Arg7:  arg7,
-		Arg8:  arg8,
-		Arg9:  arg9,
-		Arg10: arg10,
-		Arg11: arg11,
-		Arg12: arg12,
-		Arg13: arg13,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GlGetDebugMessageLog9_1 calls the GlGetDebugMessageLog9_1 RPC.
-func (c *GLES32Client) GlGetDebugMessageLog9_1(ctx context.Context, arg0 int32, arg1 int64, arg2 int32, arg3 int64, arg4 int32, arg5 int64, arg6 int32, arg7 int64, arg8 int32) (int64, error) {
-	resp, err := c.svc.GlGetDebugMessageLog9_1(ctx, &pb.GlGetDebugMessageLog9_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-		Arg6: arg6,
-		Arg7: arg7,
-		Arg8: arg8,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GlGetDebugMessageLog5_2 calls the GlGetDebugMessageLog5_2 RPC.
-func (c *GLES32Client) GlGetDebugMessageLog5_2(ctx context.Context, arg0 int32, arg1 int64, arg2 int64, arg3 int64, arg4 int64) (int64, error) {
-	resp, err := c.svc.GlGetDebugMessageLog5_2(ctx, &pb.GlGetDebugMessageLog5_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GlGetGraphicsResetStatus calls the GlGetGraphicsResetStatus RPC.
-func (c *GLES32Client) GlGetGraphicsResetStatus(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GlGetGraphicsResetStatus(ctx, &pb.GlGetGraphicsResetStatusRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GlGetObjectLabel calls the GlGetObjectLabel RPC.
-func (c *GLES32Client) GlGetObjectLabel(ctx context.Context, arg0 int32, arg1 int32) (string, error) {
-	resp, err := c.svc.GlGetObjectLabel(ctx, &pb.GlGetObjectLabelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GlGetObjectPtrLabel calls the GlGetObjectPtrLabel RPC.
-func (c *GLES32Client) GlGetObjectPtrLabel(ctx context.Context, arg0 int64) (string, error) {
-	resp, err := c.svc.GlGetObjectPtrLabel(ctx, &pb.GlGetObjectPtrLabelRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GlGetPointerv calls the GlGetPointerv RPC.
-func (c *GLES32Client) GlGetPointerv(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GlGetPointerv(ctx, &pb.GlGetPointervRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GlGetSamplerParameterIiv4 calls the GlGetSamplerParameterIiv4 RPC.
-func (c *GLES32Client) GlGetSamplerParameterIiv4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlGetSamplerParameterIiv4(ctx, &pb.GlGetSamplerParameterIiv4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GlGetSamplerParameterIiv3_1 calls the GlGetSamplerParameterIiv3_1 RPC.
-func (c *GLES32Client) GlGetSamplerParameterIiv3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlGetSamplerParameterIiv3_1(ctx, &pb.GlGetSamplerParameterIiv3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GlGetSamplerParameterIuiv4 calls the GlGetSamplerParameterIuiv4 RPC.
-func (c *GLES32Client) GlGetSamplerParameterIuiv4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlGetSamplerParameterIuiv4(ctx, &pb.GlGetSamplerParameterIuiv4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GlGetSamplerParameterIuiv3_1 calls the GlGetSamplerParameterIuiv3_1 RPC.
-func (c *GLES32Client) GlGetSamplerParameterIuiv3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlGetSamplerParameterIuiv3_1(ctx, &pb.GlGetSamplerParameterIuiv3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GlGetTexParameterIiv4 calls the GlGetTexParameterIiv4 RPC.
-func (c *GLES32Client) GlGetTexParameterIiv4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlGetTexParameterIiv4(ctx, &pb.GlGetTexParameterIiv4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GlGetTexParameterIiv3_1 calls the GlGetTexParameterIiv3_1 RPC.
-func (c *GLES32Client) GlGetTexParameterIiv3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlGetTexParameterIiv3_1(ctx, &pb.GlGetTexParameterIiv3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GlGetTexParameterIuiv4 calls the GlGetTexParameterIuiv4 RPC.
-func (c *GLES32Client) GlGetTexParameterIuiv4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlGetTexParameterIuiv4(ctx, &pb.GlGetTexParameterIuiv4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GlGetTexParameterIuiv3_1 calls the GlGetTexParameterIuiv3_1 RPC.
-func (c *GLES32Client) GlGetTexParameterIuiv3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlGetTexParameterIuiv3_1(ctx, &pb.GlGetTexParameterIuiv3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GlGetnUniformfv5 calls the GlGetnUniformfv5 RPC.
-func (c *GLES32Client) GlGetnUniformfv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
-	_, err := c.svc.GlGetnUniformfv5(ctx, &pb.GlGetnUniformfv5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// GlGetnUniformfv4_1 calls the GlGetnUniformfv4_1 RPC.
-func (c *GLES32Client) GlGetnUniformfv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
-	_, err := c.svc.GlGetnUniformfv4_1(ctx, &pb.GlGetnUniformfv4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GlGetnUniformiv5 calls the GlGetnUniformiv5 RPC.
-func (c *GLES32Client) GlGetnUniformiv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
-	_, err := c.svc.GlGetnUniformiv5(ctx, &pb.GlGetnUniformiv5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// GlGetnUniformiv4_1 calls the GlGetnUniformiv4_1 RPC.
-func (c *GLES32Client) GlGetnUniformiv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
-	_, err := c.svc.GlGetnUniformiv4_1(ctx, &pb.GlGetnUniformiv4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GlGetnUniformuiv5 calls the GlGetnUniformuiv5 RPC.
-func (c *GLES32Client) GlGetnUniformuiv5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
-	_, err := c.svc.GlGetnUniformuiv5(ctx, &pb.GlGetnUniformuiv5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// GlGetnUniformuiv4_1 calls the GlGetnUniformuiv4_1 RPC.
-func (c *GLES32Client) GlGetnUniformuiv4_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
-	_, err := c.svc.GlGetnUniformuiv4_1(ctx, &pb.GlGetnUniformuiv4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GlIsEnabledi calls the GlIsEnabledi RPC.
-func (c *GLES32Client) GlIsEnabledi(ctx context.Context, arg0 int32, arg1 int32) (bool, error) {
-	resp, err := c.svc.GlIsEnabledi(ctx, &pb.GlIsEnablediRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GlMinSampleShading calls the GlMinSampleShading RPC.
-func (c *GLES32Client) GlMinSampleShading(ctx context.Context, arg0 float32) error {
-	_, err := c.svc.GlMinSampleShading(ctx, &pb.GlMinSampleShadingRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// GlObjectLabel calls the GlObjectLabel RPC.
-func (c *GLES32Client) GlObjectLabel(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 string) error {
-	_, err := c.svc.GlObjectLabel(ctx, &pb.GlObjectLabelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GlObjectPtrLabel calls the GlObjectPtrLabel RPC.
-func (c *GLES32Client) GlObjectPtrLabel(ctx context.Context, arg0 int64, arg1 string) error {
-	_, err := c.svc.GlObjectPtrLabel(ctx, &pb.GlObjectPtrLabelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// GlPatchParameteri calls the GlPatchParameteri RPC.
-func (c *GLES32Client) GlPatchParameteri(ctx context.Context, arg0 int32, arg1 int32) error {
-	_, err := c.svc.GlPatchParameteri(ctx, &pb.GlPatchParameteriRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// GlPopDebugGroup calls the GlPopDebugGroup RPC.
-func (c *GLES32Client) GlPopDebugGroup(ctx context.Context) error {
-	_, err := c.svc.GlPopDebugGroup(ctx, &pb.GlPopDebugGroupRequest{})
-	return err
-}
-
-// GlPrimitiveBoundingBox calls the GlPrimitiveBoundingBox RPC.
-func (c *GLES32Client) GlPrimitiveBoundingBox(ctx context.Context, arg0 float32, arg1 float32, arg2 float32, arg3 float32, arg4 float32, arg5 float32, arg6 float32, arg7 float32) error {
-	_, err := c.svc.GlPrimitiveBoundingBox(ctx, &pb.GlPrimitiveBoundingBoxRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-		Arg6: arg6,
-		Arg7: arg7,
-	})
-	return err
-}
-
-// GlPushDebugGroup calls the GlPushDebugGroup RPC.
-func (c *GLES32Client) GlPushDebugGroup(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 string) error {
-	_, err := c.svc.GlPushDebugGroup(ctx, &pb.GlPushDebugGroupRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GlReadnPixels calls the GlReadnPixels RPC.
-func (c *GLES32Client) GlReadnPixels(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int32, arg7 int64) error {
-	_, err := c.svc.GlReadnPixels(ctx, &pb.GlReadnPixelsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-		Arg6: arg6,
-		Arg7: arg7,
-	})
-	return err
-}
-
-// GlSamplerParameterIiv4 calls the GlSamplerParameterIiv4 RPC.
-func (c *GLES32Client) GlSamplerParameterIiv4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlSamplerParameterIiv4(ctx, &pb.GlSamplerParameterIiv4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GlSamplerParameterIiv3_1 calls the GlSamplerParameterIiv3_1 RPC.
-func (c *GLES32Client) GlSamplerParameterIiv3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlSamplerParameterIiv3_1(ctx, &pb.GlSamplerParameterIiv3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GlSamplerParameterIuiv4 calls the GlSamplerParameterIuiv4 RPC.
-func (c *GLES32Client) GlSamplerParameterIuiv4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlSamplerParameterIuiv4(ctx, &pb.GlSamplerParameterIuiv4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GlSamplerParameterIuiv3_1 calls the GlSamplerParameterIuiv3_1 RPC.
-func (c *GLES32Client) GlSamplerParameterIuiv3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlSamplerParameterIuiv3_1(ctx, &pb.GlSamplerParameterIuiv3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GlTexBuffer calls the GlTexBuffer RPC.
-func (c *GLES32Client) GlTexBuffer(ctx context.Context, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.GlTexBuffer(ctx, &pb.GlTexBufferRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GlTexBufferRange calls the GlTexBufferRange RPC.
-func (c *GLES32Client) GlTexBufferRange(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
-	_, err := c.svc.GlTexBufferRange(ctx, &pb.GlTexBufferRangeRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// GlTexParameterIiv4 calls the GlTexParameterIiv4 RPC.
-func (c *GLES32Client) GlTexParameterIiv4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlTexParameterIiv4(ctx, &pb.GlTexParameterIiv4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GlTexParameterIiv3_1 calls the GlTexParameterIiv3_1 RPC.
-func (c *GLES32Client) GlTexParameterIiv3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlTexParameterIiv3_1(ctx, &pb.GlTexParameterIiv3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GlTexParameterIuiv4 calls the GlTexParameterIuiv4 RPC.
-func (c *GLES32Client) GlTexParameterIuiv4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlTexParameterIuiv4(ctx, &pb.GlTexParameterIuiv4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// GlTexParameterIuiv3_1 calls the GlTexParameterIuiv3_1 RPC.
-func (c *GLES32Client) GlTexParameterIuiv3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlTexParameterIuiv3_1(ctx, &pb.GlTexParameterIuiv3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GlTexStorage3DMultisample calls the GlTexStorage3DMultisample RPC.
-func (c *GLES32Client) GlTexStorage3DMultisample(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 bool) error {
-	_, err := c.svc.GlTexStorage3DMultisample(ctx, &pb.GlTexStorage3DMultisampleRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-		Arg6: arg6,
-	})
-	return err
-}
-
-// GLES32DebugProcClient wraps the gRPC GLES32DebugProcService client.
-type GLES32DebugProcClient struct {
-	svc pb.GLES32DebugProcServiceClient
-}
-
-// NewGLES32DebugProcClient creates a new GLES32DebugProc client.
-func NewGLES32DebugProcClient(cc grpc.ClientConnInterface) *GLES32DebugProcClient {
-	return &GLES32DebugProcClient{
-		svc: pb.NewGLES32DebugProcServiceClient(cc),
-	}
-}
-
-// OnMessage calls the OnMessage RPC.
-func (c *GLES32DebugProcClient) OnMessage(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 string) error {
-	_, err := c.svc.OnMessage(ctx, &pb.OnMessageRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// GLES10ExtClient wraps the gRPC GLES10ExtService client.
-type GLES10ExtClient struct {
-	svc pb.GLES10ExtServiceClient
-}
-
-// NewGLES10ExtClient creates a new GLES10Ext client.
-func NewGLES10ExtClient(cc grpc.ClientConnInterface) *GLES10ExtClient {
-	return &GLES10ExtClient{
-		svc: pb.NewGLES10ExtServiceClient(cc),
-	}
-}
-
-// GlQueryMatrixxOES4 calls the GlQueryMatrixxOES4 RPC.
-func (c *GLES10ExtClient) GlQueryMatrixxOES4(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64, arg3 int32) (int32, error) {
-	resp, err := c.svc.GlQueryMatrixxOES4(ctx, &pb.GlQueryMatrixxOES4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GlQueryMatrixxOES2_1 calls the GlQueryMatrixxOES2_1 RPC.
-func (c *GLES10ExtClient) GlQueryMatrixxOES2_1(ctx context.Context, handle int64, arg0 int64, arg1 int64) (int32, error) {
-	resp, err := c.svc.GlQueryMatrixxOES2_1(ctx, &pb.GlQueryMatrixxOES2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GLES11ExtClient wraps the gRPC GLES11ExtService client.
-type GLES11ExtClient struct {
-	svc pb.GLES11ExtServiceClient
-}
-
-// NewGLES11ExtClient creates a new GLES11Ext client.
-func NewGLES11ExtClient(cc grpc.ClientConnInterface) *GLES11ExtClient {
-	return &GLES11ExtClient{
-		svc: pb.NewGLES11ExtServiceClient(cc),
-	}
-}
-
-// GlAlphaFuncxOES calls the GlAlphaFuncxOES RPC.
-func (c *GLES11ExtClient) GlAlphaFuncxOES(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.GlAlphaFuncxOES(ctx, &pb.GlAlphaFuncxOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlBindFramebufferOES calls the GlBindFramebufferOES RPC.
-func (c *GLES11ExtClient) GlBindFramebufferOES(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.GlBindFramebufferOES(ctx, &pb.GlBindFramebufferOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlBindRenderbufferOES calls the GlBindRenderbufferOES RPC.
-func (c *GLES11ExtClient) GlBindRenderbufferOES(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.GlBindRenderbufferOES(ctx, &pb.GlBindRenderbufferOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlBlendEquationOES calls the GlBlendEquationOES RPC.
-func (c *GLES11ExtClient) GlBlendEquationOES(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.GlBlendEquationOES(ctx, &pb.GlBlendEquationOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlBlendEquationSeparateOES calls the GlBlendEquationSeparateOES RPC.
-func (c *GLES11ExtClient) GlBlendEquationSeparateOES(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.GlBlendEquationSeparateOES(ctx, &pb.GlBlendEquationSeparateOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlBlendFuncSeparateOES calls the GlBlendFuncSeparateOES RPC.
-func (c *GLES11ExtClient) GlBlendFuncSeparateOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.GlBlendFuncSeparateOES(ctx, &pb.GlBlendFuncSeparateOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlCheckFramebufferStatusOES calls the GlCheckFramebufferStatusOES RPC.
-func (c *GLES11ExtClient) GlCheckFramebufferStatusOES(ctx context.Context, handle int64, arg0 int32) (int32, error) {
-	resp, err := c.svc.GlCheckFramebufferStatusOES(ctx, &pb.GlCheckFramebufferStatusOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GlClearColorxOES calls the GlClearColorxOES RPC.
-func (c *GLES11ExtClient) GlClearColorxOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.GlClearColorxOES(ctx, &pb.GlClearColorxOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlClearDepthfOES calls the GlClearDepthfOES RPC.
-func (c *GLES11ExtClient) GlClearDepthfOES(ctx context.Context, handle int64, arg0 float32) error {
-	_, err := c.svc.GlClearDepthfOES(ctx, &pb.GlClearDepthfOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlClearDepthxOES calls the GlClearDepthxOES RPC.
-func (c *GLES11ExtClient) GlClearDepthxOES(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.GlClearDepthxOES(ctx, &pb.GlClearDepthxOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlClipPlanefOES3 calls the GlClipPlanefOES3 RPC.
-func (c *GLES11ExtClient) GlClipPlanefOES3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
-	_, err := c.svc.GlClipPlanefOES3(ctx, &pb.GlClipPlanefOES3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlClipPlanefOES2_1 calls the GlClipPlanefOES2_1 RPC.
-func (c *GLES11ExtClient) GlClipPlanefOES2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlClipPlanefOES2_1(ctx, &pb.GlClipPlanefOES2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlClipPlanexOES3 calls the GlClipPlanexOES3 RPC.
-func (c *GLES11ExtClient) GlClipPlanexOES3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
-	_, err := c.svc.GlClipPlanexOES3(ctx, &pb.GlClipPlanexOES3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlClipPlanexOES2_1 calls the GlClipPlanexOES2_1 RPC.
-func (c *GLES11ExtClient) GlClipPlanexOES2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlClipPlanexOES2_1(ctx, &pb.GlClipPlanexOES2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlColor4XOES calls the GlColor4XOES RPC.
-func (c *GLES11ExtClient) GlColor4XOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.GlColor4XOES(ctx, &pb.GlColor4XOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlCurrentPaletteMatrixOES calls the GlCurrentPaletteMatrixOES RPC.
-func (c *GLES11ExtClient) GlCurrentPaletteMatrixOES(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.GlCurrentPaletteMatrixOES(ctx, &pb.GlCurrentPaletteMatrixOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlDeleteFramebuffersOES3 calls the GlDeleteFramebuffersOES3 RPC.
-func (c *GLES11ExtClient) GlDeleteFramebuffersOES3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
-	_, err := c.svc.GlDeleteFramebuffersOES3(ctx, &pb.GlDeleteFramebuffersOES3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlDeleteFramebuffersOES2_1 calls the GlDeleteFramebuffersOES2_1 RPC.
-func (c *GLES11ExtClient) GlDeleteFramebuffersOES2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlDeleteFramebuffersOES2_1(ctx, &pb.GlDeleteFramebuffersOES2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlDeleteRenderbuffersOES3 calls the GlDeleteRenderbuffersOES3 RPC.
-func (c *GLES11ExtClient) GlDeleteRenderbuffersOES3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
-	_, err := c.svc.GlDeleteRenderbuffersOES3(ctx, &pb.GlDeleteRenderbuffersOES3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlDeleteRenderbuffersOES2_1 calls the GlDeleteRenderbuffersOES2_1 RPC.
-func (c *GLES11ExtClient) GlDeleteRenderbuffersOES2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlDeleteRenderbuffersOES2_1(ctx, &pb.GlDeleteRenderbuffersOES2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlDepthRangefOES calls the GlDepthRangefOES RPC.
-func (c *GLES11ExtClient) GlDepthRangefOES(ctx context.Context, handle int64, arg0 float32, arg1 float32) error {
-	_, err := c.svc.GlDepthRangefOES(ctx, &pb.GlDepthRangefOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlDepthRangexOES calls the GlDepthRangexOES RPC.
-func (c *GLES11ExtClient) GlDepthRangexOES(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.GlDepthRangexOES(ctx, &pb.GlDepthRangexOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlDrawTexfOES calls the GlDrawTexfOES RPC.
-func (c *GLES11ExtClient) GlDrawTexfOES(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32, arg4 float32) error {
-	_, err := c.svc.GlDrawTexfOES(ctx, &pb.GlDrawTexfOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-	})
-	return err
-}
-
-// GlDrawTexfvOES2 calls the GlDrawTexfvOES2 RPC.
-func (c *GLES11ExtClient) GlDrawTexfvOES2(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.GlDrawTexfvOES2(ctx, &pb.GlDrawTexfvOES2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlDrawTexfvOES1_1 calls the GlDrawTexfvOES1_1 RPC.
-func (c *GLES11ExtClient) GlDrawTexfvOES1_1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.GlDrawTexfvOES1_1(ctx, &pb.GlDrawTexfvOES1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlDrawTexiOES calls the GlDrawTexiOES RPC.
-func (c *GLES11ExtClient) GlDrawTexiOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
-	_, err := c.svc.GlDrawTexiOES(ctx, &pb.GlDrawTexiOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-	})
-	return err
-}
-
-// GlDrawTexivOES2 calls the GlDrawTexivOES2 RPC.
-func (c *GLES11ExtClient) GlDrawTexivOES2(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.GlDrawTexivOES2(ctx, &pb.GlDrawTexivOES2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlDrawTexivOES1_1 calls the GlDrawTexivOES1_1 RPC.
-func (c *GLES11ExtClient) GlDrawTexivOES1_1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.GlDrawTexivOES1_1(ctx, &pb.GlDrawTexivOES1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlDrawTexsOES calls the GlDrawTexsOES RPC.
-func (c *GLES11ExtClient) GlDrawTexsOES(ctx context.Context, handle int64, arg0 int16, arg1 int16, arg2 int16, arg3 int16, arg4 int16) error {
-	_, err := c.svc.GlDrawTexsOES(ctx, &pb.GlDrawTexsOESRequest{
-		Handle: handle,
-		Arg0:   int32(arg0),
-		Arg1:   int32(arg1),
-		Arg2:   int32(arg2),
-		Arg3:   int32(arg3),
-		Arg4:   int32(arg4),
-	})
-	return err
-}
-
-// GlDrawTexsvOES1 calls the GlDrawTexsvOES1 RPC.
-func (c *GLES11ExtClient) GlDrawTexsvOES1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.GlDrawTexsvOES1(ctx, &pb.GlDrawTexsvOES1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlDrawTexsvOES2_1 calls the GlDrawTexsvOES2_1 RPC.
-func (c *GLES11ExtClient) GlDrawTexsvOES2_1(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.GlDrawTexsvOES2_1(ctx, &pb.GlDrawTexsvOES2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlDrawTexxOES calls the GlDrawTexxOES RPC.
-func (c *GLES11ExtClient) GlDrawTexxOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
-	_, err := c.svc.GlDrawTexxOES(ctx, &pb.GlDrawTexxOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-	})
-	return err
-}
-
-// GlDrawTexxvOES2 calls the GlDrawTexxvOES2 RPC.
-func (c *GLES11ExtClient) GlDrawTexxvOES2(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.GlDrawTexxvOES2(ctx, &pb.GlDrawTexxvOES2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlDrawTexxvOES1_1 calls the GlDrawTexxvOES1_1 RPC.
-func (c *GLES11ExtClient) GlDrawTexxvOES1_1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.GlDrawTexxvOES1_1(ctx, &pb.GlDrawTexxvOES1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlEGLImageTargetRenderbufferStorageOES calls the GlEGLImageTargetRenderbufferStorageOES RPC.
-func (c *GLES11ExtClient) GlEGLImageTargetRenderbufferStorageOES(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlEGLImageTargetRenderbufferStorageOES(ctx, &pb.GlEGLImageTargetRenderbufferStorageOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlEGLImageTargetTexture2DOES calls the GlEGLImageTargetTexture2DOES RPC.
-func (c *GLES11ExtClient) GlEGLImageTargetTexture2DOES(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlEGLImageTargetTexture2DOES(ctx, &pb.GlEGLImageTargetTexture2DOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlFogxOES calls the GlFogxOES RPC.
-func (c *GLES11ExtClient) GlFogxOES(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.GlFogxOES(ctx, &pb.GlFogxOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlFogxvOES3 calls the GlFogxvOES3 RPC.
-func (c *GLES11ExtClient) GlFogxvOES3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
-	_, err := c.svc.GlFogxvOES3(ctx, &pb.GlFogxvOES3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlFogxvOES2_1 calls the GlFogxvOES2_1 RPC.
-func (c *GLES11ExtClient) GlFogxvOES2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlFogxvOES2_1(ctx, &pb.GlFogxvOES2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlFramebufferRenderbufferOES calls the GlFramebufferRenderbufferOES RPC.
-func (c *GLES11ExtClient) GlFramebufferRenderbufferOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.GlFramebufferRenderbufferOES(ctx, &pb.GlFramebufferRenderbufferOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlFramebufferTexture2DOES calls the GlFramebufferTexture2DOES RPC.
-func (c *GLES11ExtClient) GlFramebufferTexture2DOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
-	_, err := c.svc.GlFramebufferTexture2DOES(ctx, &pb.GlFramebufferTexture2DOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-	})
-	return err
-}
-
-// GlFrustumfOES calls the GlFrustumfOES RPC.
-func (c *GLES11ExtClient) GlFrustumfOES(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32, arg4 float32, arg5 float32) error {
-	_, err := c.svc.GlFrustumfOES(ctx, &pb.GlFrustumfOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	return err
-}
-
-// GlFrustumxOES calls the GlFrustumxOES RPC.
-func (c *GLES11ExtClient) GlFrustumxOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32) error {
-	_, err := c.svc.GlFrustumxOES(ctx, &pb.GlFrustumxOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	return err
-}
-
-// GlGenFramebuffersOES3 calls the GlGenFramebuffersOES3 RPC.
-func (c *GLES11ExtClient) GlGenFramebuffersOES3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
-	_, err := c.svc.GlGenFramebuffersOES3(ctx, &pb.GlGenFramebuffersOES3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlGenFramebuffersOES2_1 calls the GlGenFramebuffersOES2_1 RPC.
-func (c *GLES11ExtClient) GlGenFramebuffersOES2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlGenFramebuffersOES2_1(ctx, &pb.GlGenFramebuffersOES2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlGenRenderbuffersOES3 calls the GlGenRenderbuffersOES3 RPC.
-func (c *GLES11ExtClient) GlGenRenderbuffersOES3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
-	_, err := c.svc.GlGenRenderbuffersOES3(ctx, &pb.GlGenRenderbuffersOES3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlGenRenderbuffersOES2_1 calls the GlGenRenderbuffersOES2_1 RPC.
-func (c *GLES11ExtClient) GlGenRenderbuffersOES2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlGenRenderbuffersOES2_1(ctx, &pb.GlGenRenderbuffersOES2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlGenerateMipmapOES calls the GlGenerateMipmapOES RPC.
-func (c *GLES11ExtClient) GlGenerateMipmapOES(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.GlGenerateMipmapOES(ctx, &pb.GlGenerateMipmapOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlGetClipPlanefOES3 calls the GlGetClipPlanefOES3 RPC.
-func (c *GLES11ExtClient) GlGetClipPlanefOES3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
-	_, err := c.svc.GlGetClipPlanefOES3(ctx, &pb.GlGetClipPlanefOES3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlGetClipPlanefOES2_1 calls the GlGetClipPlanefOES2_1 RPC.
-func (c *GLES11ExtClient) GlGetClipPlanefOES2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlGetClipPlanefOES2_1(ctx, &pb.GlGetClipPlanefOES2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlGetClipPlanexOES3 calls the GlGetClipPlanexOES3 RPC.
-func (c *GLES11ExtClient) GlGetClipPlanexOES3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
-	_, err := c.svc.GlGetClipPlanexOES3(ctx, &pb.GlGetClipPlanexOES3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlGetClipPlanexOES2_1 calls the GlGetClipPlanexOES2_1 RPC.
-func (c *GLES11ExtClient) GlGetClipPlanexOES2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlGetClipPlanexOES2_1(ctx, &pb.GlGetClipPlanexOES2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlGetFixedvOES3 calls the GlGetFixedvOES3 RPC.
-func (c *GLES11ExtClient) GlGetFixedvOES3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
-	_, err := c.svc.GlGetFixedvOES3(ctx, &pb.GlGetFixedvOES3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlGetFixedvOES2_1 calls the GlGetFixedvOES2_1 RPC.
-func (c *GLES11ExtClient) GlGetFixedvOES2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlGetFixedvOES2_1(ctx, &pb.GlGetFixedvOES2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlGetFramebufferAttachmentParameterivOES5 calls the GlGetFramebufferAttachmentParameterivOES5 RPC.
-func (c *GLES11ExtClient) GlGetFramebufferAttachmentParameterivOES5(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int64, arg4 int32) error {
-	_, err := c.svc.GlGetFramebufferAttachmentParameterivOES5(ctx, &pb.GlGetFramebufferAttachmentParameterivOES5Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-	})
-	return err
-}
-
-// GlGetFramebufferAttachmentParameterivOES4_1 calls the GlGetFramebufferAttachmentParameterivOES4_1 RPC.
-func (c *GLES11ExtClient) GlGetFramebufferAttachmentParameterivOES4_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
-	_, err := c.svc.GlGetFramebufferAttachmentParameterivOES4_1(ctx, &pb.GlGetFramebufferAttachmentParameterivOES4_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlGetLightxvOES4 calls the GlGetLightxvOES4 RPC.
-func (c *GLES11ExtClient) GlGetLightxvOES4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlGetLightxvOES4(ctx, &pb.GlGetLightxvOES4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlGetLightxvOES3_1 calls the GlGetLightxvOES3_1 RPC.
-func (c *GLES11ExtClient) GlGetLightxvOES3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlGetLightxvOES3_1(ctx, &pb.GlGetLightxvOES3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlGetMaterialxvOES4 calls the GlGetMaterialxvOES4 RPC.
-func (c *GLES11ExtClient) GlGetMaterialxvOES4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlGetMaterialxvOES4(ctx, &pb.GlGetMaterialxvOES4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlGetMaterialxvOES3_1 calls the GlGetMaterialxvOES3_1 RPC.
-func (c *GLES11ExtClient) GlGetMaterialxvOES3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlGetMaterialxvOES3_1(ctx, &pb.GlGetMaterialxvOES3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlGetRenderbufferParameterivOES4 calls the GlGetRenderbufferParameterivOES4 RPC.
-func (c *GLES11ExtClient) GlGetRenderbufferParameterivOES4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlGetRenderbufferParameterivOES4(ctx, &pb.GlGetRenderbufferParameterivOES4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlGetRenderbufferParameterivOES3_1 calls the GlGetRenderbufferParameterivOES3_1 RPC.
-func (c *GLES11ExtClient) GlGetRenderbufferParameterivOES3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlGetRenderbufferParameterivOES3_1(ctx, &pb.GlGetRenderbufferParameterivOES3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlGetTexEnvxvOES4 calls the GlGetTexEnvxvOES4 RPC.
-func (c *GLES11ExtClient) GlGetTexEnvxvOES4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlGetTexEnvxvOES4(ctx, &pb.GlGetTexEnvxvOES4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlGetTexEnvxvOES3_1 calls the GlGetTexEnvxvOES3_1 RPC.
-func (c *GLES11ExtClient) GlGetTexEnvxvOES3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlGetTexEnvxvOES3_1(ctx, &pb.GlGetTexEnvxvOES3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlGetTexGenfvOES4 calls the GlGetTexGenfvOES4 RPC.
-func (c *GLES11ExtClient) GlGetTexGenfvOES4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlGetTexGenfvOES4(ctx, &pb.GlGetTexGenfvOES4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlGetTexGenfvOES3_1 calls the GlGetTexGenfvOES3_1 RPC.
-func (c *GLES11ExtClient) GlGetTexGenfvOES3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlGetTexGenfvOES3_1(ctx, &pb.GlGetTexGenfvOES3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlGetTexGenivOES4 calls the GlGetTexGenivOES4 RPC.
-func (c *GLES11ExtClient) GlGetTexGenivOES4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlGetTexGenivOES4(ctx, &pb.GlGetTexGenivOES4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlGetTexGenivOES3_1 calls the GlGetTexGenivOES3_1 RPC.
-func (c *GLES11ExtClient) GlGetTexGenivOES3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlGetTexGenivOES3_1(ctx, &pb.GlGetTexGenivOES3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlGetTexGenxvOES4 calls the GlGetTexGenxvOES4 RPC.
-func (c *GLES11ExtClient) GlGetTexGenxvOES4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlGetTexGenxvOES4(ctx, &pb.GlGetTexGenxvOES4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlGetTexGenxvOES3_1 calls the GlGetTexGenxvOES3_1 RPC.
-func (c *GLES11ExtClient) GlGetTexGenxvOES3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlGetTexGenxvOES3_1(ctx, &pb.GlGetTexGenxvOES3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlGetTexParameterxvOES4 calls the GlGetTexParameterxvOES4 RPC.
-func (c *GLES11ExtClient) GlGetTexParameterxvOES4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlGetTexParameterxvOES4(ctx, &pb.GlGetTexParameterxvOES4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlGetTexParameterxvOES3_1 calls the GlGetTexParameterxvOES3_1 RPC.
-func (c *GLES11ExtClient) GlGetTexParameterxvOES3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlGetTexParameterxvOES3_1(ctx, &pb.GlGetTexParameterxvOES3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlIsFramebufferOES calls the GlIsFramebufferOES RPC.
-func (c *GLES11ExtClient) GlIsFramebufferOES(ctx context.Context, handle int64, arg0 int32) (bool, error) {
-	resp, err := c.svc.GlIsFramebufferOES(ctx, &pb.GlIsFramebufferOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GlIsRenderbufferOES calls the GlIsRenderbufferOES RPC.
-func (c *GLES11ExtClient) GlIsRenderbufferOES(ctx context.Context, handle int64, arg0 int32) (bool, error) {
-	resp, err := c.svc.GlIsRenderbufferOES(ctx, &pb.GlIsRenderbufferOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GlLightModelxOES calls the GlLightModelxOES RPC.
-func (c *GLES11ExtClient) GlLightModelxOES(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.GlLightModelxOES(ctx, &pb.GlLightModelxOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlLightModelxvOES3 calls the GlLightModelxvOES3 RPC.
-func (c *GLES11ExtClient) GlLightModelxvOES3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
-	_, err := c.svc.GlLightModelxvOES3(ctx, &pb.GlLightModelxvOES3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlLightModelxvOES2_1 calls the GlLightModelxvOES2_1 RPC.
-func (c *GLES11ExtClient) GlLightModelxvOES2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlLightModelxvOES2_1(ctx, &pb.GlLightModelxvOES2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlLightxOES calls the GlLightxOES RPC.
-func (c *GLES11ExtClient) GlLightxOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.GlLightxOES(ctx, &pb.GlLightxOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlLightxvOES4 calls the GlLightxvOES4 RPC.
-func (c *GLES11ExtClient) GlLightxvOES4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlLightxvOES4(ctx, &pb.GlLightxvOES4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlLightxvOES3_1 calls the GlLightxvOES3_1 RPC.
-func (c *GLES11ExtClient) GlLightxvOES3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlLightxvOES3_1(ctx, &pb.GlLightxvOES3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlLineWidthxOES calls the GlLineWidthxOES RPC.
-func (c *GLES11ExtClient) GlLineWidthxOES(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.GlLineWidthxOES(ctx, &pb.GlLineWidthxOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlLoadMatrixxOES2 calls the GlLoadMatrixxOES2 RPC.
-func (c *GLES11ExtClient) GlLoadMatrixxOES2(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.GlLoadMatrixxOES2(ctx, &pb.GlLoadMatrixxOES2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlLoadMatrixxOES1_1 calls the GlLoadMatrixxOES1_1 RPC.
-func (c *GLES11ExtClient) GlLoadMatrixxOES1_1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.GlLoadMatrixxOES1_1(ctx, &pb.GlLoadMatrixxOES1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlLoadPaletteFromModelViewMatrixOES calls the GlLoadPaletteFromModelViewMatrixOES RPC.
-func (c *GLES11ExtClient) GlLoadPaletteFromModelViewMatrixOES(ctx context.Context, handle int64) error {
-	_, err := c.svc.GlLoadPaletteFromModelViewMatrixOES(ctx, &pb.GlLoadPaletteFromModelViewMatrixOESRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// GlMaterialxOES calls the GlMaterialxOES RPC.
-func (c *GLES11ExtClient) GlMaterialxOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.GlMaterialxOES(ctx, &pb.GlMaterialxOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlMaterialxvOES4 calls the GlMaterialxvOES4 RPC.
-func (c *GLES11ExtClient) GlMaterialxvOES4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlMaterialxvOES4(ctx, &pb.GlMaterialxvOES4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlMaterialxvOES3_1 calls the GlMaterialxvOES3_1 RPC.
-func (c *GLES11ExtClient) GlMaterialxvOES3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlMaterialxvOES3_1(ctx, &pb.GlMaterialxvOES3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlMatrixIndexPointerOES calls the GlMatrixIndexPointerOES RPC.
-func (c *GLES11ExtClient) GlMatrixIndexPointerOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
-	_, err := c.svc.GlMatrixIndexPointerOES(ctx, &pb.GlMatrixIndexPointerOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlMultMatrixxOES2 calls the GlMultMatrixxOES2 RPC.
-func (c *GLES11ExtClient) GlMultMatrixxOES2(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.GlMultMatrixxOES2(ctx, &pb.GlMultMatrixxOES2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlMultMatrixxOES1_1 calls the GlMultMatrixxOES1_1 RPC.
-func (c *GLES11ExtClient) GlMultMatrixxOES1_1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.GlMultMatrixxOES1_1(ctx, &pb.GlMultMatrixxOES1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlMultiTexCoord4XOES calls the GlMultiTexCoord4XOES RPC.
-func (c *GLES11ExtClient) GlMultiTexCoord4XOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32) error {
-	_, err := c.svc.GlMultiTexCoord4XOES(ctx, &pb.GlMultiTexCoord4XOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-	})
-	return err
-}
-
-// GlNormal3XOES calls the GlNormal3XOES RPC.
-func (c *GLES11ExtClient) GlNormal3XOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.GlNormal3XOES(ctx, &pb.GlNormal3XOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlOrthofOES calls the GlOrthofOES RPC.
-func (c *GLES11ExtClient) GlOrthofOES(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32, arg4 float32, arg5 float32) error {
-	_, err := c.svc.GlOrthofOES(ctx, &pb.GlOrthofOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	return err
-}
-
-// GlOrthoxOES calls the GlOrthoxOES RPC.
-func (c *GLES11ExtClient) GlOrthoxOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32) error {
-	_, err := c.svc.GlOrthoxOES(ctx, &pb.GlOrthoxOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	return err
-}
-
-// GlPointParameterxOES calls the GlPointParameterxOES RPC.
-func (c *GLES11ExtClient) GlPointParameterxOES(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.GlPointParameterxOES(ctx, &pb.GlPointParameterxOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlPointParameterxvOES3 calls the GlPointParameterxvOES3 RPC.
-func (c *GLES11ExtClient) GlPointParameterxvOES3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
-	_, err := c.svc.GlPointParameterxvOES3(ctx, &pb.GlPointParameterxvOES3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlPointParameterxvOES2_1 calls the GlPointParameterxvOES2_1 RPC.
-func (c *GLES11ExtClient) GlPointParameterxvOES2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlPointParameterxvOES2_1(ctx, &pb.GlPointParameterxvOES2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlPointSizexOES calls the GlPointSizexOES RPC.
-func (c *GLES11ExtClient) GlPointSizexOES(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.GlPointSizexOES(ctx, &pb.GlPointSizexOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GlPolygonOffsetxOES calls the GlPolygonOffsetxOES RPC.
-func (c *GLES11ExtClient) GlPolygonOffsetxOES(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.GlPolygonOffsetxOES(ctx, &pb.GlPolygonOffsetxOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlRenderbufferStorageOES calls the GlRenderbufferStorageOES RPC.
-func (c *GLES11ExtClient) GlRenderbufferStorageOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.GlRenderbufferStorageOES(ctx, &pb.GlRenderbufferStorageOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlRotatexOES calls the GlRotatexOES RPC.
-func (c *GLES11ExtClient) GlRotatexOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.GlRotatexOES(ctx, &pb.GlRotatexOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlSampleCoveragexOES calls the GlSampleCoveragexOES RPC.
-func (c *GLES11ExtClient) GlSampleCoveragexOES(ctx context.Context, handle int64, arg0 int32, arg1 bool) error {
-	_, err := c.svc.GlSampleCoveragexOES(ctx, &pb.GlSampleCoveragexOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlScalexOES calls the GlScalexOES RPC.
-func (c *GLES11ExtClient) GlScalexOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.GlScalexOES(ctx, &pb.GlScalexOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlTexEnvxOES calls the GlTexEnvxOES RPC.
-func (c *GLES11ExtClient) GlTexEnvxOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.GlTexEnvxOES(ctx, &pb.GlTexEnvxOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlTexEnvxvOES4 calls the GlTexEnvxvOES4 RPC.
-func (c *GLES11ExtClient) GlTexEnvxvOES4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlTexEnvxvOES4(ctx, &pb.GlTexEnvxvOES4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlTexEnvxvOES3_1 calls the GlTexEnvxvOES3_1 RPC.
-func (c *GLES11ExtClient) GlTexEnvxvOES3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlTexEnvxvOES3_1(ctx, &pb.GlTexEnvxvOES3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlTexGenfOES calls the GlTexGenfOES RPC.
-func (c *GLES11ExtClient) GlTexGenfOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 float32) error {
-	_, err := c.svc.GlTexGenfOES(ctx, &pb.GlTexGenfOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlTexGenfvOES4 calls the GlTexGenfvOES4 RPC.
-func (c *GLES11ExtClient) GlTexGenfvOES4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlTexGenfvOES4(ctx, &pb.GlTexGenfvOES4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlTexGenfvOES3_1 calls the GlTexGenfvOES3_1 RPC.
-func (c *GLES11ExtClient) GlTexGenfvOES3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlTexGenfvOES3_1(ctx, &pb.GlTexGenfvOES3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlTexGeniOES calls the GlTexGeniOES RPC.
-func (c *GLES11ExtClient) GlTexGeniOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.GlTexGeniOES(ctx, &pb.GlTexGeniOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlTexGenivOES4 calls the GlTexGenivOES4 RPC.
-func (c *GLES11ExtClient) GlTexGenivOES4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlTexGenivOES4(ctx, &pb.GlTexGenivOES4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlTexGenivOES3_1 calls the GlTexGenivOES3_1 RPC.
-func (c *GLES11ExtClient) GlTexGenivOES3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlTexGenivOES3_1(ctx, &pb.GlTexGenivOES3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlTexGenxOES calls the GlTexGenxOES RPC.
-func (c *GLES11ExtClient) GlTexGenxOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.GlTexGenxOES(ctx, &pb.GlTexGenxOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlTexGenxvOES4 calls the GlTexGenxvOES4 RPC.
-func (c *GLES11ExtClient) GlTexGenxvOES4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlTexGenxvOES4(ctx, &pb.GlTexGenxvOES4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlTexGenxvOES3_1 calls the GlTexGenxvOES3_1 RPC.
-func (c *GLES11ExtClient) GlTexGenxvOES3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlTexGenxvOES3_1(ctx, &pb.GlTexGenxvOES3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlTexParameterxOES calls the GlTexParameterxOES RPC.
-func (c *GLES11ExtClient) GlTexParameterxOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.GlTexParameterxOES(ctx, &pb.GlTexParameterxOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlTexParameterxvOES4 calls the GlTexParameterxvOES4 RPC.
-func (c *GLES11ExtClient) GlTexParameterxvOES4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlTexParameterxvOES4(ctx, &pb.GlTexParameterxvOES4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlTexParameterxvOES3_1 calls the GlTexParameterxvOES3_1 RPC.
-func (c *GLES11ExtClient) GlTexParameterxvOES3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlTexParameterxvOES3_1(ctx, &pb.GlTexParameterxvOES3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlTranslatexOES calls the GlTranslatexOES RPC.
-func (c *GLES11ExtClient) GlTranslatexOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.GlTranslatexOES(ctx, &pb.GlTranslatexOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlWeightPointerOES calls the GlWeightPointerOES RPC.
-func (c *GLES11ExtClient) GlWeightPointerOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
-	_, err := c.svc.GlWeightPointerOES(ctx, &pb.GlWeightPointerOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// EGLSyncClient wraps the gRPC EGLSyncService client.
-type EGLSyncClient struct {
-	svc pb.EGLSyncServiceClient
-}
-
-// NewEGLSyncClient creates a new EGLSync client.
-func NewEGLSyncClient(cc grpc.ClientConnInterface) *EGLSyncClient {
-	return &EGLSyncClient{
-		svc: pb.NewEGLSyncServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *EGLSyncClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GLES11Client wraps the gRPC GLES11Service client.
-type GLES11Client struct {
-	svc pb.GLES11ServiceClient
-}
-
-// NewGLES11Client creates a new GLES11 client.
-func NewGLES11Client(cc grpc.ClientConnInterface) *GLES11Client {
-	return &GLES11Client{
-		svc: pb.NewGLES11ServiceClient(cc),
-	}
-}
-
-// GlBindBuffer calls the GlBindBuffer RPC.
-func (c *GLES11Client) GlBindBuffer(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.GlBindBuffer(ctx, &pb.GlBindBufferRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlBufferData calls the GlBufferData RPC.
-func (c *GLES11Client) GlBufferData(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlBufferData(ctx, &pb.GlBufferDataRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlBufferSubData calls the GlBufferSubData RPC.
-func (c *GLES11Client) GlBufferSubData(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int64) error {
-	_, err := c.svc.GlBufferSubData(ctx, &pb.GlBufferSubDataRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlClipPlanef3 calls the GlClipPlanef3 RPC.
-func (c *GLES11Client) GlClipPlanef3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
-	_, err := c.svc.GlClipPlanef3(ctx, &pb.GlClipPlanef3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlClipPlanef2_1 calls the GlClipPlanef2_1 RPC.
-func (c *GLES11Client) GlClipPlanef2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlClipPlanef2_1(ctx, &pb.GlClipPlanef2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlClipPlanex3 calls the GlClipPlanex3 RPC.
-func (c *GLES11Client) GlClipPlanex3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
-	_, err := c.svc.GlClipPlanex3(ctx, &pb.GlClipPlanex3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlClipPlanex2_1 calls the GlClipPlanex2_1 RPC.
-func (c *GLES11Client) GlClipPlanex2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlClipPlanex2_1(ctx, &pb.GlClipPlanex2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlColor4Ub calls the GlColor4Ub RPC.
-func (c *GLES11Client) GlColor4Ub(ctx context.Context, handle int64, arg0 int8, arg1 int8, arg2 int8, arg3 int8) error {
-	_, err := c.svc.GlColor4Ub(ctx, &pb.GlColor4UbRequest{
-		Handle: handle,
-		Arg0:   int64(arg0),
-		Arg1:   int64(arg1),
-		Arg2:   int64(arg2),
-		Arg3:   int64(arg3),
-	})
-	return err
-}
-
-// GlColorPointer calls the GlColorPointer RPC.
-func (c *GLES11Client) GlColorPointer(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.GlColorPointer(ctx, &pb.GLES11GlColorPointerRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlDeleteBuffers3 calls the GlDeleteBuffers3 RPC.
-func (c *GLES11Client) GlDeleteBuffers3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
-	_, err := c.svc.GlDeleteBuffers3(ctx, &pb.GlDeleteBuffers3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlDeleteBuffers2_1 calls the GlDeleteBuffers2_1 RPC.
-func (c *GLES11Client) GlDeleteBuffers2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlDeleteBuffers2_1(ctx, &pb.GlDeleteBuffers2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlDrawElements calls the GlDrawElements RPC.
-func (c *GLES11Client) GlDrawElements(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.GlDrawElements(ctx, &pb.GLES11GlDrawElementsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlGenBuffers3 calls the GlGenBuffers3 RPC.
-func (c *GLES11Client) GlGenBuffers3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
-	_, err := c.svc.GlGenBuffers3(ctx, &pb.GlGenBuffers3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlGenBuffers2_1 calls the GlGenBuffers2_1 RPC.
-func (c *GLES11Client) GlGenBuffers2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlGenBuffers2_1(ctx, &pb.GlGenBuffers2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlGetBooleanv3 calls the GlGetBooleanv3 RPC.
-func (c *GLES11Client) GlGetBooleanv3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
-	_, err := c.svc.GlGetBooleanv3(ctx, &pb.GlGetBooleanv3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlGetBooleanv2_1 calls the GlGetBooleanv2_1 RPC.
-func (c *GLES11Client) GlGetBooleanv2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlGetBooleanv2_1(ctx, &pb.GlGetBooleanv2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlGetBufferParameteriv4 calls the GlGetBufferParameteriv4 RPC.
-func (c *GLES11Client) GlGetBufferParameteriv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlGetBufferParameteriv4(ctx, &pb.GlGetBufferParameteriv4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlGetBufferParameteriv3_1 calls the GlGetBufferParameteriv3_1 RPC.
-func (c *GLES11Client) GlGetBufferParameteriv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlGetBufferParameteriv3_1(ctx, &pb.GlGetBufferParameteriv3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlGetClipPlanef3 calls the GlGetClipPlanef3 RPC.
-func (c *GLES11Client) GlGetClipPlanef3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
-	_, err := c.svc.GlGetClipPlanef3(ctx, &pb.GlGetClipPlanef3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlGetClipPlanef2_1 calls the GlGetClipPlanef2_1 RPC.
-func (c *GLES11Client) GlGetClipPlanef2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlGetClipPlanef2_1(ctx, &pb.GlGetClipPlanef2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlGetClipPlanex3 calls the GlGetClipPlanex3 RPC.
-func (c *GLES11Client) GlGetClipPlanex3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
-	_, err := c.svc.GlGetClipPlanex3(ctx, &pb.GlGetClipPlanex3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlGetClipPlanex2_1 calls the GlGetClipPlanex2_1 RPC.
-func (c *GLES11Client) GlGetClipPlanex2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlGetClipPlanex2_1(ctx, &pb.GlGetClipPlanex2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlGetFixedv3 calls the GlGetFixedv3 RPC.
-func (c *GLES11Client) GlGetFixedv3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
-	_, err := c.svc.GlGetFixedv3(ctx, &pb.GlGetFixedv3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlGetFixedv2_1 calls the GlGetFixedv2_1 RPC.
-func (c *GLES11Client) GlGetFixedv2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlGetFixedv2_1(ctx, &pb.GlGetFixedv2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlGetFloatv3 calls the GlGetFloatv3 RPC.
-func (c *GLES11Client) GlGetFloatv3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
-	_, err := c.svc.GlGetFloatv3(ctx, &pb.GlGetFloatv3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlGetFloatv2_1 calls the GlGetFloatv2_1 RPC.
-func (c *GLES11Client) GlGetFloatv2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlGetFloatv2_1(ctx, &pb.GlGetFloatv2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlGetLightfv4 calls the GlGetLightfv4 RPC.
-func (c *GLES11Client) GlGetLightfv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlGetLightfv4(ctx, &pb.GlGetLightfv4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlGetLightfv3_1 calls the GlGetLightfv3_1 RPC.
-func (c *GLES11Client) GlGetLightfv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlGetLightfv3_1(ctx, &pb.GlGetLightfv3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlGetLightxv4 calls the GlGetLightxv4 RPC.
-func (c *GLES11Client) GlGetLightxv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlGetLightxv4(ctx, &pb.GlGetLightxv4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlGetLightxv3_1 calls the GlGetLightxv3_1 RPC.
-func (c *GLES11Client) GlGetLightxv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlGetLightxv3_1(ctx, &pb.GlGetLightxv3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlGetMaterialfv4 calls the GlGetMaterialfv4 RPC.
-func (c *GLES11Client) GlGetMaterialfv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlGetMaterialfv4(ctx, &pb.GlGetMaterialfv4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlGetMaterialfv3_1 calls the GlGetMaterialfv3_1 RPC.
-func (c *GLES11Client) GlGetMaterialfv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlGetMaterialfv3_1(ctx, &pb.GlGetMaterialfv3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlGetMaterialxv4 calls the GlGetMaterialxv4 RPC.
-func (c *GLES11Client) GlGetMaterialxv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlGetMaterialxv4(ctx, &pb.GlGetMaterialxv4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlGetMaterialxv3_1 calls the GlGetMaterialxv3_1 RPC.
-func (c *GLES11Client) GlGetMaterialxv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlGetMaterialxv3_1(ctx, &pb.GlGetMaterialxv3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlGetTexEnvfv4 calls the GlGetTexEnvfv4 RPC.
-func (c *GLES11Client) GlGetTexEnvfv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlGetTexEnvfv4(ctx, &pb.GlGetTexEnvfv4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlGetTexEnvfv3_1 calls the GlGetTexEnvfv3_1 RPC.
-func (c *GLES11Client) GlGetTexEnvfv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlGetTexEnvfv3_1(ctx, &pb.GlGetTexEnvfv3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlGetTexEnviv4 calls the GlGetTexEnviv4 RPC.
-func (c *GLES11Client) GlGetTexEnviv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlGetTexEnviv4(ctx, &pb.GlGetTexEnviv4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlGetTexEnviv3_1 calls the GlGetTexEnviv3_1 RPC.
-func (c *GLES11Client) GlGetTexEnviv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlGetTexEnviv3_1(ctx, &pb.GlGetTexEnviv3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlGetTexEnvxv4 calls the GlGetTexEnvxv4 RPC.
-func (c *GLES11Client) GlGetTexEnvxv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlGetTexEnvxv4(ctx, &pb.GlGetTexEnvxv4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlGetTexEnvxv3_1 calls the GlGetTexEnvxv3_1 RPC.
-func (c *GLES11Client) GlGetTexEnvxv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlGetTexEnvxv3_1(ctx, &pb.GlGetTexEnvxv3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlGetTexParameterfv4 calls the GlGetTexParameterfv4 RPC.
-func (c *GLES11Client) GlGetTexParameterfv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlGetTexParameterfv4(ctx, &pb.GlGetTexParameterfv4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlGetTexParameterfv3_1 calls the GlGetTexParameterfv3_1 RPC.
-func (c *GLES11Client) GlGetTexParameterfv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlGetTexParameterfv3_1(ctx, &pb.GlGetTexParameterfv3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlGetTexParameteriv4 calls the GlGetTexParameteriv4 RPC.
-func (c *GLES11Client) GlGetTexParameteriv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlGetTexParameteriv4(ctx, &pb.GlGetTexParameteriv4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlGetTexParameteriv3_1 calls the GlGetTexParameteriv3_1 RPC.
-func (c *GLES11Client) GlGetTexParameteriv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlGetTexParameteriv3_1(ctx, &pb.GlGetTexParameteriv3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlGetTexParameterxv4 calls the GlGetTexParameterxv4 RPC.
-func (c *GLES11Client) GlGetTexParameterxv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlGetTexParameterxv4(ctx, &pb.GlGetTexParameterxv4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlGetTexParameterxv3_1 calls the GlGetTexParameterxv3_1 RPC.
-func (c *GLES11Client) GlGetTexParameterxv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlGetTexParameterxv3_1(ctx, &pb.GlGetTexParameterxv3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlIsBuffer calls the GlIsBuffer RPC.
-func (c *GLES11Client) GlIsBuffer(ctx context.Context, handle int64, arg0 int32) (bool, error) {
-	resp, err := c.svc.GlIsBuffer(ctx, &pb.GlIsBufferRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GlIsEnabled calls the GlIsEnabled RPC.
-func (c *GLES11Client) GlIsEnabled(ctx context.Context, handle int64, arg0 int32) (bool, error) {
-	resp, err := c.svc.GlIsEnabled(ctx, &pb.GlIsEnabledRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GlIsTexture calls the GlIsTexture RPC.
-func (c *GLES11Client) GlIsTexture(ctx context.Context, handle int64, arg0 int32) (bool, error) {
-	resp, err := c.svc.GlIsTexture(ctx, &pb.GlIsTextureRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GlNormalPointer calls the GlNormalPointer RPC.
-func (c *GLES11Client) GlNormalPointer(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.GlNormalPointer(ctx, &pb.GLES11GlNormalPointerRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlPointParameterf calls the GlPointParameterf RPC.
-func (c *GLES11Client) GlPointParameterf(ctx context.Context, handle int64, arg0 int32, arg1 float32) error {
-	_, err := c.svc.GlPointParameterf(ctx, &pb.GlPointParameterfRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlPointParameterfv3 calls the GlPointParameterfv3 RPC.
-func (c *GLES11Client) GlPointParameterfv3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
-	_, err := c.svc.GlPointParameterfv3(ctx, &pb.GlPointParameterfv3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlPointParameterfv2_1 calls the GlPointParameterfv2_1 RPC.
-func (c *GLES11Client) GlPointParameterfv2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlPointParameterfv2_1(ctx, &pb.GlPointParameterfv2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlPointParameterx calls the GlPointParameterx RPC.
-func (c *GLES11Client) GlPointParameterx(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.GlPointParameterx(ctx, &pb.GlPointParameterxRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlPointParameterxv3 calls the GlPointParameterxv3 RPC.
-func (c *GLES11Client) GlPointParameterxv3(ctx context.Context, handle int64, arg0 int32, arg1 int64, arg2 int32) error {
-	_, err := c.svc.GlPointParameterxv3(ctx, &pb.GlPointParameterxv3Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlPointParameterxv2_1 calls the GlPointParameterxv2_1 RPC.
-func (c *GLES11Client) GlPointParameterxv2_1(ctx context.Context, handle int64, arg0 int32, arg1 int64) error {
-	_, err := c.svc.GlPointParameterxv2_1(ctx, &pb.GlPointParameterxv2_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// GlPointSizePointerOES calls the GlPointSizePointerOES RPC.
-func (c *GLES11Client) GlPointSizePointerOES(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlPointSizePointerOES(ctx, &pb.GlPointSizePointerOESRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlTexCoordPointer calls the GlTexCoordPointer RPC.
-func (c *GLES11Client) GlTexCoordPointer(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.GlTexCoordPointer(ctx, &pb.GLES11GlTexCoordPointerRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlTexEnvi calls the GlTexEnvi RPC.
-func (c *GLES11Client) GlTexEnvi(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.GlTexEnvi(ctx, &pb.GlTexEnviRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlTexEnviv4 calls the GlTexEnviv4 RPC.
-func (c *GLES11Client) GlTexEnviv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlTexEnviv4(ctx, &pb.GlTexEnviv4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlTexEnviv3_1 calls the GlTexEnviv3_1 RPC.
-func (c *GLES11Client) GlTexEnviv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlTexEnviv3_1(ctx, &pb.GlTexEnviv3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlTexParameterfv4 calls the GlTexParameterfv4 RPC.
-func (c *GLES11Client) GlTexParameterfv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlTexParameterfv4(ctx, &pb.GlTexParameterfv4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlTexParameterfv3_1 calls the GlTexParameterfv3_1 RPC.
-func (c *GLES11Client) GlTexParameterfv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlTexParameterfv3_1(ctx, &pb.GlTexParameterfv3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlTexParameteri calls the GlTexParameteri RPC.
-func (c *GLES11Client) GlTexParameteri(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32) error {
-	_, err := c.svc.GlTexParameteri(ctx, &pb.GlTexParameteriRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlTexParameteriv4 calls the GlTexParameteriv4 RPC.
-func (c *GLES11Client) GlTexParameteriv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlTexParameteriv4(ctx, &pb.GlTexParameteriv4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlTexParameteriv3_1 calls the GlTexParameteriv3_1 RPC.
-func (c *GLES11Client) GlTexParameteriv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlTexParameteriv3_1(ctx, &pb.GlTexParameteriv3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlTexParameterxv4 calls the GlTexParameterxv4 RPC.
-func (c *GLES11Client) GlTexParameterxv4(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.GlTexParameterxv4(ctx, &pb.GlTexParameterxv4Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// GlTexParameterxv3_1 calls the GlTexParameterxv3_1 RPC.
-func (c *GLES11Client) GlTexParameterxv3_1(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.GlTexParameterxv3_1(ctx, &pb.GlTexParameterxv3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GlVertexPointer calls the GlVertexPointer RPC.
-func (c *GLES11Client) GlVertexPointer(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 int32, arg3 int32) error {
-	_, err := c.svc.GlVertexPointer(ctx, &pb.GLES11GlVertexPointerRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// EGL14Client wraps the gRPC EGL14Service client.
-type EGL14Client struct {
-	svc pb.EGL14ServiceClient
-}
-
-// NewEGL14Client creates a new EGL14 client.
-func NewEGL14Client(cc grpc.ClientConnInterface) *EGL14Client {
-	return &EGL14Client{
-		svc: pb.NewEGL14ServiceClient(cc),
-	}
-}
-
-// EglBindAPI calls the EglBindAPI RPC.
-func (c *EGL14Client) EglBindAPI(ctx context.Context, handle int64, arg0 int32) (bool, error) {
-	resp, err := c.svc.EglBindAPI(ctx, &pb.EglBindAPIRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EglBindTexImage calls the EglBindTexImage RPC.
-func (c *EGL14Client) EglBindTexImage(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32) (bool, error) {
-	resp, err := c.svc.EglBindTexImage(ctx, &pb.EglBindTexImageRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EglChooseConfig calls the EglChooseConfig RPC.
-func (c *EGL14Client) EglChooseConfig(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int64, arg4 int32, arg5 int32, arg6 int64, arg7 int32) (bool, error) {
-	resp, err := c.svc.EglChooseConfig(ctx, &pb.EglChooseConfigRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-		Arg6:   arg6,
-		Arg7:   arg7,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EglCopyBuffers calls the EglCopyBuffers RPC.
-func (c *EGL14Client) EglCopyBuffers(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32) (bool, error) {
-	resp, err := c.svc.EglCopyBuffers(ctx, &pb.EglCopyBuffersRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EglCreateContext calls the EglCreateContext RPC.
-func (c *EGL14Client) EglCreateContext(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64, arg4 int32) (int64, error) {
-	resp, err := c.svc.EglCreateContext(ctx, &pb.EglCreateContextRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EglCreatePbufferFromClientBuffer calls the EglCreatePbufferFromClientBuffer RPC.
-func (c *EGL14Client) EglCreatePbufferFromClientBuffer(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int64, arg4 int64, arg5 int32) (int64, error) {
-	resp, err := c.svc.EglCreatePbufferFromClientBuffer(ctx, &pb.EglCreatePbufferFromClientBufferRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EglCreatePbufferSurface calls the EglCreatePbufferSurface RPC.
-func (c *EGL14Client) EglCreatePbufferSurface(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int32) (int64, error) {
-	resp, err := c.svc.EglCreatePbufferSurface(ctx, &pb.EglCreatePbufferSurfaceRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EglCreatePixmapSurface calls the EglCreatePixmapSurface RPC.
-func (c *EGL14Client) EglCreatePixmapSurface(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int64, arg4 int32) (int64, error) {
-	resp, err := c.svc.EglCreatePixmapSurface(ctx, &pb.EglCreatePixmapSurfaceRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EglCreateWindowSurface calls the EglCreateWindowSurface RPC.
-func (c *EGL14Client) EglCreateWindowSurface(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64, arg4 int32) (int64, error) {
-	resp, err := c.svc.EglCreateWindowSurface(ctx, &pb.EglCreateWindowSurfaceRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EglDestroyContext calls the EglDestroyContext RPC.
-func (c *EGL14Client) EglDestroyContext(ctx context.Context, handle int64, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.EglDestroyContext(ctx, &pb.EglDestroyContextRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EglDestroySurface calls the EglDestroySurface RPC.
-func (c *EGL14Client) EglDestroySurface(ctx context.Context, handle int64, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.EglDestroySurface(ctx, &pb.EglDestroySurfaceRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EglGetConfigAttrib calls the EglGetConfigAttrib RPC.
-func (c *EGL14Client) EglGetConfigAttrib(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int64, arg4 int32) (bool, error) {
-	resp, err := c.svc.EglGetConfigAttrib(ctx, &pb.EglGetConfigAttribRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EglGetConfigs calls the EglGetConfigs RPC.
-func (c *EGL14Client) EglGetConfigs(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int32, arg4 int64, arg5 int32) (bool, error) {
-	resp, err := c.svc.EglGetConfigs(ctx, &pb.EglGetConfigsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EglGetCurrentContext calls the EglGetCurrentContext RPC.
-func (c *EGL14Client) EglGetCurrentContext(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.EglGetCurrentContext(ctx, &pb.EglGetCurrentContextRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EglGetCurrentDisplay calls the EglGetCurrentDisplay RPC.
-func (c *EGL14Client) EglGetCurrentDisplay(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.EglGetCurrentDisplay(ctx, &pb.EglGetCurrentDisplayRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EglGetCurrentSurface calls the EglGetCurrentSurface RPC.
-func (c *EGL14Client) EglGetCurrentSurface(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.EglGetCurrentSurface(ctx, &pb.EglGetCurrentSurfaceRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EglGetDisplay calls the EglGetDisplay RPC.
-func (c *EGL14Client) EglGetDisplay(ctx context.Context, handle int64, arg0 int32) (int64, error) {
-	resp, err := c.svc.EglGetDisplay(ctx, &pb.EglGetDisplayRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EglGetError calls the EglGetError RPC.
-func (c *EGL14Client) EglGetError(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.EglGetError(ctx, &pb.EglGetErrorRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EglInitialize calls the EglInitialize RPC.
-func (c *EGL14Client) EglInitialize(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int64, arg4 int32) (bool, error) {
-	resp, err := c.svc.EglInitialize(ctx, &pb.EglInitializeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EglMakeCurrent calls the EglMakeCurrent RPC.
-func (c *EGL14Client) EglMakeCurrent(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64) (bool, error) {
-	resp, err := c.svc.EglMakeCurrent(ctx, &pb.EglMakeCurrentRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EglQueryAPI calls the EglQueryAPI RPC.
-func (c *EGL14Client) EglQueryAPI(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.EglQueryAPI(ctx, &pb.EglQueryAPIRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EglQueryContext calls the EglQueryContext RPC.
-func (c *EGL14Client) EglQueryContext(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int64, arg4 int32) (bool, error) {
-	resp, err := c.svc.EglQueryContext(ctx, &pb.EglQueryContextRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EglQueryString calls the EglQueryString RPC.
-func (c *EGL14Client) EglQueryString(ctx context.Context, handle int64, arg0 int64, arg1 int32) (string, error) {
-	resp, err := c.svc.EglQueryString(ctx, &pb.EglQueryStringRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// EglQuerySurface calls the EglQuerySurface RPC.
-func (c *EGL14Client) EglQuerySurface(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int64, arg4 int32) (bool, error) {
-	resp, err := c.svc.EglQuerySurface(ctx, &pb.EglQuerySurfaceRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EglReleaseTexImage calls the EglReleaseTexImage RPC.
-func (c *EGL14Client) EglReleaseTexImage(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32) (bool, error) {
-	resp, err := c.svc.EglReleaseTexImage(ctx, &pb.EglReleaseTexImageRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EglReleaseThread calls the EglReleaseThread RPC.
-func (c *EGL14Client) EglReleaseThread(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.EglReleaseThread(ctx, &pb.EglReleaseThreadRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EglSurfaceAttrib calls the EglSurfaceAttrib RPC.
-func (c *EGL14Client) EglSurfaceAttrib(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int32) (bool, error) {
-	resp, err := c.svc.EglSurfaceAttrib(ctx, &pb.EglSurfaceAttribRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EglSwapBuffers calls the EglSwapBuffers RPC.
-func (c *EGL14Client) EglSwapBuffers(ctx context.Context, handle int64, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.EglSwapBuffers(ctx, &pb.EglSwapBuffersRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EglSwapInterval calls the EglSwapInterval RPC.
-func (c *EGL14Client) EglSwapInterval(ctx context.Context, handle int64, arg0 int64, arg1 int32) (bool, error) {
-	resp, err := c.svc.EglSwapInterval(ctx, &pb.EglSwapIntervalRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EglTerminate calls the EglTerminate RPC.
-func (c *EGL14Client) EglTerminate(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.EglTerminate(ctx, &pb.EglTerminateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EglWaitClient calls the EglWaitClient RPC.
-func (c *EGL14Client) EglWaitClient(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.EglWaitClient(ctx, &pb.EglWaitClientRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EglWaitGL calls the EglWaitGL RPC.
-func (c *EGL14Client) EglWaitGL(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.EglWaitGL(ctx, &pb.EglWaitGLRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EglWaitNative calls the EglWaitNative RPC.
-func (c *EGL14Client) EglWaitNative(ctx context.Context, handle int64, arg0 int32) (bool, error) {
-	resp, err := c.svc.EglWaitNative(ctx, &pb.EglWaitNativeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ETC1Client wraps the gRPC ETC1Service client.
-type ETC1Client struct {
-	svc pb.ETC1ServiceClient
-}
-
-// NewETC1Client creates a new ETC1 client.
-func NewETC1Client(cc grpc.ClientConnInterface) *ETC1Client {
-	return &ETC1Client{
-		svc: pb.NewETC1ServiceClient(cc),
-	}
-}
-
-// DecodeBlock calls the DecodeBlock RPC.
-func (c *ETC1Client) DecodeBlock(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.DecodeBlock(ctx, &pb.DecodeBlockRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// DecodeImage calls the DecodeImage RPC.
-func (c *ETC1Client) DecodeImage(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int32, arg4 int32, arg5 int32) error {
-	_, err := c.svc.DecodeImage(ctx, &pb.DecodeImageRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	return err
-}
-
-// EncodeBlock calls the EncodeBlock RPC.
-func (c *ETC1Client) EncodeBlock(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64) error {
-	_, err := c.svc.EncodeBlock(ctx, &pb.EncodeBlockRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// EncodeImage calls the EncodeImage RPC.
-func (c *ETC1Client) EncodeImage(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int64) error {
-	_, err := c.svc.EncodeImage(ctx, &pb.EncodeImageRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	return err
-}
-
-// FormatHeader calls the FormatHeader RPC.
-func (c *ETC1Client) FormatHeader(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int32) error {
-	_, err := c.svc.FormatHeader(ctx, &pb.FormatHeaderRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// GetEncodedDataSize calls the GetEncodedDataSize RPC.
-func (c *ETC1Client) GetEncodedDataSize(ctx context.Context, handle int64, arg0 int32, arg1 int32) (int32, error) {
-	resp, err := c.svc.GetEncodedDataSize(ctx, &pb.GetEncodedDataSizeRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetHeight calls the GetHeight RPC.
-func (c *ETC1Client) GetHeight(ctx context.Context, handle int64, arg0 int64) (int32, error) {
-	resp, err := c.svc.GetHeight(ctx, &pb.ETC1GetHeightRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWidth calls the GetWidth RPC.
-func (c *ETC1Client) GetWidth(ctx context.Context, handle int64, arg0 int64) (int32, error) {
-	resp, err := c.svc.GetWidth(ctx, &pb.ETC1GetWidthRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsValid calls the IsValid RPC.
-func (c *ETC1Client) IsValid(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.IsValid(ctx, &pb.IsValidRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EGLDisplayClient wraps the gRPC EGLDisplayService client.
-type EGLDisplayClient struct {
-	svc pb.EGLDisplayServiceClient
-}
-
-// NewEGLDisplayClient creates a new EGLDisplay client.
-func NewEGLDisplayClient(cc grpc.ClientConnInterface) *EGLDisplayClient {
-	return &EGLDisplayClient{
-		svc: pb.NewEGLDisplayServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *EGLDisplayClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// EGLConfigClient wraps the gRPC EGLConfigService client.
-type EGLConfigClient struct {
-	svc pb.EGLConfigServiceClient
-}
-
-// NewEGLConfigClient creates a new EGLConfig client.
-func NewEGLConfigClient(cc grpc.ClientConnInterface) *EGLConfigClient {
-	return &EGLConfigClient{
-		svc: pb.NewEGLConfigServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *EGLConfigClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
 	})
 	if err != nil {
 		return false, err

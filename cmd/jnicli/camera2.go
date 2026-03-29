@@ -12,262 +12,23 @@ var camera2Cmd = &cobra.Command{
 	Short: "camera2 service operations",
 }
 
-var camera2CameraExtensionCharacteristicsCmd = &cobra.Command{
-	Use:   "camera-extension-characteristics",
-	Short: "CameraExtensionCharacteristicsService operations",
+var camera2CameraConstrainedHighSpeedCaptureSessionCmd = &cobra.Command{
+	Use:   "camera-constrained-high-speed-capture-session",
+	Short: "CameraConstrainedHighSpeedCaptureSessionService operations",
 }
 
-var camera2CameraExtensionCharacteristicsIsCaptureProcessProgressAvailableCmd = &cobra.Command{
-	Use:   "is-capture-process-progress-available",
-	Short: "IsCaptureProcessProgressAvailable RPC",
+var camera2CameraConstrainedHighSpeedCaptureSessionCreateHighSpeedRequestListCmd = &cobra.Command{
+	Use:   "create-high-speed-request-list",
+	Short: "CreateHighSpeedRequestList RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCameraExtensionCharacteristicsServiceClient(grpcConn)
-		req := &pb.IsCaptureProcessProgressAvailableRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsCaptureProcessProgressAvailable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraExtensionCharacteristicsIsPostviewAvailableCmd = &cobra.Command{
-	Use:   "is-postview-available",
-	Short: "IsPostviewAvailable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraExtensionCharacteristicsServiceClient(grpcConn)
-		req := &pb.IsPostviewAvailableRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.IsPostviewAvailable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraOfflineSessionCmd = &cobra.Command{
-	Use:   "camera-offline-session",
-	Short: "CameraOfflineSessionService operations",
-}
-
-var camera2CameraOfflineSessionCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraOfflineSessionServiceClient(grpcConn)
-		req := &pb.CloseRequest{}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraOfflineSessionCameraOfflineSessionCallbackCmd = &cobra.Command{
-	Use:   "camera-offline-session-camera-offline-session-callback",
-	Short: "CameraOfflineSessionCameraOfflineSessionCallbackService operations",
-}
-
-var camera2CameraOfflineSessionCameraOfflineSessionCallbackOnClosedCmd = &cobra.Command{
-	Use:   "on-closed",
-	Short: "OnClosed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraOfflineSessionCameraOfflineSessionCallbackServiceClient(grpcConn)
-		req := &pb.OnClosedRequest{}
+		client := pb.NewCameraConstrainedHighSpeedCaptureSessionServiceClient(grpcConn)
+		req := &pb.CreateHighSpeedRequestListRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.OnClosed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraOfflineSessionCameraOfflineSessionCallbackOnErrorCmd = &cobra.Command{
-	Use:   "on-error",
-	Short: "OnError RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraOfflineSessionCameraOfflineSessionCallbackServiceClient(grpcConn)
-		req := &pb.OnErrorRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnError(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraOfflineSessionCameraOfflineSessionCallbackOnIdleCmd = &cobra.Command{
-	Use:   "on-idle",
-	Short: "OnIdle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraOfflineSessionCameraOfflineSessionCallbackServiceClient(grpcConn)
-		req := &pb.OnIdleRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnIdle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraOfflineSessionCameraOfflineSessionCallbackOnReadyCmd = &cobra.Command{
-	Use:   "on-ready",
-	Short: "OnReady RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraOfflineSessionCameraOfflineSessionCallbackServiceClient(grpcConn)
-		req := &pb.OnReadyRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnReady(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraOfflineSessionCameraOfflineSessionCallbackOnSwitchFailedCmd = &cobra.Command{
-	Use:   "on-switch-failed",
-	Short: "OnSwitchFailed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraOfflineSessionCameraOfflineSessionCallbackServiceClient(grpcConn)
-		req := &pb.OnSwitchFailedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnSwitchFailed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraCharacteristicsCmd = &cobra.Command{
-	Use:   "camera-characteristics",
-	Short: "CameraCharacteristicsService operations",
-}
-
-var camera2CameraCharacteristicsGetRecommendedStreamConfigurationMapCmd = &cobra.Command{
-	Use:   "get-recommended-stream-configuration-map",
-	Short: "GetRecommendedStreamConfigurationMap RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraCharacteristicsServiceClient(grpcConn)
-		req := &pb.GetRecommendedStreamConfigurationMapRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetRecommendedStreamConfigurationMap(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraCharacteristicsKeyCmd = &cobra.Command{
-	Use:   "camera-characteristics-key",
-	Short: "CameraCharacteristicsKeyService operations",
-}
-
-var camera2CameraCharacteristicsKeyEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraCharacteristicsKeyServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraCharacteristicsKeyGetNameCmd = &cobra.Command{
-	Use:   "get-name",
-	Short: "GetName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraCharacteristicsKeyServiceClient(grpcConn)
-		req := &pb.GetNameRequest{}
-		resp, err := client.GetName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraCharacteristicsKeyHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraCharacteristicsKeyServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraCharacteristicsKeyToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraCharacteristicsKeyServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
+		resp, err := client.CreateHighSpeedRequestList(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -305,6 +66,22 @@ var camera2CaptureResultGetFrameNumberCmd = &cobra.Command{
 		client := pb.NewCaptureResultServiceClient(grpcConn)
 		req := &pb.GetFrameNumberRequest{}
 		resp, err := client.GetFrameNumber(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CaptureResultGetKeysCmd = &cobra.Command{
+	Use:   "get-keys",
+	Short: "GetKeys RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCaptureResultServiceClient(grpcConn)
+		req := &pb.GetKeysRequest{}
+		resp, err := client.GetKeys(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -416,696 +193,20 @@ var camera2CaptureResultKeyToStringCmd = &cobra.Command{
 	},
 }
 
-var camera2CaptureFailureCmd = &cobra.Command{
-	Use:   "capture-failure",
-	Short: "CaptureFailureService operations",
+var camera2CameraMetadataCmd = &cobra.Command{
+	Use:   "camera-metadata",
+	Short: "CameraMetadataService operations",
 }
 
-var camera2CaptureFailureGetFrameNumberCmd = &cobra.Command{
-	Use:   "get-frame-number",
-	Short: "GetFrameNumber RPC",
+var camera2CameraMetadataGetKeysCmd = &cobra.Command{
+	Use:   "get-keys",
+	Short: "GetKeys RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCaptureFailureServiceClient(grpcConn)
-		req := &pb.GetFrameNumberRequest{}
-		resp, err := client.GetFrameNumber(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CaptureFailureGetPhysicalCameraIdCmd = &cobra.Command{
-	Use:   "get-physical-camera-id",
-	Short: "GetPhysicalCameraId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCaptureFailureServiceClient(grpcConn)
-		req := &pb.GetPhysicalCameraIdRequest{}
-		resp, err := client.GetPhysicalCameraId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CaptureFailureGetReasonCmd = &cobra.Command{
-	Use:   "get-reason",
-	Short: "GetReason RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCaptureFailureServiceClient(grpcConn)
-		req := &pb.GetReasonRequest{}
-		resp, err := client.GetReason(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CaptureFailureGetRequestCmd = &cobra.Command{
-	Use:   "get-request",
-	Short: "GetRequest RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCaptureFailureServiceClient(grpcConn)
-		req := &pb.GetRequestRequest{}
-		resp, err := client.GetRequest(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CaptureFailureGetSequenceIdCmd = &cobra.Command{
-	Use:   "get-sequence-id",
-	Short: "GetSequenceId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCaptureFailureServiceClient(grpcConn)
-		req := &pb.GetSequenceIdRequest{}
-		resp, err := client.GetSequenceId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CaptureFailureWasImageCapturedCmd = &cobra.Command{
-	Use:   "was-image-captured",
-	Short: "WasImageCaptured RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCaptureFailureServiceClient(grpcConn)
-		req := &pb.WasImageCapturedRequest{}
-		resp, err := client.WasImageCaptured(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraExtensionSessionCmd = &cobra.Command{
-	Use:   "camera-extension-session",
-	Short: "CameraExtensionSessionService operations",
-}
-
-var camera2CameraExtensionSessionCaptureCmd = &cobra.Command{
-	Use:   "capture",
-	Short: "Capture RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraExtensionSessionServiceClient(grpcConn)
-		req := &pb.CaptureRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.Capture(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraExtensionSessionCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraExtensionSessionServiceClient(grpcConn)
-		req := &pb.CloseRequest{}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraExtensionSessionGetDeviceCmd = &cobra.Command{
-	Use:   "get-device",
-	Short: "GetDevice RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraExtensionSessionServiceClient(grpcConn)
-		req := &pb.GetDeviceRequest{}
-		resp, err := client.GetDevice(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraExtensionSessionGetRealtimeStillCaptureLatencyCmd = &cobra.Command{
-	Use:   "get-realtime-still-capture-latency",
-	Short: "GetRealtimeStillCaptureLatency RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraExtensionSessionServiceClient(grpcConn)
-		req := &pb.GetRealtimeStillCaptureLatencyRequest{}
-		resp, err := client.GetRealtimeStillCaptureLatency(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraExtensionSessionSetRepeatingRequestCmd = &cobra.Command{
-	Use:   "set-repeating-request",
-	Short: "SetRepeatingRequest RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraExtensionSessionServiceClient(grpcConn)
-		req := &pb.SetRepeatingRequestRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.SetRepeatingRequest(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraExtensionSessionStopRepeatingCmd = &cobra.Command{
-	Use:   "stop-repeating",
-	Short: "StopRepeating RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraExtensionSessionServiceClient(grpcConn)
-		req := &pb.StopRepeatingRequest{}
-		resp, err := client.StopRepeating(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraExtensionSessionExtensionCaptureCallbackCmd = &cobra.Command{
-	Use:   "camera-extension-session-extension-capture-callback",
-	Short: "CameraExtensionSessionExtensionCaptureCallbackService operations",
-}
-
-var camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureFailed2Cmd = &cobra.Command{
-	Use:   "on-capture-failed2",
-	Short: "OnCaptureFailed2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraExtensionSessionExtensionCaptureCallbackServiceClient(grpcConn)
-		req := &pb.OnCaptureFailed2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnCaptureFailed2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureFailed3_1Cmd = &cobra.Command{
-	Use:   "on-capture-failed3_1",
-	Short: "OnCaptureFailed3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraExtensionSessionExtensionCaptureCallbackServiceClient(grpcConn)
-		req := &pb.OnCaptureFailed3_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnCaptureFailed3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureProcessProgressedCmd = &cobra.Command{
-	Use:   "on-capture-process-progressed",
-	Short: "OnCaptureProcessProgressed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraExtensionSessionExtensionCaptureCallbackServiceClient(grpcConn)
-		req := &pb.OnCaptureProcessProgressedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnCaptureProcessProgressed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureProcessStartedCmd = &cobra.Command{
-	Use:   "on-capture-process-started",
-	Short: "OnCaptureProcessStarted RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraExtensionSessionExtensionCaptureCallbackServiceClient(grpcConn)
-		req := &pb.OnCaptureProcessStartedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnCaptureProcessStarted(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureResultAvailableCmd = &cobra.Command{
-	Use:   "on-capture-result-available",
-	Short: "OnCaptureResultAvailable RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraExtensionSessionExtensionCaptureCallbackServiceClient(grpcConn)
-		req := &pb.OnCaptureResultAvailableRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnCaptureResultAvailable(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceAbortedCmd = &cobra.Command{
-	Use:   "on-capture-sequence-aborted",
-	Short: "OnCaptureSequenceAborted RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraExtensionSessionExtensionCaptureCallbackServiceClient(grpcConn)
-		req := &pb.OnCaptureSequenceAbortedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnCaptureSequenceAborted(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceCompletedCmd = &cobra.Command{
-	Use:   "on-capture-sequence-completed",
-	Short: "OnCaptureSequenceCompleted RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraExtensionSessionExtensionCaptureCallbackServiceClient(grpcConn)
-		req := &pb.OnCaptureSequenceCompletedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnCaptureSequenceCompleted(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedCmd = &cobra.Command{
-	Use:   "on-capture-started",
-	Short: "OnCaptureStarted RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraExtensionSessionExtensionCaptureCallbackServiceClient(grpcConn)
-		req := &pb.OnCaptureStartedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnCaptureStarted(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraExtensionSessionStateCallbackCmd = &cobra.Command{
-	Use:   "camera-extension-session-state-callback",
-	Short: "CameraExtensionSessionStateCallbackService operations",
-}
-
-var camera2CameraExtensionSessionStateCallbackOnClosedCmd = &cobra.Command{
-	Use:   "on-closed",
-	Short: "OnClosed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraExtensionSessionStateCallbackServiceClient(grpcConn)
-		req := &pb.OnClosedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnClosed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraExtensionSessionStateCallbackOnConfigureFailedCmd = &cobra.Command{
-	Use:   "on-configure-failed",
-	Short: "OnConfigureFailed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraExtensionSessionStateCallbackServiceClient(grpcConn)
-		req := &pb.OnConfigureFailedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnConfigureFailed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraExtensionSessionStateCallbackOnConfiguredCmd = &cobra.Command{
-	Use:   "on-configured",
-	Short: "OnConfigured RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraExtensionSessionStateCallbackServiceClient(grpcConn)
-		req := &pb.OnConfiguredRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnConfigured(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraExtensionSessionStillCaptureLatencyCmd = &cobra.Command{
-	Use:   "camera-extension-session-still-capture-latency",
-	Short: "CameraExtensionSessionStillCaptureLatencyService operations",
-}
-
-var camera2CameraExtensionSessionStillCaptureLatencyEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraExtensionSessionStillCaptureLatencyServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraExtensionSessionStillCaptureLatencyGetCaptureLatencyCmd = &cobra.Command{
-	Use:   "get-capture-latency",
-	Short: "GetCaptureLatency RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraExtensionSessionStillCaptureLatencyServiceClient(grpcConn)
-		req := &pb.GetCaptureLatencyRequest{}
-		resp, err := client.GetCaptureLatency(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraExtensionSessionStillCaptureLatencyGetProcessingLatencyCmd = &cobra.Command{
-	Use:   "get-processing-latency",
-	Short: "GetProcessingLatency RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraExtensionSessionStillCaptureLatencyServiceClient(grpcConn)
-		req := &pb.GetProcessingLatencyRequest{}
-		resp, err := client.GetProcessingLatency(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraExtensionSessionStillCaptureLatencyHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraExtensionSessionStillCaptureLatencyServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2CameraExtensionSessionStillCaptureLatencyToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCameraExtensionSessionStillCaptureLatencyServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2MultiResolutionImageReaderCmd = &cobra.Command{
-	Use:   "multi-resolution-image-reader",
-	Short: "MultiResolutionImageReaderService operations",
-}
-
-var camera2MultiResolutionImageReaderNewMultiResolutionImageReaderCmd = &cobra.Command{
-	Use:   "new-multi-resolution-image-reader",
-	Short: "NewMultiResolutionImageReader RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMultiResolutionImageReaderServiceClient(grpcConn)
-		req := &pb.NewMultiResolutionImageReaderRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.NewMultiResolutionImageReader(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2MultiResolutionImageReaderCloseCmd = &cobra.Command{
-	Use:   "close",
-	Short: "Close RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMultiResolutionImageReaderServiceClient(grpcConn)
-		req := &pb.MultiResolutionImageReaderCloseRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Close(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2MultiResolutionImageReaderFlushCmd = &cobra.Command{
-	Use:   "flush",
-	Short: "Flush RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMultiResolutionImageReaderServiceClient(grpcConn)
-		req := &pb.FlushRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.Flush(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2MultiResolutionImageReaderGetStreamInfoForImageReaderCmd = &cobra.Command{
-	Use:   "get-stream-info-for-image-reader",
-	Short: "GetStreamInfoForImageReader RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMultiResolutionImageReaderServiceClient(grpcConn)
-		req := &pb.GetStreamInfoForImageReaderRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetStreamInfoForImageReader(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2MultiResolutionImageReaderGetSurfaceCmd = &cobra.Command{
-	Use:   "get-surface",
-	Short: "GetSurface RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMultiResolutionImageReaderServiceClient(grpcConn)
-		req := &pb.GetSurfaceRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSurface(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2MultiResolutionImageReaderSetOnImageAvailableListenerCmd = &cobra.Command{
-	Use:   "set-on-image-available-listener",
-	Short: "SetOnImageAvailableListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMultiResolutionImageReaderServiceClient(grpcConn)
-		req := &pb.SetOnImageAvailableListenerRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetOnImageAvailableListener(ctx, req)
+		client := pb.NewCameraMetadataServiceClient(grpcConn)
+		req := &pb.GetKeysRequest{}
+		resp, err := client.GetKeys(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1458,7 +559,7 @@ var camera2CameraCaptureSessionCaptureCallbackOnCaptureSequenceCompletedCmd = &c
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewCameraCaptureSessionCaptureCallbackServiceClient(grpcConn)
-		req := &pb.CameraCaptureSessionCaptureCallbackOnCaptureSequenceCompletedRequest{}
+		req := &pb.OnCaptureSequenceCompletedRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -1483,7 +584,7 @@ var camera2CameraCaptureSessionCaptureCallbackOnCaptureStartedCmd = &cobra.Comma
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewCameraCaptureSessionCaptureCallbackServiceClient(grpcConn)
-		req := &pb.CameraCaptureSessionCaptureCallbackOnCaptureStartedRequest{}
+		req := &pb.OnCaptureStartedRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -1666,6 +767,128 @@ var camera2CameraCaptureSessionStateCallbackOnSurfacePreparedCmd = &cobra.Comman
 			req.Arg1 = v
 		}
 		resp, err := client.OnSurfacePrepared(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CaptureFailureCmd = &cobra.Command{
+	Use:   "capture-failure",
+	Short: "CaptureFailureService operations",
+}
+
+var camera2CaptureFailureGetFrameNumberCmd = &cobra.Command{
+	Use:   "get-frame-number",
+	Short: "GetFrameNumber RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCaptureFailureServiceClient(grpcConn)
+		req := &pb.GetFrameNumberRequest{}
+		resp, err := client.GetFrameNumber(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CaptureFailureGetPhysicalCameraIdCmd = &cobra.Command{
+	Use:   "get-physical-camera-id",
+	Short: "GetPhysicalCameraId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCaptureFailureServiceClient(grpcConn)
+		req := &pb.GetPhysicalCameraIdRequest{}
+		resp, err := client.GetPhysicalCameraId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CaptureFailureGetReasonCmd = &cobra.Command{
+	Use:   "get-reason",
+	Short: "GetReason RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCaptureFailureServiceClient(grpcConn)
+		req := &pb.GetReasonRequest{}
+		resp, err := client.GetReason(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CaptureFailureGetRequestCmd = &cobra.Command{
+	Use:   "get-request",
+	Short: "GetRequest RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCaptureFailureServiceClient(grpcConn)
+		req := &pb.GetRequestRequest{}
+		resp, err := client.GetRequest(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CaptureFailureGetSequenceIdCmd = &cobra.Command{
+	Use:   "get-sequence-id",
+	Short: "GetSequenceId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCaptureFailureServiceClient(grpcConn)
+		req := &pb.GetSequenceIdRequest{}
+		resp, err := client.GetSequenceId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CaptureFailureWasImageCapturedCmd = &cobra.Command{
+	Use:   "was-image-captured",
+	Short: "WasImageCaptured RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCaptureFailureServiceClient(grpcConn)
+		req := &pb.WasImageCapturedRequest{}
+		resp, err := client.WasImageCaptured(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2TotalCaptureResultCmd = &cobra.Command{
+	Use:   "total-capture-result",
+	Short: "TotalCaptureResultService operations",
+}
+
+var camera2TotalCaptureResultGetPartialResultsCmd = &cobra.Command{
+	Use:   "get-partial-results",
+	Short: "GetPartialResults RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTotalCaptureResultServiceClient(grpcConn)
+		req := &pb.GetPartialResultsRequest{}
+		resp, err := client.GetPartialResults(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2024,6 +1247,609 @@ var camera2CameraDeviceStateCallbackOnOpenedCmd = &cobra.Command{
 	},
 }
 
+var camera2CameraAccessExceptionCmd = &cobra.Command{
+	Use:   "camera-access-exception",
+	Short: "CameraAccessExceptionService operations",
+}
+
+var camera2CameraAccessExceptionNewCameraAccessExceptionCmd = &cobra.Command{
+	Use:   "new-camera-access-exception",
+	Short: "NewCameraAccessException RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraAccessExceptionServiceClient(grpcConn)
+		req := &pb.NewCameraAccessExceptionRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewCameraAccessException(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraAccessExceptionGetReasonCmd = &cobra.Command{
+	Use:   "get-reason",
+	Short: "GetReason RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraAccessExceptionServiceClient(grpcConn)
+		req := &pb.CameraAccessExceptionGetReasonRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetReason(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraOfflineSessionCmd = &cobra.Command{
+	Use:   "camera-offline-session",
+	Short: "CameraOfflineSessionService operations",
+}
+
+var camera2CameraOfflineSessionCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraOfflineSessionServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraOfflineSessionCameraOfflineSessionCallbackCmd = &cobra.Command{
+	Use:   "camera-offline-session-camera-offline-session-callback",
+	Short: "CameraOfflineSessionCameraOfflineSessionCallbackService operations",
+}
+
+var camera2CameraOfflineSessionCameraOfflineSessionCallbackOnClosedCmd = &cobra.Command{
+	Use:   "on-closed",
+	Short: "OnClosed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraOfflineSessionCameraOfflineSessionCallbackServiceClient(grpcConn)
+		req := &pb.OnClosedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnClosed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraOfflineSessionCameraOfflineSessionCallbackOnErrorCmd = &cobra.Command{
+	Use:   "on-error",
+	Short: "OnError RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraOfflineSessionCameraOfflineSessionCallbackServiceClient(grpcConn)
+		req := &pb.OnErrorRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnError(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraOfflineSessionCameraOfflineSessionCallbackOnIdleCmd = &cobra.Command{
+	Use:   "on-idle",
+	Short: "OnIdle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraOfflineSessionCameraOfflineSessionCallbackServiceClient(grpcConn)
+		req := &pb.OnIdleRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnIdle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraOfflineSessionCameraOfflineSessionCallbackOnReadyCmd = &cobra.Command{
+	Use:   "on-ready",
+	Short: "OnReady RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraOfflineSessionCameraOfflineSessionCallbackServiceClient(grpcConn)
+		req := &pb.OnReadyRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnReady(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraOfflineSessionCameraOfflineSessionCallbackOnSwitchFailedCmd = &cobra.Command{
+	Use:   "on-switch-failed",
+	Short: "OnSwitchFailed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraOfflineSessionCameraOfflineSessionCallbackServiceClient(grpcConn)
+		req := &pb.OnSwitchFailedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnSwitchFailed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraCharacteristicsCmd = &cobra.Command{
+	Use:   "camera-characteristics",
+	Short: "CameraCharacteristicsService operations",
+}
+
+var camera2CameraCharacteristicsGetAvailableCaptureRequestKeysCmd = &cobra.Command{
+	Use:   "get-available-capture-request-keys",
+	Short: "GetAvailableCaptureRequestKeys RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraCharacteristicsServiceClient(grpcConn)
+		req := &pb.GetAvailableCaptureRequestKeysRequest{}
+		resp, err := client.GetAvailableCaptureRequestKeys(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraCharacteristicsGetAvailableCaptureResultKeysCmd = &cobra.Command{
+	Use:   "get-available-capture-result-keys",
+	Short: "GetAvailableCaptureResultKeys RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraCharacteristicsServiceClient(grpcConn)
+		req := &pb.GetAvailableCaptureResultKeysRequest{}
+		resp, err := client.GetAvailableCaptureResultKeys(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraCharacteristicsGetAvailablePhysicalCameraRequestKeysCmd = &cobra.Command{
+	Use:   "get-available-physical-camera-request-keys",
+	Short: "GetAvailablePhysicalCameraRequestKeys RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraCharacteristicsServiceClient(grpcConn)
+		req := &pb.GetAvailablePhysicalCameraRequestKeysRequest{}
+		resp, err := client.GetAvailablePhysicalCameraRequestKeys(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraCharacteristicsGetAvailableSessionCharacteristicsKeysCmd = &cobra.Command{
+	Use:   "get-available-session-characteristics-keys",
+	Short: "GetAvailableSessionCharacteristicsKeys RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraCharacteristicsServiceClient(grpcConn)
+		req := &pb.GetAvailableSessionCharacteristicsKeysRequest{}
+		resp, err := client.GetAvailableSessionCharacteristicsKeys(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraCharacteristicsGetAvailableSessionKeysCmd = &cobra.Command{
+	Use:   "get-available-session-keys",
+	Short: "GetAvailableSessionKeys RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraCharacteristicsServiceClient(grpcConn)
+		req := &pb.GetAvailableSessionKeysRequest{}
+		resp, err := client.GetAvailableSessionKeys(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraCharacteristicsGetKeysCmd = &cobra.Command{
+	Use:   "get-keys",
+	Short: "GetKeys RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraCharacteristicsServiceClient(grpcConn)
+		req := &pb.GetKeysRequest{}
+		resp, err := client.GetKeys(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraCharacteristicsGetKeysNeedingPermissionCmd = &cobra.Command{
+	Use:   "get-keys-needing-permission",
+	Short: "GetKeysNeedingPermission RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraCharacteristicsServiceClient(grpcConn)
+		req := &pb.GetKeysNeedingPermissionRequest{}
+		resp, err := client.GetKeysNeedingPermission(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraCharacteristicsGetPhysicalCameraIdsCmd = &cobra.Command{
+	Use:   "get-physical-camera-ids",
+	Short: "GetPhysicalCameraIds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraCharacteristicsServiceClient(grpcConn)
+		req := &pb.GetPhysicalCameraIdsRequest{}
+		resp, err := client.GetPhysicalCameraIds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraCharacteristicsGetRecommendedStreamConfigurationMapCmd = &cobra.Command{
+	Use:   "get-recommended-stream-configuration-map",
+	Short: "GetRecommendedStreamConfigurationMap RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraCharacteristicsServiceClient(grpcConn)
+		req := &pb.GetRecommendedStreamConfigurationMapRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetRecommendedStreamConfigurationMap(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraCharacteristicsKeyCmd = &cobra.Command{
+	Use:   "camera-characteristics-key",
+	Short: "CameraCharacteristicsKeyService operations",
+}
+
+var camera2CameraCharacteristicsKeyEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraCharacteristicsKeyServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraCharacteristicsKeyGetNameCmd = &cobra.Command{
+	Use:   "get-name",
+	Short: "GetName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraCharacteristicsKeyServiceClient(grpcConn)
+		req := &pb.GetNameRequest{}
+		resp, err := client.GetName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraCharacteristicsKeyHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraCharacteristicsKeyServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraCharacteristicsKeyToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraCharacteristicsKeyServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2DngCreatorCmd = &cobra.Command{
+	Use:   "dng-creator",
+	Short: "DngCreatorService operations",
+}
+
+var camera2DngCreatorNewDngCreatorCmd = &cobra.Command{
+	Use:   "new-dng-creator",
+	Short: "NewDngCreator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDngCreatorServiceClient(grpcConn)
+		req := &pb.NewDngCreatorRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewDngCreator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2DngCreatorCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDngCreatorServiceClient(grpcConn)
+		req := &pb.DngCreatorCloseRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2DngCreatorSetDescriptionCmd = &cobra.Command{
+	Use:   "set-description",
+	Short: "SetDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDngCreatorServiceClient(grpcConn)
+		req := &pb.SetDescriptionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2DngCreatorSetLocationCmd = &cobra.Command{
+	Use:   "set-location",
+	Short: "SetLocation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDngCreatorServiceClient(grpcConn)
+		req := &pb.SetLocationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLocation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2DngCreatorSetOrientationCmd = &cobra.Command{
+	Use:   "set-orientation",
+	Short: "SetOrientation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDngCreatorServiceClient(grpcConn)
+		req := &pb.SetOrientationRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetOrientation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2DngCreatorSetThumbnail1Cmd = &cobra.Command{
+	Use:   "set-thumbnail1",
+	Short: "SetThumbnail1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDngCreatorServiceClient(grpcConn)
+		req := &pb.SetThumbnail1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetThumbnail1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2DngCreatorSetThumbnail1_1Cmd = &cobra.Command{
+	Use:   "set-thumbnail1_1",
+	Short: "SetThumbnail1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDngCreatorServiceClient(grpcConn)
+		req := &pb.SetThumbnail1_1Request{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetThumbnail1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2DngCreatorWriteImageCmd = &cobra.Command{
+	Use:   "write-image",
+	Short: "WriteImage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDngCreatorServiceClient(grpcConn)
+		req := &pb.WriteImageRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteImage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2DngCreatorWriteInputStreamCmd = &cobra.Command{
+	Use:   "write-input-stream",
+	Short: "WriteInputStream RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDngCreatorServiceClient(grpcConn)
+		req := &pb.WriteInputStreamRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.WriteInputStream(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var camera2CaptureRequestCmd = &cobra.Command{
 	Use:   "capture-request",
 	Short: "CaptureRequestService operations",
@@ -2057,6 +1883,22 @@ var camera2CaptureRequestEqualsCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CaptureRequestGetKeysCmd = &cobra.Command{
+	Use:   "get-keys",
+	Short: "GetKeys RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCaptureRequestServiceClient(grpcConn)
+		req := &pb.GetKeysRequest{}
+		resp, err := client.GetKeys(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2284,26 +2126,29 @@ var camera2CaptureRequestKeyToStringCmd = &cobra.Command{
 	},
 }
 
-var camera2DngCreatorCmd = &cobra.Command{
-	Use:   "dng-creator",
-	Short: "DngCreatorService operations",
+var camera2MultiResolutionImageReaderCmd = &cobra.Command{
+	Use:   "multi-resolution-image-reader",
+	Short: "MultiResolutionImageReaderService operations",
 }
 
-var camera2DngCreatorNewDngCreatorCmd = &cobra.Command{
-	Use:   "new-dng-creator",
-	Short: "NewDngCreator RPC",
+var camera2MultiResolutionImageReaderNewMultiResolutionImageReaderCmd = &cobra.Command{
+	Use:   "new-multi-resolution-image-reader",
+	Short: "NewMultiResolutionImageReader RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDngCreatorServiceClient(grpcConn)
-		req := &pb.NewDngCreatorRequest{}
+		client := pb.NewMultiResolutionImageReaderServiceClient(grpcConn)
+		req := &pb.NewMultiResolutionImageReaderRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.NewDngCreator(ctx, req)
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewMultiResolutionImageReader(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2311,14 +2156,14 @@ var camera2DngCreatorNewDngCreatorCmd = &cobra.Command{
 	},
 }
 
-var camera2DngCreatorCloseCmd = &cobra.Command{
+var camera2MultiResolutionImageReaderCloseCmd = &cobra.Command{
 	Use:   "close",
 	Short: "Close RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDngCreatorServiceClient(grpcConn)
-		req := &pb.DngCreatorCloseRequest{}
+		client := pb.NewMultiResolutionImageReaderServiceClient(grpcConn)
+		req := &pb.MultiResolutionImageReaderCloseRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -2330,21 +2175,18 @@ var camera2DngCreatorCloseCmd = &cobra.Command{
 	},
 }
 
-var camera2DngCreatorSetDescriptionCmd = &cobra.Command{
-	Use:   "set-description",
-	Short: "SetDescription RPC",
+var camera2MultiResolutionImageReaderFlushCmd = &cobra.Command{
+	Use:   "flush",
+	Short: "Flush RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDngCreatorServiceClient(grpcConn)
-		req := &pb.SetDescriptionRequest{}
+		client := pb.NewMultiResolutionImageReaderServiceClient(grpcConn)
+		req := &pb.FlushRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDescription(ctx, req)
+		resp, err := client.Flush(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2352,65 +2194,21 @@ var camera2DngCreatorSetDescriptionCmd = &cobra.Command{
 	},
 }
 
-var camera2DngCreatorSetLocationCmd = &cobra.Command{
-	Use:   "set-location",
-	Short: "SetLocation RPC",
+var camera2MultiResolutionImageReaderGetStreamInfoForImageReaderCmd = &cobra.Command{
+	Use:   "get-stream-info-for-image-reader",
+	Short: "GetStreamInfoForImageReader RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDngCreatorServiceClient(grpcConn)
-		req := &pb.SetLocationRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetLocation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2DngCreatorSetOrientationCmd = &cobra.Command{
-	Use:   "set-orientation",
-	Short: "SetOrientation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDngCreatorServiceClient(grpcConn)
-		req := &pb.SetOrientationRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetOrientation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var camera2DngCreatorSetThumbnail1Cmd = &cobra.Command{
-	Use:   "set-thumbnail1",
-	Short: "SetThumbnail1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDngCreatorServiceClient(grpcConn)
-		req := &pb.SetThumbnail1Request{}
+		client := pb.NewMultiResolutionImageReaderServiceClient(grpcConn)
+		req := &pb.GetStreamInfoForImageReaderRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetThumbnail1(ctx, req)
+		resp, err := client.GetStreamInfoForImageReader(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2418,21 +2216,18 @@ var camera2DngCreatorSetThumbnail1Cmd = &cobra.Command{
 	},
 }
 
-var camera2DngCreatorSetThumbnail1_1Cmd = &cobra.Command{
-	Use:   "set-thumbnail1_1",
-	Short: "SetThumbnail1_1 RPC",
+var camera2MultiResolutionImageReaderGetSurfaceCmd = &cobra.Command{
+	Use:   "get-surface",
+	Short: "GetSurface RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDngCreatorServiceClient(grpcConn)
-		req := &pb.SetThumbnail1_1Request{}
+		client := pb.NewMultiResolutionImageReaderServiceClient(grpcConn)
+		req := &pb.GetSurfaceRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetThumbnail1_1(ctx, req)
+		resp, err := client.GetSurface(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2440,14 +2235,14 @@ var camera2DngCreatorSetThumbnail1_1Cmd = &cobra.Command{
 	},
 }
 
-var camera2DngCreatorWriteImageCmd = &cobra.Command{
-	Use:   "write-image",
-	Short: "WriteImage RPC",
+var camera2MultiResolutionImageReaderSetOnImageAvailableListenerCmd = &cobra.Command{
+	Use:   "set-on-image-available-listener",
+	Short: "SetOnImageAvailableListener RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDngCreatorServiceClient(grpcConn)
-		req := &pb.WriteImageRequest{}
+		client := pb.NewMultiResolutionImageReaderServiceClient(grpcConn)
+		req := &pb.SetOnImageAvailableListenerRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -2457,7 +2252,7 @@ var camera2DngCreatorWriteImageCmd = &cobra.Command{
 		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.WriteImage(ctx, req)
+		resp, err := client.SetOnImageAvailableListener(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2465,17 +2260,19 @@ var camera2DngCreatorWriteImageCmd = &cobra.Command{
 	},
 }
 
-var camera2DngCreatorWriteInputStreamCmd = &cobra.Command{
-	Use:   "write-input-stream",
-	Short: "WriteInputStream RPC",
+var camera2CameraExtensionSessionCmd = &cobra.Command{
+	Use:   "camera-extension-session",
+	Short: "CameraExtensionSessionService operations",
+}
+
+var camera2CameraExtensionSessionCaptureCmd = &cobra.Command{
+	Use:   "capture",
+	Short: "Capture RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDngCreatorServiceClient(grpcConn)
-		req := &pb.WriteInputStreamRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
+		client := pb.NewCameraExtensionSessionServiceClient(grpcConn)
+		req := &pb.CaptureRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -2485,10 +2282,7 @@ var camera2DngCreatorWriteInputStreamCmd = &cobra.Command{
 		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
 			req.Arg2 = v
 		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.WriteInputStream(ctx, req)
+		resp, err := client.Capture(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2496,23 +2290,455 @@ var camera2DngCreatorWriteInputStreamCmd = &cobra.Command{
 	},
 }
 
-var camera2CameraAccessExceptionCmd = &cobra.Command{
-	Use:   "camera-access-exception",
-	Short: "CameraAccessExceptionService operations",
-}
-
-var camera2CameraAccessExceptionNewCameraAccessExceptionCmd = &cobra.Command{
-	Use:   "new-camera-access-exception",
-	Short: "NewCameraAccessException RPC",
+var camera2CameraExtensionSessionCloseCmd = &cobra.Command{
+	Use:   "close",
+	Short: "Close RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCameraAccessExceptionServiceClient(grpcConn)
-		req := &pb.NewCameraAccessExceptionRequest{}
+		client := pb.NewCameraExtensionSessionServiceClient(grpcConn)
+		req := &pb.CloseRequest{}
+		resp, err := client.Close(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraExtensionSessionGetDeviceCmd = &cobra.Command{
+	Use:   "get-device",
+	Short: "GetDevice RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraExtensionSessionServiceClient(grpcConn)
+		req := &pb.GetDeviceRequest{}
+		resp, err := client.GetDevice(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraExtensionSessionGetRealtimeStillCaptureLatencyCmd = &cobra.Command{
+	Use:   "get-realtime-still-capture-latency",
+	Short: "GetRealtimeStillCaptureLatency RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraExtensionSessionServiceClient(grpcConn)
+		req := &pb.GetRealtimeStillCaptureLatencyRequest{}
+		resp, err := client.GetRealtimeStillCaptureLatency(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraExtensionSessionSetRepeatingRequestCmd = &cobra.Command{
+	Use:   "set-repeating-request",
+	Short: "SetRepeatingRequest RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraExtensionSessionServiceClient(grpcConn)
+		req := &pb.SetRepeatingRequestRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SetRepeatingRequest(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraExtensionSessionStopRepeatingCmd = &cobra.Command{
+	Use:   "stop-repeating",
+	Short: "StopRepeating RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraExtensionSessionServiceClient(grpcConn)
+		req := &pb.StopRepeatingRequest{}
+		resp, err := client.StopRepeating(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraExtensionSessionExtensionCaptureCallbackCmd = &cobra.Command{
+	Use:   "camera-extension-session-extension-capture-callback",
+	Short: "CameraExtensionSessionExtensionCaptureCallbackService operations",
+}
+
+var camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureFailed2Cmd = &cobra.Command{
+	Use:   "on-capture-failed2",
+	Short: "OnCaptureFailed2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraExtensionSessionExtensionCaptureCallbackServiceClient(grpcConn)
+		req := &pb.OnCaptureFailed2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnCaptureFailed2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureFailed3_1Cmd = &cobra.Command{
+	Use:   "on-capture-failed3_1",
+	Short: "OnCaptureFailed3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraExtensionSessionExtensionCaptureCallbackServiceClient(grpcConn)
+		req := &pb.OnCaptureFailed3_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnCaptureFailed3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureProcessProgressedCmd = &cobra.Command{
+	Use:   "on-capture-process-progressed",
+	Short: "OnCaptureProcessProgressed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraExtensionSessionExtensionCaptureCallbackServiceClient(grpcConn)
+		req := &pb.OnCaptureProcessProgressedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnCaptureProcessProgressed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureProcessStartedCmd = &cobra.Command{
+	Use:   "on-capture-process-started",
+	Short: "OnCaptureProcessStarted RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraExtensionSessionExtensionCaptureCallbackServiceClient(grpcConn)
+		req := &pb.OnCaptureProcessStartedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnCaptureProcessStarted(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureResultAvailableCmd = &cobra.Command{
+	Use:   "on-capture-result-available",
+	Short: "OnCaptureResultAvailable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraExtensionSessionExtensionCaptureCallbackServiceClient(grpcConn)
+		req := &pb.OnCaptureResultAvailableRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnCaptureResultAvailable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceAbortedCmd = &cobra.Command{
+	Use:   "on-capture-sequence-aborted",
+	Short: "OnCaptureSequenceAborted RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraExtensionSessionExtensionCaptureCallbackServiceClient(grpcConn)
+		req := &pb.OnCaptureSequenceAbortedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnCaptureSequenceAborted(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceCompletedCmd = &cobra.Command{
+	Use:   "on-capture-sequence-completed",
+	Short: "OnCaptureSequenceCompleted RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraExtensionSessionExtensionCaptureCallbackServiceClient(grpcConn)
+		req := &pb.CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceCompletedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnCaptureSequenceCompleted(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedCmd = &cobra.Command{
+	Use:   "on-capture-started",
+	Short: "OnCaptureStarted RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraExtensionSessionExtensionCaptureCallbackServiceClient(grpcConn)
+		req := &pb.CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnCaptureStarted(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraExtensionSessionStateCallbackCmd = &cobra.Command{
+	Use:   "camera-extension-session-state-callback",
+	Short: "CameraExtensionSessionStateCallbackService operations",
+}
+
+var camera2CameraExtensionSessionStateCallbackOnClosedCmd = &cobra.Command{
+	Use:   "on-closed",
+	Short: "OnClosed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraExtensionSessionStateCallbackServiceClient(grpcConn)
+		req := &pb.OnClosedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnClosed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraExtensionSessionStateCallbackOnConfigureFailedCmd = &cobra.Command{
+	Use:   "on-configure-failed",
+	Short: "OnConfigureFailed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraExtensionSessionStateCallbackServiceClient(grpcConn)
+		req := &pb.OnConfigureFailedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnConfigureFailed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraExtensionSessionStateCallbackOnConfiguredCmd = &cobra.Command{
+	Use:   "on-configured",
+	Short: "OnConfigured RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraExtensionSessionStateCallbackServiceClient(grpcConn)
+		req := &pb.OnConfiguredRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnConfigured(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraExtensionSessionStillCaptureLatencyCmd = &cobra.Command{
+	Use:   "camera-extension-session-still-capture-latency",
+	Short: "CameraExtensionSessionStillCaptureLatencyService operations",
+}
+
+var camera2CameraExtensionSessionStillCaptureLatencyEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraExtensionSessionStillCaptureLatencyServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraExtensionSessionStillCaptureLatencyGetCaptureLatencyCmd = &cobra.Command{
+	Use:   "get-capture-latency",
+	Short: "GetCaptureLatency RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraExtensionSessionStillCaptureLatencyServiceClient(grpcConn)
+		req := &pb.GetCaptureLatencyRequest{}
+		resp, err := client.GetCaptureLatency(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraExtensionSessionStillCaptureLatencyGetProcessingLatencyCmd = &cobra.Command{
+	Use:   "get-processing-latency",
+	Short: "GetProcessingLatency RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraExtensionSessionStillCaptureLatencyServiceClient(grpcConn)
+		req := &pb.GetProcessingLatencyRequest{}
+		resp, err := client.GetProcessingLatency(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraExtensionSessionStillCaptureLatencyHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraExtensionSessionStillCaptureLatencyServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraExtensionSessionStillCaptureLatencyToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraExtensionSessionStillCaptureLatencyServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraExtensionCharacteristicsCmd = &cobra.Command{
+	Use:   "camera-extension-characteristics",
+	Short: "CameraExtensionCharacteristicsService operations",
+}
+
+var camera2CameraExtensionCharacteristicsGetAvailableCaptureRequestKeysCmd = &cobra.Command{
+	Use:   "get-available-capture-request-keys",
+	Short: "GetAvailableCaptureRequestKeys RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraExtensionCharacteristicsServiceClient(grpcConn)
+		req := &pb.CameraExtensionCharacteristicsGetAvailableCaptureRequestKeysRequest{}
 		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.NewCameraAccessException(ctx, req)
+		resp, err := client.GetAvailableCaptureRequestKeys(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2520,18 +2746,163 @@ var camera2CameraAccessExceptionNewCameraAccessExceptionCmd = &cobra.Command{
 	},
 }
 
-var camera2CameraAccessExceptionGetReasonCmd = &cobra.Command{
-	Use:   "get-reason",
-	Short: "GetReason RPC",
+var camera2CameraExtensionCharacteristicsGetAvailableCaptureResultKeysCmd = &cobra.Command{
+	Use:   "get-available-capture-result-keys",
+	Short: "GetAvailableCaptureResultKeys RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewCameraAccessExceptionServiceClient(grpcConn)
-		req := &pb.CameraAccessExceptionGetReasonRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
+		client := pb.NewCameraExtensionCharacteristicsServiceClient(grpcConn)
+		req := &pb.CameraExtensionCharacteristicsGetAvailableCaptureResultKeysRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
 		}
-		resp, err := client.GetReason(ctx, req)
+		resp, err := client.GetAvailableCaptureResultKeys(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraExtensionCharacteristicsGetEstimatedCaptureLatencyRangeMillisCmd = &cobra.Command{
+	Use:   "get-estimated-capture-latency-range-millis",
+	Short: "GetEstimatedCaptureLatencyRangeMillis RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraExtensionCharacteristicsServiceClient(grpcConn)
+		req := &pb.GetEstimatedCaptureLatencyRangeMillisRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.GetEstimatedCaptureLatencyRangeMillis(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraExtensionCharacteristicsGetExtensionSupportedSizesCmd = &cobra.Command{
+	Use:   "get-extension-supported-sizes",
+	Short: "GetExtensionSupportedSizes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraExtensionCharacteristicsServiceClient(grpcConn)
+		req := &pb.GetExtensionSupportedSizesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetExtensionSupportedSizes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraExtensionCharacteristicsGetKeysCmd = &cobra.Command{
+	Use:   "get-keys",
+	Short: "GetKeys RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraExtensionCharacteristicsServiceClient(grpcConn)
+		req := &pb.CameraExtensionCharacteristicsGetKeysRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetKeys(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraExtensionCharacteristicsGetPostviewSupportedSizesCmd = &cobra.Command{
+	Use:   "get-postview-supported-sizes",
+	Short: "GetPostviewSupportedSizes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraExtensionCharacteristicsServiceClient(grpcConn)
+		req := &pb.GetPostviewSupportedSizesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.GetPostviewSupportedSizes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraExtensionCharacteristicsGetSupportedExtensionsCmd = &cobra.Command{
+	Use:   "get-supported-extensions",
+	Short: "GetSupportedExtensions RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraExtensionCharacteristicsServiceClient(grpcConn)
+		req := &pb.GetSupportedExtensionsRequest{}
+		resp, err := client.GetSupportedExtensions(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraExtensionCharacteristicsIsCaptureProcessProgressAvailableCmd = &cobra.Command{
+	Use:   "is-capture-process-progress-available",
+	Short: "IsCaptureProcessProgressAvailable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraExtensionCharacteristicsServiceClient(grpcConn)
+		req := &pb.IsCaptureProcessProgressAvailableRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsCaptureProcessProgressAvailable(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var camera2CameraExtensionCharacteristicsIsPostviewAvailableCmd = &cobra.Command{
+	Use:   "is-postview-available",
+	Short: "IsPostviewAvailable RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCameraExtensionCharacteristicsServiceClient(grpcConn)
+		req := &pb.IsPostviewAvailableRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.IsPostviewAvailable(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2540,36 +2911,12 @@ var camera2CameraAccessExceptionGetReasonCmd = &cobra.Command{
 }
 
 func init() {
-	camera2CameraExtensionCharacteristicsIsCaptureProcessProgressAvailableCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	camera2CameraExtensionCharacteristicsCmd.AddCommand(camera2CameraExtensionCharacteristicsIsCaptureProcessProgressAvailableCmd)
-	camera2CameraExtensionCharacteristicsIsPostviewAvailableCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	camera2CameraExtensionCharacteristicsCmd.AddCommand(camera2CameraExtensionCharacteristicsIsPostviewAvailableCmd)
-	camera2Cmd.AddCommand(camera2CameraExtensionCharacteristicsCmd)
-	camera2CameraOfflineSessionCmd.AddCommand(camera2CameraOfflineSessionCloseCmd)
-	camera2Cmd.AddCommand(camera2CameraOfflineSessionCmd)
-	camera2CameraOfflineSessionCameraOfflineSessionCallbackOnClosedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	camera2CameraOfflineSessionCameraOfflineSessionCallbackCmd.AddCommand(camera2CameraOfflineSessionCameraOfflineSessionCallbackOnClosedCmd)
-	camera2CameraOfflineSessionCameraOfflineSessionCallbackOnErrorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	camera2CameraOfflineSessionCameraOfflineSessionCallbackOnErrorCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	camera2CameraOfflineSessionCameraOfflineSessionCallbackCmd.AddCommand(camera2CameraOfflineSessionCameraOfflineSessionCallbackOnErrorCmd)
-	camera2CameraOfflineSessionCameraOfflineSessionCallbackOnIdleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	camera2CameraOfflineSessionCameraOfflineSessionCallbackCmd.AddCommand(camera2CameraOfflineSessionCameraOfflineSessionCallbackOnIdleCmd)
-	camera2CameraOfflineSessionCameraOfflineSessionCallbackOnReadyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	camera2CameraOfflineSessionCameraOfflineSessionCallbackCmd.AddCommand(camera2CameraOfflineSessionCameraOfflineSessionCallbackOnReadyCmd)
-	camera2CameraOfflineSessionCameraOfflineSessionCallbackOnSwitchFailedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	camera2CameraOfflineSessionCameraOfflineSessionCallbackCmd.AddCommand(camera2CameraOfflineSessionCameraOfflineSessionCallbackOnSwitchFailedCmd)
-	camera2Cmd.AddCommand(camera2CameraOfflineSessionCameraOfflineSessionCallbackCmd)
-	camera2CameraCharacteristicsGetRecommendedStreamConfigurationMapCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	camera2CameraCharacteristicsCmd.AddCommand(camera2CameraCharacteristicsGetRecommendedStreamConfigurationMapCmd)
-	camera2Cmd.AddCommand(camera2CameraCharacteristicsCmd)
-	camera2CameraCharacteristicsKeyEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	camera2CameraCharacteristicsKeyCmd.AddCommand(camera2CameraCharacteristicsKeyEqualsCmd)
-	camera2CameraCharacteristicsKeyCmd.AddCommand(camera2CameraCharacteristicsKeyGetNameCmd)
-	camera2CameraCharacteristicsKeyCmd.AddCommand(camera2CameraCharacteristicsKeyHashCodeCmd)
-	camera2CameraCharacteristicsKeyCmd.AddCommand(camera2CameraCharacteristicsKeyToStringCmd)
-	camera2Cmd.AddCommand(camera2CameraCharacteristicsKeyCmd)
+	camera2CameraConstrainedHighSpeedCaptureSessionCreateHighSpeedRequestListCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	camera2CameraConstrainedHighSpeedCaptureSessionCmd.AddCommand(camera2CameraConstrainedHighSpeedCaptureSessionCreateHighSpeedRequestListCmd)
+	camera2Cmd.AddCommand(camera2CameraConstrainedHighSpeedCaptureSessionCmd)
 	camera2CaptureResultCmd.AddCommand(camera2CaptureResultGetCameraIdCmd)
 	camera2CaptureResultCmd.AddCommand(camera2CaptureResultGetFrameNumberCmd)
+	camera2CaptureResultCmd.AddCommand(camera2CaptureResultGetKeysCmd)
 	camera2CaptureResultCmd.AddCommand(camera2CaptureResultGetRequestCmd)
 	camera2CaptureResultCmd.AddCommand(camera2CaptureResultGetSequenceIdCmd)
 	camera2Cmd.AddCommand(camera2CaptureResultCmd)
@@ -2579,87 +2926,8 @@ func init() {
 	camera2CaptureResultKeyCmd.AddCommand(camera2CaptureResultKeyHashCodeCmd)
 	camera2CaptureResultKeyCmd.AddCommand(camera2CaptureResultKeyToStringCmd)
 	camera2Cmd.AddCommand(camera2CaptureResultKeyCmd)
-	camera2CaptureFailureCmd.AddCommand(camera2CaptureFailureGetFrameNumberCmd)
-	camera2CaptureFailureCmd.AddCommand(camera2CaptureFailureGetPhysicalCameraIdCmd)
-	camera2CaptureFailureCmd.AddCommand(camera2CaptureFailureGetReasonCmd)
-	camera2CaptureFailureCmd.AddCommand(camera2CaptureFailureGetRequestCmd)
-	camera2CaptureFailureCmd.AddCommand(camera2CaptureFailureGetSequenceIdCmd)
-	camera2CaptureFailureCmd.AddCommand(camera2CaptureFailureWasImageCapturedCmd)
-	camera2Cmd.AddCommand(camera2CaptureFailureCmd)
-	camera2CameraExtensionSessionCaptureCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	camera2CameraExtensionSessionCaptureCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	camera2CameraExtensionSessionCaptureCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	camera2CameraExtensionSessionCmd.AddCommand(camera2CameraExtensionSessionCaptureCmd)
-	camera2CameraExtensionSessionCmd.AddCommand(camera2CameraExtensionSessionCloseCmd)
-	camera2CameraExtensionSessionCmd.AddCommand(camera2CameraExtensionSessionGetDeviceCmd)
-	camera2CameraExtensionSessionCmd.AddCommand(camera2CameraExtensionSessionGetRealtimeStillCaptureLatencyCmd)
-	camera2CameraExtensionSessionSetRepeatingRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	camera2CameraExtensionSessionSetRepeatingRequestCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	camera2CameraExtensionSessionSetRepeatingRequestCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	camera2CameraExtensionSessionCmd.AddCommand(camera2CameraExtensionSessionSetRepeatingRequestCmd)
-	camera2CameraExtensionSessionCmd.AddCommand(camera2CameraExtensionSessionStopRepeatingCmd)
-	camera2Cmd.AddCommand(camera2CameraExtensionSessionCmd)
-	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureFailed2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureFailed2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	camera2CameraExtensionSessionExtensionCaptureCallbackCmd.AddCommand(camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureFailed2Cmd)
-	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureFailed3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureFailed3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureFailed3_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	camera2CameraExtensionSessionExtensionCaptureCallbackCmd.AddCommand(camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureFailed3_1Cmd)
-	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureProcessProgressedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureProcessProgressedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureProcessProgressedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	camera2CameraExtensionSessionExtensionCaptureCallbackCmd.AddCommand(camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureProcessProgressedCmd)
-	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureProcessStartedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureProcessStartedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	camera2CameraExtensionSessionExtensionCaptureCallbackCmd.AddCommand(camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureProcessStartedCmd)
-	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureResultAvailableCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureResultAvailableCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureResultAvailableCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	camera2CameraExtensionSessionExtensionCaptureCallbackCmd.AddCommand(camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureResultAvailableCmd)
-	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceAbortedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceAbortedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	camera2CameraExtensionSessionExtensionCaptureCallbackCmd.AddCommand(camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceAbortedCmd)
-	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceCompletedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceCompletedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	camera2CameraExtensionSessionExtensionCaptureCallbackCmd.AddCommand(camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceCompletedCmd)
-	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	camera2CameraExtensionSessionExtensionCaptureCallbackCmd.AddCommand(camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedCmd)
-	camera2Cmd.AddCommand(camera2CameraExtensionSessionExtensionCaptureCallbackCmd)
-	camera2CameraExtensionSessionStateCallbackOnClosedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	camera2CameraExtensionSessionStateCallbackCmd.AddCommand(camera2CameraExtensionSessionStateCallbackOnClosedCmd)
-	camera2CameraExtensionSessionStateCallbackOnConfigureFailedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	camera2CameraExtensionSessionStateCallbackCmd.AddCommand(camera2CameraExtensionSessionStateCallbackOnConfigureFailedCmd)
-	camera2CameraExtensionSessionStateCallbackOnConfiguredCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	camera2CameraExtensionSessionStateCallbackCmd.AddCommand(camera2CameraExtensionSessionStateCallbackOnConfiguredCmd)
-	camera2Cmd.AddCommand(camera2CameraExtensionSessionStateCallbackCmd)
-	camera2CameraExtensionSessionStillCaptureLatencyEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	camera2CameraExtensionSessionStillCaptureLatencyCmd.AddCommand(camera2CameraExtensionSessionStillCaptureLatencyEqualsCmd)
-	camera2CameraExtensionSessionStillCaptureLatencyCmd.AddCommand(camera2CameraExtensionSessionStillCaptureLatencyGetCaptureLatencyCmd)
-	camera2CameraExtensionSessionStillCaptureLatencyCmd.AddCommand(camera2CameraExtensionSessionStillCaptureLatencyGetProcessingLatencyCmd)
-	camera2CameraExtensionSessionStillCaptureLatencyCmd.AddCommand(camera2CameraExtensionSessionStillCaptureLatencyHashCodeCmd)
-	camera2CameraExtensionSessionStillCaptureLatencyCmd.AddCommand(camera2CameraExtensionSessionStillCaptureLatencyToStringCmd)
-	camera2Cmd.AddCommand(camera2CameraExtensionSessionStillCaptureLatencyCmd)
-	camera2MultiResolutionImageReaderNewMultiResolutionImageReaderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	camera2MultiResolutionImageReaderNewMultiResolutionImageReaderCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	camera2MultiResolutionImageReaderNewMultiResolutionImageReaderCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	camera2MultiResolutionImageReaderCmd.AddCommand(camera2MultiResolutionImageReaderNewMultiResolutionImageReaderCmd)
-	camera2MultiResolutionImageReaderCloseCmd.Flags().Int64("handle", 0, "handle (int64)")
-	camera2MultiResolutionImageReaderCmd.AddCommand(camera2MultiResolutionImageReaderCloseCmd)
-	camera2MultiResolutionImageReaderFlushCmd.Flags().Int64("handle", 0, "handle (int64)")
-	camera2MultiResolutionImageReaderCmd.AddCommand(camera2MultiResolutionImageReaderFlushCmd)
-	camera2MultiResolutionImageReaderGetStreamInfoForImageReaderCmd.Flags().Int64("handle", 0, "handle (int64)")
-	camera2MultiResolutionImageReaderGetStreamInfoForImageReaderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	camera2MultiResolutionImageReaderCmd.AddCommand(camera2MultiResolutionImageReaderGetStreamInfoForImageReaderCmd)
-	camera2MultiResolutionImageReaderGetSurfaceCmd.Flags().Int64("handle", 0, "handle (int64)")
-	camera2MultiResolutionImageReaderCmd.AddCommand(camera2MultiResolutionImageReaderGetSurfaceCmd)
-	camera2MultiResolutionImageReaderSetOnImageAvailableListenerCmd.Flags().Int64("handle", 0, "handle (int64)")
-	camera2MultiResolutionImageReaderSetOnImageAvailableListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	camera2MultiResolutionImageReaderSetOnImageAvailableListenerCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	camera2MultiResolutionImageReaderCmd.AddCommand(camera2MultiResolutionImageReaderSetOnImageAvailableListenerCmd)
-	camera2Cmd.AddCommand(camera2MultiResolutionImageReaderCmd)
+	camera2CameraMetadataCmd.AddCommand(camera2CameraMetadataGetKeysCmd)
+	camera2Cmd.AddCommand(camera2CameraMetadataCmd)
 	camera2CameraCaptureSessionCmd.AddCommand(camera2CameraCaptureSessionAbortCapturesCmd)
 	camera2CameraCaptureSessionCaptureSingleRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	camera2CameraCaptureSessionCaptureSingleRequestCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
@@ -2732,6 +3000,15 @@ func init() {
 	camera2CameraCaptureSessionStateCallbackOnSurfacePreparedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	camera2CameraCaptureSessionStateCallbackCmd.AddCommand(camera2CameraCaptureSessionStateCallbackOnSurfacePreparedCmd)
 	camera2Cmd.AddCommand(camera2CameraCaptureSessionStateCallbackCmd)
+	camera2CaptureFailureCmd.AddCommand(camera2CaptureFailureGetFrameNumberCmd)
+	camera2CaptureFailureCmd.AddCommand(camera2CaptureFailureGetPhysicalCameraIdCmd)
+	camera2CaptureFailureCmd.AddCommand(camera2CaptureFailureGetReasonCmd)
+	camera2CaptureFailureCmd.AddCommand(camera2CaptureFailureGetRequestCmd)
+	camera2CaptureFailureCmd.AddCommand(camera2CaptureFailureGetSequenceIdCmd)
+	camera2CaptureFailureCmd.AddCommand(camera2CaptureFailureWasImageCapturedCmd)
+	camera2Cmd.AddCommand(camera2CaptureFailureCmd)
+	camera2TotalCaptureResultCmd.AddCommand(camera2TotalCaptureResultGetPartialResultsCmd)
+	camera2Cmd.AddCommand(camera2TotalCaptureResultCmd)
 	camera2CameraDeviceCmd.AddCommand(camera2CameraDeviceCloseCmd)
 	camera2CameraDeviceCreateCaptureRequestCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	camera2CameraDeviceCmd.AddCommand(camera2CameraDeviceCreateCaptureRequestCmd)
@@ -2769,30 +3046,42 @@ func init() {
 	camera2CameraDeviceStateCallbackOnOpenedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	camera2CameraDeviceStateCallbackCmd.AddCommand(camera2CameraDeviceStateCallbackOnOpenedCmd)
 	camera2Cmd.AddCommand(camera2CameraDeviceStateCallbackCmd)
-	camera2CaptureRequestCmd.AddCommand(camera2CaptureRequestDescribeContentsCmd)
-	camera2CaptureRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	camera2CaptureRequestCmd.AddCommand(camera2CaptureRequestEqualsCmd)
-	camera2CaptureRequestCmd.AddCommand(camera2CaptureRequestGetTagCmd)
-	camera2CaptureRequestCmd.AddCommand(camera2CaptureRequestHashCodeCmd)
-	camera2CaptureRequestCmd.AddCommand(camera2CaptureRequestIsReprocessCmd)
-	camera2CaptureRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	camera2CaptureRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	camera2CaptureRequestCmd.AddCommand(camera2CaptureRequestWriteToParcelCmd)
-	camera2Cmd.AddCommand(camera2CaptureRequestCmd)
-	camera2CaptureRequestBuilderAddTargetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	camera2CaptureRequestBuilderCmd.AddCommand(camera2CaptureRequestBuilderAddTargetCmd)
-	camera2CaptureRequestBuilderCmd.AddCommand(camera2CaptureRequestBuilderBuildCmd)
-	camera2CaptureRequestBuilderRemoveTargetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	camera2CaptureRequestBuilderCmd.AddCommand(camera2CaptureRequestBuilderRemoveTargetCmd)
-	camera2CaptureRequestBuilderSetTagCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	camera2CaptureRequestBuilderCmd.AddCommand(camera2CaptureRequestBuilderSetTagCmd)
-	camera2Cmd.AddCommand(camera2CaptureRequestBuilderCmd)
-	camera2CaptureRequestKeyEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	camera2CaptureRequestKeyCmd.AddCommand(camera2CaptureRequestKeyEqualsCmd)
-	camera2CaptureRequestKeyCmd.AddCommand(camera2CaptureRequestKeyGetNameCmd)
-	camera2CaptureRequestKeyCmd.AddCommand(camera2CaptureRequestKeyHashCodeCmd)
-	camera2CaptureRequestKeyCmd.AddCommand(camera2CaptureRequestKeyToStringCmd)
-	camera2Cmd.AddCommand(camera2CaptureRequestKeyCmd)
+	camera2CameraAccessExceptionNewCameraAccessExceptionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	camera2CameraAccessExceptionCmd.AddCommand(camera2CameraAccessExceptionNewCameraAccessExceptionCmd)
+	camera2CameraAccessExceptionGetReasonCmd.Flags().Int64("handle", 0, "handle (int64)")
+	camera2CameraAccessExceptionCmd.AddCommand(camera2CameraAccessExceptionGetReasonCmd)
+	camera2Cmd.AddCommand(camera2CameraAccessExceptionCmd)
+	camera2CameraOfflineSessionCmd.AddCommand(camera2CameraOfflineSessionCloseCmd)
+	camera2Cmd.AddCommand(camera2CameraOfflineSessionCmd)
+	camera2CameraOfflineSessionCameraOfflineSessionCallbackOnClosedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	camera2CameraOfflineSessionCameraOfflineSessionCallbackCmd.AddCommand(camera2CameraOfflineSessionCameraOfflineSessionCallbackOnClosedCmd)
+	camera2CameraOfflineSessionCameraOfflineSessionCallbackOnErrorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	camera2CameraOfflineSessionCameraOfflineSessionCallbackOnErrorCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	camera2CameraOfflineSessionCameraOfflineSessionCallbackCmd.AddCommand(camera2CameraOfflineSessionCameraOfflineSessionCallbackOnErrorCmd)
+	camera2CameraOfflineSessionCameraOfflineSessionCallbackOnIdleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	camera2CameraOfflineSessionCameraOfflineSessionCallbackCmd.AddCommand(camera2CameraOfflineSessionCameraOfflineSessionCallbackOnIdleCmd)
+	camera2CameraOfflineSessionCameraOfflineSessionCallbackOnReadyCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	camera2CameraOfflineSessionCameraOfflineSessionCallbackCmd.AddCommand(camera2CameraOfflineSessionCameraOfflineSessionCallbackOnReadyCmd)
+	camera2CameraOfflineSessionCameraOfflineSessionCallbackOnSwitchFailedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	camera2CameraOfflineSessionCameraOfflineSessionCallbackCmd.AddCommand(camera2CameraOfflineSessionCameraOfflineSessionCallbackOnSwitchFailedCmd)
+	camera2Cmd.AddCommand(camera2CameraOfflineSessionCameraOfflineSessionCallbackCmd)
+	camera2CameraCharacteristicsCmd.AddCommand(camera2CameraCharacteristicsGetAvailableCaptureRequestKeysCmd)
+	camera2CameraCharacteristicsCmd.AddCommand(camera2CameraCharacteristicsGetAvailableCaptureResultKeysCmd)
+	camera2CameraCharacteristicsCmd.AddCommand(camera2CameraCharacteristicsGetAvailablePhysicalCameraRequestKeysCmd)
+	camera2CameraCharacteristicsCmd.AddCommand(camera2CameraCharacteristicsGetAvailableSessionCharacteristicsKeysCmd)
+	camera2CameraCharacteristicsCmd.AddCommand(camera2CameraCharacteristicsGetAvailableSessionKeysCmd)
+	camera2CameraCharacteristicsCmd.AddCommand(camera2CameraCharacteristicsGetKeysCmd)
+	camera2CameraCharacteristicsCmd.AddCommand(camera2CameraCharacteristicsGetKeysNeedingPermissionCmd)
+	camera2CameraCharacteristicsCmd.AddCommand(camera2CameraCharacteristicsGetPhysicalCameraIdsCmd)
+	camera2CameraCharacteristicsGetRecommendedStreamConfigurationMapCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	camera2CameraCharacteristicsCmd.AddCommand(camera2CameraCharacteristicsGetRecommendedStreamConfigurationMapCmd)
+	camera2Cmd.AddCommand(camera2CameraCharacteristicsCmd)
+	camera2CameraCharacteristicsKeyEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	camera2CameraCharacteristicsKeyCmd.AddCommand(camera2CameraCharacteristicsKeyEqualsCmd)
+	camera2CameraCharacteristicsKeyCmd.AddCommand(camera2CameraCharacteristicsKeyGetNameCmd)
+	camera2CameraCharacteristicsKeyCmd.AddCommand(camera2CameraCharacteristicsKeyHashCodeCmd)
+	camera2CameraCharacteristicsKeyCmd.AddCommand(camera2CameraCharacteristicsKeyToStringCmd)
+	camera2Cmd.AddCommand(camera2CameraCharacteristicsKeyCmd)
 	camera2DngCreatorNewDngCreatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	camera2DngCreatorNewDngCreatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	camera2DngCreatorCmd.AddCommand(camera2DngCreatorNewDngCreatorCmd)
@@ -2824,10 +3113,127 @@ func init() {
 	camera2DngCreatorWriteInputStreamCmd.Flags().Int64("arg3", 0, "arg3 (int64)")
 	camera2DngCreatorCmd.AddCommand(camera2DngCreatorWriteInputStreamCmd)
 	camera2Cmd.AddCommand(camera2DngCreatorCmd)
-	camera2CameraAccessExceptionNewCameraAccessExceptionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	camera2CameraAccessExceptionCmd.AddCommand(camera2CameraAccessExceptionNewCameraAccessExceptionCmd)
-	camera2CameraAccessExceptionGetReasonCmd.Flags().Int64("handle", 0, "handle (int64)")
-	camera2CameraAccessExceptionCmd.AddCommand(camera2CameraAccessExceptionGetReasonCmd)
-	camera2Cmd.AddCommand(camera2CameraAccessExceptionCmd)
+	camera2CaptureRequestCmd.AddCommand(camera2CaptureRequestDescribeContentsCmd)
+	camera2CaptureRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	camera2CaptureRequestCmd.AddCommand(camera2CaptureRequestEqualsCmd)
+	camera2CaptureRequestCmd.AddCommand(camera2CaptureRequestGetKeysCmd)
+	camera2CaptureRequestCmd.AddCommand(camera2CaptureRequestGetTagCmd)
+	camera2CaptureRequestCmd.AddCommand(camera2CaptureRequestHashCodeCmd)
+	camera2CaptureRequestCmd.AddCommand(camera2CaptureRequestIsReprocessCmd)
+	camera2CaptureRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	camera2CaptureRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	camera2CaptureRequestCmd.AddCommand(camera2CaptureRequestWriteToParcelCmd)
+	camera2Cmd.AddCommand(camera2CaptureRequestCmd)
+	camera2CaptureRequestBuilderAddTargetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	camera2CaptureRequestBuilderCmd.AddCommand(camera2CaptureRequestBuilderAddTargetCmd)
+	camera2CaptureRequestBuilderCmd.AddCommand(camera2CaptureRequestBuilderBuildCmd)
+	camera2CaptureRequestBuilderRemoveTargetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	camera2CaptureRequestBuilderCmd.AddCommand(camera2CaptureRequestBuilderRemoveTargetCmd)
+	camera2CaptureRequestBuilderSetTagCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	camera2CaptureRequestBuilderCmd.AddCommand(camera2CaptureRequestBuilderSetTagCmd)
+	camera2Cmd.AddCommand(camera2CaptureRequestBuilderCmd)
+	camera2CaptureRequestKeyEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	camera2CaptureRequestKeyCmd.AddCommand(camera2CaptureRequestKeyEqualsCmd)
+	camera2CaptureRequestKeyCmd.AddCommand(camera2CaptureRequestKeyGetNameCmd)
+	camera2CaptureRequestKeyCmd.AddCommand(camera2CaptureRequestKeyHashCodeCmd)
+	camera2CaptureRequestKeyCmd.AddCommand(camera2CaptureRequestKeyToStringCmd)
+	camera2Cmd.AddCommand(camera2CaptureRequestKeyCmd)
+	camera2MultiResolutionImageReaderNewMultiResolutionImageReaderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	camera2MultiResolutionImageReaderNewMultiResolutionImageReaderCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	camera2MultiResolutionImageReaderNewMultiResolutionImageReaderCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	camera2MultiResolutionImageReaderCmd.AddCommand(camera2MultiResolutionImageReaderNewMultiResolutionImageReaderCmd)
+	camera2MultiResolutionImageReaderCloseCmd.Flags().Int64("handle", 0, "handle (int64)")
+	camera2MultiResolutionImageReaderCmd.AddCommand(camera2MultiResolutionImageReaderCloseCmd)
+	camera2MultiResolutionImageReaderFlushCmd.Flags().Int64("handle", 0, "handle (int64)")
+	camera2MultiResolutionImageReaderCmd.AddCommand(camera2MultiResolutionImageReaderFlushCmd)
+	camera2MultiResolutionImageReaderGetStreamInfoForImageReaderCmd.Flags().Int64("handle", 0, "handle (int64)")
+	camera2MultiResolutionImageReaderGetStreamInfoForImageReaderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	camera2MultiResolutionImageReaderCmd.AddCommand(camera2MultiResolutionImageReaderGetStreamInfoForImageReaderCmd)
+	camera2MultiResolutionImageReaderGetSurfaceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	camera2MultiResolutionImageReaderCmd.AddCommand(camera2MultiResolutionImageReaderGetSurfaceCmd)
+	camera2MultiResolutionImageReaderSetOnImageAvailableListenerCmd.Flags().Int64("handle", 0, "handle (int64)")
+	camera2MultiResolutionImageReaderSetOnImageAvailableListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	camera2MultiResolutionImageReaderSetOnImageAvailableListenerCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	camera2MultiResolutionImageReaderCmd.AddCommand(camera2MultiResolutionImageReaderSetOnImageAvailableListenerCmd)
+	camera2Cmd.AddCommand(camera2MultiResolutionImageReaderCmd)
+	camera2CameraExtensionSessionCaptureCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	camera2CameraExtensionSessionCaptureCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	camera2CameraExtensionSessionCaptureCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	camera2CameraExtensionSessionCmd.AddCommand(camera2CameraExtensionSessionCaptureCmd)
+	camera2CameraExtensionSessionCmd.AddCommand(camera2CameraExtensionSessionCloseCmd)
+	camera2CameraExtensionSessionCmd.AddCommand(camera2CameraExtensionSessionGetDeviceCmd)
+	camera2CameraExtensionSessionCmd.AddCommand(camera2CameraExtensionSessionGetRealtimeStillCaptureLatencyCmd)
+	camera2CameraExtensionSessionSetRepeatingRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	camera2CameraExtensionSessionSetRepeatingRequestCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	camera2CameraExtensionSessionSetRepeatingRequestCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	camera2CameraExtensionSessionCmd.AddCommand(camera2CameraExtensionSessionSetRepeatingRequestCmd)
+	camera2CameraExtensionSessionCmd.AddCommand(camera2CameraExtensionSessionStopRepeatingCmd)
+	camera2Cmd.AddCommand(camera2CameraExtensionSessionCmd)
+	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureFailed2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureFailed2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	camera2CameraExtensionSessionExtensionCaptureCallbackCmd.AddCommand(camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureFailed2Cmd)
+	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureFailed3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureFailed3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureFailed3_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	camera2CameraExtensionSessionExtensionCaptureCallbackCmd.AddCommand(camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureFailed3_1Cmd)
+	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureProcessProgressedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureProcessProgressedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureProcessProgressedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	camera2CameraExtensionSessionExtensionCaptureCallbackCmd.AddCommand(camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureProcessProgressedCmd)
+	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureProcessStartedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureProcessStartedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	camera2CameraExtensionSessionExtensionCaptureCallbackCmd.AddCommand(camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureProcessStartedCmd)
+	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureResultAvailableCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureResultAvailableCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureResultAvailableCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	camera2CameraExtensionSessionExtensionCaptureCallbackCmd.AddCommand(camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureResultAvailableCmd)
+	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceAbortedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceAbortedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	camera2CameraExtensionSessionExtensionCaptureCallbackCmd.AddCommand(camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceAbortedCmd)
+	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceCompletedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceCompletedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	camera2CameraExtensionSessionExtensionCaptureCallbackCmd.AddCommand(camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureSequenceCompletedCmd)
+	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	camera2CameraExtensionSessionExtensionCaptureCallbackCmd.AddCommand(camera2CameraExtensionSessionExtensionCaptureCallbackOnCaptureStartedCmd)
+	camera2Cmd.AddCommand(camera2CameraExtensionSessionExtensionCaptureCallbackCmd)
+	camera2CameraExtensionSessionStateCallbackOnClosedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	camera2CameraExtensionSessionStateCallbackCmd.AddCommand(camera2CameraExtensionSessionStateCallbackOnClosedCmd)
+	camera2CameraExtensionSessionStateCallbackOnConfigureFailedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	camera2CameraExtensionSessionStateCallbackCmd.AddCommand(camera2CameraExtensionSessionStateCallbackOnConfigureFailedCmd)
+	camera2CameraExtensionSessionStateCallbackOnConfiguredCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	camera2CameraExtensionSessionStateCallbackCmd.AddCommand(camera2CameraExtensionSessionStateCallbackOnConfiguredCmd)
+	camera2Cmd.AddCommand(camera2CameraExtensionSessionStateCallbackCmd)
+	camera2CameraExtensionSessionStillCaptureLatencyEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	camera2CameraExtensionSessionStillCaptureLatencyCmd.AddCommand(camera2CameraExtensionSessionStillCaptureLatencyEqualsCmd)
+	camera2CameraExtensionSessionStillCaptureLatencyCmd.AddCommand(camera2CameraExtensionSessionStillCaptureLatencyGetCaptureLatencyCmd)
+	camera2CameraExtensionSessionStillCaptureLatencyCmd.AddCommand(camera2CameraExtensionSessionStillCaptureLatencyGetProcessingLatencyCmd)
+	camera2CameraExtensionSessionStillCaptureLatencyCmd.AddCommand(camera2CameraExtensionSessionStillCaptureLatencyHashCodeCmd)
+	camera2CameraExtensionSessionStillCaptureLatencyCmd.AddCommand(camera2CameraExtensionSessionStillCaptureLatencyToStringCmd)
+	camera2Cmd.AddCommand(camera2CameraExtensionSessionStillCaptureLatencyCmd)
+	camera2CameraExtensionCharacteristicsGetAvailableCaptureRequestKeysCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	camera2CameraExtensionCharacteristicsCmd.AddCommand(camera2CameraExtensionCharacteristicsGetAvailableCaptureRequestKeysCmd)
+	camera2CameraExtensionCharacteristicsGetAvailableCaptureResultKeysCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	camera2CameraExtensionCharacteristicsCmd.AddCommand(camera2CameraExtensionCharacteristicsGetAvailableCaptureResultKeysCmd)
+	camera2CameraExtensionCharacteristicsGetEstimatedCaptureLatencyRangeMillisCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	camera2CameraExtensionCharacteristicsGetEstimatedCaptureLatencyRangeMillisCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	camera2CameraExtensionCharacteristicsGetEstimatedCaptureLatencyRangeMillisCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	camera2CameraExtensionCharacteristicsCmd.AddCommand(camera2CameraExtensionCharacteristicsGetEstimatedCaptureLatencyRangeMillisCmd)
+	camera2CameraExtensionCharacteristicsGetExtensionSupportedSizesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	camera2CameraExtensionCharacteristicsGetExtensionSupportedSizesCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	camera2CameraExtensionCharacteristicsCmd.AddCommand(camera2CameraExtensionCharacteristicsGetExtensionSupportedSizesCmd)
+	camera2CameraExtensionCharacteristicsGetKeysCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	camera2CameraExtensionCharacteristicsCmd.AddCommand(camera2CameraExtensionCharacteristicsGetKeysCmd)
+	camera2CameraExtensionCharacteristicsGetPostviewSupportedSizesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	camera2CameraExtensionCharacteristicsGetPostviewSupportedSizesCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	camera2CameraExtensionCharacteristicsGetPostviewSupportedSizesCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	camera2CameraExtensionCharacteristicsCmd.AddCommand(camera2CameraExtensionCharacteristicsGetPostviewSupportedSizesCmd)
+	camera2CameraExtensionCharacteristicsCmd.AddCommand(camera2CameraExtensionCharacteristicsGetSupportedExtensionsCmd)
+	camera2CameraExtensionCharacteristicsIsCaptureProcessProgressAvailableCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	camera2CameraExtensionCharacteristicsCmd.AddCommand(camera2CameraExtensionCharacteristicsIsCaptureProcessProgressAvailableCmd)
+	camera2CameraExtensionCharacteristicsIsPostviewAvailableCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	camera2CameraExtensionCharacteristicsCmd.AddCommand(camera2CameraExtensionCharacteristicsIsPostviewAvailableCmd)
+	camera2Cmd.AddCommand(camera2CameraExtensionCharacteristicsCmd)
 	rootCmd.AddCommand(camera2Cmd)
 }

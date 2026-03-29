@@ -88,79 +88,6 @@ func (c *EncryptedTopicClient) ToString(ctx context.Context, handle int64) (stri
 	return resp.GetResult(), nil
 }
 
-// GetTopicsRequestClient wraps the gRPC GetTopicsRequestService client.
-type GetTopicsRequestClient struct {
-	svc pb.GetTopicsRequestServiceClient
-}
-
-// NewGetTopicsRequestClient creates a new GetTopicsRequest client.
-func NewGetTopicsRequestClient(cc grpc.ClientConnInterface) *GetTopicsRequestClient {
-	return &GetTopicsRequestClient{
-		svc: pb.NewGetTopicsRequestServiceClient(cc),
-	}
-}
-
-// GetAdsSdkName calls the GetAdsSdkName RPC.
-func (c *GetTopicsRequestClient) GetAdsSdkName(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetAdsSdkName(ctx, &pb.GetAdsSdkNameRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// ShouldRecordObservation calls the ShouldRecordObservation RPC.
-func (c *GetTopicsRequestClient) ShouldRecordObservation(ctx context.Context) (bool, error) {
-	resp, err := c.svc.ShouldRecordObservation(ctx, &pb.ShouldRecordObservationRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTopicsRequestBuilderClient wraps the gRPC GetTopicsRequestBuilderService client.
-type GetTopicsRequestBuilderClient struct {
-	svc pb.GetTopicsRequestBuilderServiceClient
-}
-
-// NewGetTopicsRequestBuilderClient creates a new GetTopicsRequestBuilder client.
-func NewGetTopicsRequestBuilderClient(cc grpc.ClientConnInterface) *GetTopicsRequestBuilderClient {
-	return &GetTopicsRequestBuilderClient{
-		svc: pb.NewGetTopicsRequestBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *GetTopicsRequestBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetAdsSdkName calls the SetAdsSdkName RPC.
-func (c *GetTopicsRequestBuilderClient) SetAdsSdkName(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.SetAdsSdkName(ctx, &pb.SetAdsSdkNameRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetShouldRecordObservation calls the SetShouldRecordObservation RPC.
-func (c *GetTopicsRequestBuilderClient) SetShouldRecordObservation(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetShouldRecordObservation(ctx, &pb.SetShouldRecordObservationRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // ManagerClient wraps the gRPC ManagerService client.
 type ManagerClient struct {
 	svc pb.ManagerServiceClient
@@ -286,6 +213,24 @@ func (c *GetTopicsResponseClient) Equals(ctx context.Context, arg0 int64) (bool,
 	return resp.GetResult(), nil
 }
 
+// GetEncryptedTopics calls the GetEncryptedTopics RPC.
+func (c *GetTopicsResponseClient) GetEncryptedTopics(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetEncryptedTopics(ctx, &pb.GetEncryptedTopicsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTopics calls the GetTopics RPC.
+func (c *GetTopicsResponseClient) GetTopics(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTopics(ctx, &pb.GetTopicsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // HashCode calls the HashCode RPC.
 func (c *GetTopicsResponseClient) HashCode(ctx context.Context) (int32, error) {
 	resp, err := c.svc.HashCode(ctx, &pb.GetTopicsResponseHashCodeRequest{})
@@ -310,6 +255,79 @@ func NewGetTopicsResponseBuilderClient(cc grpc.ClientConnInterface) *GetTopicsRe
 // Build calls the Build RPC.
 func (c *GetTopicsResponseBuilderClient) Build(ctx context.Context) (int64, error) {
 	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTopicsRequestClient wraps the gRPC GetTopicsRequestService client.
+type GetTopicsRequestClient struct {
+	svc pb.GetTopicsRequestServiceClient
+}
+
+// NewGetTopicsRequestClient creates a new GetTopicsRequest client.
+func NewGetTopicsRequestClient(cc grpc.ClientConnInterface) *GetTopicsRequestClient {
+	return &GetTopicsRequestClient{
+		svc: pb.NewGetTopicsRequestServiceClient(cc),
+	}
+}
+
+// GetAdsSdkName calls the GetAdsSdkName RPC.
+func (c *GetTopicsRequestClient) GetAdsSdkName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetAdsSdkName(ctx, &pb.GetAdsSdkNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ShouldRecordObservation calls the ShouldRecordObservation RPC.
+func (c *GetTopicsRequestClient) ShouldRecordObservation(ctx context.Context) (bool, error) {
+	resp, err := c.svc.ShouldRecordObservation(ctx, &pb.ShouldRecordObservationRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTopicsRequestBuilderClient wraps the gRPC GetTopicsRequestBuilderService client.
+type GetTopicsRequestBuilderClient struct {
+	svc pb.GetTopicsRequestBuilderServiceClient
+}
+
+// NewGetTopicsRequestBuilderClient creates a new GetTopicsRequestBuilder client.
+func NewGetTopicsRequestBuilderClient(cc grpc.ClientConnInterface) *GetTopicsRequestBuilderClient {
+	return &GetTopicsRequestBuilderClient{
+		svc: pb.NewGetTopicsRequestBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *GetTopicsRequestBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAdsSdkName calls the SetAdsSdkName RPC.
+func (c *GetTopicsRequestBuilderClient) SetAdsSdkName(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.SetAdsSdkName(ctx, &pb.SetAdsSdkNameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetShouldRecordObservation calls the SetShouldRecordObservation RPC.
+func (c *GetTopicsRequestBuilderClient) SetShouldRecordObservation(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetShouldRecordObservation(ctx, &pb.SetShouldRecordObservationRequest{
+		Arg0: arg0,
+	})
 	if err != nil {
 		return 0, err
 	}

@@ -21,2241 +21,6 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ConfigurationService_NewConfiguration_FullMethodName       = "/res.ConfigurationService/NewConfiguration"
-	ConfigurationService_CompareTo1_FullMethodName             = "/res.ConfigurationService/CompareTo1"
-	ConfigurationService_DescribeContents_FullMethodName       = "/res.ConfigurationService/DescribeContents"
-	ConfigurationService_Diff_FullMethodName                   = "/res.ConfigurationService/Diff"
-	ConfigurationService_Equals1_FullMethodName                = "/res.ConfigurationService/Equals1"
-	ConfigurationService_Equals1_1_FullMethodName              = "/res.ConfigurationService/Equals1_1"
-	ConfigurationService_GetGrammaticalGender_FullMethodName   = "/res.ConfigurationService/GetGrammaticalGender"
-	ConfigurationService_GetLayoutDirection_FullMethodName     = "/res.ConfigurationService/GetLayoutDirection"
-	ConfigurationService_GetLocales_FullMethodName             = "/res.ConfigurationService/GetLocales"
-	ConfigurationService_HashCode_FullMethodName               = "/res.ConfigurationService/HashCode"
-	ConfigurationService_IsLayoutSizeAtLeast_FullMethodName    = "/res.ConfigurationService/IsLayoutSizeAtLeast"
-	ConfigurationService_IsNightModeActive_FullMethodName      = "/res.ConfigurationService/IsNightModeActive"
-	ConfigurationService_IsScreenHdr_FullMethodName            = "/res.ConfigurationService/IsScreenHdr"
-	ConfigurationService_IsScreenRound_FullMethodName          = "/res.ConfigurationService/IsScreenRound"
-	ConfigurationService_IsScreenWideColorGamut_FullMethodName = "/res.ConfigurationService/IsScreenWideColorGamut"
-	ConfigurationService_ReadFromParcel_FullMethodName         = "/res.ConfigurationService/ReadFromParcel"
-	ConfigurationService_SetLayoutDirection_FullMethodName     = "/res.ConfigurationService/SetLayoutDirection"
-	ConfigurationService_SetLocale_FullMethodName              = "/res.ConfigurationService/SetLocale"
-	ConfigurationService_SetLocales_FullMethodName             = "/res.ConfigurationService/SetLocales"
-	ConfigurationService_SetTo_FullMethodName                  = "/res.ConfigurationService/SetTo"
-	ConfigurationService_SetToDefaults_FullMethodName          = "/res.ConfigurationService/SetToDefaults"
-	ConfigurationService_ToString_FullMethodName               = "/res.ConfigurationService/ToString"
-	ConfigurationService_UpdateFrom_FullMethodName             = "/res.ConfigurationService/UpdateFrom"
-	ConfigurationService_WriteToParcel_FullMethodName          = "/res.ConfigurationService/WriteToParcel"
-	ConfigurationService_CompareTo1_1_FullMethodName           = "/res.ConfigurationService/CompareTo1_1"
-	ConfigurationService_GenerateDelta_FullMethodName          = "/res.ConfigurationService/GenerateDelta"
-	ConfigurationService_NeedNewResources_FullMethodName       = "/res.ConfigurationService/NeedNewResources"
-)
-
-// ConfigurationServiceClient is the client API for ConfigurationService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ConfigurationServiceClient interface {
-	NewConfiguration(ctx context.Context, in *NewConfigurationRequest, opts ...grpc.CallOption) (*NewConfigurationResponse, error)
-	CompareTo1(ctx context.Context, in *CompareTo1Request, opts ...grpc.CallOption) (*CompareTo1Response, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Diff(ctx context.Context, in *DiffRequest, opts ...grpc.CallOption) (*DiffResponse, error)
-	Equals1(ctx context.Context, in *Equals1Request, opts ...grpc.CallOption) (*Equals1Response, error)
-	Equals1_1(ctx context.Context, in *Equals1_1Request, opts ...grpc.CallOption) (*Equals1_1Response, error)
-	GetGrammaticalGender(ctx context.Context, in *GetGrammaticalGenderRequest, opts ...grpc.CallOption) (*GetGrammaticalGenderResponse, error)
-	GetLayoutDirection(ctx context.Context, in *GetLayoutDirectionRequest, opts ...grpc.CallOption) (*GetLayoutDirectionResponse, error)
-	GetLocales(ctx context.Context, in *GetLocalesRequest, opts ...grpc.CallOption) (*GetLocalesResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	IsLayoutSizeAtLeast(ctx context.Context, in *IsLayoutSizeAtLeastRequest, opts ...grpc.CallOption) (*IsLayoutSizeAtLeastResponse, error)
-	IsNightModeActive(ctx context.Context, in *IsNightModeActiveRequest, opts ...grpc.CallOption) (*IsNightModeActiveResponse, error)
-	IsScreenHdr(ctx context.Context, in *IsScreenHdrRequest, opts ...grpc.CallOption) (*IsScreenHdrResponse, error)
-	IsScreenRound(ctx context.Context, in *IsScreenRoundRequest, opts ...grpc.CallOption) (*IsScreenRoundResponse, error)
-	IsScreenWideColorGamut(ctx context.Context, in *IsScreenWideColorGamutRequest, opts ...grpc.CallOption) (*IsScreenWideColorGamutResponse, error)
-	ReadFromParcel(ctx context.Context, in *ReadFromParcelRequest, opts ...grpc.CallOption) (*ReadFromParcelResponse, error)
-	SetLayoutDirection(ctx context.Context, in *SetLayoutDirectionRequest, opts ...grpc.CallOption) (*SetLayoutDirectionResponse, error)
-	SetLocale(ctx context.Context, in *SetLocaleRequest, opts ...grpc.CallOption) (*SetLocaleResponse, error)
-	SetLocales(ctx context.Context, in *SetLocalesRequest, opts ...grpc.CallOption) (*SetLocalesResponse, error)
-	SetTo(ctx context.Context, in *SetToRequest, opts ...grpc.CallOption) (*SetToResponse, error)
-	SetToDefaults(ctx context.Context, in *SetToDefaultsRequest, opts ...grpc.CallOption) (*SetToDefaultsResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	UpdateFrom(ctx context.Context, in *UpdateFromRequest, opts ...grpc.CallOption) (*UpdateFromResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-	CompareTo1_1(ctx context.Context, in *CompareTo1_1Request, opts ...grpc.CallOption) (*CompareTo1_1Response, error)
-	GenerateDelta(ctx context.Context, in *GenerateDeltaRequest, opts ...grpc.CallOption) (*GenerateDeltaResponse, error)
-	NeedNewResources(ctx context.Context, in *NeedNewResourcesRequest, opts ...grpc.CallOption) (*NeedNewResourcesResponse, error)
-}
-
-type configurationServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewConfigurationServiceClient(cc grpc.ClientConnInterface) ConfigurationServiceClient {
-	return &configurationServiceClient{cc}
-}
-
-func (c *configurationServiceClient) NewConfiguration(ctx context.Context, in *NewConfigurationRequest, opts ...grpc.CallOption) (*NewConfigurationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewConfigurationResponse)
-	err := c.cc.Invoke(ctx, ConfigurationService_NewConfiguration_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *configurationServiceClient) CompareTo1(ctx context.Context, in *CompareTo1Request, opts ...grpc.CallOption) (*CompareTo1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CompareTo1Response)
-	err := c.cc.Invoke(ctx, ConfigurationService_CompareTo1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *configurationServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, ConfigurationService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *configurationServiceClient) Diff(ctx context.Context, in *DiffRequest, opts ...grpc.CallOption) (*DiffResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DiffResponse)
-	err := c.cc.Invoke(ctx, ConfigurationService_Diff_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *configurationServiceClient) Equals1(ctx context.Context, in *Equals1Request, opts ...grpc.CallOption) (*Equals1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Equals1Response)
-	err := c.cc.Invoke(ctx, ConfigurationService_Equals1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *configurationServiceClient) Equals1_1(ctx context.Context, in *Equals1_1Request, opts ...grpc.CallOption) (*Equals1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Equals1_1Response)
-	err := c.cc.Invoke(ctx, ConfigurationService_Equals1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *configurationServiceClient) GetGrammaticalGender(ctx context.Context, in *GetGrammaticalGenderRequest, opts ...grpc.CallOption) (*GetGrammaticalGenderResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetGrammaticalGenderResponse)
-	err := c.cc.Invoke(ctx, ConfigurationService_GetGrammaticalGender_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *configurationServiceClient) GetLayoutDirection(ctx context.Context, in *GetLayoutDirectionRequest, opts ...grpc.CallOption) (*GetLayoutDirectionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLayoutDirectionResponse)
-	err := c.cc.Invoke(ctx, ConfigurationService_GetLayoutDirection_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *configurationServiceClient) GetLocales(ctx context.Context, in *GetLocalesRequest, opts ...grpc.CallOption) (*GetLocalesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLocalesResponse)
-	err := c.cc.Invoke(ctx, ConfigurationService_GetLocales_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *configurationServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, ConfigurationService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *configurationServiceClient) IsLayoutSizeAtLeast(ctx context.Context, in *IsLayoutSizeAtLeastRequest, opts ...grpc.CallOption) (*IsLayoutSizeAtLeastResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsLayoutSizeAtLeastResponse)
-	err := c.cc.Invoke(ctx, ConfigurationService_IsLayoutSizeAtLeast_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *configurationServiceClient) IsNightModeActive(ctx context.Context, in *IsNightModeActiveRequest, opts ...grpc.CallOption) (*IsNightModeActiveResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsNightModeActiveResponse)
-	err := c.cc.Invoke(ctx, ConfigurationService_IsNightModeActive_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *configurationServiceClient) IsScreenHdr(ctx context.Context, in *IsScreenHdrRequest, opts ...grpc.CallOption) (*IsScreenHdrResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsScreenHdrResponse)
-	err := c.cc.Invoke(ctx, ConfigurationService_IsScreenHdr_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *configurationServiceClient) IsScreenRound(ctx context.Context, in *IsScreenRoundRequest, opts ...grpc.CallOption) (*IsScreenRoundResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsScreenRoundResponse)
-	err := c.cc.Invoke(ctx, ConfigurationService_IsScreenRound_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *configurationServiceClient) IsScreenWideColorGamut(ctx context.Context, in *IsScreenWideColorGamutRequest, opts ...grpc.CallOption) (*IsScreenWideColorGamutResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsScreenWideColorGamutResponse)
-	err := c.cc.Invoke(ctx, ConfigurationService_IsScreenWideColorGamut_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *configurationServiceClient) ReadFromParcel(ctx context.Context, in *ReadFromParcelRequest, opts ...grpc.CallOption) (*ReadFromParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ReadFromParcelResponse)
-	err := c.cc.Invoke(ctx, ConfigurationService_ReadFromParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *configurationServiceClient) SetLayoutDirection(ctx context.Context, in *SetLayoutDirectionRequest, opts ...grpc.CallOption) (*SetLayoutDirectionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetLayoutDirectionResponse)
-	err := c.cc.Invoke(ctx, ConfigurationService_SetLayoutDirection_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *configurationServiceClient) SetLocale(ctx context.Context, in *SetLocaleRequest, opts ...grpc.CallOption) (*SetLocaleResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetLocaleResponse)
-	err := c.cc.Invoke(ctx, ConfigurationService_SetLocale_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *configurationServiceClient) SetLocales(ctx context.Context, in *SetLocalesRequest, opts ...grpc.CallOption) (*SetLocalesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetLocalesResponse)
-	err := c.cc.Invoke(ctx, ConfigurationService_SetLocales_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *configurationServiceClient) SetTo(ctx context.Context, in *SetToRequest, opts ...grpc.CallOption) (*SetToResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetToResponse)
-	err := c.cc.Invoke(ctx, ConfigurationService_SetTo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *configurationServiceClient) SetToDefaults(ctx context.Context, in *SetToDefaultsRequest, opts ...grpc.CallOption) (*SetToDefaultsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetToDefaultsResponse)
-	err := c.cc.Invoke(ctx, ConfigurationService_SetToDefaults_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *configurationServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, ConfigurationService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *configurationServiceClient) UpdateFrom(ctx context.Context, in *UpdateFromRequest, opts ...grpc.CallOption) (*UpdateFromResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UpdateFromResponse)
-	err := c.cc.Invoke(ctx, ConfigurationService_UpdateFrom_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *configurationServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, ConfigurationService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *configurationServiceClient) CompareTo1_1(ctx context.Context, in *CompareTo1_1Request, opts ...grpc.CallOption) (*CompareTo1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CompareTo1_1Response)
-	err := c.cc.Invoke(ctx, ConfigurationService_CompareTo1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *configurationServiceClient) GenerateDelta(ctx context.Context, in *GenerateDeltaRequest, opts ...grpc.CallOption) (*GenerateDeltaResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GenerateDeltaResponse)
-	err := c.cc.Invoke(ctx, ConfigurationService_GenerateDelta_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *configurationServiceClient) NeedNewResources(ctx context.Context, in *NeedNewResourcesRequest, opts ...grpc.CallOption) (*NeedNewResourcesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NeedNewResourcesResponse)
-	err := c.cc.Invoke(ctx, ConfigurationService_NeedNewResources_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ConfigurationServiceServer is the server API for ConfigurationService service.
-// All implementations must embed UnimplementedConfigurationServiceServer
-// for forward compatibility.
-type ConfigurationServiceServer interface {
-	NewConfiguration(context.Context, *NewConfigurationRequest) (*NewConfigurationResponse, error)
-	CompareTo1(context.Context, *CompareTo1Request) (*CompareTo1Response, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Diff(context.Context, *DiffRequest) (*DiffResponse, error)
-	Equals1(context.Context, *Equals1Request) (*Equals1Response, error)
-	Equals1_1(context.Context, *Equals1_1Request) (*Equals1_1Response, error)
-	GetGrammaticalGender(context.Context, *GetGrammaticalGenderRequest) (*GetGrammaticalGenderResponse, error)
-	GetLayoutDirection(context.Context, *GetLayoutDirectionRequest) (*GetLayoutDirectionResponse, error)
-	GetLocales(context.Context, *GetLocalesRequest) (*GetLocalesResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	IsLayoutSizeAtLeast(context.Context, *IsLayoutSizeAtLeastRequest) (*IsLayoutSizeAtLeastResponse, error)
-	IsNightModeActive(context.Context, *IsNightModeActiveRequest) (*IsNightModeActiveResponse, error)
-	IsScreenHdr(context.Context, *IsScreenHdrRequest) (*IsScreenHdrResponse, error)
-	IsScreenRound(context.Context, *IsScreenRoundRequest) (*IsScreenRoundResponse, error)
-	IsScreenWideColorGamut(context.Context, *IsScreenWideColorGamutRequest) (*IsScreenWideColorGamutResponse, error)
-	ReadFromParcel(context.Context, *ReadFromParcelRequest) (*ReadFromParcelResponse, error)
-	SetLayoutDirection(context.Context, *SetLayoutDirectionRequest) (*SetLayoutDirectionResponse, error)
-	SetLocale(context.Context, *SetLocaleRequest) (*SetLocaleResponse, error)
-	SetLocales(context.Context, *SetLocalesRequest) (*SetLocalesResponse, error)
-	SetTo(context.Context, *SetToRequest) (*SetToResponse, error)
-	SetToDefaults(context.Context, *SetToDefaultsRequest) (*SetToDefaultsResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	UpdateFrom(context.Context, *UpdateFromRequest) (*UpdateFromResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	CompareTo1_1(context.Context, *CompareTo1_1Request) (*CompareTo1_1Response, error)
-	GenerateDelta(context.Context, *GenerateDeltaRequest) (*GenerateDeltaResponse, error)
-	NeedNewResources(context.Context, *NeedNewResourcesRequest) (*NeedNewResourcesResponse, error)
-	mustEmbedUnimplementedConfigurationServiceServer()
-}
-
-// UnimplementedConfigurationServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedConfigurationServiceServer struct{}
-
-func (UnimplementedConfigurationServiceServer) NewConfiguration(context.Context, *NewConfigurationRequest) (*NewConfigurationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewConfiguration not implemented")
-}
-func (UnimplementedConfigurationServiceServer) CompareTo1(context.Context, *CompareTo1Request) (*CompareTo1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method CompareTo1 not implemented")
-}
-func (UnimplementedConfigurationServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedConfigurationServiceServer) Diff(context.Context, *DiffRequest) (*DiffResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Diff not implemented")
-}
-func (UnimplementedConfigurationServiceServer) Equals1(context.Context, *Equals1Request) (*Equals1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals1 not implemented")
-}
-func (UnimplementedConfigurationServiceServer) Equals1_1(context.Context, *Equals1_1Request) (*Equals1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals1_1 not implemented")
-}
-func (UnimplementedConfigurationServiceServer) GetGrammaticalGender(context.Context, *GetGrammaticalGenderRequest) (*GetGrammaticalGenderResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetGrammaticalGender not implemented")
-}
-func (UnimplementedConfigurationServiceServer) GetLayoutDirection(context.Context, *GetLayoutDirectionRequest) (*GetLayoutDirectionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLayoutDirection not implemented")
-}
-func (UnimplementedConfigurationServiceServer) GetLocales(context.Context, *GetLocalesRequest) (*GetLocalesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLocales not implemented")
-}
-func (UnimplementedConfigurationServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedConfigurationServiceServer) IsLayoutSizeAtLeast(context.Context, *IsLayoutSizeAtLeastRequest) (*IsLayoutSizeAtLeastResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsLayoutSizeAtLeast not implemented")
-}
-func (UnimplementedConfigurationServiceServer) IsNightModeActive(context.Context, *IsNightModeActiveRequest) (*IsNightModeActiveResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsNightModeActive not implemented")
-}
-func (UnimplementedConfigurationServiceServer) IsScreenHdr(context.Context, *IsScreenHdrRequest) (*IsScreenHdrResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsScreenHdr not implemented")
-}
-func (UnimplementedConfigurationServiceServer) IsScreenRound(context.Context, *IsScreenRoundRequest) (*IsScreenRoundResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsScreenRound not implemented")
-}
-func (UnimplementedConfigurationServiceServer) IsScreenWideColorGamut(context.Context, *IsScreenWideColorGamutRequest) (*IsScreenWideColorGamutResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsScreenWideColorGamut not implemented")
-}
-func (UnimplementedConfigurationServiceServer) ReadFromParcel(context.Context, *ReadFromParcelRequest) (*ReadFromParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ReadFromParcel not implemented")
-}
-func (UnimplementedConfigurationServiceServer) SetLayoutDirection(context.Context, *SetLayoutDirectionRequest) (*SetLayoutDirectionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetLayoutDirection not implemented")
-}
-func (UnimplementedConfigurationServiceServer) SetLocale(context.Context, *SetLocaleRequest) (*SetLocaleResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetLocale not implemented")
-}
-func (UnimplementedConfigurationServiceServer) SetLocales(context.Context, *SetLocalesRequest) (*SetLocalesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetLocales not implemented")
-}
-func (UnimplementedConfigurationServiceServer) SetTo(context.Context, *SetToRequest) (*SetToResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetTo not implemented")
-}
-func (UnimplementedConfigurationServiceServer) SetToDefaults(context.Context, *SetToDefaultsRequest) (*SetToDefaultsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetToDefaults not implemented")
-}
-func (UnimplementedConfigurationServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedConfigurationServiceServer) UpdateFrom(context.Context, *UpdateFromRequest) (*UpdateFromResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UpdateFrom not implemented")
-}
-func (UnimplementedConfigurationServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedConfigurationServiceServer) CompareTo1_1(context.Context, *CompareTo1_1Request) (*CompareTo1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method CompareTo1_1 not implemented")
-}
-func (UnimplementedConfigurationServiceServer) GenerateDelta(context.Context, *GenerateDeltaRequest) (*GenerateDeltaResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GenerateDelta not implemented")
-}
-func (UnimplementedConfigurationServiceServer) NeedNewResources(context.Context, *NeedNewResourcesRequest) (*NeedNewResourcesResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NeedNewResources not implemented")
-}
-func (UnimplementedConfigurationServiceServer) mustEmbedUnimplementedConfigurationServiceServer() {}
-func (UnimplementedConfigurationServiceServer) testEmbeddedByValue()                              {}
-
-// UnsafeConfigurationServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ConfigurationServiceServer will
-// result in compilation errors.
-type UnsafeConfigurationServiceServer interface {
-	mustEmbedUnimplementedConfigurationServiceServer()
-}
-
-func RegisterConfigurationServiceServer(s grpc.ServiceRegistrar, srv ConfigurationServiceServer) {
-	// If the following call panics, it indicates UnimplementedConfigurationServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ConfigurationService_ServiceDesc, srv)
-}
-
-func _ConfigurationService_NewConfiguration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewConfigurationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConfigurationServiceServer).NewConfiguration(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConfigurationService_NewConfiguration_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigurationServiceServer).NewConfiguration(ctx, req.(*NewConfigurationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConfigurationService_CompareTo1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CompareTo1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConfigurationServiceServer).CompareTo1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConfigurationService_CompareTo1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigurationServiceServer).CompareTo1(ctx, req.(*CompareTo1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConfigurationService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConfigurationServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConfigurationService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigurationServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConfigurationService_Diff_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DiffRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConfigurationServiceServer).Diff(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConfigurationService_Diff_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigurationServiceServer).Diff(ctx, req.(*DiffRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConfigurationService_Equals1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Equals1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConfigurationServiceServer).Equals1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConfigurationService_Equals1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigurationServiceServer).Equals1(ctx, req.(*Equals1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConfigurationService_Equals1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Equals1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConfigurationServiceServer).Equals1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConfigurationService_Equals1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigurationServiceServer).Equals1_1(ctx, req.(*Equals1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConfigurationService_GetGrammaticalGender_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetGrammaticalGenderRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConfigurationServiceServer).GetGrammaticalGender(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConfigurationService_GetGrammaticalGender_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigurationServiceServer).GetGrammaticalGender(ctx, req.(*GetGrammaticalGenderRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConfigurationService_GetLayoutDirection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLayoutDirectionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConfigurationServiceServer).GetLayoutDirection(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConfigurationService_GetLayoutDirection_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigurationServiceServer).GetLayoutDirection(ctx, req.(*GetLayoutDirectionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConfigurationService_GetLocales_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLocalesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConfigurationServiceServer).GetLocales(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConfigurationService_GetLocales_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigurationServiceServer).GetLocales(ctx, req.(*GetLocalesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConfigurationService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConfigurationServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConfigurationService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigurationServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConfigurationService_IsLayoutSizeAtLeast_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsLayoutSizeAtLeastRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConfigurationServiceServer).IsLayoutSizeAtLeast(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConfigurationService_IsLayoutSizeAtLeast_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigurationServiceServer).IsLayoutSizeAtLeast(ctx, req.(*IsLayoutSizeAtLeastRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConfigurationService_IsNightModeActive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsNightModeActiveRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConfigurationServiceServer).IsNightModeActive(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConfigurationService_IsNightModeActive_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigurationServiceServer).IsNightModeActive(ctx, req.(*IsNightModeActiveRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConfigurationService_IsScreenHdr_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsScreenHdrRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConfigurationServiceServer).IsScreenHdr(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConfigurationService_IsScreenHdr_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigurationServiceServer).IsScreenHdr(ctx, req.(*IsScreenHdrRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConfigurationService_IsScreenRound_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsScreenRoundRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConfigurationServiceServer).IsScreenRound(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConfigurationService_IsScreenRound_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigurationServiceServer).IsScreenRound(ctx, req.(*IsScreenRoundRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConfigurationService_IsScreenWideColorGamut_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsScreenWideColorGamutRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConfigurationServiceServer).IsScreenWideColorGamut(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConfigurationService_IsScreenWideColorGamut_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigurationServiceServer).IsScreenWideColorGamut(ctx, req.(*IsScreenWideColorGamutRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConfigurationService_ReadFromParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReadFromParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConfigurationServiceServer).ReadFromParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConfigurationService_ReadFromParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigurationServiceServer).ReadFromParcel(ctx, req.(*ReadFromParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConfigurationService_SetLayoutDirection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetLayoutDirectionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConfigurationServiceServer).SetLayoutDirection(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConfigurationService_SetLayoutDirection_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigurationServiceServer).SetLayoutDirection(ctx, req.(*SetLayoutDirectionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConfigurationService_SetLocale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetLocaleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConfigurationServiceServer).SetLocale(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConfigurationService_SetLocale_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigurationServiceServer).SetLocale(ctx, req.(*SetLocaleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConfigurationService_SetLocales_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetLocalesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConfigurationServiceServer).SetLocales(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConfigurationService_SetLocales_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigurationServiceServer).SetLocales(ctx, req.(*SetLocalesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConfigurationService_SetTo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetToRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConfigurationServiceServer).SetTo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConfigurationService_SetTo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigurationServiceServer).SetTo(ctx, req.(*SetToRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConfigurationService_SetToDefaults_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetToDefaultsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConfigurationServiceServer).SetToDefaults(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConfigurationService_SetToDefaults_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigurationServiceServer).SetToDefaults(ctx, req.(*SetToDefaultsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConfigurationService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConfigurationServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConfigurationService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigurationServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConfigurationService_UpdateFrom_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateFromRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConfigurationServiceServer).UpdateFrom(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConfigurationService_UpdateFrom_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigurationServiceServer).UpdateFrom(ctx, req.(*UpdateFromRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConfigurationService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConfigurationServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConfigurationService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigurationServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConfigurationService_CompareTo1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CompareTo1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConfigurationServiceServer).CompareTo1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConfigurationService_CompareTo1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigurationServiceServer).CompareTo1_1(ctx, req.(*CompareTo1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConfigurationService_GenerateDelta_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GenerateDeltaRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConfigurationServiceServer).GenerateDelta(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConfigurationService_GenerateDelta_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigurationServiceServer).GenerateDelta(ctx, req.(*GenerateDeltaRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConfigurationService_NeedNewResources_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NeedNewResourcesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConfigurationServiceServer).NeedNewResources(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConfigurationService_NeedNewResources_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConfigurationServiceServer).NeedNewResources(ctx, req.(*NeedNewResourcesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ConfigurationService_ServiceDesc is the grpc.ServiceDesc for ConfigurationService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ConfigurationService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "res.ConfigurationService",
-	HandlerType: (*ConfigurationServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewConfiguration",
-			Handler:    _ConfigurationService_NewConfiguration_Handler,
-		},
-		{
-			MethodName: "CompareTo1",
-			Handler:    _ConfigurationService_CompareTo1_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _ConfigurationService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Diff",
-			Handler:    _ConfigurationService_Diff_Handler,
-		},
-		{
-			MethodName: "Equals1",
-			Handler:    _ConfigurationService_Equals1_Handler,
-		},
-		{
-			MethodName: "Equals1_1",
-			Handler:    _ConfigurationService_Equals1_1_Handler,
-		},
-		{
-			MethodName: "GetGrammaticalGender",
-			Handler:    _ConfigurationService_GetGrammaticalGender_Handler,
-		},
-		{
-			MethodName: "GetLayoutDirection",
-			Handler:    _ConfigurationService_GetLayoutDirection_Handler,
-		},
-		{
-			MethodName: "GetLocales",
-			Handler:    _ConfigurationService_GetLocales_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _ConfigurationService_HashCode_Handler,
-		},
-		{
-			MethodName: "IsLayoutSizeAtLeast",
-			Handler:    _ConfigurationService_IsLayoutSizeAtLeast_Handler,
-		},
-		{
-			MethodName: "IsNightModeActive",
-			Handler:    _ConfigurationService_IsNightModeActive_Handler,
-		},
-		{
-			MethodName: "IsScreenHdr",
-			Handler:    _ConfigurationService_IsScreenHdr_Handler,
-		},
-		{
-			MethodName: "IsScreenRound",
-			Handler:    _ConfigurationService_IsScreenRound_Handler,
-		},
-		{
-			MethodName: "IsScreenWideColorGamut",
-			Handler:    _ConfigurationService_IsScreenWideColorGamut_Handler,
-		},
-		{
-			MethodName: "ReadFromParcel",
-			Handler:    _ConfigurationService_ReadFromParcel_Handler,
-		},
-		{
-			MethodName: "SetLayoutDirection",
-			Handler:    _ConfigurationService_SetLayoutDirection_Handler,
-		},
-		{
-			MethodName: "SetLocale",
-			Handler:    _ConfigurationService_SetLocale_Handler,
-		},
-		{
-			MethodName: "SetLocales",
-			Handler:    _ConfigurationService_SetLocales_Handler,
-		},
-		{
-			MethodName: "SetTo",
-			Handler:    _ConfigurationService_SetTo_Handler,
-		},
-		{
-			MethodName: "SetToDefaults",
-			Handler:    _ConfigurationService_SetToDefaults_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _ConfigurationService_ToString_Handler,
-		},
-		{
-			MethodName: "UpdateFrom",
-			Handler:    _ConfigurationService_UpdateFrom_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _ConfigurationService_WriteToParcel_Handler,
-		},
-		{
-			MethodName: "CompareTo1_1",
-			Handler:    _ConfigurationService_CompareTo1_1_Handler,
-		},
-		{
-			MethodName: "GenerateDelta",
-			Handler:    _ConfigurationService_GenerateDelta_Handler,
-		},
-		{
-			MethodName: "NeedNewResources",
-			Handler:    _ConfigurationService_NeedNewResources_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/res/res.proto",
-}
-
-const (
-	AssetFileDescriptorService_NewAssetFileDescriptor_FullMethodName  = "/res.AssetFileDescriptorService/NewAssetFileDescriptor"
-	AssetFileDescriptorService_Close_FullMethodName                   = "/res.AssetFileDescriptorService/Close"
-	AssetFileDescriptorService_CreateInputStream_FullMethodName       = "/res.AssetFileDescriptorService/CreateInputStream"
-	AssetFileDescriptorService_CreateOutputStream_FullMethodName      = "/res.AssetFileDescriptorService/CreateOutputStream"
-	AssetFileDescriptorService_DescribeContents_FullMethodName        = "/res.AssetFileDescriptorService/DescribeContents"
-	AssetFileDescriptorService_GetDeclaredLength_FullMethodName       = "/res.AssetFileDescriptorService/GetDeclaredLength"
-	AssetFileDescriptorService_GetExtras_FullMethodName               = "/res.AssetFileDescriptorService/GetExtras"
-	AssetFileDescriptorService_GetFileDescriptor_FullMethodName       = "/res.AssetFileDescriptorService/GetFileDescriptor"
-	AssetFileDescriptorService_GetLength_FullMethodName               = "/res.AssetFileDescriptorService/GetLength"
-	AssetFileDescriptorService_GetParcelFileDescriptor_FullMethodName = "/res.AssetFileDescriptorService/GetParcelFileDescriptor"
-	AssetFileDescriptorService_GetStartOffset_FullMethodName          = "/res.AssetFileDescriptorService/GetStartOffset"
-	AssetFileDescriptorService_ToString_FullMethodName                = "/res.AssetFileDescriptorService/ToString"
-	AssetFileDescriptorService_WriteToParcel_FullMethodName           = "/res.AssetFileDescriptorService/WriteToParcel"
-)
-
-// AssetFileDescriptorServiceClient is the client API for AssetFileDescriptorService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AssetFileDescriptorServiceClient interface {
-	NewAssetFileDescriptor(ctx context.Context, in *NewAssetFileDescriptorRequest, opts ...grpc.CallOption) (*NewAssetFileDescriptorResponse, error)
-	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
-	CreateInputStream(ctx context.Context, in *CreateInputStreamRequest, opts ...grpc.CallOption) (*CreateInputStreamResponse, error)
-	CreateOutputStream(ctx context.Context, in *CreateOutputStreamRequest, opts ...grpc.CallOption) (*CreateOutputStreamResponse, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetDeclaredLength(ctx context.Context, in *GetDeclaredLengthRequest, opts ...grpc.CallOption) (*GetDeclaredLengthResponse, error)
-	GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
-	GetFileDescriptor(ctx context.Context, in *GetFileDescriptorRequest, opts ...grpc.CallOption) (*GetFileDescriptorResponse, error)
-	GetLength(ctx context.Context, in *GetLengthRequest, opts ...grpc.CallOption) (*GetLengthResponse, error)
-	GetParcelFileDescriptor(ctx context.Context, in *GetParcelFileDescriptorRequest, opts ...grpc.CallOption) (*GetParcelFileDescriptorResponse, error)
-	GetStartOffset(ctx context.Context, in *GetStartOffsetRequest, opts ...grpc.CallOption) (*GetStartOffsetResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type assetFileDescriptorServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAssetFileDescriptorServiceClient(cc grpc.ClientConnInterface) AssetFileDescriptorServiceClient {
-	return &assetFileDescriptorServiceClient{cc}
-}
-
-func (c *assetFileDescriptorServiceClient) NewAssetFileDescriptor(ctx context.Context, in *NewAssetFileDescriptorRequest, opts ...grpc.CallOption) (*NewAssetFileDescriptorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewAssetFileDescriptorResponse)
-	err := c.cc.Invoke(ctx, AssetFileDescriptorService_NewAssetFileDescriptor_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *assetFileDescriptorServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, AssetFileDescriptorService_Close_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *assetFileDescriptorServiceClient) CreateInputStream(ctx context.Context, in *CreateInputStreamRequest, opts ...grpc.CallOption) (*CreateInputStreamResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateInputStreamResponse)
-	err := c.cc.Invoke(ctx, AssetFileDescriptorService_CreateInputStream_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *assetFileDescriptorServiceClient) CreateOutputStream(ctx context.Context, in *CreateOutputStreamRequest, opts ...grpc.CallOption) (*CreateOutputStreamResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateOutputStreamResponse)
-	err := c.cc.Invoke(ctx, AssetFileDescriptorService_CreateOutputStream_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *assetFileDescriptorServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, AssetFileDescriptorService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *assetFileDescriptorServiceClient) GetDeclaredLength(ctx context.Context, in *GetDeclaredLengthRequest, opts ...grpc.CallOption) (*GetDeclaredLengthResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDeclaredLengthResponse)
-	err := c.cc.Invoke(ctx, AssetFileDescriptorService_GetDeclaredLength_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *assetFileDescriptorServiceClient) GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetExtrasResponse)
-	err := c.cc.Invoke(ctx, AssetFileDescriptorService_GetExtras_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *assetFileDescriptorServiceClient) GetFileDescriptor(ctx context.Context, in *GetFileDescriptorRequest, opts ...grpc.CallOption) (*GetFileDescriptorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFileDescriptorResponse)
-	err := c.cc.Invoke(ctx, AssetFileDescriptorService_GetFileDescriptor_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *assetFileDescriptorServiceClient) GetLength(ctx context.Context, in *GetLengthRequest, opts ...grpc.CallOption) (*GetLengthResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLengthResponse)
-	err := c.cc.Invoke(ctx, AssetFileDescriptorService_GetLength_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *assetFileDescriptorServiceClient) GetParcelFileDescriptor(ctx context.Context, in *GetParcelFileDescriptorRequest, opts ...grpc.CallOption) (*GetParcelFileDescriptorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetParcelFileDescriptorResponse)
-	err := c.cc.Invoke(ctx, AssetFileDescriptorService_GetParcelFileDescriptor_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *assetFileDescriptorServiceClient) GetStartOffset(ctx context.Context, in *GetStartOffsetRequest, opts ...grpc.CallOption) (*GetStartOffsetResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStartOffsetResponse)
-	err := c.cc.Invoke(ctx, AssetFileDescriptorService_GetStartOffset_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *assetFileDescriptorServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, AssetFileDescriptorService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *assetFileDescriptorServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, AssetFileDescriptorService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AssetFileDescriptorServiceServer is the server API for AssetFileDescriptorService service.
-// All implementations must embed UnimplementedAssetFileDescriptorServiceServer
-// for forward compatibility.
-type AssetFileDescriptorServiceServer interface {
-	NewAssetFileDescriptor(context.Context, *NewAssetFileDescriptorRequest) (*NewAssetFileDescriptorResponse, error)
-	Close(context.Context, *CloseRequest) (*CloseResponse, error)
-	CreateInputStream(context.Context, *CreateInputStreamRequest) (*CreateInputStreamResponse, error)
-	CreateOutputStream(context.Context, *CreateOutputStreamRequest) (*CreateOutputStreamResponse, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetDeclaredLength(context.Context, *GetDeclaredLengthRequest) (*GetDeclaredLengthResponse, error)
-	GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error)
-	GetFileDescriptor(context.Context, *GetFileDescriptorRequest) (*GetFileDescriptorResponse, error)
-	GetLength(context.Context, *GetLengthRequest) (*GetLengthResponse, error)
-	GetParcelFileDescriptor(context.Context, *GetParcelFileDescriptorRequest) (*GetParcelFileDescriptorResponse, error)
-	GetStartOffset(context.Context, *GetStartOffsetRequest) (*GetStartOffsetResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedAssetFileDescriptorServiceServer()
-}
-
-// UnimplementedAssetFileDescriptorServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAssetFileDescriptorServiceServer struct{}
-
-func (UnimplementedAssetFileDescriptorServiceServer) NewAssetFileDescriptor(context.Context, *NewAssetFileDescriptorRequest) (*NewAssetFileDescriptorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewAssetFileDescriptor not implemented")
-}
-func (UnimplementedAssetFileDescriptorServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
-}
-func (UnimplementedAssetFileDescriptorServiceServer) CreateInputStream(context.Context, *CreateInputStreamRequest) (*CreateInputStreamResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreateInputStream not implemented")
-}
-func (UnimplementedAssetFileDescriptorServiceServer) CreateOutputStream(context.Context, *CreateOutputStreamRequest) (*CreateOutputStreamResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreateOutputStream not implemented")
-}
-func (UnimplementedAssetFileDescriptorServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedAssetFileDescriptorServiceServer) GetDeclaredLength(context.Context, *GetDeclaredLengthRequest) (*GetDeclaredLengthResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDeclaredLength not implemented")
-}
-func (UnimplementedAssetFileDescriptorServiceServer) GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
-}
-func (UnimplementedAssetFileDescriptorServiceServer) GetFileDescriptor(context.Context, *GetFileDescriptorRequest) (*GetFileDescriptorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFileDescriptor not implemented")
-}
-func (UnimplementedAssetFileDescriptorServiceServer) GetLength(context.Context, *GetLengthRequest) (*GetLengthResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLength not implemented")
-}
-func (UnimplementedAssetFileDescriptorServiceServer) GetParcelFileDescriptor(context.Context, *GetParcelFileDescriptorRequest) (*GetParcelFileDescriptorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetParcelFileDescriptor not implemented")
-}
-func (UnimplementedAssetFileDescriptorServiceServer) GetStartOffset(context.Context, *GetStartOffsetRequest) (*GetStartOffsetResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStartOffset not implemented")
-}
-func (UnimplementedAssetFileDescriptorServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedAssetFileDescriptorServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedAssetFileDescriptorServiceServer) mustEmbedUnimplementedAssetFileDescriptorServiceServer() {
-}
-func (UnimplementedAssetFileDescriptorServiceServer) testEmbeddedByValue() {}
-
-// UnsafeAssetFileDescriptorServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AssetFileDescriptorServiceServer will
-// result in compilation errors.
-type UnsafeAssetFileDescriptorServiceServer interface {
-	mustEmbedUnimplementedAssetFileDescriptorServiceServer()
-}
-
-func RegisterAssetFileDescriptorServiceServer(s grpc.ServiceRegistrar, srv AssetFileDescriptorServiceServer) {
-	// If the following call panics, it indicates UnimplementedAssetFileDescriptorServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AssetFileDescriptorService_ServiceDesc, srv)
-}
-
-func _AssetFileDescriptorService_NewAssetFileDescriptor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewAssetFileDescriptorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AssetFileDescriptorServiceServer).NewAssetFileDescriptor(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AssetFileDescriptorService_NewAssetFileDescriptor_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AssetFileDescriptorServiceServer).NewAssetFileDescriptor(ctx, req.(*NewAssetFileDescriptorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AssetFileDescriptorService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AssetFileDescriptorServiceServer).Close(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AssetFileDescriptorService_Close_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AssetFileDescriptorServiceServer).Close(ctx, req.(*CloseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AssetFileDescriptorService_CreateInputStream_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateInputStreamRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AssetFileDescriptorServiceServer).CreateInputStream(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AssetFileDescriptorService_CreateInputStream_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AssetFileDescriptorServiceServer).CreateInputStream(ctx, req.(*CreateInputStreamRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AssetFileDescriptorService_CreateOutputStream_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateOutputStreamRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AssetFileDescriptorServiceServer).CreateOutputStream(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AssetFileDescriptorService_CreateOutputStream_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AssetFileDescriptorServiceServer).CreateOutputStream(ctx, req.(*CreateOutputStreamRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AssetFileDescriptorService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AssetFileDescriptorServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AssetFileDescriptorService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AssetFileDescriptorServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AssetFileDescriptorService_GetDeclaredLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDeclaredLengthRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AssetFileDescriptorServiceServer).GetDeclaredLength(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AssetFileDescriptorService_GetDeclaredLength_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AssetFileDescriptorServiceServer).GetDeclaredLength(ctx, req.(*GetDeclaredLengthRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AssetFileDescriptorService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetExtrasRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AssetFileDescriptorServiceServer).GetExtras(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AssetFileDescriptorService_GetExtras_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AssetFileDescriptorServiceServer).GetExtras(ctx, req.(*GetExtrasRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AssetFileDescriptorService_GetFileDescriptor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFileDescriptorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AssetFileDescriptorServiceServer).GetFileDescriptor(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AssetFileDescriptorService_GetFileDescriptor_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AssetFileDescriptorServiceServer).GetFileDescriptor(ctx, req.(*GetFileDescriptorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AssetFileDescriptorService_GetLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLengthRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AssetFileDescriptorServiceServer).GetLength(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AssetFileDescriptorService_GetLength_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AssetFileDescriptorServiceServer).GetLength(ctx, req.(*GetLengthRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AssetFileDescriptorService_GetParcelFileDescriptor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetParcelFileDescriptorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AssetFileDescriptorServiceServer).GetParcelFileDescriptor(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AssetFileDescriptorService_GetParcelFileDescriptor_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AssetFileDescriptorServiceServer).GetParcelFileDescriptor(ctx, req.(*GetParcelFileDescriptorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AssetFileDescriptorService_GetStartOffset_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStartOffsetRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AssetFileDescriptorServiceServer).GetStartOffset(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AssetFileDescriptorService_GetStartOffset_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AssetFileDescriptorServiceServer).GetStartOffset(ctx, req.(*GetStartOffsetRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AssetFileDescriptorService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AssetFileDescriptorServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AssetFileDescriptorService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AssetFileDescriptorServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AssetFileDescriptorService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AssetFileDescriptorServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AssetFileDescriptorService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AssetFileDescriptorServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AssetFileDescriptorService_ServiceDesc is the grpc.ServiceDesc for AssetFileDescriptorService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AssetFileDescriptorService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "res.AssetFileDescriptorService",
-	HandlerType: (*AssetFileDescriptorServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewAssetFileDescriptor",
-			Handler:    _AssetFileDescriptorService_NewAssetFileDescriptor_Handler,
-		},
-		{
-			MethodName: "Close",
-			Handler:    _AssetFileDescriptorService_Close_Handler,
-		},
-		{
-			MethodName: "CreateInputStream",
-			Handler:    _AssetFileDescriptorService_CreateInputStream_Handler,
-		},
-		{
-			MethodName: "CreateOutputStream",
-			Handler:    _AssetFileDescriptorService_CreateOutputStream_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _AssetFileDescriptorService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetDeclaredLength",
-			Handler:    _AssetFileDescriptorService_GetDeclaredLength_Handler,
-		},
-		{
-			MethodName: "GetExtras",
-			Handler:    _AssetFileDescriptorService_GetExtras_Handler,
-		},
-		{
-			MethodName: "GetFileDescriptor",
-			Handler:    _AssetFileDescriptorService_GetFileDescriptor_Handler,
-		},
-		{
-			MethodName: "GetLength",
-			Handler:    _AssetFileDescriptorService_GetLength_Handler,
-		},
-		{
-			MethodName: "GetParcelFileDescriptor",
-			Handler:    _AssetFileDescriptorService_GetParcelFileDescriptor_Handler,
-		},
-		{
-			MethodName: "GetStartOffset",
-			Handler:    _AssetFileDescriptorService_GetStartOffset_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _AssetFileDescriptorService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _AssetFileDescriptorService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/res/res.proto",
-}
-
-const (
-	AssetFileDescriptorAutoCloseInputStreamService_Available_FullMethodName     = "/res.AssetFileDescriptorAutoCloseInputStreamService/Available"
-	AssetFileDescriptorAutoCloseInputStreamService_Close_FullMethodName         = "/res.AssetFileDescriptorAutoCloseInputStreamService/Close"
-	AssetFileDescriptorAutoCloseInputStreamService_GetChannel_FullMethodName    = "/res.AssetFileDescriptorAutoCloseInputStreamService/GetChannel"
-	AssetFileDescriptorAutoCloseInputStreamService_Mark_FullMethodName          = "/res.AssetFileDescriptorAutoCloseInputStreamService/Mark"
-	AssetFileDescriptorAutoCloseInputStreamService_MarkSupported_FullMethodName = "/res.AssetFileDescriptorAutoCloseInputStreamService/MarkSupported"
-	AssetFileDescriptorAutoCloseInputStreamService_Read0_FullMethodName         = "/res.AssetFileDescriptorAutoCloseInputStreamService/Read0"
-	AssetFileDescriptorAutoCloseInputStreamService_Read1_1_FullMethodName       = "/res.AssetFileDescriptorAutoCloseInputStreamService/Read1_1"
-	AssetFileDescriptorAutoCloseInputStreamService_Read3_2_FullMethodName       = "/res.AssetFileDescriptorAutoCloseInputStreamService/Read3_2"
-	AssetFileDescriptorAutoCloseInputStreamService_Skip_FullMethodName          = "/res.AssetFileDescriptorAutoCloseInputStreamService/Skip"
-)
-
-// AssetFileDescriptorAutoCloseInputStreamServiceClient is the client API for AssetFileDescriptorAutoCloseInputStreamService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AssetFileDescriptorAutoCloseInputStreamServiceClient interface {
-	Available(ctx context.Context, in *AvailableRequest, opts ...grpc.CallOption) (*AvailableResponse, error)
-	Close(ctx context.Context, in *AssetFileDescriptorAutoCloseInputStreamCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
-	GetChannel(ctx context.Context, in *GetChannelRequest, opts ...grpc.CallOption) (*GetChannelResponse, error)
-	Mark(ctx context.Context, in *MarkRequest, opts ...grpc.CallOption) (*MarkResponse, error)
-	MarkSupported(ctx context.Context, in *MarkSupportedRequest, opts ...grpc.CallOption) (*MarkSupportedResponse, error)
-	Read0(ctx context.Context, in *Read0Request, opts ...grpc.CallOption) (*Read0Response, error)
-	Read1_1(ctx context.Context, in *Read1_1Request, opts ...grpc.CallOption) (*Read1_1Response, error)
-	Read3_2(ctx context.Context, in *Read3_2Request, opts ...grpc.CallOption) (*Read3_2Response, error)
-	Skip(ctx context.Context, in *SkipRequest, opts ...grpc.CallOption) (*SkipResponse, error)
-}
-
-type assetFileDescriptorAutoCloseInputStreamServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAssetFileDescriptorAutoCloseInputStreamServiceClient(cc grpc.ClientConnInterface) AssetFileDescriptorAutoCloseInputStreamServiceClient {
-	return &assetFileDescriptorAutoCloseInputStreamServiceClient{cc}
-}
-
-func (c *assetFileDescriptorAutoCloseInputStreamServiceClient) Available(ctx context.Context, in *AvailableRequest, opts ...grpc.CallOption) (*AvailableResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AvailableResponse)
-	err := c.cc.Invoke(ctx, AssetFileDescriptorAutoCloseInputStreamService_Available_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *assetFileDescriptorAutoCloseInputStreamServiceClient) Close(ctx context.Context, in *AssetFileDescriptorAutoCloseInputStreamCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, AssetFileDescriptorAutoCloseInputStreamService_Close_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *assetFileDescriptorAutoCloseInputStreamServiceClient) GetChannel(ctx context.Context, in *GetChannelRequest, opts ...grpc.CallOption) (*GetChannelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetChannelResponse)
-	err := c.cc.Invoke(ctx, AssetFileDescriptorAutoCloseInputStreamService_GetChannel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *assetFileDescriptorAutoCloseInputStreamServiceClient) Mark(ctx context.Context, in *MarkRequest, opts ...grpc.CallOption) (*MarkResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MarkResponse)
-	err := c.cc.Invoke(ctx, AssetFileDescriptorAutoCloseInputStreamService_Mark_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *assetFileDescriptorAutoCloseInputStreamServiceClient) MarkSupported(ctx context.Context, in *MarkSupportedRequest, opts ...grpc.CallOption) (*MarkSupportedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MarkSupportedResponse)
-	err := c.cc.Invoke(ctx, AssetFileDescriptorAutoCloseInputStreamService_MarkSupported_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *assetFileDescriptorAutoCloseInputStreamServiceClient) Read0(ctx context.Context, in *Read0Request, opts ...grpc.CallOption) (*Read0Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Read0Response)
-	err := c.cc.Invoke(ctx, AssetFileDescriptorAutoCloseInputStreamService_Read0_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *assetFileDescriptorAutoCloseInputStreamServiceClient) Read1_1(ctx context.Context, in *Read1_1Request, opts ...grpc.CallOption) (*Read1_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Read1_1Response)
-	err := c.cc.Invoke(ctx, AssetFileDescriptorAutoCloseInputStreamService_Read1_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *assetFileDescriptorAutoCloseInputStreamServiceClient) Read3_2(ctx context.Context, in *Read3_2Request, opts ...grpc.CallOption) (*Read3_2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Read3_2Response)
-	err := c.cc.Invoke(ctx, AssetFileDescriptorAutoCloseInputStreamService_Read3_2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *assetFileDescriptorAutoCloseInputStreamServiceClient) Skip(ctx context.Context, in *SkipRequest, opts ...grpc.CallOption) (*SkipResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SkipResponse)
-	err := c.cc.Invoke(ctx, AssetFileDescriptorAutoCloseInputStreamService_Skip_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AssetFileDescriptorAutoCloseInputStreamServiceServer is the server API for AssetFileDescriptorAutoCloseInputStreamService service.
-// All implementations must embed UnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer
-// for forward compatibility.
-type AssetFileDescriptorAutoCloseInputStreamServiceServer interface {
-	Available(context.Context, *AvailableRequest) (*AvailableResponse, error)
-	Close(context.Context, *AssetFileDescriptorAutoCloseInputStreamCloseRequest) (*CloseResponse, error)
-	GetChannel(context.Context, *GetChannelRequest) (*GetChannelResponse, error)
-	Mark(context.Context, *MarkRequest) (*MarkResponse, error)
-	MarkSupported(context.Context, *MarkSupportedRequest) (*MarkSupportedResponse, error)
-	Read0(context.Context, *Read0Request) (*Read0Response, error)
-	Read1_1(context.Context, *Read1_1Request) (*Read1_1Response, error)
-	Read3_2(context.Context, *Read3_2Request) (*Read3_2Response, error)
-	Skip(context.Context, *SkipRequest) (*SkipResponse, error)
-	mustEmbedUnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer()
-}
-
-// UnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer struct{}
-
-func (UnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer) Available(context.Context, *AvailableRequest) (*AvailableResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Available not implemented")
-}
-func (UnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer) Close(context.Context, *AssetFileDescriptorAutoCloseInputStreamCloseRequest) (*CloseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
-}
-func (UnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer) GetChannel(context.Context, *GetChannelRequest) (*GetChannelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetChannel not implemented")
-}
-func (UnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer) Mark(context.Context, *MarkRequest) (*MarkResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Mark not implemented")
-}
-func (UnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer) MarkSupported(context.Context, *MarkSupportedRequest) (*MarkSupportedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method MarkSupported not implemented")
-}
-func (UnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer) Read0(context.Context, *Read0Request) (*Read0Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Read0 not implemented")
-}
-func (UnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer) Read1_1(context.Context, *Read1_1Request) (*Read1_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Read1_1 not implemented")
-}
-func (UnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer) Read3_2(context.Context, *Read3_2Request) (*Read3_2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Read3_2 not implemented")
-}
-func (UnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer) Skip(context.Context, *SkipRequest) (*SkipResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Skip not implemented")
-}
-func (UnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer) mustEmbedUnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer() {
-}
-func (UnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer) testEmbeddedByValue() {}
-
-// UnsafeAssetFileDescriptorAutoCloseInputStreamServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AssetFileDescriptorAutoCloseInputStreamServiceServer will
-// result in compilation errors.
-type UnsafeAssetFileDescriptorAutoCloseInputStreamServiceServer interface {
-	mustEmbedUnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer()
-}
-
-func RegisterAssetFileDescriptorAutoCloseInputStreamServiceServer(s grpc.ServiceRegistrar, srv AssetFileDescriptorAutoCloseInputStreamServiceServer) {
-	// If the following call panics, it indicates UnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AssetFileDescriptorAutoCloseInputStreamService_ServiceDesc, srv)
-}
-
-func _AssetFileDescriptorAutoCloseInputStreamService_Available_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AvailableRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).Available(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AssetFileDescriptorAutoCloseInputStreamService_Available_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).Available(ctx, req.(*AvailableRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AssetFileDescriptorAutoCloseInputStreamService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AssetFileDescriptorAutoCloseInputStreamCloseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).Close(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AssetFileDescriptorAutoCloseInputStreamService_Close_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).Close(ctx, req.(*AssetFileDescriptorAutoCloseInputStreamCloseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AssetFileDescriptorAutoCloseInputStreamService_GetChannel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetChannelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).GetChannel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AssetFileDescriptorAutoCloseInputStreamService_GetChannel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).GetChannel(ctx, req.(*GetChannelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AssetFileDescriptorAutoCloseInputStreamService_Mark_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MarkRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).Mark(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AssetFileDescriptorAutoCloseInputStreamService_Mark_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).Mark(ctx, req.(*MarkRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AssetFileDescriptorAutoCloseInputStreamService_MarkSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MarkSupportedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).MarkSupported(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AssetFileDescriptorAutoCloseInputStreamService_MarkSupported_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).MarkSupported(ctx, req.(*MarkSupportedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AssetFileDescriptorAutoCloseInputStreamService_Read0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Read0Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).Read0(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AssetFileDescriptorAutoCloseInputStreamService_Read0_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).Read0(ctx, req.(*Read0Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AssetFileDescriptorAutoCloseInputStreamService_Read1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Read1_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).Read1_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AssetFileDescriptorAutoCloseInputStreamService_Read1_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).Read1_1(ctx, req.(*Read1_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AssetFileDescriptorAutoCloseInputStreamService_Read3_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Read3_2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).Read3_2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AssetFileDescriptorAutoCloseInputStreamService_Read3_2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).Read3_2(ctx, req.(*Read3_2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AssetFileDescriptorAutoCloseInputStreamService_Skip_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SkipRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).Skip(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AssetFileDescriptorAutoCloseInputStreamService_Skip_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).Skip(ctx, req.(*SkipRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AssetFileDescriptorAutoCloseInputStreamService_ServiceDesc is the grpc.ServiceDesc for AssetFileDescriptorAutoCloseInputStreamService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AssetFileDescriptorAutoCloseInputStreamService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "res.AssetFileDescriptorAutoCloseInputStreamService",
-	HandlerType: (*AssetFileDescriptorAutoCloseInputStreamServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Available",
-			Handler:    _AssetFileDescriptorAutoCloseInputStreamService_Available_Handler,
-		},
-		{
-			MethodName: "Close",
-			Handler:    _AssetFileDescriptorAutoCloseInputStreamService_Close_Handler,
-		},
-		{
-			MethodName: "GetChannel",
-			Handler:    _AssetFileDescriptorAutoCloseInputStreamService_GetChannel_Handler,
-		},
-		{
-			MethodName: "Mark",
-			Handler:    _AssetFileDescriptorAutoCloseInputStreamService_Mark_Handler,
-		},
-		{
-			MethodName: "MarkSupported",
-			Handler:    _AssetFileDescriptorAutoCloseInputStreamService_MarkSupported_Handler,
-		},
-		{
-			MethodName: "Read0",
-			Handler:    _AssetFileDescriptorAutoCloseInputStreamService_Read0_Handler,
-		},
-		{
-			MethodName: "Read1_1",
-			Handler:    _AssetFileDescriptorAutoCloseInputStreamService_Read1_1_Handler,
-		},
-		{
-			MethodName: "Read3_2",
-			Handler:    _AssetFileDescriptorAutoCloseInputStreamService_Read3_2_Handler,
-		},
-		{
-			MethodName: "Skip",
-			Handler:    _AssetFileDescriptorAutoCloseInputStreamService_Skip_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/res/res.proto",
-}
-
-const (
-	AssetFileDescriptorAutoCloseOutputStreamService_Write1_FullMethodName   = "/res.AssetFileDescriptorAutoCloseOutputStreamService/Write1"
-	AssetFileDescriptorAutoCloseOutputStreamService_Write3_1_FullMethodName = "/res.AssetFileDescriptorAutoCloseOutputStreamService/Write3_1"
-	AssetFileDescriptorAutoCloseOutputStreamService_Write1_2_FullMethodName = "/res.AssetFileDescriptorAutoCloseOutputStreamService/Write1_2"
-)
-
-// AssetFileDescriptorAutoCloseOutputStreamServiceClient is the client API for AssetFileDescriptorAutoCloseOutputStreamService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AssetFileDescriptorAutoCloseOutputStreamServiceClient interface {
-	Write1(ctx context.Context, in *Write1Request, opts ...grpc.CallOption) (*Write1Response, error)
-	Write3_1(ctx context.Context, in *Write3_1Request, opts ...grpc.CallOption) (*Write3_1Response, error)
-	Write1_2(ctx context.Context, in *Write1_2Request, opts ...grpc.CallOption) (*Write1_2Response, error)
-}
-
-type assetFileDescriptorAutoCloseOutputStreamServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAssetFileDescriptorAutoCloseOutputStreamServiceClient(cc grpc.ClientConnInterface) AssetFileDescriptorAutoCloseOutputStreamServiceClient {
-	return &assetFileDescriptorAutoCloseOutputStreamServiceClient{cc}
-}
-
-func (c *assetFileDescriptorAutoCloseOutputStreamServiceClient) Write1(ctx context.Context, in *Write1Request, opts ...grpc.CallOption) (*Write1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Write1Response)
-	err := c.cc.Invoke(ctx, AssetFileDescriptorAutoCloseOutputStreamService_Write1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *assetFileDescriptorAutoCloseOutputStreamServiceClient) Write3_1(ctx context.Context, in *Write3_1Request, opts ...grpc.CallOption) (*Write3_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Write3_1Response)
-	err := c.cc.Invoke(ctx, AssetFileDescriptorAutoCloseOutputStreamService_Write3_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *assetFileDescriptorAutoCloseOutputStreamServiceClient) Write1_2(ctx context.Context, in *Write1_2Request, opts ...grpc.CallOption) (*Write1_2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Write1_2Response)
-	err := c.cc.Invoke(ctx, AssetFileDescriptorAutoCloseOutputStreamService_Write1_2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AssetFileDescriptorAutoCloseOutputStreamServiceServer is the server API for AssetFileDescriptorAutoCloseOutputStreamService service.
-// All implementations must embed UnimplementedAssetFileDescriptorAutoCloseOutputStreamServiceServer
-// for forward compatibility.
-type AssetFileDescriptorAutoCloseOutputStreamServiceServer interface {
-	Write1(context.Context, *Write1Request) (*Write1Response, error)
-	Write3_1(context.Context, *Write3_1Request) (*Write3_1Response, error)
-	Write1_2(context.Context, *Write1_2Request) (*Write1_2Response, error)
-	mustEmbedUnimplementedAssetFileDescriptorAutoCloseOutputStreamServiceServer()
-}
-
-// UnimplementedAssetFileDescriptorAutoCloseOutputStreamServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAssetFileDescriptorAutoCloseOutputStreamServiceServer struct{}
-
-func (UnimplementedAssetFileDescriptorAutoCloseOutputStreamServiceServer) Write1(context.Context, *Write1Request) (*Write1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Write1 not implemented")
-}
-func (UnimplementedAssetFileDescriptorAutoCloseOutputStreamServiceServer) Write3_1(context.Context, *Write3_1Request) (*Write3_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Write3_1 not implemented")
-}
-func (UnimplementedAssetFileDescriptorAutoCloseOutputStreamServiceServer) Write1_2(context.Context, *Write1_2Request) (*Write1_2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method Write1_2 not implemented")
-}
-func (UnimplementedAssetFileDescriptorAutoCloseOutputStreamServiceServer) mustEmbedUnimplementedAssetFileDescriptorAutoCloseOutputStreamServiceServer() {
-}
-func (UnimplementedAssetFileDescriptorAutoCloseOutputStreamServiceServer) testEmbeddedByValue() {}
-
-// UnsafeAssetFileDescriptorAutoCloseOutputStreamServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AssetFileDescriptorAutoCloseOutputStreamServiceServer will
-// result in compilation errors.
-type UnsafeAssetFileDescriptorAutoCloseOutputStreamServiceServer interface {
-	mustEmbedUnimplementedAssetFileDescriptorAutoCloseOutputStreamServiceServer()
-}
-
-func RegisterAssetFileDescriptorAutoCloseOutputStreamServiceServer(s grpc.ServiceRegistrar, srv AssetFileDescriptorAutoCloseOutputStreamServiceServer) {
-	// If the following call panics, it indicates UnimplementedAssetFileDescriptorAutoCloseOutputStreamServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AssetFileDescriptorAutoCloseOutputStreamService_ServiceDesc, srv)
-}
-
-func _AssetFileDescriptorAutoCloseOutputStreamService_Write1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Write1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AssetFileDescriptorAutoCloseOutputStreamServiceServer).Write1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AssetFileDescriptorAutoCloseOutputStreamService_Write1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AssetFileDescriptorAutoCloseOutputStreamServiceServer).Write1(ctx, req.(*Write1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AssetFileDescriptorAutoCloseOutputStreamService_Write3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Write3_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AssetFileDescriptorAutoCloseOutputStreamServiceServer).Write3_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AssetFileDescriptorAutoCloseOutputStreamService_Write3_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AssetFileDescriptorAutoCloseOutputStreamServiceServer).Write3_1(ctx, req.(*Write3_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AssetFileDescriptorAutoCloseOutputStreamService_Write1_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Write1_2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AssetFileDescriptorAutoCloseOutputStreamServiceServer).Write1_2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AssetFileDescriptorAutoCloseOutputStreamService_Write1_2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AssetFileDescriptorAutoCloseOutputStreamServiceServer).Write1_2(ctx, req.(*Write1_2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AssetFileDescriptorAutoCloseOutputStreamService_ServiceDesc is the grpc.ServiceDesc for AssetFileDescriptorAutoCloseOutputStreamService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AssetFileDescriptorAutoCloseOutputStreamService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "res.AssetFileDescriptorAutoCloseOutputStreamService",
-	HandlerType: (*AssetFileDescriptorAutoCloseOutputStreamServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Write1",
-			Handler:    _AssetFileDescriptorAutoCloseOutputStreamService_Write1_Handler,
-		},
-		{
-			MethodName: "Write3_1",
-			Handler:    _AssetFileDescriptorAutoCloseOutputStreamService_Write3_1_Handler,
-		},
-		{
-			MethodName: "Write1_2",
-			Handler:    _AssetFileDescriptorAutoCloseOutputStreamService_Write1_2_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/res/res.proto",
-}
-
-const (
 	FontScaleConverterService_ConvertDpToSp_FullMethodName                = "/res.FontScaleConverterService/ConvertDpToSp"
 	FontScaleConverterService_ConvertSpToDp_FullMethodName                = "/res.FontScaleConverterService/ConvertSpToDp"
 	FontScaleConverterService_ForScale_FullMethodName                     = "/res.FontScaleConverterService/ForScale"
@@ -2584,9 +349,9 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ObbInfoServiceClient interface {
-	DescribeContents(ctx context.Context, in *ObbInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	ToString(ctx context.Context, in *ObbInfoToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *ObbInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
 type obbInfoServiceClient struct {
@@ -2597,7 +362,7 @@ func NewObbInfoServiceClient(cc grpc.ClientConnInterface) ObbInfoServiceClient {
 	return &obbInfoServiceClient{cc}
 }
 
-func (c *obbInfoServiceClient) DescribeContents(ctx context.Context, in *ObbInfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *obbInfoServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
 	err := c.cc.Invoke(ctx, ObbInfoService_DescribeContents_FullMethodName, in, out, cOpts...)
@@ -2607,7 +372,7 @@ func (c *obbInfoServiceClient) DescribeContents(ctx context.Context, in *ObbInfo
 	return out, nil
 }
 
-func (c *obbInfoServiceClient) ToString(ctx context.Context, in *ObbInfoToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+func (c *obbInfoServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ToStringResponse)
 	err := c.cc.Invoke(ctx, ObbInfoService_ToString_FullMethodName, in, out, cOpts...)
@@ -2617,7 +382,7 @@ func (c *obbInfoServiceClient) ToString(ctx context.Context, in *ObbInfoToString
 	return out, nil
 }
 
-func (c *obbInfoServiceClient) WriteToParcel(ctx context.Context, in *ObbInfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *obbInfoServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
 	err := c.cc.Invoke(ctx, ObbInfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
@@ -2631,9 +396,9 @@ func (c *obbInfoServiceClient) WriteToParcel(ctx context.Context, in *ObbInfoWri
 // All implementations must embed UnimplementedObbInfoServiceServer
 // for forward compatibility.
 type ObbInfoServiceServer interface {
-	DescribeContents(context.Context, *ObbInfoDescribeContentsRequest) (*DescribeContentsResponse, error)
-	ToString(context.Context, *ObbInfoToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *ObbInfoWriteToParcelRequest) (*WriteToParcelResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
 	mustEmbedUnimplementedObbInfoServiceServer()
 }
 
@@ -2644,13 +409,13 @@ type ObbInfoServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedObbInfoServiceServer struct{}
 
-func (UnimplementedObbInfoServiceServer) DescribeContents(context.Context, *ObbInfoDescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedObbInfoServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedObbInfoServiceServer) ToString(context.Context, *ObbInfoToStringRequest) (*ToStringResponse, error) {
+func (UnimplementedObbInfoServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
-func (UnimplementedObbInfoServiceServer) WriteToParcel(context.Context, *ObbInfoWriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedObbInfoServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
 func (UnimplementedObbInfoServiceServer) mustEmbedUnimplementedObbInfoServiceServer() {}
@@ -2675,7 +440,7 @@ func RegisterObbInfoServiceServer(s grpc.ServiceRegistrar, srv ObbInfoServiceSer
 }
 
 func _ObbInfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ObbInfoDescribeContentsRequest)
+	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2687,13 +452,13 @@ func _ObbInfoService_DescribeContents_Handler(srv interface{}, ctx context.Conte
 		FullMethod: ObbInfoService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ObbInfoServiceServer).DescribeContents(ctx, req.(*ObbInfoDescribeContentsRequest))
+		return srv.(ObbInfoServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ObbInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ObbInfoToStringRequest)
+	in := new(ToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2705,13 +470,13 @@ func _ObbInfoService_ToString_Handler(srv interface{}, ctx context.Context, dec 
 		FullMethod: ObbInfoService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ObbInfoServiceServer).ToString(ctx, req.(*ObbInfoToStringRequest))
+		return srv.(ObbInfoServiceServer).ToString(ctx, req.(*ToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ObbInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ObbInfoWriteToParcelRequest)
+	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -2723,7 +488,7 @@ func _ObbInfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context,
 		FullMethod: ObbInfoService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ObbInfoServiceServer).WriteToParcel(ctx, req.(*ObbInfoWriteToParcelRequest))
+		return srv.(ObbInfoServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2753,743 +518,6 @@ var ObbInfoService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	XmlResourceParserService_Close_FullMethodName                 = "/res.XmlResourceParserService/Close"
-	XmlResourceParserService_GetAttributeNamespace_FullMethodName = "/res.XmlResourceParserService/GetAttributeNamespace"
-)
-
-// XmlResourceParserServiceClient is the client API for XmlResourceParserService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type XmlResourceParserServiceClient interface {
-	Close(ctx context.Context, in *XmlResourceParserCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
-	GetAttributeNamespace(ctx context.Context, in *GetAttributeNamespaceRequest, opts ...grpc.CallOption) (*GetAttributeNamespaceResponse, error)
-}
-
-type xmlResourceParserServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewXmlResourceParserServiceClient(cc grpc.ClientConnInterface) XmlResourceParserServiceClient {
-	return &xmlResourceParserServiceClient{cc}
-}
-
-func (c *xmlResourceParserServiceClient) Close(ctx context.Context, in *XmlResourceParserCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, XmlResourceParserService_Close_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *xmlResourceParserServiceClient) GetAttributeNamespace(ctx context.Context, in *GetAttributeNamespaceRequest, opts ...grpc.CallOption) (*GetAttributeNamespaceResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAttributeNamespaceResponse)
-	err := c.cc.Invoke(ctx, XmlResourceParserService_GetAttributeNamespace_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// XmlResourceParserServiceServer is the server API for XmlResourceParserService service.
-// All implementations must embed UnimplementedXmlResourceParserServiceServer
-// for forward compatibility.
-type XmlResourceParserServiceServer interface {
-	Close(context.Context, *XmlResourceParserCloseRequest) (*CloseResponse, error)
-	GetAttributeNamespace(context.Context, *GetAttributeNamespaceRequest) (*GetAttributeNamespaceResponse, error)
-	mustEmbedUnimplementedXmlResourceParserServiceServer()
-}
-
-// UnimplementedXmlResourceParserServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedXmlResourceParserServiceServer struct{}
-
-func (UnimplementedXmlResourceParserServiceServer) Close(context.Context, *XmlResourceParserCloseRequest) (*CloseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
-}
-func (UnimplementedXmlResourceParserServiceServer) GetAttributeNamespace(context.Context, *GetAttributeNamespaceRequest) (*GetAttributeNamespaceResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAttributeNamespace not implemented")
-}
-func (UnimplementedXmlResourceParserServiceServer) mustEmbedUnimplementedXmlResourceParserServiceServer() {
-}
-func (UnimplementedXmlResourceParserServiceServer) testEmbeddedByValue() {}
-
-// UnsafeXmlResourceParserServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to XmlResourceParserServiceServer will
-// result in compilation errors.
-type UnsafeXmlResourceParserServiceServer interface {
-	mustEmbedUnimplementedXmlResourceParserServiceServer()
-}
-
-func RegisterXmlResourceParserServiceServer(s grpc.ServiceRegistrar, srv XmlResourceParserServiceServer) {
-	// If the following call panics, it indicates UnimplementedXmlResourceParserServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&XmlResourceParserService_ServiceDesc, srv)
-}
-
-func _XmlResourceParserService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(XmlResourceParserCloseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(XmlResourceParserServiceServer).Close(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: XmlResourceParserService_Close_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(XmlResourceParserServiceServer).Close(ctx, req.(*XmlResourceParserCloseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _XmlResourceParserService_GetAttributeNamespace_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAttributeNamespaceRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(XmlResourceParserServiceServer).GetAttributeNamespace(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: XmlResourceParserService_GetAttributeNamespace_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(XmlResourceParserServiceServer).GetAttributeNamespace(ctx, req.(*GetAttributeNamespaceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// XmlResourceParserService_ServiceDesc is the grpc.ServiceDesc for XmlResourceParserService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var XmlResourceParserService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "res.XmlResourceParserService",
-	HandlerType: (*XmlResourceParserServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Close",
-			Handler:    _XmlResourceParserService_Close_Handler,
-		},
-		{
-			MethodName: "GetAttributeNamespace",
-			Handler:    _XmlResourceParserService_GetAttributeNamespace_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/res/res.proto",
-}
-
-const (
-	ColorStateListService_NewColorStateList_FullMethodName         = "/res.ColorStateListService/NewColorStateList"
-	ColorStateListService_DescribeContents_FullMethodName          = "/res.ColorStateListService/DescribeContents"
-	ColorStateListService_GetChangingConfigurations_FullMethodName = "/res.ColorStateListService/GetChangingConfigurations"
-	ColorStateListService_GetColorForState_FullMethodName          = "/res.ColorStateListService/GetColorForState"
-	ColorStateListService_GetDefaultColor_FullMethodName           = "/res.ColorStateListService/GetDefaultColor"
-	ColorStateListService_IsOpaque_FullMethodName                  = "/res.ColorStateListService/IsOpaque"
-	ColorStateListService_IsStateful_FullMethodName                = "/res.ColorStateListService/IsStateful"
-	ColorStateListService_ToString_FullMethodName                  = "/res.ColorStateListService/ToString"
-	ColorStateListService_WithAlpha_FullMethodName                 = "/res.ColorStateListService/WithAlpha"
-	ColorStateListService_WithLStar_FullMethodName                 = "/res.ColorStateListService/WithLStar"
-	ColorStateListService_WriteToParcel_FullMethodName             = "/res.ColorStateListService/WriteToParcel"
-	ColorStateListService_CreateFromXml2_FullMethodName            = "/res.ColorStateListService/CreateFromXml2"
-	ColorStateListService_CreateFromXml3_1_FullMethodName          = "/res.ColorStateListService/CreateFromXml3_1"
-	ColorStateListService_ValueOf_FullMethodName                   = "/res.ColorStateListService/ValueOf"
-)
-
-// ColorStateListServiceClient is the client API for ColorStateListService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ColorStateListServiceClient interface {
-	NewColorStateList(ctx context.Context, in *NewColorStateListRequest, opts ...grpc.CallOption) (*NewColorStateListResponse, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetChangingConfigurations(ctx context.Context, in *GetChangingConfigurationsRequest, opts ...grpc.CallOption) (*GetChangingConfigurationsResponse, error)
-	GetColorForState(ctx context.Context, in *GetColorForStateRequest, opts ...grpc.CallOption) (*GetColorForStateResponse, error)
-	GetDefaultColor(ctx context.Context, in *GetDefaultColorRequest, opts ...grpc.CallOption) (*GetDefaultColorResponse, error)
-	IsOpaque(ctx context.Context, in *IsOpaqueRequest, opts ...grpc.CallOption) (*IsOpaqueResponse, error)
-	IsStateful(ctx context.Context, in *IsStatefulRequest, opts ...grpc.CallOption) (*IsStatefulResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WithAlpha(ctx context.Context, in *WithAlphaRequest, opts ...grpc.CallOption) (*WithAlphaResponse, error)
-	WithLStar(ctx context.Context, in *WithLStarRequest, opts ...grpc.CallOption) (*WithLStarResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-	CreateFromXml2(ctx context.Context, in *CreateFromXml2Request, opts ...grpc.CallOption) (*CreateFromXml2Response, error)
-	CreateFromXml3_1(ctx context.Context, in *CreateFromXml3_1Request, opts ...grpc.CallOption) (*CreateFromXml3_1Response, error)
-	ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error)
-}
-
-type colorStateListServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewColorStateListServiceClient(cc grpc.ClientConnInterface) ColorStateListServiceClient {
-	return &colorStateListServiceClient{cc}
-}
-
-func (c *colorStateListServiceClient) NewColorStateList(ctx context.Context, in *NewColorStateListRequest, opts ...grpc.CallOption) (*NewColorStateListResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewColorStateListResponse)
-	err := c.cc.Invoke(ctx, ColorStateListService_NewColorStateList_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *colorStateListServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, ColorStateListService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *colorStateListServiceClient) GetChangingConfigurations(ctx context.Context, in *GetChangingConfigurationsRequest, opts ...grpc.CallOption) (*GetChangingConfigurationsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetChangingConfigurationsResponse)
-	err := c.cc.Invoke(ctx, ColorStateListService_GetChangingConfigurations_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *colorStateListServiceClient) GetColorForState(ctx context.Context, in *GetColorForStateRequest, opts ...grpc.CallOption) (*GetColorForStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetColorForStateResponse)
-	err := c.cc.Invoke(ctx, ColorStateListService_GetColorForState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *colorStateListServiceClient) GetDefaultColor(ctx context.Context, in *GetDefaultColorRequest, opts ...grpc.CallOption) (*GetDefaultColorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDefaultColorResponse)
-	err := c.cc.Invoke(ctx, ColorStateListService_GetDefaultColor_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *colorStateListServiceClient) IsOpaque(ctx context.Context, in *IsOpaqueRequest, opts ...grpc.CallOption) (*IsOpaqueResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsOpaqueResponse)
-	err := c.cc.Invoke(ctx, ColorStateListService_IsOpaque_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *colorStateListServiceClient) IsStateful(ctx context.Context, in *IsStatefulRequest, opts ...grpc.CallOption) (*IsStatefulResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsStatefulResponse)
-	err := c.cc.Invoke(ctx, ColorStateListService_IsStateful_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *colorStateListServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, ColorStateListService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *colorStateListServiceClient) WithAlpha(ctx context.Context, in *WithAlphaRequest, opts ...grpc.CallOption) (*WithAlphaResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WithAlphaResponse)
-	err := c.cc.Invoke(ctx, ColorStateListService_WithAlpha_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *colorStateListServiceClient) WithLStar(ctx context.Context, in *WithLStarRequest, opts ...grpc.CallOption) (*WithLStarResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WithLStarResponse)
-	err := c.cc.Invoke(ctx, ColorStateListService_WithLStar_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *colorStateListServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, ColorStateListService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *colorStateListServiceClient) CreateFromXml2(ctx context.Context, in *CreateFromXml2Request, opts ...grpc.CallOption) (*CreateFromXml2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateFromXml2Response)
-	err := c.cc.Invoke(ctx, ColorStateListService_CreateFromXml2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *colorStateListServiceClient) CreateFromXml3_1(ctx context.Context, in *CreateFromXml3_1Request, opts ...grpc.CallOption) (*CreateFromXml3_1Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateFromXml3_1Response)
-	err := c.cc.Invoke(ctx, ColorStateListService_CreateFromXml3_1_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *colorStateListServiceClient) ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ValueOfResponse)
-	err := c.cc.Invoke(ctx, ColorStateListService_ValueOf_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ColorStateListServiceServer is the server API for ColorStateListService service.
-// All implementations must embed UnimplementedColorStateListServiceServer
-// for forward compatibility.
-type ColorStateListServiceServer interface {
-	NewColorStateList(context.Context, *NewColorStateListRequest) (*NewColorStateListResponse, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetChangingConfigurations(context.Context, *GetChangingConfigurationsRequest) (*GetChangingConfigurationsResponse, error)
-	GetColorForState(context.Context, *GetColorForStateRequest) (*GetColorForStateResponse, error)
-	GetDefaultColor(context.Context, *GetDefaultColorRequest) (*GetDefaultColorResponse, error)
-	IsOpaque(context.Context, *IsOpaqueRequest) (*IsOpaqueResponse, error)
-	IsStateful(context.Context, *IsStatefulRequest) (*IsStatefulResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WithAlpha(context.Context, *WithAlphaRequest) (*WithAlphaResponse, error)
-	WithLStar(context.Context, *WithLStarRequest) (*WithLStarResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	CreateFromXml2(context.Context, *CreateFromXml2Request) (*CreateFromXml2Response, error)
-	CreateFromXml3_1(context.Context, *CreateFromXml3_1Request) (*CreateFromXml3_1Response, error)
-	ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error)
-	mustEmbedUnimplementedColorStateListServiceServer()
-}
-
-// UnimplementedColorStateListServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedColorStateListServiceServer struct{}
-
-func (UnimplementedColorStateListServiceServer) NewColorStateList(context.Context, *NewColorStateListRequest) (*NewColorStateListResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewColorStateList not implemented")
-}
-func (UnimplementedColorStateListServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedColorStateListServiceServer) GetChangingConfigurations(context.Context, *GetChangingConfigurationsRequest) (*GetChangingConfigurationsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetChangingConfigurations not implemented")
-}
-func (UnimplementedColorStateListServiceServer) GetColorForState(context.Context, *GetColorForStateRequest) (*GetColorForStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetColorForState not implemented")
-}
-func (UnimplementedColorStateListServiceServer) GetDefaultColor(context.Context, *GetDefaultColorRequest) (*GetDefaultColorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDefaultColor not implemented")
-}
-func (UnimplementedColorStateListServiceServer) IsOpaque(context.Context, *IsOpaqueRequest) (*IsOpaqueResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsOpaque not implemented")
-}
-func (UnimplementedColorStateListServiceServer) IsStateful(context.Context, *IsStatefulRequest) (*IsStatefulResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsStateful not implemented")
-}
-func (UnimplementedColorStateListServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedColorStateListServiceServer) WithAlpha(context.Context, *WithAlphaRequest) (*WithAlphaResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WithAlpha not implemented")
-}
-func (UnimplementedColorStateListServiceServer) WithLStar(context.Context, *WithLStarRequest) (*WithLStarResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WithLStar not implemented")
-}
-func (UnimplementedColorStateListServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedColorStateListServiceServer) CreateFromXml2(context.Context, *CreateFromXml2Request) (*CreateFromXml2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreateFromXml2 not implemented")
-}
-func (UnimplementedColorStateListServiceServer) CreateFromXml3_1(context.Context, *CreateFromXml3_1Request) (*CreateFromXml3_1Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreateFromXml3_1 not implemented")
-}
-func (UnimplementedColorStateListServiceServer) ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ValueOf not implemented")
-}
-func (UnimplementedColorStateListServiceServer) mustEmbedUnimplementedColorStateListServiceServer() {}
-func (UnimplementedColorStateListServiceServer) testEmbeddedByValue()                               {}
-
-// UnsafeColorStateListServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ColorStateListServiceServer will
-// result in compilation errors.
-type UnsafeColorStateListServiceServer interface {
-	mustEmbedUnimplementedColorStateListServiceServer()
-}
-
-func RegisterColorStateListServiceServer(s grpc.ServiceRegistrar, srv ColorStateListServiceServer) {
-	// If the following call panics, it indicates UnimplementedColorStateListServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ColorStateListService_ServiceDesc, srv)
-}
-
-func _ColorStateListService_NewColorStateList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewColorStateListRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ColorStateListServiceServer).NewColorStateList(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ColorStateListService_NewColorStateList_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ColorStateListServiceServer).NewColorStateList(ctx, req.(*NewColorStateListRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ColorStateListService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ColorStateListServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ColorStateListService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ColorStateListServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ColorStateListService_GetChangingConfigurations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetChangingConfigurationsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ColorStateListServiceServer).GetChangingConfigurations(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ColorStateListService_GetChangingConfigurations_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ColorStateListServiceServer).GetChangingConfigurations(ctx, req.(*GetChangingConfigurationsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ColorStateListService_GetColorForState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetColorForStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ColorStateListServiceServer).GetColorForState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ColorStateListService_GetColorForState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ColorStateListServiceServer).GetColorForState(ctx, req.(*GetColorForStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ColorStateListService_GetDefaultColor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDefaultColorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ColorStateListServiceServer).GetDefaultColor(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ColorStateListService_GetDefaultColor_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ColorStateListServiceServer).GetDefaultColor(ctx, req.(*GetDefaultColorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ColorStateListService_IsOpaque_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsOpaqueRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ColorStateListServiceServer).IsOpaque(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ColorStateListService_IsOpaque_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ColorStateListServiceServer).IsOpaque(ctx, req.(*IsOpaqueRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ColorStateListService_IsStateful_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsStatefulRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ColorStateListServiceServer).IsStateful(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ColorStateListService_IsStateful_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ColorStateListServiceServer).IsStateful(ctx, req.(*IsStatefulRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ColorStateListService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ColorStateListServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ColorStateListService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ColorStateListServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ColorStateListService_WithAlpha_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WithAlphaRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ColorStateListServiceServer).WithAlpha(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ColorStateListService_WithAlpha_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ColorStateListServiceServer).WithAlpha(ctx, req.(*WithAlphaRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ColorStateListService_WithLStar_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WithLStarRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ColorStateListServiceServer).WithLStar(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ColorStateListService_WithLStar_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ColorStateListServiceServer).WithLStar(ctx, req.(*WithLStarRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ColorStateListService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ColorStateListServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ColorStateListService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ColorStateListServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ColorStateListService_CreateFromXml2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateFromXml2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ColorStateListServiceServer).CreateFromXml2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ColorStateListService_CreateFromXml2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ColorStateListServiceServer).CreateFromXml2(ctx, req.(*CreateFromXml2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ColorStateListService_CreateFromXml3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateFromXml3_1Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ColorStateListServiceServer).CreateFromXml3_1(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ColorStateListService_CreateFromXml3_1_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ColorStateListServiceServer).CreateFromXml3_1(ctx, req.(*CreateFromXml3_1Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ColorStateListService_ValueOf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ValueOfRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ColorStateListServiceServer).ValueOf(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ColorStateListService_ValueOf_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ColorStateListServiceServer).ValueOf(ctx, req.(*ValueOfRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ColorStateListService_ServiceDesc is the grpc.ServiceDesc for ColorStateListService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ColorStateListService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "res.ColorStateListService",
-	HandlerType: (*ColorStateListServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewColorStateList",
-			Handler:    _ColorStateListService_NewColorStateList_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _ColorStateListService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetChangingConfigurations",
-			Handler:    _ColorStateListService_GetChangingConfigurations_Handler,
-		},
-		{
-			MethodName: "GetColorForState",
-			Handler:    _ColorStateListService_GetColorForState_Handler,
-		},
-		{
-			MethodName: "GetDefaultColor",
-			Handler:    _ColorStateListService_GetDefaultColor_Handler,
-		},
-		{
-			MethodName: "IsOpaque",
-			Handler:    _ColorStateListService_IsOpaque_Handler,
-		},
-		{
-			MethodName: "IsStateful",
-			Handler:    _ColorStateListService_IsStateful_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _ColorStateListService_ToString_Handler,
-		},
-		{
-			MethodName: "WithAlpha",
-			Handler:    _ColorStateListService_WithAlpha_Handler,
-		},
-		{
-			MethodName: "WithLStar",
-			Handler:    _ColorStateListService_WithLStar_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _ColorStateListService_WriteToParcel_Handler,
-		},
-		{
-			MethodName: "CreateFromXml2",
-			Handler:    _ColorStateListService_CreateFromXml2_Handler,
-		},
-		{
-			MethodName: "CreateFromXml3_1",
-			Handler:    _ColorStateListService_CreateFromXml3_1_Handler,
-		},
-		{
-			MethodName: "ValueOf",
-			Handler:    _ColorStateListService_ValueOf_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/res/res.proto",
-}
-
-const (
 	AssetManagerService_Close_FullMethodName                    = "/res.AssetManagerService/Close"
 	AssetManagerService_GetLocales_FullMethodName               = "/res.AssetManagerService/GetLocales"
 	AssetManagerService_List_FullMethodName                     = "/res.AssetManagerService/List"
@@ -3506,8 +534,8 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type AssetManagerServiceClient interface {
-	Close(ctx context.Context, in *AssetManagerCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
-	GetLocales(ctx context.Context, in *AssetManagerGetLocalesRequest, opts ...grpc.CallOption) (*GetLocalesResponse, error)
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	GetLocales(ctx context.Context, in *GetLocalesRequest, opts ...grpc.CallOption) (*GetLocalesResponse, error)
 	List(ctx context.Context, in *ListRequest, opts ...grpc.CallOption) (*ListResponse, error)
 	Open1(ctx context.Context, in *Open1Request, opts ...grpc.CallOption) (*Open1Response, error)
 	Open2_1(ctx context.Context, in *Open2_1Request, opts ...grpc.CallOption) (*Open2_1Response, error)
@@ -3526,7 +554,7 @@ func NewAssetManagerServiceClient(cc grpc.ClientConnInterface) AssetManagerServi
 	return &assetManagerServiceClient{cc}
 }
 
-func (c *assetManagerServiceClient) Close(ctx context.Context, in *AssetManagerCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+func (c *assetManagerServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CloseResponse)
 	err := c.cc.Invoke(ctx, AssetManagerService_Close_FullMethodName, in, out, cOpts...)
@@ -3536,7 +564,7 @@ func (c *assetManagerServiceClient) Close(ctx context.Context, in *AssetManagerC
 	return out, nil
 }
 
-func (c *assetManagerServiceClient) GetLocales(ctx context.Context, in *AssetManagerGetLocalesRequest, opts ...grpc.CallOption) (*GetLocalesResponse, error) {
+func (c *assetManagerServiceClient) GetLocales(ctx context.Context, in *GetLocalesRequest, opts ...grpc.CallOption) (*GetLocalesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetLocalesResponse)
 	err := c.cc.Invoke(ctx, AssetManagerService_GetLocales_FullMethodName, in, out, cOpts...)
@@ -3630,8 +658,8 @@ func (c *assetManagerServiceClient) OpenXmlResourceParser1_1(ctx context.Context
 // All implementations must embed UnimplementedAssetManagerServiceServer
 // for forward compatibility.
 type AssetManagerServiceServer interface {
-	Close(context.Context, *AssetManagerCloseRequest) (*CloseResponse, error)
-	GetLocales(context.Context, *AssetManagerGetLocalesRequest) (*GetLocalesResponse, error)
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	GetLocales(context.Context, *GetLocalesRequest) (*GetLocalesResponse, error)
 	List(context.Context, *ListRequest) (*ListResponse, error)
 	Open1(context.Context, *Open1Request) (*Open1Response, error)
 	Open2_1(context.Context, *Open2_1Request) (*Open2_1Response, error)
@@ -3650,10 +678,10 @@ type AssetManagerServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedAssetManagerServiceServer struct{}
 
-func (UnimplementedAssetManagerServiceServer) Close(context.Context, *AssetManagerCloseRequest) (*CloseResponse, error) {
+func (UnimplementedAssetManagerServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
 }
-func (UnimplementedAssetManagerServiceServer) GetLocales(context.Context, *AssetManagerGetLocalesRequest) (*GetLocalesResponse, error) {
+func (UnimplementedAssetManagerServiceServer) GetLocales(context.Context, *GetLocalesRequest) (*GetLocalesResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetLocales not implemented")
 }
 func (UnimplementedAssetManagerServiceServer) List(context.Context, *ListRequest) (*ListResponse, error) {
@@ -3702,7 +730,7 @@ func RegisterAssetManagerServiceServer(s grpc.ServiceRegistrar, srv AssetManager
 }
 
 func _AssetManagerService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AssetManagerCloseRequest)
+	in := new(CloseRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -3714,13 +742,13 @@ func _AssetManagerService_Close_Handler(srv interface{}, ctx context.Context, de
 		FullMethod: AssetManagerService_Close_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AssetManagerServiceServer).Close(ctx, req.(*AssetManagerCloseRequest))
+		return srv.(AssetManagerServiceServer).Close(ctx, req.(*CloseRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AssetManagerService_GetLocales_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AssetManagerGetLocalesRequest)
+	in := new(GetLocalesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -3732,7 +760,7 @@ func _AssetManagerService_GetLocales_Handler(srv interface{}, ctx context.Contex
 		FullMethod: AssetManagerService_GetLocales_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AssetManagerServiceServer).GetLocales(ctx, req.(*AssetManagerGetLocalesRequest))
+		return srv.(AssetManagerServiceServer).GetLocales(ctx, req.(*GetLocalesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3950,7 +978,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type AssetManagerAssetInputStreamServiceClient interface {
 	Available(ctx context.Context, in *AvailableRequest, opts ...grpc.CallOption) (*AvailableResponse, error)
-	Close(ctx context.Context, in *AssetManagerAssetInputStreamCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
 	Mark(ctx context.Context, in *MarkRequest, opts ...grpc.CallOption) (*MarkResponse, error)
 	MarkSupported(ctx context.Context, in *MarkSupportedRequest, opts ...grpc.CallOption) (*MarkSupportedResponse, error)
 	Read0(ctx context.Context, in *Read0Request, opts ...grpc.CallOption) (*Read0Response, error)
@@ -3978,7 +1006,7 @@ func (c *assetManagerAssetInputStreamServiceClient) Available(ctx context.Contex
 	return out, nil
 }
 
-func (c *assetManagerAssetInputStreamServiceClient) Close(ctx context.Context, in *AssetManagerAssetInputStreamCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+func (c *assetManagerAssetInputStreamServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CloseResponse)
 	err := c.cc.Invoke(ctx, AssetManagerAssetInputStreamService_Close_FullMethodName, in, out, cOpts...)
@@ -4063,7 +1091,7 @@ func (c *assetManagerAssetInputStreamServiceClient) Skip(ctx context.Context, in
 // for forward compatibility.
 type AssetManagerAssetInputStreamServiceServer interface {
 	Available(context.Context, *AvailableRequest) (*AvailableResponse, error)
-	Close(context.Context, *AssetManagerAssetInputStreamCloseRequest) (*CloseResponse, error)
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
 	Mark(context.Context, *MarkRequest) (*MarkResponse, error)
 	MarkSupported(context.Context, *MarkSupportedRequest) (*MarkSupportedResponse, error)
 	Read0(context.Context, *Read0Request) (*Read0Response, error)
@@ -4084,7 +1112,7 @@ type UnimplementedAssetManagerAssetInputStreamServiceServer struct{}
 func (UnimplementedAssetManagerAssetInputStreamServiceServer) Available(context.Context, *AvailableRequest) (*AvailableResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Available not implemented")
 }
-func (UnimplementedAssetManagerAssetInputStreamServiceServer) Close(context.Context, *AssetManagerAssetInputStreamCloseRequest) (*CloseResponse, error) {
+func (UnimplementedAssetManagerAssetInputStreamServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
 }
 func (UnimplementedAssetManagerAssetInputStreamServiceServer) Mark(context.Context, *MarkRequest) (*MarkResponse, error) {
@@ -4149,7 +1177,7 @@ func _AssetManagerAssetInputStreamService_Available_Handler(srv interface{}, ctx
 }
 
 func _AssetManagerAssetInputStreamService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AssetManagerAssetInputStreamCloseRequest)
+	in := new(CloseRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -4161,7 +1189,7 @@ func _AssetManagerAssetInputStreamService_Close_Handler(srv interface{}, ctx con
 		FullMethod: AssetManagerAssetInputStreamService_Close_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AssetManagerAssetInputStreamServiceServer).Close(ctx, req.(*AssetManagerAssetInputStreamCloseRequest))
+		return srv.(AssetManagerAssetInputStreamServiceServer).Close(ctx, req.(*CloseRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4341,6 +1369,1237 @@ var AssetManagerAssetInputStreamService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	ConfigurationService_NewConfiguration_FullMethodName       = "/res.ConfigurationService/NewConfiguration"
+	ConfigurationService_CompareTo1_FullMethodName             = "/res.ConfigurationService/CompareTo1"
+	ConfigurationService_DescribeContents_FullMethodName       = "/res.ConfigurationService/DescribeContents"
+	ConfigurationService_Diff_FullMethodName                   = "/res.ConfigurationService/Diff"
+	ConfigurationService_Equals1_FullMethodName                = "/res.ConfigurationService/Equals1"
+	ConfigurationService_Equals1_1_FullMethodName              = "/res.ConfigurationService/Equals1_1"
+	ConfigurationService_GetGrammaticalGender_FullMethodName   = "/res.ConfigurationService/GetGrammaticalGender"
+	ConfigurationService_GetLayoutDirection_FullMethodName     = "/res.ConfigurationService/GetLayoutDirection"
+	ConfigurationService_GetLocales_FullMethodName             = "/res.ConfigurationService/GetLocales"
+	ConfigurationService_HashCode_FullMethodName               = "/res.ConfigurationService/HashCode"
+	ConfigurationService_IsLayoutSizeAtLeast_FullMethodName    = "/res.ConfigurationService/IsLayoutSizeAtLeast"
+	ConfigurationService_IsNightModeActive_FullMethodName      = "/res.ConfigurationService/IsNightModeActive"
+	ConfigurationService_IsScreenHdr_FullMethodName            = "/res.ConfigurationService/IsScreenHdr"
+	ConfigurationService_IsScreenRound_FullMethodName          = "/res.ConfigurationService/IsScreenRound"
+	ConfigurationService_IsScreenWideColorGamut_FullMethodName = "/res.ConfigurationService/IsScreenWideColorGamut"
+	ConfigurationService_ReadFromParcel_FullMethodName         = "/res.ConfigurationService/ReadFromParcel"
+	ConfigurationService_SetLayoutDirection_FullMethodName     = "/res.ConfigurationService/SetLayoutDirection"
+	ConfigurationService_SetLocale_FullMethodName              = "/res.ConfigurationService/SetLocale"
+	ConfigurationService_SetLocales_FullMethodName             = "/res.ConfigurationService/SetLocales"
+	ConfigurationService_SetTo_FullMethodName                  = "/res.ConfigurationService/SetTo"
+	ConfigurationService_SetToDefaults_FullMethodName          = "/res.ConfigurationService/SetToDefaults"
+	ConfigurationService_ToString_FullMethodName               = "/res.ConfigurationService/ToString"
+	ConfigurationService_UpdateFrom_FullMethodName             = "/res.ConfigurationService/UpdateFrom"
+	ConfigurationService_WriteToParcel_FullMethodName          = "/res.ConfigurationService/WriteToParcel"
+	ConfigurationService_CompareTo1_1_FullMethodName           = "/res.ConfigurationService/CompareTo1_1"
+	ConfigurationService_GenerateDelta_FullMethodName          = "/res.ConfigurationService/GenerateDelta"
+	ConfigurationService_NeedNewResources_FullMethodName       = "/res.ConfigurationService/NeedNewResources"
+)
+
+// ConfigurationServiceClient is the client API for ConfigurationService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ConfigurationServiceClient interface {
+	NewConfiguration(ctx context.Context, in *NewConfigurationRequest, opts ...grpc.CallOption) (*NewConfigurationResponse, error)
+	CompareTo1(ctx context.Context, in *CompareTo1Request, opts ...grpc.CallOption) (*CompareTo1Response, error)
+	DescribeContents(ctx context.Context, in *ConfigurationDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Diff(ctx context.Context, in *DiffRequest, opts ...grpc.CallOption) (*DiffResponse, error)
+	Equals1(ctx context.Context, in *Equals1Request, opts ...grpc.CallOption) (*Equals1Response, error)
+	Equals1_1(ctx context.Context, in *Equals1_1Request, opts ...grpc.CallOption) (*Equals1_1Response, error)
+	GetGrammaticalGender(ctx context.Context, in *GetGrammaticalGenderRequest, opts ...grpc.CallOption) (*GetGrammaticalGenderResponse, error)
+	GetLayoutDirection(ctx context.Context, in *GetLayoutDirectionRequest, opts ...grpc.CallOption) (*GetLayoutDirectionResponse, error)
+	GetLocales(ctx context.Context, in *ConfigurationGetLocalesRequest, opts ...grpc.CallOption) (*GetLocalesResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	IsLayoutSizeAtLeast(ctx context.Context, in *IsLayoutSizeAtLeastRequest, opts ...grpc.CallOption) (*IsLayoutSizeAtLeastResponse, error)
+	IsNightModeActive(ctx context.Context, in *IsNightModeActiveRequest, opts ...grpc.CallOption) (*IsNightModeActiveResponse, error)
+	IsScreenHdr(ctx context.Context, in *IsScreenHdrRequest, opts ...grpc.CallOption) (*IsScreenHdrResponse, error)
+	IsScreenRound(ctx context.Context, in *IsScreenRoundRequest, opts ...grpc.CallOption) (*IsScreenRoundResponse, error)
+	IsScreenWideColorGamut(ctx context.Context, in *IsScreenWideColorGamutRequest, opts ...grpc.CallOption) (*IsScreenWideColorGamutResponse, error)
+	ReadFromParcel(ctx context.Context, in *ReadFromParcelRequest, opts ...grpc.CallOption) (*ReadFromParcelResponse, error)
+	SetLayoutDirection(ctx context.Context, in *SetLayoutDirectionRequest, opts ...grpc.CallOption) (*SetLayoutDirectionResponse, error)
+	SetLocale(ctx context.Context, in *SetLocaleRequest, opts ...grpc.CallOption) (*SetLocaleResponse, error)
+	SetLocales(ctx context.Context, in *SetLocalesRequest, opts ...grpc.CallOption) (*SetLocalesResponse, error)
+	SetTo(ctx context.Context, in *SetToRequest, opts ...grpc.CallOption) (*SetToResponse, error)
+	SetToDefaults(ctx context.Context, in *SetToDefaultsRequest, opts ...grpc.CallOption) (*SetToDefaultsResponse, error)
+	ToString(ctx context.Context, in *ConfigurationToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	UpdateFrom(ctx context.Context, in *UpdateFromRequest, opts ...grpc.CallOption) (*UpdateFromResponse, error)
+	WriteToParcel(ctx context.Context, in *ConfigurationWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	CompareTo1_1(ctx context.Context, in *CompareTo1_1Request, opts ...grpc.CallOption) (*CompareTo1_1Response, error)
+	GenerateDelta(ctx context.Context, in *GenerateDeltaRequest, opts ...grpc.CallOption) (*GenerateDeltaResponse, error)
+	NeedNewResources(ctx context.Context, in *NeedNewResourcesRequest, opts ...grpc.CallOption) (*NeedNewResourcesResponse, error)
+}
+
+type configurationServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewConfigurationServiceClient(cc grpc.ClientConnInterface) ConfigurationServiceClient {
+	return &configurationServiceClient{cc}
+}
+
+func (c *configurationServiceClient) NewConfiguration(ctx context.Context, in *NewConfigurationRequest, opts ...grpc.CallOption) (*NewConfigurationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewConfigurationResponse)
+	err := c.cc.Invoke(ctx, ConfigurationService_NewConfiguration_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *configurationServiceClient) CompareTo1(ctx context.Context, in *CompareTo1Request, opts ...grpc.CallOption) (*CompareTo1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CompareTo1Response)
+	err := c.cc.Invoke(ctx, ConfigurationService_CompareTo1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *configurationServiceClient) DescribeContents(ctx context.Context, in *ConfigurationDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ConfigurationService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *configurationServiceClient) Diff(ctx context.Context, in *DiffRequest, opts ...grpc.CallOption) (*DiffResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DiffResponse)
+	err := c.cc.Invoke(ctx, ConfigurationService_Diff_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *configurationServiceClient) Equals1(ctx context.Context, in *Equals1Request, opts ...grpc.CallOption) (*Equals1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Equals1Response)
+	err := c.cc.Invoke(ctx, ConfigurationService_Equals1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *configurationServiceClient) Equals1_1(ctx context.Context, in *Equals1_1Request, opts ...grpc.CallOption) (*Equals1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Equals1_1Response)
+	err := c.cc.Invoke(ctx, ConfigurationService_Equals1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *configurationServiceClient) GetGrammaticalGender(ctx context.Context, in *GetGrammaticalGenderRequest, opts ...grpc.CallOption) (*GetGrammaticalGenderResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetGrammaticalGenderResponse)
+	err := c.cc.Invoke(ctx, ConfigurationService_GetGrammaticalGender_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *configurationServiceClient) GetLayoutDirection(ctx context.Context, in *GetLayoutDirectionRequest, opts ...grpc.CallOption) (*GetLayoutDirectionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLayoutDirectionResponse)
+	err := c.cc.Invoke(ctx, ConfigurationService_GetLayoutDirection_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *configurationServiceClient) GetLocales(ctx context.Context, in *ConfigurationGetLocalesRequest, opts ...grpc.CallOption) (*GetLocalesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLocalesResponse)
+	err := c.cc.Invoke(ctx, ConfigurationService_GetLocales_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *configurationServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, ConfigurationService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *configurationServiceClient) IsLayoutSizeAtLeast(ctx context.Context, in *IsLayoutSizeAtLeastRequest, opts ...grpc.CallOption) (*IsLayoutSizeAtLeastResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsLayoutSizeAtLeastResponse)
+	err := c.cc.Invoke(ctx, ConfigurationService_IsLayoutSizeAtLeast_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *configurationServiceClient) IsNightModeActive(ctx context.Context, in *IsNightModeActiveRequest, opts ...grpc.CallOption) (*IsNightModeActiveResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsNightModeActiveResponse)
+	err := c.cc.Invoke(ctx, ConfigurationService_IsNightModeActive_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *configurationServiceClient) IsScreenHdr(ctx context.Context, in *IsScreenHdrRequest, opts ...grpc.CallOption) (*IsScreenHdrResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsScreenHdrResponse)
+	err := c.cc.Invoke(ctx, ConfigurationService_IsScreenHdr_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *configurationServiceClient) IsScreenRound(ctx context.Context, in *IsScreenRoundRequest, opts ...grpc.CallOption) (*IsScreenRoundResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsScreenRoundResponse)
+	err := c.cc.Invoke(ctx, ConfigurationService_IsScreenRound_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *configurationServiceClient) IsScreenWideColorGamut(ctx context.Context, in *IsScreenWideColorGamutRequest, opts ...grpc.CallOption) (*IsScreenWideColorGamutResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsScreenWideColorGamutResponse)
+	err := c.cc.Invoke(ctx, ConfigurationService_IsScreenWideColorGamut_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *configurationServiceClient) ReadFromParcel(ctx context.Context, in *ReadFromParcelRequest, opts ...grpc.CallOption) (*ReadFromParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ReadFromParcelResponse)
+	err := c.cc.Invoke(ctx, ConfigurationService_ReadFromParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *configurationServiceClient) SetLayoutDirection(ctx context.Context, in *SetLayoutDirectionRequest, opts ...grpc.CallOption) (*SetLayoutDirectionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetLayoutDirectionResponse)
+	err := c.cc.Invoke(ctx, ConfigurationService_SetLayoutDirection_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *configurationServiceClient) SetLocale(ctx context.Context, in *SetLocaleRequest, opts ...grpc.CallOption) (*SetLocaleResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetLocaleResponse)
+	err := c.cc.Invoke(ctx, ConfigurationService_SetLocale_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *configurationServiceClient) SetLocales(ctx context.Context, in *SetLocalesRequest, opts ...grpc.CallOption) (*SetLocalesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetLocalesResponse)
+	err := c.cc.Invoke(ctx, ConfigurationService_SetLocales_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *configurationServiceClient) SetTo(ctx context.Context, in *SetToRequest, opts ...grpc.CallOption) (*SetToResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetToResponse)
+	err := c.cc.Invoke(ctx, ConfigurationService_SetTo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *configurationServiceClient) SetToDefaults(ctx context.Context, in *SetToDefaultsRequest, opts ...grpc.CallOption) (*SetToDefaultsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetToDefaultsResponse)
+	err := c.cc.Invoke(ctx, ConfigurationService_SetToDefaults_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *configurationServiceClient) ToString(ctx context.Context, in *ConfigurationToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, ConfigurationService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *configurationServiceClient) UpdateFrom(ctx context.Context, in *UpdateFromRequest, opts ...grpc.CallOption) (*UpdateFromResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateFromResponse)
+	err := c.cc.Invoke(ctx, ConfigurationService_UpdateFrom_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *configurationServiceClient) WriteToParcel(ctx context.Context, in *ConfigurationWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ConfigurationService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *configurationServiceClient) CompareTo1_1(ctx context.Context, in *CompareTo1_1Request, opts ...grpc.CallOption) (*CompareTo1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CompareTo1_1Response)
+	err := c.cc.Invoke(ctx, ConfigurationService_CompareTo1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *configurationServiceClient) GenerateDelta(ctx context.Context, in *GenerateDeltaRequest, opts ...grpc.CallOption) (*GenerateDeltaResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GenerateDeltaResponse)
+	err := c.cc.Invoke(ctx, ConfigurationService_GenerateDelta_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *configurationServiceClient) NeedNewResources(ctx context.Context, in *NeedNewResourcesRequest, opts ...grpc.CallOption) (*NeedNewResourcesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NeedNewResourcesResponse)
+	err := c.cc.Invoke(ctx, ConfigurationService_NeedNewResources_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ConfigurationServiceServer is the server API for ConfigurationService service.
+// All implementations must embed UnimplementedConfigurationServiceServer
+// for forward compatibility.
+type ConfigurationServiceServer interface {
+	NewConfiguration(context.Context, *NewConfigurationRequest) (*NewConfigurationResponse, error)
+	CompareTo1(context.Context, *CompareTo1Request) (*CompareTo1Response, error)
+	DescribeContents(context.Context, *ConfigurationDescribeContentsRequest) (*DescribeContentsResponse, error)
+	Diff(context.Context, *DiffRequest) (*DiffResponse, error)
+	Equals1(context.Context, *Equals1Request) (*Equals1Response, error)
+	Equals1_1(context.Context, *Equals1_1Request) (*Equals1_1Response, error)
+	GetGrammaticalGender(context.Context, *GetGrammaticalGenderRequest) (*GetGrammaticalGenderResponse, error)
+	GetLayoutDirection(context.Context, *GetLayoutDirectionRequest) (*GetLayoutDirectionResponse, error)
+	GetLocales(context.Context, *ConfigurationGetLocalesRequest) (*GetLocalesResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	IsLayoutSizeAtLeast(context.Context, *IsLayoutSizeAtLeastRequest) (*IsLayoutSizeAtLeastResponse, error)
+	IsNightModeActive(context.Context, *IsNightModeActiveRequest) (*IsNightModeActiveResponse, error)
+	IsScreenHdr(context.Context, *IsScreenHdrRequest) (*IsScreenHdrResponse, error)
+	IsScreenRound(context.Context, *IsScreenRoundRequest) (*IsScreenRoundResponse, error)
+	IsScreenWideColorGamut(context.Context, *IsScreenWideColorGamutRequest) (*IsScreenWideColorGamutResponse, error)
+	ReadFromParcel(context.Context, *ReadFromParcelRequest) (*ReadFromParcelResponse, error)
+	SetLayoutDirection(context.Context, *SetLayoutDirectionRequest) (*SetLayoutDirectionResponse, error)
+	SetLocale(context.Context, *SetLocaleRequest) (*SetLocaleResponse, error)
+	SetLocales(context.Context, *SetLocalesRequest) (*SetLocalesResponse, error)
+	SetTo(context.Context, *SetToRequest) (*SetToResponse, error)
+	SetToDefaults(context.Context, *SetToDefaultsRequest) (*SetToDefaultsResponse, error)
+	ToString(context.Context, *ConfigurationToStringRequest) (*ToStringResponse, error)
+	UpdateFrom(context.Context, *UpdateFromRequest) (*UpdateFromResponse, error)
+	WriteToParcel(context.Context, *ConfigurationWriteToParcelRequest) (*WriteToParcelResponse, error)
+	CompareTo1_1(context.Context, *CompareTo1_1Request) (*CompareTo1_1Response, error)
+	GenerateDelta(context.Context, *GenerateDeltaRequest) (*GenerateDeltaResponse, error)
+	NeedNewResources(context.Context, *NeedNewResourcesRequest) (*NeedNewResourcesResponse, error)
+	mustEmbedUnimplementedConfigurationServiceServer()
+}
+
+// UnimplementedConfigurationServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedConfigurationServiceServer struct{}
+
+func (UnimplementedConfigurationServiceServer) NewConfiguration(context.Context, *NewConfigurationRequest) (*NewConfigurationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewConfiguration not implemented")
+}
+func (UnimplementedConfigurationServiceServer) CompareTo1(context.Context, *CompareTo1Request) (*CompareTo1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CompareTo1 not implemented")
+}
+func (UnimplementedConfigurationServiceServer) DescribeContents(context.Context, *ConfigurationDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedConfigurationServiceServer) Diff(context.Context, *DiffRequest) (*DiffResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Diff not implemented")
+}
+func (UnimplementedConfigurationServiceServer) Equals1(context.Context, *Equals1Request) (*Equals1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals1 not implemented")
+}
+func (UnimplementedConfigurationServiceServer) Equals1_1(context.Context, *Equals1_1Request) (*Equals1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals1_1 not implemented")
+}
+func (UnimplementedConfigurationServiceServer) GetGrammaticalGender(context.Context, *GetGrammaticalGenderRequest) (*GetGrammaticalGenderResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetGrammaticalGender not implemented")
+}
+func (UnimplementedConfigurationServiceServer) GetLayoutDirection(context.Context, *GetLayoutDirectionRequest) (*GetLayoutDirectionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLayoutDirection not implemented")
+}
+func (UnimplementedConfigurationServiceServer) GetLocales(context.Context, *ConfigurationGetLocalesRequest) (*GetLocalesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLocales not implemented")
+}
+func (UnimplementedConfigurationServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedConfigurationServiceServer) IsLayoutSizeAtLeast(context.Context, *IsLayoutSizeAtLeastRequest) (*IsLayoutSizeAtLeastResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsLayoutSizeAtLeast not implemented")
+}
+func (UnimplementedConfigurationServiceServer) IsNightModeActive(context.Context, *IsNightModeActiveRequest) (*IsNightModeActiveResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsNightModeActive not implemented")
+}
+func (UnimplementedConfigurationServiceServer) IsScreenHdr(context.Context, *IsScreenHdrRequest) (*IsScreenHdrResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsScreenHdr not implemented")
+}
+func (UnimplementedConfigurationServiceServer) IsScreenRound(context.Context, *IsScreenRoundRequest) (*IsScreenRoundResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsScreenRound not implemented")
+}
+func (UnimplementedConfigurationServiceServer) IsScreenWideColorGamut(context.Context, *IsScreenWideColorGamutRequest) (*IsScreenWideColorGamutResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsScreenWideColorGamut not implemented")
+}
+func (UnimplementedConfigurationServiceServer) ReadFromParcel(context.Context, *ReadFromParcelRequest) (*ReadFromParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ReadFromParcel not implemented")
+}
+func (UnimplementedConfigurationServiceServer) SetLayoutDirection(context.Context, *SetLayoutDirectionRequest) (*SetLayoutDirectionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetLayoutDirection not implemented")
+}
+func (UnimplementedConfigurationServiceServer) SetLocale(context.Context, *SetLocaleRequest) (*SetLocaleResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetLocale not implemented")
+}
+func (UnimplementedConfigurationServiceServer) SetLocales(context.Context, *SetLocalesRequest) (*SetLocalesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetLocales not implemented")
+}
+func (UnimplementedConfigurationServiceServer) SetTo(context.Context, *SetToRequest) (*SetToResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTo not implemented")
+}
+func (UnimplementedConfigurationServiceServer) SetToDefaults(context.Context, *SetToDefaultsRequest) (*SetToDefaultsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetToDefaults not implemented")
+}
+func (UnimplementedConfigurationServiceServer) ToString(context.Context, *ConfigurationToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedConfigurationServiceServer) UpdateFrom(context.Context, *UpdateFromRequest) (*UpdateFromResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UpdateFrom not implemented")
+}
+func (UnimplementedConfigurationServiceServer) WriteToParcel(context.Context, *ConfigurationWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedConfigurationServiceServer) CompareTo1_1(context.Context, *CompareTo1_1Request) (*CompareTo1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CompareTo1_1 not implemented")
+}
+func (UnimplementedConfigurationServiceServer) GenerateDelta(context.Context, *GenerateDeltaRequest) (*GenerateDeltaResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GenerateDelta not implemented")
+}
+func (UnimplementedConfigurationServiceServer) NeedNewResources(context.Context, *NeedNewResourcesRequest) (*NeedNewResourcesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NeedNewResources not implemented")
+}
+func (UnimplementedConfigurationServiceServer) mustEmbedUnimplementedConfigurationServiceServer() {}
+func (UnimplementedConfigurationServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafeConfigurationServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ConfigurationServiceServer will
+// result in compilation errors.
+type UnsafeConfigurationServiceServer interface {
+	mustEmbedUnimplementedConfigurationServiceServer()
+}
+
+func RegisterConfigurationServiceServer(s grpc.ServiceRegistrar, srv ConfigurationServiceServer) {
+	// If the following call panics, it indicates UnimplementedConfigurationServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ConfigurationService_ServiceDesc, srv)
+}
+
+func _ConfigurationService_NewConfiguration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewConfigurationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigurationServiceServer).NewConfiguration(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigurationService_NewConfiguration_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigurationServiceServer).NewConfiguration(ctx, req.(*NewConfigurationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConfigurationService_CompareTo1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CompareTo1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigurationServiceServer).CompareTo1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigurationService_CompareTo1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigurationServiceServer).CompareTo1(ctx, req.(*CompareTo1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConfigurationService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ConfigurationDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigurationServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigurationService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigurationServiceServer).DescribeContents(ctx, req.(*ConfigurationDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConfigurationService_Diff_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DiffRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigurationServiceServer).Diff(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigurationService_Diff_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigurationServiceServer).Diff(ctx, req.(*DiffRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConfigurationService_Equals1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Equals1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigurationServiceServer).Equals1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigurationService_Equals1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigurationServiceServer).Equals1(ctx, req.(*Equals1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConfigurationService_Equals1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Equals1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigurationServiceServer).Equals1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigurationService_Equals1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigurationServiceServer).Equals1_1(ctx, req.(*Equals1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConfigurationService_GetGrammaticalGender_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetGrammaticalGenderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigurationServiceServer).GetGrammaticalGender(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigurationService_GetGrammaticalGender_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigurationServiceServer).GetGrammaticalGender(ctx, req.(*GetGrammaticalGenderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConfigurationService_GetLayoutDirection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLayoutDirectionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigurationServiceServer).GetLayoutDirection(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigurationService_GetLayoutDirection_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigurationServiceServer).GetLayoutDirection(ctx, req.(*GetLayoutDirectionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConfigurationService_GetLocales_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ConfigurationGetLocalesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigurationServiceServer).GetLocales(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigurationService_GetLocales_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigurationServiceServer).GetLocales(ctx, req.(*ConfigurationGetLocalesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConfigurationService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigurationServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigurationService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigurationServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConfigurationService_IsLayoutSizeAtLeast_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsLayoutSizeAtLeastRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigurationServiceServer).IsLayoutSizeAtLeast(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigurationService_IsLayoutSizeAtLeast_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigurationServiceServer).IsLayoutSizeAtLeast(ctx, req.(*IsLayoutSizeAtLeastRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConfigurationService_IsNightModeActive_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsNightModeActiveRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigurationServiceServer).IsNightModeActive(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigurationService_IsNightModeActive_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigurationServiceServer).IsNightModeActive(ctx, req.(*IsNightModeActiveRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConfigurationService_IsScreenHdr_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsScreenHdrRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigurationServiceServer).IsScreenHdr(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigurationService_IsScreenHdr_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigurationServiceServer).IsScreenHdr(ctx, req.(*IsScreenHdrRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConfigurationService_IsScreenRound_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsScreenRoundRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigurationServiceServer).IsScreenRound(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigurationService_IsScreenRound_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigurationServiceServer).IsScreenRound(ctx, req.(*IsScreenRoundRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConfigurationService_IsScreenWideColorGamut_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsScreenWideColorGamutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigurationServiceServer).IsScreenWideColorGamut(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigurationService_IsScreenWideColorGamut_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigurationServiceServer).IsScreenWideColorGamut(ctx, req.(*IsScreenWideColorGamutRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConfigurationService_ReadFromParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReadFromParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigurationServiceServer).ReadFromParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigurationService_ReadFromParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigurationServiceServer).ReadFromParcel(ctx, req.(*ReadFromParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConfigurationService_SetLayoutDirection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetLayoutDirectionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigurationServiceServer).SetLayoutDirection(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigurationService_SetLayoutDirection_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigurationServiceServer).SetLayoutDirection(ctx, req.(*SetLayoutDirectionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConfigurationService_SetLocale_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetLocaleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigurationServiceServer).SetLocale(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigurationService_SetLocale_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigurationServiceServer).SetLocale(ctx, req.(*SetLocaleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConfigurationService_SetLocales_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetLocalesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigurationServiceServer).SetLocales(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigurationService_SetLocales_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigurationServiceServer).SetLocales(ctx, req.(*SetLocalesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConfigurationService_SetTo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetToRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigurationServiceServer).SetTo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigurationService_SetTo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigurationServiceServer).SetTo(ctx, req.(*SetToRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConfigurationService_SetToDefaults_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetToDefaultsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigurationServiceServer).SetToDefaults(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigurationService_SetToDefaults_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigurationServiceServer).SetToDefaults(ctx, req.(*SetToDefaultsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConfigurationService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ConfigurationToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigurationServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigurationService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigurationServiceServer).ToString(ctx, req.(*ConfigurationToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConfigurationService_UpdateFrom_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateFromRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigurationServiceServer).UpdateFrom(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigurationService_UpdateFrom_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigurationServiceServer).UpdateFrom(ctx, req.(*UpdateFromRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConfigurationService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ConfigurationWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigurationServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigurationService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigurationServiceServer).WriteToParcel(ctx, req.(*ConfigurationWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConfigurationService_CompareTo1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CompareTo1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigurationServiceServer).CompareTo1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigurationService_CompareTo1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigurationServiceServer).CompareTo1_1(ctx, req.(*CompareTo1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConfigurationService_GenerateDelta_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GenerateDeltaRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigurationServiceServer).GenerateDelta(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigurationService_GenerateDelta_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigurationServiceServer).GenerateDelta(ctx, req.(*GenerateDeltaRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ConfigurationService_NeedNewResources_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NeedNewResourcesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ConfigurationServiceServer).NeedNewResources(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ConfigurationService_NeedNewResources_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ConfigurationServiceServer).NeedNewResources(ctx, req.(*NeedNewResourcesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ConfigurationService_ServiceDesc is the grpc.ServiceDesc for ConfigurationService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ConfigurationService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "res.ConfigurationService",
+	HandlerType: (*ConfigurationServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewConfiguration",
+			Handler:    _ConfigurationService_NewConfiguration_Handler,
+		},
+		{
+			MethodName: "CompareTo1",
+			Handler:    _ConfigurationService_CompareTo1_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _ConfigurationService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "Diff",
+			Handler:    _ConfigurationService_Diff_Handler,
+		},
+		{
+			MethodName: "Equals1",
+			Handler:    _ConfigurationService_Equals1_Handler,
+		},
+		{
+			MethodName: "Equals1_1",
+			Handler:    _ConfigurationService_Equals1_1_Handler,
+		},
+		{
+			MethodName: "GetGrammaticalGender",
+			Handler:    _ConfigurationService_GetGrammaticalGender_Handler,
+		},
+		{
+			MethodName: "GetLayoutDirection",
+			Handler:    _ConfigurationService_GetLayoutDirection_Handler,
+		},
+		{
+			MethodName: "GetLocales",
+			Handler:    _ConfigurationService_GetLocales_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _ConfigurationService_HashCode_Handler,
+		},
+		{
+			MethodName: "IsLayoutSizeAtLeast",
+			Handler:    _ConfigurationService_IsLayoutSizeAtLeast_Handler,
+		},
+		{
+			MethodName: "IsNightModeActive",
+			Handler:    _ConfigurationService_IsNightModeActive_Handler,
+		},
+		{
+			MethodName: "IsScreenHdr",
+			Handler:    _ConfigurationService_IsScreenHdr_Handler,
+		},
+		{
+			MethodName: "IsScreenRound",
+			Handler:    _ConfigurationService_IsScreenRound_Handler,
+		},
+		{
+			MethodName: "IsScreenWideColorGamut",
+			Handler:    _ConfigurationService_IsScreenWideColorGamut_Handler,
+		},
+		{
+			MethodName: "ReadFromParcel",
+			Handler:    _ConfigurationService_ReadFromParcel_Handler,
+		},
+		{
+			MethodName: "SetLayoutDirection",
+			Handler:    _ConfigurationService_SetLayoutDirection_Handler,
+		},
+		{
+			MethodName: "SetLocale",
+			Handler:    _ConfigurationService_SetLocale_Handler,
+		},
+		{
+			MethodName: "SetLocales",
+			Handler:    _ConfigurationService_SetLocales_Handler,
+		},
+		{
+			MethodName: "SetTo",
+			Handler:    _ConfigurationService_SetTo_Handler,
+		},
+		{
+			MethodName: "SetToDefaults",
+			Handler:    _ConfigurationService_SetToDefaults_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _ConfigurationService_ToString_Handler,
+		},
+		{
+			MethodName: "UpdateFrom",
+			Handler:    _ConfigurationService_UpdateFrom_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _ConfigurationService_WriteToParcel_Handler,
+		},
+		{
+			MethodName: "CompareTo1_1",
+			Handler:    _ConfigurationService_CompareTo1_1_Handler,
+		},
+		{
+			MethodName: "GenerateDelta",
+			Handler:    _ConfigurationService_GenerateDelta_Handler,
+		},
+		{
+			MethodName: "NeedNewResources",
+			Handler:    _ConfigurationService_NeedNewResources_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/res/res.proto",
+}
+
+const (
+	XmlResourceParserService_Close_FullMethodName                 = "/res.XmlResourceParserService/Close"
+	XmlResourceParserService_GetAttributeNamespace_FullMethodName = "/res.XmlResourceParserService/GetAttributeNamespace"
+)
+
+// XmlResourceParserServiceClient is the client API for XmlResourceParserService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type XmlResourceParserServiceClient interface {
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	GetAttributeNamespace(ctx context.Context, in *GetAttributeNamespaceRequest, opts ...grpc.CallOption) (*GetAttributeNamespaceResponse, error)
+}
+
+type xmlResourceParserServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewXmlResourceParserServiceClient(cc grpc.ClientConnInterface) XmlResourceParserServiceClient {
+	return &xmlResourceParserServiceClient{cc}
+}
+
+func (c *xmlResourceParserServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, XmlResourceParserService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *xmlResourceParserServiceClient) GetAttributeNamespace(ctx context.Context, in *GetAttributeNamespaceRequest, opts ...grpc.CallOption) (*GetAttributeNamespaceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAttributeNamespaceResponse)
+	err := c.cc.Invoke(ctx, XmlResourceParserService_GetAttributeNamespace_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// XmlResourceParserServiceServer is the server API for XmlResourceParserService service.
+// All implementations must embed UnimplementedXmlResourceParserServiceServer
+// for forward compatibility.
+type XmlResourceParserServiceServer interface {
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	GetAttributeNamespace(context.Context, *GetAttributeNamespaceRequest) (*GetAttributeNamespaceResponse, error)
+	mustEmbedUnimplementedXmlResourceParserServiceServer()
+}
+
+// UnimplementedXmlResourceParserServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedXmlResourceParserServiceServer struct{}
+
+func (UnimplementedXmlResourceParserServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedXmlResourceParserServiceServer) GetAttributeNamespace(context.Context, *GetAttributeNamespaceRequest) (*GetAttributeNamespaceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAttributeNamespace not implemented")
+}
+func (UnimplementedXmlResourceParserServiceServer) mustEmbedUnimplementedXmlResourceParserServiceServer() {
+}
+func (UnimplementedXmlResourceParserServiceServer) testEmbeddedByValue() {}
+
+// UnsafeXmlResourceParserServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to XmlResourceParserServiceServer will
+// result in compilation errors.
+type UnsafeXmlResourceParserServiceServer interface {
+	mustEmbedUnimplementedXmlResourceParserServiceServer()
+}
+
+func RegisterXmlResourceParserServiceServer(s grpc.ServiceRegistrar, srv XmlResourceParserServiceServer) {
+	// If the following call panics, it indicates UnimplementedXmlResourceParserServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&XmlResourceParserService_ServiceDesc, srv)
+}
+
+func _XmlResourceParserService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(XmlResourceParserServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: XmlResourceParserService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(XmlResourceParserServiceServer).Close(ctx, req.(*CloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _XmlResourceParserService_GetAttributeNamespace_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAttributeNamespaceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(XmlResourceParserServiceServer).GetAttributeNamespace(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: XmlResourceParserService_GetAttributeNamespace_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(XmlResourceParserServiceServer).GetAttributeNamespace(ctx, req.(*GetAttributeNamespaceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// XmlResourceParserService_ServiceDesc is the grpc.ServiceDesc for XmlResourceParserService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var XmlResourceParserService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "res.XmlResourceParserService",
+	HandlerType: (*XmlResourceParserServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Close",
+			Handler:    _XmlResourceParserService_Close_Handler,
+		},
+		{
+			MethodName: "GetAttributeNamespace",
+			Handler:    _XmlResourceParserService_GetAttributeNamespace_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/res/res.proto",
+}
+
+const (
 	TypedArrayService_Close_FullMethodName                     = "/res.TypedArrayService/Close"
 	TypedArrayService_GetBoolean_FullMethodName                = "/res.TypedArrayService/GetBoolean"
 	TypedArrayService_GetChangingConfigurations_FullMethodName = "/res.TypedArrayService/GetChangingConfigurations"
@@ -4381,9 +2640,9 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type TypedArrayServiceClient interface {
-	Close(ctx context.Context, in *TypedArrayCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
 	GetBoolean(ctx context.Context, in *GetBooleanRequest, opts ...grpc.CallOption) (*GetBooleanResponse, error)
-	GetChangingConfigurations(ctx context.Context, in *TypedArrayGetChangingConfigurationsRequest, opts ...grpc.CallOption) (*GetChangingConfigurationsResponse, error)
+	GetChangingConfigurations(ctx context.Context, in *GetChangingConfigurationsRequest, opts ...grpc.CallOption) (*GetChangingConfigurationsResponse, error)
 	GetColor(ctx context.Context, in *GetColorRequest, opts ...grpc.CallOption) (*GetColorResponse, error)
 	GetColorStateList(ctx context.Context, in *GetColorStateListRequest, opts ...grpc.CallOption) (*GetColorStateListResponse, error)
 	GetDimension(ctx context.Context, in *GetDimensionRequest, opts ...grpc.CallOption) (*GetDimensionResponse, error)
@@ -4414,7 +2673,7 @@ type TypedArrayServiceClient interface {
 	Length(ctx context.Context, in *LengthRequest, opts ...grpc.CallOption) (*LengthResponse, error)
 	PeekValue(ctx context.Context, in *PeekValueRequest, opts ...grpc.CallOption) (*PeekValueResponse, error)
 	Recycle(ctx context.Context, in *RecycleRequest, opts ...grpc.CallOption) (*RecycleResponse, error)
-	ToString(ctx context.Context, in *TypedArrayToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
 }
 
 type typedArrayServiceClient struct {
@@ -4425,7 +2684,7 @@ func NewTypedArrayServiceClient(cc grpc.ClientConnInterface) TypedArrayServiceCl
 	return &typedArrayServiceClient{cc}
 }
 
-func (c *typedArrayServiceClient) Close(ctx context.Context, in *TypedArrayCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+func (c *typedArrayServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CloseResponse)
 	err := c.cc.Invoke(ctx, TypedArrayService_Close_FullMethodName, in, out, cOpts...)
@@ -4445,7 +2704,7 @@ func (c *typedArrayServiceClient) GetBoolean(ctx context.Context, in *GetBoolean
 	return out, nil
 }
 
-func (c *typedArrayServiceClient) GetChangingConfigurations(ctx context.Context, in *TypedArrayGetChangingConfigurationsRequest, opts ...grpc.CallOption) (*GetChangingConfigurationsResponse, error) {
+func (c *typedArrayServiceClient) GetChangingConfigurations(ctx context.Context, in *GetChangingConfigurationsRequest, opts ...grpc.CallOption) (*GetChangingConfigurationsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetChangingConfigurationsResponse)
 	err := c.cc.Invoke(ctx, TypedArrayService_GetChangingConfigurations_FullMethodName, in, out, cOpts...)
@@ -4755,7 +3014,7 @@ func (c *typedArrayServiceClient) Recycle(ctx context.Context, in *RecycleReques
 	return out, nil
 }
 
-func (c *typedArrayServiceClient) ToString(ctx context.Context, in *TypedArrayToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+func (c *typedArrayServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ToStringResponse)
 	err := c.cc.Invoke(ctx, TypedArrayService_ToString_FullMethodName, in, out, cOpts...)
@@ -4769,9 +3028,9 @@ func (c *typedArrayServiceClient) ToString(ctx context.Context, in *TypedArrayTo
 // All implementations must embed UnimplementedTypedArrayServiceServer
 // for forward compatibility.
 type TypedArrayServiceServer interface {
-	Close(context.Context, *TypedArrayCloseRequest) (*CloseResponse, error)
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
 	GetBoolean(context.Context, *GetBooleanRequest) (*GetBooleanResponse, error)
-	GetChangingConfigurations(context.Context, *TypedArrayGetChangingConfigurationsRequest) (*GetChangingConfigurationsResponse, error)
+	GetChangingConfigurations(context.Context, *GetChangingConfigurationsRequest) (*GetChangingConfigurationsResponse, error)
 	GetColor(context.Context, *GetColorRequest) (*GetColorResponse, error)
 	GetColorStateList(context.Context, *GetColorStateListRequest) (*GetColorStateListResponse, error)
 	GetDimension(context.Context, *GetDimensionRequest) (*GetDimensionResponse, error)
@@ -4802,7 +3061,7 @@ type TypedArrayServiceServer interface {
 	Length(context.Context, *LengthRequest) (*LengthResponse, error)
 	PeekValue(context.Context, *PeekValueRequest) (*PeekValueResponse, error)
 	Recycle(context.Context, *RecycleRequest) (*RecycleResponse, error)
-	ToString(context.Context, *TypedArrayToStringRequest) (*ToStringResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
 	mustEmbedUnimplementedTypedArrayServiceServer()
 }
 
@@ -4813,13 +3072,13 @@ type TypedArrayServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedTypedArrayServiceServer struct{}
 
-func (UnimplementedTypedArrayServiceServer) Close(context.Context, *TypedArrayCloseRequest) (*CloseResponse, error) {
+func (UnimplementedTypedArrayServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
 }
 func (UnimplementedTypedArrayServiceServer) GetBoolean(context.Context, *GetBooleanRequest) (*GetBooleanResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetBoolean not implemented")
 }
-func (UnimplementedTypedArrayServiceServer) GetChangingConfigurations(context.Context, *TypedArrayGetChangingConfigurationsRequest) (*GetChangingConfigurationsResponse, error) {
+func (UnimplementedTypedArrayServiceServer) GetChangingConfigurations(context.Context, *GetChangingConfigurationsRequest) (*GetChangingConfigurationsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetChangingConfigurations not implemented")
 }
 func (UnimplementedTypedArrayServiceServer) GetColor(context.Context, *GetColorRequest) (*GetColorResponse, error) {
@@ -4912,7 +3171,7 @@ func (UnimplementedTypedArrayServiceServer) PeekValue(context.Context, *PeekValu
 func (UnimplementedTypedArrayServiceServer) Recycle(context.Context, *RecycleRequest) (*RecycleResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Recycle not implemented")
 }
-func (UnimplementedTypedArrayServiceServer) ToString(context.Context, *TypedArrayToStringRequest) (*ToStringResponse, error) {
+func (UnimplementedTypedArrayServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
 }
 func (UnimplementedTypedArrayServiceServer) mustEmbedUnimplementedTypedArrayServiceServer() {}
@@ -4937,7 +3196,7 @@ func RegisterTypedArrayServiceServer(s grpc.ServiceRegistrar, srv TypedArrayServ
 }
 
 func _TypedArrayService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TypedArrayCloseRequest)
+	in := new(CloseRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -4949,7 +3208,7 @@ func _TypedArrayService_Close_Handler(srv interface{}, ctx context.Context, dec 
 		FullMethod: TypedArrayService_Close_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TypedArrayServiceServer).Close(ctx, req.(*TypedArrayCloseRequest))
+		return srv.(TypedArrayServiceServer).Close(ctx, req.(*CloseRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4973,7 +3232,7 @@ func _TypedArrayService_GetBoolean_Handler(srv interface{}, ctx context.Context,
 }
 
 func _TypedArrayService_GetChangingConfigurations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TypedArrayGetChangingConfigurationsRequest)
+	in := new(GetChangingConfigurationsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -4985,7 +3244,7 @@ func _TypedArrayService_GetChangingConfigurations_Handler(srv interface{}, ctx c
 		FullMethod: TypedArrayService_GetChangingConfigurations_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TypedArrayServiceServer).GetChangingConfigurations(ctx, req.(*TypedArrayGetChangingConfigurationsRequest))
+		return srv.(TypedArrayServiceServer).GetChangingConfigurations(ctx, req.(*GetChangingConfigurationsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -5531,7 +3790,7 @@ func _TypedArrayService_Recycle_Handler(srv interface{}, ctx context.Context, de
 }
 
 func _TypedArrayService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(TypedArrayToStringRequest)
+	in := new(ToStringRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -5543,7 +3802,7 @@ func _TypedArrayService_ToString_Handler(srv interface{}, ctx context.Context, d
 		FullMethod: TypedArrayService_ToString_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TypedArrayServiceServer).ToString(ctx, req.(*TypedArrayToStringRequest))
+		return srv.(TypedArrayServiceServer).ToString(ctx, req.(*ToStringRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -5690,6 +3949,1747 @@ var TypedArrayService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ToString",
 			Handler:    _TypedArrayService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/res/res.proto",
+}
+
+const (
+	ColorStateListService_NewColorStateList_FullMethodName         = "/res.ColorStateListService/NewColorStateList"
+	ColorStateListService_DescribeContents_FullMethodName          = "/res.ColorStateListService/DescribeContents"
+	ColorStateListService_GetChangingConfigurations_FullMethodName = "/res.ColorStateListService/GetChangingConfigurations"
+	ColorStateListService_GetColorForState_FullMethodName          = "/res.ColorStateListService/GetColorForState"
+	ColorStateListService_GetDefaultColor_FullMethodName           = "/res.ColorStateListService/GetDefaultColor"
+	ColorStateListService_IsOpaque_FullMethodName                  = "/res.ColorStateListService/IsOpaque"
+	ColorStateListService_IsStateful_FullMethodName                = "/res.ColorStateListService/IsStateful"
+	ColorStateListService_ToString_FullMethodName                  = "/res.ColorStateListService/ToString"
+	ColorStateListService_WithAlpha_FullMethodName                 = "/res.ColorStateListService/WithAlpha"
+	ColorStateListService_WithLStar_FullMethodName                 = "/res.ColorStateListService/WithLStar"
+	ColorStateListService_WriteToParcel_FullMethodName             = "/res.ColorStateListService/WriteToParcel"
+	ColorStateListService_CreateFromXml2_FullMethodName            = "/res.ColorStateListService/CreateFromXml2"
+	ColorStateListService_CreateFromXml3_1_FullMethodName          = "/res.ColorStateListService/CreateFromXml3_1"
+	ColorStateListService_ValueOf_FullMethodName                   = "/res.ColorStateListService/ValueOf"
+)
+
+// ColorStateListServiceClient is the client API for ColorStateListService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ColorStateListServiceClient interface {
+	NewColorStateList(ctx context.Context, in *NewColorStateListRequest, opts ...grpc.CallOption) (*NewColorStateListResponse, error)
+	DescribeContents(ctx context.Context, in *ColorStateListDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetChangingConfigurations(ctx context.Context, in *ColorStateListGetChangingConfigurationsRequest, opts ...grpc.CallOption) (*GetChangingConfigurationsResponse, error)
+	GetColorForState(ctx context.Context, in *GetColorForStateRequest, opts ...grpc.CallOption) (*GetColorForStateResponse, error)
+	GetDefaultColor(ctx context.Context, in *GetDefaultColorRequest, opts ...grpc.CallOption) (*GetDefaultColorResponse, error)
+	IsOpaque(ctx context.Context, in *IsOpaqueRequest, opts ...grpc.CallOption) (*IsOpaqueResponse, error)
+	IsStateful(ctx context.Context, in *IsStatefulRequest, opts ...grpc.CallOption) (*IsStatefulResponse, error)
+	ToString(ctx context.Context, in *ColorStateListToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WithAlpha(ctx context.Context, in *WithAlphaRequest, opts ...grpc.CallOption) (*WithAlphaResponse, error)
+	WithLStar(ctx context.Context, in *WithLStarRequest, opts ...grpc.CallOption) (*WithLStarResponse, error)
+	WriteToParcel(ctx context.Context, in *ColorStateListWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	CreateFromXml2(ctx context.Context, in *CreateFromXml2Request, opts ...grpc.CallOption) (*CreateFromXml2Response, error)
+	CreateFromXml3_1(ctx context.Context, in *CreateFromXml3_1Request, opts ...grpc.CallOption) (*CreateFromXml3_1Response, error)
+	ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error)
+}
+
+type colorStateListServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewColorStateListServiceClient(cc grpc.ClientConnInterface) ColorStateListServiceClient {
+	return &colorStateListServiceClient{cc}
+}
+
+func (c *colorStateListServiceClient) NewColorStateList(ctx context.Context, in *NewColorStateListRequest, opts ...grpc.CallOption) (*NewColorStateListResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewColorStateListResponse)
+	err := c.cc.Invoke(ctx, ColorStateListService_NewColorStateList_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *colorStateListServiceClient) DescribeContents(ctx context.Context, in *ColorStateListDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ColorStateListService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *colorStateListServiceClient) GetChangingConfigurations(ctx context.Context, in *ColorStateListGetChangingConfigurationsRequest, opts ...grpc.CallOption) (*GetChangingConfigurationsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetChangingConfigurationsResponse)
+	err := c.cc.Invoke(ctx, ColorStateListService_GetChangingConfigurations_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *colorStateListServiceClient) GetColorForState(ctx context.Context, in *GetColorForStateRequest, opts ...grpc.CallOption) (*GetColorForStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetColorForStateResponse)
+	err := c.cc.Invoke(ctx, ColorStateListService_GetColorForState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *colorStateListServiceClient) GetDefaultColor(ctx context.Context, in *GetDefaultColorRequest, opts ...grpc.CallOption) (*GetDefaultColorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDefaultColorResponse)
+	err := c.cc.Invoke(ctx, ColorStateListService_GetDefaultColor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *colorStateListServiceClient) IsOpaque(ctx context.Context, in *IsOpaqueRequest, opts ...grpc.CallOption) (*IsOpaqueResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsOpaqueResponse)
+	err := c.cc.Invoke(ctx, ColorStateListService_IsOpaque_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *colorStateListServiceClient) IsStateful(ctx context.Context, in *IsStatefulRequest, opts ...grpc.CallOption) (*IsStatefulResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsStatefulResponse)
+	err := c.cc.Invoke(ctx, ColorStateListService_IsStateful_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *colorStateListServiceClient) ToString(ctx context.Context, in *ColorStateListToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, ColorStateListService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *colorStateListServiceClient) WithAlpha(ctx context.Context, in *WithAlphaRequest, opts ...grpc.CallOption) (*WithAlphaResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WithAlphaResponse)
+	err := c.cc.Invoke(ctx, ColorStateListService_WithAlpha_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *colorStateListServiceClient) WithLStar(ctx context.Context, in *WithLStarRequest, opts ...grpc.CallOption) (*WithLStarResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WithLStarResponse)
+	err := c.cc.Invoke(ctx, ColorStateListService_WithLStar_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *colorStateListServiceClient) WriteToParcel(ctx context.Context, in *ColorStateListWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ColorStateListService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *colorStateListServiceClient) CreateFromXml2(ctx context.Context, in *CreateFromXml2Request, opts ...grpc.CallOption) (*CreateFromXml2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateFromXml2Response)
+	err := c.cc.Invoke(ctx, ColorStateListService_CreateFromXml2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *colorStateListServiceClient) CreateFromXml3_1(ctx context.Context, in *CreateFromXml3_1Request, opts ...grpc.CallOption) (*CreateFromXml3_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateFromXml3_1Response)
+	err := c.cc.Invoke(ctx, ColorStateListService_CreateFromXml3_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *colorStateListServiceClient) ValueOf(ctx context.Context, in *ValueOfRequest, opts ...grpc.CallOption) (*ValueOfResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ValueOfResponse)
+	err := c.cc.Invoke(ctx, ColorStateListService_ValueOf_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ColorStateListServiceServer is the server API for ColorStateListService service.
+// All implementations must embed UnimplementedColorStateListServiceServer
+// for forward compatibility.
+type ColorStateListServiceServer interface {
+	NewColorStateList(context.Context, *NewColorStateListRequest) (*NewColorStateListResponse, error)
+	DescribeContents(context.Context, *ColorStateListDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetChangingConfigurations(context.Context, *ColorStateListGetChangingConfigurationsRequest) (*GetChangingConfigurationsResponse, error)
+	GetColorForState(context.Context, *GetColorForStateRequest) (*GetColorForStateResponse, error)
+	GetDefaultColor(context.Context, *GetDefaultColorRequest) (*GetDefaultColorResponse, error)
+	IsOpaque(context.Context, *IsOpaqueRequest) (*IsOpaqueResponse, error)
+	IsStateful(context.Context, *IsStatefulRequest) (*IsStatefulResponse, error)
+	ToString(context.Context, *ColorStateListToStringRequest) (*ToStringResponse, error)
+	WithAlpha(context.Context, *WithAlphaRequest) (*WithAlphaResponse, error)
+	WithLStar(context.Context, *WithLStarRequest) (*WithLStarResponse, error)
+	WriteToParcel(context.Context, *ColorStateListWriteToParcelRequest) (*WriteToParcelResponse, error)
+	CreateFromXml2(context.Context, *CreateFromXml2Request) (*CreateFromXml2Response, error)
+	CreateFromXml3_1(context.Context, *CreateFromXml3_1Request) (*CreateFromXml3_1Response, error)
+	ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error)
+	mustEmbedUnimplementedColorStateListServiceServer()
+}
+
+// UnimplementedColorStateListServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedColorStateListServiceServer struct{}
+
+func (UnimplementedColorStateListServiceServer) NewColorStateList(context.Context, *NewColorStateListRequest) (*NewColorStateListResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewColorStateList not implemented")
+}
+func (UnimplementedColorStateListServiceServer) DescribeContents(context.Context, *ColorStateListDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedColorStateListServiceServer) GetChangingConfigurations(context.Context, *ColorStateListGetChangingConfigurationsRequest) (*GetChangingConfigurationsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetChangingConfigurations not implemented")
+}
+func (UnimplementedColorStateListServiceServer) GetColorForState(context.Context, *GetColorForStateRequest) (*GetColorForStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetColorForState not implemented")
+}
+func (UnimplementedColorStateListServiceServer) GetDefaultColor(context.Context, *GetDefaultColorRequest) (*GetDefaultColorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDefaultColor not implemented")
+}
+func (UnimplementedColorStateListServiceServer) IsOpaque(context.Context, *IsOpaqueRequest) (*IsOpaqueResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsOpaque not implemented")
+}
+func (UnimplementedColorStateListServiceServer) IsStateful(context.Context, *IsStatefulRequest) (*IsStatefulResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsStateful not implemented")
+}
+func (UnimplementedColorStateListServiceServer) ToString(context.Context, *ColorStateListToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedColorStateListServiceServer) WithAlpha(context.Context, *WithAlphaRequest) (*WithAlphaResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WithAlpha not implemented")
+}
+func (UnimplementedColorStateListServiceServer) WithLStar(context.Context, *WithLStarRequest) (*WithLStarResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WithLStar not implemented")
+}
+func (UnimplementedColorStateListServiceServer) WriteToParcel(context.Context, *ColorStateListWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedColorStateListServiceServer) CreateFromXml2(context.Context, *CreateFromXml2Request) (*CreateFromXml2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateFromXml2 not implemented")
+}
+func (UnimplementedColorStateListServiceServer) CreateFromXml3_1(context.Context, *CreateFromXml3_1Request) (*CreateFromXml3_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateFromXml3_1 not implemented")
+}
+func (UnimplementedColorStateListServiceServer) ValueOf(context.Context, *ValueOfRequest) (*ValueOfResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ValueOf not implemented")
+}
+func (UnimplementedColorStateListServiceServer) mustEmbedUnimplementedColorStateListServiceServer() {}
+func (UnimplementedColorStateListServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeColorStateListServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ColorStateListServiceServer will
+// result in compilation errors.
+type UnsafeColorStateListServiceServer interface {
+	mustEmbedUnimplementedColorStateListServiceServer()
+}
+
+func RegisterColorStateListServiceServer(s grpc.ServiceRegistrar, srv ColorStateListServiceServer) {
+	// If the following call panics, it indicates UnimplementedColorStateListServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ColorStateListService_ServiceDesc, srv)
+}
+
+func _ColorStateListService_NewColorStateList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewColorStateListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ColorStateListServiceServer).NewColorStateList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ColorStateListService_NewColorStateList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ColorStateListServiceServer).NewColorStateList(ctx, req.(*NewColorStateListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ColorStateListService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ColorStateListDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ColorStateListServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ColorStateListService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ColorStateListServiceServer).DescribeContents(ctx, req.(*ColorStateListDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ColorStateListService_GetChangingConfigurations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ColorStateListGetChangingConfigurationsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ColorStateListServiceServer).GetChangingConfigurations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ColorStateListService_GetChangingConfigurations_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ColorStateListServiceServer).GetChangingConfigurations(ctx, req.(*ColorStateListGetChangingConfigurationsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ColorStateListService_GetColorForState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetColorForStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ColorStateListServiceServer).GetColorForState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ColorStateListService_GetColorForState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ColorStateListServiceServer).GetColorForState(ctx, req.(*GetColorForStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ColorStateListService_GetDefaultColor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDefaultColorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ColorStateListServiceServer).GetDefaultColor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ColorStateListService_GetDefaultColor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ColorStateListServiceServer).GetDefaultColor(ctx, req.(*GetDefaultColorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ColorStateListService_IsOpaque_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsOpaqueRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ColorStateListServiceServer).IsOpaque(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ColorStateListService_IsOpaque_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ColorStateListServiceServer).IsOpaque(ctx, req.(*IsOpaqueRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ColorStateListService_IsStateful_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsStatefulRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ColorStateListServiceServer).IsStateful(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ColorStateListService_IsStateful_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ColorStateListServiceServer).IsStateful(ctx, req.(*IsStatefulRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ColorStateListService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ColorStateListToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ColorStateListServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ColorStateListService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ColorStateListServiceServer).ToString(ctx, req.(*ColorStateListToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ColorStateListService_WithAlpha_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WithAlphaRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ColorStateListServiceServer).WithAlpha(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ColorStateListService_WithAlpha_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ColorStateListServiceServer).WithAlpha(ctx, req.(*WithAlphaRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ColorStateListService_WithLStar_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WithLStarRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ColorStateListServiceServer).WithLStar(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ColorStateListService_WithLStar_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ColorStateListServiceServer).WithLStar(ctx, req.(*WithLStarRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ColorStateListService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ColorStateListWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ColorStateListServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ColorStateListService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ColorStateListServiceServer).WriteToParcel(ctx, req.(*ColorStateListWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ColorStateListService_CreateFromXml2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateFromXml2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ColorStateListServiceServer).CreateFromXml2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ColorStateListService_CreateFromXml2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ColorStateListServiceServer).CreateFromXml2(ctx, req.(*CreateFromXml2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ColorStateListService_CreateFromXml3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateFromXml3_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ColorStateListServiceServer).CreateFromXml3_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ColorStateListService_CreateFromXml3_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ColorStateListServiceServer).CreateFromXml3_1(ctx, req.(*CreateFromXml3_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ColorStateListService_ValueOf_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ValueOfRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ColorStateListServiceServer).ValueOf(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ColorStateListService_ValueOf_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ColorStateListServiceServer).ValueOf(ctx, req.(*ValueOfRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ColorStateListService_ServiceDesc is the grpc.ServiceDesc for ColorStateListService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ColorStateListService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "res.ColorStateListService",
+	HandlerType: (*ColorStateListServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewColorStateList",
+			Handler:    _ColorStateListService_NewColorStateList_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _ColorStateListService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetChangingConfigurations",
+			Handler:    _ColorStateListService_GetChangingConfigurations_Handler,
+		},
+		{
+			MethodName: "GetColorForState",
+			Handler:    _ColorStateListService_GetColorForState_Handler,
+		},
+		{
+			MethodName: "GetDefaultColor",
+			Handler:    _ColorStateListService_GetDefaultColor_Handler,
+		},
+		{
+			MethodName: "IsOpaque",
+			Handler:    _ColorStateListService_IsOpaque_Handler,
+		},
+		{
+			MethodName: "IsStateful",
+			Handler:    _ColorStateListService_IsStateful_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _ColorStateListService_ToString_Handler,
+		},
+		{
+			MethodName: "WithAlpha",
+			Handler:    _ColorStateListService_WithAlpha_Handler,
+		},
+		{
+			MethodName: "WithLStar",
+			Handler:    _ColorStateListService_WithLStar_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _ColorStateListService_WriteToParcel_Handler,
+		},
+		{
+			MethodName: "CreateFromXml2",
+			Handler:    _ColorStateListService_CreateFromXml2_Handler,
+		},
+		{
+			MethodName: "CreateFromXml3_1",
+			Handler:    _ColorStateListService_CreateFromXml3_1_Handler,
+		},
+		{
+			MethodName: "ValueOf",
+			Handler:    _ColorStateListService_ValueOf_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/res/res.proto",
+}
+
+const (
+	AssetFileDescriptorService_NewAssetFileDescriptor_FullMethodName  = "/res.AssetFileDescriptorService/NewAssetFileDescriptor"
+	AssetFileDescriptorService_Close_FullMethodName                   = "/res.AssetFileDescriptorService/Close"
+	AssetFileDescriptorService_CreateInputStream_FullMethodName       = "/res.AssetFileDescriptorService/CreateInputStream"
+	AssetFileDescriptorService_CreateOutputStream_FullMethodName      = "/res.AssetFileDescriptorService/CreateOutputStream"
+	AssetFileDescriptorService_DescribeContents_FullMethodName        = "/res.AssetFileDescriptorService/DescribeContents"
+	AssetFileDescriptorService_GetDeclaredLength_FullMethodName       = "/res.AssetFileDescriptorService/GetDeclaredLength"
+	AssetFileDescriptorService_GetExtras_FullMethodName               = "/res.AssetFileDescriptorService/GetExtras"
+	AssetFileDescriptorService_GetFileDescriptor_FullMethodName       = "/res.AssetFileDescriptorService/GetFileDescriptor"
+	AssetFileDescriptorService_GetLength_FullMethodName               = "/res.AssetFileDescriptorService/GetLength"
+	AssetFileDescriptorService_GetParcelFileDescriptor_FullMethodName = "/res.AssetFileDescriptorService/GetParcelFileDescriptor"
+	AssetFileDescriptorService_GetStartOffset_FullMethodName          = "/res.AssetFileDescriptorService/GetStartOffset"
+	AssetFileDescriptorService_ToString_FullMethodName                = "/res.AssetFileDescriptorService/ToString"
+	AssetFileDescriptorService_WriteToParcel_FullMethodName           = "/res.AssetFileDescriptorService/WriteToParcel"
+)
+
+// AssetFileDescriptorServiceClient is the client API for AssetFileDescriptorService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AssetFileDescriptorServiceClient interface {
+	NewAssetFileDescriptor(ctx context.Context, in *NewAssetFileDescriptorRequest, opts ...grpc.CallOption) (*NewAssetFileDescriptorResponse, error)
+	Close(ctx context.Context, in *AssetFileDescriptorCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	CreateInputStream(ctx context.Context, in *CreateInputStreamRequest, opts ...grpc.CallOption) (*CreateInputStreamResponse, error)
+	CreateOutputStream(ctx context.Context, in *CreateOutputStreamRequest, opts ...grpc.CallOption) (*CreateOutputStreamResponse, error)
+	DescribeContents(ctx context.Context, in *AssetFileDescriptorDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetDeclaredLength(ctx context.Context, in *GetDeclaredLengthRequest, opts ...grpc.CallOption) (*GetDeclaredLengthResponse, error)
+	GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
+	GetFileDescriptor(ctx context.Context, in *GetFileDescriptorRequest, opts ...grpc.CallOption) (*GetFileDescriptorResponse, error)
+	GetLength(ctx context.Context, in *GetLengthRequest, opts ...grpc.CallOption) (*GetLengthResponse, error)
+	GetParcelFileDescriptor(ctx context.Context, in *GetParcelFileDescriptorRequest, opts ...grpc.CallOption) (*GetParcelFileDescriptorResponse, error)
+	GetStartOffset(ctx context.Context, in *GetStartOffsetRequest, opts ...grpc.CallOption) (*GetStartOffsetResponse, error)
+	ToString(ctx context.Context, in *AssetFileDescriptorToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *AssetFileDescriptorWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type assetFileDescriptorServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAssetFileDescriptorServiceClient(cc grpc.ClientConnInterface) AssetFileDescriptorServiceClient {
+	return &assetFileDescriptorServiceClient{cc}
+}
+
+func (c *assetFileDescriptorServiceClient) NewAssetFileDescriptor(ctx context.Context, in *NewAssetFileDescriptorRequest, opts ...grpc.CallOption) (*NewAssetFileDescriptorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewAssetFileDescriptorResponse)
+	err := c.cc.Invoke(ctx, AssetFileDescriptorService_NewAssetFileDescriptor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *assetFileDescriptorServiceClient) Close(ctx context.Context, in *AssetFileDescriptorCloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, AssetFileDescriptorService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *assetFileDescriptorServiceClient) CreateInputStream(ctx context.Context, in *CreateInputStreamRequest, opts ...grpc.CallOption) (*CreateInputStreamResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateInputStreamResponse)
+	err := c.cc.Invoke(ctx, AssetFileDescriptorService_CreateInputStream_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *assetFileDescriptorServiceClient) CreateOutputStream(ctx context.Context, in *CreateOutputStreamRequest, opts ...grpc.CallOption) (*CreateOutputStreamResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateOutputStreamResponse)
+	err := c.cc.Invoke(ctx, AssetFileDescriptorService_CreateOutputStream_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *assetFileDescriptorServiceClient) DescribeContents(ctx context.Context, in *AssetFileDescriptorDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, AssetFileDescriptorService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *assetFileDescriptorServiceClient) GetDeclaredLength(ctx context.Context, in *GetDeclaredLengthRequest, opts ...grpc.CallOption) (*GetDeclaredLengthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDeclaredLengthResponse)
+	err := c.cc.Invoke(ctx, AssetFileDescriptorService_GetDeclaredLength_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *assetFileDescriptorServiceClient) GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExtrasResponse)
+	err := c.cc.Invoke(ctx, AssetFileDescriptorService_GetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *assetFileDescriptorServiceClient) GetFileDescriptor(ctx context.Context, in *GetFileDescriptorRequest, opts ...grpc.CallOption) (*GetFileDescriptorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFileDescriptorResponse)
+	err := c.cc.Invoke(ctx, AssetFileDescriptorService_GetFileDescriptor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *assetFileDescriptorServiceClient) GetLength(ctx context.Context, in *GetLengthRequest, opts ...grpc.CallOption) (*GetLengthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetLengthResponse)
+	err := c.cc.Invoke(ctx, AssetFileDescriptorService_GetLength_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *assetFileDescriptorServiceClient) GetParcelFileDescriptor(ctx context.Context, in *GetParcelFileDescriptorRequest, opts ...grpc.CallOption) (*GetParcelFileDescriptorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetParcelFileDescriptorResponse)
+	err := c.cc.Invoke(ctx, AssetFileDescriptorService_GetParcelFileDescriptor_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *assetFileDescriptorServiceClient) GetStartOffset(ctx context.Context, in *GetStartOffsetRequest, opts ...grpc.CallOption) (*GetStartOffsetResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStartOffsetResponse)
+	err := c.cc.Invoke(ctx, AssetFileDescriptorService_GetStartOffset_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *assetFileDescriptorServiceClient) ToString(ctx context.Context, in *AssetFileDescriptorToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, AssetFileDescriptorService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *assetFileDescriptorServiceClient) WriteToParcel(ctx context.Context, in *AssetFileDescriptorWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, AssetFileDescriptorService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AssetFileDescriptorServiceServer is the server API for AssetFileDescriptorService service.
+// All implementations must embed UnimplementedAssetFileDescriptorServiceServer
+// for forward compatibility.
+type AssetFileDescriptorServiceServer interface {
+	NewAssetFileDescriptor(context.Context, *NewAssetFileDescriptorRequest) (*NewAssetFileDescriptorResponse, error)
+	Close(context.Context, *AssetFileDescriptorCloseRequest) (*CloseResponse, error)
+	CreateInputStream(context.Context, *CreateInputStreamRequest) (*CreateInputStreamResponse, error)
+	CreateOutputStream(context.Context, *CreateOutputStreamRequest) (*CreateOutputStreamResponse, error)
+	DescribeContents(context.Context, *AssetFileDescriptorDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetDeclaredLength(context.Context, *GetDeclaredLengthRequest) (*GetDeclaredLengthResponse, error)
+	GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error)
+	GetFileDescriptor(context.Context, *GetFileDescriptorRequest) (*GetFileDescriptorResponse, error)
+	GetLength(context.Context, *GetLengthRequest) (*GetLengthResponse, error)
+	GetParcelFileDescriptor(context.Context, *GetParcelFileDescriptorRequest) (*GetParcelFileDescriptorResponse, error)
+	GetStartOffset(context.Context, *GetStartOffsetRequest) (*GetStartOffsetResponse, error)
+	ToString(context.Context, *AssetFileDescriptorToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *AssetFileDescriptorWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedAssetFileDescriptorServiceServer()
+}
+
+// UnimplementedAssetFileDescriptorServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAssetFileDescriptorServiceServer struct{}
+
+func (UnimplementedAssetFileDescriptorServiceServer) NewAssetFileDescriptor(context.Context, *NewAssetFileDescriptorRequest) (*NewAssetFileDescriptorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewAssetFileDescriptor not implemented")
+}
+func (UnimplementedAssetFileDescriptorServiceServer) Close(context.Context, *AssetFileDescriptorCloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedAssetFileDescriptorServiceServer) CreateInputStream(context.Context, *CreateInputStreamRequest) (*CreateInputStreamResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateInputStream not implemented")
+}
+func (UnimplementedAssetFileDescriptorServiceServer) CreateOutputStream(context.Context, *CreateOutputStreamRequest) (*CreateOutputStreamResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateOutputStream not implemented")
+}
+func (UnimplementedAssetFileDescriptorServiceServer) DescribeContents(context.Context, *AssetFileDescriptorDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedAssetFileDescriptorServiceServer) GetDeclaredLength(context.Context, *GetDeclaredLengthRequest) (*GetDeclaredLengthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDeclaredLength not implemented")
+}
+func (UnimplementedAssetFileDescriptorServiceServer) GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
+}
+func (UnimplementedAssetFileDescriptorServiceServer) GetFileDescriptor(context.Context, *GetFileDescriptorRequest) (*GetFileDescriptorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFileDescriptor not implemented")
+}
+func (UnimplementedAssetFileDescriptorServiceServer) GetLength(context.Context, *GetLengthRequest) (*GetLengthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLength not implemented")
+}
+func (UnimplementedAssetFileDescriptorServiceServer) GetParcelFileDescriptor(context.Context, *GetParcelFileDescriptorRequest) (*GetParcelFileDescriptorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetParcelFileDescriptor not implemented")
+}
+func (UnimplementedAssetFileDescriptorServiceServer) GetStartOffset(context.Context, *GetStartOffsetRequest) (*GetStartOffsetResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStartOffset not implemented")
+}
+func (UnimplementedAssetFileDescriptorServiceServer) ToString(context.Context, *AssetFileDescriptorToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedAssetFileDescriptorServiceServer) WriteToParcel(context.Context, *AssetFileDescriptorWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedAssetFileDescriptorServiceServer) mustEmbedUnimplementedAssetFileDescriptorServiceServer() {
+}
+func (UnimplementedAssetFileDescriptorServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAssetFileDescriptorServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AssetFileDescriptorServiceServer will
+// result in compilation errors.
+type UnsafeAssetFileDescriptorServiceServer interface {
+	mustEmbedUnimplementedAssetFileDescriptorServiceServer()
+}
+
+func RegisterAssetFileDescriptorServiceServer(s grpc.ServiceRegistrar, srv AssetFileDescriptorServiceServer) {
+	// If the following call panics, it indicates UnimplementedAssetFileDescriptorServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AssetFileDescriptorService_ServiceDesc, srv)
+}
+
+func _AssetFileDescriptorService_NewAssetFileDescriptor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewAssetFileDescriptorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssetFileDescriptorServiceServer).NewAssetFileDescriptor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssetFileDescriptorService_NewAssetFileDescriptor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssetFileDescriptorServiceServer).NewAssetFileDescriptor(ctx, req.(*NewAssetFileDescriptorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssetFileDescriptorService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AssetFileDescriptorCloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssetFileDescriptorServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssetFileDescriptorService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssetFileDescriptorServiceServer).Close(ctx, req.(*AssetFileDescriptorCloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssetFileDescriptorService_CreateInputStream_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateInputStreamRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssetFileDescriptorServiceServer).CreateInputStream(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssetFileDescriptorService_CreateInputStream_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssetFileDescriptorServiceServer).CreateInputStream(ctx, req.(*CreateInputStreamRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssetFileDescriptorService_CreateOutputStream_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateOutputStreamRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssetFileDescriptorServiceServer).CreateOutputStream(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssetFileDescriptorService_CreateOutputStream_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssetFileDescriptorServiceServer).CreateOutputStream(ctx, req.(*CreateOutputStreamRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssetFileDescriptorService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AssetFileDescriptorDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssetFileDescriptorServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssetFileDescriptorService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssetFileDescriptorServiceServer).DescribeContents(ctx, req.(*AssetFileDescriptorDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssetFileDescriptorService_GetDeclaredLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDeclaredLengthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssetFileDescriptorServiceServer).GetDeclaredLength(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssetFileDescriptorService_GetDeclaredLength_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssetFileDescriptorServiceServer).GetDeclaredLength(ctx, req.(*GetDeclaredLengthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssetFileDescriptorService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssetFileDescriptorServiceServer).GetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssetFileDescriptorService_GetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssetFileDescriptorServiceServer).GetExtras(ctx, req.(*GetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssetFileDescriptorService_GetFileDescriptor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFileDescriptorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssetFileDescriptorServiceServer).GetFileDescriptor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssetFileDescriptorService_GetFileDescriptor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssetFileDescriptorServiceServer).GetFileDescriptor(ctx, req.(*GetFileDescriptorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssetFileDescriptorService_GetLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLengthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssetFileDescriptorServiceServer).GetLength(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssetFileDescriptorService_GetLength_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssetFileDescriptorServiceServer).GetLength(ctx, req.(*GetLengthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssetFileDescriptorService_GetParcelFileDescriptor_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetParcelFileDescriptorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssetFileDescriptorServiceServer).GetParcelFileDescriptor(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssetFileDescriptorService_GetParcelFileDescriptor_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssetFileDescriptorServiceServer).GetParcelFileDescriptor(ctx, req.(*GetParcelFileDescriptorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssetFileDescriptorService_GetStartOffset_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStartOffsetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssetFileDescriptorServiceServer).GetStartOffset(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssetFileDescriptorService_GetStartOffset_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssetFileDescriptorServiceServer).GetStartOffset(ctx, req.(*GetStartOffsetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssetFileDescriptorService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AssetFileDescriptorToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssetFileDescriptorServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssetFileDescriptorService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssetFileDescriptorServiceServer).ToString(ctx, req.(*AssetFileDescriptorToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssetFileDescriptorService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AssetFileDescriptorWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssetFileDescriptorServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssetFileDescriptorService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssetFileDescriptorServiceServer).WriteToParcel(ctx, req.(*AssetFileDescriptorWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AssetFileDescriptorService_ServiceDesc is the grpc.ServiceDesc for AssetFileDescriptorService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AssetFileDescriptorService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "res.AssetFileDescriptorService",
+	HandlerType: (*AssetFileDescriptorServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewAssetFileDescriptor",
+			Handler:    _AssetFileDescriptorService_NewAssetFileDescriptor_Handler,
+		},
+		{
+			MethodName: "Close",
+			Handler:    _AssetFileDescriptorService_Close_Handler,
+		},
+		{
+			MethodName: "CreateInputStream",
+			Handler:    _AssetFileDescriptorService_CreateInputStream_Handler,
+		},
+		{
+			MethodName: "CreateOutputStream",
+			Handler:    _AssetFileDescriptorService_CreateOutputStream_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _AssetFileDescriptorService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetDeclaredLength",
+			Handler:    _AssetFileDescriptorService_GetDeclaredLength_Handler,
+		},
+		{
+			MethodName: "GetExtras",
+			Handler:    _AssetFileDescriptorService_GetExtras_Handler,
+		},
+		{
+			MethodName: "GetFileDescriptor",
+			Handler:    _AssetFileDescriptorService_GetFileDescriptor_Handler,
+		},
+		{
+			MethodName: "GetLength",
+			Handler:    _AssetFileDescriptorService_GetLength_Handler,
+		},
+		{
+			MethodName: "GetParcelFileDescriptor",
+			Handler:    _AssetFileDescriptorService_GetParcelFileDescriptor_Handler,
+		},
+		{
+			MethodName: "GetStartOffset",
+			Handler:    _AssetFileDescriptorService_GetStartOffset_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _AssetFileDescriptorService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _AssetFileDescriptorService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/res/res.proto",
+}
+
+const (
+	AssetFileDescriptorAutoCloseInputStreamService_Available_FullMethodName     = "/res.AssetFileDescriptorAutoCloseInputStreamService/Available"
+	AssetFileDescriptorAutoCloseInputStreamService_Close_FullMethodName         = "/res.AssetFileDescriptorAutoCloseInputStreamService/Close"
+	AssetFileDescriptorAutoCloseInputStreamService_GetChannel_FullMethodName    = "/res.AssetFileDescriptorAutoCloseInputStreamService/GetChannel"
+	AssetFileDescriptorAutoCloseInputStreamService_Mark_FullMethodName          = "/res.AssetFileDescriptorAutoCloseInputStreamService/Mark"
+	AssetFileDescriptorAutoCloseInputStreamService_MarkSupported_FullMethodName = "/res.AssetFileDescriptorAutoCloseInputStreamService/MarkSupported"
+	AssetFileDescriptorAutoCloseInputStreamService_Read0_FullMethodName         = "/res.AssetFileDescriptorAutoCloseInputStreamService/Read0"
+	AssetFileDescriptorAutoCloseInputStreamService_Read1_1_FullMethodName       = "/res.AssetFileDescriptorAutoCloseInputStreamService/Read1_1"
+	AssetFileDescriptorAutoCloseInputStreamService_Read3_2_FullMethodName       = "/res.AssetFileDescriptorAutoCloseInputStreamService/Read3_2"
+	AssetFileDescriptorAutoCloseInputStreamService_Skip_FullMethodName          = "/res.AssetFileDescriptorAutoCloseInputStreamService/Skip"
+)
+
+// AssetFileDescriptorAutoCloseInputStreamServiceClient is the client API for AssetFileDescriptorAutoCloseInputStreamService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AssetFileDescriptorAutoCloseInputStreamServiceClient interface {
+	Available(ctx context.Context, in *AvailableRequest, opts ...grpc.CallOption) (*AvailableResponse, error)
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	GetChannel(ctx context.Context, in *GetChannelRequest, opts ...grpc.CallOption) (*GetChannelResponse, error)
+	Mark(ctx context.Context, in *MarkRequest, opts ...grpc.CallOption) (*MarkResponse, error)
+	MarkSupported(ctx context.Context, in *MarkSupportedRequest, opts ...grpc.CallOption) (*MarkSupportedResponse, error)
+	Read0(ctx context.Context, in *Read0Request, opts ...grpc.CallOption) (*Read0Response, error)
+	Read1_1(ctx context.Context, in *Read1_1Request, opts ...grpc.CallOption) (*Read1_1Response, error)
+	Read3_2(ctx context.Context, in *Read3_2Request, opts ...grpc.CallOption) (*Read3_2Response, error)
+	Skip(ctx context.Context, in *SkipRequest, opts ...grpc.CallOption) (*SkipResponse, error)
+}
+
+type assetFileDescriptorAutoCloseInputStreamServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAssetFileDescriptorAutoCloseInputStreamServiceClient(cc grpc.ClientConnInterface) AssetFileDescriptorAutoCloseInputStreamServiceClient {
+	return &assetFileDescriptorAutoCloseInputStreamServiceClient{cc}
+}
+
+func (c *assetFileDescriptorAutoCloseInputStreamServiceClient) Available(ctx context.Context, in *AvailableRequest, opts ...grpc.CallOption) (*AvailableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AvailableResponse)
+	err := c.cc.Invoke(ctx, AssetFileDescriptorAutoCloseInputStreamService_Available_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *assetFileDescriptorAutoCloseInputStreamServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, AssetFileDescriptorAutoCloseInputStreamService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *assetFileDescriptorAutoCloseInputStreamServiceClient) GetChannel(ctx context.Context, in *GetChannelRequest, opts ...grpc.CallOption) (*GetChannelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetChannelResponse)
+	err := c.cc.Invoke(ctx, AssetFileDescriptorAutoCloseInputStreamService_GetChannel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *assetFileDescriptorAutoCloseInputStreamServiceClient) Mark(ctx context.Context, in *MarkRequest, opts ...grpc.CallOption) (*MarkResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MarkResponse)
+	err := c.cc.Invoke(ctx, AssetFileDescriptorAutoCloseInputStreamService_Mark_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *assetFileDescriptorAutoCloseInputStreamServiceClient) MarkSupported(ctx context.Context, in *MarkSupportedRequest, opts ...grpc.CallOption) (*MarkSupportedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MarkSupportedResponse)
+	err := c.cc.Invoke(ctx, AssetFileDescriptorAutoCloseInputStreamService_MarkSupported_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *assetFileDescriptorAutoCloseInputStreamServiceClient) Read0(ctx context.Context, in *Read0Request, opts ...grpc.CallOption) (*Read0Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Read0Response)
+	err := c.cc.Invoke(ctx, AssetFileDescriptorAutoCloseInputStreamService_Read0_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *assetFileDescriptorAutoCloseInputStreamServiceClient) Read1_1(ctx context.Context, in *Read1_1Request, opts ...grpc.CallOption) (*Read1_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Read1_1Response)
+	err := c.cc.Invoke(ctx, AssetFileDescriptorAutoCloseInputStreamService_Read1_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *assetFileDescriptorAutoCloseInputStreamServiceClient) Read3_2(ctx context.Context, in *Read3_2Request, opts ...grpc.CallOption) (*Read3_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Read3_2Response)
+	err := c.cc.Invoke(ctx, AssetFileDescriptorAutoCloseInputStreamService_Read3_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *assetFileDescriptorAutoCloseInputStreamServiceClient) Skip(ctx context.Context, in *SkipRequest, opts ...grpc.CallOption) (*SkipResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SkipResponse)
+	err := c.cc.Invoke(ctx, AssetFileDescriptorAutoCloseInputStreamService_Skip_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AssetFileDescriptorAutoCloseInputStreamServiceServer is the server API for AssetFileDescriptorAutoCloseInputStreamService service.
+// All implementations must embed UnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer
+// for forward compatibility.
+type AssetFileDescriptorAutoCloseInputStreamServiceServer interface {
+	Available(context.Context, *AvailableRequest) (*AvailableResponse, error)
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	GetChannel(context.Context, *GetChannelRequest) (*GetChannelResponse, error)
+	Mark(context.Context, *MarkRequest) (*MarkResponse, error)
+	MarkSupported(context.Context, *MarkSupportedRequest) (*MarkSupportedResponse, error)
+	Read0(context.Context, *Read0Request) (*Read0Response, error)
+	Read1_1(context.Context, *Read1_1Request) (*Read1_1Response, error)
+	Read3_2(context.Context, *Read3_2Request) (*Read3_2Response, error)
+	Skip(context.Context, *SkipRequest) (*SkipResponse, error)
+	mustEmbedUnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer()
+}
+
+// UnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer struct{}
+
+func (UnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer) Available(context.Context, *AvailableRequest) (*AvailableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Available not implemented")
+}
+func (UnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer) GetChannel(context.Context, *GetChannelRequest) (*GetChannelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetChannel not implemented")
+}
+func (UnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer) Mark(context.Context, *MarkRequest) (*MarkResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Mark not implemented")
+}
+func (UnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer) MarkSupported(context.Context, *MarkSupportedRequest) (*MarkSupportedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method MarkSupported not implemented")
+}
+func (UnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer) Read0(context.Context, *Read0Request) (*Read0Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Read0 not implemented")
+}
+func (UnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer) Read1_1(context.Context, *Read1_1Request) (*Read1_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Read1_1 not implemented")
+}
+func (UnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer) Read3_2(context.Context, *Read3_2Request) (*Read3_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Read3_2 not implemented")
+}
+func (UnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer) Skip(context.Context, *SkipRequest) (*SkipResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Skip not implemented")
+}
+func (UnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer) mustEmbedUnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer() {
+}
+func (UnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAssetFileDescriptorAutoCloseInputStreamServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AssetFileDescriptorAutoCloseInputStreamServiceServer will
+// result in compilation errors.
+type UnsafeAssetFileDescriptorAutoCloseInputStreamServiceServer interface {
+	mustEmbedUnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer()
+}
+
+func RegisterAssetFileDescriptorAutoCloseInputStreamServiceServer(s grpc.ServiceRegistrar, srv AssetFileDescriptorAutoCloseInputStreamServiceServer) {
+	// If the following call panics, it indicates UnimplementedAssetFileDescriptorAutoCloseInputStreamServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AssetFileDescriptorAutoCloseInputStreamService_ServiceDesc, srv)
+}
+
+func _AssetFileDescriptorAutoCloseInputStreamService_Available_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AvailableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).Available(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssetFileDescriptorAutoCloseInputStreamService_Available_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).Available(ctx, req.(*AvailableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssetFileDescriptorAutoCloseInputStreamService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssetFileDescriptorAutoCloseInputStreamService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).Close(ctx, req.(*CloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssetFileDescriptorAutoCloseInputStreamService_GetChannel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetChannelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).GetChannel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssetFileDescriptorAutoCloseInputStreamService_GetChannel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).GetChannel(ctx, req.(*GetChannelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssetFileDescriptorAutoCloseInputStreamService_Mark_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MarkRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).Mark(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssetFileDescriptorAutoCloseInputStreamService_Mark_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).Mark(ctx, req.(*MarkRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssetFileDescriptorAutoCloseInputStreamService_MarkSupported_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MarkSupportedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).MarkSupported(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssetFileDescriptorAutoCloseInputStreamService_MarkSupported_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).MarkSupported(ctx, req.(*MarkSupportedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssetFileDescriptorAutoCloseInputStreamService_Read0_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Read0Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).Read0(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssetFileDescriptorAutoCloseInputStreamService_Read0_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).Read0(ctx, req.(*Read0Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssetFileDescriptorAutoCloseInputStreamService_Read1_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Read1_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).Read1_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssetFileDescriptorAutoCloseInputStreamService_Read1_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).Read1_1(ctx, req.(*Read1_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssetFileDescriptorAutoCloseInputStreamService_Read3_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Read3_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).Read3_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssetFileDescriptorAutoCloseInputStreamService_Read3_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).Read3_2(ctx, req.(*Read3_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssetFileDescriptorAutoCloseInputStreamService_Skip_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SkipRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).Skip(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssetFileDescriptorAutoCloseInputStreamService_Skip_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssetFileDescriptorAutoCloseInputStreamServiceServer).Skip(ctx, req.(*SkipRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AssetFileDescriptorAutoCloseInputStreamService_ServiceDesc is the grpc.ServiceDesc for AssetFileDescriptorAutoCloseInputStreamService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AssetFileDescriptorAutoCloseInputStreamService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "res.AssetFileDescriptorAutoCloseInputStreamService",
+	HandlerType: (*AssetFileDescriptorAutoCloseInputStreamServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Available",
+			Handler:    _AssetFileDescriptorAutoCloseInputStreamService_Available_Handler,
+		},
+		{
+			MethodName: "Close",
+			Handler:    _AssetFileDescriptorAutoCloseInputStreamService_Close_Handler,
+		},
+		{
+			MethodName: "GetChannel",
+			Handler:    _AssetFileDescriptorAutoCloseInputStreamService_GetChannel_Handler,
+		},
+		{
+			MethodName: "Mark",
+			Handler:    _AssetFileDescriptorAutoCloseInputStreamService_Mark_Handler,
+		},
+		{
+			MethodName: "MarkSupported",
+			Handler:    _AssetFileDescriptorAutoCloseInputStreamService_MarkSupported_Handler,
+		},
+		{
+			MethodName: "Read0",
+			Handler:    _AssetFileDescriptorAutoCloseInputStreamService_Read0_Handler,
+		},
+		{
+			MethodName: "Read1_1",
+			Handler:    _AssetFileDescriptorAutoCloseInputStreamService_Read1_1_Handler,
+		},
+		{
+			MethodName: "Read3_2",
+			Handler:    _AssetFileDescriptorAutoCloseInputStreamService_Read3_2_Handler,
+		},
+		{
+			MethodName: "Skip",
+			Handler:    _AssetFileDescriptorAutoCloseInputStreamService_Skip_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/res/res.proto",
+}
+
+const (
+	AssetFileDescriptorAutoCloseOutputStreamService_Write1_FullMethodName   = "/res.AssetFileDescriptorAutoCloseOutputStreamService/Write1"
+	AssetFileDescriptorAutoCloseOutputStreamService_Write3_1_FullMethodName = "/res.AssetFileDescriptorAutoCloseOutputStreamService/Write3_1"
+	AssetFileDescriptorAutoCloseOutputStreamService_Write1_2_FullMethodName = "/res.AssetFileDescriptorAutoCloseOutputStreamService/Write1_2"
+)
+
+// AssetFileDescriptorAutoCloseOutputStreamServiceClient is the client API for AssetFileDescriptorAutoCloseOutputStreamService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AssetFileDescriptorAutoCloseOutputStreamServiceClient interface {
+	Write1(ctx context.Context, in *Write1Request, opts ...grpc.CallOption) (*Write1Response, error)
+	Write3_1(ctx context.Context, in *Write3_1Request, opts ...grpc.CallOption) (*Write3_1Response, error)
+	Write1_2(ctx context.Context, in *Write1_2Request, opts ...grpc.CallOption) (*Write1_2Response, error)
+}
+
+type assetFileDescriptorAutoCloseOutputStreamServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAssetFileDescriptorAutoCloseOutputStreamServiceClient(cc grpc.ClientConnInterface) AssetFileDescriptorAutoCloseOutputStreamServiceClient {
+	return &assetFileDescriptorAutoCloseOutputStreamServiceClient{cc}
+}
+
+func (c *assetFileDescriptorAutoCloseOutputStreamServiceClient) Write1(ctx context.Context, in *Write1Request, opts ...grpc.CallOption) (*Write1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Write1Response)
+	err := c.cc.Invoke(ctx, AssetFileDescriptorAutoCloseOutputStreamService_Write1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *assetFileDescriptorAutoCloseOutputStreamServiceClient) Write3_1(ctx context.Context, in *Write3_1Request, opts ...grpc.CallOption) (*Write3_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Write3_1Response)
+	err := c.cc.Invoke(ctx, AssetFileDescriptorAutoCloseOutputStreamService_Write3_1_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *assetFileDescriptorAutoCloseOutputStreamServiceClient) Write1_2(ctx context.Context, in *Write1_2Request, opts ...grpc.CallOption) (*Write1_2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(Write1_2Response)
+	err := c.cc.Invoke(ctx, AssetFileDescriptorAutoCloseOutputStreamService_Write1_2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AssetFileDescriptorAutoCloseOutputStreamServiceServer is the server API for AssetFileDescriptorAutoCloseOutputStreamService service.
+// All implementations must embed UnimplementedAssetFileDescriptorAutoCloseOutputStreamServiceServer
+// for forward compatibility.
+type AssetFileDescriptorAutoCloseOutputStreamServiceServer interface {
+	Write1(context.Context, *Write1Request) (*Write1Response, error)
+	Write3_1(context.Context, *Write3_1Request) (*Write3_1Response, error)
+	Write1_2(context.Context, *Write1_2Request) (*Write1_2Response, error)
+	mustEmbedUnimplementedAssetFileDescriptorAutoCloseOutputStreamServiceServer()
+}
+
+// UnimplementedAssetFileDescriptorAutoCloseOutputStreamServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAssetFileDescriptorAutoCloseOutputStreamServiceServer struct{}
+
+func (UnimplementedAssetFileDescriptorAutoCloseOutputStreamServiceServer) Write1(context.Context, *Write1Request) (*Write1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Write1 not implemented")
+}
+func (UnimplementedAssetFileDescriptorAutoCloseOutputStreamServiceServer) Write3_1(context.Context, *Write3_1Request) (*Write3_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Write3_1 not implemented")
+}
+func (UnimplementedAssetFileDescriptorAutoCloseOutputStreamServiceServer) Write1_2(context.Context, *Write1_2Request) (*Write1_2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method Write1_2 not implemented")
+}
+func (UnimplementedAssetFileDescriptorAutoCloseOutputStreamServiceServer) mustEmbedUnimplementedAssetFileDescriptorAutoCloseOutputStreamServiceServer() {
+}
+func (UnimplementedAssetFileDescriptorAutoCloseOutputStreamServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAssetFileDescriptorAutoCloseOutputStreamServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AssetFileDescriptorAutoCloseOutputStreamServiceServer will
+// result in compilation errors.
+type UnsafeAssetFileDescriptorAutoCloseOutputStreamServiceServer interface {
+	mustEmbedUnimplementedAssetFileDescriptorAutoCloseOutputStreamServiceServer()
+}
+
+func RegisterAssetFileDescriptorAutoCloseOutputStreamServiceServer(s grpc.ServiceRegistrar, srv AssetFileDescriptorAutoCloseOutputStreamServiceServer) {
+	// If the following call panics, it indicates UnimplementedAssetFileDescriptorAutoCloseOutputStreamServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AssetFileDescriptorAutoCloseOutputStreamService_ServiceDesc, srv)
+}
+
+func _AssetFileDescriptorAutoCloseOutputStreamService_Write1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Write1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssetFileDescriptorAutoCloseOutputStreamServiceServer).Write1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssetFileDescriptorAutoCloseOutputStreamService_Write1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssetFileDescriptorAutoCloseOutputStreamServiceServer).Write1(ctx, req.(*Write1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssetFileDescriptorAutoCloseOutputStreamService_Write3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Write3_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssetFileDescriptorAutoCloseOutputStreamServiceServer).Write3_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssetFileDescriptorAutoCloseOutputStreamService_Write3_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssetFileDescriptorAutoCloseOutputStreamServiceServer).Write3_1(ctx, req.(*Write3_1Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AssetFileDescriptorAutoCloseOutputStreamService_Write1_2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Write1_2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AssetFileDescriptorAutoCloseOutputStreamServiceServer).Write1_2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AssetFileDescriptorAutoCloseOutputStreamService_Write1_2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AssetFileDescriptorAutoCloseOutputStreamServiceServer).Write1_2(ctx, req.(*Write1_2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AssetFileDescriptorAutoCloseOutputStreamService_ServiceDesc is the grpc.ServiceDesc for AssetFileDescriptorAutoCloseOutputStreamService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AssetFileDescriptorAutoCloseOutputStreamService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "res.AssetFileDescriptorAutoCloseOutputStreamService",
+	HandlerType: (*AssetFileDescriptorAutoCloseOutputStreamServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Write1",
+			Handler:    _AssetFileDescriptorAutoCloseOutputStreamService_Write1_Handler,
+		},
+		{
+			MethodName: "Write3_1",
+			Handler:    _AssetFileDescriptorAutoCloseOutputStreamService_Write3_1_Handler,
+		},
+		{
+			MethodName: "Write1_2",
+			Handler:    _AssetFileDescriptorAutoCloseOutputStreamService_Write1_2_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

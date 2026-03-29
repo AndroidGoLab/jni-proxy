@@ -15,84 +15,6 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// FontRequestServer implements pb.FontRequestServiceServer.
-type FontRequestServer struct {
-	pb.UnimplementedFontRequestServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *FontRequestServer) NewFontRequest(_ context.Context, req *pb.NewFontRequestRequest) (*pb.NewFontRequestResponse, error) {
-	obj, err := jnipkg.NewFontRequest(s.Ctx.VM, req.GetArg0(), req.GetArg1(), req.GetArg2())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewFontRequestResponse{Result: handle}, nil
-}
-
-func (s *FontRequestServer) GetProviderAuthority(_ context.Context, req *pb.GetProviderAuthorityRequest) (*pb.GetProviderAuthorityResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.FontRequest{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetProviderAuthority()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetProviderAuthorityResponse{Result: result}, nil
-}
-
-func (s *FontRequestServer) GetProviderPackage(_ context.Context, req *pb.GetProviderPackageRequest) (*pb.GetProviderPackageResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.FontRequest{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetProviderPackage()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetProviderPackageResponse{Result: result}, nil
-}
-
-func (s *FontRequestServer) GetQuery(_ context.Context, req *pb.GetQueryRequest) (*pb.GetQueryResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.FontRequest{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetQuery()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetQueryResponse{Result: result}, nil
-}
-
-func (s *FontRequestServer) ToString(_ context.Context, req *pb.FontRequestToStringRequest) (*pb.ToStringResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.FontRequest{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.ToString()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.ToStringResponse{Result: result}, nil
-}
-
 // SearchRecentSuggestionsServer implements pb.SearchRecentSuggestionsServiceServer.
 type SearchRecentSuggestionsServer struct {
 	pb.UnimplementedSearchRecentSuggestionsServiceServer
@@ -174,4 +96,105 @@ func (s *BrowserServer) SendString(_ context.Context, req *pb.SendStringRequest)
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.SendStringResponse{}, nil
+}
+
+// FontRequestServer implements pb.FontRequestServiceServer.
+type FontRequestServer struct {
+	pb.UnimplementedFontRequestServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *FontRequestServer) NewFontRequest(_ context.Context, req *pb.NewFontRequestRequest) (*pb.NewFontRequestResponse, error) {
+	obj, err := jnipkg.NewFontRequest(s.Ctx.VM, req.GetArg0(), req.GetArg1(), req.GetArg2())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewFontRequestResponse{Result: handle}, nil
+}
+
+func (s *FontRequestServer) GetCertificates(_ context.Context, req *pb.GetCertificatesRequest) (*pb.GetCertificatesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.FontRequest{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetCertificates()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetCertificatesResponse{Result: handle}, nil
+}
+
+func (s *FontRequestServer) GetProviderAuthority(_ context.Context, req *pb.GetProviderAuthorityRequest) (*pb.GetProviderAuthorityResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.FontRequest{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetProviderAuthority()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetProviderAuthorityResponse{Result: result}, nil
+}
+
+func (s *FontRequestServer) GetProviderPackage(_ context.Context, req *pb.GetProviderPackageRequest) (*pb.GetProviderPackageResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.FontRequest{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetProviderPackage()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetProviderPackageResponse{Result: result}, nil
+}
+
+func (s *FontRequestServer) GetQuery(_ context.Context, req *pb.GetQueryRequest) (*pb.GetQueryResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.FontRequest{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetQuery()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetQueryResponse{Result: result}, nil
+}
+
+func (s *FontRequestServer) ToString(_ context.Context, req *pb.FontRequestToStringRequest) (*pb.ToStringResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.FontRequest{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.ToString()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.ToStringResponse{Result: result}, nil
 }

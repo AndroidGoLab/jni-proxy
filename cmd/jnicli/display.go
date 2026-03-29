@@ -16078,256 +16078,6 @@ var displaySurfaceViewNewSurfaceViewCmd = &cobra.Command{
 	},
 }
 
-var displayManagerCmd = &cobra.Command{
-	Use:   "manager",
-	Short: "ManagerService operations",
-}
-
-var displayManagerCreateVirtualDisplay1Cmd = &cobra.Command{
-	Use:   "create-virtual-display1",
-	Short: "CreateVirtualDisplay1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.CreateVirtualDisplay1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CreateVirtualDisplay1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayManagerCreateVirtualDisplay6_1Cmd = &cobra.Command{
-	Use:   "create-virtual-display6_1",
-	Short: "CreateVirtualDisplay6_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.CreateVirtualDisplay6_1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		resp, err := client.CreateVirtualDisplay6_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayManagerGetDisplayCmd = &cobra.Command{
-	Use:   "get-display",
-	Short: "GetDisplay RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.ManagerGetDisplayRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetDisplay(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayManagerGetDisplays0Cmd = &cobra.Command{
-	Use:   "get-displays0",
-	Short: "GetDisplays0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetDisplays0Request{}
-		resp, err := client.GetDisplays0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayManagerGetDisplays1_1Cmd = &cobra.Command{
-	Use:   "get-displays1_1",
-	Short: "GetDisplays1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetDisplays1_1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GetDisplays1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayManagerGetHdrConversionModeCmd = &cobra.Command{
-	Use:   "get-hdr-conversion-mode",
-	Short: "GetHdrConversionMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetHdrConversionModeRequest{}
-		resp, err := client.GetHdrConversionMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayManagerGetMatchContentFrameRateUserPreferenceCmd = &cobra.Command{
-	Use:   "get-match-content-frame-rate-user-preference",
-	Short: "GetMatchContentFrameRateUserPreference RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetMatchContentFrameRateUserPreferenceRequest{}
-		resp, err := client.GetMatchContentFrameRateUserPreference(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayManagerRegisterDisplayListenerCmd = &cobra.Command{
-	Use:   "register-display-listener",
-	Short: "RegisterDisplayListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.RegisterDisplayListenerRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.RegisterDisplayListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayManagerUnregisterDisplayListenerCmd = &cobra.Command{
-	Use:   "unregister-display-listener",
-	Short: "UnregisterDisplayListener RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.UnregisterDisplayListenerRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UnregisterDisplayListener(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayManagerDisplayListenerCmd = &cobra.Command{
-	Use:   "manager-display-listener",
-	Short: "ManagerDisplayListenerService operations",
-}
-
-var displayManagerDisplayListenerOnDisplayAddedCmd = &cobra.Command{
-	Use:   "on-display-added",
-	Short: "OnDisplayAdded RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerDisplayListenerServiceClient(grpcConn)
-		req := &pb.OnDisplayAddedRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnDisplayAdded(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayManagerDisplayListenerOnDisplayChangedCmd = &cobra.Command{
-	Use:   "on-display-changed",
-	Short: "OnDisplayChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerDisplayListenerServiceClient(grpcConn)
-		req := &pb.OnDisplayChangedRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnDisplayChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayManagerDisplayListenerOnDisplayRemovedCmd = &cobra.Command{
-	Use:   "on-display-removed",
-	Short: "OnDisplayRemoved RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerDisplayListenerServiceClient(grpcConn)
-		req := &pb.OnDisplayRemovedRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnDisplayRemoved(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var displayDeviceProductInfoCmd = &cobra.Command{
 	Use:   "device-product-info",
 	Short: "DeviceProductInfoService operations",
@@ -16767,6 +16517,256 @@ var displayHdrConversionModeWriteToParcelCmd = &cobra.Command{
 	},
 }
 
+var displayManagerCmd = &cobra.Command{
+	Use:   "manager",
+	Short: "ManagerService operations",
+}
+
+var displayManagerCreateVirtualDisplay1Cmd = &cobra.Command{
+	Use:   "create-virtual-display1",
+	Short: "CreateVirtualDisplay1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.CreateVirtualDisplay1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CreateVirtualDisplay1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayManagerCreateVirtualDisplay6_1Cmd = &cobra.Command{
+	Use:   "create-virtual-display6_1",
+	Short: "CreateVirtualDisplay6_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.CreateVirtualDisplay6_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.CreateVirtualDisplay6_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayManagerGetDisplayCmd = &cobra.Command{
+	Use:   "get-display",
+	Short: "GetDisplay RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.ManagerGetDisplayRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetDisplay(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayManagerGetDisplays0Cmd = &cobra.Command{
+	Use:   "get-displays0",
+	Short: "GetDisplays0 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetDisplays0Request{}
+		resp, err := client.GetDisplays0(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayManagerGetDisplays1_1Cmd = &cobra.Command{
+	Use:   "get-displays1_1",
+	Short: "GetDisplays1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetDisplays1_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GetDisplays1_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayManagerGetHdrConversionModeCmd = &cobra.Command{
+	Use:   "get-hdr-conversion-mode",
+	Short: "GetHdrConversionMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetHdrConversionModeRequest{}
+		resp, err := client.GetHdrConversionMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayManagerGetMatchContentFrameRateUserPreferenceCmd = &cobra.Command{
+	Use:   "get-match-content-frame-rate-user-preference",
+	Short: "GetMatchContentFrameRateUserPreference RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetMatchContentFrameRateUserPreferenceRequest{}
+		resp, err := client.GetMatchContentFrameRateUserPreference(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayManagerRegisterDisplayListenerCmd = &cobra.Command{
+	Use:   "register-display-listener",
+	Short: "RegisterDisplayListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.RegisterDisplayListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.RegisterDisplayListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayManagerUnregisterDisplayListenerCmd = &cobra.Command{
+	Use:   "unregister-display-listener",
+	Short: "UnregisterDisplayListener RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.UnregisterDisplayListenerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UnregisterDisplayListener(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayManagerDisplayListenerCmd = &cobra.Command{
+	Use:   "manager-display-listener",
+	Short: "ManagerDisplayListenerService operations",
+}
+
+var displayManagerDisplayListenerOnDisplayAddedCmd = &cobra.Command{
+	Use:   "on-display-added",
+	Short: "OnDisplayAdded RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerDisplayListenerServiceClient(grpcConn)
+		req := &pb.OnDisplayAddedRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnDisplayAdded(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayManagerDisplayListenerOnDisplayChangedCmd = &cobra.Command{
+	Use:   "on-display-changed",
+	Short: "OnDisplayChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerDisplayListenerServiceClient(grpcConn)
+		req := &pb.OnDisplayChangedRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnDisplayChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayManagerDisplayListenerOnDisplayRemovedCmd = &cobra.Command{
+	Use:   "on-display-removed",
+	Short: "OnDisplayRemoved RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerDisplayListenerServiceClient(grpcConn)
+		req := &pb.OnDisplayRemovedRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnDisplayRemoved(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var displayVirtualDisplayConfigCmd = &cobra.Command{
 	Use:   "virtual-display-config",
 	Short: "VirtualDisplayConfigService operations",
@@ -16848,6 +16848,22 @@ var displayVirtualDisplayConfigGetDimBrightnessCmd = &cobra.Command{
 		client := pb.NewVirtualDisplayConfigServiceClient(grpcConn)
 		req := &pb.GetDimBrightnessRequest{}
 		resp, err := client.GetDimBrightness(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayVirtualDisplayConfigGetDisplayCategoriesCmd = &cobra.Command{
+	Use:   "get-display-categories",
+	Short: "GetDisplayCategories RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVirtualDisplayConfigServiceClient(grpcConn)
+		req := &pb.GetDisplayCategoriesRequest{}
+		resp, err := client.GetDisplayCategories(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -17186,788 +17202,6 @@ var displayVirtualDisplayConfigBuilderSetSurfaceCmd = &cobra.Command{
 	},
 }
 
-var displayWindowManagerLayoutParamsCmd = &cobra.Command{
-	Use:   "window-manager-layout-params",
-	Short: "WindowManagerLayoutParamsService operations",
-}
-
-var displayWindowManagerLayoutParamsAreWallpaperTouchEventsEnabledCmd = &cobra.Command{
-	Use:   "are-wallpaper-touch-events-enabled",
-	Short: "AreWallpaperTouchEventsEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
-		req := &pb.AreWallpaperTouchEventsEnabledRequest{}
-		resp, err := client.AreWallpaperTouchEventsEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayWindowManagerLayoutParamsCanPlayMoveAnimationCmd = &cobra.Command{
-	Use:   "can-play-move-animation",
-	Short: "CanPlayMoveAnimation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
-		req := &pb.CanPlayMoveAnimationRequest{}
-		resp, err := client.CanPlayMoveAnimation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayWindowManagerLayoutParamsCopyFromCmd = &cobra.Command{
-	Use:   "copy-from",
-	Short: "CopyFrom RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
-		req := &pb.CopyFromRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.CopyFrom(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayWindowManagerLayoutParamsDebugCmd = &cobra.Command{
-	Use:   "debug",
-	Short: "Debug RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
-		req := &pb.DebugRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Debug(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayWindowManagerLayoutParamsDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayWindowManagerLayoutParamsGetBlurBehindRadiusCmd = &cobra.Command{
-	Use:   "get-blur-behind-radius",
-	Short: "GetBlurBehindRadius RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
-		req := &pb.GetBlurBehindRadiusRequest{}
-		resp, err := client.GetBlurBehindRadius(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayWindowManagerLayoutParamsGetColorModeCmd = &cobra.Command{
-	Use:   "get-color-mode",
-	Short: "GetColorMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
-		req := &pb.GetColorModeRequest{}
-		resp, err := client.GetColorMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayWindowManagerLayoutParamsGetDesiredHdrHeadroomCmd = &cobra.Command{
-	Use:   "get-desired-hdr-headroom",
-	Short: "GetDesiredHdrHeadroom RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
-		req := &pb.GetDesiredHdrHeadroomRequest{}
-		resp, err := client.GetDesiredHdrHeadroom(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayWindowManagerLayoutParamsGetFitInsetsSidesCmd = &cobra.Command{
-	Use:   "get-fit-insets-sides",
-	Short: "GetFitInsetsSides RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
-		req := &pb.GetFitInsetsSidesRequest{}
-		resp, err := client.GetFitInsetsSides(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayWindowManagerLayoutParamsGetFitInsetsTypesCmd = &cobra.Command{
-	Use:   "get-fit-insets-types",
-	Short: "GetFitInsetsTypes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
-		req := &pb.GetFitInsetsTypesRequest{}
-		resp, err := client.GetFitInsetsTypes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayWindowManagerLayoutParamsGetFrameRateBoostOnTouchEnabledCmd = &cobra.Command{
-	Use:   "get-frame-rate-boost-on-touch-enabled",
-	Short: "GetFrameRateBoostOnTouchEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
-		req := &pb.GetFrameRateBoostOnTouchEnabledRequest{}
-		resp, err := client.GetFrameRateBoostOnTouchEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayWindowManagerLayoutParamsGetTitleCmd = &cobra.Command{
-	Use:   "get-title",
-	Short: "GetTitle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
-		req := &pb.GetTitleRequest{}
-		resp, err := client.GetTitle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayWindowManagerLayoutParamsIsFitInsetsIgnoringVisibilityCmd = &cobra.Command{
-	Use:   "is-fit-insets-ignoring-visibility",
-	Short: "IsFitInsetsIgnoringVisibility RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
-		req := &pb.IsFitInsetsIgnoringVisibilityRequest{}
-		resp, err := client.IsFitInsetsIgnoringVisibility(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayWindowManagerLayoutParamsIsFrameRatePowerSavingsBalancedCmd = &cobra.Command{
-	Use:   "is-frame-rate-power-savings-balanced",
-	Short: "IsFrameRatePowerSavingsBalanced RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
-		req := &pb.IsFrameRatePowerSavingsBalancedRequest{}
-		resp, err := client.IsFrameRatePowerSavingsBalanced(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayWindowManagerLayoutParamsIsHdrConversionEnabledCmd = &cobra.Command{
-	Use:   "is-hdr-conversion-enabled",
-	Short: "IsHdrConversionEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
-		req := &pb.IsHdrConversionEnabledRequest{}
-		resp, err := client.IsHdrConversionEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayWindowManagerLayoutParamsSetBlurBehindRadiusCmd = &cobra.Command{
-	Use:   "set-blur-behind-radius",
-	Short: "SetBlurBehindRadius RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
-		req := &pb.SetBlurBehindRadiusRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetBlurBehindRadius(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayWindowManagerLayoutParamsSetCanPlayMoveAnimationCmd = &cobra.Command{
-	Use:   "set-can-play-move-animation",
-	Short: "SetCanPlayMoveAnimation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
-		req := &pb.SetCanPlayMoveAnimationRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetCanPlayMoveAnimation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayWindowManagerLayoutParamsSetColorModeCmd = &cobra.Command{
-	Use:   "set-color-mode",
-	Short: "SetColorMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
-		req := &pb.SetColorModeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetColorMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayWindowManagerLayoutParamsSetDesiredHdrHeadroomCmd = &cobra.Command{
-	Use:   "set-desired-hdr-headroom",
-	Short: "SetDesiredHdrHeadroom RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
-		req := &pb.WindowManagerLayoutParamsSetDesiredHdrHeadroomRequest{}
-		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDesiredHdrHeadroom(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayWindowManagerLayoutParamsSetFitInsetsIgnoringVisibilityCmd = &cobra.Command{
-	Use:   "set-fit-insets-ignoring-visibility",
-	Short: "SetFitInsetsIgnoringVisibility RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
-		req := &pb.SetFitInsetsIgnoringVisibilityRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetFitInsetsIgnoringVisibility(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayWindowManagerLayoutParamsSetFitInsetsSidesCmd = &cobra.Command{
-	Use:   "set-fit-insets-sides",
-	Short: "SetFitInsetsSides RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
-		req := &pb.SetFitInsetsSidesRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetFitInsetsSides(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayWindowManagerLayoutParamsSetFitInsetsTypesCmd = &cobra.Command{
-	Use:   "set-fit-insets-types",
-	Short: "SetFitInsetsTypes RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
-		req := &pb.SetFitInsetsTypesRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetFitInsetsTypes(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayWindowManagerLayoutParamsSetFrameRateBoostOnTouchEnabledCmd = &cobra.Command{
-	Use:   "set-frame-rate-boost-on-touch-enabled",
-	Short: "SetFrameRateBoostOnTouchEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
-		req := &pb.SetFrameRateBoostOnTouchEnabledRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetFrameRateBoostOnTouchEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayWindowManagerLayoutParamsSetFrameRatePowerSavingsBalancedCmd = &cobra.Command{
-	Use:   "set-frame-rate-power-savings-balanced",
-	Short: "SetFrameRatePowerSavingsBalanced RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
-		req := &pb.SetFrameRatePowerSavingsBalancedRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetFrameRatePowerSavingsBalanced(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayWindowManagerLayoutParamsSetHdrConversionEnabledCmd = &cobra.Command{
-	Use:   "set-hdr-conversion-enabled",
-	Short: "SetHdrConversionEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
-		req := &pb.SetHdrConversionEnabledRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetHdrConversionEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayWindowManagerLayoutParamsSetTitleCmd = &cobra.Command{
-	Use:   "set-title",
-	Short: "SetTitle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
-		req := &pb.SetTitleRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTitle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayWindowManagerLayoutParamsSetWallpaperTouchEventsEnabledCmd = &cobra.Command{
-	Use:   "set-wallpaper-touch-events-enabled",
-	Short: "SetWallpaperTouchEventsEnabled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
-		req := &pb.SetWallpaperTouchEventsEnabledRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetWallpaperTouchEventsEnabled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayWindowManagerLayoutParamsToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayWindowManagerLayoutParamsWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayWindowManagerLayoutParamsMayUseInputMethodCmd = &cobra.Command{
-	Use:   "may-use-input-method",
-	Short: "MayUseInputMethod RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
-		req := &pb.MayUseInputMethodRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.MayUseInputMethod(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayViewGroupLayoutParamsCmd = &cobra.Command{
-	Use:   "view-group-layout-params",
-	Short: "ViewGroupLayoutParamsService operations",
-}
-
-var displayViewGroupLayoutParamsResolveLayoutDirectionCmd = &cobra.Command{
-	Use:   "resolve-layout-direction",
-	Short: "ResolveLayoutDirection RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewViewGroupLayoutParamsServiceClient(grpcConn)
-		req := &pb.ResolveLayoutDirectionRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ResolveLayoutDirection(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayViewGroupMarginLayoutParamsCmd = &cobra.Command{
-	Use:   "view-group-margin-layout-params",
-	Short: "ViewGroupMarginLayoutParamsService operations",
-}
-
-var displayViewGroupMarginLayoutParamsGetLayoutDirectionCmd = &cobra.Command{
-	Use:   "get-layout-direction",
-	Short: "GetLayoutDirection RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewViewGroupMarginLayoutParamsServiceClient(grpcConn)
-		req := &pb.GetLayoutDirectionRequest{}
-		resp, err := client.GetLayoutDirection(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayViewGroupMarginLayoutParamsGetMarginEndCmd = &cobra.Command{
-	Use:   "get-margin-end",
-	Short: "GetMarginEnd RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewViewGroupMarginLayoutParamsServiceClient(grpcConn)
-		req := &pb.GetMarginEndRequest{}
-		resp, err := client.GetMarginEnd(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayViewGroupMarginLayoutParamsGetMarginStartCmd = &cobra.Command{
-	Use:   "get-margin-start",
-	Short: "GetMarginStart RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewViewGroupMarginLayoutParamsServiceClient(grpcConn)
-		req := &pb.GetMarginStartRequest{}
-		resp, err := client.GetMarginStart(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayViewGroupMarginLayoutParamsIsMarginRelativeCmd = &cobra.Command{
-	Use:   "is-margin-relative",
-	Short: "IsMarginRelative RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewViewGroupMarginLayoutParamsServiceClient(grpcConn)
-		req := &pb.IsMarginRelativeRequest{}
-		resp, err := client.IsMarginRelative(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayViewGroupMarginLayoutParamsResolveLayoutDirectionCmd = &cobra.Command{
-	Use:   "resolve-layout-direction",
-	Short: "ResolveLayoutDirection RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewViewGroupMarginLayoutParamsServiceClient(grpcConn)
-		req := &pb.ResolveLayoutDirectionRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ResolveLayoutDirection(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayViewGroupMarginLayoutParamsSetLayoutDirectionCmd = &cobra.Command{
-	Use:   "set-layout-direction",
-	Short: "SetLayoutDirection RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewViewGroupMarginLayoutParamsServiceClient(grpcConn)
-		req := &pb.SetLayoutDirectionRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetLayoutDirection(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayViewGroupMarginLayoutParamsSetMarginEndCmd = &cobra.Command{
-	Use:   "set-margin-end",
-	Short: "SetMarginEnd RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewViewGroupMarginLayoutParamsServiceClient(grpcConn)
-		req := &pb.SetMarginEndRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetMarginEnd(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayViewGroupMarginLayoutParamsSetMarginStartCmd = &cobra.Command{
-	Use:   "set-margin-start",
-	Short: "SetMarginStart RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewViewGroupMarginLayoutParamsServiceClient(grpcConn)
-		req := &pb.SetMarginStartRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetMarginStart(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayViewGroupMarginLayoutParamsSetMarginsCmd = &cobra.Command{
-	Use:   "set-margins",
-	Short: "SetMargins RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewViewGroupMarginLayoutParamsServiceClient(grpcConn)
-		req := &pb.SetMarginsRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.SetMargins(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayViewGroupOnHierarchyChangeListenerCmd = &cobra.Command{
-	Use:   "view-group-on-hierarchy-change-listener",
-	Short: "ViewGroupOnHierarchyChangeListenerService operations",
-}
-
-var displayViewGroupOnHierarchyChangeListenerOnChildViewAddedCmd = &cobra.Command{
-	Use:   "on-child-view-added",
-	Short: "OnChildViewAdded RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewViewGroupOnHierarchyChangeListenerServiceClient(grpcConn)
-		req := &pb.OnChildViewAddedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnChildViewAdded(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displayViewGroupOnHierarchyChangeListenerOnChildViewRemovedCmd = &cobra.Command{
-	Use:   "on-child-view-removed",
-	Short: "OnChildViewRemoved RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewViewGroupOnHierarchyChangeListenerServiceClient(grpcConn)
-		req := &pb.OnChildViewRemovedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnChildViewRemoved(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var displayHdrCapabilitiesCmd = &cobra.Command{
 	Use:   "hdr-capabilities",
 	Short: "HdrCapabilitiesService operations",
@@ -18079,7 +17313,7 @@ var displayHdrCapabilitiesHashCodeCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewHdrCapabilitiesServiceClient(grpcConn)
-		req := &pb.HdrCapabilitiesHashCodeRequest{}
+		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
 			return err
@@ -18269,7 +17503,7 @@ var displayModeHashCodeCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewModeServiceClient(grpcConn)
-		req := &pb.ModeHashCodeRequest{}
+		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
 			return err
@@ -18309,101 +17543,6 @@ var displayModeWriteToParcelCmd = &cobra.Command{
 			req.Arg1 = v
 		}
 		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displaySurfaceHolderCallbackCmd = &cobra.Command{
-	Use:   "surface-holder-callback",
-	Short: "SurfaceHolderCallbackService operations",
-}
-
-var displaySurfaceHolderCallbackSurfaceChangedCmd = &cobra.Command{
-	Use:   "surface-changed",
-	Short: "SurfaceChanged RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSurfaceHolderCallbackServiceClient(grpcConn)
-		req := &pb.SurfaceChangedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.SurfaceChanged(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displaySurfaceHolderCallbackSurfaceCreatedCmd = &cobra.Command{
-	Use:   "surface-created",
-	Short: "SurfaceCreated RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSurfaceHolderCallbackServiceClient(grpcConn)
-		req := &pb.SurfaceCreatedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SurfaceCreated(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displaySurfaceHolderCallbackSurfaceDestroyedCmd = &cobra.Command{
-	Use:   "surface-destroyed",
-	Short: "SurfaceDestroyed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSurfaceHolderCallbackServiceClient(grpcConn)
-		req := &pb.SurfaceDestroyedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SurfaceDestroyed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var displaySurfaceHolderCallback2Cmd = &cobra.Command{
-	Use:   "surface-holder-callback2",
-	Short: "SurfaceHolderCallback2Service operations",
-}
-
-var displaySurfaceHolderCallback2SurfaceRedrawNeededCmd = &cobra.Command{
-	Use:   "surface-redraw-needed",
-	Short: "SurfaceRedrawNeeded RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSurfaceHolderCallback2ServiceClient(grpcConn)
-		req := &pb.SurfaceRedrawNeededRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SurfaceRedrawNeeded(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -19310,6 +18449,883 @@ var displayViewOnUnhandledKeyEventListenerOnUnhandledKeyEventCmd = &cobra.Comman
 			req.Arg1 = v
 		}
 		resp, err := client.OnUnhandledKeyEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displaySurfaceHolderCallbackCmd = &cobra.Command{
+	Use:   "surface-holder-callback",
+	Short: "SurfaceHolderCallbackService operations",
+}
+
+var displaySurfaceHolderCallbackSurfaceChangedCmd = &cobra.Command{
+	Use:   "surface-changed",
+	Short: "SurfaceChanged RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSurfaceHolderCallbackServiceClient(grpcConn)
+		req := &pb.SurfaceChangedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.SurfaceChanged(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displaySurfaceHolderCallbackSurfaceCreatedCmd = &cobra.Command{
+	Use:   "surface-created",
+	Short: "SurfaceCreated RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSurfaceHolderCallbackServiceClient(grpcConn)
+		req := &pb.SurfaceCreatedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SurfaceCreated(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displaySurfaceHolderCallbackSurfaceDestroyedCmd = &cobra.Command{
+	Use:   "surface-destroyed",
+	Short: "SurfaceDestroyed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSurfaceHolderCallbackServiceClient(grpcConn)
+		req := &pb.SurfaceDestroyedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SurfaceDestroyed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displaySurfaceHolderCallback2Cmd = &cobra.Command{
+	Use:   "surface-holder-callback2",
+	Short: "SurfaceHolderCallback2Service operations",
+}
+
+var displaySurfaceHolderCallback2SurfaceRedrawNeededCmd = &cobra.Command{
+	Use:   "surface-redraw-needed",
+	Short: "SurfaceRedrawNeeded RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSurfaceHolderCallback2ServiceClient(grpcConn)
+		req := &pb.SurfaceRedrawNeededRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SurfaceRedrawNeeded(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayViewGroupLayoutParamsCmd = &cobra.Command{
+	Use:   "view-group-layout-params",
+	Short: "ViewGroupLayoutParamsService operations",
+}
+
+var displayViewGroupLayoutParamsResolveLayoutDirectionCmd = &cobra.Command{
+	Use:   "resolve-layout-direction",
+	Short: "ResolveLayoutDirection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewViewGroupLayoutParamsServiceClient(grpcConn)
+		req := &pb.ResolveLayoutDirectionRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ResolveLayoutDirection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayViewGroupMarginLayoutParamsCmd = &cobra.Command{
+	Use:   "view-group-margin-layout-params",
+	Short: "ViewGroupMarginLayoutParamsService operations",
+}
+
+var displayViewGroupMarginLayoutParamsGetLayoutDirectionCmd = &cobra.Command{
+	Use:   "get-layout-direction",
+	Short: "GetLayoutDirection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewViewGroupMarginLayoutParamsServiceClient(grpcConn)
+		req := &pb.ViewGroupMarginLayoutParamsGetLayoutDirectionRequest{}
+		resp, err := client.GetLayoutDirection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayViewGroupMarginLayoutParamsGetMarginEndCmd = &cobra.Command{
+	Use:   "get-margin-end",
+	Short: "GetMarginEnd RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewViewGroupMarginLayoutParamsServiceClient(grpcConn)
+		req := &pb.GetMarginEndRequest{}
+		resp, err := client.GetMarginEnd(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayViewGroupMarginLayoutParamsGetMarginStartCmd = &cobra.Command{
+	Use:   "get-margin-start",
+	Short: "GetMarginStart RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewViewGroupMarginLayoutParamsServiceClient(grpcConn)
+		req := &pb.GetMarginStartRequest{}
+		resp, err := client.GetMarginStart(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayViewGroupMarginLayoutParamsIsMarginRelativeCmd = &cobra.Command{
+	Use:   "is-margin-relative",
+	Short: "IsMarginRelative RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewViewGroupMarginLayoutParamsServiceClient(grpcConn)
+		req := &pb.IsMarginRelativeRequest{}
+		resp, err := client.IsMarginRelative(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayViewGroupMarginLayoutParamsResolveLayoutDirectionCmd = &cobra.Command{
+	Use:   "resolve-layout-direction",
+	Short: "ResolveLayoutDirection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewViewGroupMarginLayoutParamsServiceClient(grpcConn)
+		req := &pb.ResolveLayoutDirectionRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ResolveLayoutDirection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayViewGroupMarginLayoutParamsSetLayoutDirectionCmd = &cobra.Command{
+	Use:   "set-layout-direction",
+	Short: "SetLayoutDirection RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewViewGroupMarginLayoutParamsServiceClient(grpcConn)
+		req := &pb.ViewGroupMarginLayoutParamsSetLayoutDirectionRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetLayoutDirection(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayViewGroupMarginLayoutParamsSetMarginEndCmd = &cobra.Command{
+	Use:   "set-margin-end",
+	Short: "SetMarginEnd RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewViewGroupMarginLayoutParamsServiceClient(grpcConn)
+		req := &pb.SetMarginEndRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMarginEnd(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayViewGroupMarginLayoutParamsSetMarginStartCmd = &cobra.Command{
+	Use:   "set-margin-start",
+	Short: "SetMarginStart RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewViewGroupMarginLayoutParamsServiceClient(grpcConn)
+		req := &pb.SetMarginStartRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMarginStart(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayViewGroupMarginLayoutParamsSetMarginsCmd = &cobra.Command{
+	Use:   "set-margins",
+	Short: "SetMargins RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewViewGroupMarginLayoutParamsServiceClient(grpcConn)
+		req := &pb.SetMarginsRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.SetMargins(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayViewGroupOnHierarchyChangeListenerCmd = &cobra.Command{
+	Use:   "view-group-on-hierarchy-change-listener",
+	Short: "ViewGroupOnHierarchyChangeListenerService operations",
+}
+
+var displayViewGroupOnHierarchyChangeListenerOnChildViewAddedCmd = &cobra.Command{
+	Use:   "on-child-view-added",
+	Short: "OnChildViewAdded RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewViewGroupOnHierarchyChangeListenerServiceClient(grpcConn)
+		req := &pb.OnChildViewAddedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnChildViewAdded(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayViewGroupOnHierarchyChangeListenerOnChildViewRemovedCmd = &cobra.Command{
+	Use:   "on-child-view-removed",
+	Short: "OnChildViewRemoved RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewViewGroupOnHierarchyChangeListenerServiceClient(grpcConn)
+		req := &pb.OnChildViewRemovedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnChildViewRemoved(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayWindowManagerLayoutParamsCmd = &cobra.Command{
+	Use:   "window-manager-layout-params",
+	Short: "WindowManagerLayoutParamsService operations",
+}
+
+var displayWindowManagerLayoutParamsAreWallpaperTouchEventsEnabledCmd = &cobra.Command{
+	Use:   "are-wallpaper-touch-events-enabled",
+	Short: "AreWallpaperTouchEventsEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
+		req := &pb.AreWallpaperTouchEventsEnabledRequest{}
+		resp, err := client.AreWallpaperTouchEventsEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayWindowManagerLayoutParamsCanPlayMoveAnimationCmd = &cobra.Command{
+	Use:   "can-play-move-animation",
+	Short: "CanPlayMoveAnimation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
+		req := &pb.CanPlayMoveAnimationRequest{}
+		resp, err := client.CanPlayMoveAnimation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayWindowManagerLayoutParamsCopyFromCmd = &cobra.Command{
+	Use:   "copy-from",
+	Short: "CopyFrom RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
+		req := &pb.CopyFromRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.CopyFrom(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayWindowManagerLayoutParamsDebugCmd = &cobra.Command{
+	Use:   "debug",
+	Short: "Debug RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
+		req := &pb.DebugRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Debug(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayWindowManagerLayoutParamsDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayWindowManagerLayoutParamsGetBlurBehindRadiusCmd = &cobra.Command{
+	Use:   "get-blur-behind-radius",
+	Short: "GetBlurBehindRadius RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
+		req := &pb.GetBlurBehindRadiusRequest{}
+		resp, err := client.GetBlurBehindRadius(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayWindowManagerLayoutParamsGetColorModeCmd = &cobra.Command{
+	Use:   "get-color-mode",
+	Short: "GetColorMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
+		req := &pb.GetColorModeRequest{}
+		resp, err := client.GetColorMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayWindowManagerLayoutParamsGetDesiredHdrHeadroomCmd = &cobra.Command{
+	Use:   "get-desired-hdr-headroom",
+	Short: "GetDesiredHdrHeadroom RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
+		req := &pb.GetDesiredHdrHeadroomRequest{}
+		resp, err := client.GetDesiredHdrHeadroom(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayWindowManagerLayoutParamsGetFitInsetsSidesCmd = &cobra.Command{
+	Use:   "get-fit-insets-sides",
+	Short: "GetFitInsetsSides RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
+		req := &pb.GetFitInsetsSidesRequest{}
+		resp, err := client.GetFitInsetsSides(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayWindowManagerLayoutParamsGetFitInsetsTypesCmd = &cobra.Command{
+	Use:   "get-fit-insets-types",
+	Short: "GetFitInsetsTypes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
+		req := &pb.GetFitInsetsTypesRequest{}
+		resp, err := client.GetFitInsetsTypes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayWindowManagerLayoutParamsGetFrameRateBoostOnTouchEnabledCmd = &cobra.Command{
+	Use:   "get-frame-rate-boost-on-touch-enabled",
+	Short: "GetFrameRateBoostOnTouchEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
+		req := &pb.GetFrameRateBoostOnTouchEnabledRequest{}
+		resp, err := client.GetFrameRateBoostOnTouchEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayWindowManagerLayoutParamsGetTitleCmd = &cobra.Command{
+	Use:   "get-title",
+	Short: "GetTitle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
+		req := &pb.GetTitleRequest{}
+		resp, err := client.GetTitle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayWindowManagerLayoutParamsIsFitInsetsIgnoringVisibilityCmd = &cobra.Command{
+	Use:   "is-fit-insets-ignoring-visibility",
+	Short: "IsFitInsetsIgnoringVisibility RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
+		req := &pb.IsFitInsetsIgnoringVisibilityRequest{}
+		resp, err := client.IsFitInsetsIgnoringVisibility(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayWindowManagerLayoutParamsIsFrameRatePowerSavingsBalancedCmd = &cobra.Command{
+	Use:   "is-frame-rate-power-savings-balanced",
+	Short: "IsFrameRatePowerSavingsBalanced RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
+		req := &pb.IsFrameRatePowerSavingsBalancedRequest{}
+		resp, err := client.IsFrameRatePowerSavingsBalanced(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayWindowManagerLayoutParamsIsHdrConversionEnabledCmd = &cobra.Command{
+	Use:   "is-hdr-conversion-enabled",
+	Short: "IsHdrConversionEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
+		req := &pb.IsHdrConversionEnabledRequest{}
+		resp, err := client.IsHdrConversionEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayWindowManagerLayoutParamsSetBlurBehindRadiusCmd = &cobra.Command{
+	Use:   "set-blur-behind-radius",
+	Short: "SetBlurBehindRadius RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
+		req := &pb.SetBlurBehindRadiusRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetBlurBehindRadius(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayWindowManagerLayoutParamsSetCanPlayMoveAnimationCmd = &cobra.Command{
+	Use:   "set-can-play-move-animation",
+	Short: "SetCanPlayMoveAnimation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
+		req := &pb.SetCanPlayMoveAnimationRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCanPlayMoveAnimation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayWindowManagerLayoutParamsSetColorModeCmd = &cobra.Command{
+	Use:   "set-color-mode",
+	Short: "SetColorMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
+		req := &pb.SetColorModeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetColorMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayWindowManagerLayoutParamsSetDesiredHdrHeadroomCmd = &cobra.Command{
+	Use:   "set-desired-hdr-headroom",
+	Short: "SetDesiredHdrHeadroom RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
+		req := &pb.WindowManagerLayoutParamsSetDesiredHdrHeadroomRequest{}
+		if v, err := cmd.Flags().GetFloat32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDesiredHdrHeadroom(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayWindowManagerLayoutParamsSetFitInsetsIgnoringVisibilityCmd = &cobra.Command{
+	Use:   "set-fit-insets-ignoring-visibility",
+	Short: "SetFitInsetsIgnoringVisibility RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
+		req := &pb.SetFitInsetsIgnoringVisibilityRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFitInsetsIgnoringVisibility(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayWindowManagerLayoutParamsSetFitInsetsSidesCmd = &cobra.Command{
+	Use:   "set-fit-insets-sides",
+	Short: "SetFitInsetsSides RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
+		req := &pb.SetFitInsetsSidesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFitInsetsSides(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayWindowManagerLayoutParamsSetFitInsetsTypesCmd = &cobra.Command{
+	Use:   "set-fit-insets-types",
+	Short: "SetFitInsetsTypes RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
+		req := &pb.SetFitInsetsTypesRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFitInsetsTypes(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayWindowManagerLayoutParamsSetFrameRateBoostOnTouchEnabledCmd = &cobra.Command{
+	Use:   "set-frame-rate-boost-on-touch-enabled",
+	Short: "SetFrameRateBoostOnTouchEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
+		req := &pb.SetFrameRateBoostOnTouchEnabledRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFrameRateBoostOnTouchEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayWindowManagerLayoutParamsSetFrameRatePowerSavingsBalancedCmd = &cobra.Command{
+	Use:   "set-frame-rate-power-savings-balanced",
+	Short: "SetFrameRatePowerSavingsBalanced RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
+		req := &pb.SetFrameRatePowerSavingsBalancedRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFrameRatePowerSavingsBalanced(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayWindowManagerLayoutParamsSetHdrConversionEnabledCmd = &cobra.Command{
+	Use:   "set-hdr-conversion-enabled",
+	Short: "SetHdrConversionEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
+		req := &pb.SetHdrConversionEnabledRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetHdrConversionEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayWindowManagerLayoutParamsSetTitleCmd = &cobra.Command{
+	Use:   "set-title",
+	Short: "SetTitle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
+		req := &pb.SetTitleRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTitle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayWindowManagerLayoutParamsSetWallpaperTouchEventsEnabledCmd = &cobra.Command{
+	Use:   "set-wallpaper-touch-events-enabled",
+	Short: "SetWallpaperTouchEventsEnabled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
+		req := &pb.SetWallpaperTouchEventsEnabledRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetWallpaperTouchEventsEnabled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayWindowManagerLayoutParamsToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayWindowManagerLayoutParamsWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var displayWindowManagerLayoutParamsMayUseInputMethodCmd = &cobra.Command{
+	Use:   "may-use-input-method",
+	Short: "MayUseInputMethod RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWindowManagerLayoutParamsServiceClient(grpcConn)
+		req := &pb.MayUseInputMethodRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.MayUseInputMethod(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -20898,36 +20914,6 @@ func init() {
 	displaySurfaceViewNewSurfaceViewCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	displaySurfaceViewCmd.AddCommand(displaySurfaceViewNewSurfaceViewCmd)
 	displayCmd.AddCommand(displaySurfaceViewCmd)
-	displayManagerCreateVirtualDisplay1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	displayManagerCmd.AddCommand(displayManagerCreateVirtualDisplay1Cmd)
-	displayManagerCreateVirtualDisplay6_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	displayManagerCreateVirtualDisplay6_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	displayManagerCreateVirtualDisplay6_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	displayManagerCreateVirtualDisplay6_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	displayManagerCreateVirtualDisplay6_1Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
-	displayManagerCreateVirtualDisplay6_1Cmd.Flags().Int32("arg5", 0, "arg5 (int32)")
-	displayManagerCmd.AddCommand(displayManagerCreateVirtualDisplay6_1Cmd)
-	displayManagerGetDisplayCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	displayManagerCmd.AddCommand(displayManagerGetDisplayCmd)
-	displayManagerCmd.AddCommand(displayManagerGetDisplays0Cmd)
-	displayManagerGetDisplays1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
-	displayManagerCmd.AddCommand(displayManagerGetDisplays1_1Cmd)
-	displayManagerCmd.AddCommand(displayManagerGetHdrConversionModeCmd)
-	displayManagerCmd.AddCommand(displayManagerGetMatchContentFrameRateUserPreferenceCmd)
-	displayManagerRegisterDisplayListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	displayManagerRegisterDisplayListenerCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	displayManagerRegisterDisplayListenerCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	displayManagerCmd.AddCommand(displayManagerRegisterDisplayListenerCmd)
-	displayManagerUnregisterDisplayListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	displayManagerCmd.AddCommand(displayManagerUnregisterDisplayListenerCmd)
-	displayCmd.AddCommand(displayManagerCmd)
-	displayManagerDisplayListenerOnDisplayAddedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	displayManagerDisplayListenerCmd.AddCommand(displayManagerDisplayListenerOnDisplayAddedCmd)
-	displayManagerDisplayListenerOnDisplayChangedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	displayManagerDisplayListenerCmd.AddCommand(displayManagerDisplayListenerOnDisplayChangedCmd)
-	displayManagerDisplayListenerOnDisplayRemovedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	displayManagerDisplayListenerCmd.AddCommand(displayManagerDisplayListenerOnDisplayRemovedCmd)
-	displayCmd.AddCommand(displayManagerDisplayListenerCmd)
 	displayDeviceProductInfoNewDeviceProductInfoCmd.Flags().String("arg0", "", "arg0 (string)")
 	displayDeviceProductInfoNewDeviceProductInfoCmd.Flags().String("arg1", "", "arg1 (string)")
 	displayDeviceProductInfoNewDeviceProductInfoCmd.Flags().String("arg2", "", "arg2 (string)")
@@ -20982,12 +20968,43 @@ func init() {
 	displayHdrConversionModeWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	displayHdrConversionModeCmd.AddCommand(displayHdrConversionModeWriteToParcelCmd)
 	displayCmd.AddCommand(displayHdrConversionModeCmd)
+	displayManagerCreateVirtualDisplay1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	displayManagerCmd.AddCommand(displayManagerCreateVirtualDisplay1Cmd)
+	displayManagerCreateVirtualDisplay6_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	displayManagerCreateVirtualDisplay6_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	displayManagerCreateVirtualDisplay6_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	displayManagerCreateVirtualDisplay6_1Cmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	displayManagerCreateVirtualDisplay6_1Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	displayManagerCreateVirtualDisplay6_1Cmd.Flags().Int32("arg5", 0, "arg5 (int32)")
+	displayManagerCmd.AddCommand(displayManagerCreateVirtualDisplay6_1Cmd)
+	displayManagerGetDisplayCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	displayManagerCmd.AddCommand(displayManagerGetDisplayCmd)
+	displayManagerCmd.AddCommand(displayManagerGetDisplays0Cmd)
+	displayManagerGetDisplays1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
+	displayManagerCmd.AddCommand(displayManagerGetDisplays1_1Cmd)
+	displayManagerCmd.AddCommand(displayManagerGetHdrConversionModeCmd)
+	displayManagerCmd.AddCommand(displayManagerGetMatchContentFrameRateUserPreferenceCmd)
+	displayManagerRegisterDisplayListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	displayManagerRegisterDisplayListenerCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	displayManagerRegisterDisplayListenerCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	displayManagerCmd.AddCommand(displayManagerRegisterDisplayListenerCmd)
+	displayManagerUnregisterDisplayListenerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	displayManagerCmd.AddCommand(displayManagerUnregisterDisplayListenerCmd)
+	displayCmd.AddCommand(displayManagerCmd)
+	displayManagerDisplayListenerOnDisplayAddedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	displayManagerDisplayListenerCmd.AddCommand(displayManagerDisplayListenerOnDisplayAddedCmd)
+	displayManagerDisplayListenerOnDisplayChangedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	displayManagerDisplayListenerCmd.AddCommand(displayManagerDisplayListenerOnDisplayChangedCmd)
+	displayManagerDisplayListenerOnDisplayRemovedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	displayManagerDisplayListenerCmd.AddCommand(displayManagerDisplayListenerOnDisplayRemovedCmd)
+	displayCmd.AddCommand(displayManagerDisplayListenerCmd)
 	displayVirtualDisplayConfigCmd.AddCommand(displayVirtualDisplayConfigDescribeContentsCmd)
 	displayVirtualDisplayConfigEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	displayVirtualDisplayConfigCmd.AddCommand(displayVirtualDisplayConfigEqualsCmd)
 	displayVirtualDisplayConfigCmd.AddCommand(displayVirtualDisplayConfigGetDefaultBrightnessCmd)
 	displayVirtualDisplayConfigCmd.AddCommand(displayVirtualDisplayConfigGetDensityDpiCmd)
 	displayVirtualDisplayConfigCmd.AddCommand(displayVirtualDisplayConfigGetDimBrightnessCmd)
+	displayVirtualDisplayConfigCmd.AddCommand(displayVirtualDisplayConfigGetDisplayCategoriesCmd)
 	displayVirtualDisplayConfigCmd.AddCommand(displayVirtualDisplayConfigGetFlagsCmd)
 	displayVirtualDisplayConfigCmd.AddCommand(displayVirtualDisplayConfigGetHeightCmd)
 	displayVirtualDisplayConfigCmd.AddCommand(displayVirtualDisplayConfigGetNameCmd)
@@ -21020,82 +21037,6 @@ func init() {
 	displayVirtualDisplayConfigBuilderSetSurfaceCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	displayVirtualDisplayConfigBuilderCmd.AddCommand(displayVirtualDisplayConfigBuilderSetSurfaceCmd)
 	displayCmd.AddCommand(displayVirtualDisplayConfigBuilderCmd)
-	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsAreWallpaperTouchEventsEnabledCmd)
-	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsCanPlayMoveAnimationCmd)
-	displayWindowManagerLayoutParamsCopyFromCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsCopyFromCmd)
-	displayWindowManagerLayoutParamsDebugCmd.Flags().String("arg0", "", "arg0 (string)")
-	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsDebugCmd)
-	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsDescribeContentsCmd)
-	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsGetBlurBehindRadiusCmd)
-	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsGetColorModeCmd)
-	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsGetDesiredHdrHeadroomCmd)
-	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsGetFitInsetsSidesCmd)
-	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsGetFitInsetsTypesCmd)
-	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsGetFrameRateBoostOnTouchEnabledCmd)
-	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsGetTitleCmd)
-	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsIsFitInsetsIgnoringVisibilityCmd)
-	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsIsFrameRatePowerSavingsBalancedCmd)
-	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsIsHdrConversionEnabledCmd)
-	displayWindowManagerLayoutParamsSetBlurBehindRadiusCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsSetBlurBehindRadiusCmd)
-	displayWindowManagerLayoutParamsSetCanPlayMoveAnimationCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsSetCanPlayMoveAnimationCmd)
-	displayWindowManagerLayoutParamsSetColorModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsSetColorModeCmd)
-	displayWindowManagerLayoutParamsSetDesiredHdrHeadroomCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
-	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsSetDesiredHdrHeadroomCmd)
-	displayWindowManagerLayoutParamsSetFitInsetsIgnoringVisibilityCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsSetFitInsetsIgnoringVisibilityCmd)
-	displayWindowManagerLayoutParamsSetFitInsetsSidesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsSetFitInsetsSidesCmd)
-	displayWindowManagerLayoutParamsSetFitInsetsTypesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsSetFitInsetsTypesCmd)
-	displayWindowManagerLayoutParamsSetFrameRateBoostOnTouchEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsSetFrameRateBoostOnTouchEnabledCmd)
-	displayWindowManagerLayoutParamsSetFrameRatePowerSavingsBalancedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsSetFrameRatePowerSavingsBalancedCmd)
-	displayWindowManagerLayoutParamsSetHdrConversionEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsSetHdrConversionEnabledCmd)
-	displayWindowManagerLayoutParamsSetTitleCmd.Flags().String("arg0", "", "arg0 (string)")
-	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsSetTitleCmd)
-	displayWindowManagerLayoutParamsSetWallpaperTouchEventsEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsSetWallpaperTouchEventsEnabledCmd)
-	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsToStringCmd)
-	displayWindowManagerLayoutParamsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	displayWindowManagerLayoutParamsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsWriteToParcelCmd)
-	displayWindowManagerLayoutParamsMayUseInputMethodCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsMayUseInputMethodCmd)
-	displayCmd.AddCommand(displayWindowManagerLayoutParamsCmd)
-	displayViewGroupLayoutParamsResolveLayoutDirectionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	displayViewGroupLayoutParamsCmd.AddCommand(displayViewGroupLayoutParamsResolveLayoutDirectionCmd)
-	displayCmd.AddCommand(displayViewGroupLayoutParamsCmd)
-	displayViewGroupMarginLayoutParamsCmd.AddCommand(displayViewGroupMarginLayoutParamsGetLayoutDirectionCmd)
-	displayViewGroupMarginLayoutParamsCmd.AddCommand(displayViewGroupMarginLayoutParamsGetMarginEndCmd)
-	displayViewGroupMarginLayoutParamsCmd.AddCommand(displayViewGroupMarginLayoutParamsGetMarginStartCmd)
-	displayViewGroupMarginLayoutParamsCmd.AddCommand(displayViewGroupMarginLayoutParamsIsMarginRelativeCmd)
-	displayViewGroupMarginLayoutParamsResolveLayoutDirectionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	displayViewGroupMarginLayoutParamsCmd.AddCommand(displayViewGroupMarginLayoutParamsResolveLayoutDirectionCmd)
-	displayViewGroupMarginLayoutParamsSetLayoutDirectionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	displayViewGroupMarginLayoutParamsCmd.AddCommand(displayViewGroupMarginLayoutParamsSetLayoutDirectionCmd)
-	displayViewGroupMarginLayoutParamsSetMarginEndCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	displayViewGroupMarginLayoutParamsCmd.AddCommand(displayViewGroupMarginLayoutParamsSetMarginEndCmd)
-	displayViewGroupMarginLayoutParamsSetMarginStartCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	displayViewGroupMarginLayoutParamsCmd.AddCommand(displayViewGroupMarginLayoutParamsSetMarginStartCmd)
-	displayViewGroupMarginLayoutParamsSetMarginsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	displayViewGroupMarginLayoutParamsSetMarginsCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	displayViewGroupMarginLayoutParamsSetMarginsCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	displayViewGroupMarginLayoutParamsSetMarginsCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	displayViewGroupMarginLayoutParamsCmd.AddCommand(displayViewGroupMarginLayoutParamsSetMarginsCmd)
-	displayCmd.AddCommand(displayViewGroupMarginLayoutParamsCmd)
-	displayViewGroupOnHierarchyChangeListenerOnChildViewAddedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	displayViewGroupOnHierarchyChangeListenerOnChildViewAddedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	displayViewGroupOnHierarchyChangeListenerCmd.AddCommand(displayViewGroupOnHierarchyChangeListenerOnChildViewAddedCmd)
-	displayViewGroupOnHierarchyChangeListenerOnChildViewRemovedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	displayViewGroupOnHierarchyChangeListenerOnChildViewRemovedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	displayViewGroupOnHierarchyChangeListenerCmd.AddCommand(displayViewGroupOnHierarchyChangeListenerOnChildViewRemovedCmd)
-	displayCmd.AddCommand(displayViewGroupOnHierarchyChangeListenerCmd)
 	displayHdrCapabilitiesCmd.AddCommand(displayHdrCapabilitiesDescribeContentsCmd)
 	displayHdrCapabilitiesEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	displayHdrCapabilitiesCmd.AddCommand(displayHdrCapabilitiesEqualsCmd)
@@ -21124,19 +21065,6 @@ func init() {
 	displayModeWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	displayModeCmd.AddCommand(displayModeWriteToParcelCmd)
 	displayCmd.AddCommand(displayModeCmd)
-	displaySurfaceHolderCallbackSurfaceChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	displaySurfaceHolderCallbackSurfaceChangedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	displaySurfaceHolderCallbackSurfaceChangedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	displaySurfaceHolderCallbackSurfaceChangedCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
-	displaySurfaceHolderCallbackCmd.AddCommand(displaySurfaceHolderCallbackSurfaceChangedCmd)
-	displaySurfaceHolderCallbackSurfaceCreatedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	displaySurfaceHolderCallbackCmd.AddCommand(displaySurfaceHolderCallbackSurfaceCreatedCmd)
-	displaySurfaceHolderCallbackSurfaceDestroyedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	displaySurfaceHolderCallbackCmd.AddCommand(displaySurfaceHolderCallbackSurfaceDestroyedCmd)
-	displayCmd.AddCommand(displaySurfaceHolderCallbackCmd)
-	displaySurfaceHolderCallback2SurfaceRedrawNeededCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	displaySurfaceHolderCallback2Cmd.AddCommand(displaySurfaceHolderCallback2SurfaceRedrawNeededCmd)
-	displayCmd.AddCommand(displaySurfaceHolderCallback2Cmd)
 	displayViewAccessibilityDelegateAddExtraDataToAccessibilityNodeInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	displayViewAccessibilityDelegateAddExtraDataToAccessibilityNodeInfoCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	displayViewAccessibilityDelegateAddExtraDataToAccessibilityNodeInfoCmd.Flags().String("arg2", "", "arg2 (string)")
@@ -21269,5 +21197,94 @@ func init() {
 	displayViewOnUnhandledKeyEventListenerOnUnhandledKeyEventCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	displayViewOnUnhandledKeyEventListenerCmd.AddCommand(displayViewOnUnhandledKeyEventListenerOnUnhandledKeyEventCmd)
 	displayCmd.AddCommand(displayViewOnUnhandledKeyEventListenerCmd)
+	displaySurfaceHolderCallbackSurfaceChangedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	displaySurfaceHolderCallbackSurfaceChangedCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	displaySurfaceHolderCallbackSurfaceChangedCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	displaySurfaceHolderCallbackSurfaceChangedCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	displaySurfaceHolderCallbackCmd.AddCommand(displaySurfaceHolderCallbackSurfaceChangedCmd)
+	displaySurfaceHolderCallbackSurfaceCreatedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	displaySurfaceHolderCallbackCmd.AddCommand(displaySurfaceHolderCallbackSurfaceCreatedCmd)
+	displaySurfaceHolderCallbackSurfaceDestroyedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	displaySurfaceHolderCallbackCmd.AddCommand(displaySurfaceHolderCallbackSurfaceDestroyedCmd)
+	displayCmd.AddCommand(displaySurfaceHolderCallbackCmd)
+	displaySurfaceHolderCallback2SurfaceRedrawNeededCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	displaySurfaceHolderCallback2Cmd.AddCommand(displaySurfaceHolderCallback2SurfaceRedrawNeededCmd)
+	displayCmd.AddCommand(displaySurfaceHolderCallback2Cmd)
+	displayViewGroupLayoutParamsResolveLayoutDirectionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	displayViewGroupLayoutParamsCmd.AddCommand(displayViewGroupLayoutParamsResolveLayoutDirectionCmd)
+	displayCmd.AddCommand(displayViewGroupLayoutParamsCmd)
+	displayViewGroupMarginLayoutParamsCmd.AddCommand(displayViewGroupMarginLayoutParamsGetLayoutDirectionCmd)
+	displayViewGroupMarginLayoutParamsCmd.AddCommand(displayViewGroupMarginLayoutParamsGetMarginEndCmd)
+	displayViewGroupMarginLayoutParamsCmd.AddCommand(displayViewGroupMarginLayoutParamsGetMarginStartCmd)
+	displayViewGroupMarginLayoutParamsCmd.AddCommand(displayViewGroupMarginLayoutParamsIsMarginRelativeCmd)
+	displayViewGroupMarginLayoutParamsResolveLayoutDirectionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	displayViewGroupMarginLayoutParamsCmd.AddCommand(displayViewGroupMarginLayoutParamsResolveLayoutDirectionCmd)
+	displayViewGroupMarginLayoutParamsSetLayoutDirectionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	displayViewGroupMarginLayoutParamsCmd.AddCommand(displayViewGroupMarginLayoutParamsSetLayoutDirectionCmd)
+	displayViewGroupMarginLayoutParamsSetMarginEndCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	displayViewGroupMarginLayoutParamsCmd.AddCommand(displayViewGroupMarginLayoutParamsSetMarginEndCmd)
+	displayViewGroupMarginLayoutParamsSetMarginStartCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	displayViewGroupMarginLayoutParamsCmd.AddCommand(displayViewGroupMarginLayoutParamsSetMarginStartCmd)
+	displayViewGroupMarginLayoutParamsSetMarginsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	displayViewGroupMarginLayoutParamsSetMarginsCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	displayViewGroupMarginLayoutParamsSetMarginsCmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	displayViewGroupMarginLayoutParamsSetMarginsCmd.Flags().Int32("arg3", 0, "arg3 (int32)")
+	displayViewGroupMarginLayoutParamsCmd.AddCommand(displayViewGroupMarginLayoutParamsSetMarginsCmd)
+	displayCmd.AddCommand(displayViewGroupMarginLayoutParamsCmd)
+	displayViewGroupOnHierarchyChangeListenerOnChildViewAddedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	displayViewGroupOnHierarchyChangeListenerOnChildViewAddedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	displayViewGroupOnHierarchyChangeListenerCmd.AddCommand(displayViewGroupOnHierarchyChangeListenerOnChildViewAddedCmd)
+	displayViewGroupOnHierarchyChangeListenerOnChildViewRemovedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	displayViewGroupOnHierarchyChangeListenerOnChildViewRemovedCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	displayViewGroupOnHierarchyChangeListenerCmd.AddCommand(displayViewGroupOnHierarchyChangeListenerOnChildViewRemovedCmd)
+	displayCmd.AddCommand(displayViewGroupOnHierarchyChangeListenerCmd)
+	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsAreWallpaperTouchEventsEnabledCmd)
+	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsCanPlayMoveAnimationCmd)
+	displayWindowManagerLayoutParamsCopyFromCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsCopyFromCmd)
+	displayWindowManagerLayoutParamsDebugCmd.Flags().String("arg0", "", "arg0 (string)")
+	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsDebugCmd)
+	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsDescribeContentsCmd)
+	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsGetBlurBehindRadiusCmd)
+	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsGetColorModeCmd)
+	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsGetDesiredHdrHeadroomCmd)
+	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsGetFitInsetsSidesCmd)
+	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsGetFitInsetsTypesCmd)
+	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsGetFrameRateBoostOnTouchEnabledCmd)
+	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsGetTitleCmd)
+	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsIsFitInsetsIgnoringVisibilityCmd)
+	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsIsFrameRatePowerSavingsBalancedCmd)
+	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsIsHdrConversionEnabledCmd)
+	displayWindowManagerLayoutParamsSetBlurBehindRadiusCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsSetBlurBehindRadiusCmd)
+	displayWindowManagerLayoutParamsSetCanPlayMoveAnimationCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsSetCanPlayMoveAnimationCmd)
+	displayWindowManagerLayoutParamsSetColorModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsSetColorModeCmd)
+	displayWindowManagerLayoutParamsSetDesiredHdrHeadroomCmd.Flags().Float32("arg0", 0, "arg0 (float32)")
+	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsSetDesiredHdrHeadroomCmd)
+	displayWindowManagerLayoutParamsSetFitInsetsIgnoringVisibilityCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsSetFitInsetsIgnoringVisibilityCmd)
+	displayWindowManagerLayoutParamsSetFitInsetsSidesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsSetFitInsetsSidesCmd)
+	displayWindowManagerLayoutParamsSetFitInsetsTypesCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsSetFitInsetsTypesCmd)
+	displayWindowManagerLayoutParamsSetFrameRateBoostOnTouchEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsSetFrameRateBoostOnTouchEnabledCmd)
+	displayWindowManagerLayoutParamsSetFrameRatePowerSavingsBalancedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsSetFrameRatePowerSavingsBalancedCmd)
+	displayWindowManagerLayoutParamsSetHdrConversionEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsSetHdrConversionEnabledCmd)
+	displayWindowManagerLayoutParamsSetTitleCmd.Flags().String("arg0", "", "arg0 (string)")
+	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsSetTitleCmd)
+	displayWindowManagerLayoutParamsSetWallpaperTouchEventsEnabledCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsSetWallpaperTouchEventsEnabledCmd)
+	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsToStringCmd)
+	displayWindowManagerLayoutParamsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	displayWindowManagerLayoutParamsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsWriteToParcelCmd)
+	displayWindowManagerLayoutParamsMayUseInputMethodCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	displayWindowManagerLayoutParamsCmd.AddCommand(displayWindowManagerLayoutParamsMayUseInputMethodCmd)
+	displayCmd.AddCommand(displayWindowManagerLayoutParamsCmd)
 	rootCmd.AddCommand(displayCmd)
 }

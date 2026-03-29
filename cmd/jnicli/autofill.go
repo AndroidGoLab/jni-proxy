@@ -12,6 +12,846 @@ var autofillCmd = &cobra.Command{
 	Short: "autofill service operations",
 }
 
+var autofillLuhnChecksumValidatorCmd = &cobra.Command{
+	Use:   "luhn-checksum-validator",
+	Short: "LuhnChecksumValidatorService operations",
+}
+
+var autofillLuhnChecksumValidatorNewLuhnChecksumValidatorCmd = &cobra.Command{
+	Use:   "new-luhn-checksum-validator",
+	Short: "NewLuhnChecksumValidator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLuhnChecksumValidatorServiceClient(grpcConn)
+		req := &pb.NewLuhnChecksumValidatorRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewLuhnChecksumValidator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillLuhnChecksumValidatorDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLuhnChecksumValidatorServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillLuhnChecksumValidatorToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLuhnChecksumValidatorServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillLuhnChecksumValidatorWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLuhnChecksumValidatorServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillBatchUpdatesCmd = &cobra.Command{
+	Use:   "batch-updates",
+	Short: "BatchUpdatesService operations",
+}
+
+var autofillBatchUpdatesDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBatchUpdatesServiceClient(grpcConn)
+		req := &pb.BatchUpdatesDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillBatchUpdatesToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBatchUpdatesServiceClient(grpcConn)
+		req := &pb.BatchUpdatesToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillBatchUpdatesWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBatchUpdatesServiceClient(grpcConn)
+		req := &pb.BatchUpdatesWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillBatchUpdatesBuilderCmd = &cobra.Command{
+	Use:   "batch-updates-builder",
+	Short: "BatchUpdatesBuilderService operations",
+}
+
+var autofillBatchUpdatesBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBatchUpdatesBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillBatchUpdatesBuilderTransformChildCmd = &cobra.Command{
+	Use:   "transform-child",
+	Short: "TransformChild RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBatchUpdatesBuilderServiceClient(grpcConn)
+		req := &pb.TransformChildRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.TransformChild(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillBatchUpdatesBuilderUpdateTemplateCmd = &cobra.Command{
+	Use:   "update-template",
+	Short: "UpdateTemplate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewBatchUpdatesBuilderServiceClient(grpcConn)
+		req := &pb.UpdateTemplateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.UpdateTemplate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillSavedDatasetsInfoCallbackCmd = &cobra.Command{
+	Use:   "saved-datasets-info-callback",
+	Short: "SavedDatasetsInfoCallbackService operations",
+}
+
+var autofillSavedDatasetsInfoCallbackOnErrorCmd = &cobra.Command{
+	Use:   "on-error",
+	Short: "OnError RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSavedDatasetsInfoCallbackServiceClient(grpcConn)
+		req := &pb.OnErrorRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnError(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillSaveInfoCmd = &cobra.Command{
+	Use:   "save-info",
+	Short: "SaveInfoService operations",
+}
+
+var autofillSaveInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSaveInfoServiceClient(grpcConn)
+		req := &pb.SaveInfoDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillSaveInfoToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSaveInfoServiceClient(grpcConn)
+		req := &pb.SaveInfoToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillSaveInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSaveInfoServiceClient(grpcConn)
+		req := &pb.SaveInfoWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillSaveInfoBuilderCmd = &cobra.Command{
+	Use:   "save-info-builder",
+	Short: "SaveInfoBuilderService operations",
+}
+
+var autofillSaveInfoBuilderAddSanitizerCmd = &cobra.Command{
+	Use:   "add-sanitizer",
+	Short: "AddSanitizer RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSaveInfoBuilderServiceClient(grpcConn)
+		req := &pb.AddSanitizerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AddSanitizer(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillSaveInfoBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSaveInfoBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillSaveInfoBuilderSetCustomDescriptionCmd = &cobra.Command{
+	Use:   "set-custom-description",
+	Short: "SetCustomDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSaveInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetCustomDescriptionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetCustomDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillSaveInfoBuilderSetDescriptionCmd = &cobra.Command{
+	Use:   "set-description",
+	Short: "SetDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSaveInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetDescriptionRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillSaveInfoBuilderSetFlagsCmd = &cobra.Command{
+	Use:   "set-flags",
+	Short: "SetFlags RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSaveInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetFlagsRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFlags(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillSaveInfoBuilderSetNegativeActionCmd = &cobra.Command{
+	Use:   "set-negative-action",
+	Short: "SetNegativeAction RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSaveInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetNegativeActionRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetNegativeAction(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillSaveInfoBuilderSetOptionalIdsCmd = &cobra.Command{
+	Use:   "set-optional-ids",
+	Short: "SetOptionalIds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSaveInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetOptionalIdsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetOptionalIds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillSaveInfoBuilderSetPositiveActionCmd = &cobra.Command{
+	Use:   "set-positive-action",
+	Short: "SetPositiveAction RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSaveInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetPositiveActionRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPositiveAction(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillSaveInfoBuilderSetTriggerIdCmd = &cobra.Command{
+	Use:   "set-trigger-id",
+	Short: "SetTriggerId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSaveInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetTriggerIdRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTriggerId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillSaveInfoBuilderSetValidatorCmd = &cobra.Command{
+	Use:   "set-validator",
+	Short: "SetValidator RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSaveInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetValidatorRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetValidator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillSaveRequestCmd = &cobra.Command{
+	Use:   "save-request",
+	Short: "SaveRequestService operations",
+}
+
+var autofillSaveRequestDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSaveRequestServiceClient(grpcConn)
+		req := &pb.SaveRequestDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillSaveRequestGetClientStateCmd = &cobra.Command{
+	Use:   "get-client-state",
+	Short: "GetClientState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSaveRequestServiceClient(grpcConn)
+		req := &pb.GetClientStateRequest{}
+		resp, err := client.GetClientState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillSaveRequestGetDatasetIdsCmd = &cobra.Command{
+	Use:   "get-dataset-ids",
+	Short: "GetDatasetIds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSaveRequestServiceClient(grpcConn)
+		req := &pb.GetDatasetIdsRequest{}
+		resp, err := client.GetDatasetIds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillSaveRequestGetFillContextsCmd = &cobra.Command{
+	Use:   "get-fill-contexts",
+	Short: "GetFillContexts RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSaveRequestServiceClient(grpcConn)
+		req := &pb.GetFillContextsRequest{}
+		resp, err := client.GetFillContexts(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillSaveRequestWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSaveRequestServiceClient(grpcConn)
+		req := &pb.SaveRequestWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFillCallbackCmd = &cobra.Command{
+	Use:   "fill-callback",
+	Short: "FillCallbackService operations",
+}
+
+var autofillFillCallbackOnFailureCmd = &cobra.Command{
+	Use:   "on-failure",
+	Short: "OnFailure RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFillCallbackServiceClient(grpcConn)
+		req := &pb.OnFailureRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnFailure(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFillCallbackOnSuccessCmd = &cobra.Command{
+	Use:   "on-success",
+	Short: "OnSuccess RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFillCallbackServiceClient(grpcConn)
+		req := &pb.OnSuccessRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnSuccess(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillDateTransformationCmd = &cobra.Command{
+	Use:   "date-transformation",
+	Short: "DateTransformationService operations",
+}
+
+var autofillDateTransformationNewDateTransformationCmd = &cobra.Command{
+	Use:   "new-date-transformation",
+	Short: "NewDateTransformation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDateTransformationServiceClient(grpcConn)
+		req := &pb.NewDateTransformationRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewDateTransformation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillDateTransformationDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDateTransformationServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillDateTransformationToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDateTransformationServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillDateTransformationWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDateTransformationServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillImageTransformationCmd = &cobra.Command{
+	Use:   "image-transformation",
+	Short: "ImageTransformationService operations",
+}
+
+var autofillImageTransformationDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewImageTransformationServiceClient(grpcConn)
+		req := &pb.ImageTransformationDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillImageTransformationToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewImageTransformationServiceClient(grpcConn)
+		req := &pb.ImageTransformationToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillImageTransformationWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewImageTransformationServiceClient(grpcConn)
+		req := &pb.ImageTransformationWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillImageTransformationBuilderCmd = &cobra.Command{
+	Use:   "image-transformation-builder",
+	Short: "ImageTransformationBuilderService operations",
+}
+
+var autofillImageTransformationBuilderAddOption2Cmd = &cobra.Command{
+	Use:   "add-option2",
+	Short: "AddOption2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewImageTransformationBuilderServiceClient(grpcConn)
+		req := &pb.AddOption2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AddOption2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillImageTransformationBuilderAddOption3_1Cmd = &cobra.Command{
+	Use:   "add-option3_1",
+	Short: "AddOption3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewImageTransformationBuilderServiceClient(grpcConn)
+		req := &pb.AddOption3_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.AddOption3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillImageTransformationBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewImageTransformationBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var autofillServiceCmd = &cobra.Command{
 	Use:   "service",
 	Short: "ServiceService operations",
@@ -185,1163 +1025,6 @@ var autofillServiceOnSessionDestroyedCmd = &cobra.Command{
 	},
 }
 
-var autofillFillRequestCmd = &cobra.Command{
-	Use:   "fill-request",
-	Short: "FillRequestService operations",
-}
-
-var autofillFillRequestDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFillRequestServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillFillRequestGetClientStateCmd = &cobra.Command{
-	Use:   "get-client-state",
-	Short: "GetClientState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFillRequestServiceClient(grpcConn)
-		req := &pb.GetClientStateRequest{}
-		resp, err := client.GetClientState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillFillRequestGetDelayedFillIntentSenderCmd = &cobra.Command{
-	Use:   "get-delayed-fill-intent-sender",
-	Short: "GetDelayedFillIntentSender RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFillRequestServiceClient(grpcConn)
-		req := &pb.GetDelayedFillIntentSenderRequest{}
-		resp, err := client.GetDelayedFillIntentSender(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillFillRequestGetFlagsCmd = &cobra.Command{
-	Use:   "get-flags",
-	Short: "GetFlags RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFillRequestServiceClient(grpcConn)
-		req := &pb.GetFlagsRequest{}
-		resp, err := client.GetFlags(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillFillRequestGetIdCmd = &cobra.Command{
-	Use:   "get-id",
-	Short: "GetId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFillRequestServiceClient(grpcConn)
-		req := &pb.GetIdRequest{}
-		resp, err := client.GetId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillFillRequestGetInlineSuggestionsRequestCmd = &cobra.Command{
-	Use:   "get-inline-suggestions-request",
-	Short: "GetInlineSuggestionsRequest RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFillRequestServiceClient(grpcConn)
-		req := &pb.GetInlineSuggestionsRequestRequest{}
-		resp, err := client.GetInlineSuggestionsRequest(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillFillRequestToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFillRequestServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillFillRequestWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFillRequestServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillFillContextCmd = &cobra.Command{
-	Use:   "fill-context",
-	Short: "FillContextService operations",
-}
-
-var autofillFillContextDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFillContextServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillFillContextGetFocusedIdCmd = &cobra.Command{
-	Use:   "get-focused-id",
-	Short: "GetFocusedId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFillContextServiceClient(grpcConn)
-		req := &pb.GetFocusedIdRequest{}
-		resp, err := client.GetFocusedId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillFillContextGetRequestIdCmd = &cobra.Command{
-	Use:   "get-request-id",
-	Short: "GetRequestId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFillContextServiceClient(grpcConn)
-		req := &pb.GetRequestIdRequest{}
-		resp, err := client.GetRequestId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillFillContextGetStructureCmd = &cobra.Command{
-	Use:   "get-structure",
-	Short: "GetStructure RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFillContextServiceClient(grpcConn)
-		req := &pb.GetStructureRequest{}
-		resp, err := client.GetStructure(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillFillContextToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFillContextServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillFillContextWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFillContextServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillVisibilitySetterActionCmd = &cobra.Command{
-	Use:   "visibility-setter-action",
-	Short: "VisibilitySetterActionService operations",
-}
-
-var autofillVisibilitySetterActionDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisibilitySetterActionServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillVisibilitySetterActionToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisibilitySetterActionServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillVisibilitySetterActionWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisibilitySetterActionServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillVisibilitySetterActionBuilderCmd = &cobra.Command{
-	Use:   "visibility-setter-action-builder",
-	Short: "VisibilitySetterActionBuilderService operations",
-}
-
-var autofillVisibilitySetterActionBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisibilitySetterActionBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillVisibilitySetterActionBuilderSetVisibilityCmd = &cobra.Command{
-	Use:   "set-visibility",
-	Short: "SetVisibility RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVisibilitySetterActionBuilderServiceClient(grpcConn)
-		req := &pb.SetVisibilityRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetVisibility(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillDatasetCmd = &cobra.Command{
-	Use:   "dataset",
-	Short: "DatasetService operations",
-}
-
-var autofillDatasetDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDatasetServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillDatasetToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDatasetServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillDatasetWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDatasetServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillDatasetBuilderCmd = &cobra.Command{
-	Use:   "dataset-builder",
-	Short: "DatasetBuilderService operations",
-}
-
-var autofillDatasetBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDatasetBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillDatasetBuilderSetAuthenticationCmd = &cobra.Command{
-	Use:   "set-authentication",
-	Short: "SetAuthentication RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDatasetBuilderServiceClient(grpcConn)
-		req := &pb.SetAuthenticationRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAuthentication(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillDatasetBuilderSetField2Cmd = &cobra.Command{
-	Use:   "set-field2",
-	Short: "SetField2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDatasetBuilderServiceClient(grpcConn)
-		req := &pb.SetField2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetField2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillDatasetBuilderSetField2_1Cmd = &cobra.Command{
-	Use:   "set-field2_1",
-	Short: "SetField2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDatasetBuilderServiceClient(grpcConn)
-		req := &pb.SetField2_1Request{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetField2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillDatasetBuilderSetFieldForAllHintsCmd = &cobra.Command{
-	Use:   "set-field-for-all-hints",
-	Short: "SetFieldForAllHints RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDatasetBuilderServiceClient(grpcConn)
-		req := &pb.SetFieldForAllHintsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetFieldForAllHints(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillDatasetBuilderSetIdCmd = &cobra.Command{
-	Use:   "set-id",
-	Short: "SetId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDatasetBuilderServiceClient(grpcConn)
-		req := &pb.SetIdRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillDatasetBuilderSetInlinePresentation1Cmd = &cobra.Command{
-	Use:   "set-inline-presentation1",
-	Short: "SetInlinePresentation1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDatasetBuilderServiceClient(grpcConn)
-		req := &pb.SetInlinePresentation1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetInlinePresentation1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillDatasetBuilderSetInlinePresentation2_1Cmd = &cobra.Command{
-	Use:   "set-inline-presentation2_1",
-	Short: "SetInlinePresentation2_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDatasetBuilderServiceClient(grpcConn)
-		req := &pb.SetInlinePresentation2_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetInlinePresentation2_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillDatasetBuilderSetValue2Cmd = &cobra.Command{
-	Use:   "set-value2",
-	Short: "SetValue2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDatasetBuilderServiceClient(grpcConn)
-		req := &pb.SetValue2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetValue2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillDatasetBuilderSetValue3_1Cmd = &cobra.Command{
-	Use:   "set-value3_1",
-	Short: "SetValue3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDatasetBuilderServiceClient(grpcConn)
-		req := &pb.SetValue3_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.SetValue3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillDatasetBuilderSetValue4_2Cmd = &cobra.Command{
-	Use:   "set-value4_2",
-	Short: "SetValue4_2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDatasetBuilderServiceClient(grpcConn)
-		req := &pb.SetValue4_2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.SetValue4_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillDatasetBuilderSetValue5_3Cmd = &cobra.Command{
-	Use:   "set-value5_3",
-	Short: "SetValue5_3 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDatasetBuilderServiceClient(grpcConn)
-		req := &pb.SetValue5_3Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.SetValue5_3(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillDatasetBuilderSetValue3_4Cmd = &cobra.Command{
-	Use:   "set-value3_4",
-	Short: "SetValue3_4 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDatasetBuilderServiceClient(grpcConn)
-		req := &pb.SetValue3_4Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.SetValue3_4(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillDatasetBuilderSetValue4_5Cmd = &cobra.Command{
-	Use:   "set-value4_5",
-	Short: "SetValue4_5 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDatasetBuilderServiceClient(grpcConn)
-		req := &pb.SetValue4_5Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.SetValue4_5(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillDatasetBuilderSetValue5_6Cmd = &cobra.Command{
-	Use:   "set-value5_6",
-	Short: "SetValue5_6 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDatasetBuilderServiceClient(grpcConn)
-		req := &pb.SetValue5_6Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		resp, err := client.SetValue5_6(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillDatasetBuilderSetValue6_7Cmd = &cobra.Command{
-	Use:   "set-value6_7",
-	Short: "SetValue6_7 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDatasetBuilderServiceClient(grpcConn)
-		req := &pb.SetValue6_7Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
-			req.Arg4 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
-			req.Arg5 = v
-		}
-		resp, err := client.SetValue6_7(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillLuhnChecksumValidatorCmd = &cobra.Command{
-	Use:   "luhn-checksum-validator",
-	Short: "LuhnChecksumValidatorService operations",
-}
-
-var autofillLuhnChecksumValidatorNewLuhnChecksumValidatorCmd = &cobra.Command{
-	Use:   "new-luhn-checksum-validator",
-	Short: "NewLuhnChecksumValidator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLuhnChecksumValidatorServiceClient(grpcConn)
-		req := &pb.NewLuhnChecksumValidatorRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewLuhnChecksumValidator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillLuhnChecksumValidatorDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLuhnChecksumValidatorServiceClient(grpcConn)
-		req := &pb.LuhnChecksumValidatorDescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillLuhnChecksumValidatorToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLuhnChecksumValidatorServiceClient(grpcConn)
-		req := &pb.LuhnChecksumValidatorToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillLuhnChecksumValidatorWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewLuhnChecksumValidatorServiceClient(grpcConn)
-		req := &pb.LuhnChecksumValidatorWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillImageTransformationCmd = &cobra.Command{
-	Use:   "image-transformation",
-	Short: "ImageTransformationService operations",
-}
-
-var autofillImageTransformationDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewImageTransformationServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillImageTransformationToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewImageTransformationServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillImageTransformationWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewImageTransformationServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillImageTransformationBuilderCmd = &cobra.Command{
-	Use:   "image-transformation-builder",
-	Short: "ImageTransformationBuilderService operations",
-}
-
-var autofillImageTransformationBuilderAddOption2Cmd = &cobra.Command{
-	Use:   "add-option2",
-	Short: "AddOption2 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewImageTransformationBuilderServiceClient(grpcConn)
-		req := &pb.AddOption2Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.AddOption2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillImageTransformationBuilderAddOption3_1Cmd = &cobra.Command{
-	Use:   "add-option3_1",
-	Short: "AddOption3_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewImageTransformationBuilderServiceClient(grpcConn)
-		req := &pb.AddOption3_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.AddOption3_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillImageTransformationBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewImageTransformationBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillTextValueSanitizerCmd = &cobra.Command{
-	Use:   "text-value-sanitizer",
-	Short: "TextValueSanitizerService operations",
-}
-
-var autofillTextValueSanitizerNewTextValueSanitizerCmd = &cobra.Command{
-	Use:   "new-text-value-sanitizer",
-	Short: "NewTextValueSanitizer RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextValueSanitizerServiceClient(grpcConn)
-		req := &pb.NewTextValueSanitizerRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewTextValueSanitizer(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillTextValueSanitizerDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextValueSanitizerServiceClient(grpcConn)
-		req := &pb.TextValueSanitizerDescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillTextValueSanitizerToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextValueSanitizerServiceClient(grpcConn)
-		req := &pb.TextValueSanitizerToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillTextValueSanitizerWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTextValueSanitizerServiceClient(grpcConn)
-		req := &pb.TextValueSanitizerWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillSaveCallbackCmd = &cobra.Command{
-	Use:   "save-callback",
-	Short: "SaveCallbackService operations",
-}
-
-var autofillSaveCallbackOnFailureCmd = &cobra.Command{
-	Use:   "on-failure",
-	Short: "OnFailure RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSaveCallbackServiceClient(grpcConn)
-		req := &pb.OnFailureRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnFailure(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillSaveCallbackOnSuccess0Cmd = &cobra.Command{
-	Use:   "on-success0",
-	Short: "OnSuccess0 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSaveCallbackServiceClient(grpcConn)
-		req := &pb.OnSuccess0Request{}
-		resp, err := client.OnSuccess0(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillSaveCallbackOnSuccess1_1Cmd = &cobra.Command{
-	Use:   "on-success1_1",
-	Short: "OnSuccess1_1 RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSaveCallbackServiceClient(grpcConn)
-		req := &pb.OnSuccess1_1Request{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnSuccess1_1(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var autofillCharSequenceTransformationCmd = &cobra.Command{
 	Use:   "char-sequence-transformation",
 	Short: "CharSequenceTransformationService operations",
@@ -1354,7 +1037,7 @@ var autofillCharSequenceTransformationDescribeContentsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewCharSequenceTransformationServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
+		req := &pb.CharSequenceTransformationDescribeContentsRequest{}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
@@ -1370,7 +1053,7 @@ var autofillCharSequenceTransformationToStringCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewCharSequenceTransformationServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
+		req := &pb.CharSequenceTransformationToStringRequest{}
 		resp, err := client.ToString(ctx, req)
 		if err != nil {
 			return err
@@ -1386,7 +1069,7 @@ var autofillCharSequenceTransformationWriteToParcelCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewCharSequenceTransformationServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
+		req := &pb.CharSequenceTransformationWriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -1447,90 +1130,26 @@ var autofillCharSequenceTransformationBuilderBuildCmd = &cobra.Command{
 	},
 }
 
-var autofillFillEventHistoryCmd = &cobra.Command{
-	Use:   "fill-event-history",
-	Short: "FillEventHistoryService operations",
+var autofillSavedDatasetsInfoCmd = &cobra.Command{
+	Use:   "saved-datasets-info",
+	Short: "SavedDatasetsInfoService operations",
 }
 
-var autofillFillEventHistoryDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
+var autofillSavedDatasetsInfoNewSavedDatasetsInfoCmd = &cobra.Command{
+	Use:   "new-saved-datasets-info",
+	Short: "NewSavedDatasetsInfo RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewFillEventHistoryServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillFillEventHistoryGetClientStateCmd = &cobra.Command{
-	Use:   "get-client-state",
-	Short: "GetClientState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFillEventHistoryServiceClient(grpcConn)
-		req := &pb.GetClientStateRequest{}
-		resp, err := client.GetClientState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillFillEventHistoryGetSessionIdCmd = &cobra.Command{
-	Use:   "get-session-id",
-	Short: "GetSessionId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFillEventHistoryServiceClient(grpcConn)
-		req := &pb.GetSessionIdRequest{}
-		resp, err := client.GetSessionId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillFillEventHistoryToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFillEventHistoryServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillFillEventHistoryWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFillEventHistoryServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+		client := pb.NewSavedDatasetsInfoServiceClient(grpcConn)
+		req := &pb.NewSavedDatasetsInfoRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.WriteToParcel(ctx, req)
+		resp, err := client.NewSavedDatasetsInfo(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1538,20 +1157,21 @@ var autofillFillEventHistoryWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var autofillFillEventHistoryEventCmd = &cobra.Command{
-	Use:   "fill-event-history-event",
-	Short: "FillEventHistoryEventService operations",
-}
-
-var autofillFillEventHistoryEventGetClientStateCmd = &cobra.Command{
-	Use:   "get-client-state",
-	Short: "GetClientState RPC",
+var autofillSavedDatasetsInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewFillEventHistoryEventServiceClient(grpcConn)
-		req := &pb.GetClientStateRequest{}
-		resp, err := client.GetClientState(ctx, req)
+		client := pb.NewSavedDatasetsInfoServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1559,15 +1179,18 @@ var autofillFillEventHistoryEventGetClientStateCmd = &cobra.Command{
 	},
 }
 
-var autofillFillEventHistoryEventGetDatasetIdCmd = &cobra.Command{
-	Use:   "get-dataset-id",
-	Short: "GetDatasetId RPC",
+var autofillSavedDatasetsInfoGetCountCmd = &cobra.Command{
+	Use:   "get-count",
+	Short: "GetCount RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewFillEventHistoryEventServiceClient(grpcConn)
-		req := &pb.GetDatasetIdRequest{}
-		resp, err := client.GetDatasetId(ctx, req)
+		client := pb.NewSavedDatasetsInfoServiceClient(grpcConn)
+		req := &pb.GetCountRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCount(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1575,46 +1198,17 @@ var autofillFillEventHistoryEventGetDatasetIdCmd = &cobra.Command{
 	},
 }
 
-var autofillFillEventHistoryEventGetFocusedIdCmd = &cobra.Command{
-	Use:   "get-focused-id",
-	Short: "GetFocusedId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFillEventHistoryEventServiceClient(grpcConn)
-		req := &pb.GetFocusedIdRequest{}
-		resp, err := client.GetFocusedId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillFillEventHistoryEventGetNoSaveUiReasonCmd = &cobra.Command{
-	Use:   "get-no-save-ui-reason",
-	Short: "GetNoSaveUiReason RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFillEventHistoryEventServiceClient(grpcConn)
-		req := &pb.GetNoSaveUiReasonRequest{}
-		resp, err := client.GetNoSaveUiReason(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillFillEventHistoryEventGetTypeCmd = &cobra.Command{
+var autofillSavedDatasetsInfoGetTypeCmd = &cobra.Command{
 	Use:   "get-type",
 	Short: "GetType RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewFillEventHistoryEventServiceClient(grpcConn)
+		client := pb.NewSavedDatasetsInfoServiceClient(grpcConn)
 		req := &pb.GetTypeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		resp, err := client.GetType(ctx, req)
 		if err != nil {
 			return err
@@ -1623,15 +1217,18 @@ var autofillFillEventHistoryEventGetTypeCmd = &cobra.Command{
 	},
 }
 
-var autofillFillEventHistoryEventGetUiTypeCmd = &cobra.Command{
-	Use:   "get-ui-type",
-	Short: "GetUiType RPC",
+var autofillSavedDatasetsInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewFillEventHistoryEventServiceClient(grpcConn)
-		req := &pb.GetUiTypeRequest{}
-		resp, err := client.GetUiType(ctx, req)
+		client := pb.NewSavedDatasetsInfoServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1639,414 +1236,18 @@ var autofillFillEventHistoryEventGetUiTypeCmd = &cobra.Command{
 	},
 }
 
-var autofillFillEventHistoryEventToStringCmd = &cobra.Command{
+var autofillSavedDatasetsInfoToStringCmd = &cobra.Command{
 	Use:   "to-string",
 	Short: "ToString RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewFillEventHistoryEventServiceClient(grpcConn)
+		client := pb.NewSavedDatasetsInfoServiceClient(grpcConn)
 		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillPresentationsCmd = &cobra.Command{
-	Use:   "presentations",
-	Short: "PresentationsService operations",
-}
-
-var autofillPresentationsGetDialogPresentationCmd = &cobra.Command{
-	Use:   "get-dialog-presentation",
-	Short: "GetDialogPresentation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPresentationsServiceClient(grpcConn)
-		req := &pb.GetDialogPresentationRequest{}
-		resp, err := client.GetDialogPresentation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillPresentationsGetInlinePresentationCmd = &cobra.Command{
-	Use:   "get-inline-presentation",
-	Short: "GetInlinePresentation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPresentationsServiceClient(grpcConn)
-		req := &pb.GetInlinePresentationRequest{}
-		resp, err := client.GetInlinePresentation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillPresentationsGetInlineTooltipPresentationCmd = &cobra.Command{
-	Use:   "get-inline-tooltip-presentation",
-	Short: "GetInlineTooltipPresentation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPresentationsServiceClient(grpcConn)
-		req := &pb.GetInlineTooltipPresentationRequest{}
-		resp, err := client.GetInlineTooltipPresentation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillPresentationsGetMenuPresentationCmd = &cobra.Command{
-	Use:   "get-menu-presentation",
-	Short: "GetMenuPresentation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPresentationsServiceClient(grpcConn)
-		req := &pb.GetMenuPresentationRequest{}
-		resp, err := client.GetMenuPresentation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillPresentationsBuilderCmd = &cobra.Command{
-	Use:   "presentations-builder",
-	Short: "PresentationsBuilderService operations",
-}
-
-var autofillPresentationsBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPresentationsBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillPresentationsBuilderSetDialogPresentationCmd = &cobra.Command{
-	Use:   "set-dialog-presentation",
-	Short: "SetDialogPresentation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPresentationsBuilderServiceClient(grpcConn)
-		req := &pb.SetDialogPresentationRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDialogPresentation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillPresentationsBuilderSetInlinePresentationCmd = &cobra.Command{
-	Use:   "set-inline-presentation",
-	Short: "SetInlinePresentation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPresentationsBuilderServiceClient(grpcConn)
-		req := &pb.SetInlinePresentationRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetInlinePresentation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillPresentationsBuilderSetInlineTooltipPresentationCmd = &cobra.Command{
-	Use:   "set-inline-tooltip-presentation",
-	Short: "SetInlineTooltipPresentation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPresentationsBuilderServiceClient(grpcConn)
-		req := &pb.SetInlineTooltipPresentationRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetInlineTooltipPresentation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillPresentationsBuilderSetMenuPresentationCmd = &cobra.Command{
-	Use:   "set-menu-presentation",
-	Short: "SetMenuPresentation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPresentationsBuilderServiceClient(grpcConn)
-		req := &pb.SetMenuPresentationRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetMenuPresentation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillFillCallbackCmd = &cobra.Command{
-	Use:   "fill-callback",
-	Short: "FillCallbackService operations",
-}
-
-var autofillFillCallbackOnFailureCmd = &cobra.Command{
-	Use:   "on-failure",
-	Short: "OnFailure RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFillCallbackServiceClient(grpcConn)
-		req := &pb.OnFailureRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnFailure(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillFillCallbackOnSuccessCmd = &cobra.Command{
-	Use:   "on-success",
-	Short: "OnSuccess RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFillCallbackServiceClient(grpcConn)
-		req := &pb.OnSuccessRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnSuccess(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillFieldCmd = &cobra.Command{
-	Use:   "field",
-	Short: "FieldService operations",
-}
-
-var autofillFieldGetFilterCmd = &cobra.Command{
-	Use:   "get-filter",
-	Short: "GetFilter RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldServiceClient(grpcConn)
-		req := &pb.GetFilterRequest{}
-		resp, err := client.GetFilter(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillFieldGetPresentationsCmd = &cobra.Command{
-	Use:   "get-presentations",
-	Short: "GetPresentations RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldServiceClient(grpcConn)
-		req := &pb.GetPresentationsRequest{}
-		resp, err := client.GetPresentations(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillFieldGetValueCmd = &cobra.Command{
-	Use:   "get-value",
-	Short: "GetValue RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldServiceClient(grpcConn)
-		req := &pb.GetValueRequest{}
-		resp, err := client.GetValue(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillFieldBuilderCmd = &cobra.Command{
-	Use:   "field-builder",
-	Short: "FieldBuilderService operations",
-}
-
-var autofillFieldBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillFieldBuilderSetFilterCmd = &cobra.Command{
-	Use:   "set-filter",
-	Short: "SetFilter RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldBuilderServiceClient(grpcConn)
-		req := &pb.SetFilterRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetFilter(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillFieldBuilderSetPresentationsCmd = &cobra.Command{
-	Use:   "set-presentations",
-	Short: "SetPresentations RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldBuilderServiceClient(grpcConn)
-		req := &pb.SetPresentationsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPresentations(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillFieldBuilderSetValueCmd = &cobra.Command{
-	Use:   "set-value",
-	Short: "SetValue RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFieldBuilderServiceClient(grpcConn)
-		req := &pb.SetValueRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetValue(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillSaveRequestCmd = &cobra.Command{
-	Use:   "save-request",
-	Short: "SaveRequestService operations",
-}
-
-var autofillSaveRequestDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSaveRequestServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillSaveRequestGetClientStateCmd = &cobra.Command{
-	Use:   "get-client-state",
-	Short: "GetClientState RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSaveRequestServiceClient(grpcConn)
-		req := &pb.GetClientStateRequest{}
-		resp, err := client.GetClientState(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillSaveRequestWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSaveRequestServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2066,7 +1267,7 @@ var autofillFillResponseDescribeContentsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewFillResponseServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
+		req := &pb.FillResponseDescribeContentsRequest{}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
@@ -2082,7 +1283,7 @@ var autofillFillResponseToStringCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewFillResponseServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
+		req := &pb.FillResponseToStringRequest{}
 		resp, err := client.ToString(ctx, req)
 		if err != nil {
 			return err
@@ -2098,7 +1299,7 @@ var autofillFillResponseWriteToParcelCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewFillResponseServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
+		req := &pb.FillResponseWriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -2566,26 +1767,130 @@ var autofillFillResponseBuilderSetUserDataCmd = &cobra.Command{
 	},
 }
 
-var autofillSavedDatasetsInfoCmd = &cobra.Command{
-	Use:   "saved-datasets-info",
-	Short: "SavedDatasetsInfoService operations",
+var autofillFillContextCmd = &cobra.Command{
+	Use:   "fill-context",
+	Short: "FillContextService operations",
 }
 
-var autofillSavedDatasetsInfoNewSavedDatasetsInfoCmd = &cobra.Command{
-	Use:   "new-saved-datasets-info",
-	Short: "NewSavedDatasetsInfo RPC",
+var autofillFillContextDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSavedDatasetsInfoServiceClient(grpcConn)
-		req := &pb.NewSavedDatasetsInfoRequest{}
+		client := pb.NewFillContextServiceClient(grpcConn)
+		req := &pb.FillContextDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFillContextGetFocusedIdCmd = &cobra.Command{
+	Use:   "get-focused-id",
+	Short: "GetFocusedId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFillContextServiceClient(grpcConn)
+		req := &pb.GetFocusedIdRequest{}
+		resp, err := client.GetFocusedId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFillContextGetRequestIdCmd = &cobra.Command{
+	Use:   "get-request-id",
+	Short: "GetRequestId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFillContextServiceClient(grpcConn)
+		req := &pb.GetRequestIdRequest{}
+		resp, err := client.GetRequestId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFillContextGetStructureCmd = &cobra.Command{
+	Use:   "get-structure",
+	Short: "GetStructure RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFillContextServiceClient(grpcConn)
+		req := &pb.GetStructureRequest{}
+		resp, err := client.GetStructure(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFillContextToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFillContextServiceClient(grpcConn)
+		req := &pb.FillContextToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFillContextWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFillContextServiceClient(grpcConn)
+		req := &pb.FillContextWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillSaveCallbackCmd = &cobra.Command{
+	Use:   "save-callback",
+	Short: "SaveCallbackService operations",
+}
+
+var autofillSaveCallbackOnFailureCmd = &cobra.Command{
+	Use:   "on-failure",
+	Short: "OnFailure RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSaveCallbackServiceClient(grpcConn)
+		req := &pb.OnFailureRequest{}
 		if v, err := cmd.Flags().GetString("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewSavedDatasetsInfo(ctx, req)
+		resp, err := client.OnFailure(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -2593,801 +1898,34 @@ var autofillSavedDatasetsInfoNewSavedDatasetsInfoCmd = &cobra.Command{
 	},
 }
 
-var autofillSavedDatasetsInfoEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
+var autofillSaveCallbackOnSuccess0Cmd = &cobra.Command{
+	Use:   "on-success0",
+	Short: "OnSuccess0 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSavedDatasetsInfoServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
+		client := pb.NewSaveCallbackServiceClient(grpcConn)
+		req := &pb.OnSuccess0Request{}
+		resp, err := client.OnSuccess0(ctx, req)
+		if err != nil {
+			return err
 		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillSaveCallbackOnSuccess1_1Cmd = &cobra.Command{
+	Use:   "on-success1_1",
+	Short: "OnSuccess1_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSaveCallbackServiceClient(grpcConn)
+		req := &pb.OnSuccess1_1Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillSavedDatasetsInfoGetCountCmd = &cobra.Command{
-	Use:   "get-count",
-	Short: "GetCount RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSavedDatasetsInfoServiceClient(grpcConn)
-		req := &pb.GetCountRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetCount(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillSavedDatasetsInfoGetTypeCmd = &cobra.Command{
-	Use:   "get-type",
-	Short: "GetType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSavedDatasetsInfoServiceClient(grpcConn)
-		req := &pb.SavedDatasetsInfoGetTypeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillSavedDatasetsInfoHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSavedDatasetsInfoServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillSavedDatasetsInfoToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSavedDatasetsInfoServiceClient(grpcConn)
-		req := &pb.SavedDatasetsInfoToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillDateTransformationCmd = &cobra.Command{
-	Use:   "date-transformation",
-	Short: "DateTransformationService operations",
-}
-
-var autofillDateTransformationNewDateTransformationCmd = &cobra.Command{
-	Use:   "new-date-transformation",
-	Short: "NewDateTransformation RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDateTransformationServiceClient(grpcConn)
-		req := &pb.NewDateTransformationRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewDateTransformation(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillDateTransformationDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDateTransformationServiceClient(grpcConn)
-		req := &pb.DateTransformationDescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillDateTransformationToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDateTransformationServiceClient(grpcConn)
-		req := &pb.DateTransformationToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillDateTransformationWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDateTransformationServiceClient(grpcConn)
-		req := &pb.DateTransformationWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillSaveInfoCmd = &cobra.Command{
-	Use:   "save-info",
-	Short: "SaveInfoService operations",
-}
-
-var autofillSaveInfoDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSaveInfoServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillSaveInfoToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSaveInfoServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillSaveInfoWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSaveInfoServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillSaveInfoBuilderCmd = &cobra.Command{
-	Use:   "save-info-builder",
-	Short: "SaveInfoBuilderService operations",
-}
-
-var autofillSaveInfoBuilderAddSanitizerCmd = &cobra.Command{
-	Use:   "add-sanitizer",
-	Short: "AddSanitizer RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSaveInfoBuilderServiceClient(grpcConn)
-		req := &pb.AddSanitizerRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.AddSanitizer(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillSaveInfoBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSaveInfoBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillSaveInfoBuilderSetCustomDescriptionCmd = &cobra.Command{
-	Use:   "set-custom-description",
-	Short: "SetCustomDescription RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSaveInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetCustomDescriptionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetCustomDescription(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillSaveInfoBuilderSetDescriptionCmd = &cobra.Command{
-	Use:   "set-description",
-	Short: "SetDescription RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSaveInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetDescriptionRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDescription(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillSaveInfoBuilderSetFlagsCmd = &cobra.Command{
-	Use:   "set-flags",
-	Short: "SetFlags RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSaveInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetFlagsRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetFlags(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillSaveInfoBuilderSetNegativeActionCmd = &cobra.Command{
-	Use:   "set-negative-action",
-	Short: "SetNegativeAction RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSaveInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetNegativeActionRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.SetNegativeAction(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillSaveInfoBuilderSetOptionalIdsCmd = &cobra.Command{
-	Use:   "set-optional-ids",
-	Short: "SetOptionalIds RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSaveInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetOptionalIdsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetOptionalIds(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillSaveInfoBuilderSetPositiveActionCmd = &cobra.Command{
-	Use:   "set-positive-action",
-	Short: "SetPositiveAction RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSaveInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetPositiveActionRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetPositiveAction(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillSaveInfoBuilderSetTriggerIdCmd = &cobra.Command{
-	Use:   "set-trigger-id",
-	Short: "SetTriggerId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSaveInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetTriggerIdRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTriggerId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillSaveInfoBuilderSetValidatorCmd = &cobra.Command{
-	Use:   "set-validator",
-	Short: "SetValidator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSaveInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetValidatorRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetValidator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillBatchUpdatesCmd = &cobra.Command{
-	Use:   "batch-updates",
-	Short: "BatchUpdatesService operations",
-}
-
-var autofillBatchUpdatesDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBatchUpdatesServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillBatchUpdatesToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBatchUpdatesServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillBatchUpdatesWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBatchUpdatesServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillBatchUpdatesBuilderCmd = &cobra.Command{
-	Use:   "batch-updates-builder",
-	Short: "BatchUpdatesBuilderService operations",
-}
-
-var autofillBatchUpdatesBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBatchUpdatesBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillBatchUpdatesBuilderTransformChildCmd = &cobra.Command{
-	Use:   "transform-child",
-	Short: "TransformChild RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBatchUpdatesBuilderServiceClient(grpcConn)
-		req := &pb.TransformChildRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.TransformChild(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillBatchUpdatesBuilderUpdateTemplateCmd = &cobra.Command{
-	Use:   "update-template",
-	Short: "UpdateTemplate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewBatchUpdatesBuilderServiceClient(grpcConn)
-		req := &pb.UpdateTemplateRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.UpdateTemplate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillCustomDescriptionCmd = &cobra.Command{
-	Use:   "custom-description",
-	Short: "CustomDescriptionService operations",
-}
-
-var autofillCustomDescriptionDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCustomDescriptionServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillCustomDescriptionToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCustomDescriptionServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillCustomDescriptionWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCustomDescriptionServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillCustomDescriptionBuilderCmd = &cobra.Command{
-	Use:   "custom-description-builder",
-	Short: "CustomDescriptionBuilderService operations",
-}
-
-var autofillCustomDescriptionBuilderAddChildCmd = &cobra.Command{
-	Use:   "add-child",
-	Short: "AddChild RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCustomDescriptionBuilderServiceClient(grpcConn)
-		req := &pb.AddChildRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.AddChild(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillCustomDescriptionBuilderAddOnClickActionCmd = &cobra.Command{
-	Use:   "add-on-click-action",
-	Short: "AddOnClickAction RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCustomDescriptionBuilderServiceClient(grpcConn)
-		req := &pb.AddOnClickActionRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.AddOnClickAction(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillCustomDescriptionBuilderBatchUpdateCmd = &cobra.Command{
-	Use:   "batch-update",
-	Short: "BatchUpdate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCustomDescriptionBuilderServiceClient(grpcConn)
-		req := &pb.BatchUpdateRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.BatchUpdate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillCustomDescriptionBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCustomDescriptionBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillRegexValidatorCmd = &cobra.Command{
-	Use:   "regex-validator",
-	Short: "RegexValidatorService operations",
-}
-
-var autofillRegexValidatorNewRegexValidatorCmd = &cobra.Command{
-	Use:   "new-regex-validator",
-	Short: "NewRegexValidator RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRegexValidatorServiceClient(grpcConn)
-		req := &pb.NewRegexValidatorRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewRegexValidator(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillRegexValidatorDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRegexValidatorServiceClient(grpcConn)
-		req := &pb.RegexValidatorDescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillRegexValidatorToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRegexValidatorServiceClient(grpcConn)
-		req := &pb.RegexValidatorToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillRegexValidatorWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRegexValidatorServiceClient(grpcConn)
-		req := &pb.RegexValidatorWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
+		resp, err := client.OnSuccess1_1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3432,7 +1970,7 @@ var autofillInlinePresentationDescribeContentsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewInlinePresentationServiceClient(grpcConn)
-		req := &pb.InlinePresentationDescribeContentsRequest{}
+		req := &pb.DescribeContentsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -3549,7 +2087,7 @@ var autofillInlinePresentationToStringCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewInlinePresentationServiceClient(grpcConn)
-		req := &pb.InlinePresentationToStringRequest{}
+		req := &pb.ToStringRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -3568,7 +2106,7 @@ var autofillInlinePresentationWriteToParcelCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewInlinePresentationServiceClient(grpcConn)
-		req := &pb.InlinePresentationWriteToParcelRequest{}
+		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -3611,9 +2149,1698 @@ var autofillInlinePresentationCreateTooltipPresentationCmd = &cobra.Command{
 	},
 }
 
+var autofillDateValueSanitizerCmd = &cobra.Command{
+	Use:   "date-value-sanitizer",
+	Short: "DateValueSanitizerService operations",
+}
+
+var autofillDateValueSanitizerNewDateValueSanitizerCmd = &cobra.Command{
+	Use:   "new-date-value-sanitizer",
+	Short: "NewDateValueSanitizer RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDateValueSanitizerServiceClient(grpcConn)
+		req := &pb.NewDateValueSanitizerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewDateValueSanitizer(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillDateValueSanitizerDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDateValueSanitizerServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillDateValueSanitizerToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDateValueSanitizerServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillDateValueSanitizerWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDateValueSanitizerServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFillRequestCmd = &cobra.Command{
+	Use:   "fill-request",
+	Short: "FillRequestService operations",
+}
+
+var autofillFillRequestDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFillRequestServiceClient(grpcConn)
+		req := &pb.FillRequestDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFillRequestGetClientStateCmd = &cobra.Command{
+	Use:   "get-client-state",
+	Short: "GetClientState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFillRequestServiceClient(grpcConn)
+		req := &pb.GetClientStateRequest{}
+		resp, err := client.GetClientState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFillRequestGetDelayedFillIntentSenderCmd = &cobra.Command{
+	Use:   "get-delayed-fill-intent-sender",
+	Short: "GetDelayedFillIntentSender RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFillRequestServiceClient(grpcConn)
+		req := &pb.GetDelayedFillIntentSenderRequest{}
+		resp, err := client.GetDelayedFillIntentSender(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFillRequestGetFillContextsCmd = &cobra.Command{
+	Use:   "get-fill-contexts",
+	Short: "GetFillContexts RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFillRequestServiceClient(grpcConn)
+		req := &pb.GetFillContextsRequest{}
+		resp, err := client.GetFillContexts(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFillRequestGetFlagsCmd = &cobra.Command{
+	Use:   "get-flags",
+	Short: "GetFlags RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFillRequestServiceClient(grpcConn)
+		req := &pb.GetFlagsRequest{}
+		resp, err := client.GetFlags(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFillRequestGetHintsCmd = &cobra.Command{
+	Use:   "get-hints",
+	Short: "GetHints RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFillRequestServiceClient(grpcConn)
+		req := &pb.GetHintsRequest{}
+		resp, err := client.GetHints(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFillRequestGetIdCmd = &cobra.Command{
+	Use:   "get-id",
+	Short: "GetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFillRequestServiceClient(grpcConn)
+		req := &pb.GetIdRequest{}
+		resp, err := client.GetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFillRequestGetInlineSuggestionsRequestCmd = &cobra.Command{
+	Use:   "get-inline-suggestions-request",
+	Short: "GetInlineSuggestionsRequest RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFillRequestServiceClient(grpcConn)
+		req := &pb.GetInlineSuggestionsRequestRequest{}
+		resp, err := client.GetInlineSuggestionsRequest(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFillRequestToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFillRequestServiceClient(grpcConn)
+		req := &pb.FillRequestToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFillRequestWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFillRequestServiceClient(grpcConn)
+		req := &pb.FillRequestWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillDatasetCmd = &cobra.Command{
+	Use:   "dataset",
+	Short: "DatasetService operations",
+}
+
+var autofillDatasetDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDatasetServiceClient(grpcConn)
+		req := &pb.DatasetDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillDatasetToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDatasetServiceClient(grpcConn)
+		req := &pb.DatasetToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillDatasetWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDatasetServiceClient(grpcConn)
+		req := &pb.DatasetWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillDatasetBuilderCmd = &cobra.Command{
+	Use:   "dataset-builder",
+	Short: "DatasetBuilderService operations",
+}
+
+var autofillDatasetBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDatasetBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillDatasetBuilderSetAuthenticationCmd = &cobra.Command{
+	Use:   "set-authentication",
+	Short: "SetAuthentication RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDatasetBuilderServiceClient(grpcConn)
+		req := &pb.SetAuthenticationRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAuthentication(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillDatasetBuilderSetField2Cmd = &cobra.Command{
+	Use:   "set-field2",
+	Short: "SetField2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDatasetBuilderServiceClient(grpcConn)
+		req := &pb.SetField2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetField2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillDatasetBuilderSetField2_1Cmd = &cobra.Command{
+	Use:   "set-field2_1",
+	Short: "SetField2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDatasetBuilderServiceClient(grpcConn)
+		req := &pb.SetField2_1Request{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetField2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillDatasetBuilderSetFieldForAllHintsCmd = &cobra.Command{
+	Use:   "set-field-for-all-hints",
+	Short: "SetFieldForAllHints RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDatasetBuilderServiceClient(grpcConn)
+		req := &pb.SetFieldForAllHintsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFieldForAllHints(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillDatasetBuilderSetIdCmd = &cobra.Command{
+	Use:   "set-id",
+	Short: "SetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDatasetBuilderServiceClient(grpcConn)
+		req := &pb.SetIdRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillDatasetBuilderSetInlinePresentation1Cmd = &cobra.Command{
+	Use:   "set-inline-presentation1",
+	Short: "SetInlinePresentation1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDatasetBuilderServiceClient(grpcConn)
+		req := &pb.SetInlinePresentation1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetInlinePresentation1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillDatasetBuilderSetInlinePresentation2_1Cmd = &cobra.Command{
+	Use:   "set-inline-presentation2_1",
+	Short: "SetInlinePresentation2_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDatasetBuilderServiceClient(grpcConn)
+		req := &pb.SetInlinePresentation2_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetInlinePresentation2_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillDatasetBuilderSetValue2Cmd = &cobra.Command{
+	Use:   "set-value2",
+	Short: "SetValue2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDatasetBuilderServiceClient(grpcConn)
+		req := &pb.SetValue2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetValue2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillDatasetBuilderSetValue3_1Cmd = &cobra.Command{
+	Use:   "set-value3_1",
+	Short: "SetValue3_1 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDatasetBuilderServiceClient(grpcConn)
+		req := &pb.SetValue3_1Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SetValue3_1(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillDatasetBuilderSetValue4_2Cmd = &cobra.Command{
+	Use:   "set-value4_2",
+	Short: "SetValue4_2 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDatasetBuilderServiceClient(grpcConn)
+		req := &pb.SetValue4_2Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.SetValue4_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillDatasetBuilderSetValue5_3Cmd = &cobra.Command{
+	Use:   "set-value5_3",
+	Short: "SetValue5_3 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDatasetBuilderServiceClient(grpcConn)
+		req := &pb.SetValue5_3Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.SetValue5_3(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillDatasetBuilderSetValue3_4Cmd = &cobra.Command{
+	Use:   "set-value3_4",
+	Short: "SetValue3_4 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDatasetBuilderServiceClient(grpcConn)
+		req := &pb.SetValue3_4Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.SetValue3_4(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillDatasetBuilderSetValue4_5Cmd = &cobra.Command{
+	Use:   "set-value4_5",
+	Short: "SetValue4_5 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDatasetBuilderServiceClient(grpcConn)
+		req := &pb.SetValue4_5Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.SetValue4_5(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillDatasetBuilderSetValue5_6Cmd = &cobra.Command{
+	Use:   "set-value5_6",
+	Short: "SetValue5_6 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDatasetBuilderServiceClient(grpcConn)
+		req := &pb.SetValue5_6Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		resp, err := client.SetValue5_6(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillDatasetBuilderSetValue6_7Cmd = &cobra.Command{
+	Use:   "set-value6_7",
+	Short: "SetValue6_7 RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDatasetBuilderServiceClient(grpcConn)
+		req := &pb.SetValue6_7Request{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg4"); err == nil {
+			req.Arg4 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg5"); err == nil {
+			req.Arg5 = v
+		}
+		resp, err := client.SetValue6_7(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFillEventHistoryCmd = &cobra.Command{
+	Use:   "fill-event-history",
+	Short: "FillEventHistoryService operations",
+}
+
+var autofillFillEventHistoryDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFillEventHistoryServiceClient(grpcConn)
+		req := &pb.FillEventHistoryDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFillEventHistoryGetClientStateCmd = &cobra.Command{
+	Use:   "get-client-state",
+	Short: "GetClientState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFillEventHistoryServiceClient(grpcConn)
+		req := &pb.GetClientStateRequest{}
+		resp, err := client.GetClientState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFillEventHistoryGetEventsCmd = &cobra.Command{
+	Use:   "get-events",
+	Short: "GetEvents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFillEventHistoryServiceClient(grpcConn)
+		req := &pb.GetEventsRequest{}
+		resp, err := client.GetEvents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFillEventHistoryGetSessionIdCmd = &cobra.Command{
+	Use:   "get-session-id",
+	Short: "GetSessionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFillEventHistoryServiceClient(grpcConn)
+		req := &pb.GetSessionIdRequest{}
+		resp, err := client.GetSessionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFillEventHistoryToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFillEventHistoryServiceClient(grpcConn)
+		req := &pb.FillEventHistoryToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFillEventHistoryWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFillEventHistoryServiceClient(grpcConn)
+		req := &pb.FillEventHistoryWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFillEventHistoryEventCmd = &cobra.Command{
+	Use:   "fill-event-history-event",
+	Short: "FillEventHistoryEventService operations",
+}
+
+var autofillFillEventHistoryEventGetClientStateCmd = &cobra.Command{
+	Use:   "get-client-state",
+	Short: "GetClientState RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFillEventHistoryEventServiceClient(grpcConn)
+		req := &pb.GetClientStateRequest{}
+		resp, err := client.GetClientState(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFillEventHistoryEventGetDatasetIdCmd = &cobra.Command{
+	Use:   "get-dataset-id",
+	Short: "GetDatasetId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFillEventHistoryEventServiceClient(grpcConn)
+		req := &pb.GetDatasetIdRequest{}
+		resp, err := client.GetDatasetId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFillEventHistoryEventGetFocusedIdCmd = &cobra.Command{
+	Use:   "get-focused-id",
+	Short: "GetFocusedId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFillEventHistoryEventServiceClient(grpcConn)
+		req := &pb.GetFocusedIdRequest{}
+		resp, err := client.GetFocusedId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFillEventHistoryEventGetIgnoredDatasetIdsCmd = &cobra.Command{
+	Use:   "get-ignored-dataset-ids",
+	Short: "GetIgnoredDatasetIds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFillEventHistoryEventServiceClient(grpcConn)
+		req := &pb.GetIgnoredDatasetIdsRequest{}
+		resp, err := client.GetIgnoredDatasetIds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFillEventHistoryEventGetNoSaveUiReasonCmd = &cobra.Command{
+	Use:   "get-no-save-ui-reason",
+	Short: "GetNoSaveUiReason RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFillEventHistoryEventServiceClient(grpcConn)
+		req := &pb.GetNoSaveUiReasonRequest{}
+		resp, err := client.GetNoSaveUiReason(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFillEventHistoryEventGetSelectedDatasetIdsCmd = &cobra.Command{
+	Use:   "get-selected-dataset-ids",
+	Short: "GetSelectedDatasetIds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFillEventHistoryEventServiceClient(grpcConn)
+		req := &pb.GetSelectedDatasetIdsRequest{}
+		resp, err := client.GetSelectedDatasetIds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFillEventHistoryEventGetShownDatasetIdsCmd = &cobra.Command{
+	Use:   "get-shown-dataset-ids",
+	Short: "GetShownDatasetIds RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFillEventHistoryEventServiceClient(grpcConn)
+		req := &pb.GetShownDatasetIdsRequest{}
+		resp, err := client.GetShownDatasetIds(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFillEventHistoryEventGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFillEventHistoryEventServiceClient(grpcConn)
+		req := &pb.FillEventHistoryEventGetTypeRequest{}
+		resp, err := client.GetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFillEventHistoryEventGetUiTypeCmd = &cobra.Command{
+	Use:   "get-ui-type",
+	Short: "GetUiType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFillEventHistoryEventServiceClient(grpcConn)
+		req := &pb.GetUiTypeRequest{}
+		resp, err := client.GetUiType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFillEventHistoryEventToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFillEventHistoryEventServiceClient(grpcConn)
+		req := &pb.FillEventHistoryEventToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillVisibilitySetterActionCmd = &cobra.Command{
+	Use:   "visibility-setter-action",
+	Short: "VisibilitySetterActionService operations",
+}
+
+var autofillVisibilitySetterActionDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisibilitySetterActionServiceClient(grpcConn)
+		req := &pb.VisibilitySetterActionDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillVisibilitySetterActionToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisibilitySetterActionServiceClient(grpcConn)
+		req := &pb.VisibilitySetterActionToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillVisibilitySetterActionWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisibilitySetterActionServiceClient(grpcConn)
+		req := &pb.VisibilitySetterActionWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillVisibilitySetterActionBuilderCmd = &cobra.Command{
+	Use:   "visibility-setter-action-builder",
+	Short: "VisibilitySetterActionBuilderService operations",
+}
+
+var autofillVisibilitySetterActionBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisibilitySetterActionBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillVisibilitySetterActionBuilderSetVisibilityCmd = &cobra.Command{
+	Use:   "set-visibility",
+	Short: "SetVisibility RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVisibilitySetterActionBuilderServiceClient(grpcConn)
+		req := &pb.SetVisibilityRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.SetVisibility(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillValidatorsCmd = &cobra.Command{
+	Use:   "validators",
+	Short: "ValidatorsService operations",
+}
+
+var autofillValidatorsAndCmd = &cobra.Command{
+	Use:   "and",
+	Short: "And RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValidatorsServiceClient(grpcConn)
+		req := &pb.AndRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.And(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillValidatorsNotCmd = &cobra.Command{
+	Use:   "not",
+	Short: "Not RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValidatorsServiceClient(grpcConn)
+		req := &pb.NotRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Not(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillValidatorsOrCmd = &cobra.Command{
+	Use:   "or",
+	Short: "Or RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValidatorsServiceClient(grpcConn)
+		req := &pb.OrRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Or(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillPresentationsCmd = &cobra.Command{
+	Use:   "presentations",
+	Short: "PresentationsService operations",
+}
+
+var autofillPresentationsGetDialogPresentationCmd = &cobra.Command{
+	Use:   "get-dialog-presentation",
+	Short: "GetDialogPresentation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPresentationsServiceClient(grpcConn)
+		req := &pb.GetDialogPresentationRequest{}
+		resp, err := client.GetDialogPresentation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillPresentationsGetInlinePresentationCmd = &cobra.Command{
+	Use:   "get-inline-presentation",
+	Short: "GetInlinePresentation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPresentationsServiceClient(grpcConn)
+		req := &pb.GetInlinePresentationRequest{}
+		resp, err := client.GetInlinePresentation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillPresentationsGetInlineTooltipPresentationCmd = &cobra.Command{
+	Use:   "get-inline-tooltip-presentation",
+	Short: "GetInlineTooltipPresentation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPresentationsServiceClient(grpcConn)
+		req := &pb.GetInlineTooltipPresentationRequest{}
+		resp, err := client.GetInlineTooltipPresentation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillPresentationsGetMenuPresentationCmd = &cobra.Command{
+	Use:   "get-menu-presentation",
+	Short: "GetMenuPresentation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPresentationsServiceClient(grpcConn)
+		req := &pb.GetMenuPresentationRequest{}
+		resp, err := client.GetMenuPresentation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillPresentationsBuilderCmd = &cobra.Command{
+	Use:   "presentations-builder",
+	Short: "PresentationsBuilderService operations",
+}
+
+var autofillPresentationsBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPresentationsBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillPresentationsBuilderSetDialogPresentationCmd = &cobra.Command{
+	Use:   "set-dialog-presentation",
+	Short: "SetDialogPresentation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPresentationsBuilderServiceClient(grpcConn)
+		req := &pb.SetDialogPresentationRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetDialogPresentation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillPresentationsBuilderSetInlinePresentationCmd = &cobra.Command{
+	Use:   "set-inline-presentation",
+	Short: "SetInlinePresentation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPresentationsBuilderServiceClient(grpcConn)
+		req := &pb.SetInlinePresentationRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetInlinePresentation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillPresentationsBuilderSetInlineTooltipPresentationCmd = &cobra.Command{
+	Use:   "set-inline-tooltip-presentation",
+	Short: "SetInlineTooltipPresentation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPresentationsBuilderServiceClient(grpcConn)
+		req := &pb.SetInlineTooltipPresentationRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetInlineTooltipPresentation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillPresentationsBuilderSetMenuPresentationCmd = &cobra.Command{
+	Use:   "set-menu-presentation",
+	Short: "SetMenuPresentation RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPresentationsBuilderServiceClient(grpcConn)
+		req := &pb.SetMenuPresentationRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMenuPresentation(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFieldCmd = &cobra.Command{
+	Use:   "field",
+	Short: "FieldService operations",
+}
+
+var autofillFieldGetFilterCmd = &cobra.Command{
+	Use:   "get-filter",
+	Short: "GetFilter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldServiceClient(grpcConn)
+		req := &pb.GetFilterRequest{}
+		resp, err := client.GetFilter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFieldGetPresentationsCmd = &cobra.Command{
+	Use:   "get-presentations",
+	Short: "GetPresentations RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldServiceClient(grpcConn)
+		req := &pb.GetPresentationsRequest{}
+		resp, err := client.GetPresentations(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFieldGetValueCmd = &cobra.Command{
+	Use:   "get-value",
+	Short: "GetValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldServiceClient(grpcConn)
+		req := &pb.GetValueRequest{}
+		resp, err := client.GetValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFieldBuilderCmd = &cobra.Command{
+	Use:   "field-builder",
+	Short: "FieldBuilderService operations",
+}
+
+var autofillFieldBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFieldBuilderSetFilterCmd = &cobra.Command{
+	Use:   "set-filter",
+	Short: "SetFilter RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldBuilderServiceClient(grpcConn)
+		req := &pb.SetFilterRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetFilter(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFieldBuilderSetPresentationsCmd = &cobra.Command{
+	Use:   "set-presentations",
+	Short: "SetPresentations RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldBuilderServiceClient(grpcConn)
+		req := &pb.SetPresentationsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPresentations(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillFieldBuilderSetValueCmd = &cobra.Command{
+	Use:   "set-value",
+	Short: "SetValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldBuilderServiceClient(grpcConn)
+		req := &pb.SetValueRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillTextValueSanitizerCmd = &cobra.Command{
+	Use:   "text-value-sanitizer",
+	Short: "TextValueSanitizerService operations",
+}
+
+var autofillTextValueSanitizerNewTextValueSanitizerCmd = &cobra.Command{
+	Use:   "new-text-value-sanitizer",
+	Short: "NewTextValueSanitizer RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextValueSanitizerServiceClient(grpcConn)
+		req := &pb.NewTextValueSanitizerRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewTextValueSanitizer(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillTextValueSanitizerDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextValueSanitizerServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillTextValueSanitizerToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextValueSanitizerServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillTextValueSanitizerWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTextValueSanitizerServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillCustomDescriptionCmd = &cobra.Command{
+	Use:   "custom-description",
+	Short: "CustomDescriptionService operations",
+}
+
+var autofillCustomDescriptionDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCustomDescriptionServiceClient(grpcConn)
+		req := &pb.CustomDescriptionDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillCustomDescriptionToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCustomDescriptionServiceClient(grpcConn)
+		req := &pb.CustomDescriptionToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillCustomDescriptionWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCustomDescriptionServiceClient(grpcConn)
+		req := &pb.CustomDescriptionWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillCustomDescriptionBuilderCmd = &cobra.Command{
+	Use:   "custom-description-builder",
+	Short: "CustomDescriptionBuilderService operations",
+}
+
+var autofillCustomDescriptionBuilderAddChildCmd = &cobra.Command{
+	Use:   "add-child",
+	Short: "AddChild RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCustomDescriptionBuilderServiceClient(grpcConn)
+		req := &pb.AddChildRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AddChild(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillCustomDescriptionBuilderAddOnClickActionCmd = &cobra.Command{
+	Use:   "add-on-click-action",
+	Short: "AddOnClickAction RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCustomDescriptionBuilderServiceClient(grpcConn)
+		req := &pb.AddOnClickActionRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AddOnClickAction(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillCustomDescriptionBuilderBatchUpdateCmd = &cobra.Command{
+	Use:   "batch-update",
+	Short: "BatchUpdate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCustomDescriptionBuilderServiceClient(grpcConn)
+		req := &pb.BatchUpdateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.BatchUpdate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillCustomDescriptionBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCustomDescriptionBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var autofillFieldClassificationCmd = &cobra.Command{
 	Use:   "field-classification",
 	Short: "FieldClassificationService operations",
+}
+
+var autofillFieldClassificationGetMatchesCmd = &cobra.Command{
+	Use:   "get-matches",
+	Short: "GetMatches RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFieldClassificationServiceClient(grpcConn)
+		req := &pb.GetMatchesRequest{}
+		resp, err := client.GetMatches(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
 }
 
 var autofillFieldClassificationToStringCmd = &cobra.Command{
@@ -3623,7 +3850,7 @@ var autofillFieldClassificationToStringCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewFieldClassificationServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
+		req := &pb.FieldClassificationToStringRequest{}
 		resp, err := client.ToString(ctx, req)
 		if err != nil {
 			return err
@@ -3676,7 +3903,7 @@ var autofillFieldClassificationMatchToStringCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewFieldClassificationMatchServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
+		req := &pb.FieldClassificationMatchToStringRequest{}
 		resp, err := client.ToString(ctx, req)
 		if err != nil {
 			return err
@@ -3685,23 +3912,89 @@ var autofillFieldClassificationMatchToStringCmd = &cobra.Command{
 	},
 }
 
-var autofillSavedDatasetsInfoCallbackCmd = &cobra.Command{
-	Use:   "saved-datasets-info-callback",
-	Short: "SavedDatasetsInfoCallbackService operations",
+var autofillRegexValidatorCmd = &cobra.Command{
+	Use:   "regex-validator",
+	Short: "RegexValidatorService operations",
 }
 
-var autofillSavedDatasetsInfoCallbackOnErrorCmd = &cobra.Command{
-	Use:   "on-error",
-	Short: "OnError RPC",
+var autofillRegexValidatorNewRegexValidatorCmd = &cobra.Command{
+	Use:   "new-regex-validator",
+	Short: "NewRegexValidator RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSavedDatasetsInfoCallbackServiceClient(grpcConn)
-		req := &pb.OnErrorRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+		client := pb.NewRegexValidatorServiceClient(grpcConn)
+		req := &pb.NewRegexValidatorRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.OnError(ctx, req)
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewRegexValidator(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillRegexValidatorDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRegexValidatorServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillRegexValidatorToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRegexValidatorServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillRegexValidatorWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRegexValidatorServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3721,7 +4014,7 @@ var autofillUserDataDescribeContentsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewUserDataServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
+		req := &pb.UserDataDescribeContentsRequest{}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
 			return err
@@ -3788,7 +4081,7 @@ var autofillUserDataToStringCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewUserDataServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
+		req := &pb.UserDataToStringRequest{}
 		resp, err := client.ToString(ctx, req)
 		if err != nil {
 			return err
@@ -3804,7 +4097,7 @@ var autofillUserDataWriteToParcelCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewUserDataServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
+		req := &pb.UserDataWriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -3989,710 +4282,6 @@ var autofillUserDataBuilderSetFieldClassificationAlgorithmForCategoryCmd = &cobr
 	},
 }
 
-var autofillDateValueSanitizerCmd = &cobra.Command{
-	Use:   "date-value-sanitizer",
-	Short: "DateValueSanitizerService operations",
-}
-
-var autofillDateValueSanitizerNewDateValueSanitizerCmd = &cobra.Command{
-	Use:   "new-date-value-sanitizer",
-	Short: "NewDateValueSanitizer RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDateValueSanitizerServiceClient(grpcConn)
-		req := &pb.NewDateValueSanitizerRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewDateValueSanitizer(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillDateValueSanitizerDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDateValueSanitizerServiceClient(grpcConn)
-		req := &pb.DateValueSanitizerDescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillDateValueSanitizerToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDateValueSanitizerServiceClient(grpcConn)
-		req := &pb.DateValueSanitizerToStringRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillDateValueSanitizerWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDateValueSanitizerServiceClient(grpcConn)
-		req := &pb.DateValueSanitizerWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillValidatorsCmd = &cobra.Command{
-	Use:   "validators",
-	Short: "ValidatorsService operations",
-}
-
-var autofillValidatorsAndCmd = &cobra.Command{
-	Use:   "and",
-	Short: "And RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewValidatorsServiceClient(grpcConn)
-		req := &pb.AndRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.And(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillValidatorsNotCmd = &cobra.Command{
-	Use:   "not",
-	Short: "Not RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewValidatorsServiceClient(grpcConn)
-		req := &pb.NotRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Not(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillValidatorsOrCmd = &cobra.Command{
-	Use:   "or",
-	Short: "Or RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewValidatorsServiceClient(grpcConn)
-		req := &pb.OrRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Or(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillVirtualViewFillInfoCmd = &cobra.Command{
-	Use:   "virtual-view-fill-info",
-	Short: "VirtualViewFillInfoService operations",
-}
-
-var autofillVirtualViewFillInfoGetAutofillHintsCmd = &cobra.Command{
-	Use:   "get-autofill-hints",
-	Short: "GetAutofillHints RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVirtualViewFillInfoServiceClient(grpcConn)
-		req := &pb.GetAutofillHintsRequest{}
-		resp, err := client.GetAutofillHints(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillVirtualViewFillInfoBuilderCmd = &cobra.Command{
-	Use:   "virtual-view-fill-info-builder",
-	Short: "VirtualViewFillInfoBuilderService operations",
-}
-
-var autofillVirtualViewFillInfoBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVirtualViewFillInfoBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillVirtualViewFillInfoBuilderSetAutofillHintsCmd = &cobra.Command{
-	Use:   "set-autofill-hints",
-	Short: "SetAutofillHints RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewVirtualViewFillInfoBuilderServiceClient(grpcConn)
-		req := &pb.SetAutofillHintsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAutofillHints(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillValueCmd = &cobra.Command{
-	Use:   "value",
-	Short: "ValueService operations",
-}
-
-var autofillValueDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewValueServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillValueEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewValueServiceClient(grpcConn)
-		req := &pb.ValueEqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillValueGetDateValueCmd = &cobra.Command{
-	Use:   "get-date-value",
-	Short: "GetDateValue RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewValueServiceClient(grpcConn)
-		req := &pb.GetDateValueRequest{}
-		resp, err := client.GetDateValue(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillValueGetListValueCmd = &cobra.Command{
-	Use:   "get-list-value",
-	Short: "GetListValue RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewValueServiceClient(grpcConn)
-		req := &pb.GetListValueRequest{}
-		resp, err := client.GetListValue(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillValueGetTextValueCmd = &cobra.Command{
-	Use:   "get-text-value",
-	Short: "GetTextValue RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewValueServiceClient(grpcConn)
-		req := &pb.GetTextValueRequest{}
-		resp, err := client.GetTextValue(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillValueGetToggleValueCmd = &cobra.Command{
-	Use:   "get-toggle-value",
-	Short: "GetToggleValue RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewValueServiceClient(grpcConn)
-		req := &pb.GetToggleValueRequest{}
-		resp, err := client.GetToggleValue(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillValueHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewValueServiceClient(grpcConn)
-		req := &pb.ValueHashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillValueIsDateCmd = &cobra.Command{
-	Use:   "is-date",
-	Short: "IsDate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewValueServiceClient(grpcConn)
-		req := &pb.IsDateRequest{}
-		resp, err := client.IsDate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillValueIsListCmd = &cobra.Command{
-	Use:   "is-list",
-	Short: "IsList RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewValueServiceClient(grpcConn)
-		req := &pb.IsListRequest{}
-		resp, err := client.IsList(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillValueIsTextCmd = &cobra.Command{
-	Use:   "is-text",
-	Short: "IsText RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewValueServiceClient(grpcConn)
-		req := &pb.IsTextRequest{}
-		resp, err := client.IsText(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillValueIsToggleCmd = &cobra.Command{
-	Use:   "is-toggle",
-	Short: "IsToggle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewValueServiceClient(grpcConn)
-		req := &pb.IsToggleRequest{}
-		resp, err := client.IsToggle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillValueToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewValueServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillValueWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewValueServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillValueForDateCmd = &cobra.Command{
-	Use:   "for-date",
-	Short: "ForDate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewValueServiceClient(grpcConn)
-		req := &pb.ForDateRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ForDate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillValueForListCmd = &cobra.Command{
-	Use:   "for-list",
-	Short: "ForList RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewValueServiceClient(grpcConn)
-		req := &pb.ForListRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ForList(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillValueForTextCmd = &cobra.Command{
-	Use:   "for-text",
-	Short: "ForText RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewValueServiceClient(grpcConn)
-		req := &pb.ForTextRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ForText(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillValueForToggleCmd = &cobra.Command{
-	Use:   "for-toggle",
-	Short: "ForToggle RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewValueServiceClient(grpcConn)
-		req := &pb.ForToggleRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.ForToggle(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillIdCmd = &cobra.Command{
-	Use:   "id",
-	Short: "IdService operations",
-}
-
-var autofillIdDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIdServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillIdEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIdServiceClient(grpcConn)
-		req := &pb.ValueEqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillIdGetAutofillVirtualIdCmd = &cobra.Command{
-	Use:   "get-autofill-virtual-id",
-	Short: "GetAutofillVirtualId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIdServiceClient(grpcConn)
-		req := &pb.GetAutofillVirtualIdRequest{}
-		resp, err := client.GetAutofillVirtualId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillIdGetSessionIdCmd = &cobra.Command{
-	Use:   "get-session-id",
-	Short: "GetSessionId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIdServiceClient(grpcConn)
-		req := &pb.GetSessionIdRequest{}
-		resp, err := client.GetSessionId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillIdGetViewIdCmd = &cobra.Command{
-	Use:   "get-view-id",
-	Short: "GetViewId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIdServiceClient(grpcConn)
-		req := &pb.GetViewIdRequest{}
-		resp, err := client.GetViewId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillIdHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIdServiceClient(grpcConn)
-		req := &pb.ValueHashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillIdIsInAutofillSessionCmd = &cobra.Command{
-	Use:   "is-in-autofill-session",
-	Short: "IsInAutofillSession RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIdServiceClient(grpcConn)
-		req := &pb.IsInAutofillSessionRequest{}
-		resp, err := client.IsInAutofillSession(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillIdIsVirtualCmd = &cobra.Command{
-	Use:   "is-virtual",
-	Short: "IsVirtual RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIdServiceClient(grpcConn)
-		req := &pb.IsVirtualRequest{}
-		resp, err := client.IsVirtual(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillIdToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIdServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillIdWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIdServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var autofillIdCreateCmd = &cobra.Command{
-	Use:   "create",
-	Short: "Create RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIdServiceClient(grpcConn)
-		req := &pb.CreateRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Create(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var autofillManagerCmd = &cobra.Command{
 	Use:   "manager",
 	Short: "ManagerService operations",
@@ -4755,6 +4344,22 @@ var autofillManagerGetAutofillServiceComponentNameCmd = &cobra.Command{
 		client := pb.NewManagerServiceClient(grpcConn)
 		req := &pb.GetAutofillServiceComponentNameRequest{}
 		resp, err := client.GetAutofillServiceComponentName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillManagerGetAvailableFieldClassificationAlgorithmsCmd = &cobra.Command{
+	Use:   "get-available-field-classification-algorithms",
+	Short: "GetAvailableFieldClassificationAlgorithms RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetAvailableFieldClassificationAlgorithmsRequest{}
+		resp, err := client.GetAvailableFieldClassificationAlgorithms(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -5301,7 +4906,657 @@ var autofillManagerAutofillCallbackOnAutofillEvent3_1Cmd = &cobra.Command{
 	},
 }
 
+var autofillVirtualViewFillInfoCmd = &cobra.Command{
+	Use:   "virtual-view-fill-info",
+	Short: "VirtualViewFillInfoService operations",
+}
+
+var autofillVirtualViewFillInfoGetAutofillHintsCmd = &cobra.Command{
+	Use:   "get-autofill-hints",
+	Short: "GetAutofillHints RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVirtualViewFillInfoServiceClient(grpcConn)
+		req := &pb.GetAutofillHintsRequest{}
+		resp, err := client.GetAutofillHints(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillVirtualViewFillInfoBuilderCmd = &cobra.Command{
+	Use:   "virtual-view-fill-info-builder",
+	Short: "VirtualViewFillInfoBuilderService operations",
+}
+
+var autofillVirtualViewFillInfoBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVirtualViewFillInfoBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillVirtualViewFillInfoBuilderSetAutofillHintsCmd = &cobra.Command{
+	Use:   "set-autofill-hints",
+	Short: "SetAutofillHints RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewVirtualViewFillInfoBuilderServiceClient(grpcConn)
+		req := &pb.SetAutofillHintsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAutofillHints(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillIdCmd = &cobra.Command{
+	Use:   "id",
+	Short: "IdService operations",
+}
+
+var autofillIdDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIdServiceClient(grpcConn)
+		req := &pb.IdDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillIdEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIdServiceClient(grpcConn)
+		req := &pb.IdEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillIdGetAutofillVirtualIdCmd = &cobra.Command{
+	Use:   "get-autofill-virtual-id",
+	Short: "GetAutofillVirtualId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIdServiceClient(grpcConn)
+		req := &pb.GetAutofillVirtualIdRequest{}
+		resp, err := client.GetAutofillVirtualId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillIdGetSessionIdCmd = &cobra.Command{
+	Use:   "get-session-id",
+	Short: "GetSessionId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIdServiceClient(grpcConn)
+		req := &pb.GetSessionIdRequest{}
+		resp, err := client.GetSessionId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillIdGetViewIdCmd = &cobra.Command{
+	Use:   "get-view-id",
+	Short: "GetViewId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIdServiceClient(grpcConn)
+		req := &pb.GetViewIdRequest{}
+		resp, err := client.GetViewId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillIdHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIdServiceClient(grpcConn)
+		req := &pb.IdHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillIdIsInAutofillSessionCmd = &cobra.Command{
+	Use:   "is-in-autofill-session",
+	Short: "IsInAutofillSession RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIdServiceClient(grpcConn)
+		req := &pb.IsInAutofillSessionRequest{}
+		resp, err := client.IsInAutofillSession(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillIdIsVirtualCmd = &cobra.Command{
+	Use:   "is-virtual",
+	Short: "IsVirtual RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIdServiceClient(grpcConn)
+		req := &pb.IsVirtualRequest{}
+		resp, err := client.IsVirtual(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillIdToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIdServiceClient(grpcConn)
+		req := &pb.IdToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillIdWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIdServiceClient(grpcConn)
+		req := &pb.IdWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillIdCreateCmd = &cobra.Command{
+	Use:   "create",
+	Short: "Create RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIdServiceClient(grpcConn)
+		req := &pb.CreateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Create(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillValueCmd = &cobra.Command{
+	Use:   "value",
+	Short: "ValueService operations",
+}
+
+var autofillValueDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValueServiceClient(grpcConn)
+		req := &pb.IdDescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillValueEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValueServiceClient(grpcConn)
+		req := &pb.IdEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillValueGetDateValueCmd = &cobra.Command{
+	Use:   "get-date-value",
+	Short: "GetDateValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValueServiceClient(grpcConn)
+		req := &pb.GetDateValueRequest{}
+		resp, err := client.GetDateValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillValueGetListValueCmd = &cobra.Command{
+	Use:   "get-list-value",
+	Short: "GetListValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValueServiceClient(grpcConn)
+		req := &pb.GetListValueRequest{}
+		resp, err := client.GetListValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillValueGetTextValueCmd = &cobra.Command{
+	Use:   "get-text-value",
+	Short: "GetTextValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValueServiceClient(grpcConn)
+		req := &pb.GetTextValueRequest{}
+		resp, err := client.GetTextValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillValueGetToggleValueCmd = &cobra.Command{
+	Use:   "get-toggle-value",
+	Short: "GetToggleValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValueServiceClient(grpcConn)
+		req := &pb.GetToggleValueRequest{}
+		resp, err := client.GetToggleValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillValueHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValueServiceClient(grpcConn)
+		req := &pb.IdHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillValueIsDateCmd = &cobra.Command{
+	Use:   "is-date",
+	Short: "IsDate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValueServiceClient(grpcConn)
+		req := &pb.IsDateRequest{}
+		resp, err := client.IsDate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillValueIsListCmd = &cobra.Command{
+	Use:   "is-list",
+	Short: "IsList RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValueServiceClient(grpcConn)
+		req := &pb.IsListRequest{}
+		resp, err := client.IsList(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillValueIsTextCmd = &cobra.Command{
+	Use:   "is-text",
+	Short: "IsText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValueServiceClient(grpcConn)
+		req := &pb.IsTextRequest{}
+		resp, err := client.IsText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillValueIsToggleCmd = &cobra.Command{
+	Use:   "is-toggle",
+	Short: "IsToggle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValueServiceClient(grpcConn)
+		req := &pb.IsToggleRequest{}
+		resp, err := client.IsToggle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillValueToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValueServiceClient(grpcConn)
+		req := &pb.IdToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillValueWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValueServiceClient(grpcConn)
+		req := &pb.IdWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillValueForDateCmd = &cobra.Command{
+	Use:   "for-date",
+	Short: "ForDate RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValueServiceClient(grpcConn)
+		req := &pb.ForDateRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ForDate(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillValueForListCmd = &cobra.Command{
+	Use:   "for-list",
+	Short: "ForList RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValueServiceClient(grpcConn)
+		req := &pb.ForListRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ForList(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillValueForTextCmd = &cobra.Command{
+	Use:   "for-text",
+	Short: "ForText RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValueServiceClient(grpcConn)
+		req := &pb.ForTextRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ForText(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var autofillValueForToggleCmd = &cobra.Command{
+	Use:   "for-toggle",
+	Short: "ForToggle RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewValueServiceClient(grpcConn)
+		req := &pb.ForToggleRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.ForToggle(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
+	autofillLuhnChecksumValidatorNewLuhnChecksumValidatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillLuhnChecksumValidatorCmd.AddCommand(autofillLuhnChecksumValidatorNewLuhnChecksumValidatorCmd)
+	autofillLuhnChecksumValidatorDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	autofillLuhnChecksumValidatorCmd.AddCommand(autofillLuhnChecksumValidatorDescribeContentsCmd)
+	autofillLuhnChecksumValidatorToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	autofillLuhnChecksumValidatorCmd.AddCommand(autofillLuhnChecksumValidatorToStringCmd)
+	autofillLuhnChecksumValidatorWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	autofillLuhnChecksumValidatorWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillLuhnChecksumValidatorWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	autofillLuhnChecksumValidatorCmd.AddCommand(autofillLuhnChecksumValidatorWriteToParcelCmd)
+	autofillCmd.AddCommand(autofillLuhnChecksumValidatorCmd)
+	autofillBatchUpdatesCmd.AddCommand(autofillBatchUpdatesDescribeContentsCmd)
+	autofillBatchUpdatesCmd.AddCommand(autofillBatchUpdatesToStringCmd)
+	autofillBatchUpdatesWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillBatchUpdatesWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	autofillBatchUpdatesCmd.AddCommand(autofillBatchUpdatesWriteToParcelCmd)
+	autofillCmd.AddCommand(autofillBatchUpdatesCmd)
+	autofillBatchUpdatesBuilderCmd.AddCommand(autofillBatchUpdatesBuilderBuildCmd)
+	autofillBatchUpdatesBuilderTransformChildCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	autofillBatchUpdatesBuilderTransformChildCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	autofillBatchUpdatesBuilderCmd.AddCommand(autofillBatchUpdatesBuilderTransformChildCmd)
+	autofillBatchUpdatesBuilderUpdateTemplateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillBatchUpdatesBuilderCmd.AddCommand(autofillBatchUpdatesBuilderUpdateTemplateCmd)
+	autofillCmd.AddCommand(autofillBatchUpdatesBuilderCmd)
+	autofillSavedDatasetsInfoCallbackOnErrorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	autofillSavedDatasetsInfoCallbackCmd.AddCommand(autofillSavedDatasetsInfoCallbackOnErrorCmd)
+	autofillCmd.AddCommand(autofillSavedDatasetsInfoCallbackCmd)
+	autofillSaveInfoCmd.AddCommand(autofillSaveInfoDescribeContentsCmd)
+	autofillSaveInfoCmd.AddCommand(autofillSaveInfoToStringCmd)
+	autofillSaveInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillSaveInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	autofillSaveInfoCmd.AddCommand(autofillSaveInfoWriteToParcelCmd)
+	autofillCmd.AddCommand(autofillSaveInfoCmd)
+	autofillSaveInfoBuilderAddSanitizerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillSaveInfoBuilderAddSanitizerCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	autofillSaveInfoBuilderCmd.AddCommand(autofillSaveInfoBuilderAddSanitizerCmd)
+	autofillSaveInfoBuilderCmd.AddCommand(autofillSaveInfoBuilderBuildCmd)
+	autofillSaveInfoBuilderSetCustomDescriptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillSaveInfoBuilderCmd.AddCommand(autofillSaveInfoBuilderSetCustomDescriptionCmd)
+	autofillSaveInfoBuilderSetDescriptionCmd.Flags().String("arg0", "", "arg0 (string)")
+	autofillSaveInfoBuilderCmd.AddCommand(autofillSaveInfoBuilderSetDescriptionCmd)
+	autofillSaveInfoBuilderSetFlagsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	autofillSaveInfoBuilderCmd.AddCommand(autofillSaveInfoBuilderSetFlagsCmd)
+	autofillSaveInfoBuilderSetNegativeActionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	autofillSaveInfoBuilderSetNegativeActionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	autofillSaveInfoBuilderCmd.AddCommand(autofillSaveInfoBuilderSetNegativeActionCmd)
+	autofillSaveInfoBuilderSetOptionalIdsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillSaveInfoBuilderCmd.AddCommand(autofillSaveInfoBuilderSetOptionalIdsCmd)
+	autofillSaveInfoBuilderSetPositiveActionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	autofillSaveInfoBuilderCmd.AddCommand(autofillSaveInfoBuilderSetPositiveActionCmd)
+	autofillSaveInfoBuilderSetTriggerIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillSaveInfoBuilderCmd.AddCommand(autofillSaveInfoBuilderSetTriggerIdCmd)
+	autofillSaveInfoBuilderSetValidatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillSaveInfoBuilderCmd.AddCommand(autofillSaveInfoBuilderSetValidatorCmd)
+	autofillCmd.AddCommand(autofillSaveInfoBuilderCmd)
+	autofillSaveRequestCmd.AddCommand(autofillSaveRequestDescribeContentsCmd)
+	autofillSaveRequestCmd.AddCommand(autofillSaveRequestGetClientStateCmd)
+	autofillSaveRequestCmd.AddCommand(autofillSaveRequestGetDatasetIdsCmd)
+	autofillSaveRequestCmd.AddCommand(autofillSaveRequestGetFillContextsCmd)
+	autofillSaveRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillSaveRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	autofillSaveRequestCmd.AddCommand(autofillSaveRequestWriteToParcelCmd)
+	autofillCmd.AddCommand(autofillSaveRequestCmd)
+	autofillFillCallbackOnFailureCmd.Flags().String("arg0", "", "arg0 (string)")
+	autofillFillCallbackCmd.AddCommand(autofillFillCallbackOnFailureCmd)
+	autofillFillCallbackOnSuccessCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillFillCallbackCmd.AddCommand(autofillFillCallbackOnSuccessCmd)
+	autofillCmd.AddCommand(autofillFillCallbackCmd)
+	autofillDateTransformationNewDateTransformationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillDateTransformationNewDateTransformationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	autofillDateTransformationCmd.AddCommand(autofillDateTransformationNewDateTransformationCmd)
+	autofillDateTransformationDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	autofillDateTransformationCmd.AddCommand(autofillDateTransformationDescribeContentsCmd)
+	autofillDateTransformationToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	autofillDateTransformationCmd.AddCommand(autofillDateTransformationToStringCmd)
+	autofillDateTransformationWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	autofillDateTransformationWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillDateTransformationWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	autofillDateTransformationCmd.AddCommand(autofillDateTransformationWriteToParcelCmd)
+	autofillCmd.AddCommand(autofillDateTransformationCmd)
+	autofillImageTransformationCmd.AddCommand(autofillImageTransformationDescribeContentsCmd)
+	autofillImageTransformationCmd.AddCommand(autofillImageTransformationToStringCmd)
+	autofillImageTransformationWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillImageTransformationWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	autofillImageTransformationCmd.AddCommand(autofillImageTransformationWriteToParcelCmd)
+	autofillCmd.AddCommand(autofillImageTransformationCmd)
+	autofillImageTransformationBuilderAddOption2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillImageTransformationBuilderAddOption2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	autofillImageTransformationBuilderCmd.AddCommand(autofillImageTransformationBuilderAddOption2Cmd)
+	autofillImageTransformationBuilderAddOption3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillImageTransformationBuilderAddOption3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	autofillImageTransformationBuilderAddOption3_1Cmd.Flags().String("arg2", "", "arg2 (string)")
+	autofillImageTransformationBuilderCmd.AddCommand(autofillImageTransformationBuilderAddOption3_1Cmd)
+	autofillImageTransformationBuilderCmd.AddCommand(autofillImageTransformationBuilderBuildCmd)
+	autofillCmd.AddCommand(autofillImageTransformationBuilderCmd)
 	autofillServiceCmd.AddCommand(autofillServiceGetFillEventHistoryCmd)
 	autofillServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	autofillServiceCmd.AddCommand(autofillServiceOnBindCmd)
@@ -5320,17 +5575,94 @@ func init() {
 	autofillServiceOnSessionDestroyedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	autofillServiceCmd.AddCommand(autofillServiceOnSessionDestroyedCmd)
 	autofillCmd.AddCommand(autofillServiceCmd)
-	autofillFillRequestCmd.AddCommand(autofillFillRequestDescribeContentsCmd)
-	autofillFillRequestCmd.AddCommand(autofillFillRequestGetClientStateCmd)
-	autofillFillRequestCmd.AddCommand(autofillFillRequestGetDelayedFillIntentSenderCmd)
-	autofillFillRequestCmd.AddCommand(autofillFillRequestGetFlagsCmd)
-	autofillFillRequestCmd.AddCommand(autofillFillRequestGetIdCmd)
-	autofillFillRequestCmd.AddCommand(autofillFillRequestGetInlineSuggestionsRequestCmd)
-	autofillFillRequestCmd.AddCommand(autofillFillRequestToStringCmd)
-	autofillFillRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillFillRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	autofillFillRequestCmd.AddCommand(autofillFillRequestWriteToParcelCmd)
-	autofillCmd.AddCommand(autofillFillRequestCmd)
+	autofillCharSequenceTransformationCmd.AddCommand(autofillCharSequenceTransformationDescribeContentsCmd)
+	autofillCharSequenceTransformationCmd.AddCommand(autofillCharSequenceTransformationToStringCmd)
+	autofillCharSequenceTransformationWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillCharSequenceTransformationWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	autofillCharSequenceTransformationCmd.AddCommand(autofillCharSequenceTransformationWriteToParcelCmd)
+	autofillCmd.AddCommand(autofillCharSequenceTransformationCmd)
+	autofillCharSequenceTransformationBuilderAddFieldCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillCharSequenceTransformationBuilderAddFieldCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	autofillCharSequenceTransformationBuilderAddFieldCmd.Flags().String("arg2", "", "arg2 (string)")
+	autofillCharSequenceTransformationBuilderCmd.AddCommand(autofillCharSequenceTransformationBuilderAddFieldCmd)
+	autofillCharSequenceTransformationBuilderCmd.AddCommand(autofillCharSequenceTransformationBuilderBuildCmd)
+	autofillCmd.AddCommand(autofillCharSequenceTransformationBuilderCmd)
+	autofillSavedDatasetsInfoNewSavedDatasetsInfoCmd.Flags().String("arg0", "", "arg0 (string)")
+	autofillSavedDatasetsInfoNewSavedDatasetsInfoCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	autofillSavedDatasetsInfoCmd.AddCommand(autofillSavedDatasetsInfoNewSavedDatasetsInfoCmd)
+	autofillSavedDatasetsInfoEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	autofillSavedDatasetsInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillSavedDatasetsInfoCmd.AddCommand(autofillSavedDatasetsInfoEqualsCmd)
+	autofillSavedDatasetsInfoGetCountCmd.Flags().Int64("handle", 0, "handle (int64)")
+	autofillSavedDatasetsInfoCmd.AddCommand(autofillSavedDatasetsInfoGetCountCmd)
+	autofillSavedDatasetsInfoGetTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	autofillSavedDatasetsInfoCmd.AddCommand(autofillSavedDatasetsInfoGetTypeCmd)
+	autofillSavedDatasetsInfoHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	autofillSavedDatasetsInfoCmd.AddCommand(autofillSavedDatasetsInfoHashCodeCmd)
+	autofillSavedDatasetsInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	autofillSavedDatasetsInfoCmd.AddCommand(autofillSavedDatasetsInfoToStringCmd)
+	autofillCmd.AddCommand(autofillSavedDatasetsInfoCmd)
+	autofillFillResponseCmd.AddCommand(autofillFillResponseDescribeContentsCmd)
+	autofillFillResponseCmd.AddCommand(autofillFillResponseToStringCmd)
+	autofillFillResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillFillResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	autofillFillResponseCmd.AddCommand(autofillFillResponseWriteToParcelCmd)
+	autofillCmd.AddCommand(autofillFillResponseCmd)
+	autofillFillResponseBuilderAddDatasetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderAddDatasetCmd)
+	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderBuildCmd)
+	autofillFillResponseBuilderDisableAutofillCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderDisableAutofillCmd)
+	autofillFillResponseBuilderSetAuthentication3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillFillResponseBuilderSetAuthentication3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	autofillFillResponseBuilderSetAuthentication3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetAuthentication3Cmd)
+	autofillFillResponseBuilderSetAuthentication3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillFillResponseBuilderSetAuthentication3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	autofillFillResponseBuilderSetAuthentication3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetAuthentication3_1Cmd)
+	autofillFillResponseBuilderSetAuthentication4_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillFillResponseBuilderSetAuthentication4_2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	autofillFillResponseBuilderSetAuthentication4_2Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	autofillFillResponseBuilderSetAuthentication4_2Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetAuthentication4_2Cmd)
+	autofillFillResponseBuilderSetAuthentication5_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillFillResponseBuilderSetAuthentication5_3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	autofillFillResponseBuilderSetAuthentication5_3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	autofillFillResponseBuilderSetAuthentication5_3Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
+	autofillFillResponseBuilderSetAuthentication5_3Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
+	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetAuthentication5_3Cmd)
+	autofillFillResponseBuilderSetClientStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetClientStateCmd)
+	autofillFillResponseBuilderSetDialogHeaderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetDialogHeaderCmd)
+	autofillFillResponseBuilderSetFieldClassificationIdsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetFieldClassificationIdsCmd)
+	autofillFillResponseBuilderSetFillDialogTriggerIdsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetFillDialogTriggerIdsCmd)
+	autofillFillResponseBuilderSetFlagsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetFlagsCmd)
+	autofillFillResponseBuilderSetFooterCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetFooterCmd)
+	autofillFillResponseBuilderSetHeaderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetHeaderCmd)
+	autofillFillResponseBuilderSetIconResourceIdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetIconResourceIdCmd)
+	autofillFillResponseBuilderSetIgnoredIdsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetIgnoredIdsCmd)
+	autofillFillResponseBuilderSetPresentationCancelIdsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetPresentationCancelIdsCmd)
+	autofillFillResponseBuilderSetSaveInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetSaveInfoCmd)
+	autofillFillResponseBuilderSetServiceDisplayNameResourceIdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetServiceDisplayNameResourceIdCmd)
+	autofillFillResponseBuilderSetShowFillDialogIconCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetShowFillDialogIconCmd)
+	autofillFillResponseBuilderSetShowSaveDialogIconCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetShowSaveDialogIconCmd)
+	autofillFillResponseBuilderSetUserDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetUserDataCmd)
+	autofillCmd.AddCommand(autofillFillResponseBuilderCmd)
 	autofillFillContextCmd.AddCommand(autofillFillContextDescribeContentsCmd)
 	autofillFillContextCmd.AddCommand(autofillFillContextGetFocusedIdCmd)
 	autofillFillContextCmd.AddCommand(autofillFillContextGetRequestIdCmd)
@@ -5340,17 +5672,64 @@ func init() {
 	autofillFillContextWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	autofillFillContextCmd.AddCommand(autofillFillContextWriteToParcelCmd)
 	autofillCmd.AddCommand(autofillFillContextCmd)
-	autofillVisibilitySetterActionCmd.AddCommand(autofillVisibilitySetterActionDescribeContentsCmd)
-	autofillVisibilitySetterActionCmd.AddCommand(autofillVisibilitySetterActionToStringCmd)
-	autofillVisibilitySetterActionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillVisibilitySetterActionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	autofillVisibilitySetterActionCmd.AddCommand(autofillVisibilitySetterActionWriteToParcelCmd)
-	autofillCmd.AddCommand(autofillVisibilitySetterActionCmd)
-	autofillVisibilitySetterActionBuilderCmd.AddCommand(autofillVisibilitySetterActionBuilderBuildCmd)
-	autofillVisibilitySetterActionBuilderSetVisibilityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	autofillVisibilitySetterActionBuilderSetVisibilityCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	autofillVisibilitySetterActionBuilderCmd.AddCommand(autofillVisibilitySetterActionBuilderSetVisibilityCmd)
-	autofillCmd.AddCommand(autofillVisibilitySetterActionBuilderCmd)
+	autofillSaveCallbackOnFailureCmd.Flags().String("arg0", "", "arg0 (string)")
+	autofillSaveCallbackCmd.AddCommand(autofillSaveCallbackOnFailureCmd)
+	autofillSaveCallbackCmd.AddCommand(autofillSaveCallbackOnSuccess0Cmd)
+	autofillSaveCallbackOnSuccess1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillSaveCallbackCmd.AddCommand(autofillSaveCallbackOnSuccess1_1Cmd)
+	autofillCmd.AddCommand(autofillSaveCallbackCmd)
+	autofillInlinePresentationNewInlinePresentationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillInlinePresentationNewInlinePresentationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	autofillInlinePresentationNewInlinePresentationCmd.Flags().Bool("arg2", false, "arg2 (bool)")
+	autofillInlinePresentationCmd.AddCommand(autofillInlinePresentationNewInlinePresentationCmd)
+	autofillInlinePresentationDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	autofillInlinePresentationCmd.AddCommand(autofillInlinePresentationDescribeContentsCmd)
+	autofillInlinePresentationEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	autofillInlinePresentationEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillInlinePresentationCmd.AddCommand(autofillInlinePresentationEqualsCmd)
+	autofillInlinePresentationGetInlinePresentationSpecCmd.Flags().Int64("handle", 0, "handle (int64)")
+	autofillInlinePresentationCmd.AddCommand(autofillInlinePresentationGetInlinePresentationSpecCmd)
+	autofillInlinePresentationGetSliceCmd.Flags().Int64("handle", 0, "handle (int64)")
+	autofillInlinePresentationCmd.AddCommand(autofillInlinePresentationGetSliceCmd)
+	autofillInlinePresentationHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	autofillInlinePresentationCmd.AddCommand(autofillInlinePresentationHashCodeCmd)
+	autofillInlinePresentationIsPinnedCmd.Flags().Int64("handle", 0, "handle (int64)")
+	autofillInlinePresentationCmd.AddCommand(autofillInlinePresentationIsPinnedCmd)
+	autofillInlinePresentationToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	autofillInlinePresentationCmd.AddCommand(autofillInlinePresentationToStringCmd)
+	autofillInlinePresentationWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	autofillInlinePresentationWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillInlinePresentationWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	autofillInlinePresentationCmd.AddCommand(autofillInlinePresentationWriteToParcelCmd)
+	autofillInlinePresentationCreateTooltipPresentationCmd.Flags().Int64("handle", 0, "handle (int64)")
+	autofillInlinePresentationCreateTooltipPresentationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillInlinePresentationCreateTooltipPresentationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	autofillInlinePresentationCmd.AddCommand(autofillInlinePresentationCreateTooltipPresentationCmd)
+	autofillCmd.AddCommand(autofillInlinePresentationCmd)
+	autofillDateValueSanitizerNewDateValueSanitizerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillDateValueSanitizerCmd.AddCommand(autofillDateValueSanitizerNewDateValueSanitizerCmd)
+	autofillDateValueSanitizerDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	autofillDateValueSanitizerCmd.AddCommand(autofillDateValueSanitizerDescribeContentsCmd)
+	autofillDateValueSanitizerToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	autofillDateValueSanitizerCmd.AddCommand(autofillDateValueSanitizerToStringCmd)
+	autofillDateValueSanitizerWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	autofillDateValueSanitizerWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillDateValueSanitizerWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	autofillDateValueSanitizerCmd.AddCommand(autofillDateValueSanitizerWriteToParcelCmd)
+	autofillCmd.AddCommand(autofillDateValueSanitizerCmd)
+	autofillFillRequestCmd.AddCommand(autofillFillRequestDescribeContentsCmd)
+	autofillFillRequestCmd.AddCommand(autofillFillRequestGetClientStateCmd)
+	autofillFillRequestCmd.AddCommand(autofillFillRequestGetDelayedFillIntentSenderCmd)
+	autofillFillRequestCmd.AddCommand(autofillFillRequestGetFillContextsCmd)
+	autofillFillRequestCmd.AddCommand(autofillFillRequestGetFlagsCmd)
+	autofillFillRequestCmd.AddCommand(autofillFillRequestGetHintsCmd)
+	autofillFillRequestCmd.AddCommand(autofillFillRequestGetIdCmd)
+	autofillFillRequestCmd.AddCommand(autofillFillRequestGetInlineSuggestionsRequestCmd)
+	autofillFillRequestCmd.AddCommand(autofillFillRequestToStringCmd)
+	autofillFillRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillFillRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	autofillFillRequestCmd.AddCommand(autofillFillRequestWriteToParcelCmd)
+	autofillCmd.AddCommand(autofillFillRequestCmd)
 	autofillDatasetCmd.AddCommand(autofillDatasetDescribeContentsCmd)
 	autofillDatasetCmd.AddCommand(autofillDatasetToStringCmd)
 	autofillDatasetWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -5416,64 +5795,9 @@ func init() {
 	autofillDatasetBuilderSetValue6_7Cmd.Flags().Int64("arg5", 0, "arg5 (int64)")
 	autofillDatasetBuilderCmd.AddCommand(autofillDatasetBuilderSetValue6_7Cmd)
 	autofillCmd.AddCommand(autofillDatasetBuilderCmd)
-	autofillLuhnChecksumValidatorNewLuhnChecksumValidatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillLuhnChecksumValidatorCmd.AddCommand(autofillLuhnChecksumValidatorNewLuhnChecksumValidatorCmd)
-	autofillLuhnChecksumValidatorDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	autofillLuhnChecksumValidatorCmd.AddCommand(autofillLuhnChecksumValidatorDescribeContentsCmd)
-	autofillLuhnChecksumValidatorToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	autofillLuhnChecksumValidatorCmd.AddCommand(autofillLuhnChecksumValidatorToStringCmd)
-	autofillLuhnChecksumValidatorWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	autofillLuhnChecksumValidatorWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillLuhnChecksumValidatorWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	autofillLuhnChecksumValidatorCmd.AddCommand(autofillLuhnChecksumValidatorWriteToParcelCmd)
-	autofillCmd.AddCommand(autofillLuhnChecksumValidatorCmd)
-	autofillImageTransformationCmd.AddCommand(autofillImageTransformationDescribeContentsCmd)
-	autofillImageTransformationCmd.AddCommand(autofillImageTransformationToStringCmd)
-	autofillImageTransformationWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillImageTransformationWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	autofillImageTransformationCmd.AddCommand(autofillImageTransformationWriteToParcelCmd)
-	autofillCmd.AddCommand(autofillImageTransformationCmd)
-	autofillImageTransformationBuilderAddOption2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillImageTransformationBuilderAddOption2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	autofillImageTransformationBuilderCmd.AddCommand(autofillImageTransformationBuilderAddOption2Cmd)
-	autofillImageTransformationBuilderAddOption3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillImageTransformationBuilderAddOption3_1Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	autofillImageTransformationBuilderAddOption3_1Cmd.Flags().String("arg2", "", "arg2 (string)")
-	autofillImageTransformationBuilderCmd.AddCommand(autofillImageTransformationBuilderAddOption3_1Cmd)
-	autofillImageTransformationBuilderCmd.AddCommand(autofillImageTransformationBuilderBuildCmd)
-	autofillCmd.AddCommand(autofillImageTransformationBuilderCmd)
-	autofillTextValueSanitizerNewTextValueSanitizerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillTextValueSanitizerNewTextValueSanitizerCmd.Flags().String("arg1", "", "arg1 (string)")
-	autofillTextValueSanitizerCmd.AddCommand(autofillTextValueSanitizerNewTextValueSanitizerCmd)
-	autofillTextValueSanitizerDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	autofillTextValueSanitizerCmd.AddCommand(autofillTextValueSanitizerDescribeContentsCmd)
-	autofillTextValueSanitizerToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	autofillTextValueSanitizerCmd.AddCommand(autofillTextValueSanitizerToStringCmd)
-	autofillTextValueSanitizerWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	autofillTextValueSanitizerWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillTextValueSanitizerWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	autofillTextValueSanitizerCmd.AddCommand(autofillTextValueSanitizerWriteToParcelCmd)
-	autofillCmd.AddCommand(autofillTextValueSanitizerCmd)
-	autofillSaveCallbackOnFailureCmd.Flags().String("arg0", "", "arg0 (string)")
-	autofillSaveCallbackCmd.AddCommand(autofillSaveCallbackOnFailureCmd)
-	autofillSaveCallbackCmd.AddCommand(autofillSaveCallbackOnSuccess0Cmd)
-	autofillSaveCallbackOnSuccess1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillSaveCallbackCmd.AddCommand(autofillSaveCallbackOnSuccess1_1Cmd)
-	autofillCmd.AddCommand(autofillSaveCallbackCmd)
-	autofillCharSequenceTransformationCmd.AddCommand(autofillCharSequenceTransformationDescribeContentsCmd)
-	autofillCharSequenceTransformationCmd.AddCommand(autofillCharSequenceTransformationToStringCmd)
-	autofillCharSequenceTransformationWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillCharSequenceTransformationWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	autofillCharSequenceTransformationCmd.AddCommand(autofillCharSequenceTransformationWriteToParcelCmd)
-	autofillCmd.AddCommand(autofillCharSequenceTransformationCmd)
-	autofillCharSequenceTransformationBuilderAddFieldCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillCharSequenceTransformationBuilderAddFieldCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	autofillCharSequenceTransformationBuilderAddFieldCmd.Flags().String("arg2", "", "arg2 (string)")
-	autofillCharSequenceTransformationBuilderCmd.AddCommand(autofillCharSequenceTransformationBuilderAddFieldCmd)
-	autofillCharSequenceTransformationBuilderCmd.AddCommand(autofillCharSequenceTransformationBuilderBuildCmd)
-	autofillCmd.AddCommand(autofillCharSequenceTransformationBuilderCmd)
 	autofillFillEventHistoryCmd.AddCommand(autofillFillEventHistoryDescribeContentsCmd)
 	autofillFillEventHistoryCmd.AddCommand(autofillFillEventHistoryGetClientStateCmd)
+	autofillFillEventHistoryCmd.AddCommand(autofillFillEventHistoryGetEventsCmd)
 	autofillFillEventHistoryCmd.AddCommand(autofillFillEventHistoryGetSessionIdCmd)
 	autofillFillEventHistoryCmd.AddCommand(autofillFillEventHistoryToStringCmd)
 	autofillFillEventHistoryWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -5483,11 +5807,32 @@ func init() {
 	autofillFillEventHistoryEventCmd.AddCommand(autofillFillEventHistoryEventGetClientStateCmd)
 	autofillFillEventHistoryEventCmd.AddCommand(autofillFillEventHistoryEventGetDatasetIdCmd)
 	autofillFillEventHistoryEventCmd.AddCommand(autofillFillEventHistoryEventGetFocusedIdCmd)
+	autofillFillEventHistoryEventCmd.AddCommand(autofillFillEventHistoryEventGetIgnoredDatasetIdsCmd)
 	autofillFillEventHistoryEventCmd.AddCommand(autofillFillEventHistoryEventGetNoSaveUiReasonCmd)
+	autofillFillEventHistoryEventCmd.AddCommand(autofillFillEventHistoryEventGetSelectedDatasetIdsCmd)
+	autofillFillEventHistoryEventCmd.AddCommand(autofillFillEventHistoryEventGetShownDatasetIdsCmd)
 	autofillFillEventHistoryEventCmd.AddCommand(autofillFillEventHistoryEventGetTypeCmd)
 	autofillFillEventHistoryEventCmd.AddCommand(autofillFillEventHistoryEventGetUiTypeCmd)
 	autofillFillEventHistoryEventCmd.AddCommand(autofillFillEventHistoryEventToStringCmd)
 	autofillCmd.AddCommand(autofillFillEventHistoryEventCmd)
+	autofillVisibilitySetterActionCmd.AddCommand(autofillVisibilitySetterActionDescribeContentsCmd)
+	autofillVisibilitySetterActionCmd.AddCommand(autofillVisibilitySetterActionToStringCmd)
+	autofillVisibilitySetterActionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillVisibilitySetterActionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	autofillVisibilitySetterActionCmd.AddCommand(autofillVisibilitySetterActionWriteToParcelCmd)
+	autofillCmd.AddCommand(autofillVisibilitySetterActionCmd)
+	autofillVisibilitySetterActionBuilderCmd.AddCommand(autofillVisibilitySetterActionBuilderBuildCmd)
+	autofillVisibilitySetterActionBuilderSetVisibilityCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	autofillVisibilitySetterActionBuilderSetVisibilityCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	autofillVisibilitySetterActionBuilderCmd.AddCommand(autofillVisibilitySetterActionBuilderSetVisibilityCmd)
+	autofillCmd.AddCommand(autofillVisibilitySetterActionBuilderCmd)
+	autofillValidatorsAndCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillValidatorsCmd.AddCommand(autofillValidatorsAndCmd)
+	autofillValidatorsNotCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillValidatorsCmd.AddCommand(autofillValidatorsNotCmd)
+	autofillValidatorsOrCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillValidatorsCmd.AddCommand(autofillValidatorsOrCmd)
+	autofillCmd.AddCommand(autofillValidatorsCmd)
 	autofillPresentationsCmd.AddCommand(autofillPresentationsGetDialogPresentationCmd)
 	autofillPresentationsCmd.AddCommand(autofillPresentationsGetInlinePresentationCmd)
 	autofillPresentationsCmd.AddCommand(autofillPresentationsGetInlineTooltipPresentationCmd)
@@ -5503,11 +5848,6 @@ func init() {
 	autofillPresentationsBuilderSetMenuPresentationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	autofillPresentationsBuilderCmd.AddCommand(autofillPresentationsBuilderSetMenuPresentationCmd)
 	autofillCmd.AddCommand(autofillPresentationsBuilderCmd)
-	autofillFillCallbackOnFailureCmd.Flags().String("arg0", "", "arg0 (string)")
-	autofillFillCallbackCmd.AddCommand(autofillFillCallbackOnFailureCmd)
-	autofillFillCallbackOnSuccessCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillFillCallbackCmd.AddCommand(autofillFillCallbackOnSuccessCmd)
-	autofillCmd.AddCommand(autofillFillCallbackCmd)
 	autofillFieldCmd.AddCommand(autofillFieldGetFilterCmd)
 	autofillFieldCmd.AddCommand(autofillFieldGetPresentationsCmd)
 	autofillFieldCmd.AddCommand(autofillFieldGetValueCmd)
@@ -5520,141 +5860,18 @@ func init() {
 	autofillFieldBuilderSetValueCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	autofillFieldBuilderCmd.AddCommand(autofillFieldBuilderSetValueCmd)
 	autofillCmd.AddCommand(autofillFieldBuilderCmd)
-	autofillSaveRequestCmd.AddCommand(autofillSaveRequestDescribeContentsCmd)
-	autofillSaveRequestCmd.AddCommand(autofillSaveRequestGetClientStateCmd)
-	autofillSaveRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillSaveRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	autofillSaveRequestCmd.AddCommand(autofillSaveRequestWriteToParcelCmd)
-	autofillCmd.AddCommand(autofillSaveRequestCmd)
-	autofillFillResponseCmd.AddCommand(autofillFillResponseDescribeContentsCmd)
-	autofillFillResponseCmd.AddCommand(autofillFillResponseToStringCmd)
-	autofillFillResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillFillResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	autofillFillResponseCmd.AddCommand(autofillFillResponseWriteToParcelCmd)
-	autofillCmd.AddCommand(autofillFillResponseCmd)
-	autofillFillResponseBuilderAddDatasetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderAddDatasetCmd)
-	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderBuildCmd)
-	autofillFillResponseBuilderDisableAutofillCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderDisableAutofillCmd)
-	autofillFillResponseBuilderSetAuthentication3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillFillResponseBuilderSetAuthentication3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	autofillFillResponseBuilderSetAuthentication3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetAuthentication3Cmd)
-	autofillFillResponseBuilderSetAuthentication3_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillFillResponseBuilderSetAuthentication3_1Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	autofillFillResponseBuilderSetAuthentication3_1Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetAuthentication3_1Cmd)
-	autofillFillResponseBuilderSetAuthentication4_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillFillResponseBuilderSetAuthentication4_2Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	autofillFillResponseBuilderSetAuthentication4_2Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	autofillFillResponseBuilderSetAuthentication4_2Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetAuthentication4_2Cmd)
-	autofillFillResponseBuilderSetAuthentication5_3Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillFillResponseBuilderSetAuthentication5_3Cmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	autofillFillResponseBuilderSetAuthentication5_3Cmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	autofillFillResponseBuilderSetAuthentication5_3Cmd.Flags().Int64("arg3", 0, "arg3 (int64)")
-	autofillFillResponseBuilderSetAuthentication5_3Cmd.Flags().Int64("arg4", 0, "arg4 (int64)")
-	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetAuthentication5_3Cmd)
-	autofillFillResponseBuilderSetClientStateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetClientStateCmd)
-	autofillFillResponseBuilderSetDialogHeaderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetDialogHeaderCmd)
-	autofillFillResponseBuilderSetFieldClassificationIdsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetFieldClassificationIdsCmd)
-	autofillFillResponseBuilderSetFillDialogTriggerIdsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetFillDialogTriggerIdsCmd)
-	autofillFillResponseBuilderSetFlagsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetFlagsCmd)
-	autofillFillResponseBuilderSetFooterCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetFooterCmd)
-	autofillFillResponseBuilderSetHeaderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetHeaderCmd)
-	autofillFillResponseBuilderSetIconResourceIdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetIconResourceIdCmd)
-	autofillFillResponseBuilderSetIgnoredIdsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetIgnoredIdsCmd)
-	autofillFillResponseBuilderSetPresentationCancelIdsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetPresentationCancelIdsCmd)
-	autofillFillResponseBuilderSetSaveInfoCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetSaveInfoCmd)
-	autofillFillResponseBuilderSetServiceDisplayNameResourceIdCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetServiceDisplayNameResourceIdCmd)
-	autofillFillResponseBuilderSetShowFillDialogIconCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetShowFillDialogIconCmd)
-	autofillFillResponseBuilderSetShowSaveDialogIconCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetShowSaveDialogIconCmd)
-	autofillFillResponseBuilderSetUserDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillFillResponseBuilderCmd.AddCommand(autofillFillResponseBuilderSetUserDataCmd)
-	autofillCmd.AddCommand(autofillFillResponseBuilderCmd)
-	autofillSavedDatasetsInfoNewSavedDatasetsInfoCmd.Flags().String("arg0", "", "arg0 (string)")
-	autofillSavedDatasetsInfoNewSavedDatasetsInfoCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	autofillSavedDatasetsInfoCmd.AddCommand(autofillSavedDatasetsInfoNewSavedDatasetsInfoCmd)
-	autofillSavedDatasetsInfoEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	autofillSavedDatasetsInfoEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillSavedDatasetsInfoCmd.AddCommand(autofillSavedDatasetsInfoEqualsCmd)
-	autofillSavedDatasetsInfoGetCountCmd.Flags().Int64("handle", 0, "handle (int64)")
-	autofillSavedDatasetsInfoCmd.AddCommand(autofillSavedDatasetsInfoGetCountCmd)
-	autofillSavedDatasetsInfoGetTypeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	autofillSavedDatasetsInfoCmd.AddCommand(autofillSavedDatasetsInfoGetTypeCmd)
-	autofillSavedDatasetsInfoHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	autofillSavedDatasetsInfoCmd.AddCommand(autofillSavedDatasetsInfoHashCodeCmd)
-	autofillSavedDatasetsInfoToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	autofillSavedDatasetsInfoCmd.AddCommand(autofillSavedDatasetsInfoToStringCmd)
-	autofillCmd.AddCommand(autofillSavedDatasetsInfoCmd)
-	autofillDateTransformationNewDateTransformationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillDateTransformationNewDateTransformationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	autofillDateTransformationCmd.AddCommand(autofillDateTransformationNewDateTransformationCmd)
-	autofillDateTransformationDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	autofillDateTransformationCmd.AddCommand(autofillDateTransformationDescribeContentsCmd)
-	autofillDateTransformationToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	autofillDateTransformationCmd.AddCommand(autofillDateTransformationToStringCmd)
-	autofillDateTransformationWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	autofillDateTransformationWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillDateTransformationWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	autofillDateTransformationCmd.AddCommand(autofillDateTransformationWriteToParcelCmd)
-	autofillCmd.AddCommand(autofillDateTransformationCmd)
-	autofillSaveInfoCmd.AddCommand(autofillSaveInfoDescribeContentsCmd)
-	autofillSaveInfoCmd.AddCommand(autofillSaveInfoToStringCmd)
-	autofillSaveInfoWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillSaveInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	autofillSaveInfoCmd.AddCommand(autofillSaveInfoWriteToParcelCmd)
-	autofillCmd.AddCommand(autofillSaveInfoCmd)
-	autofillSaveInfoBuilderAddSanitizerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillSaveInfoBuilderAddSanitizerCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	autofillSaveInfoBuilderCmd.AddCommand(autofillSaveInfoBuilderAddSanitizerCmd)
-	autofillSaveInfoBuilderCmd.AddCommand(autofillSaveInfoBuilderBuildCmd)
-	autofillSaveInfoBuilderSetCustomDescriptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillSaveInfoBuilderCmd.AddCommand(autofillSaveInfoBuilderSetCustomDescriptionCmd)
-	autofillSaveInfoBuilderSetDescriptionCmd.Flags().String("arg0", "", "arg0 (string)")
-	autofillSaveInfoBuilderCmd.AddCommand(autofillSaveInfoBuilderSetDescriptionCmd)
-	autofillSaveInfoBuilderSetFlagsCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	autofillSaveInfoBuilderCmd.AddCommand(autofillSaveInfoBuilderSetFlagsCmd)
-	autofillSaveInfoBuilderSetNegativeActionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	autofillSaveInfoBuilderSetNegativeActionCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	autofillSaveInfoBuilderCmd.AddCommand(autofillSaveInfoBuilderSetNegativeActionCmd)
-	autofillSaveInfoBuilderSetOptionalIdsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillSaveInfoBuilderCmd.AddCommand(autofillSaveInfoBuilderSetOptionalIdsCmd)
-	autofillSaveInfoBuilderSetPositiveActionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	autofillSaveInfoBuilderCmd.AddCommand(autofillSaveInfoBuilderSetPositiveActionCmd)
-	autofillSaveInfoBuilderSetTriggerIdCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillSaveInfoBuilderCmd.AddCommand(autofillSaveInfoBuilderSetTriggerIdCmd)
-	autofillSaveInfoBuilderSetValidatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillSaveInfoBuilderCmd.AddCommand(autofillSaveInfoBuilderSetValidatorCmd)
-	autofillCmd.AddCommand(autofillSaveInfoBuilderCmd)
-	autofillBatchUpdatesCmd.AddCommand(autofillBatchUpdatesDescribeContentsCmd)
-	autofillBatchUpdatesCmd.AddCommand(autofillBatchUpdatesToStringCmd)
-	autofillBatchUpdatesWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillBatchUpdatesWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	autofillBatchUpdatesCmd.AddCommand(autofillBatchUpdatesWriteToParcelCmd)
-	autofillCmd.AddCommand(autofillBatchUpdatesCmd)
-	autofillBatchUpdatesBuilderCmd.AddCommand(autofillBatchUpdatesBuilderBuildCmd)
-	autofillBatchUpdatesBuilderTransformChildCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	autofillBatchUpdatesBuilderTransformChildCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	autofillBatchUpdatesBuilderCmd.AddCommand(autofillBatchUpdatesBuilderTransformChildCmd)
-	autofillBatchUpdatesBuilderUpdateTemplateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillBatchUpdatesBuilderCmd.AddCommand(autofillBatchUpdatesBuilderUpdateTemplateCmd)
-	autofillCmd.AddCommand(autofillBatchUpdatesBuilderCmd)
+	autofillTextValueSanitizerNewTextValueSanitizerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillTextValueSanitizerNewTextValueSanitizerCmd.Flags().String("arg1", "", "arg1 (string)")
+	autofillTextValueSanitizerCmd.AddCommand(autofillTextValueSanitizerNewTextValueSanitizerCmd)
+	autofillTextValueSanitizerDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	autofillTextValueSanitizerCmd.AddCommand(autofillTextValueSanitizerDescribeContentsCmd)
+	autofillTextValueSanitizerToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
+	autofillTextValueSanitizerCmd.AddCommand(autofillTextValueSanitizerToStringCmd)
+	autofillTextValueSanitizerWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	autofillTextValueSanitizerWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillTextValueSanitizerWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	autofillTextValueSanitizerCmd.AddCommand(autofillTextValueSanitizerWriteToParcelCmd)
+	autofillCmd.AddCommand(autofillTextValueSanitizerCmd)
 	autofillCustomDescriptionCmd.AddCommand(autofillCustomDescriptionDescribeContentsCmd)
 	autofillCustomDescriptionCmd.AddCommand(autofillCustomDescriptionToStringCmd)
 	autofillCustomDescriptionWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -5672,6 +5889,13 @@ func init() {
 	autofillCustomDescriptionBuilderCmd.AddCommand(autofillCustomDescriptionBuilderBatchUpdateCmd)
 	autofillCustomDescriptionBuilderCmd.AddCommand(autofillCustomDescriptionBuilderBuildCmd)
 	autofillCmd.AddCommand(autofillCustomDescriptionBuilderCmd)
+	autofillFieldClassificationCmd.AddCommand(autofillFieldClassificationGetMatchesCmd)
+	autofillFieldClassificationCmd.AddCommand(autofillFieldClassificationToStringCmd)
+	autofillCmd.AddCommand(autofillFieldClassificationCmd)
+	autofillFieldClassificationMatchCmd.AddCommand(autofillFieldClassificationMatchGetCategoryIdCmd)
+	autofillFieldClassificationMatchCmd.AddCommand(autofillFieldClassificationMatchGetScoreCmd)
+	autofillFieldClassificationMatchCmd.AddCommand(autofillFieldClassificationMatchToStringCmd)
+	autofillCmd.AddCommand(autofillFieldClassificationMatchCmd)
 	autofillRegexValidatorNewRegexValidatorCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	autofillRegexValidatorNewRegexValidatorCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	autofillRegexValidatorCmd.AddCommand(autofillRegexValidatorNewRegexValidatorCmd)
@@ -5684,43 +5908,6 @@ func init() {
 	autofillRegexValidatorWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	autofillRegexValidatorCmd.AddCommand(autofillRegexValidatorWriteToParcelCmd)
 	autofillCmd.AddCommand(autofillRegexValidatorCmd)
-	autofillInlinePresentationNewInlinePresentationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillInlinePresentationNewInlinePresentationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	autofillInlinePresentationNewInlinePresentationCmd.Flags().Bool("arg2", false, "arg2 (bool)")
-	autofillInlinePresentationCmd.AddCommand(autofillInlinePresentationNewInlinePresentationCmd)
-	autofillInlinePresentationDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	autofillInlinePresentationCmd.AddCommand(autofillInlinePresentationDescribeContentsCmd)
-	autofillInlinePresentationEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	autofillInlinePresentationEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillInlinePresentationCmd.AddCommand(autofillInlinePresentationEqualsCmd)
-	autofillInlinePresentationGetInlinePresentationSpecCmd.Flags().Int64("handle", 0, "handle (int64)")
-	autofillInlinePresentationCmd.AddCommand(autofillInlinePresentationGetInlinePresentationSpecCmd)
-	autofillInlinePresentationGetSliceCmd.Flags().Int64("handle", 0, "handle (int64)")
-	autofillInlinePresentationCmd.AddCommand(autofillInlinePresentationGetSliceCmd)
-	autofillInlinePresentationHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	autofillInlinePresentationCmd.AddCommand(autofillInlinePresentationHashCodeCmd)
-	autofillInlinePresentationIsPinnedCmd.Flags().Int64("handle", 0, "handle (int64)")
-	autofillInlinePresentationCmd.AddCommand(autofillInlinePresentationIsPinnedCmd)
-	autofillInlinePresentationToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	autofillInlinePresentationCmd.AddCommand(autofillInlinePresentationToStringCmd)
-	autofillInlinePresentationWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	autofillInlinePresentationWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillInlinePresentationWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	autofillInlinePresentationCmd.AddCommand(autofillInlinePresentationWriteToParcelCmd)
-	autofillInlinePresentationCreateTooltipPresentationCmd.Flags().Int64("handle", 0, "handle (int64)")
-	autofillInlinePresentationCreateTooltipPresentationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillInlinePresentationCreateTooltipPresentationCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	autofillInlinePresentationCmd.AddCommand(autofillInlinePresentationCreateTooltipPresentationCmd)
-	autofillCmd.AddCommand(autofillInlinePresentationCmd)
-	autofillFieldClassificationCmd.AddCommand(autofillFieldClassificationToStringCmd)
-	autofillCmd.AddCommand(autofillFieldClassificationCmd)
-	autofillFieldClassificationMatchCmd.AddCommand(autofillFieldClassificationMatchGetCategoryIdCmd)
-	autofillFieldClassificationMatchCmd.AddCommand(autofillFieldClassificationMatchGetScoreCmd)
-	autofillFieldClassificationMatchCmd.AddCommand(autofillFieldClassificationMatchToStringCmd)
-	autofillCmd.AddCommand(autofillFieldClassificationMatchCmd)
-	autofillSavedDatasetsInfoCallbackOnErrorCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	autofillSavedDatasetsInfoCallbackCmd.AddCommand(autofillSavedDatasetsInfoCallbackOnErrorCmd)
-	autofillCmd.AddCommand(autofillSavedDatasetsInfoCallbackCmd)
 	autofillUserDataCmd.AddCommand(autofillUserDataDescribeContentsCmd)
 	autofillUserDataCmd.AddCommand(autofillUserDataGetFieldClassificationAlgorithmCmd)
 	autofillUserDataGetFieldClassificationAlgorithmForCategoryCmd.Flags().String("arg0", "", "arg0 (string)")
@@ -5748,76 +5935,11 @@ func init() {
 	autofillUserDataBuilderSetFieldClassificationAlgorithmForCategoryCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
 	autofillUserDataBuilderCmd.AddCommand(autofillUserDataBuilderSetFieldClassificationAlgorithmForCategoryCmd)
 	autofillCmd.AddCommand(autofillUserDataBuilderCmd)
-	autofillDateValueSanitizerNewDateValueSanitizerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillDateValueSanitizerCmd.AddCommand(autofillDateValueSanitizerNewDateValueSanitizerCmd)
-	autofillDateValueSanitizerDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	autofillDateValueSanitizerCmd.AddCommand(autofillDateValueSanitizerDescribeContentsCmd)
-	autofillDateValueSanitizerToStringCmd.Flags().Int64("handle", 0, "handle (int64)")
-	autofillDateValueSanitizerCmd.AddCommand(autofillDateValueSanitizerToStringCmd)
-	autofillDateValueSanitizerWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	autofillDateValueSanitizerWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillDateValueSanitizerWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	autofillDateValueSanitizerCmd.AddCommand(autofillDateValueSanitizerWriteToParcelCmd)
-	autofillCmd.AddCommand(autofillDateValueSanitizerCmd)
-	autofillValidatorsAndCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillValidatorsCmd.AddCommand(autofillValidatorsAndCmd)
-	autofillValidatorsNotCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillValidatorsCmd.AddCommand(autofillValidatorsNotCmd)
-	autofillValidatorsOrCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillValidatorsCmd.AddCommand(autofillValidatorsOrCmd)
-	autofillCmd.AddCommand(autofillValidatorsCmd)
-	autofillVirtualViewFillInfoCmd.AddCommand(autofillVirtualViewFillInfoGetAutofillHintsCmd)
-	autofillCmd.AddCommand(autofillVirtualViewFillInfoCmd)
-	autofillVirtualViewFillInfoBuilderCmd.AddCommand(autofillVirtualViewFillInfoBuilderBuildCmd)
-	autofillVirtualViewFillInfoBuilderSetAutofillHintsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillVirtualViewFillInfoBuilderCmd.AddCommand(autofillVirtualViewFillInfoBuilderSetAutofillHintsCmd)
-	autofillCmd.AddCommand(autofillVirtualViewFillInfoBuilderCmd)
-	autofillValueCmd.AddCommand(autofillValueDescribeContentsCmd)
-	autofillValueEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillValueCmd.AddCommand(autofillValueEqualsCmd)
-	autofillValueCmd.AddCommand(autofillValueGetDateValueCmd)
-	autofillValueCmd.AddCommand(autofillValueGetListValueCmd)
-	autofillValueCmd.AddCommand(autofillValueGetTextValueCmd)
-	autofillValueCmd.AddCommand(autofillValueGetToggleValueCmd)
-	autofillValueCmd.AddCommand(autofillValueHashCodeCmd)
-	autofillValueCmd.AddCommand(autofillValueIsDateCmd)
-	autofillValueCmd.AddCommand(autofillValueIsListCmd)
-	autofillValueCmd.AddCommand(autofillValueIsTextCmd)
-	autofillValueCmd.AddCommand(autofillValueIsToggleCmd)
-	autofillValueCmd.AddCommand(autofillValueToStringCmd)
-	autofillValueWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillValueWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	autofillValueCmd.AddCommand(autofillValueWriteToParcelCmd)
-	autofillValueForDateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillValueCmd.AddCommand(autofillValueForDateCmd)
-	autofillValueForListCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	autofillValueCmd.AddCommand(autofillValueForListCmd)
-	autofillValueForTextCmd.Flags().String("arg0", "", "arg0 (string)")
-	autofillValueCmd.AddCommand(autofillValueForTextCmd)
-	autofillValueForToggleCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	autofillValueCmd.AddCommand(autofillValueForToggleCmd)
-	autofillCmd.AddCommand(autofillValueCmd)
-	autofillIdCmd.AddCommand(autofillIdDescribeContentsCmd)
-	autofillIdEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillIdCmd.AddCommand(autofillIdEqualsCmd)
-	autofillIdCmd.AddCommand(autofillIdGetAutofillVirtualIdCmd)
-	autofillIdCmd.AddCommand(autofillIdGetSessionIdCmd)
-	autofillIdCmd.AddCommand(autofillIdGetViewIdCmd)
-	autofillIdCmd.AddCommand(autofillIdHashCodeCmd)
-	autofillIdCmd.AddCommand(autofillIdIsInAutofillSessionCmd)
-	autofillIdCmd.AddCommand(autofillIdIsVirtualCmd)
-	autofillIdCmd.AddCommand(autofillIdToStringCmd)
-	autofillIdWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillIdWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	autofillIdCmd.AddCommand(autofillIdWriteToParcelCmd)
-	autofillIdCreateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	autofillIdCreateCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	autofillIdCmd.AddCommand(autofillIdCreateCmd)
-	autofillCmd.AddCommand(autofillIdCmd)
 	autofillManagerCmd.AddCommand(autofillManagerCancelCmd)
 	autofillManagerCmd.AddCommand(autofillManagerCommitCmd)
 	autofillManagerCmd.AddCommand(autofillManagerDisableAutofillServicesCmd)
 	autofillManagerCmd.AddCommand(autofillManagerGetAutofillServiceComponentNameCmd)
+	autofillManagerCmd.AddCommand(autofillManagerGetAvailableFieldClassificationAlgorithmsCmd)
 	autofillManagerCmd.AddCommand(autofillManagerGetDefaultFieldClassificationAlgorithmCmd)
 	autofillManagerCmd.AddCommand(autofillManagerGetNextAutofillIdCmd)
 	autofillManagerCmd.AddCommand(autofillManagerGetUserDataCmd)
@@ -5881,5 +6003,53 @@ func init() {
 	autofillManagerAutofillCallbackOnAutofillEvent3_1Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
 	autofillManagerAutofillCallbackCmd.AddCommand(autofillManagerAutofillCallbackOnAutofillEvent3_1Cmd)
 	autofillCmd.AddCommand(autofillManagerAutofillCallbackCmd)
+	autofillVirtualViewFillInfoCmd.AddCommand(autofillVirtualViewFillInfoGetAutofillHintsCmd)
+	autofillCmd.AddCommand(autofillVirtualViewFillInfoCmd)
+	autofillVirtualViewFillInfoBuilderCmd.AddCommand(autofillVirtualViewFillInfoBuilderBuildCmd)
+	autofillVirtualViewFillInfoBuilderSetAutofillHintsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillVirtualViewFillInfoBuilderCmd.AddCommand(autofillVirtualViewFillInfoBuilderSetAutofillHintsCmd)
+	autofillCmd.AddCommand(autofillVirtualViewFillInfoBuilderCmd)
+	autofillIdCmd.AddCommand(autofillIdDescribeContentsCmd)
+	autofillIdEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillIdCmd.AddCommand(autofillIdEqualsCmd)
+	autofillIdCmd.AddCommand(autofillIdGetAutofillVirtualIdCmd)
+	autofillIdCmd.AddCommand(autofillIdGetSessionIdCmd)
+	autofillIdCmd.AddCommand(autofillIdGetViewIdCmd)
+	autofillIdCmd.AddCommand(autofillIdHashCodeCmd)
+	autofillIdCmd.AddCommand(autofillIdIsInAutofillSessionCmd)
+	autofillIdCmd.AddCommand(autofillIdIsVirtualCmd)
+	autofillIdCmd.AddCommand(autofillIdToStringCmd)
+	autofillIdWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillIdWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	autofillIdCmd.AddCommand(autofillIdWriteToParcelCmd)
+	autofillIdCreateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillIdCreateCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	autofillIdCmd.AddCommand(autofillIdCreateCmd)
+	autofillCmd.AddCommand(autofillIdCmd)
+	autofillValueCmd.AddCommand(autofillValueDescribeContentsCmd)
+	autofillValueEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillValueCmd.AddCommand(autofillValueEqualsCmd)
+	autofillValueCmd.AddCommand(autofillValueGetDateValueCmd)
+	autofillValueCmd.AddCommand(autofillValueGetListValueCmd)
+	autofillValueCmd.AddCommand(autofillValueGetTextValueCmd)
+	autofillValueCmd.AddCommand(autofillValueGetToggleValueCmd)
+	autofillValueCmd.AddCommand(autofillValueHashCodeCmd)
+	autofillValueCmd.AddCommand(autofillValueIsDateCmd)
+	autofillValueCmd.AddCommand(autofillValueIsListCmd)
+	autofillValueCmd.AddCommand(autofillValueIsTextCmd)
+	autofillValueCmd.AddCommand(autofillValueIsToggleCmd)
+	autofillValueCmd.AddCommand(autofillValueToStringCmd)
+	autofillValueWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillValueWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	autofillValueCmd.AddCommand(autofillValueWriteToParcelCmd)
+	autofillValueForDateCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	autofillValueCmd.AddCommand(autofillValueForDateCmd)
+	autofillValueForListCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	autofillValueCmd.AddCommand(autofillValueForListCmd)
+	autofillValueForTextCmd.Flags().String("arg0", "", "arg0 (string)")
+	autofillValueCmd.AddCommand(autofillValueForTextCmd)
+	autofillValueForToggleCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	autofillValueCmd.AddCommand(autofillValueForToggleCmd)
+	autofillCmd.AddCommand(autofillValueCmd)
 	rootCmd.AddCommand(autofillCmd)
 }

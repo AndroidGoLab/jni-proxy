@@ -9,57 +9,6 @@ import (
 	"google.golang.org/grpc"
 )
 
-// DisplayHashManagerClient wraps the gRPC DisplayHashManagerService client.
-type DisplayHashManagerClient struct {
-	svc pb.DisplayHashManagerServiceClient
-}
-
-// NewDisplayHashManagerClient creates a new DisplayHashManager client.
-func NewDisplayHashManagerClient(cc grpc.ClientConnInterface) *DisplayHashManagerClient {
-	return &DisplayHashManagerClient{
-		svc: pb.NewDisplayHashManagerServiceClient(cc),
-	}
-}
-
-// VerifyDisplayHash calls the VerifyDisplayHash RPC.
-func (c *DisplayHashManagerClient) VerifyDisplayHash(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.VerifyDisplayHash(ctx, &pb.VerifyDisplayHashRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DisplayHashResultCallbackClient wraps the gRPC DisplayHashResultCallbackService client.
-type DisplayHashResultCallbackClient struct {
-	svc pb.DisplayHashResultCallbackServiceClient
-}
-
-// NewDisplayHashResultCallbackClient creates a new DisplayHashResultCallback client.
-func NewDisplayHashResultCallbackClient(cc grpc.ClientConnInterface) *DisplayHashResultCallbackClient {
-	return &DisplayHashResultCallbackClient{
-		svc: pb.NewDisplayHashResultCallbackServiceClient(cc),
-	}
-}
-
-// OnDisplayHashError calls the OnDisplayHashError RPC.
-func (c *DisplayHashResultCallbackClient) OnDisplayHashError(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.OnDisplayHashError(ctx, &pb.OnDisplayHashErrorRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnDisplayHashResult calls the OnDisplayHashResult RPC.
-func (c *DisplayHashResultCallbackClient) OnDisplayHashResult(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnDisplayHashResult(ctx, &pb.OnDisplayHashResultRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
 // VerifiedDisplayHashClient wraps the gRPC VerifiedDisplayHashService client.
 type VerifiedDisplayHashClient struct {
 	svc pb.VerifiedDisplayHashServiceClient
@@ -185,4 +134,64 @@ func (c *DisplayHashClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 
 		Arg1: arg1,
 	})
 	return err
+}
+
+// DisplayHashResultCallbackClient wraps the gRPC DisplayHashResultCallbackService client.
+type DisplayHashResultCallbackClient struct {
+	svc pb.DisplayHashResultCallbackServiceClient
+}
+
+// NewDisplayHashResultCallbackClient creates a new DisplayHashResultCallback client.
+func NewDisplayHashResultCallbackClient(cc grpc.ClientConnInterface) *DisplayHashResultCallbackClient {
+	return &DisplayHashResultCallbackClient{
+		svc: pb.NewDisplayHashResultCallbackServiceClient(cc),
+	}
+}
+
+// OnDisplayHashError calls the OnDisplayHashError RPC.
+func (c *DisplayHashResultCallbackClient) OnDisplayHashError(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.OnDisplayHashError(ctx, &pb.OnDisplayHashErrorRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnDisplayHashResult calls the OnDisplayHashResult RPC.
+func (c *DisplayHashResultCallbackClient) OnDisplayHashResult(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnDisplayHashResult(ctx, &pb.OnDisplayHashResultRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// DisplayHashManagerClient wraps the gRPC DisplayHashManagerService client.
+type DisplayHashManagerClient struct {
+	svc pb.DisplayHashManagerServiceClient
+}
+
+// NewDisplayHashManagerClient creates a new DisplayHashManager client.
+func NewDisplayHashManagerClient(cc grpc.ClientConnInterface) *DisplayHashManagerClient {
+	return &DisplayHashManagerClient{
+		svc: pb.NewDisplayHashManagerServiceClient(cc),
+	}
+}
+
+// GetSupportedHashAlgorithms calls the GetSupportedHashAlgorithms RPC.
+func (c *DisplayHashManagerClient) GetSupportedHashAlgorithms(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSupportedHashAlgorithms(ctx, &pb.GetSupportedHashAlgorithmsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// VerifyDisplayHash calls the VerifyDisplayHash RPC.
+func (c *DisplayHashManagerClient) VerifyDisplayHash(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.VerifyDisplayHash(ctx, &pb.VerifyDisplayHashRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }

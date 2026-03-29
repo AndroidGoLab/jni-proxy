@@ -12,18 +12,86 @@ var backupCmd = &cobra.Command{
 	Short: "backup service operations",
 }
 
-var backupDataOutputCmd = &cobra.Command{
-	Use:   "data-output",
-	Short: "DataOutputService operations",
+var backupHelperCmd = &cobra.Command{
+	Use:   "helper",
+	Short: "HelperService operations",
 }
 
-var backupDataOutputGetQuotaCmd = &cobra.Command{
+var backupHelperPerformBackupCmd = &cobra.Command{
+	Use:   "perform-backup",
+	Short: "PerformBackup RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHelperServiceClient(grpcConn)
+		req := &pb.PerformBackupRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.PerformBackup(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var backupHelperRestoreEntityCmd = &cobra.Command{
+	Use:   "restore-entity",
+	Short: "RestoreEntity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHelperServiceClient(grpcConn)
+		req := &pb.RestoreEntityRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RestoreEntity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var backupHelperWriteNewStateDescriptionCmd = &cobra.Command{
+	Use:   "write-new-state-description",
+	Short: "WriteNewStateDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewHelperServiceClient(grpcConn)
+		req := &pb.WriteNewStateDescriptionRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.WriteNewStateDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var backupFullBackupDataOutputCmd = &cobra.Command{
+	Use:   "full-backup-data-output",
+	Short: "FullBackupDataOutputService operations",
+}
+
+var backupFullBackupDataOutputGetQuotaCmd = &cobra.Command{
 	Use:   "get-quota",
 	Short: "GetQuota RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDataOutputServiceClient(grpcConn)
+		client := pb.NewFullBackupDataOutputServiceClient(grpcConn)
 		req := &pb.GetQuotaRequest{}
 		resp, err := client.GetQuota(ctx, req)
 		if err != nil {
@@ -33,59 +101,15 @@ var backupDataOutputGetQuotaCmd = &cobra.Command{
 	},
 }
 
-var backupDataOutputGetTransportFlagsCmd = &cobra.Command{
+var backupFullBackupDataOutputGetTransportFlagsCmd = &cobra.Command{
 	Use:   "get-transport-flags",
 	Short: "GetTransportFlags RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDataOutputServiceClient(grpcConn)
+		client := pb.NewFullBackupDataOutputServiceClient(grpcConn)
 		req := &pb.GetTransportFlagsRequest{}
 		resp, err := client.GetTransportFlags(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var backupDataOutputWriteEntityDataCmd = &cobra.Command{
-	Use:   "write-entity-data",
-	Short: "WriteEntityData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDataOutputServiceClient(grpcConn)
-		req := &pb.WriteEntityDataRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteEntityData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var backupDataOutputWriteEntityHeaderCmd = &cobra.Command{
-	Use:   "write-entity-header",
-	Short: "WriteEntityHeader RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDataOutputServiceClient(grpcConn)
-		req := &pb.WriteEntityHeaderRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteEntityHeader(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -187,20 +211,26 @@ var backupDataInputSkipEntityDataCmd = &cobra.Command{
 	},
 }
 
-var backupDataInputStreamCmd = &cobra.Command{
-	Use:   "data-input-stream",
-	Short: "DataInputStreamService operations",
+var backupRestoreObserverCmd = &cobra.Command{
+	Use:   "restore-observer",
+	Short: "RestoreObserverService operations",
 }
 
-var backupDataInputStreamGetKeyCmd = &cobra.Command{
-	Use:   "get-key",
-	Short: "GetKey RPC",
+var backupRestoreObserverOnUpdateCmd = &cobra.Command{
+	Use:   "on-update",
+	Short: "OnUpdate RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDataInputStreamServiceClient(grpcConn)
-		req := &pb.GetKeyRequest{}
-		resp, err := client.GetKey(ctx, req)
+		client := pb.NewRestoreObserverServiceClient(grpcConn)
+		req := &pb.OnUpdateRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.OnUpdate(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -208,15 +238,18 @@ var backupDataInputStreamGetKeyCmd = &cobra.Command{
 	},
 }
 
-var backupDataInputStreamRead0Cmd = &cobra.Command{
-	Use:   "read0",
-	Short: "Read0 RPC",
+var backupRestoreObserverRestoreFinishedCmd = &cobra.Command{
+	Use:   "restore-finished",
+	Short: "RestoreFinished RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDataInputStreamServiceClient(grpcConn)
-		req := &pb.Read0Request{}
-		resp, err := client.Read0(ctx, req)
+		client := pb.NewRestoreObserverServiceClient(grpcConn)
+		req := &pb.RestoreFinishedRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RestoreFinished(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -224,18 +257,92 @@ var backupDataInputStreamRead0Cmd = &cobra.Command{
 	},
 }
 
-var backupDataInputStreamRead1_1Cmd = &cobra.Command{
-	Use:   "read1_1",
-	Short: "Read1_1 RPC",
+var backupRestoreObserverRestoreStartingCmd = &cobra.Command{
+	Use:   "restore-starting",
+	Short: "RestoreStarting RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDataInputStreamServiceClient(grpcConn)
-		req := &pb.Read1_1Request{}
+		client := pb.NewRestoreObserverServiceClient(grpcConn)
+		req := &pb.RestoreStartingRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RestoreStarting(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var backupAgentHelperCmd = &cobra.Command{
+	Use:   "agent-helper",
+	Short: "AgentHelperService operations",
+}
+
+var backupAgentHelperNewAgentHelperCmd = &cobra.Command{
+	Use:   "new-agent-helper",
+	Short: "NewAgentHelper RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAgentHelperServiceClient(grpcConn)
+		req := &pb.NewAgentHelperRequest{}
+		resp, err := client.NewAgentHelper(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var backupAgentHelperAddHelperCmd = &cobra.Command{
+	Use:   "add-helper",
+	Short: "AddHelper RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAgentHelperServiceClient(grpcConn)
+		req := &pb.AddHelperRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AddHelper(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var backupAgentHelperOnBackupCmd = &cobra.Command{
+	Use:   "on-backup",
+	Short: "OnBackup RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAgentHelperServiceClient(grpcConn)
+		req := &pb.OnBackupRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.Read1_1(ctx, req)
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.OnBackup(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -243,40 +350,27 @@ var backupDataInputStreamRead1_1Cmd = &cobra.Command{
 	},
 }
 
-var backupDataInputStreamRead3_2Cmd = &cobra.Command{
-	Use:   "read3_2",
-	Short: "Read3_2 RPC",
+var backupAgentHelperOnRestoreCmd = &cobra.Command{
+	Use:   "on-restore",
+	Short: "OnRestore RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewDataInputStreamServiceClient(grpcConn)
-		req := &pb.Read3_2Request{}
+		client := pb.NewAgentHelperServiceClient(grpcConn)
+		req := &pb.OnRestoreRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
 			req.Arg2 = v
 		}
-		resp, err := client.Read3_2(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var backupDataInputStreamSizeCmd = &cobra.Command{
-	Use:   "size",
-	Short: "Size RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDataInputStreamServiceClient(grpcConn)
-		req := &pb.SizeRequest{}
-		resp, err := client.Size(ctx, req)
+		resp, err := client.OnRestore(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -393,26 +487,26 @@ var backupManagerDataChanged1_1Cmd = &cobra.Command{
 	},
 }
 
-var backupFileBackupHelperCmd = &cobra.Command{
-	Use:   "file-backup-helper",
-	Short: "FileBackupHelperService operations",
+var backupSharedPreferencesBackupHelperCmd = &cobra.Command{
+	Use:   "shared-preferences-backup-helper",
+	Short: "SharedPreferencesBackupHelperService operations",
 }
 
-var backupFileBackupHelperNewFileBackupHelperCmd = &cobra.Command{
-	Use:   "new-file-backup-helper",
-	Short: "NewFileBackupHelper RPC",
+var backupSharedPreferencesBackupHelperNewSharedPreferencesBackupHelperCmd = &cobra.Command{
+	Use:   "new-shared-preferences-backup-helper",
+	Short: "NewSharedPreferencesBackupHelper RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewFileBackupHelperServiceClient(grpcConn)
-		req := &pb.NewFileBackupHelperRequest{}
+		client := pb.NewSharedPreferencesBackupHelperServiceClient(grpcConn)
+		req := &pb.NewSharedPreferencesBackupHelperRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
 			req.Arg1 = v
 		}
-		resp, err := client.NewFileBackupHelper(ctx, req)
+		resp, err := client.NewSharedPreferencesBackupHelper(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -420,14 +514,14 @@ var backupFileBackupHelperNewFileBackupHelperCmd = &cobra.Command{
 	},
 }
 
-var backupFileBackupHelperPerformBackupCmd = &cobra.Command{
+var backupSharedPreferencesBackupHelperPerformBackupCmd = &cobra.Command{
 	Use:   "perform-backup",
 	Short: "PerformBackup RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewFileBackupHelperServiceClient(grpcConn)
-		req := &pb.PerformBackupRequest{}
+		client := pb.NewSharedPreferencesBackupHelperServiceClient(grpcConn)
+		req := &pb.SharedPreferencesBackupHelperPerformBackupRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -448,14 +542,14 @@ var backupFileBackupHelperPerformBackupCmd = &cobra.Command{
 	},
 }
 
-var backupFileBackupHelperRestoreEntityCmd = &cobra.Command{
+var backupSharedPreferencesBackupHelperRestoreEntityCmd = &cobra.Command{
 	Use:   "restore-entity",
 	Short: "RestoreEntity RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewFileBackupHelperServiceClient(grpcConn)
-		req := &pb.RestoreEntityRequest{}
+		client := pb.NewSharedPreferencesBackupHelperServiceClient(grpcConn)
+		req := &pb.SharedPreferencesBackupHelperRestoreEntityRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -470,14 +564,14 @@ var backupFileBackupHelperRestoreEntityCmd = &cobra.Command{
 	},
 }
 
-var backupFileBackupHelperWriteNewStateDescriptionCmd = &cobra.Command{
+var backupSharedPreferencesBackupHelperWriteNewStateDescriptionCmd = &cobra.Command{
 	Use:   "write-new-state-description",
 	Short: "WriteNewStateDescription RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewFileBackupHelperServiceClient(grpcConn)
-		req := &pb.WriteNewStateDescriptionRequest{}
+		client := pb.NewSharedPreferencesBackupHelperServiceClient(grpcConn)
+		req := &pb.SharedPreferencesBackupHelperWriteNewStateDescriptionRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
 		}
@@ -485,6 +579,87 @@ var backupFileBackupHelperWriteNewStateDescriptionCmd = &cobra.Command{
 			req.Arg0 = v
 		}
 		resp, err := client.WriteNewStateDescription(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var backupDataOutputCmd = &cobra.Command{
+	Use:   "data-output",
+	Short: "DataOutputService operations",
+}
+
+var backupDataOutputGetQuotaCmd = &cobra.Command{
+	Use:   "get-quota",
+	Short: "GetQuota RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataOutputServiceClient(grpcConn)
+		req := &pb.GetQuotaRequest{}
+		resp, err := client.GetQuota(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var backupDataOutputGetTransportFlagsCmd = &cobra.Command{
+	Use:   "get-transport-flags",
+	Short: "GetTransportFlags RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataOutputServiceClient(grpcConn)
+		req := &pb.GetTransportFlagsRequest{}
+		resp, err := client.GetTransportFlags(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var backupDataOutputWriteEntityDataCmd = &cobra.Command{
+	Use:   "write-entity-data",
+	Short: "WriteEntityData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataOutputServiceClient(grpcConn)
+		req := &pb.WriteEntityDataRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteEntityData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var backupDataOutputWriteEntityHeaderCmd = &cobra.Command{
+	Use:   "write-entity-header",
+	Short: "WriteEntityHeader RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataOutputServiceClient(grpcConn)
+		req := &pb.WriteEntityHeaderRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteEntityHeader(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -526,7 +701,7 @@ var backupAgentOnBackupCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewAgentServiceClient(grpcConn)
-		req := &pb.OnBackupRequest{}
+		req := &pb.AgentOnBackupRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -717,20 +892,20 @@ var backupAgentOnRestoreFinishedCmd = &cobra.Command{
 	},
 }
 
-var backupFullBackupDataOutputCmd = &cobra.Command{
-	Use:   "full-backup-data-output",
-	Short: "FullBackupDataOutputService operations",
+var backupDataInputStreamCmd = &cobra.Command{
+	Use:   "data-input-stream",
+	Short: "DataInputStreamService operations",
 }
 
-var backupFullBackupDataOutputGetQuotaCmd = &cobra.Command{
-	Use:   "get-quota",
-	Short: "GetQuota RPC",
+var backupDataInputStreamGetKeyCmd = &cobra.Command{
+	Use:   "get-key",
+	Short: "GetKey RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewFullBackupDataOutputServiceClient(grpcConn)
-		req := &pb.GetQuotaRequest{}
-		resp, err := client.GetQuota(ctx, req)
+		client := pb.NewDataInputStreamServiceClient(grpcConn)
+		req := &pb.GetKeyRequest{}
+		resp, err := client.GetKey(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -738,15 +913,15 @@ var backupFullBackupDataOutputGetQuotaCmd = &cobra.Command{
 	},
 }
 
-var backupFullBackupDataOutputGetTransportFlagsCmd = &cobra.Command{
-	Use:   "get-transport-flags",
-	Short: "GetTransportFlags RPC",
+var backupDataInputStreamRead0Cmd = &cobra.Command{
+	Use:   "read0",
+	Short: "Read0 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewFullBackupDataOutputServiceClient(grpcConn)
-		req := &pb.GetTransportFlagsRequest{}
-		resp, err := client.GetTransportFlags(ctx, req)
+		client := pb.NewDataInputStreamServiceClient(grpcConn)
+		req := &pb.Read0Request{}
+		resp, err := client.Read0(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -754,29 +929,18 @@ var backupFullBackupDataOutputGetTransportFlagsCmd = &cobra.Command{
 	},
 }
 
-var backupHelperCmd = &cobra.Command{
-	Use:   "helper",
-	Short: "HelperService operations",
-}
-
-var backupHelperPerformBackupCmd = &cobra.Command{
-	Use:   "perform-backup",
-	Short: "PerformBackup RPC",
+var backupDataInputStreamRead1_1Cmd = &cobra.Command{
+	Use:   "read1_1",
+	Short: "Read1_1 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewHelperServiceClient(grpcConn)
-		req := &pb.HelperPerformBackupRequest{}
+		client := pb.NewDataInputStreamServiceClient(grpcConn)
+		req := &pb.Read1_1Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.PerformBackup(ctx, req)
+		resp, err := client.Read1_1(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -784,303 +948,139 @@ var backupHelperPerformBackupCmd = &cobra.Command{
 	},
 }
 
-var backupHelperRestoreEntityCmd = &cobra.Command{
-	Use:   "restore-entity",
-	Short: "RestoreEntity RPC",
+var backupDataInputStreamRead3_2Cmd = &cobra.Command{
+	Use:   "read3_2",
+	Short: "Read3_2 RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewHelperServiceClient(grpcConn)
-		req := &pb.HelperRestoreEntityRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RestoreEntity(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var backupHelperWriteNewStateDescriptionCmd = &cobra.Command{
-	Use:   "write-new-state-description",
-	Short: "WriteNewStateDescription RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewHelperServiceClient(grpcConn)
-		req := &pb.HelperWriteNewStateDescriptionRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.WriteNewStateDescription(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var backupSharedPreferencesBackupHelperCmd = &cobra.Command{
-	Use:   "shared-preferences-backup-helper",
-	Short: "SharedPreferencesBackupHelperService operations",
-}
-
-var backupSharedPreferencesBackupHelperNewSharedPreferencesBackupHelperCmd = &cobra.Command{
-	Use:   "new-shared-preferences-backup-helper",
-	Short: "NewSharedPreferencesBackupHelper RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSharedPreferencesBackupHelperServiceClient(grpcConn)
-		req := &pb.NewSharedPreferencesBackupHelperRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewSharedPreferencesBackupHelper(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var backupSharedPreferencesBackupHelperPerformBackupCmd = &cobra.Command{
-	Use:   "perform-backup",
-	Short: "PerformBackup RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSharedPreferencesBackupHelperServiceClient(grpcConn)
-		req := &pb.PerformBackupRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.PerformBackup(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var backupSharedPreferencesBackupHelperRestoreEntityCmd = &cobra.Command{
-	Use:   "restore-entity",
-	Short: "RestoreEntity RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSharedPreferencesBackupHelperServiceClient(grpcConn)
-		req := &pb.RestoreEntityRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RestoreEntity(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var backupSharedPreferencesBackupHelperWriteNewStateDescriptionCmd = &cobra.Command{
-	Use:   "write-new-state-description",
-	Short: "WriteNewStateDescription RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewSharedPreferencesBackupHelperServiceClient(grpcConn)
-		req := &pb.WriteNewStateDescriptionRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.WriteNewStateDescription(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var backupRestoreObserverCmd = &cobra.Command{
-	Use:   "restore-observer",
-	Short: "RestoreObserverService operations",
-}
-
-var backupRestoreObserverOnUpdateCmd = &cobra.Command{
-	Use:   "on-update",
-	Short: "OnUpdate RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRestoreObserverServiceClient(grpcConn)
-		req := &pb.OnUpdateRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.OnUpdate(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var backupRestoreObserverRestoreFinishedCmd = &cobra.Command{
-	Use:   "restore-finished",
-	Short: "RestoreFinished RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRestoreObserverServiceClient(grpcConn)
-		req := &pb.RestoreFinishedRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RestoreFinished(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var backupRestoreObserverRestoreStartingCmd = &cobra.Command{
-	Use:   "restore-starting",
-	Short: "RestoreStarting RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRestoreObserverServiceClient(grpcConn)
-		req := &pb.RestoreStartingRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.RestoreStarting(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var backupAgentHelperCmd = &cobra.Command{
-	Use:   "agent-helper",
-	Short: "AgentHelperService operations",
-}
-
-var backupAgentHelperNewAgentHelperCmd = &cobra.Command{
-	Use:   "new-agent-helper",
-	Short: "NewAgentHelper RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAgentHelperServiceClient(grpcConn)
-		req := &pb.NewAgentHelperRequest{}
-		resp, err := client.NewAgentHelper(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var backupAgentHelperAddHelperCmd = &cobra.Command{
-	Use:   "add-helper",
-	Short: "AddHelper RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAgentHelperServiceClient(grpcConn)
-		req := &pb.AddHelperRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.AddHelper(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var backupAgentHelperOnBackupCmd = &cobra.Command{
-	Use:   "on-backup",
-	Short: "OnBackup RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAgentHelperServiceClient(grpcConn)
-		req := &pb.AgentHelperOnBackupRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.OnBackup(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var backupAgentHelperOnRestoreCmd = &cobra.Command{
-	Use:   "on-restore",
-	Short: "OnRestore RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAgentHelperServiceClient(grpcConn)
-		req := &pb.OnRestoreRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
+		client := pb.NewDataInputStreamServiceClient(grpcConn)
+		req := &pb.Read3_2Request{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
 		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
 			req.Arg1 = v
 		}
+		if v, err := cmd.Flags().GetInt32("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.Read3_2(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var backupDataInputStreamSizeCmd = &cobra.Command{
+	Use:   "size",
+	Short: "Size RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDataInputStreamServiceClient(grpcConn)
+		req := &pb.SizeRequest{}
+		resp, err := client.Size(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var backupFileBackupHelperCmd = &cobra.Command{
+	Use:   "file-backup-helper",
+	Short: "FileBackupHelperService operations",
+}
+
+var backupFileBackupHelperNewFileBackupHelperCmd = &cobra.Command{
+	Use:   "new-file-backup-helper",
+	Short: "NewFileBackupHelper RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFileBackupHelperServiceClient(grpcConn)
+		req := &pb.NewFileBackupHelperRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewFileBackupHelper(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var backupFileBackupHelperPerformBackupCmd = &cobra.Command{
+	Use:   "perform-backup",
+	Short: "PerformBackup RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFileBackupHelperServiceClient(grpcConn)
+		req := &pb.FileBackupHelperPerformBackupRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
 		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
 			req.Arg2 = v
 		}
-		resp, err := client.OnRestore(ctx, req)
+		resp, err := client.PerformBackup(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var backupFileBackupHelperRestoreEntityCmd = &cobra.Command{
+	Use:   "restore-entity",
+	Short: "RestoreEntity RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFileBackupHelperServiceClient(grpcConn)
+		req := &pb.FileBackupHelperRestoreEntityRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.RestoreEntity(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var backupFileBackupHelperWriteNewStateDescriptionCmd = &cobra.Command{
+	Use:   "write-new-state-description",
+	Short: "WriteNewStateDescription RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFileBackupHelperServiceClient(grpcConn)
+		req := &pb.FileBackupHelperWriteNewStateDescriptionRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.WriteNewStateDescription(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1089,15 +1089,18 @@ var backupAgentHelperOnRestoreCmd = &cobra.Command{
 }
 
 func init() {
-	backupDataOutputCmd.AddCommand(backupDataOutputGetQuotaCmd)
-	backupDataOutputCmd.AddCommand(backupDataOutputGetTransportFlagsCmd)
-	backupDataOutputWriteEntityDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	backupDataOutputWriteEntityDataCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	backupDataOutputCmd.AddCommand(backupDataOutputWriteEntityDataCmd)
-	backupDataOutputWriteEntityHeaderCmd.Flags().String("arg0", "", "arg0 (string)")
-	backupDataOutputWriteEntityHeaderCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	backupDataOutputCmd.AddCommand(backupDataOutputWriteEntityHeaderCmd)
-	backupCmd.AddCommand(backupDataOutputCmd)
+	backupHelperPerformBackupCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	backupHelperPerformBackupCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	backupHelperPerformBackupCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	backupHelperCmd.AddCommand(backupHelperPerformBackupCmd)
+	backupHelperRestoreEntityCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	backupHelperCmd.AddCommand(backupHelperRestoreEntityCmd)
+	backupHelperWriteNewStateDescriptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	backupHelperCmd.AddCommand(backupHelperWriteNewStateDescriptionCmd)
+	backupCmd.AddCommand(backupHelperCmd)
+	backupFullBackupDataOutputCmd.AddCommand(backupFullBackupDataOutputGetQuotaCmd)
+	backupFullBackupDataOutputCmd.AddCommand(backupFullBackupDataOutputGetTransportFlagsCmd)
+	backupCmd.AddCommand(backupFullBackupDataOutputCmd)
 	backupDataInputCmd.AddCommand(backupDataInputGetDataSizeCmd)
 	backupDataInputCmd.AddCommand(backupDataInputGetKeyCmd)
 	backupDataInputReadEntityDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
@@ -1107,16 +1110,30 @@ func init() {
 	backupDataInputCmd.AddCommand(backupDataInputReadNextHeaderCmd)
 	backupDataInputCmd.AddCommand(backupDataInputSkipEntityDataCmd)
 	backupCmd.AddCommand(backupDataInputCmd)
-	backupDataInputStreamCmd.AddCommand(backupDataInputStreamGetKeyCmd)
-	backupDataInputStreamCmd.AddCommand(backupDataInputStreamRead0Cmd)
-	backupDataInputStreamRead1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	backupDataInputStreamCmd.AddCommand(backupDataInputStreamRead1_1Cmd)
-	backupDataInputStreamRead3_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	backupDataInputStreamRead3_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	backupDataInputStreamRead3_2Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
-	backupDataInputStreamCmd.AddCommand(backupDataInputStreamRead3_2Cmd)
-	backupDataInputStreamCmd.AddCommand(backupDataInputStreamSizeCmd)
-	backupCmd.AddCommand(backupDataInputStreamCmd)
+	backupRestoreObserverOnUpdateCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	backupRestoreObserverOnUpdateCmd.Flags().String("arg1", "", "arg1 (string)")
+	backupRestoreObserverCmd.AddCommand(backupRestoreObserverOnUpdateCmd)
+	backupRestoreObserverRestoreFinishedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	backupRestoreObserverCmd.AddCommand(backupRestoreObserverRestoreFinishedCmd)
+	backupRestoreObserverRestoreStartingCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	backupRestoreObserverCmd.AddCommand(backupRestoreObserverRestoreStartingCmd)
+	backupCmd.AddCommand(backupRestoreObserverCmd)
+	backupAgentHelperCmd.AddCommand(backupAgentHelperNewAgentHelperCmd)
+	backupAgentHelperAddHelperCmd.Flags().Int64("handle", 0, "handle (int64)")
+	backupAgentHelperAddHelperCmd.Flags().String("arg0", "", "arg0 (string)")
+	backupAgentHelperAddHelperCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	backupAgentHelperCmd.AddCommand(backupAgentHelperAddHelperCmd)
+	backupAgentHelperOnBackupCmd.Flags().Int64("handle", 0, "handle (int64)")
+	backupAgentHelperOnBackupCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	backupAgentHelperOnBackupCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	backupAgentHelperOnBackupCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	backupAgentHelperCmd.AddCommand(backupAgentHelperOnBackupCmd)
+	backupAgentHelperOnRestoreCmd.Flags().Int64("handle", 0, "handle (int64)")
+	backupAgentHelperOnRestoreCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	backupAgentHelperOnRestoreCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	backupAgentHelperOnRestoreCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	backupAgentHelperCmd.AddCommand(backupAgentHelperOnRestoreCmd)
+	backupCmd.AddCommand(backupAgentHelperCmd)
 	backupManagerNewManagerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	backupManagerCmd.AddCommand(backupManagerNewManagerCmd)
 	backupManagerDataChanged0Cmd.Flags().Int64("handle", 0, "handle (int64)")
@@ -1131,21 +1148,30 @@ func init() {
 	backupManagerDataChanged1_1Cmd.Flags().String("arg0", "", "arg0 (string)")
 	backupManagerCmd.AddCommand(backupManagerDataChanged1_1Cmd)
 	backupCmd.AddCommand(backupManagerCmd)
-	backupFileBackupHelperNewFileBackupHelperCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	backupFileBackupHelperNewFileBackupHelperCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	backupFileBackupHelperCmd.AddCommand(backupFileBackupHelperNewFileBackupHelperCmd)
-	backupFileBackupHelperPerformBackupCmd.Flags().Int64("handle", 0, "handle (int64)")
-	backupFileBackupHelperPerformBackupCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	backupFileBackupHelperPerformBackupCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	backupFileBackupHelperPerformBackupCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	backupFileBackupHelperCmd.AddCommand(backupFileBackupHelperPerformBackupCmd)
-	backupFileBackupHelperRestoreEntityCmd.Flags().Int64("handle", 0, "handle (int64)")
-	backupFileBackupHelperRestoreEntityCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	backupFileBackupHelperCmd.AddCommand(backupFileBackupHelperRestoreEntityCmd)
-	backupFileBackupHelperWriteNewStateDescriptionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	backupFileBackupHelperWriteNewStateDescriptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	backupFileBackupHelperCmd.AddCommand(backupFileBackupHelperWriteNewStateDescriptionCmd)
-	backupCmd.AddCommand(backupFileBackupHelperCmd)
+	backupSharedPreferencesBackupHelperNewSharedPreferencesBackupHelperCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	backupSharedPreferencesBackupHelperNewSharedPreferencesBackupHelperCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	backupSharedPreferencesBackupHelperCmd.AddCommand(backupSharedPreferencesBackupHelperNewSharedPreferencesBackupHelperCmd)
+	backupSharedPreferencesBackupHelperPerformBackupCmd.Flags().Int64("handle", 0, "handle (int64)")
+	backupSharedPreferencesBackupHelperPerformBackupCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	backupSharedPreferencesBackupHelperPerformBackupCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	backupSharedPreferencesBackupHelperPerformBackupCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	backupSharedPreferencesBackupHelperCmd.AddCommand(backupSharedPreferencesBackupHelperPerformBackupCmd)
+	backupSharedPreferencesBackupHelperRestoreEntityCmd.Flags().Int64("handle", 0, "handle (int64)")
+	backupSharedPreferencesBackupHelperRestoreEntityCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	backupSharedPreferencesBackupHelperCmd.AddCommand(backupSharedPreferencesBackupHelperRestoreEntityCmd)
+	backupSharedPreferencesBackupHelperWriteNewStateDescriptionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	backupSharedPreferencesBackupHelperWriteNewStateDescriptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	backupSharedPreferencesBackupHelperCmd.AddCommand(backupSharedPreferencesBackupHelperWriteNewStateDescriptionCmd)
+	backupCmd.AddCommand(backupSharedPreferencesBackupHelperCmd)
+	backupDataOutputCmd.AddCommand(backupDataOutputGetQuotaCmd)
+	backupDataOutputCmd.AddCommand(backupDataOutputGetTransportFlagsCmd)
+	backupDataOutputWriteEntityDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	backupDataOutputWriteEntityDataCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	backupDataOutputCmd.AddCommand(backupDataOutputWriteEntityDataCmd)
+	backupDataOutputWriteEntityHeaderCmd.Flags().String("arg0", "", "arg0 (string)")
+	backupDataOutputWriteEntityHeaderCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	backupDataOutputCmd.AddCommand(backupDataOutputWriteEntityHeaderCmd)
+	backupCmd.AddCommand(backupDataOutputCmd)
 	backupAgentFullBackupFileCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	backupAgentFullBackupFileCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
 	backupAgentCmd.AddCommand(backupAgentFullBackupFileCmd)
@@ -1177,56 +1203,30 @@ func init() {
 	backupAgentCmd.AddCommand(backupAgentOnRestoreFileCmd)
 	backupAgentCmd.AddCommand(backupAgentOnRestoreFinishedCmd)
 	backupCmd.AddCommand(backupAgentCmd)
-	backupFullBackupDataOutputCmd.AddCommand(backupFullBackupDataOutputGetQuotaCmd)
-	backupFullBackupDataOutputCmd.AddCommand(backupFullBackupDataOutputGetTransportFlagsCmd)
-	backupCmd.AddCommand(backupFullBackupDataOutputCmd)
-	backupHelperPerformBackupCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	backupHelperPerformBackupCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	backupHelperPerformBackupCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	backupHelperCmd.AddCommand(backupHelperPerformBackupCmd)
-	backupHelperRestoreEntityCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	backupHelperCmd.AddCommand(backupHelperRestoreEntityCmd)
-	backupHelperWriteNewStateDescriptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	backupHelperCmd.AddCommand(backupHelperWriteNewStateDescriptionCmd)
-	backupCmd.AddCommand(backupHelperCmd)
-	backupSharedPreferencesBackupHelperNewSharedPreferencesBackupHelperCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	backupSharedPreferencesBackupHelperNewSharedPreferencesBackupHelperCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	backupSharedPreferencesBackupHelperCmd.AddCommand(backupSharedPreferencesBackupHelperNewSharedPreferencesBackupHelperCmd)
-	backupSharedPreferencesBackupHelperPerformBackupCmd.Flags().Int64("handle", 0, "handle (int64)")
-	backupSharedPreferencesBackupHelperPerformBackupCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	backupSharedPreferencesBackupHelperPerformBackupCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	backupSharedPreferencesBackupHelperPerformBackupCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	backupSharedPreferencesBackupHelperCmd.AddCommand(backupSharedPreferencesBackupHelperPerformBackupCmd)
-	backupSharedPreferencesBackupHelperRestoreEntityCmd.Flags().Int64("handle", 0, "handle (int64)")
-	backupSharedPreferencesBackupHelperRestoreEntityCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	backupSharedPreferencesBackupHelperCmd.AddCommand(backupSharedPreferencesBackupHelperRestoreEntityCmd)
-	backupSharedPreferencesBackupHelperWriteNewStateDescriptionCmd.Flags().Int64("handle", 0, "handle (int64)")
-	backupSharedPreferencesBackupHelperWriteNewStateDescriptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	backupSharedPreferencesBackupHelperCmd.AddCommand(backupSharedPreferencesBackupHelperWriteNewStateDescriptionCmd)
-	backupCmd.AddCommand(backupSharedPreferencesBackupHelperCmd)
-	backupRestoreObserverOnUpdateCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	backupRestoreObserverOnUpdateCmd.Flags().String("arg1", "", "arg1 (string)")
-	backupRestoreObserverCmd.AddCommand(backupRestoreObserverOnUpdateCmd)
-	backupRestoreObserverRestoreFinishedCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	backupRestoreObserverCmd.AddCommand(backupRestoreObserverRestoreFinishedCmd)
-	backupRestoreObserverRestoreStartingCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	backupRestoreObserverCmd.AddCommand(backupRestoreObserverRestoreStartingCmd)
-	backupCmd.AddCommand(backupRestoreObserverCmd)
-	backupAgentHelperCmd.AddCommand(backupAgentHelperNewAgentHelperCmd)
-	backupAgentHelperAddHelperCmd.Flags().Int64("handle", 0, "handle (int64)")
-	backupAgentHelperAddHelperCmd.Flags().String("arg0", "", "arg0 (string)")
-	backupAgentHelperAddHelperCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	backupAgentHelperCmd.AddCommand(backupAgentHelperAddHelperCmd)
-	backupAgentHelperOnBackupCmd.Flags().Int64("handle", 0, "handle (int64)")
-	backupAgentHelperOnBackupCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	backupAgentHelperOnBackupCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	backupAgentHelperOnBackupCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	backupAgentHelperCmd.AddCommand(backupAgentHelperOnBackupCmd)
-	backupAgentHelperOnRestoreCmd.Flags().Int64("handle", 0, "handle (int64)")
-	backupAgentHelperOnRestoreCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	backupAgentHelperOnRestoreCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	backupAgentHelperOnRestoreCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	backupAgentHelperCmd.AddCommand(backupAgentHelperOnRestoreCmd)
-	backupCmd.AddCommand(backupAgentHelperCmd)
+	backupDataInputStreamCmd.AddCommand(backupDataInputStreamGetKeyCmd)
+	backupDataInputStreamCmd.AddCommand(backupDataInputStreamRead0Cmd)
+	backupDataInputStreamRead1_1Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	backupDataInputStreamCmd.AddCommand(backupDataInputStreamRead1_1Cmd)
+	backupDataInputStreamRead3_2Cmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	backupDataInputStreamRead3_2Cmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	backupDataInputStreamRead3_2Cmd.Flags().Int32("arg2", 0, "arg2 (int32)")
+	backupDataInputStreamCmd.AddCommand(backupDataInputStreamRead3_2Cmd)
+	backupDataInputStreamCmd.AddCommand(backupDataInputStreamSizeCmd)
+	backupCmd.AddCommand(backupDataInputStreamCmd)
+	backupFileBackupHelperNewFileBackupHelperCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	backupFileBackupHelperNewFileBackupHelperCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	backupFileBackupHelperCmd.AddCommand(backupFileBackupHelperNewFileBackupHelperCmd)
+	backupFileBackupHelperPerformBackupCmd.Flags().Int64("handle", 0, "handle (int64)")
+	backupFileBackupHelperPerformBackupCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	backupFileBackupHelperPerformBackupCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	backupFileBackupHelperPerformBackupCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	backupFileBackupHelperCmd.AddCommand(backupFileBackupHelperPerformBackupCmd)
+	backupFileBackupHelperRestoreEntityCmd.Flags().Int64("handle", 0, "handle (int64)")
+	backupFileBackupHelperRestoreEntityCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	backupFileBackupHelperCmd.AddCommand(backupFileBackupHelperRestoreEntityCmd)
+	backupFileBackupHelperWriteNewStateDescriptionCmd.Flags().Int64("handle", 0, "handle (int64)")
+	backupFileBackupHelperWriteNewStateDescriptionCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	backupFileBackupHelperCmd.AddCommand(backupFileBackupHelperWriteNewStateDescriptionCmd)
+	backupCmd.AddCommand(backupFileBackupHelperCmd)
 	rootCmd.AddCommand(backupCmd)
 }

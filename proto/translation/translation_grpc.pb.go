@@ -21,9 +21,151 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	UiTranslationManagerService_RegisterUiTranslationStateCallback_FullMethodName   = "/translation.UiTranslationManagerService/RegisterUiTranslationStateCallback"
+	UiTranslationManagerService_UnregisterUiTranslationStateCallback_FullMethodName = "/translation.UiTranslationManagerService/UnregisterUiTranslationStateCallback"
+)
+
+// UiTranslationManagerServiceClient is the client API for UiTranslationManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type UiTranslationManagerServiceClient interface {
+	RegisterUiTranslationStateCallback(ctx context.Context, in *RegisterUiTranslationStateCallbackRequest, opts ...grpc.CallOption) (*RegisterUiTranslationStateCallbackResponse, error)
+	UnregisterUiTranslationStateCallback(ctx context.Context, in *UnregisterUiTranslationStateCallbackRequest, opts ...grpc.CallOption) (*UnregisterUiTranslationStateCallbackResponse, error)
+}
+
+type uiTranslationManagerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewUiTranslationManagerServiceClient(cc grpc.ClientConnInterface) UiTranslationManagerServiceClient {
+	return &uiTranslationManagerServiceClient{cc}
+}
+
+func (c *uiTranslationManagerServiceClient) RegisterUiTranslationStateCallback(ctx context.Context, in *RegisterUiTranslationStateCallbackRequest, opts ...grpc.CallOption) (*RegisterUiTranslationStateCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RegisterUiTranslationStateCallbackResponse)
+	err := c.cc.Invoke(ctx, UiTranslationManagerService_RegisterUiTranslationStateCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uiTranslationManagerServiceClient) UnregisterUiTranslationStateCallback(ctx context.Context, in *UnregisterUiTranslationStateCallbackRequest, opts ...grpc.CallOption) (*UnregisterUiTranslationStateCallbackResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UnregisterUiTranslationStateCallbackResponse)
+	err := c.cc.Invoke(ctx, UiTranslationManagerService_UnregisterUiTranslationStateCallback_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// UiTranslationManagerServiceServer is the server API for UiTranslationManagerService service.
+// All implementations must embed UnimplementedUiTranslationManagerServiceServer
+// for forward compatibility.
+type UiTranslationManagerServiceServer interface {
+	RegisterUiTranslationStateCallback(context.Context, *RegisterUiTranslationStateCallbackRequest) (*RegisterUiTranslationStateCallbackResponse, error)
+	UnregisterUiTranslationStateCallback(context.Context, *UnregisterUiTranslationStateCallbackRequest) (*UnregisterUiTranslationStateCallbackResponse, error)
+	mustEmbedUnimplementedUiTranslationManagerServiceServer()
+}
+
+// UnimplementedUiTranslationManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedUiTranslationManagerServiceServer struct{}
+
+func (UnimplementedUiTranslationManagerServiceServer) RegisterUiTranslationStateCallback(context.Context, *RegisterUiTranslationStateCallbackRequest) (*RegisterUiTranslationStateCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RegisterUiTranslationStateCallback not implemented")
+}
+func (UnimplementedUiTranslationManagerServiceServer) UnregisterUiTranslationStateCallback(context.Context, *UnregisterUiTranslationStateCallbackRequest) (*UnregisterUiTranslationStateCallbackResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method UnregisterUiTranslationStateCallback not implemented")
+}
+func (UnimplementedUiTranslationManagerServiceServer) mustEmbedUnimplementedUiTranslationManagerServiceServer() {
+}
+func (UnimplementedUiTranslationManagerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeUiTranslationManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to UiTranslationManagerServiceServer will
+// result in compilation errors.
+type UnsafeUiTranslationManagerServiceServer interface {
+	mustEmbedUnimplementedUiTranslationManagerServiceServer()
+}
+
+func RegisterUiTranslationManagerServiceServer(s grpc.ServiceRegistrar, srv UiTranslationManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedUiTranslationManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&UiTranslationManagerService_ServiceDesc, srv)
+}
+
+func _UiTranslationManagerService_RegisterUiTranslationStateCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterUiTranslationStateCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UiTranslationManagerServiceServer).RegisterUiTranslationStateCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UiTranslationManagerService_RegisterUiTranslationStateCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UiTranslationManagerServiceServer).RegisterUiTranslationStateCallback(ctx, req.(*RegisterUiTranslationStateCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UiTranslationManagerService_UnregisterUiTranslationStateCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterUiTranslationStateCallbackRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UiTranslationManagerServiceServer).UnregisterUiTranslationStateCallback(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UiTranslationManagerService_UnregisterUiTranslationStateCallback_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UiTranslationManagerServiceServer).UnregisterUiTranslationStateCallback(ctx, req.(*UnregisterUiTranslationStateCallbackRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// UiTranslationManagerService_ServiceDesc is the grpc.ServiceDesc for UiTranslationManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var UiTranslationManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "translation.UiTranslationManagerService",
+	HandlerType: (*UiTranslationManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "RegisterUiTranslationStateCallback",
+			Handler:    _UiTranslationManagerService_RegisterUiTranslationStateCallback_Handler,
+		},
+		{
+			MethodName: "UnregisterUiTranslationStateCallback",
+			Handler:    _UiTranslationManagerService_UnregisterUiTranslationStateCallback_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/translation/translation.proto",
+}
+
+const (
 	ViewTranslationResponseService_DescribeContents_FullMethodName = "/translation.ViewTranslationResponseService/DescribeContents"
 	ViewTranslationResponseService_Equals_FullMethodName           = "/translation.ViewTranslationResponseService/Equals"
 	ViewTranslationResponseService_GetAutofillId_FullMethodName    = "/translation.ViewTranslationResponseService/GetAutofillId"
+	ViewTranslationResponseService_GetKeys_FullMethodName          = "/translation.ViewTranslationResponseService/GetKeys"
 	ViewTranslationResponseService_GetValue_FullMethodName         = "/translation.ViewTranslationResponseService/GetValue"
 	ViewTranslationResponseService_HashCode_FullMethodName         = "/translation.ViewTranslationResponseService/HashCode"
 	ViewTranslationResponseService_ToString_FullMethodName         = "/translation.ViewTranslationResponseService/ToString"
@@ -37,6 +179,7 @@ type ViewTranslationResponseServiceClient interface {
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
 	GetAutofillId(ctx context.Context, in *GetAutofillIdRequest, opts ...grpc.CallOption) (*GetAutofillIdResponse, error)
+	GetKeys(ctx context.Context, in *GetKeysRequest, opts ...grpc.CallOption) (*GetKeysResponse, error)
 	GetValue(ctx context.Context, in *GetValueRequest, opts ...grpc.CallOption) (*GetValueResponse, error)
 	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
@@ -75,6 +218,16 @@ func (c *viewTranslationResponseServiceClient) GetAutofillId(ctx context.Context
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetAutofillIdResponse)
 	err := c.cc.Invoke(ctx, ViewTranslationResponseService_GetAutofillId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewTranslationResponseServiceClient) GetKeys(ctx context.Context, in *GetKeysRequest, opts ...grpc.CallOption) (*GetKeysResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetKeysResponse)
+	err := c.cc.Invoke(ctx, ViewTranslationResponseService_GetKeys_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -128,6 +281,7 @@ type ViewTranslationResponseServiceServer interface {
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
 	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
 	GetAutofillId(context.Context, *GetAutofillIdRequest) (*GetAutofillIdResponse, error)
+	GetKeys(context.Context, *GetKeysRequest) (*GetKeysResponse, error)
 	GetValue(context.Context, *GetValueRequest) (*GetValueResponse, error)
 	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
 	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
@@ -150,6 +304,9 @@ func (UnimplementedViewTranslationResponseServiceServer) Equals(context.Context,
 }
 func (UnimplementedViewTranslationResponseServiceServer) GetAutofillId(context.Context, *GetAutofillIdRequest) (*GetAutofillIdResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetAutofillId not implemented")
+}
+func (UnimplementedViewTranslationResponseServiceServer) GetKeys(context.Context, *GetKeysRequest) (*GetKeysResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetKeys not implemented")
 }
 func (UnimplementedViewTranslationResponseServiceServer) GetValue(context.Context, *GetValueRequest) (*GetValueResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetValue not implemented")
@@ -235,6 +392,24 @@ func _ViewTranslationResponseService_GetAutofillId_Handler(srv interface{}, ctx 
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ViewTranslationResponseServiceServer).GetAutofillId(ctx, req.(*GetAutofillIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewTranslationResponseService_GetKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetKeysRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewTranslationResponseServiceServer).GetKeys(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewTranslationResponseService_GetKeys_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewTranslationResponseServiceServer).GetKeys(ctx, req.(*GetKeysRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -329,6 +504,10 @@ var ViewTranslationResponseService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetAutofillId",
 			Handler:    _ViewTranslationResponseService_GetAutofillId_Handler,
+		},
+		{
+			MethodName: "GetKeys",
+			Handler:    _ViewTranslationResponseService_GetKeys_Handler,
 		},
 		{
 			MethodName: "GetValue",
@@ -493,140 +672,1729 @@ var ViewTranslationResponseBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	UiTranslationManagerService_RegisterUiTranslationStateCallback_FullMethodName   = "/translation.UiTranslationManagerService/RegisterUiTranslationStateCallback"
-	UiTranslationManagerService_UnregisterUiTranslationStateCallback_FullMethodName = "/translation.UiTranslationManagerService/UnregisterUiTranslationStateCallback"
+	RequestValueService_DescribeContents_FullMethodName = "/translation.RequestValueService/DescribeContents"
+	RequestValueService_Equals_FullMethodName           = "/translation.RequestValueService/Equals"
+	RequestValueService_GetText_FullMethodName          = "/translation.RequestValueService/GetText"
+	RequestValueService_HashCode_FullMethodName         = "/translation.RequestValueService/HashCode"
+	RequestValueService_ToString_FullMethodName         = "/translation.RequestValueService/ToString"
+	RequestValueService_WriteToParcel_FullMethodName    = "/translation.RequestValueService/WriteToParcel"
+	RequestValueService_ForText_FullMethodName          = "/translation.RequestValueService/ForText"
 )
 
-// UiTranslationManagerServiceClient is the client API for UiTranslationManagerService service.
+// RequestValueServiceClient is the client API for RequestValueService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type UiTranslationManagerServiceClient interface {
-	RegisterUiTranslationStateCallback(ctx context.Context, in *RegisterUiTranslationStateCallbackRequest, opts ...grpc.CallOption) (*RegisterUiTranslationStateCallbackResponse, error)
-	UnregisterUiTranslationStateCallback(ctx context.Context, in *UnregisterUiTranslationStateCallbackRequest, opts ...grpc.CallOption) (*UnregisterUiTranslationStateCallbackResponse, error)
+type RequestValueServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error)
+	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+	ForText(ctx context.Context, in *ForTextRequest, opts ...grpc.CallOption) (*ForTextResponse, error)
 }
 
-type uiTranslationManagerServiceClient struct {
+type requestValueServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewUiTranslationManagerServiceClient(cc grpc.ClientConnInterface) UiTranslationManagerServiceClient {
-	return &uiTranslationManagerServiceClient{cc}
+func NewRequestValueServiceClient(cc grpc.ClientConnInterface) RequestValueServiceClient {
+	return &requestValueServiceClient{cc}
 }
 
-func (c *uiTranslationManagerServiceClient) RegisterUiTranslationStateCallback(ctx context.Context, in *RegisterUiTranslationStateCallbackRequest, opts ...grpc.CallOption) (*RegisterUiTranslationStateCallbackResponse, error) {
+func (c *requestValueServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RegisterUiTranslationStateCallbackResponse)
-	err := c.cc.Invoke(ctx, UiTranslationManagerService_RegisterUiTranslationStateCallback_FullMethodName, in, out, cOpts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, RequestValueService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *uiTranslationManagerServiceClient) UnregisterUiTranslationStateCallback(ctx context.Context, in *UnregisterUiTranslationStateCallbackRequest, opts ...grpc.CallOption) (*UnregisterUiTranslationStateCallbackResponse, error) {
+func (c *requestValueServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UnregisterUiTranslationStateCallbackResponse)
-	err := c.cc.Invoke(ctx, UiTranslationManagerService_UnregisterUiTranslationStateCallback_FullMethodName, in, out, cOpts...)
+	out := new(EqualsResponse)
+	err := c.cc.Invoke(ctx, RequestValueService_Equals_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// UiTranslationManagerServiceServer is the server API for UiTranslationManagerService service.
-// All implementations must embed UnimplementedUiTranslationManagerServiceServer
+func (c *requestValueServiceClient) GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextResponse)
+	err := c.cc.Invoke(ctx, RequestValueService_GetText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *requestValueServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HashCodeResponse)
+	err := c.cc.Invoke(ctx, RequestValueService_HashCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *requestValueServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, RequestValueService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *requestValueServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, RequestValueService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *requestValueServiceClient) ForText(ctx context.Context, in *ForTextRequest, opts ...grpc.CallOption) (*ForTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ForTextResponse)
+	err := c.cc.Invoke(ctx, RequestValueService_ForText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RequestValueServiceServer is the server API for RequestValueService service.
+// All implementations must embed UnimplementedRequestValueServiceServer
 // for forward compatibility.
-type UiTranslationManagerServiceServer interface {
-	RegisterUiTranslationStateCallback(context.Context, *RegisterUiTranslationStateCallbackRequest) (*RegisterUiTranslationStateCallbackResponse, error)
-	UnregisterUiTranslationStateCallback(context.Context, *UnregisterUiTranslationStateCallbackRequest) (*UnregisterUiTranslationStateCallbackResponse, error)
-	mustEmbedUnimplementedUiTranslationManagerServiceServer()
+type RequestValueServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetText(context.Context, *GetTextRequest) (*GetTextResponse, error)
+	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	ForText(context.Context, *ForTextRequest) (*ForTextResponse, error)
+	mustEmbedUnimplementedRequestValueServiceServer()
 }
 
-// UnimplementedUiTranslationManagerServiceServer must be embedded to have
+// UnimplementedRequestValueServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedUiTranslationManagerServiceServer struct{}
+type UnimplementedRequestValueServiceServer struct{}
 
-func (UnimplementedUiTranslationManagerServiceServer) RegisterUiTranslationStateCallback(context.Context, *RegisterUiTranslationStateCallbackRequest) (*RegisterUiTranslationStateCallbackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RegisterUiTranslationStateCallback not implemented")
+func (UnimplementedRequestValueServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedUiTranslationManagerServiceServer) UnregisterUiTranslationStateCallback(context.Context, *UnregisterUiTranslationStateCallbackRequest) (*UnregisterUiTranslationStateCallbackResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method UnregisterUiTranslationStateCallback not implemented")
+func (UnimplementedRequestValueServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
 }
-func (UnimplementedUiTranslationManagerServiceServer) mustEmbedUnimplementedUiTranslationManagerServiceServer() {
+func (UnimplementedRequestValueServiceServer) GetText(context.Context, *GetTextRequest) (*GetTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetText not implemented")
 }
-func (UnimplementedUiTranslationManagerServiceServer) testEmbeddedByValue() {}
+func (UnimplementedRequestValueServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
+}
+func (UnimplementedRequestValueServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedRequestValueServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedRequestValueServiceServer) ForText(context.Context, *ForTextRequest) (*ForTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ForText not implemented")
+}
+func (UnimplementedRequestValueServiceServer) mustEmbedUnimplementedRequestValueServiceServer() {}
+func (UnimplementedRequestValueServiceServer) testEmbeddedByValue()                             {}
 
-// UnsafeUiTranslationManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to UiTranslationManagerServiceServer will
+// UnsafeRequestValueServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RequestValueServiceServer will
 // result in compilation errors.
-type UnsafeUiTranslationManagerServiceServer interface {
-	mustEmbedUnimplementedUiTranslationManagerServiceServer()
+type UnsafeRequestValueServiceServer interface {
+	mustEmbedUnimplementedRequestValueServiceServer()
 }
 
-func RegisterUiTranslationManagerServiceServer(s grpc.ServiceRegistrar, srv UiTranslationManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedUiTranslationManagerServiceServer was
+func RegisterRequestValueServiceServer(s grpc.ServiceRegistrar, srv RequestValueServiceServer) {
+	// If the following call panics, it indicates UnimplementedRequestValueServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&UiTranslationManagerService_ServiceDesc, srv)
+	s.RegisterService(&RequestValueService_ServiceDesc, srv)
 }
 
-func _UiTranslationManagerService_RegisterUiTranslationStateCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RegisterUiTranslationStateCallbackRequest)
+func _RequestValueService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UiTranslationManagerServiceServer).RegisterUiTranslationStateCallback(ctx, in)
+		return srv.(RequestValueServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UiTranslationManagerService_RegisterUiTranslationStateCallback_FullMethodName,
+		FullMethod: RequestValueService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UiTranslationManagerServiceServer).RegisterUiTranslationStateCallback(ctx, req.(*RegisterUiTranslationStateCallbackRequest))
+		return srv.(RequestValueServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UiTranslationManagerService_UnregisterUiTranslationStateCallback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UnregisterUiTranslationStateCallbackRequest)
+func _RequestValueService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EqualsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UiTranslationManagerServiceServer).UnregisterUiTranslationStateCallback(ctx, in)
+		return srv.(RequestValueServiceServer).Equals(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UiTranslationManagerService_UnregisterUiTranslationStateCallback_FullMethodName,
+		FullMethod: RequestValueService_Equals_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UiTranslationManagerServiceServer).UnregisterUiTranslationStateCallback(ctx, req.(*UnregisterUiTranslationStateCallbackRequest))
+		return srv.(RequestValueServiceServer).Equals(ctx, req.(*EqualsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// UiTranslationManagerService_ServiceDesc is the grpc.ServiceDesc for UiTranslationManagerService service.
+func _RequestValueService_GetText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RequestValueServiceServer).GetText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RequestValueService_GetText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RequestValueServiceServer).GetText(ctx, req.(*GetTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RequestValueService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HashCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RequestValueServiceServer).HashCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RequestValueService_HashCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RequestValueServiceServer).HashCode(ctx, req.(*HashCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RequestValueService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RequestValueServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RequestValueService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RequestValueServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RequestValueService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RequestValueServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RequestValueService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RequestValueServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RequestValueService_ForText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ForTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RequestValueServiceServer).ForText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RequestValueService_ForText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RequestValueServiceServer).ForText(ctx, req.(*ForTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RequestValueService_ServiceDesc is the grpc.ServiceDesc for RequestValueService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var UiTranslationManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "translation.UiTranslationManagerService",
-	HandlerType: (*UiTranslationManagerServiceServer)(nil),
+var RequestValueService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "translation.RequestValueService",
+	HandlerType: (*RequestValueServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "RegisterUiTranslationStateCallback",
-			Handler:    _UiTranslationManagerService_RegisterUiTranslationStateCallback_Handler,
+			MethodName: "DescribeContents",
+			Handler:    _RequestValueService_DescribeContents_Handler,
 		},
 		{
-			MethodName: "UnregisterUiTranslationStateCallback",
-			Handler:    _UiTranslationManagerService_UnregisterUiTranslationStateCallback_Handler,
+			MethodName: "Equals",
+			Handler:    _RequestValueService_Equals_Handler,
+		},
+		{
+			MethodName: "GetText",
+			Handler:    _RequestValueService_GetText_Handler,
+		},
+		{
+			MethodName: "HashCode",
+			Handler:    _RequestValueService_HashCode_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _RequestValueService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _RequestValueService_WriteToParcel_Handler,
+		},
+		{
+			MethodName: "ForText",
+			Handler:    _RequestValueService_ForText_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/translation/translation.proto",
+}
+
+const (
+	ViewTranslationCallbackService_OnClearTranslation_FullMethodName = "/translation.ViewTranslationCallbackService/OnClearTranslation"
+	ViewTranslationCallbackService_OnHideTranslation_FullMethodName  = "/translation.ViewTranslationCallbackService/OnHideTranslation"
+	ViewTranslationCallbackService_OnShowTranslation_FullMethodName  = "/translation.ViewTranslationCallbackService/OnShowTranslation"
+)
+
+// ViewTranslationCallbackServiceClient is the client API for ViewTranslationCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ViewTranslationCallbackServiceClient interface {
+	OnClearTranslation(ctx context.Context, in *OnClearTranslationRequest, opts ...grpc.CallOption) (*OnClearTranslationResponse, error)
+	OnHideTranslation(ctx context.Context, in *OnHideTranslationRequest, opts ...grpc.CallOption) (*OnHideTranslationResponse, error)
+	OnShowTranslation(ctx context.Context, in *OnShowTranslationRequest, opts ...grpc.CallOption) (*OnShowTranslationResponse, error)
+}
+
+type viewTranslationCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewViewTranslationCallbackServiceClient(cc grpc.ClientConnInterface) ViewTranslationCallbackServiceClient {
+	return &viewTranslationCallbackServiceClient{cc}
+}
+
+func (c *viewTranslationCallbackServiceClient) OnClearTranslation(ctx context.Context, in *OnClearTranslationRequest, opts ...grpc.CallOption) (*OnClearTranslationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnClearTranslationResponse)
+	err := c.cc.Invoke(ctx, ViewTranslationCallbackService_OnClearTranslation_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewTranslationCallbackServiceClient) OnHideTranslation(ctx context.Context, in *OnHideTranslationRequest, opts ...grpc.CallOption) (*OnHideTranslationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnHideTranslationResponse)
+	err := c.cc.Invoke(ctx, ViewTranslationCallbackService_OnHideTranslation_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewTranslationCallbackServiceClient) OnShowTranslation(ctx context.Context, in *OnShowTranslationRequest, opts ...grpc.CallOption) (*OnShowTranslationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnShowTranslationResponse)
+	err := c.cc.Invoke(ctx, ViewTranslationCallbackService_OnShowTranslation_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ViewTranslationCallbackServiceServer is the server API for ViewTranslationCallbackService service.
+// All implementations must embed UnimplementedViewTranslationCallbackServiceServer
+// for forward compatibility.
+type ViewTranslationCallbackServiceServer interface {
+	OnClearTranslation(context.Context, *OnClearTranslationRequest) (*OnClearTranslationResponse, error)
+	OnHideTranslation(context.Context, *OnHideTranslationRequest) (*OnHideTranslationResponse, error)
+	OnShowTranslation(context.Context, *OnShowTranslationRequest) (*OnShowTranslationResponse, error)
+	mustEmbedUnimplementedViewTranslationCallbackServiceServer()
+}
+
+// UnimplementedViewTranslationCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedViewTranslationCallbackServiceServer struct{}
+
+func (UnimplementedViewTranslationCallbackServiceServer) OnClearTranslation(context.Context, *OnClearTranslationRequest) (*OnClearTranslationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnClearTranslation not implemented")
+}
+func (UnimplementedViewTranslationCallbackServiceServer) OnHideTranslation(context.Context, *OnHideTranslationRequest) (*OnHideTranslationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnHideTranslation not implemented")
+}
+func (UnimplementedViewTranslationCallbackServiceServer) OnShowTranslation(context.Context, *OnShowTranslationRequest) (*OnShowTranslationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnShowTranslation not implemented")
+}
+func (UnimplementedViewTranslationCallbackServiceServer) mustEmbedUnimplementedViewTranslationCallbackServiceServer() {
+}
+func (UnimplementedViewTranslationCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeViewTranslationCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ViewTranslationCallbackServiceServer will
+// result in compilation errors.
+type UnsafeViewTranslationCallbackServiceServer interface {
+	mustEmbedUnimplementedViewTranslationCallbackServiceServer()
+}
+
+func RegisterViewTranslationCallbackServiceServer(s grpc.ServiceRegistrar, srv ViewTranslationCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedViewTranslationCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ViewTranslationCallbackService_ServiceDesc, srv)
+}
+
+func _ViewTranslationCallbackService_OnClearTranslation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnClearTranslationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewTranslationCallbackServiceServer).OnClearTranslation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewTranslationCallbackService_OnClearTranslation_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewTranslationCallbackServiceServer).OnClearTranslation(ctx, req.(*OnClearTranslationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewTranslationCallbackService_OnHideTranslation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnHideTranslationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewTranslationCallbackServiceServer).OnHideTranslation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewTranslationCallbackService_OnHideTranslation_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewTranslationCallbackServiceServer).OnHideTranslation(ctx, req.(*OnHideTranslationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewTranslationCallbackService_OnShowTranslation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnShowTranslationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewTranslationCallbackServiceServer).OnShowTranslation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewTranslationCallbackService_OnShowTranslation_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewTranslationCallbackServiceServer).OnShowTranslation(ctx, req.(*OnShowTranslationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ViewTranslationCallbackService_ServiceDesc is the grpc.ServiceDesc for ViewTranslationCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ViewTranslationCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "translation.ViewTranslationCallbackService",
+	HandlerType: (*ViewTranslationCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnClearTranslation",
+			Handler:    _ViewTranslationCallbackService_OnClearTranslation_Handler,
+		},
+		{
+			MethodName: "OnHideTranslation",
+			Handler:    _ViewTranslationCallbackService_OnHideTranslation_Handler,
+		},
+		{
+			MethodName: "OnShowTranslation",
+			Handler:    _ViewTranslationCallbackService_OnShowTranslation_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/translation/translation.proto",
+}
+
+const (
+	CapabilityService_DescribeContents_FullMethodName             = "/translation.CapabilityService/DescribeContents"
+	CapabilityService_GetSourceSpec_FullMethodName                = "/translation.CapabilityService/GetSourceSpec"
+	CapabilityService_GetState_FullMethodName                     = "/translation.CapabilityService/GetState"
+	CapabilityService_GetSupportedTranslationFlags_FullMethodName = "/translation.CapabilityService/GetSupportedTranslationFlags"
+	CapabilityService_GetTargetSpec_FullMethodName                = "/translation.CapabilityService/GetTargetSpec"
+	CapabilityService_IsUiTranslationEnabled_FullMethodName       = "/translation.CapabilityService/IsUiTranslationEnabled"
+	CapabilityService_ToString_FullMethodName                     = "/translation.CapabilityService/ToString"
+	CapabilityService_WriteToParcel_FullMethodName                = "/translation.CapabilityService/WriteToParcel"
+)
+
+// CapabilityServiceClient is the client API for CapabilityService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CapabilityServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetSourceSpec(ctx context.Context, in *GetSourceSpecRequest, opts ...grpc.CallOption) (*GetSourceSpecResponse, error)
+	GetState(ctx context.Context, in *GetStateRequest, opts ...grpc.CallOption) (*GetStateResponse, error)
+	GetSupportedTranslationFlags(ctx context.Context, in *GetSupportedTranslationFlagsRequest, opts ...grpc.CallOption) (*GetSupportedTranslationFlagsResponse, error)
+	GetTargetSpec(ctx context.Context, in *GetTargetSpecRequest, opts ...grpc.CallOption) (*GetTargetSpecResponse, error)
+	IsUiTranslationEnabled(ctx context.Context, in *IsUiTranslationEnabledRequest, opts ...grpc.CallOption) (*IsUiTranslationEnabledResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type capabilityServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCapabilityServiceClient(cc grpc.ClientConnInterface) CapabilityServiceClient {
+	return &capabilityServiceClient{cc}
+}
+
+func (c *capabilityServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, CapabilityService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *capabilityServiceClient) GetSourceSpec(ctx context.Context, in *GetSourceSpecRequest, opts ...grpc.CallOption) (*GetSourceSpecResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSourceSpecResponse)
+	err := c.cc.Invoke(ctx, CapabilityService_GetSourceSpec_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *capabilityServiceClient) GetState(ctx context.Context, in *GetStateRequest, opts ...grpc.CallOption) (*GetStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStateResponse)
+	err := c.cc.Invoke(ctx, CapabilityService_GetState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *capabilityServiceClient) GetSupportedTranslationFlags(ctx context.Context, in *GetSupportedTranslationFlagsRequest, opts ...grpc.CallOption) (*GetSupportedTranslationFlagsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSupportedTranslationFlagsResponse)
+	err := c.cc.Invoke(ctx, CapabilityService_GetSupportedTranslationFlags_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *capabilityServiceClient) GetTargetSpec(ctx context.Context, in *GetTargetSpecRequest, opts ...grpc.CallOption) (*GetTargetSpecResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTargetSpecResponse)
+	err := c.cc.Invoke(ctx, CapabilityService_GetTargetSpec_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *capabilityServiceClient) IsUiTranslationEnabled(ctx context.Context, in *IsUiTranslationEnabledRequest, opts ...grpc.CallOption) (*IsUiTranslationEnabledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsUiTranslationEnabledResponse)
+	err := c.cc.Invoke(ctx, CapabilityService_IsUiTranslationEnabled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *capabilityServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, CapabilityService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *capabilityServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, CapabilityService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CapabilityServiceServer is the server API for CapabilityService service.
+// All implementations must embed UnimplementedCapabilityServiceServer
+// for forward compatibility.
+type CapabilityServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetSourceSpec(context.Context, *GetSourceSpecRequest) (*GetSourceSpecResponse, error)
+	GetState(context.Context, *GetStateRequest) (*GetStateResponse, error)
+	GetSupportedTranslationFlags(context.Context, *GetSupportedTranslationFlagsRequest) (*GetSupportedTranslationFlagsResponse, error)
+	GetTargetSpec(context.Context, *GetTargetSpecRequest) (*GetTargetSpecResponse, error)
+	IsUiTranslationEnabled(context.Context, *IsUiTranslationEnabledRequest) (*IsUiTranslationEnabledResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedCapabilityServiceServer()
+}
+
+// UnimplementedCapabilityServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCapabilityServiceServer struct{}
+
+func (UnimplementedCapabilityServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedCapabilityServiceServer) GetSourceSpec(context.Context, *GetSourceSpecRequest) (*GetSourceSpecResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSourceSpec not implemented")
+}
+func (UnimplementedCapabilityServiceServer) GetState(context.Context, *GetStateRequest) (*GetStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetState not implemented")
+}
+func (UnimplementedCapabilityServiceServer) GetSupportedTranslationFlags(context.Context, *GetSupportedTranslationFlagsRequest) (*GetSupportedTranslationFlagsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSupportedTranslationFlags not implemented")
+}
+func (UnimplementedCapabilityServiceServer) GetTargetSpec(context.Context, *GetTargetSpecRequest) (*GetTargetSpecResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTargetSpec not implemented")
+}
+func (UnimplementedCapabilityServiceServer) IsUiTranslationEnabled(context.Context, *IsUiTranslationEnabledRequest) (*IsUiTranslationEnabledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsUiTranslationEnabled not implemented")
+}
+func (UnimplementedCapabilityServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedCapabilityServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedCapabilityServiceServer) mustEmbedUnimplementedCapabilityServiceServer() {}
+func (UnimplementedCapabilityServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafeCapabilityServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CapabilityServiceServer will
+// result in compilation errors.
+type UnsafeCapabilityServiceServer interface {
+	mustEmbedUnimplementedCapabilityServiceServer()
+}
+
+func RegisterCapabilityServiceServer(s grpc.ServiceRegistrar, srv CapabilityServiceServer) {
+	// If the following call panics, it indicates UnimplementedCapabilityServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CapabilityService_ServiceDesc, srv)
+}
+
+func _CapabilityService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CapabilityServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CapabilityService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CapabilityServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CapabilityService_GetSourceSpec_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSourceSpecRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CapabilityServiceServer).GetSourceSpec(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CapabilityService_GetSourceSpec_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CapabilityServiceServer).GetSourceSpec(ctx, req.(*GetSourceSpecRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CapabilityService_GetState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CapabilityServiceServer).GetState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CapabilityService_GetState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CapabilityServiceServer).GetState(ctx, req.(*GetStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CapabilityService_GetSupportedTranslationFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSupportedTranslationFlagsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CapabilityServiceServer).GetSupportedTranslationFlags(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CapabilityService_GetSupportedTranslationFlags_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CapabilityServiceServer).GetSupportedTranslationFlags(ctx, req.(*GetSupportedTranslationFlagsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CapabilityService_GetTargetSpec_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTargetSpecRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CapabilityServiceServer).GetTargetSpec(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CapabilityService_GetTargetSpec_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CapabilityServiceServer).GetTargetSpec(ctx, req.(*GetTargetSpecRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CapabilityService_IsUiTranslationEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsUiTranslationEnabledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CapabilityServiceServer).IsUiTranslationEnabled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CapabilityService_IsUiTranslationEnabled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CapabilityServiceServer).IsUiTranslationEnabled(ctx, req.(*IsUiTranslationEnabledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CapabilityService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CapabilityServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CapabilityService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CapabilityServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CapabilityService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CapabilityServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CapabilityService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CapabilityServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CapabilityService_ServiceDesc is the grpc.ServiceDesc for CapabilityService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CapabilityService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "translation.CapabilityService",
+	HandlerType: (*CapabilityServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _CapabilityService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetSourceSpec",
+			Handler:    _CapabilityService_GetSourceSpec_Handler,
+		},
+		{
+			MethodName: "GetState",
+			Handler:    _CapabilityService_GetState_Handler,
+		},
+		{
+			MethodName: "GetSupportedTranslationFlags",
+			Handler:    _CapabilityService_GetSupportedTranslationFlags_Handler,
+		},
+		{
+			MethodName: "GetTargetSpec",
+			Handler:    _CapabilityService_GetTargetSpec_Handler,
+		},
+		{
+			MethodName: "IsUiTranslationEnabled",
+			Handler:    _CapabilityService_IsUiTranslationEnabled_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _CapabilityService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _CapabilityService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/translation/translation.proto",
+}
+
+const (
+	UiTranslationStateCallbackService_OnFinished_FullMethodName = "/translation.UiTranslationStateCallbackService/OnFinished"
+	UiTranslationStateCallbackService_OnPaused_FullMethodName   = "/translation.UiTranslationStateCallbackService/OnPaused"
+)
+
+// UiTranslationStateCallbackServiceClient is the client API for UiTranslationStateCallbackService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type UiTranslationStateCallbackServiceClient interface {
+	OnFinished(ctx context.Context, in *OnFinishedRequest, opts ...grpc.CallOption) (*OnFinishedResponse, error)
+	OnPaused(ctx context.Context, in *OnPausedRequest, opts ...grpc.CallOption) (*OnPausedResponse, error)
+}
+
+type uiTranslationStateCallbackServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewUiTranslationStateCallbackServiceClient(cc grpc.ClientConnInterface) UiTranslationStateCallbackServiceClient {
+	return &uiTranslationStateCallbackServiceClient{cc}
+}
+
+func (c *uiTranslationStateCallbackServiceClient) OnFinished(ctx context.Context, in *OnFinishedRequest, opts ...grpc.CallOption) (*OnFinishedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnFinishedResponse)
+	err := c.cc.Invoke(ctx, UiTranslationStateCallbackService_OnFinished_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *uiTranslationStateCallbackServiceClient) OnPaused(ctx context.Context, in *OnPausedRequest, opts ...grpc.CallOption) (*OnPausedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnPausedResponse)
+	err := c.cc.Invoke(ctx, UiTranslationStateCallbackService_OnPaused_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// UiTranslationStateCallbackServiceServer is the server API for UiTranslationStateCallbackService service.
+// All implementations must embed UnimplementedUiTranslationStateCallbackServiceServer
+// for forward compatibility.
+type UiTranslationStateCallbackServiceServer interface {
+	OnFinished(context.Context, *OnFinishedRequest) (*OnFinishedResponse, error)
+	OnPaused(context.Context, *OnPausedRequest) (*OnPausedResponse, error)
+	mustEmbedUnimplementedUiTranslationStateCallbackServiceServer()
+}
+
+// UnimplementedUiTranslationStateCallbackServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedUiTranslationStateCallbackServiceServer struct{}
+
+func (UnimplementedUiTranslationStateCallbackServiceServer) OnFinished(context.Context, *OnFinishedRequest) (*OnFinishedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnFinished not implemented")
+}
+func (UnimplementedUiTranslationStateCallbackServiceServer) OnPaused(context.Context, *OnPausedRequest) (*OnPausedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnPaused not implemented")
+}
+func (UnimplementedUiTranslationStateCallbackServiceServer) mustEmbedUnimplementedUiTranslationStateCallbackServiceServer() {
+}
+func (UnimplementedUiTranslationStateCallbackServiceServer) testEmbeddedByValue() {}
+
+// UnsafeUiTranslationStateCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to UiTranslationStateCallbackServiceServer will
+// result in compilation errors.
+type UnsafeUiTranslationStateCallbackServiceServer interface {
+	mustEmbedUnimplementedUiTranslationStateCallbackServiceServer()
+}
+
+func RegisterUiTranslationStateCallbackServiceServer(s grpc.ServiceRegistrar, srv UiTranslationStateCallbackServiceServer) {
+	// If the following call panics, it indicates UnimplementedUiTranslationStateCallbackServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&UiTranslationStateCallbackService_ServiceDesc, srv)
+}
+
+func _UiTranslationStateCallbackService_OnFinished_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnFinishedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UiTranslationStateCallbackServiceServer).OnFinished(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UiTranslationStateCallbackService_OnFinished_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UiTranslationStateCallbackServiceServer).OnFinished(ctx, req.(*OnFinishedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UiTranslationStateCallbackService_OnPaused_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnPausedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UiTranslationStateCallbackServiceServer).OnPaused(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UiTranslationStateCallbackService_OnPaused_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UiTranslationStateCallbackServiceServer).OnPaused(ctx, req.(*OnPausedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// UiTranslationStateCallbackService_ServiceDesc is the grpc.ServiceDesc for UiTranslationStateCallbackService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var UiTranslationStateCallbackService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "translation.UiTranslationStateCallbackService",
+	HandlerType: (*UiTranslationStateCallbackServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnFinished",
+			Handler:    _UiTranslationStateCallbackService_OnFinished_Handler,
+		},
+		{
+			MethodName: "OnPaused",
+			Handler:    _UiTranslationStateCallbackService_OnPaused_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/translation/translation.proto",
+}
+
+const (
+	ContextService_DescribeContents_FullMethodName    = "/translation.ContextService/DescribeContents"
+	ContextService_GetSourceSpec_FullMethodName       = "/translation.ContextService/GetSourceSpec"
+	ContextService_GetTargetSpec_FullMethodName       = "/translation.ContextService/GetTargetSpec"
+	ContextService_GetTranslationFlags_FullMethodName = "/translation.ContextService/GetTranslationFlags"
+	ContextService_ToString_FullMethodName            = "/translation.ContextService/ToString"
+	ContextService_WriteToParcel_FullMethodName       = "/translation.ContextService/WriteToParcel"
+)
+
+// ContextServiceClient is the client API for ContextService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ContextServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetSourceSpec(ctx context.Context, in *GetSourceSpecRequest, opts ...grpc.CallOption) (*GetSourceSpecResponse, error)
+	GetTargetSpec(ctx context.Context, in *GetTargetSpecRequest, opts ...grpc.CallOption) (*GetTargetSpecResponse, error)
+	GetTranslationFlags(ctx context.Context, in *GetTranslationFlagsRequest, opts ...grpc.CallOption) (*GetTranslationFlagsResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type contextServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewContextServiceClient(cc grpc.ClientConnInterface) ContextServiceClient {
+	return &contextServiceClient{cc}
+}
+
+func (c *contextServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ContextService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contextServiceClient) GetSourceSpec(ctx context.Context, in *GetSourceSpecRequest, opts ...grpc.CallOption) (*GetSourceSpecResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSourceSpecResponse)
+	err := c.cc.Invoke(ctx, ContextService_GetSourceSpec_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contextServiceClient) GetTargetSpec(ctx context.Context, in *GetTargetSpecRequest, opts ...grpc.CallOption) (*GetTargetSpecResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTargetSpecResponse)
+	err := c.cc.Invoke(ctx, ContextService_GetTargetSpec_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contextServiceClient) GetTranslationFlags(ctx context.Context, in *GetTranslationFlagsRequest, opts ...grpc.CallOption) (*GetTranslationFlagsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTranslationFlagsResponse)
+	err := c.cc.Invoke(ctx, ContextService_GetTranslationFlags_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contextServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, ContextService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contextServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ContextService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ContextServiceServer is the server API for ContextService service.
+// All implementations must embed UnimplementedContextServiceServer
+// for forward compatibility.
+type ContextServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetSourceSpec(context.Context, *GetSourceSpecRequest) (*GetSourceSpecResponse, error)
+	GetTargetSpec(context.Context, *GetTargetSpecRequest) (*GetTargetSpecResponse, error)
+	GetTranslationFlags(context.Context, *GetTranslationFlagsRequest) (*GetTranslationFlagsResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedContextServiceServer()
+}
+
+// UnimplementedContextServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedContextServiceServer struct{}
+
+func (UnimplementedContextServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedContextServiceServer) GetSourceSpec(context.Context, *GetSourceSpecRequest) (*GetSourceSpecResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSourceSpec not implemented")
+}
+func (UnimplementedContextServiceServer) GetTargetSpec(context.Context, *GetTargetSpecRequest) (*GetTargetSpecResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTargetSpec not implemented")
+}
+func (UnimplementedContextServiceServer) GetTranslationFlags(context.Context, *GetTranslationFlagsRequest) (*GetTranslationFlagsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTranslationFlags not implemented")
+}
+func (UnimplementedContextServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedContextServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedContextServiceServer) mustEmbedUnimplementedContextServiceServer() {}
+func (UnimplementedContextServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeContextServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ContextServiceServer will
+// result in compilation errors.
+type UnsafeContextServiceServer interface {
+	mustEmbedUnimplementedContextServiceServer()
+}
+
+func RegisterContextServiceServer(s grpc.ServiceRegistrar, srv ContextServiceServer) {
+	// If the following call panics, it indicates UnimplementedContextServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ContextService_ServiceDesc, srv)
+}
+
+func _ContextService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContextServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContextService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContextServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContextService_GetSourceSpec_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSourceSpecRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContextServiceServer).GetSourceSpec(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContextService_GetSourceSpec_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContextServiceServer).GetSourceSpec(ctx, req.(*GetSourceSpecRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContextService_GetTargetSpec_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTargetSpecRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContextServiceServer).GetTargetSpec(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContextService_GetTargetSpec_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContextServiceServer).GetTargetSpec(ctx, req.(*GetTargetSpecRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContextService_GetTranslationFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTranslationFlagsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContextServiceServer).GetTranslationFlags(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContextService_GetTranslationFlags_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContextServiceServer).GetTranslationFlags(ctx, req.(*GetTranslationFlagsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContextService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContextServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContextService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContextServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContextService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContextServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContextService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContextServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ContextService_ServiceDesc is the grpc.ServiceDesc for ContextService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ContextService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "translation.ContextService",
+	HandlerType: (*ContextServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _ContextService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetSourceSpec",
+			Handler:    _ContextService_GetSourceSpec_Handler,
+		},
+		{
+			MethodName: "GetTargetSpec",
+			Handler:    _ContextService_GetTargetSpec_Handler,
+		},
+		{
+			MethodName: "GetTranslationFlags",
+			Handler:    _ContextService_GetTranslationFlags_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _ContextService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _ContextService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/translation/translation.proto",
+}
+
+const (
+	ContextBuilderService_Build_FullMethodName               = "/translation.ContextBuilderService/Build"
+	ContextBuilderService_SetTranslationFlags_FullMethodName = "/translation.ContextBuilderService/SetTranslationFlags"
+)
+
+// ContextBuilderServiceClient is the client API for ContextBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ContextBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetTranslationFlags(ctx context.Context, in *SetTranslationFlagsRequest, opts ...grpc.CallOption) (*SetTranslationFlagsResponse, error)
+}
+
+type contextBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewContextBuilderServiceClient(cc grpc.ClientConnInterface) ContextBuilderServiceClient {
+	return &contextBuilderServiceClient{cc}
+}
+
+func (c *contextBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, ContextBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contextBuilderServiceClient) SetTranslationFlags(ctx context.Context, in *SetTranslationFlagsRequest, opts ...grpc.CallOption) (*SetTranslationFlagsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTranslationFlagsResponse)
+	err := c.cc.Invoke(ctx, ContextBuilderService_SetTranslationFlags_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ContextBuilderServiceServer is the server API for ContextBuilderService service.
+// All implementations must embed UnimplementedContextBuilderServiceServer
+// for forward compatibility.
+type ContextBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetTranslationFlags(context.Context, *SetTranslationFlagsRequest) (*SetTranslationFlagsResponse, error)
+	mustEmbedUnimplementedContextBuilderServiceServer()
+}
+
+// UnimplementedContextBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedContextBuilderServiceServer struct{}
+
+func (UnimplementedContextBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedContextBuilderServiceServer) SetTranslationFlags(context.Context, *SetTranslationFlagsRequest) (*SetTranslationFlagsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTranslationFlags not implemented")
+}
+func (UnimplementedContextBuilderServiceServer) mustEmbedUnimplementedContextBuilderServiceServer() {}
+func (UnimplementedContextBuilderServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeContextBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ContextBuilderServiceServer will
+// result in compilation errors.
+type UnsafeContextBuilderServiceServer interface {
+	mustEmbedUnimplementedContextBuilderServiceServer()
+}
+
+func RegisterContextBuilderServiceServer(s grpc.ServiceRegistrar, srv ContextBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedContextBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ContextBuilderService_ServiceDesc, srv)
+}
+
+func _ContextBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContextBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContextBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContextBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContextBuilderService_SetTranslationFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTranslationFlagsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContextBuilderServiceServer).SetTranslationFlags(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContextBuilderService_SetTranslationFlags_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContextBuilderServiceServer).SetTranslationFlags(ctx, req.(*SetTranslationFlagsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ContextBuilderService_ServiceDesc is the grpc.ServiceDesc for ContextBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ContextBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "translation.ContextBuilderService",
+	HandlerType: (*ContextBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _ContextBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetTranslationFlags",
+			Handler:    _ContextBuilderService_SetTranslationFlags_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/translation/translation.proto",
+}
+
+const (
+	ManagerService_GetOnDeviceTranslationCapabilities_FullMethodName           = "/translation.ManagerService/GetOnDeviceTranslationCapabilities"
+	ManagerService_GetOnDeviceTranslationSettingsActivityIntent_FullMethodName = "/translation.ManagerService/GetOnDeviceTranslationSettingsActivityIntent"
+)
+
+// ManagerServiceClient is the client API for ManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerServiceClient interface {
+	GetOnDeviceTranslationCapabilities(ctx context.Context, in *GetOnDeviceTranslationCapabilitiesRequest, opts ...grpc.CallOption) (*GetOnDeviceTranslationCapabilitiesResponse, error)
+	GetOnDeviceTranslationSettingsActivityIntent(ctx context.Context, in *GetOnDeviceTranslationSettingsActivityIntentRequest, opts ...grpc.CallOption) (*GetOnDeviceTranslationSettingsActivityIntentResponse, error)
+}
+
+type managerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
+	return &managerServiceClient{cc}
+}
+
+func (c *managerServiceClient) GetOnDeviceTranslationCapabilities(ctx context.Context, in *GetOnDeviceTranslationCapabilitiesRequest, opts ...grpc.CallOption) (*GetOnDeviceTranslationCapabilitiesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOnDeviceTranslationCapabilitiesResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetOnDeviceTranslationCapabilities_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetOnDeviceTranslationSettingsActivityIntent(ctx context.Context, in *GetOnDeviceTranslationSettingsActivityIntentRequest, opts ...grpc.CallOption) (*GetOnDeviceTranslationSettingsActivityIntentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOnDeviceTranslationSettingsActivityIntentResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetOnDeviceTranslationSettingsActivityIntent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerServiceServer is the server API for ManagerService service.
+// All implementations must embed UnimplementedManagerServiceServer
+// for forward compatibility.
+type ManagerServiceServer interface {
+	GetOnDeviceTranslationCapabilities(context.Context, *GetOnDeviceTranslationCapabilitiesRequest) (*GetOnDeviceTranslationCapabilitiesResponse, error)
+	GetOnDeviceTranslationSettingsActivityIntent(context.Context, *GetOnDeviceTranslationSettingsActivityIntentRequest) (*GetOnDeviceTranslationSettingsActivityIntentResponse, error)
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+// UnimplementedManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerServiceServer struct{}
+
+func (UnimplementedManagerServiceServer) GetOnDeviceTranslationCapabilities(context.Context, *GetOnDeviceTranslationCapabilitiesRequest) (*GetOnDeviceTranslationCapabilitiesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOnDeviceTranslationCapabilities not implemented")
+}
+func (UnimplementedManagerServiceServer) GetOnDeviceTranslationSettingsActivityIntent(context.Context, *GetOnDeviceTranslationSettingsActivityIntentRequest) (*GetOnDeviceTranslationSettingsActivityIntentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOnDeviceTranslationSettingsActivityIntent not implemented")
+}
+func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
+func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerServiceServer will
+// result in compilation errors.
+type UnsafeManagerServiceServer interface {
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerService_ServiceDesc, srv)
+}
+
+func _ManagerService_GetOnDeviceTranslationCapabilities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOnDeviceTranslationCapabilitiesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetOnDeviceTranslationCapabilities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetOnDeviceTranslationCapabilities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetOnDeviceTranslationCapabilities(ctx, req.(*GetOnDeviceTranslationCapabilitiesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetOnDeviceTranslationSettingsActivityIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOnDeviceTranslationSettingsActivityIntentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetOnDeviceTranslationSettingsActivityIntent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetOnDeviceTranslationSettingsActivityIntent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetOnDeviceTranslationSettingsActivityIntent(ctx, req.(*GetOnDeviceTranslationSettingsActivityIntentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "translation.ManagerService",
+	HandlerType: (*ManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetOnDeviceTranslationCapabilities",
+			Handler:    _ManagerService_GetOnDeviceTranslationCapabilities_Handler,
+		},
+		{
+			MethodName: "GetOnDeviceTranslationSettingsActivityIntent",
+			Handler:    _ManagerService_GetOnDeviceTranslationSettingsActivityIntent_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/translation/translation.proto",
+}
+
+const (
+	TranslatorService_Destroy_FullMethodName     = "/translation.TranslatorService/Destroy"
+	TranslatorService_IsDestroyed_FullMethodName = "/translation.TranslatorService/IsDestroyed"
+)
+
+// TranslatorServiceClient is the client API for TranslatorService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type TranslatorServiceClient interface {
+	Destroy(ctx context.Context, in *DestroyRequest, opts ...grpc.CallOption) (*DestroyResponse, error)
+	IsDestroyed(ctx context.Context, in *IsDestroyedRequest, opts ...grpc.CallOption) (*IsDestroyedResponse, error)
+}
+
+type translatorServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewTranslatorServiceClient(cc grpc.ClientConnInterface) TranslatorServiceClient {
+	return &translatorServiceClient{cc}
+}
+
+func (c *translatorServiceClient) Destroy(ctx context.Context, in *DestroyRequest, opts ...grpc.CallOption) (*DestroyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DestroyResponse)
+	err := c.cc.Invoke(ctx, TranslatorService_Destroy_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *translatorServiceClient) IsDestroyed(ctx context.Context, in *IsDestroyedRequest, opts ...grpc.CallOption) (*IsDestroyedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsDestroyedResponse)
+	err := c.cc.Invoke(ctx, TranslatorService_IsDestroyed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// TranslatorServiceServer is the server API for TranslatorService service.
+// All implementations must embed UnimplementedTranslatorServiceServer
+// for forward compatibility.
+type TranslatorServiceServer interface {
+	Destroy(context.Context, *DestroyRequest) (*DestroyResponse, error)
+	IsDestroyed(context.Context, *IsDestroyedRequest) (*IsDestroyedResponse, error)
+	mustEmbedUnimplementedTranslatorServiceServer()
+}
+
+// UnimplementedTranslatorServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedTranslatorServiceServer struct{}
+
+func (UnimplementedTranslatorServiceServer) Destroy(context.Context, *DestroyRequest) (*DestroyResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Destroy not implemented")
+}
+func (UnimplementedTranslatorServiceServer) IsDestroyed(context.Context, *IsDestroyedRequest) (*IsDestroyedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsDestroyed not implemented")
+}
+func (UnimplementedTranslatorServiceServer) mustEmbedUnimplementedTranslatorServiceServer() {}
+func (UnimplementedTranslatorServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafeTranslatorServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to TranslatorServiceServer will
+// result in compilation errors.
+type UnsafeTranslatorServiceServer interface {
+	mustEmbedUnimplementedTranslatorServiceServer()
+}
+
+func RegisterTranslatorServiceServer(s grpc.ServiceRegistrar, srv TranslatorServiceServer) {
+	// If the following call panics, it indicates UnimplementedTranslatorServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&TranslatorService_ServiceDesc, srv)
+}
+
+func _TranslatorService_Destroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DestroyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TranslatorServiceServer).Destroy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TranslatorService_Destroy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TranslatorServiceServer).Destroy(ctx, req.(*DestroyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TranslatorService_IsDestroyed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsDestroyedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TranslatorServiceServer).IsDestroyed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TranslatorService_IsDestroyed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TranslatorServiceServer).IsDestroyed(ctx, req.(*IsDestroyedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// TranslatorService_ServiceDesc is the grpc.ServiceDesc for TranslatorService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var TranslatorService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "translation.TranslatorService",
+	HandlerType: (*TranslatorServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Destroy",
+			Handler:    _TranslatorService_Destroy_Handler,
+		},
+		{
+			MethodName: "IsDestroyed",
+			Handler:    _TranslatorService_IsDestroyed_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -637,6 +2405,7 @@ const (
 	ViewTranslationRequestService_DescribeContents_FullMethodName = "/translation.ViewTranslationRequestService/DescribeContents"
 	ViewTranslationRequestService_Equals_FullMethodName           = "/translation.ViewTranslationRequestService/Equals"
 	ViewTranslationRequestService_GetAutofillId_FullMethodName    = "/translation.ViewTranslationRequestService/GetAutofillId"
+	ViewTranslationRequestService_GetKeys_FullMethodName          = "/translation.ViewTranslationRequestService/GetKeys"
 	ViewTranslationRequestService_GetValue_FullMethodName         = "/translation.ViewTranslationRequestService/GetValue"
 	ViewTranslationRequestService_HashCode_FullMethodName         = "/translation.ViewTranslationRequestService/HashCode"
 	ViewTranslationRequestService_ToString_FullMethodName         = "/translation.ViewTranslationRequestService/ToString"
@@ -650,6 +2419,7 @@ type ViewTranslationRequestServiceClient interface {
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
 	GetAutofillId(ctx context.Context, in *GetAutofillIdRequest, opts ...grpc.CallOption) (*GetAutofillIdResponse, error)
+	GetKeys(ctx context.Context, in *GetKeysRequest, opts ...grpc.CallOption) (*GetKeysResponse, error)
 	GetValue(ctx context.Context, in *GetValueRequest, opts ...grpc.CallOption) (*GetValueResponse, error)
 	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
@@ -688,6 +2458,16 @@ func (c *viewTranslationRequestServiceClient) GetAutofillId(ctx context.Context,
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetAutofillIdResponse)
 	err := c.cc.Invoke(ctx, ViewTranslationRequestService_GetAutofillId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *viewTranslationRequestServiceClient) GetKeys(ctx context.Context, in *GetKeysRequest, opts ...grpc.CallOption) (*GetKeysResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetKeysResponse)
+	err := c.cc.Invoke(ctx, ViewTranslationRequestService_GetKeys_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -741,6 +2521,7 @@ type ViewTranslationRequestServiceServer interface {
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
 	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
 	GetAutofillId(context.Context, *GetAutofillIdRequest) (*GetAutofillIdResponse, error)
+	GetKeys(context.Context, *GetKeysRequest) (*GetKeysResponse, error)
 	GetValue(context.Context, *GetValueRequest) (*GetValueResponse, error)
 	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
 	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
@@ -763,6 +2544,9 @@ func (UnimplementedViewTranslationRequestServiceServer) Equals(context.Context, 
 }
 func (UnimplementedViewTranslationRequestServiceServer) GetAutofillId(context.Context, *GetAutofillIdRequest) (*GetAutofillIdResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetAutofillId not implemented")
+}
+func (UnimplementedViewTranslationRequestServiceServer) GetKeys(context.Context, *GetKeysRequest) (*GetKeysResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetKeys not implemented")
 }
 func (UnimplementedViewTranslationRequestServiceServer) GetValue(context.Context, *GetValueRequest) (*GetValueResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetValue not implemented")
@@ -848,6 +2632,24 @@ func _ViewTranslationRequestService_GetAutofillId_Handler(srv interface{}, ctx c
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ViewTranslationRequestServiceServer).GetAutofillId(ctx, req.(*GetAutofillIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ViewTranslationRequestService_GetKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetKeysRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ViewTranslationRequestServiceServer).GetKeys(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ViewTranslationRequestService_GetKeys_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ViewTranslationRequestServiceServer).GetKeys(ctx, req.(*GetKeysRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -942,6 +2744,10 @@ var ViewTranslationRequestService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetAutofillId",
 			Handler:    _ViewTranslationRequestService_GetAutofillId_Handler,
+		},
+		{
+			MethodName: "GetKeys",
+			Handler:    _ViewTranslationRequestService_GetKeys_Handler,
 		},
 		{
 			MethodName: "GetValue",
@@ -1099,6 +2905,985 @@ var ViewTranslationRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SetValue",
 			Handler:    _ViewTranslationRequestBuilderService_SetValue_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/translation/translation.proto",
+}
+
+const (
+	ResponseService_DescribeContents_FullMethodName             = "/translation.ResponseService/DescribeContents"
+	ResponseService_GetTranslationResponseValues_FullMethodName = "/translation.ResponseService/GetTranslationResponseValues"
+	ResponseService_GetTranslationStatus_FullMethodName         = "/translation.ResponseService/GetTranslationStatus"
+	ResponseService_GetViewTranslationResponses_FullMethodName  = "/translation.ResponseService/GetViewTranslationResponses"
+	ResponseService_IsFinalResponse_FullMethodName              = "/translation.ResponseService/IsFinalResponse"
+	ResponseService_ToString_FullMethodName                     = "/translation.ResponseService/ToString"
+	ResponseService_WriteToParcel_FullMethodName                = "/translation.ResponseService/WriteToParcel"
+)
+
+// ResponseServiceClient is the client API for ResponseService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ResponseServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetTranslationResponseValues(ctx context.Context, in *GetTranslationResponseValuesRequest, opts ...grpc.CallOption) (*GetTranslationResponseValuesResponse, error)
+	GetTranslationStatus(ctx context.Context, in *GetTranslationStatusRequest, opts ...grpc.CallOption) (*GetTranslationStatusResponse, error)
+	GetViewTranslationResponses(ctx context.Context, in *GetViewTranslationResponsesRequest, opts ...grpc.CallOption) (*GetViewTranslationResponsesResponse, error)
+	IsFinalResponse(ctx context.Context, in *IsFinalResponseRequest, opts ...grpc.CallOption) (*IsFinalResponseResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type responseServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewResponseServiceClient(cc grpc.ClientConnInterface) ResponseServiceClient {
+	return &responseServiceClient{cc}
+}
+
+func (c *responseServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ResponseService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responseServiceClient) GetTranslationResponseValues(ctx context.Context, in *GetTranslationResponseValuesRequest, opts ...grpc.CallOption) (*GetTranslationResponseValuesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTranslationResponseValuesResponse)
+	err := c.cc.Invoke(ctx, ResponseService_GetTranslationResponseValues_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responseServiceClient) GetTranslationStatus(ctx context.Context, in *GetTranslationStatusRequest, opts ...grpc.CallOption) (*GetTranslationStatusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTranslationStatusResponse)
+	err := c.cc.Invoke(ctx, ResponseService_GetTranslationStatus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responseServiceClient) GetViewTranslationResponses(ctx context.Context, in *GetViewTranslationResponsesRequest, opts ...grpc.CallOption) (*GetViewTranslationResponsesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetViewTranslationResponsesResponse)
+	err := c.cc.Invoke(ctx, ResponseService_GetViewTranslationResponses_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responseServiceClient) IsFinalResponse(ctx context.Context, in *IsFinalResponseRequest, opts ...grpc.CallOption) (*IsFinalResponseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsFinalResponseResponse)
+	err := c.cc.Invoke(ctx, ResponseService_IsFinalResponse_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responseServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, ResponseService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responseServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ResponseService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ResponseServiceServer is the server API for ResponseService service.
+// All implementations must embed UnimplementedResponseServiceServer
+// for forward compatibility.
+type ResponseServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetTranslationResponseValues(context.Context, *GetTranslationResponseValuesRequest) (*GetTranslationResponseValuesResponse, error)
+	GetTranslationStatus(context.Context, *GetTranslationStatusRequest) (*GetTranslationStatusResponse, error)
+	GetViewTranslationResponses(context.Context, *GetViewTranslationResponsesRequest) (*GetViewTranslationResponsesResponse, error)
+	IsFinalResponse(context.Context, *IsFinalResponseRequest) (*IsFinalResponseResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedResponseServiceServer()
+}
+
+// UnimplementedResponseServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedResponseServiceServer struct{}
+
+func (UnimplementedResponseServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedResponseServiceServer) GetTranslationResponseValues(context.Context, *GetTranslationResponseValuesRequest) (*GetTranslationResponseValuesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTranslationResponseValues not implemented")
+}
+func (UnimplementedResponseServiceServer) GetTranslationStatus(context.Context, *GetTranslationStatusRequest) (*GetTranslationStatusResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTranslationStatus not implemented")
+}
+func (UnimplementedResponseServiceServer) GetViewTranslationResponses(context.Context, *GetViewTranslationResponsesRequest) (*GetViewTranslationResponsesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetViewTranslationResponses not implemented")
+}
+func (UnimplementedResponseServiceServer) IsFinalResponse(context.Context, *IsFinalResponseRequest) (*IsFinalResponseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsFinalResponse not implemented")
+}
+func (UnimplementedResponseServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedResponseServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedResponseServiceServer) mustEmbedUnimplementedResponseServiceServer() {}
+func (UnimplementedResponseServiceServer) testEmbeddedByValue()                         {}
+
+// UnsafeResponseServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ResponseServiceServer will
+// result in compilation errors.
+type UnsafeResponseServiceServer interface {
+	mustEmbedUnimplementedResponseServiceServer()
+}
+
+func RegisterResponseServiceServer(s grpc.ServiceRegistrar, srv ResponseServiceServer) {
+	// If the following call panics, it indicates UnimplementedResponseServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ResponseService_ServiceDesc, srv)
+}
+
+func _ResponseService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponseServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponseService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponseServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponseService_GetTranslationResponseValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTranslationResponseValuesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponseServiceServer).GetTranslationResponseValues(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponseService_GetTranslationResponseValues_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponseServiceServer).GetTranslationResponseValues(ctx, req.(*GetTranslationResponseValuesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponseService_GetTranslationStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTranslationStatusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponseServiceServer).GetTranslationStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponseService_GetTranslationStatus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponseServiceServer).GetTranslationStatus(ctx, req.(*GetTranslationStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponseService_GetViewTranslationResponses_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetViewTranslationResponsesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponseServiceServer).GetViewTranslationResponses(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponseService_GetViewTranslationResponses_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponseServiceServer).GetViewTranslationResponses(ctx, req.(*GetViewTranslationResponsesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponseService_IsFinalResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsFinalResponseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponseServiceServer).IsFinalResponse(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponseService_IsFinalResponse_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponseServiceServer).IsFinalResponse(ctx, req.(*IsFinalResponseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponseService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponseServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponseService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponseServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponseService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponseServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponseService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponseServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ResponseService_ServiceDesc is the grpc.ServiceDesc for ResponseService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ResponseService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "translation.ResponseService",
+	HandlerType: (*ResponseServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _ResponseService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetTranslationResponseValues",
+			Handler:    _ResponseService_GetTranslationResponseValues_Handler,
+		},
+		{
+			MethodName: "GetTranslationStatus",
+			Handler:    _ResponseService_GetTranslationStatus_Handler,
+		},
+		{
+			MethodName: "GetViewTranslationResponses",
+			Handler:    _ResponseService_GetViewTranslationResponses_Handler,
+		},
+		{
+			MethodName: "IsFinalResponse",
+			Handler:    _ResponseService_IsFinalResponse_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _ResponseService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _ResponseService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/translation/translation.proto",
+}
+
+const (
+	ResponseBuilderService_Build_FullMethodName                       = "/translation.ResponseBuilderService/Build"
+	ResponseBuilderService_SetFinalResponse_FullMethodName            = "/translation.ResponseBuilderService/SetFinalResponse"
+	ResponseBuilderService_SetTranslationResponseValue_FullMethodName = "/translation.ResponseBuilderService/SetTranslationResponseValue"
+	ResponseBuilderService_SetViewTranslationResponse_FullMethodName  = "/translation.ResponseBuilderService/SetViewTranslationResponse"
+)
+
+// ResponseBuilderServiceClient is the client API for ResponseBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ResponseBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetFinalResponse(ctx context.Context, in *SetFinalResponseRequest, opts ...grpc.CallOption) (*SetFinalResponseResponse, error)
+	SetTranslationResponseValue(ctx context.Context, in *SetTranslationResponseValueRequest, opts ...grpc.CallOption) (*SetTranslationResponseValueResponse, error)
+	SetViewTranslationResponse(ctx context.Context, in *SetViewTranslationResponseRequest, opts ...grpc.CallOption) (*SetViewTranslationResponseResponse, error)
+}
+
+type responseBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewResponseBuilderServiceClient(cc grpc.ClientConnInterface) ResponseBuilderServiceClient {
+	return &responseBuilderServiceClient{cc}
+}
+
+func (c *responseBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, ResponseBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responseBuilderServiceClient) SetFinalResponse(ctx context.Context, in *SetFinalResponseRequest, opts ...grpc.CallOption) (*SetFinalResponseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetFinalResponseResponse)
+	err := c.cc.Invoke(ctx, ResponseBuilderService_SetFinalResponse_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responseBuilderServiceClient) SetTranslationResponseValue(ctx context.Context, in *SetTranslationResponseValueRequest, opts ...grpc.CallOption) (*SetTranslationResponseValueResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTranslationResponseValueResponse)
+	err := c.cc.Invoke(ctx, ResponseBuilderService_SetTranslationResponseValue_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responseBuilderServiceClient) SetViewTranslationResponse(ctx context.Context, in *SetViewTranslationResponseRequest, opts ...grpc.CallOption) (*SetViewTranslationResponseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetViewTranslationResponseResponse)
+	err := c.cc.Invoke(ctx, ResponseBuilderService_SetViewTranslationResponse_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ResponseBuilderServiceServer is the server API for ResponseBuilderService service.
+// All implementations must embed UnimplementedResponseBuilderServiceServer
+// for forward compatibility.
+type ResponseBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetFinalResponse(context.Context, *SetFinalResponseRequest) (*SetFinalResponseResponse, error)
+	SetTranslationResponseValue(context.Context, *SetTranslationResponseValueRequest) (*SetTranslationResponseValueResponse, error)
+	SetViewTranslationResponse(context.Context, *SetViewTranslationResponseRequest) (*SetViewTranslationResponseResponse, error)
+	mustEmbedUnimplementedResponseBuilderServiceServer()
+}
+
+// UnimplementedResponseBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedResponseBuilderServiceServer struct{}
+
+func (UnimplementedResponseBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedResponseBuilderServiceServer) SetFinalResponse(context.Context, *SetFinalResponseRequest) (*SetFinalResponseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetFinalResponse not implemented")
+}
+func (UnimplementedResponseBuilderServiceServer) SetTranslationResponseValue(context.Context, *SetTranslationResponseValueRequest) (*SetTranslationResponseValueResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetTranslationResponseValue not implemented")
+}
+func (UnimplementedResponseBuilderServiceServer) SetViewTranslationResponse(context.Context, *SetViewTranslationResponseRequest) (*SetViewTranslationResponseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetViewTranslationResponse not implemented")
+}
+func (UnimplementedResponseBuilderServiceServer) mustEmbedUnimplementedResponseBuilderServiceServer() {
+}
+func (UnimplementedResponseBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeResponseBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ResponseBuilderServiceServer will
+// result in compilation errors.
+type UnsafeResponseBuilderServiceServer interface {
+	mustEmbedUnimplementedResponseBuilderServiceServer()
+}
+
+func RegisterResponseBuilderServiceServer(s grpc.ServiceRegistrar, srv ResponseBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedResponseBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ResponseBuilderService_ServiceDesc, srv)
+}
+
+func _ResponseBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponseBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponseBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponseBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponseBuilderService_SetFinalResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetFinalResponseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponseBuilderServiceServer).SetFinalResponse(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponseBuilderService_SetFinalResponse_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponseBuilderServiceServer).SetFinalResponse(ctx, req.(*SetFinalResponseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponseBuilderService_SetTranslationResponseValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTranslationResponseValueRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponseBuilderServiceServer).SetTranslationResponseValue(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponseBuilderService_SetTranslationResponseValue_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponseBuilderServiceServer).SetTranslationResponseValue(ctx, req.(*SetTranslationResponseValueRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponseBuilderService_SetViewTranslationResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetViewTranslationResponseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponseBuilderServiceServer).SetViewTranslationResponse(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponseBuilderService_SetViewTranslationResponse_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponseBuilderServiceServer).SetViewTranslationResponse(ctx, req.(*SetViewTranslationResponseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ResponseBuilderService_ServiceDesc is the grpc.ServiceDesc for ResponseBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ResponseBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "translation.ResponseBuilderService",
+	HandlerType: (*ResponseBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _ResponseBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetFinalResponse",
+			Handler:    _ResponseBuilderService_SetFinalResponse_Handler,
+		},
+		{
+			MethodName: "SetTranslationResponseValue",
+			Handler:    _ResponseBuilderService_SetTranslationResponseValue_Handler,
+		},
+		{
+			MethodName: "SetViewTranslationResponse",
+			Handler:    _ResponseBuilderService_SetViewTranslationResponse_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/translation/translation.proto",
+}
+
+const (
+	RequestService_DescribeContents_FullMethodName            = "/translation.RequestService/DescribeContents"
+	RequestService_GetFlags_FullMethodName                    = "/translation.RequestService/GetFlags"
+	RequestService_GetTranslationRequestValues_FullMethodName = "/translation.RequestService/GetTranslationRequestValues"
+	RequestService_GetViewTranslationRequests_FullMethodName  = "/translation.RequestService/GetViewTranslationRequests"
+	RequestService_ToString_FullMethodName                    = "/translation.RequestService/ToString"
+	RequestService_WriteToParcel_FullMethodName               = "/translation.RequestService/WriteToParcel"
+)
+
+// RequestServiceClient is the client API for RequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RequestServiceClient interface {
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetFlags(ctx context.Context, in *GetFlagsRequest, opts ...grpc.CallOption) (*GetFlagsResponse, error)
+	GetTranslationRequestValues(ctx context.Context, in *GetTranslationRequestValuesRequest, opts ...grpc.CallOption) (*GetTranslationRequestValuesResponse, error)
+	GetViewTranslationRequests(ctx context.Context, in *GetViewTranslationRequestsRequest, opts ...grpc.CallOption) (*GetViewTranslationRequestsResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type requestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRequestServiceClient(cc grpc.ClientConnInterface) RequestServiceClient {
+	return &requestServiceClient{cc}
+}
+
+func (c *requestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, RequestService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *requestServiceClient) GetFlags(ctx context.Context, in *GetFlagsRequest, opts ...grpc.CallOption) (*GetFlagsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFlagsResponse)
+	err := c.cc.Invoke(ctx, RequestService_GetFlags_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *requestServiceClient) GetTranslationRequestValues(ctx context.Context, in *GetTranslationRequestValuesRequest, opts ...grpc.CallOption) (*GetTranslationRequestValuesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTranslationRequestValuesResponse)
+	err := c.cc.Invoke(ctx, RequestService_GetTranslationRequestValues_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *requestServiceClient) GetViewTranslationRequests(ctx context.Context, in *GetViewTranslationRequestsRequest, opts ...grpc.CallOption) (*GetViewTranslationRequestsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetViewTranslationRequestsResponse)
+	err := c.cc.Invoke(ctx, RequestService_GetViewTranslationRequests_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *requestServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, RequestService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *requestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, RequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RequestServiceServer is the server API for RequestService service.
+// All implementations must embed UnimplementedRequestServiceServer
+// for forward compatibility.
+type RequestServiceServer interface {
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetFlags(context.Context, *GetFlagsRequest) (*GetFlagsResponse, error)
+	GetTranslationRequestValues(context.Context, *GetTranslationRequestValuesRequest) (*GetTranslationRequestValuesResponse, error)
+	GetViewTranslationRequests(context.Context, *GetViewTranslationRequestsRequest) (*GetViewTranslationRequestsResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedRequestServiceServer()
+}
+
+// UnimplementedRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedRequestServiceServer struct{}
+
+func (UnimplementedRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedRequestServiceServer) GetFlags(context.Context, *GetFlagsRequest) (*GetFlagsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFlags not implemented")
+}
+func (UnimplementedRequestServiceServer) GetTranslationRequestValues(context.Context, *GetTranslationRequestValuesRequest) (*GetTranslationRequestValuesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetTranslationRequestValues not implemented")
+}
+func (UnimplementedRequestServiceServer) GetViewTranslationRequests(context.Context, *GetViewTranslationRequestsRequest) (*GetViewTranslationRequestsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetViewTranslationRequests not implemented")
+}
+func (UnimplementedRequestServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedRequestServiceServer) mustEmbedUnimplementedRequestServiceServer() {}
+func (UnimplementedRequestServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RequestServiceServer will
+// result in compilation errors.
+type UnsafeRequestServiceServer interface {
+	mustEmbedUnimplementedRequestServiceServer()
+}
+
+func RegisterRequestServiceServer(s grpc.ServiceRegistrar, srv RequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&RequestService_ServiceDesc, srv)
+}
+
+func _RequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RequestServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RequestService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RequestService_GetFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFlagsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RequestServiceServer).GetFlags(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RequestService_GetFlags_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RequestServiceServer).GetFlags(ctx, req.(*GetFlagsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RequestService_GetTranslationRequestValues_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTranslationRequestValuesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RequestServiceServer).GetTranslationRequestValues(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RequestService_GetTranslationRequestValues_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RequestServiceServer).GetTranslationRequestValues(ctx, req.(*GetTranslationRequestValuesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RequestService_GetViewTranslationRequests_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetViewTranslationRequestsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RequestServiceServer).GetViewTranslationRequests(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RequestService_GetViewTranslationRequests_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RequestServiceServer).GetViewTranslationRequests(ctx, req.(*GetViewTranslationRequestsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RequestService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RequestServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RequestService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RequestServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RequestServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RequestService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RequestService_ServiceDesc is the grpc.ServiceDesc for RequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "translation.RequestService",
+	HandlerType: (*RequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "DescribeContents",
+			Handler:    _RequestService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetFlags",
+			Handler:    _RequestService_GetFlags_Handler,
+		},
+		{
+			MethodName: "GetTranslationRequestValues",
+			Handler:    _RequestService_GetTranslationRequestValues_Handler,
+		},
+		{
+			MethodName: "GetViewTranslationRequests",
+			Handler:    _RequestService_GetViewTranslationRequests_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _RequestService_ToString_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _RequestService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/translation/translation.proto",
+}
+
+const (
+	RequestBuilderService_Build_FullMethodName    = "/translation.RequestBuilderService/Build"
+	RequestBuilderService_SetFlags_FullMethodName = "/translation.RequestBuilderService/SetFlags"
+)
+
+// RequestBuilderServiceClient is the client API for RequestBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type RequestBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetFlags(ctx context.Context, in *SetFlagsRequest, opts ...grpc.CallOption) (*SetFlagsResponse, error)
+}
+
+type requestBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewRequestBuilderServiceClient(cc grpc.ClientConnInterface) RequestBuilderServiceClient {
+	return &requestBuilderServiceClient{cc}
+}
+
+func (c *requestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, RequestBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *requestBuilderServiceClient) SetFlags(ctx context.Context, in *SetFlagsRequest, opts ...grpc.CallOption) (*SetFlagsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetFlagsResponse)
+	err := c.cc.Invoke(ctx, RequestBuilderService_SetFlags_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// RequestBuilderServiceServer is the server API for RequestBuilderService service.
+// All implementations must embed UnimplementedRequestBuilderServiceServer
+// for forward compatibility.
+type RequestBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetFlags(context.Context, *SetFlagsRequest) (*SetFlagsResponse, error)
+	mustEmbedUnimplementedRequestBuilderServiceServer()
+}
+
+// UnimplementedRequestBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedRequestBuilderServiceServer struct{}
+
+func (UnimplementedRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedRequestBuilderServiceServer) SetFlags(context.Context, *SetFlagsRequest) (*SetFlagsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetFlags not implemented")
+}
+func (UnimplementedRequestBuilderServiceServer) mustEmbedUnimplementedRequestBuilderServiceServer() {}
+func (UnimplementedRequestBuilderServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to RequestBuilderServiceServer will
+// result in compilation errors.
+type UnsafeRequestBuilderServiceServer interface {
+	mustEmbedUnimplementedRequestBuilderServiceServer()
+}
+
+func RegisterRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv RequestBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedRequestBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&RequestBuilderService_ServiceDesc, srv)
+}
+
+func _RequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RequestBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RequestBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RequestBuilderService_SetFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetFlagsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RequestBuilderServiceServer).SetFlags(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RequestBuilderService_SetFlags_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RequestBuilderServiceServer).SetFlags(ctx, req.(*SetFlagsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// RequestBuilderService_ServiceDesc is the grpc.ServiceDesc for RequestBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var RequestBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "translation.RequestBuilderService",
+	HandlerType: (*RequestBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _RequestBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetFlags",
+			Handler:    _RequestBuilderService_SetFlags_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1767,1585 +4552,6 @@ var ResponseValueBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ResponseService_DescribeContents_FullMethodName     = "/translation.ResponseService/DescribeContents"
-	ResponseService_GetTranslationStatus_FullMethodName = "/translation.ResponseService/GetTranslationStatus"
-	ResponseService_IsFinalResponse_FullMethodName      = "/translation.ResponseService/IsFinalResponse"
-	ResponseService_ToString_FullMethodName             = "/translation.ResponseService/ToString"
-	ResponseService_WriteToParcel_FullMethodName        = "/translation.ResponseService/WriteToParcel"
-)
-
-// ResponseServiceClient is the client API for ResponseService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ResponseServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetTranslationStatus(ctx context.Context, in *GetTranslationStatusRequest, opts ...grpc.CallOption) (*GetTranslationStatusResponse, error)
-	IsFinalResponse(ctx context.Context, in *IsFinalResponseRequest, opts ...grpc.CallOption) (*IsFinalResponseResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type responseServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewResponseServiceClient(cc grpc.ClientConnInterface) ResponseServiceClient {
-	return &responseServiceClient{cc}
-}
-
-func (c *responseServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, ResponseService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responseServiceClient) GetTranslationStatus(ctx context.Context, in *GetTranslationStatusRequest, opts ...grpc.CallOption) (*GetTranslationStatusResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTranslationStatusResponse)
-	err := c.cc.Invoke(ctx, ResponseService_GetTranslationStatus_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responseServiceClient) IsFinalResponse(ctx context.Context, in *IsFinalResponseRequest, opts ...grpc.CallOption) (*IsFinalResponseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsFinalResponseResponse)
-	err := c.cc.Invoke(ctx, ResponseService_IsFinalResponse_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responseServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, ResponseService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responseServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, ResponseService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ResponseServiceServer is the server API for ResponseService service.
-// All implementations must embed UnimplementedResponseServiceServer
-// for forward compatibility.
-type ResponseServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetTranslationStatus(context.Context, *GetTranslationStatusRequest) (*GetTranslationStatusResponse, error)
-	IsFinalResponse(context.Context, *IsFinalResponseRequest) (*IsFinalResponseResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedResponseServiceServer()
-}
-
-// UnimplementedResponseServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedResponseServiceServer struct{}
-
-func (UnimplementedResponseServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedResponseServiceServer) GetTranslationStatus(context.Context, *GetTranslationStatusRequest) (*GetTranslationStatusResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTranslationStatus not implemented")
-}
-func (UnimplementedResponseServiceServer) IsFinalResponse(context.Context, *IsFinalResponseRequest) (*IsFinalResponseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsFinalResponse not implemented")
-}
-func (UnimplementedResponseServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedResponseServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedResponseServiceServer) mustEmbedUnimplementedResponseServiceServer() {}
-func (UnimplementedResponseServiceServer) testEmbeddedByValue()                         {}
-
-// UnsafeResponseServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ResponseServiceServer will
-// result in compilation errors.
-type UnsafeResponseServiceServer interface {
-	mustEmbedUnimplementedResponseServiceServer()
-}
-
-func RegisterResponseServiceServer(s grpc.ServiceRegistrar, srv ResponseServiceServer) {
-	// If the following call panics, it indicates UnimplementedResponseServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ResponseService_ServiceDesc, srv)
-}
-
-func _ResponseService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponseServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponseService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponseServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponseService_GetTranslationStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTranslationStatusRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponseServiceServer).GetTranslationStatus(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponseService_GetTranslationStatus_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponseServiceServer).GetTranslationStatus(ctx, req.(*GetTranslationStatusRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponseService_IsFinalResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsFinalResponseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponseServiceServer).IsFinalResponse(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponseService_IsFinalResponse_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponseServiceServer).IsFinalResponse(ctx, req.(*IsFinalResponseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponseService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponseServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponseService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponseServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponseService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponseServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponseService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponseServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ResponseService_ServiceDesc is the grpc.ServiceDesc for ResponseService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ResponseService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "translation.ResponseService",
-	HandlerType: (*ResponseServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _ResponseService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetTranslationStatus",
-			Handler:    _ResponseService_GetTranslationStatus_Handler,
-		},
-		{
-			MethodName: "IsFinalResponse",
-			Handler:    _ResponseService_IsFinalResponse_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _ResponseService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _ResponseService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/translation/translation.proto",
-}
-
-const (
-	ResponseBuilderService_Build_FullMethodName                       = "/translation.ResponseBuilderService/Build"
-	ResponseBuilderService_SetFinalResponse_FullMethodName            = "/translation.ResponseBuilderService/SetFinalResponse"
-	ResponseBuilderService_SetTranslationResponseValue_FullMethodName = "/translation.ResponseBuilderService/SetTranslationResponseValue"
-	ResponseBuilderService_SetViewTranslationResponse_FullMethodName  = "/translation.ResponseBuilderService/SetViewTranslationResponse"
-)
-
-// ResponseBuilderServiceClient is the client API for ResponseBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ResponseBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetFinalResponse(ctx context.Context, in *SetFinalResponseRequest, opts ...grpc.CallOption) (*SetFinalResponseResponse, error)
-	SetTranslationResponseValue(ctx context.Context, in *SetTranslationResponseValueRequest, opts ...grpc.CallOption) (*SetTranslationResponseValueResponse, error)
-	SetViewTranslationResponse(ctx context.Context, in *SetViewTranslationResponseRequest, opts ...grpc.CallOption) (*SetViewTranslationResponseResponse, error)
-}
-
-type responseBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewResponseBuilderServiceClient(cc grpc.ClientConnInterface) ResponseBuilderServiceClient {
-	return &responseBuilderServiceClient{cc}
-}
-
-func (c *responseBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, ResponseBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responseBuilderServiceClient) SetFinalResponse(ctx context.Context, in *SetFinalResponseRequest, opts ...grpc.CallOption) (*SetFinalResponseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetFinalResponseResponse)
-	err := c.cc.Invoke(ctx, ResponseBuilderService_SetFinalResponse_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responseBuilderServiceClient) SetTranslationResponseValue(ctx context.Context, in *SetTranslationResponseValueRequest, opts ...grpc.CallOption) (*SetTranslationResponseValueResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetTranslationResponseValueResponse)
-	err := c.cc.Invoke(ctx, ResponseBuilderService_SetTranslationResponseValue_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responseBuilderServiceClient) SetViewTranslationResponse(ctx context.Context, in *SetViewTranslationResponseRequest, opts ...grpc.CallOption) (*SetViewTranslationResponseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetViewTranslationResponseResponse)
-	err := c.cc.Invoke(ctx, ResponseBuilderService_SetViewTranslationResponse_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ResponseBuilderServiceServer is the server API for ResponseBuilderService service.
-// All implementations must embed UnimplementedResponseBuilderServiceServer
-// for forward compatibility.
-type ResponseBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetFinalResponse(context.Context, *SetFinalResponseRequest) (*SetFinalResponseResponse, error)
-	SetTranslationResponseValue(context.Context, *SetTranslationResponseValueRequest) (*SetTranslationResponseValueResponse, error)
-	SetViewTranslationResponse(context.Context, *SetViewTranslationResponseRequest) (*SetViewTranslationResponseResponse, error)
-	mustEmbedUnimplementedResponseBuilderServiceServer()
-}
-
-// UnimplementedResponseBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedResponseBuilderServiceServer struct{}
-
-func (UnimplementedResponseBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedResponseBuilderServiceServer) SetFinalResponse(context.Context, *SetFinalResponseRequest) (*SetFinalResponseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetFinalResponse not implemented")
-}
-func (UnimplementedResponseBuilderServiceServer) SetTranslationResponseValue(context.Context, *SetTranslationResponseValueRequest) (*SetTranslationResponseValueResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetTranslationResponseValue not implemented")
-}
-func (UnimplementedResponseBuilderServiceServer) SetViewTranslationResponse(context.Context, *SetViewTranslationResponseRequest) (*SetViewTranslationResponseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetViewTranslationResponse not implemented")
-}
-func (UnimplementedResponseBuilderServiceServer) mustEmbedUnimplementedResponseBuilderServiceServer() {
-}
-func (UnimplementedResponseBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeResponseBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ResponseBuilderServiceServer will
-// result in compilation errors.
-type UnsafeResponseBuilderServiceServer interface {
-	mustEmbedUnimplementedResponseBuilderServiceServer()
-}
-
-func RegisterResponseBuilderServiceServer(s grpc.ServiceRegistrar, srv ResponseBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedResponseBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ResponseBuilderService_ServiceDesc, srv)
-}
-
-func _ResponseBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponseBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponseBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponseBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponseBuilderService_SetFinalResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetFinalResponseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponseBuilderServiceServer).SetFinalResponse(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponseBuilderService_SetFinalResponse_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponseBuilderServiceServer).SetFinalResponse(ctx, req.(*SetFinalResponseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponseBuilderService_SetTranslationResponseValue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetTranslationResponseValueRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponseBuilderServiceServer).SetTranslationResponseValue(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponseBuilderService_SetTranslationResponseValue_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponseBuilderServiceServer).SetTranslationResponseValue(ctx, req.(*SetTranslationResponseValueRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponseBuilderService_SetViewTranslationResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetViewTranslationResponseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponseBuilderServiceServer).SetViewTranslationResponse(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponseBuilderService_SetViewTranslationResponse_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponseBuilderServiceServer).SetViewTranslationResponse(ctx, req.(*SetViewTranslationResponseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ResponseBuilderService_ServiceDesc is the grpc.ServiceDesc for ResponseBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ResponseBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "translation.ResponseBuilderService",
-	HandlerType: (*ResponseBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _ResponseBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetFinalResponse",
-			Handler:    _ResponseBuilderService_SetFinalResponse_Handler,
-		},
-		{
-			MethodName: "SetTranslationResponseValue",
-			Handler:    _ResponseBuilderService_SetTranslationResponseValue_Handler,
-		},
-		{
-			MethodName: "SetViewTranslationResponse",
-			Handler:    _ResponseBuilderService_SetViewTranslationResponse_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/translation/translation.proto",
-}
-
-const (
-	RequestValueService_DescribeContents_FullMethodName = "/translation.RequestValueService/DescribeContents"
-	RequestValueService_Equals_FullMethodName           = "/translation.RequestValueService/Equals"
-	RequestValueService_GetText_FullMethodName          = "/translation.RequestValueService/GetText"
-	RequestValueService_HashCode_FullMethodName         = "/translation.RequestValueService/HashCode"
-	RequestValueService_ToString_FullMethodName         = "/translation.RequestValueService/ToString"
-	RequestValueService_WriteToParcel_FullMethodName    = "/translation.RequestValueService/WriteToParcel"
-	RequestValueService_ForText_FullMethodName          = "/translation.RequestValueService/ForText"
-)
-
-// RequestValueServiceClient is the client API for RequestValueService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RequestValueServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
-	GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error)
-	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-	ForText(ctx context.Context, in *ForTextRequest, opts ...grpc.CallOption) (*ForTextResponse, error)
-}
-
-type requestValueServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewRequestValueServiceClient(cc grpc.ClientConnInterface) RequestValueServiceClient {
-	return &requestValueServiceClient{cc}
-}
-
-func (c *requestValueServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, RequestValueService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *requestValueServiceClient) Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(EqualsResponse)
-	err := c.cc.Invoke(ctx, RequestValueService_Equals_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *requestValueServiceClient) GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTextResponse)
-	err := c.cc.Invoke(ctx, RequestValueService_GetText_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *requestValueServiceClient) HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HashCodeResponse)
-	err := c.cc.Invoke(ctx, RequestValueService_HashCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *requestValueServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, RequestValueService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *requestValueServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, RequestValueService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *requestValueServiceClient) ForText(ctx context.Context, in *ForTextRequest, opts ...grpc.CallOption) (*ForTextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ForTextResponse)
-	err := c.cc.Invoke(ctx, RequestValueService_ForText_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// RequestValueServiceServer is the server API for RequestValueService service.
-// All implementations must embed UnimplementedRequestValueServiceServer
-// for forward compatibility.
-type RequestValueServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
-	GetText(context.Context, *GetTextRequest) (*GetTextResponse, error)
-	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	ForText(context.Context, *ForTextRequest) (*ForTextResponse, error)
-	mustEmbedUnimplementedRequestValueServiceServer()
-}
-
-// UnimplementedRequestValueServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedRequestValueServiceServer struct{}
-
-func (UnimplementedRequestValueServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedRequestValueServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
-}
-func (UnimplementedRequestValueServiceServer) GetText(context.Context, *GetTextRequest) (*GetTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetText not implemented")
-}
-func (UnimplementedRequestValueServiceServer) HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HashCode not implemented")
-}
-func (UnimplementedRequestValueServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedRequestValueServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedRequestValueServiceServer) ForText(context.Context, *ForTextRequest) (*ForTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ForText not implemented")
-}
-func (UnimplementedRequestValueServiceServer) mustEmbedUnimplementedRequestValueServiceServer() {}
-func (UnimplementedRequestValueServiceServer) testEmbeddedByValue()                             {}
-
-// UnsafeRequestValueServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RequestValueServiceServer will
-// result in compilation errors.
-type UnsafeRequestValueServiceServer interface {
-	mustEmbedUnimplementedRequestValueServiceServer()
-}
-
-func RegisterRequestValueServiceServer(s grpc.ServiceRegistrar, srv RequestValueServiceServer) {
-	// If the following call panics, it indicates UnimplementedRequestValueServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&RequestValueService_ServiceDesc, srv)
-}
-
-func _RequestValueService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RequestValueServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RequestValueService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RequestValueServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RequestValueService_Equals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(EqualsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RequestValueServiceServer).Equals(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RequestValueService_Equals_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RequestValueServiceServer).Equals(ctx, req.(*EqualsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RequestValueService_GetText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RequestValueServiceServer).GetText(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RequestValueService_GetText_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RequestValueServiceServer).GetText(ctx, req.(*GetTextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RequestValueService_HashCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HashCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RequestValueServiceServer).HashCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RequestValueService_HashCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RequestValueServiceServer).HashCode(ctx, req.(*HashCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RequestValueService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RequestValueServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RequestValueService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RequestValueServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RequestValueService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RequestValueServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RequestValueService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RequestValueServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RequestValueService_ForText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ForTextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RequestValueServiceServer).ForText(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RequestValueService_ForText_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RequestValueServiceServer).ForText(ctx, req.(*ForTextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// RequestValueService_ServiceDesc is the grpc.ServiceDesc for RequestValueService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var RequestValueService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "translation.RequestValueService",
-	HandlerType: (*RequestValueServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _RequestValueService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "Equals",
-			Handler:    _RequestValueService_Equals_Handler,
-		},
-		{
-			MethodName: "GetText",
-			Handler:    _RequestValueService_GetText_Handler,
-		},
-		{
-			MethodName: "HashCode",
-			Handler:    _RequestValueService_HashCode_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _RequestValueService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _RequestValueService_WriteToParcel_Handler,
-		},
-		{
-			MethodName: "ForText",
-			Handler:    _RequestValueService_ForText_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/translation/translation.proto",
-}
-
-const (
-	ManagerService_GetOnDeviceTranslationSettingsActivityIntent_FullMethodName = "/translation.ManagerService/GetOnDeviceTranslationSettingsActivityIntent"
-)
-
-// ManagerServiceClient is the client API for ManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ManagerServiceClient interface {
-	GetOnDeviceTranslationSettingsActivityIntent(ctx context.Context, in *GetOnDeviceTranslationSettingsActivityIntentRequest, opts ...grpc.CallOption) (*GetOnDeviceTranslationSettingsActivityIntentResponse, error)
-}
-
-type managerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
-	return &managerServiceClient{cc}
-}
-
-func (c *managerServiceClient) GetOnDeviceTranslationSettingsActivityIntent(ctx context.Context, in *GetOnDeviceTranslationSettingsActivityIntentRequest, opts ...grpc.CallOption) (*GetOnDeviceTranslationSettingsActivityIntentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetOnDeviceTranslationSettingsActivityIntentResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetOnDeviceTranslationSettingsActivityIntent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ManagerServiceServer is the server API for ManagerService service.
-// All implementations must embed UnimplementedManagerServiceServer
-// for forward compatibility.
-type ManagerServiceServer interface {
-	GetOnDeviceTranslationSettingsActivityIntent(context.Context, *GetOnDeviceTranslationSettingsActivityIntentRequest) (*GetOnDeviceTranslationSettingsActivityIntentResponse, error)
-	mustEmbedUnimplementedManagerServiceServer()
-}
-
-// UnimplementedManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedManagerServiceServer struct{}
-
-func (UnimplementedManagerServiceServer) GetOnDeviceTranslationSettingsActivityIntent(context.Context, *GetOnDeviceTranslationSettingsActivityIntentRequest) (*GetOnDeviceTranslationSettingsActivityIntentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetOnDeviceTranslationSettingsActivityIntent not implemented")
-}
-func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
-func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
-
-// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ManagerServiceServer will
-// result in compilation errors.
-type UnsafeManagerServiceServer interface {
-	mustEmbedUnimplementedManagerServiceServer()
-}
-
-func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ManagerService_ServiceDesc, srv)
-}
-
-func _ManagerService_GetOnDeviceTranslationSettingsActivityIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetOnDeviceTranslationSettingsActivityIntentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetOnDeviceTranslationSettingsActivityIntent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetOnDeviceTranslationSettingsActivityIntent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetOnDeviceTranslationSettingsActivityIntent(ctx, req.(*GetOnDeviceTranslationSettingsActivityIntentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "translation.ManagerService",
-	HandlerType: (*ManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetOnDeviceTranslationSettingsActivityIntent",
-			Handler:    _ManagerService_GetOnDeviceTranslationSettingsActivityIntent_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/translation/translation.proto",
-}
-
-const (
-	RequestService_DescribeContents_FullMethodName = "/translation.RequestService/DescribeContents"
-	RequestService_GetFlags_FullMethodName         = "/translation.RequestService/GetFlags"
-	RequestService_ToString_FullMethodName         = "/translation.RequestService/ToString"
-	RequestService_WriteToParcel_FullMethodName    = "/translation.RequestService/WriteToParcel"
-)
-
-// RequestServiceClient is the client API for RequestService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RequestServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetFlags(ctx context.Context, in *GetFlagsRequest, opts ...grpc.CallOption) (*GetFlagsResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type requestServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewRequestServiceClient(cc grpc.ClientConnInterface) RequestServiceClient {
-	return &requestServiceClient{cc}
-}
-
-func (c *requestServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, RequestService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *requestServiceClient) GetFlags(ctx context.Context, in *GetFlagsRequest, opts ...grpc.CallOption) (*GetFlagsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFlagsResponse)
-	err := c.cc.Invoke(ctx, RequestService_GetFlags_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *requestServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, RequestService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *requestServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, RequestService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// RequestServiceServer is the server API for RequestService service.
-// All implementations must embed UnimplementedRequestServiceServer
-// for forward compatibility.
-type RequestServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetFlags(context.Context, *GetFlagsRequest) (*GetFlagsResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedRequestServiceServer()
-}
-
-// UnimplementedRequestServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedRequestServiceServer struct{}
-
-func (UnimplementedRequestServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedRequestServiceServer) GetFlags(context.Context, *GetFlagsRequest) (*GetFlagsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFlags not implemented")
-}
-func (UnimplementedRequestServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedRequestServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedRequestServiceServer) mustEmbedUnimplementedRequestServiceServer() {}
-func (UnimplementedRequestServiceServer) testEmbeddedByValue()                        {}
-
-// UnsafeRequestServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RequestServiceServer will
-// result in compilation errors.
-type UnsafeRequestServiceServer interface {
-	mustEmbedUnimplementedRequestServiceServer()
-}
-
-func RegisterRequestServiceServer(s grpc.ServiceRegistrar, srv RequestServiceServer) {
-	// If the following call panics, it indicates UnimplementedRequestServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&RequestService_ServiceDesc, srv)
-}
-
-func _RequestService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RequestServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RequestService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RequestServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RequestService_GetFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFlagsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RequestServiceServer).GetFlags(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RequestService_GetFlags_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RequestServiceServer).GetFlags(ctx, req.(*GetFlagsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RequestService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RequestServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RequestService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RequestServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RequestService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RequestServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RequestService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RequestServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// RequestService_ServiceDesc is the grpc.ServiceDesc for RequestService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var RequestService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "translation.RequestService",
-	HandlerType: (*RequestServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _RequestService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetFlags",
-			Handler:    _RequestService_GetFlags_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _RequestService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _RequestService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/translation/translation.proto",
-}
-
-const (
-	RequestBuilderService_Build_FullMethodName    = "/translation.RequestBuilderService/Build"
-	RequestBuilderService_SetFlags_FullMethodName = "/translation.RequestBuilderService/SetFlags"
-)
-
-// RequestBuilderServiceClient is the client API for RequestBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type RequestBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetFlags(ctx context.Context, in *SetFlagsRequest, opts ...grpc.CallOption) (*SetFlagsResponse, error)
-}
-
-type requestBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewRequestBuilderServiceClient(cc grpc.ClientConnInterface) RequestBuilderServiceClient {
-	return &requestBuilderServiceClient{cc}
-}
-
-func (c *requestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, RequestBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *requestBuilderServiceClient) SetFlags(ctx context.Context, in *SetFlagsRequest, opts ...grpc.CallOption) (*SetFlagsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetFlagsResponse)
-	err := c.cc.Invoke(ctx, RequestBuilderService_SetFlags_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// RequestBuilderServiceServer is the server API for RequestBuilderService service.
-// All implementations must embed UnimplementedRequestBuilderServiceServer
-// for forward compatibility.
-type RequestBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetFlags(context.Context, *SetFlagsRequest) (*SetFlagsResponse, error)
-	mustEmbedUnimplementedRequestBuilderServiceServer()
-}
-
-// UnimplementedRequestBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedRequestBuilderServiceServer struct{}
-
-func (UnimplementedRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedRequestBuilderServiceServer) SetFlags(context.Context, *SetFlagsRequest) (*SetFlagsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetFlags not implemented")
-}
-func (UnimplementedRequestBuilderServiceServer) mustEmbedUnimplementedRequestBuilderServiceServer() {}
-func (UnimplementedRequestBuilderServiceServer) testEmbeddedByValue()                               {}
-
-// UnsafeRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to RequestBuilderServiceServer will
-// result in compilation errors.
-type UnsafeRequestBuilderServiceServer interface {
-	mustEmbedUnimplementedRequestBuilderServiceServer()
-}
-
-func RegisterRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv RequestBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedRequestBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&RequestBuilderService_ServiceDesc, srv)
-}
-
-func _RequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RequestBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RequestBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _RequestBuilderService_SetFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetFlagsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(RequestBuilderServiceServer).SetFlags(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: RequestBuilderService_SetFlags_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RequestBuilderServiceServer).SetFlags(ctx, req.(*SetFlagsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// RequestBuilderService_ServiceDesc is the grpc.ServiceDesc for RequestBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var RequestBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "translation.RequestBuilderService",
-	HandlerType: (*RequestBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _RequestBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetFlags",
-			Handler:    _RequestBuilderService_SetFlags_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/translation/translation.proto",
-}
-
-const (
-	UiTranslationStateCallbackService_OnFinished_FullMethodName = "/translation.UiTranslationStateCallbackService/OnFinished"
-	UiTranslationStateCallbackService_OnPaused_FullMethodName   = "/translation.UiTranslationStateCallbackService/OnPaused"
-)
-
-// UiTranslationStateCallbackServiceClient is the client API for UiTranslationStateCallbackService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type UiTranslationStateCallbackServiceClient interface {
-	OnFinished(ctx context.Context, in *OnFinishedRequest, opts ...grpc.CallOption) (*OnFinishedResponse, error)
-	OnPaused(ctx context.Context, in *OnPausedRequest, opts ...grpc.CallOption) (*OnPausedResponse, error)
-}
-
-type uiTranslationStateCallbackServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewUiTranslationStateCallbackServiceClient(cc grpc.ClientConnInterface) UiTranslationStateCallbackServiceClient {
-	return &uiTranslationStateCallbackServiceClient{cc}
-}
-
-func (c *uiTranslationStateCallbackServiceClient) OnFinished(ctx context.Context, in *OnFinishedRequest, opts ...grpc.CallOption) (*OnFinishedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnFinishedResponse)
-	err := c.cc.Invoke(ctx, UiTranslationStateCallbackService_OnFinished_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *uiTranslationStateCallbackServiceClient) OnPaused(ctx context.Context, in *OnPausedRequest, opts ...grpc.CallOption) (*OnPausedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnPausedResponse)
-	err := c.cc.Invoke(ctx, UiTranslationStateCallbackService_OnPaused_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// UiTranslationStateCallbackServiceServer is the server API for UiTranslationStateCallbackService service.
-// All implementations must embed UnimplementedUiTranslationStateCallbackServiceServer
-// for forward compatibility.
-type UiTranslationStateCallbackServiceServer interface {
-	OnFinished(context.Context, *OnFinishedRequest) (*OnFinishedResponse, error)
-	OnPaused(context.Context, *OnPausedRequest) (*OnPausedResponse, error)
-	mustEmbedUnimplementedUiTranslationStateCallbackServiceServer()
-}
-
-// UnimplementedUiTranslationStateCallbackServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedUiTranslationStateCallbackServiceServer struct{}
-
-func (UnimplementedUiTranslationStateCallbackServiceServer) OnFinished(context.Context, *OnFinishedRequest) (*OnFinishedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnFinished not implemented")
-}
-func (UnimplementedUiTranslationStateCallbackServiceServer) OnPaused(context.Context, *OnPausedRequest) (*OnPausedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnPaused not implemented")
-}
-func (UnimplementedUiTranslationStateCallbackServiceServer) mustEmbedUnimplementedUiTranslationStateCallbackServiceServer() {
-}
-func (UnimplementedUiTranslationStateCallbackServiceServer) testEmbeddedByValue() {}
-
-// UnsafeUiTranslationStateCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to UiTranslationStateCallbackServiceServer will
-// result in compilation errors.
-type UnsafeUiTranslationStateCallbackServiceServer interface {
-	mustEmbedUnimplementedUiTranslationStateCallbackServiceServer()
-}
-
-func RegisterUiTranslationStateCallbackServiceServer(s grpc.ServiceRegistrar, srv UiTranslationStateCallbackServiceServer) {
-	// If the following call panics, it indicates UnimplementedUiTranslationStateCallbackServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&UiTranslationStateCallbackService_ServiceDesc, srv)
-}
-
-func _UiTranslationStateCallbackService_OnFinished_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnFinishedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UiTranslationStateCallbackServiceServer).OnFinished(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UiTranslationStateCallbackService_OnFinished_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UiTranslationStateCallbackServiceServer).OnFinished(ctx, req.(*OnFinishedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UiTranslationStateCallbackService_OnPaused_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnPausedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UiTranslationStateCallbackServiceServer).OnPaused(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UiTranslationStateCallbackService_OnPaused_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UiTranslationStateCallbackServiceServer).OnPaused(ctx, req.(*OnPausedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// UiTranslationStateCallbackService_ServiceDesc is the grpc.ServiceDesc for UiTranslationStateCallbackService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var UiTranslationStateCallbackService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "translation.UiTranslationStateCallbackService",
-	HandlerType: (*UiTranslationStateCallbackServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnFinished",
-			Handler:    _UiTranslationStateCallbackService_OnFinished_Handler,
-		},
-		{
-			MethodName: "OnPaused",
-			Handler:    _UiTranslationStateCallbackService_OnPaused_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/translation/translation.proto",
-}
-
-const (
-	ViewTranslationCallbackService_OnClearTranslation_FullMethodName = "/translation.ViewTranslationCallbackService/OnClearTranslation"
-	ViewTranslationCallbackService_OnHideTranslation_FullMethodName  = "/translation.ViewTranslationCallbackService/OnHideTranslation"
-	ViewTranslationCallbackService_OnShowTranslation_FullMethodName  = "/translation.ViewTranslationCallbackService/OnShowTranslation"
-)
-
-// ViewTranslationCallbackServiceClient is the client API for ViewTranslationCallbackService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ViewTranslationCallbackServiceClient interface {
-	OnClearTranslation(ctx context.Context, in *OnClearTranslationRequest, opts ...grpc.CallOption) (*OnClearTranslationResponse, error)
-	OnHideTranslation(ctx context.Context, in *OnHideTranslationRequest, opts ...grpc.CallOption) (*OnHideTranslationResponse, error)
-	OnShowTranslation(ctx context.Context, in *OnShowTranslationRequest, opts ...grpc.CallOption) (*OnShowTranslationResponse, error)
-}
-
-type viewTranslationCallbackServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewViewTranslationCallbackServiceClient(cc grpc.ClientConnInterface) ViewTranslationCallbackServiceClient {
-	return &viewTranslationCallbackServiceClient{cc}
-}
-
-func (c *viewTranslationCallbackServiceClient) OnClearTranslation(ctx context.Context, in *OnClearTranslationRequest, opts ...grpc.CallOption) (*OnClearTranslationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnClearTranslationResponse)
-	err := c.cc.Invoke(ctx, ViewTranslationCallbackService_OnClearTranslation_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *viewTranslationCallbackServiceClient) OnHideTranslation(ctx context.Context, in *OnHideTranslationRequest, opts ...grpc.CallOption) (*OnHideTranslationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnHideTranslationResponse)
-	err := c.cc.Invoke(ctx, ViewTranslationCallbackService_OnHideTranslation_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *viewTranslationCallbackServiceClient) OnShowTranslation(ctx context.Context, in *OnShowTranslationRequest, opts ...grpc.CallOption) (*OnShowTranslationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnShowTranslationResponse)
-	err := c.cc.Invoke(ctx, ViewTranslationCallbackService_OnShowTranslation_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ViewTranslationCallbackServiceServer is the server API for ViewTranslationCallbackService service.
-// All implementations must embed UnimplementedViewTranslationCallbackServiceServer
-// for forward compatibility.
-type ViewTranslationCallbackServiceServer interface {
-	OnClearTranslation(context.Context, *OnClearTranslationRequest) (*OnClearTranslationResponse, error)
-	OnHideTranslation(context.Context, *OnHideTranslationRequest) (*OnHideTranslationResponse, error)
-	OnShowTranslation(context.Context, *OnShowTranslationRequest) (*OnShowTranslationResponse, error)
-	mustEmbedUnimplementedViewTranslationCallbackServiceServer()
-}
-
-// UnimplementedViewTranslationCallbackServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedViewTranslationCallbackServiceServer struct{}
-
-func (UnimplementedViewTranslationCallbackServiceServer) OnClearTranslation(context.Context, *OnClearTranslationRequest) (*OnClearTranslationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnClearTranslation not implemented")
-}
-func (UnimplementedViewTranslationCallbackServiceServer) OnHideTranslation(context.Context, *OnHideTranslationRequest) (*OnHideTranslationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnHideTranslation not implemented")
-}
-func (UnimplementedViewTranslationCallbackServiceServer) OnShowTranslation(context.Context, *OnShowTranslationRequest) (*OnShowTranslationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnShowTranslation not implemented")
-}
-func (UnimplementedViewTranslationCallbackServiceServer) mustEmbedUnimplementedViewTranslationCallbackServiceServer() {
-}
-func (UnimplementedViewTranslationCallbackServiceServer) testEmbeddedByValue() {}
-
-// UnsafeViewTranslationCallbackServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ViewTranslationCallbackServiceServer will
-// result in compilation errors.
-type UnsafeViewTranslationCallbackServiceServer interface {
-	mustEmbedUnimplementedViewTranslationCallbackServiceServer()
-}
-
-func RegisterViewTranslationCallbackServiceServer(s grpc.ServiceRegistrar, srv ViewTranslationCallbackServiceServer) {
-	// If the following call panics, it indicates UnimplementedViewTranslationCallbackServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ViewTranslationCallbackService_ServiceDesc, srv)
-}
-
-func _ViewTranslationCallbackService_OnClearTranslation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnClearTranslationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ViewTranslationCallbackServiceServer).OnClearTranslation(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ViewTranslationCallbackService_OnClearTranslation_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ViewTranslationCallbackServiceServer).OnClearTranslation(ctx, req.(*OnClearTranslationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ViewTranslationCallbackService_OnHideTranslation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnHideTranslationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ViewTranslationCallbackServiceServer).OnHideTranslation(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ViewTranslationCallbackService_OnHideTranslation_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ViewTranslationCallbackServiceServer).OnHideTranslation(ctx, req.(*OnHideTranslationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ViewTranslationCallbackService_OnShowTranslation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnShowTranslationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ViewTranslationCallbackServiceServer).OnShowTranslation(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ViewTranslationCallbackService_OnShowTranslation_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ViewTranslationCallbackServiceServer).OnShowTranslation(ctx, req.(*OnShowTranslationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ViewTranslationCallbackService_ServiceDesc is the grpc.ServiceDesc for ViewTranslationCallbackService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ViewTranslationCallbackService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "translation.ViewTranslationCallbackService",
-	HandlerType: (*ViewTranslationCallbackServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnClearTranslation",
-			Handler:    _ViewTranslationCallbackService_OnClearTranslation_Handler,
-		},
-		{
-			MethodName: "OnHideTranslation",
-			Handler:    _ViewTranslationCallbackService_OnHideTranslation_Handler,
-		},
-		{
-			MethodName: "OnShowTranslation",
-			Handler:    _ViewTranslationCallbackService_OnShowTranslation_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/translation/translation.proto",
-}
-
-const (
 	SpecService_NewSpec_FullMethodName          = "/translation.SpecService/NewSpec"
 	SpecService_DescribeContents_FullMethodName = "/translation.SpecService/DescribeContents"
 	SpecService_Equals_FullMethodName           = "/translation.SpecService/Equals"
@@ -3707,946 +4913,6 @@ var SpecService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "WriteToParcel",
 			Handler:    _SpecService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/translation/translation.proto",
-}
-
-const (
-	ContextService_DescribeContents_FullMethodName    = "/translation.ContextService/DescribeContents"
-	ContextService_GetSourceSpec_FullMethodName       = "/translation.ContextService/GetSourceSpec"
-	ContextService_GetTargetSpec_FullMethodName       = "/translation.ContextService/GetTargetSpec"
-	ContextService_GetTranslationFlags_FullMethodName = "/translation.ContextService/GetTranslationFlags"
-	ContextService_ToString_FullMethodName            = "/translation.ContextService/ToString"
-	ContextService_WriteToParcel_FullMethodName       = "/translation.ContextService/WriteToParcel"
-)
-
-// ContextServiceClient is the client API for ContextService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ContextServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetSourceSpec(ctx context.Context, in *GetSourceSpecRequest, opts ...grpc.CallOption) (*GetSourceSpecResponse, error)
-	GetTargetSpec(ctx context.Context, in *GetTargetSpecRequest, opts ...grpc.CallOption) (*GetTargetSpecResponse, error)
-	GetTranslationFlags(ctx context.Context, in *GetTranslationFlagsRequest, opts ...grpc.CallOption) (*GetTranslationFlagsResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type contextServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewContextServiceClient(cc grpc.ClientConnInterface) ContextServiceClient {
-	return &contextServiceClient{cc}
-}
-
-func (c *contextServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, ContextService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *contextServiceClient) GetSourceSpec(ctx context.Context, in *GetSourceSpecRequest, opts ...grpc.CallOption) (*GetSourceSpecResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSourceSpecResponse)
-	err := c.cc.Invoke(ctx, ContextService_GetSourceSpec_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *contextServiceClient) GetTargetSpec(ctx context.Context, in *GetTargetSpecRequest, opts ...grpc.CallOption) (*GetTargetSpecResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTargetSpecResponse)
-	err := c.cc.Invoke(ctx, ContextService_GetTargetSpec_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *contextServiceClient) GetTranslationFlags(ctx context.Context, in *GetTranslationFlagsRequest, opts ...grpc.CallOption) (*GetTranslationFlagsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTranslationFlagsResponse)
-	err := c.cc.Invoke(ctx, ContextService_GetTranslationFlags_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *contextServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, ContextService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *contextServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, ContextService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ContextServiceServer is the server API for ContextService service.
-// All implementations must embed UnimplementedContextServiceServer
-// for forward compatibility.
-type ContextServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetSourceSpec(context.Context, *GetSourceSpecRequest) (*GetSourceSpecResponse, error)
-	GetTargetSpec(context.Context, *GetTargetSpecRequest) (*GetTargetSpecResponse, error)
-	GetTranslationFlags(context.Context, *GetTranslationFlagsRequest) (*GetTranslationFlagsResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedContextServiceServer()
-}
-
-// UnimplementedContextServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedContextServiceServer struct{}
-
-func (UnimplementedContextServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedContextServiceServer) GetSourceSpec(context.Context, *GetSourceSpecRequest) (*GetSourceSpecResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSourceSpec not implemented")
-}
-func (UnimplementedContextServiceServer) GetTargetSpec(context.Context, *GetTargetSpecRequest) (*GetTargetSpecResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTargetSpec not implemented")
-}
-func (UnimplementedContextServiceServer) GetTranslationFlags(context.Context, *GetTranslationFlagsRequest) (*GetTranslationFlagsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTranslationFlags not implemented")
-}
-func (UnimplementedContextServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedContextServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedContextServiceServer) mustEmbedUnimplementedContextServiceServer() {}
-func (UnimplementedContextServiceServer) testEmbeddedByValue()                        {}
-
-// UnsafeContextServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ContextServiceServer will
-// result in compilation errors.
-type UnsafeContextServiceServer interface {
-	mustEmbedUnimplementedContextServiceServer()
-}
-
-func RegisterContextServiceServer(s grpc.ServiceRegistrar, srv ContextServiceServer) {
-	// If the following call panics, it indicates UnimplementedContextServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ContextService_ServiceDesc, srv)
-}
-
-func _ContextService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContextServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContextService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContextServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ContextService_GetSourceSpec_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSourceSpecRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContextServiceServer).GetSourceSpec(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContextService_GetSourceSpec_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContextServiceServer).GetSourceSpec(ctx, req.(*GetSourceSpecRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ContextService_GetTargetSpec_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTargetSpecRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContextServiceServer).GetTargetSpec(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContextService_GetTargetSpec_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContextServiceServer).GetTargetSpec(ctx, req.(*GetTargetSpecRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ContextService_GetTranslationFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTranslationFlagsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContextServiceServer).GetTranslationFlags(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContextService_GetTranslationFlags_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContextServiceServer).GetTranslationFlags(ctx, req.(*GetTranslationFlagsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ContextService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContextServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContextService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContextServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ContextService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContextServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContextService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContextServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ContextService_ServiceDesc is the grpc.ServiceDesc for ContextService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ContextService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "translation.ContextService",
-	HandlerType: (*ContextServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _ContextService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetSourceSpec",
-			Handler:    _ContextService_GetSourceSpec_Handler,
-		},
-		{
-			MethodName: "GetTargetSpec",
-			Handler:    _ContextService_GetTargetSpec_Handler,
-		},
-		{
-			MethodName: "GetTranslationFlags",
-			Handler:    _ContextService_GetTranslationFlags_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _ContextService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _ContextService_WriteToParcel_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/translation/translation.proto",
-}
-
-const (
-	ContextBuilderService_Build_FullMethodName               = "/translation.ContextBuilderService/Build"
-	ContextBuilderService_SetTranslationFlags_FullMethodName = "/translation.ContextBuilderService/SetTranslationFlags"
-)
-
-// ContextBuilderServiceClient is the client API for ContextBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ContextBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetTranslationFlags(ctx context.Context, in *SetTranslationFlagsRequest, opts ...grpc.CallOption) (*SetTranslationFlagsResponse, error)
-}
-
-type contextBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewContextBuilderServiceClient(cc grpc.ClientConnInterface) ContextBuilderServiceClient {
-	return &contextBuilderServiceClient{cc}
-}
-
-func (c *contextBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, ContextBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *contextBuilderServiceClient) SetTranslationFlags(ctx context.Context, in *SetTranslationFlagsRequest, opts ...grpc.CallOption) (*SetTranslationFlagsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetTranslationFlagsResponse)
-	err := c.cc.Invoke(ctx, ContextBuilderService_SetTranslationFlags_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ContextBuilderServiceServer is the server API for ContextBuilderService service.
-// All implementations must embed UnimplementedContextBuilderServiceServer
-// for forward compatibility.
-type ContextBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetTranslationFlags(context.Context, *SetTranslationFlagsRequest) (*SetTranslationFlagsResponse, error)
-	mustEmbedUnimplementedContextBuilderServiceServer()
-}
-
-// UnimplementedContextBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedContextBuilderServiceServer struct{}
-
-func (UnimplementedContextBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedContextBuilderServiceServer) SetTranslationFlags(context.Context, *SetTranslationFlagsRequest) (*SetTranslationFlagsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetTranslationFlags not implemented")
-}
-func (UnimplementedContextBuilderServiceServer) mustEmbedUnimplementedContextBuilderServiceServer() {}
-func (UnimplementedContextBuilderServiceServer) testEmbeddedByValue()                               {}
-
-// UnsafeContextBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ContextBuilderServiceServer will
-// result in compilation errors.
-type UnsafeContextBuilderServiceServer interface {
-	mustEmbedUnimplementedContextBuilderServiceServer()
-}
-
-func RegisterContextBuilderServiceServer(s grpc.ServiceRegistrar, srv ContextBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedContextBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ContextBuilderService_ServiceDesc, srv)
-}
-
-func _ContextBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContextBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContextBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContextBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ContextBuilderService_SetTranslationFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetTranslationFlagsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContextBuilderServiceServer).SetTranslationFlags(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContextBuilderService_SetTranslationFlags_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContextBuilderServiceServer).SetTranslationFlags(ctx, req.(*SetTranslationFlagsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ContextBuilderService_ServiceDesc is the grpc.ServiceDesc for ContextBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ContextBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "translation.ContextBuilderService",
-	HandlerType: (*ContextBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _ContextBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetTranslationFlags",
-			Handler:    _ContextBuilderService_SetTranslationFlags_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/translation/translation.proto",
-}
-
-const (
-	TranslatorService_Destroy_FullMethodName     = "/translation.TranslatorService/Destroy"
-	TranslatorService_IsDestroyed_FullMethodName = "/translation.TranslatorService/IsDestroyed"
-)
-
-// TranslatorServiceClient is the client API for TranslatorService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type TranslatorServiceClient interface {
-	Destroy(ctx context.Context, in *DestroyRequest, opts ...grpc.CallOption) (*DestroyResponse, error)
-	IsDestroyed(ctx context.Context, in *IsDestroyedRequest, opts ...grpc.CallOption) (*IsDestroyedResponse, error)
-}
-
-type translatorServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewTranslatorServiceClient(cc grpc.ClientConnInterface) TranslatorServiceClient {
-	return &translatorServiceClient{cc}
-}
-
-func (c *translatorServiceClient) Destroy(ctx context.Context, in *DestroyRequest, opts ...grpc.CallOption) (*DestroyResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DestroyResponse)
-	err := c.cc.Invoke(ctx, TranslatorService_Destroy_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *translatorServiceClient) IsDestroyed(ctx context.Context, in *IsDestroyedRequest, opts ...grpc.CallOption) (*IsDestroyedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsDestroyedResponse)
-	err := c.cc.Invoke(ctx, TranslatorService_IsDestroyed_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// TranslatorServiceServer is the server API for TranslatorService service.
-// All implementations must embed UnimplementedTranslatorServiceServer
-// for forward compatibility.
-type TranslatorServiceServer interface {
-	Destroy(context.Context, *DestroyRequest) (*DestroyResponse, error)
-	IsDestroyed(context.Context, *IsDestroyedRequest) (*IsDestroyedResponse, error)
-	mustEmbedUnimplementedTranslatorServiceServer()
-}
-
-// UnimplementedTranslatorServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedTranslatorServiceServer struct{}
-
-func (UnimplementedTranslatorServiceServer) Destroy(context.Context, *DestroyRequest) (*DestroyResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Destroy not implemented")
-}
-func (UnimplementedTranslatorServiceServer) IsDestroyed(context.Context, *IsDestroyedRequest) (*IsDestroyedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsDestroyed not implemented")
-}
-func (UnimplementedTranslatorServiceServer) mustEmbedUnimplementedTranslatorServiceServer() {}
-func (UnimplementedTranslatorServiceServer) testEmbeddedByValue()                           {}
-
-// UnsafeTranslatorServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to TranslatorServiceServer will
-// result in compilation errors.
-type UnsafeTranslatorServiceServer interface {
-	mustEmbedUnimplementedTranslatorServiceServer()
-}
-
-func RegisterTranslatorServiceServer(s grpc.ServiceRegistrar, srv TranslatorServiceServer) {
-	// If the following call panics, it indicates UnimplementedTranslatorServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&TranslatorService_ServiceDesc, srv)
-}
-
-func _TranslatorService_Destroy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DestroyRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TranslatorServiceServer).Destroy(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TranslatorService_Destroy_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TranslatorServiceServer).Destroy(ctx, req.(*DestroyRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TranslatorService_IsDestroyed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsDestroyedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TranslatorServiceServer).IsDestroyed(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TranslatorService_IsDestroyed_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TranslatorServiceServer).IsDestroyed(ctx, req.(*IsDestroyedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// TranslatorService_ServiceDesc is the grpc.ServiceDesc for TranslatorService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var TranslatorService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "translation.TranslatorService",
-	HandlerType: (*TranslatorServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Destroy",
-			Handler:    _TranslatorService_Destroy_Handler,
-		},
-		{
-			MethodName: "IsDestroyed",
-			Handler:    _TranslatorService_IsDestroyed_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/translation/translation.proto",
-}
-
-const (
-	CapabilityService_DescribeContents_FullMethodName             = "/translation.CapabilityService/DescribeContents"
-	CapabilityService_GetSourceSpec_FullMethodName                = "/translation.CapabilityService/GetSourceSpec"
-	CapabilityService_GetState_FullMethodName                     = "/translation.CapabilityService/GetState"
-	CapabilityService_GetSupportedTranslationFlags_FullMethodName = "/translation.CapabilityService/GetSupportedTranslationFlags"
-	CapabilityService_GetTargetSpec_FullMethodName                = "/translation.CapabilityService/GetTargetSpec"
-	CapabilityService_IsUiTranslationEnabled_FullMethodName       = "/translation.CapabilityService/IsUiTranslationEnabled"
-	CapabilityService_ToString_FullMethodName                     = "/translation.CapabilityService/ToString"
-	CapabilityService_WriteToParcel_FullMethodName                = "/translation.CapabilityService/WriteToParcel"
-)
-
-// CapabilityServiceClient is the client API for CapabilityService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CapabilityServiceClient interface {
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetSourceSpec(ctx context.Context, in *GetSourceSpecRequest, opts ...grpc.CallOption) (*GetSourceSpecResponse, error)
-	GetState(ctx context.Context, in *GetStateRequest, opts ...grpc.CallOption) (*GetStateResponse, error)
-	GetSupportedTranslationFlags(ctx context.Context, in *GetSupportedTranslationFlagsRequest, opts ...grpc.CallOption) (*GetSupportedTranslationFlagsResponse, error)
-	GetTargetSpec(ctx context.Context, in *GetTargetSpecRequest, opts ...grpc.CallOption) (*GetTargetSpecResponse, error)
-	IsUiTranslationEnabled(ctx context.Context, in *IsUiTranslationEnabledRequest, opts ...grpc.CallOption) (*IsUiTranslationEnabledResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type capabilityServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCapabilityServiceClient(cc grpc.ClientConnInterface) CapabilityServiceClient {
-	return &capabilityServiceClient{cc}
-}
-
-func (c *capabilityServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, CapabilityService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *capabilityServiceClient) GetSourceSpec(ctx context.Context, in *GetSourceSpecRequest, opts ...grpc.CallOption) (*GetSourceSpecResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSourceSpecResponse)
-	err := c.cc.Invoke(ctx, CapabilityService_GetSourceSpec_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *capabilityServiceClient) GetState(ctx context.Context, in *GetStateRequest, opts ...grpc.CallOption) (*GetStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStateResponse)
-	err := c.cc.Invoke(ctx, CapabilityService_GetState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *capabilityServiceClient) GetSupportedTranslationFlags(ctx context.Context, in *GetSupportedTranslationFlagsRequest, opts ...grpc.CallOption) (*GetSupportedTranslationFlagsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSupportedTranslationFlagsResponse)
-	err := c.cc.Invoke(ctx, CapabilityService_GetSupportedTranslationFlags_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *capabilityServiceClient) GetTargetSpec(ctx context.Context, in *GetTargetSpecRequest, opts ...grpc.CallOption) (*GetTargetSpecResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTargetSpecResponse)
-	err := c.cc.Invoke(ctx, CapabilityService_GetTargetSpec_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *capabilityServiceClient) IsUiTranslationEnabled(ctx context.Context, in *IsUiTranslationEnabledRequest, opts ...grpc.CallOption) (*IsUiTranslationEnabledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsUiTranslationEnabledResponse)
-	err := c.cc.Invoke(ctx, CapabilityService_IsUiTranslationEnabled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *capabilityServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, CapabilityService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *capabilityServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, CapabilityService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CapabilityServiceServer is the server API for CapabilityService service.
-// All implementations must embed UnimplementedCapabilityServiceServer
-// for forward compatibility.
-type CapabilityServiceServer interface {
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetSourceSpec(context.Context, *GetSourceSpecRequest) (*GetSourceSpecResponse, error)
-	GetState(context.Context, *GetStateRequest) (*GetStateResponse, error)
-	GetSupportedTranslationFlags(context.Context, *GetSupportedTranslationFlagsRequest) (*GetSupportedTranslationFlagsResponse, error)
-	GetTargetSpec(context.Context, *GetTargetSpecRequest) (*GetTargetSpecResponse, error)
-	IsUiTranslationEnabled(context.Context, *IsUiTranslationEnabledRequest) (*IsUiTranslationEnabledResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedCapabilityServiceServer()
-}
-
-// UnimplementedCapabilityServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCapabilityServiceServer struct{}
-
-func (UnimplementedCapabilityServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedCapabilityServiceServer) GetSourceSpec(context.Context, *GetSourceSpecRequest) (*GetSourceSpecResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSourceSpec not implemented")
-}
-func (UnimplementedCapabilityServiceServer) GetState(context.Context, *GetStateRequest) (*GetStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetState not implemented")
-}
-func (UnimplementedCapabilityServiceServer) GetSupportedTranslationFlags(context.Context, *GetSupportedTranslationFlagsRequest) (*GetSupportedTranslationFlagsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSupportedTranslationFlags not implemented")
-}
-func (UnimplementedCapabilityServiceServer) GetTargetSpec(context.Context, *GetTargetSpecRequest) (*GetTargetSpecResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetTargetSpec not implemented")
-}
-func (UnimplementedCapabilityServiceServer) IsUiTranslationEnabled(context.Context, *IsUiTranslationEnabledRequest) (*IsUiTranslationEnabledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsUiTranslationEnabled not implemented")
-}
-func (UnimplementedCapabilityServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedCapabilityServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedCapabilityServiceServer) mustEmbedUnimplementedCapabilityServiceServer() {}
-func (UnimplementedCapabilityServiceServer) testEmbeddedByValue()                           {}
-
-// UnsafeCapabilityServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CapabilityServiceServer will
-// result in compilation errors.
-type UnsafeCapabilityServiceServer interface {
-	mustEmbedUnimplementedCapabilityServiceServer()
-}
-
-func RegisterCapabilityServiceServer(s grpc.ServiceRegistrar, srv CapabilityServiceServer) {
-	// If the following call panics, it indicates UnimplementedCapabilityServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CapabilityService_ServiceDesc, srv)
-}
-
-func _CapabilityService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CapabilityServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CapabilityService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CapabilityServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CapabilityService_GetSourceSpec_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSourceSpecRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CapabilityServiceServer).GetSourceSpec(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CapabilityService_GetSourceSpec_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CapabilityServiceServer).GetSourceSpec(ctx, req.(*GetSourceSpecRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CapabilityService_GetState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CapabilityServiceServer).GetState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CapabilityService_GetState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CapabilityServiceServer).GetState(ctx, req.(*GetStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CapabilityService_GetSupportedTranslationFlags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSupportedTranslationFlagsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CapabilityServiceServer).GetSupportedTranslationFlags(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CapabilityService_GetSupportedTranslationFlags_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CapabilityServiceServer).GetSupportedTranslationFlags(ctx, req.(*GetSupportedTranslationFlagsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CapabilityService_GetTargetSpec_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTargetSpecRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CapabilityServiceServer).GetTargetSpec(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CapabilityService_GetTargetSpec_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CapabilityServiceServer).GetTargetSpec(ctx, req.(*GetTargetSpecRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CapabilityService_IsUiTranslationEnabled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsUiTranslationEnabledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CapabilityServiceServer).IsUiTranslationEnabled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CapabilityService_IsUiTranslationEnabled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CapabilityServiceServer).IsUiTranslationEnabled(ctx, req.(*IsUiTranslationEnabledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CapabilityService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CapabilityServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CapabilityService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CapabilityServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CapabilityService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CapabilityServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CapabilityService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CapabilityServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CapabilityService_ServiceDesc is the grpc.ServiceDesc for CapabilityService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CapabilityService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "translation.CapabilityService",
-	HandlerType: (*CapabilityServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "DescribeContents",
-			Handler:    _CapabilityService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetSourceSpec",
-			Handler:    _CapabilityService_GetSourceSpec_Handler,
-		},
-		{
-			MethodName: "GetState",
-			Handler:    _CapabilityService_GetState_Handler,
-		},
-		{
-			MethodName: "GetSupportedTranslationFlags",
-			Handler:    _CapabilityService_GetSupportedTranslationFlags_Handler,
-		},
-		{
-			MethodName: "GetTargetSpec",
-			Handler:    _CapabilityService_GetTargetSpec_Handler,
-		},
-		{
-			MethodName: "IsUiTranslationEnabled",
-			Handler:    _CapabilityService_IsUiTranslationEnabled_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _CapabilityService_ToString_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _CapabilityService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

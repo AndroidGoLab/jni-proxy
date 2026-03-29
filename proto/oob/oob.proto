@@ -6,49 +6,6 @@ package oob;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/oob";
 
-message DescribeContentsRequest {
-}
-
-message DescribeContentsResponse {
-  int32 result = 1;
-}
-
-message GetRangingDeviceRequest {
-}
-
-message GetRangingDeviceResponse {
-  int64 result = 1;
-}
-
-message GetTransportHandleRequest {
-}
-
-message GetTransportHandleResponse {
-  int64 result = 1;
-}
-
-message ToStringRequest {
-}
-
-message ToStringResponse {
-  string result = 1;
-}
-
-message WriteToParcelRequest {
-  int64 arg0 = 1;
-  int32 arg1 = 2;
-}
-
-message WriteToParcelResponse {
-}
-
-message BuildRequest {
-}
-
-message BuildResponse {
-  int64 result = 1;
-}
-
 message RegisterReceiveCallbackRequest {
   int64 arg0 = 1;
   int64 arg1 = 2;
@@ -95,10 +52,60 @@ message OnSendFailedRequest {
 message OnSendFailedResponse {
 }
 
+message DescribeContentsRequest {
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message GetDeviceHandleRequest {
+}
+
+message GetDeviceHandleResponse {
+  int64 result = 1;
+}
+
+message ToStringRequest {
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 arg0 = 1;
+  int32 arg1 = 2;
+}
+
+message WriteToParcelResponse {
+}
+
+message BuildRequest {
+}
+
+message BuildResponse {
+  int64 result = 1;
+}
+
+message GetDeviceHandlesRequest {
+}
+
+message GetDeviceHandlesResponse {
+  int64 result = 1;
+}
+
 message GetFastestRangingIntervalRequest {
 }
 
 message GetFastestRangingIntervalResponse {
+  int64 result = 1;
+}
+
+message GetRangingIntervalRangeRequest {
+}
+
+message GetRangingIntervalRangeResponse {
   int64 result = 1;
 }
 
@@ -163,23 +170,18 @@ message SetSlowestRangingIntervalResponse {
   int64 result = 1;
 }
 
-message GetDeviceHandleRequest {
+message GetRangingDeviceRequest {
 }
 
-message GetDeviceHandleResponse {
+message GetRangingDeviceResponse {
   int64 result = 1;
 }
 
-service DeviceHandleService {
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetRangingDevice (GetRangingDeviceRequest) returns (GetRangingDeviceResponse);
-  rpc GetTransportHandle (GetTransportHandleRequest) returns (GetTransportHandleResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+message GetTransportHandleRequest {
 }
 
-service DeviceHandleBuilderService {
-  rpc Build (BuildRequest) returns (BuildResponse);
+message GetTransportHandleResponse {
+  int64 result = 1;
 }
 
 service TransportHandleService {
@@ -195,9 +197,22 @@ service TransportHandleReceiveCallbackService {
   rpc OnSendFailed (OnSendFailedRequest) returns (OnSendFailedResponse);
 }
 
+service ResponderRangingConfigService {
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetDeviceHandle (GetDeviceHandleRequest) returns (GetDeviceHandleResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
+}
+
+service ResponderRangingConfigBuilderService {
+  rpc Build (BuildRequest) returns (BuildResponse);
+}
+
 service InitiatorRangingConfigService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc GetDeviceHandles (GetDeviceHandlesRequest) returns (GetDeviceHandlesResponse);
   rpc GetFastestRangingInterval (GetFastestRangingIntervalRequest) returns (GetFastestRangingIntervalResponse);
+  rpc GetRangingIntervalRange (GetRangingIntervalRangeRequest) returns (GetRangingIntervalRangeResponse);
   rpc GetRangingMode (GetRangingModeRequest) returns (GetRangingModeResponse);
   rpc GetSecurityLevel (GetSecurityLevelRequest) returns (GetSecurityLevelResponse);
   rpc GetSlowestRangingInterval (GetSlowestRangingIntervalRequest) returns (GetSlowestRangingIntervalResponse);
@@ -214,13 +229,14 @@ service InitiatorRangingConfigBuilderService {
   rpc SetSlowestRangingInterval (SetSlowestRangingIntervalRequest) returns (SetSlowestRangingIntervalResponse);
 }
 
-service ResponderRangingConfigService {
+service DeviceHandleService {
   rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc GetDeviceHandle (GetDeviceHandleRequest) returns (GetDeviceHandleResponse);
+  rpc GetRangingDevice (GetRangingDeviceRequest) returns (GetRangingDeviceResponse);
+  rpc GetTransportHandle (GetTransportHandleRequest) returns (GetTransportHandleResponse);
   rpc ToString (ToStringRequest) returns (ToStringResponse);
   rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
-service ResponderRangingConfigBuilderService {
+service DeviceHandleBuilderService {
   rpc Build (BuildRequest) returns (BuildResponse);
 }

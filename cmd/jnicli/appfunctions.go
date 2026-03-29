@@ -12,23 +12,23 @@ var appfunctionsCmd = &cobra.Command{
 	Short: "appfunctions service operations",
 }
 
-var appfunctionsExecuteAppFunctionResponseCmd = &cobra.Command{
-	Use:   "execute-app-function-response",
-	Short: "ExecuteAppFunctionResponseService operations",
+var appfunctionsAppFunctionServiceCmd = &cobra.Command{
+	Use:   "app-function-service",
+	Short: "AppFunctionServiceService operations",
 }
 
-var appfunctionsExecuteAppFunctionResponseNewExecuteAppFunctionResponseCmd = &cobra.Command{
-	Use:   "new-execute-app-function-response",
-	Short: "NewExecuteAppFunctionResponse RPC",
+var appfunctionsAppFunctionServiceOnBindCmd = &cobra.Command{
+	Use:   "on-bind",
+	Short: "OnBind RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewExecuteAppFunctionResponseServiceClient(grpcConn)
-		req := &pb.NewExecuteAppFunctionResponseRequest{}
+		client := pb.NewAppFunctionServiceServiceClient(grpcConn)
+		req := &pb.OnBindRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.NewExecuteAppFunctionResponse(ctx, req)
+		resp, err := client.OnBind(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -36,13 +36,40 @@ var appfunctionsExecuteAppFunctionResponseNewExecuteAppFunctionResponseCmd = &co
 	},
 }
 
-var appfunctionsExecuteAppFunctionResponseDescribeContentsCmd = &cobra.Command{
+var appfunctionsAppFunctionExceptionCmd = &cobra.Command{
+	Use:   "app-function-exception",
+	Short: "AppFunctionExceptionService operations",
+}
+
+var appfunctionsAppFunctionExceptionNewAppFunctionExceptionCmd = &cobra.Command{
+	Use:   "new-app-function-exception",
+	Short: "NewAppFunctionException RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppFunctionExceptionServiceClient(grpcConn)
+		req := &pb.NewAppFunctionExceptionRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewAppFunctionException(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appfunctionsAppFunctionExceptionDescribeContentsCmd = &cobra.Command{
 	Use:   "describe-contents",
 	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewExecuteAppFunctionResponseServiceClient(grpcConn)
+		client := pb.NewAppFunctionExceptionServiceClient(grpcConn)
 		req := &pb.DescribeContentsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -55,13 +82,70 @@ var appfunctionsExecuteAppFunctionResponseDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var appfunctionsExecuteAppFunctionResponseGetExtrasCmd = &cobra.Command{
+var appfunctionsAppFunctionExceptionGetErrorCategoryCmd = &cobra.Command{
+	Use:   "get-error-category",
+	Short: "GetErrorCategory RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppFunctionExceptionServiceClient(grpcConn)
+		req := &pb.GetErrorCategoryRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetErrorCategory(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appfunctionsAppFunctionExceptionGetErrorCodeCmd = &cobra.Command{
+	Use:   "get-error-code",
+	Short: "GetErrorCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppFunctionExceptionServiceClient(grpcConn)
+		req := &pb.GetErrorCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetErrorCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appfunctionsAppFunctionExceptionGetErrorMessageCmd = &cobra.Command{
+	Use:   "get-error-message",
+	Short: "GetErrorMessage RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppFunctionExceptionServiceClient(grpcConn)
+		req := &pb.GetErrorMessageRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetErrorMessage(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appfunctionsAppFunctionExceptionGetExtrasCmd = &cobra.Command{
 	Use:   "get-extras",
 	Short: "GetExtras RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewExecuteAppFunctionResponseServiceClient(grpcConn)
+		client := pb.NewAppFunctionExceptionServiceClient(grpcConn)
 		req := &pb.GetExtrasRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -74,32 +158,13 @@ var appfunctionsExecuteAppFunctionResponseGetExtrasCmd = &cobra.Command{
 	},
 }
 
-var appfunctionsExecuteAppFunctionResponseGetResultDocumentCmd = &cobra.Command{
-	Use:   "get-result-document",
-	Short: "GetResultDocument RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExecuteAppFunctionResponseServiceClient(grpcConn)
-		req := &pb.GetResultDocumentRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetResultDocument(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appfunctionsExecuteAppFunctionResponseWriteToParcelCmd = &cobra.Command{
+var appfunctionsAppFunctionExceptionWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewExecuteAppFunctionResponseServiceClient(grpcConn)
+		client := pb.NewAppFunctionExceptionServiceClient(grpcConn)
 		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -284,23 +349,23 @@ var appfunctionsExecuteAppFunctionRequestBuilderSetParametersCmd = &cobra.Comman
 	},
 }
 
-var appfunctionsAppFunctionServiceCmd = &cobra.Command{
-	Use:   "app-function-service",
-	Short: "AppFunctionServiceService operations",
+var appfunctionsExecuteAppFunctionResponseCmd = &cobra.Command{
+	Use:   "execute-app-function-response",
+	Short: "ExecuteAppFunctionResponseService operations",
 }
 
-var appfunctionsAppFunctionServiceOnBindCmd = &cobra.Command{
-	Use:   "on-bind",
-	Short: "OnBind RPC",
+var appfunctionsExecuteAppFunctionResponseNewExecuteAppFunctionResponseCmd = &cobra.Command{
+	Use:   "new-execute-app-function-response",
+	Short: "NewExecuteAppFunctionResponse RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAppFunctionServiceServiceClient(grpcConn)
-		req := &pb.OnBindRequest{}
+		client := pb.NewExecuteAppFunctionResponseServiceClient(grpcConn)
+		req := &pb.NewExecuteAppFunctionResponseRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.OnBind(ctx, req)
+		resp, err := client.NewExecuteAppFunctionResponse(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -308,40 +373,13 @@ var appfunctionsAppFunctionServiceOnBindCmd = &cobra.Command{
 	},
 }
 
-var appfunctionsAppFunctionExceptionCmd = &cobra.Command{
-	Use:   "app-function-exception",
-	Short: "AppFunctionExceptionService operations",
-}
-
-var appfunctionsAppFunctionExceptionNewAppFunctionExceptionCmd = &cobra.Command{
-	Use:   "new-app-function-exception",
-	Short: "NewAppFunctionException RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppFunctionExceptionServiceClient(grpcConn)
-		req := &pb.NewAppFunctionExceptionRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewAppFunctionException(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appfunctionsAppFunctionExceptionDescribeContentsCmd = &cobra.Command{
+var appfunctionsExecuteAppFunctionResponseDescribeContentsCmd = &cobra.Command{
 	Use:   "describe-contents",
 	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAppFunctionExceptionServiceClient(grpcConn)
+		client := pb.NewExecuteAppFunctionResponseServiceClient(grpcConn)
 		req := &pb.DescribeContentsRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -354,70 +392,13 @@ var appfunctionsAppFunctionExceptionDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var appfunctionsAppFunctionExceptionGetErrorCategoryCmd = &cobra.Command{
-	Use:   "get-error-category",
-	Short: "GetErrorCategory RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppFunctionExceptionServiceClient(grpcConn)
-		req := &pb.GetErrorCategoryRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetErrorCategory(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appfunctionsAppFunctionExceptionGetErrorCodeCmd = &cobra.Command{
-	Use:   "get-error-code",
-	Short: "GetErrorCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppFunctionExceptionServiceClient(grpcConn)
-		req := &pb.GetErrorCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetErrorCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appfunctionsAppFunctionExceptionGetErrorMessageCmd = &cobra.Command{
-	Use:   "get-error-message",
-	Short: "GetErrorMessage RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppFunctionExceptionServiceClient(grpcConn)
-		req := &pb.GetErrorMessageRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetErrorMessage(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var appfunctionsAppFunctionExceptionGetExtrasCmd = &cobra.Command{
+var appfunctionsExecuteAppFunctionResponseGetExtrasCmd = &cobra.Command{
 	Use:   "get-extras",
 	Short: "GetExtras RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAppFunctionExceptionServiceClient(grpcConn)
+		client := pb.NewExecuteAppFunctionResponseServiceClient(grpcConn)
 		req := &pb.GetExtrasRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -430,13 +411,32 @@ var appfunctionsAppFunctionExceptionGetExtrasCmd = &cobra.Command{
 	},
 }
 
-var appfunctionsAppFunctionExceptionWriteToParcelCmd = &cobra.Command{
+var appfunctionsExecuteAppFunctionResponseGetResultDocumentCmd = &cobra.Command{
+	Use:   "get-result-document",
+	Short: "GetResultDocument RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExecuteAppFunctionResponseServiceClient(grpcConn)
+		req := &pb.GetResultDocumentRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetResultDocument(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var appfunctionsExecuteAppFunctionResponseWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewAppFunctionExceptionServiceClient(grpcConn)
+		client := pb.NewExecuteAppFunctionResponseServiceClient(grpcConn)
 		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
 			req.Handle = v
@@ -456,34 +456,6 @@ var appfunctionsAppFunctionExceptionWriteToParcelCmd = &cobra.Command{
 }
 
 func init() {
-	appfunctionsExecuteAppFunctionResponseNewExecuteAppFunctionResponseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appfunctionsExecuteAppFunctionResponseCmd.AddCommand(appfunctionsExecuteAppFunctionResponseNewExecuteAppFunctionResponseCmd)
-	appfunctionsExecuteAppFunctionResponseDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	appfunctionsExecuteAppFunctionResponseCmd.AddCommand(appfunctionsExecuteAppFunctionResponseDescribeContentsCmd)
-	appfunctionsExecuteAppFunctionResponseGetExtrasCmd.Flags().Int64("handle", 0, "handle (int64)")
-	appfunctionsExecuteAppFunctionResponseCmd.AddCommand(appfunctionsExecuteAppFunctionResponseGetExtrasCmd)
-	appfunctionsExecuteAppFunctionResponseGetResultDocumentCmd.Flags().Int64("handle", 0, "handle (int64)")
-	appfunctionsExecuteAppFunctionResponseCmd.AddCommand(appfunctionsExecuteAppFunctionResponseGetResultDocumentCmd)
-	appfunctionsExecuteAppFunctionResponseWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
-	appfunctionsExecuteAppFunctionResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appfunctionsExecuteAppFunctionResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	appfunctionsExecuteAppFunctionResponseCmd.AddCommand(appfunctionsExecuteAppFunctionResponseWriteToParcelCmd)
-	appfunctionsCmd.AddCommand(appfunctionsExecuteAppFunctionResponseCmd)
-	appfunctionsExecuteAppFunctionRequestCmd.AddCommand(appfunctionsExecuteAppFunctionRequestDescribeContentsCmd)
-	appfunctionsExecuteAppFunctionRequestCmd.AddCommand(appfunctionsExecuteAppFunctionRequestGetExtrasCmd)
-	appfunctionsExecuteAppFunctionRequestCmd.AddCommand(appfunctionsExecuteAppFunctionRequestGetFunctionIdentifierCmd)
-	appfunctionsExecuteAppFunctionRequestCmd.AddCommand(appfunctionsExecuteAppFunctionRequestGetParametersCmd)
-	appfunctionsExecuteAppFunctionRequestCmd.AddCommand(appfunctionsExecuteAppFunctionRequestGetTargetPackageNameCmd)
-	appfunctionsExecuteAppFunctionRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appfunctionsExecuteAppFunctionRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	appfunctionsExecuteAppFunctionRequestCmd.AddCommand(appfunctionsExecuteAppFunctionRequestWriteToParcelCmd)
-	appfunctionsCmd.AddCommand(appfunctionsExecuteAppFunctionRequestCmd)
-	appfunctionsExecuteAppFunctionRequestBuilderCmd.AddCommand(appfunctionsExecuteAppFunctionRequestBuilderBuildCmd)
-	appfunctionsExecuteAppFunctionRequestBuilderSetExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appfunctionsExecuteAppFunctionRequestBuilderCmd.AddCommand(appfunctionsExecuteAppFunctionRequestBuilderSetExtrasCmd)
-	appfunctionsExecuteAppFunctionRequestBuilderSetParametersCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	appfunctionsExecuteAppFunctionRequestBuilderCmd.AddCommand(appfunctionsExecuteAppFunctionRequestBuilderSetParametersCmd)
-	appfunctionsCmd.AddCommand(appfunctionsExecuteAppFunctionRequestBuilderCmd)
 	appfunctionsAppFunctionServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	appfunctionsAppFunctionServiceCmd.AddCommand(appfunctionsAppFunctionServiceOnBindCmd)
 	appfunctionsCmd.AddCommand(appfunctionsAppFunctionServiceCmd)
@@ -505,5 +477,33 @@ func init() {
 	appfunctionsAppFunctionExceptionWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	appfunctionsAppFunctionExceptionCmd.AddCommand(appfunctionsAppFunctionExceptionWriteToParcelCmd)
 	appfunctionsCmd.AddCommand(appfunctionsAppFunctionExceptionCmd)
+	appfunctionsExecuteAppFunctionRequestCmd.AddCommand(appfunctionsExecuteAppFunctionRequestDescribeContentsCmd)
+	appfunctionsExecuteAppFunctionRequestCmd.AddCommand(appfunctionsExecuteAppFunctionRequestGetExtrasCmd)
+	appfunctionsExecuteAppFunctionRequestCmd.AddCommand(appfunctionsExecuteAppFunctionRequestGetFunctionIdentifierCmd)
+	appfunctionsExecuteAppFunctionRequestCmd.AddCommand(appfunctionsExecuteAppFunctionRequestGetParametersCmd)
+	appfunctionsExecuteAppFunctionRequestCmd.AddCommand(appfunctionsExecuteAppFunctionRequestGetTargetPackageNameCmd)
+	appfunctionsExecuteAppFunctionRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appfunctionsExecuteAppFunctionRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appfunctionsExecuteAppFunctionRequestCmd.AddCommand(appfunctionsExecuteAppFunctionRequestWriteToParcelCmd)
+	appfunctionsCmd.AddCommand(appfunctionsExecuteAppFunctionRequestCmd)
+	appfunctionsExecuteAppFunctionRequestBuilderCmd.AddCommand(appfunctionsExecuteAppFunctionRequestBuilderBuildCmd)
+	appfunctionsExecuteAppFunctionRequestBuilderSetExtrasCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appfunctionsExecuteAppFunctionRequestBuilderCmd.AddCommand(appfunctionsExecuteAppFunctionRequestBuilderSetExtrasCmd)
+	appfunctionsExecuteAppFunctionRequestBuilderSetParametersCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appfunctionsExecuteAppFunctionRequestBuilderCmd.AddCommand(appfunctionsExecuteAppFunctionRequestBuilderSetParametersCmd)
+	appfunctionsCmd.AddCommand(appfunctionsExecuteAppFunctionRequestBuilderCmd)
+	appfunctionsExecuteAppFunctionResponseNewExecuteAppFunctionResponseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appfunctionsExecuteAppFunctionResponseCmd.AddCommand(appfunctionsExecuteAppFunctionResponseNewExecuteAppFunctionResponseCmd)
+	appfunctionsExecuteAppFunctionResponseDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appfunctionsExecuteAppFunctionResponseCmd.AddCommand(appfunctionsExecuteAppFunctionResponseDescribeContentsCmd)
+	appfunctionsExecuteAppFunctionResponseGetExtrasCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appfunctionsExecuteAppFunctionResponseCmd.AddCommand(appfunctionsExecuteAppFunctionResponseGetExtrasCmd)
+	appfunctionsExecuteAppFunctionResponseGetResultDocumentCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appfunctionsExecuteAppFunctionResponseCmd.AddCommand(appfunctionsExecuteAppFunctionResponseGetResultDocumentCmd)
+	appfunctionsExecuteAppFunctionResponseWriteToParcelCmd.Flags().Int64("handle", 0, "handle (int64)")
+	appfunctionsExecuteAppFunctionResponseWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	appfunctionsExecuteAppFunctionResponseWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	appfunctionsExecuteAppFunctionResponseCmd.AddCommand(appfunctionsExecuteAppFunctionResponseWriteToParcelCmd)
+	appfunctionsCmd.AddCommand(appfunctionsExecuteAppFunctionResponseCmd)
 	rootCmd.AddCommand(appfunctionsCmd)
 }

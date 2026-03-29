@@ -9,6 +9,239 @@ import (
 	"google.golang.org/grpc"
 )
 
+// FontFamilyClient wraps the gRPC FontFamilyService client.
+type FontFamilyClient struct {
+	svc pb.FontFamilyServiceClient
+}
+
+// NewFontFamilyClient creates a new FontFamily client.
+func NewFontFamilyClient(cc grpc.ClientConnInterface) *FontFamilyClient {
+	return &FontFamilyClient{
+		svc: pb.NewFontFamilyServiceClient(cc),
+	}
+}
+
+// GetFont calls the GetFont RPC.
+func (c *FontFamilyClient) GetFont(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetFont(ctx, &pb.GetFontRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSize calls the GetSize RPC.
+func (c *FontFamilyClient) GetSize(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSize(ctx, &pb.GetSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FontFamilyBuilderClient wraps the gRPC FontFamilyBuilderService client.
+type FontFamilyBuilderClient struct {
+	svc pb.FontFamilyBuilderServiceClient
+}
+
+// NewFontFamilyBuilderClient creates a new FontFamilyBuilder client.
+func NewFontFamilyBuilderClient(cc grpc.ClientConnInterface) *FontFamilyBuilderClient {
+	return &FontFamilyBuilderClient{
+		svc: pb.NewFontFamilyBuilderServiceClient(cc),
+	}
+}
+
+// AddFont calls the AddFont RPC.
+func (c *FontFamilyBuilderClient) AddFont(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddFont(ctx, &pb.AddFontRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Build calls the Build RPC.
+func (c *FontFamilyBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BuildVariableFamily calls the BuildVariableFamily RPC.
+func (c *FontFamilyBuilderClient) BuildVariableFamily(ctx context.Context) (int64, error) {
+	resp, err := c.svc.BuildVariableFamily(ctx, &pb.BuildVariableFamilyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FontStyleClient wraps the gRPC FontStyleService client.
+type FontStyleClient struct {
+	svc pb.FontStyleServiceClient
+}
+
+// NewFontStyleClient creates a new FontStyle client.
+func NewFontStyleClient(cc grpc.ClientConnInterface) *FontStyleClient {
+	return &FontStyleClient{
+		svc: pb.NewFontStyleServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *FontStyleClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSlant calls the GetSlant RPC.
+func (c *FontStyleClient) GetSlant(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSlant(ctx, &pb.GetSlantRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWeight calls the GetWeight RPC.
+func (c *FontStyleClient) GetWeight(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetWeight(ctx, &pb.GetWeightRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *FontStyleClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *FontStyleClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// FontVariationAxisClient wraps the gRPC FontVariationAxisService client.
+type FontVariationAxisClient struct {
+	svc pb.FontVariationAxisServiceClient
+}
+
+// NewFontVariationAxisClient creates a new FontVariationAxis client.
+func NewFontVariationAxisClient(cc grpc.ClientConnInterface) *FontVariationAxisClient {
+	return &FontVariationAxisClient{
+		svc: pb.NewFontVariationAxisServiceClient(cc),
+	}
+}
+
+// Equals calls the Equals RPC.
+func (c *FontVariationAxisClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStyleValue calls the GetStyleValue RPC.
+func (c *FontVariationAxisClient) GetStyleValue(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetStyleValue(ctx, &pb.GetStyleValueRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTag calls the GetTag RPC.
+func (c *FontVariationAxisClient) GetTag(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetTag(ctx, &pb.GetTagRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *FontVariationAxisClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *FontVariationAxisClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// FromFontVariationSettings calls the FromFontVariationSettings RPC.
+func (c *FontVariationAxisClient) FromFontVariationSettings(ctx context.Context, handle int64, arg0 string) (int64, error) {
+	resp, err := c.svc.FromFontVariationSettings(ctx, &pb.FromFontVariationSettingsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToFontVariationSettings calls the ToFontVariationSettings RPC.
+func (c *FontVariationAxisClient) ToFontVariationSettings(ctx context.Context, handle int64, arg0 int64) (string, error) {
+	resp, err := c.svc.ToFontVariationSettings(ctx, &pb.ToFontVariationSettingsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
 // FontClient wraps the gRPC FontService client.
 type FontClient struct {
 	svc pb.FontServiceClient
@@ -23,7 +256,7 @@ func NewFontClient(cc grpc.ClientConnInterface) *FontClient {
 
 // Equals calls the Equals RPC.
 func (c *FontClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+	resp, err := c.svc.Equals(ctx, &pb.FontEqualsRequest{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -119,7 +352,7 @@ func (c *FontClient) GetTtcIndex(ctx context.Context) (int32, error) {
 
 // HashCode calls the HashCode RPC.
 func (c *FontClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	resp, err := c.svc.HashCode(ctx, &pb.FontHashCodeRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -128,7 +361,7 @@ func (c *FontClient) HashCode(ctx context.Context) (int32, error) {
 
 // ToString calls the ToString RPC.
 func (c *FontClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	resp, err := c.svc.ToString(ctx, &pb.FontToStringRequest{})
 	if err != nil {
 		return "", err
 	}
@@ -211,233 +444,21 @@ func (c *FontBuilderClient) SetWeight(ctx context.Context, arg0 int32) (int64, e
 	return resp.GetResult(), nil
 }
 
-// FontStyleClient wraps the gRPC FontStyleService client.
-type FontStyleClient struct {
-	svc pb.FontStyleServiceClient
+// SystemFontsClient wraps the gRPC SystemFontsService client.
+type SystemFontsClient struct {
+	svc pb.SystemFontsServiceClient
 }
 
-// NewFontStyleClient creates a new FontStyle client.
-func NewFontStyleClient(cc grpc.ClientConnInterface) *FontStyleClient {
-	return &FontStyleClient{
-		svc: pb.NewFontStyleServiceClient(cc),
+// NewSystemFontsClient creates a new SystemFonts client.
+func NewSystemFontsClient(cc grpc.ClientConnInterface) *SystemFontsClient {
+	return &SystemFontsClient{
+		svc: pb.NewSystemFontsServiceClient(cc),
 	}
 }
 
-// Equals calls the Equals RPC.
-func (c *FontStyleClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.FontStyleEqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSlant calls the GetSlant RPC.
-func (c *FontStyleClient) GetSlant(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetSlant(ctx, &pb.GetSlantRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWeight calls the GetWeight RPC.
-func (c *FontStyleClient) GetWeight(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetWeight(ctx, &pb.GetWeightRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *FontStyleClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.FontStyleHashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *FontStyleClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.FontStyleToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// FontVariationAxisClient wraps the gRPC FontVariationAxisService client.
-type FontVariationAxisClient struct {
-	svc pb.FontVariationAxisServiceClient
-}
-
-// NewFontVariationAxisClient creates a new FontVariationAxis client.
-func NewFontVariationAxisClient(cc grpc.ClientConnInterface) *FontVariationAxisClient {
-	return &FontVariationAxisClient{
-		svc: pb.NewFontVariationAxisServiceClient(cc),
-	}
-}
-
-// Equals calls the Equals RPC.
-func (c *FontVariationAxisClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.FontVariationAxisEqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStyleValue calls the GetStyleValue RPC.
-func (c *FontVariationAxisClient) GetStyleValue(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetStyleValue(ctx, &pb.GetStyleValueRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTag calls the GetTag RPC.
-func (c *FontVariationAxisClient) GetTag(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetTag(ctx, &pb.GetTagRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *FontVariationAxisClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.FontVariationAxisHashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *FontVariationAxisClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.FontVariationAxisToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// FromFontVariationSettings calls the FromFontVariationSettings RPC.
-func (c *FontVariationAxisClient) FromFontVariationSettings(ctx context.Context, handle int64, arg0 string) (int64, error) {
-	resp, err := c.svc.FromFontVariationSettings(ctx, &pb.FromFontVariationSettingsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToFontVariationSettings calls the ToFontVariationSettings RPC.
-func (c *FontVariationAxisClient) ToFontVariationSettings(ctx context.Context, handle int64, arg0 int64) (string, error) {
-	resp, err := c.svc.ToFontVariationSettings(ctx, &pb.ToFontVariationSettingsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// FontFamilyClient wraps the gRPC FontFamilyService client.
-type FontFamilyClient struct {
-	svc pb.FontFamilyServiceClient
-}
-
-// NewFontFamilyClient creates a new FontFamily client.
-func NewFontFamilyClient(cc grpc.ClientConnInterface) *FontFamilyClient {
-	return &FontFamilyClient{
-		svc: pb.NewFontFamilyServiceClient(cc),
-	}
-}
-
-// GetFont calls the GetFont RPC.
-func (c *FontFamilyClient) GetFont(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetFont(ctx, &pb.GetFontRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSize calls the GetSize RPC.
-func (c *FontFamilyClient) GetSize(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetSize(ctx, &pb.GetSizeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FontFamilyBuilderClient wraps the gRPC FontFamilyBuilderService client.
-type FontFamilyBuilderClient struct {
-	svc pb.FontFamilyBuilderServiceClient
-}
-
-// NewFontFamilyBuilderClient creates a new FontFamilyBuilder client.
-func NewFontFamilyBuilderClient(cc grpc.ClientConnInterface) *FontFamilyBuilderClient {
-	return &FontFamilyBuilderClient{
-		svc: pb.NewFontFamilyBuilderServiceClient(cc),
-	}
-}
-
-// AddFont calls the AddFont RPC.
-func (c *FontFamilyBuilderClient) AddFont(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddFont(ctx, &pb.AddFontRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Build calls the Build RPC.
-func (c *FontFamilyBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// BuildVariableFamily calls the BuildVariableFamily RPC.
-func (c *FontFamilyBuilderClient) BuildVariableFamily(ctx context.Context) (int64, error) {
-	resp, err := c.svc.BuildVariableFamily(ctx, &pb.BuildVariableFamilyRequest{})
+// GetAvailableFonts calls the GetAvailableFonts RPC.
+func (c *SystemFontsClient) GetAvailableFonts(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetAvailableFonts(ctx, &pb.GetAvailableFontsRequest{})
 	if err != nil {
 		return 0, err
 	}

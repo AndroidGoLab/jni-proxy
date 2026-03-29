@@ -12,3286 +12,6 @@ var ondevicepersonalizationCmd = &cobra.Command{
 	Short: "ondevicepersonalization service operations",
 }
 
-var ondevicepersonalizationOnDevicePersonalizationExceptionCmd = &cobra.Command{
-	Use:   "on-device-personalization-exception",
-	Short: "OnDevicePersonalizationExceptionService operations",
-}
-
-var ondevicepersonalizationOnDevicePersonalizationExceptionGetErrorCodeCmd = &cobra.Command{
-	Use:   "get-error-code",
-	Short: "GetErrorCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOnDevicePersonalizationExceptionServiceClient(grpcConn)
-		req := &pb.GetErrorCodeRequest{}
-		resp, err := client.GetErrorCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationExecuteInputCmd = &cobra.Command{
-	Use:   "execute-input",
-	Short: "ExecuteInputService operations",
-}
-
-var ondevicepersonalizationExecuteInputNewExecuteInputCmd = &cobra.Command{
-	Use:   "new-execute-input",
-	Short: "NewExecuteInput RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExecuteInputServiceClient(grpcConn)
-		req := &pb.NewExecuteInputRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewExecuteInput(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationExecuteInputGetAppPackageNameCmd = &cobra.Command{
-	Use:   "get-app-package-name",
-	Short: "GetAppPackageName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExecuteInputServiceClient(grpcConn)
-		req := &pb.GetAppPackageNameRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetAppPackageName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationExecuteInputGetAppParamsCmd = &cobra.Command{
-	Use:   "get-app-params",
-	Short: "GetAppParams RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExecuteInputServiceClient(grpcConn)
-		req := &pb.GetAppParamsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetAppParams(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationEventLogRecordCmd = &cobra.Command{
-	Use:   "event-log-record",
-	Short: "EventLogRecordService operations",
-}
-
-var ondevicepersonalizationEventLogRecordDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEventLogRecordServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationEventLogRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEventLogRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationEventLogRecordGetDataCmd = &cobra.Command{
-	Use:   "get-data",
-	Short: "GetData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEventLogRecordServiceClient(grpcConn)
-		req := &pb.GetDataRequest{}
-		resp, err := client.GetData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationEventLogRecordGetRequestLogRecordCmd = &cobra.Command{
-	Use:   "get-request-log-record",
-	Short: "GetRequestLogRecord RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEventLogRecordServiceClient(grpcConn)
-		req := &pb.GetRequestLogRecordRequest{}
-		resp, err := client.GetRequestLogRecord(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationEventLogRecordGetRowIndexCmd = &cobra.Command{
-	Use:   "get-row-index",
-	Short: "GetRowIndex RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEventLogRecordServiceClient(grpcConn)
-		req := &pb.GetRowIndexRequest{}
-		resp, err := client.GetRowIndex(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationEventLogRecordGetTimeCmd = &cobra.Command{
-	Use:   "get-time",
-	Short: "GetTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEventLogRecordServiceClient(grpcConn)
-		req := &pb.GetTimeRequest{}
-		resp, err := client.GetTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationEventLogRecordGetTypeCmd = &cobra.Command{
-	Use:   "get-type",
-	Short: "GetType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEventLogRecordServiceClient(grpcConn)
-		req := &pb.GetTypeRequest{}
-		resp, err := client.GetType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationEventLogRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEventLogRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationEventLogRecordWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEventLogRecordServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationEventLogRecordBuilderCmd = &cobra.Command{
-	Use:   "event-log-record-builder",
-	Short: "EventLogRecordBuilderService operations",
-}
-
-var ondevicepersonalizationEventLogRecordBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEventLogRecordBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationEventLogRecordBuilderSetDataCmd = &cobra.Command{
-	Use:   "set-data",
-	Short: "SetData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEventLogRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetDataRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationEventLogRecordBuilderSetRequestLogRecordCmd = &cobra.Command{
-	Use:   "set-request-log-record",
-	Short: "SetRequestLogRecord RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEventLogRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetRequestLogRecordRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetRequestLogRecord(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationEventLogRecordBuilderSetRowIndexCmd = &cobra.Command{
-	Use:   "set-row-index",
-	Short: "SetRowIndex RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEventLogRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetRowIndexRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetRowIndex(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationEventLogRecordBuilderSetTypeCmd = &cobra.Command{
-	Use:   "set-type",
-	Short: "SetType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEventLogRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetTypeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationFederatedComputeSchedulerCmd = &cobra.Command{
-	Use:   "federated-compute-scheduler",
-	Short: "FederatedComputeSchedulerService operations",
-}
-
-var ondevicepersonalizationFederatedComputeSchedulerCancelCmd = &cobra.Command{
-	Use:   "cancel",
-	Short: "Cancel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFederatedComputeSchedulerServiceClient(grpcConn)
-		req := &pb.CancelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Cancel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationFederatedComputeSchedulerScheduleCmd = &cobra.Command{
-	Use:   "schedule",
-	Short: "Schedule RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFederatedComputeSchedulerServiceClient(grpcConn)
-		req := &pb.ScheduleRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Schedule(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationFederatedComputeSchedulerParamsCmd = &cobra.Command{
-	Use:   "federated-compute-scheduler-params",
-	Short: "FederatedComputeSchedulerParamsService operations",
-}
-
-var ondevicepersonalizationFederatedComputeSchedulerParamsGetTrainingIntervalCmd = &cobra.Command{
-	Use:   "get-training-interval",
-	Short: "GetTrainingInterval RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewFederatedComputeSchedulerParamsServiceClient(grpcConn)
-		req := &pb.GetTrainingIntervalRequest{}
-		resp, err := client.GetTrainingInterval(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationDownloadCompletedOutputCmd = &cobra.Command{
-	Use:   "download-completed-output",
-	Short: "DownloadCompletedOutputService operations",
-}
-
-var ondevicepersonalizationDownloadCompletedOutputEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDownloadCompletedOutputServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationDownloadCompletedOutputHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDownloadCompletedOutputServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationDownloadCompletedOutputBuilderCmd = &cobra.Command{
-	Use:   "download-completed-output-builder",
-	Short: "DownloadCompletedOutputBuilderService operations",
-}
-
-var ondevicepersonalizationDownloadCompletedOutputBuilderAddRetainedKeyCmd = &cobra.Command{
-	Use:   "add-retained-key",
-	Short: "AddRetainedKey RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDownloadCompletedOutputBuilderServiceClient(grpcConn)
-		req := &pb.AddRetainedKeyRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddRetainedKey(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationDownloadCompletedOutputBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDownloadCompletedOutputBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationInferenceOutputCmd = &cobra.Command{
-	Use:   "inference-output",
-	Short: "InferenceOutputService operations",
-}
-
-var ondevicepersonalizationInferenceOutputEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInferenceOutputServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationInferenceOutputHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInferenceOutputServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationInferenceOutputBuilderCmd = &cobra.Command{
-	Use:   "inference-output-builder",
-	Short: "InferenceOutputBuilderService operations",
-}
-
-var ondevicepersonalizationInferenceOutputBuilderAddDataOutputCmd = &cobra.Command{
-	Use:   "add-data-output",
-	Short: "AddDataOutput RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInferenceOutputBuilderServiceClient(grpcConn)
-		req := &pb.AddDataOutputRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.AddDataOutput(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationInferenceOutputBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInferenceOutputBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationAppInfoCmd = &cobra.Command{
-	Use:   "app-info",
-	Short: "AppInfoService operations",
-}
-
-var ondevicepersonalizationAppInfoNewAppInfoCmd = &cobra.Command{
-	Use:   "new-app-info",
-	Short: "NewAppInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppInfoServiceClient(grpcConn)
-		req := &pb.NewAppInfoRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewAppInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationAppInfoDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppInfoServiceClient(grpcConn)
-		req := &pb.AppInfoDescribeContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationAppInfoEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppInfoServiceClient(grpcConn)
-		req := &pb.AppInfoEqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationAppInfoHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppInfoServiceClient(grpcConn)
-		req := &pb.AppInfoHashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationAppInfoIsInstalledCmd = &cobra.Command{
-	Use:   "is-installed",
-	Short: "IsInstalled RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppInfoServiceClient(grpcConn)
-		req := &pb.IsInstalledRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.IsInstalled(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationAppInfoWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewAppInfoServiceClient(grpcConn)
-		req := &pb.AppInfoWriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationWebTriggerOutputCmd = &cobra.Command{
-	Use:   "web-trigger-output",
-	Short: "WebTriggerOutputService operations",
-}
-
-var ondevicepersonalizationWebTriggerOutputEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebTriggerOutputServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationWebTriggerOutputGetRequestLogRecordCmd = &cobra.Command{
-	Use:   "get-request-log-record",
-	Short: "GetRequestLogRecord RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebTriggerOutputServiceClient(grpcConn)
-		req := &pb.GetRequestLogRecordRequest{}
-		resp, err := client.GetRequestLogRecord(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationWebTriggerOutputHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebTriggerOutputServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationWebTriggerOutputBuilderCmd = &cobra.Command{
-	Use:   "web-trigger-output-builder",
-	Short: "WebTriggerOutputBuilderService operations",
-}
-
-var ondevicepersonalizationWebTriggerOutputBuilderAddEventLogRecordCmd = &cobra.Command{
-	Use:   "add-event-log-record",
-	Short: "AddEventLogRecord RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebTriggerOutputBuilderServiceClient(grpcConn)
-		req := &pb.AddEventLogRecordRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddEventLogRecord(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationWebTriggerOutputBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebTriggerOutputBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationWebTriggerOutputBuilderSetRequestLogRecordCmd = &cobra.Command{
-	Use:   "set-request-log-record",
-	Short: "SetRequestLogRecord RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebTriggerOutputBuilderServiceClient(grpcConn)
-		req := &pb.SetRequestLogRecordRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetRequestLogRecord(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationInferenceInputCmd = &cobra.Command{
-	Use:   "inference-input",
-	Short: "InferenceInputService operations",
-}
-
-var ondevicepersonalizationInferenceInputEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInferenceInputServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationInferenceInputGetBatchSizeCmd = &cobra.Command{
-	Use:   "get-batch-size",
-	Short: "GetBatchSize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInferenceInputServiceClient(grpcConn)
-		req := &pb.GetBatchSizeRequest{}
-		resp, err := client.GetBatchSize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationInferenceInputGetExpectedOutputStructureCmd = &cobra.Command{
-	Use:   "get-expected-output-structure",
-	Short: "GetExpectedOutputStructure RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInferenceInputServiceClient(grpcConn)
-		req := &pb.GetExpectedOutputStructureRequest{}
-		resp, err := client.GetExpectedOutputStructure(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationInferenceInputGetInputDataCmd = &cobra.Command{
-	Use:   "get-input-data",
-	Short: "GetInputData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInferenceInputServiceClient(grpcConn)
-		req := &pb.GetInputDataRequest{}
-		resp, err := client.GetInputData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationInferenceInputGetParamsCmd = &cobra.Command{
-	Use:   "get-params",
-	Short: "GetParams RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInferenceInputServiceClient(grpcConn)
-		req := &pb.GetParamsRequest{}
-		resp, err := client.GetParams(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationInferenceInputHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInferenceInputServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationInferenceInputBuilderCmd = &cobra.Command{
-	Use:   "inference-input-builder",
-	Short: "InferenceInputBuilderService operations",
-}
-
-var ondevicepersonalizationInferenceInputBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInferenceInputBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationInferenceInputBuilderSetBatchSizeCmd = &cobra.Command{
-	Use:   "set-batch-size",
-	Short: "SetBatchSize RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInferenceInputBuilderServiceClient(grpcConn)
-		req := &pb.SetBatchSizeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetBatchSize(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationInferenceInputBuilderSetExpectedOutputStructureCmd = &cobra.Command{
-	Use:   "set-expected-output-structure",
-	Short: "SetExpectedOutputStructure RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInferenceInputBuilderServiceClient(grpcConn)
-		req := &pb.SetExpectedOutputStructureRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetExpectedOutputStructure(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationInferenceInputBuilderSetInputDataCmd = &cobra.Command{
-	Use:   "set-input-data",
-	Short: "SetInputData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInferenceInputBuilderServiceClient(grpcConn)
-		req := &pb.SetInputDataRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetInputData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationInferenceInputBuilderSetParamsCmd = &cobra.Command{
-	Use:   "set-params",
-	Short: "SetParams RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInferenceInputBuilderServiceClient(grpcConn)
-		req := &pb.SetParamsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetParams(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationInferenceInputParamsCmd = &cobra.Command{
-	Use:   "inference-input-params",
-	Short: "InferenceInputParamsService operations",
-}
-
-var ondevicepersonalizationInferenceInputParamsEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInferenceInputParamsServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationInferenceInputParamsGetDelegateTypeCmd = &cobra.Command{
-	Use:   "get-delegate-type",
-	Short: "GetDelegateType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInferenceInputParamsServiceClient(grpcConn)
-		req := &pb.GetDelegateTypeRequest{}
-		resp, err := client.GetDelegateType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationInferenceInputParamsGetKeyValueStoreCmd = &cobra.Command{
-	Use:   "get-key-value-store",
-	Short: "GetKeyValueStore RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInferenceInputParamsServiceClient(grpcConn)
-		req := &pb.GetKeyValueStoreRequest{}
-		resp, err := client.GetKeyValueStore(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationInferenceInputParamsGetModelKeyCmd = &cobra.Command{
-	Use:   "get-model-key",
-	Short: "GetModelKey RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInferenceInputParamsServiceClient(grpcConn)
-		req := &pb.GetModelKeyRequest{}
-		resp, err := client.GetModelKey(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationInferenceInputParamsGetModelTypeCmd = &cobra.Command{
-	Use:   "get-model-type",
-	Short: "GetModelType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInferenceInputParamsServiceClient(grpcConn)
-		req := &pb.GetModelTypeRequest{}
-		resp, err := client.GetModelType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationInferenceInputParamsGetRecommendedNumThreadsCmd = &cobra.Command{
-	Use:   "get-recommended-num-threads",
-	Short: "GetRecommendedNumThreads RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInferenceInputParamsServiceClient(grpcConn)
-		req := &pb.GetRecommendedNumThreadsRequest{}
-		resp, err := client.GetRecommendedNumThreads(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationInferenceInputParamsHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewInferenceInputParamsServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationOnDevicePersonalizationManagerExecuteResultCmd = &cobra.Command{
-	Use:   "on-device-personalization-manager-execute-result",
-	Short: "OnDevicePersonalizationManagerExecuteResultService operations",
-}
-
-var ondevicepersonalizationOnDevicePersonalizationManagerExecuteResultGetOutputDataCmd = &cobra.Command{
-	Use:   "get-output-data",
-	Short: "GetOutputData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOnDevicePersonalizationManagerExecuteResultServiceClient(grpcConn)
-		req := &pb.GetOutputDataRequest{}
-		resp, err := client.GetOutputData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationOnDevicePersonalizationManagerExecuteResultGetSurfacePackageTokenCmd = &cobra.Command{
-	Use:   "get-surface-package-token",
-	Short: "GetSurfacePackageToken RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewOnDevicePersonalizationManagerExecuteResultServiceClient(grpcConn)
-		req := &pb.GetSurfacePackageTokenRequest{}
-		resp, err := client.GetSurfacePackageToken(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationRenderingConfigCmd = &cobra.Command{
-	Use:   "rendering-config",
-	Short: "RenderingConfigService operations",
-}
-
-var ondevicepersonalizationRenderingConfigDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRenderingConfigServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationRenderingConfigEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRenderingConfigServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationRenderingConfigHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRenderingConfigServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationRenderingConfigWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRenderingConfigServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationRenderingConfigBuilderCmd = &cobra.Command{
-	Use:   "rendering-config-builder",
-	Short: "RenderingConfigBuilderService operations",
-}
-
-var ondevicepersonalizationRenderingConfigBuilderAddKeyCmd = &cobra.Command{
-	Use:   "add-key",
-	Short: "AddKey RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRenderingConfigBuilderServiceClient(grpcConn)
-		req := &pb.AddKeyRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddKey(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationRenderingConfigBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRenderingConfigBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationWebTriggerInputCmd = &cobra.Command{
-	Use:   "web-trigger-input",
-	Short: "WebTriggerInputService operations",
-}
-
-var ondevicepersonalizationWebTriggerInputNewWebTriggerInputCmd = &cobra.Command{
-	Use:   "new-web-trigger-input",
-	Short: "NewWebTriggerInput RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebTriggerInputServiceClient(grpcConn)
-		req := &pb.NewWebTriggerInputRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.NewWebTriggerInput(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationWebTriggerInputEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebTriggerInputServiceClient(grpcConn)
-		req := &pb.WebTriggerInputEqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationWebTriggerInputGetAppPackageNameCmd = &cobra.Command{
-	Use:   "get-app-package-name",
-	Short: "GetAppPackageName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebTriggerInputServiceClient(grpcConn)
-		req := &pb.GetAppPackageNameRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetAppPackageName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationWebTriggerInputGetDataCmd = &cobra.Command{
-	Use:   "get-data",
-	Short: "GetData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebTriggerInputServiceClient(grpcConn)
-		req := &pb.WebTriggerInputGetDataRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationWebTriggerInputGetDestinationUrlCmd = &cobra.Command{
-	Use:   "get-destination-url",
-	Short: "GetDestinationUrl RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebTriggerInputServiceClient(grpcConn)
-		req := &pb.GetDestinationUrlRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetDestinationUrl(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationWebTriggerInputHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebTriggerInputServiceClient(grpcConn)
-		req := &pb.WebTriggerInputHashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationExecuteOutputCmd = &cobra.Command{
-	Use:   "execute-output",
-	Short: "ExecuteOutputService operations",
-}
-
-var ondevicepersonalizationExecuteOutputEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExecuteOutputServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationExecuteOutputGetBestValueCmd = &cobra.Command{
-	Use:   "get-best-value",
-	Short: "GetBestValue RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExecuteOutputServiceClient(grpcConn)
-		req := &pb.GetBestValueRequest{}
-		resp, err := client.GetBestValue(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationExecuteOutputGetOutputDataCmd = &cobra.Command{
-	Use:   "get-output-data",
-	Short: "GetOutputData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExecuteOutputServiceClient(grpcConn)
-		req := &pb.GetOutputDataRequest{}
-		resp, err := client.GetOutputData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationExecuteOutputGetRenderingConfigCmd = &cobra.Command{
-	Use:   "get-rendering-config",
-	Short: "GetRenderingConfig RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExecuteOutputServiceClient(grpcConn)
-		req := &pb.GetRenderingConfigRequest{}
-		resp, err := client.GetRenderingConfig(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationExecuteOutputGetRequestLogRecordCmd = &cobra.Command{
-	Use:   "get-request-log-record",
-	Short: "GetRequestLogRecord RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExecuteOutputServiceClient(grpcConn)
-		req := &pb.GetRequestLogRecordRequest{}
-		resp, err := client.GetRequestLogRecord(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationExecuteOutputHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExecuteOutputServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationExecuteOutputBuilderCmd = &cobra.Command{
-	Use:   "execute-output-builder",
-	Short: "ExecuteOutputBuilderService operations",
-}
-
-var ondevicepersonalizationExecuteOutputBuilderAddEventLogRecordCmd = &cobra.Command{
-	Use:   "add-event-log-record",
-	Short: "AddEventLogRecord RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExecuteOutputBuilderServiceClient(grpcConn)
-		req := &pb.AddEventLogRecordRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddEventLogRecord(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationExecuteOutputBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExecuteOutputBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationExecuteOutputBuilderSetBestValueCmd = &cobra.Command{
-	Use:   "set-best-value",
-	Short: "SetBestValue RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExecuteOutputBuilderServiceClient(grpcConn)
-		req := &pb.SetBestValueRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetBestValue(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationExecuteOutputBuilderSetOutputDataCmd = &cobra.Command{
-	Use:   "set-output-data",
-	Short: "SetOutputData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExecuteOutputBuilderServiceClient(grpcConn)
-		req := &pb.SetOutputDataRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetOutputData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationExecuteOutputBuilderSetRenderingConfigCmd = &cobra.Command{
-	Use:   "set-rendering-config",
-	Short: "SetRenderingConfig RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExecuteOutputBuilderServiceClient(grpcConn)
-		req := &pb.SetRenderingConfigRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetRenderingConfig(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationExecuteOutputBuilderSetRequestLogRecordCmd = &cobra.Command{
-	Use:   "set-request-log-record",
-	Short: "SetRequestLogRecord RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExecuteOutputBuilderServiceClient(grpcConn)
-		req := &pb.SetRequestLogRecordRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetRequestLogRecord(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationExecuteInIsolatedServiceRequestCmd = &cobra.Command{
-	Use:   "execute-in-isolated-service-request",
-	Short: "ExecuteInIsolatedServiceRequestService operations",
-}
-
-var ondevicepersonalizationExecuteInIsolatedServiceRequestEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExecuteInIsolatedServiceRequestServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationExecuteInIsolatedServiceRequestGetAppParamsCmd = &cobra.Command{
-	Use:   "get-app-params",
-	Short: "GetAppParams RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExecuteInIsolatedServiceRequestServiceClient(grpcConn)
-		req := &pb.ExecuteInIsolatedServiceRequestGetAppParamsRequest{}
-		resp, err := client.GetAppParams(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationExecuteInIsolatedServiceRequestGetOutputSpecCmd = &cobra.Command{
-	Use:   "get-output-spec",
-	Short: "GetOutputSpec RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExecuteInIsolatedServiceRequestServiceClient(grpcConn)
-		req := &pb.GetOutputSpecRequest{}
-		resp, err := client.GetOutputSpec(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationExecuteInIsolatedServiceRequestGetServiceCmd = &cobra.Command{
-	Use:   "get-service",
-	Short: "GetService RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExecuteInIsolatedServiceRequestServiceClient(grpcConn)
-		req := &pb.GetServiceRequest{}
-		resp, err := client.GetService(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationExecuteInIsolatedServiceRequestHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExecuteInIsolatedServiceRequestServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationExecuteInIsolatedServiceRequestBuilderCmd = &cobra.Command{
-	Use:   "execute-in-isolated-service-request-builder",
-	Short: "ExecuteInIsolatedServiceRequestBuilderService operations",
-}
-
-var ondevicepersonalizationExecuteInIsolatedServiceRequestBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExecuteInIsolatedServiceRequestBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationExecuteInIsolatedServiceRequestBuilderSetAppParamsCmd = &cobra.Command{
-	Use:   "set-app-params",
-	Short: "SetAppParams RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExecuteInIsolatedServiceRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetAppParamsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetAppParams(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationExecuteInIsolatedServiceRequestBuilderSetOutputSpecCmd = &cobra.Command{
-	Use:   "set-output-spec",
-	Short: "SetOutputSpec RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExecuteInIsolatedServiceRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetOutputSpecRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetOutputSpec(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationExecuteInIsolatedServiceRequestOutputSpecCmd = &cobra.Command{
-	Use:   "execute-in-isolated-service-request-output-spec",
-	Short: "ExecuteInIsolatedServiceRequestOutputSpecService operations",
-}
-
-var ondevicepersonalizationExecuteInIsolatedServiceRequestOutputSpecGetMaxIntValueCmd = &cobra.Command{
-	Use:   "get-max-int-value",
-	Short: "GetMaxIntValue RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExecuteInIsolatedServiceRequestOutputSpecServiceClient(grpcConn)
-		req := &pb.GetMaxIntValueRequest{}
-		resp, err := client.GetMaxIntValue(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationExecuteInIsolatedServiceRequestOutputSpecGetOutputTypeCmd = &cobra.Command{
-	Use:   "get-output-type",
-	Short: "GetOutputType RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExecuteInIsolatedServiceRequestOutputSpecServiceClient(grpcConn)
-		req := &pb.GetOutputTypeRequest{}
-		resp, err := client.GetOutputType(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationExecuteInIsolatedServiceRequestOutputSpecBuildBestValueSpecCmd = &cobra.Command{
-	Use:   "build-best-value-spec",
-	Short: "BuildBestValueSpec RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExecuteInIsolatedServiceRequestOutputSpecServiceClient(grpcConn)
-		req := &pb.BuildBestValueSpecRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.BuildBestValueSpec(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationRenderOutputCmd = &cobra.Command{
-	Use:   "render-output",
-	Short: "RenderOutputService operations",
-}
-
-var ondevicepersonalizationRenderOutputEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRenderOutputServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationRenderOutputGetContentCmd = &cobra.Command{
-	Use:   "get-content",
-	Short: "GetContent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRenderOutputServiceClient(grpcConn)
-		req := &pb.GetContentRequest{}
-		resp, err := client.GetContent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationRenderOutputGetTemplateIdCmd = &cobra.Command{
-	Use:   "get-template-id",
-	Short: "GetTemplateId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRenderOutputServiceClient(grpcConn)
-		req := &pb.GetTemplateIdRequest{}
-		resp, err := client.GetTemplateId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationRenderOutputGetTemplateParamsCmd = &cobra.Command{
-	Use:   "get-template-params",
-	Short: "GetTemplateParams RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRenderOutputServiceClient(grpcConn)
-		req := &pb.GetTemplateParamsRequest{}
-		resp, err := client.GetTemplateParams(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationRenderOutputHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRenderOutputServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationRenderOutputBuilderCmd = &cobra.Command{
-	Use:   "render-output-builder",
-	Short: "RenderOutputBuilderService operations",
-}
-
-var ondevicepersonalizationRenderOutputBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRenderOutputBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationRenderOutputBuilderSetContentCmd = &cobra.Command{
-	Use:   "set-content",
-	Short: "SetContent RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRenderOutputBuilderServiceClient(grpcConn)
-		req := &pb.SetContentRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetContent(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationRenderOutputBuilderSetTemplateIdCmd = &cobra.Command{
-	Use:   "set-template-id",
-	Short: "SetTemplateId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRenderOutputBuilderServiceClient(grpcConn)
-		req := &pb.SetTemplateIdRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTemplateId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationRenderOutputBuilderSetTemplateParamsCmd = &cobra.Command{
-	Use:   "set-template-params",
-	Short: "SetTemplateParams RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRenderOutputBuilderServiceClient(grpcConn)
-		req := &pb.SetTemplateParamsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTemplateParams(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationRequestLogRecordCmd = &cobra.Command{
-	Use:   "request-log-record",
-	Short: "RequestLogRecordService operations",
-}
-
-var ondevicepersonalizationRequestLogRecordDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRequestLogRecordServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationRequestLogRecordEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRequestLogRecordServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationRequestLogRecordGetTimeCmd = &cobra.Command{
-	Use:   "get-time",
-	Short: "GetTime RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRequestLogRecordServiceClient(grpcConn)
-		req := &pb.GetTimeRequest{}
-		resp, err := client.GetTime(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationRequestLogRecordHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRequestLogRecordServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationRequestLogRecordWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRequestLogRecordServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationRequestLogRecordBuilderCmd = &cobra.Command{
-	Use:   "request-log-record-builder",
-	Short: "RequestLogRecordBuilderService operations",
-}
-
-var ondevicepersonalizationRequestLogRecordBuilderAddRowCmd = &cobra.Command{
-	Use:   "add-row",
-	Short: "AddRow RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRequestLogRecordBuilderServiceClient(grpcConn)
-		req := &pb.AddRowRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddRow(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationRequestLogRecordBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRequestLogRecordBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationRenderInputCmd = &cobra.Command{
-	Use:   "render-input",
-	Short: "RenderInputService operations",
-}
-
-var ondevicepersonalizationRenderInputNewRenderInputCmd = &cobra.Command{
-	Use:   "new-render-input",
-	Short: "NewRenderInput RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRenderInputServiceClient(grpcConn)
-		req := &pb.NewRenderInputRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.NewRenderInput(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationRenderInputEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRenderInputServiceClient(grpcConn)
-		req := &pb.RenderInputEqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationRenderInputGetHeightCmd = &cobra.Command{
-	Use:   "get-height",
-	Short: "GetHeight RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRenderInputServiceClient(grpcConn)
-		req := &pb.GetHeightRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetHeight(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationRenderInputGetRenderingConfigCmd = &cobra.Command{
-	Use:   "get-rendering-config",
-	Short: "GetRenderingConfig RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRenderInputServiceClient(grpcConn)
-		req := &pb.RenderInputGetRenderingConfigRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetRenderingConfig(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationRenderInputGetWidthCmd = &cobra.Command{
-	Use:   "get-width",
-	Short: "GetWidth RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRenderInputServiceClient(grpcConn)
-		req := &pb.GetWidthRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetWidth(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationRenderInputHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRenderInputServiceClient(grpcConn)
-		req := &pb.RenderInputHashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationMutableKeyValueStoreCmd = &cobra.Command{
-	Use:   "mutable-key-value-store",
-	Short: "MutableKeyValueStoreService operations",
-}
-
-var ondevicepersonalizationMutableKeyValueStorePutCmd = &cobra.Command{
-	Use:   "put",
-	Short: "Put RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMutableKeyValueStoreServiceClient(grpcConn)
-		req := &pb.PutRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.Put(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationMutableKeyValueStoreRemoveCmd = &cobra.Command{
-	Use:   "remove",
-	Short: "Remove RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewMutableKeyValueStoreServiceClient(grpcConn)
-		req := &pb.RemoveRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Remove(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationTrainingExamplesInputCmd = &cobra.Command{
-	Use:   "training-examples-input",
-	Short: "TrainingExamplesInputService operations",
-}
-
-var ondevicepersonalizationTrainingExamplesInputNewTrainingExamplesInputCmd = &cobra.Command{
-	Use:   "new-training-examples-input",
-	Short: "NewTrainingExamplesInput RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrainingExamplesInputServiceClient(grpcConn)
-		req := &pb.NewTrainingExamplesInputRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetString("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		if v, err := cmd.Flags().GetString("arg3"); err == nil {
-			req.Arg3 = v
-		}
-		resp, err := client.NewTrainingExamplesInput(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationTrainingExamplesInputEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrainingExamplesInputServiceClient(grpcConn)
-		req := &pb.TrainingExamplesInputEqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationTrainingExamplesInputGetCollectionNameCmd = &cobra.Command{
-	Use:   "get-collection-name",
-	Short: "GetCollectionName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrainingExamplesInputServiceClient(grpcConn)
-		req := &pb.GetCollectionNameRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetCollectionName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationTrainingExamplesInputGetPopulationNameCmd = &cobra.Command{
-	Use:   "get-population-name",
-	Short: "GetPopulationName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrainingExamplesInputServiceClient(grpcConn)
-		req := &pb.GetPopulationNameRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetPopulationName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationTrainingExamplesInputGetResumptionTokenCmd = &cobra.Command{
-	Use:   "get-resumption-token",
-	Short: "GetResumptionToken RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrainingExamplesInputServiceClient(grpcConn)
-		req := &pb.GetResumptionTokenRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetResumptionToken(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationTrainingExamplesInputGetTaskNameCmd = &cobra.Command{
-	Use:   "get-task-name",
-	Short: "GetTaskName RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrainingExamplesInputServiceClient(grpcConn)
-		req := &pb.GetTaskNameRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetTaskName(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationTrainingExamplesInputHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrainingExamplesInputServiceClient(grpcConn)
-		req := &pb.TrainingExamplesInputHashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationIsolatedServiceExceptionCmd = &cobra.Command{
-	Use:   "isolated-service-exception",
-	Short: "IsolatedServiceExceptionService operations",
-}
-
-var ondevicepersonalizationIsolatedServiceExceptionNewIsolatedServiceExceptionCmd = &cobra.Command{
-	Use:   "new-isolated-service-exception",
-	Short: "NewIsolatedServiceException RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIsolatedServiceExceptionServiceClient(grpcConn)
-		req := &pb.NewIsolatedServiceExceptionRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewIsolatedServiceException(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationIsolatedServiceExceptionGetErrorCodeCmd = &cobra.Command{
-	Use:   "get-error-code",
-	Short: "GetErrorCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewIsolatedServiceExceptionServiceClient(grpcConn)
-		req := &pb.IsolatedServiceExceptionGetErrorCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetErrorCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationTrainingExamplesOutputCmd = &cobra.Command{
-	Use:   "training-examples-output",
-	Short: "TrainingExamplesOutputService operations",
-}
-
-var ondevicepersonalizationTrainingExamplesOutputEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrainingExamplesOutputServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationTrainingExamplesOutputHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrainingExamplesOutputServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationTrainingExamplesOutputBuilderCmd = &cobra.Command{
-	Use:   "training-examples-output-builder",
-	Short: "TrainingExamplesOutputBuilderService operations",
-}
-
-var ondevicepersonalizationTrainingExamplesOutputBuilderAddTrainingExampleRecordCmd = &cobra.Command{
-	Use:   "add-training-example-record",
-	Short: "AddTrainingExampleRecord RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrainingExamplesOutputBuilderServiceClient(grpcConn)
-		req := &pb.AddTrainingExampleRecordRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.AddTrainingExampleRecord(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationTrainingExamplesOutputBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrainingExamplesOutputBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationKeyValueStoreCmd = &cobra.Command{
-	Use:   "key-value-store",
-	Short: "KeyValueStoreService operations",
-}
-
-var ondevicepersonalizationKeyValueStoreGetCmd = &cobra.Command{
-	Use:   "get",
-	Short: "Get RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewKeyValueStoreServiceClient(grpcConn)
-		req := &pb.GetRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Get(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationEventOutputCmd = &cobra.Command{
-	Use:   "event-output",
-	Short: "EventOutputService operations",
-}
-
-var ondevicepersonalizationEventOutputEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEventOutputServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationEventOutputGetEventLogRecordCmd = &cobra.Command{
-	Use:   "get-event-log-record",
-	Short: "GetEventLogRecord RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEventOutputServiceClient(grpcConn)
-		req := &pb.GetEventLogRecordRequest{}
-		resp, err := client.GetEventLogRecord(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationEventOutputHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEventOutputServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationEventOutputBuilderCmd = &cobra.Command{
-	Use:   "event-output-builder",
-	Short: "EventOutputBuilderService operations",
-}
-
-var ondevicepersonalizationEventOutputBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEventOutputBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationEventOutputBuilderSetEventLogRecordCmd = &cobra.Command{
-	Use:   "set-event-log-record",
-	Short: "SetEventLogRecord RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEventOutputBuilderServiceClient(grpcConn)
-		req := &pb.SetEventLogRecordRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetEventLogRecord(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationTrainingIntervalCmd = &cobra.Command{
-	Use:   "training-interval",
-	Short: "TrainingIntervalService operations",
-}
-
-var ondevicepersonalizationTrainingIntervalEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrainingIntervalServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationTrainingIntervalGetMinimumIntervalCmd = &cobra.Command{
-	Use:   "get-minimum-interval",
-	Short: "GetMinimumInterval RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrainingIntervalServiceClient(grpcConn)
-		req := &pb.GetMinimumIntervalRequest{}
-		resp, err := client.GetMinimumInterval(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationTrainingIntervalGetSchedulingModeCmd = &cobra.Command{
-	Use:   "get-scheduling-mode",
-	Short: "GetSchedulingMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrainingIntervalServiceClient(grpcConn)
-		req := &pb.GetSchedulingModeRequest{}
-		resp, err := client.GetSchedulingMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationTrainingIntervalHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrainingIntervalServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationTrainingIntervalBuilderCmd = &cobra.Command{
-	Use:   "training-interval-builder",
-	Short: "TrainingIntervalBuilderService operations",
-}
-
-var ondevicepersonalizationTrainingIntervalBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrainingIntervalBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationTrainingIntervalBuilderSetMinimumIntervalCmd = &cobra.Command{
-	Use:   "set-minimum-interval",
-	Short: "SetMinimumInterval RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrainingIntervalBuilderServiceClient(grpcConn)
-		req := &pb.SetMinimumIntervalRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetMinimumInterval(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationTrainingIntervalBuilderSetSchedulingModeCmd = &cobra.Command{
-	Use:   "set-scheduling-mode",
-	Short: "SetSchedulingMode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrainingIntervalBuilderServiceClient(grpcConn)
-		req := &pb.SetSchedulingModeRequest{}
-		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetSchedulingMode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationTrainingExampleRecordCmd = &cobra.Command{
-	Use:   "training-example-record",
-	Short: "TrainingExampleRecordService operations",
-}
-
-var ondevicepersonalizationTrainingExampleRecordDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrainingExampleRecordServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationTrainingExampleRecordGetResumptionTokenCmd = &cobra.Command{
-	Use:   "get-resumption-token",
-	Short: "GetResumptionToken RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrainingExampleRecordServiceClient(grpcConn)
-		req := &pb.TrainingExampleRecordGetResumptionTokenRequest{}
-		resp, err := client.GetResumptionToken(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationTrainingExampleRecordGetTrainingExampleCmd = &cobra.Command{
-	Use:   "get-training-example",
-	Short: "GetTrainingExample RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrainingExampleRecordServiceClient(grpcConn)
-		req := &pb.GetTrainingExampleRequest{}
-		resp, err := client.GetTrainingExample(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationTrainingExampleRecordWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrainingExampleRecordServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationTrainingExampleRecordBuilderCmd = &cobra.Command{
-	Use:   "training-example-record-builder",
-	Short: "TrainingExampleRecordBuilderService operations",
-}
-
-var ondevicepersonalizationTrainingExampleRecordBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrainingExampleRecordBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationTrainingExampleRecordBuilderSetResumptionTokenCmd = &cobra.Command{
-	Use:   "set-resumption-token",
-	Short: "SetResumptionToken RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrainingExampleRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetResumptionTokenRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetResumptionToken(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationTrainingExampleRecordBuilderSetTrainingExampleCmd = &cobra.Command{
-	Use:   "set-training-example",
-	Short: "SetTrainingExample RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewTrainingExampleRecordBuilderServiceClient(grpcConn)
-		req := &pb.SetTrainingExampleRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetTrainingExample(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationExecuteInIsolatedServiceResponseCmd = &cobra.Command{
-	Use:   "execute-in-isolated-service-response",
-	Short: "ExecuteInIsolatedServiceResponseService operations",
-}
-
-var ondevicepersonalizationExecuteInIsolatedServiceResponseNewExecuteInIsolatedServiceResponseCmd = &cobra.Command{
-	Use:   "new-execute-in-isolated-service-response",
-	Short: "NewExecuteInIsolatedServiceResponse RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExecuteInIsolatedServiceResponseServiceClient(grpcConn)
-		req := &pb.NewExecuteInIsolatedServiceResponseRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewExecuteInIsolatedServiceResponse(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationExecuteInIsolatedServiceResponseGetBestValueCmd = &cobra.Command{
-	Use:   "get-best-value",
-	Short: "GetBestValue RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExecuteInIsolatedServiceResponseServiceClient(grpcConn)
-		req := &pb.ExecuteInIsolatedServiceResponseGetBestValueRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetBestValue(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationExecuteInIsolatedServiceResponseGetSurfacePackageTokenCmd = &cobra.Command{
-	Use:   "get-surface-package-token",
-	Short: "GetSurfacePackageToken RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewExecuteInIsolatedServiceResponseServiceClient(grpcConn)
-		req := &pb.ExecuteInIsolatedServiceResponseGetSurfacePackageTokenRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetSurfacePackageToken(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationEventUrlProviderCmd = &cobra.Command{
-	Use:   "event-url-provider",
-	Short: "EventUrlProviderService operations",
-}
-
-var ondevicepersonalizationEventUrlProviderCreateEventTrackingUrlWithRedirectCmd = &cobra.Command{
-	Use:   "create-event-tracking-url-with-redirect",
-	Short: "CreateEventTrackingUrlWithRedirect RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEventUrlProviderServiceClient(grpcConn)
-		req := &pb.CreateEventTrackingUrlWithRedirectRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.CreateEventTrackingUrlWithRedirect(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationEventUrlProviderCreateEventTrackingUrlWithResponseCmd = &cobra.Command{
-	Use:   "create-event-tracking-url-with-response",
-	Short: "CreateEventTrackingUrlWithResponse RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEventUrlProviderServiceClient(grpcConn)
-		req := &pb.CreateEventTrackingUrlWithResponseRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		if v, err := cmd.Flags().GetString("arg2"); err == nil {
-			req.Arg2 = v
-		}
-		resp, err := client.CreateEventTrackingUrlWithResponse(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationEventInputCmd = &cobra.Command{
-	Use:   "event-input",
-	Short: "EventInputService operations",
-}
-
-var ondevicepersonalizationEventInputNewEventInputCmd = &cobra.Command{
-	Use:   "new-event-input",
-	Short: "NewEventInput RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEventInputServiceClient(grpcConn)
-		req := &pb.NewEventInputRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.NewEventInput(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationEventInputEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEventInputServiceClient(grpcConn)
-		req := &pb.EventInputEqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationEventInputGetParametersCmd = &cobra.Command{
-	Use:   "get-parameters",
-	Short: "GetParameters RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEventInputServiceClient(grpcConn)
-		req := &pb.GetParametersRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetParameters(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationEventInputGetRequestLogRecordCmd = &cobra.Command{
-	Use:   "get-request-log-record",
-	Short: "GetRequestLogRecord RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEventInputServiceClient(grpcConn)
-		req := &pb.EventInputGetRequestLogRecordRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetRequestLogRecord(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationEventInputHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewEventInputServiceClient(grpcConn)
-		req := &pb.EventInputHashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationDownloadCompletedInputCmd = &cobra.Command{
-	Use:   "download-completed-input",
-	Short: "DownloadCompletedInputService operations",
-}
-
-var ondevicepersonalizationDownloadCompletedInputNewDownloadCompletedInputCmd = &cobra.Command{
-	Use:   "new-download-completed-input",
-	Short: "NewDownloadCompletedInput RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDownloadCompletedInputServiceClient(grpcConn)
-		req := &pb.NewDownloadCompletedInputRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.NewDownloadCompletedInput(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationDownloadCompletedInputEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDownloadCompletedInputServiceClient(grpcConn)
-		req := &pb.DownloadCompletedInputEqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationDownloadCompletedInputGetDownloadedContentsCmd = &cobra.Command{
-	Use:   "get-downloaded-contents",
-	Short: "GetDownloadedContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDownloadCompletedInputServiceClient(grpcConn)
-		req := &pb.GetDownloadedContentsRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.GetDownloadedContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var ondevicepersonalizationDownloadCompletedInputHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewDownloadCompletedInputServiceClient(grpcConn)
-		req := &pb.DownloadCompletedInputHashCodeRequest{}
-		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
-			req.Handle = v
-		}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var ondevicepersonalizationIsolatedServiceCmd = &cobra.Command{
 	Use:   "isolated-service",
 	Short: "IsolatedServiceService operations",
@@ -3484,6 +204,3370 @@ var ondevicepersonalizationIsolatedServiceOnRequestCmd = &cobra.Command{
 	},
 }
 
+var ondevicepersonalizationTrainingExampleRecordCmd = &cobra.Command{
+	Use:   "training-example-record",
+	Short: "TrainingExampleRecordService operations",
+}
+
+var ondevicepersonalizationTrainingExampleRecordDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrainingExampleRecordServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationTrainingExampleRecordGetResumptionTokenCmd = &cobra.Command{
+	Use:   "get-resumption-token",
+	Short: "GetResumptionToken RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrainingExampleRecordServiceClient(grpcConn)
+		req := &pb.GetResumptionTokenRequest{}
+		resp, err := client.GetResumptionToken(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationTrainingExampleRecordGetTrainingExampleCmd = &cobra.Command{
+	Use:   "get-training-example",
+	Short: "GetTrainingExample RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrainingExampleRecordServiceClient(grpcConn)
+		req := &pb.GetTrainingExampleRequest{}
+		resp, err := client.GetTrainingExample(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationTrainingExampleRecordWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrainingExampleRecordServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationTrainingExampleRecordBuilderCmd = &cobra.Command{
+	Use:   "training-example-record-builder",
+	Short: "TrainingExampleRecordBuilderService operations",
+}
+
+var ondevicepersonalizationTrainingExampleRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrainingExampleRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationTrainingExampleRecordBuilderSetResumptionTokenCmd = &cobra.Command{
+	Use:   "set-resumption-token",
+	Short: "SetResumptionToken RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrainingExampleRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetResumptionTokenRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetResumptionToken(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationTrainingExampleRecordBuilderSetTrainingExampleCmd = &cobra.Command{
+	Use:   "set-training-example",
+	Short: "SetTrainingExample RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrainingExampleRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetTrainingExampleRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTrainingExample(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationAppInfoCmd = &cobra.Command{
+	Use:   "app-info",
+	Short: "AppInfoService operations",
+}
+
+var ondevicepersonalizationAppInfoNewAppInfoCmd = &cobra.Command{
+	Use:   "new-app-info",
+	Short: "NewAppInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppInfoServiceClient(grpcConn)
+		req := &pb.NewAppInfoRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewAppInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationAppInfoDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppInfoServiceClient(grpcConn)
+		req := &pb.AppInfoDescribeContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationAppInfoEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppInfoServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationAppInfoHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppInfoServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationAppInfoIsInstalledCmd = &cobra.Command{
+	Use:   "is-installed",
+	Short: "IsInstalled RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppInfoServiceClient(grpcConn)
+		req := &pb.IsInstalledRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.IsInstalled(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationAppInfoWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewAppInfoServiceClient(grpcConn)
+		req := &pb.AppInfoWriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationRenderingConfigCmd = &cobra.Command{
+	Use:   "rendering-config",
+	Short: "RenderingConfigService operations",
+}
+
+var ondevicepersonalizationRenderingConfigDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRenderingConfigServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationRenderingConfigEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRenderingConfigServiceClient(grpcConn)
+		req := &pb.RenderingConfigEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationRenderingConfigGetKeysCmd = &cobra.Command{
+	Use:   "get-keys",
+	Short: "GetKeys RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRenderingConfigServiceClient(grpcConn)
+		req := &pb.GetKeysRequest{}
+		resp, err := client.GetKeys(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationRenderingConfigHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRenderingConfigServiceClient(grpcConn)
+		req := &pb.RenderingConfigHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationRenderingConfigWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRenderingConfigServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationRenderingConfigBuilderCmd = &cobra.Command{
+	Use:   "rendering-config-builder",
+	Short: "RenderingConfigBuilderService operations",
+}
+
+var ondevicepersonalizationRenderingConfigBuilderAddKeyCmd = &cobra.Command{
+	Use:   "add-key",
+	Short: "AddKey RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRenderingConfigBuilderServiceClient(grpcConn)
+		req := &pb.AddKeyRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddKey(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationRenderingConfigBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRenderingConfigBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationDownloadCompletedOutputCmd = &cobra.Command{
+	Use:   "download-completed-output",
+	Short: "DownloadCompletedOutputService operations",
+}
+
+var ondevicepersonalizationDownloadCompletedOutputEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDownloadCompletedOutputServiceClient(grpcConn)
+		req := &pb.DownloadCompletedOutputEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationDownloadCompletedOutputGetRetainedKeysCmd = &cobra.Command{
+	Use:   "get-retained-keys",
+	Short: "GetRetainedKeys RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDownloadCompletedOutputServiceClient(grpcConn)
+		req := &pb.GetRetainedKeysRequest{}
+		resp, err := client.GetRetainedKeys(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationDownloadCompletedOutputHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDownloadCompletedOutputServiceClient(grpcConn)
+		req := &pb.DownloadCompletedOutputHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationDownloadCompletedOutputBuilderCmd = &cobra.Command{
+	Use:   "download-completed-output-builder",
+	Short: "DownloadCompletedOutputBuilderService operations",
+}
+
+var ondevicepersonalizationDownloadCompletedOutputBuilderAddRetainedKeyCmd = &cobra.Command{
+	Use:   "add-retained-key",
+	Short: "AddRetainedKey RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDownloadCompletedOutputBuilderServiceClient(grpcConn)
+		req := &pb.AddRetainedKeyRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddRetainedKey(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationDownloadCompletedOutputBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDownloadCompletedOutputBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationRenderOutputCmd = &cobra.Command{
+	Use:   "render-output",
+	Short: "RenderOutputService operations",
+}
+
+var ondevicepersonalizationRenderOutputEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRenderOutputServiceClient(grpcConn)
+		req := &pb.RenderOutputEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationRenderOutputGetContentCmd = &cobra.Command{
+	Use:   "get-content",
+	Short: "GetContent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRenderOutputServiceClient(grpcConn)
+		req := &pb.GetContentRequest{}
+		resp, err := client.GetContent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationRenderOutputGetTemplateIdCmd = &cobra.Command{
+	Use:   "get-template-id",
+	Short: "GetTemplateId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRenderOutputServiceClient(grpcConn)
+		req := &pb.GetTemplateIdRequest{}
+		resp, err := client.GetTemplateId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationRenderOutputGetTemplateParamsCmd = &cobra.Command{
+	Use:   "get-template-params",
+	Short: "GetTemplateParams RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRenderOutputServiceClient(grpcConn)
+		req := &pb.GetTemplateParamsRequest{}
+		resp, err := client.GetTemplateParams(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationRenderOutputHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRenderOutputServiceClient(grpcConn)
+		req := &pb.RenderOutputHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationRenderOutputBuilderCmd = &cobra.Command{
+	Use:   "render-output-builder",
+	Short: "RenderOutputBuilderService operations",
+}
+
+var ondevicepersonalizationRenderOutputBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRenderOutputBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationRenderOutputBuilderSetContentCmd = &cobra.Command{
+	Use:   "set-content",
+	Short: "SetContent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRenderOutputBuilderServiceClient(grpcConn)
+		req := &pb.SetContentRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetContent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationRenderOutputBuilderSetTemplateIdCmd = &cobra.Command{
+	Use:   "set-template-id",
+	Short: "SetTemplateId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRenderOutputBuilderServiceClient(grpcConn)
+		req := &pb.SetTemplateIdRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTemplateId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationRenderOutputBuilderSetTemplateParamsCmd = &cobra.Command{
+	Use:   "set-template-params",
+	Short: "SetTemplateParams RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRenderOutputBuilderServiceClient(grpcConn)
+		req := &pb.SetTemplateParamsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetTemplateParams(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationTrainingExamplesOutputCmd = &cobra.Command{
+	Use:   "training-examples-output",
+	Short: "TrainingExamplesOutputService operations",
+}
+
+var ondevicepersonalizationTrainingExamplesOutputEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrainingExamplesOutputServiceClient(grpcConn)
+		req := &pb.TrainingExamplesOutputEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationTrainingExamplesOutputGetTrainingExampleRecordsCmd = &cobra.Command{
+	Use:   "get-training-example-records",
+	Short: "GetTrainingExampleRecords RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrainingExamplesOutputServiceClient(grpcConn)
+		req := &pb.GetTrainingExampleRecordsRequest{}
+		resp, err := client.GetTrainingExampleRecords(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationTrainingExamplesOutputHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrainingExamplesOutputServiceClient(grpcConn)
+		req := &pb.TrainingExamplesOutputHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationTrainingExamplesOutputBuilderCmd = &cobra.Command{
+	Use:   "training-examples-output-builder",
+	Short: "TrainingExamplesOutputBuilderService operations",
+}
+
+var ondevicepersonalizationTrainingExamplesOutputBuilderAddTrainingExampleRecordCmd = &cobra.Command{
+	Use:   "add-training-example-record",
+	Short: "AddTrainingExampleRecord RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrainingExamplesOutputBuilderServiceClient(grpcConn)
+		req := &pb.AddTrainingExampleRecordRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddTrainingExampleRecord(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationTrainingExamplesOutputBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrainingExamplesOutputBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationIsolatedServiceExceptionCmd = &cobra.Command{
+	Use:   "isolated-service-exception",
+	Short: "IsolatedServiceExceptionService operations",
+}
+
+var ondevicepersonalizationIsolatedServiceExceptionNewIsolatedServiceExceptionCmd = &cobra.Command{
+	Use:   "new-isolated-service-exception",
+	Short: "NewIsolatedServiceException RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIsolatedServiceExceptionServiceClient(grpcConn)
+		req := &pb.NewIsolatedServiceExceptionRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewIsolatedServiceException(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationIsolatedServiceExceptionGetErrorCodeCmd = &cobra.Command{
+	Use:   "get-error-code",
+	Short: "GetErrorCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewIsolatedServiceExceptionServiceClient(grpcConn)
+		req := &pb.GetErrorCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetErrorCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationRenderInputCmd = &cobra.Command{
+	Use:   "render-input",
+	Short: "RenderInputService operations",
+}
+
+var ondevicepersonalizationRenderInputNewRenderInputCmd = &cobra.Command{
+	Use:   "new-render-input",
+	Short: "NewRenderInput RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRenderInputServiceClient(grpcConn)
+		req := &pb.NewRenderInputRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewRenderInput(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationRenderInputEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRenderInputServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationRenderInputGetHeightCmd = &cobra.Command{
+	Use:   "get-height",
+	Short: "GetHeight RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRenderInputServiceClient(grpcConn)
+		req := &pb.GetHeightRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetHeight(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationRenderInputGetRenderingConfigCmd = &cobra.Command{
+	Use:   "get-rendering-config",
+	Short: "GetRenderingConfig RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRenderInputServiceClient(grpcConn)
+		req := &pb.GetRenderingConfigRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetRenderingConfig(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationRenderInputGetWidthCmd = &cobra.Command{
+	Use:   "get-width",
+	Short: "GetWidth RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRenderInputServiceClient(grpcConn)
+		req := &pb.GetWidthRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetWidth(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationRenderInputHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRenderInputServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationExecuteOutputCmd = &cobra.Command{
+	Use:   "execute-output",
+	Short: "ExecuteOutputService operations",
+}
+
+var ondevicepersonalizationExecuteOutputEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExecuteOutputServiceClient(grpcConn)
+		req := &pb.ExecuteOutputEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationExecuteOutputGetBestValueCmd = &cobra.Command{
+	Use:   "get-best-value",
+	Short: "GetBestValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExecuteOutputServiceClient(grpcConn)
+		req := &pb.GetBestValueRequest{}
+		resp, err := client.GetBestValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationExecuteOutputGetEventLogRecordsCmd = &cobra.Command{
+	Use:   "get-event-log-records",
+	Short: "GetEventLogRecords RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExecuteOutputServiceClient(grpcConn)
+		req := &pb.GetEventLogRecordsRequest{}
+		resp, err := client.GetEventLogRecords(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationExecuteOutputGetOutputDataCmd = &cobra.Command{
+	Use:   "get-output-data",
+	Short: "GetOutputData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExecuteOutputServiceClient(grpcConn)
+		req := &pb.GetOutputDataRequest{}
+		resp, err := client.GetOutputData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationExecuteOutputGetRenderingConfigCmd = &cobra.Command{
+	Use:   "get-rendering-config",
+	Short: "GetRenderingConfig RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExecuteOutputServiceClient(grpcConn)
+		req := &pb.ExecuteOutputGetRenderingConfigRequest{}
+		resp, err := client.GetRenderingConfig(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationExecuteOutputGetRequestLogRecordCmd = &cobra.Command{
+	Use:   "get-request-log-record",
+	Short: "GetRequestLogRecord RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExecuteOutputServiceClient(grpcConn)
+		req := &pb.GetRequestLogRecordRequest{}
+		resp, err := client.GetRequestLogRecord(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationExecuteOutputHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExecuteOutputServiceClient(grpcConn)
+		req := &pb.ExecuteOutputHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationExecuteOutputBuilderCmd = &cobra.Command{
+	Use:   "execute-output-builder",
+	Short: "ExecuteOutputBuilderService operations",
+}
+
+var ondevicepersonalizationExecuteOutputBuilderAddEventLogRecordCmd = &cobra.Command{
+	Use:   "add-event-log-record",
+	Short: "AddEventLogRecord RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExecuteOutputBuilderServiceClient(grpcConn)
+		req := &pb.AddEventLogRecordRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddEventLogRecord(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationExecuteOutputBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExecuteOutputBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationExecuteOutputBuilderSetBestValueCmd = &cobra.Command{
+	Use:   "set-best-value",
+	Short: "SetBestValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExecuteOutputBuilderServiceClient(grpcConn)
+		req := &pb.SetBestValueRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetBestValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationExecuteOutputBuilderSetOutputDataCmd = &cobra.Command{
+	Use:   "set-output-data",
+	Short: "SetOutputData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExecuteOutputBuilderServiceClient(grpcConn)
+		req := &pb.SetOutputDataRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetOutputData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationExecuteOutputBuilderSetRenderingConfigCmd = &cobra.Command{
+	Use:   "set-rendering-config",
+	Short: "SetRenderingConfig RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExecuteOutputBuilderServiceClient(grpcConn)
+		req := &pb.SetRenderingConfigRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRenderingConfig(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationExecuteOutputBuilderSetRequestLogRecordCmd = &cobra.Command{
+	Use:   "set-request-log-record",
+	Short: "SetRequestLogRecord RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExecuteOutputBuilderServiceClient(grpcConn)
+		req := &pb.SetRequestLogRecordRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRequestLogRecord(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationWebTriggerOutputCmd = &cobra.Command{
+	Use:   "web-trigger-output",
+	Short: "WebTriggerOutputService operations",
+}
+
+var ondevicepersonalizationWebTriggerOutputEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebTriggerOutputServiceClient(grpcConn)
+		req := &pb.WebTriggerOutputEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationWebTriggerOutputGetEventLogRecordsCmd = &cobra.Command{
+	Use:   "get-event-log-records",
+	Short: "GetEventLogRecords RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebTriggerOutputServiceClient(grpcConn)
+		req := &pb.GetEventLogRecordsRequest{}
+		resp, err := client.GetEventLogRecords(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationWebTriggerOutputGetRequestLogRecordCmd = &cobra.Command{
+	Use:   "get-request-log-record",
+	Short: "GetRequestLogRecord RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebTriggerOutputServiceClient(grpcConn)
+		req := &pb.GetRequestLogRecordRequest{}
+		resp, err := client.GetRequestLogRecord(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationWebTriggerOutputHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebTriggerOutputServiceClient(grpcConn)
+		req := &pb.WebTriggerOutputHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationWebTriggerOutputBuilderCmd = &cobra.Command{
+	Use:   "web-trigger-output-builder",
+	Short: "WebTriggerOutputBuilderService operations",
+}
+
+var ondevicepersonalizationWebTriggerOutputBuilderAddEventLogRecordCmd = &cobra.Command{
+	Use:   "add-event-log-record",
+	Short: "AddEventLogRecord RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebTriggerOutputBuilderServiceClient(grpcConn)
+		req := &pb.AddEventLogRecordRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddEventLogRecord(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationWebTriggerOutputBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebTriggerOutputBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationWebTriggerOutputBuilderSetRequestLogRecordCmd = &cobra.Command{
+	Use:   "set-request-log-record",
+	Short: "SetRequestLogRecord RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebTriggerOutputBuilderServiceClient(grpcConn)
+		req := &pb.SetRequestLogRecordRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRequestLogRecord(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationTrainingIntervalCmd = &cobra.Command{
+	Use:   "training-interval",
+	Short: "TrainingIntervalService operations",
+}
+
+var ondevicepersonalizationTrainingIntervalEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrainingIntervalServiceClient(grpcConn)
+		req := &pb.TrainingIntervalEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationTrainingIntervalGetMinimumIntervalCmd = &cobra.Command{
+	Use:   "get-minimum-interval",
+	Short: "GetMinimumInterval RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrainingIntervalServiceClient(grpcConn)
+		req := &pb.GetMinimumIntervalRequest{}
+		resp, err := client.GetMinimumInterval(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationTrainingIntervalGetSchedulingModeCmd = &cobra.Command{
+	Use:   "get-scheduling-mode",
+	Short: "GetSchedulingMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrainingIntervalServiceClient(grpcConn)
+		req := &pb.GetSchedulingModeRequest{}
+		resp, err := client.GetSchedulingMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationTrainingIntervalHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrainingIntervalServiceClient(grpcConn)
+		req := &pb.TrainingIntervalHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationTrainingIntervalBuilderCmd = &cobra.Command{
+	Use:   "training-interval-builder",
+	Short: "TrainingIntervalBuilderService operations",
+}
+
+var ondevicepersonalizationTrainingIntervalBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrainingIntervalBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationTrainingIntervalBuilderSetMinimumIntervalCmd = &cobra.Command{
+	Use:   "set-minimum-interval",
+	Short: "SetMinimumInterval RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrainingIntervalBuilderServiceClient(grpcConn)
+		req := &pb.SetMinimumIntervalRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetMinimumInterval(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationTrainingIntervalBuilderSetSchedulingModeCmd = &cobra.Command{
+	Use:   "set-scheduling-mode",
+	Short: "SetSchedulingMode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrainingIntervalBuilderServiceClient(grpcConn)
+		req := &pb.SetSchedulingModeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetSchedulingMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationTrainingExamplesInputCmd = &cobra.Command{
+	Use:   "training-examples-input",
+	Short: "TrainingExamplesInputService operations",
+}
+
+var ondevicepersonalizationTrainingExamplesInputNewTrainingExamplesInputCmd = &cobra.Command{
+	Use:   "new-training-examples-input",
+	Short: "NewTrainingExamplesInput RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrainingExamplesInputServiceClient(grpcConn)
+		req := &pb.NewTrainingExamplesInputRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		if v, err := cmd.Flags().GetString("arg3"); err == nil {
+			req.Arg3 = v
+		}
+		resp, err := client.NewTrainingExamplesInput(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationTrainingExamplesInputEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrainingExamplesInputServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationTrainingExamplesInputGetCollectionNameCmd = &cobra.Command{
+	Use:   "get-collection-name",
+	Short: "GetCollectionName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrainingExamplesInputServiceClient(grpcConn)
+		req := &pb.GetCollectionNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetCollectionName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationTrainingExamplesInputGetPopulationNameCmd = &cobra.Command{
+	Use:   "get-population-name",
+	Short: "GetPopulationName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrainingExamplesInputServiceClient(grpcConn)
+		req := &pb.GetPopulationNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetPopulationName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationTrainingExamplesInputGetResumptionTokenCmd = &cobra.Command{
+	Use:   "get-resumption-token",
+	Short: "GetResumptionToken RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrainingExamplesInputServiceClient(grpcConn)
+		req := &pb.TrainingExamplesInputGetResumptionTokenRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetResumptionToken(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationTrainingExamplesInputGetTaskNameCmd = &cobra.Command{
+	Use:   "get-task-name",
+	Short: "GetTaskName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrainingExamplesInputServiceClient(grpcConn)
+		req := &pb.GetTaskNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetTaskName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationTrainingExamplesInputHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewTrainingExamplesInputServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationRequestLogRecordCmd = &cobra.Command{
+	Use:   "request-log-record",
+	Short: "RequestLogRecordService operations",
+}
+
+var ondevicepersonalizationRequestLogRecordDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRequestLogRecordServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationRequestLogRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRequestLogRecordServiceClient(grpcConn)
+		req := &pb.RequestLogRecordEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationRequestLogRecordGetRowsCmd = &cobra.Command{
+	Use:   "get-rows",
+	Short: "GetRows RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRequestLogRecordServiceClient(grpcConn)
+		req := &pb.GetRowsRequest{}
+		resp, err := client.GetRows(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationRequestLogRecordGetTimeCmd = &cobra.Command{
+	Use:   "get-time",
+	Short: "GetTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRequestLogRecordServiceClient(grpcConn)
+		req := &pb.GetTimeRequest{}
+		resp, err := client.GetTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationRequestLogRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRequestLogRecordServiceClient(grpcConn)
+		req := &pb.RequestLogRecordHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationRequestLogRecordWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRequestLogRecordServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationRequestLogRecordBuilderCmd = &cobra.Command{
+	Use:   "request-log-record-builder",
+	Short: "RequestLogRecordBuilderService operations",
+}
+
+var ondevicepersonalizationRequestLogRecordBuilderAddRowCmd = &cobra.Command{
+	Use:   "add-row",
+	Short: "AddRow RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRequestLogRecordBuilderServiceClient(grpcConn)
+		req := &pb.AddRowRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.AddRow(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationRequestLogRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRequestLogRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationInferenceOutputCmd = &cobra.Command{
+	Use:   "inference-output",
+	Short: "InferenceOutputService operations",
+}
+
+var ondevicepersonalizationInferenceOutputEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInferenceOutputServiceClient(grpcConn)
+		req := &pb.InferenceOutputEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationInferenceOutputHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInferenceOutputServiceClient(grpcConn)
+		req := &pb.InferenceOutputHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationInferenceOutputBuilderCmd = &cobra.Command{
+	Use:   "inference-output-builder",
+	Short: "InferenceOutputBuilderService operations",
+}
+
+var ondevicepersonalizationInferenceOutputBuilderAddDataOutputCmd = &cobra.Command{
+	Use:   "add-data-output",
+	Short: "AddDataOutput RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInferenceOutputBuilderServiceClient(grpcConn)
+		req := &pb.AddDataOutputRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.AddDataOutput(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationInferenceOutputBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInferenceOutputBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationKeyValueStoreCmd = &cobra.Command{
+	Use:   "key-value-store",
+	Short: "KeyValueStoreService operations",
+}
+
+var ondevicepersonalizationKeyValueStoreGetCmd = &cobra.Command{
+	Use:   "get",
+	Short: "Get RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyValueStoreServiceClient(grpcConn)
+		req := &pb.GetRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Get(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationKeyValueStoreKeySetCmd = &cobra.Command{
+	Use:   "key-set",
+	Short: "KeySet RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewKeyValueStoreServiceClient(grpcConn)
+		req := &pb.KeySetRequest{}
+		resp, err := client.KeySet(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationOnDevicePersonalizationManagerExecuteResultCmd = &cobra.Command{
+	Use:   "on-device-personalization-manager-execute-result",
+	Short: "OnDevicePersonalizationManagerExecuteResultService operations",
+}
+
+var ondevicepersonalizationOnDevicePersonalizationManagerExecuteResultGetOutputDataCmd = &cobra.Command{
+	Use:   "get-output-data",
+	Short: "GetOutputData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOnDevicePersonalizationManagerExecuteResultServiceClient(grpcConn)
+		req := &pb.GetOutputDataRequest{}
+		resp, err := client.GetOutputData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationOnDevicePersonalizationManagerExecuteResultGetSurfacePackageTokenCmd = &cobra.Command{
+	Use:   "get-surface-package-token",
+	Short: "GetSurfacePackageToken RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOnDevicePersonalizationManagerExecuteResultServiceClient(grpcConn)
+		req := &pb.GetSurfacePackageTokenRequest{}
+		resp, err := client.GetSurfacePackageToken(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationWebTriggerInputCmd = &cobra.Command{
+	Use:   "web-trigger-input",
+	Short: "WebTriggerInputService operations",
+}
+
+var ondevicepersonalizationWebTriggerInputNewWebTriggerInputCmd = &cobra.Command{
+	Use:   "new-web-trigger-input",
+	Short: "NewWebTriggerInput RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebTriggerInputServiceClient(grpcConn)
+		req := &pb.NewWebTriggerInputRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetString("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.NewWebTriggerInput(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationWebTriggerInputEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebTriggerInputServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationWebTriggerInputGetAppPackageNameCmd = &cobra.Command{
+	Use:   "get-app-package-name",
+	Short: "GetAppPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebTriggerInputServiceClient(grpcConn)
+		req := &pb.GetAppPackageNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetAppPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationWebTriggerInputGetDataCmd = &cobra.Command{
+	Use:   "get-data",
+	Short: "GetData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebTriggerInputServiceClient(grpcConn)
+		req := &pb.GetDataRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationWebTriggerInputGetDestinationUrlCmd = &cobra.Command{
+	Use:   "get-destination-url",
+	Short: "GetDestinationUrl RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebTriggerInputServiceClient(grpcConn)
+		req := &pb.GetDestinationUrlRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDestinationUrl(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationWebTriggerInputHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebTriggerInputServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationEventOutputCmd = &cobra.Command{
+	Use:   "event-output",
+	Short: "EventOutputService operations",
+}
+
+var ondevicepersonalizationEventOutputEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventOutputServiceClient(grpcConn)
+		req := &pb.EventOutputEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationEventOutputGetEventLogRecordCmd = &cobra.Command{
+	Use:   "get-event-log-record",
+	Short: "GetEventLogRecord RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventOutputServiceClient(grpcConn)
+		req := &pb.GetEventLogRecordRequest{}
+		resp, err := client.GetEventLogRecord(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationEventOutputHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventOutputServiceClient(grpcConn)
+		req := &pb.EventOutputHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationEventOutputBuilderCmd = &cobra.Command{
+	Use:   "event-output-builder",
+	Short: "EventOutputBuilderService operations",
+}
+
+var ondevicepersonalizationEventOutputBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventOutputBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationEventOutputBuilderSetEventLogRecordCmd = &cobra.Command{
+	Use:   "set-event-log-record",
+	Short: "SetEventLogRecord RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventOutputBuilderServiceClient(grpcConn)
+		req := &pb.SetEventLogRecordRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetEventLogRecord(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationDownloadCompletedInputCmd = &cobra.Command{
+	Use:   "download-completed-input",
+	Short: "DownloadCompletedInputService operations",
+}
+
+var ondevicepersonalizationDownloadCompletedInputNewDownloadCompletedInputCmd = &cobra.Command{
+	Use:   "new-download-completed-input",
+	Short: "NewDownloadCompletedInput RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDownloadCompletedInputServiceClient(grpcConn)
+		req := &pb.NewDownloadCompletedInputRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.NewDownloadCompletedInput(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationDownloadCompletedInputEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDownloadCompletedInputServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationDownloadCompletedInputGetDownloadedContentsCmd = &cobra.Command{
+	Use:   "get-downloaded-contents",
+	Short: "GetDownloadedContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDownloadCompletedInputServiceClient(grpcConn)
+		req := &pb.GetDownloadedContentsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetDownloadedContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationDownloadCompletedInputHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDownloadCompletedInputServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationInferenceInputCmd = &cobra.Command{
+	Use:   "inference-input",
+	Short: "InferenceInputService operations",
+}
+
+var ondevicepersonalizationInferenceInputEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInferenceInputServiceClient(grpcConn)
+		req := &pb.InferenceInputEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationInferenceInputGetBatchSizeCmd = &cobra.Command{
+	Use:   "get-batch-size",
+	Short: "GetBatchSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInferenceInputServiceClient(grpcConn)
+		req := &pb.GetBatchSizeRequest{}
+		resp, err := client.GetBatchSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationInferenceInputGetExpectedOutputStructureCmd = &cobra.Command{
+	Use:   "get-expected-output-structure",
+	Short: "GetExpectedOutputStructure RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInferenceInputServiceClient(grpcConn)
+		req := &pb.GetExpectedOutputStructureRequest{}
+		resp, err := client.GetExpectedOutputStructure(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationInferenceInputGetInputDataCmd = &cobra.Command{
+	Use:   "get-input-data",
+	Short: "GetInputData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInferenceInputServiceClient(grpcConn)
+		req := &pb.GetInputDataRequest{}
+		resp, err := client.GetInputData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationInferenceInputGetParamsCmd = &cobra.Command{
+	Use:   "get-params",
+	Short: "GetParams RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInferenceInputServiceClient(grpcConn)
+		req := &pb.GetParamsRequest{}
+		resp, err := client.GetParams(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationInferenceInputHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInferenceInputServiceClient(grpcConn)
+		req := &pb.InferenceInputHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationInferenceInputBuilderCmd = &cobra.Command{
+	Use:   "inference-input-builder",
+	Short: "InferenceInputBuilderService operations",
+}
+
+var ondevicepersonalizationInferenceInputBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInferenceInputBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationInferenceInputBuilderSetBatchSizeCmd = &cobra.Command{
+	Use:   "set-batch-size",
+	Short: "SetBatchSize RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInferenceInputBuilderServiceClient(grpcConn)
+		req := &pb.SetBatchSizeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetBatchSize(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationInferenceInputBuilderSetExpectedOutputStructureCmd = &cobra.Command{
+	Use:   "set-expected-output-structure",
+	Short: "SetExpectedOutputStructure RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInferenceInputBuilderServiceClient(grpcConn)
+		req := &pb.SetExpectedOutputStructureRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetExpectedOutputStructure(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationInferenceInputBuilderSetInputDataCmd = &cobra.Command{
+	Use:   "set-input-data",
+	Short: "SetInputData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInferenceInputBuilderServiceClient(grpcConn)
+		req := &pb.SetInputDataRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetInputData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationInferenceInputBuilderSetParamsCmd = &cobra.Command{
+	Use:   "set-params",
+	Short: "SetParams RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInferenceInputBuilderServiceClient(grpcConn)
+		req := &pb.SetParamsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetParams(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationInferenceInputParamsCmd = &cobra.Command{
+	Use:   "inference-input-params",
+	Short: "InferenceInputParamsService operations",
+}
+
+var ondevicepersonalizationInferenceInputParamsEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInferenceInputParamsServiceClient(grpcConn)
+		req := &pb.InferenceInputParamsEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationInferenceInputParamsGetDelegateTypeCmd = &cobra.Command{
+	Use:   "get-delegate-type",
+	Short: "GetDelegateType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInferenceInputParamsServiceClient(grpcConn)
+		req := &pb.GetDelegateTypeRequest{}
+		resp, err := client.GetDelegateType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationInferenceInputParamsGetKeyValueStoreCmd = &cobra.Command{
+	Use:   "get-key-value-store",
+	Short: "GetKeyValueStore RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInferenceInputParamsServiceClient(grpcConn)
+		req := &pb.GetKeyValueStoreRequest{}
+		resp, err := client.GetKeyValueStore(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationInferenceInputParamsGetModelKeyCmd = &cobra.Command{
+	Use:   "get-model-key",
+	Short: "GetModelKey RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInferenceInputParamsServiceClient(grpcConn)
+		req := &pb.GetModelKeyRequest{}
+		resp, err := client.GetModelKey(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationInferenceInputParamsGetModelTypeCmd = &cobra.Command{
+	Use:   "get-model-type",
+	Short: "GetModelType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInferenceInputParamsServiceClient(grpcConn)
+		req := &pb.GetModelTypeRequest{}
+		resp, err := client.GetModelType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationInferenceInputParamsGetRecommendedNumThreadsCmd = &cobra.Command{
+	Use:   "get-recommended-num-threads",
+	Short: "GetRecommendedNumThreads RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInferenceInputParamsServiceClient(grpcConn)
+		req := &pb.GetRecommendedNumThreadsRequest{}
+		resp, err := client.GetRecommendedNumThreads(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationInferenceInputParamsHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewInferenceInputParamsServiceClient(grpcConn)
+		req := &pb.InferenceInputParamsHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationEventLogRecordCmd = &cobra.Command{
+	Use:   "event-log-record",
+	Short: "EventLogRecordService operations",
+}
+
+var ondevicepersonalizationEventLogRecordDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventLogRecordServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationEventLogRecordEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventLogRecordServiceClient(grpcConn)
+		req := &pb.EventLogRecordEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationEventLogRecordGetDataCmd = &cobra.Command{
+	Use:   "get-data",
+	Short: "GetData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventLogRecordServiceClient(grpcConn)
+		req := &pb.EventLogRecordGetDataRequest{}
+		resp, err := client.GetData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationEventLogRecordGetRequestLogRecordCmd = &cobra.Command{
+	Use:   "get-request-log-record",
+	Short: "GetRequestLogRecord RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventLogRecordServiceClient(grpcConn)
+		req := &pb.GetRequestLogRecordRequest{}
+		resp, err := client.GetRequestLogRecord(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationEventLogRecordGetRowIndexCmd = &cobra.Command{
+	Use:   "get-row-index",
+	Short: "GetRowIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventLogRecordServiceClient(grpcConn)
+		req := &pb.GetRowIndexRequest{}
+		resp, err := client.GetRowIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationEventLogRecordGetTimeCmd = &cobra.Command{
+	Use:   "get-time",
+	Short: "GetTime RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventLogRecordServiceClient(grpcConn)
+		req := &pb.GetTimeRequest{}
+		resp, err := client.GetTime(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationEventLogRecordGetTypeCmd = &cobra.Command{
+	Use:   "get-type",
+	Short: "GetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventLogRecordServiceClient(grpcConn)
+		req := &pb.GetTypeRequest{}
+		resp, err := client.GetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationEventLogRecordHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventLogRecordServiceClient(grpcConn)
+		req := &pb.EventLogRecordHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationEventLogRecordWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventLogRecordServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationEventLogRecordBuilderCmd = &cobra.Command{
+	Use:   "event-log-record-builder",
+	Short: "EventLogRecordBuilderService operations",
+}
+
+var ondevicepersonalizationEventLogRecordBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventLogRecordBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationEventLogRecordBuilderSetDataCmd = &cobra.Command{
+	Use:   "set-data",
+	Short: "SetData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventLogRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetDataRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationEventLogRecordBuilderSetRequestLogRecordCmd = &cobra.Command{
+	Use:   "set-request-log-record",
+	Short: "SetRequestLogRecord RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventLogRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetRequestLogRecordRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRequestLogRecord(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationEventLogRecordBuilderSetRowIndexCmd = &cobra.Command{
+	Use:   "set-row-index",
+	Short: "SetRowIndex RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventLogRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetRowIndexRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetRowIndex(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationEventLogRecordBuilderSetTypeCmd = &cobra.Command{
+	Use:   "set-type",
+	Short: "SetType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventLogRecordBuilderServiceClient(grpcConn)
+		req := &pb.SetTypeRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationExecuteInputCmd = &cobra.Command{
+	Use:   "execute-input",
+	Short: "ExecuteInputService operations",
+}
+
+var ondevicepersonalizationExecuteInputNewExecuteInputCmd = &cobra.Command{
+	Use:   "new-execute-input",
+	Short: "NewExecuteInput RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExecuteInputServiceClient(grpcConn)
+		req := &pb.NewExecuteInputRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewExecuteInput(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationExecuteInputGetAppPackageNameCmd = &cobra.Command{
+	Use:   "get-app-package-name",
+	Short: "GetAppPackageName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExecuteInputServiceClient(grpcConn)
+		req := &pb.GetAppPackageNameRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetAppPackageName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationExecuteInputGetAppParamsCmd = &cobra.Command{
+	Use:   "get-app-params",
+	Short: "GetAppParams RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExecuteInputServiceClient(grpcConn)
+		req := &pb.GetAppParamsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetAppParams(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationOnDevicePersonalizationExceptionCmd = &cobra.Command{
+	Use:   "on-device-personalization-exception",
+	Short: "OnDevicePersonalizationExceptionService operations",
+}
+
+var ondevicepersonalizationOnDevicePersonalizationExceptionGetErrorCodeCmd = &cobra.Command{
+	Use:   "get-error-code",
+	Short: "GetErrorCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewOnDevicePersonalizationExceptionServiceClient(grpcConn)
+		req := &pb.OnDevicePersonalizationExceptionGetErrorCodeRequest{}
+		resp, err := client.GetErrorCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationMutableKeyValueStoreCmd = &cobra.Command{
+	Use:   "mutable-key-value-store",
+	Short: "MutableKeyValueStoreService operations",
+}
+
+var ondevicepersonalizationMutableKeyValueStorePutCmd = &cobra.Command{
+	Use:   "put",
+	Short: "Put RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMutableKeyValueStoreServiceClient(grpcConn)
+		req := &pb.PutRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Put(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationMutableKeyValueStoreRemoveCmd = &cobra.Command{
+	Use:   "remove",
+	Short: "Remove RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewMutableKeyValueStoreServiceClient(grpcConn)
+		req := &pb.RemoveRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Remove(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationFederatedComputeInputCmd = &cobra.Command{
+	Use:   "federated-compute-input",
+	Short: "FederatedComputeInputService operations",
+}
+
+var ondevicepersonalizationFederatedComputeInputEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFederatedComputeInputServiceClient(grpcConn)
+		req := &pb.FederatedComputeInputEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationFederatedComputeInputGetPopulationNameCmd = &cobra.Command{
+	Use:   "get-population-name",
+	Short: "GetPopulationName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFederatedComputeInputServiceClient(grpcConn)
+		req := &pb.FederatedComputeInputGetPopulationNameRequest{}
+		resp, err := client.GetPopulationName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationFederatedComputeInputHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFederatedComputeInputServiceClient(grpcConn)
+		req := &pb.FederatedComputeInputHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationFederatedComputeInputBuilderCmd = &cobra.Command{
+	Use:   "federated-compute-input-builder",
+	Short: "FederatedComputeInputBuilderService operations",
+}
+
+var ondevicepersonalizationFederatedComputeInputBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFederatedComputeInputBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationFederatedComputeInputBuilderSetPopulationNameCmd = &cobra.Command{
+	Use:   "set-population-name",
+	Short: "SetPopulationName RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFederatedComputeInputBuilderServiceClient(grpcConn)
+		req := &pb.SetPopulationNameRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetPopulationName(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationEventUrlProviderCmd = &cobra.Command{
+	Use:   "event-url-provider",
+	Short: "EventUrlProviderService operations",
+}
+
+var ondevicepersonalizationEventUrlProviderCreateEventTrackingUrlWithRedirectCmd = &cobra.Command{
+	Use:   "create-event-tracking-url-with-redirect",
+	Short: "CreateEventTrackingUrlWithRedirect RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventUrlProviderServiceClient(grpcConn)
+		req := &pb.CreateEventTrackingUrlWithRedirectRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.CreateEventTrackingUrlWithRedirect(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationEventUrlProviderCreateEventTrackingUrlWithResponseCmd = &cobra.Command{
+	Use:   "create-event-tracking-url-with-response",
+	Short: "CreateEventTrackingUrlWithResponse RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventUrlProviderServiceClient(grpcConn)
+		req := &pb.CreateEventTrackingUrlWithResponseRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		if v, err := cmd.Flags().GetString("arg2"); err == nil {
+			req.Arg2 = v
+		}
+		resp, err := client.CreateEventTrackingUrlWithResponse(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationLogReaderCmd = &cobra.Command{
+	Use:   "log-reader",
+	Short: "LogReaderService operations",
+}
+
+var ondevicepersonalizationLogReaderGetJoinedEventsCmd = &cobra.Command{
+	Use:   "get-joined-events",
+	Short: "GetJoinedEvents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLogReaderServiceClient(grpcConn)
+		req := &pb.GetJoinedEventsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetJoinedEvents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationLogReaderGetRequestsCmd = &cobra.Command{
+	Use:   "get-requests",
+	Short: "GetRequests RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewLogReaderServiceClient(grpcConn)
+		req := &pb.GetRequestsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.GetRequests(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationExecuteInIsolatedServiceRequestCmd = &cobra.Command{
+	Use:   "execute-in-isolated-service-request",
+	Short: "ExecuteInIsolatedServiceRequestService operations",
+}
+
+var ondevicepersonalizationExecuteInIsolatedServiceRequestEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExecuteInIsolatedServiceRequestServiceClient(grpcConn)
+		req := &pb.ExecuteInIsolatedServiceRequestEqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationExecuteInIsolatedServiceRequestGetAppParamsCmd = &cobra.Command{
+	Use:   "get-app-params",
+	Short: "GetAppParams RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExecuteInIsolatedServiceRequestServiceClient(grpcConn)
+		req := &pb.ExecuteInIsolatedServiceRequestGetAppParamsRequest{}
+		resp, err := client.GetAppParams(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationExecuteInIsolatedServiceRequestGetOutputSpecCmd = &cobra.Command{
+	Use:   "get-output-spec",
+	Short: "GetOutputSpec RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExecuteInIsolatedServiceRequestServiceClient(grpcConn)
+		req := &pb.GetOutputSpecRequest{}
+		resp, err := client.GetOutputSpec(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationExecuteInIsolatedServiceRequestGetServiceCmd = &cobra.Command{
+	Use:   "get-service",
+	Short: "GetService RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExecuteInIsolatedServiceRequestServiceClient(grpcConn)
+		req := &pb.GetServiceRequest{}
+		resp, err := client.GetService(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationExecuteInIsolatedServiceRequestHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExecuteInIsolatedServiceRequestServiceClient(grpcConn)
+		req := &pb.ExecuteInIsolatedServiceRequestHashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationExecuteInIsolatedServiceRequestBuilderCmd = &cobra.Command{
+	Use:   "execute-in-isolated-service-request-builder",
+	Short: "ExecuteInIsolatedServiceRequestBuilderService operations",
+}
+
+var ondevicepersonalizationExecuteInIsolatedServiceRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExecuteInIsolatedServiceRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationExecuteInIsolatedServiceRequestBuilderSetAppParamsCmd = &cobra.Command{
+	Use:   "set-app-params",
+	Short: "SetAppParams RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExecuteInIsolatedServiceRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetAppParamsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetAppParams(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationExecuteInIsolatedServiceRequestBuilderSetOutputSpecCmd = &cobra.Command{
+	Use:   "set-output-spec",
+	Short: "SetOutputSpec RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExecuteInIsolatedServiceRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetOutputSpecRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetOutputSpec(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationExecuteInIsolatedServiceRequestOutputSpecCmd = &cobra.Command{
+	Use:   "execute-in-isolated-service-request-output-spec",
+	Short: "ExecuteInIsolatedServiceRequestOutputSpecService operations",
+}
+
+var ondevicepersonalizationExecuteInIsolatedServiceRequestOutputSpecGetMaxIntValueCmd = &cobra.Command{
+	Use:   "get-max-int-value",
+	Short: "GetMaxIntValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExecuteInIsolatedServiceRequestOutputSpecServiceClient(grpcConn)
+		req := &pb.GetMaxIntValueRequest{}
+		resp, err := client.GetMaxIntValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationExecuteInIsolatedServiceRequestOutputSpecGetOutputTypeCmd = &cobra.Command{
+	Use:   "get-output-type",
+	Short: "GetOutputType RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExecuteInIsolatedServiceRequestOutputSpecServiceClient(grpcConn)
+		req := &pb.GetOutputTypeRequest{}
+		resp, err := client.GetOutputType(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationExecuteInIsolatedServiceRequestOutputSpecBuildBestValueSpecCmd = &cobra.Command{
+	Use:   "build-best-value-spec",
+	Short: "BuildBestValueSpec RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExecuteInIsolatedServiceRequestOutputSpecServiceClient(grpcConn)
+		req := &pb.BuildBestValueSpecRequest{}
+		if v, err := cmd.Flags().GetInt32("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.BuildBestValueSpec(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationExecuteInIsolatedServiceResponseCmd = &cobra.Command{
+	Use:   "execute-in-isolated-service-response",
+	Short: "ExecuteInIsolatedServiceResponseService operations",
+}
+
+var ondevicepersonalizationExecuteInIsolatedServiceResponseNewExecuteInIsolatedServiceResponseCmd = &cobra.Command{
+	Use:   "new-execute-in-isolated-service-response",
+	Short: "NewExecuteInIsolatedServiceResponse RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExecuteInIsolatedServiceResponseServiceClient(grpcConn)
+		req := &pb.NewExecuteInIsolatedServiceResponseRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewExecuteInIsolatedServiceResponse(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationExecuteInIsolatedServiceResponseGetBestValueCmd = &cobra.Command{
+	Use:   "get-best-value",
+	Short: "GetBestValue RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExecuteInIsolatedServiceResponseServiceClient(grpcConn)
+		req := &pb.ExecuteInIsolatedServiceResponseGetBestValueRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetBestValue(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationExecuteInIsolatedServiceResponseGetSurfacePackageTokenCmd = &cobra.Command{
+	Use:   "get-surface-package-token",
+	Short: "GetSurfacePackageToken RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewExecuteInIsolatedServiceResponseServiceClient(grpcConn)
+		req := &pb.ExecuteInIsolatedServiceResponseGetSurfacePackageTokenRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetSurfacePackageToken(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var ondevicepersonalizationUserDataCmd = &cobra.Command{
 	Use:   "user-data",
 	Short: "UserDataService operations",
@@ -3512,7 +3596,7 @@ var ondevicepersonalizationUserDataEqualsCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewUserDataServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
+		req := &pb.UserDataEqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -3643,7 +3727,7 @@ var ondevicepersonalizationUserDataHashCodeCmd = &cobra.Command{
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
 		client := pb.NewUserDataServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
+		req := &pb.UserDataHashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
 			return err
@@ -3674,19 +3758,44 @@ var ondevicepersonalizationUserDataWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var ondevicepersonalizationFederatedComputeInputCmd = &cobra.Command{
-	Use:   "federated-compute-input",
-	Short: "FederatedComputeInputService operations",
+var ondevicepersonalizationEventInputCmd = &cobra.Command{
+	Use:   "event-input",
+	Short: "EventInputService operations",
 }
 
-var ondevicepersonalizationFederatedComputeInputEqualsCmd = &cobra.Command{
+var ondevicepersonalizationEventInputNewEventInputCmd = &cobra.Command{
+	Use:   "new-event-input",
+	Short: "NewEventInput RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventInputServiceClient(grpcConn)
+		req := &pb.NewEventInputRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.NewEventInput(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationEventInputEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewFederatedComputeInputServiceClient(grpcConn)
+		client := pb.NewEventInputServiceClient(grpcConn)
 		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
@@ -3698,15 +3807,18 @@ var ondevicepersonalizationFederatedComputeInputEqualsCmd = &cobra.Command{
 	},
 }
 
-var ondevicepersonalizationFederatedComputeInputGetPopulationNameCmd = &cobra.Command{
-	Use:   "get-population-name",
-	Short: "GetPopulationName RPC",
+var ondevicepersonalizationEventInputGetParametersCmd = &cobra.Command{
+	Use:   "get-parameters",
+	Short: "GetParameters RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewFederatedComputeInputServiceClient(grpcConn)
-		req := &pb.FederatedComputeInputGetPopulationNameRequest{}
-		resp, err := client.GetPopulationName(ctx, req)
+		client := pb.NewEventInputServiceClient(grpcConn)
+		req := &pb.GetParametersRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetParameters(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3714,14 +3826,36 @@ var ondevicepersonalizationFederatedComputeInputGetPopulationNameCmd = &cobra.Co
 	},
 }
 
-var ondevicepersonalizationFederatedComputeInputHashCodeCmd = &cobra.Command{
+var ondevicepersonalizationEventInputGetRequestLogRecordCmd = &cobra.Command{
+	Use:   "get-request-log-record",
+	Short: "GetRequestLogRecord RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewEventInputServiceClient(grpcConn)
+		req := &pb.EventInputGetRequestLogRecordRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
+		resp, err := client.GetRequestLogRecord(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationEventInputHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewFederatedComputeInputServiceClient(grpcConn)
+		client := pb.NewEventInputServiceClient(grpcConn)
 		req := &pb.HashCodeRequest{}
+		if v, err := cmd.Flags().GetInt64("handle"); err == nil {
+			req.Handle = v
+		}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
 			return err
@@ -3730,20 +3864,23 @@ var ondevicepersonalizationFederatedComputeInputHashCodeCmd = &cobra.Command{
 	},
 }
 
-var ondevicepersonalizationFederatedComputeInputBuilderCmd = &cobra.Command{
-	Use:   "federated-compute-input-builder",
-	Short: "FederatedComputeInputBuilderService operations",
+var ondevicepersonalizationFederatedComputeSchedulerCmd = &cobra.Command{
+	Use:   "federated-compute-scheduler",
+	Short: "FederatedComputeSchedulerService operations",
 }
 
-var ondevicepersonalizationFederatedComputeInputBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
+var ondevicepersonalizationFederatedComputeSchedulerCancelCmd = &cobra.Command{
+	Use:   "cancel",
+	Short: "Cancel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewFederatedComputeInputBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
+		client := pb.NewFederatedComputeSchedulerServiceClient(grpcConn)
+		req := &pb.CancelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Cancel(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3751,18 +3888,42 @@ var ondevicepersonalizationFederatedComputeInputBuilderBuildCmd = &cobra.Command
 	},
 }
 
-var ondevicepersonalizationFederatedComputeInputBuilderSetPopulationNameCmd = &cobra.Command{
-	Use:   "set-population-name",
-	Short: "SetPopulationName RPC",
+var ondevicepersonalizationFederatedComputeSchedulerScheduleCmd = &cobra.Command{
+	Use:   "schedule",
+	Short: "Schedule RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewFederatedComputeInputBuilderServiceClient(grpcConn)
-		req := &pb.SetPopulationNameRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+		client := pb.NewFederatedComputeSchedulerServiceClient(grpcConn)
+		req := &pb.ScheduleRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetPopulationName(ctx, req)
+		if v, err := cmd.Flags().GetInt64("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.Schedule(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var ondevicepersonalizationFederatedComputeSchedulerParamsCmd = &cobra.Command{
+	Use:   "federated-compute-scheduler-params",
+	Short: "FederatedComputeSchedulerParamsService operations",
+}
+
+var ondevicepersonalizationFederatedComputeSchedulerParamsGetTrainingIntervalCmd = &cobra.Command{
+	Use:   "get-training-interval",
+	Short: "GetTrainingInterval RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewFederatedComputeSchedulerParamsServiceClient(grpcConn)
+		req := &pb.GetTrainingIntervalRequest{}
+		resp, err := client.GetTrainingInterval(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -3771,64 +3932,39 @@ var ondevicepersonalizationFederatedComputeInputBuilderSetPopulationNameCmd = &c
 }
 
 func init() {
-	ondevicepersonalizationOnDevicePersonalizationExceptionCmd.AddCommand(ondevicepersonalizationOnDevicePersonalizationExceptionGetErrorCodeCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationOnDevicePersonalizationExceptionCmd)
-	ondevicepersonalizationExecuteInputNewExecuteInputCmd.Flags().String("arg0", "", "arg0 (string)")
-	ondevicepersonalizationExecuteInputNewExecuteInputCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	ondevicepersonalizationExecuteInputCmd.AddCommand(ondevicepersonalizationExecuteInputNewExecuteInputCmd)
-	ondevicepersonalizationExecuteInputGetAppPackageNameCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ondevicepersonalizationExecuteInputCmd.AddCommand(ondevicepersonalizationExecuteInputGetAppPackageNameCmd)
-	ondevicepersonalizationExecuteInputGetAppParamsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ondevicepersonalizationExecuteInputCmd.AddCommand(ondevicepersonalizationExecuteInputGetAppParamsCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationExecuteInputCmd)
-	ondevicepersonalizationEventLogRecordCmd.AddCommand(ondevicepersonalizationEventLogRecordDescribeContentsCmd)
-	ondevicepersonalizationEventLogRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationEventLogRecordCmd.AddCommand(ondevicepersonalizationEventLogRecordEqualsCmd)
-	ondevicepersonalizationEventLogRecordCmd.AddCommand(ondevicepersonalizationEventLogRecordGetDataCmd)
-	ondevicepersonalizationEventLogRecordCmd.AddCommand(ondevicepersonalizationEventLogRecordGetRequestLogRecordCmd)
-	ondevicepersonalizationEventLogRecordCmd.AddCommand(ondevicepersonalizationEventLogRecordGetRowIndexCmd)
-	ondevicepersonalizationEventLogRecordCmd.AddCommand(ondevicepersonalizationEventLogRecordGetTimeCmd)
-	ondevicepersonalizationEventLogRecordCmd.AddCommand(ondevicepersonalizationEventLogRecordGetTypeCmd)
-	ondevicepersonalizationEventLogRecordCmd.AddCommand(ondevicepersonalizationEventLogRecordHashCodeCmd)
-	ondevicepersonalizationEventLogRecordWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationEventLogRecordWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	ondevicepersonalizationEventLogRecordCmd.AddCommand(ondevicepersonalizationEventLogRecordWriteToParcelCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationEventLogRecordCmd)
-	ondevicepersonalizationEventLogRecordBuilderCmd.AddCommand(ondevicepersonalizationEventLogRecordBuilderBuildCmd)
-	ondevicepersonalizationEventLogRecordBuilderSetDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationEventLogRecordBuilderCmd.AddCommand(ondevicepersonalizationEventLogRecordBuilderSetDataCmd)
-	ondevicepersonalizationEventLogRecordBuilderSetRequestLogRecordCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationEventLogRecordBuilderCmd.AddCommand(ondevicepersonalizationEventLogRecordBuilderSetRequestLogRecordCmd)
-	ondevicepersonalizationEventLogRecordBuilderSetRowIndexCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	ondevicepersonalizationEventLogRecordBuilderCmd.AddCommand(ondevicepersonalizationEventLogRecordBuilderSetRowIndexCmd)
-	ondevicepersonalizationEventLogRecordBuilderSetTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	ondevicepersonalizationEventLogRecordBuilderCmd.AddCommand(ondevicepersonalizationEventLogRecordBuilderSetTypeCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationEventLogRecordBuilderCmd)
-	ondevicepersonalizationFederatedComputeSchedulerCancelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationFederatedComputeSchedulerCmd.AddCommand(ondevicepersonalizationFederatedComputeSchedulerCancelCmd)
-	ondevicepersonalizationFederatedComputeSchedulerScheduleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationFederatedComputeSchedulerScheduleCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	ondevicepersonalizationFederatedComputeSchedulerCmd.AddCommand(ondevicepersonalizationFederatedComputeSchedulerScheduleCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationFederatedComputeSchedulerCmd)
-	ondevicepersonalizationFederatedComputeSchedulerParamsCmd.AddCommand(ondevicepersonalizationFederatedComputeSchedulerParamsGetTrainingIntervalCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationFederatedComputeSchedulerParamsCmd)
-	ondevicepersonalizationDownloadCompletedOutputEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationDownloadCompletedOutputCmd.AddCommand(ondevicepersonalizationDownloadCompletedOutputEqualsCmd)
-	ondevicepersonalizationDownloadCompletedOutputCmd.AddCommand(ondevicepersonalizationDownloadCompletedOutputHashCodeCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationDownloadCompletedOutputCmd)
-	ondevicepersonalizationDownloadCompletedOutputBuilderAddRetainedKeyCmd.Flags().String("arg0", "", "arg0 (string)")
-	ondevicepersonalizationDownloadCompletedOutputBuilderCmd.AddCommand(ondevicepersonalizationDownloadCompletedOutputBuilderAddRetainedKeyCmd)
-	ondevicepersonalizationDownloadCompletedOutputBuilderCmd.AddCommand(ondevicepersonalizationDownloadCompletedOutputBuilderBuildCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationDownloadCompletedOutputBuilderCmd)
-	ondevicepersonalizationInferenceOutputEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationInferenceOutputCmd.AddCommand(ondevicepersonalizationInferenceOutputEqualsCmd)
-	ondevicepersonalizationInferenceOutputCmd.AddCommand(ondevicepersonalizationInferenceOutputHashCodeCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationInferenceOutputCmd)
-	ondevicepersonalizationInferenceOutputBuilderAddDataOutputCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	ondevicepersonalizationInferenceOutputBuilderAddDataOutputCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	ondevicepersonalizationInferenceOutputBuilderCmd.AddCommand(ondevicepersonalizationInferenceOutputBuilderAddDataOutputCmd)
-	ondevicepersonalizationInferenceOutputBuilderCmd.AddCommand(ondevicepersonalizationInferenceOutputBuilderBuildCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationInferenceOutputBuilderCmd)
+	ondevicepersonalizationIsolatedServiceGetEventUrlProviderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationIsolatedServiceCmd.AddCommand(ondevicepersonalizationIsolatedServiceGetEventUrlProviderCmd)
+	ondevicepersonalizationIsolatedServiceGetFederatedComputeSchedulerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationIsolatedServiceCmd.AddCommand(ondevicepersonalizationIsolatedServiceGetFederatedComputeSchedulerCmd)
+	ondevicepersonalizationIsolatedServiceGetLocalDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationIsolatedServiceCmd.AddCommand(ondevicepersonalizationIsolatedServiceGetLocalDataCmd)
+	ondevicepersonalizationIsolatedServiceGetLogReaderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationIsolatedServiceCmd.AddCommand(ondevicepersonalizationIsolatedServiceGetLogReaderCmd)
+	ondevicepersonalizationIsolatedServiceGetModelManagerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationIsolatedServiceCmd.AddCommand(ondevicepersonalizationIsolatedServiceGetModelManagerCmd)
+	ondevicepersonalizationIsolatedServiceGetRemoteDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationIsolatedServiceCmd.AddCommand(ondevicepersonalizationIsolatedServiceGetRemoteDataCmd)
+	ondevicepersonalizationIsolatedServiceGetUserDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationIsolatedServiceCmd.AddCommand(ondevicepersonalizationIsolatedServiceGetUserDataCmd)
+	ondevicepersonalizationIsolatedServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationIsolatedServiceCmd.AddCommand(ondevicepersonalizationIsolatedServiceOnBindCmd)
+	ondevicepersonalizationIsolatedServiceCmd.AddCommand(ondevicepersonalizationIsolatedServiceOnCreateCmd)
+	ondevicepersonalizationIsolatedServiceOnRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationIsolatedServiceCmd.AddCommand(ondevicepersonalizationIsolatedServiceOnRequestCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationIsolatedServiceCmd)
+	ondevicepersonalizationTrainingExampleRecordCmd.AddCommand(ondevicepersonalizationTrainingExampleRecordDescribeContentsCmd)
+	ondevicepersonalizationTrainingExampleRecordCmd.AddCommand(ondevicepersonalizationTrainingExampleRecordGetResumptionTokenCmd)
+	ondevicepersonalizationTrainingExampleRecordCmd.AddCommand(ondevicepersonalizationTrainingExampleRecordGetTrainingExampleCmd)
+	ondevicepersonalizationTrainingExampleRecordWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationTrainingExampleRecordWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	ondevicepersonalizationTrainingExampleRecordCmd.AddCommand(ondevicepersonalizationTrainingExampleRecordWriteToParcelCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationTrainingExampleRecordCmd)
+	ondevicepersonalizationTrainingExampleRecordBuilderCmd.AddCommand(ondevicepersonalizationTrainingExampleRecordBuilderBuildCmd)
+	ondevicepersonalizationTrainingExampleRecordBuilderSetResumptionTokenCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationTrainingExampleRecordBuilderCmd.AddCommand(ondevicepersonalizationTrainingExampleRecordBuilderSetResumptionTokenCmd)
+	ondevicepersonalizationTrainingExampleRecordBuilderSetTrainingExampleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationTrainingExampleRecordBuilderCmd.AddCommand(ondevicepersonalizationTrainingExampleRecordBuilderSetTrainingExampleCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationTrainingExampleRecordBuilderCmd)
 	ondevicepersonalizationAppInfoNewAppInfoCmd.Flags().Bool("arg0", false, "arg0 (bool)")
 	ondevicepersonalizationAppInfoCmd.AddCommand(ondevicepersonalizationAppInfoNewAppInfoCmd)
 	ondevicepersonalizationAppInfoDescribeContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
@@ -3845,8 +3981,97 @@ func init() {
 	ondevicepersonalizationAppInfoWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	ondevicepersonalizationAppInfoCmd.AddCommand(ondevicepersonalizationAppInfoWriteToParcelCmd)
 	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationAppInfoCmd)
+	ondevicepersonalizationRenderingConfigCmd.AddCommand(ondevicepersonalizationRenderingConfigDescribeContentsCmd)
+	ondevicepersonalizationRenderingConfigEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationRenderingConfigCmd.AddCommand(ondevicepersonalizationRenderingConfigEqualsCmd)
+	ondevicepersonalizationRenderingConfigCmd.AddCommand(ondevicepersonalizationRenderingConfigGetKeysCmd)
+	ondevicepersonalizationRenderingConfigCmd.AddCommand(ondevicepersonalizationRenderingConfigHashCodeCmd)
+	ondevicepersonalizationRenderingConfigWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationRenderingConfigWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	ondevicepersonalizationRenderingConfigCmd.AddCommand(ondevicepersonalizationRenderingConfigWriteToParcelCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationRenderingConfigCmd)
+	ondevicepersonalizationRenderingConfigBuilderAddKeyCmd.Flags().String("arg0", "", "arg0 (string)")
+	ondevicepersonalizationRenderingConfigBuilderCmd.AddCommand(ondevicepersonalizationRenderingConfigBuilderAddKeyCmd)
+	ondevicepersonalizationRenderingConfigBuilderCmd.AddCommand(ondevicepersonalizationRenderingConfigBuilderBuildCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationRenderingConfigBuilderCmd)
+	ondevicepersonalizationDownloadCompletedOutputEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationDownloadCompletedOutputCmd.AddCommand(ondevicepersonalizationDownloadCompletedOutputEqualsCmd)
+	ondevicepersonalizationDownloadCompletedOutputCmd.AddCommand(ondevicepersonalizationDownloadCompletedOutputGetRetainedKeysCmd)
+	ondevicepersonalizationDownloadCompletedOutputCmd.AddCommand(ondevicepersonalizationDownloadCompletedOutputHashCodeCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationDownloadCompletedOutputCmd)
+	ondevicepersonalizationDownloadCompletedOutputBuilderAddRetainedKeyCmd.Flags().String("arg0", "", "arg0 (string)")
+	ondevicepersonalizationDownloadCompletedOutputBuilderCmd.AddCommand(ondevicepersonalizationDownloadCompletedOutputBuilderAddRetainedKeyCmd)
+	ondevicepersonalizationDownloadCompletedOutputBuilderCmd.AddCommand(ondevicepersonalizationDownloadCompletedOutputBuilderBuildCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationDownloadCompletedOutputBuilderCmd)
+	ondevicepersonalizationRenderOutputEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationRenderOutputCmd.AddCommand(ondevicepersonalizationRenderOutputEqualsCmd)
+	ondevicepersonalizationRenderOutputCmd.AddCommand(ondevicepersonalizationRenderOutputGetContentCmd)
+	ondevicepersonalizationRenderOutputCmd.AddCommand(ondevicepersonalizationRenderOutputGetTemplateIdCmd)
+	ondevicepersonalizationRenderOutputCmd.AddCommand(ondevicepersonalizationRenderOutputGetTemplateParamsCmd)
+	ondevicepersonalizationRenderOutputCmd.AddCommand(ondevicepersonalizationRenderOutputHashCodeCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationRenderOutputCmd)
+	ondevicepersonalizationRenderOutputBuilderCmd.AddCommand(ondevicepersonalizationRenderOutputBuilderBuildCmd)
+	ondevicepersonalizationRenderOutputBuilderSetContentCmd.Flags().String("arg0", "", "arg0 (string)")
+	ondevicepersonalizationRenderOutputBuilderCmd.AddCommand(ondevicepersonalizationRenderOutputBuilderSetContentCmd)
+	ondevicepersonalizationRenderOutputBuilderSetTemplateIdCmd.Flags().String("arg0", "", "arg0 (string)")
+	ondevicepersonalizationRenderOutputBuilderCmd.AddCommand(ondevicepersonalizationRenderOutputBuilderSetTemplateIdCmd)
+	ondevicepersonalizationRenderOutputBuilderSetTemplateParamsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationRenderOutputBuilderCmd.AddCommand(ondevicepersonalizationRenderOutputBuilderSetTemplateParamsCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationRenderOutputBuilderCmd)
+	ondevicepersonalizationTrainingExamplesOutputEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationTrainingExamplesOutputCmd.AddCommand(ondevicepersonalizationTrainingExamplesOutputEqualsCmd)
+	ondevicepersonalizationTrainingExamplesOutputCmd.AddCommand(ondevicepersonalizationTrainingExamplesOutputGetTrainingExampleRecordsCmd)
+	ondevicepersonalizationTrainingExamplesOutputCmd.AddCommand(ondevicepersonalizationTrainingExamplesOutputHashCodeCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationTrainingExamplesOutputCmd)
+	ondevicepersonalizationTrainingExamplesOutputBuilderAddTrainingExampleRecordCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationTrainingExamplesOutputBuilderCmd.AddCommand(ondevicepersonalizationTrainingExamplesOutputBuilderAddTrainingExampleRecordCmd)
+	ondevicepersonalizationTrainingExamplesOutputBuilderCmd.AddCommand(ondevicepersonalizationTrainingExamplesOutputBuilderBuildCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationTrainingExamplesOutputBuilderCmd)
+	ondevicepersonalizationIsolatedServiceExceptionNewIsolatedServiceExceptionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	ondevicepersonalizationIsolatedServiceExceptionCmd.AddCommand(ondevicepersonalizationIsolatedServiceExceptionNewIsolatedServiceExceptionCmd)
+	ondevicepersonalizationIsolatedServiceExceptionGetErrorCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ondevicepersonalizationIsolatedServiceExceptionCmd.AddCommand(ondevicepersonalizationIsolatedServiceExceptionGetErrorCodeCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationIsolatedServiceExceptionCmd)
+	ondevicepersonalizationRenderInputNewRenderInputCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	ondevicepersonalizationRenderInputNewRenderInputCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	ondevicepersonalizationRenderInputNewRenderInputCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	ondevicepersonalizationRenderInputCmd.AddCommand(ondevicepersonalizationRenderInputNewRenderInputCmd)
+	ondevicepersonalizationRenderInputEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ondevicepersonalizationRenderInputEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationRenderInputCmd.AddCommand(ondevicepersonalizationRenderInputEqualsCmd)
+	ondevicepersonalizationRenderInputGetHeightCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ondevicepersonalizationRenderInputCmd.AddCommand(ondevicepersonalizationRenderInputGetHeightCmd)
+	ondevicepersonalizationRenderInputGetRenderingConfigCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ondevicepersonalizationRenderInputCmd.AddCommand(ondevicepersonalizationRenderInputGetRenderingConfigCmd)
+	ondevicepersonalizationRenderInputGetWidthCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ondevicepersonalizationRenderInputCmd.AddCommand(ondevicepersonalizationRenderInputGetWidthCmd)
+	ondevicepersonalizationRenderInputHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ondevicepersonalizationRenderInputCmd.AddCommand(ondevicepersonalizationRenderInputHashCodeCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationRenderInputCmd)
+	ondevicepersonalizationExecuteOutputEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationExecuteOutputCmd.AddCommand(ondevicepersonalizationExecuteOutputEqualsCmd)
+	ondevicepersonalizationExecuteOutputCmd.AddCommand(ondevicepersonalizationExecuteOutputGetBestValueCmd)
+	ondevicepersonalizationExecuteOutputCmd.AddCommand(ondevicepersonalizationExecuteOutputGetEventLogRecordsCmd)
+	ondevicepersonalizationExecuteOutputCmd.AddCommand(ondevicepersonalizationExecuteOutputGetOutputDataCmd)
+	ondevicepersonalizationExecuteOutputCmd.AddCommand(ondevicepersonalizationExecuteOutputGetRenderingConfigCmd)
+	ondevicepersonalizationExecuteOutputCmd.AddCommand(ondevicepersonalizationExecuteOutputGetRequestLogRecordCmd)
+	ondevicepersonalizationExecuteOutputCmd.AddCommand(ondevicepersonalizationExecuteOutputHashCodeCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationExecuteOutputCmd)
+	ondevicepersonalizationExecuteOutputBuilderAddEventLogRecordCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationExecuteOutputBuilderCmd.AddCommand(ondevicepersonalizationExecuteOutputBuilderAddEventLogRecordCmd)
+	ondevicepersonalizationExecuteOutputBuilderCmd.AddCommand(ondevicepersonalizationExecuteOutputBuilderBuildCmd)
+	ondevicepersonalizationExecuteOutputBuilderSetBestValueCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	ondevicepersonalizationExecuteOutputBuilderCmd.AddCommand(ondevicepersonalizationExecuteOutputBuilderSetBestValueCmd)
+	ondevicepersonalizationExecuteOutputBuilderSetOutputDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationExecuteOutputBuilderCmd.AddCommand(ondevicepersonalizationExecuteOutputBuilderSetOutputDataCmd)
+	ondevicepersonalizationExecuteOutputBuilderSetRenderingConfigCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationExecuteOutputBuilderCmd.AddCommand(ondevicepersonalizationExecuteOutputBuilderSetRenderingConfigCmd)
+	ondevicepersonalizationExecuteOutputBuilderSetRequestLogRecordCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationExecuteOutputBuilderCmd.AddCommand(ondevicepersonalizationExecuteOutputBuilderSetRequestLogRecordCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationExecuteOutputBuilderCmd)
 	ondevicepersonalizationWebTriggerOutputEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	ondevicepersonalizationWebTriggerOutputCmd.AddCommand(ondevicepersonalizationWebTriggerOutputEqualsCmd)
+	ondevicepersonalizationWebTriggerOutputCmd.AddCommand(ondevicepersonalizationWebTriggerOutputGetEventLogRecordsCmd)
 	ondevicepersonalizationWebTriggerOutputCmd.AddCommand(ondevicepersonalizationWebTriggerOutputGetRequestLogRecordCmd)
 	ondevicepersonalizationWebTriggerOutputCmd.AddCommand(ondevicepersonalizationWebTriggerOutputHashCodeCmd)
 	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationWebTriggerOutputCmd)
@@ -3856,6 +4081,102 @@ func init() {
 	ondevicepersonalizationWebTriggerOutputBuilderSetRequestLogRecordCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	ondevicepersonalizationWebTriggerOutputBuilderCmd.AddCommand(ondevicepersonalizationWebTriggerOutputBuilderSetRequestLogRecordCmd)
 	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationWebTriggerOutputBuilderCmd)
+	ondevicepersonalizationTrainingIntervalEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationTrainingIntervalCmd.AddCommand(ondevicepersonalizationTrainingIntervalEqualsCmd)
+	ondevicepersonalizationTrainingIntervalCmd.AddCommand(ondevicepersonalizationTrainingIntervalGetMinimumIntervalCmd)
+	ondevicepersonalizationTrainingIntervalCmd.AddCommand(ondevicepersonalizationTrainingIntervalGetSchedulingModeCmd)
+	ondevicepersonalizationTrainingIntervalCmd.AddCommand(ondevicepersonalizationTrainingIntervalHashCodeCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationTrainingIntervalCmd)
+	ondevicepersonalizationTrainingIntervalBuilderCmd.AddCommand(ondevicepersonalizationTrainingIntervalBuilderBuildCmd)
+	ondevicepersonalizationTrainingIntervalBuilderSetMinimumIntervalCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationTrainingIntervalBuilderCmd.AddCommand(ondevicepersonalizationTrainingIntervalBuilderSetMinimumIntervalCmd)
+	ondevicepersonalizationTrainingIntervalBuilderSetSchedulingModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	ondevicepersonalizationTrainingIntervalBuilderCmd.AddCommand(ondevicepersonalizationTrainingIntervalBuilderSetSchedulingModeCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationTrainingIntervalBuilderCmd)
+	ondevicepersonalizationTrainingExamplesInputNewTrainingExamplesInputCmd.Flags().String("arg0", "", "arg0 (string)")
+	ondevicepersonalizationTrainingExamplesInputNewTrainingExamplesInputCmd.Flags().String("arg1", "", "arg1 (string)")
+	ondevicepersonalizationTrainingExamplesInputNewTrainingExamplesInputCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	ondevicepersonalizationTrainingExamplesInputNewTrainingExamplesInputCmd.Flags().String("arg3", "", "arg3 (string)")
+	ondevicepersonalizationTrainingExamplesInputCmd.AddCommand(ondevicepersonalizationTrainingExamplesInputNewTrainingExamplesInputCmd)
+	ondevicepersonalizationTrainingExamplesInputEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ondevicepersonalizationTrainingExamplesInputEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationTrainingExamplesInputCmd.AddCommand(ondevicepersonalizationTrainingExamplesInputEqualsCmd)
+	ondevicepersonalizationTrainingExamplesInputGetCollectionNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ondevicepersonalizationTrainingExamplesInputCmd.AddCommand(ondevicepersonalizationTrainingExamplesInputGetCollectionNameCmd)
+	ondevicepersonalizationTrainingExamplesInputGetPopulationNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ondevicepersonalizationTrainingExamplesInputCmd.AddCommand(ondevicepersonalizationTrainingExamplesInputGetPopulationNameCmd)
+	ondevicepersonalizationTrainingExamplesInputGetResumptionTokenCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ondevicepersonalizationTrainingExamplesInputCmd.AddCommand(ondevicepersonalizationTrainingExamplesInputGetResumptionTokenCmd)
+	ondevicepersonalizationTrainingExamplesInputGetTaskNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ondevicepersonalizationTrainingExamplesInputCmd.AddCommand(ondevicepersonalizationTrainingExamplesInputGetTaskNameCmd)
+	ondevicepersonalizationTrainingExamplesInputHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ondevicepersonalizationTrainingExamplesInputCmd.AddCommand(ondevicepersonalizationTrainingExamplesInputHashCodeCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationTrainingExamplesInputCmd)
+	ondevicepersonalizationRequestLogRecordCmd.AddCommand(ondevicepersonalizationRequestLogRecordDescribeContentsCmd)
+	ondevicepersonalizationRequestLogRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationRequestLogRecordCmd.AddCommand(ondevicepersonalizationRequestLogRecordEqualsCmd)
+	ondevicepersonalizationRequestLogRecordCmd.AddCommand(ondevicepersonalizationRequestLogRecordGetRowsCmd)
+	ondevicepersonalizationRequestLogRecordCmd.AddCommand(ondevicepersonalizationRequestLogRecordGetTimeCmd)
+	ondevicepersonalizationRequestLogRecordCmd.AddCommand(ondevicepersonalizationRequestLogRecordHashCodeCmd)
+	ondevicepersonalizationRequestLogRecordWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationRequestLogRecordWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	ondevicepersonalizationRequestLogRecordCmd.AddCommand(ondevicepersonalizationRequestLogRecordWriteToParcelCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationRequestLogRecordCmd)
+	ondevicepersonalizationRequestLogRecordBuilderAddRowCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationRequestLogRecordBuilderCmd.AddCommand(ondevicepersonalizationRequestLogRecordBuilderAddRowCmd)
+	ondevicepersonalizationRequestLogRecordBuilderCmd.AddCommand(ondevicepersonalizationRequestLogRecordBuilderBuildCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationRequestLogRecordBuilderCmd)
+	ondevicepersonalizationInferenceOutputEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationInferenceOutputCmd.AddCommand(ondevicepersonalizationInferenceOutputEqualsCmd)
+	ondevicepersonalizationInferenceOutputCmd.AddCommand(ondevicepersonalizationInferenceOutputHashCodeCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationInferenceOutputCmd)
+	ondevicepersonalizationInferenceOutputBuilderAddDataOutputCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	ondevicepersonalizationInferenceOutputBuilderAddDataOutputCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	ondevicepersonalizationInferenceOutputBuilderCmd.AddCommand(ondevicepersonalizationInferenceOutputBuilderAddDataOutputCmd)
+	ondevicepersonalizationInferenceOutputBuilderCmd.AddCommand(ondevicepersonalizationInferenceOutputBuilderBuildCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationInferenceOutputBuilderCmd)
+	ondevicepersonalizationKeyValueStoreGetCmd.Flags().String("arg0", "", "arg0 (string)")
+	ondevicepersonalizationKeyValueStoreCmd.AddCommand(ondevicepersonalizationKeyValueStoreGetCmd)
+	ondevicepersonalizationKeyValueStoreCmd.AddCommand(ondevicepersonalizationKeyValueStoreKeySetCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationKeyValueStoreCmd)
+	ondevicepersonalizationOnDevicePersonalizationManagerExecuteResultCmd.AddCommand(ondevicepersonalizationOnDevicePersonalizationManagerExecuteResultGetOutputDataCmd)
+	ondevicepersonalizationOnDevicePersonalizationManagerExecuteResultCmd.AddCommand(ondevicepersonalizationOnDevicePersonalizationManagerExecuteResultGetSurfacePackageTokenCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationOnDevicePersonalizationManagerExecuteResultCmd)
+	ondevicepersonalizationWebTriggerInputNewWebTriggerInputCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationWebTriggerInputNewWebTriggerInputCmd.Flags().String("arg1", "", "arg1 (string)")
+	ondevicepersonalizationWebTriggerInputNewWebTriggerInputCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
+	ondevicepersonalizationWebTriggerInputCmd.AddCommand(ondevicepersonalizationWebTriggerInputNewWebTriggerInputCmd)
+	ondevicepersonalizationWebTriggerInputEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ondevicepersonalizationWebTriggerInputEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationWebTriggerInputCmd.AddCommand(ondevicepersonalizationWebTriggerInputEqualsCmd)
+	ondevicepersonalizationWebTriggerInputGetAppPackageNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ondevicepersonalizationWebTriggerInputCmd.AddCommand(ondevicepersonalizationWebTriggerInputGetAppPackageNameCmd)
+	ondevicepersonalizationWebTriggerInputGetDataCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ondevicepersonalizationWebTriggerInputCmd.AddCommand(ondevicepersonalizationWebTriggerInputGetDataCmd)
+	ondevicepersonalizationWebTriggerInputGetDestinationUrlCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ondevicepersonalizationWebTriggerInputCmd.AddCommand(ondevicepersonalizationWebTriggerInputGetDestinationUrlCmd)
+	ondevicepersonalizationWebTriggerInputHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ondevicepersonalizationWebTriggerInputCmd.AddCommand(ondevicepersonalizationWebTriggerInputHashCodeCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationWebTriggerInputCmd)
+	ondevicepersonalizationEventOutputEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationEventOutputCmd.AddCommand(ondevicepersonalizationEventOutputEqualsCmd)
+	ondevicepersonalizationEventOutputCmd.AddCommand(ondevicepersonalizationEventOutputGetEventLogRecordCmd)
+	ondevicepersonalizationEventOutputCmd.AddCommand(ondevicepersonalizationEventOutputHashCodeCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationEventOutputCmd)
+	ondevicepersonalizationEventOutputBuilderCmd.AddCommand(ondevicepersonalizationEventOutputBuilderBuildCmd)
+	ondevicepersonalizationEventOutputBuilderSetEventLogRecordCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationEventOutputBuilderCmd.AddCommand(ondevicepersonalizationEventOutputBuilderSetEventLogRecordCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationEventOutputBuilderCmd)
+	ondevicepersonalizationDownloadCompletedInputNewDownloadCompletedInputCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationDownloadCompletedInputCmd.AddCommand(ondevicepersonalizationDownloadCompletedInputNewDownloadCompletedInputCmd)
+	ondevicepersonalizationDownloadCompletedInputEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ondevicepersonalizationDownloadCompletedInputEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationDownloadCompletedInputCmd.AddCommand(ondevicepersonalizationDownloadCompletedInputEqualsCmd)
+	ondevicepersonalizationDownloadCompletedInputGetDownloadedContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ondevicepersonalizationDownloadCompletedInputCmd.AddCommand(ondevicepersonalizationDownloadCompletedInputGetDownloadedContentsCmd)
+	ondevicepersonalizationDownloadCompletedInputHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ondevicepersonalizationDownloadCompletedInputCmd.AddCommand(ondevicepersonalizationDownloadCompletedInputHashCodeCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationDownloadCompletedInputCmd)
 	ondevicepersonalizationInferenceInputEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	ondevicepersonalizationInferenceInputCmd.AddCommand(ondevicepersonalizationInferenceInputEqualsCmd)
 	ondevicepersonalizationInferenceInputCmd.AddCommand(ondevicepersonalizationInferenceInputGetBatchSizeCmd)
@@ -3883,57 +4204,69 @@ func init() {
 	ondevicepersonalizationInferenceInputParamsCmd.AddCommand(ondevicepersonalizationInferenceInputParamsGetRecommendedNumThreadsCmd)
 	ondevicepersonalizationInferenceInputParamsCmd.AddCommand(ondevicepersonalizationInferenceInputParamsHashCodeCmd)
 	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationInferenceInputParamsCmd)
-	ondevicepersonalizationOnDevicePersonalizationManagerExecuteResultCmd.AddCommand(ondevicepersonalizationOnDevicePersonalizationManagerExecuteResultGetOutputDataCmd)
-	ondevicepersonalizationOnDevicePersonalizationManagerExecuteResultCmd.AddCommand(ondevicepersonalizationOnDevicePersonalizationManagerExecuteResultGetSurfacePackageTokenCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationOnDevicePersonalizationManagerExecuteResultCmd)
-	ondevicepersonalizationRenderingConfigCmd.AddCommand(ondevicepersonalizationRenderingConfigDescribeContentsCmd)
-	ondevicepersonalizationRenderingConfigEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationRenderingConfigCmd.AddCommand(ondevicepersonalizationRenderingConfigEqualsCmd)
-	ondevicepersonalizationRenderingConfigCmd.AddCommand(ondevicepersonalizationRenderingConfigHashCodeCmd)
-	ondevicepersonalizationRenderingConfigWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationRenderingConfigWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	ondevicepersonalizationRenderingConfigCmd.AddCommand(ondevicepersonalizationRenderingConfigWriteToParcelCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationRenderingConfigCmd)
-	ondevicepersonalizationRenderingConfigBuilderAddKeyCmd.Flags().String("arg0", "", "arg0 (string)")
-	ondevicepersonalizationRenderingConfigBuilderCmd.AddCommand(ondevicepersonalizationRenderingConfigBuilderAddKeyCmd)
-	ondevicepersonalizationRenderingConfigBuilderCmd.AddCommand(ondevicepersonalizationRenderingConfigBuilderBuildCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationRenderingConfigBuilderCmd)
-	ondevicepersonalizationWebTriggerInputNewWebTriggerInputCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationWebTriggerInputNewWebTriggerInputCmd.Flags().String("arg1", "", "arg1 (string)")
-	ondevicepersonalizationWebTriggerInputNewWebTriggerInputCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	ondevicepersonalizationWebTriggerInputCmd.AddCommand(ondevicepersonalizationWebTriggerInputNewWebTriggerInputCmd)
-	ondevicepersonalizationWebTriggerInputEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ondevicepersonalizationWebTriggerInputEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationWebTriggerInputCmd.AddCommand(ondevicepersonalizationWebTriggerInputEqualsCmd)
-	ondevicepersonalizationWebTriggerInputGetAppPackageNameCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ondevicepersonalizationWebTriggerInputCmd.AddCommand(ondevicepersonalizationWebTriggerInputGetAppPackageNameCmd)
-	ondevicepersonalizationWebTriggerInputGetDataCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ondevicepersonalizationWebTriggerInputCmd.AddCommand(ondevicepersonalizationWebTriggerInputGetDataCmd)
-	ondevicepersonalizationWebTriggerInputGetDestinationUrlCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ondevicepersonalizationWebTriggerInputCmd.AddCommand(ondevicepersonalizationWebTriggerInputGetDestinationUrlCmd)
-	ondevicepersonalizationWebTriggerInputHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ondevicepersonalizationWebTriggerInputCmd.AddCommand(ondevicepersonalizationWebTriggerInputHashCodeCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationWebTriggerInputCmd)
-	ondevicepersonalizationExecuteOutputEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationExecuteOutputCmd.AddCommand(ondevicepersonalizationExecuteOutputEqualsCmd)
-	ondevicepersonalizationExecuteOutputCmd.AddCommand(ondevicepersonalizationExecuteOutputGetBestValueCmd)
-	ondevicepersonalizationExecuteOutputCmd.AddCommand(ondevicepersonalizationExecuteOutputGetOutputDataCmd)
-	ondevicepersonalizationExecuteOutputCmd.AddCommand(ondevicepersonalizationExecuteOutputGetRenderingConfigCmd)
-	ondevicepersonalizationExecuteOutputCmd.AddCommand(ondevicepersonalizationExecuteOutputGetRequestLogRecordCmd)
-	ondevicepersonalizationExecuteOutputCmd.AddCommand(ondevicepersonalizationExecuteOutputHashCodeCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationExecuteOutputCmd)
-	ondevicepersonalizationExecuteOutputBuilderAddEventLogRecordCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationExecuteOutputBuilderCmd.AddCommand(ondevicepersonalizationExecuteOutputBuilderAddEventLogRecordCmd)
-	ondevicepersonalizationExecuteOutputBuilderCmd.AddCommand(ondevicepersonalizationExecuteOutputBuilderBuildCmd)
-	ondevicepersonalizationExecuteOutputBuilderSetBestValueCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	ondevicepersonalizationExecuteOutputBuilderCmd.AddCommand(ondevicepersonalizationExecuteOutputBuilderSetBestValueCmd)
-	ondevicepersonalizationExecuteOutputBuilderSetOutputDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationExecuteOutputBuilderCmd.AddCommand(ondevicepersonalizationExecuteOutputBuilderSetOutputDataCmd)
-	ondevicepersonalizationExecuteOutputBuilderSetRenderingConfigCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationExecuteOutputBuilderCmd.AddCommand(ondevicepersonalizationExecuteOutputBuilderSetRenderingConfigCmd)
-	ondevicepersonalizationExecuteOutputBuilderSetRequestLogRecordCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationExecuteOutputBuilderCmd.AddCommand(ondevicepersonalizationExecuteOutputBuilderSetRequestLogRecordCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationExecuteOutputBuilderCmd)
+	ondevicepersonalizationEventLogRecordCmd.AddCommand(ondevicepersonalizationEventLogRecordDescribeContentsCmd)
+	ondevicepersonalizationEventLogRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationEventLogRecordCmd.AddCommand(ondevicepersonalizationEventLogRecordEqualsCmd)
+	ondevicepersonalizationEventLogRecordCmd.AddCommand(ondevicepersonalizationEventLogRecordGetDataCmd)
+	ondevicepersonalizationEventLogRecordCmd.AddCommand(ondevicepersonalizationEventLogRecordGetRequestLogRecordCmd)
+	ondevicepersonalizationEventLogRecordCmd.AddCommand(ondevicepersonalizationEventLogRecordGetRowIndexCmd)
+	ondevicepersonalizationEventLogRecordCmd.AddCommand(ondevicepersonalizationEventLogRecordGetTimeCmd)
+	ondevicepersonalizationEventLogRecordCmd.AddCommand(ondevicepersonalizationEventLogRecordGetTypeCmd)
+	ondevicepersonalizationEventLogRecordCmd.AddCommand(ondevicepersonalizationEventLogRecordHashCodeCmd)
+	ondevicepersonalizationEventLogRecordWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationEventLogRecordWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	ondevicepersonalizationEventLogRecordCmd.AddCommand(ondevicepersonalizationEventLogRecordWriteToParcelCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationEventLogRecordCmd)
+	ondevicepersonalizationEventLogRecordBuilderCmd.AddCommand(ondevicepersonalizationEventLogRecordBuilderBuildCmd)
+	ondevicepersonalizationEventLogRecordBuilderSetDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationEventLogRecordBuilderCmd.AddCommand(ondevicepersonalizationEventLogRecordBuilderSetDataCmd)
+	ondevicepersonalizationEventLogRecordBuilderSetRequestLogRecordCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationEventLogRecordBuilderCmd.AddCommand(ondevicepersonalizationEventLogRecordBuilderSetRequestLogRecordCmd)
+	ondevicepersonalizationEventLogRecordBuilderSetRowIndexCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	ondevicepersonalizationEventLogRecordBuilderCmd.AddCommand(ondevicepersonalizationEventLogRecordBuilderSetRowIndexCmd)
+	ondevicepersonalizationEventLogRecordBuilderSetTypeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
+	ondevicepersonalizationEventLogRecordBuilderCmd.AddCommand(ondevicepersonalizationEventLogRecordBuilderSetTypeCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationEventLogRecordBuilderCmd)
+	ondevicepersonalizationExecuteInputNewExecuteInputCmd.Flags().String("arg0", "", "arg0 (string)")
+	ondevicepersonalizationExecuteInputNewExecuteInputCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	ondevicepersonalizationExecuteInputCmd.AddCommand(ondevicepersonalizationExecuteInputNewExecuteInputCmd)
+	ondevicepersonalizationExecuteInputGetAppPackageNameCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ondevicepersonalizationExecuteInputCmd.AddCommand(ondevicepersonalizationExecuteInputGetAppPackageNameCmd)
+	ondevicepersonalizationExecuteInputGetAppParamsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ondevicepersonalizationExecuteInputCmd.AddCommand(ondevicepersonalizationExecuteInputGetAppParamsCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationExecuteInputCmd)
+	ondevicepersonalizationOnDevicePersonalizationExceptionCmd.AddCommand(ondevicepersonalizationOnDevicePersonalizationExceptionGetErrorCodeCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationOnDevicePersonalizationExceptionCmd)
+	ondevicepersonalizationMutableKeyValueStorePutCmd.Flags().String("arg0", "", "arg0 (string)")
+	ondevicepersonalizationMutableKeyValueStorePutCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	ondevicepersonalizationMutableKeyValueStoreCmd.AddCommand(ondevicepersonalizationMutableKeyValueStorePutCmd)
+	ondevicepersonalizationMutableKeyValueStoreRemoveCmd.Flags().String("arg0", "", "arg0 (string)")
+	ondevicepersonalizationMutableKeyValueStoreCmd.AddCommand(ondevicepersonalizationMutableKeyValueStoreRemoveCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationMutableKeyValueStoreCmd)
+	ondevicepersonalizationFederatedComputeInputEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationFederatedComputeInputCmd.AddCommand(ondevicepersonalizationFederatedComputeInputEqualsCmd)
+	ondevicepersonalizationFederatedComputeInputCmd.AddCommand(ondevicepersonalizationFederatedComputeInputGetPopulationNameCmd)
+	ondevicepersonalizationFederatedComputeInputCmd.AddCommand(ondevicepersonalizationFederatedComputeInputHashCodeCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationFederatedComputeInputCmd)
+	ondevicepersonalizationFederatedComputeInputBuilderCmd.AddCommand(ondevicepersonalizationFederatedComputeInputBuilderBuildCmd)
+	ondevicepersonalizationFederatedComputeInputBuilderSetPopulationNameCmd.Flags().String("arg0", "", "arg0 (string)")
+	ondevicepersonalizationFederatedComputeInputBuilderCmd.AddCommand(ondevicepersonalizationFederatedComputeInputBuilderSetPopulationNameCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationFederatedComputeInputBuilderCmd)
+	ondevicepersonalizationEventUrlProviderCreateEventTrackingUrlWithRedirectCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationEventUrlProviderCreateEventTrackingUrlWithRedirectCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	ondevicepersonalizationEventUrlProviderCmd.AddCommand(ondevicepersonalizationEventUrlProviderCreateEventTrackingUrlWithRedirectCmd)
+	ondevicepersonalizationEventUrlProviderCreateEventTrackingUrlWithResponseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationEventUrlProviderCreateEventTrackingUrlWithResponseCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	ondevicepersonalizationEventUrlProviderCreateEventTrackingUrlWithResponseCmd.Flags().String("arg2", "", "arg2 (string)")
+	ondevicepersonalizationEventUrlProviderCmd.AddCommand(ondevicepersonalizationEventUrlProviderCreateEventTrackingUrlWithResponseCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationEventUrlProviderCmd)
+	ondevicepersonalizationLogReaderGetJoinedEventsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationLogReaderGetJoinedEventsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	ondevicepersonalizationLogReaderCmd.AddCommand(ondevicepersonalizationLogReaderGetJoinedEventsCmd)
+	ondevicepersonalizationLogReaderGetRequestsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationLogReaderGetRequestsCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	ondevicepersonalizationLogReaderCmd.AddCommand(ondevicepersonalizationLogReaderGetRequestsCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationLogReaderCmd)
 	ondevicepersonalizationExecuteInIsolatedServiceRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	ondevicepersonalizationExecuteInIsolatedServiceRequestCmd.AddCommand(ondevicepersonalizationExecuteInIsolatedServiceRequestEqualsCmd)
 	ondevicepersonalizationExecuteInIsolatedServiceRequestCmd.AddCommand(ondevicepersonalizationExecuteInIsolatedServiceRequestGetAppParamsCmd)
@@ -3952,125 +4285,6 @@ func init() {
 	ondevicepersonalizationExecuteInIsolatedServiceRequestOutputSpecBuildBestValueSpecCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	ondevicepersonalizationExecuteInIsolatedServiceRequestOutputSpecCmd.AddCommand(ondevicepersonalizationExecuteInIsolatedServiceRequestOutputSpecBuildBestValueSpecCmd)
 	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationExecuteInIsolatedServiceRequestOutputSpecCmd)
-	ondevicepersonalizationRenderOutputEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationRenderOutputCmd.AddCommand(ondevicepersonalizationRenderOutputEqualsCmd)
-	ondevicepersonalizationRenderOutputCmd.AddCommand(ondevicepersonalizationRenderOutputGetContentCmd)
-	ondevicepersonalizationRenderOutputCmd.AddCommand(ondevicepersonalizationRenderOutputGetTemplateIdCmd)
-	ondevicepersonalizationRenderOutputCmd.AddCommand(ondevicepersonalizationRenderOutputGetTemplateParamsCmd)
-	ondevicepersonalizationRenderOutputCmd.AddCommand(ondevicepersonalizationRenderOutputHashCodeCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationRenderOutputCmd)
-	ondevicepersonalizationRenderOutputBuilderCmd.AddCommand(ondevicepersonalizationRenderOutputBuilderBuildCmd)
-	ondevicepersonalizationRenderOutputBuilderSetContentCmd.Flags().String("arg0", "", "arg0 (string)")
-	ondevicepersonalizationRenderOutputBuilderCmd.AddCommand(ondevicepersonalizationRenderOutputBuilderSetContentCmd)
-	ondevicepersonalizationRenderOutputBuilderSetTemplateIdCmd.Flags().String("arg0", "", "arg0 (string)")
-	ondevicepersonalizationRenderOutputBuilderCmd.AddCommand(ondevicepersonalizationRenderOutputBuilderSetTemplateIdCmd)
-	ondevicepersonalizationRenderOutputBuilderSetTemplateParamsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationRenderOutputBuilderCmd.AddCommand(ondevicepersonalizationRenderOutputBuilderSetTemplateParamsCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationRenderOutputBuilderCmd)
-	ondevicepersonalizationRequestLogRecordCmd.AddCommand(ondevicepersonalizationRequestLogRecordDescribeContentsCmd)
-	ondevicepersonalizationRequestLogRecordEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationRequestLogRecordCmd.AddCommand(ondevicepersonalizationRequestLogRecordEqualsCmd)
-	ondevicepersonalizationRequestLogRecordCmd.AddCommand(ondevicepersonalizationRequestLogRecordGetTimeCmd)
-	ondevicepersonalizationRequestLogRecordCmd.AddCommand(ondevicepersonalizationRequestLogRecordHashCodeCmd)
-	ondevicepersonalizationRequestLogRecordWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationRequestLogRecordWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	ondevicepersonalizationRequestLogRecordCmd.AddCommand(ondevicepersonalizationRequestLogRecordWriteToParcelCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationRequestLogRecordCmd)
-	ondevicepersonalizationRequestLogRecordBuilderAddRowCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationRequestLogRecordBuilderCmd.AddCommand(ondevicepersonalizationRequestLogRecordBuilderAddRowCmd)
-	ondevicepersonalizationRequestLogRecordBuilderCmd.AddCommand(ondevicepersonalizationRequestLogRecordBuilderBuildCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationRequestLogRecordBuilderCmd)
-	ondevicepersonalizationRenderInputNewRenderInputCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	ondevicepersonalizationRenderInputNewRenderInputCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	ondevicepersonalizationRenderInputNewRenderInputCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	ondevicepersonalizationRenderInputCmd.AddCommand(ondevicepersonalizationRenderInputNewRenderInputCmd)
-	ondevicepersonalizationRenderInputEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ondevicepersonalizationRenderInputEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationRenderInputCmd.AddCommand(ondevicepersonalizationRenderInputEqualsCmd)
-	ondevicepersonalizationRenderInputGetHeightCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ondevicepersonalizationRenderInputCmd.AddCommand(ondevicepersonalizationRenderInputGetHeightCmd)
-	ondevicepersonalizationRenderInputGetRenderingConfigCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ondevicepersonalizationRenderInputCmd.AddCommand(ondevicepersonalizationRenderInputGetRenderingConfigCmd)
-	ondevicepersonalizationRenderInputGetWidthCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ondevicepersonalizationRenderInputCmd.AddCommand(ondevicepersonalizationRenderInputGetWidthCmd)
-	ondevicepersonalizationRenderInputHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ondevicepersonalizationRenderInputCmd.AddCommand(ondevicepersonalizationRenderInputHashCodeCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationRenderInputCmd)
-	ondevicepersonalizationMutableKeyValueStorePutCmd.Flags().String("arg0", "", "arg0 (string)")
-	ondevicepersonalizationMutableKeyValueStorePutCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	ondevicepersonalizationMutableKeyValueStoreCmd.AddCommand(ondevicepersonalizationMutableKeyValueStorePutCmd)
-	ondevicepersonalizationMutableKeyValueStoreRemoveCmd.Flags().String("arg0", "", "arg0 (string)")
-	ondevicepersonalizationMutableKeyValueStoreCmd.AddCommand(ondevicepersonalizationMutableKeyValueStoreRemoveCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationMutableKeyValueStoreCmd)
-	ondevicepersonalizationTrainingExamplesInputNewTrainingExamplesInputCmd.Flags().String("arg0", "", "arg0 (string)")
-	ondevicepersonalizationTrainingExamplesInputNewTrainingExamplesInputCmd.Flags().String("arg1", "", "arg1 (string)")
-	ondevicepersonalizationTrainingExamplesInputNewTrainingExamplesInputCmd.Flags().Int64("arg2", 0, "arg2 (int64)")
-	ondevicepersonalizationTrainingExamplesInputNewTrainingExamplesInputCmd.Flags().String("arg3", "", "arg3 (string)")
-	ondevicepersonalizationTrainingExamplesInputCmd.AddCommand(ondevicepersonalizationTrainingExamplesInputNewTrainingExamplesInputCmd)
-	ondevicepersonalizationTrainingExamplesInputEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ondevicepersonalizationTrainingExamplesInputEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationTrainingExamplesInputCmd.AddCommand(ondevicepersonalizationTrainingExamplesInputEqualsCmd)
-	ondevicepersonalizationTrainingExamplesInputGetCollectionNameCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ondevicepersonalizationTrainingExamplesInputCmd.AddCommand(ondevicepersonalizationTrainingExamplesInputGetCollectionNameCmd)
-	ondevicepersonalizationTrainingExamplesInputGetPopulationNameCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ondevicepersonalizationTrainingExamplesInputCmd.AddCommand(ondevicepersonalizationTrainingExamplesInputGetPopulationNameCmd)
-	ondevicepersonalizationTrainingExamplesInputGetResumptionTokenCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ondevicepersonalizationTrainingExamplesInputCmd.AddCommand(ondevicepersonalizationTrainingExamplesInputGetResumptionTokenCmd)
-	ondevicepersonalizationTrainingExamplesInputGetTaskNameCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ondevicepersonalizationTrainingExamplesInputCmd.AddCommand(ondevicepersonalizationTrainingExamplesInputGetTaskNameCmd)
-	ondevicepersonalizationTrainingExamplesInputHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ondevicepersonalizationTrainingExamplesInputCmd.AddCommand(ondevicepersonalizationTrainingExamplesInputHashCodeCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationTrainingExamplesInputCmd)
-	ondevicepersonalizationIsolatedServiceExceptionNewIsolatedServiceExceptionCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	ondevicepersonalizationIsolatedServiceExceptionCmd.AddCommand(ondevicepersonalizationIsolatedServiceExceptionNewIsolatedServiceExceptionCmd)
-	ondevicepersonalizationIsolatedServiceExceptionGetErrorCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ondevicepersonalizationIsolatedServiceExceptionCmd.AddCommand(ondevicepersonalizationIsolatedServiceExceptionGetErrorCodeCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationIsolatedServiceExceptionCmd)
-	ondevicepersonalizationTrainingExamplesOutputEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationTrainingExamplesOutputCmd.AddCommand(ondevicepersonalizationTrainingExamplesOutputEqualsCmd)
-	ondevicepersonalizationTrainingExamplesOutputCmd.AddCommand(ondevicepersonalizationTrainingExamplesOutputHashCodeCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationTrainingExamplesOutputCmd)
-	ondevicepersonalizationTrainingExamplesOutputBuilderAddTrainingExampleRecordCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationTrainingExamplesOutputBuilderCmd.AddCommand(ondevicepersonalizationTrainingExamplesOutputBuilderAddTrainingExampleRecordCmd)
-	ondevicepersonalizationTrainingExamplesOutputBuilderCmd.AddCommand(ondevicepersonalizationTrainingExamplesOutputBuilderBuildCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationTrainingExamplesOutputBuilderCmd)
-	ondevicepersonalizationKeyValueStoreGetCmd.Flags().String("arg0", "", "arg0 (string)")
-	ondevicepersonalizationKeyValueStoreCmd.AddCommand(ondevicepersonalizationKeyValueStoreGetCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationKeyValueStoreCmd)
-	ondevicepersonalizationEventOutputEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationEventOutputCmd.AddCommand(ondevicepersonalizationEventOutputEqualsCmd)
-	ondevicepersonalizationEventOutputCmd.AddCommand(ondevicepersonalizationEventOutputGetEventLogRecordCmd)
-	ondevicepersonalizationEventOutputCmd.AddCommand(ondevicepersonalizationEventOutputHashCodeCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationEventOutputCmd)
-	ondevicepersonalizationEventOutputBuilderCmd.AddCommand(ondevicepersonalizationEventOutputBuilderBuildCmd)
-	ondevicepersonalizationEventOutputBuilderSetEventLogRecordCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationEventOutputBuilderCmd.AddCommand(ondevicepersonalizationEventOutputBuilderSetEventLogRecordCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationEventOutputBuilderCmd)
-	ondevicepersonalizationTrainingIntervalEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationTrainingIntervalCmd.AddCommand(ondevicepersonalizationTrainingIntervalEqualsCmd)
-	ondevicepersonalizationTrainingIntervalCmd.AddCommand(ondevicepersonalizationTrainingIntervalGetMinimumIntervalCmd)
-	ondevicepersonalizationTrainingIntervalCmd.AddCommand(ondevicepersonalizationTrainingIntervalGetSchedulingModeCmd)
-	ondevicepersonalizationTrainingIntervalCmd.AddCommand(ondevicepersonalizationTrainingIntervalHashCodeCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationTrainingIntervalCmd)
-	ondevicepersonalizationTrainingIntervalBuilderCmd.AddCommand(ondevicepersonalizationTrainingIntervalBuilderBuildCmd)
-	ondevicepersonalizationTrainingIntervalBuilderSetMinimumIntervalCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationTrainingIntervalBuilderCmd.AddCommand(ondevicepersonalizationTrainingIntervalBuilderSetMinimumIntervalCmd)
-	ondevicepersonalizationTrainingIntervalBuilderSetSchedulingModeCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
-	ondevicepersonalizationTrainingIntervalBuilderCmd.AddCommand(ondevicepersonalizationTrainingIntervalBuilderSetSchedulingModeCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationTrainingIntervalBuilderCmd)
-	ondevicepersonalizationTrainingExampleRecordCmd.AddCommand(ondevicepersonalizationTrainingExampleRecordDescribeContentsCmd)
-	ondevicepersonalizationTrainingExampleRecordCmd.AddCommand(ondevicepersonalizationTrainingExampleRecordGetResumptionTokenCmd)
-	ondevicepersonalizationTrainingExampleRecordCmd.AddCommand(ondevicepersonalizationTrainingExampleRecordGetTrainingExampleCmd)
-	ondevicepersonalizationTrainingExampleRecordWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationTrainingExampleRecordWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	ondevicepersonalizationTrainingExampleRecordCmd.AddCommand(ondevicepersonalizationTrainingExampleRecordWriteToParcelCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationTrainingExampleRecordCmd)
-	ondevicepersonalizationTrainingExampleRecordBuilderCmd.AddCommand(ondevicepersonalizationTrainingExampleRecordBuilderBuildCmd)
-	ondevicepersonalizationTrainingExampleRecordBuilderSetResumptionTokenCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationTrainingExampleRecordBuilderCmd.AddCommand(ondevicepersonalizationTrainingExampleRecordBuilderSetResumptionTokenCmd)
-	ondevicepersonalizationTrainingExampleRecordBuilderSetTrainingExampleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationTrainingExampleRecordBuilderCmd.AddCommand(ondevicepersonalizationTrainingExampleRecordBuilderSetTrainingExampleCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationTrainingExampleRecordBuilderCmd)
 	ondevicepersonalizationExecuteInIsolatedServiceResponseNewExecuteInIsolatedServiceResponseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	ondevicepersonalizationExecuteInIsolatedServiceResponseNewExecuteInIsolatedServiceResponseCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	ondevicepersonalizationExecuteInIsolatedServiceResponseCmd.AddCommand(ondevicepersonalizationExecuteInIsolatedServiceResponseNewExecuteInIsolatedServiceResponseCmd)
@@ -4079,57 +4293,6 @@ func init() {
 	ondevicepersonalizationExecuteInIsolatedServiceResponseGetSurfacePackageTokenCmd.Flags().Int64("handle", 0, "handle (int64)")
 	ondevicepersonalizationExecuteInIsolatedServiceResponseCmd.AddCommand(ondevicepersonalizationExecuteInIsolatedServiceResponseGetSurfacePackageTokenCmd)
 	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationExecuteInIsolatedServiceResponseCmd)
-	ondevicepersonalizationEventUrlProviderCreateEventTrackingUrlWithRedirectCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationEventUrlProviderCreateEventTrackingUrlWithRedirectCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	ondevicepersonalizationEventUrlProviderCmd.AddCommand(ondevicepersonalizationEventUrlProviderCreateEventTrackingUrlWithRedirectCmd)
-	ondevicepersonalizationEventUrlProviderCreateEventTrackingUrlWithResponseCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationEventUrlProviderCreateEventTrackingUrlWithResponseCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	ondevicepersonalizationEventUrlProviderCreateEventTrackingUrlWithResponseCmd.Flags().String("arg2", "", "arg2 (string)")
-	ondevicepersonalizationEventUrlProviderCmd.AddCommand(ondevicepersonalizationEventUrlProviderCreateEventTrackingUrlWithResponseCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationEventUrlProviderCmd)
-	ondevicepersonalizationEventInputNewEventInputCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationEventInputNewEventInputCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
-	ondevicepersonalizationEventInputCmd.AddCommand(ondevicepersonalizationEventInputNewEventInputCmd)
-	ondevicepersonalizationEventInputEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ondevicepersonalizationEventInputEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationEventInputCmd.AddCommand(ondevicepersonalizationEventInputEqualsCmd)
-	ondevicepersonalizationEventInputGetParametersCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ondevicepersonalizationEventInputCmd.AddCommand(ondevicepersonalizationEventInputGetParametersCmd)
-	ondevicepersonalizationEventInputGetRequestLogRecordCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ondevicepersonalizationEventInputCmd.AddCommand(ondevicepersonalizationEventInputGetRequestLogRecordCmd)
-	ondevicepersonalizationEventInputHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ondevicepersonalizationEventInputCmd.AddCommand(ondevicepersonalizationEventInputHashCodeCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationEventInputCmd)
-	ondevicepersonalizationDownloadCompletedInputNewDownloadCompletedInputCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationDownloadCompletedInputCmd.AddCommand(ondevicepersonalizationDownloadCompletedInputNewDownloadCompletedInputCmd)
-	ondevicepersonalizationDownloadCompletedInputEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ondevicepersonalizationDownloadCompletedInputEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationDownloadCompletedInputCmd.AddCommand(ondevicepersonalizationDownloadCompletedInputEqualsCmd)
-	ondevicepersonalizationDownloadCompletedInputGetDownloadedContentsCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ondevicepersonalizationDownloadCompletedInputCmd.AddCommand(ondevicepersonalizationDownloadCompletedInputGetDownloadedContentsCmd)
-	ondevicepersonalizationDownloadCompletedInputHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
-	ondevicepersonalizationDownloadCompletedInputCmd.AddCommand(ondevicepersonalizationDownloadCompletedInputHashCodeCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationDownloadCompletedInputCmd)
-	ondevicepersonalizationIsolatedServiceGetEventUrlProviderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationIsolatedServiceCmd.AddCommand(ondevicepersonalizationIsolatedServiceGetEventUrlProviderCmd)
-	ondevicepersonalizationIsolatedServiceGetFederatedComputeSchedulerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationIsolatedServiceCmd.AddCommand(ondevicepersonalizationIsolatedServiceGetFederatedComputeSchedulerCmd)
-	ondevicepersonalizationIsolatedServiceGetLocalDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationIsolatedServiceCmd.AddCommand(ondevicepersonalizationIsolatedServiceGetLocalDataCmd)
-	ondevicepersonalizationIsolatedServiceGetLogReaderCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationIsolatedServiceCmd.AddCommand(ondevicepersonalizationIsolatedServiceGetLogReaderCmd)
-	ondevicepersonalizationIsolatedServiceGetModelManagerCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationIsolatedServiceCmd.AddCommand(ondevicepersonalizationIsolatedServiceGetModelManagerCmd)
-	ondevicepersonalizationIsolatedServiceGetRemoteDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationIsolatedServiceCmd.AddCommand(ondevicepersonalizationIsolatedServiceGetRemoteDataCmd)
-	ondevicepersonalizationIsolatedServiceGetUserDataCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationIsolatedServiceCmd.AddCommand(ondevicepersonalizationIsolatedServiceGetUserDataCmd)
-	ondevicepersonalizationIsolatedServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationIsolatedServiceCmd.AddCommand(ondevicepersonalizationIsolatedServiceOnBindCmd)
-	ondevicepersonalizationIsolatedServiceCmd.AddCommand(ondevicepersonalizationIsolatedServiceOnCreateCmd)
-	ondevicepersonalizationIsolatedServiceOnRequestCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationIsolatedServiceCmd.AddCommand(ondevicepersonalizationIsolatedServiceOnRequestCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationIsolatedServiceCmd)
 	ondevicepersonalizationUserDataCmd.AddCommand(ondevicepersonalizationUserDataDescribeContentsCmd)
 	ondevicepersonalizationUserDataEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	ondevicepersonalizationUserDataCmd.AddCommand(ondevicepersonalizationUserDataEqualsCmd)
@@ -4145,14 +4308,26 @@ func init() {
 	ondevicepersonalizationUserDataWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
 	ondevicepersonalizationUserDataCmd.AddCommand(ondevicepersonalizationUserDataWriteToParcelCmd)
 	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationUserDataCmd)
-	ondevicepersonalizationFederatedComputeInputEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	ondevicepersonalizationFederatedComputeInputCmd.AddCommand(ondevicepersonalizationFederatedComputeInputEqualsCmd)
-	ondevicepersonalizationFederatedComputeInputCmd.AddCommand(ondevicepersonalizationFederatedComputeInputGetPopulationNameCmd)
-	ondevicepersonalizationFederatedComputeInputCmd.AddCommand(ondevicepersonalizationFederatedComputeInputHashCodeCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationFederatedComputeInputCmd)
-	ondevicepersonalizationFederatedComputeInputBuilderCmd.AddCommand(ondevicepersonalizationFederatedComputeInputBuilderBuildCmd)
-	ondevicepersonalizationFederatedComputeInputBuilderSetPopulationNameCmd.Flags().String("arg0", "", "arg0 (string)")
-	ondevicepersonalizationFederatedComputeInputBuilderCmd.AddCommand(ondevicepersonalizationFederatedComputeInputBuilderSetPopulationNameCmd)
-	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationFederatedComputeInputBuilderCmd)
+	ondevicepersonalizationEventInputNewEventInputCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationEventInputNewEventInputCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	ondevicepersonalizationEventInputCmd.AddCommand(ondevicepersonalizationEventInputNewEventInputCmd)
+	ondevicepersonalizationEventInputEqualsCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ondevicepersonalizationEventInputEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationEventInputCmd.AddCommand(ondevicepersonalizationEventInputEqualsCmd)
+	ondevicepersonalizationEventInputGetParametersCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ondevicepersonalizationEventInputCmd.AddCommand(ondevicepersonalizationEventInputGetParametersCmd)
+	ondevicepersonalizationEventInputGetRequestLogRecordCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ondevicepersonalizationEventInputCmd.AddCommand(ondevicepersonalizationEventInputGetRequestLogRecordCmd)
+	ondevicepersonalizationEventInputHashCodeCmd.Flags().Int64("handle", 0, "handle (int64)")
+	ondevicepersonalizationEventInputCmd.AddCommand(ondevicepersonalizationEventInputHashCodeCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationEventInputCmd)
+	ondevicepersonalizationFederatedComputeSchedulerCancelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationFederatedComputeSchedulerCmd.AddCommand(ondevicepersonalizationFederatedComputeSchedulerCancelCmd)
+	ondevicepersonalizationFederatedComputeSchedulerScheduleCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	ondevicepersonalizationFederatedComputeSchedulerScheduleCmd.Flags().Int64("arg1", 0, "arg1 (int64)")
+	ondevicepersonalizationFederatedComputeSchedulerCmd.AddCommand(ondevicepersonalizationFederatedComputeSchedulerScheduleCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationFederatedComputeSchedulerCmd)
+	ondevicepersonalizationFederatedComputeSchedulerParamsCmd.AddCommand(ondevicepersonalizationFederatedComputeSchedulerParamsGetTrainingIntervalCmd)
+	ondevicepersonalizationCmd.AddCommand(ondevicepersonalizationFederatedComputeSchedulerParamsCmd)
 	rootCmd.AddCommand(ondevicepersonalizationCmd)
 }

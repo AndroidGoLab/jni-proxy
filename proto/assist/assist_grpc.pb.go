@@ -21,6 +21,678 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	ContentService_NewContent_FullMethodName            = "/assist.ContentService/NewContent"
+	ContentService_DescribeContents_FullMethodName      = "/assist.ContentService/DescribeContents"
+	ContentService_GetClipData_FullMethodName           = "/assist.ContentService/GetClipData"
+	ContentService_GetExtras_FullMethodName             = "/assist.ContentService/GetExtras"
+	ContentService_GetIntent_FullMethodName             = "/assist.ContentService/GetIntent"
+	ContentService_GetSessionTransferUri_FullMethodName = "/assist.ContentService/GetSessionTransferUri"
+	ContentService_GetStructuredData_FullMethodName     = "/assist.ContentService/GetStructuredData"
+	ContentService_GetWebUri_FullMethodName             = "/assist.ContentService/GetWebUri"
+	ContentService_IsAppProvidedIntent_FullMethodName   = "/assist.ContentService/IsAppProvidedIntent"
+	ContentService_IsAppProvidedWebUri_FullMethodName   = "/assist.ContentService/IsAppProvidedWebUri"
+	ContentService_SetClipData_FullMethodName           = "/assist.ContentService/SetClipData"
+	ContentService_SetIntent_FullMethodName             = "/assist.ContentService/SetIntent"
+	ContentService_SetSessionTransferUri_FullMethodName = "/assist.ContentService/SetSessionTransferUri"
+	ContentService_SetStructuredData_FullMethodName     = "/assist.ContentService/SetStructuredData"
+	ContentService_SetWebUri_FullMethodName             = "/assist.ContentService/SetWebUri"
+	ContentService_WriteToParcel_FullMethodName         = "/assist.ContentService/WriteToParcel"
+)
+
+// ContentServiceClient is the client API for ContentService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ContentServiceClient interface {
+	NewContent(ctx context.Context, in *NewContentRequest, opts ...grpc.CallOption) (*NewContentResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetClipData(ctx context.Context, in *GetClipDataRequest, opts ...grpc.CallOption) (*GetClipDataResponse, error)
+	GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
+	GetIntent(ctx context.Context, in *GetIntentRequest, opts ...grpc.CallOption) (*GetIntentResponse, error)
+	GetSessionTransferUri(ctx context.Context, in *GetSessionTransferUriRequest, opts ...grpc.CallOption) (*GetSessionTransferUriResponse, error)
+	GetStructuredData(ctx context.Context, in *GetStructuredDataRequest, opts ...grpc.CallOption) (*GetStructuredDataResponse, error)
+	GetWebUri(ctx context.Context, in *GetWebUriRequest, opts ...grpc.CallOption) (*GetWebUriResponse, error)
+	IsAppProvidedIntent(ctx context.Context, in *IsAppProvidedIntentRequest, opts ...grpc.CallOption) (*IsAppProvidedIntentResponse, error)
+	IsAppProvidedWebUri(ctx context.Context, in *IsAppProvidedWebUriRequest, opts ...grpc.CallOption) (*IsAppProvidedWebUriResponse, error)
+	SetClipData(ctx context.Context, in *SetClipDataRequest, opts ...grpc.CallOption) (*SetClipDataResponse, error)
+	SetIntent(ctx context.Context, in *SetIntentRequest, opts ...grpc.CallOption) (*SetIntentResponse, error)
+	SetSessionTransferUri(ctx context.Context, in *SetSessionTransferUriRequest, opts ...grpc.CallOption) (*SetSessionTransferUriResponse, error)
+	SetStructuredData(ctx context.Context, in *SetStructuredDataRequest, opts ...grpc.CallOption) (*SetStructuredDataResponse, error)
+	SetWebUri(ctx context.Context, in *SetWebUriRequest, opts ...grpc.CallOption) (*SetWebUriResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type contentServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewContentServiceClient(cc grpc.ClientConnInterface) ContentServiceClient {
+	return &contentServiceClient{cc}
+}
+
+func (c *contentServiceClient) NewContent(ctx context.Context, in *NewContentRequest, opts ...grpc.CallOption) (*NewContentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewContentResponse)
+	err := c.cc.Invoke(ctx, ContentService_NewContent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, ContentService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentServiceClient) GetClipData(ctx context.Context, in *GetClipDataRequest, opts ...grpc.CallOption) (*GetClipDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetClipDataResponse)
+	err := c.cc.Invoke(ctx, ContentService_GetClipData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentServiceClient) GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExtrasResponse)
+	err := c.cc.Invoke(ctx, ContentService_GetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentServiceClient) GetIntent(ctx context.Context, in *GetIntentRequest, opts ...grpc.CallOption) (*GetIntentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIntentResponse)
+	err := c.cc.Invoke(ctx, ContentService_GetIntent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentServiceClient) GetSessionTransferUri(ctx context.Context, in *GetSessionTransferUriRequest, opts ...grpc.CallOption) (*GetSessionTransferUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetSessionTransferUriResponse)
+	err := c.cc.Invoke(ctx, ContentService_GetSessionTransferUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentServiceClient) GetStructuredData(ctx context.Context, in *GetStructuredDataRequest, opts ...grpc.CallOption) (*GetStructuredDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStructuredDataResponse)
+	err := c.cc.Invoke(ctx, ContentService_GetStructuredData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentServiceClient) GetWebUri(ctx context.Context, in *GetWebUriRequest, opts ...grpc.CallOption) (*GetWebUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetWebUriResponse)
+	err := c.cc.Invoke(ctx, ContentService_GetWebUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentServiceClient) IsAppProvidedIntent(ctx context.Context, in *IsAppProvidedIntentRequest, opts ...grpc.CallOption) (*IsAppProvidedIntentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsAppProvidedIntentResponse)
+	err := c.cc.Invoke(ctx, ContentService_IsAppProvidedIntent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentServiceClient) IsAppProvidedWebUri(ctx context.Context, in *IsAppProvidedWebUriRequest, opts ...grpc.CallOption) (*IsAppProvidedWebUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsAppProvidedWebUriResponse)
+	err := c.cc.Invoke(ctx, ContentService_IsAppProvidedWebUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentServiceClient) SetClipData(ctx context.Context, in *SetClipDataRequest, opts ...grpc.CallOption) (*SetClipDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetClipDataResponse)
+	err := c.cc.Invoke(ctx, ContentService_SetClipData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentServiceClient) SetIntent(ctx context.Context, in *SetIntentRequest, opts ...grpc.CallOption) (*SetIntentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetIntentResponse)
+	err := c.cc.Invoke(ctx, ContentService_SetIntent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentServiceClient) SetSessionTransferUri(ctx context.Context, in *SetSessionTransferUriRequest, opts ...grpc.CallOption) (*SetSessionTransferUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetSessionTransferUriResponse)
+	err := c.cc.Invoke(ctx, ContentService_SetSessionTransferUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentServiceClient) SetStructuredData(ctx context.Context, in *SetStructuredDataRequest, opts ...grpc.CallOption) (*SetStructuredDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetStructuredDataResponse)
+	err := c.cc.Invoke(ctx, ContentService_SetStructuredData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentServiceClient) SetWebUri(ctx context.Context, in *SetWebUriRequest, opts ...grpc.CallOption) (*SetWebUriResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetWebUriResponse)
+	err := c.cc.Invoke(ctx, ContentService_SetWebUri_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contentServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, ContentService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ContentServiceServer is the server API for ContentService service.
+// All implementations must embed UnimplementedContentServiceServer
+// for forward compatibility.
+type ContentServiceServer interface {
+	NewContent(context.Context, *NewContentRequest) (*NewContentResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetClipData(context.Context, *GetClipDataRequest) (*GetClipDataResponse, error)
+	GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error)
+	GetIntent(context.Context, *GetIntentRequest) (*GetIntentResponse, error)
+	GetSessionTransferUri(context.Context, *GetSessionTransferUriRequest) (*GetSessionTransferUriResponse, error)
+	GetStructuredData(context.Context, *GetStructuredDataRequest) (*GetStructuredDataResponse, error)
+	GetWebUri(context.Context, *GetWebUriRequest) (*GetWebUriResponse, error)
+	IsAppProvidedIntent(context.Context, *IsAppProvidedIntentRequest) (*IsAppProvidedIntentResponse, error)
+	IsAppProvidedWebUri(context.Context, *IsAppProvidedWebUriRequest) (*IsAppProvidedWebUriResponse, error)
+	SetClipData(context.Context, *SetClipDataRequest) (*SetClipDataResponse, error)
+	SetIntent(context.Context, *SetIntentRequest) (*SetIntentResponse, error)
+	SetSessionTransferUri(context.Context, *SetSessionTransferUriRequest) (*SetSessionTransferUriResponse, error)
+	SetStructuredData(context.Context, *SetStructuredDataRequest) (*SetStructuredDataResponse, error)
+	SetWebUri(context.Context, *SetWebUriRequest) (*SetWebUriResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedContentServiceServer()
+}
+
+// UnimplementedContentServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedContentServiceServer struct{}
+
+func (UnimplementedContentServiceServer) NewContent(context.Context, *NewContentRequest) (*NewContentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewContent not implemented")
+}
+func (UnimplementedContentServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedContentServiceServer) GetClipData(context.Context, *GetClipDataRequest) (*GetClipDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetClipData not implemented")
+}
+func (UnimplementedContentServiceServer) GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
+}
+func (UnimplementedContentServiceServer) GetIntent(context.Context, *GetIntentRequest) (*GetIntentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIntent not implemented")
+}
+func (UnimplementedContentServiceServer) GetSessionTransferUri(context.Context, *GetSessionTransferUriRequest) (*GetSessionTransferUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetSessionTransferUri not implemented")
+}
+func (UnimplementedContentServiceServer) GetStructuredData(context.Context, *GetStructuredDataRequest) (*GetStructuredDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStructuredData not implemented")
+}
+func (UnimplementedContentServiceServer) GetWebUri(context.Context, *GetWebUriRequest) (*GetWebUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetWebUri not implemented")
+}
+func (UnimplementedContentServiceServer) IsAppProvidedIntent(context.Context, *IsAppProvidedIntentRequest) (*IsAppProvidedIntentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsAppProvidedIntent not implemented")
+}
+func (UnimplementedContentServiceServer) IsAppProvidedWebUri(context.Context, *IsAppProvidedWebUriRequest) (*IsAppProvidedWebUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsAppProvidedWebUri not implemented")
+}
+func (UnimplementedContentServiceServer) SetClipData(context.Context, *SetClipDataRequest) (*SetClipDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetClipData not implemented")
+}
+func (UnimplementedContentServiceServer) SetIntent(context.Context, *SetIntentRequest) (*SetIntentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetIntent not implemented")
+}
+func (UnimplementedContentServiceServer) SetSessionTransferUri(context.Context, *SetSessionTransferUriRequest) (*SetSessionTransferUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetSessionTransferUri not implemented")
+}
+func (UnimplementedContentServiceServer) SetStructuredData(context.Context, *SetStructuredDataRequest) (*SetStructuredDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetStructuredData not implemented")
+}
+func (UnimplementedContentServiceServer) SetWebUri(context.Context, *SetWebUriRequest) (*SetWebUriResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetWebUri not implemented")
+}
+func (UnimplementedContentServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedContentServiceServer) mustEmbedUnimplementedContentServiceServer() {}
+func (UnimplementedContentServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeContentServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ContentServiceServer will
+// result in compilation errors.
+type UnsafeContentServiceServer interface {
+	mustEmbedUnimplementedContentServiceServer()
+}
+
+func RegisterContentServiceServer(s grpc.ServiceRegistrar, srv ContentServiceServer) {
+	// If the following call panics, it indicates UnimplementedContentServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ContentService_ServiceDesc, srv)
+}
+
+func _ContentService_NewContent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewContentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentServiceServer).NewContent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentService_NewContent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentServiceServer).NewContent(ctx, req.(*NewContentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentService_GetClipData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetClipDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentServiceServer).GetClipData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentService_GetClipData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentServiceServer).GetClipData(ctx, req.(*GetClipDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExtrasRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentServiceServer).GetExtras(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentService_GetExtras_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentServiceServer).GetExtras(ctx, req.(*GetExtrasRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentService_GetIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIntentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentServiceServer).GetIntent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentService_GetIntent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentServiceServer).GetIntent(ctx, req.(*GetIntentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentService_GetSessionTransferUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSessionTransferUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentServiceServer).GetSessionTransferUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentService_GetSessionTransferUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentServiceServer).GetSessionTransferUri(ctx, req.(*GetSessionTransferUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentService_GetStructuredData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStructuredDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentServiceServer).GetStructuredData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentService_GetStructuredData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentServiceServer).GetStructuredData(ctx, req.(*GetStructuredDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentService_GetWebUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetWebUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentServiceServer).GetWebUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentService_GetWebUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentServiceServer).GetWebUri(ctx, req.(*GetWebUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentService_IsAppProvidedIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsAppProvidedIntentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentServiceServer).IsAppProvidedIntent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentService_IsAppProvidedIntent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentServiceServer).IsAppProvidedIntent(ctx, req.(*IsAppProvidedIntentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentService_IsAppProvidedWebUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsAppProvidedWebUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentServiceServer).IsAppProvidedWebUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentService_IsAppProvidedWebUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentServiceServer).IsAppProvidedWebUri(ctx, req.(*IsAppProvidedWebUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentService_SetClipData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetClipDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentServiceServer).SetClipData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentService_SetClipData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentServiceServer).SetClipData(ctx, req.(*SetClipDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentService_SetIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetIntentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentServiceServer).SetIntent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentService_SetIntent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentServiceServer).SetIntent(ctx, req.(*SetIntentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentService_SetSessionTransferUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetSessionTransferUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentServiceServer).SetSessionTransferUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentService_SetSessionTransferUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentServiceServer).SetSessionTransferUri(ctx, req.(*SetSessionTransferUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentService_SetStructuredData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetStructuredDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentServiceServer).SetStructuredData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentService_SetStructuredData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentServiceServer).SetStructuredData(ctx, req.(*SetStructuredDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentService_SetWebUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetWebUriRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentServiceServer).SetWebUri(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentService_SetWebUri_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentServiceServer).SetWebUri(ctx, req.(*SetWebUriRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContentService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContentServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContentService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContentServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ContentService_ServiceDesc is the grpc.ServiceDesc for ContentService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ContentService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "assist.ContentService",
+	HandlerType: (*ContentServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewContent",
+			Handler:    _ContentService_NewContent_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _ContentService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetClipData",
+			Handler:    _ContentService_GetClipData_Handler,
+		},
+		{
+			MethodName: "GetExtras",
+			Handler:    _ContentService_GetExtras_Handler,
+		},
+		{
+			MethodName: "GetIntent",
+			Handler:    _ContentService_GetIntent_Handler,
+		},
+		{
+			MethodName: "GetSessionTransferUri",
+			Handler:    _ContentService_GetSessionTransferUri_Handler,
+		},
+		{
+			MethodName: "GetStructuredData",
+			Handler:    _ContentService_GetStructuredData_Handler,
+		},
+		{
+			MethodName: "GetWebUri",
+			Handler:    _ContentService_GetWebUri_Handler,
+		},
+		{
+			MethodName: "IsAppProvidedIntent",
+			Handler:    _ContentService_IsAppProvidedIntent_Handler,
+		},
+		{
+			MethodName: "IsAppProvidedWebUri",
+			Handler:    _ContentService_IsAppProvidedWebUri_Handler,
+		},
+		{
+			MethodName: "SetClipData",
+			Handler:    _ContentService_SetClipData_Handler,
+		},
+		{
+			MethodName: "SetIntent",
+			Handler:    _ContentService_SetIntent_Handler,
+		},
+		{
+			MethodName: "SetSessionTransferUri",
+			Handler:    _ContentService_SetSessionTransferUri_Handler,
+		},
+		{
+			MethodName: "SetStructuredData",
+			Handler:    _ContentService_SetStructuredData_Handler,
+		},
+		{
+			MethodName: "SetWebUri",
+			Handler:    _ContentService_SetWebUri_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _ContentService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/assist/assist.proto",
+}
+
+const (
 	StructureService_NewStructure_FullMethodName            = "/assist.StructureService/NewStructure"
 	StructureService_DescribeContents_FullMethodName        = "/assist.StructureService/DescribeContents"
 	StructureService_GetAcquisitionEndTime_FullMethodName   = "/assist.StructureService/GetAcquisitionEndTime"
@@ -503,7 +1175,7 @@ type StructureViewNodeServiceClient interface {
 	GetClassName(ctx context.Context, in *GetClassNameRequest, opts ...grpc.CallOption) (*GetClassNameResponse, error)
 	GetContentDescription(ctx context.Context, in *GetContentDescriptionRequest, opts ...grpc.CallOption) (*GetContentDescriptionResponse, error)
 	GetElevation(ctx context.Context, in *GetElevationRequest, opts ...grpc.CallOption) (*GetElevationResponse, error)
-	GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
+	GetExtras(ctx context.Context, in *StructureViewNodeGetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
 	GetHeight(ctx context.Context, in *GetHeightRequest, opts ...grpc.CallOption) (*GetHeightResponse, error)
 	GetHint(ctx context.Context, in *GetHintRequest, opts ...grpc.CallOption) (*GetHintResponse, error)
 	GetHintIdEntry(ctx context.Context, in *GetHintIdEntryRequest, opts ...grpc.CallOption) (*GetHintIdEntryResponse, error)
@@ -671,7 +1343,7 @@ func (c *structureViewNodeServiceClient) GetElevation(ctx context.Context, in *G
 	return out, nil
 }
 
-func (c *structureViewNodeServiceClient) GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
+func (c *structureViewNodeServiceClient) GetExtras(ctx context.Context, in *StructureViewNodeGetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetExtrasResponse)
 	err := c.cc.Invoke(ctx, StructureViewNodeService_GetExtras_FullMethodName, in, out, cOpts...)
@@ -1166,7 +1838,7 @@ type StructureViewNodeServiceServer interface {
 	GetClassName(context.Context, *GetClassNameRequest) (*GetClassNameResponse, error)
 	GetContentDescription(context.Context, *GetContentDescriptionRequest) (*GetContentDescriptionResponse, error)
 	GetElevation(context.Context, *GetElevationRequest) (*GetElevationResponse, error)
-	GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error)
+	GetExtras(context.Context, *StructureViewNodeGetExtrasRequest) (*GetExtrasResponse, error)
 	GetHeight(context.Context, *GetHeightRequest) (*GetHeightResponse, error)
 	GetHint(context.Context, *GetHintRequest) (*GetHintResponse, error)
 	GetHintIdEntry(context.Context, *GetHintIdEntryRequest) (*GetHintIdEntryResponse, error)
@@ -1257,7 +1929,7 @@ func (UnimplementedStructureViewNodeServiceServer) GetContentDescription(context
 func (UnimplementedStructureViewNodeServiceServer) GetElevation(context.Context, *GetElevationRequest) (*GetElevationResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetElevation not implemented")
 }
-func (UnimplementedStructureViewNodeServiceServer) GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error) {
+func (UnimplementedStructureViewNodeServiceServer) GetExtras(context.Context, *StructureViewNodeGetExtrasRequest) (*GetExtrasResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
 }
 func (UnimplementedStructureViewNodeServiceServer) GetHeight(context.Context, *GetHeightRequest) (*GetHeightResponse, error) {
@@ -1622,7 +2294,7 @@ func _StructureViewNodeService_GetElevation_Handler(srv interface{}, ctx context
 }
 
 func _StructureViewNodeService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetExtrasRequest)
+	in := new(StructureViewNodeGetExtrasRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -1634,7 +2306,7 @@ func _StructureViewNodeService_GetExtras_Handler(srv interface{}, ctx context.Co
 		FullMethod: StructureViewNodeService_GetExtras_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StructureViewNodeServiceServer).GetExtras(ctx, req.(*GetExtrasRequest))
+		return srv.(StructureViewNodeServiceServer).GetExtras(ctx, req.(*StructureViewNodeGetExtrasRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3058,678 +3730,6 @@ var StructureWindowNodeService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetWidth",
 			Handler:    _StructureWindowNodeService_GetWidth_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/assist/assist.proto",
-}
-
-const (
-	ContentService_NewContent_FullMethodName            = "/assist.ContentService/NewContent"
-	ContentService_DescribeContents_FullMethodName      = "/assist.ContentService/DescribeContents"
-	ContentService_GetClipData_FullMethodName           = "/assist.ContentService/GetClipData"
-	ContentService_GetExtras_FullMethodName             = "/assist.ContentService/GetExtras"
-	ContentService_GetIntent_FullMethodName             = "/assist.ContentService/GetIntent"
-	ContentService_GetSessionTransferUri_FullMethodName = "/assist.ContentService/GetSessionTransferUri"
-	ContentService_GetStructuredData_FullMethodName     = "/assist.ContentService/GetStructuredData"
-	ContentService_GetWebUri_FullMethodName             = "/assist.ContentService/GetWebUri"
-	ContentService_IsAppProvidedIntent_FullMethodName   = "/assist.ContentService/IsAppProvidedIntent"
-	ContentService_IsAppProvidedWebUri_FullMethodName   = "/assist.ContentService/IsAppProvidedWebUri"
-	ContentService_SetClipData_FullMethodName           = "/assist.ContentService/SetClipData"
-	ContentService_SetIntent_FullMethodName             = "/assist.ContentService/SetIntent"
-	ContentService_SetSessionTransferUri_FullMethodName = "/assist.ContentService/SetSessionTransferUri"
-	ContentService_SetStructuredData_FullMethodName     = "/assist.ContentService/SetStructuredData"
-	ContentService_SetWebUri_FullMethodName             = "/assist.ContentService/SetWebUri"
-	ContentService_WriteToParcel_FullMethodName         = "/assist.ContentService/WriteToParcel"
-)
-
-// ContentServiceClient is the client API for ContentService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ContentServiceClient interface {
-	NewContent(ctx context.Context, in *NewContentRequest, opts ...grpc.CallOption) (*NewContentResponse, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetClipData(ctx context.Context, in *GetClipDataRequest, opts ...grpc.CallOption) (*GetClipDataResponse, error)
-	GetExtras(ctx context.Context, in *ContentGetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
-	GetIntent(ctx context.Context, in *GetIntentRequest, opts ...grpc.CallOption) (*GetIntentResponse, error)
-	GetSessionTransferUri(ctx context.Context, in *GetSessionTransferUriRequest, opts ...grpc.CallOption) (*GetSessionTransferUriResponse, error)
-	GetStructuredData(ctx context.Context, in *GetStructuredDataRequest, opts ...grpc.CallOption) (*GetStructuredDataResponse, error)
-	GetWebUri(ctx context.Context, in *GetWebUriRequest, opts ...grpc.CallOption) (*GetWebUriResponse, error)
-	IsAppProvidedIntent(ctx context.Context, in *IsAppProvidedIntentRequest, opts ...grpc.CallOption) (*IsAppProvidedIntentResponse, error)
-	IsAppProvidedWebUri(ctx context.Context, in *IsAppProvidedWebUriRequest, opts ...grpc.CallOption) (*IsAppProvidedWebUriResponse, error)
-	SetClipData(ctx context.Context, in *SetClipDataRequest, opts ...grpc.CallOption) (*SetClipDataResponse, error)
-	SetIntent(ctx context.Context, in *SetIntentRequest, opts ...grpc.CallOption) (*SetIntentResponse, error)
-	SetSessionTransferUri(ctx context.Context, in *SetSessionTransferUriRequest, opts ...grpc.CallOption) (*SetSessionTransferUriResponse, error)
-	SetStructuredData(ctx context.Context, in *SetStructuredDataRequest, opts ...grpc.CallOption) (*SetStructuredDataResponse, error)
-	SetWebUri(ctx context.Context, in *SetWebUriRequest, opts ...grpc.CallOption) (*SetWebUriResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type contentServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewContentServiceClient(cc grpc.ClientConnInterface) ContentServiceClient {
-	return &contentServiceClient{cc}
-}
-
-func (c *contentServiceClient) NewContent(ctx context.Context, in *NewContentRequest, opts ...grpc.CallOption) (*NewContentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewContentResponse)
-	err := c.cc.Invoke(ctx, ContentService_NewContent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *contentServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, ContentService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *contentServiceClient) GetClipData(ctx context.Context, in *GetClipDataRequest, opts ...grpc.CallOption) (*GetClipDataResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetClipDataResponse)
-	err := c.cc.Invoke(ctx, ContentService_GetClipData_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *contentServiceClient) GetExtras(ctx context.Context, in *ContentGetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetExtrasResponse)
-	err := c.cc.Invoke(ctx, ContentService_GetExtras_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *contentServiceClient) GetIntent(ctx context.Context, in *GetIntentRequest, opts ...grpc.CallOption) (*GetIntentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIntentResponse)
-	err := c.cc.Invoke(ctx, ContentService_GetIntent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *contentServiceClient) GetSessionTransferUri(ctx context.Context, in *GetSessionTransferUriRequest, opts ...grpc.CallOption) (*GetSessionTransferUriResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSessionTransferUriResponse)
-	err := c.cc.Invoke(ctx, ContentService_GetSessionTransferUri_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *contentServiceClient) GetStructuredData(ctx context.Context, in *GetStructuredDataRequest, opts ...grpc.CallOption) (*GetStructuredDataResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStructuredDataResponse)
-	err := c.cc.Invoke(ctx, ContentService_GetStructuredData_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *contentServiceClient) GetWebUri(ctx context.Context, in *GetWebUriRequest, opts ...grpc.CallOption) (*GetWebUriResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetWebUriResponse)
-	err := c.cc.Invoke(ctx, ContentService_GetWebUri_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *contentServiceClient) IsAppProvidedIntent(ctx context.Context, in *IsAppProvidedIntentRequest, opts ...grpc.CallOption) (*IsAppProvidedIntentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsAppProvidedIntentResponse)
-	err := c.cc.Invoke(ctx, ContentService_IsAppProvidedIntent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *contentServiceClient) IsAppProvidedWebUri(ctx context.Context, in *IsAppProvidedWebUriRequest, opts ...grpc.CallOption) (*IsAppProvidedWebUriResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsAppProvidedWebUriResponse)
-	err := c.cc.Invoke(ctx, ContentService_IsAppProvidedWebUri_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *contentServiceClient) SetClipData(ctx context.Context, in *SetClipDataRequest, opts ...grpc.CallOption) (*SetClipDataResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetClipDataResponse)
-	err := c.cc.Invoke(ctx, ContentService_SetClipData_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *contentServiceClient) SetIntent(ctx context.Context, in *SetIntentRequest, opts ...grpc.CallOption) (*SetIntentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetIntentResponse)
-	err := c.cc.Invoke(ctx, ContentService_SetIntent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *contentServiceClient) SetSessionTransferUri(ctx context.Context, in *SetSessionTransferUriRequest, opts ...grpc.CallOption) (*SetSessionTransferUriResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetSessionTransferUriResponse)
-	err := c.cc.Invoke(ctx, ContentService_SetSessionTransferUri_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *contentServiceClient) SetStructuredData(ctx context.Context, in *SetStructuredDataRequest, opts ...grpc.CallOption) (*SetStructuredDataResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetStructuredDataResponse)
-	err := c.cc.Invoke(ctx, ContentService_SetStructuredData_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *contentServiceClient) SetWebUri(ctx context.Context, in *SetWebUriRequest, opts ...grpc.CallOption) (*SetWebUriResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetWebUriResponse)
-	err := c.cc.Invoke(ctx, ContentService_SetWebUri_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *contentServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, ContentService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ContentServiceServer is the server API for ContentService service.
-// All implementations must embed UnimplementedContentServiceServer
-// for forward compatibility.
-type ContentServiceServer interface {
-	NewContent(context.Context, *NewContentRequest) (*NewContentResponse, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetClipData(context.Context, *GetClipDataRequest) (*GetClipDataResponse, error)
-	GetExtras(context.Context, *ContentGetExtrasRequest) (*GetExtrasResponse, error)
-	GetIntent(context.Context, *GetIntentRequest) (*GetIntentResponse, error)
-	GetSessionTransferUri(context.Context, *GetSessionTransferUriRequest) (*GetSessionTransferUriResponse, error)
-	GetStructuredData(context.Context, *GetStructuredDataRequest) (*GetStructuredDataResponse, error)
-	GetWebUri(context.Context, *GetWebUriRequest) (*GetWebUriResponse, error)
-	IsAppProvidedIntent(context.Context, *IsAppProvidedIntentRequest) (*IsAppProvidedIntentResponse, error)
-	IsAppProvidedWebUri(context.Context, *IsAppProvidedWebUriRequest) (*IsAppProvidedWebUriResponse, error)
-	SetClipData(context.Context, *SetClipDataRequest) (*SetClipDataResponse, error)
-	SetIntent(context.Context, *SetIntentRequest) (*SetIntentResponse, error)
-	SetSessionTransferUri(context.Context, *SetSessionTransferUriRequest) (*SetSessionTransferUriResponse, error)
-	SetStructuredData(context.Context, *SetStructuredDataRequest) (*SetStructuredDataResponse, error)
-	SetWebUri(context.Context, *SetWebUriRequest) (*SetWebUriResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedContentServiceServer()
-}
-
-// UnimplementedContentServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedContentServiceServer struct{}
-
-func (UnimplementedContentServiceServer) NewContent(context.Context, *NewContentRequest) (*NewContentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewContent not implemented")
-}
-func (UnimplementedContentServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedContentServiceServer) GetClipData(context.Context, *GetClipDataRequest) (*GetClipDataResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetClipData not implemented")
-}
-func (UnimplementedContentServiceServer) GetExtras(context.Context, *ContentGetExtrasRequest) (*GetExtrasResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
-}
-func (UnimplementedContentServiceServer) GetIntent(context.Context, *GetIntentRequest) (*GetIntentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetIntent not implemented")
-}
-func (UnimplementedContentServiceServer) GetSessionTransferUri(context.Context, *GetSessionTransferUriRequest) (*GetSessionTransferUriResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetSessionTransferUri not implemented")
-}
-func (UnimplementedContentServiceServer) GetStructuredData(context.Context, *GetStructuredDataRequest) (*GetStructuredDataResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStructuredData not implemented")
-}
-func (UnimplementedContentServiceServer) GetWebUri(context.Context, *GetWebUriRequest) (*GetWebUriResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetWebUri not implemented")
-}
-func (UnimplementedContentServiceServer) IsAppProvidedIntent(context.Context, *IsAppProvidedIntentRequest) (*IsAppProvidedIntentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsAppProvidedIntent not implemented")
-}
-func (UnimplementedContentServiceServer) IsAppProvidedWebUri(context.Context, *IsAppProvidedWebUriRequest) (*IsAppProvidedWebUriResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsAppProvidedWebUri not implemented")
-}
-func (UnimplementedContentServiceServer) SetClipData(context.Context, *SetClipDataRequest) (*SetClipDataResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetClipData not implemented")
-}
-func (UnimplementedContentServiceServer) SetIntent(context.Context, *SetIntentRequest) (*SetIntentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetIntent not implemented")
-}
-func (UnimplementedContentServiceServer) SetSessionTransferUri(context.Context, *SetSessionTransferUriRequest) (*SetSessionTransferUriResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetSessionTransferUri not implemented")
-}
-func (UnimplementedContentServiceServer) SetStructuredData(context.Context, *SetStructuredDataRequest) (*SetStructuredDataResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetStructuredData not implemented")
-}
-func (UnimplementedContentServiceServer) SetWebUri(context.Context, *SetWebUriRequest) (*SetWebUriResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetWebUri not implemented")
-}
-func (UnimplementedContentServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedContentServiceServer) mustEmbedUnimplementedContentServiceServer() {}
-func (UnimplementedContentServiceServer) testEmbeddedByValue()                        {}
-
-// UnsafeContentServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ContentServiceServer will
-// result in compilation errors.
-type UnsafeContentServiceServer interface {
-	mustEmbedUnimplementedContentServiceServer()
-}
-
-func RegisterContentServiceServer(s grpc.ServiceRegistrar, srv ContentServiceServer) {
-	// If the following call panics, it indicates UnimplementedContentServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ContentService_ServiceDesc, srv)
-}
-
-func _ContentService_NewContent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewContentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContentServiceServer).NewContent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContentService_NewContent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentServiceServer).NewContent(ctx, req.(*NewContentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ContentService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContentServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContentService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ContentService_GetClipData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetClipDataRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContentServiceServer).GetClipData(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContentService_GetClipData_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentServiceServer).GetClipData(ctx, req.(*GetClipDataRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ContentService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ContentGetExtrasRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContentServiceServer).GetExtras(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContentService_GetExtras_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentServiceServer).GetExtras(ctx, req.(*ContentGetExtrasRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ContentService_GetIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIntentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContentServiceServer).GetIntent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContentService_GetIntent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentServiceServer).GetIntent(ctx, req.(*GetIntentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ContentService_GetSessionTransferUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSessionTransferUriRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContentServiceServer).GetSessionTransferUri(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContentService_GetSessionTransferUri_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentServiceServer).GetSessionTransferUri(ctx, req.(*GetSessionTransferUriRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ContentService_GetStructuredData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStructuredDataRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContentServiceServer).GetStructuredData(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContentService_GetStructuredData_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentServiceServer).GetStructuredData(ctx, req.(*GetStructuredDataRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ContentService_GetWebUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetWebUriRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContentServiceServer).GetWebUri(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContentService_GetWebUri_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentServiceServer).GetWebUri(ctx, req.(*GetWebUriRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ContentService_IsAppProvidedIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsAppProvidedIntentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContentServiceServer).IsAppProvidedIntent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContentService_IsAppProvidedIntent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentServiceServer).IsAppProvidedIntent(ctx, req.(*IsAppProvidedIntentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ContentService_IsAppProvidedWebUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsAppProvidedWebUriRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContentServiceServer).IsAppProvidedWebUri(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContentService_IsAppProvidedWebUri_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentServiceServer).IsAppProvidedWebUri(ctx, req.(*IsAppProvidedWebUriRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ContentService_SetClipData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetClipDataRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContentServiceServer).SetClipData(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContentService_SetClipData_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentServiceServer).SetClipData(ctx, req.(*SetClipDataRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ContentService_SetIntent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetIntentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContentServiceServer).SetIntent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContentService_SetIntent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentServiceServer).SetIntent(ctx, req.(*SetIntentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ContentService_SetSessionTransferUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetSessionTransferUriRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContentServiceServer).SetSessionTransferUri(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContentService_SetSessionTransferUri_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentServiceServer).SetSessionTransferUri(ctx, req.(*SetSessionTransferUriRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ContentService_SetStructuredData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetStructuredDataRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContentServiceServer).SetStructuredData(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContentService_SetStructuredData_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentServiceServer).SetStructuredData(ctx, req.(*SetStructuredDataRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ContentService_SetWebUri_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetWebUriRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContentServiceServer).SetWebUri(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContentService_SetWebUri_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentServiceServer).SetWebUri(ctx, req.(*SetWebUriRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ContentService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ContentServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ContentService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ContentServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ContentService_ServiceDesc is the grpc.ServiceDesc for ContentService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ContentService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "assist.ContentService",
-	HandlerType: (*ContentServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewContent",
-			Handler:    _ContentService_NewContent_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _ContentService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetClipData",
-			Handler:    _ContentService_GetClipData_Handler,
-		},
-		{
-			MethodName: "GetExtras",
-			Handler:    _ContentService_GetExtras_Handler,
-		},
-		{
-			MethodName: "GetIntent",
-			Handler:    _ContentService_GetIntent_Handler,
-		},
-		{
-			MethodName: "GetSessionTransferUri",
-			Handler:    _ContentService_GetSessionTransferUri_Handler,
-		},
-		{
-			MethodName: "GetStructuredData",
-			Handler:    _ContentService_GetStructuredData_Handler,
-		},
-		{
-			MethodName: "GetWebUri",
-			Handler:    _ContentService_GetWebUri_Handler,
-		},
-		{
-			MethodName: "IsAppProvidedIntent",
-			Handler:    _ContentService_IsAppProvidedIntent_Handler,
-		},
-		{
-			MethodName: "IsAppProvidedWebUri",
-			Handler:    _ContentService_IsAppProvidedWebUri_Handler,
-		},
-		{
-			MethodName: "SetClipData",
-			Handler:    _ContentService_SetClipData_Handler,
-		},
-		{
-			MethodName: "SetIntent",
-			Handler:    _ContentService_SetIntent_Handler,
-		},
-		{
-			MethodName: "SetSessionTransferUri",
-			Handler:    _ContentService_SetSessionTransferUri_Handler,
-		},
-		{
-			MethodName: "SetStructuredData",
-			Handler:    _ContentService_SetStructuredData_Handler,
-		},
-		{
-			MethodName: "SetWebUri",
-			Handler:    _ContentService_SetWebUri_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _ContentService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

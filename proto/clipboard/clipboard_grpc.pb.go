@@ -21,6 +21,553 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	ManagerService_AddPrimaryClipChangedListener_FullMethodName    = "/clipboard.ManagerService/AddPrimaryClipChangedListener"
+	ManagerService_ClearPrimaryClip_FullMethodName                 = "/clipboard.ManagerService/ClearPrimaryClip"
+	ManagerService_GetPrimaryClip_FullMethodName                   = "/clipboard.ManagerService/GetPrimaryClip"
+	ManagerService_GetPrimaryClipDescription_FullMethodName        = "/clipboard.ManagerService/GetPrimaryClipDescription"
+	ManagerService_GetText_FullMethodName                          = "/clipboard.ManagerService/GetText"
+	ManagerService_HasPrimaryClip_FullMethodName                   = "/clipboard.ManagerService/HasPrimaryClip"
+	ManagerService_HasText_FullMethodName                          = "/clipboard.ManagerService/HasText"
+	ManagerService_RemovePrimaryClipChangedListener_FullMethodName = "/clipboard.ManagerService/RemovePrimaryClipChangedListener"
+	ManagerService_SetPrimaryClip_FullMethodName                   = "/clipboard.ManagerService/SetPrimaryClip"
+	ManagerService_SetText_FullMethodName                          = "/clipboard.ManagerService/SetText"
+)
+
+// ManagerServiceClient is the client API for ManagerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerServiceClient interface {
+	AddPrimaryClipChangedListener(ctx context.Context, in *AddPrimaryClipChangedListenerRequest, opts ...grpc.CallOption) (*AddPrimaryClipChangedListenerResponse, error)
+	ClearPrimaryClip(ctx context.Context, in *ClearPrimaryClipRequest, opts ...grpc.CallOption) (*ClearPrimaryClipResponse, error)
+	GetPrimaryClip(ctx context.Context, in *GetPrimaryClipRequest, opts ...grpc.CallOption) (*GetPrimaryClipResponse, error)
+	GetPrimaryClipDescription(ctx context.Context, in *GetPrimaryClipDescriptionRequest, opts ...grpc.CallOption) (*GetPrimaryClipDescriptionResponse, error)
+	GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error)
+	HasPrimaryClip(ctx context.Context, in *HasPrimaryClipRequest, opts ...grpc.CallOption) (*HasPrimaryClipResponse, error)
+	HasText(ctx context.Context, in *HasTextRequest, opts ...grpc.CallOption) (*HasTextResponse, error)
+	RemovePrimaryClipChangedListener(ctx context.Context, in *RemovePrimaryClipChangedListenerRequest, opts ...grpc.CallOption) (*RemovePrimaryClipChangedListenerResponse, error)
+	SetPrimaryClip(ctx context.Context, in *SetPrimaryClipRequest, opts ...grpc.CallOption) (*SetPrimaryClipResponse, error)
+	SetText(ctx context.Context, in *SetTextRequest, opts ...grpc.CallOption) (*SetTextResponse, error)
+}
+
+type managerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
+	return &managerServiceClient{cc}
+}
+
+func (c *managerServiceClient) AddPrimaryClipChangedListener(ctx context.Context, in *AddPrimaryClipChangedListenerRequest, opts ...grpc.CallOption) (*AddPrimaryClipChangedListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddPrimaryClipChangedListenerResponse)
+	err := c.cc.Invoke(ctx, ManagerService_AddPrimaryClipChangedListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) ClearPrimaryClip(ctx context.Context, in *ClearPrimaryClipRequest, opts ...grpc.CallOption) (*ClearPrimaryClipResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ClearPrimaryClipResponse)
+	err := c.cc.Invoke(ctx, ManagerService_ClearPrimaryClip_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetPrimaryClip(ctx context.Context, in *GetPrimaryClipRequest, opts ...grpc.CallOption) (*GetPrimaryClipResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPrimaryClipResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetPrimaryClip_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetPrimaryClipDescription(ctx context.Context, in *GetPrimaryClipDescriptionRequest, opts ...grpc.CallOption) (*GetPrimaryClipDescriptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPrimaryClipDescriptionResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetPrimaryClipDescription_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetTextResponse)
+	err := c.cc.Invoke(ctx, ManagerService_GetText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) HasPrimaryClip(ctx context.Context, in *HasPrimaryClipRequest, opts ...grpc.CallOption) (*HasPrimaryClipResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HasPrimaryClipResponse)
+	err := c.cc.Invoke(ctx, ManagerService_HasPrimaryClip_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) HasText(ctx context.Context, in *HasTextRequest, opts ...grpc.CallOption) (*HasTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HasTextResponse)
+	err := c.cc.Invoke(ctx, ManagerService_HasText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) RemovePrimaryClipChangedListener(ctx context.Context, in *RemovePrimaryClipChangedListenerRequest, opts ...grpc.CallOption) (*RemovePrimaryClipChangedListenerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RemovePrimaryClipChangedListenerResponse)
+	err := c.cc.Invoke(ctx, ManagerService_RemovePrimaryClipChangedListener_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) SetPrimaryClip(ctx context.Context, in *SetPrimaryClipRequest, opts ...grpc.CallOption) (*SetPrimaryClipResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPrimaryClipResponse)
+	err := c.cc.Invoke(ctx, ManagerService_SetPrimaryClip_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *managerServiceClient) SetText(ctx context.Context, in *SetTextRequest, opts ...grpc.CallOption) (*SetTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetTextResponse)
+	err := c.cc.Invoke(ctx, ManagerService_SetText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerServiceServer is the server API for ManagerService service.
+// All implementations must embed UnimplementedManagerServiceServer
+// for forward compatibility.
+type ManagerServiceServer interface {
+	AddPrimaryClipChangedListener(context.Context, *AddPrimaryClipChangedListenerRequest) (*AddPrimaryClipChangedListenerResponse, error)
+	ClearPrimaryClip(context.Context, *ClearPrimaryClipRequest) (*ClearPrimaryClipResponse, error)
+	GetPrimaryClip(context.Context, *GetPrimaryClipRequest) (*GetPrimaryClipResponse, error)
+	GetPrimaryClipDescription(context.Context, *GetPrimaryClipDescriptionRequest) (*GetPrimaryClipDescriptionResponse, error)
+	GetText(context.Context, *GetTextRequest) (*GetTextResponse, error)
+	HasPrimaryClip(context.Context, *HasPrimaryClipRequest) (*HasPrimaryClipResponse, error)
+	HasText(context.Context, *HasTextRequest) (*HasTextResponse, error)
+	RemovePrimaryClipChangedListener(context.Context, *RemovePrimaryClipChangedListenerRequest) (*RemovePrimaryClipChangedListenerResponse, error)
+	SetPrimaryClip(context.Context, *SetPrimaryClipRequest) (*SetPrimaryClipResponse, error)
+	SetText(context.Context, *SetTextRequest) (*SetTextResponse, error)
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+// UnimplementedManagerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerServiceServer struct{}
+
+func (UnimplementedManagerServiceServer) AddPrimaryClipChangedListener(context.Context, *AddPrimaryClipChangedListenerRequest) (*AddPrimaryClipChangedListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddPrimaryClipChangedListener not implemented")
+}
+func (UnimplementedManagerServiceServer) ClearPrimaryClip(context.Context, *ClearPrimaryClipRequest) (*ClearPrimaryClipResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ClearPrimaryClip not implemented")
+}
+func (UnimplementedManagerServiceServer) GetPrimaryClip(context.Context, *GetPrimaryClipRequest) (*GetPrimaryClipResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPrimaryClip not implemented")
+}
+func (UnimplementedManagerServiceServer) GetPrimaryClipDescription(context.Context, *GetPrimaryClipDescriptionRequest) (*GetPrimaryClipDescriptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPrimaryClipDescription not implemented")
+}
+func (UnimplementedManagerServiceServer) GetText(context.Context, *GetTextRequest) (*GetTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetText not implemented")
+}
+func (UnimplementedManagerServiceServer) HasPrimaryClip(context.Context, *HasPrimaryClipRequest) (*HasPrimaryClipResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasPrimaryClip not implemented")
+}
+func (UnimplementedManagerServiceServer) HasText(context.Context, *HasTextRequest) (*HasTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasText not implemented")
+}
+func (UnimplementedManagerServiceServer) RemovePrimaryClipChangedListener(context.Context, *RemovePrimaryClipChangedListenerRequest) (*RemovePrimaryClipChangedListenerResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RemovePrimaryClipChangedListener not implemented")
+}
+func (UnimplementedManagerServiceServer) SetPrimaryClip(context.Context, *SetPrimaryClipRequest) (*SetPrimaryClipResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPrimaryClip not implemented")
+}
+func (UnimplementedManagerServiceServer) SetText(context.Context, *SetTextRequest) (*SetTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetText not implemented")
+}
+func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
+func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
+
+// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerServiceServer will
+// result in compilation errors.
+type UnsafeManagerServiceServer interface {
+	mustEmbedUnimplementedManagerServiceServer()
+}
+
+func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerService_ServiceDesc, srv)
+}
+
+func _ManagerService_AddPrimaryClipChangedListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddPrimaryClipChangedListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).AddPrimaryClipChangedListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_AddPrimaryClipChangedListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).AddPrimaryClipChangedListener(ctx, req.(*AddPrimaryClipChangedListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_ClearPrimaryClip_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ClearPrimaryClipRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).ClearPrimaryClip(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_ClearPrimaryClip_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).ClearPrimaryClip(ctx, req.(*ClearPrimaryClipRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetPrimaryClip_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPrimaryClipRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetPrimaryClip(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetPrimaryClip_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetPrimaryClip(ctx, req.(*GetPrimaryClipRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetPrimaryClipDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPrimaryClipDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetPrimaryClipDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetPrimaryClipDescription_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetPrimaryClipDescription(ctx, req.(*GetPrimaryClipDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_GetText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).GetText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_GetText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).GetText(ctx, req.(*GetTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_HasPrimaryClip_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasPrimaryClipRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).HasPrimaryClip(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_HasPrimaryClip_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).HasPrimaryClip(ctx, req.(*HasPrimaryClipRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_HasText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).HasText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_HasText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).HasText(ctx, req.(*HasTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_RemovePrimaryClipChangedListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemovePrimaryClipChangedListenerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).RemovePrimaryClipChangedListener(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_RemovePrimaryClipChangedListener_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).RemovePrimaryClipChangedListener(ctx, req.(*RemovePrimaryClipChangedListenerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_SetPrimaryClip_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPrimaryClipRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).SetPrimaryClip(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_SetPrimaryClip_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).SetPrimaryClip(ctx, req.(*SetPrimaryClipRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ManagerService_SetText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerServiceServer).SetText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerService_SetText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerServiceServer).SetText(ctx, req.(*SetTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "clipboard.ManagerService",
+	HandlerType: (*ManagerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AddPrimaryClipChangedListener",
+			Handler:    _ManagerService_AddPrimaryClipChangedListener_Handler,
+		},
+		{
+			MethodName: "ClearPrimaryClip",
+			Handler:    _ManagerService_ClearPrimaryClip_Handler,
+		},
+		{
+			MethodName: "GetPrimaryClip",
+			Handler:    _ManagerService_GetPrimaryClip_Handler,
+		},
+		{
+			MethodName: "GetPrimaryClipDescription",
+			Handler:    _ManagerService_GetPrimaryClipDescription_Handler,
+		},
+		{
+			MethodName: "GetText",
+			Handler:    _ManagerService_GetText_Handler,
+		},
+		{
+			MethodName: "HasPrimaryClip",
+			Handler:    _ManagerService_HasPrimaryClip_Handler,
+		},
+		{
+			MethodName: "HasText",
+			Handler:    _ManagerService_HasText_Handler,
+		},
+		{
+			MethodName: "RemovePrimaryClipChangedListener",
+			Handler:    _ManagerService_RemovePrimaryClipChangedListener_Handler,
+		},
+		{
+			MethodName: "SetPrimaryClip",
+			Handler:    _ManagerService_SetPrimaryClip_Handler,
+		},
+		{
+			MethodName: "SetText",
+			Handler:    _ManagerService_SetText_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/clipboard/clipboard.proto",
+}
+
+const (
+	ManagerOnPrimaryClipChangedListenerService_OnPrimaryClipChanged_FullMethodName = "/clipboard.ManagerOnPrimaryClipChangedListenerService/OnPrimaryClipChanged"
+)
+
+// ManagerOnPrimaryClipChangedListenerServiceClient is the client API for ManagerOnPrimaryClipChangedListenerService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ManagerOnPrimaryClipChangedListenerServiceClient interface {
+	OnPrimaryClipChanged(ctx context.Context, in *OnPrimaryClipChangedRequest, opts ...grpc.CallOption) (*OnPrimaryClipChangedResponse, error)
+}
+
+type managerOnPrimaryClipChangedListenerServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewManagerOnPrimaryClipChangedListenerServiceClient(cc grpc.ClientConnInterface) ManagerOnPrimaryClipChangedListenerServiceClient {
+	return &managerOnPrimaryClipChangedListenerServiceClient{cc}
+}
+
+func (c *managerOnPrimaryClipChangedListenerServiceClient) OnPrimaryClipChanged(ctx context.Context, in *OnPrimaryClipChangedRequest, opts ...grpc.CallOption) (*OnPrimaryClipChangedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OnPrimaryClipChangedResponse)
+	err := c.cc.Invoke(ctx, ManagerOnPrimaryClipChangedListenerService_OnPrimaryClipChanged_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ManagerOnPrimaryClipChangedListenerServiceServer is the server API for ManagerOnPrimaryClipChangedListenerService service.
+// All implementations must embed UnimplementedManagerOnPrimaryClipChangedListenerServiceServer
+// for forward compatibility.
+type ManagerOnPrimaryClipChangedListenerServiceServer interface {
+	OnPrimaryClipChanged(context.Context, *OnPrimaryClipChangedRequest) (*OnPrimaryClipChangedResponse, error)
+	mustEmbedUnimplementedManagerOnPrimaryClipChangedListenerServiceServer()
+}
+
+// UnimplementedManagerOnPrimaryClipChangedListenerServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedManagerOnPrimaryClipChangedListenerServiceServer struct{}
+
+func (UnimplementedManagerOnPrimaryClipChangedListenerServiceServer) OnPrimaryClipChanged(context.Context, *OnPrimaryClipChangedRequest) (*OnPrimaryClipChangedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnPrimaryClipChanged not implemented")
+}
+func (UnimplementedManagerOnPrimaryClipChangedListenerServiceServer) mustEmbedUnimplementedManagerOnPrimaryClipChangedListenerServiceServer() {
+}
+func (UnimplementedManagerOnPrimaryClipChangedListenerServiceServer) testEmbeddedByValue() {}
+
+// UnsafeManagerOnPrimaryClipChangedListenerServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ManagerOnPrimaryClipChangedListenerServiceServer will
+// result in compilation errors.
+type UnsafeManagerOnPrimaryClipChangedListenerServiceServer interface {
+	mustEmbedUnimplementedManagerOnPrimaryClipChangedListenerServiceServer()
+}
+
+func RegisterManagerOnPrimaryClipChangedListenerServiceServer(s grpc.ServiceRegistrar, srv ManagerOnPrimaryClipChangedListenerServiceServer) {
+	// If the following call panics, it indicates UnimplementedManagerOnPrimaryClipChangedListenerServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ManagerOnPrimaryClipChangedListenerService_ServiceDesc, srv)
+}
+
+func _ManagerOnPrimaryClipChangedListenerService_OnPrimaryClipChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnPrimaryClipChangedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ManagerOnPrimaryClipChangedListenerServiceServer).OnPrimaryClipChanged(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ManagerOnPrimaryClipChangedListenerService_OnPrimaryClipChanged_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ManagerOnPrimaryClipChangedListenerServiceServer).OnPrimaryClipChanged(ctx, req.(*OnPrimaryClipChangedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ManagerOnPrimaryClipChangedListenerService_ServiceDesc is the grpc.ServiceDesc for ManagerOnPrimaryClipChangedListenerService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ManagerOnPrimaryClipChangedListenerService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "clipboard.ManagerOnPrimaryClipChangedListenerService",
+	HandlerType: (*ManagerOnPrimaryClipChangedListenerServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnPrimaryClipChanged",
+			Handler:    _ManagerOnPrimaryClipChangedListenerService_OnPrimaryClipChanged_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/clipboard/clipboard.proto",
+}
+
+const (
 	ClipDataService_NewClipData_FullMethodName      = "/clipboard.ClipDataService/NewClipData"
 	ClipDataService_AddItem1_FullMethodName         = "/clipboard.ClipDataService/AddItem1"
 	ClipDataService_AddItem2_1_FullMethodName       = "/clipboard.ClipDataService/AddItem2_1"
@@ -1054,553 +1601,6 @@ var ClipDataItemService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ToString",
 			Handler:    _ClipDataItemService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/clipboard/clipboard.proto",
-}
-
-const (
-	ManagerService_AddPrimaryClipChangedListener_FullMethodName    = "/clipboard.ManagerService/AddPrimaryClipChangedListener"
-	ManagerService_ClearPrimaryClip_FullMethodName                 = "/clipboard.ManagerService/ClearPrimaryClip"
-	ManagerService_GetPrimaryClip_FullMethodName                   = "/clipboard.ManagerService/GetPrimaryClip"
-	ManagerService_GetPrimaryClipDescription_FullMethodName        = "/clipboard.ManagerService/GetPrimaryClipDescription"
-	ManagerService_GetText_FullMethodName                          = "/clipboard.ManagerService/GetText"
-	ManagerService_HasPrimaryClip_FullMethodName                   = "/clipboard.ManagerService/HasPrimaryClip"
-	ManagerService_HasText_FullMethodName                          = "/clipboard.ManagerService/HasText"
-	ManagerService_RemovePrimaryClipChangedListener_FullMethodName = "/clipboard.ManagerService/RemovePrimaryClipChangedListener"
-	ManagerService_SetPrimaryClip_FullMethodName                   = "/clipboard.ManagerService/SetPrimaryClip"
-	ManagerService_SetText_FullMethodName                          = "/clipboard.ManagerService/SetText"
-)
-
-// ManagerServiceClient is the client API for ManagerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ManagerServiceClient interface {
-	AddPrimaryClipChangedListener(ctx context.Context, in *AddPrimaryClipChangedListenerRequest, opts ...grpc.CallOption) (*AddPrimaryClipChangedListenerResponse, error)
-	ClearPrimaryClip(ctx context.Context, in *ClearPrimaryClipRequest, opts ...grpc.CallOption) (*ClearPrimaryClipResponse, error)
-	GetPrimaryClip(ctx context.Context, in *GetPrimaryClipRequest, opts ...grpc.CallOption) (*GetPrimaryClipResponse, error)
-	GetPrimaryClipDescription(ctx context.Context, in *GetPrimaryClipDescriptionRequest, opts ...grpc.CallOption) (*GetPrimaryClipDescriptionResponse, error)
-	GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error)
-	HasPrimaryClip(ctx context.Context, in *HasPrimaryClipRequest, opts ...grpc.CallOption) (*HasPrimaryClipResponse, error)
-	HasText(ctx context.Context, in *HasTextRequest, opts ...grpc.CallOption) (*HasTextResponse, error)
-	RemovePrimaryClipChangedListener(ctx context.Context, in *RemovePrimaryClipChangedListenerRequest, opts ...grpc.CallOption) (*RemovePrimaryClipChangedListenerResponse, error)
-	SetPrimaryClip(ctx context.Context, in *SetPrimaryClipRequest, opts ...grpc.CallOption) (*SetPrimaryClipResponse, error)
-	SetText(ctx context.Context, in *SetTextRequest, opts ...grpc.CallOption) (*SetTextResponse, error)
-}
-
-type managerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewManagerServiceClient(cc grpc.ClientConnInterface) ManagerServiceClient {
-	return &managerServiceClient{cc}
-}
-
-func (c *managerServiceClient) AddPrimaryClipChangedListener(ctx context.Context, in *AddPrimaryClipChangedListenerRequest, opts ...grpc.CallOption) (*AddPrimaryClipChangedListenerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddPrimaryClipChangedListenerResponse)
-	err := c.cc.Invoke(ctx, ManagerService_AddPrimaryClipChangedListener_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) ClearPrimaryClip(ctx context.Context, in *ClearPrimaryClipRequest, opts ...grpc.CallOption) (*ClearPrimaryClipResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ClearPrimaryClipResponse)
-	err := c.cc.Invoke(ctx, ManagerService_ClearPrimaryClip_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetPrimaryClip(ctx context.Context, in *GetPrimaryClipRequest, opts ...grpc.CallOption) (*GetPrimaryClipResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPrimaryClipResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetPrimaryClip_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetPrimaryClipDescription(ctx context.Context, in *GetPrimaryClipDescriptionRequest, opts ...grpc.CallOption) (*GetPrimaryClipDescriptionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPrimaryClipDescriptionResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetPrimaryClipDescription_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) GetText(ctx context.Context, in *GetTextRequest, opts ...grpc.CallOption) (*GetTextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetTextResponse)
-	err := c.cc.Invoke(ctx, ManagerService_GetText_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) HasPrimaryClip(ctx context.Context, in *HasPrimaryClipRequest, opts ...grpc.CallOption) (*HasPrimaryClipResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HasPrimaryClipResponse)
-	err := c.cc.Invoke(ctx, ManagerService_HasPrimaryClip_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) HasText(ctx context.Context, in *HasTextRequest, opts ...grpc.CallOption) (*HasTextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HasTextResponse)
-	err := c.cc.Invoke(ctx, ManagerService_HasText_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) RemovePrimaryClipChangedListener(ctx context.Context, in *RemovePrimaryClipChangedListenerRequest, opts ...grpc.CallOption) (*RemovePrimaryClipChangedListenerResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RemovePrimaryClipChangedListenerResponse)
-	err := c.cc.Invoke(ctx, ManagerService_RemovePrimaryClipChangedListener_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) SetPrimaryClip(ctx context.Context, in *SetPrimaryClipRequest, opts ...grpc.CallOption) (*SetPrimaryClipResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPrimaryClipResponse)
-	err := c.cc.Invoke(ctx, ManagerService_SetPrimaryClip_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *managerServiceClient) SetText(ctx context.Context, in *SetTextRequest, opts ...grpc.CallOption) (*SetTextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetTextResponse)
-	err := c.cc.Invoke(ctx, ManagerService_SetText_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ManagerServiceServer is the server API for ManagerService service.
-// All implementations must embed UnimplementedManagerServiceServer
-// for forward compatibility.
-type ManagerServiceServer interface {
-	AddPrimaryClipChangedListener(context.Context, *AddPrimaryClipChangedListenerRequest) (*AddPrimaryClipChangedListenerResponse, error)
-	ClearPrimaryClip(context.Context, *ClearPrimaryClipRequest) (*ClearPrimaryClipResponse, error)
-	GetPrimaryClip(context.Context, *GetPrimaryClipRequest) (*GetPrimaryClipResponse, error)
-	GetPrimaryClipDescription(context.Context, *GetPrimaryClipDescriptionRequest) (*GetPrimaryClipDescriptionResponse, error)
-	GetText(context.Context, *GetTextRequest) (*GetTextResponse, error)
-	HasPrimaryClip(context.Context, *HasPrimaryClipRequest) (*HasPrimaryClipResponse, error)
-	HasText(context.Context, *HasTextRequest) (*HasTextResponse, error)
-	RemovePrimaryClipChangedListener(context.Context, *RemovePrimaryClipChangedListenerRequest) (*RemovePrimaryClipChangedListenerResponse, error)
-	SetPrimaryClip(context.Context, *SetPrimaryClipRequest) (*SetPrimaryClipResponse, error)
-	SetText(context.Context, *SetTextRequest) (*SetTextResponse, error)
-	mustEmbedUnimplementedManagerServiceServer()
-}
-
-// UnimplementedManagerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedManagerServiceServer struct{}
-
-func (UnimplementedManagerServiceServer) AddPrimaryClipChangedListener(context.Context, *AddPrimaryClipChangedListenerRequest) (*AddPrimaryClipChangedListenerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddPrimaryClipChangedListener not implemented")
-}
-func (UnimplementedManagerServiceServer) ClearPrimaryClip(context.Context, *ClearPrimaryClipRequest) (*ClearPrimaryClipResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ClearPrimaryClip not implemented")
-}
-func (UnimplementedManagerServiceServer) GetPrimaryClip(context.Context, *GetPrimaryClipRequest) (*GetPrimaryClipResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPrimaryClip not implemented")
-}
-func (UnimplementedManagerServiceServer) GetPrimaryClipDescription(context.Context, *GetPrimaryClipDescriptionRequest) (*GetPrimaryClipDescriptionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPrimaryClipDescription not implemented")
-}
-func (UnimplementedManagerServiceServer) GetText(context.Context, *GetTextRequest) (*GetTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetText not implemented")
-}
-func (UnimplementedManagerServiceServer) HasPrimaryClip(context.Context, *HasPrimaryClipRequest) (*HasPrimaryClipResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HasPrimaryClip not implemented")
-}
-func (UnimplementedManagerServiceServer) HasText(context.Context, *HasTextRequest) (*HasTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HasText not implemented")
-}
-func (UnimplementedManagerServiceServer) RemovePrimaryClipChangedListener(context.Context, *RemovePrimaryClipChangedListenerRequest) (*RemovePrimaryClipChangedListenerResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RemovePrimaryClipChangedListener not implemented")
-}
-func (UnimplementedManagerServiceServer) SetPrimaryClip(context.Context, *SetPrimaryClipRequest) (*SetPrimaryClipResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPrimaryClip not implemented")
-}
-func (UnimplementedManagerServiceServer) SetText(context.Context, *SetTextRequest) (*SetTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetText not implemented")
-}
-func (UnimplementedManagerServiceServer) mustEmbedUnimplementedManagerServiceServer() {}
-func (UnimplementedManagerServiceServer) testEmbeddedByValue()                        {}
-
-// UnsafeManagerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ManagerServiceServer will
-// result in compilation errors.
-type UnsafeManagerServiceServer interface {
-	mustEmbedUnimplementedManagerServiceServer()
-}
-
-func RegisterManagerServiceServer(s grpc.ServiceRegistrar, srv ManagerServiceServer) {
-	// If the following call panics, it indicates UnimplementedManagerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ManagerService_ServiceDesc, srv)
-}
-
-func _ManagerService_AddPrimaryClipChangedListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddPrimaryClipChangedListenerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).AddPrimaryClipChangedListener(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_AddPrimaryClipChangedListener_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).AddPrimaryClipChangedListener(ctx, req.(*AddPrimaryClipChangedListenerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_ClearPrimaryClip_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ClearPrimaryClipRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).ClearPrimaryClip(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_ClearPrimaryClip_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).ClearPrimaryClip(ctx, req.(*ClearPrimaryClipRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetPrimaryClip_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPrimaryClipRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetPrimaryClip(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetPrimaryClip_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetPrimaryClip(ctx, req.(*GetPrimaryClipRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetPrimaryClipDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPrimaryClipDescriptionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetPrimaryClipDescription(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetPrimaryClipDescription_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetPrimaryClipDescription(ctx, req.(*GetPrimaryClipDescriptionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_GetText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).GetText(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_GetText_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).GetText(ctx, req.(*GetTextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_HasPrimaryClip_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HasPrimaryClipRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).HasPrimaryClip(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_HasPrimaryClip_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).HasPrimaryClip(ctx, req.(*HasPrimaryClipRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_HasText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HasTextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).HasText(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_HasText_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).HasText(ctx, req.(*HasTextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_RemovePrimaryClipChangedListener_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemovePrimaryClipChangedListenerRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).RemovePrimaryClipChangedListener(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_RemovePrimaryClipChangedListener_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).RemovePrimaryClipChangedListener(ctx, req.(*RemovePrimaryClipChangedListenerRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_SetPrimaryClip_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPrimaryClipRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).SetPrimaryClip(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_SetPrimaryClip_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).SetPrimaryClip(ctx, req.(*SetPrimaryClipRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ManagerService_SetText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetTextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerServiceServer).SetText(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerService_SetText_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerServiceServer).SetText(ctx, req.(*SetTextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ManagerService_ServiceDesc is the grpc.ServiceDesc for ManagerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ManagerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "clipboard.ManagerService",
-	HandlerType: (*ManagerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "AddPrimaryClipChangedListener",
-			Handler:    _ManagerService_AddPrimaryClipChangedListener_Handler,
-		},
-		{
-			MethodName: "ClearPrimaryClip",
-			Handler:    _ManagerService_ClearPrimaryClip_Handler,
-		},
-		{
-			MethodName: "GetPrimaryClip",
-			Handler:    _ManagerService_GetPrimaryClip_Handler,
-		},
-		{
-			MethodName: "GetPrimaryClipDescription",
-			Handler:    _ManagerService_GetPrimaryClipDescription_Handler,
-		},
-		{
-			MethodName: "GetText",
-			Handler:    _ManagerService_GetText_Handler,
-		},
-		{
-			MethodName: "HasPrimaryClip",
-			Handler:    _ManagerService_HasPrimaryClip_Handler,
-		},
-		{
-			MethodName: "HasText",
-			Handler:    _ManagerService_HasText_Handler,
-		},
-		{
-			MethodName: "RemovePrimaryClipChangedListener",
-			Handler:    _ManagerService_RemovePrimaryClipChangedListener_Handler,
-		},
-		{
-			MethodName: "SetPrimaryClip",
-			Handler:    _ManagerService_SetPrimaryClip_Handler,
-		},
-		{
-			MethodName: "SetText",
-			Handler:    _ManagerService_SetText_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/clipboard/clipboard.proto",
-}
-
-const (
-	ManagerOnPrimaryClipChangedListenerService_OnPrimaryClipChanged_FullMethodName = "/clipboard.ManagerOnPrimaryClipChangedListenerService/OnPrimaryClipChanged"
-)
-
-// ManagerOnPrimaryClipChangedListenerServiceClient is the client API for ManagerOnPrimaryClipChangedListenerService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ManagerOnPrimaryClipChangedListenerServiceClient interface {
-	OnPrimaryClipChanged(ctx context.Context, in *OnPrimaryClipChangedRequest, opts ...grpc.CallOption) (*OnPrimaryClipChangedResponse, error)
-}
-
-type managerOnPrimaryClipChangedListenerServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewManagerOnPrimaryClipChangedListenerServiceClient(cc grpc.ClientConnInterface) ManagerOnPrimaryClipChangedListenerServiceClient {
-	return &managerOnPrimaryClipChangedListenerServiceClient{cc}
-}
-
-func (c *managerOnPrimaryClipChangedListenerServiceClient) OnPrimaryClipChanged(ctx context.Context, in *OnPrimaryClipChangedRequest, opts ...grpc.CallOption) (*OnPrimaryClipChangedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnPrimaryClipChangedResponse)
-	err := c.cc.Invoke(ctx, ManagerOnPrimaryClipChangedListenerService_OnPrimaryClipChanged_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ManagerOnPrimaryClipChangedListenerServiceServer is the server API for ManagerOnPrimaryClipChangedListenerService service.
-// All implementations must embed UnimplementedManagerOnPrimaryClipChangedListenerServiceServer
-// for forward compatibility.
-type ManagerOnPrimaryClipChangedListenerServiceServer interface {
-	OnPrimaryClipChanged(context.Context, *OnPrimaryClipChangedRequest) (*OnPrimaryClipChangedResponse, error)
-	mustEmbedUnimplementedManagerOnPrimaryClipChangedListenerServiceServer()
-}
-
-// UnimplementedManagerOnPrimaryClipChangedListenerServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedManagerOnPrimaryClipChangedListenerServiceServer struct{}
-
-func (UnimplementedManagerOnPrimaryClipChangedListenerServiceServer) OnPrimaryClipChanged(context.Context, *OnPrimaryClipChangedRequest) (*OnPrimaryClipChangedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnPrimaryClipChanged not implemented")
-}
-func (UnimplementedManagerOnPrimaryClipChangedListenerServiceServer) mustEmbedUnimplementedManagerOnPrimaryClipChangedListenerServiceServer() {
-}
-func (UnimplementedManagerOnPrimaryClipChangedListenerServiceServer) testEmbeddedByValue() {}
-
-// UnsafeManagerOnPrimaryClipChangedListenerServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ManagerOnPrimaryClipChangedListenerServiceServer will
-// result in compilation errors.
-type UnsafeManagerOnPrimaryClipChangedListenerServiceServer interface {
-	mustEmbedUnimplementedManagerOnPrimaryClipChangedListenerServiceServer()
-}
-
-func RegisterManagerOnPrimaryClipChangedListenerServiceServer(s grpc.ServiceRegistrar, srv ManagerOnPrimaryClipChangedListenerServiceServer) {
-	// If the following call panics, it indicates UnimplementedManagerOnPrimaryClipChangedListenerServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ManagerOnPrimaryClipChangedListenerService_ServiceDesc, srv)
-}
-
-func _ManagerOnPrimaryClipChangedListenerService_OnPrimaryClipChanged_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnPrimaryClipChangedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ManagerOnPrimaryClipChangedListenerServiceServer).OnPrimaryClipChanged(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ManagerOnPrimaryClipChangedListenerService_OnPrimaryClipChanged_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ManagerOnPrimaryClipChangedListenerServiceServer).OnPrimaryClipChanged(ctx, req.(*OnPrimaryClipChangedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ManagerOnPrimaryClipChangedListenerService_ServiceDesc is the grpc.ServiceDesc for ManagerOnPrimaryClipChangedListenerService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ManagerOnPrimaryClipChangedListenerService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "clipboard.ManagerOnPrimaryClipChangedListenerService",
-	HandlerType: (*ManagerOnPrimaryClipChangedListenerServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnPrimaryClipChanged",
-			Handler:    _ManagerOnPrimaryClipChangedListenerService_OnPrimaryClipChanged_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

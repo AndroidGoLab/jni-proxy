@@ -295,6 +295,94 @@ func (x *GetAutofillIdResponse) GetResult() int64 {
 	return 0
 }
 
+type GetHintsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetHintsRequest) Reset() {
+	*x = GetHintsRequest{}
+	mi := &file_proto_classification_classification_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetHintsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetHintsRequest) ProtoMessage() {}
+
+func (x *GetHintsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_classification_classification_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetHintsRequest.ProtoReflect.Descriptor instead.
+func (*GetHintsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_classification_classification_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *GetHintsRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetHintsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetHintsResponse) Reset() {
+	*x = GetHintsResponse{}
+	mi := &file_proto_classification_classification_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetHintsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetHintsResponse) ProtoMessage() {}
+
+func (x *GetHintsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_classification_classification_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetHintsResponse.ProtoReflect.Descriptor instead.
+func (*GetHintsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_classification_classification_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetHintsResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 type ToStringRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
@@ -304,7 +392,7 @@ type ToStringRequest struct {
 
 func (x *ToStringRequest) Reset() {
 	*x = ToStringRequest{}
-	mi := &file_proto_classification_classification_proto_msgTypes[6]
+	mi := &file_proto_classification_classification_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -316,7 +404,7 @@ func (x *ToStringRequest) String() string {
 func (*ToStringRequest) ProtoMessage() {}
 
 func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_classification_classification_proto_msgTypes[6]
+	mi := &file_proto_classification_classification_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -329,7 +417,7 @@ func (x *ToStringRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringRequest.ProtoReflect.Descriptor instead.
 func (*ToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_classification_classification_proto_rawDescGZIP(), []int{6}
+	return file_proto_classification_classification_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *ToStringRequest) GetHandle() int64 {
@@ -348,7 +436,7 @@ type ToStringResponse struct {
 
 func (x *ToStringResponse) Reset() {
 	*x = ToStringResponse{}
-	mi := &file_proto_classification_classification_proto_msgTypes[7]
+	mi := &file_proto_classification_classification_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -360,7 +448,7 @@ func (x *ToStringResponse) String() string {
 func (*ToStringResponse) ProtoMessage() {}
 
 func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_classification_classification_proto_msgTypes[7]
+	mi := &file_proto_classification_classification_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -373,7 +461,7 @@ func (x *ToStringResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ToStringResponse.ProtoReflect.Descriptor instead.
 func (*ToStringResponse) Descriptor() ([]byte, []int) {
-	return file_proto_classification_classification_proto_rawDescGZIP(), []int{7}
+	return file_proto_classification_classification_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *ToStringResponse) GetResult() string {
@@ -394,7 +482,7 @@ type WriteToParcelRequest struct {
 
 func (x *WriteToParcelRequest) Reset() {
 	*x = WriteToParcelRequest{}
-	mi := &file_proto_classification_classification_proto_msgTypes[8]
+	mi := &file_proto_classification_classification_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -406,7 +494,7 @@ func (x *WriteToParcelRequest) String() string {
 func (*WriteToParcelRequest) ProtoMessage() {}
 
 func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_classification_classification_proto_msgTypes[8]
+	mi := &file_proto_classification_classification_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -419,7 +507,7 @@ func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
 func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_classification_classification_proto_rawDescGZIP(), []int{8}
+	return file_proto_classification_classification_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *WriteToParcelRequest) GetHandle() int64 {
@@ -451,7 +539,7 @@ type WriteToParcelResponse struct {
 
 func (x *WriteToParcelResponse) Reset() {
 	*x = WriteToParcelResponse{}
-	mi := &file_proto_classification_classification_proto_msgTypes[9]
+	mi := &file_proto_classification_classification_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -463,7 +551,7 @@ func (x *WriteToParcelResponse) String() string {
 func (*WriteToParcelResponse) ProtoMessage() {}
 
 func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_classification_classification_proto_msgTypes[9]
+	mi := &file_proto_classification_classification_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -476,7 +564,7 @@ func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
 func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_classification_classification_proto_rawDescGZIP(), []int{9}
+	return file_proto_classification_classification_proto_rawDescGZIP(), []int{11}
 }
 
 var File_proto_classification_classification_proto protoreflect.FileDescriptor
@@ -497,6 +585,10 @@ const file_proto_classification_classification_proto_rawDesc = "" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"/\n" +
 	"\x15GetAutofillIdResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
+	"\x0fGetHintsRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
+	"\x10GetHintsResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\")\n" +
 	"\x0fToStringRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"*\n" +
 	"\x10ToStringResponse\x12\x16\n" +
@@ -505,11 +597,12 @@ const file_proto_classification_classification_proto_rawDesc = "" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
 	"\x04arg0\x18\x02 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x03 \x01(\x05R\x04arg1\"\x17\n" +
-	"\x15WriteToParcelResponse2\x87\x04\n" +
+	"\x15WriteToParcelResponse2\xd6\x04\n" +
 	"\x1aFieldClassificationService\x12w\n" +
 	"\x16NewFieldClassification\x12-.classification.NewFieldClassificationRequest\x1a..classification.NewFieldClassificationResponse\x12e\n" +
 	"\x10DescribeContents\x12'.classification.DescribeContentsRequest\x1a(.classification.DescribeContentsResponse\x12\\\n" +
 	"\rGetAutofillId\x12$.classification.GetAutofillIdRequest\x1a%.classification.GetAutofillIdResponse\x12M\n" +
+	"\bGetHints\x12\x1f.classification.GetHintsRequest\x1a .classification.GetHintsResponse\x12M\n" +
 	"\bToString\x12\x1f.classification.ToStringRequest\x1a .classification.ToStringResponse\x12\\\n" +
 	"\rWriteToParcel\x12$.classification.WriteToParcelRequest\x1a%.classification.WriteToParcelResponseB8Z6github.com/AndroidGoLab/jni-proxy/proto/classificationb\x06proto3"
 
@@ -525,7 +618,7 @@ func file_proto_classification_classification_proto_rawDescGZIP() []byte {
 	return file_proto_classification_classification_proto_rawDescData
 }
 
-var file_proto_classification_classification_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
+var file_proto_classification_classification_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
 var file_proto_classification_classification_proto_goTypes = []any{
 	(*NewFieldClassificationRequest)(nil),  // 0: classification.NewFieldClassificationRequest
 	(*NewFieldClassificationResponse)(nil), // 1: classification.NewFieldClassificationResponse
@@ -533,27 +626,31 @@ var file_proto_classification_classification_proto_goTypes = []any{
 	(*DescribeContentsResponse)(nil),       // 3: classification.DescribeContentsResponse
 	(*GetAutofillIdRequest)(nil),           // 4: classification.GetAutofillIdRequest
 	(*GetAutofillIdResponse)(nil),          // 5: classification.GetAutofillIdResponse
-	(*ToStringRequest)(nil),                // 6: classification.ToStringRequest
-	(*ToStringResponse)(nil),               // 7: classification.ToStringResponse
-	(*WriteToParcelRequest)(nil),           // 8: classification.WriteToParcelRequest
-	(*WriteToParcelResponse)(nil),          // 9: classification.WriteToParcelResponse
+	(*GetHintsRequest)(nil),                // 6: classification.GetHintsRequest
+	(*GetHintsResponse)(nil),               // 7: classification.GetHintsResponse
+	(*ToStringRequest)(nil),                // 8: classification.ToStringRequest
+	(*ToStringResponse)(nil),               // 9: classification.ToStringResponse
+	(*WriteToParcelRequest)(nil),           // 10: classification.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),          // 11: classification.WriteToParcelResponse
 }
 var file_proto_classification_classification_proto_depIdxs = []int32{
-	0, // 0: classification.FieldClassificationService.NewFieldClassification:input_type -> classification.NewFieldClassificationRequest
-	2, // 1: classification.FieldClassificationService.DescribeContents:input_type -> classification.DescribeContentsRequest
-	4, // 2: classification.FieldClassificationService.GetAutofillId:input_type -> classification.GetAutofillIdRequest
-	6, // 3: classification.FieldClassificationService.ToString:input_type -> classification.ToStringRequest
-	8, // 4: classification.FieldClassificationService.WriteToParcel:input_type -> classification.WriteToParcelRequest
-	1, // 5: classification.FieldClassificationService.NewFieldClassification:output_type -> classification.NewFieldClassificationResponse
-	3, // 6: classification.FieldClassificationService.DescribeContents:output_type -> classification.DescribeContentsResponse
-	5, // 7: classification.FieldClassificationService.GetAutofillId:output_type -> classification.GetAutofillIdResponse
-	7, // 8: classification.FieldClassificationService.ToString:output_type -> classification.ToStringResponse
-	9, // 9: classification.FieldClassificationService.WriteToParcel:output_type -> classification.WriteToParcelResponse
-	5, // [5:10] is the sub-list for method output_type
-	0, // [0:5] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: classification.FieldClassificationService.NewFieldClassification:input_type -> classification.NewFieldClassificationRequest
+	2,  // 1: classification.FieldClassificationService.DescribeContents:input_type -> classification.DescribeContentsRequest
+	4,  // 2: classification.FieldClassificationService.GetAutofillId:input_type -> classification.GetAutofillIdRequest
+	6,  // 3: classification.FieldClassificationService.GetHints:input_type -> classification.GetHintsRequest
+	8,  // 4: classification.FieldClassificationService.ToString:input_type -> classification.ToStringRequest
+	10, // 5: classification.FieldClassificationService.WriteToParcel:input_type -> classification.WriteToParcelRequest
+	1,  // 6: classification.FieldClassificationService.NewFieldClassification:output_type -> classification.NewFieldClassificationResponse
+	3,  // 7: classification.FieldClassificationService.DescribeContents:output_type -> classification.DescribeContentsResponse
+	5,  // 8: classification.FieldClassificationService.GetAutofillId:output_type -> classification.GetAutofillIdResponse
+	7,  // 9: classification.FieldClassificationService.GetHints:output_type -> classification.GetHintsResponse
+	9,  // 10: classification.FieldClassificationService.ToString:output_type -> classification.ToStringResponse
+	11, // 11: classification.FieldClassificationService.WriteToParcel:output_type -> classification.WriteToParcelResponse
+	6,  // [6:12] is the sub-list for method output_type
+	0,  // [0:6] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_proto_classification_classification_proto_init() }
@@ -567,7 +664,7 @@ func file_proto_classification_classification_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_classification_classification_proto_rawDesc), len(file_proto_classification_classification_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   10,
+			NumMessages:   12,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

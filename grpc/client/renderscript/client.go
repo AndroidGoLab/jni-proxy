@@ -9,141 +9,221 @@ import (
 	"google.golang.org/grpc"
 )
 
-// ScriptGroupClient wraps the gRPC ScriptGroupService client.
-type ScriptGroupClient struct {
-	svc pb.ScriptGroupServiceClient
+// ScriptIntrinsic3DLUTClient wraps the gRPC ScriptIntrinsic3DLUTService client.
+type ScriptIntrinsic3DLUTClient struct {
+	svc pb.ScriptIntrinsic3DLUTServiceClient
 }
 
-// NewScriptGroupClient creates a new ScriptGroup client.
-func NewScriptGroupClient(cc grpc.ClientConnInterface) *ScriptGroupClient {
-	return &ScriptGroupClient{
-		svc: pb.NewScriptGroupServiceClient(cc),
+// NewScriptIntrinsic3DLUTClient creates a new ScriptIntrinsic3DLUT client.
+func NewScriptIntrinsic3DLUTClient(cc grpc.ClientConnInterface) *ScriptIntrinsic3DLUTClient {
+	return &ScriptIntrinsic3DLUTClient{
+		svc: pb.NewScriptIntrinsic3DLUTServiceClient(cc),
 	}
 }
 
-// Destroy calls the Destroy RPC.
-func (c *ScriptGroupClient) Destroy(ctx context.Context) error {
-	_, err := c.svc.Destroy(ctx, &pb.DestroyRequest{})
-	return err
-}
-
-// Execute0 calls the Execute0 RPC.
-func (c *ScriptGroupClient) Execute0(ctx context.Context) error {
-	_, err := c.svc.Execute0(ctx, &pb.Execute0Request{})
-	return err
-}
-
-// Execute1_1 calls the Execute1_1 RPC.
-func (c *ScriptGroupClient) Execute1_1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.Execute1_1(ctx, &pb.Execute1_1Request{
+// ForEach2 calls the ForEach2 RPC.
+func (c *ScriptIntrinsic3DLUTClient) ForEach2(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.ForEach2(ctx, &pb.ForEach2Request{
 		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ForEach3_1 calls the ForEach3_1 RPC.
+func (c *ScriptIntrinsic3DLUTClient) ForEach3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.ForEach3_1(ctx, &pb.ForEach3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GetKernelID calls the GetKernelID RPC.
+func (c *ScriptIntrinsic3DLUTClient) GetKernelID(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetKernelID(ctx, &pb.GetKernelIDRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetLUT calls the SetLUT RPC.
+func (c *ScriptIntrinsic3DLUTClient) SetLUT(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetLUT(ctx, &pb.SetLUTRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Create calls the Create RPC.
+func (c *ScriptIntrinsic3DLUTClient) Create(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.Create(ctx, &pb.CreateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
 	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
+}
+
+// AllocationAdapterClient wraps the gRPC AllocationAdapterService client.
+type AllocationAdapterClient struct {
+	svc pb.AllocationAdapterServiceClient
+}
+
+// NewAllocationAdapterClient creates a new AllocationAdapter client.
+func NewAllocationAdapterClient(cc grpc.ClientConnInterface) *AllocationAdapterClient {
+	return &AllocationAdapterClient{
+		svc: pb.NewAllocationAdapterServiceClient(cc),
+	}
+}
+
+// SetFace calls the SetFace RPC.
+func (c *AllocationAdapterClient) SetFace(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetFace(ctx, &pb.SetFaceRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetLOD calls the SetLOD RPC.
+func (c *AllocationAdapterClient) SetLOD(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetLOD(ctx, &pb.SetLODRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetX calls the SetX RPC.
+func (c *AllocationAdapterClient) SetX(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetX(ctx, &pb.SetXRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetY calls the SetY RPC.
+func (c *AllocationAdapterClient) SetY(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetY(ctx, &pb.SetYRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetZ calls the SetZ RPC.
+func (c *AllocationAdapterClient) SetZ(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SetZ(ctx, &pb.SetZRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Create1D calls the Create1D RPC.
+func (c *AllocationAdapterClient) Create1D(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.Create1D(ctx, &pb.Create1DRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Create2D calls the Create2D RPC.
+func (c *AllocationAdapterClient) Create2D(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.Create2D(ctx, &pb.Create2DRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateTyped calls the CreateTyped RPC.
+func (c *AllocationAdapterClient) CreateTyped(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.CreateTyped(ctx, &pb.CreateTypedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ScriptIntrinsicConvolve5x5Client wraps the gRPC ScriptIntrinsicConvolve5X5Service client.
+type ScriptIntrinsicConvolve5x5Client struct {
+	svc pb.ScriptIntrinsicConvolve5X5ServiceClient
+}
+
+// NewScriptIntrinsicConvolve5x5Client creates a new ScriptIntrinsicConvolve5x5 client.
+func NewScriptIntrinsicConvolve5x5Client(cc grpc.ClientConnInterface) *ScriptIntrinsicConvolve5x5Client {
+	return &ScriptIntrinsicConvolve5x5Client{
+		svc: pb.NewScriptIntrinsicConvolve5X5ServiceClient(cc),
+	}
+}
+
+// ForEach1 calls the ForEach1 RPC.
+func (c *ScriptIntrinsicConvolve5x5Client) ForEach1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.ForEach1(ctx, &pb.ForEach1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ForEach2_1 calls the ForEach2_1 RPC.
+func (c *ScriptIntrinsicConvolve5x5Client) ForEach2_1(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.ForEach2_1(ctx, &pb.ForEach2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GetFieldID_Input calls the GetFieldID_Input RPC.
+func (c *ScriptIntrinsicConvolve5x5Client) GetFieldID_Input(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFieldID_Input(ctx, &pb.GetFieldID_InputRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetKernelID calls the GetKernelID RPC.
+func (c *ScriptIntrinsicConvolve5x5Client) GetKernelID(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetKernelID(ctx, &pb.GetKernelIDRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetCoefficients calls the SetCoefficients RPC.
+func (c *ScriptIntrinsicConvolve5x5Client) SetCoefficients(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetCoefficients(ctx, &pb.SetCoefficientsRequest{
+		Arg0: arg0,
+	})
+	return err
 }
 
 // SetInput calls the SetInput RPC.
-func (c *ScriptGroupClient) SetInput(ctx context.Context, arg0 int64, arg1 int64) error {
+func (c *ScriptIntrinsicConvolve5x5Client) SetInput(ctx context.Context, arg0 int64) error {
 	_, err := c.svc.SetInput(ctx, &pb.SetInputRequest{
 		Arg0: arg0,
-		Arg1: arg1,
 	})
 	return err
-}
-
-// SetOutput calls the SetOutput RPC.
-func (c *ScriptGroupClient) SetOutput(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.SetOutput(ctx, &pb.SetOutputRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ScriptGroupBuilderClient wraps the gRPC ScriptGroupBuilderService client.
-type ScriptGroupBuilderClient struct {
-	svc pb.ScriptGroupBuilderServiceClient
-}
-
-// NewScriptGroupBuilderClient creates a new ScriptGroupBuilder client.
-func NewScriptGroupBuilderClient(cc grpc.ClientConnInterface) *ScriptGroupBuilderClient {
-	return &ScriptGroupBuilderClient{
-		svc: pb.NewScriptGroupBuilderServiceClient(cc),
-	}
-}
-
-// AddConnection3 calls the AddConnection3 RPC.
-func (c *ScriptGroupBuilderClient) AddConnection3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.AddConnection3(ctx, &pb.AddConnection3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddConnection3_1 calls the AddConnection3_1 RPC.
-func (c *ScriptGroupBuilderClient) AddConnection3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.AddConnection3_1(ctx, &pb.AddConnection3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddKernel calls the AddKernel RPC.
-func (c *ScriptGroupBuilderClient) AddKernel(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.AddKernel(ctx, &pb.AddKernelRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
 }
 
 // Create calls the Create RPC.
-func (c *ScriptGroupBuilderClient) Create(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Create(ctx, &pb.CreateRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ScriptGroupBuilder2Client wraps the gRPC ScriptGroupBuilder2Service client.
-type ScriptGroupBuilder2Client struct {
-	svc pb.ScriptGroupBuilder2ServiceClient
-}
-
-// NewScriptGroupBuilder2Client creates a new ScriptGroupBuilder2 client.
-func NewScriptGroupBuilder2Client(cc grpc.ClientConnInterface) *ScriptGroupBuilder2Client {
-	return &ScriptGroupBuilder2Client{
-		svc: pb.NewScriptGroupBuilder2ServiceClient(cc),
-	}
-}
-
-// AddInput calls the AddInput RPC.
-func (c *ScriptGroupBuilder2Client) AddInput(ctx context.Context) (int64, error) {
-	resp, err := c.svc.AddInput(ctx, &pb.AddInputRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AddInvoke calls the AddInvoke RPC.
-func (c *ScriptGroupBuilder2Client) AddInvoke(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.AddInvoke(ctx, &pb.AddInvokeRequest{
+func (c *ScriptIntrinsicConvolve5x5Client) Create(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.Create(ctx, &pb.CreateRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -153,52 +233,102 @@ func (c *ScriptGroupBuilder2Client) AddInvoke(ctx context.Context, arg0 int64, a
 	return resp.GetResult(), nil
 }
 
-// AddKernel calls the AddKernel RPC.
-func (c *ScriptGroupBuilder2Client) AddKernel(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.AddKernel(ctx, &pb.ScriptGroupBuilder2AddKernelRequest{
+// ScriptIntrinsicColorMatrixClient wraps the gRPC ScriptIntrinsicColorMatrixService client.
+type ScriptIntrinsicColorMatrixClient struct {
+	svc pb.ScriptIntrinsicColorMatrixServiceClient
+}
+
+// NewScriptIntrinsicColorMatrixClient creates a new ScriptIntrinsicColorMatrix client.
+func NewScriptIntrinsicColorMatrixClient(cc grpc.ClientConnInterface) *ScriptIntrinsicColorMatrixClient {
+	return &ScriptIntrinsicColorMatrixClient{
+		svc: pb.NewScriptIntrinsicColorMatrixServiceClient(cc),
+	}
+}
+
+// ForEach2 calls the ForEach2 RPC.
+func (c *ScriptIntrinsicColorMatrixClient) ForEach2(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.ForEach2(ctx, &pb.ForEach2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ForEach3_1 calls the ForEach3_1 RPC.
+func (c *ScriptIntrinsicColorMatrixClient) ForEach3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.ForEach3_1(ctx, &pb.ForEach3_1Request{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
 	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Create calls the Create RPC.
-func (c *ScriptGroupBuilder2Client) Create(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
-	resp, err := c.svc.Create(ctx, &pb.ScriptGroupBuilder2CreateRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ScriptGroupClosureClient wraps the gRPC ScriptGroupClosureService client.
-type ScriptGroupClosureClient struct {
-	svc pb.ScriptGroupClosureServiceClient
-}
-
-// NewScriptGroupClosureClient creates a new ScriptGroupClosure client.
-func NewScriptGroupClosureClient(cc grpc.ClientConnInterface) *ScriptGroupClosureClient {
-	return &ScriptGroupClosureClient{
-		svc: pb.NewScriptGroupClosureServiceClient(cc),
-	}
-}
-
-// Destroy calls the Destroy RPC.
-func (c *ScriptGroupClosureClient) Destroy(ctx context.Context) error {
-	_, err := c.svc.Destroy(ctx, &pb.DestroyRequest{})
 	return err
 }
 
-// GetGlobal calls the GetGlobal RPC.
-func (c *ScriptGroupClosureClient) GetGlobal(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetGlobal(ctx, &pb.GetGlobalRequest{
+// GetKernelID calls the GetKernelID RPC.
+func (c *ScriptIntrinsicColorMatrixClient) GetKernelID(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetKernelID(ctx, &pb.GetKernelIDRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAdd1 calls the SetAdd1 RPC.
+func (c *ScriptIntrinsicColorMatrixClient) SetAdd1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetAdd1(ctx, &pb.SetAdd1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetAdd4_1 calls the SetAdd4_1 RPC.
+func (c *ScriptIntrinsicColorMatrixClient) SetAdd4_1(ctx context.Context, arg0 float32, arg1 float32, arg2 float32, arg3 float32) error {
+	_, err := c.svc.SetAdd4_1(ctx, &pb.SetAdd4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// SetColorMatrix1 calls the SetColorMatrix1 RPC.
+func (c *ScriptIntrinsicColorMatrixClient) SetColorMatrix1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetColorMatrix1(ctx, &pb.SetColorMatrix1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetColorMatrix1_1 calls the SetColorMatrix1_1 RPC.
+func (c *ScriptIntrinsicColorMatrixClient) SetColorMatrix1_1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetColorMatrix1_1(ctx, &pb.SetColorMatrix1_1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetGreyscale calls the SetGreyscale RPC.
+func (c *ScriptIntrinsicColorMatrixClient) SetGreyscale(ctx context.Context) error {
+	_, err := c.svc.SetGreyscale(ctx, &pb.SetGreyscaleRequest{})
+	return err
+}
+
+// SetRGBtoYUV calls the SetRGBtoYUV RPC.
+func (c *ScriptIntrinsicColorMatrixClient) SetRGBtoYUV(ctx context.Context) error {
+	_, err := c.svc.SetRGBtoYUV(ctx, &pb.SetRGBtoYUVRequest{})
+	return err
+}
+
+// SetYUVtoRGB calls the SetYUVtoRGB RPC.
+func (c *ScriptIntrinsicColorMatrixClient) SetYUVtoRGB(ctx context.Context) error {
+	_, err := c.svc.SetYUVtoRGB(ctx, &pb.SetYUVtoRGBRequest{})
+	return err
+}
+
+// Create1 calls the Create1 RPC.
+func (c *ScriptIntrinsicColorMatrixClient) Create1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Create1(ctx, &pb.Create1Request{
 		Arg0: arg0,
 	})
 	if err != nil {
@@ -207,9 +337,12 @@ func (c *ScriptGroupClosureClient) GetGlobal(ctx context.Context, arg0 int64) (i
 	return resp.GetResult(), nil
 }
 
-// GetReturn calls the GetReturn RPC.
-func (c *ScriptGroupClosureClient) GetReturn(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetReturn(ctx, &pb.GetReturnRequest{})
+// Create2_1 calls the Create2_1 RPC.
+func (c *ScriptIntrinsicColorMatrixClient) Create2_1(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.Create2_1(ctx, &pb.Create2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
 	if err != nil {
 		return 0, err
 	}
@@ -386,7 +519,7 @@ func NewSamplerBuilderClient(cc grpc.ClientConnInterface) *SamplerBuilderClient 
 
 // Create calls the Create RPC.
 func (c *SamplerBuilderClient) Create(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Create(ctx, &pb.CreateRequest{})
+	resp, err := c.svc.Create(ctx, &pb.SamplerBuilderCreateRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -542,7 +675,7 @@ func (c *ScriptIntrinsicHistogramClient) SetDotCoefficients(ctx context.Context,
 
 // SetOutput calls the SetOutput RPC.
 func (c *ScriptIntrinsicHistogramClient) SetOutput(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetOutput(ctx, &pb.ScriptIntrinsicHistogramSetOutputRequest{
+	_, err := c.svc.SetOutput(ctx, &pb.SetOutputRequest{
 		Arg0: arg0,
 	})
 	return err
@@ -550,7 +683,7 @@ func (c *ScriptIntrinsicHistogramClient) SetOutput(ctx context.Context, arg0 int
 
 // Create calls the Create RPC.
 func (c *ScriptIntrinsicHistogramClient) Create(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.Create(ctx, &pb.ScriptIntrinsicHistogramCreateRequest{
+	resp, err := c.svc.Create(ctx, &pb.CreateRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -560,28 +693,232 @@ func (c *ScriptIntrinsicHistogramClient) Create(ctx context.Context, arg0 int64,
 	return resp.GetResult(), nil
 }
 
-// ScriptIntrinsicYuvToRGBClient wraps the gRPC ScriptIntrinsicYuvToRGBService client.
-type ScriptIntrinsicYuvToRGBClient struct {
-	svc pb.ScriptIntrinsicYuvToRGBServiceClient
+// Matrix3fClient wraps the gRPC Matrix3FService client.
+type Matrix3fClient struct {
+	svc pb.Matrix3FServiceClient
 }
 
-// NewScriptIntrinsicYuvToRGBClient creates a new ScriptIntrinsicYuvToRGB client.
-func NewScriptIntrinsicYuvToRGBClient(cc grpc.ClientConnInterface) *ScriptIntrinsicYuvToRGBClient {
-	return &ScriptIntrinsicYuvToRGBClient{
-		svc: pb.NewScriptIntrinsicYuvToRGBServiceClient(cc),
+// NewMatrix3fClient creates a new Matrix3f client.
+func NewMatrix3fClient(cc grpc.ClientConnInterface) *Matrix3fClient {
+	return &Matrix3fClient{
+		svc: pb.NewMatrix3FServiceClient(cc),
 	}
 }
 
-// ForEach calls the ForEach RPC.
-func (c *ScriptIntrinsicYuvToRGBClient) ForEach(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.ForEach(ctx, &pb.ForEachRequest{
+// Get calls the Get RPC.
+func (c *Matrix3fClient) Get(ctx context.Context, handle int64, arg0 int32, arg1 int32) (float32, error) {
+	resp, err := c.svc.Get(ctx, &pb.GetRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetArray calls the GetArray RPC.
+func (c *Matrix3fClient) GetArray(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetArray(ctx, &pb.GetArrayRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Load calls the Load RPC.
+func (c *Matrix3fClient) Load(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.Load(ctx, &pb.LoadRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// LoadIdentity calls the LoadIdentity RPC.
+func (c *Matrix3fClient) LoadIdentity(ctx context.Context, handle int64) error {
+	_, err := c.svc.LoadIdentity(ctx, &pb.LoadIdentityRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// LoadMultiply calls the LoadMultiply RPC.
+func (c *Matrix3fClient) LoadMultiply(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.LoadMultiply(ctx, &pb.LoadMultiplyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// LoadRotate1 calls the LoadRotate1 RPC.
+func (c *Matrix3fClient) LoadRotate1(ctx context.Context, handle int64, arg0 float32) error {
+	_, err := c.svc.LoadRotate1(ctx, &pb.LoadRotate1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// LoadRotate4_1 calls the LoadRotate4_1 RPC.
+func (c *Matrix3fClient) LoadRotate4_1(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32) error {
+	_, err := c.svc.LoadRotate4_1(ctx, &pb.LoadRotate4_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// LoadScale2 calls the LoadScale2 RPC.
+func (c *Matrix3fClient) LoadScale2(ctx context.Context, handle int64, arg0 float32, arg1 float32) error {
+	_, err := c.svc.LoadScale2(ctx, &pb.LoadScale2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// LoadScale3_1 calls the LoadScale3_1 RPC.
+func (c *Matrix3fClient) LoadScale3_1(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32) error {
+	_, err := c.svc.LoadScale3_1(ctx, &pb.LoadScale3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// LoadTranslate calls the LoadTranslate RPC.
+func (c *Matrix3fClient) LoadTranslate(ctx context.Context, handle int64, arg0 float32, arg1 float32) error {
+	_, err := c.svc.LoadTranslate(ctx, &pb.LoadTranslateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// Multiply calls the Multiply RPC.
+func (c *Matrix3fClient) Multiply(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.Multiply(ctx, &pb.MultiplyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Rotate1 calls the Rotate1 RPC.
+func (c *Matrix3fClient) Rotate1(ctx context.Context, handle int64, arg0 float32) error {
+	_, err := c.svc.Rotate1(ctx, &pb.Rotate1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Rotate4_1 calls the Rotate4_1 RPC.
+func (c *Matrix3fClient) Rotate4_1(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32) error {
+	_, err := c.svc.Rotate4_1(ctx, &pb.Rotate4_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// Scale2 calls the Scale2 RPC.
+func (c *Matrix3fClient) Scale2(ctx context.Context, handle int64, arg0 float32, arg1 float32) error {
+	_, err := c.svc.Scale2(ctx, &pb.Scale2Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// Scale3_1 calls the Scale3_1 RPC.
+func (c *Matrix3fClient) Scale3_1(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32) error {
+	_, err := c.svc.Scale3_1(ctx, &pb.Scale3_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// Set calls the Set RPC.
+func (c *Matrix3fClient) Set(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 float32) error {
+	_, err := c.svc.Set(ctx, &pb.SetRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// Translate calls the Translate RPC.
+func (c *Matrix3fClient) Translate(ctx context.Context, handle int64, arg0 float32, arg1 float32) error {
+	_, err := c.svc.Translate(ctx, &pb.TranslateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// Transpose calls the Transpose RPC.
+func (c *Matrix3fClient) Transpose(ctx context.Context, handle int64) error {
+	_, err := c.svc.Transpose(ctx, &pb.TransposeRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// ScriptIntrinsicResizeClient wraps the gRPC ScriptIntrinsicResizeService client.
+type ScriptIntrinsicResizeClient struct {
+	svc pb.ScriptIntrinsicResizeServiceClient
+}
+
+// NewScriptIntrinsicResizeClient creates a new ScriptIntrinsicResize client.
+func NewScriptIntrinsicResizeClient(cc grpc.ClientConnInterface) *ScriptIntrinsicResizeClient {
+	return &ScriptIntrinsicResizeClient{
+		svc: pb.NewScriptIntrinsicResizeServiceClient(cc),
+	}
+}
+
+// ForEachBicubic1 calls the ForEachBicubic1 RPC.
+func (c *ScriptIntrinsicResizeClient) ForEachBicubic1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.ForEachBicubic1(ctx, &pb.ForEachBicubic1Request{
 		Arg0: arg0,
 	})
 	return err
 }
 
+// ForEachBicubic2_1 calls the ForEachBicubic2_1 RPC.
+func (c *ScriptIntrinsicResizeClient) ForEachBicubic2_1(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.ForEachBicubic2_1(ctx, &pb.ForEachBicubic2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
 // GetFieldID_Input calls the GetFieldID_Input RPC.
-func (c *ScriptIntrinsicYuvToRGBClient) GetFieldID_Input(ctx context.Context) (int64, error) {
+func (c *ScriptIntrinsicResizeClient) GetFieldID_Input(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetFieldID_Input(ctx, &pb.GetFieldID_InputRequest{})
 	if err != nil {
 		return 0, err
@@ -589,9 +926,9 @@ func (c *ScriptIntrinsicYuvToRGBClient) GetFieldID_Input(ctx context.Context) (i
 	return resp.GetResult(), nil
 }
 
-// GetKernelID calls the GetKernelID RPC.
-func (c *ScriptIntrinsicYuvToRGBClient) GetKernelID(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetKernelID(ctx, &pb.GetKernelIDRequest{})
+// GetKernelIDBicubic calls the GetKernelIDBicubic RPC.
+func (c *ScriptIntrinsicResizeClient) GetKernelIDBicubic(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetKernelIDBicubic(ctx, &pb.GetKernelIDBicubicRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -599,18 +936,17 @@ func (c *ScriptIntrinsicYuvToRGBClient) GetKernelID(ctx context.Context) (int64,
 }
 
 // SetInput calls the SetInput RPC.
-func (c *ScriptIntrinsicYuvToRGBClient) SetInput(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetInput(ctx, &pb.ScriptIntrinsicYuvToRGBSetInputRequest{
+func (c *ScriptIntrinsicResizeClient) SetInput(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetInput(ctx, &pb.SetInputRequest{
 		Arg0: arg0,
 	})
 	return err
 }
 
 // Create calls the Create RPC.
-func (c *ScriptIntrinsicYuvToRGBClient) Create(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.Create(ctx, &pb.ScriptIntrinsicYuvToRGBCreateRequest{
+func (c *ScriptIntrinsicResizeClient) Create(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Create(ctx, &pb.ScriptIntrinsicResizeCreateRequest{
 		Arg0: arg0,
-		Arg1: arg1,
 	})
 	if err != nil {
 		return 0, err
@@ -618,93 +954,324 @@ func (c *ScriptIntrinsicYuvToRGBClient) Create(ctx context.Context, arg0 int64, 
 	return resp.GetResult(), nil
 }
 
-// ScriptIntrinsicLUTClient wraps the gRPC ScriptIntrinsicLUTService client.
-type ScriptIntrinsicLUTClient struct {
-	svc pb.ScriptIntrinsicLUTServiceClient
+// TypeClient wraps the gRPC TypeService client.
+type TypeClient struct {
+	svc pb.TypeServiceClient
 }
 
-// NewScriptIntrinsicLUTClient creates a new ScriptIntrinsicLUT client.
-func NewScriptIntrinsicLUTClient(cc grpc.ClientConnInterface) *ScriptIntrinsicLUTClient {
-	return &ScriptIntrinsicLUTClient{
-		svc: pb.NewScriptIntrinsicLUTServiceClient(cc),
+// NewTypeClient creates a new Type client.
+func NewTypeClient(cc grpc.ClientConnInterface) *TypeClient {
+	return &TypeClient{
+		svc: pb.NewTypeServiceClient(cc),
+	}
+}
+
+// GetCount calls the GetCount RPC.
+func (c *TypeClient) GetCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetCount(ctx, &pb.GetCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetElement calls the GetElement RPC.
+func (c *TypeClient) GetElement(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetElement(ctx, &pb.GetElementRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetX calls the GetX RPC.
+func (c *TypeClient) GetX(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetX(ctx, &pb.GetXRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetY calls the GetY RPC.
+func (c *TypeClient) GetY(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetY(ctx, &pb.GetYRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetYuv calls the GetYuv RPC.
+func (c *TypeClient) GetYuv(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetYuv(ctx, &pb.GetYuvRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetZ calls the GetZ RPC.
+func (c *TypeClient) GetZ(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetZ(ctx, &pb.GetZRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasFaces calls the HasFaces RPC.
+func (c *TypeClient) HasFaces(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasFaces(ctx, &pb.HasFacesRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HasMipmaps calls the HasMipmaps RPC.
+func (c *TypeClient) HasMipmaps(ctx context.Context) (bool, error) {
+	resp, err := c.svc.HasMipmaps(ctx, &pb.HasMipmapsRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateX calls the CreateX RPC.
+func (c *TypeClient) CreateX(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) (int64, error) {
+	resp, err := c.svc.CreateX(ctx, &pb.CreateXRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateXY calls the CreateXY RPC.
+func (c *TypeClient) CreateXY(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int32) (int64, error) {
+	resp, err := c.svc.CreateXY(ctx, &pb.CreateXYRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateXYZ calls the CreateXYZ RPC.
+func (c *TypeClient) CreateXYZ(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int32, arg4 int32) (int64, error) {
+	resp, err := c.svc.CreateXYZ(ctx, &pb.CreateXYZRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TypeBuilderClient wraps the gRPC TypeBuilderService client.
+type TypeBuilderClient struct {
+	svc pb.TypeBuilderServiceClient
+}
+
+// NewTypeBuilderClient creates a new TypeBuilder client.
+func NewTypeBuilderClient(cc grpc.ClientConnInterface) *TypeBuilderClient {
+	return &TypeBuilderClient{
+		svc: pb.NewTypeBuilderServiceClient(cc),
+	}
+}
+
+// Create calls the Create RPC.
+func (c *TypeBuilderClient) Create(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Create(ctx, &pb.TypeBuilderCreateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFaces calls the SetFaces RPC.
+func (c *TypeBuilderClient) SetFaces(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetFaces(ctx, &pb.SetFacesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetMipmaps calls the SetMipmaps RPC.
+func (c *TypeBuilderClient) SetMipmaps(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetMipmaps(ctx, &pb.SetMipmapsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetX calls the SetX RPC.
+func (c *TypeBuilderClient) SetX(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetX(ctx, &pb.SetXRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetY calls the SetY RPC.
+func (c *TypeBuilderClient) SetY(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetY(ctx, &pb.SetYRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetYuvFormat calls the SetYuvFormat RPC.
+func (c *TypeBuilderClient) SetYuvFormat(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetYuvFormat(ctx, &pb.SetYuvFormatRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetZ calls the SetZ RPC.
+func (c *TypeBuilderClient) SetZ(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.SetZ(ctx, &pb.SetZRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TypeCubemapFaceClient wraps the gRPC TypeCubemapFaceService client.
+type TypeCubemapFaceClient struct {
+	svc pb.TypeCubemapFaceServiceClient
+}
+
+// NewTypeCubemapFaceClient creates a new TypeCubemapFace client.
+func NewTypeCubemapFaceClient(cc grpc.ClientConnInterface) *TypeCubemapFaceClient {
+	return &TypeCubemapFaceClient{
+		svc: pb.NewTypeCubemapFaceServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *TypeCubemapFaceClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *TypeCubemapFaceClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BaseObjClient wraps the gRPC BaseObjService client.
+type BaseObjClient struct {
+	svc pb.BaseObjServiceClient
+}
+
+// NewBaseObjClient creates a new BaseObj client.
+func NewBaseObjClient(cc grpc.ClientConnInterface) *BaseObjClient {
+	return &BaseObjClient{
+		svc: pb.NewBaseObjServiceClient(cc),
 	}
 }
 
 // Destroy calls the Destroy RPC.
-func (c *ScriptIntrinsicLUTClient) Destroy(ctx context.Context) error {
+func (c *BaseObjClient) Destroy(ctx context.Context) error {
 	_, err := c.svc.Destroy(ctx, &pb.DestroyRequest{})
 	return err
 }
 
-// ForEach2 calls the ForEach2 RPC.
-func (c *ScriptIntrinsicLUTClient) ForEach2(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.ForEach2(ctx, &pb.ForEach2Request{
+// Equals calls the Equals RPC.
+func (c *BaseObjClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
 		Arg0: arg0,
-		Arg1: arg1,
 	})
-	return err
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
 }
 
-// ForEach3_1 calls the ForEach3_1 RPC.
-func (c *ScriptIntrinsicLUTClient) ForEach3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.ForEach3_1(ctx, &pb.ForEach3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
+// GetName calls the GetName RPC.
+func (c *BaseObjClient) GetName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
 }
 
-// GetKernelID calls the GetKernelID RPC.
-func (c *ScriptIntrinsicLUTClient) GetKernelID(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetKernelID(ctx, &pb.GetKernelIDRequest{})
+// HashCode calls the HashCode RPC.
+func (c *BaseObjClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// SetAlpha calls the SetAlpha RPC.
-func (c *ScriptIntrinsicLUTClient) SetAlpha(ctx context.Context, arg0 int32, arg1 int32) error {
-	_, err := c.svc.SetAlpha(ctx, &pb.SetAlphaRequest{
+// SetName calls the SetName RPC.
+func (c *BaseObjClient) SetName(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetName(ctx, &pb.SetNameRequest{
 		Arg0: arg0,
-		Arg1: arg1,
 	})
 	return err
 }
 
-// SetBlue calls the SetBlue RPC.
-func (c *ScriptIntrinsicLUTClient) SetBlue(ctx context.Context, arg0 int32, arg1 int32) error {
-	_, err := c.svc.SetBlue(ctx, &pb.SetBlueRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
+// Matrix4fClient wraps the gRPC Matrix4FService client.
+type Matrix4fClient struct {
+	svc pb.Matrix4FServiceClient
 }
 
-// SetGreen calls the SetGreen RPC.
-func (c *ScriptIntrinsicLUTClient) SetGreen(ctx context.Context, arg0 int32, arg1 int32) error {
-	_, err := c.svc.SetGreen(ctx, &pb.SetGreenRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
+// NewMatrix4fClient creates a new Matrix4f client.
+func NewMatrix4fClient(cc grpc.ClientConnInterface) *Matrix4fClient {
+	return &Matrix4fClient{
+		svc: pb.NewMatrix4FServiceClient(cc),
+	}
 }
 
-// SetRed calls the SetRed RPC.
-func (c *ScriptIntrinsicLUTClient) SetRed(ctx context.Context, arg0 int32, arg1 int32) error {
-	_, err := c.svc.SetRed(ctx, &pb.SetRedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// Create calls the Create RPC.
-func (c *ScriptIntrinsicLUTClient) Create(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.Create(ctx, &pb.ScriptIntrinsicLUTCreateRequest{
-		Arg0: arg0,
-		Arg1: arg1,
+// Get calls the Get RPC.
+func (c *Matrix4fClient) Get(ctx context.Context, handle int64, arg0 int32, arg1 int32) (float32, error) {
+	resp, err := c.svc.Get(ctx, &pb.GetRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
 	})
 	if err != nil {
 		return 0, err
@@ -712,57 +1279,237 @@ func (c *ScriptIntrinsicLUTClient) Create(ctx context.Context, arg0 int64, arg1 
 	return resp.GetResult(), nil
 }
 
-// ScriptIntrinsicColorMatrixClient wraps the gRPC ScriptIntrinsicColorMatrixService client.
-type ScriptIntrinsicColorMatrixClient struct {
-	svc pb.ScriptIntrinsicColorMatrixServiceClient
-}
-
-// NewScriptIntrinsicColorMatrixClient creates a new ScriptIntrinsicColorMatrix client.
-func NewScriptIntrinsicColorMatrixClient(cc grpc.ClientConnInterface) *ScriptIntrinsicColorMatrixClient {
-	return &ScriptIntrinsicColorMatrixClient{
-		svc: pb.NewScriptIntrinsicColorMatrixServiceClient(cc),
-	}
-}
-
-// ForEach2 calls the ForEach2 RPC.
-func (c *ScriptIntrinsicColorMatrixClient) ForEach2(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.ForEach2(ctx, &pb.ForEach2Request{
-		Arg0: arg0,
-		Arg1: arg1,
+// GetArray calls the GetArray RPC.
+func (c *Matrix4fClient) GetArray(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetArray(ctx, &pb.GetArrayRequest{
+		Handle: handle,
 	})
-	return err
-}
-
-// ForEach3_1 calls the ForEach3_1 RPC.
-func (c *ScriptIntrinsicColorMatrixClient) ForEach3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.ForEach3_1(ctx, &pb.ForEach3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// GetKernelID calls the GetKernelID RPC.
-func (c *ScriptIntrinsicColorMatrixClient) GetKernelID(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetKernelID(ctx, &pb.GetKernelIDRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// SetAdd1 calls the SetAdd1 RPC.
-func (c *ScriptIntrinsicColorMatrixClient) SetAdd1(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetAdd1(ctx, &pb.SetAdd1Request{
-		Arg0: arg0,
+// Inverse calls the Inverse RPC.
+func (c *Matrix4fClient) Inverse(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.Inverse(ctx, &pb.InverseRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// InverseTranspose calls the InverseTranspose RPC.
+func (c *Matrix4fClient) InverseTranspose(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.InverseTranspose(ctx, &pb.InverseTransposeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Load calls the Load RPC.
+func (c *Matrix4fClient) Load(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.Load(ctx, &pb.LoadRequest{
+		Handle: handle,
+		Arg0:   arg0,
 	})
 	return err
 }
 
-// SetAdd4_1 calls the SetAdd4_1 RPC.
-func (c *ScriptIntrinsicColorMatrixClient) SetAdd4_1(ctx context.Context, arg0 float32, arg1 float32, arg2 float32, arg3 float32) error {
-	_, err := c.svc.SetAdd4_1(ctx, &pb.SetAdd4_1Request{
+// LoadFrustum calls the LoadFrustum RPC.
+func (c *Matrix4fClient) LoadFrustum(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32, arg4 float32, arg5 float32) error {
+	_, err := c.svc.LoadFrustum(ctx, &pb.LoadFrustumRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	return err
+}
+
+// LoadIdentity calls the LoadIdentity RPC.
+func (c *Matrix4fClient) LoadIdentity(ctx context.Context, handle int64) error {
+	_, err := c.svc.LoadIdentity(ctx, &pb.LoadIdentityRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// LoadMultiply calls the LoadMultiply RPC.
+func (c *Matrix4fClient) LoadMultiply(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.LoadMultiply(ctx, &pb.LoadMultiplyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// LoadOrtho calls the LoadOrtho RPC.
+func (c *Matrix4fClient) LoadOrtho(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32, arg4 float32, arg5 float32) error {
+	_, err := c.svc.LoadOrtho(ctx, &pb.LoadOrthoRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	return err
+}
+
+// LoadOrthoWindow calls the LoadOrthoWindow RPC.
+func (c *Matrix4fClient) LoadOrthoWindow(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.LoadOrthoWindow(ctx, &pb.LoadOrthoWindowRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// LoadPerspective calls the LoadPerspective RPC.
+func (c *Matrix4fClient) LoadPerspective(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32) error {
+	_, err := c.svc.LoadPerspective(ctx, &pb.LoadPerspectiveRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// LoadProjectionNormalized calls the LoadProjectionNormalized RPC.
+func (c *Matrix4fClient) LoadProjectionNormalized(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
+	_, err := c.svc.LoadProjectionNormalized(ctx, &pb.LoadProjectionNormalizedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// LoadRotate calls the LoadRotate RPC.
+func (c *Matrix4fClient) LoadRotate(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32) error {
+	_, err := c.svc.LoadRotate(ctx, &pb.LoadRotateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// LoadScale calls the LoadScale RPC.
+func (c *Matrix4fClient) LoadScale(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32) error {
+	_, err := c.svc.LoadScale(ctx, &pb.LoadScaleRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// LoadTranslate calls the LoadTranslate RPC.
+func (c *Matrix4fClient) LoadTranslate(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32) error {
+	_, err := c.svc.LoadTranslate(ctx, &pb.Matrix4FLoadTranslateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// Multiply calls the Multiply RPC.
+func (c *Matrix4fClient) Multiply(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.Multiply(ctx, &pb.MultiplyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Rotate calls the Rotate RPC.
+func (c *Matrix4fClient) Rotate(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32) error {
+	_, err := c.svc.Rotate(ctx, &pb.RotateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+	})
+	return err
+}
+
+// Scale calls the Scale RPC.
+func (c *Matrix4fClient) Scale(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32) error {
+	_, err := c.svc.Scale(ctx, &pb.ScaleRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// Set calls the Set RPC.
+func (c *Matrix4fClient) Set(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 float32) error {
+	_, err := c.svc.Set(ctx, &pb.SetRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// Translate calls the Translate RPC.
+func (c *Matrix4fClient) Translate(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32) error {
+	_, err := c.svc.Translate(ctx, &pb.Matrix4FTranslateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// Transpose calls the Transpose RPC.
+func (c *Matrix4fClient) Transpose(ctx context.Context, handle int64) error {
+	_, err := c.svc.Transpose(ctx, &pb.TransposeRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// AllocationClient wraps the gRPC AllocationService client.
+type AllocationClient struct {
+	svc pb.AllocationServiceClient
+}
+
+// NewAllocationClient creates a new Allocation client.
+func NewAllocationClient(cc grpc.ClientConnInterface) *AllocationClient {
+	return &AllocationClient{
+		svc: pb.NewAllocationServiceClient(cc),
+	}
+}
+
+// Copy1DRangeFrom4 calls the Copy1DRangeFrom4 RPC.
+func (c *AllocationClient) Copy1DRangeFrom4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
+	_, err := c.svc.Copy1DRangeFrom4(ctx, &pb.Copy1DRangeFrom4Request{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
@@ -771,44 +1518,713 @@ func (c *ScriptIntrinsicColorMatrixClient) SetAdd4_1(ctx context.Context, arg0 f
 	return err
 }
 
-// SetColorMatrix1 calls the SetColorMatrix1 RPC.
-func (c *ScriptIntrinsicColorMatrixClient) SetColorMatrix1(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetColorMatrix1(ctx, &pb.SetColorMatrix1Request{
+// Copy1DRangeFrom3_1 calls the Copy1DRangeFrom3_1 RPC.
+func (c *AllocationClient) Copy1DRangeFrom3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.Copy1DRangeFrom3_1(ctx, &pb.Copy1DRangeFrom3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// Copy1DRangeFrom3_2 calls the Copy1DRangeFrom3_2 RPC.
+func (c *AllocationClient) Copy1DRangeFrom3_2(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.Copy1DRangeFrom3_2(ctx, &pb.Copy1DRangeFrom3_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// Copy1DRangeFrom3_3 calls the Copy1DRangeFrom3_3 RPC.
+func (c *AllocationClient) Copy1DRangeFrom3_3(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.Copy1DRangeFrom3_3(ctx, &pb.Copy1DRangeFrom3_3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// Copy1DRangeFrom3_4 calls the Copy1DRangeFrom3_4 RPC.
+func (c *AllocationClient) Copy1DRangeFrom3_4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.Copy1DRangeFrom3_4(ctx, &pb.Copy1DRangeFrom3_4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// Copy1DRangeFrom3_5 calls the Copy1DRangeFrom3_5 RPC.
+func (c *AllocationClient) Copy1DRangeFrom3_5(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.Copy1DRangeFrom3_5(ctx, &pb.Copy1DRangeFrom3_5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// Copy1DRangeFromUnchecked3 calls the Copy1DRangeFromUnchecked3 RPC.
+func (c *AllocationClient) Copy1DRangeFromUnchecked3(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.Copy1DRangeFromUnchecked3(ctx, &pb.Copy1DRangeFromUnchecked3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// Copy1DRangeFromUnchecked3_1 calls the Copy1DRangeFromUnchecked3_1 RPC.
+func (c *AllocationClient) Copy1DRangeFromUnchecked3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.Copy1DRangeFromUnchecked3_1(ctx, &pb.Copy1DRangeFromUnchecked3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// Copy1DRangeFromUnchecked3_2 calls the Copy1DRangeFromUnchecked3_2 RPC.
+func (c *AllocationClient) Copy1DRangeFromUnchecked3_2(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.Copy1DRangeFromUnchecked3_2(ctx, &pb.Copy1DRangeFromUnchecked3_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// Copy1DRangeFromUnchecked3_3 calls the Copy1DRangeFromUnchecked3_3 RPC.
+func (c *AllocationClient) Copy1DRangeFromUnchecked3_3(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.Copy1DRangeFromUnchecked3_3(ctx, &pb.Copy1DRangeFromUnchecked3_3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// Copy1DRangeFromUnchecked3_4 calls the Copy1DRangeFromUnchecked3_4 RPC.
+func (c *AllocationClient) Copy1DRangeFromUnchecked3_4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.Copy1DRangeFromUnchecked3_4(ctx, &pb.Copy1DRangeFromUnchecked3_4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// Copy1DRangeTo3 calls the Copy1DRangeTo3 RPC.
+func (c *AllocationClient) Copy1DRangeTo3(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.Copy1DRangeTo3(ctx, &pb.Copy1DRangeTo3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// Copy1DRangeTo3_1 calls the Copy1DRangeTo3_1 RPC.
+func (c *AllocationClient) Copy1DRangeTo3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.Copy1DRangeTo3_1(ctx, &pb.Copy1DRangeTo3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// Copy1DRangeTo3_2 calls the Copy1DRangeTo3_2 RPC.
+func (c *AllocationClient) Copy1DRangeTo3_2(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.Copy1DRangeTo3_2(ctx, &pb.Copy1DRangeTo3_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// Copy1DRangeTo3_3 calls the Copy1DRangeTo3_3 RPC.
+func (c *AllocationClient) Copy1DRangeTo3_3(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.Copy1DRangeTo3_3(ctx, &pb.Copy1DRangeTo3_3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// Copy1DRangeTo3_4 calls the Copy1DRangeTo3_4 RPC.
+func (c *AllocationClient) Copy1DRangeTo3_4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.Copy1DRangeTo3_4(ctx, &pb.Copy1DRangeTo3_4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// Copy1DRangeToUnchecked3 calls the Copy1DRangeToUnchecked3 RPC.
+func (c *AllocationClient) Copy1DRangeToUnchecked3(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.Copy1DRangeToUnchecked3(ctx, &pb.Copy1DRangeToUnchecked3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// Copy1DRangeToUnchecked3_1 calls the Copy1DRangeToUnchecked3_1 RPC.
+func (c *AllocationClient) Copy1DRangeToUnchecked3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.Copy1DRangeToUnchecked3_1(ctx, &pb.Copy1DRangeToUnchecked3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// Copy1DRangeToUnchecked3_2 calls the Copy1DRangeToUnchecked3_2 RPC.
+func (c *AllocationClient) Copy1DRangeToUnchecked3_2(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.Copy1DRangeToUnchecked3_2(ctx, &pb.Copy1DRangeToUnchecked3_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// Copy1DRangeToUnchecked3_3 calls the Copy1DRangeToUnchecked3_3 RPC.
+func (c *AllocationClient) Copy1DRangeToUnchecked3_3(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.Copy1DRangeToUnchecked3_3(ctx, &pb.Copy1DRangeToUnchecked3_3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// Copy1DRangeToUnchecked3_4 calls the Copy1DRangeToUnchecked3_4 RPC.
+func (c *AllocationClient) Copy1DRangeToUnchecked3_4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.Copy1DRangeToUnchecked3_4(ctx, &pb.Copy1DRangeToUnchecked3_4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// Copy2DRangeFrom3 calls the Copy2DRangeFrom3 RPC.
+func (c *AllocationClient) Copy2DRangeFrom3(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.Copy2DRangeFrom3(ctx, &pb.Copy2DRangeFrom3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// Copy2DRangeFrom7_1 calls the Copy2DRangeFrom7_1 RPC.
+func (c *AllocationClient) Copy2DRangeFrom7_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64, arg5 int32, arg6 int32) error {
+	_, err := c.svc.Copy2DRangeFrom7_1(ctx, &pb.Copy2DRangeFrom7_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+		Arg6: arg6,
+	})
+	return err
+}
+
+// Copy2DRangeFrom5_2 calls the Copy2DRangeFrom5_2 RPC.
+func (c *AllocationClient) Copy2DRangeFrom5_2(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64) error {
+	_, err := c.svc.Copy2DRangeFrom5_2(ctx, &pb.Copy2DRangeFrom5_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// Copy2DRangeFrom5_3 calls the Copy2DRangeFrom5_3 RPC.
+func (c *AllocationClient) Copy2DRangeFrom5_3(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64) error {
+	_, err := c.svc.Copy2DRangeFrom5_3(ctx, &pb.Copy2DRangeFrom5_3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// Copy2DRangeFrom5_4 calls the Copy2DRangeFrom5_4 RPC.
+func (c *AllocationClient) Copy2DRangeFrom5_4(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64) error {
+	_, err := c.svc.Copy2DRangeFrom5_4(ctx, &pb.Copy2DRangeFrom5_4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// Copy2DRangeFrom5_5 calls the Copy2DRangeFrom5_5 RPC.
+func (c *AllocationClient) Copy2DRangeFrom5_5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64) error {
+	_, err := c.svc.Copy2DRangeFrom5_5(ctx, &pb.Copy2DRangeFrom5_5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// Copy2DRangeFrom5_6 calls the Copy2DRangeFrom5_6 RPC.
+func (c *AllocationClient) Copy2DRangeFrom5_6(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64) error {
+	_, err := c.svc.Copy2DRangeFrom5_6(ctx, &pb.Copy2DRangeFrom5_6Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// Copy2DRangeTo5 calls the Copy2DRangeTo5 RPC.
+func (c *AllocationClient) Copy2DRangeTo5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64) error {
+	_, err := c.svc.Copy2DRangeTo5(ctx, &pb.Copy2DRangeTo5Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// Copy2DRangeTo5_1 calls the Copy2DRangeTo5_1 RPC.
+func (c *AllocationClient) Copy2DRangeTo5_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64) error {
+	_, err := c.svc.Copy2DRangeTo5_1(ctx, &pb.Copy2DRangeTo5_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// Copy2DRangeTo5_2 calls the Copy2DRangeTo5_2 RPC.
+func (c *AllocationClient) Copy2DRangeTo5_2(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64) error {
+	_, err := c.svc.Copy2DRangeTo5_2(ctx, &pb.Copy2DRangeTo5_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// Copy2DRangeTo5_3 calls the Copy2DRangeTo5_3 RPC.
+func (c *AllocationClient) Copy2DRangeTo5_3(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64) error {
+	_, err := c.svc.Copy2DRangeTo5_3(ctx, &pb.Copy2DRangeTo5_3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// Copy2DRangeTo5_4 calls the Copy2DRangeTo5_4 RPC.
+func (c *AllocationClient) Copy2DRangeTo5_4(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64) error {
+	_, err := c.svc.Copy2DRangeTo5_4(ctx, &pb.Copy2DRangeTo5_4Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// Copy3DRangeFrom10 calls the Copy3DRangeFrom10 RPC.
+func (c *AllocationClient) Copy3DRangeFrom10(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int64, arg7 int32, arg8 int32, arg9 int32) error {
+	_, err := c.svc.Copy3DRangeFrom10(ctx, &pb.Copy3DRangeFrom10Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+		Arg6: arg6,
+		Arg7: arg7,
+		Arg8: arg8,
+		Arg9: arg9,
+	})
+	return err
+}
+
+// Copy3DRangeFrom7_1 calls the Copy3DRangeFrom7_1 RPC.
+func (c *AllocationClient) Copy3DRangeFrom7_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int64) error {
+	_, err := c.svc.Copy3DRangeFrom7_1(ctx, &pb.Copy3DRangeFrom7_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+		Arg6: arg6,
+	})
+	return err
+}
+
+// Copy3DRangeTo calls the Copy3DRangeTo RPC.
+func (c *AllocationClient) Copy3DRangeTo(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int64) error {
+	_, err := c.svc.Copy3DRangeTo(ctx, &pb.Copy3DRangeToRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+		Arg6: arg6,
+	})
+	return err
+}
+
+// CopyFrom1 calls the CopyFrom1 RPC.
+func (c *AllocationClient) CopyFrom1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CopyFrom1(ctx, &pb.CopyFrom1Request{
 		Arg0: arg0,
 	})
 	return err
 }
 
-// SetColorMatrix1_1 calls the SetColorMatrix1_1 RPC.
-func (c *ScriptIntrinsicColorMatrixClient) SetColorMatrix1_1(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetColorMatrix1_1(ctx, &pb.SetColorMatrix1_1Request{
+// CopyFrom1_1 calls the CopyFrom1_1 RPC.
+func (c *AllocationClient) CopyFrom1_1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CopyFrom1_1(ctx, &pb.CopyFrom1_1Request{
 		Arg0: arg0,
 	})
 	return err
 }
 
-// SetGreyscale calls the SetGreyscale RPC.
-func (c *ScriptIntrinsicColorMatrixClient) SetGreyscale(ctx context.Context) error {
-	_, err := c.svc.SetGreyscale(ctx, &pb.SetGreyscaleRequest{})
-	return err
-}
-
-// SetRGBtoYUV calls the SetRGBtoYUV RPC.
-func (c *ScriptIntrinsicColorMatrixClient) SetRGBtoYUV(ctx context.Context) error {
-	_, err := c.svc.SetRGBtoYUV(ctx, &pb.SetRGBtoYUVRequest{})
-	return err
-}
-
-// SetYUVtoRGB calls the SetYUVtoRGB RPC.
-func (c *ScriptIntrinsicColorMatrixClient) SetYUVtoRGB(ctx context.Context) error {
-	_, err := c.svc.SetYUVtoRGB(ctx, &pb.SetYUVtoRGBRequest{})
-	return err
-}
-
-// Create1 calls the Create1 RPC.
-func (c *ScriptIntrinsicColorMatrixClient) Create1(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.Create1(ctx, &pb.Create1Request{
+// CopyFrom1_2 calls the CopyFrom1_2 RPC.
+func (c *AllocationClient) CopyFrom1_2(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CopyFrom1_2(ctx, &pb.CopyFrom1_2Request{
 		Arg0: arg0,
+	})
+	return err
+}
+
+// CopyFrom1_3 calls the CopyFrom1_3 RPC.
+func (c *AllocationClient) CopyFrom1_3(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CopyFrom1_3(ctx, &pb.CopyFrom1_3Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CopyFrom1_4 calls the CopyFrom1_4 RPC.
+func (c *AllocationClient) CopyFrom1_4(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CopyFrom1_4(ctx, &pb.CopyFrom1_4Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CopyFrom1_5 calls the CopyFrom1_5 RPC.
+func (c *AllocationClient) CopyFrom1_5(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CopyFrom1_5(ctx, &pb.CopyFrom1_5Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CopyFrom1_6 calls the CopyFrom1_6 RPC.
+func (c *AllocationClient) CopyFrom1_6(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CopyFrom1_6(ctx, &pb.CopyFrom1_6Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CopyFrom1_7 calls the CopyFrom1_7 RPC.
+func (c *AllocationClient) CopyFrom1_7(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CopyFrom1_7(ctx, &pb.CopyFrom1_7Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CopyFromUnchecked1 calls the CopyFromUnchecked1 RPC.
+func (c *AllocationClient) CopyFromUnchecked1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CopyFromUnchecked1(ctx, &pb.CopyFromUnchecked1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CopyFromUnchecked1_1 calls the CopyFromUnchecked1_1 RPC.
+func (c *AllocationClient) CopyFromUnchecked1_1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CopyFromUnchecked1_1(ctx, &pb.CopyFromUnchecked1_1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CopyFromUnchecked1_2 calls the CopyFromUnchecked1_2 RPC.
+func (c *AllocationClient) CopyFromUnchecked1_2(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CopyFromUnchecked1_2(ctx, &pb.CopyFromUnchecked1_2Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CopyFromUnchecked1_3 calls the CopyFromUnchecked1_3 RPC.
+func (c *AllocationClient) CopyFromUnchecked1_3(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CopyFromUnchecked1_3(ctx, &pb.CopyFromUnchecked1_3Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CopyFromUnchecked1_4 calls the CopyFromUnchecked1_4 RPC.
+func (c *AllocationClient) CopyFromUnchecked1_4(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CopyFromUnchecked1_4(ctx, &pb.CopyFromUnchecked1_4Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CopyTo1 calls the CopyTo1 RPC.
+func (c *AllocationClient) CopyTo1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CopyTo1(ctx, &pb.CopyTo1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CopyTo1_1 calls the CopyTo1_1 RPC.
+func (c *AllocationClient) CopyTo1_1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CopyTo1_1(ctx, &pb.CopyTo1_1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CopyTo1_2 calls the CopyTo1_2 RPC.
+func (c *AllocationClient) CopyTo1_2(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CopyTo1_2(ctx, &pb.CopyTo1_2Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CopyTo1_3 calls the CopyTo1_3 RPC.
+func (c *AllocationClient) CopyTo1_3(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CopyTo1_3(ctx, &pb.CopyTo1_3Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CopyTo1_4 calls the CopyTo1_4 RPC.
+func (c *AllocationClient) CopyTo1_4(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CopyTo1_4(ctx, &pb.CopyTo1_4Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CopyTo1_5 calls the CopyTo1_5 RPC.
+func (c *AllocationClient) CopyTo1_5(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CopyTo1_5(ctx, &pb.CopyTo1_5Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Destroy calls the Destroy RPC.
+func (c *AllocationClient) Destroy(ctx context.Context) error {
+	_, err := c.svc.Destroy(ctx, &pb.DestroyRequest{})
+	return err
+}
+
+// GenerateMipmaps calls the GenerateMipmaps RPC.
+func (c *AllocationClient) GenerateMipmaps(ctx context.Context) error {
+	_, err := c.svc.GenerateMipmaps(ctx, &pb.GenerateMipmapsRequest{})
+	return err
+}
+
+// GetByteBuffer calls the GetByteBuffer RPC.
+func (c *AllocationClient) GetByteBuffer(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetByteBuffer(ctx, &pb.GetByteBufferRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetBytesSize calls the GetBytesSize RPC.
+func (c *AllocationClient) GetBytesSize(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetBytesSize(ctx, &pb.GetBytesSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetElement calls the GetElement RPC.
+func (c *AllocationClient) GetElement(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetElement(ctx, &pb.GetElementRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStride calls the GetStride RPC.
+func (c *AllocationClient) GetStride(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetStride(ctx, &pb.GetStrideRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSurface calls the GetSurface RPC.
+func (c *AllocationClient) GetSurface(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetSurface(ctx, &pb.GetSurfaceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTimeStamp calls the GetTimeStamp RPC.
+func (c *AllocationClient) GetTimeStamp(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetTimeStamp(ctx, &pb.GetTimeStampRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetType calls the GetType RPC.
+func (c *AllocationClient) GetType(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUsage calls the GetUsage RPC.
+func (c *AllocationClient) GetUsage(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetUsage(ctx, &pb.GetUsageRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IoReceive calls the IoReceive RPC.
+func (c *AllocationClient) IoReceive(ctx context.Context) error {
+	_, err := c.svc.IoReceive(ctx, &pb.IoReceiveRequest{})
+	return err
+}
+
+// IoSend calls the IoSend RPC.
+func (c *AllocationClient) IoSend(ctx context.Context) error {
+	_, err := c.svc.IoSend(ctx, &pb.IoSendRequest{})
+	return err
+}
+
+// SetAutoPadding calls the SetAutoPadding RPC.
+func (c *AllocationClient) SetAutoPadding(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetAutoPadding(ctx, &pb.SetAutoPaddingRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetFromFieldPacker2 calls the SetFromFieldPacker2 RPC.
+func (c *AllocationClient) SetFromFieldPacker2(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.SetFromFieldPacker2(ctx, &pb.SetFromFieldPacker2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetFromFieldPacker3_1 calls the SetFromFieldPacker3_1 RPC.
+func (c *AllocationClient) SetFromFieldPacker3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
+	_, err := c.svc.SetFromFieldPacker3_1(ctx, &pb.SetFromFieldPacker3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// SetFromFieldPacker5_2 calls the SetFromFieldPacker5_2 RPC.
+func (c *AllocationClient) SetFromFieldPacker5_2(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64) error {
+	_, err := c.svc.SetFromFieldPacker5_2(ctx, &pb.SetFromFieldPacker5_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	return err
+}
+
+// SetOnBufferAvailableListener calls the SetOnBufferAvailableListener RPC.
+func (c *AllocationClient) SetOnBufferAvailableListener(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetOnBufferAvailableListener(ctx, &pb.SetOnBufferAvailableListenerRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetSurface calls the SetSurface RPC.
+func (c *AllocationClient) SetSurface(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetSurface(ctx, &pb.SetSurfaceRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SyncAll calls the SyncAll RPC.
+func (c *AllocationClient) SyncAll(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.SyncAll(ctx, &pb.SyncAllRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// CreateAllocations calls the CreateAllocations RPC.
+func (c *AllocationClient) CreateAllocations(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int32) (int64, error) {
+	resp, err := c.svc.CreateAllocations(ctx, &pb.CreateAllocationsRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
 	})
 	if err != nil {
 		return 0, err
@@ -816,9 +2232,9 @@ func (c *ScriptIntrinsicColorMatrixClient) Create1(ctx context.Context, arg0 int
 	return resp.GetResult(), nil
 }
 
-// Create2_1 calls the Create2_1 RPC.
-func (c *ScriptIntrinsicColorMatrixClient) Create2_1(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.Create2_1(ctx, &pb.Create2_1Request{
+// CreateCubemapFromBitmap2 calls the CreateCubemapFromBitmap2 RPC.
+func (c *AllocationClient) CreateCubemapFromBitmap2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.CreateCubemapFromBitmap2(ctx, &pb.CreateCubemapFromBitmap2Request{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -826,6 +2242,1096 @@ func (c *ScriptIntrinsicColorMatrixClient) Create2_1(ctx context.Context, arg0 i
 		return 0, err
 	}
 	return resp.GetResult(), nil
+}
+
+// CreateCubemapFromBitmap4_1 calls the CreateCubemapFromBitmap4_1 RPC.
+func (c *AllocationClient) CreateCubemapFromBitmap4_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int32) (int64, error) {
+	resp, err := c.svc.CreateCubemapFromBitmap4_1(ctx, &pb.CreateCubemapFromBitmap4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateCubemapFromCubeFaces7 calls the CreateCubemapFromCubeFaces7 RPC.
+func (c *AllocationClient) CreateCubemapFromCubeFaces7(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64, arg4 int64, arg5 int64, arg6 int64) (int64, error) {
+	resp, err := c.svc.CreateCubemapFromCubeFaces7(ctx, &pb.CreateCubemapFromCubeFaces7Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+		Arg6: arg6,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateCubemapFromCubeFaces9_1 calls the CreateCubemapFromCubeFaces9_1 RPC.
+func (c *AllocationClient) CreateCubemapFromCubeFaces9_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64, arg4 int64, arg5 int64, arg6 int64, arg7 int64, arg8 int32) (int64, error) {
+	resp, err := c.svc.CreateCubemapFromCubeFaces9_1(ctx, &pb.CreateCubemapFromCubeFaces9_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+		Arg6: arg6,
+		Arg7: arg7,
+		Arg8: arg8,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateFromBitmap2 calls the CreateFromBitmap2 RPC.
+func (c *AllocationClient) CreateFromBitmap2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.CreateFromBitmap2(ctx, &pb.CreateFromBitmap2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateFromBitmap4_1 calls the CreateFromBitmap4_1 RPC.
+func (c *AllocationClient) CreateFromBitmap4_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int32) (int64, error) {
+	resp, err := c.svc.CreateFromBitmap4_1(ctx, &pb.CreateFromBitmap4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateFromBitmapResource3 calls the CreateFromBitmapResource3 RPC.
+func (c *AllocationClient) CreateFromBitmapResource3(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) (int64, error) {
+	resp, err := c.svc.CreateFromBitmapResource3(ctx, &pb.CreateFromBitmapResource3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateFromBitmapResource5_1 calls the CreateFromBitmapResource5_1 RPC.
+func (c *AllocationClient) CreateFromBitmapResource5_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int64, arg4 int32) (int64, error) {
+	resp, err := c.svc.CreateFromBitmapResource5_1(ctx, &pb.CreateFromBitmapResource5_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateFromString calls the CreateFromString RPC.
+func (c *AllocationClient) CreateFromString(ctx context.Context, arg0 int64, arg1 string, arg2 int32) (int64, error) {
+	resp, err := c.svc.CreateFromString(ctx, &pb.CreateFromStringRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateSized3 calls the CreateSized3 RPC.
+func (c *AllocationClient) CreateSized3(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) (int64, error) {
+	resp, err := c.svc.CreateSized3(ctx, &pb.CreateSized3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateSized4_1 calls the CreateSized4_1 RPC.
+func (c *AllocationClient) CreateSized4_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int32) (int64, error) {
+	resp, err := c.svc.CreateSized4_1(ctx, &pb.CreateSized4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateTyped2 calls the CreateTyped2 RPC.
+func (c *AllocationClient) CreateTyped2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.CreateTyped2(ctx, &pb.CreateTyped2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateTyped4_1 calls the CreateTyped4_1 RPC.
+func (c *AllocationClient) CreateTyped4_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int32) (int64, error) {
+	resp, err := c.svc.CreateTyped4_1(ctx, &pb.CreateTyped4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateTyped3_2 calls the CreateTyped3_2 RPC.
+func (c *AllocationClient) CreateTyped3_2(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) (int64, error) {
+	resp, err := c.svc.CreateTyped3_2(ctx, &pb.CreateTyped3_2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AllocationMipmapControlClient wraps the gRPC AllocationMipmapControlService client.
+type AllocationMipmapControlClient struct {
+	svc pb.AllocationMipmapControlServiceClient
+}
+
+// NewAllocationMipmapControlClient creates a new AllocationMipmapControl client.
+func NewAllocationMipmapControlClient(cc grpc.ClientConnInterface) *AllocationMipmapControlClient {
+	return &AllocationMipmapControlClient{
+		svc: pb.NewAllocationMipmapControlServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *AllocationMipmapControlClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *AllocationMipmapControlClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AllocationOnBufferAvailableListenerClient wraps the gRPC AllocationOnBufferAvailableListenerService client.
+type AllocationOnBufferAvailableListenerClient struct {
+	svc pb.AllocationOnBufferAvailableListenerServiceClient
+}
+
+// NewAllocationOnBufferAvailableListenerClient creates a new AllocationOnBufferAvailableListener client.
+func NewAllocationOnBufferAvailableListenerClient(cc grpc.ClientConnInterface) *AllocationOnBufferAvailableListenerClient {
+	return &AllocationOnBufferAvailableListenerClient{
+		svc: pb.NewAllocationOnBufferAvailableListenerServiceClient(cc),
+	}
+}
+
+// OnBufferAvailable calls the OnBufferAvailable RPC.
+func (c *AllocationOnBufferAvailableListenerClient) OnBufferAvailable(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnBufferAvailable(ctx, &pb.OnBufferAvailableRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ScriptIntrinsicConvolve3x3Client wraps the gRPC ScriptIntrinsicConvolve3X3Service client.
+type ScriptIntrinsicConvolve3x3Client struct {
+	svc pb.ScriptIntrinsicConvolve3X3ServiceClient
+}
+
+// NewScriptIntrinsicConvolve3x3Client creates a new ScriptIntrinsicConvolve3x3 client.
+func NewScriptIntrinsicConvolve3x3Client(cc grpc.ClientConnInterface) *ScriptIntrinsicConvolve3x3Client {
+	return &ScriptIntrinsicConvolve3x3Client{
+		svc: pb.NewScriptIntrinsicConvolve3X3ServiceClient(cc),
+	}
+}
+
+// ForEach1 calls the ForEach1 RPC.
+func (c *ScriptIntrinsicConvolve3x3Client) ForEach1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.ForEach1(ctx, &pb.ForEach1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ForEach2_1 calls the ForEach2_1 RPC.
+func (c *ScriptIntrinsicConvolve3x3Client) ForEach2_1(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.ForEach2_1(ctx, &pb.ForEach2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GetFieldID_Input calls the GetFieldID_Input RPC.
+func (c *ScriptIntrinsicConvolve3x3Client) GetFieldID_Input(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFieldID_Input(ctx, &pb.GetFieldID_InputRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetKernelID calls the GetKernelID RPC.
+func (c *ScriptIntrinsicConvolve3x3Client) GetKernelID(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetKernelID(ctx, &pb.GetKernelIDRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetCoefficients calls the SetCoefficients RPC.
+func (c *ScriptIntrinsicConvolve3x3Client) SetCoefficients(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetCoefficients(ctx, &pb.SetCoefficientsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetInput calls the SetInput RPC.
+func (c *ScriptIntrinsicConvolve3x3Client) SetInput(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetInput(ctx, &pb.SetInputRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Create calls the Create RPC.
+func (c *ScriptIntrinsicConvolve3x3Client) Create(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.Create(ctx, &pb.CreateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FieldPackerClient wraps the gRPC FieldPackerService client.
+type FieldPackerClient struct {
+	svc pb.FieldPackerServiceClient
+}
+
+// NewFieldPackerClient creates a new FieldPacker client.
+func NewFieldPackerClient(cc grpc.ClientConnInterface) *FieldPackerClient {
+	return &FieldPackerClient{
+		svc: pb.NewFieldPackerServiceClient(cc),
+	}
+}
+
+// AddBoolean calls the AddBoolean RPC.
+func (c *FieldPackerClient) AddBoolean(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.AddBoolean(ctx, &pb.AddBooleanRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddF321 calls the AddF321 RPC.
+func (c *FieldPackerClient) AddF321(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddF321(ctx, &pb.AddF321Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddF321_1 calls the AddF321_1 RPC.
+func (c *FieldPackerClient) AddF321_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddF321_1(ctx, &pb.AddF321_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddF321_2 calls the AddF321_2 RPC.
+func (c *FieldPackerClient) AddF321_2(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddF321_2(ctx, &pb.AddF321_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddF321_3 calls the AddF321_3 RPC.
+func (c *FieldPackerClient) AddF321_3(ctx context.Context, handle int64, arg0 float32) error {
+	_, err := c.svc.AddF321_3(ctx, &pb.AddF321_3Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddF641 calls the AddF641 RPC.
+func (c *FieldPackerClient) AddF641(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddF641(ctx, &pb.AddF641Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddF641_1 calls the AddF641_1 RPC.
+func (c *FieldPackerClient) AddF641_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddF641_1(ctx, &pb.AddF641_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddF641_2 calls the AddF641_2 RPC.
+func (c *FieldPackerClient) AddF641_2(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddF641_2(ctx, &pb.AddF641_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddF641_3 calls the AddF641_3 RPC.
+func (c *FieldPackerClient) AddF641_3(ctx context.Context, handle int64, arg0 float64) error {
+	_, err := c.svc.AddF641_3(ctx, &pb.AddF641_3Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddI161 calls the AddI161 RPC.
+func (c *FieldPackerClient) AddI161(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddI161(ctx, &pb.AddI161Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddI161_1 calls the AddI161_1 RPC.
+func (c *FieldPackerClient) AddI161_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddI161_1(ctx, &pb.AddI161_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddI161_2 calls the AddI161_2 RPC.
+func (c *FieldPackerClient) AddI161_2(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddI161_2(ctx, &pb.AddI161_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddI161_3 calls the AddI161_3 RPC.
+func (c *FieldPackerClient) AddI161_3(ctx context.Context, handle int64, arg0 int16) error {
+	_, err := c.svc.AddI161_3(ctx, &pb.AddI161_3Request{
+		Handle: handle,
+		Arg0:   int32(arg0),
+	})
+	return err
+}
+
+// AddI321 calls the AddI321 RPC.
+func (c *FieldPackerClient) AddI321(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddI321(ctx, &pb.AddI321Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddI321_1 calls the AddI321_1 RPC.
+func (c *FieldPackerClient) AddI321_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddI321_1(ctx, &pb.AddI321_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddI321_2 calls the AddI321_2 RPC.
+func (c *FieldPackerClient) AddI321_2(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddI321_2(ctx, &pb.AddI321_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddI321_3 calls the AddI321_3 RPC.
+func (c *FieldPackerClient) AddI321_3(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.AddI321_3(ctx, &pb.AddI321_3Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddI641 calls the AddI641 RPC.
+func (c *FieldPackerClient) AddI641(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddI641(ctx, &pb.AddI641Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddI641_1 calls the AddI641_1 RPC.
+func (c *FieldPackerClient) AddI641_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddI641_1(ctx, &pb.AddI641_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddI641_2 calls the AddI641_2 RPC.
+func (c *FieldPackerClient) AddI641_2(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddI641_2(ctx, &pb.AddI641_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddI641_3 calls the AddI641_3 RPC.
+func (c *FieldPackerClient) AddI641_3(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddI641_3(ctx, &pb.AddI641_3Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddI81 calls the AddI81 RPC.
+func (c *FieldPackerClient) AddI81(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddI81(ctx, &pb.AddI81Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddI81_1 calls the AddI81_1 RPC.
+func (c *FieldPackerClient) AddI81_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddI81_1(ctx, &pb.AddI81_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddI81_2 calls the AddI81_2 RPC.
+func (c *FieldPackerClient) AddI81_2(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddI81_2(ctx, &pb.AddI81_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddI81_3 calls the AddI81_3 RPC.
+func (c *FieldPackerClient) AddI81_3(ctx context.Context, handle int64, arg0 int8) error {
+	_, err := c.svc.AddI81_3(ctx, &pb.AddI81_3Request{
+		Handle: handle,
+		Arg0:   int64(arg0),
+	})
+	return err
+}
+
+// AddMatrix1 calls the AddMatrix1 RPC.
+func (c *FieldPackerClient) AddMatrix1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddMatrix1(ctx, &pb.AddMatrix1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddMatrix1_1 calls the AddMatrix1_1 RPC.
+func (c *FieldPackerClient) AddMatrix1_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddMatrix1_1(ctx, &pb.AddMatrix1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddMatrix1_2 calls the AddMatrix1_2 RPC.
+func (c *FieldPackerClient) AddMatrix1_2(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddMatrix1_2(ctx, &pb.AddMatrix1_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddObj calls the AddObj RPC.
+func (c *FieldPackerClient) AddObj(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddObj(ctx, &pb.AddObjRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddU161 calls the AddU161 RPC.
+func (c *FieldPackerClient) AddU161(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddU161(ctx, &pb.AddU161Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddU161_1 calls the AddU161_1 RPC.
+func (c *FieldPackerClient) AddU161_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddU161_1(ctx, &pb.AddU161_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddU161_2 calls the AddU161_2 RPC.
+func (c *FieldPackerClient) AddU161_2(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddU161_2(ctx, &pb.AddU161_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddU161_3 calls the AddU161_3 RPC.
+func (c *FieldPackerClient) AddU161_3(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.AddU161_3(ctx, &pb.AddU161_3Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddU321 calls the AddU321 RPC.
+func (c *FieldPackerClient) AddU321(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddU321(ctx, &pb.AddU321Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddU321_1 calls the AddU321_1 RPC.
+func (c *FieldPackerClient) AddU321_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddU321_1(ctx, &pb.AddU321_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddU321_2 calls the AddU321_2 RPC.
+func (c *FieldPackerClient) AddU321_2(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddU321_2(ctx, &pb.AddU321_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddU321_3 calls the AddU321_3 RPC.
+func (c *FieldPackerClient) AddU321_3(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddU321_3(ctx, &pb.AddU321_3Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddU641 calls the AddU641 RPC.
+func (c *FieldPackerClient) AddU641(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddU641(ctx, &pb.AddU641Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddU641_1 calls the AddU641_1 RPC.
+func (c *FieldPackerClient) AddU641_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddU641_1(ctx, &pb.AddU641_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddU641_2 calls the AddU641_2 RPC.
+func (c *FieldPackerClient) AddU641_2(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddU641_2(ctx, &pb.AddU641_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddU641_3 calls the AddU641_3 RPC.
+func (c *FieldPackerClient) AddU641_3(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddU641_3(ctx, &pb.AddU641_3Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddU81 calls the AddU81 RPC.
+func (c *FieldPackerClient) AddU81(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddU81(ctx, &pb.AddU81Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddU81_1 calls the AddU81_1 RPC.
+func (c *FieldPackerClient) AddU81_1(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddU81_1(ctx, &pb.AddU81_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddU81_2 calls the AddU81_2 RPC.
+func (c *FieldPackerClient) AddU81_2(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.AddU81_2(ctx, &pb.AddU81_2Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// AddU81_3 calls the AddU81_3 RPC.
+func (c *FieldPackerClient) AddU81_3(ctx context.Context, handle int64, arg0 int16) error {
+	_, err := c.svc.AddU81_3(ctx, &pb.AddU81_3Request{
+		Handle: handle,
+		Arg0:   int32(arg0),
+	})
+	return err
+}
+
+// Align calls the Align RPC.
+func (c *FieldPackerClient) Align(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.Align(ctx, &pb.AlignRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// GetData calls the GetData RPC.
+func (c *FieldPackerClient) GetData(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetData(ctx, &pb.GetDataRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Reset0 calls the Reset0 RPC.
+func (c *FieldPackerClient) Reset0(ctx context.Context, handle int64) error {
+	_, err := c.svc.Reset0(ctx, &pb.Reset0Request{
+		Handle: handle,
+	})
+	return err
+}
+
+// Reset1_1 calls the Reset1_1 RPC.
+func (c *FieldPackerClient) Reset1_1(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.Reset1_1(ctx, &pb.Reset1_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Skip calls the Skip RPC.
+func (c *FieldPackerClient) Skip(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.Skip(ctx, &pb.SkipRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SubBoolean calls the SubBoolean RPC.
+func (c *FieldPackerClient) SubBoolean(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.SubBoolean(ctx, &pb.SubBooleanRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SubByte2 calls the SubByte2 RPC.
+func (c *FieldPackerClient) SubByte2(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.SubByte2(ctx, &pb.SubByte2Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SubByte3 calls the SubByte3 RPC.
+func (c *FieldPackerClient) SubByte3(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.SubByte3(ctx, &pb.SubByte3Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SubByte4 calls the SubByte4 RPC.
+func (c *FieldPackerClient) SubByte4(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.SubByte4(ctx, &pb.SubByte4Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SubDouble2 calls the SubDouble2 RPC.
+func (c *FieldPackerClient) SubDouble2(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.SubDouble2(ctx, &pb.SubDouble2Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SubDouble3 calls the SubDouble3 RPC.
+func (c *FieldPackerClient) SubDouble3(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.SubDouble3(ctx, &pb.SubDouble3Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SubDouble4 calls the SubDouble4 RPC.
+func (c *FieldPackerClient) SubDouble4(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.SubDouble4(ctx, &pb.SubDouble4Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SubF32 calls the SubF32 RPC.
+func (c *FieldPackerClient) SubF32(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.SubF32(ctx, &pb.SubF32Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SubF64 calls the SubF64 RPC.
+func (c *FieldPackerClient) SubF64(ctx context.Context, handle int64) (float64, error) {
+	resp, err := c.svc.SubF64(ctx, &pb.SubF64Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SubFloat2 calls the SubFloat2 RPC.
+func (c *FieldPackerClient) SubFloat2(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.SubFloat2(ctx, &pb.SubFloat2Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SubFloat3 calls the SubFloat3 RPC.
+func (c *FieldPackerClient) SubFloat3(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.SubFloat3(ctx, &pb.SubFloat3Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SubFloat4 calls the SubFloat4 RPC.
+func (c *FieldPackerClient) SubFloat4(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.SubFloat4(ctx, &pb.SubFloat4Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SubI16 calls the SubI16 RPC.
+func (c *FieldPackerClient) SubI16(ctx context.Context, handle int64) (int16, error) {
+	resp, err := c.svc.SubI16(ctx, &pb.SubI16Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return int16(resp.GetResult()), nil
+}
+
+// SubI32 calls the SubI32 RPC.
+func (c *FieldPackerClient) SubI32(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.SubI32(ctx, &pb.SubI32Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SubI64 calls the SubI64 RPC.
+func (c *FieldPackerClient) SubI64(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.SubI64(ctx, &pb.SubI64Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SubI8 calls the SubI8 RPC.
+func (c *FieldPackerClient) SubI8(ctx context.Context, handle int64) (int8, error) {
+	resp, err := c.svc.SubI8(ctx, &pb.SubI8Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return int8(resp.GetResult()), nil
+}
+
+// SubInt2 calls the SubInt2 RPC.
+func (c *FieldPackerClient) SubInt2(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.SubInt2(ctx, &pb.SubInt2Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SubInt3 calls the SubInt3 RPC.
+func (c *FieldPackerClient) SubInt3(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.SubInt3(ctx, &pb.SubInt3Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SubInt4 calls the SubInt4 RPC.
+func (c *FieldPackerClient) SubInt4(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.SubInt4(ctx, &pb.SubInt4Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SubLong2 calls the SubLong2 RPC.
+func (c *FieldPackerClient) SubLong2(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.SubLong2(ctx, &pb.SubLong2Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SubLong3 calls the SubLong3 RPC.
+func (c *FieldPackerClient) SubLong3(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.SubLong3(ctx, &pb.SubLong3Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SubLong4 calls the SubLong4 RPC.
+func (c *FieldPackerClient) SubLong4(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.SubLong4(ctx, &pb.SubLong4Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SubMatrix2F calls the SubMatrix2F RPC.
+func (c *FieldPackerClient) SubMatrix2F(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.SubMatrix2F(ctx, &pb.SubMatrix2FRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SubMatrix3F calls the SubMatrix3F RPC.
+func (c *FieldPackerClient) SubMatrix3F(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.SubMatrix3F(ctx, &pb.SubMatrix3FRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SubMatrix4F calls the SubMatrix4F RPC.
+func (c *FieldPackerClient) SubMatrix4F(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.SubMatrix4F(ctx, &pb.SubMatrix4FRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SubShort2 calls the SubShort2 RPC.
+func (c *FieldPackerClient) SubShort2(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.SubShort2(ctx, &pb.SubShort2Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SubShort3 calls the SubShort3 RPC.
+func (c *FieldPackerClient) SubShort3(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.SubShort3(ctx, &pb.SubShort3Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SubShort4 calls the SubShort4 RPC.
+func (c *FieldPackerClient) SubShort4(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.SubShort4(ctx, &pb.SubShort4Request{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Subalign calls the Subalign RPC.
+func (c *FieldPackerClient) Subalign(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.Subalign(ctx, &pb.SubalignRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
 }
 
 // RenderScriptClient wraps the gRPC RenderScriptService client.
@@ -1065,6 +3571,1356 @@ func NewRenderScriptRSMessageHandlerClient(cc grpc.ClientConnInterface) *RenderS
 func (c *RenderScriptRSMessageHandlerClient) Run(ctx context.Context) error {
 	_, err := c.svc.Run(ctx, &pb.RunRequest{})
 	return err
+}
+
+// ScriptIntrinsicBlurClient wraps the gRPC ScriptIntrinsicBlurService client.
+type ScriptIntrinsicBlurClient struct {
+	svc pb.ScriptIntrinsicBlurServiceClient
+}
+
+// NewScriptIntrinsicBlurClient creates a new ScriptIntrinsicBlur client.
+func NewScriptIntrinsicBlurClient(cc grpc.ClientConnInterface) *ScriptIntrinsicBlurClient {
+	return &ScriptIntrinsicBlurClient{
+		svc: pb.NewScriptIntrinsicBlurServiceClient(cc),
+	}
+}
+
+// ForEach1 calls the ForEach1 RPC.
+func (c *ScriptIntrinsicBlurClient) ForEach1(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.ForEach1(ctx, &pb.ForEach1Request{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// ForEach2_1 calls the ForEach2_1 RPC.
+func (c *ScriptIntrinsicBlurClient) ForEach2_1(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.ForEach2_1(ctx, &pb.ForEach2_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// GetFieldID_Input calls the GetFieldID_Input RPC.
+func (c *ScriptIntrinsicBlurClient) GetFieldID_Input(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFieldID_Input(ctx, &pb.GetFieldID_InputRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetKernelID calls the GetKernelID RPC.
+func (c *ScriptIntrinsicBlurClient) GetKernelID(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetKernelID(ctx, &pb.GetKernelIDRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetInput calls the SetInput RPC.
+func (c *ScriptIntrinsicBlurClient) SetInput(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetInput(ctx, &pb.SetInputRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetRadius calls the SetRadius RPC.
+func (c *ScriptIntrinsicBlurClient) SetRadius(ctx context.Context, arg0 float32) error {
+	_, err := c.svc.SetRadius(ctx, &pb.SetRadiusRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Create calls the Create RPC.
+func (c *ScriptIntrinsicBlurClient) Create(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.Create(ctx, &pb.CreateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ScriptIntrinsicLUTClient wraps the gRPC ScriptIntrinsicLUTService client.
+type ScriptIntrinsicLUTClient struct {
+	svc pb.ScriptIntrinsicLUTServiceClient
+}
+
+// NewScriptIntrinsicLUTClient creates a new ScriptIntrinsicLUT client.
+func NewScriptIntrinsicLUTClient(cc grpc.ClientConnInterface) *ScriptIntrinsicLUTClient {
+	return &ScriptIntrinsicLUTClient{
+		svc: pb.NewScriptIntrinsicLUTServiceClient(cc),
+	}
+}
+
+// Destroy calls the Destroy RPC.
+func (c *ScriptIntrinsicLUTClient) Destroy(ctx context.Context) error {
+	_, err := c.svc.Destroy(ctx, &pb.DestroyRequest{})
+	return err
+}
+
+// ForEach2 calls the ForEach2 RPC.
+func (c *ScriptIntrinsicLUTClient) ForEach2(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.ForEach2(ctx, &pb.ForEach2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ForEach3_1 calls the ForEach3_1 RPC.
+func (c *ScriptIntrinsicLUTClient) ForEach3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.ForEach3_1(ctx, &pb.ForEach3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// GetKernelID calls the GetKernelID RPC.
+func (c *ScriptIntrinsicLUTClient) GetKernelID(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetKernelID(ctx, &pb.GetKernelIDRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetAlpha calls the SetAlpha RPC.
+func (c *ScriptIntrinsicLUTClient) SetAlpha(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.SetAlpha(ctx, &pb.SetAlphaRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetBlue calls the SetBlue RPC.
+func (c *ScriptIntrinsicLUTClient) SetBlue(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.SetBlue(ctx, &pb.SetBlueRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetGreen calls the SetGreen RPC.
+func (c *ScriptIntrinsicLUTClient) SetGreen(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.SetGreen(ctx, &pb.SetGreenRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetRed calls the SetRed RPC.
+func (c *ScriptIntrinsicLUTClient) SetRed(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.SetRed(ctx, &pb.SetRedRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// Create calls the Create RPC.
+func (c *ScriptIntrinsicLUTClient) Create(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.Create(ctx, &pb.CreateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Matrix2fClient wraps the gRPC Matrix2FService client.
+type Matrix2fClient struct {
+	svc pb.Matrix2FServiceClient
+}
+
+// NewMatrix2fClient creates a new Matrix2f client.
+func NewMatrix2fClient(cc grpc.ClientConnInterface) *Matrix2fClient {
+	return &Matrix2fClient{
+		svc: pb.NewMatrix2FServiceClient(cc),
+	}
+}
+
+// Get calls the Get RPC.
+func (c *Matrix2fClient) Get(ctx context.Context, handle int64, arg0 int32, arg1 int32) (float32, error) {
+	resp, err := c.svc.Get(ctx, &pb.GetRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetArray calls the GetArray RPC.
+func (c *Matrix2fClient) GetArray(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetArray(ctx, &pb.GetArrayRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Load calls the Load RPC.
+func (c *Matrix2fClient) Load(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.Load(ctx, &pb.LoadRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// LoadIdentity calls the LoadIdentity RPC.
+func (c *Matrix2fClient) LoadIdentity(ctx context.Context, handle int64) error {
+	_, err := c.svc.LoadIdentity(ctx, &pb.LoadIdentityRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// LoadMultiply calls the LoadMultiply RPC.
+func (c *Matrix2fClient) LoadMultiply(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
+	_, err := c.svc.LoadMultiply(ctx, &pb.LoadMultiplyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// LoadRotate calls the LoadRotate RPC.
+func (c *Matrix2fClient) LoadRotate(ctx context.Context, handle int64, arg0 float32) error {
+	_, err := c.svc.LoadRotate(ctx, &pb.Matrix2FLoadRotateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// LoadScale calls the LoadScale RPC.
+func (c *Matrix2fClient) LoadScale(ctx context.Context, handle int64, arg0 float32, arg1 float32) error {
+	_, err := c.svc.LoadScale(ctx, &pb.Matrix2FLoadScaleRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// Multiply calls the Multiply RPC.
+func (c *Matrix2fClient) Multiply(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.Multiply(ctx, &pb.MultiplyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Rotate calls the Rotate RPC.
+func (c *Matrix2fClient) Rotate(ctx context.Context, handle int64, arg0 float32) error {
+	_, err := c.svc.Rotate(ctx, &pb.Matrix2FRotateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// Scale calls the Scale RPC.
+func (c *Matrix2fClient) Scale(ctx context.Context, handle int64, arg0 float32, arg1 float32) error {
+	_, err := c.svc.Scale(ctx, &pb.Matrix2FScaleRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// Set calls the Set RPC.
+func (c *Matrix2fClient) Set(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 float32) error {
+	_, err := c.svc.Set(ctx, &pb.SetRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// Transpose calls the Transpose RPC.
+func (c *Matrix2fClient) Transpose(ctx context.Context, handle int64) error {
+	_, err := c.svc.Transpose(ctx, &pb.TransposeRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// ScriptIntrinsicYuvToRGBClient wraps the gRPC ScriptIntrinsicYuvToRGBService client.
+type ScriptIntrinsicYuvToRGBClient struct {
+	svc pb.ScriptIntrinsicYuvToRGBServiceClient
+}
+
+// NewScriptIntrinsicYuvToRGBClient creates a new ScriptIntrinsicYuvToRGB client.
+func NewScriptIntrinsicYuvToRGBClient(cc grpc.ClientConnInterface) *ScriptIntrinsicYuvToRGBClient {
+	return &ScriptIntrinsicYuvToRGBClient{
+		svc: pb.NewScriptIntrinsicYuvToRGBServiceClient(cc),
+	}
+}
+
+// ForEach calls the ForEach RPC.
+func (c *ScriptIntrinsicYuvToRGBClient) ForEach(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.ForEach(ctx, &pb.ForEachRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetFieldID_Input calls the GetFieldID_Input RPC.
+func (c *ScriptIntrinsicYuvToRGBClient) GetFieldID_Input(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetFieldID_Input(ctx, &pb.GetFieldID_InputRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetKernelID calls the GetKernelID RPC.
+func (c *ScriptIntrinsicYuvToRGBClient) GetKernelID(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetKernelID(ctx, &pb.GetKernelIDRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetInput calls the SetInput RPC.
+func (c *ScriptIntrinsicYuvToRGBClient) SetInput(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetInput(ctx, &pb.SetInputRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Create calls the Create RPC.
+func (c *ScriptIntrinsicYuvToRGBClient) Create(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.Create(ctx, &pb.CreateRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ElementClient wraps the gRPC ElementService client.
+type ElementClient struct {
+	svc pb.ElementServiceClient
+}
+
+// NewElementClient creates a new Element client.
+func NewElementClient(cc grpc.ClientConnInterface) *ElementClient {
+	return &ElementClient{
+		svc: pb.NewElementServiceClient(cc),
+	}
+}
+
+// GetBytesSize calls the GetBytesSize RPC.
+func (c *ElementClient) GetBytesSize(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetBytesSize(ctx, &pb.GetBytesSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDataKind calls the GetDataKind RPC.
+func (c *ElementClient) GetDataKind(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDataKind(ctx, &pb.GetDataKindRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDataType calls the GetDataType RPC.
+func (c *ElementClient) GetDataType(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDataType(ctx, &pb.GetDataTypeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSubElement calls the GetSubElement RPC.
+func (c *ElementClient) GetSubElement(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetSubElement(ctx, &pb.GetSubElementRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSubElementArraySize calls the GetSubElementArraySize RPC.
+func (c *ElementClient) GetSubElementArraySize(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetSubElementArraySize(ctx, &pb.GetSubElementArraySizeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSubElementCount calls the GetSubElementCount RPC.
+func (c *ElementClient) GetSubElementCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSubElementCount(ctx, &pb.GetSubElementCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSubElementName calls the GetSubElementName RPC.
+func (c *ElementClient) GetSubElementName(ctx context.Context, arg0 int32) (string, error) {
+	resp, err := c.svc.GetSubElementName(ctx, &pb.GetSubElementNameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSubElementOffsetBytes calls the GetSubElementOffsetBytes RPC.
+func (c *ElementClient) GetSubElementOffsetBytes(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetSubElementOffsetBytes(ctx, &pb.GetSubElementOffsetBytesRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVectorSize calls the GetVectorSize RPC.
+func (c *ElementClient) GetVectorSize(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVectorSize(ctx, &pb.GetVectorSizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsCompatible calls the IsCompatible RPC.
+func (c *ElementClient) IsCompatible(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.IsCompatible(ctx, &pb.IsCompatibleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsComplex calls the IsComplex RPC.
+func (c *ElementClient) IsComplex(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsComplex(ctx, &pb.IsComplexRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ALLOCATION calls the ALLOCATION RPC.
+func (c *ElementClient) ALLOCATION(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.ALLOCATION(ctx, &pb.ALLOCATIONRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// A_8 calls the A_8 RPC.
+func (c *ElementClient) A_8(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.A_8(ctx, &pb.A_8Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// BOOLEAN calls the BOOLEAN RPC.
+func (c *ElementClient) BOOLEAN(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.BOOLEAN(ctx, &pb.BOOLEANRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ELEMENT calls the ELEMENT RPC.
+func (c *ElementClient) ELEMENT(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.ELEMENT(ctx, &pb.ELEMENTRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// F16 calls the F16 RPC.
+func (c *ElementClient) F16(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.F16(ctx, &pb.F16Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// F16_2 calls the F16_2 RPC.
+func (c *ElementClient) F16_2(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.F16_2(ctx, &pb.F16_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// F16_3 calls the F16_3 RPC.
+func (c *ElementClient) F16_3(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.F16_3(ctx, &pb.F16_3Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// F16_4 calls the F16_4 RPC.
+func (c *ElementClient) F16_4(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.F16_4(ctx, &pb.F16_4Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// F32 calls the F32 RPC.
+func (c *ElementClient) F32(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.F32(ctx, &pb.F32Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// F32_2 calls the F32_2 RPC.
+func (c *ElementClient) F32_2(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.F32_2(ctx, &pb.F32_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// F32_3 calls the F32_3 RPC.
+func (c *ElementClient) F32_3(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.F32_3(ctx, &pb.F32_3Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// F32_4 calls the F32_4 RPC.
+func (c *ElementClient) F32_4(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.F32_4(ctx, &pb.F32_4Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// F64 calls the F64 RPC.
+func (c *ElementClient) F64(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.F64(ctx, &pb.F64Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// F64_2 calls the F64_2 RPC.
+func (c *ElementClient) F64_2(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.F64_2(ctx, &pb.F64_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// F64_3 calls the F64_3 RPC.
+func (c *ElementClient) F64_3(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.F64_3(ctx, &pb.F64_3Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// F64_4 calls the F64_4 RPC.
+func (c *ElementClient) F64_4(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.F64_4(ctx, &pb.F64_4Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// FONT calls the FONT RPC.
+func (c *ElementClient) FONT(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.FONT(ctx, &pb.FONTRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// I16 calls the I16 RPC.
+func (c *ElementClient) I16(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.I16(ctx, &pb.I16Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// I16_2 calls the I16_2 RPC.
+func (c *ElementClient) I16_2(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.I16_2(ctx, &pb.I16_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// I16_3 calls the I16_3 RPC.
+func (c *ElementClient) I16_3(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.I16_3(ctx, &pb.I16_3Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// I16_4 calls the I16_4 RPC.
+func (c *ElementClient) I16_4(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.I16_4(ctx, &pb.I16_4Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// I32 calls the I32 RPC.
+func (c *ElementClient) I32(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.I32(ctx, &pb.I32Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// I32_2 calls the I32_2 RPC.
+func (c *ElementClient) I32_2(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.I32_2(ctx, &pb.I32_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// I32_3 calls the I32_3 RPC.
+func (c *ElementClient) I32_3(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.I32_3(ctx, &pb.I32_3Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// I32_4 calls the I32_4 RPC.
+func (c *ElementClient) I32_4(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.I32_4(ctx, &pb.I32_4Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// I64 calls the I64 RPC.
+func (c *ElementClient) I64(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.I64(ctx, &pb.I64Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// I64_2 calls the I64_2 RPC.
+func (c *ElementClient) I64_2(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.I64_2(ctx, &pb.I64_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// I64_3 calls the I64_3 RPC.
+func (c *ElementClient) I64_3(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.I64_3(ctx, &pb.I64_3Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// I64_4 calls the I64_4 RPC.
+func (c *ElementClient) I64_4(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.I64_4(ctx, &pb.I64_4Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// I8 calls the I8 RPC.
+func (c *ElementClient) I8(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.I8(ctx, &pb.I8Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// I8_2 calls the I8_2 RPC.
+func (c *ElementClient) I8_2(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.I8_2(ctx, &pb.I8_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// I8_3 calls the I8_3 RPC.
+func (c *ElementClient) I8_3(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.I8_3(ctx, &pb.I8_3Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// I8_4 calls the I8_4 RPC.
+func (c *ElementClient) I8_4(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.I8_4(ctx, &pb.I8_4Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MATRIX4X4 calls the MATRIX4X4 RPC.
+func (c *ElementClient) MATRIX4X4(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.MATRIX4X4(ctx, &pb.MATRIX4X4Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MATRIX_2X2 calls the MATRIX_2X2 RPC.
+func (c *ElementClient) MATRIX_2X2(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.MATRIX_2X2(ctx, &pb.MATRIX_2X2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MATRIX_3X3 calls the MATRIX_3X3 RPC.
+func (c *ElementClient) MATRIX_3X3(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.MATRIX_3X3(ctx, &pb.MATRIX_3X3Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MATRIX_4X4 calls the MATRIX_4X4 RPC.
+func (c *ElementClient) MATRIX_4X4(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.MATRIX_4X4(ctx, &pb.MATRIX_4X4Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// MESH calls the MESH RPC.
+func (c *ElementClient) MESH(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.MESH(ctx, &pb.MESHRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PROGRAM_FRAGMENT calls the PROGRAM_FRAGMENT RPC.
+func (c *ElementClient) PROGRAM_FRAGMENT(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.PROGRAM_FRAGMENT(ctx, &pb.PROGRAM_FRAGMENTRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PROGRAM_RASTER calls the PROGRAM_RASTER RPC.
+func (c *ElementClient) PROGRAM_RASTER(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.PROGRAM_RASTER(ctx, &pb.PROGRAM_RASTERRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PROGRAM_STORE calls the PROGRAM_STORE RPC.
+func (c *ElementClient) PROGRAM_STORE(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.PROGRAM_STORE(ctx, &pb.PROGRAM_STORERequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// PROGRAM_VERTEX calls the PROGRAM_VERTEX RPC.
+func (c *ElementClient) PROGRAM_VERTEX(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.PROGRAM_VERTEX(ctx, &pb.PROGRAM_VERTEXRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RGBA_4444 calls the RGBA_4444 RPC.
+func (c *ElementClient) RGBA_4444(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.RGBA_4444(ctx, &pb.RGBA_4444Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RGBA_5551 calls the RGBA_5551 RPC.
+func (c *ElementClient) RGBA_5551(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.RGBA_5551(ctx, &pb.RGBA_5551Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RGBA_8888 calls the RGBA_8888 RPC.
+func (c *ElementClient) RGBA_8888(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.RGBA_8888(ctx, &pb.RGBA_8888Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RGB_565 calls the RGB_565 RPC.
+func (c *ElementClient) RGB_565(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.RGB_565(ctx, &pb.RGB_565Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RGB_888 calls the RGB_888 RPC.
+func (c *ElementClient) RGB_888(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.RGB_888(ctx, &pb.RGB_888Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SAMPLER calls the SAMPLER RPC.
+func (c *ElementClient) SAMPLER(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SAMPLER(ctx, &pb.SAMPLERRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SCRIPT calls the SCRIPT RPC.
+func (c *ElementClient) SCRIPT(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.SCRIPT(ctx, &pb.SCRIPTRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TYPE calls the TYPE RPC.
+func (c *ElementClient) TYPE(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.TYPE(ctx, &pb.TYPERequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// U16 calls the U16 RPC.
+func (c *ElementClient) U16(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.U16(ctx, &pb.U16Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// U16_2 calls the U16_2 RPC.
+func (c *ElementClient) U16_2(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.U16_2(ctx, &pb.U16_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// U16_3 calls the U16_3 RPC.
+func (c *ElementClient) U16_3(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.U16_3(ctx, &pb.U16_3Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// U16_4 calls the U16_4 RPC.
+func (c *ElementClient) U16_4(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.U16_4(ctx, &pb.U16_4Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// U32 calls the U32 RPC.
+func (c *ElementClient) U32(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.U32(ctx, &pb.U32Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// U32_2 calls the U32_2 RPC.
+func (c *ElementClient) U32_2(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.U32_2(ctx, &pb.U32_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// U32_3 calls the U32_3 RPC.
+func (c *ElementClient) U32_3(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.U32_3(ctx, &pb.U32_3Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// U32_4 calls the U32_4 RPC.
+func (c *ElementClient) U32_4(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.U32_4(ctx, &pb.U32_4Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// U64 calls the U64 RPC.
+func (c *ElementClient) U64(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.U64(ctx, &pb.U64Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// U64_2 calls the U64_2 RPC.
+func (c *ElementClient) U64_2(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.U64_2(ctx, &pb.U64_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// U64_3 calls the U64_3 RPC.
+func (c *ElementClient) U64_3(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.U64_3(ctx, &pb.U64_3Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// U64_4 calls the U64_4 RPC.
+func (c *ElementClient) U64_4(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.U64_4(ctx, &pb.U64_4Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// U8 calls the U8 RPC.
+func (c *ElementClient) U8(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.U8(ctx, &pb.U8Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// U8_2 calls the U8_2 RPC.
+func (c *ElementClient) U8_2(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.U8_2(ctx, &pb.U8_2Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// U8_3 calls the U8_3 RPC.
+func (c *ElementClient) U8_3(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.U8_3(ctx, &pb.U8_3Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// U8_4 calls the U8_4 RPC.
+func (c *ElementClient) U8_4(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.U8_4(ctx, &pb.U8_4Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// YUV calls the YUV RPC.
+func (c *ElementClient) YUV(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.YUV(ctx, &pb.YUVRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreatePixel calls the CreatePixel RPC.
+func (c *ElementClient) CreatePixel(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.CreatePixel(ctx, &pb.CreatePixelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateVector calls the CreateVector RPC.
+func (c *ElementClient) CreateVector(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) (int64, error) {
+	resp, err := c.svc.CreateVector(ctx, &pb.CreateVectorRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ElementBuilderClient wraps the gRPC ElementBuilderService client.
+type ElementBuilderClient struct {
+	svc pb.ElementBuilderServiceClient
+}
+
+// NewElementBuilderClient creates a new ElementBuilder client.
+func NewElementBuilderClient(cc grpc.ClientConnInterface) *ElementBuilderClient {
+	return &ElementBuilderClient{
+		svc: pb.NewElementBuilderServiceClient(cc),
+	}
+}
+
+// Add2 calls the Add2 RPC.
+func (c *ElementBuilderClient) Add2(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
+	resp, err := c.svc.Add2(ctx, &pb.Add2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Add3_1 calls the Add3_1 RPC.
+func (c *ElementBuilderClient) Add3_1(ctx context.Context, arg0 int64, arg1 string, arg2 int32) (int64, error) {
+	resp, err := c.svc.Add3_1(ctx, &pb.Add3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Create calls the Create RPC.
+func (c *ElementBuilderClient) Create(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Create(ctx, &pb.ElementBuilderCreateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ElementDataKindClient wraps the gRPC ElementDataKindService client.
+type ElementDataKindClient struct {
+	svc pb.ElementDataKindServiceClient
+}
+
+// NewElementDataKindClient creates a new ElementDataKind client.
+func NewElementDataKindClient(cc grpc.ClientConnInterface) *ElementDataKindClient {
+	return &ElementDataKindClient{
+		svc: pb.NewElementDataKindServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *ElementDataKindClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *ElementDataKindClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ElementDataTypeClient wraps the gRPC ElementDataTypeService client.
+type ElementDataTypeClient struct {
+	svc pb.ElementDataTypeServiceClient
+}
+
+// NewElementDataTypeClient creates a new ElementDataType client.
+func NewElementDataTypeClient(cc grpc.ClientConnInterface) *ElementDataTypeClient {
+	return &ElementDataTypeClient{
+		svc: pb.NewElementDataTypeServiceClient(cc),
+	}
+}
+
+// Values calls the Values RPC.
+func (c *ElementDataTypeClient) Values(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ValueOf calls the ValueOf RPC.
+func (c *ElementDataTypeClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
+	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
 // ScriptIntrinsicBLASClient wraps the gRPC ScriptIntrinsicBLASService client.
@@ -2436,990 +6292,6 @@ func (c *ScriptIntrinsicBLASClient) Create(ctx context.Context, arg0 int64) (int
 	return resp.GetResult(), nil
 }
 
-// AllocationClient wraps the gRPC AllocationService client.
-type AllocationClient struct {
-	svc pb.AllocationServiceClient
-}
-
-// NewAllocationClient creates a new Allocation client.
-func NewAllocationClient(cc grpc.ClientConnInterface) *AllocationClient {
-	return &AllocationClient{
-		svc: pb.NewAllocationServiceClient(cc),
-	}
-}
-
-// Copy1DRangeFrom4 calls the Copy1DRangeFrom4 RPC.
-func (c *AllocationClient) Copy1DRangeFrom4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64, arg3 int32) error {
-	_, err := c.svc.Copy1DRangeFrom4(ctx, &pb.Copy1DRangeFrom4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// Copy1DRangeFrom3_1 calls the Copy1DRangeFrom3_1 RPC.
-func (c *AllocationClient) Copy1DRangeFrom3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.Copy1DRangeFrom3_1(ctx, &pb.Copy1DRangeFrom3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// Copy1DRangeFrom3_2 calls the Copy1DRangeFrom3_2 RPC.
-func (c *AllocationClient) Copy1DRangeFrom3_2(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.Copy1DRangeFrom3_2(ctx, &pb.Copy1DRangeFrom3_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// Copy1DRangeFrom3_3 calls the Copy1DRangeFrom3_3 RPC.
-func (c *AllocationClient) Copy1DRangeFrom3_3(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.Copy1DRangeFrom3_3(ctx, &pb.Copy1DRangeFrom3_3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// Copy1DRangeFrom3_4 calls the Copy1DRangeFrom3_4 RPC.
-func (c *AllocationClient) Copy1DRangeFrom3_4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.Copy1DRangeFrom3_4(ctx, &pb.Copy1DRangeFrom3_4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// Copy1DRangeFrom3_5 calls the Copy1DRangeFrom3_5 RPC.
-func (c *AllocationClient) Copy1DRangeFrom3_5(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.Copy1DRangeFrom3_5(ctx, &pb.Copy1DRangeFrom3_5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// Copy1DRangeFromUnchecked3 calls the Copy1DRangeFromUnchecked3 RPC.
-func (c *AllocationClient) Copy1DRangeFromUnchecked3(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.Copy1DRangeFromUnchecked3(ctx, &pb.Copy1DRangeFromUnchecked3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// Copy1DRangeFromUnchecked3_1 calls the Copy1DRangeFromUnchecked3_1 RPC.
-func (c *AllocationClient) Copy1DRangeFromUnchecked3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.Copy1DRangeFromUnchecked3_1(ctx, &pb.Copy1DRangeFromUnchecked3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// Copy1DRangeFromUnchecked3_2 calls the Copy1DRangeFromUnchecked3_2 RPC.
-func (c *AllocationClient) Copy1DRangeFromUnchecked3_2(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.Copy1DRangeFromUnchecked3_2(ctx, &pb.Copy1DRangeFromUnchecked3_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// Copy1DRangeFromUnchecked3_3 calls the Copy1DRangeFromUnchecked3_3 RPC.
-func (c *AllocationClient) Copy1DRangeFromUnchecked3_3(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.Copy1DRangeFromUnchecked3_3(ctx, &pb.Copy1DRangeFromUnchecked3_3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// Copy1DRangeFromUnchecked3_4 calls the Copy1DRangeFromUnchecked3_4 RPC.
-func (c *AllocationClient) Copy1DRangeFromUnchecked3_4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.Copy1DRangeFromUnchecked3_4(ctx, &pb.Copy1DRangeFromUnchecked3_4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// Copy1DRangeTo3 calls the Copy1DRangeTo3 RPC.
-func (c *AllocationClient) Copy1DRangeTo3(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.Copy1DRangeTo3(ctx, &pb.Copy1DRangeTo3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// Copy1DRangeTo3_1 calls the Copy1DRangeTo3_1 RPC.
-func (c *AllocationClient) Copy1DRangeTo3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.Copy1DRangeTo3_1(ctx, &pb.Copy1DRangeTo3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// Copy1DRangeTo3_2 calls the Copy1DRangeTo3_2 RPC.
-func (c *AllocationClient) Copy1DRangeTo3_2(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.Copy1DRangeTo3_2(ctx, &pb.Copy1DRangeTo3_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// Copy1DRangeTo3_3 calls the Copy1DRangeTo3_3 RPC.
-func (c *AllocationClient) Copy1DRangeTo3_3(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.Copy1DRangeTo3_3(ctx, &pb.Copy1DRangeTo3_3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// Copy1DRangeTo3_4 calls the Copy1DRangeTo3_4 RPC.
-func (c *AllocationClient) Copy1DRangeTo3_4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.Copy1DRangeTo3_4(ctx, &pb.Copy1DRangeTo3_4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// Copy1DRangeToUnchecked3 calls the Copy1DRangeToUnchecked3 RPC.
-func (c *AllocationClient) Copy1DRangeToUnchecked3(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.Copy1DRangeToUnchecked3(ctx, &pb.Copy1DRangeToUnchecked3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// Copy1DRangeToUnchecked3_1 calls the Copy1DRangeToUnchecked3_1 RPC.
-func (c *AllocationClient) Copy1DRangeToUnchecked3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.Copy1DRangeToUnchecked3_1(ctx, &pb.Copy1DRangeToUnchecked3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// Copy1DRangeToUnchecked3_2 calls the Copy1DRangeToUnchecked3_2 RPC.
-func (c *AllocationClient) Copy1DRangeToUnchecked3_2(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.Copy1DRangeToUnchecked3_2(ctx, &pb.Copy1DRangeToUnchecked3_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// Copy1DRangeToUnchecked3_3 calls the Copy1DRangeToUnchecked3_3 RPC.
-func (c *AllocationClient) Copy1DRangeToUnchecked3_3(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.Copy1DRangeToUnchecked3_3(ctx, &pb.Copy1DRangeToUnchecked3_3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// Copy1DRangeToUnchecked3_4 calls the Copy1DRangeToUnchecked3_4 RPC.
-func (c *AllocationClient) Copy1DRangeToUnchecked3_4(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.Copy1DRangeToUnchecked3_4(ctx, &pb.Copy1DRangeToUnchecked3_4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// Copy2DRangeFrom3 calls the Copy2DRangeFrom3 RPC.
-func (c *AllocationClient) Copy2DRangeFrom3(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.Copy2DRangeFrom3(ctx, &pb.Copy2DRangeFrom3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// Copy2DRangeFrom7_1 calls the Copy2DRangeFrom7_1 RPC.
-func (c *AllocationClient) Copy2DRangeFrom7_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64, arg5 int32, arg6 int32) error {
-	_, err := c.svc.Copy2DRangeFrom7_1(ctx, &pb.Copy2DRangeFrom7_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-		Arg6: arg6,
-	})
-	return err
-}
-
-// Copy2DRangeFrom5_2 calls the Copy2DRangeFrom5_2 RPC.
-func (c *AllocationClient) Copy2DRangeFrom5_2(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64) error {
-	_, err := c.svc.Copy2DRangeFrom5_2(ctx, &pb.Copy2DRangeFrom5_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// Copy2DRangeFrom5_3 calls the Copy2DRangeFrom5_3 RPC.
-func (c *AllocationClient) Copy2DRangeFrom5_3(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64) error {
-	_, err := c.svc.Copy2DRangeFrom5_3(ctx, &pb.Copy2DRangeFrom5_3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// Copy2DRangeFrom5_4 calls the Copy2DRangeFrom5_4 RPC.
-func (c *AllocationClient) Copy2DRangeFrom5_4(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64) error {
-	_, err := c.svc.Copy2DRangeFrom5_4(ctx, &pb.Copy2DRangeFrom5_4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// Copy2DRangeFrom5_5 calls the Copy2DRangeFrom5_5 RPC.
-func (c *AllocationClient) Copy2DRangeFrom5_5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64) error {
-	_, err := c.svc.Copy2DRangeFrom5_5(ctx, &pb.Copy2DRangeFrom5_5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// Copy2DRangeFrom5_6 calls the Copy2DRangeFrom5_6 RPC.
-func (c *AllocationClient) Copy2DRangeFrom5_6(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64) error {
-	_, err := c.svc.Copy2DRangeFrom5_6(ctx, &pb.Copy2DRangeFrom5_6Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// Copy2DRangeTo5 calls the Copy2DRangeTo5 RPC.
-func (c *AllocationClient) Copy2DRangeTo5(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64) error {
-	_, err := c.svc.Copy2DRangeTo5(ctx, &pb.Copy2DRangeTo5Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// Copy2DRangeTo5_1 calls the Copy2DRangeTo5_1 RPC.
-func (c *AllocationClient) Copy2DRangeTo5_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64) error {
-	_, err := c.svc.Copy2DRangeTo5_1(ctx, &pb.Copy2DRangeTo5_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// Copy2DRangeTo5_2 calls the Copy2DRangeTo5_2 RPC.
-func (c *AllocationClient) Copy2DRangeTo5_2(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64) error {
-	_, err := c.svc.Copy2DRangeTo5_2(ctx, &pb.Copy2DRangeTo5_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// Copy2DRangeTo5_3 calls the Copy2DRangeTo5_3 RPC.
-func (c *AllocationClient) Copy2DRangeTo5_3(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64) error {
-	_, err := c.svc.Copy2DRangeTo5_3(ctx, &pb.Copy2DRangeTo5_3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// Copy2DRangeTo5_4 calls the Copy2DRangeTo5_4 RPC.
-func (c *AllocationClient) Copy2DRangeTo5_4(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64) error {
-	_, err := c.svc.Copy2DRangeTo5_4(ctx, &pb.Copy2DRangeTo5_4Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// Copy3DRangeFrom10 calls the Copy3DRangeFrom10 RPC.
-func (c *AllocationClient) Copy3DRangeFrom10(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int64, arg7 int32, arg8 int32, arg9 int32) error {
-	_, err := c.svc.Copy3DRangeFrom10(ctx, &pb.Copy3DRangeFrom10Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-		Arg6: arg6,
-		Arg7: arg7,
-		Arg8: arg8,
-		Arg9: arg9,
-	})
-	return err
-}
-
-// Copy3DRangeFrom7_1 calls the Copy3DRangeFrom7_1 RPC.
-func (c *AllocationClient) Copy3DRangeFrom7_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int64) error {
-	_, err := c.svc.Copy3DRangeFrom7_1(ctx, &pb.Copy3DRangeFrom7_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-		Arg6: arg6,
-	})
-	return err
-}
-
-// Copy3DRangeTo calls the Copy3DRangeTo RPC.
-func (c *AllocationClient) Copy3DRangeTo(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int64) error {
-	_, err := c.svc.Copy3DRangeTo(ctx, &pb.Copy3DRangeToRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-		Arg6: arg6,
-	})
-	return err
-}
-
-// CopyFrom1 calls the CopyFrom1 RPC.
-func (c *AllocationClient) CopyFrom1(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.CopyFrom1(ctx, &pb.CopyFrom1Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CopyFrom1_1 calls the CopyFrom1_1 RPC.
-func (c *AllocationClient) CopyFrom1_1(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.CopyFrom1_1(ctx, &pb.CopyFrom1_1Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CopyFrom1_2 calls the CopyFrom1_2 RPC.
-func (c *AllocationClient) CopyFrom1_2(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.CopyFrom1_2(ctx, &pb.CopyFrom1_2Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CopyFrom1_3 calls the CopyFrom1_3 RPC.
-func (c *AllocationClient) CopyFrom1_3(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.CopyFrom1_3(ctx, &pb.CopyFrom1_3Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CopyFrom1_4 calls the CopyFrom1_4 RPC.
-func (c *AllocationClient) CopyFrom1_4(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.CopyFrom1_4(ctx, &pb.CopyFrom1_4Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CopyFrom1_5 calls the CopyFrom1_5 RPC.
-func (c *AllocationClient) CopyFrom1_5(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.CopyFrom1_5(ctx, &pb.CopyFrom1_5Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CopyFrom1_6 calls the CopyFrom1_6 RPC.
-func (c *AllocationClient) CopyFrom1_6(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.CopyFrom1_6(ctx, &pb.CopyFrom1_6Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CopyFrom1_7 calls the CopyFrom1_7 RPC.
-func (c *AllocationClient) CopyFrom1_7(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.CopyFrom1_7(ctx, &pb.CopyFrom1_7Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CopyFromUnchecked1 calls the CopyFromUnchecked1 RPC.
-func (c *AllocationClient) CopyFromUnchecked1(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.CopyFromUnchecked1(ctx, &pb.CopyFromUnchecked1Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CopyFromUnchecked1_1 calls the CopyFromUnchecked1_1 RPC.
-func (c *AllocationClient) CopyFromUnchecked1_1(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.CopyFromUnchecked1_1(ctx, &pb.CopyFromUnchecked1_1Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CopyFromUnchecked1_2 calls the CopyFromUnchecked1_2 RPC.
-func (c *AllocationClient) CopyFromUnchecked1_2(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.CopyFromUnchecked1_2(ctx, &pb.CopyFromUnchecked1_2Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CopyFromUnchecked1_3 calls the CopyFromUnchecked1_3 RPC.
-func (c *AllocationClient) CopyFromUnchecked1_3(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.CopyFromUnchecked1_3(ctx, &pb.CopyFromUnchecked1_3Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CopyFromUnchecked1_4 calls the CopyFromUnchecked1_4 RPC.
-func (c *AllocationClient) CopyFromUnchecked1_4(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.CopyFromUnchecked1_4(ctx, &pb.CopyFromUnchecked1_4Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CopyTo1 calls the CopyTo1 RPC.
-func (c *AllocationClient) CopyTo1(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.CopyTo1(ctx, &pb.CopyTo1Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CopyTo1_1 calls the CopyTo1_1 RPC.
-func (c *AllocationClient) CopyTo1_1(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.CopyTo1_1(ctx, &pb.CopyTo1_1Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CopyTo1_2 calls the CopyTo1_2 RPC.
-func (c *AllocationClient) CopyTo1_2(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.CopyTo1_2(ctx, &pb.CopyTo1_2Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CopyTo1_3 calls the CopyTo1_3 RPC.
-func (c *AllocationClient) CopyTo1_3(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.CopyTo1_3(ctx, &pb.CopyTo1_3Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CopyTo1_4 calls the CopyTo1_4 RPC.
-func (c *AllocationClient) CopyTo1_4(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.CopyTo1_4(ctx, &pb.CopyTo1_4Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CopyTo1_5 calls the CopyTo1_5 RPC.
-func (c *AllocationClient) CopyTo1_5(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.CopyTo1_5(ctx, &pb.CopyTo1_5Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// Destroy calls the Destroy RPC.
-func (c *AllocationClient) Destroy(ctx context.Context) error {
-	_, err := c.svc.Destroy(ctx, &pb.DestroyRequest{})
-	return err
-}
-
-// GenerateMipmaps calls the GenerateMipmaps RPC.
-func (c *AllocationClient) GenerateMipmaps(ctx context.Context) error {
-	_, err := c.svc.GenerateMipmaps(ctx, &pb.GenerateMipmapsRequest{})
-	return err
-}
-
-// GetByteBuffer calls the GetByteBuffer RPC.
-func (c *AllocationClient) GetByteBuffer(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetByteBuffer(ctx, &pb.GetByteBufferRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetBytesSize calls the GetBytesSize RPC.
-func (c *AllocationClient) GetBytesSize(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetBytesSize(ctx, &pb.GetBytesSizeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetElement calls the GetElement RPC.
-func (c *AllocationClient) GetElement(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetElement(ctx, &pb.GetElementRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStride calls the GetStride RPC.
-func (c *AllocationClient) GetStride(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetStride(ctx, &pb.GetStrideRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSurface calls the GetSurface RPC.
-func (c *AllocationClient) GetSurface(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetSurface(ctx, &pb.GetSurfaceRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTimeStamp calls the GetTimeStamp RPC.
-func (c *AllocationClient) GetTimeStamp(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetTimeStamp(ctx, &pb.GetTimeStampRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetType calls the GetType RPC.
-func (c *AllocationClient) GetType(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetType(ctx, &pb.GetTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUsage calls the GetUsage RPC.
-func (c *AllocationClient) GetUsage(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetUsage(ctx, &pb.GetUsageRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IoReceive calls the IoReceive RPC.
-func (c *AllocationClient) IoReceive(ctx context.Context) error {
-	_, err := c.svc.IoReceive(ctx, &pb.IoReceiveRequest{})
-	return err
-}
-
-// IoSend calls the IoSend RPC.
-func (c *AllocationClient) IoSend(ctx context.Context) error {
-	_, err := c.svc.IoSend(ctx, &pb.IoSendRequest{})
-	return err
-}
-
-// SetAutoPadding calls the SetAutoPadding RPC.
-func (c *AllocationClient) SetAutoPadding(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetAutoPadding(ctx, &pb.SetAutoPaddingRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetFromFieldPacker2 calls the SetFromFieldPacker2 RPC.
-func (c *AllocationClient) SetFromFieldPacker2(ctx context.Context, arg0 int32, arg1 int64) error {
-	_, err := c.svc.SetFromFieldPacker2(ctx, &pb.SetFromFieldPacker2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// SetFromFieldPacker3_1 calls the SetFromFieldPacker3_1 RPC.
-func (c *AllocationClient) SetFromFieldPacker3_1(ctx context.Context, arg0 int32, arg1 int32, arg2 int64) error {
-	_, err := c.svc.SetFromFieldPacker3_1(ctx, &pb.SetFromFieldPacker3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// SetFromFieldPacker5_2 calls the SetFromFieldPacker5_2 RPC.
-func (c *AllocationClient) SetFromFieldPacker5_2(ctx context.Context, arg0 int32, arg1 int32, arg2 int32, arg3 int32, arg4 int64) error {
-	_, err := c.svc.SetFromFieldPacker5_2(ctx, &pb.SetFromFieldPacker5_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	return err
-}
-
-// SetOnBufferAvailableListener calls the SetOnBufferAvailableListener RPC.
-func (c *AllocationClient) SetOnBufferAvailableListener(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetOnBufferAvailableListener(ctx, &pb.SetOnBufferAvailableListenerRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetSurface calls the SetSurface RPC.
-func (c *AllocationClient) SetSurface(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetSurface(ctx, &pb.SetSurfaceRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SyncAll calls the SyncAll RPC.
-func (c *AllocationClient) SyncAll(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SyncAll(ctx, &pb.SyncAllRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// CreateAllocations calls the CreateAllocations RPC.
-func (c *AllocationClient) CreateAllocations(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int32) (int64, error) {
-	resp, err := c.svc.CreateAllocations(ctx, &pb.CreateAllocationsRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateCubemapFromBitmap2 calls the CreateCubemapFromBitmap2 RPC.
-func (c *AllocationClient) CreateCubemapFromBitmap2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.CreateCubemapFromBitmap2(ctx, &pb.CreateCubemapFromBitmap2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateCubemapFromBitmap4_1 calls the CreateCubemapFromBitmap4_1 RPC.
-func (c *AllocationClient) CreateCubemapFromBitmap4_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int32) (int64, error) {
-	resp, err := c.svc.CreateCubemapFromBitmap4_1(ctx, &pb.CreateCubemapFromBitmap4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateCubemapFromCubeFaces7 calls the CreateCubemapFromCubeFaces7 RPC.
-func (c *AllocationClient) CreateCubemapFromCubeFaces7(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64, arg4 int64, arg5 int64, arg6 int64) (int64, error) {
-	resp, err := c.svc.CreateCubemapFromCubeFaces7(ctx, &pb.CreateCubemapFromCubeFaces7Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-		Arg6: arg6,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateCubemapFromCubeFaces9_1 calls the CreateCubemapFromCubeFaces9_1 RPC.
-func (c *AllocationClient) CreateCubemapFromCubeFaces9_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int64, arg4 int64, arg5 int64, arg6 int64, arg7 int64, arg8 int32) (int64, error) {
-	resp, err := c.svc.CreateCubemapFromCubeFaces9_1(ctx, &pb.CreateCubemapFromCubeFaces9_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-		Arg6: arg6,
-		Arg7: arg7,
-		Arg8: arg8,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateFromBitmap2 calls the CreateFromBitmap2 RPC.
-func (c *AllocationClient) CreateFromBitmap2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.CreateFromBitmap2(ctx, &pb.CreateFromBitmap2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateFromBitmap4_1 calls the CreateFromBitmap4_1 RPC.
-func (c *AllocationClient) CreateFromBitmap4_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int32) (int64, error) {
-	resp, err := c.svc.CreateFromBitmap4_1(ctx, &pb.CreateFromBitmap4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateFromBitmapResource3 calls the CreateFromBitmapResource3 RPC.
-func (c *AllocationClient) CreateFromBitmapResource3(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) (int64, error) {
-	resp, err := c.svc.CreateFromBitmapResource3(ctx, &pb.CreateFromBitmapResource3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateFromBitmapResource5_1 calls the CreateFromBitmapResource5_1 RPC.
-func (c *AllocationClient) CreateFromBitmapResource5_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int64, arg4 int32) (int64, error) {
-	resp, err := c.svc.CreateFromBitmapResource5_1(ctx, &pb.CreateFromBitmapResource5_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateFromString calls the CreateFromString RPC.
-func (c *AllocationClient) CreateFromString(ctx context.Context, arg0 int64, arg1 string, arg2 int32) (int64, error) {
-	resp, err := c.svc.CreateFromString(ctx, &pb.CreateFromStringRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateSized3 calls the CreateSized3 RPC.
-func (c *AllocationClient) CreateSized3(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) (int64, error) {
-	resp, err := c.svc.CreateSized3(ctx, &pb.CreateSized3Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateSized4_1 calls the CreateSized4_1 RPC.
-func (c *AllocationClient) CreateSized4_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int32) (int64, error) {
-	resp, err := c.svc.CreateSized4_1(ctx, &pb.CreateSized4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateTyped2 calls the CreateTyped2 RPC.
-func (c *AllocationClient) CreateTyped2(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.CreateTyped2(ctx, &pb.CreateTyped2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateTyped4_1 calls the CreateTyped4_1 RPC.
-func (c *AllocationClient) CreateTyped4_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64, arg3 int32) (int64, error) {
-	resp, err := c.svc.CreateTyped4_1(ctx, &pb.CreateTyped4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateTyped3_2 calls the CreateTyped3_2 RPC.
-func (c *AllocationClient) CreateTyped3_2(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) (int64, error) {
-	resp, err := c.svc.CreateTyped3_2(ctx, &pb.CreateTyped3_2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AllocationMipmapControlClient wraps the gRPC AllocationMipmapControlService client.
-type AllocationMipmapControlClient struct {
-	svc pb.AllocationMipmapControlServiceClient
-}
-
-// NewAllocationMipmapControlClient creates a new AllocationMipmapControl client.
-func NewAllocationMipmapControlClient(cc grpc.ClientConnInterface) *AllocationMipmapControlClient {
-	return &AllocationMipmapControlClient{
-		svc: pb.NewAllocationMipmapControlServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *AllocationMipmapControlClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *AllocationMipmapControlClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// AllocationOnBufferAvailableListenerClient wraps the gRPC AllocationOnBufferAvailableListenerService client.
-type AllocationOnBufferAvailableListenerClient struct {
-	svc pb.AllocationOnBufferAvailableListenerServiceClient
-}
-
-// NewAllocationOnBufferAvailableListenerClient creates a new AllocationOnBufferAvailableListener client.
-func NewAllocationOnBufferAvailableListenerClient(cc grpc.ClientConnInterface) *AllocationOnBufferAvailableListenerClient {
-	return &AllocationOnBufferAvailableListenerClient{
-		svc: pb.NewAllocationOnBufferAvailableListenerServiceClient(cc),
-	}
-}
-
-// OnBufferAvailable calls the OnBufferAvailable RPC.
-func (c *AllocationOnBufferAvailableListenerClient) OnBufferAvailable(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnBufferAvailable(ctx, &pb.OnBufferAvailableRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
 // ScriptClient wraps the gRPC ScriptService client.
 type ScriptClient struct {
 	svc pb.ScriptServiceClient
@@ -3700,7 +6572,7 @@ func (c *ScriptLaunchOptionsClient) GetZStart(ctx context.Context) (int32, error
 
 // SetX calls the SetX RPC.
 func (c *ScriptLaunchOptionsClient) SetX(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.SetX(ctx, &pb.SetXRequest{
+	resp, err := c.svc.SetX(ctx, &pb.ScriptLaunchOptionsSetXRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -3712,7 +6584,7 @@ func (c *ScriptLaunchOptionsClient) SetX(ctx context.Context, arg0 int32, arg1 i
 
 // SetY calls the SetY RPC.
 func (c *ScriptLaunchOptionsClient) SetY(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.SetY(ctx, &pb.SetYRequest{
+	resp, err := c.svc.SetY(ctx, &pb.ScriptLaunchOptionsSetYRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -3724,7 +6596,7 @@ func (c *ScriptLaunchOptionsClient) SetY(ctx context.Context, arg0 int32, arg1 i
 
 // SetZ calls the SetZ RPC.
 func (c *ScriptLaunchOptionsClient) SetZ(ctx context.Context, arg0 int32, arg1 int32) (int64, error) {
-	resp, err := c.svc.SetZ(ctx, &pb.SetZRequest{
+	resp, err := c.svc.SetZ(ctx, &pb.ScriptLaunchOptionsSetZRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -3734,352 +6606,35 @@ func (c *ScriptLaunchOptionsClient) SetZ(ctx context.Context, arg0 int32, arg1 i
 	return resp.GetResult(), nil
 }
 
-// ScriptIntrinsic3DLUTClient wraps the gRPC ScriptIntrinsic3DLUTService client.
-type ScriptIntrinsic3DLUTClient struct {
-	svc pb.ScriptIntrinsic3DLUTServiceClient
+// ScriptGroupClient wraps the gRPC ScriptGroupService client.
+type ScriptGroupClient struct {
+	svc pb.ScriptGroupServiceClient
 }
 
-// NewScriptIntrinsic3DLUTClient creates a new ScriptIntrinsic3DLUT client.
-func NewScriptIntrinsic3DLUTClient(cc grpc.ClientConnInterface) *ScriptIntrinsic3DLUTClient {
-	return &ScriptIntrinsic3DLUTClient{
-		svc: pb.NewScriptIntrinsic3DLUTServiceClient(cc),
+// NewScriptGroupClient creates a new ScriptGroup client.
+func NewScriptGroupClient(cc grpc.ClientConnInterface) *ScriptGroupClient {
+	return &ScriptGroupClient{
+		svc: pb.NewScriptGroupServiceClient(cc),
 	}
 }
 
-// ForEach2 calls the ForEach2 RPC.
-func (c *ScriptIntrinsic3DLUTClient) ForEach2(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.ForEach2(ctx, &pb.ForEach2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
+// Destroy calls the Destroy RPC.
+func (c *ScriptGroupClient) Destroy(ctx context.Context) error {
+	_, err := c.svc.Destroy(ctx, &pb.DestroyRequest{})
 	return err
 }
 
-// ForEach3_1 calls the ForEach3_1 RPC.
-func (c *ScriptIntrinsic3DLUTClient) ForEach3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.ForEach3_1(ctx, &pb.ForEach3_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
+// Execute0 calls the Execute0 RPC.
+func (c *ScriptGroupClient) Execute0(ctx context.Context) error {
+	_, err := c.svc.Execute0(ctx, &pb.Execute0Request{})
 	return err
 }
 
-// GetKernelID calls the GetKernelID RPC.
-func (c *ScriptIntrinsic3DLUTClient) GetKernelID(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetKernelID(ctx, &pb.GetKernelIDRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetLUT calls the SetLUT RPC.
-func (c *ScriptIntrinsic3DLUTClient) SetLUT(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetLUT(ctx, &pb.SetLUTRequest{
+// Execute1_1 calls the Execute1_1 RPC.
+func (c *ScriptGroupClient) Execute1_1(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Execute1_1(ctx, &pb.Execute1_1Request{
 		Arg0: arg0,
 	})
-	return err
-}
-
-// Create calls the Create RPC.
-func (c *ScriptIntrinsic3DLUTClient) Create(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.Create(ctx, &pb.ScriptIntrinsic3DLUTCreateRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// TypeClient wraps the gRPC TypeService client.
-type TypeClient struct {
-	svc pb.TypeServiceClient
-}
-
-// NewTypeClient creates a new Type client.
-func NewTypeClient(cc grpc.ClientConnInterface) *TypeClient {
-	return &TypeClient{
-		svc: pb.NewTypeServiceClient(cc),
-	}
-}
-
-// GetCount calls the GetCount RPC.
-func (c *TypeClient) GetCount(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetCount(ctx, &pb.GetCountRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetElement calls the GetElement RPC.
-func (c *TypeClient) GetElement(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetElement(ctx, &pb.GetElementRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetX calls the GetX RPC.
-func (c *TypeClient) GetX(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetX(ctx, &pb.GetXRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetY calls the GetY RPC.
-func (c *TypeClient) GetY(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetY(ctx, &pb.GetYRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetYuv calls the GetYuv RPC.
-func (c *TypeClient) GetYuv(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetYuv(ctx, &pb.GetYuvRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetZ calls the GetZ RPC.
-func (c *TypeClient) GetZ(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetZ(ctx, &pb.GetZRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasFaces calls the HasFaces RPC.
-func (c *TypeClient) HasFaces(ctx context.Context) (bool, error) {
-	resp, err := c.svc.HasFaces(ctx, &pb.HasFacesRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HasMipmaps calls the HasMipmaps RPC.
-func (c *TypeClient) HasMipmaps(ctx context.Context) (bool, error) {
-	resp, err := c.svc.HasMipmaps(ctx, &pb.HasMipmapsRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateX calls the CreateX RPC.
-func (c *TypeClient) CreateX(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) (int64, error) {
-	resp, err := c.svc.CreateX(ctx, &pb.CreateXRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateXY calls the CreateXY RPC.
-func (c *TypeClient) CreateXY(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int32) (int64, error) {
-	resp, err := c.svc.CreateXY(ctx, &pb.CreateXYRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateXYZ calls the CreateXYZ RPC.
-func (c *TypeClient) CreateXYZ(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int32, arg4 int32) (int64, error) {
-	resp, err := c.svc.CreateXYZ(ctx, &pb.CreateXYZRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// TypeBuilderClient wraps the gRPC TypeBuilderService client.
-type TypeBuilderClient struct {
-	svc pb.TypeBuilderServiceClient
-}
-
-// NewTypeBuilderClient creates a new TypeBuilder client.
-func NewTypeBuilderClient(cc grpc.ClientConnInterface) *TypeBuilderClient {
-	return &TypeBuilderClient{
-		svc: pb.NewTypeBuilderServiceClient(cc),
-	}
-}
-
-// Create calls the Create RPC.
-func (c *TypeBuilderClient) Create(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Create(ctx, &pb.CreateRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetFaces calls the SetFaces RPC.
-func (c *TypeBuilderClient) SetFaces(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetFaces(ctx, &pb.SetFacesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetMipmaps calls the SetMipmaps RPC.
-func (c *TypeBuilderClient) SetMipmaps(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetMipmaps(ctx, &pb.SetMipmapsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetX calls the SetX RPC.
-func (c *TypeBuilderClient) SetX(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetX(ctx, &pb.TypeBuilderSetXRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetY calls the SetY RPC.
-func (c *TypeBuilderClient) SetY(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetY(ctx, &pb.TypeBuilderSetYRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetYuvFormat calls the SetYuvFormat RPC.
-func (c *TypeBuilderClient) SetYuvFormat(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetYuvFormat(ctx, &pb.SetYuvFormatRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetZ calls the SetZ RPC.
-func (c *TypeBuilderClient) SetZ(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.SetZ(ctx, &pb.TypeBuilderSetZRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// TypeCubemapFaceClient wraps the gRPC TypeCubemapFaceService client.
-type TypeCubemapFaceClient struct {
-	svc pb.TypeCubemapFaceServiceClient
-}
-
-// NewTypeCubemapFaceClient creates a new TypeCubemapFace client.
-func NewTypeCubemapFaceClient(cc grpc.ClientConnInterface) *TypeCubemapFaceClient {
-	return &TypeCubemapFaceClient{
-		svc: pb.NewTypeCubemapFaceServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *TypeCubemapFaceClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *TypeCubemapFaceClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ScriptIntrinsicBlurClient wraps the gRPC ScriptIntrinsicBlurService client.
-type ScriptIntrinsicBlurClient struct {
-	svc pb.ScriptIntrinsicBlurServiceClient
-}
-
-// NewScriptIntrinsicBlurClient creates a new ScriptIntrinsicBlur client.
-func NewScriptIntrinsicBlurClient(cc grpc.ClientConnInterface) *ScriptIntrinsicBlurClient {
-	return &ScriptIntrinsicBlurClient{
-		svc: pb.NewScriptIntrinsicBlurServiceClient(cc),
-	}
-}
-
-// ForEach1 calls the ForEach1 RPC.
-func (c *ScriptIntrinsicBlurClient) ForEach1(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.ForEach1(ctx, &pb.ForEach1Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ForEach2_1 calls the ForEach2_1 RPC.
-func (c *ScriptIntrinsicBlurClient) ForEach2_1(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.ForEach2_1(ctx, &pb.ForEach2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// GetFieldID_Input calls the GetFieldID_Input RPC.
-func (c *ScriptIntrinsicBlurClient) GetFieldID_Input(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetFieldID_Input(ctx, &pb.GetFieldID_InputRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetKernelID calls the GetKernelID RPC.
-func (c *ScriptIntrinsicBlurClient) GetKernelID(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetKernelID(ctx, &pb.GetKernelIDRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -4087,24 +6642,105 @@ func (c *ScriptIntrinsicBlurClient) GetKernelID(ctx context.Context) (int64, err
 }
 
 // SetInput calls the SetInput RPC.
-func (c *ScriptIntrinsicBlurClient) SetInput(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetInput(ctx, &pb.ScriptIntrinsicBlurSetInputRequest{
+func (c *ScriptGroupClient) SetInput(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.SetInput(ctx, &pb.ScriptGroupSetInputRequest{
 		Arg0: arg0,
+		Arg1: arg1,
 	})
 	return err
 }
 
-// SetRadius calls the SetRadius RPC.
-func (c *ScriptIntrinsicBlurClient) SetRadius(ctx context.Context, arg0 float32) error {
-	_, err := c.svc.SetRadius(ctx, &pb.SetRadiusRequest{
+// SetOutput calls the SetOutput RPC.
+func (c *ScriptGroupClient) SetOutput(ctx context.Context, arg0 int64, arg1 int64) error {
+	_, err := c.svc.SetOutput(ctx, &pb.ScriptGroupSetOutputRequest{
 		Arg0: arg0,
+		Arg1: arg1,
 	})
 	return err
+}
+
+// ScriptGroupBuilderClient wraps the gRPC ScriptGroupBuilderService client.
+type ScriptGroupBuilderClient struct {
+	svc pb.ScriptGroupBuilderServiceClient
+}
+
+// NewScriptGroupBuilderClient creates a new ScriptGroupBuilder client.
+func NewScriptGroupBuilderClient(cc grpc.ClientConnInterface) *ScriptGroupBuilderClient {
+	return &ScriptGroupBuilderClient{
+		svc: pb.NewScriptGroupBuilderServiceClient(cc),
+	}
+}
+
+// AddConnection3 calls the AddConnection3 RPC.
+func (c *ScriptGroupBuilderClient) AddConnection3(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.AddConnection3(ctx, &pb.AddConnection3Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddConnection3_1 calls the AddConnection3_1 RPC.
+func (c *ScriptGroupBuilderClient) AddConnection3_1(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.AddConnection3_1(ctx, &pb.AddConnection3_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddKernel calls the AddKernel RPC.
+func (c *ScriptGroupBuilderClient) AddKernel(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.AddKernel(ctx, &pb.AddKernelRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
 // Create calls the Create RPC.
-func (c *ScriptIntrinsicBlurClient) Create(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.Create(ctx, &pb.ScriptIntrinsicBlurCreateRequest{
+func (c *ScriptGroupBuilderClient) Create(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Create(ctx, &pb.ScriptGroupBuilderCreateRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ScriptGroupBuilder2Client wraps the gRPC ScriptGroupBuilder2Service client.
+type ScriptGroupBuilder2Client struct {
+	svc pb.ScriptGroupBuilder2ServiceClient
+}
+
+// NewScriptGroupBuilder2Client creates a new ScriptGroupBuilder2 client.
+func NewScriptGroupBuilder2Client(cc grpc.ClientConnInterface) *ScriptGroupBuilder2Client {
+	return &ScriptGroupBuilder2Client{
+		svc: pb.NewScriptGroupBuilder2ServiceClient(cc),
+	}
+}
+
+// AddInput calls the AddInput RPC.
+func (c *ScriptGroupBuilder2Client) AddInput(ctx context.Context) (int64, error) {
+	resp, err := c.svc.AddInput(ctx, &pb.AddInputRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// AddInvoke calls the AddInvoke RPC.
+func (c *ScriptGroupBuilder2Client) AddInvoke(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.AddInvoke(ctx, &pb.AddInvokeRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -4114,1006 +6750,9 @@ func (c *ScriptIntrinsicBlurClient) Create(ctx context.Context, arg0 int64, arg1
 	return resp.GetResult(), nil
 }
 
-// AllocationAdapterClient wraps the gRPC AllocationAdapterService client.
-type AllocationAdapterClient struct {
-	svc pb.AllocationAdapterServiceClient
-}
-
-// NewAllocationAdapterClient creates a new AllocationAdapter client.
-func NewAllocationAdapterClient(cc grpc.ClientConnInterface) *AllocationAdapterClient {
-	return &AllocationAdapterClient{
-		svc: pb.NewAllocationAdapterServiceClient(cc),
-	}
-}
-
-// SetFace calls the SetFace RPC.
-func (c *AllocationAdapterClient) SetFace(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetFace(ctx, &pb.SetFaceRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetLOD calls the SetLOD RPC.
-func (c *AllocationAdapterClient) SetLOD(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetLOD(ctx, &pb.SetLODRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetX calls the SetX RPC.
-func (c *AllocationAdapterClient) SetX(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetX(ctx, &pb.AllocationAdapterSetXRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetY calls the SetY RPC.
-func (c *AllocationAdapterClient) SetY(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetY(ctx, &pb.AllocationAdapterSetYRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetZ calls the SetZ RPC.
-func (c *AllocationAdapterClient) SetZ(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.SetZ(ctx, &pb.AllocationAdapterSetZRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// Create1D calls the Create1D RPC.
-func (c *AllocationAdapterClient) Create1D(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.Create1D(ctx, &pb.Create1DRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Create2D calls the Create2D RPC.
-func (c *AllocationAdapterClient) Create2D(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.Create2D(ctx, &pb.Create2DRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateTyped calls the CreateTyped RPC.
-func (c *AllocationAdapterClient) CreateTyped(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.CreateTyped(ctx, &pb.CreateTypedRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ElementClient wraps the gRPC ElementService client.
-type ElementClient struct {
-	svc pb.ElementServiceClient
-}
-
-// NewElementClient creates a new Element client.
-func NewElementClient(cc grpc.ClientConnInterface) *ElementClient {
-	return &ElementClient{
-		svc: pb.NewElementServiceClient(cc),
-	}
-}
-
-// GetBytesSize calls the GetBytesSize RPC.
-func (c *ElementClient) GetBytesSize(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetBytesSize(ctx, &pb.GetBytesSizeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDataKind calls the GetDataKind RPC.
-func (c *ElementClient) GetDataKind(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDataKind(ctx, &pb.GetDataKindRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDataType calls the GetDataType RPC.
-func (c *ElementClient) GetDataType(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDataType(ctx, &pb.GetDataTypeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSubElement calls the GetSubElement RPC.
-func (c *ElementClient) GetSubElement(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetSubElement(ctx, &pb.GetSubElementRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSubElementArraySize calls the GetSubElementArraySize RPC.
-func (c *ElementClient) GetSubElementArraySize(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetSubElementArraySize(ctx, &pb.GetSubElementArraySizeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSubElementCount calls the GetSubElementCount RPC.
-func (c *ElementClient) GetSubElementCount(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetSubElementCount(ctx, &pb.GetSubElementCountRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSubElementName calls the GetSubElementName RPC.
-func (c *ElementClient) GetSubElementName(ctx context.Context, arg0 int32) (string, error) {
-	resp, err := c.svc.GetSubElementName(ctx, &pb.GetSubElementNameRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSubElementOffsetBytes calls the GetSubElementOffsetBytes RPC.
-func (c *ElementClient) GetSubElementOffsetBytes(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetSubElementOffsetBytes(ctx, &pb.GetSubElementOffsetBytesRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetVectorSize calls the GetVectorSize RPC.
-func (c *ElementClient) GetVectorSize(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetVectorSize(ctx, &pb.GetVectorSizeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsCompatible calls the IsCompatible RPC.
-func (c *ElementClient) IsCompatible(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.IsCompatible(ctx, &pb.IsCompatibleRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsComplex calls the IsComplex RPC.
-func (c *ElementClient) IsComplex(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsComplex(ctx, &pb.IsComplexRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ALLOCATION calls the ALLOCATION RPC.
-func (c *ElementClient) ALLOCATION(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.ALLOCATION(ctx, &pb.ALLOCATIONRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// A_8 calls the A_8 RPC.
-func (c *ElementClient) A_8(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.A_8(ctx, &pb.A_8Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// BOOLEAN calls the BOOLEAN RPC.
-func (c *ElementClient) BOOLEAN(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.BOOLEAN(ctx, &pb.BOOLEANRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ELEMENT calls the ELEMENT RPC.
-func (c *ElementClient) ELEMENT(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.ELEMENT(ctx, &pb.ELEMENTRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// F16 calls the F16 RPC.
-func (c *ElementClient) F16(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.F16(ctx, &pb.F16Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// F16_2 calls the F16_2 RPC.
-func (c *ElementClient) F16_2(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.F16_2(ctx, &pb.F16_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// F16_3 calls the F16_3 RPC.
-func (c *ElementClient) F16_3(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.F16_3(ctx, &pb.F16_3Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// F16_4 calls the F16_4 RPC.
-func (c *ElementClient) F16_4(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.F16_4(ctx, &pb.F16_4Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// F32 calls the F32 RPC.
-func (c *ElementClient) F32(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.F32(ctx, &pb.F32Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// F32_2 calls the F32_2 RPC.
-func (c *ElementClient) F32_2(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.F32_2(ctx, &pb.F32_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// F32_3 calls the F32_3 RPC.
-func (c *ElementClient) F32_3(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.F32_3(ctx, &pb.F32_3Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// F32_4 calls the F32_4 RPC.
-func (c *ElementClient) F32_4(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.F32_4(ctx, &pb.F32_4Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// F64 calls the F64 RPC.
-func (c *ElementClient) F64(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.F64(ctx, &pb.F64Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// F64_2 calls the F64_2 RPC.
-func (c *ElementClient) F64_2(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.F64_2(ctx, &pb.F64_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// F64_3 calls the F64_3 RPC.
-func (c *ElementClient) F64_3(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.F64_3(ctx, &pb.F64_3Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// F64_4 calls the F64_4 RPC.
-func (c *ElementClient) F64_4(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.F64_4(ctx, &pb.F64_4Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// FONT calls the FONT RPC.
-func (c *ElementClient) FONT(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.FONT(ctx, &pb.FONTRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// I16 calls the I16 RPC.
-func (c *ElementClient) I16(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.I16(ctx, &pb.I16Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// I16_2 calls the I16_2 RPC.
-func (c *ElementClient) I16_2(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.I16_2(ctx, &pb.I16_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// I16_3 calls the I16_3 RPC.
-func (c *ElementClient) I16_3(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.I16_3(ctx, &pb.I16_3Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// I16_4 calls the I16_4 RPC.
-func (c *ElementClient) I16_4(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.I16_4(ctx, &pb.I16_4Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// I32 calls the I32 RPC.
-func (c *ElementClient) I32(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.I32(ctx, &pb.I32Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// I32_2 calls the I32_2 RPC.
-func (c *ElementClient) I32_2(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.I32_2(ctx, &pb.I32_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// I32_3 calls the I32_3 RPC.
-func (c *ElementClient) I32_3(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.I32_3(ctx, &pb.I32_3Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// I32_4 calls the I32_4 RPC.
-func (c *ElementClient) I32_4(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.I32_4(ctx, &pb.I32_4Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// I64 calls the I64 RPC.
-func (c *ElementClient) I64(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.I64(ctx, &pb.I64Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// I64_2 calls the I64_2 RPC.
-func (c *ElementClient) I64_2(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.I64_2(ctx, &pb.I64_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// I64_3 calls the I64_3 RPC.
-func (c *ElementClient) I64_3(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.I64_3(ctx, &pb.I64_3Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// I64_4 calls the I64_4 RPC.
-func (c *ElementClient) I64_4(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.I64_4(ctx, &pb.I64_4Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// I8 calls the I8 RPC.
-func (c *ElementClient) I8(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.I8(ctx, &pb.I8Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// I8_2 calls the I8_2 RPC.
-func (c *ElementClient) I8_2(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.I8_2(ctx, &pb.I8_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// I8_3 calls the I8_3 RPC.
-func (c *ElementClient) I8_3(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.I8_3(ctx, &pb.I8_3Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// I8_4 calls the I8_4 RPC.
-func (c *ElementClient) I8_4(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.I8_4(ctx, &pb.I8_4Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MATRIX4X4 calls the MATRIX4X4 RPC.
-func (c *ElementClient) MATRIX4X4(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.MATRIX4X4(ctx, &pb.MATRIX4X4Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MATRIX_2X2 calls the MATRIX_2X2 RPC.
-func (c *ElementClient) MATRIX_2X2(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.MATRIX_2X2(ctx, &pb.MATRIX_2X2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MATRIX_3X3 calls the MATRIX_3X3 RPC.
-func (c *ElementClient) MATRIX_3X3(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.MATRIX_3X3(ctx, &pb.MATRIX_3X3Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MATRIX_4X4 calls the MATRIX_4X4 RPC.
-func (c *ElementClient) MATRIX_4X4(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.MATRIX_4X4(ctx, &pb.MATRIX_4X4Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// MESH calls the MESH RPC.
-func (c *ElementClient) MESH(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.MESH(ctx, &pb.MESHRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PROGRAM_FRAGMENT calls the PROGRAM_FRAGMENT RPC.
-func (c *ElementClient) PROGRAM_FRAGMENT(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.PROGRAM_FRAGMENT(ctx, &pb.PROGRAM_FRAGMENTRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PROGRAM_RASTER calls the PROGRAM_RASTER RPC.
-func (c *ElementClient) PROGRAM_RASTER(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.PROGRAM_RASTER(ctx, &pb.PROGRAM_RASTERRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PROGRAM_STORE calls the PROGRAM_STORE RPC.
-func (c *ElementClient) PROGRAM_STORE(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.PROGRAM_STORE(ctx, &pb.PROGRAM_STORERequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// PROGRAM_VERTEX calls the PROGRAM_VERTEX RPC.
-func (c *ElementClient) PROGRAM_VERTEX(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.PROGRAM_VERTEX(ctx, &pb.PROGRAM_VERTEXRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RGBA_4444 calls the RGBA_4444 RPC.
-func (c *ElementClient) RGBA_4444(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.RGBA_4444(ctx, &pb.RGBA_4444Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RGBA_5551 calls the RGBA_5551 RPC.
-func (c *ElementClient) RGBA_5551(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.RGBA_5551(ctx, &pb.RGBA_5551Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RGBA_8888 calls the RGBA_8888 RPC.
-func (c *ElementClient) RGBA_8888(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.RGBA_8888(ctx, &pb.RGBA_8888Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RGB_565 calls the RGB_565 RPC.
-func (c *ElementClient) RGB_565(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.RGB_565(ctx, &pb.RGB_565Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RGB_888 calls the RGB_888 RPC.
-func (c *ElementClient) RGB_888(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.RGB_888(ctx, &pb.RGB_888Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SAMPLER calls the SAMPLER RPC.
-func (c *ElementClient) SAMPLER(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SAMPLER(ctx, &pb.SAMPLERRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SCRIPT calls the SCRIPT RPC.
-func (c *ElementClient) SCRIPT(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.SCRIPT(ctx, &pb.SCRIPTRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// TYPE calls the TYPE RPC.
-func (c *ElementClient) TYPE(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.TYPE(ctx, &pb.TYPERequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// U16 calls the U16 RPC.
-func (c *ElementClient) U16(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.U16(ctx, &pb.U16Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// U16_2 calls the U16_2 RPC.
-func (c *ElementClient) U16_2(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.U16_2(ctx, &pb.U16_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// U16_3 calls the U16_3 RPC.
-func (c *ElementClient) U16_3(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.U16_3(ctx, &pb.U16_3Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// U16_4 calls the U16_4 RPC.
-func (c *ElementClient) U16_4(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.U16_4(ctx, &pb.U16_4Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// U32 calls the U32 RPC.
-func (c *ElementClient) U32(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.U32(ctx, &pb.U32Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// U32_2 calls the U32_2 RPC.
-func (c *ElementClient) U32_2(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.U32_2(ctx, &pb.U32_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// U32_3 calls the U32_3 RPC.
-func (c *ElementClient) U32_3(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.U32_3(ctx, &pb.U32_3Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// U32_4 calls the U32_4 RPC.
-func (c *ElementClient) U32_4(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.U32_4(ctx, &pb.U32_4Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// U64 calls the U64 RPC.
-func (c *ElementClient) U64(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.U64(ctx, &pb.U64Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// U64_2 calls the U64_2 RPC.
-func (c *ElementClient) U64_2(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.U64_2(ctx, &pb.U64_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// U64_3 calls the U64_3 RPC.
-func (c *ElementClient) U64_3(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.U64_3(ctx, &pb.U64_3Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// U64_4 calls the U64_4 RPC.
-func (c *ElementClient) U64_4(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.U64_4(ctx, &pb.U64_4Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// U8 calls the U8 RPC.
-func (c *ElementClient) U8(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.U8(ctx, &pb.U8Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// U8_2 calls the U8_2 RPC.
-func (c *ElementClient) U8_2(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.U8_2(ctx, &pb.U8_2Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// U8_3 calls the U8_3 RPC.
-func (c *ElementClient) U8_3(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.U8_3(ctx, &pb.U8_3Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// U8_4 calls the U8_4 RPC.
-func (c *ElementClient) U8_4(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.U8_4(ctx, &pb.U8_4Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// YUV calls the YUV RPC.
-func (c *ElementClient) YUV(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.YUV(ctx, &pb.YUVRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreatePixel calls the CreatePixel RPC.
-func (c *ElementClient) CreatePixel(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
-	resp, err := c.svc.CreatePixel(ctx, &pb.CreatePixelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateVector calls the CreateVector RPC.
-func (c *ElementClient) CreateVector(ctx context.Context, arg0 int64, arg1 int64, arg2 int32) (int64, error) {
-	resp, err := c.svc.CreateVector(ctx, &pb.CreateVectorRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ElementBuilderClient wraps the gRPC ElementBuilderService client.
-type ElementBuilderClient struct {
-	svc pb.ElementBuilderServiceClient
-}
-
-// NewElementBuilderClient creates a new ElementBuilder client.
-func NewElementBuilderClient(cc grpc.ClientConnInterface) *ElementBuilderClient {
-	return &ElementBuilderClient{
-		svc: pb.NewElementBuilderServiceClient(cc),
-	}
-}
-
-// Add2 calls the Add2 RPC.
-func (c *ElementBuilderClient) Add2(ctx context.Context, arg0 int64, arg1 string) (int64, error) {
-	resp, err := c.svc.Add2(ctx, &pb.Add2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Add3_1 calls the Add3_1 RPC.
-func (c *ElementBuilderClient) Add3_1(ctx context.Context, arg0 int64, arg1 string, arg2 int32) (int64, error) {
-	resp, err := c.svc.Add3_1(ctx, &pb.Add3_1Request{
+// AddKernel calls the AddKernel RPC.
+func (c *ScriptGroupBuilder2Client) AddKernel(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) (int64, error) {
+	resp, err := c.svc.AddKernel(ctx, &pb.ScriptGroupBuilder2AddKernelRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
@@ -5125,342 +6764,49 @@ func (c *ElementBuilderClient) Add3_1(ctx context.Context, arg0 int64, arg1 stri
 }
 
 // Create calls the Create RPC.
-func (c *ElementBuilderClient) Create(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Create(ctx, &pb.CreateRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ElementDataKindClient wraps the gRPC ElementDataKindService client.
-type ElementDataKindClient struct {
-	svc pb.ElementDataKindServiceClient
-}
-
-// NewElementDataKindClient creates a new ElementDataKind client.
-func NewElementDataKindClient(cc grpc.ClientConnInterface) *ElementDataKindClient {
-	return &ElementDataKindClient{
-		svc: pb.NewElementDataKindServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *ElementDataKindClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *ElementDataKindClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ElementDataTypeClient wraps the gRPC ElementDataTypeService client.
-type ElementDataTypeClient struct {
-	svc pb.ElementDataTypeServiceClient
-}
-
-// NewElementDataTypeClient creates a new ElementDataType client.
-func NewElementDataTypeClient(cc grpc.ClientConnInterface) *ElementDataTypeClient {
-	return &ElementDataTypeClient{
-		svc: pb.NewElementDataTypeServiceClient(cc),
-	}
-}
-
-// Values calls the Values RPC.
-func (c *ElementDataTypeClient) Values(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Values(ctx, &pb.ValuesRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ValueOf calls the ValueOf RPC.
-func (c *ElementDataTypeClient) ValueOf(ctx context.Context, arg0 string) (int64, error) {
-	resp, err := c.svc.ValueOf(ctx, &pb.ValueOfRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Matrix3fClient wraps the gRPC Matrix3FService client.
-type Matrix3fClient struct {
-	svc pb.Matrix3FServiceClient
-}
-
-// NewMatrix3fClient creates a new Matrix3f client.
-func NewMatrix3fClient(cc grpc.ClientConnInterface) *Matrix3fClient {
-	return &Matrix3fClient{
-		svc: pb.NewMatrix3FServiceClient(cc),
-	}
-}
-
-// Get calls the Get RPC.
-func (c *Matrix3fClient) Get(ctx context.Context, handle int64, arg0 int32, arg1 int32) (float32, error) {
-	resp, err := c.svc.Get(ctx, &pb.GetRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetArray calls the GetArray RPC.
-func (c *Matrix3fClient) GetArray(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetArray(ctx, &pb.GetArrayRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Load calls the Load RPC.
-func (c *Matrix3fClient) Load(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.Load(ctx, &pb.LoadRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// LoadIdentity calls the LoadIdentity RPC.
-func (c *Matrix3fClient) LoadIdentity(ctx context.Context, handle int64) error {
-	_, err := c.svc.LoadIdentity(ctx, &pb.LoadIdentityRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// LoadMultiply calls the LoadMultiply RPC.
-func (c *Matrix3fClient) LoadMultiply(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.LoadMultiply(ctx, &pb.LoadMultiplyRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// LoadRotate1 calls the LoadRotate1 RPC.
-func (c *Matrix3fClient) LoadRotate1(ctx context.Context, handle int64, arg0 float32) error {
-	_, err := c.svc.LoadRotate1(ctx, &pb.LoadRotate1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// LoadRotate4_1 calls the LoadRotate4_1 RPC.
-func (c *Matrix3fClient) LoadRotate4_1(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32) error {
-	_, err := c.svc.LoadRotate4_1(ctx, &pb.LoadRotate4_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// LoadScale2 calls the LoadScale2 RPC.
-func (c *Matrix3fClient) LoadScale2(ctx context.Context, handle int64, arg0 float32, arg1 float32) error {
-	_, err := c.svc.LoadScale2(ctx, &pb.LoadScale2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// LoadScale3_1 calls the LoadScale3_1 RPC.
-func (c *Matrix3fClient) LoadScale3_1(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32) error {
-	_, err := c.svc.LoadScale3_1(ctx, &pb.LoadScale3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// LoadTranslate calls the LoadTranslate RPC.
-func (c *Matrix3fClient) LoadTranslate(ctx context.Context, handle int64, arg0 float32, arg1 float32) error {
-	_, err := c.svc.LoadTranslate(ctx, &pb.LoadTranslateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// Multiply calls the Multiply RPC.
-func (c *Matrix3fClient) Multiply(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.Multiply(ctx, &pb.MultiplyRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// Rotate1 calls the Rotate1 RPC.
-func (c *Matrix3fClient) Rotate1(ctx context.Context, handle int64, arg0 float32) error {
-	_, err := c.svc.Rotate1(ctx, &pb.Rotate1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// Rotate4_1 calls the Rotate4_1 RPC.
-func (c *Matrix3fClient) Rotate4_1(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32) error {
-	_, err := c.svc.Rotate4_1(ctx, &pb.Rotate4_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// Scale2 calls the Scale2 RPC.
-func (c *Matrix3fClient) Scale2(ctx context.Context, handle int64, arg0 float32, arg1 float32) error {
-	_, err := c.svc.Scale2(ctx, &pb.Scale2Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// Scale3_1 calls the Scale3_1 RPC.
-func (c *Matrix3fClient) Scale3_1(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32) error {
-	_, err := c.svc.Scale3_1(ctx, &pb.Scale3_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// Set calls the Set RPC.
-func (c *Matrix3fClient) Set(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 float32) error {
-	_, err := c.svc.Set(ctx, &pb.SetRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// Translate calls the Translate RPC.
-func (c *Matrix3fClient) Translate(ctx context.Context, handle int64, arg0 float32, arg1 float32) error {
-	_, err := c.svc.Translate(ctx, &pb.TranslateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// Transpose calls the Transpose RPC.
-func (c *Matrix3fClient) Transpose(ctx context.Context, handle int64) error {
-	_, err := c.svc.Transpose(ctx, &pb.TransposeRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// ScriptIntrinsicConvolve5x5Client wraps the gRPC ScriptIntrinsicConvolve5X5Service client.
-type ScriptIntrinsicConvolve5x5Client struct {
-	svc pb.ScriptIntrinsicConvolve5X5ServiceClient
-}
-
-// NewScriptIntrinsicConvolve5x5Client creates a new ScriptIntrinsicConvolve5x5 client.
-func NewScriptIntrinsicConvolve5x5Client(cc grpc.ClientConnInterface) *ScriptIntrinsicConvolve5x5Client {
-	return &ScriptIntrinsicConvolve5x5Client{
-		svc: pb.NewScriptIntrinsicConvolve5X5ServiceClient(cc),
-	}
-}
-
-// ForEach1 calls the ForEach1 RPC.
-func (c *ScriptIntrinsicConvolve5x5Client) ForEach1(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.ForEach1(ctx, &pb.ForEach1Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ForEach2_1 calls the ForEach2_1 RPC.
-func (c *ScriptIntrinsicConvolve5x5Client) ForEach2_1(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.ForEach2_1(ctx, &pb.ForEach2_1Request{
+func (c *ScriptGroupBuilder2Client) Create(ctx context.Context, arg0 string, arg1 int64) (int64, error) {
+	resp, err := c.svc.Create(ctx, &pb.ScriptGroupBuilder2CreateRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
-	return err
-}
-
-// GetFieldID_Input calls the GetFieldID_Input RPC.
-func (c *ScriptIntrinsicConvolve5x5Client) GetFieldID_Input(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetFieldID_Input(ctx, &pb.GetFieldID_InputRequest{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetKernelID calls the GetKernelID RPC.
-func (c *ScriptIntrinsicConvolve5x5Client) GetKernelID(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetKernelID(ctx, &pb.GetKernelIDRequest{})
+// ScriptGroupClosureClient wraps the gRPC ScriptGroupClosureService client.
+type ScriptGroupClosureClient struct {
+	svc pb.ScriptGroupClosureServiceClient
+}
+
+// NewScriptGroupClosureClient creates a new ScriptGroupClosure client.
+func NewScriptGroupClosureClient(cc grpc.ClientConnInterface) *ScriptGroupClosureClient {
+	return &ScriptGroupClosureClient{
+		svc: pb.NewScriptGroupClosureServiceClient(cc),
+	}
+}
+
+// Destroy calls the Destroy RPC.
+func (c *ScriptGroupClosureClient) Destroy(ctx context.Context) error {
+	_, err := c.svc.Destroy(ctx, &pb.DestroyRequest{})
+	return err
+}
+
+// GetGlobal calls the GetGlobal RPC.
+func (c *ScriptGroupClosureClient) GetGlobal(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetGlobal(ctx, &pb.GetGlobalRequest{
+		Arg0: arg0,
+	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// SetCoefficients calls the SetCoefficients RPC.
-func (c *ScriptIntrinsicConvolve5x5Client) SetCoefficients(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetCoefficients(ctx, &pb.SetCoefficientsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetInput calls the SetInput RPC.
-func (c *ScriptIntrinsicConvolve5x5Client) SetInput(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetInput(ctx, &pb.ScriptIntrinsicConvolve5X5SetInputRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// Create calls the Create RPC.
-func (c *ScriptIntrinsicConvolve5x5Client) Create(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.Create(ctx, &pb.ScriptIntrinsicConvolve5X5CreateRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
+// GetReturn calls the GetReturn RPC.
+func (c *ScriptGroupClosureClient) GetReturn(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetReturn(ctx, &pb.GetReturnRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -5901,7 +7247,7 @@ func (c *ScriptIntrinsicBlendClient) GetKernelIDXor(ctx context.Context) (int64,
 
 // Create calls the Create RPC.
 func (c *ScriptIntrinsicBlendClient) Create(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.Create(ctx, &pb.ScriptIntrinsicBlendCreateRequest{
+	resp, err := c.svc.Create(ctx, &pb.CreateRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 	})
@@ -5909,1350 +7255,4 @@ func (c *ScriptIntrinsicBlendClient) Create(ctx context.Context, arg0 int64, arg
 		return 0, err
 	}
 	return resp.GetResult(), nil
-}
-
-// ScriptIntrinsicConvolve3x3Client wraps the gRPC ScriptIntrinsicConvolve3X3Service client.
-type ScriptIntrinsicConvolve3x3Client struct {
-	svc pb.ScriptIntrinsicConvolve3X3ServiceClient
-}
-
-// NewScriptIntrinsicConvolve3x3Client creates a new ScriptIntrinsicConvolve3x3 client.
-func NewScriptIntrinsicConvolve3x3Client(cc grpc.ClientConnInterface) *ScriptIntrinsicConvolve3x3Client {
-	return &ScriptIntrinsicConvolve3x3Client{
-		svc: pb.NewScriptIntrinsicConvolve3X3ServiceClient(cc),
-	}
-}
-
-// ForEach1 calls the ForEach1 RPC.
-func (c *ScriptIntrinsicConvolve3x3Client) ForEach1(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.ForEach1(ctx, &pb.ForEach1Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ForEach2_1 calls the ForEach2_1 RPC.
-func (c *ScriptIntrinsicConvolve3x3Client) ForEach2_1(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.ForEach2_1(ctx, &pb.ForEach2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// GetFieldID_Input calls the GetFieldID_Input RPC.
-func (c *ScriptIntrinsicConvolve3x3Client) GetFieldID_Input(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetFieldID_Input(ctx, &pb.GetFieldID_InputRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetKernelID calls the GetKernelID RPC.
-func (c *ScriptIntrinsicConvolve3x3Client) GetKernelID(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetKernelID(ctx, &pb.GetKernelIDRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetCoefficients calls the SetCoefficients RPC.
-func (c *ScriptIntrinsicConvolve3x3Client) SetCoefficients(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetCoefficients(ctx, &pb.SetCoefficientsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetInput calls the SetInput RPC.
-func (c *ScriptIntrinsicConvolve3x3Client) SetInput(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetInput(ctx, &pb.ScriptIntrinsicConvolve3X3SetInputRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// Create calls the Create RPC.
-func (c *ScriptIntrinsicConvolve3x3Client) Create(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.Create(ctx, &pb.ScriptIntrinsicConvolve3X3CreateRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Matrix2fClient wraps the gRPC Matrix2FService client.
-type Matrix2fClient struct {
-	svc pb.Matrix2FServiceClient
-}
-
-// NewMatrix2fClient creates a new Matrix2f client.
-func NewMatrix2fClient(cc grpc.ClientConnInterface) *Matrix2fClient {
-	return &Matrix2fClient{
-		svc: pb.NewMatrix2FServiceClient(cc),
-	}
-}
-
-// Get calls the Get RPC.
-func (c *Matrix2fClient) Get(ctx context.Context, handle int64, arg0 int32, arg1 int32) (float32, error) {
-	resp, err := c.svc.Get(ctx, &pb.GetRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetArray calls the GetArray RPC.
-func (c *Matrix2fClient) GetArray(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetArray(ctx, &pb.GetArrayRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Load calls the Load RPC.
-func (c *Matrix2fClient) Load(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.Load(ctx, &pb.LoadRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// LoadIdentity calls the LoadIdentity RPC.
-func (c *Matrix2fClient) LoadIdentity(ctx context.Context, handle int64) error {
-	_, err := c.svc.LoadIdentity(ctx, &pb.LoadIdentityRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// LoadMultiply calls the LoadMultiply RPC.
-func (c *Matrix2fClient) LoadMultiply(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.LoadMultiply(ctx, &pb.LoadMultiplyRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// LoadRotate calls the LoadRotate RPC.
-func (c *Matrix2fClient) LoadRotate(ctx context.Context, handle int64, arg0 float32) error {
-	_, err := c.svc.LoadRotate(ctx, &pb.LoadRotateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// LoadScale calls the LoadScale RPC.
-func (c *Matrix2fClient) LoadScale(ctx context.Context, handle int64, arg0 float32, arg1 float32) error {
-	_, err := c.svc.LoadScale(ctx, &pb.LoadScaleRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// Multiply calls the Multiply RPC.
-func (c *Matrix2fClient) Multiply(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.Multiply(ctx, &pb.MultiplyRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// Rotate calls the Rotate RPC.
-func (c *Matrix2fClient) Rotate(ctx context.Context, handle int64, arg0 float32) error {
-	_, err := c.svc.Rotate(ctx, &pb.RotateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// Scale calls the Scale RPC.
-func (c *Matrix2fClient) Scale(ctx context.Context, handle int64, arg0 float32, arg1 float32) error {
-	_, err := c.svc.Scale(ctx, &pb.ScaleRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// Set calls the Set RPC.
-func (c *Matrix2fClient) Set(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 float32) error {
-	_, err := c.svc.Set(ctx, &pb.SetRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// Transpose calls the Transpose RPC.
-func (c *Matrix2fClient) Transpose(ctx context.Context, handle int64) error {
-	_, err := c.svc.Transpose(ctx, &pb.TransposeRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// Matrix4fClient wraps the gRPC Matrix4FService client.
-type Matrix4fClient struct {
-	svc pb.Matrix4FServiceClient
-}
-
-// NewMatrix4fClient creates a new Matrix4f client.
-func NewMatrix4fClient(cc grpc.ClientConnInterface) *Matrix4fClient {
-	return &Matrix4fClient{
-		svc: pb.NewMatrix4FServiceClient(cc),
-	}
-}
-
-// Get calls the Get RPC.
-func (c *Matrix4fClient) Get(ctx context.Context, handle int64, arg0 int32, arg1 int32) (float32, error) {
-	resp, err := c.svc.Get(ctx, &pb.GetRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetArray calls the GetArray RPC.
-func (c *Matrix4fClient) GetArray(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetArray(ctx, &pb.GetArrayRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Inverse calls the Inverse RPC.
-func (c *Matrix4fClient) Inverse(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.Inverse(ctx, &pb.InverseRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// InverseTranspose calls the InverseTranspose RPC.
-func (c *Matrix4fClient) InverseTranspose(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.InverseTranspose(ctx, &pb.InverseTransposeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Load calls the Load RPC.
-func (c *Matrix4fClient) Load(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.Load(ctx, &pb.LoadRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// LoadFrustum calls the LoadFrustum RPC.
-func (c *Matrix4fClient) LoadFrustum(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32, arg4 float32, arg5 float32) error {
-	_, err := c.svc.LoadFrustum(ctx, &pb.LoadFrustumRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	return err
-}
-
-// LoadIdentity calls the LoadIdentity RPC.
-func (c *Matrix4fClient) LoadIdentity(ctx context.Context, handle int64) error {
-	_, err := c.svc.LoadIdentity(ctx, &pb.LoadIdentityRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// LoadMultiply calls the LoadMultiply RPC.
-func (c *Matrix4fClient) LoadMultiply(ctx context.Context, handle int64, arg0 int64, arg1 int64) error {
-	_, err := c.svc.LoadMultiply(ctx, &pb.LoadMultiplyRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// LoadOrtho calls the LoadOrtho RPC.
-func (c *Matrix4fClient) LoadOrtho(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32, arg4 float32, arg5 float32) error {
-	_, err := c.svc.LoadOrtho(ctx, &pb.LoadOrthoRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	return err
-}
-
-// LoadOrthoWindow calls the LoadOrthoWindow RPC.
-func (c *Matrix4fClient) LoadOrthoWindow(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.LoadOrthoWindow(ctx, &pb.LoadOrthoWindowRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// LoadPerspective calls the LoadPerspective RPC.
-func (c *Matrix4fClient) LoadPerspective(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32) error {
-	_, err := c.svc.LoadPerspective(ctx, &pb.LoadPerspectiveRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// LoadProjectionNormalized calls the LoadProjectionNormalized RPC.
-func (c *Matrix4fClient) LoadProjectionNormalized(ctx context.Context, handle int64, arg0 int32, arg1 int32) error {
-	_, err := c.svc.LoadProjectionNormalized(ctx, &pb.LoadProjectionNormalizedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// LoadRotate calls the LoadRotate RPC.
-func (c *Matrix4fClient) LoadRotate(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32) error {
-	_, err := c.svc.LoadRotate(ctx, &pb.Matrix4FLoadRotateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// LoadScale calls the LoadScale RPC.
-func (c *Matrix4fClient) LoadScale(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32) error {
-	_, err := c.svc.LoadScale(ctx, &pb.Matrix4FLoadScaleRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// LoadTranslate calls the LoadTranslate RPC.
-func (c *Matrix4fClient) LoadTranslate(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32) error {
-	_, err := c.svc.LoadTranslate(ctx, &pb.Matrix4FLoadTranslateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// Multiply calls the Multiply RPC.
-func (c *Matrix4fClient) Multiply(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.Multiply(ctx, &pb.MultiplyRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// Rotate calls the Rotate RPC.
-func (c *Matrix4fClient) Rotate(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32, arg3 float32) error {
-	_, err := c.svc.Rotate(ctx, &pb.Matrix4FRotateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-	})
-	return err
-}
-
-// Scale calls the Scale RPC.
-func (c *Matrix4fClient) Scale(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32) error {
-	_, err := c.svc.Scale(ctx, &pb.Matrix4FScaleRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// Set calls the Set RPC.
-func (c *Matrix4fClient) Set(ctx context.Context, handle int64, arg0 int32, arg1 int32, arg2 float32) error {
-	_, err := c.svc.Set(ctx, &pb.SetRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// Translate calls the Translate RPC.
-func (c *Matrix4fClient) Translate(ctx context.Context, handle int64, arg0 float32, arg1 float32, arg2 float32) error {
-	_, err := c.svc.Translate(ctx, &pb.Matrix4FTranslateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// Transpose calls the Transpose RPC.
-func (c *Matrix4fClient) Transpose(ctx context.Context, handle int64) error {
-	_, err := c.svc.Transpose(ctx, &pb.TransposeRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// FieldPackerClient wraps the gRPC FieldPackerService client.
-type FieldPackerClient struct {
-	svc pb.FieldPackerServiceClient
-}
-
-// NewFieldPackerClient creates a new FieldPacker client.
-func NewFieldPackerClient(cc grpc.ClientConnInterface) *FieldPackerClient {
-	return &FieldPackerClient{
-		svc: pb.NewFieldPackerServiceClient(cc),
-	}
-}
-
-// AddBoolean calls the AddBoolean RPC.
-func (c *FieldPackerClient) AddBoolean(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.AddBoolean(ctx, &pb.AddBooleanRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddF321 calls the AddF321 RPC.
-func (c *FieldPackerClient) AddF321(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddF321(ctx, &pb.AddF321Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddF321_1 calls the AddF321_1 RPC.
-func (c *FieldPackerClient) AddF321_1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddF321_1(ctx, &pb.AddF321_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddF321_2 calls the AddF321_2 RPC.
-func (c *FieldPackerClient) AddF321_2(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddF321_2(ctx, &pb.AddF321_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddF321_3 calls the AddF321_3 RPC.
-func (c *FieldPackerClient) AddF321_3(ctx context.Context, handle int64, arg0 float32) error {
-	_, err := c.svc.AddF321_3(ctx, &pb.AddF321_3Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddF641 calls the AddF641 RPC.
-func (c *FieldPackerClient) AddF641(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddF641(ctx, &pb.AddF641Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddF641_1 calls the AddF641_1 RPC.
-func (c *FieldPackerClient) AddF641_1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddF641_1(ctx, &pb.AddF641_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddF641_2 calls the AddF641_2 RPC.
-func (c *FieldPackerClient) AddF641_2(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddF641_2(ctx, &pb.AddF641_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddF641_3 calls the AddF641_3 RPC.
-func (c *FieldPackerClient) AddF641_3(ctx context.Context, handle int64, arg0 float64) error {
-	_, err := c.svc.AddF641_3(ctx, &pb.AddF641_3Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddI161 calls the AddI161 RPC.
-func (c *FieldPackerClient) AddI161(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddI161(ctx, &pb.AddI161Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddI161_1 calls the AddI161_1 RPC.
-func (c *FieldPackerClient) AddI161_1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddI161_1(ctx, &pb.AddI161_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddI161_2 calls the AddI161_2 RPC.
-func (c *FieldPackerClient) AddI161_2(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddI161_2(ctx, &pb.AddI161_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddI161_3 calls the AddI161_3 RPC.
-func (c *FieldPackerClient) AddI161_3(ctx context.Context, handle int64, arg0 int16) error {
-	_, err := c.svc.AddI161_3(ctx, &pb.AddI161_3Request{
-		Handle: handle,
-		Arg0:   int32(arg0),
-	})
-	return err
-}
-
-// AddI321 calls the AddI321 RPC.
-func (c *FieldPackerClient) AddI321(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddI321(ctx, &pb.AddI321Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddI321_1 calls the AddI321_1 RPC.
-func (c *FieldPackerClient) AddI321_1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddI321_1(ctx, &pb.AddI321_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddI321_2 calls the AddI321_2 RPC.
-func (c *FieldPackerClient) AddI321_2(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddI321_2(ctx, &pb.AddI321_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddI321_3 calls the AddI321_3 RPC.
-func (c *FieldPackerClient) AddI321_3(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.AddI321_3(ctx, &pb.AddI321_3Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddI641 calls the AddI641 RPC.
-func (c *FieldPackerClient) AddI641(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddI641(ctx, &pb.AddI641Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddI641_1 calls the AddI641_1 RPC.
-func (c *FieldPackerClient) AddI641_1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddI641_1(ctx, &pb.AddI641_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddI641_2 calls the AddI641_2 RPC.
-func (c *FieldPackerClient) AddI641_2(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddI641_2(ctx, &pb.AddI641_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddI641_3 calls the AddI641_3 RPC.
-func (c *FieldPackerClient) AddI641_3(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddI641_3(ctx, &pb.AddI641_3Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddI81 calls the AddI81 RPC.
-func (c *FieldPackerClient) AddI81(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddI81(ctx, &pb.AddI81Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddI81_1 calls the AddI81_1 RPC.
-func (c *FieldPackerClient) AddI81_1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddI81_1(ctx, &pb.AddI81_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddI81_2 calls the AddI81_2 RPC.
-func (c *FieldPackerClient) AddI81_2(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddI81_2(ctx, &pb.AddI81_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddI81_3 calls the AddI81_3 RPC.
-func (c *FieldPackerClient) AddI81_3(ctx context.Context, handle int64, arg0 int8) error {
-	_, err := c.svc.AddI81_3(ctx, &pb.AddI81_3Request{
-		Handle: handle,
-		Arg0:   int64(arg0),
-	})
-	return err
-}
-
-// AddMatrix1 calls the AddMatrix1 RPC.
-func (c *FieldPackerClient) AddMatrix1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddMatrix1(ctx, &pb.AddMatrix1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddMatrix1_1 calls the AddMatrix1_1 RPC.
-func (c *FieldPackerClient) AddMatrix1_1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddMatrix1_1(ctx, &pb.AddMatrix1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddMatrix1_2 calls the AddMatrix1_2 RPC.
-func (c *FieldPackerClient) AddMatrix1_2(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddMatrix1_2(ctx, &pb.AddMatrix1_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddObj calls the AddObj RPC.
-func (c *FieldPackerClient) AddObj(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddObj(ctx, &pb.AddObjRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddU161 calls the AddU161 RPC.
-func (c *FieldPackerClient) AddU161(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddU161(ctx, &pb.AddU161Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddU161_1 calls the AddU161_1 RPC.
-func (c *FieldPackerClient) AddU161_1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddU161_1(ctx, &pb.AddU161_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddU161_2 calls the AddU161_2 RPC.
-func (c *FieldPackerClient) AddU161_2(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddU161_2(ctx, &pb.AddU161_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddU161_3 calls the AddU161_3 RPC.
-func (c *FieldPackerClient) AddU161_3(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.AddU161_3(ctx, &pb.AddU161_3Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddU321 calls the AddU321 RPC.
-func (c *FieldPackerClient) AddU321(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddU321(ctx, &pb.AddU321Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddU321_1 calls the AddU321_1 RPC.
-func (c *FieldPackerClient) AddU321_1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddU321_1(ctx, &pb.AddU321_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddU321_2 calls the AddU321_2 RPC.
-func (c *FieldPackerClient) AddU321_2(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddU321_2(ctx, &pb.AddU321_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddU321_3 calls the AddU321_3 RPC.
-func (c *FieldPackerClient) AddU321_3(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddU321_3(ctx, &pb.AddU321_3Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddU641 calls the AddU641 RPC.
-func (c *FieldPackerClient) AddU641(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddU641(ctx, &pb.AddU641Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddU641_1 calls the AddU641_1 RPC.
-func (c *FieldPackerClient) AddU641_1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddU641_1(ctx, &pb.AddU641_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddU641_2 calls the AddU641_2 RPC.
-func (c *FieldPackerClient) AddU641_2(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddU641_2(ctx, &pb.AddU641_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddU641_3 calls the AddU641_3 RPC.
-func (c *FieldPackerClient) AddU641_3(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddU641_3(ctx, &pb.AddU641_3Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddU81 calls the AddU81 RPC.
-func (c *FieldPackerClient) AddU81(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddU81(ctx, &pb.AddU81Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddU81_1 calls the AddU81_1 RPC.
-func (c *FieldPackerClient) AddU81_1(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddU81_1(ctx, &pb.AddU81_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddU81_2 calls the AddU81_2 RPC.
-func (c *FieldPackerClient) AddU81_2(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.AddU81_2(ctx, &pb.AddU81_2Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// AddU81_3 calls the AddU81_3 RPC.
-func (c *FieldPackerClient) AddU81_3(ctx context.Context, handle int64, arg0 int16) error {
-	_, err := c.svc.AddU81_3(ctx, &pb.AddU81_3Request{
-		Handle: handle,
-		Arg0:   int32(arg0),
-	})
-	return err
-}
-
-// Align calls the Align RPC.
-func (c *FieldPackerClient) Align(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.Align(ctx, &pb.AlignRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// GetData calls the GetData RPC.
-func (c *FieldPackerClient) GetData(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetData(ctx, &pb.GetDataRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Reset0 calls the Reset0 RPC.
-func (c *FieldPackerClient) Reset0(ctx context.Context, handle int64) error {
-	_, err := c.svc.Reset0(ctx, &pb.Reset0Request{
-		Handle: handle,
-	})
-	return err
-}
-
-// Reset1_1 calls the Reset1_1 RPC.
-func (c *FieldPackerClient) Reset1_1(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.Reset1_1(ctx, &pb.Reset1_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// Skip calls the Skip RPC.
-func (c *FieldPackerClient) Skip(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.Skip(ctx, &pb.SkipRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SubBoolean calls the SubBoolean RPC.
-func (c *FieldPackerClient) SubBoolean(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.SubBoolean(ctx, &pb.SubBooleanRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SubByte2 calls the SubByte2 RPC.
-func (c *FieldPackerClient) SubByte2(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.SubByte2(ctx, &pb.SubByte2Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SubByte3 calls the SubByte3 RPC.
-func (c *FieldPackerClient) SubByte3(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.SubByte3(ctx, &pb.SubByte3Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SubByte4 calls the SubByte4 RPC.
-func (c *FieldPackerClient) SubByte4(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.SubByte4(ctx, &pb.SubByte4Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SubDouble2 calls the SubDouble2 RPC.
-func (c *FieldPackerClient) SubDouble2(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.SubDouble2(ctx, &pb.SubDouble2Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SubDouble3 calls the SubDouble3 RPC.
-func (c *FieldPackerClient) SubDouble3(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.SubDouble3(ctx, &pb.SubDouble3Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SubDouble4 calls the SubDouble4 RPC.
-func (c *FieldPackerClient) SubDouble4(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.SubDouble4(ctx, &pb.SubDouble4Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SubF32 calls the SubF32 RPC.
-func (c *FieldPackerClient) SubF32(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.SubF32(ctx, &pb.SubF32Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SubF64 calls the SubF64 RPC.
-func (c *FieldPackerClient) SubF64(ctx context.Context, handle int64) (float64, error) {
-	resp, err := c.svc.SubF64(ctx, &pb.SubF64Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SubFloat2 calls the SubFloat2 RPC.
-func (c *FieldPackerClient) SubFloat2(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.SubFloat2(ctx, &pb.SubFloat2Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SubFloat3 calls the SubFloat3 RPC.
-func (c *FieldPackerClient) SubFloat3(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.SubFloat3(ctx, &pb.SubFloat3Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SubFloat4 calls the SubFloat4 RPC.
-func (c *FieldPackerClient) SubFloat4(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.SubFloat4(ctx, &pb.SubFloat4Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SubI16 calls the SubI16 RPC.
-func (c *FieldPackerClient) SubI16(ctx context.Context, handle int64) (int16, error) {
-	resp, err := c.svc.SubI16(ctx, &pb.SubI16Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return int16(resp.GetResult()), nil
-}
-
-// SubI32 calls the SubI32 RPC.
-func (c *FieldPackerClient) SubI32(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.SubI32(ctx, &pb.SubI32Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SubI64 calls the SubI64 RPC.
-func (c *FieldPackerClient) SubI64(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.SubI64(ctx, &pb.SubI64Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SubI8 calls the SubI8 RPC.
-func (c *FieldPackerClient) SubI8(ctx context.Context, handle int64) (int8, error) {
-	resp, err := c.svc.SubI8(ctx, &pb.SubI8Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return int8(resp.GetResult()), nil
-}
-
-// SubInt2 calls the SubInt2 RPC.
-func (c *FieldPackerClient) SubInt2(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.SubInt2(ctx, &pb.SubInt2Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SubInt3 calls the SubInt3 RPC.
-func (c *FieldPackerClient) SubInt3(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.SubInt3(ctx, &pb.SubInt3Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SubInt4 calls the SubInt4 RPC.
-func (c *FieldPackerClient) SubInt4(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.SubInt4(ctx, &pb.SubInt4Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SubLong2 calls the SubLong2 RPC.
-func (c *FieldPackerClient) SubLong2(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.SubLong2(ctx, &pb.SubLong2Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SubLong3 calls the SubLong3 RPC.
-func (c *FieldPackerClient) SubLong3(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.SubLong3(ctx, &pb.SubLong3Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SubLong4 calls the SubLong4 RPC.
-func (c *FieldPackerClient) SubLong4(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.SubLong4(ctx, &pb.SubLong4Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SubMatrix2F calls the SubMatrix2F RPC.
-func (c *FieldPackerClient) SubMatrix2F(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.SubMatrix2F(ctx, &pb.SubMatrix2FRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SubMatrix3F calls the SubMatrix3F RPC.
-func (c *FieldPackerClient) SubMatrix3F(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.SubMatrix3F(ctx, &pb.SubMatrix3FRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SubMatrix4F calls the SubMatrix4F RPC.
-func (c *FieldPackerClient) SubMatrix4F(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.SubMatrix4F(ctx, &pb.SubMatrix4FRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SubShort2 calls the SubShort2 RPC.
-func (c *FieldPackerClient) SubShort2(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.SubShort2(ctx, &pb.SubShort2Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SubShort3 calls the SubShort3 RPC.
-func (c *FieldPackerClient) SubShort3(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.SubShort3(ctx, &pb.SubShort3Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SubShort4 calls the SubShort4 RPC.
-func (c *FieldPackerClient) SubShort4(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.SubShort4(ctx, &pb.SubShort4Request{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Subalign calls the Subalign RPC.
-func (c *FieldPackerClient) Subalign(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.Subalign(ctx, &pb.SubalignRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// ScriptIntrinsicResizeClient wraps the gRPC ScriptIntrinsicResizeService client.
-type ScriptIntrinsicResizeClient struct {
-	svc pb.ScriptIntrinsicResizeServiceClient
-}
-
-// NewScriptIntrinsicResizeClient creates a new ScriptIntrinsicResize client.
-func NewScriptIntrinsicResizeClient(cc grpc.ClientConnInterface) *ScriptIntrinsicResizeClient {
-	return &ScriptIntrinsicResizeClient{
-		svc: pb.NewScriptIntrinsicResizeServiceClient(cc),
-	}
-}
-
-// ForEachBicubic1 calls the ForEachBicubic1 RPC.
-func (c *ScriptIntrinsicResizeClient) ForEachBicubic1(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.ForEachBicubic1(ctx, &pb.ForEachBicubic1Request{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ForEachBicubic2_1 calls the ForEachBicubic2_1 RPC.
-func (c *ScriptIntrinsicResizeClient) ForEachBicubic2_1(ctx context.Context, arg0 int64, arg1 int64) error {
-	_, err := c.svc.ForEachBicubic2_1(ctx, &pb.ForEachBicubic2_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// GetFieldID_Input calls the GetFieldID_Input RPC.
-func (c *ScriptIntrinsicResizeClient) GetFieldID_Input(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetFieldID_Input(ctx, &pb.GetFieldID_InputRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetKernelIDBicubic calls the GetKernelIDBicubic RPC.
-func (c *ScriptIntrinsicResizeClient) GetKernelIDBicubic(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetKernelIDBicubic(ctx, &pb.GetKernelIDBicubicRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetInput calls the SetInput RPC.
-func (c *ScriptIntrinsicResizeClient) SetInput(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetInput(ctx, &pb.ScriptIntrinsicResizeSetInputRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// Create calls the Create RPC.
-func (c *ScriptIntrinsicResizeClient) Create(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.Create(ctx, &pb.ScriptIntrinsicResizeCreateRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// BaseObjClient wraps the gRPC BaseObjService client.
-type BaseObjClient struct {
-	svc pb.BaseObjServiceClient
-}
-
-// NewBaseObjClient creates a new BaseObj client.
-func NewBaseObjClient(cc grpc.ClientConnInterface) *BaseObjClient {
-	return &BaseObjClient{
-		svc: pb.NewBaseObjServiceClient(cc),
-	}
-}
-
-// Destroy calls the Destroy RPC.
-func (c *BaseObjClient) Destroy(ctx context.Context) error {
-	_, err := c.svc.Destroy(ctx, &pb.DestroyRequest{})
-	return err
-}
-
-// Equals calls the Equals RPC.
-func (c *BaseObjClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetName calls the GetName RPC.
-func (c *BaseObjClient) GetName(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetName(ctx, &pb.GetNameRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *BaseObjClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetName calls the SetName RPC.
-func (c *BaseObjClient) SetName(ctx context.Context, arg0 string) error {
-	_, err := c.svc.SetName(ctx, &pb.SetNameRequest{
-		Arg0: arg0,
-	})
-	return err
 }

@@ -9,6 +9,260 @@ import (
 	"google.golang.org/grpc"
 )
 
+// NetworkSecurityPolicyClient wraps the gRPC NetworkSecurityPolicyService client.
+type NetworkSecurityPolicyClient struct {
+	svc pb.NetworkSecurityPolicyServiceClient
+}
+
+// NewNetworkSecurityPolicyClient creates a new NetworkSecurityPolicy client.
+func NewNetworkSecurityPolicyClient(cc grpc.ClientConnInterface) *NetworkSecurityPolicyClient {
+	return &NetworkSecurityPolicyClient{
+		svc: pb.NewNetworkSecurityPolicyServiceClient(cc),
+	}
+}
+
+// IsCertificateTransparencyVerificationRequired calls the IsCertificateTransparencyVerificationRequired RPC.
+func (c *NetworkSecurityPolicyClient) IsCertificateTransparencyVerificationRequired(ctx context.Context, arg0 string) (bool, error) {
+	resp, err := c.svc.IsCertificateTransparencyVerificationRequired(ctx, &pb.IsCertificateTransparencyVerificationRequiredRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsCleartextTrafficPermitted0 calls the IsCleartextTrafficPermitted0 RPC.
+func (c *NetworkSecurityPolicyClient) IsCleartextTrafficPermitted0(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsCleartextTrafficPermitted0(ctx, &pb.IsCleartextTrafficPermitted0Request{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsCleartextTrafficPermitted1_1 calls the IsCleartextTrafficPermitted1_1 RPC.
+func (c *NetworkSecurityPolicyClient) IsCleartextTrafficPermitted1_1(ctx context.Context, arg0 string) (bool, error) {
+	resp, err := c.svc.IsCleartextTrafficPermitted1_1(ctx, &pb.IsCleartextTrafficPermitted1_1Request{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetInstance calls the GetInstance RPC.
+func (c *NetworkSecurityPolicyClient) GetInstance(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetInstance(ctx, &pb.GetInstanceRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// KeyChainAliasCallbackClient wraps the gRPC KeyChainAliasCallbackService client.
+type KeyChainAliasCallbackClient struct {
+	svc pb.KeyChainAliasCallbackServiceClient
+}
+
+// NewKeyChainAliasCallbackClient creates a new KeyChainAliasCallback client.
+func NewKeyChainAliasCallbackClient(cc grpc.ClientConnInterface) *KeyChainAliasCallbackClient {
+	return &KeyChainAliasCallbackClient{
+		svc: pb.NewKeyChainAliasCallbackServiceClient(cc),
+	}
+}
+
+// Alias calls the Alias RPC.
+func (c *KeyChainAliasCallbackClient) Alias(ctx context.Context, arg0 string) error {
+	_, err := c.svc.Alias(ctx, &pb.AliasRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// FileIntegrityManagerClient wraps the gRPC FileIntegrityManagerService client.
+type FileIntegrityManagerClient struct {
+	svc pb.FileIntegrityManagerServiceClient
+}
+
+// NewFileIntegrityManagerClient creates a new FileIntegrityManager client.
+func NewFileIntegrityManagerClient(cc grpc.ClientConnInterface) *FileIntegrityManagerClient {
+	return &FileIntegrityManagerClient{
+		svc: pb.NewFileIntegrityManagerServiceClient(cc),
+	}
+}
+
+// IsApkVeritySupported calls the IsApkVeritySupported RPC.
+func (c *FileIntegrityManagerClient) IsApkVeritySupported(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsApkVeritySupported(ctx, &pb.IsApkVeritySupportedRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsAppSourceCertificateTrusted calls the IsAppSourceCertificateTrusted RPC.
+func (c *FileIntegrityManagerClient) IsAppSourceCertificateTrusted(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.IsAppSourceCertificateTrusted(ctx, &pb.IsAppSourceCertificateTrustedRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// KeyChainClient wraps the gRPC KeyChainService client.
+type KeyChainClient struct {
+	svc pb.KeyChainServiceClient
+}
+
+// NewKeyChainClient creates a new KeyChain client.
+func NewKeyChainClient(cc grpc.ClientConnInterface) *KeyChainClient {
+	return &KeyChainClient{
+		svc: pb.NewKeyChainServiceClient(cc),
+	}
+}
+
+// ChoosePrivateKeyAlias6 calls the ChoosePrivateKeyAlias6 RPC.
+func (c *KeyChainClient) ChoosePrivateKeyAlias6(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64, arg4 int64, arg5 string) error {
+	_, err := c.svc.ChoosePrivateKeyAlias6(ctx, &pb.ChoosePrivateKeyAlias6Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	return err
+}
+
+// ChoosePrivateKeyAlias7_1 calls the ChoosePrivateKeyAlias7_1 RPC.
+func (c *KeyChainClient) ChoosePrivateKeyAlias7_1(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64, arg4 string, arg5 int32, arg6 string) error {
+	_, err := c.svc.ChoosePrivateKeyAlias7_1(ctx, &pb.ChoosePrivateKeyAlias7_1Request{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+		Arg6:   arg6,
+	})
+	return err
+}
+
+// CreateInstallIntent calls the CreateInstallIntent RPC.
+func (c *KeyChainClient) CreateInstallIntent(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.CreateInstallIntent(ctx, &pb.CreateInstallIntentRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// CreateManageCredentialsIntent calls the CreateManageCredentialsIntent RPC.
+func (c *KeyChainClient) CreateManageCredentialsIntent(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.CreateManageCredentialsIntent(ctx, &pb.CreateManageCredentialsIntentRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCertificateChain calls the GetCertificateChain RPC.
+func (c *KeyChainClient) GetCertificateChain(ctx context.Context, handle int64, arg0 int64, arg1 string) (int64, error) {
+	resp, err := c.svc.GetCertificateChain(ctx, &pb.GetCertificateChainRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCredentialManagementAppPolicy calls the GetCredentialManagementAppPolicy RPC.
+func (c *KeyChainClient) GetCredentialManagementAppPolicy(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.GetCredentialManagementAppPolicy(ctx, &pb.GetCredentialManagementAppPolicyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPrivateKey calls the GetPrivateKey RPC.
+func (c *KeyChainClient) GetPrivateKey(ctx context.Context, handle int64, arg0 int64, arg1 string) (int64, error) {
+	resp, err := c.svc.GetPrivateKey(ctx, &pb.GetPrivateKeyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsBoundKeyAlgorithm calls the IsBoundKeyAlgorithm RPC.
+func (c *KeyChainClient) IsBoundKeyAlgorithm(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.IsBoundKeyAlgorithm(ctx, &pb.IsBoundKeyAlgorithmRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsCredentialManagementApp calls the IsCredentialManagementApp RPC.
+func (c *KeyChainClient) IsCredentialManagementApp(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.IsCredentialManagementApp(ctx, &pb.IsCredentialManagementAppRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsKeyAlgorithmSupported calls the IsKeyAlgorithmSupported RPC.
+func (c *KeyChainClient) IsKeyAlgorithmSupported(ctx context.Context, handle int64, arg0 string) (bool, error) {
+	resp, err := c.svc.IsKeyAlgorithmSupported(ctx, &pb.IsKeyAlgorithmSupportedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RemoveCredentialManagementApp calls the RemoveCredentialManagementApp RPC.
+func (c *KeyChainClient) RemoveCredentialManagementApp(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.RemoveCredentialManagementApp(ctx, &pb.RemoveCredentialManagementAppRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
 // ConfirmationPromptClient wraps the gRPC ConfirmationPromptService client.
 type ConfirmationPromptClient struct {
 	svc pb.ConfirmationPromptServiceClient
@@ -90,59 +344,6 @@ func (c *ConfirmationPromptBuilderClient) SetPromptText(ctx context.Context, arg
 	return resp.GetResult(), nil
 }
 
-// KeyStoreParameterClient wraps the gRPC KeyStoreParameterService client.
-type KeyStoreParameterClient struct {
-	svc pb.KeyStoreParameterServiceClient
-}
-
-// NewKeyStoreParameterClient creates a new KeyStoreParameter client.
-func NewKeyStoreParameterClient(cc grpc.ClientConnInterface) *KeyStoreParameterClient {
-	return &KeyStoreParameterClient{
-		svc: pb.NewKeyStoreParameterServiceClient(cc),
-	}
-}
-
-// IsEncryptionRequired calls the IsEncryptionRequired RPC.
-func (c *KeyStoreParameterClient) IsEncryptionRequired(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsEncryptionRequired(ctx, &pb.IsEncryptionRequiredRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// KeyStoreParameterBuilderClient wraps the gRPC KeyStoreParameterBuilderService client.
-type KeyStoreParameterBuilderClient struct {
-	svc pb.KeyStoreParameterBuilderServiceClient
-}
-
-// NewKeyStoreParameterBuilderClient creates a new KeyStoreParameterBuilder client.
-func NewKeyStoreParameterBuilderClient(cc grpc.ClientConnInterface) *KeyStoreParameterBuilderClient {
-	return &KeyStoreParameterBuilderClient{
-		svc: pb.NewKeyStoreParameterBuilderServiceClient(cc),
-	}
-}
-
-// Build calls the Build RPC.
-func (c *KeyStoreParameterBuilderClient) Build(ctx context.Context) (int64, error) {
-	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetEncryptionRequired calls the SetEncryptionRequired RPC.
-func (c *KeyStoreParameterBuilderClient) SetEncryptionRequired(ctx context.Context, arg0 bool) (int64, error) {
-	resp, err := c.svc.SetEncryptionRequired(ctx, &pb.SetEncryptionRequiredRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // AttestedKeyPairClient wraps the gRPC AttestedKeyPairService client.
 type AttestedKeyPairClient struct {
 	svc pb.AttestedKeyPairServiceClient
@@ -155,6 +356,17 @@ func NewAttestedKeyPairClient(cc grpc.ClientConnInterface) *AttestedKeyPairClien
 	}
 }
 
+// GetAttestationRecord calls the GetAttestationRecord RPC.
+func (c *AttestedKeyPairClient) GetAttestationRecord(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetAttestationRecord(ctx, &pb.GetAttestationRecordRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetKeyPair calls the GetKeyPair RPC.
 func (c *AttestedKeyPairClient) GetKeyPair(ctx context.Context, handle int64) (int64, error) {
 	resp, err := c.svc.GetKeyPair(ctx, &pb.GetKeyPairRequest{
@@ -162,6 +374,72 @@ func (c *AttestedKeyPairClient) GetKeyPair(ctx context.Context, handle int64) (i
 	})
 	if err != nil {
 		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// KeyStoreExceptionClient wraps the gRPC KeyStoreExceptionService client.
+type KeyStoreExceptionClient struct {
+	svc pb.KeyStoreExceptionServiceClient
+}
+
+// NewKeyStoreExceptionClient creates a new KeyStoreException client.
+func NewKeyStoreExceptionClient(cc grpc.ClientConnInterface) *KeyStoreExceptionClient {
+	return &KeyStoreExceptionClient{
+		svc: pb.NewKeyStoreExceptionServiceClient(cc),
+	}
+}
+
+// GetNumericErrorCode calls the GetNumericErrorCode RPC.
+func (c *KeyStoreExceptionClient) GetNumericErrorCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetNumericErrorCode(ctx, &pb.GetNumericErrorCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetRetryPolicy calls the GetRetryPolicy RPC.
+func (c *KeyStoreExceptionClient) GetRetryPolicy(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetRetryPolicy(ctx, &pb.GetRetryPolicyRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsSystemError calls the IsSystemError RPC.
+func (c *KeyStoreExceptionClient) IsSystemError(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsSystemError(ctx, &pb.IsSystemErrorRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsTransientFailure calls the IsTransientFailure RPC.
+func (c *KeyStoreExceptionClient) IsTransientFailure(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsTransientFailure(ctx, &pb.IsTransientFailureRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// RequiresUserAuthentication calls the RequiresUserAuthentication RPC.
+func (c *KeyStoreExceptionClient) RequiresUserAuthentication(ctx context.Context) (bool, error) {
+	resp, err := c.svc.RequiresUserAuthentication(ctx, &pb.RequiresUserAuthenticationRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *KeyStoreExceptionClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
 	}
 	return resp.GetResult(), nil
 }
@@ -406,7 +684,7 @@ func (c *KeyPairGeneratorSpecBuilderClient) SetAlias(ctx context.Context, arg0 s
 
 // SetEncryptionRequired calls the SetEncryptionRequired RPC.
 func (c *KeyPairGeneratorSpecBuilderClient) SetEncryptionRequired(ctx context.Context) (int64, error) {
-	resp, err := c.svc.SetEncryptionRequired(ctx, &pb.KeyPairGeneratorSpecBuilderSetEncryptionRequiredRequest{})
+	resp, err := c.svc.SetEncryptionRequired(ctx, &pb.SetEncryptionRequiredRequest{})
 	if err != nil {
 		return 0, err
 	}
@@ -479,6 +757,59 @@ func (c *KeyPairGeneratorSpecBuilderClient) SetSubject(ctx context.Context, arg0
 	return resp.GetResult(), nil
 }
 
+// KeyStoreParameterClient wraps the gRPC KeyStoreParameterService client.
+type KeyStoreParameterClient struct {
+	svc pb.KeyStoreParameterServiceClient
+}
+
+// NewKeyStoreParameterClient creates a new KeyStoreParameter client.
+func NewKeyStoreParameterClient(cc grpc.ClientConnInterface) *KeyStoreParameterClient {
+	return &KeyStoreParameterClient{
+		svc: pb.NewKeyStoreParameterServiceClient(cc),
+	}
+}
+
+// IsEncryptionRequired calls the IsEncryptionRequired RPC.
+func (c *KeyStoreParameterClient) IsEncryptionRequired(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsEncryptionRequired(ctx, &pb.IsEncryptionRequiredRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// KeyStoreParameterBuilderClient wraps the gRPC KeyStoreParameterBuilderService client.
+type KeyStoreParameterBuilderClient struct {
+	svc pb.KeyStoreParameterBuilderServiceClient
+}
+
+// NewKeyStoreParameterBuilderClient creates a new KeyStoreParameterBuilder client.
+func NewKeyStoreParameterBuilderClient(cc grpc.ClientConnInterface) *KeyStoreParameterBuilderClient {
+	return &KeyStoreParameterBuilderClient{
+		svc: pb.NewKeyStoreParameterBuilderServiceClient(cc),
+	}
+}
+
+// Build calls the Build RPC.
+func (c *KeyStoreParameterBuilderClient) Build(ctx context.Context) (int64, error) {
+	resp, err := c.svc.Build(ctx, &pb.BuildRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetEncryptionRequired calls the SetEncryptionRequired RPC.
+func (c *KeyStoreParameterBuilderClient) SetEncryptionRequired(ctx context.Context, arg0 bool) (int64, error) {
+	resp, err := c.svc.SetEncryptionRequired(ctx, &pb.KeyStoreParameterBuilderSetEncryptionRequiredRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // ConfirmationCallbackClient wraps the gRPC ConfirmationCallbackService client.
 type ConfirmationCallbackClient struct {
 	svc pb.ConfirmationCallbackServiceClient
@@ -517,324 +848,4 @@ func (c *ConfirmationCallbackClient) OnError(ctx context.Context, arg0 int64) er
 		Arg0: arg0,
 	})
 	return err
-}
-
-// FileIntegrityManagerClient wraps the gRPC FileIntegrityManagerService client.
-type FileIntegrityManagerClient struct {
-	svc pb.FileIntegrityManagerServiceClient
-}
-
-// NewFileIntegrityManagerClient creates a new FileIntegrityManager client.
-func NewFileIntegrityManagerClient(cc grpc.ClientConnInterface) *FileIntegrityManagerClient {
-	return &FileIntegrityManagerClient{
-		svc: pb.NewFileIntegrityManagerServiceClient(cc),
-	}
-}
-
-// IsApkVeritySupported calls the IsApkVeritySupported RPC.
-func (c *FileIntegrityManagerClient) IsApkVeritySupported(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsApkVeritySupported(ctx, &pb.IsApkVeritySupportedRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsAppSourceCertificateTrusted calls the IsAppSourceCertificateTrusted RPC.
-func (c *FileIntegrityManagerClient) IsAppSourceCertificateTrusted(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.IsAppSourceCertificateTrusted(ctx, &pb.IsAppSourceCertificateTrustedRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// KeyChainAliasCallbackClient wraps the gRPC KeyChainAliasCallbackService client.
-type KeyChainAliasCallbackClient struct {
-	svc pb.KeyChainAliasCallbackServiceClient
-}
-
-// NewKeyChainAliasCallbackClient creates a new KeyChainAliasCallback client.
-func NewKeyChainAliasCallbackClient(cc grpc.ClientConnInterface) *KeyChainAliasCallbackClient {
-	return &KeyChainAliasCallbackClient{
-		svc: pb.NewKeyChainAliasCallbackServiceClient(cc),
-	}
-}
-
-// Alias calls the Alias RPC.
-func (c *KeyChainAliasCallbackClient) Alias(ctx context.Context, arg0 string) error {
-	_, err := c.svc.Alias(ctx, &pb.AliasRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// KeyStoreExceptionClient wraps the gRPC KeyStoreExceptionService client.
-type KeyStoreExceptionClient struct {
-	svc pb.KeyStoreExceptionServiceClient
-}
-
-// NewKeyStoreExceptionClient creates a new KeyStoreException client.
-func NewKeyStoreExceptionClient(cc grpc.ClientConnInterface) *KeyStoreExceptionClient {
-	return &KeyStoreExceptionClient{
-		svc: pb.NewKeyStoreExceptionServiceClient(cc),
-	}
-}
-
-// GetNumericErrorCode calls the GetNumericErrorCode RPC.
-func (c *KeyStoreExceptionClient) GetNumericErrorCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetNumericErrorCode(ctx, &pb.GetNumericErrorCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetRetryPolicy calls the GetRetryPolicy RPC.
-func (c *KeyStoreExceptionClient) GetRetryPolicy(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetRetryPolicy(ctx, &pb.GetRetryPolicyRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsSystemError calls the IsSystemError RPC.
-func (c *KeyStoreExceptionClient) IsSystemError(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsSystemError(ctx, &pb.IsSystemErrorRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsTransientFailure calls the IsTransientFailure RPC.
-func (c *KeyStoreExceptionClient) IsTransientFailure(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsTransientFailure(ctx, &pb.IsTransientFailureRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RequiresUserAuthentication calls the RequiresUserAuthentication RPC.
-func (c *KeyStoreExceptionClient) RequiresUserAuthentication(ctx context.Context) (bool, error) {
-	resp, err := c.svc.RequiresUserAuthentication(ctx, &pb.RequiresUserAuthenticationRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *KeyStoreExceptionClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// NetworkSecurityPolicyClient wraps the gRPC NetworkSecurityPolicyService client.
-type NetworkSecurityPolicyClient struct {
-	svc pb.NetworkSecurityPolicyServiceClient
-}
-
-// NewNetworkSecurityPolicyClient creates a new NetworkSecurityPolicy client.
-func NewNetworkSecurityPolicyClient(cc grpc.ClientConnInterface) *NetworkSecurityPolicyClient {
-	return &NetworkSecurityPolicyClient{
-		svc: pb.NewNetworkSecurityPolicyServiceClient(cc),
-	}
-}
-
-// IsCertificateTransparencyVerificationRequired calls the IsCertificateTransparencyVerificationRequired RPC.
-func (c *NetworkSecurityPolicyClient) IsCertificateTransparencyVerificationRequired(ctx context.Context, arg0 string) (bool, error) {
-	resp, err := c.svc.IsCertificateTransparencyVerificationRequired(ctx, &pb.IsCertificateTransparencyVerificationRequiredRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsCleartextTrafficPermitted0 calls the IsCleartextTrafficPermitted0 RPC.
-func (c *NetworkSecurityPolicyClient) IsCleartextTrafficPermitted0(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsCleartextTrafficPermitted0(ctx, &pb.IsCleartextTrafficPermitted0Request{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsCleartextTrafficPermitted1_1 calls the IsCleartextTrafficPermitted1_1 RPC.
-func (c *NetworkSecurityPolicyClient) IsCleartextTrafficPermitted1_1(ctx context.Context, arg0 string) (bool, error) {
-	resp, err := c.svc.IsCleartextTrafficPermitted1_1(ctx, &pb.IsCleartextTrafficPermitted1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetInstance calls the GetInstance RPC.
-func (c *NetworkSecurityPolicyClient) GetInstance(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetInstance(ctx, &pb.GetInstanceRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// KeyChainClient wraps the gRPC KeyChainService client.
-type KeyChainClient struct {
-	svc pb.KeyChainServiceClient
-}
-
-// NewKeyChainClient creates a new KeyChain client.
-func NewKeyChainClient(cc grpc.ClientConnInterface) *KeyChainClient {
-	return &KeyChainClient{
-		svc: pb.NewKeyChainServiceClient(cc),
-	}
-}
-
-// ChoosePrivateKeyAlias6 calls the ChoosePrivateKeyAlias6 RPC.
-func (c *KeyChainClient) ChoosePrivateKeyAlias6(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64, arg4 int64, arg5 string) error {
-	_, err := c.svc.ChoosePrivateKeyAlias6(ctx, &pb.ChoosePrivateKeyAlias6Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	return err
-}
-
-// ChoosePrivateKeyAlias7_1 calls the ChoosePrivateKeyAlias7_1 RPC.
-func (c *KeyChainClient) ChoosePrivateKeyAlias7_1(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64, arg3 int64, arg4 string, arg5 int32, arg6 string) error {
-	_, err := c.svc.ChoosePrivateKeyAlias7_1(ctx, &pb.ChoosePrivateKeyAlias7_1Request{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-		Arg6:   arg6,
-	})
-	return err
-}
-
-// CreateInstallIntent calls the CreateInstallIntent RPC.
-func (c *KeyChainClient) CreateInstallIntent(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.CreateInstallIntent(ctx, &pb.CreateInstallIntentRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// CreateManageCredentialsIntent calls the CreateManageCredentialsIntent RPC.
-func (c *KeyChainClient) CreateManageCredentialsIntent(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.CreateManageCredentialsIntent(ctx, &pb.CreateManageCredentialsIntentRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCertificateChain calls the GetCertificateChain RPC.
-func (c *KeyChainClient) GetCertificateChain(ctx context.Context, handle int64, arg0 int64, arg1 string) (int64, error) {
-	resp, err := c.svc.GetCertificateChain(ctx, &pb.GetCertificateChainRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCredentialManagementAppPolicy calls the GetCredentialManagementAppPolicy RPC.
-func (c *KeyChainClient) GetCredentialManagementAppPolicy(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.GetCredentialManagementAppPolicy(ctx, &pb.GetCredentialManagementAppPolicyRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPrivateKey calls the GetPrivateKey RPC.
-func (c *KeyChainClient) GetPrivateKey(ctx context.Context, handle int64, arg0 int64, arg1 string) (int64, error) {
-	resp, err := c.svc.GetPrivateKey(ctx, &pb.GetPrivateKeyRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsBoundKeyAlgorithm calls the IsBoundKeyAlgorithm RPC.
-func (c *KeyChainClient) IsBoundKeyAlgorithm(ctx context.Context, handle int64, arg0 string) (bool, error) {
-	resp, err := c.svc.IsBoundKeyAlgorithm(ctx, &pb.IsBoundKeyAlgorithmRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsCredentialManagementApp calls the IsCredentialManagementApp RPC.
-func (c *KeyChainClient) IsCredentialManagementApp(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.IsCredentialManagementApp(ctx, &pb.IsCredentialManagementAppRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsKeyAlgorithmSupported calls the IsKeyAlgorithmSupported RPC.
-func (c *KeyChainClient) IsKeyAlgorithmSupported(ctx context.Context, handle int64, arg0 string) (bool, error) {
-	resp, err := c.svc.IsKeyAlgorithmSupported(ctx, &pb.IsKeyAlgorithmSupportedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// RemoveCredentialManagementApp calls the RemoveCredentialManagementApp RPC.
-func (c *KeyChainClient) RemoveCredentialManagementApp(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.RemoveCredentialManagementApp(ctx, &pb.RemoveCredentialManagementAppRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
 }

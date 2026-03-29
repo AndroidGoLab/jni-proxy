@@ -21,254 +21,433 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ExecuteAppFunctionResponseService_NewExecuteAppFunctionResponse_FullMethodName = "/appfunctions.ExecuteAppFunctionResponseService/NewExecuteAppFunctionResponse"
-	ExecuteAppFunctionResponseService_DescribeContents_FullMethodName              = "/appfunctions.ExecuteAppFunctionResponseService/DescribeContents"
-	ExecuteAppFunctionResponseService_GetExtras_FullMethodName                     = "/appfunctions.ExecuteAppFunctionResponseService/GetExtras"
-	ExecuteAppFunctionResponseService_GetResultDocument_FullMethodName             = "/appfunctions.ExecuteAppFunctionResponseService/GetResultDocument"
-	ExecuteAppFunctionResponseService_WriteToParcel_FullMethodName                 = "/appfunctions.ExecuteAppFunctionResponseService/WriteToParcel"
+	AppFunctionServiceService_OnBind_FullMethodName = "/appfunctions.AppFunctionServiceService/OnBind"
 )
 
-// ExecuteAppFunctionResponseServiceClient is the client API for ExecuteAppFunctionResponseService service.
+// AppFunctionServiceServiceClient is the client API for AppFunctionServiceService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ExecuteAppFunctionResponseServiceClient interface {
-	NewExecuteAppFunctionResponse(ctx context.Context, in *NewExecuteAppFunctionResponseRequest, opts ...grpc.CallOption) (*NewExecuteAppFunctionResponseResponse, error)
-	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
-	GetResultDocument(ctx context.Context, in *GetResultDocumentRequest, opts ...grpc.CallOption) (*GetResultDocumentResponse, error)
-	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+type AppFunctionServiceServiceClient interface {
+	OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error)
 }
 
-type executeAppFunctionResponseServiceClient struct {
+type appFunctionServiceServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewExecuteAppFunctionResponseServiceClient(cc grpc.ClientConnInterface) ExecuteAppFunctionResponseServiceClient {
-	return &executeAppFunctionResponseServiceClient{cc}
+func NewAppFunctionServiceServiceClient(cc grpc.ClientConnInterface) AppFunctionServiceServiceClient {
+	return &appFunctionServiceServiceClient{cc}
 }
 
-func (c *executeAppFunctionResponseServiceClient) NewExecuteAppFunctionResponse(ctx context.Context, in *NewExecuteAppFunctionResponseRequest, opts ...grpc.CallOption) (*NewExecuteAppFunctionResponseResponse, error) {
+func (c *appFunctionServiceServiceClient) OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewExecuteAppFunctionResponseResponse)
-	err := c.cc.Invoke(ctx, ExecuteAppFunctionResponseService_NewExecuteAppFunctionResponse_FullMethodName, in, out, cOpts...)
+	out := new(OnBindResponse)
+	err := c.cc.Invoke(ctx, AppFunctionServiceService_OnBind_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *executeAppFunctionResponseServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, ExecuteAppFunctionResponseService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *executeAppFunctionResponseServiceClient) GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetExtrasResponse)
-	err := c.cc.Invoke(ctx, ExecuteAppFunctionResponseService_GetExtras_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *executeAppFunctionResponseServiceClient) GetResultDocument(ctx context.Context, in *GetResultDocumentRequest, opts ...grpc.CallOption) (*GetResultDocumentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetResultDocumentResponse)
-	err := c.cc.Invoke(ctx, ExecuteAppFunctionResponseService_GetResultDocument_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *executeAppFunctionResponseServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, ExecuteAppFunctionResponseService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ExecuteAppFunctionResponseServiceServer is the server API for ExecuteAppFunctionResponseService service.
-// All implementations must embed UnimplementedExecuteAppFunctionResponseServiceServer
+// AppFunctionServiceServiceServer is the server API for AppFunctionServiceService service.
+// All implementations must embed UnimplementedAppFunctionServiceServiceServer
 // for forward compatibility.
-type ExecuteAppFunctionResponseServiceServer interface {
-	NewExecuteAppFunctionResponse(context.Context, *NewExecuteAppFunctionResponseRequest) (*NewExecuteAppFunctionResponseResponse, error)
-	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error)
-	GetResultDocument(context.Context, *GetResultDocumentRequest) (*GetResultDocumentResponse, error)
-	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedExecuteAppFunctionResponseServiceServer()
+type AppFunctionServiceServiceServer interface {
+	OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error)
+	mustEmbedUnimplementedAppFunctionServiceServiceServer()
 }
 
-// UnimplementedExecuteAppFunctionResponseServiceServer must be embedded to have
+// UnimplementedAppFunctionServiceServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedExecuteAppFunctionResponseServiceServer struct{}
+type UnimplementedAppFunctionServiceServiceServer struct{}
 
-func (UnimplementedExecuteAppFunctionResponseServiceServer) NewExecuteAppFunctionResponse(context.Context, *NewExecuteAppFunctionResponseRequest) (*NewExecuteAppFunctionResponseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewExecuteAppFunctionResponse not implemented")
+func (UnimplementedAppFunctionServiceServiceServer) OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OnBind not implemented")
 }
-func (UnimplementedExecuteAppFunctionResponseServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+func (UnimplementedAppFunctionServiceServiceServer) mustEmbedUnimplementedAppFunctionServiceServiceServer() {
 }
-func (UnimplementedExecuteAppFunctionResponseServiceServer) GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
-}
-func (UnimplementedExecuteAppFunctionResponseServiceServer) GetResultDocument(context.Context, *GetResultDocumentRequest) (*GetResultDocumentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetResultDocument not implemented")
-}
-func (UnimplementedExecuteAppFunctionResponseServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedExecuteAppFunctionResponseServiceServer) mustEmbedUnimplementedExecuteAppFunctionResponseServiceServer() {
-}
-func (UnimplementedExecuteAppFunctionResponseServiceServer) testEmbeddedByValue() {}
+func (UnimplementedAppFunctionServiceServiceServer) testEmbeddedByValue() {}
 
-// UnsafeExecuteAppFunctionResponseServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ExecuteAppFunctionResponseServiceServer will
+// UnsafeAppFunctionServiceServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AppFunctionServiceServiceServer will
 // result in compilation errors.
-type UnsafeExecuteAppFunctionResponseServiceServer interface {
-	mustEmbedUnimplementedExecuteAppFunctionResponseServiceServer()
+type UnsafeAppFunctionServiceServiceServer interface {
+	mustEmbedUnimplementedAppFunctionServiceServiceServer()
 }
 
-func RegisterExecuteAppFunctionResponseServiceServer(s grpc.ServiceRegistrar, srv ExecuteAppFunctionResponseServiceServer) {
-	// If the following call panics, it indicates UnimplementedExecuteAppFunctionResponseServiceServer was
+func RegisterAppFunctionServiceServiceServer(s grpc.ServiceRegistrar, srv AppFunctionServiceServiceServer) {
+	// If the following call panics, it indicates UnimplementedAppFunctionServiceServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&ExecuteAppFunctionResponseService_ServiceDesc, srv)
+	s.RegisterService(&AppFunctionServiceService_ServiceDesc, srv)
 }
 
-func _ExecuteAppFunctionResponseService_NewExecuteAppFunctionResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewExecuteAppFunctionResponseRequest)
+func _AppFunctionServiceService_OnBind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OnBindRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ExecuteAppFunctionResponseServiceServer).NewExecuteAppFunctionResponse(ctx, in)
+		return srv.(AppFunctionServiceServiceServer).OnBind(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ExecuteAppFunctionResponseService_NewExecuteAppFunctionResponse_FullMethodName,
+		FullMethod: AppFunctionServiceService_OnBind_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ExecuteAppFunctionResponseServiceServer).NewExecuteAppFunctionResponse(ctx, req.(*NewExecuteAppFunctionResponseRequest))
+		return srv.(AppFunctionServiceServiceServer).OnBind(ctx, req.(*OnBindRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ExecuteAppFunctionResponseService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+// AppFunctionServiceService_ServiceDesc is the grpc.ServiceDesc for AppFunctionServiceService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AppFunctionServiceService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "appfunctions.AppFunctionServiceService",
+	HandlerType: (*AppFunctionServiceServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "OnBind",
+			Handler:    _AppFunctionServiceService_OnBind_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/appfunctions/appfunctions.proto",
+}
+
+const (
+	AppFunctionExceptionService_NewAppFunctionException_FullMethodName = "/appfunctions.AppFunctionExceptionService/NewAppFunctionException"
+	AppFunctionExceptionService_DescribeContents_FullMethodName        = "/appfunctions.AppFunctionExceptionService/DescribeContents"
+	AppFunctionExceptionService_GetErrorCategory_FullMethodName        = "/appfunctions.AppFunctionExceptionService/GetErrorCategory"
+	AppFunctionExceptionService_GetErrorCode_FullMethodName            = "/appfunctions.AppFunctionExceptionService/GetErrorCode"
+	AppFunctionExceptionService_GetErrorMessage_FullMethodName         = "/appfunctions.AppFunctionExceptionService/GetErrorMessage"
+	AppFunctionExceptionService_GetExtras_FullMethodName               = "/appfunctions.AppFunctionExceptionService/GetExtras"
+	AppFunctionExceptionService_WriteToParcel_FullMethodName           = "/appfunctions.AppFunctionExceptionService/WriteToParcel"
+)
+
+// AppFunctionExceptionServiceClient is the client API for AppFunctionExceptionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AppFunctionExceptionServiceClient interface {
+	NewAppFunctionException(ctx context.Context, in *NewAppFunctionExceptionRequest, opts ...grpc.CallOption) (*NewAppFunctionExceptionResponse, error)
+	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetErrorCategory(ctx context.Context, in *GetErrorCategoryRequest, opts ...grpc.CallOption) (*GetErrorCategoryResponse, error)
+	GetErrorCode(ctx context.Context, in *GetErrorCodeRequest, opts ...grpc.CallOption) (*GetErrorCodeResponse, error)
+	GetErrorMessage(ctx context.Context, in *GetErrorMessageRequest, opts ...grpc.CallOption) (*GetErrorMessageResponse, error)
+	GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
+	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type appFunctionExceptionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAppFunctionExceptionServiceClient(cc grpc.ClientConnInterface) AppFunctionExceptionServiceClient {
+	return &appFunctionExceptionServiceClient{cc}
+}
+
+func (c *appFunctionExceptionServiceClient) NewAppFunctionException(ctx context.Context, in *NewAppFunctionExceptionRequest, opts ...grpc.CallOption) (*NewAppFunctionExceptionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewAppFunctionExceptionResponse)
+	err := c.cc.Invoke(ctx, AppFunctionExceptionService_NewAppFunctionException_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appFunctionExceptionServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, AppFunctionExceptionService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appFunctionExceptionServiceClient) GetErrorCategory(ctx context.Context, in *GetErrorCategoryRequest, opts ...grpc.CallOption) (*GetErrorCategoryResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetErrorCategoryResponse)
+	err := c.cc.Invoke(ctx, AppFunctionExceptionService_GetErrorCategory_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appFunctionExceptionServiceClient) GetErrorCode(ctx context.Context, in *GetErrorCodeRequest, opts ...grpc.CallOption) (*GetErrorCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetErrorCodeResponse)
+	err := c.cc.Invoke(ctx, AppFunctionExceptionService_GetErrorCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appFunctionExceptionServiceClient) GetErrorMessage(ctx context.Context, in *GetErrorMessageRequest, opts ...grpc.CallOption) (*GetErrorMessageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetErrorMessageResponse)
+	err := c.cc.Invoke(ctx, AppFunctionExceptionService_GetErrorMessage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appFunctionExceptionServiceClient) GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetExtrasResponse)
+	err := c.cc.Invoke(ctx, AppFunctionExceptionService_GetExtras_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *appFunctionExceptionServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, AppFunctionExceptionService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AppFunctionExceptionServiceServer is the server API for AppFunctionExceptionService service.
+// All implementations must embed UnimplementedAppFunctionExceptionServiceServer
+// for forward compatibility.
+type AppFunctionExceptionServiceServer interface {
+	NewAppFunctionException(context.Context, *NewAppFunctionExceptionRequest) (*NewAppFunctionExceptionResponse, error)
+	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetErrorCategory(context.Context, *GetErrorCategoryRequest) (*GetErrorCategoryResponse, error)
+	GetErrorCode(context.Context, *GetErrorCodeRequest) (*GetErrorCodeResponse, error)
+	GetErrorMessage(context.Context, *GetErrorMessageRequest) (*GetErrorMessageResponse, error)
+	GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error)
+	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedAppFunctionExceptionServiceServer()
+}
+
+// UnimplementedAppFunctionExceptionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAppFunctionExceptionServiceServer struct{}
+
+func (UnimplementedAppFunctionExceptionServiceServer) NewAppFunctionException(context.Context, *NewAppFunctionExceptionRequest) (*NewAppFunctionExceptionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewAppFunctionException not implemented")
+}
+func (UnimplementedAppFunctionExceptionServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedAppFunctionExceptionServiceServer) GetErrorCategory(context.Context, *GetErrorCategoryRequest) (*GetErrorCategoryResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetErrorCategory not implemented")
+}
+func (UnimplementedAppFunctionExceptionServiceServer) GetErrorCode(context.Context, *GetErrorCodeRequest) (*GetErrorCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetErrorCode not implemented")
+}
+func (UnimplementedAppFunctionExceptionServiceServer) GetErrorMessage(context.Context, *GetErrorMessageRequest) (*GetErrorMessageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetErrorMessage not implemented")
+}
+func (UnimplementedAppFunctionExceptionServiceServer) GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
+}
+func (UnimplementedAppFunctionExceptionServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedAppFunctionExceptionServiceServer) mustEmbedUnimplementedAppFunctionExceptionServiceServer() {
+}
+func (UnimplementedAppFunctionExceptionServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAppFunctionExceptionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AppFunctionExceptionServiceServer will
+// result in compilation errors.
+type UnsafeAppFunctionExceptionServiceServer interface {
+	mustEmbedUnimplementedAppFunctionExceptionServiceServer()
+}
+
+func RegisterAppFunctionExceptionServiceServer(s grpc.ServiceRegistrar, srv AppFunctionExceptionServiceServer) {
+	// If the following call panics, it indicates UnimplementedAppFunctionExceptionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AppFunctionExceptionService_ServiceDesc, srv)
+}
+
+func _AppFunctionExceptionService_NewAppFunctionException_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewAppFunctionExceptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppFunctionExceptionServiceServer).NewAppFunctionException(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppFunctionExceptionService_NewAppFunctionException_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppFunctionExceptionServiceServer).NewAppFunctionException(ctx, req.(*NewAppFunctionExceptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppFunctionExceptionService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ExecuteAppFunctionResponseServiceServer).DescribeContents(ctx, in)
+		return srv.(AppFunctionExceptionServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ExecuteAppFunctionResponseService_DescribeContents_FullMethodName,
+		FullMethod: AppFunctionExceptionService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ExecuteAppFunctionResponseServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(AppFunctionExceptionServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ExecuteAppFunctionResponseService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AppFunctionExceptionService_GetErrorCategory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetErrorCategoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppFunctionExceptionServiceServer).GetErrorCategory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppFunctionExceptionService_GetErrorCategory_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppFunctionExceptionServiceServer).GetErrorCategory(ctx, req.(*GetErrorCategoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppFunctionExceptionService_GetErrorCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetErrorCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppFunctionExceptionServiceServer).GetErrorCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppFunctionExceptionService_GetErrorCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppFunctionExceptionServiceServer).GetErrorCode(ctx, req.(*GetErrorCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppFunctionExceptionService_GetErrorMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetErrorMessageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AppFunctionExceptionServiceServer).GetErrorMessage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AppFunctionExceptionService_GetErrorMessage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AppFunctionExceptionServiceServer).GetErrorMessage(ctx, req.(*GetErrorMessageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AppFunctionExceptionService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetExtrasRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ExecuteAppFunctionResponseServiceServer).GetExtras(ctx, in)
+		return srv.(AppFunctionExceptionServiceServer).GetExtras(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ExecuteAppFunctionResponseService_GetExtras_FullMethodName,
+		FullMethod: AppFunctionExceptionService_GetExtras_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ExecuteAppFunctionResponseServiceServer).GetExtras(ctx, req.(*GetExtrasRequest))
+		return srv.(AppFunctionExceptionServiceServer).GetExtras(ctx, req.(*GetExtrasRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ExecuteAppFunctionResponseService_GetResultDocument_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetResultDocumentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ExecuteAppFunctionResponseServiceServer).GetResultDocument(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ExecuteAppFunctionResponseService_GetResultDocument_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ExecuteAppFunctionResponseServiceServer).GetResultDocument(ctx, req.(*GetResultDocumentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ExecuteAppFunctionResponseService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AppFunctionExceptionService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ExecuteAppFunctionResponseServiceServer).WriteToParcel(ctx, in)
+		return srv.(AppFunctionExceptionServiceServer).WriteToParcel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ExecuteAppFunctionResponseService_WriteToParcel_FullMethodName,
+		FullMethod: AppFunctionExceptionService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ExecuteAppFunctionResponseServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(AppFunctionExceptionServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// ExecuteAppFunctionResponseService_ServiceDesc is the grpc.ServiceDesc for ExecuteAppFunctionResponseService service.
+// AppFunctionExceptionService_ServiceDesc is the grpc.ServiceDesc for AppFunctionExceptionService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var ExecuteAppFunctionResponseService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "appfunctions.ExecuteAppFunctionResponseService",
-	HandlerType: (*ExecuteAppFunctionResponseServiceServer)(nil),
+var AppFunctionExceptionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "appfunctions.AppFunctionExceptionService",
+	HandlerType: (*AppFunctionExceptionServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewExecuteAppFunctionResponse",
-			Handler:    _ExecuteAppFunctionResponseService_NewExecuteAppFunctionResponse_Handler,
+			MethodName: "NewAppFunctionException",
+			Handler:    _AppFunctionExceptionService_NewAppFunctionException_Handler,
 		},
 		{
 			MethodName: "DescribeContents",
-			Handler:    _ExecuteAppFunctionResponseService_DescribeContents_Handler,
+			Handler:    _AppFunctionExceptionService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetErrorCategory",
+			Handler:    _AppFunctionExceptionService_GetErrorCategory_Handler,
+		},
+		{
+			MethodName: "GetErrorCode",
+			Handler:    _AppFunctionExceptionService_GetErrorCode_Handler,
+		},
+		{
+			MethodName: "GetErrorMessage",
+			Handler:    _AppFunctionExceptionService_GetErrorMessage_Handler,
 		},
 		{
 			MethodName: "GetExtras",
-			Handler:    _ExecuteAppFunctionResponseService_GetExtras_Handler,
-		},
-		{
-			MethodName: "GetResultDocument",
-			Handler:    _ExecuteAppFunctionResponseService_GetResultDocument_Handler,
+			Handler:    _AppFunctionExceptionService_GetExtras_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _ExecuteAppFunctionResponseService_WriteToParcel_Handler,
+			Handler:    _AppFunctionExceptionService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -748,433 +927,254 @@ var ExecuteAppFunctionRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	AppFunctionServiceService_OnBind_FullMethodName = "/appfunctions.AppFunctionServiceService/OnBind"
+	ExecuteAppFunctionResponseService_NewExecuteAppFunctionResponse_FullMethodName = "/appfunctions.ExecuteAppFunctionResponseService/NewExecuteAppFunctionResponse"
+	ExecuteAppFunctionResponseService_DescribeContents_FullMethodName              = "/appfunctions.ExecuteAppFunctionResponseService/DescribeContents"
+	ExecuteAppFunctionResponseService_GetExtras_FullMethodName                     = "/appfunctions.ExecuteAppFunctionResponseService/GetExtras"
+	ExecuteAppFunctionResponseService_GetResultDocument_FullMethodName             = "/appfunctions.ExecuteAppFunctionResponseService/GetResultDocument"
+	ExecuteAppFunctionResponseService_WriteToParcel_FullMethodName                 = "/appfunctions.ExecuteAppFunctionResponseService/WriteToParcel"
 )
 
-// AppFunctionServiceServiceClient is the client API for AppFunctionServiceService service.
+// ExecuteAppFunctionResponseServiceClient is the client API for ExecuteAppFunctionResponseService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AppFunctionServiceServiceClient interface {
-	OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error)
-}
-
-type appFunctionServiceServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAppFunctionServiceServiceClient(cc grpc.ClientConnInterface) AppFunctionServiceServiceClient {
-	return &appFunctionServiceServiceClient{cc}
-}
-
-func (c *appFunctionServiceServiceClient) OnBind(ctx context.Context, in *OnBindRequest, opts ...grpc.CallOption) (*OnBindResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OnBindResponse)
-	err := c.cc.Invoke(ctx, AppFunctionServiceService_OnBind_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AppFunctionServiceServiceServer is the server API for AppFunctionServiceService service.
-// All implementations must embed UnimplementedAppFunctionServiceServiceServer
-// for forward compatibility.
-type AppFunctionServiceServiceServer interface {
-	OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error)
-	mustEmbedUnimplementedAppFunctionServiceServiceServer()
-}
-
-// UnimplementedAppFunctionServiceServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAppFunctionServiceServiceServer struct{}
-
-func (UnimplementedAppFunctionServiceServiceServer) OnBind(context.Context, *OnBindRequest) (*OnBindResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OnBind not implemented")
-}
-func (UnimplementedAppFunctionServiceServiceServer) mustEmbedUnimplementedAppFunctionServiceServiceServer() {
-}
-func (UnimplementedAppFunctionServiceServiceServer) testEmbeddedByValue() {}
-
-// UnsafeAppFunctionServiceServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AppFunctionServiceServiceServer will
-// result in compilation errors.
-type UnsafeAppFunctionServiceServiceServer interface {
-	mustEmbedUnimplementedAppFunctionServiceServiceServer()
-}
-
-func RegisterAppFunctionServiceServiceServer(s grpc.ServiceRegistrar, srv AppFunctionServiceServiceServer) {
-	// If the following call panics, it indicates UnimplementedAppFunctionServiceServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AppFunctionServiceService_ServiceDesc, srv)
-}
-
-func _AppFunctionServiceService_OnBind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OnBindRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppFunctionServiceServiceServer).OnBind(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppFunctionServiceService_OnBind_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppFunctionServiceServiceServer).OnBind(ctx, req.(*OnBindRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AppFunctionServiceService_ServiceDesc is the grpc.ServiceDesc for AppFunctionServiceService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AppFunctionServiceService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "appfunctions.AppFunctionServiceService",
-	HandlerType: (*AppFunctionServiceServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "OnBind",
-			Handler:    _AppFunctionServiceService_OnBind_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/appfunctions/appfunctions.proto",
-}
-
-const (
-	AppFunctionExceptionService_NewAppFunctionException_FullMethodName = "/appfunctions.AppFunctionExceptionService/NewAppFunctionException"
-	AppFunctionExceptionService_DescribeContents_FullMethodName        = "/appfunctions.AppFunctionExceptionService/DescribeContents"
-	AppFunctionExceptionService_GetErrorCategory_FullMethodName        = "/appfunctions.AppFunctionExceptionService/GetErrorCategory"
-	AppFunctionExceptionService_GetErrorCode_FullMethodName            = "/appfunctions.AppFunctionExceptionService/GetErrorCode"
-	AppFunctionExceptionService_GetErrorMessage_FullMethodName         = "/appfunctions.AppFunctionExceptionService/GetErrorMessage"
-	AppFunctionExceptionService_GetExtras_FullMethodName               = "/appfunctions.AppFunctionExceptionService/GetExtras"
-	AppFunctionExceptionService_WriteToParcel_FullMethodName           = "/appfunctions.AppFunctionExceptionService/WriteToParcel"
-)
-
-// AppFunctionExceptionServiceClient is the client API for AppFunctionExceptionService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AppFunctionExceptionServiceClient interface {
-	NewAppFunctionException(ctx context.Context, in *NewAppFunctionExceptionRequest, opts ...grpc.CallOption) (*NewAppFunctionExceptionResponse, error)
+type ExecuteAppFunctionResponseServiceClient interface {
+	NewExecuteAppFunctionResponse(ctx context.Context, in *NewExecuteAppFunctionResponseRequest, opts ...grpc.CallOption) (*NewExecuteAppFunctionResponseResponse, error)
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetErrorCategory(ctx context.Context, in *GetErrorCategoryRequest, opts ...grpc.CallOption) (*GetErrorCategoryResponse, error)
-	GetErrorCode(ctx context.Context, in *GetErrorCodeRequest, opts ...grpc.CallOption) (*GetErrorCodeResponse, error)
-	GetErrorMessage(ctx context.Context, in *GetErrorMessageRequest, opts ...grpc.CallOption) (*GetErrorMessageResponse, error)
 	GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error)
+	GetResultDocument(ctx context.Context, in *GetResultDocumentRequest, opts ...grpc.CallOption) (*GetResultDocumentResponse, error)
 	WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
 }
 
-type appFunctionExceptionServiceClient struct {
+type executeAppFunctionResponseServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewAppFunctionExceptionServiceClient(cc grpc.ClientConnInterface) AppFunctionExceptionServiceClient {
-	return &appFunctionExceptionServiceClient{cc}
+func NewExecuteAppFunctionResponseServiceClient(cc grpc.ClientConnInterface) ExecuteAppFunctionResponseServiceClient {
+	return &executeAppFunctionResponseServiceClient{cc}
 }
 
-func (c *appFunctionExceptionServiceClient) NewAppFunctionException(ctx context.Context, in *NewAppFunctionExceptionRequest, opts ...grpc.CallOption) (*NewAppFunctionExceptionResponse, error) {
+func (c *executeAppFunctionResponseServiceClient) NewExecuteAppFunctionResponse(ctx context.Context, in *NewExecuteAppFunctionResponseRequest, opts ...grpc.CallOption) (*NewExecuteAppFunctionResponseResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewAppFunctionExceptionResponse)
-	err := c.cc.Invoke(ctx, AppFunctionExceptionService_NewAppFunctionException_FullMethodName, in, out, cOpts...)
+	out := new(NewExecuteAppFunctionResponseResponse)
+	err := c.cc.Invoke(ctx, ExecuteAppFunctionResponseService_NewExecuteAppFunctionResponse_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *appFunctionExceptionServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+func (c *executeAppFunctionResponseServiceClient) DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, AppFunctionExceptionService_DescribeContents_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ExecuteAppFunctionResponseService_DescribeContents_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *appFunctionExceptionServiceClient) GetErrorCategory(ctx context.Context, in *GetErrorCategoryRequest, opts ...grpc.CallOption) (*GetErrorCategoryResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetErrorCategoryResponse)
-	err := c.cc.Invoke(ctx, AppFunctionExceptionService_GetErrorCategory_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appFunctionExceptionServiceClient) GetErrorCode(ctx context.Context, in *GetErrorCodeRequest, opts ...grpc.CallOption) (*GetErrorCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetErrorCodeResponse)
-	err := c.cc.Invoke(ctx, AppFunctionExceptionService_GetErrorCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appFunctionExceptionServiceClient) GetErrorMessage(ctx context.Context, in *GetErrorMessageRequest, opts ...grpc.CallOption) (*GetErrorMessageResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetErrorMessageResponse)
-	err := c.cc.Invoke(ctx, AppFunctionExceptionService_GetErrorMessage_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *appFunctionExceptionServiceClient) GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
+func (c *executeAppFunctionResponseServiceClient) GetExtras(ctx context.Context, in *GetExtrasRequest, opts ...grpc.CallOption) (*GetExtrasResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetExtrasResponse)
-	err := c.cc.Invoke(ctx, AppFunctionExceptionService_GetExtras_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ExecuteAppFunctionResponseService_GetExtras_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *appFunctionExceptionServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+func (c *executeAppFunctionResponseServiceClient) GetResultDocument(ctx context.Context, in *GetResultDocumentRequest, opts ...grpc.CallOption) (*GetResultDocumentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetResultDocumentResponse)
+	err := c.cc.Invoke(ctx, ExecuteAppFunctionResponseService_GetResultDocument_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *executeAppFunctionResponseServiceClient) WriteToParcel(ctx context.Context, in *WriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, AppFunctionExceptionService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ExecuteAppFunctionResponseService_WriteToParcel_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// AppFunctionExceptionServiceServer is the server API for AppFunctionExceptionService service.
-// All implementations must embed UnimplementedAppFunctionExceptionServiceServer
+// ExecuteAppFunctionResponseServiceServer is the server API for ExecuteAppFunctionResponseService service.
+// All implementations must embed UnimplementedExecuteAppFunctionResponseServiceServer
 // for forward compatibility.
-type AppFunctionExceptionServiceServer interface {
-	NewAppFunctionException(context.Context, *NewAppFunctionExceptionRequest) (*NewAppFunctionExceptionResponse, error)
+type ExecuteAppFunctionResponseServiceServer interface {
+	NewExecuteAppFunctionResponse(context.Context, *NewExecuteAppFunctionResponseRequest) (*NewExecuteAppFunctionResponseResponse, error)
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetErrorCategory(context.Context, *GetErrorCategoryRequest) (*GetErrorCategoryResponse, error)
-	GetErrorCode(context.Context, *GetErrorCodeRequest) (*GetErrorCodeResponse, error)
-	GetErrorMessage(context.Context, *GetErrorMessageRequest) (*GetErrorMessageResponse, error)
 	GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error)
+	GetResultDocument(context.Context, *GetResultDocumentRequest) (*GetResultDocumentResponse, error)
 	WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedAppFunctionExceptionServiceServer()
+	mustEmbedUnimplementedExecuteAppFunctionResponseServiceServer()
 }
 
-// UnimplementedAppFunctionExceptionServiceServer must be embedded to have
+// UnimplementedExecuteAppFunctionResponseServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedAppFunctionExceptionServiceServer struct{}
+type UnimplementedExecuteAppFunctionResponseServiceServer struct{}
 
-func (UnimplementedAppFunctionExceptionServiceServer) NewAppFunctionException(context.Context, *NewAppFunctionExceptionRequest) (*NewAppFunctionExceptionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewAppFunctionException not implemented")
+func (UnimplementedExecuteAppFunctionResponseServiceServer) NewExecuteAppFunctionResponse(context.Context, *NewExecuteAppFunctionResponseRequest) (*NewExecuteAppFunctionResponseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewExecuteAppFunctionResponse not implemented")
 }
-func (UnimplementedAppFunctionExceptionServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
+func (UnimplementedExecuteAppFunctionResponseServiceServer) DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
 }
-func (UnimplementedAppFunctionExceptionServiceServer) GetErrorCategory(context.Context, *GetErrorCategoryRequest) (*GetErrorCategoryResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetErrorCategory not implemented")
-}
-func (UnimplementedAppFunctionExceptionServiceServer) GetErrorCode(context.Context, *GetErrorCodeRequest) (*GetErrorCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetErrorCode not implemented")
-}
-func (UnimplementedAppFunctionExceptionServiceServer) GetErrorMessage(context.Context, *GetErrorMessageRequest) (*GetErrorMessageResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetErrorMessage not implemented")
-}
-func (UnimplementedAppFunctionExceptionServiceServer) GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error) {
+func (UnimplementedExecuteAppFunctionResponseServiceServer) GetExtras(context.Context, *GetExtrasRequest) (*GetExtrasResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetExtras not implemented")
 }
-func (UnimplementedAppFunctionExceptionServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
+func (UnimplementedExecuteAppFunctionResponseServiceServer) GetResultDocument(context.Context, *GetResultDocumentRequest) (*GetResultDocumentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetResultDocument not implemented")
+}
+func (UnimplementedExecuteAppFunctionResponseServiceServer) WriteToParcel(context.Context, *WriteToParcelRequest) (*WriteToParcelResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
 }
-func (UnimplementedAppFunctionExceptionServiceServer) mustEmbedUnimplementedAppFunctionExceptionServiceServer() {
+func (UnimplementedExecuteAppFunctionResponseServiceServer) mustEmbedUnimplementedExecuteAppFunctionResponseServiceServer() {
 }
-func (UnimplementedAppFunctionExceptionServiceServer) testEmbeddedByValue() {}
+func (UnimplementedExecuteAppFunctionResponseServiceServer) testEmbeddedByValue() {}
 
-// UnsafeAppFunctionExceptionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AppFunctionExceptionServiceServer will
+// UnsafeExecuteAppFunctionResponseServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ExecuteAppFunctionResponseServiceServer will
 // result in compilation errors.
-type UnsafeAppFunctionExceptionServiceServer interface {
-	mustEmbedUnimplementedAppFunctionExceptionServiceServer()
+type UnsafeExecuteAppFunctionResponseServiceServer interface {
+	mustEmbedUnimplementedExecuteAppFunctionResponseServiceServer()
 }
 
-func RegisterAppFunctionExceptionServiceServer(s grpc.ServiceRegistrar, srv AppFunctionExceptionServiceServer) {
-	// If the following call panics, it indicates UnimplementedAppFunctionExceptionServiceServer was
+func RegisterExecuteAppFunctionResponseServiceServer(s grpc.ServiceRegistrar, srv ExecuteAppFunctionResponseServiceServer) {
+	// If the following call panics, it indicates UnimplementedExecuteAppFunctionResponseServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&AppFunctionExceptionService_ServiceDesc, srv)
+	s.RegisterService(&ExecuteAppFunctionResponseService_ServiceDesc, srv)
 }
 
-func _AppFunctionExceptionService_NewAppFunctionException_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewAppFunctionExceptionRequest)
+func _ExecuteAppFunctionResponseService_NewExecuteAppFunctionResponse_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewExecuteAppFunctionResponseRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AppFunctionExceptionServiceServer).NewAppFunctionException(ctx, in)
+		return srv.(ExecuteAppFunctionResponseServiceServer).NewExecuteAppFunctionResponse(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AppFunctionExceptionService_NewAppFunctionException_FullMethodName,
+		FullMethod: ExecuteAppFunctionResponseService_NewExecuteAppFunctionResponse_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppFunctionExceptionServiceServer).NewAppFunctionException(ctx, req.(*NewAppFunctionExceptionRequest))
+		return srv.(ExecuteAppFunctionResponseServiceServer).NewExecuteAppFunctionResponse(ctx, req.(*NewExecuteAppFunctionResponseRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AppFunctionExceptionService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ExecuteAppFunctionResponseService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DescribeContentsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AppFunctionExceptionServiceServer).DescribeContents(ctx, in)
+		return srv.(ExecuteAppFunctionResponseServiceServer).DescribeContents(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AppFunctionExceptionService_DescribeContents_FullMethodName,
+		FullMethod: ExecuteAppFunctionResponseService_DescribeContents_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppFunctionExceptionServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
+		return srv.(ExecuteAppFunctionResponseServiceServer).DescribeContents(ctx, req.(*DescribeContentsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AppFunctionExceptionService_GetErrorCategory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetErrorCategoryRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppFunctionExceptionServiceServer).GetErrorCategory(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppFunctionExceptionService_GetErrorCategory_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppFunctionExceptionServiceServer).GetErrorCategory(ctx, req.(*GetErrorCategoryRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppFunctionExceptionService_GetErrorCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetErrorCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppFunctionExceptionServiceServer).GetErrorCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppFunctionExceptionService_GetErrorCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppFunctionExceptionServiceServer).GetErrorCode(ctx, req.(*GetErrorCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppFunctionExceptionService_GetErrorMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetErrorMessageRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AppFunctionExceptionServiceServer).GetErrorMessage(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AppFunctionExceptionService_GetErrorMessage_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppFunctionExceptionServiceServer).GetErrorMessage(ctx, req.(*GetErrorMessageRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AppFunctionExceptionService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ExecuteAppFunctionResponseService_GetExtras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetExtrasRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AppFunctionExceptionServiceServer).GetExtras(ctx, in)
+		return srv.(ExecuteAppFunctionResponseServiceServer).GetExtras(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AppFunctionExceptionService_GetExtras_FullMethodName,
+		FullMethod: ExecuteAppFunctionResponseService_GetExtras_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppFunctionExceptionServiceServer).GetExtras(ctx, req.(*GetExtrasRequest))
+		return srv.(ExecuteAppFunctionResponseServiceServer).GetExtras(ctx, req.(*GetExtrasRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AppFunctionExceptionService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ExecuteAppFunctionResponseService_GetResultDocument_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetResultDocumentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ExecuteAppFunctionResponseServiceServer).GetResultDocument(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ExecuteAppFunctionResponseService_GetResultDocument_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ExecuteAppFunctionResponseServiceServer).GetResultDocument(ctx, req.(*GetResultDocumentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ExecuteAppFunctionResponseService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(WriteToParcelRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AppFunctionExceptionServiceServer).WriteToParcel(ctx, in)
+		return srv.(ExecuteAppFunctionResponseServiceServer).WriteToParcel(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AppFunctionExceptionService_WriteToParcel_FullMethodName,
+		FullMethod: ExecuteAppFunctionResponseService_WriteToParcel_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AppFunctionExceptionServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
+		return srv.(ExecuteAppFunctionResponseServiceServer).WriteToParcel(ctx, req.(*WriteToParcelRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// AppFunctionExceptionService_ServiceDesc is the grpc.ServiceDesc for AppFunctionExceptionService service.
+// ExecuteAppFunctionResponseService_ServiceDesc is the grpc.ServiceDesc for ExecuteAppFunctionResponseService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var AppFunctionExceptionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "appfunctions.AppFunctionExceptionService",
-	HandlerType: (*AppFunctionExceptionServiceServer)(nil),
+var ExecuteAppFunctionResponseService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "appfunctions.ExecuteAppFunctionResponseService",
+	HandlerType: (*ExecuteAppFunctionResponseServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewAppFunctionException",
-			Handler:    _AppFunctionExceptionService_NewAppFunctionException_Handler,
+			MethodName: "NewExecuteAppFunctionResponse",
+			Handler:    _ExecuteAppFunctionResponseService_NewExecuteAppFunctionResponse_Handler,
 		},
 		{
 			MethodName: "DescribeContents",
-			Handler:    _AppFunctionExceptionService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetErrorCategory",
-			Handler:    _AppFunctionExceptionService_GetErrorCategory_Handler,
-		},
-		{
-			MethodName: "GetErrorCode",
-			Handler:    _AppFunctionExceptionService_GetErrorCode_Handler,
-		},
-		{
-			MethodName: "GetErrorMessage",
-			Handler:    _AppFunctionExceptionService_GetErrorMessage_Handler,
+			Handler:    _ExecuteAppFunctionResponseService_DescribeContents_Handler,
 		},
 		{
 			MethodName: "GetExtras",
-			Handler:    _AppFunctionExceptionService_GetExtras_Handler,
+			Handler:    _ExecuteAppFunctionResponseService_GetExtras_Handler,
+		},
+		{
+			MethodName: "GetResultDocument",
+			Handler:    _ExecuteAppFunctionResponseService_GetResultDocument_Handler,
 		},
 		{
 			MethodName: "WriteToParcel",
-			Handler:    _AppFunctionExceptionService_WriteToParcel_Handler,
+			Handler:    _ExecuteAppFunctionResponseService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

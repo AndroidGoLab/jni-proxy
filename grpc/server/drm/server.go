@@ -240,6 +240,29 @@ func (s *ManagerClientServer) GetAvailableDrmEngines(_ context.Context, req *pb.
 	return &pb.GetAvailableDrmEnginesResponse{Result: handle}, nil
 }
 
+func (s *ManagerClientServer) GetAvailableDrmSupportInfo(_ context.Context, req *pb.GetAvailableDrmSupportInfoRequest) (*pb.GetAvailableDrmSupportInfoResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.ManagerClient{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetAvailableDrmSupportInfo()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetAvailableDrmSupportInfoResponse{Result: handle}, nil
+}
+
 func (s *ManagerClientServer) GetConstraints2(_ context.Context, req *pb.GetConstraints2Request) (*pb.GetConstraints2Response, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
@@ -485,51 +508,6 @@ func (s *ManagerClientServer) SaveRights(_ context.Context, req *pb.SaveRightsRe
 	return &pb.SaveRightsResponse{Result: result}, nil
 }
 
-// UtilsServer implements pb.UtilsServiceServer.
-type UtilsServer struct {
-	pb.UnimplementedUtilsServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *UtilsServer) NewUtils(_ context.Context, req *pb.NewUtilsRequest) (*pb.NewUtilsResponse, error) {
-	obj, err := jnipkg.NewUtils(s.Ctx.VM)
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewUtilsResponse{Result: handle}, nil
-}
-
-func (s *UtilsServer) GetExtendedMetadataParser(_ context.Context, req *pb.GetExtendedMetadataParserRequest) (*pb.GetExtendedMetadataParserResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.Utils{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetExtendedMetadataParser(s.Handles.Get(req.GetArg0()))
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetExtendedMetadataParserResponse{Result: handle}, nil
-}
-
 // SupportInfoServer implements pb.SupportInfoServiceServer.
 type SupportInfoServer struct {
 	pb.UnimplementedSupportInfoServiceServer
@@ -620,6 +598,52 @@ func (s *SupportInfoServer) GetDescription(_ context.Context, req *pb.GetDescrip
 	return &pb.GetDescriptionResponse{Result: result}, nil
 }
 
+func (s *SupportInfoServer) GetFileSuffixIterator(_ context.Context, req *pb.GetFileSuffixIteratorRequest) (*pb.GetFileSuffixIteratorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SupportInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetFileSuffixIterator()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetFileSuffixIteratorResponse{Result: handle}, nil
+}
+
+func (s *SupportInfoServer) GetMimeTypeIterator(_ context.Context, req *pb.GetMimeTypeIteratorRequest) (*pb.GetMimeTypeIteratorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SupportInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetMimeTypeIterator()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetMimeTypeIteratorResponse{Result: handle}, nil
+}
+
 func (s *SupportInfoServer) HashCode(_ context.Context, req *pb.HashCodeRequest) (*pb.HashCodeResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
@@ -647,92 +671,6 @@ func (s *SupportInfoServer) SetDescription(_ context.Context, req *pb.SetDescrip
 	return &pb.SetDescriptionResponse{}, nil
 }
 
-// InfoRequestServer implements pb.InfoRequestServiceServer.
-type InfoRequestServer struct {
-	pb.UnimplementedInfoRequestServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *InfoRequestServer) NewInfoRequestOp(_ context.Context, req *pb.NewInfoRequestOpRequest) (*pb.NewInfoRequestOpResponse, error) {
-	obj, err := jnipkg.NewInfoRequest(s.Ctx.VM, req.GetArg0(), req.GetArg1())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewInfoRequestOpResponse{Result: handle}, nil
-}
-
-func (s *InfoRequestServer) Get(_ context.Context, req *pb.InfoRequestGetRequest) (*pb.InfoRequestGetResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.InfoRequest{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.Get(req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.InfoRequestGetResponse{Result: handle}, nil
-}
-
-func (s *InfoRequestServer) GetInfoType(_ context.Context, req *pb.GetInfoTypeRequest) (*pb.GetInfoTypeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.InfoRequest{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetInfoType()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetInfoTypeResponse{Result: result}, nil
-}
-
-func (s *InfoRequestServer) GetMimeType(_ context.Context, req *pb.GetMimeTypeRequest) (*pb.GetMimeTypeResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.InfoRequest{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetMimeType()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.GetMimeTypeResponse{Result: result}, nil
-}
-
-func (s *InfoRequestServer) Put(_ context.Context, req *pb.PutRequest) (*pb.PutResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.InfoRequest{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Put(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.PutResponse{}, nil
-}
-
 // RightsServer implements pb.RightsServiceServer.
 type RightsServer struct {
 	pb.UnimplementedRightsServiceServer
@@ -755,7 +693,7 @@ func (s *RightsServer) NewRights(_ context.Context, req *pb.NewRightsRequest) (*
 	return &pb.NewRightsResponse{Result: handle}, nil
 }
 
-func (s *RightsServer) GetAccountId(_ context.Context, req *pb.GetAccountIdRequest) (*pb.GetAccountIdResponse, error) {
+func (s *RightsServer) GetAccountId(_ context.Context, req *pb.RightsGetAccountIdRequest) (*pb.GetAccountIdResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -769,7 +707,7 @@ func (s *RightsServer) GetAccountId(_ context.Context, req *pb.GetAccountIdReque
 	return &pb.GetAccountIdResponse{Result: result}, nil
 }
 
-func (s *RightsServer) GetData(_ context.Context, req *pb.GetDataRequest) (*pb.GetDataResponse, error) {
+func (s *RightsServer) GetData(_ context.Context, req *pb.RightsGetDataRequest) (*pb.GetDataResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -806,7 +744,7 @@ func (s *RightsServer) GetMimeType(_ context.Context, req *pb.GetMimeTypeRequest
 	return &pb.GetMimeTypeResponse{Result: result}, nil
 }
 
-func (s *RightsServer) GetSubscriptionId(_ context.Context, req *pb.GetSubscriptionIdRequest) (*pb.GetSubscriptionIdResponse, error) {
+func (s *RightsServer) GetSubscriptionId(_ context.Context, req *pb.RightsGetSubscriptionIdRequest) (*pb.GetSubscriptionIdResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -842,7 +780,7 @@ func (s *InfoServer) NewInfo(_ context.Context, req *pb.NewInfoRequest) (*pb.New
 	return &pb.NewInfoResponse{Result: handle}, nil
 }
 
-func (s *InfoServer) Get(_ context.Context, req *pb.InfoGetRequest) (*pb.InfoGetResponse, error) {
+func (s *InfoServer) Get(_ context.Context, req *pb.GetRequest) (*pb.GetResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -862,10 +800,10 @@ func (s *InfoServer) Get(_ context.Context, req *pb.InfoGetRequest) (*pb.InfoGet
 			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 		}
 	}
-	return &pb.InfoGetResponse{Result: handle}, nil
+	return &pb.GetResponse{Result: handle}, nil
 }
 
-func (s *InfoServer) GetData(_ context.Context, req *pb.GetDataRequest) (*pb.GetDataResponse, error) {
+func (s *InfoServer) GetData(_ context.Context, req *pb.InfoGetDataRequest) (*pb.GetDataResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -916,12 +854,235 @@ func (s *InfoServer) GetMimeType(_ context.Context, req *pb.GetMimeTypeRequest) 
 	return &pb.GetMimeTypeResponse{Result: result}, nil
 }
 
+func (s *InfoServer) Iterator(_ context.Context, req *pb.IteratorRequest) (*pb.IteratorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Info{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Iterator()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.IteratorResponse{Result: handle}, nil
+}
+
+func (s *InfoServer) KeyIterator(_ context.Context, req *pb.KeyIteratorRequest) (*pb.KeyIteratorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Info{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.KeyIterator()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.KeyIteratorResponse{Result: handle}, nil
+}
+
 func (s *InfoServer) Put(_ context.Context, req *pb.PutRequest) (*pb.PutResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
 	mgr := &jnipkg.Info{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Put(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.PutResponse{}, nil
+}
+
+// UtilsServer implements pb.UtilsServiceServer.
+type UtilsServer struct {
+	pb.UnimplementedUtilsServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *UtilsServer) NewUtils(_ context.Context, req *pb.NewUtilsRequest) (*pb.NewUtilsResponse, error) {
+	obj, err := jnipkg.NewUtils(s.Ctx.VM)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewUtilsResponse{Result: handle}, nil
+}
+
+func (s *UtilsServer) GetExtendedMetadataParser(_ context.Context, req *pb.GetExtendedMetadataParserRequest) (*pb.GetExtendedMetadataParserResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.Utils{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetExtendedMetadataParser(s.Handles.Get(req.GetArg0()))
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetExtendedMetadataParserResponse{Result: handle}, nil
+}
+
+// InfoRequestServer implements pb.InfoRequestServiceServer.
+type InfoRequestServer struct {
+	pb.UnimplementedInfoRequestServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *InfoRequestServer) NewInfoRequestOp(_ context.Context, req *pb.NewInfoRequestOpRequest) (*pb.NewInfoRequestOpResponse, error) {
+	obj, err := jnipkg.NewInfoRequest(s.Ctx.VM, req.GetArg0(), req.GetArg1())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewInfoRequestOpResponse{Result: handle}, nil
+}
+
+func (s *InfoRequestServer) Get(_ context.Context, req *pb.GetRequest) (*pb.GetResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.InfoRequest{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Get(req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetResponse{Result: handle}, nil
+}
+
+func (s *InfoRequestServer) GetInfoType(_ context.Context, req *pb.GetInfoTypeRequest) (*pb.GetInfoTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.InfoRequest{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetInfoType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetInfoTypeResponse{Result: result}, nil
+}
+
+func (s *InfoRequestServer) GetMimeType(_ context.Context, req *pb.GetMimeTypeRequest) (*pb.GetMimeTypeResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.InfoRequest{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetMimeType()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.GetMimeTypeResponse{Result: result}, nil
+}
+
+func (s *InfoRequestServer) Iterator(_ context.Context, req *pb.IteratorRequest) (*pb.IteratorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.InfoRequest{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.Iterator()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.IteratorResponse{Result: handle}, nil
+}
+
+func (s *InfoRequestServer) KeyIterator(_ context.Context, req *pb.KeyIteratorRequest) (*pb.KeyIteratorResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.InfoRequest{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.KeyIterator()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.KeyIteratorResponse{Result: handle}, nil
+}
+
+func (s *InfoRequestServer) Put(_ context.Context, req *pb.PutRequest) (*pb.PutResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.InfoRequest{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.Put(req.GetArg0(), s.Handles.Get(req.GetArg1())); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)

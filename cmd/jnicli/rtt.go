@@ -12,6 +12,81 @@ var rttCmd = &cobra.Command{
 	Short: "rtt service operations",
 }
 
+var rttRangingCapabilitiesCmd = &cobra.Command{
+	Use:   "ranging-capabilities",
+	Short: "RangingCapabilitiesService operations",
+}
+
+var rttRangingCapabilitiesDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingCapabilitiesServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rttRangingCapabilitiesHasPeriodicRangingHardwareFeatureCmd = &cobra.Command{
+	Use:   "has-periodic-ranging-hardware-feature",
+	Short: "HasPeriodicRangingHardwareFeature RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingCapabilitiesServiceClient(grpcConn)
+		req := &pb.HasPeriodicRangingHardwareFeatureRequest{}
+		resp, err := client.HasPeriodicRangingHardwareFeature(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rttRangingCapabilitiesToStringCmd = &cobra.Command{
+	Use:   "to-string",
+	Short: "ToString RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingCapabilitiesServiceClient(grpcConn)
+		req := &pb.ToStringRequest{}
+		resp, err := client.ToString(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var rttRangingCapabilitiesWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewRangingCapabilitiesServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var rttRangingParamsCmd = &cobra.Command{
 	Use:   "ranging-params",
 	Short: "RangingParamsService operations",
@@ -248,82 +323,14 @@ var rttRangingParamsBuilderSetRangingUpdateRateCmd = &cobra.Command{
 	},
 }
 
-var rttRangingCapabilitiesCmd = &cobra.Command{
-	Use:   "ranging-capabilities",
-	Short: "RangingCapabilitiesService operations",
-}
-
-var rttRangingCapabilitiesDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRangingCapabilitiesServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rttRangingCapabilitiesHasPeriodicRangingHardwareFeatureCmd = &cobra.Command{
-	Use:   "has-periodic-ranging-hardware-feature",
-	Short: "HasPeriodicRangingHardwareFeature RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRangingCapabilitiesServiceClient(grpcConn)
-		req := &pb.HasPeriodicRangingHardwareFeatureRequest{}
-		resp, err := client.HasPeriodicRangingHardwareFeature(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rttRangingCapabilitiesToStringCmd = &cobra.Command{
-	Use:   "to-string",
-	Short: "ToString RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRangingCapabilitiesServiceClient(grpcConn)
-		req := &pb.ToStringRequest{}
-		resp, err := client.ToString(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var rttRangingCapabilitiesWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewRangingCapabilitiesServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 func init() {
+	rttRangingCapabilitiesCmd.AddCommand(rttRangingCapabilitiesDescribeContentsCmd)
+	rttRangingCapabilitiesCmd.AddCommand(rttRangingCapabilitiesHasPeriodicRangingHardwareFeatureCmd)
+	rttRangingCapabilitiesCmd.AddCommand(rttRangingCapabilitiesToStringCmd)
+	rttRangingCapabilitiesWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	rttRangingCapabilitiesWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	rttRangingCapabilitiesCmd.AddCommand(rttRangingCapabilitiesWriteToParcelCmd)
+	rttCmd.AddCommand(rttRangingCapabilitiesCmd)
 	rttRangingParamsCmd.AddCommand(rttRangingParamsDescribeContentsCmd)
 	rttRangingParamsEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	rttRangingParamsCmd.AddCommand(rttRangingParamsEqualsCmd)
@@ -345,12 +352,5 @@ func init() {
 	rttRangingParamsBuilderSetRangingUpdateRateCmd.Flags().Int32("arg0", 0, "arg0 (int32)")
 	rttRangingParamsBuilderCmd.AddCommand(rttRangingParamsBuilderSetRangingUpdateRateCmd)
 	rttCmd.AddCommand(rttRangingParamsBuilderCmd)
-	rttRangingCapabilitiesCmd.AddCommand(rttRangingCapabilitiesDescribeContentsCmd)
-	rttRangingCapabilitiesCmd.AddCommand(rttRangingCapabilitiesHasPeriodicRangingHardwareFeatureCmd)
-	rttRangingCapabilitiesCmd.AddCommand(rttRangingCapabilitiesToStringCmd)
-	rttRangingCapabilitiesWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	rttRangingCapabilitiesWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	rttRangingCapabilitiesCmd.AddCommand(rttRangingCapabilitiesWriteToParcelCmd)
-	rttCmd.AddCommand(rttRangingCapabilitiesCmd)
 	rootCmd.AddCommand(rttCmd)
 }

@@ -3111,6 +3111,94 @@ func (x *ToStringResponse) GetResult() string {
 	return ""
 }
 
+type DivideMessageRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DivideMessageRequest) Reset() {
+	*x = DivideMessageRequest{}
+	mi := &file_proto_gsm_gsm_proto_msgTypes[68]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DivideMessageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DivideMessageRequest) ProtoMessage() {}
+
+func (x *DivideMessageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gsm_gsm_proto_msgTypes[68]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DivideMessageRequest.ProtoReflect.Descriptor instead.
+func (*DivideMessageRequest) Descriptor() ([]byte, []int) {
+	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{68}
+}
+
+func (x *DivideMessageRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type DivideMessageResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DivideMessageResponse) Reset() {
+	*x = DivideMessageResponse{}
+	mi := &file_proto_gsm_gsm_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DivideMessageResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DivideMessageResponse) ProtoMessage() {}
+
+func (x *DivideMessageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_gsm_gsm_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DivideMessageResponse.ProtoReflect.Descriptor instead.
+func (*DivideMessageResponse) Descriptor() ([]byte, []int) {
+	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{69}
+}
+
+func (x *DivideMessageResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 type SendDataMessageRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -3125,7 +3213,7 @@ type SendDataMessageRequest struct {
 
 func (x *SendDataMessageRequest) Reset() {
 	*x = SendDataMessageRequest{}
-	mi := &file_proto_gsm_gsm_proto_msgTypes[68]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3137,7 +3225,7 @@ func (x *SendDataMessageRequest) String() string {
 func (*SendDataMessageRequest) ProtoMessage() {}
 
 func (x *SendDataMessageRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_gsm_gsm_proto_msgTypes[68]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3150,7 +3238,7 @@ func (x *SendDataMessageRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendDataMessageRequest.ProtoReflect.Descriptor instead.
 func (*SendDataMessageRequest) Descriptor() ([]byte, []int) {
-	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{68}
+	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{70}
 }
 
 func (x *SendDataMessageRequest) GetArg0() string {
@@ -3203,7 +3291,7 @@ type SendDataMessageResponse struct {
 
 func (x *SendDataMessageResponse) Reset() {
 	*x = SendDataMessageResponse{}
-	mi := &file_proto_gsm_gsm_proto_msgTypes[69]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3215,7 +3303,7 @@ func (x *SendDataMessageResponse) String() string {
 func (*SendDataMessageResponse) ProtoMessage() {}
 
 func (x *SendDataMessageResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_gsm_gsm_proto_msgTypes[69]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3228,7 +3316,7 @@ func (x *SendDataMessageResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendDataMessageResponse.ProtoReflect.Descriptor instead.
 func (*SendDataMessageResponse) Descriptor() ([]byte, []int) {
-	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{69}
+	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{71}
 }
 
 type SendTextMessageRequest struct {
@@ -3244,7 +3332,7 @@ type SendTextMessageRequest struct {
 
 func (x *SendTextMessageRequest) Reset() {
 	*x = SendTextMessageRequest{}
-	mi := &file_proto_gsm_gsm_proto_msgTypes[70]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3256,7 +3344,7 @@ func (x *SendTextMessageRequest) String() string {
 func (*SendTextMessageRequest) ProtoMessage() {}
 
 func (x *SendTextMessageRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_gsm_gsm_proto_msgTypes[70]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3269,7 +3357,7 @@ func (x *SendTextMessageRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendTextMessageRequest.ProtoReflect.Descriptor instead.
 func (*SendTextMessageRequest) Descriptor() ([]byte, []int) {
-	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{70}
+	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{72}
 }
 
 func (x *SendTextMessageRequest) GetArg0() string {
@@ -3315,7 +3403,7 @@ type SendTextMessageResponse struct {
 
 func (x *SendTextMessageResponse) Reset() {
 	*x = SendTextMessageResponse{}
-	mi := &file_proto_gsm_gsm_proto_msgTypes[71]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3327,7 +3415,7 @@ func (x *SendTextMessageResponse) String() string {
 func (*SendTextMessageResponse) ProtoMessage() {}
 
 func (x *SendTextMessageResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_gsm_gsm_proto_msgTypes[71]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3340,7 +3428,7 @@ func (x *SendTextMessageResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendTextMessageResponse.ProtoReflect.Descriptor instead.
 func (*SendTextMessageResponse) Descriptor() ([]byte, []int) {
-	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{71}
+	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{73}
 }
 
 type GetDefaultRequest struct {
@@ -3351,7 +3439,7 @@ type GetDefaultRequest struct {
 
 func (x *GetDefaultRequest) Reset() {
 	*x = GetDefaultRequest{}
-	mi := &file_proto_gsm_gsm_proto_msgTypes[72]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[74]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3363,7 +3451,7 @@ func (x *GetDefaultRequest) String() string {
 func (*GetDefaultRequest) ProtoMessage() {}
 
 func (x *GetDefaultRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_gsm_gsm_proto_msgTypes[72]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[74]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3376,7 +3464,7 @@ func (x *GetDefaultRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDefaultRequest.ProtoReflect.Descriptor instead.
 func (*GetDefaultRequest) Descriptor() ([]byte, []int) {
-	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{72}
+	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{74}
 }
 
 type GetDefaultResponse struct {
@@ -3388,7 +3476,7 @@ type GetDefaultResponse struct {
 
 func (x *GetDefaultResponse) Reset() {
 	*x = GetDefaultResponse{}
-	mi := &file_proto_gsm_gsm_proto_msgTypes[73]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[75]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3400,7 +3488,7 @@ func (x *GetDefaultResponse) String() string {
 func (*GetDefaultResponse) ProtoMessage() {}
 
 func (x *GetDefaultResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_gsm_gsm_proto_msgTypes[73]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[75]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3413,7 +3501,7 @@ func (x *GetDefaultResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetDefaultResponse.ProtoReflect.Descriptor instead.
 func (*GetDefaultResponse) Descriptor() ([]byte, []int) {
-	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{73}
+	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{75}
 }
 
 func (x *GetDefaultResponse) GetResult() int64 {
@@ -3431,7 +3519,7 @@ type NewCellLocationRequest struct {
 
 func (x *NewCellLocationRequest) Reset() {
 	*x = NewCellLocationRequest{}
-	mi := &file_proto_gsm_gsm_proto_msgTypes[74]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[76]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3443,7 +3531,7 @@ func (x *NewCellLocationRequest) String() string {
 func (*NewCellLocationRequest) ProtoMessage() {}
 
 func (x *NewCellLocationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_gsm_gsm_proto_msgTypes[74]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[76]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3456,7 +3544,7 @@ func (x *NewCellLocationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewCellLocationRequest.ProtoReflect.Descriptor instead.
 func (*NewCellLocationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{74}
+	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{76}
 }
 
 type NewCellLocationResponse struct {
@@ -3468,7 +3556,7 @@ type NewCellLocationResponse struct {
 
 func (x *NewCellLocationResponse) Reset() {
 	*x = NewCellLocationResponse{}
-	mi := &file_proto_gsm_gsm_proto_msgTypes[75]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[77]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3480,7 +3568,7 @@ func (x *NewCellLocationResponse) String() string {
 func (*NewCellLocationResponse) ProtoMessage() {}
 
 func (x *NewCellLocationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_gsm_gsm_proto_msgTypes[75]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[77]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3493,7 +3581,7 @@ func (x *NewCellLocationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewCellLocationResponse.ProtoReflect.Descriptor instead.
 func (*NewCellLocationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{75}
+	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{77}
 }
 
 func (x *NewCellLocationResponse) GetResult() int64 {
@@ -3513,7 +3601,7 @@ type EqualsRequest struct {
 
 func (x *EqualsRequest) Reset() {
 	*x = EqualsRequest{}
-	mi := &file_proto_gsm_gsm_proto_msgTypes[76]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[78]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3525,7 +3613,7 @@ func (x *EqualsRequest) String() string {
 func (*EqualsRequest) ProtoMessage() {}
 
 func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_gsm_gsm_proto_msgTypes[76]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[78]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3538,7 +3626,7 @@ func (x *EqualsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EqualsRequest.ProtoReflect.Descriptor instead.
 func (*EqualsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{76}
+	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{78}
 }
 
 func (x *EqualsRequest) GetHandle() int64 {
@@ -3564,7 +3652,7 @@ type EqualsResponse struct {
 
 func (x *EqualsResponse) Reset() {
 	*x = EqualsResponse{}
-	mi := &file_proto_gsm_gsm_proto_msgTypes[77]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[79]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3576,7 +3664,7 @@ func (x *EqualsResponse) String() string {
 func (*EqualsResponse) ProtoMessage() {}
 
 func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_gsm_gsm_proto_msgTypes[77]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[79]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3589,7 +3677,7 @@ func (x *EqualsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EqualsResponse.ProtoReflect.Descriptor instead.
 func (*EqualsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{77}
+	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{79}
 }
 
 func (x *EqualsResponse) GetResult() bool {
@@ -3609,7 +3697,7 @@ type FillInNotifierBundleRequest struct {
 
 func (x *FillInNotifierBundleRequest) Reset() {
 	*x = FillInNotifierBundleRequest{}
-	mi := &file_proto_gsm_gsm_proto_msgTypes[78]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[80]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3621,7 +3709,7 @@ func (x *FillInNotifierBundleRequest) String() string {
 func (*FillInNotifierBundleRequest) ProtoMessage() {}
 
 func (x *FillInNotifierBundleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_gsm_gsm_proto_msgTypes[78]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[80]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3634,7 +3722,7 @@ func (x *FillInNotifierBundleRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FillInNotifierBundleRequest.ProtoReflect.Descriptor instead.
 func (*FillInNotifierBundleRequest) Descriptor() ([]byte, []int) {
-	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{78}
+	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{80}
 }
 
 func (x *FillInNotifierBundleRequest) GetHandle() int64 {
@@ -3659,7 +3747,7 @@ type FillInNotifierBundleResponse struct {
 
 func (x *FillInNotifierBundleResponse) Reset() {
 	*x = FillInNotifierBundleResponse{}
-	mi := &file_proto_gsm_gsm_proto_msgTypes[79]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[81]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3671,7 +3759,7 @@ func (x *FillInNotifierBundleResponse) String() string {
 func (*FillInNotifierBundleResponse) ProtoMessage() {}
 
 func (x *FillInNotifierBundleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_gsm_gsm_proto_msgTypes[79]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[81]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3684,7 +3772,7 @@ func (x *FillInNotifierBundleResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FillInNotifierBundleResponse.ProtoReflect.Descriptor instead.
 func (*FillInNotifierBundleResponse) Descriptor() ([]byte, []int) {
-	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{79}
+	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{81}
 }
 
 type GetCidRequest struct {
@@ -3696,7 +3784,7 @@ type GetCidRequest struct {
 
 func (x *GetCidRequest) Reset() {
 	*x = GetCidRequest{}
-	mi := &file_proto_gsm_gsm_proto_msgTypes[80]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[82]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3708,7 +3796,7 @@ func (x *GetCidRequest) String() string {
 func (*GetCidRequest) ProtoMessage() {}
 
 func (x *GetCidRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_gsm_gsm_proto_msgTypes[80]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[82]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3721,7 +3809,7 @@ func (x *GetCidRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCidRequest.ProtoReflect.Descriptor instead.
 func (*GetCidRequest) Descriptor() ([]byte, []int) {
-	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{80}
+	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{82}
 }
 
 func (x *GetCidRequest) GetHandle() int64 {
@@ -3740,7 +3828,7 @@ type GetCidResponse struct {
 
 func (x *GetCidResponse) Reset() {
 	*x = GetCidResponse{}
-	mi := &file_proto_gsm_gsm_proto_msgTypes[81]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[83]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3752,7 +3840,7 @@ func (x *GetCidResponse) String() string {
 func (*GetCidResponse) ProtoMessage() {}
 
 func (x *GetCidResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_gsm_gsm_proto_msgTypes[81]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[83]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3765,7 +3853,7 @@ func (x *GetCidResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCidResponse.ProtoReflect.Descriptor instead.
 func (*GetCidResponse) Descriptor() ([]byte, []int) {
-	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{81}
+	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{83}
 }
 
 func (x *GetCidResponse) GetResult() int32 {
@@ -3784,7 +3872,7 @@ type GetLacRequest struct {
 
 func (x *GetLacRequest) Reset() {
 	*x = GetLacRequest{}
-	mi := &file_proto_gsm_gsm_proto_msgTypes[82]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[84]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3796,7 +3884,7 @@ func (x *GetLacRequest) String() string {
 func (*GetLacRequest) ProtoMessage() {}
 
 func (x *GetLacRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_gsm_gsm_proto_msgTypes[82]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[84]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3809,7 +3897,7 @@ func (x *GetLacRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLacRequest.ProtoReflect.Descriptor instead.
 func (*GetLacRequest) Descriptor() ([]byte, []int) {
-	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{82}
+	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{84}
 }
 
 func (x *GetLacRequest) GetHandle() int64 {
@@ -3828,7 +3916,7 @@ type GetLacResponse struct {
 
 func (x *GetLacResponse) Reset() {
 	*x = GetLacResponse{}
-	mi := &file_proto_gsm_gsm_proto_msgTypes[83]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[85]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3840,7 +3928,7 @@ func (x *GetLacResponse) String() string {
 func (*GetLacResponse) ProtoMessage() {}
 
 func (x *GetLacResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_gsm_gsm_proto_msgTypes[83]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[85]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3853,7 +3941,7 @@ func (x *GetLacResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLacResponse.ProtoReflect.Descriptor instead.
 func (*GetLacResponse) Descriptor() ([]byte, []int) {
-	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{83}
+	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{85}
 }
 
 func (x *GetLacResponse) GetResult() int32 {
@@ -3872,7 +3960,7 @@ type GetPscRequest struct {
 
 func (x *GetPscRequest) Reset() {
 	*x = GetPscRequest{}
-	mi := &file_proto_gsm_gsm_proto_msgTypes[84]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[86]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3884,7 +3972,7 @@ func (x *GetPscRequest) String() string {
 func (*GetPscRequest) ProtoMessage() {}
 
 func (x *GetPscRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_gsm_gsm_proto_msgTypes[84]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[86]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3897,7 +3985,7 @@ func (x *GetPscRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPscRequest.ProtoReflect.Descriptor instead.
 func (*GetPscRequest) Descriptor() ([]byte, []int) {
-	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{84}
+	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{86}
 }
 
 func (x *GetPscRequest) GetHandle() int64 {
@@ -3916,7 +4004,7 @@ type GetPscResponse struct {
 
 func (x *GetPscResponse) Reset() {
 	*x = GetPscResponse{}
-	mi := &file_proto_gsm_gsm_proto_msgTypes[85]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[87]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3928,7 +4016,7 @@ func (x *GetPscResponse) String() string {
 func (*GetPscResponse) ProtoMessage() {}
 
 func (x *GetPscResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_gsm_gsm_proto_msgTypes[85]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[87]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3941,7 +4029,7 @@ func (x *GetPscResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPscResponse.ProtoReflect.Descriptor instead.
 func (*GetPscResponse) Descriptor() ([]byte, []int) {
-	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{85}
+	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{87}
 }
 
 func (x *GetPscResponse) GetResult() int32 {
@@ -3960,7 +4048,7 @@ type HashCodeRequest struct {
 
 func (x *HashCodeRequest) Reset() {
 	*x = HashCodeRequest{}
-	mi := &file_proto_gsm_gsm_proto_msgTypes[86]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[88]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3972,7 +4060,7 @@ func (x *HashCodeRequest) String() string {
 func (*HashCodeRequest) ProtoMessage() {}
 
 func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_gsm_gsm_proto_msgTypes[86]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[88]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3985,7 +4073,7 @@ func (x *HashCodeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeRequest.ProtoReflect.Descriptor instead.
 func (*HashCodeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{86}
+	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{88}
 }
 
 func (x *HashCodeRequest) GetHandle() int64 {
@@ -4004,7 +4092,7 @@ type HashCodeResponse struct {
 
 func (x *HashCodeResponse) Reset() {
 	*x = HashCodeResponse{}
-	mi := &file_proto_gsm_gsm_proto_msgTypes[87]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[89]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4016,7 +4104,7 @@ func (x *HashCodeResponse) String() string {
 func (*HashCodeResponse) ProtoMessage() {}
 
 func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_gsm_gsm_proto_msgTypes[87]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[89]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4029,7 +4117,7 @@ func (x *HashCodeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HashCodeResponse.ProtoReflect.Descriptor instead.
 func (*HashCodeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{87}
+	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{89}
 }
 
 func (x *HashCodeResponse) GetResult() int32 {
@@ -4050,7 +4138,7 @@ type SetLacAndCidRequest struct {
 
 func (x *SetLacAndCidRequest) Reset() {
 	*x = SetLacAndCidRequest{}
-	mi := &file_proto_gsm_gsm_proto_msgTypes[88]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[90]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4062,7 +4150,7 @@ func (x *SetLacAndCidRequest) String() string {
 func (*SetLacAndCidRequest) ProtoMessage() {}
 
 func (x *SetLacAndCidRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_gsm_gsm_proto_msgTypes[88]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[90]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4075,7 +4163,7 @@ func (x *SetLacAndCidRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetLacAndCidRequest.ProtoReflect.Descriptor instead.
 func (*SetLacAndCidRequest) Descriptor() ([]byte, []int) {
-	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{88}
+	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{90}
 }
 
 func (x *SetLacAndCidRequest) GetHandle() int64 {
@@ -4107,7 +4195,7 @@ type SetLacAndCidResponse struct {
 
 func (x *SetLacAndCidResponse) Reset() {
 	*x = SetLacAndCidResponse{}
-	mi := &file_proto_gsm_gsm_proto_msgTypes[89]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[91]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4119,7 +4207,7 @@ func (x *SetLacAndCidResponse) String() string {
 func (*SetLacAndCidResponse) ProtoMessage() {}
 
 func (x *SetLacAndCidResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_gsm_gsm_proto_msgTypes[89]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[91]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4132,7 +4220,7 @@ func (x *SetLacAndCidResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetLacAndCidResponse.ProtoReflect.Descriptor instead.
 func (*SetLacAndCidResponse) Descriptor() ([]byte, []int) {
-	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{89}
+	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{91}
 }
 
 type SetStateInvalidRequest struct {
@@ -4144,7 +4232,7 @@ type SetStateInvalidRequest struct {
 
 func (x *SetStateInvalidRequest) Reset() {
 	*x = SetStateInvalidRequest{}
-	mi := &file_proto_gsm_gsm_proto_msgTypes[90]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[92]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4156,7 +4244,7 @@ func (x *SetStateInvalidRequest) String() string {
 func (*SetStateInvalidRequest) ProtoMessage() {}
 
 func (x *SetStateInvalidRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_gsm_gsm_proto_msgTypes[90]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[92]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4169,7 +4257,7 @@ func (x *SetStateInvalidRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetStateInvalidRequest.ProtoReflect.Descriptor instead.
 func (*SetStateInvalidRequest) Descriptor() ([]byte, []int) {
-	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{90}
+	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{92}
 }
 
 func (x *SetStateInvalidRequest) GetHandle() int64 {
@@ -4187,7 +4275,7 @@ type SetStateInvalidResponse struct {
 
 func (x *SetStateInvalidResponse) Reset() {
 	*x = SetStateInvalidResponse{}
-	mi := &file_proto_gsm_gsm_proto_msgTypes[91]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[93]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4199,7 +4287,7 @@ func (x *SetStateInvalidResponse) String() string {
 func (*SetStateInvalidResponse) ProtoMessage() {}
 
 func (x *SetStateInvalidResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_gsm_gsm_proto_msgTypes[91]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[93]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4212,7 +4300,7 @@ func (x *SetStateInvalidResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetStateInvalidResponse.ProtoReflect.Descriptor instead.
 func (*SetStateInvalidResponse) Descriptor() ([]byte, []int) {
-	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{91}
+	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{93}
 }
 
 type CellLocationToStringRequest struct {
@@ -4224,7 +4312,7 @@ type CellLocationToStringRequest struct {
 
 func (x *CellLocationToStringRequest) Reset() {
 	*x = CellLocationToStringRequest{}
-	mi := &file_proto_gsm_gsm_proto_msgTypes[92]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[94]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4236,7 +4324,7 @@ func (x *CellLocationToStringRequest) String() string {
 func (*CellLocationToStringRequest) ProtoMessage() {}
 
 func (x *CellLocationToStringRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_gsm_gsm_proto_msgTypes[92]
+	mi := &file_proto_gsm_gsm_proto_msgTypes[94]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4249,7 +4337,7 @@ func (x *CellLocationToStringRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CellLocationToStringRequest.ProtoReflect.Descriptor instead.
 func (*CellLocationToStringRequest) Descriptor() ([]byte, []int) {
-	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{92}
+	return file_proto_gsm_gsm_proto_rawDescGZIP(), []int{94}
 }
 
 func (x *CellLocationToStringRequest) GetHandle() int64 {
@@ -4411,7 +4499,11 @@ const file_proto_gsm_gsm_proto_rawDesc = "" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"\x11\n" +
 	"\x0fToStringRequest\"*\n" +
 	"\x10ToStringResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\tR\x06result\"\x90\x01\n" +
+	"\x06result\x18\x01 \x01(\tR\x06result\"*\n" +
+	"\x14DivideMessageRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"/\n" +
+	"\x15DivideMessageResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x90\x01\n" +
 	"\x16SendDataMessageRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\tR\x04arg1\x12\x12\n" +
@@ -4504,8 +4596,9 @@ const file_proto_gsm_gsm_proto_rawDesc = "" +
 	"\x06Values\x12\x12.gsm.ValuesRequest\x1a\x13.gsm.ValuesResponse\x124\n" +
 	"\aValueOf\x12\x13.gsm.ValueOfRequest\x1a\x14.gsm.ValueOfResponse2U\n" +
 	"\x1aSmsMessageSubmitPduService\x127\n" +
-	"\bToString\x12\x14.gsm.ToStringRequest\x1a\x15.gsm.ToStringResponse2\xee\x01\n" +
-	"\x11SmsManagerService\x12L\n" +
+	"\bToString\x12\x14.gsm.ToStringRequest\x1a\x15.gsm.ToStringResponse2\xb6\x02\n" +
+	"\x11SmsManagerService\x12F\n" +
+	"\rDivideMessage\x12\x19.gsm.DivideMessageRequest\x1a\x1a.gsm.DivideMessageResponse\x12L\n" +
 	"\x0fSendDataMessage\x12\x1b.gsm.SendDataMessageRequest\x1a\x1c.gsm.SendDataMessageResponse\x12L\n" +
 	"\x0fSendTextMessage\x12\x1b.gsm.SendTextMessageRequest\x1a\x1c.gsm.SendTextMessageResponse\x12=\n" +
 	"\n" +
@@ -4534,7 +4627,7 @@ func file_proto_gsm_gsm_proto_rawDescGZIP() []byte {
 	return file_proto_gsm_gsm_proto_rawDescData
 }
 
-var file_proto_gsm_gsm_proto_msgTypes = make([]protoimpl.MessageInfo, 93)
+var file_proto_gsm_gsm_proto_msgTypes = make([]protoimpl.MessageInfo, 95)
 var file_proto_gsm_gsm_proto_goTypes = []any{
 	(*NewSmsMessageRequest)(nil),                 // 0: gsm.NewSmsMessageRequest
 	(*NewSmsMessageResponse)(nil),                // 1: gsm.NewSmsMessageResponse
@@ -4604,31 +4697,33 @@ var file_proto_gsm_gsm_proto_goTypes = []any{
 	(*ValueOfResponse)(nil),                      // 65: gsm.ValueOfResponse
 	(*ToStringRequest)(nil),                      // 66: gsm.ToStringRequest
 	(*ToStringResponse)(nil),                     // 67: gsm.ToStringResponse
-	(*SendDataMessageRequest)(nil),               // 68: gsm.SendDataMessageRequest
-	(*SendDataMessageResponse)(nil),              // 69: gsm.SendDataMessageResponse
-	(*SendTextMessageRequest)(nil),               // 70: gsm.SendTextMessageRequest
-	(*SendTextMessageResponse)(nil),              // 71: gsm.SendTextMessageResponse
-	(*GetDefaultRequest)(nil),                    // 72: gsm.GetDefaultRequest
-	(*GetDefaultResponse)(nil),                   // 73: gsm.GetDefaultResponse
-	(*NewCellLocationRequest)(nil),               // 74: gsm.NewCellLocationRequest
-	(*NewCellLocationResponse)(nil),              // 75: gsm.NewCellLocationResponse
-	(*EqualsRequest)(nil),                        // 76: gsm.EqualsRequest
-	(*EqualsResponse)(nil),                       // 77: gsm.EqualsResponse
-	(*FillInNotifierBundleRequest)(nil),          // 78: gsm.FillInNotifierBundleRequest
-	(*FillInNotifierBundleResponse)(nil),         // 79: gsm.FillInNotifierBundleResponse
-	(*GetCidRequest)(nil),                        // 80: gsm.GetCidRequest
-	(*GetCidResponse)(nil),                       // 81: gsm.GetCidResponse
-	(*GetLacRequest)(nil),                        // 82: gsm.GetLacRequest
-	(*GetLacResponse)(nil),                       // 83: gsm.GetLacResponse
-	(*GetPscRequest)(nil),                        // 84: gsm.GetPscRequest
-	(*GetPscResponse)(nil),                       // 85: gsm.GetPscResponse
-	(*HashCodeRequest)(nil),                      // 86: gsm.HashCodeRequest
-	(*HashCodeResponse)(nil),                     // 87: gsm.HashCodeResponse
-	(*SetLacAndCidRequest)(nil),                  // 88: gsm.SetLacAndCidRequest
-	(*SetLacAndCidResponse)(nil),                 // 89: gsm.SetLacAndCidResponse
-	(*SetStateInvalidRequest)(nil),               // 90: gsm.SetStateInvalidRequest
-	(*SetStateInvalidResponse)(nil),              // 91: gsm.SetStateInvalidResponse
-	(*CellLocationToStringRequest)(nil),          // 92: gsm.CellLocationToStringRequest
+	(*DivideMessageRequest)(nil),                 // 68: gsm.DivideMessageRequest
+	(*DivideMessageResponse)(nil),                // 69: gsm.DivideMessageResponse
+	(*SendDataMessageRequest)(nil),               // 70: gsm.SendDataMessageRequest
+	(*SendDataMessageResponse)(nil),              // 71: gsm.SendDataMessageResponse
+	(*SendTextMessageRequest)(nil),               // 72: gsm.SendTextMessageRequest
+	(*SendTextMessageResponse)(nil),              // 73: gsm.SendTextMessageResponse
+	(*GetDefaultRequest)(nil),                    // 74: gsm.GetDefaultRequest
+	(*GetDefaultResponse)(nil),                   // 75: gsm.GetDefaultResponse
+	(*NewCellLocationRequest)(nil),               // 76: gsm.NewCellLocationRequest
+	(*NewCellLocationResponse)(nil),              // 77: gsm.NewCellLocationResponse
+	(*EqualsRequest)(nil),                        // 78: gsm.EqualsRequest
+	(*EqualsResponse)(nil),                       // 79: gsm.EqualsResponse
+	(*FillInNotifierBundleRequest)(nil),          // 80: gsm.FillInNotifierBundleRequest
+	(*FillInNotifierBundleResponse)(nil),         // 81: gsm.FillInNotifierBundleResponse
+	(*GetCidRequest)(nil),                        // 82: gsm.GetCidRequest
+	(*GetCidResponse)(nil),                       // 83: gsm.GetCidResponse
+	(*GetLacRequest)(nil),                        // 84: gsm.GetLacRequest
+	(*GetLacResponse)(nil),                       // 85: gsm.GetLacResponse
+	(*GetPscRequest)(nil),                        // 86: gsm.GetPscRequest
+	(*GetPscResponse)(nil),                       // 87: gsm.GetPscResponse
+	(*HashCodeRequest)(nil),                      // 88: gsm.HashCodeRequest
+	(*HashCodeResponse)(nil),                     // 89: gsm.HashCodeResponse
+	(*SetLacAndCidRequest)(nil),                  // 90: gsm.SetLacAndCidRequest
+	(*SetLacAndCidResponse)(nil),                 // 91: gsm.SetLacAndCidResponse
+	(*SetStateInvalidRequest)(nil),               // 92: gsm.SetStateInvalidRequest
+	(*SetStateInvalidResponse)(nil),              // 93: gsm.SetStateInvalidResponse
+	(*CellLocationToStringRequest)(nil),          // 94: gsm.CellLocationToStringRequest
 }
 var file_proto_gsm_gsm_proto_depIdxs = []int32{
 	0,  // 0: gsm.SmsMessageService.NewSmsMessage:input_type -> gsm.NewSmsMessageRequest
@@ -4665,68 +4760,70 @@ var file_proto_gsm_gsm_proto_depIdxs = []int32{
 	62, // 31: gsm.SmsMessageMessageClassService.Values:input_type -> gsm.ValuesRequest
 	64, // 32: gsm.SmsMessageMessageClassService.ValueOf:input_type -> gsm.ValueOfRequest
 	66, // 33: gsm.SmsMessageSubmitPduService.ToString:input_type -> gsm.ToStringRequest
-	68, // 34: gsm.SmsManagerService.SendDataMessage:input_type -> gsm.SendDataMessageRequest
-	70, // 35: gsm.SmsManagerService.SendTextMessage:input_type -> gsm.SendTextMessageRequest
-	72, // 36: gsm.SmsManagerService.GetDefault:input_type -> gsm.GetDefaultRequest
-	74, // 37: gsm.CellLocationService.NewCellLocation:input_type -> gsm.NewCellLocationRequest
-	76, // 38: gsm.CellLocationService.Equals:input_type -> gsm.EqualsRequest
-	78, // 39: gsm.CellLocationService.FillInNotifierBundle:input_type -> gsm.FillInNotifierBundleRequest
-	80, // 40: gsm.CellLocationService.GetCid:input_type -> gsm.GetCidRequest
-	82, // 41: gsm.CellLocationService.GetLac:input_type -> gsm.GetLacRequest
-	84, // 42: gsm.CellLocationService.GetPsc:input_type -> gsm.GetPscRequest
-	86, // 43: gsm.CellLocationService.HashCode:input_type -> gsm.HashCodeRequest
-	88, // 44: gsm.CellLocationService.SetLacAndCid:input_type -> gsm.SetLacAndCidRequest
-	90, // 45: gsm.CellLocationService.SetStateInvalid:input_type -> gsm.SetStateInvalidRequest
-	92, // 46: gsm.CellLocationService.ToString:input_type -> gsm.CellLocationToStringRequest
-	1,  // 47: gsm.SmsMessageService.NewSmsMessage:output_type -> gsm.NewSmsMessageResponse
-	3,  // 48: gsm.SmsMessageService.GetDisplayMessageBody:output_type -> gsm.GetDisplayMessageBodyResponse
-	5,  // 49: gsm.SmsMessageService.GetDisplayOriginatingAddress:output_type -> gsm.GetDisplayOriginatingAddressResponse
-	7,  // 50: gsm.SmsMessageService.GetEmailBody:output_type -> gsm.GetEmailBodyResponse
-	9,  // 51: gsm.SmsMessageService.GetEmailFrom:output_type -> gsm.GetEmailFromResponse
-	11, // 52: gsm.SmsMessageService.GetIndexOnSim:output_type -> gsm.GetIndexOnSimResponse
-	13, // 53: gsm.SmsMessageService.GetMessageBody:output_type -> gsm.GetMessageBodyResponse
-	15, // 54: gsm.SmsMessageService.GetMessageClass:output_type -> gsm.GetMessageClassResponse
-	17, // 55: gsm.SmsMessageService.GetOriginatingAddress:output_type -> gsm.GetOriginatingAddressResponse
-	19, // 56: gsm.SmsMessageService.GetPdu:output_type -> gsm.GetPduResponse
-	21, // 57: gsm.SmsMessageService.GetProtocolIdentifier:output_type -> gsm.GetProtocolIdentifierResponse
-	23, // 58: gsm.SmsMessageService.GetPseudoSubject:output_type -> gsm.GetPseudoSubjectResponse
-	25, // 59: gsm.SmsMessageService.GetServiceCenterAddress:output_type -> gsm.GetServiceCenterAddressResponse
-	27, // 60: gsm.SmsMessageService.GetStatus:output_type -> gsm.GetStatusResponse
-	29, // 61: gsm.SmsMessageService.GetStatusOnSim:output_type -> gsm.GetStatusOnSimResponse
-	31, // 62: gsm.SmsMessageService.GetTimestampMillis:output_type -> gsm.GetTimestampMillisResponse
-	33, // 63: gsm.SmsMessageService.GetUserData:output_type -> gsm.GetUserDataResponse
-	35, // 64: gsm.SmsMessageService.IsCphsMwiMessage:output_type -> gsm.IsCphsMwiMessageResponse
-	37, // 65: gsm.SmsMessageService.IsEmail:output_type -> gsm.IsEmailResponse
-	39, // 66: gsm.SmsMessageService.IsMWIClearMessage:output_type -> gsm.IsMWIClearMessageResponse
-	41, // 67: gsm.SmsMessageService.IsMWISetMessage:output_type -> gsm.IsMWISetMessageResponse
-	43, // 68: gsm.SmsMessageService.IsMwiDontStore:output_type -> gsm.IsMwiDontStoreResponse
-	45, // 69: gsm.SmsMessageService.IsReplace:output_type -> gsm.IsReplaceResponse
-	47, // 70: gsm.SmsMessageService.IsReplyPathPresent:output_type -> gsm.IsReplyPathPresentResponse
-	49, // 71: gsm.SmsMessageService.IsStatusReportMessage:output_type -> gsm.IsStatusReportMessageResponse
-	51, // 72: gsm.SmsMessageService.CalculateLength2:output_type -> gsm.CalculateLength2Response
-	53, // 73: gsm.SmsMessageService.CalculateLength2_1:output_type -> gsm.CalculateLength2_1Response
-	55, // 74: gsm.SmsMessageService.CreateFromPdu:output_type -> gsm.CreateFromPduResponse
-	57, // 75: gsm.SmsMessageService.GetSubmitPdu4:output_type -> gsm.GetSubmitPdu4Response
-	59, // 76: gsm.SmsMessageService.GetSubmitPdu5_1:output_type -> gsm.GetSubmitPdu5_1Response
-	61, // 77: gsm.SmsMessageService.GetTPLayerLengthForPDU:output_type -> gsm.GetTPLayerLengthForPDUResponse
-	63, // 78: gsm.SmsMessageMessageClassService.Values:output_type -> gsm.ValuesResponse
-	65, // 79: gsm.SmsMessageMessageClassService.ValueOf:output_type -> gsm.ValueOfResponse
-	67, // 80: gsm.SmsMessageSubmitPduService.ToString:output_type -> gsm.ToStringResponse
-	69, // 81: gsm.SmsManagerService.SendDataMessage:output_type -> gsm.SendDataMessageResponse
-	71, // 82: gsm.SmsManagerService.SendTextMessage:output_type -> gsm.SendTextMessageResponse
-	73, // 83: gsm.SmsManagerService.GetDefault:output_type -> gsm.GetDefaultResponse
-	75, // 84: gsm.CellLocationService.NewCellLocation:output_type -> gsm.NewCellLocationResponse
-	77, // 85: gsm.CellLocationService.Equals:output_type -> gsm.EqualsResponse
-	79, // 86: gsm.CellLocationService.FillInNotifierBundle:output_type -> gsm.FillInNotifierBundleResponse
-	81, // 87: gsm.CellLocationService.GetCid:output_type -> gsm.GetCidResponse
-	83, // 88: gsm.CellLocationService.GetLac:output_type -> gsm.GetLacResponse
-	85, // 89: gsm.CellLocationService.GetPsc:output_type -> gsm.GetPscResponse
-	87, // 90: gsm.CellLocationService.HashCode:output_type -> gsm.HashCodeResponse
-	89, // 91: gsm.CellLocationService.SetLacAndCid:output_type -> gsm.SetLacAndCidResponse
-	91, // 92: gsm.CellLocationService.SetStateInvalid:output_type -> gsm.SetStateInvalidResponse
-	67, // 93: gsm.CellLocationService.ToString:output_type -> gsm.ToStringResponse
-	47, // [47:94] is the sub-list for method output_type
-	0,  // [0:47] is the sub-list for method input_type
+	68, // 34: gsm.SmsManagerService.DivideMessage:input_type -> gsm.DivideMessageRequest
+	70, // 35: gsm.SmsManagerService.SendDataMessage:input_type -> gsm.SendDataMessageRequest
+	72, // 36: gsm.SmsManagerService.SendTextMessage:input_type -> gsm.SendTextMessageRequest
+	74, // 37: gsm.SmsManagerService.GetDefault:input_type -> gsm.GetDefaultRequest
+	76, // 38: gsm.CellLocationService.NewCellLocation:input_type -> gsm.NewCellLocationRequest
+	78, // 39: gsm.CellLocationService.Equals:input_type -> gsm.EqualsRequest
+	80, // 40: gsm.CellLocationService.FillInNotifierBundle:input_type -> gsm.FillInNotifierBundleRequest
+	82, // 41: gsm.CellLocationService.GetCid:input_type -> gsm.GetCidRequest
+	84, // 42: gsm.CellLocationService.GetLac:input_type -> gsm.GetLacRequest
+	86, // 43: gsm.CellLocationService.GetPsc:input_type -> gsm.GetPscRequest
+	88, // 44: gsm.CellLocationService.HashCode:input_type -> gsm.HashCodeRequest
+	90, // 45: gsm.CellLocationService.SetLacAndCid:input_type -> gsm.SetLacAndCidRequest
+	92, // 46: gsm.CellLocationService.SetStateInvalid:input_type -> gsm.SetStateInvalidRequest
+	94, // 47: gsm.CellLocationService.ToString:input_type -> gsm.CellLocationToStringRequest
+	1,  // 48: gsm.SmsMessageService.NewSmsMessage:output_type -> gsm.NewSmsMessageResponse
+	3,  // 49: gsm.SmsMessageService.GetDisplayMessageBody:output_type -> gsm.GetDisplayMessageBodyResponse
+	5,  // 50: gsm.SmsMessageService.GetDisplayOriginatingAddress:output_type -> gsm.GetDisplayOriginatingAddressResponse
+	7,  // 51: gsm.SmsMessageService.GetEmailBody:output_type -> gsm.GetEmailBodyResponse
+	9,  // 52: gsm.SmsMessageService.GetEmailFrom:output_type -> gsm.GetEmailFromResponse
+	11, // 53: gsm.SmsMessageService.GetIndexOnSim:output_type -> gsm.GetIndexOnSimResponse
+	13, // 54: gsm.SmsMessageService.GetMessageBody:output_type -> gsm.GetMessageBodyResponse
+	15, // 55: gsm.SmsMessageService.GetMessageClass:output_type -> gsm.GetMessageClassResponse
+	17, // 56: gsm.SmsMessageService.GetOriginatingAddress:output_type -> gsm.GetOriginatingAddressResponse
+	19, // 57: gsm.SmsMessageService.GetPdu:output_type -> gsm.GetPduResponse
+	21, // 58: gsm.SmsMessageService.GetProtocolIdentifier:output_type -> gsm.GetProtocolIdentifierResponse
+	23, // 59: gsm.SmsMessageService.GetPseudoSubject:output_type -> gsm.GetPseudoSubjectResponse
+	25, // 60: gsm.SmsMessageService.GetServiceCenterAddress:output_type -> gsm.GetServiceCenterAddressResponse
+	27, // 61: gsm.SmsMessageService.GetStatus:output_type -> gsm.GetStatusResponse
+	29, // 62: gsm.SmsMessageService.GetStatusOnSim:output_type -> gsm.GetStatusOnSimResponse
+	31, // 63: gsm.SmsMessageService.GetTimestampMillis:output_type -> gsm.GetTimestampMillisResponse
+	33, // 64: gsm.SmsMessageService.GetUserData:output_type -> gsm.GetUserDataResponse
+	35, // 65: gsm.SmsMessageService.IsCphsMwiMessage:output_type -> gsm.IsCphsMwiMessageResponse
+	37, // 66: gsm.SmsMessageService.IsEmail:output_type -> gsm.IsEmailResponse
+	39, // 67: gsm.SmsMessageService.IsMWIClearMessage:output_type -> gsm.IsMWIClearMessageResponse
+	41, // 68: gsm.SmsMessageService.IsMWISetMessage:output_type -> gsm.IsMWISetMessageResponse
+	43, // 69: gsm.SmsMessageService.IsMwiDontStore:output_type -> gsm.IsMwiDontStoreResponse
+	45, // 70: gsm.SmsMessageService.IsReplace:output_type -> gsm.IsReplaceResponse
+	47, // 71: gsm.SmsMessageService.IsReplyPathPresent:output_type -> gsm.IsReplyPathPresentResponse
+	49, // 72: gsm.SmsMessageService.IsStatusReportMessage:output_type -> gsm.IsStatusReportMessageResponse
+	51, // 73: gsm.SmsMessageService.CalculateLength2:output_type -> gsm.CalculateLength2Response
+	53, // 74: gsm.SmsMessageService.CalculateLength2_1:output_type -> gsm.CalculateLength2_1Response
+	55, // 75: gsm.SmsMessageService.CreateFromPdu:output_type -> gsm.CreateFromPduResponse
+	57, // 76: gsm.SmsMessageService.GetSubmitPdu4:output_type -> gsm.GetSubmitPdu4Response
+	59, // 77: gsm.SmsMessageService.GetSubmitPdu5_1:output_type -> gsm.GetSubmitPdu5_1Response
+	61, // 78: gsm.SmsMessageService.GetTPLayerLengthForPDU:output_type -> gsm.GetTPLayerLengthForPDUResponse
+	63, // 79: gsm.SmsMessageMessageClassService.Values:output_type -> gsm.ValuesResponse
+	65, // 80: gsm.SmsMessageMessageClassService.ValueOf:output_type -> gsm.ValueOfResponse
+	67, // 81: gsm.SmsMessageSubmitPduService.ToString:output_type -> gsm.ToStringResponse
+	69, // 82: gsm.SmsManagerService.DivideMessage:output_type -> gsm.DivideMessageResponse
+	71, // 83: gsm.SmsManagerService.SendDataMessage:output_type -> gsm.SendDataMessageResponse
+	73, // 84: gsm.SmsManagerService.SendTextMessage:output_type -> gsm.SendTextMessageResponse
+	75, // 85: gsm.SmsManagerService.GetDefault:output_type -> gsm.GetDefaultResponse
+	77, // 86: gsm.CellLocationService.NewCellLocation:output_type -> gsm.NewCellLocationResponse
+	79, // 87: gsm.CellLocationService.Equals:output_type -> gsm.EqualsResponse
+	81, // 88: gsm.CellLocationService.FillInNotifierBundle:output_type -> gsm.FillInNotifierBundleResponse
+	83, // 89: gsm.CellLocationService.GetCid:output_type -> gsm.GetCidResponse
+	85, // 90: gsm.CellLocationService.GetLac:output_type -> gsm.GetLacResponse
+	87, // 91: gsm.CellLocationService.GetPsc:output_type -> gsm.GetPscResponse
+	89, // 92: gsm.CellLocationService.HashCode:output_type -> gsm.HashCodeResponse
+	91, // 93: gsm.CellLocationService.SetLacAndCid:output_type -> gsm.SetLacAndCidResponse
+	93, // 94: gsm.CellLocationService.SetStateInvalid:output_type -> gsm.SetStateInvalidResponse
+	67, // 95: gsm.CellLocationService.ToString:output_type -> gsm.ToStringResponse
+	48, // [48:96] is the sub-list for method output_type
+	0,  // [0:48] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -4743,7 +4840,7 @@ func file_proto_gsm_gsm_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_gsm_gsm_proto_rawDesc), len(file_proto_gsm_gsm_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   93,
+			NumMessages:   95,
 			NumExtensions: 0,
 			NumServices:   5,
 		},

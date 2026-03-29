@@ -12,6 +12,126 @@ var printserviceCmd = &cobra.Command{
 	Short: "printservice service operations",
 }
 
+var printserviceCustomPrinterIconCallbackCmd = &cobra.Command{
+	Use:   "custom-printer-icon-callback",
+	Short: "CustomPrinterIconCallbackService operations",
+}
+
+var printserviceCustomPrinterIconCallbackOnCustomPrinterIconLoadedCmd = &cobra.Command{
+	Use:   "on-custom-printer-icon-loaded",
+	Short: "OnCustomPrinterIconLoaded RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewCustomPrinterIconCallbackServiceClient(grpcConn)
+		req := &pb.OnCustomPrinterIconLoadedRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnCustomPrinterIconLoaded(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printservicePrintDocumentCmd = &cobra.Command{
+	Use:   "print-document",
+	Short: "PrintDocumentService operations",
+}
+
+var printservicePrintDocumentGetDataCmd = &cobra.Command{
+	Use:   "get-data",
+	Short: "GetData RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPrintDocumentServiceClient(grpcConn)
+		req := &pb.GetDataRequest{}
+		resp, err := client.GetData(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printservicePrintDocumentGetInfoCmd = &cobra.Command{
+	Use:   "get-info",
+	Short: "GetInfo RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPrintDocumentServiceClient(grpcConn)
+		req := &pb.GetInfoRequest{}
+		resp, err := client.GetInfo(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printservicePrintServiceCmd = &cobra.Command{
+	Use:   "print-service",
+	Short: "PrintServiceService operations",
+}
+
+var printservicePrintServiceGeneratePrinterIdCmd = &cobra.Command{
+	Use:   "generate-printer-id",
+	Short: "GeneratePrinterId RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPrintServiceServiceClient(grpcConn)
+		req := &pb.GeneratePrinterIdRequest{}
+		if v, err := cmd.Flags().GetString("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.GeneratePrinterId(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printservicePrintServiceGetActivePrintJobsCmd = &cobra.Command{
+	Use:   "get-active-print-jobs",
+	Short: "GetActivePrintJobs RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPrintServiceServiceClient(grpcConn)
+		req := &pb.GetActivePrintJobsRequest{}
+		resp, err := client.GetActivePrintJobs(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printservicePrintServiceOnBindCmd = &cobra.Command{
+	Use:   "on-bind",
+	Short: "OnBind RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPrintServiceServiceClient(grpcConn)
+		req := &pb.OnBindRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.OnBind(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 var printservicePrintJobCmd = &cobra.Command{
 	Use:   "print-job",
 	Short: "PrintJobService operations",
@@ -431,113 +551,41 @@ var printservicePrintJobStartCmd = &cobra.Command{
 	},
 }
 
-var printserviceCustomPrinterIconCallbackCmd = &cobra.Command{
-	Use:   "custom-printer-icon-callback",
-	Short: "CustomPrinterIconCallbackService operations",
-}
-
-var printserviceCustomPrinterIconCallbackOnCustomPrinterIconLoadedCmd = &cobra.Command{
-	Use:   "on-custom-printer-icon-loaded",
-	Short: "OnCustomPrinterIconLoaded RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewCustomPrinterIconCallbackServiceClient(grpcConn)
-		req := &pb.OnCustomPrinterIconLoadedRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnCustomPrinterIconLoaded(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var printservicePrintDocumentCmd = &cobra.Command{
-	Use:   "print-document",
-	Short: "PrintDocumentService operations",
-}
-
-var printservicePrintDocumentGetDataCmd = &cobra.Command{
-	Use:   "get-data",
-	Short: "GetData RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPrintDocumentServiceClient(grpcConn)
-		req := &pb.GetDataRequest{}
-		resp, err := client.GetData(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var printservicePrintDocumentGetInfoCmd = &cobra.Command{
-	Use:   "get-info",
-	Short: "GetInfo RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPrintDocumentServiceClient(grpcConn)
-		req := &pb.GetInfoRequest{}
-		resp, err := client.GetInfo(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var printservicePrintServiceCmd = &cobra.Command{
-	Use:   "print-service",
-	Short: "PrintServiceService operations",
-}
-
-var printservicePrintServiceGeneratePrinterIdCmd = &cobra.Command{
-	Use:   "generate-printer-id",
-	Short: "GeneratePrinterId RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPrintServiceServiceClient(grpcConn)
-		req := &pb.GeneratePrinterIdRequest{}
-		if v, err := cmd.Flags().GetString("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.GeneratePrinterId(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var printservicePrintServiceOnBindCmd = &cobra.Command{
-	Use:   "on-bind",
-	Short: "OnBind RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewPrintServiceServiceClient(grpcConn)
-		req := &pb.OnBindRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.OnBind(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var printservicePrinterDiscoverySessionCmd = &cobra.Command{
 	Use:   "printer-discovery-session",
 	Short: "PrinterDiscoverySessionService operations",
+}
+
+var printservicePrinterDiscoverySessionGetPrintersCmd = &cobra.Command{
+	Use:   "get-printers",
+	Short: "GetPrinters RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPrinterDiscoverySessionServiceClient(grpcConn)
+		req := &pb.GetPrintersRequest{}
+		resp, err := client.GetPrinters(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var printservicePrinterDiscoverySessionGetTrackedPrintersCmd = &cobra.Command{
+	Use:   "get-tracked-printers",
+	Short: "GetTrackedPrinters RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewPrinterDiscoverySessionServiceClient(grpcConn)
+		req := &pb.GetTrackedPrintersRequest{}
+		resp, err := client.GetTrackedPrinters(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
 }
 
 var printservicePrinterDiscoverySessionIsDestroyedCmd = &cobra.Command{
@@ -668,6 +716,18 @@ var printservicePrinterDiscoverySessionOnStopPrinterStateTrackingCmd = &cobra.Co
 }
 
 func init() {
+	printserviceCustomPrinterIconCallbackOnCustomPrinterIconLoadedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printserviceCustomPrinterIconCallbackCmd.AddCommand(printserviceCustomPrinterIconCallbackOnCustomPrinterIconLoadedCmd)
+	printserviceCmd.AddCommand(printserviceCustomPrinterIconCallbackCmd)
+	printservicePrintDocumentCmd.AddCommand(printservicePrintDocumentGetDataCmd)
+	printservicePrintDocumentCmd.AddCommand(printservicePrintDocumentGetInfoCmd)
+	printserviceCmd.AddCommand(printservicePrintDocumentCmd)
+	printservicePrintServiceGeneratePrinterIdCmd.Flags().String("arg0", "", "arg0 (string)")
+	printservicePrintServiceCmd.AddCommand(printservicePrintServiceGeneratePrinterIdCmd)
+	printservicePrintServiceCmd.AddCommand(printservicePrintServiceGetActivePrintJobsCmd)
+	printservicePrintServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	printservicePrintServiceCmd.AddCommand(printservicePrintServiceOnBindCmd)
+	printserviceCmd.AddCommand(printservicePrintServiceCmd)
 	printservicePrintJobBlockCmd.Flags().String("arg0", "", "arg0 (string)")
 	printservicePrintJobCmd.AddCommand(printservicePrintJobBlockCmd)
 	printservicePrintJobCmd.AddCommand(printservicePrintJobCancelCmd)
@@ -703,17 +763,8 @@ func init() {
 	printservicePrintJobCmd.AddCommand(printservicePrintJobSetTagCmd)
 	printservicePrintJobCmd.AddCommand(printservicePrintJobStartCmd)
 	printserviceCmd.AddCommand(printservicePrintJobCmd)
-	printserviceCustomPrinterIconCallbackOnCustomPrinterIconLoadedCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	printserviceCustomPrinterIconCallbackCmd.AddCommand(printserviceCustomPrinterIconCallbackOnCustomPrinterIconLoadedCmd)
-	printserviceCmd.AddCommand(printserviceCustomPrinterIconCallbackCmd)
-	printservicePrintDocumentCmd.AddCommand(printservicePrintDocumentGetDataCmd)
-	printservicePrintDocumentCmd.AddCommand(printservicePrintDocumentGetInfoCmd)
-	printserviceCmd.AddCommand(printservicePrintDocumentCmd)
-	printservicePrintServiceGeneratePrinterIdCmd.Flags().String("arg0", "", "arg0 (string)")
-	printservicePrintServiceCmd.AddCommand(printservicePrintServiceGeneratePrinterIdCmd)
-	printservicePrintServiceOnBindCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	printservicePrintServiceCmd.AddCommand(printservicePrintServiceOnBindCmd)
-	printserviceCmd.AddCommand(printservicePrintServiceCmd)
+	printservicePrinterDiscoverySessionCmd.AddCommand(printservicePrinterDiscoverySessionGetPrintersCmd)
+	printservicePrinterDiscoverySessionCmd.AddCommand(printservicePrinterDiscoverySessionGetTrackedPrintersCmd)
 	printservicePrinterDiscoverySessionCmd.AddCommand(printservicePrinterDiscoverySessionIsDestroyedCmd)
 	printservicePrinterDiscoverySessionCmd.AddCommand(printservicePrinterDiscoverySessionIsPrinterDiscoveryStartedCmd)
 	printservicePrinterDiscoverySessionCmd.AddCommand(printservicePrinterDiscoverySessionOnDestroyCmd)

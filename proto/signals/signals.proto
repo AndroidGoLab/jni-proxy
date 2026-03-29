@@ -6,14 +6,6 @@ package signals;
 
 option go_package = "github.com/AndroidGoLab/jni-proxy/proto/signals";
 
-message GetRequest {
-  int64 arg0 = 1;
-}
-
-message GetResponse {
-  int64 result = 1;
-}
-
 message EqualsRequest {
   int64 arg0 = 1;
 }
@@ -58,8 +50,12 @@ message SetUpdateUriResponse {
   int64 result = 1;
 }
 
-service ProtectedSignalsManagerService {
-  rpc Get (GetRequest) returns (GetResponse);
+message GetRequest {
+  int64 arg0 = 1;
+}
+
+message GetResponse {
+  int64 result = 1;
 }
 
 service UpdateSignalsRequestService {
@@ -72,4 +68,8 @@ service UpdateSignalsRequestService {
 service UpdateSignalsRequestBuilderService {
   rpc Build (BuildRequest) returns (BuildResponse);
   rpc SetUpdateUri (SetUpdateUriRequest) returns (SetUpdateUriResponse);
+}
+
+service ProtectedSignalsManagerService {
+  rpc Get (GetRequest) returns (GetResponse);
 }

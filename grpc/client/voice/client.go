@@ -9,6 +9,74 @@ import (
 	"google.golang.org/grpc"
 )
 
+// VisibleActivityInfoClient wraps the gRPC VisibleActivityInfoService client.
+type VisibleActivityInfoClient struct {
+	svc pb.VisibleActivityInfoServiceClient
+}
+
+// NewVisibleActivityInfoClient creates a new VisibleActivityInfo client.
+func NewVisibleActivityInfoClient(cc grpc.ClientConnInterface) *VisibleActivityInfoClient {
+	return &VisibleActivityInfoClient{
+		svc: pb.NewVisibleActivityInfoServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *VisibleActivityInfoClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *VisibleActivityInfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetActivityId calls the GetActivityId RPC.
+func (c *VisibleActivityInfoClient) GetActivityId(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetActivityId(ctx, &pb.GetActivityIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *VisibleActivityInfoClient) HashCode(ctx context.Context) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *VisibleActivityInfoClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *VisibleActivityInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
 // InteractionSessionServiceClient wraps the gRPC InteractionSessionServiceService client.
 type InteractionSessionServiceClient struct {
 	svc pb.InteractionSessionServiceServiceClient
@@ -69,6 +137,125 @@ func (c *InteractionSessionServiceClient) OnTrimMemory(ctx context.Context, arg0
 		Arg0: arg0,
 	})
 	return err
+}
+
+// InteractionServiceClient wraps the gRPC InteractionServiceService client.
+type InteractionServiceClient struct {
+	svc pb.InteractionServiceServiceClient
+}
+
+// NewInteractionServiceClient creates a new InteractionService client.
+func NewInteractionServiceClient(cc grpc.ClientConnInterface) *InteractionServiceClient {
+	return &InteractionServiceClient{
+		svc: pb.NewInteractionServiceServiceClient(cc),
+	}
+}
+
+// GetDisabledShowContext calls the GetDisabledShowContext RPC.
+func (c *InteractionServiceClient) GetDisabledShowContext(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetDisabledShowContext(ctx, &pb.GetDisabledShowContextRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnBind calls the OnBind RPC.
+func (c *InteractionServiceClient) OnBind(ctx context.Context, handle int64, arg0 int64) (int64, error) {
+	resp, err := c.svc.OnBind(ctx, &pb.InteractionServiceOnBindRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnLaunchVoiceAssistFromKeyguard calls the OnLaunchVoiceAssistFromKeyguard RPC.
+func (c *InteractionServiceClient) OnLaunchVoiceAssistFromKeyguard(ctx context.Context, handle int64) error {
+	_, err := c.svc.OnLaunchVoiceAssistFromKeyguard(ctx, &pb.OnLaunchVoiceAssistFromKeyguardRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// OnPrepareToShowSession calls the OnPrepareToShowSession RPC.
+func (c *InteractionServiceClient) OnPrepareToShowSession(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.OnPrepareToShowSession(ctx, &pb.OnPrepareToShowSessionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// OnReady calls the OnReady RPC.
+func (c *InteractionServiceClient) OnReady(ctx context.Context, handle int64) error {
+	_, err := c.svc.OnReady(ctx, &pb.OnReadyRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// OnShowSessionFailed calls the OnShowSessionFailed RPC.
+func (c *InteractionServiceClient) OnShowSessionFailed(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.OnShowSessionFailed(ctx, &pb.OnShowSessionFailedRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// OnShutdown calls the OnShutdown RPC.
+func (c *InteractionServiceClient) OnShutdown(ctx context.Context, handle int64) error {
+	_, err := c.svc.OnShutdown(ctx, &pb.OnShutdownRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// SetDisabledShowContext calls the SetDisabledShowContext RPC.
+func (c *InteractionServiceClient) SetDisabledShowContext(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetDisabledShowContext(ctx, &pb.SetDisabledShowContextRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetUiHints calls the SetUiHints RPC.
+func (c *InteractionServiceClient) SetUiHints(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetUiHints(ctx, &pb.SetUiHintsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ShowSession calls the ShowSession RPC.
+func (c *InteractionServiceClient) ShowSession(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.ShowSession(ctx, &pb.ShowSessionRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// IsActiveService calls the IsActiveService RPC.
+func (c *InteractionServiceClient) IsActiveService(ctx context.Context, handle int64, arg0 int64, arg1 int64) (bool, error) {
+	resp, err := c.svc.IsActiveService(ctx, &pb.IsActiveServiceRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
 }
 
 // InteractionSessionClient wraps the gRPC InteractionSessionService client.
@@ -966,191 +1153,4 @@ func (c *InteractionSessionRequestClient) ToString(ctx context.Context) (string,
 		return "", err
 	}
 	return resp.GetResult(), nil
-}
-
-// InteractionServiceClient wraps the gRPC InteractionServiceService client.
-type InteractionServiceClient struct {
-	svc pb.InteractionServiceServiceClient
-}
-
-// NewInteractionServiceClient creates a new InteractionService client.
-func NewInteractionServiceClient(cc grpc.ClientConnInterface) *InteractionServiceClient {
-	return &InteractionServiceClient{
-		svc: pb.NewInteractionServiceServiceClient(cc),
-	}
-}
-
-// GetDisabledShowContext calls the GetDisabledShowContext RPC.
-func (c *InteractionServiceClient) GetDisabledShowContext(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetDisabledShowContext(ctx, &pb.GetDisabledShowContextRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnBind calls the OnBind RPC.
-func (c *InteractionServiceClient) OnBind(ctx context.Context, handle int64, arg0 int64) (int64, error) {
-	resp, err := c.svc.OnBind(ctx, &pb.InteractionServiceOnBindRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnLaunchVoiceAssistFromKeyguard calls the OnLaunchVoiceAssistFromKeyguard RPC.
-func (c *InteractionServiceClient) OnLaunchVoiceAssistFromKeyguard(ctx context.Context, handle int64) error {
-	_, err := c.svc.OnLaunchVoiceAssistFromKeyguard(ctx, &pb.OnLaunchVoiceAssistFromKeyguardRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// OnPrepareToShowSession calls the OnPrepareToShowSession RPC.
-func (c *InteractionServiceClient) OnPrepareToShowSession(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.OnPrepareToShowSession(ctx, &pb.OnPrepareToShowSessionRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// OnReady calls the OnReady RPC.
-func (c *InteractionServiceClient) OnReady(ctx context.Context, handle int64) error {
-	_, err := c.svc.OnReady(ctx, &pb.OnReadyRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// OnShowSessionFailed calls the OnShowSessionFailed RPC.
-func (c *InteractionServiceClient) OnShowSessionFailed(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.OnShowSessionFailed(ctx, &pb.OnShowSessionFailedRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// OnShutdown calls the OnShutdown RPC.
-func (c *InteractionServiceClient) OnShutdown(ctx context.Context, handle int64) error {
-	_, err := c.svc.OnShutdown(ctx, &pb.OnShutdownRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// SetDisabledShowContext calls the SetDisabledShowContext RPC.
-func (c *InteractionServiceClient) SetDisabledShowContext(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetDisabledShowContext(ctx, &pb.SetDisabledShowContextRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetUiHints calls the SetUiHints RPC.
-func (c *InteractionServiceClient) SetUiHints(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetUiHints(ctx, &pb.SetUiHintsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// ShowSession calls the ShowSession RPC.
-func (c *InteractionServiceClient) ShowSession(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.ShowSession(ctx, &pb.ShowSessionRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// IsActiveService calls the IsActiveService RPC.
-func (c *InteractionServiceClient) IsActiveService(ctx context.Context, handle int64, arg0 int64, arg1 int64) (bool, error) {
-	resp, err := c.svc.IsActiveService(ctx, &pb.IsActiveServiceRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// VisibleActivityInfoClient wraps the gRPC VisibleActivityInfoService client.
-type VisibleActivityInfoClient struct {
-	svc pb.VisibleActivityInfoServiceClient
-}
-
-// NewVisibleActivityInfoClient creates a new VisibleActivityInfo client.
-func NewVisibleActivityInfoClient(cc grpc.ClientConnInterface) *VisibleActivityInfoClient {
-	return &VisibleActivityInfoClient{
-		svc: pb.NewVisibleActivityInfoServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *VisibleActivityInfoClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Equals calls the Equals RPC.
-func (c *VisibleActivityInfoClient) Equals(ctx context.Context, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetActivityId calls the GetActivityId RPC.
-func (c *VisibleActivityInfoClient) GetActivityId(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetActivityId(ctx, &pb.GetActivityIdRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *VisibleActivityInfoClient) HashCode(ctx context.Context) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *VisibleActivityInfoClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *VisibleActivityInfoClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
 }

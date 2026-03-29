@@ -9,20 +9,58 @@ import (
 	"google.golang.org/grpc"
 )
 
-// DataOutputClient wraps the gRPC DataOutputService client.
-type DataOutputClient struct {
-	svc pb.DataOutputServiceClient
+// HelperClient wraps the gRPC HelperService client.
+type HelperClient struct {
+	svc pb.HelperServiceClient
 }
 
-// NewDataOutputClient creates a new DataOutput client.
-func NewDataOutputClient(cc grpc.ClientConnInterface) *DataOutputClient {
-	return &DataOutputClient{
-		svc: pb.NewDataOutputServiceClient(cc),
+// NewHelperClient creates a new Helper client.
+func NewHelperClient(cc grpc.ClientConnInterface) *HelperClient {
+	return &HelperClient{
+		svc: pb.NewHelperServiceClient(cc),
+	}
+}
+
+// PerformBackup calls the PerformBackup RPC.
+func (c *HelperClient) PerformBackup(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.PerformBackup(ctx, &pb.PerformBackupRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// RestoreEntity calls the RestoreEntity RPC.
+func (c *HelperClient) RestoreEntity(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.RestoreEntity(ctx, &pb.RestoreEntityRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// WriteNewStateDescription calls the WriteNewStateDescription RPC.
+func (c *HelperClient) WriteNewStateDescription(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.WriteNewStateDescription(ctx, &pb.WriteNewStateDescriptionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// FullBackupDataOutputClient wraps the gRPC FullBackupDataOutputService client.
+type FullBackupDataOutputClient struct {
+	svc pb.FullBackupDataOutputServiceClient
+}
+
+// NewFullBackupDataOutputClient creates a new FullBackupDataOutput client.
+func NewFullBackupDataOutputClient(cc grpc.ClientConnInterface) *FullBackupDataOutputClient {
+	return &FullBackupDataOutputClient{
+		svc: pb.NewFullBackupDataOutputServiceClient(cc),
 	}
 }
 
 // GetQuota calls the GetQuota RPC.
-func (c *DataOutputClient) GetQuota(ctx context.Context) (int64, error) {
+func (c *FullBackupDataOutputClient) GetQuota(ctx context.Context) (int64, error) {
 	resp, err := c.svc.GetQuota(ctx, &pb.GetQuotaRequest{})
 	if err != nil {
 		return 0, err
@@ -31,32 +69,8 @@ func (c *DataOutputClient) GetQuota(ctx context.Context) (int64, error) {
 }
 
 // GetTransportFlags calls the GetTransportFlags RPC.
-func (c *DataOutputClient) GetTransportFlags(ctx context.Context) (int32, error) {
+func (c *FullBackupDataOutputClient) GetTransportFlags(ctx context.Context) (int32, error) {
 	resp, err := c.svc.GetTransportFlags(ctx, &pb.GetTransportFlagsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteEntityData calls the WriteEntityData RPC.
-func (c *DataOutputClient) WriteEntityData(ctx context.Context, arg0 int64, arg1 int32) (int32, error) {
-	resp, err := c.svc.WriteEntityData(ctx, &pb.WriteEntityDataRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteEntityHeader calls the WriteEntityHeader RPC.
-func (c *DataOutputClient) WriteEntityHeader(ctx context.Context, arg0 string, arg1 int32) (int32, error) {
-	resp, err := c.svc.WriteEntityHeader(ctx, &pb.WriteEntityHeaderRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
 	if err != nil {
 		return 0, err
 	}
@@ -121,67 +135,85 @@ func (c *DataInputClient) SkipEntityData(ctx context.Context) error {
 	return err
 }
 
-// DataInputStreamClient wraps the gRPC DataInputStreamService client.
-type DataInputStreamClient struct {
-	svc pb.DataInputStreamServiceClient
+// RestoreObserverClient wraps the gRPC RestoreObserverService client.
+type RestoreObserverClient struct {
+	svc pb.RestoreObserverServiceClient
 }
 
-// NewDataInputStreamClient creates a new DataInputStream client.
-func NewDataInputStreamClient(cc grpc.ClientConnInterface) *DataInputStreamClient {
-	return &DataInputStreamClient{
-		svc: pb.NewDataInputStreamServiceClient(cc),
+// NewRestoreObserverClient creates a new RestoreObserver client.
+func NewRestoreObserverClient(cc grpc.ClientConnInterface) *RestoreObserverClient {
+	return &RestoreObserverClient{
+		svc: pb.NewRestoreObserverServiceClient(cc),
 	}
 }
 
-// GetKey calls the GetKey RPC.
-func (c *DataInputStreamClient) GetKey(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetKey(ctx, &pb.GetKeyRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// Read0 calls the Read0 RPC.
-func (c *DataInputStreamClient) Read0(ctx context.Context) (int32, error) {
-	resp, err := c.svc.Read0(ctx, &pb.Read0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Read1_1 calls the Read1_1 RPC.
-func (c *DataInputStreamClient) Read1_1(ctx context.Context, arg0 int64) (int32, error) {
-	resp, err := c.svc.Read1_1(ctx, &pb.Read1_1Request{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Read3_2 calls the Read3_2 RPC.
-func (c *DataInputStreamClient) Read3_2(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) (int32, error) {
-	resp, err := c.svc.Read3_2(ctx, &pb.Read3_2Request{
+// OnUpdate calls the OnUpdate RPC.
+func (c *RestoreObserverClient) OnUpdate(ctx context.Context, arg0 int32, arg1 string) error {
+	_, err := c.svc.OnUpdate(ctx, &pb.OnUpdateRequest{
 		Arg0: arg0,
 		Arg1: arg1,
-		Arg2: arg2,
 	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
+	return err
 }
 
-// Size calls the Size RPC.
-func (c *DataInputStreamClient) Size(ctx context.Context) (int32, error) {
-	resp, err := c.svc.Size(ctx, &pb.SizeRequest{})
-	if err != nil {
-		return 0, err
+// RestoreFinished calls the RestoreFinished RPC.
+func (c *RestoreObserverClient) RestoreFinished(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.RestoreFinished(ctx, &pb.RestoreFinishedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// RestoreStarting calls the RestoreStarting RPC.
+func (c *RestoreObserverClient) RestoreStarting(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.RestoreStarting(ctx, &pb.RestoreStartingRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// AgentHelperClient wraps the gRPC AgentHelperService client.
+type AgentHelperClient struct {
+	svc pb.AgentHelperServiceClient
+}
+
+// NewAgentHelperClient creates a new AgentHelper client.
+func NewAgentHelperClient(cc grpc.ClientConnInterface) *AgentHelperClient {
+	return &AgentHelperClient{
+		svc: pb.NewAgentHelperServiceClient(cc),
 	}
-	return resp.GetResult(), nil
+}
+
+// AddHelper calls the AddHelper RPC.
+func (c *AgentHelperClient) AddHelper(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
+	_, err := c.svc.AddHelper(ctx, &pb.AddHelperRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// OnBackup calls the OnBackup RPC.
+func (c *AgentHelperClient) OnBackup(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.OnBackup(ctx, &pb.OnBackupRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
+}
+
+// OnRestore calls the OnRestore RPC.
+func (c *AgentHelperClient) OnRestore(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64) error {
+	_, err := c.svc.OnRestore(ctx, &pb.OnRestoreRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+	})
+	return err
 }
 
 // ManagerClient wraps the gRPC ManagerService client.
@@ -237,21 +269,21 @@ func (c *ManagerClient) DataChanged1_1(ctx context.Context, handle int64, arg0 s
 	return err
 }
 
-// FileBackupHelperClient wraps the gRPC FileBackupHelperService client.
-type FileBackupHelperClient struct {
-	svc pb.FileBackupHelperServiceClient
+// SharedPreferencesBackupHelperClient wraps the gRPC SharedPreferencesBackupHelperService client.
+type SharedPreferencesBackupHelperClient struct {
+	svc pb.SharedPreferencesBackupHelperServiceClient
 }
 
-// NewFileBackupHelperClient creates a new FileBackupHelper client.
-func NewFileBackupHelperClient(cc grpc.ClientConnInterface) *FileBackupHelperClient {
-	return &FileBackupHelperClient{
-		svc: pb.NewFileBackupHelperServiceClient(cc),
+// NewSharedPreferencesBackupHelperClient creates a new SharedPreferencesBackupHelper client.
+func NewSharedPreferencesBackupHelperClient(cc grpc.ClientConnInterface) *SharedPreferencesBackupHelperClient {
+	return &SharedPreferencesBackupHelperClient{
+		svc: pb.NewSharedPreferencesBackupHelperServiceClient(cc),
 	}
 }
 
 // PerformBackup calls the PerformBackup RPC.
-func (c *FileBackupHelperClient) PerformBackup(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.PerformBackup(ctx, &pb.PerformBackupRequest{
+func (c *SharedPreferencesBackupHelperClient) PerformBackup(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.PerformBackup(ctx, &pb.SharedPreferencesBackupHelperPerformBackupRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -261,8 +293,8 @@ func (c *FileBackupHelperClient) PerformBackup(ctx context.Context, handle int64
 }
 
 // RestoreEntity calls the RestoreEntity RPC.
-func (c *FileBackupHelperClient) RestoreEntity(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.RestoreEntity(ctx, &pb.RestoreEntityRequest{
+func (c *SharedPreferencesBackupHelperClient) RestoreEntity(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.RestoreEntity(ctx, &pb.SharedPreferencesBackupHelperRestoreEntityRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -270,12 +302,66 @@ func (c *FileBackupHelperClient) RestoreEntity(ctx context.Context, handle int64
 }
 
 // WriteNewStateDescription calls the WriteNewStateDescription RPC.
-func (c *FileBackupHelperClient) WriteNewStateDescription(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.WriteNewStateDescription(ctx, &pb.WriteNewStateDescriptionRequest{
+func (c *SharedPreferencesBackupHelperClient) WriteNewStateDescription(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.WriteNewStateDescription(ctx, &pb.SharedPreferencesBackupHelperWriteNewStateDescriptionRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
 	return err
+}
+
+// DataOutputClient wraps the gRPC DataOutputService client.
+type DataOutputClient struct {
+	svc pb.DataOutputServiceClient
+}
+
+// NewDataOutputClient creates a new DataOutput client.
+func NewDataOutputClient(cc grpc.ClientConnInterface) *DataOutputClient {
+	return &DataOutputClient{
+		svc: pb.NewDataOutputServiceClient(cc),
+	}
+}
+
+// GetQuota calls the GetQuota RPC.
+func (c *DataOutputClient) GetQuota(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetQuota(ctx, &pb.GetQuotaRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTransportFlags calls the GetTransportFlags RPC.
+func (c *DataOutputClient) GetTransportFlags(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetTransportFlags(ctx, &pb.GetTransportFlagsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteEntityData calls the WriteEntityData RPC.
+func (c *DataOutputClient) WriteEntityData(ctx context.Context, arg0 int64, arg1 int32) (int32, error) {
+	resp, err := c.svc.WriteEntityData(ctx, &pb.WriteEntityDataRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteEntityHeader calls the WriteEntityHeader RPC.
+func (c *DataOutputClient) WriteEntityHeader(ctx context.Context, arg0 string, arg1 int32) (int32, error) {
+	resp, err := c.svc.WriteEntityHeader(ctx, &pb.WriteEntityHeaderRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
 // AgentClient wraps the gRPC AgentService client.
@@ -301,7 +387,7 @@ func (c *AgentClient) FullBackupFile(ctx context.Context, arg0 int64, arg1 int64
 
 // OnBackup calls the OnBackup RPC.
 func (c *AgentClient) OnBackup(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.OnBackup(ctx, &pb.OnBackupRequest{
+	_, err := c.svc.OnBackup(ctx, &pb.AgentOnBackupRequest{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
@@ -377,89 +463,84 @@ func (c *AgentClient) OnRestoreFinished(ctx context.Context) error {
 	return err
 }
 
-// FullBackupDataOutputClient wraps the gRPC FullBackupDataOutputService client.
-type FullBackupDataOutputClient struct {
-	svc pb.FullBackupDataOutputServiceClient
+// DataInputStreamClient wraps the gRPC DataInputStreamService client.
+type DataInputStreamClient struct {
+	svc pb.DataInputStreamServiceClient
 }
 
-// NewFullBackupDataOutputClient creates a new FullBackupDataOutput client.
-func NewFullBackupDataOutputClient(cc grpc.ClientConnInterface) *FullBackupDataOutputClient {
-	return &FullBackupDataOutputClient{
-		svc: pb.NewFullBackupDataOutputServiceClient(cc),
+// NewDataInputStreamClient creates a new DataInputStream client.
+func NewDataInputStreamClient(cc grpc.ClientConnInterface) *DataInputStreamClient {
+	return &DataInputStreamClient{
+		svc: pb.NewDataInputStreamServiceClient(cc),
 	}
 }
 
-// GetQuota calls the GetQuota RPC.
-func (c *FullBackupDataOutputClient) GetQuota(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetQuota(ctx, &pb.GetQuotaRequest{})
+// GetKey calls the GetKey RPC.
+func (c *DataInputStreamClient) GetKey(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetKey(ctx, &pb.GetKeyRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// Read0 calls the Read0 RPC.
+func (c *DataInputStreamClient) Read0(ctx context.Context) (int32, error) {
+	resp, err := c.svc.Read0(ctx, &pb.Read0Request{})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// GetTransportFlags calls the GetTransportFlags RPC.
-func (c *FullBackupDataOutputClient) GetTransportFlags(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetTransportFlags(ctx, &pb.GetTransportFlagsRequest{})
+// Read1_1 calls the Read1_1 RPC.
+func (c *DataInputStreamClient) Read1_1(ctx context.Context, arg0 int64) (int32, error) {
+	resp, err := c.svc.Read1_1(ctx, &pb.Read1_1Request{
+		Arg0: arg0,
+	})
 	if err != nil {
 		return 0, err
 	}
 	return resp.GetResult(), nil
 }
 
-// HelperClient wraps the gRPC HelperService client.
-type HelperClient struct {
-	svc pb.HelperServiceClient
-}
-
-// NewHelperClient creates a new Helper client.
-func NewHelperClient(cc grpc.ClientConnInterface) *HelperClient {
-	return &HelperClient{
-		svc: pb.NewHelperServiceClient(cc),
-	}
-}
-
-// PerformBackup calls the PerformBackup RPC.
-func (c *HelperClient) PerformBackup(ctx context.Context, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.PerformBackup(ctx, &pb.HelperPerformBackupRequest{
+// Read3_2 calls the Read3_2 RPC.
+func (c *DataInputStreamClient) Read3_2(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) (int32, error) {
+	resp, err := c.svc.Read3_2(ctx, &pb.Read3_2Request{
 		Arg0: arg0,
 		Arg1: arg1,
 		Arg2: arg2,
 	})
-	return err
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
-// RestoreEntity calls the RestoreEntity RPC.
-func (c *HelperClient) RestoreEntity(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.RestoreEntity(ctx, &pb.HelperRestoreEntityRequest{
-		Arg0: arg0,
-	})
-	return err
+// Size calls the Size RPC.
+func (c *DataInputStreamClient) Size(ctx context.Context) (int32, error) {
+	resp, err := c.svc.Size(ctx, &pb.SizeRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
-// WriteNewStateDescription calls the WriteNewStateDescription RPC.
-func (c *HelperClient) WriteNewStateDescription(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.WriteNewStateDescription(ctx, &pb.HelperWriteNewStateDescriptionRequest{
-		Arg0: arg0,
-	})
-	return err
+// FileBackupHelperClient wraps the gRPC FileBackupHelperService client.
+type FileBackupHelperClient struct {
+	svc pb.FileBackupHelperServiceClient
 }
 
-// SharedPreferencesBackupHelperClient wraps the gRPC SharedPreferencesBackupHelperService client.
-type SharedPreferencesBackupHelperClient struct {
-	svc pb.SharedPreferencesBackupHelperServiceClient
-}
-
-// NewSharedPreferencesBackupHelperClient creates a new SharedPreferencesBackupHelper client.
-func NewSharedPreferencesBackupHelperClient(cc grpc.ClientConnInterface) *SharedPreferencesBackupHelperClient {
-	return &SharedPreferencesBackupHelperClient{
-		svc: pb.NewSharedPreferencesBackupHelperServiceClient(cc),
+// NewFileBackupHelperClient creates a new FileBackupHelper client.
+func NewFileBackupHelperClient(cc grpc.ClientConnInterface) *FileBackupHelperClient {
+	return &FileBackupHelperClient{
+		svc: pb.NewFileBackupHelperServiceClient(cc),
 	}
 }
 
 // PerformBackup calls the PerformBackup RPC.
-func (c *SharedPreferencesBackupHelperClient) PerformBackup(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.PerformBackup(ctx, &pb.PerformBackupRequest{
+func (c *FileBackupHelperClient) PerformBackup(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) error {
+	_, err := c.svc.PerformBackup(ctx, &pb.FileBackupHelperPerformBackupRequest{
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
@@ -469,8 +550,8 @@ func (c *SharedPreferencesBackupHelperClient) PerformBackup(ctx context.Context,
 }
 
 // RestoreEntity calls the RestoreEntity RPC.
-func (c *SharedPreferencesBackupHelperClient) RestoreEntity(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.RestoreEntity(ctx, &pb.RestoreEntityRequest{
+func (c *FileBackupHelperClient) RestoreEntity(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.RestoreEntity(ctx, &pb.FileBackupHelperRestoreEntityRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -478,91 +559,10 @@ func (c *SharedPreferencesBackupHelperClient) RestoreEntity(ctx context.Context,
 }
 
 // WriteNewStateDescription calls the WriteNewStateDescription RPC.
-func (c *SharedPreferencesBackupHelperClient) WriteNewStateDescription(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.WriteNewStateDescription(ctx, &pb.WriteNewStateDescriptionRequest{
+func (c *FileBackupHelperClient) WriteNewStateDescription(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.WriteNewStateDescription(ctx, &pb.FileBackupHelperWriteNewStateDescriptionRequest{
 		Handle: handle,
 		Arg0:   arg0,
-	})
-	return err
-}
-
-// RestoreObserverClient wraps the gRPC RestoreObserverService client.
-type RestoreObserverClient struct {
-	svc pb.RestoreObserverServiceClient
-}
-
-// NewRestoreObserverClient creates a new RestoreObserver client.
-func NewRestoreObserverClient(cc grpc.ClientConnInterface) *RestoreObserverClient {
-	return &RestoreObserverClient{
-		svc: pb.NewRestoreObserverServiceClient(cc),
-	}
-}
-
-// OnUpdate calls the OnUpdate RPC.
-func (c *RestoreObserverClient) OnUpdate(ctx context.Context, arg0 int32, arg1 string) error {
-	_, err := c.svc.OnUpdate(ctx, &pb.OnUpdateRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// RestoreFinished calls the RestoreFinished RPC.
-func (c *RestoreObserverClient) RestoreFinished(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.RestoreFinished(ctx, &pb.RestoreFinishedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// RestoreStarting calls the RestoreStarting RPC.
-func (c *RestoreObserverClient) RestoreStarting(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.RestoreStarting(ctx, &pb.RestoreStartingRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// AgentHelperClient wraps the gRPC AgentHelperService client.
-type AgentHelperClient struct {
-	svc pb.AgentHelperServiceClient
-}
-
-// NewAgentHelperClient creates a new AgentHelper client.
-func NewAgentHelperClient(cc grpc.ClientConnInterface) *AgentHelperClient {
-	return &AgentHelperClient{
-		svc: pb.NewAgentHelperServiceClient(cc),
-	}
-}
-
-// AddHelper calls the AddHelper RPC.
-func (c *AgentHelperClient) AddHelper(ctx context.Context, handle int64, arg0 string, arg1 int64) error {
-	_, err := c.svc.AddHelper(ctx, &pb.AddHelperRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// OnBackup calls the OnBackup RPC.
-func (c *AgentHelperClient) OnBackup(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int64) error {
-	_, err := c.svc.OnBackup(ctx, &pb.AgentHelperOnBackupRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-	})
-	return err
-}
-
-// OnRestore calls the OnRestore RPC.
-func (c *AgentHelperClient) OnRestore(ctx context.Context, handle int64, arg0 int64, arg1 int32, arg2 int64) error {
-	_, err := c.svc.OnRestore(ctx, &pb.OnRestoreRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
 	})
 	return err
 }

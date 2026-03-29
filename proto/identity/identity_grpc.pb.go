@@ -21,6 +21,288 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	PersonalizationDataBuilderService_AddAccessControlProfile_FullMethodName = "/identity.PersonalizationDataBuilderService/AddAccessControlProfile"
+	PersonalizationDataBuilderService_Build_FullMethodName                   = "/identity.PersonalizationDataBuilderService/Build"
+)
+
+// PersonalizationDataBuilderServiceClient is the client API for PersonalizationDataBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PersonalizationDataBuilderServiceClient interface {
+	AddAccessControlProfile(ctx context.Context, in *AddAccessControlProfileRequest, opts ...grpc.CallOption) (*AddAccessControlProfileResponse, error)
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+}
+
+type personalizationDataBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPersonalizationDataBuilderServiceClient(cc grpc.ClientConnInterface) PersonalizationDataBuilderServiceClient {
+	return &personalizationDataBuilderServiceClient{cc}
+}
+
+func (c *personalizationDataBuilderServiceClient) AddAccessControlProfile(ctx context.Context, in *AddAccessControlProfileRequest, opts ...grpc.CallOption) (*AddAccessControlProfileResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddAccessControlProfileResponse)
+	err := c.cc.Invoke(ctx, PersonalizationDataBuilderService_AddAccessControlProfile_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *personalizationDataBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, PersonalizationDataBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PersonalizationDataBuilderServiceServer is the server API for PersonalizationDataBuilderService service.
+// All implementations must embed UnimplementedPersonalizationDataBuilderServiceServer
+// for forward compatibility.
+type PersonalizationDataBuilderServiceServer interface {
+	AddAccessControlProfile(context.Context, *AddAccessControlProfileRequest) (*AddAccessControlProfileResponse, error)
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	mustEmbedUnimplementedPersonalizationDataBuilderServiceServer()
+}
+
+// UnimplementedPersonalizationDataBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedPersonalizationDataBuilderServiceServer struct{}
+
+func (UnimplementedPersonalizationDataBuilderServiceServer) AddAccessControlProfile(context.Context, *AddAccessControlProfileRequest) (*AddAccessControlProfileResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddAccessControlProfile not implemented")
+}
+func (UnimplementedPersonalizationDataBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedPersonalizationDataBuilderServiceServer) mustEmbedUnimplementedPersonalizationDataBuilderServiceServer() {
+}
+func (UnimplementedPersonalizationDataBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafePersonalizationDataBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PersonalizationDataBuilderServiceServer will
+// result in compilation errors.
+type UnsafePersonalizationDataBuilderServiceServer interface {
+	mustEmbedUnimplementedPersonalizationDataBuilderServiceServer()
+}
+
+func RegisterPersonalizationDataBuilderServiceServer(s grpc.ServiceRegistrar, srv PersonalizationDataBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedPersonalizationDataBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&PersonalizationDataBuilderService_ServiceDesc, srv)
+}
+
+func _PersonalizationDataBuilderService_AddAccessControlProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddAccessControlProfileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PersonalizationDataBuilderServiceServer).AddAccessControlProfile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PersonalizationDataBuilderService_AddAccessControlProfile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PersonalizationDataBuilderServiceServer).AddAccessControlProfile(ctx, req.(*AddAccessControlProfileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PersonalizationDataBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PersonalizationDataBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PersonalizationDataBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PersonalizationDataBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// PersonalizationDataBuilderService_ServiceDesc is the grpc.ServiceDesc for PersonalizationDataBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var PersonalizationDataBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "identity.PersonalizationDataBuilderService",
+	HandlerType: (*PersonalizationDataBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AddAccessControlProfile",
+			Handler:    _PersonalizationDataBuilderService_AddAccessControlProfile_Handler,
+		},
+		{
+			MethodName: "Build",
+			Handler:    _PersonalizationDataBuilderService_Build_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/identity/identity.proto",
+}
+
+const (
+	AccessControlProfileIdService_NewAccessControlProfileId_FullMethodName = "/identity.AccessControlProfileIdService/NewAccessControlProfileId"
+	AccessControlProfileIdService_GetId_FullMethodName                     = "/identity.AccessControlProfileIdService/GetId"
+)
+
+// AccessControlProfileIdServiceClient is the client API for AccessControlProfileIdService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AccessControlProfileIdServiceClient interface {
+	NewAccessControlProfileId(ctx context.Context, in *NewAccessControlProfileIdRequest, opts ...grpc.CallOption) (*NewAccessControlProfileIdResponse, error)
+	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
+}
+
+type accessControlProfileIdServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAccessControlProfileIdServiceClient(cc grpc.ClientConnInterface) AccessControlProfileIdServiceClient {
+	return &accessControlProfileIdServiceClient{cc}
+}
+
+func (c *accessControlProfileIdServiceClient) NewAccessControlProfileId(ctx context.Context, in *NewAccessControlProfileIdRequest, opts ...grpc.CallOption) (*NewAccessControlProfileIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewAccessControlProfileIdResponse)
+	err := c.cc.Invoke(ctx, AccessControlProfileIdService_NewAccessControlProfileId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accessControlProfileIdServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIdResponse)
+	err := c.cc.Invoke(ctx, AccessControlProfileIdService_GetId_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AccessControlProfileIdServiceServer is the server API for AccessControlProfileIdService service.
+// All implementations must embed UnimplementedAccessControlProfileIdServiceServer
+// for forward compatibility.
+type AccessControlProfileIdServiceServer interface {
+	NewAccessControlProfileId(context.Context, *NewAccessControlProfileIdRequest) (*NewAccessControlProfileIdResponse, error)
+	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
+	mustEmbedUnimplementedAccessControlProfileIdServiceServer()
+}
+
+// UnimplementedAccessControlProfileIdServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedAccessControlProfileIdServiceServer struct{}
+
+func (UnimplementedAccessControlProfileIdServiceServer) NewAccessControlProfileId(context.Context, *NewAccessControlProfileIdRequest) (*NewAccessControlProfileIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewAccessControlProfileId not implemented")
+}
+func (UnimplementedAccessControlProfileIdServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
+}
+func (UnimplementedAccessControlProfileIdServiceServer) mustEmbedUnimplementedAccessControlProfileIdServiceServer() {
+}
+func (UnimplementedAccessControlProfileIdServiceServer) testEmbeddedByValue() {}
+
+// UnsafeAccessControlProfileIdServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AccessControlProfileIdServiceServer will
+// result in compilation errors.
+type UnsafeAccessControlProfileIdServiceServer interface {
+	mustEmbedUnimplementedAccessControlProfileIdServiceServer()
+}
+
+func RegisterAccessControlProfileIdServiceServer(s grpc.ServiceRegistrar, srv AccessControlProfileIdServiceServer) {
+	// If the following call panics, it indicates UnimplementedAccessControlProfileIdServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&AccessControlProfileIdService_ServiceDesc, srv)
+}
+
+func _AccessControlProfileIdService_NewAccessControlProfileId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewAccessControlProfileIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccessControlProfileIdServiceServer).NewAccessControlProfileId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccessControlProfileIdService_NewAccessControlProfileId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccessControlProfileIdServiceServer).NewAccessControlProfileId(ctx, req.(*NewAccessControlProfileIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccessControlProfileIdService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccessControlProfileIdServiceServer).GetId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccessControlProfileIdService_GetId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccessControlProfileIdServiceServer).GetId(ctx, req.(*GetIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AccessControlProfileIdService_ServiceDesc is the grpc.ServiceDesc for AccessControlProfileIdService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AccessControlProfileIdService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "identity.AccessControlProfileIdService",
+	HandlerType: (*AccessControlProfileIdServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewAccessControlProfileId",
+			Handler:    _AccessControlProfileIdService_NewAccessControlProfileId_Handler,
+		},
+		{
+			MethodName: "GetId",
+			Handler:    _AccessControlProfileIdService_GetId_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/identity/identity.proto",
+}
+
+const (
 	CredentialDataResultService_GetDeviceMac_FullMethodName                = "/identity.CredentialDataResultService/GetDeviceMac"
 	CredentialDataResultService_GetDeviceNameSpaces_FullMethodName         = "/identity.CredentialDataResultService/GetDeviceNameSpaces"
 	CredentialDataResultService_GetDeviceSignature_FullMethodName          = "/identity.CredentialDataResultService/GetDeviceSignature"
@@ -314,8 +596,11 @@ var CredentialDataResultService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	CredentialDataResultEntriesService_GetEntry_FullMethodName  = "/identity.CredentialDataResultEntriesService/GetEntry"
-	CredentialDataResultEntriesService_GetStatus_FullMethodName = "/identity.CredentialDataResultEntriesService/GetStatus"
+	CredentialDataResultEntriesService_GetEntry_FullMethodName               = "/identity.CredentialDataResultEntriesService/GetEntry"
+	CredentialDataResultEntriesService_GetEntryNames_FullMethodName          = "/identity.CredentialDataResultEntriesService/GetEntryNames"
+	CredentialDataResultEntriesService_GetNamespaces_FullMethodName          = "/identity.CredentialDataResultEntriesService/GetNamespaces"
+	CredentialDataResultEntriesService_GetRetrievedEntryNames_FullMethodName = "/identity.CredentialDataResultEntriesService/GetRetrievedEntryNames"
+	CredentialDataResultEntriesService_GetStatus_FullMethodName              = "/identity.CredentialDataResultEntriesService/GetStatus"
 )
 
 // CredentialDataResultEntriesServiceClient is the client API for CredentialDataResultEntriesService service.
@@ -323,6 +608,9 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type CredentialDataResultEntriesServiceClient interface {
 	GetEntry(ctx context.Context, in *GetEntryRequest, opts ...grpc.CallOption) (*GetEntryResponse, error)
+	GetEntryNames(ctx context.Context, in *GetEntryNamesRequest, opts ...grpc.CallOption) (*GetEntryNamesResponse, error)
+	GetNamespaces(ctx context.Context, in *GetNamespacesRequest, opts ...grpc.CallOption) (*GetNamespacesResponse, error)
+	GetRetrievedEntryNames(ctx context.Context, in *GetRetrievedEntryNamesRequest, opts ...grpc.CallOption) (*GetRetrievedEntryNamesResponse, error)
 	GetStatus(ctx context.Context, in *GetStatusRequest, opts ...grpc.CallOption) (*GetStatusResponse, error)
 }
 
@@ -344,6 +632,36 @@ func (c *credentialDataResultEntriesServiceClient) GetEntry(ctx context.Context,
 	return out, nil
 }
 
+func (c *credentialDataResultEntriesServiceClient) GetEntryNames(ctx context.Context, in *GetEntryNamesRequest, opts ...grpc.CallOption) (*GetEntryNamesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEntryNamesResponse)
+	err := c.cc.Invoke(ctx, CredentialDataResultEntriesService_GetEntryNames_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialDataResultEntriesServiceClient) GetNamespaces(ctx context.Context, in *GetNamespacesRequest, opts ...grpc.CallOption) (*GetNamespacesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNamespacesResponse)
+	err := c.cc.Invoke(ctx, CredentialDataResultEntriesService_GetNamespaces_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialDataResultEntriesServiceClient) GetRetrievedEntryNames(ctx context.Context, in *GetRetrievedEntryNamesRequest, opts ...grpc.CallOption) (*GetRetrievedEntryNamesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRetrievedEntryNamesResponse)
+	err := c.cc.Invoke(ctx, CredentialDataResultEntriesService_GetRetrievedEntryNames_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *credentialDataResultEntriesServiceClient) GetStatus(ctx context.Context, in *GetStatusRequest, opts ...grpc.CallOption) (*GetStatusResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetStatusResponse)
@@ -359,6 +677,9 @@ func (c *credentialDataResultEntriesServiceClient) GetStatus(ctx context.Context
 // for forward compatibility.
 type CredentialDataResultEntriesServiceServer interface {
 	GetEntry(context.Context, *GetEntryRequest) (*GetEntryResponse, error)
+	GetEntryNames(context.Context, *GetEntryNamesRequest) (*GetEntryNamesResponse, error)
+	GetNamespaces(context.Context, *GetNamespacesRequest) (*GetNamespacesResponse, error)
+	GetRetrievedEntryNames(context.Context, *GetRetrievedEntryNamesRequest) (*GetRetrievedEntryNamesResponse, error)
 	GetStatus(context.Context, *GetStatusRequest) (*GetStatusResponse, error)
 	mustEmbedUnimplementedCredentialDataResultEntriesServiceServer()
 }
@@ -372,6 +693,15 @@ type UnimplementedCredentialDataResultEntriesServiceServer struct{}
 
 func (UnimplementedCredentialDataResultEntriesServiceServer) GetEntry(context.Context, *GetEntryRequest) (*GetEntryResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetEntry not implemented")
+}
+func (UnimplementedCredentialDataResultEntriesServiceServer) GetEntryNames(context.Context, *GetEntryNamesRequest) (*GetEntryNamesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEntryNames not implemented")
+}
+func (UnimplementedCredentialDataResultEntriesServiceServer) GetNamespaces(context.Context, *GetNamespacesRequest) (*GetNamespacesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNamespaces not implemented")
+}
+func (UnimplementedCredentialDataResultEntriesServiceServer) GetRetrievedEntryNames(context.Context, *GetRetrievedEntryNamesRequest) (*GetRetrievedEntryNamesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRetrievedEntryNames not implemented")
 }
 func (UnimplementedCredentialDataResultEntriesServiceServer) GetStatus(context.Context, *GetStatusRequest) (*GetStatusResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetStatus not implemented")
@@ -416,6 +746,60 @@ func _CredentialDataResultEntriesService_GetEntry_Handler(srv interface{}, ctx c
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CredentialDataResultEntriesService_GetEntryNames_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEntryNamesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialDataResultEntriesServiceServer).GetEntryNames(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialDataResultEntriesService_GetEntryNames_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialDataResultEntriesServiceServer).GetEntryNames(ctx, req.(*GetEntryNamesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialDataResultEntriesService_GetNamespaces_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNamespacesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialDataResultEntriesServiceServer).GetNamespaces(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialDataResultEntriesService_GetNamespaces_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialDataResultEntriesServiceServer).GetNamespaces(ctx, req.(*GetNamespacesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialDataResultEntriesService_GetRetrievedEntryNames_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRetrievedEntryNamesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialDataResultEntriesServiceServer).GetRetrievedEntryNames(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialDataResultEntriesService_GetRetrievedEntryNames_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialDataResultEntriesServiceServer).GetRetrievedEntryNames(ctx, req.(*GetRetrievedEntryNamesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _CredentialDataResultEntriesService_GetStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetStatusRequest)
 	if err := dec(in); err != nil {
@@ -446,6 +830,18 @@ var CredentialDataResultEntriesService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CredentialDataResultEntriesService_GetEntry_Handler,
 		},
 		{
+			MethodName: "GetEntryNames",
+			Handler:    _CredentialDataResultEntriesService_GetEntryNames_Handler,
+		},
+		{
+			MethodName: "GetNamespaces",
+			Handler:    _CredentialDataResultEntriesService_GetNamespaces_Handler,
+		},
+		{
+			MethodName: "GetRetrievedEntryNames",
+			Handler:    _CredentialDataResultEntriesService_GetRetrievedEntryNames_Handler,
+		},
+		{
 			MethodName: "GetStatus",
 			Handler:    _CredentialDataResultEntriesService_GetStatus_Handler,
 		},
@@ -455,394 +851,140 @@ var CredentialDataResultEntriesService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ResultDataService_GetAuthenticatedData_FullMethodName         = "/identity.ResultDataService/GetAuthenticatedData"
-	ResultDataService_GetEntry_FullMethodName                     = "/identity.ResultDataService/GetEntry"
-	ResultDataService_GetMessageAuthenticationCode_FullMethodName = "/identity.ResultDataService/GetMessageAuthenticationCode"
-	ResultDataService_GetStaticAuthenticationData_FullMethodName  = "/identity.ResultDataService/GetStaticAuthenticationData"
-	ResultDataService_GetStatus_FullMethodName                    = "/identity.ResultDataService/GetStatus"
+	AuthenticationKeyMetadataService_GetExpirationDate_FullMethodName = "/identity.AuthenticationKeyMetadataService/GetExpirationDate"
+	AuthenticationKeyMetadataService_GetUsageCount_FullMethodName     = "/identity.AuthenticationKeyMetadataService/GetUsageCount"
 )
 
-// ResultDataServiceClient is the client API for ResultDataService service.
+// AuthenticationKeyMetadataServiceClient is the client API for AuthenticationKeyMetadataService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ResultDataServiceClient interface {
-	GetAuthenticatedData(ctx context.Context, in *GetAuthenticatedDataRequest, opts ...grpc.CallOption) (*GetAuthenticatedDataResponse, error)
-	GetEntry(ctx context.Context, in *GetEntryRequest, opts ...grpc.CallOption) (*GetEntryResponse, error)
-	GetMessageAuthenticationCode(ctx context.Context, in *GetMessageAuthenticationCodeRequest, opts ...grpc.CallOption) (*GetMessageAuthenticationCodeResponse, error)
-	GetStaticAuthenticationData(ctx context.Context, in *GetStaticAuthenticationDataRequest, opts ...grpc.CallOption) (*GetStaticAuthenticationDataResponse, error)
-	GetStatus(ctx context.Context, in *GetStatusRequest, opts ...grpc.CallOption) (*GetStatusResponse, error)
+type AuthenticationKeyMetadataServiceClient interface {
+	GetExpirationDate(ctx context.Context, in *GetExpirationDateRequest, opts ...grpc.CallOption) (*GetExpirationDateResponse, error)
+	GetUsageCount(ctx context.Context, in *GetUsageCountRequest, opts ...grpc.CallOption) (*GetUsageCountResponse, error)
 }
 
-type resultDataServiceClient struct {
+type authenticationKeyMetadataServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewResultDataServiceClient(cc grpc.ClientConnInterface) ResultDataServiceClient {
-	return &resultDataServiceClient{cc}
+func NewAuthenticationKeyMetadataServiceClient(cc grpc.ClientConnInterface) AuthenticationKeyMetadataServiceClient {
+	return &authenticationKeyMetadataServiceClient{cc}
 }
 
-func (c *resultDataServiceClient) GetAuthenticatedData(ctx context.Context, in *GetAuthenticatedDataRequest, opts ...grpc.CallOption) (*GetAuthenticatedDataResponse, error) {
+func (c *authenticationKeyMetadataServiceClient) GetExpirationDate(ctx context.Context, in *GetExpirationDateRequest, opts ...grpc.CallOption) (*GetExpirationDateResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAuthenticatedDataResponse)
-	err := c.cc.Invoke(ctx, ResultDataService_GetAuthenticatedData_FullMethodName, in, out, cOpts...)
+	out := new(GetExpirationDateResponse)
+	err := c.cc.Invoke(ctx, AuthenticationKeyMetadataService_GetExpirationDate_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *resultDataServiceClient) GetEntry(ctx context.Context, in *GetEntryRequest, opts ...grpc.CallOption) (*GetEntryResponse, error) {
+func (c *authenticationKeyMetadataServiceClient) GetUsageCount(ctx context.Context, in *GetUsageCountRequest, opts ...grpc.CallOption) (*GetUsageCountResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetEntryResponse)
-	err := c.cc.Invoke(ctx, ResultDataService_GetEntry_FullMethodName, in, out, cOpts...)
+	out := new(GetUsageCountResponse)
+	err := c.cc.Invoke(ctx, AuthenticationKeyMetadataService_GetUsageCount_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *resultDataServiceClient) GetMessageAuthenticationCode(ctx context.Context, in *GetMessageAuthenticationCodeRequest, opts ...grpc.CallOption) (*GetMessageAuthenticationCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMessageAuthenticationCodeResponse)
-	err := c.cc.Invoke(ctx, ResultDataService_GetMessageAuthenticationCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *resultDataServiceClient) GetStaticAuthenticationData(ctx context.Context, in *GetStaticAuthenticationDataRequest, opts ...grpc.CallOption) (*GetStaticAuthenticationDataResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStaticAuthenticationDataResponse)
-	err := c.cc.Invoke(ctx, ResultDataService_GetStaticAuthenticationData_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *resultDataServiceClient) GetStatus(ctx context.Context, in *GetStatusRequest, opts ...grpc.CallOption) (*GetStatusResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStatusResponse)
-	err := c.cc.Invoke(ctx, ResultDataService_GetStatus_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ResultDataServiceServer is the server API for ResultDataService service.
-// All implementations must embed UnimplementedResultDataServiceServer
+// AuthenticationKeyMetadataServiceServer is the server API for AuthenticationKeyMetadataService service.
+// All implementations must embed UnimplementedAuthenticationKeyMetadataServiceServer
 // for forward compatibility.
-type ResultDataServiceServer interface {
-	GetAuthenticatedData(context.Context, *GetAuthenticatedDataRequest) (*GetAuthenticatedDataResponse, error)
-	GetEntry(context.Context, *GetEntryRequest) (*GetEntryResponse, error)
-	GetMessageAuthenticationCode(context.Context, *GetMessageAuthenticationCodeRequest) (*GetMessageAuthenticationCodeResponse, error)
-	GetStaticAuthenticationData(context.Context, *GetStaticAuthenticationDataRequest) (*GetStaticAuthenticationDataResponse, error)
-	GetStatus(context.Context, *GetStatusRequest) (*GetStatusResponse, error)
-	mustEmbedUnimplementedResultDataServiceServer()
+type AuthenticationKeyMetadataServiceServer interface {
+	GetExpirationDate(context.Context, *GetExpirationDateRequest) (*GetExpirationDateResponse, error)
+	GetUsageCount(context.Context, *GetUsageCountRequest) (*GetUsageCountResponse, error)
+	mustEmbedUnimplementedAuthenticationKeyMetadataServiceServer()
 }
 
-// UnimplementedResultDataServiceServer must be embedded to have
+// UnimplementedAuthenticationKeyMetadataServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedResultDataServiceServer struct{}
+type UnimplementedAuthenticationKeyMetadataServiceServer struct{}
 
-func (UnimplementedResultDataServiceServer) GetAuthenticatedData(context.Context, *GetAuthenticatedDataRequest) (*GetAuthenticatedDataResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAuthenticatedData not implemented")
+func (UnimplementedAuthenticationKeyMetadataServiceServer) GetExpirationDate(context.Context, *GetExpirationDateRequest) (*GetExpirationDateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetExpirationDate not implemented")
 }
-func (UnimplementedResultDataServiceServer) GetEntry(context.Context, *GetEntryRequest) (*GetEntryResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetEntry not implemented")
+func (UnimplementedAuthenticationKeyMetadataServiceServer) GetUsageCount(context.Context, *GetUsageCountRequest) (*GetUsageCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUsageCount not implemented")
 }
-func (UnimplementedResultDataServiceServer) GetMessageAuthenticationCode(context.Context, *GetMessageAuthenticationCodeRequest) (*GetMessageAuthenticationCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMessageAuthenticationCode not implemented")
+func (UnimplementedAuthenticationKeyMetadataServiceServer) mustEmbedUnimplementedAuthenticationKeyMetadataServiceServer() {
 }
-func (UnimplementedResultDataServiceServer) GetStaticAuthenticationData(context.Context, *GetStaticAuthenticationDataRequest) (*GetStaticAuthenticationDataResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStaticAuthenticationData not implemented")
-}
-func (UnimplementedResultDataServiceServer) GetStatus(context.Context, *GetStatusRequest) (*GetStatusResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStatus not implemented")
-}
-func (UnimplementedResultDataServiceServer) mustEmbedUnimplementedResultDataServiceServer() {}
-func (UnimplementedResultDataServiceServer) testEmbeddedByValue()                           {}
+func (UnimplementedAuthenticationKeyMetadataServiceServer) testEmbeddedByValue() {}
 
-// UnsafeResultDataServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ResultDataServiceServer will
+// UnsafeAuthenticationKeyMetadataServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AuthenticationKeyMetadataServiceServer will
 // result in compilation errors.
-type UnsafeResultDataServiceServer interface {
-	mustEmbedUnimplementedResultDataServiceServer()
+type UnsafeAuthenticationKeyMetadataServiceServer interface {
+	mustEmbedUnimplementedAuthenticationKeyMetadataServiceServer()
 }
 
-func RegisterResultDataServiceServer(s grpc.ServiceRegistrar, srv ResultDataServiceServer) {
-	// If the following call panics, it indicates UnimplementedResultDataServiceServer was
+func RegisterAuthenticationKeyMetadataServiceServer(s grpc.ServiceRegistrar, srv AuthenticationKeyMetadataServiceServer) {
+	// If the following call panics, it indicates UnimplementedAuthenticationKeyMetadataServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&ResultDataService_ServiceDesc, srv)
+	s.RegisterService(&AuthenticationKeyMetadataService_ServiceDesc, srv)
 }
 
-func _ResultDataService_GetAuthenticatedData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAuthenticatedDataRequest)
+func _AuthenticationKeyMetadataService_GetExpirationDate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetExpirationDateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ResultDataServiceServer).GetAuthenticatedData(ctx, in)
+		return srv.(AuthenticationKeyMetadataServiceServer).GetExpirationDate(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ResultDataService_GetAuthenticatedData_FullMethodName,
+		FullMethod: AuthenticationKeyMetadataService_GetExpirationDate_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResultDataServiceServer).GetAuthenticatedData(ctx, req.(*GetAuthenticatedDataRequest))
+		return srv.(AuthenticationKeyMetadataServiceServer).GetExpirationDate(ctx, req.(*GetExpirationDateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ResultDataService_GetEntry_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetEntryRequest)
+func _AuthenticationKeyMetadataService_GetUsageCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUsageCountRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ResultDataServiceServer).GetEntry(ctx, in)
+		return srv.(AuthenticationKeyMetadataServiceServer).GetUsageCount(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ResultDataService_GetEntry_FullMethodName,
+		FullMethod: AuthenticationKeyMetadataService_GetUsageCount_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResultDataServiceServer).GetEntry(ctx, req.(*GetEntryRequest))
+		return srv.(AuthenticationKeyMetadataServiceServer).GetUsageCount(ctx, req.(*GetUsageCountRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ResultDataService_GetMessageAuthenticationCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMessageAuthenticationCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResultDataServiceServer).GetMessageAuthenticationCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResultDataService_GetMessageAuthenticationCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResultDataServiceServer).GetMessageAuthenticationCode(ctx, req.(*GetMessageAuthenticationCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResultDataService_GetStaticAuthenticationData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStaticAuthenticationDataRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResultDataServiceServer).GetStaticAuthenticationData(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResultDataService_GetStaticAuthenticationData_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResultDataServiceServer).GetStaticAuthenticationData(ctx, req.(*GetStaticAuthenticationDataRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResultDataService_GetStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStatusRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResultDataServiceServer).GetStatus(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResultDataService_GetStatus_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResultDataServiceServer).GetStatus(ctx, req.(*GetStatusRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ResultDataService_ServiceDesc is the grpc.ServiceDesc for ResultDataService service.
+// AuthenticationKeyMetadataService_ServiceDesc is the grpc.ServiceDesc for AuthenticationKeyMetadataService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var ResultDataService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "identity.ResultDataService",
-	HandlerType: (*ResultDataServiceServer)(nil),
+var AuthenticationKeyMetadataService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "identity.AuthenticationKeyMetadataService",
+	HandlerType: (*AuthenticationKeyMetadataServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "GetAuthenticatedData",
-			Handler:    _ResultDataService_GetAuthenticatedData_Handler,
+			MethodName: "GetExpirationDate",
+			Handler:    _AuthenticationKeyMetadataService_GetExpirationDate_Handler,
 		},
 		{
-			MethodName: "GetEntry",
-			Handler:    _ResultDataService_GetEntry_Handler,
-		},
-		{
-			MethodName: "GetMessageAuthenticationCode",
-			Handler:    _ResultDataService_GetMessageAuthenticationCode_Handler,
-		},
-		{
-			MethodName: "GetStaticAuthenticationData",
-			Handler:    _ResultDataService_GetStaticAuthenticationData_Handler,
-		},
-		{
-			MethodName: "GetStatus",
-			Handler:    _ResultDataService_GetStatus_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/identity/identity.proto",
-}
-
-const (
-	PersonalizationDataBuilderService_AddAccessControlProfile_FullMethodName = "/identity.PersonalizationDataBuilderService/AddAccessControlProfile"
-	PersonalizationDataBuilderService_Build_FullMethodName                   = "/identity.PersonalizationDataBuilderService/Build"
-)
-
-// PersonalizationDataBuilderServiceClient is the client API for PersonalizationDataBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type PersonalizationDataBuilderServiceClient interface {
-	AddAccessControlProfile(ctx context.Context, in *AddAccessControlProfileRequest, opts ...grpc.CallOption) (*AddAccessControlProfileResponse, error)
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-}
-
-type personalizationDataBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewPersonalizationDataBuilderServiceClient(cc grpc.ClientConnInterface) PersonalizationDataBuilderServiceClient {
-	return &personalizationDataBuilderServiceClient{cc}
-}
-
-func (c *personalizationDataBuilderServiceClient) AddAccessControlProfile(ctx context.Context, in *AddAccessControlProfileRequest, opts ...grpc.CallOption) (*AddAccessControlProfileResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddAccessControlProfileResponse)
-	err := c.cc.Invoke(ctx, PersonalizationDataBuilderService_AddAccessControlProfile_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *personalizationDataBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, PersonalizationDataBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// PersonalizationDataBuilderServiceServer is the server API for PersonalizationDataBuilderService service.
-// All implementations must embed UnimplementedPersonalizationDataBuilderServiceServer
-// for forward compatibility.
-type PersonalizationDataBuilderServiceServer interface {
-	AddAccessControlProfile(context.Context, *AddAccessControlProfileRequest) (*AddAccessControlProfileResponse, error)
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	mustEmbedUnimplementedPersonalizationDataBuilderServiceServer()
-}
-
-// UnimplementedPersonalizationDataBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedPersonalizationDataBuilderServiceServer struct{}
-
-func (UnimplementedPersonalizationDataBuilderServiceServer) AddAccessControlProfile(context.Context, *AddAccessControlProfileRequest) (*AddAccessControlProfileResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddAccessControlProfile not implemented")
-}
-func (UnimplementedPersonalizationDataBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedPersonalizationDataBuilderServiceServer) mustEmbedUnimplementedPersonalizationDataBuilderServiceServer() {
-}
-func (UnimplementedPersonalizationDataBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafePersonalizationDataBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to PersonalizationDataBuilderServiceServer will
-// result in compilation errors.
-type UnsafePersonalizationDataBuilderServiceServer interface {
-	mustEmbedUnimplementedPersonalizationDataBuilderServiceServer()
-}
-
-func RegisterPersonalizationDataBuilderServiceServer(s grpc.ServiceRegistrar, srv PersonalizationDataBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedPersonalizationDataBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&PersonalizationDataBuilderService_ServiceDesc, srv)
-}
-
-func _PersonalizationDataBuilderService_AddAccessControlProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddAccessControlProfileRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PersonalizationDataBuilderServiceServer).AddAccessControlProfile(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PersonalizationDataBuilderService_AddAccessControlProfile_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PersonalizationDataBuilderServiceServer).AddAccessControlProfile(ctx, req.(*AddAccessControlProfileRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _PersonalizationDataBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(PersonalizationDataBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: PersonalizationDataBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(PersonalizationDataBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// PersonalizationDataBuilderService_ServiceDesc is the grpc.ServiceDesc for PersonalizationDataBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var PersonalizationDataBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "identity.PersonalizationDataBuilderService",
-	HandlerType: (*PersonalizationDataBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "AddAccessControlProfile",
-			Handler:    _PersonalizationDataBuilderService_AddAccessControlProfile_Handler,
-		},
-		{
-			MethodName: "Build",
-			Handler:    _PersonalizationDataBuilderService_Build_Handler,
+			MethodName: "GetUsageCount",
+			Handler:    _AuthenticationKeyMetadataService_GetUsageCount_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1067,879 +1209,14 @@ var PresentationSessionService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	AccessControlProfileBuilderService_Build_FullMethodName                         = "/identity.AccessControlProfileBuilderService/Build"
-	AccessControlProfileBuilderService_SetReaderCertificate_FullMethodName          = "/identity.AccessControlProfileBuilderService/SetReaderCertificate"
-	AccessControlProfileBuilderService_SetUserAuthenticationRequired_FullMethodName = "/identity.AccessControlProfileBuilderService/SetUserAuthenticationRequired"
-	AccessControlProfileBuilderService_SetUserAuthenticationTimeout_FullMethodName  = "/identity.AccessControlProfileBuilderService/SetUserAuthenticationTimeout"
-)
-
-// AccessControlProfileBuilderServiceClient is the client API for AccessControlProfileBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AccessControlProfileBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetReaderCertificate(ctx context.Context, in *SetReaderCertificateRequest, opts ...grpc.CallOption) (*SetReaderCertificateResponse, error)
-	SetUserAuthenticationRequired(ctx context.Context, in *SetUserAuthenticationRequiredRequest, opts ...grpc.CallOption) (*SetUserAuthenticationRequiredResponse, error)
-	SetUserAuthenticationTimeout(ctx context.Context, in *SetUserAuthenticationTimeoutRequest, opts ...grpc.CallOption) (*SetUserAuthenticationTimeoutResponse, error)
-}
-
-type accessControlProfileBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewAccessControlProfileBuilderServiceClient(cc grpc.ClientConnInterface) AccessControlProfileBuilderServiceClient {
-	return &accessControlProfileBuilderServiceClient{cc}
-}
-
-func (c *accessControlProfileBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, AccessControlProfileBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *accessControlProfileBuilderServiceClient) SetReaderCertificate(ctx context.Context, in *SetReaderCertificateRequest, opts ...grpc.CallOption) (*SetReaderCertificateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetReaderCertificateResponse)
-	err := c.cc.Invoke(ctx, AccessControlProfileBuilderService_SetReaderCertificate_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *accessControlProfileBuilderServiceClient) SetUserAuthenticationRequired(ctx context.Context, in *SetUserAuthenticationRequiredRequest, opts ...grpc.CallOption) (*SetUserAuthenticationRequiredResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetUserAuthenticationRequiredResponse)
-	err := c.cc.Invoke(ctx, AccessControlProfileBuilderService_SetUserAuthenticationRequired_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *accessControlProfileBuilderServiceClient) SetUserAuthenticationTimeout(ctx context.Context, in *SetUserAuthenticationTimeoutRequest, opts ...grpc.CallOption) (*SetUserAuthenticationTimeoutResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetUserAuthenticationTimeoutResponse)
-	err := c.cc.Invoke(ctx, AccessControlProfileBuilderService_SetUserAuthenticationTimeout_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// AccessControlProfileBuilderServiceServer is the server API for AccessControlProfileBuilderService service.
-// All implementations must embed UnimplementedAccessControlProfileBuilderServiceServer
-// for forward compatibility.
-type AccessControlProfileBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetReaderCertificate(context.Context, *SetReaderCertificateRequest) (*SetReaderCertificateResponse, error)
-	SetUserAuthenticationRequired(context.Context, *SetUserAuthenticationRequiredRequest) (*SetUserAuthenticationRequiredResponse, error)
-	SetUserAuthenticationTimeout(context.Context, *SetUserAuthenticationTimeoutRequest) (*SetUserAuthenticationTimeoutResponse, error)
-	mustEmbedUnimplementedAccessControlProfileBuilderServiceServer()
-}
-
-// UnimplementedAccessControlProfileBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedAccessControlProfileBuilderServiceServer struct{}
-
-func (UnimplementedAccessControlProfileBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedAccessControlProfileBuilderServiceServer) SetReaderCertificate(context.Context, *SetReaderCertificateRequest) (*SetReaderCertificateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetReaderCertificate not implemented")
-}
-func (UnimplementedAccessControlProfileBuilderServiceServer) SetUserAuthenticationRequired(context.Context, *SetUserAuthenticationRequiredRequest) (*SetUserAuthenticationRequiredResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetUserAuthenticationRequired not implemented")
-}
-func (UnimplementedAccessControlProfileBuilderServiceServer) SetUserAuthenticationTimeout(context.Context, *SetUserAuthenticationTimeoutRequest) (*SetUserAuthenticationTimeoutResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetUserAuthenticationTimeout not implemented")
-}
-func (UnimplementedAccessControlProfileBuilderServiceServer) mustEmbedUnimplementedAccessControlProfileBuilderServiceServer() {
-}
-func (UnimplementedAccessControlProfileBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeAccessControlProfileBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AccessControlProfileBuilderServiceServer will
-// result in compilation errors.
-type UnsafeAccessControlProfileBuilderServiceServer interface {
-	mustEmbedUnimplementedAccessControlProfileBuilderServiceServer()
-}
-
-func RegisterAccessControlProfileBuilderServiceServer(s grpc.ServiceRegistrar, srv AccessControlProfileBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedAccessControlProfileBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&AccessControlProfileBuilderService_ServiceDesc, srv)
-}
-
-func _AccessControlProfileBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccessControlProfileBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AccessControlProfileBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessControlProfileBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AccessControlProfileBuilderService_SetReaderCertificate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetReaderCertificateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccessControlProfileBuilderServiceServer).SetReaderCertificate(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AccessControlProfileBuilderService_SetReaderCertificate_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessControlProfileBuilderServiceServer).SetReaderCertificate(ctx, req.(*SetReaderCertificateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AccessControlProfileBuilderService_SetUserAuthenticationRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetUserAuthenticationRequiredRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccessControlProfileBuilderServiceServer).SetUserAuthenticationRequired(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AccessControlProfileBuilderService_SetUserAuthenticationRequired_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessControlProfileBuilderServiceServer).SetUserAuthenticationRequired(ctx, req.(*SetUserAuthenticationRequiredRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AccessControlProfileBuilderService_SetUserAuthenticationTimeout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetUserAuthenticationTimeoutRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccessControlProfileBuilderServiceServer).SetUserAuthenticationTimeout(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AccessControlProfileBuilderService_SetUserAuthenticationTimeout_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessControlProfileBuilderServiceServer).SetUserAuthenticationTimeout(ctx, req.(*SetUserAuthenticationTimeoutRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// AccessControlProfileBuilderService_ServiceDesc is the grpc.ServiceDesc for AccessControlProfileBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var AccessControlProfileBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "identity.AccessControlProfileBuilderService",
-	HandlerType: (*AccessControlProfileBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _AccessControlProfileBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetReaderCertificate",
-			Handler:    _AccessControlProfileBuilderService_SetReaderCertificate_Handler,
-		},
-		{
-			MethodName: "SetUserAuthenticationRequired",
-			Handler:    _AccessControlProfileBuilderService_SetUserAuthenticationRequired_Handler,
-		},
-		{
-			MethodName: "SetUserAuthenticationTimeout",
-			Handler:    _AccessControlProfileBuilderService_SetUserAuthenticationTimeout_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/identity/identity.proto",
-}
-
-const (
-	CredentialDataRequestService_GetReaderSignature_FullMethodName        = "/identity.CredentialDataRequestService/GetReaderSignature"
-	CredentialDataRequestService_GetRequestMessage_FullMethodName         = "/identity.CredentialDataRequestService/GetRequestMessage"
-	CredentialDataRequestService_IsAllowUsingExhaustedKeys_FullMethodName = "/identity.CredentialDataRequestService/IsAllowUsingExhaustedKeys"
-	CredentialDataRequestService_IsAllowUsingExpiredKeys_FullMethodName   = "/identity.CredentialDataRequestService/IsAllowUsingExpiredKeys"
-	CredentialDataRequestService_IsIncrementUseCount_FullMethodName       = "/identity.CredentialDataRequestService/IsIncrementUseCount"
-)
-
-// CredentialDataRequestServiceClient is the client API for CredentialDataRequestService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CredentialDataRequestServiceClient interface {
-	GetReaderSignature(ctx context.Context, in *GetReaderSignatureRequest, opts ...grpc.CallOption) (*GetReaderSignatureResponse, error)
-	GetRequestMessage(ctx context.Context, in *GetRequestMessageRequest, opts ...grpc.CallOption) (*GetRequestMessageResponse, error)
-	IsAllowUsingExhaustedKeys(ctx context.Context, in *IsAllowUsingExhaustedKeysRequest, opts ...grpc.CallOption) (*IsAllowUsingExhaustedKeysResponse, error)
-	IsAllowUsingExpiredKeys(ctx context.Context, in *IsAllowUsingExpiredKeysRequest, opts ...grpc.CallOption) (*IsAllowUsingExpiredKeysResponse, error)
-	IsIncrementUseCount(ctx context.Context, in *IsIncrementUseCountRequest, opts ...grpc.CallOption) (*IsIncrementUseCountResponse, error)
-}
-
-type credentialDataRequestServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCredentialDataRequestServiceClient(cc grpc.ClientConnInterface) CredentialDataRequestServiceClient {
-	return &credentialDataRequestServiceClient{cc}
-}
-
-func (c *credentialDataRequestServiceClient) GetReaderSignature(ctx context.Context, in *GetReaderSignatureRequest, opts ...grpc.CallOption) (*GetReaderSignatureResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetReaderSignatureResponse)
-	err := c.cc.Invoke(ctx, CredentialDataRequestService_GetReaderSignature_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *credentialDataRequestServiceClient) GetRequestMessage(ctx context.Context, in *GetRequestMessageRequest, opts ...grpc.CallOption) (*GetRequestMessageResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRequestMessageResponse)
-	err := c.cc.Invoke(ctx, CredentialDataRequestService_GetRequestMessage_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *credentialDataRequestServiceClient) IsAllowUsingExhaustedKeys(ctx context.Context, in *IsAllowUsingExhaustedKeysRequest, opts ...grpc.CallOption) (*IsAllowUsingExhaustedKeysResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsAllowUsingExhaustedKeysResponse)
-	err := c.cc.Invoke(ctx, CredentialDataRequestService_IsAllowUsingExhaustedKeys_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *credentialDataRequestServiceClient) IsAllowUsingExpiredKeys(ctx context.Context, in *IsAllowUsingExpiredKeysRequest, opts ...grpc.CallOption) (*IsAllowUsingExpiredKeysResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsAllowUsingExpiredKeysResponse)
-	err := c.cc.Invoke(ctx, CredentialDataRequestService_IsAllowUsingExpiredKeys_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *credentialDataRequestServiceClient) IsIncrementUseCount(ctx context.Context, in *IsIncrementUseCountRequest, opts ...grpc.CallOption) (*IsIncrementUseCountResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsIncrementUseCountResponse)
-	err := c.cc.Invoke(ctx, CredentialDataRequestService_IsIncrementUseCount_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CredentialDataRequestServiceServer is the server API for CredentialDataRequestService service.
-// All implementations must embed UnimplementedCredentialDataRequestServiceServer
-// for forward compatibility.
-type CredentialDataRequestServiceServer interface {
-	GetReaderSignature(context.Context, *GetReaderSignatureRequest) (*GetReaderSignatureResponse, error)
-	GetRequestMessage(context.Context, *GetRequestMessageRequest) (*GetRequestMessageResponse, error)
-	IsAllowUsingExhaustedKeys(context.Context, *IsAllowUsingExhaustedKeysRequest) (*IsAllowUsingExhaustedKeysResponse, error)
-	IsAllowUsingExpiredKeys(context.Context, *IsAllowUsingExpiredKeysRequest) (*IsAllowUsingExpiredKeysResponse, error)
-	IsIncrementUseCount(context.Context, *IsIncrementUseCountRequest) (*IsIncrementUseCountResponse, error)
-	mustEmbedUnimplementedCredentialDataRequestServiceServer()
-}
-
-// UnimplementedCredentialDataRequestServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCredentialDataRequestServiceServer struct{}
-
-func (UnimplementedCredentialDataRequestServiceServer) GetReaderSignature(context.Context, *GetReaderSignatureRequest) (*GetReaderSignatureResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetReaderSignature not implemented")
-}
-func (UnimplementedCredentialDataRequestServiceServer) GetRequestMessage(context.Context, *GetRequestMessageRequest) (*GetRequestMessageResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRequestMessage not implemented")
-}
-func (UnimplementedCredentialDataRequestServiceServer) IsAllowUsingExhaustedKeys(context.Context, *IsAllowUsingExhaustedKeysRequest) (*IsAllowUsingExhaustedKeysResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsAllowUsingExhaustedKeys not implemented")
-}
-func (UnimplementedCredentialDataRequestServiceServer) IsAllowUsingExpiredKeys(context.Context, *IsAllowUsingExpiredKeysRequest) (*IsAllowUsingExpiredKeysResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsAllowUsingExpiredKeys not implemented")
-}
-func (UnimplementedCredentialDataRequestServiceServer) IsIncrementUseCount(context.Context, *IsIncrementUseCountRequest) (*IsIncrementUseCountResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsIncrementUseCount not implemented")
-}
-func (UnimplementedCredentialDataRequestServiceServer) mustEmbedUnimplementedCredentialDataRequestServiceServer() {
-}
-func (UnimplementedCredentialDataRequestServiceServer) testEmbeddedByValue() {}
-
-// UnsafeCredentialDataRequestServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CredentialDataRequestServiceServer will
-// result in compilation errors.
-type UnsafeCredentialDataRequestServiceServer interface {
-	mustEmbedUnimplementedCredentialDataRequestServiceServer()
-}
-
-func RegisterCredentialDataRequestServiceServer(s grpc.ServiceRegistrar, srv CredentialDataRequestServiceServer) {
-	// If the following call panics, it indicates UnimplementedCredentialDataRequestServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CredentialDataRequestService_ServiceDesc, srv)
-}
-
-func _CredentialDataRequestService_GetReaderSignature_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetReaderSignatureRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CredentialDataRequestServiceServer).GetReaderSignature(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CredentialDataRequestService_GetReaderSignature_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialDataRequestServiceServer).GetReaderSignature(ctx, req.(*GetReaderSignatureRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CredentialDataRequestService_GetRequestMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRequestMessageRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CredentialDataRequestServiceServer).GetRequestMessage(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CredentialDataRequestService_GetRequestMessage_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialDataRequestServiceServer).GetRequestMessage(ctx, req.(*GetRequestMessageRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CredentialDataRequestService_IsAllowUsingExhaustedKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsAllowUsingExhaustedKeysRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CredentialDataRequestServiceServer).IsAllowUsingExhaustedKeys(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CredentialDataRequestService_IsAllowUsingExhaustedKeys_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialDataRequestServiceServer).IsAllowUsingExhaustedKeys(ctx, req.(*IsAllowUsingExhaustedKeysRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CredentialDataRequestService_IsAllowUsingExpiredKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsAllowUsingExpiredKeysRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CredentialDataRequestServiceServer).IsAllowUsingExpiredKeys(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CredentialDataRequestService_IsAllowUsingExpiredKeys_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialDataRequestServiceServer).IsAllowUsingExpiredKeys(ctx, req.(*IsAllowUsingExpiredKeysRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CredentialDataRequestService_IsIncrementUseCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsIncrementUseCountRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CredentialDataRequestServiceServer).IsIncrementUseCount(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CredentialDataRequestService_IsIncrementUseCount_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialDataRequestServiceServer).IsIncrementUseCount(ctx, req.(*IsIncrementUseCountRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CredentialDataRequestService_ServiceDesc is the grpc.ServiceDesc for CredentialDataRequestService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CredentialDataRequestService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "identity.CredentialDataRequestService",
-	HandlerType: (*CredentialDataRequestServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetReaderSignature",
-			Handler:    _CredentialDataRequestService_GetReaderSignature_Handler,
-		},
-		{
-			MethodName: "GetRequestMessage",
-			Handler:    _CredentialDataRequestService_GetRequestMessage_Handler,
-		},
-		{
-			MethodName: "IsAllowUsingExhaustedKeys",
-			Handler:    _CredentialDataRequestService_IsAllowUsingExhaustedKeys_Handler,
-		},
-		{
-			MethodName: "IsAllowUsingExpiredKeys",
-			Handler:    _CredentialDataRequestService_IsAllowUsingExpiredKeys_Handler,
-		},
-		{
-			MethodName: "IsIncrementUseCount",
-			Handler:    _CredentialDataRequestService_IsIncrementUseCount_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/identity/identity.proto",
-}
-
-const (
-	CredentialDataRequestBuilderService_Build_FullMethodName                      = "/identity.CredentialDataRequestBuilderService/Build"
-	CredentialDataRequestBuilderService_SetAllowUsingExhaustedKeys_FullMethodName = "/identity.CredentialDataRequestBuilderService/SetAllowUsingExhaustedKeys"
-	CredentialDataRequestBuilderService_SetAllowUsingExpiredKeys_FullMethodName   = "/identity.CredentialDataRequestBuilderService/SetAllowUsingExpiredKeys"
-	CredentialDataRequestBuilderService_SetIncrementUseCount_FullMethodName       = "/identity.CredentialDataRequestBuilderService/SetIncrementUseCount"
-	CredentialDataRequestBuilderService_SetReaderSignature_FullMethodName         = "/identity.CredentialDataRequestBuilderService/SetReaderSignature"
-	CredentialDataRequestBuilderService_SetRequestMessage_FullMethodName          = "/identity.CredentialDataRequestBuilderService/SetRequestMessage"
-)
-
-// CredentialDataRequestBuilderServiceClient is the client API for CredentialDataRequestBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type CredentialDataRequestBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetAllowUsingExhaustedKeys(ctx context.Context, in *SetAllowUsingExhaustedKeysRequest, opts ...grpc.CallOption) (*SetAllowUsingExhaustedKeysResponse, error)
-	SetAllowUsingExpiredKeys(ctx context.Context, in *SetAllowUsingExpiredKeysRequest, opts ...grpc.CallOption) (*SetAllowUsingExpiredKeysResponse, error)
-	SetIncrementUseCount(ctx context.Context, in *SetIncrementUseCountRequest, opts ...grpc.CallOption) (*SetIncrementUseCountResponse, error)
-	SetReaderSignature(ctx context.Context, in *SetReaderSignatureRequest, opts ...grpc.CallOption) (*SetReaderSignatureResponse, error)
-	SetRequestMessage(ctx context.Context, in *SetRequestMessageRequest, opts ...grpc.CallOption) (*SetRequestMessageResponse, error)
-}
-
-type credentialDataRequestBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewCredentialDataRequestBuilderServiceClient(cc grpc.ClientConnInterface) CredentialDataRequestBuilderServiceClient {
-	return &credentialDataRequestBuilderServiceClient{cc}
-}
-
-func (c *credentialDataRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, CredentialDataRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *credentialDataRequestBuilderServiceClient) SetAllowUsingExhaustedKeys(ctx context.Context, in *SetAllowUsingExhaustedKeysRequest, opts ...grpc.CallOption) (*SetAllowUsingExhaustedKeysResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetAllowUsingExhaustedKeysResponse)
-	err := c.cc.Invoke(ctx, CredentialDataRequestBuilderService_SetAllowUsingExhaustedKeys_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *credentialDataRequestBuilderServiceClient) SetAllowUsingExpiredKeys(ctx context.Context, in *SetAllowUsingExpiredKeysRequest, opts ...grpc.CallOption) (*SetAllowUsingExpiredKeysResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetAllowUsingExpiredKeysResponse)
-	err := c.cc.Invoke(ctx, CredentialDataRequestBuilderService_SetAllowUsingExpiredKeys_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *credentialDataRequestBuilderServiceClient) SetIncrementUseCount(ctx context.Context, in *SetIncrementUseCountRequest, opts ...grpc.CallOption) (*SetIncrementUseCountResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetIncrementUseCountResponse)
-	err := c.cc.Invoke(ctx, CredentialDataRequestBuilderService_SetIncrementUseCount_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *credentialDataRequestBuilderServiceClient) SetReaderSignature(ctx context.Context, in *SetReaderSignatureRequest, opts ...grpc.CallOption) (*SetReaderSignatureResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetReaderSignatureResponse)
-	err := c.cc.Invoke(ctx, CredentialDataRequestBuilderService_SetReaderSignature_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *credentialDataRequestBuilderServiceClient) SetRequestMessage(ctx context.Context, in *SetRequestMessageRequest, opts ...grpc.CallOption) (*SetRequestMessageResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetRequestMessageResponse)
-	err := c.cc.Invoke(ctx, CredentialDataRequestBuilderService_SetRequestMessage_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// CredentialDataRequestBuilderServiceServer is the server API for CredentialDataRequestBuilderService service.
-// All implementations must embed UnimplementedCredentialDataRequestBuilderServiceServer
-// for forward compatibility.
-type CredentialDataRequestBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetAllowUsingExhaustedKeys(context.Context, *SetAllowUsingExhaustedKeysRequest) (*SetAllowUsingExhaustedKeysResponse, error)
-	SetAllowUsingExpiredKeys(context.Context, *SetAllowUsingExpiredKeysRequest) (*SetAllowUsingExpiredKeysResponse, error)
-	SetIncrementUseCount(context.Context, *SetIncrementUseCountRequest) (*SetIncrementUseCountResponse, error)
-	SetReaderSignature(context.Context, *SetReaderSignatureRequest) (*SetReaderSignatureResponse, error)
-	SetRequestMessage(context.Context, *SetRequestMessageRequest) (*SetRequestMessageResponse, error)
-	mustEmbedUnimplementedCredentialDataRequestBuilderServiceServer()
-}
-
-// UnimplementedCredentialDataRequestBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedCredentialDataRequestBuilderServiceServer struct{}
-
-func (UnimplementedCredentialDataRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedCredentialDataRequestBuilderServiceServer) SetAllowUsingExhaustedKeys(context.Context, *SetAllowUsingExhaustedKeysRequest) (*SetAllowUsingExhaustedKeysResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetAllowUsingExhaustedKeys not implemented")
-}
-func (UnimplementedCredentialDataRequestBuilderServiceServer) SetAllowUsingExpiredKeys(context.Context, *SetAllowUsingExpiredKeysRequest) (*SetAllowUsingExpiredKeysResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetAllowUsingExpiredKeys not implemented")
-}
-func (UnimplementedCredentialDataRequestBuilderServiceServer) SetIncrementUseCount(context.Context, *SetIncrementUseCountRequest) (*SetIncrementUseCountResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetIncrementUseCount not implemented")
-}
-func (UnimplementedCredentialDataRequestBuilderServiceServer) SetReaderSignature(context.Context, *SetReaderSignatureRequest) (*SetReaderSignatureResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetReaderSignature not implemented")
-}
-func (UnimplementedCredentialDataRequestBuilderServiceServer) SetRequestMessage(context.Context, *SetRequestMessageRequest) (*SetRequestMessageResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetRequestMessage not implemented")
-}
-func (UnimplementedCredentialDataRequestBuilderServiceServer) mustEmbedUnimplementedCredentialDataRequestBuilderServiceServer() {
-}
-func (UnimplementedCredentialDataRequestBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeCredentialDataRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to CredentialDataRequestBuilderServiceServer will
-// result in compilation errors.
-type UnsafeCredentialDataRequestBuilderServiceServer interface {
-	mustEmbedUnimplementedCredentialDataRequestBuilderServiceServer()
-}
-
-func RegisterCredentialDataRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv CredentialDataRequestBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedCredentialDataRequestBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&CredentialDataRequestBuilderService_ServiceDesc, srv)
-}
-
-func _CredentialDataRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CredentialDataRequestBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CredentialDataRequestBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialDataRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CredentialDataRequestBuilderService_SetAllowUsingExhaustedKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetAllowUsingExhaustedKeysRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CredentialDataRequestBuilderServiceServer).SetAllowUsingExhaustedKeys(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CredentialDataRequestBuilderService_SetAllowUsingExhaustedKeys_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialDataRequestBuilderServiceServer).SetAllowUsingExhaustedKeys(ctx, req.(*SetAllowUsingExhaustedKeysRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CredentialDataRequestBuilderService_SetAllowUsingExpiredKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetAllowUsingExpiredKeysRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CredentialDataRequestBuilderServiceServer).SetAllowUsingExpiredKeys(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CredentialDataRequestBuilderService_SetAllowUsingExpiredKeys_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialDataRequestBuilderServiceServer).SetAllowUsingExpiredKeys(ctx, req.(*SetAllowUsingExpiredKeysRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CredentialDataRequestBuilderService_SetIncrementUseCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetIncrementUseCountRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CredentialDataRequestBuilderServiceServer).SetIncrementUseCount(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CredentialDataRequestBuilderService_SetIncrementUseCount_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialDataRequestBuilderServiceServer).SetIncrementUseCount(ctx, req.(*SetIncrementUseCountRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CredentialDataRequestBuilderService_SetReaderSignature_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetReaderSignatureRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CredentialDataRequestBuilderServiceServer).SetReaderSignature(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CredentialDataRequestBuilderService_SetReaderSignature_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialDataRequestBuilderServiceServer).SetReaderSignature(ctx, req.(*SetReaderSignatureRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CredentialDataRequestBuilderService_SetRequestMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetRequestMessageRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CredentialDataRequestBuilderServiceServer).SetRequestMessage(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: CredentialDataRequestBuilderService_SetRequestMessage_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CredentialDataRequestBuilderServiceServer).SetRequestMessage(ctx, req.(*SetRequestMessageRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// CredentialDataRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for CredentialDataRequestBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var CredentialDataRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "identity.CredentialDataRequestBuilderService",
-	HandlerType: (*CredentialDataRequestBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _CredentialDataRequestBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetAllowUsingExhaustedKeys",
-			Handler:    _CredentialDataRequestBuilderService_SetAllowUsingExhaustedKeys_Handler,
-		},
-		{
-			MethodName: "SetAllowUsingExpiredKeys",
-			Handler:    _CredentialDataRequestBuilderService_SetAllowUsingExpiredKeys_Handler,
-		},
-		{
-			MethodName: "SetIncrementUseCount",
-			Handler:    _CredentialDataRequestBuilderService_SetIncrementUseCount_Handler,
-		},
-		{
-			MethodName: "SetReaderSignature",
-			Handler:    _CredentialDataRequestBuilderService_SetReaderSignature_Handler,
-		},
-		{
-			MethodName: "SetRequestMessage",
-			Handler:    _CredentialDataRequestBuilderService_SetRequestMessage_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/identity/identity.proto",
-}
-
-const (
-	WritableIdentityCredentialService_Personalize_FullMethodName = "/identity.WritableIdentityCredentialService/Personalize"
-)
-
-// WritableIdentityCredentialServiceClient is the client API for WritableIdentityCredentialService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type WritableIdentityCredentialServiceClient interface {
-	Personalize(ctx context.Context, in *PersonalizeRequest, opts ...grpc.CallOption) (*PersonalizeResponse, error)
-}
-
-type writableIdentityCredentialServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewWritableIdentityCredentialServiceClient(cc grpc.ClientConnInterface) WritableIdentityCredentialServiceClient {
-	return &writableIdentityCredentialServiceClient{cc}
-}
-
-func (c *writableIdentityCredentialServiceClient) Personalize(ctx context.Context, in *PersonalizeRequest, opts ...grpc.CallOption) (*PersonalizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(PersonalizeResponse)
-	err := c.cc.Invoke(ctx, WritableIdentityCredentialService_Personalize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// WritableIdentityCredentialServiceServer is the server API for WritableIdentityCredentialService service.
-// All implementations must embed UnimplementedWritableIdentityCredentialServiceServer
-// for forward compatibility.
-type WritableIdentityCredentialServiceServer interface {
-	Personalize(context.Context, *PersonalizeRequest) (*PersonalizeResponse, error)
-	mustEmbedUnimplementedWritableIdentityCredentialServiceServer()
-}
-
-// UnimplementedWritableIdentityCredentialServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedWritableIdentityCredentialServiceServer struct{}
-
-func (UnimplementedWritableIdentityCredentialServiceServer) Personalize(context.Context, *PersonalizeRequest) (*PersonalizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Personalize not implemented")
-}
-func (UnimplementedWritableIdentityCredentialServiceServer) mustEmbedUnimplementedWritableIdentityCredentialServiceServer() {
-}
-func (UnimplementedWritableIdentityCredentialServiceServer) testEmbeddedByValue() {}
-
-// UnsafeWritableIdentityCredentialServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to WritableIdentityCredentialServiceServer will
-// result in compilation errors.
-type UnsafeWritableIdentityCredentialServiceServer interface {
-	mustEmbedUnimplementedWritableIdentityCredentialServiceServer()
-}
-
-func RegisterWritableIdentityCredentialServiceServer(s grpc.ServiceRegistrar, srv WritableIdentityCredentialServiceServer) {
-	// If the following call panics, it indicates UnimplementedWritableIdentityCredentialServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&WritableIdentityCredentialService_ServiceDesc, srv)
-}
-
-func _WritableIdentityCredentialService_Personalize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PersonalizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(WritableIdentityCredentialServiceServer).Personalize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: WritableIdentityCredentialService_Personalize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WritableIdentityCredentialServiceServer).Personalize(ctx, req.(*PersonalizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// WritableIdentityCredentialService_ServiceDesc is the grpc.ServiceDesc for WritableIdentityCredentialService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var WritableIdentityCredentialService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "identity.WritableIdentityCredentialService",
-	HandlerType: (*WritableIdentityCredentialServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Personalize",
-			Handler:    _WritableIdentityCredentialService_Personalize_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/identity/identity.proto",
-}
-
-const (
 	CredentialService_CreateEphemeralKeyPair_FullMethodName            = "/identity.CredentialService/CreateEphemeralKeyPair"
 	CredentialService_DecryptMessageFromReader_FullMethodName          = "/identity.CredentialService/DecryptMessageFromReader"
 	CredentialService_Delete_FullMethodName                            = "/identity.CredentialService/Delete"
 	CredentialService_EncryptMessageToReader_FullMethodName            = "/identity.CredentialService/EncryptMessageToReader"
+	CredentialService_GetAuthKeysNeedingCertification_FullMethodName   = "/identity.CredentialService/GetAuthKeysNeedingCertification"
 	CredentialService_GetAuthenticationDataUsageCount_FullMethodName   = "/identity.CredentialService/GetAuthenticationDataUsageCount"
+	CredentialService_GetAuthenticationKeyMetadata_FullMethodName      = "/identity.CredentialService/GetAuthenticationKeyMetadata"
+	CredentialService_GetCredentialKeyCertificateChain_FullMethodName  = "/identity.CredentialService/GetCredentialKeyCertificateChain"
 	CredentialService_ProveOwnership_FullMethodName                    = "/identity.CredentialService/ProveOwnership"
 	CredentialService_SetAllowUsingExhaustedKeys_FullMethodName        = "/identity.CredentialService/SetAllowUsingExhaustedKeys"
 	CredentialService_SetAllowUsingExpiredKeys_FullMethodName          = "/identity.CredentialService/SetAllowUsingExpiredKeys"
@@ -1959,10 +1236,13 @@ type CredentialServiceClient interface {
 	DecryptMessageFromReader(ctx context.Context, in *DecryptMessageFromReaderRequest, opts ...grpc.CallOption) (*DecryptMessageFromReaderResponse, error)
 	Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error)
 	EncryptMessageToReader(ctx context.Context, in *EncryptMessageToReaderRequest, opts ...grpc.CallOption) (*EncryptMessageToReaderResponse, error)
+	GetAuthKeysNeedingCertification(ctx context.Context, in *GetAuthKeysNeedingCertificationRequest, opts ...grpc.CallOption) (*GetAuthKeysNeedingCertificationResponse, error)
 	GetAuthenticationDataUsageCount(ctx context.Context, in *GetAuthenticationDataUsageCountRequest, opts ...grpc.CallOption) (*GetAuthenticationDataUsageCountResponse, error)
+	GetAuthenticationKeyMetadata(ctx context.Context, in *GetAuthenticationKeyMetadataRequest, opts ...grpc.CallOption) (*GetAuthenticationKeyMetadataResponse, error)
+	GetCredentialKeyCertificateChain(ctx context.Context, in *GetCredentialKeyCertificateChainRequest, opts ...grpc.CallOption) (*GetCredentialKeyCertificateChainResponse, error)
 	ProveOwnership(ctx context.Context, in *ProveOwnershipRequest, opts ...grpc.CallOption) (*ProveOwnershipResponse, error)
-	SetAllowUsingExhaustedKeys(ctx context.Context, in *SetAllowUsingExhaustedKeysRequest, opts ...grpc.CallOption) (*CredentialSetAllowUsingExhaustedKeysResponse, error)
-	SetAllowUsingExpiredKeys(ctx context.Context, in *SetAllowUsingExpiredKeysRequest, opts ...grpc.CallOption) (*CredentialSetAllowUsingExpiredKeysResponse, error)
+	SetAllowUsingExhaustedKeys(ctx context.Context, in *SetAllowUsingExhaustedKeysRequest, opts ...grpc.CallOption) (*SetAllowUsingExhaustedKeysResponse, error)
+	SetAllowUsingExpiredKeys(ctx context.Context, in *SetAllowUsingExpiredKeysRequest, opts ...grpc.CallOption) (*SetAllowUsingExpiredKeysResponse, error)
 	SetAvailableAuthenticationKeys2(ctx context.Context, in *SetAvailableAuthenticationKeys2Request, opts ...grpc.CallOption) (*SetAvailableAuthenticationKeys2Response, error)
 	SetAvailableAuthenticationKeys3_1(ctx context.Context, in *SetAvailableAuthenticationKeys3_1Request, opts ...grpc.CallOption) (*SetAvailableAuthenticationKeys3_1Response, error)
 	SetReaderEphemeralPublicKey(ctx context.Context, in *SetReaderEphemeralPublicKeyRequest, opts ...grpc.CallOption) (*SetReaderEphemeralPublicKeyResponse, error)
@@ -2019,10 +1299,40 @@ func (c *credentialServiceClient) EncryptMessageToReader(ctx context.Context, in
 	return out, nil
 }
 
+func (c *credentialServiceClient) GetAuthKeysNeedingCertification(ctx context.Context, in *GetAuthKeysNeedingCertificationRequest, opts ...grpc.CallOption) (*GetAuthKeysNeedingCertificationResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAuthKeysNeedingCertificationResponse)
+	err := c.cc.Invoke(ctx, CredentialService_GetAuthKeysNeedingCertification_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *credentialServiceClient) GetAuthenticationDataUsageCount(ctx context.Context, in *GetAuthenticationDataUsageCountRequest, opts ...grpc.CallOption) (*GetAuthenticationDataUsageCountResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetAuthenticationDataUsageCountResponse)
 	err := c.cc.Invoke(ctx, CredentialService_GetAuthenticationDataUsageCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialServiceClient) GetAuthenticationKeyMetadata(ctx context.Context, in *GetAuthenticationKeyMetadataRequest, opts ...grpc.CallOption) (*GetAuthenticationKeyMetadataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAuthenticationKeyMetadataResponse)
+	err := c.cc.Invoke(ctx, CredentialService_GetAuthenticationKeyMetadata_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialServiceClient) GetCredentialKeyCertificateChain(ctx context.Context, in *GetCredentialKeyCertificateChainRequest, opts ...grpc.CallOption) (*GetCredentialKeyCertificateChainResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCredentialKeyCertificateChainResponse)
+	err := c.cc.Invoke(ctx, CredentialService_GetCredentialKeyCertificateChain_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -2039,9 +1349,9 @@ func (c *credentialServiceClient) ProveOwnership(ctx context.Context, in *ProveO
 	return out, nil
 }
 
-func (c *credentialServiceClient) SetAllowUsingExhaustedKeys(ctx context.Context, in *SetAllowUsingExhaustedKeysRequest, opts ...grpc.CallOption) (*CredentialSetAllowUsingExhaustedKeysResponse, error) {
+func (c *credentialServiceClient) SetAllowUsingExhaustedKeys(ctx context.Context, in *SetAllowUsingExhaustedKeysRequest, opts ...grpc.CallOption) (*SetAllowUsingExhaustedKeysResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CredentialSetAllowUsingExhaustedKeysResponse)
+	out := new(SetAllowUsingExhaustedKeysResponse)
 	err := c.cc.Invoke(ctx, CredentialService_SetAllowUsingExhaustedKeys_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -2049,9 +1359,9 @@ func (c *credentialServiceClient) SetAllowUsingExhaustedKeys(ctx context.Context
 	return out, nil
 }
 
-func (c *credentialServiceClient) SetAllowUsingExpiredKeys(ctx context.Context, in *SetAllowUsingExpiredKeysRequest, opts ...grpc.CallOption) (*CredentialSetAllowUsingExpiredKeysResponse, error) {
+func (c *credentialServiceClient) SetAllowUsingExpiredKeys(ctx context.Context, in *SetAllowUsingExpiredKeysRequest, opts ...grpc.CallOption) (*SetAllowUsingExpiredKeysResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CredentialSetAllowUsingExpiredKeysResponse)
+	out := new(SetAllowUsingExpiredKeysResponse)
 	err := c.cc.Invoke(ctx, CredentialService_SetAllowUsingExpiredKeys_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -2127,10 +1437,13 @@ type CredentialServiceServer interface {
 	DecryptMessageFromReader(context.Context, *DecryptMessageFromReaderRequest) (*DecryptMessageFromReaderResponse, error)
 	Delete(context.Context, *DeleteRequest) (*DeleteResponse, error)
 	EncryptMessageToReader(context.Context, *EncryptMessageToReaderRequest) (*EncryptMessageToReaderResponse, error)
+	GetAuthKeysNeedingCertification(context.Context, *GetAuthKeysNeedingCertificationRequest) (*GetAuthKeysNeedingCertificationResponse, error)
 	GetAuthenticationDataUsageCount(context.Context, *GetAuthenticationDataUsageCountRequest) (*GetAuthenticationDataUsageCountResponse, error)
+	GetAuthenticationKeyMetadata(context.Context, *GetAuthenticationKeyMetadataRequest) (*GetAuthenticationKeyMetadataResponse, error)
+	GetCredentialKeyCertificateChain(context.Context, *GetCredentialKeyCertificateChainRequest) (*GetCredentialKeyCertificateChainResponse, error)
 	ProveOwnership(context.Context, *ProveOwnershipRequest) (*ProveOwnershipResponse, error)
-	SetAllowUsingExhaustedKeys(context.Context, *SetAllowUsingExhaustedKeysRequest) (*CredentialSetAllowUsingExhaustedKeysResponse, error)
-	SetAllowUsingExpiredKeys(context.Context, *SetAllowUsingExpiredKeysRequest) (*CredentialSetAllowUsingExpiredKeysResponse, error)
+	SetAllowUsingExhaustedKeys(context.Context, *SetAllowUsingExhaustedKeysRequest) (*SetAllowUsingExhaustedKeysResponse, error)
+	SetAllowUsingExpiredKeys(context.Context, *SetAllowUsingExpiredKeysRequest) (*SetAllowUsingExpiredKeysResponse, error)
 	SetAvailableAuthenticationKeys2(context.Context, *SetAvailableAuthenticationKeys2Request) (*SetAvailableAuthenticationKeys2Response, error)
 	SetAvailableAuthenticationKeys3_1(context.Context, *SetAvailableAuthenticationKeys3_1Request) (*SetAvailableAuthenticationKeys3_1Response, error)
 	SetReaderEphemeralPublicKey(context.Context, *SetReaderEphemeralPublicKeyRequest) (*SetReaderEphemeralPublicKeyResponse, error)
@@ -2159,16 +1472,25 @@ func (UnimplementedCredentialServiceServer) Delete(context.Context, *DeleteReque
 func (UnimplementedCredentialServiceServer) EncryptMessageToReader(context.Context, *EncryptMessageToReaderRequest) (*EncryptMessageToReaderResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method EncryptMessageToReader not implemented")
 }
+func (UnimplementedCredentialServiceServer) GetAuthKeysNeedingCertification(context.Context, *GetAuthKeysNeedingCertificationRequest) (*GetAuthKeysNeedingCertificationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAuthKeysNeedingCertification not implemented")
+}
 func (UnimplementedCredentialServiceServer) GetAuthenticationDataUsageCount(context.Context, *GetAuthenticationDataUsageCountRequest) (*GetAuthenticationDataUsageCountResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetAuthenticationDataUsageCount not implemented")
+}
+func (UnimplementedCredentialServiceServer) GetAuthenticationKeyMetadata(context.Context, *GetAuthenticationKeyMetadataRequest) (*GetAuthenticationKeyMetadataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAuthenticationKeyMetadata not implemented")
+}
+func (UnimplementedCredentialServiceServer) GetCredentialKeyCertificateChain(context.Context, *GetCredentialKeyCertificateChainRequest) (*GetCredentialKeyCertificateChainResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCredentialKeyCertificateChain not implemented")
 }
 func (UnimplementedCredentialServiceServer) ProveOwnership(context.Context, *ProveOwnershipRequest) (*ProveOwnershipResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method ProveOwnership not implemented")
 }
-func (UnimplementedCredentialServiceServer) SetAllowUsingExhaustedKeys(context.Context, *SetAllowUsingExhaustedKeysRequest) (*CredentialSetAllowUsingExhaustedKeysResponse, error) {
+func (UnimplementedCredentialServiceServer) SetAllowUsingExhaustedKeys(context.Context, *SetAllowUsingExhaustedKeysRequest) (*SetAllowUsingExhaustedKeysResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetAllowUsingExhaustedKeys not implemented")
 }
-func (UnimplementedCredentialServiceServer) SetAllowUsingExpiredKeys(context.Context, *SetAllowUsingExpiredKeysRequest) (*CredentialSetAllowUsingExpiredKeysResponse, error) {
+func (UnimplementedCredentialServiceServer) SetAllowUsingExpiredKeys(context.Context, *SetAllowUsingExpiredKeysRequest) (*SetAllowUsingExpiredKeysResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method SetAllowUsingExpiredKeys not implemented")
 }
 func (UnimplementedCredentialServiceServer) SetAvailableAuthenticationKeys2(context.Context, *SetAvailableAuthenticationKeys2Request) (*SetAvailableAuthenticationKeys2Response, error) {
@@ -2282,6 +1604,24 @@ func _CredentialService_EncryptMessageToReader_Handler(srv interface{}, ctx cont
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CredentialService_GetAuthKeysNeedingCertification_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAuthKeysNeedingCertificationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialServiceServer).GetAuthKeysNeedingCertification(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialService_GetAuthKeysNeedingCertification_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialServiceServer).GetAuthKeysNeedingCertification(ctx, req.(*GetAuthKeysNeedingCertificationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _CredentialService_GetAuthenticationDataUsageCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetAuthenticationDataUsageCountRequest)
 	if err := dec(in); err != nil {
@@ -2296,6 +1636,42 @@ func _CredentialService_GetAuthenticationDataUsageCount_Handler(srv interface{},
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CredentialServiceServer).GetAuthenticationDataUsageCount(ctx, req.(*GetAuthenticationDataUsageCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialService_GetAuthenticationKeyMetadata_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAuthenticationKeyMetadataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialServiceServer).GetAuthenticationKeyMetadata(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialService_GetAuthenticationKeyMetadata_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialServiceServer).GetAuthenticationKeyMetadata(ctx, req.(*GetAuthenticationKeyMetadataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialService_GetCredentialKeyCertificateChain_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCredentialKeyCertificateChainRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialServiceServer).GetCredentialKeyCertificateChain(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialService_GetCredentialKeyCertificateChain_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialServiceServer).GetCredentialKeyCertificateChain(ctx, req.(*GetCredentialKeyCertificateChainRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2486,8 +1862,20 @@ var CredentialService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CredentialService_EncryptMessageToReader_Handler,
 		},
 		{
+			MethodName: "GetAuthKeysNeedingCertification",
+			Handler:    _CredentialService_GetAuthKeysNeedingCertification_Handler,
+		},
+		{
 			MethodName: "GetAuthenticationDataUsageCount",
 			Handler:    _CredentialService_GetAuthenticationDataUsageCount_Handler,
+		},
+		{
+			MethodName: "GetAuthenticationKeyMetadata",
+			Handler:    _CredentialService_GetAuthenticationKeyMetadata_Handler,
+		},
+		{
+			MethodName: "GetCredentialKeyCertificateChain",
+			Handler:    _CredentialService_GetCredentialKeyCertificateChain_Handler,
 		},
 		{
 			MethodName: "ProveOwnership",
@@ -2862,140 +2250,216 @@ var CredentialStoreService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	AuthenticationKeyMetadataService_GetExpirationDate_FullMethodName = "/identity.AuthenticationKeyMetadataService/GetExpirationDate"
-	AuthenticationKeyMetadataService_GetUsageCount_FullMethodName     = "/identity.AuthenticationKeyMetadataService/GetUsageCount"
+	AccessControlProfileBuilderService_Build_FullMethodName                         = "/identity.AccessControlProfileBuilderService/Build"
+	AccessControlProfileBuilderService_SetReaderCertificate_FullMethodName          = "/identity.AccessControlProfileBuilderService/SetReaderCertificate"
+	AccessControlProfileBuilderService_SetUserAuthenticationRequired_FullMethodName = "/identity.AccessControlProfileBuilderService/SetUserAuthenticationRequired"
+	AccessControlProfileBuilderService_SetUserAuthenticationTimeout_FullMethodName  = "/identity.AccessControlProfileBuilderService/SetUserAuthenticationTimeout"
 )
 
-// AuthenticationKeyMetadataServiceClient is the client API for AuthenticationKeyMetadataService service.
+// AccessControlProfileBuilderServiceClient is the client API for AccessControlProfileBuilderService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AuthenticationKeyMetadataServiceClient interface {
-	GetExpirationDate(ctx context.Context, in *GetExpirationDateRequest, opts ...grpc.CallOption) (*GetExpirationDateResponse, error)
-	GetUsageCount(ctx context.Context, in *GetUsageCountRequest, opts ...grpc.CallOption) (*GetUsageCountResponse, error)
+type AccessControlProfileBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetReaderCertificate(ctx context.Context, in *SetReaderCertificateRequest, opts ...grpc.CallOption) (*SetReaderCertificateResponse, error)
+	SetUserAuthenticationRequired(ctx context.Context, in *SetUserAuthenticationRequiredRequest, opts ...grpc.CallOption) (*SetUserAuthenticationRequiredResponse, error)
+	SetUserAuthenticationTimeout(ctx context.Context, in *SetUserAuthenticationTimeoutRequest, opts ...grpc.CallOption) (*SetUserAuthenticationTimeoutResponse, error)
 }
 
-type authenticationKeyMetadataServiceClient struct {
+type accessControlProfileBuilderServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewAuthenticationKeyMetadataServiceClient(cc grpc.ClientConnInterface) AuthenticationKeyMetadataServiceClient {
-	return &authenticationKeyMetadataServiceClient{cc}
+func NewAccessControlProfileBuilderServiceClient(cc grpc.ClientConnInterface) AccessControlProfileBuilderServiceClient {
+	return &accessControlProfileBuilderServiceClient{cc}
 }
 
-func (c *authenticationKeyMetadataServiceClient) GetExpirationDate(ctx context.Context, in *GetExpirationDateRequest, opts ...grpc.CallOption) (*GetExpirationDateResponse, error) {
+func (c *accessControlProfileBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetExpirationDateResponse)
-	err := c.cc.Invoke(ctx, AuthenticationKeyMetadataService_GetExpirationDate_FullMethodName, in, out, cOpts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, AccessControlProfileBuilderService_Build_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *authenticationKeyMetadataServiceClient) GetUsageCount(ctx context.Context, in *GetUsageCountRequest, opts ...grpc.CallOption) (*GetUsageCountResponse, error) {
+func (c *accessControlProfileBuilderServiceClient) SetReaderCertificate(ctx context.Context, in *SetReaderCertificateRequest, opts ...grpc.CallOption) (*SetReaderCertificateResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUsageCountResponse)
-	err := c.cc.Invoke(ctx, AuthenticationKeyMetadataService_GetUsageCount_FullMethodName, in, out, cOpts...)
+	out := new(SetReaderCertificateResponse)
+	err := c.cc.Invoke(ctx, AccessControlProfileBuilderService_SetReaderCertificate_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// AuthenticationKeyMetadataServiceServer is the server API for AuthenticationKeyMetadataService service.
-// All implementations must embed UnimplementedAuthenticationKeyMetadataServiceServer
+func (c *accessControlProfileBuilderServiceClient) SetUserAuthenticationRequired(ctx context.Context, in *SetUserAuthenticationRequiredRequest, opts ...grpc.CallOption) (*SetUserAuthenticationRequiredResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetUserAuthenticationRequiredResponse)
+	err := c.cc.Invoke(ctx, AccessControlProfileBuilderService_SetUserAuthenticationRequired_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accessControlProfileBuilderServiceClient) SetUserAuthenticationTimeout(ctx context.Context, in *SetUserAuthenticationTimeoutRequest, opts ...grpc.CallOption) (*SetUserAuthenticationTimeoutResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetUserAuthenticationTimeoutResponse)
+	err := c.cc.Invoke(ctx, AccessControlProfileBuilderService_SetUserAuthenticationTimeout_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AccessControlProfileBuilderServiceServer is the server API for AccessControlProfileBuilderService service.
+// All implementations must embed UnimplementedAccessControlProfileBuilderServiceServer
 // for forward compatibility.
-type AuthenticationKeyMetadataServiceServer interface {
-	GetExpirationDate(context.Context, *GetExpirationDateRequest) (*GetExpirationDateResponse, error)
-	GetUsageCount(context.Context, *GetUsageCountRequest) (*GetUsageCountResponse, error)
-	mustEmbedUnimplementedAuthenticationKeyMetadataServiceServer()
+type AccessControlProfileBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetReaderCertificate(context.Context, *SetReaderCertificateRequest) (*SetReaderCertificateResponse, error)
+	SetUserAuthenticationRequired(context.Context, *SetUserAuthenticationRequiredRequest) (*SetUserAuthenticationRequiredResponse, error)
+	SetUserAuthenticationTimeout(context.Context, *SetUserAuthenticationTimeoutRequest) (*SetUserAuthenticationTimeoutResponse, error)
+	mustEmbedUnimplementedAccessControlProfileBuilderServiceServer()
 }
 
-// UnimplementedAuthenticationKeyMetadataServiceServer must be embedded to have
+// UnimplementedAccessControlProfileBuilderServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedAuthenticationKeyMetadataServiceServer struct{}
+type UnimplementedAccessControlProfileBuilderServiceServer struct{}
 
-func (UnimplementedAuthenticationKeyMetadataServiceServer) GetExpirationDate(context.Context, *GetExpirationDateRequest) (*GetExpirationDateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetExpirationDate not implemented")
+func (UnimplementedAccessControlProfileBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
 }
-func (UnimplementedAuthenticationKeyMetadataServiceServer) GetUsageCount(context.Context, *GetUsageCountRequest) (*GetUsageCountResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetUsageCount not implemented")
+func (UnimplementedAccessControlProfileBuilderServiceServer) SetReaderCertificate(context.Context, *SetReaderCertificateRequest) (*SetReaderCertificateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetReaderCertificate not implemented")
 }
-func (UnimplementedAuthenticationKeyMetadataServiceServer) mustEmbedUnimplementedAuthenticationKeyMetadataServiceServer() {
+func (UnimplementedAccessControlProfileBuilderServiceServer) SetUserAuthenticationRequired(context.Context, *SetUserAuthenticationRequiredRequest) (*SetUserAuthenticationRequiredResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetUserAuthenticationRequired not implemented")
 }
-func (UnimplementedAuthenticationKeyMetadataServiceServer) testEmbeddedByValue() {}
+func (UnimplementedAccessControlProfileBuilderServiceServer) SetUserAuthenticationTimeout(context.Context, *SetUserAuthenticationTimeoutRequest) (*SetUserAuthenticationTimeoutResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetUserAuthenticationTimeout not implemented")
+}
+func (UnimplementedAccessControlProfileBuilderServiceServer) mustEmbedUnimplementedAccessControlProfileBuilderServiceServer() {
+}
+func (UnimplementedAccessControlProfileBuilderServiceServer) testEmbeddedByValue() {}
 
-// UnsafeAuthenticationKeyMetadataServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AuthenticationKeyMetadataServiceServer will
+// UnsafeAccessControlProfileBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AccessControlProfileBuilderServiceServer will
 // result in compilation errors.
-type UnsafeAuthenticationKeyMetadataServiceServer interface {
-	mustEmbedUnimplementedAuthenticationKeyMetadataServiceServer()
+type UnsafeAccessControlProfileBuilderServiceServer interface {
+	mustEmbedUnimplementedAccessControlProfileBuilderServiceServer()
 }
 
-func RegisterAuthenticationKeyMetadataServiceServer(s grpc.ServiceRegistrar, srv AuthenticationKeyMetadataServiceServer) {
-	// If the following call panics, it indicates UnimplementedAuthenticationKeyMetadataServiceServer was
+func RegisterAccessControlProfileBuilderServiceServer(s grpc.ServiceRegistrar, srv AccessControlProfileBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedAccessControlProfileBuilderServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&AuthenticationKeyMetadataService_ServiceDesc, srv)
+	s.RegisterService(&AccessControlProfileBuilderService_ServiceDesc, srv)
 }
 
-func _AuthenticationKeyMetadataService_GetExpirationDate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetExpirationDateRequest)
+func _AccessControlProfileBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthenticationKeyMetadataServiceServer).GetExpirationDate(ctx, in)
+		return srv.(AccessControlProfileBuilderServiceServer).Build(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AuthenticationKeyMetadataService_GetExpirationDate_FullMethodName,
+		FullMethod: AccessControlProfileBuilderService_Build_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthenticationKeyMetadataServiceServer).GetExpirationDate(ctx, req.(*GetExpirationDateRequest))
+		return srv.(AccessControlProfileBuilderServiceServer).Build(ctx, req.(*BuildRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AuthenticationKeyMetadataService_GetUsageCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUsageCountRequest)
+func _AccessControlProfileBuilderService_SetReaderCertificate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetReaderCertificateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthenticationKeyMetadataServiceServer).GetUsageCount(ctx, in)
+		return srv.(AccessControlProfileBuilderServiceServer).SetReaderCertificate(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AuthenticationKeyMetadataService_GetUsageCount_FullMethodName,
+		FullMethod: AccessControlProfileBuilderService_SetReaderCertificate_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthenticationKeyMetadataServiceServer).GetUsageCount(ctx, req.(*GetUsageCountRequest))
+		return srv.(AccessControlProfileBuilderServiceServer).SetReaderCertificate(ctx, req.(*SetReaderCertificateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// AuthenticationKeyMetadataService_ServiceDesc is the grpc.ServiceDesc for AuthenticationKeyMetadataService service.
+func _AccessControlProfileBuilderService_SetUserAuthenticationRequired_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetUserAuthenticationRequiredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccessControlProfileBuilderServiceServer).SetUserAuthenticationRequired(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccessControlProfileBuilderService_SetUserAuthenticationRequired_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccessControlProfileBuilderServiceServer).SetUserAuthenticationRequired(ctx, req.(*SetUserAuthenticationRequiredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccessControlProfileBuilderService_SetUserAuthenticationTimeout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetUserAuthenticationTimeoutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccessControlProfileBuilderServiceServer).SetUserAuthenticationTimeout(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AccessControlProfileBuilderService_SetUserAuthenticationTimeout_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccessControlProfileBuilderServiceServer).SetUserAuthenticationTimeout(ctx, req.(*SetUserAuthenticationTimeoutRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AccessControlProfileBuilderService_ServiceDesc is the grpc.ServiceDesc for AccessControlProfileBuilderService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var AuthenticationKeyMetadataService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "identity.AuthenticationKeyMetadataService",
-	HandlerType: (*AuthenticationKeyMetadataServiceServer)(nil),
+var AccessControlProfileBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "identity.AccessControlProfileBuilderService",
+	HandlerType: (*AccessControlProfileBuilderServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "GetExpirationDate",
-			Handler:    _AuthenticationKeyMetadataService_GetExpirationDate_Handler,
+			MethodName: "Build",
+			Handler:    _AccessControlProfileBuilderService_Build_Handler,
 		},
 		{
-			MethodName: "GetUsageCount",
-			Handler:    _AuthenticationKeyMetadataService_GetUsageCount_Handler,
+			MethodName: "SetReaderCertificate",
+			Handler:    _AccessControlProfileBuilderService_SetReaderCertificate_Handler,
+		},
+		{
+			MethodName: "SetUserAuthenticationRequired",
+			Handler:    _AccessControlProfileBuilderService_SetUserAuthenticationRequired_Handler,
+		},
+		{
+			MethodName: "SetUserAuthenticationTimeout",
+			Handler:    _AccessControlProfileBuilderService_SetUserAuthenticationTimeout_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -3003,140 +2467,1056 @@ var AuthenticationKeyMetadataService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	AccessControlProfileIdService_NewAccessControlProfileId_FullMethodName = "/identity.AccessControlProfileIdService/NewAccessControlProfileId"
-	AccessControlProfileIdService_GetId_FullMethodName                     = "/identity.AccessControlProfileIdService/GetId"
+	ResultDataService_GetAuthenticatedData_FullMethodName         = "/identity.ResultDataService/GetAuthenticatedData"
+	ResultDataService_GetEntry_FullMethodName                     = "/identity.ResultDataService/GetEntry"
+	ResultDataService_GetEntryNames_FullMethodName                = "/identity.ResultDataService/GetEntryNames"
+	ResultDataService_GetMessageAuthenticationCode_FullMethodName = "/identity.ResultDataService/GetMessageAuthenticationCode"
+	ResultDataService_GetNamespaces_FullMethodName                = "/identity.ResultDataService/GetNamespaces"
+	ResultDataService_GetRetrievedEntryNames_FullMethodName       = "/identity.ResultDataService/GetRetrievedEntryNames"
+	ResultDataService_GetStaticAuthenticationData_FullMethodName  = "/identity.ResultDataService/GetStaticAuthenticationData"
+	ResultDataService_GetStatus_FullMethodName                    = "/identity.ResultDataService/GetStatus"
 )
 
-// AccessControlProfileIdServiceClient is the client API for AccessControlProfileIdService service.
+// ResultDataServiceClient is the client API for ResultDataService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AccessControlProfileIdServiceClient interface {
-	NewAccessControlProfileId(ctx context.Context, in *NewAccessControlProfileIdRequest, opts ...grpc.CallOption) (*NewAccessControlProfileIdResponse, error)
-	GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error)
+type ResultDataServiceClient interface {
+	GetAuthenticatedData(ctx context.Context, in *GetAuthenticatedDataRequest, opts ...grpc.CallOption) (*GetAuthenticatedDataResponse, error)
+	GetEntry(ctx context.Context, in *GetEntryRequest, opts ...grpc.CallOption) (*GetEntryResponse, error)
+	GetEntryNames(ctx context.Context, in *GetEntryNamesRequest, opts ...grpc.CallOption) (*GetEntryNamesResponse, error)
+	GetMessageAuthenticationCode(ctx context.Context, in *GetMessageAuthenticationCodeRequest, opts ...grpc.CallOption) (*GetMessageAuthenticationCodeResponse, error)
+	GetNamespaces(ctx context.Context, in *GetNamespacesRequest, opts ...grpc.CallOption) (*GetNamespacesResponse, error)
+	GetRetrievedEntryNames(ctx context.Context, in *GetRetrievedEntryNamesRequest, opts ...grpc.CallOption) (*GetRetrievedEntryNamesResponse, error)
+	GetStaticAuthenticationData(ctx context.Context, in *GetStaticAuthenticationDataRequest, opts ...grpc.CallOption) (*GetStaticAuthenticationDataResponse, error)
+	GetStatus(ctx context.Context, in *GetStatusRequest, opts ...grpc.CallOption) (*GetStatusResponse, error)
 }
 
-type accessControlProfileIdServiceClient struct {
+type resultDataServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewAccessControlProfileIdServiceClient(cc grpc.ClientConnInterface) AccessControlProfileIdServiceClient {
-	return &accessControlProfileIdServiceClient{cc}
+func NewResultDataServiceClient(cc grpc.ClientConnInterface) ResultDataServiceClient {
+	return &resultDataServiceClient{cc}
 }
 
-func (c *accessControlProfileIdServiceClient) NewAccessControlProfileId(ctx context.Context, in *NewAccessControlProfileIdRequest, opts ...grpc.CallOption) (*NewAccessControlProfileIdResponse, error) {
+func (c *resultDataServiceClient) GetAuthenticatedData(ctx context.Context, in *GetAuthenticatedDataRequest, opts ...grpc.CallOption) (*GetAuthenticatedDataResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewAccessControlProfileIdResponse)
-	err := c.cc.Invoke(ctx, AccessControlProfileIdService_NewAccessControlProfileId_FullMethodName, in, out, cOpts...)
+	out := new(GetAuthenticatedDataResponse)
+	err := c.cc.Invoke(ctx, ResultDataService_GetAuthenticatedData_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *accessControlProfileIdServiceClient) GetId(ctx context.Context, in *GetIdRequest, opts ...grpc.CallOption) (*GetIdResponse, error) {
+func (c *resultDataServiceClient) GetEntry(ctx context.Context, in *GetEntryRequest, opts ...grpc.CallOption) (*GetEntryResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIdResponse)
-	err := c.cc.Invoke(ctx, AccessControlProfileIdService_GetId_FullMethodName, in, out, cOpts...)
+	out := new(GetEntryResponse)
+	err := c.cc.Invoke(ctx, ResultDataService_GetEntry_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// AccessControlProfileIdServiceServer is the server API for AccessControlProfileIdService service.
-// All implementations must embed UnimplementedAccessControlProfileIdServiceServer
+func (c *resultDataServiceClient) GetEntryNames(ctx context.Context, in *GetEntryNamesRequest, opts ...grpc.CallOption) (*GetEntryNamesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetEntryNamesResponse)
+	err := c.cc.Invoke(ctx, ResultDataService_GetEntryNames_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *resultDataServiceClient) GetMessageAuthenticationCode(ctx context.Context, in *GetMessageAuthenticationCodeRequest, opts ...grpc.CallOption) (*GetMessageAuthenticationCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMessageAuthenticationCodeResponse)
+	err := c.cc.Invoke(ctx, ResultDataService_GetMessageAuthenticationCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *resultDataServiceClient) GetNamespaces(ctx context.Context, in *GetNamespacesRequest, opts ...grpc.CallOption) (*GetNamespacesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNamespacesResponse)
+	err := c.cc.Invoke(ctx, ResultDataService_GetNamespaces_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *resultDataServiceClient) GetRetrievedEntryNames(ctx context.Context, in *GetRetrievedEntryNamesRequest, opts ...grpc.CallOption) (*GetRetrievedEntryNamesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRetrievedEntryNamesResponse)
+	err := c.cc.Invoke(ctx, ResultDataService_GetRetrievedEntryNames_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *resultDataServiceClient) GetStaticAuthenticationData(ctx context.Context, in *GetStaticAuthenticationDataRequest, opts ...grpc.CallOption) (*GetStaticAuthenticationDataResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStaticAuthenticationDataResponse)
+	err := c.cc.Invoke(ctx, ResultDataService_GetStaticAuthenticationData_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *resultDataServiceClient) GetStatus(ctx context.Context, in *GetStatusRequest, opts ...grpc.CallOption) (*GetStatusResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStatusResponse)
+	err := c.cc.Invoke(ctx, ResultDataService_GetStatus_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ResultDataServiceServer is the server API for ResultDataService service.
+// All implementations must embed UnimplementedResultDataServiceServer
 // for forward compatibility.
-type AccessControlProfileIdServiceServer interface {
-	NewAccessControlProfileId(context.Context, *NewAccessControlProfileIdRequest) (*NewAccessControlProfileIdResponse, error)
-	GetId(context.Context, *GetIdRequest) (*GetIdResponse, error)
-	mustEmbedUnimplementedAccessControlProfileIdServiceServer()
+type ResultDataServiceServer interface {
+	GetAuthenticatedData(context.Context, *GetAuthenticatedDataRequest) (*GetAuthenticatedDataResponse, error)
+	GetEntry(context.Context, *GetEntryRequest) (*GetEntryResponse, error)
+	GetEntryNames(context.Context, *GetEntryNamesRequest) (*GetEntryNamesResponse, error)
+	GetMessageAuthenticationCode(context.Context, *GetMessageAuthenticationCodeRequest) (*GetMessageAuthenticationCodeResponse, error)
+	GetNamespaces(context.Context, *GetNamespacesRequest) (*GetNamespacesResponse, error)
+	GetRetrievedEntryNames(context.Context, *GetRetrievedEntryNamesRequest) (*GetRetrievedEntryNamesResponse, error)
+	GetStaticAuthenticationData(context.Context, *GetStaticAuthenticationDataRequest) (*GetStaticAuthenticationDataResponse, error)
+	GetStatus(context.Context, *GetStatusRequest) (*GetStatusResponse, error)
+	mustEmbedUnimplementedResultDataServiceServer()
 }
 
-// UnimplementedAccessControlProfileIdServiceServer must be embedded to have
+// UnimplementedResultDataServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedAccessControlProfileIdServiceServer struct{}
+type UnimplementedResultDataServiceServer struct{}
 
-func (UnimplementedAccessControlProfileIdServiceServer) NewAccessControlProfileId(context.Context, *NewAccessControlProfileIdRequest) (*NewAccessControlProfileIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewAccessControlProfileId not implemented")
+func (UnimplementedResultDataServiceServer) GetAuthenticatedData(context.Context, *GetAuthenticatedDataRequest) (*GetAuthenticatedDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAuthenticatedData not implemented")
 }
-func (UnimplementedAccessControlProfileIdServiceServer) GetId(context.Context, *GetIdRequest) (*GetIdResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetId not implemented")
+func (UnimplementedResultDataServiceServer) GetEntry(context.Context, *GetEntryRequest) (*GetEntryResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEntry not implemented")
 }
-func (UnimplementedAccessControlProfileIdServiceServer) mustEmbedUnimplementedAccessControlProfileIdServiceServer() {
+func (UnimplementedResultDataServiceServer) GetEntryNames(context.Context, *GetEntryNamesRequest) (*GetEntryNamesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetEntryNames not implemented")
 }
-func (UnimplementedAccessControlProfileIdServiceServer) testEmbeddedByValue() {}
+func (UnimplementedResultDataServiceServer) GetMessageAuthenticationCode(context.Context, *GetMessageAuthenticationCodeRequest) (*GetMessageAuthenticationCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMessageAuthenticationCode not implemented")
+}
+func (UnimplementedResultDataServiceServer) GetNamespaces(context.Context, *GetNamespacesRequest) (*GetNamespacesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNamespaces not implemented")
+}
+func (UnimplementedResultDataServiceServer) GetRetrievedEntryNames(context.Context, *GetRetrievedEntryNamesRequest) (*GetRetrievedEntryNamesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRetrievedEntryNames not implemented")
+}
+func (UnimplementedResultDataServiceServer) GetStaticAuthenticationData(context.Context, *GetStaticAuthenticationDataRequest) (*GetStaticAuthenticationDataResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStaticAuthenticationData not implemented")
+}
+func (UnimplementedResultDataServiceServer) GetStatus(context.Context, *GetStatusRequest) (*GetStatusResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStatus not implemented")
+}
+func (UnimplementedResultDataServiceServer) mustEmbedUnimplementedResultDataServiceServer() {}
+func (UnimplementedResultDataServiceServer) testEmbeddedByValue()                           {}
 
-// UnsafeAccessControlProfileIdServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AccessControlProfileIdServiceServer will
+// UnsafeResultDataServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ResultDataServiceServer will
 // result in compilation errors.
-type UnsafeAccessControlProfileIdServiceServer interface {
-	mustEmbedUnimplementedAccessControlProfileIdServiceServer()
+type UnsafeResultDataServiceServer interface {
+	mustEmbedUnimplementedResultDataServiceServer()
 }
 
-func RegisterAccessControlProfileIdServiceServer(s grpc.ServiceRegistrar, srv AccessControlProfileIdServiceServer) {
-	// If the following call panics, it indicates UnimplementedAccessControlProfileIdServiceServer was
+func RegisterResultDataServiceServer(s grpc.ServiceRegistrar, srv ResultDataServiceServer) {
+	// If the following call panics, it indicates UnimplementedResultDataServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&AccessControlProfileIdService_ServiceDesc, srv)
+	s.RegisterService(&ResultDataService_ServiceDesc, srv)
 }
 
-func _AccessControlProfileIdService_NewAccessControlProfileId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewAccessControlProfileIdRequest)
+func _ResultDataService_GetAuthenticatedData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAuthenticatedDataRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccessControlProfileIdServiceServer).NewAccessControlProfileId(ctx, in)
+		return srv.(ResultDataServiceServer).GetAuthenticatedData(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AccessControlProfileIdService_NewAccessControlProfileId_FullMethodName,
+		FullMethod: ResultDataService_GetAuthenticatedData_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessControlProfileIdServiceServer).NewAccessControlProfileId(ctx, req.(*NewAccessControlProfileIdRequest))
+		return srv.(ResultDataServiceServer).GetAuthenticatedData(ctx, req.(*GetAuthenticatedDataRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccessControlProfileIdService_GetId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIdRequest)
+func _ResultDataService_GetEntry_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEntryRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccessControlProfileIdServiceServer).GetId(ctx, in)
+		return srv.(ResultDataServiceServer).GetEntry(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AccessControlProfileIdService_GetId_FullMethodName,
+		FullMethod: ResultDataService_GetEntry_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccessControlProfileIdServiceServer).GetId(ctx, req.(*GetIdRequest))
+		return srv.(ResultDataServiceServer).GetEntry(ctx, req.(*GetEntryRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// AccessControlProfileIdService_ServiceDesc is the grpc.ServiceDesc for AccessControlProfileIdService service.
+func _ResultDataService_GetEntryNames_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEntryNamesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResultDataServiceServer).GetEntryNames(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResultDataService_GetEntryNames_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResultDataServiceServer).GetEntryNames(ctx, req.(*GetEntryNamesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResultDataService_GetMessageAuthenticationCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMessageAuthenticationCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResultDataServiceServer).GetMessageAuthenticationCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResultDataService_GetMessageAuthenticationCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResultDataServiceServer).GetMessageAuthenticationCode(ctx, req.(*GetMessageAuthenticationCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResultDataService_GetNamespaces_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNamespacesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResultDataServiceServer).GetNamespaces(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResultDataService_GetNamespaces_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResultDataServiceServer).GetNamespaces(ctx, req.(*GetNamespacesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResultDataService_GetRetrievedEntryNames_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRetrievedEntryNamesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResultDataServiceServer).GetRetrievedEntryNames(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResultDataService_GetRetrievedEntryNames_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResultDataServiceServer).GetRetrievedEntryNames(ctx, req.(*GetRetrievedEntryNamesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResultDataService_GetStaticAuthenticationData_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStaticAuthenticationDataRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResultDataServiceServer).GetStaticAuthenticationData(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResultDataService_GetStaticAuthenticationData_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResultDataServiceServer).GetStaticAuthenticationData(ctx, req.(*GetStaticAuthenticationDataRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResultDataService_GetStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStatusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResultDataServiceServer).GetStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResultDataService_GetStatus_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResultDataServiceServer).GetStatus(ctx, req.(*GetStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ResultDataService_ServiceDesc is the grpc.ServiceDesc for ResultDataService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var AccessControlProfileIdService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "identity.AccessControlProfileIdService",
-	HandlerType: (*AccessControlProfileIdServiceServer)(nil),
+var ResultDataService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "identity.ResultDataService",
+	HandlerType: (*ResultDataServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "NewAccessControlProfileId",
-			Handler:    _AccessControlProfileIdService_NewAccessControlProfileId_Handler,
+			MethodName: "GetAuthenticatedData",
+			Handler:    _ResultDataService_GetAuthenticatedData_Handler,
 		},
 		{
-			MethodName: "GetId",
-			Handler:    _AccessControlProfileIdService_GetId_Handler,
+			MethodName: "GetEntry",
+			Handler:    _ResultDataService_GetEntry_Handler,
+		},
+		{
+			MethodName: "GetEntryNames",
+			Handler:    _ResultDataService_GetEntryNames_Handler,
+		},
+		{
+			MethodName: "GetMessageAuthenticationCode",
+			Handler:    _ResultDataService_GetMessageAuthenticationCode_Handler,
+		},
+		{
+			MethodName: "GetNamespaces",
+			Handler:    _ResultDataService_GetNamespaces_Handler,
+		},
+		{
+			MethodName: "GetRetrievedEntryNames",
+			Handler:    _ResultDataService_GetRetrievedEntryNames_Handler,
+		},
+		{
+			MethodName: "GetStaticAuthenticationData",
+			Handler:    _ResultDataService_GetStaticAuthenticationData_Handler,
+		},
+		{
+			MethodName: "GetStatus",
+			Handler:    _ResultDataService_GetStatus_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/identity/identity.proto",
+}
+
+const (
+	WritableIdentityCredentialService_GetCredentialKeyCertificateChain_FullMethodName = "/identity.WritableIdentityCredentialService/GetCredentialKeyCertificateChain"
+	WritableIdentityCredentialService_Personalize_FullMethodName                      = "/identity.WritableIdentityCredentialService/Personalize"
+)
+
+// WritableIdentityCredentialServiceClient is the client API for WritableIdentityCredentialService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type WritableIdentityCredentialServiceClient interface {
+	GetCredentialKeyCertificateChain(ctx context.Context, in *WritableIdentityCredentialGetCredentialKeyCertificateChainRequest, opts ...grpc.CallOption) (*GetCredentialKeyCertificateChainResponse, error)
+	Personalize(ctx context.Context, in *PersonalizeRequest, opts ...grpc.CallOption) (*PersonalizeResponse, error)
+}
+
+type writableIdentityCredentialServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewWritableIdentityCredentialServiceClient(cc grpc.ClientConnInterface) WritableIdentityCredentialServiceClient {
+	return &writableIdentityCredentialServiceClient{cc}
+}
+
+func (c *writableIdentityCredentialServiceClient) GetCredentialKeyCertificateChain(ctx context.Context, in *WritableIdentityCredentialGetCredentialKeyCertificateChainRequest, opts ...grpc.CallOption) (*GetCredentialKeyCertificateChainResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCredentialKeyCertificateChainResponse)
+	err := c.cc.Invoke(ctx, WritableIdentityCredentialService_GetCredentialKeyCertificateChain_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *writableIdentityCredentialServiceClient) Personalize(ctx context.Context, in *PersonalizeRequest, opts ...grpc.CallOption) (*PersonalizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PersonalizeResponse)
+	err := c.cc.Invoke(ctx, WritableIdentityCredentialService_Personalize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// WritableIdentityCredentialServiceServer is the server API for WritableIdentityCredentialService service.
+// All implementations must embed UnimplementedWritableIdentityCredentialServiceServer
+// for forward compatibility.
+type WritableIdentityCredentialServiceServer interface {
+	GetCredentialKeyCertificateChain(context.Context, *WritableIdentityCredentialGetCredentialKeyCertificateChainRequest) (*GetCredentialKeyCertificateChainResponse, error)
+	Personalize(context.Context, *PersonalizeRequest) (*PersonalizeResponse, error)
+	mustEmbedUnimplementedWritableIdentityCredentialServiceServer()
+}
+
+// UnimplementedWritableIdentityCredentialServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedWritableIdentityCredentialServiceServer struct{}
+
+func (UnimplementedWritableIdentityCredentialServiceServer) GetCredentialKeyCertificateChain(context.Context, *WritableIdentityCredentialGetCredentialKeyCertificateChainRequest) (*GetCredentialKeyCertificateChainResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCredentialKeyCertificateChain not implemented")
+}
+func (UnimplementedWritableIdentityCredentialServiceServer) Personalize(context.Context, *PersonalizeRequest) (*PersonalizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Personalize not implemented")
+}
+func (UnimplementedWritableIdentityCredentialServiceServer) mustEmbedUnimplementedWritableIdentityCredentialServiceServer() {
+}
+func (UnimplementedWritableIdentityCredentialServiceServer) testEmbeddedByValue() {}
+
+// UnsafeWritableIdentityCredentialServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to WritableIdentityCredentialServiceServer will
+// result in compilation errors.
+type UnsafeWritableIdentityCredentialServiceServer interface {
+	mustEmbedUnimplementedWritableIdentityCredentialServiceServer()
+}
+
+func RegisterWritableIdentityCredentialServiceServer(s grpc.ServiceRegistrar, srv WritableIdentityCredentialServiceServer) {
+	// If the following call panics, it indicates UnimplementedWritableIdentityCredentialServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&WritableIdentityCredentialService_ServiceDesc, srv)
+}
+
+func _WritableIdentityCredentialService_GetCredentialKeyCertificateChain_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WritableIdentityCredentialGetCredentialKeyCertificateChainRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WritableIdentityCredentialServiceServer).GetCredentialKeyCertificateChain(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WritableIdentityCredentialService_GetCredentialKeyCertificateChain_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WritableIdentityCredentialServiceServer).GetCredentialKeyCertificateChain(ctx, req.(*WritableIdentityCredentialGetCredentialKeyCertificateChainRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _WritableIdentityCredentialService_Personalize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PersonalizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(WritableIdentityCredentialServiceServer).Personalize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: WritableIdentityCredentialService_Personalize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(WritableIdentityCredentialServiceServer).Personalize(ctx, req.(*PersonalizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// WritableIdentityCredentialService_ServiceDesc is the grpc.ServiceDesc for WritableIdentityCredentialService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var WritableIdentityCredentialService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "identity.WritableIdentityCredentialService",
+	HandlerType: (*WritableIdentityCredentialServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetCredentialKeyCertificateChain",
+			Handler:    _WritableIdentityCredentialService_GetCredentialKeyCertificateChain_Handler,
+		},
+		{
+			MethodName: "Personalize",
+			Handler:    _WritableIdentityCredentialService_Personalize_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/identity/identity.proto",
+}
+
+const (
+	CredentialDataRequestService_GetReaderSignature_FullMethodName        = "/identity.CredentialDataRequestService/GetReaderSignature"
+	CredentialDataRequestService_GetRequestMessage_FullMethodName         = "/identity.CredentialDataRequestService/GetRequestMessage"
+	CredentialDataRequestService_IsAllowUsingExhaustedKeys_FullMethodName = "/identity.CredentialDataRequestService/IsAllowUsingExhaustedKeys"
+	CredentialDataRequestService_IsAllowUsingExpiredKeys_FullMethodName   = "/identity.CredentialDataRequestService/IsAllowUsingExpiredKeys"
+	CredentialDataRequestService_IsIncrementUseCount_FullMethodName       = "/identity.CredentialDataRequestService/IsIncrementUseCount"
+)
+
+// CredentialDataRequestServiceClient is the client API for CredentialDataRequestService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CredentialDataRequestServiceClient interface {
+	GetReaderSignature(ctx context.Context, in *GetReaderSignatureRequest, opts ...grpc.CallOption) (*GetReaderSignatureResponse, error)
+	GetRequestMessage(ctx context.Context, in *GetRequestMessageRequest, opts ...grpc.CallOption) (*GetRequestMessageResponse, error)
+	IsAllowUsingExhaustedKeys(ctx context.Context, in *IsAllowUsingExhaustedKeysRequest, opts ...grpc.CallOption) (*IsAllowUsingExhaustedKeysResponse, error)
+	IsAllowUsingExpiredKeys(ctx context.Context, in *IsAllowUsingExpiredKeysRequest, opts ...grpc.CallOption) (*IsAllowUsingExpiredKeysResponse, error)
+	IsIncrementUseCount(ctx context.Context, in *IsIncrementUseCountRequest, opts ...grpc.CallOption) (*IsIncrementUseCountResponse, error)
+}
+
+type credentialDataRequestServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCredentialDataRequestServiceClient(cc grpc.ClientConnInterface) CredentialDataRequestServiceClient {
+	return &credentialDataRequestServiceClient{cc}
+}
+
+func (c *credentialDataRequestServiceClient) GetReaderSignature(ctx context.Context, in *GetReaderSignatureRequest, opts ...grpc.CallOption) (*GetReaderSignatureResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetReaderSignatureResponse)
+	err := c.cc.Invoke(ctx, CredentialDataRequestService_GetReaderSignature_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialDataRequestServiceClient) GetRequestMessage(ctx context.Context, in *GetRequestMessageRequest, opts ...grpc.CallOption) (*GetRequestMessageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRequestMessageResponse)
+	err := c.cc.Invoke(ctx, CredentialDataRequestService_GetRequestMessage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialDataRequestServiceClient) IsAllowUsingExhaustedKeys(ctx context.Context, in *IsAllowUsingExhaustedKeysRequest, opts ...grpc.CallOption) (*IsAllowUsingExhaustedKeysResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsAllowUsingExhaustedKeysResponse)
+	err := c.cc.Invoke(ctx, CredentialDataRequestService_IsAllowUsingExhaustedKeys_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialDataRequestServiceClient) IsAllowUsingExpiredKeys(ctx context.Context, in *IsAllowUsingExpiredKeysRequest, opts ...grpc.CallOption) (*IsAllowUsingExpiredKeysResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsAllowUsingExpiredKeysResponse)
+	err := c.cc.Invoke(ctx, CredentialDataRequestService_IsAllowUsingExpiredKeys_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialDataRequestServiceClient) IsIncrementUseCount(ctx context.Context, in *IsIncrementUseCountRequest, opts ...grpc.CallOption) (*IsIncrementUseCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsIncrementUseCountResponse)
+	err := c.cc.Invoke(ctx, CredentialDataRequestService_IsIncrementUseCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CredentialDataRequestServiceServer is the server API for CredentialDataRequestService service.
+// All implementations must embed UnimplementedCredentialDataRequestServiceServer
+// for forward compatibility.
+type CredentialDataRequestServiceServer interface {
+	GetReaderSignature(context.Context, *GetReaderSignatureRequest) (*GetReaderSignatureResponse, error)
+	GetRequestMessage(context.Context, *GetRequestMessageRequest) (*GetRequestMessageResponse, error)
+	IsAllowUsingExhaustedKeys(context.Context, *IsAllowUsingExhaustedKeysRequest) (*IsAllowUsingExhaustedKeysResponse, error)
+	IsAllowUsingExpiredKeys(context.Context, *IsAllowUsingExpiredKeysRequest) (*IsAllowUsingExpiredKeysResponse, error)
+	IsIncrementUseCount(context.Context, *IsIncrementUseCountRequest) (*IsIncrementUseCountResponse, error)
+	mustEmbedUnimplementedCredentialDataRequestServiceServer()
+}
+
+// UnimplementedCredentialDataRequestServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCredentialDataRequestServiceServer struct{}
+
+func (UnimplementedCredentialDataRequestServiceServer) GetReaderSignature(context.Context, *GetReaderSignatureRequest) (*GetReaderSignatureResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetReaderSignature not implemented")
+}
+func (UnimplementedCredentialDataRequestServiceServer) GetRequestMessage(context.Context, *GetRequestMessageRequest) (*GetRequestMessageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRequestMessage not implemented")
+}
+func (UnimplementedCredentialDataRequestServiceServer) IsAllowUsingExhaustedKeys(context.Context, *IsAllowUsingExhaustedKeysRequest) (*IsAllowUsingExhaustedKeysResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsAllowUsingExhaustedKeys not implemented")
+}
+func (UnimplementedCredentialDataRequestServiceServer) IsAllowUsingExpiredKeys(context.Context, *IsAllowUsingExpiredKeysRequest) (*IsAllowUsingExpiredKeysResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsAllowUsingExpiredKeys not implemented")
+}
+func (UnimplementedCredentialDataRequestServiceServer) IsIncrementUseCount(context.Context, *IsIncrementUseCountRequest) (*IsIncrementUseCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsIncrementUseCount not implemented")
+}
+func (UnimplementedCredentialDataRequestServiceServer) mustEmbedUnimplementedCredentialDataRequestServiceServer() {
+}
+func (UnimplementedCredentialDataRequestServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCredentialDataRequestServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CredentialDataRequestServiceServer will
+// result in compilation errors.
+type UnsafeCredentialDataRequestServiceServer interface {
+	mustEmbedUnimplementedCredentialDataRequestServiceServer()
+}
+
+func RegisterCredentialDataRequestServiceServer(s grpc.ServiceRegistrar, srv CredentialDataRequestServiceServer) {
+	// If the following call panics, it indicates UnimplementedCredentialDataRequestServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CredentialDataRequestService_ServiceDesc, srv)
+}
+
+func _CredentialDataRequestService_GetReaderSignature_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetReaderSignatureRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialDataRequestServiceServer).GetReaderSignature(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialDataRequestService_GetReaderSignature_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialDataRequestServiceServer).GetReaderSignature(ctx, req.(*GetReaderSignatureRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialDataRequestService_GetRequestMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRequestMessageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialDataRequestServiceServer).GetRequestMessage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialDataRequestService_GetRequestMessage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialDataRequestServiceServer).GetRequestMessage(ctx, req.(*GetRequestMessageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialDataRequestService_IsAllowUsingExhaustedKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsAllowUsingExhaustedKeysRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialDataRequestServiceServer).IsAllowUsingExhaustedKeys(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialDataRequestService_IsAllowUsingExhaustedKeys_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialDataRequestServiceServer).IsAllowUsingExhaustedKeys(ctx, req.(*IsAllowUsingExhaustedKeysRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialDataRequestService_IsAllowUsingExpiredKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsAllowUsingExpiredKeysRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialDataRequestServiceServer).IsAllowUsingExpiredKeys(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialDataRequestService_IsAllowUsingExpiredKeys_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialDataRequestServiceServer).IsAllowUsingExpiredKeys(ctx, req.(*IsAllowUsingExpiredKeysRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialDataRequestService_IsIncrementUseCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsIncrementUseCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialDataRequestServiceServer).IsIncrementUseCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialDataRequestService_IsIncrementUseCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialDataRequestServiceServer).IsIncrementUseCount(ctx, req.(*IsIncrementUseCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CredentialDataRequestService_ServiceDesc is the grpc.ServiceDesc for CredentialDataRequestService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CredentialDataRequestService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "identity.CredentialDataRequestService",
+	HandlerType: (*CredentialDataRequestServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetReaderSignature",
+			Handler:    _CredentialDataRequestService_GetReaderSignature_Handler,
+		},
+		{
+			MethodName: "GetRequestMessage",
+			Handler:    _CredentialDataRequestService_GetRequestMessage_Handler,
+		},
+		{
+			MethodName: "IsAllowUsingExhaustedKeys",
+			Handler:    _CredentialDataRequestService_IsAllowUsingExhaustedKeys_Handler,
+		},
+		{
+			MethodName: "IsAllowUsingExpiredKeys",
+			Handler:    _CredentialDataRequestService_IsAllowUsingExpiredKeys_Handler,
+		},
+		{
+			MethodName: "IsIncrementUseCount",
+			Handler:    _CredentialDataRequestService_IsIncrementUseCount_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/identity/identity.proto",
+}
+
+const (
+	CredentialDataRequestBuilderService_Build_FullMethodName                      = "/identity.CredentialDataRequestBuilderService/Build"
+	CredentialDataRequestBuilderService_SetAllowUsingExhaustedKeys_FullMethodName = "/identity.CredentialDataRequestBuilderService/SetAllowUsingExhaustedKeys"
+	CredentialDataRequestBuilderService_SetAllowUsingExpiredKeys_FullMethodName   = "/identity.CredentialDataRequestBuilderService/SetAllowUsingExpiredKeys"
+	CredentialDataRequestBuilderService_SetIncrementUseCount_FullMethodName       = "/identity.CredentialDataRequestBuilderService/SetIncrementUseCount"
+	CredentialDataRequestBuilderService_SetReaderSignature_FullMethodName         = "/identity.CredentialDataRequestBuilderService/SetReaderSignature"
+	CredentialDataRequestBuilderService_SetRequestMessage_FullMethodName          = "/identity.CredentialDataRequestBuilderService/SetRequestMessage"
+)
+
+// CredentialDataRequestBuilderServiceClient is the client API for CredentialDataRequestBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CredentialDataRequestBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetAllowUsingExhaustedKeys(ctx context.Context, in *SetAllowUsingExhaustedKeysRequest, opts ...grpc.CallOption) (*CredentialDataRequestBuilderSetAllowUsingExhaustedKeysResponse, error)
+	SetAllowUsingExpiredKeys(ctx context.Context, in *SetAllowUsingExpiredKeysRequest, opts ...grpc.CallOption) (*CredentialDataRequestBuilderSetAllowUsingExpiredKeysResponse, error)
+	SetIncrementUseCount(ctx context.Context, in *SetIncrementUseCountRequest, opts ...grpc.CallOption) (*SetIncrementUseCountResponse, error)
+	SetReaderSignature(ctx context.Context, in *SetReaderSignatureRequest, opts ...grpc.CallOption) (*SetReaderSignatureResponse, error)
+	SetRequestMessage(ctx context.Context, in *SetRequestMessageRequest, opts ...grpc.CallOption) (*SetRequestMessageResponse, error)
+}
+
+type credentialDataRequestBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCredentialDataRequestBuilderServiceClient(cc grpc.ClientConnInterface) CredentialDataRequestBuilderServiceClient {
+	return &credentialDataRequestBuilderServiceClient{cc}
+}
+
+func (c *credentialDataRequestBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, CredentialDataRequestBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialDataRequestBuilderServiceClient) SetAllowUsingExhaustedKeys(ctx context.Context, in *SetAllowUsingExhaustedKeysRequest, opts ...grpc.CallOption) (*CredentialDataRequestBuilderSetAllowUsingExhaustedKeysResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CredentialDataRequestBuilderSetAllowUsingExhaustedKeysResponse)
+	err := c.cc.Invoke(ctx, CredentialDataRequestBuilderService_SetAllowUsingExhaustedKeys_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialDataRequestBuilderServiceClient) SetAllowUsingExpiredKeys(ctx context.Context, in *SetAllowUsingExpiredKeysRequest, opts ...grpc.CallOption) (*CredentialDataRequestBuilderSetAllowUsingExpiredKeysResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CredentialDataRequestBuilderSetAllowUsingExpiredKeysResponse)
+	err := c.cc.Invoke(ctx, CredentialDataRequestBuilderService_SetAllowUsingExpiredKeys_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialDataRequestBuilderServiceClient) SetIncrementUseCount(ctx context.Context, in *SetIncrementUseCountRequest, opts ...grpc.CallOption) (*SetIncrementUseCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetIncrementUseCountResponse)
+	err := c.cc.Invoke(ctx, CredentialDataRequestBuilderService_SetIncrementUseCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialDataRequestBuilderServiceClient) SetReaderSignature(ctx context.Context, in *SetReaderSignatureRequest, opts ...grpc.CallOption) (*SetReaderSignatureResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetReaderSignatureResponse)
+	err := c.cc.Invoke(ctx, CredentialDataRequestBuilderService_SetReaderSignature_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *credentialDataRequestBuilderServiceClient) SetRequestMessage(ctx context.Context, in *SetRequestMessageRequest, opts ...grpc.CallOption) (*SetRequestMessageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetRequestMessageResponse)
+	err := c.cc.Invoke(ctx, CredentialDataRequestBuilderService_SetRequestMessage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CredentialDataRequestBuilderServiceServer is the server API for CredentialDataRequestBuilderService service.
+// All implementations must embed UnimplementedCredentialDataRequestBuilderServiceServer
+// for forward compatibility.
+type CredentialDataRequestBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetAllowUsingExhaustedKeys(context.Context, *SetAllowUsingExhaustedKeysRequest) (*CredentialDataRequestBuilderSetAllowUsingExhaustedKeysResponse, error)
+	SetAllowUsingExpiredKeys(context.Context, *SetAllowUsingExpiredKeysRequest) (*CredentialDataRequestBuilderSetAllowUsingExpiredKeysResponse, error)
+	SetIncrementUseCount(context.Context, *SetIncrementUseCountRequest) (*SetIncrementUseCountResponse, error)
+	SetReaderSignature(context.Context, *SetReaderSignatureRequest) (*SetReaderSignatureResponse, error)
+	SetRequestMessage(context.Context, *SetRequestMessageRequest) (*SetRequestMessageResponse, error)
+	mustEmbedUnimplementedCredentialDataRequestBuilderServiceServer()
+}
+
+// UnimplementedCredentialDataRequestBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedCredentialDataRequestBuilderServiceServer struct{}
+
+func (UnimplementedCredentialDataRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedCredentialDataRequestBuilderServiceServer) SetAllowUsingExhaustedKeys(context.Context, *SetAllowUsingExhaustedKeysRequest) (*CredentialDataRequestBuilderSetAllowUsingExhaustedKeysResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAllowUsingExhaustedKeys not implemented")
+}
+func (UnimplementedCredentialDataRequestBuilderServiceServer) SetAllowUsingExpiredKeys(context.Context, *SetAllowUsingExpiredKeysRequest) (*CredentialDataRequestBuilderSetAllowUsingExpiredKeysResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAllowUsingExpiredKeys not implemented")
+}
+func (UnimplementedCredentialDataRequestBuilderServiceServer) SetIncrementUseCount(context.Context, *SetIncrementUseCountRequest) (*SetIncrementUseCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetIncrementUseCount not implemented")
+}
+func (UnimplementedCredentialDataRequestBuilderServiceServer) SetReaderSignature(context.Context, *SetReaderSignatureRequest) (*SetReaderSignatureResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetReaderSignature not implemented")
+}
+func (UnimplementedCredentialDataRequestBuilderServiceServer) SetRequestMessage(context.Context, *SetRequestMessageRequest) (*SetRequestMessageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetRequestMessage not implemented")
+}
+func (UnimplementedCredentialDataRequestBuilderServiceServer) mustEmbedUnimplementedCredentialDataRequestBuilderServiceServer() {
+}
+func (UnimplementedCredentialDataRequestBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeCredentialDataRequestBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CredentialDataRequestBuilderServiceServer will
+// result in compilation errors.
+type UnsafeCredentialDataRequestBuilderServiceServer interface {
+	mustEmbedUnimplementedCredentialDataRequestBuilderServiceServer()
+}
+
+func RegisterCredentialDataRequestBuilderServiceServer(s grpc.ServiceRegistrar, srv CredentialDataRequestBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedCredentialDataRequestBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&CredentialDataRequestBuilderService_ServiceDesc, srv)
+}
+
+func _CredentialDataRequestBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialDataRequestBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialDataRequestBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialDataRequestBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialDataRequestBuilderService_SetAllowUsingExhaustedKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAllowUsingExhaustedKeysRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialDataRequestBuilderServiceServer).SetAllowUsingExhaustedKeys(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialDataRequestBuilderService_SetAllowUsingExhaustedKeys_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialDataRequestBuilderServiceServer).SetAllowUsingExhaustedKeys(ctx, req.(*SetAllowUsingExhaustedKeysRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialDataRequestBuilderService_SetAllowUsingExpiredKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAllowUsingExpiredKeysRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialDataRequestBuilderServiceServer).SetAllowUsingExpiredKeys(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialDataRequestBuilderService_SetAllowUsingExpiredKeys_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialDataRequestBuilderServiceServer).SetAllowUsingExpiredKeys(ctx, req.(*SetAllowUsingExpiredKeysRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialDataRequestBuilderService_SetIncrementUseCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetIncrementUseCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialDataRequestBuilderServiceServer).SetIncrementUseCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialDataRequestBuilderService_SetIncrementUseCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialDataRequestBuilderServiceServer).SetIncrementUseCount(ctx, req.(*SetIncrementUseCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialDataRequestBuilderService_SetReaderSignature_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetReaderSignatureRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialDataRequestBuilderServiceServer).SetReaderSignature(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialDataRequestBuilderService_SetReaderSignature_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialDataRequestBuilderServiceServer).SetReaderSignature(ctx, req.(*SetReaderSignatureRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CredentialDataRequestBuilderService_SetRequestMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetRequestMessageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CredentialDataRequestBuilderServiceServer).SetRequestMessage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CredentialDataRequestBuilderService_SetRequestMessage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CredentialDataRequestBuilderServiceServer).SetRequestMessage(ctx, req.(*SetRequestMessageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CredentialDataRequestBuilderService_ServiceDesc is the grpc.ServiceDesc for CredentialDataRequestBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CredentialDataRequestBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "identity.CredentialDataRequestBuilderService",
+	HandlerType: (*CredentialDataRequestBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _CredentialDataRequestBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetAllowUsingExhaustedKeys",
+			Handler:    _CredentialDataRequestBuilderService_SetAllowUsingExhaustedKeys_Handler,
+		},
+		{
+			MethodName: "SetAllowUsingExpiredKeys",
+			Handler:    _CredentialDataRequestBuilderService_SetAllowUsingExpiredKeys_Handler,
+		},
+		{
+			MethodName: "SetIncrementUseCount",
+			Handler:    _CredentialDataRequestBuilderService_SetIncrementUseCount_Handler,
+		},
+		{
+			MethodName: "SetReaderSignature",
+			Handler:    _CredentialDataRequestBuilderService_SetReaderSignature_Handler,
+		},
+		{
+			MethodName: "SetRequestMessage",
+			Handler:    _CredentialDataRequestBuilderService_SetRequestMessage_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -9,576 +9,6 @@ import (
 	"google.golang.org/grpc"
 )
 
-// SQLiteRawStatementClient wraps the gRPC SQLiteRawStatementService client.
-type SQLiteRawStatementClient struct {
-	svc pb.SQLiteRawStatementServiceClient
-}
-
-// NewSQLiteRawStatementClient creates a new SQLiteRawStatement client.
-func NewSQLiteRawStatementClient(cc grpc.ClientConnInterface) *SQLiteRawStatementClient {
-	return &SQLiteRawStatementClient{
-		svc: pb.NewSQLiteRawStatementServiceClient(cc),
-	}
-}
-
-// BindBlob2 calls the BindBlob2 RPC.
-func (c *SQLiteRawStatementClient) BindBlob2(ctx context.Context, arg0 int32, arg1 int64) error {
-	_, err := c.svc.BindBlob2(ctx, &pb.BindBlob2Request{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// BindBlob4_1 calls the BindBlob4_1 RPC.
-func (c *SQLiteRawStatementClient) BindBlob4_1(ctx context.Context, arg0 int32, arg1 int64, arg2 int32, arg3 int32) error {
-	_, err := c.svc.BindBlob4_1(ctx, &pb.BindBlob4_1Request{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-	})
-	return err
-}
-
-// BindDouble calls the BindDouble RPC.
-func (c *SQLiteRawStatementClient) BindDouble(ctx context.Context, arg0 int32, arg1 float64) error {
-	_, err := c.svc.BindDouble(ctx, &pb.BindDoubleRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// BindInt calls the BindInt RPC.
-func (c *SQLiteRawStatementClient) BindInt(ctx context.Context, arg0 int32, arg1 int32) error {
-	_, err := c.svc.BindInt(ctx, &pb.BindIntRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// BindLong calls the BindLong RPC.
-func (c *SQLiteRawStatementClient) BindLong(ctx context.Context, arg0 int32, arg1 int64) error {
-	_, err := c.svc.BindLong(ctx, &pb.BindLongRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// BindNull calls the BindNull RPC.
-func (c *SQLiteRawStatementClient) BindNull(ctx context.Context, arg0 int32) error {
-	_, err := c.svc.BindNull(ctx, &pb.BindNullRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// BindText calls the BindText RPC.
-func (c *SQLiteRawStatementClient) BindText(ctx context.Context, arg0 int32, arg1 string) error {
-	_, err := c.svc.BindText(ctx, &pb.BindTextRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// ClearBindings calls the ClearBindings RPC.
-func (c *SQLiteRawStatementClient) ClearBindings(ctx context.Context) error {
-	_, err := c.svc.ClearBindings(ctx, &pb.ClearBindingsRequest{})
-	return err
-}
-
-// Close calls the Close RPC.
-func (c *SQLiteRawStatementClient) Close(ctx context.Context) error {
-	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
-	return err
-}
-
-// GetColumnBlob calls the GetColumnBlob RPC.
-func (c *SQLiteRawStatementClient) GetColumnBlob(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetColumnBlob(ctx, &pb.GetColumnBlobRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetColumnDouble calls the GetColumnDouble RPC.
-func (c *SQLiteRawStatementClient) GetColumnDouble(ctx context.Context, arg0 int32) (float64, error) {
-	resp, err := c.svc.GetColumnDouble(ctx, &pb.GetColumnDoubleRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetColumnInt calls the GetColumnInt RPC.
-func (c *SQLiteRawStatementClient) GetColumnInt(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetColumnInt(ctx, &pb.GetColumnIntRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetColumnLength calls the GetColumnLength RPC.
-func (c *SQLiteRawStatementClient) GetColumnLength(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetColumnLength(ctx, &pb.GetColumnLengthRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetColumnLong calls the GetColumnLong RPC.
-func (c *SQLiteRawStatementClient) GetColumnLong(ctx context.Context, arg0 int32) (int64, error) {
-	resp, err := c.svc.GetColumnLong(ctx, &pb.GetColumnLongRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetColumnName calls the GetColumnName RPC.
-func (c *SQLiteRawStatementClient) GetColumnName(ctx context.Context, arg0 int32) (string, error) {
-	resp, err := c.svc.GetColumnName(ctx, &pb.GetColumnNameRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetColumnText calls the GetColumnText RPC.
-func (c *SQLiteRawStatementClient) GetColumnText(ctx context.Context, arg0 int32) (string, error) {
-	resp, err := c.svc.GetColumnText(ctx, &pb.GetColumnTextRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetColumnType calls the GetColumnType RPC.
-func (c *SQLiteRawStatementClient) GetColumnType(ctx context.Context, arg0 int32) (int32, error) {
-	resp, err := c.svc.GetColumnType(ctx, &pb.GetColumnTypeRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetParameterCount calls the GetParameterCount RPC.
-func (c *SQLiteRawStatementClient) GetParameterCount(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetParameterCount(ctx, &pb.GetParameterCountRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetParameterIndex calls the GetParameterIndex RPC.
-func (c *SQLiteRawStatementClient) GetParameterIndex(ctx context.Context, arg0 string) (int32, error) {
-	resp, err := c.svc.GetParameterIndex(ctx, &pb.GetParameterIndexRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetParameterName calls the GetParameterName RPC.
-func (c *SQLiteRawStatementClient) GetParameterName(ctx context.Context, arg0 int32) (string, error) {
-	resp, err := c.svc.GetParameterName(ctx, &pb.GetParameterNameRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetResultColumnCount calls the GetResultColumnCount RPC.
-func (c *SQLiteRawStatementClient) GetResultColumnCount(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetResultColumnCount(ctx, &pb.GetResultColumnCountRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// IsOpen calls the IsOpen RPC.
-func (c *SQLiteRawStatementClient) IsOpen(ctx context.Context) (bool, error) {
-	resp, err := c.svc.IsOpen(ctx, &pb.IsOpenRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ReadColumnBlob calls the ReadColumnBlob RPC.
-func (c *SQLiteRawStatementClient) ReadColumnBlob(ctx context.Context, arg0 int32, arg1 int64, arg2 int32, arg3 int32, arg4 int32) (int32, error) {
-	resp, err := c.svc.ReadColumnBlob(ctx, &pb.ReadColumnBlobRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Reset calls the Reset RPC.
-func (c *SQLiteRawStatementClient) Reset(ctx context.Context) error {
-	_, err := c.svc.Reset(ctx, &pb.ResetRequest{})
-	return err
-}
-
-// Step calls the Step RPC.
-func (c *SQLiteRawStatementClient) Step(ctx context.Context) (bool, error) {
-	resp, err := c.svc.Step(ctx, &pb.StepRequest{})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *SQLiteRawStatementClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// SQLiteCursorClient wraps the gRPC SQLiteCursorService client.
-type SQLiteCursorClient struct {
-	svc pb.SQLiteCursorServiceClient
-}
-
-// NewSQLiteCursorClient creates a new SQLiteCursor client.
-func NewSQLiteCursorClient(cc grpc.ClientConnInterface) *SQLiteCursorClient {
-	return &SQLiteCursorClient{
-		svc: pb.NewSQLiteCursorServiceClient(cc),
-	}
-}
-
-// Close calls the Close RPC.
-func (c *SQLiteCursorClient) Close(ctx context.Context, handle int64) error {
-	_, err := c.svc.Close(ctx, &pb.SQLiteCursorCloseRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// Deactivate calls the Deactivate RPC.
-func (c *SQLiteCursorClient) Deactivate(ctx context.Context, handle int64) error {
-	_, err := c.svc.Deactivate(ctx, &pb.DeactivateRequest{
-		Handle: handle,
-	})
-	return err
-}
-
-// GetColumnIndex calls the GetColumnIndex RPC.
-func (c *SQLiteCursorClient) GetColumnIndex(ctx context.Context, handle int64, arg0 string) (int32, error) {
-	resp, err := c.svc.GetColumnIndex(ctx, &pb.GetColumnIndexRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetColumnNames calls the GetColumnNames RPC.
-func (c *SQLiteCursorClient) GetColumnNames(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetColumnNames(ctx, &pb.GetColumnNamesRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetCount calls the GetCount RPC.
-func (c *SQLiteCursorClient) GetCount(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetCount(ctx, &pb.GetCountRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDatabase calls the GetDatabase RPC.
-func (c *SQLiteCursorClient) GetDatabase(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetDatabase(ctx, &pb.GetDatabaseRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnMove calls the OnMove RPC.
-func (c *SQLiteCursorClient) OnMove(ctx context.Context, handle int64, arg0 int32, arg1 int32) (bool, error) {
-	resp, err := c.svc.OnMove(ctx, &pb.OnMoveRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// Requery calls the Requery RPC.
-func (c *SQLiteCursorClient) Requery(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.Requery(ctx, &pb.RequeryRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetFillWindowForwardOnly calls the SetFillWindowForwardOnly RPC.
-func (c *SQLiteCursorClient) SetFillWindowForwardOnly(ctx context.Context, handle int64, arg0 bool) error {
-	_, err := c.svc.SetFillWindowForwardOnly(ctx, &pb.SetFillWindowForwardOnlyRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetSelectionArguments calls the SetSelectionArguments RPC.
-func (c *SQLiteCursorClient) SetSelectionArguments(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetSelectionArguments(ctx, &pb.SetSelectionArgumentsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SetWindow calls the SetWindow RPC.
-func (c *SQLiteCursorClient) SetWindow(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.SetWindow(ctx, &pb.SetWindowRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// SQLiteClosableClient wraps the gRPC SQLiteClosableService client.
-type SQLiteClosableClient struct {
-	svc pb.SQLiteClosableServiceClient
-}
-
-// NewSQLiteClosableClient creates a new SQLiteClosable client.
-func NewSQLiteClosableClient(cc grpc.ClientConnInterface) *SQLiteClosableClient {
-	return &SQLiteClosableClient{
-		svc: pb.NewSQLiteClosableServiceClient(cc),
-	}
-}
-
-// AcquireReference calls the AcquireReference RPC.
-func (c *SQLiteClosableClient) AcquireReference(ctx context.Context) error {
-	_, err := c.svc.AcquireReference(ctx, &pb.AcquireReferenceRequest{})
-	return err
-}
-
-// Close calls the Close RPC.
-func (c *SQLiteClosableClient) Close(ctx context.Context) error {
-	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
-	return err
-}
-
-// ReleaseReference calls the ReleaseReference RPC.
-func (c *SQLiteClosableClient) ReleaseReference(ctx context.Context) error {
-	_, err := c.svc.ReleaseReference(ctx, &pb.ReleaseReferenceRequest{})
-	return err
-}
-
-// ReleaseReferenceFromContainer calls the ReleaseReferenceFromContainer RPC.
-func (c *SQLiteClosableClient) ReleaseReferenceFromContainer(ctx context.Context) error {
-	_, err := c.svc.ReleaseReferenceFromContainer(ctx, &pb.ReleaseReferenceFromContainerRequest{})
-	return err
-}
-
-// SQLiteTransactionListenerClient wraps the gRPC SQLiteTransactionListenerService client.
-type SQLiteTransactionListenerClient struct {
-	svc pb.SQLiteTransactionListenerServiceClient
-}
-
-// NewSQLiteTransactionListenerClient creates a new SQLiteTransactionListener client.
-func NewSQLiteTransactionListenerClient(cc grpc.ClientConnInterface) *SQLiteTransactionListenerClient {
-	return &SQLiteTransactionListenerClient{
-		svc: pb.NewSQLiteTransactionListenerServiceClient(cc),
-	}
-}
-
-// OnBegin calls the OnBegin RPC.
-func (c *SQLiteTransactionListenerClient) OnBegin(ctx context.Context) error {
-	_, err := c.svc.OnBegin(ctx, &pb.OnBeginRequest{})
-	return err
-}
-
-// OnCommit calls the OnCommit RPC.
-func (c *SQLiteTransactionListenerClient) OnCommit(ctx context.Context) error {
-	_, err := c.svc.OnCommit(ctx, &pb.OnCommitRequest{})
-	return err
-}
-
-// OnRollback calls the OnRollback RPC.
-func (c *SQLiteTransactionListenerClient) OnRollback(ctx context.Context) error {
-	_, err := c.svc.OnRollback(ctx, &pb.OnRollbackRequest{})
-	return err
-}
-
-// SQLiteOpenHelperClient wraps the gRPC SQLiteOpenHelperService client.
-type SQLiteOpenHelperClient struct {
-	svc pb.SQLiteOpenHelperServiceClient
-}
-
-// NewSQLiteOpenHelperClient creates a new SQLiteOpenHelper client.
-func NewSQLiteOpenHelperClient(cc grpc.ClientConnInterface) *SQLiteOpenHelperClient {
-	return &SQLiteOpenHelperClient{
-		svc: pb.NewSQLiteOpenHelperServiceClient(cc),
-	}
-}
-
-// GetDatabaseName calls the GetDatabaseName RPC.
-func (c *SQLiteOpenHelperClient) GetDatabaseName(ctx context.Context) (string, error) {
-	resp, err := c.svc.GetDatabaseName(ctx, &pb.GetDatabaseNameRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetReadableDatabase calls the GetReadableDatabase RPC.
-func (c *SQLiteOpenHelperClient) GetReadableDatabase(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetReadableDatabase(ctx, &pb.GetReadableDatabaseRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetWritableDatabase calls the GetWritableDatabase RPC.
-func (c *SQLiteOpenHelperClient) GetWritableDatabase(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetWritableDatabase(ctx, &pb.GetWritableDatabaseRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnConfigure calls the OnConfigure RPC.
-func (c *SQLiteOpenHelperClient) OnConfigure(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnConfigure(ctx, &pb.OnConfigureRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnCreate calls the OnCreate RPC.
-func (c *SQLiteOpenHelperClient) OnCreate(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnCreate(ctx, &pb.OnCreateRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnDowngrade calls the OnDowngrade RPC.
-func (c *SQLiteOpenHelperClient) OnDowngrade(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) error {
-	_, err := c.svc.OnDowngrade(ctx, &pb.OnDowngradeRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// OnOpen calls the OnOpen RPC.
-func (c *SQLiteOpenHelperClient) OnOpen(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnOpen(ctx, &pb.OnOpenRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// OnUpgrade calls the OnUpgrade RPC.
-func (c *SQLiteOpenHelperClient) OnUpgrade(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) error {
-	_, err := c.svc.OnUpgrade(ctx, &pb.OnUpgradeRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-	})
-	return err
-}
-
-// SetIdleConnectionTimeout calls the SetIdleConnectionTimeout RPC.
-func (c *SQLiteOpenHelperClient) SetIdleConnectionTimeout(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetIdleConnectionTimeout(ctx, &pb.SetIdleConnectionTimeoutRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetLookasideConfig calls the SetLookasideConfig RPC.
-func (c *SQLiteOpenHelperClient) SetLookasideConfig(ctx context.Context, arg0 int32, arg1 int32) error {
-	_, err := c.svc.SetLookasideConfig(ctx, &pb.SetLookasideConfigRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// SetOpenParams calls the SetOpenParams RPC.
-func (c *SQLiteOpenHelperClient) SetOpenParams(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetOpenParams(ctx, &pb.SetOpenParamsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SetWriteAheadLoggingEnabled calls the SetWriteAheadLoggingEnabled RPC.
-func (c *SQLiteOpenHelperClient) SetWriteAheadLoggingEnabled(ctx context.Context, arg0 bool) error {
-	_, err := c.svc.SetWriteAheadLoggingEnabled(ctx, &pb.SetWriteAheadLoggingEnabledRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
 // SQLiteProgramClient wraps the gRPC SQLiteProgramService client.
 type SQLiteProgramClient struct {
 	svc pb.SQLiteProgramServiceClient
@@ -1538,6 +968,721 @@ func (c *SQLiteDatabaseOpenParamsClient) GetSynchronousMode(ctx context.Context)
 	return resp.GetResult(), nil
 }
 
+// SQLiteStatementClient wraps the gRPC SQLiteStatementService client.
+type SQLiteStatementClient struct {
+	svc pb.SQLiteStatementServiceClient
+}
+
+// NewSQLiteStatementClient creates a new SQLiteStatement client.
+func NewSQLiteStatementClient(cc grpc.ClientConnInterface) *SQLiteStatementClient {
+	return &SQLiteStatementClient{
+		svc: pb.NewSQLiteStatementServiceClient(cc),
+	}
+}
+
+// Execute calls the Execute RPC.
+func (c *SQLiteStatementClient) Execute(ctx context.Context) error {
+	_, err := c.svc.Execute(ctx, &pb.ExecuteRequest{})
+	return err
+}
+
+// ExecuteInsert calls the ExecuteInsert RPC.
+func (c *SQLiteStatementClient) ExecuteInsert(ctx context.Context) (int64, error) {
+	resp, err := c.svc.ExecuteInsert(ctx, &pb.ExecuteInsertRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ExecuteUpdateDelete calls the ExecuteUpdateDelete RPC.
+func (c *SQLiteStatementClient) ExecuteUpdateDelete(ctx context.Context) (int32, error) {
+	resp, err := c.svc.ExecuteUpdateDelete(ctx, &pb.ExecuteUpdateDeleteRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SimpleQueryForBlobFileDescriptor calls the SimpleQueryForBlobFileDescriptor RPC.
+func (c *SQLiteStatementClient) SimpleQueryForBlobFileDescriptor(ctx context.Context) (int64, error) {
+	resp, err := c.svc.SimpleQueryForBlobFileDescriptor(ctx, &pb.SimpleQueryForBlobFileDescriptorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SimpleQueryForLong calls the SimpleQueryForLong RPC.
+func (c *SQLiteStatementClient) SimpleQueryForLong(ctx context.Context) (int64, error) {
+	resp, err := c.svc.SimpleQueryForLong(ctx, &pb.SimpleQueryForLongRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SimpleQueryForString calls the SimpleQueryForString RPC.
+func (c *SQLiteStatementClient) SimpleQueryForString(ctx context.Context) (string, error) {
+	resp, err := c.svc.SimpleQueryForString(ctx, &pb.SimpleQueryForStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *SQLiteStatementClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// SQLiteOpenHelperClient wraps the gRPC SQLiteOpenHelperService client.
+type SQLiteOpenHelperClient struct {
+	svc pb.SQLiteOpenHelperServiceClient
+}
+
+// NewSQLiteOpenHelperClient creates a new SQLiteOpenHelper client.
+func NewSQLiteOpenHelperClient(cc grpc.ClientConnInterface) *SQLiteOpenHelperClient {
+	return &SQLiteOpenHelperClient{
+		svc: pb.NewSQLiteOpenHelperServiceClient(cc),
+	}
+}
+
+// GetDatabaseName calls the GetDatabaseName RPC.
+func (c *SQLiteOpenHelperClient) GetDatabaseName(ctx context.Context) (string, error) {
+	resp, err := c.svc.GetDatabaseName(ctx, &pb.GetDatabaseNameRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetReadableDatabase calls the GetReadableDatabase RPC.
+func (c *SQLiteOpenHelperClient) GetReadableDatabase(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetReadableDatabase(ctx, &pb.GetReadableDatabaseRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetWritableDatabase calls the GetWritableDatabase RPC.
+func (c *SQLiteOpenHelperClient) GetWritableDatabase(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetWritableDatabase(ctx, &pb.GetWritableDatabaseRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnConfigure calls the OnConfigure RPC.
+func (c *SQLiteOpenHelperClient) OnConfigure(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnConfigure(ctx, &pb.OnConfigureRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnCreate calls the OnCreate RPC.
+func (c *SQLiteOpenHelperClient) OnCreate(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnCreate(ctx, &pb.OnCreateRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnDowngrade calls the OnDowngrade RPC.
+func (c *SQLiteOpenHelperClient) OnDowngrade(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) error {
+	_, err := c.svc.OnDowngrade(ctx, &pb.OnDowngradeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// OnOpen calls the OnOpen RPC.
+func (c *SQLiteOpenHelperClient) OnOpen(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnOpen(ctx, &pb.OnOpenRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// OnUpgrade calls the OnUpgrade RPC.
+func (c *SQLiteOpenHelperClient) OnUpgrade(ctx context.Context, arg0 int64, arg1 int32, arg2 int32) error {
+	_, err := c.svc.OnUpgrade(ctx, &pb.OnUpgradeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+	})
+	return err
+}
+
+// SetIdleConnectionTimeout calls the SetIdleConnectionTimeout RPC.
+func (c *SQLiteOpenHelperClient) SetIdleConnectionTimeout(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetIdleConnectionTimeout(ctx, &pb.SetIdleConnectionTimeoutRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetLookasideConfig calls the SetLookasideConfig RPC.
+func (c *SQLiteOpenHelperClient) SetLookasideConfig(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.SetLookasideConfig(ctx, &pb.SetLookasideConfigRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// SetOpenParams calls the SetOpenParams RPC.
+func (c *SQLiteOpenHelperClient) SetOpenParams(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetOpenParams(ctx, &pb.SetOpenParamsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SetWriteAheadLoggingEnabled calls the SetWriteAheadLoggingEnabled RPC.
+func (c *SQLiteOpenHelperClient) SetWriteAheadLoggingEnabled(ctx context.Context, arg0 bool) error {
+	_, err := c.svc.SetWriteAheadLoggingEnabled(ctx, &pb.SetWriteAheadLoggingEnabledRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SQLiteTransactionListenerClient wraps the gRPC SQLiteTransactionListenerService client.
+type SQLiteTransactionListenerClient struct {
+	svc pb.SQLiteTransactionListenerServiceClient
+}
+
+// NewSQLiteTransactionListenerClient creates a new SQLiteTransactionListener client.
+func NewSQLiteTransactionListenerClient(cc grpc.ClientConnInterface) *SQLiteTransactionListenerClient {
+	return &SQLiteTransactionListenerClient{
+		svc: pb.NewSQLiteTransactionListenerServiceClient(cc),
+	}
+}
+
+// OnBegin calls the OnBegin RPC.
+func (c *SQLiteTransactionListenerClient) OnBegin(ctx context.Context) error {
+	_, err := c.svc.OnBegin(ctx, &pb.OnBeginRequest{})
+	return err
+}
+
+// OnCommit calls the OnCommit RPC.
+func (c *SQLiteTransactionListenerClient) OnCommit(ctx context.Context) error {
+	_, err := c.svc.OnCommit(ctx, &pb.OnCommitRequest{})
+	return err
+}
+
+// OnRollback calls the OnRollback RPC.
+func (c *SQLiteTransactionListenerClient) OnRollback(ctx context.Context) error {
+	_, err := c.svc.OnRollback(ctx, &pb.OnRollbackRequest{})
+	return err
+}
+
+// SQLiteCursorDriverClient wraps the gRPC SQLiteCursorDriverService client.
+type SQLiteCursorDriverClient struct {
+	svc pb.SQLiteCursorDriverServiceClient
+}
+
+// NewSQLiteCursorDriverClient creates a new SQLiteCursorDriver client.
+func NewSQLiteCursorDriverClient(cc grpc.ClientConnInterface) *SQLiteCursorDriverClient {
+	return &SQLiteCursorDriverClient{
+		svc: pb.NewSQLiteCursorDriverServiceClient(cc),
+	}
+}
+
+// CursorClosed calls the CursorClosed RPC.
+func (c *SQLiteCursorDriverClient) CursorClosed(ctx context.Context) error {
+	_, err := c.svc.CursorClosed(ctx, &pb.CursorClosedRequest{})
+	return err
+}
+
+// CursorDeactivated calls the CursorDeactivated RPC.
+func (c *SQLiteCursorDriverClient) CursorDeactivated(ctx context.Context) error {
+	_, err := c.svc.CursorDeactivated(ctx, &pb.CursorDeactivatedRequest{})
+	return err
+}
+
+// CursorRequeried calls the CursorRequeried RPC.
+func (c *SQLiteCursorDriverClient) CursorRequeried(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.CursorRequeried(ctx, &pb.CursorRequeriedRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Query calls the Query RPC.
+func (c *SQLiteCursorDriverClient) Query(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
+	resp, err := c.svc.Query(ctx, &pb.QueryRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetBindArguments calls the SetBindArguments RPC.
+func (c *SQLiteCursorDriverClient) SetBindArguments(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.SetBindArguments(ctx, &pb.SetBindArgumentsRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// SQLiteClosableClient wraps the gRPC SQLiteClosableService client.
+type SQLiteClosableClient struct {
+	svc pb.SQLiteClosableServiceClient
+}
+
+// NewSQLiteClosableClient creates a new SQLiteClosable client.
+func NewSQLiteClosableClient(cc grpc.ClientConnInterface) *SQLiteClosableClient {
+	return &SQLiteClosableClient{
+		svc: pb.NewSQLiteClosableServiceClient(cc),
+	}
+}
+
+// AcquireReference calls the AcquireReference RPC.
+func (c *SQLiteClosableClient) AcquireReference(ctx context.Context) error {
+	_, err := c.svc.AcquireReference(ctx, &pb.AcquireReferenceRequest{})
+	return err
+}
+
+// Close calls the Close RPC.
+func (c *SQLiteClosableClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+	return err
+}
+
+// ReleaseReference calls the ReleaseReference RPC.
+func (c *SQLiteClosableClient) ReleaseReference(ctx context.Context) error {
+	_, err := c.svc.ReleaseReference(ctx, &pb.ReleaseReferenceRequest{})
+	return err
+}
+
+// ReleaseReferenceFromContainer calls the ReleaseReferenceFromContainer RPC.
+func (c *SQLiteClosableClient) ReleaseReferenceFromContainer(ctx context.Context) error {
+	_, err := c.svc.ReleaseReferenceFromContainer(ctx, &pb.ReleaseReferenceFromContainerRequest{})
+	return err
+}
+
+// SQLiteRawStatementClient wraps the gRPC SQLiteRawStatementService client.
+type SQLiteRawStatementClient struct {
+	svc pb.SQLiteRawStatementServiceClient
+}
+
+// NewSQLiteRawStatementClient creates a new SQLiteRawStatement client.
+func NewSQLiteRawStatementClient(cc grpc.ClientConnInterface) *SQLiteRawStatementClient {
+	return &SQLiteRawStatementClient{
+		svc: pb.NewSQLiteRawStatementServiceClient(cc),
+	}
+}
+
+// BindBlob2 calls the BindBlob2 RPC.
+func (c *SQLiteRawStatementClient) BindBlob2(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.BindBlob2(ctx, &pb.BindBlob2Request{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// BindBlob4_1 calls the BindBlob4_1 RPC.
+func (c *SQLiteRawStatementClient) BindBlob4_1(ctx context.Context, arg0 int32, arg1 int64, arg2 int32, arg3 int32) error {
+	_, err := c.svc.BindBlob4_1(ctx, &pb.BindBlob4_1Request{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+	})
+	return err
+}
+
+// BindDouble calls the BindDouble RPC.
+func (c *SQLiteRawStatementClient) BindDouble(ctx context.Context, arg0 int32, arg1 float64) error {
+	_, err := c.svc.BindDouble(ctx, &pb.BindDoubleRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// BindInt calls the BindInt RPC.
+func (c *SQLiteRawStatementClient) BindInt(ctx context.Context, arg0 int32, arg1 int32) error {
+	_, err := c.svc.BindInt(ctx, &pb.BindIntRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// BindLong calls the BindLong RPC.
+func (c *SQLiteRawStatementClient) BindLong(ctx context.Context, arg0 int32, arg1 int64) error {
+	_, err := c.svc.BindLong(ctx, &pb.BindLongRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// BindNull calls the BindNull RPC.
+func (c *SQLiteRawStatementClient) BindNull(ctx context.Context, arg0 int32) error {
+	_, err := c.svc.BindNull(ctx, &pb.BindNullRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// BindText calls the BindText RPC.
+func (c *SQLiteRawStatementClient) BindText(ctx context.Context, arg0 int32, arg1 string) error {
+	_, err := c.svc.BindText(ctx, &pb.BindTextRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// ClearBindings calls the ClearBindings RPC.
+func (c *SQLiteRawStatementClient) ClearBindings(ctx context.Context) error {
+	_, err := c.svc.ClearBindings(ctx, &pb.ClearBindingsRequest{})
+	return err
+}
+
+// Close calls the Close RPC.
+func (c *SQLiteRawStatementClient) Close(ctx context.Context) error {
+	_, err := c.svc.Close(ctx, &pb.CloseRequest{})
+	return err
+}
+
+// GetColumnBlob calls the GetColumnBlob RPC.
+func (c *SQLiteRawStatementClient) GetColumnBlob(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetColumnBlob(ctx, &pb.GetColumnBlobRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColumnDouble calls the GetColumnDouble RPC.
+func (c *SQLiteRawStatementClient) GetColumnDouble(ctx context.Context, arg0 int32) (float64, error) {
+	resp, err := c.svc.GetColumnDouble(ctx, &pb.GetColumnDoubleRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColumnInt calls the GetColumnInt RPC.
+func (c *SQLiteRawStatementClient) GetColumnInt(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetColumnInt(ctx, &pb.GetColumnIntRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColumnLength calls the GetColumnLength RPC.
+func (c *SQLiteRawStatementClient) GetColumnLength(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetColumnLength(ctx, &pb.GetColumnLengthRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColumnLong calls the GetColumnLong RPC.
+func (c *SQLiteRawStatementClient) GetColumnLong(ctx context.Context, arg0 int32) (int64, error) {
+	resp, err := c.svc.GetColumnLong(ctx, &pb.GetColumnLongRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColumnName calls the GetColumnName RPC.
+func (c *SQLiteRawStatementClient) GetColumnName(ctx context.Context, arg0 int32) (string, error) {
+	resp, err := c.svc.GetColumnName(ctx, &pb.GetColumnNameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColumnText calls the GetColumnText RPC.
+func (c *SQLiteRawStatementClient) GetColumnText(ctx context.Context, arg0 int32) (string, error) {
+	resp, err := c.svc.GetColumnText(ctx, &pb.GetColumnTextRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColumnType calls the GetColumnType RPC.
+func (c *SQLiteRawStatementClient) GetColumnType(ctx context.Context, arg0 int32) (int32, error) {
+	resp, err := c.svc.GetColumnType(ctx, &pb.GetColumnTypeRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetParameterCount calls the GetParameterCount RPC.
+func (c *SQLiteRawStatementClient) GetParameterCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetParameterCount(ctx, &pb.GetParameterCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetParameterIndex calls the GetParameterIndex RPC.
+func (c *SQLiteRawStatementClient) GetParameterIndex(ctx context.Context, arg0 string) (int32, error) {
+	resp, err := c.svc.GetParameterIndex(ctx, &pb.GetParameterIndexRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetParameterName calls the GetParameterName RPC.
+func (c *SQLiteRawStatementClient) GetParameterName(ctx context.Context, arg0 int32) (string, error) {
+	resp, err := c.svc.GetParameterName(ctx, &pb.GetParameterNameRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetResultColumnCount calls the GetResultColumnCount RPC.
+func (c *SQLiteRawStatementClient) GetResultColumnCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetResultColumnCount(ctx, &pb.GetResultColumnCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// IsOpen calls the IsOpen RPC.
+func (c *SQLiteRawStatementClient) IsOpen(ctx context.Context) (bool, error) {
+	resp, err := c.svc.IsOpen(ctx, &pb.IsOpenRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ReadColumnBlob calls the ReadColumnBlob RPC.
+func (c *SQLiteRawStatementClient) ReadColumnBlob(ctx context.Context, arg0 int32, arg1 int64, arg2 int32, arg3 int32, arg4 int32) (int32, error) {
+	resp, err := c.svc.ReadColumnBlob(ctx, &pb.ReadColumnBlobRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Reset calls the Reset RPC.
+func (c *SQLiteRawStatementClient) Reset(ctx context.Context) error {
+	_, err := c.svc.Reset(ctx, &pb.ResetRequest{})
+	return err
+}
+
+// Step calls the Step RPC.
+func (c *SQLiteRawStatementClient) Step(ctx context.Context) (bool, error) {
+	resp, err := c.svc.Step(ctx, &pb.StepRequest{})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *SQLiteRawStatementClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// SQLiteQueryClient wraps the gRPC SQLiteQueryService client.
+type SQLiteQueryClient struct {
+	svc pb.SQLiteQueryServiceClient
+}
+
+// NewSQLiteQueryClient creates a new SQLiteQuery client.
+func NewSQLiteQueryClient(cc grpc.ClientConnInterface) *SQLiteQueryClient {
+	return &SQLiteQueryClient{
+		svc: pb.NewSQLiteQueryServiceClient(cc),
+	}
+}
+
+// ToString calls the ToString RPC.
+func (c *SQLiteQueryClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// SQLiteCursorClient wraps the gRPC SQLiteCursorService client.
+type SQLiteCursorClient struct {
+	svc pb.SQLiteCursorServiceClient
+}
+
+// NewSQLiteCursorClient creates a new SQLiteCursor client.
+func NewSQLiteCursorClient(cc grpc.ClientConnInterface) *SQLiteCursorClient {
+	return &SQLiteCursorClient{
+		svc: pb.NewSQLiteCursorServiceClient(cc),
+	}
+}
+
+// Close calls the Close RPC.
+func (c *SQLiteCursorClient) Close(ctx context.Context, handle int64) error {
+	_, err := c.svc.Close(ctx, &pb.SQLiteCursorCloseRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// Deactivate calls the Deactivate RPC.
+func (c *SQLiteCursorClient) Deactivate(ctx context.Context, handle int64) error {
+	_, err := c.svc.Deactivate(ctx, &pb.DeactivateRequest{
+		Handle: handle,
+	})
+	return err
+}
+
+// GetColumnIndex calls the GetColumnIndex RPC.
+func (c *SQLiteCursorClient) GetColumnIndex(ctx context.Context, handle int64, arg0 string) (int32, error) {
+	resp, err := c.svc.GetColumnIndex(ctx, &pb.GetColumnIndexRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetColumnNames calls the GetColumnNames RPC.
+func (c *SQLiteCursorClient) GetColumnNames(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetColumnNames(ctx, &pb.GetColumnNamesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetCount calls the GetCount RPC.
+func (c *SQLiteCursorClient) GetCount(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetCount(ctx, &pb.GetCountRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDatabase calls the GetDatabase RPC.
+func (c *SQLiteCursorClient) GetDatabase(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetDatabase(ctx, &pb.GetDatabaseRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnMove calls the OnMove RPC.
+func (c *SQLiteCursorClient) OnMove(ctx context.Context, handle int64, arg0 int32, arg1 int32) (bool, error) {
+	resp, err := c.svc.OnMove(ctx, &pb.OnMoveRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Requery calls the Requery RPC.
+func (c *SQLiteCursorClient) Requery(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.Requery(ctx, &pb.RequeryRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFillWindowForwardOnly calls the SetFillWindowForwardOnly RPC.
+func (c *SQLiteCursorClient) SetFillWindowForwardOnly(ctx context.Context, handle int64, arg0 bool) error {
+	_, err := c.svc.SetFillWindowForwardOnly(ctx, &pb.SetFillWindowForwardOnlyRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetSelectionArguments calls the SetSelectionArguments RPC.
+func (c *SQLiteCursorClient) SetSelectionArguments(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetSelectionArguments(ctx, &pb.SetSelectionArgumentsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// SetWindow calls the SetWindow RPC.
+func (c *SQLiteCursorClient) SetWindow(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.SetWindow(ctx, &pb.SetWindowRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
 // SQLiteQueryBuilderClient wraps the gRPC SQLiteQueryBuilderService client.
 type SQLiteQueryBuilderClient struct {
 	svc pb.SQLiteQueryBuilderServiceClient
@@ -1643,6 +1788,17 @@ func (c *SQLiteQueryBuilderClient) Delete(ctx context.Context, handle int64, arg
 // GetCursorFactory calls the GetCursorFactory RPC.
 func (c *SQLiteQueryBuilderClient) GetCursorFactory(ctx context.Context, handle int64) (int64, error) {
 	resp, err := c.svc.GetCursorFactory(ctx, &pb.SQLiteQueryBuilderGetCursorFactoryRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetProjectionGreylist calls the GetProjectionGreylist RPC.
+func (c *SQLiteQueryBuilderClient) GetProjectionGreylist(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetProjectionGreylist(ctx, &pb.GetProjectionGreylistRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -1868,151 +2024,6 @@ func (c *SQLiteQueryBuilderClient) BuildQueryString(ctx context.Context, handle 
 		Arg6:   arg6,
 		Arg7:   arg7,
 	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// SQLiteCursorDriverClient wraps the gRPC SQLiteCursorDriverService client.
-type SQLiteCursorDriverClient struct {
-	svc pb.SQLiteCursorDriverServiceClient
-}
-
-// NewSQLiteCursorDriverClient creates a new SQLiteCursorDriver client.
-func NewSQLiteCursorDriverClient(cc grpc.ClientConnInterface) *SQLiteCursorDriverClient {
-	return &SQLiteCursorDriverClient{
-		svc: pb.NewSQLiteCursorDriverServiceClient(cc),
-	}
-}
-
-// CursorClosed calls the CursorClosed RPC.
-func (c *SQLiteCursorDriverClient) CursorClosed(ctx context.Context) error {
-	_, err := c.svc.CursorClosed(ctx, &pb.CursorClosedRequest{})
-	return err
-}
-
-// CursorDeactivated calls the CursorDeactivated RPC.
-func (c *SQLiteCursorDriverClient) CursorDeactivated(ctx context.Context) error {
-	_, err := c.svc.CursorDeactivated(ctx, &pb.CursorDeactivatedRequest{})
-	return err
-}
-
-// CursorRequeried calls the CursorRequeried RPC.
-func (c *SQLiteCursorDriverClient) CursorRequeried(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.CursorRequeried(ctx, &pb.CursorRequeriedRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// Query calls the Query RPC.
-func (c *SQLiteCursorDriverClient) Query(ctx context.Context, arg0 int64, arg1 int64) (int64, error) {
-	resp, err := c.svc.Query(ctx, &pb.QueryRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetBindArguments calls the SetBindArguments RPC.
-func (c *SQLiteCursorDriverClient) SetBindArguments(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.SetBindArguments(ctx, &pb.SetBindArgumentsRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// SQLiteQueryClient wraps the gRPC SQLiteQueryService client.
-type SQLiteQueryClient struct {
-	svc pb.SQLiteQueryServiceClient
-}
-
-// NewSQLiteQueryClient creates a new SQLiteQuery client.
-func NewSQLiteQueryClient(cc grpc.ClientConnInterface) *SQLiteQueryClient {
-	return &SQLiteQueryClient{
-		svc: pb.NewSQLiteQueryServiceClient(cc),
-	}
-}
-
-// ToString calls the ToString RPC.
-func (c *SQLiteQueryClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// SQLiteStatementClient wraps the gRPC SQLiteStatementService client.
-type SQLiteStatementClient struct {
-	svc pb.SQLiteStatementServiceClient
-}
-
-// NewSQLiteStatementClient creates a new SQLiteStatement client.
-func NewSQLiteStatementClient(cc grpc.ClientConnInterface) *SQLiteStatementClient {
-	return &SQLiteStatementClient{
-		svc: pb.NewSQLiteStatementServiceClient(cc),
-	}
-}
-
-// Execute calls the Execute RPC.
-func (c *SQLiteStatementClient) Execute(ctx context.Context) error {
-	_, err := c.svc.Execute(ctx, &pb.ExecuteRequest{})
-	return err
-}
-
-// ExecuteInsert calls the ExecuteInsert RPC.
-func (c *SQLiteStatementClient) ExecuteInsert(ctx context.Context) (int64, error) {
-	resp, err := c.svc.ExecuteInsert(ctx, &pb.ExecuteInsertRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ExecuteUpdateDelete calls the ExecuteUpdateDelete RPC.
-func (c *SQLiteStatementClient) ExecuteUpdateDelete(ctx context.Context) (int32, error) {
-	resp, err := c.svc.ExecuteUpdateDelete(ctx, &pb.ExecuteUpdateDeleteRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SimpleQueryForBlobFileDescriptor calls the SimpleQueryForBlobFileDescriptor RPC.
-func (c *SQLiteStatementClient) SimpleQueryForBlobFileDescriptor(ctx context.Context) (int64, error) {
-	resp, err := c.svc.SimpleQueryForBlobFileDescriptor(ctx, &pb.SimpleQueryForBlobFileDescriptorRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SimpleQueryForLong calls the SimpleQueryForLong RPC.
-func (c *SQLiteStatementClient) SimpleQueryForLong(ctx context.Context) (int64, error) {
-	resp, err := c.svc.SimpleQueryForLong(ctx, &pb.SimpleQueryForLongRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SimpleQueryForString calls the SimpleQueryForString RPC.
-func (c *SQLiteStatementClient) SimpleQueryForString(ctx context.Context) (string, error) {
-	resp, err := c.svc.SimpleQueryForString(ctx, &pb.SimpleQueryForStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *SQLiteStatementClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{})
 	if err != nil {
 		return "", err
 	}

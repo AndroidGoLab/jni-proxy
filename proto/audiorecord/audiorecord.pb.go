@@ -143,6 +143,94 @@ func (x *NewAudioRecordResponse) GetResult() int64 {
 	return 0
 }
 
+type GetActiveMicrophonesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetActiveMicrophonesRequest) Reset() {
+	*x = GetActiveMicrophonesRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetActiveMicrophonesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetActiveMicrophonesRequest) ProtoMessage() {}
+
+func (x *GetActiveMicrophonesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetActiveMicrophonesRequest.ProtoReflect.Descriptor instead.
+func (*GetActiveMicrophonesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *GetActiveMicrophonesRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetActiveMicrophonesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetActiveMicrophonesResponse) Reset() {
+	*x = GetActiveMicrophonesResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetActiveMicrophonesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetActiveMicrophonesResponse) ProtoMessage() {}
+
+func (x *GetActiveMicrophonesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetActiveMicrophonesResponse.ProtoReflect.Descriptor instead.
+func (*GetActiveMicrophonesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetActiveMicrophonesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 type GetActiveRecordingConfigurationRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
@@ -152,7 +240,7 @@ type GetActiveRecordingConfigurationRequest struct {
 
 func (x *GetActiveRecordingConfigurationRequest) Reset() {
 	*x = GetActiveRecordingConfigurationRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[2]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -164,7 +252,7 @@ func (x *GetActiveRecordingConfigurationRequest) String() string {
 func (*GetActiveRecordingConfigurationRequest) ProtoMessage() {}
 
 func (x *GetActiveRecordingConfigurationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[2]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -177,7 +265,7 @@ func (x *GetActiveRecordingConfigurationRequest) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use GetActiveRecordingConfigurationRequest.ProtoReflect.Descriptor instead.
 func (*GetActiveRecordingConfigurationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{2}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *GetActiveRecordingConfigurationRequest) GetHandle() int64 {
@@ -196,7 +284,7 @@ type GetActiveRecordingConfigurationResponse struct {
 
 func (x *GetActiveRecordingConfigurationResponse) Reset() {
 	*x = GetActiveRecordingConfigurationResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[3]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -208,7 +296,7 @@ func (x *GetActiveRecordingConfigurationResponse) String() string {
 func (*GetActiveRecordingConfigurationResponse) ProtoMessage() {}
 
 func (x *GetActiveRecordingConfigurationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[3]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -221,7 +309,7 @@ func (x *GetActiveRecordingConfigurationResponse) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use GetActiveRecordingConfigurationResponse.ProtoReflect.Descriptor instead.
 func (*GetActiveRecordingConfigurationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{3}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *GetActiveRecordingConfigurationResponse) GetResult() int64 {
@@ -240,7 +328,7 @@ type GetAudioFormatRequest struct {
 
 func (x *GetAudioFormatRequest) Reset() {
 	*x = GetAudioFormatRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[4]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -252,7 +340,7 @@ func (x *GetAudioFormatRequest) String() string {
 func (*GetAudioFormatRequest) ProtoMessage() {}
 
 func (x *GetAudioFormatRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[4]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -265,7 +353,7 @@ func (x *GetAudioFormatRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAudioFormatRequest.ProtoReflect.Descriptor instead.
 func (*GetAudioFormatRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{4}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *GetAudioFormatRequest) GetHandle() int64 {
@@ -284,7 +372,7 @@ type GetAudioFormatResponse struct {
 
 func (x *GetAudioFormatResponse) Reset() {
 	*x = GetAudioFormatResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[5]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -296,7 +384,7 @@ func (x *GetAudioFormatResponse) String() string {
 func (*GetAudioFormatResponse) ProtoMessage() {}
 
 func (x *GetAudioFormatResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[5]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -309,7 +397,7 @@ func (x *GetAudioFormatResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAudioFormatResponse.ProtoReflect.Descriptor instead.
 func (*GetAudioFormatResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{5}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *GetAudioFormatResponse) GetResult() int32 {
@@ -328,7 +416,7 @@ type GetAudioSessionIdRequest struct {
 
 func (x *GetAudioSessionIdRequest) Reset() {
 	*x = GetAudioSessionIdRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[6]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -340,7 +428,7 @@ func (x *GetAudioSessionIdRequest) String() string {
 func (*GetAudioSessionIdRequest) ProtoMessage() {}
 
 func (x *GetAudioSessionIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[6]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -353,7 +441,7 @@ func (x *GetAudioSessionIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAudioSessionIdRequest.ProtoReflect.Descriptor instead.
 func (*GetAudioSessionIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{6}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *GetAudioSessionIdRequest) GetHandle() int64 {
@@ -372,7 +460,7 @@ type GetAudioSessionIdResponse struct {
 
 func (x *GetAudioSessionIdResponse) Reset() {
 	*x = GetAudioSessionIdResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[7]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -384,7 +472,7 @@ func (x *GetAudioSessionIdResponse) String() string {
 func (*GetAudioSessionIdResponse) ProtoMessage() {}
 
 func (x *GetAudioSessionIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[7]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -397,7 +485,7 @@ func (x *GetAudioSessionIdResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAudioSessionIdResponse.ProtoReflect.Descriptor instead.
 func (*GetAudioSessionIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{7}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *GetAudioSessionIdResponse) GetResult() int32 {
@@ -416,7 +504,7 @@ type GetAudioSourceRequest struct {
 
 func (x *GetAudioSourceRequest) Reset() {
 	*x = GetAudioSourceRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[8]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -428,7 +516,7 @@ func (x *GetAudioSourceRequest) String() string {
 func (*GetAudioSourceRequest) ProtoMessage() {}
 
 func (x *GetAudioSourceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[8]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -441,7 +529,7 @@ func (x *GetAudioSourceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAudioSourceRequest.ProtoReflect.Descriptor instead.
 func (*GetAudioSourceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{8}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *GetAudioSourceRequest) GetHandle() int64 {
@@ -460,7 +548,7 @@ type GetAudioSourceResponse struct {
 
 func (x *GetAudioSourceResponse) Reset() {
 	*x = GetAudioSourceResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[9]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -472,7 +560,7 @@ func (x *GetAudioSourceResponse) String() string {
 func (*GetAudioSourceResponse) ProtoMessage() {}
 
 func (x *GetAudioSourceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[9]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -485,7 +573,7 @@ func (x *GetAudioSourceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAudioSourceResponse.ProtoReflect.Descriptor instead.
 func (*GetAudioSourceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{9}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *GetAudioSourceResponse) GetResult() int32 {
@@ -504,7 +592,7 @@ type GetBufferSizeInFramesRequest struct {
 
 func (x *GetBufferSizeInFramesRequest) Reset() {
 	*x = GetBufferSizeInFramesRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[10]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -516,7 +604,7 @@ func (x *GetBufferSizeInFramesRequest) String() string {
 func (*GetBufferSizeInFramesRequest) ProtoMessage() {}
 
 func (x *GetBufferSizeInFramesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[10]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -529,7 +617,7 @@ func (x *GetBufferSizeInFramesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBufferSizeInFramesRequest.ProtoReflect.Descriptor instead.
 func (*GetBufferSizeInFramesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{10}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *GetBufferSizeInFramesRequest) GetHandle() int64 {
@@ -548,7 +636,7 @@ type GetBufferSizeInFramesResponse struct {
 
 func (x *GetBufferSizeInFramesResponse) Reset() {
 	*x = GetBufferSizeInFramesResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[11]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -560,7 +648,7 @@ func (x *GetBufferSizeInFramesResponse) String() string {
 func (*GetBufferSizeInFramesResponse) ProtoMessage() {}
 
 func (x *GetBufferSizeInFramesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[11]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -573,7 +661,7 @@ func (x *GetBufferSizeInFramesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBufferSizeInFramesResponse.ProtoReflect.Descriptor instead.
 func (*GetBufferSizeInFramesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{11}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *GetBufferSizeInFramesResponse) GetResult() int32 {
@@ -592,7 +680,7 @@ type GetChannelConfigurationRequest struct {
 
 func (x *GetChannelConfigurationRequest) Reset() {
 	*x = GetChannelConfigurationRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[12]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -604,7 +692,7 @@ func (x *GetChannelConfigurationRequest) String() string {
 func (*GetChannelConfigurationRequest) ProtoMessage() {}
 
 func (x *GetChannelConfigurationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[12]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -617,7 +705,7 @@ func (x *GetChannelConfigurationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetChannelConfigurationRequest.ProtoReflect.Descriptor instead.
 func (*GetChannelConfigurationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{12}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *GetChannelConfigurationRequest) GetHandle() int64 {
@@ -636,7 +724,7 @@ type GetChannelConfigurationResponse struct {
 
 func (x *GetChannelConfigurationResponse) Reset() {
 	*x = GetChannelConfigurationResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[13]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -648,7 +736,7 @@ func (x *GetChannelConfigurationResponse) String() string {
 func (*GetChannelConfigurationResponse) ProtoMessage() {}
 
 func (x *GetChannelConfigurationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[13]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -661,7 +749,7 @@ func (x *GetChannelConfigurationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetChannelConfigurationResponse.ProtoReflect.Descriptor instead.
 func (*GetChannelConfigurationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{13}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *GetChannelConfigurationResponse) GetResult() int32 {
@@ -680,7 +768,7 @@ type GetChannelCountRequest struct {
 
 func (x *GetChannelCountRequest) Reset() {
 	*x = GetChannelCountRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[14]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -692,7 +780,7 @@ func (x *GetChannelCountRequest) String() string {
 func (*GetChannelCountRequest) ProtoMessage() {}
 
 func (x *GetChannelCountRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[14]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -705,7 +793,7 @@ func (x *GetChannelCountRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetChannelCountRequest.ProtoReflect.Descriptor instead.
 func (*GetChannelCountRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{14}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *GetChannelCountRequest) GetHandle() int64 {
@@ -724,7 +812,7 @@ type GetChannelCountResponse struct {
 
 func (x *GetChannelCountResponse) Reset() {
 	*x = GetChannelCountResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[15]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -736,7 +824,7 @@ func (x *GetChannelCountResponse) String() string {
 func (*GetChannelCountResponse) ProtoMessage() {}
 
 func (x *GetChannelCountResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[15]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -749,7 +837,7 @@ func (x *GetChannelCountResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetChannelCountResponse.ProtoReflect.Descriptor instead.
 func (*GetChannelCountResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{15}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *GetChannelCountResponse) GetResult() int32 {
@@ -768,7 +856,7 @@ type GetFormatRequest struct {
 
 func (x *GetFormatRequest) Reset() {
 	*x = GetFormatRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[16]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -780,7 +868,7 @@ func (x *GetFormatRequest) String() string {
 func (*GetFormatRequest) ProtoMessage() {}
 
 func (x *GetFormatRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[16]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -793,7 +881,7 @@ func (x *GetFormatRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetFormatRequest.ProtoReflect.Descriptor instead.
 func (*GetFormatRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{16}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *GetFormatRequest) GetHandle() int64 {
@@ -812,7 +900,7 @@ type GetFormatResponse struct {
 
 func (x *GetFormatResponse) Reset() {
 	*x = GetFormatResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[17]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -824,7 +912,7 @@ func (x *GetFormatResponse) String() string {
 func (*GetFormatResponse) ProtoMessage() {}
 
 func (x *GetFormatResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[17]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -837,7 +925,7 @@ func (x *GetFormatResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetFormatResponse.ProtoReflect.Descriptor instead.
 func (*GetFormatResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{17}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *GetFormatResponse) GetResult() int64 {
@@ -856,7 +944,7 @@ type GetLogSessionIdRequest struct {
 
 func (x *GetLogSessionIdRequest) Reset() {
 	*x = GetLogSessionIdRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[18]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -868,7 +956,7 @@ func (x *GetLogSessionIdRequest) String() string {
 func (*GetLogSessionIdRequest) ProtoMessage() {}
 
 func (x *GetLogSessionIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[18]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -881,7 +969,7 @@ func (x *GetLogSessionIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLogSessionIdRequest.ProtoReflect.Descriptor instead.
 func (*GetLogSessionIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{18}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *GetLogSessionIdRequest) GetHandle() int64 {
@@ -900,7 +988,7 @@ type GetLogSessionIdResponse struct {
 
 func (x *GetLogSessionIdResponse) Reset() {
 	*x = GetLogSessionIdResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[19]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -912,7 +1000,7 @@ func (x *GetLogSessionIdResponse) String() string {
 func (*GetLogSessionIdResponse) ProtoMessage() {}
 
 func (x *GetLogSessionIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[19]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -925,7 +1013,7 @@ func (x *GetLogSessionIdResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLogSessionIdResponse.ProtoReflect.Descriptor instead.
 func (*GetLogSessionIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{19}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *GetLogSessionIdResponse) GetResult() int64 {
@@ -944,7 +1032,7 @@ type GetMetricsRequest struct {
 
 func (x *GetMetricsRequest) Reset() {
 	*x = GetMetricsRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[20]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -956,7 +1044,7 @@ func (x *GetMetricsRequest) String() string {
 func (*GetMetricsRequest) ProtoMessage() {}
 
 func (x *GetMetricsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[20]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -969,7 +1057,7 @@ func (x *GetMetricsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMetricsRequest.ProtoReflect.Descriptor instead.
 func (*GetMetricsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{20}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *GetMetricsRequest) GetHandle() int64 {
@@ -988,7 +1076,7 @@ type GetMetricsResponse struct {
 
 func (x *GetMetricsResponse) Reset() {
 	*x = GetMetricsResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[21]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1000,7 +1088,7 @@ func (x *GetMetricsResponse) String() string {
 func (*GetMetricsResponse) ProtoMessage() {}
 
 func (x *GetMetricsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[21]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1013,7 +1101,7 @@ func (x *GetMetricsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMetricsResponse.ProtoReflect.Descriptor instead.
 func (*GetMetricsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{21}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *GetMetricsResponse) GetResult() int64 {
@@ -1032,7 +1120,7 @@ type GetNotificationMarkerPositionRequest struct {
 
 func (x *GetNotificationMarkerPositionRequest) Reset() {
 	*x = GetNotificationMarkerPositionRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[22]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1044,7 +1132,7 @@ func (x *GetNotificationMarkerPositionRequest) String() string {
 func (*GetNotificationMarkerPositionRequest) ProtoMessage() {}
 
 func (x *GetNotificationMarkerPositionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[22]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1057,7 +1145,7 @@ func (x *GetNotificationMarkerPositionRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use GetNotificationMarkerPositionRequest.ProtoReflect.Descriptor instead.
 func (*GetNotificationMarkerPositionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{22}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *GetNotificationMarkerPositionRequest) GetHandle() int64 {
@@ -1076,7 +1164,7 @@ type GetNotificationMarkerPositionResponse struct {
 
 func (x *GetNotificationMarkerPositionResponse) Reset() {
 	*x = GetNotificationMarkerPositionResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[23]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1088,7 +1176,7 @@ func (x *GetNotificationMarkerPositionResponse) String() string {
 func (*GetNotificationMarkerPositionResponse) ProtoMessage() {}
 
 func (x *GetNotificationMarkerPositionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[23]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1101,7 +1189,7 @@ func (x *GetNotificationMarkerPositionResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use GetNotificationMarkerPositionResponse.ProtoReflect.Descriptor instead.
 func (*GetNotificationMarkerPositionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{23}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *GetNotificationMarkerPositionResponse) GetResult() int32 {
@@ -1120,7 +1208,7 @@ type GetPositionNotificationPeriodRequest struct {
 
 func (x *GetPositionNotificationPeriodRequest) Reset() {
 	*x = GetPositionNotificationPeriodRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[24]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1132,7 +1220,7 @@ func (x *GetPositionNotificationPeriodRequest) String() string {
 func (*GetPositionNotificationPeriodRequest) ProtoMessage() {}
 
 func (x *GetPositionNotificationPeriodRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[24]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1145,7 +1233,7 @@ func (x *GetPositionNotificationPeriodRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use GetPositionNotificationPeriodRequest.ProtoReflect.Descriptor instead.
 func (*GetPositionNotificationPeriodRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{24}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *GetPositionNotificationPeriodRequest) GetHandle() int64 {
@@ -1164,7 +1252,7 @@ type GetPositionNotificationPeriodResponse struct {
 
 func (x *GetPositionNotificationPeriodResponse) Reset() {
 	*x = GetPositionNotificationPeriodResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[25]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1176,7 +1264,7 @@ func (x *GetPositionNotificationPeriodResponse) String() string {
 func (*GetPositionNotificationPeriodResponse) ProtoMessage() {}
 
 func (x *GetPositionNotificationPeriodResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[25]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1189,7 +1277,7 @@ func (x *GetPositionNotificationPeriodResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use GetPositionNotificationPeriodResponse.ProtoReflect.Descriptor instead.
 func (*GetPositionNotificationPeriodResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{25}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *GetPositionNotificationPeriodResponse) GetResult() int32 {
@@ -1208,7 +1296,7 @@ type GetPreferredDeviceRequest struct {
 
 func (x *GetPreferredDeviceRequest) Reset() {
 	*x = GetPreferredDeviceRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[26]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1220,7 +1308,7 @@ func (x *GetPreferredDeviceRequest) String() string {
 func (*GetPreferredDeviceRequest) ProtoMessage() {}
 
 func (x *GetPreferredDeviceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[26]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1233,7 +1321,7 @@ func (x *GetPreferredDeviceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPreferredDeviceRequest.ProtoReflect.Descriptor instead.
 func (*GetPreferredDeviceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{26}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *GetPreferredDeviceRequest) GetHandle() int64 {
@@ -1252,7 +1340,7 @@ type GetPreferredDeviceResponse struct {
 
 func (x *GetPreferredDeviceResponse) Reset() {
 	*x = GetPreferredDeviceResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[27]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1264,7 +1352,7 @@ func (x *GetPreferredDeviceResponse) String() string {
 func (*GetPreferredDeviceResponse) ProtoMessage() {}
 
 func (x *GetPreferredDeviceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[27]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1277,7 +1365,7 @@ func (x *GetPreferredDeviceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPreferredDeviceResponse.ProtoReflect.Descriptor instead.
 func (*GetPreferredDeviceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{27}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *GetPreferredDeviceResponse) GetResult() int64 {
@@ -1296,7 +1384,7 @@ type GetRecordingStateRequest struct {
 
 func (x *GetRecordingStateRequest) Reset() {
 	*x = GetRecordingStateRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[28]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1308,7 +1396,7 @@ func (x *GetRecordingStateRequest) String() string {
 func (*GetRecordingStateRequest) ProtoMessage() {}
 
 func (x *GetRecordingStateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[28]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1321,7 +1409,7 @@ func (x *GetRecordingStateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRecordingStateRequest.ProtoReflect.Descriptor instead.
 func (*GetRecordingStateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{28}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *GetRecordingStateRequest) GetHandle() int64 {
@@ -1340,7 +1428,7 @@ type GetRecordingStateResponse struct {
 
 func (x *GetRecordingStateResponse) Reset() {
 	*x = GetRecordingStateResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[29]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1352,7 +1440,7 @@ func (x *GetRecordingStateResponse) String() string {
 func (*GetRecordingStateResponse) ProtoMessage() {}
 
 func (x *GetRecordingStateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[29]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1365,7 +1453,7 @@ func (x *GetRecordingStateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRecordingStateResponse.ProtoReflect.Descriptor instead.
 func (*GetRecordingStateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{29}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *GetRecordingStateResponse) GetResult() int32 {
@@ -1384,7 +1472,7 @@ type GetRoutedDeviceRequest struct {
 
 func (x *GetRoutedDeviceRequest) Reset() {
 	*x = GetRoutedDeviceRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[30]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1396,7 +1484,7 @@ func (x *GetRoutedDeviceRequest) String() string {
 func (*GetRoutedDeviceRequest) ProtoMessage() {}
 
 func (x *GetRoutedDeviceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[30]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1409,7 +1497,7 @@ func (x *GetRoutedDeviceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRoutedDeviceRequest.ProtoReflect.Descriptor instead.
 func (*GetRoutedDeviceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{30}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *GetRoutedDeviceRequest) GetHandle() int64 {
@@ -1428,7 +1516,7 @@ type GetRoutedDeviceResponse struct {
 
 func (x *GetRoutedDeviceResponse) Reset() {
 	*x = GetRoutedDeviceResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[31]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1440,7 +1528,7 @@ func (x *GetRoutedDeviceResponse) String() string {
 func (*GetRoutedDeviceResponse) ProtoMessage() {}
 
 func (x *GetRoutedDeviceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[31]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1453,10 +1541,98 @@ func (x *GetRoutedDeviceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRoutedDeviceResponse.ProtoReflect.Descriptor instead.
 func (*GetRoutedDeviceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{31}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *GetRoutedDeviceResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetRoutedDevicesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRoutedDevicesRequest) Reset() {
+	*x = GetRoutedDevicesRequest{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRoutedDevicesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRoutedDevicesRequest) ProtoMessage() {}
+
+func (x *GetRoutedDevicesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRoutedDevicesRequest.ProtoReflect.Descriptor instead.
+func (*GetRoutedDevicesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *GetRoutedDevicesRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetRoutedDevicesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRoutedDevicesResponse) Reset() {
+	*x = GetRoutedDevicesResponse{}
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRoutedDevicesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRoutedDevicesResponse) ProtoMessage() {}
+
+func (x *GetRoutedDevicesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRoutedDevicesResponse.ProtoReflect.Descriptor instead.
+func (*GetRoutedDevicesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *GetRoutedDevicesResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -1472,7 +1648,7 @@ type GetSampleRateRequest struct {
 
 func (x *GetSampleRateRequest) Reset() {
 	*x = GetSampleRateRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[32]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1484,7 +1660,7 @@ func (x *GetSampleRateRequest) String() string {
 func (*GetSampleRateRequest) ProtoMessage() {}
 
 func (x *GetSampleRateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[32]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1497,7 +1673,7 @@ func (x *GetSampleRateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSampleRateRequest.ProtoReflect.Descriptor instead.
 func (*GetSampleRateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{32}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *GetSampleRateRequest) GetHandle() int64 {
@@ -1516,7 +1692,7 @@ type GetSampleRateResponse struct {
 
 func (x *GetSampleRateResponse) Reset() {
 	*x = GetSampleRateResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[33]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1528,7 +1704,7 @@ func (x *GetSampleRateResponse) String() string {
 func (*GetSampleRateResponse) ProtoMessage() {}
 
 func (x *GetSampleRateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[33]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1541,7 +1717,7 @@ func (x *GetSampleRateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSampleRateResponse.ProtoReflect.Descriptor instead.
 func (*GetSampleRateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{33}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *GetSampleRateResponse) GetResult() int32 {
@@ -1560,7 +1736,7 @@ type GetStateRequest struct {
 
 func (x *GetStateRequest) Reset() {
 	*x = GetStateRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[34]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1572,7 +1748,7 @@ func (x *GetStateRequest) String() string {
 func (*GetStateRequest) ProtoMessage() {}
 
 func (x *GetStateRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[34]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1585,7 +1761,7 @@ func (x *GetStateRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStateRequest.ProtoReflect.Descriptor instead.
 func (*GetStateRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{34}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *GetStateRequest) GetHandle() int64 {
@@ -1604,7 +1780,7 @@ type GetStateResponse struct {
 
 func (x *GetStateResponse) Reset() {
 	*x = GetStateResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[35]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1616,7 +1792,7 @@ func (x *GetStateResponse) String() string {
 func (*GetStateResponse) ProtoMessage() {}
 
 func (x *GetStateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[35]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1629,7 +1805,7 @@ func (x *GetStateResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetStateResponse.ProtoReflect.Descriptor instead.
 func (*GetStateResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{35}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *GetStateResponse) GetResult() int32 {
@@ -1650,7 +1826,7 @@ type GetTimestampRequest struct {
 
 func (x *GetTimestampRequest) Reset() {
 	*x = GetTimestampRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[36]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1662,7 +1838,7 @@ func (x *GetTimestampRequest) String() string {
 func (*GetTimestampRequest) ProtoMessage() {}
 
 func (x *GetTimestampRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[36]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1675,7 +1851,7 @@ func (x *GetTimestampRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTimestampRequest.ProtoReflect.Descriptor instead.
 func (*GetTimestampRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{36}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *GetTimestampRequest) GetHandle() int64 {
@@ -1708,7 +1884,7 @@ type GetTimestampResponse struct {
 
 func (x *GetTimestampResponse) Reset() {
 	*x = GetTimestampResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[37]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1720,7 +1896,7 @@ func (x *GetTimestampResponse) String() string {
 func (*GetTimestampResponse) ProtoMessage() {}
 
 func (x *GetTimestampResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[37]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1733,7 +1909,7 @@ func (x *GetTimestampResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetTimestampResponse.ProtoReflect.Descriptor instead.
 func (*GetTimestampResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{37}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *GetTimestampResponse) GetResult() int32 {
@@ -1752,7 +1928,7 @@ type IsPrivacySensitiveRequest struct {
 
 func (x *IsPrivacySensitiveRequest) Reset() {
 	*x = IsPrivacySensitiveRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[38]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1764,7 +1940,7 @@ func (x *IsPrivacySensitiveRequest) String() string {
 func (*IsPrivacySensitiveRequest) ProtoMessage() {}
 
 func (x *IsPrivacySensitiveRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[38]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1777,7 +1953,7 @@ func (x *IsPrivacySensitiveRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsPrivacySensitiveRequest.ProtoReflect.Descriptor instead.
 func (*IsPrivacySensitiveRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{38}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *IsPrivacySensitiveRequest) GetHandle() int64 {
@@ -1796,7 +1972,7 @@ type IsPrivacySensitiveResponse struct {
 
 func (x *IsPrivacySensitiveResponse) Reset() {
 	*x = IsPrivacySensitiveResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[39]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1808,7 +1984,7 @@ func (x *IsPrivacySensitiveResponse) String() string {
 func (*IsPrivacySensitiveResponse) ProtoMessage() {}
 
 func (x *IsPrivacySensitiveResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[39]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1821,7 +1997,7 @@ func (x *IsPrivacySensitiveResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsPrivacySensitiveResponse.ProtoReflect.Descriptor instead.
 func (*IsPrivacySensitiveResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{39}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *IsPrivacySensitiveResponse) GetResult() bool {
@@ -1843,7 +2019,7 @@ type Read3Request struct {
 
 func (x *Read3Request) Reset() {
 	*x = Read3Request{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[40]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1855,7 +2031,7 @@ func (x *Read3Request) String() string {
 func (*Read3Request) ProtoMessage() {}
 
 func (x *Read3Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[40]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1868,7 +2044,7 @@ func (x *Read3Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Read3Request.ProtoReflect.Descriptor instead.
 func (*Read3Request) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{40}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *Read3Request) GetHandle() int64 {
@@ -1908,7 +2084,7 @@ type Read3Response struct {
 
 func (x *Read3Response) Reset() {
 	*x = Read3Response{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[41]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1920,7 +2096,7 @@ func (x *Read3Response) String() string {
 func (*Read3Response) ProtoMessage() {}
 
 func (x *Read3Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[41]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1933,7 +2109,7 @@ func (x *Read3Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Read3Response.ProtoReflect.Descriptor instead.
 func (*Read3Response) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{41}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *Read3Response) GetResult() int32 {
@@ -1956,7 +2132,7 @@ type Read4_1Request struct {
 
 func (x *Read4_1Request) Reset() {
 	*x = Read4_1Request{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[42]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1968,7 +2144,7 @@ func (x *Read4_1Request) String() string {
 func (*Read4_1Request) ProtoMessage() {}
 
 func (x *Read4_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[42]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1981,7 +2157,7 @@ func (x *Read4_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Read4_1Request.ProtoReflect.Descriptor instead.
 func (*Read4_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{42}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *Read4_1Request) GetHandle() int64 {
@@ -2028,7 +2204,7 @@ type Read4_1Response struct {
 
 func (x *Read4_1Response) Reset() {
 	*x = Read4_1Response{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[43]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2040,7 +2216,7 @@ func (x *Read4_1Response) String() string {
 func (*Read4_1Response) ProtoMessage() {}
 
 func (x *Read4_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[43]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2053,7 +2229,7 @@ func (x *Read4_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Read4_1Response.ProtoReflect.Descriptor instead.
 func (*Read4_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{43}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *Read4_1Response) GetResult() int32 {
@@ -2076,7 +2252,7 @@ type Read4_2Request struct {
 
 func (x *Read4_2Request) Reset() {
 	*x = Read4_2Request{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[44]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2088,7 +2264,7 @@ func (x *Read4_2Request) String() string {
 func (*Read4_2Request) ProtoMessage() {}
 
 func (x *Read4_2Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[44]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2101,7 +2277,7 @@ func (x *Read4_2Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Read4_2Request.ProtoReflect.Descriptor instead.
 func (*Read4_2Request) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{44}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *Read4_2Request) GetHandle() int64 {
@@ -2148,7 +2324,7 @@ type Read4_2Response struct {
 
 func (x *Read4_2Response) Reset() {
 	*x = Read4_2Response{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[45]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2160,7 +2336,7 @@ func (x *Read4_2Response) String() string {
 func (*Read4_2Response) ProtoMessage() {}
 
 func (x *Read4_2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[45]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2173,7 +2349,7 @@ func (x *Read4_2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Read4_2Response.ProtoReflect.Descriptor instead.
 func (*Read4_2Response) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{45}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{49}
 }
 
 func (x *Read4_2Response) GetResult() int32 {
@@ -2195,7 +2371,7 @@ type Read3_3Request struct {
 
 func (x *Read3_3Request) Reset() {
 	*x = Read3_3Request{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[46]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2207,7 +2383,7 @@ func (x *Read3_3Request) String() string {
 func (*Read3_3Request) ProtoMessage() {}
 
 func (x *Read3_3Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[46]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2220,7 +2396,7 @@ func (x *Read3_3Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Read3_3Request.ProtoReflect.Descriptor instead.
 func (*Read3_3Request) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{46}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *Read3_3Request) GetHandle() int64 {
@@ -2260,7 +2436,7 @@ type Read3_3Response struct {
 
 func (x *Read3_3Response) Reset() {
 	*x = Read3_3Response{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[47]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2272,7 +2448,7 @@ func (x *Read3_3Response) String() string {
 func (*Read3_3Response) ProtoMessage() {}
 
 func (x *Read3_3Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[47]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2285,7 +2461,7 @@ func (x *Read3_3Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Read3_3Response.ProtoReflect.Descriptor instead.
 func (*Read3_3Response) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{47}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{51}
 }
 
 func (x *Read3_3Response) GetResult() int32 {
@@ -2308,7 +2484,7 @@ type Read4_4Request struct {
 
 func (x *Read4_4Request) Reset() {
 	*x = Read4_4Request{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[48]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2320,7 +2496,7 @@ func (x *Read4_4Request) String() string {
 func (*Read4_4Request) ProtoMessage() {}
 
 func (x *Read4_4Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[48]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2333,7 +2509,7 @@ func (x *Read4_4Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Read4_4Request.ProtoReflect.Descriptor instead.
 func (*Read4_4Request) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{48}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *Read4_4Request) GetHandle() int64 {
@@ -2380,7 +2556,7 @@ type Read4_4Response struct {
 
 func (x *Read4_4Response) Reset() {
 	*x = Read4_4Response{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[49]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2392,7 +2568,7 @@ func (x *Read4_4Response) String() string {
 func (*Read4_4Response) ProtoMessage() {}
 
 func (x *Read4_4Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[49]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2405,7 +2581,7 @@ func (x *Read4_4Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Read4_4Response.ProtoReflect.Descriptor instead.
 func (*Read4_4Response) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{49}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *Read4_4Response) GetResult() int32 {
@@ -2426,7 +2602,7 @@ type RegisterAudioRecordingCallbackRequest struct {
 
 func (x *RegisterAudioRecordingCallbackRequest) Reset() {
 	*x = RegisterAudioRecordingCallbackRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[50]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2438,7 +2614,7 @@ func (x *RegisterAudioRecordingCallbackRequest) String() string {
 func (*RegisterAudioRecordingCallbackRequest) ProtoMessage() {}
 
 func (x *RegisterAudioRecordingCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[50]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2451,7 +2627,7 @@ func (x *RegisterAudioRecordingCallbackRequest) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use RegisterAudioRecordingCallbackRequest.ProtoReflect.Descriptor instead.
 func (*RegisterAudioRecordingCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{50}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *RegisterAudioRecordingCallbackRequest) GetHandle() int64 {
@@ -2483,7 +2659,7 @@ type RegisterAudioRecordingCallbackResponse struct {
 
 func (x *RegisterAudioRecordingCallbackResponse) Reset() {
 	*x = RegisterAudioRecordingCallbackResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[51]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2495,7 +2671,7 @@ func (x *RegisterAudioRecordingCallbackResponse) String() string {
 func (*RegisterAudioRecordingCallbackResponse) ProtoMessage() {}
 
 func (x *RegisterAudioRecordingCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[51]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2508,7 +2684,7 @@ func (x *RegisterAudioRecordingCallbackResponse) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use RegisterAudioRecordingCallbackResponse.ProtoReflect.Descriptor instead.
 func (*RegisterAudioRecordingCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{51}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{55}
 }
 
 type ReleaseRequest struct {
@@ -2520,7 +2696,7 @@ type ReleaseRequest struct {
 
 func (x *ReleaseRequest) Reset() {
 	*x = ReleaseRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[52]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2532,7 +2708,7 @@ func (x *ReleaseRequest) String() string {
 func (*ReleaseRequest) ProtoMessage() {}
 
 func (x *ReleaseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[52]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2545,7 +2721,7 @@ func (x *ReleaseRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReleaseRequest.ProtoReflect.Descriptor instead.
 func (*ReleaseRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{52}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *ReleaseRequest) GetHandle() int64 {
@@ -2563,7 +2739,7 @@ type ReleaseResponse struct {
 
 func (x *ReleaseResponse) Reset() {
 	*x = ReleaseResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[53]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2575,7 +2751,7 @@ func (x *ReleaseResponse) String() string {
 func (*ReleaseResponse) ProtoMessage() {}
 
 func (x *ReleaseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[53]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2588,7 +2764,7 @@ func (x *ReleaseResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReleaseResponse.ProtoReflect.Descriptor instead.
 func (*ReleaseResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{53}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{57}
 }
 
 type RemoveOnRoutingChangedListener1Request struct {
@@ -2601,7 +2777,7 @@ type RemoveOnRoutingChangedListener1Request struct {
 
 func (x *RemoveOnRoutingChangedListener1Request) Reset() {
 	*x = RemoveOnRoutingChangedListener1Request{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[54]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2613,7 +2789,7 @@ func (x *RemoveOnRoutingChangedListener1Request) String() string {
 func (*RemoveOnRoutingChangedListener1Request) ProtoMessage() {}
 
 func (x *RemoveOnRoutingChangedListener1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[54]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2626,7 +2802,7 @@ func (x *RemoveOnRoutingChangedListener1Request) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use RemoveOnRoutingChangedListener1Request.ProtoReflect.Descriptor instead.
 func (*RemoveOnRoutingChangedListener1Request) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{54}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *RemoveOnRoutingChangedListener1Request) GetHandle() int64 {
@@ -2651,7 +2827,7 @@ type RemoveOnRoutingChangedListener1Response struct {
 
 func (x *RemoveOnRoutingChangedListener1Response) Reset() {
 	*x = RemoveOnRoutingChangedListener1Response{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[55]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2663,7 +2839,7 @@ func (x *RemoveOnRoutingChangedListener1Response) String() string {
 func (*RemoveOnRoutingChangedListener1Response) ProtoMessage() {}
 
 func (x *RemoveOnRoutingChangedListener1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[55]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2676,7 +2852,7 @@ func (x *RemoveOnRoutingChangedListener1Response) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use RemoveOnRoutingChangedListener1Response.ProtoReflect.Descriptor instead.
 func (*RemoveOnRoutingChangedListener1Response) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{55}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{59}
 }
 
 type RemoveOnRoutingChangedListener1_1Request struct {
@@ -2689,7 +2865,7 @@ type RemoveOnRoutingChangedListener1_1Request struct {
 
 func (x *RemoveOnRoutingChangedListener1_1Request) Reset() {
 	*x = RemoveOnRoutingChangedListener1_1Request{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[56]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2701,7 +2877,7 @@ func (x *RemoveOnRoutingChangedListener1_1Request) String() string {
 func (*RemoveOnRoutingChangedListener1_1Request) ProtoMessage() {}
 
 func (x *RemoveOnRoutingChangedListener1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[56]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2714,7 +2890,7 @@ func (x *RemoveOnRoutingChangedListener1_1Request) ProtoReflect() protoreflect.M
 
 // Deprecated: Use RemoveOnRoutingChangedListener1_1Request.ProtoReflect.Descriptor instead.
 func (*RemoveOnRoutingChangedListener1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{56}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *RemoveOnRoutingChangedListener1_1Request) GetHandle() int64 {
@@ -2739,7 +2915,7 @@ type RemoveOnRoutingChangedListener1_1Response struct {
 
 func (x *RemoveOnRoutingChangedListener1_1Response) Reset() {
 	*x = RemoveOnRoutingChangedListener1_1Response{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[57]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2751,7 +2927,7 @@ func (x *RemoveOnRoutingChangedListener1_1Response) String() string {
 func (*RemoveOnRoutingChangedListener1_1Response) ProtoMessage() {}
 
 func (x *RemoveOnRoutingChangedListener1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[57]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2764,7 +2940,7 @@ func (x *RemoveOnRoutingChangedListener1_1Response) ProtoReflect() protoreflect.
 
 // Deprecated: Use RemoveOnRoutingChangedListener1_1Response.ProtoReflect.Descriptor instead.
 func (*RemoveOnRoutingChangedListener1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{57}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{61}
 }
 
 type SetLogSessionIdRequest struct {
@@ -2777,7 +2953,7 @@ type SetLogSessionIdRequest struct {
 
 func (x *SetLogSessionIdRequest) Reset() {
 	*x = SetLogSessionIdRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[58]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2789,7 +2965,7 @@ func (x *SetLogSessionIdRequest) String() string {
 func (*SetLogSessionIdRequest) ProtoMessage() {}
 
 func (x *SetLogSessionIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[58]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2802,7 +2978,7 @@ func (x *SetLogSessionIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetLogSessionIdRequest.ProtoReflect.Descriptor instead.
 func (*SetLogSessionIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{58}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{62}
 }
 
 func (x *SetLogSessionIdRequest) GetHandle() int64 {
@@ -2827,7 +3003,7 @@ type SetLogSessionIdResponse struct {
 
 func (x *SetLogSessionIdResponse) Reset() {
 	*x = SetLogSessionIdResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[59]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2839,7 +3015,7 @@ func (x *SetLogSessionIdResponse) String() string {
 func (*SetLogSessionIdResponse) ProtoMessage() {}
 
 func (x *SetLogSessionIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[59]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2852,7 +3028,7 @@ func (x *SetLogSessionIdResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetLogSessionIdResponse.ProtoReflect.Descriptor instead.
 func (*SetLogSessionIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{59}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{63}
 }
 
 type SetNotificationMarkerPositionRequest struct {
@@ -2865,7 +3041,7 @@ type SetNotificationMarkerPositionRequest struct {
 
 func (x *SetNotificationMarkerPositionRequest) Reset() {
 	*x = SetNotificationMarkerPositionRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[60]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2877,7 +3053,7 @@ func (x *SetNotificationMarkerPositionRequest) String() string {
 func (*SetNotificationMarkerPositionRequest) ProtoMessage() {}
 
 func (x *SetNotificationMarkerPositionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[60]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2890,7 +3066,7 @@ func (x *SetNotificationMarkerPositionRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use SetNotificationMarkerPositionRequest.ProtoReflect.Descriptor instead.
 func (*SetNotificationMarkerPositionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{60}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{64}
 }
 
 func (x *SetNotificationMarkerPositionRequest) GetHandle() int64 {
@@ -2916,7 +3092,7 @@ type SetNotificationMarkerPositionResponse struct {
 
 func (x *SetNotificationMarkerPositionResponse) Reset() {
 	*x = SetNotificationMarkerPositionResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[61]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2928,7 +3104,7 @@ func (x *SetNotificationMarkerPositionResponse) String() string {
 func (*SetNotificationMarkerPositionResponse) ProtoMessage() {}
 
 func (x *SetNotificationMarkerPositionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[61]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2941,7 +3117,7 @@ func (x *SetNotificationMarkerPositionResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use SetNotificationMarkerPositionResponse.ProtoReflect.Descriptor instead.
 func (*SetNotificationMarkerPositionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{61}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{65}
 }
 
 func (x *SetNotificationMarkerPositionResponse) GetResult() int32 {
@@ -2961,7 +3137,7 @@ type SetPositionNotificationPeriodRequest struct {
 
 func (x *SetPositionNotificationPeriodRequest) Reset() {
 	*x = SetPositionNotificationPeriodRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[62]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2973,7 +3149,7 @@ func (x *SetPositionNotificationPeriodRequest) String() string {
 func (*SetPositionNotificationPeriodRequest) ProtoMessage() {}
 
 func (x *SetPositionNotificationPeriodRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[62]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2986,7 +3162,7 @@ func (x *SetPositionNotificationPeriodRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use SetPositionNotificationPeriodRequest.ProtoReflect.Descriptor instead.
 func (*SetPositionNotificationPeriodRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{62}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{66}
 }
 
 func (x *SetPositionNotificationPeriodRequest) GetHandle() int64 {
@@ -3012,7 +3188,7 @@ type SetPositionNotificationPeriodResponse struct {
 
 func (x *SetPositionNotificationPeriodResponse) Reset() {
 	*x = SetPositionNotificationPeriodResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[63]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3024,7 +3200,7 @@ func (x *SetPositionNotificationPeriodResponse) String() string {
 func (*SetPositionNotificationPeriodResponse) ProtoMessage() {}
 
 func (x *SetPositionNotificationPeriodResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[63]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3037,7 +3213,7 @@ func (x *SetPositionNotificationPeriodResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use SetPositionNotificationPeriodResponse.ProtoReflect.Descriptor instead.
 func (*SetPositionNotificationPeriodResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{63}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{67}
 }
 
 func (x *SetPositionNotificationPeriodResponse) GetResult() int32 {
@@ -3057,7 +3233,7 @@ type SetPreferredDeviceRequest struct {
 
 func (x *SetPreferredDeviceRequest) Reset() {
 	*x = SetPreferredDeviceRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[64]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3069,7 +3245,7 @@ func (x *SetPreferredDeviceRequest) String() string {
 func (*SetPreferredDeviceRequest) ProtoMessage() {}
 
 func (x *SetPreferredDeviceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[64]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3082,7 +3258,7 @@ func (x *SetPreferredDeviceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetPreferredDeviceRequest.ProtoReflect.Descriptor instead.
 func (*SetPreferredDeviceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{64}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{68}
 }
 
 func (x *SetPreferredDeviceRequest) GetHandle() int64 {
@@ -3108,7 +3284,7 @@ type SetPreferredDeviceResponse struct {
 
 func (x *SetPreferredDeviceResponse) Reset() {
 	*x = SetPreferredDeviceResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[65]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3120,7 +3296,7 @@ func (x *SetPreferredDeviceResponse) String() string {
 func (*SetPreferredDeviceResponse) ProtoMessage() {}
 
 func (x *SetPreferredDeviceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[65]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3133,7 +3309,7 @@ func (x *SetPreferredDeviceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetPreferredDeviceResponse.ProtoReflect.Descriptor instead.
 func (*SetPreferredDeviceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{65}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{69}
 }
 
 func (x *SetPreferredDeviceResponse) GetResult() bool {
@@ -3153,7 +3329,7 @@ type SetPreferredMicrophoneDirectionRequest struct {
 
 func (x *SetPreferredMicrophoneDirectionRequest) Reset() {
 	*x = SetPreferredMicrophoneDirectionRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[66]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3165,7 +3341,7 @@ func (x *SetPreferredMicrophoneDirectionRequest) String() string {
 func (*SetPreferredMicrophoneDirectionRequest) ProtoMessage() {}
 
 func (x *SetPreferredMicrophoneDirectionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[66]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3178,7 +3354,7 @@ func (x *SetPreferredMicrophoneDirectionRequest) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use SetPreferredMicrophoneDirectionRequest.ProtoReflect.Descriptor instead.
 func (*SetPreferredMicrophoneDirectionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{66}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{70}
 }
 
 func (x *SetPreferredMicrophoneDirectionRequest) GetHandle() int64 {
@@ -3204,7 +3380,7 @@ type SetPreferredMicrophoneDirectionResponse struct {
 
 func (x *SetPreferredMicrophoneDirectionResponse) Reset() {
 	*x = SetPreferredMicrophoneDirectionResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[67]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3216,7 +3392,7 @@ func (x *SetPreferredMicrophoneDirectionResponse) String() string {
 func (*SetPreferredMicrophoneDirectionResponse) ProtoMessage() {}
 
 func (x *SetPreferredMicrophoneDirectionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[67]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3229,7 +3405,7 @@ func (x *SetPreferredMicrophoneDirectionResponse) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use SetPreferredMicrophoneDirectionResponse.ProtoReflect.Descriptor instead.
 func (*SetPreferredMicrophoneDirectionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{67}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{71}
 }
 
 func (x *SetPreferredMicrophoneDirectionResponse) GetResult() bool {
@@ -3249,7 +3425,7 @@ type SetPreferredMicrophoneFieldDimensionRequest struct {
 
 func (x *SetPreferredMicrophoneFieldDimensionRequest) Reset() {
 	*x = SetPreferredMicrophoneFieldDimensionRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[68]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3261,7 +3437,7 @@ func (x *SetPreferredMicrophoneFieldDimensionRequest) String() string {
 func (*SetPreferredMicrophoneFieldDimensionRequest) ProtoMessage() {}
 
 func (x *SetPreferredMicrophoneFieldDimensionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[68]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3274,7 +3450,7 @@ func (x *SetPreferredMicrophoneFieldDimensionRequest) ProtoReflect() protoreflec
 
 // Deprecated: Use SetPreferredMicrophoneFieldDimensionRequest.ProtoReflect.Descriptor instead.
 func (*SetPreferredMicrophoneFieldDimensionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{68}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{72}
 }
 
 func (x *SetPreferredMicrophoneFieldDimensionRequest) GetHandle() int64 {
@@ -3300,7 +3476,7 @@ type SetPreferredMicrophoneFieldDimensionResponse struct {
 
 func (x *SetPreferredMicrophoneFieldDimensionResponse) Reset() {
 	*x = SetPreferredMicrophoneFieldDimensionResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[69]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3312,7 +3488,7 @@ func (x *SetPreferredMicrophoneFieldDimensionResponse) String() string {
 func (*SetPreferredMicrophoneFieldDimensionResponse) ProtoMessage() {}
 
 func (x *SetPreferredMicrophoneFieldDimensionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[69]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3325,7 +3501,7 @@ func (x *SetPreferredMicrophoneFieldDimensionResponse) ProtoReflect() protorefle
 
 // Deprecated: Use SetPreferredMicrophoneFieldDimensionResponse.ProtoReflect.Descriptor instead.
 func (*SetPreferredMicrophoneFieldDimensionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{69}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{73}
 }
 
 func (x *SetPreferredMicrophoneFieldDimensionResponse) GetResult() bool {
@@ -3345,7 +3521,7 @@ type SetRecordPositionUpdateListenerRequest struct {
 
 func (x *SetRecordPositionUpdateListenerRequest) Reset() {
 	*x = SetRecordPositionUpdateListenerRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[70]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[74]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3357,7 +3533,7 @@ func (x *SetRecordPositionUpdateListenerRequest) String() string {
 func (*SetRecordPositionUpdateListenerRequest) ProtoMessage() {}
 
 func (x *SetRecordPositionUpdateListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[70]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[74]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3370,7 +3546,7 @@ func (x *SetRecordPositionUpdateListenerRequest) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use SetRecordPositionUpdateListenerRequest.ProtoReflect.Descriptor instead.
 func (*SetRecordPositionUpdateListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{70}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{74}
 }
 
 func (x *SetRecordPositionUpdateListenerRequest) GetHandle() int64 {
@@ -3395,7 +3571,7 @@ type SetRecordPositionUpdateListenerResponse struct {
 
 func (x *SetRecordPositionUpdateListenerResponse) Reset() {
 	*x = SetRecordPositionUpdateListenerResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[71]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[75]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3407,7 +3583,7 @@ func (x *SetRecordPositionUpdateListenerResponse) String() string {
 func (*SetRecordPositionUpdateListenerResponse) ProtoMessage() {}
 
 func (x *SetRecordPositionUpdateListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[71]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[75]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3420,7 +3596,7 @@ func (x *SetRecordPositionUpdateListenerResponse) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use SetRecordPositionUpdateListenerResponse.ProtoReflect.Descriptor instead.
 func (*SetRecordPositionUpdateListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{71}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{75}
 }
 
 type StartRecording0Request struct {
@@ -3432,7 +3608,7 @@ type StartRecording0Request struct {
 
 func (x *StartRecording0Request) Reset() {
 	*x = StartRecording0Request{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[72]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[76]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3444,7 +3620,7 @@ func (x *StartRecording0Request) String() string {
 func (*StartRecording0Request) ProtoMessage() {}
 
 func (x *StartRecording0Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[72]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[76]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3457,7 +3633,7 @@ func (x *StartRecording0Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartRecording0Request.ProtoReflect.Descriptor instead.
 func (*StartRecording0Request) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{72}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{76}
 }
 
 func (x *StartRecording0Request) GetHandle() int64 {
@@ -3475,7 +3651,7 @@ type StartRecording0Response struct {
 
 func (x *StartRecording0Response) Reset() {
 	*x = StartRecording0Response{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[73]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[77]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3487,7 +3663,7 @@ func (x *StartRecording0Response) String() string {
 func (*StartRecording0Response) ProtoMessage() {}
 
 func (x *StartRecording0Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[73]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[77]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3500,7 +3676,7 @@ func (x *StartRecording0Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartRecording0Response.ProtoReflect.Descriptor instead.
 func (*StartRecording0Response) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{73}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{77}
 }
 
 type StartRecording1_1Request struct {
@@ -3513,7 +3689,7 @@ type StartRecording1_1Request struct {
 
 func (x *StartRecording1_1Request) Reset() {
 	*x = StartRecording1_1Request{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[74]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[78]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3525,7 +3701,7 @@ func (x *StartRecording1_1Request) String() string {
 func (*StartRecording1_1Request) ProtoMessage() {}
 
 func (x *StartRecording1_1Request) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[74]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[78]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3538,7 +3714,7 @@ func (x *StartRecording1_1Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartRecording1_1Request.ProtoReflect.Descriptor instead.
 func (*StartRecording1_1Request) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{74}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{78}
 }
 
 func (x *StartRecording1_1Request) GetHandle() int64 {
@@ -3563,7 +3739,7 @@ type StartRecording1_1Response struct {
 
 func (x *StartRecording1_1Response) Reset() {
 	*x = StartRecording1_1Response{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[75]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[79]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3575,7 +3751,7 @@ func (x *StartRecording1_1Response) String() string {
 func (*StartRecording1_1Response) ProtoMessage() {}
 
 func (x *StartRecording1_1Response) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[75]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[79]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3588,7 +3764,7 @@ func (x *StartRecording1_1Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartRecording1_1Response.ProtoReflect.Descriptor instead.
 func (*StartRecording1_1Response) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{75}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{79}
 }
 
 type StopRequest struct {
@@ -3600,7 +3776,7 @@ type StopRequest struct {
 
 func (x *StopRequest) Reset() {
 	*x = StopRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[76]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[80]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3612,7 +3788,7 @@ func (x *StopRequest) String() string {
 func (*StopRequest) ProtoMessage() {}
 
 func (x *StopRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[76]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[80]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3625,7 +3801,7 @@ func (x *StopRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StopRequest.ProtoReflect.Descriptor instead.
 func (*StopRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{76}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{80}
 }
 
 func (x *StopRequest) GetHandle() int64 {
@@ -3643,7 +3819,7 @@ type StopResponse struct {
 
 func (x *StopResponse) Reset() {
 	*x = StopResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[77]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[81]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3655,7 +3831,7 @@ func (x *StopResponse) String() string {
 func (*StopResponse) ProtoMessage() {}
 
 func (x *StopResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[77]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[81]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3668,7 +3844,7 @@ func (x *StopResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StopResponse.ProtoReflect.Descriptor instead.
 func (*StopResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{77}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{81}
 }
 
 type UnregisterAudioRecordingCallbackRequest struct {
@@ -3681,7 +3857,7 @@ type UnregisterAudioRecordingCallbackRequest struct {
 
 func (x *UnregisterAudioRecordingCallbackRequest) Reset() {
 	*x = UnregisterAudioRecordingCallbackRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[78]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[82]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3693,7 +3869,7 @@ func (x *UnregisterAudioRecordingCallbackRequest) String() string {
 func (*UnregisterAudioRecordingCallbackRequest) ProtoMessage() {}
 
 func (x *UnregisterAudioRecordingCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[78]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[82]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3706,7 +3882,7 @@ func (x *UnregisterAudioRecordingCallbackRequest) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use UnregisterAudioRecordingCallbackRequest.ProtoReflect.Descriptor instead.
 func (*UnregisterAudioRecordingCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{78}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{82}
 }
 
 func (x *UnregisterAudioRecordingCallbackRequest) GetHandle() int64 {
@@ -3731,7 +3907,7 @@ type UnregisterAudioRecordingCallbackResponse struct {
 
 func (x *UnregisterAudioRecordingCallbackResponse) Reset() {
 	*x = UnregisterAudioRecordingCallbackResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[79]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[83]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3743,7 +3919,7 @@ func (x *UnregisterAudioRecordingCallbackResponse) String() string {
 func (*UnregisterAudioRecordingCallbackResponse) ProtoMessage() {}
 
 func (x *UnregisterAudioRecordingCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[79]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[83]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3756,7 +3932,7 @@ func (x *UnregisterAudioRecordingCallbackResponse) ProtoReflect() protoreflect.M
 
 // Deprecated: Use UnregisterAudioRecordingCallbackResponse.ProtoReflect.Descriptor instead.
 func (*UnregisterAudioRecordingCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{79}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{83}
 }
 
 type GetMinBufferSizeRequest struct {
@@ -3771,7 +3947,7 @@ type GetMinBufferSizeRequest struct {
 
 func (x *GetMinBufferSizeRequest) Reset() {
 	*x = GetMinBufferSizeRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[80]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[84]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3783,7 +3959,7 @@ func (x *GetMinBufferSizeRequest) String() string {
 func (*GetMinBufferSizeRequest) ProtoMessage() {}
 
 func (x *GetMinBufferSizeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[80]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[84]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3796,7 +3972,7 @@ func (x *GetMinBufferSizeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMinBufferSizeRequest.ProtoReflect.Descriptor instead.
 func (*GetMinBufferSizeRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{80}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{84}
 }
 
 func (x *GetMinBufferSizeRequest) GetHandle() int64 {
@@ -3836,7 +4012,7 @@ type GetMinBufferSizeResponse struct {
 
 func (x *GetMinBufferSizeResponse) Reset() {
 	*x = GetMinBufferSizeResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[81]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[85]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3848,7 +4024,7 @@ func (x *GetMinBufferSizeResponse) String() string {
 func (*GetMinBufferSizeResponse) ProtoMessage() {}
 
 func (x *GetMinBufferSizeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[81]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[85]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3861,7 +4037,7 @@ func (x *GetMinBufferSizeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMinBufferSizeResponse.ProtoReflect.Descriptor instead.
 func (*GetMinBufferSizeResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{81}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{85}
 }
 
 func (x *GetMinBufferSizeResponse) GetResult() int32 {
@@ -3879,7 +4055,7 @@ type BuildRequest struct {
 
 func (x *BuildRequest) Reset() {
 	*x = BuildRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[82]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[86]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3891,7 +4067,7 @@ func (x *BuildRequest) String() string {
 func (*BuildRequest) ProtoMessage() {}
 
 func (x *BuildRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[82]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[86]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3904,7 +4080,7 @@ func (x *BuildRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuildRequest.ProtoReflect.Descriptor instead.
 func (*BuildRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{82}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{86}
 }
 
 type BuildResponse struct {
@@ -3916,7 +4092,7 @@ type BuildResponse struct {
 
 func (x *BuildResponse) Reset() {
 	*x = BuildResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[83]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[87]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3928,7 +4104,7 @@ func (x *BuildResponse) String() string {
 func (*BuildResponse) ProtoMessage() {}
 
 func (x *BuildResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[83]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[87]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3941,7 +4117,7 @@ func (x *BuildResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuildResponse.ProtoReflect.Descriptor instead.
 func (*BuildResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{83}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{87}
 }
 
 func (x *BuildResponse) GetResult() int64 {
@@ -3960,7 +4136,7 @@ type SetAudioFormatRequest struct {
 
 func (x *SetAudioFormatRequest) Reset() {
 	*x = SetAudioFormatRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[84]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[88]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3972,7 +4148,7 @@ func (x *SetAudioFormatRequest) String() string {
 func (*SetAudioFormatRequest) ProtoMessage() {}
 
 func (x *SetAudioFormatRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[84]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[88]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3985,7 +4161,7 @@ func (x *SetAudioFormatRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetAudioFormatRequest.ProtoReflect.Descriptor instead.
 func (*SetAudioFormatRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{84}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{88}
 }
 
 func (x *SetAudioFormatRequest) GetArg0() int64 {
@@ -4004,7 +4180,7 @@ type SetAudioFormatResponse struct {
 
 func (x *SetAudioFormatResponse) Reset() {
 	*x = SetAudioFormatResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[85]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[89]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4016,7 +4192,7 @@ func (x *SetAudioFormatResponse) String() string {
 func (*SetAudioFormatResponse) ProtoMessage() {}
 
 func (x *SetAudioFormatResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[85]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[89]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4029,7 +4205,7 @@ func (x *SetAudioFormatResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetAudioFormatResponse.ProtoReflect.Descriptor instead.
 func (*SetAudioFormatResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{85}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{89}
 }
 
 func (x *SetAudioFormatResponse) GetResult() int64 {
@@ -4048,7 +4224,7 @@ type SetAudioPlaybackCaptureConfigRequest struct {
 
 func (x *SetAudioPlaybackCaptureConfigRequest) Reset() {
 	*x = SetAudioPlaybackCaptureConfigRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[86]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[90]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4060,7 +4236,7 @@ func (x *SetAudioPlaybackCaptureConfigRequest) String() string {
 func (*SetAudioPlaybackCaptureConfigRequest) ProtoMessage() {}
 
 func (x *SetAudioPlaybackCaptureConfigRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[86]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[90]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4073,7 +4249,7 @@ func (x *SetAudioPlaybackCaptureConfigRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use SetAudioPlaybackCaptureConfigRequest.ProtoReflect.Descriptor instead.
 func (*SetAudioPlaybackCaptureConfigRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{86}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{90}
 }
 
 func (x *SetAudioPlaybackCaptureConfigRequest) GetArg0() int64 {
@@ -4092,7 +4268,7 @@ type SetAudioPlaybackCaptureConfigResponse struct {
 
 func (x *SetAudioPlaybackCaptureConfigResponse) Reset() {
 	*x = SetAudioPlaybackCaptureConfigResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[87]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[91]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4104,7 +4280,7 @@ func (x *SetAudioPlaybackCaptureConfigResponse) String() string {
 func (*SetAudioPlaybackCaptureConfigResponse) ProtoMessage() {}
 
 func (x *SetAudioPlaybackCaptureConfigResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[87]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[91]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4117,7 +4293,7 @@ func (x *SetAudioPlaybackCaptureConfigResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use SetAudioPlaybackCaptureConfigResponse.ProtoReflect.Descriptor instead.
 func (*SetAudioPlaybackCaptureConfigResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{87}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{91}
 }
 
 func (x *SetAudioPlaybackCaptureConfigResponse) GetResult() int64 {
@@ -4136,7 +4312,7 @@ type SetAudioSourceRequest struct {
 
 func (x *SetAudioSourceRequest) Reset() {
 	*x = SetAudioSourceRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[88]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[92]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4148,7 +4324,7 @@ func (x *SetAudioSourceRequest) String() string {
 func (*SetAudioSourceRequest) ProtoMessage() {}
 
 func (x *SetAudioSourceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[88]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[92]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4161,7 +4337,7 @@ func (x *SetAudioSourceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetAudioSourceRequest.ProtoReflect.Descriptor instead.
 func (*SetAudioSourceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{88}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{92}
 }
 
 func (x *SetAudioSourceRequest) GetArg0() int32 {
@@ -4180,7 +4356,7 @@ type SetAudioSourceResponse struct {
 
 func (x *SetAudioSourceResponse) Reset() {
 	*x = SetAudioSourceResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[89]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[93]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4192,7 +4368,7 @@ func (x *SetAudioSourceResponse) String() string {
 func (*SetAudioSourceResponse) ProtoMessage() {}
 
 func (x *SetAudioSourceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[89]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[93]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4205,7 +4381,7 @@ func (x *SetAudioSourceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetAudioSourceResponse.ProtoReflect.Descriptor instead.
 func (*SetAudioSourceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{89}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{93}
 }
 
 func (x *SetAudioSourceResponse) GetResult() int64 {
@@ -4224,7 +4400,7 @@ type SetBufferSizeInBytesRequest struct {
 
 func (x *SetBufferSizeInBytesRequest) Reset() {
 	*x = SetBufferSizeInBytesRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[90]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[94]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4236,7 +4412,7 @@ func (x *SetBufferSizeInBytesRequest) String() string {
 func (*SetBufferSizeInBytesRequest) ProtoMessage() {}
 
 func (x *SetBufferSizeInBytesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[90]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[94]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4249,7 +4425,7 @@ func (x *SetBufferSizeInBytesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetBufferSizeInBytesRequest.ProtoReflect.Descriptor instead.
 func (*SetBufferSizeInBytesRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{90}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{94}
 }
 
 func (x *SetBufferSizeInBytesRequest) GetArg0() int32 {
@@ -4268,7 +4444,7 @@ type SetBufferSizeInBytesResponse struct {
 
 func (x *SetBufferSizeInBytesResponse) Reset() {
 	*x = SetBufferSizeInBytesResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[91]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[95]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4280,7 +4456,7 @@ func (x *SetBufferSizeInBytesResponse) String() string {
 func (*SetBufferSizeInBytesResponse) ProtoMessage() {}
 
 func (x *SetBufferSizeInBytesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[91]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[95]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4293,7 +4469,7 @@ func (x *SetBufferSizeInBytesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetBufferSizeInBytesResponse.ProtoReflect.Descriptor instead.
 func (*SetBufferSizeInBytesResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{91}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{95}
 }
 
 func (x *SetBufferSizeInBytesResponse) GetResult() int64 {
@@ -4312,7 +4488,7 @@ type SetContextRequest struct {
 
 func (x *SetContextRequest) Reset() {
 	*x = SetContextRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[92]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[96]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4324,7 +4500,7 @@ func (x *SetContextRequest) String() string {
 func (*SetContextRequest) ProtoMessage() {}
 
 func (x *SetContextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[92]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[96]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4337,7 +4513,7 @@ func (x *SetContextRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetContextRequest.ProtoReflect.Descriptor instead.
 func (*SetContextRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{92}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{96}
 }
 
 func (x *SetContextRequest) GetArg0() int64 {
@@ -4356,7 +4532,7 @@ type SetContextResponse struct {
 
 func (x *SetContextResponse) Reset() {
 	*x = SetContextResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[93]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[97]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4368,7 +4544,7 @@ func (x *SetContextResponse) String() string {
 func (*SetContextResponse) ProtoMessage() {}
 
 func (x *SetContextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[93]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[97]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4381,7 +4557,7 @@ func (x *SetContextResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetContextResponse.ProtoReflect.Descriptor instead.
 func (*SetContextResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{93}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{97}
 }
 
 func (x *SetContextResponse) GetResult() int64 {
@@ -4400,7 +4576,7 @@ type SetPrivacySensitiveRequest struct {
 
 func (x *SetPrivacySensitiveRequest) Reset() {
 	*x = SetPrivacySensitiveRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[94]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[98]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4412,7 +4588,7 @@ func (x *SetPrivacySensitiveRequest) String() string {
 func (*SetPrivacySensitiveRequest) ProtoMessage() {}
 
 func (x *SetPrivacySensitiveRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[94]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[98]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4425,7 +4601,7 @@ func (x *SetPrivacySensitiveRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetPrivacySensitiveRequest.ProtoReflect.Descriptor instead.
 func (*SetPrivacySensitiveRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{94}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{98}
 }
 
 func (x *SetPrivacySensitiveRequest) GetArg0() bool {
@@ -4444,7 +4620,7 @@ type SetPrivacySensitiveResponse struct {
 
 func (x *SetPrivacySensitiveResponse) Reset() {
 	*x = SetPrivacySensitiveResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[95]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[99]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4456,7 +4632,7 @@ func (x *SetPrivacySensitiveResponse) String() string {
 func (*SetPrivacySensitiveResponse) ProtoMessage() {}
 
 func (x *SetPrivacySensitiveResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[95]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[99]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4469,7 +4645,7 @@ func (x *SetPrivacySensitiveResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetPrivacySensitiveResponse.ProtoReflect.Descriptor instead.
 func (*SetPrivacySensitiveResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{95}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{99}
 }
 
 func (x *SetPrivacySensitiveResponse) GetResult() int64 {
@@ -4488,7 +4664,7 @@ type OnMarkerReachedRequest struct {
 
 func (x *OnMarkerReachedRequest) Reset() {
 	*x = OnMarkerReachedRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[96]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[100]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4500,7 +4676,7 @@ func (x *OnMarkerReachedRequest) String() string {
 func (*OnMarkerReachedRequest) ProtoMessage() {}
 
 func (x *OnMarkerReachedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[96]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[100]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4513,7 +4689,7 @@ func (x *OnMarkerReachedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnMarkerReachedRequest.ProtoReflect.Descriptor instead.
 func (*OnMarkerReachedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{96}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{100}
 }
 
 func (x *OnMarkerReachedRequest) GetArg0() int64 {
@@ -4531,7 +4707,7 @@ type OnMarkerReachedResponse struct {
 
 func (x *OnMarkerReachedResponse) Reset() {
 	*x = OnMarkerReachedResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[97]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[101]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4543,7 +4719,7 @@ func (x *OnMarkerReachedResponse) String() string {
 func (*OnMarkerReachedResponse) ProtoMessage() {}
 
 func (x *OnMarkerReachedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[97]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[101]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4556,7 +4732,7 @@ func (x *OnMarkerReachedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnMarkerReachedResponse.ProtoReflect.Descriptor instead.
 func (*OnMarkerReachedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{97}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{101}
 }
 
 type OnPeriodicNotificationRequest struct {
@@ -4568,7 +4744,7 @@ type OnPeriodicNotificationRequest struct {
 
 func (x *OnPeriodicNotificationRequest) Reset() {
 	*x = OnPeriodicNotificationRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[98]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[102]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4580,7 +4756,7 @@ func (x *OnPeriodicNotificationRequest) String() string {
 func (*OnPeriodicNotificationRequest) ProtoMessage() {}
 
 func (x *OnPeriodicNotificationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[98]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[102]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4593,7 +4769,7 @@ func (x *OnPeriodicNotificationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnPeriodicNotificationRequest.ProtoReflect.Descriptor instead.
 func (*OnPeriodicNotificationRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{98}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{102}
 }
 
 func (x *OnPeriodicNotificationRequest) GetArg0() int64 {
@@ -4611,7 +4787,7 @@ type OnPeriodicNotificationResponse struct {
 
 func (x *OnPeriodicNotificationResponse) Reset() {
 	*x = OnPeriodicNotificationResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[99]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[103]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4623,7 +4799,7 @@ func (x *OnPeriodicNotificationResponse) String() string {
 func (*OnPeriodicNotificationResponse) ProtoMessage() {}
 
 func (x *OnPeriodicNotificationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[99]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[103]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4636,7 +4812,7 @@ func (x *OnPeriodicNotificationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnPeriodicNotificationResponse.ProtoReflect.Descriptor instead.
 func (*OnPeriodicNotificationResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{99}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{103}
 }
 
 type OnRoutingChangedRequest struct {
@@ -4648,7 +4824,7 @@ type OnRoutingChangedRequest struct {
 
 func (x *OnRoutingChangedRequest) Reset() {
 	*x = OnRoutingChangedRequest{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[100]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[104]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4660,7 +4836,7 @@ func (x *OnRoutingChangedRequest) String() string {
 func (*OnRoutingChangedRequest) ProtoMessage() {}
 
 func (x *OnRoutingChangedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[100]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[104]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4673,7 +4849,7 @@ func (x *OnRoutingChangedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnRoutingChangedRequest.ProtoReflect.Descriptor instead.
 func (*OnRoutingChangedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{100}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{104}
 }
 
 func (x *OnRoutingChangedRequest) GetArg0() int64 {
@@ -4691,7 +4867,7 @@ type OnRoutingChangedResponse struct {
 
 func (x *OnRoutingChangedResponse) Reset() {
 	*x = OnRoutingChangedResponse{}
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[101]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[105]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4703,7 +4879,7 @@ func (x *OnRoutingChangedResponse) String() string {
 func (*OnRoutingChangedResponse) ProtoMessage() {}
 
 func (x *OnRoutingChangedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[101]
+	mi := &file_proto_audiorecord_audiorecord_proto_msgTypes[105]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4716,7 +4892,7 @@ func (x *OnRoutingChangedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnRoutingChangedResponse.ProtoReflect.Descriptor instead.
 func (*OnRoutingChangedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{101}
+	return file_proto_audiorecord_audiorecord_proto_rawDescGZIP(), []int{105}
 }
 
 var File_proto_audiorecord_audiorecord_proto protoreflect.FileDescriptor
@@ -4731,6 +4907,10 @@ const file_proto_audiorecord_audiorecord_proto_rawDesc = "" +
 	"\x04arg3\x18\x04 \x01(\x05R\x04arg3\x12\x12\n" +
 	"\x04arg4\x18\x05 \x01(\x05R\x04arg4\"0\n" +
 	"\x16NewAudioRecordResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"5\n" +
+	"\x1bGetActiveMicrophonesRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"6\n" +
+	"\x1cGetActiveMicrophonesResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"@\n" +
 	"&GetActiveRecordingConfigurationRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"A\n" +
@@ -4791,6 +4971,10 @@ const file_proto_audiorecord_audiorecord_proto_rawDesc = "" +
 	"\x16GetRoutedDeviceRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"1\n" +
 	"\x17GetRoutedDeviceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"1\n" +
+	"\x17GetRoutedDevicesRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"2\n" +
+	"\x18GetRoutedDevicesResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\".\n" +
 	"\x14GetSampleRateRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"/\n" +
@@ -4953,9 +5137,10 @@ const file_proto_audiorecord_audiorecord_proto_rawDesc = "" +
 	"\x1eOnPeriodicNotificationResponse\"-\n" +
 	"\x17OnRoutingChangedRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1a\n" +
-	"\x18OnRoutingChangedResponse2\xc0!\n" +
+	"\x18OnRoutingChangedResponse2\x8e#\n" +
 	"\x12AudioRecordService\x12Y\n" +
-	"\x0eNewAudioRecord\x12\".audiorecord.NewAudioRecordRequest\x1a#.audiorecord.NewAudioRecordResponse\x12\x8c\x01\n" +
+	"\x0eNewAudioRecord\x12\".audiorecord.NewAudioRecordRequest\x1a#.audiorecord.NewAudioRecordResponse\x12k\n" +
+	"\x14GetActiveMicrophones\x12(.audiorecord.GetActiveMicrophonesRequest\x1a).audiorecord.GetActiveMicrophonesResponse\x12\x8c\x01\n" +
 	"\x1fGetActiveRecordingConfiguration\x123.audiorecord.GetActiveRecordingConfigurationRequest\x1a4.audiorecord.GetActiveRecordingConfigurationResponse\x12Y\n" +
 	"\x0eGetAudioFormat\x12\".audiorecord.GetAudioFormatRequest\x1a#.audiorecord.GetAudioFormatResponse\x12b\n" +
 	"\x11GetAudioSessionId\x12%.audiorecord.GetAudioSessionIdRequest\x1a&.audiorecord.GetAudioSessionIdResponse\x12Y\n" +
@@ -4971,7 +5156,8 @@ const file_proto_audiorecord_audiorecord_proto_rawDesc = "" +
 	"\x1dGetPositionNotificationPeriod\x121.audiorecord.GetPositionNotificationPeriodRequest\x1a2.audiorecord.GetPositionNotificationPeriodResponse\x12e\n" +
 	"\x12GetPreferredDevice\x12&.audiorecord.GetPreferredDeviceRequest\x1a'.audiorecord.GetPreferredDeviceResponse\x12b\n" +
 	"\x11GetRecordingState\x12%.audiorecord.GetRecordingStateRequest\x1a&.audiorecord.GetRecordingStateResponse\x12\\\n" +
-	"\x0fGetRoutedDevice\x12#.audiorecord.GetRoutedDeviceRequest\x1a$.audiorecord.GetRoutedDeviceResponse\x12V\n" +
+	"\x0fGetRoutedDevice\x12#.audiorecord.GetRoutedDeviceRequest\x1a$.audiorecord.GetRoutedDeviceResponse\x12_\n" +
+	"\x10GetRoutedDevices\x12$.audiorecord.GetRoutedDevicesRequest\x1a%.audiorecord.GetRoutedDevicesResponse\x12V\n" +
 	"\rGetSampleRate\x12!.audiorecord.GetSampleRateRequest\x1a\".audiorecord.GetSampleRateResponse\x12G\n" +
 	"\bGetState\x12\x1c.audiorecord.GetStateRequest\x1a\x1d.audiorecord.GetStateResponse\x12S\n" +
 	"\fGetTimestamp\x12 .audiorecord.GetTimestampRequest\x1a!.audiorecord.GetTimestampResponse\x12e\n" +
@@ -5024,216 +5210,224 @@ func file_proto_audiorecord_audiorecord_proto_rawDescGZIP() []byte {
 	return file_proto_audiorecord_audiorecord_proto_rawDescData
 }
 
-var file_proto_audiorecord_audiorecord_proto_msgTypes = make([]protoimpl.MessageInfo, 102)
+var file_proto_audiorecord_audiorecord_proto_msgTypes = make([]protoimpl.MessageInfo, 106)
 var file_proto_audiorecord_audiorecord_proto_goTypes = []any{
 	(*NewAudioRecordRequest)(nil),                        // 0: audiorecord.NewAudioRecordRequest
 	(*NewAudioRecordResponse)(nil),                       // 1: audiorecord.NewAudioRecordResponse
-	(*GetActiveRecordingConfigurationRequest)(nil),       // 2: audiorecord.GetActiveRecordingConfigurationRequest
-	(*GetActiveRecordingConfigurationResponse)(nil),      // 3: audiorecord.GetActiveRecordingConfigurationResponse
-	(*GetAudioFormatRequest)(nil),                        // 4: audiorecord.GetAudioFormatRequest
-	(*GetAudioFormatResponse)(nil),                       // 5: audiorecord.GetAudioFormatResponse
-	(*GetAudioSessionIdRequest)(nil),                     // 6: audiorecord.GetAudioSessionIdRequest
-	(*GetAudioSessionIdResponse)(nil),                    // 7: audiorecord.GetAudioSessionIdResponse
-	(*GetAudioSourceRequest)(nil),                        // 8: audiorecord.GetAudioSourceRequest
-	(*GetAudioSourceResponse)(nil),                       // 9: audiorecord.GetAudioSourceResponse
-	(*GetBufferSizeInFramesRequest)(nil),                 // 10: audiorecord.GetBufferSizeInFramesRequest
-	(*GetBufferSizeInFramesResponse)(nil),                // 11: audiorecord.GetBufferSizeInFramesResponse
-	(*GetChannelConfigurationRequest)(nil),               // 12: audiorecord.GetChannelConfigurationRequest
-	(*GetChannelConfigurationResponse)(nil),              // 13: audiorecord.GetChannelConfigurationResponse
-	(*GetChannelCountRequest)(nil),                       // 14: audiorecord.GetChannelCountRequest
-	(*GetChannelCountResponse)(nil),                      // 15: audiorecord.GetChannelCountResponse
-	(*GetFormatRequest)(nil),                             // 16: audiorecord.GetFormatRequest
-	(*GetFormatResponse)(nil),                            // 17: audiorecord.GetFormatResponse
-	(*GetLogSessionIdRequest)(nil),                       // 18: audiorecord.GetLogSessionIdRequest
-	(*GetLogSessionIdResponse)(nil),                      // 19: audiorecord.GetLogSessionIdResponse
-	(*GetMetricsRequest)(nil),                            // 20: audiorecord.GetMetricsRequest
-	(*GetMetricsResponse)(nil),                           // 21: audiorecord.GetMetricsResponse
-	(*GetNotificationMarkerPositionRequest)(nil),         // 22: audiorecord.GetNotificationMarkerPositionRequest
-	(*GetNotificationMarkerPositionResponse)(nil),        // 23: audiorecord.GetNotificationMarkerPositionResponse
-	(*GetPositionNotificationPeriodRequest)(nil),         // 24: audiorecord.GetPositionNotificationPeriodRequest
-	(*GetPositionNotificationPeriodResponse)(nil),        // 25: audiorecord.GetPositionNotificationPeriodResponse
-	(*GetPreferredDeviceRequest)(nil),                    // 26: audiorecord.GetPreferredDeviceRequest
-	(*GetPreferredDeviceResponse)(nil),                   // 27: audiorecord.GetPreferredDeviceResponse
-	(*GetRecordingStateRequest)(nil),                     // 28: audiorecord.GetRecordingStateRequest
-	(*GetRecordingStateResponse)(nil),                    // 29: audiorecord.GetRecordingStateResponse
-	(*GetRoutedDeviceRequest)(nil),                       // 30: audiorecord.GetRoutedDeviceRequest
-	(*GetRoutedDeviceResponse)(nil),                      // 31: audiorecord.GetRoutedDeviceResponse
-	(*GetSampleRateRequest)(nil),                         // 32: audiorecord.GetSampleRateRequest
-	(*GetSampleRateResponse)(nil),                        // 33: audiorecord.GetSampleRateResponse
-	(*GetStateRequest)(nil),                              // 34: audiorecord.GetStateRequest
-	(*GetStateResponse)(nil),                             // 35: audiorecord.GetStateResponse
-	(*GetTimestampRequest)(nil),                          // 36: audiorecord.GetTimestampRequest
-	(*GetTimestampResponse)(nil),                         // 37: audiorecord.GetTimestampResponse
-	(*IsPrivacySensitiveRequest)(nil),                    // 38: audiorecord.IsPrivacySensitiveRequest
-	(*IsPrivacySensitiveResponse)(nil),                   // 39: audiorecord.IsPrivacySensitiveResponse
-	(*Read3Request)(nil),                                 // 40: audiorecord.Read3Request
-	(*Read3Response)(nil),                                // 41: audiorecord.Read3Response
-	(*Read4_1Request)(nil),                               // 42: audiorecord.Read4_1Request
-	(*Read4_1Response)(nil),                              // 43: audiorecord.Read4_1Response
-	(*Read4_2Request)(nil),                               // 44: audiorecord.Read4_2Request
-	(*Read4_2Response)(nil),                              // 45: audiorecord.Read4_2Response
-	(*Read3_3Request)(nil),                               // 46: audiorecord.Read3_3Request
-	(*Read3_3Response)(nil),                              // 47: audiorecord.Read3_3Response
-	(*Read4_4Request)(nil),                               // 48: audiorecord.Read4_4Request
-	(*Read4_4Response)(nil),                              // 49: audiorecord.Read4_4Response
-	(*RegisterAudioRecordingCallbackRequest)(nil),        // 50: audiorecord.RegisterAudioRecordingCallbackRequest
-	(*RegisterAudioRecordingCallbackResponse)(nil),       // 51: audiorecord.RegisterAudioRecordingCallbackResponse
-	(*ReleaseRequest)(nil),                               // 52: audiorecord.ReleaseRequest
-	(*ReleaseResponse)(nil),                              // 53: audiorecord.ReleaseResponse
-	(*RemoveOnRoutingChangedListener1Request)(nil),       // 54: audiorecord.RemoveOnRoutingChangedListener1Request
-	(*RemoveOnRoutingChangedListener1Response)(nil),      // 55: audiorecord.RemoveOnRoutingChangedListener1Response
-	(*RemoveOnRoutingChangedListener1_1Request)(nil),     // 56: audiorecord.RemoveOnRoutingChangedListener1_1Request
-	(*RemoveOnRoutingChangedListener1_1Response)(nil),    // 57: audiorecord.RemoveOnRoutingChangedListener1_1Response
-	(*SetLogSessionIdRequest)(nil),                       // 58: audiorecord.SetLogSessionIdRequest
-	(*SetLogSessionIdResponse)(nil),                      // 59: audiorecord.SetLogSessionIdResponse
-	(*SetNotificationMarkerPositionRequest)(nil),         // 60: audiorecord.SetNotificationMarkerPositionRequest
-	(*SetNotificationMarkerPositionResponse)(nil),        // 61: audiorecord.SetNotificationMarkerPositionResponse
-	(*SetPositionNotificationPeriodRequest)(nil),         // 62: audiorecord.SetPositionNotificationPeriodRequest
-	(*SetPositionNotificationPeriodResponse)(nil),        // 63: audiorecord.SetPositionNotificationPeriodResponse
-	(*SetPreferredDeviceRequest)(nil),                    // 64: audiorecord.SetPreferredDeviceRequest
-	(*SetPreferredDeviceResponse)(nil),                   // 65: audiorecord.SetPreferredDeviceResponse
-	(*SetPreferredMicrophoneDirectionRequest)(nil),       // 66: audiorecord.SetPreferredMicrophoneDirectionRequest
-	(*SetPreferredMicrophoneDirectionResponse)(nil),      // 67: audiorecord.SetPreferredMicrophoneDirectionResponse
-	(*SetPreferredMicrophoneFieldDimensionRequest)(nil),  // 68: audiorecord.SetPreferredMicrophoneFieldDimensionRequest
-	(*SetPreferredMicrophoneFieldDimensionResponse)(nil), // 69: audiorecord.SetPreferredMicrophoneFieldDimensionResponse
-	(*SetRecordPositionUpdateListenerRequest)(nil),       // 70: audiorecord.SetRecordPositionUpdateListenerRequest
-	(*SetRecordPositionUpdateListenerResponse)(nil),      // 71: audiorecord.SetRecordPositionUpdateListenerResponse
-	(*StartRecording0Request)(nil),                       // 72: audiorecord.StartRecording0Request
-	(*StartRecording0Response)(nil),                      // 73: audiorecord.StartRecording0Response
-	(*StartRecording1_1Request)(nil),                     // 74: audiorecord.StartRecording1_1Request
-	(*StartRecording1_1Response)(nil),                    // 75: audiorecord.StartRecording1_1Response
-	(*StopRequest)(nil),                                  // 76: audiorecord.StopRequest
-	(*StopResponse)(nil),                                 // 77: audiorecord.StopResponse
-	(*UnregisterAudioRecordingCallbackRequest)(nil),      // 78: audiorecord.UnregisterAudioRecordingCallbackRequest
-	(*UnregisterAudioRecordingCallbackResponse)(nil),     // 79: audiorecord.UnregisterAudioRecordingCallbackResponse
-	(*GetMinBufferSizeRequest)(nil),                      // 80: audiorecord.GetMinBufferSizeRequest
-	(*GetMinBufferSizeResponse)(nil),                     // 81: audiorecord.GetMinBufferSizeResponse
-	(*BuildRequest)(nil),                                 // 82: audiorecord.BuildRequest
-	(*BuildResponse)(nil),                                // 83: audiorecord.BuildResponse
-	(*SetAudioFormatRequest)(nil),                        // 84: audiorecord.SetAudioFormatRequest
-	(*SetAudioFormatResponse)(nil),                       // 85: audiorecord.SetAudioFormatResponse
-	(*SetAudioPlaybackCaptureConfigRequest)(nil),         // 86: audiorecord.SetAudioPlaybackCaptureConfigRequest
-	(*SetAudioPlaybackCaptureConfigResponse)(nil),        // 87: audiorecord.SetAudioPlaybackCaptureConfigResponse
-	(*SetAudioSourceRequest)(nil),                        // 88: audiorecord.SetAudioSourceRequest
-	(*SetAudioSourceResponse)(nil),                       // 89: audiorecord.SetAudioSourceResponse
-	(*SetBufferSizeInBytesRequest)(nil),                  // 90: audiorecord.SetBufferSizeInBytesRequest
-	(*SetBufferSizeInBytesResponse)(nil),                 // 91: audiorecord.SetBufferSizeInBytesResponse
-	(*SetContextRequest)(nil),                            // 92: audiorecord.SetContextRequest
-	(*SetContextResponse)(nil),                           // 93: audiorecord.SetContextResponse
-	(*SetPrivacySensitiveRequest)(nil),                   // 94: audiorecord.SetPrivacySensitiveRequest
-	(*SetPrivacySensitiveResponse)(nil),                  // 95: audiorecord.SetPrivacySensitiveResponse
-	(*OnMarkerReachedRequest)(nil),                       // 96: audiorecord.OnMarkerReachedRequest
-	(*OnMarkerReachedResponse)(nil),                      // 97: audiorecord.OnMarkerReachedResponse
-	(*OnPeriodicNotificationRequest)(nil),                // 98: audiorecord.OnPeriodicNotificationRequest
-	(*OnPeriodicNotificationResponse)(nil),               // 99: audiorecord.OnPeriodicNotificationResponse
-	(*OnRoutingChangedRequest)(nil),                      // 100: audiorecord.OnRoutingChangedRequest
-	(*OnRoutingChangedResponse)(nil),                     // 101: audiorecord.OnRoutingChangedResponse
+	(*GetActiveMicrophonesRequest)(nil),                  // 2: audiorecord.GetActiveMicrophonesRequest
+	(*GetActiveMicrophonesResponse)(nil),                 // 3: audiorecord.GetActiveMicrophonesResponse
+	(*GetActiveRecordingConfigurationRequest)(nil),       // 4: audiorecord.GetActiveRecordingConfigurationRequest
+	(*GetActiveRecordingConfigurationResponse)(nil),      // 5: audiorecord.GetActiveRecordingConfigurationResponse
+	(*GetAudioFormatRequest)(nil),                        // 6: audiorecord.GetAudioFormatRequest
+	(*GetAudioFormatResponse)(nil),                       // 7: audiorecord.GetAudioFormatResponse
+	(*GetAudioSessionIdRequest)(nil),                     // 8: audiorecord.GetAudioSessionIdRequest
+	(*GetAudioSessionIdResponse)(nil),                    // 9: audiorecord.GetAudioSessionIdResponse
+	(*GetAudioSourceRequest)(nil),                        // 10: audiorecord.GetAudioSourceRequest
+	(*GetAudioSourceResponse)(nil),                       // 11: audiorecord.GetAudioSourceResponse
+	(*GetBufferSizeInFramesRequest)(nil),                 // 12: audiorecord.GetBufferSizeInFramesRequest
+	(*GetBufferSizeInFramesResponse)(nil),                // 13: audiorecord.GetBufferSizeInFramesResponse
+	(*GetChannelConfigurationRequest)(nil),               // 14: audiorecord.GetChannelConfigurationRequest
+	(*GetChannelConfigurationResponse)(nil),              // 15: audiorecord.GetChannelConfigurationResponse
+	(*GetChannelCountRequest)(nil),                       // 16: audiorecord.GetChannelCountRequest
+	(*GetChannelCountResponse)(nil),                      // 17: audiorecord.GetChannelCountResponse
+	(*GetFormatRequest)(nil),                             // 18: audiorecord.GetFormatRequest
+	(*GetFormatResponse)(nil),                            // 19: audiorecord.GetFormatResponse
+	(*GetLogSessionIdRequest)(nil),                       // 20: audiorecord.GetLogSessionIdRequest
+	(*GetLogSessionIdResponse)(nil),                      // 21: audiorecord.GetLogSessionIdResponse
+	(*GetMetricsRequest)(nil),                            // 22: audiorecord.GetMetricsRequest
+	(*GetMetricsResponse)(nil),                           // 23: audiorecord.GetMetricsResponse
+	(*GetNotificationMarkerPositionRequest)(nil),         // 24: audiorecord.GetNotificationMarkerPositionRequest
+	(*GetNotificationMarkerPositionResponse)(nil),        // 25: audiorecord.GetNotificationMarkerPositionResponse
+	(*GetPositionNotificationPeriodRequest)(nil),         // 26: audiorecord.GetPositionNotificationPeriodRequest
+	(*GetPositionNotificationPeriodResponse)(nil),        // 27: audiorecord.GetPositionNotificationPeriodResponse
+	(*GetPreferredDeviceRequest)(nil),                    // 28: audiorecord.GetPreferredDeviceRequest
+	(*GetPreferredDeviceResponse)(nil),                   // 29: audiorecord.GetPreferredDeviceResponse
+	(*GetRecordingStateRequest)(nil),                     // 30: audiorecord.GetRecordingStateRequest
+	(*GetRecordingStateResponse)(nil),                    // 31: audiorecord.GetRecordingStateResponse
+	(*GetRoutedDeviceRequest)(nil),                       // 32: audiorecord.GetRoutedDeviceRequest
+	(*GetRoutedDeviceResponse)(nil),                      // 33: audiorecord.GetRoutedDeviceResponse
+	(*GetRoutedDevicesRequest)(nil),                      // 34: audiorecord.GetRoutedDevicesRequest
+	(*GetRoutedDevicesResponse)(nil),                     // 35: audiorecord.GetRoutedDevicesResponse
+	(*GetSampleRateRequest)(nil),                         // 36: audiorecord.GetSampleRateRequest
+	(*GetSampleRateResponse)(nil),                        // 37: audiorecord.GetSampleRateResponse
+	(*GetStateRequest)(nil),                              // 38: audiorecord.GetStateRequest
+	(*GetStateResponse)(nil),                             // 39: audiorecord.GetStateResponse
+	(*GetTimestampRequest)(nil),                          // 40: audiorecord.GetTimestampRequest
+	(*GetTimestampResponse)(nil),                         // 41: audiorecord.GetTimestampResponse
+	(*IsPrivacySensitiveRequest)(nil),                    // 42: audiorecord.IsPrivacySensitiveRequest
+	(*IsPrivacySensitiveResponse)(nil),                   // 43: audiorecord.IsPrivacySensitiveResponse
+	(*Read3Request)(nil),                                 // 44: audiorecord.Read3Request
+	(*Read3Response)(nil),                                // 45: audiorecord.Read3Response
+	(*Read4_1Request)(nil),                               // 46: audiorecord.Read4_1Request
+	(*Read4_1Response)(nil),                              // 47: audiorecord.Read4_1Response
+	(*Read4_2Request)(nil),                               // 48: audiorecord.Read4_2Request
+	(*Read4_2Response)(nil),                              // 49: audiorecord.Read4_2Response
+	(*Read3_3Request)(nil),                               // 50: audiorecord.Read3_3Request
+	(*Read3_3Response)(nil),                              // 51: audiorecord.Read3_3Response
+	(*Read4_4Request)(nil),                               // 52: audiorecord.Read4_4Request
+	(*Read4_4Response)(nil),                              // 53: audiorecord.Read4_4Response
+	(*RegisterAudioRecordingCallbackRequest)(nil),        // 54: audiorecord.RegisterAudioRecordingCallbackRequest
+	(*RegisterAudioRecordingCallbackResponse)(nil),       // 55: audiorecord.RegisterAudioRecordingCallbackResponse
+	(*ReleaseRequest)(nil),                               // 56: audiorecord.ReleaseRequest
+	(*ReleaseResponse)(nil),                              // 57: audiorecord.ReleaseResponse
+	(*RemoveOnRoutingChangedListener1Request)(nil),       // 58: audiorecord.RemoveOnRoutingChangedListener1Request
+	(*RemoveOnRoutingChangedListener1Response)(nil),      // 59: audiorecord.RemoveOnRoutingChangedListener1Response
+	(*RemoveOnRoutingChangedListener1_1Request)(nil),     // 60: audiorecord.RemoveOnRoutingChangedListener1_1Request
+	(*RemoveOnRoutingChangedListener1_1Response)(nil),    // 61: audiorecord.RemoveOnRoutingChangedListener1_1Response
+	(*SetLogSessionIdRequest)(nil),                       // 62: audiorecord.SetLogSessionIdRequest
+	(*SetLogSessionIdResponse)(nil),                      // 63: audiorecord.SetLogSessionIdResponse
+	(*SetNotificationMarkerPositionRequest)(nil),         // 64: audiorecord.SetNotificationMarkerPositionRequest
+	(*SetNotificationMarkerPositionResponse)(nil),        // 65: audiorecord.SetNotificationMarkerPositionResponse
+	(*SetPositionNotificationPeriodRequest)(nil),         // 66: audiorecord.SetPositionNotificationPeriodRequest
+	(*SetPositionNotificationPeriodResponse)(nil),        // 67: audiorecord.SetPositionNotificationPeriodResponse
+	(*SetPreferredDeviceRequest)(nil),                    // 68: audiorecord.SetPreferredDeviceRequest
+	(*SetPreferredDeviceResponse)(nil),                   // 69: audiorecord.SetPreferredDeviceResponse
+	(*SetPreferredMicrophoneDirectionRequest)(nil),       // 70: audiorecord.SetPreferredMicrophoneDirectionRequest
+	(*SetPreferredMicrophoneDirectionResponse)(nil),      // 71: audiorecord.SetPreferredMicrophoneDirectionResponse
+	(*SetPreferredMicrophoneFieldDimensionRequest)(nil),  // 72: audiorecord.SetPreferredMicrophoneFieldDimensionRequest
+	(*SetPreferredMicrophoneFieldDimensionResponse)(nil), // 73: audiorecord.SetPreferredMicrophoneFieldDimensionResponse
+	(*SetRecordPositionUpdateListenerRequest)(nil),       // 74: audiorecord.SetRecordPositionUpdateListenerRequest
+	(*SetRecordPositionUpdateListenerResponse)(nil),      // 75: audiorecord.SetRecordPositionUpdateListenerResponse
+	(*StartRecording0Request)(nil),                       // 76: audiorecord.StartRecording0Request
+	(*StartRecording0Response)(nil),                      // 77: audiorecord.StartRecording0Response
+	(*StartRecording1_1Request)(nil),                     // 78: audiorecord.StartRecording1_1Request
+	(*StartRecording1_1Response)(nil),                    // 79: audiorecord.StartRecording1_1Response
+	(*StopRequest)(nil),                                  // 80: audiorecord.StopRequest
+	(*StopResponse)(nil),                                 // 81: audiorecord.StopResponse
+	(*UnregisterAudioRecordingCallbackRequest)(nil),      // 82: audiorecord.UnregisterAudioRecordingCallbackRequest
+	(*UnregisterAudioRecordingCallbackResponse)(nil),     // 83: audiorecord.UnregisterAudioRecordingCallbackResponse
+	(*GetMinBufferSizeRequest)(nil),                      // 84: audiorecord.GetMinBufferSizeRequest
+	(*GetMinBufferSizeResponse)(nil),                     // 85: audiorecord.GetMinBufferSizeResponse
+	(*BuildRequest)(nil),                                 // 86: audiorecord.BuildRequest
+	(*BuildResponse)(nil),                                // 87: audiorecord.BuildResponse
+	(*SetAudioFormatRequest)(nil),                        // 88: audiorecord.SetAudioFormatRequest
+	(*SetAudioFormatResponse)(nil),                       // 89: audiorecord.SetAudioFormatResponse
+	(*SetAudioPlaybackCaptureConfigRequest)(nil),         // 90: audiorecord.SetAudioPlaybackCaptureConfigRequest
+	(*SetAudioPlaybackCaptureConfigResponse)(nil),        // 91: audiorecord.SetAudioPlaybackCaptureConfigResponse
+	(*SetAudioSourceRequest)(nil),                        // 92: audiorecord.SetAudioSourceRequest
+	(*SetAudioSourceResponse)(nil),                       // 93: audiorecord.SetAudioSourceResponse
+	(*SetBufferSizeInBytesRequest)(nil),                  // 94: audiorecord.SetBufferSizeInBytesRequest
+	(*SetBufferSizeInBytesResponse)(nil),                 // 95: audiorecord.SetBufferSizeInBytesResponse
+	(*SetContextRequest)(nil),                            // 96: audiorecord.SetContextRequest
+	(*SetContextResponse)(nil),                           // 97: audiorecord.SetContextResponse
+	(*SetPrivacySensitiveRequest)(nil),                   // 98: audiorecord.SetPrivacySensitiveRequest
+	(*SetPrivacySensitiveResponse)(nil),                  // 99: audiorecord.SetPrivacySensitiveResponse
+	(*OnMarkerReachedRequest)(nil),                       // 100: audiorecord.OnMarkerReachedRequest
+	(*OnMarkerReachedResponse)(nil),                      // 101: audiorecord.OnMarkerReachedResponse
+	(*OnPeriodicNotificationRequest)(nil),                // 102: audiorecord.OnPeriodicNotificationRequest
+	(*OnPeriodicNotificationResponse)(nil),               // 103: audiorecord.OnPeriodicNotificationResponse
+	(*OnRoutingChangedRequest)(nil),                      // 104: audiorecord.OnRoutingChangedRequest
+	(*OnRoutingChangedResponse)(nil),                     // 105: audiorecord.OnRoutingChangedResponse
 }
 var file_proto_audiorecord_audiorecord_proto_depIdxs = []int32{
 	0,   // 0: audiorecord.AudioRecordService.NewAudioRecord:input_type -> audiorecord.NewAudioRecordRequest
-	2,   // 1: audiorecord.AudioRecordService.GetActiveRecordingConfiguration:input_type -> audiorecord.GetActiveRecordingConfigurationRequest
-	4,   // 2: audiorecord.AudioRecordService.GetAudioFormat:input_type -> audiorecord.GetAudioFormatRequest
-	6,   // 3: audiorecord.AudioRecordService.GetAudioSessionId:input_type -> audiorecord.GetAudioSessionIdRequest
-	8,   // 4: audiorecord.AudioRecordService.GetAudioSource:input_type -> audiorecord.GetAudioSourceRequest
-	10,  // 5: audiorecord.AudioRecordService.GetBufferSizeInFrames:input_type -> audiorecord.GetBufferSizeInFramesRequest
-	12,  // 6: audiorecord.AudioRecordService.GetChannelConfiguration:input_type -> audiorecord.GetChannelConfigurationRequest
-	14,  // 7: audiorecord.AudioRecordService.GetChannelCount:input_type -> audiorecord.GetChannelCountRequest
-	16,  // 8: audiorecord.AudioRecordService.GetFormat:input_type -> audiorecord.GetFormatRequest
-	18,  // 9: audiorecord.AudioRecordService.GetLogSessionId:input_type -> audiorecord.GetLogSessionIdRequest
-	20,  // 10: audiorecord.AudioRecordService.GetMetrics:input_type -> audiorecord.GetMetricsRequest
-	22,  // 11: audiorecord.AudioRecordService.GetNotificationMarkerPosition:input_type -> audiorecord.GetNotificationMarkerPositionRequest
-	24,  // 12: audiorecord.AudioRecordService.GetPositionNotificationPeriod:input_type -> audiorecord.GetPositionNotificationPeriodRequest
-	26,  // 13: audiorecord.AudioRecordService.GetPreferredDevice:input_type -> audiorecord.GetPreferredDeviceRequest
-	28,  // 14: audiorecord.AudioRecordService.GetRecordingState:input_type -> audiorecord.GetRecordingStateRequest
-	30,  // 15: audiorecord.AudioRecordService.GetRoutedDevice:input_type -> audiorecord.GetRoutedDeviceRequest
-	32,  // 16: audiorecord.AudioRecordService.GetSampleRate:input_type -> audiorecord.GetSampleRateRequest
-	34,  // 17: audiorecord.AudioRecordService.GetState:input_type -> audiorecord.GetStateRequest
-	36,  // 18: audiorecord.AudioRecordService.GetTimestamp:input_type -> audiorecord.GetTimestampRequest
-	38,  // 19: audiorecord.AudioRecordService.IsPrivacySensitive:input_type -> audiorecord.IsPrivacySensitiveRequest
-	40,  // 20: audiorecord.AudioRecordService.Read3:input_type -> audiorecord.Read3Request
-	42,  // 21: audiorecord.AudioRecordService.Read4_1:input_type -> audiorecord.Read4_1Request
-	44,  // 22: audiorecord.AudioRecordService.Read4_2:input_type -> audiorecord.Read4_2Request
-	46,  // 23: audiorecord.AudioRecordService.Read3_3:input_type -> audiorecord.Read3_3Request
-	48,  // 24: audiorecord.AudioRecordService.Read4_4:input_type -> audiorecord.Read4_4Request
-	50,  // 25: audiorecord.AudioRecordService.RegisterAudioRecordingCallback:input_type -> audiorecord.RegisterAudioRecordingCallbackRequest
-	52,  // 26: audiorecord.AudioRecordService.Release:input_type -> audiorecord.ReleaseRequest
-	54,  // 27: audiorecord.AudioRecordService.RemoveOnRoutingChangedListener1:input_type -> audiorecord.RemoveOnRoutingChangedListener1Request
-	56,  // 28: audiorecord.AudioRecordService.RemoveOnRoutingChangedListener1_1:input_type -> audiorecord.RemoveOnRoutingChangedListener1_1Request
-	58,  // 29: audiorecord.AudioRecordService.SetLogSessionId:input_type -> audiorecord.SetLogSessionIdRequest
-	60,  // 30: audiorecord.AudioRecordService.SetNotificationMarkerPosition:input_type -> audiorecord.SetNotificationMarkerPositionRequest
-	62,  // 31: audiorecord.AudioRecordService.SetPositionNotificationPeriod:input_type -> audiorecord.SetPositionNotificationPeriodRequest
-	64,  // 32: audiorecord.AudioRecordService.SetPreferredDevice:input_type -> audiorecord.SetPreferredDeviceRequest
-	66,  // 33: audiorecord.AudioRecordService.SetPreferredMicrophoneDirection:input_type -> audiorecord.SetPreferredMicrophoneDirectionRequest
-	68,  // 34: audiorecord.AudioRecordService.SetPreferredMicrophoneFieldDimension:input_type -> audiorecord.SetPreferredMicrophoneFieldDimensionRequest
-	70,  // 35: audiorecord.AudioRecordService.SetRecordPositionUpdateListener:input_type -> audiorecord.SetRecordPositionUpdateListenerRequest
-	72,  // 36: audiorecord.AudioRecordService.StartRecording0:input_type -> audiorecord.StartRecording0Request
-	74,  // 37: audiorecord.AudioRecordService.StartRecording1_1:input_type -> audiorecord.StartRecording1_1Request
-	76,  // 38: audiorecord.AudioRecordService.Stop:input_type -> audiorecord.StopRequest
-	78,  // 39: audiorecord.AudioRecordService.UnregisterAudioRecordingCallback:input_type -> audiorecord.UnregisterAudioRecordingCallbackRequest
-	80,  // 40: audiorecord.AudioRecordService.GetMinBufferSize:input_type -> audiorecord.GetMinBufferSizeRequest
-	82,  // 41: audiorecord.AudioRecordBuilderService.Build:input_type -> audiorecord.BuildRequest
-	84,  // 42: audiorecord.AudioRecordBuilderService.SetAudioFormat:input_type -> audiorecord.SetAudioFormatRequest
-	86,  // 43: audiorecord.AudioRecordBuilderService.SetAudioPlaybackCaptureConfig:input_type -> audiorecord.SetAudioPlaybackCaptureConfigRequest
-	88,  // 44: audiorecord.AudioRecordBuilderService.SetAudioSource:input_type -> audiorecord.SetAudioSourceRequest
-	90,  // 45: audiorecord.AudioRecordBuilderService.SetBufferSizeInBytes:input_type -> audiorecord.SetBufferSizeInBytesRequest
-	92,  // 46: audiorecord.AudioRecordBuilderService.SetContext:input_type -> audiorecord.SetContextRequest
-	94,  // 47: audiorecord.AudioRecordBuilderService.SetPrivacySensitive:input_type -> audiorecord.SetPrivacySensitiveRequest
-	96,  // 48: audiorecord.AudioRecordOnRecordPositionUpdateListenerService.OnMarkerReached:input_type -> audiorecord.OnMarkerReachedRequest
-	98,  // 49: audiorecord.AudioRecordOnRecordPositionUpdateListenerService.OnPeriodicNotification:input_type -> audiorecord.OnPeriodicNotificationRequest
-	100, // 50: audiorecord.AudioRecordOnRoutingChangedListenerService.OnRoutingChanged:input_type -> audiorecord.OnRoutingChangedRequest
-	1,   // 51: audiorecord.AudioRecordService.NewAudioRecord:output_type -> audiorecord.NewAudioRecordResponse
-	3,   // 52: audiorecord.AudioRecordService.GetActiveRecordingConfiguration:output_type -> audiorecord.GetActiveRecordingConfigurationResponse
-	5,   // 53: audiorecord.AudioRecordService.GetAudioFormat:output_type -> audiorecord.GetAudioFormatResponse
-	7,   // 54: audiorecord.AudioRecordService.GetAudioSessionId:output_type -> audiorecord.GetAudioSessionIdResponse
-	9,   // 55: audiorecord.AudioRecordService.GetAudioSource:output_type -> audiorecord.GetAudioSourceResponse
-	11,  // 56: audiorecord.AudioRecordService.GetBufferSizeInFrames:output_type -> audiorecord.GetBufferSizeInFramesResponse
-	13,  // 57: audiorecord.AudioRecordService.GetChannelConfiguration:output_type -> audiorecord.GetChannelConfigurationResponse
-	15,  // 58: audiorecord.AudioRecordService.GetChannelCount:output_type -> audiorecord.GetChannelCountResponse
-	17,  // 59: audiorecord.AudioRecordService.GetFormat:output_type -> audiorecord.GetFormatResponse
-	19,  // 60: audiorecord.AudioRecordService.GetLogSessionId:output_type -> audiorecord.GetLogSessionIdResponse
-	21,  // 61: audiorecord.AudioRecordService.GetMetrics:output_type -> audiorecord.GetMetricsResponse
-	23,  // 62: audiorecord.AudioRecordService.GetNotificationMarkerPosition:output_type -> audiorecord.GetNotificationMarkerPositionResponse
-	25,  // 63: audiorecord.AudioRecordService.GetPositionNotificationPeriod:output_type -> audiorecord.GetPositionNotificationPeriodResponse
-	27,  // 64: audiorecord.AudioRecordService.GetPreferredDevice:output_type -> audiorecord.GetPreferredDeviceResponse
-	29,  // 65: audiorecord.AudioRecordService.GetRecordingState:output_type -> audiorecord.GetRecordingStateResponse
-	31,  // 66: audiorecord.AudioRecordService.GetRoutedDevice:output_type -> audiorecord.GetRoutedDeviceResponse
-	33,  // 67: audiorecord.AudioRecordService.GetSampleRate:output_type -> audiorecord.GetSampleRateResponse
-	35,  // 68: audiorecord.AudioRecordService.GetState:output_type -> audiorecord.GetStateResponse
-	37,  // 69: audiorecord.AudioRecordService.GetTimestamp:output_type -> audiorecord.GetTimestampResponse
-	39,  // 70: audiorecord.AudioRecordService.IsPrivacySensitive:output_type -> audiorecord.IsPrivacySensitiveResponse
-	41,  // 71: audiorecord.AudioRecordService.Read3:output_type -> audiorecord.Read3Response
-	43,  // 72: audiorecord.AudioRecordService.Read4_1:output_type -> audiorecord.Read4_1Response
-	45,  // 73: audiorecord.AudioRecordService.Read4_2:output_type -> audiorecord.Read4_2Response
-	47,  // 74: audiorecord.AudioRecordService.Read3_3:output_type -> audiorecord.Read3_3Response
-	49,  // 75: audiorecord.AudioRecordService.Read4_4:output_type -> audiorecord.Read4_4Response
-	51,  // 76: audiorecord.AudioRecordService.RegisterAudioRecordingCallback:output_type -> audiorecord.RegisterAudioRecordingCallbackResponse
-	53,  // 77: audiorecord.AudioRecordService.Release:output_type -> audiorecord.ReleaseResponse
-	55,  // 78: audiorecord.AudioRecordService.RemoveOnRoutingChangedListener1:output_type -> audiorecord.RemoveOnRoutingChangedListener1Response
-	57,  // 79: audiorecord.AudioRecordService.RemoveOnRoutingChangedListener1_1:output_type -> audiorecord.RemoveOnRoutingChangedListener1_1Response
-	59,  // 80: audiorecord.AudioRecordService.SetLogSessionId:output_type -> audiorecord.SetLogSessionIdResponse
-	61,  // 81: audiorecord.AudioRecordService.SetNotificationMarkerPosition:output_type -> audiorecord.SetNotificationMarkerPositionResponse
-	63,  // 82: audiorecord.AudioRecordService.SetPositionNotificationPeriod:output_type -> audiorecord.SetPositionNotificationPeriodResponse
-	65,  // 83: audiorecord.AudioRecordService.SetPreferredDevice:output_type -> audiorecord.SetPreferredDeviceResponse
-	67,  // 84: audiorecord.AudioRecordService.SetPreferredMicrophoneDirection:output_type -> audiorecord.SetPreferredMicrophoneDirectionResponse
-	69,  // 85: audiorecord.AudioRecordService.SetPreferredMicrophoneFieldDimension:output_type -> audiorecord.SetPreferredMicrophoneFieldDimensionResponse
-	71,  // 86: audiorecord.AudioRecordService.SetRecordPositionUpdateListener:output_type -> audiorecord.SetRecordPositionUpdateListenerResponse
-	73,  // 87: audiorecord.AudioRecordService.StartRecording0:output_type -> audiorecord.StartRecording0Response
-	75,  // 88: audiorecord.AudioRecordService.StartRecording1_1:output_type -> audiorecord.StartRecording1_1Response
-	77,  // 89: audiorecord.AudioRecordService.Stop:output_type -> audiorecord.StopResponse
-	79,  // 90: audiorecord.AudioRecordService.UnregisterAudioRecordingCallback:output_type -> audiorecord.UnregisterAudioRecordingCallbackResponse
-	81,  // 91: audiorecord.AudioRecordService.GetMinBufferSize:output_type -> audiorecord.GetMinBufferSizeResponse
-	83,  // 92: audiorecord.AudioRecordBuilderService.Build:output_type -> audiorecord.BuildResponse
-	85,  // 93: audiorecord.AudioRecordBuilderService.SetAudioFormat:output_type -> audiorecord.SetAudioFormatResponse
-	87,  // 94: audiorecord.AudioRecordBuilderService.SetAudioPlaybackCaptureConfig:output_type -> audiorecord.SetAudioPlaybackCaptureConfigResponse
-	89,  // 95: audiorecord.AudioRecordBuilderService.SetAudioSource:output_type -> audiorecord.SetAudioSourceResponse
-	91,  // 96: audiorecord.AudioRecordBuilderService.SetBufferSizeInBytes:output_type -> audiorecord.SetBufferSizeInBytesResponse
-	93,  // 97: audiorecord.AudioRecordBuilderService.SetContext:output_type -> audiorecord.SetContextResponse
-	95,  // 98: audiorecord.AudioRecordBuilderService.SetPrivacySensitive:output_type -> audiorecord.SetPrivacySensitiveResponse
-	97,  // 99: audiorecord.AudioRecordOnRecordPositionUpdateListenerService.OnMarkerReached:output_type -> audiorecord.OnMarkerReachedResponse
-	99,  // 100: audiorecord.AudioRecordOnRecordPositionUpdateListenerService.OnPeriodicNotification:output_type -> audiorecord.OnPeriodicNotificationResponse
-	101, // 101: audiorecord.AudioRecordOnRoutingChangedListenerService.OnRoutingChanged:output_type -> audiorecord.OnRoutingChangedResponse
-	51,  // [51:102] is the sub-list for method output_type
-	0,   // [0:51] is the sub-list for method input_type
+	2,   // 1: audiorecord.AudioRecordService.GetActiveMicrophones:input_type -> audiorecord.GetActiveMicrophonesRequest
+	4,   // 2: audiorecord.AudioRecordService.GetActiveRecordingConfiguration:input_type -> audiorecord.GetActiveRecordingConfigurationRequest
+	6,   // 3: audiorecord.AudioRecordService.GetAudioFormat:input_type -> audiorecord.GetAudioFormatRequest
+	8,   // 4: audiorecord.AudioRecordService.GetAudioSessionId:input_type -> audiorecord.GetAudioSessionIdRequest
+	10,  // 5: audiorecord.AudioRecordService.GetAudioSource:input_type -> audiorecord.GetAudioSourceRequest
+	12,  // 6: audiorecord.AudioRecordService.GetBufferSizeInFrames:input_type -> audiorecord.GetBufferSizeInFramesRequest
+	14,  // 7: audiorecord.AudioRecordService.GetChannelConfiguration:input_type -> audiorecord.GetChannelConfigurationRequest
+	16,  // 8: audiorecord.AudioRecordService.GetChannelCount:input_type -> audiorecord.GetChannelCountRequest
+	18,  // 9: audiorecord.AudioRecordService.GetFormat:input_type -> audiorecord.GetFormatRequest
+	20,  // 10: audiorecord.AudioRecordService.GetLogSessionId:input_type -> audiorecord.GetLogSessionIdRequest
+	22,  // 11: audiorecord.AudioRecordService.GetMetrics:input_type -> audiorecord.GetMetricsRequest
+	24,  // 12: audiorecord.AudioRecordService.GetNotificationMarkerPosition:input_type -> audiorecord.GetNotificationMarkerPositionRequest
+	26,  // 13: audiorecord.AudioRecordService.GetPositionNotificationPeriod:input_type -> audiorecord.GetPositionNotificationPeriodRequest
+	28,  // 14: audiorecord.AudioRecordService.GetPreferredDevice:input_type -> audiorecord.GetPreferredDeviceRequest
+	30,  // 15: audiorecord.AudioRecordService.GetRecordingState:input_type -> audiorecord.GetRecordingStateRequest
+	32,  // 16: audiorecord.AudioRecordService.GetRoutedDevice:input_type -> audiorecord.GetRoutedDeviceRequest
+	34,  // 17: audiorecord.AudioRecordService.GetRoutedDevices:input_type -> audiorecord.GetRoutedDevicesRequest
+	36,  // 18: audiorecord.AudioRecordService.GetSampleRate:input_type -> audiorecord.GetSampleRateRequest
+	38,  // 19: audiorecord.AudioRecordService.GetState:input_type -> audiorecord.GetStateRequest
+	40,  // 20: audiorecord.AudioRecordService.GetTimestamp:input_type -> audiorecord.GetTimestampRequest
+	42,  // 21: audiorecord.AudioRecordService.IsPrivacySensitive:input_type -> audiorecord.IsPrivacySensitiveRequest
+	44,  // 22: audiorecord.AudioRecordService.Read3:input_type -> audiorecord.Read3Request
+	46,  // 23: audiorecord.AudioRecordService.Read4_1:input_type -> audiorecord.Read4_1Request
+	48,  // 24: audiorecord.AudioRecordService.Read4_2:input_type -> audiorecord.Read4_2Request
+	50,  // 25: audiorecord.AudioRecordService.Read3_3:input_type -> audiorecord.Read3_3Request
+	52,  // 26: audiorecord.AudioRecordService.Read4_4:input_type -> audiorecord.Read4_4Request
+	54,  // 27: audiorecord.AudioRecordService.RegisterAudioRecordingCallback:input_type -> audiorecord.RegisterAudioRecordingCallbackRequest
+	56,  // 28: audiorecord.AudioRecordService.Release:input_type -> audiorecord.ReleaseRequest
+	58,  // 29: audiorecord.AudioRecordService.RemoveOnRoutingChangedListener1:input_type -> audiorecord.RemoveOnRoutingChangedListener1Request
+	60,  // 30: audiorecord.AudioRecordService.RemoveOnRoutingChangedListener1_1:input_type -> audiorecord.RemoveOnRoutingChangedListener1_1Request
+	62,  // 31: audiorecord.AudioRecordService.SetLogSessionId:input_type -> audiorecord.SetLogSessionIdRequest
+	64,  // 32: audiorecord.AudioRecordService.SetNotificationMarkerPosition:input_type -> audiorecord.SetNotificationMarkerPositionRequest
+	66,  // 33: audiorecord.AudioRecordService.SetPositionNotificationPeriod:input_type -> audiorecord.SetPositionNotificationPeriodRequest
+	68,  // 34: audiorecord.AudioRecordService.SetPreferredDevice:input_type -> audiorecord.SetPreferredDeviceRequest
+	70,  // 35: audiorecord.AudioRecordService.SetPreferredMicrophoneDirection:input_type -> audiorecord.SetPreferredMicrophoneDirectionRequest
+	72,  // 36: audiorecord.AudioRecordService.SetPreferredMicrophoneFieldDimension:input_type -> audiorecord.SetPreferredMicrophoneFieldDimensionRequest
+	74,  // 37: audiorecord.AudioRecordService.SetRecordPositionUpdateListener:input_type -> audiorecord.SetRecordPositionUpdateListenerRequest
+	76,  // 38: audiorecord.AudioRecordService.StartRecording0:input_type -> audiorecord.StartRecording0Request
+	78,  // 39: audiorecord.AudioRecordService.StartRecording1_1:input_type -> audiorecord.StartRecording1_1Request
+	80,  // 40: audiorecord.AudioRecordService.Stop:input_type -> audiorecord.StopRequest
+	82,  // 41: audiorecord.AudioRecordService.UnregisterAudioRecordingCallback:input_type -> audiorecord.UnregisterAudioRecordingCallbackRequest
+	84,  // 42: audiorecord.AudioRecordService.GetMinBufferSize:input_type -> audiorecord.GetMinBufferSizeRequest
+	86,  // 43: audiorecord.AudioRecordBuilderService.Build:input_type -> audiorecord.BuildRequest
+	88,  // 44: audiorecord.AudioRecordBuilderService.SetAudioFormat:input_type -> audiorecord.SetAudioFormatRequest
+	90,  // 45: audiorecord.AudioRecordBuilderService.SetAudioPlaybackCaptureConfig:input_type -> audiorecord.SetAudioPlaybackCaptureConfigRequest
+	92,  // 46: audiorecord.AudioRecordBuilderService.SetAudioSource:input_type -> audiorecord.SetAudioSourceRequest
+	94,  // 47: audiorecord.AudioRecordBuilderService.SetBufferSizeInBytes:input_type -> audiorecord.SetBufferSizeInBytesRequest
+	96,  // 48: audiorecord.AudioRecordBuilderService.SetContext:input_type -> audiorecord.SetContextRequest
+	98,  // 49: audiorecord.AudioRecordBuilderService.SetPrivacySensitive:input_type -> audiorecord.SetPrivacySensitiveRequest
+	100, // 50: audiorecord.AudioRecordOnRecordPositionUpdateListenerService.OnMarkerReached:input_type -> audiorecord.OnMarkerReachedRequest
+	102, // 51: audiorecord.AudioRecordOnRecordPositionUpdateListenerService.OnPeriodicNotification:input_type -> audiorecord.OnPeriodicNotificationRequest
+	104, // 52: audiorecord.AudioRecordOnRoutingChangedListenerService.OnRoutingChanged:input_type -> audiorecord.OnRoutingChangedRequest
+	1,   // 53: audiorecord.AudioRecordService.NewAudioRecord:output_type -> audiorecord.NewAudioRecordResponse
+	3,   // 54: audiorecord.AudioRecordService.GetActiveMicrophones:output_type -> audiorecord.GetActiveMicrophonesResponse
+	5,   // 55: audiorecord.AudioRecordService.GetActiveRecordingConfiguration:output_type -> audiorecord.GetActiveRecordingConfigurationResponse
+	7,   // 56: audiorecord.AudioRecordService.GetAudioFormat:output_type -> audiorecord.GetAudioFormatResponse
+	9,   // 57: audiorecord.AudioRecordService.GetAudioSessionId:output_type -> audiorecord.GetAudioSessionIdResponse
+	11,  // 58: audiorecord.AudioRecordService.GetAudioSource:output_type -> audiorecord.GetAudioSourceResponse
+	13,  // 59: audiorecord.AudioRecordService.GetBufferSizeInFrames:output_type -> audiorecord.GetBufferSizeInFramesResponse
+	15,  // 60: audiorecord.AudioRecordService.GetChannelConfiguration:output_type -> audiorecord.GetChannelConfigurationResponse
+	17,  // 61: audiorecord.AudioRecordService.GetChannelCount:output_type -> audiorecord.GetChannelCountResponse
+	19,  // 62: audiorecord.AudioRecordService.GetFormat:output_type -> audiorecord.GetFormatResponse
+	21,  // 63: audiorecord.AudioRecordService.GetLogSessionId:output_type -> audiorecord.GetLogSessionIdResponse
+	23,  // 64: audiorecord.AudioRecordService.GetMetrics:output_type -> audiorecord.GetMetricsResponse
+	25,  // 65: audiorecord.AudioRecordService.GetNotificationMarkerPosition:output_type -> audiorecord.GetNotificationMarkerPositionResponse
+	27,  // 66: audiorecord.AudioRecordService.GetPositionNotificationPeriod:output_type -> audiorecord.GetPositionNotificationPeriodResponse
+	29,  // 67: audiorecord.AudioRecordService.GetPreferredDevice:output_type -> audiorecord.GetPreferredDeviceResponse
+	31,  // 68: audiorecord.AudioRecordService.GetRecordingState:output_type -> audiorecord.GetRecordingStateResponse
+	33,  // 69: audiorecord.AudioRecordService.GetRoutedDevice:output_type -> audiorecord.GetRoutedDeviceResponse
+	35,  // 70: audiorecord.AudioRecordService.GetRoutedDevices:output_type -> audiorecord.GetRoutedDevicesResponse
+	37,  // 71: audiorecord.AudioRecordService.GetSampleRate:output_type -> audiorecord.GetSampleRateResponse
+	39,  // 72: audiorecord.AudioRecordService.GetState:output_type -> audiorecord.GetStateResponse
+	41,  // 73: audiorecord.AudioRecordService.GetTimestamp:output_type -> audiorecord.GetTimestampResponse
+	43,  // 74: audiorecord.AudioRecordService.IsPrivacySensitive:output_type -> audiorecord.IsPrivacySensitiveResponse
+	45,  // 75: audiorecord.AudioRecordService.Read3:output_type -> audiorecord.Read3Response
+	47,  // 76: audiorecord.AudioRecordService.Read4_1:output_type -> audiorecord.Read4_1Response
+	49,  // 77: audiorecord.AudioRecordService.Read4_2:output_type -> audiorecord.Read4_2Response
+	51,  // 78: audiorecord.AudioRecordService.Read3_3:output_type -> audiorecord.Read3_3Response
+	53,  // 79: audiorecord.AudioRecordService.Read4_4:output_type -> audiorecord.Read4_4Response
+	55,  // 80: audiorecord.AudioRecordService.RegisterAudioRecordingCallback:output_type -> audiorecord.RegisterAudioRecordingCallbackResponse
+	57,  // 81: audiorecord.AudioRecordService.Release:output_type -> audiorecord.ReleaseResponse
+	59,  // 82: audiorecord.AudioRecordService.RemoveOnRoutingChangedListener1:output_type -> audiorecord.RemoveOnRoutingChangedListener1Response
+	61,  // 83: audiorecord.AudioRecordService.RemoveOnRoutingChangedListener1_1:output_type -> audiorecord.RemoveOnRoutingChangedListener1_1Response
+	63,  // 84: audiorecord.AudioRecordService.SetLogSessionId:output_type -> audiorecord.SetLogSessionIdResponse
+	65,  // 85: audiorecord.AudioRecordService.SetNotificationMarkerPosition:output_type -> audiorecord.SetNotificationMarkerPositionResponse
+	67,  // 86: audiorecord.AudioRecordService.SetPositionNotificationPeriod:output_type -> audiorecord.SetPositionNotificationPeriodResponse
+	69,  // 87: audiorecord.AudioRecordService.SetPreferredDevice:output_type -> audiorecord.SetPreferredDeviceResponse
+	71,  // 88: audiorecord.AudioRecordService.SetPreferredMicrophoneDirection:output_type -> audiorecord.SetPreferredMicrophoneDirectionResponse
+	73,  // 89: audiorecord.AudioRecordService.SetPreferredMicrophoneFieldDimension:output_type -> audiorecord.SetPreferredMicrophoneFieldDimensionResponse
+	75,  // 90: audiorecord.AudioRecordService.SetRecordPositionUpdateListener:output_type -> audiorecord.SetRecordPositionUpdateListenerResponse
+	77,  // 91: audiorecord.AudioRecordService.StartRecording0:output_type -> audiorecord.StartRecording0Response
+	79,  // 92: audiorecord.AudioRecordService.StartRecording1_1:output_type -> audiorecord.StartRecording1_1Response
+	81,  // 93: audiorecord.AudioRecordService.Stop:output_type -> audiorecord.StopResponse
+	83,  // 94: audiorecord.AudioRecordService.UnregisterAudioRecordingCallback:output_type -> audiorecord.UnregisterAudioRecordingCallbackResponse
+	85,  // 95: audiorecord.AudioRecordService.GetMinBufferSize:output_type -> audiorecord.GetMinBufferSizeResponse
+	87,  // 96: audiorecord.AudioRecordBuilderService.Build:output_type -> audiorecord.BuildResponse
+	89,  // 97: audiorecord.AudioRecordBuilderService.SetAudioFormat:output_type -> audiorecord.SetAudioFormatResponse
+	91,  // 98: audiorecord.AudioRecordBuilderService.SetAudioPlaybackCaptureConfig:output_type -> audiorecord.SetAudioPlaybackCaptureConfigResponse
+	93,  // 99: audiorecord.AudioRecordBuilderService.SetAudioSource:output_type -> audiorecord.SetAudioSourceResponse
+	95,  // 100: audiorecord.AudioRecordBuilderService.SetBufferSizeInBytes:output_type -> audiorecord.SetBufferSizeInBytesResponse
+	97,  // 101: audiorecord.AudioRecordBuilderService.SetContext:output_type -> audiorecord.SetContextResponse
+	99,  // 102: audiorecord.AudioRecordBuilderService.SetPrivacySensitive:output_type -> audiorecord.SetPrivacySensitiveResponse
+	101, // 103: audiorecord.AudioRecordOnRecordPositionUpdateListenerService.OnMarkerReached:output_type -> audiorecord.OnMarkerReachedResponse
+	103, // 104: audiorecord.AudioRecordOnRecordPositionUpdateListenerService.OnPeriodicNotification:output_type -> audiorecord.OnPeriodicNotificationResponse
+	105, // 105: audiorecord.AudioRecordOnRoutingChangedListenerService.OnRoutingChanged:output_type -> audiorecord.OnRoutingChangedResponse
+	53,  // [53:106] is the sub-list for method output_type
+	0,   // [0:53] is the sub-list for method input_type
 	0,   // [0:0] is the sub-list for extension type_name
 	0,   // [0:0] is the sub-list for extension extendee
 	0,   // [0:0] is the sub-list for field type_name
@@ -5250,7 +5444,7 @@ func file_proto_audiorecord_audiorecord_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_audiorecord_audiorecord_proto_rawDesc), len(file_proto_audiorecord_audiorecord_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   102,
+			NumMessages:   106,
 			NumExtensions: 0,
 			NumServices:   4,
 		},

@@ -839,6 +839,86 @@ func (x *GetVirtualDeviceResponse) GetResult() int64 {
 	return 0
 }
 
+type GetVirtualDevicesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVirtualDevicesRequest) Reset() {
+	*x = GetVirtualDevicesRequest{}
+	mi := &file_proto_virtual_virtual_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVirtualDevicesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVirtualDevicesRequest) ProtoMessage() {}
+
+func (x *GetVirtualDevicesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_virtual_virtual_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVirtualDevicesRequest.ProtoReflect.Descriptor instead.
+func (*GetVirtualDevicesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_virtual_virtual_proto_rawDescGZIP(), []int{20}
+}
+
+type GetVirtualDevicesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetVirtualDevicesResponse) Reset() {
+	*x = GetVirtualDevicesResponse{}
+	mi := &file_proto_virtual_virtual_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetVirtualDevicesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVirtualDevicesResponse) ProtoMessage() {}
+
+func (x *GetVirtualDevicesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_virtual_virtual_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVirtualDevicesResponse.ProtoReflect.Descriptor instead.
+func (*GetVirtualDevicesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_virtual_virtual_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *GetVirtualDevicesResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 type RegisterVirtualDeviceListenerRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -849,7 +929,7 @@ type RegisterVirtualDeviceListenerRequest struct {
 
 func (x *RegisterVirtualDeviceListenerRequest) Reset() {
 	*x = RegisterVirtualDeviceListenerRequest{}
-	mi := &file_proto_virtual_virtual_proto_msgTypes[20]
+	mi := &file_proto_virtual_virtual_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -861,7 +941,7 @@ func (x *RegisterVirtualDeviceListenerRequest) String() string {
 func (*RegisterVirtualDeviceListenerRequest) ProtoMessage() {}
 
 func (x *RegisterVirtualDeviceListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_virtual_virtual_proto_msgTypes[20]
+	mi := &file_proto_virtual_virtual_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -874,7 +954,7 @@ func (x *RegisterVirtualDeviceListenerRequest) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use RegisterVirtualDeviceListenerRequest.ProtoReflect.Descriptor instead.
 func (*RegisterVirtualDeviceListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_virtual_virtual_proto_rawDescGZIP(), []int{20}
+	return file_proto_virtual_virtual_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *RegisterVirtualDeviceListenerRequest) GetArg0() int64 {
@@ -899,7 +979,7 @@ type RegisterVirtualDeviceListenerResponse struct {
 
 func (x *RegisterVirtualDeviceListenerResponse) Reset() {
 	*x = RegisterVirtualDeviceListenerResponse{}
-	mi := &file_proto_virtual_virtual_proto_msgTypes[21]
+	mi := &file_proto_virtual_virtual_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -911,7 +991,7 @@ func (x *RegisterVirtualDeviceListenerResponse) String() string {
 func (*RegisterVirtualDeviceListenerResponse) ProtoMessage() {}
 
 func (x *RegisterVirtualDeviceListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_virtual_virtual_proto_msgTypes[21]
+	mi := &file_proto_virtual_virtual_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -924,7 +1004,7 @@ func (x *RegisterVirtualDeviceListenerResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use RegisterVirtualDeviceListenerResponse.ProtoReflect.Descriptor instead.
 func (*RegisterVirtualDeviceListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_virtual_virtual_proto_rawDescGZIP(), []int{21}
+	return file_proto_virtual_virtual_proto_rawDescGZIP(), []int{23}
 }
 
 type UnregisterVirtualDeviceListenerRequest struct {
@@ -936,7 +1016,7 @@ type UnregisterVirtualDeviceListenerRequest struct {
 
 func (x *UnregisterVirtualDeviceListenerRequest) Reset() {
 	*x = UnregisterVirtualDeviceListenerRequest{}
-	mi := &file_proto_virtual_virtual_proto_msgTypes[22]
+	mi := &file_proto_virtual_virtual_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -948,7 +1028,7 @@ func (x *UnregisterVirtualDeviceListenerRequest) String() string {
 func (*UnregisterVirtualDeviceListenerRequest) ProtoMessage() {}
 
 func (x *UnregisterVirtualDeviceListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_virtual_virtual_proto_msgTypes[22]
+	mi := &file_proto_virtual_virtual_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -961,7 +1041,7 @@ func (x *UnregisterVirtualDeviceListenerRequest) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use UnregisterVirtualDeviceListenerRequest.ProtoReflect.Descriptor instead.
 func (*UnregisterVirtualDeviceListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_virtual_virtual_proto_rawDescGZIP(), []int{22}
+	return file_proto_virtual_virtual_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *UnregisterVirtualDeviceListenerRequest) GetArg0() int64 {
@@ -979,7 +1059,7 @@ type UnregisterVirtualDeviceListenerResponse struct {
 
 func (x *UnregisterVirtualDeviceListenerResponse) Reset() {
 	*x = UnregisterVirtualDeviceListenerResponse{}
-	mi := &file_proto_virtual_virtual_proto_msgTypes[23]
+	mi := &file_proto_virtual_virtual_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -991,7 +1071,7 @@ func (x *UnregisterVirtualDeviceListenerResponse) String() string {
 func (*UnregisterVirtualDeviceListenerResponse) ProtoMessage() {}
 
 func (x *UnregisterVirtualDeviceListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_virtual_virtual_proto_msgTypes[23]
+	mi := &file_proto_virtual_virtual_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1004,7 +1084,7 @@ func (x *UnregisterVirtualDeviceListenerResponse) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use UnregisterVirtualDeviceListenerResponse.ProtoReflect.Descriptor instead.
 func (*UnregisterVirtualDeviceListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_virtual_virtual_proto_rawDescGZIP(), []int{23}
+	return file_proto_virtual_virtual_proto_rawDescGZIP(), []int{25}
 }
 
 var File_proto_virtual_virtual_proto protoreflect.FileDescriptor
@@ -1043,6 +1123,9 @@ const file_proto_virtual_virtual_proto_rawDesc = "" +
 	"\x17GetVirtualDeviceRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x05R\x04arg0\"2\n" +
 	"\x18GetVirtualDeviceResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"\x1a\n" +
+	"\x18GetVirtualDevicesRequest\"3\n" +
+	"\x19GetVirtualDevicesResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"N\n" +
 	"$RegisterVirtualDeviceListenerRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
@@ -1060,9 +1143,10 @@ const file_proto_virtual_virtual_proto_rawDesc = "" +
 	"\x15GetPersistentDeviceId\x12%.virtual.GetPersistentDeviceIdRequest\x1a&.virtual.GetPersistentDeviceIdResponse\x12i\n" +
 	"\x16HasCustomSensorSupport\x12&.virtual.HasCustomSensorSupportRequest\x1a'.virtual.HasCustomSensorSupportResponse\x12?\n" +
 	"\bToString\x12\x18.virtual.ToStringRequest\x1a\x19.virtual.ToStringResponse\x12N\n" +
-	"\rWriteToParcel\x12\x1d.virtual.WriteToParcelRequest\x1a\x1e.virtual.WriteToParcelResponse2\xf6\x02\n" +
+	"\rWriteToParcel\x12\x1d.virtual.WriteToParcelRequest\x1a\x1e.virtual.WriteToParcelResponse2\xd2\x03\n" +
 	"\x14DeviceManagerService\x12W\n" +
-	"\x10GetVirtualDevice\x12 .virtual.GetVirtualDeviceRequest\x1a!.virtual.GetVirtualDeviceResponse\x12~\n" +
+	"\x10GetVirtualDevice\x12 .virtual.GetVirtualDeviceRequest\x1a!.virtual.GetVirtualDeviceResponse\x12Z\n" +
+	"\x11GetVirtualDevices\x12!.virtual.GetVirtualDevicesRequest\x1a\".virtual.GetVirtualDevicesResponse\x12~\n" +
 	"\x1dRegisterVirtualDeviceListener\x12-.virtual.RegisterVirtualDeviceListenerRequest\x1a..virtual.RegisterVirtualDeviceListenerResponse\x12\x84\x01\n" +
 	"\x1fUnregisterVirtualDeviceListener\x12/.virtual.UnregisterVirtualDeviceListenerRequest\x1a0.virtual.UnregisterVirtualDeviceListenerResponseB1Z/github.com/AndroidGoLab/jni-proxy/proto/virtualb\x06proto3"
 
@@ -1078,7 +1162,7 @@ func file_proto_virtual_virtual_proto_rawDescGZIP() []byte {
 	return file_proto_virtual_virtual_proto_rawDescData
 }
 
-var file_proto_virtual_virtual_proto_msgTypes = make([]protoimpl.MessageInfo, 24)
+var file_proto_virtual_virtual_proto_msgTypes = make([]protoimpl.MessageInfo, 26)
 var file_proto_virtual_virtual_proto_goTypes = []any{
 	(*DescribeContentsRequest)(nil),                 // 0: virtual.DescribeContentsRequest
 	(*DescribeContentsResponse)(nil),                // 1: virtual.DescribeContentsResponse
@@ -1100,10 +1184,12 @@ var file_proto_virtual_virtual_proto_goTypes = []any{
 	(*WriteToParcelResponse)(nil),                   // 17: virtual.WriteToParcelResponse
 	(*GetVirtualDeviceRequest)(nil),                 // 18: virtual.GetVirtualDeviceRequest
 	(*GetVirtualDeviceResponse)(nil),                // 19: virtual.GetVirtualDeviceResponse
-	(*RegisterVirtualDeviceListenerRequest)(nil),    // 20: virtual.RegisterVirtualDeviceListenerRequest
-	(*RegisterVirtualDeviceListenerResponse)(nil),   // 21: virtual.RegisterVirtualDeviceListenerResponse
-	(*UnregisterVirtualDeviceListenerRequest)(nil),  // 22: virtual.UnregisterVirtualDeviceListenerRequest
-	(*UnregisterVirtualDeviceListenerResponse)(nil), // 23: virtual.UnregisterVirtualDeviceListenerResponse
+	(*GetVirtualDevicesRequest)(nil),                // 20: virtual.GetVirtualDevicesRequest
+	(*GetVirtualDevicesResponse)(nil),               // 21: virtual.GetVirtualDevicesResponse
+	(*RegisterVirtualDeviceListenerRequest)(nil),    // 22: virtual.RegisterVirtualDeviceListenerRequest
+	(*RegisterVirtualDeviceListenerResponse)(nil),   // 23: virtual.RegisterVirtualDeviceListenerResponse
+	(*UnregisterVirtualDeviceListenerRequest)(nil),  // 24: virtual.UnregisterVirtualDeviceListenerRequest
+	(*UnregisterVirtualDeviceListenerResponse)(nil), // 25: virtual.UnregisterVirtualDeviceListenerResponse
 }
 var file_proto_virtual_virtual_proto_depIdxs = []int32{
 	0,  // 0: virtual.DeviceService.DescribeContents:input_type -> virtual.DescribeContentsRequest
@@ -1116,22 +1202,24 @@ var file_proto_virtual_virtual_proto_depIdxs = []int32{
 	14, // 7: virtual.DeviceService.ToString:input_type -> virtual.ToStringRequest
 	16, // 8: virtual.DeviceService.WriteToParcel:input_type -> virtual.WriteToParcelRequest
 	18, // 9: virtual.DeviceManagerService.GetVirtualDevice:input_type -> virtual.GetVirtualDeviceRequest
-	20, // 10: virtual.DeviceManagerService.RegisterVirtualDeviceListener:input_type -> virtual.RegisterVirtualDeviceListenerRequest
-	22, // 11: virtual.DeviceManagerService.UnregisterVirtualDeviceListener:input_type -> virtual.UnregisterVirtualDeviceListenerRequest
-	1,  // 12: virtual.DeviceService.DescribeContents:output_type -> virtual.DescribeContentsResponse
-	3,  // 13: virtual.DeviceService.GetDeviceId:output_type -> virtual.GetDeviceIdResponse
-	5,  // 14: virtual.DeviceService.GetDisplayIds:output_type -> virtual.GetDisplayIdsResponse
-	7,  // 15: virtual.DeviceService.GetDisplayName:output_type -> virtual.GetDisplayNameResponse
-	9,  // 16: virtual.DeviceService.GetName:output_type -> virtual.GetNameResponse
-	11, // 17: virtual.DeviceService.GetPersistentDeviceId:output_type -> virtual.GetPersistentDeviceIdResponse
-	13, // 18: virtual.DeviceService.HasCustomSensorSupport:output_type -> virtual.HasCustomSensorSupportResponse
-	15, // 19: virtual.DeviceService.ToString:output_type -> virtual.ToStringResponse
-	17, // 20: virtual.DeviceService.WriteToParcel:output_type -> virtual.WriteToParcelResponse
-	19, // 21: virtual.DeviceManagerService.GetVirtualDevice:output_type -> virtual.GetVirtualDeviceResponse
-	21, // 22: virtual.DeviceManagerService.RegisterVirtualDeviceListener:output_type -> virtual.RegisterVirtualDeviceListenerResponse
-	23, // 23: virtual.DeviceManagerService.UnregisterVirtualDeviceListener:output_type -> virtual.UnregisterVirtualDeviceListenerResponse
-	12, // [12:24] is the sub-list for method output_type
-	0,  // [0:12] is the sub-list for method input_type
+	20, // 10: virtual.DeviceManagerService.GetVirtualDevices:input_type -> virtual.GetVirtualDevicesRequest
+	22, // 11: virtual.DeviceManagerService.RegisterVirtualDeviceListener:input_type -> virtual.RegisterVirtualDeviceListenerRequest
+	24, // 12: virtual.DeviceManagerService.UnregisterVirtualDeviceListener:input_type -> virtual.UnregisterVirtualDeviceListenerRequest
+	1,  // 13: virtual.DeviceService.DescribeContents:output_type -> virtual.DescribeContentsResponse
+	3,  // 14: virtual.DeviceService.GetDeviceId:output_type -> virtual.GetDeviceIdResponse
+	5,  // 15: virtual.DeviceService.GetDisplayIds:output_type -> virtual.GetDisplayIdsResponse
+	7,  // 16: virtual.DeviceService.GetDisplayName:output_type -> virtual.GetDisplayNameResponse
+	9,  // 17: virtual.DeviceService.GetName:output_type -> virtual.GetNameResponse
+	11, // 18: virtual.DeviceService.GetPersistentDeviceId:output_type -> virtual.GetPersistentDeviceIdResponse
+	13, // 19: virtual.DeviceService.HasCustomSensorSupport:output_type -> virtual.HasCustomSensorSupportResponse
+	15, // 20: virtual.DeviceService.ToString:output_type -> virtual.ToStringResponse
+	17, // 21: virtual.DeviceService.WriteToParcel:output_type -> virtual.WriteToParcelResponse
+	19, // 22: virtual.DeviceManagerService.GetVirtualDevice:output_type -> virtual.GetVirtualDeviceResponse
+	21, // 23: virtual.DeviceManagerService.GetVirtualDevices:output_type -> virtual.GetVirtualDevicesResponse
+	23, // 24: virtual.DeviceManagerService.RegisterVirtualDeviceListener:output_type -> virtual.RegisterVirtualDeviceListenerResponse
+	25, // 25: virtual.DeviceManagerService.UnregisterVirtualDeviceListener:output_type -> virtual.UnregisterVirtualDeviceListenerResponse
+	13, // [13:26] is the sub-list for method output_type
+	0,  // [0:13] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -1148,7 +1236,7 @@ func file_proto_virtual_virtual_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_virtual_virtual_proto_rawDesc), len(file_proto_virtual_virtual_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   24,
+			NumMessages:   26,
 			NumExtensions: 0,
 			NumServices:   2,
 		},

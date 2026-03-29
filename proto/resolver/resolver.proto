@@ -405,6 +405,20 @@ message Delete3_1Response {
   int32 result = 1;
 }
 
+message GetOutgoingPersistedUriPermissionsRequest {
+}
+
+message GetOutgoingPersistedUriPermissionsResponse {
+  int64 result = 1;
+}
+
+message GetPersistedUriPermissionsRequest {
+}
+
+message GetPersistedUriPermissionsResponse {
+  int64 result = 1;
+}
+
 message GetStreamTypesRequest {
   int64 arg0 = 1;
   string arg1 = 2;
@@ -746,6 +760,13 @@ message GetCurrentSyncResponse {
   int64 result = 1;
 }
 
+message GetCurrentSyncsRequest {
+}
+
+message GetCurrentSyncsResponse {
+  int64 result = 1;
+}
+
 message GetIsSyncableRequest {
   int64 arg0 = 1;
   string arg1 = 2;
@@ -760,6 +781,15 @@ message GetMasterSyncAutomaticallyRequest {
 
 message GetMasterSyncAutomaticallyResponse {
   bool result = 1;
+}
+
+message GetPeriodicSyncsRequest {
+  int64 arg0 = 1;
+  string arg1 = 2;
+}
+
+message GetPeriodicSyncsResponse {
+  int64 result = 1;
 }
 
 message GetSyncAdapterTypesRequest {
@@ -1006,6 +1036,13 @@ message GetPathResponse {
   string result = 1;
 }
 
+message GetPathSegmentsRequest {
+}
+
+message GetPathSegmentsResponse {
+  int64 result = 1;
+}
+
 message GetPortRequest {
 }
 
@@ -1026,6 +1063,21 @@ message GetQueryParameterRequest {
 
 message GetQueryParameterResponse {
   string result = 1;
+}
+
+message GetQueryParameterNamesRequest {
+}
+
+message GetQueryParameterNamesResponse {
+  int64 result = 1;
+}
+
+message GetQueryParametersRequest {
+  string arg0 = 1;
+}
+
+message GetQueryParametersResponse {
+  int64 result = 1;
 }
 
 message GetSchemeRequest {
@@ -1357,6 +1409,8 @@ service ContentResolverService {
   rpc Canonicalize (CanonicalizeRequest) returns (CanonicalizeResponse);
   rpc Delete2 (Delete2Request) returns (Delete2Response);
   rpc Delete3_1 (Delete3_1Request) returns (Delete3_1Response);
+  rpc GetOutgoingPersistedUriPermissions (GetOutgoingPersistedUriPermissionsRequest) returns (GetOutgoingPersistedUriPermissionsResponse);
+  rpc GetPersistedUriPermissions (GetPersistedUriPermissionsRequest) returns (GetPersistedUriPermissionsResponse);
   rpc GetStreamTypes (GetStreamTypesRequest) returns (GetStreamTypesResponse);
   rpc GetType (ContentResolverGetTypeRequest) returns (ContentResolverGetTypeResponse);
   rpc GetTypeInfo (GetTypeInfoRequest) returns (GetTypeInfoResponse);
@@ -1395,8 +1449,10 @@ service ContentResolverService {
   rpc CancelSync2 (CancelSync2Request) returns (CancelSync2Response);
   rpc CancelSync1_1 (CancelSync1_1Request) returns (CancelSync1_1Response);
   rpc GetCurrentSync (GetCurrentSyncRequest) returns (GetCurrentSyncResponse);
+  rpc GetCurrentSyncs (GetCurrentSyncsRequest) returns (GetCurrentSyncsResponse);
   rpc GetIsSyncable (GetIsSyncableRequest) returns (GetIsSyncableResponse);
   rpc GetMasterSyncAutomatically (GetMasterSyncAutomaticallyRequest) returns (GetMasterSyncAutomaticallyResponse);
+  rpc GetPeriodicSyncs (GetPeriodicSyncsRequest) returns (GetPeriodicSyncsResponse);
   rpc GetSyncAdapterTypes (GetSyncAdapterTypesRequest) returns (GetSyncAdapterTypesResponse);
   rpc GetSyncAutomatically (GetSyncAutomaticallyRequest) returns (GetSyncAutomaticallyResponse);
   rpc IsSyncActive (IsSyncActiveRequest) returns (IsSyncActiveResponse);
@@ -1435,9 +1491,12 @@ service UriService {
   rpc GetHost (GetHostRequest) returns (GetHostResponse);
   rpc GetLastPathSegment (GetLastPathSegmentRequest) returns (GetLastPathSegmentResponse);
   rpc GetPath (GetPathRequest) returns (GetPathResponse);
+  rpc GetPathSegments (GetPathSegmentsRequest) returns (GetPathSegmentsResponse);
   rpc GetPort (GetPortRequest) returns (GetPortResponse);
   rpc GetQuery (GetQueryRequest) returns (GetQueryResponse);
   rpc GetQueryParameter (GetQueryParameterRequest) returns (GetQueryParameterResponse);
+  rpc GetQueryParameterNames (GetQueryParameterNamesRequest) returns (GetQueryParameterNamesResponse);
+  rpc GetQueryParameters (GetQueryParametersRequest) returns (GetQueryParametersResponse);
   rpc GetScheme (GetSchemeRequest) returns (GetSchemeResponse);
   rpc GetSchemeSpecificPart (GetSchemeSpecificPartRequest) returns (GetSchemeSpecificPartResponse);
   rpc GetUserInfo (GetUserInfoRequest) returns (GetUserInfoResponse);

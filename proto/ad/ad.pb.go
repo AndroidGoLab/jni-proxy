@@ -23,502 +23,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type RegisterCallbackRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RegisterCallbackRequest) Reset() {
-	*x = RegisterCallbackRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[0]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RegisterCallbackRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RegisterCallbackRequest) ProtoMessage() {}
-
-func (x *RegisterCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[0]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RegisterCallbackRequest.ProtoReflect.Descriptor instead.
-func (*RegisterCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *RegisterCallbackRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-func (x *RegisterCallbackRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type RegisterCallbackResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *RegisterCallbackResponse) Reset() {
-	*x = RegisterCallbackResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *RegisterCallbackResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*RegisterCallbackResponse) ProtoMessage() {}
-
-func (x *RegisterCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use RegisterCallbackResponse.ProtoReflect.Descriptor instead.
-func (*RegisterCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{1}
-}
-
-type SendAppLinkCommandRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SendAppLinkCommandRequest) Reset() {
-	*x = SendAppLinkCommandRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[2]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SendAppLinkCommandRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SendAppLinkCommandRequest) ProtoMessage() {}
-
-func (x *SendAppLinkCommandRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[2]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SendAppLinkCommandRequest.ProtoReflect.Descriptor instead.
-func (*SendAppLinkCommandRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *SendAppLinkCommandRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-func (x *SendAppLinkCommandRequest) GetArg1() int64 {
-	if x != nil {
-		return x.Arg1
-	}
-	return 0
-}
-
-type SendAppLinkCommandResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SendAppLinkCommandResponse) Reset() {
-	*x = SendAppLinkCommandResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[3]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SendAppLinkCommandResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SendAppLinkCommandResponse) ProtoMessage() {}
-
-func (x *SendAppLinkCommandResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[3]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use SendAppLinkCommandResponse.ProtoReflect.Descriptor instead.
-func (*SendAppLinkCommandResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{3}
-}
-
-type UnregisterCallbackRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *UnregisterCallbackRequest) Reset() {
-	*x = UnregisterCallbackRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[4]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *UnregisterCallbackRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UnregisterCallbackRequest) ProtoMessage() {}
-
-func (x *UnregisterCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[4]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UnregisterCallbackRequest.ProtoReflect.Descriptor instead.
-func (*UnregisterCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *UnregisterCallbackRequest) GetArg0() int64 {
-	if x != nil {
-		return x.Arg0
-	}
-	return 0
-}
-
-type UnregisterCallbackResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *UnregisterCallbackResponse) Reset() {
-	*x = UnregisterCallbackResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[5]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *UnregisterCallbackResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*UnregisterCallbackResponse) ProtoMessage() {}
-
-func (x *UnregisterCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[5]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use UnregisterCallbackResponse.ProtoReflect.Descriptor instead.
-func (*UnregisterCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{5}
-}
-
-type OnAdServiceAddedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnAdServiceAddedRequest) Reset() {
-	*x = OnAdServiceAddedRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnAdServiceAddedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnAdServiceAddedRequest) ProtoMessage() {}
-
-func (x *OnAdServiceAddedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[6]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnAdServiceAddedRequest.ProtoReflect.Descriptor instead.
-func (*OnAdServiceAddedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{6}
-}
-
-func (x *OnAdServiceAddedRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type OnAdServiceAddedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnAdServiceAddedResponse) Reset() {
-	*x = OnAdServiceAddedResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[7]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnAdServiceAddedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnAdServiceAddedResponse) ProtoMessage() {}
-
-func (x *OnAdServiceAddedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[7]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnAdServiceAddedResponse.ProtoReflect.Descriptor instead.
-func (*OnAdServiceAddedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{7}
-}
-
-type OnAdServiceRemovedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnAdServiceRemovedRequest) Reset() {
-	*x = OnAdServiceRemovedRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[8]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnAdServiceRemovedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnAdServiceRemovedRequest) ProtoMessage() {}
-
-func (x *OnAdServiceRemovedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[8]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnAdServiceRemovedRequest.ProtoReflect.Descriptor instead.
-func (*OnAdServiceRemovedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{8}
-}
-
-func (x *OnAdServiceRemovedRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type OnAdServiceRemovedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnAdServiceRemovedResponse) Reset() {
-	*x = OnAdServiceRemovedResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[9]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnAdServiceRemovedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnAdServiceRemovedResponse) ProtoMessage() {}
-
-func (x *OnAdServiceRemovedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[9]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnAdServiceRemovedResponse.ProtoReflect.Descriptor instead.
-func (*OnAdServiceRemovedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{9}
-}
-
-type OnAdServiceUpdatedRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnAdServiceUpdatedRequest) Reset() {
-	*x = OnAdServiceUpdatedRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[10]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnAdServiceUpdatedRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnAdServiceUpdatedRequest) ProtoMessage() {}
-
-func (x *OnAdServiceUpdatedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[10]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnAdServiceUpdatedRequest.ProtoReflect.Descriptor instead.
-func (*OnAdServiceUpdatedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{10}
-}
-
-func (x *OnAdServiceUpdatedRequest) GetArg0() string {
-	if x != nil {
-		return x.Arg0
-	}
-	return ""
-}
-
-type OnAdServiceUpdatedResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OnAdServiceUpdatedResponse) Reset() {
-	*x = OnAdServiceUpdatedResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[11]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OnAdServiceUpdatedResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OnAdServiceUpdatedResponse) ProtoMessage() {}
-
-func (x *OnAdServiceUpdatedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[11]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use OnAdServiceUpdatedResponse.ProtoReflect.Descriptor instead.
-func (*OnAdServiceUpdatedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{11}
-}
-
 type NewTvAdServiceInfoRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
@@ -529,7 +33,7 @@ type NewTvAdServiceInfoRequest struct {
 
 func (x *NewTvAdServiceInfoRequest) Reset() {
 	*x = NewTvAdServiceInfoRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[12]
+	mi := &file_proto_ad_ad_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -541,7 +45,7 @@ func (x *NewTvAdServiceInfoRequest) String() string {
 func (*NewTvAdServiceInfoRequest) ProtoMessage() {}
 
 func (x *NewTvAdServiceInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[12]
+	mi := &file_proto_ad_ad_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -554,7 +58,7 @@ func (x *NewTvAdServiceInfoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewTvAdServiceInfoRequest.ProtoReflect.Descriptor instead.
 func (*NewTvAdServiceInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{12}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *NewTvAdServiceInfoRequest) GetArg0() int64 {
@@ -580,7 +84,7 @@ type NewTvAdServiceInfoResponse struct {
 
 func (x *NewTvAdServiceInfoResponse) Reset() {
 	*x = NewTvAdServiceInfoResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[13]
+	mi := &file_proto_ad_ad_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -592,7 +96,7 @@ func (x *NewTvAdServiceInfoResponse) String() string {
 func (*NewTvAdServiceInfoResponse) ProtoMessage() {}
 
 func (x *NewTvAdServiceInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[13]
+	mi := &file_proto_ad_ad_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -605,7 +109,7 @@ func (x *NewTvAdServiceInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewTvAdServiceInfoResponse.ProtoReflect.Descriptor instead.
 func (*NewTvAdServiceInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{13}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *NewTvAdServiceInfoResponse) GetResult() int64 {
@@ -624,7 +128,7 @@ type DescribeContentsRequest struct {
 
 func (x *DescribeContentsRequest) Reset() {
 	*x = DescribeContentsRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[14]
+	mi := &file_proto_ad_ad_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -636,7 +140,7 @@ func (x *DescribeContentsRequest) String() string {
 func (*DescribeContentsRequest) ProtoMessage() {}
 
 func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[14]
+	mi := &file_proto_ad_ad_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -649,7 +153,7 @@ func (x *DescribeContentsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DescribeContentsRequest.ProtoReflect.Descriptor instead.
 func (*DescribeContentsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{14}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *DescribeContentsRequest) GetHandle() int64 {
@@ -668,7 +172,7 @@ type DescribeContentsResponse struct {
 
 func (x *DescribeContentsResponse) Reset() {
 	*x = DescribeContentsResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[15]
+	mi := &file_proto_ad_ad_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -680,7 +184,7 @@ func (x *DescribeContentsResponse) String() string {
 func (*DescribeContentsResponse) ProtoMessage() {}
 
 func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[15]
+	mi := &file_proto_ad_ad_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -693,7 +197,7 @@ func (x *DescribeContentsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DescribeContentsResponse.ProtoReflect.Descriptor instead.
 func (*DescribeContentsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{15}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *DescribeContentsResponse) GetResult() int32 {
@@ -712,7 +216,7 @@ type GetIdRequest struct {
 
 func (x *GetIdRequest) Reset() {
 	*x = GetIdRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[16]
+	mi := &file_proto_ad_ad_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -724,7 +228,7 @@ func (x *GetIdRequest) String() string {
 func (*GetIdRequest) ProtoMessage() {}
 
 func (x *GetIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[16]
+	mi := &file_proto_ad_ad_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -737,7 +241,7 @@ func (x *GetIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIdRequest.ProtoReflect.Descriptor instead.
 func (*GetIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{16}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *GetIdRequest) GetHandle() int64 {
@@ -756,7 +260,7 @@ type GetIdResponse struct {
 
 func (x *GetIdResponse) Reset() {
 	*x = GetIdResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[17]
+	mi := &file_proto_ad_ad_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -768,7 +272,7 @@ func (x *GetIdResponse) String() string {
 func (*GetIdResponse) ProtoMessage() {}
 
 func (x *GetIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[17]
+	mi := &file_proto_ad_ad_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -781,7 +285,7 @@ func (x *GetIdResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetIdResponse.ProtoReflect.Descriptor instead.
 func (*GetIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{17}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *GetIdResponse) GetResult() string {
@@ -800,7 +304,7 @@ type GetServiceInfoRequest struct {
 
 func (x *GetServiceInfoRequest) Reset() {
 	*x = GetServiceInfoRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[18]
+	mi := &file_proto_ad_ad_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -812,7 +316,7 @@ func (x *GetServiceInfoRequest) String() string {
 func (*GetServiceInfoRequest) ProtoMessage() {}
 
 func (x *GetServiceInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[18]
+	mi := &file_proto_ad_ad_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -825,7 +329,7 @@ func (x *GetServiceInfoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetServiceInfoRequest.ProtoReflect.Descriptor instead.
 func (*GetServiceInfoRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{18}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *GetServiceInfoRequest) GetHandle() int64 {
@@ -844,7 +348,7 @@ type GetServiceInfoResponse struct {
 
 func (x *GetServiceInfoResponse) Reset() {
 	*x = GetServiceInfoResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[19]
+	mi := &file_proto_ad_ad_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -856,7 +360,7 @@ func (x *GetServiceInfoResponse) String() string {
 func (*GetServiceInfoResponse) ProtoMessage() {}
 
 func (x *GetServiceInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[19]
+	mi := &file_proto_ad_ad_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -869,10 +373,98 @@ func (x *GetServiceInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetServiceInfoResponse.ProtoReflect.Descriptor instead.
 func (*GetServiceInfoResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{19}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *GetServiceInfoResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type GetSupportedTypesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Handle        int64                  `protobuf:"varint,1,opt,name=handle,proto3" json:"handle,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSupportedTypesRequest) Reset() {
+	*x = GetSupportedTypesRequest{}
+	mi := &file_proto_ad_ad_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSupportedTypesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSupportedTypesRequest) ProtoMessage() {}
+
+func (x *GetSupportedTypesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ad_ad_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSupportedTypesRequest.ProtoReflect.Descriptor instead.
+func (*GetSupportedTypesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *GetSupportedTypesRequest) GetHandle() int64 {
+	if x != nil {
+		return x.Handle
+	}
+	return 0
+}
+
+type GetSupportedTypesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSupportedTypesResponse) Reset() {
+	*x = GetSupportedTypesResponse{}
+	mi := &file_proto_ad_ad_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSupportedTypesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSupportedTypesResponse) ProtoMessage() {}
+
+func (x *GetSupportedTypesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ad_ad_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSupportedTypesResponse.ProtoReflect.Descriptor instead.
+func (*GetSupportedTypesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetSupportedTypesResponse) GetResult() int64 {
 	if x != nil {
 		return x.Result
 	}
@@ -890,7 +482,7 @@ type WriteToParcelRequest struct {
 
 func (x *WriteToParcelRequest) Reset() {
 	*x = WriteToParcelRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[20]
+	mi := &file_proto_ad_ad_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -902,7 +494,7 @@ func (x *WriteToParcelRequest) String() string {
 func (*WriteToParcelRequest) ProtoMessage() {}
 
 func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[20]
+	mi := &file_proto_ad_ad_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -915,7 +507,7 @@ func (x *WriteToParcelRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelRequest.ProtoReflect.Descriptor instead.
 func (*WriteToParcelRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{20}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *WriteToParcelRequest) GetHandle() int64 {
@@ -947,7 +539,7 @@ type WriteToParcelResponse struct {
 
 func (x *WriteToParcelResponse) Reset() {
 	*x = WriteToParcelResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[21]
+	mi := &file_proto_ad_ad_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -959,7 +551,7 @@ func (x *WriteToParcelResponse) String() string {
 func (*WriteToParcelResponse) ProtoMessage() {}
 
 func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[21]
+	mi := &file_proto_ad_ad_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -972,7 +564,7 @@ func (x *WriteToParcelResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WriteToParcelResponse.ProtoReflect.Descriptor instead.
 func (*WriteToParcelResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{21}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{11}
 }
 
 type NewTvAdViewRequest struct {
@@ -984,7 +576,7 @@ type NewTvAdViewRequest struct {
 
 func (x *NewTvAdViewRequest) Reset() {
 	*x = NewTvAdViewRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[22]
+	mi := &file_proto_ad_ad_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -996,7 +588,7 @@ func (x *NewTvAdViewRequest) String() string {
 func (*NewTvAdViewRequest) ProtoMessage() {}
 
 func (x *NewTvAdViewRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[22]
+	mi := &file_proto_ad_ad_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1009,7 +601,7 @@ func (x *NewTvAdViewRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewTvAdViewRequest.ProtoReflect.Descriptor instead.
 func (*NewTvAdViewRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{22}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *NewTvAdViewRequest) GetArg0() int64 {
@@ -1028,7 +620,7 @@ type NewTvAdViewResponse struct {
 
 func (x *NewTvAdViewResponse) Reset() {
 	*x = NewTvAdViewResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[23]
+	mi := &file_proto_ad_ad_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1040,7 +632,7 @@ func (x *NewTvAdViewResponse) String() string {
 func (*NewTvAdViewResponse) ProtoMessage() {}
 
 func (x *NewTvAdViewResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[23]
+	mi := &file_proto_ad_ad_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1053,7 +645,7 @@ func (x *NewTvAdViewResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NewTvAdViewResponse.ProtoReflect.Descriptor instead.
 func (*NewTvAdViewResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{23}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *NewTvAdViewResponse) GetResult() int64 {
@@ -1072,7 +664,7 @@ type ClearCallbackRequest struct {
 
 func (x *ClearCallbackRequest) Reset() {
 	*x = ClearCallbackRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[24]
+	mi := &file_proto_ad_ad_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1084,7 +676,7 @@ func (x *ClearCallbackRequest) String() string {
 func (*ClearCallbackRequest) ProtoMessage() {}
 
 func (x *ClearCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[24]
+	mi := &file_proto_ad_ad_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1097,7 +689,7 @@ func (x *ClearCallbackRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClearCallbackRequest.ProtoReflect.Descriptor instead.
 func (*ClearCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{24}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *ClearCallbackRequest) GetHandle() int64 {
@@ -1115,7 +707,7 @@ type ClearCallbackResponse struct {
 
 func (x *ClearCallbackResponse) Reset() {
 	*x = ClearCallbackResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[25]
+	mi := &file_proto_ad_ad_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1127,7 +719,7 @@ func (x *ClearCallbackResponse) String() string {
 func (*ClearCallbackResponse) ProtoMessage() {}
 
 func (x *ClearCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[25]
+	mi := &file_proto_ad_ad_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1140,7 +732,7 @@ func (x *ClearCallbackResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ClearCallbackResponse.ProtoReflect.Descriptor instead.
 func (*ClearCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{25}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{15}
 }
 
 type ClearOnUnhandledInputEventListenerRequest struct {
@@ -1152,7 +744,7 @@ type ClearOnUnhandledInputEventListenerRequest struct {
 
 func (x *ClearOnUnhandledInputEventListenerRequest) Reset() {
 	*x = ClearOnUnhandledInputEventListenerRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[26]
+	mi := &file_proto_ad_ad_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1164,7 +756,7 @@ func (x *ClearOnUnhandledInputEventListenerRequest) String() string {
 func (*ClearOnUnhandledInputEventListenerRequest) ProtoMessage() {}
 
 func (x *ClearOnUnhandledInputEventListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[26]
+	mi := &file_proto_ad_ad_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1177,7 +769,7 @@ func (x *ClearOnUnhandledInputEventListenerRequest) ProtoReflect() protoreflect.
 
 // Deprecated: Use ClearOnUnhandledInputEventListenerRequest.ProtoReflect.Descriptor instead.
 func (*ClearOnUnhandledInputEventListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{26}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *ClearOnUnhandledInputEventListenerRequest) GetHandle() int64 {
@@ -1195,7 +787,7 @@ type ClearOnUnhandledInputEventListenerResponse struct {
 
 func (x *ClearOnUnhandledInputEventListenerResponse) Reset() {
 	*x = ClearOnUnhandledInputEventListenerResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[27]
+	mi := &file_proto_ad_ad_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1207,7 +799,7 @@ func (x *ClearOnUnhandledInputEventListenerResponse) String() string {
 func (*ClearOnUnhandledInputEventListenerResponse) ProtoMessage() {}
 
 func (x *ClearOnUnhandledInputEventListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[27]
+	mi := &file_proto_ad_ad_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1220,7 +812,7 @@ func (x *ClearOnUnhandledInputEventListenerResponse) ProtoReflect() protoreflect
 
 // Deprecated: Use ClearOnUnhandledInputEventListenerResponse.ProtoReflect.Descriptor instead.
 func (*ClearOnUnhandledInputEventListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{27}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{17}
 }
 
 type DispatchKeyEventRequest struct {
@@ -1233,7 +825,7 @@ type DispatchKeyEventRequest struct {
 
 func (x *DispatchKeyEventRequest) Reset() {
 	*x = DispatchKeyEventRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[28]
+	mi := &file_proto_ad_ad_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1245,7 +837,7 @@ func (x *DispatchKeyEventRequest) String() string {
 func (*DispatchKeyEventRequest) ProtoMessage() {}
 
 func (x *DispatchKeyEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[28]
+	mi := &file_proto_ad_ad_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1258,7 +850,7 @@ func (x *DispatchKeyEventRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DispatchKeyEventRequest.ProtoReflect.Descriptor instead.
 func (*DispatchKeyEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{28}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *DispatchKeyEventRequest) GetHandle() int64 {
@@ -1284,7 +876,7 @@ type DispatchKeyEventResponse struct {
 
 func (x *DispatchKeyEventResponse) Reset() {
 	*x = DispatchKeyEventResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[29]
+	mi := &file_proto_ad_ad_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1296,7 +888,7 @@ func (x *DispatchKeyEventResponse) String() string {
 func (*DispatchKeyEventResponse) ProtoMessage() {}
 
 func (x *DispatchKeyEventResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[29]
+	mi := &file_proto_ad_ad_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1309,7 +901,7 @@ func (x *DispatchKeyEventResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DispatchKeyEventResponse.ProtoReflect.Descriptor instead.
 func (*DispatchKeyEventResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{29}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *DispatchKeyEventResponse) GetResult() bool {
@@ -1329,7 +921,7 @@ type DispatchUnhandledInputEventRequest struct {
 
 func (x *DispatchUnhandledInputEventRequest) Reset() {
 	*x = DispatchUnhandledInputEventRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[30]
+	mi := &file_proto_ad_ad_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1341,7 +933,7 @@ func (x *DispatchUnhandledInputEventRequest) String() string {
 func (*DispatchUnhandledInputEventRequest) ProtoMessage() {}
 
 func (x *DispatchUnhandledInputEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[30]
+	mi := &file_proto_ad_ad_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1354,7 +946,7 @@ func (x *DispatchUnhandledInputEventRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use DispatchUnhandledInputEventRequest.ProtoReflect.Descriptor instead.
 func (*DispatchUnhandledInputEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{30}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *DispatchUnhandledInputEventRequest) GetHandle() int64 {
@@ -1380,7 +972,7 @@ type DispatchUnhandledInputEventResponse struct {
 
 func (x *DispatchUnhandledInputEventResponse) Reset() {
 	*x = DispatchUnhandledInputEventResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[31]
+	mi := &file_proto_ad_ad_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1392,7 +984,7 @@ func (x *DispatchUnhandledInputEventResponse) String() string {
 func (*DispatchUnhandledInputEventResponse) ProtoMessage() {}
 
 func (x *DispatchUnhandledInputEventResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[31]
+	mi := &file_proto_ad_ad_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1405,7 +997,7 @@ func (x *DispatchUnhandledInputEventResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use DispatchUnhandledInputEventResponse.ProtoReflect.Descriptor instead.
 func (*DispatchUnhandledInputEventResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{31}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *DispatchUnhandledInputEventResponse) GetResult() bool {
@@ -1424,7 +1016,7 @@ type GetOnUnhandledInputEventListenerRequest struct {
 
 func (x *GetOnUnhandledInputEventListenerRequest) Reset() {
 	*x = GetOnUnhandledInputEventListenerRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[32]
+	mi := &file_proto_ad_ad_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1436,7 +1028,7 @@ func (x *GetOnUnhandledInputEventListenerRequest) String() string {
 func (*GetOnUnhandledInputEventListenerRequest) ProtoMessage() {}
 
 func (x *GetOnUnhandledInputEventListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[32]
+	mi := &file_proto_ad_ad_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1449,7 +1041,7 @@ func (x *GetOnUnhandledInputEventListenerRequest) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use GetOnUnhandledInputEventListenerRequest.ProtoReflect.Descriptor instead.
 func (*GetOnUnhandledInputEventListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{32}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *GetOnUnhandledInputEventListenerRequest) GetHandle() int64 {
@@ -1468,7 +1060,7 @@ type GetOnUnhandledInputEventListenerResponse struct {
 
 func (x *GetOnUnhandledInputEventListenerResponse) Reset() {
 	*x = GetOnUnhandledInputEventListenerResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[33]
+	mi := &file_proto_ad_ad_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1480,7 +1072,7 @@ func (x *GetOnUnhandledInputEventListenerResponse) String() string {
 func (*GetOnUnhandledInputEventListenerResponse) ProtoMessage() {}
 
 func (x *GetOnUnhandledInputEventListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[33]
+	mi := &file_proto_ad_ad_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1493,7 +1085,7 @@ func (x *GetOnUnhandledInputEventListenerResponse) ProtoReflect() protoreflect.M
 
 // Deprecated: Use GetOnUnhandledInputEventListenerResponse.ProtoReflect.Descriptor instead.
 func (*GetOnUnhandledInputEventListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{33}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *GetOnUnhandledInputEventListenerResponse) GetResult() int64 {
@@ -1514,7 +1106,7 @@ type NotifyErrorRequest struct {
 
 func (x *NotifyErrorRequest) Reset() {
 	*x = NotifyErrorRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[34]
+	mi := &file_proto_ad_ad_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1526,7 +1118,7 @@ func (x *NotifyErrorRequest) String() string {
 func (*NotifyErrorRequest) ProtoMessage() {}
 
 func (x *NotifyErrorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[34]
+	mi := &file_proto_ad_ad_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1539,7 +1131,7 @@ func (x *NotifyErrorRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NotifyErrorRequest.ProtoReflect.Descriptor instead.
 func (*NotifyErrorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{34}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *NotifyErrorRequest) GetHandle() int64 {
@@ -1571,7 +1163,7 @@ type NotifyErrorResponse struct {
 
 func (x *NotifyErrorResponse) Reset() {
 	*x = NotifyErrorResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[35]
+	mi := &file_proto_ad_ad_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1583,7 +1175,7 @@ func (x *NotifyErrorResponse) String() string {
 func (*NotifyErrorResponse) ProtoMessage() {}
 
 func (x *NotifyErrorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[35]
+	mi := &file_proto_ad_ad_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1596,7 +1188,7 @@ func (x *NotifyErrorResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NotifyErrorResponse.ProtoReflect.Descriptor instead.
 func (*NotifyErrorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{35}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{25}
 }
 
 type NotifyTvMessageRequest struct {
@@ -1610,7 +1202,7 @@ type NotifyTvMessageRequest struct {
 
 func (x *NotifyTvMessageRequest) Reset() {
 	*x = NotifyTvMessageRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[36]
+	mi := &file_proto_ad_ad_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1622,7 +1214,7 @@ func (x *NotifyTvMessageRequest) String() string {
 func (*NotifyTvMessageRequest) ProtoMessage() {}
 
 func (x *NotifyTvMessageRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[36]
+	mi := &file_proto_ad_ad_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1635,7 +1227,7 @@ func (x *NotifyTvMessageRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NotifyTvMessageRequest.ProtoReflect.Descriptor instead.
 func (*NotifyTvMessageRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{36}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *NotifyTvMessageRequest) GetHandle() int64 {
@@ -1667,7 +1259,7 @@ type NotifyTvMessageResponse struct {
 
 func (x *NotifyTvMessageResponse) Reset() {
 	*x = NotifyTvMessageResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[37]
+	mi := &file_proto_ad_ad_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1679,7 +1271,7 @@ func (x *NotifyTvMessageResponse) String() string {
 func (*NotifyTvMessageResponse) ProtoMessage() {}
 
 func (x *NotifyTvMessageResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[37]
+	mi := &file_proto_ad_ad_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1692,7 +1284,7 @@ func (x *NotifyTvMessageResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NotifyTvMessageResponse.ProtoReflect.Descriptor instead.
 func (*NotifyTvMessageResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{37}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{27}
 }
 
 type OnAttachedToWindowRequest struct {
@@ -1704,7 +1296,7 @@ type OnAttachedToWindowRequest struct {
 
 func (x *OnAttachedToWindowRequest) Reset() {
 	*x = OnAttachedToWindowRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[38]
+	mi := &file_proto_ad_ad_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1716,7 +1308,7 @@ func (x *OnAttachedToWindowRequest) String() string {
 func (*OnAttachedToWindowRequest) ProtoMessage() {}
 
 func (x *OnAttachedToWindowRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[38]
+	mi := &file_proto_ad_ad_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1729,7 +1321,7 @@ func (x *OnAttachedToWindowRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnAttachedToWindowRequest.ProtoReflect.Descriptor instead.
 func (*OnAttachedToWindowRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{38}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *OnAttachedToWindowRequest) GetHandle() int64 {
@@ -1747,7 +1339,7 @@ type OnAttachedToWindowResponse struct {
 
 func (x *OnAttachedToWindowResponse) Reset() {
 	*x = OnAttachedToWindowResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[39]
+	mi := &file_proto_ad_ad_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1759,7 +1351,7 @@ func (x *OnAttachedToWindowResponse) String() string {
 func (*OnAttachedToWindowResponse) ProtoMessage() {}
 
 func (x *OnAttachedToWindowResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[39]
+	mi := &file_proto_ad_ad_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1772,7 +1364,7 @@ func (x *OnAttachedToWindowResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnAttachedToWindowResponse.ProtoReflect.Descriptor instead.
 func (*OnAttachedToWindowResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{39}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{29}
 }
 
 type OnDetachedFromWindowRequest struct {
@@ -1784,7 +1376,7 @@ type OnDetachedFromWindowRequest struct {
 
 func (x *OnDetachedFromWindowRequest) Reset() {
 	*x = OnDetachedFromWindowRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[40]
+	mi := &file_proto_ad_ad_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1796,7 +1388,7 @@ func (x *OnDetachedFromWindowRequest) String() string {
 func (*OnDetachedFromWindowRequest) ProtoMessage() {}
 
 func (x *OnDetachedFromWindowRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[40]
+	mi := &file_proto_ad_ad_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1809,7 +1401,7 @@ func (x *OnDetachedFromWindowRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnDetachedFromWindowRequest.ProtoReflect.Descriptor instead.
 func (*OnDetachedFromWindowRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{40}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *OnDetachedFromWindowRequest) GetHandle() int64 {
@@ -1827,7 +1419,7 @@ type OnDetachedFromWindowResponse struct {
 
 func (x *OnDetachedFromWindowResponse) Reset() {
 	*x = OnDetachedFromWindowResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[41]
+	mi := &file_proto_ad_ad_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1839,7 +1431,7 @@ func (x *OnDetachedFromWindowResponse) String() string {
 func (*OnDetachedFromWindowResponse) ProtoMessage() {}
 
 func (x *OnDetachedFromWindowResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[41]
+	mi := &file_proto_ad_ad_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1852,7 +1444,7 @@ func (x *OnDetachedFromWindowResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnDetachedFromWindowResponse.ProtoReflect.Descriptor instead.
 func (*OnDetachedFromWindowResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{41}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{31}
 }
 
 type OnLayoutRequest struct {
@@ -1869,7 +1461,7 @@ type OnLayoutRequest struct {
 
 func (x *OnLayoutRequest) Reset() {
 	*x = OnLayoutRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[42]
+	mi := &file_proto_ad_ad_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1881,7 +1473,7 @@ func (x *OnLayoutRequest) String() string {
 func (*OnLayoutRequest) ProtoMessage() {}
 
 func (x *OnLayoutRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[42]
+	mi := &file_proto_ad_ad_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1894,7 +1486,7 @@ func (x *OnLayoutRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnLayoutRequest.ProtoReflect.Descriptor instead.
 func (*OnLayoutRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{42}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *OnLayoutRequest) GetHandle() int64 {
@@ -1947,7 +1539,7 @@ type OnLayoutResponse struct {
 
 func (x *OnLayoutResponse) Reset() {
 	*x = OnLayoutResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[43]
+	mi := &file_proto_ad_ad_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1959,7 +1551,7 @@ func (x *OnLayoutResponse) String() string {
 func (*OnLayoutResponse) ProtoMessage() {}
 
 func (x *OnLayoutResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[43]
+	mi := &file_proto_ad_ad_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1972,7 +1564,7 @@ func (x *OnLayoutResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnLayoutResponse.ProtoReflect.Descriptor instead.
 func (*OnLayoutResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{43}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{33}
 }
 
 type OnMeasureRequest struct {
@@ -1986,7 +1578,7 @@ type OnMeasureRequest struct {
 
 func (x *OnMeasureRequest) Reset() {
 	*x = OnMeasureRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[44]
+	mi := &file_proto_ad_ad_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1998,7 +1590,7 @@ func (x *OnMeasureRequest) String() string {
 func (*OnMeasureRequest) ProtoMessage() {}
 
 func (x *OnMeasureRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[44]
+	mi := &file_proto_ad_ad_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2011,7 +1603,7 @@ func (x *OnMeasureRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnMeasureRequest.ProtoReflect.Descriptor instead.
 func (*OnMeasureRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{44}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *OnMeasureRequest) GetHandle() int64 {
@@ -2043,7 +1635,7 @@ type OnMeasureResponse struct {
 
 func (x *OnMeasureResponse) Reset() {
 	*x = OnMeasureResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[45]
+	mi := &file_proto_ad_ad_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2055,7 +1647,7 @@ func (x *OnMeasureResponse) String() string {
 func (*OnMeasureResponse) ProtoMessage() {}
 
 func (x *OnMeasureResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[45]
+	mi := &file_proto_ad_ad_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2068,7 +1660,7 @@ func (x *OnMeasureResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnMeasureResponse.ProtoReflect.Descriptor instead.
 func (*OnMeasureResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{45}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{35}
 }
 
 type OnUnhandledInputEventRequest struct {
@@ -2081,7 +1673,7 @@ type OnUnhandledInputEventRequest struct {
 
 func (x *OnUnhandledInputEventRequest) Reset() {
 	*x = OnUnhandledInputEventRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[46]
+	mi := &file_proto_ad_ad_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2093,7 +1685,7 @@ func (x *OnUnhandledInputEventRequest) String() string {
 func (*OnUnhandledInputEventRequest) ProtoMessage() {}
 
 func (x *OnUnhandledInputEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[46]
+	mi := &file_proto_ad_ad_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2106,7 +1698,7 @@ func (x *OnUnhandledInputEventRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnUnhandledInputEventRequest.ProtoReflect.Descriptor instead.
 func (*OnUnhandledInputEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{46}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *OnUnhandledInputEventRequest) GetHandle() int64 {
@@ -2132,7 +1724,7 @@ type OnUnhandledInputEventResponse struct {
 
 func (x *OnUnhandledInputEventResponse) Reset() {
 	*x = OnUnhandledInputEventResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[47]
+	mi := &file_proto_ad_ad_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2144,7 +1736,7 @@ func (x *OnUnhandledInputEventResponse) String() string {
 func (*OnUnhandledInputEventResponse) ProtoMessage() {}
 
 func (x *OnUnhandledInputEventResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[47]
+	mi := &file_proto_ad_ad_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2157,7 +1749,7 @@ func (x *OnUnhandledInputEventResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnUnhandledInputEventResponse.ProtoReflect.Descriptor instead.
 func (*OnUnhandledInputEventResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{47}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *OnUnhandledInputEventResponse) GetResult() bool {
@@ -2178,7 +1770,7 @@ type OnVisibilityChangedRequest struct {
 
 func (x *OnVisibilityChangedRequest) Reset() {
 	*x = OnVisibilityChangedRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[48]
+	mi := &file_proto_ad_ad_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2190,7 +1782,7 @@ func (x *OnVisibilityChangedRequest) String() string {
 func (*OnVisibilityChangedRequest) ProtoMessage() {}
 
 func (x *OnVisibilityChangedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[48]
+	mi := &file_proto_ad_ad_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2203,7 +1795,7 @@ func (x *OnVisibilityChangedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnVisibilityChangedRequest.ProtoReflect.Descriptor instead.
 func (*OnVisibilityChangedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{48}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *OnVisibilityChangedRequest) GetHandle() int64 {
@@ -2235,7 +1827,7 @@ type OnVisibilityChangedResponse struct {
 
 func (x *OnVisibilityChangedResponse) Reset() {
 	*x = OnVisibilityChangedResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[49]
+	mi := &file_proto_ad_ad_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2247,7 +1839,7 @@ func (x *OnVisibilityChangedResponse) String() string {
 func (*OnVisibilityChangedResponse) ProtoMessage() {}
 
 func (x *OnVisibilityChangedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[49]
+	mi := &file_proto_ad_ad_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2260,7 +1852,7 @@ func (x *OnVisibilityChangedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnVisibilityChangedResponse.ProtoReflect.Descriptor instead.
 func (*OnVisibilityChangedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{49}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{39}
 }
 
 type PrepareAdServiceRequest struct {
@@ -2274,7 +1866,7 @@ type PrepareAdServiceRequest struct {
 
 func (x *PrepareAdServiceRequest) Reset() {
 	*x = PrepareAdServiceRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[50]
+	mi := &file_proto_ad_ad_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2286,7 +1878,7 @@ func (x *PrepareAdServiceRequest) String() string {
 func (*PrepareAdServiceRequest) ProtoMessage() {}
 
 func (x *PrepareAdServiceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[50]
+	mi := &file_proto_ad_ad_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2299,7 +1891,7 @@ func (x *PrepareAdServiceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PrepareAdServiceRequest.ProtoReflect.Descriptor instead.
 func (*PrepareAdServiceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{50}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *PrepareAdServiceRequest) GetHandle() int64 {
@@ -2331,7 +1923,7 @@ type PrepareAdServiceResponse struct {
 
 func (x *PrepareAdServiceResponse) Reset() {
 	*x = PrepareAdServiceResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[51]
+	mi := &file_proto_ad_ad_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2343,7 +1935,7 @@ func (x *PrepareAdServiceResponse) String() string {
 func (*PrepareAdServiceResponse) ProtoMessage() {}
 
 func (x *PrepareAdServiceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[51]
+	mi := &file_proto_ad_ad_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2356,7 +1948,7 @@ func (x *PrepareAdServiceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PrepareAdServiceResponse.ProtoReflect.Descriptor instead.
 func (*PrepareAdServiceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{51}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{41}
 }
 
 type ResetRequest struct {
@@ -2368,7 +1960,7 @@ type ResetRequest struct {
 
 func (x *ResetRequest) Reset() {
 	*x = ResetRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[52]
+	mi := &file_proto_ad_ad_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2380,7 +1972,7 @@ func (x *ResetRequest) String() string {
 func (*ResetRequest) ProtoMessage() {}
 
 func (x *ResetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[52]
+	mi := &file_proto_ad_ad_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2393,7 +1985,7 @@ func (x *ResetRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResetRequest.ProtoReflect.Descriptor instead.
 func (*ResetRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{52}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *ResetRequest) GetHandle() int64 {
@@ -2411,7 +2003,7 @@ type ResetResponse struct {
 
 func (x *ResetResponse) Reset() {
 	*x = ResetResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[53]
+	mi := &file_proto_ad_ad_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2423,7 +2015,7 @@ func (x *ResetResponse) String() string {
 func (*ResetResponse) ProtoMessage() {}
 
 func (x *ResetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[53]
+	mi := &file_proto_ad_ad_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2436,7 +2028,7 @@ func (x *ResetResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResetResponse.ProtoReflect.Descriptor instead.
 func (*ResetResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{53}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{43}
 }
 
 type ResetAdServiceRequest struct {
@@ -2448,7 +2040,7 @@ type ResetAdServiceRequest struct {
 
 func (x *ResetAdServiceRequest) Reset() {
 	*x = ResetAdServiceRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[54]
+	mi := &file_proto_ad_ad_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2460,7 +2052,7 @@ func (x *ResetAdServiceRequest) String() string {
 func (*ResetAdServiceRequest) ProtoMessage() {}
 
 func (x *ResetAdServiceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[54]
+	mi := &file_proto_ad_ad_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2473,7 +2065,7 @@ func (x *ResetAdServiceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResetAdServiceRequest.ProtoReflect.Descriptor instead.
 func (*ResetAdServiceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{54}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *ResetAdServiceRequest) GetHandle() int64 {
@@ -2491,7 +2083,7 @@ type ResetAdServiceResponse struct {
 
 func (x *ResetAdServiceResponse) Reset() {
 	*x = ResetAdServiceResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[55]
+	mi := &file_proto_ad_ad_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2503,7 +2095,7 @@ func (x *ResetAdServiceResponse) String() string {
 func (*ResetAdServiceResponse) ProtoMessage() {}
 
 func (x *ResetAdServiceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[55]
+	mi := &file_proto_ad_ad_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2516,7 +2108,7 @@ func (x *ResetAdServiceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResetAdServiceResponse.ProtoReflect.Descriptor instead.
 func (*ResetAdServiceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{55}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{45}
 }
 
 type SendCurrentChannelUriRequest struct {
@@ -2529,7 +2121,7 @@ type SendCurrentChannelUriRequest struct {
 
 func (x *SendCurrentChannelUriRequest) Reset() {
 	*x = SendCurrentChannelUriRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[56]
+	mi := &file_proto_ad_ad_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2541,7 +2133,7 @@ func (x *SendCurrentChannelUriRequest) String() string {
 func (*SendCurrentChannelUriRequest) ProtoMessage() {}
 
 func (x *SendCurrentChannelUriRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[56]
+	mi := &file_proto_ad_ad_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2554,7 +2146,7 @@ func (x *SendCurrentChannelUriRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendCurrentChannelUriRequest.ProtoReflect.Descriptor instead.
 func (*SendCurrentChannelUriRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{56}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *SendCurrentChannelUriRequest) GetHandle() int64 {
@@ -2579,7 +2171,7 @@ type SendCurrentChannelUriResponse struct {
 
 func (x *SendCurrentChannelUriResponse) Reset() {
 	*x = SendCurrentChannelUriResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[57]
+	mi := &file_proto_ad_ad_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2591,7 +2183,7 @@ func (x *SendCurrentChannelUriResponse) String() string {
 func (*SendCurrentChannelUriResponse) ProtoMessage() {}
 
 func (x *SendCurrentChannelUriResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[57]
+	mi := &file_proto_ad_ad_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2604,7 +2196,7 @@ func (x *SendCurrentChannelUriResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendCurrentChannelUriResponse.ProtoReflect.Descriptor instead.
 func (*SendCurrentChannelUriResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{57}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{47}
 }
 
 type SendCurrentTvInputIdRequest struct {
@@ -2617,7 +2209,7 @@ type SendCurrentTvInputIdRequest struct {
 
 func (x *SendCurrentTvInputIdRequest) Reset() {
 	*x = SendCurrentTvInputIdRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[58]
+	mi := &file_proto_ad_ad_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2629,7 +2221,7 @@ func (x *SendCurrentTvInputIdRequest) String() string {
 func (*SendCurrentTvInputIdRequest) ProtoMessage() {}
 
 func (x *SendCurrentTvInputIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[58]
+	mi := &file_proto_ad_ad_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2642,7 +2234,7 @@ func (x *SendCurrentTvInputIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendCurrentTvInputIdRequest.ProtoReflect.Descriptor instead.
 func (*SendCurrentTvInputIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{58}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *SendCurrentTvInputIdRequest) GetHandle() int64 {
@@ -2667,7 +2259,7 @@ type SendCurrentTvInputIdResponse struct {
 
 func (x *SendCurrentTvInputIdResponse) Reset() {
 	*x = SendCurrentTvInputIdResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[59]
+	mi := &file_proto_ad_ad_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2679,7 +2271,7 @@ func (x *SendCurrentTvInputIdResponse) String() string {
 func (*SendCurrentTvInputIdResponse) ProtoMessage() {}
 
 func (x *SendCurrentTvInputIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[59]
+	mi := &file_proto_ad_ad_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2692,7 +2284,7 @@ func (x *SendCurrentTvInputIdResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendCurrentTvInputIdResponse.ProtoReflect.Descriptor instead.
 func (*SendCurrentTvInputIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{59}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{49}
 }
 
 type SendCurrentVideoBoundsRequest struct {
@@ -2705,7 +2297,7 @@ type SendCurrentVideoBoundsRequest struct {
 
 func (x *SendCurrentVideoBoundsRequest) Reset() {
 	*x = SendCurrentVideoBoundsRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[60]
+	mi := &file_proto_ad_ad_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2717,7 +2309,7 @@ func (x *SendCurrentVideoBoundsRequest) String() string {
 func (*SendCurrentVideoBoundsRequest) ProtoMessage() {}
 
 func (x *SendCurrentVideoBoundsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[60]
+	mi := &file_proto_ad_ad_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2730,7 +2322,7 @@ func (x *SendCurrentVideoBoundsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendCurrentVideoBoundsRequest.ProtoReflect.Descriptor instead.
 func (*SendCurrentVideoBoundsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{60}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *SendCurrentVideoBoundsRequest) GetHandle() int64 {
@@ -2755,7 +2347,7 @@ type SendCurrentVideoBoundsResponse struct {
 
 func (x *SendCurrentVideoBoundsResponse) Reset() {
 	*x = SendCurrentVideoBoundsResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[61]
+	mi := &file_proto_ad_ad_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2767,7 +2359,7 @@ func (x *SendCurrentVideoBoundsResponse) String() string {
 func (*SendCurrentVideoBoundsResponse) ProtoMessage() {}
 
 func (x *SendCurrentVideoBoundsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[61]
+	mi := &file_proto_ad_ad_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2780,7 +2372,7 @@ func (x *SendCurrentVideoBoundsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendCurrentVideoBoundsResponse.ProtoReflect.Descriptor instead.
 func (*SendCurrentVideoBoundsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{61}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{51}
 }
 
 type SendSigningResultRequest struct {
@@ -2794,7 +2386,7 @@ type SendSigningResultRequest struct {
 
 func (x *SendSigningResultRequest) Reset() {
 	*x = SendSigningResultRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[62]
+	mi := &file_proto_ad_ad_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2806,7 +2398,7 @@ func (x *SendSigningResultRequest) String() string {
 func (*SendSigningResultRequest) ProtoMessage() {}
 
 func (x *SendSigningResultRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[62]
+	mi := &file_proto_ad_ad_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2819,7 +2411,7 @@ func (x *SendSigningResultRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendSigningResultRequest.ProtoReflect.Descriptor instead.
 func (*SendSigningResultRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{62}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *SendSigningResultRequest) GetHandle() int64 {
@@ -2851,7 +2443,7 @@ type SendSigningResultResponse struct {
 
 func (x *SendSigningResultResponse) Reset() {
 	*x = SendSigningResultResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[63]
+	mi := &file_proto_ad_ad_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2863,7 +2455,7 @@ func (x *SendSigningResultResponse) String() string {
 func (*SendSigningResultResponse) ProtoMessage() {}
 
 func (x *SendSigningResultResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[63]
+	mi := &file_proto_ad_ad_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2876,7 +2468,7 @@ func (x *SendSigningResultResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendSigningResultResponse.ProtoReflect.Descriptor instead.
 func (*SendSigningResultResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{63}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{53}
 }
 
 type SetCallbackRequest struct {
@@ -2890,7 +2482,7 @@ type SetCallbackRequest struct {
 
 func (x *SetCallbackRequest) Reset() {
 	*x = SetCallbackRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[64]
+	mi := &file_proto_ad_ad_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2902,7 +2494,7 @@ func (x *SetCallbackRequest) String() string {
 func (*SetCallbackRequest) ProtoMessage() {}
 
 func (x *SetCallbackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[64]
+	mi := &file_proto_ad_ad_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2915,7 +2507,7 @@ func (x *SetCallbackRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetCallbackRequest.ProtoReflect.Descriptor instead.
 func (*SetCallbackRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{64}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *SetCallbackRequest) GetHandle() int64 {
@@ -2947,7 +2539,7 @@ type SetCallbackResponse struct {
 
 func (x *SetCallbackResponse) Reset() {
 	*x = SetCallbackResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[65]
+	mi := &file_proto_ad_ad_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2959,7 +2551,7 @@ func (x *SetCallbackResponse) String() string {
 func (*SetCallbackResponse) ProtoMessage() {}
 
 func (x *SetCallbackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[65]
+	mi := &file_proto_ad_ad_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2972,7 +2564,7 @@ func (x *SetCallbackResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetCallbackResponse.ProtoReflect.Descriptor instead.
 func (*SetCallbackResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{65}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{55}
 }
 
 type SetOnUnhandledInputEventListenerRequest struct {
@@ -2985,7 +2577,7 @@ type SetOnUnhandledInputEventListenerRequest struct {
 
 func (x *SetOnUnhandledInputEventListenerRequest) Reset() {
 	*x = SetOnUnhandledInputEventListenerRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[66]
+	mi := &file_proto_ad_ad_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2997,7 +2589,7 @@ func (x *SetOnUnhandledInputEventListenerRequest) String() string {
 func (*SetOnUnhandledInputEventListenerRequest) ProtoMessage() {}
 
 func (x *SetOnUnhandledInputEventListenerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[66]
+	mi := &file_proto_ad_ad_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3010,7 +2602,7 @@ func (x *SetOnUnhandledInputEventListenerRequest) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use SetOnUnhandledInputEventListenerRequest.ProtoReflect.Descriptor instead.
 func (*SetOnUnhandledInputEventListenerRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{66}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *SetOnUnhandledInputEventListenerRequest) GetHandle() int64 {
@@ -3035,7 +2627,7 @@ type SetOnUnhandledInputEventListenerResponse struct {
 
 func (x *SetOnUnhandledInputEventListenerResponse) Reset() {
 	*x = SetOnUnhandledInputEventListenerResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[67]
+	mi := &file_proto_ad_ad_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3047,7 +2639,7 @@ func (x *SetOnUnhandledInputEventListenerResponse) String() string {
 func (*SetOnUnhandledInputEventListenerResponse) ProtoMessage() {}
 
 func (x *SetOnUnhandledInputEventListenerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[67]
+	mi := &file_proto_ad_ad_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3060,7 +2652,7 @@ func (x *SetOnUnhandledInputEventListenerResponse) ProtoReflect() protoreflect.M
 
 // Deprecated: Use SetOnUnhandledInputEventListenerResponse.ProtoReflect.Descriptor instead.
 func (*SetOnUnhandledInputEventListenerResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{67}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{57}
 }
 
 type SetTvViewRequest struct {
@@ -3073,7 +2665,7 @@ type SetTvViewRequest struct {
 
 func (x *SetTvViewRequest) Reset() {
 	*x = SetTvViewRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[68]
+	mi := &file_proto_ad_ad_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3085,7 +2677,7 @@ func (x *SetTvViewRequest) String() string {
 func (*SetTvViewRequest) ProtoMessage() {}
 
 func (x *SetTvViewRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[68]
+	mi := &file_proto_ad_ad_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3098,7 +2690,7 @@ func (x *SetTvViewRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetTvViewRequest.ProtoReflect.Descriptor instead.
 func (*SetTvViewRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{68}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *SetTvViewRequest) GetHandle() int64 {
@@ -3124,7 +2716,7 @@ type SetTvViewResponse struct {
 
 func (x *SetTvViewResponse) Reset() {
 	*x = SetTvViewResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[69]
+	mi := &file_proto_ad_ad_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3136,7 +2728,7 @@ func (x *SetTvViewResponse) String() string {
 func (*SetTvViewResponse) ProtoMessage() {}
 
 func (x *SetTvViewResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[69]
+	mi := &file_proto_ad_ad_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3149,7 +2741,7 @@ func (x *SetTvViewResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetTvViewResponse.ProtoReflect.Descriptor instead.
 func (*SetTvViewResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{69}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{59}
 }
 
 func (x *SetTvViewResponse) GetResult() bool {
@@ -3169,7 +2761,7 @@ type SetZOrderMediaOverlayRequest struct {
 
 func (x *SetZOrderMediaOverlayRequest) Reset() {
 	*x = SetZOrderMediaOverlayRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[70]
+	mi := &file_proto_ad_ad_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3181,7 +2773,7 @@ func (x *SetZOrderMediaOverlayRequest) String() string {
 func (*SetZOrderMediaOverlayRequest) ProtoMessage() {}
 
 func (x *SetZOrderMediaOverlayRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[70]
+	mi := &file_proto_ad_ad_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3194,7 +2786,7 @@ func (x *SetZOrderMediaOverlayRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetZOrderMediaOverlayRequest.ProtoReflect.Descriptor instead.
 func (*SetZOrderMediaOverlayRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{70}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *SetZOrderMediaOverlayRequest) GetHandle() int64 {
@@ -3219,7 +2811,7 @@ type SetZOrderMediaOverlayResponse struct {
 
 func (x *SetZOrderMediaOverlayResponse) Reset() {
 	*x = SetZOrderMediaOverlayResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[71]
+	mi := &file_proto_ad_ad_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3231,7 +2823,7 @@ func (x *SetZOrderMediaOverlayResponse) String() string {
 func (*SetZOrderMediaOverlayResponse) ProtoMessage() {}
 
 func (x *SetZOrderMediaOverlayResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[71]
+	mi := &file_proto_ad_ad_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3244,7 +2836,7 @@ func (x *SetZOrderMediaOverlayResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetZOrderMediaOverlayResponse.ProtoReflect.Descriptor instead.
 func (*SetZOrderMediaOverlayResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{71}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{61}
 }
 
 type SetZOrderOnTopRequest struct {
@@ -3257,7 +2849,7 @@ type SetZOrderOnTopRequest struct {
 
 func (x *SetZOrderOnTopRequest) Reset() {
 	*x = SetZOrderOnTopRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[72]
+	mi := &file_proto_ad_ad_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3269,7 +2861,7 @@ func (x *SetZOrderOnTopRequest) String() string {
 func (*SetZOrderOnTopRequest) ProtoMessage() {}
 
 func (x *SetZOrderOnTopRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[72]
+	mi := &file_proto_ad_ad_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3282,7 +2874,7 @@ func (x *SetZOrderOnTopRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetZOrderOnTopRequest.ProtoReflect.Descriptor instead.
 func (*SetZOrderOnTopRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{72}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{62}
 }
 
 func (x *SetZOrderOnTopRequest) GetHandle() int64 {
@@ -3307,7 +2899,7 @@ type SetZOrderOnTopResponse struct {
 
 func (x *SetZOrderOnTopResponse) Reset() {
 	*x = SetZOrderOnTopResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[73]
+	mi := &file_proto_ad_ad_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3319,7 +2911,7 @@ func (x *SetZOrderOnTopResponse) String() string {
 func (*SetZOrderOnTopResponse) ProtoMessage() {}
 
 func (x *SetZOrderOnTopResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[73]
+	mi := &file_proto_ad_ad_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3332,7 +2924,7 @@ func (x *SetZOrderOnTopResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetZOrderOnTopResponse.ProtoReflect.Descriptor instead.
 func (*SetZOrderOnTopResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{73}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{63}
 }
 
 type StartAdServiceRequest struct {
@@ -3344,7 +2936,7 @@ type StartAdServiceRequest struct {
 
 func (x *StartAdServiceRequest) Reset() {
 	*x = StartAdServiceRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[74]
+	mi := &file_proto_ad_ad_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3356,7 +2948,7 @@ func (x *StartAdServiceRequest) String() string {
 func (*StartAdServiceRequest) ProtoMessage() {}
 
 func (x *StartAdServiceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[74]
+	mi := &file_proto_ad_ad_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3369,7 +2961,7 @@ func (x *StartAdServiceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartAdServiceRequest.ProtoReflect.Descriptor instead.
 func (*StartAdServiceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{74}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{64}
 }
 
 func (x *StartAdServiceRequest) GetHandle() int64 {
@@ -3387,7 +2979,7 @@ type StartAdServiceResponse struct {
 
 func (x *StartAdServiceResponse) Reset() {
 	*x = StartAdServiceResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[75]
+	mi := &file_proto_ad_ad_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3399,7 +2991,7 @@ func (x *StartAdServiceResponse) String() string {
 func (*StartAdServiceResponse) ProtoMessage() {}
 
 func (x *StartAdServiceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[75]
+	mi := &file_proto_ad_ad_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3412,7 +3004,7 @@ func (x *StartAdServiceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartAdServiceResponse.ProtoReflect.Descriptor instead.
 func (*StartAdServiceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{75}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{65}
 }
 
 type StopAdServiceRequest struct {
@@ -3424,7 +3016,7 @@ type StopAdServiceRequest struct {
 
 func (x *StopAdServiceRequest) Reset() {
 	*x = StopAdServiceRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[76]
+	mi := &file_proto_ad_ad_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3436,7 +3028,7 @@ func (x *StopAdServiceRequest) String() string {
 func (*StopAdServiceRequest) ProtoMessage() {}
 
 func (x *StopAdServiceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[76]
+	mi := &file_proto_ad_ad_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3449,7 +3041,7 @@ func (x *StopAdServiceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StopAdServiceRequest.ProtoReflect.Descriptor instead.
 func (*StopAdServiceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{76}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{66}
 }
 
 func (x *StopAdServiceRequest) GetHandle() int64 {
@@ -3467,7 +3059,7 @@ type StopAdServiceResponse struct {
 
 func (x *StopAdServiceResponse) Reset() {
 	*x = StopAdServiceResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[77]
+	mi := &file_proto_ad_ad_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3479,7 +3071,7 @@ func (x *StopAdServiceResponse) String() string {
 func (*StopAdServiceResponse) ProtoMessage() {}
 
 func (x *StopAdServiceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[77]
+	mi := &file_proto_ad_ad_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3492,7 +3084,7 @@ func (x *StopAdServiceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StopAdServiceResponse.ProtoReflect.Descriptor instead.
 func (*StopAdServiceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{77}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{67}
 }
 
 type TvAdViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest struct {
@@ -3504,7 +3096,7 @@ type TvAdViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest struct {
 
 func (x *TvAdViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest) Reset() {
 	*x = TvAdViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[78]
+	mi := &file_proto_ad_ad_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3516,7 +3108,7 @@ func (x *TvAdViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest) Stri
 func (*TvAdViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest) ProtoMessage() {}
 
 func (x *TvAdViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[78]
+	mi := &file_proto_ad_ad_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3529,7 +3121,7 @@ func (x *TvAdViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest) Prot
 
 // Deprecated: Use TvAdViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest.ProtoReflect.Descriptor instead.
 func (*TvAdViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{78}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{68}
 }
 
 func (x *TvAdViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest) GetArg0() int64 {
@@ -3548,7 +3140,7 @@ type OnRequestCurrentChannelUriRequest struct {
 
 func (x *OnRequestCurrentChannelUriRequest) Reset() {
 	*x = OnRequestCurrentChannelUriRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[79]
+	mi := &file_proto_ad_ad_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3560,7 +3152,7 @@ func (x *OnRequestCurrentChannelUriRequest) String() string {
 func (*OnRequestCurrentChannelUriRequest) ProtoMessage() {}
 
 func (x *OnRequestCurrentChannelUriRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[79]
+	mi := &file_proto_ad_ad_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3573,7 +3165,7 @@ func (x *OnRequestCurrentChannelUriRequest) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use OnRequestCurrentChannelUriRequest.ProtoReflect.Descriptor instead.
 func (*OnRequestCurrentChannelUriRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{79}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{69}
 }
 
 func (x *OnRequestCurrentChannelUriRequest) GetArg0() string {
@@ -3591,7 +3183,7 @@ type OnRequestCurrentChannelUriResponse struct {
 
 func (x *OnRequestCurrentChannelUriResponse) Reset() {
 	*x = OnRequestCurrentChannelUriResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[80]
+	mi := &file_proto_ad_ad_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3603,7 +3195,7 @@ func (x *OnRequestCurrentChannelUriResponse) String() string {
 func (*OnRequestCurrentChannelUriResponse) ProtoMessage() {}
 
 func (x *OnRequestCurrentChannelUriResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[80]
+	mi := &file_proto_ad_ad_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3616,7 +3208,7 @@ func (x *OnRequestCurrentChannelUriResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use OnRequestCurrentChannelUriResponse.ProtoReflect.Descriptor instead.
 func (*OnRequestCurrentChannelUriResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{80}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{70}
 }
 
 type OnRequestCurrentTvInputIdRequest struct {
@@ -3628,7 +3220,7 @@ type OnRequestCurrentTvInputIdRequest struct {
 
 func (x *OnRequestCurrentTvInputIdRequest) Reset() {
 	*x = OnRequestCurrentTvInputIdRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[81]
+	mi := &file_proto_ad_ad_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3640,7 +3232,7 @@ func (x *OnRequestCurrentTvInputIdRequest) String() string {
 func (*OnRequestCurrentTvInputIdRequest) ProtoMessage() {}
 
 func (x *OnRequestCurrentTvInputIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[81]
+	mi := &file_proto_ad_ad_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3653,7 +3245,7 @@ func (x *OnRequestCurrentTvInputIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnRequestCurrentTvInputIdRequest.ProtoReflect.Descriptor instead.
 func (*OnRequestCurrentTvInputIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{81}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{71}
 }
 
 func (x *OnRequestCurrentTvInputIdRequest) GetArg0() string {
@@ -3671,7 +3263,7 @@ type OnRequestCurrentTvInputIdResponse struct {
 
 func (x *OnRequestCurrentTvInputIdResponse) Reset() {
 	*x = OnRequestCurrentTvInputIdResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[82]
+	mi := &file_proto_ad_ad_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3683,7 +3275,7 @@ func (x *OnRequestCurrentTvInputIdResponse) String() string {
 func (*OnRequestCurrentTvInputIdResponse) ProtoMessage() {}
 
 func (x *OnRequestCurrentTvInputIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[82]
+	mi := &file_proto_ad_ad_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3696,7 +3288,7 @@ func (x *OnRequestCurrentTvInputIdResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use OnRequestCurrentTvInputIdResponse.ProtoReflect.Descriptor instead.
 func (*OnRequestCurrentTvInputIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{82}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{72}
 }
 
 type OnRequestCurrentVideoBoundsRequest struct {
@@ -3708,7 +3300,7 @@ type OnRequestCurrentVideoBoundsRequest struct {
 
 func (x *OnRequestCurrentVideoBoundsRequest) Reset() {
 	*x = OnRequestCurrentVideoBoundsRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[83]
+	mi := &file_proto_ad_ad_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3720,7 +3312,7 @@ func (x *OnRequestCurrentVideoBoundsRequest) String() string {
 func (*OnRequestCurrentVideoBoundsRequest) ProtoMessage() {}
 
 func (x *OnRequestCurrentVideoBoundsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[83]
+	mi := &file_proto_ad_ad_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3733,7 +3325,7 @@ func (x *OnRequestCurrentVideoBoundsRequest) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use OnRequestCurrentVideoBoundsRequest.ProtoReflect.Descriptor instead.
 func (*OnRequestCurrentVideoBoundsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{83}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{73}
 }
 
 func (x *OnRequestCurrentVideoBoundsRequest) GetArg0() string {
@@ -3751,7 +3343,7 @@ type OnRequestCurrentVideoBoundsResponse struct {
 
 func (x *OnRequestCurrentVideoBoundsResponse) Reset() {
 	*x = OnRequestCurrentVideoBoundsResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[84]
+	mi := &file_proto_ad_ad_proto_msgTypes[74]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3763,7 +3355,7 @@ func (x *OnRequestCurrentVideoBoundsResponse) String() string {
 func (*OnRequestCurrentVideoBoundsResponse) ProtoMessage() {}
 
 func (x *OnRequestCurrentVideoBoundsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[84]
+	mi := &file_proto_ad_ad_proto_msgTypes[74]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3776,7 +3368,7 @@ func (x *OnRequestCurrentVideoBoundsResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use OnRequestCurrentVideoBoundsResponse.ProtoReflect.Descriptor instead.
 func (*OnRequestCurrentVideoBoundsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{84}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{74}
 }
 
 type OnRequestSigningRequest struct {
@@ -3792,7 +3384,7 @@ type OnRequestSigningRequest struct {
 
 func (x *OnRequestSigningRequest) Reset() {
 	*x = OnRequestSigningRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[85]
+	mi := &file_proto_ad_ad_proto_msgTypes[75]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3804,7 +3396,7 @@ func (x *OnRequestSigningRequest) String() string {
 func (*OnRequestSigningRequest) ProtoMessage() {}
 
 func (x *OnRequestSigningRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[85]
+	mi := &file_proto_ad_ad_proto_msgTypes[75]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3817,7 +3409,7 @@ func (x *OnRequestSigningRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnRequestSigningRequest.ProtoReflect.Descriptor instead.
 func (*OnRequestSigningRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{85}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{75}
 }
 
 func (x *OnRequestSigningRequest) GetArg0() string {
@@ -3863,7 +3455,7 @@ type OnRequestSigningResponse struct {
 
 func (x *OnRequestSigningResponse) Reset() {
 	*x = OnRequestSigningResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[86]
+	mi := &file_proto_ad_ad_proto_msgTypes[76]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3875,7 +3467,7 @@ func (x *OnRequestSigningResponse) String() string {
 func (*OnRequestSigningResponse) ProtoMessage() {}
 
 func (x *OnRequestSigningResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[86]
+	mi := &file_proto_ad_ad_proto_msgTypes[76]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3888,7 +3480,7 @@ func (x *OnRequestSigningResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnRequestSigningResponse.ProtoReflect.Descriptor instead.
 func (*OnRequestSigningResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{86}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{76}
 }
 
 type OnRequestTrackInfoListRequest struct {
@@ -3900,7 +3492,7 @@ type OnRequestTrackInfoListRequest struct {
 
 func (x *OnRequestTrackInfoListRequest) Reset() {
 	*x = OnRequestTrackInfoListRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[87]
+	mi := &file_proto_ad_ad_proto_msgTypes[77]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3912,7 +3504,7 @@ func (x *OnRequestTrackInfoListRequest) String() string {
 func (*OnRequestTrackInfoListRequest) ProtoMessage() {}
 
 func (x *OnRequestTrackInfoListRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[87]
+	mi := &file_proto_ad_ad_proto_msgTypes[77]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3925,7 +3517,7 @@ func (x *OnRequestTrackInfoListRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnRequestTrackInfoListRequest.ProtoReflect.Descriptor instead.
 func (*OnRequestTrackInfoListRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{87}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{77}
 }
 
 func (x *OnRequestTrackInfoListRequest) GetArg0() string {
@@ -3943,7 +3535,7 @@ type OnRequestTrackInfoListResponse struct {
 
 func (x *OnRequestTrackInfoListResponse) Reset() {
 	*x = OnRequestTrackInfoListResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[88]
+	mi := &file_proto_ad_ad_proto_msgTypes[78]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3955,7 +3547,7 @@ func (x *OnRequestTrackInfoListResponse) String() string {
 func (*OnRequestTrackInfoListResponse) ProtoMessage() {}
 
 func (x *OnRequestTrackInfoListResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[88]
+	mi := &file_proto_ad_ad_proto_msgTypes[78]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3968,7 +3560,7 @@ func (x *OnRequestTrackInfoListResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnRequestTrackInfoListResponse.ProtoReflect.Descriptor instead.
 func (*OnRequestTrackInfoListResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{88}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{78}
 }
 
 type OnStateChangedRequest struct {
@@ -3982,7 +3574,7 @@ type OnStateChangedRequest struct {
 
 func (x *OnStateChangedRequest) Reset() {
 	*x = OnStateChangedRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[89]
+	mi := &file_proto_ad_ad_proto_msgTypes[79]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3994,7 +3586,7 @@ func (x *OnStateChangedRequest) String() string {
 func (*OnStateChangedRequest) ProtoMessage() {}
 
 func (x *OnStateChangedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[89]
+	mi := &file_proto_ad_ad_proto_msgTypes[79]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4007,7 +3599,7 @@ func (x *OnStateChangedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnStateChangedRequest.ProtoReflect.Descriptor instead.
 func (*OnStateChangedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{89}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{79}
 }
 
 func (x *OnStateChangedRequest) GetArg0() string {
@@ -4039,7 +3631,7 @@ type OnStateChangedResponse struct {
 
 func (x *OnStateChangedResponse) Reset() {
 	*x = OnStateChangedResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[90]
+	mi := &file_proto_ad_ad_proto_msgTypes[80]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4051,7 +3643,7 @@ func (x *OnStateChangedResponse) String() string {
 func (*OnStateChangedResponse) ProtoMessage() {}
 
 func (x *OnStateChangedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[90]
+	mi := &file_proto_ad_ad_proto_msgTypes[80]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4064,7 +3656,583 @@ func (x *OnStateChangedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnStateChangedResponse.ProtoReflect.Descriptor instead.
 func (*OnStateChangedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{80}
+}
+
+type GetTvAdServiceListRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTvAdServiceListRequest) Reset() {
+	*x = GetTvAdServiceListRequest{}
+	mi := &file_proto_ad_ad_proto_msgTypes[81]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTvAdServiceListRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTvAdServiceListRequest) ProtoMessage() {}
+
+func (x *GetTvAdServiceListRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ad_ad_proto_msgTypes[81]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTvAdServiceListRequest.ProtoReflect.Descriptor instead.
+func (*GetTvAdServiceListRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{81}
+}
+
+type GetTvAdServiceListResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Result        int64                  `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetTvAdServiceListResponse) Reset() {
+	*x = GetTvAdServiceListResponse{}
+	mi := &file_proto_ad_ad_proto_msgTypes[82]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetTvAdServiceListResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTvAdServiceListResponse) ProtoMessage() {}
+
+func (x *GetTvAdServiceListResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ad_ad_proto_msgTypes[82]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTvAdServiceListResponse.ProtoReflect.Descriptor instead.
+func (*GetTvAdServiceListResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{82}
+}
+
+func (x *GetTvAdServiceListResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type RegisterCallbackRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterCallbackRequest) Reset() {
+	*x = RegisterCallbackRequest{}
+	mi := &file_proto_ad_ad_proto_msgTypes[83]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterCallbackRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterCallbackRequest) ProtoMessage() {}
+
+func (x *RegisterCallbackRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ad_ad_proto_msgTypes[83]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterCallbackRequest.ProtoReflect.Descriptor instead.
+func (*RegisterCallbackRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{83}
+}
+
+func (x *RegisterCallbackRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+func (x *RegisterCallbackRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type RegisterCallbackResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterCallbackResponse) Reset() {
+	*x = RegisterCallbackResponse{}
+	mi := &file_proto_ad_ad_proto_msgTypes[84]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterCallbackResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterCallbackResponse) ProtoMessage() {}
+
+func (x *RegisterCallbackResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ad_ad_proto_msgTypes[84]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterCallbackResponse.ProtoReflect.Descriptor instead.
+func (*RegisterCallbackResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{84}
+}
+
+type SendAppLinkCommandRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	Arg1          int64                  `protobuf:"varint,2,opt,name=arg1,proto3" json:"arg1,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SendAppLinkCommandRequest) Reset() {
+	*x = SendAppLinkCommandRequest{}
+	mi := &file_proto_ad_ad_proto_msgTypes[85]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SendAppLinkCommandRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SendAppLinkCommandRequest) ProtoMessage() {}
+
+func (x *SendAppLinkCommandRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ad_ad_proto_msgTypes[85]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SendAppLinkCommandRequest.ProtoReflect.Descriptor instead.
+func (*SendAppLinkCommandRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{85}
+}
+
+func (x *SendAppLinkCommandRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+func (x *SendAppLinkCommandRequest) GetArg1() int64 {
+	if x != nil {
+		return x.Arg1
+	}
+	return 0
+}
+
+type SendAppLinkCommandResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SendAppLinkCommandResponse) Reset() {
+	*x = SendAppLinkCommandResponse{}
+	mi := &file_proto_ad_ad_proto_msgTypes[86]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SendAppLinkCommandResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SendAppLinkCommandResponse) ProtoMessage() {}
+
+func (x *SendAppLinkCommandResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ad_ad_proto_msgTypes[86]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SendAppLinkCommandResponse.ProtoReflect.Descriptor instead.
+func (*SendAppLinkCommandResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{86}
+}
+
+type UnregisterCallbackRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          int64                  `protobuf:"varint,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnregisterCallbackRequest) Reset() {
+	*x = UnregisterCallbackRequest{}
+	mi := &file_proto_ad_ad_proto_msgTypes[87]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnregisterCallbackRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnregisterCallbackRequest) ProtoMessage() {}
+
+func (x *UnregisterCallbackRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ad_ad_proto_msgTypes[87]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnregisterCallbackRequest.ProtoReflect.Descriptor instead.
+func (*UnregisterCallbackRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{87}
+}
+
+func (x *UnregisterCallbackRequest) GetArg0() int64 {
+	if x != nil {
+		return x.Arg0
+	}
+	return 0
+}
+
+type UnregisterCallbackResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UnregisterCallbackResponse) Reset() {
+	*x = UnregisterCallbackResponse{}
+	mi := &file_proto_ad_ad_proto_msgTypes[88]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UnregisterCallbackResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnregisterCallbackResponse) ProtoMessage() {}
+
+func (x *UnregisterCallbackResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ad_ad_proto_msgTypes[88]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnregisterCallbackResponse.ProtoReflect.Descriptor instead.
+func (*UnregisterCallbackResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{88}
+}
+
+type OnAdServiceAddedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnAdServiceAddedRequest) Reset() {
+	*x = OnAdServiceAddedRequest{}
+	mi := &file_proto_ad_ad_proto_msgTypes[89]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnAdServiceAddedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnAdServiceAddedRequest) ProtoMessage() {}
+
+func (x *OnAdServiceAddedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ad_ad_proto_msgTypes[89]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnAdServiceAddedRequest.ProtoReflect.Descriptor instead.
+func (*OnAdServiceAddedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{89}
+}
+
+func (x *OnAdServiceAddedRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type OnAdServiceAddedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnAdServiceAddedResponse) Reset() {
+	*x = OnAdServiceAddedResponse{}
+	mi := &file_proto_ad_ad_proto_msgTypes[90]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnAdServiceAddedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnAdServiceAddedResponse) ProtoMessage() {}
+
+func (x *OnAdServiceAddedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ad_ad_proto_msgTypes[90]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnAdServiceAddedResponse.ProtoReflect.Descriptor instead.
+func (*OnAdServiceAddedResponse) Descriptor() ([]byte, []int) {
 	return file_proto_ad_ad_proto_rawDescGZIP(), []int{90}
+}
+
+type OnAdServiceRemovedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnAdServiceRemovedRequest) Reset() {
+	*x = OnAdServiceRemovedRequest{}
+	mi := &file_proto_ad_ad_proto_msgTypes[91]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnAdServiceRemovedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnAdServiceRemovedRequest) ProtoMessage() {}
+
+func (x *OnAdServiceRemovedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ad_ad_proto_msgTypes[91]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnAdServiceRemovedRequest.ProtoReflect.Descriptor instead.
+func (*OnAdServiceRemovedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{91}
+}
+
+func (x *OnAdServiceRemovedRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type OnAdServiceRemovedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnAdServiceRemovedResponse) Reset() {
+	*x = OnAdServiceRemovedResponse{}
+	mi := &file_proto_ad_ad_proto_msgTypes[92]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnAdServiceRemovedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnAdServiceRemovedResponse) ProtoMessage() {}
+
+func (x *OnAdServiceRemovedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ad_ad_proto_msgTypes[92]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnAdServiceRemovedResponse.ProtoReflect.Descriptor instead.
+func (*OnAdServiceRemovedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{92}
+}
+
+type OnAdServiceUpdatedRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Arg0          string                 `protobuf:"bytes,1,opt,name=arg0,proto3" json:"arg0,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnAdServiceUpdatedRequest) Reset() {
+	*x = OnAdServiceUpdatedRequest{}
+	mi := &file_proto_ad_ad_proto_msgTypes[93]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnAdServiceUpdatedRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnAdServiceUpdatedRequest) ProtoMessage() {}
+
+func (x *OnAdServiceUpdatedRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ad_ad_proto_msgTypes[93]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnAdServiceUpdatedRequest.ProtoReflect.Descriptor instead.
+func (*OnAdServiceUpdatedRequest) Descriptor() ([]byte, []int) {
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{93}
+}
+
+func (x *OnAdServiceUpdatedRequest) GetArg0() string {
+	if x != nil {
+		return x.Arg0
+	}
+	return ""
+}
+
+type OnAdServiceUpdatedResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *OnAdServiceUpdatedResponse) Reset() {
+	*x = OnAdServiceUpdatedResponse{}
+	mi := &file_proto_ad_ad_proto_msgTypes[94]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OnAdServiceUpdatedResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OnAdServiceUpdatedResponse) ProtoMessage() {}
+
+func (x *OnAdServiceUpdatedResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_ad_ad_proto_msgTypes[94]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OnAdServiceUpdatedResponse.ProtoReflect.Descriptor instead.
+func (*OnAdServiceUpdatedResponse) Descriptor() ([]byte, []int) {
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{94}
 }
 
 type OnAppLinkCommandRequest struct {
@@ -4076,7 +4244,7 @@ type OnAppLinkCommandRequest struct {
 
 func (x *OnAppLinkCommandRequest) Reset() {
 	*x = OnAppLinkCommandRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[91]
+	mi := &file_proto_ad_ad_proto_msgTypes[95]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4088,7 +4256,7 @@ func (x *OnAppLinkCommandRequest) String() string {
 func (*OnAppLinkCommandRequest) ProtoMessage() {}
 
 func (x *OnAppLinkCommandRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[91]
+	mi := &file_proto_ad_ad_proto_msgTypes[95]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4101,7 +4269,7 @@ func (x *OnAppLinkCommandRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnAppLinkCommandRequest.ProtoReflect.Descriptor instead.
 func (*OnAppLinkCommandRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{91}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{95}
 }
 
 func (x *OnAppLinkCommandRequest) GetArg0() int64 {
@@ -4119,7 +4287,7 @@ type OnAppLinkCommandResponse struct {
 
 func (x *OnAppLinkCommandResponse) Reset() {
 	*x = OnAppLinkCommandResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[92]
+	mi := &file_proto_ad_ad_proto_msgTypes[96]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4131,7 +4299,7 @@ func (x *OnAppLinkCommandResponse) String() string {
 func (*OnAppLinkCommandResponse) ProtoMessage() {}
 
 func (x *OnAppLinkCommandResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[92]
+	mi := &file_proto_ad_ad_proto_msgTypes[96]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4144,7 +4312,7 @@ func (x *OnAppLinkCommandResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnAppLinkCommandResponse.ProtoReflect.Descriptor instead.
 func (*OnAppLinkCommandResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{92}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{96}
 }
 
 type OnBindRequest struct {
@@ -4156,7 +4324,7 @@ type OnBindRequest struct {
 
 func (x *OnBindRequest) Reset() {
 	*x = OnBindRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[93]
+	mi := &file_proto_ad_ad_proto_msgTypes[97]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4168,7 +4336,7 @@ func (x *OnBindRequest) String() string {
 func (*OnBindRequest) ProtoMessage() {}
 
 func (x *OnBindRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[93]
+	mi := &file_proto_ad_ad_proto_msgTypes[97]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4181,7 +4349,7 @@ func (x *OnBindRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnBindRequest.ProtoReflect.Descriptor instead.
 func (*OnBindRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{93}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{97}
 }
 
 func (x *OnBindRequest) GetArg0() int64 {
@@ -4200,7 +4368,7 @@ type OnBindResponse struct {
 
 func (x *OnBindResponse) Reset() {
 	*x = OnBindResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[94]
+	mi := &file_proto_ad_ad_proto_msgTypes[98]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4212,7 +4380,7 @@ func (x *OnBindResponse) String() string {
 func (*OnBindResponse) ProtoMessage() {}
 
 func (x *OnBindResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[94]
+	mi := &file_proto_ad_ad_proto_msgTypes[98]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4225,7 +4393,7 @@ func (x *OnBindResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnBindResponse.ProtoReflect.Descriptor instead.
 func (*OnBindResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{94}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{98}
 }
 
 func (x *OnBindResponse) GetResult() int64 {
@@ -4245,7 +4413,7 @@ type OnCreateSessionRequest struct {
 
 func (x *OnCreateSessionRequest) Reset() {
 	*x = OnCreateSessionRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[95]
+	mi := &file_proto_ad_ad_proto_msgTypes[99]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4257,7 +4425,7 @@ func (x *OnCreateSessionRequest) String() string {
 func (*OnCreateSessionRequest) ProtoMessage() {}
 
 func (x *OnCreateSessionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[95]
+	mi := &file_proto_ad_ad_proto_msgTypes[99]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4270,7 +4438,7 @@ func (x *OnCreateSessionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCreateSessionRequest.ProtoReflect.Descriptor instead.
 func (*OnCreateSessionRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{95}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{99}
 }
 
 func (x *OnCreateSessionRequest) GetArg0() string {
@@ -4296,7 +4464,7 @@ type OnCreateSessionResponse struct {
 
 func (x *OnCreateSessionResponse) Reset() {
 	*x = OnCreateSessionResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[96]
+	mi := &file_proto_ad_ad_proto_msgTypes[100]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4308,7 +4476,7 @@ func (x *OnCreateSessionResponse) String() string {
 func (*OnCreateSessionResponse) ProtoMessage() {}
 
 func (x *OnCreateSessionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[96]
+	mi := &file_proto_ad_ad_proto_msgTypes[100]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4321,7 +4489,7 @@ func (x *OnCreateSessionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCreateSessionResponse.ProtoReflect.Descriptor instead.
 func (*OnCreateSessionResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{96}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{100}
 }
 
 func (x *OnCreateSessionResponse) GetResult() int64 {
@@ -4339,7 +4507,7 @@ type IsMediaViewEnabledRequest struct {
 
 func (x *IsMediaViewEnabledRequest) Reset() {
 	*x = IsMediaViewEnabledRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[97]
+	mi := &file_proto_ad_ad_proto_msgTypes[101]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4351,7 +4519,7 @@ func (x *IsMediaViewEnabledRequest) String() string {
 func (*IsMediaViewEnabledRequest) ProtoMessage() {}
 
 func (x *IsMediaViewEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[97]
+	mi := &file_proto_ad_ad_proto_msgTypes[101]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4364,7 +4532,7 @@ func (x *IsMediaViewEnabledRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsMediaViewEnabledRequest.ProtoReflect.Descriptor instead.
 func (*IsMediaViewEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{97}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{101}
 }
 
 type IsMediaViewEnabledResponse struct {
@@ -4376,7 +4544,7 @@ type IsMediaViewEnabledResponse struct {
 
 func (x *IsMediaViewEnabledResponse) Reset() {
 	*x = IsMediaViewEnabledResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[98]
+	mi := &file_proto_ad_ad_proto_msgTypes[102]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4388,7 +4556,7 @@ func (x *IsMediaViewEnabledResponse) String() string {
 func (*IsMediaViewEnabledResponse) ProtoMessage() {}
 
 func (x *IsMediaViewEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[98]
+	mi := &file_proto_ad_ad_proto_msgTypes[102]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4401,7 +4569,7 @@ func (x *IsMediaViewEnabledResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IsMediaViewEnabledResponse.ProtoReflect.Descriptor instead.
 func (*IsMediaViewEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{98}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{102}
 }
 
 func (x *IsMediaViewEnabledResponse) GetResult() bool {
@@ -4423,7 +4591,7 @@ type LayoutSurfaceRequest struct {
 
 func (x *LayoutSurfaceRequest) Reset() {
 	*x = LayoutSurfaceRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[99]
+	mi := &file_proto_ad_ad_proto_msgTypes[103]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4435,7 +4603,7 @@ func (x *LayoutSurfaceRequest) String() string {
 func (*LayoutSurfaceRequest) ProtoMessage() {}
 
 func (x *LayoutSurfaceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[99]
+	mi := &file_proto_ad_ad_proto_msgTypes[103]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4448,7 +4616,7 @@ func (x *LayoutSurfaceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LayoutSurfaceRequest.ProtoReflect.Descriptor instead.
 func (*LayoutSurfaceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{99}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{103}
 }
 
 func (x *LayoutSurfaceRequest) GetArg0() int32 {
@@ -4487,7 +4655,7 @@ type LayoutSurfaceResponse struct {
 
 func (x *LayoutSurfaceResponse) Reset() {
 	*x = LayoutSurfaceResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[100]
+	mi := &file_proto_ad_ad_proto_msgTypes[104]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4499,7 +4667,7 @@ func (x *LayoutSurfaceResponse) String() string {
 func (*LayoutSurfaceResponse) ProtoMessage() {}
 
 func (x *LayoutSurfaceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[100]
+	mi := &file_proto_ad_ad_proto_msgTypes[104]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4512,7 +4680,7 @@ func (x *LayoutSurfaceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LayoutSurfaceResponse.ProtoReflect.Descriptor instead.
 func (*LayoutSurfaceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{100}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{104}
 }
 
 type NotifySessionStateChangedRequest struct {
@@ -4525,7 +4693,7 @@ type NotifySessionStateChangedRequest struct {
 
 func (x *NotifySessionStateChangedRequest) Reset() {
 	*x = NotifySessionStateChangedRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[101]
+	mi := &file_proto_ad_ad_proto_msgTypes[105]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4537,7 +4705,7 @@ func (x *NotifySessionStateChangedRequest) String() string {
 func (*NotifySessionStateChangedRequest) ProtoMessage() {}
 
 func (x *NotifySessionStateChangedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[101]
+	mi := &file_proto_ad_ad_proto_msgTypes[105]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4550,7 +4718,7 @@ func (x *NotifySessionStateChangedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NotifySessionStateChangedRequest.ProtoReflect.Descriptor instead.
 func (*NotifySessionStateChangedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{101}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{105}
 }
 
 func (x *NotifySessionStateChangedRequest) GetArg0() int32 {
@@ -4575,7 +4743,7 @@ type NotifySessionStateChangedResponse struct {
 
 func (x *NotifySessionStateChangedResponse) Reset() {
 	*x = NotifySessionStateChangedResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[102]
+	mi := &file_proto_ad_ad_proto_msgTypes[106]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4587,7 +4755,7 @@ func (x *NotifySessionStateChangedResponse) String() string {
 func (*NotifySessionStateChangedResponse) ProtoMessage() {}
 
 func (x *NotifySessionStateChangedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[102]
+	mi := &file_proto_ad_ad_proto_msgTypes[106]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4600,7 +4768,7 @@ func (x *NotifySessionStateChangedResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use NotifySessionStateChangedResponse.ProtoReflect.Descriptor instead.
 func (*NotifySessionStateChangedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{102}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{106}
 }
 
 type OnCreateMediaViewRequest struct {
@@ -4611,7 +4779,7 @@ type OnCreateMediaViewRequest struct {
 
 func (x *OnCreateMediaViewRequest) Reset() {
 	*x = OnCreateMediaViewRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[103]
+	mi := &file_proto_ad_ad_proto_msgTypes[107]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4623,7 +4791,7 @@ func (x *OnCreateMediaViewRequest) String() string {
 func (*OnCreateMediaViewRequest) ProtoMessage() {}
 
 func (x *OnCreateMediaViewRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[103]
+	mi := &file_proto_ad_ad_proto_msgTypes[107]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4636,7 +4804,7 @@ func (x *OnCreateMediaViewRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCreateMediaViewRequest.ProtoReflect.Descriptor instead.
 func (*OnCreateMediaViewRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{103}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{107}
 }
 
 type OnCreateMediaViewResponse struct {
@@ -4648,7 +4816,7 @@ type OnCreateMediaViewResponse struct {
 
 func (x *OnCreateMediaViewResponse) Reset() {
 	*x = OnCreateMediaViewResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[104]
+	mi := &file_proto_ad_ad_proto_msgTypes[108]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4660,7 +4828,7 @@ func (x *OnCreateMediaViewResponse) String() string {
 func (*OnCreateMediaViewResponse) ProtoMessage() {}
 
 func (x *OnCreateMediaViewResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[104]
+	mi := &file_proto_ad_ad_proto_msgTypes[108]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4673,7 +4841,7 @@ func (x *OnCreateMediaViewResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCreateMediaViewResponse.ProtoReflect.Descriptor instead.
 func (*OnCreateMediaViewResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{104}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{108}
 }
 
 func (x *OnCreateMediaViewResponse) GetResult() int64 {
@@ -4692,7 +4860,7 @@ type OnCurrentChannelUriRequest struct {
 
 func (x *OnCurrentChannelUriRequest) Reset() {
 	*x = OnCurrentChannelUriRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[105]
+	mi := &file_proto_ad_ad_proto_msgTypes[109]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4704,7 +4872,7 @@ func (x *OnCurrentChannelUriRequest) String() string {
 func (*OnCurrentChannelUriRequest) ProtoMessage() {}
 
 func (x *OnCurrentChannelUriRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[105]
+	mi := &file_proto_ad_ad_proto_msgTypes[109]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4717,7 +4885,7 @@ func (x *OnCurrentChannelUriRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCurrentChannelUriRequest.ProtoReflect.Descriptor instead.
 func (*OnCurrentChannelUriRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{105}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{109}
 }
 
 func (x *OnCurrentChannelUriRequest) GetArg0() int64 {
@@ -4735,7 +4903,7 @@ type OnCurrentChannelUriResponse struct {
 
 func (x *OnCurrentChannelUriResponse) Reset() {
 	*x = OnCurrentChannelUriResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[106]
+	mi := &file_proto_ad_ad_proto_msgTypes[110]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4747,7 +4915,7 @@ func (x *OnCurrentChannelUriResponse) String() string {
 func (*OnCurrentChannelUriResponse) ProtoMessage() {}
 
 func (x *OnCurrentChannelUriResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[106]
+	mi := &file_proto_ad_ad_proto_msgTypes[110]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4760,7 +4928,7 @@ func (x *OnCurrentChannelUriResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCurrentChannelUriResponse.ProtoReflect.Descriptor instead.
 func (*OnCurrentChannelUriResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{106}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{110}
 }
 
 type OnCurrentTvInputIdRequest struct {
@@ -4772,7 +4940,7 @@ type OnCurrentTvInputIdRequest struct {
 
 func (x *OnCurrentTvInputIdRequest) Reset() {
 	*x = OnCurrentTvInputIdRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[107]
+	mi := &file_proto_ad_ad_proto_msgTypes[111]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4784,7 +4952,7 @@ func (x *OnCurrentTvInputIdRequest) String() string {
 func (*OnCurrentTvInputIdRequest) ProtoMessage() {}
 
 func (x *OnCurrentTvInputIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[107]
+	mi := &file_proto_ad_ad_proto_msgTypes[111]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4797,7 +4965,7 @@ func (x *OnCurrentTvInputIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCurrentTvInputIdRequest.ProtoReflect.Descriptor instead.
 func (*OnCurrentTvInputIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{107}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{111}
 }
 
 func (x *OnCurrentTvInputIdRequest) GetArg0() string {
@@ -4815,7 +4983,7 @@ type OnCurrentTvInputIdResponse struct {
 
 func (x *OnCurrentTvInputIdResponse) Reset() {
 	*x = OnCurrentTvInputIdResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[108]
+	mi := &file_proto_ad_ad_proto_msgTypes[112]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4827,7 +4995,7 @@ func (x *OnCurrentTvInputIdResponse) String() string {
 func (*OnCurrentTvInputIdResponse) ProtoMessage() {}
 
 func (x *OnCurrentTvInputIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[108]
+	mi := &file_proto_ad_ad_proto_msgTypes[112]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4840,7 +5008,7 @@ func (x *OnCurrentTvInputIdResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCurrentTvInputIdResponse.ProtoReflect.Descriptor instead.
 func (*OnCurrentTvInputIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{108}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{112}
 }
 
 type OnCurrentVideoBoundsRequest struct {
@@ -4852,7 +5020,7 @@ type OnCurrentVideoBoundsRequest struct {
 
 func (x *OnCurrentVideoBoundsRequest) Reset() {
 	*x = OnCurrentVideoBoundsRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[109]
+	mi := &file_proto_ad_ad_proto_msgTypes[113]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4864,7 +5032,7 @@ func (x *OnCurrentVideoBoundsRequest) String() string {
 func (*OnCurrentVideoBoundsRequest) ProtoMessage() {}
 
 func (x *OnCurrentVideoBoundsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[109]
+	mi := &file_proto_ad_ad_proto_msgTypes[113]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4877,7 +5045,7 @@ func (x *OnCurrentVideoBoundsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCurrentVideoBoundsRequest.ProtoReflect.Descriptor instead.
 func (*OnCurrentVideoBoundsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{109}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{113}
 }
 
 func (x *OnCurrentVideoBoundsRequest) GetArg0() int64 {
@@ -4895,7 +5063,7 @@ type OnCurrentVideoBoundsResponse struct {
 
 func (x *OnCurrentVideoBoundsResponse) Reset() {
 	*x = OnCurrentVideoBoundsResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[110]
+	mi := &file_proto_ad_ad_proto_msgTypes[114]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4907,7 +5075,7 @@ func (x *OnCurrentVideoBoundsResponse) String() string {
 func (*OnCurrentVideoBoundsResponse) ProtoMessage() {}
 
 func (x *OnCurrentVideoBoundsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[110]
+	mi := &file_proto_ad_ad_proto_msgTypes[114]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4920,7 +5088,7 @@ func (x *OnCurrentVideoBoundsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnCurrentVideoBoundsResponse.ProtoReflect.Descriptor instead.
 func (*OnCurrentVideoBoundsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{110}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{114}
 }
 
 type OnErrorRequest struct {
@@ -4933,7 +5101,7 @@ type OnErrorRequest struct {
 
 func (x *OnErrorRequest) Reset() {
 	*x = OnErrorRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[111]
+	mi := &file_proto_ad_ad_proto_msgTypes[115]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4945,7 +5113,7 @@ func (x *OnErrorRequest) String() string {
 func (*OnErrorRequest) ProtoMessage() {}
 
 func (x *OnErrorRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[111]
+	mi := &file_proto_ad_ad_proto_msgTypes[115]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4958,7 +5126,7 @@ func (x *OnErrorRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnErrorRequest.ProtoReflect.Descriptor instead.
 func (*OnErrorRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{111}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{115}
 }
 
 func (x *OnErrorRequest) GetArg0() string {
@@ -4983,7 +5151,7 @@ type OnErrorResponse struct {
 
 func (x *OnErrorResponse) Reset() {
 	*x = OnErrorResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[112]
+	mi := &file_proto_ad_ad_proto_msgTypes[116]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4995,7 +5163,7 @@ func (x *OnErrorResponse) String() string {
 func (*OnErrorResponse) ProtoMessage() {}
 
 func (x *OnErrorResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[112]
+	mi := &file_proto_ad_ad_proto_msgTypes[116]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5008,7 +5176,7 @@ func (x *OnErrorResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnErrorResponse.ProtoReflect.Descriptor instead.
 func (*OnErrorResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{112}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{116}
 }
 
 type OnGenericMotionEventRequest struct {
@@ -5020,7 +5188,7 @@ type OnGenericMotionEventRequest struct {
 
 func (x *OnGenericMotionEventRequest) Reset() {
 	*x = OnGenericMotionEventRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[113]
+	mi := &file_proto_ad_ad_proto_msgTypes[117]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5032,7 +5200,7 @@ func (x *OnGenericMotionEventRequest) String() string {
 func (*OnGenericMotionEventRequest) ProtoMessage() {}
 
 func (x *OnGenericMotionEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[113]
+	mi := &file_proto_ad_ad_proto_msgTypes[117]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5045,7 +5213,7 @@ func (x *OnGenericMotionEventRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnGenericMotionEventRequest.ProtoReflect.Descriptor instead.
 func (*OnGenericMotionEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{113}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{117}
 }
 
 func (x *OnGenericMotionEventRequest) GetArg0() int64 {
@@ -5064,7 +5232,7 @@ type OnGenericMotionEventResponse struct {
 
 func (x *OnGenericMotionEventResponse) Reset() {
 	*x = OnGenericMotionEventResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[114]
+	mi := &file_proto_ad_ad_proto_msgTypes[118]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5076,7 +5244,7 @@ func (x *OnGenericMotionEventResponse) String() string {
 func (*OnGenericMotionEventResponse) ProtoMessage() {}
 
 func (x *OnGenericMotionEventResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[114]
+	mi := &file_proto_ad_ad_proto_msgTypes[118]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5089,7 +5257,7 @@ func (x *OnGenericMotionEventResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnGenericMotionEventResponse.ProtoReflect.Descriptor instead.
 func (*OnGenericMotionEventResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{114}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{118}
 }
 
 func (x *OnGenericMotionEventResponse) GetResult() bool {
@@ -5109,7 +5277,7 @@ type OnKeyDownRequest struct {
 
 func (x *OnKeyDownRequest) Reset() {
 	*x = OnKeyDownRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[115]
+	mi := &file_proto_ad_ad_proto_msgTypes[119]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5121,7 +5289,7 @@ func (x *OnKeyDownRequest) String() string {
 func (*OnKeyDownRequest) ProtoMessage() {}
 
 func (x *OnKeyDownRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[115]
+	mi := &file_proto_ad_ad_proto_msgTypes[119]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5134,7 +5302,7 @@ func (x *OnKeyDownRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnKeyDownRequest.ProtoReflect.Descriptor instead.
 func (*OnKeyDownRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{115}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{119}
 }
 
 func (x *OnKeyDownRequest) GetArg0() int32 {
@@ -5160,7 +5328,7 @@ type OnKeyDownResponse struct {
 
 func (x *OnKeyDownResponse) Reset() {
 	*x = OnKeyDownResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[116]
+	mi := &file_proto_ad_ad_proto_msgTypes[120]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5172,7 +5340,7 @@ func (x *OnKeyDownResponse) String() string {
 func (*OnKeyDownResponse) ProtoMessage() {}
 
 func (x *OnKeyDownResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[116]
+	mi := &file_proto_ad_ad_proto_msgTypes[120]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5185,7 +5353,7 @@ func (x *OnKeyDownResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnKeyDownResponse.ProtoReflect.Descriptor instead.
 func (*OnKeyDownResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{116}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{120}
 }
 
 func (x *OnKeyDownResponse) GetResult() bool {
@@ -5205,7 +5373,7 @@ type OnKeyLongPressRequest struct {
 
 func (x *OnKeyLongPressRequest) Reset() {
 	*x = OnKeyLongPressRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[117]
+	mi := &file_proto_ad_ad_proto_msgTypes[121]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5217,7 +5385,7 @@ func (x *OnKeyLongPressRequest) String() string {
 func (*OnKeyLongPressRequest) ProtoMessage() {}
 
 func (x *OnKeyLongPressRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[117]
+	mi := &file_proto_ad_ad_proto_msgTypes[121]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5230,7 +5398,7 @@ func (x *OnKeyLongPressRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnKeyLongPressRequest.ProtoReflect.Descriptor instead.
 func (*OnKeyLongPressRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{117}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{121}
 }
 
 func (x *OnKeyLongPressRequest) GetArg0() int32 {
@@ -5256,7 +5424,7 @@ type OnKeyLongPressResponse struct {
 
 func (x *OnKeyLongPressResponse) Reset() {
 	*x = OnKeyLongPressResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[118]
+	mi := &file_proto_ad_ad_proto_msgTypes[122]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5268,7 +5436,7 @@ func (x *OnKeyLongPressResponse) String() string {
 func (*OnKeyLongPressResponse) ProtoMessage() {}
 
 func (x *OnKeyLongPressResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[118]
+	mi := &file_proto_ad_ad_proto_msgTypes[122]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5281,7 +5449,7 @@ func (x *OnKeyLongPressResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnKeyLongPressResponse.ProtoReflect.Descriptor instead.
 func (*OnKeyLongPressResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{118}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{122}
 }
 
 func (x *OnKeyLongPressResponse) GetResult() bool {
@@ -5302,7 +5470,7 @@ type OnKeyMultipleRequest struct {
 
 func (x *OnKeyMultipleRequest) Reset() {
 	*x = OnKeyMultipleRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[119]
+	mi := &file_proto_ad_ad_proto_msgTypes[123]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5314,7 +5482,7 @@ func (x *OnKeyMultipleRequest) String() string {
 func (*OnKeyMultipleRequest) ProtoMessage() {}
 
 func (x *OnKeyMultipleRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[119]
+	mi := &file_proto_ad_ad_proto_msgTypes[123]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5327,7 +5495,7 @@ func (x *OnKeyMultipleRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnKeyMultipleRequest.ProtoReflect.Descriptor instead.
 func (*OnKeyMultipleRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{119}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{123}
 }
 
 func (x *OnKeyMultipleRequest) GetArg0() int32 {
@@ -5360,7 +5528,7 @@ type OnKeyMultipleResponse struct {
 
 func (x *OnKeyMultipleResponse) Reset() {
 	*x = OnKeyMultipleResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[120]
+	mi := &file_proto_ad_ad_proto_msgTypes[124]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5372,7 +5540,7 @@ func (x *OnKeyMultipleResponse) String() string {
 func (*OnKeyMultipleResponse) ProtoMessage() {}
 
 func (x *OnKeyMultipleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[120]
+	mi := &file_proto_ad_ad_proto_msgTypes[124]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5385,7 +5553,7 @@ func (x *OnKeyMultipleResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnKeyMultipleResponse.ProtoReflect.Descriptor instead.
 func (*OnKeyMultipleResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{120}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{124}
 }
 
 func (x *OnKeyMultipleResponse) GetResult() bool {
@@ -5405,7 +5573,7 @@ type OnKeyUpRequest struct {
 
 func (x *OnKeyUpRequest) Reset() {
 	*x = OnKeyUpRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[121]
+	mi := &file_proto_ad_ad_proto_msgTypes[125]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5417,7 +5585,7 @@ func (x *OnKeyUpRequest) String() string {
 func (*OnKeyUpRequest) ProtoMessage() {}
 
 func (x *OnKeyUpRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[121]
+	mi := &file_proto_ad_ad_proto_msgTypes[125]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5430,7 +5598,7 @@ func (x *OnKeyUpRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnKeyUpRequest.ProtoReflect.Descriptor instead.
 func (*OnKeyUpRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{121}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{125}
 }
 
 func (x *OnKeyUpRequest) GetArg0() int32 {
@@ -5456,7 +5624,7 @@ type OnKeyUpResponse struct {
 
 func (x *OnKeyUpResponse) Reset() {
 	*x = OnKeyUpResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[122]
+	mi := &file_proto_ad_ad_proto_msgTypes[126]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5468,7 +5636,7 @@ func (x *OnKeyUpResponse) String() string {
 func (*OnKeyUpResponse) ProtoMessage() {}
 
 func (x *OnKeyUpResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[122]
+	mi := &file_proto_ad_ad_proto_msgTypes[126]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5481,7 +5649,7 @@ func (x *OnKeyUpResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnKeyUpResponse.ProtoReflect.Descriptor instead.
 func (*OnKeyUpResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{122}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{126}
 }
 
 func (x *OnKeyUpResponse) GetResult() bool {
@@ -5501,7 +5669,7 @@ type OnMediaViewSizeChangedRequest struct {
 
 func (x *OnMediaViewSizeChangedRequest) Reset() {
 	*x = OnMediaViewSizeChangedRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[123]
+	mi := &file_proto_ad_ad_proto_msgTypes[127]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5513,7 +5681,7 @@ func (x *OnMediaViewSizeChangedRequest) String() string {
 func (*OnMediaViewSizeChangedRequest) ProtoMessage() {}
 
 func (x *OnMediaViewSizeChangedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[123]
+	mi := &file_proto_ad_ad_proto_msgTypes[127]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5526,7 +5694,7 @@ func (x *OnMediaViewSizeChangedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnMediaViewSizeChangedRequest.ProtoReflect.Descriptor instead.
 func (*OnMediaViewSizeChangedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{123}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{127}
 }
 
 func (x *OnMediaViewSizeChangedRequest) GetArg0() int32 {
@@ -5551,7 +5719,7 @@ type OnMediaViewSizeChangedResponse struct {
 
 func (x *OnMediaViewSizeChangedResponse) Reset() {
 	*x = OnMediaViewSizeChangedResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[124]
+	mi := &file_proto_ad_ad_proto_msgTypes[128]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5563,7 +5731,7 @@ func (x *OnMediaViewSizeChangedResponse) String() string {
 func (*OnMediaViewSizeChangedResponse) ProtoMessage() {}
 
 func (x *OnMediaViewSizeChangedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[124]
+	mi := &file_proto_ad_ad_proto_msgTypes[128]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5576,7 +5744,7 @@ func (x *OnMediaViewSizeChangedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnMediaViewSizeChangedResponse.ProtoReflect.Descriptor instead.
 func (*OnMediaViewSizeChangedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{124}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{128}
 }
 
 type OnReleaseRequest struct {
@@ -5587,7 +5755,7 @@ type OnReleaseRequest struct {
 
 func (x *OnReleaseRequest) Reset() {
 	*x = OnReleaseRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[125]
+	mi := &file_proto_ad_ad_proto_msgTypes[129]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5599,7 +5767,7 @@ func (x *OnReleaseRequest) String() string {
 func (*OnReleaseRequest) ProtoMessage() {}
 
 func (x *OnReleaseRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[125]
+	mi := &file_proto_ad_ad_proto_msgTypes[129]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5612,7 +5780,7 @@ func (x *OnReleaseRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnReleaseRequest.ProtoReflect.Descriptor instead.
 func (*OnReleaseRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{125}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{129}
 }
 
 type OnReleaseResponse struct {
@@ -5623,7 +5791,7 @@ type OnReleaseResponse struct {
 
 func (x *OnReleaseResponse) Reset() {
 	*x = OnReleaseResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[126]
+	mi := &file_proto_ad_ad_proto_msgTypes[130]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5635,7 +5803,7 @@ func (x *OnReleaseResponse) String() string {
 func (*OnReleaseResponse) ProtoMessage() {}
 
 func (x *OnReleaseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[126]
+	mi := &file_proto_ad_ad_proto_msgTypes[130]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5648,7 +5816,7 @@ func (x *OnReleaseResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnReleaseResponse.ProtoReflect.Descriptor instead.
 func (*OnReleaseResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{126}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{130}
 }
 
 type OnResetAdServiceRequest struct {
@@ -5659,7 +5827,7 @@ type OnResetAdServiceRequest struct {
 
 func (x *OnResetAdServiceRequest) Reset() {
 	*x = OnResetAdServiceRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[127]
+	mi := &file_proto_ad_ad_proto_msgTypes[131]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5671,7 +5839,7 @@ func (x *OnResetAdServiceRequest) String() string {
 func (*OnResetAdServiceRequest) ProtoMessage() {}
 
 func (x *OnResetAdServiceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[127]
+	mi := &file_proto_ad_ad_proto_msgTypes[131]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5684,7 +5852,7 @@ func (x *OnResetAdServiceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnResetAdServiceRequest.ProtoReflect.Descriptor instead.
 func (*OnResetAdServiceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{127}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{131}
 }
 
 type OnResetAdServiceResponse struct {
@@ -5695,7 +5863,7 @@ type OnResetAdServiceResponse struct {
 
 func (x *OnResetAdServiceResponse) Reset() {
 	*x = OnResetAdServiceResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[128]
+	mi := &file_proto_ad_ad_proto_msgTypes[132]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5707,7 +5875,7 @@ func (x *OnResetAdServiceResponse) String() string {
 func (*OnResetAdServiceResponse) ProtoMessage() {}
 
 func (x *OnResetAdServiceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[128]
+	mi := &file_proto_ad_ad_proto_msgTypes[132]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5720,7 +5888,7 @@ func (x *OnResetAdServiceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnResetAdServiceResponse.ProtoReflect.Descriptor instead.
 func (*OnResetAdServiceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{128}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{132}
 }
 
 type OnSetSurfaceRequest struct {
@@ -5732,7 +5900,7 @@ type OnSetSurfaceRequest struct {
 
 func (x *OnSetSurfaceRequest) Reset() {
 	*x = OnSetSurfaceRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[129]
+	mi := &file_proto_ad_ad_proto_msgTypes[133]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5744,7 +5912,7 @@ func (x *OnSetSurfaceRequest) String() string {
 func (*OnSetSurfaceRequest) ProtoMessage() {}
 
 func (x *OnSetSurfaceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[129]
+	mi := &file_proto_ad_ad_proto_msgTypes[133]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5757,7 +5925,7 @@ func (x *OnSetSurfaceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnSetSurfaceRequest.ProtoReflect.Descriptor instead.
 func (*OnSetSurfaceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{129}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{133}
 }
 
 func (x *OnSetSurfaceRequest) GetArg0() int64 {
@@ -5776,7 +5944,7 @@ type OnSetSurfaceResponse struct {
 
 func (x *OnSetSurfaceResponse) Reset() {
 	*x = OnSetSurfaceResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[130]
+	mi := &file_proto_ad_ad_proto_msgTypes[134]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5788,7 +5956,7 @@ func (x *OnSetSurfaceResponse) String() string {
 func (*OnSetSurfaceResponse) ProtoMessage() {}
 
 func (x *OnSetSurfaceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[130]
+	mi := &file_proto_ad_ad_proto_msgTypes[134]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5801,7 +5969,7 @@ func (x *OnSetSurfaceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnSetSurfaceResponse.ProtoReflect.Descriptor instead.
 func (*OnSetSurfaceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{130}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{134}
 }
 
 func (x *OnSetSurfaceResponse) GetResult() bool {
@@ -5821,7 +5989,7 @@ type OnSigningResultRequest struct {
 
 func (x *OnSigningResultRequest) Reset() {
 	*x = OnSigningResultRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[131]
+	mi := &file_proto_ad_ad_proto_msgTypes[135]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5833,7 +6001,7 @@ func (x *OnSigningResultRequest) String() string {
 func (*OnSigningResultRequest) ProtoMessage() {}
 
 func (x *OnSigningResultRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[131]
+	mi := &file_proto_ad_ad_proto_msgTypes[135]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5846,7 +6014,7 @@ func (x *OnSigningResultRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnSigningResultRequest.ProtoReflect.Descriptor instead.
 func (*OnSigningResultRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{131}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{135}
 }
 
 func (x *OnSigningResultRequest) GetArg0() string {
@@ -5871,7 +6039,7 @@ type OnSigningResultResponse struct {
 
 func (x *OnSigningResultResponse) Reset() {
 	*x = OnSigningResultResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[132]
+	mi := &file_proto_ad_ad_proto_msgTypes[136]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5883,7 +6051,7 @@ func (x *OnSigningResultResponse) String() string {
 func (*OnSigningResultResponse) ProtoMessage() {}
 
 func (x *OnSigningResultResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[132]
+	mi := &file_proto_ad_ad_proto_msgTypes[136]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5896,7 +6064,7 @@ func (x *OnSigningResultResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnSigningResultResponse.ProtoReflect.Descriptor instead.
 func (*OnSigningResultResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{132}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{136}
 }
 
 type OnStartAdServiceRequest struct {
@@ -5907,7 +6075,7 @@ type OnStartAdServiceRequest struct {
 
 func (x *OnStartAdServiceRequest) Reset() {
 	*x = OnStartAdServiceRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[133]
+	mi := &file_proto_ad_ad_proto_msgTypes[137]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5919,7 +6087,7 @@ func (x *OnStartAdServiceRequest) String() string {
 func (*OnStartAdServiceRequest) ProtoMessage() {}
 
 func (x *OnStartAdServiceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[133]
+	mi := &file_proto_ad_ad_proto_msgTypes[137]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5932,7 +6100,7 @@ func (x *OnStartAdServiceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnStartAdServiceRequest.ProtoReflect.Descriptor instead.
 func (*OnStartAdServiceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{133}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{137}
 }
 
 type OnStartAdServiceResponse struct {
@@ -5943,7 +6111,7 @@ type OnStartAdServiceResponse struct {
 
 func (x *OnStartAdServiceResponse) Reset() {
 	*x = OnStartAdServiceResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[134]
+	mi := &file_proto_ad_ad_proto_msgTypes[138]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5955,7 +6123,7 @@ func (x *OnStartAdServiceResponse) String() string {
 func (*OnStartAdServiceResponse) ProtoMessage() {}
 
 func (x *OnStartAdServiceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[134]
+	mi := &file_proto_ad_ad_proto_msgTypes[138]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5968,7 +6136,7 @@ func (x *OnStartAdServiceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnStartAdServiceResponse.ProtoReflect.Descriptor instead.
 func (*OnStartAdServiceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{134}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{138}
 }
 
 type OnStopAdServiceRequest struct {
@@ -5979,7 +6147,7 @@ type OnStopAdServiceRequest struct {
 
 func (x *OnStopAdServiceRequest) Reset() {
 	*x = OnStopAdServiceRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[135]
+	mi := &file_proto_ad_ad_proto_msgTypes[139]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5991,7 +6159,7 @@ func (x *OnStopAdServiceRequest) String() string {
 func (*OnStopAdServiceRequest) ProtoMessage() {}
 
 func (x *OnStopAdServiceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[135]
+	mi := &file_proto_ad_ad_proto_msgTypes[139]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6004,7 +6172,7 @@ func (x *OnStopAdServiceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnStopAdServiceRequest.ProtoReflect.Descriptor instead.
 func (*OnStopAdServiceRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{135}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{139}
 }
 
 type OnStopAdServiceResponse struct {
@@ -6015,7 +6183,7 @@ type OnStopAdServiceResponse struct {
 
 func (x *OnStopAdServiceResponse) Reset() {
 	*x = OnStopAdServiceResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[136]
+	mi := &file_proto_ad_ad_proto_msgTypes[140]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6027,7 +6195,7 @@ func (x *OnStopAdServiceResponse) String() string {
 func (*OnStopAdServiceResponse) ProtoMessage() {}
 
 func (x *OnStopAdServiceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[136]
+	mi := &file_proto_ad_ad_proto_msgTypes[140]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6040,7 +6208,7 @@ func (x *OnStopAdServiceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnStopAdServiceResponse.ProtoReflect.Descriptor instead.
 func (*OnStopAdServiceResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{136}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{140}
 }
 
 type OnSurfaceChangedRequest struct {
@@ -6054,7 +6222,7 @@ type OnSurfaceChangedRequest struct {
 
 func (x *OnSurfaceChangedRequest) Reset() {
 	*x = OnSurfaceChangedRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[137]
+	mi := &file_proto_ad_ad_proto_msgTypes[141]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6066,7 +6234,7 @@ func (x *OnSurfaceChangedRequest) String() string {
 func (*OnSurfaceChangedRequest) ProtoMessage() {}
 
 func (x *OnSurfaceChangedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[137]
+	mi := &file_proto_ad_ad_proto_msgTypes[141]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6079,7 +6247,7 @@ func (x *OnSurfaceChangedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnSurfaceChangedRequest.ProtoReflect.Descriptor instead.
 func (*OnSurfaceChangedRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{137}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{141}
 }
 
 func (x *OnSurfaceChangedRequest) GetArg0() int32 {
@@ -6111,7 +6279,7 @@ type OnSurfaceChangedResponse struct {
 
 func (x *OnSurfaceChangedResponse) Reset() {
 	*x = OnSurfaceChangedResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[138]
+	mi := &file_proto_ad_ad_proto_msgTypes[142]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6123,7 +6291,7 @@ func (x *OnSurfaceChangedResponse) String() string {
 func (*OnSurfaceChangedResponse) ProtoMessage() {}
 
 func (x *OnSurfaceChangedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[138]
+	mi := &file_proto_ad_ad_proto_msgTypes[142]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6136,7 +6304,7 @@ func (x *OnSurfaceChangedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnSurfaceChangedResponse.ProtoReflect.Descriptor instead.
 func (*OnSurfaceChangedResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{138}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{142}
 }
 
 type OnTouchEventRequest struct {
@@ -6148,7 +6316,7 @@ type OnTouchEventRequest struct {
 
 func (x *OnTouchEventRequest) Reset() {
 	*x = OnTouchEventRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[139]
+	mi := &file_proto_ad_ad_proto_msgTypes[143]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6160,7 +6328,7 @@ func (x *OnTouchEventRequest) String() string {
 func (*OnTouchEventRequest) ProtoMessage() {}
 
 func (x *OnTouchEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[139]
+	mi := &file_proto_ad_ad_proto_msgTypes[143]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6173,7 +6341,7 @@ func (x *OnTouchEventRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnTouchEventRequest.ProtoReflect.Descriptor instead.
 func (*OnTouchEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{139}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{143}
 }
 
 func (x *OnTouchEventRequest) GetArg0() int64 {
@@ -6192,7 +6360,7 @@ type OnTouchEventResponse struct {
 
 func (x *OnTouchEventResponse) Reset() {
 	*x = OnTouchEventResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[140]
+	mi := &file_proto_ad_ad_proto_msgTypes[144]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6204,7 +6372,7 @@ func (x *OnTouchEventResponse) String() string {
 func (*OnTouchEventResponse) ProtoMessage() {}
 
 func (x *OnTouchEventResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[140]
+	mi := &file_proto_ad_ad_proto_msgTypes[144]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6217,7 +6385,7 @@ func (x *OnTouchEventResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnTouchEventResponse.ProtoReflect.Descriptor instead.
 func (*OnTouchEventResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{140}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{144}
 }
 
 func (x *OnTouchEventResponse) GetResult() bool {
@@ -6236,7 +6404,7 @@ type OnTrackballEventRequest struct {
 
 func (x *OnTrackballEventRequest) Reset() {
 	*x = OnTrackballEventRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[141]
+	mi := &file_proto_ad_ad_proto_msgTypes[145]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6248,7 +6416,7 @@ func (x *OnTrackballEventRequest) String() string {
 func (*OnTrackballEventRequest) ProtoMessage() {}
 
 func (x *OnTrackballEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[141]
+	mi := &file_proto_ad_ad_proto_msgTypes[145]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6261,7 +6429,7 @@ func (x *OnTrackballEventRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnTrackballEventRequest.ProtoReflect.Descriptor instead.
 func (*OnTrackballEventRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{141}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{145}
 }
 
 func (x *OnTrackballEventRequest) GetArg0() int64 {
@@ -6280,7 +6448,7 @@ type OnTrackballEventResponse struct {
 
 func (x *OnTrackballEventResponse) Reset() {
 	*x = OnTrackballEventResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[142]
+	mi := &file_proto_ad_ad_proto_msgTypes[146]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6292,7 +6460,7 @@ func (x *OnTrackballEventResponse) String() string {
 func (*OnTrackballEventResponse) ProtoMessage() {}
 
 func (x *OnTrackballEventResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[142]
+	mi := &file_proto_ad_ad_proto_msgTypes[146]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6305,7 +6473,7 @@ func (x *OnTrackballEventResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnTrackballEventResponse.ProtoReflect.Descriptor instead.
 func (*OnTrackballEventResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{142}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{146}
 }
 
 func (x *OnTrackballEventResponse) GetResult() bool {
@@ -6325,7 +6493,7 @@ type OnTvInputSessionDataRequest struct {
 
 func (x *OnTvInputSessionDataRequest) Reset() {
 	*x = OnTvInputSessionDataRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[143]
+	mi := &file_proto_ad_ad_proto_msgTypes[147]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6337,7 +6505,7 @@ func (x *OnTvInputSessionDataRequest) String() string {
 func (*OnTvInputSessionDataRequest) ProtoMessage() {}
 
 func (x *OnTvInputSessionDataRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[143]
+	mi := &file_proto_ad_ad_proto_msgTypes[147]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6350,7 +6518,7 @@ func (x *OnTvInputSessionDataRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnTvInputSessionDataRequest.ProtoReflect.Descriptor instead.
 func (*OnTvInputSessionDataRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{143}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{147}
 }
 
 func (x *OnTvInputSessionDataRequest) GetArg0() string {
@@ -6375,7 +6543,7 @@ type OnTvInputSessionDataResponse struct {
 
 func (x *OnTvInputSessionDataResponse) Reset() {
 	*x = OnTvInputSessionDataResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[144]
+	mi := &file_proto_ad_ad_proto_msgTypes[148]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6387,7 +6555,7 @@ func (x *OnTvInputSessionDataResponse) String() string {
 func (*OnTvInputSessionDataResponse) ProtoMessage() {}
 
 func (x *OnTvInputSessionDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[144]
+	mi := &file_proto_ad_ad_proto_msgTypes[148]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6400,7 +6568,7 @@ func (x *OnTvInputSessionDataResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnTvInputSessionDataResponse.ProtoReflect.Descriptor instead.
 func (*OnTvInputSessionDataResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{144}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{148}
 }
 
 type OnTvMessageRequest struct {
@@ -6413,7 +6581,7 @@ type OnTvMessageRequest struct {
 
 func (x *OnTvMessageRequest) Reset() {
 	*x = OnTvMessageRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[145]
+	mi := &file_proto_ad_ad_proto_msgTypes[149]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6425,7 +6593,7 @@ func (x *OnTvMessageRequest) String() string {
 func (*OnTvMessageRequest) ProtoMessage() {}
 
 func (x *OnTvMessageRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[145]
+	mi := &file_proto_ad_ad_proto_msgTypes[149]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6438,7 +6606,7 @@ func (x *OnTvMessageRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnTvMessageRequest.ProtoReflect.Descriptor instead.
 func (*OnTvMessageRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{145}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{149}
 }
 
 func (x *OnTvMessageRequest) GetArg0() int32 {
@@ -6463,7 +6631,7 @@ type OnTvMessageResponse struct {
 
 func (x *OnTvMessageResponse) Reset() {
 	*x = OnTvMessageResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[146]
+	mi := &file_proto_ad_ad_proto_msgTypes[150]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6475,7 +6643,7 @@ func (x *OnTvMessageResponse) String() string {
 func (*OnTvMessageResponse) ProtoMessage() {}
 
 func (x *OnTvMessageResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[146]
+	mi := &file_proto_ad_ad_proto_msgTypes[150]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6488,7 +6656,7 @@ func (x *OnTvMessageResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnTvMessageResponse.ProtoReflect.Descriptor instead.
 func (*OnTvMessageResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{146}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{150}
 }
 
 type RequestCurrentChannelUriRequest struct {
@@ -6499,7 +6667,7 @@ type RequestCurrentChannelUriRequest struct {
 
 func (x *RequestCurrentChannelUriRequest) Reset() {
 	*x = RequestCurrentChannelUriRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[147]
+	mi := &file_proto_ad_ad_proto_msgTypes[151]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6511,7 +6679,7 @@ func (x *RequestCurrentChannelUriRequest) String() string {
 func (*RequestCurrentChannelUriRequest) ProtoMessage() {}
 
 func (x *RequestCurrentChannelUriRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[147]
+	mi := &file_proto_ad_ad_proto_msgTypes[151]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6524,7 +6692,7 @@ func (x *RequestCurrentChannelUriRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestCurrentChannelUriRequest.ProtoReflect.Descriptor instead.
 func (*RequestCurrentChannelUriRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{147}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{151}
 }
 
 type RequestCurrentChannelUriResponse struct {
@@ -6535,7 +6703,7 @@ type RequestCurrentChannelUriResponse struct {
 
 func (x *RequestCurrentChannelUriResponse) Reset() {
 	*x = RequestCurrentChannelUriResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[148]
+	mi := &file_proto_ad_ad_proto_msgTypes[152]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6547,7 +6715,7 @@ func (x *RequestCurrentChannelUriResponse) String() string {
 func (*RequestCurrentChannelUriResponse) ProtoMessage() {}
 
 func (x *RequestCurrentChannelUriResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[148]
+	mi := &file_proto_ad_ad_proto_msgTypes[152]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6560,7 +6728,7 @@ func (x *RequestCurrentChannelUriResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestCurrentChannelUriResponse.ProtoReflect.Descriptor instead.
 func (*RequestCurrentChannelUriResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{148}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{152}
 }
 
 type RequestCurrentTvInputIdRequest struct {
@@ -6571,7 +6739,7 @@ type RequestCurrentTvInputIdRequest struct {
 
 func (x *RequestCurrentTvInputIdRequest) Reset() {
 	*x = RequestCurrentTvInputIdRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[149]
+	mi := &file_proto_ad_ad_proto_msgTypes[153]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6583,7 +6751,7 @@ func (x *RequestCurrentTvInputIdRequest) String() string {
 func (*RequestCurrentTvInputIdRequest) ProtoMessage() {}
 
 func (x *RequestCurrentTvInputIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[149]
+	mi := &file_proto_ad_ad_proto_msgTypes[153]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6596,7 +6764,7 @@ func (x *RequestCurrentTvInputIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestCurrentTvInputIdRequest.ProtoReflect.Descriptor instead.
 func (*RequestCurrentTvInputIdRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{149}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{153}
 }
 
 type RequestCurrentTvInputIdResponse struct {
@@ -6607,7 +6775,7 @@ type RequestCurrentTvInputIdResponse struct {
 
 func (x *RequestCurrentTvInputIdResponse) Reset() {
 	*x = RequestCurrentTvInputIdResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[150]
+	mi := &file_proto_ad_ad_proto_msgTypes[154]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6619,7 +6787,7 @@ func (x *RequestCurrentTvInputIdResponse) String() string {
 func (*RequestCurrentTvInputIdResponse) ProtoMessage() {}
 
 func (x *RequestCurrentTvInputIdResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[150]
+	mi := &file_proto_ad_ad_proto_msgTypes[154]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6632,7 +6800,7 @@ func (x *RequestCurrentTvInputIdResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestCurrentTvInputIdResponse.ProtoReflect.Descriptor instead.
 func (*RequestCurrentTvInputIdResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{150}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{154}
 }
 
 type RequestCurrentVideoBoundsRequest struct {
@@ -6643,7 +6811,7 @@ type RequestCurrentVideoBoundsRequest struct {
 
 func (x *RequestCurrentVideoBoundsRequest) Reset() {
 	*x = RequestCurrentVideoBoundsRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[151]
+	mi := &file_proto_ad_ad_proto_msgTypes[155]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6655,7 +6823,7 @@ func (x *RequestCurrentVideoBoundsRequest) String() string {
 func (*RequestCurrentVideoBoundsRequest) ProtoMessage() {}
 
 func (x *RequestCurrentVideoBoundsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[151]
+	mi := &file_proto_ad_ad_proto_msgTypes[155]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6668,7 +6836,7 @@ func (x *RequestCurrentVideoBoundsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestCurrentVideoBoundsRequest.ProtoReflect.Descriptor instead.
 func (*RequestCurrentVideoBoundsRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{151}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{155}
 }
 
 type RequestCurrentVideoBoundsResponse struct {
@@ -6679,7 +6847,7 @@ type RequestCurrentVideoBoundsResponse struct {
 
 func (x *RequestCurrentVideoBoundsResponse) Reset() {
 	*x = RequestCurrentVideoBoundsResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[152]
+	mi := &file_proto_ad_ad_proto_msgTypes[156]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6691,7 +6859,7 @@ func (x *RequestCurrentVideoBoundsResponse) String() string {
 func (*RequestCurrentVideoBoundsResponse) ProtoMessage() {}
 
 func (x *RequestCurrentVideoBoundsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[152]
+	mi := &file_proto_ad_ad_proto_msgTypes[156]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6704,7 +6872,7 @@ func (x *RequestCurrentVideoBoundsResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use RequestCurrentVideoBoundsResponse.ProtoReflect.Descriptor instead.
 func (*RequestCurrentVideoBoundsResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{152}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{156}
 }
 
 type RequestSigningRequest struct {
@@ -6719,7 +6887,7 @@ type RequestSigningRequest struct {
 
 func (x *RequestSigningRequest) Reset() {
 	*x = RequestSigningRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[153]
+	mi := &file_proto_ad_ad_proto_msgTypes[157]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6731,7 +6899,7 @@ func (x *RequestSigningRequest) String() string {
 func (*RequestSigningRequest) ProtoMessage() {}
 
 func (x *RequestSigningRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[153]
+	mi := &file_proto_ad_ad_proto_msgTypes[157]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6744,7 +6912,7 @@ func (x *RequestSigningRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestSigningRequest.ProtoReflect.Descriptor instead.
 func (*RequestSigningRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{153}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{157}
 }
 
 func (x *RequestSigningRequest) GetArg0() string {
@@ -6783,7 +6951,7 @@ type RequestSigningResponse struct {
 
 func (x *RequestSigningResponse) Reset() {
 	*x = RequestSigningResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[154]
+	mi := &file_proto_ad_ad_proto_msgTypes[158]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6795,7 +6963,7 @@ func (x *RequestSigningResponse) String() string {
 func (*RequestSigningResponse) ProtoMessage() {}
 
 func (x *RequestSigningResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[154]
+	mi := &file_proto_ad_ad_proto_msgTypes[158]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6808,7 +6976,7 @@ func (x *RequestSigningResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestSigningResponse.ProtoReflect.Descriptor instead.
 func (*RequestSigningResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{154}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{158}
 }
 
 type RequestTrackInfoListRequest struct {
@@ -6819,7 +6987,7 @@ type RequestTrackInfoListRequest struct {
 
 func (x *RequestTrackInfoListRequest) Reset() {
 	*x = RequestTrackInfoListRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[155]
+	mi := &file_proto_ad_ad_proto_msgTypes[159]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6831,7 +6999,7 @@ func (x *RequestTrackInfoListRequest) String() string {
 func (*RequestTrackInfoListRequest) ProtoMessage() {}
 
 func (x *RequestTrackInfoListRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[155]
+	mi := &file_proto_ad_ad_proto_msgTypes[159]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6844,7 +7012,7 @@ func (x *RequestTrackInfoListRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestTrackInfoListRequest.ProtoReflect.Descriptor instead.
 func (*RequestTrackInfoListRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{155}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{159}
 }
 
 type RequestTrackInfoListResponse struct {
@@ -6855,7 +7023,7 @@ type RequestTrackInfoListResponse struct {
 
 func (x *RequestTrackInfoListResponse) Reset() {
 	*x = RequestTrackInfoListResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[156]
+	mi := &file_proto_ad_ad_proto_msgTypes[160]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6867,7 +7035,7 @@ func (x *RequestTrackInfoListResponse) String() string {
 func (*RequestTrackInfoListResponse) ProtoMessage() {}
 
 func (x *RequestTrackInfoListResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[156]
+	mi := &file_proto_ad_ad_proto_msgTypes[160]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6880,7 +7048,7 @@ func (x *RequestTrackInfoListResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestTrackInfoListResponse.ProtoReflect.Descriptor instead.
 func (*RequestTrackInfoListResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{156}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{160}
 }
 
 type SendTvAdSessionDataRequest struct {
@@ -6893,7 +7061,7 @@ type SendTvAdSessionDataRequest struct {
 
 func (x *SendTvAdSessionDataRequest) Reset() {
 	*x = SendTvAdSessionDataRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[157]
+	mi := &file_proto_ad_ad_proto_msgTypes[161]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6905,7 +7073,7 @@ func (x *SendTvAdSessionDataRequest) String() string {
 func (*SendTvAdSessionDataRequest) ProtoMessage() {}
 
 func (x *SendTvAdSessionDataRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[157]
+	mi := &file_proto_ad_ad_proto_msgTypes[161]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6918,7 +7086,7 @@ func (x *SendTvAdSessionDataRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendTvAdSessionDataRequest.ProtoReflect.Descriptor instead.
 func (*SendTvAdSessionDataRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{157}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{161}
 }
 
 func (x *SendTvAdSessionDataRequest) GetArg0() string {
@@ -6943,7 +7111,7 @@ type SendTvAdSessionDataResponse struct {
 
 func (x *SendTvAdSessionDataResponse) Reset() {
 	*x = SendTvAdSessionDataResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[158]
+	mi := &file_proto_ad_ad_proto_msgTypes[162]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6955,7 +7123,7 @@ func (x *SendTvAdSessionDataResponse) String() string {
 func (*SendTvAdSessionDataResponse) ProtoMessage() {}
 
 func (x *SendTvAdSessionDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[158]
+	mi := &file_proto_ad_ad_proto_msgTypes[162]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6968,7 +7136,7 @@ func (x *SendTvAdSessionDataResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendTvAdSessionDataResponse.ProtoReflect.Descriptor instead.
 func (*SendTvAdSessionDataResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{158}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{162}
 }
 
 type SetMediaViewEnabledRequest struct {
@@ -6980,7 +7148,7 @@ type SetMediaViewEnabledRequest struct {
 
 func (x *SetMediaViewEnabledRequest) Reset() {
 	*x = SetMediaViewEnabledRequest{}
-	mi := &file_proto_ad_ad_proto_msgTypes[159]
+	mi := &file_proto_ad_ad_proto_msgTypes[163]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6992,7 +7160,7 @@ func (x *SetMediaViewEnabledRequest) String() string {
 func (*SetMediaViewEnabledRequest) ProtoMessage() {}
 
 func (x *SetMediaViewEnabledRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[159]
+	mi := &file_proto_ad_ad_proto_msgTypes[163]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7005,7 +7173,7 @@ func (x *SetMediaViewEnabledRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetMediaViewEnabledRequest.ProtoReflect.Descriptor instead.
 func (*SetMediaViewEnabledRequest) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{159}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{163}
 }
 
 func (x *SetMediaViewEnabledRequest) GetArg0() bool {
@@ -7023,7 +7191,7 @@ type SetMediaViewEnabledResponse struct {
 
 func (x *SetMediaViewEnabledResponse) Reset() {
 	*x = SetMediaViewEnabledResponse{}
-	mi := &file_proto_ad_ad_proto_msgTypes[160]
+	mi := &file_proto_ad_ad_proto_msgTypes[164]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7035,7 +7203,7 @@ func (x *SetMediaViewEnabledResponse) String() string {
 func (*SetMediaViewEnabledResponse) ProtoMessage() {}
 
 func (x *SetMediaViewEnabledResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_ad_ad_proto_msgTypes[160]
+	mi := &file_proto_ad_ad_proto_msgTypes[164]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7048,34 +7216,14 @@ func (x *SetMediaViewEnabledResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetMediaViewEnabledResponse.ProtoReflect.Descriptor instead.
 func (*SetMediaViewEnabledResponse) Descriptor() ([]byte, []int) {
-	return file_proto_ad_ad_proto_rawDescGZIP(), []int{160}
+	return file_proto_ad_ad_proto_rawDescGZIP(), []int{164}
 }
 
 var File_proto_ad_ad_proto protoreflect.FileDescriptor
 
 const file_proto_ad_ad_proto_rawDesc = "" +
 	"\n" +
-	"\x11proto/ad/ad.proto\x12\x02ad\"A\n" +
-	"\x17RegisterCallbackRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x1a\n" +
-	"\x18RegisterCallbackResponse\"C\n" +
-	"\x19SendAppLinkCommandRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
-	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x1c\n" +
-	"\x1aSendAppLinkCommandResponse\"/\n" +
-	"\x19UnregisterCallbackRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1c\n" +
-	"\x1aUnregisterCallbackResponse\"-\n" +
-	"\x17OnAdServiceAddedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"\x1a\n" +
-	"\x18OnAdServiceAddedResponse\"/\n" +
-	"\x19OnAdServiceRemovedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"\x1c\n" +
-	"\x1aOnAdServiceRemovedResponse\"/\n" +
-	"\x19OnAdServiceUpdatedRequest\x12\x12\n" +
-	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"\x1c\n" +
-	"\x1aOnAdServiceUpdatedResponse\"C\n" +
+	"\x11proto/ad/ad.proto\x12\x02ad\"C\n" +
 	"\x19NewTvAdServiceInfoRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"4\n" +
@@ -7092,6 +7240,10 @@ const file_proto_ad_ad_proto_rawDesc = "" +
 	"\x15GetServiceInfoRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\"0\n" +
 	"\x16GetServiceInfoResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"2\n" +
+	"\x18GetSupportedTypesRequest\x12\x16\n" +
+	"\x06handle\x18\x01 \x01(\x03R\x06handle\"3\n" +
+	"\x19GetSupportedTypesResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\x03R\x06result\"V\n" +
 	"\x14WriteToParcelRequest\x12\x16\n" +
 	"\x06handle\x18\x01 \x01(\x03R\x06handle\x12\x12\n" +
@@ -7242,7 +7394,30 @@ const file_proto_ad_ad_proto_rawDesc = "" +
 	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
 	"\x04arg1\x18\x02 \x01(\x05R\x04arg1\x12\x12\n" +
 	"\x04arg2\x18\x03 \x01(\x05R\x04arg2\"\x18\n" +
-	"\x16OnStateChangedResponse\"-\n" +
+	"\x16OnStateChangedResponse\"\x1b\n" +
+	"\x19GetTvAdServiceListRequest\"4\n" +
+	"\x1aGetTvAdServiceListResponse\x12\x16\n" +
+	"\x06result\x18\x01 \x01(\x03R\x06result\"A\n" +
+	"\x17RegisterCallbackRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x1a\n" +
+	"\x18RegisterCallbackResponse\"C\n" +
+	"\x19SendAppLinkCommandRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\x12\x12\n" +
+	"\x04arg1\x18\x02 \x01(\x03R\x04arg1\"\x1c\n" +
+	"\x1aSendAppLinkCommandResponse\"/\n" +
+	"\x19UnregisterCallbackRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1c\n" +
+	"\x1aUnregisterCallbackResponse\"-\n" +
+	"\x17OnAdServiceAddedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"\x1a\n" +
+	"\x18OnAdServiceAddedResponse\"/\n" +
+	"\x19OnAdServiceRemovedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"\x1c\n" +
+	"\x1aOnAdServiceRemovedResponse\"/\n" +
+	"\x19OnAdServiceUpdatedRequest\x12\x12\n" +
+	"\x04arg0\x18\x01 \x01(\tR\x04arg0\"\x1c\n" +
+	"\x1aOnAdServiceUpdatedResponse\"-\n" +
 	"\x17OnAppLinkCommandRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\x03R\x04arg0\"\x1a\n" +
 	"\x18OnAppLinkCommandResponse\"#\n" +
@@ -7370,20 +7545,13 @@ const file_proto_ad_ad_proto_rawDesc = "" +
 	"\x1bSendTvAdSessionDataResponse\"0\n" +
 	"\x1aSetMediaViewEnabledRequest\x12\x12\n" +
 	"\x04arg0\x18\x01 \x01(\bR\x04arg0\"\x1d\n" +
-	"\x1bSetMediaViewEnabledResponse2\x8d\x02\n" +
-	"\x12TvAdManagerService\x12M\n" +
-	"\x10RegisterCallback\x12\x1b.ad.RegisterCallbackRequest\x1a\x1c.ad.RegisterCallbackResponse\x12S\n" +
-	"\x12SendAppLinkCommand\x12\x1d.ad.SendAppLinkCommandRequest\x1a\x1e.ad.SendAppLinkCommandResponse\x12S\n" +
-	"\x12UnregisterCallback\x12\x1d.ad.UnregisterCallbackRequest\x1a\x1e.ad.UnregisterCallbackResponse2\xa0\x02\n" +
-	"%TvAdManagerTvAdServiceCallbackService\x12M\n" +
-	"\x10OnAdServiceAdded\x12\x1b.ad.OnAdServiceAddedRequest\x1a\x1c.ad.OnAdServiceAddedResponse\x12S\n" +
-	"\x12OnAdServiceRemoved\x12\x1d.ad.OnAdServiceRemovedRequest\x1a\x1e.ad.OnAdServiceRemovedResponse\x12S\n" +
-	"\x12OnAdServiceUpdated\x12\x1d.ad.OnAdServiceUpdatedRequest\x1a\x1e.ad.OnAdServiceUpdatedResponse2\xf9\x02\n" +
+	"\x1bSetMediaViewEnabledResponse2\xcb\x03\n" +
 	"\x16TvAdServiceInfoService\x12S\n" +
 	"\x12NewTvAdServiceInfo\x12\x1d.ad.NewTvAdServiceInfoRequest\x1a\x1e.ad.NewTvAdServiceInfoResponse\x12M\n" +
 	"\x10DescribeContents\x12\x1b.ad.DescribeContentsRequest\x1a\x1c.ad.DescribeContentsResponse\x12,\n" +
 	"\x05GetId\x12\x10.ad.GetIdRequest\x1a\x11.ad.GetIdResponse\x12G\n" +
-	"\x0eGetServiceInfo\x12\x19.ad.GetServiceInfoRequest\x1a\x1a.ad.GetServiceInfoResponse\x12D\n" +
+	"\x0eGetServiceInfo\x12\x19.ad.GetServiceInfoRequest\x1a\x1a.ad.GetServiceInfoResponse\x12P\n" +
+	"\x11GetSupportedTypes\x12\x1c.ad.GetSupportedTypesRequest\x1a\x1d.ad.GetSupportedTypesResponse\x12D\n" +
 	"\rWriteToParcel\x12\x18.ad.WriteToParcelRequest\x1a\x19.ad.WriteToParcelResponse2\x9f\x12\n" +
 	"\x0fTvAdViewService\x12>\n" +
 	"\vNewTvAdView\x12\x16.ad.NewTvAdViewRequest\x1a\x17.ad.NewTvAdViewResponse\x12D\n" +
@@ -7422,7 +7590,16 @@ const file_proto_ad_ad_proto_rawDesc = "" +
 	"\x1bOnRequestCurrentVideoBounds\x12&.ad.OnRequestCurrentVideoBoundsRequest\x1a'.ad.OnRequestCurrentVideoBoundsResponse\x12M\n" +
 	"\x10OnRequestSigning\x12\x1b.ad.OnRequestSigningRequest\x1a\x1c.ad.OnRequestSigningResponse\x12_\n" +
 	"\x16OnRequestTrackInfoList\x12!.ad.OnRequestTrackInfoListRequest\x1a\".ad.OnRequestTrackInfoListResponse\x12G\n" +
-	"\x0eOnStateChanged\x12\x19.ad.OnStateChangedRequest\x1a\x1a.ad.OnStateChangedResponse2\xe0\x01\n" +
+	"\x0eOnStateChanged\x12\x19.ad.OnStateChangedRequest\x1a\x1a.ad.OnStateChangedResponse2\xe2\x02\n" +
+	"\x12TvAdManagerService\x12S\n" +
+	"\x12GetTvAdServiceList\x12\x1d.ad.GetTvAdServiceListRequest\x1a\x1e.ad.GetTvAdServiceListResponse\x12M\n" +
+	"\x10RegisterCallback\x12\x1b.ad.RegisterCallbackRequest\x1a\x1c.ad.RegisterCallbackResponse\x12S\n" +
+	"\x12SendAppLinkCommand\x12\x1d.ad.SendAppLinkCommandRequest\x1a\x1e.ad.SendAppLinkCommandResponse\x12S\n" +
+	"\x12UnregisterCallback\x12\x1d.ad.UnregisterCallbackRequest\x1a\x1e.ad.UnregisterCallbackResponse2\xa0\x02\n" +
+	"%TvAdManagerTvAdServiceCallbackService\x12M\n" +
+	"\x10OnAdServiceAdded\x12\x1b.ad.OnAdServiceAddedRequest\x1a\x1c.ad.OnAdServiceAddedResponse\x12S\n" +
+	"\x12OnAdServiceRemoved\x12\x1d.ad.OnAdServiceRemovedRequest\x1a\x1e.ad.OnAdServiceRemovedResponse\x12S\n" +
+	"\x12OnAdServiceUpdated\x12\x1d.ad.OnAdServiceUpdatedRequest\x1a\x1e.ad.OnAdServiceUpdatedResponse2\xe0\x01\n" +
 	"\x12TvAdServiceService\x12M\n" +
 	"\x10OnAppLinkCommand\x12\x1b.ad.OnAppLinkCommandRequest\x1a\x1c.ad.OnAppLinkCommandResponse\x12/\n" +
 	"\x06OnBind\x12\x11.ad.OnBindRequest\x1a\x12.ad.OnBindResponse\x12J\n" +
@@ -7473,335 +7650,343 @@ func file_proto_ad_ad_proto_rawDescGZIP() []byte {
 	return file_proto_ad_ad_proto_rawDescData
 }
 
-var file_proto_ad_ad_proto_msgTypes = make([]protoimpl.MessageInfo, 161)
+var file_proto_ad_ad_proto_msgTypes = make([]protoimpl.MessageInfo, 165)
 var file_proto_ad_ad_proto_goTypes = []any{
-	(*RegisterCallbackRequest)(nil),                                           // 0: ad.RegisterCallbackRequest
-	(*RegisterCallbackResponse)(nil),                                          // 1: ad.RegisterCallbackResponse
-	(*SendAppLinkCommandRequest)(nil),                                         // 2: ad.SendAppLinkCommandRequest
-	(*SendAppLinkCommandResponse)(nil),                                        // 3: ad.SendAppLinkCommandResponse
-	(*UnregisterCallbackRequest)(nil),                                         // 4: ad.UnregisterCallbackRequest
-	(*UnregisterCallbackResponse)(nil),                                        // 5: ad.UnregisterCallbackResponse
-	(*OnAdServiceAddedRequest)(nil),                                           // 6: ad.OnAdServiceAddedRequest
-	(*OnAdServiceAddedResponse)(nil),                                          // 7: ad.OnAdServiceAddedResponse
-	(*OnAdServiceRemovedRequest)(nil),                                         // 8: ad.OnAdServiceRemovedRequest
-	(*OnAdServiceRemovedResponse)(nil),                                        // 9: ad.OnAdServiceRemovedResponse
-	(*OnAdServiceUpdatedRequest)(nil),                                         // 10: ad.OnAdServiceUpdatedRequest
-	(*OnAdServiceUpdatedResponse)(nil),                                        // 11: ad.OnAdServiceUpdatedResponse
-	(*NewTvAdServiceInfoRequest)(nil),                                         // 12: ad.NewTvAdServiceInfoRequest
-	(*NewTvAdServiceInfoResponse)(nil),                                        // 13: ad.NewTvAdServiceInfoResponse
-	(*DescribeContentsRequest)(nil),                                           // 14: ad.DescribeContentsRequest
-	(*DescribeContentsResponse)(nil),                                          // 15: ad.DescribeContentsResponse
-	(*GetIdRequest)(nil),                                                      // 16: ad.GetIdRequest
-	(*GetIdResponse)(nil),                                                     // 17: ad.GetIdResponse
-	(*GetServiceInfoRequest)(nil),                                             // 18: ad.GetServiceInfoRequest
-	(*GetServiceInfoResponse)(nil),                                            // 19: ad.GetServiceInfoResponse
-	(*WriteToParcelRequest)(nil),                                              // 20: ad.WriteToParcelRequest
-	(*WriteToParcelResponse)(nil),                                             // 21: ad.WriteToParcelResponse
-	(*NewTvAdViewRequest)(nil),                                                // 22: ad.NewTvAdViewRequest
-	(*NewTvAdViewResponse)(nil),                                               // 23: ad.NewTvAdViewResponse
-	(*ClearCallbackRequest)(nil),                                              // 24: ad.ClearCallbackRequest
-	(*ClearCallbackResponse)(nil),                                             // 25: ad.ClearCallbackResponse
-	(*ClearOnUnhandledInputEventListenerRequest)(nil),                         // 26: ad.ClearOnUnhandledInputEventListenerRequest
-	(*ClearOnUnhandledInputEventListenerResponse)(nil),                        // 27: ad.ClearOnUnhandledInputEventListenerResponse
-	(*DispatchKeyEventRequest)(nil),                                           // 28: ad.DispatchKeyEventRequest
-	(*DispatchKeyEventResponse)(nil),                                          // 29: ad.DispatchKeyEventResponse
-	(*DispatchUnhandledInputEventRequest)(nil),                                // 30: ad.DispatchUnhandledInputEventRequest
-	(*DispatchUnhandledInputEventResponse)(nil),                               // 31: ad.DispatchUnhandledInputEventResponse
-	(*GetOnUnhandledInputEventListenerRequest)(nil),                           // 32: ad.GetOnUnhandledInputEventListenerRequest
-	(*GetOnUnhandledInputEventListenerResponse)(nil),                          // 33: ad.GetOnUnhandledInputEventListenerResponse
-	(*NotifyErrorRequest)(nil),                                                // 34: ad.NotifyErrorRequest
-	(*NotifyErrorResponse)(nil),                                               // 35: ad.NotifyErrorResponse
-	(*NotifyTvMessageRequest)(nil),                                            // 36: ad.NotifyTvMessageRequest
-	(*NotifyTvMessageResponse)(nil),                                           // 37: ad.NotifyTvMessageResponse
-	(*OnAttachedToWindowRequest)(nil),                                         // 38: ad.OnAttachedToWindowRequest
-	(*OnAttachedToWindowResponse)(nil),                                        // 39: ad.OnAttachedToWindowResponse
-	(*OnDetachedFromWindowRequest)(nil),                                       // 40: ad.OnDetachedFromWindowRequest
-	(*OnDetachedFromWindowResponse)(nil),                                      // 41: ad.OnDetachedFromWindowResponse
-	(*OnLayoutRequest)(nil),                                                   // 42: ad.OnLayoutRequest
-	(*OnLayoutResponse)(nil),                                                  // 43: ad.OnLayoutResponse
-	(*OnMeasureRequest)(nil),                                                  // 44: ad.OnMeasureRequest
-	(*OnMeasureResponse)(nil),                                                 // 45: ad.OnMeasureResponse
-	(*OnUnhandledInputEventRequest)(nil),                                      // 46: ad.OnUnhandledInputEventRequest
-	(*OnUnhandledInputEventResponse)(nil),                                     // 47: ad.OnUnhandledInputEventResponse
-	(*OnVisibilityChangedRequest)(nil),                                        // 48: ad.OnVisibilityChangedRequest
-	(*OnVisibilityChangedResponse)(nil),                                       // 49: ad.OnVisibilityChangedResponse
-	(*PrepareAdServiceRequest)(nil),                                           // 50: ad.PrepareAdServiceRequest
-	(*PrepareAdServiceResponse)(nil),                                          // 51: ad.PrepareAdServiceResponse
-	(*ResetRequest)(nil),                                                      // 52: ad.ResetRequest
-	(*ResetResponse)(nil),                                                     // 53: ad.ResetResponse
-	(*ResetAdServiceRequest)(nil),                                             // 54: ad.ResetAdServiceRequest
-	(*ResetAdServiceResponse)(nil),                                            // 55: ad.ResetAdServiceResponse
-	(*SendCurrentChannelUriRequest)(nil),                                      // 56: ad.SendCurrentChannelUriRequest
-	(*SendCurrentChannelUriResponse)(nil),                                     // 57: ad.SendCurrentChannelUriResponse
-	(*SendCurrentTvInputIdRequest)(nil),                                       // 58: ad.SendCurrentTvInputIdRequest
-	(*SendCurrentTvInputIdResponse)(nil),                                      // 59: ad.SendCurrentTvInputIdResponse
-	(*SendCurrentVideoBoundsRequest)(nil),                                     // 60: ad.SendCurrentVideoBoundsRequest
-	(*SendCurrentVideoBoundsResponse)(nil),                                    // 61: ad.SendCurrentVideoBoundsResponse
-	(*SendSigningResultRequest)(nil),                                          // 62: ad.SendSigningResultRequest
-	(*SendSigningResultResponse)(nil),                                         // 63: ad.SendSigningResultResponse
-	(*SetCallbackRequest)(nil),                                                // 64: ad.SetCallbackRequest
-	(*SetCallbackResponse)(nil),                                               // 65: ad.SetCallbackResponse
-	(*SetOnUnhandledInputEventListenerRequest)(nil),                           // 66: ad.SetOnUnhandledInputEventListenerRequest
-	(*SetOnUnhandledInputEventListenerResponse)(nil),                          // 67: ad.SetOnUnhandledInputEventListenerResponse
-	(*SetTvViewRequest)(nil),                                                  // 68: ad.SetTvViewRequest
-	(*SetTvViewResponse)(nil),                                                 // 69: ad.SetTvViewResponse
-	(*SetZOrderMediaOverlayRequest)(nil),                                      // 70: ad.SetZOrderMediaOverlayRequest
-	(*SetZOrderMediaOverlayResponse)(nil),                                     // 71: ad.SetZOrderMediaOverlayResponse
-	(*SetZOrderOnTopRequest)(nil),                                             // 72: ad.SetZOrderOnTopRequest
-	(*SetZOrderOnTopResponse)(nil),                                            // 73: ad.SetZOrderOnTopResponse
-	(*StartAdServiceRequest)(nil),                                             // 74: ad.StartAdServiceRequest
-	(*StartAdServiceResponse)(nil),                                            // 75: ad.StartAdServiceResponse
-	(*StopAdServiceRequest)(nil),                                              // 76: ad.StopAdServiceRequest
-	(*StopAdServiceResponse)(nil),                                             // 77: ad.StopAdServiceResponse
-	(*TvAdViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest)(nil), // 78: ad.TvAdViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest
-	(*OnRequestCurrentChannelUriRequest)(nil),                                 // 79: ad.OnRequestCurrentChannelUriRequest
-	(*OnRequestCurrentChannelUriResponse)(nil),                                // 80: ad.OnRequestCurrentChannelUriResponse
-	(*OnRequestCurrentTvInputIdRequest)(nil),                                  // 81: ad.OnRequestCurrentTvInputIdRequest
-	(*OnRequestCurrentTvInputIdResponse)(nil),                                 // 82: ad.OnRequestCurrentTvInputIdResponse
-	(*OnRequestCurrentVideoBoundsRequest)(nil),                                // 83: ad.OnRequestCurrentVideoBoundsRequest
-	(*OnRequestCurrentVideoBoundsResponse)(nil),                               // 84: ad.OnRequestCurrentVideoBoundsResponse
-	(*OnRequestSigningRequest)(nil),                                           // 85: ad.OnRequestSigningRequest
-	(*OnRequestSigningResponse)(nil),                                          // 86: ad.OnRequestSigningResponse
-	(*OnRequestTrackInfoListRequest)(nil),                                     // 87: ad.OnRequestTrackInfoListRequest
-	(*OnRequestTrackInfoListResponse)(nil),                                    // 88: ad.OnRequestTrackInfoListResponse
-	(*OnStateChangedRequest)(nil),                                             // 89: ad.OnStateChangedRequest
-	(*OnStateChangedResponse)(nil),                                            // 90: ad.OnStateChangedResponse
-	(*OnAppLinkCommandRequest)(nil),                                           // 91: ad.OnAppLinkCommandRequest
-	(*OnAppLinkCommandResponse)(nil),                                          // 92: ad.OnAppLinkCommandResponse
-	(*OnBindRequest)(nil),                                                     // 93: ad.OnBindRequest
-	(*OnBindResponse)(nil),                                                    // 94: ad.OnBindResponse
-	(*OnCreateSessionRequest)(nil),                                            // 95: ad.OnCreateSessionRequest
-	(*OnCreateSessionResponse)(nil),                                           // 96: ad.OnCreateSessionResponse
-	(*IsMediaViewEnabledRequest)(nil),                                         // 97: ad.IsMediaViewEnabledRequest
-	(*IsMediaViewEnabledResponse)(nil),                                        // 98: ad.IsMediaViewEnabledResponse
-	(*LayoutSurfaceRequest)(nil),                                              // 99: ad.LayoutSurfaceRequest
-	(*LayoutSurfaceResponse)(nil),                                             // 100: ad.LayoutSurfaceResponse
-	(*NotifySessionStateChangedRequest)(nil),                                  // 101: ad.NotifySessionStateChangedRequest
-	(*NotifySessionStateChangedResponse)(nil),                                 // 102: ad.NotifySessionStateChangedResponse
-	(*OnCreateMediaViewRequest)(nil),                                          // 103: ad.OnCreateMediaViewRequest
-	(*OnCreateMediaViewResponse)(nil),                                         // 104: ad.OnCreateMediaViewResponse
-	(*OnCurrentChannelUriRequest)(nil),                                        // 105: ad.OnCurrentChannelUriRequest
-	(*OnCurrentChannelUriResponse)(nil),                                       // 106: ad.OnCurrentChannelUriResponse
-	(*OnCurrentTvInputIdRequest)(nil),                                         // 107: ad.OnCurrentTvInputIdRequest
-	(*OnCurrentTvInputIdResponse)(nil),                                        // 108: ad.OnCurrentTvInputIdResponse
-	(*OnCurrentVideoBoundsRequest)(nil),                                       // 109: ad.OnCurrentVideoBoundsRequest
-	(*OnCurrentVideoBoundsResponse)(nil),                                      // 110: ad.OnCurrentVideoBoundsResponse
-	(*OnErrorRequest)(nil),                                                    // 111: ad.OnErrorRequest
-	(*OnErrorResponse)(nil),                                                   // 112: ad.OnErrorResponse
-	(*OnGenericMotionEventRequest)(nil),                                       // 113: ad.OnGenericMotionEventRequest
-	(*OnGenericMotionEventResponse)(nil),                                      // 114: ad.OnGenericMotionEventResponse
-	(*OnKeyDownRequest)(nil),                                                  // 115: ad.OnKeyDownRequest
-	(*OnKeyDownResponse)(nil),                                                 // 116: ad.OnKeyDownResponse
-	(*OnKeyLongPressRequest)(nil),                                             // 117: ad.OnKeyLongPressRequest
-	(*OnKeyLongPressResponse)(nil),                                            // 118: ad.OnKeyLongPressResponse
-	(*OnKeyMultipleRequest)(nil),                                              // 119: ad.OnKeyMultipleRequest
-	(*OnKeyMultipleResponse)(nil),                                             // 120: ad.OnKeyMultipleResponse
-	(*OnKeyUpRequest)(nil),                                                    // 121: ad.OnKeyUpRequest
-	(*OnKeyUpResponse)(nil),                                                   // 122: ad.OnKeyUpResponse
-	(*OnMediaViewSizeChangedRequest)(nil),                                     // 123: ad.OnMediaViewSizeChangedRequest
-	(*OnMediaViewSizeChangedResponse)(nil),                                    // 124: ad.OnMediaViewSizeChangedResponse
-	(*OnReleaseRequest)(nil),                                                  // 125: ad.OnReleaseRequest
-	(*OnReleaseResponse)(nil),                                                 // 126: ad.OnReleaseResponse
-	(*OnResetAdServiceRequest)(nil),                                           // 127: ad.OnResetAdServiceRequest
-	(*OnResetAdServiceResponse)(nil),                                          // 128: ad.OnResetAdServiceResponse
-	(*OnSetSurfaceRequest)(nil),                                               // 129: ad.OnSetSurfaceRequest
-	(*OnSetSurfaceResponse)(nil),                                              // 130: ad.OnSetSurfaceResponse
-	(*OnSigningResultRequest)(nil),                                            // 131: ad.OnSigningResultRequest
-	(*OnSigningResultResponse)(nil),                                           // 132: ad.OnSigningResultResponse
-	(*OnStartAdServiceRequest)(nil),                                           // 133: ad.OnStartAdServiceRequest
-	(*OnStartAdServiceResponse)(nil),                                          // 134: ad.OnStartAdServiceResponse
-	(*OnStopAdServiceRequest)(nil),                                            // 135: ad.OnStopAdServiceRequest
-	(*OnStopAdServiceResponse)(nil),                                           // 136: ad.OnStopAdServiceResponse
-	(*OnSurfaceChangedRequest)(nil),                                           // 137: ad.OnSurfaceChangedRequest
-	(*OnSurfaceChangedResponse)(nil),                                          // 138: ad.OnSurfaceChangedResponse
-	(*OnTouchEventRequest)(nil),                                               // 139: ad.OnTouchEventRequest
-	(*OnTouchEventResponse)(nil),                                              // 140: ad.OnTouchEventResponse
-	(*OnTrackballEventRequest)(nil),                                           // 141: ad.OnTrackballEventRequest
-	(*OnTrackballEventResponse)(nil),                                          // 142: ad.OnTrackballEventResponse
-	(*OnTvInputSessionDataRequest)(nil),                                       // 143: ad.OnTvInputSessionDataRequest
-	(*OnTvInputSessionDataResponse)(nil),                                      // 144: ad.OnTvInputSessionDataResponse
-	(*OnTvMessageRequest)(nil),                                                // 145: ad.OnTvMessageRequest
-	(*OnTvMessageResponse)(nil),                                               // 146: ad.OnTvMessageResponse
-	(*RequestCurrentChannelUriRequest)(nil),                                   // 147: ad.RequestCurrentChannelUriRequest
-	(*RequestCurrentChannelUriResponse)(nil),                                  // 148: ad.RequestCurrentChannelUriResponse
-	(*RequestCurrentTvInputIdRequest)(nil),                                    // 149: ad.RequestCurrentTvInputIdRequest
-	(*RequestCurrentTvInputIdResponse)(nil),                                   // 150: ad.RequestCurrentTvInputIdResponse
-	(*RequestCurrentVideoBoundsRequest)(nil),                                  // 151: ad.RequestCurrentVideoBoundsRequest
-	(*RequestCurrentVideoBoundsResponse)(nil),                                 // 152: ad.RequestCurrentVideoBoundsResponse
-	(*RequestSigningRequest)(nil),                                             // 153: ad.RequestSigningRequest
-	(*RequestSigningResponse)(nil),                                            // 154: ad.RequestSigningResponse
-	(*RequestTrackInfoListRequest)(nil),                                       // 155: ad.RequestTrackInfoListRequest
-	(*RequestTrackInfoListResponse)(nil),                                      // 156: ad.RequestTrackInfoListResponse
-	(*SendTvAdSessionDataRequest)(nil),                                        // 157: ad.SendTvAdSessionDataRequest
-	(*SendTvAdSessionDataResponse)(nil),                                       // 158: ad.SendTvAdSessionDataResponse
-	(*SetMediaViewEnabledRequest)(nil),                                        // 159: ad.SetMediaViewEnabledRequest
-	(*SetMediaViewEnabledResponse)(nil),                                       // 160: ad.SetMediaViewEnabledResponse
+	(*NewTvAdServiceInfoRequest)(nil),                                         // 0: ad.NewTvAdServiceInfoRequest
+	(*NewTvAdServiceInfoResponse)(nil),                                        // 1: ad.NewTvAdServiceInfoResponse
+	(*DescribeContentsRequest)(nil),                                           // 2: ad.DescribeContentsRequest
+	(*DescribeContentsResponse)(nil),                                          // 3: ad.DescribeContentsResponse
+	(*GetIdRequest)(nil),                                                      // 4: ad.GetIdRequest
+	(*GetIdResponse)(nil),                                                     // 5: ad.GetIdResponse
+	(*GetServiceInfoRequest)(nil),                                             // 6: ad.GetServiceInfoRequest
+	(*GetServiceInfoResponse)(nil),                                            // 7: ad.GetServiceInfoResponse
+	(*GetSupportedTypesRequest)(nil),                                          // 8: ad.GetSupportedTypesRequest
+	(*GetSupportedTypesResponse)(nil),                                         // 9: ad.GetSupportedTypesResponse
+	(*WriteToParcelRequest)(nil),                                              // 10: ad.WriteToParcelRequest
+	(*WriteToParcelResponse)(nil),                                             // 11: ad.WriteToParcelResponse
+	(*NewTvAdViewRequest)(nil),                                                // 12: ad.NewTvAdViewRequest
+	(*NewTvAdViewResponse)(nil),                                               // 13: ad.NewTvAdViewResponse
+	(*ClearCallbackRequest)(nil),                                              // 14: ad.ClearCallbackRequest
+	(*ClearCallbackResponse)(nil),                                             // 15: ad.ClearCallbackResponse
+	(*ClearOnUnhandledInputEventListenerRequest)(nil),                         // 16: ad.ClearOnUnhandledInputEventListenerRequest
+	(*ClearOnUnhandledInputEventListenerResponse)(nil),                        // 17: ad.ClearOnUnhandledInputEventListenerResponse
+	(*DispatchKeyEventRequest)(nil),                                           // 18: ad.DispatchKeyEventRequest
+	(*DispatchKeyEventResponse)(nil),                                          // 19: ad.DispatchKeyEventResponse
+	(*DispatchUnhandledInputEventRequest)(nil),                                // 20: ad.DispatchUnhandledInputEventRequest
+	(*DispatchUnhandledInputEventResponse)(nil),                               // 21: ad.DispatchUnhandledInputEventResponse
+	(*GetOnUnhandledInputEventListenerRequest)(nil),                           // 22: ad.GetOnUnhandledInputEventListenerRequest
+	(*GetOnUnhandledInputEventListenerResponse)(nil),                          // 23: ad.GetOnUnhandledInputEventListenerResponse
+	(*NotifyErrorRequest)(nil),                                                // 24: ad.NotifyErrorRequest
+	(*NotifyErrorResponse)(nil),                                               // 25: ad.NotifyErrorResponse
+	(*NotifyTvMessageRequest)(nil),                                            // 26: ad.NotifyTvMessageRequest
+	(*NotifyTvMessageResponse)(nil),                                           // 27: ad.NotifyTvMessageResponse
+	(*OnAttachedToWindowRequest)(nil),                                         // 28: ad.OnAttachedToWindowRequest
+	(*OnAttachedToWindowResponse)(nil),                                        // 29: ad.OnAttachedToWindowResponse
+	(*OnDetachedFromWindowRequest)(nil),                                       // 30: ad.OnDetachedFromWindowRequest
+	(*OnDetachedFromWindowResponse)(nil),                                      // 31: ad.OnDetachedFromWindowResponse
+	(*OnLayoutRequest)(nil),                                                   // 32: ad.OnLayoutRequest
+	(*OnLayoutResponse)(nil),                                                  // 33: ad.OnLayoutResponse
+	(*OnMeasureRequest)(nil),                                                  // 34: ad.OnMeasureRequest
+	(*OnMeasureResponse)(nil),                                                 // 35: ad.OnMeasureResponse
+	(*OnUnhandledInputEventRequest)(nil),                                      // 36: ad.OnUnhandledInputEventRequest
+	(*OnUnhandledInputEventResponse)(nil),                                     // 37: ad.OnUnhandledInputEventResponse
+	(*OnVisibilityChangedRequest)(nil),                                        // 38: ad.OnVisibilityChangedRequest
+	(*OnVisibilityChangedResponse)(nil),                                       // 39: ad.OnVisibilityChangedResponse
+	(*PrepareAdServiceRequest)(nil),                                           // 40: ad.PrepareAdServiceRequest
+	(*PrepareAdServiceResponse)(nil),                                          // 41: ad.PrepareAdServiceResponse
+	(*ResetRequest)(nil),                                                      // 42: ad.ResetRequest
+	(*ResetResponse)(nil),                                                     // 43: ad.ResetResponse
+	(*ResetAdServiceRequest)(nil),                                             // 44: ad.ResetAdServiceRequest
+	(*ResetAdServiceResponse)(nil),                                            // 45: ad.ResetAdServiceResponse
+	(*SendCurrentChannelUriRequest)(nil),                                      // 46: ad.SendCurrentChannelUriRequest
+	(*SendCurrentChannelUriResponse)(nil),                                     // 47: ad.SendCurrentChannelUriResponse
+	(*SendCurrentTvInputIdRequest)(nil),                                       // 48: ad.SendCurrentTvInputIdRequest
+	(*SendCurrentTvInputIdResponse)(nil),                                      // 49: ad.SendCurrentTvInputIdResponse
+	(*SendCurrentVideoBoundsRequest)(nil),                                     // 50: ad.SendCurrentVideoBoundsRequest
+	(*SendCurrentVideoBoundsResponse)(nil),                                    // 51: ad.SendCurrentVideoBoundsResponse
+	(*SendSigningResultRequest)(nil),                                          // 52: ad.SendSigningResultRequest
+	(*SendSigningResultResponse)(nil),                                         // 53: ad.SendSigningResultResponse
+	(*SetCallbackRequest)(nil),                                                // 54: ad.SetCallbackRequest
+	(*SetCallbackResponse)(nil),                                               // 55: ad.SetCallbackResponse
+	(*SetOnUnhandledInputEventListenerRequest)(nil),                           // 56: ad.SetOnUnhandledInputEventListenerRequest
+	(*SetOnUnhandledInputEventListenerResponse)(nil),                          // 57: ad.SetOnUnhandledInputEventListenerResponse
+	(*SetTvViewRequest)(nil),                                                  // 58: ad.SetTvViewRequest
+	(*SetTvViewResponse)(nil),                                                 // 59: ad.SetTvViewResponse
+	(*SetZOrderMediaOverlayRequest)(nil),                                      // 60: ad.SetZOrderMediaOverlayRequest
+	(*SetZOrderMediaOverlayResponse)(nil),                                     // 61: ad.SetZOrderMediaOverlayResponse
+	(*SetZOrderOnTopRequest)(nil),                                             // 62: ad.SetZOrderOnTopRequest
+	(*SetZOrderOnTopResponse)(nil),                                            // 63: ad.SetZOrderOnTopResponse
+	(*StartAdServiceRequest)(nil),                                             // 64: ad.StartAdServiceRequest
+	(*StartAdServiceResponse)(nil),                                            // 65: ad.StartAdServiceResponse
+	(*StopAdServiceRequest)(nil),                                              // 66: ad.StopAdServiceRequest
+	(*StopAdServiceResponse)(nil),                                             // 67: ad.StopAdServiceResponse
+	(*TvAdViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest)(nil), // 68: ad.TvAdViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest
+	(*OnRequestCurrentChannelUriRequest)(nil),                                 // 69: ad.OnRequestCurrentChannelUriRequest
+	(*OnRequestCurrentChannelUriResponse)(nil),                                // 70: ad.OnRequestCurrentChannelUriResponse
+	(*OnRequestCurrentTvInputIdRequest)(nil),                                  // 71: ad.OnRequestCurrentTvInputIdRequest
+	(*OnRequestCurrentTvInputIdResponse)(nil),                                 // 72: ad.OnRequestCurrentTvInputIdResponse
+	(*OnRequestCurrentVideoBoundsRequest)(nil),                                // 73: ad.OnRequestCurrentVideoBoundsRequest
+	(*OnRequestCurrentVideoBoundsResponse)(nil),                               // 74: ad.OnRequestCurrentVideoBoundsResponse
+	(*OnRequestSigningRequest)(nil),                                           // 75: ad.OnRequestSigningRequest
+	(*OnRequestSigningResponse)(nil),                                          // 76: ad.OnRequestSigningResponse
+	(*OnRequestTrackInfoListRequest)(nil),                                     // 77: ad.OnRequestTrackInfoListRequest
+	(*OnRequestTrackInfoListResponse)(nil),                                    // 78: ad.OnRequestTrackInfoListResponse
+	(*OnStateChangedRequest)(nil),                                             // 79: ad.OnStateChangedRequest
+	(*OnStateChangedResponse)(nil),                                            // 80: ad.OnStateChangedResponse
+	(*GetTvAdServiceListRequest)(nil),                                         // 81: ad.GetTvAdServiceListRequest
+	(*GetTvAdServiceListResponse)(nil),                                        // 82: ad.GetTvAdServiceListResponse
+	(*RegisterCallbackRequest)(nil),                                           // 83: ad.RegisterCallbackRequest
+	(*RegisterCallbackResponse)(nil),                                          // 84: ad.RegisterCallbackResponse
+	(*SendAppLinkCommandRequest)(nil),                                         // 85: ad.SendAppLinkCommandRequest
+	(*SendAppLinkCommandResponse)(nil),                                        // 86: ad.SendAppLinkCommandResponse
+	(*UnregisterCallbackRequest)(nil),                                         // 87: ad.UnregisterCallbackRequest
+	(*UnregisterCallbackResponse)(nil),                                        // 88: ad.UnregisterCallbackResponse
+	(*OnAdServiceAddedRequest)(nil),                                           // 89: ad.OnAdServiceAddedRequest
+	(*OnAdServiceAddedResponse)(nil),                                          // 90: ad.OnAdServiceAddedResponse
+	(*OnAdServiceRemovedRequest)(nil),                                         // 91: ad.OnAdServiceRemovedRequest
+	(*OnAdServiceRemovedResponse)(nil),                                        // 92: ad.OnAdServiceRemovedResponse
+	(*OnAdServiceUpdatedRequest)(nil),                                         // 93: ad.OnAdServiceUpdatedRequest
+	(*OnAdServiceUpdatedResponse)(nil),                                        // 94: ad.OnAdServiceUpdatedResponse
+	(*OnAppLinkCommandRequest)(nil),                                           // 95: ad.OnAppLinkCommandRequest
+	(*OnAppLinkCommandResponse)(nil),                                          // 96: ad.OnAppLinkCommandResponse
+	(*OnBindRequest)(nil),                                                     // 97: ad.OnBindRequest
+	(*OnBindResponse)(nil),                                                    // 98: ad.OnBindResponse
+	(*OnCreateSessionRequest)(nil),                                            // 99: ad.OnCreateSessionRequest
+	(*OnCreateSessionResponse)(nil),                                           // 100: ad.OnCreateSessionResponse
+	(*IsMediaViewEnabledRequest)(nil),                                         // 101: ad.IsMediaViewEnabledRequest
+	(*IsMediaViewEnabledResponse)(nil),                                        // 102: ad.IsMediaViewEnabledResponse
+	(*LayoutSurfaceRequest)(nil),                                              // 103: ad.LayoutSurfaceRequest
+	(*LayoutSurfaceResponse)(nil),                                             // 104: ad.LayoutSurfaceResponse
+	(*NotifySessionStateChangedRequest)(nil),                                  // 105: ad.NotifySessionStateChangedRequest
+	(*NotifySessionStateChangedResponse)(nil),                                 // 106: ad.NotifySessionStateChangedResponse
+	(*OnCreateMediaViewRequest)(nil),                                          // 107: ad.OnCreateMediaViewRequest
+	(*OnCreateMediaViewResponse)(nil),                                         // 108: ad.OnCreateMediaViewResponse
+	(*OnCurrentChannelUriRequest)(nil),                                        // 109: ad.OnCurrentChannelUriRequest
+	(*OnCurrentChannelUriResponse)(nil),                                       // 110: ad.OnCurrentChannelUriResponse
+	(*OnCurrentTvInputIdRequest)(nil),                                         // 111: ad.OnCurrentTvInputIdRequest
+	(*OnCurrentTvInputIdResponse)(nil),                                        // 112: ad.OnCurrentTvInputIdResponse
+	(*OnCurrentVideoBoundsRequest)(nil),                                       // 113: ad.OnCurrentVideoBoundsRequest
+	(*OnCurrentVideoBoundsResponse)(nil),                                      // 114: ad.OnCurrentVideoBoundsResponse
+	(*OnErrorRequest)(nil),                                                    // 115: ad.OnErrorRequest
+	(*OnErrorResponse)(nil),                                                   // 116: ad.OnErrorResponse
+	(*OnGenericMotionEventRequest)(nil),                                       // 117: ad.OnGenericMotionEventRequest
+	(*OnGenericMotionEventResponse)(nil),                                      // 118: ad.OnGenericMotionEventResponse
+	(*OnKeyDownRequest)(nil),                                                  // 119: ad.OnKeyDownRequest
+	(*OnKeyDownResponse)(nil),                                                 // 120: ad.OnKeyDownResponse
+	(*OnKeyLongPressRequest)(nil),                                             // 121: ad.OnKeyLongPressRequest
+	(*OnKeyLongPressResponse)(nil),                                            // 122: ad.OnKeyLongPressResponse
+	(*OnKeyMultipleRequest)(nil),                                              // 123: ad.OnKeyMultipleRequest
+	(*OnKeyMultipleResponse)(nil),                                             // 124: ad.OnKeyMultipleResponse
+	(*OnKeyUpRequest)(nil),                                                    // 125: ad.OnKeyUpRequest
+	(*OnKeyUpResponse)(nil),                                                   // 126: ad.OnKeyUpResponse
+	(*OnMediaViewSizeChangedRequest)(nil),                                     // 127: ad.OnMediaViewSizeChangedRequest
+	(*OnMediaViewSizeChangedResponse)(nil),                                    // 128: ad.OnMediaViewSizeChangedResponse
+	(*OnReleaseRequest)(nil),                                                  // 129: ad.OnReleaseRequest
+	(*OnReleaseResponse)(nil),                                                 // 130: ad.OnReleaseResponse
+	(*OnResetAdServiceRequest)(nil),                                           // 131: ad.OnResetAdServiceRequest
+	(*OnResetAdServiceResponse)(nil),                                          // 132: ad.OnResetAdServiceResponse
+	(*OnSetSurfaceRequest)(nil),                                               // 133: ad.OnSetSurfaceRequest
+	(*OnSetSurfaceResponse)(nil),                                              // 134: ad.OnSetSurfaceResponse
+	(*OnSigningResultRequest)(nil),                                            // 135: ad.OnSigningResultRequest
+	(*OnSigningResultResponse)(nil),                                           // 136: ad.OnSigningResultResponse
+	(*OnStartAdServiceRequest)(nil),                                           // 137: ad.OnStartAdServiceRequest
+	(*OnStartAdServiceResponse)(nil),                                          // 138: ad.OnStartAdServiceResponse
+	(*OnStopAdServiceRequest)(nil),                                            // 139: ad.OnStopAdServiceRequest
+	(*OnStopAdServiceResponse)(nil),                                           // 140: ad.OnStopAdServiceResponse
+	(*OnSurfaceChangedRequest)(nil),                                           // 141: ad.OnSurfaceChangedRequest
+	(*OnSurfaceChangedResponse)(nil),                                          // 142: ad.OnSurfaceChangedResponse
+	(*OnTouchEventRequest)(nil),                                               // 143: ad.OnTouchEventRequest
+	(*OnTouchEventResponse)(nil),                                              // 144: ad.OnTouchEventResponse
+	(*OnTrackballEventRequest)(nil),                                           // 145: ad.OnTrackballEventRequest
+	(*OnTrackballEventResponse)(nil),                                          // 146: ad.OnTrackballEventResponse
+	(*OnTvInputSessionDataRequest)(nil),                                       // 147: ad.OnTvInputSessionDataRequest
+	(*OnTvInputSessionDataResponse)(nil),                                      // 148: ad.OnTvInputSessionDataResponse
+	(*OnTvMessageRequest)(nil),                                                // 149: ad.OnTvMessageRequest
+	(*OnTvMessageResponse)(nil),                                               // 150: ad.OnTvMessageResponse
+	(*RequestCurrentChannelUriRequest)(nil),                                   // 151: ad.RequestCurrentChannelUriRequest
+	(*RequestCurrentChannelUriResponse)(nil),                                  // 152: ad.RequestCurrentChannelUriResponse
+	(*RequestCurrentTvInputIdRequest)(nil),                                    // 153: ad.RequestCurrentTvInputIdRequest
+	(*RequestCurrentTvInputIdResponse)(nil),                                   // 154: ad.RequestCurrentTvInputIdResponse
+	(*RequestCurrentVideoBoundsRequest)(nil),                                  // 155: ad.RequestCurrentVideoBoundsRequest
+	(*RequestCurrentVideoBoundsResponse)(nil),                                 // 156: ad.RequestCurrentVideoBoundsResponse
+	(*RequestSigningRequest)(nil),                                             // 157: ad.RequestSigningRequest
+	(*RequestSigningResponse)(nil),                                            // 158: ad.RequestSigningResponse
+	(*RequestTrackInfoListRequest)(nil),                                       // 159: ad.RequestTrackInfoListRequest
+	(*RequestTrackInfoListResponse)(nil),                                      // 160: ad.RequestTrackInfoListResponse
+	(*SendTvAdSessionDataRequest)(nil),                                        // 161: ad.SendTvAdSessionDataRequest
+	(*SendTvAdSessionDataResponse)(nil),                                       // 162: ad.SendTvAdSessionDataResponse
+	(*SetMediaViewEnabledRequest)(nil),                                        // 163: ad.SetMediaViewEnabledRequest
+	(*SetMediaViewEnabledResponse)(nil),                                       // 164: ad.SetMediaViewEnabledResponse
 }
 var file_proto_ad_ad_proto_depIdxs = []int32{
-	0,   // 0: ad.TvAdManagerService.RegisterCallback:input_type -> ad.RegisterCallbackRequest
-	2,   // 1: ad.TvAdManagerService.SendAppLinkCommand:input_type -> ad.SendAppLinkCommandRequest
-	4,   // 2: ad.TvAdManagerService.UnregisterCallback:input_type -> ad.UnregisterCallbackRequest
-	6,   // 3: ad.TvAdManagerTvAdServiceCallbackService.OnAdServiceAdded:input_type -> ad.OnAdServiceAddedRequest
-	8,   // 4: ad.TvAdManagerTvAdServiceCallbackService.OnAdServiceRemoved:input_type -> ad.OnAdServiceRemovedRequest
-	10,  // 5: ad.TvAdManagerTvAdServiceCallbackService.OnAdServiceUpdated:input_type -> ad.OnAdServiceUpdatedRequest
-	12,  // 6: ad.TvAdServiceInfoService.NewTvAdServiceInfo:input_type -> ad.NewTvAdServiceInfoRequest
-	14,  // 7: ad.TvAdServiceInfoService.DescribeContents:input_type -> ad.DescribeContentsRequest
-	16,  // 8: ad.TvAdServiceInfoService.GetId:input_type -> ad.GetIdRequest
-	18,  // 9: ad.TvAdServiceInfoService.GetServiceInfo:input_type -> ad.GetServiceInfoRequest
-	20,  // 10: ad.TvAdServiceInfoService.WriteToParcel:input_type -> ad.WriteToParcelRequest
-	22,  // 11: ad.TvAdViewService.NewTvAdView:input_type -> ad.NewTvAdViewRequest
-	24,  // 12: ad.TvAdViewService.ClearCallback:input_type -> ad.ClearCallbackRequest
-	26,  // 13: ad.TvAdViewService.ClearOnUnhandledInputEventListener:input_type -> ad.ClearOnUnhandledInputEventListenerRequest
-	28,  // 14: ad.TvAdViewService.DispatchKeyEvent:input_type -> ad.DispatchKeyEventRequest
-	30,  // 15: ad.TvAdViewService.DispatchUnhandledInputEvent:input_type -> ad.DispatchUnhandledInputEventRequest
-	32,  // 16: ad.TvAdViewService.GetOnUnhandledInputEventListener:input_type -> ad.GetOnUnhandledInputEventListenerRequest
-	34,  // 17: ad.TvAdViewService.NotifyError:input_type -> ad.NotifyErrorRequest
-	36,  // 18: ad.TvAdViewService.NotifyTvMessage:input_type -> ad.NotifyTvMessageRequest
-	38,  // 19: ad.TvAdViewService.OnAttachedToWindow:input_type -> ad.OnAttachedToWindowRequest
-	40,  // 20: ad.TvAdViewService.OnDetachedFromWindow:input_type -> ad.OnDetachedFromWindowRequest
-	42,  // 21: ad.TvAdViewService.OnLayout:input_type -> ad.OnLayoutRequest
-	44,  // 22: ad.TvAdViewService.OnMeasure:input_type -> ad.OnMeasureRequest
-	46,  // 23: ad.TvAdViewService.OnUnhandledInputEvent:input_type -> ad.OnUnhandledInputEventRequest
-	48,  // 24: ad.TvAdViewService.OnVisibilityChanged:input_type -> ad.OnVisibilityChangedRequest
-	50,  // 25: ad.TvAdViewService.PrepareAdService:input_type -> ad.PrepareAdServiceRequest
-	52,  // 26: ad.TvAdViewService.Reset:input_type -> ad.ResetRequest
-	54,  // 27: ad.TvAdViewService.ResetAdService:input_type -> ad.ResetAdServiceRequest
-	56,  // 28: ad.TvAdViewService.SendCurrentChannelUri:input_type -> ad.SendCurrentChannelUriRequest
-	58,  // 29: ad.TvAdViewService.SendCurrentTvInputId:input_type -> ad.SendCurrentTvInputIdRequest
-	60,  // 30: ad.TvAdViewService.SendCurrentVideoBounds:input_type -> ad.SendCurrentVideoBoundsRequest
-	62,  // 31: ad.TvAdViewService.SendSigningResult:input_type -> ad.SendSigningResultRequest
-	64,  // 32: ad.TvAdViewService.SetCallback:input_type -> ad.SetCallbackRequest
-	66,  // 33: ad.TvAdViewService.SetOnUnhandledInputEventListener:input_type -> ad.SetOnUnhandledInputEventListenerRequest
-	68,  // 34: ad.TvAdViewService.SetTvView:input_type -> ad.SetTvViewRequest
-	70,  // 35: ad.TvAdViewService.SetZOrderMediaOverlay:input_type -> ad.SetZOrderMediaOverlayRequest
-	72,  // 36: ad.TvAdViewService.SetZOrderOnTop:input_type -> ad.SetZOrderOnTopRequest
-	74,  // 37: ad.TvAdViewService.StartAdService:input_type -> ad.StartAdServiceRequest
-	76,  // 38: ad.TvAdViewService.StopAdService:input_type -> ad.StopAdServiceRequest
-	78,  // 39: ad.TvAdViewOnUnhandledInputEventListenerService.OnUnhandledInputEvent:input_type -> ad.TvAdViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest
-	79,  // 40: ad.TvAdViewTvAdCallbackService.OnRequestCurrentChannelUri:input_type -> ad.OnRequestCurrentChannelUriRequest
-	81,  // 41: ad.TvAdViewTvAdCallbackService.OnRequestCurrentTvInputId:input_type -> ad.OnRequestCurrentTvInputIdRequest
-	83,  // 42: ad.TvAdViewTvAdCallbackService.OnRequestCurrentVideoBounds:input_type -> ad.OnRequestCurrentVideoBoundsRequest
-	85,  // 43: ad.TvAdViewTvAdCallbackService.OnRequestSigning:input_type -> ad.OnRequestSigningRequest
-	87,  // 44: ad.TvAdViewTvAdCallbackService.OnRequestTrackInfoList:input_type -> ad.OnRequestTrackInfoListRequest
-	89,  // 45: ad.TvAdViewTvAdCallbackService.OnStateChanged:input_type -> ad.OnStateChangedRequest
-	91,  // 46: ad.TvAdServiceService.OnAppLinkCommand:input_type -> ad.OnAppLinkCommandRequest
-	93,  // 47: ad.TvAdServiceService.OnBind:input_type -> ad.OnBindRequest
-	95,  // 48: ad.TvAdServiceService.OnCreateSession:input_type -> ad.OnCreateSessionRequest
-	97,  // 49: ad.TvAdServiceSessionService.IsMediaViewEnabled:input_type -> ad.IsMediaViewEnabledRequest
-	99,  // 50: ad.TvAdServiceSessionService.LayoutSurface:input_type -> ad.LayoutSurfaceRequest
-	101, // 51: ad.TvAdServiceSessionService.NotifySessionStateChanged:input_type -> ad.NotifySessionStateChangedRequest
-	103, // 52: ad.TvAdServiceSessionService.OnCreateMediaView:input_type -> ad.OnCreateMediaViewRequest
-	105, // 53: ad.TvAdServiceSessionService.OnCurrentChannelUri:input_type -> ad.OnCurrentChannelUriRequest
-	107, // 54: ad.TvAdServiceSessionService.OnCurrentTvInputId:input_type -> ad.OnCurrentTvInputIdRequest
-	109, // 55: ad.TvAdServiceSessionService.OnCurrentVideoBounds:input_type -> ad.OnCurrentVideoBoundsRequest
-	111, // 56: ad.TvAdServiceSessionService.OnError:input_type -> ad.OnErrorRequest
-	113, // 57: ad.TvAdServiceSessionService.OnGenericMotionEvent:input_type -> ad.OnGenericMotionEventRequest
-	115, // 58: ad.TvAdServiceSessionService.OnKeyDown:input_type -> ad.OnKeyDownRequest
-	117, // 59: ad.TvAdServiceSessionService.OnKeyLongPress:input_type -> ad.OnKeyLongPressRequest
-	119, // 60: ad.TvAdServiceSessionService.OnKeyMultiple:input_type -> ad.OnKeyMultipleRequest
-	121, // 61: ad.TvAdServiceSessionService.OnKeyUp:input_type -> ad.OnKeyUpRequest
-	123, // 62: ad.TvAdServiceSessionService.OnMediaViewSizeChanged:input_type -> ad.OnMediaViewSizeChangedRequest
-	125, // 63: ad.TvAdServiceSessionService.OnRelease:input_type -> ad.OnReleaseRequest
-	127, // 64: ad.TvAdServiceSessionService.OnResetAdService:input_type -> ad.OnResetAdServiceRequest
-	129, // 65: ad.TvAdServiceSessionService.OnSetSurface:input_type -> ad.OnSetSurfaceRequest
-	131, // 66: ad.TvAdServiceSessionService.OnSigningResult:input_type -> ad.OnSigningResultRequest
-	133, // 67: ad.TvAdServiceSessionService.OnStartAdService:input_type -> ad.OnStartAdServiceRequest
-	135, // 68: ad.TvAdServiceSessionService.OnStopAdService:input_type -> ad.OnStopAdServiceRequest
-	137, // 69: ad.TvAdServiceSessionService.OnSurfaceChanged:input_type -> ad.OnSurfaceChangedRequest
-	139, // 70: ad.TvAdServiceSessionService.OnTouchEvent:input_type -> ad.OnTouchEventRequest
-	141, // 71: ad.TvAdServiceSessionService.OnTrackballEvent:input_type -> ad.OnTrackballEventRequest
-	143, // 72: ad.TvAdServiceSessionService.OnTvInputSessionData:input_type -> ad.OnTvInputSessionDataRequest
-	145, // 73: ad.TvAdServiceSessionService.OnTvMessage:input_type -> ad.OnTvMessageRequest
-	147, // 74: ad.TvAdServiceSessionService.RequestCurrentChannelUri:input_type -> ad.RequestCurrentChannelUriRequest
-	149, // 75: ad.TvAdServiceSessionService.RequestCurrentTvInputId:input_type -> ad.RequestCurrentTvInputIdRequest
-	151, // 76: ad.TvAdServiceSessionService.RequestCurrentVideoBounds:input_type -> ad.RequestCurrentVideoBoundsRequest
-	153, // 77: ad.TvAdServiceSessionService.RequestSigning:input_type -> ad.RequestSigningRequest
-	155, // 78: ad.TvAdServiceSessionService.RequestTrackInfoList:input_type -> ad.RequestTrackInfoListRequest
-	157, // 79: ad.TvAdServiceSessionService.SendTvAdSessionData:input_type -> ad.SendTvAdSessionDataRequest
-	159, // 80: ad.TvAdServiceSessionService.SetMediaViewEnabled:input_type -> ad.SetMediaViewEnabledRequest
-	1,   // 81: ad.TvAdManagerService.RegisterCallback:output_type -> ad.RegisterCallbackResponse
-	3,   // 82: ad.TvAdManagerService.SendAppLinkCommand:output_type -> ad.SendAppLinkCommandResponse
-	5,   // 83: ad.TvAdManagerService.UnregisterCallback:output_type -> ad.UnregisterCallbackResponse
-	7,   // 84: ad.TvAdManagerTvAdServiceCallbackService.OnAdServiceAdded:output_type -> ad.OnAdServiceAddedResponse
-	9,   // 85: ad.TvAdManagerTvAdServiceCallbackService.OnAdServiceRemoved:output_type -> ad.OnAdServiceRemovedResponse
-	11,  // 86: ad.TvAdManagerTvAdServiceCallbackService.OnAdServiceUpdated:output_type -> ad.OnAdServiceUpdatedResponse
-	13,  // 87: ad.TvAdServiceInfoService.NewTvAdServiceInfo:output_type -> ad.NewTvAdServiceInfoResponse
-	15,  // 88: ad.TvAdServiceInfoService.DescribeContents:output_type -> ad.DescribeContentsResponse
-	17,  // 89: ad.TvAdServiceInfoService.GetId:output_type -> ad.GetIdResponse
-	19,  // 90: ad.TvAdServiceInfoService.GetServiceInfo:output_type -> ad.GetServiceInfoResponse
-	21,  // 91: ad.TvAdServiceInfoService.WriteToParcel:output_type -> ad.WriteToParcelResponse
-	23,  // 92: ad.TvAdViewService.NewTvAdView:output_type -> ad.NewTvAdViewResponse
-	25,  // 93: ad.TvAdViewService.ClearCallback:output_type -> ad.ClearCallbackResponse
-	27,  // 94: ad.TvAdViewService.ClearOnUnhandledInputEventListener:output_type -> ad.ClearOnUnhandledInputEventListenerResponse
-	29,  // 95: ad.TvAdViewService.DispatchKeyEvent:output_type -> ad.DispatchKeyEventResponse
-	31,  // 96: ad.TvAdViewService.DispatchUnhandledInputEvent:output_type -> ad.DispatchUnhandledInputEventResponse
-	33,  // 97: ad.TvAdViewService.GetOnUnhandledInputEventListener:output_type -> ad.GetOnUnhandledInputEventListenerResponse
-	35,  // 98: ad.TvAdViewService.NotifyError:output_type -> ad.NotifyErrorResponse
-	37,  // 99: ad.TvAdViewService.NotifyTvMessage:output_type -> ad.NotifyTvMessageResponse
-	39,  // 100: ad.TvAdViewService.OnAttachedToWindow:output_type -> ad.OnAttachedToWindowResponse
-	41,  // 101: ad.TvAdViewService.OnDetachedFromWindow:output_type -> ad.OnDetachedFromWindowResponse
-	43,  // 102: ad.TvAdViewService.OnLayout:output_type -> ad.OnLayoutResponse
-	45,  // 103: ad.TvAdViewService.OnMeasure:output_type -> ad.OnMeasureResponse
-	47,  // 104: ad.TvAdViewService.OnUnhandledInputEvent:output_type -> ad.OnUnhandledInputEventResponse
-	49,  // 105: ad.TvAdViewService.OnVisibilityChanged:output_type -> ad.OnVisibilityChangedResponse
-	51,  // 106: ad.TvAdViewService.PrepareAdService:output_type -> ad.PrepareAdServiceResponse
-	53,  // 107: ad.TvAdViewService.Reset:output_type -> ad.ResetResponse
-	55,  // 108: ad.TvAdViewService.ResetAdService:output_type -> ad.ResetAdServiceResponse
-	57,  // 109: ad.TvAdViewService.SendCurrentChannelUri:output_type -> ad.SendCurrentChannelUriResponse
-	59,  // 110: ad.TvAdViewService.SendCurrentTvInputId:output_type -> ad.SendCurrentTvInputIdResponse
-	61,  // 111: ad.TvAdViewService.SendCurrentVideoBounds:output_type -> ad.SendCurrentVideoBoundsResponse
-	63,  // 112: ad.TvAdViewService.SendSigningResult:output_type -> ad.SendSigningResultResponse
-	65,  // 113: ad.TvAdViewService.SetCallback:output_type -> ad.SetCallbackResponse
-	67,  // 114: ad.TvAdViewService.SetOnUnhandledInputEventListener:output_type -> ad.SetOnUnhandledInputEventListenerResponse
-	69,  // 115: ad.TvAdViewService.SetTvView:output_type -> ad.SetTvViewResponse
-	71,  // 116: ad.TvAdViewService.SetZOrderMediaOverlay:output_type -> ad.SetZOrderMediaOverlayResponse
-	73,  // 117: ad.TvAdViewService.SetZOrderOnTop:output_type -> ad.SetZOrderOnTopResponse
-	75,  // 118: ad.TvAdViewService.StartAdService:output_type -> ad.StartAdServiceResponse
-	77,  // 119: ad.TvAdViewService.StopAdService:output_type -> ad.StopAdServiceResponse
-	47,  // 120: ad.TvAdViewOnUnhandledInputEventListenerService.OnUnhandledInputEvent:output_type -> ad.OnUnhandledInputEventResponse
-	80,  // 121: ad.TvAdViewTvAdCallbackService.OnRequestCurrentChannelUri:output_type -> ad.OnRequestCurrentChannelUriResponse
-	82,  // 122: ad.TvAdViewTvAdCallbackService.OnRequestCurrentTvInputId:output_type -> ad.OnRequestCurrentTvInputIdResponse
-	84,  // 123: ad.TvAdViewTvAdCallbackService.OnRequestCurrentVideoBounds:output_type -> ad.OnRequestCurrentVideoBoundsResponse
-	86,  // 124: ad.TvAdViewTvAdCallbackService.OnRequestSigning:output_type -> ad.OnRequestSigningResponse
-	88,  // 125: ad.TvAdViewTvAdCallbackService.OnRequestTrackInfoList:output_type -> ad.OnRequestTrackInfoListResponse
-	90,  // 126: ad.TvAdViewTvAdCallbackService.OnStateChanged:output_type -> ad.OnStateChangedResponse
-	92,  // 127: ad.TvAdServiceService.OnAppLinkCommand:output_type -> ad.OnAppLinkCommandResponse
-	94,  // 128: ad.TvAdServiceService.OnBind:output_type -> ad.OnBindResponse
-	96,  // 129: ad.TvAdServiceService.OnCreateSession:output_type -> ad.OnCreateSessionResponse
-	98,  // 130: ad.TvAdServiceSessionService.IsMediaViewEnabled:output_type -> ad.IsMediaViewEnabledResponse
-	100, // 131: ad.TvAdServiceSessionService.LayoutSurface:output_type -> ad.LayoutSurfaceResponse
-	102, // 132: ad.TvAdServiceSessionService.NotifySessionStateChanged:output_type -> ad.NotifySessionStateChangedResponse
-	104, // 133: ad.TvAdServiceSessionService.OnCreateMediaView:output_type -> ad.OnCreateMediaViewResponse
-	106, // 134: ad.TvAdServiceSessionService.OnCurrentChannelUri:output_type -> ad.OnCurrentChannelUriResponse
-	108, // 135: ad.TvAdServiceSessionService.OnCurrentTvInputId:output_type -> ad.OnCurrentTvInputIdResponse
-	110, // 136: ad.TvAdServiceSessionService.OnCurrentVideoBounds:output_type -> ad.OnCurrentVideoBoundsResponse
-	112, // 137: ad.TvAdServiceSessionService.OnError:output_type -> ad.OnErrorResponse
-	114, // 138: ad.TvAdServiceSessionService.OnGenericMotionEvent:output_type -> ad.OnGenericMotionEventResponse
-	116, // 139: ad.TvAdServiceSessionService.OnKeyDown:output_type -> ad.OnKeyDownResponse
-	118, // 140: ad.TvAdServiceSessionService.OnKeyLongPress:output_type -> ad.OnKeyLongPressResponse
-	120, // 141: ad.TvAdServiceSessionService.OnKeyMultiple:output_type -> ad.OnKeyMultipleResponse
-	122, // 142: ad.TvAdServiceSessionService.OnKeyUp:output_type -> ad.OnKeyUpResponse
-	124, // 143: ad.TvAdServiceSessionService.OnMediaViewSizeChanged:output_type -> ad.OnMediaViewSizeChangedResponse
-	126, // 144: ad.TvAdServiceSessionService.OnRelease:output_type -> ad.OnReleaseResponse
-	128, // 145: ad.TvAdServiceSessionService.OnResetAdService:output_type -> ad.OnResetAdServiceResponse
-	130, // 146: ad.TvAdServiceSessionService.OnSetSurface:output_type -> ad.OnSetSurfaceResponse
-	132, // 147: ad.TvAdServiceSessionService.OnSigningResult:output_type -> ad.OnSigningResultResponse
-	134, // 148: ad.TvAdServiceSessionService.OnStartAdService:output_type -> ad.OnStartAdServiceResponse
-	136, // 149: ad.TvAdServiceSessionService.OnStopAdService:output_type -> ad.OnStopAdServiceResponse
-	138, // 150: ad.TvAdServiceSessionService.OnSurfaceChanged:output_type -> ad.OnSurfaceChangedResponse
-	140, // 151: ad.TvAdServiceSessionService.OnTouchEvent:output_type -> ad.OnTouchEventResponse
-	142, // 152: ad.TvAdServiceSessionService.OnTrackballEvent:output_type -> ad.OnTrackballEventResponse
-	144, // 153: ad.TvAdServiceSessionService.OnTvInputSessionData:output_type -> ad.OnTvInputSessionDataResponse
-	146, // 154: ad.TvAdServiceSessionService.OnTvMessage:output_type -> ad.OnTvMessageResponse
-	148, // 155: ad.TvAdServiceSessionService.RequestCurrentChannelUri:output_type -> ad.RequestCurrentChannelUriResponse
-	150, // 156: ad.TvAdServiceSessionService.RequestCurrentTvInputId:output_type -> ad.RequestCurrentTvInputIdResponse
-	152, // 157: ad.TvAdServiceSessionService.RequestCurrentVideoBounds:output_type -> ad.RequestCurrentVideoBoundsResponse
-	154, // 158: ad.TvAdServiceSessionService.RequestSigning:output_type -> ad.RequestSigningResponse
-	156, // 159: ad.TvAdServiceSessionService.RequestTrackInfoList:output_type -> ad.RequestTrackInfoListResponse
-	158, // 160: ad.TvAdServiceSessionService.SendTvAdSessionData:output_type -> ad.SendTvAdSessionDataResponse
-	160, // 161: ad.TvAdServiceSessionService.SetMediaViewEnabled:output_type -> ad.SetMediaViewEnabledResponse
-	81,  // [81:162] is the sub-list for method output_type
-	0,   // [0:81] is the sub-list for method input_type
+	0,   // 0: ad.TvAdServiceInfoService.NewTvAdServiceInfo:input_type -> ad.NewTvAdServiceInfoRequest
+	2,   // 1: ad.TvAdServiceInfoService.DescribeContents:input_type -> ad.DescribeContentsRequest
+	4,   // 2: ad.TvAdServiceInfoService.GetId:input_type -> ad.GetIdRequest
+	6,   // 3: ad.TvAdServiceInfoService.GetServiceInfo:input_type -> ad.GetServiceInfoRequest
+	8,   // 4: ad.TvAdServiceInfoService.GetSupportedTypes:input_type -> ad.GetSupportedTypesRequest
+	10,  // 5: ad.TvAdServiceInfoService.WriteToParcel:input_type -> ad.WriteToParcelRequest
+	12,  // 6: ad.TvAdViewService.NewTvAdView:input_type -> ad.NewTvAdViewRequest
+	14,  // 7: ad.TvAdViewService.ClearCallback:input_type -> ad.ClearCallbackRequest
+	16,  // 8: ad.TvAdViewService.ClearOnUnhandledInputEventListener:input_type -> ad.ClearOnUnhandledInputEventListenerRequest
+	18,  // 9: ad.TvAdViewService.DispatchKeyEvent:input_type -> ad.DispatchKeyEventRequest
+	20,  // 10: ad.TvAdViewService.DispatchUnhandledInputEvent:input_type -> ad.DispatchUnhandledInputEventRequest
+	22,  // 11: ad.TvAdViewService.GetOnUnhandledInputEventListener:input_type -> ad.GetOnUnhandledInputEventListenerRequest
+	24,  // 12: ad.TvAdViewService.NotifyError:input_type -> ad.NotifyErrorRequest
+	26,  // 13: ad.TvAdViewService.NotifyTvMessage:input_type -> ad.NotifyTvMessageRequest
+	28,  // 14: ad.TvAdViewService.OnAttachedToWindow:input_type -> ad.OnAttachedToWindowRequest
+	30,  // 15: ad.TvAdViewService.OnDetachedFromWindow:input_type -> ad.OnDetachedFromWindowRequest
+	32,  // 16: ad.TvAdViewService.OnLayout:input_type -> ad.OnLayoutRequest
+	34,  // 17: ad.TvAdViewService.OnMeasure:input_type -> ad.OnMeasureRequest
+	36,  // 18: ad.TvAdViewService.OnUnhandledInputEvent:input_type -> ad.OnUnhandledInputEventRequest
+	38,  // 19: ad.TvAdViewService.OnVisibilityChanged:input_type -> ad.OnVisibilityChangedRequest
+	40,  // 20: ad.TvAdViewService.PrepareAdService:input_type -> ad.PrepareAdServiceRequest
+	42,  // 21: ad.TvAdViewService.Reset:input_type -> ad.ResetRequest
+	44,  // 22: ad.TvAdViewService.ResetAdService:input_type -> ad.ResetAdServiceRequest
+	46,  // 23: ad.TvAdViewService.SendCurrentChannelUri:input_type -> ad.SendCurrentChannelUriRequest
+	48,  // 24: ad.TvAdViewService.SendCurrentTvInputId:input_type -> ad.SendCurrentTvInputIdRequest
+	50,  // 25: ad.TvAdViewService.SendCurrentVideoBounds:input_type -> ad.SendCurrentVideoBoundsRequest
+	52,  // 26: ad.TvAdViewService.SendSigningResult:input_type -> ad.SendSigningResultRequest
+	54,  // 27: ad.TvAdViewService.SetCallback:input_type -> ad.SetCallbackRequest
+	56,  // 28: ad.TvAdViewService.SetOnUnhandledInputEventListener:input_type -> ad.SetOnUnhandledInputEventListenerRequest
+	58,  // 29: ad.TvAdViewService.SetTvView:input_type -> ad.SetTvViewRequest
+	60,  // 30: ad.TvAdViewService.SetZOrderMediaOverlay:input_type -> ad.SetZOrderMediaOverlayRequest
+	62,  // 31: ad.TvAdViewService.SetZOrderOnTop:input_type -> ad.SetZOrderOnTopRequest
+	64,  // 32: ad.TvAdViewService.StartAdService:input_type -> ad.StartAdServiceRequest
+	66,  // 33: ad.TvAdViewService.StopAdService:input_type -> ad.StopAdServiceRequest
+	68,  // 34: ad.TvAdViewOnUnhandledInputEventListenerService.OnUnhandledInputEvent:input_type -> ad.TvAdViewOnUnhandledInputEventListenerOnUnhandledInputEventRequest
+	69,  // 35: ad.TvAdViewTvAdCallbackService.OnRequestCurrentChannelUri:input_type -> ad.OnRequestCurrentChannelUriRequest
+	71,  // 36: ad.TvAdViewTvAdCallbackService.OnRequestCurrentTvInputId:input_type -> ad.OnRequestCurrentTvInputIdRequest
+	73,  // 37: ad.TvAdViewTvAdCallbackService.OnRequestCurrentVideoBounds:input_type -> ad.OnRequestCurrentVideoBoundsRequest
+	75,  // 38: ad.TvAdViewTvAdCallbackService.OnRequestSigning:input_type -> ad.OnRequestSigningRequest
+	77,  // 39: ad.TvAdViewTvAdCallbackService.OnRequestTrackInfoList:input_type -> ad.OnRequestTrackInfoListRequest
+	79,  // 40: ad.TvAdViewTvAdCallbackService.OnStateChanged:input_type -> ad.OnStateChangedRequest
+	81,  // 41: ad.TvAdManagerService.GetTvAdServiceList:input_type -> ad.GetTvAdServiceListRequest
+	83,  // 42: ad.TvAdManagerService.RegisterCallback:input_type -> ad.RegisterCallbackRequest
+	85,  // 43: ad.TvAdManagerService.SendAppLinkCommand:input_type -> ad.SendAppLinkCommandRequest
+	87,  // 44: ad.TvAdManagerService.UnregisterCallback:input_type -> ad.UnregisterCallbackRequest
+	89,  // 45: ad.TvAdManagerTvAdServiceCallbackService.OnAdServiceAdded:input_type -> ad.OnAdServiceAddedRequest
+	91,  // 46: ad.TvAdManagerTvAdServiceCallbackService.OnAdServiceRemoved:input_type -> ad.OnAdServiceRemovedRequest
+	93,  // 47: ad.TvAdManagerTvAdServiceCallbackService.OnAdServiceUpdated:input_type -> ad.OnAdServiceUpdatedRequest
+	95,  // 48: ad.TvAdServiceService.OnAppLinkCommand:input_type -> ad.OnAppLinkCommandRequest
+	97,  // 49: ad.TvAdServiceService.OnBind:input_type -> ad.OnBindRequest
+	99,  // 50: ad.TvAdServiceService.OnCreateSession:input_type -> ad.OnCreateSessionRequest
+	101, // 51: ad.TvAdServiceSessionService.IsMediaViewEnabled:input_type -> ad.IsMediaViewEnabledRequest
+	103, // 52: ad.TvAdServiceSessionService.LayoutSurface:input_type -> ad.LayoutSurfaceRequest
+	105, // 53: ad.TvAdServiceSessionService.NotifySessionStateChanged:input_type -> ad.NotifySessionStateChangedRequest
+	107, // 54: ad.TvAdServiceSessionService.OnCreateMediaView:input_type -> ad.OnCreateMediaViewRequest
+	109, // 55: ad.TvAdServiceSessionService.OnCurrentChannelUri:input_type -> ad.OnCurrentChannelUriRequest
+	111, // 56: ad.TvAdServiceSessionService.OnCurrentTvInputId:input_type -> ad.OnCurrentTvInputIdRequest
+	113, // 57: ad.TvAdServiceSessionService.OnCurrentVideoBounds:input_type -> ad.OnCurrentVideoBoundsRequest
+	115, // 58: ad.TvAdServiceSessionService.OnError:input_type -> ad.OnErrorRequest
+	117, // 59: ad.TvAdServiceSessionService.OnGenericMotionEvent:input_type -> ad.OnGenericMotionEventRequest
+	119, // 60: ad.TvAdServiceSessionService.OnKeyDown:input_type -> ad.OnKeyDownRequest
+	121, // 61: ad.TvAdServiceSessionService.OnKeyLongPress:input_type -> ad.OnKeyLongPressRequest
+	123, // 62: ad.TvAdServiceSessionService.OnKeyMultiple:input_type -> ad.OnKeyMultipleRequest
+	125, // 63: ad.TvAdServiceSessionService.OnKeyUp:input_type -> ad.OnKeyUpRequest
+	127, // 64: ad.TvAdServiceSessionService.OnMediaViewSizeChanged:input_type -> ad.OnMediaViewSizeChangedRequest
+	129, // 65: ad.TvAdServiceSessionService.OnRelease:input_type -> ad.OnReleaseRequest
+	131, // 66: ad.TvAdServiceSessionService.OnResetAdService:input_type -> ad.OnResetAdServiceRequest
+	133, // 67: ad.TvAdServiceSessionService.OnSetSurface:input_type -> ad.OnSetSurfaceRequest
+	135, // 68: ad.TvAdServiceSessionService.OnSigningResult:input_type -> ad.OnSigningResultRequest
+	137, // 69: ad.TvAdServiceSessionService.OnStartAdService:input_type -> ad.OnStartAdServiceRequest
+	139, // 70: ad.TvAdServiceSessionService.OnStopAdService:input_type -> ad.OnStopAdServiceRequest
+	141, // 71: ad.TvAdServiceSessionService.OnSurfaceChanged:input_type -> ad.OnSurfaceChangedRequest
+	143, // 72: ad.TvAdServiceSessionService.OnTouchEvent:input_type -> ad.OnTouchEventRequest
+	145, // 73: ad.TvAdServiceSessionService.OnTrackballEvent:input_type -> ad.OnTrackballEventRequest
+	147, // 74: ad.TvAdServiceSessionService.OnTvInputSessionData:input_type -> ad.OnTvInputSessionDataRequest
+	149, // 75: ad.TvAdServiceSessionService.OnTvMessage:input_type -> ad.OnTvMessageRequest
+	151, // 76: ad.TvAdServiceSessionService.RequestCurrentChannelUri:input_type -> ad.RequestCurrentChannelUriRequest
+	153, // 77: ad.TvAdServiceSessionService.RequestCurrentTvInputId:input_type -> ad.RequestCurrentTvInputIdRequest
+	155, // 78: ad.TvAdServiceSessionService.RequestCurrentVideoBounds:input_type -> ad.RequestCurrentVideoBoundsRequest
+	157, // 79: ad.TvAdServiceSessionService.RequestSigning:input_type -> ad.RequestSigningRequest
+	159, // 80: ad.TvAdServiceSessionService.RequestTrackInfoList:input_type -> ad.RequestTrackInfoListRequest
+	161, // 81: ad.TvAdServiceSessionService.SendTvAdSessionData:input_type -> ad.SendTvAdSessionDataRequest
+	163, // 82: ad.TvAdServiceSessionService.SetMediaViewEnabled:input_type -> ad.SetMediaViewEnabledRequest
+	1,   // 83: ad.TvAdServiceInfoService.NewTvAdServiceInfo:output_type -> ad.NewTvAdServiceInfoResponse
+	3,   // 84: ad.TvAdServiceInfoService.DescribeContents:output_type -> ad.DescribeContentsResponse
+	5,   // 85: ad.TvAdServiceInfoService.GetId:output_type -> ad.GetIdResponse
+	7,   // 86: ad.TvAdServiceInfoService.GetServiceInfo:output_type -> ad.GetServiceInfoResponse
+	9,   // 87: ad.TvAdServiceInfoService.GetSupportedTypes:output_type -> ad.GetSupportedTypesResponse
+	11,  // 88: ad.TvAdServiceInfoService.WriteToParcel:output_type -> ad.WriteToParcelResponse
+	13,  // 89: ad.TvAdViewService.NewTvAdView:output_type -> ad.NewTvAdViewResponse
+	15,  // 90: ad.TvAdViewService.ClearCallback:output_type -> ad.ClearCallbackResponse
+	17,  // 91: ad.TvAdViewService.ClearOnUnhandledInputEventListener:output_type -> ad.ClearOnUnhandledInputEventListenerResponse
+	19,  // 92: ad.TvAdViewService.DispatchKeyEvent:output_type -> ad.DispatchKeyEventResponse
+	21,  // 93: ad.TvAdViewService.DispatchUnhandledInputEvent:output_type -> ad.DispatchUnhandledInputEventResponse
+	23,  // 94: ad.TvAdViewService.GetOnUnhandledInputEventListener:output_type -> ad.GetOnUnhandledInputEventListenerResponse
+	25,  // 95: ad.TvAdViewService.NotifyError:output_type -> ad.NotifyErrorResponse
+	27,  // 96: ad.TvAdViewService.NotifyTvMessage:output_type -> ad.NotifyTvMessageResponse
+	29,  // 97: ad.TvAdViewService.OnAttachedToWindow:output_type -> ad.OnAttachedToWindowResponse
+	31,  // 98: ad.TvAdViewService.OnDetachedFromWindow:output_type -> ad.OnDetachedFromWindowResponse
+	33,  // 99: ad.TvAdViewService.OnLayout:output_type -> ad.OnLayoutResponse
+	35,  // 100: ad.TvAdViewService.OnMeasure:output_type -> ad.OnMeasureResponse
+	37,  // 101: ad.TvAdViewService.OnUnhandledInputEvent:output_type -> ad.OnUnhandledInputEventResponse
+	39,  // 102: ad.TvAdViewService.OnVisibilityChanged:output_type -> ad.OnVisibilityChangedResponse
+	41,  // 103: ad.TvAdViewService.PrepareAdService:output_type -> ad.PrepareAdServiceResponse
+	43,  // 104: ad.TvAdViewService.Reset:output_type -> ad.ResetResponse
+	45,  // 105: ad.TvAdViewService.ResetAdService:output_type -> ad.ResetAdServiceResponse
+	47,  // 106: ad.TvAdViewService.SendCurrentChannelUri:output_type -> ad.SendCurrentChannelUriResponse
+	49,  // 107: ad.TvAdViewService.SendCurrentTvInputId:output_type -> ad.SendCurrentTvInputIdResponse
+	51,  // 108: ad.TvAdViewService.SendCurrentVideoBounds:output_type -> ad.SendCurrentVideoBoundsResponse
+	53,  // 109: ad.TvAdViewService.SendSigningResult:output_type -> ad.SendSigningResultResponse
+	55,  // 110: ad.TvAdViewService.SetCallback:output_type -> ad.SetCallbackResponse
+	57,  // 111: ad.TvAdViewService.SetOnUnhandledInputEventListener:output_type -> ad.SetOnUnhandledInputEventListenerResponse
+	59,  // 112: ad.TvAdViewService.SetTvView:output_type -> ad.SetTvViewResponse
+	61,  // 113: ad.TvAdViewService.SetZOrderMediaOverlay:output_type -> ad.SetZOrderMediaOverlayResponse
+	63,  // 114: ad.TvAdViewService.SetZOrderOnTop:output_type -> ad.SetZOrderOnTopResponse
+	65,  // 115: ad.TvAdViewService.StartAdService:output_type -> ad.StartAdServiceResponse
+	67,  // 116: ad.TvAdViewService.StopAdService:output_type -> ad.StopAdServiceResponse
+	37,  // 117: ad.TvAdViewOnUnhandledInputEventListenerService.OnUnhandledInputEvent:output_type -> ad.OnUnhandledInputEventResponse
+	70,  // 118: ad.TvAdViewTvAdCallbackService.OnRequestCurrentChannelUri:output_type -> ad.OnRequestCurrentChannelUriResponse
+	72,  // 119: ad.TvAdViewTvAdCallbackService.OnRequestCurrentTvInputId:output_type -> ad.OnRequestCurrentTvInputIdResponse
+	74,  // 120: ad.TvAdViewTvAdCallbackService.OnRequestCurrentVideoBounds:output_type -> ad.OnRequestCurrentVideoBoundsResponse
+	76,  // 121: ad.TvAdViewTvAdCallbackService.OnRequestSigning:output_type -> ad.OnRequestSigningResponse
+	78,  // 122: ad.TvAdViewTvAdCallbackService.OnRequestTrackInfoList:output_type -> ad.OnRequestTrackInfoListResponse
+	80,  // 123: ad.TvAdViewTvAdCallbackService.OnStateChanged:output_type -> ad.OnStateChangedResponse
+	82,  // 124: ad.TvAdManagerService.GetTvAdServiceList:output_type -> ad.GetTvAdServiceListResponse
+	84,  // 125: ad.TvAdManagerService.RegisterCallback:output_type -> ad.RegisterCallbackResponse
+	86,  // 126: ad.TvAdManagerService.SendAppLinkCommand:output_type -> ad.SendAppLinkCommandResponse
+	88,  // 127: ad.TvAdManagerService.UnregisterCallback:output_type -> ad.UnregisterCallbackResponse
+	90,  // 128: ad.TvAdManagerTvAdServiceCallbackService.OnAdServiceAdded:output_type -> ad.OnAdServiceAddedResponse
+	92,  // 129: ad.TvAdManagerTvAdServiceCallbackService.OnAdServiceRemoved:output_type -> ad.OnAdServiceRemovedResponse
+	94,  // 130: ad.TvAdManagerTvAdServiceCallbackService.OnAdServiceUpdated:output_type -> ad.OnAdServiceUpdatedResponse
+	96,  // 131: ad.TvAdServiceService.OnAppLinkCommand:output_type -> ad.OnAppLinkCommandResponse
+	98,  // 132: ad.TvAdServiceService.OnBind:output_type -> ad.OnBindResponse
+	100, // 133: ad.TvAdServiceService.OnCreateSession:output_type -> ad.OnCreateSessionResponse
+	102, // 134: ad.TvAdServiceSessionService.IsMediaViewEnabled:output_type -> ad.IsMediaViewEnabledResponse
+	104, // 135: ad.TvAdServiceSessionService.LayoutSurface:output_type -> ad.LayoutSurfaceResponse
+	106, // 136: ad.TvAdServiceSessionService.NotifySessionStateChanged:output_type -> ad.NotifySessionStateChangedResponse
+	108, // 137: ad.TvAdServiceSessionService.OnCreateMediaView:output_type -> ad.OnCreateMediaViewResponse
+	110, // 138: ad.TvAdServiceSessionService.OnCurrentChannelUri:output_type -> ad.OnCurrentChannelUriResponse
+	112, // 139: ad.TvAdServiceSessionService.OnCurrentTvInputId:output_type -> ad.OnCurrentTvInputIdResponse
+	114, // 140: ad.TvAdServiceSessionService.OnCurrentVideoBounds:output_type -> ad.OnCurrentVideoBoundsResponse
+	116, // 141: ad.TvAdServiceSessionService.OnError:output_type -> ad.OnErrorResponse
+	118, // 142: ad.TvAdServiceSessionService.OnGenericMotionEvent:output_type -> ad.OnGenericMotionEventResponse
+	120, // 143: ad.TvAdServiceSessionService.OnKeyDown:output_type -> ad.OnKeyDownResponse
+	122, // 144: ad.TvAdServiceSessionService.OnKeyLongPress:output_type -> ad.OnKeyLongPressResponse
+	124, // 145: ad.TvAdServiceSessionService.OnKeyMultiple:output_type -> ad.OnKeyMultipleResponse
+	126, // 146: ad.TvAdServiceSessionService.OnKeyUp:output_type -> ad.OnKeyUpResponse
+	128, // 147: ad.TvAdServiceSessionService.OnMediaViewSizeChanged:output_type -> ad.OnMediaViewSizeChangedResponse
+	130, // 148: ad.TvAdServiceSessionService.OnRelease:output_type -> ad.OnReleaseResponse
+	132, // 149: ad.TvAdServiceSessionService.OnResetAdService:output_type -> ad.OnResetAdServiceResponse
+	134, // 150: ad.TvAdServiceSessionService.OnSetSurface:output_type -> ad.OnSetSurfaceResponse
+	136, // 151: ad.TvAdServiceSessionService.OnSigningResult:output_type -> ad.OnSigningResultResponse
+	138, // 152: ad.TvAdServiceSessionService.OnStartAdService:output_type -> ad.OnStartAdServiceResponse
+	140, // 153: ad.TvAdServiceSessionService.OnStopAdService:output_type -> ad.OnStopAdServiceResponse
+	142, // 154: ad.TvAdServiceSessionService.OnSurfaceChanged:output_type -> ad.OnSurfaceChangedResponse
+	144, // 155: ad.TvAdServiceSessionService.OnTouchEvent:output_type -> ad.OnTouchEventResponse
+	146, // 156: ad.TvAdServiceSessionService.OnTrackballEvent:output_type -> ad.OnTrackballEventResponse
+	148, // 157: ad.TvAdServiceSessionService.OnTvInputSessionData:output_type -> ad.OnTvInputSessionDataResponse
+	150, // 158: ad.TvAdServiceSessionService.OnTvMessage:output_type -> ad.OnTvMessageResponse
+	152, // 159: ad.TvAdServiceSessionService.RequestCurrentChannelUri:output_type -> ad.RequestCurrentChannelUriResponse
+	154, // 160: ad.TvAdServiceSessionService.RequestCurrentTvInputId:output_type -> ad.RequestCurrentTvInputIdResponse
+	156, // 161: ad.TvAdServiceSessionService.RequestCurrentVideoBounds:output_type -> ad.RequestCurrentVideoBoundsResponse
+	158, // 162: ad.TvAdServiceSessionService.RequestSigning:output_type -> ad.RequestSigningResponse
+	160, // 163: ad.TvAdServiceSessionService.RequestTrackInfoList:output_type -> ad.RequestTrackInfoListResponse
+	162, // 164: ad.TvAdServiceSessionService.SendTvAdSessionData:output_type -> ad.SendTvAdSessionDataResponse
+	164, // 165: ad.TvAdServiceSessionService.SetMediaViewEnabled:output_type -> ad.SetMediaViewEnabledResponse
+	83,  // [83:166] is the sub-list for method output_type
+	0,   // [0:83] is the sub-list for method input_type
 	0,   // [0:0] is the sub-list for extension type_name
 	0,   // [0:0] is the sub-list for extension extendee
 	0,   // [0:0] is the sub-list for field type_name
@@ -7818,7 +8003,7 @@ func file_proto_ad_ad_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_ad_ad_proto_rawDesc), len(file_proto_ad_ad_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   161,
+			NumMessages:   165,
 			NumExtensions: 0,
 			NumServices:   8,
 		},

@@ -21,178 +21,178 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	UploadDataProviderService_Close_FullMethodName     = "/http.UploadDataProviderService/Close"
-	UploadDataProviderService_GetLength_FullMethodName = "/http.UploadDataProviderService/GetLength"
-	UploadDataProviderService_Rewind_FullMethodName    = "/http.UploadDataProviderService/Rewind"
+	ConnectionMigrationOptionsService_GetAllowNonDefaultNetworkUsage_FullMethodName = "/http.ConnectionMigrationOptionsService/GetAllowNonDefaultNetworkUsage"
+	ConnectionMigrationOptionsService_GetDefaultNetworkMigration_FullMethodName     = "/http.ConnectionMigrationOptionsService/GetDefaultNetworkMigration"
+	ConnectionMigrationOptionsService_GetPathDegradationMigration_FullMethodName    = "/http.ConnectionMigrationOptionsService/GetPathDegradationMigration"
 )
 
-// UploadDataProviderServiceClient is the client API for UploadDataProviderService service.
+// ConnectionMigrationOptionsServiceClient is the client API for ConnectionMigrationOptionsService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type UploadDataProviderServiceClient interface {
-	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
-	GetLength(ctx context.Context, in *GetLengthRequest, opts ...grpc.CallOption) (*GetLengthResponse, error)
-	Rewind(ctx context.Context, in *RewindRequest, opts ...grpc.CallOption) (*RewindResponse, error)
+type ConnectionMigrationOptionsServiceClient interface {
+	GetAllowNonDefaultNetworkUsage(ctx context.Context, in *GetAllowNonDefaultNetworkUsageRequest, opts ...grpc.CallOption) (*GetAllowNonDefaultNetworkUsageResponse, error)
+	GetDefaultNetworkMigration(ctx context.Context, in *GetDefaultNetworkMigrationRequest, opts ...grpc.CallOption) (*GetDefaultNetworkMigrationResponse, error)
+	GetPathDegradationMigration(ctx context.Context, in *GetPathDegradationMigrationRequest, opts ...grpc.CallOption) (*GetPathDegradationMigrationResponse, error)
 }
 
-type uploadDataProviderServiceClient struct {
+type connectionMigrationOptionsServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewUploadDataProviderServiceClient(cc grpc.ClientConnInterface) UploadDataProviderServiceClient {
-	return &uploadDataProviderServiceClient{cc}
+func NewConnectionMigrationOptionsServiceClient(cc grpc.ClientConnInterface) ConnectionMigrationOptionsServiceClient {
+	return &connectionMigrationOptionsServiceClient{cc}
 }
 
-func (c *uploadDataProviderServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+func (c *connectionMigrationOptionsServiceClient) GetAllowNonDefaultNetworkUsage(ctx context.Context, in *GetAllowNonDefaultNetworkUsageRequest, opts ...grpc.CallOption) (*GetAllowNonDefaultNetworkUsageResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, UploadDataProviderService_Close_FullMethodName, in, out, cOpts...)
+	out := new(GetAllowNonDefaultNetworkUsageResponse)
+	err := c.cc.Invoke(ctx, ConnectionMigrationOptionsService_GetAllowNonDefaultNetworkUsage_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *uploadDataProviderServiceClient) GetLength(ctx context.Context, in *GetLengthRequest, opts ...grpc.CallOption) (*GetLengthResponse, error) {
+func (c *connectionMigrationOptionsServiceClient) GetDefaultNetworkMigration(ctx context.Context, in *GetDefaultNetworkMigrationRequest, opts ...grpc.CallOption) (*GetDefaultNetworkMigrationResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetLengthResponse)
-	err := c.cc.Invoke(ctx, UploadDataProviderService_GetLength_FullMethodName, in, out, cOpts...)
+	out := new(GetDefaultNetworkMigrationResponse)
+	err := c.cc.Invoke(ctx, ConnectionMigrationOptionsService_GetDefaultNetworkMigration_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *uploadDataProviderServiceClient) Rewind(ctx context.Context, in *RewindRequest, opts ...grpc.CallOption) (*RewindResponse, error) {
+func (c *connectionMigrationOptionsServiceClient) GetPathDegradationMigration(ctx context.Context, in *GetPathDegradationMigrationRequest, opts ...grpc.CallOption) (*GetPathDegradationMigrationResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RewindResponse)
-	err := c.cc.Invoke(ctx, UploadDataProviderService_Rewind_FullMethodName, in, out, cOpts...)
+	out := new(GetPathDegradationMigrationResponse)
+	err := c.cc.Invoke(ctx, ConnectionMigrationOptionsService_GetPathDegradationMigration_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// UploadDataProviderServiceServer is the server API for UploadDataProviderService service.
-// All implementations must embed UnimplementedUploadDataProviderServiceServer
+// ConnectionMigrationOptionsServiceServer is the server API for ConnectionMigrationOptionsService service.
+// All implementations must embed UnimplementedConnectionMigrationOptionsServiceServer
 // for forward compatibility.
-type UploadDataProviderServiceServer interface {
-	Close(context.Context, *CloseRequest) (*CloseResponse, error)
-	GetLength(context.Context, *GetLengthRequest) (*GetLengthResponse, error)
-	Rewind(context.Context, *RewindRequest) (*RewindResponse, error)
-	mustEmbedUnimplementedUploadDataProviderServiceServer()
+type ConnectionMigrationOptionsServiceServer interface {
+	GetAllowNonDefaultNetworkUsage(context.Context, *GetAllowNonDefaultNetworkUsageRequest) (*GetAllowNonDefaultNetworkUsageResponse, error)
+	GetDefaultNetworkMigration(context.Context, *GetDefaultNetworkMigrationRequest) (*GetDefaultNetworkMigrationResponse, error)
+	GetPathDegradationMigration(context.Context, *GetPathDegradationMigrationRequest) (*GetPathDegradationMigrationResponse, error)
+	mustEmbedUnimplementedConnectionMigrationOptionsServiceServer()
 }
 
-// UnimplementedUploadDataProviderServiceServer must be embedded to have
+// UnimplementedConnectionMigrationOptionsServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedUploadDataProviderServiceServer struct{}
+type UnimplementedConnectionMigrationOptionsServiceServer struct{}
 
-func (UnimplementedUploadDataProviderServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+func (UnimplementedConnectionMigrationOptionsServiceServer) GetAllowNonDefaultNetworkUsage(context.Context, *GetAllowNonDefaultNetworkUsageRequest) (*GetAllowNonDefaultNetworkUsageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAllowNonDefaultNetworkUsage not implemented")
 }
-func (UnimplementedUploadDataProviderServiceServer) GetLength(context.Context, *GetLengthRequest) (*GetLengthResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetLength not implemented")
+func (UnimplementedConnectionMigrationOptionsServiceServer) GetDefaultNetworkMigration(context.Context, *GetDefaultNetworkMigrationRequest) (*GetDefaultNetworkMigrationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDefaultNetworkMigration not implemented")
 }
-func (UnimplementedUploadDataProviderServiceServer) Rewind(context.Context, *RewindRequest) (*RewindResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Rewind not implemented")
+func (UnimplementedConnectionMigrationOptionsServiceServer) GetPathDegradationMigration(context.Context, *GetPathDegradationMigrationRequest) (*GetPathDegradationMigrationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPathDegradationMigration not implemented")
 }
-func (UnimplementedUploadDataProviderServiceServer) mustEmbedUnimplementedUploadDataProviderServiceServer() {
+func (UnimplementedConnectionMigrationOptionsServiceServer) mustEmbedUnimplementedConnectionMigrationOptionsServiceServer() {
 }
-func (UnimplementedUploadDataProviderServiceServer) testEmbeddedByValue() {}
+func (UnimplementedConnectionMigrationOptionsServiceServer) testEmbeddedByValue() {}
 
-// UnsafeUploadDataProviderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to UploadDataProviderServiceServer will
+// UnsafeConnectionMigrationOptionsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ConnectionMigrationOptionsServiceServer will
 // result in compilation errors.
-type UnsafeUploadDataProviderServiceServer interface {
-	mustEmbedUnimplementedUploadDataProviderServiceServer()
+type UnsafeConnectionMigrationOptionsServiceServer interface {
+	mustEmbedUnimplementedConnectionMigrationOptionsServiceServer()
 }
 
-func RegisterUploadDataProviderServiceServer(s grpc.ServiceRegistrar, srv UploadDataProviderServiceServer) {
-	// If the following call panics, it indicates UnimplementedUploadDataProviderServiceServer was
+func RegisterConnectionMigrationOptionsServiceServer(s grpc.ServiceRegistrar, srv ConnectionMigrationOptionsServiceServer) {
+	// If the following call panics, it indicates UnimplementedConnectionMigrationOptionsServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&UploadDataProviderService_ServiceDesc, srv)
+	s.RegisterService(&ConnectionMigrationOptionsService_ServiceDesc, srv)
 }
 
-func _UploadDataProviderService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloseRequest)
+func _ConnectionMigrationOptionsService_GetAllowNonDefaultNetworkUsage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllowNonDefaultNetworkUsageRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UploadDataProviderServiceServer).Close(ctx, in)
+		return srv.(ConnectionMigrationOptionsServiceServer).GetAllowNonDefaultNetworkUsage(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UploadDataProviderService_Close_FullMethodName,
+		FullMethod: ConnectionMigrationOptionsService_GetAllowNonDefaultNetworkUsage_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UploadDataProviderServiceServer).Close(ctx, req.(*CloseRequest))
+		return srv.(ConnectionMigrationOptionsServiceServer).GetAllowNonDefaultNetworkUsage(ctx, req.(*GetAllowNonDefaultNetworkUsageRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UploadDataProviderService_GetLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetLengthRequest)
+func _ConnectionMigrationOptionsService_GetDefaultNetworkMigration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDefaultNetworkMigrationRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UploadDataProviderServiceServer).GetLength(ctx, in)
+		return srv.(ConnectionMigrationOptionsServiceServer).GetDefaultNetworkMigration(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UploadDataProviderService_GetLength_FullMethodName,
+		FullMethod: ConnectionMigrationOptionsService_GetDefaultNetworkMigration_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UploadDataProviderServiceServer).GetLength(ctx, req.(*GetLengthRequest))
+		return srv.(ConnectionMigrationOptionsServiceServer).GetDefaultNetworkMigration(ctx, req.(*GetDefaultNetworkMigrationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UploadDataProviderService_Rewind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RewindRequest)
+func _ConnectionMigrationOptionsService_GetPathDegradationMigration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPathDegradationMigrationRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UploadDataProviderServiceServer).Rewind(ctx, in)
+		return srv.(ConnectionMigrationOptionsServiceServer).GetPathDegradationMigration(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: UploadDataProviderService_Rewind_FullMethodName,
+		FullMethod: ConnectionMigrationOptionsService_GetPathDegradationMigration_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UploadDataProviderServiceServer).Rewind(ctx, req.(*RewindRequest))
+		return srv.(ConnectionMigrationOptionsServiceServer).GetPathDegradationMigration(ctx, req.(*GetPathDegradationMigrationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// UploadDataProviderService_ServiceDesc is the grpc.ServiceDesc for UploadDataProviderService service.
+// ConnectionMigrationOptionsService_ServiceDesc is the grpc.ServiceDesc for ConnectionMigrationOptionsService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var UploadDataProviderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "http.UploadDataProviderService",
-	HandlerType: (*UploadDataProviderServiceServer)(nil),
+var ConnectionMigrationOptionsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "http.ConnectionMigrationOptionsService",
+	HandlerType: (*ConnectionMigrationOptionsServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "Close",
-			Handler:    _UploadDataProviderService_Close_Handler,
+			MethodName: "GetAllowNonDefaultNetworkUsage",
+			Handler:    _ConnectionMigrationOptionsService_GetAllowNonDefaultNetworkUsage_Handler,
 		},
 		{
-			MethodName: "GetLength",
-			Handler:    _UploadDataProviderService_GetLength_Handler,
+			MethodName: "GetDefaultNetworkMigration",
+			Handler:    _ConnectionMigrationOptionsService_GetDefaultNetworkMigration_Handler,
 		},
 		{
-			MethodName: "Rewind",
-			Handler:    _UploadDataProviderService_Rewind_Handler,
+			MethodName: "GetPathDegradationMigration",
+			Handler:    _ConnectionMigrationOptionsService_GetPathDegradationMigration_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -200,1803 +200,216 @@ var UploadDataProviderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	UrlResponseInfoService_GetHeaders_FullMethodName            = "/http.UrlResponseInfoService/GetHeaders"
-	UrlResponseInfoService_GetHttpStatusCode_FullMethodName     = "/http.UrlResponseInfoService/GetHttpStatusCode"
-	UrlResponseInfoService_GetHttpStatusText_FullMethodName     = "/http.UrlResponseInfoService/GetHttpStatusText"
-	UrlResponseInfoService_GetNegotiatedProtocol_FullMethodName = "/http.UrlResponseInfoService/GetNegotiatedProtocol"
-	UrlResponseInfoService_GetReceivedByteCount_FullMethodName  = "/http.UrlResponseInfoService/GetReceivedByteCount"
-	UrlResponseInfoService_GetUrl_FullMethodName                = "/http.UrlResponseInfoService/GetUrl"
-	UrlResponseInfoService_WasCached_FullMethodName             = "/http.UrlResponseInfoService/WasCached"
+	ConnectionMigrationOptionsBuilderService_Build_FullMethodName                          = "/http.ConnectionMigrationOptionsBuilderService/Build"
+	ConnectionMigrationOptionsBuilderService_SetAllowNonDefaultNetworkUsage_FullMethodName = "/http.ConnectionMigrationOptionsBuilderService/SetAllowNonDefaultNetworkUsage"
+	ConnectionMigrationOptionsBuilderService_SetDefaultNetworkMigration_FullMethodName     = "/http.ConnectionMigrationOptionsBuilderService/SetDefaultNetworkMigration"
+	ConnectionMigrationOptionsBuilderService_SetPathDegradationMigration_FullMethodName    = "/http.ConnectionMigrationOptionsBuilderService/SetPathDegradationMigration"
 )
 
-// UrlResponseInfoServiceClient is the client API for UrlResponseInfoService service.
+// ConnectionMigrationOptionsBuilderServiceClient is the client API for ConnectionMigrationOptionsBuilderService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type UrlResponseInfoServiceClient interface {
-	GetHeaders(ctx context.Context, in *GetHeadersRequest, opts ...grpc.CallOption) (*GetHeadersResponse, error)
-	GetHttpStatusCode(ctx context.Context, in *GetHttpStatusCodeRequest, opts ...grpc.CallOption) (*GetHttpStatusCodeResponse, error)
-	GetHttpStatusText(ctx context.Context, in *GetHttpStatusTextRequest, opts ...grpc.CallOption) (*GetHttpStatusTextResponse, error)
-	GetNegotiatedProtocol(ctx context.Context, in *GetNegotiatedProtocolRequest, opts ...grpc.CallOption) (*GetNegotiatedProtocolResponse, error)
-	GetReceivedByteCount(ctx context.Context, in *GetReceivedByteCountRequest, opts ...grpc.CallOption) (*GetReceivedByteCountResponse, error)
-	GetUrl(ctx context.Context, in *GetUrlRequest, opts ...grpc.CallOption) (*GetUrlResponse, error)
-	WasCached(ctx context.Context, in *WasCachedRequest, opts ...grpc.CallOption) (*WasCachedResponse, error)
-}
-
-type urlResponseInfoServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewUrlResponseInfoServiceClient(cc grpc.ClientConnInterface) UrlResponseInfoServiceClient {
-	return &urlResponseInfoServiceClient{cc}
-}
-
-func (c *urlResponseInfoServiceClient) GetHeaders(ctx context.Context, in *GetHeadersRequest, opts ...grpc.CallOption) (*GetHeadersResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetHeadersResponse)
-	err := c.cc.Invoke(ctx, UrlResponseInfoService_GetHeaders_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *urlResponseInfoServiceClient) GetHttpStatusCode(ctx context.Context, in *GetHttpStatusCodeRequest, opts ...grpc.CallOption) (*GetHttpStatusCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetHttpStatusCodeResponse)
-	err := c.cc.Invoke(ctx, UrlResponseInfoService_GetHttpStatusCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *urlResponseInfoServiceClient) GetHttpStatusText(ctx context.Context, in *GetHttpStatusTextRequest, opts ...grpc.CallOption) (*GetHttpStatusTextResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetHttpStatusTextResponse)
-	err := c.cc.Invoke(ctx, UrlResponseInfoService_GetHttpStatusText_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *urlResponseInfoServiceClient) GetNegotiatedProtocol(ctx context.Context, in *GetNegotiatedProtocolRequest, opts ...grpc.CallOption) (*GetNegotiatedProtocolResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNegotiatedProtocolResponse)
-	err := c.cc.Invoke(ctx, UrlResponseInfoService_GetNegotiatedProtocol_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *urlResponseInfoServiceClient) GetReceivedByteCount(ctx context.Context, in *GetReceivedByteCountRequest, opts ...grpc.CallOption) (*GetReceivedByteCountResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetReceivedByteCountResponse)
-	err := c.cc.Invoke(ctx, UrlResponseInfoService_GetReceivedByteCount_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *urlResponseInfoServiceClient) GetUrl(ctx context.Context, in *GetUrlRequest, opts ...grpc.CallOption) (*GetUrlResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUrlResponse)
-	err := c.cc.Invoke(ctx, UrlResponseInfoService_GetUrl_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *urlResponseInfoServiceClient) WasCached(ctx context.Context, in *WasCachedRequest, opts ...grpc.CallOption) (*WasCachedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WasCachedResponse)
-	err := c.cc.Invoke(ctx, UrlResponseInfoService_WasCached_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// UrlResponseInfoServiceServer is the server API for UrlResponseInfoService service.
-// All implementations must embed UnimplementedUrlResponseInfoServiceServer
-// for forward compatibility.
-type UrlResponseInfoServiceServer interface {
-	GetHeaders(context.Context, *GetHeadersRequest) (*GetHeadersResponse, error)
-	GetHttpStatusCode(context.Context, *GetHttpStatusCodeRequest) (*GetHttpStatusCodeResponse, error)
-	GetHttpStatusText(context.Context, *GetHttpStatusTextRequest) (*GetHttpStatusTextResponse, error)
-	GetNegotiatedProtocol(context.Context, *GetNegotiatedProtocolRequest) (*GetNegotiatedProtocolResponse, error)
-	GetReceivedByteCount(context.Context, *GetReceivedByteCountRequest) (*GetReceivedByteCountResponse, error)
-	GetUrl(context.Context, *GetUrlRequest) (*GetUrlResponse, error)
-	WasCached(context.Context, *WasCachedRequest) (*WasCachedResponse, error)
-	mustEmbedUnimplementedUrlResponseInfoServiceServer()
-}
-
-// UnimplementedUrlResponseInfoServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedUrlResponseInfoServiceServer struct{}
-
-func (UnimplementedUrlResponseInfoServiceServer) GetHeaders(context.Context, *GetHeadersRequest) (*GetHeadersResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetHeaders not implemented")
-}
-func (UnimplementedUrlResponseInfoServiceServer) GetHttpStatusCode(context.Context, *GetHttpStatusCodeRequest) (*GetHttpStatusCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetHttpStatusCode not implemented")
-}
-func (UnimplementedUrlResponseInfoServiceServer) GetHttpStatusText(context.Context, *GetHttpStatusTextRequest) (*GetHttpStatusTextResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetHttpStatusText not implemented")
-}
-func (UnimplementedUrlResponseInfoServiceServer) GetNegotiatedProtocol(context.Context, *GetNegotiatedProtocolRequest) (*GetNegotiatedProtocolResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetNegotiatedProtocol not implemented")
-}
-func (UnimplementedUrlResponseInfoServiceServer) GetReceivedByteCount(context.Context, *GetReceivedByteCountRequest) (*GetReceivedByteCountResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetReceivedByteCount not implemented")
-}
-func (UnimplementedUrlResponseInfoServiceServer) GetUrl(context.Context, *GetUrlRequest) (*GetUrlResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetUrl not implemented")
-}
-func (UnimplementedUrlResponseInfoServiceServer) WasCached(context.Context, *WasCachedRequest) (*WasCachedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WasCached not implemented")
-}
-func (UnimplementedUrlResponseInfoServiceServer) mustEmbedUnimplementedUrlResponseInfoServiceServer() {
-}
-func (UnimplementedUrlResponseInfoServiceServer) testEmbeddedByValue() {}
-
-// UnsafeUrlResponseInfoServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to UrlResponseInfoServiceServer will
-// result in compilation errors.
-type UnsafeUrlResponseInfoServiceServer interface {
-	mustEmbedUnimplementedUrlResponseInfoServiceServer()
-}
-
-func RegisterUrlResponseInfoServiceServer(s grpc.ServiceRegistrar, srv UrlResponseInfoServiceServer) {
-	// If the following call panics, it indicates UnimplementedUrlResponseInfoServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&UrlResponseInfoService_ServiceDesc, srv)
-}
-
-func _UrlResponseInfoService_GetHeaders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetHeadersRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UrlResponseInfoServiceServer).GetHeaders(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UrlResponseInfoService_GetHeaders_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UrlResponseInfoServiceServer).GetHeaders(ctx, req.(*GetHeadersRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UrlResponseInfoService_GetHttpStatusCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetHttpStatusCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UrlResponseInfoServiceServer).GetHttpStatusCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UrlResponseInfoService_GetHttpStatusCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UrlResponseInfoServiceServer).GetHttpStatusCode(ctx, req.(*GetHttpStatusCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UrlResponseInfoService_GetHttpStatusText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetHttpStatusTextRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UrlResponseInfoServiceServer).GetHttpStatusText(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UrlResponseInfoService_GetHttpStatusText_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UrlResponseInfoServiceServer).GetHttpStatusText(ctx, req.(*GetHttpStatusTextRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UrlResponseInfoService_GetNegotiatedProtocol_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNegotiatedProtocolRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UrlResponseInfoServiceServer).GetNegotiatedProtocol(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UrlResponseInfoService_GetNegotiatedProtocol_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UrlResponseInfoServiceServer).GetNegotiatedProtocol(ctx, req.(*GetNegotiatedProtocolRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UrlResponseInfoService_GetReceivedByteCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetReceivedByteCountRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UrlResponseInfoServiceServer).GetReceivedByteCount(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UrlResponseInfoService_GetReceivedByteCount_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UrlResponseInfoServiceServer).GetReceivedByteCount(ctx, req.(*GetReceivedByteCountRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UrlResponseInfoService_GetUrl_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUrlRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UrlResponseInfoServiceServer).GetUrl(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UrlResponseInfoService_GetUrl_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UrlResponseInfoServiceServer).GetUrl(ctx, req.(*GetUrlRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UrlResponseInfoService_WasCached_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WasCachedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UrlResponseInfoServiceServer).WasCached(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: UrlResponseInfoService_WasCached_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UrlResponseInfoServiceServer).WasCached(ctx, req.(*WasCachedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// UrlResponseInfoService_ServiceDesc is the grpc.ServiceDesc for UrlResponseInfoService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var UrlResponseInfoService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "http.UrlResponseInfoService",
-	HandlerType: (*UrlResponseInfoServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetHeaders",
-			Handler:    _UrlResponseInfoService_GetHeaders_Handler,
-		},
-		{
-			MethodName: "GetHttpStatusCode",
-			Handler:    _UrlResponseInfoService_GetHttpStatusCode_Handler,
-		},
-		{
-			MethodName: "GetHttpStatusText",
-			Handler:    _UrlResponseInfoService_GetHttpStatusText_Handler,
-		},
-		{
-			MethodName: "GetNegotiatedProtocol",
-			Handler:    _UrlResponseInfoService_GetNegotiatedProtocol_Handler,
-		},
-		{
-			MethodName: "GetReceivedByteCount",
-			Handler:    _UrlResponseInfoService_GetReceivedByteCount_Handler,
-		},
-		{
-			MethodName: "GetUrl",
-			Handler:    _UrlResponseInfoService_GetUrl_Handler,
-		},
-		{
-			MethodName: "WasCached",
-			Handler:    _UrlResponseInfoService_WasCached_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/http/http.proto",
-}
-
-const (
-	ResponseCacheService_Close_FullMethodName           = "/http.ResponseCacheService/Close"
-	ResponseCacheService_Delete_FullMethodName          = "/http.ResponseCacheService/Delete"
-	ResponseCacheService_Flush_FullMethodName           = "/http.ResponseCacheService/Flush"
-	ResponseCacheService_GetHitCount_FullMethodName     = "/http.ResponseCacheService/GetHitCount"
-	ResponseCacheService_GetNetworkCount_FullMethodName = "/http.ResponseCacheService/GetNetworkCount"
-	ResponseCacheService_GetRequestCount_FullMethodName = "/http.ResponseCacheService/GetRequestCount"
-	ResponseCacheService_MaxSize_FullMethodName         = "/http.ResponseCacheService/MaxSize"
-	ResponseCacheService_Put_FullMethodName             = "/http.ResponseCacheService/Put"
-	ResponseCacheService_Size_FullMethodName            = "/http.ResponseCacheService/Size"
-	ResponseCacheService_GetInstalled_FullMethodName    = "/http.ResponseCacheService/GetInstalled"
-)
-
-// ResponseCacheServiceClient is the client API for ResponseCacheService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ResponseCacheServiceClient interface {
-	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
-	Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error)
-	Flush(ctx context.Context, in *FlushRequest, opts ...grpc.CallOption) (*FlushResponse, error)
-	GetHitCount(ctx context.Context, in *GetHitCountRequest, opts ...grpc.CallOption) (*GetHitCountResponse, error)
-	GetNetworkCount(ctx context.Context, in *GetNetworkCountRequest, opts ...grpc.CallOption) (*GetNetworkCountResponse, error)
-	GetRequestCount(ctx context.Context, in *GetRequestCountRequest, opts ...grpc.CallOption) (*GetRequestCountResponse, error)
-	MaxSize(ctx context.Context, in *MaxSizeRequest, opts ...grpc.CallOption) (*MaxSizeResponse, error)
-	Put(ctx context.Context, in *PutRequest, opts ...grpc.CallOption) (*PutResponse, error)
-	Size(ctx context.Context, in *SizeRequest, opts ...grpc.CallOption) (*SizeResponse, error)
-	GetInstalled(ctx context.Context, in *GetInstalledRequest, opts ...grpc.CallOption) (*GetInstalledResponse, error)
-}
-
-type responseCacheServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewResponseCacheServiceClient(cc grpc.ClientConnInterface) ResponseCacheServiceClient {
-	return &responseCacheServiceClient{cc}
-}
-
-func (c *responseCacheServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CloseResponse)
-	err := c.cc.Invoke(ctx, ResponseCacheService_Close_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responseCacheServiceClient) Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DeleteResponse)
-	err := c.cc.Invoke(ctx, ResponseCacheService_Delete_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responseCacheServiceClient) Flush(ctx context.Context, in *FlushRequest, opts ...grpc.CallOption) (*FlushResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(FlushResponse)
-	err := c.cc.Invoke(ctx, ResponseCacheService_Flush_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responseCacheServiceClient) GetHitCount(ctx context.Context, in *GetHitCountRequest, opts ...grpc.CallOption) (*GetHitCountResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetHitCountResponse)
-	err := c.cc.Invoke(ctx, ResponseCacheService_GetHitCount_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responseCacheServiceClient) GetNetworkCount(ctx context.Context, in *GetNetworkCountRequest, opts ...grpc.CallOption) (*GetNetworkCountResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNetworkCountResponse)
-	err := c.cc.Invoke(ctx, ResponseCacheService_GetNetworkCount_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responseCacheServiceClient) GetRequestCount(ctx context.Context, in *GetRequestCountRequest, opts ...grpc.CallOption) (*GetRequestCountResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRequestCountResponse)
-	err := c.cc.Invoke(ctx, ResponseCacheService_GetRequestCount_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responseCacheServiceClient) MaxSize(ctx context.Context, in *MaxSizeRequest, opts ...grpc.CallOption) (*MaxSizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(MaxSizeResponse)
-	err := c.cc.Invoke(ctx, ResponseCacheService_MaxSize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responseCacheServiceClient) Put(ctx context.Context, in *PutRequest, opts ...grpc.CallOption) (*PutResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(PutResponse)
-	err := c.cc.Invoke(ctx, ResponseCacheService_Put_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responseCacheServiceClient) Size(ctx context.Context, in *SizeRequest, opts ...grpc.CallOption) (*SizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SizeResponse)
-	err := c.cc.Invoke(ctx, ResponseCacheService_Size_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *responseCacheServiceClient) GetInstalled(ctx context.Context, in *GetInstalledRequest, opts ...grpc.CallOption) (*GetInstalledResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInstalledResponse)
-	err := c.cc.Invoke(ctx, ResponseCacheService_GetInstalled_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ResponseCacheServiceServer is the server API for ResponseCacheService service.
-// All implementations must embed UnimplementedResponseCacheServiceServer
-// for forward compatibility.
-type ResponseCacheServiceServer interface {
-	Close(context.Context, *CloseRequest) (*CloseResponse, error)
-	Delete(context.Context, *DeleteRequest) (*DeleteResponse, error)
-	Flush(context.Context, *FlushRequest) (*FlushResponse, error)
-	GetHitCount(context.Context, *GetHitCountRequest) (*GetHitCountResponse, error)
-	GetNetworkCount(context.Context, *GetNetworkCountRequest) (*GetNetworkCountResponse, error)
-	GetRequestCount(context.Context, *GetRequestCountRequest) (*GetRequestCountResponse, error)
-	MaxSize(context.Context, *MaxSizeRequest) (*MaxSizeResponse, error)
-	Put(context.Context, *PutRequest) (*PutResponse, error)
-	Size(context.Context, *SizeRequest) (*SizeResponse, error)
-	GetInstalled(context.Context, *GetInstalledRequest) (*GetInstalledResponse, error)
-	mustEmbedUnimplementedResponseCacheServiceServer()
-}
-
-// UnimplementedResponseCacheServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedResponseCacheServiceServer struct{}
-
-func (UnimplementedResponseCacheServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
-}
-func (UnimplementedResponseCacheServiceServer) Delete(context.Context, *DeleteRequest) (*DeleteResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Delete not implemented")
-}
-func (UnimplementedResponseCacheServiceServer) Flush(context.Context, *FlushRequest) (*FlushResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Flush not implemented")
-}
-func (UnimplementedResponseCacheServiceServer) GetHitCount(context.Context, *GetHitCountRequest) (*GetHitCountResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetHitCount not implemented")
-}
-func (UnimplementedResponseCacheServiceServer) GetNetworkCount(context.Context, *GetNetworkCountRequest) (*GetNetworkCountResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetNetworkCount not implemented")
-}
-func (UnimplementedResponseCacheServiceServer) GetRequestCount(context.Context, *GetRequestCountRequest) (*GetRequestCountResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetRequestCount not implemented")
-}
-func (UnimplementedResponseCacheServiceServer) MaxSize(context.Context, *MaxSizeRequest) (*MaxSizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method MaxSize not implemented")
-}
-func (UnimplementedResponseCacheServiceServer) Put(context.Context, *PutRequest) (*PutResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Put not implemented")
-}
-func (UnimplementedResponseCacheServiceServer) Size(context.Context, *SizeRequest) (*SizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Size not implemented")
-}
-func (UnimplementedResponseCacheServiceServer) GetInstalled(context.Context, *GetInstalledRequest) (*GetInstalledResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInstalled not implemented")
-}
-func (UnimplementedResponseCacheServiceServer) mustEmbedUnimplementedResponseCacheServiceServer() {}
-func (UnimplementedResponseCacheServiceServer) testEmbeddedByValue()                              {}
-
-// UnsafeResponseCacheServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ResponseCacheServiceServer will
-// result in compilation errors.
-type UnsafeResponseCacheServiceServer interface {
-	mustEmbedUnimplementedResponseCacheServiceServer()
-}
-
-func RegisterResponseCacheServiceServer(s grpc.ServiceRegistrar, srv ResponseCacheServiceServer) {
-	// If the following call panics, it indicates UnimplementedResponseCacheServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ResponseCacheService_ServiceDesc, srv)
-}
-
-func _ResponseCacheService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloseRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponseCacheServiceServer).Close(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponseCacheService_Close_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponseCacheServiceServer).Close(ctx, req.(*CloseRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponseCacheService_Delete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponseCacheServiceServer).Delete(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponseCacheService_Delete_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponseCacheServiceServer).Delete(ctx, req.(*DeleteRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponseCacheService_Flush_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(FlushRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponseCacheServiceServer).Flush(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponseCacheService_Flush_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponseCacheServiceServer).Flush(ctx, req.(*FlushRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponseCacheService_GetHitCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetHitCountRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponseCacheServiceServer).GetHitCount(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponseCacheService_GetHitCount_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponseCacheServiceServer).GetHitCount(ctx, req.(*GetHitCountRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponseCacheService_GetNetworkCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNetworkCountRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponseCacheServiceServer).GetNetworkCount(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponseCacheService_GetNetworkCount_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponseCacheServiceServer).GetNetworkCount(ctx, req.(*GetNetworkCountRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponseCacheService_GetRequestCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRequestCountRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponseCacheServiceServer).GetRequestCount(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponseCacheService_GetRequestCount_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponseCacheServiceServer).GetRequestCount(ctx, req.(*GetRequestCountRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponseCacheService_MaxSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MaxSizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponseCacheServiceServer).MaxSize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponseCacheService_MaxSize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponseCacheServiceServer).MaxSize(ctx, req.(*MaxSizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponseCacheService_Put_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PutRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponseCacheServiceServer).Put(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponseCacheService_Put_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponseCacheServiceServer).Put(ctx, req.(*PutRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponseCacheService_Size_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponseCacheServiceServer).Size(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponseCacheService_Size_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponseCacheServiceServer).Size(ctx, req.(*SizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ResponseCacheService_GetInstalled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInstalledRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ResponseCacheServiceServer).GetInstalled(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ResponseCacheService_GetInstalled_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ResponseCacheServiceServer).GetInstalled(ctx, req.(*GetInstalledRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ResponseCacheService_ServiceDesc is the grpc.ServiceDesc for ResponseCacheService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ResponseCacheService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "http.ResponseCacheService",
-	HandlerType: (*ResponseCacheServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Close",
-			Handler:    _ResponseCacheService_Close_Handler,
-		},
-		{
-			MethodName: "Delete",
-			Handler:    _ResponseCacheService_Delete_Handler,
-		},
-		{
-			MethodName: "Flush",
-			Handler:    _ResponseCacheService_Flush_Handler,
-		},
-		{
-			MethodName: "GetHitCount",
-			Handler:    _ResponseCacheService_GetHitCount_Handler,
-		},
-		{
-			MethodName: "GetNetworkCount",
-			Handler:    _ResponseCacheService_GetNetworkCount_Handler,
-		},
-		{
-			MethodName: "GetRequestCount",
-			Handler:    _ResponseCacheService_GetRequestCount_Handler,
-		},
-		{
-			MethodName: "MaxSize",
-			Handler:    _ResponseCacheService_MaxSize_Handler,
-		},
-		{
-			MethodName: "Put",
-			Handler:    _ResponseCacheService_Put_Handler,
-		},
-		{
-			MethodName: "Size",
-			Handler:    _ResponseCacheService_Size_Handler,
-		},
-		{
-			MethodName: "GetInstalled",
-			Handler:    _ResponseCacheService_GetInstalled_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/http/http.proto",
-}
-
-const (
-	EngineService_BindToNetwork_FullMethodName                 = "/http.EngineService/BindToNetwork"
-	EngineService_CreateUrlStreamHandlerFactory_FullMethodName = "/http.EngineService/CreateUrlStreamHandlerFactory"
-	EngineService_NewBidirectionalStreamBuilder_FullMethodName = "/http.EngineService/NewBidirectionalStreamBuilder"
-	EngineService_NewUrlRequestBuilder_FullMethodName          = "/http.EngineService/NewUrlRequestBuilder"
-	EngineService_OpenConnection_FullMethodName                = "/http.EngineService/OpenConnection"
-	EngineService_Shutdown_FullMethodName                      = "/http.EngineService/Shutdown"
-	EngineService_GetVersionString_FullMethodName              = "/http.EngineService/GetVersionString"
-)
-
-// EngineServiceClient is the client API for EngineService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type EngineServiceClient interface {
-	BindToNetwork(ctx context.Context, in *BindToNetworkRequest, opts ...grpc.CallOption) (*BindToNetworkResponse, error)
-	CreateUrlStreamHandlerFactory(ctx context.Context, in *CreateUrlStreamHandlerFactoryRequest, opts ...grpc.CallOption) (*CreateUrlStreamHandlerFactoryResponse, error)
-	NewBidirectionalStreamBuilder(ctx context.Context, in *NewBidirectionalStreamBuilderRequest, opts ...grpc.CallOption) (*NewBidirectionalStreamBuilderResponse, error)
-	NewUrlRequestBuilder(ctx context.Context, in *NewUrlRequestBuilderRequest, opts ...grpc.CallOption) (*NewUrlRequestBuilderResponse, error)
-	OpenConnection(ctx context.Context, in *OpenConnectionRequest, opts ...grpc.CallOption) (*OpenConnectionResponse, error)
-	Shutdown(ctx context.Context, in *ShutdownRequest, opts ...grpc.CallOption) (*ShutdownResponse, error)
-	GetVersionString(ctx context.Context, in *GetVersionStringRequest, opts ...grpc.CallOption) (*GetVersionStringResponse, error)
-}
-
-type engineServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewEngineServiceClient(cc grpc.ClientConnInterface) EngineServiceClient {
-	return &engineServiceClient{cc}
-}
-
-func (c *engineServiceClient) BindToNetwork(ctx context.Context, in *BindToNetworkRequest, opts ...grpc.CallOption) (*BindToNetworkResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BindToNetworkResponse)
-	err := c.cc.Invoke(ctx, EngineService_BindToNetwork_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *engineServiceClient) CreateUrlStreamHandlerFactory(ctx context.Context, in *CreateUrlStreamHandlerFactoryRequest, opts ...grpc.CallOption) (*CreateUrlStreamHandlerFactoryResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CreateUrlStreamHandlerFactoryResponse)
-	err := c.cc.Invoke(ctx, EngineService_CreateUrlStreamHandlerFactory_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *engineServiceClient) NewBidirectionalStreamBuilder(ctx context.Context, in *NewBidirectionalStreamBuilderRequest, opts ...grpc.CallOption) (*NewBidirectionalStreamBuilderResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewBidirectionalStreamBuilderResponse)
-	err := c.cc.Invoke(ctx, EngineService_NewBidirectionalStreamBuilder_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *engineServiceClient) NewUrlRequestBuilder(ctx context.Context, in *NewUrlRequestBuilderRequest, opts ...grpc.CallOption) (*NewUrlRequestBuilderResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewUrlRequestBuilderResponse)
-	err := c.cc.Invoke(ctx, EngineService_NewUrlRequestBuilder_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *engineServiceClient) OpenConnection(ctx context.Context, in *OpenConnectionRequest, opts ...grpc.CallOption) (*OpenConnectionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(OpenConnectionResponse)
-	err := c.cc.Invoke(ctx, EngineService_OpenConnection_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *engineServiceClient) Shutdown(ctx context.Context, in *ShutdownRequest, opts ...grpc.CallOption) (*ShutdownResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ShutdownResponse)
-	err := c.cc.Invoke(ctx, EngineService_Shutdown_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *engineServiceClient) GetVersionString(ctx context.Context, in *GetVersionStringRequest, opts ...grpc.CallOption) (*GetVersionStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetVersionStringResponse)
-	err := c.cc.Invoke(ctx, EngineService_GetVersionString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// EngineServiceServer is the server API for EngineService service.
-// All implementations must embed UnimplementedEngineServiceServer
-// for forward compatibility.
-type EngineServiceServer interface {
-	BindToNetwork(context.Context, *BindToNetworkRequest) (*BindToNetworkResponse, error)
-	CreateUrlStreamHandlerFactory(context.Context, *CreateUrlStreamHandlerFactoryRequest) (*CreateUrlStreamHandlerFactoryResponse, error)
-	NewBidirectionalStreamBuilder(context.Context, *NewBidirectionalStreamBuilderRequest) (*NewBidirectionalStreamBuilderResponse, error)
-	NewUrlRequestBuilder(context.Context, *NewUrlRequestBuilderRequest) (*NewUrlRequestBuilderResponse, error)
-	OpenConnection(context.Context, *OpenConnectionRequest) (*OpenConnectionResponse, error)
-	Shutdown(context.Context, *ShutdownRequest) (*ShutdownResponse, error)
-	GetVersionString(context.Context, *GetVersionStringRequest) (*GetVersionStringResponse, error)
-	mustEmbedUnimplementedEngineServiceServer()
-}
-
-// UnimplementedEngineServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedEngineServiceServer struct{}
-
-func (UnimplementedEngineServiceServer) BindToNetwork(context.Context, *BindToNetworkRequest) (*BindToNetworkResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method BindToNetwork not implemented")
-}
-func (UnimplementedEngineServiceServer) CreateUrlStreamHandlerFactory(context.Context, *CreateUrlStreamHandlerFactoryRequest) (*CreateUrlStreamHandlerFactoryResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method CreateUrlStreamHandlerFactory not implemented")
-}
-func (UnimplementedEngineServiceServer) NewBidirectionalStreamBuilder(context.Context, *NewBidirectionalStreamBuilderRequest) (*NewBidirectionalStreamBuilderResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewBidirectionalStreamBuilder not implemented")
-}
-func (UnimplementedEngineServiceServer) NewUrlRequestBuilder(context.Context, *NewUrlRequestBuilderRequest) (*NewUrlRequestBuilderResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewUrlRequestBuilder not implemented")
-}
-func (UnimplementedEngineServiceServer) OpenConnection(context.Context, *OpenConnectionRequest) (*OpenConnectionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method OpenConnection not implemented")
-}
-func (UnimplementedEngineServiceServer) Shutdown(context.Context, *ShutdownRequest) (*ShutdownResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Shutdown not implemented")
-}
-func (UnimplementedEngineServiceServer) GetVersionString(context.Context, *GetVersionStringRequest) (*GetVersionStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetVersionString not implemented")
-}
-func (UnimplementedEngineServiceServer) mustEmbedUnimplementedEngineServiceServer() {}
-func (UnimplementedEngineServiceServer) testEmbeddedByValue()                       {}
-
-// UnsafeEngineServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to EngineServiceServer will
-// result in compilation errors.
-type UnsafeEngineServiceServer interface {
-	mustEmbedUnimplementedEngineServiceServer()
-}
-
-func RegisterEngineServiceServer(s grpc.ServiceRegistrar, srv EngineServiceServer) {
-	// If the following call panics, it indicates UnimplementedEngineServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&EngineService_ServiceDesc, srv)
-}
-
-func _EngineService_BindToNetwork_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BindToNetworkRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EngineServiceServer).BindToNetwork(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EngineService_BindToNetwork_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EngineServiceServer).BindToNetwork(ctx, req.(*BindToNetworkRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EngineService_CreateUrlStreamHandlerFactory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateUrlStreamHandlerFactoryRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EngineServiceServer).CreateUrlStreamHandlerFactory(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EngineService_CreateUrlStreamHandlerFactory_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EngineServiceServer).CreateUrlStreamHandlerFactory(ctx, req.(*CreateUrlStreamHandlerFactoryRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EngineService_NewBidirectionalStreamBuilder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewBidirectionalStreamBuilderRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EngineServiceServer).NewBidirectionalStreamBuilder(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EngineService_NewBidirectionalStreamBuilder_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EngineServiceServer).NewBidirectionalStreamBuilder(ctx, req.(*NewBidirectionalStreamBuilderRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EngineService_NewUrlRequestBuilder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewUrlRequestBuilderRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EngineServiceServer).NewUrlRequestBuilder(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EngineService_NewUrlRequestBuilder_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EngineServiceServer).NewUrlRequestBuilder(ctx, req.(*NewUrlRequestBuilderRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EngineService_OpenConnection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(OpenConnectionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EngineServiceServer).OpenConnection(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EngineService_OpenConnection_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EngineServiceServer).OpenConnection(ctx, req.(*OpenConnectionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EngineService_Shutdown_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ShutdownRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EngineServiceServer).Shutdown(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EngineService_Shutdown_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EngineServiceServer).Shutdown(ctx, req.(*ShutdownRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EngineService_GetVersionString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetVersionStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EngineServiceServer).GetVersionString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EngineService_GetVersionString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EngineServiceServer).GetVersionString(ctx, req.(*GetVersionStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// EngineService_ServiceDesc is the grpc.ServiceDesc for EngineService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var EngineService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "http.EngineService",
-	HandlerType: (*EngineServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "BindToNetwork",
-			Handler:    _EngineService_BindToNetwork_Handler,
-		},
-		{
-			MethodName: "CreateUrlStreamHandlerFactory",
-			Handler:    _EngineService_CreateUrlStreamHandlerFactory_Handler,
-		},
-		{
-			MethodName: "NewBidirectionalStreamBuilder",
-			Handler:    _EngineService_NewBidirectionalStreamBuilder_Handler,
-		},
-		{
-			MethodName: "NewUrlRequestBuilder",
-			Handler:    _EngineService_NewUrlRequestBuilder_Handler,
-		},
-		{
-			MethodName: "OpenConnection",
-			Handler:    _EngineService_OpenConnection_Handler,
-		},
-		{
-			MethodName: "Shutdown",
-			Handler:    _EngineService_Shutdown_Handler,
-		},
-		{
-			MethodName: "GetVersionString",
-			Handler:    _EngineService_GetVersionString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/http/http.proto",
-}
-
-const (
-	EngineBuilderService_AddQuicHint_FullMethodName                                         = "/http.EngineBuilderService/AddQuicHint"
-	EngineBuilderService_Build_FullMethodName                                               = "/http.EngineBuilderService/Build"
-	EngineBuilderService_GetDefaultUserAgent_FullMethodName                                 = "/http.EngineBuilderService/GetDefaultUserAgent"
-	EngineBuilderService_SetConnectionMigrationOptions_FullMethodName                       = "/http.EngineBuilderService/SetConnectionMigrationOptions"
-	EngineBuilderService_SetDnsOptions_FullMethodName                                       = "/http.EngineBuilderService/SetDnsOptions"
-	EngineBuilderService_SetEnableBrotli_FullMethodName                                     = "/http.EngineBuilderService/SetEnableBrotli"
-	EngineBuilderService_SetEnableHttp2_FullMethodName                                      = "/http.EngineBuilderService/SetEnableHttp2"
-	EngineBuilderService_SetEnableHttpCache_FullMethodName                                  = "/http.EngineBuilderService/SetEnableHttpCache"
-	EngineBuilderService_SetEnablePublicKeyPinningBypassForLocalTrustAnchors_FullMethodName = "/http.EngineBuilderService/SetEnablePublicKeyPinningBypassForLocalTrustAnchors"
-	EngineBuilderService_SetEnableQuic_FullMethodName                                       = "/http.EngineBuilderService/SetEnableQuic"
-	EngineBuilderService_SetQuicOptions_FullMethodName                                      = "/http.EngineBuilderService/SetQuicOptions"
-	EngineBuilderService_SetStoragePath_FullMethodName                                      = "/http.EngineBuilderService/SetStoragePath"
-	EngineBuilderService_SetUserAgent_FullMethodName                                        = "/http.EngineBuilderService/SetUserAgent"
-)
-
-// EngineBuilderServiceClient is the client API for EngineBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type EngineBuilderServiceClient interface {
-	AddQuicHint(ctx context.Context, in *AddQuicHintRequest, opts ...grpc.CallOption) (*AddQuicHintResponse, error)
+type ConnectionMigrationOptionsBuilderServiceClient interface {
 	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	GetDefaultUserAgent(ctx context.Context, in *GetDefaultUserAgentRequest, opts ...grpc.CallOption) (*GetDefaultUserAgentResponse, error)
-	SetConnectionMigrationOptions(ctx context.Context, in *SetConnectionMigrationOptionsRequest, opts ...grpc.CallOption) (*SetConnectionMigrationOptionsResponse, error)
-	SetDnsOptions(ctx context.Context, in *SetDnsOptionsRequest, opts ...grpc.CallOption) (*SetDnsOptionsResponse, error)
-	SetEnableBrotli(ctx context.Context, in *SetEnableBrotliRequest, opts ...grpc.CallOption) (*SetEnableBrotliResponse, error)
-	SetEnableHttp2(ctx context.Context, in *SetEnableHttp2Request, opts ...grpc.CallOption) (*SetEnableHttp2Response, error)
-	SetEnableHttpCache(ctx context.Context, in *SetEnableHttpCacheRequest, opts ...grpc.CallOption) (*SetEnableHttpCacheResponse, error)
-	SetEnablePublicKeyPinningBypassForLocalTrustAnchors(ctx context.Context, in *SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest, opts ...grpc.CallOption) (*SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse, error)
-	SetEnableQuic(ctx context.Context, in *SetEnableQuicRequest, opts ...grpc.CallOption) (*SetEnableQuicResponse, error)
-	SetQuicOptions(ctx context.Context, in *SetQuicOptionsRequest, opts ...grpc.CallOption) (*SetQuicOptionsResponse, error)
-	SetStoragePath(ctx context.Context, in *SetStoragePathRequest, opts ...grpc.CallOption) (*SetStoragePathResponse, error)
-	SetUserAgent(ctx context.Context, in *SetUserAgentRequest, opts ...grpc.CallOption) (*SetUserAgentResponse, error)
+	SetAllowNonDefaultNetworkUsage(ctx context.Context, in *SetAllowNonDefaultNetworkUsageRequest, opts ...grpc.CallOption) (*SetAllowNonDefaultNetworkUsageResponse, error)
+	SetDefaultNetworkMigration(ctx context.Context, in *SetDefaultNetworkMigrationRequest, opts ...grpc.CallOption) (*SetDefaultNetworkMigrationResponse, error)
+	SetPathDegradationMigration(ctx context.Context, in *SetPathDegradationMigrationRequest, opts ...grpc.CallOption) (*SetPathDegradationMigrationResponse, error)
 }
 
-type engineBuilderServiceClient struct {
+type connectionMigrationOptionsBuilderServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewEngineBuilderServiceClient(cc grpc.ClientConnInterface) EngineBuilderServiceClient {
-	return &engineBuilderServiceClient{cc}
+func NewConnectionMigrationOptionsBuilderServiceClient(cc grpc.ClientConnInterface) ConnectionMigrationOptionsBuilderServiceClient {
+	return &connectionMigrationOptionsBuilderServiceClient{cc}
 }
 
-func (c *engineBuilderServiceClient) AddQuicHint(ctx context.Context, in *AddQuicHintRequest, opts ...grpc.CallOption) (*AddQuicHintResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddQuicHintResponse)
-	err := c.cc.Invoke(ctx, EngineBuilderService_AddQuicHint_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *engineBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+func (c *connectionMigrationOptionsBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, EngineBuilderService_Build_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, ConnectionMigrationOptionsBuilderService_Build_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *engineBuilderServiceClient) GetDefaultUserAgent(ctx context.Context, in *GetDefaultUserAgentRequest, opts ...grpc.CallOption) (*GetDefaultUserAgentResponse, error) {
+func (c *connectionMigrationOptionsBuilderServiceClient) SetAllowNonDefaultNetworkUsage(ctx context.Context, in *SetAllowNonDefaultNetworkUsageRequest, opts ...grpc.CallOption) (*SetAllowNonDefaultNetworkUsageResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDefaultUserAgentResponse)
-	err := c.cc.Invoke(ctx, EngineBuilderService_GetDefaultUserAgent_FullMethodName, in, out, cOpts...)
+	out := new(SetAllowNonDefaultNetworkUsageResponse)
+	err := c.cc.Invoke(ctx, ConnectionMigrationOptionsBuilderService_SetAllowNonDefaultNetworkUsage_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *engineBuilderServiceClient) SetConnectionMigrationOptions(ctx context.Context, in *SetConnectionMigrationOptionsRequest, opts ...grpc.CallOption) (*SetConnectionMigrationOptionsResponse, error) {
+func (c *connectionMigrationOptionsBuilderServiceClient) SetDefaultNetworkMigration(ctx context.Context, in *SetDefaultNetworkMigrationRequest, opts ...grpc.CallOption) (*SetDefaultNetworkMigrationResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetConnectionMigrationOptionsResponse)
-	err := c.cc.Invoke(ctx, EngineBuilderService_SetConnectionMigrationOptions_FullMethodName, in, out, cOpts...)
+	out := new(SetDefaultNetworkMigrationResponse)
+	err := c.cc.Invoke(ctx, ConnectionMigrationOptionsBuilderService_SetDefaultNetworkMigration_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *engineBuilderServiceClient) SetDnsOptions(ctx context.Context, in *SetDnsOptionsRequest, opts ...grpc.CallOption) (*SetDnsOptionsResponse, error) {
+func (c *connectionMigrationOptionsBuilderServiceClient) SetPathDegradationMigration(ctx context.Context, in *SetPathDegradationMigrationRequest, opts ...grpc.CallOption) (*SetPathDegradationMigrationResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetDnsOptionsResponse)
-	err := c.cc.Invoke(ctx, EngineBuilderService_SetDnsOptions_FullMethodName, in, out, cOpts...)
+	out := new(SetPathDegradationMigrationResponse)
+	err := c.cc.Invoke(ctx, ConnectionMigrationOptionsBuilderService_SetPathDegradationMigration_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *engineBuilderServiceClient) SetEnableBrotli(ctx context.Context, in *SetEnableBrotliRequest, opts ...grpc.CallOption) (*SetEnableBrotliResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetEnableBrotliResponse)
-	err := c.cc.Invoke(ctx, EngineBuilderService_SetEnableBrotli_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *engineBuilderServiceClient) SetEnableHttp2(ctx context.Context, in *SetEnableHttp2Request, opts ...grpc.CallOption) (*SetEnableHttp2Response, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetEnableHttp2Response)
-	err := c.cc.Invoke(ctx, EngineBuilderService_SetEnableHttp2_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *engineBuilderServiceClient) SetEnableHttpCache(ctx context.Context, in *SetEnableHttpCacheRequest, opts ...grpc.CallOption) (*SetEnableHttpCacheResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetEnableHttpCacheResponse)
-	err := c.cc.Invoke(ctx, EngineBuilderService_SetEnableHttpCache_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *engineBuilderServiceClient) SetEnablePublicKeyPinningBypassForLocalTrustAnchors(ctx context.Context, in *SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest, opts ...grpc.CallOption) (*SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse)
-	err := c.cc.Invoke(ctx, EngineBuilderService_SetEnablePublicKeyPinningBypassForLocalTrustAnchors_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *engineBuilderServiceClient) SetEnableQuic(ctx context.Context, in *SetEnableQuicRequest, opts ...grpc.CallOption) (*SetEnableQuicResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetEnableQuicResponse)
-	err := c.cc.Invoke(ctx, EngineBuilderService_SetEnableQuic_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *engineBuilderServiceClient) SetQuicOptions(ctx context.Context, in *SetQuicOptionsRequest, opts ...grpc.CallOption) (*SetQuicOptionsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetQuicOptionsResponse)
-	err := c.cc.Invoke(ctx, EngineBuilderService_SetQuicOptions_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *engineBuilderServiceClient) SetStoragePath(ctx context.Context, in *SetStoragePathRequest, opts ...grpc.CallOption) (*SetStoragePathResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetStoragePathResponse)
-	err := c.cc.Invoke(ctx, EngineBuilderService_SetStoragePath_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *engineBuilderServiceClient) SetUserAgent(ctx context.Context, in *SetUserAgentRequest, opts ...grpc.CallOption) (*SetUserAgentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetUserAgentResponse)
-	err := c.cc.Invoke(ctx, EngineBuilderService_SetUserAgent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// EngineBuilderServiceServer is the server API for EngineBuilderService service.
-// All implementations must embed UnimplementedEngineBuilderServiceServer
+// ConnectionMigrationOptionsBuilderServiceServer is the server API for ConnectionMigrationOptionsBuilderService service.
+// All implementations must embed UnimplementedConnectionMigrationOptionsBuilderServiceServer
 // for forward compatibility.
-type EngineBuilderServiceServer interface {
-	AddQuicHint(context.Context, *AddQuicHintRequest) (*AddQuicHintResponse, error)
+type ConnectionMigrationOptionsBuilderServiceServer interface {
 	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	GetDefaultUserAgent(context.Context, *GetDefaultUserAgentRequest) (*GetDefaultUserAgentResponse, error)
-	SetConnectionMigrationOptions(context.Context, *SetConnectionMigrationOptionsRequest) (*SetConnectionMigrationOptionsResponse, error)
-	SetDnsOptions(context.Context, *SetDnsOptionsRequest) (*SetDnsOptionsResponse, error)
-	SetEnableBrotli(context.Context, *SetEnableBrotliRequest) (*SetEnableBrotliResponse, error)
-	SetEnableHttp2(context.Context, *SetEnableHttp2Request) (*SetEnableHttp2Response, error)
-	SetEnableHttpCache(context.Context, *SetEnableHttpCacheRequest) (*SetEnableHttpCacheResponse, error)
-	SetEnablePublicKeyPinningBypassForLocalTrustAnchors(context.Context, *SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest) (*SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse, error)
-	SetEnableQuic(context.Context, *SetEnableQuicRequest) (*SetEnableQuicResponse, error)
-	SetQuicOptions(context.Context, *SetQuicOptionsRequest) (*SetQuicOptionsResponse, error)
-	SetStoragePath(context.Context, *SetStoragePathRequest) (*SetStoragePathResponse, error)
-	SetUserAgent(context.Context, *SetUserAgentRequest) (*SetUserAgentResponse, error)
-	mustEmbedUnimplementedEngineBuilderServiceServer()
+	SetAllowNonDefaultNetworkUsage(context.Context, *SetAllowNonDefaultNetworkUsageRequest) (*SetAllowNonDefaultNetworkUsageResponse, error)
+	SetDefaultNetworkMigration(context.Context, *SetDefaultNetworkMigrationRequest) (*SetDefaultNetworkMigrationResponse, error)
+	SetPathDegradationMigration(context.Context, *SetPathDegradationMigrationRequest) (*SetPathDegradationMigrationResponse, error)
+	mustEmbedUnimplementedConnectionMigrationOptionsBuilderServiceServer()
 }
 
-// UnimplementedEngineBuilderServiceServer must be embedded to have
+// UnimplementedConnectionMigrationOptionsBuilderServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedEngineBuilderServiceServer struct{}
+type UnimplementedConnectionMigrationOptionsBuilderServiceServer struct{}
 
-func (UnimplementedEngineBuilderServiceServer) AddQuicHint(context.Context, *AddQuicHintRequest) (*AddQuicHintResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddQuicHint not implemented")
-}
-func (UnimplementedEngineBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+func (UnimplementedConnectionMigrationOptionsBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
 }
-func (UnimplementedEngineBuilderServiceServer) GetDefaultUserAgent(context.Context, *GetDefaultUserAgentRequest) (*GetDefaultUserAgentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDefaultUserAgent not implemented")
+func (UnimplementedConnectionMigrationOptionsBuilderServiceServer) SetAllowNonDefaultNetworkUsage(context.Context, *SetAllowNonDefaultNetworkUsageRequest) (*SetAllowNonDefaultNetworkUsageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetAllowNonDefaultNetworkUsage not implemented")
 }
-func (UnimplementedEngineBuilderServiceServer) SetConnectionMigrationOptions(context.Context, *SetConnectionMigrationOptionsRequest) (*SetConnectionMigrationOptionsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetConnectionMigrationOptions not implemented")
+func (UnimplementedConnectionMigrationOptionsBuilderServiceServer) SetDefaultNetworkMigration(context.Context, *SetDefaultNetworkMigrationRequest) (*SetDefaultNetworkMigrationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDefaultNetworkMigration not implemented")
 }
-func (UnimplementedEngineBuilderServiceServer) SetDnsOptions(context.Context, *SetDnsOptionsRequest) (*SetDnsOptionsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetDnsOptions not implemented")
+func (UnimplementedConnectionMigrationOptionsBuilderServiceServer) SetPathDegradationMigration(context.Context, *SetPathDegradationMigrationRequest) (*SetPathDegradationMigrationResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPathDegradationMigration not implemented")
 }
-func (UnimplementedEngineBuilderServiceServer) SetEnableBrotli(context.Context, *SetEnableBrotliRequest) (*SetEnableBrotliResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetEnableBrotli not implemented")
+func (UnimplementedConnectionMigrationOptionsBuilderServiceServer) mustEmbedUnimplementedConnectionMigrationOptionsBuilderServiceServer() {
 }
-func (UnimplementedEngineBuilderServiceServer) SetEnableHttp2(context.Context, *SetEnableHttp2Request) (*SetEnableHttp2Response, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetEnableHttp2 not implemented")
-}
-func (UnimplementedEngineBuilderServiceServer) SetEnableHttpCache(context.Context, *SetEnableHttpCacheRequest) (*SetEnableHttpCacheResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetEnableHttpCache not implemented")
-}
-func (UnimplementedEngineBuilderServiceServer) SetEnablePublicKeyPinningBypassForLocalTrustAnchors(context.Context, *SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest) (*SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetEnablePublicKeyPinningBypassForLocalTrustAnchors not implemented")
-}
-func (UnimplementedEngineBuilderServiceServer) SetEnableQuic(context.Context, *SetEnableQuicRequest) (*SetEnableQuicResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetEnableQuic not implemented")
-}
-func (UnimplementedEngineBuilderServiceServer) SetQuicOptions(context.Context, *SetQuicOptionsRequest) (*SetQuicOptionsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetQuicOptions not implemented")
-}
-func (UnimplementedEngineBuilderServiceServer) SetStoragePath(context.Context, *SetStoragePathRequest) (*SetStoragePathResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetStoragePath not implemented")
-}
-func (UnimplementedEngineBuilderServiceServer) SetUserAgent(context.Context, *SetUserAgentRequest) (*SetUserAgentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetUserAgent not implemented")
-}
-func (UnimplementedEngineBuilderServiceServer) mustEmbedUnimplementedEngineBuilderServiceServer() {}
-func (UnimplementedEngineBuilderServiceServer) testEmbeddedByValue()                              {}
+func (UnimplementedConnectionMigrationOptionsBuilderServiceServer) testEmbeddedByValue() {}
 
-// UnsafeEngineBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to EngineBuilderServiceServer will
+// UnsafeConnectionMigrationOptionsBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ConnectionMigrationOptionsBuilderServiceServer will
 // result in compilation errors.
-type UnsafeEngineBuilderServiceServer interface {
-	mustEmbedUnimplementedEngineBuilderServiceServer()
+type UnsafeConnectionMigrationOptionsBuilderServiceServer interface {
+	mustEmbedUnimplementedConnectionMigrationOptionsBuilderServiceServer()
 }
 
-func RegisterEngineBuilderServiceServer(s grpc.ServiceRegistrar, srv EngineBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedEngineBuilderServiceServer was
+func RegisterConnectionMigrationOptionsBuilderServiceServer(s grpc.ServiceRegistrar, srv ConnectionMigrationOptionsBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedConnectionMigrationOptionsBuilderServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&EngineBuilderService_ServiceDesc, srv)
+	s.RegisterService(&ConnectionMigrationOptionsBuilderService_ServiceDesc, srv)
 }
 
-func _EngineBuilderService_AddQuicHint_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddQuicHintRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EngineBuilderServiceServer).AddQuicHint(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EngineBuilderService_AddQuicHint_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EngineBuilderServiceServer).AddQuicHint(ctx, req.(*AddQuicHintRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EngineBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ConnectionMigrationOptionsBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(BuildRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(EngineBuilderServiceServer).Build(ctx, in)
+		return srv.(ConnectionMigrationOptionsBuilderServiceServer).Build(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: EngineBuilderService_Build_FullMethodName,
+		FullMethod: ConnectionMigrationOptionsBuilderService_Build_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EngineBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+		return srv.(ConnectionMigrationOptionsBuilderServiceServer).Build(ctx, req.(*BuildRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _EngineBuilderService_GetDefaultUserAgent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDefaultUserAgentRequest)
+func _ConnectionMigrationOptionsBuilderService_SetAllowNonDefaultNetworkUsage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetAllowNonDefaultNetworkUsageRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(EngineBuilderServiceServer).GetDefaultUserAgent(ctx, in)
+		return srv.(ConnectionMigrationOptionsBuilderServiceServer).SetAllowNonDefaultNetworkUsage(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: EngineBuilderService_GetDefaultUserAgent_FullMethodName,
+		FullMethod: ConnectionMigrationOptionsBuilderService_SetAllowNonDefaultNetworkUsage_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EngineBuilderServiceServer).GetDefaultUserAgent(ctx, req.(*GetDefaultUserAgentRequest))
+		return srv.(ConnectionMigrationOptionsBuilderServiceServer).SetAllowNonDefaultNetworkUsage(ctx, req.(*SetAllowNonDefaultNetworkUsageRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _EngineBuilderService_SetConnectionMigrationOptions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetConnectionMigrationOptionsRequest)
+func _ConnectionMigrationOptionsBuilderService_SetDefaultNetworkMigration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDefaultNetworkMigrationRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(EngineBuilderServiceServer).SetConnectionMigrationOptions(ctx, in)
+		return srv.(ConnectionMigrationOptionsBuilderServiceServer).SetDefaultNetworkMigration(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: EngineBuilderService_SetConnectionMigrationOptions_FullMethodName,
+		FullMethod: ConnectionMigrationOptionsBuilderService_SetDefaultNetworkMigration_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EngineBuilderServiceServer).SetConnectionMigrationOptions(ctx, req.(*SetConnectionMigrationOptionsRequest))
+		return srv.(ConnectionMigrationOptionsBuilderServiceServer).SetDefaultNetworkMigration(ctx, req.(*SetDefaultNetworkMigrationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _EngineBuilderService_SetDnsOptions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetDnsOptionsRequest)
+func _ConnectionMigrationOptionsBuilderService_SetPathDegradationMigration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPathDegradationMigrationRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(EngineBuilderServiceServer).SetDnsOptions(ctx, in)
+		return srv.(ConnectionMigrationOptionsBuilderServiceServer).SetPathDegradationMigration(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: EngineBuilderService_SetDnsOptions_FullMethodName,
+		FullMethod: ConnectionMigrationOptionsBuilderService_SetPathDegradationMigration_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EngineBuilderServiceServer).SetDnsOptions(ctx, req.(*SetDnsOptionsRequest))
+		return srv.(ConnectionMigrationOptionsBuilderServiceServer).SetPathDegradationMigration(ctx, req.(*SetPathDegradationMigrationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _EngineBuilderService_SetEnableBrotli_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetEnableBrotliRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EngineBuilderServiceServer).SetEnableBrotli(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EngineBuilderService_SetEnableBrotli_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EngineBuilderServiceServer).SetEnableBrotli(ctx, req.(*SetEnableBrotliRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EngineBuilderService_SetEnableHttp2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetEnableHttp2Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EngineBuilderServiceServer).SetEnableHttp2(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EngineBuilderService_SetEnableHttp2_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EngineBuilderServiceServer).SetEnableHttp2(ctx, req.(*SetEnableHttp2Request))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EngineBuilderService_SetEnableHttpCache_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetEnableHttpCacheRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EngineBuilderServiceServer).SetEnableHttpCache(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EngineBuilderService_SetEnableHttpCache_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EngineBuilderServiceServer).SetEnableHttpCache(ctx, req.(*SetEnableHttpCacheRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EngineBuilderService_SetEnablePublicKeyPinningBypassForLocalTrustAnchors_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EngineBuilderServiceServer).SetEnablePublicKeyPinningBypassForLocalTrustAnchors(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EngineBuilderService_SetEnablePublicKeyPinningBypassForLocalTrustAnchors_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EngineBuilderServiceServer).SetEnablePublicKeyPinningBypassForLocalTrustAnchors(ctx, req.(*SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EngineBuilderService_SetEnableQuic_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetEnableQuicRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EngineBuilderServiceServer).SetEnableQuic(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EngineBuilderService_SetEnableQuic_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EngineBuilderServiceServer).SetEnableQuic(ctx, req.(*SetEnableQuicRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EngineBuilderService_SetQuicOptions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetQuicOptionsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EngineBuilderServiceServer).SetQuicOptions(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EngineBuilderService_SetQuicOptions_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EngineBuilderServiceServer).SetQuicOptions(ctx, req.(*SetQuicOptionsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EngineBuilderService_SetStoragePath_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetStoragePathRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EngineBuilderServiceServer).SetStoragePath(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EngineBuilderService_SetStoragePath_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EngineBuilderServiceServer).SetStoragePath(ctx, req.(*SetStoragePathRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _EngineBuilderService_SetUserAgent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetUserAgentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(EngineBuilderServiceServer).SetUserAgent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: EngineBuilderService_SetUserAgent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EngineBuilderServiceServer).SetUserAgent(ctx, req.(*SetUserAgentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// EngineBuilderService_ServiceDesc is the grpc.ServiceDesc for EngineBuilderService service.
+// ConnectionMigrationOptionsBuilderService_ServiceDesc is the grpc.ServiceDesc for ConnectionMigrationOptionsBuilderService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var EngineBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "http.EngineBuilderService",
-	HandlerType: (*EngineBuilderServiceServer)(nil),
+var ConnectionMigrationOptionsBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "http.ConnectionMigrationOptionsBuilderService",
+	HandlerType: (*ConnectionMigrationOptionsBuilderServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "AddQuicHint",
-			Handler:    _EngineBuilderService_AddQuicHint_Handler,
-		},
 		{
 			MethodName: "Build",
-			Handler:    _EngineBuilderService_Build_Handler,
+			Handler:    _ConnectionMigrationOptionsBuilderService_Build_Handler,
 		},
 		{
-			MethodName: "GetDefaultUserAgent",
-			Handler:    _EngineBuilderService_GetDefaultUserAgent_Handler,
+			MethodName: "SetAllowNonDefaultNetworkUsage",
+			Handler:    _ConnectionMigrationOptionsBuilderService_SetAllowNonDefaultNetworkUsage_Handler,
 		},
 		{
-			MethodName: "SetConnectionMigrationOptions",
-			Handler:    _EngineBuilderService_SetConnectionMigrationOptions_Handler,
+			MethodName: "SetDefaultNetworkMigration",
+			Handler:    _ConnectionMigrationOptionsBuilderService_SetDefaultNetworkMigration_Handler,
 		},
 		{
-			MethodName: "SetDnsOptions",
-			Handler:    _EngineBuilderService_SetDnsOptions_Handler,
-		},
-		{
-			MethodName: "SetEnableBrotli",
-			Handler:    _EngineBuilderService_SetEnableBrotli_Handler,
-		},
-		{
-			MethodName: "SetEnableHttp2",
-			Handler:    _EngineBuilderService_SetEnableHttp2_Handler,
-		},
-		{
-			MethodName: "SetEnableHttpCache",
-			Handler:    _EngineBuilderService_SetEnableHttpCache_Handler,
-		},
-		{
-			MethodName: "SetEnablePublicKeyPinningBypassForLocalTrustAnchors",
-			Handler:    _EngineBuilderService_SetEnablePublicKeyPinningBypassForLocalTrustAnchors_Handler,
-		},
-		{
-			MethodName: "SetEnableQuic",
-			Handler:    _EngineBuilderService_SetEnableQuic_Handler,
-		},
-		{
-			MethodName: "SetQuicOptions",
-			Handler:    _EngineBuilderService_SetQuicOptions_Handler,
-		},
-		{
-			MethodName: "SetStoragePath",
-			Handler:    _EngineBuilderService_SetStoragePath_Handler,
-		},
-		{
-			MethodName: "SetUserAgent",
-			Handler:    _EngineBuilderService_SetUserAgent_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/http/http.proto",
-}
-
-const (
-	NetworkExceptionService_GetErrorCode_FullMethodName           = "/http.NetworkExceptionService/GetErrorCode"
-	NetworkExceptionService_IsImmediatelyRetryable_FullMethodName = "/http.NetworkExceptionService/IsImmediatelyRetryable"
-)
-
-// NetworkExceptionServiceClient is the client API for NetworkExceptionService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type NetworkExceptionServiceClient interface {
-	GetErrorCode(ctx context.Context, in *GetErrorCodeRequest, opts ...grpc.CallOption) (*GetErrorCodeResponse, error)
-	IsImmediatelyRetryable(ctx context.Context, in *IsImmediatelyRetryableRequest, opts ...grpc.CallOption) (*IsImmediatelyRetryableResponse, error)
-}
-
-type networkExceptionServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewNetworkExceptionServiceClient(cc grpc.ClientConnInterface) NetworkExceptionServiceClient {
-	return &networkExceptionServiceClient{cc}
-}
-
-func (c *networkExceptionServiceClient) GetErrorCode(ctx context.Context, in *GetErrorCodeRequest, opts ...grpc.CallOption) (*GetErrorCodeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetErrorCodeResponse)
-	err := c.cc.Invoke(ctx, NetworkExceptionService_GetErrorCode_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *networkExceptionServiceClient) IsImmediatelyRetryable(ctx context.Context, in *IsImmediatelyRetryableRequest, opts ...grpc.CallOption) (*IsImmediatelyRetryableResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(IsImmediatelyRetryableResponse)
-	err := c.cc.Invoke(ctx, NetworkExceptionService_IsImmediatelyRetryable_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// NetworkExceptionServiceServer is the server API for NetworkExceptionService service.
-// All implementations must embed UnimplementedNetworkExceptionServiceServer
-// for forward compatibility.
-type NetworkExceptionServiceServer interface {
-	GetErrorCode(context.Context, *GetErrorCodeRequest) (*GetErrorCodeResponse, error)
-	IsImmediatelyRetryable(context.Context, *IsImmediatelyRetryableRequest) (*IsImmediatelyRetryableResponse, error)
-	mustEmbedUnimplementedNetworkExceptionServiceServer()
-}
-
-// UnimplementedNetworkExceptionServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedNetworkExceptionServiceServer struct{}
-
-func (UnimplementedNetworkExceptionServiceServer) GetErrorCode(context.Context, *GetErrorCodeRequest) (*GetErrorCodeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetErrorCode not implemented")
-}
-func (UnimplementedNetworkExceptionServiceServer) IsImmediatelyRetryable(context.Context, *IsImmediatelyRetryableRequest) (*IsImmediatelyRetryableResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method IsImmediatelyRetryable not implemented")
-}
-func (UnimplementedNetworkExceptionServiceServer) mustEmbedUnimplementedNetworkExceptionServiceServer() {
-}
-func (UnimplementedNetworkExceptionServiceServer) testEmbeddedByValue() {}
-
-// UnsafeNetworkExceptionServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to NetworkExceptionServiceServer will
-// result in compilation errors.
-type UnsafeNetworkExceptionServiceServer interface {
-	mustEmbedUnimplementedNetworkExceptionServiceServer()
-}
-
-func RegisterNetworkExceptionServiceServer(s grpc.ServiceRegistrar, srv NetworkExceptionServiceServer) {
-	// If the following call panics, it indicates UnimplementedNetworkExceptionServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&NetworkExceptionService_ServiceDesc, srv)
-}
-
-func _NetworkExceptionService_GetErrorCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetErrorCodeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkExceptionServiceServer).GetErrorCode(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkExceptionService_GetErrorCode_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkExceptionServiceServer).GetErrorCode(ctx, req.(*GetErrorCodeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NetworkExceptionService_IsImmediatelyRetryable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsImmediatelyRetryableRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkExceptionServiceServer).IsImmediatelyRetryable(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: NetworkExceptionService_IsImmediatelyRetryable_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkExceptionServiceServer).IsImmediatelyRetryable(ctx, req.(*IsImmediatelyRetryableRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// NetworkExceptionService_ServiceDesc is the grpc.ServiceDesc for NetworkExceptionService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var NetworkExceptionService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "http.NetworkExceptionService",
-	HandlerType: (*NetworkExceptionServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetErrorCode",
-			Handler:    _NetworkExceptionService_GetErrorCode_Handler,
-		},
-		{
-			MethodName: "IsImmediatelyRetryable",
-			Handler:    _NetworkExceptionService_IsImmediatelyRetryable_Handler,
+			MethodName: "SetPathDegradationMigration",
+			Handler:    _ConnectionMigrationOptionsBuilderService_SetPathDegradationMigration_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -2617,7 +1030,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type UrlRequestBuilderServiceClient interface {
 	AddHeader(ctx context.Context, in *AddHeaderRequest, opts ...grpc.CallOption) (*AddHeaderResponse, error)
-	BindToNetwork(ctx context.Context, in *BindToNetworkRequest, opts ...grpc.CallOption) (*UrlRequestBuilderBindToNetworkResponse, error)
+	BindToNetwork(ctx context.Context, in *BindToNetworkRequest, opts ...grpc.CallOption) (*BindToNetworkResponse, error)
 	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
 	SetCacheDisabled(ctx context.Context, in *SetCacheDisabledRequest, opts ...grpc.CallOption) (*SetCacheDisabledResponse, error)
 	SetDirectExecutorAllowed(ctx context.Context, in *SetDirectExecutorAllowedRequest, opts ...grpc.CallOption) (*SetDirectExecutorAllowedResponse, error)
@@ -2646,9 +1059,9 @@ func (c *urlRequestBuilderServiceClient) AddHeader(ctx context.Context, in *AddH
 	return out, nil
 }
 
-func (c *urlRequestBuilderServiceClient) BindToNetwork(ctx context.Context, in *BindToNetworkRequest, opts ...grpc.CallOption) (*UrlRequestBuilderBindToNetworkResponse, error) {
+func (c *urlRequestBuilderServiceClient) BindToNetwork(ctx context.Context, in *BindToNetworkRequest, opts ...grpc.CallOption) (*BindToNetworkResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UrlRequestBuilderBindToNetworkResponse)
+	out := new(BindToNetworkResponse)
 	err := c.cc.Invoke(ctx, UrlRequestBuilderService_BindToNetwork_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -2741,7 +1154,7 @@ func (c *urlRequestBuilderServiceClient) SetUploadDataProvider(ctx context.Conte
 // for forward compatibility.
 type UrlRequestBuilderServiceServer interface {
 	AddHeader(context.Context, *AddHeaderRequest) (*AddHeaderResponse, error)
-	BindToNetwork(context.Context, *BindToNetworkRequest) (*UrlRequestBuilderBindToNetworkResponse, error)
+	BindToNetwork(context.Context, *BindToNetworkRequest) (*BindToNetworkResponse, error)
 	Build(context.Context, *BuildRequest) (*BuildResponse, error)
 	SetCacheDisabled(context.Context, *SetCacheDisabledRequest) (*SetCacheDisabledResponse, error)
 	SetDirectExecutorAllowed(context.Context, *SetDirectExecutorAllowedRequest) (*SetDirectExecutorAllowedResponse, error)
@@ -2763,7 +1176,7 @@ type UnimplementedUrlRequestBuilderServiceServer struct{}
 func (UnimplementedUrlRequestBuilderServiceServer) AddHeader(context.Context, *AddHeaderRequest) (*AddHeaderResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method AddHeader not implemented")
 }
-func (UnimplementedUrlRequestBuilderServiceServer) BindToNetwork(context.Context, *BindToNetworkRequest) (*UrlRequestBuilderBindToNetworkResponse, error) {
+func (UnimplementedUrlRequestBuilderServiceServer) BindToNetwork(context.Context, *BindToNetworkRequest) (*BindToNetworkResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method BindToNetwork not implemented")
 }
 func (UnimplementedUrlRequestBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
@@ -3403,337 +1816,9 @@ var UrlRequestStatusListenerService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	SslErrorService_NewSslError_FullMethodName     = "/http.SslErrorService/NewSslError"
-	SslErrorService_AddError_FullMethodName        = "/http.SslErrorService/AddError"
-	SslErrorService_GetCertificate_FullMethodName  = "/http.SslErrorService/GetCertificate"
-	SslErrorService_GetPrimaryError_FullMethodName = "/http.SslErrorService/GetPrimaryError"
-	SslErrorService_GetUrl_FullMethodName          = "/http.SslErrorService/GetUrl"
-	SslErrorService_HasError_FullMethodName        = "/http.SslErrorService/HasError"
-	SslErrorService_ToString_FullMethodName        = "/http.SslErrorService/ToString"
-)
-
-// SslErrorServiceClient is the client API for SslErrorService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SslErrorServiceClient interface {
-	NewSslError(ctx context.Context, in *NewSslErrorRequest, opts ...grpc.CallOption) (*NewSslErrorResponse, error)
-	AddError(ctx context.Context, in *AddErrorRequest, opts ...grpc.CallOption) (*AddErrorResponse, error)
-	GetCertificate(ctx context.Context, in *GetCertificateRequest, opts ...grpc.CallOption) (*GetCertificateResponse, error)
-	GetPrimaryError(ctx context.Context, in *GetPrimaryErrorRequest, opts ...grpc.CallOption) (*GetPrimaryErrorResponse, error)
-	GetUrl(ctx context.Context, in *SslErrorGetUrlRequest, opts ...grpc.CallOption) (*GetUrlResponse, error)
-	HasError(ctx context.Context, in *HasErrorRequest, opts ...grpc.CallOption) (*HasErrorResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-}
-
-type sslErrorServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSslErrorServiceClient(cc grpc.ClientConnInterface) SslErrorServiceClient {
-	return &sslErrorServiceClient{cc}
-}
-
-func (c *sslErrorServiceClient) NewSslError(ctx context.Context, in *NewSslErrorRequest, opts ...grpc.CallOption) (*NewSslErrorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewSslErrorResponse)
-	err := c.cc.Invoke(ctx, SslErrorService_NewSslError_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sslErrorServiceClient) AddError(ctx context.Context, in *AddErrorRequest, opts ...grpc.CallOption) (*AddErrorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddErrorResponse)
-	err := c.cc.Invoke(ctx, SslErrorService_AddError_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sslErrorServiceClient) GetCertificate(ctx context.Context, in *GetCertificateRequest, opts ...grpc.CallOption) (*GetCertificateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCertificateResponse)
-	err := c.cc.Invoke(ctx, SslErrorService_GetCertificate_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sslErrorServiceClient) GetPrimaryError(ctx context.Context, in *GetPrimaryErrorRequest, opts ...grpc.CallOption) (*GetPrimaryErrorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPrimaryErrorResponse)
-	err := c.cc.Invoke(ctx, SslErrorService_GetPrimaryError_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sslErrorServiceClient) GetUrl(ctx context.Context, in *SslErrorGetUrlRequest, opts ...grpc.CallOption) (*GetUrlResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUrlResponse)
-	err := c.cc.Invoke(ctx, SslErrorService_GetUrl_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sslErrorServiceClient) HasError(ctx context.Context, in *HasErrorRequest, opts ...grpc.CallOption) (*HasErrorResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HasErrorResponse)
-	err := c.cc.Invoke(ctx, SslErrorService_HasError_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sslErrorServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, SslErrorService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SslErrorServiceServer is the server API for SslErrorService service.
-// All implementations must embed UnimplementedSslErrorServiceServer
-// for forward compatibility.
-type SslErrorServiceServer interface {
-	NewSslError(context.Context, *NewSslErrorRequest) (*NewSslErrorResponse, error)
-	AddError(context.Context, *AddErrorRequest) (*AddErrorResponse, error)
-	GetCertificate(context.Context, *GetCertificateRequest) (*GetCertificateResponse, error)
-	GetPrimaryError(context.Context, *GetPrimaryErrorRequest) (*GetPrimaryErrorResponse, error)
-	GetUrl(context.Context, *SslErrorGetUrlRequest) (*GetUrlResponse, error)
-	HasError(context.Context, *HasErrorRequest) (*HasErrorResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	mustEmbedUnimplementedSslErrorServiceServer()
-}
-
-// UnimplementedSslErrorServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSslErrorServiceServer struct{}
-
-func (UnimplementedSslErrorServiceServer) NewSslError(context.Context, *NewSslErrorRequest) (*NewSslErrorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewSslError not implemented")
-}
-func (UnimplementedSslErrorServiceServer) AddError(context.Context, *AddErrorRequest) (*AddErrorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddError not implemented")
-}
-func (UnimplementedSslErrorServiceServer) GetCertificate(context.Context, *GetCertificateRequest) (*GetCertificateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCertificate not implemented")
-}
-func (UnimplementedSslErrorServiceServer) GetPrimaryError(context.Context, *GetPrimaryErrorRequest) (*GetPrimaryErrorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPrimaryError not implemented")
-}
-func (UnimplementedSslErrorServiceServer) GetUrl(context.Context, *SslErrorGetUrlRequest) (*GetUrlResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetUrl not implemented")
-}
-func (UnimplementedSslErrorServiceServer) HasError(context.Context, *HasErrorRequest) (*HasErrorResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HasError not implemented")
-}
-func (UnimplementedSslErrorServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedSslErrorServiceServer) mustEmbedUnimplementedSslErrorServiceServer() {}
-func (UnimplementedSslErrorServiceServer) testEmbeddedByValue()                         {}
-
-// UnsafeSslErrorServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SslErrorServiceServer will
-// result in compilation errors.
-type UnsafeSslErrorServiceServer interface {
-	mustEmbedUnimplementedSslErrorServiceServer()
-}
-
-func RegisterSslErrorServiceServer(s grpc.ServiceRegistrar, srv SslErrorServiceServer) {
-	// If the following call panics, it indicates UnimplementedSslErrorServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SslErrorService_ServiceDesc, srv)
-}
-
-func _SslErrorService_NewSslError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewSslErrorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SslErrorServiceServer).NewSslError(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SslErrorService_NewSslError_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SslErrorServiceServer).NewSslError(ctx, req.(*NewSslErrorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SslErrorService_AddError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddErrorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SslErrorServiceServer).AddError(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SslErrorService_AddError_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SslErrorServiceServer).AddError(ctx, req.(*AddErrorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SslErrorService_GetCertificate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCertificateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SslErrorServiceServer).GetCertificate(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SslErrorService_GetCertificate_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SslErrorServiceServer).GetCertificate(ctx, req.(*GetCertificateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SslErrorService_GetPrimaryError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPrimaryErrorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SslErrorServiceServer).GetPrimaryError(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SslErrorService_GetPrimaryError_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SslErrorServiceServer).GetPrimaryError(ctx, req.(*GetPrimaryErrorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SslErrorService_GetUrl_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SslErrorGetUrlRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SslErrorServiceServer).GetUrl(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SslErrorService_GetUrl_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SslErrorServiceServer).GetUrl(ctx, req.(*SslErrorGetUrlRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SslErrorService_HasError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HasErrorRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SslErrorServiceServer).HasError(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SslErrorService_HasError_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SslErrorServiceServer).HasError(ctx, req.(*HasErrorRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SslErrorService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SslErrorServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SslErrorService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SslErrorServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SslErrorService_ServiceDesc is the grpc.ServiceDesc for SslErrorService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SslErrorService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "http.SslErrorService",
-	HandlerType: (*SslErrorServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewSslError",
-			Handler:    _SslErrorService_NewSslError_Handler,
-		},
-		{
-			MethodName: "AddError",
-			Handler:    _SslErrorService_AddError_Handler,
-		},
-		{
-			MethodName: "GetCertificate",
-			Handler:    _SslErrorService_GetCertificate_Handler,
-		},
-		{
-			MethodName: "GetPrimaryError",
-			Handler:    _SslErrorService_GetPrimaryError_Handler,
-		},
-		{
-			MethodName: "GetUrl",
-			Handler:    _SslErrorService_GetUrl_Handler,
-		},
-		{
-			MethodName: "HasError",
-			Handler:    _SslErrorService_HasError_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _SslErrorService_ToString_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/http/http.proto",
-}
-
-const (
 	X509TrustManagerExtensionsService_NewX509TrustManagerExtensions_FullMethodName = "/http.X509TrustManagerExtensionsService/NewX509TrustManagerExtensions"
+	X509TrustManagerExtensionsService_CheckServerTrusted5_FullMethodName           = "/http.X509TrustManagerExtensionsService/CheckServerTrusted5"
+	X509TrustManagerExtensionsService_CheckServerTrusted3_1_FullMethodName         = "/http.X509TrustManagerExtensionsService/CheckServerTrusted3_1"
 	X509TrustManagerExtensionsService_IsSameTrustConfiguration_FullMethodName      = "/http.X509TrustManagerExtensionsService/IsSameTrustConfiguration"
 	X509TrustManagerExtensionsService_IsUserAddedCertificate_FullMethodName        = "/http.X509TrustManagerExtensionsService/IsUserAddedCertificate"
 )
@@ -3743,6 +1828,8 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type X509TrustManagerExtensionsServiceClient interface {
 	NewX509TrustManagerExtensions(ctx context.Context, in *NewX509TrustManagerExtensionsRequest, opts ...grpc.CallOption) (*NewX509TrustManagerExtensionsResponse, error)
+	CheckServerTrusted5(ctx context.Context, in *CheckServerTrusted5Request, opts ...grpc.CallOption) (*CheckServerTrusted5Response, error)
+	CheckServerTrusted3_1(ctx context.Context, in *CheckServerTrusted3_1Request, opts ...grpc.CallOption) (*CheckServerTrusted3_1Response, error)
 	IsSameTrustConfiguration(ctx context.Context, in *IsSameTrustConfigurationRequest, opts ...grpc.CallOption) (*IsSameTrustConfigurationResponse, error)
 	IsUserAddedCertificate(ctx context.Context, in *IsUserAddedCertificateRequest, opts ...grpc.CallOption) (*IsUserAddedCertificateResponse, error)
 }
@@ -3759,6 +1846,26 @@ func (c *x509TrustManagerExtensionsServiceClient) NewX509TrustManagerExtensions(
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(NewX509TrustManagerExtensionsResponse)
 	err := c.cc.Invoke(ctx, X509TrustManagerExtensionsService_NewX509TrustManagerExtensions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *x509TrustManagerExtensionsServiceClient) CheckServerTrusted5(ctx context.Context, in *CheckServerTrusted5Request, opts ...grpc.CallOption) (*CheckServerTrusted5Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CheckServerTrusted5Response)
+	err := c.cc.Invoke(ctx, X509TrustManagerExtensionsService_CheckServerTrusted5_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *x509TrustManagerExtensionsServiceClient) CheckServerTrusted3_1(ctx context.Context, in *CheckServerTrusted3_1Request, opts ...grpc.CallOption) (*CheckServerTrusted3_1Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CheckServerTrusted3_1Response)
+	err := c.cc.Invoke(ctx, X509TrustManagerExtensionsService_CheckServerTrusted3_1_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -3790,6 +1897,8 @@ func (c *x509TrustManagerExtensionsServiceClient) IsUserAddedCertificate(ctx con
 // for forward compatibility.
 type X509TrustManagerExtensionsServiceServer interface {
 	NewX509TrustManagerExtensions(context.Context, *NewX509TrustManagerExtensionsRequest) (*NewX509TrustManagerExtensionsResponse, error)
+	CheckServerTrusted5(context.Context, *CheckServerTrusted5Request) (*CheckServerTrusted5Response, error)
+	CheckServerTrusted3_1(context.Context, *CheckServerTrusted3_1Request) (*CheckServerTrusted3_1Response, error)
 	IsSameTrustConfiguration(context.Context, *IsSameTrustConfigurationRequest) (*IsSameTrustConfigurationResponse, error)
 	IsUserAddedCertificate(context.Context, *IsUserAddedCertificateRequest) (*IsUserAddedCertificateResponse, error)
 	mustEmbedUnimplementedX509TrustManagerExtensionsServiceServer()
@@ -3804,6 +1913,12 @@ type UnimplementedX509TrustManagerExtensionsServiceServer struct{}
 
 func (UnimplementedX509TrustManagerExtensionsServiceServer) NewX509TrustManagerExtensions(context.Context, *NewX509TrustManagerExtensionsRequest) (*NewX509TrustManagerExtensionsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method NewX509TrustManagerExtensions not implemented")
+}
+func (UnimplementedX509TrustManagerExtensionsServiceServer) CheckServerTrusted5(context.Context, *CheckServerTrusted5Request) (*CheckServerTrusted5Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CheckServerTrusted5 not implemented")
+}
+func (UnimplementedX509TrustManagerExtensionsServiceServer) CheckServerTrusted3_1(context.Context, *CheckServerTrusted3_1Request) (*CheckServerTrusted3_1Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method CheckServerTrusted3_1 not implemented")
 }
 func (UnimplementedX509TrustManagerExtensionsServiceServer) IsSameTrustConfiguration(context.Context, *IsSameTrustConfigurationRequest) (*IsSameTrustConfigurationResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method IsSameTrustConfiguration not implemented")
@@ -3847,6 +1962,42 @@ func _X509TrustManagerExtensionsService_NewX509TrustManagerExtensions_Handler(sr
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(X509TrustManagerExtensionsServiceServer).NewX509TrustManagerExtensions(ctx, req.(*NewX509TrustManagerExtensionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _X509TrustManagerExtensionsService_CheckServerTrusted5_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CheckServerTrusted5Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(X509TrustManagerExtensionsServiceServer).CheckServerTrusted5(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: X509TrustManagerExtensionsService_CheckServerTrusted5_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(X509TrustManagerExtensionsServiceServer).CheckServerTrusted5(ctx, req.(*CheckServerTrusted5Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _X509TrustManagerExtensionsService_CheckServerTrusted3_1_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CheckServerTrusted3_1Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(X509TrustManagerExtensionsServiceServer).CheckServerTrusted3_1(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: X509TrustManagerExtensionsService_CheckServerTrusted3_1_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(X509TrustManagerExtensionsServiceServer).CheckServerTrusted3_1(ctx, req.(*CheckServerTrusted3_1Request))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3897,6 +2048,14 @@ var X509TrustManagerExtensionsService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "NewX509TrustManagerExtensions",
 			Handler:    _X509TrustManagerExtensionsService_NewX509TrustManagerExtensions_Handler,
+		},
+		{
+			MethodName: "CheckServerTrusted5",
+			Handler:    _X509TrustManagerExtensionsService_CheckServerTrusted5_Handler,
+		},
+		{
+			MethodName: "CheckServerTrusted3_1",
+			Handler:    _X509TrustManagerExtensionsService_CheckServerTrusted3_1_Handler,
 		},
 		{
 			MethodName: "IsSameTrustConfiguration",
@@ -4128,2405 +2287,178 @@ var UploadDataSinkService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	QuicOptionsService_GetHandshakeUserAgent_FullMethodName             = "/http.QuicOptionsService/GetHandshakeUserAgent"
-	QuicOptionsService_GetIdleConnectionTimeout_FullMethodName          = "/http.QuicOptionsService/GetIdleConnectionTimeout"
-	QuicOptionsService_GetInMemoryServerConfigsCacheSize_FullMethodName = "/http.QuicOptionsService/GetInMemoryServerConfigsCacheSize"
-	QuicOptionsService_HasInMemoryServerConfigsCacheSize_FullMethodName = "/http.QuicOptionsService/HasInMemoryServerConfigsCacheSize"
+	UploadDataProviderService_Close_FullMethodName     = "/http.UploadDataProviderService/Close"
+	UploadDataProviderService_GetLength_FullMethodName = "/http.UploadDataProviderService/GetLength"
+	UploadDataProviderService_Rewind_FullMethodName    = "/http.UploadDataProviderService/Rewind"
 )
 
-// QuicOptionsServiceClient is the client API for QuicOptionsService service.
+// UploadDataProviderServiceClient is the client API for UploadDataProviderService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type QuicOptionsServiceClient interface {
-	GetHandshakeUserAgent(ctx context.Context, in *GetHandshakeUserAgentRequest, opts ...grpc.CallOption) (*GetHandshakeUserAgentResponse, error)
-	GetIdleConnectionTimeout(ctx context.Context, in *GetIdleConnectionTimeoutRequest, opts ...grpc.CallOption) (*GetIdleConnectionTimeoutResponse, error)
-	GetInMemoryServerConfigsCacheSize(ctx context.Context, in *GetInMemoryServerConfigsCacheSizeRequest, opts ...grpc.CallOption) (*GetInMemoryServerConfigsCacheSizeResponse, error)
-	HasInMemoryServerConfigsCacheSize(ctx context.Context, in *HasInMemoryServerConfigsCacheSizeRequest, opts ...grpc.CallOption) (*HasInMemoryServerConfigsCacheSizeResponse, error)
+type UploadDataProviderServiceClient interface {
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	GetLength(ctx context.Context, in *GetLengthRequest, opts ...grpc.CallOption) (*GetLengthResponse, error)
+	Rewind(ctx context.Context, in *RewindRequest, opts ...grpc.CallOption) (*RewindResponse, error)
 }
 
-type quicOptionsServiceClient struct {
+type uploadDataProviderServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewQuicOptionsServiceClient(cc grpc.ClientConnInterface) QuicOptionsServiceClient {
-	return &quicOptionsServiceClient{cc}
+func NewUploadDataProviderServiceClient(cc grpc.ClientConnInterface) UploadDataProviderServiceClient {
+	return &uploadDataProviderServiceClient{cc}
 }
 
-func (c *quicOptionsServiceClient) GetHandshakeUserAgent(ctx context.Context, in *GetHandshakeUserAgentRequest, opts ...grpc.CallOption) (*GetHandshakeUserAgentResponse, error) {
+func (c *uploadDataProviderServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetHandshakeUserAgentResponse)
-	err := c.cc.Invoke(ctx, QuicOptionsService_GetHandshakeUserAgent_FullMethodName, in, out, cOpts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, UploadDataProviderService_Close_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *quicOptionsServiceClient) GetIdleConnectionTimeout(ctx context.Context, in *GetIdleConnectionTimeoutRequest, opts ...grpc.CallOption) (*GetIdleConnectionTimeoutResponse, error) {
+func (c *uploadDataProviderServiceClient) GetLength(ctx context.Context, in *GetLengthRequest, opts ...grpc.CallOption) (*GetLengthResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIdleConnectionTimeoutResponse)
-	err := c.cc.Invoke(ctx, QuicOptionsService_GetIdleConnectionTimeout_FullMethodName, in, out, cOpts...)
+	out := new(GetLengthResponse)
+	err := c.cc.Invoke(ctx, UploadDataProviderService_GetLength_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *quicOptionsServiceClient) GetInMemoryServerConfigsCacheSize(ctx context.Context, in *GetInMemoryServerConfigsCacheSizeRequest, opts ...grpc.CallOption) (*GetInMemoryServerConfigsCacheSizeResponse, error) {
+func (c *uploadDataProviderServiceClient) Rewind(ctx context.Context, in *RewindRequest, opts ...grpc.CallOption) (*RewindResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInMemoryServerConfigsCacheSizeResponse)
-	err := c.cc.Invoke(ctx, QuicOptionsService_GetInMemoryServerConfigsCacheSize_FullMethodName, in, out, cOpts...)
+	out := new(RewindResponse)
+	err := c.cc.Invoke(ctx, UploadDataProviderService_Rewind_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *quicOptionsServiceClient) HasInMemoryServerConfigsCacheSize(ctx context.Context, in *HasInMemoryServerConfigsCacheSizeRequest, opts ...grpc.CallOption) (*HasInMemoryServerConfigsCacheSizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(HasInMemoryServerConfigsCacheSizeResponse)
-	err := c.cc.Invoke(ctx, QuicOptionsService_HasInMemoryServerConfigsCacheSize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// QuicOptionsServiceServer is the server API for QuicOptionsService service.
-// All implementations must embed UnimplementedQuicOptionsServiceServer
+// UploadDataProviderServiceServer is the server API for UploadDataProviderService service.
+// All implementations must embed UnimplementedUploadDataProviderServiceServer
 // for forward compatibility.
-type QuicOptionsServiceServer interface {
-	GetHandshakeUserAgent(context.Context, *GetHandshakeUserAgentRequest) (*GetHandshakeUserAgentResponse, error)
-	GetIdleConnectionTimeout(context.Context, *GetIdleConnectionTimeoutRequest) (*GetIdleConnectionTimeoutResponse, error)
-	GetInMemoryServerConfigsCacheSize(context.Context, *GetInMemoryServerConfigsCacheSizeRequest) (*GetInMemoryServerConfigsCacheSizeResponse, error)
-	HasInMemoryServerConfigsCacheSize(context.Context, *HasInMemoryServerConfigsCacheSizeRequest) (*HasInMemoryServerConfigsCacheSizeResponse, error)
-	mustEmbedUnimplementedQuicOptionsServiceServer()
+type UploadDataProviderServiceServer interface {
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	GetLength(context.Context, *GetLengthRequest) (*GetLengthResponse, error)
+	Rewind(context.Context, *RewindRequest) (*RewindResponse, error)
+	mustEmbedUnimplementedUploadDataProviderServiceServer()
 }
 
-// UnimplementedQuicOptionsServiceServer must be embedded to have
+// UnimplementedUploadDataProviderServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedQuicOptionsServiceServer struct{}
+type UnimplementedUploadDataProviderServiceServer struct{}
 
-func (UnimplementedQuicOptionsServiceServer) GetHandshakeUserAgent(context.Context, *GetHandshakeUserAgentRequest) (*GetHandshakeUserAgentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetHandshakeUserAgent not implemented")
+func (UnimplementedUploadDataProviderServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
 }
-func (UnimplementedQuicOptionsServiceServer) GetIdleConnectionTimeout(context.Context, *GetIdleConnectionTimeoutRequest) (*GetIdleConnectionTimeoutResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetIdleConnectionTimeout not implemented")
+func (UnimplementedUploadDataProviderServiceServer) GetLength(context.Context, *GetLengthRequest) (*GetLengthResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetLength not implemented")
 }
-func (UnimplementedQuicOptionsServiceServer) GetInMemoryServerConfigsCacheSize(context.Context, *GetInMemoryServerConfigsCacheSizeRequest) (*GetInMemoryServerConfigsCacheSizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetInMemoryServerConfigsCacheSize not implemented")
+func (UnimplementedUploadDataProviderServiceServer) Rewind(context.Context, *RewindRequest) (*RewindResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Rewind not implemented")
 }
-func (UnimplementedQuicOptionsServiceServer) HasInMemoryServerConfigsCacheSize(context.Context, *HasInMemoryServerConfigsCacheSizeRequest) (*HasInMemoryServerConfigsCacheSizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method HasInMemoryServerConfigsCacheSize not implemented")
+func (UnimplementedUploadDataProviderServiceServer) mustEmbedUnimplementedUploadDataProviderServiceServer() {
 }
-func (UnimplementedQuicOptionsServiceServer) mustEmbedUnimplementedQuicOptionsServiceServer() {}
-func (UnimplementedQuicOptionsServiceServer) testEmbeddedByValue()                            {}
+func (UnimplementedUploadDataProviderServiceServer) testEmbeddedByValue() {}
 
-// UnsafeQuicOptionsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to QuicOptionsServiceServer will
+// UnsafeUploadDataProviderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to UploadDataProviderServiceServer will
 // result in compilation errors.
-type UnsafeQuicOptionsServiceServer interface {
-	mustEmbedUnimplementedQuicOptionsServiceServer()
+type UnsafeUploadDataProviderServiceServer interface {
+	mustEmbedUnimplementedUploadDataProviderServiceServer()
 }
 
-func RegisterQuicOptionsServiceServer(s grpc.ServiceRegistrar, srv QuicOptionsServiceServer) {
-	// If the following call panics, it indicates UnimplementedQuicOptionsServiceServer was
+func RegisterUploadDataProviderServiceServer(s grpc.ServiceRegistrar, srv UploadDataProviderServiceServer) {
+	// If the following call panics, it indicates UnimplementedUploadDataProviderServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&QuicOptionsService_ServiceDesc, srv)
+	s.RegisterService(&UploadDataProviderService_ServiceDesc, srv)
 }
 
-func _QuicOptionsService_GetHandshakeUserAgent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetHandshakeUserAgentRequest)
+func _UploadDataProviderService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(QuicOptionsServiceServer).GetHandshakeUserAgent(ctx, in)
+		return srv.(UploadDataProviderServiceServer).Close(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: QuicOptionsService_GetHandshakeUserAgent_FullMethodName,
+		FullMethod: UploadDataProviderService_Close_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QuicOptionsServiceServer).GetHandshakeUserAgent(ctx, req.(*GetHandshakeUserAgentRequest))
+		return srv.(UploadDataProviderServiceServer).Close(ctx, req.(*CloseRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _QuicOptionsService_GetIdleConnectionTimeout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIdleConnectionTimeoutRequest)
+func _UploadDataProviderService_GetLength_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLengthRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(QuicOptionsServiceServer).GetIdleConnectionTimeout(ctx, in)
+		return srv.(UploadDataProviderServiceServer).GetLength(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: QuicOptionsService_GetIdleConnectionTimeout_FullMethodName,
+		FullMethod: UploadDataProviderService_GetLength_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QuicOptionsServiceServer).GetIdleConnectionTimeout(ctx, req.(*GetIdleConnectionTimeoutRequest))
+		return srv.(UploadDataProviderServiceServer).GetLength(ctx, req.(*GetLengthRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _QuicOptionsService_GetInMemoryServerConfigsCacheSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInMemoryServerConfigsCacheSizeRequest)
+func _UploadDataProviderService_Rewind_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RewindRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(QuicOptionsServiceServer).GetInMemoryServerConfigsCacheSize(ctx, in)
+		return srv.(UploadDataProviderServiceServer).Rewind(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: QuicOptionsService_GetInMemoryServerConfigsCacheSize_FullMethodName,
+		FullMethod: UploadDataProviderService_Rewind_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QuicOptionsServiceServer).GetInMemoryServerConfigsCacheSize(ctx, req.(*GetInMemoryServerConfigsCacheSizeRequest))
+		return srv.(UploadDataProviderServiceServer).Rewind(ctx, req.(*RewindRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _QuicOptionsService_HasInMemoryServerConfigsCacheSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HasInMemoryServerConfigsCacheSizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(QuicOptionsServiceServer).HasInMemoryServerConfigsCacheSize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: QuicOptionsService_HasInMemoryServerConfigsCacheSize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QuicOptionsServiceServer).HasInMemoryServerConfigsCacheSize(ctx, req.(*HasInMemoryServerConfigsCacheSizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// QuicOptionsService_ServiceDesc is the grpc.ServiceDesc for QuicOptionsService service.
+// UploadDataProviderService_ServiceDesc is the grpc.ServiceDesc for UploadDataProviderService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var QuicOptionsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "http.QuicOptionsService",
-	HandlerType: (*QuicOptionsServiceServer)(nil),
+var UploadDataProviderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "http.UploadDataProviderService",
+	HandlerType: (*UploadDataProviderServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "GetHandshakeUserAgent",
-			Handler:    _QuicOptionsService_GetHandshakeUserAgent_Handler,
+			MethodName: "Close",
+			Handler:    _UploadDataProviderService_Close_Handler,
 		},
 		{
-			MethodName: "GetIdleConnectionTimeout",
-			Handler:    _QuicOptionsService_GetIdleConnectionTimeout_Handler,
+			MethodName: "GetLength",
+			Handler:    _UploadDataProviderService_GetLength_Handler,
 		},
 		{
-			MethodName: "GetInMemoryServerConfigsCacheSize",
-			Handler:    _QuicOptionsService_GetInMemoryServerConfigsCacheSize_Handler,
-		},
-		{
-			MethodName: "HasInMemoryServerConfigsCacheSize",
-			Handler:    _QuicOptionsService_HasInMemoryServerConfigsCacheSize_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/http/http.proto",
-}
-
-const (
-	QuicOptionsBuilderService_AddAllowedQuicHost_FullMethodName                = "/http.QuicOptionsBuilderService/AddAllowedQuicHost"
-	QuicOptionsBuilderService_Build_FullMethodName                             = "/http.QuicOptionsBuilderService/Build"
-	QuicOptionsBuilderService_SetHandshakeUserAgent_FullMethodName             = "/http.QuicOptionsBuilderService/SetHandshakeUserAgent"
-	QuicOptionsBuilderService_SetIdleConnectionTimeout_FullMethodName          = "/http.QuicOptionsBuilderService/SetIdleConnectionTimeout"
-	QuicOptionsBuilderService_SetInMemoryServerConfigsCacheSize_FullMethodName = "/http.QuicOptionsBuilderService/SetInMemoryServerConfigsCacheSize"
-)
-
-// QuicOptionsBuilderServiceClient is the client API for QuicOptionsBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type QuicOptionsBuilderServiceClient interface {
-	AddAllowedQuicHost(ctx context.Context, in *AddAllowedQuicHostRequest, opts ...grpc.CallOption) (*AddAllowedQuicHostResponse, error)
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetHandshakeUserAgent(ctx context.Context, in *SetHandshakeUserAgentRequest, opts ...grpc.CallOption) (*SetHandshakeUserAgentResponse, error)
-	SetIdleConnectionTimeout(ctx context.Context, in *SetIdleConnectionTimeoutRequest, opts ...grpc.CallOption) (*SetIdleConnectionTimeoutResponse, error)
-	SetInMemoryServerConfigsCacheSize(ctx context.Context, in *SetInMemoryServerConfigsCacheSizeRequest, opts ...grpc.CallOption) (*SetInMemoryServerConfigsCacheSizeResponse, error)
-}
-
-type quicOptionsBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewQuicOptionsBuilderServiceClient(cc grpc.ClientConnInterface) QuicOptionsBuilderServiceClient {
-	return &quicOptionsBuilderServiceClient{cc}
-}
-
-func (c *quicOptionsBuilderServiceClient) AddAllowedQuicHost(ctx context.Context, in *AddAllowedQuicHostRequest, opts ...grpc.CallOption) (*AddAllowedQuicHostResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AddAllowedQuicHostResponse)
-	err := c.cc.Invoke(ctx, QuicOptionsBuilderService_AddAllowedQuicHost_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *quicOptionsBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, QuicOptionsBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *quicOptionsBuilderServiceClient) SetHandshakeUserAgent(ctx context.Context, in *SetHandshakeUserAgentRequest, opts ...grpc.CallOption) (*SetHandshakeUserAgentResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetHandshakeUserAgentResponse)
-	err := c.cc.Invoke(ctx, QuicOptionsBuilderService_SetHandshakeUserAgent_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *quicOptionsBuilderServiceClient) SetIdleConnectionTimeout(ctx context.Context, in *SetIdleConnectionTimeoutRequest, opts ...grpc.CallOption) (*SetIdleConnectionTimeoutResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetIdleConnectionTimeoutResponse)
-	err := c.cc.Invoke(ctx, QuicOptionsBuilderService_SetIdleConnectionTimeout_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *quicOptionsBuilderServiceClient) SetInMemoryServerConfigsCacheSize(ctx context.Context, in *SetInMemoryServerConfigsCacheSizeRequest, opts ...grpc.CallOption) (*SetInMemoryServerConfigsCacheSizeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetInMemoryServerConfigsCacheSizeResponse)
-	err := c.cc.Invoke(ctx, QuicOptionsBuilderService_SetInMemoryServerConfigsCacheSize_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// QuicOptionsBuilderServiceServer is the server API for QuicOptionsBuilderService service.
-// All implementations must embed UnimplementedQuicOptionsBuilderServiceServer
-// for forward compatibility.
-type QuicOptionsBuilderServiceServer interface {
-	AddAllowedQuicHost(context.Context, *AddAllowedQuicHostRequest) (*AddAllowedQuicHostResponse, error)
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetHandshakeUserAgent(context.Context, *SetHandshakeUserAgentRequest) (*SetHandshakeUserAgentResponse, error)
-	SetIdleConnectionTimeout(context.Context, *SetIdleConnectionTimeoutRequest) (*SetIdleConnectionTimeoutResponse, error)
-	SetInMemoryServerConfigsCacheSize(context.Context, *SetInMemoryServerConfigsCacheSizeRequest) (*SetInMemoryServerConfigsCacheSizeResponse, error)
-	mustEmbedUnimplementedQuicOptionsBuilderServiceServer()
-}
-
-// UnimplementedQuicOptionsBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedQuicOptionsBuilderServiceServer struct{}
-
-func (UnimplementedQuicOptionsBuilderServiceServer) AddAllowedQuicHost(context.Context, *AddAllowedQuicHostRequest) (*AddAllowedQuicHostResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method AddAllowedQuicHost not implemented")
-}
-func (UnimplementedQuicOptionsBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedQuicOptionsBuilderServiceServer) SetHandshakeUserAgent(context.Context, *SetHandshakeUserAgentRequest) (*SetHandshakeUserAgentResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetHandshakeUserAgent not implemented")
-}
-func (UnimplementedQuicOptionsBuilderServiceServer) SetIdleConnectionTimeout(context.Context, *SetIdleConnectionTimeoutRequest) (*SetIdleConnectionTimeoutResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetIdleConnectionTimeout not implemented")
-}
-func (UnimplementedQuicOptionsBuilderServiceServer) SetInMemoryServerConfigsCacheSize(context.Context, *SetInMemoryServerConfigsCacheSizeRequest) (*SetInMemoryServerConfigsCacheSizeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetInMemoryServerConfigsCacheSize not implemented")
-}
-func (UnimplementedQuicOptionsBuilderServiceServer) mustEmbedUnimplementedQuicOptionsBuilderServiceServer() {
-}
-func (UnimplementedQuicOptionsBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeQuicOptionsBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to QuicOptionsBuilderServiceServer will
-// result in compilation errors.
-type UnsafeQuicOptionsBuilderServiceServer interface {
-	mustEmbedUnimplementedQuicOptionsBuilderServiceServer()
-}
-
-func RegisterQuicOptionsBuilderServiceServer(s grpc.ServiceRegistrar, srv QuicOptionsBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedQuicOptionsBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&QuicOptionsBuilderService_ServiceDesc, srv)
-}
-
-func _QuicOptionsBuilderService_AddAllowedQuicHost_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AddAllowedQuicHostRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(QuicOptionsBuilderServiceServer).AddAllowedQuicHost(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: QuicOptionsBuilderService_AddAllowedQuicHost_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QuicOptionsBuilderServiceServer).AddAllowedQuicHost(ctx, req.(*AddAllowedQuicHostRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _QuicOptionsBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(QuicOptionsBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: QuicOptionsBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QuicOptionsBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _QuicOptionsBuilderService_SetHandshakeUserAgent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetHandshakeUserAgentRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(QuicOptionsBuilderServiceServer).SetHandshakeUserAgent(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: QuicOptionsBuilderService_SetHandshakeUserAgent_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QuicOptionsBuilderServiceServer).SetHandshakeUserAgent(ctx, req.(*SetHandshakeUserAgentRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _QuicOptionsBuilderService_SetIdleConnectionTimeout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetIdleConnectionTimeoutRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(QuicOptionsBuilderServiceServer).SetIdleConnectionTimeout(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: QuicOptionsBuilderService_SetIdleConnectionTimeout_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QuicOptionsBuilderServiceServer).SetIdleConnectionTimeout(ctx, req.(*SetIdleConnectionTimeoutRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _QuicOptionsBuilderService_SetInMemoryServerConfigsCacheSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetInMemoryServerConfigsCacheSizeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(QuicOptionsBuilderServiceServer).SetInMemoryServerConfigsCacheSize(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: QuicOptionsBuilderService_SetInMemoryServerConfigsCacheSize_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QuicOptionsBuilderServiceServer).SetInMemoryServerConfigsCacheSize(ctx, req.(*SetInMemoryServerConfigsCacheSizeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// QuicOptionsBuilderService_ServiceDesc is the grpc.ServiceDesc for QuicOptionsBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var QuicOptionsBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "http.QuicOptionsBuilderService",
-	HandlerType: (*QuicOptionsBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "AddAllowedQuicHost",
-			Handler:    _QuicOptionsBuilderService_AddAllowedQuicHost_Handler,
-		},
-		{
-			MethodName: "Build",
-			Handler:    _QuicOptionsBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetHandshakeUserAgent",
-			Handler:    _QuicOptionsBuilderService_SetHandshakeUserAgent_Handler,
-		},
-		{
-			MethodName: "SetIdleConnectionTimeout",
-			Handler:    _QuicOptionsBuilderService_SetIdleConnectionTimeout_Handler,
-		},
-		{
-			MethodName: "SetInMemoryServerConfigsCacheSize",
-			Handler:    _QuicOptionsBuilderService_SetInMemoryServerConfigsCacheSize_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/http/http.proto",
-}
-
-const (
-	SslCertificateService_NewSslCertificate_FullMethodName     = "/http.SslCertificateService/NewSslCertificate"
-	SslCertificateService_GetIssuedBy_FullMethodName           = "/http.SslCertificateService/GetIssuedBy"
-	SslCertificateService_GetIssuedTo_FullMethodName           = "/http.SslCertificateService/GetIssuedTo"
-	SslCertificateService_GetValidNotAfter_FullMethodName      = "/http.SslCertificateService/GetValidNotAfter"
-	SslCertificateService_GetValidNotAfterDate_FullMethodName  = "/http.SslCertificateService/GetValidNotAfterDate"
-	SslCertificateService_GetValidNotBefore_FullMethodName     = "/http.SslCertificateService/GetValidNotBefore"
-	SslCertificateService_GetValidNotBeforeDate_FullMethodName = "/http.SslCertificateService/GetValidNotBeforeDate"
-	SslCertificateService_GetX509Certificate_FullMethodName    = "/http.SslCertificateService/GetX509Certificate"
-	SslCertificateService_ToString_FullMethodName              = "/http.SslCertificateService/ToString"
-	SslCertificateService_RestoreState_FullMethodName          = "/http.SslCertificateService/RestoreState"
-	SslCertificateService_SaveState_FullMethodName             = "/http.SslCertificateService/SaveState"
-)
-
-// SslCertificateServiceClient is the client API for SslCertificateService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SslCertificateServiceClient interface {
-	NewSslCertificate(ctx context.Context, in *NewSslCertificateRequest, opts ...grpc.CallOption) (*NewSslCertificateResponse, error)
-	GetIssuedBy(ctx context.Context, in *GetIssuedByRequest, opts ...grpc.CallOption) (*GetIssuedByResponse, error)
-	GetIssuedTo(ctx context.Context, in *GetIssuedToRequest, opts ...grpc.CallOption) (*GetIssuedToResponse, error)
-	GetValidNotAfter(ctx context.Context, in *GetValidNotAfterRequest, opts ...grpc.CallOption) (*GetValidNotAfterResponse, error)
-	GetValidNotAfterDate(ctx context.Context, in *GetValidNotAfterDateRequest, opts ...grpc.CallOption) (*GetValidNotAfterDateResponse, error)
-	GetValidNotBefore(ctx context.Context, in *GetValidNotBeforeRequest, opts ...grpc.CallOption) (*GetValidNotBeforeResponse, error)
-	GetValidNotBeforeDate(ctx context.Context, in *GetValidNotBeforeDateRequest, opts ...grpc.CallOption) (*GetValidNotBeforeDateResponse, error)
-	GetX509Certificate(ctx context.Context, in *GetX509CertificateRequest, opts ...grpc.CallOption) (*GetX509CertificateResponse, error)
-	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
-	RestoreState(ctx context.Context, in *RestoreStateRequest, opts ...grpc.CallOption) (*RestoreStateResponse, error)
-	SaveState(ctx context.Context, in *SaveStateRequest, opts ...grpc.CallOption) (*SaveStateResponse, error)
-}
-
-type sslCertificateServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSslCertificateServiceClient(cc grpc.ClientConnInterface) SslCertificateServiceClient {
-	return &sslCertificateServiceClient{cc}
-}
-
-func (c *sslCertificateServiceClient) NewSslCertificate(ctx context.Context, in *NewSslCertificateRequest, opts ...grpc.CallOption) (*NewSslCertificateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewSslCertificateResponse)
-	err := c.cc.Invoke(ctx, SslCertificateService_NewSslCertificate_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sslCertificateServiceClient) GetIssuedBy(ctx context.Context, in *GetIssuedByRequest, opts ...grpc.CallOption) (*GetIssuedByResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIssuedByResponse)
-	err := c.cc.Invoke(ctx, SslCertificateService_GetIssuedBy_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sslCertificateServiceClient) GetIssuedTo(ctx context.Context, in *GetIssuedToRequest, opts ...grpc.CallOption) (*GetIssuedToResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetIssuedToResponse)
-	err := c.cc.Invoke(ctx, SslCertificateService_GetIssuedTo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sslCertificateServiceClient) GetValidNotAfter(ctx context.Context, in *GetValidNotAfterRequest, opts ...grpc.CallOption) (*GetValidNotAfterResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetValidNotAfterResponse)
-	err := c.cc.Invoke(ctx, SslCertificateService_GetValidNotAfter_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sslCertificateServiceClient) GetValidNotAfterDate(ctx context.Context, in *GetValidNotAfterDateRequest, opts ...grpc.CallOption) (*GetValidNotAfterDateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetValidNotAfterDateResponse)
-	err := c.cc.Invoke(ctx, SslCertificateService_GetValidNotAfterDate_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sslCertificateServiceClient) GetValidNotBefore(ctx context.Context, in *GetValidNotBeforeRequest, opts ...grpc.CallOption) (*GetValidNotBeforeResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetValidNotBeforeResponse)
-	err := c.cc.Invoke(ctx, SslCertificateService_GetValidNotBefore_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sslCertificateServiceClient) GetValidNotBeforeDate(ctx context.Context, in *GetValidNotBeforeDateRequest, opts ...grpc.CallOption) (*GetValidNotBeforeDateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetValidNotBeforeDateResponse)
-	err := c.cc.Invoke(ctx, SslCertificateService_GetValidNotBeforeDate_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sslCertificateServiceClient) GetX509Certificate(ctx context.Context, in *GetX509CertificateRequest, opts ...grpc.CallOption) (*GetX509CertificateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetX509CertificateResponse)
-	err := c.cc.Invoke(ctx, SslCertificateService_GetX509Certificate_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sslCertificateServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ToStringResponse)
-	err := c.cc.Invoke(ctx, SslCertificateService_ToString_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sslCertificateServiceClient) RestoreState(ctx context.Context, in *RestoreStateRequest, opts ...grpc.CallOption) (*RestoreStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RestoreStateResponse)
-	err := c.cc.Invoke(ctx, SslCertificateService_RestoreState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sslCertificateServiceClient) SaveState(ctx context.Context, in *SaveStateRequest, opts ...grpc.CallOption) (*SaveStateResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SaveStateResponse)
-	err := c.cc.Invoke(ctx, SslCertificateService_SaveState_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SslCertificateServiceServer is the server API for SslCertificateService service.
-// All implementations must embed UnimplementedSslCertificateServiceServer
-// for forward compatibility.
-type SslCertificateServiceServer interface {
-	NewSslCertificate(context.Context, *NewSslCertificateRequest) (*NewSslCertificateResponse, error)
-	GetIssuedBy(context.Context, *GetIssuedByRequest) (*GetIssuedByResponse, error)
-	GetIssuedTo(context.Context, *GetIssuedToRequest) (*GetIssuedToResponse, error)
-	GetValidNotAfter(context.Context, *GetValidNotAfterRequest) (*GetValidNotAfterResponse, error)
-	GetValidNotAfterDate(context.Context, *GetValidNotAfterDateRequest) (*GetValidNotAfterDateResponse, error)
-	GetValidNotBefore(context.Context, *GetValidNotBeforeRequest) (*GetValidNotBeforeResponse, error)
-	GetValidNotBeforeDate(context.Context, *GetValidNotBeforeDateRequest) (*GetValidNotBeforeDateResponse, error)
-	GetX509Certificate(context.Context, *GetX509CertificateRequest) (*GetX509CertificateResponse, error)
-	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
-	RestoreState(context.Context, *RestoreStateRequest) (*RestoreStateResponse, error)
-	SaveState(context.Context, *SaveStateRequest) (*SaveStateResponse, error)
-	mustEmbedUnimplementedSslCertificateServiceServer()
-}
-
-// UnimplementedSslCertificateServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSslCertificateServiceServer struct{}
-
-func (UnimplementedSslCertificateServiceServer) NewSslCertificate(context.Context, *NewSslCertificateRequest) (*NewSslCertificateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewSslCertificate not implemented")
-}
-func (UnimplementedSslCertificateServiceServer) GetIssuedBy(context.Context, *GetIssuedByRequest) (*GetIssuedByResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetIssuedBy not implemented")
-}
-func (UnimplementedSslCertificateServiceServer) GetIssuedTo(context.Context, *GetIssuedToRequest) (*GetIssuedToResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetIssuedTo not implemented")
-}
-func (UnimplementedSslCertificateServiceServer) GetValidNotAfter(context.Context, *GetValidNotAfterRequest) (*GetValidNotAfterResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetValidNotAfter not implemented")
-}
-func (UnimplementedSslCertificateServiceServer) GetValidNotAfterDate(context.Context, *GetValidNotAfterDateRequest) (*GetValidNotAfterDateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetValidNotAfterDate not implemented")
-}
-func (UnimplementedSslCertificateServiceServer) GetValidNotBefore(context.Context, *GetValidNotBeforeRequest) (*GetValidNotBeforeResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetValidNotBefore not implemented")
-}
-func (UnimplementedSslCertificateServiceServer) GetValidNotBeforeDate(context.Context, *GetValidNotBeforeDateRequest) (*GetValidNotBeforeDateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetValidNotBeforeDate not implemented")
-}
-func (UnimplementedSslCertificateServiceServer) GetX509Certificate(context.Context, *GetX509CertificateRequest) (*GetX509CertificateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetX509Certificate not implemented")
-}
-func (UnimplementedSslCertificateServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
-}
-func (UnimplementedSslCertificateServiceServer) RestoreState(context.Context, *RestoreStateRequest) (*RestoreStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method RestoreState not implemented")
-}
-func (UnimplementedSslCertificateServiceServer) SaveState(context.Context, *SaveStateRequest) (*SaveStateResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SaveState not implemented")
-}
-func (UnimplementedSslCertificateServiceServer) mustEmbedUnimplementedSslCertificateServiceServer() {}
-func (UnimplementedSslCertificateServiceServer) testEmbeddedByValue()                               {}
-
-// UnsafeSslCertificateServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SslCertificateServiceServer will
-// result in compilation errors.
-type UnsafeSslCertificateServiceServer interface {
-	mustEmbedUnimplementedSslCertificateServiceServer()
-}
-
-func RegisterSslCertificateServiceServer(s grpc.ServiceRegistrar, srv SslCertificateServiceServer) {
-	// If the following call panics, it indicates UnimplementedSslCertificateServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SslCertificateService_ServiceDesc, srv)
-}
-
-func _SslCertificateService_NewSslCertificate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewSslCertificateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SslCertificateServiceServer).NewSslCertificate(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SslCertificateService_NewSslCertificate_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SslCertificateServiceServer).NewSslCertificate(ctx, req.(*NewSslCertificateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SslCertificateService_GetIssuedBy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIssuedByRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SslCertificateServiceServer).GetIssuedBy(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SslCertificateService_GetIssuedBy_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SslCertificateServiceServer).GetIssuedBy(ctx, req.(*GetIssuedByRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SslCertificateService_GetIssuedTo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetIssuedToRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SslCertificateServiceServer).GetIssuedTo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SslCertificateService_GetIssuedTo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SslCertificateServiceServer).GetIssuedTo(ctx, req.(*GetIssuedToRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SslCertificateService_GetValidNotAfter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetValidNotAfterRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SslCertificateServiceServer).GetValidNotAfter(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SslCertificateService_GetValidNotAfter_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SslCertificateServiceServer).GetValidNotAfter(ctx, req.(*GetValidNotAfterRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SslCertificateService_GetValidNotAfterDate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetValidNotAfterDateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SslCertificateServiceServer).GetValidNotAfterDate(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SslCertificateService_GetValidNotAfterDate_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SslCertificateServiceServer).GetValidNotAfterDate(ctx, req.(*GetValidNotAfterDateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SslCertificateService_GetValidNotBefore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetValidNotBeforeRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SslCertificateServiceServer).GetValidNotBefore(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SslCertificateService_GetValidNotBefore_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SslCertificateServiceServer).GetValidNotBefore(ctx, req.(*GetValidNotBeforeRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SslCertificateService_GetValidNotBeforeDate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetValidNotBeforeDateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SslCertificateServiceServer).GetValidNotBeforeDate(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SslCertificateService_GetValidNotBeforeDate_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SslCertificateServiceServer).GetValidNotBeforeDate(ctx, req.(*GetValidNotBeforeDateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SslCertificateService_GetX509Certificate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetX509CertificateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SslCertificateServiceServer).GetX509Certificate(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SslCertificateService_GetX509Certificate_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SslCertificateServiceServer).GetX509Certificate(ctx, req.(*GetX509CertificateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SslCertificateService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ToStringRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SslCertificateServiceServer).ToString(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SslCertificateService_ToString_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SslCertificateServiceServer).ToString(ctx, req.(*ToStringRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SslCertificateService_RestoreState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RestoreStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SslCertificateServiceServer).RestoreState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SslCertificateService_RestoreState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SslCertificateServiceServer).RestoreState(ctx, req.(*RestoreStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SslCertificateService_SaveState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SaveStateRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SslCertificateServiceServer).SaveState(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SslCertificateService_SaveState_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SslCertificateServiceServer).SaveState(ctx, req.(*SaveStateRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SslCertificateService_ServiceDesc is the grpc.ServiceDesc for SslCertificateService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SslCertificateService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "http.SslCertificateService",
-	HandlerType: (*SslCertificateServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewSslCertificate",
-			Handler:    _SslCertificateService_NewSslCertificate_Handler,
-		},
-		{
-			MethodName: "GetIssuedBy",
-			Handler:    _SslCertificateService_GetIssuedBy_Handler,
-		},
-		{
-			MethodName: "GetIssuedTo",
-			Handler:    _SslCertificateService_GetIssuedTo_Handler,
-		},
-		{
-			MethodName: "GetValidNotAfter",
-			Handler:    _SslCertificateService_GetValidNotAfter_Handler,
-		},
-		{
-			MethodName: "GetValidNotAfterDate",
-			Handler:    _SslCertificateService_GetValidNotAfterDate_Handler,
-		},
-		{
-			MethodName: "GetValidNotBefore",
-			Handler:    _SslCertificateService_GetValidNotBefore_Handler,
-		},
-		{
-			MethodName: "GetValidNotBeforeDate",
-			Handler:    _SslCertificateService_GetValidNotBeforeDate_Handler,
-		},
-		{
-			MethodName: "GetX509Certificate",
-			Handler:    _SslCertificateService_GetX509Certificate_Handler,
-		},
-		{
-			MethodName: "ToString",
-			Handler:    _SslCertificateService_ToString_Handler,
-		},
-		{
-			MethodName: "RestoreState",
-			Handler:    _SslCertificateService_RestoreState_Handler,
-		},
-		{
-			MethodName: "SaveState",
-			Handler:    _SslCertificateService_SaveState_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/http/http.proto",
-}
-
-const (
-	SslCertificateDNameService_GetCName_FullMethodName = "/http.SslCertificateDNameService/GetCName"
-	SslCertificateDNameService_GetDName_FullMethodName = "/http.SslCertificateDNameService/GetDName"
-	SslCertificateDNameService_GetOName_FullMethodName = "/http.SslCertificateDNameService/GetOName"
-	SslCertificateDNameService_GetUName_FullMethodName = "/http.SslCertificateDNameService/GetUName"
-)
-
-// SslCertificateDNameServiceClient is the client API for SslCertificateDNameService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SslCertificateDNameServiceClient interface {
-	GetCName(ctx context.Context, in *GetCNameRequest, opts ...grpc.CallOption) (*GetCNameResponse, error)
-	GetDName(ctx context.Context, in *GetDNameRequest, opts ...grpc.CallOption) (*GetDNameResponse, error)
-	GetOName(ctx context.Context, in *GetONameRequest, opts ...grpc.CallOption) (*GetONameResponse, error)
-	GetUName(ctx context.Context, in *GetUNameRequest, opts ...grpc.CallOption) (*GetUNameResponse, error)
-}
-
-type sslCertificateDNameServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewSslCertificateDNameServiceClient(cc grpc.ClientConnInterface) SslCertificateDNameServiceClient {
-	return &sslCertificateDNameServiceClient{cc}
-}
-
-func (c *sslCertificateDNameServiceClient) GetCName(ctx context.Context, in *GetCNameRequest, opts ...grpc.CallOption) (*GetCNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetCNameResponse)
-	err := c.cc.Invoke(ctx, SslCertificateDNameService_GetCName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sslCertificateDNameServiceClient) GetDName(ctx context.Context, in *GetDNameRequest, opts ...grpc.CallOption) (*GetDNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDNameResponse)
-	err := c.cc.Invoke(ctx, SslCertificateDNameService_GetDName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sslCertificateDNameServiceClient) GetOName(ctx context.Context, in *GetONameRequest, opts ...grpc.CallOption) (*GetONameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetONameResponse)
-	err := c.cc.Invoke(ctx, SslCertificateDNameService_GetOName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *sslCertificateDNameServiceClient) GetUName(ctx context.Context, in *GetUNameRequest, opts ...grpc.CallOption) (*GetUNameResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUNameResponse)
-	err := c.cc.Invoke(ctx, SslCertificateDNameService_GetUName_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// SslCertificateDNameServiceServer is the server API for SslCertificateDNameService service.
-// All implementations must embed UnimplementedSslCertificateDNameServiceServer
-// for forward compatibility.
-type SslCertificateDNameServiceServer interface {
-	GetCName(context.Context, *GetCNameRequest) (*GetCNameResponse, error)
-	GetDName(context.Context, *GetDNameRequest) (*GetDNameResponse, error)
-	GetOName(context.Context, *GetONameRequest) (*GetONameResponse, error)
-	GetUName(context.Context, *GetUNameRequest) (*GetUNameResponse, error)
-	mustEmbedUnimplementedSslCertificateDNameServiceServer()
-}
-
-// UnimplementedSslCertificateDNameServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedSslCertificateDNameServiceServer struct{}
-
-func (UnimplementedSslCertificateDNameServiceServer) GetCName(context.Context, *GetCNameRequest) (*GetCNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetCName not implemented")
-}
-func (UnimplementedSslCertificateDNameServiceServer) GetDName(context.Context, *GetDNameRequest) (*GetDNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDName not implemented")
-}
-func (UnimplementedSslCertificateDNameServiceServer) GetOName(context.Context, *GetONameRequest) (*GetONameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetOName not implemented")
-}
-func (UnimplementedSslCertificateDNameServiceServer) GetUName(context.Context, *GetUNameRequest) (*GetUNameResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetUName not implemented")
-}
-func (UnimplementedSslCertificateDNameServiceServer) mustEmbedUnimplementedSslCertificateDNameServiceServer() {
-}
-func (UnimplementedSslCertificateDNameServiceServer) testEmbeddedByValue() {}
-
-// UnsafeSslCertificateDNameServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SslCertificateDNameServiceServer will
-// result in compilation errors.
-type UnsafeSslCertificateDNameServiceServer interface {
-	mustEmbedUnimplementedSslCertificateDNameServiceServer()
-}
-
-func RegisterSslCertificateDNameServiceServer(s grpc.ServiceRegistrar, srv SslCertificateDNameServiceServer) {
-	// If the following call panics, it indicates UnimplementedSslCertificateDNameServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&SslCertificateDNameService_ServiceDesc, srv)
-}
-
-func _SslCertificateDNameService_GetCName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SslCertificateDNameServiceServer).GetCName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SslCertificateDNameService_GetCName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SslCertificateDNameServiceServer).GetCName(ctx, req.(*GetCNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SslCertificateDNameService_GetDName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SslCertificateDNameServiceServer).GetDName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SslCertificateDNameService_GetDName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SslCertificateDNameServiceServer).GetDName(ctx, req.(*GetDNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SslCertificateDNameService_GetOName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetONameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SslCertificateDNameServiceServer).GetOName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SslCertificateDNameService_GetOName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SslCertificateDNameServiceServer).GetOName(ctx, req.(*GetONameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _SslCertificateDNameService_GetUName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUNameRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(SslCertificateDNameServiceServer).GetUName(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: SslCertificateDNameService_GetUName_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SslCertificateDNameServiceServer).GetUName(ctx, req.(*GetUNameRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// SslCertificateDNameService_ServiceDesc is the grpc.ServiceDesc for SslCertificateDNameService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var SslCertificateDNameService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "http.SslCertificateDNameService",
-	HandlerType: (*SslCertificateDNameServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetCName",
-			Handler:    _SslCertificateDNameService_GetCName_Handler,
-		},
-		{
-			MethodName: "GetDName",
-			Handler:    _SslCertificateDNameService_GetDName_Handler,
-		},
-		{
-			MethodName: "GetOName",
-			Handler:    _SslCertificateDNameService_GetOName_Handler,
-		},
-		{
-			MethodName: "GetUName",
-			Handler:    _SslCertificateDNameService_GetUName_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/http/http.proto",
-}
-
-const (
-	DnsOptionsService_GetPersistHostCache_FullMethodName                         = "/http.DnsOptionsService/GetPersistHostCache"
-	DnsOptionsService_GetPersistHostCachePeriod_FullMethodName                   = "/http.DnsOptionsService/GetPersistHostCachePeriod"
-	DnsOptionsService_GetPreestablishConnectionsToStaleDnsResults_FullMethodName = "/http.DnsOptionsService/GetPreestablishConnectionsToStaleDnsResults"
-	DnsOptionsService_GetStaleDns_FullMethodName                                 = "/http.DnsOptionsService/GetStaleDns"
-	DnsOptionsService_GetStaleDnsOptions_FullMethodName                          = "/http.DnsOptionsService/GetStaleDnsOptions"
-	DnsOptionsService_GetUseHttpStackDnsResolver_FullMethodName                  = "/http.DnsOptionsService/GetUseHttpStackDnsResolver"
-)
-
-// DnsOptionsServiceClient is the client API for DnsOptionsService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DnsOptionsServiceClient interface {
-	GetPersistHostCache(ctx context.Context, in *GetPersistHostCacheRequest, opts ...grpc.CallOption) (*GetPersistHostCacheResponse, error)
-	GetPersistHostCachePeriod(ctx context.Context, in *GetPersistHostCachePeriodRequest, opts ...grpc.CallOption) (*GetPersistHostCachePeriodResponse, error)
-	GetPreestablishConnectionsToStaleDnsResults(ctx context.Context, in *GetPreestablishConnectionsToStaleDnsResultsRequest, opts ...grpc.CallOption) (*GetPreestablishConnectionsToStaleDnsResultsResponse, error)
-	GetStaleDns(ctx context.Context, in *GetStaleDnsRequest, opts ...grpc.CallOption) (*GetStaleDnsResponse, error)
-	GetStaleDnsOptions(ctx context.Context, in *GetStaleDnsOptionsRequest, opts ...grpc.CallOption) (*GetStaleDnsOptionsResponse, error)
-	GetUseHttpStackDnsResolver(ctx context.Context, in *GetUseHttpStackDnsResolverRequest, opts ...grpc.CallOption) (*GetUseHttpStackDnsResolverResponse, error)
-}
-
-type dnsOptionsServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewDnsOptionsServiceClient(cc grpc.ClientConnInterface) DnsOptionsServiceClient {
-	return &dnsOptionsServiceClient{cc}
-}
-
-func (c *dnsOptionsServiceClient) GetPersistHostCache(ctx context.Context, in *GetPersistHostCacheRequest, opts ...grpc.CallOption) (*GetPersistHostCacheResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPersistHostCacheResponse)
-	err := c.cc.Invoke(ctx, DnsOptionsService_GetPersistHostCache_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dnsOptionsServiceClient) GetPersistHostCachePeriod(ctx context.Context, in *GetPersistHostCachePeriodRequest, opts ...grpc.CallOption) (*GetPersistHostCachePeriodResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPersistHostCachePeriodResponse)
-	err := c.cc.Invoke(ctx, DnsOptionsService_GetPersistHostCachePeriod_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dnsOptionsServiceClient) GetPreestablishConnectionsToStaleDnsResults(ctx context.Context, in *GetPreestablishConnectionsToStaleDnsResultsRequest, opts ...grpc.CallOption) (*GetPreestablishConnectionsToStaleDnsResultsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPreestablishConnectionsToStaleDnsResultsResponse)
-	err := c.cc.Invoke(ctx, DnsOptionsService_GetPreestablishConnectionsToStaleDnsResults_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dnsOptionsServiceClient) GetStaleDns(ctx context.Context, in *GetStaleDnsRequest, opts ...grpc.CallOption) (*GetStaleDnsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStaleDnsResponse)
-	err := c.cc.Invoke(ctx, DnsOptionsService_GetStaleDns_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dnsOptionsServiceClient) GetStaleDnsOptions(ctx context.Context, in *GetStaleDnsOptionsRequest, opts ...grpc.CallOption) (*GetStaleDnsOptionsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetStaleDnsOptionsResponse)
-	err := c.cc.Invoke(ctx, DnsOptionsService_GetStaleDnsOptions_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dnsOptionsServiceClient) GetUseHttpStackDnsResolver(ctx context.Context, in *GetUseHttpStackDnsResolverRequest, opts ...grpc.CallOption) (*GetUseHttpStackDnsResolverResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUseHttpStackDnsResolverResponse)
-	err := c.cc.Invoke(ctx, DnsOptionsService_GetUseHttpStackDnsResolver_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DnsOptionsServiceServer is the server API for DnsOptionsService service.
-// All implementations must embed UnimplementedDnsOptionsServiceServer
-// for forward compatibility.
-type DnsOptionsServiceServer interface {
-	GetPersistHostCache(context.Context, *GetPersistHostCacheRequest) (*GetPersistHostCacheResponse, error)
-	GetPersistHostCachePeriod(context.Context, *GetPersistHostCachePeriodRequest) (*GetPersistHostCachePeriodResponse, error)
-	GetPreestablishConnectionsToStaleDnsResults(context.Context, *GetPreestablishConnectionsToStaleDnsResultsRequest) (*GetPreestablishConnectionsToStaleDnsResultsResponse, error)
-	GetStaleDns(context.Context, *GetStaleDnsRequest) (*GetStaleDnsResponse, error)
-	GetStaleDnsOptions(context.Context, *GetStaleDnsOptionsRequest) (*GetStaleDnsOptionsResponse, error)
-	GetUseHttpStackDnsResolver(context.Context, *GetUseHttpStackDnsResolverRequest) (*GetUseHttpStackDnsResolverResponse, error)
-	mustEmbedUnimplementedDnsOptionsServiceServer()
-}
-
-// UnimplementedDnsOptionsServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedDnsOptionsServiceServer struct{}
-
-func (UnimplementedDnsOptionsServiceServer) GetPersistHostCache(context.Context, *GetPersistHostCacheRequest) (*GetPersistHostCacheResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPersistHostCache not implemented")
-}
-func (UnimplementedDnsOptionsServiceServer) GetPersistHostCachePeriod(context.Context, *GetPersistHostCachePeriodRequest) (*GetPersistHostCachePeriodResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPersistHostCachePeriod not implemented")
-}
-func (UnimplementedDnsOptionsServiceServer) GetPreestablishConnectionsToStaleDnsResults(context.Context, *GetPreestablishConnectionsToStaleDnsResultsRequest) (*GetPreestablishConnectionsToStaleDnsResultsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPreestablishConnectionsToStaleDnsResults not implemented")
-}
-func (UnimplementedDnsOptionsServiceServer) GetStaleDns(context.Context, *GetStaleDnsRequest) (*GetStaleDnsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStaleDns not implemented")
-}
-func (UnimplementedDnsOptionsServiceServer) GetStaleDnsOptions(context.Context, *GetStaleDnsOptionsRequest) (*GetStaleDnsOptionsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetStaleDnsOptions not implemented")
-}
-func (UnimplementedDnsOptionsServiceServer) GetUseHttpStackDnsResolver(context.Context, *GetUseHttpStackDnsResolverRequest) (*GetUseHttpStackDnsResolverResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetUseHttpStackDnsResolver not implemented")
-}
-func (UnimplementedDnsOptionsServiceServer) mustEmbedUnimplementedDnsOptionsServiceServer() {}
-func (UnimplementedDnsOptionsServiceServer) testEmbeddedByValue()                           {}
-
-// UnsafeDnsOptionsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DnsOptionsServiceServer will
-// result in compilation errors.
-type UnsafeDnsOptionsServiceServer interface {
-	mustEmbedUnimplementedDnsOptionsServiceServer()
-}
-
-func RegisterDnsOptionsServiceServer(s grpc.ServiceRegistrar, srv DnsOptionsServiceServer) {
-	// If the following call panics, it indicates UnimplementedDnsOptionsServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&DnsOptionsService_ServiceDesc, srv)
-}
-
-func _DnsOptionsService_GetPersistHostCache_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPersistHostCacheRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DnsOptionsServiceServer).GetPersistHostCache(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DnsOptionsService_GetPersistHostCache_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DnsOptionsServiceServer).GetPersistHostCache(ctx, req.(*GetPersistHostCacheRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DnsOptionsService_GetPersistHostCachePeriod_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPersistHostCachePeriodRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DnsOptionsServiceServer).GetPersistHostCachePeriod(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DnsOptionsService_GetPersistHostCachePeriod_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DnsOptionsServiceServer).GetPersistHostCachePeriod(ctx, req.(*GetPersistHostCachePeriodRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DnsOptionsService_GetPreestablishConnectionsToStaleDnsResults_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPreestablishConnectionsToStaleDnsResultsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DnsOptionsServiceServer).GetPreestablishConnectionsToStaleDnsResults(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DnsOptionsService_GetPreestablishConnectionsToStaleDnsResults_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DnsOptionsServiceServer).GetPreestablishConnectionsToStaleDnsResults(ctx, req.(*GetPreestablishConnectionsToStaleDnsResultsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DnsOptionsService_GetStaleDns_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStaleDnsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DnsOptionsServiceServer).GetStaleDns(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DnsOptionsService_GetStaleDns_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DnsOptionsServiceServer).GetStaleDns(ctx, req.(*GetStaleDnsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DnsOptionsService_GetStaleDnsOptions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetStaleDnsOptionsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DnsOptionsServiceServer).GetStaleDnsOptions(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DnsOptionsService_GetStaleDnsOptions_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DnsOptionsServiceServer).GetStaleDnsOptions(ctx, req.(*GetStaleDnsOptionsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DnsOptionsService_GetUseHttpStackDnsResolver_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUseHttpStackDnsResolverRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DnsOptionsServiceServer).GetUseHttpStackDnsResolver(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DnsOptionsService_GetUseHttpStackDnsResolver_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DnsOptionsServiceServer).GetUseHttpStackDnsResolver(ctx, req.(*GetUseHttpStackDnsResolverRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DnsOptionsService_ServiceDesc is the grpc.ServiceDesc for DnsOptionsService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var DnsOptionsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "http.DnsOptionsService",
-	HandlerType: (*DnsOptionsServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetPersistHostCache",
-			Handler:    _DnsOptionsService_GetPersistHostCache_Handler,
-		},
-		{
-			MethodName: "GetPersistHostCachePeriod",
-			Handler:    _DnsOptionsService_GetPersistHostCachePeriod_Handler,
-		},
-		{
-			MethodName: "GetPreestablishConnectionsToStaleDnsResults",
-			Handler:    _DnsOptionsService_GetPreestablishConnectionsToStaleDnsResults_Handler,
-		},
-		{
-			MethodName: "GetStaleDns",
-			Handler:    _DnsOptionsService_GetStaleDns_Handler,
-		},
-		{
-			MethodName: "GetStaleDnsOptions",
-			Handler:    _DnsOptionsService_GetStaleDnsOptions_Handler,
-		},
-		{
-			MethodName: "GetUseHttpStackDnsResolver",
-			Handler:    _DnsOptionsService_GetUseHttpStackDnsResolver_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/http/http.proto",
-}
-
-const (
-	DnsOptionsBuilderService_Build_FullMethodName                                       = "/http.DnsOptionsBuilderService/Build"
-	DnsOptionsBuilderService_SetPersistHostCache_FullMethodName                         = "/http.DnsOptionsBuilderService/SetPersistHostCache"
-	DnsOptionsBuilderService_SetPersistHostCachePeriod_FullMethodName                   = "/http.DnsOptionsBuilderService/SetPersistHostCachePeriod"
-	DnsOptionsBuilderService_SetPreestablishConnectionsToStaleDnsResults_FullMethodName = "/http.DnsOptionsBuilderService/SetPreestablishConnectionsToStaleDnsResults"
-	DnsOptionsBuilderService_SetStaleDns_FullMethodName                                 = "/http.DnsOptionsBuilderService/SetStaleDns"
-	DnsOptionsBuilderService_SetStaleDnsOptions_FullMethodName                          = "/http.DnsOptionsBuilderService/SetStaleDnsOptions"
-	DnsOptionsBuilderService_SetUseHttpStackDnsResolver_FullMethodName                  = "/http.DnsOptionsBuilderService/SetUseHttpStackDnsResolver"
-)
-
-// DnsOptionsBuilderServiceClient is the client API for DnsOptionsBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DnsOptionsBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetPersistHostCache(ctx context.Context, in *SetPersistHostCacheRequest, opts ...grpc.CallOption) (*SetPersistHostCacheResponse, error)
-	SetPersistHostCachePeriod(ctx context.Context, in *SetPersistHostCachePeriodRequest, opts ...grpc.CallOption) (*SetPersistHostCachePeriodResponse, error)
-	SetPreestablishConnectionsToStaleDnsResults(ctx context.Context, in *SetPreestablishConnectionsToStaleDnsResultsRequest, opts ...grpc.CallOption) (*SetPreestablishConnectionsToStaleDnsResultsResponse, error)
-	SetStaleDns(ctx context.Context, in *SetStaleDnsRequest, opts ...grpc.CallOption) (*SetStaleDnsResponse, error)
-	SetStaleDnsOptions(ctx context.Context, in *SetStaleDnsOptionsRequest, opts ...grpc.CallOption) (*SetStaleDnsOptionsResponse, error)
-	SetUseHttpStackDnsResolver(ctx context.Context, in *SetUseHttpStackDnsResolverRequest, opts ...grpc.CallOption) (*SetUseHttpStackDnsResolverResponse, error)
-}
-
-type dnsOptionsBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewDnsOptionsBuilderServiceClient(cc grpc.ClientConnInterface) DnsOptionsBuilderServiceClient {
-	return &dnsOptionsBuilderServiceClient{cc}
-}
-
-func (c *dnsOptionsBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, DnsOptionsBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dnsOptionsBuilderServiceClient) SetPersistHostCache(ctx context.Context, in *SetPersistHostCacheRequest, opts ...grpc.CallOption) (*SetPersistHostCacheResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPersistHostCacheResponse)
-	err := c.cc.Invoke(ctx, DnsOptionsBuilderService_SetPersistHostCache_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dnsOptionsBuilderServiceClient) SetPersistHostCachePeriod(ctx context.Context, in *SetPersistHostCachePeriodRequest, opts ...grpc.CallOption) (*SetPersistHostCachePeriodResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPersistHostCachePeriodResponse)
-	err := c.cc.Invoke(ctx, DnsOptionsBuilderService_SetPersistHostCachePeriod_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dnsOptionsBuilderServiceClient) SetPreestablishConnectionsToStaleDnsResults(ctx context.Context, in *SetPreestablishConnectionsToStaleDnsResultsRequest, opts ...grpc.CallOption) (*SetPreestablishConnectionsToStaleDnsResultsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPreestablishConnectionsToStaleDnsResultsResponse)
-	err := c.cc.Invoke(ctx, DnsOptionsBuilderService_SetPreestablishConnectionsToStaleDnsResults_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dnsOptionsBuilderServiceClient) SetStaleDns(ctx context.Context, in *SetStaleDnsRequest, opts ...grpc.CallOption) (*SetStaleDnsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetStaleDnsResponse)
-	err := c.cc.Invoke(ctx, DnsOptionsBuilderService_SetStaleDns_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dnsOptionsBuilderServiceClient) SetStaleDnsOptions(ctx context.Context, in *SetStaleDnsOptionsRequest, opts ...grpc.CallOption) (*SetStaleDnsOptionsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetStaleDnsOptionsResponse)
-	err := c.cc.Invoke(ctx, DnsOptionsBuilderService_SetStaleDnsOptions_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dnsOptionsBuilderServiceClient) SetUseHttpStackDnsResolver(ctx context.Context, in *SetUseHttpStackDnsResolverRequest, opts ...grpc.CallOption) (*SetUseHttpStackDnsResolverResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetUseHttpStackDnsResolverResponse)
-	err := c.cc.Invoke(ctx, DnsOptionsBuilderService_SetUseHttpStackDnsResolver_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DnsOptionsBuilderServiceServer is the server API for DnsOptionsBuilderService service.
-// All implementations must embed UnimplementedDnsOptionsBuilderServiceServer
-// for forward compatibility.
-type DnsOptionsBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetPersistHostCache(context.Context, *SetPersistHostCacheRequest) (*SetPersistHostCacheResponse, error)
-	SetPersistHostCachePeriod(context.Context, *SetPersistHostCachePeriodRequest) (*SetPersistHostCachePeriodResponse, error)
-	SetPreestablishConnectionsToStaleDnsResults(context.Context, *SetPreestablishConnectionsToStaleDnsResultsRequest) (*SetPreestablishConnectionsToStaleDnsResultsResponse, error)
-	SetStaleDns(context.Context, *SetStaleDnsRequest) (*SetStaleDnsResponse, error)
-	SetStaleDnsOptions(context.Context, *SetStaleDnsOptionsRequest) (*SetStaleDnsOptionsResponse, error)
-	SetUseHttpStackDnsResolver(context.Context, *SetUseHttpStackDnsResolverRequest) (*SetUseHttpStackDnsResolverResponse, error)
-	mustEmbedUnimplementedDnsOptionsBuilderServiceServer()
-}
-
-// UnimplementedDnsOptionsBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedDnsOptionsBuilderServiceServer struct{}
-
-func (UnimplementedDnsOptionsBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedDnsOptionsBuilderServiceServer) SetPersistHostCache(context.Context, *SetPersistHostCacheRequest) (*SetPersistHostCacheResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPersistHostCache not implemented")
-}
-func (UnimplementedDnsOptionsBuilderServiceServer) SetPersistHostCachePeriod(context.Context, *SetPersistHostCachePeriodRequest) (*SetPersistHostCachePeriodResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPersistHostCachePeriod not implemented")
-}
-func (UnimplementedDnsOptionsBuilderServiceServer) SetPreestablishConnectionsToStaleDnsResults(context.Context, *SetPreestablishConnectionsToStaleDnsResultsRequest) (*SetPreestablishConnectionsToStaleDnsResultsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPreestablishConnectionsToStaleDnsResults not implemented")
-}
-func (UnimplementedDnsOptionsBuilderServiceServer) SetStaleDns(context.Context, *SetStaleDnsRequest) (*SetStaleDnsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetStaleDns not implemented")
-}
-func (UnimplementedDnsOptionsBuilderServiceServer) SetStaleDnsOptions(context.Context, *SetStaleDnsOptionsRequest) (*SetStaleDnsOptionsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetStaleDnsOptions not implemented")
-}
-func (UnimplementedDnsOptionsBuilderServiceServer) SetUseHttpStackDnsResolver(context.Context, *SetUseHttpStackDnsResolverRequest) (*SetUseHttpStackDnsResolverResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetUseHttpStackDnsResolver not implemented")
-}
-func (UnimplementedDnsOptionsBuilderServiceServer) mustEmbedUnimplementedDnsOptionsBuilderServiceServer() {
-}
-func (UnimplementedDnsOptionsBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeDnsOptionsBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DnsOptionsBuilderServiceServer will
-// result in compilation errors.
-type UnsafeDnsOptionsBuilderServiceServer interface {
-	mustEmbedUnimplementedDnsOptionsBuilderServiceServer()
-}
-
-func RegisterDnsOptionsBuilderServiceServer(s grpc.ServiceRegistrar, srv DnsOptionsBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedDnsOptionsBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&DnsOptionsBuilderService_ServiceDesc, srv)
-}
-
-func _DnsOptionsBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DnsOptionsBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DnsOptionsBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DnsOptionsBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DnsOptionsBuilderService_SetPersistHostCache_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPersistHostCacheRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DnsOptionsBuilderServiceServer).SetPersistHostCache(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DnsOptionsBuilderService_SetPersistHostCache_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DnsOptionsBuilderServiceServer).SetPersistHostCache(ctx, req.(*SetPersistHostCacheRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DnsOptionsBuilderService_SetPersistHostCachePeriod_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPersistHostCachePeriodRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DnsOptionsBuilderServiceServer).SetPersistHostCachePeriod(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DnsOptionsBuilderService_SetPersistHostCachePeriod_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DnsOptionsBuilderServiceServer).SetPersistHostCachePeriod(ctx, req.(*SetPersistHostCachePeriodRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DnsOptionsBuilderService_SetPreestablishConnectionsToStaleDnsResults_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPreestablishConnectionsToStaleDnsResultsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DnsOptionsBuilderServiceServer).SetPreestablishConnectionsToStaleDnsResults(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DnsOptionsBuilderService_SetPreestablishConnectionsToStaleDnsResults_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DnsOptionsBuilderServiceServer).SetPreestablishConnectionsToStaleDnsResults(ctx, req.(*SetPreestablishConnectionsToStaleDnsResultsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DnsOptionsBuilderService_SetStaleDns_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetStaleDnsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DnsOptionsBuilderServiceServer).SetStaleDns(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DnsOptionsBuilderService_SetStaleDns_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DnsOptionsBuilderServiceServer).SetStaleDns(ctx, req.(*SetStaleDnsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DnsOptionsBuilderService_SetStaleDnsOptions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetStaleDnsOptionsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DnsOptionsBuilderServiceServer).SetStaleDnsOptions(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DnsOptionsBuilderService_SetStaleDnsOptions_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DnsOptionsBuilderServiceServer).SetStaleDnsOptions(ctx, req.(*SetStaleDnsOptionsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DnsOptionsBuilderService_SetUseHttpStackDnsResolver_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetUseHttpStackDnsResolverRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DnsOptionsBuilderServiceServer).SetUseHttpStackDnsResolver(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DnsOptionsBuilderService_SetUseHttpStackDnsResolver_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DnsOptionsBuilderServiceServer).SetUseHttpStackDnsResolver(ctx, req.(*SetUseHttpStackDnsResolverRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DnsOptionsBuilderService_ServiceDesc is the grpc.ServiceDesc for DnsOptionsBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var DnsOptionsBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "http.DnsOptionsBuilderService",
-	HandlerType: (*DnsOptionsBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _DnsOptionsBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetPersistHostCache",
-			Handler:    _DnsOptionsBuilderService_SetPersistHostCache_Handler,
-		},
-		{
-			MethodName: "SetPersistHostCachePeriod",
-			Handler:    _DnsOptionsBuilderService_SetPersistHostCachePeriod_Handler,
-		},
-		{
-			MethodName: "SetPreestablishConnectionsToStaleDnsResults",
-			Handler:    _DnsOptionsBuilderService_SetPreestablishConnectionsToStaleDnsResults_Handler,
-		},
-		{
-			MethodName: "SetStaleDns",
-			Handler:    _DnsOptionsBuilderService_SetStaleDns_Handler,
-		},
-		{
-			MethodName: "SetStaleDnsOptions",
-			Handler:    _DnsOptionsBuilderService_SetStaleDnsOptions_Handler,
-		},
-		{
-			MethodName: "SetUseHttpStackDnsResolver",
-			Handler:    _DnsOptionsBuilderService_SetUseHttpStackDnsResolver_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/http/http.proto",
-}
-
-const (
-	DnsOptionsStaleDnsOptionsService_GetAllowCrossNetworkUsage_FullMethodName    = "/http.DnsOptionsStaleDnsOptionsService/GetAllowCrossNetworkUsage"
-	DnsOptionsStaleDnsOptionsService_GetFreshLookupTimeout_FullMethodName        = "/http.DnsOptionsStaleDnsOptionsService/GetFreshLookupTimeout"
-	DnsOptionsStaleDnsOptionsService_GetMaxExpiredDelay_FullMethodName           = "/http.DnsOptionsStaleDnsOptionsService/GetMaxExpiredDelay"
-	DnsOptionsStaleDnsOptionsService_GetUseStaleOnNameNotResolved_FullMethodName = "/http.DnsOptionsStaleDnsOptionsService/GetUseStaleOnNameNotResolved"
-)
-
-// DnsOptionsStaleDnsOptionsServiceClient is the client API for DnsOptionsStaleDnsOptionsService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type DnsOptionsStaleDnsOptionsServiceClient interface {
-	GetAllowCrossNetworkUsage(ctx context.Context, in *GetAllowCrossNetworkUsageRequest, opts ...grpc.CallOption) (*GetAllowCrossNetworkUsageResponse, error)
-	GetFreshLookupTimeout(ctx context.Context, in *GetFreshLookupTimeoutRequest, opts ...grpc.CallOption) (*GetFreshLookupTimeoutResponse, error)
-	GetMaxExpiredDelay(ctx context.Context, in *GetMaxExpiredDelayRequest, opts ...grpc.CallOption) (*GetMaxExpiredDelayResponse, error)
-	GetUseStaleOnNameNotResolved(ctx context.Context, in *GetUseStaleOnNameNotResolvedRequest, opts ...grpc.CallOption) (*GetUseStaleOnNameNotResolvedResponse, error)
-}
-
-type dnsOptionsStaleDnsOptionsServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewDnsOptionsStaleDnsOptionsServiceClient(cc grpc.ClientConnInterface) DnsOptionsStaleDnsOptionsServiceClient {
-	return &dnsOptionsStaleDnsOptionsServiceClient{cc}
-}
-
-func (c *dnsOptionsStaleDnsOptionsServiceClient) GetAllowCrossNetworkUsage(ctx context.Context, in *GetAllowCrossNetworkUsageRequest, opts ...grpc.CallOption) (*GetAllowCrossNetworkUsageResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAllowCrossNetworkUsageResponse)
-	err := c.cc.Invoke(ctx, DnsOptionsStaleDnsOptionsService_GetAllowCrossNetworkUsage_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dnsOptionsStaleDnsOptionsServiceClient) GetFreshLookupTimeout(ctx context.Context, in *GetFreshLookupTimeoutRequest, opts ...grpc.CallOption) (*GetFreshLookupTimeoutResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetFreshLookupTimeoutResponse)
-	err := c.cc.Invoke(ctx, DnsOptionsStaleDnsOptionsService_GetFreshLookupTimeout_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dnsOptionsStaleDnsOptionsServiceClient) GetMaxExpiredDelay(ctx context.Context, in *GetMaxExpiredDelayRequest, opts ...grpc.CallOption) (*GetMaxExpiredDelayResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMaxExpiredDelayResponse)
-	err := c.cc.Invoke(ctx, DnsOptionsStaleDnsOptionsService_GetMaxExpiredDelay_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *dnsOptionsStaleDnsOptionsServiceClient) GetUseStaleOnNameNotResolved(ctx context.Context, in *GetUseStaleOnNameNotResolvedRequest, opts ...grpc.CallOption) (*GetUseStaleOnNameNotResolvedResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUseStaleOnNameNotResolvedResponse)
-	err := c.cc.Invoke(ctx, DnsOptionsStaleDnsOptionsService_GetUseStaleOnNameNotResolved_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// DnsOptionsStaleDnsOptionsServiceServer is the server API for DnsOptionsStaleDnsOptionsService service.
-// All implementations must embed UnimplementedDnsOptionsStaleDnsOptionsServiceServer
-// for forward compatibility.
-type DnsOptionsStaleDnsOptionsServiceServer interface {
-	GetAllowCrossNetworkUsage(context.Context, *GetAllowCrossNetworkUsageRequest) (*GetAllowCrossNetworkUsageResponse, error)
-	GetFreshLookupTimeout(context.Context, *GetFreshLookupTimeoutRequest) (*GetFreshLookupTimeoutResponse, error)
-	GetMaxExpiredDelay(context.Context, *GetMaxExpiredDelayRequest) (*GetMaxExpiredDelayResponse, error)
-	GetUseStaleOnNameNotResolved(context.Context, *GetUseStaleOnNameNotResolvedRequest) (*GetUseStaleOnNameNotResolvedResponse, error)
-	mustEmbedUnimplementedDnsOptionsStaleDnsOptionsServiceServer()
-}
-
-// UnimplementedDnsOptionsStaleDnsOptionsServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedDnsOptionsStaleDnsOptionsServiceServer struct{}
-
-func (UnimplementedDnsOptionsStaleDnsOptionsServiceServer) GetAllowCrossNetworkUsage(context.Context, *GetAllowCrossNetworkUsageRequest) (*GetAllowCrossNetworkUsageResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAllowCrossNetworkUsage not implemented")
-}
-func (UnimplementedDnsOptionsStaleDnsOptionsServiceServer) GetFreshLookupTimeout(context.Context, *GetFreshLookupTimeoutRequest) (*GetFreshLookupTimeoutResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetFreshLookupTimeout not implemented")
-}
-func (UnimplementedDnsOptionsStaleDnsOptionsServiceServer) GetMaxExpiredDelay(context.Context, *GetMaxExpiredDelayRequest) (*GetMaxExpiredDelayResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetMaxExpiredDelay not implemented")
-}
-func (UnimplementedDnsOptionsStaleDnsOptionsServiceServer) GetUseStaleOnNameNotResolved(context.Context, *GetUseStaleOnNameNotResolvedRequest) (*GetUseStaleOnNameNotResolvedResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetUseStaleOnNameNotResolved not implemented")
-}
-func (UnimplementedDnsOptionsStaleDnsOptionsServiceServer) mustEmbedUnimplementedDnsOptionsStaleDnsOptionsServiceServer() {
-}
-func (UnimplementedDnsOptionsStaleDnsOptionsServiceServer) testEmbeddedByValue() {}
-
-// UnsafeDnsOptionsStaleDnsOptionsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DnsOptionsStaleDnsOptionsServiceServer will
-// result in compilation errors.
-type UnsafeDnsOptionsStaleDnsOptionsServiceServer interface {
-	mustEmbedUnimplementedDnsOptionsStaleDnsOptionsServiceServer()
-}
-
-func RegisterDnsOptionsStaleDnsOptionsServiceServer(s grpc.ServiceRegistrar, srv DnsOptionsStaleDnsOptionsServiceServer) {
-	// If the following call panics, it indicates UnimplementedDnsOptionsStaleDnsOptionsServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&DnsOptionsStaleDnsOptionsService_ServiceDesc, srv)
-}
-
-func _DnsOptionsStaleDnsOptionsService_GetAllowCrossNetworkUsage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAllowCrossNetworkUsageRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DnsOptionsStaleDnsOptionsServiceServer).GetAllowCrossNetworkUsage(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DnsOptionsStaleDnsOptionsService_GetAllowCrossNetworkUsage_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DnsOptionsStaleDnsOptionsServiceServer).GetAllowCrossNetworkUsage(ctx, req.(*GetAllowCrossNetworkUsageRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DnsOptionsStaleDnsOptionsService_GetFreshLookupTimeout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFreshLookupTimeoutRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DnsOptionsStaleDnsOptionsServiceServer).GetFreshLookupTimeout(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DnsOptionsStaleDnsOptionsService_GetFreshLookupTimeout_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DnsOptionsStaleDnsOptionsServiceServer).GetFreshLookupTimeout(ctx, req.(*GetFreshLookupTimeoutRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DnsOptionsStaleDnsOptionsService_GetMaxExpiredDelay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMaxExpiredDelayRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DnsOptionsStaleDnsOptionsServiceServer).GetMaxExpiredDelay(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DnsOptionsStaleDnsOptionsService_GetMaxExpiredDelay_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DnsOptionsStaleDnsOptionsServiceServer).GetMaxExpiredDelay(ctx, req.(*GetMaxExpiredDelayRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DnsOptionsStaleDnsOptionsService_GetUseStaleOnNameNotResolved_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUseStaleOnNameNotResolvedRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DnsOptionsStaleDnsOptionsServiceServer).GetUseStaleOnNameNotResolved(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DnsOptionsStaleDnsOptionsService_GetUseStaleOnNameNotResolved_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DnsOptionsStaleDnsOptionsServiceServer).GetUseStaleOnNameNotResolved(ctx, req.(*GetUseStaleOnNameNotResolvedRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// DnsOptionsStaleDnsOptionsService_ServiceDesc is the grpc.ServiceDesc for DnsOptionsStaleDnsOptionsService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var DnsOptionsStaleDnsOptionsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "http.DnsOptionsStaleDnsOptionsService",
-	HandlerType: (*DnsOptionsStaleDnsOptionsServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetAllowCrossNetworkUsage",
-			Handler:    _DnsOptionsStaleDnsOptionsService_GetAllowCrossNetworkUsage_Handler,
-		},
-		{
-			MethodName: "GetFreshLookupTimeout",
-			Handler:    _DnsOptionsStaleDnsOptionsService_GetFreshLookupTimeout_Handler,
-		},
-		{
-			MethodName: "GetMaxExpiredDelay",
-			Handler:    _DnsOptionsStaleDnsOptionsService_GetMaxExpiredDelay_Handler,
-		},
-		{
-			MethodName: "GetUseStaleOnNameNotResolved",
-			Handler:    _DnsOptionsStaleDnsOptionsService_GetUseStaleOnNameNotResolved_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/http/http.proto",
-}
-
-const (
-	ConnectionMigrationOptionsService_GetAllowNonDefaultNetworkUsage_FullMethodName = "/http.ConnectionMigrationOptionsService/GetAllowNonDefaultNetworkUsage"
-	ConnectionMigrationOptionsService_GetDefaultNetworkMigration_FullMethodName     = "/http.ConnectionMigrationOptionsService/GetDefaultNetworkMigration"
-	ConnectionMigrationOptionsService_GetPathDegradationMigration_FullMethodName    = "/http.ConnectionMigrationOptionsService/GetPathDegradationMigration"
-)
-
-// ConnectionMigrationOptionsServiceClient is the client API for ConnectionMigrationOptionsService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ConnectionMigrationOptionsServiceClient interface {
-	GetAllowNonDefaultNetworkUsage(ctx context.Context, in *GetAllowNonDefaultNetworkUsageRequest, opts ...grpc.CallOption) (*GetAllowNonDefaultNetworkUsageResponse, error)
-	GetDefaultNetworkMigration(ctx context.Context, in *GetDefaultNetworkMigrationRequest, opts ...grpc.CallOption) (*GetDefaultNetworkMigrationResponse, error)
-	GetPathDegradationMigration(ctx context.Context, in *GetPathDegradationMigrationRequest, opts ...grpc.CallOption) (*GetPathDegradationMigrationResponse, error)
-}
-
-type connectionMigrationOptionsServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewConnectionMigrationOptionsServiceClient(cc grpc.ClientConnInterface) ConnectionMigrationOptionsServiceClient {
-	return &connectionMigrationOptionsServiceClient{cc}
-}
-
-func (c *connectionMigrationOptionsServiceClient) GetAllowNonDefaultNetworkUsage(ctx context.Context, in *GetAllowNonDefaultNetworkUsageRequest, opts ...grpc.CallOption) (*GetAllowNonDefaultNetworkUsageResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAllowNonDefaultNetworkUsageResponse)
-	err := c.cc.Invoke(ctx, ConnectionMigrationOptionsService_GetAllowNonDefaultNetworkUsage_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *connectionMigrationOptionsServiceClient) GetDefaultNetworkMigration(ctx context.Context, in *GetDefaultNetworkMigrationRequest, opts ...grpc.CallOption) (*GetDefaultNetworkMigrationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetDefaultNetworkMigrationResponse)
-	err := c.cc.Invoke(ctx, ConnectionMigrationOptionsService_GetDefaultNetworkMigration_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *connectionMigrationOptionsServiceClient) GetPathDegradationMigration(ctx context.Context, in *GetPathDegradationMigrationRequest, opts ...grpc.CallOption) (*GetPathDegradationMigrationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetPathDegradationMigrationResponse)
-	err := c.cc.Invoke(ctx, ConnectionMigrationOptionsService_GetPathDegradationMigration_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ConnectionMigrationOptionsServiceServer is the server API for ConnectionMigrationOptionsService service.
-// All implementations must embed UnimplementedConnectionMigrationOptionsServiceServer
-// for forward compatibility.
-type ConnectionMigrationOptionsServiceServer interface {
-	GetAllowNonDefaultNetworkUsage(context.Context, *GetAllowNonDefaultNetworkUsageRequest) (*GetAllowNonDefaultNetworkUsageResponse, error)
-	GetDefaultNetworkMigration(context.Context, *GetDefaultNetworkMigrationRequest) (*GetDefaultNetworkMigrationResponse, error)
-	GetPathDegradationMigration(context.Context, *GetPathDegradationMigrationRequest) (*GetPathDegradationMigrationResponse, error)
-	mustEmbedUnimplementedConnectionMigrationOptionsServiceServer()
-}
-
-// UnimplementedConnectionMigrationOptionsServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedConnectionMigrationOptionsServiceServer struct{}
-
-func (UnimplementedConnectionMigrationOptionsServiceServer) GetAllowNonDefaultNetworkUsage(context.Context, *GetAllowNonDefaultNetworkUsageRequest) (*GetAllowNonDefaultNetworkUsageResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetAllowNonDefaultNetworkUsage not implemented")
-}
-func (UnimplementedConnectionMigrationOptionsServiceServer) GetDefaultNetworkMigration(context.Context, *GetDefaultNetworkMigrationRequest) (*GetDefaultNetworkMigrationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetDefaultNetworkMigration not implemented")
-}
-func (UnimplementedConnectionMigrationOptionsServiceServer) GetPathDegradationMigration(context.Context, *GetPathDegradationMigrationRequest) (*GetPathDegradationMigrationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetPathDegradationMigration not implemented")
-}
-func (UnimplementedConnectionMigrationOptionsServiceServer) mustEmbedUnimplementedConnectionMigrationOptionsServiceServer() {
-}
-func (UnimplementedConnectionMigrationOptionsServiceServer) testEmbeddedByValue() {}
-
-// UnsafeConnectionMigrationOptionsServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ConnectionMigrationOptionsServiceServer will
-// result in compilation errors.
-type UnsafeConnectionMigrationOptionsServiceServer interface {
-	mustEmbedUnimplementedConnectionMigrationOptionsServiceServer()
-}
-
-func RegisterConnectionMigrationOptionsServiceServer(s grpc.ServiceRegistrar, srv ConnectionMigrationOptionsServiceServer) {
-	// If the following call panics, it indicates UnimplementedConnectionMigrationOptionsServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ConnectionMigrationOptionsService_ServiceDesc, srv)
-}
-
-func _ConnectionMigrationOptionsService_GetAllowNonDefaultNetworkUsage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAllowNonDefaultNetworkUsageRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConnectionMigrationOptionsServiceServer).GetAllowNonDefaultNetworkUsage(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConnectionMigrationOptionsService_GetAllowNonDefaultNetworkUsage_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConnectionMigrationOptionsServiceServer).GetAllowNonDefaultNetworkUsage(ctx, req.(*GetAllowNonDefaultNetworkUsageRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConnectionMigrationOptionsService_GetDefaultNetworkMigration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetDefaultNetworkMigrationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConnectionMigrationOptionsServiceServer).GetDefaultNetworkMigration(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConnectionMigrationOptionsService_GetDefaultNetworkMigration_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConnectionMigrationOptionsServiceServer).GetDefaultNetworkMigration(ctx, req.(*GetDefaultNetworkMigrationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConnectionMigrationOptionsService_GetPathDegradationMigration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPathDegradationMigrationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConnectionMigrationOptionsServiceServer).GetPathDegradationMigration(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConnectionMigrationOptionsService_GetPathDegradationMigration_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConnectionMigrationOptionsServiceServer).GetPathDegradationMigration(ctx, req.(*GetPathDegradationMigrationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ConnectionMigrationOptionsService_ServiceDesc is the grpc.ServiceDesc for ConnectionMigrationOptionsService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ConnectionMigrationOptionsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "http.ConnectionMigrationOptionsService",
-	HandlerType: (*ConnectionMigrationOptionsServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "GetAllowNonDefaultNetworkUsage",
-			Handler:    _ConnectionMigrationOptionsService_GetAllowNonDefaultNetworkUsage_Handler,
-		},
-		{
-			MethodName: "GetDefaultNetworkMigration",
-			Handler:    _ConnectionMigrationOptionsService_GetDefaultNetworkMigration_Handler,
-		},
-		{
-			MethodName: "GetPathDegradationMigration",
-			Handler:    _ConnectionMigrationOptionsService_GetPathDegradationMigration_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/http/http.proto",
-}
-
-const (
-	ConnectionMigrationOptionsBuilderService_Build_FullMethodName                          = "/http.ConnectionMigrationOptionsBuilderService/Build"
-	ConnectionMigrationOptionsBuilderService_SetAllowNonDefaultNetworkUsage_FullMethodName = "/http.ConnectionMigrationOptionsBuilderService/SetAllowNonDefaultNetworkUsage"
-	ConnectionMigrationOptionsBuilderService_SetDefaultNetworkMigration_FullMethodName     = "/http.ConnectionMigrationOptionsBuilderService/SetDefaultNetworkMigration"
-	ConnectionMigrationOptionsBuilderService_SetPathDegradationMigration_FullMethodName    = "/http.ConnectionMigrationOptionsBuilderService/SetPathDegradationMigration"
-)
-
-// ConnectionMigrationOptionsBuilderServiceClient is the client API for ConnectionMigrationOptionsBuilderService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ConnectionMigrationOptionsBuilderServiceClient interface {
-	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
-	SetAllowNonDefaultNetworkUsage(ctx context.Context, in *SetAllowNonDefaultNetworkUsageRequest, opts ...grpc.CallOption) (*SetAllowNonDefaultNetworkUsageResponse, error)
-	SetDefaultNetworkMigration(ctx context.Context, in *SetDefaultNetworkMigrationRequest, opts ...grpc.CallOption) (*SetDefaultNetworkMigrationResponse, error)
-	SetPathDegradationMigration(ctx context.Context, in *SetPathDegradationMigrationRequest, opts ...grpc.CallOption) (*SetPathDegradationMigrationResponse, error)
-}
-
-type connectionMigrationOptionsBuilderServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewConnectionMigrationOptionsBuilderServiceClient(cc grpc.ClientConnInterface) ConnectionMigrationOptionsBuilderServiceClient {
-	return &connectionMigrationOptionsBuilderServiceClient{cc}
-}
-
-func (c *connectionMigrationOptionsBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(BuildResponse)
-	err := c.cc.Invoke(ctx, ConnectionMigrationOptionsBuilderService_Build_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *connectionMigrationOptionsBuilderServiceClient) SetAllowNonDefaultNetworkUsage(ctx context.Context, in *SetAllowNonDefaultNetworkUsageRequest, opts ...grpc.CallOption) (*SetAllowNonDefaultNetworkUsageResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetAllowNonDefaultNetworkUsageResponse)
-	err := c.cc.Invoke(ctx, ConnectionMigrationOptionsBuilderService_SetAllowNonDefaultNetworkUsage_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *connectionMigrationOptionsBuilderServiceClient) SetDefaultNetworkMigration(ctx context.Context, in *SetDefaultNetworkMigrationRequest, opts ...grpc.CallOption) (*SetDefaultNetworkMigrationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetDefaultNetworkMigrationResponse)
-	err := c.cc.Invoke(ctx, ConnectionMigrationOptionsBuilderService_SetDefaultNetworkMigration_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *connectionMigrationOptionsBuilderServiceClient) SetPathDegradationMigration(ctx context.Context, in *SetPathDegradationMigrationRequest, opts ...grpc.CallOption) (*SetPathDegradationMigrationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SetPathDegradationMigrationResponse)
-	err := c.cc.Invoke(ctx, ConnectionMigrationOptionsBuilderService_SetPathDegradationMigration_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// ConnectionMigrationOptionsBuilderServiceServer is the server API for ConnectionMigrationOptionsBuilderService service.
-// All implementations must embed UnimplementedConnectionMigrationOptionsBuilderServiceServer
-// for forward compatibility.
-type ConnectionMigrationOptionsBuilderServiceServer interface {
-	Build(context.Context, *BuildRequest) (*BuildResponse, error)
-	SetAllowNonDefaultNetworkUsage(context.Context, *SetAllowNonDefaultNetworkUsageRequest) (*SetAllowNonDefaultNetworkUsageResponse, error)
-	SetDefaultNetworkMigration(context.Context, *SetDefaultNetworkMigrationRequest) (*SetDefaultNetworkMigrationResponse, error)
-	SetPathDegradationMigration(context.Context, *SetPathDegradationMigrationRequest) (*SetPathDegradationMigrationResponse, error)
-	mustEmbedUnimplementedConnectionMigrationOptionsBuilderServiceServer()
-}
-
-// UnimplementedConnectionMigrationOptionsBuilderServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedConnectionMigrationOptionsBuilderServiceServer struct{}
-
-func (UnimplementedConnectionMigrationOptionsBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
-}
-func (UnimplementedConnectionMigrationOptionsBuilderServiceServer) SetAllowNonDefaultNetworkUsage(context.Context, *SetAllowNonDefaultNetworkUsageRequest) (*SetAllowNonDefaultNetworkUsageResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetAllowNonDefaultNetworkUsage not implemented")
-}
-func (UnimplementedConnectionMigrationOptionsBuilderServiceServer) SetDefaultNetworkMigration(context.Context, *SetDefaultNetworkMigrationRequest) (*SetDefaultNetworkMigrationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetDefaultNetworkMigration not implemented")
-}
-func (UnimplementedConnectionMigrationOptionsBuilderServiceServer) SetPathDegradationMigration(context.Context, *SetPathDegradationMigrationRequest) (*SetPathDegradationMigrationResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method SetPathDegradationMigration not implemented")
-}
-func (UnimplementedConnectionMigrationOptionsBuilderServiceServer) mustEmbedUnimplementedConnectionMigrationOptionsBuilderServiceServer() {
-}
-func (UnimplementedConnectionMigrationOptionsBuilderServiceServer) testEmbeddedByValue() {}
-
-// UnsafeConnectionMigrationOptionsBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ConnectionMigrationOptionsBuilderServiceServer will
-// result in compilation errors.
-type UnsafeConnectionMigrationOptionsBuilderServiceServer interface {
-	mustEmbedUnimplementedConnectionMigrationOptionsBuilderServiceServer()
-}
-
-func RegisterConnectionMigrationOptionsBuilderServiceServer(s grpc.ServiceRegistrar, srv ConnectionMigrationOptionsBuilderServiceServer) {
-	// If the following call panics, it indicates UnimplementedConnectionMigrationOptionsBuilderServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&ConnectionMigrationOptionsBuilderService_ServiceDesc, srv)
-}
-
-func _ConnectionMigrationOptionsBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(BuildRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConnectionMigrationOptionsBuilderServiceServer).Build(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConnectionMigrationOptionsBuilderService_Build_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConnectionMigrationOptionsBuilderServiceServer).Build(ctx, req.(*BuildRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConnectionMigrationOptionsBuilderService_SetAllowNonDefaultNetworkUsage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetAllowNonDefaultNetworkUsageRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConnectionMigrationOptionsBuilderServiceServer).SetAllowNonDefaultNetworkUsage(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConnectionMigrationOptionsBuilderService_SetAllowNonDefaultNetworkUsage_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConnectionMigrationOptionsBuilderServiceServer).SetAllowNonDefaultNetworkUsage(ctx, req.(*SetAllowNonDefaultNetworkUsageRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConnectionMigrationOptionsBuilderService_SetDefaultNetworkMigration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetDefaultNetworkMigrationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConnectionMigrationOptionsBuilderServiceServer).SetDefaultNetworkMigration(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConnectionMigrationOptionsBuilderService_SetDefaultNetworkMigration_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConnectionMigrationOptionsBuilderServiceServer).SetDefaultNetworkMigration(ctx, req.(*SetDefaultNetworkMigrationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ConnectionMigrationOptionsBuilderService_SetPathDegradationMigration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SetPathDegradationMigrationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ConnectionMigrationOptionsBuilderServiceServer).SetPathDegradationMigration(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ConnectionMigrationOptionsBuilderService_SetPathDegradationMigration_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConnectionMigrationOptionsBuilderServiceServer).SetPathDegradationMigration(ctx, req.(*SetPathDegradationMigrationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// ConnectionMigrationOptionsBuilderService_ServiceDesc is the grpc.ServiceDesc for ConnectionMigrationOptionsBuilderService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var ConnectionMigrationOptionsBuilderService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "http.ConnectionMigrationOptionsBuilderService",
-	HandlerType: (*ConnectionMigrationOptionsBuilderServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Build",
-			Handler:    _ConnectionMigrationOptionsBuilderService_Build_Handler,
-		},
-		{
-			MethodName: "SetAllowNonDefaultNetworkUsage",
-			Handler:    _ConnectionMigrationOptionsBuilderService_SetAllowNonDefaultNetworkUsage_Handler,
-		},
-		{
-			MethodName: "SetDefaultNetworkMigration",
-			Handler:    _ConnectionMigrationOptionsBuilderService_SetDefaultNetworkMigration_Handler,
-		},
-		{
-			MethodName: "SetPathDegradationMigration",
-			Handler:    _ConnectionMigrationOptionsBuilderService_SetPathDegradationMigration_Handler,
+			MethodName: "Rewind",
+			Handler:    _UploadDataProviderService_Rewind_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -7672,6 +3604,4226 @@ var BidirectionalStreamCallbackService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "OnSucceeded",
 			Handler:    _BidirectionalStreamCallbackService_OnSucceeded_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/http/http.proto",
+}
+
+const (
+	EngineService_BindToNetwork_FullMethodName                 = "/http.EngineService/BindToNetwork"
+	EngineService_CreateUrlStreamHandlerFactory_FullMethodName = "/http.EngineService/CreateUrlStreamHandlerFactory"
+	EngineService_NewBidirectionalStreamBuilder_FullMethodName = "/http.EngineService/NewBidirectionalStreamBuilder"
+	EngineService_NewUrlRequestBuilder_FullMethodName          = "/http.EngineService/NewUrlRequestBuilder"
+	EngineService_OpenConnection_FullMethodName                = "/http.EngineService/OpenConnection"
+	EngineService_Shutdown_FullMethodName                      = "/http.EngineService/Shutdown"
+	EngineService_GetVersionString_FullMethodName              = "/http.EngineService/GetVersionString"
+)
+
+// EngineServiceClient is the client API for EngineService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type EngineServiceClient interface {
+	BindToNetwork(ctx context.Context, in *BindToNetworkRequest, opts ...grpc.CallOption) (*EngineBindToNetworkResponse, error)
+	CreateUrlStreamHandlerFactory(ctx context.Context, in *CreateUrlStreamHandlerFactoryRequest, opts ...grpc.CallOption) (*CreateUrlStreamHandlerFactoryResponse, error)
+	NewBidirectionalStreamBuilder(ctx context.Context, in *NewBidirectionalStreamBuilderRequest, opts ...grpc.CallOption) (*NewBidirectionalStreamBuilderResponse, error)
+	NewUrlRequestBuilder(ctx context.Context, in *NewUrlRequestBuilderRequest, opts ...grpc.CallOption) (*NewUrlRequestBuilderResponse, error)
+	OpenConnection(ctx context.Context, in *OpenConnectionRequest, opts ...grpc.CallOption) (*OpenConnectionResponse, error)
+	Shutdown(ctx context.Context, in *ShutdownRequest, opts ...grpc.CallOption) (*ShutdownResponse, error)
+	GetVersionString(ctx context.Context, in *GetVersionStringRequest, opts ...grpc.CallOption) (*GetVersionStringResponse, error)
+}
+
+type engineServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewEngineServiceClient(cc grpc.ClientConnInterface) EngineServiceClient {
+	return &engineServiceClient{cc}
+}
+
+func (c *engineServiceClient) BindToNetwork(ctx context.Context, in *BindToNetworkRequest, opts ...grpc.CallOption) (*EngineBindToNetworkResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(EngineBindToNetworkResponse)
+	err := c.cc.Invoke(ctx, EngineService_BindToNetwork_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *engineServiceClient) CreateUrlStreamHandlerFactory(ctx context.Context, in *CreateUrlStreamHandlerFactoryRequest, opts ...grpc.CallOption) (*CreateUrlStreamHandlerFactoryResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateUrlStreamHandlerFactoryResponse)
+	err := c.cc.Invoke(ctx, EngineService_CreateUrlStreamHandlerFactory_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *engineServiceClient) NewBidirectionalStreamBuilder(ctx context.Context, in *NewBidirectionalStreamBuilderRequest, opts ...grpc.CallOption) (*NewBidirectionalStreamBuilderResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewBidirectionalStreamBuilderResponse)
+	err := c.cc.Invoke(ctx, EngineService_NewBidirectionalStreamBuilder_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *engineServiceClient) NewUrlRequestBuilder(ctx context.Context, in *NewUrlRequestBuilderRequest, opts ...grpc.CallOption) (*NewUrlRequestBuilderResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewUrlRequestBuilderResponse)
+	err := c.cc.Invoke(ctx, EngineService_NewUrlRequestBuilder_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *engineServiceClient) OpenConnection(ctx context.Context, in *OpenConnectionRequest, opts ...grpc.CallOption) (*OpenConnectionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(OpenConnectionResponse)
+	err := c.cc.Invoke(ctx, EngineService_OpenConnection_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *engineServiceClient) Shutdown(ctx context.Context, in *ShutdownRequest, opts ...grpc.CallOption) (*ShutdownResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ShutdownResponse)
+	err := c.cc.Invoke(ctx, EngineService_Shutdown_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *engineServiceClient) GetVersionString(ctx context.Context, in *GetVersionStringRequest, opts ...grpc.CallOption) (*GetVersionStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetVersionStringResponse)
+	err := c.cc.Invoke(ctx, EngineService_GetVersionString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// EngineServiceServer is the server API for EngineService service.
+// All implementations must embed UnimplementedEngineServiceServer
+// for forward compatibility.
+type EngineServiceServer interface {
+	BindToNetwork(context.Context, *BindToNetworkRequest) (*EngineBindToNetworkResponse, error)
+	CreateUrlStreamHandlerFactory(context.Context, *CreateUrlStreamHandlerFactoryRequest) (*CreateUrlStreamHandlerFactoryResponse, error)
+	NewBidirectionalStreamBuilder(context.Context, *NewBidirectionalStreamBuilderRequest) (*NewBidirectionalStreamBuilderResponse, error)
+	NewUrlRequestBuilder(context.Context, *NewUrlRequestBuilderRequest) (*NewUrlRequestBuilderResponse, error)
+	OpenConnection(context.Context, *OpenConnectionRequest) (*OpenConnectionResponse, error)
+	Shutdown(context.Context, *ShutdownRequest) (*ShutdownResponse, error)
+	GetVersionString(context.Context, *GetVersionStringRequest) (*GetVersionStringResponse, error)
+	mustEmbedUnimplementedEngineServiceServer()
+}
+
+// UnimplementedEngineServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedEngineServiceServer struct{}
+
+func (UnimplementedEngineServiceServer) BindToNetwork(context.Context, *BindToNetworkRequest) (*EngineBindToNetworkResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method BindToNetwork not implemented")
+}
+func (UnimplementedEngineServiceServer) CreateUrlStreamHandlerFactory(context.Context, *CreateUrlStreamHandlerFactoryRequest) (*CreateUrlStreamHandlerFactoryResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method CreateUrlStreamHandlerFactory not implemented")
+}
+func (UnimplementedEngineServiceServer) NewBidirectionalStreamBuilder(context.Context, *NewBidirectionalStreamBuilderRequest) (*NewBidirectionalStreamBuilderResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewBidirectionalStreamBuilder not implemented")
+}
+func (UnimplementedEngineServiceServer) NewUrlRequestBuilder(context.Context, *NewUrlRequestBuilderRequest) (*NewUrlRequestBuilderResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewUrlRequestBuilder not implemented")
+}
+func (UnimplementedEngineServiceServer) OpenConnection(context.Context, *OpenConnectionRequest) (*OpenConnectionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method OpenConnection not implemented")
+}
+func (UnimplementedEngineServiceServer) Shutdown(context.Context, *ShutdownRequest) (*ShutdownResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Shutdown not implemented")
+}
+func (UnimplementedEngineServiceServer) GetVersionString(context.Context, *GetVersionStringRequest) (*GetVersionStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetVersionString not implemented")
+}
+func (UnimplementedEngineServiceServer) mustEmbedUnimplementedEngineServiceServer() {}
+func (UnimplementedEngineServiceServer) testEmbeddedByValue()                       {}
+
+// UnsafeEngineServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to EngineServiceServer will
+// result in compilation errors.
+type UnsafeEngineServiceServer interface {
+	mustEmbedUnimplementedEngineServiceServer()
+}
+
+func RegisterEngineServiceServer(s grpc.ServiceRegistrar, srv EngineServiceServer) {
+	// If the following call panics, it indicates UnimplementedEngineServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&EngineService_ServiceDesc, srv)
+}
+
+func _EngineService_BindToNetwork_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BindToNetworkRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EngineServiceServer).BindToNetwork(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EngineService_BindToNetwork_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EngineServiceServer).BindToNetwork(ctx, req.(*BindToNetworkRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EngineService_CreateUrlStreamHandlerFactory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateUrlStreamHandlerFactoryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EngineServiceServer).CreateUrlStreamHandlerFactory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EngineService_CreateUrlStreamHandlerFactory_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EngineServiceServer).CreateUrlStreamHandlerFactory(ctx, req.(*CreateUrlStreamHandlerFactoryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EngineService_NewBidirectionalStreamBuilder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewBidirectionalStreamBuilderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EngineServiceServer).NewBidirectionalStreamBuilder(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EngineService_NewBidirectionalStreamBuilder_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EngineServiceServer).NewBidirectionalStreamBuilder(ctx, req.(*NewBidirectionalStreamBuilderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EngineService_NewUrlRequestBuilder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewUrlRequestBuilderRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EngineServiceServer).NewUrlRequestBuilder(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EngineService_NewUrlRequestBuilder_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EngineServiceServer).NewUrlRequestBuilder(ctx, req.(*NewUrlRequestBuilderRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EngineService_OpenConnection_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OpenConnectionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EngineServiceServer).OpenConnection(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EngineService_OpenConnection_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EngineServiceServer).OpenConnection(ctx, req.(*OpenConnectionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EngineService_Shutdown_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ShutdownRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EngineServiceServer).Shutdown(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EngineService_Shutdown_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EngineServiceServer).Shutdown(ctx, req.(*ShutdownRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EngineService_GetVersionString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetVersionStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EngineServiceServer).GetVersionString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EngineService_GetVersionString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EngineServiceServer).GetVersionString(ctx, req.(*GetVersionStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// EngineService_ServiceDesc is the grpc.ServiceDesc for EngineService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var EngineService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "http.EngineService",
+	HandlerType: (*EngineServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "BindToNetwork",
+			Handler:    _EngineService_BindToNetwork_Handler,
+		},
+		{
+			MethodName: "CreateUrlStreamHandlerFactory",
+			Handler:    _EngineService_CreateUrlStreamHandlerFactory_Handler,
+		},
+		{
+			MethodName: "NewBidirectionalStreamBuilder",
+			Handler:    _EngineService_NewBidirectionalStreamBuilder_Handler,
+		},
+		{
+			MethodName: "NewUrlRequestBuilder",
+			Handler:    _EngineService_NewUrlRequestBuilder_Handler,
+		},
+		{
+			MethodName: "OpenConnection",
+			Handler:    _EngineService_OpenConnection_Handler,
+		},
+		{
+			MethodName: "Shutdown",
+			Handler:    _EngineService_Shutdown_Handler,
+		},
+		{
+			MethodName: "GetVersionString",
+			Handler:    _EngineService_GetVersionString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/http/http.proto",
+}
+
+const (
+	EngineBuilderService_AddQuicHint_FullMethodName                                         = "/http.EngineBuilderService/AddQuicHint"
+	EngineBuilderService_Build_FullMethodName                                               = "/http.EngineBuilderService/Build"
+	EngineBuilderService_GetDefaultUserAgent_FullMethodName                                 = "/http.EngineBuilderService/GetDefaultUserAgent"
+	EngineBuilderService_SetConnectionMigrationOptions_FullMethodName                       = "/http.EngineBuilderService/SetConnectionMigrationOptions"
+	EngineBuilderService_SetDnsOptions_FullMethodName                                       = "/http.EngineBuilderService/SetDnsOptions"
+	EngineBuilderService_SetEnableBrotli_FullMethodName                                     = "/http.EngineBuilderService/SetEnableBrotli"
+	EngineBuilderService_SetEnableHttp2_FullMethodName                                      = "/http.EngineBuilderService/SetEnableHttp2"
+	EngineBuilderService_SetEnableHttpCache_FullMethodName                                  = "/http.EngineBuilderService/SetEnableHttpCache"
+	EngineBuilderService_SetEnablePublicKeyPinningBypassForLocalTrustAnchors_FullMethodName = "/http.EngineBuilderService/SetEnablePublicKeyPinningBypassForLocalTrustAnchors"
+	EngineBuilderService_SetEnableQuic_FullMethodName                                       = "/http.EngineBuilderService/SetEnableQuic"
+	EngineBuilderService_SetQuicOptions_FullMethodName                                      = "/http.EngineBuilderService/SetQuicOptions"
+	EngineBuilderService_SetStoragePath_FullMethodName                                      = "/http.EngineBuilderService/SetStoragePath"
+	EngineBuilderService_SetUserAgent_FullMethodName                                        = "/http.EngineBuilderService/SetUserAgent"
+)
+
+// EngineBuilderServiceClient is the client API for EngineBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type EngineBuilderServiceClient interface {
+	AddQuicHint(ctx context.Context, in *AddQuicHintRequest, opts ...grpc.CallOption) (*AddQuicHintResponse, error)
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	GetDefaultUserAgent(ctx context.Context, in *GetDefaultUserAgentRequest, opts ...grpc.CallOption) (*GetDefaultUserAgentResponse, error)
+	SetConnectionMigrationOptions(ctx context.Context, in *SetConnectionMigrationOptionsRequest, opts ...grpc.CallOption) (*SetConnectionMigrationOptionsResponse, error)
+	SetDnsOptions(ctx context.Context, in *SetDnsOptionsRequest, opts ...grpc.CallOption) (*SetDnsOptionsResponse, error)
+	SetEnableBrotli(ctx context.Context, in *SetEnableBrotliRequest, opts ...grpc.CallOption) (*SetEnableBrotliResponse, error)
+	SetEnableHttp2(ctx context.Context, in *SetEnableHttp2Request, opts ...grpc.CallOption) (*SetEnableHttp2Response, error)
+	SetEnableHttpCache(ctx context.Context, in *SetEnableHttpCacheRequest, opts ...grpc.CallOption) (*SetEnableHttpCacheResponse, error)
+	SetEnablePublicKeyPinningBypassForLocalTrustAnchors(ctx context.Context, in *SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest, opts ...grpc.CallOption) (*SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse, error)
+	SetEnableQuic(ctx context.Context, in *SetEnableQuicRequest, opts ...grpc.CallOption) (*SetEnableQuicResponse, error)
+	SetQuicOptions(ctx context.Context, in *SetQuicOptionsRequest, opts ...grpc.CallOption) (*SetQuicOptionsResponse, error)
+	SetStoragePath(ctx context.Context, in *SetStoragePathRequest, opts ...grpc.CallOption) (*SetStoragePathResponse, error)
+	SetUserAgent(ctx context.Context, in *SetUserAgentRequest, opts ...grpc.CallOption) (*SetUserAgentResponse, error)
+}
+
+type engineBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewEngineBuilderServiceClient(cc grpc.ClientConnInterface) EngineBuilderServiceClient {
+	return &engineBuilderServiceClient{cc}
+}
+
+func (c *engineBuilderServiceClient) AddQuicHint(ctx context.Context, in *AddQuicHintRequest, opts ...grpc.CallOption) (*AddQuicHintResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddQuicHintResponse)
+	err := c.cc.Invoke(ctx, EngineBuilderService_AddQuicHint_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *engineBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, EngineBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *engineBuilderServiceClient) GetDefaultUserAgent(ctx context.Context, in *GetDefaultUserAgentRequest, opts ...grpc.CallOption) (*GetDefaultUserAgentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDefaultUserAgentResponse)
+	err := c.cc.Invoke(ctx, EngineBuilderService_GetDefaultUserAgent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *engineBuilderServiceClient) SetConnectionMigrationOptions(ctx context.Context, in *SetConnectionMigrationOptionsRequest, opts ...grpc.CallOption) (*SetConnectionMigrationOptionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetConnectionMigrationOptionsResponse)
+	err := c.cc.Invoke(ctx, EngineBuilderService_SetConnectionMigrationOptions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *engineBuilderServiceClient) SetDnsOptions(ctx context.Context, in *SetDnsOptionsRequest, opts ...grpc.CallOption) (*SetDnsOptionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetDnsOptionsResponse)
+	err := c.cc.Invoke(ctx, EngineBuilderService_SetDnsOptions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *engineBuilderServiceClient) SetEnableBrotli(ctx context.Context, in *SetEnableBrotliRequest, opts ...grpc.CallOption) (*SetEnableBrotliResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEnableBrotliResponse)
+	err := c.cc.Invoke(ctx, EngineBuilderService_SetEnableBrotli_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *engineBuilderServiceClient) SetEnableHttp2(ctx context.Context, in *SetEnableHttp2Request, opts ...grpc.CallOption) (*SetEnableHttp2Response, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEnableHttp2Response)
+	err := c.cc.Invoke(ctx, EngineBuilderService_SetEnableHttp2_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *engineBuilderServiceClient) SetEnableHttpCache(ctx context.Context, in *SetEnableHttpCacheRequest, opts ...grpc.CallOption) (*SetEnableHttpCacheResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEnableHttpCacheResponse)
+	err := c.cc.Invoke(ctx, EngineBuilderService_SetEnableHttpCache_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *engineBuilderServiceClient) SetEnablePublicKeyPinningBypassForLocalTrustAnchors(ctx context.Context, in *SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest, opts ...grpc.CallOption) (*SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse)
+	err := c.cc.Invoke(ctx, EngineBuilderService_SetEnablePublicKeyPinningBypassForLocalTrustAnchors_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *engineBuilderServiceClient) SetEnableQuic(ctx context.Context, in *SetEnableQuicRequest, opts ...grpc.CallOption) (*SetEnableQuicResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetEnableQuicResponse)
+	err := c.cc.Invoke(ctx, EngineBuilderService_SetEnableQuic_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *engineBuilderServiceClient) SetQuicOptions(ctx context.Context, in *SetQuicOptionsRequest, opts ...grpc.CallOption) (*SetQuicOptionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetQuicOptionsResponse)
+	err := c.cc.Invoke(ctx, EngineBuilderService_SetQuicOptions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *engineBuilderServiceClient) SetStoragePath(ctx context.Context, in *SetStoragePathRequest, opts ...grpc.CallOption) (*SetStoragePathResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetStoragePathResponse)
+	err := c.cc.Invoke(ctx, EngineBuilderService_SetStoragePath_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *engineBuilderServiceClient) SetUserAgent(ctx context.Context, in *SetUserAgentRequest, opts ...grpc.CallOption) (*SetUserAgentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetUserAgentResponse)
+	err := c.cc.Invoke(ctx, EngineBuilderService_SetUserAgent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// EngineBuilderServiceServer is the server API for EngineBuilderService service.
+// All implementations must embed UnimplementedEngineBuilderServiceServer
+// for forward compatibility.
+type EngineBuilderServiceServer interface {
+	AddQuicHint(context.Context, *AddQuicHintRequest) (*AddQuicHintResponse, error)
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	GetDefaultUserAgent(context.Context, *GetDefaultUserAgentRequest) (*GetDefaultUserAgentResponse, error)
+	SetConnectionMigrationOptions(context.Context, *SetConnectionMigrationOptionsRequest) (*SetConnectionMigrationOptionsResponse, error)
+	SetDnsOptions(context.Context, *SetDnsOptionsRequest) (*SetDnsOptionsResponse, error)
+	SetEnableBrotli(context.Context, *SetEnableBrotliRequest) (*SetEnableBrotliResponse, error)
+	SetEnableHttp2(context.Context, *SetEnableHttp2Request) (*SetEnableHttp2Response, error)
+	SetEnableHttpCache(context.Context, *SetEnableHttpCacheRequest) (*SetEnableHttpCacheResponse, error)
+	SetEnablePublicKeyPinningBypassForLocalTrustAnchors(context.Context, *SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest) (*SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse, error)
+	SetEnableQuic(context.Context, *SetEnableQuicRequest) (*SetEnableQuicResponse, error)
+	SetQuicOptions(context.Context, *SetQuicOptionsRequest) (*SetQuicOptionsResponse, error)
+	SetStoragePath(context.Context, *SetStoragePathRequest) (*SetStoragePathResponse, error)
+	SetUserAgent(context.Context, *SetUserAgentRequest) (*SetUserAgentResponse, error)
+	mustEmbedUnimplementedEngineBuilderServiceServer()
+}
+
+// UnimplementedEngineBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedEngineBuilderServiceServer struct{}
+
+func (UnimplementedEngineBuilderServiceServer) AddQuicHint(context.Context, *AddQuicHintRequest) (*AddQuicHintResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddQuicHint not implemented")
+}
+func (UnimplementedEngineBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedEngineBuilderServiceServer) GetDefaultUserAgent(context.Context, *GetDefaultUserAgentRequest) (*GetDefaultUserAgentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDefaultUserAgent not implemented")
+}
+func (UnimplementedEngineBuilderServiceServer) SetConnectionMigrationOptions(context.Context, *SetConnectionMigrationOptionsRequest) (*SetConnectionMigrationOptionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetConnectionMigrationOptions not implemented")
+}
+func (UnimplementedEngineBuilderServiceServer) SetDnsOptions(context.Context, *SetDnsOptionsRequest) (*SetDnsOptionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetDnsOptions not implemented")
+}
+func (UnimplementedEngineBuilderServiceServer) SetEnableBrotli(context.Context, *SetEnableBrotliRequest) (*SetEnableBrotliResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEnableBrotli not implemented")
+}
+func (UnimplementedEngineBuilderServiceServer) SetEnableHttp2(context.Context, *SetEnableHttp2Request) (*SetEnableHttp2Response, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEnableHttp2 not implemented")
+}
+func (UnimplementedEngineBuilderServiceServer) SetEnableHttpCache(context.Context, *SetEnableHttpCacheRequest) (*SetEnableHttpCacheResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEnableHttpCache not implemented")
+}
+func (UnimplementedEngineBuilderServiceServer) SetEnablePublicKeyPinningBypassForLocalTrustAnchors(context.Context, *SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest) (*SetEnablePublicKeyPinningBypassForLocalTrustAnchorsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEnablePublicKeyPinningBypassForLocalTrustAnchors not implemented")
+}
+func (UnimplementedEngineBuilderServiceServer) SetEnableQuic(context.Context, *SetEnableQuicRequest) (*SetEnableQuicResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetEnableQuic not implemented")
+}
+func (UnimplementedEngineBuilderServiceServer) SetQuicOptions(context.Context, *SetQuicOptionsRequest) (*SetQuicOptionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetQuicOptions not implemented")
+}
+func (UnimplementedEngineBuilderServiceServer) SetStoragePath(context.Context, *SetStoragePathRequest) (*SetStoragePathResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetStoragePath not implemented")
+}
+func (UnimplementedEngineBuilderServiceServer) SetUserAgent(context.Context, *SetUserAgentRequest) (*SetUserAgentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetUserAgent not implemented")
+}
+func (UnimplementedEngineBuilderServiceServer) mustEmbedUnimplementedEngineBuilderServiceServer() {}
+func (UnimplementedEngineBuilderServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafeEngineBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to EngineBuilderServiceServer will
+// result in compilation errors.
+type UnsafeEngineBuilderServiceServer interface {
+	mustEmbedUnimplementedEngineBuilderServiceServer()
+}
+
+func RegisterEngineBuilderServiceServer(s grpc.ServiceRegistrar, srv EngineBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedEngineBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&EngineBuilderService_ServiceDesc, srv)
+}
+
+func _EngineBuilderService_AddQuicHint_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddQuicHintRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EngineBuilderServiceServer).AddQuicHint(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EngineBuilderService_AddQuicHint_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EngineBuilderServiceServer).AddQuicHint(ctx, req.(*AddQuicHintRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EngineBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EngineBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EngineBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EngineBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EngineBuilderService_GetDefaultUserAgent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDefaultUserAgentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EngineBuilderServiceServer).GetDefaultUserAgent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EngineBuilderService_GetDefaultUserAgent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EngineBuilderServiceServer).GetDefaultUserAgent(ctx, req.(*GetDefaultUserAgentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EngineBuilderService_SetConnectionMigrationOptions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetConnectionMigrationOptionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EngineBuilderServiceServer).SetConnectionMigrationOptions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EngineBuilderService_SetConnectionMigrationOptions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EngineBuilderServiceServer).SetConnectionMigrationOptions(ctx, req.(*SetConnectionMigrationOptionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EngineBuilderService_SetDnsOptions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetDnsOptionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EngineBuilderServiceServer).SetDnsOptions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EngineBuilderService_SetDnsOptions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EngineBuilderServiceServer).SetDnsOptions(ctx, req.(*SetDnsOptionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EngineBuilderService_SetEnableBrotli_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEnableBrotliRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EngineBuilderServiceServer).SetEnableBrotli(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EngineBuilderService_SetEnableBrotli_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EngineBuilderServiceServer).SetEnableBrotli(ctx, req.(*SetEnableBrotliRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EngineBuilderService_SetEnableHttp2_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEnableHttp2Request)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EngineBuilderServiceServer).SetEnableHttp2(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EngineBuilderService_SetEnableHttp2_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EngineBuilderServiceServer).SetEnableHttp2(ctx, req.(*SetEnableHttp2Request))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EngineBuilderService_SetEnableHttpCache_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEnableHttpCacheRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EngineBuilderServiceServer).SetEnableHttpCache(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EngineBuilderService_SetEnableHttpCache_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EngineBuilderServiceServer).SetEnableHttpCache(ctx, req.(*SetEnableHttpCacheRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EngineBuilderService_SetEnablePublicKeyPinningBypassForLocalTrustAnchors_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EngineBuilderServiceServer).SetEnablePublicKeyPinningBypassForLocalTrustAnchors(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EngineBuilderService_SetEnablePublicKeyPinningBypassForLocalTrustAnchors_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EngineBuilderServiceServer).SetEnablePublicKeyPinningBypassForLocalTrustAnchors(ctx, req.(*SetEnablePublicKeyPinningBypassForLocalTrustAnchorsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EngineBuilderService_SetEnableQuic_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetEnableQuicRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EngineBuilderServiceServer).SetEnableQuic(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EngineBuilderService_SetEnableQuic_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EngineBuilderServiceServer).SetEnableQuic(ctx, req.(*SetEnableQuicRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EngineBuilderService_SetQuicOptions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetQuicOptionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EngineBuilderServiceServer).SetQuicOptions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EngineBuilderService_SetQuicOptions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EngineBuilderServiceServer).SetQuicOptions(ctx, req.(*SetQuicOptionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EngineBuilderService_SetStoragePath_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetStoragePathRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EngineBuilderServiceServer).SetStoragePath(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EngineBuilderService_SetStoragePath_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EngineBuilderServiceServer).SetStoragePath(ctx, req.(*SetStoragePathRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _EngineBuilderService_SetUserAgent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetUserAgentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(EngineBuilderServiceServer).SetUserAgent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: EngineBuilderService_SetUserAgent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(EngineBuilderServiceServer).SetUserAgent(ctx, req.(*SetUserAgentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// EngineBuilderService_ServiceDesc is the grpc.ServiceDesc for EngineBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var EngineBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "http.EngineBuilderService",
+	HandlerType: (*EngineBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AddQuicHint",
+			Handler:    _EngineBuilderService_AddQuicHint_Handler,
+		},
+		{
+			MethodName: "Build",
+			Handler:    _EngineBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "GetDefaultUserAgent",
+			Handler:    _EngineBuilderService_GetDefaultUserAgent_Handler,
+		},
+		{
+			MethodName: "SetConnectionMigrationOptions",
+			Handler:    _EngineBuilderService_SetConnectionMigrationOptions_Handler,
+		},
+		{
+			MethodName: "SetDnsOptions",
+			Handler:    _EngineBuilderService_SetDnsOptions_Handler,
+		},
+		{
+			MethodName: "SetEnableBrotli",
+			Handler:    _EngineBuilderService_SetEnableBrotli_Handler,
+		},
+		{
+			MethodName: "SetEnableHttp2",
+			Handler:    _EngineBuilderService_SetEnableHttp2_Handler,
+		},
+		{
+			MethodName: "SetEnableHttpCache",
+			Handler:    _EngineBuilderService_SetEnableHttpCache_Handler,
+		},
+		{
+			MethodName: "SetEnablePublicKeyPinningBypassForLocalTrustAnchors",
+			Handler:    _EngineBuilderService_SetEnablePublicKeyPinningBypassForLocalTrustAnchors_Handler,
+		},
+		{
+			MethodName: "SetEnableQuic",
+			Handler:    _EngineBuilderService_SetEnableQuic_Handler,
+		},
+		{
+			MethodName: "SetQuicOptions",
+			Handler:    _EngineBuilderService_SetQuicOptions_Handler,
+		},
+		{
+			MethodName: "SetStoragePath",
+			Handler:    _EngineBuilderService_SetStoragePath_Handler,
+		},
+		{
+			MethodName: "SetUserAgent",
+			Handler:    _EngineBuilderService_SetUserAgent_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/http/http.proto",
+}
+
+const (
+	NetworkExceptionService_GetErrorCode_FullMethodName           = "/http.NetworkExceptionService/GetErrorCode"
+	NetworkExceptionService_IsImmediatelyRetryable_FullMethodName = "/http.NetworkExceptionService/IsImmediatelyRetryable"
+)
+
+// NetworkExceptionServiceClient is the client API for NetworkExceptionService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type NetworkExceptionServiceClient interface {
+	GetErrorCode(ctx context.Context, in *GetErrorCodeRequest, opts ...grpc.CallOption) (*GetErrorCodeResponse, error)
+	IsImmediatelyRetryable(ctx context.Context, in *IsImmediatelyRetryableRequest, opts ...grpc.CallOption) (*IsImmediatelyRetryableResponse, error)
+}
+
+type networkExceptionServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewNetworkExceptionServiceClient(cc grpc.ClientConnInterface) NetworkExceptionServiceClient {
+	return &networkExceptionServiceClient{cc}
+}
+
+func (c *networkExceptionServiceClient) GetErrorCode(ctx context.Context, in *GetErrorCodeRequest, opts ...grpc.CallOption) (*GetErrorCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetErrorCodeResponse)
+	err := c.cc.Invoke(ctx, NetworkExceptionService_GetErrorCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkExceptionServiceClient) IsImmediatelyRetryable(ctx context.Context, in *IsImmediatelyRetryableRequest, opts ...grpc.CallOption) (*IsImmediatelyRetryableResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IsImmediatelyRetryableResponse)
+	err := c.cc.Invoke(ctx, NetworkExceptionService_IsImmediatelyRetryable_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// NetworkExceptionServiceServer is the server API for NetworkExceptionService service.
+// All implementations must embed UnimplementedNetworkExceptionServiceServer
+// for forward compatibility.
+type NetworkExceptionServiceServer interface {
+	GetErrorCode(context.Context, *GetErrorCodeRequest) (*GetErrorCodeResponse, error)
+	IsImmediatelyRetryable(context.Context, *IsImmediatelyRetryableRequest) (*IsImmediatelyRetryableResponse, error)
+	mustEmbedUnimplementedNetworkExceptionServiceServer()
+}
+
+// UnimplementedNetworkExceptionServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedNetworkExceptionServiceServer struct{}
+
+func (UnimplementedNetworkExceptionServiceServer) GetErrorCode(context.Context, *GetErrorCodeRequest) (*GetErrorCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetErrorCode not implemented")
+}
+func (UnimplementedNetworkExceptionServiceServer) IsImmediatelyRetryable(context.Context, *IsImmediatelyRetryableRequest) (*IsImmediatelyRetryableResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method IsImmediatelyRetryable not implemented")
+}
+func (UnimplementedNetworkExceptionServiceServer) mustEmbedUnimplementedNetworkExceptionServiceServer() {
+}
+func (UnimplementedNetworkExceptionServiceServer) testEmbeddedByValue() {}
+
+// UnsafeNetworkExceptionServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to NetworkExceptionServiceServer will
+// result in compilation errors.
+type UnsafeNetworkExceptionServiceServer interface {
+	mustEmbedUnimplementedNetworkExceptionServiceServer()
+}
+
+func RegisterNetworkExceptionServiceServer(s grpc.ServiceRegistrar, srv NetworkExceptionServiceServer) {
+	// If the following call panics, it indicates UnimplementedNetworkExceptionServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&NetworkExceptionService_ServiceDesc, srv)
+}
+
+func _NetworkExceptionService_GetErrorCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetErrorCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkExceptionServiceServer).GetErrorCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkExceptionService_GetErrorCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkExceptionServiceServer).GetErrorCode(ctx, req.(*GetErrorCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkExceptionService_IsImmediatelyRetryable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsImmediatelyRetryableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkExceptionServiceServer).IsImmediatelyRetryable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkExceptionService_IsImmediatelyRetryable_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkExceptionServiceServer).IsImmediatelyRetryable(ctx, req.(*IsImmediatelyRetryableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// NetworkExceptionService_ServiceDesc is the grpc.ServiceDesc for NetworkExceptionService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var NetworkExceptionService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "http.NetworkExceptionService",
+	HandlerType: (*NetworkExceptionServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetErrorCode",
+			Handler:    _NetworkExceptionService_GetErrorCode_Handler,
+		},
+		{
+			MethodName: "IsImmediatelyRetryable",
+			Handler:    _NetworkExceptionService_IsImmediatelyRetryable_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/http/http.proto",
+}
+
+const (
+	SslErrorService_NewSslError_FullMethodName     = "/http.SslErrorService/NewSslError"
+	SslErrorService_AddError_FullMethodName        = "/http.SslErrorService/AddError"
+	SslErrorService_GetCertificate_FullMethodName  = "/http.SslErrorService/GetCertificate"
+	SslErrorService_GetPrimaryError_FullMethodName = "/http.SslErrorService/GetPrimaryError"
+	SslErrorService_GetUrl_FullMethodName          = "/http.SslErrorService/GetUrl"
+	SslErrorService_HasError_FullMethodName        = "/http.SslErrorService/HasError"
+	SslErrorService_ToString_FullMethodName        = "/http.SslErrorService/ToString"
+)
+
+// SslErrorServiceClient is the client API for SslErrorService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SslErrorServiceClient interface {
+	NewSslError(ctx context.Context, in *NewSslErrorRequest, opts ...grpc.CallOption) (*NewSslErrorResponse, error)
+	AddError(ctx context.Context, in *AddErrorRequest, opts ...grpc.CallOption) (*AddErrorResponse, error)
+	GetCertificate(ctx context.Context, in *GetCertificateRequest, opts ...grpc.CallOption) (*GetCertificateResponse, error)
+	GetPrimaryError(ctx context.Context, in *GetPrimaryErrorRequest, opts ...grpc.CallOption) (*GetPrimaryErrorResponse, error)
+	GetUrl(ctx context.Context, in *GetUrlRequest, opts ...grpc.CallOption) (*GetUrlResponse, error)
+	HasError(ctx context.Context, in *HasErrorRequest, opts ...grpc.CallOption) (*HasErrorResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+}
+
+type sslErrorServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSslErrorServiceClient(cc grpc.ClientConnInterface) SslErrorServiceClient {
+	return &sslErrorServiceClient{cc}
+}
+
+func (c *sslErrorServiceClient) NewSslError(ctx context.Context, in *NewSslErrorRequest, opts ...grpc.CallOption) (*NewSslErrorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewSslErrorResponse)
+	err := c.cc.Invoke(ctx, SslErrorService_NewSslError_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sslErrorServiceClient) AddError(ctx context.Context, in *AddErrorRequest, opts ...grpc.CallOption) (*AddErrorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddErrorResponse)
+	err := c.cc.Invoke(ctx, SslErrorService_AddError_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sslErrorServiceClient) GetCertificate(ctx context.Context, in *GetCertificateRequest, opts ...grpc.CallOption) (*GetCertificateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCertificateResponse)
+	err := c.cc.Invoke(ctx, SslErrorService_GetCertificate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sslErrorServiceClient) GetPrimaryError(ctx context.Context, in *GetPrimaryErrorRequest, opts ...grpc.CallOption) (*GetPrimaryErrorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPrimaryErrorResponse)
+	err := c.cc.Invoke(ctx, SslErrorService_GetPrimaryError_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sslErrorServiceClient) GetUrl(ctx context.Context, in *GetUrlRequest, opts ...grpc.CallOption) (*GetUrlResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUrlResponse)
+	err := c.cc.Invoke(ctx, SslErrorService_GetUrl_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sslErrorServiceClient) HasError(ctx context.Context, in *HasErrorRequest, opts ...grpc.CallOption) (*HasErrorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HasErrorResponse)
+	err := c.cc.Invoke(ctx, SslErrorService_HasError_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sslErrorServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, SslErrorService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SslErrorServiceServer is the server API for SslErrorService service.
+// All implementations must embed UnimplementedSslErrorServiceServer
+// for forward compatibility.
+type SslErrorServiceServer interface {
+	NewSslError(context.Context, *NewSslErrorRequest) (*NewSslErrorResponse, error)
+	AddError(context.Context, *AddErrorRequest) (*AddErrorResponse, error)
+	GetCertificate(context.Context, *GetCertificateRequest) (*GetCertificateResponse, error)
+	GetPrimaryError(context.Context, *GetPrimaryErrorRequest) (*GetPrimaryErrorResponse, error)
+	GetUrl(context.Context, *GetUrlRequest) (*GetUrlResponse, error)
+	HasError(context.Context, *HasErrorRequest) (*HasErrorResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	mustEmbedUnimplementedSslErrorServiceServer()
+}
+
+// UnimplementedSslErrorServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSslErrorServiceServer struct{}
+
+func (UnimplementedSslErrorServiceServer) NewSslError(context.Context, *NewSslErrorRequest) (*NewSslErrorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewSslError not implemented")
+}
+func (UnimplementedSslErrorServiceServer) AddError(context.Context, *AddErrorRequest) (*AddErrorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddError not implemented")
+}
+func (UnimplementedSslErrorServiceServer) GetCertificate(context.Context, *GetCertificateRequest) (*GetCertificateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCertificate not implemented")
+}
+func (UnimplementedSslErrorServiceServer) GetPrimaryError(context.Context, *GetPrimaryErrorRequest) (*GetPrimaryErrorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPrimaryError not implemented")
+}
+func (UnimplementedSslErrorServiceServer) GetUrl(context.Context, *GetUrlRequest) (*GetUrlResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUrl not implemented")
+}
+func (UnimplementedSslErrorServiceServer) HasError(context.Context, *HasErrorRequest) (*HasErrorResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasError not implemented")
+}
+func (UnimplementedSslErrorServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedSslErrorServiceServer) mustEmbedUnimplementedSslErrorServiceServer() {}
+func (UnimplementedSslErrorServiceServer) testEmbeddedByValue()                         {}
+
+// UnsafeSslErrorServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SslErrorServiceServer will
+// result in compilation errors.
+type UnsafeSslErrorServiceServer interface {
+	mustEmbedUnimplementedSslErrorServiceServer()
+}
+
+func RegisterSslErrorServiceServer(s grpc.ServiceRegistrar, srv SslErrorServiceServer) {
+	// If the following call panics, it indicates UnimplementedSslErrorServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SslErrorService_ServiceDesc, srv)
+}
+
+func _SslErrorService_NewSslError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewSslErrorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SslErrorServiceServer).NewSslError(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SslErrorService_NewSslError_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SslErrorServiceServer).NewSslError(ctx, req.(*NewSslErrorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SslErrorService_AddError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddErrorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SslErrorServiceServer).AddError(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SslErrorService_AddError_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SslErrorServiceServer).AddError(ctx, req.(*AddErrorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SslErrorService_GetCertificate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCertificateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SslErrorServiceServer).GetCertificate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SslErrorService_GetCertificate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SslErrorServiceServer).GetCertificate(ctx, req.(*GetCertificateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SslErrorService_GetPrimaryError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPrimaryErrorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SslErrorServiceServer).GetPrimaryError(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SslErrorService_GetPrimaryError_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SslErrorServiceServer).GetPrimaryError(ctx, req.(*GetPrimaryErrorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SslErrorService_GetUrl_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUrlRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SslErrorServiceServer).GetUrl(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SslErrorService_GetUrl_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SslErrorServiceServer).GetUrl(ctx, req.(*GetUrlRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SslErrorService_HasError_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasErrorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SslErrorServiceServer).HasError(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SslErrorService_HasError_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SslErrorServiceServer).HasError(ctx, req.(*HasErrorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SslErrorService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SslErrorServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SslErrorService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SslErrorServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SslErrorService_ServiceDesc is the grpc.ServiceDesc for SslErrorService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SslErrorService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "http.SslErrorService",
+	HandlerType: (*SslErrorServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewSslError",
+			Handler:    _SslErrorService_NewSslError_Handler,
+		},
+		{
+			MethodName: "AddError",
+			Handler:    _SslErrorService_AddError_Handler,
+		},
+		{
+			MethodName: "GetCertificate",
+			Handler:    _SslErrorService_GetCertificate_Handler,
+		},
+		{
+			MethodName: "GetPrimaryError",
+			Handler:    _SslErrorService_GetPrimaryError_Handler,
+		},
+		{
+			MethodName: "GetUrl",
+			Handler:    _SslErrorService_GetUrl_Handler,
+		},
+		{
+			MethodName: "HasError",
+			Handler:    _SslErrorService_HasError_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _SslErrorService_ToString_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/http/http.proto",
+}
+
+const (
+	QuicOptionsService_GetAllowedQuicHosts_FullMethodName               = "/http.QuicOptionsService/GetAllowedQuicHosts"
+	QuicOptionsService_GetHandshakeUserAgent_FullMethodName             = "/http.QuicOptionsService/GetHandshakeUserAgent"
+	QuicOptionsService_GetIdleConnectionTimeout_FullMethodName          = "/http.QuicOptionsService/GetIdleConnectionTimeout"
+	QuicOptionsService_GetInMemoryServerConfigsCacheSize_FullMethodName = "/http.QuicOptionsService/GetInMemoryServerConfigsCacheSize"
+	QuicOptionsService_HasInMemoryServerConfigsCacheSize_FullMethodName = "/http.QuicOptionsService/HasInMemoryServerConfigsCacheSize"
+)
+
+// QuicOptionsServiceClient is the client API for QuicOptionsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type QuicOptionsServiceClient interface {
+	GetAllowedQuicHosts(ctx context.Context, in *GetAllowedQuicHostsRequest, opts ...grpc.CallOption) (*GetAllowedQuicHostsResponse, error)
+	GetHandshakeUserAgent(ctx context.Context, in *GetHandshakeUserAgentRequest, opts ...grpc.CallOption) (*GetHandshakeUserAgentResponse, error)
+	GetIdleConnectionTimeout(ctx context.Context, in *GetIdleConnectionTimeoutRequest, opts ...grpc.CallOption) (*GetIdleConnectionTimeoutResponse, error)
+	GetInMemoryServerConfigsCacheSize(ctx context.Context, in *GetInMemoryServerConfigsCacheSizeRequest, opts ...grpc.CallOption) (*GetInMemoryServerConfigsCacheSizeResponse, error)
+	HasInMemoryServerConfigsCacheSize(ctx context.Context, in *HasInMemoryServerConfigsCacheSizeRequest, opts ...grpc.CallOption) (*HasInMemoryServerConfigsCacheSizeResponse, error)
+}
+
+type quicOptionsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewQuicOptionsServiceClient(cc grpc.ClientConnInterface) QuicOptionsServiceClient {
+	return &quicOptionsServiceClient{cc}
+}
+
+func (c *quicOptionsServiceClient) GetAllowedQuicHosts(ctx context.Context, in *GetAllowedQuicHostsRequest, opts ...grpc.CallOption) (*GetAllowedQuicHostsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAllowedQuicHostsResponse)
+	err := c.cc.Invoke(ctx, QuicOptionsService_GetAllowedQuicHosts_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *quicOptionsServiceClient) GetHandshakeUserAgent(ctx context.Context, in *GetHandshakeUserAgentRequest, opts ...grpc.CallOption) (*GetHandshakeUserAgentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetHandshakeUserAgentResponse)
+	err := c.cc.Invoke(ctx, QuicOptionsService_GetHandshakeUserAgent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *quicOptionsServiceClient) GetIdleConnectionTimeout(ctx context.Context, in *GetIdleConnectionTimeoutRequest, opts ...grpc.CallOption) (*GetIdleConnectionTimeoutResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIdleConnectionTimeoutResponse)
+	err := c.cc.Invoke(ctx, QuicOptionsService_GetIdleConnectionTimeout_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *quicOptionsServiceClient) GetInMemoryServerConfigsCacheSize(ctx context.Context, in *GetInMemoryServerConfigsCacheSizeRequest, opts ...grpc.CallOption) (*GetInMemoryServerConfigsCacheSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInMemoryServerConfigsCacheSizeResponse)
+	err := c.cc.Invoke(ctx, QuicOptionsService_GetInMemoryServerConfigsCacheSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *quicOptionsServiceClient) HasInMemoryServerConfigsCacheSize(ctx context.Context, in *HasInMemoryServerConfigsCacheSizeRequest, opts ...grpc.CallOption) (*HasInMemoryServerConfigsCacheSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HasInMemoryServerConfigsCacheSizeResponse)
+	err := c.cc.Invoke(ctx, QuicOptionsService_HasInMemoryServerConfigsCacheSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// QuicOptionsServiceServer is the server API for QuicOptionsService service.
+// All implementations must embed UnimplementedQuicOptionsServiceServer
+// for forward compatibility.
+type QuicOptionsServiceServer interface {
+	GetAllowedQuicHosts(context.Context, *GetAllowedQuicHostsRequest) (*GetAllowedQuicHostsResponse, error)
+	GetHandshakeUserAgent(context.Context, *GetHandshakeUserAgentRequest) (*GetHandshakeUserAgentResponse, error)
+	GetIdleConnectionTimeout(context.Context, *GetIdleConnectionTimeoutRequest) (*GetIdleConnectionTimeoutResponse, error)
+	GetInMemoryServerConfigsCacheSize(context.Context, *GetInMemoryServerConfigsCacheSizeRequest) (*GetInMemoryServerConfigsCacheSizeResponse, error)
+	HasInMemoryServerConfigsCacheSize(context.Context, *HasInMemoryServerConfigsCacheSizeRequest) (*HasInMemoryServerConfigsCacheSizeResponse, error)
+	mustEmbedUnimplementedQuicOptionsServiceServer()
+}
+
+// UnimplementedQuicOptionsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedQuicOptionsServiceServer struct{}
+
+func (UnimplementedQuicOptionsServiceServer) GetAllowedQuicHosts(context.Context, *GetAllowedQuicHostsRequest) (*GetAllowedQuicHostsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAllowedQuicHosts not implemented")
+}
+func (UnimplementedQuicOptionsServiceServer) GetHandshakeUserAgent(context.Context, *GetHandshakeUserAgentRequest) (*GetHandshakeUserAgentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetHandshakeUserAgent not implemented")
+}
+func (UnimplementedQuicOptionsServiceServer) GetIdleConnectionTimeout(context.Context, *GetIdleConnectionTimeoutRequest) (*GetIdleConnectionTimeoutResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIdleConnectionTimeout not implemented")
+}
+func (UnimplementedQuicOptionsServiceServer) GetInMemoryServerConfigsCacheSize(context.Context, *GetInMemoryServerConfigsCacheSizeRequest) (*GetInMemoryServerConfigsCacheSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInMemoryServerConfigsCacheSize not implemented")
+}
+func (UnimplementedQuicOptionsServiceServer) HasInMemoryServerConfigsCacheSize(context.Context, *HasInMemoryServerConfigsCacheSizeRequest) (*HasInMemoryServerConfigsCacheSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method HasInMemoryServerConfigsCacheSize not implemented")
+}
+func (UnimplementedQuicOptionsServiceServer) mustEmbedUnimplementedQuicOptionsServiceServer() {}
+func (UnimplementedQuicOptionsServiceServer) testEmbeddedByValue()                            {}
+
+// UnsafeQuicOptionsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to QuicOptionsServiceServer will
+// result in compilation errors.
+type UnsafeQuicOptionsServiceServer interface {
+	mustEmbedUnimplementedQuicOptionsServiceServer()
+}
+
+func RegisterQuicOptionsServiceServer(s grpc.ServiceRegistrar, srv QuicOptionsServiceServer) {
+	// If the following call panics, it indicates UnimplementedQuicOptionsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&QuicOptionsService_ServiceDesc, srv)
+}
+
+func _QuicOptionsService_GetAllowedQuicHosts_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllowedQuicHostsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QuicOptionsServiceServer).GetAllowedQuicHosts(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: QuicOptionsService_GetAllowedQuicHosts_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QuicOptionsServiceServer).GetAllowedQuicHosts(ctx, req.(*GetAllowedQuicHostsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _QuicOptionsService_GetHandshakeUserAgent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetHandshakeUserAgentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QuicOptionsServiceServer).GetHandshakeUserAgent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: QuicOptionsService_GetHandshakeUserAgent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QuicOptionsServiceServer).GetHandshakeUserAgent(ctx, req.(*GetHandshakeUserAgentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _QuicOptionsService_GetIdleConnectionTimeout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIdleConnectionTimeoutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QuicOptionsServiceServer).GetIdleConnectionTimeout(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: QuicOptionsService_GetIdleConnectionTimeout_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QuicOptionsServiceServer).GetIdleConnectionTimeout(ctx, req.(*GetIdleConnectionTimeoutRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _QuicOptionsService_GetInMemoryServerConfigsCacheSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInMemoryServerConfigsCacheSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QuicOptionsServiceServer).GetInMemoryServerConfigsCacheSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: QuicOptionsService_GetInMemoryServerConfigsCacheSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QuicOptionsServiceServer).GetInMemoryServerConfigsCacheSize(ctx, req.(*GetInMemoryServerConfigsCacheSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _QuicOptionsService_HasInMemoryServerConfigsCacheSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasInMemoryServerConfigsCacheSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QuicOptionsServiceServer).HasInMemoryServerConfigsCacheSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: QuicOptionsService_HasInMemoryServerConfigsCacheSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QuicOptionsServiceServer).HasInMemoryServerConfigsCacheSize(ctx, req.(*HasInMemoryServerConfigsCacheSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// QuicOptionsService_ServiceDesc is the grpc.ServiceDesc for QuicOptionsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var QuicOptionsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "http.QuicOptionsService",
+	HandlerType: (*QuicOptionsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetAllowedQuicHosts",
+			Handler:    _QuicOptionsService_GetAllowedQuicHosts_Handler,
+		},
+		{
+			MethodName: "GetHandshakeUserAgent",
+			Handler:    _QuicOptionsService_GetHandshakeUserAgent_Handler,
+		},
+		{
+			MethodName: "GetIdleConnectionTimeout",
+			Handler:    _QuicOptionsService_GetIdleConnectionTimeout_Handler,
+		},
+		{
+			MethodName: "GetInMemoryServerConfigsCacheSize",
+			Handler:    _QuicOptionsService_GetInMemoryServerConfigsCacheSize_Handler,
+		},
+		{
+			MethodName: "HasInMemoryServerConfigsCacheSize",
+			Handler:    _QuicOptionsService_HasInMemoryServerConfigsCacheSize_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/http/http.proto",
+}
+
+const (
+	QuicOptionsBuilderService_AddAllowedQuicHost_FullMethodName                = "/http.QuicOptionsBuilderService/AddAllowedQuicHost"
+	QuicOptionsBuilderService_Build_FullMethodName                             = "/http.QuicOptionsBuilderService/Build"
+	QuicOptionsBuilderService_SetHandshakeUserAgent_FullMethodName             = "/http.QuicOptionsBuilderService/SetHandshakeUserAgent"
+	QuicOptionsBuilderService_SetIdleConnectionTimeout_FullMethodName          = "/http.QuicOptionsBuilderService/SetIdleConnectionTimeout"
+	QuicOptionsBuilderService_SetInMemoryServerConfigsCacheSize_FullMethodName = "/http.QuicOptionsBuilderService/SetInMemoryServerConfigsCacheSize"
+)
+
+// QuicOptionsBuilderServiceClient is the client API for QuicOptionsBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type QuicOptionsBuilderServiceClient interface {
+	AddAllowedQuicHost(ctx context.Context, in *AddAllowedQuicHostRequest, opts ...grpc.CallOption) (*AddAllowedQuicHostResponse, error)
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetHandshakeUserAgent(ctx context.Context, in *SetHandshakeUserAgentRequest, opts ...grpc.CallOption) (*SetHandshakeUserAgentResponse, error)
+	SetIdleConnectionTimeout(ctx context.Context, in *SetIdleConnectionTimeoutRequest, opts ...grpc.CallOption) (*SetIdleConnectionTimeoutResponse, error)
+	SetInMemoryServerConfigsCacheSize(ctx context.Context, in *SetInMemoryServerConfigsCacheSizeRequest, opts ...grpc.CallOption) (*SetInMemoryServerConfigsCacheSizeResponse, error)
+}
+
+type quicOptionsBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewQuicOptionsBuilderServiceClient(cc grpc.ClientConnInterface) QuicOptionsBuilderServiceClient {
+	return &quicOptionsBuilderServiceClient{cc}
+}
+
+func (c *quicOptionsBuilderServiceClient) AddAllowedQuicHost(ctx context.Context, in *AddAllowedQuicHostRequest, opts ...grpc.CallOption) (*AddAllowedQuicHostResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddAllowedQuicHostResponse)
+	err := c.cc.Invoke(ctx, QuicOptionsBuilderService_AddAllowedQuicHost_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *quicOptionsBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, QuicOptionsBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *quicOptionsBuilderServiceClient) SetHandshakeUserAgent(ctx context.Context, in *SetHandshakeUserAgentRequest, opts ...grpc.CallOption) (*SetHandshakeUserAgentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetHandshakeUserAgentResponse)
+	err := c.cc.Invoke(ctx, QuicOptionsBuilderService_SetHandshakeUserAgent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *quicOptionsBuilderServiceClient) SetIdleConnectionTimeout(ctx context.Context, in *SetIdleConnectionTimeoutRequest, opts ...grpc.CallOption) (*SetIdleConnectionTimeoutResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetIdleConnectionTimeoutResponse)
+	err := c.cc.Invoke(ctx, QuicOptionsBuilderService_SetIdleConnectionTimeout_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *quicOptionsBuilderServiceClient) SetInMemoryServerConfigsCacheSize(ctx context.Context, in *SetInMemoryServerConfigsCacheSizeRequest, opts ...grpc.CallOption) (*SetInMemoryServerConfigsCacheSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetInMemoryServerConfigsCacheSizeResponse)
+	err := c.cc.Invoke(ctx, QuicOptionsBuilderService_SetInMemoryServerConfigsCacheSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// QuicOptionsBuilderServiceServer is the server API for QuicOptionsBuilderService service.
+// All implementations must embed UnimplementedQuicOptionsBuilderServiceServer
+// for forward compatibility.
+type QuicOptionsBuilderServiceServer interface {
+	AddAllowedQuicHost(context.Context, *AddAllowedQuicHostRequest) (*AddAllowedQuicHostResponse, error)
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetHandshakeUserAgent(context.Context, *SetHandshakeUserAgentRequest) (*SetHandshakeUserAgentResponse, error)
+	SetIdleConnectionTimeout(context.Context, *SetIdleConnectionTimeoutRequest) (*SetIdleConnectionTimeoutResponse, error)
+	SetInMemoryServerConfigsCacheSize(context.Context, *SetInMemoryServerConfigsCacheSizeRequest) (*SetInMemoryServerConfigsCacheSizeResponse, error)
+	mustEmbedUnimplementedQuicOptionsBuilderServiceServer()
+}
+
+// UnimplementedQuicOptionsBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedQuicOptionsBuilderServiceServer struct{}
+
+func (UnimplementedQuicOptionsBuilderServiceServer) AddAllowedQuicHost(context.Context, *AddAllowedQuicHostRequest) (*AddAllowedQuicHostResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method AddAllowedQuicHost not implemented")
+}
+func (UnimplementedQuicOptionsBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedQuicOptionsBuilderServiceServer) SetHandshakeUserAgent(context.Context, *SetHandshakeUserAgentRequest) (*SetHandshakeUserAgentResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetHandshakeUserAgent not implemented")
+}
+func (UnimplementedQuicOptionsBuilderServiceServer) SetIdleConnectionTimeout(context.Context, *SetIdleConnectionTimeoutRequest) (*SetIdleConnectionTimeoutResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetIdleConnectionTimeout not implemented")
+}
+func (UnimplementedQuicOptionsBuilderServiceServer) SetInMemoryServerConfigsCacheSize(context.Context, *SetInMemoryServerConfigsCacheSizeRequest) (*SetInMemoryServerConfigsCacheSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetInMemoryServerConfigsCacheSize not implemented")
+}
+func (UnimplementedQuicOptionsBuilderServiceServer) mustEmbedUnimplementedQuicOptionsBuilderServiceServer() {
+}
+func (UnimplementedQuicOptionsBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeQuicOptionsBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to QuicOptionsBuilderServiceServer will
+// result in compilation errors.
+type UnsafeQuicOptionsBuilderServiceServer interface {
+	mustEmbedUnimplementedQuicOptionsBuilderServiceServer()
+}
+
+func RegisterQuicOptionsBuilderServiceServer(s grpc.ServiceRegistrar, srv QuicOptionsBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedQuicOptionsBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&QuicOptionsBuilderService_ServiceDesc, srv)
+}
+
+func _QuicOptionsBuilderService_AddAllowedQuicHost_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddAllowedQuicHostRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QuicOptionsBuilderServiceServer).AddAllowedQuicHost(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: QuicOptionsBuilderService_AddAllowedQuicHost_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QuicOptionsBuilderServiceServer).AddAllowedQuicHost(ctx, req.(*AddAllowedQuicHostRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _QuicOptionsBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QuicOptionsBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: QuicOptionsBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QuicOptionsBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _QuicOptionsBuilderService_SetHandshakeUserAgent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetHandshakeUserAgentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QuicOptionsBuilderServiceServer).SetHandshakeUserAgent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: QuicOptionsBuilderService_SetHandshakeUserAgent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QuicOptionsBuilderServiceServer).SetHandshakeUserAgent(ctx, req.(*SetHandshakeUserAgentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _QuicOptionsBuilderService_SetIdleConnectionTimeout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetIdleConnectionTimeoutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QuicOptionsBuilderServiceServer).SetIdleConnectionTimeout(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: QuicOptionsBuilderService_SetIdleConnectionTimeout_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QuicOptionsBuilderServiceServer).SetIdleConnectionTimeout(ctx, req.(*SetIdleConnectionTimeoutRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _QuicOptionsBuilderService_SetInMemoryServerConfigsCacheSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetInMemoryServerConfigsCacheSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QuicOptionsBuilderServiceServer).SetInMemoryServerConfigsCacheSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: QuicOptionsBuilderService_SetInMemoryServerConfigsCacheSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QuicOptionsBuilderServiceServer).SetInMemoryServerConfigsCacheSize(ctx, req.(*SetInMemoryServerConfigsCacheSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// QuicOptionsBuilderService_ServiceDesc is the grpc.ServiceDesc for QuicOptionsBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var QuicOptionsBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "http.QuicOptionsBuilderService",
+	HandlerType: (*QuicOptionsBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AddAllowedQuicHost",
+			Handler:    _QuicOptionsBuilderService_AddAllowedQuicHost_Handler,
+		},
+		{
+			MethodName: "Build",
+			Handler:    _QuicOptionsBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetHandshakeUserAgent",
+			Handler:    _QuicOptionsBuilderService_SetHandshakeUserAgent_Handler,
+		},
+		{
+			MethodName: "SetIdleConnectionTimeout",
+			Handler:    _QuicOptionsBuilderService_SetIdleConnectionTimeout_Handler,
+		},
+		{
+			MethodName: "SetInMemoryServerConfigsCacheSize",
+			Handler:    _QuicOptionsBuilderService_SetInMemoryServerConfigsCacheSize_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/http/http.proto",
+}
+
+const (
+	DnsOptionsService_GetPersistHostCache_FullMethodName                         = "/http.DnsOptionsService/GetPersistHostCache"
+	DnsOptionsService_GetPersistHostCachePeriod_FullMethodName                   = "/http.DnsOptionsService/GetPersistHostCachePeriod"
+	DnsOptionsService_GetPreestablishConnectionsToStaleDnsResults_FullMethodName = "/http.DnsOptionsService/GetPreestablishConnectionsToStaleDnsResults"
+	DnsOptionsService_GetStaleDns_FullMethodName                                 = "/http.DnsOptionsService/GetStaleDns"
+	DnsOptionsService_GetStaleDnsOptions_FullMethodName                          = "/http.DnsOptionsService/GetStaleDnsOptions"
+	DnsOptionsService_GetUseHttpStackDnsResolver_FullMethodName                  = "/http.DnsOptionsService/GetUseHttpStackDnsResolver"
+)
+
+// DnsOptionsServiceClient is the client API for DnsOptionsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DnsOptionsServiceClient interface {
+	GetPersistHostCache(ctx context.Context, in *GetPersistHostCacheRequest, opts ...grpc.CallOption) (*GetPersistHostCacheResponse, error)
+	GetPersistHostCachePeriod(ctx context.Context, in *GetPersistHostCachePeriodRequest, opts ...grpc.CallOption) (*GetPersistHostCachePeriodResponse, error)
+	GetPreestablishConnectionsToStaleDnsResults(ctx context.Context, in *GetPreestablishConnectionsToStaleDnsResultsRequest, opts ...grpc.CallOption) (*GetPreestablishConnectionsToStaleDnsResultsResponse, error)
+	GetStaleDns(ctx context.Context, in *GetStaleDnsRequest, opts ...grpc.CallOption) (*GetStaleDnsResponse, error)
+	GetStaleDnsOptions(ctx context.Context, in *GetStaleDnsOptionsRequest, opts ...grpc.CallOption) (*GetStaleDnsOptionsResponse, error)
+	GetUseHttpStackDnsResolver(ctx context.Context, in *GetUseHttpStackDnsResolverRequest, opts ...grpc.CallOption) (*GetUseHttpStackDnsResolverResponse, error)
+}
+
+type dnsOptionsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDnsOptionsServiceClient(cc grpc.ClientConnInterface) DnsOptionsServiceClient {
+	return &dnsOptionsServiceClient{cc}
+}
+
+func (c *dnsOptionsServiceClient) GetPersistHostCache(ctx context.Context, in *GetPersistHostCacheRequest, opts ...grpc.CallOption) (*GetPersistHostCacheResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPersistHostCacheResponse)
+	err := c.cc.Invoke(ctx, DnsOptionsService_GetPersistHostCache_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dnsOptionsServiceClient) GetPersistHostCachePeriod(ctx context.Context, in *GetPersistHostCachePeriodRequest, opts ...grpc.CallOption) (*GetPersistHostCachePeriodResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPersistHostCachePeriodResponse)
+	err := c.cc.Invoke(ctx, DnsOptionsService_GetPersistHostCachePeriod_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dnsOptionsServiceClient) GetPreestablishConnectionsToStaleDnsResults(ctx context.Context, in *GetPreestablishConnectionsToStaleDnsResultsRequest, opts ...grpc.CallOption) (*GetPreestablishConnectionsToStaleDnsResultsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPreestablishConnectionsToStaleDnsResultsResponse)
+	err := c.cc.Invoke(ctx, DnsOptionsService_GetPreestablishConnectionsToStaleDnsResults_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dnsOptionsServiceClient) GetStaleDns(ctx context.Context, in *GetStaleDnsRequest, opts ...grpc.CallOption) (*GetStaleDnsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStaleDnsResponse)
+	err := c.cc.Invoke(ctx, DnsOptionsService_GetStaleDns_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dnsOptionsServiceClient) GetStaleDnsOptions(ctx context.Context, in *GetStaleDnsOptionsRequest, opts ...grpc.CallOption) (*GetStaleDnsOptionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetStaleDnsOptionsResponse)
+	err := c.cc.Invoke(ctx, DnsOptionsService_GetStaleDnsOptions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dnsOptionsServiceClient) GetUseHttpStackDnsResolver(ctx context.Context, in *GetUseHttpStackDnsResolverRequest, opts ...grpc.CallOption) (*GetUseHttpStackDnsResolverResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUseHttpStackDnsResolverResponse)
+	err := c.cc.Invoke(ctx, DnsOptionsService_GetUseHttpStackDnsResolver_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DnsOptionsServiceServer is the server API for DnsOptionsService service.
+// All implementations must embed UnimplementedDnsOptionsServiceServer
+// for forward compatibility.
+type DnsOptionsServiceServer interface {
+	GetPersistHostCache(context.Context, *GetPersistHostCacheRequest) (*GetPersistHostCacheResponse, error)
+	GetPersistHostCachePeriod(context.Context, *GetPersistHostCachePeriodRequest) (*GetPersistHostCachePeriodResponse, error)
+	GetPreestablishConnectionsToStaleDnsResults(context.Context, *GetPreestablishConnectionsToStaleDnsResultsRequest) (*GetPreestablishConnectionsToStaleDnsResultsResponse, error)
+	GetStaleDns(context.Context, *GetStaleDnsRequest) (*GetStaleDnsResponse, error)
+	GetStaleDnsOptions(context.Context, *GetStaleDnsOptionsRequest) (*GetStaleDnsOptionsResponse, error)
+	GetUseHttpStackDnsResolver(context.Context, *GetUseHttpStackDnsResolverRequest) (*GetUseHttpStackDnsResolverResponse, error)
+	mustEmbedUnimplementedDnsOptionsServiceServer()
+}
+
+// UnimplementedDnsOptionsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDnsOptionsServiceServer struct{}
+
+func (UnimplementedDnsOptionsServiceServer) GetPersistHostCache(context.Context, *GetPersistHostCacheRequest) (*GetPersistHostCacheResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPersistHostCache not implemented")
+}
+func (UnimplementedDnsOptionsServiceServer) GetPersistHostCachePeriod(context.Context, *GetPersistHostCachePeriodRequest) (*GetPersistHostCachePeriodResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPersistHostCachePeriod not implemented")
+}
+func (UnimplementedDnsOptionsServiceServer) GetPreestablishConnectionsToStaleDnsResults(context.Context, *GetPreestablishConnectionsToStaleDnsResultsRequest) (*GetPreestablishConnectionsToStaleDnsResultsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPreestablishConnectionsToStaleDnsResults not implemented")
+}
+func (UnimplementedDnsOptionsServiceServer) GetStaleDns(context.Context, *GetStaleDnsRequest) (*GetStaleDnsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStaleDns not implemented")
+}
+func (UnimplementedDnsOptionsServiceServer) GetStaleDnsOptions(context.Context, *GetStaleDnsOptionsRequest) (*GetStaleDnsOptionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetStaleDnsOptions not implemented")
+}
+func (UnimplementedDnsOptionsServiceServer) GetUseHttpStackDnsResolver(context.Context, *GetUseHttpStackDnsResolverRequest) (*GetUseHttpStackDnsResolverResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUseHttpStackDnsResolver not implemented")
+}
+func (UnimplementedDnsOptionsServiceServer) mustEmbedUnimplementedDnsOptionsServiceServer() {}
+func (UnimplementedDnsOptionsServiceServer) testEmbeddedByValue()                           {}
+
+// UnsafeDnsOptionsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DnsOptionsServiceServer will
+// result in compilation errors.
+type UnsafeDnsOptionsServiceServer interface {
+	mustEmbedUnimplementedDnsOptionsServiceServer()
+}
+
+func RegisterDnsOptionsServiceServer(s grpc.ServiceRegistrar, srv DnsOptionsServiceServer) {
+	// If the following call panics, it indicates UnimplementedDnsOptionsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DnsOptionsService_ServiceDesc, srv)
+}
+
+func _DnsOptionsService_GetPersistHostCache_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPersistHostCacheRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DnsOptionsServiceServer).GetPersistHostCache(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DnsOptionsService_GetPersistHostCache_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DnsOptionsServiceServer).GetPersistHostCache(ctx, req.(*GetPersistHostCacheRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DnsOptionsService_GetPersistHostCachePeriod_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPersistHostCachePeriodRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DnsOptionsServiceServer).GetPersistHostCachePeriod(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DnsOptionsService_GetPersistHostCachePeriod_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DnsOptionsServiceServer).GetPersistHostCachePeriod(ctx, req.(*GetPersistHostCachePeriodRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DnsOptionsService_GetPreestablishConnectionsToStaleDnsResults_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPreestablishConnectionsToStaleDnsResultsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DnsOptionsServiceServer).GetPreestablishConnectionsToStaleDnsResults(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DnsOptionsService_GetPreestablishConnectionsToStaleDnsResults_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DnsOptionsServiceServer).GetPreestablishConnectionsToStaleDnsResults(ctx, req.(*GetPreestablishConnectionsToStaleDnsResultsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DnsOptionsService_GetStaleDns_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStaleDnsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DnsOptionsServiceServer).GetStaleDns(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DnsOptionsService_GetStaleDns_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DnsOptionsServiceServer).GetStaleDns(ctx, req.(*GetStaleDnsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DnsOptionsService_GetStaleDnsOptions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStaleDnsOptionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DnsOptionsServiceServer).GetStaleDnsOptions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DnsOptionsService_GetStaleDnsOptions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DnsOptionsServiceServer).GetStaleDnsOptions(ctx, req.(*GetStaleDnsOptionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DnsOptionsService_GetUseHttpStackDnsResolver_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUseHttpStackDnsResolverRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DnsOptionsServiceServer).GetUseHttpStackDnsResolver(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DnsOptionsService_GetUseHttpStackDnsResolver_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DnsOptionsServiceServer).GetUseHttpStackDnsResolver(ctx, req.(*GetUseHttpStackDnsResolverRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DnsOptionsService_ServiceDesc is the grpc.ServiceDesc for DnsOptionsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DnsOptionsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "http.DnsOptionsService",
+	HandlerType: (*DnsOptionsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetPersistHostCache",
+			Handler:    _DnsOptionsService_GetPersistHostCache_Handler,
+		},
+		{
+			MethodName: "GetPersistHostCachePeriod",
+			Handler:    _DnsOptionsService_GetPersistHostCachePeriod_Handler,
+		},
+		{
+			MethodName: "GetPreestablishConnectionsToStaleDnsResults",
+			Handler:    _DnsOptionsService_GetPreestablishConnectionsToStaleDnsResults_Handler,
+		},
+		{
+			MethodName: "GetStaleDns",
+			Handler:    _DnsOptionsService_GetStaleDns_Handler,
+		},
+		{
+			MethodName: "GetStaleDnsOptions",
+			Handler:    _DnsOptionsService_GetStaleDnsOptions_Handler,
+		},
+		{
+			MethodName: "GetUseHttpStackDnsResolver",
+			Handler:    _DnsOptionsService_GetUseHttpStackDnsResolver_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/http/http.proto",
+}
+
+const (
+	DnsOptionsBuilderService_Build_FullMethodName                                       = "/http.DnsOptionsBuilderService/Build"
+	DnsOptionsBuilderService_SetPersistHostCache_FullMethodName                         = "/http.DnsOptionsBuilderService/SetPersistHostCache"
+	DnsOptionsBuilderService_SetPersistHostCachePeriod_FullMethodName                   = "/http.DnsOptionsBuilderService/SetPersistHostCachePeriod"
+	DnsOptionsBuilderService_SetPreestablishConnectionsToStaleDnsResults_FullMethodName = "/http.DnsOptionsBuilderService/SetPreestablishConnectionsToStaleDnsResults"
+	DnsOptionsBuilderService_SetStaleDns_FullMethodName                                 = "/http.DnsOptionsBuilderService/SetStaleDns"
+	DnsOptionsBuilderService_SetStaleDnsOptions_FullMethodName                          = "/http.DnsOptionsBuilderService/SetStaleDnsOptions"
+	DnsOptionsBuilderService_SetUseHttpStackDnsResolver_FullMethodName                  = "/http.DnsOptionsBuilderService/SetUseHttpStackDnsResolver"
+)
+
+// DnsOptionsBuilderServiceClient is the client API for DnsOptionsBuilderService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DnsOptionsBuilderServiceClient interface {
+	Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error)
+	SetPersistHostCache(ctx context.Context, in *SetPersistHostCacheRequest, opts ...grpc.CallOption) (*SetPersistHostCacheResponse, error)
+	SetPersistHostCachePeriod(ctx context.Context, in *SetPersistHostCachePeriodRequest, opts ...grpc.CallOption) (*SetPersistHostCachePeriodResponse, error)
+	SetPreestablishConnectionsToStaleDnsResults(ctx context.Context, in *SetPreestablishConnectionsToStaleDnsResultsRequest, opts ...grpc.CallOption) (*SetPreestablishConnectionsToStaleDnsResultsResponse, error)
+	SetStaleDns(ctx context.Context, in *SetStaleDnsRequest, opts ...grpc.CallOption) (*SetStaleDnsResponse, error)
+	SetStaleDnsOptions(ctx context.Context, in *SetStaleDnsOptionsRequest, opts ...grpc.CallOption) (*SetStaleDnsOptionsResponse, error)
+	SetUseHttpStackDnsResolver(ctx context.Context, in *SetUseHttpStackDnsResolverRequest, opts ...grpc.CallOption) (*SetUseHttpStackDnsResolverResponse, error)
+}
+
+type dnsOptionsBuilderServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDnsOptionsBuilderServiceClient(cc grpc.ClientConnInterface) DnsOptionsBuilderServiceClient {
+	return &dnsOptionsBuilderServiceClient{cc}
+}
+
+func (c *dnsOptionsBuilderServiceClient) Build(ctx context.Context, in *BuildRequest, opts ...grpc.CallOption) (*BuildResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BuildResponse)
+	err := c.cc.Invoke(ctx, DnsOptionsBuilderService_Build_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dnsOptionsBuilderServiceClient) SetPersistHostCache(ctx context.Context, in *SetPersistHostCacheRequest, opts ...grpc.CallOption) (*SetPersistHostCacheResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPersistHostCacheResponse)
+	err := c.cc.Invoke(ctx, DnsOptionsBuilderService_SetPersistHostCache_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dnsOptionsBuilderServiceClient) SetPersistHostCachePeriod(ctx context.Context, in *SetPersistHostCachePeriodRequest, opts ...grpc.CallOption) (*SetPersistHostCachePeriodResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPersistHostCachePeriodResponse)
+	err := c.cc.Invoke(ctx, DnsOptionsBuilderService_SetPersistHostCachePeriod_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dnsOptionsBuilderServiceClient) SetPreestablishConnectionsToStaleDnsResults(ctx context.Context, in *SetPreestablishConnectionsToStaleDnsResultsRequest, opts ...grpc.CallOption) (*SetPreestablishConnectionsToStaleDnsResultsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetPreestablishConnectionsToStaleDnsResultsResponse)
+	err := c.cc.Invoke(ctx, DnsOptionsBuilderService_SetPreestablishConnectionsToStaleDnsResults_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dnsOptionsBuilderServiceClient) SetStaleDns(ctx context.Context, in *SetStaleDnsRequest, opts ...grpc.CallOption) (*SetStaleDnsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetStaleDnsResponse)
+	err := c.cc.Invoke(ctx, DnsOptionsBuilderService_SetStaleDns_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dnsOptionsBuilderServiceClient) SetStaleDnsOptions(ctx context.Context, in *SetStaleDnsOptionsRequest, opts ...grpc.CallOption) (*SetStaleDnsOptionsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetStaleDnsOptionsResponse)
+	err := c.cc.Invoke(ctx, DnsOptionsBuilderService_SetStaleDnsOptions_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dnsOptionsBuilderServiceClient) SetUseHttpStackDnsResolver(ctx context.Context, in *SetUseHttpStackDnsResolverRequest, opts ...grpc.CallOption) (*SetUseHttpStackDnsResolverResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SetUseHttpStackDnsResolverResponse)
+	err := c.cc.Invoke(ctx, DnsOptionsBuilderService_SetUseHttpStackDnsResolver_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DnsOptionsBuilderServiceServer is the server API for DnsOptionsBuilderService service.
+// All implementations must embed UnimplementedDnsOptionsBuilderServiceServer
+// for forward compatibility.
+type DnsOptionsBuilderServiceServer interface {
+	Build(context.Context, *BuildRequest) (*BuildResponse, error)
+	SetPersistHostCache(context.Context, *SetPersistHostCacheRequest) (*SetPersistHostCacheResponse, error)
+	SetPersistHostCachePeriod(context.Context, *SetPersistHostCachePeriodRequest) (*SetPersistHostCachePeriodResponse, error)
+	SetPreestablishConnectionsToStaleDnsResults(context.Context, *SetPreestablishConnectionsToStaleDnsResultsRequest) (*SetPreestablishConnectionsToStaleDnsResultsResponse, error)
+	SetStaleDns(context.Context, *SetStaleDnsRequest) (*SetStaleDnsResponse, error)
+	SetStaleDnsOptions(context.Context, *SetStaleDnsOptionsRequest) (*SetStaleDnsOptionsResponse, error)
+	SetUseHttpStackDnsResolver(context.Context, *SetUseHttpStackDnsResolverRequest) (*SetUseHttpStackDnsResolverResponse, error)
+	mustEmbedUnimplementedDnsOptionsBuilderServiceServer()
+}
+
+// UnimplementedDnsOptionsBuilderServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDnsOptionsBuilderServiceServer struct{}
+
+func (UnimplementedDnsOptionsBuilderServiceServer) Build(context.Context, *BuildRequest) (*BuildResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Build not implemented")
+}
+func (UnimplementedDnsOptionsBuilderServiceServer) SetPersistHostCache(context.Context, *SetPersistHostCacheRequest) (*SetPersistHostCacheResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPersistHostCache not implemented")
+}
+func (UnimplementedDnsOptionsBuilderServiceServer) SetPersistHostCachePeriod(context.Context, *SetPersistHostCachePeriodRequest) (*SetPersistHostCachePeriodResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPersistHostCachePeriod not implemented")
+}
+func (UnimplementedDnsOptionsBuilderServiceServer) SetPreestablishConnectionsToStaleDnsResults(context.Context, *SetPreestablishConnectionsToStaleDnsResultsRequest) (*SetPreestablishConnectionsToStaleDnsResultsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetPreestablishConnectionsToStaleDnsResults not implemented")
+}
+func (UnimplementedDnsOptionsBuilderServiceServer) SetStaleDns(context.Context, *SetStaleDnsRequest) (*SetStaleDnsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetStaleDns not implemented")
+}
+func (UnimplementedDnsOptionsBuilderServiceServer) SetStaleDnsOptions(context.Context, *SetStaleDnsOptionsRequest) (*SetStaleDnsOptionsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetStaleDnsOptions not implemented")
+}
+func (UnimplementedDnsOptionsBuilderServiceServer) SetUseHttpStackDnsResolver(context.Context, *SetUseHttpStackDnsResolverRequest) (*SetUseHttpStackDnsResolverResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SetUseHttpStackDnsResolver not implemented")
+}
+func (UnimplementedDnsOptionsBuilderServiceServer) mustEmbedUnimplementedDnsOptionsBuilderServiceServer() {
+}
+func (UnimplementedDnsOptionsBuilderServiceServer) testEmbeddedByValue() {}
+
+// UnsafeDnsOptionsBuilderServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DnsOptionsBuilderServiceServer will
+// result in compilation errors.
+type UnsafeDnsOptionsBuilderServiceServer interface {
+	mustEmbedUnimplementedDnsOptionsBuilderServiceServer()
+}
+
+func RegisterDnsOptionsBuilderServiceServer(s grpc.ServiceRegistrar, srv DnsOptionsBuilderServiceServer) {
+	// If the following call panics, it indicates UnimplementedDnsOptionsBuilderServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DnsOptionsBuilderService_ServiceDesc, srv)
+}
+
+func _DnsOptionsBuilderService_Build_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BuildRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DnsOptionsBuilderServiceServer).Build(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DnsOptionsBuilderService_Build_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DnsOptionsBuilderServiceServer).Build(ctx, req.(*BuildRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DnsOptionsBuilderService_SetPersistHostCache_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPersistHostCacheRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DnsOptionsBuilderServiceServer).SetPersistHostCache(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DnsOptionsBuilderService_SetPersistHostCache_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DnsOptionsBuilderServiceServer).SetPersistHostCache(ctx, req.(*SetPersistHostCacheRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DnsOptionsBuilderService_SetPersistHostCachePeriod_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPersistHostCachePeriodRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DnsOptionsBuilderServiceServer).SetPersistHostCachePeriod(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DnsOptionsBuilderService_SetPersistHostCachePeriod_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DnsOptionsBuilderServiceServer).SetPersistHostCachePeriod(ctx, req.(*SetPersistHostCachePeriodRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DnsOptionsBuilderService_SetPreestablishConnectionsToStaleDnsResults_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetPreestablishConnectionsToStaleDnsResultsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DnsOptionsBuilderServiceServer).SetPreestablishConnectionsToStaleDnsResults(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DnsOptionsBuilderService_SetPreestablishConnectionsToStaleDnsResults_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DnsOptionsBuilderServiceServer).SetPreestablishConnectionsToStaleDnsResults(ctx, req.(*SetPreestablishConnectionsToStaleDnsResultsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DnsOptionsBuilderService_SetStaleDns_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetStaleDnsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DnsOptionsBuilderServiceServer).SetStaleDns(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DnsOptionsBuilderService_SetStaleDns_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DnsOptionsBuilderServiceServer).SetStaleDns(ctx, req.(*SetStaleDnsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DnsOptionsBuilderService_SetStaleDnsOptions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetStaleDnsOptionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DnsOptionsBuilderServiceServer).SetStaleDnsOptions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DnsOptionsBuilderService_SetStaleDnsOptions_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DnsOptionsBuilderServiceServer).SetStaleDnsOptions(ctx, req.(*SetStaleDnsOptionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DnsOptionsBuilderService_SetUseHttpStackDnsResolver_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetUseHttpStackDnsResolverRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DnsOptionsBuilderServiceServer).SetUseHttpStackDnsResolver(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DnsOptionsBuilderService_SetUseHttpStackDnsResolver_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DnsOptionsBuilderServiceServer).SetUseHttpStackDnsResolver(ctx, req.(*SetUseHttpStackDnsResolverRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DnsOptionsBuilderService_ServiceDesc is the grpc.ServiceDesc for DnsOptionsBuilderService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DnsOptionsBuilderService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "http.DnsOptionsBuilderService",
+	HandlerType: (*DnsOptionsBuilderServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Build",
+			Handler:    _DnsOptionsBuilderService_Build_Handler,
+		},
+		{
+			MethodName: "SetPersistHostCache",
+			Handler:    _DnsOptionsBuilderService_SetPersistHostCache_Handler,
+		},
+		{
+			MethodName: "SetPersistHostCachePeriod",
+			Handler:    _DnsOptionsBuilderService_SetPersistHostCachePeriod_Handler,
+		},
+		{
+			MethodName: "SetPreestablishConnectionsToStaleDnsResults",
+			Handler:    _DnsOptionsBuilderService_SetPreestablishConnectionsToStaleDnsResults_Handler,
+		},
+		{
+			MethodName: "SetStaleDns",
+			Handler:    _DnsOptionsBuilderService_SetStaleDns_Handler,
+		},
+		{
+			MethodName: "SetStaleDnsOptions",
+			Handler:    _DnsOptionsBuilderService_SetStaleDnsOptions_Handler,
+		},
+		{
+			MethodName: "SetUseHttpStackDnsResolver",
+			Handler:    _DnsOptionsBuilderService_SetUseHttpStackDnsResolver_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/http/http.proto",
+}
+
+const (
+	DnsOptionsStaleDnsOptionsService_GetAllowCrossNetworkUsage_FullMethodName    = "/http.DnsOptionsStaleDnsOptionsService/GetAllowCrossNetworkUsage"
+	DnsOptionsStaleDnsOptionsService_GetFreshLookupTimeout_FullMethodName        = "/http.DnsOptionsStaleDnsOptionsService/GetFreshLookupTimeout"
+	DnsOptionsStaleDnsOptionsService_GetMaxExpiredDelay_FullMethodName           = "/http.DnsOptionsStaleDnsOptionsService/GetMaxExpiredDelay"
+	DnsOptionsStaleDnsOptionsService_GetUseStaleOnNameNotResolved_FullMethodName = "/http.DnsOptionsStaleDnsOptionsService/GetUseStaleOnNameNotResolved"
+)
+
+// DnsOptionsStaleDnsOptionsServiceClient is the client API for DnsOptionsStaleDnsOptionsService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type DnsOptionsStaleDnsOptionsServiceClient interface {
+	GetAllowCrossNetworkUsage(ctx context.Context, in *GetAllowCrossNetworkUsageRequest, opts ...grpc.CallOption) (*GetAllowCrossNetworkUsageResponse, error)
+	GetFreshLookupTimeout(ctx context.Context, in *GetFreshLookupTimeoutRequest, opts ...grpc.CallOption) (*GetFreshLookupTimeoutResponse, error)
+	GetMaxExpiredDelay(ctx context.Context, in *GetMaxExpiredDelayRequest, opts ...grpc.CallOption) (*GetMaxExpiredDelayResponse, error)
+	GetUseStaleOnNameNotResolved(ctx context.Context, in *GetUseStaleOnNameNotResolvedRequest, opts ...grpc.CallOption) (*GetUseStaleOnNameNotResolvedResponse, error)
+}
+
+type dnsOptionsStaleDnsOptionsServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewDnsOptionsStaleDnsOptionsServiceClient(cc grpc.ClientConnInterface) DnsOptionsStaleDnsOptionsServiceClient {
+	return &dnsOptionsStaleDnsOptionsServiceClient{cc}
+}
+
+func (c *dnsOptionsStaleDnsOptionsServiceClient) GetAllowCrossNetworkUsage(ctx context.Context, in *GetAllowCrossNetworkUsageRequest, opts ...grpc.CallOption) (*GetAllowCrossNetworkUsageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAllowCrossNetworkUsageResponse)
+	err := c.cc.Invoke(ctx, DnsOptionsStaleDnsOptionsService_GetAllowCrossNetworkUsage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dnsOptionsStaleDnsOptionsServiceClient) GetFreshLookupTimeout(ctx context.Context, in *GetFreshLookupTimeoutRequest, opts ...grpc.CallOption) (*GetFreshLookupTimeoutResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetFreshLookupTimeoutResponse)
+	err := c.cc.Invoke(ctx, DnsOptionsStaleDnsOptionsService_GetFreshLookupTimeout_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dnsOptionsStaleDnsOptionsServiceClient) GetMaxExpiredDelay(ctx context.Context, in *GetMaxExpiredDelayRequest, opts ...grpc.CallOption) (*GetMaxExpiredDelayResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetMaxExpiredDelayResponse)
+	err := c.cc.Invoke(ctx, DnsOptionsStaleDnsOptionsService_GetMaxExpiredDelay_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *dnsOptionsStaleDnsOptionsServiceClient) GetUseStaleOnNameNotResolved(ctx context.Context, in *GetUseStaleOnNameNotResolvedRequest, opts ...grpc.CallOption) (*GetUseStaleOnNameNotResolvedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUseStaleOnNameNotResolvedResponse)
+	err := c.cc.Invoke(ctx, DnsOptionsStaleDnsOptionsService_GetUseStaleOnNameNotResolved_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// DnsOptionsStaleDnsOptionsServiceServer is the server API for DnsOptionsStaleDnsOptionsService service.
+// All implementations must embed UnimplementedDnsOptionsStaleDnsOptionsServiceServer
+// for forward compatibility.
+type DnsOptionsStaleDnsOptionsServiceServer interface {
+	GetAllowCrossNetworkUsage(context.Context, *GetAllowCrossNetworkUsageRequest) (*GetAllowCrossNetworkUsageResponse, error)
+	GetFreshLookupTimeout(context.Context, *GetFreshLookupTimeoutRequest) (*GetFreshLookupTimeoutResponse, error)
+	GetMaxExpiredDelay(context.Context, *GetMaxExpiredDelayRequest) (*GetMaxExpiredDelayResponse, error)
+	GetUseStaleOnNameNotResolved(context.Context, *GetUseStaleOnNameNotResolvedRequest) (*GetUseStaleOnNameNotResolvedResponse, error)
+	mustEmbedUnimplementedDnsOptionsStaleDnsOptionsServiceServer()
+}
+
+// UnimplementedDnsOptionsStaleDnsOptionsServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedDnsOptionsStaleDnsOptionsServiceServer struct{}
+
+func (UnimplementedDnsOptionsStaleDnsOptionsServiceServer) GetAllowCrossNetworkUsage(context.Context, *GetAllowCrossNetworkUsageRequest) (*GetAllowCrossNetworkUsageResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetAllowCrossNetworkUsage not implemented")
+}
+func (UnimplementedDnsOptionsStaleDnsOptionsServiceServer) GetFreshLookupTimeout(context.Context, *GetFreshLookupTimeoutRequest) (*GetFreshLookupTimeoutResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetFreshLookupTimeout not implemented")
+}
+func (UnimplementedDnsOptionsStaleDnsOptionsServiceServer) GetMaxExpiredDelay(context.Context, *GetMaxExpiredDelayRequest) (*GetMaxExpiredDelayResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetMaxExpiredDelay not implemented")
+}
+func (UnimplementedDnsOptionsStaleDnsOptionsServiceServer) GetUseStaleOnNameNotResolved(context.Context, *GetUseStaleOnNameNotResolvedRequest) (*GetUseStaleOnNameNotResolvedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUseStaleOnNameNotResolved not implemented")
+}
+func (UnimplementedDnsOptionsStaleDnsOptionsServiceServer) mustEmbedUnimplementedDnsOptionsStaleDnsOptionsServiceServer() {
+}
+func (UnimplementedDnsOptionsStaleDnsOptionsServiceServer) testEmbeddedByValue() {}
+
+// UnsafeDnsOptionsStaleDnsOptionsServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to DnsOptionsStaleDnsOptionsServiceServer will
+// result in compilation errors.
+type UnsafeDnsOptionsStaleDnsOptionsServiceServer interface {
+	mustEmbedUnimplementedDnsOptionsStaleDnsOptionsServiceServer()
+}
+
+func RegisterDnsOptionsStaleDnsOptionsServiceServer(s grpc.ServiceRegistrar, srv DnsOptionsStaleDnsOptionsServiceServer) {
+	// If the following call panics, it indicates UnimplementedDnsOptionsStaleDnsOptionsServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&DnsOptionsStaleDnsOptionsService_ServiceDesc, srv)
+}
+
+func _DnsOptionsStaleDnsOptionsService_GetAllowCrossNetworkUsage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAllowCrossNetworkUsageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DnsOptionsStaleDnsOptionsServiceServer).GetAllowCrossNetworkUsage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DnsOptionsStaleDnsOptionsService_GetAllowCrossNetworkUsage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DnsOptionsStaleDnsOptionsServiceServer).GetAllowCrossNetworkUsage(ctx, req.(*GetAllowCrossNetworkUsageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DnsOptionsStaleDnsOptionsService_GetFreshLookupTimeout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFreshLookupTimeoutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DnsOptionsStaleDnsOptionsServiceServer).GetFreshLookupTimeout(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DnsOptionsStaleDnsOptionsService_GetFreshLookupTimeout_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DnsOptionsStaleDnsOptionsServiceServer).GetFreshLookupTimeout(ctx, req.(*GetFreshLookupTimeoutRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DnsOptionsStaleDnsOptionsService_GetMaxExpiredDelay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMaxExpiredDelayRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DnsOptionsStaleDnsOptionsServiceServer).GetMaxExpiredDelay(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DnsOptionsStaleDnsOptionsService_GetMaxExpiredDelay_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DnsOptionsStaleDnsOptionsServiceServer).GetMaxExpiredDelay(ctx, req.(*GetMaxExpiredDelayRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DnsOptionsStaleDnsOptionsService_GetUseStaleOnNameNotResolved_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUseStaleOnNameNotResolvedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DnsOptionsStaleDnsOptionsServiceServer).GetUseStaleOnNameNotResolved(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DnsOptionsStaleDnsOptionsService_GetUseStaleOnNameNotResolved_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DnsOptionsStaleDnsOptionsServiceServer).GetUseStaleOnNameNotResolved(ctx, req.(*GetUseStaleOnNameNotResolvedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// DnsOptionsStaleDnsOptionsService_ServiceDesc is the grpc.ServiceDesc for DnsOptionsStaleDnsOptionsService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var DnsOptionsStaleDnsOptionsService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "http.DnsOptionsStaleDnsOptionsService",
+	HandlerType: (*DnsOptionsStaleDnsOptionsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetAllowCrossNetworkUsage",
+			Handler:    _DnsOptionsStaleDnsOptionsService_GetAllowCrossNetworkUsage_Handler,
+		},
+		{
+			MethodName: "GetFreshLookupTimeout",
+			Handler:    _DnsOptionsStaleDnsOptionsService_GetFreshLookupTimeout_Handler,
+		},
+		{
+			MethodName: "GetMaxExpiredDelay",
+			Handler:    _DnsOptionsStaleDnsOptionsService_GetMaxExpiredDelay_Handler,
+		},
+		{
+			MethodName: "GetUseStaleOnNameNotResolved",
+			Handler:    _DnsOptionsStaleDnsOptionsService_GetUseStaleOnNameNotResolved_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/http/http.proto",
+}
+
+const (
+	ResponseCacheService_Close_FullMethodName           = "/http.ResponseCacheService/Close"
+	ResponseCacheService_Delete_FullMethodName          = "/http.ResponseCacheService/Delete"
+	ResponseCacheService_Flush_FullMethodName           = "/http.ResponseCacheService/Flush"
+	ResponseCacheService_GetHitCount_FullMethodName     = "/http.ResponseCacheService/GetHitCount"
+	ResponseCacheService_GetNetworkCount_FullMethodName = "/http.ResponseCacheService/GetNetworkCount"
+	ResponseCacheService_GetRequestCount_FullMethodName = "/http.ResponseCacheService/GetRequestCount"
+	ResponseCacheService_MaxSize_FullMethodName         = "/http.ResponseCacheService/MaxSize"
+	ResponseCacheService_Put_FullMethodName             = "/http.ResponseCacheService/Put"
+	ResponseCacheService_Size_FullMethodName            = "/http.ResponseCacheService/Size"
+	ResponseCacheService_GetInstalled_FullMethodName    = "/http.ResponseCacheService/GetInstalled"
+)
+
+// ResponseCacheServiceClient is the client API for ResponseCacheService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ResponseCacheServiceClient interface {
+	Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error)
+	Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error)
+	Flush(ctx context.Context, in *FlushRequest, opts ...grpc.CallOption) (*FlushResponse, error)
+	GetHitCount(ctx context.Context, in *GetHitCountRequest, opts ...grpc.CallOption) (*GetHitCountResponse, error)
+	GetNetworkCount(ctx context.Context, in *GetNetworkCountRequest, opts ...grpc.CallOption) (*GetNetworkCountResponse, error)
+	GetRequestCount(ctx context.Context, in *GetRequestCountRequest, opts ...grpc.CallOption) (*GetRequestCountResponse, error)
+	MaxSize(ctx context.Context, in *MaxSizeRequest, opts ...grpc.CallOption) (*MaxSizeResponse, error)
+	Put(ctx context.Context, in *PutRequest, opts ...grpc.CallOption) (*PutResponse, error)
+	Size(ctx context.Context, in *SizeRequest, opts ...grpc.CallOption) (*SizeResponse, error)
+	GetInstalled(ctx context.Context, in *GetInstalledRequest, opts ...grpc.CallOption) (*GetInstalledResponse, error)
+}
+
+type responseCacheServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewResponseCacheServiceClient(cc grpc.ClientConnInterface) ResponseCacheServiceClient {
+	return &responseCacheServiceClient{cc}
+}
+
+func (c *responseCacheServiceClient) Close(ctx context.Context, in *CloseRequest, opts ...grpc.CallOption) (*CloseResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CloseResponse)
+	err := c.cc.Invoke(ctx, ResponseCacheService_Close_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responseCacheServiceClient) Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeleteResponse)
+	err := c.cc.Invoke(ctx, ResponseCacheService_Delete_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responseCacheServiceClient) Flush(ctx context.Context, in *FlushRequest, opts ...grpc.CallOption) (*FlushResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FlushResponse)
+	err := c.cc.Invoke(ctx, ResponseCacheService_Flush_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responseCacheServiceClient) GetHitCount(ctx context.Context, in *GetHitCountRequest, opts ...grpc.CallOption) (*GetHitCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetHitCountResponse)
+	err := c.cc.Invoke(ctx, ResponseCacheService_GetHitCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responseCacheServiceClient) GetNetworkCount(ctx context.Context, in *GetNetworkCountRequest, opts ...grpc.CallOption) (*GetNetworkCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNetworkCountResponse)
+	err := c.cc.Invoke(ctx, ResponseCacheService_GetNetworkCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responseCacheServiceClient) GetRequestCount(ctx context.Context, in *GetRequestCountRequest, opts ...grpc.CallOption) (*GetRequestCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRequestCountResponse)
+	err := c.cc.Invoke(ctx, ResponseCacheService_GetRequestCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responseCacheServiceClient) MaxSize(ctx context.Context, in *MaxSizeRequest, opts ...grpc.CallOption) (*MaxSizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(MaxSizeResponse)
+	err := c.cc.Invoke(ctx, ResponseCacheService_MaxSize_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responseCacheServiceClient) Put(ctx context.Context, in *PutRequest, opts ...grpc.CallOption) (*PutResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PutResponse)
+	err := c.cc.Invoke(ctx, ResponseCacheService_Put_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responseCacheServiceClient) Size(ctx context.Context, in *SizeRequest, opts ...grpc.CallOption) (*SizeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SizeResponse)
+	err := c.cc.Invoke(ctx, ResponseCacheService_Size_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *responseCacheServiceClient) GetInstalled(ctx context.Context, in *GetInstalledRequest, opts ...grpc.CallOption) (*GetInstalledResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetInstalledResponse)
+	err := c.cc.Invoke(ctx, ResponseCacheService_GetInstalled_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ResponseCacheServiceServer is the server API for ResponseCacheService service.
+// All implementations must embed UnimplementedResponseCacheServiceServer
+// for forward compatibility.
+type ResponseCacheServiceServer interface {
+	Close(context.Context, *CloseRequest) (*CloseResponse, error)
+	Delete(context.Context, *DeleteRequest) (*DeleteResponse, error)
+	Flush(context.Context, *FlushRequest) (*FlushResponse, error)
+	GetHitCount(context.Context, *GetHitCountRequest) (*GetHitCountResponse, error)
+	GetNetworkCount(context.Context, *GetNetworkCountRequest) (*GetNetworkCountResponse, error)
+	GetRequestCount(context.Context, *GetRequestCountRequest) (*GetRequestCountResponse, error)
+	MaxSize(context.Context, *MaxSizeRequest) (*MaxSizeResponse, error)
+	Put(context.Context, *PutRequest) (*PutResponse, error)
+	Size(context.Context, *SizeRequest) (*SizeResponse, error)
+	GetInstalled(context.Context, *GetInstalledRequest) (*GetInstalledResponse, error)
+	mustEmbedUnimplementedResponseCacheServiceServer()
+}
+
+// UnimplementedResponseCacheServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedResponseCacheServiceServer struct{}
+
+func (UnimplementedResponseCacheServiceServer) Close(context.Context, *CloseRequest) (*CloseResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Close not implemented")
+}
+func (UnimplementedResponseCacheServiceServer) Delete(context.Context, *DeleteRequest) (*DeleteResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Delete not implemented")
+}
+func (UnimplementedResponseCacheServiceServer) Flush(context.Context, *FlushRequest) (*FlushResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Flush not implemented")
+}
+func (UnimplementedResponseCacheServiceServer) GetHitCount(context.Context, *GetHitCountRequest) (*GetHitCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetHitCount not implemented")
+}
+func (UnimplementedResponseCacheServiceServer) GetNetworkCount(context.Context, *GetNetworkCountRequest) (*GetNetworkCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNetworkCount not implemented")
+}
+func (UnimplementedResponseCacheServiceServer) GetRequestCount(context.Context, *GetRequestCountRequest) (*GetRequestCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRequestCount not implemented")
+}
+func (UnimplementedResponseCacheServiceServer) MaxSize(context.Context, *MaxSizeRequest) (*MaxSizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method MaxSize not implemented")
+}
+func (UnimplementedResponseCacheServiceServer) Put(context.Context, *PutRequest) (*PutResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Put not implemented")
+}
+func (UnimplementedResponseCacheServiceServer) Size(context.Context, *SizeRequest) (*SizeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method Size not implemented")
+}
+func (UnimplementedResponseCacheServiceServer) GetInstalled(context.Context, *GetInstalledRequest) (*GetInstalledResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetInstalled not implemented")
+}
+func (UnimplementedResponseCacheServiceServer) mustEmbedUnimplementedResponseCacheServiceServer() {}
+func (UnimplementedResponseCacheServiceServer) testEmbeddedByValue()                              {}
+
+// UnsafeResponseCacheServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ResponseCacheServiceServer will
+// result in compilation errors.
+type UnsafeResponseCacheServiceServer interface {
+	mustEmbedUnimplementedResponseCacheServiceServer()
+}
+
+func RegisterResponseCacheServiceServer(s grpc.ServiceRegistrar, srv ResponseCacheServiceServer) {
+	// If the following call panics, it indicates UnimplementedResponseCacheServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&ResponseCacheService_ServiceDesc, srv)
+}
+
+func _ResponseCacheService_Close_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloseRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponseCacheServiceServer).Close(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponseCacheService_Close_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponseCacheServiceServer).Close(ctx, req.(*CloseRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponseCacheService_Delete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponseCacheServiceServer).Delete(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponseCacheService_Delete_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponseCacheServiceServer).Delete(ctx, req.(*DeleteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponseCacheService_Flush_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FlushRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponseCacheServiceServer).Flush(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponseCacheService_Flush_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponseCacheServiceServer).Flush(ctx, req.(*FlushRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponseCacheService_GetHitCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetHitCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponseCacheServiceServer).GetHitCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponseCacheService_GetHitCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponseCacheServiceServer).GetHitCount(ctx, req.(*GetHitCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponseCacheService_GetNetworkCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNetworkCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponseCacheServiceServer).GetNetworkCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponseCacheService_GetNetworkCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponseCacheServiceServer).GetNetworkCount(ctx, req.(*GetNetworkCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponseCacheService_GetRequestCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRequestCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponseCacheServiceServer).GetRequestCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponseCacheService_GetRequestCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponseCacheServiceServer).GetRequestCount(ctx, req.(*GetRequestCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponseCacheService_MaxSize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MaxSizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponseCacheServiceServer).MaxSize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponseCacheService_MaxSize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponseCacheServiceServer).MaxSize(ctx, req.(*MaxSizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponseCacheService_Put_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponseCacheServiceServer).Put(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponseCacheService_Put_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponseCacheServiceServer).Put(ctx, req.(*PutRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponseCacheService_Size_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SizeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponseCacheServiceServer).Size(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponseCacheService_Size_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponseCacheServiceServer).Size(ctx, req.(*SizeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ResponseCacheService_GetInstalled_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInstalledRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResponseCacheServiceServer).GetInstalled(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResponseCacheService_GetInstalled_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResponseCacheServiceServer).GetInstalled(ctx, req.(*GetInstalledRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ResponseCacheService_ServiceDesc is the grpc.ServiceDesc for ResponseCacheService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ResponseCacheService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "http.ResponseCacheService",
+	HandlerType: (*ResponseCacheServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Close",
+			Handler:    _ResponseCacheService_Close_Handler,
+		},
+		{
+			MethodName: "Delete",
+			Handler:    _ResponseCacheService_Delete_Handler,
+		},
+		{
+			MethodName: "Flush",
+			Handler:    _ResponseCacheService_Flush_Handler,
+		},
+		{
+			MethodName: "GetHitCount",
+			Handler:    _ResponseCacheService_GetHitCount_Handler,
+		},
+		{
+			MethodName: "GetNetworkCount",
+			Handler:    _ResponseCacheService_GetNetworkCount_Handler,
+		},
+		{
+			MethodName: "GetRequestCount",
+			Handler:    _ResponseCacheService_GetRequestCount_Handler,
+		},
+		{
+			MethodName: "MaxSize",
+			Handler:    _ResponseCacheService_MaxSize_Handler,
+		},
+		{
+			MethodName: "Put",
+			Handler:    _ResponseCacheService_Put_Handler,
+		},
+		{
+			MethodName: "Size",
+			Handler:    _ResponseCacheService_Size_Handler,
+		},
+		{
+			MethodName: "GetInstalled",
+			Handler:    _ResponseCacheService_GetInstalled_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/http/http.proto",
+}
+
+const (
+	SslCertificateService_NewSslCertificate_FullMethodName     = "/http.SslCertificateService/NewSslCertificate"
+	SslCertificateService_GetIssuedBy_FullMethodName           = "/http.SslCertificateService/GetIssuedBy"
+	SslCertificateService_GetIssuedTo_FullMethodName           = "/http.SslCertificateService/GetIssuedTo"
+	SslCertificateService_GetValidNotAfter_FullMethodName      = "/http.SslCertificateService/GetValidNotAfter"
+	SslCertificateService_GetValidNotAfterDate_FullMethodName  = "/http.SslCertificateService/GetValidNotAfterDate"
+	SslCertificateService_GetValidNotBefore_FullMethodName     = "/http.SslCertificateService/GetValidNotBefore"
+	SslCertificateService_GetValidNotBeforeDate_FullMethodName = "/http.SslCertificateService/GetValidNotBeforeDate"
+	SslCertificateService_GetX509Certificate_FullMethodName    = "/http.SslCertificateService/GetX509Certificate"
+	SslCertificateService_ToString_FullMethodName              = "/http.SslCertificateService/ToString"
+	SslCertificateService_RestoreState_FullMethodName          = "/http.SslCertificateService/RestoreState"
+	SslCertificateService_SaveState_FullMethodName             = "/http.SslCertificateService/SaveState"
+)
+
+// SslCertificateServiceClient is the client API for SslCertificateService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SslCertificateServiceClient interface {
+	NewSslCertificate(ctx context.Context, in *NewSslCertificateRequest, opts ...grpc.CallOption) (*NewSslCertificateResponse, error)
+	GetIssuedBy(ctx context.Context, in *GetIssuedByRequest, opts ...grpc.CallOption) (*GetIssuedByResponse, error)
+	GetIssuedTo(ctx context.Context, in *GetIssuedToRequest, opts ...grpc.CallOption) (*GetIssuedToResponse, error)
+	GetValidNotAfter(ctx context.Context, in *GetValidNotAfterRequest, opts ...grpc.CallOption) (*GetValidNotAfterResponse, error)
+	GetValidNotAfterDate(ctx context.Context, in *GetValidNotAfterDateRequest, opts ...grpc.CallOption) (*GetValidNotAfterDateResponse, error)
+	GetValidNotBefore(ctx context.Context, in *GetValidNotBeforeRequest, opts ...grpc.CallOption) (*GetValidNotBeforeResponse, error)
+	GetValidNotBeforeDate(ctx context.Context, in *GetValidNotBeforeDateRequest, opts ...grpc.CallOption) (*GetValidNotBeforeDateResponse, error)
+	GetX509Certificate(ctx context.Context, in *GetX509CertificateRequest, opts ...grpc.CallOption) (*GetX509CertificateResponse, error)
+	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
+	RestoreState(ctx context.Context, in *RestoreStateRequest, opts ...grpc.CallOption) (*RestoreStateResponse, error)
+	SaveState(ctx context.Context, in *SaveStateRequest, opts ...grpc.CallOption) (*SaveStateResponse, error)
+}
+
+type sslCertificateServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSslCertificateServiceClient(cc grpc.ClientConnInterface) SslCertificateServiceClient {
+	return &sslCertificateServiceClient{cc}
+}
+
+func (c *sslCertificateServiceClient) NewSslCertificate(ctx context.Context, in *NewSslCertificateRequest, opts ...grpc.CallOption) (*NewSslCertificateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewSslCertificateResponse)
+	err := c.cc.Invoke(ctx, SslCertificateService_NewSslCertificate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sslCertificateServiceClient) GetIssuedBy(ctx context.Context, in *GetIssuedByRequest, opts ...grpc.CallOption) (*GetIssuedByResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIssuedByResponse)
+	err := c.cc.Invoke(ctx, SslCertificateService_GetIssuedBy_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sslCertificateServiceClient) GetIssuedTo(ctx context.Context, in *GetIssuedToRequest, opts ...grpc.CallOption) (*GetIssuedToResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetIssuedToResponse)
+	err := c.cc.Invoke(ctx, SslCertificateService_GetIssuedTo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sslCertificateServiceClient) GetValidNotAfter(ctx context.Context, in *GetValidNotAfterRequest, opts ...grpc.CallOption) (*GetValidNotAfterResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetValidNotAfterResponse)
+	err := c.cc.Invoke(ctx, SslCertificateService_GetValidNotAfter_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sslCertificateServiceClient) GetValidNotAfterDate(ctx context.Context, in *GetValidNotAfterDateRequest, opts ...grpc.CallOption) (*GetValidNotAfterDateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetValidNotAfterDateResponse)
+	err := c.cc.Invoke(ctx, SslCertificateService_GetValidNotAfterDate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sslCertificateServiceClient) GetValidNotBefore(ctx context.Context, in *GetValidNotBeforeRequest, opts ...grpc.CallOption) (*GetValidNotBeforeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetValidNotBeforeResponse)
+	err := c.cc.Invoke(ctx, SslCertificateService_GetValidNotBefore_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sslCertificateServiceClient) GetValidNotBeforeDate(ctx context.Context, in *GetValidNotBeforeDateRequest, opts ...grpc.CallOption) (*GetValidNotBeforeDateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetValidNotBeforeDateResponse)
+	err := c.cc.Invoke(ctx, SslCertificateService_GetValidNotBeforeDate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sslCertificateServiceClient) GetX509Certificate(ctx context.Context, in *GetX509CertificateRequest, opts ...grpc.CallOption) (*GetX509CertificateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetX509CertificateResponse)
+	err := c.cc.Invoke(ctx, SslCertificateService_GetX509Certificate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sslCertificateServiceClient) ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ToStringResponse)
+	err := c.cc.Invoke(ctx, SslCertificateService_ToString_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sslCertificateServiceClient) RestoreState(ctx context.Context, in *RestoreStateRequest, opts ...grpc.CallOption) (*RestoreStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(RestoreStateResponse)
+	err := c.cc.Invoke(ctx, SslCertificateService_RestoreState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sslCertificateServiceClient) SaveState(ctx context.Context, in *SaveStateRequest, opts ...grpc.CallOption) (*SaveStateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SaveStateResponse)
+	err := c.cc.Invoke(ctx, SslCertificateService_SaveState_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SslCertificateServiceServer is the server API for SslCertificateService service.
+// All implementations must embed UnimplementedSslCertificateServiceServer
+// for forward compatibility.
+type SslCertificateServiceServer interface {
+	NewSslCertificate(context.Context, *NewSslCertificateRequest) (*NewSslCertificateResponse, error)
+	GetIssuedBy(context.Context, *GetIssuedByRequest) (*GetIssuedByResponse, error)
+	GetIssuedTo(context.Context, *GetIssuedToRequest) (*GetIssuedToResponse, error)
+	GetValidNotAfter(context.Context, *GetValidNotAfterRequest) (*GetValidNotAfterResponse, error)
+	GetValidNotAfterDate(context.Context, *GetValidNotAfterDateRequest) (*GetValidNotAfterDateResponse, error)
+	GetValidNotBefore(context.Context, *GetValidNotBeforeRequest) (*GetValidNotBeforeResponse, error)
+	GetValidNotBeforeDate(context.Context, *GetValidNotBeforeDateRequest) (*GetValidNotBeforeDateResponse, error)
+	GetX509Certificate(context.Context, *GetX509CertificateRequest) (*GetX509CertificateResponse, error)
+	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
+	RestoreState(context.Context, *RestoreStateRequest) (*RestoreStateResponse, error)
+	SaveState(context.Context, *SaveStateRequest) (*SaveStateResponse, error)
+	mustEmbedUnimplementedSslCertificateServiceServer()
+}
+
+// UnimplementedSslCertificateServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSslCertificateServiceServer struct{}
+
+func (UnimplementedSslCertificateServiceServer) NewSslCertificate(context.Context, *NewSslCertificateRequest) (*NewSslCertificateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewSslCertificate not implemented")
+}
+func (UnimplementedSslCertificateServiceServer) GetIssuedBy(context.Context, *GetIssuedByRequest) (*GetIssuedByResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIssuedBy not implemented")
+}
+func (UnimplementedSslCertificateServiceServer) GetIssuedTo(context.Context, *GetIssuedToRequest) (*GetIssuedToResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetIssuedTo not implemented")
+}
+func (UnimplementedSslCertificateServiceServer) GetValidNotAfter(context.Context, *GetValidNotAfterRequest) (*GetValidNotAfterResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetValidNotAfter not implemented")
+}
+func (UnimplementedSslCertificateServiceServer) GetValidNotAfterDate(context.Context, *GetValidNotAfterDateRequest) (*GetValidNotAfterDateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetValidNotAfterDate not implemented")
+}
+func (UnimplementedSslCertificateServiceServer) GetValidNotBefore(context.Context, *GetValidNotBeforeRequest) (*GetValidNotBeforeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetValidNotBefore not implemented")
+}
+func (UnimplementedSslCertificateServiceServer) GetValidNotBeforeDate(context.Context, *GetValidNotBeforeDateRequest) (*GetValidNotBeforeDateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetValidNotBeforeDate not implemented")
+}
+func (UnimplementedSslCertificateServiceServer) GetX509Certificate(context.Context, *GetX509CertificateRequest) (*GetX509CertificateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetX509Certificate not implemented")
+}
+func (UnimplementedSslCertificateServiceServer) ToString(context.Context, *ToStringRequest) (*ToStringResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ToString not implemented")
+}
+func (UnimplementedSslCertificateServiceServer) RestoreState(context.Context, *RestoreStateRequest) (*RestoreStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method RestoreState not implemented")
+}
+func (UnimplementedSslCertificateServiceServer) SaveState(context.Context, *SaveStateRequest) (*SaveStateResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method SaveState not implemented")
+}
+func (UnimplementedSslCertificateServiceServer) mustEmbedUnimplementedSslCertificateServiceServer() {}
+func (UnimplementedSslCertificateServiceServer) testEmbeddedByValue()                               {}
+
+// UnsafeSslCertificateServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SslCertificateServiceServer will
+// result in compilation errors.
+type UnsafeSslCertificateServiceServer interface {
+	mustEmbedUnimplementedSslCertificateServiceServer()
+}
+
+func RegisterSslCertificateServiceServer(s grpc.ServiceRegistrar, srv SslCertificateServiceServer) {
+	// If the following call panics, it indicates UnimplementedSslCertificateServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SslCertificateService_ServiceDesc, srv)
+}
+
+func _SslCertificateService_NewSslCertificate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewSslCertificateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SslCertificateServiceServer).NewSslCertificate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SslCertificateService_NewSslCertificate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SslCertificateServiceServer).NewSslCertificate(ctx, req.(*NewSslCertificateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SslCertificateService_GetIssuedBy_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIssuedByRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SslCertificateServiceServer).GetIssuedBy(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SslCertificateService_GetIssuedBy_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SslCertificateServiceServer).GetIssuedBy(ctx, req.(*GetIssuedByRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SslCertificateService_GetIssuedTo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetIssuedToRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SslCertificateServiceServer).GetIssuedTo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SslCertificateService_GetIssuedTo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SslCertificateServiceServer).GetIssuedTo(ctx, req.(*GetIssuedToRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SslCertificateService_GetValidNotAfter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetValidNotAfterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SslCertificateServiceServer).GetValidNotAfter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SslCertificateService_GetValidNotAfter_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SslCertificateServiceServer).GetValidNotAfter(ctx, req.(*GetValidNotAfterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SslCertificateService_GetValidNotAfterDate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetValidNotAfterDateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SslCertificateServiceServer).GetValidNotAfterDate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SslCertificateService_GetValidNotAfterDate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SslCertificateServiceServer).GetValidNotAfterDate(ctx, req.(*GetValidNotAfterDateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SslCertificateService_GetValidNotBefore_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetValidNotBeforeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SslCertificateServiceServer).GetValidNotBefore(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SslCertificateService_GetValidNotBefore_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SslCertificateServiceServer).GetValidNotBefore(ctx, req.(*GetValidNotBeforeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SslCertificateService_GetValidNotBeforeDate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetValidNotBeforeDateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SslCertificateServiceServer).GetValidNotBeforeDate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SslCertificateService_GetValidNotBeforeDate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SslCertificateServiceServer).GetValidNotBeforeDate(ctx, req.(*GetValidNotBeforeDateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SslCertificateService_GetX509Certificate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetX509CertificateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SslCertificateServiceServer).GetX509Certificate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SslCertificateService_GetX509Certificate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SslCertificateServiceServer).GetX509Certificate(ctx, req.(*GetX509CertificateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SslCertificateService_ToString_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ToStringRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SslCertificateServiceServer).ToString(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SslCertificateService_ToString_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SslCertificateServiceServer).ToString(ctx, req.(*ToStringRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SslCertificateService_RestoreState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RestoreStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SslCertificateServiceServer).RestoreState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SslCertificateService_RestoreState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SslCertificateServiceServer).RestoreState(ctx, req.(*RestoreStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SslCertificateService_SaveState_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SaveStateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SslCertificateServiceServer).SaveState(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SslCertificateService_SaveState_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SslCertificateServiceServer).SaveState(ctx, req.(*SaveStateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SslCertificateService_ServiceDesc is the grpc.ServiceDesc for SslCertificateService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SslCertificateService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "http.SslCertificateService",
+	HandlerType: (*SslCertificateServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewSslCertificate",
+			Handler:    _SslCertificateService_NewSslCertificate_Handler,
+		},
+		{
+			MethodName: "GetIssuedBy",
+			Handler:    _SslCertificateService_GetIssuedBy_Handler,
+		},
+		{
+			MethodName: "GetIssuedTo",
+			Handler:    _SslCertificateService_GetIssuedTo_Handler,
+		},
+		{
+			MethodName: "GetValidNotAfter",
+			Handler:    _SslCertificateService_GetValidNotAfter_Handler,
+		},
+		{
+			MethodName: "GetValidNotAfterDate",
+			Handler:    _SslCertificateService_GetValidNotAfterDate_Handler,
+		},
+		{
+			MethodName: "GetValidNotBefore",
+			Handler:    _SslCertificateService_GetValidNotBefore_Handler,
+		},
+		{
+			MethodName: "GetValidNotBeforeDate",
+			Handler:    _SslCertificateService_GetValidNotBeforeDate_Handler,
+		},
+		{
+			MethodName: "GetX509Certificate",
+			Handler:    _SslCertificateService_GetX509Certificate_Handler,
+		},
+		{
+			MethodName: "ToString",
+			Handler:    _SslCertificateService_ToString_Handler,
+		},
+		{
+			MethodName: "RestoreState",
+			Handler:    _SslCertificateService_RestoreState_Handler,
+		},
+		{
+			MethodName: "SaveState",
+			Handler:    _SslCertificateService_SaveState_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/http/http.proto",
+}
+
+const (
+	SslCertificateDNameService_GetCName_FullMethodName = "/http.SslCertificateDNameService/GetCName"
+	SslCertificateDNameService_GetDName_FullMethodName = "/http.SslCertificateDNameService/GetDName"
+	SslCertificateDNameService_GetOName_FullMethodName = "/http.SslCertificateDNameService/GetOName"
+	SslCertificateDNameService_GetUName_FullMethodName = "/http.SslCertificateDNameService/GetUName"
+)
+
+// SslCertificateDNameServiceClient is the client API for SslCertificateDNameService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type SslCertificateDNameServiceClient interface {
+	GetCName(ctx context.Context, in *GetCNameRequest, opts ...grpc.CallOption) (*GetCNameResponse, error)
+	GetDName(ctx context.Context, in *GetDNameRequest, opts ...grpc.CallOption) (*GetDNameResponse, error)
+	GetOName(ctx context.Context, in *GetONameRequest, opts ...grpc.CallOption) (*GetONameResponse, error)
+	GetUName(ctx context.Context, in *GetUNameRequest, opts ...grpc.CallOption) (*GetUNameResponse, error)
+}
+
+type sslCertificateDNameServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewSslCertificateDNameServiceClient(cc grpc.ClientConnInterface) SslCertificateDNameServiceClient {
+	return &sslCertificateDNameServiceClient{cc}
+}
+
+func (c *sslCertificateDNameServiceClient) GetCName(ctx context.Context, in *GetCNameRequest, opts ...grpc.CallOption) (*GetCNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCNameResponse)
+	err := c.cc.Invoke(ctx, SslCertificateDNameService_GetCName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sslCertificateDNameServiceClient) GetDName(ctx context.Context, in *GetDNameRequest, opts ...grpc.CallOption) (*GetDNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetDNameResponse)
+	err := c.cc.Invoke(ctx, SslCertificateDNameService_GetDName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sslCertificateDNameServiceClient) GetOName(ctx context.Context, in *GetONameRequest, opts ...grpc.CallOption) (*GetONameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetONameResponse)
+	err := c.cc.Invoke(ctx, SslCertificateDNameService_GetOName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *sslCertificateDNameServiceClient) GetUName(ctx context.Context, in *GetUNameRequest, opts ...grpc.CallOption) (*GetUNameResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUNameResponse)
+	err := c.cc.Invoke(ctx, SslCertificateDNameService_GetUName_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// SslCertificateDNameServiceServer is the server API for SslCertificateDNameService service.
+// All implementations must embed UnimplementedSslCertificateDNameServiceServer
+// for forward compatibility.
+type SslCertificateDNameServiceServer interface {
+	GetCName(context.Context, *GetCNameRequest) (*GetCNameResponse, error)
+	GetDName(context.Context, *GetDNameRequest) (*GetDNameResponse, error)
+	GetOName(context.Context, *GetONameRequest) (*GetONameResponse, error)
+	GetUName(context.Context, *GetUNameRequest) (*GetUNameResponse, error)
+	mustEmbedUnimplementedSslCertificateDNameServiceServer()
+}
+
+// UnimplementedSslCertificateDNameServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedSslCertificateDNameServiceServer struct{}
+
+func (UnimplementedSslCertificateDNameServiceServer) GetCName(context.Context, *GetCNameRequest) (*GetCNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCName not implemented")
+}
+func (UnimplementedSslCertificateDNameServiceServer) GetDName(context.Context, *GetDNameRequest) (*GetDNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetDName not implemented")
+}
+func (UnimplementedSslCertificateDNameServiceServer) GetOName(context.Context, *GetONameRequest) (*GetONameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOName not implemented")
+}
+func (UnimplementedSslCertificateDNameServiceServer) GetUName(context.Context, *GetUNameRequest) (*GetUNameResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUName not implemented")
+}
+func (UnimplementedSslCertificateDNameServiceServer) mustEmbedUnimplementedSslCertificateDNameServiceServer() {
+}
+func (UnimplementedSslCertificateDNameServiceServer) testEmbeddedByValue() {}
+
+// UnsafeSslCertificateDNameServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to SslCertificateDNameServiceServer will
+// result in compilation errors.
+type UnsafeSslCertificateDNameServiceServer interface {
+	mustEmbedUnimplementedSslCertificateDNameServiceServer()
+}
+
+func RegisterSslCertificateDNameServiceServer(s grpc.ServiceRegistrar, srv SslCertificateDNameServiceServer) {
+	// If the following call panics, it indicates UnimplementedSslCertificateDNameServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&SslCertificateDNameService_ServiceDesc, srv)
+}
+
+func _SslCertificateDNameService_GetCName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SslCertificateDNameServiceServer).GetCName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SslCertificateDNameService_GetCName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SslCertificateDNameServiceServer).GetCName(ctx, req.(*GetCNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SslCertificateDNameService_GetDName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetDNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SslCertificateDNameServiceServer).GetDName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SslCertificateDNameService_GetDName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SslCertificateDNameServiceServer).GetDName(ctx, req.(*GetDNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SslCertificateDNameService_GetOName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetONameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SslCertificateDNameServiceServer).GetOName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SslCertificateDNameService_GetOName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SslCertificateDNameServiceServer).GetOName(ctx, req.(*GetONameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SslCertificateDNameService_GetUName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SslCertificateDNameServiceServer).GetUName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SslCertificateDNameService_GetUName_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SslCertificateDNameServiceServer).GetUName(ctx, req.(*GetUNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// SslCertificateDNameService_ServiceDesc is the grpc.ServiceDesc for SslCertificateDNameService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var SslCertificateDNameService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "http.SslCertificateDNameService",
+	HandlerType: (*SslCertificateDNameServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetCName",
+			Handler:    _SslCertificateDNameService_GetCName_Handler,
+		},
+		{
+			MethodName: "GetDName",
+			Handler:    _SslCertificateDNameService_GetDName_Handler,
+		},
+		{
+			MethodName: "GetOName",
+			Handler:    _SslCertificateDNameService_GetOName_Handler,
+		},
+		{
+			MethodName: "GetUName",
+			Handler:    _SslCertificateDNameService_GetUName_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/http/http.proto",
+}
+
+const (
+	UrlResponseInfoService_GetHeaders_FullMethodName            = "/http.UrlResponseInfoService/GetHeaders"
+	UrlResponseInfoService_GetHttpStatusCode_FullMethodName     = "/http.UrlResponseInfoService/GetHttpStatusCode"
+	UrlResponseInfoService_GetHttpStatusText_FullMethodName     = "/http.UrlResponseInfoService/GetHttpStatusText"
+	UrlResponseInfoService_GetNegotiatedProtocol_FullMethodName = "/http.UrlResponseInfoService/GetNegotiatedProtocol"
+	UrlResponseInfoService_GetReceivedByteCount_FullMethodName  = "/http.UrlResponseInfoService/GetReceivedByteCount"
+	UrlResponseInfoService_GetUrl_FullMethodName                = "/http.UrlResponseInfoService/GetUrl"
+	UrlResponseInfoService_GetUrlChain_FullMethodName           = "/http.UrlResponseInfoService/GetUrlChain"
+	UrlResponseInfoService_WasCached_FullMethodName             = "/http.UrlResponseInfoService/WasCached"
+)
+
+// UrlResponseInfoServiceClient is the client API for UrlResponseInfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type UrlResponseInfoServiceClient interface {
+	GetHeaders(ctx context.Context, in *GetHeadersRequest, opts ...grpc.CallOption) (*GetHeadersResponse, error)
+	GetHttpStatusCode(ctx context.Context, in *GetHttpStatusCodeRequest, opts ...grpc.CallOption) (*GetHttpStatusCodeResponse, error)
+	GetHttpStatusText(ctx context.Context, in *GetHttpStatusTextRequest, opts ...grpc.CallOption) (*GetHttpStatusTextResponse, error)
+	GetNegotiatedProtocol(ctx context.Context, in *GetNegotiatedProtocolRequest, opts ...grpc.CallOption) (*GetNegotiatedProtocolResponse, error)
+	GetReceivedByteCount(ctx context.Context, in *GetReceivedByteCountRequest, opts ...grpc.CallOption) (*GetReceivedByteCountResponse, error)
+	GetUrl(ctx context.Context, in *UrlResponseInfoGetUrlRequest, opts ...grpc.CallOption) (*GetUrlResponse, error)
+	GetUrlChain(ctx context.Context, in *GetUrlChainRequest, opts ...grpc.CallOption) (*GetUrlChainResponse, error)
+	WasCached(ctx context.Context, in *WasCachedRequest, opts ...grpc.CallOption) (*WasCachedResponse, error)
+}
+
+type urlResponseInfoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewUrlResponseInfoServiceClient(cc grpc.ClientConnInterface) UrlResponseInfoServiceClient {
+	return &urlResponseInfoServiceClient{cc}
+}
+
+func (c *urlResponseInfoServiceClient) GetHeaders(ctx context.Context, in *GetHeadersRequest, opts ...grpc.CallOption) (*GetHeadersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetHeadersResponse)
+	err := c.cc.Invoke(ctx, UrlResponseInfoService_GetHeaders_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *urlResponseInfoServiceClient) GetHttpStatusCode(ctx context.Context, in *GetHttpStatusCodeRequest, opts ...grpc.CallOption) (*GetHttpStatusCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetHttpStatusCodeResponse)
+	err := c.cc.Invoke(ctx, UrlResponseInfoService_GetHttpStatusCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *urlResponseInfoServiceClient) GetHttpStatusText(ctx context.Context, in *GetHttpStatusTextRequest, opts ...grpc.CallOption) (*GetHttpStatusTextResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetHttpStatusTextResponse)
+	err := c.cc.Invoke(ctx, UrlResponseInfoService_GetHttpStatusText_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *urlResponseInfoServiceClient) GetNegotiatedProtocol(ctx context.Context, in *GetNegotiatedProtocolRequest, opts ...grpc.CallOption) (*GetNegotiatedProtocolResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetNegotiatedProtocolResponse)
+	err := c.cc.Invoke(ctx, UrlResponseInfoService_GetNegotiatedProtocol_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *urlResponseInfoServiceClient) GetReceivedByteCount(ctx context.Context, in *GetReceivedByteCountRequest, opts ...grpc.CallOption) (*GetReceivedByteCountResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetReceivedByteCountResponse)
+	err := c.cc.Invoke(ctx, UrlResponseInfoService_GetReceivedByteCount_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *urlResponseInfoServiceClient) GetUrl(ctx context.Context, in *UrlResponseInfoGetUrlRequest, opts ...grpc.CallOption) (*GetUrlResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUrlResponse)
+	err := c.cc.Invoke(ctx, UrlResponseInfoService_GetUrl_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *urlResponseInfoServiceClient) GetUrlChain(ctx context.Context, in *GetUrlChainRequest, opts ...grpc.CallOption) (*GetUrlChainResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUrlChainResponse)
+	err := c.cc.Invoke(ctx, UrlResponseInfoService_GetUrlChain_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *urlResponseInfoServiceClient) WasCached(ctx context.Context, in *WasCachedRequest, opts ...grpc.CallOption) (*WasCachedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WasCachedResponse)
+	err := c.cc.Invoke(ctx, UrlResponseInfoService_WasCached_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// UrlResponseInfoServiceServer is the server API for UrlResponseInfoService service.
+// All implementations must embed UnimplementedUrlResponseInfoServiceServer
+// for forward compatibility.
+type UrlResponseInfoServiceServer interface {
+	GetHeaders(context.Context, *GetHeadersRequest) (*GetHeadersResponse, error)
+	GetHttpStatusCode(context.Context, *GetHttpStatusCodeRequest) (*GetHttpStatusCodeResponse, error)
+	GetHttpStatusText(context.Context, *GetHttpStatusTextRequest) (*GetHttpStatusTextResponse, error)
+	GetNegotiatedProtocol(context.Context, *GetNegotiatedProtocolRequest) (*GetNegotiatedProtocolResponse, error)
+	GetReceivedByteCount(context.Context, *GetReceivedByteCountRequest) (*GetReceivedByteCountResponse, error)
+	GetUrl(context.Context, *UrlResponseInfoGetUrlRequest) (*GetUrlResponse, error)
+	GetUrlChain(context.Context, *GetUrlChainRequest) (*GetUrlChainResponse, error)
+	WasCached(context.Context, *WasCachedRequest) (*WasCachedResponse, error)
+	mustEmbedUnimplementedUrlResponseInfoServiceServer()
+}
+
+// UnimplementedUrlResponseInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedUrlResponseInfoServiceServer struct{}
+
+func (UnimplementedUrlResponseInfoServiceServer) GetHeaders(context.Context, *GetHeadersRequest) (*GetHeadersResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetHeaders not implemented")
+}
+func (UnimplementedUrlResponseInfoServiceServer) GetHttpStatusCode(context.Context, *GetHttpStatusCodeRequest) (*GetHttpStatusCodeResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetHttpStatusCode not implemented")
+}
+func (UnimplementedUrlResponseInfoServiceServer) GetHttpStatusText(context.Context, *GetHttpStatusTextRequest) (*GetHttpStatusTextResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetHttpStatusText not implemented")
+}
+func (UnimplementedUrlResponseInfoServiceServer) GetNegotiatedProtocol(context.Context, *GetNegotiatedProtocolRequest) (*GetNegotiatedProtocolResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNegotiatedProtocol not implemented")
+}
+func (UnimplementedUrlResponseInfoServiceServer) GetReceivedByteCount(context.Context, *GetReceivedByteCountRequest) (*GetReceivedByteCountResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetReceivedByteCount not implemented")
+}
+func (UnimplementedUrlResponseInfoServiceServer) GetUrl(context.Context, *UrlResponseInfoGetUrlRequest) (*GetUrlResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUrl not implemented")
+}
+func (UnimplementedUrlResponseInfoServiceServer) GetUrlChain(context.Context, *GetUrlChainRequest) (*GetUrlChainResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetUrlChain not implemented")
+}
+func (UnimplementedUrlResponseInfoServiceServer) WasCached(context.Context, *WasCachedRequest) (*WasCachedResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WasCached not implemented")
+}
+func (UnimplementedUrlResponseInfoServiceServer) mustEmbedUnimplementedUrlResponseInfoServiceServer() {
+}
+func (UnimplementedUrlResponseInfoServiceServer) testEmbeddedByValue() {}
+
+// UnsafeUrlResponseInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to UrlResponseInfoServiceServer will
+// result in compilation errors.
+type UnsafeUrlResponseInfoServiceServer interface {
+	mustEmbedUnimplementedUrlResponseInfoServiceServer()
+}
+
+func RegisterUrlResponseInfoServiceServer(s grpc.ServiceRegistrar, srv UrlResponseInfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedUrlResponseInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&UrlResponseInfoService_ServiceDesc, srv)
+}
+
+func _UrlResponseInfoService_GetHeaders_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetHeadersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UrlResponseInfoServiceServer).GetHeaders(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UrlResponseInfoService_GetHeaders_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UrlResponseInfoServiceServer).GetHeaders(ctx, req.(*GetHeadersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UrlResponseInfoService_GetHttpStatusCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetHttpStatusCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UrlResponseInfoServiceServer).GetHttpStatusCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UrlResponseInfoService_GetHttpStatusCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UrlResponseInfoServiceServer).GetHttpStatusCode(ctx, req.(*GetHttpStatusCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UrlResponseInfoService_GetHttpStatusText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetHttpStatusTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UrlResponseInfoServiceServer).GetHttpStatusText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UrlResponseInfoService_GetHttpStatusText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UrlResponseInfoServiceServer).GetHttpStatusText(ctx, req.(*GetHttpStatusTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UrlResponseInfoService_GetNegotiatedProtocol_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNegotiatedProtocolRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UrlResponseInfoServiceServer).GetNegotiatedProtocol(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UrlResponseInfoService_GetNegotiatedProtocol_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UrlResponseInfoServiceServer).GetNegotiatedProtocol(ctx, req.(*GetNegotiatedProtocolRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UrlResponseInfoService_GetReceivedByteCount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetReceivedByteCountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UrlResponseInfoServiceServer).GetReceivedByteCount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UrlResponseInfoService_GetReceivedByteCount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UrlResponseInfoServiceServer).GetReceivedByteCount(ctx, req.(*GetReceivedByteCountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UrlResponseInfoService_GetUrl_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UrlResponseInfoGetUrlRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UrlResponseInfoServiceServer).GetUrl(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UrlResponseInfoService_GetUrl_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UrlResponseInfoServiceServer).GetUrl(ctx, req.(*UrlResponseInfoGetUrlRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UrlResponseInfoService_GetUrlChain_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUrlChainRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UrlResponseInfoServiceServer).GetUrlChain(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UrlResponseInfoService_GetUrlChain_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UrlResponseInfoServiceServer).GetUrlChain(ctx, req.(*GetUrlChainRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UrlResponseInfoService_WasCached_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WasCachedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UrlResponseInfoServiceServer).WasCached(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UrlResponseInfoService_WasCached_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UrlResponseInfoServiceServer).WasCached(ctx, req.(*WasCachedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// UrlResponseInfoService_ServiceDesc is the grpc.ServiceDesc for UrlResponseInfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var UrlResponseInfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "http.UrlResponseInfoService",
+	HandlerType: (*UrlResponseInfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetHeaders",
+			Handler:    _UrlResponseInfoService_GetHeaders_Handler,
+		},
+		{
+			MethodName: "GetHttpStatusCode",
+			Handler:    _UrlResponseInfoService_GetHttpStatusCode_Handler,
+		},
+		{
+			MethodName: "GetHttpStatusText",
+			Handler:    _UrlResponseInfoService_GetHttpStatusText_Handler,
+		},
+		{
+			MethodName: "GetNegotiatedProtocol",
+			Handler:    _UrlResponseInfoService_GetNegotiatedProtocol_Handler,
+		},
+		{
+			MethodName: "GetReceivedByteCount",
+			Handler:    _UrlResponseInfoService_GetReceivedByteCount_Handler,
+		},
+		{
+			MethodName: "GetUrl",
+			Handler:    _UrlResponseInfoService_GetUrl_Handler,
+		},
+		{
+			MethodName: "GetUrlChain",
+			Handler:    _UrlResponseInfoService_GetUrlChain_Handler,
+		},
+		{
+			MethodName: "WasCached",
+			Handler:    _UrlResponseInfoService_WasCached_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

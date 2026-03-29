@@ -210,6 +210,17 @@ func (c *MediaPlayerClient) GetRoutedDevice(ctx context.Context, handle int64) (
 	return resp.GetResult(), nil
 }
 
+// GetRoutedDevices calls the GetRoutedDevices RPC.
+func (c *MediaPlayerClient) GetRoutedDevices(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetRoutedDevices(ctx, &pb.GetRoutedDevicesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // GetSelectedTrack calls the GetSelectedTrack RPC.
 func (c *MediaPlayerClient) GetSelectedTrack(ctx context.Context, handle int64, arg0 int32) (int32, error) {
 	resp, err := c.svc.GetSelectedTrack(ctx, &pb.GetSelectedTrackRequest{

@@ -12,42 +12,18 @@ var measurementCmd = &cobra.Command{
 	Short: "measurement service operations",
 }
 
-var measurementManagerCmd = &cobra.Command{
-	Use:   "manager",
-	Short: "ManagerService operations",
+var measurementWebSourceParamsCmd = &cobra.Command{
+	Use:   "web-source-params",
+	Short: "WebSourceParamsService operations",
 }
 
-var measurementManagerGetCmd = &cobra.Command{
-	Use:   "get",
-	Short: "Get RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewManagerServiceClient(grpcConn)
-		req := &pb.GetRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Get(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var measurementSourceRegistrationRequestCmd = &cobra.Command{
-	Use:   "source-registration-request",
-	Short: "SourceRegistrationRequestService operations",
-}
-
-var measurementSourceRegistrationRequestDescribeContentsCmd = &cobra.Command{
+var measurementWebSourceParamsDescribeContentsCmd = &cobra.Command{
 	Use:   "describe-contents",
 	Short: "DescribeContents RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSourceRegistrationRequestServiceClient(grpcConn)
+		client := pb.NewWebSourceParamsServiceClient(grpcConn)
 		req := &pb.DescribeContentsRequest{}
 		resp, err := client.DescribeContents(ctx, req)
 		if err != nil {
@@ -57,13 +33,13 @@ var measurementSourceRegistrationRequestDescribeContentsCmd = &cobra.Command{
 	},
 }
 
-var measurementSourceRegistrationRequestEqualsCmd = &cobra.Command{
+var measurementWebSourceParamsEqualsCmd = &cobra.Command{
 	Use:   "equals",
 	Short: "Equals RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSourceRegistrationRequestServiceClient(grpcConn)
+		client := pb.NewWebSourceParamsServiceClient(grpcConn)
 		req := &pb.EqualsRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -76,15 +52,15 @@ var measurementSourceRegistrationRequestEqualsCmd = &cobra.Command{
 	},
 }
 
-var measurementSourceRegistrationRequestGetInputEventCmd = &cobra.Command{
-	Use:   "get-input-event",
-	Short: "GetInputEvent RPC",
+var measurementWebSourceParamsGetRegistrationUriCmd = &cobra.Command{
+	Use:   "get-registration-uri",
+	Short: "GetRegistrationUri RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSourceRegistrationRequestServiceClient(grpcConn)
-		req := &pb.GetInputEventRequest{}
-		resp, err := client.GetInputEvent(ctx, req)
+		client := pb.NewWebSourceParamsServiceClient(grpcConn)
+		req := &pb.GetRegistrationUriRequest{}
+		resp, err := client.GetRegistrationUri(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -92,13 +68,13 @@ var measurementSourceRegistrationRequestGetInputEventCmd = &cobra.Command{
 	},
 }
 
-var measurementSourceRegistrationRequestHashCodeCmd = &cobra.Command{
+var measurementWebSourceParamsHashCodeCmd = &cobra.Command{
 	Use:   "hash-code",
 	Short: "HashCode RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSourceRegistrationRequestServiceClient(grpcConn)
+		client := pb.NewWebSourceParamsServiceClient(grpcConn)
 		req := &pb.HashCodeRequest{}
 		resp, err := client.HashCode(ctx, req)
 		if err != nil {
@@ -108,13 +84,29 @@ var measurementSourceRegistrationRequestHashCodeCmd = &cobra.Command{
 	},
 }
 
-var measurementSourceRegistrationRequestWriteToParcelCmd = &cobra.Command{
+var measurementWebSourceParamsIsDebugKeyAllowedCmd = &cobra.Command{
+	Use:   "is-debug-key-allowed",
+	Short: "IsDebugKeyAllowed RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSourceParamsServiceClient(grpcConn)
+		req := &pb.IsDebugKeyAllowedRequest{}
+		resp, err := client.IsDebugKeyAllowed(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var measurementWebSourceParamsWriteToParcelCmd = &cobra.Command{
 	Use:   "write-to-parcel",
 	Short: "WriteToParcel RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSourceRegistrationRequestServiceClient(grpcConn)
+		client := pb.NewWebSourceParamsServiceClient(grpcConn)
 		req := &pb.WriteToParcelRequest{}
 		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
 			req.Arg0 = v
@@ -130,18 +122,18 @@ var measurementSourceRegistrationRequestWriteToParcelCmd = &cobra.Command{
 	},
 }
 
-var measurementSourceRegistrationRequestBuilderCmd = &cobra.Command{
-	Use:   "source-registration-request-builder",
-	Short: "SourceRegistrationRequestBuilderService operations",
+var measurementWebSourceParamsBuilderCmd = &cobra.Command{
+	Use:   "web-source-params-builder",
+	Short: "WebSourceParamsBuilderService operations",
 }
 
-var measurementSourceRegistrationRequestBuilderBuildCmd = &cobra.Command{
+var measurementWebSourceParamsBuilderBuildCmd = &cobra.Command{
 	Use:   "build",
 	Short: "Build RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSourceRegistrationRequestBuilderServiceClient(grpcConn)
+		client := pb.NewWebSourceParamsBuilderServiceClient(grpcConn)
 		req := &pb.BuildRequest{}
 		resp, err := client.Build(ctx, req)
 		if err != nil {
@@ -151,18 +143,18 @@ var measurementSourceRegistrationRequestBuilderBuildCmd = &cobra.Command{
 	},
 }
 
-var measurementSourceRegistrationRequestBuilderSetInputEventCmd = &cobra.Command{
-	Use:   "set-input-event",
-	Short: "SetInputEvent RPC",
+var measurementWebSourceParamsBuilderSetDebugKeyAllowedCmd = &cobra.Command{
+	Use:   "set-debug-key-allowed",
+	Short: "SetDebugKeyAllowed RPC",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx, cancel := requestContext(cmd)
 		defer cancel()
-		client := pb.NewSourceRegistrationRequestBuilderServiceClient(grpcConn)
-		req := &pb.SetInputEventRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+		client := pb.NewWebSourceParamsBuilderServiceClient(grpcConn)
+		req := &pb.SetDebugKeyAllowedRequest{}
+		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
 			req.Arg0 = v
 		}
-		resp, err := client.SetInputEvent(ctx, req)
+		resp, err := client.SetDebugKeyAllowed(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -184,6 +176,22 @@ var measurementDeletionRequestGetDeletionModeCmd = &cobra.Command{
 		client := pb.NewDeletionRequestServiceClient(grpcConn)
 		req := &pb.GetDeletionModeRequest{}
 		resp, err := client.GetDeletionMode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var measurementDeletionRequestGetDomainUrisCmd = &cobra.Command{
+	Use:   "get-domain-uris",
+	Short: "GetDomainUris RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeletionRequestServiceClient(grpcConn)
+		req := &pb.GetDomainUrisRequest{}
+		resp, err := client.GetDomainUris(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -216,6 +224,22 @@ var measurementDeletionRequestGetMatchBehaviorCmd = &cobra.Command{
 		client := pb.NewDeletionRequestServiceClient(grpcConn)
 		req := &pb.GetMatchBehaviorRequest{}
 		resp, err := client.GetMatchBehavior(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var measurementDeletionRequestGetOriginUrisCmd = &cobra.Command{
+	Use:   "get-origin-uris",
+	Short: "GetOriginUris RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewDeletionRequestServiceClient(grpcConn)
+		req := &pb.GetOriginUrisRequest{}
+		resp, err := client.GetOriginUris(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -486,156 +510,6 @@ var measurementWebTriggerParamsBuilderSetDebugKeyAllowedCmd = &cobra.Command{
 	},
 }
 
-var measurementWebSourceParamsCmd = &cobra.Command{
-	Use:   "web-source-params",
-	Short: "WebSourceParamsService operations",
-}
-
-var measurementWebSourceParamsDescribeContentsCmd = &cobra.Command{
-	Use:   "describe-contents",
-	Short: "DescribeContents RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSourceParamsServiceClient(grpcConn)
-		req := &pb.DescribeContentsRequest{}
-		resp, err := client.DescribeContents(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var measurementWebSourceParamsEqualsCmd = &cobra.Command{
-	Use:   "equals",
-	Short: "Equals RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSourceParamsServiceClient(grpcConn)
-		req := &pb.EqualsRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.Equals(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var measurementWebSourceParamsGetRegistrationUriCmd = &cobra.Command{
-	Use:   "get-registration-uri",
-	Short: "GetRegistrationUri RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSourceParamsServiceClient(grpcConn)
-		req := &pb.GetRegistrationUriRequest{}
-		resp, err := client.GetRegistrationUri(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var measurementWebSourceParamsHashCodeCmd = &cobra.Command{
-	Use:   "hash-code",
-	Short: "HashCode RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSourceParamsServiceClient(grpcConn)
-		req := &pb.HashCodeRequest{}
-		resp, err := client.HashCode(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var measurementWebSourceParamsIsDebugKeyAllowedCmd = &cobra.Command{
-	Use:   "is-debug-key-allowed",
-	Short: "IsDebugKeyAllowed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSourceParamsServiceClient(grpcConn)
-		req := &pb.IsDebugKeyAllowedRequest{}
-		resp, err := client.IsDebugKeyAllowed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var measurementWebSourceParamsWriteToParcelCmd = &cobra.Command{
-	Use:   "write-to-parcel",
-	Short: "WriteToParcel RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSourceParamsServiceClient(grpcConn)
-		req := &pb.WriteToParcelRequest{}
-		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
-			req.Arg1 = v
-		}
-		resp, err := client.WriteToParcel(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var measurementWebSourceParamsBuilderCmd = &cobra.Command{
-	Use:   "web-source-params-builder",
-	Short: "WebSourceParamsBuilderService operations",
-}
-
-var measurementWebSourceParamsBuilderBuildCmd = &cobra.Command{
-	Use:   "build",
-	Short: "Build RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSourceParamsBuilderServiceClient(grpcConn)
-		req := &pb.BuildRequest{}
-		resp, err := client.Build(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
-var measurementWebSourceParamsBuilderSetDebugKeyAllowedCmd = &cobra.Command{
-	Use:   "set-debug-key-allowed",
-	Short: "SetDebugKeyAllowed RPC",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		ctx, cancel := requestContext(cmd)
-		defer cancel()
-		client := pb.NewWebSourceParamsBuilderServiceClient(grpcConn)
-		req := &pb.SetDebugKeyAllowedRequest{}
-		if v, err := cmd.Flags().GetBool("arg0"); err == nil {
-			req.Arg0 = v
-		}
-		resp, err := client.SetDebugKeyAllowed(ctx, req)
-		if err != nil {
-			return err
-		}
-		return printProtoMessage(resp)
-	},
-}
-
 var measurementWebTriggerRegistrationRequestCmd = &cobra.Command{
 	Use:   "web-trigger-registration-request",
 	Short: "WebTriggerRegistrationRequestService operations",
@@ -685,6 +559,22 @@ var measurementWebTriggerRegistrationRequestGetDestinationCmd = &cobra.Command{
 		client := pb.NewWebTriggerRegistrationRequestServiceClient(grpcConn)
 		req := &pb.GetDestinationRequest{}
 		resp, err := client.GetDestination(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var measurementWebTriggerRegistrationRequestGetTriggerParamsCmd = &cobra.Command{
+	Use:   "get-trigger-params",
+	Short: "GetTriggerParams RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebTriggerRegistrationRequestServiceClient(grpcConn)
+		req := &pb.GetTriggerParamsRequest{}
+		resp, err := client.GetTriggerParams(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -744,6 +634,30 @@ var measurementWebTriggerRegistrationRequestBuilderBuildCmd = &cobra.Command{
 		client := pb.NewWebTriggerRegistrationRequestBuilderServiceClient(grpcConn)
 		req := &pb.BuildRequest{}
 		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var measurementManagerCmd = &cobra.Command{
+	Use:   "manager",
+	Short: "ManagerService operations",
+}
+
+var measurementManagerGetCmd = &cobra.Command{
+	Use:   "get",
+	Short: "Get RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewManagerServiceClient(grpcConn)
+		req := &pb.GetRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Get(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -816,6 +730,22 @@ var measurementWebSourceRegistrationRequestGetInputEventCmd = &cobra.Command{
 		client := pb.NewWebSourceRegistrationRequestServiceClient(grpcConn)
 		req := &pb.GetInputEventRequest{}
 		resp, err := client.GetInputEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var measurementWebSourceRegistrationRequestGetSourceParamsCmd = &cobra.Command{
+	Use:   "get-source-params",
+	Short: "GetSourceParams RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewWebSourceRegistrationRequestServiceClient(grpcConn)
+		req := &pb.GetSourceParamsRequest{}
+		resp, err := client.GetSourceParams(ctx, req)
 		if err != nil {
 			return err
 		}
@@ -1006,26 +936,176 @@ var measurementWebSourceRegistrationRequestBuilderSetWebDestinationCmd = &cobra.
 	},
 }
 
+var measurementSourceRegistrationRequestCmd = &cobra.Command{
+	Use:   "source-registration-request",
+	Short: "SourceRegistrationRequestService operations",
+}
+
+var measurementSourceRegistrationRequestDescribeContentsCmd = &cobra.Command{
+	Use:   "describe-contents",
+	Short: "DescribeContents RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSourceRegistrationRequestServiceClient(grpcConn)
+		req := &pb.DescribeContentsRequest{}
+		resp, err := client.DescribeContents(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var measurementSourceRegistrationRequestEqualsCmd = &cobra.Command{
+	Use:   "equals",
+	Short: "Equals RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSourceRegistrationRequestServiceClient(grpcConn)
+		req := &pb.EqualsRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.Equals(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var measurementSourceRegistrationRequestGetInputEventCmd = &cobra.Command{
+	Use:   "get-input-event",
+	Short: "GetInputEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSourceRegistrationRequestServiceClient(grpcConn)
+		req := &pb.GetInputEventRequest{}
+		resp, err := client.GetInputEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var measurementSourceRegistrationRequestGetRegistrationUrisCmd = &cobra.Command{
+	Use:   "get-registration-uris",
+	Short: "GetRegistrationUris RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSourceRegistrationRequestServiceClient(grpcConn)
+		req := &pb.GetRegistrationUrisRequest{}
+		resp, err := client.GetRegistrationUris(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var measurementSourceRegistrationRequestHashCodeCmd = &cobra.Command{
+	Use:   "hash-code",
+	Short: "HashCode RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSourceRegistrationRequestServiceClient(grpcConn)
+		req := &pb.HashCodeRequest{}
+		resp, err := client.HashCode(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var measurementSourceRegistrationRequestWriteToParcelCmd = &cobra.Command{
+	Use:   "write-to-parcel",
+	Short: "WriteToParcel RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSourceRegistrationRequestServiceClient(grpcConn)
+		req := &pb.WriteToParcelRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		if v, err := cmd.Flags().GetInt32("arg1"); err == nil {
+			req.Arg1 = v
+		}
+		resp, err := client.WriteToParcel(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var measurementSourceRegistrationRequestBuilderCmd = &cobra.Command{
+	Use:   "source-registration-request-builder",
+	Short: "SourceRegistrationRequestBuilderService operations",
+}
+
+var measurementSourceRegistrationRequestBuilderBuildCmd = &cobra.Command{
+	Use:   "build",
+	Short: "Build RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSourceRegistrationRequestBuilderServiceClient(grpcConn)
+		req := &pb.BuildRequest{}
+		resp, err := client.Build(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
+var measurementSourceRegistrationRequestBuilderSetInputEventCmd = &cobra.Command{
+	Use:   "set-input-event",
+	Short: "SetInputEvent RPC",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx, cancel := requestContext(cmd)
+		defer cancel()
+		client := pb.NewSourceRegistrationRequestBuilderServiceClient(grpcConn)
+		req := &pb.SetInputEventRequest{}
+		if v, err := cmd.Flags().GetInt64("arg0"); err == nil {
+			req.Arg0 = v
+		}
+		resp, err := client.SetInputEvent(ctx, req)
+		if err != nil {
+			return err
+		}
+		return printProtoMessage(resp)
+	},
+}
+
 func init() {
-	measurementManagerGetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	measurementManagerCmd.AddCommand(measurementManagerGetCmd)
-	measurementCmd.AddCommand(measurementManagerCmd)
-	measurementSourceRegistrationRequestCmd.AddCommand(measurementSourceRegistrationRequestDescribeContentsCmd)
-	measurementSourceRegistrationRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	measurementSourceRegistrationRequestCmd.AddCommand(measurementSourceRegistrationRequestEqualsCmd)
-	measurementSourceRegistrationRequestCmd.AddCommand(measurementSourceRegistrationRequestGetInputEventCmd)
-	measurementSourceRegistrationRequestCmd.AddCommand(measurementSourceRegistrationRequestHashCodeCmd)
-	measurementSourceRegistrationRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	measurementSourceRegistrationRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	measurementSourceRegistrationRequestCmd.AddCommand(measurementSourceRegistrationRequestWriteToParcelCmd)
-	measurementCmd.AddCommand(measurementSourceRegistrationRequestCmd)
-	measurementSourceRegistrationRequestBuilderCmd.AddCommand(measurementSourceRegistrationRequestBuilderBuildCmd)
-	measurementSourceRegistrationRequestBuilderSetInputEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	measurementSourceRegistrationRequestBuilderCmd.AddCommand(measurementSourceRegistrationRequestBuilderSetInputEventCmd)
-	measurementCmd.AddCommand(measurementSourceRegistrationRequestBuilderCmd)
+	measurementWebSourceParamsCmd.AddCommand(measurementWebSourceParamsDescribeContentsCmd)
+	measurementWebSourceParamsEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	measurementWebSourceParamsCmd.AddCommand(measurementWebSourceParamsEqualsCmd)
+	measurementWebSourceParamsCmd.AddCommand(measurementWebSourceParamsGetRegistrationUriCmd)
+	measurementWebSourceParamsCmd.AddCommand(measurementWebSourceParamsHashCodeCmd)
+	measurementWebSourceParamsCmd.AddCommand(measurementWebSourceParamsIsDebugKeyAllowedCmd)
+	measurementWebSourceParamsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	measurementWebSourceParamsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	measurementWebSourceParamsCmd.AddCommand(measurementWebSourceParamsWriteToParcelCmd)
+	measurementCmd.AddCommand(measurementWebSourceParamsCmd)
+	measurementWebSourceParamsBuilderCmd.AddCommand(measurementWebSourceParamsBuilderBuildCmd)
+	measurementWebSourceParamsBuilderSetDebugKeyAllowedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
+	measurementWebSourceParamsBuilderCmd.AddCommand(measurementWebSourceParamsBuilderSetDebugKeyAllowedCmd)
+	measurementCmd.AddCommand(measurementWebSourceParamsBuilderCmd)
 	measurementDeletionRequestCmd.AddCommand(measurementDeletionRequestGetDeletionModeCmd)
+	measurementDeletionRequestCmd.AddCommand(measurementDeletionRequestGetDomainUrisCmd)
 	measurementDeletionRequestCmd.AddCommand(measurementDeletionRequestGetEndCmd)
 	measurementDeletionRequestCmd.AddCommand(measurementDeletionRequestGetMatchBehaviorCmd)
+	measurementDeletionRequestCmd.AddCommand(measurementDeletionRequestGetOriginUrisCmd)
 	measurementDeletionRequestCmd.AddCommand(measurementDeletionRequestGetStartCmd)
 	measurementCmd.AddCommand(measurementDeletionRequestCmd)
 	measurementDeletionRequestBuilderCmd.AddCommand(measurementDeletionRequestBuilderBuildCmd)
@@ -1052,24 +1132,11 @@ func init() {
 	measurementWebTriggerParamsBuilderSetDebugKeyAllowedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
 	measurementWebTriggerParamsBuilderCmd.AddCommand(measurementWebTriggerParamsBuilderSetDebugKeyAllowedCmd)
 	measurementCmd.AddCommand(measurementWebTriggerParamsBuilderCmd)
-	measurementWebSourceParamsCmd.AddCommand(measurementWebSourceParamsDescribeContentsCmd)
-	measurementWebSourceParamsEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	measurementWebSourceParamsCmd.AddCommand(measurementWebSourceParamsEqualsCmd)
-	measurementWebSourceParamsCmd.AddCommand(measurementWebSourceParamsGetRegistrationUriCmd)
-	measurementWebSourceParamsCmd.AddCommand(measurementWebSourceParamsHashCodeCmd)
-	measurementWebSourceParamsCmd.AddCommand(measurementWebSourceParamsIsDebugKeyAllowedCmd)
-	measurementWebSourceParamsWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
-	measurementWebSourceParamsWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
-	measurementWebSourceParamsCmd.AddCommand(measurementWebSourceParamsWriteToParcelCmd)
-	measurementCmd.AddCommand(measurementWebSourceParamsCmd)
-	measurementWebSourceParamsBuilderCmd.AddCommand(measurementWebSourceParamsBuilderBuildCmd)
-	measurementWebSourceParamsBuilderSetDebugKeyAllowedCmd.Flags().Bool("arg0", false, "arg0 (bool)")
-	measurementWebSourceParamsBuilderCmd.AddCommand(measurementWebSourceParamsBuilderSetDebugKeyAllowedCmd)
-	measurementCmd.AddCommand(measurementWebSourceParamsBuilderCmd)
 	measurementWebTriggerRegistrationRequestCmd.AddCommand(measurementWebTriggerRegistrationRequestDescribeContentsCmd)
 	measurementWebTriggerRegistrationRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	measurementWebTriggerRegistrationRequestCmd.AddCommand(measurementWebTriggerRegistrationRequestEqualsCmd)
 	measurementWebTriggerRegistrationRequestCmd.AddCommand(measurementWebTriggerRegistrationRequestGetDestinationCmd)
+	measurementWebTriggerRegistrationRequestCmd.AddCommand(measurementWebTriggerRegistrationRequestGetTriggerParamsCmd)
 	measurementWebTriggerRegistrationRequestCmd.AddCommand(measurementWebTriggerRegistrationRequestHashCodeCmd)
 	measurementWebTriggerRegistrationRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	measurementWebTriggerRegistrationRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
@@ -1077,11 +1144,15 @@ func init() {
 	measurementCmd.AddCommand(measurementWebTriggerRegistrationRequestCmd)
 	measurementWebTriggerRegistrationRequestBuilderCmd.AddCommand(measurementWebTriggerRegistrationRequestBuilderBuildCmd)
 	measurementCmd.AddCommand(measurementWebTriggerRegistrationRequestBuilderCmd)
+	measurementManagerGetCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	measurementManagerCmd.AddCommand(measurementManagerGetCmd)
+	measurementCmd.AddCommand(measurementManagerCmd)
 	measurementWebSourceRegistrationRequestCmd.AddCommand(measurementWebSourceRegistrationRequestDescribeContentsCmd)
 	measurementWebSourceRegistrationRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	measurementWebSourceRegistrationRequestCmd.AddCommand(measurementWebSourceRegistrationRequestEqualsCmd)
 	measurementWebSourceRegistrationRequestCmd.AddCommand(measurementWebSourceRegistrationRequestGetAppDestinationCmd)
 	measurementWebSourceRegistrationRequestCmd.AddCommand(measurementWebSourceRegistrationRequestGetInputEventCmd)
+	measurementWebSourceRegistrationRequestCmd.AddCommand(measurementWebSourceRegistrationRequestGetSourceParamsCmd)
 	measurementWebSourceRegistrationRequestCmd.AddCommand(measurementWebSourceRegistrationRequestGetTopOriginUriCmd)
 	measurementWebSourceRegistrationRequestCmd.AddCommand(measurementWebSourceRegistrationRequestGetVerifiedDestinationCmd)
 	measurementWebSourceRegistrationRequestCmd.AddCommand(measurementWebSourceRegistrationRequestGetWebDestinationCmd)
@@ -1100,5 +1171,19 @@ func init() {
 	measurementWebSourceRegistrationRequestBuilderSetWebDestinationCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
 	measurementWebSourceRegistrationRequestBuilderCmd.AddCommand(measurementWebSourceRegistrationRequestBuilderSetWebDestinationCmd)
 	measurementCmd.AddCommand(measurementWebSourceRegistrationRequestBuilderCmd)
+	measurementSourceRegistrationRequestCmd.AddCommand(measurementSourceRegistrationRequestDescribeContentsCmd)
+	measurementSourceRegistrationRequestEqualsCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	measurementSourceRegistrationRequestCmd.AddCommand(measurementSourceRegistrationRequestEqualsCmd)
+	measurementSourceRegistrationRequestCmd.AddCommand(measurementSourceRegistrationRequestGetInputEventCmd)
+	measurementSourceRegistrationRequestCmd.AddCommand(measurementSourceRegistrationRequestGetRegistrationUrisCmd)
+	measurementSourceRegistrationRequestCmd.AddCommand(measurementSourceRegistrationRequestHashCodeCmd)
+	measurementSourceRegistrationRequestWriteToParcelCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	measurementSourceRegistrationRequestWriteToParcelCmd.Flags().Int32("arg1", 0, "arg1 (int32)")
+	measurementSourceRegistrationRequestCmd.AddCommand(measurementSourceRegistrationRequestWriteToParcelCmd)
+	measurementCmd.AddCommand(measurementSourceRegistrationRequestCmd)
+	measurementSourceRegistrationRequestBuilderCmd.AddCommand(measurementSourceRegistrationRequestBuilderBuildCmd)
+	measurementSourceRegistrationRequestBuilderSetInputEventCmd.Flags().Int64("arg0", 0, "arg0 (int64)")
+	measurementSourceRegistrationRequestBuilderCmd.AddCommand(measurementSourceRegistrationRequestBuilderSetInputEventCmd)
+	measurementCmd.AddCommand(measurementSourceRegistrationRequestBuilderCmd)
 	rootCmd.AddCommand(measurementCmd)
 }

@@ -15,55 +15,6 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// PromptContentItemPlainTextServer implements pb.PromptContentItemPlainTextServiceServer.
-type PromptContentItemPlainTextServer struct {
-	pb.UnimplementedPromptContentItemPlainTextServiceServer
-	Ctx     *app.Context
-	Handles *handlestore.HandleStore
-}
-
-func (s *PromptContentItemPlainTextServer) NewPromptContentItemPlainText(_ context.Context, req *pb.NewPromptContentItemPlainTextRequest) (*pb.NewPromptContentItemPlainTextResponse, error) {
-	obj, err := jnipkg.NewPromptContentItemPlainText(s.Ctx.VM, req.GetArg0())
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "create object: %v", err)
-	}
-	var handle int64
-	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-		handle = s.Handles.Put(env, obj.Obj)
-		return nil
-	}); doErr != nil {
-		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-	}
-	return &pb.NewPromptContentItemPlainTextResponse{Result: handle}, nil
-}
-
-func (s *PromptContentItemPlainTextServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PromptContentItemPlainText{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.DescribeContents()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.DescribeContentsResponse{Result: result}, nil
-}
-
-func (s *PromptContentItemPlainTextServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.PromptContentItemPlainText{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.WriteToParcelResponse{}, nil
-}
-
 // PromptContentItemBulletedTextServer implements pb.PromptContentItemBulletedTextServiceServer.
 type PromptContentItemBulletedTextServer struct {
 	pb.UnimplementedPromptContentItemBulletedTextServiceServer
@@ -86,7 +37,7 @@ func (s *PromptContentItemBulletedTextServer) NewPromptContentItemBulletedText(_
 	return &pb.NewPromptContentItemBulletedTextResponse{Result: handle}, nil
 }
 
-func (s *PromptContentItemBulletedTextServer) DescribeContents(_ context.Context, req *pb.DescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+func (s *PromptContentItemBulletedTextServer) DescribeContents(_ context.Context, req *pb.PromptContentItemBulletedTextDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
@@ -100,12 +51,61 @@ func (s *PromptContentItemBulletedTextServer) DescribeContents(_ context.Context
 	return &pb.DescribeContentsResponse{Result: result}, nil
 }
 
-func (s *PromptContentItemBulletedTextServer) WriteToParcel(_ context.Context, req *pb.WriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+func (s *PromptContentItemBulletedTextServer) WriteToParcel(_ context.Context, req *pb.PromptContentItemBulletedTextWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
 	mgr := &jnipkg.PromptContentItemBulletedText{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.WriteToParcelResponse{}, nil
+}
+
+// PromptContentItemPlainTextServer implements pb.PromptContentItemPlainTextServiceServer.
+type PromptContentItemPlainTextServer struct {
+	pb.UnimplementedPromptContentItemPlainTextServiceServer
+	Ctx     *app.Context
+	Handles *handlestore.HandleStore
+}
+
+func (s *PromptContentItemPlainTextServer) NewPromptContentItemPlainText(_ context.Context, req *pb.NewPromptContentItemPlainTextRequest) (*pb.NewPromptContentItemPlainTextResponse, error) {
+	obj, err := jnipkg.NewPromptContentItemPlainText(s.Ctx.VM, req.GetArg0())
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "create object: %v", err)
+	}
+	var handle int64
+	if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+		handle = s.Handles.Put(env, obj.Obj)
+		return nil
+	}); doErr != nil {
+		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+	}
+	return &pb.NewPromptContentItemPlainTextResponse{Result: handle}, nil
+}
+
+func (s *PromptContentItemPlainTextServer) DescribeContents(_ context.Context, req *pb.PromptContentItemPlainTextDescribeContentsRequest) (*pb.DescribeContentsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PromptContentItemPlainText{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.DescribeContents()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.DescribeContentsResponse{Result: result}, nil
+}
+
+func (s *PromptContentItemPlainTextServer) WriteToParcel(_ context.Context, req *pb.PromptContentItemPlainTextWriteToParcelRequest) (*pb.WriteToParcelResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.PromptContentItemPlainText{VM: s.Ctx.VM, Obj: rawObj}
 
 	if err := mgr.WriteToParcel(s.Handles.Get(req.GetArg0()), req.GetArg1()); err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)

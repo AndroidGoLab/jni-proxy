@@ -9,6 +9,332 @@ import (
 	"google.golang.org/grpc"
 )
 
+// TypefaceSpanClient wraps the gRPC TypefaceSpanService client.
+type TypefaceSpanClient struct {
+	svc pb.TypefaceSpanServiceClient
+}
+
+// NewTypefaceSpanClient creates a new TypefaceSpan client.
+func NewTypefaceSpanClient(cc grpc.ClientConnInterface) *TypefaceSpanClient {
+	return &TypefaceSpanClient{
+		svc: pb.NewTypefaceSpanServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *TypefaceSpanClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFamily calls the GetFamily RPC.
+func (c *TypefaceSpanClient) GetFamily(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetFamily(ctx, &pb.GetFamilyRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSpanTypeId calls the GetSpanTypeId RPC.
+func (c *TypefaceSpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSpanTypeId(ctx, &pb.GetSpanTypeIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetTypeface calls the GetTypeface RPC.
+func (c *TypefaceSpanClient) GetTypeface(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetTypeface(ctx, &pb.GetTypefaceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *TypefaceSpanClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// UpdateDrawState calls the UpdateDrawState RPC.
+func (c *TypefaceSpanClient) UpdateDrawState(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.UpdateDrawState(ctx, &pb.UpdateDrawStateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// UpdateMeasureState calls the UpdateMeasureState RPC.
+func (c *TypefaceSpanClient) UpdateMeasureState(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.UpdateMeasureState(ctx, &pb.UpdateMeasureStateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *TypefaceSpanClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// IconMarginSpanClient wraps the gRPC IconMarginSpanService client.
+type IconMarginSpanClient struct {
+	svc pb.IconMarginSpanServiceClient
+}
+
+// NewIconMarginSpanClient creates a new IconMarginSpan client.
+func NewIconMarginSpanClient(cc grpc.ClientConnInterface) *IconMarginSpanClient {
+	return &IconMarginSpanClient{
+		svc: pb.NewIconMarginSpanServiceClient(cc),
+	}
+}
+
+// ChooseHeight calls the ChooseHeight RPC.
+func (c *IconMarginSpanClient) ChooseHeight(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int64) error {
+	_, err := c.svc.ChooseHeight(ctx, &pb.ChooseHeightRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	return err
+}
+
+// DrawLeadingMargin calls the DrawLeadingMargin RPC.
+func (c *IconMarginSpanClient) DrawLeadingMargin(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int32, arg7 string, arg8 int32, arg9 int32, arg10 bool, arg11 int64) error {
+	_, err := c.svc.DrawLeadingMargin(ctx, &pb.DrawLeadingMarginRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+		Arg6:   arg6,
+		Arg7:   arg7,
+		Arg8:   arg8,
+		Arg9:   arg9,
+		Arg10:  arg10,
+		Arg11:  arg11,
+	})
+	return err
+}
+
+// GetBitmap calls the GetBitmap RPC.
+func (c *IconMarginSpanClient) GetBitmap(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetBitmap(ctx, &pb.GetBitmapRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLeadingMargin calls the GetLeadingMargin RPC.
+func (c *IconMarginSpanClient) GetLeadingMargin(ctx context.Context, handle int64, arg0 bool) (int32, error) {
+	resp, err := c.svc.GetLeadingMargin(ctx, &pb.GetLeadingMarginRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPadding calls the GetPadding RPC.
+func (c *IconMarginSpanClient) GetPadding(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetPadding(ctx, &pb.GetPaddingRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *IconMarginSpanClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// SuggestionSpanClient wraps the gRPC SuggestionSpanService client.
+type SuggestionSpanClient struct {
+	svc pb.SuggestionSpanServiceClient
+}
+
+// NewSuggestionSpanClient creates a new SuggestionSpan client.
+func NewSuggestionSpanClient(cc grpc.ClientConnInterface) *SuggestionSpanClient {
+	return &SuggestionSpanClient{
+		svc: pb.NewSuggestionSpanServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SuggestionSpanClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// Equals calls the Equals RPC.
+func (c *SuggestionSpanClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
+	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetFlags calls the GetFlags RPC.
+func (c *SuggestionSpanClient) GetFlags(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetFlags(ctx, &pb.GetFlagsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLocale calls the GetLocale RPC.
+func (c *SuggestionSpanClient) GetLocale(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetLocale(ctx, &pb.GetLocaleRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLocaleObject calls the GetLocaleObject RPC.
+func (c *SuggestionSpanClient) GetLocaleObject(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLocaleObject(ctx, &pb.GetLocaleObjectRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSpanTypeId calls the GetSpanTypeId RPC.
+func (c *SuggestionSpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSpanTypeId(ctx, &pb.GetSpanTypeIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSuggestions calls the GetSuggestions RPC.
+func (c *SuggestionSpanClient) GetSuggestions(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetSuggestions(ctx, &pb.GetSuggestionsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetUnderlineColor calls the GetUnderlineColor RPC.
+func (c *SuggestionSpanClient) GetUnderlineColor(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetUnderlineColor(ctx, &pb.GetUnderlineColorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// HashCode calls the HashCode RPC.
+func (c *SuggestionSpanClient) HashCode(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetFlags calls the SetFlags RPC.
+func (c *SuggestionSpanClient) SetFlags(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetFlags(ctx, &pb.SetFlagsRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// UpdateDrawState calls the UpdateDrawState RPC.
+func (c *SuggestionSpanClient) UpdateDrawState(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.UpdateDrawState(ctx, &pb.UpdateDrawStateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SuggestionSpanClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
 // TextAppearanceSpanClient wraps the gRPC TextAppearanceSpanService client.
 type TextAppearanceSpanClient struct {
 	svc pb.TextAppearanceSpanServiceClient
@@ -258,992 +584,6 @@ func (c *TextAppearanceSpanClient) WriteToParcel(ctx context.Context, handle int
 	return err
 }
 
-// NoWritingToolsSpanClient wraps the gRPC NoWritingToolsSpanService client.
-type NoWritingToolsSpanClient struct {
-	svc pb.NoWritingToolsSpanServiceClient
-}
-
-// NewNoWritingToolsSpanClient creates a new NoWritingToolsSpan client.
-func NewNoWritingToolsSpanClient(cc grpc.ClientConnInterface) *NoWritingToolsSpanClient {
-	return &NoWritingToolsSpanClient{
-		svc: pb.NewNoWritingToolsSpanServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *NoWritingToolsSpanClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSpanTypeId calls the GetSpanTypeId RPC.
-func (c *NoWritingToolsSpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetSpanTypeId(ctx, &pb.GetSpanTypeIdRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *NoWritingToolsSpanClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *NoWritingToolsSpanClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// QuoteSpanClient wraps the gRPC QuoteSpanService client.
-type QuoteSpanClient struct {
-	svc pb.QuoteSpanServiceClient
-}
-
-// NewQuoteSpanClient creates a new QuoteSpan client.
-func NewQuoteSpanClient(cc grpc.ClientConnInterface) *QuoteSpanClient {
-	return &QuoteSpanClient{
-		svc: pb.NewQuoteSpanServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *QuoteSpanClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DrawLeadingMargin calls the DrawLeadingMargin RPC.
-func (c *QuoteSpanClient) DrawLeadingMargin(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int32, arg7 string, arg8 int32, arg9 int32, arg10 bool, arg11 int64) error {
-	_, err := c.svc.DrawLeadingMargin(ctx, &pb.DrawLeadingMarginRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-		Arg6:   arg6,
-		Arg7:   arg7,
-		Arg8:   arg8,
-		Arg9:   arg9,
-		Arg10:  arg10,
-		Arg11:  arg11,
-	})
-	return err
-}
-
-// GetColor calls the GetColor RPC.
-func (c *QuoteSpanClient) GetColor(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetColor(ctx, &pb.GetColorRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetGapWidth calls the GetGapWidth RPC.
-func (c *QuoteSpanClient) GetGapWidth(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetGapWidth(ctx, &pb.GetGapWidthRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLeadingMargin calls the GetLeadingMargin RPC.
-func (c *QuoteSpanClient) GetLeadingMargin(ctx context.Context, handle int64, arg0 bool) (int32, error) {
-	resp, err := c.svc.GetLeadingMargin(ctx, &pb.GetLeadingMarginRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSpanTypeId calls the GetSpanTypeId RPC.
-func (c *QuoteSpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetSpanTypeId(ctx, &pb.GetSpanTypeIdRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetStripeWidth calls the GetStripeWidth RPC.
-func (c *QuoteSpanClient) GetStripeWidth(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetStripeWidth(ctx, &pb.GetStripeWidthRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *QuoteSpanClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *QuoteSpanClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// CharacterStyleClient wraps the gRPC CharacterStyleService client.
-type CharacterStyleClient struct {
-	svc pb.CharacterStyleServiceClient
-}
-
-// NewCharacterStyleClient creates a new CharacterStyle client.
-func NewCharacterStyleClient(cc grpc.ClientConnInterface) *CharacterStyleClient {
-	return &CharacterStyleClient{
-		svc: pb.NewCharacterStyleServiceClient(cc),
-	}
-}
-
-// GetUnderlying calls the GetUnderlying RPC.
-func (c *CharacterStyleClient) GetUnderlying(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetUnderlying(ctx, &pb.GetUnderlyingRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// UpdateDrawState calls the UpdateDrawState RPC.
-func (c *CharacterStyleClient) UpdateDrawState(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.UpdateDrawState(ctx, &pb.CharacterStyleUpdateDrawStateRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// Wrap calls the Wrap RPC.
-func (c *CharacterStyleClient) Wrap(ctx context.Context, arg0 int64) (int64, error) {
-	resp, err := c.svc.Wrap(ctx, &pb.WrapRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LineHeightSpanClient wraps the gRPC LineHeightSpanService client.
-type LineHeightSpanClient struct {
-	svc pb.LineHeightSpanServiceClient
-}
-
-// NewLineHeightSpanClient creates a new LineHeightSpan client.
-func NewLineHeightSpanClient(cc grpc.ClientConnInterface) *LineHeightSpanClient {
-	return &LineHeightSpanClient{
-		svc: pb.NewLineHeightSpanServiceClient(cc),
-	}
-}
-
-// ChooseHeight calls the ChooseHeight RPC.
-func (c *LineHeightSpanClient) ChooseHeight(ctx context.Context, arg0 string, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int64) error {
-	_, err := c.svc.ChooseHeight(ctx, &pb.ChooseHeightRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-	})
-	return err
-}
-
-// LineHeightSpanStandardClient wraps the gRPC LineHeightSpanStandardService client.
-type LineHeightSpanStandardClient struct {
-	svc pb.LineHeightSpanStandardServiceClient
-}
-
-// NewLineHeightSpanStandardClient creates a new LineHeightSpanStandard client.
-func NewLineHeightSpanStandardClient(cc grpc.ClientConnInterface) *LineHeightSpanStandardClient {
-	return &LineHeightSpanStandardClient{
-		svc: pb.NewLineHeightSpanStandardServiceClient(cc),
-	}
-}
-
-// ChooseHeight calls the ChooseHeight RPC.
-func (c *LineHeightSpanStandardClient) ChooseHeight(ctx context.Context, arg0 string, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int64) error {
-	_, err := c.svc.ChooseHeight(ctx, &pb.ChooseHeightRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-	})
-	return err
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *LineHeightSpanStandardClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.LineHeightSpanStandardDescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetHeight calls the GetHeight RPC.
-func (c *LineHeightSpanStandardClient) GetHeight(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetHeight(ctx, &pb.GetHeightRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSpanTypeId calls the GetSpanTypeId RPC.
-func (c *LineHeightSpanStandardClient) GetSpanTypeId(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetSpanTypeId(ctx, &pb.LineHeightSpanStandardGetSpanTypeIdRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *LineHeightSpanStandardClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.LineHeightSpanStandardWriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// LineHeightSpanWithDensityClient wraps the gRPC LineHeightSpanWithDensityService client.
-type LineHeightSpanWithDensityClient struct {
-	svc pb.LineHeightSpanWithDensityServiceClient
-}
-
-// NewLineHeightSpanWithDensityClient creates a new LineHeightSpanWithDensity client.
-func NewLineHeightSpanWithDensityClient(cc grpc.ClientConnInterface) *LineHeightSpanWithDensityClient {
-	return &LineHeightSpanWithDensityClient{
-		svc: pb.NewLineHeightSpanWithDensityServiceClient(cc),
-	}
-}
-
-// ChooseHeight calls the ChooseHeight RPC.
-func (c *LineHeightSpanWithDensityClient) ChooseHeight(ctx context.Context, arg0 string, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int64, arg6 int64) error {
-	_, err := c.svc.ChooseHeight(ctx, &pb.LineHeightSpanWithDensityChooseHeightRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-		Arg6: arg6,
-	})
-	return err
-}
-
-// RelativeSizeSpanClient wraps the gRPC RelativeSizeSpanService client.
-type RelativeSizeSpanClient struct {
-	svc pb.RelativeSizeSpanServiceClient
-}
-
-// NewRelativeSizeSpanClient creates a new RelativeSizeSpan client.
-func NewRelativeSizeSpanClient(cc grpc.ClientConnInterface) *RelativeSizeSpanClient {
-	return &RelativeSizeSpanClient{
-		svc: pb.NewRelativeSizeSpanServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *RelativeSizeSpanClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSizeChange calls the GetSizeChange RPC.
-func (c *RelativeSizeSpanClient) GetSizeChange(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetSizeChange(ctx, &pb.GetSizeChangeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSpanTypeId calls the GetSpanTypeId RPC.
-func (c *RelativeSizeSpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetSpanTypeId(ctx, &pb.GetSpanTypeIdRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *RelativeSizeSpanClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// UpdateDrawState calls the UpdateDrawState RPC.
-func (c *RelativeSizeSpanClient) UpdateDrawState(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.UpdateDrawState(ctx, &pb.UpdateDrawStateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// UpdateMeasureState calls the UpdateMeasureState RPC.
-func (c *RelativeSizeSpanClient) UpdateMeasureState(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.UpdateMeasureState(ctx, &pb.UpdateMeasureStateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *RelativeSizeSpanClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// AbsoluteSizeSpanClient wraps the gRPC AbsoluteSizeSpanService client.
-type AbsoluteSizeSpanClient struct {
-	svc pb.AbsoluteSizeSpanServiceClient
-}
-
-// NewAbsoluteSizeSpanClient creates a new AbsoluteSizeSpan client.
-func NewAbsoluteSizeSpanClient(cc grpc.ClientConnInterface) *AbsoluteSizeSpanClient {
-	return &AbsoluteSizeSpanClient{
-		svc: pb.NewAbsoluteSizeSpanServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *AbsoluteSizeSpanClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetDip calls the GetDip RPC.
-func (c *AbsoluteSizeSpanClient) GetDip(ctx context.Context, handle int64) (bool, error) {
-	resp, err := c.svc.GetDip(ctx, &pb.GetDipRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSize calls the GetSize RPC.
-func (c *AbsoluteSizeSpanClient) GetSize(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetSize(ctx, &pb.GetSizeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSpanTypeId calls the GetSpanTypeId RPC.
-func (c *AbsoluteSizeSpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetSpanTypeId(ctx, &pb.GetSpanTypeIdRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *AbsoluteSizeSpanClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// UpdateDrawState calls the UpdateDrawState RPC.
-func (c *AbsoluteSizeSpanClient) UpdateDrawState(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.UpdateDrawState(ctx, &pb.UpdateDrawStateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// UpdateMeasureState calls the UpdateMeasureState RPC.
-func (c *AbsoluteSizeSpanClient) UpdateMeasureState(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.UpdateMeasureState(ctx, &pb.UpdateMeasureStateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *AbsoluteSizeSpanClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SubscriptSpanClient wraps the gRPC SubscriptSpanService client.
-type SubscriptSpanClient struct {
-	svc pb.SubscriptSpanServiceClient
-}
-
-// NewSubscriptSpanClient creates a new SubscriptSpan client.
-func NewSubscriptSpanClient(cc grpc.ClientConnInterface) *SubscriptSpanClient {
-	return &SubscriptSpanClient{
-		svc: pb.NewSubscriptSpanServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *SubscriptSpanClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSpanTypeId calls the GetSpanTypeId RPC.
-func (c *SubscriptSpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetSpanTypeId(ctx, &pb.GetSpanTypeIdRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *SubscriptSpanClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// UpdateDrawState calls the UpdateDrawState RPC.
-func (c *SubscriptSpanClient) UpdateDrawState(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.UpdateDrawState(ctx, &pb.UpdateDrawStateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// UpdateMeasureState calls the UpdateMeasureState RPC.
-func (c *SubscriptSpanClient) UpdateMeasureState(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.UpdateMeasureState(ctx, &pb.UpdateMeasureStateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *SubscriptSpanClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// DrawableMarginSpanClient wraps the gRPC DrawableMarginSpanService client.
-type DrawableMarginSpanClient struct {
-	svc pb.DrawableMarginSpanServiceClient
-}
-
-// NewDrawableMarginSpanClient creates a new DrawableMarginSpan client.
-func NewDrawableMarginSpanClient(cc grpc.ClientConnInterface) *DrawableMarginSpanClient {
-	return &DrawableMarginSpanClient{
-		svc: pb.NewDrawableMarginSpanServiceClient(cc),
-	}
-}
-
-// ChooseHeight calls the ChooseHeight RPC.
-func (c *DrawableMarginSpanClient) ChooseHeight(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int64) error {
-	_, err := c.svc.ChooseHeight(ctx, &pb.DrawableMarginSpanChooseHeightRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	return err
-}
-
-// DrawLeadingMargin calls the DrawLeadingMargin RPC.
-func (c *DrawableMarginSpanClient) DrawLeadingMargin(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int32, arg7 string, arg8 int32, arg9 int32, arg10 bool, arg11 int64) error {
-	_, err := c.svc.DrawLeadingMargin(ctx, &pb.DrawLeadingMarginRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-		Arg6:   arg6,
-		Arg7:   arg7,
-		Arg8:   arg8,
-		Arg9:   arg9,
-		Arg10:  arg10,
-		Arg11:  arg11,
-	})
-	return err
-}
-
-// GetDrawable calls the GetDrawable RPC.
-func (c *DrawableMarginSpanClient) GetDrawable(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetDrawable(ctx, &pb.GetDrawableRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLeadingMargin calls the GetLeadingMargin RPC.
-func (c *DrawableMarginSpanClient) GetLeadingMargin(ctx context.Context, handle int64, arg0 bool) (int32, error) {
-	resp, err := c.svc.GetLeadingMargin(ctx, &pb.GetLeadingMarginRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPadding calls the GetPadding RPC.
-func (c *DrawableMarginSpanClient) GetPadding(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetPadding(ctx, &pb.GetPaddingRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *DrawableMarginSpanClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// ReplacementSpanClient wraps the gRPC ReplacementSpanService client.
-type ReplacementSpanClient struct {
-	svc pb.ReplacementSpanServiceClient
-}
-
-// NewReplacementSpanClient creates a new ReplacementSpan client.
-func NewReplacementSpanClient(cc grpc.ClientConnInterface) *ReplacementSpanClient {
-	return &ReplacementSpanClient{
-		svc: pb.NewReplacementSpanServiceClient(cc),
-	}
-}
-
-// Draw calls the Draw RPC.
-func (c *ReplacementSpanClient) Draw(ctx context.Context, arg0 int64, arg1 string, arg2 int32, arg3 int32, arg4 float32, arg5 int32, arg6 int32, arg7 int32, arg8 int64) error {
-	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-		Arg6: arg6,
-		Arg7: arg7,
-		Arg8: arg8,
-	})
-	return err
-}
-
-// GetContentDescription calls the GetContentDescription RPC.
-func (c *ReplacementSpanClient) GetContentDescription(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetContentDescription(ctx, &pb.GetContentDescriptionRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSize calls the GetSize RPC.
-func (c *ReplacementSpanClient) GetSize(ctx context.Context, arg0 int64, arg1 string, arg2 int32, arg3 int32, arg4 int64) (int32, error) {
-	resp, err := c.svc.GetSize(ctx, &pb.ReplacementSpanGetSizeRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetContentDescription calls the SetContentDescription RPC.
-func (c *ReplacementSpanClient) SetContentDescription(ctx context.Context, arg0 string) error {
-	_, err := c.svc.SetContentDescription(ctx, &pb.SetContentDescriptionRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// UpdateDrawState calls the UpdateDrawState RPC.
-func (c *ReplacementSpanClient) UpdateDrawState(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.UpdateDrawState(ctx, &pb.ReplacementSpanUpdateDrawStateRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// UpdateMeasureState calls the UpdateMeasureState RPC.
-func (c *ReplacementSpanClient) UpdateMeasureState(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.UpdateMeasureState(ctx, &pb.ReplacementSpanUpdateMeasureStateRequest{
-		Arg0: arg0,
-	})
-	return err
-}
-
-// ForegroundColorSpanClient wraps the gRPC ForegroundColorSpanService client.
-type ForegroundColorSpanClient struct {
-	svc pb.ForegroundColorSpanServiceClient
-}
-
-// NewForegroundColorSpanClient creates a new ForegroundColorSpan client.
-func NewForegroundColorSpanClient(cc grpc.ClientConnInterface) *ForegroundColorSpanClient {
-	return &ForegroundColorSpanClient{
-		svc: pb.NewForegroundColorSpanServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *ForegroundColorSpanClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetForegroundColor calls the GetForegroundColor RPC.
-func (c *ForegroundColorSpanClient) GetForegroundColor(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetForegroundColor(ctx, &pb.GetForegroundColorRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSpanTypeId calls the GetSpanTypeId RPC.
-func (c *ForegroundColorSpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetSpanTypeId(ctx, &pb.GetSpanTypeIdRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *ForegroundColorSpanClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// UpdateDrawState calls the UpdateDrawState RPC.
-func (c *ForegroundColorSpanClient) UpdateDrawState(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.UpdateDrawState(ctx, &pb.UpdateDrawStateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *ForegroundColorSpanClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// TypefaceSpanClient wraps the gRPC TypefaceSpanService client.
-type TypefaceSpanClient struct {
-	svc pb.TypefaceSpanServiceClient
-}
-
-// NewTypefaceSpanClient creates a new TypefaceSpan client.
-func NewTypefaceSpanClient(cc grpc.ClientConnInterface) *TypefaceSpanClient {
-	return &TypefaceSpanClient{
-		svc: pb.NewTypefaceSpanServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *TypefaceSpanClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFamily calls the GetFamily RPC.
-func (c *TypefaceSpanClient) GetFamily(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetFamily(ctx, &pb.GetFamilyRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSpanTypeId calls the GetSpanTypeId RPC.
-func (c *TypefaceSpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetSpanTypeId(ctx, &pb.GetSpanTypeIdRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetTypeface calls the GetTypeface RPC.
-func (c *TypefaceSpanClient) GetTypeface(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetTypeface(ctx, &pb.GetTypefaceRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *TypefaceSpanClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// UpdateDrawState calls the UpdateDrawState RPC.
-func (c *TypefaceSpanClient) UpdateDrawState(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.UpdateDrawState(ctx, &pb.UpdateDrawStateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// UpdateMeasureState calls the UpdateMeasureState RPC.
-func (c *TypefaceSpanClient) UpdateMeasureState(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.UpdateMeasureState(ctx, &pb.UpdateMeasureStateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *TypefaceSpanClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// DynamicDrawableSpanClient wraps the gRPC DynamicDrawableSpanService client.
-type DynamicDrawableSpanClient struct {
-	svc pb.DynamicDrawableSpanServiceClient
-}
-
-// NewDynamicDrawableSpanClient creates a new DynamicDrawableSpan client.
-func NewDynamicDrawableSpanClient(cc grpc.ClientConnInterface) *DynamicDrawableSpanClient {
-	return &DynamicDrawableSpanClient{
-		svc: pb.NewDynamicDrawableSpanServiceClient(cc),
-	}
-}
-
-// Draw calls the Draw RPC.
-func (c *DynamicDrawableSpanClient) Draw(ctx context.Context, arg0 int64, arg1 string, arg2 int32, arg3 int32, arg4 float32, arg5 int32, arg6 int32, arg7 int32, arg8 int64) error {
-	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-		Arg5: arg5,
-		Arg6: arg6,
-		Arg7: arg7,
-		Arg8: arg8,
-	})
-	return err
-}
-
-// GetDrawable calls the GetDrawable RPC.
-func (c *DynamicDrawableSpanClient) GetDrawable(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetDrawable(ctx, &pb.DynamicDrawableSpanGetDrawableRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSize calls the GetSize RPC.
-func (c *DynamicDrawableSpanClient) GetSize(ctx context.Context, arg0 int64, arg1 string, arg2 int32, arg3 int32, arg4 int64) (int32, error) {
-	resp, err := c.svc.GetSize(ctx, &pb.DynamicDrawableSpanGetSizeRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-		Arg2: arg2,
-		Arg3: arg3,
-		Arg4: arg4,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetVerticalAlignment calls the GetVerticalAlignment RPC.
-func (c *DynamicDrawableSpanClient) GetVerticalAlignment(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetVerticalAlignment(ctx, &pb.GetVerticalAlignmentRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *DynamicDrawableSpanClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.DynamicDrawableSpanToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
 // BulletSpanClient wraps the gRPC BulletSpanService client.
 type BulletSpanClient struct {
 	svc pb.BulletSpanServiceClient
@@ -1364,20 +704,20 @@ func (c *BulletSpanClient) WriteToParcel(ctx context.Context, handle int64, arg0
 	return err
 }
 
-// UnderlineSpanClient wraps the gRPC UnderlineSpanService client.
-type UnderlineSpanClient struct {
-	svc pb.UnderlineSpanServiceClient
+// StrikethroughSpanClient wraps the gRPC StrikethroughSpanService client.
+type StrikethroughSpanClient struct {
+	svc pb.StrikethroughSpanServiceClient
 }
 
-// NewUnderlineSpanClient creates a new UnderlineSpan client.
-func NewUnderlineSpanClient(cc grpc.ClientConnInterface) *UnderlineSpanClient {
-	return &UnderlineSpanClient{
-		svc: pb.NewUnderlineSpanServiceClient(cc),
+// NewStrikethroughSpanClient creates a new StrikethroughSpan client.
+func NewStrikethroughSpanClient(cc grpc.ClientConnInterface) *StrikethroughSpanClient {
+	return &StrikethroughSpanClient{
+		svc: pb.NewStrikethroughSpanServiceClient(cc),
 	}
 }
 
 // DescribeContents calls the DescribeContents RPC.
-func (c *UnderlineSpanClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+func (c *StrikethroughSpanClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
 		Handle: handle,
 	})
@@ -1388,7 +728,7 @@ func (c *UnderlineSpanClient) DescribeContents(ctx context.Context, handle int64
 }
 
 // GetSpanTypeId calls the GetSpanTypeId RPC.
-func (c *UnderlineSpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
+func (c *StrikethroughSpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.GetSpanTypeId(ctx, &pb.GetSpanTypeIdRequest{
 		Handle: handle,
 	})
@@ -1399,7 +739,7 @@ func (c *UnderlineSpanClient) GetSpanTypeId(ctx context.Context, handle int64) (
 }
 
 // ToString calls the ToString RPC.
-func (c *UnderlineSpanClient) ToString(ctx context.Context, handle int64) (string, error) {
+func (c *StrikethroughSpanClient) ToString(ctx context.Context, handle int64) (string, error) {
 	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
 		Handle: handle,
 	})
@@ -1410,7 +750,7 @@ func (c *UnderlineSpanClient) ToString(ctx context.Context, handle int64) (strin
 }
 
 // UpdateDrawState calls the UpdateDrawState RPC.
-func (c *UnderlineSpanClient) UpdateDrawState(ctx context.Context, handle int64, arg0 int64) error {
+func (c *StrikethroughSpanClient) UpdateDrawState(ctx context.Context, handle int64, arg0 int64) error {
 	_, err := c.svc.UpdateDrawState(ctx, &pb.UpdateDrawStateRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -1419,7 +759,7 @@ func (c *UnderlineSpanClient) UpdateDrawState(ctx context.Context, handle int64,
 }
 
 // WriteToParcel calls the WriteToParcel RPC.
-func (c *UnderlineSpanClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+func (c *StrikethroughSpanClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
 	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -1428,153 +768,141 @@ func (c *UnderlineSpanClient) WriteToParcel(ctx context.Context, handle int64, a
 	return err
 }
 
-// LineBackgroundSpanClient wraps the gRPC LineBackgroundSpanService client.
-type LineBackgroundSpanClient struct {
-	svc pb.LineBackgroundSpanServiceClient
+// DynamicDrawableSpanClient wraps the gRPC DynamicDrawableSpanService client.
+type DynamicDrawableSpanClient struct {
+	svc pb.DynamicDrawableSpanServiceClient
 }
 
-// NewLineBackgroundSpanClient creates a new LineBackgroundSpan client.
-func NewLineBackgroundSpanClient(cc grpc.ClientConnInterface) *LineBackgroundSpanClient {
-	return &LineBackgroundSpanClient{
-		svc: pb.NewLineBackgroundSpanServiceClient(cc),
+// NewDynamicDrawableSpanClient creates a new DynamicDrawableSpan client.
+func NewDynamicDrawableSpanClient(cc grpc.ClientConnInterface) *DynamicDrawableSpanClient {
+	return &DynamicDrawableSpanClient{
+		svc: pb.NewDynamicDrawableSpanServiceClient(cc),
 	}
 }
 
-// DrawBackground calls the DrawBackground RPC.
-func (c *LineBackgroundSpanClient) DrawBackground(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int32, arg7 string, arg8 int32, arg9 int32, arg10 int32) error {
-	_, err := c.svc.DrawBackground(ctx, &pb.DrawBackgroundRequest{
-		Arg0:  arg0,
-		Arg1:  arg1,
-		Arg2:  arg2,
-		Arg3:  arg3,
-		Arg4:  arg4,
-		Arg5:  arg5,
-		Arg6:  arg6,
-		Arg7:  arg7,
-		Arg8:  arg8,
-		Arg9:  arg9,
-		Arg10: arg10,
-	})
-	return err
-}
-
-// LineBackgroundSpanStandardClient wraps the gRPC LineBackgroundSpanStandardService client.
-type LineBackgroundSpanStandardClient struct {
-	svc pb.LineBackgroundSpanStandardServiceClient
-}
-
-// NewLineBackgroundSpanStandardClient creates a new LineBackgroundSpanStandard client.
-func NewLineBackgroundSpanStandardClient(cc grpc.ClientConnInterface) *LineBackgroundSpanStandardClient {
-	return &LineBackgroundSpanStandardClient{
-		svc: pb.NewLineBackgroundSpanStandardServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *LineBackgroundSpanStandardClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.LineBackgroundSpanStandardDescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DrawBackground calls the DrawBackground RPC.
-func (c *LineBackgroundSpanStandardClient) DrawBackground(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int32, arg7 string, arg8 int32, arg9 int32, arg10 int32) error {
-	_, err := c.svc.DrawBackground(ctx, &pb.DrawBackgroundRequest{
-		Arg0:  arg0,
-		Arg1:  arg1,
-		Arg2:  arg2,
-		Arg3:  arg3,
-		Arg4:  arg4,
-		Arg5:  arg5,
-		Arg6:  arg6,
-		Arg7:  arg7,
-		Arg8:  arg8,
-		Arg9:  arg9,
-		Arg10: arg10,
-	})
-	return err
-}
-
-// GetColor calls the GetColor RPC.
-func (c *LineBackgroundSpanStandardClient) GetColor(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetColor(ctx, &pb.LineBackgroundSpanStandardGetColorRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSpanTypeId calls the GetSpanTypeId RPC.
-func (c *LineBackgroundSpanStandardClient) GetSpanTypeId(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetSpanTypeId(ctx, &pb.LineBackgroundSpanStandardGetSpanTypeIdRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *LineBackgroundSpanStandardClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.LineBackgroundSpanStandardWriteToParcelRequest{
+// Draw calls the Draw RPC.
+func (c *DynamicDrawableSpanClient) Draw(ctx context.Context, arg0 int64, arg1 string, arg2 int32, arg3 int32, arg4 float32, arg5 int32, arg6 int32, arg7 int32, arg8 int64) error {
+	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
 		Arg0: arg0,
 		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+		Arg6: arg6,
+		Arg7: arg7,
+		Arg8: arg8,
 	})
 	return err
 }
 
-// ClickableSpanClient wraps the gRPC ClickableSpanService client.
-type ClickableSpanClient struct {
-	svc pb.ClickableSpanServiceClient
-}
-
-// NewClickableSpanClient creates a new ClickableSpan client.
-func NewClickableSpanClient(cc grpc.ClientConnInterface) *ClickableSpanClient {
-	return &ClickableSpanClient{
-		svc: pb.NewClickableSpanServiceClient(cc),
+// GetDrawable calls the GetDrawable RPC.
+func (c *DynamicDrawableSpanClient) GetDrawable(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetDrawable(ctx, &pb.GetDrawableRequest{})
+	if err != nil {
+		return 0, err
 	}
+	return resp.GetResult(), nil
 }
 
-// OnClick calls the OnClick RPC.
-func (c *ClickableSpanClient) OnClick(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.OnClick(ctx, &pb.OnClickRequest{
+// GetSize calls the GetSize RPC.
+func (c *DynamicDrawableSpanClient) GetSize(ctx context.Context, arg0 int64, arg1 string, arg2 int32, arg3 int32, arg4 int64) (int32, error) {
+	resp, err := c.svc.GetSize(ctx, &pb.GetSizeRequest{
 		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
 	})
-	return err
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetVerticalAlignment calls the GetVerticalAlignment RPC.
+func (c *DynamicDrawableSpanClient) GetVerticalAlignment(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetVerticalAlignment(ctx, &pb.GetVerticalAlignmentRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
 }
 
 // ToString calls the ToString RPC.
-func (c *ClickableSpanClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ClickableSpanToStringRequest{})
+func (c *DynamicDrawableSpanClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.DynamicDrawableSpanToStringRequest{})
 	if err != nil {
 		return "", err
 	}
 	return resp.GetResult(), nil
 }
 
-// UpdateDrawState calls the UpdateDrawState RPC.
-func (c *ClickableSpanClient) UpdateDrawState(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.UpdateDrawState(ctx, &pb.ClickableSpanUpdateDrawStateRequest{
-		Arg0: arg0,
-	})
-	return err
+// TabStopSpanClient wraps the gRPC TabStopSpanService client.
+type TabStopSpanClient struct {
+	svc pb.TabStopSpanServiceClient
 }
 
-// SpanClient wraps the gRPC SpanService client.
-type SpanClient struct {
-	svc pb.SpanServiceClient
+// NewTabStopSpanClient creates a new TabStopSpan client.
+func NewTabStopSpanClient(cc grpc.ClientConnInterface) *TabStopSpanClient {
+	return &TabStopSpanClient{
+		svc: pb.NewTabStopSpanServiceClient(cc),
+	}
 }
 
-// NewSpanClient creates a new Span client.
-func NewSpanClient(cc grpc.ClientConnInterface) *SpanClient {
-	return &SpanClient{
-		svc: pb.NewSpanServiceClient(cc),
+// GetTabStop calls the GetTabStop RPC.
+func (c *TabStopSpanClient) GetTabStop(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetTabStop(ctx, &pb.GetTabStopRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// TabStopSpanStandardClient wraps the gRPC TabStopSpanStandardService client.
+type TabStopSpanStandardClient struct {
+	svc pb.TabStopSpanStandardServiceClient
+}
+
+// NewTabStopSpanStandardClient creates a new TabStopSpanStandard client.
+func NewTabStopSpanStandardClient(cc grpc.ClientConnInterface) *TabStopSpanStandardClient {
+	return &TabStopSpanStandardClient{
+		svc: pb.NewTabStopSpanStandardServiceClient(cc),
+	}
+}
+
+// GetTabStop calls the GetTabStop RPC.
+func (c *TabStopSpanStandardClient) GetTabStop(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetTabStop(ctx, &pb.GetTabStopRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *TabStopSpanStandardClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.TabStopSpanStandardToStringRequest{})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// SubscriptSpanClient wraps the gRPC SubscriptSpanService client.
+type SubscriptSpanClient struct {
+	svc pb.SubscriptSpanServiceClient
+}
+
+// NewSubscriptSpanClient creates a new SubscriptSpan client.
+func NewSubscriptSpanClient(cc grpc.ClientConnInterface) *SubscriptSpanClient {
+	return &SubscriptSpanClient{
+		svc: pb.NewSubscriptSpanServiceClient(cc),
 	}
 }
 
 // DescribeContents calls the DescribeContents RPC.
-func (c *SpanClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+func (c *SubscriptSpanClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
 		Handle: handle,
 	})
@@ -1584,19 +912,8 @@ func (c *SpanClient) DescribeContents(ctx context.Context, handle int64) (int32,
 	return resp.GetResult(), nil
 }
 
-// GetFontWeightAdjustment calls the GetFontWeightAdjustment RPC.
-func (c *SpanClient) GetFontWeightAdjustment(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetFontWeightAdjustment(ctx, &pb.GetFontWeightAdjustmentRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // GetSpanTypeId calls the GetSpanTypeId RPC.
-func (c *SpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
+func (c *SubscriptSpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.GetSpanTypeId(ctx, &pb.GetSpanTypeIdRequest{
 		Handle: handle,
 	})
@@ -1606,19 +923,8 @@ func (c *SpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, er
 	return resp.GetResult(), nil
 }
 
-// GetStyle calls the GetStyle RPC.
-func (c *SpanClient) GetStyle(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetStyle(ctx, &pb.GetStyleRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
 // ToString calls the ToString RPC.
-func (c *SpanClient) ToString(ctx context.Context, handle int64) (string, error) {
+func (c *SubscriptSpanClient) ToString(ctx context.Context, handle int64) (string, error) {
 	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
 		Handle: handle,
 	})
@@ -1629,7 +935,7 @@ func (c *SpanClient) ToString(ctx context.Context, handle int64) (string, error)
 }
 
 // UpdateDrawState calls the UpdateDrawState RPC.
-func (c *SpanClient) UpdateDrawState(ctx context.Context, handle int64, arg0 int64) error {
+func (c *SubscriptSpanClient) UpdateDrawState(ctx context.Context, handle int64, arg0 int64) error {
 	_, err := c.svc.UpdateDrawState(ctx, &pb.UpdateDrawStateRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -1638,7 +944,7 @@ func (c *SpanClient) UpdateDrawState(ctx context.Context, handle int64, arg0 int
 }
 
 // UpdateMeasureState calls the UpdateMeasureState RPC.
-func (c *SpanClient) UpdateMeasureState(ctx context.Context, handle int64, arg0 int64) error {
+func (c *SubscriptSpanClient) UpdateMeasureState(ctx context.Context, handle int64, arg0 int64) error {
 	_, err := c.svc.UpdateMeasureState(ctx, &pb.UpdateMeasureStateRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -1647,7 +953,7 @@ func (c *SpanClient) UpdateMeasureState(ctx context.Context, handle int64, arg0 
 }
 
 // WriteToParcel calls the WriteToParcel RPC.
-func (c *SpanClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+func (c *SubscriptSpanClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
 	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -1656,20 +962,20 @@ func (c *SpanClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64
 	return err
 }
 
-// SuggestionSpanClient wraps the gRPC SuggestionSpanService client.
-type SuggestionSpanClient struct {
-	svc pb.SuggestionSpanServiceClient
+// SuggestionRangeSpanClient wraps the gRPC SuggestionRangeSpanService client.
+type SuggestionRangeSpanClient struct {
+	svc pb.SuggestionRangeSpanServiceClient
 }
 
-// NewSuggestionSpanClient creates a new SuggestionSpan client.
-func NewSuggestionSpanClient(cc grpc.ClientConnInterface) *SuggestionSpanClient {
-	return &SuggestionSpanClient{
-		svc: pb.NewSuggestionSpanServiceClient(cc),
+// NewSuggestionRangeSpanClient creates a new SuggestionRangeSpan client.
+func NewSuggestionRangeSpanClient(cc grpc.ClientConnInterface) *SuggestionRangeSpanClient {
+	return &SuggestionRangeSpanClient{
+		svc: pb.NewSuggestionRangeSpanServiceClient(cc),
 	}
 }
 
 // DescribeContents calls the DescribeContents RPC.
-func (c *SuggestionSpanClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+func (c *SuggestionRangeSpanClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
 		Handle: handle,
 	})
@@ -1679,43 +985,9 @@ func (c *SuggestionSpanClient) DescribeContents(ctx context.Context, handle int6
 	return resp.GetResult(), nil
 }
 
-// Equals calls the Equals RPC.
-func (c *SuggestionSpanClient) Equals(ctx context.Context, handle int64, arg0 int64) (bool, error) {
-	resp, err := c.svc.Equals(ctx, &pb.EqualsRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return false, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetFlags calls the GetFlags RPC.
-func (c *SuggestionSpanClient) GetFlags(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetFlags(ctx, &pb.GetFlagsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLocale calls the GetLocale RPC.
-func (c *SuggestionSpanClient) GetLocale(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetLocale(ctx, &pb.GetLocaleRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLocaleObject calls the GetLocaleObject RPC.
-func (c *SuggestionSpanClient) GetLocaleObject(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetLocaleObject(ctx, &pb.GetLocaleObjectRequest{
+// GetBackgroundColor calls the GetBackgroundColor RPC.
+func (c *SuggestionRangeSpanClient) GetBackgroundColor(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetBackgroundColor(ctx, &pb.GetBackgroundColorRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -1725,7 +997,7 @@ func (c *SuggestionSpanClient) GetLocaleObject(ctx context.Context, handle int64
 }
 
 // GetSpanTypeId calls the GetSpanTypeId RPC.
-func (c *SuggestionSpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
+func (c *SuggestionRangeSpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.GetSpanTypeId(ctx, &pb.GetSpanTypeIdRequest{
 		Handle: handle,
 	})
@@ -1735,42 +1007,9 @@ func (c *SuggestionSpanClient) GetSpanTypeId(ctx context.Context, handle int64) 
 	return resp.GetResult(), nil
 }
 
-// GetSuggestions calls the GetSuggestions RPC.
-func (c *SuggestionSpanClient) GetSuggestions(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetSuggestions(ctx, &pb.GetSuggestionsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetUnderlineColor calls the GetUnderlineColor RPC.
-func (c *SuggestionSpanClient) GetUnderlineColor(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetUnderlineColor(ctx, &pb.GetUnderlineColorRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// HashCode calls the HashCode RPC.
-func (c *SuggestionSpanClient) HashCode(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.HashCode(ctx, &pb.HashCodeRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// SetFlags calls the SetFlags RPC.
-func (c *SuggestionSpanClient) SetFlags(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetFlags(ctx, &pb.SetFlagsRequest{
+// SetBackgroundColor calls the SetBackgroundColor RPC.
+func (c *SuggestionRangeSpanClient) SetBackgroundColor(ctx context.Context, handle int64, arg0 int32) error {
+	_, err := c.svc.SetBackgroundColor(ctx, &pb.SetBackgroundColorRequest{
 		Handle: handle,
 		Arg0:   arg0,
 	})
@@ -1778,7 +1017,7 @@ func (c *SuggestionSpanClient) SetFlags(ctx context.Context, handle int64, arg0 
 }
 
 // UpdateDrawState calls the UpdateDrawState RPC.
-func (c *SuggestionSpanClient) UpdateDrawState(ctx context.Context, handle int64, arg0 int64) error {
+func (c *SuggestionRangeSpanClient) UpdateDrawState(ctx context.Context, handle int64, arg0 int64) error {
 	_, err := c.svc.UpdateDrawState(ctx, &pb.UpdateDrawStateRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -1787,7 +1026,7 @@ func (c *SuggestionSpanClient) UpdateDrawState(ctx context.Context, handle int64
 }
 
 // WriteToParcel calls the WriteToParcel RPC.
-func (c *SuggestionSpanClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+func (c *SuggestionRangeSpanClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
 	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -1907,71 +1146,20 @@ func (c *LineBreakConfigSpanClient) CreateNoHyphenationSpan(ctx context.Context,
 	return resp.GetResult(), nil
 }
 
-// TabStopSpanClient wraps the gRPC TabStopSpanService client.
-type TabStopSpanClient struct {
-	svc pb.TabStopSpanServiceClient
+// SpanClient wraps the gRPC SpanService client.
+type SpanClient struct {
+	svc pb.SpanServiceClient
 }
 
-// NewTabStopSpanClient creates a new TabStopSpan client.
-func NewTabStopSpanClient(cc grpc.ClientConnInterface) *TabStopSpanClient {
-	return &TabStopSpanClient{
-		svc: pb.NewTabStopSpanServiceClient(cc),
-	}
-}
-
-// GetTabStop calls the GetTabStop RPC.
-func (c *TabStopSpanClient) GetTabStop(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetTabStop(ctx, &pb.GetTabStopRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// TabStopSpanStandardClient wraps the gRPC TabStopSpanStandardService client.
-type TabStopSpanStandardClient struct {
-	svc pb.TabStopSpanStandardServiceClient
-}
-
-// NewTabStopSpanStandardClient creates a new TabStopSpanStandard client.
-func NewTabStopSpanStandardClient(cc grpc.ClientConnInterface) *TabStopSpanStandardClient {
-	return &TabStopSpanStandardClient{
-		svc: pb.NewTabStopSpanStandardServiceClient(cc),
-	}
-}
-
-// GetTabStop calls the GetTabStop RPC.
-func (c *TabStopSpanStandardClient) GetTabStop(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetTabStop(ctx, &pb.GetTabStopRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *TabStopSpanStandardClient) ToString(ctx context.Context) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.TabStopSpanStandardToStringRequest{})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// ScaleXSpanClient wraps the gRPC ScaleXSpanService client.
-type ScaleXSpanClient struct {
-	svc pb.ScaleXSpanServiceClient
-}
-
-// NewScaleXSpanClient creates a new ScaleXSpan client.
-func NewScaleXSpanClient(cc grpc.ClientConnInterface) *ScaleXSpanClient {
-	return &ScaleXSpanClient{
-		svc: pb.NewScaleXSpanServiceClient(cc),
+// NewSpanClient creates a new Span client.
+func NewSpanClient(cc grpc.ClientConnInterface) *SpanClient {
+	return &SpanClient{
+		svc: pb.NewSpanServiceClient(cc),
 	}
 }
 
 // DescribeContents calls the DescribeContents RPC.
-func (c *ScaleXSpanClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+func (c *SpanClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
 		Handle: handle,
 	})
@@ -1981,9 +1169,9 @@ func (c *ScaleXSpanClient) DescribeContents(ctx context.Context, handle int64) (
 	return resp.GetResult(), nil
 }
 
-// GetScaleX calls the GetScaleX RPC.
-func (c *ScaleXSpanClient) GetScaleX(ctx context.Context, handle int64) (float32, error) {
-	resp, err := c.svc.GetScaleX(ctx, &pb.GetScaleXRequest{
+// GetFontWeightAdjustment calls the GetFontWeightAdjustment RPC.
+func (c *SpanClient) GetFontWeightAdjustment(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetFontWeightAdjustment(ctx, &pb.GetFontWeightAdjustmentRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -1993,7 +1181,7 @@ func (c *ScaleXSpanClient) GetScaleX(ctx context.Context, handle int64) (float32
 }
 
 // GetSpanTypeId calls the GetSpanTypeId RPC.
-func (c *ScaleXSpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
+func (c *SpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.GetSpanTypeId(ctx, &pb.GetSpanTypeIdRequest{
 		Handle: handle,
 	})
@@ -2003,8 +1191,19 @@ func (c *ScaleXSpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int
 	return resp.GetResult(), nil
 }
 
+// GetStyle calls the GetStyle RPC.
+func (c *SpanClient) GetStyle(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetStyle(ctx, &pb.GetStyleRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // ToString calls the ToString RPC.
-func (c *ScaleXSpanClient) ToString(ctx context.Context, handle int64) (string, error) {
+func (c *SpanClient) ToString(ctx context.Context, handle int64) (string, error) {
 	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
 		Handle: handle,
 	})
@@ -2015,7 +1214,7 @@ func (c *ScaleXSpanClient) ToString(ctx context.Context, handle int64) (string, 
 }
 
 // UpdateDrawState calls the UpdateDrawState RPC.
-func (c *ScaleXSpanClient) UpdateDrawState(ctx context.Context, handle int64, arg0 int64) error {
+func (c *SpanClient) UpdateDrawState(ctx context.Context, handle int64, arg0 int64) error {
 	_, err := c.svc.UpdateDrawState(ctx, &pb.UpdateDrawStateRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -2024,7 +1223,7 @@ func (c *ScaleXSpanClient) UpdateDrawState(ctx context.Context, handle int64, ar
 }
 
 // UpdateMeasureState calls the UpdateMeasureState RPC.
-func (c *ScaleXSpanClient) UpdateMeasureState(ctx context.Context, handle int64, arg0 int64) error {
+func (c *SpanClient) UpdateMeasureState(ctx context.Context, handle int64, arg0 int64) error {
 	_, err := c.svc.UpdateMeasureState(ctx, &pb.UpdateMeasureStateRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -2033,443 +1232,7 @@ func (c *ScaleXSpanClient) UpdateMeasureState(ctx context.Context, handle int64,
 }
 
 // WriteToParcel calls the WriteToParcel RPC.
-func (c *ScaleXSpanClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// ImageSpanClient wraps the gRPC ImageSpanService client.
-type ImageSpanClient struct {
-	svc pb.ImageSpanServiceClient
-}
-
-// NewImageSpanClient creates a new ImageSpan client.
-func NewImageSpanClient(cc grpc.ClientConnInterface) *ImageSpanClient {
-	return &ImageSpanClient{
-		svc: pb.NewImageSpanServiceClient(cc),
-	}
-}
-
-// GetDrawable calls the GetDrawable RPC.
-func (c *ImageSpanClient) GetDrawable(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetDrawable(ctx, &pb.GetDrawableRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSource calls the GetSource RPC.
-func (c *ImageSpanClient) GetSource(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetSource(ctx, &pb.GetSourceRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *ImageSpanClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// LeadingMarginSpanClient wraps the gRPC LeadingMarginSpanService client.
-type LeadingMarginSpanClient struct {
-	svc pb.LeadingMarginSpanServiceClient
-}
-
-// NewLeadingMarginSpanClient creates a new LeadingMarginSpan client.
-func NewLeadingMarginSpanClient(cc grpc.ClientConnInterface) *LeadingMarginSpanClient {
-	return &LeadingMarginSpanClient{
-		svc: pb.NewLeadingMarginSpanServiceClient(cc),
-	}
-}
-
-// DrawLeadingMargin calls the DrawLeadingMargin RPC.
-func (c *LeadingMarginSpanClient) DrawLeadingMargin(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int32, arg7 string, arg8 int32, arg9 int32, arg10 bool, arg11 int64) error {
-	_, err := c.svc.DrawLeadingMargin(ctx, &pb.LeadingMarginSpanDrawLeadingMarginRequest{
-		Arg0:  arg0,
-		Arg1:  arg1,
-		Arg2:  arg2,
-		Arg3:  arg3,
-		Arg4:  arg4,
-		Arg5:  arg5,
-		Arg6:  arg6,
-		Arg7:  arg7,
-		Arg8:  arg8,
-		Arg9:  arg9,
-		Arg10: arg10,
-		Arg11: arg11,
-	})
-	return err
-}
-
-// GetLeadingMargin calls the GetLeadingMargin RPC.
-func (c *LeadingMarginSpanClient) GetLeadingMargin(ctx context.Context, arg0 bool) (int32, error) {
-	resp, err := c.svc.GetLeadingMargin(ctx, &pb.LeadingMarginSpanGetLeadingMarginRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LeadingMarginSpanLeadingMarginSpan2Client wraps the gRPC LeadingMarginSpanLeadingMarginSpan2Service client.
-type LeadingMarginSpanLeadingMarginSpan2Client struct {
-	svc pb.LeadingMarginSpanLeadingMarginSpan2ServiceClient
-}
-
-// NewLeadingMarginSpanLeadingMarginSpan2Client creates a new LeadingMarginSpanLeadingMarginSpan2 client.
-func NewLeadingMarginSpanLeadingMarginSpan2Client(cc grpc.ClientConnInterface) *LeadingMarginSpanLeadingMarginSpan2Client {
-	return &LeadingMarginSpanLeadingMarginSpan2Client{
-		svc: pb.NewLeadingMarginSpanLeadingMarginSpan2ServiceClient(cc),
-	}
-}
-
-// GetLeadingMarginLineCount calls the GetLeadingMarginLineCount RPC.
-func (c *LeadingMarginSpanLeadingMarginSpan2Client) GetLeadingMarginLineCount(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetLeadingMarginLineCount(ctx, &pb.GetLeadingMarginLineCountRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// LeadingMarginSpanStandardClient wraps the gRPC LeadingMarginSpanStandardService client.
-type LeadingMarginSpanStandardClient struct {
-	svc pb.LeadingMarginSpanStandardServiceClient
-}
-
-// NewLeadingMarginSpanStandardClient creates a new LeadingMarginSpanStandard client.
-func NewLeadingMarginSpanStandardClient(cc grpc.ClientConnInterface) *LeadingMarginSpanStandardClient {
-	return &LeadingMarginSpanStandardClient{
-		svc: pb.NewLeadingMarginSpanStandardServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *LeadingMarginSpanStandardClient) DescribeContents(ctx context.Context) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.LeadingMarginSpanStandardDescribeContentsRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// DrawLeadingMargin calls the DrawLeadingMargin RPC.
-func (c *LeadingMarginSpanStandardClient) DrawLeadingMargin(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int32, arg7 string, arg8 int32, arg9 int32, arg10 bool, arg11 int64) error {
-	_, err := c.svc.DrawLeadingMargin(ctx, &pb.LeadingMarginSpanStandardDrawLeadingMarginRequest{
-		Arg0:  arg0,
-		Arg1:  arg1,
-		Arg2:  arg2,
-		Arg3:  arg3,
-		Arg4:  arg4,
-		Arg5:  arg5,
-		Arg6:  arg6,
-		Arg7:  arg7,
-		Arg8:  arg8,
-		Arg9:  arg9,
-		Arg10: arg10,
-		Arg11: arg11,
-	})
-	return err
-}
-
-// GetLeadingMargin calls the GetLeadingMargin RPC.
-func (c *LeadingMarginSpanStandardClient) GetLeadingMargin(ctx context.Context, arg0 bool) (int32, error) {
-	resp, err := c.svc.GetLeadingMargin(ctx, &pb.LeadingMarginSpanStandardGetLeadingMarginRequest{
-		Arg0: arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSpanTypeId calls the GetSpanTypeId RPC.
-func (c *LeadingMarginSpanStandardClient) GetSpanTypeId(ctx context.Context) (int32, error) {
-	resp, err := c.svc.GetSpanTypeId(ctx, &pb.LeadingMarginSpanStandardGetSpanTypeIdRequest{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *LeadingMarginSpanStandardClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.LeadingMarginSpanStandardWriteToParcelRequest{
-		Arg0: arg0,
-		Arg1: arg1,
-	})
-	return err
-}
-
-// IconMarginSpanClient wraps the gRPC IconMarginSpanService client.
-type IconMarginSpanClient struct {
-	svc pb.IconMarginSpanServiceClient
-}
-
-// NewIconMarginSpanClient creates a new IconMarginSpan client.
-func NewIconMarginSpanClient(cc grpc.ClientConnInterface) *IconMarginSpanClient {
-	return &IconMarginSpanClient{
-		svc: pb.NewIconMarginSpanServiceClient(cc),
-	}
-}
-
-// ChooseHeight calls the ChooseHeight RPC.
-func (c *IconMarginSpanClient) ChooseHeight(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int64) error {
-	_, err := c.svc.ChooseHeight(ctx, &pb.IconMarginSpanChooseHeightRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-	})
-	return err
-}
-
-// DrawLeadingMargin calls the DrawLeadingMargin RPC.
-func (c *IconMarginSpanClient) DrawLeadingMargin(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int32, arg7 string, arg8 int32, arg9 int32, arg10 bool, arg11 int64) error {
-	_, err := c.svc.DrawLeadingMargin(ctx, &pb.DrawLeadingMarginRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-		Arg2:   arg2,
-		Arg3:   arg3,
-		Arg4:   arg4,
-		Arg5:   arg5,
-		Arg6:   arg6,
-		Arg7:   arg7,
-		Arg8:   arg8,
-		Arg9:   arg9,
-		Arg10:  arg10,
-		Arg11:  arg11,
-	})
-	return err
-}
-
-// GetBitmap calls the GetBitmap RPC.
-func (c *IconMarginSpanClient) GetBitmap(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetBitmap(ctx, &pb.GetBitmapRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLeadingMargin calls the GetLeadingMargin RPC.
-func (c *IconMarginSpanClient) GetLeadingMargin(ctx context.Context, handle int64, arg0 bool) (int32, error) {
-	resp, err := c.svc.GetLeadingMargin(ctx, &pb.GetLeadingMarginRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetPadding calls the GetPadding RPC.
-func (c *IconMarginSpanClient) GetPadding(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetPadding(ctx, &pb.GetPaddingRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *IconMarginSpanClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// LocaleSpanClient wraps the gRPC LocaleSpanService client.
-type LocaleSpanClient struct {
-	svc pb.LocaleSpanServiceClient
-}
-
-// NewLocaleSpanClient creates a new LocaleSpan client.
-func NewLocaleSpanClient(cc grpc.ClientConnInterface) *LocaleSpanClient {
-	return &LocaleSpanClient{
-		svc: pb.NewLocaleSpanServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *LocaleSpanClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLocale calls the GetLocale RPC.
-func (c *LocaleSpanClient) GetLocale(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetLocale(ctx, &pb.GetLocaleRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetLocales calls the GetLocales RPC.
-func (c *LocaleSpanClient) GetLocales(ctx context.Context, handle int64) (int64, error) {
-	resp, err := c.svc.GetLocales(ctx, &pb.GetLocalesRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSpanTypeId calls the GetSpanTypeId RPC.
-func (c *LocaleSpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetSpanTypeId(ctx, &pb.GetSpanTypeIdRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *LocaleSpanClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// UpdateDrawState calls the UpdateDrawState RPC.
-func (c *LocaleSpanClient) UpdateDrawState(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.UpdateDrawState(ctx, &pb.UpdateDrawStateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// UpdateMeasureState calls the UpdateMeasureState RPC.
-func (c *LocaleSpanClient) UpdateMeasureState(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.UpdateMeasureState(ctx, &pb.UpdateMeasureStateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *LocaleSpanClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// SuperscriptSpanClient wraps the gRPC SuperscriptSpanService client.
-type SuperscriptSpanClient struct {
-	svc pb.SuperscriptSpanServiceClient
-}
-
-// NewSuperscriptSpanClient creates a new SuperscriptSpan client.
-func NewSuperscriptSpanClient(cc grpc.ClientConnInterface) *SuperscriptSpanClient {
-	return &SuperscriptSpanClient{
-		svc: pb.NewSuperscriptSpanServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *SuperscriptSpanClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSpanTypeId calls the GetSpanTypeId RPC.
-func (c *SuperscriptSpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetSpanTypeId(ctx, &pb.GetSpanTypeIdRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// ToString calls the ToString RPC.
-func (c *SuperscriptSpanClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// UpdateDrawState calls the UpdateDrawState RPC.
-func (c *SuperscriptSpanClient) UpdateDrawState(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.UpdateDrawState(ctx, &pb.UpdateDrawStateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// UpdateMeasureState calls the UpdateMeasureState RPC.
-func (c *SuperscriptSpanClient) UpdateMeasureState(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.UpdateMeasureState(ctx, &pb.UpdateMeasureStateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *SuperscriptSpanClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+func (c *SpanClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
 	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -3330,20 +2093,20 @@ func (c *TtsSpanVerbatimBuilderClient) SetVerbatim(ctx context.Context, arg0 str
 	return resp.GetResult(), nil
 }
 
-// SuggestionRangeSpanClient wraps the gRPC SuggestionRangeSpanService client.
-type SuggestionRangeSpanClient struct {
-	svc pb.SuggestionRangeSpanServiceClient
+// RelativeSizeSpanClient wraps the gRPC RelativeSizeSpanService client.
+type RelativeSizeSpanClient struct {
+	svc pb.RelativeSizeSpanServiceClient
 }
 
-// NewSuggestionRangeSpanClient creates a new SuggestionRangeSpan client.
-func NewSuggestionRangeSpanClient(cc grpc.ClientConnInterface) *SuggestionRangeSpanClient {
-	return &SuggestionRangeSpanClient{
-		svc: pb.NewSuggestionRangeSpanServiceClient(cc),
+// NewRelativeSizeSpanClient creates a new RelativeSizeSpan client.
+func NewRelativeSizeSpanClient(cc grpc.ClientConnInterface) *RelativeSizeSpanClient {
+	return &RelativeSizeSpanClient{
+		svc: pb.NewRelativeSizeSpanServiceClient(cc),
 	}
 }
 
 // DescribeContents calls the DescribeContents RPC.
-func (c *SuggestionRangeSpanClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+func (c *RelativeSizeSpanClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
 		Handle: handle,
 	})
@@ -3353,9 +2116,9 @@ func (c *SuggestionRangeSpanClient) DescribeContents(ctx context.Context, handle
 	return resp.GetResult(), nil
 }
 
-// GetBackgroundColor calls the GetBackgroundColor RPC.
-func (c *SuggestionRangeSpanClient) GetBackgroundColor(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetBackgroundColor(ctx, &pb.GetBackgroundColorRequest{
+// GetSizeChange calls the GetSizeChange RPC.
+func (c *RelativeSizeSpanClient) GetSizeChange(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetSizeChange(ctx, &pb.GetSizeChangeRequest{
 		Handle: handle,
 	})
 	if err != nil {
@@ -3365,7 +2128,7 @@ func (c *SuggestionRangeSpanClient) GetBackgroundColor(ctx context.Context, hand
 }
 
 // GetSpanTypeId calls the GetSpanTypeId RPC.
-func (c *SuggestionRangeSpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
+func (c *RelativeSizeSpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
 	resp, err := c.svc.GetSpanTypeId(ctx, &pb.GetSpanTypeIdRequest{
 		Handle: handle,
 	})
@@ -3375,17 +2138,19 @@ func (c *SuggestionRangeSpanClient) GetSpanTypeId(ctx context.Context, handle in
 	return resp.GetResult(), nil
 }
 
-// SetBackgroundColor calls the SetBackgroundColor RPC.
-func (c *SuggestionRangeSpanClient) SetBackgroundColor(ctx context.Context, handle int64, arg0 int32) error {
-	_, err := c.svc.SetBackgroundColor(ctx, &pb.SetBackgroundColorRequest{
+// ToString calls the ToString RPC.
+func (c *RelativeSizeSpanClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
 		Handle: handle,
-		Arg0:   arg0,
 	})
-	return err
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
 }
 
 // UpdateDrawState calls the UpdateDrawState RPC.
-func (c *SuggestionRangeSpanClient) UpdateDrawState(ctx context.Context, handle int64, arg0 int64) error {
+func (c *RelativeSizeSpanClient) UpdateDrawState(ctx context.Context, handle int64, arg0 int64) error {
 	_, err := c.svc.UpdateDrawState(ctx, &pb.UpdateDrawStateRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -3393,8 +2158,17 @@ func (c *SuggestionRangeSpanClient) UpdateDrawState(ctx context.Context, handle 
 	return err
 }
 
+// UpdateMeasureState calls the UpdateMeasureState RPC.
+func (c *RelativeSizeSpanClient) UpdateMeasureState(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.UpdateMeasureState(ctx, &pb.UpdateMeasureStateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
 // WriteToParcel calls the WriteToParcel RPC.
-func (c *SuggestionRangeSpanClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+func (c *RelativeSizeSpanClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
 	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
 		Handle: handle,
 		Arg0:   arg0,
@@ -3443,6 +2217,344 @@ func (c *EasyEditSpanClient) WriteToParcel(ctx context.Context, handle int64, ar
 		Handle: handle,
 		Arg0:   arg0,
 		Arg1:   arg1,
+	})
+	return err
+}
+
+// URLSpanClient wraps the gRPC URLSpanService client.
+type URLSpanClient struct {
+	svc pb.URLSpanServiceClient
+}
+
+// NewURLSpanClient creates a new URLSpan client.
+func NewURLSpanClient(cc grpc.ClientConnInterface) *URLSpanClient {
+	return &URLSpanClient{
+		svc: pb.NewURLSpanServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *URLSpanClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSpanTypeId calls the GetSpanTypeId RPC.
+func (c *URLSpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSpanTypeId(ctx, &pb.GetSpanTypeIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetURL calls the GetURL RPC.
+func (c *URLSpanClient) GetURL(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetURL(ctx, &pb.GetURLRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// OnClick calls the OnClick RPC.
+func (c *URLSpanClient) OnClick(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.OnClick(ctx, &pb.OnClickRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// ToString calls the ToString RPC.
+func (c *URLSpanClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *URLSpanClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// ForegroundColorSpanClient wraps the gRPC ForegroundColorSpanService client.
+type ForegroundColorSpanClient struct {
+	svc pb.ForegroundColorSpanServiceClient
+}
+
+// NewForegroundColorSpanClient creates a new ForegroundColorSpan client.
+func NewForegroundColorSpanClient(cc grpc.ClientConnInterface) *ForegroundColorSpanClient {
+	return &ForegroundColorSpanClient{
+		svc: pb.NewForegroundColorSpanServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ForegroundColorSpanClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetForegroundColor calls the GetForegroundColor RPC.
+func (c *ForegroundColorSpanClient) GetForegroundColor(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetForegroundColor(ctx, &pb.GetForegroundColorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSpanTypeId calls the GetSpanTypeId RPC.
+func (c *ForegroundColorSpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSpanTypeId(ctx, &pb.GetSpanTypeIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ForegroundColorSpanClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// UpdateDrawState calls the UpdateDrawState RPC.
+func (c *ForegroundColorSpanClient) UpdateDrawState(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.UpdateDrawState(ctx, &pb.UpdateDrawStateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ForegroundColorSpanClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// ReplacementSpanClient wraps the gRPC ReplacementSpanService client.
+type ReplacementSpanClient struct {
+	svc pb.ReplacementSpanServiceClient
+}
+
+// NewReplacementSpanClient creates a new ReplacementSpan client.
+func NewReplacementSpanClient(cc grpc.ClientConnInterface) *ReplacementSpanClient {
+	return &ReplacementSpanClient{
+		svc: pb.NewReplacementSpanServiceClient(cc),
+	}
+}
+
+// Draw calls the Draw RPC.
+func (c *ReplacementSpanClient) Draw(ctx context.Context, arg0 int64, arg1 string, arg2 int32, arg3 int32, arg4 float32, arg5 int32, arg6 int32, arg7 int32, arg8 int64) error {
+	_, err := c.svc.Draw(ctx, &pb.DrawRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+		Arg6: arg6,
+		Arg7: arg7,
+		Arg8: arg8,
+	})
+	return err
+}
+
+// GetContentDescription calls the GetContentDescription RPC.
+func (c *ReplacementSpanClient) GetContentDescription(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetContentDescription(ctx, &pb.GetContentDescriptionRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSize calls the GetSize RPC.
+func (c *ReplacementSpanClient) GetSize(ctx context.Context, arg0 int64, arg1 string, arg2 int32, arg3 int32, arg4 int64) (int32, error) {
+	resp, err := c.svc.GetSize(ctx, &pb.GetSizeRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// SetContentDescription calls the SetContentDescription RPC.
+func (c *ReplacementSpanClient) SetContentDescription(ctx context.Context, arg0 string) error {
+	_, err := c.svc.SetContentDescription(ctx, &pb.SetContentDescriptionRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// UpdateDrawState calls the UpdateDrawState RPC.
+func (c *ReplacementSpanClient) UpdateDrawState(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UpdateDrawState(ctx, &pb.ReplacementSpanUpdateDrawStateRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// UpdateMeasureState calls the UpdateMeasureState RPC.
+func (c *ReplacementSpanClient) UpdateMeasureState(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UpdateMeasureState(ctx, &pb.ReplacementSpanUpdateMeasureStateRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// LineHeightSpanClient wraps the gRPC LineHeightSpanService client.
+type LineHeightSpanClient struct {
+	svc pb.LineHeightSpanServiceClient
+}
+
+// NewLineHeightSpanClient creates a new LineHeightSpan client.
+func NewLineHeightSpanClient(cc grpc.ClientConnInterface) *LineHeightSpanClient {
+	return &LineHeightSpanClient{
+		svc: pb.NewLineHeightSpanServiceClient(cc),
+	}
+}
+
+// ChooseHeight calls the ChooseHeight RPC.
+func (c *LineHeightSpanClient) ChooseHeight(ctx context.Context, arg0 string, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int64) error {
+	_, err := c.svc.ChooseHeight(ctx, &pb.LineHeightSpanChooseHeightRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	return err
+}
+
+// LineHeightSpanStandardClient wraps the gRPC LineHeightSpanStandardService client.
+type LineHeightSpanStandardClient struct {
+	svc pb.LineHeightSpanStandardServiceClient
+}
+
+// NewLineHeightSpanStandardClient creates a new LineHeightSpanStandard client.
+func NewLineHeightSpanStandardClient(cc grpc.ClientConnInterface) *LineHeightSpanStandardClient {
+	return &LineHeightSpanStandardClient{
+		svc: pb.NewLineHeightSpanStandardServiceClient(cc),
+	}
+}
+
+// ChooseHeight calls the ChooseHeight RPC.
+func (c *LineHeightSpanStandardClient) ChooseHeight(ctx context.Context, arg0 string, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int64) error {
+	_, err := c.svc.ChooseHeight(ctx, &pb.LineHeightSpanStandardChooseHeightRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+	})
+	return err
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *LineHeightSpanStandardClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.LineHeightSpanStandardDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetHeight calls the GetHeight RPC.
+func (c *LineHeightSpanStandardClient) GetHeight(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetHeight(ctx, &pb.GetHeightRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSpanTypeId calls the GetSpanTypeId RPC.
+func (c *LineHeightSpanStandardClient) GetSpanTypeId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSpanTypeId(ctx, &pb.LineHeightSpanStandardGetSpanTypeIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *LineHeightSpanStandardClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.LineHeightSpanStandardWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// LineHeightSpanWithDensityClient wraps the gRPC LineHeightSpanWithDensityService client.
+type LineHeightSpanWithDensityClient struct {
+	svc pb.LineHeightSpanWithDensityServiceClient
+}
+
+// NewLineHeightSpanWithDensityClient creates a new LineHeightSpanWithDensity client.
+func NewLineHeightSpanWithDensityClient(cc grpc.ClientConnInterface) *LineHeightSpanWithDensityClient {
+	return &LineHeightSpanWithDensityClient{
+		svc: pb.NewLineHeightSpanWithDensityServiceClient(cc),
+	}
+}
+
+// ChooseHeight calls the ChooseHeight RPC.
+func (c *LineHeightSpanWithDensityClient) ChooseHeight(ctx context.Context, arg0 string, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int64, arg6 int64) error {
+	_, err := c.svc.ChooseHeight(ctx, &pb.LineHeightSpanWithDensityChooseHeightRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+		Arg2: arg2,
+		Arg3: arg3,
+		Arg4: arg4,
+		Arg5: arg5,
+		Arg6: arg6,
 	})
 	return err
 }
@@ -3525,6 +2637,460 @@ func (c *AlignmentSpanStandardClient) WriteToParcel(ctx context.Context, arg0 in
 	return err
 }
 
+// LineBackgroundSpanClient wraps the gRPC LineBackgroundSpanService client.
+type LineBackgroundSpanClient struct {
+	svc pb.LineBackgroundSpanServiceClient
+}
+
+// NewLineBackgroundSpanClient creates a new LineBackgroundSpan client.
+func NewLineBackgroundSpanClient(cc grpc.ClientConnInterface) *LineBackgroundSpanClient {
+	return &LineBackgroundSpanClient{
+		svc: pb.NewLineBackgroundSpanServiceClient(cc),
+	}
+}
+
+// DrawBackground calls the DrawBackground RPC.
+func (c *LineBackgroundSpanClient) DrawBackground(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int32, arg7 string, arg8 int32, arg9 int32, arg10 int32) error {
+	_, err := c.svc.DrawBackground(ctx, &pb.DrawBackgroundRequest{
+		Arg0:  arg0,
+		Arg1:  arg1,
+		Arg2:  arg2,
+		Arg3:  arg3,
+		Arg4:  arg4,
+		Arg5:  arg5,
+		Arg6:  arg6,
+		Arg7:  arg7,
+		Arg8:  arg8,
+		Arg9:  arg9,
+		Arg10: arg10,
+	})
+	return err
+}
+
+// LineBackgroundSpanStandardClient wraps the gRPC LineBackgroundSpanStandardService client.
+type LineBackgroundSpanStandardClient struct {
+	svc pb.LineBackgroundSpanStandardServiceClient
+}
+
+// NewLineBackgroundSpanStandardClient creates a new LineBackgroundSpanStandard client.
+func NewLineBackgroundSpanStandardClient(cc grpc.ClientConnInterface) *LineBackgroundSpanStandardClient {
+	return &LineBackgroundSpanStandardClient{
+		svc: pb.NewLineBackgroundSpanStandardServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *LineBackgroundSpanStandardClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.LineBackgroundSpanStandardDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DrawBackground calls the DrawBackground RPC.
+func (c *LineBackgroundSpanStandardClient) DrawBackground(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int32, arg7 string, arg8 int32, arg9 int32, arg10 int32) error {
+	_, err := c.svc.DrawBackground(ctx, &pb.DrawBackgroundRequest{
+		Arg0:  arg0,
+		Arg1:  arg1,
+		Arg2:  arg2,
+		Arg3:  arg3,
+		Arg4:  arg4,
+		Arg5:  arg5,
+		Arg6:  arg6,
+		Arg7:  arg7,
+		Arg8:  arg8,
+		Arg9:  arg9,
+		Arg10: arg10,
+	})
+	return err
+}
+
+// GetColor calls the GetColor RPC.
+func (c *LineBackgroundSpanStandardClient) GetColor(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetColor(ctx, &pb.LineBackgroundSpanStandardGetColorRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSpanTypeId calls the GetSpanTypeId RPC.
+func (c *LineBackgroundSpanStandardClient) GetSpanTypeId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSpanTypeId(ctx, &pb.LineBackgroundSpanStandardGetSpanTypeIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *LineBackgroundSpanStandardClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.LineBackgroundSpanStandardWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// DrawableMarginSpanClient wraps the gRPC DrawableMarginSpanService client.
+type DrawableMarginSpanClient struct {
+	svc pb.DrawableMarginSpanServiceClient
+}
+
+// NewDrawableMarginSpanClient creates a new DrawableMarginSpan client.
+func NewDrawableMarginSpanClient(cc grpc.ClientConnInterface) *DrawableMarginSpanClient {
+	return &DrawableMarginSpanClient{
+		svc: pb.NewDrawableMarginSpanServiceClient(cc),
+	}
+}
+
+// ChooseHeight calls the ChooseHeight RPC.
+func (c *DrawableMarginSpanClient) ChooseHeight(ctx context.Context, handle int64, arg0 string, arg1 int32, arg2 int32, arg3 int32, arg4 int32, arg5 int64) error {
+	_, err := c.svc.ChooseHeight(ctx, &pb.ChooseHeightRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+	})
+	return err
+}
+
+// DrawLeadingMargin calls the DrawLeadingMargin RPC.
+func (c *DrawableMarginSpanClient) DrawLeadingMargin(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int32, arg7 string, arg8 int32, arg9 int32, arg10 bool, arg11 int64) error {
+	_, err := c.svc.DrawLeadingMargin(ctx, &pb.DrawLeadingMarginRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+		Arg6:   arg6,
+		Arg7:   arg7,
+		Arg8:   arg8,
+		Arg9:   arg9,
+		Arg10:  arg10,
+		Arg11:  arg11,
+	})
+	return err
+}
+
+// GetDrawable calls the GetDrawable RPC.
+func (c *DrawableMarginSpanClient) GetDrawable(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetDrawable(ctx, &pb.DrawableMarginSpanGetDrawableRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLeadingMargin calls the GetLeadingMargin RPC.
+func (c *DrawableMarginSpanClient) GetLeadingMargin(ctx context.Context, handle int64, arg0 bool) (int32, error) {
+	resp, err := c.svc.GetLeadingMargin(ctx, &pb.GetLeadingMarginRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetPadding calls the GetPadding RPC.
+func (c *DrawableMarginSpanClient) GetPadding(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetPadding(ctx, &pb.GetPaddingRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *DrawableMarginSpanClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// AbsoluteSizeSpanClient wraps the gRPC AbsoluteSizeSpanService client.
+type AbsoluteSizeSpanClient struct {
+	svc pb.AbsoluteSizeSpanServiceClient
+}
+
+// NewAbsoluteSizeSpanClient creates a new AbsoluteSizeSpan client.
+func NewAbsoluteSizeSpanClient(cc grpc.ClientConnInterface) *AbsoluteSizeSpanClient {
+	return &AbsoluteSizeSpanClient{
+		svc: pb.NewAbsoluteSizeSpanServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *AbsoluteSizeSpanClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetDip calls the GetDip RPC.
+func (c *AbsoluteSizeSpanClient) GetDip(ctx context.Context, handle int64) (bool, error) {
+	resp, err := c.svc.GetDip(ctx, &pb.GetDipRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return false, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSize calls the GetSize RPC.
+func (c *AbsoluteSizeSpanClient) GetSize(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSize(ctx, &pb.AbsoluteSizeSpanGetSizeRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSpanTypeId calls the GetSpanTypeId RPC.
+func (c *AbsoluteSizeSpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSpanTypeId(ctx, &pb.GetSpanTypeIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *AbsoluteSizeSpanClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// UpdateDrawState calls the UpdateDrawState RPC.
+func (c *AbsoluteSizeSpanClient) UpdateDrawState(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.UpdateDrawState(ctx, &pb.UpdateDrawStateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// UpdateMeasureState calls the UpdateMeasureState RPC.
+func (c *AbsoluteSizeSpanClient) UpdateMeasureState(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.UpdateMeasureState(ctx, &pb.UpdateMeasureStateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *AbsoluteSizeSpanClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// LeadingMarginSpanClient wraps the gRPC LeadingMarginSpanService client.
+type LeadingMarginSpanClient struct {
+	svc pb.LeadingMarginSpanServiceClient
+}
+
+// NewLeadingMarginSpanClient creates a new LeadingMarginSpan client.
+func NewLeadingMarginSpanClient(cc grpc.ClientConnInterface) *LeadingMarginSpanClient {
+	return &LeadingMarginSpanClient{
+		svc: pb.NewLeadingMarginSpanServiceClient(cc),
+	}
+}
+
+// DrawLeadingMargin calls the DrawLeadingMargin RPC.
+func (c *LeadingMarginSpanClient) DrawLeadingMargin(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int32, arg7 string, arg8 int32, arg9 int32, arg10 bool, arg11 int64) error {
+	_, err := c.svc.DrawLeadingMargin(ctx, &pb.LeadingMarginSpanDrawLeadingMarginRequest{
+		Arg0:  arg0,
+		Arg1:  arg1,
+		Arg2:  arg2,
+		Arg3:  arg3,
+		Arg4:  arg4,
+		Arg5:  arg5,
+		Arg6:  arg6,
+		Arg7:  arg7,
+		Arg8:  arg8,
+		Arg9:  arg9,
+		Arg10: arg10,
+		Arg11: arg11,
+	})
+	return err
+}
+
+// GetLeadingMargin calls the GetLeadingMargin RPC.
+func (c *LeadingMarginSpanClient) GetLeadingMargin(ctx context.Context, arg0 bool) (int32, error) {
+	resp, err := c.svc.GetLeadingMargin(ctx, &pb.LeadingMarginSpanGetLeadingMarginRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LeadingMarginSpanLeadingMarginSpan2Client wraps the gRPC LeadingMarginSpanLeadingMarginSpan2Service client.
+type LeadingMarginSpanLeadingMarginSpan2Client struct {
+	svc pb.LeadingMarginSpanLeadingMarginSpan2ServiceClient
+}
+
+// NewLeadingMarginSpanLeadingMarginSpan2Client creates a new LeadingMarginSpanLeadingMarginSpan2 client.
+func NewLeadingMarginSpanLeadingMarginSpan2Client(cc grpc.ClientConnInterface) *LeadingMarginSpanLeadingMarginSpan2Client {
+	return &LeadingMarginSpanLeadingMarginSpan2Client{
+		svc: pb.NewLeadingMarginSpanLeadingMarginSpan2ServiceClient(cc),
+	}
+}
+
+// GetLeadingMarginLineCount calls the GetLeadingMarginLineCount RPC.
+func (c *LeadingMarginSpanLeadingMarginSpan2Client) GetLeadingMarginLineCount(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetLeadingMarginLineCount(ctx, &pb.GetLeadingMarginLineCountRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LeadingMarginSpanStandardClient wraps the gRPC LeadingMarginSpanStandardService client.
+type LeadingMarginSpanStandardClient struct {
+	svc pb.LeadingMarginSpanStandardServiceClient
+}
+
+// NewLeadingMarginSpanStandardClient creates a new LeadingMarginSpanStandard client.
+func NewLeadingMarginSpanStandardClient(cc grpc.ClientConnInterface) *LeadingMarginSpanStandardClient {
+	return &LeadingMarginSpanStandardClient{
+		svc: pb.NewLeadingMarginSpanStandardServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *LeadingMarginSpanStandardClient) DescribeContents(ctx context.Context) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.LeadingMarginSpanStandardDescribeContentsRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DrawLeadingMargin calls the DrawLeadingMargin RPC.
+func (c *LeadingMarginSpanStandardClient) DrawLeadingMargin(ctx context.Context, arg0 int64, arg1 int64, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int32, arg7 string, arg8 int32, arg9 int32, arg10 bool, arg11 int64) error {
+	_, err := c.svc.DrawLeadingMargin(ctx, &pb.LeadingMarginSpanStandardDrawLeadingMarginRequest{
+		Arg0:  arg0,
+		Arg1:  arg1,
+		Arg2:  arg2,
+		Arg3:  arg3,
+		Arg4:  arg4,
+		Arg5:  arg5,
+		Arg6:  arg6,
+		Arg7:  arg7,
+		Arg8:  arg8,
+		Arg9:  arg9,
+		Arg10: arg10,
+		Arg11: arg11,
+	})
+	return err
+}
+
+// GetLeadingMargin calls the GetLeadingMargin RPC.
+func (c *LeadingMarginSpanStandardClient) GetLeadingMargin(ctx context.Context, arg0 bool) (int32, error) {
+	resp, err := c.svc.GetLeadingMargin(ctx, &pb.LeadingMarginSpanStandardGetLeadingMarginRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSpanTypeId calls the GetSpanTypeId RPC.
+func (c *LeadingMarginSpanStandardClient) GetSpanTypeId(ctx context.Context) (int32, error) {
+	resp, err := c.svc.GetSpanTypeId(ctx, &pb.LeadingMarginSpanStandardGetSpanTypeIdRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *LeadingMarginSpanStandardClient) WriteToParcel(ctx context.Context, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.LeadingMarginSpanStandardWriteToParcelRequest{
+		Arg0: arg0,
+		Arg1: arg1,
+	})
+	return err
+}
+
+// CharacterStyleClient wraps the gRPC CharacterStyleService client.
+type CharacterStyleClient struct {
+	svc pb.CharacterStyleServiceClient
+}
+
+// NewCharacterStyleClient creates a new CharacterStyle client.
+func NewCharacterStyleClient(cc grpc.ClientConnInterface) *CharacterStyleClient {
+	return &CharacterStyleClient{
+		svc: pb.NewCharacterStyleServiceClient(cc),
+	}
+}
+
+// GetUnderlying calls the GetUnderlying RPC.
+func (c *CharacterStyleClient) GetUnderlying(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUnderlying(ctx, &pb.GetUnderlyingRequest{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// UpdateDrawState calls the UpdateDrawState RPC.
+func (c *CharacterStyleClient) UpdateDrawState(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UpdateDrawState(ctx, &pb.CharacterStyleUpdateDrawStateRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// Wrap calls the Wrap RPC.
+func (c *CharacterStyleClient) Wrap(ctx context.Context, arg0 int64) (int64, error) {
+	resp, err := c.svc.Wrap(ctx, &pb.WrapRequest{
+		Arg0: arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
 // MaskFilterSpanClient wraps the gRPC MaskFilterSpanService client.
 type MaskFilterSpanClient struct {
 	svc pb.MaskFilterSpanServiceClient
@@ -3566,6 +3132,580 @@ func (c *MaskFilterSpanClient) UpdateDrawState(ctx context.Context, handle int64
 		Arg0:   arg0,
 	})
 	return err
+}
+
+// UnderlineSpanClient wraps the gRPC UnderlineSpanService client.
+type UnderlineSpanClient struct {
+	svc pb.UnderlineSpanServiceClient
+}
+
+// NewUnderlineSpanClient creates a new UnderlineSpan client.
+func NewUnderlineSpanClient(cc grpc.ClientConnInterface) *UnderlineSpanClient {
+	return &UnderlineSpanClient{
+		svc: pb.NewUnderlineSpanServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *UnderlineSpanClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSpanTypeId calls the GetSpanTypeId RPC.
+func (c *UnderlineSpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSpanTypeId(ctx, &pb.GetSpanTypeIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *UnderlineSpanClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// UpdateDrawState calls the UpdateDrawState RPC.
+func (c *UnderlineSpanClient) UpdateDrawState(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.UpdateDrawState(ctx, &pb.UpdateDrawStateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *UnderlineSpanClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// NoWritingToolsSpanClient wraps the gRPC NoWritingToolsSpanService client.
+type NoWritingToolsSpanClient struct {
+	svc pb.NoWritingToolsSpanServiceClient
+}
+
+// NewNoWritingToolsSpanClient creates a new NoWritingToolsSpan client.
+func NewNoWritingToolsSpanClient(cc grpc.ClientConnInterface) *NoWritingToolsSpanClient {
+	return &NoWritingToolsSpanClient{
+		svc: pb.NewNoWritingToolsSpanServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *NoWritingToolsSpanClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSpanTypeId calls the GetSpanTypeId RPC.
+func (c *NoWritingToolsSpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSpanTypeId(ctx, &pb.GetSpanTypeIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *NoWritingToolsSpanClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *NoWritingToolsSpanClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// QuoteSpanClient wraps the gRPC QuoteSpanService client.
+type QuoteSpanClient struct {
+	svc pb.QuoteSpanServiceClient
+}
+
+// NewQuoteSpanClient creates a new QuoteSpan client.
+func NewQuoteSpanClient(cc grpc.ClientConnInterface) *QuoteSpanClient {
+	return &QuoteSpanClient{
+		svc: pb.NewQuoteSpanServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *QuoteSpanClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// DrawLeadingMargin calls the DrawLeadingMargin RPC.
+func (c *QuoteSpanClient) DrawLeadingMargin(ctx context.Context, handle int64, arg0 int64, arg1 int64, arg2 int32, arg3 int32, arg4 int32, arg5 int32, arg6 int32, arg7 string, arg8 int32, arg9 int32, arg10 bool, arg11 int64) error {
+	_, err := c.svc.DrawLeadingMargin(ctx, &pb.DrawLeadingMarginRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+		Arg2:   arg2,
+		Arg3:   arg3,
+		Arg4:   arg4,
+		Arg5:   arg5,
+		Arg6:   arg6,
+		Arg7:   arg7,
+		Arg8:   arg8,
+		Arg9:   arg9,
+		Arg10:  arg10,
+		Arg11:  arg11,
+	})
+	return err
+}
+
+// GetColor calls the GetColor RPC.
+func (c *QuoteSpanClient) GetColor(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetColor(ctx, &pb.GetColorRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetGapWidth calls the GetGapWidth RPC.
+func (c *QuoteSpanClient) GetGapWidth(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetGapWidth(ctx, &pb.GetGapWidthRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLeadingMargin calls the GetLeadingMargin RPC.
+func (c *QuoteSpanClient) GetLeadingMargin(ctx context.Context, handle int64, arg0 bool) (int32, error) {
+	resp, err := c.svc.GetLeadingMargin(ctx, &pb.GetLeadingMarginRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSpanTypeId calls the GetSpanTypeId RPC.
+func (c *QuoteSpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSpanTypeId(ctx, &pb.GetSpanTypeIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetStripeWidth calls the GetStripeWidth RPC.
+func (c *QuoteSpanClient) GetStripeWidth(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetStripeWidth(ctx, &pb.GetStripeWidthRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *QuoteSpanClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *QuoteSpanClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// SuperscriptSpanClient wraps the gRPC SuperscriptSpanService client.
+type SuperscriptSpanClient struct {
+	svc pb.SuperscriptSpanServiceClient
+}
+
+// NewSuperscriptSpanClient creates a new SuperscriptSpan client.
+func NewSuperscriptSpanClient(cc grpc.ClientConnInterface) *SuperscriptSpanClient {
+	return &SuperscriptSpanClient{
+		svc: pb.NewSuperscriptSpanServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *SuperscriptSpanClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSpanTypeId calls the GetSpanTypeId RPC.
+func (c *SuperscriptSpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSpanTypeId(ctx, &pb.GetSpanTypeIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *SuperscriptSpanClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// UpdateDrawState calls the UpdateDrawState RPC.
+func (c *SuperscriptSpanClient) UpdateDrawState(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.UpdateDrawState(ctx, &pb.UpdateDrawStateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// UpdateMeasureState calls the UpdateMeasureState RPC.
+func (c *SuperscriptSpanClient) UpdateMeasureState(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.UpdateMeasureState(ctx, &pb.UpdateMeasureStateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *SuperscriptSpanClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// MetricAffectingSpanClient wraps the gRPC MetricAffectingSpanService client.
+type MetricAffectingSpanClient struct {
+	svc pb.MetricAffectingSpanServiceClient
+}
+
+// NewMetricAffectingSpanClient creates a new MetricAffectingSpan client.
+func NewMetricAffectingSpanClient(cc grpc.ClientConnInterface) *MetricAffectingSpanClient {
+	return &MetricAffectingSpanClient{
+		svc: pb.NewMetricAffectingSpanServiceClient(cc),
+	}
+}
+
+// GetUnderlying0 calls the GetUnderlying0 RPC.
+func (c *MetricAffectingSpanClient) GetUnderlying0(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUnderlying0(ctx, &pb.GetUnderlying0Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// UpdateMeasureState calls the UpdateMeasureState RPC.
+func (c *MetricAffectingSpanClient) UpdateMeasureState(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UpdateMeasureState(ctx, &pb.MetricAffectingSpanUpdateMeasureStateRequest{
+		Arg0: arg0,
+	})
+	return err
+}
+
+// GetUnderlying0_1 calls the GetUnderlying0_1 RPC.
+func (c *MetricAffectingSpanClient) GetUnderlying0_1(ctx context.Context) (int64, error) {
+	resp, err := c.svc.GetUnderlying0_1(ctx, &pb.GetUnderlying0_1Request{})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// LocaleSpanClient wraps the gRPC LocaleSpanService client.
+type LocaleSpanClient struct {
+	svc pb.LocaleSpanServiceClient
+}
+
+// NewLocaleSpanClient creates a new LocaleSpan client.
+func NewLocaleSpanClient(cc grpc.ClientConnInterface) *LocaleSpanClient {
+	return &LocaleSpanClient{
+		svc: pb.NewLocaleSpanServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *LocaleSpanClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLocale calls the GetLocale RPC.
+func (c *LocaleSpanClient) GetLocale(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLocale(ctx, &pb.GetLocaleRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetLocales calls the GetLocales RPC.
+func (c *LocaleSpanClient) GetLocales(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetLocales(ctx, &pb.GetLocalesRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSpanTypeId calls the GetSpanTypeId RPC.
+func (c *LocaleSpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSpanTypeId(ctx, &pb.GetSpanTypeIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *LocaleSpanClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// UpdateDrawState calls the UpdateDrawState RPC.
+func (c *LocaleSpanClient) UpdateDrawState(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.UpdateDrawState(ctx, &pb.UpdateDrawStateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// UpdateMeasureState calls the UpdateMeasureState RPC.
+func (c *LocaleSpanClient) UpdateMeasureState(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.UpdateMeasureState(ctx, &pb.UpdateMeasureStateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *LocaleSpanClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// ScaleXSpanClient wraps the gRPC ScaleXSpanService client.
+type ScaleXSpanClient struct {
+	svc pb.ScaleXSpanServiceClient
+}
+
+// NewScaleXSpanClient creates a new ScaleXSpan client.
+func NewScaleXSpanClient(cc grpc.ClientConnInterface) *ScaleXSpanClient {
+	return &ScaleXSpanClient{
+		svc: pb.NewScaleXSpanServiceClient(cc),
+	}
+}
+
+// DescribeContents calls the DescribeContents RPC.
+func (c *ScaleXSpanClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetScaleX calls the GetScaleX RPC.
+func (c *ScaleXSpanClient) GetScaleX(ctx context.Context, handle int64) (float32, error) {
+	resp, err := c.svc.GetScaleX(ctx, &pb.GetScaleXRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSpanTypeId calls the GetSpanTypeId RPC.
+func (c *ScaleXSpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
+	resp, err := c.svc.GetSpanTypeId(ctx, &pb.GetSpanTypeIdRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ScaleXSpanClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// UpdateDrawState calls the UpdateDrawState RPC.
+func (c *ScaleXSpanClient) UpdateDrawState(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.UpdateDrawState(ctx, &pb.UpdateDrawStateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// UpdateMeasureState calls the UpdateMeasureState RPC.
+func (c *ScaleXSpanClient) UpdateMeasureState(ctx context.Context, handle int64, arg0 int64) error {
+	_, err := c.svc.UpdateMeasureState(ctx, &pb.UpdateMeasureStateRequest{
+		Handle: handle,
+		Arg0:   arg0,
+	})
+	return err
+}
+
+// WriteToParcel calls the WriteToParcel RPC.
+func (c *ScaleXSpanClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
+	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
+		Handle: handle,
+		Arg0:   arg0,
+		Arg1:   arg1,
+	})
+	return err
+}
+
+// ImageSpanClient wraps the gRPC ImageSpanService client.
+type ImageSpanClient struct {
+	svc pb.ImageSpanServiceClient
+}
+
+// NewImageSpanClient creates a new ImageSpan client.
+func NewImageSpanClient(cc grpc.ClientConnInterface) *ImageSpanClient {
+	return &ImageSpanClient{
+		svc: pb.NewImageSpanServiceClient(cc),
+	}
+}
+
+// GetDrawable calls the GetDrawable RPC.
+func (c *ImageSpanClient) GetDrawable(ctx context.Context, handle int64) (int64, error) {
+	resp, err := c.svc.GetDrawable(ctx, &pb.ImageSpanGetDrawableRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return 0, err
+	}
+	return resp.GetResult(), nil
+}
+
+// GetSource calls the GetSource RPC.
+func (c *ImageSpanClient) GetSource(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.GetSource(ctx, &pb.GetSourceRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
+}
+
+// ToString calls the ToString RPC.
+func (c *ImageSpanClient) ToString(ctx context.Context, handle int64) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
+		Handle: handle,
+	})
+	if err != nil {
+		return "", err
+	}
+	return resp.GetResult(), nil
 }
 
 // BackgroundColorSpanClient wraps the gRPC BackgroundColorSpanService client.
@@ -3643,45 +3783,29 @@ func (c *BackgroundColorSpanClient) WriteToParcel(ctx context.Context, handle in
 	return err
 }
 
-// StrikethroughSpanClient wraps the gRPC StrikethroughSpanService client.
-type StrikethroughSpanClient struct {
-	svc pb.StrikethroughSpanServiceClient
+// ClickableSpanClient wraps the gRPC ClickableSpanService client.
+type ClickableSpanClient struct {
+	svc pb.ClickableSpanServiceClient
 }
 
-// NewStrikethroughSpanClient creates a new StrikethroughSpan client.
-func NewStrikethroughSpanClient(cc grpc.ClientConnInterface) *StrikethroughSpanClient {
-	return &StrikethroughSpanClient{
-		svc: pb.NewStrikethroughSpanServiceClient(cc),
+// NewClickableSpanClient creates a new ClickableSpan client.
+func NewClickableSpanClient(cc grpc.ClientConnInterface) *ClickableSpanClient {
+	return &ClickableSpanClient{
+		svc: pb.NewClickableSpanServiceClient(cc),
 	}
 }
 
-// DescribeContents calls the DescribeContents RPC.
-func (c *StrikethroughSpanClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
-		Handle: handle,
+// OnClick calls the OnClick RPC.
+func (c *ClickableSpanClient) OnClick(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.OnClick(ctx, &pb.ClickableSpanOnClickRequest{
+		Arg0: arg0,
 	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSpanTypeId calls the GetSpanTypeId RPC.
-func (c *StrikethroughSpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetSpanTypeId(ctx, &pb.GetSpanTypeIdRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
+	return err
 }
 
 // ToString calls the ToString RPC.
-func (c *StrikethroughSpanClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
+func (c *ClickableSpanClient) ToString(ctx context.Context) (string, error) {
+	resp, err := c.svc.ToString(ctx, &pb.ClickableSpanToStringRequest{})
 	if err != nil {
 		return "", err
 	}
@@ -3689,133 +3813,9 @@ func (c *StrikethroughSpanClient) ToString(ctx context.Context, handle int64) (s
 }
 
 // UpdateDrawState calls the UpdateDrawState RPC.
-func (c *StrikethroughSpanClient) UpdateDrawState(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.UpdateDrawState(ctx, &pb.UpdateDrawStateRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *StrikethroughSpanClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
-	})
-	return err
-}
-
-// MetricAffectingSpanClient wraps the gRPC MetricAffectingSpanService client.
-type MetricAffectingSpanClient struct {
-	svc pb.MetricAffectingSpanServiceClient
-}
-
-// NewMetricAffectingSpanClient creates a new MetricAffectingSpan client.
-func NewMetricAffectingSpanClient(cc grpc.ClientConnInterface) *MetricAffectingSpanClient {
-	return &MetricAffectingSpanClient{
-		svc: pb.NewMetricAffectingSpanServiceClient(cc),
-	}
-}
-
-// GetUnderlying0 calls the GetUnderlying0 RPC.
-func (c *MetricAffectingSpanClient) GetUnderlying0(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetUnderlying0(ctx, &pb.GetUnderlying0Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// UpdateMeasureState calls the UpdateMeasureState RPC.
-func (c *MetricAffectingSpanClient) UpdateMeasureState(ctx context.Context, arg0 int64) error {
-	_, err := c.svc.UpdateMeasureState(ctx, &pb.MetricAffectingSpanUpdateMeasureStateRequest{
+func (c *ClickableSpanClient) UpdateDrawState(ctx context.Context, arg0 int64) error {
+	_, err := c.svc.UpdateDrawState(ctx, &pb.ClickableSpanUpdateDrawStateRequest{
 		Arg0: arg0,
-	})
-	return err
-}
-
-// GetUnderlying0_1 calls the GetUnderlying0_1 RPC.
-func (c *MetricAffectingSpanClient) GetUnderlying0_1(ctx context.Context) (int64, error) {
-	resp, err := c.svc.GetUnderlying0_1(ctx, &pb.GetUnderlying0_1Request{})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// URLSpanClient wraps the gRPC URLSpanService client.
-type URLSpanClient struct {
-	svc pb.URLSpanServiceClient
-}
-
-// NewURLSpanClient creates a new URLSpan client.
-func NewURLSpanClient(cc grpc.ClientConnInterface) *URLSpanClient {
-	return &URLSpanClient{
-		svc: pb.NewURLSpanServiceClient(cc),
-	}
-}
-
-// DescribeContents calls the DescribeContents RPC.
-func (c *URLSpanClient) DescribeContents(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.DescribeContents(ctx, &pb.DescribeContentsRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetSpanTypeId calls the GetSpanTypeId RPC.
-func (c *URLSpanClient) GetSpanTypeId(ctx context.Context, handle int64) (int32, error) {
-	resp, err := c.svc.GetSpanTypeId(ctx, &pb.GetSpanTypeIdRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return 0, err
-	}
-	return resp.GetResult(), nil
-}
-
-// GetURL calls the GetURL RPC.
-func (c *URLSpanClient) GetURL(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.GetURL(ctx, &pb.GetURLRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// OnClick calls the OnClick RPC.
-func (c *URLSpanClient) OnClick(ctx context.Context, handle int64, arg0 int64) error {
-	_, err := c.svc.OnClick(ctx, &pb.URLSpanOnClickRequest{
-		Handle: handle,
-		Arg0:   arg0,
-	})
-	return err
-}
-
-// ToString calls the ToString RPC.
-func (c *URLSpanClient) ToString(ctx context.Context, handle int64) (string, error) {
-	resp, err := c.svc.ToString(ctx, &pb.ToStringRequest{
-		Handle: handle,
-	})
-	if err != nil {
-		return "", err
-	}
-	return resp.GetResult(), nil
-}
-
-// WriteToParcel calls the WriteToParcel RPC.
-func (c *URLSpanClient) WriteToParcel(ctx context.Context, handle int64, arg0 int64, arg1 int32) error {
-	_, err := c.svc.WriteToParcel(ctx, &pb.WriteToParcelRequest{
-		Handle: handle,
-		Arg0:   arg0,
-		Arg1:   arg1,
 	})
 	return err
 }

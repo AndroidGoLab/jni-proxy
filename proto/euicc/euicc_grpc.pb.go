@@ -455,6 +455,222 @@ var DownloadableSubscriptionBuilderService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
+	InfoService_NewInfo_FullMethodName          = "/euicc.InfoService/NewInfo"
+	InfoService_DescribeContents_FullMethodName = "/euicc.InfoService/DescribeContents"
+	InfoService_GetOsVersion_FullMethodName     = "/euicc.InfoService/GetOsVersion"
+	InfoService_WriteToParcel_FullMethodName    = "/euicc.InfoService/WriteToParcel"
+)
+
+// InfoServiceClient is the client API for InfoService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type InfoServiceClient interface {
+	NewInfo(ctx context.Context, in *NewInfoRequest, opts ...grpc.CallOption) (*NewInfoResponse, error)
+	DescribeContents(ctx context.Context, in *InfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
+	GetOsVersion(ctx context.Context, in *GetOsVersionRequest, opts ...grpc.CallOption) (*GetOsVersionResponse, error)
+	WriteToParcel(ctx context.Context, in *InfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
+}
+
+type infoServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewInfoServiceClient(cc grpc.ClientConnInterface) InfoServiceClient {
+	return &infoServiceClient{cc}
+}
+
+func (c *infoServiceClient) NewInfo(ctx context.Context, in *NewInfoRequest, opts ...grpc.CallOption) (*NewInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewInfoResponse)
+	err := c.cc.Invoke(ctx, InfoService_NewInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) DescribeContents(ctx context.Context, in *InfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DescribeContentsResponse)
+	err := c.cc.Invoke(ctx, InfoService_DescribeContents_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) GetOsVersion(ctx context.Context, in *GetOsVersionRequest, opts ...grpc.CallOption) (*GetOsVersionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOsVersionResponse)
+	err := c.cc.Invoke(ctx, InfoService_GetOsVersion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *infoServiceClient) WriteToParcel(ctx context.Context, in *InfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WriteToParcelResponse)
+	err := c.cc.Invoke(ctx, InfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// InfoServiceServer is the server API for InfoService service.
+// All implementations must embed UnimplementedInfoServiceServer
+// for forward compatibility.
+type InfoServiceServer interface {
+	NewInfo(context.Context, *NewInfoRequest) (*NewInfoResponse, error)
+	DescribeContents(context.Context, *InfoDescribeContentsRequest) (*DescribeContentsResponse, error)
+	GetOsVersion(context.Context, *GetOsVersionRequest) (*GetOsVersionResponse, error)
+	WriteToParcel(context.Context, *InfoWriteToParcelRequest) (*WriteToParcelResponse, error)
+	mustEmbedUnimplementedInfoServiceServer()
+}
+
+// UnimplementedInfoServiceServer must be embedded to have
+// forward compatible implementations.
+//
+// NOTE: this should be embedded by value instead of pointer to avoid a nil
+// pointer dereference when methods are called.
+type UnimplementedInfoServiceServer struct{}
+
+func (UnimplementedInfoServiceServer) NewInfo(context.Context, *NewInfoRequest) (*NewInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method NewInfo not implemented")
+}
+func (UnimplementedInfoServiceServer) DescribeContents(context.Context, *InfoDescribeContentsRequest) (*DescribeContentsResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
+}
+func (UnimplementedInfoServiceServer) GetOsVersion(context.Context, *GetOsVersionRequest) (*GetOsVersionResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetOsVersion not implemented")
+}
+func (UnimplementedInfoServiceServer) WriteToParcel(context.Context, *InfoWriteToParcelRequest) (*WriteToParcelResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
+}
+func (UnimplementedInfoServiceServer) mustEmbedUnimplementedInfoServiceServer() {}
+func (UnimplementedInfoServiceServer) testEmbeddedByValue()                     {}
+
+// UnsafeInfoServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to InfoServiceServer will
+// result in compilation errors.
+type UnsafeInfoServiceServer interface {
+	mustEmbedUnimplementedInfoServiceServer()
+}
+
+func RegisterInfoServiceServer(s grpc.ServiceRegistrar, srv InfoServiceServer) {
+	// If the following call panics, it indicates UnimplementedInfoServiceServer was
+	// embedded by pointer and is nil.  This will cause panics if an
+	// unimplemented method is ever invoked, so we test this at initialization
+	// time to prevent it from happening at runtime later due to I/O.
+	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
+		t.testEmbeddedByValue()
+	}
+	s.RegisterService(&InfoService_ServiceDesc, srv)
+}
+
+func _InfoService_NewInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).NewInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_NewInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).NewInfo(ctx, req.(*NewInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InfoDescribeContentsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).DescribeContents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_DescribeContents_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).DescribeContents(ctx, req.(*InfoDescribeContentsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_GetOsVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOsVersionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).GetOsVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_GetOsVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).GetOsVersion(ctx, req.(*GetOsVersionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InfoWriteToParcelRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InfoServiceServer).WriteToParcel(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InfoService_WriteToParcel_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InfoServiceServer).WriteToParcel(ctx, req.(*InfoWriteToParcelRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// InfoService_ServiceDesc is the grpc.ServiceDesc for InfoService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var InfoService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "euicc.InfoService",
+	HandlerType: (*InfoServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "NewInfo",
+			Handler:    _InfoService_NewInfo_Handler,
+		},
+		{
+			MethodName: "DescribeContents",
+			Handler:    _InfoService_DescribeContents_Handler,
+		},
+		{
+			MethodName: "GetOsVersion",
+			Handler:    _InfoService_GetOsVersion_Handler,
+		},
+		{
+			MethodName: "WriteToParcel",
+			Handler:    _InfoService_WriteToParcel_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/euicc/euicc.proto",
+}
+
+const (
 	ManagerService_CreateForCardId_FullMethodName            = "/euicc.ManagerService/CreateForCardId"
 	ManagerService_DeleteSubscription_FullMethodName         = "/euicc.ManagerService/DeleteSubscription"
 	ManagerService_DownloadSubscription_FullMethodName       = "/euicc.ManagerService/DownloadSubscription"
@@ -968,222 +1184,6 @@ var ManagerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateSubscriptionNickname",
 			Handler:    _ManagerService_UpdateSubscriptionNickname_Handler,
-		},
-	},
-	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/euicc/euicc.proto",
-}
-
-const (
-	InfoService_NewInfo_FullMethodName          = "/euicc.InfoService/NewInfo"
-	InfoService_DescribeContents_FullMethodName = "/euicc.InfoService/DescribeContents"
-	InfoService_GetOsVersion_FullMethodName     = "/euicc.InfoService/GetOsVersion"
-	InfoService_WriteToParcel_FullMethodName    = "/euicc.InfoService/WriteToParcel"
-)
-
-// InfoServiceClient is the client API for InfoService service.
-//
-// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type InfoServiceClient interface {
-	NewInfo(ctx context.Context, in *NewInfoRequest, opts ...grpc.CallOption) (*NewInfoResponse, error)
-	DescribeContents(ctx context.Context, in *InfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
-	GetOsVersion(ctx context.Context, in *GetOsVersionRequest, opts ...grpc.CallOption) (*GetOsVersionResponse, error)
-	WriteToParcel(ctx context.Context, in *InfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error)
-}
-
-type infoServiceClient struct {
-	cc grpc.ClientConnInterface
-}
-
-func NewInfoServiceClient(cc grpc.ClientConnInterface) InfoServiceClient {
-	return &infoServiceClient{cc}
-}
-
-func (c *infoServiceClient) NewInfo(ctx context.Context, in *NewInfoRequest, opts ...grpc.CallOption) (*NewInfoResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(NewInfoResponse)
-	err := c.cc.Invoke(ctx, InfoService_NewInfo_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) DescribeContents(ctx context.Context, in *InfoDescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DescribeContentsResponse)
-	err := c.cc.Invoke(ctx, InfoService_DescribeContents_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) GetOsVersion(ctx context.Context, in *GetOsVersionRequest, opts ...grpc.CallOption) (*GetOsVersionResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetOsVersionResponse)
-	err := c.cc.Invoke(ctx, InfoService_GetOsVersion_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *infoServiceClient) WriteToParcel(ctx context.Context, in *InfoWriteToParcelRequest, opts ...grpc.CallOption) (*WriteToParcelResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(WriteToParcelResponse)
-	err := c.cc.Invoke(ctx, InfoService_WriteToParcel_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-// InfoServiceServer is the server API for InfoService service.
-// All implementations must embed UnimplementedInfoServiceServer
-// for forward compatibility.
-type InfoServiceServer interface {
-	NewInfo(context.Context, *NewInfoRequest) (*NewInfoResponse, error)
-	DescribeContents(context.Context, *InfoDescribeContentsRequest) (*DescribeContentsResponse, error)
-	GetOsVersion(context.Context, *GetOsVersionRequest) (*GetOsVersionResponse, error)
-	WriteToParcel(context.Context, *InfoWriteToParcelRequest) (*WriteToParcelResponse, error)
-	mustEmbedUnimplementedInfoServiceServer()
-}
-
-// UnimplementedInfoServiceServer must be embedded to have
-// forward compatible implementations.
-//
-// NOTE: this should be embedded by value instead of pointer to avoid a nil
-// pointer dereference when methods are called.
-type UnimplementedInfoServiceServer struct{}
-
-func (UnimplementedInfoServiceServer) NewInfo(context.Context, *NewInfoRequest) (*NewInfoResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method NewInfo not implemented")
-}
-func (UnimplementedInfoServiceServer) DescribeContents(context.Context, *InfoDescribeContentsRequest) (*DescribeContentsResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method DescribeContents not implemented")
-}
-func (UnimplementedInfoServiceServer) GetOsVersion(context.Context, *GetOsVersionRequest) (*GetOsVersionResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetOsVersion not implemented")
-}
-func (UnimplementedInfoServiceServer) WriteToParcel(context.Context, *InfoWriteToParcelRequest) (*WriteToParcelResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method WriteToParcel not implemented")
-}
-func (UnimplementedInfoServiceServer) mustEmbedUnimplementedInfoServiceServer() {}
-func (UnimplementedInfoServiceServer) testEmbeddedByValue()                     {}
-
-// UnsafeInfoServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to InfoServiceServer will
-// result in compilation errors.
-type UnsafeInfoServiceServer interface {
-	mustEmbedUnimplementedInfoServiceServer()
-}
-
-func RegisterInfoServiceServer(s grpc.ServiceRegistrar, srv InfoServiceServer) {
-	// If the following call panics, it indicates UnimplementedInfoServiceServer was
-	// embedded by pointer and is nil.  This will cause panics if an
-	// unimplemented method is ever invoked, so we test this at initialization
-	// time to prevent it from happening at runtime later due to I/O.
-	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
-		t.testEmbeddedByValue()
-	}
-	s.RegisterService(&InfoService_ServiceDesc, srv)
-}
-
-func _InfoService_NewInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(NewInfoRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).NewInfo(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_NewInfo_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).NewInfo(ctx, req.(*NewInfoRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_DescribeContents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(InfoDescribeContentsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).DescribeContents(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_DescribeContents_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).DescribeContents(ctx, req.(*InfoDescribeContentsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_GetOsVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetOsVersionRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).GetOsVersion(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_GetOsVersion_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).GetOsVersion(ctx, req.(*GetOsVersionRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _InfoService_WriteToParcel_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(InfoWriteToParcelRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(InfoServiceServer).WriteToParcel(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: InfoService_WriteToParcel_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InfoServiceServer).WriteToParcel(ctx, req.(*InfoWriteToParcelRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-// InfoService_ServiceDesc is the grpc.ServiceDesc for InfoService service.
-// It's only intended for direct use with grpc.RegisterService,
-// and not to be introspected or modified (even as a copy)
-var InfoService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "euicc.InfoService",
-	HandlerType: (*InfoServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "NewInfo",
-			Handler:    _InfoService_NewInfo_Handler,
-		},
-		{
-			MethodName: "DescribeContents",
-			Handler:    _InfoService_DescribeContents_Handler,
-		},
-		{
-			MethodName: "GetOsVersion",
-			Handler:    _InfoService_GetOsVersion_Handler,
-		},
-		{
-			MethodName: "WriteToParcel",
-			Handler:    _InfoService_WriteToParcel_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

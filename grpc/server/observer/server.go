@@ -51,6 +51,29 @@ func (s *DocumentChangeInfoServer) Equals(_ context.Context, req *pb.EqualsReque
 	return &pb.EqualsResponse{Result: result}, nil
 }
 
+func (s *DocumentChangeInfoServer) GetChangedDocumentIds(_ context.Context, req *pb.GetChangedDocumentIdsRequest) (*pb.GetChangedDocumentIdsResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.DocumentChangeInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetChangedDocumentIds()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetChangedDocumentIdsResponse{Result: handle}, nil
+}
+
 func (s *DocumentChangeInfoServer) GetDatabaseName(_ context.Context, req *pb.GetDatabaseNameRequest) (*pb.GetDatabaseNameResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
@@ -169,6 +192,29 @@ func (s *SchemaChangeInfoServer) Equals(_ context.Context, req *pb.EqualsRequest
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
 	return &pb.EqualsResponse{Result: result}, nil
+}
+
+func (s *SchemaChangeInfoServer) GetChangedSchemaNames(_ context.Context, req *pb.GetChangedSchemaNamesRequest) (*pb.GetChangedSchemaNamesResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.SchemaChangeInfo{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetChangedSchemaNames()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetChangedSchemaNamesResponse{Result: handle}, nil
 }
 
 func (s *SchemaChangeInfoServer) GetDatabaseName(_ context.Context, req *pb.GetDatabaseNameRequest) (*pb.GetDatabaseNameResponse, error) {

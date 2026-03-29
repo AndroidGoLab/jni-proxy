@@ -1189,6 +1189,7 @@ var ContractService_ServiceDesc = grpc.ServiceDesc{
 const (
 	ContractPathService_DescribeContents_FullMethodName = "/documents.ContractPathService/DescribeContents"
 	ContractPathService_Equals_FullMethodName           = "/documents.ContractPathService/Equals"
+	ContractPathService_GetPath_FullMethodName          = "/documents.ContractPathService/GetPath"
 	ContractPathService_GetRootId_FullMethodName        = "/documents.ContractPathService/GetRootId"
 	ContractPathService_HashCode_FullMethodName         = "/documents.ContractPathService/HashCode"
 	ContractPathService_ToString_FullMethodName         = "/documents.ContractPathService/ToString"
@@ -1201,6 +1202,7 @@ const (
 type ContractPathServiceClient interface {
 	DescribeContents(ctx context.Context, in *DescribeContentsRequest, opts ...grpc.CallOption) (*DescribeContentsResponse, error)
 	Equals(ctx context.Context, in *EqualsRequest, opts ...grpc.CallOption) (*EqualsResponse, error)
+	GetPath(ctx context.Context, in *GetPathRequest, opts ...grpc.CallOption) (*GetPathResponse, error)
 	GetRootId(ctx context.Context, in *ContractPathGetRootIdRequest, opts ...grpc.CallOption) (*GetRootIdResponse, error)
 	HashCode(ctx context.Context, in *HashCodeRequest, opts ...grpc.CallOption) (*HashCodeResponse, error)
 	ToString(ctx context.Context, in *ToStringRequest, opts ...grpc.CallOption) (*ToStringResponse, error)
@@ -1229,6 +1231,16 @@ func (c *contractPathServiceClient) Equals(ctx context.Context, in *EqualsReques
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(EqualsResponse)
 	err := c.cc.Invoke(ctx, ContractPathService_Equals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *contractPathServiceClient) GetPath(ctx context.Context, in *GetPathRequest, opts ...grpc.CallOption) (*GetPathResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetPathResponse)
+	err := c.cc.Invoke(ctx, ContractPathService_GetPath_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1281,6 +1293,7 @@ func (c *contractPathServiceClient) WriteToParcel(ctx context.Context, in *Write
 type ContractPathServiceServer interface {
 	DescribeContents(context.Context, *DescribeContentsRequest) (*DescribeContentsResponse, error)
 	Equals(context.Context, *EqualsRequest) (*EqualsResponse, error)
+	GetPath(context.Context, *GetPathRequest) (*GetPathResponse, error)
 	GetRootId(context.Context, *ContractPathGetRootIdRequest) (*GetRootIdResponse, error)
 	HashCode(context.Context, *HashCodeRequest) (*HashCodeResponse, error)
 	ToString(context.Context, *ToStringRequest) (*ToStringResponse, error)
@@ -1300,6 +1313,9 @@ func (UnimplementedContractPathServiceServer) DescribeContents(context.Context, 
 }
 func (UnimplementedContractPathServiceServer) Equals(context.Context, *EqualsRequest) (*EqualsResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method Equals not implemented")
+}
+func (UnimplementedContractPathServiceServer) GetPath(context.Context, *GetPathRequest) (*GetPathResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPath not implemented")
 }
 func (UnimplementedContractPathServiceServer) GetRootId(context.Context, *ContractPathGetRootIdRequest) (*GetRootIdResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetRootId not implemented")
@@ -1366,6 +1382,24 @@ func _ContractPathService_Equals_Handler(srv interface{}, ctx context.Context, d
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ContractPathServiceServer).Equals(ctx, req.(*EqualsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ContractPathService_GetPath_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPathRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ContractPathServiceServer).GetPath(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ContractPathService_GetPath_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ContractPathServiceServer).GetPath(ctx, req.(*GetPathRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1456,6 +1490,10 @@ var ContractPathService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Equals",
 			Handler:    _ContractPathService_Equals_Handler,
+		},
+		{
+			MethodName: "GetPath",
+			Handler:    _ContractPathService_GetPath_Handler,
 		},
 		{
 			MethodName: "GetRootId",

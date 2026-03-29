@@ -67,6 +67,109 @@ message StartResponse {
   int32 result = 1;
 }
 
+message NewVoiceRequest {
+  string arg0 = 1;
+  int64 arg1 = 2;
+  int32 arg2 = 3;
+  int32 arg3 = 4;
+  bool arg4 = 5;
+  int64 arg5 = 6;
+}
+
+message NewVoiceResponse {
+  int64 result = 1;
+}
+
+message DescribeContentsRequest {
+  int64 handle = 1;
+}
+
+message DescribeContentsResponse {
+  int32 result = 1;
+}
+
+message EqualsRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+}
+
+message EqualsResponse {
+  bool result = 1;
+}
+
+message GetFeaturesRequest {
+  int64 handle = 1;
+}
+
+message GetFeaturesResponse {
+  int64 result = 1;
+}
+
+message GetLatencyRequest {
+  int64 handle = 1;
+}
+
+message GetLatencyResponse {
+  int32 result = 1;
+}
+
+message GetLocaleRequest {
+  int64 handle = 1;
+}
+
+message GetLocaleResponse {
+  int64 result = 1;
+}
+
+message GetNameRequest {
+  int64 handle = 1;
+}
+
+message GetNameResponse {
+  string result = 1;
+}
+
+message GetQualityRequest {
+  int64 handle = 1;
+}
+
+message GetQualityResponse {
+  int32 result = 1;
+}
+
+message HashCodeRequest {
+  int64 handle = 1;
+}
+
+message HashCodeResponse {
+  int32 result = 1;
+}
+
+message IsNetworkConnectionRequiredRequest {
+  int64 handle = 1;
+}
+
+message IsNetworkConnectionRequiredResponse {
+  bool result = 1;
+}
+
+message ToStringRequest {
+  int64 handle = 1;
+}
+
+message ToStringResponse {
+  string result = 1;
+}
+
+message WriteToParcelRequest {
+  int64 handle = 1;
+  int64 arg0 = 2;
+  int32 arg1 = 3;
+}
+
+message WriteToParcelResponse {
+}
+
 message NewSynthesisRequestRequest {
   string arg0 = 1;
   int64 arg1 = 2;
@@ -251,6 +354,13 @@ message OnGetDefaultVoiceNameForResponse {
   string result = 1;
 }
 
+message OnGetVoicesRequest {
+}
+
+message OnGetVoicesResponse {
+  int64 result = 1;
+}
+
 message OnIsValidVoiceNameRequest {
   string arg0 = 1;
 }
@@ -267,101 +377,6 @@ message OnLoadVoiceResponse {
   int32 result = 1;
 }
 
-message NewVoiceRequest {
-  string arg0 = 1;
-  int64 arg1 = 2;
-  int32 arg2 = 3;
-  int32 arg3 = 4;
-  bool arg4 = 5;
-  int64 arg5 = 6;
-}
-
-message NewVoiceResponse {
-  int64 result = 1;
-}
-
-message DescribeContentsRequest {
-  int64 handle = 1;
-}
-
-message DescribeContentsResponse {
-  int32 result = 1;
-}
-
-message EqualsRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-}
-
-message EqualsResponse {
-  bool result = 1;
-}
-
-message GetLatencyRequest {
-  int64 handle = 1;
-}
-
-message GetLatencyResponse {
-  int32 result = 1;
-}
-
-message GetLocaleRequest {
-  int64 handle = 1;
-}
-
-message GetLocaleResponse {
-  int64 result = 1;
-}
-
-message GetNameRequest {
-  int64 handle = 1;
-}
-
-message GetNameResponse {
-  string result = 1;
-}
-
-message GetQualityRequest {
-  int64 handle = 1;
-}
-
-message GetQualityResponse {
-  int32 result = 1;
-}
-
-message HashCodeRequest {
-  int64 handle = 1;
-}
-
-message HashCodeResponse {
-  int32 result = 1;
-}
-
-message IsNetworkConnectionRequiredRequest {
-  int64 handle = 1;
-}
-
-message IsNetworkConnectionRequiredResponse {
-  bool result = 1;
-}
-
-message ToStringRequest {
-  int64 handle = 1;
-}
-
-message ToStringResponse {
-  string result = 1;
-}
-
-message WriteToParcelRequest {
-  int64 handle = 1;
-  int64 arg0 = 2;
-  int32 arg1 = 3;
-}
-
-message WriteToParcelResponse {
-}
-
 service SynthesisCallbackService {
   rpc AudioAvailable (AudioAvailableRequest) returns (AudioAvailableResponse);
   rpc Done (DoneRequest) returns (DoneResponse);
@@ -371,6 +386,21 @@ service SynthesisCallbackService {
   rpc HasFinished (HasFinishedRequest) returns (HasFinishedResponse);
   rpc HasStarted (HasStartedRequest) returns (HasStartedResponse);
   rpc Start (StartRequest) returns (StartResponse);
+}
+
+service VoiceService {
+  rpc NewVoice (NewVoiceRequest) returns (NewVoiceResponse);
+  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
+  rpc Equals (EqualsRequest) returns (EqualsResponse);
+  rpc GetFeatures (GetFeaturesRequest) returns (GetFeaturesResponse);
+  rpc GetLatency (GetLatencyRequest) returns (GetLatencyResponse);
+  rpc GetLocale (GetLocaleRequest) returns (GetLocaleResponse);
+  rpc GetName (GetNameRequest) returns (GetNameResponse);
+  rpc GetQuality (GetQualityRequest) returns (GetQualityResponse);
+  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
+  rpc IsNetworkConnectionRequired (IsNetworkConnectionRequiredRequest) returns (IsNetworkConnectionRequiredResponse);
+  rpc ToString (ToStringRequest) returns (ToStringResponse);
+  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }
 
 service SynthesisRequestService {
@@ -403,20 +433,7 @@ service TextToSpeechServiceService {
   rpc OnCreate (OnCreateRequest) returns (OnCreateResponse);
   rpc OnDestroy (OnDestroyRequest) returns (OnDestroyResponse);
   rpc OnGetDefaultVoiceNameFor (OnGetDefaultVoiceNameForRequest) returns (OnGetDefaultVoiceNameForResponse);
+  rpc OnGetVoices (OnGetVoicesRequest) returns (OnGetVoicesResponse);
   rpc OnIsValidVoiceName (OnIsValidVoiceNameRequest) returns (OnIsValidVoiceNameResponse);
   rpc OnLoadVoice (OnLoadVoiceRequest) returns (OnLoadVoiceResponse);
-}
-
-service VoiceService {
-  rpc NewVoice (NewVoiceRequest) returns (NewVoiceResponse);
-  rpc DescribeContents (DescribeContentsRequest) returns (DescribeContentsResponse);
-  rpc Equals (EqualsRequest) returns (EqualsResponse);
-  rpc GetLatency (GetLatencyRequest) returns (GetLatencyResponse);
-  rpc GetLocale (GetLocaleRequest) returns (GetLocaleResponse);
-  rpc GetName (GetNameRequest) returns (GetNameResponse);
-  rpc GetQuality (GetQualityRequest) returns (GetQualityResponse);
-  rpc HashCode (HashCodeRequest) returns (HashCodeResponse);
-  rpc IsNetworkConnectionRequired (IsNetworkConnectionRequiredRequest) returns (IsNetworkConnectionRequiredResponse);
-  rpc ToString (ToStringRequest) returns (ToStringResponse);
-  rpc WriteToParcel (WriteToParcelRequest) returns (WriteToParcelResponse);
 }

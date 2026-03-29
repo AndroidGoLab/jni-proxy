@@ -15,15 +15,15 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-// MultiResolutionImageReaderServer implements pb.MultiResolutionImageReaderServiceServer.
-type MultiResolutionImageReaderServer struct {
-	pb.UnimplementedMultiResolutionImageReaderServiceServer
+// CameraAccessExceptionServer implements pb.CameraAccessExceptionServiceServer.
+type CameraAccessExceptionServer struct {
+	pb.UnimplementedCameraAccessExceptionServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *MultiResolutionImageReaderServer) NewMultiResolutionImageReader(_ context.Context, req *pb.NewMultiResolutionImageReaderRequest) (*pb.NewMultiResolutionImageReaderResponse, error) {
-	obj, err := jnipkg.NewMultiResolutionImageReader(s.Ctx.VM, s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2())
+func (s *CameraAccessExceptionServer) NewCameraAccessException(_ context.Context, req *pb.NewCameraAccessExceptionRequest) (*pb.NewCameraAccessExceptionResponse, error) {
+	obj, err := jnipkg.NewCameraAccessException(s.Ctx.VM, req.GetArg0())
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -34,92 +34,21 @@ func (s *MultiResolutionImageReaderServer) NewMultiResolutionImageReader(_ conte
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewMultiResolutionImageReaderResponse{Result: handle}, nil
+	return &pb.NewCameraAccessExceptionResponse{Result: handle}, nil
 }
 
-func (s *MultiResolutionImageReaderServer) Close(_ context.Context, req *pb.MultiResolutionImageReaderCloseRequest) (*pb.CloseResponse, error) {
+func (s *CameraAccessExceptionServer) GetReason(_ context.Context, req *pb.CameraAccessExceptionGetReasonRequest) (*pb.GetReasonResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.MultiResolutionImageReader{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.CameraAccessException{VM: s.Ctx.VM, Obj: rawObj}
 
-	if err := mgr.Close(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.CloseResponse{}, nil
-}
-
-func (s *MultiResolutionImageReaderServer) Flush(_ context.Context, req *pb.FlushRequest) (*pb.FlushResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.MultiResolutionImageReader{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.Flush(); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.FlushResponse{}, nil
-}
-
-func (s *MultiResolutionImageReaderServer) GetStreamInfoForImageReader(_ context.Context, req *pb.GetStreamInfoForImageReaderRequest) (*pb.GetStreamInfoForImageReaderResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.MultiResolutionImageReader{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetStreamInfoForImageReader(s.Handles.Get(req.GetArg0()))
+	result, err := mgr.GetReason()
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetStreamInfoForImageReaderResponse{Result: handle}, nil
-}
-
-func (s *MultiResolutionImageReaderServer) GetSurface(_ context.Context, req *pb.GetSurfaceRequest) (*pb.GetSurfaceResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.MultiResolutionImageReader{VM: s.Ctx.VM, Obj: rawObj}
-
-	result, err := mgr.GetSurface()
-	if err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	var handle int64
-	if result != nil {
-		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
-			handle = s.Handles.Put(env, result)
-			return nil
-		}); doErr != nil {
-			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
-		}
-	}
-	return &pb.GetSurfaceResponse{Result: handle}, nil
-}
-
-func (s *MultiResolutionImageReaderServer) SetOnImageAvailableListener(_ context.Context, req *pb.SetOnImageAvailableListenerRequest) (*pb.SetOnImageAvailableListenerResponse, error) {
-	rawObj := s.Handles.Get(req.GetHandle())
-	if rawObj == nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
-	}
-	mgr := &jnipkg.MultiResolutionImageReader{VM: s.Ctx.VM, Obj: rawObj}
-
-	if err := mgr.SetOnImageAvailableListener(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
-		return nil, status.Errorf(codes.Internal, "%v", err)
-	}
-	return &pb.SetOnImageAvailableListenerResponse{}, nil
+	return &pb.GetReasonResponse{Result: result}, nil
 }
 
 // DngCreatorServer implements pb.DngCreatorServiceServer.
@@ -298,15 +227,15 @@ func (s *DngCreatorServer) WriteInputStream(_ context.Context, req *pb.WriteInpu
 	return &pb.WriteInputStreamResponse{}, nil
 }
 
-// CameraAccessExceptionServer implements pb.CameraAccessExceptionServiceServer.
-type CameraAccessExceptionServer struct {
-	pb.UnimplementedCameraAccessExceptionServiceServer
+// MultiResolutionImageReaderServer implements pb.MultiResolutionImageReaderServiceServer.
+type MultiResolutionImageReaderServer struct {
+	pb.UnimplementedMultiResolutionImageReaderServiceServer
 	Ctx     *app.Context
 	Handles *handlestore.HandleStore
 }
 
-func (s *CameraAccessExceptionServer) NewCameraAccessException(_ context.Context, req *pb.NewCameraAccessExceptionRequest) (*pb.NewCameraAccessExceptionResponse, error) {
-	obj, err := jnipkg.NewCameraAccessException(s.Ctx.VM, req.GetArg0())
+func (s *MultiResolutionImageReaderServer) NewMultiResolutionImageReader(_ context.Context, req *pb.NewMultiResolutionImageReaderRequest) (*pb.NewMultiResolutionImageReaderResponse, error) {
+	obj, err := jnipkg.NewMultiResolutionImageReader(s.Ctx.VM, s.Handles.Get(req.GetArg0()), req.GetArg1(), req.GetArg2())
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "create object: %v", err)
 	}
@@ -317,19 +246,90 @@ func (s *CameraAccessExceptionServer) NewCameraAccessException(_ context.Context
 	}); doErr != nil {
 		return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
 	}
-	return &pb.NewCameraAccessExceptionResponse{Result: handle}, nil
+	return &pb.NewMultiResolutionImageReaderResponse{Result: handle}, nil
 }
 
-func (s *CameraAccessExceptionServer) GetReason(_ context.Context, req *pb.CameraAccessExceptionGetReasonRequest) (*pb.GetReasonResponse, error) {
+func (s *MultiResolutionImageReaderServer) Close(_ context.Context, req *pb.MultiResolutionImageReaderCloseRequest) (*pb.CloseResponse, error) {
 	rawObj := s.Handles.Get(req.GetHandle())
 	if rawObj == nil {
 		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
 	}
-	mgr := &jnipkg.CameraAccessException{VM: s.Ctx.VM, Obj: rawObj}
+	mgr := &jnipkg.MultiResolutionImageReader{VM: s.Ctx.VM, Obj: rawObj}
 
-	result, err := mgr.GetReason()
+	if err := mgr.Close(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.CloseResponse{}, nil
+}
+
+func (s *MultiResolutionImageReaderServer) Flush(_ context.Context, req *pb.FlushRequest) (*pb.FlushResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MultiResolutionImageReader{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.Flush(); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.FlushResponse{}, nil
+}
+
+func (s *MultiResolutionImageReaderServer) GetStreamInfoForImageReader(_ context.Context, req *pb.GetStreamInfoForImageReaderRequest) (*pb.GetStreamInfoForImageReaderResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MultiResolutionImageReader{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetStreamInfoForImageReader(s.Handles.Get(req.GetArg0()))
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "%v", err)
 	}
-	return &pb.GetReasonResponse{Result: result}, nil
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetStreamInfoForImageReaderResponse{Result: handle}, nil
+}
+
+func (s *MultiResolutionImageReaderServer) GetSurface(_ context.Context, req *pb.GetSurfaceRequest) (*pb.GetSurfaceResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MultiResolutionImageReader{VM: s.Ctx.VM, Obj: rawObj}
+
+	result, err := mgr.GetSurface()
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	var handle int64
+	if result != nil {
+		if doErr := s.Ctx.VM.Do(func(env *jni.Env) error {
+			handle = s.Handles.Put(env, result)
+			return nil
+		}); doErr != nil {
+			return nil, status.Errorf(codes.Internal, "store handle: %v", doErr)
+		}
+	}
+	return &pb.GetSurfaceResponse{Result: handle}, nil
+}
+
+func (s *MultiResolutionImageReaderServer) SetOnImageAvailableListener(_ context.Context, req *pb.SetOnImageAvailableListenerRequest) (*pb.SetOnImageAvailableListenerResponse, error) {
+	rawObj := s.Handles.Get(req.GetHandle())
+	if rawObj == nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid handle")
+	}
+	mgr := &jnipkg.MultiResolutionImageReader{VM: s.Ctx.VM, Obj: rawObj}
+
+	if err := mgr.SetOnImageAvailableListener(s.Handles.Get(req.GetArg0()), s.Handles.Get(req.GetArg1())); err != nil {
+		return nil, status.Errorf(codes.Internal, "%v", err)
+	}
+	return &pb.SetOnImageAvailableListenerResponse{}, nil
 }
